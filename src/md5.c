@@ -582,8 +582,8 @@ file-coding or Mule support.  Otherwise, they are ignored.
   while (1)
     {
       Bufbyte tempbuf[1024];	/* some random amount */
-      int size_in_bytes = Lstream_read (XLSTREAM (instream),
-					tempbuf, sizeof (tempbuf));
+      ssize_t size_in_bytes =
+	Lstream_read (XLSTREAM (instream), tempbuf, sizeof (tempbuf));
       if (!size_in_bytes)
 	break;
 

@@ -3922,9 +3922,6 @@ void
 reinit_alloc_once_early (void)
 {
   gc_generation_number[0] = 0;
-  /* purify_flag 1 is correct even if CANNOT_DUMP.
-   * loadup.el will set to nil at end. */
-  purify_flag = 1;
   breathing_space = 0;
   XSETINT (all_bit_vectors, 0); /* Qzero may not be set yet. */
   XSETINT (Vgc_message, 0);

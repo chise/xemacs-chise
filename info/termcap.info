@@ -1,5 +1,5 @@
-This is Info file ../info/termcap.info, produced by Makeinfo version
-1.68 from the input file termcap.texi.
+This is ../info/termcap.info, produced by makeinfo version 4.0 from
+termcap.texi.
 
 START-INFO-DIR-ENTRY
 * Termcap: (termcap).		Termcap library of the GNU system.
@@ -25,57 +25,57 @@ translation approved by the Foundation.
 
 
 Indirect:
-termcap.info-1: 985
-termcap.info-2: 49255
-termcap.info-3: 92578
+termcap.info-1: 959
+termcap.info-2: 49216
+termcap.info-3: 92525
 
 Tag Table:
 (Indirect)
-Node: Top985
-Node: Introduction1630
-Node: Library3357
-Node: Preparation4374
-Node: Find5573
-Node: Interrogate9121
-Node: Initialize14429
-Node: Padding16069
-Node: Why Pad16730
-Node: Describe Padding18374
-Node: Output Padding19849
-Node: Parameters23464
-Node: Encode Parameters25123
-Node: Using Parameters31228
-Node: tparam31817
-Node: tgoto33882
-Node: Data Base36437
-Node: Format37315
-Node: Capability Format39406
-Node: Naming42459
-Node: Inheriting47028
-Node: Capabilities49255
-Node: Basic52097
-Node: Screen Size55941
-Node: Cursor Motion57681
-Node: Wrapping67338
-Node: Scrolling70163
-Node: Windows75183
-Node: Clearing75917
-Node: Insdel Line77681
-Node: Insdel Char82593
-Node: Standout92578
-Node: Underlining101637
-Node: Cursor Visibility104056
-Node: Bell104804
-Node: Keypad105353
-Node: Meta Key110074
-Node: Initialization111028
-Node: Pad Specs113392
-Node: Status Line115445
-Node: Half-Line117329
-Node: Printer118131
-Node: Summary119810
-Node: Var Index130016
-Node: Cap Index130740
-Node: Index137931
+Node: Top959
+Node: Introduction1604
+Node: Library3331
+Node: Preparation4348
+Node: Find5547
+Node: Interrogate9094
+Node: Initialize14401
+Node: Padding16039
+Node: Why Pad16700
+Node: Describe Padding18344
+Node: Output Padding19819
+Node: Parameters23432
+Node: Encode Parameters25090
+Node: Using Parameters31195
+Node: tparam31784
+Node: tgoto33849
+Node: Data Base36404
+Node: Format37281
+Node: Capability Format39372
+Node: Naming42422
+Node: Inheriting46990
+Node: Capabilities49216
+Node: Basic52059
+Node: Screen Size55903
+Node: Cursor Motion57643
+Node: Wrapping67293
+Node: Scrolling70117
+Node: Windows75137
+Node: Clearing75871
+Node: Insdel Line77635
+Node: Insdel Char82541
+Node: Standout92525
+Node: Underlining101582
+Node: Cursor Visibility104001
+Node: Bell104749
+Node: Keypad105298
+Node: Meta Key110019
+Node: Initialization110973
+Node: Pad Specs113337
+Node: Status Line115390
+Node: Half-Line117274
+Node: Printer118076
+Node: Summary119755
+Node: Var Index129960
+Node: Cap Index130684
+Node: Index137875
 
 End Tag Table

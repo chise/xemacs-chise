@@ -267,7 +267,8 @@ non_ascii_valid_char_p (Emchar ch)
       if (f3 < 0x20)
 	return 0;
 
-      if (f3 != 0x20 && f3 != 0x7F)
+      if (f3 != 0x20 && f3 != 0x7F && !(f2 >= MIN_CHAR_FIELD2_PRIVATE &&
+					f2 <= MAX_CHAR_FIELD2_PRIVATE))
 	return 1;
 
       /*
@@ -276,6 +277,8 @@ non_ascii_valid_char_p (Emchar ch)
 	 FIELD2_TO_PRIVATE_LEADING_BYTE are the same.
 	 */
       charset = CHARSET_BY_LEADING_BYTE (f2 + FIELD2_TO_OFFICIAL_LEADING_BYTE);
+      if (EQ (charset, Qnil))
+	return 0;
       return (XCHARSET_CHARS (charset) == 96);
     }
   else
@@ -300,7 +303,8 @@ non_ascii_valid_char_p (Emchar ch)
 	}
 #endif /* ENABLE_COMPOSITE_CHARS */
 
-      if (f2 != 0x20 && f2 != 0x7F && f3 != 0x20 && f3 != 0x7F)
+      if (f2 != 0x20 && f2 != 0x7F && f3 != 0x20 && f3 != 0x7F
+	  && !(f1 >= MIN_CHAR_FIELD1_PRIVATE && f1 <= MAX_CHAR_FIELD1_PRIVATE))
 	return 1;
 
       if (f1 <= MAX_CHAR_FIELD1_OFFICIAL)
@@ -310,6 +314,8 @@ non_ascii_valid_char_p (Emchar ch)
 	charset =
 	  CHARSET_BY_LEADING_BYTE (f1 + FIELD1_TO_PRIVATE_LEADING_BYTE);
 
+      if (EQ (charset, Qnil))
+	return 0;
       return (XCHARSET_CHARS (charset) == 96);
     }
 }

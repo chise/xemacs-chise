@@ -1,5 +1,5 @@
-This is Info file ../../info/new-users-guide.info, produced by Makeinfo
-version 1.68 from the input file new-users-guide.texi.
+This is ../info/new-users-guide.info, produced by makeinfo version 4.0
+from new-users-guide/new-users-guide.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -18,59 +18,59 @@ preserved on all copies.
 
 
 Indirect:
-new-users-guide.info-1: 648
-new-users-guide.info-2: 50484
-new-users-guide.info-3: 99987
+new-users-guide.info-1: 635
+new-users-guide.info-2: 50471
+new-users-guide.info-3: 99973
 
 Tag Table:
 (Indirect)
-Node: Top648
-Node: Intro4626
-Node: Entering7209
-Node: Enter8723
-Node: Frame9405
-Node: Exiting11074
-Node: Mode Line12274
-Node: Echo Area14421
-Node: Windows and Menus15776
-Node: XEmacs Window16229
-Node: Pull-down Menus19850
-Node: File menu20729
-Node: Edit menu23988
-Node: Options Menu26515
-Node: Buffers Menu31297
-Node: Help menu31683
-Node: Edit32181
-Node: Insert33775
-Node: Cursor Position35103
-Node: Erase37174
-Node: Numeric Argument38328
-Node: Undo39512
-Node: Customization Basics40275
-Node: Customizing key Bindings41504
-Node: Customizing Menus44994
-Node: Help50484
-Node: The Help Menu51172
-Node: Modes56097
-Node: Major Modes57013
-Node: Minor Modes60962
-Node: Files65048
-Node: File Names65770
-Node: Visiting67573
-Node: Saving Files69697
-Node: Other Customizations73075
-Node: Setting Variables75544
-Node: Init File78753
-Node: Select and Move84222
-Node: Selecting Text85176
-Node: Mouse86689
-Node: Region Operation88014
-Node: Moving Text89274
-Node: Accumulating text90514
-Node: Search and Replace92834
-Node: Key Index96698
-Node: Command Index99987
-Node: Variable Index104089
-Node: Concept Index104666
+Node: Top635
+Node: Intro4615
+Node: Entering7198
+Node: Enter8712
+Node: Frame9394
+Node: Exiting11063
+Node: Mode Line12263
+Node: Echo Area14410
+Node: Windows and Menus15765
+Node: XEmacs Window16218
+Node: Pull-down Menus19839
+Node: File menu20718
+Node: Edit menu23977
+Node: Options Menu26503
+Node: Buffers Menu31285
+Node: Help menu31671
+Node: Edit32169
+Node: Insert33763
+Node: Cursor Position35091
+Node: Erase37162
+Node: Numeric Argument38316
+Node: Undo39500
+Node: Customization Basics40263
+Node: Customizing key Bindings41492
+Node: Customizing Menus44982
+Node: Help50471
+Node: The Help Menu51159
+Node: Modes56084
+Node: Major Modes57000
+Node: Minor Modes60949
+Node: Files65035
+Node: File Names65757
+Node: Visiting67560
+Node: Saving Files69684
+Node: Other Customizations73061
+Node: Setting Variables75529
+Node: Init File78738
+Node: Select and Move84208
+Node: Selecting Text85162
+Node: Mouse86675
+Node: Region Operation88000
+Node: Moving Text89260
+Node: Accumulating text90500
+Node: Search and Replace92820
+Node: Key Index96684
+Node: Command Index99973
+Node: Variable Index104075
+Node: Concept Index104652
 
 End Tag Table

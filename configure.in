@@ -582,20 +582,20 @@ while test $# != 0; do
         "with_database" )
 	  with_database_berkdb=no
 	  with_database_dbm=no
-	  with_database_gnudbm=no
+	  with_database_gdbm=no
 	  for x in `echo "$val" | sed -e 's/,/ /g'` ; do
 	    case "$x" in
-		no ) ;;
-		b | be | ber | berk | berkd | berkdb )  with_database_berkdb=yes ;;
-		d | db | dbm )				with_database_dbm=yes    ;;
-		g | gn | gnu | gnud | gnudb | gnudbm )  with_database_gnudbm=yes ;;
-		* ) USAGE_ERROR(["The \`--$optname' option value
+	      no ) ;;
+	      b | be | ber | berk | berkd | berkdb )       with_database_berkdb=yes ;;
+	      d | db | dbm )				   with_database_dbm=yes    ;;
+	      g | gn | gnu | gnud | gnudb | gnudbm | gdbm) with_database_gdbm=yes   ;;
+	      * ) USAGE_ERROR(["The \`--$optname' option value
   must be either \`no' or a comma-separated list
   of one or more of \`berkdb' and either \`dbm' or \`gnudbm'."]) ;;
             esac
 	  done
-	  if test "$with_database_dbm"    = "yes" -a \
-	          "$with_database_gnudbm" = "yes"; then
+	  if test "$with_database_dbm"  = "yes" -a \
+	          "$with_database_gdbm" = "yes"; then
 	  USAGE_ERROR("Only one of \`dbm' and \`gnudbm' may be specified
   with the \`--$optname' option.")
 	  fi
@@ -603,18 +603,39 @@ while test $# != 0; do
 
         dnl Has the user requested sound support?
 	"with_sound" )
-	  dnl value can be native, nas or both. yes is allowed
-	  dnl as a backwards compatible synonym for native
-	  case "$val" in
-	    y | ye | yes )			val=native ;;
-	    n | no | non | none )		val=no;;
-	    na | nat | nati | nativ | native )	val=native  ;;
-	    ne | net | neta | netau | netaud | netaudi | netaudio | nas ) val=nas  ;;
-	    b | bo | bot | both )		val=both;;
-	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
-  \`native', \`nas', \`both', or \`none'."]) ;;
-	  esac
-          eval "$opt=\"$val\""
+	dnl values is a subset of all,native,nas,esd
+        dnl or their negatives: none,nonative,nonas,noesd
+	  for x in `echo "$val" | sed -e 's/,/ /g'` ; do
+	    case "$x" in
+	      dnl all and none are only permitted as the first in the list.
+	      n | no | non | none ) new_sdefault=no ;;
+	      a | al | all | both ) new_sdefault=yes ;;
+
+	      native )       with_native_sound=yes ;;
+	      nonative )     with_native_sound=no ;;
+
+	      nas )          with_nas_sound=yes ;;
+	      nonas )        with_nas_sound=no ;;
+
+	      esd )	     with_esd=yes ;;
+	      noesd )        with_esh=no ;;
+
+	      * ) bogus_sound=yes ;;
+	    esac
+	    if test "$bogus_sound" -o \
+	         \( -n "$new_sdefault" -a -n "$sound_notfirst" \) ; then
+		types="\`all', \`none', \`(no)native', \`no(nas)', \`(no)esd'."
+		USAGE_ERROR(["Valid types for the \`--$optname' option are:
+  $types.
+The default is native,esd."])
+	    elif test -n "$new_sdefault" ; then
+		with_native_sound=$new_sdefault
+		with_nas_sound=$new_sdefault
+		with_esd=$new_sdefault
+		new_sdefault=	# reset this
+	    fi
+	    sound_notfirst=true
+	  done
         ;;
 
         dnl Has the user requested XIM support?
@@ -2158,6 +2179,7 @@ AC_TYPE_PID_T
 AC_TYPE_UID_T
 AC_TYPE_MODE_T
 AC_TYPE_OFF_T
+AC_CHECK_TYPE(ssize_t, int)
 
 AC_MSG_CHECKING(for struct timeval)
 AC_TRY_COMPILE([#ifdef TIME_WITH_SYS_TIME
@@ -2987,7 +3009,7 @@ if test "$with_x11" = "yes"; then
   test "$with_toolbars"   != "no"      && XE_ADD_OBJS(toolbar-x.o)
   test "$all_widgets" != "no no no no no" && XE_ADD_OBJS(gui-x.o)
 else
-  if test \( "$with_sound" = "nas" \) -o \( "$with_sound" = "both" \); then
+  if test "$with_nas_sound" = "nas"; then
     echo "Attempt to Build NAS sound without X"
     echo "Please remove NAS configuration or build with X"
     exit 1
@@ -3376,10 +3398,6 @@ dnl Check for sound of various sorts.
 
 dnl Autodetect native sound
 AC_CHECKING("for sound support")
-case "$with_sound" in
-  native | both ) with_native_sound=yes;;
-  nas    | no   ) with_native_sound=no;;
-esac
 test -z "$with_native_sound" -a -n "$native_sound_lib" && with_native_sound=yes
 
 if test "$with_native_sound" != "no"; then
@@ -3437,6 +3455,7 @@ if test "$with_native_sound" != "no"; then
     for dir in "machine" "sys" "linux"; do
       AC_CHECK_HEADER(${dir}/soundcard.h,
         sound_found=yes
+       need_miscplay=yes
         XE_ADD_OBJS(linuxplay.o)
         [AC_DEFINE_UNQUOTED(SOUNDCARD_H_PATH, "${dir}/soundcard.h")]
         break)
@@ -3446,25 +3465,40 @@ if test "$with_native_sound" != "no"; then
   test "$sound_found" = "yes" && with_native_sound=yes
 fi
 
-if test -z "$with_sound"; then
-  if test "$with_native_sound" = "yes" -o -n "$native_sound_lib"; then
-    with_sound=native
-  fi
-fi
-
 if test "$with_native_sound" = "yes"; then
   AC_DEFINE(HAVE_NATIVE_SOUND)
   test -n "$native_sound_lib" && XE_PREPEND($native_sound_lib, LIBS)
 fi
 
-case "$with_sound" in both | nas )
+if test "$with_nas_sound" = "yes"; then
   AC_DEFINE(HAVE_NAS_SOUND)
   XE_ADD_OBJS(nas.o)
   XE_PREPEND(-laudio, libs_x)
   dnl If the nas library does not contain the error jump point,
   dnl then we force safer behavior.
   AC_EGREP_HEADER(AuXtErrorJump,audio/Xtutil.h,,[AC_DEFINE(NAS_NO_ERROR_JUMP)])
-esac
+fi
+
+AC_CHECK_PROG(have_esd_config, esd-config, yes, no)
+if test -z "$with_esd"; then
+  with_esd=$have_esd_config
+fi
+
+if test "$with_esd" = "yes"; then
+  if test "$have_esd_config" = "no"; then
+    echo "*** esd-config was not found in your PATH. Disabling esd support."
+    with_esd=no
+  else
+    AC_DEFINE(HAVE_ESD_SOUND)
+    need_miscplay=yes
+    XE_ADD_OBJS(esd.o)
+    XE_PREPEND(`esd-config --libs`, libs_x)
+  fi
+fi
+
+if test "$need_miscplay" = "yes"; then
+  XE_ADD_OBJS(miscplay.o)
+fi
 
 dnl ---------------------
 dnl TTY-dependent options
@@ -3555,26 +3589,26 @@ dnl We do not necessarily have to have libdb/lib(g)dbm for DB/(G)DBM support.
 dnl On FreeBSD, both DB and DBM are part of libc.
 dnl By default, we check for DBM support in libgdbm, then libc, then libdbm.
 
-test "$with_database_gnudbm $with_database_dbm $with_database_berkdb" \
+test "$with_database_gdbm $with_database_dbm $with_database_berkdb" \
   != "no no no" && AC_CHECKING(for database support)
 
 dnl Check for ndbm.h, required for either kind of DBM support.
-if test "$with_database_gnudbm $with_database_dbm" != "no no"; then
+if test "$with_database_gdbm $with_database_dbm" != "no no"; then
   AC_CHECK_HEADER(ndbm.h, [:], [
-    test "$with_database_gnudbm" = "yes" -o \
-         "$with_database_dbm"    = "yes" && \
+    test "$with_database_gdbm" = "yes" -o \
+         "$with_database_dbm"  = "yes" && \
       XE_DIE("Required DBM support cannot be provided.")
-    with_database_gnudbm=no with_database_dbm=no])
+    with_database_gdbm=no with_database_dbm=no])
 fi
 
 dnl Check for DBM support in libgdbm.
-if test "$with_database_gnudbm" != "no"; then
+if test "$with_database_gdbm" != "no"; then
   AC_CHECK_LIB(gdbm, dbm_open, [
-   with_database_gnudbm=yes with_database_dbm=no libdbm=-lgdbm], [
-   if test "$with_database_gnudbm" = "yes"; then
+   with_database_gdbm=yes with_database_dbm=no libdbm=-lgdbm], [
+   if test "$with_database_gdbm" = "yes"; then
      XE_DIE("Required GNU DBM support cannot be provided.")
    fi
-   with_database_gnudbm=no])
+   with_database_gdbm=no])
 fi
 
 dnl Check for DBM support in libc and libdbm.
@@ -3588,8 +3622,8 @@ fi
 
 dnl Tell make about the DBM support we detected.
 test -n "$libdbm" && XE_PREPEND("$libdbm", LIBS)
-test "$with_database_gnudbm" = "yes" -o \
-     "$with_database_dbm"    = "yes" && \
+test "$with_database_gdbm" = "yes" -o \
+     "$with_database_dbm"  = "yes" && \
   AC_DEFINE(HAVE_DBM)
 
 dnl Check for Berkeley DB.
@@ -3634,7 +3668,7 @@ yes
   fi
 fi
 
-if test "$with_database_gnudbm $with_database_dbm $with_database_berkdb" \
+if test "$with_database_gdbm $with_database_dbm $with_database_berkdb" \
      != "no no no"; then
   AC_DEFINE(HAVE_DATABASE)
   XE_ADD_OBJS(database.o)
@@ -4123,16 +4157,14 @@ test "$with_gif"   = yes && echo "  Compiling in support for (builtin) GIF image
 test "$with_jpeg"  = yes && echo "  Compiling in support for JPEG image handling."
 test "$with_tiff"  = yes && echo "  Compiling in support for TIFF image handling."
 test "$with_xface" = yes && echo "  Compiling in support for X-Face message headers."
-case "$with_sound" in
-  nas    ) echo "  Compiling in network sound (NAS) support." ;;
-  native ) echo "  Compiling in native sound support." ;;
-  both   ) echo "  Compiling in both network and native sound support." ;;
-esac
+test "$with_native_sound" = yes && echo "  Compiling in native sound support."
+test "$with_nas_sound" = yes && echo "  Compiling in network sound (NAS) support." 
 test "$old_nas" = yes && echo "        nas library lacks error trapping, will play synchronously."
+test "$with_esd" = yes && echo "  Compiling in support for Enlightened Sound Daemon."
 
 test "$with_database_berkdb" = yes && echo "  Compiling in support for Berkeley DB."
 test "$with_database_dbm"    = yes && echo "  Compiling in support for DBM."
-test "$with_database_gnudbm" = yes && echo "  Compiling in support for GNU DBM."
+test "$with_database_gdbm"   = yes && echo "  Compiling in support for GNU DBM."
 
 test "$with_ldap"	     = yes && echo "  Compiling in support for LDAP."
 

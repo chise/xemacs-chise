@@ -28,7 +28,7 @@ Boston, MA 02111-1307, USA.  */
 
    FSF: long ago.
 
-hacked on by jwz@netscape.com 1991-06
+hacked on by jwz@jwz.org 1991-06
   o  added a compile-time switch to turn on simple sanity checking;
   o  put back the obsolete byte-codes for error-detection;
   o  added a new instruction, unbind_all, which I will use for

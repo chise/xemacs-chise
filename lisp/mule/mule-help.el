@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1997 by Free Software Foundation, Inc.
 
-;; Author: SL Baur <steve@altair.xemacs.org>
+;; Author: SL Baur <steve@xemacs.org>
 ;; Keywords: help, internal, mule
 
 ;; This file is part of XEmacs.

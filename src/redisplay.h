@@ -91,6 +91,13 @@ typedef struct
    but control characters have two -- a ^ and a letter -- and other
    non-printing characters (those displayed in octal) have four. */
 
+/* WARNING! In compare_runes (one of the most heavily used functions)
+   two runes are compared. So please be careful with changes to this
+   structure. See comments in compare_runes.
+
+   #### This should really be made smaller.
+*/
+   
 typedef struct rune rune;
 struct rune
 {
@@ -105,10 +112,6 @@ struct rune
 				   each of the face properties in this
 				   particular window. */
 
-  short xpos;			/* horizontal starting position in pixels */
-  short width;			/* pixel width of rune */
-
-
   Bufpos bufpos;		/* buffer position this rune is displaying;
 				   for the modeline, the value here is a
 				   Charcount, but who's looking? */
@@ -116,11 +119,26 @@ struct rune
  				/* #### Chuck, what does it mean for a rune
 				   to cover a range of pos?  I don't get
 				   this. */
-  unsigned int cursor_type :3;	/* is this rune covered by the cursor? */
-  unsigned int type :3;		/* type of rune object */
+                                /* #### This isn't used as an rvalue anywhere!
+                                   remove! */
+                                   
+  
+  short xpos;			/* horizontal starting position in pixels */
+  short width;			/* pixel width of rune */
+       
+  
+  unsigned char cursor_type;	/* is this rune covered by the cursor? */
+  unsigned char type;		/* type of rune object */
+                                /* We used to do bitfields here, but if I
+                                   (JV) count correctly that doesn't matter
+                                   for the size of the structure. All the bit
+                                   fiddling _does_ slow down redisplay by
+                                   about 10%. So don't do that */
 
   union				/* Information specific to the type of rune */
   {
+    /* #### GLyps are are. Is it really necessary to waste 8 bytes on every
+       rune for that?! */
     /* DGLYPH */
     struct
     {

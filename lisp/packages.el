@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 1997 Free Software Foundation, Inc.
 
-;; Author: Steven L Baur <steve@altair.xemacs.org>
-;; Maintainer: Steven L Baur <steve@altair.xemacs.org>
+;; Author: Steven L Baur <steve@xemacs.org>
+;; Maintainer: Steven L Baur <steve@xemacs.org>
 ;; Keywords: internal, lisp, dumped
 
 ;; This file is part of XEmacs.

@@ -7,10 +7,10 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 1999/09/26 19:46:47 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 1999/11/20 20:16:50 $
 @sp 1
 @author Tony Rossini <arossini@@stat.sc.edu>
-@author Ben Wing <wing@@666.com>
+@author Ben Wing <ben@@xemacs.org>
 @author Chuck Thompson <cthomp@@xemacs.org>
 @author Steve Baur <steve@@xemacs.org>
 @author Andreas Kaempf <andreas@@sccon.com>
@@ -305,6 +305,7 @@ Other Mail & News:
 
 Sparcworks, EOS, and WorkShop:
 * Q4.4.1::      What is SPARCworks, EOS, and WorkShop
+* Q4.4.2::      How do I start the Sun Workshop support in XEmacs 21?
 
 Energize:
 * Q4.5.1::      What is/was Energize?
@@ -398,15 +399,15 @@ available resources.
 The previous maintainer of the FAQ was @email{rossini@@stat.sc.edu,
 Anthony Rossini}, who started it, after getting tired of hearing JWZ
 complain about repeatedly having to answer questions.
-@email{ben@@666.com, Ben Wing} and @email{cthomp@@xemacs.org, Chuck
+@email{ben@@xemacs.org, Ben Wing} and @email{cthomp@@xemacs.org, Chuck
 Thompson}, the principal authors of XEmacs, then took over and Ben did
 a massive update reorganizing the whole thing.  At which point Anthony
 took back over, but then had to give it up again.  Some of the other
 contributors to this FAQ are listed later in this document.
 
 The previous version was converted to hypertext format, and edited by
-@email{steve@@altair.xemacs.org, Steven L. Baur}.  It was converted back to
-texinfo by @email{hniksic@@srce.hr, Hrvoje Niksic}.
+@email{steve@@xemacs.org, Steven L. Baur}.  It was converted back to
+texinfo by @email{hniksic@@xemacs.org, Hrvoje Niksic}.
 
 The FAQ was then maintained by @email{andreas@@sccon.com, Andreas
 Kaempf}, who passed it on to @email{faq@@xemacs.org, Christian
@@ -742,7 +743,7 @@ identify problems as best they can.
 @node Q1.1.3, Q1.2.1, Q1.1.2, Introduction
 @unnumberedsubsec Q1.1.3: How do I contribute to XEmacs itself?
 
-Ben Wing @email{ben@@666.com} writes:
+Ben Wing @email{ben@@xemacs.org} writes:
 
 @quotation
 BTW if you have a wish list of things that you want added, you have to
@@ -785,14 +786,14 @@ developers responsible for the 19.16/20.x releases are:
 @end ifhtml
 
 
-@item @email{steve@@altair.xemacs.org, Steve Baur}
+@item @email{steve@@xemacs.org, Steve Baur}
 
 @ifhtml
 <br><img src="steve.gif" alt="Portrait of Steve Baur"><br>
 @end ifhtml
 
 
-@item @email{hniksic@@srce.hr, Hrvoje Niksic}
+@item @email{hniksic@@xemacs.org, Hrvoje Niksic}
 
 @ifhtml
 <br><img src="hniksic.jpeg" alt="Portrait of Hrvoje Niksic"><br>
@@ -811,7 +812,7 @@ The developers responsible for the 19.14 release are:
 Chuck was Mr. XEmacs from 19.11 through 19.14, and is responsible
 for XEmacs becoming a widely distributed program over the Internet.
 
-@item @email{ben@@666.com, Ben Wing}
+@item @email{ben@@xemacs.org, Ben Wing}
 @ifhtml
 <br><img src="wing.gif" alt="Portrait of Ben Wing"><br>
 @end ifhtml
@@ -820,7 +821,7 @@ for XEmacs becoming a widely distributed program over the Internet.
 
 
 @itemize @bullet
-@item @email{jwz@@netscape.com, Jamie Zawinski}
+@item @email{jwz@@jwz.org, Jamie Zawinski}
 @ifhtml
 <br><img src="jwz.gif" alt="Portrait of Jamie Zawinski"><br>
 @end ifhtml
@@ -844,7 +845,7 @@ version of the FAQ (listed in alphabetical order):
 @itemize @bullet
 @item @email{steve@@xemacs.org, SL Baur}
 
-@item @email{hniksic@@srce.hr, Hrvoje Niksic}
+@item @email{hniksic@@xemacs.org, Hrvoje Niksic}
 
 @item @email{Aki.Vehtari@@hut.fi, Aki Vehtari}
 
@@ -923,7 +924,7 @@ This is yet another holdover from XEmacs Lisp's derivation from
 vintage-1980 Lisps; modern versions of Lisp consider this equivalence
 a bad idea, and have separate character types.  In XEmacs version 20,
 the modern convention is followed, and characters are their own
-primitive types. (This change was necessary in order for @sc{MULE},
+primitive types. (This change was necessary in order for @sc{mule},
 i.e. Asian-language, support to be correctly implemented.)
 
   Even in XEmacs version 20, remnants of the equivalence between
@@ -941,21 +942,21 @@ with the distinction between characters and integers in mind.
 
   Every character has an equivalent integer, called the @dfn{character
 code}.  For example, the character @kbd{A} is represented as the
-@w{integer 65}, following the standard @sc{ASCII} representation of
-characters.  If XEmacs was not compiled with @sc{MULE} support, the
+@w{integer 65}, following the standard @sc{ascii} representation of
+characters.  If XEmacs was not compiled with @sc{mule} support, the
 range of this integer will always be 0 to 255 -- eight bits, or one
 byte. (Integers outside this range are accepted but silently truncated;
 however, you should most decidedly @emph{not} rely on this, because it
-will not work under XEmacs with @sc{MULE} support.)  When @sc{MULE}
+will not work under XEmacs with @sc{mule} support.)  When @sc{mule}
 support is present, the range of character codes is much
 larger. (Currently, 19 bits are used.)
 
   FSF GNU Emacs uses kludgy character codes above 255 to represent
-keyboard input of @sc{ASCII} characters in combination with certain
+keyboard input of @sc{ascii} characters in combination with certain
 modifiers.  XEmacs does not use this (a more general mechanism is
-used that does not distinguish between @sc{ASCII} keys and other
+used that does not distinguish between @sc{ascii} keys and other
 keys), so you will never find character codes above 255 in a
-non-@sc{MULE} XEmacs.
+non-@sc{mule} XEmacs.
 
   Individual characters are not often used in programs.  It is far more
 common to work with @emph{strings}, which are sequences composed of
@@ -1148,9 +1149,9 @@ directory called @file{sample.emacs}.  Copy this file from there to your
 home directory and rename it @file{.emacs}.  Then edit it to suit.
 
 Starting with 19.14, you may bring the @file{sample.emacs} into an
-XEmacs buffer by selecting @samp{Help->Samples->Sample .emacs} from the
-menubar.  To determine the location of the @file{etc} directory type the
-command @kbd{C-h v data-directory @key{RET}}.
+XEmacs buffer by selecting @samp{Help->Sample .emacs} from the menubar.
+To determine the location of the @file{etc} directory type the command
+@kbd{C-h v data-directory @key{RET}}.
 
 @node Q1.4.2, Q1.4.3, Q1.4.1, Introduction
 @unnumberedsubsec Q1.4.2: Can I use the same @file{.emacs} with the other Emacs?
@@ -1352,7 +1353,7 @@ This will let you run XEmacs without massive copying.
 Although this entry has been written for XEmacs 19.13, most of it still
 stands true.
 
-@email{steve@@altair.xemacs.org, Steve Baur} writes:
+@email{steve@@xemacs.org, Steve Baur} writes:
 
 @quotation
 The 45MB of space required by the installation directories can be
@@ -1568,7 +1569,7 @@ Initialization error:
 Terminal type `xterm' undefined (or can't access database?)
 @end example
 
-@email{ben@@666.com, Ben Wing} writes:
+@email{ben@@xemacs.org, Ben Wing} writes:
 
 @quotation
 Your ncurses configuration is messed up.  Your /usr/lib/terminfo is a
@@ -1626,7 +1627,7 @@ Rebuild XEmacs yourself -- any working ELF version of libc should be
 O.K.
 @end enumerate
 
-@email{hniksic@@srce.hr, Hrvoje Niksic} writes:
+@email{hniksic@@xemacs.org, Hrvoje Niksic} writes:
 
 @quotation
 Why not use a Perl one-liner for No. 2?
@@ -2210,7 +2211,7 @@ forcing a static link of libc (manually).
 @node Q2.1.14, Q2.1.15, Q2.1.13, Installation
 @unnumberedsubsec Q2.1.14: @kbd{C-g} doesn't work for me.  Is it broken?
 
-@email{ben@@666.com, Ben Wing} writes:
+@email{ben@@xemacs.org, Ben Wing} writes:
 
 @quotation
 @kbd{C-g} does work for most people in most circumstances.  If it
@@ -2734,7 +2735,7 @@ It's almost always a mistake to test @code{emacs-version} or any similar
 variables.
 
 Instead, use feature-tests, such as @code{featurep}, @code{boundp},
-@code{fboundp}, or even simple behavioral tests, eg.:
+@code{fboundp}, or even simple behaviroal tests, eg.:
 
 @lisp
 (defvar foo-old-losing-code-p
@@ -2976,7 +2977,7 @@ When I start up XEmacs using @samp{-iconic} it doesn't work right.
 Using @samp{-unmapped} on the command line, and setting the
 @code{initiallyUnmapped} X Resource don't seem to help much either...
 
-@email{ben@@666.com, Ben Wing} writes:
+@email{ben@@xemacs.org, Ben Wing} writes:
 
 @quotation
 Ugh, this stuff is such an incredible mess that I've about given up
@@ -3540,7 +3541,7 @@ effect of being able to press and release Shift and have the next
 character typed come out in upper case.  This will affect all the other
 modifier keys like Control and Meta as well.
 
-@email{ben@@666.com, Ben Wing} writes:
+@email{ben@@xemacs.org, Ben Wing} writes:
 
 @quotation
 One thing about the sticky modifiers is that if you move the mouse out
@@ -4086,6 +4087,7 @@ Other Mail & News:
 
 Sparcworks, EOS, and WorkShop:
 * Q4.4.1::      What is SPARCworks, EOS, and WorkShop
+* Q4.4.2::      How do I start the Sun Workshop support in XEmacs 21?
 
 Energize:
 * Q4.5.1::      What is/was Energize?
@@ -4165,7 +4167,7 @@ Set @code{vm-reply-ignored-addresses} to a list, like
 @lisp
 (setq vm-reply-ignored-addresses
       '("wing@@nuspl@@nvwls.cc.purdue.edu,netcom[0-9]*.netcom.com"
-	"wing@@netcom.com" "wing@@666.com"))
+	"wing@@netcom.com" "wing@@xemacs.org"))
 @end lisp
 
 Note that each string is a regular expression.
@@ -4487,7 +4489,7 @@ trivial to use.
 @node Q4.3.3, Q4.3.4, Q4.3.2, Subsystems
 @unnumberedsubsec Q4.3.3: Why isn't this @code{movemail} program working?
 
-Ben Wing @email{ben@@666.com} writes:
+Ben Wing @email{ben@@xemacs.org} writes:
 
 @quotation
 It wasn't chown'ed/chmod'd correctly.
@@ -4496,14 +4498,14 @@ It wasn't chown'ed/chmod'd correctly.
 @node Q4.3.4, Q4.3.5, Q4.3.3, Subsystems
 @unnumberedsubsec Q4.3.4: Movemail is also distributed by Netscape?  Can that cause problems?
 
-@email{steve@@altair.xemacs.org, Steve Baur} writes:
+@email{steve@@xemacs.org, Steve Baur} writes:
 
 @quotation
 Yes.  Always use the movemail installed with your XEmacs.  Failure to do
 so can result in lost mail.
 @end quotation
 
-Please refer to @email{jwz@@netscape.com, Jamie Zawinski's} notes at
+Please refer to @email{jwz@@jwz.org, Jamie Zawinski's} notes at
 @iftex
 @*
 @end iftex
@@ -4539,7 +4541,7 @@ There is a good mirror at ftp.cdrom.com;
 @end iftex
 @uref{ftp://ftp.cdrom.com/pub/tex/ctan/support/latex2html/}.
 
-@node Q4.4.1, Q4.5.1, Q4.3.5, Subsystems
+@node Q4.4.1, Q4.4.2, Q4.3.5, Subsystems
 @unnumberedsec 4.4: Sparcworks, EOS, and WorkShop
 @unnumberedsubsec Q4.4.1: What is SPARCworks, EOS, and WorkShop?
 
@@ -4583,7 +4585,45 @@ details, check out
 @uref{http://www.sun.com/software/Products/Developer-products/programs.html}.
 @end quotation
 
-@node Q4.5.1, Q4.6.1, Q4.4.1, Subsystems
+@node Q4.4.2, Q4.5.1, Q4.4.1, Subsystems
+@unnumberedsubsec Q4.4.2: How do I start the Sun Workshop support in XEmacs 21?
+
+Add the switch ---with-workshop to the configure command when building
+XEmacs and put the following in one of your startup files
+(e.g. site-start.el or .emacs):
+
+@lisp
+(when (featurep 'tooltalk)
+  (load "tooltalk-macros")
+  (load "tooltalk-util")
+  (load "tooltalk-init"))
+(when (featurep 'sparcworks)
+  (load "sunpro-init")
+  (load "ring")
+  (load "comint")
+  (load "annotations")
+  (sunpro-startup))
+@end lisp
+
+If you are not using the latest Workshop (5.0) you have to apply the
+following patch:
+
+@format
+--- /opt/SUNWspro/lib/eserve.el.ORIG    Fri May 14 15:23:26 1999
++++ /opt/SUNWspro/lib/eserve.el Fri May 14 15:24:54 1999
+@@@@ -42,7 +42,7 @@@@
+ (defvar running-xemacs nil "t if we're running XEmacs")
+ (defvar running-emacs  nil "t if we're running GNU Emacs 19")
+ 
+-(if (string-match "^\\(19\\|20\\)\..*\\(XEmacs\\|Lucid\\)" emacs-version)
++(if (string-match "\\(XEmacs\\|Lucid\\)" emacs-version)
+     (setq running-xemacs t)
+     (setq running-emacs  t))
+@end format 
+
+
+
+@node Q4.5.1, Q4.6.1, Q4.4.2, Subsystems
 @unnumberedsec 4.5: Energize
 @unnumberedsubsec Q4.5.1: What is/was Energize?
 
@@ -5708,7 +5748,7 @@ is:
 an easy way to find out where it spends time?
 @c New
 
-z@email{hniksic@@srce.hr, Hrvoje Niksic} writes:
+z@email{hniksic@@xemacs.org, Hrvoje Niksic} writes:
 @quotation
 Under XEmacs 20.4 and later  you can use @kbd{M-x profile-key-sequence}, press a key
 (say @key{RET} in the Gnus Group buffer), and get the results using
@@ -6229,7 +6269,7 @@ XEmacs 19.16 was the last 19 release, basically consisting of 19.15 plus
 the collected bugfixes.
 
 @item
-As of December 1996, @email{steve@@altair.xemacs.org, Steve Baur} has become
+As of December 1996, @email{steve@@xemacs.org, Steve Baur} has become
 the lead maintainer of XEmacs.
 @end enumerate
 

@@ -471,7 +471,7 @@ which you are criticizing.
 @end ifinfo
 
 This manual was originally written for FSF Emacs 19 and was updated by
-Ben Wing (wing@@666.com) for Lucid Emacs 19.10 and later for XEmacs
+Ben Wing (ben@@xemacs.org) for Lucid Emacs 19.10 and later for XEmacs
 19.12, 19.13, 19.14, and 20.0.  It was further updated by the XEmacs
 Development Team for 19.15 and 20.1.  Please send comments and
 corrections relating to XEmacs-specific portions of this manual to

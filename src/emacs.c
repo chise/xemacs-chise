@@ -856,8 +856,20 @@ main_1 (int argc, char **argv, char **envp, int restart)
      We try to do things in an order that minimizes the non-obvious
      dependencies between functions. */
 
+  /* purify_flag 1 is correct even if CANNOT_DUMP.
+   * loadup.el will set to nil at end. */
+
+  purify_flag = 0;
 #ifdef PDUMP
-  initialized = restart || pdump_load ();
+  if (restart)
+    initialized = 1;
+  else {
+    initialized = pdump_load ();
+    purify_flag = !initialized;
+  }
+#else
+  if (!initialized)
+    purify_flag = 1;
 #endif
 
   if (!initialized)
@@ -1018,6 +1030,11 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       syms_of_gui_x ();
 #endif
+#ifdef HAVE_XIM
+#ifdef XIM_XLIB
+      syms_of_input_method_xlib ();
+#endif
+#endif /* HAVE_XIM */
 #endif /* HAVE_X_WINDOWS */
 
 #ifdef HAVE_MS_WINDOWS
@@ -1086,6 +1103,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_LDAP
       syms_of_eldap ();
+#endif
+
+#ifdef HAVE_GPM
+	  syms_of_gpmevent ();
 #endif
 
       /* Now create the subtypes for the types that have them.
@@ -1481,6 +1502,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_LDAP
       vars_of_eldap ();
+#endif
+
+#ifdef HAVE_GPM
+	  vars_of_gpmevent ();
 #endif
 
       /* Now initialize any specifier variables.  We do this later
@@ -2436,12 +2461,16 @@ shut_down_emacs (int sig, Lisp_Object stuff)
 	("Your files have been auto-saved.\n"
 	 "Use `M-x recover-session' to recover them.\n"
 	 "\n"
+         "If you have access to the PROBLEMS file that came with your\n"
+         "version of XEmacs, please check to see if your crash is described\n"
+         "there, as there may be a workaround available.\n"
 #ifdef INFODOCK
-	 "Please report this bug by selecting `Report-Bug' in the InfoDock\n"
-	 "menu.\n"
+	 "Otherwise, please report this bug by selecting `Report-Bug'\n"
+         "in the InfoDock menu.\n"
 #else
-	 "Please report this bug by running the send-pr script included\n"
-	 "with XEmacs, or selecting `Send Bug Report' from the help menu.\n"
+	 "Otherwise, please report this bug by running the send-pr\n"
+         "script included with XEmacs, or selecting `Send Bug Report'\n"
+         "from the help menu.\n"
 	 "As a last resort send ordinary email to `crashes@xemacs.org'.\n"
 #endif
 	 "*MAKE SURE* to include the information in the command\n"

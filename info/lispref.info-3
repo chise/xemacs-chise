@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -83,7 +83,7 @@ integer 65, following the standard ASCII representation of characters.
 If XEmacs was not compiled with MULE support, the range of this integer
 will always be 0 to 255 - eight bits, or one byte. (Integers outside
 this range are accepted but silently truncated; however, you should
-most decidedly *not* rely on this, because it will not work under
+most decidedly _not_ rely on this, because it will not work under
 XEmacs with MULE support.)  When MULE support is present, the range of
 character codes is much larger. (Currently, 19 bits are used.)
 
@@ -94,7 +94,7 @@ that does not distinguish between ASCII keys and other keys), so you
 will never find character codes above 255 in a non-MULE XEmacs.
 
    Individual characters are not often used in programs.  It is far more
-common to work with *strings*, which are sequences composed of
+common to work with _strings_, which are sequences composed of
 characters.  *Note String Type::.
 
    The read syntax for characters begins with a question mark, followed
@@ -104,7 +104,7 @@ print representation.  In XEmacs 19, however, where characters are
 really integers, the printed representation of a character is a decimal
 number.  This is also a possible read syntax for a character, but
 writing characters that way in Lisp programs is a very bad idea.  You
-should *always* use the special read syntax formats that XEmacs Lisp
+should _always_ use the special read syntax formats that XEmacs Lisp
 provides for characters.
 
    The usual read syntax for alphanumeric characters is a question mark
@@ -122,7 +122,7 @@ the character `B', and `?a' for the character `a'.
    You can use the same syntax for punctuation characters, but it is
 often a good idea to add a `\' so that the Emacs commands for editing
 Lisp code don't get confused.  For example, `?\ ' is the way to write
-the space character.  If the character is `\', you *must* use a second
+the space character.  If the character is `\', you _must_ use a second
 `\' to quote it: `?\\'.  XEmacs 20 always prints punctuation characters
 with a `\' in front of them, to avoid confusion.
 
@@ -177,7 +177,7 @@ example, both `?\^I' and `?\^i' are valid read syntax for the character
    There is also a character read syntax beginning with `\M-'.  This
 sets the high bit of the character code (same as adding 128 to the
 character code).  For example, `?\M-A' stands for the character with
-character code 193, or 128 plus 65.  You should *not* use this syntax
+character code 193, or 128 plus 65.  You should _not_ use this syntax
 in your programs.  It is a holdover of yet another confoundance disease
 from earlier Emacsen. (This was used to represent keyboard input with
 the <META> key set, thus the `M'; however, it conflicts with the
@@ -276,8 +276,8 @@ considered a sequence.
    Arrays are further subdivided into strings, vectors, and bit vectors.
 Vectors can hold elements of any type, but string elements must be
 characters, and bit vector elements must be either 0 or 1.  However, the
-characters in a string can have extents (*note Extents::.) and text
-properties (*note Text Properties::.) like characters in a buffer;
+characters in a string can have extents (*note Extents::) and text
+properties (*note Text Properties::) like characters in a buffer;
 vectors do not support extents or text properties even when their
 elements happen to be characters.
 
@@ -357,7 +357,7 @@ cell refers to `nil'.
    Here is another diagram of the same list, `(rose violet buttercup)',
 sketched in a different manner:
 
-     ---------------       ----------------       -------------------
+      ---------------       ----------------       -------------------
      | car   | cdr   |     | car    | cdr   |     | car       | cdr   |
      | rose  |   o-------->| violet |   o-------->| buttercup |  nil  |
      |       |       |     |        |       |     |           |       |
@@ -614,13 +614,13 @@ Function Type
 functions in Lisp are primarily Lisp objects, and only secondarily the
 text which represents them.  These Lisp objects are lambda expressions:
 lists whose first element is the symbol `lambda' (*note Lambda
-Expressions::.).
+Expressions::).
 
    In most programming languages, it is impossible to have a function
 without a name.  In Lisp, a function has no intrinsic name.  A lambda
 expression is also called an "anonymous function" (*note Anonymous
-Functions::.).  A named function in Lisp is actually a symbol with a
-valid function in its function cell (*note Defining Functions::.).
+Functions::).  A named function in Lisp is actually a symbol with a
+valid function in its function cell (*note Defining Functions::).
 
    Most of the time, functions are called when their names are written
 in Lisp expressions in Lisp programs.  However, you can construct or
@@ -655,7 +655,7 @@ in the C programming language.  Primitive functions are also called
 "subrs" or "built-in functions".  (The word "subr" is derived from
 "subroutine".)  Most primitive functions evaluate all their arguments
 when they are called.  A primitive function that does not evaluate all
-its arguments is called a "special form" (*note Special Forms::.).
+its arguments is called a "special form" (*note Special Forms::).
 
    It does not matter to the caller of a function whether the function
 is primitive.  However, this does matter if you try to substitute a
@@ -825,10 +825,10 @@ Buffer Type
 -----------
 
    A "buffer" is an object that holds text that can be edited (*note
-Buffers::.).  Most buffers hold the contents of a disk file (*note
-Files::.) so they can be edited, but some are used for other purposes.
+Buffers::).  Most buffers hold the contents of a disk file (*note
+Files::) so they can be edited, but some are used for other purposes.
 Most buffers are also meant to be seen by the user, and therefore
-displayed, at some time, in a window (*note Windows::.).  But a buffer
+displayed, at some time, in a window (*note Windows::).  But a buffer
 need not be displayed in any window.
 
    The contents of a buffer are much like a string, but buffers are not
@@ -839,21 +839,21 @@ concatenating substrings, and the result is an entirely new string
 object.
 
    Each buffer has a designated position called "point" (*note
-Positions::.).  At any time, one buffer is the "current buffer".  Most
+Positions::).  At any time, one buffer is the "current buffer".  Most
 editing commands act on the contents of the current buffer in the
 neighborhood of point.  Many of the standard Emacs functions manipulate
 or test the characters in the current buffer; a whole chapter in this
-manual is devoted to describing these functions (*note Text::.).
+manual is devoted to describing these functions (*note Text::).
 
    Several other data structures are associated with each buffer:
 
-   * a local syntax table (*note Syntax Tables::.);
+   * a local syntax table (*note Syntax Tables::);
 
-   * a local keymap (*note Keymaps::.);
+   * a local keymap (*note Keymaps::);
 
-   * a local variable binding list (*note Buffer-Local Variables::.);
+   * a local variable binding list (*note Buffer-Local Variables::);
 
-   * a list of extents (*note Extents::.);
+   * a list of extents (*note Extents::);
 
    * and various other related properties.
 
@@ -1104,8 +1104,8 @@ streams (character sinks) send characters to a buffer, such as a
    The object `nil', in addition to its other meanings, may be used as
 a stream.  It stands for the value of the variable `standard-input' or
 `standard-output'.  Also, the object `t' as a stream specifies input
-using the minibuffer (*note Minibuffers::.) or output in the echo area
-(*note The Echo Area::.).
+using the minibuffer (*note Minibuffers::) or output in the echo area
+(*note The Echo Area::).
 
    Streams have no special printed representation or read syntax, and
 print as whatever primitive type they are.
@@ -1137,7 +1137,7 @@ Syntax Table Type
    Under XEmacs 20, a "syntax table" is a particular type of char
 table.  Under XEmacs 19, a syntax table a vector of 256 integers.  In
 both cases, each element defines how one character is interpreted when
-it appears in a buffer.  For example, in C mode (*note Major Modes::.),
+it appears in a buffer.  For example, in C mode (*note Major Modes::),
 the `+' character is punctuation, but in Lisp mode it is a valid
 character in a symbol.  These modes specify different interpretations by
 changing the syntax table entry for `+'.

@@ -310,12 +310,12 @@ inefficient.  Generally, it's best to go with the default
 configuration for your system.  You can tweak this based on how you
 use XEmacs, and the memory and cpu resources available on your system.
 
-The `--use-system-malloc' option can be use to either enable or
+The `--with-system-malloc' option can be use to either enable or
 disable use of the system malloc.  Generally, it's best to go with the
 default configuration for your system.  Note that on many systems
 using the system malloc disables the use of the relocating allocator.
 
-The `--use-debug-malloc' option can be used to link a special debugging
+The `--with-debug-malloc' option can be used to link a special debugging
 version of malloc.  Debug Malloc is not included with XEmacs, is
 intended for use only by the developers and may be obtained from
 <URL:http://www.letters.com/dmalloc/>.

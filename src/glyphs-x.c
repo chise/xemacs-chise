@@ -678,7 +678,7 @@ write_lisp_string_to_temp_file (Lisp_Object string, char *filename_out)
   /* Get the data while doing the conversion */
   while (1)
     {
-      int size_in_bytes = Lstream_read (istr, tempbuf, sizeof (tempbuf));
+      ssize_t size_in_bytes = Lstream_read (istr, tempbuf, sizeof (tempbuf));
       if (!size_in_bytes)
 	break;
       /* It does seem the flushes are necessary... */

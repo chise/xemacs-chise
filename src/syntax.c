@@ -661,7 +661,7 @@ Optional argument BUFFER defaults to the current buffer.
   Bufpos stop;
   Emchar c;
   enum syntaxcode code;
-  int count;
+  EMACS_INT count;
   struct buffer *buf = decode_buffer (buffer, 0);
   struct Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
 
@@ -1690,9 +1690,18 @@ Non-nil means `forward-word', etc., should treat escape chars part of words.
   no_quit_in_re_search = 0;
 }
 
+static void
+define_standard_syntax (CONST char *p, enum syntaxcode syn)
+{
+  for (; *p; p++)
+    Fput_char_table (make_char (*p), make_int (syn), Vstandard_syntax_table);
+}
+
 void
 complex_vars_of_syntax (void)
 {
+  Emchar i;
+  CONST char *p;
   /* Set this now, so first buffer creation can refer to it. */
   /* Make it nil before calling copy-syntax-table
      so that copy-syntax-table will know not to try to copy from garbage */
@@ -1704,68 +1713,31 @@ complex_vars_of_syntax (void)
 							Smax);
   staticpro (&Vsyntax_designator_chars_string);
 
-  fill_char_table (XCHAR_TABLE (Vstandard_syntax_table),
-		   make_int (Spunct));
+  fill_char_table (XCHAR_TABLE (Vstandard_syntax_table), make_int (Spunct));
 
-  {
-    Emchar i;
-
-    for (i = 0; i <= 32; i++)
-      Fput_char_table (make_char (i), make_int ((int) Swhitespace),
-		       Vstandard_syntax_table);
-    for (i = 127; i <= 159; i++)
-      Fput_char_table (make_char (i), make_int ((int) Swhitespace),
-		       Vstandard_syntax_table);
-
-    for (i = 'a'; i <= 'z'; i++)
-      Fput_char_table (make_char (i), make_int ((int) Sword),
-		       Vstandard_syntax_table);
-    for (i = 'A'; i <= 'Z'; i++)
-      Fput_char_table (make_char (i), make_int ((int) Sword),
-		       Vstandard_syntax_table);
-    for (i = '0'; i <= '9'; i++)
-      Fput_char_table (make_char (i), make_int ((int) Sword),
-		       Vstandard_syntax_table);
-    Fput_char_table (make_char ('$'), make_int ((int) Sword),
+  for (i = 0; i <= 32; i++)	/* Control 0 plus SPACE */
+    Fput_char_table (make_char (i), make_int (Swhitespace),
 		     Vstandard_syntax_table);
-    Fput_char_table (make_char ('%'), make_int ((int) Sword),
+  for (i = 127; i <= 159; i++)	/* DEL plus Control 1 */
+    Fput_char_table (make_char (i), make_int (Swhitespace),
 		     Vstandard_syntax_table);
 
+  define_standard_syntax ("abcdefghijklmnopqrstuvwxyz"
+			  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+			  "0123456789"
+			  "$%", Sword);
+  define_standard_syntax ("\"", Sstring);
+  define_standard_syntax ("\\", Sescape);
+  define_standard_syntax ("_-+*/&|<>=", Ssymbol);
+  define_standard_syntax (".,;:?!#@~^'`", Spunct);
+
+  for (p = "()[]{}"; *p; p+=2)
     {
-      Fput_char_table (make_char ('('), Fcons (make_int ((int) Sopen),
-					       make_char (')')),
+      Fput_char_table (make_char (p[0]),
+		       Fcons (make_int (Sopen), make_char (p[1])),
 		       Vstandard_syntax_table);
-      Fput_char_table (make_char (')'), Fcons (make_int ((int) Sclose),
-					       make_char ('(')),
-		       Vstandard_syntax_table);
-      Fput_char_table (make_char ('['), Fcons (make_int ((int) Sopen),
-					       make_char (']')),
-		       Vstandard_syntax_table);
-      Fput_char_table (make_char (']'), Fcons (make_int ((int) Sclose),
-					       make_char ('[')),
-		       Vstandard_syntax_table);
-      Fput_char_table (make_char ('{'), Fcons (make_int ((int) Sopen),
-					       make_char ('}')),
-		       Vstandard_syntax_table);
-      Fput_char_table (make_char ('}'), Fcons (make_int ((int) Sclose),
-					       make_char ('{')),
+      Fput_char_table (make_char (p[1]),
+		       Fcons (make_int (Sclose), make_char (p[0])),
 		       Vstandard_syntax_table);
     }
-
-    Fput_char_table (make_char ('"'), make_int ((int) Sstring),
-		     Vstandard_syntax_table);
-    Fput_char_table (make_char ('\\'), make_int ((int) Sescape),
-		     Vstandard_syntax_table);
-
-    {
-      CONST char *p;
-      for (p = "_-+*/&|<>="; *p; p++)
-	Fput_char_table (make_char (*p), make_int ((int) Ssymbol),
-			 Vstandard_syntax_table);
-
-      for (p = ".,;:?!#@~^'`"; *p; p++)
-	Fput_char_table (make_char (*p), make_int ((int) Spunct),
-			 Vstandard_syntax_table);
-    }
-  }
 }

@@ -1,3 +1,264 @@
+1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.22 is released
+
+1999-11-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.21 is released.
+
+1999-11-26  Martin Buchholz  <martin@xemacs.org>
+
+	* callproc.c (Fcall_process_internal):
+	* config.h.in:
+	* esd.c:
+	* event-msw.c (ntpipe_slurp_reader):
+	* event-msw.c (ntpipe_shove_writer):
+	* event-msw.c (winsock_reader):
+	* event-msw.c (winsock_writer):
+	* event-stream.c (dribble_out_event):
+	* fileio.c:
+	* fileio.c (Fexpand_file_name):
+	* glyphs-x.c (write_lisp_string_to_temp_file):
+	* gpmevent.c (tty_get_foreign_selection):
+	* lisp.h: Update prototypes.
+	* lstream.c (Lstream_flush_out):
+	* lstream.c (Lstream_write_1):
+	* lstream.c (Lstream_was_blocked_p):
+	* lstream.c (Lstream_read_more):
+	* lstream.c (Lstream_read):
+	* lstream.c (Lstream_fputc):
+	* lstream.c (make_stdio_output_stream):
+	* lstream.c (stdio_flusher):
+	* lstream.c (stdio_closer):
+	* lstream.c (make_filedesc_output_stream):
+	* lstream.c (errno_would_block_p):
+	* lstream.c (filedesc_writer):
+	* lstream.c (make_lisp_string_input_stream):
+	* lstream.c (make_fixed_buffer_output_stream):
+	* lstream.c (fixed_buffer_reader):
+	* lstream.c (make_resizing_buffer_output_stream):
+	* lstream.c (make_dynarr_output_stream):
+	* lstream.c (make_lisp_buffer_output_stream):
+	* lstream.c (lisp_buffer_reader):
+	* lstream.h (lstream_implementation):
+	* md5.c (Fmd5):
+	* miscplay.h (reset_parsestate):
+	* process-nt.c (nt_send_process):
+	* process-unix.c (unix_send_process):
+	* sound.c:
+	* sysdep.c (sys_close):
+	* sysdep.c (sys_read_1):
+	* sysdep.c (sys_write_1):
+	* sysfile.h:
+	* file-coding.c (determine_real_coding_system):
+	* file-coding.c (Fdetect_coding_region):
+	* file-coding.c (struct decoding_stream):
+	* file-coding.c (decoding_reader):
+	* file-coding.c (Fdecode_coding_region):
+	* file-coding.c (struct encoding_stream):
+	* file-coding.c (encoding_reader):
+	* file-coding.c (Fencode_coding_region):
+	* file-coding.c (convert_to_external_format):
+	* file-coding.c (convert_from_external_format):
+	- Lstream functions mirror Unix98 read(),write().  Therefore use
+	  Unix98 types size_t and ssize_t.  
+	- Try to make Lstream* functions 64-bit clean.  Someday someone
+	  may actually want to read from a Lstream with more than 2**32 bytes.
+	- Add configure support for ssize_t.
+	- Update all callers of Lstream_read and Lstream_write to
+	  use the new types.
+	- Fix esd* initiated C++ compile errors.
+	- Remove comments referring to `fpurge' - we don't want to call it
+	  even if it's there.
+
+	* lisp.h
+	- Remove some lingering Lucid compiler support.
+
+	* lisp.h
+	- Add prototype for Fdelete_process.
+
+	* gpmevent.c (Freceive_gpm_event): Remove unused variables.
+
+1999-11-27  Martin Buchholz  <martin@xemacs.org>
+
+	* Makefile.in.in (depend): Only update `depend' if there were changes.
+
+1999-11-26  Martin Buchholz  <martin@xemacs.org>
+
+	* editfns.c (get_system_name): Remove.
+
+1999-11-26  Martin Buchholz  <martin@xemacs.org>
+
+	* device-x.c (x_init_device): 
+	- Replace magic number `17' with equivalent expn using sizeof.
+	- Replace strcmp with marginally more efficient memcmp.
+	- Avoid using C++ reserved word `class'.
+
+	* file-coding.c (determine_real_coding_system): 
+	- Look for both initial and final -*- cookies.
+	- Replace EQ (foo, Qnil) with NILP (foo)
+	- Make searching for cookies more efficient.
+	- Recognize only rfc 1521 characters in charset names.
+
+1999-11-22  Kazuyuki IENAGA <kazz@imasy.or.jp>
+
+	* input-method-xlib.c (IMDestroyCallback): #ifdef'd by
+	"THIS_IS_X11R6", because it shouldn't be evaluated unless X11R6.
+	* input-method-xlib.c (IMInstantiateCallback): Ditto.
+	* input-method-xlib.c (XIM_init_device): Revive XOpenIM function
+	call for X11R5 systems.
+	* input-method-xlib.c (XIM_delete_frame): Enabled XDestroyIC()
+	again because XIM doesn't concern with frame deletion itself.
+	The XIC will be cleared by XIM when XIM is closing (at XIM destroy
+	callback).
+
+1999-10-25  Kazuyuki IENAGA <kazz@imasy.or.jp>
+
+        * input-method-xlib.c: Added new lisp object Qxim_xlib.
+        New macro xim_warn(str), xim_warn1(fmt,str) and xim_info(str).
+        All the valid stderr_out were changed to those macros.
+        (IMDestroyCallback): Don't test the XIC if the frame is not X
+        frame.
+        (IMInstantiateCallback): Treat the client_data as "device" not
+        "frame" because the caller changed from frame to device.
+        Here initializes XIM and activates XICs for each frame which
+        doesn't have XIC.
+        (XIM_init_device): Register the XIM instantiation callback which
+        had been performed by XIM_init_frame() before.
+        (XIM_delete_frame): Added a test for the XIM before clearing XIC.
+        (XIM_init_frame): Placed an actual code for XIC activation which
+        was moved from IMInstantiateCallback.
+        (syms_of_input_method_xlib): New function which includes a symbol
+        Qxim_xlib that uses in emacs.c.
+
+        * emacs.c: Added a function entry "syms_of_input_method_xlib" for
+        input_method_xlib.
+
+        * symsinit.h: Added a declaration of "syms_of_input_method_xlib".
+
+1999-11-05  Robert Pluim  <rpluim@bigfoot.com>
+
+	* emacs.c (shut_down_emacs): Point users to PROBLEMS file
+
+1999-11-16  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* redisplay-output.c (compare_runes): Add comments about
+	results from profiling.
+
+	* redisplay.h (struct rune): Do not use bitfields for members.
+	(struct rune): Add various comments about further optimizations.
+	
+1999-11-19  Eric Darve  <darve@crocco.stanford.edu>
+
+	* abbrev.c (abbrev_oblookup): Check whether wordend <= wordstart
+	if Vabbrev_start_location is used too.
+
+1999-10-27  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* file-coding.c (detect_eol_type): Return CR when two
+	sequential CR are found.
+	(determine_real_coding_system): Check EOL type when coding:
+	cookie is found and EOL type is not specified.
+	Don't assume 8bit char as part of coding: cookie.
+
+1999-10-26  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* file-coding.c (determine_real_coding_system): Check if
+	'-*-' exists. End searching for coding: cookie at the end
+	of line. Check whether character before coding: is space,
+	tab or ';'.
+
+1999-11-07  William M. Perry  <wmperry@aventail.com>
+
+	* gpmevent.c: Completely rewrote GPM mouse support for linux
+	  console.  The TTY console and event stream are modified at run
+	  time, so this code can now be used as a module.
+	  (tty_get_foreign_selection): New function to allow pasting from
+	  other virtual consoles.
+	  (Fgpm_enable): New lisp-visible function to turn GPM on or off
+	  at run time.
+
+	* device-tty.c (tty_asynch_device_change): No longer need to
+	  notify GPM code of window/console height/width changes.
+
+	* console-tty.c (tty_init_console): Removed outdated GPM support
+	  that was part of the console/event code.
+
+	* event-Xt.c (emacs_Xt_select_console): Ditto
+
+	* event-Xt.c (emacs_Xt_unselect_console): Ditto
+
+	* event-unixoid.c (read_event_from_tty_or_stream_desc): Ditto
+
+	* frame-tty.c (console_type_create_frame_tty): Ditto
+
+1999-11-17  Martin Buchholz  <martin@xemacs.org>
+
+	* nt.c:
+	* sysdep.c:
+	* s/mingw32.h:
+	* s/windowsnt.h:
+	- Use Unix 98 types uid_t, gid_t, pid_t.
+	- Define them.
+
+1999-11-01  Olivier Galibert  <galibert@pobox.com>
+
+	* alloc.c (reinit_alloc_once_early): Move purify_flag init...
+	* emacs.c (main_1): ...here, to get the correct value even with
+ 	the portable dumper.
+
+1999-11-17  Martin Buchholz  <martin@xemacs.org>
+
+	* lisp.h (BIT_VECTOR_LONG_STORAGE): Add extra parens.  It's a macro!
+
+	* tooltalk.c (tt_build_string): Remove extra parens.
+	* process.c (print_process): Remove extra parens.
+	* buffer.h (BI_BUF_PTR_BYTE_POS): 
+	(BUF_PTR_BYTE_POS): 
+	(BI_BUF_BYTE_ADDRESS): 
+	(BI_BUF_BYTE_ADDRESS_BEFORE): 
+	(valid_memind_p): 
+	(bytind_to_memind): 
+	(memind_to_bytind):
+	Remove extra parens.  Inline functions are not macros.
+
+	* editfns.c (Fuser_login_name): 
+	(user_login_name):
+	Use proper type uid_t.
+
+1999-11-15  Martin Buchholz  <martin@xemacs.org>
+
+	* syntax.c (complex_vars_of_syntax): Make more readable.
+	(define_standard_syntax): New function.
+
+	* syntax.c (forward-comment): Gradually make XEmacs 64-bit-clean.
+
+1999-11-14  Martin Buchholz  <martin@xemacs.org>
+
+	* mule-ccl.c (CCL_WRITE_STRING): Fix compiler warnings.
+
+1999-11-12  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* mule-charset.h (LEADING_BYTE_OFFICIAL_1, LEADING_BYTE_OFFICIAL_2):
+	New enum type to make sure no gap in the leading byte definition.
+
+1999-11-11  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* mule-charset.h (LEADING_BYTE_CYRILLIC_ISO_8859_5,
+	LEADING_BYTE_LATIN_ISO8859_9): Moved to 0x8B and 0x8C
+	to remove a hole in leading byte definition.
+
+1999-11-10  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* mule-charset.c (non_ascii_valid_charptr_p): Check if
+	private charset is defined.
+
+1999-11-09  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* mule-ccl.c (ccl_driver): Make sure generated sequences
+	are valid when doing `CCL_WRITE_STRING'.
+	(ccl-execute-on-string): Pass CCL_MODE_DECODING to ccl_driver.
+
 1999-11-10  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.20 is released

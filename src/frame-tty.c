@@ -33,10 +33,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include "events.h"
 
-#ifdef HAVE_GPM
-#include <gpm.h>
-#endif
-
 
 /* Default properties to use when creating frames.  */
 Lisp_Object Vdefault_tty_frame_plist;
@@ -85,33 +81,6 @@ tty_after_init_frame (struct frame *f, int first_on_device,
   if (first_on_console)
     call1 (Qinit_post_tty_win, FRAME_CONSOLE (f));
 }
-
-#ifdef HAVE_GPM
-static int
-tty_get_mouse_position (struct device *d, Lisp_Object *frame, int *x, int *y)
-{
-  Gpm_Event ev;
-  int num_buttons;
-
-  num_buttons = Gpm_GetSnapshot(&ev);
-  *x = ev.x;
-  *y = ev.y;
-  *frame = DEVICE_SELECTED_FRAME (d);
-  return (1);
-}
-
-static void
-tty_set_mouse_position (struct window *w, int x, int y)
-{
-  /* XXX
-     I couldn't find any GPM functions that set the mouse position.
-     Mr. Perry had left this function empty; that must be why.
-     karlheg
-  */
-}
-
-#endif
-
 
 /* Change from withdrawn state to mapped state. */
 static void
@@ -223,10 +192,6 @@ console_type_create_frame_tty (void)
   CONSOLE_HAS_METHOD (tty, init_frame_1);
   CONSOLE_HAS_METHOD (tty, init_frame_3);
   CONSOLE_HAS_METHOD (tty, after_init_frame);
-#ifdef HAVE_GPM
-  CONSOLE_HAS_METHOD (tty, get_mouse_position);
-  CONSOLE_HAS_METHOD (tty, set_mouse_position);
-#endif
   CONSOLE_HAS_METHOD (tty, make_frame_visible);
   CONSOLE_HAS_METHOD (tty, make_frame_invisible);
   CONSOLE_HAS_METHOD (tty, frame_visible_p);

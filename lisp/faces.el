@@ -31,7 +31,7 @@
 ;; This file is dumped with XEmacs.
 
 ;; face implementation #1 (used Lisp vectors and parallel C vectors;
-;; FSFmacs still uses this) authored by Jamie Zawinski <jwz@netscape.com>
+;; FSFmacs still uses this) authored by Jamie Zawinski <jwz@jwz.org>
 ;; pre Lucid-Emacs 19.0.
 
 ;; face implementation #2 (used one face object per frame per face)

@@ -40,10 +40,7 @@ Boston, MA 02111-1307, USA.  */
 #include <ctype.h>
 #include <stdarg.h>
 #include <stddef.h>		/* offsetof */
-
-#ifdef __lucid
-# include <sysent.h>
-#endif
+#include <sys/types.h>
 
 /* ---- Dynamic arrays ---- */
 
@@ -1122,7 +1119,7 @@ set_bit_vector_bit (Lisp_Bit_Vector *v, size_t n, int value)
 
 /* Number of longs required to hold LEN bits */
 #define BIT_VECTOR_LONG_STORAGE(len) \
-  ((len + LONGBITS_POWER_OF_2 - 1) >> LONGBITS_LOG2)
+  (((len) + LONGBITS_POWER_OF_2 - 1) >> LONGBITS_LOG2)
 
 
 /*********** symbol ***********/
@@ -2135,7 +2132,7 @@ Lisp_Object emacs_doprnt_string_lisp_2 (CONST Bufbyte *, Lisp_Object,
 /* Defined in editfns.c */
 void uncache_home_directory (void);
 char *get_home_directory (void);
-char *user_login_name (int *);
+char *user_login_name (uid_t *);
 Bufpos bufpos_clip_to_bounds (Bufpos, Bufpos, Bufpos);
 Bytind bytind_clip_to_bounds (Bytind, Bytind, Bytind);
 void buffer_insert1 (struct buffer *, Lisp_Object);
@@ -2313,8 +2310,8 @@ void maybe_signal_double_file_error_2 (CONST char *, CONST char *,
 				       Error_behavior);
 Lisp_Object lisp_strerror (int);
 Lisp_Object expand_and_dir_to_file (Lisp_Object, Lisp_Object);
-int read_allowing_quit (int, void *, size_t);
-int write_allowing_quit (int, CONST void *, size_t);
+ssize_t read_allowing_quit (int, void *, size_t);
+ssize_t write_allowing_quit (int, CONST void *, size_t);
 int internal_delete_file (Lisp_Object);
 
 /* Defined in filelock.c */
@@ -2622,6 +2619,7 @@ EXFUN (Fdefault_boundp, 1);
 EXFUN (Fdefault_value, 1);
 EXFUN (Fdefine_key, 3);
 EXFUN (Fdelete_region, 3);
+EXFUN (Fdelete_process, 1);
 EXFUN (Fdelq, 2);
 EXFUN (Fdestructive_alist_to_plist, 1);
 EXFUN (Fdetect_coding_region, 3);

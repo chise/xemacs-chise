@@ -903,17 +903,18 @@ locate_file_find_directory_hash_table (Lisp_Object directory)
    nil, a list, or a string (for backward compatibility), with the
    following semantics:
 
-   a) nil    - no suffix, just search for file name intact (semantically
-               different from "empty suffix list")
+   a) nil    - no suffix, just search for file name intact
+               (semantically different from "empty suffix list", which
+               would be meaningless.)
    b) list   - list of suffixes to append to file name.  Each of these
                must be a string.
    c) string - colon-separated suffixes to append to file name (backward
                compatibility).
 
-   All of this got hairy, so I decided to use write a mapper.  Calling
-   a function for each suffix shouldn't slow things down, since
-   locate_file is rarely call with enough suffixes for it to make a
-   difference.  */
+   All of this got hairy, so I decided to use a mapper.  Calling a
+   function for each suffix shouldn't slow things down, since
+   locate_file is rarely called with enough suffixes for funcalls to
+   make any difference.  */
 
 /* Map FUN over SUFFIXES, as described above.  FUN will be called with a
    char * containing the current file name, and ARG.  Mapping stops when

@@ -29,8 +29,7 @@ my ($myName, $srcdir, %exists, %uses, %generated_header);
 Usage: $myName
 
 Generates Makefile dependencies for the XEmacs src directory.
-The dependencies are written to stdout.
-";
+The dependencies are written to stdout.\n";
 
 die $usage if @ARGV;
 

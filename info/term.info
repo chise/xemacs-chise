@@ -1,5 +1,5 @@
-This is Info file ../info/term.info, produced by Makeinfo version 1.68
-from the input file term.texi.
+This is ../info/term.info, produced by makeinfo version 4.0 from
+term.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -142,7 +142,7 @@ screen state to what it was before the program started.  Many people
 are used to this behavior from `xterm', and its also offered by the
 `term' emulator.
 
- - Function: term-switch-to-alternate-sub-buffer SET
+ - Function: term-switch-to-alternate-sub-buffer set
      If SET is true, and we're not already using the alternate
      sub-buffer, switch to it.  What this means is that the
      `term-home-marker' is saved (in the variable
@@ -238,7 +238,7 @@ of output (since the last input sent to the inferior).  It will enter
 "pager" mode, which feels a lot like the "more" program:  Typing a
 space requests another screenful of output.  Other commands request
 more or less output, or scroll backwards in the `term' buffer.  In
-pager mode, type `h' or `?'  to display a help message listing all the
+pager mode, type `h' or `?' to display a help message listing all the
 available pager mode commands.
 
    In either character or line mode, type `C-c p' to enable paging, and
@@ -421,21 +421,21 @@ Miscellaneous escapes
 
 
 Tag Table:
-Node: Top227
-Node: term mode393
-Node: Overview1216
-Node: Output from the inferior1966
-Node: subbuffer3546
-Node: altsubbuffer4869
-Node: Input to the inferior5894
-Node: Connecting to remote computers7414
-Node: Paging9319
-Node: Terminal escapes9989
-Node: Cursor motion10857
-Node: Erasing11517
-Node: Inserting and deleting12312
-Node: Scrolling12702
-Node: Command hook13148
-Node: Miscellaneous escapes14184
+Node: Top201
+Node: term mode367
+Node: Overview1190
+Node: Output from the inferior1940
+Node: subbuffer3520
+Node: altsubbuffer4843
+Node: Input to the inferior5868
+Node: Connecting to remote computers7388
+Node: Paging9293
+Node: Terminal escapes9962
+Node: Cursor motion10830
+Node: Erasing11490
+Node: Inserting and deleting12285
+Node: Scrolling12675
+Node: Command hook13121
+Node: Miscellaneous escapes14157
 
 End Tag Table

@@ -598,73 +598,75 @@ static	Boolean
 TabsSetValues(Widget current, Widget request, Widget new,
 	ArgList args, Cardinal *num_args)
 {
-	TabsWidget curtw = (TabsWidget) current ;
-	TabsWidget tw = (TabsWidget) new ;
-	Boolean	needRedraw = False ;
-	Widget	*childP ;
-	int	i ;
+  TabsWidget curtw = (TabsWidget) current ;
+  TabsWidget tw = (TabsWidget) new ;
+  Boolean	needRedraw = False ;
+  Widget	*childP ;
+  int	i ;
 
 
-	if( tw->tabs.font != curtw->tabs.font  ||
-	    tw->tabs.internalWidth != curtw->tabs.internalWidth ||
-	    tw->tabs.internalHeight != curtw->tabs.internalHeight )
+  if( tw->tabs.font != curtw->tabs.font  ||
+      tw->tabs.internalWidth != curtw->tabs.internalWidth ||
+      tw->tabs.internalHeight != curtw->tabs.internalHeight )
+    {
+      tw->tabs.tab_height = 2 * tw->tabs.internalHeight + SHADWID ;
+
+      if( tw->tabs.font != NULL )
+	tw->tabs.tab_height += tw->tabs.font->max_bounds.ascent +
+	  tw->tabs.font->max_bounds.descent ;
+
+      /* Tab size has changed.  Resize all tabs and request a new size */
+      for(i=0, childP=tw->composite.children;
+	  i < tw->composite.num_children;
+	  ++i, ++childP)
+	if( XtIsManaged(*childP) )
+	  TabWidth(*childP) ;
+      PreferredSize(tw, &tw->core.width, &tw->core.height, NULL,NULL) ;
+      needRedraw = True ;
+      tw->tabs.needs_layout = True ;
+    }
+
+  /* TODO: if any color changes, need to recompute GCs and redraw */
+
+  if( tw->core.background_pixel != curtw->core.background_pixel ||
+      tw->core.background_pixmap != curtw->core.background_pixmap )
+    if( XtIsRealized(new) )
+      {
+	TabsFreeGCs(tw) ;
+	TabsAllocGCs(tw) ;
+	needRedraw = True ;
+      }
+
+  if( tw->core.sensitive != curtw->core.sensitive )
+    needRedraw = True ;
+
+  /* If top widget changes, need to change stacking order, redraw tabs.
+   * Window system will handle the redraws.
+   */
+
+  if( tw->tabs.topWidget != curtw->tabs.topWidget )
+    {
+      if( XtIsRealized(tw->tabs.topWidget) )
 	{
-	  tw->tabs.tab_height = 2 * tw->tabs.internalHeight + SHADWID ;
+	  Widget		w = tw->tabs.topWidget ;
+	  TabsConstraints	tab = (TabsConstraints) w->core.constraints ;
 
-	  if( tw->tabs.font != NULL )
-	    tw->tabs.tab_height += tw->tabs.font->max_bounds.ascent +
-				   tw->tabs.font->max_bounds.descent ;
-
-	  /* Tab size has changed.  Resize all tabs and request a new size */
-	  for(i=0, childP=tw->composite.children;
-		i < tw->composite.num_children;
-		++i, ++childP)
-	    if( XtIsManaged(*childP) )
-	      TabWidth(*childP) ;
-	  PreferredSize(tw, &tw->core.width, &tw->core.height, NULL,NULL) ;
-	  needRedraw = True ;
-	  tw->tabs.needs_layout = True ;
-	}
-
-	/* TODO: if any color changes, need to recompute GCs and redraw */
-
-	if( tw->core.background_pixel != curtw->core.background_pixel ||
-	    tw->core.background_pixmap != curtw->core.background_pixmap )
-	  if( XtIsRealized(new) )
-	  {
-	    TabsFreeGCs(tw) ;
-	    TabsAllocGCs(tw) ;
-	    needRedraw = True ;
-	  }
-
-	if( tw->core.sensitive != curtw->core.sensitive )
-	  needRedraw = True ;
-
-	/* If top widget changes, need to change stacking order, redraw tabs.
-	 * Window system will handle the redraws.
-	 */
-
-	if( tw->tabs.topWidget != curtw->tabs.topWidget )
-	  if( XtIsRealized(tw->tabs.topWidget) )
-	  {
-	    Widget		w = tw->tabs.topWidget ;
-	    TabsConstraints	tab = (TabsConstraints) w->core.constraints ;
-
-	    XRaiseWindow(XtDisplay(w), XtWindow(w)) ;
+	  XRaiseWindow(XtDisplay(w), XtWindow(w)) ;
 #ifdef	NEED_MOTIF
-	    XtVaSetValues(curtw->tabs.topWidget, XmNtraversalOn, False, 0) ;
-	    XtVaSetValues(w, XmNtraversalOn, True, 0) ;
+	  XtVaSetValues(curtw->tabs.topWidget, XmNtraversalOn, False, 0) ;
+	  XtVaSetValues(w, XmNtraversalOn, True, 0) ;
 #endif
 
-	    if( tab->tabs.row != tw->tabs.numRows-1 )
-	      TabsShuffleRows(tw) ;
+	  if( tab->tabs.row != tw->tabs.numRows-1 )
+	    TabsShuffleRows(tw) ;
 
-	    needRedraw = True ;
-	  }
-	  else
-	    tw->tabs.needs_layout = True ;
+	  needRedraw = True ;
+	}
+      else
+	tw->tabs.needs_layout = True ;
+    }
 
-	return needRedraw ;
+  return needRedraw ;
 }
 
 
@@ -1060,7 +1062,6 @@ TabsPage(Widget w, XEvent *event, String *params, Cardinal *num_params)
 	Widget		newtop ;
 	Widget		*childP ;
 	int		idx ;
-	int		i ;
 	int		nc = tw->composite.num_children ;
 
 	if( nc <= 0 )
@@ -1124,7 +1125,6 @@ TabsHighlight(Widget w, XEvent *event, String *params, Cardinal *num_params)
 	Widget		newhl ;
 	Widget		*childP ;
 	int		idx ;
-	int		i ;
 	int		nc = tw->composite.num_children ;
 
 	if( nc <= 0 )
@@ -1271,8 +1271,6 @@ void
 XawTabsSetHighlight(Widget t, Widget w)
 {
 	TabsWidget	tw = (TabsWidget)t ;
-	TabsConstraints tab ;
-	Widget		oldtop = tw->tabs.topWidget ;
 
 	if( !XtIsSubclass(t, tabsWidgetClass) )
 	  return ;

@@ -1,8 +1,10 @@
 #!/bin/sh
 
-cat README > /tmp/DropTest.txt
+TEMPDIR=/tmp
 
-cat > /tmp/DropTest.html <<EOF
+cat README > $TEMPDIR/DropTest.txt
+
+cat > $TEMPDIR/DropTest.html <<EOF
 <HTML>
 <HEAD>
 <TITLE>DropTest Page</TITLE>
@@ -14,7 +16,7 @@ Just a Test!
 </HTML>
 EOF
 
-cat > /tmp/DropTest.tex <<EOF
+cat > $TEMPDIR/DropTest.tex <<EOF
 \documentclass{article}
 
 \begin{document}
@@ -22,7 +24,7 @@ This is a DropTest!
 \end{document}
 EOF
 
-cat > /tmp/DropTest.xpm <<EOF
+cat > $TEMPDIR/DropTest.xpm <<EOF
 /* XPM */
 static char *test[] = {
 /* width height num_colors chars_per_pixel */

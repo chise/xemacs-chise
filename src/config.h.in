@@ -551,6 +551,7 @@ extern "C" {
 #endif
 
 /* Allow the source to use standard types */
+#undef ssize_t
 #undef size_t
 #undef pid_t
 #undef mode_t
@@ -578,6 +579,9 @@ extern "C" {
    error handling changes. */
 #undef HAVE_NAS_SOUND
 #undef NAS_NO_ERROR_JUMP
+
+/* Compile in support for ESD (Enlightened Sound Daemon)? */
+#undef HAVE_ESD_SOUND
 
 /* Compile in support for SunPro usage-tracking code? */
 #undef USAGE_TRACKING

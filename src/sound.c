@@ -45,6 +45,12 @@ Boston, MA 02111-1307, USA.  */
 # include <netdb.h>
 #endif
 
+#ifdef HAVE_ESD_SOUND
+extern int esd_play_sound_file (char *file, int vol);
+extern int esd_play_sound_data (unsigned char *data, size_t length, int vol);
+# define DEVICE_CONNECTED_TO_ESD_P(x) 1 /* FIXME: better check */
+#endif
+
 int bell_volume;
 int bell_inhibit_time;
 Lisp_Object Vsound_alist;
@@ -79,7 +85,8 @@ Windows the sound file must be in WAV format.
 {
   /* This function can call lisp */
   int vol;
-#if defined (HAVE_NATIVE_SOUND) || defined (HAVE_NAS_SOUND)
+#if defined (HAVE_NATIVE_SOUND) || defined (HAVE_NAS_SOUND) \
+       || defined (HAVE_ESD_SOUND)
   struct device *d = decode_device (device);
 #endif
   struct gcpro gcpro1;
@@ -125,6 +132,17 @@ Windows the sound file must be in WAV format.
 	return Qnil;
     }
 #endif /* HAVE_NAS_SOUND */
+
+#ifdef HAVE_ESD_SOUND
+  if (DEVICE_CONNECTED_TO_ESD_P (d))
+    {
+      char *fileext;
+
+      GET_C_STRING_FILENAME_DATA_ALLOCA (file, fileext);
+      if (esd_play_sound_file (fileext, vol))
+       return Qnil;
+    }
+#endif /* HAVE_ESD_SOUND */
 
 #ifdef HAVE_NATIVE_SOUND
   if (NILP (Vnative_sound_only_on_console) || DEVICE_ON_CONSOLE_P (d))
@@ -301,6 +319,18 @@ See the variable `sound-alist'.
 	return Qnil;
     }
 #endif /* HAVE_NAS_SOUND */
+
+#ifdef HAVE_ESD_SOUND
+  if (DEVICE_CONNECTED_TO_ESD_P (d) && STRINGP (sound))
+    {
+      Extbyte *soundext;
+      Extcount soundextlen;
+
+      GET_STRING_BINARY_DATA_ALLOCA (sound, soundext, soundextlen);
+      if (esd_play_sound_data (soundext, soundextlen, vol))
+       return Qnil;
+    }
+#endif /* HAVE_ESD_SOUND */
 
 #ifdef HAVE_NATIVE_SOUND
   if ((NILP (Vnative_sound_only_on_console) || DEVICE_ON_CONSOLE_P (d))

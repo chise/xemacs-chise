@@ -190,6 +190,27 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
   /* Do not compare the values of bufpos and endpos.  They do not
      affect the display characteristics. */
 
+  /* Note: (hanoi 6) spends 95% of its time in redisplay, and about
+     30% here. Not using bitfields for rune.type alone gives a redisplay
+     speed up of 10%.
+
+     #### In profile arcs run of a normal Gnus session this function
+     is run 6.76 million times, only to return 1 in 6.73 million of
+     those.
+
+     In addition a quick look GCC sparc assembly shows that GCC is not
+     doing a good job here.
+     1. The function is not inlined (too complicated?)
+     2. It seems to be reloading the crb and drb variables all the
+     time.
+     3. It doesn't seem to notice that the second half of these if's
+     are really a switch statement.
+
+     So I (JV) conjecture
+
+     #### It would really be worth it to arrange for this function to
+     be (almost) a single call to memcmp. */
+  
   if ((crb->findex != drb->findex) ||
       (WINDOW_FACE_CACHEL_DIRTY (w, drb->findex)))
     return 0;

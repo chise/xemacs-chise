@@ -264,7 +264,7 @@ strings for such applications, for four reasons:
 @item
 They usually occupy one-fourth the space of a vector of the same
 elements.  (This is one-eighth the space for 64-bit machines such as the
-DEC Alpha, and may also be different when @sc{MULE} support is compiled
+DEC Alpha, and may also be different when @sc{mule} support is compiled
 into XEmacs.)
 
 @item

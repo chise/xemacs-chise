@@ -101,6 +101,7 @@ void syms_of_gui_x (void);
 void syms_of_gui (void);
 void syms_of_gutter (void);
 void syms_of_indent (void);
+void syms_of_input_method_xlib (void);
 void syms_of_intl (void);
 void syms_of_keymap (void);
 void syms_of_lread (void);
@@ -148,6 +149,7 @@ void syms_of_widget (void);
 void syms_of_window (void);
 void syms_of_xselect (void);
 void syms_of_eldap (void);
+void syms_of_gpmevent (void);
 
 /* Initialize the console types (dump-time but for reinit_). */
 
@@ -368,6 +370,7 @@ void reinit_vars_of_window (void);
 void vars_of_xselect (void);
 void reinit_vars_of_xselect (void);
 void vars_of_eldap (void);
+void vars_of_gpmevent (void);
 
 /* Initialize specifier variables (dump-time only). */
 

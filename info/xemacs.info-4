@@ -1,5 +1,5 @@
-This is Info file ../../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -570,7 +570,7 @@ you are looking for commands for killing backwards and `C-h a
 kill-backwards <RET>' doesn't reveal any commands, don't give up.  Try
 just `kill', or just `backwards', or just `back'.  Be persistent.
 Pretend you are playing Adventure.  Also note that you can use a
-regular expression as the argument (*note Regexps::.).
+regular expression as the argument (*note Regexps::).
 
    Here is a set of arguments to give to `C-h a' that covers many
 classes of Emacs commands, since there are strong conventions for naming
@@ -611,9 +611,9 @@ normally describes all the commands that are changed in this mode.
 present information about the current Emacs mode that is not covered by
 `C-h m'.  `C-h b' displays a list of all key bindings currently in
 effect, with the local bindings of the current major mode first,
-followed by the global bindings (*note Key Bindings::.).  `C-h s'
+followed by the global bindings (*note Key Bindings::).  `C-h s'
 displays the contents of the syntax table with explanations of each
-character's syntax (*note Syntax::.).
+character's syntax (*note Syntax::).
 
    The other `C-h' options display various files of useful information.
 `C-h C-w' (`describe-no-warranty') displays details on the complete
@@ -751,23 +751,23 @@ Operating on the Region
 
    Once you have created an active region, you can do many things to
 the text in it:
-   * Kill it with `C-w' (*note Killing::.).
+   * Kill it with `C-w' (*note Killing::).
 
-   * Save it in a register with `C-x r s' (*note Registers::.).
+   * Save it in a register with `C-x r s' (*note Registers::).
 
-   * Save it in a buffer or a file (*note Accumulating Text::.).
+   * Save it in a buffer or a file (*note Accumulating Text::).
 
    * Convert case with `C-x C-l' or `C-x C-u'
-     (*note Case::.).
+     (*note Case::).
 
    * Evaluate it as Lisp code with `M-x eval-region' (*note Lisp
-     Eval::.).
+     Eval::).
 
-   * Fill it as text with `M-q' (*note Filling::.).
+   * Fill it as text with `M-q' (*note Filling::).
 
-   * Print hardcopy with `M-x print-region' (*note Hardcopy::.).
+   * Print hardcopy with `M-x print-region' (*note Hardcopy::).
 
-   * Indent it with `C-x <TAB>' or `C-M-\' (*note Indentation::.).
+   * Indent it with `C-x <TAB>' or `C-M-\' (*note Indentation::).
 
 
 File: xemacs.info,  Node: Marking Objects,  Next: Mark Ring,  Prev: Using Region,  Up: Mark
@@ -805,12 +805,12 @@ These characters sometimes save you some typing.
 thus delimit an object in the buffer.  `M-h' (`mark-paragraph') moves
 point to the beginning of the paragraph that surrounds or follows
 point, and puts the mark at the end of that paragraph (*note
-Paragraphs::.).  You can then indent, case-convert, or kill the whole
+Paragraphs::).  You can then indent, case-convert, or kill the whole
 paragraph.  In the same fashion, `C-M-h' (`mark-defun') puts point
 before and the mark after the current or following defun (*note
-Defuns::.).  `C-x C-p' (`mark-page') puts point before the current page
+Defuns::).  `C-x C-p' (`mark-page') puts point before the current page
 (or the next or previous, depending on the argument), and mark at the
-end (*note Pages::.).  The mark goes after the terminating page
+end (*note Pages::).  The mark goes after the terminating page
 delimiter (to include it), while point goes after the preceding page
 delimiter (to exclude it).  Finally, `C-x h' (`mark-whole-buffer') sets
 up the entire buffer as the region by putting point at the beginning
@@ -895,7 +895,7 @@ whole lines.
         The selected region of text is highlighted.
 
    Once a region of text is selected, it becomes the primary X selection
-(*note Using X Selections::.) as well as the Emacs selected region. You
+(*note Using X Selections::) as well as the Emacs selected region. You
 can paste it into other X applications and use the options from the
 Edit pull-down menu on it.  Since it is also the Emacs region, you can
 use Emacs region commands on it.
@@ -1028,7 +1028,7 @@ distinction is made only for erasing text in the buffer.)
    The commands' names and individual descriptions use the words `kill'
 and `delete' to indicate what they do.  If you perform a kill or delete
 command by mistake, use the `C-x u' (`undo') command to undo it (*note
-Undo::.). The delete commands include `C-d' (`delete-char') and <DEL>
+Undo::). The delete commands include `C-d' (`delete-char') and <DEL>
 (`delete-backward-char'), which delete only one character at a time,
 and those commands that delete only spaces or newlines.  Commands that
 can destroy significant amounts of nontrivial data usually kill.
@@ -1149,8 +1149,8 @@ numeric argument acts as a repeat count.  A negative argument means to
 search backward and kill text before point.
 
    Other syntactic units can be killed: words, with `M-<DEL>' and `M-d'
-(*note Words::.); sexps, with `C-M-k' (*note Lists::.); and sentences,
-with `C-x <DEL>' and `M-k' (*note Sentences::.).
+(*note Words::); sexps, with `C-M-k' (*note Lists::); and sentences,
+with `C-x <DEL>' and `M-k' (*note Sentences::).
 
 
 File: xemacs.info,  Node: Yanking,  Next: Using X Selections,  Prev: Killing,  Up: Top

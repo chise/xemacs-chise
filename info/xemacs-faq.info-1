@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs-faq.info, produced by Makeinfo version
-1.68 from the input file xemacs-faq.texi.
+This is ../info/xemacs-faq.info, produced by makeinfo version 4.0 from
+xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -42,7 +42,7 @@ archives.
 * Current Events::      What the Future Holds.
 
 
- -- The Detailed Node Listing --
+ --- The Detailed Node Listing ---
 
 Introduction, Policy, Credits
 
@@ -120,7 +120,7 @@ Trouble Shooting:
 * Q2.1.11::     Can't instantiate image error... in toolbar
 * Q2.1.12::     Regular Expression Problems on DEC OSF1.
 * Q2.1.13::     HP/UX 10.10 and `create_process' failure
-* Q2.1.14::     `C-g' doesn't work for me.  Is it broken?
+* Q2.1.14::     C-g doesn't work for me.  Is it broken?
 * Q2.1.15::     How to debug an XEmacs problem with a debugger.
 * Q2.1.16::     XEmacs crashes in `strcat' on HP/UX 10.
 * Q2.1.17::     `Marker does not point anywhere'.
@@ -176,9 +176,9 @@ The Keyboard:
 * Q3.5.1::      How can I bind complex functions (or macros) to keys?
 * Q3.5.2::      How can I stop down-arrow from adding empty lines to the bottom of my buffers?
 * Q3.5.3::      How do I bind C-. and C-; to scroll one line up and down?
-* Q3.5.4::      Globally binding `Delete'?
+* Q3.5.4::      Globally binding Delete?
 * Q3.5.5::      Scrolling one line at a time.
-* Q3.5.6::      How to map `Help' key alone on Sun type4 keyboard?
+* Q3.5.6::      How to map Help key alone on Sun type4 keyboard?
 * Q3.5.7::      How can you type in special characters in XEmacs?
 * Q3.5.8::      Why does `(global-set-key [delete-forward] 'delete-char)' complain?
 * Q3.5.9::      How do I make the Delete key delete forward?
@@ -198,7 +198,7 @@ The Mouse and Highlighting:
 * Q3.7.5::      Why does cut-and-paste not work between XEmacs and a cmdtool?
 * Q3.7.6::      How I can set XEmacs up so that it pastes where the text cursor is?
 * Q3.7.7::      How do I select a rectangular region?
-* Q3.7.8::      Why does `M-w' take so long?
+* Q3.7.8::      Why does M-w take so long?
 
 The Menubar and Toolbar:
 * Q3.8.1::      How do I get rid of the menu (or menubar)?
@@ -217,7 +217,7 @@ Text Selections:
 * Q3.10.1::     How can I turn off or change highlighted selections?
 * Q3.10.2::     How do I get that typing on an active region removes it?
 * Q3.10.3::     Can I turn off the highlight during isearch?
-* Q3.10.4::     How do I turn off highlighting after `C-x C-p' (mark-page)?
+* Q3.10.4::     How do I turn off highlighting after C-x C-p (mark-page)?
 * Q3.10.5::     The region disappears when I hit the end of buffer while scrolling.
 
 Major Subsystems
@@ -255,6 +255,7 @@ Other Mail & News:
 
 Sparcworks, EOS, and WorkShop:
 * Q4.4.1::      What is SPARCworks, EOS, and WorkShop
+* Q4.4.2::      How do I start the Sun Workshop support in XEmacs 21?
 
 Energize:
 * Q4.5.1::      What is/was Energize?
@@ -316,7 +317,7 @@ Miscellaneous:
 * Q5.3.1::      How do you make XEmacs indent CL if-clauses correctly?
 * Q5.3.2::      Fontifying hangs when editing a postscript file.
 * Q5.3.3::      How can I print WYSIWYG a font-locked buffer?
-* Q5.3.4::      Getting `M-x lpr' to work with postscript printer.
+* Q5.3.4::      Getting M-x lpr to work with postscript printer.
 * Q5.3.5::      How do I specify the paths that XEmacs uses for finding files?
 * Q5.3.6::      [This question intentionally left blank]
 * Q5.3.7::      Can I have the end of the buffer delimited in some way?
@@ -346,24 +347,25 @@ considering XEmacs for their own use, or has just obtained it and is
 wondering what to do next.  It is also useful as a reference to
 available resources.
 
-   The previous maintainer of the FAQ was Anthony Rossini <rossini@stat.sc.edu>, who started it, after getting tired of hearing JWZ complain
-about repeatedly having to answer questions.  Ben Wing <ben@666.com>
-and Chuck Thompson <cthomp@xemacs.org>, the principal authors of
-XEmacs, then took over and Ben did a massive update reorganizing the
-whole thing.  At which point Anthony took back over, but then had to
-give it up again.  Some of the other contributors to this FAQ are
-listed later in this document.
+   The previous maintainer of the FAQ was Anthony Rossini
+<rossini@stat.sc.edu>, who started it, after getting tired of hearing
+JWZ complain about repeatedly having to answer questions.  Ben Wing
+<ben@xemacs.org> and Chuck Thompson <cthomp@xemacs.org>, the principal
+authors of XEmacs, then took over and Ben did a massive update
+reorganizing the whole thing.  At which point Anthony took back over,
+but then had to give it up again.  Some of the other contributors to
+this FAQ are listed later in this document.
 
    The previous version was converted to hypertext format, and edited by
-Steven L. Baur <steve@altair.xemacs.org>.  It was converted back to
-texinfo by Hrvoje Niksic <hniksic@srce.hr>.
+Steven L. Baur <steve@xemacs.org>.  It was converted back to texinfo by
+Hrvoje Niksic <hniksic@xemacs.org>.
 
    The FAQ was then maintained by Andreas Kaempf <andreas@sccon.com>,
-who passed it on to Christian Nybo/ <faq@xemacs.org>, the current FAQ
+who passed it on to Christian Nyb/o <faq@xemacs.org>, the current FAQ
 maintainer.
 
    If you notice any errors or items which should be added or amended to
-this FAQ please send email to Christian Nybo/ <faq@xemacs.org>. Include
+this FAQ please send email to Christian Nyb/o <faq@xemacs.org>. Include
 `XEmacs FAQ' on the Subject: line.
 
 * Menu:
@@ -584,7 +586,8 @@ File: xemacs-faq.info,  Node: Q1.0.10,  Next: Q1.0.11,  Prev: Q1.0.9,  Up: Intro
 Q1.0.10: Is there a port of XEmacs to Microsoft ('95 or NT)?
 ------------------------------------------------------------
 
-   Thanks to efforts of many people, coordinated by David Hobley <davidh@wr.com.au> and Marc Paquette <marcpa@cam.org>, beta versions of
+   Thanks to efforts of many people, coordinated by David Hobley
+<davidh@wr.com.au> and Marc Paquette <marcpa@cam.org>, beta versions of
 XEmacs now run on 32-bit Windows platforms (NT and 95).  The current
 betas require having an X server to run XEmacs; however, a native NT/95
 port is in alpha, thanks to Jonathan Harris <jhar@tardis.ed.ac.uk>.
@@ -601,7 +604,9 @@ mail to <xemacs-nt-request@xemacs.org> to subscribe.
    Furthermore, Altrasoft is seeking corporate and government sponsors
 to help fund a fully native port of XEmacs to Windows 95 and NT using
 full-time, senior-level staff working under a professionally managed
-project structure.  See the Altrasoft web site (http://www.altrasoft.com/) for more details or contact Altrasoft directly at 1-888-ALTSOFT.
+project structure.  See the Altrasoft web site
+(http://www.altrasoft.com/) for more details or contact Altrasoft
+directly at 1-888-ALTSOFT.
 
    The closest existing port is "Win-Emacs", which is based on Lucid
 Emacs 19.6.  Available from `http://www.pearlsoft.com/'.
@@ -619,8 +624,8 @@ Q1.0.11: Is there a port of XEmacs to the Macintosh?
 but no patches have been submitted to the maintainers to get this in the
 mainstream distribution.
 
-   For the MacOS, there is a port of
-Emacs 18.59 (ftp://ftp.cs.cornell.edu/pub/parmet/).
+   For the MacOS, there is a port of Emacs 18.59
+(ftp://ftp.cs.cornell.edu/pub/parmet/).
 
 
 File: xemacs-faq.info,  Node: Q1.0.12,  Next: Q1.0.13,  Prev: Q1.0.11,  Up: Introduction
@@ -671,7 +676,8 @@ purpose are defined as the 5th of the month through the 5th of the
 month.  Preexisting questions that have been changed are marked as such.
 Brand new questions are tagged.
 
-   All submissions are welcome.  E-mail submissions to Christian Nybo/ <faq@xemacs.org>.
+   All submissions are welcome.  E-mail submissions to Christian Nyb/o
+<faq@xemacs.org>.
 
    Please make sure that `XEmacs FAQ' appears on the Subject: line.  If
 you think you have a better way of answering a question, or think a
@@ -701,7 +707,7 @@ File: xemacs-faq.info,  Node: Q1.1.3,  Next: Q1.2.1,  Prev: Q1.1.2,  Up: Introdu
 Q1.1.3: How do I contribute to XEmacs itself?
 ---------------------------------------------
 
-   Ben Wing <ben@666.com> writes:
+   Ben Wing <ben@xemacs.org> writes:
 
      BTW if you have a wish list of things that you want added, you
      have to speak up about it!  More specifically, you can do the
@@ -738,9 +744,10 @@ developers responsible for the 19.16/20.x releases are:
 
    * Martin Buchholz <martin@xemacs.org>
 
-   * Steve Baur <steve@altair.xemacs.org>
+   * Steve Baur <steve@xemacs.org>
 
-   * Hrvoje Niksic <hniksic@srce.hr>
+   * Hrvoje Niksic <hniksic@xemacs.org>
+
 
    The developers responsible for the 19.14 release are:
 
@@ -749,9 +756,10 @@ developers responsible for the 19.16/20.x releases are:
      Chuck was Mr. XEmacs from 19.11 through 19.14, and is responsible
      for XEmacs becoming a widely distributed program over the Internet.
 
-   * Ben Wing <ben@666.com>
+   * Ben Wing <ben@xemacs.org>
 
-   * Jamie Zawinski <jwz@netscape.com>
+
+   * Jamie Zawinski <jwz@jwz.org>
 
      Jamie Zawinski was Mr. Lucid Emacs from 19.0 through 19.10, the
      last release actually named Lucid Emacs.  Richard Mlynarik was
@@ -773,9 +781,10 @@ this version of the FAQ (listed in alphabetical order):
 
    * SL Baur <steve@xemacs.org>
 
-   * Hrvoje Niksic <hniksic@srce.hr>
+   * Hrvoje Niksic <hniksic@xemacs.org>
 
    * Aki Vehtari <Aki.Vehtari@hut.fi>
+
 
 
 File: xemacs-faq.info,  Node: Q1.2.3,  Next: Q1.3.1,  Prev: Q1.2.2,  Up: Introduction
@@ -834,7 +843,7 @@ in February 1998.  When compiled without MULE support, 20.4 is
 approximately as stable as 19.16, and probably faster (due to
 additional optimization work.)
 
-   As of XEmacs 20.3, version 20 is *the* supported version of XEmacs.
+   As of XEmacs 20.3, version 20 is _the_ supported version of XEmacs.
 This means that 19.16 will optionally receive stability fixes (if any),
 but that all the real development work will be done on the v20 tree.
 
@@ -879,7 +888,7 @@ for your convenience.
      characters.  If XEmacs was not compiled with MULE support, the
      range of this integer will always be 0 to 255 - eight bits, or one
      byte. (Integers outside this range are accepted but silently
-     truncated; however, you should most decidedly *not* rely on this,
+     truncated; however, you should most decidedly _not_ rely on this,
      because it will not work under XEmacs with MULE support.)  When
      MULE support is present, the range of character codes is much
      larger. (Currently, 19 bits are used.)
@@ -892,7 +901,7 @@ for your convenience.
      XEmacs.
 
      Individual characters are not often used in programs.  It is far
-     more common to work with *strings*, which are sequences composed of
+     more common to work with _strings_, which are sequences composed of
      characters.
 
 
@@ -919,7 +928,7 @@ File: xemacs-faq.info,  Node: Q1.3.3,  Next: Q1.3.4,  Prev: Q1.3.2,  Up: Introdu
 Q1.3.3: How do I type non-ASCII characters?
 -------------------------------------------
 
-   See question 3.5.7 (*note Q3.5.7::.) in part 3 of this FAQ.
+   See question 3.5.7 (*note Q3.5.7::) in part 3 of this FAQ.
 
 
 File: xemacs-faq.info,  Node: Q1.3.4,  Next: Q1.3.5,  Prev: Q1.3.3,  Up: Introduction
@@ -928,8 +937,8 @@ Q1.3.4: Can XEmacs messages come out in a different language?
 -------------------------------------------------------------
 
    The message-catalog support has mostly been written but doesn't
-currently work.  The first release of XEmacs 20 will *not* support it.
-However, menubar localization *does* work, even in 19.14.  To enable
+currently work.  The first release of XEmacs 20 will _not_ support it.
+However, menubar localization _does_ work, even in 19.14.  To enable
 it, add to your `Emacs' file entries like this:
 
      Emacs*XlwMenu.resourceLabels:			True
@@ -1075,9 +1084,9 @@ directory called `sample.emacs'.  Copy this file from there to your
 home directory and rename it `.emacs'.  Then edit it to suit.
 
    Starting with 19.14, you may bring the `sample.emacs' into an XEmacs
-buffer by selecting `Help->Samples->Sample .emacs' from the menubar.
-To determine the location of the `etc' directory type the command `C-h
-v data-directory <RET>'.
+buffer by selecting `Help->Sample .emacs' from the menubar.  To
+determine the location of the `etc' directory type the command `C-h v
+data-directory <RET>'.
 
 
 File: xemacs-faq.info,  Node: Q1.4.2,  Next: Q1.4.3,  Prev: Q1.4.1,  Up: Introduction

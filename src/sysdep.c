@@ -567,7 +567,7 @@ restore_signal_handlers (struct save_signal *saved_handlers)
 }
 
 #ifdef WINDOWSNT
-int
+pid_t
 sys_getpid (void)
 {
   return abs (getpid ());
@@ -2573,8 +2573,8 @@ mswindows_set_last_errno (void)
 
 /* Ben sez: read Dick Gabriel's essay about the Worse Is Better
    approach to programming and its connection to the silly
-   interruptible-system-call business.  To find it, look at
-   Jamie's home page (http://www.netscape.com/people/jwz). */
+   interruptible-system-call business.  To find it, look on
+   Jamie's home page (http://www.jwz.org/worse-is-better.html). */
 
 #ifdef ENCAPSULATE_OPEN
 int
@@ -2638,13 +2638,13 @@ interruptible_open (CONST char *path, int oflag, int mode)
 
 #ifdef ENCAPSULATE_CLOSE
 int
-sys_close (int fd)
+sys_close (int filedes)
 {
 #ifdef INTERRUPTIBLE_CLOSE
   int did_retry = 0;
   REGISTER int rtnval;
 
-  while ((rtnval = close (fd)) == -1
+  while ((rtnval = close (filedes)) == -1
 	 && (errno == EINTR))
     did_retry = 1;
 
@@ -2656,15 +2656,15 @@ sys_close (int fd)
 
   return rtnval;
 #else
-  return close (fd);
+  return close (filedes);
 #endif
 }
 #endif /* ENCAPSULATE_CLOSE */
 
-int
+ssize_t
 sys_read_1 (int fildes, void *buf, size_t nbyte, int allow_quit)
 {
-  int rtnval;
+  ssize_t rtnval;
 
   /* No harm in looping regardless of the INTERRUPTIBLE_IO setting. */
   while ((rtnval = read (fildes, buf, nbyte)) == -1
@@ -2677,24 +2677,23 @@ sys_read_1 (int fildes, void *buf, size_t nbyte, int allow_quit)
 }
 
 #ifdef ENCAPSULATE_READ
-int
+ssize_t
 sys_read (int fildes, void *buf, size_t nbyte)
 {
   return sys_read_1 (fildes, buf, nbyte, 0);
 }
 #endif /* ENCAPSULATE_READ */
 
-int
+ssize_t
 sys_write_1 (int fildes, CONST void *buf, size_t nbyte, int allow_quit)
 {
-  int rtnval;
-  int bytes_written = 0;
+  ssize_t bytes_written = 0;
   CONST char *b = (CONST char *) buf;
 
   /* No harm in looping regardless of the INTERRUPTIBLE_IO setting. */
   while (nbyte > 0)
     {
-      rtnval = write (fildes, b, nbyte);
+      ssize_t rtnval = write (fildes, b, nbyte);
 
       if (allow_quit)
 	REALLY_QUIT;
@@ -2704,17 +2703,17 @@ sys_write_1 (int fildes, CONST void *buf, size_t nbyte, int allow_quit)
 	  if (errno == EINTR)
 	    continue;
 	  else
-            return (bytes_written ? bytes_written : -1);
+            return bytes_written ? bytes_written : -1;
 	}
       b += rtnval;
       nbyte -= rtnval;
       bytes_written += rtnval;
     }
-  return (bytes_written);
+  return bytes_written;
 }
 
 #ifdef ENCAPSULATE_WRITE
-int
+ssize_t
 sys_write (int fildes, CONST void *buf, size_t nbyte)
 {
   return sys_write_1 (fildes, buf, nbyte, 0);

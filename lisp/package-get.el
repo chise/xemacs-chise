@@ -225,7 +225,7 @@ variable actually used to specify package download sites."
   :group 'package-get)
 
 (defcustom package-get-remove-copy t
-  "*After copying and installing a package, if this is T, then remove the
+  "*After copying and installing a package, if this is t, then remove the
 copy.  Otherwise, keep it around."
   :type 'boolean
   :group 'package-get)

@@ -4,7 +4,7 @@
 
 ;; Author: Joe Wells <jbw@bigbird.bu.edu>
 ;; Rewritten: Daniel.Pfeiffer@Informatik.START.dbp.de, fax (+49 69) 7588-2389
-;; Maintainer: SL Baur <steve@altair.xemacs.org>
+;; Maintainer: SL Baur <steve@xemacs.org>
 ;; Keywords: help
 
 ;; This file is part of XEmacs.
@@ -377,7 +377,7 @@ Returns list of symbols and documentation found."
 
 (defun apropos-documentation-check-doc-file ()
   (let (type symbol (sepa 2) sepb beg end)
-    (princ ?\^_)
+    (insert ?\^_)
     (backward-char)
     (insert-file-contents (concat doc-directory internal-doc-file-name))
     (forward-char)

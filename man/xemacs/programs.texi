@@ -508,7 +508,7 @@ indentation is computed by @kbd{C-M-q}; if the value is a number,
 until the end of the list.
 @end table
 
-@node C Indent,, Lisp Indent, Grinding
+@node C Indent,  , Lisp Indent, Grinding
 @subsection Customizing C Indentation
 
   Two variables control which commands perform C indentation and when.
@@ -1012,7 +1012,7 @@ broken up into files.  It lists the names of the component files and the
 names and positions of the functions (or other named subunits) in each
 file.  Grouping the related files makes it possible to search or replace
 through all the files with one command.  Recording the function names
-and positions makes possible the @kbd{M-.}  command which finds the
+and positions makes possible the @kbd{M-.} command which finds the
 definition of a function by looking up which of the files it is in.
 
   Tags tables are stored in files called @dfn{tags table files}.  The
@@ -1029,15 +1029,16 @@ global variables, data types, and anything else convenient.  Each name
 recorded is called a @dfn{tag}.
 
 @menu
-* Tag Syntax::		Tag syntax for various types of code and text files.  
+* Tag Syntax::		Tag syntax for various types of code and text files.
 * Create Tags Table::	Creating a tags table with @code{etags}.
+* Etags Regexps::       Create arbitrary tags using regular expressions.
 * Select Tags Table::	How to visit a tags table.
-* Find Tag::		Commands to find the definition of a specific tag. 
+* Find Tag::		Commands to find the definition of a specific tag.
 * Tags Search::		Using a tags table for searching and replacing.
 * List Tags::		Listing and finding tags defined in a file.
 @end menu
 
-@node Tag Syntax
+@node Tag Syntax, Create Tags Table, Tags, Tags
 @subsection Source File Tag Syntax
 
   Here is how tag syntax is defined for the most popular languages:
@@ -1045,25 +1046,28 @@ recorded is called a @dfn{tag}.
 @itemize @bullet
 @item
 In C code, any C function or typedef is a tag, and so are definitions of
-@code{struct}, @code{union} and @code{enum}.  @code{#define} macro
-definitions and @code{enum} constants are also tags, unless you specify
-@samp{--no-defines} when making the tags table.  Similarly, global
-variables are tags, unless you specify @samp{--no-globals}.  Use of
-@samp{--no-globals} and @samp{--no-defines} can make the tags table file
-much smaller.
+@code{struct}, @code{union} and @code{enum}.  You can tag function
+declarations and external variables in addition to function definitions
+by giving the @samp{--declarations} option to @code{etags}.
+@code{#define} macro definitions and @code{enum} constants are also
+tags, unless you specify @samp{--no-defines} when making the tags table.
+Similarly, global variables are tags, unless you specify
+@samp{--no-globals}.  Use of @samp{--no-globals} and @samp{--no-defines}
+can make the tags table file much smaller.
 
 @item
 In C++ code, in addition to all the tag constructs of C code, member
 functions are also recognized, and optionally member variables if you
 use the @samp{--members} option.  Tags for variables and functions in
 classes are named @samp{@var{class}::@var{variable}} and
-@samp{@var{class}::@var{function}}.
+@samp{@var{class}::@var{function}}.  @code{operator} functions tags are
+named, for example @samp{operator+}.
 
 @item
 In Java code, tags include all the constructs recognized in C++, plus
-the @code{extends} and @code{implements} constructs.  Tags for variables
-and functions in classes are named @samp{@var{class}.@var{variable}} and
-@samp{@var{class}.@var{function}}.
+the @code{interface}, @code{extends} and @code{implements} constructs.
+Tags for variables and functions in classes are named
+@samp{@var{class}.@var{variable}} and @samp{@var{class}.@var{function}}.
 
 @item
 In La@TeX{} text, the argument of any of the commands @code{\chapter},
@@ -1075,7 +1079,7 @@ tag.@refill
 Other commands can make tags as well, if you specify them in the
 environment variable @code{TEXTAGS} before invoking @code{etags}.  The
 value of this environment variable should be a colon-separated list of
-commands names.  For example,
+command names.  For example,
 
 @example
 TEXTAGS="def:newcommand:newenvironment"
@@ -1101,6 +1105,12 @@ set with @code{set!} at top level in the file.
   Several other languages are also supported:
 
 @itemize @bullet
+
+@item
+In Ada code, functions, procedures, packages, tasks, and types are
+tags.  Use the @samp{--packages-only} option to create tags for packages
+only.
+
 @item
 In assembler code, labels appearing at the beginning of a line,
 followed by a colon, are tags.
@@ -1111,39 +1121,44 @@ it constructs.  The portions of the file that contain C code are parsed
 as C code.
 
 @item
-In Cobol code, paragraphs names are the tags, i.e. any word starting in
-column 8 and followed by a full stop.
+In Cobol code, tags are paragraph names; that is, any word starting in
+column 8 and followed by a period.
 
 @item
 In Erlang code, the tags are the functions, records, and macros defined
 in the file.
 
 @item
-In Fortran code, functions and subroutines are tags.
+In Fortran code, functions, subroutines and blockdata are tags.
 
 @item
 In Objective C code, tags include Objective C definitions for classes,
-class categories, methods and protocols.
+class categories, methods, and protocols.
 
 @item
 In Pascal code, the tags are the functions and procedures defined in
 the file.
 
 @item
-In Perl code, the tags are the procedures defined by the @code{sub}
-keyword.
+In Perl code, the tags are the procedures defined by the @code{sub},
+@code{my} and @code{local} keywords.  Use @samp{--globals} if you want
+to tag global variables.
 
 @item
 In Postscript code, the tags are the functions.
 
 @item
 In Prolog code, a tag name appears at the left margin.
+
+@item
+In Python code, @code{def} or @code{class} at the beginning of a line
+generate a tag.
 @end itemize
 
-  You can also generate tags based on regexp matching (@pxref{Create
-Tags Table}) to handle other formats and languages.
+  You can also generate tags based on regexp matching 
+(@pxref{Etags Regexps}) to handle other formats and languages.
 
-@node Create Tags Table
+@node Create Tags Table, Etags Regexps, Tag Syntax, Tags
 @subsection Creating Tags Tables
 @cindex @code{etags} program
 
@@ -1162,10 +1177,18 @@ etags @var{inputfiles}@dots{}
 @end example
 
 @noindent
-The @code{etags} program reads the specified files, and writes a tags table
-named @file{TAGS} in the current working directory.  @code{etags}
-recognizes the language used in an input file based on its file name and
-contents.  You can specify the language with the
+The @code{etags} program reads the specified files, and writes a tags
+table named @file{TAGS} in the current working directory.  You can
+intermix compressed and plain text source file names.  @code{etags}
+knows about the most common compression formats, and does the right
+thing.  So you can compress all your source files and have @code{etags}
+look for compressed versions of its file name arguments, if it does not
+find uncompressed versions.  Under MS-DOS, @code{etags} also looks for
+file names like @samp{mycode.cgz} if it is given @samp{mycode.c} on the
+command line and @samp{mycode.c} does not exist.
+
+  @code{etags} recognizes the language used in an input file based on
+its file name and contents.  You can specify the language with the
 @samp{--language=@var{name}} option, described below.
 
   If the tags table data become outdated due to changes in the files
@@ -1202,7 +1225,7 @@ files.
 the tags file will contain absolute file names.  This way, the tags file
 will still refer to the same files even if you move it, as long as the
 source files remain in the same place.  Absolute file names start with
-@samp{/}, or with @samp{@var{device}:/} on MS-DOS and Windows.
+@samp{/}, or with @samp{@var{device}:/} on MS-DOS and MS-Windows.
 
   When you want to make a tags table from a great number of files, you
 may have problems listing them on the command line, because some systems
@@ -1210,9 +1233,9 @@ have a limit on its length.  The simplest way to circumvent this limit
 is to tell @code{etags} to read the file names from its standard input,
 by typing a dash in place of the file names, like this:
 
-@example
+@smallexample
 find . -name "*.[chCH]" -print | etags -
-@end example
+@end smallexample
 
   Use the option @samp{--language=@var{name}} to specify the language
 explicitly.  You can intermix these options with file names; each one
@@ -1220,18 +1243,25 @@ applies to the file names that follow it.  Specify
 @samp{--language=auto} to tell @code{etags} to resume guessing the
 language from the file names and file contents.  Specify
 @samp{--language=none} to turn off language-specific processing
-entirely; then @code{etags} recognizes tags by regexp matching alone.
-@samp{etags --help} prints the list of the languages @code{etags} knows,
-and the file name rules for guessing the language.
+entirely; then @code{etags} recognizes tags by regexp matching alone
+(@pxref{Etags Regexps}).
+
+  @samp{etags --help} prints the list of the languages @code{etags}
+knows, and the file name rules for guessing the language. It also prints
+a list of all the available @code{etags} options, together with a short
+explanation.
+
+@node Etags Regexps, Select Tags Table, Create Tags Table, Tags
+@subsection Etags Regexps
 
   The @samp{--regex} option provides a general way of recognizing tags
 based on regexp matching.  You can freely intermix it with file names.
 Each @samp{--regex} option adds to the preceding ones, and applies only
 to the following files.  The syntax is:
 
-@example
+@smallexample
 --regex=/@var{tagregexp}[/@var{nameregexp}]/
-@end example
+@end smallexample
 
 @noindent
 where @var{tagregexp} is used to match the lines to tag.  It is always
@@ -1251,18 +1281,25 @@ expression at least @var{m} times and up to @var{n} times.
 
   You should not match more characters with @var{tagregexp} than that
 needed to recognize what you want to tag.  If the match is such that
-more characters than needed are unavoidably matched by @var{tagregexp},
-you may find useful to add a @var{nameregexp}, in order to narrow the tag
-scope.  You can find some examples below.
+more characters than needed are unavoidably matched by @var{tagregexp}
+(as will usually be the case), you should add a @var{nameregexp}, to
+pick out just the tag.  This will enable Emacs to find tags more
+accurately and to do completion on tag names more reliably.  You can
+find some examples below.
+
+  The option @samp{--ignore-case-regex} (or @samp{-c}) is like
+@samp{--regex}, except that the regular expression provided will be
+matched without regard to case, which is appropriate for various
+programming languages.
 
   The @samp{-R} option deletes all the regexps defined with
 @samp{--regex} options.  It applies to the file names following it, as
 you can see from the following example:
 
-@example
+@smallexample
 etags --regex=/@var{reg1}/ voo.doo --regex=/@var{reg2}/ \
     bar.ber -R --lang=lisp los.er
-@end example
+@end smallexample
 
 @noindent
 Here @code{etags} chooses the parsing language for @file{voo.doo} and
@@ -1272,38 +1309,90 @@ Here @code{etags} chooses the parsing language for @file{voo.doo} and
 @file{bar.ber}.  @code{etags} uses the Lisp tags rules, and no regexp
 matching, to recognize tags in @file{los.er}.
 
+  A regular expression can be bound to a given language, by prepending
+it with @samp{@{lang@}}.  When you do this, @code{etags} will use the
+regular expression only for files of that language.  @samp{etags --help}
+prints the list of languages recognised by @code{etags}.  The following
+example tags the @code{DEFVAR} macros in the Emacs source files.
+@code{etags} applies this regular expression to C files only:
+
+@smallexample
+--regex='@{c@}/[ \t]*DEFVAR_[A-Z_ \t(]+"\([^"]+\)"/'
+@end smallexample
+
+@noindent
+This feature is particularly useful when storing a list of regular
+expressions in a file.  The following option syntax instructs
+@code{etags} to read two files of regular expressions.  The regular
+expressions contained in the second file are matched without regard to
+case.
+
+@smallexample
+--regex=@@first-file --ignore-case-regex=@@second-file
+@end smallexample
+
+@noindent
+A regex file contains one regular expressions per line.  Empty lines,
+and lines beginning with space or tab are ignored.  When the first
+character in a line is @samp{@@}, @code{etags} assumes that the rest of
+the line is the name of a file of regular expressions.  This means that
+such files can be nested.  All the other lines are taken to be regular
+expressions.  For example, one can create a file called
+@samp{emacs.tags} with the following contents (the first line in the
+file is a comment):
+
+@smallexample
+        -- This is for GNU Emacs source files
+@{c@}/[ \t]*DEFVAR_[A-Z_ \t(]+"\([^"]+\)"/\1/
+@end smallexample
+
+@noindent
+and then use it like this:
+
+@smallexample
+etags --regex=@@emacs.tags *.[ch] */*.[ch]
+@end smallexample
+
   Here are some more examples.  The regexps are quoted to protect them
 from shell interpretation.
 
+@itemize @bullet
+
+@item
+Tag Octave files:
+
+@smallexample
+etags --language=none \
+      --regex='/[ \t]*function.*=[ \t]*\([^ \t]*\)[ \t]*(/\1/' \
+      --regex='/###key \(.*\)/\1/' \
+      --regex='/[ \t]*global[ \t].*/' \
+      *.m
+@end smallexample
+
 @noindent
-Tag the @code{DEFVAR} macros in the emacs source files:
+Note that tags are not generated for scripts so that you have to add a
+line by yourself of the form `###key <script-name>' if you want to jump
+to it.
 
-@example
---regex='/[ \t]*DEFVAR_[A-Z_ \t(]+"\([^"]+\)"/'
-@end example
+@item
+Tag Tcl files:
 
-@noindent
-Tag VHDL files (this example is a single long line, broken here for
-formatting reasons):
+@smallexample
+etags --language=none --regex='/proc[ \t]+\([^ \t]+\)/\1/' *.tcl
+@end smallexample
 
-@example
---language=none
---regex='/[ \t]*\(ARCHITECTURE\|CONFIGURATION\) +[^ ]* +OF/'
+@item
+Tag VHDL files:
+
+@smallexample
+--language=none \
+--regex='/[ \t]*\(ARCHITECTURE\|CONFIGURATION\) +[^ ]* +OF/' \
 --regex='/[ \t]*\(ATTRIBUTE\|ENTITY\|FUNCTION\|PACKAGE\
 \( BODY\)?\|PROCEDURE\|PROCESS\|TYPE\)[ \t]+\([^ \t(]+\)/\3/'
-@end example
+@end smallexample
+@end itemize
 
-@noindent
-Tag TCL files (this last example shows the usage of a @var{nameregexp}):
-
-@example
---lang=none --regex='/proc[ \t]+\([^ \t]+\)/\1/'
-@end example
-
-  For a list of the other available @code{etags} options, execute
-@code{etags --help}.
-
-@node Select Tags Table, Find Tag, Create Tags Table, Tags
+@node Select Tags Table, Find Tag, Etags Regexps, Tags
 @subsection Selecting a Tags Table
 
 @vindex tag-table-alist
@@ -1555,7 +1644,7 @@ file in the tags table and prepare to advance sequentially by files.
 Visit the next file in the selected tags table.
 @end table
 
-@node List Tags,, Tags Search, Tags
+@node List Tags,  , Tags Search, Tags
 @subsection Tags Table Inquiries
 
 @table @kbd
@@ -1740,7 +1829,7 @@ indent some lines unaesthetically.  However, a correct Fortran program will
 retain its meaning when reindented even if the conventions are not
 followed.
 
-@node ForIndent Vars,, ForIndent Conv, Fortran Indent
+@node ForIndent Vars,  , ForIndent Conv, Fortran Indent
 @subsubsection Variables for Fortran Indentation
 
 @vindex fortran-do-indent
@@ -1897,7 +1986,7 @@ command which splits the current window horizontally, resulting in a window 72
 columns wide.  When you edit in this window, you can immediately see
 when a line gets too wide to be correct Fortran.
 
-@node Fortran Abbrev,, Fortran Columns, Fortran
+@node Fortran Abbrev,  , Fortran Columns, Fortran
 @subsection Fortran Keyword Abbrevs
 
   Fortran mode provides many built-in abbrevs for common keywords and
@@ -1917,7 +2006,7 @@ automatically to @samp{continue}, provided Abbrev mode is enabled.@refill
   Type @samp{;?} or @samp{;C-h} to display a list of all built-in
 Fortran abbrevs and what they stand for.
 
-@node Asm Mode,, Fortran, Programs
+@node Asm Mode,  , Fortran, Programs
 @section Asm Mode
 
 @cindex Asm mode

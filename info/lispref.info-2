@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -477,7 +477,7 @@ function or variable name, as appropriate.  Also state the number of
 the edition which you are criticizing.
 
    This manual was originally written for FSF Emacs 19 and was updated
-by Ben Wing (wing@666.com) for Lucid Emacs 19.10 and later for XEmacs
+by Ben Wing (ben@xemacs.org) for Lucid Emacs 19.10 and later for XEmacs
 19.12, 19.13, 19.14, and 20.0.  It was further updated by the XEmacs
 Development Team for 19.15 and 20.1.  Please send comments and
 corrections relating to XEmacs-specific portions of this manual to
@@ -667,7 +667,7 @@ and "after" versions of the text.  These examples show the contents of
 the buffer in question between two lines of dashes containing the buffer
 name.  In addition, `-!-' indicates the location of point.  (The symbol
 for point, of course, is not part of the text in the buffer; it
-indicates the place *between* two characters where point is located.)
+indicates the place _between_ two characters where point is located.)
 
      ---------- Buffer: foo ----------
      This is the -!-contents of foo.
@@ -723,7 +723,7 @@ Do not write `&rest' when you call the function.
 
    Here is a description of an imaginary function `foo':
 
- - Function: foo INTEGER1 &optional INTEGER2 &rest INTEGERS
+ - Function: foo integer1 &optional integer2 &rest integers
      The function `foo' subtracts INTEGER1 from INTEGER2, then adds all
      the rest of the arguments to the result.  If INTEGER2 is not
      supplied, then the number 19 is used by default.
@@ -939,7 +939,7 @@ signals the error `invalid-read-syntax' whenever it encounters `#<'.
 
    When you evaluate an expression interactively, the Lisp interpreter
 first reads the textual representation of it, producing a Lisp object,
-and then evaluates that object (*note Evaluation::.).  However,
+and then evaluates that object (*note Evaluation::).  However,
 evaluation and reading are separate activities.  Reading returns the
 Lisp object represented by the text that is read; the object may or may
 not be evaluated later.  *Note Input Functions::, for a description of
@@ -962,7 +962,7 @@ system.
    The `#@COUNT' construct, which skips the next COUNT characters, is
 useful for program-generated comments containing binary data.  The
 XEmacs Lisp byte compiler uses this in its output files (*note Byte
-Compilation::.).  It isn't meant for source files, however.
+Compilation::).  It isn't meant for source files, however.
 
    *Note Comment Tips::, for conventions for formatting comments.
 
@@ -1138,7 +1138,7 @@ Integer Type
 machines, in particular 64-bit machines such as the DEC Alpha, may
 provide a wider range.)  It is important to note that the XEmacs Lisp
 arithmetic functions do not check for overflow.  Thus `(1+ 134217727)'
-is -134217728 on most machines. (However, you *will* get an error if
+is -134217728 on most machines. (However, you _will_ get an error if
 you attempt to read an out-of-range number using the Lisp reader.)
 
    The read syntax for integers is a sequence of (base ten) digits with

@@ -29,7 +29,7 @@
 ;; type of char table.  Some function names / arguments should be
 ;; parallel with syntax tables.
 
-;; Written by Ben Wing <wing@666.com>.  The initialization code
+;; Written by Ben Wing <ben@xemacs.org>.  The initialization code
 ;; at the end of this file comes from Mule.
 ;; Some bugfixes by Jareth Hein <jhod@po.iijnet.or.jp>
 

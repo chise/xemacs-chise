@@ -33,7 +33,7 @@
 
 ;; 97/3/14 Jareth Hein (jhod@po.iijnet.or.jp) added functions for kinsoku (asian text
 ;; line break processing)
-;; 97/06/11 Steve Baur (steve@altair.xemacs.org) converted broken
+;; 97/06/11 Steve Baur (steve@xemacs.org) converted broken
 ;;  following-char/preceding-char calls to char-after/char-before.
 
 ;;; Code:

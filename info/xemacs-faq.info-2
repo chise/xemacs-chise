@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs-faq.info, produced by Makeinfo version
-1.68 from the input file xemacs-faq.texi.
+This is ../info/xemacs-faq.info, produced by makeinfo version 4.0 from
+xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -47,7 +47,7 @@ Trouble Shooting:
 * Q2.1.11::     Can't instantiate image error... in toolbar
 * Q2.1.12::     Regular Expression Problems on DEC OSF1.
 * Q2.1.13::     HP/UX 10.10 and `create_process' failure
-* Q2.1.14::     `C-g' doesn't work for me.  Is it broken?
+* Q2.1.14::     C-g doesn't work for me.  Is it broken?
 * Q2.1.15::     How to debug an XEmacs problem with a debugger.
 * Q2.1.16::     XEmacs crashes in `strcat' on HP/UX 10.
 * Q2.1.17::     `Marker does not point anywhere'.
@@ -93,7 +93,7 @@ Q2.0.2: XEmacs is too big
    Although this entry has been written for XEmacs 19.13, most of it
 still stands true.
 
-   Steve Baur <steve@altair.xemacs.org> writes:
+   Steve Baur <steve@xemacs.org> writes:
 
      The 45MB of space required by the installation directories can be
      reduced dramatically if desired.  Gzip all the .el files.  Remove
@@ -180,15 +180,15 @@ still stands true.
 
      These are all Emacs Lisp source code and bytecompiled object code.
      You may safely gzip everything named *.el here.  You may remove
-     any package you don't use.  *Nothing bad will happen if you delete
-     a package that you do not use*.  You must be sure you do not use
+     any package you don't use.  _Nothing bad will happen if you delete
+     a package that you do not use_.  You must be sure you do not use
      it though, so be conservative at first.
 
      Possible candidates for deletion include w3 (newer versions exist,
      or you may just use Lynx or Netscape for web browsing), games,
      hyperbole, mh-e, hm-html-menus (better packages exist), vm, viper,
-     oobr, gnus (new versions exist), etc.  Ask yourself, *Do I ever
-     want to use this package?*  If the answer is no, then it is a
+     oobr, gnus (new versions exist), etc.  Ask yourself, _Do I ever
+     want to use this package?_  If the answer is no, then it is a
      candidate for removal.
 
      First, gzip all the .el files.  Then go about package by package
@@ -295,7 +295,7 @@ libc 5.2.18, XEmacs 20.0b20 is unable to open a tty device:
      Initialization error:
      Terminal type `xterm' undefined (or can't access database?)
 
-   Ben Wing <ben@666.com> writes:
+   Ben Wing <ben@xemacs.org> writes:
 
      Your ncurses configuration is messed up.  Your /usr/lib/terminfo
      is a bad pointer, perhaps to a CD-ROM that is not inserted.
@@ -351,14 +351,14 @@ ELF libraries are out of date.  You have the following options:
   3. Rebuild XEmacs yourself - any working ELF version of libc should be
      O.K.
 
-   Hrvoje Niksic <hniksic@srce.hr> writes:
+   Hrvoje Niksic <hniksic@xemacs.org> writes:
 
      Why not use a Perl one-liner for No. 2?
 
           perl -pi -e 's/_h_errno\0/h_errno\0\0/g' \
           /usr/local/bin/xemacs-19.14
 
-     NB: You *must* patch `/usr/local/bin/xemacs-19.14', and not
+     NB: You _must_ patch `/usr/local/bin/xemacs-19.14', and not
      `xemacs' because `xemacs' is a link to `xemacs-19.14'; the Perl
      `-i' option will cause unwanted side-effects if applied to a
      symbolic link.
@@ -409,8 +409,8 @@ PNG
 Compface
      `ftp://ftp.cs.indiana.edu/pub/faces/compface/'.  This library has
      been frozen for about 6 years, and is distributed without version
-     numbers.  *It should be compiled with the same options that X11 was
-     compiled with on your system*.  The version of this library at
+     numbers.  _It should be compiled with the same options that X11 was
+     compiled with on your system_.  The version of this library at
      XEmacs.org includes the `xbm2xface.pl' script, written by
      <stig@hackvan.com>, which may be useful when generating your own
      xface.
@@ -889,7 +889,7 @@ File: xemacs-faq.info,  Node: Q2.1.14,  Next: Q2.1.15,  Prev: Q2.1.13,  Up: Inst
 Q2.1.14: `C-g' doesn't work for me.  Is it broken?
 --------------------------------------------------
 
-   Ben Wing <ben@666.com> writes:
+   Ben Wing <ben@xemacs.org> writes:
 
      `C-g' does work for most people in most circumstances.  If it
      doesn't, there are only two explanations:
@@ -905,7 +905,7 @@ Q2.1.14: `C-g' doesn't work for me.  Is it broken?
 
    Morten Welinder <terra@diku.dk> writes:
 
-     On some (but *not* all) machines a hung XEmacs can be revived by
+     On some (but _not_ all) machines a hung XEmacs can be revived by
      `kill -FPE <pid>'.  This is a hack, of course, not a solution.
      This technique works on a Sun4 running 4.1.3_U1.  To see if it
      works for you, start another XEmacs and test with that first.  If
@@ -1033,6 +1033,7 @@ debugger.  Here are some hints:
      `gdbinit' files provided in the `src' directory.  Use the one
      corresponding to the configure options used when building XEmacs.
 
+
 
 File: xemacs-faq.info,  Node: Q2.1.16,  Next: Q2.1.17,  Prev: Q2.1.15,  Up: Installation
 
@@ -1100,12 +1101,12 @@ Q2.1.18: 19.14 hangs on HP/UX 10.10.
      Apparently somebody has found the reason why there is this `poll:
      interrupted...' message for each event.  For some reason, libcurses
      reimplements a `select()' system call, in a highly broken fashion.
-     The fix is to add a -lc to the link line *before* the -lxcurses.
+     The fix is to add a -lc to the link line _before_ the -lxcurses.
      XEmacs will then use the right version of `select()'.
 
    Alain Fauconnet <af@biomath.jussieu.fr> writes:
 
-     The *real* solution is to *not* link -lcurses in!  I just changed
+     The _real_ solution is to _not_ link -lcurses in!  I just changed
      -lcurses to -ltermcap in the Makefile and it fixed:
 
        1. The `poll: interrupted system call' message.
@@ -1113,7 +1114,7 @@ Q2.1.18: 19.14 hangs on HP/UX 10.10.
        2. A more serious problem I had discovered in the meantime, that
           is the fact that subprocess handling was seriously broken:
           subprocesses e.g. started by AUC TeX for TeX compilation of a
-          buffer would *hang*.  Actually they would wait forever for
+          buffer would _hang_.  Actually they would wait forever for
           emacs to read the socket which connects stdout...
 
 

@@ -294,7 +294,7 @@ static const struct struct_description ccs_description = {
   sizeof(charset_conversion_spec),
   ccs_description_1
 };
-  
+
 static const struct lrecord_description ccsd_description_1[] = {
   XD_DYNARR_DESC(charset_conversion_spec_dynarr, &ccs_description),
   { XD_END }
@@ -1053,7 +1053,7 @@ Define symbol ALIAS as an alias for coding system CODING-SYSTEM.
       FROB (CR,   "-mac");
 #undef FROB
     }
-  /* FSF return value is a vector of [ALIAS-unix ALIAS-doc ALIAS-mac],
+  /* FSF return value is a vector of [ALIAS-unix ALIAS-dos ALIAS-mac],
      but it doesn't look intentional, so I'd rather return something
      meaningful or nothing at all. */
   return Qnil;
@@ -1491,21 +1491,19 @@ detect_eol_type (struct detection_state *st, CONST unsigned char *src,
   while (n--)
     {
       c = *src++;
-      if (c == '\r')
+      if (c == '\n')
+	{
+	  if (st->eol.just_saw_cr)
+	    return EOL_CRLF;
+	  else if (st->eol.seen_anything)
+	    return EOL_LF;
+	}
+      else if (st->eol.just_saw_cr)
+	return EOL_CR;
+      else if (c == '\r')
 	st->eol.just_saw_cr = 1;
       else
-	{
-	  if (c == '\n')
-	    {
-	      if (st->eol.just_saw_cr)
-		return EOL_CRLF;
-	      else if (st->eol.seen_anything)
-		return EOL_LF;
-	    }
-	  else if (st->eol.just_saw_cr)
-	    return EOL_CR;
-	  st->eol.just_saw_cr = 0;
-	}
+	st->eol.just_saw_cr = 0;
       st->eol.seen_anything = 1;
     }
 
@@ -1530,7 +1528,7 @@ detect_eol_type (struct detection_state *st, CONST unsigned char *src,
 */
 
 static int
-detect_coding_type (struct detection_state *st, CONST unsigned char *src,
+detect_coding_type (struct detection_state *st, CONST Extbyte *src,
 		    unsigned int n, int just_do_eol)
 {
   int c;
@@ -1635,12 +1633,14 @@ coding_system_from_mask (int mask)
 
 /* Given a seekable read stream and potential coding system and EOL type
    as specified, do any autodetection that is called for.  If the
-   coding system and/or EOL type are not autodetect, they will be left
+   coding system and/or EOL type are not `autodetect', they will be left
    alone; but this function will never return an autodetect coding system
    or EOL type.
 
    This function does not automatically fetch subsidiary coding systems;
    that should be unnecessary with the explicit eol-type argument. */
+
+#define LENGTH(string_constant) (sizeof (string_constant) - 1)
 
 void
 determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
@@ -1656,68 +1656,110 @@ determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
   decst.mask = ~0;
 
   /* If autodetection is called for, do it now. */
-  if (XCODING_SYSTEM_TYPE (*codesys_in_out) == CODESYS_AUTODETECT ||
-      *eol_type_in_out == EOL_AUTODETECT)
+  if (XCODING_SYSTEM_TYPE (*codesys_in_out) == CODESYS_AUTODETECT
+      || *eol_type_in_out == EOL_AUTODETECT)
     {
-      unsigned char random_buffer[4096];
-      int nread;
+      Extbyte buf[4096];
       Lisp_Object coding_system = Qnil;
+      Extbyte *p;
+      ssize_t nread = Lstream_read (stream, buf, sizeof (buf));
+      Extbyte *scan_end;
 
-      nread = Lstream_read (stream, random_buffer, sizeof (random_buffer));
-      if (nread)
-	{
-	  unsigned char *cp = random_buffer;
-
-	  while (cp < random_buffer + nread)
-	    {
-	      if ((*cp++ == 'c') && (cp < random_buffer + nread) &&
-		  (*cp++ == 'o') && (cp < random_buffer + nread) &&
-		  (*cp++ == 'd') && (cp < random_buffer + nread) &&
-		  (*cp++ == 'i') && (cp < random_buffer + nread) &&
-		  (*cp++ == 'n') && (cp < random_buffer + nread) &&
-		  (*cp++ == 'g') && (cp < random_buffer + nread) &&
-		  (*cp++ == ':') && (cp < random_buffer + nread))
+      /* Look for initial "-*-"; mode line prefix */
+      for (p = buf,
+	     scan_end = buf + nread - LENGTH ("-*-coding:?-*-");
+	   p <= scan_end
+	     && *p != '\n'
+	     && *p != '\r';
+	   p++)
+	if (*p == '-' && *(p+1) == '*' && *(p+2) == '-')
+	  {
+	    Extbyte *local_vars_beg = p + 3;
+	    /* Look for final "-*-"; mode line suffix */
+	    for (p = local_vars_beg,
+		   scan_end = buf + nread - LENGTH ("-*-");
+		 p <= scan_end
+		   && *p != '\n'
+		   && *p != '\r';
+		 p++)
+	      if (*p == '-' && *(p+1) == '*' && *(p+2) == '-')
 		{
-		  unsigned char coding_system_name[4096 - 6];
-		  unsigned char *np = coding_system_name;
+		  Extbyte *suffix = p;
+		  /* Look for "coding:" */
+		  for (p = local_vars_beg,
+			 scan_end = suffix - LENGTH ("coding:?");
+		       p <= scan_end;
+		       p++)
+		    if (memcmp ("coding:", p, LENGTH ("coding:")) == 0
+			&& (p == local_vars_beg
+			    || (*(p-1) == ' '  ||
+				*(p-1) == '\t' ||
+				*(p-1) == ';')))
+		      {
+			Extbyte save;
+			int n;
+			p += LENGTH ("coding:");
+			while (*p == ' ' || *p == '\t') p++;
 
-		  while ( (cp < random_buffer + nread)
-			  && ((*cp == ' ') || (*cp == '\t')) )
-		    {
-		      cp++;
-		    }
-		  while ( (cp < random_buffer + nread) &&
-			  (*cp != ' ') && (*cp != '\t') && (*cp != ';') )
-		    {
-		      *np++ = *cp++;
-		    }
-		  *np = 0;
-		  coding_system
-		    = Ffind_coding_system (intern ((char *) coding_system_name));
+			/* Get coding system name */
+			save = *suffix; *suffix = '\0';
+			/* Characters valid in a MIME charset name (rfc 1521),
+			   and in a Lisp symbol name. */
+			n = strspn ( (char *) p,
+				    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+				    "abcdefghijklmnopqrstuvwxyz"
+				    "0123456789"
+				    "!$%&*+-.^_{|}~");
+			*suffix = save;
+			if (n > 0)
+			  {
+			    save = p[n]; p[n] = '\0';
+			    coding_system =
+			      Ffind_coding_system (intern ((char *) p));
+			    p[n] = save;
+			  }
+			break;
+		      }
 		  break;
 		}
-	    }
-	  if (EQ(coding_system, Qnil))
-	    do{
-	      if (detect_coding_type (&decst, random_buffer, nread,
-				      XCODING_SYSTEM_TYPE (*codesys_in_out)
-				      != CODESYS_AUTODETECT))
-		break;
-	      nread = Lstream_read (stream,
-				    random_buffer, sizeof (random_buffer));
-	      if (!nread)
-		break;
-	    } while(1);
-	}
+	    break;
+	  }
+
+      if (NILP (coding_system))
+	do
+	  {
+	    if (detect_coding_type (&decst, buf, nread,
+				    XCODING_SYSTEM_TYPE (*codesys_in_out)
+				    != CODESYS_AUTODETECT))
+	      break;
+	    nread = Lstream_read (stream, buf, sizeof (buf));
+	    if (nread == 0)
+	      break;
+	  }
+	while (1);
+
+      else if (XCODING_SYSTEM_TYPE (*codesys_in_out) == CODESYS_AUTODETECT
+	       && XCODING_SYSTEM_EOL_TYPE (coding_system) == EOL_AUTODETECT)
+	do
+	  {
+	    if (detect_coding_type (&decst, buf, nread, 1))
+	      break;
+	    nread = Lstream_read (stream, buf, sizeof (buf));
+	    if (!nread)
+	      break;
+	  }
+	while (1);
+
       *eol_type_in_out = decst.eol_type;
       if (XCODING_SYSTEM_TYPE (*codesys_in_out) == CODESYS_AUTODETECT)
 	{
-	  if (EQ(coding_system, Qnil))
+	  if (NILP (coding_system))
 	    *codesys_in_out = coding_system_from_mask (decst.mask);
 	  else
 	    *codesys_in_out = coding_system;
 	}
     }
+
   /* If we absolutely can't determine the EOL type, just assume LF. */
   if (*eol_type_in_out == EOL_AUTODETECT)
     *eol_type_in_out = EOL_LF;
@@ -1754,7 +1796,7 @@ type.  Optional arg BUFFER defaults to the current buffer.
   while (1)
     {
       unsigned char random_buffer[4096];
-      int nread = Lstream_read (istr, random_buffer, sizeof (random_buffer));
+      ssize_t nread = Lstream_read (istr, random_buffer, sizeof (random_buffer));
 
       if (!nread)
 	break;
@@ -1921,8 +1963,10 @@ struct decoding_stream
   struct detection_state decst;
 };
 
-static int decoding_reader     (Lstream *stream,       unsigned char *data, size_t size);
-static int decoding_writer     (Lstream *stream, CONST unsigned char *data, size_t size);
+static ssize_t decoding_reader (Lstream *stream,
+				unsigned char *data, size_t size);
+static ssize_t decoding_writer (Lstream *stream,
+				CONST unsigned char *data, size_t size);
 static int decoding_rewinder   (Lstream *stream);
 static int decoding_seekable_p (Lstream *stream);
 static int decoding_flusher    (Lstream *stream);
@@ -1954,12 +1998,12 @@ decoding_marker (Lisp_Object stream)
 /* Read SIZE bytes of data and store it into DATA.  We are a decoding stream
    so we read data from the other end, decode it, and store it into DATA. */
 
-static int
+static ssize_t
 decoding_reader (Lstream *stream, unsigned char *data, size_t size)
 {
   struct decoding_stream *str = DECODING_STREAM_DATA (stream);
   unsigned char *orig_data = data;
-  int read_size;
+  ssize_t read_size;
   int error_occurred = 0;
 
   /* We need to interface to mule_decode(), which expects to take some
@@ -2016,11 +2060,11 @@ decoding_reader (Lstream *stream, unsigned char *data, size_t size)
     return data - orig_data;
 }
 
-static int
+static ssize_t
 decoding_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 {
   struct decoding_stream *str = DECODING_STREAM_DATA (stream);
-  int retval;
+  ssize_t retval;
 
   /* Decode all our data into the runoff, and then attempt to write
      it all out to the other end.  Remove whatever chunk we succeeded
@@ -2290,7 +2334,7 @@ BUFFER defaults to the current buffer if unspecified.
       char tempbuf[1024]; /* some random amount */
       Bufpos newpos, even_newer_pos;
       Bufpos oldpos = lisp_buffer_stream_startpos (istr);
-      int size_in_bytes = Lstream_read (istr, tempbuf, sizeof (tempbuf));
+      ssize_t size_in_bytes = Lstream_read (istr, tempbuf, sizeof (tempbuf));
 
       if (!size_in_bytes)
 	break;
@@ -2375,9 +2419,9 @@ struct encoding_stream
 #endif /* MULE */
 };
 
-static int encoding_reader (Lstream *stream, unsigned char *data, size_t size);
-static int encoding_writer (Lstream *stream, CONST unsigned char *data,
-			    size_t size);
+static ssize_t encoding_reader (Lstream *stream, unsigned char *data, size_t size);
+static ssize_t encoding_writer (Lstream *stream, CONST unsigned char *data,
+				size_t size);
 static int encoding_rewinder   (Lstream *stream);
 static int encoding_seekable_p (Lstream *stream);
 static int encoding_flusher    (Lstream *stream);
@@ -2409,12 +2453,12 @@ encoding_marker (Lisp_Object stream)
 /* Read SIZE bytes of data and store it into DATA.  We are a encoding stream
    so we read data from the other end, encode it, and store it into DATA. */
 
-static int
+static ssize_t
 encoding_reader (Lstream *stream, unsigned char *data, size_t size)
 {
   struct encoding_stream *str = ENCODING_STREAM_DATA (stream);
   unsigned char *orig_data = data;
-  int read_size;
+  ssize_t read_size;
   int error_occurred = 0;
 
   /* We need to interface to mule_encode(), which expects to take some
@@ -2471,11 +2515,11 @@ encoding_reader (Lstream *stream, unsigned char *data, size_t size)
     return data - orig_data;
 }
 
-static int
+static ssize_t
 encoding_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 {
   struct encoding_stream *str = ENCODING_STREAM_DATA (stream);
-  int retval;
+  ssize_t retval;
 
   /* Encode all our data into the runoff, and then attempt to write
      it all out to the other end.  Remove whatever chunk we succeeded
@@ -2698,7 +2742,7 @@ text.  BUFFER defaults to the current buffer if unspecified.
       char tempbuf[1024]; /* some random amount */
       Bufpos newpos, even_newer_pos;
       Bufpos oldpos = lisp_buffer_stream_startpos (istr);
-      int size_in_bytes = Lstream_read (istr, tempbuf, sizeof (tempbuf));
+      ssize_t size_in_bytes = Lstream_read (istr, tempbuf, sizeof (tempbuf));
 
       if (!size_in_bytes)
 	break;
@@ -3758,7 +3802,7 @@ encode_coding_utf8 (Lstream *encoding, CONST unsigned char *src,
 
  back_to_square_n:
 #endif /* ENABLE_COMPOSITE_CHARS */
-  
+
   while (n--)
     {
       unsigned char c = *src++;
@@ -5443,7 +5487,7 @@ convert_to_external_format (CONST Bufbyte *ptr,
       GCPRO3 (instream, outstream, da_outstream);
       while (1)
         {
-          int size_in_bytes = Lstream_read (istr, tempbuf, sizeof (tempbuf));
+          ssize_t size_in_bytes = Lstream_read (istr, tempbuf, sizeof (tempbuf));
           if (!size_in_bytes)
             break;
           Lstream_write (ostr, tempbuf, size_in_bytes);
@@ -5500,7 +5544,7 @@ convert_from_external_format (CONST Extbyte *ptr,
       GCPRO3 (instream, outstream, da_outstream);
       while (1)
         {
-          int size_in_bytes = Lstream_read (istr, tempbuf, sizeof (tempbuf));
+          ssize_t size_in_bytes = Lstream_read (istr, tempbuf, sizeof (tempbuf));
           if (!size_in_bytes)
             break;
           Lstream_write (ostr, tempbuf, size_in_bytes);

@@ -1,4 +1,16 @@
 							-*- indented-text -*-
+to 21.2.22 "Mercedes"
+-- ESD Sound support from Robert Bihlmeyer
+-- 10% faster redisplay from Jan Vroonhof
+-- Fixes from Jeff Miller, Alexandre Oliva and Yoshiki Hayashi
+-- "If you've got problems, read PROBLEMS!" from Robert Pluim
+-- Lstream code now uses size_t, ssize_t consistently, Martin Buchholz
+-- Fix `make install' if prefix != exec_prefix, Martin Buchholz
+-- Fix compile warnings and C++ compilation, Martin Buchholz
+-- Fix detection of coding: cookie in -*- first line.
+-- More xim-xlib work by Kazuyuki Ienaga
+-- Fix crash in abbrev.c (abbrev_location), Eric Darve
+
 to 21.2.20 "Yoko"
 -- UTF-8 & file-coding magic cookie fix from MORIOKA Tomohiko
 -- bug fixes from Adrian Aichner, Sean MacLennan, and Jeff Miller

@@ -1,3 +1,72 @@
+1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.22 is released
+
+1999-11-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.21 is released.
+
+1999-11-26  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: 
+	Add configure support for Unix 98 type ssize_t.
+
+1999-11-27  Martin Buchholz  <martin@xemacs.org>
+
+	* Makefile.in.in:
+	Make sure config.values.sh is up to date.
+	Use $(SHELL) instead of sh or /bin/sh consistently.
+	Delegate `depend' target to src/Makefile.in.in.
+
+1999-10-27  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* INSTALL: Update configure option.
+
+1999-10-12  Alexandre Oliva  <oliva@lsd.ic.unicamp.br>
+	
+	* configure.in (native_sound_lib, *-sgi-*): Check for audio.h.
+	(LIBS): Check for libCsup.
+
+	* etc/sample.Xdefaults: adds a reference to beNiceToColrmap,
+	  so that the user can guess what to do if xemacs' dialogs are
+	  butt ugly.
+
+1999-10-24  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* config.h.in: define HAVE_ESD_SOUND
+
+	* configure.in: Add support for esd sound. --with-sound
+	now accepts a list of options.
+	* configure.usage (--native-sound-lib): ditto.
+
+1999-11-17  Martin Buchholz  <martin@xemacs.org>
+
+	* Makefile.in.in (install-arch-dep): 
+	Fix `make install' if prefix != exec_prefix.
+
+1999-11-15  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in:
+	- Accept --with-database=gdbm as an alias for
+	--with-database=gnudbm.
+	- rename with_database_gnudbm to with_database_gdbm.
+
+	* aclocal.m4 (ld_dynamic_link_flags): Just use empty value for
+	ld_dynamic_link_flags on Solaris.  Else CC gives us:
+	CC: Warning: Option -Wl,-Bdynamic passed to ld, if ld is invoked, ignored otherwise
+	/usr/ccs/bin/ld: illegal option -- W
+
+
+1999-11-13  Jason R Mastaler  <jason@mastaler.com>
+
+	* etc/FTP: Updated FTP mirrors list.  Replaced GNU FTP document
+ 	with a URL.
+
+1999-11-13  Jason R Mastaler  <jason@mastaler.com>
+
+	* etc/MAILINGLISTS: Updated mailing list subscription information.
+  	Replaced GNU MAILINGLISTS document with a URL.
+
 1999-11-10  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.20 is released

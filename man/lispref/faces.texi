@@ -672,7 +672,7 @@ result.
 @end defun
 
 @defun color-rgb-components color &optional domain
-This function returns the @sc{RGB} components of the @var{color} in the
+This function returns the @sc{rgb} components of the @var{color} in the
 specified @var{domain}, if any.  @var{color} should be a color specifier
 object and @var{domain} is normally a window and defaults to the
 selected window if omitted.  This is equivalent to using

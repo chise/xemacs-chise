@@ -343,7 +343,7 @@ number whose value is 1500.  They are all equivalent.
 
 @node Character Type
 @subsection Character Type
-@cindex @sc{ASCII} character codes
+@cindex @sc{ascii} character codes
 @cindex char-int confoundance disease
 
   In XEmacs version 19, and in all versions of FSF GNU Emacs, a
@@ -352,7 +352,7 @@ This is yet another holdover from XEmacs Lisp's derivation from
 vintage-1980 Lisps; modern versions of Lisp consider this equivalence
 a bad idea, and have separate character types.  In XEmacs version 20,
 the modern convention is followed, and characters are their own
-primitive types. (This change was necessary in order for @sc{MULE},
+primitive types. (This change was necessary in order for @sc{mule},
 i.e. Asian-language, support to be correctly implemented.)
 
   Even in XEmacs version 20, remnants of the equivalence between
@@ -370,21 +370,21 @@ with the distinction between characters and integers in mind.
 
   Every character has an equivalent integer, called the @dfn{character
 code}.  For example, the character @kbd{A} is represented as the
-@w{integer 65}, following the standard @sc{ASCII} representation of
-characters.  If XEmacs was not compiled with @sc{MULE} support, the
+@w{integer 65}, following the standard @sc{ascii} representation of
+characters.  If XEmacs was not compiled with @sc{mule} support, the
 range of this integer will always be 0 to 255 -- eight bits, or one
 byte. (Integers outside this range are accepted but silently truncated;
 however, you should most decidedly @emph{not} rely on this, because it
-will not work under XEmacs with @sc{MULE} support.)  When @sc{MULE}
+will not work under XEmacs with @sc{mule} support.)  When @sc{mule}
 support is present, the range of character codes is much
 larger. (Currently, 19 bits are used.)
 
   FSF GNU Emacs uses kludgy character codes above 255 to represent
-keyboard input of @sc{ASCII} characters in combination with certain
+keyboard input of @sc{ascii} characters in combination with certain
 modifiers.  XEmacs does not use this (a more general mechanism is
-used that does not distinguish between @sc{ASCII} keys and other
+used that does not distinguish between @sc{ascii} keys and other
 keys), so you will never find character codes above 255 in a
-non-@sc{MULE} XEmacs.
+non-@sc{mule} XEmacs.
 
   Individual characters are not often used in programs.  It is far more
 common to work with @emph{strings}, which are sequences composed of
@@ -506,15 +506,15 @@ with character code 193, or 128 plus 65.  You should @emph{not} use this
 syntax in your programs.  It is a holdover of yet another confoundance
 disease from earlier Emacsen. (This was used to represent keyboard input
 with the @key{META} key set, thus the @samp{M}; however, it conflicts
-with the legitimate @sc{ISO}-8859-1 interpretation of the character code.
+with the legitimate @sc{iso}-8859-1 interpretation of the character code.
 For example, character code 193 is a lowercase @samp{a} with an acute
-accent, in @sc{ISO}-8859-1.)
+accent, in @sc{iso}-8859-1.)
 
 @ignore @c None of this crap applies to XEmacs.
   For use in strings and buffers, you are limited to the control
-characters that exist in @sc{ASCII}, but for keyboard input purposes,
+characters that exist in @sc{ascii}, but for keyboard input purposes,
 you can turn any character into a control character with @samp{C-}.  The
-character codes for these non-@sc{ASCII} control characters include the
+character codes for these non-@sc{ascii} control characters include the
 @iftex
 $2^{26}$
 @end iftex
@@ -617,9 +617,9 @@ bit values are 2**22 for alt, 2**23 for super and 2**24 for hyper.
 followed by a backslash and the character code in octal (up to three
 octal digits); thus, @samp{?\101} for the character @kbd{A},
 @samp{?\001} for the character @kbd{C-a}, and @code{?\002} for the
-character @kbd{C-b}.  Although this syntax can represent any @sc{ASCII}
+character @kbd{C-b}.  Although this syntax can represent any @sc{ascii}
 character, it is preferred only when the precise octal value is more
-important than the @sc{ASCII} representation.
+important than the @sc{ascii} representation.
 
 @example
 @group
@@ -1521,7 +1521,7 @@ Normally, there is only one device object, but there may be more
 than one if XEmacs is being run on a multi-headed display (e.g. an
 X server with attached color and mono screens) or if XEmacs is
 simultaneously driving frames attached to different consoles, e.g.
-an X display and a @sc{TTY} connection.
+an X display and a @sc{tty} connection.
 
   Devices do not have a read syntax.  They print in hash notation,
 giving the device's type, connection name, and a unique number assigned
@@ -1544,13 +1544,13 @@ related to devices.
 (i.e. displays on which frames exist) are connected.  Normally, there is
 only one console object, but there may be more than one if XEmacs is
 simultaneously driving frames attached to different X servers and/or
-@sc{TTY} connections. (XEmacs is capable of driving multiple X and
-@sc{TTY} connections at the same time, and provides a robust mechanism
+@sc{tty} connections. (XEmacs is capable of driving multiple X and
+@sc{tty} connections at the same time, and provides a robust mechanism
 for handling the differing display capabilities of such heterogeneous
 environments.  A buffer with embedded glyphs and multiple fonts and
 colors, for example, will display reasonably if it simultaneously
 appears on a frame on a color X display, a frame on a mono X display,
-and a frame on a @sc{TTY} connection.)
+and a frame on a @sc{tty} connection.)
 
   Consoles do not have a read syntax.  They print in hash notation,
 giving the console's type, connection name, and a unique number assigned

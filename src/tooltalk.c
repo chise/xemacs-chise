@@ -22,7 +22,7 @@ Boston, MA 02111-1307, USA.  */
 /* Synched up with: Not in FSF. */
 
 /* Written by John Rose <john.rose@eng.sun.com>.
-   Heavily modified and cleaned up by Ben Wing <ben.wing@eng.sun.com>. */
+   Heavily modified and cleaned up by Ben Wing <ben@xemacs.org>. */
 
 #include <config.h>
 #include "lisp.h"
@@ -502,7 +502,7 @@ tt_state_symbol (Tt_state n)
 static Lisp_Object
 tt_build_string (char *s)
 {
-  return build_string ((s) ? s : "");
+  return build_string (s ? s : "");
 }
 
 static Lisp_Object

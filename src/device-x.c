@@ -387,8 +387,8 @@ x_try_best_visual_class (Screen *screen, int scrnum, int visual_class)
 		vi_out [i].depth == 1 ||
 		vi_out [i].depth == 8)
 #endif
-             
-	    /* SGI has 30-bit deep visuals.  Ignore them. 
+
+	    /* SGI has 30-bit deep visuals.  Ignore them.
                 (We only have 24-bit data anyway.)
               */
 	    && (vi_out [i].depth <= 24)
@@ -566,8 +566,10 @@ x_init_device (struct device *d, Lisp_Object props)
   XtGetApplicationNameAndClass (dpy, (char **) &app_name, (char **) &app_class);
   /* search for a matching visual if requested by the user, or setup the display default */
   {
-    char *buf1 = (char *)alloca (strlen (app_name)  + 17);
-    char *buf2 = (char *)alloca (strlen (app_class) + 17);
+    int resource_name_length = max (sizeof (".emacsVisual"),
+				    sizeof (".privateColormap"));
+    char *buf1 = alloca_array (char, strlen (app_name)  + resource_name_length);
+    char *buf2 = alloca_array (char, strlen (app_class) + resource_name_length);
     char *type;
     XrmValue value;
 
@@ -575,13 +577,14 @@ x_init_device (struct device *d, Lisp_Object props)
     sprintf (buf2, "%s.EmacsVisual", app_class);
     if (XrmGetResource (XtDatabase (dpy), buf1, buf2, &type, &value) == True)
       {
-	int cnt = 0, vis_class = PseudoColor;
+	int cnt = 0;
+	int vis_class = PseudoColor;
 	XVisualInfo vinfo;
-	char *res, *str = (char*)value.addr;
+	char *str = (char*) value.addr;
 
-#define CHECK_VIS_CLASS(class)					\
- else if (strncmp (str, #class, sizeof (#class) - 1) == 0)	\
-	cnt = sizeof (#class) - 1, vis_class = class
+#define CHECK_VIS_CLASS(visual_class)					\
+ else if (memcmp (str, #visual_class, sizeof (#visual_class) - 1) == 0)	\
+	cnt = sizeof (#visual_class) - 1, vis_class = visual_class
 
 	if (1)
 	  ;
@@ -594,8 +597,7 @@ x_init_device (struct device *d, Lisp_Object props)
 
 	if (cnt)
 	  {
-	    res = str + cnt;
-	    depth = atoi (res);
+	    depth = atoi (str + cnt);
 	    if (depth == 0)
 	      {
 		stderr_out ("Invalid Depth specification in %s... ignoring...\n", str);
@@ -1750,7 +1752,7 @@ Grab the keyboard on the given device (defaulting to the selected one).
 So long as the keyboard is grabbed, all keyboard events will be delivered
 to emacs -- it is not possible for other X clients to eavesdrop on them.
 Ungrab the keyboard with `x-ungrab-keyboard' (use an unwind-protect).
-Returns t if the grab was successful; nil otherwise.
+Returns t if the grab is successful, nil otherwise.
 */
        (device))
 {
@@ -1809,7 +1811,7 @@ See also `x-set-font-path'.
     signal_simple_error ("Can't get X font path", device);
 
   while (ndirs_return--)
-      font_path = Fcons (build_ext_string (directories[ndirs_return], 
+      font_path = Fcons (build_ext_string (directories[ndirs_return],
                                            FORMAT_FILENAME), font_path);
 
   return font_path;
@@ -1900,7 +1902,7 @@ reinit_console_type_create_device_x (void)
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
   while (*valid_resource_chars)
     valid_resource_char_p[(unsigned int) (*valid_resource_chars++)] = 1;
-  
+
   name_char_dynarr  = Dynarr_new (char);
   class_char_dynarr = Dynarr_new (char);
 }

@@ -13,16 +13,16 @@
 @ifset XEMACS
 @set emacs XEmacs
 @clear EMACS
-@set HAVE_EMACS
+@set HAVE-EMACS
 @end ifset
 
 @ifset EMACS
 @set emacs Emacs
 @clear XEMACS
-@set HAVE_EMACS
+@set HAVE-EMACS
 @end ifset
 
-@ifclear HAVE_EMACS
+@ifclear HAVE-EMACS
 @set XEMACS
 @set emacs XEmacs
 @end ifclear

@@ -131,13 +131,13 @@ static struct passwd the_passwd =
   the_passwd_shell,
 };
 
-int 
+uid_t
 getuid () 
 { 
   return the_passwd.pw_uid;
 }
 
-int 
+uid_t 
 geteuid () 
 { 
   /* I could imagine arguing for checking to see whether the user is
@@ -146,20 +146,20 @@ geteuid ()
   return getuid (); 
 }
 
-int 
+gid_t
 getgid () 
 { 
   return the_passwd.pw_gid;
 }
 
-int 
+gid_t
 getegid () 
 { 
   return getgid ();
 }
 
 struct passwd *
-getpwuid (int uid)
+getpwuid (uid_t uid)
 {
   if (uid == the_passwd.pw_uid)
     return &the_passwd;

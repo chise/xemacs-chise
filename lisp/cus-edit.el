@@ -3,7 +3,7 @@
 ;; Copyright (C) 1996, 1997 Free Software Foundation, Inc.
 ;;
 ;; Author: Per Abrahamsen <abraham@dina.kvl.dk>
-;; Maintainer: Hrvoje Niksic <hniksic@srce.hr>
+;; Maintainer: Hrvoje Niksic <hniksic@xemacs.org>
 ;; Keywords: help, faces
 ;; Version: 1.9960-x
 ;; X-URL: http://www.dina.kvl.dk/~abraham/custom/

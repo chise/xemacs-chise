@@ -52,7 +52,7 @@
 ;; Kyle Jones <kyle_jones@wonderworks.com>
 ;;   added "Exact match, then inexact" code
 ;;   added support for include directive.
-;; Hrvoje Niksic <hniksic@srce.hr>
+;; Hrvoje Niksic <hniksic@xemacs.org>
 ;;   various changes.
 
 

@@ -280,18 +280,16 @@ restore_point_unwind (Lisp_Object point_marker)
    signal handler) because that's way too losing.
 
    (#### Actually, longjmp()ing out of the signal handler may not be
-   as losing as I thought.  See sys_do_signal() in sysdep.c.)
+   as losing as I thought.  See sys_do_signal() in sysdep.c.) */
 
-   Solaris include files declare the return value as ssize_t.
-   Is that standard? */
-int
+ssize_t
 read_allowing_quit (int fildes, void *buf, size_t size)
 {
   QUIT;
   return sys_read_1 (fildes, buf, size, 1);
 }
 
-int
+ssize_t
 write_allowing_quit (int fildes, CONST void *buf, size_t size)
 {
   QUIT;
@@ -1020,9 +1018,9 @@ See also the function `substitute-in-file-name'.
 	  if ((user = user_login_name (NULL)) != NULL)
 	    {
 	      /* Does the user login name match the ~name? */
-	      if (strcmp(user,((char *) o + 1)) == 0)
+	      if (strcmp (user, (char *) o + 1) == 0)
 	        {
-		  newdir = (Bufbyte *)  get_home_directory();
+		  newdir = (Bufbyte *) get_home_directory();
 	          nm = p;
 		}
 	    }
@@ -2982,7 +2980,7 @@ positions), even in Mule. (Fixing this is very difficult.)
        occurs inside of the filedesc stream. */
     while (1)
       {
-	Bytecount this_len;
+	ssize_t this_len;
 	Charcount cc_inserted;
 
 	QUIT;

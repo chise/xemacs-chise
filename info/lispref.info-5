@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -62,7 +62,7 @@ integers; whether an integer was intended as a character or not is
 determined only by how it is used.  *Note Character Type::.
 
    The length of a string (like any array) is fixed and independent of
-the string contents, and cannot be altered.  Strings in Lisp are *not*
+the string contents, and cannot be altered.  Strings in Lisp are _not_
 terminated by a distinguished character code.  (By contrast, strings in
 C are terminated by a character with ASCII code 0.)  This means that
 any character, including the null character (ASCII code 0), is a valid
@@ -71,22 +71,22 @@ element of a string.
    Since strings are considered arrays, you can operate on them with the
 general array functions.  (*Note Sequences Arrays Vectors::.)  For
 example, you can access or change individual characters in a string
-using the functions `aref' and `aset' (*note Array Functions::.).
+using the functions `aref' and `aset' (*note Array Functions::).
 
    Strings use an efficient representation for storing the characters
 in them, and thus take up much less memory than a vector of the same
 length.
 
    Sometimes you will see strings used to hold key sequences.  This
-exists for backward compatibility with Emacs 18, but should *not* be
+exists for backward compatibility with Emacs 18, but should _not_ be
 used in new code, since many key chords can't be represented at all and
 others (in particular meta key chords) are confused with accented
 characters.
 
    Strings are useful for holding regular expressions.  You can also
-match regular expressions against strings (*note Regexp Search::.).  The
-functions `match-string' (*note Simple Match Data::.) and
-`replace-match' (*note Replacing Match::.) are useful for decomposing
+match regular expressions against strings (*note Regexp Search::).  The
+functions `match-string' (*note Simple Match Data::) and
+`replace-match' (*note Replacing Match::) are useful for decomposing
 and modifying strings based on regular expression matching.
 
    Like a buffer, a string can contain extents in it.  These extents are
@@ -108,10 +108,10 @@ The Predicates for Strings
    For more information about general sequence and array predicates,
 see *Note Sequences Arrays Vectors::, and *Note Arrays::.
 
- - Function: stringp OBJECT
+ - Function: stringp object
      This function returns `t' if OBJECT is a string, `nil' otherwise.
 
- - Function: char-or-string-p OBJECT
+ - Function: char-or-string-p object
      This function returns `t' if OBJECT is a string or a character,
      `nil' otherwise.
 
@@ -129,7 +129,7 @@ Creating Strings
    The following functions create strings, either from scratch, or by
 putting strings together, or by taking them apart.
 
- - Function: string &rest CHARACTERS
+ - Function: string &rest characters
      This function returns a new string made up of CHARACTERS.
 
           (string ?X ?E ?m ?a ?c ?s)
@@ -138,11 +138,11 @@ putting strings together, or by taking them apart.
                => ""
 
      Analogous functions operating on other data types include `list',
-     `cons' (*note Building Lists::.), `vector' (*note Vectors::.)  and
-     `bit-vector' (*note Bit Vectors::.).  This function has not been
+     `cons' (*note Building Lists::), `vector' (*note Vectors::) and
+     `bit-vector' (*note Bit Vectors::).  This function has not been
      available in XEmacs prior to 21.0 and FSF Emacs prior to 20.3.
 
- - Function: make-string COUNT CHARACTER
+ - Function: make-string count character
      This function returns a string made up of COUNT repetitions of
      CHARACTER.  If COUNT is negative, an error is signaled.
 
@@ -152,10 +152,10 @@ putting strings together, or by taking them apart.
                => ""
 
      Other functions to compare with this one include `char-to-string'
-     (*note String Conversion::.), `make-vector' (*note Vectors::.), and
-     `make-list' (*note Building Lists::.).
+     (*note String Conversion::), `make-vector' (*note Vectors::), and
+     `make-list' (*note Building Lists::).
 
- - Function: substring STRING START &optional END
+ - Function: substring string start &optional end
      This function returns a new string which consists of those
      characters from STRING in the range from (and including) the
      character at the index START up to (but excluding) the character
@@ -195,7 +195,7 @@ putting strings together, or by taking them apart.
                => "abcdefg"
 
      But we recommend `copy-sequence' for this purpose (*note Sequence
-     Functions::.).
+     Functions::).
 
      If the characters copied from STRING have duplicable extents or
      text properties, those are copied into the new string also.  *Note
@@ -207,11 +207,11 @@ putting strings together, or by taking them apart.
      either integer is out of range for STRING.
 
      Contrast this function with `buffer-substring' (*note Buffer
-     Contents::.), which returns a string containing a portion of the
+     Contents::), which returns a string containing a portion of the
      text in the current buffer.  The beginning of a string is at index
      0, but the beginning of a buffer is at index 1.
 
- - Function: concat &rest SEQUENCES
+ - Function: concat &rest sequences
      This function returns a new string consisting of the characters in
      the arguments passed to it (along with their text properties, if
      any).  The arguments may be strings, lists of numbers, or vectors
@@ -242,8 +242,8 @@ putting strings together, or by taking them apart.
      representation of the integer.  *Don't use this feature; we plan
      to eliminate it.  If you already use this feature, change your
      programs now!*  The proper way to convert an integer to a decimal
-     number in this way is with `format' (*note Formatting Strings::.)
-     or `number-to-string' (*note String Conversion::.).
+     number in this way is with `format' (*note Formatting Strings::) or
+     `number-to-string' (*note String Conversion::).
 
           (concat 137)
                => "137"
@@ -261,7 +261,7 @@ File: lispref.info,  Node: Predicates for Characters,  Next: Character Codes,  P
 The Predicates for Characters
 =============================
 
- - Function: characterp OBJECT
+ - Function: characterp object
      This function returns `t' if OBJECT is a character.
 
      Some functions that work on integers (e.g. the comparison functions
@@ -275,7 +275,7 @@ The Predicates for Characters
      in the future; therefore, do not rely on them.  Instead, convert
      the characters explicitly using `char-int'.
 
- - Function: integer-or-char-p OBJECT
+ - Function: integer-or-char-p object
      This function returns `t' if OBJECT is an integer or character.
 
 
@@ -284,7 +284,7 @@ File: lispref.info,  Node: Character Codes,  Next: Text Comparison,  Prev: Predi
 Character Codes
 ===============
 
- - Function: char-int CH
+ - Function: char-int ch
      This function converts a character into an equivalent integer.
      The resulting integer will always be non-negative.  The integers in
      the range 0 - 255 map to characters as follows:
@@ -307,17 +307,17 @@ Character Codes
      XEmacs, the order in which character sets were loaded, etc., and
      you should not depend on them.
 
- - Function: int-char INTEGER
+ - Function: int-char integer
      This function converts an integer into the equivalent character.
      Not all integers correspond to valid characters; use `char-int-p'
      to determine whether this is the case.  If the integer cannot be
      converted, `nil' is returned.
 
- - Function: char-int-p OBJECT
+ - Function: char-int-p object
      This function returns `t' if OBJECT is an integer that can be
      converted into a character.
 
- - Function: char-or-char-int-p OBJECT
+ - Function: char-or-char-int-p object
      This function returns `t' if OBJECT is a character or an integer
      that can be converted into one.
 
@@ -327,7 +327,7 @@ File: lispref.info,  Node: Text Comparison,  Next: String Conversion,  Prev: Cha
 Comparison of Characters and Strings
 ====================================
 
- - Function: char-equal CHARACTER1 CHARACTER2
+ - Function: char-equal character1 character2
      This function returns `t' if the arguments represent the same
      character, `nil' otherwise.  This function ignores differences in
      case if `case-fold-search' is non-`nil'.
@@ -341,7 +341,7 @@ Comparison of Characters and Strings
             (char-equal ?x ?X))
                => nil
 
- - Function: char= CHARACTER1 CHARACTER2
+ - Function: char= character1 character2
      This function returns `t' if the arguments represent the same
      character, `nil' otherwise.  Case is significant.
 
@@ -356,7 +356,7 @@ Comparison of Characters and Strings
             (char-equal ?x ?X))
                => nil
 
- - Function: string= STRING1 STRING2
+ - Function: string= string1 string2
      This function returns `t' if the characters of the two strings
      match exactly; case is significant.
 
@@ -368,10 +368,10 @@ Comparison of Characters and Strings
                => nil
 
 
- - Function: string-equal STRING1 STRING2
+ - Function: string-equal string1 string2
      `string-equal' is another name for `string='.
 
- - Function: string< STRING1 STRING2
+ - Function: string< string1 string2
      This function compares two strings a character at a time.  First it
      scans both the strings at once to find the first pair of
      corresponding characters that do not match.  If the lesser
@@ -410,7 +410,7 @@ Comparison of Characters and Strings
           (string< "" "")
                => nil
 
- - Function: string-lessp STRING1 STRING2
+ - Function: string-lessp string1 string2
      `string-lessp' is another name for `string<'.
 
    See also `compare-buffer-substrings' in *Note Comparing Text::, for
@@ -426,8 +426,8 @@ Conversion of Characters and Strings
 
    This section describes functions for conversions between characters,
 strings and integers.  `format' and `prin1-to-string' (*note Output
-Functions::.) can also convert Lisp objects into strings.
-`read-from-string' (*note Input Functions::.) can "convert" a string
+Functions::) can also convert Lisp objects into strings.
+`read-from-string' (*note Input Functions::) can "convert" a string
 representation of a Lisp object into an object.
 
    *Note Documentation::, for functions that produce textual
@@ -435,7 +435,7 @@ descriptions of text characters and general input events
 (`single-key-description' and `text-char-description').  These
 functions are used primarily for making help messages.
 
- - Function: char-to-string CHARACTER
+ - Function: char-to-string character
      This function returns a new string with a length of one character.
      The value of CHARACTER, modulo 256, is used to initialize the
      element of the string.
@@ -452,7 +452,7 @@ functions are used primarily for making help messages.
           (make-string 1 ?x)
                => "x"
 
- - Function: string-to-char STRING
+ - Function: string-to-char string
      This function returns the first character in STRING.  If the
      string is empty, the function returns 0. (Under XEmacs 19, the
      value is also 0 when the first character of STRING is the null
@@ -473,7 +473,7 @@ functions are used primarily for making help messages.
      This function may be eliminated in the future if it does not seem
      useful enough to retain.
 
- - Function: number-to-string NUMBER
+ - Function: number-to-string number
      This function returns a string consisting of the printed
      representation of NUMBER, which may be an integer or a floating
      point number.  The value starts with a sign if the argument is
@@ -490,7 +490,7 @@ functions are used primarily for making help messages.
 
      See also the function `format' in *Note Formatting Strings::.
 
- - Function: string-to-number STRING &optional BASE
+ - Function: string-to-number string &optional base
      This function returns the numeric value of the characters in
      STRING, read in BASE.  It skips spaces and tabs at the beginning
      of STRING, then reads as much of STRING as it can interpret as a
@@ -530,7 +530,7 @@ character.
 string is created) and is incremented each time a change is made to that
 string.
 
- - Function: string-modified-tick STRING
+ - Function: string-modified-tick string
      This function returns the tick counter for `string'.
 
 
@@ -565,7 +565,7 @@ In fact, the functions `message' and `error' provide the same
 formatting feature described here; they differ from `format' only in
 how they use the result of formatting.
 
- - Function: format STRING &rest OBJECTS
+ - Function: format string &rest objects
      This function returns a new string that is made by copying STRING
      and then replacing any format specification in the copy with
      encodings of the corresponding OBJECTS.  The arguments OBJECTS are
@@ -747,11 +747,11 @@ truncated.  In the third case, the padding is on the right.
      (format "The word `%7s' actually has %d letters in it."
              "foo" (length "foo"))
           => "The word `    foo' actually has 3 letters in it."
-
+     
      (format "The word `%7s' actually has %d letters in it."
              "specification" (length "specification"))
           => "The word `specification' actually has 13 letters in it."
-
+     
      (format "The word `%-7s' actually has %d letters in it."
              "foo" (length "foo"))
           => "The word `foo    ' actually has 3 letters in it."
@@ -793,7 +793,7 @@ that are passed to them as arguments.
    The examples below use the characters `X' and `x' which have ASCII
 codes 88 and 120 respectively.
 
- - Function: downcase STRING-OR-CHAR
+ - Function: downcase string-or-char
      This function converts a character or a string to lower case.
 
      When the argument to `downcase' is a string, the function creates
@@ -811,7 +811,7 @@ codes 88 and 120 respectively.
                => ?x   ;; Under XEmacs 20.
                => 120  ;; Under XEmacs 19.
 
- - Function: upcase STRING-OR-CHAR
+ - Function: upcase string-or-char
      This function converts a character or a string to upper case.
 
      When the argument to `upcase' is a string, the function creates
@@ -831,7 +831,7 @@ codes 88 and 120 respectively.
                => ?X   ;; Under XEmacs 20.
                => 88   ;; Under XEmacs 19.
 
- - Function: capitalize STRING-OR-CHAR
+ - Function: capitalize string-or-char
      This function capitalizes strings or characters.  If
      STRING-OR-CHAR is a string, the function creates and returns a new
      string, whose contents are a copy of STRING-OR-CHAR in which each
@@ -841,7 +841,7 @@ codes 88 and 120 respectively.
 
      The definition of a word is any sequence of consecutive characters
      that are assigned to the word constituent syntax class in the
-     current syntax table (*note Syntax Class Table::.).
+     current syntax table (*note Syntax Class Table::).
 
      When the argument to `capitalize' is a character, `capitalize' has
      the same result as `upcase'.
@@ -866,8 +866,8 @@ The Case Table
 table".  A case table specifies the mapping between upper case and lower
 case letters.  It affects both the string and character case conversion
 functions (see the previous section) and those that apply to text in the
-buffer (*note Case Changes::.).  You need a case table if you are using
-a language which has letters other than the standard ASCII letters.
+buffer (*note Case Changes::).  You need a case table if you are using a
+language which has letters other than the standard ASCII letters.
 
    A case table is a list of this form:
 
@@ -907,10 +907,10 @@ Changing the standard case table doesn't affect any existing buffers.
 
    Here are the functions for working with case tables:
 
- - Function: case-table-p OBJECT
+ - Function: case-table-p object
      This predicate returns non-`nil' if OBJECT is a valid case table.
 
- - Function: set-standard-case-table TABLE
+ - Function: set-standard-case-table table
      This function makes TABLE the standard case table, so that it will
      apply to any buffers created subsequently.
 
@@ -920,7 +920,7 @@ Changing the standard case table doesn't affect any existing buffers.
  - Function: current-case-table
      This function returns the current buffer's case table.
 
- - Function: set-case-table TABLE
+ - Function: set-case-table table
      This sets the current buffer's case table to TABLE.
 
    The following three functions are convenient subroutines for packages
@@ -929,15 +929,15 @@ DOWNCASE-TABLE provided as an argument; this should be a string to be
 used as the DOWNCASE part of a case table.  They also modify the
 standard syntax table.  *Note Syntax Tables::.
 
- - Function: set-case-syntax-pair UC LC DOWNCASE-TABLE
+ - Function: set-case-syntax-pair uc lc downcase-table
      This function specifies a pair of corresponding letters, one upper
      case and one lower case.
 
- - Function: set-case-syntax-delims L R DOWNCASE-TABLE
+ - Function: set-case-syntax-delims l r downcase-table
      This function makes characters L and R a matching pair of
      case-invariant delimiters.
 
- - Function: set-case-syntax CHAR SYNTAX DOWNCASE-TABLE
+ - Function: set-case-syntax char syntax downcase-table
      This function makes CHAR case-invariant, with syntax SYNTAX.
 
  - Command: describe-buffer-case-table
@@ -984,7 +984,7 @@ assigned values are
 
    * a single character
 
- - Function: char-table-p OBJECT
+ - Function: char-table-p object
      This function returns non-`nil' if OBJECT is a char table.
 
 * Menu:
@@ -1026,13 +1026,13 @@ different sorts of values.  The different char table types are
      character.  Higher-level Lisp functions are provided for working
      with syntax tables.  The valid values are integers.
 
- - Function: char-table-type TABLE
+ - Function: char-table-type table
      This function returns the type of char table TABLE.
 
  - Function: char-table-type-list
      This function returns a list of the recognized char table types.
 
- - Function: valid-char-table-type-p TYPE
+ - Function: valid-char-table-type-p type
      This function returns `t' if TYPE if a recognized char table type.
 
 
@@ -1041,12 +1041,12 @@ File: lispref.info,  Node: Working With Char Tables,  Prev: Char Table Types,  U
 Working With Char Tables
 ------------------------
 
- - Function: make-char-table TYPE
+ - Function: make-char-table type
      This function makes a new, empty char table of type TYPE.  TYPE
      should be a symbol, one of `char', `category', `display',
      `generic', or `syntax'.
 
- - Function: put-char-table RANGE VAL TABLE
+ - Function: put-char-table range val table
      This function sets the value for chars in RANGE to be VAL in TABLE.
 
      RANGE specifies one or more characters to be affected and should be
@@ -1063,17 +1063,17 @@ Working With Char Tables
 
      VAL must be a value appropriate for the type of TABLE.
 
- - Function: get-char-table CH TABLE
+ - Function: get-char-table ch table
      This function finds the value for char CH in TABLE.
 
- - Function: get-range-char-table RANGE TABLE &optional MULTI
+ - Function: get-range-char-table range table &optional multi
      This function finds the value for a range in TABLE.  If there is
      more than one value, MULTI is returned (defaults to `nil').
 
- - Function: reset-char-table TABLE
+ - Function: reset-char-table table
      This function resets a char table to its default state.
 
- - Function: map-char-table FUNCTION TABLE &optional RANGE
+ - Function: map-char-table function table &optional range
      This function maps FUNCTION over entries in TABLE, calling it with
      two args, each key and value in the table.
 
@@ -1081,11 +1081,11 @@ Working With Char Tables
      as the RANGE argument to `put-range-table'.  If omitted or `t', it
      defaults to the entire table.
 
- - Function: valid-char-table-value-p VALUE CHAR-TABLE-TYPE
+ - Function: valid-char-table-value-p value char-table-type
      This function returns non-`nil' if VALUE is a valid value for
      CHAR-TABLE-TYPE.
 
- - Function: check-valid-char-table-value VALUE CHAR-TABLE-TYPE
+ - Function: check-valid-char-table-value value char-table-type
      This function signals an error if VALUE is not a valid value for
      CHAR-TABLE-TYPE.
 
@@ -1222,18 +1222,18 @@ cons cell or is a list, or whether it is the distinguished object
 `nil'.  (Many of these predicates can be defined in terms of the
 others, but they are used so often that it is worth having all of them.)
 
- - Function: consp OBJECT
+ - Function: consp object
      This function returns `t' if OBJECT is a cons cell, `nil'
-     otherwise.  `nil' is not a cons cell, although it *is* a list.
+     otherwise.  `nil' is not a cons cell, although it _is_ a list.
 
- - Function: atom OBJECT
+ - Function: atom object
      This function returns `t' if OBJECT is an atom, `nil' otherwise.
      All objects except cons cells are atoms.  The symbol `nil' is an
      atom and is also a list; it is the only Lisp object that is both.
 
           (atom OBJECT) == (not (consp OBJECT))
 
- - Function: listp OBJECT
+ - Function: listp object
      This function returns `t' if OBJECT is a cons cell or `nil'.
      Otherwise, it returns `nil'.
 
@@ -1242,13 +1242,13 @@ others, but they are used so often that it is worth having all of them.)
           (listp '())
                => t
 
- - Function: nlistp OBJECT
+ - Function: nlistp object
      This function is the opposite of `listp': it returns `t' if OBJECT
      is not a list.  Otherwise, it returns `nil'.
 
           (listp OBJECT) == (not (nlistp OBJECT))
 
- - Function: null OBJECT
+ - Function: null object
      This function returns `t' if OBJECT is `nil', and returns `nil'
      otherwise.  This function is identical to `not', but as a matter
      of clarity we use `null' when OBJECT is considered a list and

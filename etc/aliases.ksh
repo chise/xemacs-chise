@@ -24,7 +24,7 @@
 
 # Shortcuts for sh-derived Unix shells (ksh, zsh, bash)
 
-# From Steve Baur <steve@altair.xemacs.org>
+# From Steve Baur <steve@xemacs.org>
 # Run temacs as XEmacs
 function runtemacs
 {

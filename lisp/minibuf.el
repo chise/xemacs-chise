@@ -2116,9 +2116,15 @@ On mswindows devices, this uses `mswindows-color-list'."
 (defun read-coding-system (prompt &optional default-coding-system)
   "Read a coding-system (or nil) from the minibuffer.
 Prompting with string PROMPT.
-If the user enters null input, return second argument DEFAULT-CODING-SYSTEM."
+If the user enters null input, return second argument DEFAULT-CODING-SYSTEM.
+DEFAULT-CODING-SYSTEM can be a string, symbol, or coding-system object."
   (intern (completing-read prompt obarray 'find-coding-system t nil nil 
-			   default-coding-system)))
+			   (cond ((symbolp default-coding-system)
+				  (symbol-name default-coding-system))
+				 ((coding-system-p default-coding-system)
+				  (symbol-name (coding-system-name default-coding-system)))
+				 (t
+				  default-coding-system)))))
 
 (defun read-non-nil-coding-system (prompt)
   "Read a non-nil coding-system from the minibuffer.

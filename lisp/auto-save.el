@@ -79,7 +79,7 @@
 ;;; Acknowledgement:
 
 ;; This code is loosely derived from autosave-in-tmp.el by Jamie
-;; Zawinski <jwz@netscape.com> (the version I had was last modified 22
+;; Zawinski <jwz@jwz.org> (the version I had was last modified 22
 ;; dec 90 jwz) and code submitted to ange-ftp-lovers on Sun, 5 Apr
 ;; 92 23:20:47 EDT by drw@BOURBAKI.MIT.EDU (Dale R. Worley).
 ;; auto-save.el tries to cover the functionality of those two

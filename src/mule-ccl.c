@@ -682,17 +682,27 @@ static tr_stack *mapping_stack_pointer;
 
 /* Write a string at ccl_prog[IC] of length LEN to the current output
    buffer.  */
-#define CCL_WRITE_STRING(len) do {			\
-  if (!destination)					\
-    {							\
-      ccl->status = CCL_STAT_INVALID_CMD;		\
-      goto ccl_error_handler;				\
-    }							\
-  else							\
-    for (i = 0; i < len; i++)				\
-      Dynarr_add(destination,				\
-		 (XINT (ccl_prog[ic + (i / 3)])		\
-		  >> ((2 - (i % 3)) * 8)) & 0xFF);	\
+#define CCL_WRITE_STRING(len) do {				\
+  if (!destination)						\
+    {								\
+      ccl->status = CCL_STAT_INVALID_CMD;			\
+      goto ccl_error_handler;					\
+    }								\
+  else								\
+    {								\
+      Bufbyte work[MAX_EMCHAR_LEN];				\
+      for (i = 0; i < len; i++)					\
+	{							\
+	  int ch = (XINT (ccl_prog[ic + (i / 3)])		\
+		    >> ((2 - (i % 3)) * 8)) & 0xFF;		\
+	  int bytes =						\
+	    ( ch < ( conversion_mode == CCL_MODE_ENCODING ?	\
+		     256 : 128 ) ) ?				\
+	    simple_set_charptr_emchar (work, ch) :		\
+	    non_ascii_set_charptr_emchar (work, ch);		\
+	  Dynarr_add_many (destination, work, bytes);		\
+	}							\
+    }								\
 } while (0)
 
 /* Read one byte from the current input buffer into Rth register.  */
@@ -1838,7 +1848,7 @@ It returns the contents of write buffer as a string,
   outbuf = Dynarr_new (unsigned_char);
   ccl.last_block = NILP (contin);
   produced = ccl_driver (&ccl, XSTRING_DATA (str), outbuf,
-			 XSTRING_LENGTH (str), (int *)0, CCL_MODE_ENCODING);
+			 XSTRING_LENGTH (str), (int *)0, CCL_MODE_DECODING);
   for (i = 0; i < 8; i++)
     XVECTOR_DATA (status)[i] = make_int(ccl.reg[i]);
   XSETINT (XVECTOR_DATA (status)[8], ccl.ic);

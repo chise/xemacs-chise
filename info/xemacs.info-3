@@ -1,5 +1,5 @@
-This is Info file ../../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -91,7 +91,7 @@ normally `C-z' and `C-c'.)  This Unix feature is turned off while you
 are in Emacs. The meanings of `C-z' and `C-x C-c' as keys in Emacs were
 inspired by the standard Berkeley Unix meanings of `C-z' and `C-c', but
 that is their only relationship with Unix.  You could customize these
-keys to do anything (*note Keymaps::.).
+keys to do anything (*note Keymaps::).
 
 
 File: xemacs.info,  Node: Command Switches,  Next: Startup Paths,  Prev: Exiting,  Up: Top
@@ -221,7 +221,7 @@ order in which they appear in this table.
 
 `-debug-paths'
      Displays information on how XEmacs constructs the various paths
-     into its hierarchy on startup.  (See also *note Startup Paths::..)
+     into its hierarchy on startup.  (See also *note Startup Paths::.)
 
 `-unmapped'
      Do not map the initial frame.  This is useful if you want to start
@@ -269,7 +269,7 @@ normal processing of the other arguments by setting this variable.
      xemacs *.c
 
 passes each `.c' file as a separate argument to Emacs, so that Emacs
-visits each file (*note Visiting::.).
+visits each file (*note Visiting::).
 
    Here is an advanced example that assumes you have a Lisp program file
 called `hack-c-program.el' which, when loaded, performs some useful
@@ -478,7 +478,7 @@ directly under `<root>', because that is where they are in the XEmacs
 tarball.
 
    If XEmacs runs with the `-debug-paths' option (*note Command
-Switches::.), it will print the values of these variables, hopefully
+Switches::), it will print the values of these variables, hopefully
 aiding in debugging any problems which come up.
 
 `lisp-directory'
@@ -546,7 +546,7 @@ Inserting Text
 
    To insert printing characters into the text you are editing, just
 type them.  This inserts the characters into the buffer at the cursor
-(that is, at "point"; *note Point::.).  The cursor moves forward.  Any
+(that is, at "point"; *note Point::).  The cursor moves forward.  Any
 characters after the cursor move forward too.  If the text in the buffer
 is `FOOBAR', with the cursor before the `B', and you type `XX', the
 result is `FOOXXBAR', with the cursor still before the `B'.
@@ -586,7 +586,7 @@ above 200 octal, you must "quote" it by typing the character
      with the specified character code.
 
 A numeric argument to `C-q' specifies how many copies of the quoted
-character should be inserted (*note Arguments::.).
+character should be inserted (*note Arguments::).
 
    If you prefer to have text characters replace (overwrite) existing
 text instead of moving it to the right, you can enable Overwrite mode, a
@@ -596,7 +596,7 @@ Changing the Location of Point
 ==============================
 
    To do more than insert characters, you have to know how to move point
-(*note Point::.).  Here are a few of the available commands.
+(*note Point::).  Here are a few of the available commands.
 
    NOTE: Many of the following commands have two versions, one that uses
 the function keys (e.g. <LEFT> or <END>) and one that doesn't.  The
@@ -744,7 +744,7 @@ from Emacs, type:
 
 The file name is given as an "argument" to the command `C-x C-f'
 (`find-file').  The command uses the "minibuffer" to read the argument.
-You have to type <RET> to terminate the argument (*note Minibuffer::.).
+You have to type <RET> to terminate the argument (*note Minibuffer::).
 
    You can also use the Open... menu item from the File menu, then type
 the name of the file to the prompt.
@@ -765,7 +765,7 @@ which you can insert the text you want to put in the file.  When you
 save the buffer with `C-x C-s', or by choosing Save Buffer from the
 File menu, the file is created.
 
-   To learn more about using files, *note Files::..
+   To learn more about using files, *note Files::.
 
 Help
 ====
@@ -832,8 +832,8 @@ Continuation Lines
 curved arrow at the extreme right margin of all but the last line.  The
 curved arrow indicates that the following screen line is not really a
 distinct line in the text, but just the "continuation" of a line too
-long to fit the frame.  You can use Auto Fill mode (*note Filling::.)
-to have Emacs insert newlines automatically when a line gets too long.
+long to fit the frame.  You can use Auto Fill mode (*note Filling::) to
+have Emacs insert newlines automatically when a line gets too long.
 
    Instead of continuation, long lines can be displayed by "truncation".
 This means that all the characters that do not fit in the width of the
@@ -844,7 +844,7 @@ of the curved arrow inform you that truncation is in effect.
    To turn off continuation for a particular buffer, set the variable
 `truncate-lines' to non-`nil' in that buffer.  Truncation instead of
 continuation also happens whenever horizontal scrolling is in use, and
-optionally whenever side-by-side windows are in use (*note Windows::.).
+optionally whenever side-by-side windows are in use (*note Windows::).
 Altering the value of `truncate-lines' makes it local to the current
 buffer; until that time, the default value is in effect.  The default
 is initially `nil'.  *Note Locals::.
@@ -888,7 +888,7 @@ information, it is not displayed all the time.
      current page.
 
    * `M-=' (`count-lines-region') prints the number of lines in the
-     region (*note Mark::.).
+     region (*note Mark::).
 
    The command `C-x =' (`what-cursor-position') provides information
 about point and about the column the cursor is in.  It prints a line in
@@ -1127,7 +1127,7 @@ where `Find File: ' is the prompt.  Typing `buffer.c' specifies the file
 `..'; thus, if you type `../lisp/simple.el', the file that you visit
 will be the one named
 `/u2/emacs/lisp/simple.el'.  Alternatively, you can use  `M-<DEL>' to
-kill directory names you don't want (*note Words::.).
+kill directory names you don't want (*note Words::).
 
    You can also type an absolute file name, one starting with a slash
 or a tilde, ignoring the default directory.  For example, to find the

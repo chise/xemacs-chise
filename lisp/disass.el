@@ -3,8 +3,8 @@
 ;;; Copyright (C) 1986, 1991-1994 Free Software Foundation, Inc.
 
 ;; Author: Doug Cutting <doug@csli.stanford.edu>
-;;	Jamie Zawinski <jwz@netscape.com>
-;; Maintainer: Jamie Zawinski <jwz@netscape.com>
+;;	Jamie Zawinski <jwz@jwz.org>
+;; Maintainer: XEmacs Development Team
 ;; Keywords: internal
 
 ;; This file is part of XEmacs.

@@ -1,7 +1,7 @@
 ;; Copyright (C) 1999 Free Software Foundation, Inc.
 
-;; Author: Hrvoje Niksic <hniksic@srce.hr>
-;; Maintainer: Hrvoje Niksic <hniksic@srce.hr>
+;; Author: Hrvoje Niksic <hniksic@xemacs.org>
+;; Maintainer: Hrvoje Niksic <hniksic@xemacs.org>
 ;; Created: 1999
 ;; Keywords: tests
 

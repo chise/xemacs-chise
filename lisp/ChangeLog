@@ -1,3 +1,35 @@
+1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.22 is released
+
+1999-11-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.21 is released.
+
+1999-11-18  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* minibuf.el (read-coding-system): Accept symbol and
+	coding-system object as	a default-coding-system.
+
+1999-11-16  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* minibuf.el (read-coding-system): Accept symbol as
+	a default-coding-system.
+
+1999-10-06  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* apropos.el (apropos-documentation): Use insert instead
+	of princ.
+
+1999-11-07  William M. Perry  <wmperry@aventail.com>
+
+	* gpm.el: New gpm-minor-mode to turn GPM mouse support on & off
+	  for the linux console.
+
+	* mouse.el (mouse-consolidated-yank): Allow the mouse-yanking
+	  stuff to work when you are not on a window system, since the GPM
+	  mouse support now allows pasting from outside of XEmacs.
+
 1999-11-10  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.20 is released

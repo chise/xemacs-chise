@@ -54,6 +54,7 @@ bindir=@bindir@
 libdir=@libdir@
 srcdir=@srcdir@
 datadir=@datadir@
+instvardir=@instvardir@
 top_srcdir=@top_srcdir@
 archlibdir=@archlibdir@
 configuration=@configuration@

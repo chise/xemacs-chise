@@ -716,7 +716,7 @@ length of @var{sequence}.
 Return the list of results."
   ;; @r{If no list is exhausted,}
   (if (not (memq 'nil args))              
-      ;; @r{apply function to @sc{CAR}s.}
+      ;; @r{apply function to @sc{car}s.}
       (cons (apply f (mapcar 'car args))  
             (apply 'mapcar* f             
                    ;; @r{Recurse for rest of elements.}

@@ -450,7 +450,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 	nread = 0;
 	while (nread < bufsize - 1024)
 	  {
-	    int this_read
+	    ssize_t this_read
 	      = Lstream_read (XLSTREAM (instream), bufptr + nread,
 			      bufsize - nread);
 

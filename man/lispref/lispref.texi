@@ -1,4 +1,4 @@
-\input ../texinfo  @c -*-texinfo-*-
+\input texinfo  @c -*-texinfo-*-
 @c %**start of header
 @setfilename ../../info/lispref.info
 @c @smallbook
