@@ -193,8 +193,8 @@ check_mark (void)
 }
 
 static Lisp_Object
-callint_prompt (CONST Bufbyte *prompt_start, Bytecount prompt_length,
-                CONST Lisp_Object *args, int nargs)
+callint_prompt (const Bufbyte *prompt_start, Bytecount prompt_length,
+                const Lisp_Object *args, int nargs)
 {
   Lisp_Object s = make_string (prompt_start, prompt_length);
   struct gcpro gcpro1;
@@ -241,7 +241,7 @@ when reading the arguments.
 #endif
   /* If SPECS is a string, we reset prompt_data to string_data
    * (XSTRING (specs)) every time a GC might have occurred */
-  CONST char *prompt_data = 0;
+  const char *prompt_data = 0;
   int prompt_index = 0;
   int argcount;
   int set_zmacs_region_stays = 0;
@@ -425,7 +425,7 @@ when reading the arguments.
     for (;;)
       {
 	if (STRINGP (specs))
-	  prompt_data = (CONST char *) XSTRING_DATA (specs);
+	  prompt_data = (const char *) XSTRING_DATA (specs);
 
 	if (prompt_data[prompt_index] == '+')
 	  error ("`+' is not used in `interactive' for ordinary commands");
@@ -486,7 +486,7 @@ when reading the arguments.
      us give to the function.  */
   argcount = 0;
   {
-    CONST char *tem;
+    const char *tem;
     for (tem = prompt_data + prompt_index; *tem; )
       {
 	/* 'r' specifications ("point and mark as 2 numeric args")
@@ -495,7 +495,7 @@ when reading the arguments.
 	  argcount += 2;
 	else
 	  argcount += 1;
-	tem = (CONST char *) strchr (tem + 1, '\n');
+	tem = (const char *) strchr (tem + 1, '\n');
 	if (!tem)
 	  break;
 	tem++;
@@ -565,8 +565,8 @@ when reading the arguments.
 
     for (argnum = 0; ; argnum++)
       {
-	CONST char *prompt_start = prompt_data + prompt_index + 1;
-	CONST char *prompt_limit = (CONST char *) strchr (prompt_start, '\n');
+	const char *prompt_start = prompt_data + prompt_index + 1;
+	const char *prompt_limit = (const char *) strchr (prompt_start, '\n');
 	int prompt_length;
 	prompt_length = ((prompt_limit)
 			 ? (prompt_limit - prompt_start)
@@ -580,7 +580,7 @@ when reading the arguments.
 	   prompts with "Set key C-x C-f to command: "instead of printing
 	   event objects in there.
 	 */
-#define PROMPT() callint_prompt ((CONST Bufbyte *) prompt_start, prompt_length, visargs, argnum)
+#define PROMPT() callint_prompt ((const Bufbyte *) prompt_start, prompt_length, visargs, argnum)
 	switch (prompt_data[prompt_index])
 	  {
 	  case 'a':		/* Symbol defined as a function */
@@ -909,7 +909,7 @@ when reading the arguments.
 	if (!prompt_limit)
 	  break;
 	if (STRINGP (specs))
-	  prompt_data = (CONST char *) XSTRING_DATA (specs);
+	  prompt_data = (const char *) XSTRING_DATA (specs);
 	prompt_index += prompt_length + 1 + 1; /* +1 to skip spec, +1 for \n */
       }
     unbind_to (speccount, Qnil);

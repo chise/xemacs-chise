@@ -26,13 +26,13 @@ Boston, MA 02111-1307, USA.  */
 
 /* The "lrecord" type of Lisp object is used for all object types
    other than a few simple ones.  This allows many types to be
-   implemented but only a few bits required in a Lisp object for
-   type information. (The tradeoff is that each object has its
-   type marked in it, thereby increasing its size.) The first
-   four bytes of all lrecords is either a pointer to a struct
-   lrecord_implementation, which contains methods describing how
-   to process this object, or an index into an array of pointers
-   to struct lrecord_implementations plus some other data bits.
+   implemented but only a few bits required in a Lisp object for type
+   information. (The tradeoff is that each object has its type marked
+   in it, thereby increasing its size.) All lrecords begin with a
+   `struct lrecord_header', which identifies the lisp object type, by
+   providing an index into a table of `struct lrecord_implementation',
+   which describes the behavior of the lisp object.  It also contains
+   some other data bits.
 
    Lrecords are of two types: straight lrecords, and lcrecords.
    Straight lrecords are used for those types of objects that have
@@ -42,12 +42,12 @@ Boston, MA 02111-1307, USA.  */
    the lrecord_implementation for the object.  There are special
    routines in alloc.c to deal with each such object type.
 
-   Lcrecords are used for less common sorts of objects that don't
-   do their own allocation.  Each such object is malloc()ed
-   individually, and the objects are chained together through
-   a `next' pointer.  Lcrecords have a `struct lcrecord_header'
-   at the top, which contains a `struct lrecord_header' and
-   a `next' pointer, and are allocated using alloc_lcrecord().
+   Lcrecords are used for less common sorts of objects that don't do
+   their own allocation.  Each such object is malloc()ed individually,
+   and the objects are chained together through a `next' pointer.
+   Lcrecords have a `struct lcrecord_header' at the top, which
+   contains a `struct lrecord_header' and a `next' pointer, and are
+   allocated using alloc_lcrecord().
 
    Creating a new lcrecord type is fairly easy; just follow the
    lead of some existing type (e.g. hash tables).  Note that you
@@ -60,17 +60,17 @@ Boston, MA 02111-1307, USA.  */
 struct lrecord_header
 {
   /* index into lrecord_implementations_table[] */
-  unsigned type :8;
+  unsigned int type :8;
   /* 1 if the object is marked during GC. */
-  unsigned mark :1;
+  unsigned int mark :1;
   /* 1 if the object resides in read-only space */
-  unsigned c_readonly : 1;
+  unsigned int c_readonly :1;
   /* 1 if the object is readonly from lisp */
-  unsigned lisp_readonly : 1;
+  unsigned int lisp_readonly :1;
 };
 
 struct lrecord_implementation;
-int lrecord_type_index (CONST struct lrecord_implementation *implementation);
+int lrecord_type_index (const struct lrecord_implementation *implementation);
 
 #define set_lheader_implementation(header,imp) do {	\
   struct lrecord_header* SLI_header = (header);		\
@@ -84,9 +84,9 @@ struct lcrecord_header
 {
   struct lrecord_header lheader;
 
-  /* The `next' field is normally used to chain all lrecords together
+  /* The `next' field is normally used to chain all lcrecords together
      so that the GC can find (and free) all of them.
-     `alloc_lcrecord' threads records together.
+     `alloc_lcrecord' threads lcrecords together.
 
      The `next' field may be used for other purposes as long as some
      other mechanism is provided for letting the GC do its work.
@@ -123,8 +123,9 @@ Lisp_Object this_one_is_unmarkable (Lisp_Object obj);
 
 struct lrecord_implementation
 {
-  CONST char *name;
-  /* This function is called at GC time, to make sure that all Lisp_Objects
+  const char *name;
+
+  /* `marker' is called at GC time, to make sure that all Lisp_Objects
      pointed to by this object get properly marked.  It should call
      the mark_object function on all Lisp_Objects in the object.  If
      the return value is non-nil, it should be a Lisp_Object to be
@@ -134,50 +135,63 @@ struct lrecord_implementation
      with the deepest level of Lisp_Object pointers.  This function
      can be NULL, meaning no GC marking is necessary. */
   Lisp_Object (*marker) (Lisp_Object);
-  /* This can be NULL if the object is an lcrecord; the
-     default_object_printer() in print.c will be used. */
+
+  /* `printer' converts the object to a printed representation.
+     This can be NULL; in this case default_object_printer() will be
+     used instead. */
   void (*printer) (Lisp_Object, Lisp_Object printcharfun, int escapeflag);
-  /* This function is called at GC time when the object is about to
+
+  /* `finalizer' is called at GC time when the object is about to
      be freed, and at dump time (FOR_DISKSAVE will be non-zero in this
      case).  It should perform any necessary cleanup (e.g. freeing
-     malloc()ed memory.  This can be NULL, meaning no special
+     malloc()ed memory).  This can be NULL, meaning no special
      finalization is necessary.
 
-     WARNING: remember that the finalizer is called at dump time even
+     WARNING: remember that `finalizer' is called at dump time even
      though the object is not being freed. */
   void (*finalizer) (void *header, int for_disksave);
+
   /* This can be NULL, meaning compare objects with EQ(). */
   int (*equal) (Lisp_Object obj1, Lisp_Object obj2, int depth);
-  /* This can be NULL, meaning use the Lisp_Object itself as the hash;
-     but *only* if the `equal' function is EQ (if two objects are
-     `equal', they *must* hash to the same value or the hashing won't
-     work). */
+
+  /* `hash' generates hash values for use with hash tables that have
+     `equal' as their test function.  This can be NULL, meaning use
+     the Lisp_Object itself as the hash.  But, you must still satisfy
+     the constraint that if two objects are `equal', then they *must*
+     hash to the same value in order for hash tables to work properly.
+     This means that `hash' can be NULL only if the `equal' method is
+     also NULL. */
   unsigned long (*hash) (Lisp_Object, int);
 
   /* External data layout description */
   const struct lrecord_description *description;
 
+  /* These functions allow any object type to have builtin property
+     lists that can be manipulated from the lisp level with
+     `get', `put', `remprop', and `object-plist'. */
   Lisp_Object (*getprop) (Lisp_Object obj, Lisp_Object prop);
   int (*putprop) (Lisp_Object obj, Lisp_Object prop, Lisp_Object val);
   int (*remprop) (Lisp_Object obj, Lisp_Object prop);
   Lisp_Object (*plist) (Lisp_Object obj);
 
-  /* Only one of these is non-0.  If both are 0, it means that this type
-     is not instantiable by alloc_lcrecord(). */
+  /* Only one of `static_size' and `size_in_bytes_method' is non-0.
+     If both are 0, this type is not instantiable by alloc_lcrecord(). */
   size_t static_size;
-  size_t (*size_in_bytes_method) (CONST void *header);
+  size_t (*size_in_bytes_method) (const void *header);
+
   /* A unique subtag-code (dynamically) assigned to this datatype. */
   /* (This is a pointer so the rest of this structure can be read-only.) */
   int *lrecord_type_index;
+
   /* A "basic" lrecord is any lrecord that's not an lcrecord, i.e.
      one that does not have an lcrecord_header at the front and which
      is (usually) allocated in frob blocks.  We only use this flag for
      some consistency checking, and that only when error-checking is
      enabled. */
-  int basic_p;
+  unsigned int basic_p :1;
 };
 
-extern CONST struct lrecord_implementation *lrecord_implementations_table[];
+extern const struct lrecord_implementation *lrecord_implementations_table[];
 
 #define XRECORD_LHEADER_IMPLEMENTATION(obj) \
    (lrecord_implementations_table[XRECORD_LHEADER (obj)->type])
@@ -236,7 +250,7 @@ extern int gc_in_progress;
   An array of Lisp objects or pointers to lrecords.
   The third element is the count.
 
-  XD_LO_RESET_NIL
+    XD_LO_RESET_NIL
   Lisp objects which will be reset to Qnil when dumping.  Useful for cleaning
   up caches.
 
@@ -341,7 +355,7 @@ struct struct_description {
 #ifdef DEBUG_XEMACS
 #define CONST_IF_NOT_DEBUG
 #else
-#define CONST_IF_NOT_DEBUG CONST
+#define CONST_IF_NOT_DEBUG const
 #endif
 
 /* DEFINE_LRECORD_IMPLEMENTATION is for objects with constant size.
@@ -357,27 +371,30 @@ struct struct_description {
 #define DEFINE_BASIC_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,structtype) \
 DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,0,0,0,0,structtype)
 
-#define DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,structtype) \
-MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,sizeof(structtype),0,1,structtype)
+#define DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,structtype) \
+MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,sizeof(structtype),0,1,structtype)
 
 #define DEFINE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,structtype) \
 DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,0,0,0,0,structtype)
 
-#define DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,structtype) \
-MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,sizeof (structtype),0,0,structtype)
+#define DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,structtype) \
+MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,sizeof (structtype),0,0,structtype)
 
 #define DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,sizer,structtype) \
 DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,0,0,0,0,sizer,structtype)
 
-#define DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,sizer,structtype) \
-MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,0,sizer,0,structtype) \
+#define DEFINE_BASIC_LRECORD_SEQUENCE_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,sizer,structtype) \
+MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,0,0,0,0,0,sizer,1,structtype)
 
-#define MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,size,sizer,basic_p,structtype) \
+#define DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,sizer,structtype) \
+MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,0,sizer,0,structtype) \
+
+#define MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,size,sizer,basic_p,structtype) \
 DECLARE_ERROR_CHECK_TYPECHECK(c_name, structtype)			\
 static int lrecord_##c_name##_lrecord_type_index;			\
 CONST_IF_NOT_DEBUG struct lrecord_implementation lrecord_##c_name =	\
   { name, marker, printer, nuker, equal, hash, desc,			\
-    getprop, putprop, remprop, props, size, sizer,			\
+    getprop, putprop, remprop, plist, size, sizer,			\
     &(lrecord_##c_name##_lrecord_type_index), basic_p }			\
 
 #define LRECORDP(a) (XTYPE (a) == Lisp_Type_Record)
@@ -486,7 +503,7 @@ extern Lisp_Object Q##c_name##p
    dead_wrong_type_argument (predicate, x);		\
  } while (0)
 
-void *alloc_lcrecord (size_t size, CONST struct lrecord_implementation *);
+void *alloc_lcrecord (size_t size, const struct lrecord_implementation *);
 
 #define alloc_lcrecord_type(type, lrecord_implementation) \
   ((type *) alloc_lcrecord (sizeof (type), lrecord_implementation))

@@ -79,7 +79,7 @@ static int in_float;
 /* If an argument is out of range for a mathematical function,
    here is the actual argument value to use in the error message.  */
 static Lisp_Object float_error_arg, float_error_arg2;
-static CONST char *float_error_fn_name;
+static const char *float_error_fn_name;
 
 /* Evaluate the floating point expression D, recording NUM
    as the original argument for error messages.
@@ -126,7 +126,7 @@ static CONST char *float_error_fn_name;
 /* Convert float to Lisp Integer if it fits, else signal a range
    error using the given arguments.  */
 static Lisp_Object
-float_to_int (double x, CONST char *name, Lisp_Object num, Lisp_Object num2)
+float_to_int (double x, const char *name, Lisp_Object num, Lisp_Object num2)
 {
   if (x >= ((EMACS_INT) 1 << (VALBITS-1))
       || x <= - ((EMACS_INT) 1 << (VALBITS-1)) - (EMACS_INT) 1)

@@ -10,20 +10,6 @@
 #define USG5_4
 #endif
 
-#undef  _POSIX_C_SOURCE
-
-#if OS_RELEASE > 54
-/* There were some bugs with preprocessor symbol interaction, which
-   were not fixed until 2.5. */
-#define __EXTENSIONS__ 1
-
-#undef  _XOPEN_SOURCE
-#define _XOPEN_SOURCE 1
-
-#undef  _XOPEN_SOURCE_EXTENDED
-#define _XOPEN_SOURCE_EXTENDED 1
-#endif /* > Solaris 2.4 */
-
 #if OS_RELEASE >= 57
 #define HAVE_GETLOADAVG
 #endif

@@ -408,7 +408,8 @@ x_finalize_image_instance (Lisp_Image_Instance *p)
 #endif
 	      lw_destroy_widget (IMAGE_INSTANCE_X_WIDGET_ID (p));
 	      lw_destroy_widget (IMAGE_INSTANCE_X_CLIPWIDGET (p));
-	      IMAGE_INSTANCE_SUBWINDOW_ID (p) = 0;
+	      IMAGE_INSTANCE_X_WIDGET_ID (p) = 0;
+	      IMAGE_INSTANCE_X_CLIPWIDGET (p) = 0;
 	    }
 	}
       else if (IMAGE_INSTANCE_TYPE (p) == IMAGE_SUBWINDOW)
@@ -975,7 +976,7 @@ x_init_image_instance_from_eimage (Lisp_Image_Instance *ii,
     }
 }
 
-int read_bitmap_data_from_file (CONST char *filename, unsigned int *width,
+int read_bitmap_data_from_file (const char *filename, unsigned int *width,
 				unsigned int *height, unsigned char **datap,
 				int *x_hot, int *y_hot)
 {
@@ -989,7 +990,7 @@ int read_bitmap_data_from_file (CONST char *filename, unsigned int *width,
 static Pixmap
 pixmap_from_xbm_inline (Lisp_Object device, int width, int height,
 			/* Note that data is in ext-format! */
-			CONST Extbyte *bits)
+			const Extbyte *bits)
 {
   return XCreatePixmapFromBitmapData (DEVICE_X_DISPLAY (XDEVICE(device)),
 				      XtWindow (DEVICE_XT_APP_SHELL (XDEVICE (device))),
@@ -1004,7 +1005,7 @@ static void
 init_image_instance_from_xbm_inline (Lisp_Image_Instance *ii,
 				     int width, int height,
 				     /* Note that data is in ext-format! */
-				     CONST char *bits,
+				     const char *bits,
 				     Lisp_Object instantiator,
 				     Lisp_Object pointer_fg,
 				     Lisp_Object pointer_bg,
@@ -1142,7 +1143,7 @@ xbm_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
 		   Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		   int dest_mask, int width, int height,
 		   /* Note that data is in ext-format! */
-		   CONST char *bits)
+		   const char *bits)
 {
   Lisp_Object mask_data = find_keyword_in_vector (instantiator, Q_mask_data);
   Lisp_Object mask_file = find_keyword_in_vector (instantiator, Q_mask_file);
@@ -1151,7 +1152,7 @@ xbm_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
 
   if (!NILP (mask_data))
     {
-      CONST char *ext_data;
+      const char *ext_data;
 
       TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (XCDR (XCDR (mask_data))),
 			  C_STRING_ALLOCA, ext_data,
@@ -1159,7 +1160,7 @@ xbm_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
       mask = pixmap_from_xbm_inline (IMAGE_INSTANCE_DEVICE (ii),
 				     XINT (XCAR (mask_data)),
 				     XINT (XCAR (XCDR (mask_data))),
-				     (CONST unsigned char *) ext_data);
+				     (const unsigned char *) ext_data);
     }
 
   init_image_instance_from_xbm_inline (ii, width, height, bits,
@@ -1175,7 +1176,7 @@ x_xbm_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		   int dest_mask, Lisp_Object domain)
 {
   Lisp_Object data = find_keyword_in_vector (instantiator, Q_data);
-  CONST char *ext_data;
+  const char *ext_data;
 
   assert (!NILP (data));
 
@@ -1661,8 +1662,8 @@ x_xface_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   Lisp_Object data = find_keyword_in_vector (instantiator, Q_data);
   int i, stattis;
   char *p, *bits, *bp;
-  CONST char * volatile emsg = 0;
-  CONST char * volatile dstring;
+  const char * volatile emsg = 0;
+  const char * volatile dstring;
 
   assert (!NILP (data));
 
@@ -1839,7 +1840,7 @@ autodetect_instantiate (Lisp_Object image_instance,
   alist = tagged_vector_to_alist (instantiator);
   if (dest_mask & IMAGE_POINTER_MASK)
     {
-      CONST char *name_ext;
+      const char *name_ext;
       TO_EXTERNAL_FORMAT (LISP_STRING, data,
 			  C_STRING_ALLOCA, name_ext,
 			  Qfile_name);
@@ -2031,7 +2032,7 @@ cursor_font_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
   Display *dpy;
   int i;
-  CONST char *name_ext;
+  const char *name_ext;
   Lisp_Object foreground, background;
 
   if (!DEVICE_X_P (XDEVICE (device)))
@@ -2164,27 +2165,75 @@ x_map_subwindow (Lisp_Image_Instance *p, int x, int y,
 static void
 x_update_subwindow (Lisp_Image_Instance *p)
 {
-#ifdef HAVE_WIDGETS
-  if (IMAGE_INSTANCE_TYPE (p) == IMAGE_WIDGET)
+  /* Update the subwindow size if necessary. */
+  if (IMAGE_INSTANCE_SIZE_CHANGED (p))
     {
-      widget_value* wv = gui_items_to_widget_values
-	(IMAGE_INSTANCE_WIDGET_ITEMS (p));
-
-      /* This seems ugly, but I'm not sure what else to do. */
-      if (EQ (IMAGE_INSTANCE_WIDGET_TYPE (p), Qtab_control))
-	{
-	  update_tab_widget_face (wv, p,
-				  IMAGE_INSTANCE_SUBWINDOW_FRAME (p));
-	}
-      /* update the colors and font */
-      update_widget_face (wv, p, IMAGE_INSTANCE_SUBWINDOW_FRAME (p));
-
-      /* now modify the widget */
-      lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (p),
-			     wv, True);
-      free_widget_value_tree (wv);
-      /* subwindow resizing now gets done by the parent function. */
+      XResizeWindow (IMAGE_INSTANCE_X_SUBWINDOW_DISPLAY (p),
+		     IMAGE_INSTANCE_X_SUBWINDOW_ID (p),
+		     IMAGE_INSTANCE_WIDTH (p),
+		     IMAGE_INSTANCE_HEIGHT (p));
     }
+}
+
+/* Update all attributes that have changed. Lwlib actually does most
+   of this for us. */
+static void
+x_update_widget (Lisp_Image_Instance *p)
+{
+#ifdef HAVE_WIDGETS
+  widget_value* wv = 0;
+  Boolean deep_p = False;
+  /* Possibly update the size. */
+  if (IMAGE_INSTANCE_SIZE_CHANGED (p))
+    {
+      Arg al[2];
+
+      assert (IMAGE_INSTANCE_X_WIDGET_ID (p) &&
+	      IMAGE_INSTANCE_X_CLIPWIDGET (p)) ;
+
+      if ( !XtIsManaged(IMAGE_INSTANCE_X_WIDGET_ID (p))
+	   ||
+	   IMAGE_INSTANCE_X_WIDGET_ID (p)->core.being_destroyed )
+	{
+	  Lisp_Object sw;
+	  XSETIMAGE_INSTANCE (sw, p);
+	  signal_simple_error ("XEmacs bug: subwindow is deleted", sw);
+	}
+
+      XtSetArg (al [0], XtNwidth, (Dimension)IMAGE_INSTANCE_WIDTH (p));
+      XtSetArg (al [1], XtNheight, (Dimension)IMAGE_INSTANCE_HEIGHT (p));
+      XtSetValues (IMAGE_INSTANCE_X_WIDGET_ID (p), al, 2);
+    }
+
+  /* First get the items if they have changed since this is a structural change. */
+  if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
+    {
+      wv = gui_items_to_widget_values
+	(IMAGE_INSTANCE_WIDGET_ITEMS (p));
+      deep_p = True;
+    }
+
+  /* Possibly update the colors and font */
+  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p))
+    {
+      update_widget_face (wv, p, IMAGE_INSTANCE_SUBWINDOW_FRAME (p));
+    }
+
+  /* Possibly update the text. */
+  if (IMAGE_INSTANCE_TEXT_CHANGED (p))
+    {
+      char* str;
+      Lisp_Object val = IMAGE_INSTANCE_WIDGET_TEXT (p);
+      TO_EXTERNAL_FORMAT (LISP_STRING, val,
+			  C_STRING_ALLOCA, str,
+			  Qnative);
+      wv->value = str;
+    }
+
+  /* now modify the widget */
+  lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (p),
+			 wv, deep_p);
+  free_widget_value_tree (wv);
 #endif
 }
 
@@ -2272,34 +2321,6 @@ Subwindows are not currently implemented.
 }
 #endif
 
-static void
-x_resize_subwindow (Lisp_Image_Instance* ii, int w, int h)
-{
-  if (IMAGE_INSTANCE_TYPE (ii) == IMAGE_SUBWINDOW)
-    {
-      XResizeWindow (IMAGE_INSTANCE_X_SUBWINDOW_DISPLAY (ii),
-		     IMAGE_INSTANCE_X_SUBWINDOW_ID (ii),
-		     w, h);
-    }
-  else				/* must be a widget */
-    {
-      Arg al[2];
-
-      if ( !XtIsManaged(IMAGE_INSTANCE_X_WIDGET_ID (ii))
-	   ||
-	   IMAGE_INSTANCE_X_WIDGET_ID (ii)->core.being_destroyed )
-	{
-	  Lisp_Object sw;
-	  XSETIMAGE_INSTANCE (sw, ii);
-	  signal_simple_error ("XEmacs bug: subwindow is deleted", sw);
-	}
-
-      XtSetArg (al [0], XtNwidth, (Dimension)w);
-      XtSetArg (al [1], XtNheight, (Dimension)h);
-      XtSetValues (IMAGE_INSTANCE_X_WIDGET_ID (ii), al, 2);
-    }
-}
-
 
 #ifdef HAVE_WIDGETS
 
@@ -2373,7 +2394,7 @@ static void
 x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		      Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		      int dest_mask, Lisp_Object domain,
-		      CONST char* type, widget_value* wv)
+		      const char* type, widget_value* wv)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii), pixel;
@@ -2482,35 +2503,6 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   free_widget_value_tree (wv);
 }
 
-static Lisp_Object
-x_widget_set_property (Lisp_Object image_instance, Lisp_Object prop,
-		       Lisp_Object val)
-{
-  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-
-  /* Modify the text properties of the widget */
-  if (EQ (prop, Q_text))
-    {
-      char* str;
-      widget_value* wv = lw_get_all_values (IMAGE_INSTANCE_X_WIDGET_LWID (ii));
-      CHECK_STRING (val);
-      TO_EXTERNAL_FORMAT (LISP_STRING, val,
-			  C_STRING_ALLOCA, str,
-			  Qnative);
-      wv->value = str;
-      lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (ii), wv, False);
-    }
-
-  /* Modify the text properties of the widget */
-  else if (EQ (prop, Q_face))
-    {
-      widget_value* wv = lw_get_all_values (IMAGE_INSTANCE_X_WIDGET_LWID (ii));
-      update_widget_face (wv, ii, IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
-      lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (ii), wv, False);
-    }
-  return Qunbound;
-}
-
 /* get properties of a control */
 static Lisp_Object
 x_widget_property (Lisp_Object image_instance, Lisp_Object prop)
@@ -2603,21 +2595,20 @@ x_progress_gauge_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 }
 
 /* set the properties of a progres guage */
-static Lisp_Object
-x_progress_gauge_set_property (Lisp_Object image_instance, Lisp_Object prop,
-			 Lisp_Object val)
+static void
+x_progress_gauge_update (Lisp_Object image_instance)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
-  if (EQ (prop, Q_percent))
+  if (IMAGE_INSTANCE_WIDGET_PERCENT_CHANGED (ii))
     {
       Arg al [1];
-      CHECK_INT (val);
+      /* #### I'm not convinced we should store this in the plist. */
+      Lisp_Object val = Fplist_get (IMAGE_INSTANCE_WIDGET_PROPS (ii),
+				    Q_percent, Qnil);
       XtSetArg (al[0], XtNvalue, XINT (val));
       XtSetValues (IMAGE_INSTANCE_X_WIDGET_ID (ii), al, 1);
-      return Qt;
     }
-  return Qunbound;
 }
 
 /* instantiate an edit control */
@@ -2674,33 +2665,21 @@ x_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 }
 
 /* set the properties of a tab control */
-static Lisp_Object
-x_tab_control_set_property (Lisp_Object image_instance, Lisp_Object prop,
-			    Lisp_Object val)
+static void
+x_tab_control_update (Lisp_Object image_instance) 
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
-  if (EQ (prop, Q_items))
+  /* Possibly update the face. */
+  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (ii))
     {
-      widget_value * wv = 0;
-      check_valid_item_list_1 (val);
-
-      IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
-	Fcons (XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)),
-	       parse_gui_item_tree_children (val));
-
-      wv = gui_items_to_widget_values (IMAGE_INSTANCE_WIDGET_ITEMS (ii));
-
+      widget_value* wv = lw_get_all_values (IMAGE_INSTANCE_X_WIDGET_LWID (ii));
       update_tab_widget_face (wv, ii,
 			      IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
 
       lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (ii), wv, True);
-
       free_widget_value_tree (wv);
-      return Qt;
     }
-
-  return Qunbound;
 }
 
 /* instantiate a static control possible for putting other things in */
@@ -2747,7 +2726,7 @@ console_type_create_glyphs_x (void)
   CONSOLE_HAS_METHOD (x, locate_pixmap_file);
   CONSOLE_HAS_METHOD (x, unmap_subwindow);
   CONSOLE_HAS_METHOD (x, map_subwindow);
-  CONSOLE_HAS_METHOD (x, resize_subwindow);
+  CONSOLE_HAS_METHOD (x, update_widget);
   CONSOLE_HAS_METHOD (x, update_subwindow);
 }
 
@@ -2788,10 +2767,9 @@ image_instantiator_format_create_glyphs_x (void)
 
   INITIALIZE_DEVICE_IIFORMAT (x, widget);
   IIFORMAT_HAS_DEVMETHOD (x, widget, property);
-  IIFORMAT_HAS_DEVMETHOD (x, widget, set_property);
   /* progress gauge */
   INITIALIZE_DEVICE_IIFORMAT (x, progress_gauge);
-  IIFORMAT_HAS_DEVMETHOD (x, progress_gauge, set_property);
+  IIFORMAT_HAS_DEVMETHOD (x, progress_gauge, update);
   IIFORMAT_HAS_DEVMETHOD (x, progress_gauge, instantiate);
   /* text field */
   INITIALIZE_DEVICE_IIFORMAT (x, edit_field);
@@ -2800,12 +2778,12 @@ image_instantiator_format_create_glyphs_x (void)
   /* combo box */
   INITIALIZE_DEVICE_IIFORMAT (x, combo_box);
   IIFORMAT_HAS_DEVMETHOD (x, combo_box, instantiate);
-  IIFORMAT_HAS_SHARED_DEVMETHOD (x, combo_box, set_property, tab_control);
+  IIFORMAT_HAS_SHARED_DEVMETHOD (x, combo_box, update, tab_control);
 #endif
   /* tab control widget */
   INITIALIZE_DEVICE_IIFORMAT (x, tab_control);
   IIFORMAT_HAS_DEVMETHOD (x, tab_control, instantiate);
-  IIFORMAT_HAS_DEVMETHOD (x, tab_control, set_property);
+  IIFORMAT_HAS_DEVMETHOD (x, tab_control, update);
   /* label */
   INITIALIZE_DEVICE_IIFORMAT (x, label);
   IIFORMAT_HAS_DEVMETHOD (x, label, instantiate);

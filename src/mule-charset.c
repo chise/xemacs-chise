@@ -220,7 +220,7 @@ non_ascii_set_charptr_emchar (Bufbyte *str, Emchar c)
    Use the macro charptr_emchar() instead. */
 
 Emchar
-non_ascii_charptr_emchar (CONST Bufbyte *str)
+non_ascii_charptr_emchar (const Bufbyte *str)
 {
   Bufbyte i0 = *str, i1, i2 = 0;
   Lisp_Object charset;
@@ -330,7 +330,7 @@ non_ascii_valid_char_p (Emchar ch)
    charptr_copy_char() instead. */
 
 Bytecount
-non_ascii_charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *str)
+non_ascii_charptr_copy_char (const Bufbyte *ptr, Bufbyte *str)
 {
   Bufbyte *strptr = str;
   *strptr = *ptr++;

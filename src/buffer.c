@@ -1186,7 +1186,7 @@ with `delete-process'.
       killp = call1
 	(Qyes_or_no_p,
 	 (emacs_doprnt_string_c
-	  ((CONST Bufbyte *) GETTEXT ("Buffer %s modified; kill anyway? "),
+	  ((const Bufbyte *) GETTEXT ("Buffer %s modified; kill anyway? "),
 	   Qnil, -1, XSTRING_DATA (b->name))));
       UNGCPRO;
       if (NILP (killp))
@@ -2378,10 +2378,26 @@ List of functions called with no args to query before killing a buffer.
    from SunPro C's fix-and-continue feature (a way neato feature that
    makes debugging unbelievably more bearable) */
 #define DEFVAR_BUFFER_LOCAL_1(lname, field_name, forward_type, magicfun) do {	\
-  static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-    = { { { symbol_value_forward_lheader_initializer,				\
-	    (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-	  forward_type }, magicfun };						\
+  static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C =		\
+  { /* struct symbol_value_forward */						\
+    { /* struct symbol_value_magic */						\
+      { /* struct lcrecord_header */						\
+	{ /* struct lrecord_header */						\
+	  1, /* type - index into lrecord_implementations_table */		\
+	  0, /* mark bit */							\
+	  0, /* c_readonly bit */						\
+	  0  /* lisp_readonly bit */						\
+	},									\
+	0, /* next */								\
+	0, /* uid  */								\
+	0  /* free */								\
+      },									\
+      &(buffer_local_flags.field_name),						\
+      forward_type								\
+    },										\
+    magicfun									\
+  };										\
+										\
   {										\
     int offset = ((char *)symbol_value_forward_forward (&I_hate_C) -		\
 		  (char *)&buffer_local_flags);					\

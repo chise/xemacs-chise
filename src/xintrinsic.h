@@ -22,14 +22,6 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_xintrinsic_h_
 #define INCLUDED_xintrinsic_h_
 
-#undef CONST                    /* X11R4 header thinks it can define CONST */
-
 #include <X11/Intrinsic.h>
-
-#ifdef CONST_IS_LOSING
-# define CONST
-#else
-# define CONST const
-#endif
 
 #endif /* INCLUDED_xintrinsic_h_ */

@@ -378,14 +378,14 @@ it returns @code{nil}.
 @cindex plist, symbol
 
   A @dfn{property list} (@dfn{plist} for short) is a list of paired
-elements stored in the property list cell of a symbol.  Each of the
-pairs associates a property name (usually a symbol) with a property or
-value.  Property lists are generally used to record information about a
-symbol, such as its documentation as a variable, the name of the file
+elements, often stored in the property list cell of a symbol.  Each of
+the pairs associates a property name (usually a symbol) with a property
+or value.  Property lists are generally used to record information about
+a symbol, such as its documentation as a variable, the name of the file
 where it was defined, or perhaps even the grammatical class of the
 symbol (representing a word) in a language-understanding system.
 
-  Many objects other than symbols can have property lists associated
+  Some objects which are not symbols also have property lists associated
 with them, and XEmacs provides a full complement of functions for
 working with property lists.  @xref{Property Lists}.
 
@@ -405,7 +405,7 @@ names, and the other two elements are the corresponding values.
 @menu
 * Plists and Alists::           Comparison of the advantages of property
                                   lists and association lists.
-* Symbol Plists::               Functions to access symbols' property lists.
+* Object Plists::               Functions to access objects' property lists.
 * Other Plists::                Accessing property lists stored elsewhere.
 @end menu
 
@@ -441,11 +441,20 @@ name.)  An association list may be used like a stack where associations
 are pushed on the front of the list and later discarded; this is not
 possible with a property list.
 
-@node Symbol Plists
-@subsection Property List Functions for Symbols
+@node Object Plists
+@subsection Property List Functions for Objects
+
+Once upon a time, only symbols had property lists.  Now, several other
+object types, including strings, extents, faces and glyphs also have
+property lists.
 
 @defun symbol-plist symbol
 This function returns the property list of @var{symbol}.
+@end defun
+
+@defun object-plist object
+This function returns the property list of @var{object}.  If
+@var{object} is a symbol, this is identical to @code{symbol-plist}.
 @end defun
 
 @defun setplist symbol plist
@@ -463,23 +472,24 @@ not enforced.
 For symbols in special obarrays, which are not used for ordinary
 purposes, it may make sense to use the property list cell in a
 nonstandard fashion; in fact, the abbrev mechanism does so
-(@pxref{Abbrevs}).
+(@pxref{Abbrevs}).  But generally, its use is discouraged.  Use
+@code{put} instead.  @code{setplist} can only be used with symbols, not
+other object types.
 @end defun
 
-@defun get symbol property
+@defun get object property &optional default
 This function finds the value of the property named @var{property} in
-@var{symbol}'s property list.  If there is no such property, @code{nil}
-is returned.  Thus, there is no distinction between a value of
-@code{nil} and the absence of the property.
+@var{object}'s property list.  If there is no such property,
+@code{default} (which itself defaults to @code{nil}) is returned.
 
-The name @var{property} is compared with the existing property names
-using @code{eq}, so any object is a legitimate property.
+@var{property} is compared with the existing properties using @code{eq},
+so any object is a legitimate property.
 
 See @code{put} for an example.
 @end defun
 
-@defun put symbol property value
-This function puts @var{value} onto @var{symbol}'s property list under
+@defun put object property value
+This function puts @var{value} onto @var{object}'s property list under
 the property name @var{property}, replacing any previous property value.
 The @code{put} function returns @var{value}.
 
@@ -490,13 +500,24 @@ The @code{put} function returns @var{value}.
      @result{} (a buzzing little bug)
 (get 'fly 'verb)
      @result{} transitive
-(symbol-plist 'fly)
+(object-plist 'fly)
      @result{} (verb transitive noun (a buzzing little bug))
 @end smallexample
 @end defun
 
+@defun remprop object property
+This function removes the entry for @var{property} from the property
+list of @var{object}.  It returns @code{t} if the property was
+indeed found and removed, or @code{nil} if there was no such property.
+(This function was probably omitted from Emacs originally because,
+since @code{get} did not allow a @var{default}, it was very difficult
+to distinguish between a missing property and a property whose value
+was @code{nil}; thus, setting a property to @code{nil} was close
+enough to @code{remprop} for most purposes.)
+@end defun
+
 @node Other Plists
-@subsection Property Lists Outside Symbols
+@subsection Property Lists Not Associated with Objects
 
   These functions are useful for manipulating property lists
 that are stored in places other than symbols:

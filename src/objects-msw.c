@@ -58,12 +58,12 @@ Boston, MA 02111-1307, USA.  */
 
 typedef struct colormap_t 
 {
-  CONST char *name;
-  CONST COLORREF colorref;
+  const char *name;
+  const COLORREF colorref;
 } colormap_t;
 
 /* Colors from X11R6 "XConsortium: rgb.txt,v 10.41 94/02/20 18:39:36 rws Exp" */
-static CONST colormap_t mswindows_X_color_map[] = 
+static const colormap_t mswindows_X_color_map[] = 
 {
   {"snow"			, PALETTERGB (255, 250, 250) },
   {"GhostWhite"			, PALETTERGB (248, 248, 255) },
@@ -727,12 +727,12 @@ static CONST colormap_t mswindows_X_color_map[] =
 
 typedef struct fontmap_t 
 {
-  CONST char *name;
-  CONST int value;
+  const char *name;
+  const int value;
 } fontmap_t;
 
 /* Default weight first, preferred names listed before synonyms */
-static CONST fontmap_t fontweight_map[] = 
+static const fontmap_t fontweight_map[] = 
 {
   {"Regular"		, FW_REGULAR},	/* The standard font weight */
   {"Thin"		, FW_THIN},
@@ -752,7 +752,7 @@ static CONST fontmap_t fontweight_map[] =
 
 /* Default charset first, no synonyms allowed because these names are 
  * matched against the names reported by win32 by match_font() */
-static CONST fontmap_t charset_map[] = 
+static const fontmap_t charset_map[] = 
 {
   {"Western"		, ANSI_CHARSET},
   {"Symbol"		, SYMBOL_CHARSET},
@@ -794,7 +794,7 @@ hexval (char c)
 }
 
 COLORREF
-mswindows_string_to_color(CONST char *name)
+mswindows_string_to_color(const char *name)
 {
   int i;
 
@@ -1026,7 +1026,7 @@ mswindows_enumerate_fonts (HDC hdc)
   return font_enum.list;
 }
 
-static void
+static HFONT
 mswindows_create_font_variant (Lisp_Font_Instance* f,
 			       int under, int strike)
 {
@@ -1053,6 +1053,7 @@ mswindows_create_font_variant (Lisp_Font_Instance* f,
     }
 
   FONT_INSTANCE_MSWINDOWS_HFONT_VARIANT (f, under, strike) = hfont;
+  return hfont;
 }
 
 HFONT
@@ -1060,14 +1061,10 @@ mswindows_get_hfont (Lisp_Font_Instance* f,
 		     int under, int strike)
 {
   /* Cannot GC */
-  HFONT hfont;
+  HFONT hfont = FONT_INSTANCE_MSWINDOWS_HFONT_VARIANT (f, under, strike);
 
-  if (FONT_INSTANCE_MSWINDOWS_HFONT_VARIANT (f, under, strike) == NULL)
-    mswindows_create_font_variant (f, under, strike);
-
-  assert (FONT_INSTANCE_MSWINDOWS_HFONT_VARIANT (f, under, strike) != NULL);
-
-  hfont = FONT_INSTANCE_MSWINDOWS_HFONT_VARIANT (f, under, strike);
+  if (hfont == NULL)
+    hfont = mswindows_create_font_variant (f, under, strike);
 
   /* If strikeout/underline variant of the font could not be
      created, then use the base version of the font */
@@ -1087,7 +1084,7 @@ static int
 mswindows_initialize_color_instance (Lisp_Color_Instance *c, Lisp_Object name,
 			       Lisp_Object device, Error_behavior errb)
 {
-  CONST char *extname;
+  const char *extname;
   COLORREF color;
 
   TO_EXTERNAL_FORMAT (LISP_STRING, name,
@@ -1159,7 +1156,7 @@ mswindows_color_instance_rgb_components (Lisp_Color_Instance *c)
 static int
 mswindows_valid_color_name_p (struct device *d, Lisp_Object color)
 {
-  CONST char *extname;
+  const char *extname;
 
   TO_EXTERNAL_FORMAT (LISP_STRING, color,
 		      C_STRING_ALLOCA, extname,
@@ -1181,14 +1178,14 @@ initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
 			  Lisp_Object device_font_list, HDC hdc,
 			  Error_behavior errb)
 {
-  CONST char *extname;
+  const char *extname;
   LOGFONT logfont;
   int fields, i;
   int pt;
   char fontname[LF_FACESIZE], weight[LF_FACESIZE], *style, points[8];
   char effects[LF_FACESIZE], charset[LF_FACESIZE];
   char *c;
-  HFONT hfont, holdfont;
+  HFONT hfont, hfont2;
   TEXTMETRIC metrics;
 
   extname = XSTRING_DATA (name);
@@ -1390,15 +1387,11 @@ initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
   /* Default to monospaced if the specified fontname doesn't exist. */
   logfont.lfPitchAndFamily = FF_MODERN;
 
-  /* Windows will silently substitute a default font if the fontname
-   specifies a non-existent font. So we check the font against the
-   device's list of font patterns to make sure that at least one of
-   them matches.
-
-   Personally, I do not like the idea - it is better to come out with
-   some font than completely without one. The diversity of printer
-   fonts is much greater than that of screen font. We can tread on
-   that. -- kkm. */
+  /* Windows will silently substitute a default font if the fontname specifies
+     a non-existent font. This is bad for screen fonts because it doesn't
+     allow higher-level code to see the error and to act appropriately.
+     For instance complex_vars_of_faces() sets up a fallback list of fonts
+     for the default face. */
 
   if (!NILP (device_font_list))
     {
@@ -1427,27 +1420,28 @@ initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
   f->data = xnew_and_zero (struct mswindows_font_instance_data);
   FONT_INSTANCE_MSWINDOWS_HFONT_VARIANT (f,0,0) = hfont;
   
-  holdfont = SelectObject(hdc, hfont);
-  if (!holdfont)
+  /* Some underlined fonts have the descent of one pixel more than their
+     non-underlined counterparts. Font variants though are assumed to have
+     identical metrics. So get the font metrics from the underlined variant
+     of the font */
+  hfont2 = mswindows_create_font_variant (f, 1, 0);
+  if (hfont2 != MSWINDOWS_BAD_HFONT)
+    hfont = hfont2;
+
+  hfont2 = SelectObject(hdc, hfont);
+  if (!hfont2)
     {
       mswindows_finalize_font_instance (f);
       maybe_signal_simple_error ("Couldn't map font", name, Qfont, errb);
       return 0;
     }
-
   GetTextMetrics (hdc, &metrics);
-  SelectObject(hdc, holdfont);
+  SelectObject(hdc, hfont2);
 
   f->width = (unsigned short) metrics.tmAveCharWidth;
   f->height = (unsigned short) metrics.tmHeight;
-  /* Font variant metrics hack. The problem is that in Windows
-     some underlined fonts have the descent of one pixel more
-     than their non-underlined counterparts.  Font variants
-     though are assumed to have identical metrics. Lowering
-     the font's baseline one pixel down cures the problem, and
-     is visually undetectable. - kkm */
-  f->ascent = (unsigned short) metrics.tmAscent - 1;
-  f->descent = (unsigned short) metrics.tmDescent + 1;
+  f->ascent = (unsigned short) metrics.tmAscent;
+  f->descent = (unsigned short) metrics.tmDescent;
   f->proportional_p = (metrics.tmPitchAndFamily & TMPF_FIXED_PITCH);
 
   return 1;
@@ -1578,7 +1572,7 @@ mswindows_font_instance_truename (Lisp_Font_Instance *f, Error_behavior errb)
 
 static int
 mswindows_font_spec_matches_charset (struct device *d, Lisp_Object charset,
-			     CONST Bufbyte *nonreloc, Lisp_Object reloc,
+			     const Bufbyte *nonreloc, Lisp_Object reloc,
 			     Bytecount offset, Bytecount length)
 {
   /* #### Implement me */

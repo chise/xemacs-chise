@@ -73,7 +73,7 @@ void set_process_filter (Lisp_Object proc,
 extern volatile int synch_process_alive;
 
 /* Nonzero => this is a string explaining death of synchronous subprocess.  */
-extern CONST char *synch_process_death;
+extern const char *synch_process_death;
 
 /* If synch_process_death is zero,
    this is exit code of synchronous subprocess.  */
@@ -114,11 +114,11 @@ int
 void
 #endif
 child_setup (int in, int out, int err,
-		  char **new_argv, CONST char *current_dir);
+		  char **new_argv, const char *current_dir);
 
 Charcount read_process_output (Lisp_Object proc);
 
-CONST char *signal_name (int signum);
+const char *signal_name (int signum);
 
 Lisp_Object canonicalize_host_name (Lisp_Object host);
 

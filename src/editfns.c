@@ -764,7 +764,7 @@ value of `user-full-name' is returned.
   user_name = (STRINGP (user) ? user : Fuser_login_name (user));
   if (!NILP (user_name))	/* nil when nonexistent UID passed as arg */
     {
-      CONST char *user_name_ext;
+      const char *user_name_ext;
 
       /* Fuck me.  getpwnam() can call select() and (under IRIX at least)
 	 things get wedged if a SIGIO arrives during this time. */
@@ -1004,9 +1004,9 @@ time_to_lisp (time_t the_time)
   return Fcons (make_int (item >> 16), make_int (item & 0xffff));
 }
 
-size_t emacs_strftime (char *string, size_t max, CONST char *format,
-		       CONST struct tm *tm);
-static long difftm (CONST struct tm *a, CONST struct tm *b);
+size_t emacs_strftime (char *string, size_t max, const char *format,
+		       const struct tm *tm);
+static long difftm (const struct tm *a, const struct tm *b);
 
 
 DEFUN ("format-time-string", Fformat_time_string, 1, 2, 0, /*
@@ -1073,7 +1073,7 @@ characters appearing in the day and month names may be incorrect.
       char *buf = (char *) alloca (size);
       *buf = 1;
       if (emacs_strftime (buf, size,
-			  (CONST char *) XSTRING_DATA (format_string),
+			  (const char *) XSTRING_DATA (format_string),
 			  localtime (&value))
 	  || !*buf)
 	return build_ext_string (buf, Qbinary);
@@ -1237,7 +1237,7 @@ and from `file-attributes'.
 
 /* Yield A - B, measured in seconds.  */
 static long
-difftm (CONST struct tm *a, CONST struct tm *b)
+difftm (const struct tm *a, const struct tm *b)
 {
   int ay = a->tm_year + (TM_YEAR_ORIGIN - 1);
   int by = b->tm_year + (TM_YEAR_ORIGIN - 1);

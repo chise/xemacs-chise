@@ -32,7 +32,7 @@ Boston, MA 02111-1307, USA.  */
 /* #### start of hack */
 
 static unsigned long
-alloc_color (Display* dpy, CONST char* colorname, int light)
+alloc_color (Display* dpy, const char* colorname, int light)
 {
   Colormap cmap = DEVICE_X_COLORMAP (XDEVICE(Vdefault_x_device));
   unsigned long pixel = 0;
@@ -61,7 +61,7 @@ alloc_color (Display* dpy, CONST char* colorname, int light)
 }
 
 static XFontStruct *
-open_font (Display* dpy, CONST char* font_name)
+open_font (Display* dpy, const char* font_name)
 {
   XFontStruct* fontStruct = NULL;
 

@@ -123,7 +123,7 @@ struct textual_run
 static int
 separate_textual_runs (unsigned char *text_storage,
 		       struct textual_run *run_storage,
-		       CONST Emchar *str, Charcount len)
+		       const Emchar *str, Charcount len)
 {
   Lisp_Object prev_charset = Qunbound; /* not Qnil because that is a
 					  possible valid charset when
@@ -241,7 +241,7 @@ x_text_width_single_run (struct face_cachel *cachel, struct textual_run *run)
    */
 
 static int
-x_text_width (struct frame *f, struct face_cachel *cachel, CONST Emchar *str,
+x_text_width (struct frame *f, struct face_cachel *cachel, const Emchar *str,
 	      Charcount len)
 {
   int width_so_far = 0;

@@ -572,7 +572,7 @@ situations, often in code far away from where the actual breakage is.
 * Techniques for XEmacs Developers::
 
 
-File: internals.info,  Node: General Coding Rules,  Next: Writing Lisp Primitives,  Up: Rules When Writing New C Code
+File: internals.info,  Node: General Coding Rules,  Next: Writing Lisp Primitives,  Prev: Rules When Writing New C Code,  Up: Rules When Writing New C Code
 
 General Coding Rules
 ====================
@@ -1000,7 +1000,7 @@ of code generalization for future I18N work.
 * An Example of Mule-Aware Code::
 
 
-File: internals.info,  Node: Character-Related Data Types,  Next: Working With Character and Byte Positions,  Up: Coding for Mule
+File: internals.info,  Node: Character-Related Data Types,  Next: Working With Character and Byte Positions,  Prev: Coding for Mule,  Up: Coding for Mule
 
 Character-Related Data Types
 ----------------------------

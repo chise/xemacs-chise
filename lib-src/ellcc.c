@@ -109,7 +109,7 @@ main (int argc, char *argv[])
 #endif
 static void *xmalloc (size_t);
 static void fatal (char *, char *);
-static void add_to_argv (CONST char *);
+static void add_to_argv (const char *);
 static void do_compile_mode (void);
 static void do_link_mode (void);
 static void do_init_mode (void);
@@ -346,12 +346,12 @@ fatal (char *s1, char *s2)
  * arguments, taking quoting into account. This can get ugly.
  */
 static void
-add_to_argv (CONST char *str)
+add_to_argv (const char *str)
 {
   int sm = 0;
-  CONST char *s = (CONST char *)0;
+  const char *s = (const char *)0;
 
-  if ((str == (CONST char *)0) || (str[0] == '\0'))
+  if ((str == (const char *)0) || (str[0] == '\0'))
     return;
 
   while (*str)
@@ -378,7 +378,7 @@ add_to_argv (CONST char *str)
               exec_argv[real_argc][l] = '\0';
               real_argc++;
               sm = 0; /* Back to start state */
-              s = (CONST char *)0;
+              s = (const char *)0;
               break;
             }
           else if (*str == '\\')
@@ -423,14 +423,14 @@ add_to_argv (CONST char *str)
         }
     }
 
-  if (s != (CONST char *)0)
+  if (s != (const char *)0)
     {
       int l = str-s;
       exec_argv[real_argc] = xnew (l+2, char);
       strncpy (exec_argv[real_argc], s, l);
       exec_argv[real_argc][l] = '\0';
       real_argc++;
-      s = (CONST char *)0;
+      s = (const char *)0;
     }
 }
 

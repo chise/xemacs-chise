@@ -39,7 +39,7 @@ Do not set this. Use `glyph-image-instance' and
   (specifier-instance default-gutter-visible-p)
   "Whether the default gutter is globally visible. This option can be
 customized through the options menu."
-  :group 'display
+  :group 'gutter
   :type 'boolean
   :set #'(lambda (var val)
 	   (set-specifier default-gutter-visible-p val)
@@ -50,11 +50,11 @@ customized through the options menu."
   (default-gutter-position)
   "The location of the default gutter. It can be 'top, 'bottom, 'left or
 'right. This option can be customized through the options menu."
-  :group 'display
-  :type '(choice (const :tag "top" 'top)
-		 (const :tag "bottom" 'bottom)
-		 (const :tag "left" 'left)
-		 (const :tag "right" 'right))
+  :group 'gutter
+  :type '(choice (const :tag "top" top)
+		 (const :tag "bottom" bottom)
+		 (const :tag "left" left)
+		 (const :tag "right" right))
   :set #'(lambda (var val)
 	   (set-default-gutter-position val)
 	   (setq default-gutter-position val)
@@ -340,7 +340,7 @@ This just removes the progress gauge and calls quit."
   (make-glyph
    (vector 'progress-gauge
 	   :pixel-height (- progress-glyph-height 8)
-	   :pixel-width 50
+	   :pixel-width 250
 	   :descriptor "Progress")))
 
 (defvar progress-text-glyph

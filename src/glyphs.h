@@ -143,6 +143,8 @@ struct image_instantiator_methods
   Lisp_Object (*set_property_method) (Lisp_Object image_instance,
 				      Lisp_Object property,
 				      Lisp_Object val);
+  /* Asynchronously update properties. */
+  void (*update_method) (Lisp_Object image_instance);
 
   /* Find out the desired geometry, as given by disp, of this image
    instance. Actual geometry is stored in the appropriate slots in the
@@ -340,8 +342,8 @@ int invalidate_glyph_geometry_maybe (Lisp_Object glyph_or_ii, struct window* w);
 DECLARE_DOESNT_RETURN (incompatible_image_types (Lisp_Object instantiator,
                                                  int given_dest_mask,
                                                  int desired_dest_mask));
-DECLARE_DOESNT_RETURN (signal_image_error (CONST char *, Lisp_Object));
-DECLARE_DOESNT_RETURN (signal_image_error_2 (CONST char *, Lisp_Object, Lisp_Object));
+DECLARE_DOESNT_RETURN (signal_image_error (const char *, Lisp_Object));
+DECLARE_DOESNT_RETURN (signal_image_error_2 (const char *, Lisp_Object, Lisp_Object));
 
 /************************************************************************/
 /*			Image Specifier Object				*/
@@ -482,11 +484,15 @@ struct Lisp_Image_Instance
   Lisp_Object name;
   /* The glyph from which we were instantiated. This is a weak
      reference. */
-  Lisp_Object glyph;
+  Lisp_Object parent;
   enum image_instance_type type;
   unsigned int x_offset, y_offset;	/* for layout purposes */
   unsigned int width, height;
   unsigned int dirty : 1;
+  unsigned int size_changed : 1;
+  unsigned int text_changed : 1;
+  unsigned int layout_changed : 1; 
+
   union
   {
     struct
@@ -525,6 +531,10 @@ struct Lisp_Image_Instance
       Lisp_Object type;
       Lisp_Object props;	/* properties or border*/
       Lisp_Object items;	/* a list of gui_items or children */
+      /* Change flags to augment dirty. */
+      unsigned int face_changed : 1;
+      unsigned int items_changed : 1;
+      unsigned int percent_changed : 1;
     } subwindow;
   } u;
 
@@ -543,7 +553,8 @@ struct Lisp_Image_Instance
 /* Accessor macros. */
 #define IMAGE_INSTANCE_DEVICE(i) ((i)->device)
 #define IMAGE_INSTANCE_NAME(i) ((i)->name)
-#define IMAGE_INSTANCE_GLYPH(i) ((i)->glyph)
+#define IMAGE_INSTANCE_PARENT(i) ((i)->parent)
+#define IMAGE_INSTANCE_GLYPH(i) (image_instance_parent_glyph(i))
 #define IMAGE_INSTANCE_TYPE(i) ((i)->type)
 #define IMAGE_INSTANCE_XOFFSET(i) ((i)->x_offset)
 #define IMAGE_INSTANCE_YOFFSET(i) ((i)->y_offset)
@@ -553,9 +564,24 @@ struct Lisp_Image_Instance
  ((IMAGE_INSTANCE_TYPE (i) == IMAGE_MONO_PIXMAP)	\
   || (IMAGE_INSTANCE_TYPE (i) == IMAGE_COLOR_PIXMAP))
 #define IMAGE_INSTANCE_DIRTYP(i) ((i)->dirty)
+#define IMAGE_INSTANCE_NEEDS_LAYOUT(i) \
+  (IMAGE_INSTANCE_DIRTYP (i) && IMAGE_INSTANCE_LAYOUT_CHANGED (i))
 #define IMAGE_INSTANCE_FACE(i) \
   XGLYPH_FACE (IMAGE_INSTANCE_GLYPH (i))
 
+/* Changed flags */
+#define IMAGE_INSTANCE_TEXT_CHANGED(i) ((i)->text_changed)
+#define IMAGE_INSTANCE_SIZE_CHANGED(i) ((i)->size_changed)
+#define IMAGE_INSTANCE_WIDGET_FACE_CHANGED(i) \
+  ((i)->u.subwindow.face_changed)
+#define IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED(i) \
+  ((i)->u.subwindow.items_changed)
+#define IMAGE_INSTANCE_WIDGET_PERCENT_CHANGED(i) \
+  ((i)->u.subwindow.percent_changed)
+#define IMAGE_INSTANCE_LAYOUT_CHANGED(i) \
+  ((i)->layout_changed)
+
+/* Text properties */
 #define IMAGE_INSTANCE_TEXT_STRING(i) ((i)->u.text.string)
 #define IMAGE_INSTANCE_TEXT_WIDTH(i) \
   IMAGE_INSTANCE_WIDTH(i)
@@ -565,6 +591,7 @@ struct Lisp_Image_Instance
 #define IMAGE_INSTANCE_TEXT_ASCENT(i) \
   (IMAGE_INSTANCE_TEXT_HEIGHT(i) - IMAGE_INSTANCE_TEXT_DESCENT(i))
 
+/* Pixmap properties */
 #define IMAGE_INSTANCE_PIXMAP_WIDTH(i) \
   IMAGE_INSTANCE_WIDTH(i)
 #define IMAGE_INSTANCE_PIXMAP_HEIGHT(i) \
@@ -582,6 +609,7 @@ struct Lisp_Image_Instance
 #define IMAGE_INSTANCE_PIXMAP_MAXSLICE(i) ((i)->u.pixmap.maxslice)
 #define IMAGE_INSTANCE_PIXMAP_TIMEOUT(i) ((i)->u.pixmap.timeout)
 
+/* Subwindow properties */
 #define IMAGE_INSTANCE_SUBWINDOW_WIDTH(i) \
  IMAGE_INSTANCE_WIDTH(i)
 #define IMAGE_INSTANCE_SUBWINDOW_HEIGHT(i) \
@@ -599,6 +627,7 @@ struct Lisp_Image_Instance
 #define IMAGE_INSTANCE_SUBWINDOW_JUSTIFY(i) \
 ((i)->u.subwindow.justification)
 
+/* Widget properties */
 #define IMAGE_INSTANCE_WIDGET_WIDTH(i) \
   IMAGE_INSTANCE_WIDTH(i)
 #define IMAGE_INSTANCE_WIDGET_HEIGHT(i) \
@@ -618,6 +647,7 @@ XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (i)) :	\
   IMAGE_INSTANCE_WIDGET_ITEMS (i))
 #define IMAGE_INSTANCE_WIDGET_TEXT(i) XGUI_ITEM (IMAGE_INSTANCE_WIDGET_ITEM (i))->name
 
+/* Layout properties */
 #define IMAGE_INSTANCE_LAYOUT_CHILDREN(i) ((i)->u.subwindow.items)
 #define IMAGE_INSTANCE_LAYOUT_BORDER(i) ((i)->u.subwindow.props)
 
@@ -627,6 +657,8 @@ XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (i)) :	\
   IMAGE_INSTANCE_NAME (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_GLYPH(i) \
   IMAGE_INSTANCE_GLYPH (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_PARENT(i) \
+  IMAGE_INSTANCE_PARENT (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_TYPE(i) \
   IMAGE_INSTANCE_TYPE (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_XOFFSET(i) \
@@ -635,6 +667,8 @@ XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (i)) :	\
   IMAGE_INSTANCE_YOFFSET (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_DIRTYP(i) \
   IMAGE_INSTANCE_DIRTYP (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_NEEDS_LAYOUT(i) \
+  IMAGE_INSTANCE_NEEDS_LAYOUT (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_WIDTH(i) \
   IMAGE_INSTANCE_WIDTH (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_HEIGHT(i) \
@@ -729,7 +763,7 @@ Lisp_Object pixmap_to_lisp_data (Lisp_Object name, int ok_if_data_invalid);
 #ifdef HAVE_WINDOW_SYSTEM
 Lisp_Object bitmap_to_lisp_data (Lisp_Object name, int *xhot, int *yhot,
 				 int ok_if_data_invalid);
-int read_bitmap_data_from_file (CONST char *filename, unsigned int *width,
+int read_bitmap_data_from_file (const char *filename, unsigned int *width,
 				unsigned int *height, unsigned char **datap,
 				int *x_hot, int *y_hot);
 Lisp_Object xbm_mask_file_munging (Lisp_Object alist, Lisp_Object file,
@@ -945,6 +979,9 @@ void map_subwindow (Lisp_Object subwindow, int x, int y,
 		    struct display_glyph_area *dga);
 void update_frame_subwindows (struct frame *f);
 int find_matching_subwindow (struct frame* f, int x, int y, int width, int height);
+void update_widget (Lisp_Object widget);
+void update_subwindow (Lisp_Object subwindow);
+Lisp_Object image_instance_parent_glyph (struct Lisp_Image_Instance*);
 
 struct expose_ignore
 {

@@ -496,7 +496,7 @@ update_inheritance_mapper_internal (Lisp_Object cur_face,
 }
 
 static int
-update_face_inheritance_mapper (CONST void *hash_key, void *hash_contents,
+update_face_inheritance_mapper (const void *hash_key, void *hash_contents,
 				void *face_inheritance_closure)
 {
   Lisp_Object key, contents;
@@ -1894,7 +1894,7 @@ complex_vars_of_faces (void)
        (#### Perhaps we should remove the stuff from x-faces.el
        and only depend on this stuff here?  That should work.)
      */
-    CONST char *fonts[] =
+    const char *fonts[] =
     {
       "-*-courier-medium-r-*-*-*-120-*-*-*-*-iso8859-*",
       "-*-courier-medium-r-*-*-*-120-*-*-*-*-iso8859-*",
@@ -1912,7 +1912,7 @@ complex_vars_of_faces (void)
       "-*-*-*-*-*-*-*-120-*-*-*-*-*-*",
       "*"
     };
-    CONST char **fontptr;
+    const char **fontptr;
 
     for (fontptr = fonts + countof(fonts) - 1; fontptr >= fonts; fontptr--)
       inst_list = Fcons (Fcons (list1 (Qx), build_string (*fontptr)),

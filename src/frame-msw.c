@@ -187,8 +187,8 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
 			 XEMACS_CLASS,
 			 STRINGP(f->name) ? XSTRING_DATA(f->name) :
 			 (STRINGP(name) ? 
-			  (CONST Extbyte*)XSTRING_DATA(name) : 
-			  (CONST Extbyte*)XEMACS_CLASS),
+			  (const Extbyte*)XSTRING_DATA(name) : 
+			  (const Extbyte*)XEMACS_CLASS),
 			 style,
 			 rect_default.left, rect_default.top,
 			 rect_default.width, rect_default.height,
@@ -709,7 +709,15 @@ mswindows_frame_size_fixed_p (struct frame *f)
 /*-----                    PRINTER FRAME                          -----*/
 /*---------------------------------------------------------------------*/
 
-EXFUN (Fset_frame_properties, 2);
+void
+msprinter_start_page (struct frame *f)
+{
+  if (!FRAME_MSPRINTER_PAGE_STARTED (f))
+    {
+      FRAME_MSPRINTER_PAGE_STARTED (f) = 1;
+      StartPage (DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f))));
+    }
+}
 
 static void
 error_frame_unsizable (struct frame *f)
@@ -730,9 +738,6 @@ maybe_error_if_job_active (struct frame *f)
 static void
 msprinter_init_frame_1 (struct frame *f, Lisp_Object props)
 {
-  HDC hdc = DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f)));
-  Lisp_Object frame_obj = Qnil;
-
   /* Make sure this is the only frame on device. Windows printer can
      handle only one job at a time. */
   if (!NILP (DEVICE_FRAME_LIST (XDEVICE (FRAME_DEVICE (f)))))
@@ -894,10 +899,13 @@ msprinter_delete_frame (struct frame *f)
 {
   if (f->frame_data)
     {
+      HDC hdc = DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f)));
+      if (FRAME_MSPRINTER_PAGE_STARTED (f))
+	EndPage (hdc);
       if (FRAME_MSPRINTER_JOB_STARTED (f))
-	EndDoc (DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f))));
+	EndDoc (hdc);
       if (FRAME_MSPRINTER_CDC(f))
-	DeleteDC(FRAME_MSPRINTER_CDC(f));
+	DeleteDC (FRAME_MSPRINTER_CDC(f));
       xfree (f->frame_data);
     }
 
@@ -951,7 +959,6 @@ msprinter_frame_properties (struct frame *f)
 static void
 msprinter_set_frame_properties (struct frame *f, Lisp_Object plist)
 {
-  BOOL size_changed_p = FALSE;
   Lisp_Object tail;
 
   /* Extract the properties from plist */
@@ -1038,6 +1045,18 @@ msprinter_set_frame_size (struct frame *f, int width, int height)
   error_frame_unsizable (f);
 }
 
+static void
+msprinter_eject_page (struct frame *f)
+{
+  /* #### Should we eject empty pages? */
+  if (FRAME_MSPRINTER_PAGE_STARTED (f))
+    {
+      FRAME_MSPRINTER_PAGE_STARTED (f) = 0;
+      EndPage (DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f))));
+    }
+}
+
+
 void
 console_type_create_frame_mswindows (void)
 {
@@ -1083,6 +1102,7 @@ console_type_create_frame_mswindows (void)
   CONSOLE_HAS_METHOD (msprinter, frame_properties);
   CONSOLE_HAS_METHOD (msprinter, set_frame_properties);
   CONSOLE_HAS_METHOD (msprinter, set_frame_size);
+  CONSOLE_HAS_METHOD (msprinter, eject_page);
 }
 
 void

@@ -28,7 +28,7 @@ Boston, MA 02111-1307, USA. */
 ERROR!  This ought not be getting compiled if EXTERNAL_WIDGET is undefined
 #endif
 
-void fatal (CONST char *fmt, ...);
+void fatal (const char *fmt, ...);
 #else /* not emacs */
 static void fatal (char *msg);
 #endif

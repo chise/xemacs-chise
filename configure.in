@@ -368,9 +368,6 @@ with_scrollbars=''
 with_widgets=''
 with_dialogs=''
 with_file_coding=''
-dnl const_is_losing is removed - we rely on AC_C_CONST instead.
-dnl We accept (and ignore) the --const-is-losing option for compatibility.
-dnl const_is_losing='yes'
 cpp='' cppflags='' libs='' ldflags=''
 dynamic=''
 with_x11=''
@@ -516,7 +513,6 @@ while test $# != 0; do
 	external_widget | \
 	verbose		| \
 	extra_verbose	| \
-	const_is_losing | \
 	usage_tracking	| \
 	use_union_type	| \
 	pdump		| \
@@ -804,6 +800,7 @@ The default is to autodetect all sound support."])
 	"use_minimal_tagbits" | \
 	"use_indexed_lrecord_implementation" | \
 	"run_in_place"	| \
+	"const_is_losing" | \
 	"with_gnu_make" )
 	  AC_MSG_WARN([Obsolete option \`--$optname' ignored.])
 	;;
@@ -1644,7 +1641,14 @@ test -n "$NON_GNU_CPP" -a "$GCC" != "yes" -a -z "$CPP" && CPP="$NON_GNU_CPP"
 
 AC_PROG_CPP
 
-AC_AIX
+dnl --------------------------------------------------------------------
+dnl Compiler feature macros
+dnl --------------------------------------------------------------------
+
+dnl We want feature macros defined here and in config.h.in, so that
+dnl the compilation environment at configure time and compile time agree.
+
+AC_AIX dnl Defines _ALL_SOURCE on AIX.
 
 AC_MSG_CHECKING(for GNU libc)
 AC_TRY_COMPILE([#include <features.h>],[
@@ -1658,6 +1662,23 @@ dnl I'm tired of pop being broken with GLIBC -slb
 dnl Well. then why not fix fucking pop?
 test "$have_glibc" = "yes" && AC_DEFINE(_GNU_SOURCE)
 
+dnl We'd like to use vendor extensions, where available.
+dnl We'd like to use functions from the latest Unix98 standards.
+dnl See http://www.opengroup.org/onlinepubs/007908799/xsh/compilation.html
+case "$opsys" in
+  sol2) 
+   AC_DEFINE(__EXTENSIONS__)
+   dnl Solaris 2 before 2.5 had some bugs with feature test macro interaction.
+   if test "$os_release" -ge 55; then
+     AC_DEFINE(_XOPEN_SOURCE,500)
+     AC_DEFINE(_XOPEN_SOURCE_EXTENDED)
+   fi ;;
+  linux)
+    AC_DEFINE(_POSIX_C_SOURCE,199506L)
+    AC_DEFINE(_XOPEN_SOURCE,500)
+    AC_DEFINE(_XOPEN_SOURCE_EXTENDED)
+    ;;
+esac
 
 dnl Identify compilers to enable compiler-specific hacks.
 dnl Add support for other compilers HERE!
@@ -2323,7 +2344,7 @@ if   ${CC-cc} '-###' -xildon  no_such_file.c 2>&1 | grep '^[^ ]*/ild ' > /dev/nu
 fi
 
 dnl Link with "-z ignore" on Solaris if supported
-if test "$opsys" = "sol2" && test "$OS_RELEASE" -ge 56; then
+if test "$opsys" = "sol2" -a "$os_release" -ge 56; then
   AC_MSG_CHECKING(for \"-z ignore\" linker flag)
   case "`ld -h 2>&1`" in
     *-z\ ignore\|record* ) AC_MSG_RESULT(yes)
@@ -2511,6 +2532,8 @@ EOF
   AC_MSG_RESULT(R${x11_release})
   AC_DEFINE_UNQUOTED(THIS_IS_X11R${x11_release})
 
+  AC_CHECK_FUNCS(XConvertCase)
+
   AC_CHECK_HEADERS(X11/Xlocale.h)
 
   dnl remove this - we should avoid checking for specific OS
@@ -2585,7 +2608,6 @@ if test "$with_msw" != "no"; then
     AC_TRY_RUN([#include <fcntl.h>
     int main() { return (open("/dev/windows", O_RDONLY, 0) > 0)? 0 : 1; }],
     [AC_DEFINE(HAVE_MSG_SELECT)])
-    const_is_losing=no
     with_file_coding=yes
     XE_ADD_OBJS(console-msw.o device-msw.o event-msw.o frame-msw.o objects-msw.o select-msw.o redisplay-msw.o glyphs-msw.o gui-msw.o)
   fi
@@ -2807,7 +2829,8 @@ if test "$window_system" != "none"; then
   if test -z "$with_xpm"; then
     AC_MSG_CHECKING(for Xpm - no older than 3.4f)
     xe_check_libs=-lXpm
-    AC_TRY_RUN([#include <X11/xpm.h>
+    AC_TRY_RUN([#define XPM_NUMBERS
+#include <X11/xpm.h>
     int main(int c, char **v) {
     return c == 1 ? 0 :
       XpmIncludeVersion != XpmLibraryVersion() ? 1 :
@@ -3402,8 +3425,7 @@ AC_TRY_LINK([
   ],
   [
   struct timeval time;
-  struct timezone dummy;
-  gettimeofday (&time, &dummy);
+  gettimeofday (&time, 0);
 ],
   [AC_MSG_RESULT(two)],
   [AC_MSG_RESULT(one)
@@ -3480,8 +3502,21 @@ test "$have_mmap" = "yes" && AC_DEFINE(HAVE_MMAP)
 
 dnl rel_alloc requires either GNU malloc or system malloc with mmap
 dnl We only turn rel_alloc on by default if mmap is available.
-test "$GNU_MALLOC" != "yes"   -a "$have_mmap" != "yes" && rel_alloc=no
-test "$rel_alloc" = "default" -a "$have_mmap"  = "yes" && rel_alloc=yes
+test "$GNU_MALLOC" != "yes" -a "$have_mmap" != "yes" && rel_alloc=no
+if test "$rel_alloc $have_mmap" = "default yes"; then
+  if test "$doug_lea_malloc" = "yes"; then
+    dnl Check if malloc() calls mmap(), making rel_alloc pointless.
+    AC_MSG_CHECKING(for M_MMAP_THRESHOLD)
+    AC_TRY_COMPILE([#include <malloc.h>],[
+#ifndef M_MMAP_THRESHOLD
+#error No M_MMAP_THRESHOLD :-(
+!@+$%^&*_)(_ - unlikely to compile...
+#endif
+], [rel_alloc=no; AC_MSG_RESULT(yes);], [rel_alloc=yes; AC_MSG_RESULT(no);])
+  else
+    rel_alloc=yes
+  fi
+fi
 test "$rel_alloc" = "yes" && AC_DEFINE(REL_ALLOC)
 
 dnl Check for terminal I/O variants
@@ -3780,7 +3815,10 @@ dnl Check for Berkeley DB.
 if test "$with_database_berkdb" != "no"; then
   AC_MSG_CHECKING(for Berkeley db.h)
   for path in "db/db.h" "db.h"; do
-    AC_TRY_COMPILE([#ifdef HAVE_INTTYPES_H
+    AC_TRY_COMPILE([
+#include <stdlib.h>
+#if !(defined __GLIBC__ && __GLIBC_MINOR__ >= 1)
+#ifdef HAVE_INTTYPES_H
 #define __BIT_TYPES_DEFINED__
 #include <inttypes.h>
 typedef uint8_t  u_int8_t;
@@ -3788,6 +3826,7 @@ typedef uint16_t u_int16_t;
 typedef uint32_t u_int32_t;
 #ifdef WE_DONT_NEED_QUADS
 typedef uint64_t u_int64_t;
+#endif
 #endif
 #endif
 #include <$path>
@@ -4241,7 +4280,6 @@ test "$with_i18n3"         = "yes" && AC_DEFINE(I18N3)
 test "$GCC"                = "yes" && AC_DEFINE(USE_GCC)
 test "$external_widget"    = "yes" && AC_DEFINE(EXTERNAL_WIDGET)
 test "$no_doc_file"        = "yes" && AC_DEFINE(NO_DOC_FILE)
-dnl test "$const_is_losing"    = "yes" && AC_DEFINE(CONST_IS_LOSING)
 test "$with_purify"        = "yes" && AC_DEFINE(PURIFY)
 test "$with_quantify"      = "yes" && AC_DEFINE(QUANTIFY)
 test "$with_pop"           = "yes" && AC_DEFINE(MAIL_USE_POP)

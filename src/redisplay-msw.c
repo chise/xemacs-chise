@@ -26,8 +26,9 @@ Boston, MA 02111-1307, USA.  */
 
    Chuck Thompson
    Lots of work done by Ben Wing for Mule
-   Partially rewritten for mswindows by Jonathan Harris, November 1997 for 21.0.
- */
+
+   Partially rewritten for mswindows by Jonathan Harris, November 1997
+   for 21.0.  */
 
 #include <config.h>
 #include "lisp.h"
@@ -91,7 +92,7 @@ typedef struct textual_run
 static int
 separate_textual_runs (unsigned char *text_storage,
 		       textual_run *run_storage,
-		       CONST Emchar *str, Charcount len)
+		       const Emchar *str, Charcount len)
 {
   Lisp_Object prev_charset = Qunbound; /* not Qnil because that is a
 					  possible valid charset when
@@ -203,20 +204,24 @@ mswindows_text_width_single_run (HDC hdc, struct face_cachel *cachel,
  * Given F, retrieve device context. F can be a display frame, or
  * a print job.
  */
-static HDC
+INLINE HDC
 get_frame_dc (struct frame *f)
 {
   if (FRAME_MSWINDOWS_P (f))
     return FRAME_MSWINDOWS_DC (f);
   else
-    return DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f)));
+    {
+      if (!FRAME_MSPRINTER_PAGE_STARTED (f))
+	msprinter_start_page (f);
+      return DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f)));
+    }
 }
 
 /*
  * Given F, retrieve compatible device context. F can be a display
  * frame, or a print job.
  */
-static HDC
+INLINE HDC
 get_frame_compdc (struct frame *f)
 {
   if (FRAME_MSWINDOWS_P (f))
@@ -703,7 +708,7 @@ mswindows_output_pixmap (struct window *w, Lisp_Object image_instance,
  * to by PRC, and paints only the intersection
  */
 static void
-mswindows_redisplay_deadbox_maybe (struct window *w, CONST RECT* prc)
+mswindows_redisplay_deadbox_maybe (struct window *w, const RECT* prc)
 {
   int sbh = window_scrollbar_height (w);
   int sbw = window_scrollbar_width (w);
@@ -1280,7 +1285,7 @@ mswindows_output_vertical_divider (struct window *w, int clear_unused)
  ****************************************************************************/
 static int
 mswindows_text_width (struct frame *f, struct face_cachel *cachel,
-		      CONST Emchar *str, Charcount len)
+		      const Emchar *str, Charcount len)
 {
   HDC hdc = get_frame_dc (f);
   int width_so_far = 0;

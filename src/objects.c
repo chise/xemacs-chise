@@ -682,7 +682,7 @@ font_mark (Lisp_Object obj)
 
 int
 font_spec_matches_charset (struct device *d, Lisp_Object charset,
-			   CONST Bufbyte *nonreloc, Lisp_Object reloc,
+			   const Bufbyte *nonreloc, Lisp_Object reloc,
 			   Bytecount offset, Bytecount length)
 {
   return DEVMETH_OR_GIVEN (d, font_spec_matches_charset,

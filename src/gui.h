@@ -27,7 +27,7 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_gui_h_
 #define INCLUDED_gui_h_
 
-int separator_string_p (CONST char *s);
+int separator_string_p (const char *s);
 void get_gui_callback (Lisp_Object, Lisp_Object *, Lisp_Object *);
 
 extern int popup_up_p;

@@ -31,13 +31,13 @@ Boston, MA 02111-1307, USA.  */
 #include "buffer.h"
 #include "lstream.h"
 
-static CONST char *valid_flags = "-+ #0";
+static const char *valid_flags = "-+ #0";
 
-static CONST char *valid_converters = "diouxXfeEgGcsS";
-static CONST char *int_converters = "dic";
-static CONST char *unsigned_int_converters = "ouxX";
-static CONST char *double_converters = "feEgG";
-static CONST char *string_converters = "sS";
+static const char *valid_converters = "diouxXfeEgGcsS";
+static const char *int_converters = "dic";
+static const char *unsigned_int_converters = "ouxX";
+static const char *double_converters = "feEgG";
+static const char *string_converters = "sS";
 
 typedef struct printf_spec printf_spec;
 struct printf_spec
@@ -99,7 +99,7 @@ typedef struct
    Note that MINLEN and MAXLEN are Charcounts but LEN is a Bytecount. */
 
 static void
-doprnt_1 (Lisp_Object stream, CONST Bufbyte *string, Bytecount len,
+doprnt_1 (Lisp_Object stream, const Bufbyte *string, Bytecount len,
 	  Charcount minlen, Charcount maxlen, int minus_flag, int zero_flag)
 {
   Charcount cclen;
@@ -140,8 +140,8 @@ doprnt_1 (Lisp_Object stream, CONST Bufbyte *string, Bytecount len,
     }
 }
 
-static CONST Bufbyte *
-parse_off_posnum (CONST Bufbyte *start, CONST Bufbyte *end, int *returned_num)
+static const Bufbyte *
+parse_off_posnum (const Bufbyte *start, const Bufbyte *end, int *returned_num)
 {
   Bufbyte arg_convert[100];
   REGISTER Bufbyte *arg_ptr = arg_convert;
@@ -178,17 +178,17 @@ parse_off_posnum (CONST Bufbyte *start, CONST Bufbyte *end, int *returned_num)
   } while (0)
 
 static printf_spec_dynarr *
-parse_doprnt_spec (CONST Bufbyte *format, Bytecount format_length)
+parse_doprnt_spec (const Bufbyte *format, Bytecount format_length)
 {
-  CONST Bufbyte *fmt = format;
-  CONST Bufbyte *fmt_end = format + format_length;
+  const Bufbyte *fmt = format;
+  const Bufbyte *fmt_end = format + format_length;
   printf_spec_dynarr *specs = Dynarr_new (printf_spec);
   int prev_argnum = 0;
 
   while (1)
     {
       struct printf_spec spec;
-      CONST Bufbyte *text_end;
+      const Bufbyte *text_end;
       Bufbyte ch;
 
       xzero (spec);
@@ -216,7 +216,7 @@ parse_doprnt_spec (CONST Bufbyte *format, Bytecount format_length)
 
 	  /* Is there a field number specifier? */
 	  {
-	    CONST Bufbyte *ptr;
+	    const Bufbyte *ptr;
 	    int fieldspec;
 
 	    ptr = parse_off_posnum (fmt, fmt_end, &fieldspec);
@@ -423,11 +423,11 @@ get_doprnt_args (printf_spec_dynarr *specs, va_list vargs)
    to the arguments. */
 
 static Bytecount
-emacs_doprnt_1 (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
+emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		Lisp_Object format_reloc, Bytecount format_length,
 		int nargs,
 		/* #### Gag me, gag me, gag me */
-		CONST Lisp_Object *largs, va_list vargs)
+		const Lisp_Object *largs, va_list vargs)
 {
   printf_spec_dynarr *specs = 0;
   printf_arg_dynarr *args = 0;
@@ -440,7 +440,7 @@ emacs_doprnt_1 (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
       format_length = XSTRING_LENGTH (format_reloc);
     }
   if (format_length < 0)
-    format_length = (Bytecount) strlen ((CONST char *) format_nonreloc);
+    format_length = (Bytecount) strlen ((const char *) format_nonreloc);
 
   specs = parse_doprnt_spec (format_nonreloc, format_length);
   if (largs)
@@ -697,9 +697,9 @@ emacs_doprnt_1 (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
 
 /* You really don't want to know why this is necessary... */
 static Bytecount
-emacs_doprnt_2 (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
+emacs_doprnt_2 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		Lisp_Object format_reloc, Bytecount format_length, int nargs,
-		CONST Lisp_Object *largs, ...)
+		const Lisp_Object *largs, ...)
 {
   va_list vargs;
   Bytecount val;
@@ -732,7 +732,7 @@ emacs_doprnt_2 (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
    parameter, because this function can cause GC. */
 
 Bytecount
-emacs_doprnt_c (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
+emacs_doprnt_c (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		Lisp_Object format_reloc, Bytecount format_length,
 		...)
 {
@@ -749,7 +749,7 @@ emacs_doprnt_c (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
 /* Like emacs_doprnt_c but the args come in va_list format. */
 
 Bytecount
-emacs_doprnt_va (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
+emacs_doprnt_va (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		 Lisp_Object format_reloc, Bytecount format_length,
 		 va_list vargs)
 {
@@ -763,9 +763,9 @@ emacs_doprnt_va (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
    See `format' for a description of this behavior. */
 
 Bytecount
-emacs_doprnt_lisp (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
+emacs_doprnt_lisp (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		   Lisp_Object format_reloc, Bytecount format_length,
-		   int nargs, CONST Lisp_Object *largs)
+		   int nargs, const Lisp_Object *largs)
 {
   return emacs_doprnt_2 (stream, format_nonreloc, format_reloc,
 			 format_length, nargs, largs);
@@ -774,7 +774,7 @@ emacs_doprnt_lisp (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
 /* Like the previous function but takes a variable number of arguments. */
 
 Bytecount
-emacs_doprnt_lisp_2 (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
+emacs_doprnt_lisp_2 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		     Lisp_Object format_reloc, Bytecount format_length,
 		     int nargs, ...)
 {
@@ -796,7 +796,7 @@ emacs_doprnt_lisp_2 (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
    to a stream. */
 
 Lisp_Object
-emacs_doprnt_string_c (CONST Bufbyte *format_nonreloc,
+emacs_doprnt_string_c (const Bufbyte *format_nonreloc,
 		       Lisp_Object format_reloc, Bytecount format_length,
 		       ...)
 {
@@ -819,7 +819,7 @@ emacs_doprnt_string_c (CONST Bufbyte *format_nonreloc,
 }
 
 Lisp_Object
-emacs_doprnt_string_va (CONST Bufbyte *format_nonreloc,
+emacs_doprnt_string_va (const Bufbyte *format_nonreloc,
 			Lisp_Object format_reloc, Bytecount format_length,
 			va_list vargs)
 {
@@ -842,9 +842,9 @@ emacs_doprnt_string_va (CONST Bufbyte *format_nonreloc,
 }
 
 Lisp_Object
-emacs_doprnt_string_lisp (CONST Bufbyte *format_nonreloc,
+emacs_doprnt_string_lisp (const Bufbyte *format_nonreloc,
 			  Lisp_Object format_reloc, Bytecount format_length,
-			  int nargs, CONST Lisp_Object *largs)
+			  int nargs, const Lisp_Object *largs)
 {
   Lisp_Object obj;
   Lisp_Object stream = make_resizing_buffer_output_stream ();
@@ -862,7 +862,7 @@ emacs_doprnt_string_lisp (CONST Bufbyte *format_nonreloc,
 }
 
 Lisp_Object
-emacs_doprnt_string_lisp_2 (CONST Bufbyte *format_nonreloc,
+emacs_doprnt_string_lisp_2 (const Bufbyte *format_nonreloc,
 			    Lisp_Object format_reloc, Bytecount format_length,
 			    int nargs, ...)
 {

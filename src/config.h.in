@@ -70,11 +70,23 @@ char *alloca();
 #undef INFODOCK_MINOR_VERSION
 #undef INFODOCK_BUILD_VERSION
 
+/* Make all functions from all IEEE Stds 1003.[123] available. */
+#undef _POSIX_C_SOURCE
+
+/* Make all functions from Unix98 available. */
+#undef _XOPEN_SOURCE
+
+/* Make extensions from Unix98 available. */
+#undef _XOPEN_SOURCE_EXTENDED
+
 /* Make all functions available on AIX.  See AC_AIX. */
 #undef _ALL_SOURCE
 
 /* Make all functions available on GNU libc systems.  See features.h. */
 #undef _GNU_SOURCE
+
+/* Make all functions available on Solaris 2 systems. */
+#undef __EXTENSIONS__
 
 /* Used to identify the XEmacs version in stack traces. */
 #undef STACK_TRACE_EYE_CATCHER
@@ -163,6 +175,8 @@ char *alloca();
 #undef THIS_IS_X11R4
 #undef THIS_IS_X11R5
 #undef THIS_IS_X11R6
+
+#undef HAVE_XCONVERTCASE
 
 /* Where do we find bitmaps? */
 #undef BITMAPDIR
@@ -518,8 +532,6 @@ char *alloca();
 
 /* Defined by AC_C_CONST in configure.in */
 #undef const
-
-#define CONST const
 
 /* Allow the source to use standard types. Include these before the
  s&m files so that they can use them. */

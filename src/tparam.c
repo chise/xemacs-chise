@@ -57,16 +57,16 @@ extern char *realloc ();
 
    The fourth and following args to tparam serve as the parameter values.  */
 
-static char *tparam1 (CONST char *string, char *outstring, int len,
-                      CONST char *up, CONST char *left, 
+static char *tparam1 (const char *string, char *outstring, int len,
+                      const char *up, const char *left, 
                       int *argp);
 
 /* XEmacs: renamed this function because just tparam() conflicts with
    ncurses */
-char *emacs_tparam (CONST char *string, char *outstring, int len, int arg0,
+char *emacs_tparam (const char *string, char *outstring, int len, int arg0,
 		    int arg1, int arg2, int arg3);
 char *
-emacs_tparam (CONST char *string, char *outstring, int len, int arg0,
+emacs_tparam (const char *string, char *outstring, int len, int arg0,
 	      int arg1, int arg2, int arg3)
 {
   int arg[4];
@@ -77,14 +77,14 @@ emacs_tparam (CONST char *string, char *outstring, int len, int arg0,
   return tparam1 (string, outstring, len, 0, 0, arg);
 }
 
-CONST char *BC;
-CONST char *UP;
+const char *BC;
+const char *UP;
 
 static char tgoto_buf[50];
 
-char *tgoto (CONST char *cm, int hpos, int vpos);
+char *tgoto (const char *cm, int hpos, int vpos);
 char *
-tgoto (CONST char *cm, int hpos, int vpos)
+tgoto (const char *cm, int hpos, int vpos)
 {
   int args[2];
   if (!cm)
@@ -95,11 +95,11 @@ tgoto (CONST char *cm, int hpos, int vpos)
 }
 
 static char *
-tparam1 (CONST char *string, char *outstring, int len, CONST char *up,
-	 CONST char *left, int *argp)
+tparam1 (const char *string, char *outstring, int len, const char *up,
+	 const char *left, int *argp)
 {
   int c;
-  CONST char *p = string;
+  const char *p = string;
   char *op = outstring;
   char *outend;
   int outlen = 0;

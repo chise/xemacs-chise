@@ -188,8 +188,8 @@ typedef int pid_t;
 /* subprocess calls that are emulated */
 #ifndef DONT_ENCAPSULATE
 #define spawnve sys_spawnve
-int spawnve (int mode, CONST char *cmdname, 
-	     CONST char * CONST *argv, CONST char *CONST *envp);
+int spawnve (int mode, const char *cmdname, 
+	     const char * const *argv, const char *const *envp);
 #endif
 
 /* IO calls that are emulated or shadowed */

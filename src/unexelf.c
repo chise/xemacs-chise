@@ -413,7 +413,7 @@ Filesz      Memsz       Flags       Align
 #define fatal(a, b, c) fprintf (stderr, a, b, c), exit (1)
 #else
 #include <config.h>
-extern void fatal (CONST char *, ...);
+extern void fatal (const char *, ...);
 #endif
 
 #include <sys/types.h>

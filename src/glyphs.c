@@ -128,6 +128,7 @@ static void image_validate (Lisp_Object instantiator);
 static void glyph_property_was_changed (Lisp_Object glyph,
 					Lisp_Object property,
 					Lisp_Object locale);
+static void set_image_instance_dirty_p (Lisp_Object instance, int dirty);
 static void register_ignored_expose (struct frame* f, int x, int y, int width, int height);
 /* Unfortunately windows and X are different. In windows BeginPaint()
    will prevent WM_PAINT messages being generated so it is unnecessary
@@ -814,6 +815,8 @@ finalize_image_instance (void *header, int for_disksave)
   /* do this so that the cachels get reset */
   if (IMAGE_INSTANCE_TYPE (i) == IMAGE_WIDGET
       ||
+      IMAGE_INSTANCE_TYPE (i) == IMAGE_SUBWINDOW
+      ||
       IMAGE_INSTANCE_TYPE (i) == IMAGE_SUBWINDOW)
     {
       MARK_FRAME_SUBWINDOWS_CHANGED
@@ -971,10 +974,14 @@ allocate_image_instance (Lisp_Object device, Lisp_Object glyph)
   lp->y_offset = 0;
   lp->width = 0;
   lp->height = 0;
-  lp->glyph = glyph;
-  MARK_IMAGE_INSTANCE_CHANGED (lp); /* So that layouts get done. */
+  lp->parent = glyph;
+  /* So that layouts get done. */
+  lp->layout_changed = 1;
+  lp->dirty = 1;
+
   XSETIMAGE_INSTANCE (val, lp);
-  MARK_GLYPHS_CHANGED;	/* So that the dirty flag gets reset. */
+  MARK_GLYPHS_CHANGED;
+
   return val;
 }
 
@@ -1081,7 +1088,7 @@ incompatible_image_types (Lisp_Object instantiator, int given_dest_mask,
     (Qerror,
      list2
      (emacs_doprnt_string_lisp_2
-      ((CONST Bufbyte *)
+      ((const Bufbyte *)
        "No compatible image-instance types given: wanted one of %s, got %s",
        Qnil, -1, 2,
        encode_image_instance_type_list (desired_dest_mask),
@@ -1133,6 +1140,19 @@ encode_error_behavior_flag (Error_behavior errb)
       assert (ERRB_EQ (errb, ERROR_ME_WARN));
       return Qwarning;
     }
+}
+
+/* Recurse up the hierarchy looking for the topmost glyph. This means
+   that instances in layouts will inherit face properties from their
+   parent. */
+Lisp_Object image_instance_parent_glyph (Lisp_Image_Instance* ii)
+{
+  if (IMAGE_INSTANCEP (IMAGE_INSTANCE_PARENT (ii)))
+    {
+      return image_instance_parent_glyph 
+	(XIMAGE_INSTANCE (IMAGE_INSTANCE_PARENT (ii)));
+    }
+  return IMAGE_INSTANCE_PARENT (ii);
 }
 
 static Lisp_Object
@@ -1352,11 +1372,11 @@ the image instance in the domain.
 	}
     }
 
-  /* Make sure the image instance gets redisplayed.
+  /* Make sure the image instance gets redisplayed. */
+  set_image_instance_dirty_p (image_instance, 1);
+  /* Force the glyph to be laid out again. */
+  IMAGE_INSTANCE_LAYOUT_CHANGED (ii) = 1;
 
-     ### This currently does not change the dirty state of an
-     enclosing layout which may be bad. */
-  MARK_IMAGE_INSTANCE_CHANGED (ii);
   MARK_SUBWINDOWS_STATE_CHANGED;
   MARK_GLYPHS_CHANGED;
 
@@ -1683,6 +1703,13 @@ image_instance_layout (Lisp_Object image_instance,
 
   /* At this point width and height should contain sane values. Thus
      we set the glyph geometry and lay it out. */
+  if (IMAGE_INSTANCE_WIDTH (ii) != width
+      ||
+      IMAGE_INSTANCE_HEIGHT (ii) != height)
+    {
+      IMAGE_INSTANCE_SIZE_CHANGED (ii) = 1;
+    }
+
   IMAGE_INSTANCE_WIDTH (ii) = width;
   IMAGE_INSTANCE_HEIGHT (ii) = height;
 
@@ -1692,7 +1719,9 @@ image_instance_layout (Lisp_Object image_instance,
     }
   /* else no change to the geometry. */
 
-  XIMAGE_INSTANCE_DIRTYP (image_instance) = 0;
+  /* Do not clear the dirty flag here - redisplay will do this for
+     us at the end. */
+  IMAGE_INSTANCE_LAYOUT_CHANGED (ii) = 0;
 }
 
 /*
@@ -1717,7 +1746,9 @@ invalidate_glyph_geometry_maybe (Lisp_Object glyph_or_ii, struct window* w)
 
       if (TEXT_IMAGE_INSTANCEP (image))
 	{
-	  XIMAGE_INSTANCE_DIRTYP (image) = 1;
+	  Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image);
+	  IMAGE_INSTANCE_DIRTYP (ii) = 1;
+	  IMAGE_INSTANCE_LAYOUT_CHANGED (ii) = 1;
 	  if (GLYPHP (glyph_or_ii))
 	    XGLYPH_DIRTYP (glyph_or_ii) = 1;
 	  return 1;
@@ -1732,14 +1763,14 @@ invalidate_glyph_geometry_maybe (Lisp_Object glyph_or_ii, struct window* w)
 /*                              error helpers                           */
 /************************************************************************/
 DOESNT_RETURN
-signal_image_error (CONST char *reason, Lisp_Object frob)
+signal_image_error (const char *reason, Lisp_Object frob)
 {
   signal_error (Qimage_conversion_error,
 		list2 (build_translated_string (reason), frob));
 }
 
 DOESNT_RETURN
-signal_image_error_2 (CONST char *reason, Lisp_Object frob0, Lisp_Object frob1)
+signal_image_error_2 (const char *reason, Lisp_Object frob0, Lisp_Object frob1)
 {
   signal_error (Qimage_conversion_error,
 		list3 (build_translated_string (reason), frob0, frob1));
@@ -2162,7 +2193,7 @@ bitmap_to_lisp_data (Lisp_Object name, int *xhot, int *yhot,
   unsigned int w, h;
   Extbyte *data;
   int result;
-  CONST char *filename_ext;
+  const char *filename_ext;
 
   TO_EXTERNAL_FORMAT (LISP_STRING, name,
 		      C_STRING_ALLOCA, filename_ext,
@@ -3556,7 +3587,7 @@ glyph_width (Lisp_Object glyph_or_image, Lisp_Object domain)
   if (!IMAGE_INSTANCEP (instance))
     return 0;
 
-  if (XIMAGE_INSTANCE_DIRTYP (instance))
+  if (XIMAGE_INSTANCE_NEEDS_LAYOUT (instance))
     image_instance_layout (instance, IMAGE_UNSPECIFIED_GEOMETRY,
 			   IMAGE_UNSPECIFIED_GEOMETRY, domain);
 
@@ -3584,7 +3615,7 @@ glyph_ascent (Lisp_Object glyph_or_image, Lisp_Object domain)
   if (!IMAGE_INSTANCEP (instance))
     return 0;
 
-  if (XIMAGE_INSTANCE_DIRTYP (instance))
+  if (XIMAGE_INSTANCE_NEEDS_LAYOUT (instance))
     image_instance_layout (instance, IMAGE_UNSPECIFIED_GEOMETRY,
 			   IMAGE_UNSPECIFIED_GEOMETRY, domain);
 
@@ -3602,7 +3633,7 @@ glyph_descent (Lisp_Object glyph_or_image, Lisp_Object domain)
   if (!IMAGE_INSTANCEP (instance))
     return 0;
 
-  if (XIMAGE_INSTANCE_DIRTYP (instance))
+  if (XIMAGE_INSTANCE_NEEDS_LAYOUT (instance))
     image_instance_layout (instance, IMAGE_UNSPECIFIED_GEOMETRY,
 			   IMAGE_UNSPECIFIED_GEOMETRY, domain);
 
@@ -3622,7 +3653,7 @@ glyph_height (Lisp_Object glyph_or_image, Lisp_Object domain)
   if (!IMAGE_INSTANCEP (instance))
     return 0;
 
-  if (XIMAGE_INSTANCE_DIRTYP (instance))
+  if (XIMAGE_INSTANCE_NEEDS_LAYOUT (instance))
     image_instance_layout (instance, IMAGE_UNSPECIFIED_GEOMETRY,
 			   IMAGE_UNSPECIFIED_GEOMETRY, domain);
 
@@ -3684,6 +3715,22 @@ set_glyph_dirty_p (Lisp_Object glyph_or_image, Lisp_Object window, int dirty)
 	}
 
       XIMAGE_INSTANCE_DIRTYP (instance) = dirty;
+    }
+}
+
+static void
+set_image_instance_dirty_p (Lisp_Object instance, int dirty)
+{
+  if (IMAGE_INSTANCEP (instance))
+    {
+      XIMAGE_INSTANCE_DIRTYP (instance) = dirty;
+      /* Now cascade up the hierarchy. */
+      set_image_instance_dirty_p (XIMAGE_INSTANCE_PARENT (instance),
+				  dirty);
+    }
+  else if (GLYPHP (instance))
+    {
+      XGLYPH_DIRTYP (instance) = dirty;
     }
 }
 
@@ -3773,11 +3820,17 @@ glyph_layout (Lisp_Object glyph_or_image, Lisp_Object window,
  *                     glyph cachel functions                         	     *
  *****************************************************************************/
 
-/*
- #### All of this is 95% copied from face cachels.
-      Consider consolidating.
- */
-
+/* #### All of this is 95% copied from face cachels.  Consider
+  consolidating.  
+  
+  Why do we need glyph_cachels? Simply because a glyph_cachel captures
+  per-window information about a particular glyph. A glyph itself is
+  not created in any particular context, so if we were to rely on a
+  glyph to tell us about its dirtiness we would not be able to reset
+  the dirty flag after redisplaying it as it may exist in other
+  contexts. When we have redisplayed we need to know which glyphs to
+  reset the dirty flags on - the glyph_cachels give us a nice list we
+  can iterate through doing this.  */
 void
 mark_glyph_cachels (glyph_cachel_dynarr *elements)
 {
@@ -4195,23 +4248,31 @@ int find_matching_subwindow (struct frame* f, int x, int y, int width, int heigh
  *****************************************************************************/
 
 /* update the displayed characteristics of a subwindow */
-static void
+void
 update_subwindow (Lisp_Object subwindow)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (subwindow);
 
-  if (!IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET
+  if (IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET
       ||
-      NILP (IMAGE_INSTANCE_SUBWINDOW_FRAME (ii)))
-    return;
+      IMAGE_INSTANCE_TYPE (ii) == IMAGE_LAYOUT)
+    {
+      if (IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET)
+	  update_widget (subwindow);
+      /* Reset the changed flags. */
+      IMAGE_INSTANCE_WIDGET_FACE_CHANGED (ii) = 0;
+      IMAGE_INSTANCE_WIDGET_PERCENT_CHANGED (ii) = 0;
+      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii) = 0;
+      IMAGE_INSTANCE_TEXT_CHANGED (ii) = 0;
+    }
+  else if (IMAGE_INSTANCE_TYPE (ii) == IMAGE_SUBWINDOW
+	   &&
+	   !NILP (IMAGE_INSTANCE_SUBWINDOW_FRAME (ii)))
+    {
+      MAYBE_DEVMETH (XDEVICE (ii->device), update_subwindow, (ii));
+    }
 
-  MAYBE_DEVMETH (XDEVICE (ii->device), update_subwindow, (ii));
-  /* We must update the window's size as it may have been changed by
-     the the layout routines. We also do this here so that explicit resizing
-     from lisp does not result in synchronous updates. */
-  MAYBE_DEVMETH (XDEVICE (ii->device), resize_subwindow, (ii,
-		 IMAGE_INSTANCE_WIDTH (ii),
-		 IMAGE_INSTANCE_HEIGHT (ii)));
+  IMAGE_INSTANCE_SIZE_CHANGED (ii) = 0;
 }
 
 /* Update all the subwindows on a frame. */
@@ -4220,6 +4281,8 @@ update_frame_subwindows (struct frame *f)
 {
   int elt;
 
+  /* #### Checking all of these might be overkill now that we update
+     subwindows in the actual redisplay code. */
   if (f->subwindows_changed || f->subwindows_state_changed || f->faces_changed)
     for (elt = 0; elt < Dynarr_length (f->subwindow_cachels); elt++)
       {
@@ -4295,6 +4358,7 @@ void map_subwindow (Lisp_Object subwindow, int x, int y,
   cachel->height = dga->height;
   cachel->being_displayed = 1;
 
+#if 0
   /* This forces any pending display changes to happen to the image
      before we show it. I'm not sure whether or not we need mark as
      clean here, but for now we will. */
@@ -4303,6 +4367,7 @@ void map_subwindow (Lisp_Object subwindow, int x, int y,
       update_subwindow (subwindow);
       IMAGE_INSTANCE_DIRTYP (ii) = 0;
     }
+#endif
 
   MAYBE_DEVMETH (XDEVICE (ii->device), map_subwindow, (ii, x, y, dga));
 }
@@ -4387,23 +4452,26 @@ If a value is nil that parameter is not changed.
        (subwindow, width, height))
 {
   int neww, newh;
+  Lisp_Image_Instance* ii;
 
   CHECK_SUBWINDOW_IMAGE_INSTANCE (subwindow);
+  ii = XIMAGE_INSTANCE (subwindow);
 
   if (NILP (width))
-    neww = XIMAGE_INSTANCE_WIDTH (subwindow);
+    neww = IMAGE_INSTANCE_WIDTH (ii);
   else
     neww = XINT (width);
 
   if (NILP (height))
-    newh = XIMAGE_INSTANCE_HEIGHT (subwindow);
+    newh = IMAGE_INSTANCE_HEIGHT (ii);
   else
     newh = XINT (height);
 
   /* The actual resizing gets done asychronously by
      update_subwindow. */
-  XIMAGE_INSTANCE_HEIGHT (subwindow) = newh;
-  XIMAGE_INSTANCE_WIDTH (subwindow) = neww;
+  IMAGE_INSTANCE_HEIGHT (ii) = newh;
+  IMAGE_INSTANCE_WIDTH (ii) = neww;
+  IMAGE_INSTANCE_SIZE_CHANGED (ii) = 1;
 
   /* need to update the cachels as redisplay will not do this */
   update_subwindow_cachel (subwindow);
@@ -4542,7 +4610,9 @@ Don't use this.
 		 also might not. */
 	      MARK_DEVICE_FRAMES_GLYPHS_CHANGED
 		(XDEVICE (IMAGE_INSTANCE_DEVICE (ii)));
-	      MARK_IMAGE_INSTANCE_CHANGED (ii);
+	      /* Cascade dirtiness so that we can have an animated glyph in a layout 
+		 for instance. */
+	      set_image_instance_dirty_p (value, 1);
 	    }
 	}
     }

@@ -36,13 +36,13 @@ Boston, MA 02111-1307, USA.  */
 
 #include <stdlib.h>
 
-size_t mbstowcs (wchar_t *foo, CONST char *bar, size_t baz)
+size_t mbstowcs (wchar_t *foo, const char *bar, size_t baz)
 {
   abort ();
   return 0;
 }
 
-size_t wcstombs (char *foo, CONST wchar_t *bar, size_t baz)
+size_t wcstombs (char *foo, const wchar_t *bar, size_t baz)
 {
   abort ();
   return 0;

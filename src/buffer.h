@@ -427,8 +427,8 @@ for (mps_bufcons = Qunbound,							\
 } while (0)
 
 #define DEC_CHARPTR(ptr) do {			\
-  CONST Bufbyte *dc_ptr1 = (ptr);		\
-  CONST Bufbyte *dc_ptr2 = dc_ptr1;		\
+  const Bufbyte *dc_ptr1 = (ptr);		\
+  const Bufbyte *dc_ptr2 = dc_ptr1;		\
   REAL_DEC_CHARPTR (dc_ptr2);			\
   assert (dc_ptr1 - dc_ptr2 ==			\
 	  REP_BYTES_BY_FIRST_BYTE (*dc_ptr2));	\
@@ -470,9 +470,9 @@ for (mps_bufcons = Qunbound,							\
 /*     section of internally-formatted text 			  */
 /* -------------------------------------------------------------- */
 
-INLINE CONST Bufbyte *charptr_n_addr (CONST Bufbyte *ptr, Charcount offset);
-INLINE CONST Bufbyte *
-charptr_n_addr (CONST Bufbyte *ptr, Charcount offset)
+INLINE const Bufbyte *charptr_n_addr (const Bufbyte *ptr, Charcount offset);
+INLINE const Bufbyte *
+charptr_n_addr (const Bufbyte *ptr, Charcount offset)
 {
   return ptr + charcount_to_bytecount (ptr, offset);
 }
@@ -487,13 +487,13 @@ charptr_n_addr (CONST Bufbyte *ptr, Charcount offset)
 
 #ifdef MULE
 
-Emchar non_ascii_charptr_emchar (CONST Bufbyte *ptr);
+Emchar non_ascii_charptr_emchar (const Bufbyte *ptr);
 Bytecount non_ascii_set_charptr_emchar (Bufbyte *ptr, Emchar c);
-Bytecount non_ascii_charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2);
+Bytecount non_ascii_charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
 
-INLINE Emchar charptr_emchar (CONST Bufbyte *ptr);
+INLINE Emchar charptr_emchar (const Bufbyte *ptr);
 INLINE Emchar
-charptr_emchar (CONST Bufbyte *ptr)
+charptr_emchar (const Bufbyte *ptr)
 {
   return BYTE_ASCII_P (*ptr) ?
     simple_charptr_emchar (ptr) :
@@ -509,9 +509,9 @@ set_charptr_emchar (Bufbyte *ptr, Emchar x)
     non_ascii_set_charptr_emchar (ptr, x);
 }
 
-INLINE Bytecount charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2);
+INLINE Bytecount charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
 INLINE Bytecount
-charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2)
+charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2)
 {
   return BYTE_ASCII_P (*ptr) ?
     simple_charptr_copy_char (ptr, ptr2) :
@@ -1568,17 +1568,17 @@ int beginning_of_line_p (struct buffer *b, Bufpos pt);
 /* from insdel.c */
 void set_buffer_point (struct buffer *buf, Bufpos pos, Bytind bipos);
 void find_charsets_in_bufbyte_string (unsigned char *charsets,
-				      CONST Bufbyte *str,
+				      const Bufbyte *str,
 				      Bytecount len);
 void find_charsets_in_emchar_string (unsigned char *charsets,
-				     CONST Emchar *str,
+				     const Emchar *str,
 				     Charcount len);
-int bufbyte_string_displayed_columns (CONST Bufbyte *str, Bytecount len);
-int emchar_string_displayed_columns (CONST Emchar *str, Charcount len);
-void convert_bufbyte_string_into_emchar_dynarr (CONST Bufbyte *str,
+int bufbyte_string_displayed_columns (const Bufbyte *str, Bytecount len);
+int emchar_string_displayed_columns (const Emchar *str, Charcount len);
+void convert_bufbyte_string_into_emchar_dynarr (const Bufbyte *str,
 						Bytecount len,
 						Emchar_dynarr *dyn);
-Charcount convert_bufbyte_string_into_emchar_string (CONST Bufbyte *str,
+Charcount convert_bufbyte_string_into_emchar_string (const Bufbyte *str,
 						     Bytecount len,
 						     Emchar *arr);
 void convert_emchar_string_into_bufbyte_dynarr (Emchar *arr, int nels,

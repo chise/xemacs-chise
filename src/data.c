@@ -357,7 +357,7 @@ If non-nil, the return value will be a list whose first element is
 */
        (subr))
 {
-  CONST char *prompt;
+  const char *prompt;
   CHECK_SUBR (subr);
   prompt = XSUBR (subr)->prompt;
   return prompt ? list2 (Qinteractive, build_string (prompt)) : Qnil;

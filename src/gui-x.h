@@ -72,7 +72,7 @@ int button_item_to_widget_value (Lisp_Object desc, widget_value *wv,
 				 int allow_text_field_p, int no_keys_p);
 widget_value * gui_items_to_widget_values (Lisp_Object items);
 Lisp_Object menu_name_to_accelerator (char *name);
-char *menu_separator_style (CONST char *s);
+char *menu_separator_style (const char *s);
 Lisp_Object widget_value_unwind (Lisp_Object closure);
 
 #endif /* INCLUDED_gui_x_h_ */

@@ -151,7 +151,7 @@ Windows the sound file must be in WAV format.
 #ifdef HAVE_NATIVE_SOUND
   if (NILP (Vnative_sound_only_on_console) || DEVICE_ON_CONSOLE_P (d))
     {
-      CONST char *fileext;
+      const char *fileext;
 
       TO_EXTERNAL_FORMAT (LISP_STRING, file,
 			  C_STRING_ALLOCA, fileext,
@@ -317,7 +317,7 @@ See the variable `sound-alist'.
 #ifdef HAVE_NAS_SOUND
   if (DEVICE_CONNECTED_TO_NAS_P (d) && STRINGP (sound))
     {
-      CONST Extbyte *soundext;
+      const Extbyte *soundext;
       Extcount soundextlen;
 
       TO_EXTERNAL_FORMAT (LISP_STRING, sound,
@@ -345,7 +345,7 @@ See the variable `sound-alist'.
   if ((NILP (Vnative_sound_only_on_console) || DEVICE_ON_CONSOLE_P (d))
       && STRINGP (sound))
     {
-      CONST Extbyte *soundext;
+      const Extbyte *soundext;
       Extcount soundextlen;
 
       TO_EXTERNAL_FORMAT (LISP_STRING, sound,

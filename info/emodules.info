@@ -334,9 +334,9 @@ on other modules, then this function can be left empty or even
 undeclared.  However, if it does have dependnacies, it must call
 `emodules_load':
 
-     int emodules_load (CONST char *module,
-                        CONST char *modname,
-                        CONST char *modver)
+     int emodules_load (const char *module,
+                        const char *modname,
+                        const char *modver)
 
    The first argument MODULE is the name of the actual shared object or
 DLL.  You can omit the `.so', `.ell' or `.dll' extension of you wish.

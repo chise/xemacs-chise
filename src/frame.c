@@ -121,8 +121,6 @@ static struct display_line title_string_display_line;
    the dynamic allocation time adds up. */
 static Emchar_dynarr *title_string_emchar_dynarr;
 
-EXFUN (Fset_frame_properties, 2);
-
 
 static Lisp_Object
 mark_frame (Lisp_Object obj)
@@ -215,6 +213,8 @@ allocate_frame_core (Lisp_Object device)
   /* associated exposure ignore list */
   f->subwindow_exposures = 0;
   f->subwindow_exposures_tail = 0;
+
+  FRAME_SET_PAGENUMBER (f, 1);
 
   /* Choose a buffer for the frame's root window.  */
   XWINDOW (root_window)->buffer = Qt;
@@ -380,7 +380,7 @@ See `set-frame-properties', `default-x-frame-plist', and
   else
     name = build_string ("emacs");
 
-  if (!NILP (Fstring_match (make_string ((CONST Bufbyte *) "\\.", 2), name,
+  if (!NILP (Fstring_match (make_string ((const Bufbyte *) "\\.", 2), name,
 			    Qnil, Qnil)))
     signal_simple_error (". not allowed in frame names", name);
 
@@ -2089,6 +2089,31 @@ doesn't support multiple overlapping frames, this function does nothing.
 
 /* Ben thinks there is no need for `redirect-frame-focus' or `frame-focus',
    crockish FSFmacs functions.  See summary on focus in event-stream.c. */
+
+DEFUN ("print-job-page-number", Fprint_job_page_number, 1, 1, 0, /*
+Return current page number for the print job FRAME.
+*/
+       (frame))
+{
+  CHECK_PRINTER_FRAME (frame);
+  return make_int (FRAME_PAGENUMBER (XFRAME (frame)));
+}
+
+DEFUN ("print-job-eject-page", Fprint_job_eject_page, 1, 1, 0, /*
+Eject page in the print job FRAME.
+*/
+       (frame))
+{
+  struct frame *f;
+
+  CHECK_PRINTER_FRAME (frame);
+  f = XFRAME (frame);
+  FRAMEMETH (f, eject_page, (f));
+  FRAME_SET_PAGENUMBER (f, 1 + FRAME_PAGENUMBER (f));
+  f->clear = 1;
+
+  return Qnil;
+}
 
 
 /***************************************************************************/
@@ -2851,8 +2876,6 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
     - FRAME_REAL_RIGHT_TOOLBAR_WIDTH (f)
     - 2 * FRAME_REAL_RIGHT_TOOLBAR_BORDER_WIDTH (f);
 
-  new_pixwidth += 2 * f->internal_border_width;
-
   /* Adjust the width for the end glyph which may be a different width
      than the default character width. */
   {
@@ -3232,6 +3255,8 @@ syms_of_frame (void)
   DEFSUBR (Fset_frame_size);
   DEFSUBR (Fset_frame_position);
   DEFSUBR (Fset_frame_pointer);
+  DEFSUBR (Fprint_job_page_number);
+  DEFSUBR (Fprint_job_eject_page);
 }
 
 void

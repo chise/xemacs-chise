@@ -93,9 +93,9 @@ struct gc_cache {
 
 #ifdef GCCACHE_HASH
 static unsigned long
-gc_cache_hash (CONST void *arg)
+gc_cache_hash (const void *arg)
 {
-  CONST struct gcv_and_mask *gcvm = (CONST struct gcv_and_mask *) arg;
+  const struct gcv_and_mask *gcvm = (const struct gcv_and_mask *) arg;
   unsigned long *longs = (unsigned long *) &gcvm->gcv;
   unsigned long hash = gcvm->mask;
   int i;
@@ -112,7 +112,7 @@ gc_cache_hash (CONST void *arg)
 #endif /* GCCACHE_HASH */
 
 static int
-gc_cache_eql (CONST void *arg1, CONST void *arg2)
+gc_cache_eql (const void *arg1, const void *arg2)
 {
   /* See comment in gc_cache_hash */
   return !memcmp (arg1, arg2, sizeof (struct gcv_and_mask));
@@ -166,7 +166,7 @@ gc_cache_lookup (struct gc_cache *cache, XGCValues *gcv, unsigned long mask)
 
 #ifdef GCCACHE_HASH
 
-  if (gethash (&gcvm, cache->table, (CONST void **) &cell))
+  if (gethash (&gcvm, cache->table, (const void **) &cell))
 
 #else /* !GCCACHE_HASH */
 

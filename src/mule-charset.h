@@ -786,9 +786,9 @@ Emchar Lstream_get_emchar_1 (Lstream *stream, int first_char);
 int Lstream_fput_emchar (Lstream *stream, Emchar ch);
 void Lstream_funget_emchar (Lstream *stream, Emchar ch);
 
-int copy_internal_to_external (CONST Bufbyte *internal, Bytecount len,
+int copy_internal_to_external (const Bufbyte *internal, Bytecount len,
 			       unsigned char *external);
-Bytecount copy_external_to_internal (CONST unsigned char *external,
+Bytecount copy_external_to_internal (const unsigned char *external,
 				     int len, Bufbyte *internal);
 
 #endif /* INCLUDED_mule_charset_h_ */

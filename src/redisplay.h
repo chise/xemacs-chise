@@ -661,7 +661,7 @@ extern Lisp_Object Vglobal_mode_string;
 extern int display_arg;
 
 /* Type of display specified.  Defined in emacs.c. */
-extern CONST char *display_use;
+extern const char *display_use;
 
 /* Nonzero means reading single-character input with prompt
    so put cursor on minibuffer after the prompt.  */

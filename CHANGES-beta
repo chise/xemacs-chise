@@ -1,3 +1,23 @@
+to 21.2.29 "Hestia"
+-- Fix compile errors on pre-X11R6 systems, introduced in 21.2.28.
+-- Fix autodetection of Berkeley DB on Linux Glibc 2 systems.  
+   (but more work needed)
+-- Allow non-symbols (anything compared with `eq') in object plists.
+-- Cleanup of property frobbing code.
+-- Various AIX 4 fixes, including port of PDUMP.
+-- Unconditionally define _POSIX_C_SOURCE, _XOPEN_SOURCE, _XOPEN_SOURCE_EXTENDED.
+-- MS-Windows redisplay and font fixes from Jonathan Harris.
+-- various fixes from Craig Lanning, Daiki Ueno.
+-- Asynchronous widget updates from Andy Piper.
+-- More widget fixes from Andy Piper.
+-- Don't use rel_alloc on glibc systems, including Linux
+-- Upgrade etags.c to version 13.44, Francesco Potorti
+-- etags does a better job of finding the exact match first, Kyle Jones
+-- Portable dumper now described in Internals manual, Olivier and Martin
+-- Object Plist documentation in lispref updated, Martin Buchholz
+-- Just use standard `const' everywhere, instead of CONST
+-- More pdump changes, Olivier Galibert
+
 to 21.2.28 "Hermes"
 -- Add configure support for NetWinders, Sean MacLennan
 -- Make the "Load .emacs" menu item work again, Kirill Katsnelson
@@ -32,6 +52,8 @@ to 21.2.28 "Hermes"
 
 to 21.2.27 "Hera"
 -- Dynamic layout for widgets from Andy Piper
+-- Vertical tab widgets for MS-Windows from Andy Piper
+-- pdump fixes for MS-Windows from Big K
 -- config.sub, config.guess major upgrade, Marcus Thiessel
 -- gdbinit renamed to .gdbinit
 -- dbxrc renamed to .dbxrc

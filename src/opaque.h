@@ -26,7 +26,8 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_opaque_h_
 #define INCLUDED_opaque_h_
 
-typedef union {
+typedef union
+{
   struct { Lisp_Object obj; } obj;
   struct { void *p; } p;
   struct { double d; } d;
@@ -48,8 +49,8 @@ DECLARE_LRECORD (opaque, Lisp_Opaque);
    functions should not be doing this. */
 
 /* Alternative DATA arguments to make_opaque() */
-#define OPAQUE_CLEAR  ((CONST void *)  0)
-#define OPAQUE_UNINIT ((CONST void *) -1)
+#define OPAQUE_CLEAR  ((const void *)  0)
+#define OPAQUE_UNINIT ((const void *) -1)
 
 #define OPAQUE_SIZE(op) ((op)->size)
 #define OPAQUE_DATA(op) ((void *) ((op)->data))
@@ -58,7 +59,7 @@ DECLARE_LRECORD (opaque, Lisp_Opaque);
 #define XOPAQUE_DATA(op) OPAQUE_DATA (XOPAQUE (op))
 #define XOPAQUE_MARKFUN(op) OPAQUE_MARKFUN (XOPAQUE (op))
 
-Lisp_Object make_opaque (CONST void *data, size_t size);
+Lisp_Object make_opaque (const void *data, size_t size);
 
 typedef struct Lisp_Opaque_Ptr
 {

@@ -95,7 +95,7 @@ menubar_visible_p_changed_in_frame (Lisp_Object specifier, struct frame *f,
 }
 
 Lisp_Object
-current_frame_menubar (CONST struct frame* f)
+current_frame_menubar (const struct frame* f)
 {
   struct window *w = XWINDOW (FRAME_LAST_NONMINIBUF_WINDOW (f));
   return symbol_value_in_buffer (Qcurrent_menubar, w->buffer);

@@ -875,4 +875,66 @@
   (Assert (eq 'baz (getf '(bar baz) 'bar)))
   (Assert (eq 'baz (getf (symbol-plist sym) 'bar)))
   (Assert (eq 2 (getf '(1 2) 1)))
+  (Assert (eq 4 (put sym 3 4)))
+  (Assert (eq 4 (get sym 3)))
+  (Assert (eq t (remprop sym 3)))
+  (Assert (eq nil (remprop sym 3)))
+  (Assert (eq 5 (get sym 3 5)))
   )
+
+(loop for obj in
+  (list (make-symbol "test-symbol")
+	"test-string"
+	(make-extent nil nil nil)
+	(make-face 'test-face))
+  do
+  (Assert (eq 2 (get obj ?1 2)))
+  (Assert (eq 4 (put obj ?3 4)))
+  (Assert (eq 4 (get obj ?3)))
+  (when (or (stringp obj) (symbolp obj))
+    (Assert (equal '(?3 4) (object-plist obj))))
+  (Assert (eq t (remprop obj ?3)))
+  (when (or (stringp obj) (symbolp obj))
+    (Assert (eq '() (object-plist obj))))
+  (Assert (eq nil (remprop obj ?3)))
+  (when (or (stringp obj) (symbolp obj))
+    (Assert (eq '() (object-plist obj))))
+  (Assert (eq 5 (get obj ?3 5)))
+  )
+
+(Check-Error-Message
+ error "Object type has no properties"
+ (get 2 'property))
+
+(Check-Error-Message
+ error "Object type has no settable properties"
+ (put (current-buffer) 'property 'value))
+
+(Check-Error-Message
+ error "Object type has no removable properties"
+ (remprop ?3 'property))
+
+(Check-Error-Message
+ error "Object type has no properties"
+ (object-plist (symbol-function 'car)))
+
+(Check-Error-Message
+ error "Can't remove property from object"
+ (remprop (make-extent nil nil nil) 'detachable))
+
+;;-----------------------------------------------------
+;; Test subseq
+;;-----------------------------------------------------
+(Assert (equal (subseq nil 0) nil))
+(Assert (equal (subseq [1 2 3] 0) [1 2 3]))
+(Assert (equal (subseq [1 2 3] 1 -1) [2]))
+(Assert (equal (subseq "123" 0) "123"))
+(Assert (equal (subseq "1234" -3 -1) "23"))
+(Assert (equal (subseq #*0011 0) #*0011))
+(Assert (equal (subseq #*0011 -3 3) #*01))
+(Assert (equal (subseq '(1 2 3) 0) '(1 2 3)))
+(Assert (equal (subseq '(1 2 3 4) -3 nil) '(2 3 4)))
+
+(Check-Error 'wrong-type-argument (subseq 3 2))
+(Check-Error 'args-out-of-range (subseq [1 2 3] -42))
+(Check-Error 'args-out-of-range (subseq [1 2 3] 0 42))

@@ -102,7 +102,7 @@ x_device_to_console_connection (Lisp_Object connection, Error_behavior errb)
 static Lisp_Object
 get_display_arg_connection (void)
 {
-  CONST char *disp_name;
+  const char *disp_name;
 
   /* If the user didn't explicitly specify a display to use when
      they called make-x-device, then we first check to see if a
@@ -181,7 +181,7 @@ x_semi_canonicalize_console_connection (Lisp_Object connection,
   /* Check for a couple of standard special cases */
   if (string_byte (XSTRING (connection), 0) == ':')
     connection = concat2 (build_string ("localhost"), connection);
-  else if (!strncmp ((CONST char *) XSTRING_DATA (connection),
+  else if (!strncmp ((const char *) XSTRING_DATA (connection),
 		     "unix:", 5))
     connection = concat2 (build_string ("localhost:"),
 			  Fsubstring (connection, make_int (5), Qnil));
@@ -260,7 +260,7 @@ x_canonicalize_device_connection (Lisp_Object connection, Error_behavior errb)
   split_up_display_spec (connection, &hostname_length, &display_length,
 			 &screen_length);
 
-  screen_str = build_string ((CONST char *) XSTRING_DATA (connection)
+  screen_str = build_string ((const char *) XSTRING_DATA (connection)
 			     + hostname_length + display_length);
   connection = x_canonicalize_console_connection (connection, errb);
 

@@ -36,8 +36,8 @@ Boston, MA 02111-1307, USA.  */
 #ifdef __cplusplus
 extern "C" {
 #endif
-extern char *tgoto (CONST char *cm, int hpos, int vpos);
-extern void tputs (CONST char *, int, void (*)(int));
+extern char *tgoto (const char *cm, int hpos, int vpos);
+extern void tputs (const char *, int, void (*)(int));
 #ifdef __cplusplus
 }
 #endif

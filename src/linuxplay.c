@@ -82,8 +82,8 @@
 #define warn(str)   message("audio: %s ",GETTEXT(str))
 #endif
 
-static  void (*sighup_handler)(int);
-static  void (*sigint_handler)(int);
+static  SIGTYPE (*sighup_handler) (int);
+static  SIGTYPE (*sigint_handler) (int);
 
 static int           mix_fd;
 static int           audio_vol;
@@ -93,7 +93,8 @@ static char	     *audio_dev = "/dev/dsp";
 /* Intercept SIGINT and SIGHUP in order to close the audio and mixer
    devices before terminating sound output; this requires reliable
    signals as provided by "syssignal.h" */
-static void sighandler(int sig)
+static SIGTYPE
+sighandler (int sig)
 {
   if (mix_fd > 0) {
     if (audio_vol >= 0) {

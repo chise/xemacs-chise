@@ -304,10 +304,10 @@ do						\
    the equivalent length in characters. */
 
 Charcount
-bytecount_to_charcount (CONST Bufbyte *ptr, Bytecount len)
+bytecount_to_charcount (const Bufbyte *ptr, Bytecount len)
 {
   Charcount count = 0;
-  CONST Bufbyte *end = ptr + len;
+  const Bufbyte *end = ptr + len;
 
 #if (LONGBITS == 32 || LONGBITS == 64)
 
@@ -331,11 +331,11 @@ bytecount_to_charcount (CONST Bufbyte *ptr, Bytecount len)
       /* Determine the section in the middle of the string that's
 	 amenable to this treatment.  Everything has to be aligned
 	 on CPU word boundaries. */
-      CONST Bufbyte *aligned_ptr =
-	(CONST Bufbyte *) (((unsigned long) (ptr + LONG_BYTES - 1)) &
+      const Bufbyte *aligned_ptr =
+	(const Bufbyte *) (((unsigned long) (ptr + LONG_BYTES - 1)) &
 			   ALIGN_MASK);
-      CONST Bufbyte *aligned_end =
-	(CONST Bufbyte *) (((unsigned long) end) & ALIGN_MASK);
+      const Bufbyte *aligned_end =
+	(const Bufbyte *) (((unsigned long) end) & ALIGN_MASK);
 
       /* Handle unaligned stuff at the beginning. */
       while (ptr < aligned_ptr)
@@ -378,9 +378,9 @@ bytecount_to_charcount (CONST Bufbyte *ptr, Bytecount len)
    the equivalent length in bytes. */
 
 Bytecount
-charcount_to_bytecount (CONST Bufbyte *ptr, Charcount len)
+charcount_to_bytecount (const Bufbyte *ptr, Charcount len)
 {
-  CONST Bufbyte *newptr = ptr;
+  const Bufbyte *newptr = ptr;
 
   while (len > 0)
     {
@@ -2371,7 +2371,7 @@ prepare_to_modify_buffer (struct buffer *buf, Bufpos start, Bufpos end,
 /************************************************************************/
 
 void
-fixup_internal_substring (CONST Bufbyte *nonreloc, Lisp_Object reloc,
+fixup_internal_substring (const Bufbyte *nonreloc, Lisp_Object reloc,
 			  Bytecount offset, Bytecount *len)
 {
   assert ((nonreloc && NILP (reloc)) || (!nonreloc && STRINGP (reloc)));
@@ -2379,7 +2379,7 @@ fixup_internal_substring (CONST Bufbyte *nonreloc, Lisp_Object reloc,
   if (*len < 0)
     {
       if (nonreloc)
-	*len = strlen ((CONST char *) nonreloc) - offset;
+	*len = strlen ((const char *) nonreloc) - offset;
       else
 	*len = XSTRING_LENGTH (reloc) - offset;
     }
@@ -2413,7 +2413,7 @@ fixup_internal_substring (CONST Bufbyte *nonreloc, Lisp_Object reloc,
 
 Charcount
 buffer_insert_string_1 (struct buffer *buf, Bufpos pos,
-			CONST Bufbyte *nonreloc, Lisp_Object reloc,
+			const Bufbyte *nonreloc, Lisp_Object reloc,
 			Bytecount offset, Bytecount length,
 			int flags)
 {
@@ -2578,7 +2578,7 @@ buffer_insert_string_1 (struct buffer *buf, Bufpos pos,
 
 Charcount
 buffer_insert_raw_string_1 (struct buffer *buf, Bufpos pos,
-			    CONST Bufbyte *nonreloc, Bytecount length,
+			    const Bufbyte *nonreloc, Bytecount length,
 			    int flags)
 {
   /* This function can GC */
@@ -2602,12 +2602,12 @@ buffer_insert_lisp_string_1 (struct buffer *buf, Bufpos pos, Lisp_Object str,
 /* Insert the null-terminated string S (in external format). */
 
 Charcount
-buffer_insert_c_string_1 (struct buffer *buf, Bufpos pos, CONST char *s,
+buffer_insert_c_string_1 (struct buffer *buf, Bufpos pos, const char *s,
 			  int flags)
 {
   /* This function can GC */
-  CONST char *translated = GETTEXT (s);
-  return buffer_insert_string_1 (buf, pos, (CONST Bufbyte *) translated, Qnil,
+  const char *translated = GETTEXT (s);
+  return buffer_insert_string_1 (buf, pos, (const Bufbyte *) translated, Qnil,
 				 0, strlen (translated), flags);
 }
 
@@ -3073,14 +3073,14 @@ barf_if_buffer_read_only (struct buffer *buf, Bufpos from, Bufpos to)
 }
 
 void
-find_charsets_in_bufbyte_string (unsigned char *charsets, CONST Bufbyte *str,
+find_charsets_in_bufbyte_string (unsigned char *charsets, const Bufbyte *str,
 				 Bytecount len)
 {
 #ifndef MULE
   /* Telescope this. */
   charsets[0] = 1;
 #else
-  CONST Bufbyte *strend = str + len;
+  const Bufbyte *strend = str + len;
   memset (charsets, 0, NUM_LEADING_BYTES);
 
   while (str < strend)
@@ -3092,7 +3092,7 @@ find_charsets_in_bufbyte_string (unsigned char *charsets, CONST Bufbyte *str,
 }
 
 void
-find_charsets_in_emchar_string (unsigned char *charsets, CONST Emchar *str,
+find_charsets_in_emchar_string (unsigned char *charsets, const Emchar *str,
 				Charcount len)
 {
 #ifndef MULE
@@ -3110,10 +3110,10 @@ find_charsets_in_emchar_string (unsigned char *charsets, CONST Emchar *str,
 }
 
 int
-bufbyte_string_displayed_columns (CONST Bufbyte *str, Bytecount len)
+bufbyte_string_displayed_columns (const Bufbyte *str, Bytecount len)
 {
   int cols = 0;
-  CONST Bufbyte *end = str + len;
+  const Bufbyte *end = str + len;
 
   while (str < end)
     {
@@ -3130,7 +3130,7 @@ bufbyte_string_displayed_columns (CONST Bufbyte *str, Bytecount len)
 }
 
 int
-emchar_string_displayed_columns (CONST Emchar *str, Charcount len)
+emchar_string_displayed_columns (const Emchar *str, Charcount len)
 {
 #ifdef MULE
   int cols = 0;
@@ -3148,10 +3148,10 @@ emchar_string_displayed_columns (CONST Emchar *str, Charcount len)
 /* NOTE: Does not reset the Dynarr. */
 
 void
-convert_bufbyte_string_into_emchar_dynarr (CONST Bufbyte *str, Bytecount len,
+convert_bufbyte_string_into_emchar_dynarr (const Bufbyte *str, Bytecount len,
 					   Emchar_dynarr *dyn)
 {
-  CONST Bufbyte *strend = str + len;
+  const Bufbyte *strend = str + len;
 
   while (str < strend)
     {
@@ -3162,10 +3162,10 @@ convert_bufbyte_string_into_emchar_dynarr (CONST Bufbyte *str, Bytecount len,
 }
 
 Charcount
-convert_bufbyte_string_into_emchar_string (CONST Bufbyte *str, Bytecount len,
+convert_bufbyte_string_into_emchar_string (const Bufbyte *str, Bytecount len,
 					   Emchar *arr)
 {
-  CONST Bufbyte *strend = str + len;
+  const Bufbyte *strend = str + len;
   Charcount newlen = 0;
   while (str < strend)
     {

@@ -1528,6 +1528,12 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
      glyph sizes might have changed too */
   invalidate_glyph_geometry_maybe (gb->glyph, w);
 
+  /* This makes sure the glyph is in the cachels.  
+
+     #### We need to change this so that we hold onto the glyph_index
+     here, not the glyph itself. */
+  get_glyph_cachel_index (w, gb->glyph);
+
   /* A nil extent indicates a special glyph (ex. truncator). */
   if (NILP (gb->extent)
       || (pos_type == BEGIN_GLYPHS &&
@@ -3689,12 +3695,12 @@ generate_modeline (struct window *w, struct display_line *dl, int type)
 }
 
 static Charcount
-add_string_to_fstring_db_runes (pos_data *data, CONST Bufbyte *str,
+add_string_to_fstring_db_runes (pos_data *data, const Bufbyte *str,
                                 Charcount pos, Charcount min_pos, Charcount max_pos)
 {
   /* This function has been Mule-ized. */
   Charcount end;
-  CONST Bufbyte *cur_pos = str;
+  const Bufbyte *cur_pos = str;
   struct display_block *db = data->db;
 
   data->blank_width = space_width (XWINDOW (data->window));
@@ -3702,13 +3708,13 @@ add_string_to_fstring_db_runes (pos_data *data, CONST Bufbyte *str,
     add_blank_rune (data, NULL, 0);
 
   end = (Dynarr_length (db->runes) +
-         bytecount_to_charcount (str, strlen ((CONST char *) str)));
+         bytecount_to_charcount (str, strlen ((const char *) str)));
   if (max_pos != -1)
     end = min (max_pos, end);
 
   while (pos < end && *cur_pos)
     {
-      CONST Bufbyte *old_cur_pos = cur_pos;
+      const Bufbyte *old_cur_pos = cur_pos;
       int succeeded;
 
       data->ch = charptr_emchar (cur_pos);
@@ -3820,7 +3826,7 @@ tail_recurse:
 		{
 		  Charcount tmp_max = (max_pos == -1 ? pos + size - *offset :
 				       min (pos + size - *offset, max_pos));
-		  CONST Bufbyte *tmp_last = charptr_n_addr (last, *offset);
+		  const Bufbyte *tmp_last = charptr_n_addr (last, *offset);
 
 		  pos = add_string_to_fstring_db_runes (data, tmp_last,
 							pos, pos, tmp_max);
@@ -3877,7 +3883,7 @@ tail_recurse:
 
                   while (num_to_add--)
                     pos = add_string_to_fstring_db_runes
-                      (data, (CONST Bufbyte *) "-", pos, pos, max_pos);
+                      (data, (const Bufbyte *) "-", pos, pos, max_pos);
                 }
               else if (*this != 0)
                 {
@@ -3896,7 +3902,7 @@ tail_recurse:
 		    *offset -= size;
 		  else
 		    {
-		      CONST Bufbyte *tmp_str = charptr_n_addr (str, *offset);
+		      const Bufbyte *tmp_str = charptr_n_addr (str, *offset);
 
 		      /* #### NOTE: I don't understand why a tmp_max is not
 			 computed and used here as in the plain string case
@@ -3942,7 +3948,7 @@ tail_recurse:
 		*offset -= size;
 	      else
 		{
-		  CONST Bufbyte *tmp_str = charptr_n_addr (str, *offset);
+		  const Bufbyte *tmp_str = charptr_n_addr (str, *offset);
 
 		  /* #### NOTE: I don't understand why a tmp_max is not
 		     computed and used here as in the plain string case
@@ -4136,8 +4142,8 @@ tail_recurse:
 	  *offset -= size;
 	else
 	  {
-	    CONST Bufbyte *tmp_str =
-	      charptr_n_addr ((CONST Bufbyte *) str, *offset);
+	    const Bufbyte *tmp_str =
+	      charptr_n_addr ((const Bufbyte *) str, *offset);
 
 	    /* #### NOTE: I don't understand why a tmp_max is not computed and
 	       used here as in the plain string case above. -- dv */
@@ -4150,7 +4156,7 @@ tail_recurse:
 
   if (min_pos > pos)
     {
-      add_string_to_fstring_db_runes (data, (CONST Bufbyte *) "", pos,
+      add_string_to_fstring_db_runes (data, (const Bufbyte *) "", pos,
 				      min_pos, -1);
     }
 
@@ -4766,7 +4772,7 @@ done:
 
 	  if (truncate_win && data.bi_bufpos == bi_string_zv)
 	    {
-	      CONST Bufbyte* endb = charptr_n_addr (string_data (s), bi_string_zv);
+	      const Bufbyte* endb = charptr_n_addr (string_data (s), bi_string_zv);
 	      DEC_CHARPTR (endb);
 	      if (charptr_emchar (endb) != '\n')
 		{
@@ -6675,7 +6681,7 @@ static void
 decode_mode_spec (struct window *w, Emchar spec, int type)
 {
   Lisp_Object obj = Qnil;
-  CONST char *str = NULL;
+  const char *str = NULL;
   struct buffer *b = XBUFFER (w->buffer);
 
   Dynarr_reset (mode_spec_bufbyte_string);
@@ -6704,7 +6710,7 @@ decode_mode_spec (struct window *w, Emchar spec, int type)
 	long_to_string (buf, col);
 
 	Dynarr_add_many (mode_spec_bufbyte_string,
-			 (CONST Bufbyte *) buf, strlen (buf));
+			 (const Bufbyte *) buf, strlen (buf));
 
 	goto decode_mode_spec_done;
       }

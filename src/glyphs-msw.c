@@ -752,7 +752,7 @@ extract_xpm_color_names (Lisp_Object device,
   return colortbl;
 }
 
-static int xpm_to_eimage (Lisp_Object image, CONST Extbyte *buffer,
+static int xpm_to_eimage (Lisp_Object image, const Extbyte *buffer,
 			  unsigned char** data,
 			  int* width, int* height,
 			  int* x_hot, int* y_hot,
@@ -908,7 +908,7 @@ mswindows_xpm_instantiate (Lisp_Object image_instance,
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
-  CONST Extbyte		*bytes;
+  const Extbyte		*bytes;
   Extcount 		len;
   unsigned char		*eimage;
   int			width, height, x_hot, y_hot;
@@ -1000,7 +1000,7 @@ bmp_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
-  CONST Extbyte		*bytes;
+  const Extbyte		*bytes;
   Extcount 		len;
   BITMAPFILEHEADER*	bmp_file_header;
   BITMAPINFO*		bmp_info;
@@ -1109,7 +1109,7 @@ typedef struct
 #endif
 #endif
 
-static CONST resource_t bitmap_table[] =
+static const resource_t bitmap_table[] =
 {
   /* bitmaps */
   { "close", OBM_CLOSE },
@@ -1141,7 +1141,7 @@ static CONST resource_t bitmap_table[] =
   {0}
 };
 
-static CONST resource_t cursor_table[] =
+static const resource_t cursor_table[] =
 {
   /* cursors */
   { "normal", OCR_NORMAL },
@@ -1160,7 +1160,7 @@ static CONST resource_t cursor_table[] =
   { 0 }
 };
 
-static CONST resource_t icon_table[] =
+static const resource_t icon_table[] =
 {
   /* icons */
   { "sample", OIC_SAMPLE },
@@ -1174,7 +1174,7 @@ static CONST resource_t icon_table[] =
 
 static int resource_name_to_resource (Lisp_Object name, int type)
 {
-  CONST resource_t* res = (type == IMAGE_CURSOR ? cursor_table
+  const resource_t* res = (type == IMAGE_CURSOR ? cursor_table
 			   : type == IMAGE_ICON ? icon_table
 			   : bitmap_table);
 
@@ -1600,7 +1600,7 @@ int read_bitmap_data (fstream, width, height, datap, x_hot, y_hot)
 }
 
 
-int read_bitmap_data_from_file (CONST char *filename, unsigned int *width,
+int read_bitmap_data_from_file (const char *filename, unsigned int *width,
 				unsigned int *height, unsigned char **datap,
 				int *x_hot, int *y_hot)
 {
@@ -1724,7 +1724,7 @@ static void
 init_image_instance_from_xbm_inline (Lisp_Image_Instance *ii,
 				     int width, int height,
 				     /* Note that data is in ext-format! */
-				     CONST char *bits,
+				     const char *bits,
 				     Lisp_Object instantiator,
 				     Lisp_Object pointer_fg,
 				     Lisp_Object pointer_bg,
@@ -1853,7 +1853,7 @@ xbm_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
 		   Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		   int dest_mask, int width, int height,
 		   /* Note that data is in ext-format! */
-		   CONST char *bits)
+		   const char *bits)
 {
   Lisp_Object mask_data = find_keyword_in_vector (instantiator, Q_mask_data);
   Lisp_Object mask_file = find_keyword_in_vector (instantiator, Q_mask_file);
@@ -1865,7 +1865,7 @@ xbm_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
 
   if (!NILP (mask_data))
     {
-      CONST char *ext_data;
+      const char *ext_data;
 
       TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (XCDR (XCDR (mask_data))),
 			  C_STRING_ALLOCA, ext_data,
@@ -1893,7 +1893,7 @@ mswindows_xbm_instantiate (Lisp_Object image_instance,
 			   int dest_mask, Lisp_Object domain)
 {
   Lisp_Object data = find_keyword_in_vector (instantiator, Q_data);
-  CONST char *ext_data;
+  const char *ext_data;
 
   assert (!NILP (data));
 
@@ -1938,8 +1938,8 @@ mswindows_xface_instantiate (Lisp_Object image_instance, Lisp_Object instantiato
   Lisp_Object data = find_keyword_in_vector (instantiator, Q_data);
   int i, stattis;
   char *p, *bits, *bp;
-  CONST char * volatile emsg = 0;
-  CONST char * volatile dstring;
+  const char * volatile emsg = 0;
+  const char * volatile dstring;
 
   assert (!NILP (data));
 
@@ -2159,31 +2159,46 @@ mswindows_resize_subwindow (Lisp_Image_Instance* ii, int w, int h)
 		| SWP_NOCOPYBITS | SWP_NOSENDCHANGING);
 }
 
-/* when you click on a widget you may activate another widget this
-   needs to be checked and all appropriate widgets updated */
+/* Simply resize the window here. */
 static void
 mswindows_update_subwindow (Lisp_Image_Instance *p)
 {
-  /* Now do widget specific updates. */
-  if (IMAGE_INSTANCE_TYPE (p) == IMAGE_WIDGET)
-    {
-      /* buttons checked or otherwise */
-      if ( EQ (IMAGE_INSTANCE_WIDGET_TYPE (p), Qbutton))
-	{
-	  if (gui_item_selected_p (IMAGE_INSTANCE_WIDGET_ITEM (p)))
-	    SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
-			 BM_SETCHECK, (WPARAM)BST_CHECKED, 0);
-	  else
-	    SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
-			 BM_SETCHECK, (WPARAM)BST_UNCHECKED, 0);
-	}
+  mswindows_resize_subwindow (p,
+			      IMAGE_INSTANCE_WIDTH (p),
+			      IMAGE_INSTANCE_HEIGHT (p));
+}
 
+/* when you click on a widget you may activate another widget this
+   needs to be checked and all appropriate widgets updated */
+static void
+mswindows_update_widget (Lisp_Image_Instance *p)
+{
+  /* Possibly update the face font and colors. */
+  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p))
+    {
       /* set the widget font from the widget face */
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
 		   WM_SETFONT,
 		   (WPARAM) mswindows_widget_hfont
- 		   	(p, IMAGE_INSTANCE_SUBWINDOW_FRAME (p)),
+		   (p, IMAGE_INSTANCE_SUBWINDOW_FRAME (p)),
 		   MAKELPARAM (TRUE, 0));
+    }
+  /* Possibly update the dimensions. */
+  if (IMAGE_INSTANCE_SIZE_CHANGED (p))
+    {
+      mswindows_resize_subwindow (p, 
+				  IMAGE_INSTANCE_WIDTH (p),
+				  IMAGE_INSTANCE_HEIGHT (p));
+    }
+  /* Possibly update the text in the widget. */
+  if (IMAGE_INSTANCE_TEXT_CHANGED (p))
+    {
+      Extbyte* lparam=0;
+      TO_EXTERNAL_FORMAT (LISP_STRING, IMAGE_INSTANCE_WIDGET_TEXT (p),
+			  C_STRING_ALLOCA, lparam,
+			  Qnative);
+      SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
+		   WM_SETTEXT, 0, (LPARAM)lparam);
     }
 }
 
@@ -2337,7 +2352,7 @@ static void
 mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			      Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 			      int dest_mask, Lisp_Object domain,
-			      CONST char* class, int flags, int exflags)
+			      const char* class, int flags, int exflags)
 {
   /* this function can call lisp */
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
@@ -2488,6 +2503,20 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 		    (LPARAM) XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) :
 		    (LPARAM) XIMAGE_INSTANCE_MSWINDOWS_ICON (glyph)));
     }
+}
+
+/* Update the state of a button. */
+static void
+mswindows_button_update (Lisp_Object image_instance)
+{
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  /* buttons checked or otherwise */
+  if (gui_item_selected_p (IMAGE_INSTANCE_WIDGET_ITEM (ii)))
+    SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
+		 BM_SETCHECK, (WPARAM)BST_CHECKED, 0);
+  else
+    SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
+		 BM_SETCHECK, (WPARAM)BST_UNCHECKED, 0);
 }
 
 /* instantiate an edit control */
@@ -2689,25 +2718,19 @@ mswindows_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object insta
 }
 
 /* set the properties of a tab control */
-static Lisp_Object
-mswindows_tab_control_set_property (Lisp_Object image_instance, Lisp_Object prop,
-				    Lisp_Object val)
+static void
+mswindows_tab_control_update (Lisp_Object image_instance)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
-  if (EQ (prop, Q_items))
+  if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii));
     {
       HWND wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
       int i = 0;
       Lisp_Object rest;
-      check_valid_item_list_1 (val);
 
       /* delete the pre-existing items */
       SendMessage (wnd, TCM_DELETEALLITEMS, 0, 0);
-
-      IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
-	Fcons (XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)),
-	       parse_gui_item_tree_children (val));
 
       /* add items to the tab */
       LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)))
@@ -2716,10 +2739,7 @@ mswindows_tab_control_set_property (Lisp_Object image_instance, Lisp_Object prop
 			IMAGE_INSTANCE_SUBWINDOW_FRAME (ii), i);
 	  i++;
 	}
-
-      return Qt;
     }
-  return Qunbound;
 }
 
 /* instantiate a static control possible for putting other things in */
@@ -2853,43 +2873,21 @@ mswindows_combo_box_property (Lisp_Object image_instance, Lisp_Object prop)
   return Qunbound;
 }
 
-/* set the properties of a control */
-static Lisp_Object
-mswindows_widget_set_property (Lisp_Object image_instance, Lisp_Object prop,
-			       Lisp_Object val)
-{
-  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-
-  if (EQ (prop, Q_text))
-    {
-      Extbyte* lparam=0;
-      CHECK_STRING (val);
-      TO_EXTERNAL_FORMAT (LISP_STRING, val,
-			  C_STRING_ALLOCA, lparam,
-			  Qnative);
-      SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
-		   WM_SETTEXT, 0, (LPARAM)lparam);
-      /* We don't return Qt here so that other widget methods can be
-         called afterwards. */
-    }
-  return Qunbound;
-}
-
 /* set the properties of a progres guage */
-static Lisp_Object
-mswindows_progress_gauge_set_property (Lisp_Object image_instance, Lisp_Object prop,
-				 Lisp_Object val)
+static void
+mswindows_progress_gauge_update (Lisp_Object image_instance)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-
-  if (EQ (prop, Q_percent))
+  
+  if (IMAGE_INSTANCE_WIDGET_PERCENT_CHANGED (ii))
     {
+      /* #### I'm not convinced we should store this in the plist. */
+      Lisp_Object val = Fplist_get (IMAGE_INSTANCE_WIDGET_PROPS (ii),
+				    Q_percent, Qnil);
       CHECK_INT (val);
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
 		   PBM_SETPOS, (WPARAM)XINT (val), 0);
-      return Qt;
     }
-  return Qunbound;
 }
 
 LRESULT WINAPI
@@ -2936,6 +2934,7 @@ console_type_create_glyphs_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, unmap_subwindow);
   CONSOLE_HAS_METHOD (mswindows, map_subwindow);
   CONSOLE_HAS_METHOD (mswindows, update_subwindow);
+  CONSOLE_HAS_METHOD (mswindows, update_widget);
   CONSOLE_HAS_METHOD (mswindows, image_instance_equal);
   CONSOLE_HAS_METHOD (mswindows, image_instance_hash);
   CONSOLE_HAS_METHOD (mswindows, init_image_instance_from_eimage);
@@ -2979,6 +2978,7 @@ image_instantiator_format_create_glyphs_mswindows (void)
   INITIALIZE_DEVICE_IIFORMAT (mswindows, button);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, property);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, instantiate);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, button, update);
 
   INITIALIZE_DEVICE_IIFORMAT (mswindows, edit_field);
   IIFORMAT_HAS_DEVMETHOD (mswindows, edit_field, instantiate);
@@ -2988,7 +2988,6 @@ image_instantiator_format_create_glyphs_mswindows (void)
 
   INITIALIZE_DEVICE_IIFORMAT (mswindows, widget);
   IIFORMAT_HAS_DEVMETHOD (mswindows, widget, property);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, widget, set_property);
 
   /* label */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, label);
@@ -3005,7 +3004,7 @@ image_instantiator_format_create_glyphs_mswindows (void)
 
   /* progress gauge */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, progress_gauge);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, progress_gauge, set_property);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, progress_gauge, update);
   IIFORMAT_HAS_DEVMETHOD (mswindows, progress_gauge, instantiate);
 
   /* tree view widget */
@@ -3016,7 +3015,7 @@ image_instantiator_format_create_glyphs_mswindows (void)
   /* tab control widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, tab_control);
   IIFORMAT_HAS_DEVMETHOD (mswindows, tab_control, instantiate);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, tab_control, set_property);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, tab_control, update);
 #endif
   /* windows bitmap format */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (bmp, "bmp");

@@ -118,6 +118,9 @@ int windows_fd;
 static Lisp_Object mswindows_u_dispatch_event_queue, mswindows_u_dispatch_event_queue_tail;
 static Lisp_Object mswindows_s_dispatch_event_queue, mswindows_s_dispatch_event_queue_tail;
 
+/* For speed: whether there is a WM_PAINT magic message in the system queue */
+static int mswindows_paint_pending = 0;
+
 /* The number of things we can wait on */
 #define MAX_WAITABLE (MAXIMUM_WAIT_OBJECTS - 1)
 
@@ -128,6 +131,7 @@ static HANDLE mswindows_waitable_handles[MAX_WAITABLE];
 /* Number of wait handles */
 static int mswindows_waitable_count=0;
 #endif /* HAVE_MSG_SELECT */
+
 /* Brush for painting widgets */
 static HBRUSH widget_brush = 0;
 static LONG	last_widget_brushed = 0;
@@ -712,7 +716,7 @@ winsock_reader (Lstream *stream, unsigned char *data, size_t size)
 }
 
 static ssize_t
-winsock_writer (Lstream *stream, CONST unsigned char *data, size_t size)
+winsock_writer (Lstream *stream, const unsigned char *data, size_t size)
 {
   struct winsock_stream *str = WINSOCK_STREAM_DATA (stream);
 
@@ -785,7 +789,7 @@ winsock_was_blocked_p (Lstream *stream)
 }
 
 static Lisp_Object
-make_winsock_stream_1 (SOCKET s, LPARAM param, CONST char *mode)
+make_winsock_stream_1 (SOCKET s, LPARAM param, const char *mode)
 {
   Lisp_Object obj;
   Lstream *lstr = Lstream_new (lstream_winsock, mode);
@@ -1230,18 +1234,14 @@ mswindows_pump_outstanding_events (void)
  * QUITP, and are interesting in keyboard messages only.
  */
 static void
-mswindows_drain_windows_queue (int keyboard_only_till_quit_char_p)
+mswindows_drain_windows_queue ()
 {
   MSG msg;
 
-  /* Minimize the hassle of misordered events by not fetching
-     past quit char if called from QUITP; */
-  while (!(keyboard_only_till_quit_char_p &&
-	   mswindows_quit_chars_count > 0) &&
-	 PeekMessage (&msg, NULL,
-		      keyboard_only_till_quit_char_p ? WM_KEYFIRST : 0,
-		      keyboard_only_till_quit_char_p ? WM_KEYLAST : 0,
-		      PM_REMOVE))
+  /* should call mswindows_need_event_in_modal_loop() if in modal loop */
+  assert (!mswindows_in_modal_loop);
+
+  while (PeekMessage (&msg, NULL, 0, 0, PM_REMOVE))
     {
       /* We have to translate messages that are not sent to the main
          window. This is so that key presses work ok in things like
@@ -1250,6 +1250,23 @@ mswindows_drain_windows_queue (int keyboard_only_till_quit_char_p)
       if (GetWindowLong (msg.hwnd, GWL_STYLE) & WS_CHILD)
 	{
 	  TranslateMessage (&msg);
+	}
+      else if (msg.message == WM_PAINT)
+	{
+	  /* hdc will be NULL unless this is a subwindow - in which case we
+	     shouldn't have received a paint message for it here. */
+	  assert (msg.wParam == 0);
+
+	  if (!mswindows_paint_pending)
+	    {
+	      /* Queue a magic event for handling when safe */
+	      mswindows_enqueue_magic_event (msg.hwnd, WM_PAINT);
+	      mswindows_paint_pending = 1;
+	    }
+
+	  /* Don't dispatch. WM_PAINT is always the last message in the
+	     queue so it's OK to just return. */
+	  return;
 	}
       DispatchMessage (&msg);
       mswindows_unmodalize_signal_maybe ();
@@ -1314,14 +1331,6 @@ mswindows_need_event (int badly_p)
       return;
     }
 
-#if 0
-  /* Have to drain Windows message queue first, otherwise, we may miss
-     quit char when called from quit_p */
-  /* #### This is, ehm, not quite true -- this function is not
-     called from quit_p. --kkm */
-  mswindows_drain_windows_queue ();
-#endif
-
   while (NILP (mswindows_u_dispatch_event_queue)
 	 && NILP (mswindows_s_dispatch_event_queue))
     {
@@ -1351,7 +1360,7 @@ mswindows_need_event (int badly_p)
 	{
 	  if (FD_ISSET (windows_fd, &temp_mask))
 	    {
-	      mswindows_drain_windows_queue (0);
+	      mswindows_drain_windows_queue ();
 	    }
 #ifdef HAVE_TTY
 	  /* Look for a TTY event */
@@ -1432,7 +1441,7 @@ mswindows_need_event (int badly_p)
     else if (active == WAIT_OBJECT_0 + mswindows_waitable_count)
       {
 	/* Got your message, thanks */
-	mswindows_drain_windows_queue (0);
+	mswindows_drain_windows_queue ();
       }
     else
       {
@@ -1607,6 +1616,41 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
     }
 }
 #endif
+
+/*
+ * Helper to do repainting - repaints can happen both from the windows
+ * procedure and from magic events
+ */
+void
+mswindows_handle_paint (struct frame *frame)
+  {
+    HWND hwnd = FRAME_MSWINDOWS_HANDLE (frame);
+
+    /* According to the docs we need to check GetUpdateRect() before
+       actually doing a WM_PAINT */
+    if (GetUpdateRect (hwnd, NULL, FALSE))
+      {
+	PAINTSTRUCT paintStruct;
+	int x, y, width, height;
+
+	BeginPaint (hwnd, &paintStruct);
+	x = paintStruct.rcPaint.left;
+	y = paintStruct.rcPaint.top;
+	width = paintStruct.rcPaint.right - paintStruct.rcPaint.left;
+	height = paintStruct.rcPaint.bottom - paintStruct.rcPaint.top;
+	/* Normally we want to ignore expose events when child
+	   windows are unmapped, however once we are in the guts of
+	   WM_PAINT we need to make sure that we don't register
+	   unmaps then because they will not actually occur. */
+	if (!check_for_ignored_expose (frame, x, y, width, height))
+	  {
+	    hold_ignored_expose_registration = 1;
+	    mswindows_redraw_exposed_area (frame, x, y, width, height);
+	    hold_ignored_expose_registration = 0;
+	  }
+	EndPaint (hwnd, &paintStruct);
+      }
+  }
 
 /*
  * Returns 1 if a key is a real modifier or special key, which 
@@ -2021,37 +2065,14 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
     break;
 
   case WM_PAINT:
-    {
-      /* According to the docs we need to check GetUpdateRect() before
-         actually doing a WM_PAINT */
-      if (GetUpdateRect (hwnd, NULL, FALSE))
-	{
-	  PAINTSTRUCT paintStruct;
-	  int x, y, width, height;
+    /* hdc will be NULL unless this is a subwindow - in which case we
+       shouldn't have received a paint message for it here. */
+    assert (wParam == 0);
 
-	  frame = XFRAME (mswindows_find_frame (hwnd));
-
-	  BeginPaint (hwnd, &paintStruct);
-	  x = paintStruct.rcPaint.left;
-	  y = paintStruct.rcPaint.top;
-	  width = paintStruct.rcPaint.right - paintStruct.rcPaint.left;
-	  height = paintStruct.rcPaint.bottom - paintStruct.rcPaint.top;
-	  /* Normally we want to ignore expose events when child
-	     windows are unmapped, however once we are in the guts of
-	     WM_PAINT we need to make sure that we don't register
-	     unmaps then because they will not actually occur. */
-	  if (!check_for_ignored_expose (frame, x, y, width, height))
-	    {
-	      hold_ignored_expose_registration = 1;
-	      mswindows_redraw_exposed_area (frame, x, y, width, height);
-	      hold_ignored_expose_registration = 0;
-	    }
-
-	  EndPaint (hwnd, &paintStruct);
-	}
-      else
-	goto defproc;
-    }
+    /* Can't queue a magic event because windows goes modal and sends paint 
+       messages directly to the windows procedure when doing solid drags
+       and the message queue doesn't get processed. */
+    mswindows_handle_paint (XFRAME (mswindows_find_frame (hwnd)));
     break;
 
   case WM_SIZE:
@@ -2702,6 +2723,11 @@ emacs_mswindows_handle_magic_event (Lisp_Event *emacs_event)
     case XM_BUMPQUEUE:
       break;
 
+    case WM_PAINT:
+      mswindows_handle_paint (XFRAME (EVENT_CHANNEL (emacs_event)));
+      mswindows_paint_pending = 0;
+      break;
+
     case WM_SETFOCUS:
     case WM_KILLFOCUS:
       {
@@ -2831,7 +2857,7 @@ emacs_mswindows_quit_p (void)
 
   /* Drain windows queue. This sets up number of quit characters in
      the queue */
-  mswindows_drain_windows_queue (1);
+  mswindows_drain_windows_queue ();
 
   if (mswindows_quit_chars_count > 0)
     {

@@ -27,18 +27,17 @@ Cambridge, MA 02139, USA.  */
    the string!  This will core dump if the memory following the last byte is 
    not mapped.
 
-   Here is a correct version from glibc 1.09.
+   Here is a correct version from, glibc 1.09.
 */
 
 char *strcat (char *dest, const char *src);
 
 /* Append SRC on the end of DEST.  */
-/* CONST IS LOSING, but const is part of the interface of strcat */
 char *
 strcat (char *dest, const char *src)
 {
   REGISTER char *s1 = dest;
-  REGISTER CONST char *s2 = src;
+  REGISTER const char *s2 = src;
   char c;
 
   /* Find the end of the string.  */

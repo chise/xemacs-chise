@@ -131,7 +131,7 @@ check_free (void *ptr)
 #endif
 
       EMACS_INT present = (EMACS_INT) gethash (ptr, pointer_table,
-					       (CONST void **) &size);
+					       (const void **) &size);
 
       if (!present)
 	{
@@ -257,7 +257,7 @@ check_realloc (void * ptr, size_t size)
   void *result = malloc (size);
 
   if (!ptr) return result;
-  present = (EMACS_INT) gethash (ptr, pointer_table, (CONST void **) &old_size);
+  present = (EMACS_INT) gethash (ptr, pointer_table, (const void **) &old_size);
   if (!present)
     {
     /* This can only happen by reallocing a pointer that didn't

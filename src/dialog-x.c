@@ -102,7 +102,7 @@ dbox_selection_callback (Widget widget, LWLIB_ID id, XtPointer client_data)
     lw_set_keyboard_focus (FRAME_X_SHELL_WIDGET (f), FRAME_X_TEXT_WIDGET (f));
 }
 
-static CONST char * CONST button_names [] = {
+static const char * const button_names [] = {
   "button1", "button2", "button3", "button4", "button5",
   "button6", "button7", "button8", "button9", "button10" };
 

@@ -224,7 +224,7 @@ BUFFER defaults to the current buffer if omitted.
    into the code it signifies.
    This is used by modify-syntax-entry, and other things. */
 
-CONST unsigned char syntax_spec_code[0400] =
+const unsigned char syntax_spec_code[0400] =
 { 0377, 0377, 0377, 0377, 0377, 0377, 0377, 0377,
   0377, 0377, 0377, 0377, 0377, 0377, 0377, 0377,
   0377, 0377, 0377, 0377, 0377, 0377, 0377, 0377,
@@ -246,7 +246,7 @@ CONST unsigned char syntax_spec_code[0400] =
   0377, 0377, 0377, 0377, 0377, 0377, 0377, 0377
 };
 
-CONST unsigned char syntax_code_spec[] =  " .w_()'\"$\\/<>@";
+const unsigned char syntax_code_spec[] =  " .w_()'\"$\\/<>@";
 
 DEFUN ("syntax-designator-chars", Fsyntax_designator_chars, 0, 0, 0, /*
 Return a string of the recognized syntax designator chars.
@@ -365,13 +365,12 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 	  ch0 = BUF_FETCH_CHAR (buf, from);
 	  code = SYNTAX_UNSAFE (mirrortab, ch0);
 
+	  from++;
 	  if (words_include_escapes
 	      && (code == Sescape || code == Scharquote))
 	    break;
 	  if (code == Sword)
 	    break;
-
-	  from++;
 	}
 
       QUIT;
@@ -407,13 +406,13 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 
 	  ch1 = BUF_FETCH_CHAR (buf, from - 1);
 	  code = SYNTAX_UNSAFE (mirrortab, ch1);
+
+	  from--;
 	  if (words_include_escapes
 	      && (code == Sescape || code == Scharquote))
 	    break;
 	  if (code == Sword)
 	    break;
-
-	  from--;
 	}
 
       QUIT;
@@ -1692,7 +1691,7 @@ Non-nil means `forward-word', etc., should treat escape chars part of words.
 }
 
 static void
-define_standard_syntax (CONST char *p, enum syntaxcode syn)
+define_standard_syntax (const char *p, enum syntaxcode syn)
 {
   for (; *p; p++)
     Fput_char_table (make_char (*p), make_int (syn), Vstandard_syntax_table);
@@ -1702,7 +1701,7 @@ void
 complex_vars_of_syntax (void)
 {
   Emchar i;
-  CONST char *p;
+  const char *p;
   /* Set this now, so first buffer creation can refer to it. */
   /* Make it nil before calling copy-syntax-table
      so that copy-syntax-table will know not to try to copy from garbage */

@@ -227,7 +227,7 @@ signal_handler_t sys_do_signal (int signal_number, signal_handler_t action);
    configure incorrectly fails to find it, so s/linux.h defines
    HAVE_SYS_SIGLIST. */
 #if !defined (SYS_SIGLIST_DECLARED) && !defined (HAVE_SYS_SIGLIST)
-extern CONST char *sys_siglist[];
+extern const char *sys_siglist[];
 #endif
 
 #ifdef SIGDANGER

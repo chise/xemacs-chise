@@ -733,7 +733,7 @@ window_truncation_on (struct window *w)
 }
 
 DEFUN ("window-truncated-p", Fwindow_truncated_p, 0, 1, 0, /*
-Returns Non-Nil iff the window is truncated.
+Returns non-nil if text in the window is truncated.
 */
        (window))
 {
@@ -1621,6 +1621,28 @@ slower with this flag set.
       Bufpos startp = marker_position (w->start[CURRENT_DISP]);
       return make_int (end_of_last_line (w, startp));
     }
+}
+
+DEFUN ("window-last-line-visible-height", Fwindow_last_line_visible_height, 0, 1, 0, /*
+Return pixel height of visible part of last window line if it is clipped.
+If the last line is not clipped, return nil.
+*/
+       (window))
+{
+  struct window *w = decode_window (window);
+  display_line_dynarr *dla = window_display_lines (w, CURRENT_DISP);
+  int num_lines = Dynarr_length (dla);
+  struct display_line *dl;
+
+  /* No lines - no clipped lines */
+  if (num_lines == 0 || (num_lines == 1 && Dynarr_atp (dla, 0)->modeline))
+    return Qnil;
+
+  dl = Dynarr_atp (dla, num_lines - 1);
+  if (dl->clip == 0)
+    return Qnil;
+
+  return make_int (dl->ascent + dl->descent - dl->clip);
 }
 
 DEFUN ("set-window-point", Fset_window_point, 2, 2, 0, /*
@@ -4826,9 +4848,9 @@ sizeof_window_config_for_n_windows (int n)
 }
 
 static size_t
-sizeof_window_config (CONST void *h)
+sizeof_window_config (const void *h)
 {
-  CONST struct window_config *c = (CONST struct window_config *) h;
+  const struct window_config *c = (const struct window_config *) h;
   return sizeof_window_config_for_n_windows (c->saved_windows_count);
 }
 
@@ -5808,6 +5830,7 @@ syms_of_window (void)
   DEFSUBR (Fwindow_point);
   DEFSUBR (Fwindow_start);
   DEFSUBR (Fwindow_end);
+  DEFSUBR (Fwindow_last_line_visible_height);
   DEFSUBR (Fset_window_point);
   DEFSUBR (Fset_window_start);
   DEFSUBR (Fwindow_dedicated_p);

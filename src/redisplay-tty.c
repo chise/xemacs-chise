@@ -56,11 +56,11 @@ Boston, MA 02111-1307, USA.  */
 #ifdef __cplusplus
 extern "C" {
 #endif
-extern int tgetent (CONST char *, CONST char *);
-extern int tgetflag (CONST char *);
-extern int tgetnum (CONST char *);
-extern char *tgetstr (CONST char *, char **);
-extern void tputs (CONST char *, int, void (*)(int));
+extern int tgetent (const char *, const char *);
+extern int tgetflag (const char *);
+extern int tgetnum (const char *);
+extern char *tgetstr (const char *, char **);
+extern void tputs (const char *, int, void (*)(int));
 #ifdef __cplusplus
 }
 #endif
@@ -107,7 +107,7 @@ static void term_get_fkeys (Lisp_Object keymap, char **address);
  column, so we use emchar_string_displayed_columns().
  ****************************************************************************/
 static int
-tty_text_width (struct frame *f, struct face_cachel *cachel, CONST Emchar *str,
+tty_text_width (struct frame *f, struct face_cachel *cachel, const Emchar *str,
 		Charcount len)
 {
   return emchar_string_displayed_columns (str, len);
@@ -1305,8 +1305,8 @@ init_tty_for_redisplay (struct device *d, char *terminal_type)
 
 struct fkey_table
 {
-  CONST char *cap;
-  CONST char *name;
+  const char *cap;
+  const char *name;
 };
 
   /* Termcap capability names that correspond directly to X keysyms.
@@ -1448,8 +1448,8 @@ term_get_fkeys_1 (Lisp_Object function_key_map)
      "k;", and if it is present, assuming that "k0" denotes F0, otherwise F10.
   */
   {
-    CONST char *k_semi  = tgetstr ("k;", address);
-    CONST char *k0      = tgetstr ("k0", address);
+    const char *k_semi  = tgetstr ("k;", address);
+    const char *k0      = tgetstr ("k0", address);
 
     if (k_semi)
       Fdefine_key (function_key_map, build_ext_string (k_semi, Qbinary),

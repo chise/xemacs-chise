@@ -31,9 +31,9 @@ Indirect:
 cl.info-1: 1164
 cl.info-2: 46306
 cl.info-3: 89087
-cl.info-4: 138385
-cl.info-5: 176381
-cl.info-6: 218986
+cl.info-4: 137816
+cl.info-5: 175812
+cl.info-6: 218417
 
 Tag Table:
 (Indirect)
@@ -75,32 +75,32 @@ Node: Multiple Values111218
 Node: Macros113111
 Node: Declarations116329
 Node: Symbols124821
-Node: Property Lists125113
-Node: Creating Symbols127862
-Node: Numbers129940
-Node: Predicates on Numbers130420
-Node: Numerical Functions131449
-Node: Random Numbers135676
-Node: Implementation Parameters138385
-Node: Sequences141957
-Node: Sequence Basics142630
-Node: Mapping over Sequences146208
-Node: Sequence Functions152062
-Node: Searching Sequences158237
-Node: Sorting Sequences161274
-Node: Lists163822
-Node: List Functions164247
-Node: Substitution of Expressions168510
-Node: Lists as Sets170396
-Node: Association Lists174458
-Node: Hash Tables176161
-Node: Structures176381
-Node: Assertions191164
-Node: Efficiency Concerns194107
-Node: Common Lisp Compatibility200434
-Node: Old CL Compatibility203590
-Node: Porting Common Lisp207973
-Node: Function Index218986
-Node: Variable Index230192
+Node: Property Lists125102
+Node: Creating Symbols127293
+Node: Numbers129371
+Node: Predicates on Numbers129851
+Node: Numerical Functions130880
+Node: Random Numbers135107
+Node: Implementation Parameters137816
+Node: Sequences141388
+Node: Sequence Basics142061
+Node: Mapping over Sequences145639
+Node: Sequence Functions151493
+Node: Searching Sequences157668
+Node: Sorting Sequences160705
+Node: Lists163253
+Node: List Functions163678
+Node: Substitution of Expressions167941
+Node: Lists as Sets169827
+Node: Association Lists173889
+Node: Hash Tables175592
+Node: Structures175812
+Node: Assertions190595
+Node: Efficiency Concerns193538
+Node: Common Lisp Compatibility199865
+Node: Old CL Compatibility203021
+Node: Porting Common Lisp207404
+Node: Function Index218417
+Node: Variable Index229566
 
 End Tag Table

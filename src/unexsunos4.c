@@ -80,7 +80,7 @@ struct translation_struct
 
 /********************** Function Prototypes/Declarations ***********/
 
-static void unexec_error (CONST char *m, int use_errno, ...);
+static void unexec_error (const char *m, int use_errno, ...);
 static int unexec_open (char *filename, int flag, int mode);
 static caddr_t unexec_mmap (int fd, size_t len, int prot, int flags);
 static long unexec_seek (int fd, long position);
@@ -116,9 +116,9 @@ static unsigned long sbrk_of_0_at_unexec;
 /*******************************************************************/
 
 static void
-unexec_error (CONST char *fmt, int use_errno, ...)
+unexec_error (const char *fmt, int use_errno, ...)
 {
-  CONST char *err_msg = SYS_ERR;
+  const char *err_msg = SYS_ERR;
   va_list args;
 
   fprintf (stderr, "unexec - ");

@@ -1,3 +1,328 @@
+2000-02-16  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.29 is released.
+
+2000-02-15  Olivier Galibert  <galibert@pobox.com>
+
+	* fns.c (size_bit_vector): Fix computation of the size.
+
+2000-02-15  Martin Buchholz  <martin@xemacs.org>
+
+	* *.[ch]: Change CONST to const globally.
+	find -name '*.[ch]' | \
+	xargs global-replace \
+	's/(^|(?<=[^A-Za-z0-9_]))CONST((?=[^A-Za-z0-9_])|$)/const/g'
+	- Remove vestigial references to CONST_IS_LOSING
+
+2000-02-13  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* event-msw.c (mswindows_drain_windows_queue): Remove hack to
+	bailout early on quit. Enqueue WM_PAINT events as XEmacs magic
+	events instead of dispatching them directly.
+	(mswindows_handle_paint): New function to do repainting.
+	(mswindows_wnd_proc):
+	(emacs_mswindows_handle_magic_event): Call above function.
+
+2000-02-13  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* objects-msw.c (mswindows_create_font_variant): Return the new
+	font handle.
+	(initialize_font_instance): Get font metrics from the underlined
+	variant of the font to cope with the case where the underlined
+	font has a bigger descent.
+
+2000-02-08   Daiki Ueno  <ueno@ueda.info.waseda.ac.jp>
+
+	* gui.c (gui_item_accelerator): Return the first underlined
+	character in item name.
+
+2000-02-11  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* lisp.h: Added Qprinter.
+
+	* general.c (syms_of_general): Initialized it.
+
+	* redisplay-msw.c (get_frame_dc): Conditionally start a new page.
+	(get_frame_dc): 
+	(get_frame_compdc): Made inline.
+
+	* console.h (struct console_methods): Added eject_page method.
+
+	* frame.h: Added FRAME_DISPLAY_P and friends.
+	Aligned backslahes in many macros in more readable fashion.
+	Added page_number to struct frame, and an accessor macro
+	for it.
+
+	* defice.h: Added DEVICE_DISPLAY_P and friends.
+
+	* device.c (Fdevice_printer_p): Used these.
+
+	* frame.c (allocate_frame_core): Initialize page number.
+	(Fprint_job_page_number): 
+	(Fprint_job_eject_page): Implemented.
+
+	* frame-msw.c (msprinter_eject_page): Added method.
+	(msprinter_start_page): Added.
+
+	* window.c (Fwindow_truncated_p): Fixed docstring.
+	(Fwindow_last_line_visible_height): Implemented.
+
+2000-02-09  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* frame.c (change_frame_size_1): Undo 2000-02-03 change.
+
+1999-12-20  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* syntax.c (scan_words): Always advance at least one character.
+
+2000-02-13  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.c (add_glyph_rune): call get_glyph_cachel_index here
+	to make sure the glyph is in the cachels.
+
+	* glyphs.h (struct Lisp_Image_Instance): make layout_changed a
+	global image instance flag.
+	(IMAGE_INSTANCE_NEEDS_LAYOUT): new macro.
+	(XIMAGE_INSTANCE_NEEDS_LAYOUT): ditto.
+
+	* glyphs.c (allocate_image_instance): set dirty bits correctly.
+	(Fset_image_instance_property): mark layout as changed.
+	(invalidate_glyph_geometry_maybe): mark layout as changed.
+	(glyph_width): use new NEEDS_LAYOUT macro.
+	(glyph_ascent): ditto.
+	(glyph_descent): ditto.
+	(glyph_height): ditto.
+	(image_instance_layout): mark layout as clean after laying out.
+	(update_subwindow): don't mark layout as clean here.
+
+	* glyphs-x.h (IMAGE_INSTANCE_X_WIDGET_ID): undo C++ changes, they
+	should no longer be needed.
+
+	* glyphs-x.c (x_update_widget): sanitize asserts.
+	(x_finalize_image_instance): sanitize assignment to widgets.
+
+	* glyphs-widget.c (widget_instantiate): don't need to clear the
+	layout flag here.
+
+2000-02-13  Martin Buchholz  <martin@xemacs.org>
+
+	* sysdep.c (getcwd): Use standard prototype.
+	* sysdep.h (getcwd): Use standard prototype.
+
+	* fns.c (Fsubseq): Change parameters to more natural ANSI Lisp
+	(sequence, start, end).
+	Remove redundant type checking.
+	(Fmapconcat): Remove useless GCPRO, a wrong-headed attempt (in
+	view of `caller-protects') to avoid a crash where the real fix was
+	found elsewhere.
+
+2000-02-12  Martin Buchholz  <martin@xemacs.org>
+
+	* glyphs-x.c (x_finalize_image_instance): Compile error fixes.
+
+	* s/sol2.h: Remove feature macro initialization.
+
+	* alloc.c (alloc_lcrecord): Add more type checking assertions.
+	(vector_hash): New.  Code from internal_hash.
+	* lrecord.h: 
+	Fix up allocation subsystem comments.
+
+	* config.h.in: Add __EXTENSIONS__ for Solaris.
+
+	* systime.h (EMACS_GETTIMEOFDAY): New.
+	(EMACS_GET_TIME): Use EMACS_GETTIMEOFDAY.
+	Remove Solaris-specific code.
+	Use void* for the (ignored) second arg for gettimeofday().
+
+	* elhash.c (hash_table_hash): Implement it, finally.
+	* elhash.c:  Use hashcode_t.
+
+	* linuxplay.c (sighandler): Fix prototypes to use SIGTYPE.
+	* sunplay.c (sighandler): Fix prototype to use SIGTYPE.
+
+	* lisp.h (STRETCHY_STRUCT_SIZEOF): Delete.
+	* fns.c (size_bit_vector): 
+	* alloc.c (size_vector): 
+	(make_vector_internal): 
+	(make_bit_vector_internal): 
+	(sweep_bit_vectors_1): 
+	Replace calls to STRETCHY_STRUCT_SIZEOF with offsetof expression.
+
+2000-02-10  Martin Buchholz  <martin@xemacs.org>
+
+	* s/aix4.h: #define MAP_FAILED if sys/mman.h didn't.
+	Include strings.h to avoid warnings for bzero and strcasecmp.
+
+2000-02-10  Olivier Galibert  <galibert@pobox.com>
+
+	* alloc.c: Move STRETCHY_STRUCT_SIZEOF from here...
+	* lisp.h (STRETCHY_STRUCT_SIZEOF): ...to here
+
+	* fns.c (size_bit_vector): New.  Declare bit vectors as a
+	sequence.
+
+2000-02-10  Olivier Galibert  <galibert@pobox.com>
+
+	* symeval.h (struct symbol_value_magic): Remove "next" kludge and
+	use a value field instead.
+	(symbol_value_forward_forward): Use value field.
+	(DEFVAR_SYMVAL_FWD): Use value field.
+	(DEFVAR_SYMVAL_FWD_INT): Added.  Dumps the int with dumpopaque.
+	(DEFVAR_INT): Use DEFVAR_SYMVAL_FWD_INT.
+	(DEFVAR_CONST_INT): Ditto.
+	(DEFVAR_BOOL): Ditto.
+	(DEFVAR_CONST_BOOL): Ditto.
+	(DEFVAR_INT_MAGIC): Ditto.
+	(DEFVAR_BOOL_MAGIC): Ditto.
+
+	* symbols.c (guts_of_unbound_marker): Use value field.
+	* console.c (DEFVAR_CONSOLE_LOCAL_1): Ditto.
+	* buffer.c (DEFVAR_BUFFER_LOCAL_1): Ditto.
+
+	* lisp.h: Declare dumpopaque and noninteractive1.
+
+	* alloc.c (dumpopaque): Added.
+	(pdump_dump_opaquevec): Added.
+	(pdump): Call pdump_dump_opaquevec to dump opaque data.
+	(pdump_load): Reload opaque data.  Sync noninteractive1 with
+	noninteractive.
+
+2000-02-10  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.c (image_instance_layout): if the size changes, mark it
+	as such.
+
+	* redisplay-output.c (redisplay_output_layout): Update the
+	subwindow here.
+	(redisplay_output_subwindow): ditto.
+
+	* glyphs.c (update_subwindow): make sure we reset flags for
+	layouts as well as everything else.
+
+	* glyphs-widget.c (layout_layout): don't need to set the instances
+	dimensions here.
+
+2000-02-09  Martin Buchholz  <martin@xemacs.org>
+
+	* device-x.c (x_init_device): Wrap calls to dll_*  in HAVE_SHLIB,
+	not HAVE_DLOPEN, which is a lower-level thing.
+
+	* .cvsignore: Ignore gmon.out
+
+2000-02-09  Hamish Macdonald <hamishm@lucent.com>
+
+	* .cvsignore: Ignore portable dumper xemacs.dmp file
+
+2000-02-09  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (redisplay_output_layout): be more clever
+	about when we output based on the changed flags.
+
+	* glyphs.h (struct image_instantiator_methods): add update_method.
+	(struct Lisp_Image_Instance): add changed flags. Declare new
+	macros for manipulating them.
+
+	* glyphs.c (allocate_image_instance): renamed glyph -> parent.
+	(image_instance_parent_glyph): find an image_instance's parent
+	glyph or image_instance.
+	(image_instance_layout): mark the size as changed.
+	(set_image_instance_dirty_p): new function. mark an image
+	instance, plus all of its parents, as dirty.
+	(Fset_image_instance_property): use it.
+	(Fglyph_animated_timeout_handler): use it.
+	(update_subwindow): call update_widget and device methods for
+	update_subwindow. Mark all changed flags as clean.
+	(Fresize_subwindow): mark size as changed.
+
+	* glyphs-x.c (x_finalize_image_instance): try and detect gc
+	failures.
+	(x_update_subwindow): only resize subwindows here.
+	(x_update_widget): new function. Update all changed properties of
+	a widget.
+	(x_resize_subwindow): deleted.
+	(x_widget_set_property): deleted.
+	(x_progress_gauge_set_property): deleted.
+	(x_progress_gauge_update): new function. Implement recorded
+	changes.
+	(x_tab_control_update): ditto.
+	(x_tab_control_set_property): deleted.
+	(console_type_create_glyphs_x): declare new functions.
+	(image_instantiator_format_create_glyphs_x): ditto.
+
+	* glyphs-widget.c (widget_set_property): mark text changed.
+	(update_widget): new function. Update properties of a widget.
+	(widget_instantiate): for layouts make sure we set their
+	children's parent correctly.
+	(tab_control_set_property): new function. Record changes that will
+	take place under redisplay's control.
+	(progress_gauge_set_property): ditto.
+	(image_instantiator_progress_guage): declare new functions.
+	(image_instantiator_tab_control): ditto.
+
+	* glyphs-msw.c (mswindows_update_subwindow): just do resizing here
+	now.
+	(mswindows_update_widget): new function. Update all properties on
+	a widget that have changed.
+	(mswindows_button_update): new function. Update a button's set
+	state.
+	(mswindows_tab_control_update): new function. Update the items in
+	a tab.
+	(mswindows_tab_control_set_property): deleted.
+	(mswindows_progress_gauge_update): new function. Update the
+	progress gauge's progress.
+	(mswindows_widget_set_property): deleted. This is all done
+	asynchronously now.
+	(mswindows_progress_gauge_set_property): ditto.
+	(console_type_create_glyphs_mswindows): declare new methods.
+	(image_instantiator_format_create_glyphs_mswindows): ditto.
+
+	* frame-msw.c (msprinter_init_frame_1): Remove unused variables.
+	(msprinter_set_frame_properties): ditto.
+
+	* console.h (struct console_methods): Add update_widget_method.
+
+2000-02-09  Andy Piper  <andy@xemacs.org>
+
+	* gui-msw.c (Fmswindows_shell_execute): Make
+	mswindows-shell-execute industrial strength.
+
+2000-02-08  Martin Buchholz  <martin@xemacs.org>
+
+	* lrecord.h: Make macro argument `props' match member function `plist'.
+	* fns.c (Fget):
+	* fns.c (Fput):
+	* fns.c (Fremprop):
+	* fns.c (Fobject_plist):
+	* alloc.c:
+	* symbols.c:
+	Object property list frobbing cleanup.
+	- Allow any lisp object (compared with `eq'), not just symbols, as
+	  keys in object plists.
+	- Move symbol plist frobbing into symbols.c, where it belongs.
+	- Move string plist frobbing into alloc.c, where it belongs.
+	- Everything's an lrecord now, so no need to test for symbolp, etc.
+	- Fix up doc strings to refer to PROPERTY, not PROPNAME.
+
+	* extents.c: Reorder code to remove declarations.
+
+	* frame.h (store_in_alist): Remove useless declaration.
+
+2000-02-07  Martin Buchholz  <martin@xemacs.org>
+
+	* event-Xt.c (x_has_keysym): Use XConvertCase only if available.
+	* config.h.in: Add HAVE_XCONVERTCASE.
+
+2000-02-07  Andy Piper  <andy@xemacs.org>
+	
+	* glyphs.c (image_instance_layout): undo 2000-01-29 change since
+	it breaks many things.
+
+2000-02-07  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* src/syntax.h (SYNTAX_START_P): Check whether the two chars
+	actually can start a common comment type.
+	* src/syntax.h (SYNTAX_END_P): ditto for end.
+
 2000-02-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.28 is released.

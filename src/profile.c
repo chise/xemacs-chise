@@ -135,14 +135,14 @@ sigprof_handler (int signo)
 	   lose because of this.  Even worse, if the memory allocation
 	   fails, the `error' generated whacks everything hard. */
 	long count;
-	CONST void *vval;
+	const void *vval;
 
 	if (gethash (LISP_TO_VOID (fun), big_profile_table, &vval))
 	  count = (long) vval;
 	else
 	  count = 0;
 	count++;
-	vval = (CONST void *) count;
+	vval = (const void *) count;
 	puthash (LISP_TO_VOID (fun), (void *) vval, big_profile_table);
       }
 
@@ -226,7 +226,7 @@ struct get_profiling_info_closure
 };
 
 static int
-get_profiling_info_maphash (CONST void *void_key,
+get_profiling_info_maphash (const void *void_key,
 			    void *void_val,
 			    void *void_closure)
 {
@@ -264,7 +264,7 @@ Return the profiling info as an alist.
 }
 
 static int
-mark_profiling_info_maphash (CONST void *void_key,
+mark_profiling_info_maphash (const void *void_key,
 			     void *void_val,
 			     void *void_closure)
 {

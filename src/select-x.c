@@ -138,7 +138,7 @@ symbol_to_x_atom (struct device *d, Lisp_Object sym, int only_if_exists)
 #endif /* CUT_BUFFER_SUPPORT */
 
   {
-    CONST char *nameext;
+    const char *nameext;
     TO_EXTERNAL_FORMAT (LISP_STRING, Fsymbol_name (sym),
 			C_STRING_ALLOCA, nameext,
 			Qctext);
@@ -287,13 +287,13 @@ hack_motif_clipboard_selection (Atom selection_atom,
 #endif
       XmString fmh;
       String encoding = "STRING";
-      CONST Extbyte *data  = XSTRING_DATA (selection_value);
+      const Extbyte *data  = XSTRING_DATA (selection_value);
       Extcount bytes = XSTRING_LENGTH (selection_value);
 
 #ifdef MULE
       {
 	enum { ASCII, LATIN_1, WORLD } chartypes = ASCII;
-	CONST Bufbyte *ptr = data, *end = ptr + bytes;
+	const Bufbyte *ptr = data, *end = ptr + bytes;
 	/* Optimize for the common ASCII case */
 	while (ptr <= end)
 	  {
@@ -1266,7 +1266,7 @@ lisp_data_to_selection_data (struct device *d,
     }
   else if (STRINGP (obj))
     {
-      CONST Extbyte *extval;
+      const Extbyte *extval;
       Extcount extvallen;
 
       TO_EXTERNAL_FORMAT (LISP_STRING, obj,
@@ -1286,7 +1286,7 @@ lisp_data_to_selection_data (struct device *d,
     {
       Bufbyte buf[MAX_EMCHAR_LEN];
       Bytecount len;
-      CONST Extbyte *extval;
+      const Extbyte *extval;
       Extcount extvallen;
 
       *format_ret = 8;
@@ -1484,7 +1484,7 @@ static int cut_buffers_initialized; /* Whether we're sure they all exist */
 static void
 initialize_cut_buffers (Display *display, Window window)
 {
-  static unsigned CONST char * CONST data = (unsigned CONST char *) "";
+  static unsigned const char * const data = (unsigned const char *) "";
 #define FROB(atom) XChangeProperty (display, window, atom, XA_STRING, 8, \
 				    PropModeAppend, data, 0)
   FROB (XA_CUT_BUFFER0);
@@ -1563,12 +1563,12 @@ Set the value of the named CUTBUFFER (typically CUT_BUFFER0) to STRING.
   Display *display = DEVICE_X_DISPLAY (d);
   Window window = RootWindow (display, 0); /* Cutbuffers are on frame 0 */
   Atom cut_buffer_atom;
-  CONST Extbyte *data  = XSTRING_DATA (string);
+  const Extbyte *data  = XSTRING_DATA (string);
   Extcount bytes = XSTRING_LENGTH (string);
   Extcount bytes_remaining;
   int max_bytes = SELECTION_QUANTUM (display);
 #ifdef MULE
-  CONST Bufbyte *ptr, *end;
+  const Bufbyte *ptr, *end;
   enum { ASCII, LATIN_1, WORLD } chartypes = ASCII;
 #endif
 

@@ -229,7 +229,7 @@ x_parse_nearest_color (struct device *d, XColor *color, Bufbyte *name,
 
   xzero (*color);
   {
-    CONST Extbyte *extname;
+    const Extbyte *extname;
     Extcount extnamelen;
 
     TO_EXTERNAL_FORMAT (DATA, (name, len),
@@ -350,7 +350,7 @@ x_valid_color_name_p (struct device *d, Lisp_Object color)
   Display *dpy = DEVICE_X_DISPLAY (d);
   Colormap cmap = DEVICE_X_COLORMAP (d);
 
-  CONST char *extname;
+  const char *extname;
 
   TO_EXTERNAL_FORMAT (LISP_STRING, color, C_STRING_ALLOCA, extname, Qctext);
 
@@ -368,7 +368,7 @@ x_initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
 {
   Display *dpy = DEVICE_X_DISPLAY (XDEVICE (device));
   XFontStruct *xf;
-  CONST char *extname;
+  const char *extname;
 
   TO_EXTERNAL_FORMAT (LISP_STRING, f->name, C_STRING_ALLOCA, extname, Qctext);
   xf = XLoadQueryFont (dpy, extname);
@@ -859,7 +859,7 @@ x_list_fonts (Lisp_Object pattern, Lisp_Object device)
   char **names;
   int count = 0;
   Lisp_Object result = Qnil;
-  CONST char *patternext;
+  const char *patternext;
 
   TO_EXTERNAL_FORMAT (LISP_STRING, pattern,
 		      C_STRING_ALLOCA, patternext,
@@ -878,7 +878,7 @@ x_list_fonts (Lisp_Object pattern, Lisp_Object device)
 
 static int
 x_font_spec_matches_charset (struct device *d, Lisp_Object charset,
-			     CONST Bufbyte *nonreloc, Lisp_Object reloc,
+			     const Bufbyte *nonreloc, Lisp_Object reloc,
 			     Bytecount offset, Bytecount length)
 {
   if (UNBOUNDP (charset))
@@ -890,7 +890,7 @@ x_font_spec_matches_charset (struct device *d, Lisp_Object charset,
      */
   if (EQ (charset, Vcharset_ascii))
     {
-      CONST Bufbyte *the_nonreloc = nonreloc;
+      const Bufbyte *the_nonreloc = nonreloc;
       int i;
       Bytecount the_length = length;
 
@@ -902,7 +902,7 @@ x_font_spec_matches_charset (struct device *d, Lisp_Object charset,
 	{
 	  for (i = 0;; i++)
 	    {
-	      CONST Bufbyte *new_nonreloc = (CONST Bufbyte *)
+	      const Bufbyte *new_nonreloc = (const Bufbyte *)
 		memchr (the_nonreloc, '-', the_length);
 	      if (!new_nonreloc)
 		break;
@@ -933,7 +933,7 @@ x_find_charset_font (Lisp_Object device, Lisp_Object font, Lisp_Object charset)
   char **names;
   int count = 0;
   Lisp_Object result = Qnil;
-  CONST char *patternext;
+  const char *patternext;
   int i;
 
   TO_EXTERNAL_FORMAT (LISP_STRING, font,
@@ -945,7 +945,7 @@ x_find_charset_font (Lisp_Object device, Lisp_Object font, Lisp_Object charset)
   /* #### This code seems awfully bogus -- mrb */
   for (i = 0; i < count; i ++)
     {
-      CONST char *intname;
+      const char *intname;
 
       TO_INTERNAL_FORMAT (C_STRING, names[i],
 			  C_STRING_ALLOCA, intname,

@@ -363,7 +363,7 @@ drain_audio_port (AudioContext ac)
 static int
 st_ulaw_to_linear (int u)
 {
-  static CONST short table[] = {0,132,396,924,1980,4092,8316,16764};
+  static const short table[] = {0,132,396,924,1980,4092,8316,16764};
   int u1 = ~u;
   short exponent = (u1 >> 4) & 0x07;
   int mantissa = u1 & 0x0f;

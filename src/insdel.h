@@ -38,16 +38,16 @@ void end_multiple_change (struct buffer *buf, int count);
 #define INSDEL_NO_LOCKING 2
 
 Charcount buffer_insert_string_1 (struct buffer *buf, Bufpos pos,
-				  CONST Bufbyte *nonreloc, Lisp_Object reloc,
+				  const Bufbyte *nonreloc, Lisp_Object reloc,
 				  Bytecount offset, Bytecount length,
 				  int flags);
 Charcount buffer_insert_raw_string_1 (struct buffer *buf, Bufpos pos,
-				      CONST Bufbyte *nonreloc,
+				      const Bufbyte *nonreloc,
 				      Bytecount length, int flags);
 Charcount buffer_insert_lisp_string_1 (struct buffer *buf, Bufpos pos,
 				       Lisp_Object str, int flags);
 Charcount buffer_insert_c_string_1 (struct buffer *buf, Bufpos pos,
-				    CONST char *s, int flags);
+				    const char *s, int flags);
 Charcount buffer_insert_emacs_char_1 (struct buffer *buf, Bufpos pos,
 				      Emchar ch, int flags);
 Charcount buffer_insert_c_char_1 (struct buffer *buf, Bufpos pos, char c,
@@ -142,7 +142,7 @@ void buffer_reset_changes (struct buffer *buf);
 Memind do_marker_adjustment (Memind mpos, Memind from,
 			     Memind to, Bytecount amount);
 
-void fixup_internal_substring (CONST Bufbyte *nonreloc,
+void fixup_internal_substring (const Bufbyte *nonreloc,
 			       Lisp_Object reloc,
 			       Bytecount offset, Bytecount *len);
 

@@ -1,3 +1,30 @@
+2000-02-16  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.29 is released.
+
+2000-02-09  Martin Buchholz  <martin@xemacs.org>
+
+	* cl-extra.el (getf): This is now identical to `plist-get', so
+	just defalias it.
+	* cl-macs.el: Make getf an alias to plist-get, at the
+	byte-compiler level, using define-compiler-macro.
+
+2000-02-08  Martin Buchholz  <martin@xemacs.org>
+
+	* cl-extra.el (cl-remprop): Remove. remprop is now in C.
+
+2000-02-07  Kyle Jones  <kyle_jones@wonderworks.com>
+
+	* lisp/etags.el (find-tag-internal): set exact-tagname to
+	  a regular expression that matches against the tagname
+	  part of the tag entry first instead of only looking in
+	  the context area.
+
+2000-01-23  Björn Torkelsson  <torkel@hpc2n.umu.se>
+
+	* gutter-items.el: fixed typo(s) in customizing default-gutter-position
+	* toobar.el: fixed typo(s) in customizing default-toolbar-position
+
 2000-02-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.28 is released.

@@ -61,7 +61,7 @@ struct ccl_program {
 #define CCL_MODE_ENCODING 0
 #define CCL_MODE_DECODING 1
 
-int ccl_driver (struct ccl_program *ccl, CONST unsigned char *source,
+int ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 		unsigned_char_dynarr *destination, int src_bytes,
 		int *consumed, int conversion_mode);
 void setup_ccl_program (struct ccl_program *ccl, Lisp_Object val);

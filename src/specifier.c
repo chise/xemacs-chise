@@ -354,13 +354,13 @@ specifier_hash (Lisp_Object obj, int depth)
 }
 
 static size_t
-sizeof_specifier (CONST void *header)
+sizeof_specifier (const void *header)
 {
   if (GHOST_SPECIFIER_P ((Lisp_Specifier *) header))
     return offsetof (Lisp_Specifier, data);
   else
     {
-      CONST Lisp_Specifier *p = (CONST Lisp_Specifier *) header;
+      const Lisp_Specifier *p = (const Lisp_Specifier *) header;
       return offsetof (Lisp_Specifier, data) + p->methods->extra_data_size;
     }
 }

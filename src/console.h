@@ -65,7 +65,7 @@ extern const struct struct_description console_methods_description;
 
 struct console_methods
 {
-  CONST char *name;	/* Used by print_console, print_device, print_frame */
+  const char *name;	/* Used by print_console, print_device, print_frame */
   Lisp_Object symbol;
   Lisp_Object predicate_symbol;
 
@@ -135,12 +135,13 @@ struct console_methods
   Lisp_Object (*get_frame_parent_method) (struct frame *f);
   void (*update_frame_external_traits_method) (struct frame *f, Lisp_Object name);
   int (*frame_size_fixed_p_method) (struct frame *f);
+  void (*eject_page_method) (struct frame *f);
 
   /* redisplay methods */
   int (*left_margin_width_method) (struct window *);
   int (*right_margin_width_method) (struct window *);
   int (*text_width_method) (struct frame *f, struct face_cachel *cachel,
-			    CONST Emchar *str, Charcount len);
+			    const Emchar *str, Charcount len);
   void (*output_display_block_method) (struct window *, struct display_line *,
 				       int, int, int, int, int, int, int);
   int (*divider_height_method) (void);
@@ -207,7 +208,7 @@ struct console_methods
 					   Lisp_Object charset);
   int (*font_spec_matches_charset_method) (struct device *d,
 					   Lisp_Object charset,
-					   CONST Bufbyte *nonreloc,
+					   const Bufbyte *nonreloc,
 					   Lisp_Object reloc,
 					   Bytecount offset,
 					   Bytecount length);
@@ -223,6 +224,7 @@ struct console_methods
 				struct display_glyph_area* dga);
   void (*resize_subwindow_method) (Lisp_Image_Instance *, int w, int h);
   void (*update_subwindow_method) (Lisp_Image_Instance *);
+  void (*update_widget_method) (Lisp_Image_Instance *);
   int (*image_instance_equal_method) (Lisp_Image_Instance *,
 				      Lisp_Image_Instance *,
 				      int depth);

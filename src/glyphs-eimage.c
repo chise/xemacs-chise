@@ -372,7 +372,7 @@ jpeg_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   {
     Lisp_Object data = find_keyword_in_vector (instantiator, Q_data);
-    CONST Extbyte *bytes;
+    const Extbyte *bytes;
     Extcount len;
 
     /* #### This is a definite problem under Mule due to the amount of
@@ -580,12 +580,12 @@ gif_memory_close(VoidPtr data)
 
 struct gif_error_struct
 {
-  CONST char *err_str;		/* return the error string */
+  const char *err_str;		/* return the error string */
   jmp_buf setjmp_buffer;	/* for return to caller */
 };
 
 static void
-gif_error_func(CONST char *err_str, VoidPtr error_ptr)
+gif_error_func(const char *err_str, VoidPtr error_ptr)
 {
   struct gif_error_struct *error_data = (struct gif_error_struct*)error_ptr;
 
@@ -769,7 +769,7 @@ png_possible_dest_types (void)
 
 struct png_memory_storage
 {
-  CONST Extbyte *bytes;		/* The data       */
+  const Extbyte *bytes;		/* The data       */
   Extcount len;			/* How big is it? */
   int index;			/* Where are we?  */
 };
@@ -789,7 +789,7 @@ png_read_from_memory(png_structp png_ptr, png_bytep data,
 
 struct png_error_struct
 {
-  CONST char *err_str;
+  const char *err_str;
   jmp_buf setjmp_buffer;	/* for return to caller */
 };
 
@@ -893,7 +893,7 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   /* Initialize the IO layer and read in header information */
   {
     Lisp_Object data = find_keyword_in_vector (instantiator, Q_data);
-    CONST Extbyte *bytes;
+    const Extbyte *bytes;
     Extcount len;
 
     assert (!NILP (data));
@@ -1170,7 +1170,7 @@ struct tiff_error_struct
 static struct tiff_error_struct tiff_err_data;
 
 static void
-tiff_error_func(CONST char *module, CONST char *fmt, ...)
+tiff_error_func(const char *module, const char *fmt, ...)
 {
   va_list vargs;
 
@@ -1187,7 +1187,7 @@ tiff_error_func(CONST char *module, CONST char *fmt, ...)
 }
 
 static void
-tiff_warning_func(CONST char *module, CONST char *fmt, ...)
+tiff_warning_func(const char *module, const char *fmt, ...)
 {
   va_list vargs;
 #ifdef HAVE_VSNPRINTF

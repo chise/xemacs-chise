@@ -93,31 +93,31 @@ struct tty_console
   struct
   {
     /* local cursor movement */
-    CONST char *up;			/* cuu1, up */
-    CONST char *down;			/* cud1, do */
-    CONST char *left;			/* cub1, le */
-    CONST char *right;			/* cuf1, nd */
-    CONST char *home;			/* home, ho */
-    CONST char *low_left;		/* ll, ll */
-    CONST char *car_return;		/* cr, cr */
+    const char *up;			/* cuu1, up */
+    const char *down;			/* cud1, do */
+    const char *left;			/* cub1, le */
+    const char *right;			/* cuf1, nd */
+    const char *home;			/* home, ho */
+    const char *low_left;		/* ll, ll */
+    const char *car_return;		/* cr, cr */
 
     /* parameterized local cursor movement */
-    CONST char *multi_up;		/* cuu, UP */
-    CONST char *multi_down;		/* cud, DO */
-    CONST char *multi_left;		/* cub, LE */
-    CONST char *multi_right;		/* cuf, RI */
+    const char *multi_up;		/* cuu, UP */
+    const char *multi_down;		/* cud, DO */
+    const char *multi_left;		/* cub, LE */
+    const char *multi_right;		/* cuf, RI */
 
     /* absolute cursor motion */
-    CONST char *abs;			/* cup, cm */
-    CONST char *hor_abs;		/* hpa, ch */
-    CONST char *ver_abs;		/* vpa, cv */
+    const char *abs;			/* cup, cm */
+    const char *hor_abs;		/* hpa, ch */
+    const char *ver_abs;		/* vpa, cv */
 
     /* scrolling */
-    CONST char *scroll_forw;		/* ind, sf */
-    CONST char *scroll_back;		/* ri, sr */
-    CONST char *multi_scroll_forw;	/* indn, SF */
-    CONST char *multi_scroll_back;	/* rin, SR */
-    CONST char *set_scroll_region;	/* csr, cs */
+    const char *scroll_forw;		/* ind, sf */
+    const char *scroll_back;		/* ri, sr */
+    const char *multi_scroll_forw;	/* indn, SF */
+    const char *multi_scroll_back;	/* rin, SR */
+    const char *set_scroll_region;	/* csr, cs */
   } cm;
 
   /* screen editing entries - each entry is commented with the
@@ -125,56 +125,56 @@ struct tty_console
   struct
   {
     /* adding to the screen */
-    CONST char *ins_line;		/* il1, al */
-    CONST char *multi_ins_line;		/* il, AL */
-    CONST char *repeat;			/* rep, rp */
-    CONST char *begin_ins_mode;		/* smir, im */
-    CONST char *end_ins_mode;		/* rmir, ei */
-    CONST char *ins_char;		/* ich1, ic */
-    CONST char *multi_ins_char;		/* ich, IC */
-    CONST char *insert_pad;		/* ip, ip */
+    const char *ins_line;		/* il1, al */
+    const char *multi_ins_line;		/* il, AL */
+    const char *repeat;			/* rep, rp */
+    const char *begin_ins_mode;		/* smir, im */
+    const char *end_ins_mode;		/* rmir, ei */
+    const char *ins_char;		/* ich1, ic */
+    const char *multi_ins_char;		/* ich, IC */
+    const char *insert_pad;		/* ip, ip */
 
     /* deleting from the screen */
-    CONST char *clr_frame;		/* clear, cl */
-    CONST char *clr_from_cursor;	/* ed, cd */
-    CONST char *clr_to_eol;		/* el, ce */
-    CONST char *del_line;		/* dl1, dl */
-    CONST char *multi_del_line;		/* dl, DL */
-    CONST char *del_char;		/* dch1, dc */
-    CONST char *multi_del_char;		/* dch, DC */
-    CONST char *begin_del_mode;		/* smdc, dm */
-    CONST char *end_del_mode;		/* rmdc, ed */
-    CONST char *erase_at_cursor;	/* ech, ec */
+    const char *clr_frame;		/* clear, cl */
+    const char *clr_from_cursor;	/* ed, cd */
+    const char *clr_to_eol;		/* el, ce */
+    const char *del_line;		/* dl1, dl */
+    const char *multi_del_line;		/* dl, DL */
+    const char *del_char;		/* dch1, dc */
+    const char *multi_del_char;		/* dch, DC */
+    const char *begin_del_mode;		/* smdc, dm */
+    const char *end_del_mode;		/* rmdc, ed */
+    const char *erase_at_cursor;	/* ech, ec */
   } se;
 
   /* screen display entries - each entry is commented with the
      terminfo and termcap entry */
   struct
   {
-    CONST char *begin_standout;		/* smso, so */
-    CONST char *end_standout;		/* rmso, se */
-    CONST char *begin_underline;	/* smul, us */
-    CONST char *end_underline;		/* rmul, ue */
-    CONST char *begin_alternate;	/* smacs, as */
-    CONST char *end_alternate;		/* rmacs, ae */
+    const char *begin_standout;		/* smso, so */
+    const char *end_standout;		/* rmso, se */
+    const char *begin_underline;	/* smul, us */
+    const char *end_underline;		/* rmul, ue */
+    const char *begin_alternate;	/* smacs, as */
+    const char *end_alternate;		/* rmacs, ae */
 
-    CONST char *turn_on_reverse;	/* rev, mr */
-    CONST char *turn_on_blinking;	/* blink, mb */
-    CONST char *turn_on_bold;		/* bold, md */
-    CONST char *turn_on_dim;		/* dim, mh */
-    CONST char *turn_off_attributes;	/* sgr0, me */
+    const char *turn_on_reverse;	/* rev, mr */
+    const char *turn_on_blinking;	/* blink, mb */
+    const char *turn_on_bold;		/* bold, md */
+    const char *turn_on_dim;		/* dim, mh */
+    const char *turn_off_attributes;	/* sgr0, me */
 
-    CONST char *visual_bell;		/* flash, vb */
-    CONST char *audio_bell;		/* bel, bl */
+    const char *visual_bell;		/* flash, vb */
+    const char *audio_bell;		/* bel, bl */
 
-    CONST char *cursor_visible;		/* cvvis, vs */
-    CONST char *cursor_normal;		/* cnorm, ve */
-    CONST char *init_motion;		/* smcup, ti */
-    CONST char *end_motion;		/* rmcup, te */
-    CONST char *keypad_on;		/* smkx, ks */
-    CONST char *keypad_off;		/* rmkx, ke */
+    const char *cursor_visible;		/* cvvis, vs */
+    const char *cursor_normal;		/* cnorm, ve */
+    const char *init_motion;		/* smcup, ti */
+    const char *end_motion;		/* rmcup, te */
+    const char *keypad_on;		/* smkx, ks */
+    const char *keypad_off;		/* rmkx, ke */
 
-    CONST char *orig_pair;		/* op, op */
+    const char *orig_pair;		/* op, op */
   } sd;
 
   /* costs of various operations */

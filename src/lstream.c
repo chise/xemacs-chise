@@ -52,7 +52,7 @@ Boston, MA 02111-1307, USA.  */
 
 /* Functions are as follows:
 
-Lstream *Lstream_new (Lstream_implementation *imp, CONST char *mode)
+Lstream *Lstream_new (Lstream_implementation *imp, const char *mode)
 	Allocate and return a new Lstream.  This function is not
 	really meant to be called directly; rather, each stream type
 	should provide its own stream creation function, which
@@ -180,9 +180,9 @@ finalize_lstream (void *header, int for_disksave)
 }
 
 static size_t
-sizeof_lstream (CONST void *header)
+sizeof_lstream (const void *header)
 {
-  CONST Lstream *lstr = (CONST Lstream *) header;
+  const Lstream *lstr = (const Lstream *) header;
   return sizeof (*lstr) + lstr->imp->size - 1;
 }
 
@@ -210,12 +210,12 @@ Lstream_set_buffering (Lstream *lstr, Lstream_buffering buffering,
     }
 }
 
-static CONST Lstream_implementation *lstream_types[32];
+static const Lstream_implementation *lstream_types[32];
 static Lisp_Object Vlstream_free_list[32];
 static int lstream_type_count;
 
 Lstream *
-Lstream_new (CONST Lstream_implementation *imp, CONST char *mode)
+Lstream_new (const Lstream_implementation *imp, const char *mode)
 {
   Lstream *p;
   int i;
@@ -282,7 +282,7 @@ Lstream_delete (Lstream *lstr)
 #define Lstream_internal_error(reason, lstr) \
   Lstream_signal_simple_error ("Internal error: " reason, lstr)
 
-static void Lstream_signal_simple_error (CONST char *reason, Lstream *lstr)
+static void Lstream_signal_simple_error (const char *reason, Lstream *lstr)
 {
   Lisp_Object obj;
   XSETLSTREAM (obj, lstr);
@@ -319,8 +319,8 @@ Lstream_flush_out (Lstream *lstr)
 	   character at the end.  We need to spit back that
 	   incomplete character. */
 	{
-	  CONST unsigned char *data = lstr->out_buffer;
-	  CONST unsigned char *dataend = data + size - 1;
+	  const unsigned char *data = lstr->out_buffer;
+	  const unsigned char *dataend = data + size - 1;
 	  assert (size > 0); /* safety check ... */
 	  /* Optimize the most common case. */
 	  if (!BYTE_ASCII_P (*dataend))
@@ -415,9 +415,9 @@ Lstream_adding (Lstream *lstr, size_t num, int force)
 /* Like Lstream_write(), but does not handle line-buffering correctly. */
 
 static ssize_t
-Lstream_write_1 (Lstream *lstr, CONST void *data, size_t size)
+Lstream_write_1 (Lstream *lstr, const void *data, size_t size)
 {
-  CONST unsigned char *p = (CONST unsigned char *) data;
+  const unsigned char *p = (const unsigned char *) data;
   ssize_t off = 0;
   if (! (lstr->flags & LSTREAM_FL_IS_OPEN))
     Lstream_internal_error ("lstream not open", lstr);
@@ -475,10 +475,10 @@ Lstream_write_1 (Lstream *lstr, CONST void *data, size_t size)
    line buffering.  Returns number of bytes written. */
 
 ssize_t
-Lstream_write (Lstream *lstr, CONST void *data, size_t size)
+Lstream_write (Lstream *lstr, const void *data, size_t size)
 {
   size_t i;
-  CONST unsigned char *p = (CONST unsigned char *) data;
+  const unsigned char *p = (const unsigned char *) data;
 
   if (size == 0)
     return size;
@@ -584,7 +584,7 @@ Lstream_read (Lstream *lstr, void *data, size_t size)
       /* It's quite possible for us to get passed an incomplete
 	 character at the end.  We need to spit back that
 	 incomplete character. */
-      CONST unsigned char *dataend = p + off - 1;
+      const unsigned char *dataend = p + off - 1;
       /* Optimize the most common case. */
       if (!BYTE_ASCII_P (*dataend))
 	{
@@ -607,9 +607,9 @@ Lstream_read (Lstream *lstr, void *data, size_t size)
 }
 
 void
-Lstream_unread (Lstream *lstr, CONST void *data, size_t size)
+Lstream_unread (Lstream *lstr, const void *data, size_t size)
 {
-  CONST unsigned char *p = (CONST unsigned char *) data;
+  const unsigned char *p = (const unsigned char *) data;
 
   /* Make sure buffer is big enough */
   DO_REALLOC (lstr->unget_buffer, lstr->unget_buffer_size,
@@ -765,7 +765,7 @@ DEFINE_LSTREAM_IMPLEMENTATION ("stdio", lstream_stdio,
 			       sizeof (struct stdio_stream));
 
 static Lisp_Object
-make_stdio_stream_1 (FILE *stream, int flags, CONST char *mode)
+make_stdio_stream_1 (FILE *stream, int flags, const char *mode)
 {
   Lisp_Object obj;
   Lstream *lstr = Lstream_new (lstream_stdio, mode);
@@ -818,7 +818,7 @@ stdio_reader (Lstream *stream, unsigned char *data, size_t size)
 }
 
 static ssize_t
-stdio_writer (Lstream *stream, CONST unsigned char *data, size_t size)
+stdio_writer (Lstream *stream, const unsigned char *data, size_t size)
 {
   struct stdio_stream *str = STDIO_STREAM_DATA (stream);
   size_t val = fwrite (data, 1, size, str->file);
@@ -897,7 +897,7 @@ DEFINE_LSTREAM_IMPLEMENTATION ("filedesc", lstream_filedesc,
    ignored when writing); -1 for unlimited. */
 static Lisp_Object
 make_filedesc_stream_1 (int filedesc, int offset, int count, int flags,
-			CONST char *mode)
+			const char *mode)
 {
   Lisp_Object obj;
   Lstream *lstr = Lstream_new (lstream_filedesc, mode);
@@ -962,7 +962,7 @@ errno_would_block_p (int val)
 }
 
 static ssize_t
-filedesc_writer (Lstream *stream, CONST unsigned char *data, size_t size)
+filedesc_writer (Lstream *stream, const unsigned char *data, size_t size)
 {
   struct filedesc_stream *str = FILEDESC_STREAM_DATA (stream);
   ssize_t retval;
@@ -977,9 +977,9 @@ filedesc_writer (Lstream *stream, CONST unsigned char *data, size_t size)
   if (str->pty_flushing)
     {
       /* To make life easy, only send out one line at the most. */
-      CONST unsigned char *ptr;
+      const unsigned char *ptr;
 
-      ptr = (CONST unsigned char *) memchr (data, '\n', size);
+      ptr = (const unsigned char *) memchr (data, '\n', size);
       if (ptr)
 	need_newline = 1;
       else
@@ -1245,7 +1245,7 @@ lisp_string_marker (Lisp_Object stream)
 
 struct fixed_buffer_stream
 {
-  CONST unsigned char *inbuf;
+  const unsigned char *inbuf;
   unsigned char *outbuf;
   size_t size;
   size_t offset;
@@ -1255,7 +1255,7 @@ DEFINE_LSTREAM_IMPLEMENTATION ("fixed-buffer", lstream_fixed_buffer,
 			       sizeof (struct fixed_buffer_stream));
 
 Lisp_Object
-make_fixed_buffer_input_stream (CONST void *buf, size_t size)
+make_fixed_buffer_input_stream (const void *buf, size_t size)
 {
   Lisp_Object obj;
   Lstream *lstr = Lstream_new (lstream_fixed_buffer, "r");
@@ -1289,7 +1289,7 @@ fixed_buffer_reader (Lstream *stream, unsigned char *data, size_t size)
 }
 
 static ssize_t
-fixed_buffer_writer (Lstream *stream, CONST unsigned char *data, size_t size)
+fixed_buffer_writer (Lstream *stream, const unsigned char *data, size_t size)
 {
   struct fixed_buffer_stream *str = FIXED_BUFFER_STREAM_DATA (stream);
   if (str->offset == str->size)
@@ -1312,7 +1312,7 @@ fixed_buffer_rewinder (Lstream *stream)
   return 0;
 }
 
-CONST unsigned char *
+const unsigned char *
 fixed_buffer_input_stream_ptr (Lstream *stream)
 {
   assert (stream->imp == lstream_fixed_buffer);
@@ -1351,7 +1351,7 @@ make_resizing_buffer_output_stream (void)
 }
 
 static ssize_t
-resizing_buffer_writer (Lstream *stream, CONST unsigned char *data, size_t size)
+resizing_buffer_writer (Lstream *stream, const unsigned char *data, size_t size)
 {
   struct resizing_buffer_stream *str = RESIZING_BUFFER_STREAM_DATA (stream);
   DO_REALLOC (str->buf, str->allocked, str->stored + size, unsigned char);
@@ -1413,7 +1413,7 @@ make_dynarr_output_stream (unsigned_char_dynarr *dyn)
 }
 
 static ssize_t
-dynarr_writer (Lstream *stream, CONST unsigned char *data, size_t size)
+dynarr_writer (Lstream *stream, const unsigned char *data, size_t size)
 {
   struct dynarr_stream *str = DYNARR_STREAM_DATA (stream);
   Dynarr_add_many (str->dyn, data, size);
@@ -1456,7 +1456,7 @@ DEFINE_LSTREAM_IMPLEMENTATION ("lisp-buffer", lstream_lisp_buffer,
 
 static Lisp_Object
 make_lisp_buffer_stream_1 (struct buffer *buf, Bufpos start, Bufpos end,
-			   int flags, CONST char *mode)
+			   int flags, const char *mode)
 {
   Lisp_Object obj;
   Lstream *lstr;
@@ -1595,7 +1595,7 @@ lisp_buffer_reader (Lstream *stream, unsigned char *data, size_t size)
 }
 
 static ssize_t
-lisp_buffer_writer (Lstream *stream, CONST unsigned char *data, size_t size)
+lisp_buffer_writer (Lstream *stream, const unsigned char *data, size_t size)
 {
   struct lisp_buffer_stream *str = LISP_BUFFER_STREAM_DATA (stream);
   Bufpos pos;

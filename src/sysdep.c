@@ -784,7 +784,7 @@ get_pty_max_bytes (int fd)
 Bufbyte
 get_eof_char (int fd)
 {
-  CONST Bufbyte ctrl_d = (Bufbyte) '\004';
+  const Bufbyte ctrl_d = (Bufbyte) '\004';
 
   if (!isatty (fd))
     return ctrl_d;
@@ -794,7 +794,7 @@ get_eof_char (int fd)
     tcgetattr (fd, &t);
 #if 0
     /* What is the following line designed to do??? -mrb */
-    if (strlen ((CONST char *) t.c_cc) < (unsigned int) (VEOF + 1))
+    if (strlen ((const char *) t.c_cc) < (unsigned int) (VEOF + 1))
       return ctrl_d;
     else
       return (Bufbyte) t.c_cc[VEOF];
@@ -817,7 +817,7 @@ get_eof_char (int fd)
   {
     struct termio t;
     ioctl (fd, TCGETA, &t);
-    if (strlen ((CONST char *) t.c_cc) < (unsigned int) (VINTR + 1))
+    if (strlen ((const char *) t.c_cc) < (unsigned int) (VINTR + 1))
       return ctrl_d;
     else
       return (Bufbyte) t.c_cc[VINTR];
@@ -2335,7 +2335,7 @@ init_system_name (void)
 #   endif
 	if (hp)
 	  {
-	    CONST char *fqdn = (CONST char *) hp->h_name;
+	    const char *fqdn = (const char *) hp->h_name;
 
 	    if (!strchr (fqdn, '.'))
 	      {
@@ -2495,7 +2495,7 @@ sys_do_signal (int signal_number, signal_handler_t action)
 /* Linux added here by Raymond L. Toy <toy@alydar.crd.ge.com> for XEmacs. */
 /* Irix added here by gparker@sni-usa.com for XEmacs. */
 /* NetBSD added here by James R Grinter <jrg@doc.ic.ac.uk> for XEmacs */
-extern CONST char *sys_errlist[];
+extern const char *sys_errlist[];
 extern int sys_nerr;
 #endif
 
@@ -2505,12 +2505,12 @@ extern int sys_nerr;
 #endif
 
 
-CONST char *
+const char *
 strerror (int errnum)
 {
   if (errnum >= 0 && errnum < sys_nerr)
     return sys_errlist[errnum];
-  return ((CONST char *) GETTEXT ("Unknown error"));
+  return ((const char *) GETTEXT ("Unknown error"));
 }
 
 #endif /* ! HAVE_STRERROR */
@@ -2644,7 +2644,7 @@ mswindows_set_last_errno (void)
 
 #ifdef ENCAPSULATE_OPEN
 int
-sys_open (CONST char *path, int oflag, ...)
+sys_open (const char *path, int oflag, ...)
 {
   int mode;
   va_list ap;
@@ -2681,7 +2681,7 @@ sys_open (CONST char *path, int oflag, ...)
    is not interrupted by C-g.  However, the worst that can happen is
    the fallback to simple open().  */
 int
-interruptible_open (CONST char *path, int oflag, int mode)
+interruptible_open (const char *path, int oflag, int mode)
 {
   /* This function can GC */
   size_t len = strlen (path);
@@ -2757,10 +2757,10 @@ sys_read (int fildes, void *buf, size_t nbyte)
 #endif /* ENCAPSULATE_READ */
 
 ssize_t
-sys_write_1 (int fildes, CONST void *buf, size_t nbyte, int allow_quit)
+sys_write_1 (int fildes, const void *buf, size_t nbyte, int allow_quit)
 {
   ssize_t bytes_written = 0;
-  CONST char *b = (CONST char *) buf;
+  const char *b = (const char *) buf;
 
   /* No harm in looping regardless of the INTERRUPTIBLE_IO setting. */
   while (nbyte > 0)
@@ -2786,7 +2786,7 @@ sys_write_1 (int fildes, CONST void *buf, size_t nbyte, int allow_quit)
 
 #ifdef ENCAPSULATE_WRITE
 ssize_t
-sys_write (int fildes, CONST void *buf, size_t nbyte)
+sys_write (int fildes, const void *buf, size_t nbyte)
 {
   return sys_write_1 (fildes, buf, nbyte, 0);
 }
@@ -2804,7 +2804,7 @@ sys_write (int fildes, CONST void *buf, size_t nbyte)
 
 #ifdef ENCAPSULATE_FOPEN
 FILE *
-sys_fopen (CONST char *path, CONST char *type)
+sys_fopen (const char *path, const char *type)
 {
   PATHNAME_CONVERT_OUT (path);
 #if defined (WINDOWSNT)
@@ -2914,12 +2914,12 @@ sys_fread (void *ptr, size_t size, size_t nitem, FILE *stream)
 
 #ifdef ENCAPSULATE_FWRITE
 size_t
-sys_fwrite (CONST void *ptr, size_t size, size_t nitem, FILE *stream)
+sys_fwrite (const void *ptr, size_t size, size_t nitem, FILE *stream)
 {
 #ifdef INTERRUPTIBLE_IO
   size_t rtnval;
   size_t items_written = 0;
-  CONST char *b = (CONST char *) ptr;
+  const char *b = (const char *) ptr;
 
   while (nitem > 0)
     {
@@ -2947,7 +2947,7 @@ sys_fwrite (CONST void *ptr, size_t size, size_t nitem, FILE *stream)
 
 #ifdef ENCAPSULATE_CHDIR
 int
-sys_chdir (CONST char *path)
+sys_chdir (const char *path)
 {
   PATHNAME_CONVERT_OUT (path);
   return chdir (path);
@@ -2957,7 +2957,7 @@ sys_chdir (CONST char *path)
 
 #ifdef ENCAPSULATE_MKDIR
 int
-sys_mkdir (CONST char *path, mode_t mode)
+sys_mkdir (const char *path, mode_t mode)
 {
   PATHNAME_CONVERT_OUT (path);
 #ifdef WINDOWSNT
@@ -2971,7 +2971,7 @@ sys_mkdir (CONST char *path, mode_t mode)
 
 #ifdef ENCAPSULATE_OPENDIR
 DIR *
-sys_opendir (CONST char *filename)
+sys_opendir (const char *filename)
 {
   DIR *rtnval;
   PATHNAME_CONVERT_OUT (filename);
@@ -3003,7 +3003,7 @@ sys_readdir (DIR *dirp)
   {
     Extcount external_len;
     int ascii_filename_p = 1;
-    CONST Extbyte * CONST external_name = (CONST Extbyte *) rtnval->d_name;
+    const Extbyte * const external_name = (const Extbyte *) rtnval->d_name;
 
     /* Optimize for the common all-ASCII case, computing len en passant */
     for (external_len = 0; external_name[external_len] ; external_len++)
@@ -3016,7 +3016,7 @@ sys_readdir (DIR *dirp)
 
     { /* Non-ASCII filename */
       static Bufbyte_dynarr *internal_DIRENTRY;
-      CONST Bufbyte *internal_name;
+      const Bufbyte *internal_name;
       Bytecount internal_len;
       if (!internal_DIRENTRY)
         internal_DIRENTRY = Dynarr_new (Bufbyte);
@@ -3056,7 +3056,7 @@ sys_closedir (DIR *dirp)
 
 #ifdef ENCAPSULATE_RMDIR
 int
-sys_rmdir (CONST char *path)
+sys_rmdir (const char *path)
 {
   PATHNAME_CONVERT_OUT (path);
   return rmdir (path);
@@ -3068,7 +3068,7 @@ sys_rmdir (CONST char *path)
 
 #ifdef ENCAPSULATE_ACCESS
 int
-sys_access (CONST char *path, int mode)
+sys_access (const char *path, int mode)
 {
   PATHNAME_CONVERT_OUT (path);
   return access (path, mode);
@@ -3079,7 +3079,7 @@ sys_access (CONST char *path, int mode)
 #ifdef HAVE_EACCESS
 #ifdef ENCAPSULATE_EACCESS
 int
-sys_eaccess (CONST char *path, int mode)
+sys_eaccess (const char *path, int mode)
 {
   PATHNAME_CONVERT_OUT (path);
   return eaccess (path, mode);
@@ -3090,7 +3090,7 @@ sys_eaccess (CONST char *path, int mode)
 
 #ifdef ENCAPSULATE_LSTAT
 int
-sys_lstat (CONST char *path, struct stat *buf)
+sys_lstat (const char *path, struct stat *buf)
 {
   PATHNAME_CONVERT_OUT (path);
   return lstat (path, buf);
@@ -3100,7 +3100,7 @@ sys_lstat (CONST char *path, struct stat *buf)
 
 #ifdef ENCAPSULATE_READLINK
 int
-sys_readlink (CONST char *path, char *buf, size_t bufsiz)
+sys_readlink (const char *path, char *buf, size_t bufsiz)
 {
   PATHNAME_CONVERT_OUT (path);
   /* #### currently we don't do conversions on the incoming data */
@@ -3120,7 +3120,7 @@ sys_fstat (int fd, struct stat *buf)
 
 #ifdef ENCAPSULATE_STAT
 int
-sys_stat (CONST char *path, struct stat *buf)
+sys_stat (const char *path, struct stat *buf)
 {
   PATHNAME_CONVERT_OUT (path);
   return stat (path, buf);
@@ -3132,7 +3132,7 @@ sys_stat (CONST char *path, struct stat *buf)
 
 #ifdef ENCAPSULATE_CHMOD
 int
-sys_chmod (CONST char *path, mode_t mode)
+sys_chmod (const char *path, mode_t mode)
 {
   PATHNAME_CONVERT_OUT (path);
   return chmod (path, mode);
@@ -3142,7 +3142,7 @@ sys_chmod (CONST char *path, mode_t mode)
 
 #ifdef ENCAPSULATE_CREAT
 int
-sys_creat (CONST char *path, mode_t mode)
+sys_creat (const char *path, mode_t mode)
 {
   PATHNAME_CONVERT_OUT (path);
   return creat (path, mode);
@@ -3152,7 +3152,7 @@ sys_creat (CONST char *path, mode_t mode)
 
 #ifdef ENCAPSULATE_LINK
 int
-sys_link (CONST char *existing, CONST char *new)
+sys_link (const char *existing, const char *new)
 {
   PATHNAME_CONVERT_OUT (existing);
   PATHNAME_CONVERT_OUT (new);
@@ -3163,7 +3163,7 @@ sys_link (CONST char *existing, CONST char *new)
 
 #ifdef ENCAPSULATE_RENAME
 int
-sys_rename (CONST char *old, CONST char *new)
+sys_rename (const char *old, const char *new)
 {
   PATHNAME_CONVERT_OUT (old);
   PATHNAME_CONVERT_OUT (new);
@@ -3182,7 +3182,7 @@ sys_rename (CONST char *old, CONST char *new)
 
 #ifdef ENCAPSULATE_SYMLINK
 int
-sys_symlink (CONST char *name1, CONST char *name2)
+sys_symlink (const char *name1, const char *name2)
 {
   PATHNAME_CONVERT_OUT (name1);
   PATHNAME_CONVERT_OUT (name2);
@@ -3193,7 +3193,7 @@ sys_symlink (CONST char *name1, CONST char *name2)
 
 #ifdef ENCAPSULATE_UNLINK
 int
-sys_unlink (CONST char *path)
+sys_unlink (const char *path)
 {
   PATHNAME_CONVERT_OUT (path);
   return unlink (path);
@@ -3203,7 +3203,7 @@ sys_unlink (CONST char *path)
 
 #ifdef ENCAPSULATE_EXECVP
 int
-sys_execvp (CONST char *path, char * CONST * argv)
+sys_execvp (const char *path, char * const * argv)
 {
   int i, argc;
   char ** new_argv;
@@ -3231,7 +3231,7 @@ sys_execvp (CONST char *path, char * CONST * argv)
 
 #ifndef HAVE_GETCWD
 char *
-getcwd (char *pathname, int size)
+getcwd (char *pathname, size_t size)
 {
   return getwd (pathname);
 }
@@ -3275,7 +3275,7 @@ getwd (char *pathname)
 
 #ifndef HAVE_RENAME
 int
-rename (CONST char *from, CONST char *to)
+rename (const char *from, const char *to)
 {
   if (access (from, 0) == 0)
     {
@@ -3532,7 +3532,7 @@ get_random (void)
 #if !defined (SYS_SIGLIST_DECLARED) && !defined (HAVE_SYS_SIGLIST)
 
 #if defined(WINDOWSNT) || defined(__CYGWIN32__)
-CONST char *sys_siglist[] =
+const char *sys_siglist[] =
   {
     "bum signal!!",
     "hangup",
@@ -3565,7 +3565,7 @@ CONST char *sys_siglist[] =
 
 #ifdef USG
 #ifdef AIX
-CONST char *sys_siglist[NSIG + 1] =
+const char *sys_siglist[NSIG + 1] =
   {
     /* AIX has changed the signals a bit */
     DEFER_GETTEXT ("bogus signal"),			/* 0 */
@@ -3605,7 +3605,7 @@ CONST char *sys_siglist[NSIG + 1] =
     0
   };
 #else /* USG, not AIX */
-CONST char *sys_siglist[NSIG + 1] =
+const char *sys_siglist[NSIG + 1] =
   {
     DEFER_GETTEXT ("bogus signal"),			/* 0 */
     DEFER_GETTEXT ("hangup"),				/* 1  SIGHUP */
@@ -3654,7 +3654,7 @@ CONST char *sys_siglist[NSIG + 1] =
 #endif /* not AIX */
 #endif /* USG */
 #ifdef DGUX
-CONST char *sys_siglist[NSIG + 1] =
+const char *sys_siglist[NSIG + 1] =
   {
     DEFER_GETTEXT ("null signal"),			 /*  0 SIGNULL   */
     DEFER_GETTEXT ("hangup"),				 /*  1 SIGHUP    */
@@ -3759,7 +3759,7 @@ closedir (DIR *dirp)  /* stream from opendir */
 #ifdef NONSYSTEM_DIR_LIBRARY
 
 DIR *
-opendir (CONST char *filename)	/* name of directory */
+opendir (const char *filename)	/* name of directory */
 {
   DIR *dirp;		/* -> malloc'ed storage */
   int fd;		/* file descriptor for read */
@@ -3861,7 +3861,7 @@ readdir (DIR *dirp)	/* stream from opendir */
 MKDIR_PROTOTYPE
 #else
 int
-mkdir (CONST char *dpath, int dmode)
+mkdir (const char *dpath, int dmode)
 #endif
 {
   int cpid, status, fd;
@@ -3921,7 +3921,7 @@ mkdir (CONST char *dpath, int dmode)
 
 #ifndef HAVE_RMDIR
 int
-rmdir (CONST char *dpath)
+rmdir (const char *dpath)
 {
   int cpid, status, fd;
   struct stat statbuf;

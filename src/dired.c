@@ -711,7 +711,7 @@ user_name_completion (Lisp_Object user, int all_flag, int *uniq)
 
 
 Lisp_Object
-make_directory_hash_table (CONST char *path)
+make_directory_hash_table (const char *path)
 {
   DIR *d;
   if ((d = opendir (path)))

@@ -157,7 +157,7 @@ Dynarr_resize (void *d, int size)
 
 /* Add a number of contiguous elements to the array starting at START. */
 void
-Dynarr_insert_many (void *d, CONST void *el, int len, int start)
+Dynarr_insert_many (void *d, const void *el, int len, int start)
 {
   Dynarr *dy = (Dynarr *) d;
 

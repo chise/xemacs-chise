@@ -148,7 +148,7 @@ DECLARE_LRECORD (font_instance, Lisp_Font_Instance);
 
 #ifdef MULE
 int font_spec_matches_charset (struct device *d, Lisp_Object charset,
-			       CONST Bufbyte *nonreloc,
+			       const Bufbyte *nonreloc,
 			       Lisp_Object reloc, Bytecount offset,
 			       Bytecount length);
 #endif

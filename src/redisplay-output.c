@@ -1161,8 +1161,13 @@ redisplay_output_subwindow (struct window *w,
   Lisp_Object window;
   struct display_glyph_area sdga;
 
-  dga->height = IMAGE_INSTANCE_SUBWINDOW_HEIGHT (p);
-  dga->width = IMAGE_INSTANCE_SUBWINDOW_WIDTH (p);
+  dga->height = IMAGE_INSTANCE_HEIGHT (p);
+  dga->width = IMAGE_INSTANCE_WIDTH (p);
+
+  /* The first thing we are going to do is update the display
+     characteristics of the subwindow. This also clears the dirty
+     flags as a side effect. */
+  update_subwindow (image_instance);
 
   /* This makes the glyph area fit into the display area. */
   if (!redisplay_normalize_glyph_area (db, dga))
@@ -1187,8 +1192,8 @@ redisplay_output_subwindow (struct window *w,
      cases.*/
   sdga.xoffset = -dga->xoffset;
   sdga.yoffset = -dga->yoffset;
-  sdga.height = IMAGE_INSTANCE_SUBWINDOW_HEIGHT (p);
-  sdga.width = IMAGE_INSTANCE_SUBWINDOW_WIDTH (p);
+  sdga.height = IMAGE_INSTANCE_HEIGHT (p);
+  sdga.width = IMAGE_INSTANCE_WIDTH (p);
 
   if (redisplay_display_boxes_in_window_p (w, db, &sdga) < 0)
     {
@@ -1206,6 +1211,24 @@ redisplay_output_subwindow (struct window *w,
  redisplay_output_layout
 
  Output a widget hierarchy. This can safely call itself recursively.
+
+ The complexity of outputting layouts is deciding whether to do it or
+ not. Consider a layout enclosing some text, the text changes and is
+ marked as dirty, but the enclosing layout has not been marked as
+ dirty so no updates occur and the text will potentially be truncated.
+ Alternatively we hold a back pointer in the image instance to the
+ parent and mark the parent as dirty. But the layout code assumes that
+ if the layout is dirty then the whole layout should be redisplayed,
+ so we then get lots of flashing even though only the text has changed
+ size. Of course if the text shrinks in size then we do actually need
+ to redisplay the layout to repaint the exposed area. So what happens
+ if we make a non-structural change like changing color? Either we
+ redisplay everything, or we redisplay nothing. These are exactly the
+ issues lwlib has to grapple with. We really need to know what has
+ actually changed and make a layout decision based on that. We also
+ really need to know what has changed so that we can only make the
+ neccessary changes in update_subwindow.  This has all now been
+ implemented, Viva la revolution!
  ****************************************************************************/
 void
 redisplay_output_layout (struct window *w,
@@ -1246,7 +1269,11 @@ redisplay_output_layout (struct window *w,
 
   /* Highly dodgy optimization. We want to only output the whole
      layout if we really have to. */
-  if (frame_really_changed || IMAGE_INSTANCE_DIRTYP (p))
+  if (frame_really_changed 
+      || IMAGE_INSTANCE_LAYOUT_CHANGED (p)
+      || IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p)
+      || IMAGE_INSTANCE_SIZE_CHANGED (p)
+      || IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
     {
       /* First clear the area we are drawing into. This is the easiest
 	 thing to do since we have many gaps that we have to make sure are
@@ -1410,6 +1437,11 @@ redisplay_output_layout (struct window *w,
 	    }
 	}
     }
+  
+  /* Update any display properties. I'm not sure whether this actually
+     does anything for layouts except clear the changed flags. */
+  update_subwindow (image_instance);
+
   Dynarr_free (buf);
 }
 

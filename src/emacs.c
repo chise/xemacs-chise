@@ -171,7 +171,7 @@ int display_arg;
 /* Type of display specified.  We cannot use a Lisp symbol here because
    Lisp symbols may not initialized at the time that we set this
    variable. */
-CONST char *display_use;
+const char *display_use;
 
 /* If non-zero, then the early error handler will only print the error
    message and exit. */
@@ -256,7 +256,7 @@ fatal_error_signal (int sig)
 # if 0	/* This is evil, rarely useful, and causes grief in some cases. */
       /* Check for Sun-style stack printing via /proc */
       {
-        CONST char *pstack = "/usr/proc/bin/pstack";
+        const char *pstack = "/usr/proc/bin/pstack";
         if (access (pstack, X_OK) == 0)
           {
             char buf[100];
@@ -275,7 +275,7 @@ fatal_error_signal (int sig)
 
 
 DOESNT_RETURN
-fatal (CONST char *fmt, ...)
+fatal (const char *fmt, ...)
 {
   va_list args;
   va_start (args, fmt);
@@ -300,7 +300,7 @@ fatal (CONST char *fmt, ...)
    GETTEXT on the format string. */
 
 int
-stderr_out (CONST char *fmt, ...)
+stderr_out (const char *fmt, ...)
 {
   int retval;
   va_list args;
@@ -317,7 +317,7 @@ stderr_out (CONST char *fmt, ...)
    GETTEXT on the format string. */
 
 int
-stdout_out (CONST char *fmt, ...)
+stdout_out (const char *fmt, ...)
 {
   int retval;
   va_list args;
@@ -398,7 +398,7 @@ make_argc_argv (Lisp_Object argv_list, int *argc, char ***argv)
 
   for (i = 0, next = argv_list; i < n; i++, next = XCDR (next))
     {
-      CONST char *temp;
+      const char *temp;
       CHECK_STRING (XCAR (next));
 
       TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (next),
@@ -1903,8 +1903,8 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 struct standard_args
 {
-  CONST char * CONST name;
-  CONST char * CONST longname;
+  const char * const name;
+  const char * const longname;
   int priority;
   int nargs;
 };
@@ -2143,11 +2143,11 @@ Do not call this.  It will reinitialize your XEmacs.  You'll be sorry.
      (int nargs, Lisp_Object *args))
 {
   int ac;
-  CONST Extbyte *wampum;
+  const Extbyte *wampum;
   int namesize;
   int total_len;
   Lisp_Object orig_invoc_name = Fcar (Vcommand_line_args);
-  CONST Extbyte **wampum_all = alloca_array (CONST Extbyte *, nargs);
+  const Extbyte **wampum_all = alloca_array (const Extbyte *, nargs);
   int *wampum_all_len  = alloca_array (int, nargs);
 
   assert (!gc_in_progress);
@@ -2482,7 +2482,7 @@ shut_down_emacs (int sig, Lisp_Object stuff)
 	 "\n"
 	 "  gdb ");
       {
-	CONST char *name;
+	const char *name;
 	char *dir = 0;
 
 	/* Now try to determine the actual path to the executable,
@@ -2699,15 +2699,15 @@ and announce itself normally when it is run.
 /* Split STRING into a list of substrings.  The substrings are the
    parts of original STRING separated by SEPCHAR.  */
 static Lisp_Object
-split_string_by_emchar_1 (CONST Bufbyte *string, Bytecount size,
+split_string_by_emchar_1 (const Bufbyte *string, Bytecount size,
 			  Emchar sepchar)
 {
   Lisp_Object result = Qnil;
-  CONST Bufbyte *end = string + size;
+  const Bufbyte *end = string + size;
 
   while (1)
     {
-      CONST Bufbyte *p = string;
+      const Bufbyte *p = string;
       while (p < end)
 	{
 	  if (charptr_emchar (p) == sepchar)
@@ -2730,7 +2730,7 @@ split_string_by_emchar_1 (CONST Bufbyte *string, Bytecount size,
    converted using Qfile_name), and sepchar is hardcoded to SEPCHAR
    (':' or whatever).  */
 Lisp_Object
-decode_path (CONST char *path)
+decode_path (const char *path)
 {
   Bytecount newlen;
   Bufbyte *newpath;
@@ -2750,9 +2750,9 @@ decode_path (CONST char *path)
 }
 
 Lisp_Object
-decode_env_path (CONST char *evarname, CONST char *default_)
+decode_env_path (const char *evarname, const char *default_)
 {
-  CONST char *path = 0;
+  const char *path = 0;
   if (evarname)
     path = egetenv (evarname);
   if (!path)
@@ -2815,7 +2815,7 @@ Non-nil return value means XEmacs is running without interactive terminal.
 /* This highly dubious kludge ... shut up Jamie, I'm tired of your slagging. */
 
 DOESNT_RETURN
-assert_failed (CONST char *file, int line, CONST char *expr)
+assert_failed (const char *file, int line, const char *expr)
 {
   stderr_out ("Fatal error: assertion failed, file %s, line %d, %s\n",
 	      file, line, expr);

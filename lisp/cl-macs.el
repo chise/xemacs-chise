@@ -2747,6 +2747,9 @@ surrounded by (block NAME ...)."
 (define-compiler-macro get* (sym prop &optional default)
   (list 'get sym prop default))
 
+(define-compiler-macro getf (sym prop &optional default)
+  (list 'plist-get sym prop default))
+
 (define-compiler-macro typep (&whole form val type)
   (if (cl-const-expr-p type)
       (let ((res (cl-make-type-test val (cl-const-expr-val type))))

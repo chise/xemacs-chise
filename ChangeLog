@@ -1,8 +1,48 @@
+2000-02-16  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.29 is released.
+
+2000-02-16  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Don't use rel_alloc if malloc() calls mmap().
+	Discover this by looking for M_MMAP_THRESHOLD.
+
+	* configure.in: Don't define POSIX_C_SOURCE on Solaris, due to
+	bugs in (at least) Solaris 2.5 headers.
+
+2000-01-29  Craig Lanning  <CraigL@DyCon.com>
+
+	* configure.in: Fix detection of XPM on systems without X11.
+
+2000-02-11  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: 
+	* src/config.h.in:
+	Define _POSIX_C_SOURCE, _XOPEN_SOURCE, _XOPEN_SOURCE_EXTENDED,
+	but only on tested Operating systems - Linux && SunOS >= 5.5.
+
+2000-02-09  Valdis Kletnieks  <Valdis.Kletnieks@vt.edu>
+
+	* aclocal.m4: Support dlls on aix[34].
+
+2000-02-09  Martin Buchholz  <martin@xemacs.org>
+
+	* .cvsignore: Ignore gmon.out
+
+2000-02-08  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Sync Berkeley db autodetection with src/database.c
+
+2000-02-07  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: check for XConvertCase.
+
 2000-02-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.28 is released.
 
 2000-01-27  URA Hiroshi <ura@hiru.aoba.yokohama.jp>
+
 	* configure.in: added getaddrinfo and getnameinfo to AC_FUNC.
 
 2000-01-26  Martin Buchholz  <martin@xemacs.org>

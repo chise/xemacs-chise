@@ -1,3 +1,11 @@
+2000-02-16  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.29 is released.
+
+2000-02-13  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/lisp-tests.el: Add subseq tests.
+
 2000-02-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.28 is released.
