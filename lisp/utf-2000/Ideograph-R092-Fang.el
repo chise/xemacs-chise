@@ -12,6 +12,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=gb2312		. #x5140)	; ø»…ƒ
+    (=iso-ir165		. #x5140)	; ø»µ“
     (=big5		. #xA4FA)	; ý¢€Š“º
     (=ucs		. #x7259)	; ç‰™
     ))

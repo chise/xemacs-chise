@@ -5,6 +5,7 @@
     (shinjigen-2	. 4717)
     (=gb2312		. #x635D)	; ø»…§¼
     (=jis-x0208		. #x602D)	; ø½‹’ª
+    (=iso-ir165		. #x635D)	; ø»ŽŒ
     (=gt-pj-1		. #x602D)	; ý¡€†ŒŸ
     (=big5		. #xC962)	; ý¢€Œ¥¢
     (=daikanwa		. 19758)	; ø¸„´®
