@@ -97,9 +97,8 @@ Window-system options:
 --with-xface (*)	Compile with support for X-Face mail header
 	  		conversion.  Requires the compface library.
 			Get it from the XEmacs FTP site.
---with-gif (*)		Compile with support for GIF image conversion.
-			Requires GifLib 3.1 or greater.  Get it from
-			the XEmacs FTP site.
+--without-gif		Compile without the built-in support for GIF image
+			conversion.
 --with-jpeg (*)		Compile with support for JPEG image conversion.
 			Requires libjpeg from the Independent JPEG Group.
 			Get it from the XEmacs FTP site.

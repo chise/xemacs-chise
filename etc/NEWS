@@ -32,8 +32,32 @@ file.
 
 * Changes in XEmacs 21.2
 ========================
-None yet.
 
+*** You can now create an "indirect buffer", like in GNU Emacs.  An
+indirect buffer shares its text with another buffer ("base buffer"),
+but has its own major mode, local variables, extents, and narrowing.
+An indirect buffer has a name of its own, distinct from those of the
+base buffer and all other buffers.  An indirect buffer cannot itself
+be visiting a file (though its base buffer can be).  The base buffer
+cannot itself be indirect.
+
+Use (make-indirect-buffer BASE-BUFFER NAME) to make an indirect buffer
+named NAME whose base is BASE-BUFFER.  If BASE-BUFFER is an indirect
+buffer, its base buffer is used as the base for the new buffer.
+
+You can make an indirect buffer current, or switch to it in a window,
+just as you would a non-indirect buffer.
+
+The function `buffer-base-buffer', given an indirect buffer, returns
+its base buffer.  It returns nil when given an ordinary buffer (not
+indirect).  `buffer-indirect-children' returns a list of the indirect
+children of a base buffer.
+
+#### The library `noutline' has versions of Outline mode and Outline
+minor mode which let you display different parts of the outline in
+different indirect buffers.
+
+
 * Changes in XEmacs 21.0
 ========================
 

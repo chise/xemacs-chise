@@ -1,3 +1,86 @@
+1998-09-29  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta2 is released.
+
+1998-09-09  Gunnar Evermann  <Gunnar.Evermann@nats.informatik.uni-hamburg.de>
+
+	* lwlib/xlwmenu.c:
+	* lwlib/xlwscrollbar: fix for Motif >=2.0
+	Patch provided by Glenn Barry <gtb@eng.sun.com>
+
+	* PROBLEMS: XEmacs 21.0 now works on HP-UX 11.0
+
+1998-09-02  Andy Piper  <andyp@parallax.co.uk>
+
+	* configure.in: check for cygwin32/version.h.
+
+1998-08-31  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* PROBLEMS: Added AIX 4.3 note.
+
+	* configure.in: Better detection of AIX 4.3.
+	AIX xlc can do -g and -Ox at the same time.
+
+1998-09-05  SL Baur  <steve@altair.xemacs.org>
+
+	* etc/check_cygwin_setup.sh: grammar fix.
+
+1998-09-02  Andy Piper  <andyp@parallax.co.uk>
+
+	* etc/check_cygwin_setup.sh: fix a couple of buglets.
+
+1998-08-23  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* etc/sample.emacs: Enable sound support on mswindows devices.
+
+1998-08-17  P. E. Jareth Hein  <jareth@camelot.co.jp>
+
+	* configure.in: Alter configure so that it checks for mismatched PNG
+	header/libs, screams a little louder on old/mismatched library
+	conditions for both PNG and XPM, stop screaming if png is not found and
+	no window-system is selected, and fixed a bug in the XPM checking.
+
+1998-08-06  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* etc/TUTORIAL.de: Fixing typos and grammatical errors.  Fixing
+	inconsistent usage of RET, <Return>, and <return> (only using
+	<Return> now).  Changing TUTORIAL to TUTORIAL.de throughout
+	itself.  Adding english equivalent to german translation of all
+	concepts used in TUTORIAL.de.
+
+1998-08-07  P. E. Jareth Hein  <jareth@camelot.co.jp>
+
+	* configure.usage (--without-gif): Modify text to reflect status
+	of GIF support
+
+1998-08-04  P. E. Jareth Hein  <jareth@camelot.co.jp>
+
+	* configure.in: add back in the support for the in-core GIF
+	code, change the required PNG library version to 1.0.2, and add
+	a warning if PNG not found, since PNG images are now distributed
+	as part of the core.  Also minor wording changes in things reported
+	to the user.
+
+1998-07-28  Kai Haberzettl  <khaberz@synnet.de>
+
+	* BETA: Update mailing-list address for build-reports
+
+1998-08-01  SL Baur  <steve@altair.xemacs.org>
+
+	* Makefile.in (TAGS tags): Add variable `tagslisp' so a TAGS file
+	can built that includes package lisp.
+
+1998-07-23  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in:
+	- support multiple flavors of alpha, (XEmacs treats them identically)
+	- Fix AC_TRY_RUN so that actions have access to $?
+	- Identify DEC C compilers. Add default optimization CFLAGS and
+	  always use -std.
+	- Use an extensible method for adding support for future compilers.
+	- Have SunPro C use that same extensible method.
+	- Make sol2 always use `-R', Linux and DEC OSF always use `-rpath'
+
 1998-07-19  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta1 is released.

@@ -79,11 +79,12 @@ define([AC_TRY_RUN_NATIVE],
 #include "confdefs.h"
 [$1]
 EOF
-if AC_TRY_EVAL(ac_link) && test -s conftest && (./conftest; exit) 2>&AC_FD_CC
+if AC_TRY_EVAL(ac_link) && test -s conftest && (./conftest; exit $?) 2>&AC_FD_CC
 then
 dnl Do not remove the temporary files here, so they can be examined.
   ifelse([$2], , :, [$2])
 else
+  conftest_rc="$?"
   echo "configure: failed program was:" >&AC_FD_CC
   cat conftest.$ac_ext >&AC_FD_CC
 ifelse([$3], , , [  rm -fr conftest*
@@ -1019,7 +1020,7 @@ machine='' opsys=''
 dnl Straightforward machine determination
 case "$canonical" in
   sparc-*-*        ) machine=sparc ;;
-  alpha-*-*        ) machine=alpha ;;
+  alpha*-*-*       ) machine=alpha ;;
   vax-*-*          ) machine=vax ;;
   mips-dec-*       ) machine=pmax ;;
   mips-sgi-*       ) machine=iris4d ;;
@@ -1058,9 +1059,9 @@ case "$canonical" in
   *-*-aix3.1*  ) opsys=aix3-1	;;
   *-*-aix3.2.5 ) opsys=aix3-2-5	;;
   *-*-aix3*    ) opsys=aix3-2	;;
-  *-*-aix4.2*  ) opsys=aix4-2	;;
+  *-*-aix4.0*  ) opsys=aix4	;;
   *-*-aix4.1*  ) opsys=aix4-1	;;
-  *-*-aix4*    ) opsys=aix4	;;
+  *-*-aix4*    ) opsys=aix4-2	;;
 
   dnl Other generic OSes
   *-gnu* )			opsys=gnu    ;;
@@ -1594,13 +1595,24 @@ dnl I'm tired of pop being broken with GLIBC -slb
 dnl Well. then why not fix fucking pop?
 test "$have_glibc" = "yes" && AC_DEFINE(_GNU_SOURCE)
 
-AC_MSG_CHECKING(whether we are using SunPro C)
-AC_TRY_COMPILE([],[#ifndef __SUNPRO_C
-#error Not a  SunPro compiler :-(
-******* ======= ******** &&&&&&&&
+
+dnl Identify compilers to enable compiler-specific hacks.
+dnl Add support for other compilers HERE!
+dnl GCC is already identified elsewhere.
+AC_TRY_RUN([int main () {
+#if defined __SUNPRO_C
+return 11;
+#elif defined __DECC
+return 12;
+#else
+return 0;
 #endif
-], __sunpro_c=yes, __sunpro_c=no)
-AC_MSG_RESULT($__sunpro_c)
+}], [],
+[case "$conftest_rc" in
+  11) echo "You appear to be using the SunPro C compiler."; __SUNPRO_C=yes ;;
+  12) echo "You appear to be using the DEC C compiler."   ; __DECC=yes ;;
+esac])
+
 
 dnl case "$canonical" in
 dnl   *-sun-sunos* ) test "$CPP" = "acc -E" && CPP="acc -E -Xs" ;;
@@ -1726,6 +1738,10 @@ test "$extra_verbose" = "yes" && \
 dnl Non-ordinary link usually requires -lc
 test "$ordinary_link" = "no" -a -z "$libs_standard" && libs_standard="-lc"
 
+dnl Compiler-specific hacks
+dnl DEC C requires -std
+test "$__DECC" = "yes" && XE_APPEND(-std, c_switch_site)
+
 dnl Calculalate value of CFLAGS:
 dnl Use either command line flag, environment var, or autodetection
 if test "$cflags_specified" = "no"; then
@@ -1739,15 +1755,17 @@ if test "$cflags_specified" = "no"; then
     dnl cygwin can't cope with -O3
     test "$opsys $machine" = "cygwin32 intel386" && \
       CFLAGS="-g -O2 -Wall -Wno-switch"
-  elif test "$__sunpro_c" = "yes"; then
+  elif test "$__SUNPRO_C" = "yes"; then
     case "$opsys" in
       sol2    ) CFLAGS="-v -xO4" ;;
       sunos4* ) CFLAGS="-xO2";;
     esac
+  elif test "$__DECC" = "yes"; then
+    CFLAGS="-O3"
   elif test "$CC" = "xlc"; then
-    CFLAGS="-O3 -qstrict -qnoansialias -qlibansi -qinfo -qro -qmaxmem=20000"
+    CFLAGS="-g -O3 -qstrict -qnoansialias -qlibansi -qinfo -qro -qmaxmem=20000"
+  dnl ### Add optimal CFLAGS support for other compilers HERE!
   else
-    dnl ### Add tests for other compilers here...
     CFLAGS="-O" ;dnl The only POSIX-approved flag
   fi
 fi
@@ -1889,7 +1907,7 @@ dnl -------------------------------------
 if   test "$dynamic" = "no"; then add_runtime_path=no
 elif test -n "$LD_RUN_PATH"; then add_runtime_path=yes
 else case "$opsys" in
-       sol2 | irix* | *bsd* ) add_runtime_path=yes ;;
+       sol2 | irix* | *bsd* | decosf* ) add_runtime_path=yes ;;
        * ) add_runtime_path=no ;;
      esac
 fi
@@ -1898,14 +1916,19 @@ if test "$add_runtime_path" = "yes"; then
   dnl Try to autodetect runtime library flag (usually -R),
   dnl and whether it works (or at least does no harm)
   AC_MSG_CHECKING("for runtime libraries flag")
-  dash_r=""
-  for try_dash_r in "-R" "-R " "-rpath "; do
-    xe_check_libs="${try_dash_r}/no/such/file-or-directory"
-    XE_PROTECT_LINKER_FLAGS(xe_check_libs)
-    AC_TRY_LINK(, , dash_r="$try_dash_r")
-    xe_check_libs=""
-    test -n "$dash_r" && break
-  done
+  case "$opsys" in
+    sol2 ) dash_r = "-R" ;;
+    decosf* | linux* ) dash_r = "-rpath " ;;
+    *)
+      dash_r=""
+      for try_dash_r in "-R" "-R " "-rpath "; do
+        xe_check_libs="${try_dash_r}/no/such/file-or-directory"
+        XE_PROTECT_LINKER_FLAGS(xe_check_libs)
+        AC_TRY_LINK(, , dash_r="$try_dash_r")
+        xe_check_libs=""
+        test -n "$dash_r" && break
+      done ;;
+  esac
   if test -n "$dash_r";
     then AC_MSG_RESULT("\"${dash_r}\"")
     else AC_MSG_RESULT(NONE)
@@ -2058,7 +2081,7 @@ AC_PROG_YACC
 
 dnl checks for header files
 AC_CHECK_HEADERS(mach/mach.h sys/stropts.h sys/timeb.h sys/time.h unistd.h)
-AC_CHECK_HEADERS(utime.h locale.h libgen.h fcntl.h ulimit.h)
+AC_CHECK_HEADERS(utime.h locale.h libgen.h fcntl.h ulimit.h cygwin32/version.h)
 AC_CHECK_HEADERS(linux/version.h kstat.h sys/pstat.h inttypes.h sys/un.h a.out.h)
 AC_HEADER_SYS_WAIT
 AC_HEADER_STDC
@@ -2280,6 +2303,9 @@ if test "$with_x11" = "yes"; then
       break; dnl Only need ONE X11 implementation !
     fi
   done
+
+  dnl Avoid version mismatch for shared library libXm.so on osf4
+  if test "$GCC" = yes -a -d /usr/shlib; then XE_APPEND(-L/usr/shlib, X_LIBS); fi
 
   ld_switch_x_site="$X_LIBS"
 
@@ -2651,6 +2677,7 @@ if test "$window_system" != "none"; then
   AC_CHECKING(for graphics libraries)
 
   dnl Autodetect Xpm
+  xpm_problem=""
   if test -z "$with_xpm"; then
     AC_MSG_CHECKING(for Xpm - no older than 3.4f)
     xe_check_libs=-lXpm
@@ -2660,22 +2687,22 @@ if test "$window_system" != "none"; then
       XpmIncludeVersion != XpmLibraryVersion() ? 1 :
       XpmIncludeVersion < 30406 ? 2 : 0 ;}],
     [./conftest dummy_arg; xpm_status=$?;
-      if test "$?" = "0"; then
+      if test "$xpm_status" = "0"; then
         with_xpm=yes;
       else
         with_xpm=no;
-        if test "$?" = "1"; then
+        if test "$xpm_status" = "1"; then
           xpm_problem="Xpm library version and header file version don't match!"
-        elif test "$?" = "2"; then
+        elif test "$xpm_status" = "2"; then
           xpm_problem="Xpm library version is too old!"
         else
           xpm_problem="Internal xpm detection logic error!"
         fi
         echo "
-*** WARNING *** $problem
+*** WARNING *** $xpm_problem
   I'm not touching that with a 10-foot pole!
   If you really want to use the installed version of Xpm, rerun
-  configure --with-xpm=yes, but don't blame me if XEmacs crashes!"
+  configure and add '--with-xpm=yes', but don't blame me if XEmacs crashes!"
     fi],
     [with_xpm=no])
     xe_check_libs=
@@ -2696,22 +2723,21 @@ if test "$window_system" != "none"; then
     fi
   fi
 
+  dnl For a brief period we had the GIF code split out into a separate library,
+  dnl but patent problems, etc. sort of squashed that idea.
+  dnl We default to building with builtin GIF decoding
+  if test "$with_gif" != "no"; then
+    with_gif="yes"
+    AC_DEFINE(HAVE_GIF)
+    XE_ADD_OBJS(dgif_lib.o gif_io.o)
+  fi
+
   dnl Too many stupid linkers can't detect cascaded lib dependencies until runtime
   dnl So we always search for libz compression support.
   if test "$with_png $with_tiff" != "no no"; then
     AC_CHECK_LIB(c,  inflate, [:], [
     AC_CHECK_LIB(z,  inflate, [XE_PREPEND(-lz,  libs_x)],[
     AC_CHECK_LIB(gz, inflate, [XE_PREPEND(-lgz, libs_x)])])])
-  fi
-
-  dnl Autodetect GIFlib
-  AC_MSG_CHECKING(for gifreader)
-  test -z "$with_gif" && { AC_CHECK_HEADER(gifrlib.h,        ,with_gif=no) }
-  test -z "$with_gif" && { AC_CHECK_LIB(gifreader, GetGifError,[:] ,with_gif=no) }
-  test -z "$with_gif" && with_gif=yes
-  if test "$with_gif" = "yes"; then
-    AC_DEFINE(HAVE_GIF)
-    XE_PREPEND(-lgifreader, libs_x)
   fi
 
   dnl autodetect JPEG
@@ -2724,18 +2750,38 @@ if test "$window_system" != "none"; then
   fi
 
   dnl autodetect PNG
-  if test -z "$with_png"; then
-    AC_MSG_CHECKING(for png.h - no older than 0.96)
-    AC_EGREP_CPP(yes,
-[#include <png.h>
-#if PNG_LIBPNG_VER >= 96
-yes
-#endif
-], [AC_MSG_RESULT(yes)], [AC_MSG_RESULT(no); with_png=no])
-  fi
+  png_problem=""
   test -z "$with_png" && { AC_CHECK_FUNC(pow,                  ,with_png=no) }
+  test -z "$with_png" && { AC_CHECK_HEADER(png.h,              ,with_png=no) }
   test -z "$with_png" && { AC_CHECK_LIB(png, png_read_image,[:],with_png=no) }
-  test -z "$with_png" && with_png=yes
+  if test -z "$with_png"; then
+    AC_MSG_CHECKING(for workable png version information)
+    xe_check_libs="-lpng -lz"
+    AC_TRY_RUN([#include <png.h>
+    int main(int c, char **v) {
+    if (c == 1) return 0;
+    if (strcmp(png_libpng_ver, PNG_LIBPNG_VER_STRING) != 0) return 1;
+    return (PNG_LIBPNG_VER < 10002) ? 2 : 0 ;}],
+    [./conftest dummy_arg; png_status=$?;
+      if test "$png_status" = "0"; then
+	with_png=yes;
+      else
+	with_png=no;
+	if test "$png_status" = "1"; then
+	  png_problem="PNG library version and header file don't match!"
+        elif test "$png_status" = "2"; then
+	  png_problem="PNG library version too old (pre 1.0.2)!"
+	fi
+	echo "
+*** WARNING *** $png_problem
+  I'm not touching that with a 10-foot pole!
+  If you really want to use the installed version of libPNG, rerun
+  configure and add '--with-png=yes', but don't blame me if XEmacs crashes!"
+    fi],
+    [with_png=no])
+    xe_check_libs=
+    AC_MSG_RESULT($with_png)
+  fi
   if test "$with_png" = "yes"; then
     AC_DEFINE(HAVE_PNG)
     XE_PREPEND(-lpng, libs_x)
@@ -2752,7 +2798,7 @@ yes
 fi
 
 dnl ----------------------
-dnl Graphics libraries
+dnl X-Specific Graphics libraries
 dnl ----------------------
 
 if test "$with_x11" = "yes"; then
@@ -3181,6 +3227,7 @@ int main (int argc, char *argv[])
 esac
 AC_MSG_RESULT($have_mmap)
 test "$have_mmap" = "yes" && AC_DEFINE(HAVE_MMAP)
+AC_FUNC_MMAP
 
 dnl rel_alloc requires either GNU malloc or system malloc with mmap
 dnl We only turn rel_alloc on by default if mmap is available.
@@ -3467,7 +3514,7 @@ typedef uint64_t u_int64_t;
 #include <$path>
 ],[], db_h_path="$path"; break)
   done
-  if test -z "$db_h_path" 
+  if test -z "$db_h_path"
   then AC_MSG_RESULT(no); with_database_berkdb=no
   else AC_MSG_RESULT($db_h_path)
   fi
@@ -3623,7 +3670,7 @@ if test -f $srcdir/src/gdbinit -a ! -f src/gdbinit ; then
 fi
 
 dnl Create top level .sbinit for Sun compilers
-if test "$__sunpro_c" = "yes"; then
+if test "$__SUNPRO_C" = "yes"; then
   echo "creating .sbinit"; echo ""
   ( echo "# For use with Sun WorkShop's Source browser."
     echo "# See sbquery(1) and sbinit(4) for more information"
@@ -3899,15 +3946,31 @@ if test "$with_xpm" = yes; then
 elif test "$with_x11" = yes; then
   echo "  --------------------------------------------------------------------"
   echo "  WARNING: Compiling without XPM support."
-  echo "  WARNING: You should strongly considering installing XPM."
+  if test "$xpm_problem" != ""; then
+    echo "  Reason: $xpm_problem"
+  fi
+  echo "  WARNING: You should strongly consider installing XPM."
   echo "  WARNING: Otherwise toolbars and other graphics will look suboptimal."
+  echo "  WARNING: (a copy may be found in ftp://ftp.xemacs.org/pub/xemacs/aux)"
   echo "  --------------------------------------------------------------------"
 fi
+if test "$with_png" = yes; then
+  echo "  Compiling in support for PNG image handling."
+elif test "$window_system" != "none"; then
+  echo "  --------------------------------------------------------------------"
+  echo "  WARNING: Compiling without PNG image support."
+  if test "$png_problem" != ""; then
+    echo "  Reason: $png_problem"
+  fi
+  echo "  WARNING: You should strongly consider installing the PNG libraries."
+  echo "  WARNING: Otherwise certain images and glyphs may not display."
+  echo "  WARNING: (a copy may be found in ftp://ftp.xemacs.org/pub/xemacs/aux)"
+  echo "  --------------------------------------------------------------------"
+fi
+test "$with_gif"   = yes && echo "  Compiling in support for (builtin) GIF image handling."
+test "$with_jpeg"  = yes && echo "  Compiling in support for JPEG image handling."
+test "$with_tiff"  = yes && echo "  Compiling in support for TIFF image handling."
 test "$with_xface" = yes && echo "  Compiling in support for X-Face message headers."
-test "$with_gif"   = yes && echo "  Compiling in support for GIF image conversion."
-test "$with_jpeg"  = yes && echo "  Compiling in support for JPEG image conversion."
-test "$with_png"   = yes && echo "  Compiling in support for PNG image conversion."
-test "$with_tiff"  = yes && echo "  Compiling in support for TIFF image conversion."
 case "$with_sound" in
   nas    ) echo "  Compiling in network sound (NAS) support." ;;
   native ) echo "  Compiling in native sound support." ;;

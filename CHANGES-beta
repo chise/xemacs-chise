@@ -1,4 +1,16 @@
 							-*- indented-text -*-
+to 21.2 beta2 "Aether"
+-- Synched with 21.0-pre14 "Poitou"
+-- isearch improvements from Hrvoje Niksic
+-- bytecompiler fix from Martin Buccholz
+-- shadow.el speedup from Martin Buchholz
+-- clash detection update from Jan Vroonhof
+-- Indirect buffers from Hrvoje Niksic
+-- ~user completion cleanup from Greg Klanderman
+-- New face property from Didier Verna
+-- ~user completion and fixes from Greg Klanderman
+-- casefiddle.c speedup from Martin Buchholz
+
 to 21.2 beta1 "Aeolus"
 -- Synch with 21.0-pre6
 -- Removal of ancient obsolete symbols courtesy of Altrasoft

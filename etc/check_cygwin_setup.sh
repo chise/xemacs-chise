@@ -23,17 +23,17 @@ fi
 OSversion="`uname -v | sed 's/^\(.\).*$/\1/'`"
 
 shell=`type sh | sed 's/sh is //'`
-distdir=`dirname $shell`
+distdir=`dirname $shell | sed 's!^//\(.\)/\(.*\)!\1:/\2!'`
 
 echo "cygwin installed in $distdir"
 
 echo "checking paths ..."
 
 if [ ! -d "/bin" ]; then
-    echo "You don't have /bin would like to mount cygwin as /bin ?"
+    echo "You don't have a /bin directory.  Would you like to mount cygwin as /bin ?"
     if yorn; then
 	mkdir /bin
-	mount -b /bin $distdir
+	mount -b $distdir /bin
     fi
 elif [ "$distdir" != "/bin" ]; then
     echo "Warning: you have /bin but it's not the cygwin installation."
