@@ -3134,15 +3134,34 @@ add_char_attribute_to_list_mapper (Lisp_Object key, Lisp_Object value,
   return 0;
 }
 
+#ifdef HAVE_LIBCHISE
+static int
+char_attribute_list_reset_map_func (CHISE_DS *ds, unsigned char *name)
+{
+  Fmount_char_attribute_table (intern (name));
+  return 0;
+}
+
+DEFUN ("char-attribute-list", Fchar_attribute_list, 0, 1, 0, /*
+Return the list of all existing character attributes except coded-charsets.
+*/
+       (rehash))
+#else
 DEFUN ("char-attribute-list", Fchar_attribute_list, 0, 0, 0, /*
 Return the list of all existing character attributes except coded-charsets.
 */
        ())
+#endif
 {
   Lisp_Object char_attribute_list = Qnil;
   struct gcpro gcpro1;
   struct char_attribute_list_closure char_attribute_list_closure;
   
+#ifdef HAVE_LIBCHISE
+  if (!NILP (rehash))
+    chise_ds_foreach_char_feature_name
+      (default_chise_data_source, &char_attribute_list_reset_map_func);
+#endif
   GCPRO1 (char_attribute_list);
   char_attribute_list_closure.char_attribute_list = &char_attribute_list;
   elisp_maphash (add_char_attribute_to_list_mapper,
@@ -3406,7 +3425,7 @@ open_chise_data_source_maybe ()
 
       if (NILP (db_dir))
 	db_dir = build_string ("../lib-src");
-      db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+      db_dir = Fexpand_file_name (build_string ("chise-db"), db_dir);
 
       default_chise_data_source
 	= CHISE_DS_open (CHISE_DS_Berkeley_DB, XSTRING_DATA (db_dir),
@@ -3514,7 +3533,7 @@ char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
   if (NILP (db_dir))
     db_dir = build_string ("../lib-src");
 
-  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+  db_dir = Fexpand_file_name (build_string ("chise-db"), db_dir);
   if (writing_mode && NILP (Ffile_exists_p (db_dir)))
     Fmake_directory_internal (db_dir);
 
@@ -3819,7 +3838,7 @@ Load values of ATTRIBUTE into database file.
 
 	GCPRO1 (table);
 #ifdef HAVE_LIBCHISE
-	chise_char_feature_value_iterate
+	chise_feature_foreach_char_with_value
 	  (chise_ds_get_feature (default_chise_data_source,
 				 XSTRING_DATA (Fsymbol_name (cit->name))),
 	   &load_char_attribute_table_map_func);
