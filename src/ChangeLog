@@ -1,3 +1,15 @@
+2001-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fdefine_char): Don't use a CCS property to
+	generate character-id if the CCS property does not have
+	corresponding predefined character.
+	(make_builtin_char): Return -1 if corresponding predefined
+	character is not found.
+	(Fdecode_char): Return nil if corresponding character is not
+	found.
+	(complex_vars_of_mule_charset): Change `ucs-cns' to 256^3-set and
+	don't map to builtin ucs space.
+
 2001-07-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h (MAX_LEADING_BYTE_PRIVATE): Fixed.
