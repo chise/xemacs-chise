@@ -765,10 +765,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (<-radical
-     ((=ucs		  . #x8FB6)	; è¾¶
+     ((=ucs		  . #xFA66)	; ï©¦
       ))
-    (=jis-x0213-2-2000	. #x7969)	; ø»¦Ÿ˜
-    (=big5-cdp		. #x8966)	; ý¢€ˆ¥¦
     (=ucs		. #x2ECC)	; â»Œ
     ))
 (define-char
