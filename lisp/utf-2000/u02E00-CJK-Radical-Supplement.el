@@ -622,9 +622,7 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (=gt-pj-6		. #x3879)	; ý¡€‰¡
     (=daikanwa		. 29237)	; ø¸‡ˆµ
-    (=gt		. 37857)	; ý¡€‰¡
     (=ucs		. #x2EBC)	; âº¼
     ))
 (define-char

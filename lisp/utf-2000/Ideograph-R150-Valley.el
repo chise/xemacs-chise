@@ -6,6 +6,7 @@
     (=gb2312		. #x3948)	; ø»„©»
     (=jis-x0208		. #x432B)	; ø½Š¨‚
     (=ks-x1001		. #x4D5B)	; ø»‰›®
+    (=iso-ir165		. #x3948)	; ø»’‹
     (=cns11643-1	. #x4B47)	; ø»’€®
     (=gt-pj-1		. #x432B)	; ý¡€‹¶©
     (=daikanwa		. 36182)	; ø¸ˆµ–
@@ -432,6 +433,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (=gb2312		. #x3B6D)	; ø»„­œ
+    (=iso-ir165		. #x3B6D)	; ø»•¬
     (=ucs		. #x8C41)	; è±
     ))
 (define-char

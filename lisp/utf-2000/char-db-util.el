@@ -70,7 +70,7 @@
     v))
 
 (defvar char-db-feature-domains
-  '(ucs daikanwa cns gt jis jis/alt jis/a jis/b misc unknown))
+  '(ucs daikanwa cns gt jis jis/alt jis/a jis/b))
 
 (defvar char-db-ignored-attributes nil)
 
