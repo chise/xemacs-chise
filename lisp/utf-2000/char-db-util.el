@@ -220,7 +220,7 @@
 				      required-features)
   (unless column
     (setq column (current-column)))
-  (let (char-spec temp-char)
+  (let (char-spec al cal key temp-char)
     (setq char-spec (char-db-make-char-spec char))
     (unless (or (characterp char) ; char
 		(condition-case nil
@@ -232,10 +232,40 @@
 					 char-spec)))
       (remove-char-attribute temp-char 'ideograph-daikanwa)
       (setq char temp-char))
+    ;; (setq al nil
+    ;;       cal nil)
+    ;; (while char-spec
+    ;;   (setq key (car (car char-spec)))
+    ;;   (unless (memq key char-db-ignored-attributes)
+    ;;     (if (find-charset key)
+    ;;         (if (encode-char char key 'defined-only)
+    ;;             (setq cal (cons key cal)))
+    ;;       (setq al (cons key al))))
+    ;;   (setq char-spec (cdr char-spec)))
+    ;; (unless cal
+    ;;   (setq char-spec (char-db-make-char-spec char))
+    ;;   (while char-spec
+    ;;     (setq key (car (car char-spec)))
+    ;;     (unless (memq key char-db-ignored-attributes)
+    ;;       (if (find-charset key)
+    ;;           (setq cal (cons key cal))
+    ;;         (setq al (cons key al))))
+    ;;     (setq char-spec (cdr char-spec)))
+    ;;   )
+    ;; (unless (or cal
+    ;;             (memq 'ideographic-structure al))
+    ;;   (push 'ideographic-structure al))
+    ;; (dolist (feature required-features)
+    ;;   (if (find-charset feature)
+    ;;       (if (encode-char char feature 'defined-only)
+    ;;           (setq cal (adjoin feature cal)))
+    ;;     (setq al (adjoin feature al))))
     (insert-char-attributes char
 			    readable
-                            (union (mapcar #'car char-spec)
-				   required-features))
+                            ;; (or al 'none) cal
+			    (union (mapcar #'car char-spec)
+				   required-features)
+			    )
     (when temp-char
       ;; undefine temporary character
       ;;   Current implementation is dirty.
@@ -264,8 +294,7 @@
 			     (error nil)))
 		 (progn
 		   (setq al nil
-			 ;; cal nil
-			 )
+			 cal nil)
 		   (while value
 		     (setq key (car (car value)))
                      ;; (if (find-charset key)
@@ -294,8 +323,7 @@
 		   (progn
 		     (setq rest cell
 			   al nil
-			   ;; cal nil
-			   )
+			   cal nil)
 		     (while rest
 		       (setq key (car (car rest)))
                        ;; (if (find-charset key)
@@ -391,6 +419,20 @@
 (defvar char-db-convert-obsolete-format t)
 
 (defun insert-char-attributes (char &optional readable attributes column)
+  (let (atr-d)
+    (setq attributes
+	  (sort (if attributes
+		    (if (consp attributes)
+			(progn
+			  (dolist (name attributes)
+			    (unless (memq name char-db-ignored-attributes)
+			      (push name atr-d)))
+			  atr-d))
+		  (dolist (name (char-attribute-list))
+		    (unless (memq name char-db-ignored-attributes)
+		      (push name atr-d)))
+		  atr-d)
+		#'char-attribute-name<)))
   (unless column
     (setq column (current-column)))
   (let (name value has-long-ccs-name rest
@@ -400,26 +442,7 @@
 	lbs cell separator ret
 	key al cal
 	dest-ccss
-	sources required-features
-	ccss)
-    (let (atr-d)
-      (setq attributes
-	    (sort (if attributes
-		      (if (consp attributes)
-			  (progn
-			    (dolist (name attributes)
-			      (unless (memq name char-db-ignored-attributes)
-				(if (find-charset name)
-				    (push name ccss))
-				(push name atr-d)))
-			    atr-d))
-		    (dolist (name (char-attribute-list))
-		      (unless (memq name char-db-ignored-attributes)
-			(if (find-charset name)
-			    (push name ccss))
-			(push name atr-d)))
-		    atr-d)
-		  #'char-attribute-name<)))
+	sources required-features)
     (insert "(")
     (when (and (memq 'name attributes)
 	       (setq value (get-char-attribute char 'name)))
@@ -909,22 +932,13 @@
                    (if (integerp cell)
 		       (setq cell (decode-char '=ucs cell)))
 		   (cond ((eq name '->subsumptive)
-			  (when (or (not
-				     (some (lambda (atr)
-					     (get-char-attribute cell atr))
-					   char-db-ignored-attributes))
-				    (some (lambda (ccs)
-					    (encode-char cell ccs
-							 'defined-only))
-					  ccss))
-			    (if separator
-				(insert lbs))
-			    (let ((char-db-ignored-attributes
-				   (cons '<-subsumptive
-					 char-db-ignored-attributes)))
-			      (insert-char-attributes cell readable))
-			    (setq separator lbs))
-			  )
+			  (if separator
+			      (insert lbs))
+			  (let ((char-db-ignored-attributes
+				 (cons '<-subsumptive
+				       char-db-ignored-attributes)))
+			    (insert-char-attributes cell readable))
+			  (setq separator lbs))
 			 ((characterp cell)
 			  (setq sources
 				(get-char-attribute

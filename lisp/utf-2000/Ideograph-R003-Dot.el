@@ -115,22 +115,15 @@
     (=daikanwa		. 00096)	; ø¸€ 
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC ITERATION MARK")
-    (script		Ideograph symbol)
-    (general-category	letter modifier) ; Informative Category
-    (bidi-category	. "L")
-    (mirrored		. nil)
+  '((script		Ideograph)
+    (=>ucs		. #x3005)	; ã€…
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (=ucs		. #x3005)	; ã€…
-    (=jis-x0208		. #x2139)	; ø½‰¶”
-    (=gb2312		. #x2129)	; ø»„†Œ
     (=gt		. 00135)	; ý¡€€‚‡
     (=gt-k		. 00282)	; ý¡„€„š
     (=gt-pj-2		. #x306C)	; ý¡€€‚‡
     (=daikanwa		. 00097)	; ø¸€¡
-    (=big5-eten		. #xC6E0)	; ý¢€Œ› 
     (=cbeta		. 02728)	; ø¸ ª¨
     ))
 (define-char
@@ -389,11 +382,10 @@
       (=daikanwa	  . 00059)	; ø¸€€»
       ))
     (<-ancient-ideograph
-     ((ideographic-radical . 198)	; â¿…
-      (=daikanwa	  . 47663)	; ø¸‹¨¯
-      ))
-    (<-ancient-ideograph*sources
-     daikanwa)
+     (:char	((ideographic-radical . 198)	; â¿…
+		 (=daikanwa	     . 47663)	; ø¸‹¨¯
+		 )
+      :sources	(morohashi-daikanwa)))
     (hanyu-dazidian	1 24 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
