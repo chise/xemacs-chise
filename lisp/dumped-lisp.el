@@ -425,6 +425,7 @@
         ;; (when-feature utf-2000 "mojikyo")
 	(when-feature utf-2000 "ad-hoc-cdp")
 	(when-feature utf-2000 "ccs-tcvn5712.el")
+	(when-feature utf-2000 "make-cdbs")
 	(when-feature mule "mule-charset")
 	(when-feature mule "mule-coding")
 	;; All files after this can have extended characters in them.
@@ -541,6 +542,7 @@
 ;;	(when-feature sparcworks "sun-eos-debugger")
 ;;	(when-feature sparcworks "sun-eos-debugger-extra")
 ;;	(when-feature sparcworks "sun-eos-menubar")
+        ;; (when-feature utf-2000 "make-cdbs")
 	"loadhist"		; Must be dumped before loaddefs is loaded
 	"loaddefs"		; <=== autoloads get loaded here
 ))
