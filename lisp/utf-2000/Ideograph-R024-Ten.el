@@ -167,7 +167,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((ucs		  . #x20089)	; ð ‚‰
+     ((name*		  . "ideographic component person for top")
+      (ucs		  . #x20089)	; ð ‚‰
       )
      ((ucs		  . #x5341)	; å
       ))
@@ -884,8 +885,15 @@
     (hanyu-dazidian	1 61 2)
     (chinese-cns11643-6 . #x2976)	; ø»œµ
     (ideograph-daikanwa . 02747)	; ø¸€ª»
-    (chinese-big5-cdp	. #x88DF)	; ý¢€ˆ£Ÿ
     (ucs		. #x2099C)	; ð ¦œ
+    ))
+(define-char
+  '((=>ucs		. #x2099C)	; ð ¦œ
+    (morohashi-daikanwa	2747 0 1)
+    (ideographic-radical . 24)	; â¼—
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (chinese-big5-cdp	. #x88DF)	; ý¢€ˆ£Ÿ
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
@@ -935,7 +943,7 @@
       )
      ((ucs		  . #x5341)	; å
       )
-     ((chinese-big5-cdp	  . #x8D54)	; ý¢€ˆµ”
+     ((ucs		  . #x4E5B)	; ä¹›
       )
      ((ucs		  . #x5934)	; å¤´
       ))
@@ -998,11 +1006,10 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (<-simplified-ideograph
-     (:sources	(morohashi-daikanwa shinjigen-1)
-      :char	((shinjigen-1	     . 1170)
+     (:char	((shinjigen-1	     . 1170)
 		 (ideograph-daikanwa . 03993)	; ø¸€¾™
 		 )
-      ))
+      :sources	(morohashi-daikanwa shinjigen-1)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
@@ -1051,8 +1058,12 @@
   '((ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (<-vulgar-ideograph
+     (:char	((shinjigen-1	     . 1170)
+		 (ideograph-daikanwa . 03993)	; ø¸€¾™
+		 )
+      :sources	(shinjigen-1)))
     (shinjigen-1	. 1171)
-    (vulgar-char-of-shinjigen-1 . 1170)
     (chinese-cns11643-6 . #x3566)	; ø»œ“
     (ideograph-daikanwa . 02756)	; ø¸€«„
     (ucs		. #x209A4)	; ð ¦¤
@@ -1066,7 +1077,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((korean-ksc5601	  . #x6424)	; ø»‰¼©
+     ((=jis-x0208	  . #x3F53)	; ø½Š¢²
+      (korean-ksc5601	  . #x6424)	; ø»‰¼©
       (ideograph-daikanwa . 21648)	; ø¸…’
       )
      ((ucs		  . #x5341)	; å
