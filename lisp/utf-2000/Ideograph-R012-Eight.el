@@ -18,20 +18,27 @@
     (=ucs@big5		. #x516B)	; ø½Š¯™
     ))
 (define-char
-  '((morohashi-daikanwa	1450 0 0)
+  '((=>ucs		. #x516B)	; å…«
+    (morohashi-daikanwa	1450 0 0)
+    (ideographic-radical . 12)	; â¼‹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (shinjigen-1	. 489)
+    (shinjigen-2	. 489)
+    (=cns11643-1	. #x442C)	; ø»‘¶
+    ))
+(define-char
+  '((morohashi-daikanwa	1450 0 1)
     (ideographic-radical . 12)	; â¼‹
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 241 3)
-    (shinjigen-1	. 489)
-    (shinjigen-2	. 489)
     (=ucs		. #x516B)	; å…«
     (=gb2312		. #x304B)	; ø»„œ°
-    (=cns11643-1	. #x442C)	; ø»‘¶
     ))
 (define-char
   '((=>ucs		. #x516B)	; å…«
-    (morohashi-daikanwa	1450 0 1)
+    (morohashi-daikanwa	1450 0 2)
     (ideographic-radical . 12)	; â¼‹
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
