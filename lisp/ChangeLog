@@ -1,6 +1,6 @@
 2003-01-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* mule-coding.el (coded-charset-entity-reference-alist): Add
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
 	settings for `ideograph-hanziku-{1|2}' and JEF-CHINA3.
 
 2003-01-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
