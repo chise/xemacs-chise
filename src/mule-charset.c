@@ -58,11 +58,6 @@ Lisp_Object Vcharset_japanese_jisx0212;
 Lisp_Object Vcharset_chinese_cns11643_1;
 Lisp_Object Vcharset_chinese_cns11643_2;
 #ifdef UTF2000
-Lisp_Object Vcharset_chinese_cns11643_3;
-Lisp_Object Vcharset_chinese_cns11643_4;
-Lisp_Object Vcharset_chinese_cns11643_5;
-Lisp_Object Vcharset_chinese_cns11643_6;
-Lisp_Object Vcharset_chinese_cns11643_7;
 Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
@@ -994,11 +989,6 @@ Lisp_Object Qascii,
   Qchinese_cns11643_1,
   Qchinese_cns11643_2,
 #ifdef UTF2000
-  Qchinese_cns11643_3,
-  Qchinese_cns11643_4,
-  Qchinese_cns11643_5,
-  Qchinese_cns11643_6,
-  Qchinese_cns11643_7,
   Qucs_bmp,
   Qlatin_viscii_lower,
   Qlatin_viscii_upper,
@@ -1553,14 +1543,14 @@ charset_get_byte1 (Lisp_Object charset, Emchar ch)
 	  if (((d = ch - (MIN_CHAR_94
 			  + (XCHARSET_FINAL (charset) - '0') * 94)) >= 0)
 	      && (d < 94))
-	    return d + 32;
+	    return d + 33;
 	}
       else if (XCHARSET_CHARS (charset) == 96)
 	{
 	  if (((d = ch - (MIN_CHAR_96
 			  + (XCHARSET_FINAL (charset) - '0') * 96)) >= 0)
 	      && (d < 96))
-	    return d + 33;
+	    return d + 32;
 	}
       else
 	return 0;
@@ -1926,8 +1916,7 @@ character set.  Recognized properties are:
   charset = make_charset (id, name, type, columns, graphic,
 			  final, direction, short_name, long_name,
 			  doc_string, registry,
-			  NULL,
-			  0, 0, 0);
+			  NULL, 0, 0, 0);
   if (!NILP (ccl_program))
     XCHARSET_CCL_PROGRAM (charset) = ccl_program;
   return charset;
@@ -1975,8 +1964,15 @@ NEW-NAME is the name of the new charset.  Return the new charset.
   new_charset = make_charset (id, new_name, type, columns,
 			      graphic, final, direction, short_name, long_name,
 			      doc_string, registry,
-			      NULL,
-			      0, 0, 0);
+#ifdef UTF2000
+			      CHARSET_DECODING_TABLE(cs),
+			      CHARSET_UCS_MIN(cs),
+			      CHARSET_UCS_MAX(cs),
+			      CHARSET_CODE_OFFSET(cs)
+#else
+			      NULL, 0, 0, 0
+#endif
+);
 
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = new_charset;
   XCHARSET_REVERSE_DIRECTION_CHARSET (new_charset) = charset;
@@ -2450,11 +2446,6 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
   defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
 #ifdef UTF2000
-  defsymbol (&Qchinese_cns11643_3,	"chinese-cns11643-3");
-  defsymbol (&Qchinese_cns11643_4,	"chinese-cns11643-4");
-  defsymbol (&Qchinese_cns11643_5,	"chinese-cns11643-5");
-  defsymbol (&Qchinese_cns11643_6,	"chinese-cns11643-6");
-  defsymbol (&Qchinese_cns11643_7,	"chinese-cns11643-7");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
   defsymbol (&Qlatin_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qlatin_viscii_upper,	"vietnamese-viscii-upper");
@@ -2778,62 +2769,6 @@ complex_vars_of_mule_charset (void)
 		  build_string (CHINESE_CNS_PLANE_RE("2")),
 		  NULL, 0, 0, 33);
 #ifdef UTF2000
-  staticpro (&Vcharset_chinese_cns11643_3);
-  Vcharset_chinese_cns11643_3 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_3, Qchinese_cns11643_3,
-		  CHARSET_TYPE_94X94, 2, 0, 'I',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("CNS11643-3"),
-		  build_string ("CNS11643-3 (Chinese traditional)"),
-		  build_string
-		  ("CNS 11643 Plane 3 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("3")),
-		  NULL, 0, 0, 33);
-  staticpro (&Vcharset_chinese_cns11643_4);
-  Vcharset_chinese_cns11643_4 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_4, Qchinese_cns11643_4,
-		  CHARSET_TYPE_94X94, 2, 0, 'J',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("CNS11643-4"),
-		  build_string ("CNS11643-4 (Chinese traditional)"),
-		  build_string
-		  ("CNS 11643 Plane 4 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("4")),
-		  NULL, 0, 0, 33);
-  staticpro (&Vcharset_chinese_cns11643_5);
-  Vcharset_chinese_cns11643_5 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_5, Qchinese_cns11643_5,
-		  CHARSET_TYPE_94X94, 2, 0, 'K',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("CNS11643-5"),
-		  build_string ("CNS11643-5 (Chinese traditional)"),
-		  build_string
-		  ("CNS 11643 Plane 5 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("5")),
-		  NULL, 0, 0, 33);
-  staticpro (&Vcharset_chinese_cns11643_6);
-  Vcharset_chinese_cns11643_6 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_6, Qchinese_cns11643_6,
-		  CHARSET_TYPE_94X94, 2, 0, 'L',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("CNS11643-6"),
-		  build_string ("CNS11643-6 (Chinese traditional)"),
-		  build_string
-		  ("CNS 11643 Plane 6 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("6")),
-		  NULL, 0, 0, 33);
-  staticpro (&Vcharset_chinese_cns11643_7);
-  Vcharset_chinese_cns11643_7 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_7, Qchinese_cns11643_7,
-		  CHARSET_TYPE_94X94, 2, 0, 'M',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("CNS11643-7"),
-		  build_string ("CNS11643-7 (Chinese traditional)"),
-		  build_string
-		  ("CNS 11643 Plane 7 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("7")),
-		  NULL, 0, 0, 33);
-  staticpro (&Vcharset_latin_viscii_lower);
   Vcharset_latin_viscii_lower =
     make_charset (LEADING_BYTE_LATIN_VISCII_LOWER, Qlatin_viscii_lower,
 		  CHARSET_TYPE_96, 1, 1, '1',
