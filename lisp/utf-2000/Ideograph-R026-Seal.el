@@ -46,6 +46,14 @@
     ))
 (define-char
   '((ideographic-radical . 26)	; â¼™
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (chinese-gb2312	. #x4E40)	; ø»…ˆ©
+    (chinese-isoir165	. #x4E40)	; ø»°¹
+    (ucs		. #x536B)	; å«
+    ))
+(define-char
+  '((ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (shinjigen-1	. 844)
