@@ -1418,6 +1418,8 @@
     (ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (japanese-jisx0208-1978	. #x7023)	; ø»ƒ°„
+    (japanese-jisx0208		. #x7023)	; ø»ˆ„Œ
     (japanese-jisx0208-1990	. #x7023)	; ø½‹ª€
     (mojikyo			. 054713)	; ý €–¹
     ))
@@ -1921,6 +1923,8 @@
       (ideograph-daikanwa	  . 41874)	; ø¸ŠŽ’
       (ucs			  . #x96AA)	; éšª
       ))
+    (japanese-jisx0208-1978	. #x3831)	; ø»‚ž‚
+    (japanese-jisx0208		. #x3831)	; ø»†²Š
     (japanese-jisx0208-1990	. #x3831)	; ø½Š—¾
     (mojikyo			. 050558)	; ý €Œ•¾
     (ucs			. #x967A)	; é™º
