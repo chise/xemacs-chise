@@ -270,13 +270,9 @@
 (define-char
   '((ideographic-radical . 191)	; â¾¾
     (ideographic-strokes . 14)
-    (ucs		. #x9B2C)	; é¬¬
-    ))
-(define-char
-  '((ideographic-radical . 191)	; â¾¾
-    (ideographic-strokes . 14)
     (total-strokes	 . 24)
     (chinese-cns11643-3 . #x612E)	; ø»–´±
+    (ucs		. #x9B2C)	; é¬¬
     ))
 (define-char
   '((ideographic-radical . 191)	; â¾¾
