@@ -1,3 +1,30 @@
+2001-10-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R003-Dot.el:
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Delete Big5 code points if Big5-CDP code points are defined.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	(U-000225A9): New character; unify BC-87D6.
+	(U+4E3A): Unify BC-89D0.
+	(U-00020082): New character; unify BC-87D5.
+
+2001-10-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Format
+	`hanyu-dazidian-{vol|page|char}'; format `->identical' as a list
+	of char-refs.
+
+2001-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el: Use `=>ucs' instead of `->ucs'.
+	(C6-2F79): Relate to U-00021706.
+	(JX2-2555): Unify U-00021706.
+
+	* Ideograph-R032-Earth.el: Use `=>ucs' instead of `->ucs'.
+	(JX2-2463): Unify U-00021274.
+
 2001-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R037-Big.el: Use `=>ucs' instead of `->ucs'.
