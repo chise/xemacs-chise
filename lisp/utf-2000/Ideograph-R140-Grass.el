@@ -20480,6 +20480,13 @@
 (define-char
   '((ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (=ucs		. #x84E6)	; è“¦
+    (=gb2312		. #x5D6B)	; ø»…Ÿ–
+    ))
+(define-char
+  '((ideographic-radical . 140)	; â¾‹
+    (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=ucs		. #x26DA8)	; ð¦¶¨
     (=cns11643-5	. #x492F)	; ø»š¥ª
