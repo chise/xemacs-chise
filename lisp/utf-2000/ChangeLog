@@ -1,3 +1,15 @@
+2002-07-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R137-Boat.el (JX2-7573): Unify U-00026AB7.
+
+	* Ideograph-R108-Dish.el (JX2-7177): Unify U-00025055.
+
+	* Ideograph-R102-Field.el (J0-6149): Use `ucs-jis' instead of
+	`=>ucs-jis'.
+
+	* Ideograph-R085-Water.el (JX2-6E5C): Add `total-strokes'; unify
+	U-00023D40.
+
 2002-07-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-db-util.el (char-ref-p): Deleted [defined as a builtin
