@@ -1,3 +1,10 @@
+2003-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c: EXFUN `Fmount_char_attribute_table'.
+	(print_chartab_range): Don't define when `UTF2000' is defined.
+	(open_chise_data_source_maybe): Specify 0 instead of DB_HASH for
+	`CHISE_DS_open'.
+
 2003-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fchar_attribute_list): When HAVE_LIBCHISE is defined
