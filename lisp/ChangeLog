@@ -1,3 +1,8 @@
+2000-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* list-mode.el: Call `completion-list-mode' to avoid slowness of
+	the first completion when UTF-2000 is running.
+
 2000-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
