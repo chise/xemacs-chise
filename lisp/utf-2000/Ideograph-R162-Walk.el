@@ -7424,6 +7424,15 @@
     ))
 (define-char
   '((=>ucs		. #x9069)	; é©
+    (morohashi-daikanwa	39076 0 0)
+    (ideographic-radical . 162)	; â¾¡
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (=jef-china3	. #x67E6)	; øº†Ÿ¦
+    (mojikyo		. 058252)	; ý €ŽŽŒ
+    ))
+(define-char
+  '((=>ucs		. #x9069)	; é©
     (morohashi-daikanwa	39076 1)
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 11)
