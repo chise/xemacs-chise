@@ -1,3 +1,31 @@
+2004-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R158-Body.el (U+8EAB): Use `->subsumptive'.
+
+	* Ideograph-R028-Private.el (C6-215D): Use `<-denotational' for
+	U-00020AD7; use `->subsumptive'.
+	(U-0002062F): Use `->subsumptive'; integrate C6-215C; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}@daikanwa' and add
+	`ideographic-radical@cns*sources'.
+	(M-03068): Unify U-00020AD8 and H1-F4EC.
+	(U-00020AD7): Define as an abstract character.
+	(H1-DEEF): Use `<-denotational' for U-00020AD7; map to MH-0045
+	instead of M-03066; unify GT-02288; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}'.
+
+	* Ideograph-R093-Cow.el (U+7262): Use `->subsumptive'.
+	(U+7263): Likewise.
+
+2004-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R016-Table.el (U-0002062F): Use `->subsumptive';
+	integrate C6-215C; use `ideographic-{radical|strokes}@cns' instead
+	of `ideographic-{radical|strokes}@daikanwa' and add
+	`ideographic-radical@cns*sources'.
+	(GT-02288): Add `<-denotational' for U-00020AD7; unify H1-DEEF;
+	use `ideographic-{radical|strokes}@{ucs|daikanwa}'.
+
 2004-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R145-Clothes.el (U+88D7): Define as an abstract
