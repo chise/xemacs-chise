@@ -1,4 +1,40 @@
+2004-08-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96B9): Use
+	`->subsumptive'.
+	(U+96CD): Likewise.
+	(U+5DB2): Copied from Ideograph-R046-Mountain.el.
+	(U-0002F9F4): Use `->subsumptive'.
+	(U+96E2): Use `->subsumptive'.
+
 2004-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R187-Horse.el (U+9A2B): Use `->subsumptive'.
+	(U+4BA3): Likewise.
+
+	* Ideograph-R140-Grass.el (U+449D): Use `->subsumptive'.
+	(U+449E): Likewise.
+	(U+82D7): Changed to abstract character.
+	(C1-5340): Use `<-denotational' for U+82D7.
+	(J0-4944): Likewise.
+	(U+8457): Changed to abstract character.
+	(J0-4378): Use `<-denotational' for U+8457; use `->subsumptive' to
+	integrate C1-6161.
+	(U+FA5F): Use `<-denotational' for U+FA5F; use `->subsumptive'.
+	(U+44F4): Use `->subsumptive'.
+	(U+8511): Likewise.
+	(U+8607): Likewise.
+
+	* Ideograph-R125-Old.el: Add mappings for Big5 code points.
+	(M-28846): Unify U-000264B4.
+	(U-000264C8): New character.
+	(M-28868): Moved into U-000264C8.
+	(U-000264CB): New character.
+	(M-28869): Moved into U-000264CB.
+	(U-000264CD): New character.
+	(M-28870): Moved into U-000264CD.
+
+	* Ideograph-R044-Corpse.el (U+5C6C): Use `->subsumptive'.
 
 	* Ideograph-R149-Speech.el (U+8A00): Use `->subsumptive'.
 
