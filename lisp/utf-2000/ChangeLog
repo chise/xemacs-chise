@@ -1,5 +1,13 @@
 2001-05-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R205-Frog.el (C4-2834): Don't unify with M-24258
+	because it is wrong; unify with M-48258.
+	(M-24258): Move to Ideograph-R112-Stone.el.
+	(U+9EFE): Separate M-48258; unify M051084.
+	(C7-4577): Cancel relation with M-49960.
+	- Resorted; add missing `ideographic-strokes' attributes; use
+	`ideographic-strokes' if each stroke attribute has same value.
+
 	* Ideograph-R206-Tripod.el: Resorted; add missing
 	`ideographic-strokes' attributes; use `ideographic-strokes' if
 	each stroke attribute has same value.
