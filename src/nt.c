@@ -1331,7 +1331,7 @@ fstat (int handle, struct stat *buffer)
   buffer->st_ctime = 0;
   buffer->st_mtime = 0;
   buffer->st_nlink = 0;
-  ret = GetFileInformationByHandle((HANDLE) handle, &lpFileInfo);
+  ret = GetFileInformationByHandle((HANDLE) _get_osfhandle(handle), &lpFileInfo);
   if (!ret)
     {
       return -1;

@@ -77,8 +77,7 @@ struct backtrace *backtrace_list;
   Lisp_Object *PF_av = (av);					\
   switch (ac)							\
     {								\
-    default: abort();						\
-    case 0: rv = PRIMITIVE_FUNCALL_1(PF_fn, PF_av, 0); break;	\
+    default:rv = PRIMITIVE_FUNCALL_1(PF_fn, PF_av, 0); break;	\
     case 1: rv = PRIMITIVE_FUNCALL_1(PF_fn, PF_av, 1); break;	\
     case 2: rv = PRIMITIVE_FUNCALL_1(PF_fn, PF_av, 2); break;	\
     case 3: rv = PRIMITIVE_FUNCALL_1(PF_fn, PF_av, 3); break;	\
@@ -2471,47 +2470,48 @@ signal_quit (void)
 
 
 /* Used in core lisp functions for efficiency */
-void
+Lisp_Object
 signal_void_function_error (Lisp_Object function)
 {
-  Fsignal (Qvoid_function, list1 (function));
+  return Fsignal (Qvoid_function, list1 (function));
 }
 
-static void
+Lisp_Object
 signal_invalid_function_error (Lisp_Object function)
 {
-  Fsignal (Qinvalid_function, list1 (function));
+  return Fsignal (Qinvalid_function, list1 (function));
 }
 
-static void
+Lisp_Object
 signal_wrong_number_of_arguments_error (Lisp_Object function, int nargs)
 {
-  Fsignal (Qwrong_number_of_arguments, list2 (function, make_int (nargs)));
+  return Fsignal (Qwrong_number_of_arguments,
+		  list2 (function, make_int (nargs)));
 }
 
 /* Used in list traversal macros for efficiency. */
-void
+DOESNT_RETURN
 signal_malformed_list_error (Lisp_Object list)
 {
-  Fsignal (Qmalformed_list, list1 (list));
+  signal_error (Qmalformed_list, list1 (list));
 }
 
-void
+DOESNT_RETURN
 signal_malformed_property_list_error (Lisp_Object list)
 {
-  Fsignal (Qmalformed_property_list, list1 (list));
+  signal_error (Qmalformed_property_list, list1 (list));
 }
 
-void
+DOESNT_RETURN
 signal_circular_list_error (Lisp_Object list)
 {
-  Fsignal (Qcircular_list, list1 (list));
+  signal_error (Qcircular_list, list1 (list));
 }
 
-void
+DOESNT_RETURN
 signal_circular_property_list_error (Lisp_Object list)
 {
-  Fsignal (Qcircular_property_list, list1 (list));
+  signal_error (Qcircular_property_list, list1 (list));
 }
 
 /************************************************************************/
@@ -3006,7 +3006,7 @@ Evaluate FORM and return its value.
       else
 	{
 	wrong_number_of_arguments:
-	  signal_wrong_number_of_arguments_error (fun, nargs);
+	  val = signal_wrong_number_of_arguments_error (fun, nargs);
 	}
     }
   else if (COMPILED_FUNCTIONP (fun))
@@ -3094,7 +3094,7 @@ Evaluate FORM and return its value.
   else /* ! (SUBRP (fun) || COMPILED_FUNCTIONP (fun) || CONSP (fun)) */
     {
     invalid_function:
-      signal_invalid_function_error (fun);
+      val = signal_invalid_function_error (fun);
     }
 
   lisp_eval_depth--;
@@ -3169,13 +3169,14 @@ Thus, (funcall 'cons 'x 'y) returns (x . y).
       int max_args = subr->max_args;
       Lisp_Object spacious_args[SUBR_MAX_ARGS];
 
-      if (fun_nargs < subr->min_args)
-	goto wrong_number_of_arguments;
-
       if (fun_nargs == max_args) /* Optimize for the common case */
 	{
 	funcall_subr:
 	  FUNCALL_SUBR (val, subr, fun_args, max_args);
+	}
+      else if (fun_nargs < subr->min_args)
+	{
+	  goto wrong_number_of_arguments;
 	}
       else if (fun_nargs < max_args)
 	{
@@ -3192,8 +3193,7 @@ Thus, (funcall 'cons 'x 'y) returns (x . y).
 	}
       else if (max_args == MANY)
 	{
-	  val = ((Lisp_Object (*) (int, Lisp_Object *)) subr_function (subr))
-	    (fun_nargs, fun_args);
+	  val = SUBR_FUNCTION (subr, MANY) (fun_nargs, fun_args);
 	}
       else if (max_args == UNEVALLED) /* Can't funcall a special form */
 	{
@@ -3202,7 +3202,7 @@ Thus, (funcall 'cons 'x 'y) returns (x . y).
       else
 	{
 	wrong_number_of_arguments:
-	  signal_wrong_number_of_arguments_error (fun, fun_nargs);
+	  val = signal_wrong_number_of_arguments_error (fun, fun_nargs);
 	}
     }
   else if (COMPILED_FUNCTIONP (fun))
@@ -3229,12 +3229,12 @@ Thus, (funcall 'cons 'x 'y) returns (x . y).
     }
   else if (UNBOUNDP (fun))
     {
-      signal_void_function_error (args[0]);
+      val = signal_void_function_error (args[0]);
     }
   else
     {
     invalid_function:
-      signal_invalid_function_error (fun);
+      val = signal_invalid_function_error (fun);
     }
 
   lisp_eval_depth--;
@@ -3310,7 +3310,7 @@ function_argcount (Lisp_Object function, int function_min_args_p)
   else
     {
     invalid_function:
-      return Fsignal (Qinvalid_function, list1 (function));
+      return signal_invalid_function_error (function);
     }
 
   {
@@ -3497,10 +3497,10 @@ funcall_lambda (Lisp_Object fun, int nargs, Lisp_Object args[])
   return unbind_to (speccount, Fprogn (body));
 
  wrong_number_of_arguments:
-  return Fsignal (Qwrong_number_of_arguments, list2 (fun, make_int (nargs)));
+  return signal_wrong_number_of_arguments_error (fun, nargs);
 
  invalid_function:
-  return Fsignal (Qinvalid_function, list1 (fun));
+  return signal_invalid_function_error (fun);
 }
 
 

@@ -1,3 +1,11 @@
+1999-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.26 is released.
+
+1999-12-26  Karl M. Hegbloom  <karlheg@inetarena.com>
+
+	* internals/internals.texi (garbage_collect_1): Xemacs -> XEmacs
+
 1999-12-24  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.25 is released.

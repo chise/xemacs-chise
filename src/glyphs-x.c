@@ -2465,7 +2465,7 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   XtSetArg (al [ac], XtNy, &IMAGE_INSTANCE_X_WIDGET_YOFFSET (ii)); ac++;
   XtGetValues (FRAME_X_TEXT_WIDGET (f), al, ac);
 
-  XtMapWidget (wid);
+  XtSetMappedWhenManaged (wid, TRUE);
 
   free_widget_value_tree (wv);
 }

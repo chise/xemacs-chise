@@ -45,37 +45,37 @@ struct debug_classes active_debug_classes;
 
 enum debug_loop
 {
-  ADD,
-  DELETE,
-  LIST,
-  ACTIVE,
-  INIT,
-  VALIDATE,
-  TYPE,
-  SETTYPE
+  X_ADD,
+  X_DELETE,
+  X_LIST,
+  X_ACTIVE,
+  X_INIT,
+  X_VALIDATE,
+  X_TYPE,
+  X_SETTYPE
 };
 
 static Lisp_Object
 xemacs_debug_loop (enum debug_loop op, Lisp_Object class, Lisp_Object type)
 {
-  int flag = (op == ADD) ? 1 : 0;
+  int flag = (op == X_ADD) ? 1 : 0;
   Lisp_Object retval = Qnil;
 
 #define FROB(item)							\
-  if (op == LIST || op == ACTIVE || op == INIT || EQ (class, Q##item))	\
+  if (op == X_LIST || op == X_ACTIVE || op == X_INIT || EQ (class, Q##item))	\
     {									\
-      if (op == ADD || op == DELETE || op == INIT)			\
+      if (op == X_ADD || op == X_DELETE || op == X_INIT)			\
 	active_debug_classes.item = flag;				\
-      else if (op == LIST						\
-	       || (op == ACTIVE && active_debug_classes.item))		\
+      else if (op == X_LIST						\
+	       || (op == X_ACTIVE && active_debug_classes.item))		\
 	retval = Fcons (Q##item, retval);				\
-      else if (op == VALIDATE)						\
+      else if (op == X_VALIDATE)						\
 	return Qt;							\
-      else if (op == SETTYPE)						\
+      else if (op == X_SETTYPE)						\
         active_debug_classes.types_of_##item = XINT (type);		\
-      else if (op == TYPE)						\
+      else if (op == X_TYPE)						\
         retval = make_int (active_debug_classes.types_of_##item);	\
-      if (op == INIT) active_debug_classes.types_of_##item = VALBITS;	\
+      if (op == X_INIT) active_debug_classes.types_of_##item = VALBITS;	\
     }
 
   FROB (redisplay);
@@ -96,12 +96,12 @@ Add a debug class to the list of active classes.
 */
        (class))
 {
-  if (NILP (xemacs_debug_loop (VALIDATE, class, Qnil)))
+  if (NILP (xemacs_debug_loop (X_VALIDATE, class, Qnil)))
     error ("No such debug class exists");
   else
-    xemacs_debug_loop (ADD, class, Qnil);
+    xemacs_debug_loop (X_ADD, class, Qnil);
 
-  return (xemacs_debug_loop (ACTIVE, Qnil, Qnil));
+  return (xemacs_debug_loop (X_ACTIVE, Qnil, Qnil));
 }
 
 DEFUN ("delete-debug-class-to-check", Fdelete_debug_class_to_check, 1, 1, 0, /*
@@ -109,12 +109,12 @@ Delete a debug class from the list of active classes.
 */
        (class))
 {
-  if (NILP (xemacs_debug_loop (VALIDATE, class, Qnil)))
+  if (NILP (xemacs_debug_loop (X_VALIDATE, class, Qnil)))
     error ("No such debug class exists");
   else
-    xemacs_debug_loop (DELETE, class, Qnil);
+    xemacs_debug_loop (X_DELETE, class, Qnil);
 
-  return (xemacs_debug_loop (ACTIVE, Qnil, Qnil));
+  return (xemacs_debug_loop (X_ACTIVE, Qnil, Qnil));
 }
 
 DEFUN ("debug-classes-being-checked", Fdebug_classes_being_checked, 0, 0, 0, /*
@@ -122,7 +122,7 @@ Return a list of active debug classes.
 */
        ())
 {
-  return (xemacs_debug_loop (ACTIVE, Qnil, Qnil));
+  return (xemacs_debug_loop (X_ACTIVE, Qnil, Qnil));
 }
 
 DEFUN ("debug-classes-list", Fdebug_classes_list, 0, 0, 0, /*
@@ -130,7 +130,7 @@ Return a list of all defined debug classes.
 */
        ())
 {
-  return (xemacs_debug_loop (LIST, Qnil, Qnil));
+  return (xemacs_debug_loop (X_LIST, Qnil, Qnil));
 }
 
 DEFUN ("set-debug-classes-to-check", Fset_debug_classes_to_check, 1, 1, 0, /*
@@ -147,14 +147,14 @@ CLASSES should be a list of debug classes.
      valid, reject the entire list without doing anything. */
   LIST_LOOP (rest, classes )
     {
-      if (NILP (xemacs_debug_loop (VALIDATE, XCAR (rest), Qnil)))
+      if (NILP (xemacs_debug_loop (X_VALIDATE, XCAR (rest), Qnil)))
 	error ("Invalid object in class list");
     }
 
   LIST_LOOP (rest, classes)
     Fadd_debug_class_to_check (XCAR (rest));
 
-  return (xemacs_debug_loop (ACTIVE, Qnil, Qnil));
+  return (xemacs_debug_loop (X_ACTIVE, Qnil, Qnil));
 }
 
 DEFUN ("set-debug-class-types-to-check", Fset_debug_class_types_to_check, 2, 2, 0, /*
@@ -165,12 +165,12 @@ Lists of defined types and their values are located in the source code.
        (class, type))
 {
   CHECK_INT (type);
-  if (NILP (xemacs_debug_loop (VALIDATE, class, Qnil)))
+  if (NILP (xemacs_debug_loop (X_VALIDATE, class, Qnil)))
     error ("Invalid debug class");
 
-  xemacs_debug_loop (SETTYPE, class, type);
+  xemacs_debug_loop (X_SETTYPE, class, type);
 
-  return (xemacs_debug_loop (TYPE, class, Qnil));
+  return (xemacs_debug_loop (X_TYPE, class, Qnil));
 }
 
 DEFUN ("debug-types-being-checked", Fdebug_types_being_checked, 1, 1, 0, /*
@@ -178,10 +178,10 @@ For the given CLASS, return the associated type value.
 */
        (class))
 {
-  if (NILP (xemacs_debug_loop (VALIDATE, class, Qnil)))
+  if (NILP (xemacs_debug_loop (X_VALIDATE, class, Qnil)))
     error ("Invalid debug class");
 
-  return (xemacs_debug_loop (TYPE, class, Qnil));
+  return (xemacs_debug_loop (X_TYPE, class, Qnil));
 }
 
 void
@@ -210,7 +210,7 @@ reinit_vars_of_debug (void)
      the flags should be set here.
      All functions called by this function are "allowed" according
      to emacs.c. */
-  xemacs_debug_loop (INIT, Qnil, Qnil);
+  xemacs_debug_loop (X_INIT, Qnil, Qnil);
 }
 
 void
