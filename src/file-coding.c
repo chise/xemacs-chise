@@ -3166,7 +3166,8 @@ Return the UCS code (a positive integer) corresponding to CHARACTER.
 }
 
 /* Decode a UCS-4 character into a buffer.  If the lookup fails, use
-   JIS X 0208 double-width `=' instead.
+   <GETA MARK> (U+3013) of JIS X 0208, which means correct character
+   is not found, instead.
    #### do something more appropriate (use blob?)
         Danger, Will Robinson!  Data loss.  Should we signal user? */
 static void
