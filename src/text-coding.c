@@ -789,6 +789,10 @@ character set.  Recognized properties are:
 		converted to nil when stored internally, and
 		`coding-system-property' will return nil.)
 
+'disable-composition
+     If non-nil, composition/decomposition for combining characters
+     are disabled.
+
 'post-read-conversion
      Function called after a file has been read in, to perform the
      decoding.  Called with two arguments, BEG and END, denoting
