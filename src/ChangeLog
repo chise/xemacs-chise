@@ -1,5 +1,9 @@
 1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c: Update `utf-2000-version' to 0.8 (Kami).
+
+1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* char-ucs.h (MAKE_CHAR): Fix problem in 2-dimension charset.
 
 1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
