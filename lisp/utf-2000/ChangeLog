@@ -1,9 +1,29 @@
+2004-03-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+68A6): Use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
 2004-03-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R040-Roof.el (M-07112): Use `->subsumptive'; use
 	`->same*sources' instead of using char-ref in `->same'.
 
 2004-03-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R212-Dragon.el (U+9F8E): Use `->subsumptive'.
+
+	* Ideograph-R177-Leather.el (U+976D): Use `->same@jiyun' for
+	M-29262 and `->same@zihui' for M-43109 instead of `->same'; use
+	`->subsumptive'.
+	(C3-4024): Moved into U+976D.
+	(J83-3F59): Likewise.
+
+	* Ideograph-R130-Meat.el (U+8095): Use `->subsumptive'.
+	(C2-2474): Moved into U+8095.
+
+	* Ideograph-R124-Feather.el (U+7FFC): Use `->same*sources' instead
+	of char-ref in `->same'.
 
 	* Ideograph-R085-Water.el (M-17428): Use `->same*sources' instead
 	of using char-ref in `->same'; add `->vulgar-ideograph' for
