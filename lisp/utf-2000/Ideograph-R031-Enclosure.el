@@ -906,6 +906,7 @@
   '((=>ucs		. #x3623)	; ã˜£
     (morohashi-daikanwa	4770 0 1)
     (ideographic-radical . 31)	; â¼ž
+    (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (chinese-cns11643-3 . #x3026)	; ø»•¬«
     ))
