@@ -1,3 +1,15 @@
+1999-10-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Vcharacter_attribute_table): New variable.
+	(Fchar_attribute_alist): New function.
+	(Fget_char_attribute): New function.
+	(Fput_char_attribute): New function.
+	(Fset_charset_mapping_table): Setup `Vcharacter_attribute_table'
+	too.
+	(syms_of_mule_charset): Add new function `char-attribute-alist',
+	`get-char-attribute' and `put-char-attribute'.
+	(vars_of_mule_charset): Setup `Vcharacter_attribute_table'.
+
 1999-10-19  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (Fmake_charset): Just use
