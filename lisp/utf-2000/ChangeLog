@@ -1,9 +1,21 @@
 2004-02-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R075-Tree.el (U+672F): Unify JC3-81CB.
+	(U+67A6): Use `->subsumptive'; add JC3-70C9.
+	(U+67CA): Use `->subsumptive'; add JC3-70C7.
+	(U+6962): Unify JC3-70C5.
+	(U+6994): Unify JC3-70C8.
+	(U+69CC): Unify JC3-70C4.
+
+	* Ideograph-R064-Hand.el (U+62D0): Use `->subsumptive'; add
+	JC3-4FBA.
+
 	* Ideograph-R046-Mountain.el (U+5C72): Use `->subsumptive' to add
 	JC3-8EFA.
 
 2004-02-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U+5BBE): Unify JC3-81F7.
 
 	* u03000-CJK-Symbols-and-Punctuation.el (<IDEOGRAPHIC ITERATION
 	MARK>): Unify GT-00135, GT-K00282, M-00097 and CB02728; modify
