@@ -400,6 +400,37 @@ alloc_lcrecord (size_t size, const struct lrecord_implementation *implementation
   return lcheader;
 }
 
+#ifdef UTF2000
+void *
+alloc_older_lcrecord (size_t size,
+		      const struct lrecord_implementation *implementation)
+{
+  struct lcrecord_header *lcheader;
+
+  type_checking_assert
+    ((implementation->static_size == 0 ?
+      implementation->size_in_bytes_method != NULL :
+      implementation->static_size == size)
+     &&
+     (! implementation->basic_p)
+     &&
+     (! (implementation->hash == NULL && implementation->equal != NULL)));
+
+  lcheader = (struct lcrecord_header *) allocate_lisp_storage (size);
+  set_lheader_older_implementation (&lcheader->lheader, implementation);
+  lcheader->next = all_older_lcrecords;
+#if 1                           /* mly prefers to see small ID numbers */
+  lcheader->uid = lrecord_uid_counter++;
+#else				/* jwz prefers to see real addrs */
+  lcheader->uid = (int) &lcheader;
+#endif
+  lcheader->free = 0;
+  all_older_lcrecords = lcheader;
+  INCREMENT_CONS_COUNTER (size, implementation->name);
+  return lcheader;
+}
+#endif
+
 #if 0 /* Presently unused */
 /* Very, very poor man's EGC?
  * This may be slow and thrash pages all over the place.
@@ -2521,7 +2552,11 @@ mark_object (Lisp_Object obj)
 
       /* All c_readonly objects have their mark bit set,
 	 so that we only need to check the mark bit here. */
-      if (! MARKED_RECORD_HEADER_P (lheader))
+      if ( (!MARKED_RECORD_HEADER_P (lheader))
+#ifdef UTF2000
+	   && (!OLDER_RECORD_HEADER_P (lheader))
+#endif
+	   )
 	{
 	  MARK_RECORD_HEADER (lheader);
 
