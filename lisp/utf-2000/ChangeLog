@@ -1,3 +1,12 @@
+2003-02-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* isolated-char.el (GT-56364): New character.
+
+2003-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (M-05571'): New character.
+	(GT-07031): Likewise.
+
 2003-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R053-Dotted-Cliff.el (GT-11901): Rearrangement
@@ -17,6 +26,17 @@
 2003-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-db-util.el (insert-char-data): Don't use `tabify'.
+
+2003-02-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* ideograph-util.el (insert-ideograph-radical-char-data): Fix
+	problem when `char-db-ignored-attributes' is specified.
+
+2003-02-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R031-Enclosure.el (M-04866): Unify GT-06120.
+	(M-04866'): Unify B-F96B and GT-06121.
+	(U+571E): New character.
 
 2003-02-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
