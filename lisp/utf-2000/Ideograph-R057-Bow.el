@@ -936,29 +936,28 @@
     (=hanziku-3		. #xCB5D)	; &I-HZK03-CB5D;
     ))
 (define-char
-  '((=>ucs		. #x5F2D)	; 弭
-    (ideographic-radical . 57)	; ⼸
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (shinjigen-1	. 2281)
-    (shinjigen-2	. 2281)
-    (=jis-x0208-1978	. #x5739)	; &M-09768; [55-25]
-    (=jis-x0208-1983	. #x5739)	; &I-J83-5739; [55-25]
-    (=daikanwa		. 09768)	; &I-M-09768;
-    ))
-(define-char
-  '((morohashi-daikanwa	9768 0 1)
-    (ideographic-radical . 57)	; ⼸
+  '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x5F2D)	; 弭
-    (=gb2312		. #x6574)	; &I-G0-6574; [69-84]
-    (=jis-x0208-1990	. #x5739)	; &I-J90-5739; [55-25]
-    (=cns11643-1	. #x507C)	; &I-C1-507C; [48-92]
     (=big5		. #xABDA)	; &I-B-ABDA;
-    (=gt		. 12319)	; &I-GT-12319;
-    (=gt-k		. 05237)	; &I-GT-K05237;
-    (=gt-pj-1		. #x5739)	; &I-GT-12319; [55-25]
+    (->subsumptive
+     ((shinjigen-1	  . 2281)
+      (shinjigen-2	  . 2281)
+      (=jis-x0208@1978	  . #x5739)	; &GT-12319; [55-25]
+      (=jis-x0208@1983	  . #x5739)	; &I-J83-5739; [55-25]
+      (=gt		  . 12319)	; &I-GT-12319;
+      (=gt-k		  . 05237)	; &I-GT-K05237;
+      (=gt-pj-1		  . #x5739)	; &I-GT-12319; [55-25]
+      (=daikanwa	  . 09768)	; &I-M-09768;
+      )
+     ((=jis-x0208@1990	  . #x5739)	; &J90-5739; [55-25]
+      (=ucs@jis		  . #x5F2D)	; &J90-5739;
+      )
+     ((=gb2312		  . #x6574)	; &C1-507C; [69-84]
+      (=cns11643-1	  . #x507C)	; &I-C1-507C; [48-92]
+      (=ucs@unicode	  . #x5F2D)	; &C1-507C;
+      ))
     ))
 (define-char
   '((=>ucs		. #x5F2E)	; 弮
