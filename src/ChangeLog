@@ -1,5 +1,27 @@
 1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule-charset.c (Vcharset_ideograph_daikanwa): New variable.
+	(Vcharset_hiragana_jisx0208): Deleted.
+	(Vcharset_katakana_jisx0208): Deleted.
+	(Qideograph_daikanwa): New variable.
+	(Qhiragana_jisx0208): Deleted.
+	(Qkatakana_jisx0208): Deleted.
+	(split_builtin_char): Split `ideograph-daikanwa'.
+	(Fsplit_char): New implementation for UTF-2000.
+	(syms_of_mule_charset): Add new symbol `ideograph-daikanwa';
+	delete symbol `hiragana-jisx0208' and `katakana-jisx0208'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`ideograph-daikanwa'; delete coded-charset `hiragana-jisx0208' and
+	`katakana-jisx0208'.
+
+	* char-ucs.h (LEADING_BYTE_DAIKANWA): New macro.
+	(LEADING_BYTE_HIRAGANA_JISX0208): Deleted.
+	(LEADING_BYTE_KATAKANA_JISX0208): Deleted.
+	(MIN_CHAR_DAIKANWA): New macro.
+	(MAX_CHAR_DAIKANWA): New macro.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* data.c (Fstring_to_number): Don't recognize floating point if
 	base is not 10.
 
