@@ -1,3 +1,15 @@
+2003-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (GT-00767): Unify GT-K03991.
+
+	* Ideograph-R001-One.el: Unify some GT-Kddddd numbers.
+	(GT-K00010): Unify U+624D; use `ideographic-' instead of
+	`ideographic-radical' and `ideographic-strokes'.
+	(U+4E0E): Separate B-C94F; unify GT-00023; use `ideographic-'
+	instead of `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'.
+	(U+4E21): Delete relation for BC-8564.
+
 2003-01-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R005-Second.el: Unify some GT-Kddddd numbers.
