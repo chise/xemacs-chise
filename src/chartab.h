@@ -40,6 +40,8 @@ EXFUN (Fdecode_char, 3);
 
 EXFUN (Fput_char_attribute, 3);
 
+EXFUN (Ffind_char, 1);
+
 
 /************************************************************************/
 /*			    Char-ID Tables                              */
