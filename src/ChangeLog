@@ -1,3 +1,20 @@
+2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Delete argument `ccs'.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_table): Modify for `map_over_uint8_byte_table',
+	`map_over_uint16_byte_table' and `map_over_byte_table' in XEmacs
+	UTF-2000.
+
+2001-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (struct map_char_table_for_charset_arg): New
+	structure.
+	(map_char_table_for_charset_fun): New function.
+	(map_char_table): Use `map_char_table' for encoding_table of
+	`range->charset'.
+
 2001-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (map_char_table): Check a character is found in
