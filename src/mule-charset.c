@@ -25,6 +25,9 @@ Boston, MA 02111-1307, USA.  */
 /* Rewritten by MORIOKA Tomohiko <tomo@m17n.org> for XEmacs UTF-2000. */
 
 #include <config.h>
+#ifdef CHISE
+#include <chise.h>
+#endif
 #ifdef UTF2000
 #include <limits.h>
 #endif
@@ -2219,6 +2222,64 @@ Reset mapping-table of CCS with database file.
 Emchar
 load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 {
+#ifdef CHISE
+  Lisp_Object db_dir = Vexec_directory;
+  CHISE_DS ds;
+  CHISE_Decoding_Table *dt_ccs;
+  int modemask;
+  int accessmask = 0;
+  DBTYPE real_subtype;
+  int status;
+  CHISE_Char_ID char_id;
+
+  if (NILP (db_dir))
+    db_dir = build_string ("../lib-src");
+  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+
+  status = chise_open_data_source (&ds, CHISE_DS_Berkeley_DB,
+				   XSTRING_DATA (db_dir));
+  if (status)
+    {
+      chise_close_data_source (&ds);
+      return -1;
+    }
+
+  modemask = 0755;		/* rwxr-xr-x */
+  real_subtype = DB_HASH;
+  accessmask = DB_RDONLY;
+
+  status
+    = chise_open_decoding_table (&dt_ccs, &ds,
+				 XSTRING_DATA (Fsymbol_name
+					       (XCHARSET_NAME(ccs))),
+				 real_subtype,
+				 accessmask, modemask);
+  if (status)
+    {
+      printf ("Can't open decoding-table %s\n",
+	      XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(ccs))));
+      chise_close_decoding_table (dt_ccs);
+      chise_close_data_source (&ds);
+      return -1;
+    }
+
+  char_id = chise_dt_get_char (dt_ccs, code_point);
+  /*
+  printf ("%s's 0x%X (%d) => 0x%X\n",
+	  XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(ccs))),
+	  code_point, code_point, char_id);
+  */
+  if (char_id >= 0)
+    decoding_table_put_char (ccs, code_point, make_char (char_id));
+  else
+    decoding_table_put_char (ccs, code_point, Qnil);
+
+  chise_close_decoding_table (dt_ccs);
+
+  chise_close_data_source (&ds);
+
+  return char_id;
+#else
   Lisp_Object db;
   Lisp_Object db_file
     = char_attribute_system_db_file (XCHARSET_NAME(ccs), Qsystem_char_id,
@@ -2244,6 +2305,7 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
       Fclose_database (db);
     }
   return -1;
+#endif
 }
 #endif /* HAVE_CHISE_CLIENT */
 #endif /* UTF2000 */
