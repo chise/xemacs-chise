@@ -27,12 +27,28 @@
     (total-strokes	 . 8)
     (=ucs		. #x74DD)	; 瓝
     (=big5		. #xCD6E)	; &I-B-CD6E;
+    ))
+(define-char
+  '((ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (<-denotational
+     ((=ucs		  . #x74DD)	; 瓝
+      ))
+    (=daikanwa		. 21372)	; &M-21372;
+    ))
+(define-char
+  '((ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (<-denotational
+     ((=ucs		  . #x74DD)	; 瓝
+      ))
     (->subsumptive
-     ((=daikanwa	  . 21372)	; &M-21372;
-      )
      ((=ucs@unicode	  . #x74DD)	; &UU+74DD;
       )
      ((=cns11643-2	  . #x2830)	; &C2-2830; [08-16]
+      (=ucs@cns		  . #x74DD)	; &C2-2830;
       ))
     ))
 (define-char
@@ -140,6 +156,7 @@
       (=ucs@unicode	  . #x74DE)	; &G0-702C;
       )
      ((=cns11643-2	  . #x307D)	; &C2-307D; [16-93]
+      (=ucs@cns		  . #x74DE)	; &C2-307D;
       ))
     ))
 (define-char
@@ -192,6 +209,7 @@
       (=ucs@jis		  . #x74DF)	; &JSP-4C73;
       )
      ((=cns11643-2	  . #x307E)	; &C2-307E; [16-94]
+      (=ucs@cns		  . #x74DF)	; &C2-307E;
       ))
     ))
 (define-char
@@ -456,9 +474,11 @@
     (=big5		. #xDEBF)	; &I-B-DEBF;
     (->subsumptive
      ((=daikanwa	  . 21404)	; &M-21404;
-      (=ucs@unicode	  . #x74E1)	; &M-21404;
+      )
+     ((=ucs@unicode	  . #x74E1)	; &UU+74E1;
       )
      ((=cns11643-2	  . #x4525)	; &C2-4525; [37-05]
+      (=ucs@cns		  . #x74E1)	; &C2-4525;
       ))
     ))
 (define-char
@@ -466,13 +486,28 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (=ucs		. #x3F10)	; 㼐
+    ))
+(define-char
+  '((ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (<-denotational
+     ((=ucs		  . #x3F10)	; 㼐
+      ))
     (->subsumptive
      ((=daikanwa	  . 21405)	; &M-21405;
       )
      ((=cns11643-4	  . #x4470)	; &C4-4470; [36-80]
-      )
-     ((=ucs@unicode	  . #x3F10)	; &UU+3F10;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (<-denotational
+     ((=ucs		  . #x3F10)	; 㼐
+      ))
+    (=ucs@unicode	. #x3F10)	; &UU+3F10;
     ))
 (define-char
   '((ideographic-radical . 97)	; ⽠
@@ -841,6 +876,7 @@
      ((=ucs@unicode	  . #x74E5)	; &UU+74E5;
       )
      ((=cns11643-2	  . #x7041)	; &C2-7041; [80-33]
+      (=ucs@cns		  . #x74E5)	; &C2-7041;
       ))
     ))
 (define-char
