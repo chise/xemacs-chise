@@ -2,7 +2,6 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
-    (ideograph-cdp	. 185)
     (japanese-jisx0208-1978	. #x5028)	; ø»ƒ‰
     (chinese-gb2312		. #x582F)	; ø»…—„
     (japanese-jisx0208		. #x5028)	; ø»‡•‘
@@ -103,7 +102,6 @@
     (ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (ideograph-cdp	. 186)
     (shinjigen-1	. 45)
     (shinjigen-2	. 45)
     (chinese-isoir165	. #x7A23)	; ø»Ž±„
@@ -125,7 +123,6 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (ideograph-cdp	. 188)
     (shinjigen-1	. 46)
     (shinjigen-2	. 46)
     (japanese-jisx0208-1978	. #x4735)	; ø»‚´ˆ
@@ -208,7 +205,6 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (ideograph-cdp	. 193)
     (shinjigen-1	. 47)
     (shinjigen-2	. 47)
     (japanese-jisx0208-1978	. #x3557)	; ø»‚šŽ
@@ -247,7 +243,6 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (ideograph-cdp	. 189)
     (ideographic-structure
      (:cdp-combinator	2
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -275,7 +270,6 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (ideograph-cdp	. 192)
     (ideographic-structure
      (:cdp-combinator	2
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -409,7 +403,6 @@
     (ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (ideograph-cdp	. 277)
     (chinese-gb2312	. #x562E)	; ø»…”‡
     (chinese-isoir165	. #x562E)	; ø»¼—
     (chinese-cns11643-1 . #x4466)	; ø»‘¶»
@@ -493,7 +486,6 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (ideograph-cdp	. 207)
     (shinjigen-1	. 51)
     (shinjigen-2	. 52)
     (japanese-jisx0208-1978	. #x4663)	; ø»‚³˜
@@ -514,7 +506,6 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (ideograph-cdp	. 215)
     (shinjigen-1	. 50)
     (shinjigen-2	. 51)
     (japanese-jisx0208-1978	. #x3843)	; ø»‚ž”
@@ -574,7 +565,6 @@
     (ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (ideograph-cdp	. 197)
     (ideographic-structure
      (:cdp-combinator	2
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -769,7 +759,6 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
-    (ideograph-cdp	. 224)
     (ideographic-structure
      (:cdp-combinator	2
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -795,7 +784,6 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
-    (ideograph-cdp	. 225)
     (ideographic-structure
      (:cdp-combinator	2
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -897,7 +885,6 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (ideograph-cdp	. 239)
     (shinjigen-1	. 53)
     (shinjigen-2	. 53)
     (japanese-jisx0208-1978	. #x502A)	; ø»ƒ‹
@@ -983,7 +970,6 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
-    (ideograph-cdp	. 255)
     (shinjigen-1	. 55)
     (shinjigen-2	. 55)
     (japanese-jisx0208-1978	. #x502B)	; ø»ƒŒ

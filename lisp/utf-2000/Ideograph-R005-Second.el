@@ -2,7 +2,6 @@
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
-    (ideograph-cdp	. 290)
     (shinjigen-1	. 56)
     (shinjigen-2	. 56)
     (japanese-jisx0208-1978	. #x3235)	; ø»‚•’
@@ -101,7 +100,6 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (ideograph-cdp	. 308)
     (chinese-cns11643-2 . #x2122)	; ø»“Œ¡
     (chinese-big5	. #xC941)	; øº¡¥…
     ))
@@ -109,7 +107,6 @@
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (ideograph-cdp	. 298)
     (shinjigen-1	. 57)
     (shinjigen-2	. 57)
     (japanese-jisx0208-1978	. #x3665)	; ø»‚›º
@@ -156,7 +153,6 @@
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (ideograph-cdp	. 316)
     (ideographic-structure
      (:cdp-combinator	2
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -208,7 +204,6 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (ideograph-cdp	. 314)
     (chinese-cns11643-1 . #x443E)	; ø»‘¶“
     (chinese-big5	. #xA45D)	; øºŸ¢´
     ))
@@ -391,7 +386,6 @@
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
-    (ideograph-cdp	. 347)
     (ideographic-structure
      (:cdp-combinator	1
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -582,7 +576,6 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (ideograph-cdp	. 367)
     (ideographic-structure
      (:cdp-combinator	1
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -834,7 +827,6 @@
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
-    (ideograph-cdp	. 380)
     (ideographic-structure
      (:cdp-combinator	1
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -877,7 +869,6 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
-    (ideograph-cdp	. 384)
     (ideographic-structure
      (:cdp-combinator	4
       )
@@ -1050,7 +1041,6 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
-    (ideograph-cdp	. 390)
     (ideographic-structure
      (:cdp-combinator	1
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1074,7 +1064,6 @@
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
-    (ideograph-cdp	. 391)
     (ideographic-structure
      (:cdp-combinator	1
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1115,7 +1104,6 @@
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
-    (ideograph-cdp	. 388)
     (ideographic-structure
      (:cdp-combinator	1
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
