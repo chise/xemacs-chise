@@ -109,17 +109,18 @@
 ;;;###autoload
 (defun char-ideographic-strokes (char &optional radical preferred-domains)
   (let (ret)
-    (or (char-ideographic-strokes-from-domains
-	 char preferred-domains radical)
-	(char-feature char 'ideographic-strokes)
-	(char-ideographic-strokes-from-domains
-	 char char-db-feature-domains radical)
-	(catch 'tag
+    (or (catch 'tag
 	  (dolist (cell (get-char-attribute char 'ideographic-))
 	    (if (and (setq ret (plist-get cell :radical))
 		     (or (eq ret radical)
 			 (null radical)))
 		(throw 'tag (plist-get cell :strokes)))))
+	(char-ideographic-strokes-from-domains
+	 char preferred-domains radical)
+	(get-char-attribute char 'ideographic-strokes)
+	(char-ideographic-strokes-from-domains
+	 char char-db-feature-domains radical)
+	(char-feature char 'ideographic-strokes)
 	(get-char-attribute char 'daikanwa-strokes)
 	(let ((strokes
 	       (or (get-char-attribute char 'kangxi-strokes)
@@ -167,6 +168,8 @@
 	 (dolist (char (cons chr
 			     (get-char-attribute chr '->denotational)))
 	   (when (and radical
+		      (eq radical
+			  (char-ideographic-radical char radical))
 		      (or (null (setq script
 				      (get-char-attribute char 'script)))
 			  (memq 'Ideograph script)))
@@ -301,18 +304,18 @@
 (defun char-daikanwa (char)
   (or (encode-char char 'ideograph-daikanwa 'defined-only)
       (encode-char char '=daikanwa-rev2 'defined-only)
+      (get-char-attribute char 'morohashi-daikanwa)
       (let ((ret (char-feature char '=>daikanwa)))
 	(and ret
 	     (if (or (get-char-attribute char '<-subsumptive)
 		     (get-char-attribute char '<-denotational))
 		 (list ret 0)
-	       ret)))
-      (get-char-attribute char 'morohashi-daikanwa)))
+	       ret)))))
 
 ;;;###autoload
 (defun char-ucs (char)
   (or (encode-char char '=ucs 'defined-only)
-      (get-char-attribute char '=>ucs)))
+      (char-feature char '=>ucs)))
 
 (defun char-id (char)
   (logand (char-int char) #x3FFFFFFF))
