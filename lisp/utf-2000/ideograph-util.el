@@ -103,18 +103,15 @@
 		  (cons char ret))))
       (setq i (1+ i)))
     (setq i 0)
-    (while (< i 256)
-      (setq j 0)
-      (while (< j 256)
-	(setq char (make-char 'ideograph-daikanwa i j))
-	(if (and (setq radical (char-ideograph-radical char))
-		 (not
-		  (memq char
-			(setq ret
-			      (aref ideograph-radical-chars-vector radical)))))
-	    (aset ideograph-radical-chars-vector radical
-		  (cons char ret)))
-	(setq j (1+ j)))
+    (while (< i 50101)
+      (setq char (decode-char 'ideograph-daikanwa i))
+      (if (and (setq radical (char-ideograph-radical char))
+	       (not
+		(memq char
+		      (setq ret
+			    (aref ideograph-radical-chars-vector radical)))))
+	  (aset ideograph-radical-chars-vector radical
+		(cons char ret)))
       (setq i (1+ i)))
     (while charsets
       (setq i 33)
