@@ -1,3 +1,36 @@
+2004-05-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R177-Leather.el (U+976D): Delete `=>daikanwa'.
+
+	* Ideograph-R009-Man.el (U-00020398): Use `->subsumptive' to
+	integrate M-24898.
+
+	* char-db-util.el (char-db-feature-domains): Add `cdp'.
+	(insert-char-attributes): Don't display `<-same' when running with
+	non-readable mode.
+
+2004-05-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u03100-Bopomofo.el (<BOPOMOFO LETTER K>): Delete
+	`morohashi-daikanwa', `ideographic-radical', `ideographic-strokes'
+	and `total-strokes'.
+	(<BOPOMOFO LETTER C>): Likewise.
+	(<BOPOMOFO LETTER O>): Likewise.
+	(<BOPOMOFO LETTER E>): Likewise.
+	(<BOPOMOFO LETTER U>): Likewise.
+
+	* Ideograph-R012-Eight.el (U+516B): Use `->subsumptive'.
+	(GT-K00059): Use `<-denotational' for U+516B; add
+	`<-ideographic-component-forms' for U+516B.
+
+	* Ideograph-R003-Dot.el (U+4E3E): Modify `ideographic-structure'.
+
+	* Ideograph-R104-Sickness.el (U+7613): Use `->subsumptive'.
+
+2004-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U+5C8C): Use `->subsumptive'.
+
 2004-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R115-Grain.el (U+7A4E): Use `->subsumptive'.
