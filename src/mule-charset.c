@@ -2172,20 +2172,27 @@ decode_builtin_char (Lisp_Object charset, int code_point)
     {
       int c1 = code_point >> 8;
       int c2 = code_point & 0xFF;
-      unsigned int I
-	= (c1 - 0xA1) * BIG5_SAME_ROW
-	+ c2 - (c2 < 0x7F ? 0x40 : 0x62);
+      unsigned int I;
 
-      if (c1 < 0xC9)
+      if ( (  (0xA1 <= c1) && (c1 <= 0xFE)  )
+	   &&
+	   ( ((0x40 <= c2) && (c2 <= 0x7E)) ||
+	     ((0xA1 <= c2) && (c2 <= 0xFE)) ) )
 	{
-	  charset = Vcharset_chinese_big5_1;
+	  I = (c1 - 0xA1) * BIG5_SAME_ROW
+	    + c2 - (c2 < 0x7F ? 0x40 : 0x62);
+
+	  if (c1 < 0xC9)
+	    {
+	      charset = Vcharset_chinese_big5_1;
+	    }
+	  else
+	    {
+	      charset = Vcharset_chinese_big5_2;
+	      I -= (BIG5_SAME_ROW) * (0xC9 - 0xA1);
+	    }
+	  code_point = ((I / 94 + 33) << 8) | (I % 94 + 33);
 	}
-      else
-	{
-	  charset = Vcharset_chinese_big5_2;
-	  I -= (BIG5_SAME_ROW) * (0xC9 - 0xA1);
-	}
-      code_point = ((I / 94 + 33) << 8) | (I % 94 + 33);
     }
   if ((final = XCHARSET_FINAL (charset)) >= '0')
     {
