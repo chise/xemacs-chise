@@ -419,20 +419,6 @@
 (defvar char-db-convert-obsolete-format t)
 
 (defun insert-char-attributes (char &optional readable attributes column)
-  (let (atr-d)
-    (setq attributes
-	  (sort (if attributes
-		    (if (consp attributes)
-			(progn
-			  (dolist (name attributes)
-			    (unless (memq name char-db-ignored-attributes)
-			      (push name atr-d)))
-			  atr-d))
-		  (dolist (name (char-attribute-list))
-		    (unless (memq name char-db-ignored-attributes)
-		      (push name atr-d)))
-		  atr-d)
-		#'char-attribute-name<)))
   (unless column
     (setq column (current-column)))
   (let (name value has-long-ccs-name rest
@@ -442,7 +428,26 @@
 	lbs cell separator ret
 	key al cal
 	dest-ccss
-	sources required-features)
+	sources required-features
+	ccss)
+    (let (atr-d)
+      (setq attributes
+	    (sort (if attributes
+		      (if (consp attributes)
+			  (progn
+			    (dolist (name attributes)
+			      (unless (memq name char-db-ignored-attributes)
+				(if (find-charset name)
+				    (push name ccss))
+				(push name atr-d)))
+			    atr-d))
+		    (dolist (name (char-attribute-list))
+		      (unless (memq name char-db-ignored-attributes)
+			(if (find-charset name)
+			    (push name ccss))
+			(push name atr-d)))
+		    atr-d)
+		  #'char-attribute-name<)))
     (insert "(")
     (when (and (memq 'name attributes)
 	       (setq value (get-char-attribute char 'name)))
@@ -932,13 +937,22 @@
                    (if (integerp cell)
 		       (setq cell (decode-char '=ucs cell)))
 		   (cond ((eq name '->subsumptive)
-			  (if separator
-			      (insert lbs))
-			  (let ((char-db-ignored-attributes
-				 (cons '<-subsumptive
-				       char-db-ignored-attributes)))
-			    (insert-char-attributes cell readable))
-			  (setq separator lbs))
+			  (when (or (not
+				     (some (lambda (atr)
+					     (get-char-attribute cell atr))
+					   char-db-ignored-attributes))
+				    (some (lambda (ccs)
+					    (encode-char cell ccs
+							 'defined-only))
+					  ccss))
+			    (if separator
+				(insert lbs))
+			    (let ((char-db-ignored-attributes
+				   (cons '<-subsumptive
+					 char-db-ignored-attributes)))
+			      (insert-char-attributes cell readable))
+			    (setq separator lbs))
+			  )
 			 ((characterp cell)
 			  (setq sources
 				(get-char-attribute
