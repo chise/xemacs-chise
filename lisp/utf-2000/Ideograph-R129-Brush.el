@@ -72,6 +72,7 @@
      cns11643)
     (total-strokes	 . 10)
     (=cns11643-2	. #x2F7D)	; ø»“¢ 
+    (=big5		. #xD1FB)	; ý¢€‡»
     (=daikanwa		. 29221)	; ø¸‡ˆ¥
     (=ucs		. #x8082)	; è‚‚
     ))
