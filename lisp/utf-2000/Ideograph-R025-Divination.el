@@ -308,7 +308,8 @@
     (chinese-cns11643-6 #x29 #x7D)	; ø»œ¼
     ))
 (define-char
-  '((morohashi-daikanwa	2803)
+  '((ucs		. #x353D)
+    (morohashi-daikanwa	2803)
     (ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 6)
     (total-strokes	 . 8)

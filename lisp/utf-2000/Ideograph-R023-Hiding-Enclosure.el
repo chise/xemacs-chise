@@ -92,7 +92,8 @@
     (ideograph-daikanwa #x0A #x75)	; ø¹©µ
     ))
 (define-char
-  '((morohashi-daikanwa	2678)
+  '((ucs		. #x3537)
+    (morohashi-daikanwa	2678)
     (ideographic-radical . 23)	; â¼–
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -137,7 +138,8 @@
     (ideograph-daikanwa #x0A #x79)	; ø¹©¹
     ))
 (define-char
-  '((morohashi-daikanwa	2682)
+  '((ucs		. #x3530)
+    (morohashi-daikanwa	2682)
     (ideographic-radical . 23)	; â¼–
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -288,7 +290,8 @@
     (japanese-jisx0208		#x52 #x3F)	; ø»‡˜¤
     ))
 (define-char
-  '((morohashi-daikanwa	2692)
+  '((ucs		. #x3538)
+    (morohashi-daikanwa	2692)
     (ideographic-radical . 23)	; â¼–
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
