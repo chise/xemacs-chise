@@ -551,9 +551,7 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
-    (hanyu-dazidian-vol	 . 2)
-    (hanyu-dazidian-page . 1526)
-    (hanyu-dazidian-char . 1)
+    (hanyu-dazidian	2 1526 1)
     (chinese-cns11643-6		. #x5050)	; ø»œº¡
     (ideograph-gt-pj-2		. #x3072)	; ý¡€€‚“
     (ideograph-daikanwa		. 00105)	; ø¸€©

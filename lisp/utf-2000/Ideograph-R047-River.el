@@ -213,6 +213,17 @@
     (ucs		. #x21FF0)	; ð¡¿°
     ))
 (define-char
+  '((ideographic-radical . 47)	; â¼®
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (->same-ideograph
+     ((ideograph-daikanwa . 03081)	; ø¸€°‰
+      ))
+    (hanyu-dazidian	2 1097 16)
+    (ideograph-hanziku-3	. #xE041)	; ý¢€¾
+    (ucs			. #x21FEE)	; ð¡¿®
+    ))
+(define-char
   '((=>ucs		. #x21FF1)	; ð¡¿±
     (ideographic-radical . 47)	; â¼®
     (ideographic-strokes . 5)

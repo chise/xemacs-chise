@@ -648,13 +648,12 @@
     (ucs		. #x2069E)	; ð šž
     ))
 (define-char
-  '((ideographic-radical . 17)	; â¼
+  '((=>ucs		. #x25390)	; ð¥Ž
+    (ideographic-radical . 17)	; â¼
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
     (chinese-cns11643-5 . #x5A75)	; ø»š¿®
     (ideograph-daikanwa . 01841)	; ø¸€œ±
-    (mojikyo		. 023906)	; ý €…µ¢
-    (ucs		. #x25390)	; ð¥Ž
     ))
 (define-char
   '((ideographic-radical . 17)	; â¼

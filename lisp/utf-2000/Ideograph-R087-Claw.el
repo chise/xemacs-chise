@@ -333,6 +333,20 @@
 (define-char
   '((ideographic-radical . 87)	; â½–
     (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (->identical
+     ((chinese-cns11643-6 . #x4743)	; ø»œ­†
+      ))
+    (->same-ideograph
+     ((ideograph-daikanwa . 04811)	; ø¸‹‹
+      ))
+    (hanyu-dazidian	3 2033 18)
+    (ideograph-hanziku-5	. #xF8B3)	; ý¢Ÿ¢³
+    (ucs			. #x24517)	; ð¤”—
+    ))
+(define-char
+  '((ideographic-radical . 87)	; â½–
+    (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (chinese-cns11643-6 . #x5468)	; ø»€±
     ))

@@ -606,6 +606,19 @@
   '((ideographic-radical . 110)	; â½­
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
+    (->identical
+     ((ideograph-daikanwa . 01841)	; ø¸€œ±
+      ))
+    (hanyu-dazidian	4 2768 16)
+    (ideograph-daikanwa		. 23906)	; ø¸…µ¢
+    (ideograph-hanziku-7	. #xE845)	; ý¢¾¡…
+    (mojikyo			. 023906)	; ý €…µ¢
+    (ucs			. #x25390)	; ð¥Ž
+    ))
+(define-char
+  '((ideographic-radical . 110)	; â½­
+    (ideographic-strokes . 12)
+    (total-strokes	 . 17)
     (chinese-cns11643-5 . #x5C50)	; ø»›‚…
     (ideograph-daikanwa . 23907)	; ø¸…µ£
     ))

@@ -1093,12 +1093,23 @@
     (ucs		. #x6224)	; æˆ¤
     ))
 (define-char
-  '((ideographic-radical . 62)	; â¼½
+  '((=>ucs		. #x203B6)	; ð Ž¶
+    (ideographic-radical . 62)	; â¼½
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (hanyu-dazidian	1 206 18)
+    (ideographic-structure
+     (:cdp-combinator	4
+      )
+     ((ucs		  . #x672A)	; æœª
+      )
+     ((ucs		  . #x6210)	; æˆ
+      )
+     ((name		  . "cjk radical person as roof")
+      (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+      ))
     (chinese-cns11643-5 . #x3F46)	; ø»š—•
     (ideograph-daikanwa . 11626)	; ø¸‚µª
-    (ucs		. #x203B6)	; ð Ž¶
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½

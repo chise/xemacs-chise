@@ -2411,6 +2411,23 @@
     ))
 (define-char
   '((ideographic-radical . 66)	; â½
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (hanyu-dazidian	1 218 7)
+    (ideographic-structure
+     (:cdp-combinator	4
+      )
+     ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
+      )
+     ((chinese-big5-cdp	  . #x8DA2)	; ý¢€ˆ¶¢
+      )
+     ((chinese-big5-cdp	  . #x8B6B)	; ý¢€ˆ­«
+      ))
+    (ideograph-hanziku-1	. #xD34B)	; ý¢€‹
+    (ucs			. #x22FC5)	; ð¢¿…
+    ))
+(define-char
+  '((ideographic-radical . 66)	; â½
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (chinese-cns11643-5 . #x4D42)	; ø»š«µ

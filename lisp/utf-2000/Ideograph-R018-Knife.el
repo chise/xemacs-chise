@@ -5767,20 +5767,27 @@
     (ucs		. #x2078E)	; ð žŽ
     ))
 (define-char
-  '((ideographic-radical . 18)	; â¼‘
+  '((=>ucs		. #x202F4)	; ð ‹´
+    (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (->same-ideograph
+    (->identical
      ((ideograph-daikanwa . 00938)	; ø¸€Žª
       )
      (:sources	(shuowen inkaiho morohashi-daikanwa)
       :char	((ideograph-daikanwa . 00768)	; ø¸€Œ€
 		 )
       ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x4EBB)	; äº»
+      )
+     ((ucs		  . #x5261)	; å‰¡
+      ))
     (chinese-cns11643-5 . #x3663)	; ø»šŠ¤
     (ideograph-daikanwa . 02134)	; ø¸€¡–
-    (mojikyo		. 000938)	; ý €€Žª
-    (ucs		. #x202F4)	; ð ‹´
     ))
 (define-char
   '((ideographic-radical . 18)	; â¼‘

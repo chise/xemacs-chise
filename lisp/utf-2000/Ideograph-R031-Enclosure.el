@@ -2559,12 +2559,15 @@
     (ideograph-daikanwa . 04811)	; ø¸‹‹
     ))
 (define-char
-  '((morohashi-daikanwa	4811 0 0)
+  '((=>ucs		. #x24517)	; ð¤”—
+    (morohashi-daikanwa	4811 0 0)
     (ideographic-radical . 31)	; â¼ž
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (->identical
+     ((ucs		  . #x24517)	; ð¤”—
+      ))
     (chinese-cns11643-6 . #x4743)	; ø»œ­†
-    (ucs		. #x24517)	; ð¤”—
     ))
 (define-char
   '((=>ucs		. #x21207)	; ð¡ˆ‡

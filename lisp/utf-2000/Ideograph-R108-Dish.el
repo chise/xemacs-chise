@@ -1161,6 +1161,17 @@
   '((ideographic-radical . 108)	; â½«
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
+    (->identical
+     ((ideograph-daikanwa . 01726)	; ø¸€š¾
+      ))
+    (hanyu-dazidian	4 2571 15)
+    (ideograph-hanziku-7	. #xBD6B)	; ý¢»µ«
+    (ucs			. #x250B3)	; ð¥‚³
+    ))
+(define-char
+  '((ideographic-radical . 108)	; â½«
+    (ideographic-strokes . 12)
+    (total-strokes	 . 17)
     (chinese-cns11643-4 . #x572A)	; ø»˜°…
     ))
 (define-char

@@ -592,9 +592,19 @@
   '((ideographic-radical . 50)	; â¼±
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (chinese-cns11643-6 . #x2740)	; ø»›¾ƒ
-    (ideograph-daikanwa . 08819)	; ø¸‚‰³
-    (ucs		. #x2206D)	; ð¢­
+    (hanyu-dazidian	1 128 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
+      )
+     ((ucs		  . #x5E00)	; å¸€
+      ))
+    (chinese-cns11643-6		. #x2740)	; ø»›¾ƒ
+    (ideograph-daikanwa		. 08819)	; ø¸‚‰³
+    (ideograph-hanziku-1	. #xBE52)	; ý¢€›¹’
+    (ucs			. #x2206D)	; ð¢­
     ))
 (define-char
   '((ideographic-radical . 50)	; â¼±

@@ -2033,6 +2033,17 @@
   '((ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (->same-ideograph
+     ((ideograph-daikanwa . 48957)	; ø¸‹¼½
+      ))
+    (hanyu-dazidian	1 436 7)
+    (ideograph-hanziku-2	. #xA9DA)	; ý¢€ª§š
+    (ucs			. #x2128F)	; ð¡Š
+    ))
+(define-char
+  '((ideographic-radical . 32)	; â¼Ÿ
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (chinese-cns11643-6 . #x2A49)	; ø»œ‚¦
     (ucs		. #x21293)	; ð¡Š“
     ))
