@@ -2957,9 +2957,10 @@ complex_vars_of_mule_charset (void)
     make_charset (LEADING_BYTE_DAIKANWA, Qideograph_daikanwa, 256, 2,
 		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Daikanwa"),
-		  build_string ("Morohashi's Daikanwa"),
-		  build_string ("Daikanwa dictionary by MOROHASHI Tetsuji"),
-		  build_string ("Daikanwa"),
+		  build_string ("Morohashi's Daikanwa Rev.2"),
+		  build_string
+		  ("Daikanwa dictionary (second revised version)"),
+		  build_string ("Daikanwa\\(\\.[0-9]+\\)?-3"),
 		  Qnil, MIN_CHAR_DAIKANWA, MAX_CHAR_DAIKANWA, 0, 0);
   staticpro (&Vcharset_mojikyo);
   Vcharset_mojikyo =
