@@ -5373,6 +5373,12 @@
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (<-vulgar
+     ((=ucs		  . #x5D0E)	; 崎
+      (=daikanwa	  . 08169)	; &I-M-08169;
+      ))
+    (<-vulgar*sources
+     ruijumyougishou daikanwa)
     (=ucs		. #xFA11)	; 﨑
     (=jis-x0213-1-2000	. #x4F72)	; &I-JX1-4F72; [47-82]
     (=gt		. 10395)	; &I-GT-10395;
