@@ -2016,10 +2016,12 @@ Set mapping-table of CHARSET to TABLE.
 /************************************************************************/
 
 #ifdef UTF2000
-DEFUN ("decode-char", Fdecode_char, 2, 2, 0, /*
+DEFUN ("decode-char", Fdecode_char, 2, 3, 0, /*
 Make a character from CHARSET and code-point CODE.
+If DEFINED_ONLY is non-nil, builtin character is not returned.
+If corresponding character is not found, nil is returned.
 */
-       (charset, code))
+       (charset, code, defined_only))
 {
   int c;
 
@@ -2028,7 +2030,10 @@ Make a character from CHARSET and code-point CODE.
   c = XINT (code);
   if (XCHARSET_GRAPHIC (charset) == 1)
     c &= 0x7F7F7F7F;
-  c = DECODE_CHAR (charset, c);
+  if (NILP (defined_only))
+    c = DECODE_CHAR (charset, c);
+  else
+    c = DECODE_DEFINED_CHAR (charset, c);
   return c >= 0 ? make_char (c) : Qnil;
 }
 
@@ -2043,7 +2048,7 @@ Make a builtin character from CHARSET and code-point CODE.
   CHECK_INT (code);
   if (EQ (charset, Vcharset_latin_viscii))
     {
-      Lisp_Object chr = Fdecode_char (charset, code);
+      Lisp_Object chr = Fdecode_char (charset, code, Qnil);
       Lisp_Object ret;
 
       if (!NILP (chr))
@@ -2072,7 +2077,7 @@ Make a builtin character from CHARSET and code-point CODE.
     c &= 0x7F7F7F7F;
 #endif
   c = decode_builtin_char (charset, c);
-  return c >= 0 ? make_char (c) : Fdecode_char (charset, code);
+  return c >= 0 ? make_char (c) : Fdecode_char (charset, code, Qnil);
 }
 #endif
 
