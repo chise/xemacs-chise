@@ -1,4 +1,13 @@
+1999-12-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (insert-char-data): Change order of
+	`kangxi-strokes'.
+	(insert-char-data-with-variant): Look up variants of corresponding
+	ucs character if a character does not have variants.
+
 1999-11-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/ideograph-util.el (ideograph-char<): Fixed.
 
 	* utf-2000/u03100-Bopomofo.el (U+3128): Separate M00115.
 
