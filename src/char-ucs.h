@@ -468,6 +468,8 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
     }
 }
 
+extern Lisp_Object Vcharacter_attribute_table;
+
 unsigned char charset_get_byte1 (Lisp_Object charset, Emchar ch);
 unsigned char charset_get_byte2 (Lisp_Object charset, Emchar ch);
 
@@ -478,8 +480,41 @@ INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
+  Lisp_Object cdef = get_char_code_table (c, Vcharacter_attribute_table);
+
+  if (!EQ (cdef, Qnil))
+    {
+      Lisp_Object charsets = Vdefault_coded_charset_priority_list;
+      Lisp_Object field;
+
+      while (!EQ (charsets, Qnil))
+	{
+	  *charset = Ffind_charset (Fcar (charsets));
+	  if (!EQ (*charset, Qnil))
+	    {
+	      if (!EQ (field = Fcdr (Fassq (*charset, cdef)), Qnil))
+		{
+		  Lisp_Object ret = Fcar (field);
+		  if (INTP (ret))
+		    {
+		      *c1 = XINT (ret);
+		      if (INTP (ret = Fcar (Fcdr (field))))
+			*c2 = XINT (ret);
+		      return;
+		    }
+		}
+	      else if ((*c1 = charset_get_byte1 (*charset, c)))
+		{
+		  *c2 = charset_get_byte2 (*charset, c);
+		  return;
+		}
+	    }
+	  charsets = Fcdr (charsets);	      
+	}
+    }
   if (c < MIN_CHAR_OBS_94x94)
     {
+#if 0
       Lisp_Object charsets = Vdefault_coded_charset_priority_list;
       while (!EQ (charsets, Qnil))
 	{
@@ -492,6 +527,7 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	    }
 	  charsets = Fcdr (charsets);	      
 	}
+#endif
       /* otherwise --- maybe for bootstrap */
       if (c <= MAX_CHAR_BASIC_LATIN)
 	{
