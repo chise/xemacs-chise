@@ -1,4 +1,4 @@
-1999-09-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+1999-09-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* text-coding.c (encode_coding_sjis): Deleted.
 	(char_encode_shift_jis): New function.
