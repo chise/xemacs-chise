@@ -1,5 +1,9 @@
 1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* char-ucs.h (MAKE_CHAR): Fix problem in 2-dimension charset.
+
+1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule-charset.c (latin_iso8859_2_to_ucs NULL): Add pseudo
 	definition for non-UTF-2000 Mule.
 	(latin_iso8859_3_to_ucs): Likewise.
