@@ -558,6 +558,7 @@ Return the alist of attributes of CHARACTER.
        (character))
 {
   Lisp_Object alist, ret;
+  int i;
 
   CHECK_CHAR (character);
   alist = Fcopy_alist (get_char_id_table (XCHAR (character),
@@ -586,6 +587,32 @@ Return the alist of attributes of CHARACTER.
   if (!NILP (ret))
     alist = Fcons (Fcons (Q_decomposition, ret), alist);
 
+  for (i = 0; i < countof (chlook->charset_by_leading_byte); i++)
+    {
+      Lisp_Object ccs = chlook->charset_by_leading_byte[i];
+
+      if (!NILP (ccs))
+	{
+#if 0
+	  int code_point = charset_code_point (ccs, XCHAR (character));
+
+	  if (code_point >= 0)
+	    {
+	      alist = Fcons (Fcons (ccs, make_int (code_point)), alist);
+	    }
+#else
+	  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
+	  Lisp_Object cpos;
+
+	  if ( CHAR_ID_TABLE_P (encoding_table)
+	       && INTP (cpos = get_char_id_table (XCHAR (character),
+						  encoding_table)) )
+	    {
+	      alist = Fcons (Fcons (ccs, cpos), alist);
+	    }
+#endif
+	}
+    }
   return alist;
 }
 
@@ -2113,7 +2140,7 @@ add_charset_to_list_mapper (Lisp_Object key, Lisp_Object value,
     (struct charset_list_closure*) charset_list_closure;
   Lisp_Object *charset_list = chcl->charset_list;
 
-  *charset_list = Fcons (XCHARSET_NAME (value), *charset_list);
+  *charset_list = Fcons (key /* XCHARSET_NAME (value) */, *charset_list);
   return 0;
 }
 
