@@ -1785,10 +1785,15 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
       return c - MIN_CHAR_DAIKANWA;
     }
   */
-  else if (c < MIN_CHAR_94)
+  else if (c <= MAX_CHAR_MOJIKYO)
     {
       *charset = Vcharset_mojikyo;
       return c - MIN_CHAR_MOJIKYO;
+    }
+  else if (c < MIN_CHAR_94)
+    {
+      *charset = Vcharset_ucs;
+      return c;
     }
   else if (c <= MAX_CHAR_94)
     {
