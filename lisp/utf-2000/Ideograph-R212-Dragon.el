@@ -40,6 +40,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=gb2312		. #x417A)	; ø»„¶
+    (=iso-ir165		. #x417A)	; ø»ž­
     (=ucs		. #x9F99)	; é¾™
     ))
 (define-char
@@ -272,12 +273,14 @@
   '((ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 6)
     (=gb2312		. #x3928)	; ø»„©›
+    (=iso-ir165		. #x3928)	; ø»‘«
     (=ucs		. #x9F9A)	; é¾š
     ))
 (define-char
   '((ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 6)
     (=gb2312		. #x6D68)	; ø»…¶³
+    (=iso-ir165		. #x6D68)	; ø»ŽŸƒ
     (=ucs		. #x9F9B)	; é¾›
     ))
 (define-char
