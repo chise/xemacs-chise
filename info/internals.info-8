@@ -1,4 +1,4 @@
-This is ../info/internals.info, produced by makeinfo version 4.0b from
+This is ../info/internals.info, produced by makeinfo version 4.0 from
 internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -705,13 +705,13 @@ screen images can be instantiated from a single glyph.
    Glyphs are lazily instantiated by calling one of the glyph
 functions. This usually occurs within redisplay when `Fglyph_height' is
 called. Instantiation causes an image-instance to be created and
-cached. This cache is on a device basis for all glyphs except
-glyph-widgets, and on a window basis for glyph widgets.  The caching is
-done by `image_instantiate' and is necessary because it is generally
-possible to display an image-instance in multiple domains. For instance
-if we create a Pixmap, we can actually display this on multiple windows
-- even though we only need a single Pixmap instance to do this. If
-caching wasn't done then it would be necessary to create
+cached. This cache is on a per-device basis for all glyphs except
+widget-glyphs, and on a per-window basis for widgets-glyphs.  The
+caching is done by `image_instantiate' and is necessary because it is
+generally possible to display an image-instance in multiple domains.
+For instance if we create a Pixmap, we can actually display this on
+multiple windows - even though we only need a single Pixmap instance to
+do this. If caching wasn't done then it would be necessary to create
 image-instances for every displayable occurrence of a glyph - and every
 usage - and this would be extremely memory and cpu intensive.
 
@@ -722,6 +722,73 @@ widget-glyphs are cached on an XEmacs window basis.
 
    Any action on a glyph first consults the cache before actually
 instantiating a widget.
+
+Glyph Instantiation
+===================
+
+   Glyph instantiation is a hairy topic and requires some explanation.
+The guts of glyph instantiation is contained within
+`image_instantiate'. A glyph contains an image which is a specifier.
+When a glyph function - for instance `Fglyph_height' - asks for a
+property of the glyph that can only be determined from its instantiated
+state, then the glyph image is instantiated and an image instance
+created. The instantiation process is governed by the specifier code
+and goes through a series of steps:
+
+   * Validation. Instantiation of image instances happens dynamically -
+     often within the guts of redisplay. Thus it is often not feasible
+     to catch instantiator errors at instantiation time. Instead the
+     instantiator is validated at the time it is added to the image
+     specifier. This function is defined by `image_validate' and at a
+     simple level validates keyword value pairs.
+
+   * Duplication. The specifier code by default takes a copy of the
+     instantiator. This is reasonable for most specifiers but in the
+     case of widget-glyphs can be problematic, since some of the
+     properties in the instantiator - for instance callbacks - could
+     cause infinite recursion in the copying process. Thus the image
+     code defines a function - `image_copy_instantiator' - which will
+     selectively copy values.  This is controlled by the way that a
+     keyword is defined either using `IIFORMAT_VALID_KEYWORD' or
+     `IIFORMAT_VALID_NONCOPY_KEYWORD'. Note that the image caching and
+     redisplay code relies on instantiator copying to ensure that
+     current and new instantiators are actually different rather than
+     referring to the same thing.
+
+   * Normalization. Once the instantiator has been copied it must be
+     converted into a form that is viable at instantiation time. This
+     can involve no changes at all, but typically involves things like
+     converting file names to the actual data. This function is defined
+     by `image_going_to_add' and `normalize_image_instantiator'.
+
+   * Instantiation. When an image instance is actually required for
+     display it is instantiated using `image_instantiate'. This
+     involves calling instantiate methods that are specific to the type
+     of image being instantiated.
+
+   The final instantiation phase also involves a number of steps. In
+order to understand these we need to describe a number of concepts.
+
+   An image is instantiated in a "domain", where a domain can be any
+one of a device, frame, window or image-instance. The domain gives the
+image-instance context and identity and properties that affect the
+appearance of the image-instance may be different for the same glyph
+instantiated in different domains. An example is the face used to
+display the image-instance.
+
+   Although an image is instantiated in a particular domain the
+instantiation domain is not necessarily the domain in which the
+image-instance is cached. For example a pixmap can be instantiated in a
+window be actually be cached on a per-device basis. The domain in which
+the image-instance is actually cached is called the "governing-domain".
+A governing-domain is currently either a device or a window.
+Widget-glyphs and text-glyphs have a window as a governing-domain, all
+other image-instances have a device as the governing-domain. The
+governing domain for an image-instance is determined using the
+governing_domain image-instance method.
+
+Widget-Glyphs
+=============
 
 Widget-Glyphs in the MS-Windows Environment
 ===========================================
@@ -736,6 +803,24 @@ Library::) for manipulating the native toolkit objects. This is
 primarily so that different toolkits can be supported for
 widget-glyphs, just as they are supported for features such as menubars
 etc.
+
+   Lwlib is extremely poorly documented and quite hairy so here is my
+understanding of what goes on.
+
+   Lwlib maintains a set of widget_instances which mirror the
+hierarchical state of Xt widgets. I think this is so that widgets can
+be updated and manipulated generically by the lwlib library. For
+instance update_one_widget_instance can cope with multiple types of
+widget and multiple types of toolkit. Each element in the widget
+hierarchy is updated from its corresponding widget_instance by walking
+the widget_instance tree recursively.
+
+   This has desirable properties such as lw_modify_all_widgets which is
+called from `glyphs-x.c' and updates all the properties of a widget
+without having to know what the widget is or what toolkit it is from.
+Unfortunately this also has hairy properties such as making the lwlib
+code quite complex. And of course lwlib has to know at some level what
+the widget is and how to set its properties.
 
 
 File: internals.info,  Node: Specifiers,  Next: Menus,  Prev: Glyphs,  Up: Top
@@ -1022,169 +1107,4 @@ File: internals.info,  Node: Tab Controls,  Prev: Progress Bars,  Up: Lucid Widg
 
 Tab Controls
 ------------
-
-
-File: internals.info,  Node: Index,  Prev: Interface to the X Window System,  Up: Top
-
-Index
-*****
-
-* Menu:
-
-* Amdahl Corporation:                    XEmacs.
-* Andreessen, Marc:                      XEmacs.
-* asynchronous subprocesses:             Modules for Interfacing with the Operating System.
-* Baur, Steve:                           XEmacs.
-* Benson, Eric:                          Lucid Emacs.
-* bridge, playing:                       XEmacs From the Outside.
-* Buchholz, Martin:                      XEmacs.
-* Bufbyte:                               Character-Related Data Types.
-* Bufpos:                                Character-Related Data Types.
-* Bytecount:                             Character-Related Data Types.
-* bytecount_to_charcount:                Working With Character and Byte Positions.
-* Bytind:                                Character-Related Data Types.
-* C vs. Lisp:                            The Lisp Language.
-* caller-protects (GCPRO rule):          Writing Lisp Primitives.
-* case table:                            Modules for Other Aspects of the Lisp Interpreter and Object System.
-* Charcount:                             Character-Related Data Types.
-* charcount_to_bytecount:                Working With Character and Byte Positions.
-* charptr_emchar:                        Working With Character and Byte Positions.
-* charptr_n_addr:                        Working With Character and Byte Positions.
-* closer:                                Lstream Methods.
-* closure:                               The XEmacs Object System (Abstractly Speaking).
-* Coding for Mule:                       Coding for Mule.
-* Common Lisp:                           The Lisp Language.
-* compact_string_chars:                  compact_string_chars.
-* conservative garbage collection:       GCPROing.
-* copy-on-write:                         General Coding Rules.
-* critical redisplay sections:           Critical Redisplay Sections.
-* DEC_CHARPTR:                           Working With Character and Byte Positions.
-* Devin, Matthieu:                       Lucid Emacs.
-* display order of extents:              Mathematics of Extent Ordering.
-* dynamic array:                         Low-Level Modules.
-* dynamic scoping:                       The Lisp Language.
-* dynamic types:                         The Lisp Language.
-* Emchar:                                Character-Related Data Types.
-* Energize:                              Lucid Emacs.
-* Epoch <1>:                             XEmacs.
-* Epoch:                                 Lucid Emacs.
-* Extbyte:                               Character-Related Data Types.
-* Extcount:                              Character-Related Data Types.
-* extent fragment:                       Extent Fragments.
-* extent mathematics:                    Mathematics of Extent Ordering.
-* extent ordering:                       Mathematics of Extent Ordering.
-* extents, display order:                Mathematics of Extent Ordering.
-* external widget:                       Modules for Interfacing with X Windows.
-* flusher:                               Lstream Methods.
-* Free Software Foundation:              A History of Emacs.
-* FSF:                                   A History of Emacs.
-* FSF Emacs <1>:                         GNU Emacs 20.
-* FSF Emacs:                             GNU Emacs 19.
-* garbage collection:                    Garbage Collection.
-* garbage collection protection:         Writing Lisp Primitives.
-* garbage collection step by step:       Garbage Collection - Step by Step.
-* garbage collection, conservative:      GCPROing.
-* garbage collection, invocation:        Invocation.
-* garbage_collect_1:                     garbage_collect_1.
-* gc_sweep:                              gc_sweep.
-* GNU Emacs 19:                          GNU Emacs 19.
-* GNU Emacs 20:                          GNU Emacs 20.
-* Gosling, James <1>:                    The Lisp Language.
-* Gosling, James:                        Through Version 18.
-* Great Usenet Renaming:                 Through Version 18.
-* Hackers (Steven Levy):                 A History of Emacs.
-* hierarchy of windows:                  Window Hierarchy.
-* history of Emacs:                      A History of Emacs.
-* Illinois, University of:               XEmacs.
-* INC_CHARPTR:                           Working With Character and Byte Positions.
-* interactive:                           Modules for Standard Editing Operations.
-* interning:                             The XEmacs Object System (Abstractly Speaking).
-* ITS (Incompatible Timesharing System): A History of Emacs.
-* Java:                                  The Lisp Language.
-* Java vs. Lisp:                         The Lisp Language.
-* Jones, Kyle:                           XEmacs.
-* Kaplan, Simon:                         XEmacs.
-* Levy, Steven:                          A History of Emacs.
-* line start cache:                      Line Start Cache.
-* Lisp vs. C:                            The Lisp Language.
-* Lisp vs. Java:                         The Lisp Language.
-* lstream:                               Modules for Interfacing with the File System.
-* Lstream_close:                         Lstream Functions.
-* Lstream_fgetc:                         Lstream Functions.
-* Lstream_flush:                         Lstream Functions.
-* Lstream_fputc:                         Lstream Functions.
-* Lstream_fungetc:                       Lstream Functions.
-* Lstream_getc:                          Lstream Functions.
-* Lstream_new:                           Lstream Functions.
-* Lstream_putc:                          Lstream Functions.
-* Lstream_read:                          Lstream Functions.
-* Lstream_reopen:                        Lstream Functions.
-* Lstream_rewind:                        Lstream Functions.
-* Lstream_set_buffering:                 Lstream Functions.
-* Lstream_ungetc:                        Lstream Functions.
-* Lstream_unread:                        Lstream Functions.
-* Lstream_write:                         Lstream Functions.
-* Lucid Emacs:                           Lucid Emacs.
-* Lucid Inc.:                            Lucid Emacs.
-* mark and sweep:                        Garbage Collection.
-* mark method <1>:                       lrecords.
-* mark method:                           Modules for Other Aspects of the Lisp Interpreter and Object System.
-* mark_object:                           mark_object.
-* marker:                                Lstream Methods.
-* mathematics of extents:                Mathematics of Extent Ordering.
-* MAX_EMCHAR_LEN:                        Working With Character and Byte Positions.
-* merging attempts:                      XEmacs.
-* MIT:                                   A History of Emacs.
-* Mlynarik, Richard:                     GNU Emacs 19.
-* MULE merged XEmacs appears:            XEmacs.
-* NAS:                                   Modules for Interfacing with the Operating System.
-* native sound:                          Modules for Interfacing with the Operating System.
-* network connections:                   Modules for Interfacing with the Operating System.
-* network sound:                         Modules for Interfacing with the Operating System.
-* Niksic, Hrvoje:                        XEmacs.
-* pane:                                  Modules for the Basic Displayable Lisp Objects.
-* permanent objects:                     The XEmacs Object System (Abstractly Speaking).
-* pi, calculating:                       XEmacs From the Outside.
-* pseudo_closer:                         Lstream Methods.
-* read syntax:                           The XEmacs Object System (Abstractly Speaking).
-* read-eval-print:                       XEmacs From the Outside.
-* reader:                                Lstream Methods.
-* Redisplay Piece by Piece:              Redisplay Piece by Piece.
-* relocating allocator:                  Low-Level Modules.
-* rename to XEmacs:                      XEmacs.
-* rewinder:                              Lstream Methods.
-* RMS:                                   A History of Emacs.
-* scanner:                               Modules for Other Aspects of the Lisp Interpreter and Object System.
-* scoping, dynamic:                      The Lisp Language.
-* seekable_p:                            Lstream Methods.
-* selections:                            Modules for Interfacing with X Windows.
-* set_charptr_emchar:                    Working With Character and Byte Positions.
-* Sexton, Harlan:                        Lucid Emacs.
-* sound, native:                         Modules for Interfacing with the Operating System.
-* sound, network:                        Modules for Interfacing with the Operating System.
-* SPARCWorks:                            XEmacs.
-* Stallman, Richard:                     A History of Emacs.
-* subprocesses, asynchronous:            Modules for Interfacing with the Operating System.
-* subprocesses, synchronous:             Modules for Interfacing with the Operating System.
-* Sun Microsystems:                      XEmacs.
-* sweep_bit_vectors_1:                   sweep_bit_vectors_1.
-* sweep_lcrecords_1:                     sweep_lcrecords_1.
-* sweep_strings:                         sweep_strings.
-* synchronous subprocesses:              Modules for Interfacing with the Operating System.
-* taxes, doing:                          XEmacs From the Outside.
-* TECO:                                  A History of Emacs.
-* temporary objects:                     The XEmacs Object System (Abstractly Speaking).
-* Thompson, Chuck:                       XEmacs.
-* types, dynamic:                        The Lisp Language.
-* University of Illinois:                XEmacs.
-* Win-Emacs:                             XEmacs.
-* window (in Emacs):                     Modules for the Basic Displayable Lisp Objects.
-* window hierarchy:                      Window Hierarchy.
-* window point internals:                The Window Object.
-* Wing, Ben:                             XEmacs.
-* writer:                                Lstream Methods.
-* XEmacs:                                XEmacs.
-* XEmacs goes it alone:                  XEmacs.
-* Zawinski, Jamie:                       Lucid Emacs.
-
 

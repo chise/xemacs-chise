@@ -166,13 +166,13 @@ Use when debugging temacs, not xemacs!
 Use this when temacs builds successfully, but xemacs does not.
 end
 
-define dump-temacs
+define dmp
   environment-to-run-temacs
   run -nd -batch -l ../lisp/loadup.el dump
 end
 
-document dump-temacs
-Usage: dump-temacs
+document dmp
+Usage: dmp
 Run the dumping part of the build procedure.
 Use when debugging temacs, not xemacs!
 Use this when temacs builds successfully, but xemacs does not.

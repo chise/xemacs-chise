@@ -40,17 +40,6 @@ Boston, MA 02111-1307, USA.  */
 #include <X11/cursorfont.h>
 #include <X11/keysym.h>
 #include <X11/Xatom.h>
-
-#if 0 /* mrb - Xos sux. */
-#ifdef USG
-#undef USG	/* ####KLUDGE for Solaris 2.2 and up */
-#include <X11/Xos.h>
-#define USG
-#else
-#include <X11/Xos.h>
-#endif
-#endif /* 0 */
-
 #include <X11/StringDefs.h>
 
 #ifdef HAVE_XPM
@@ -76,7 +65,7 @@ struct x_device
   /* Xt application info. */
   Widget Xt_app_shell;
 
-  /* Cache of GC's for frame's on this device. */
+  /* Cache of GC's for frames on this device. */
   struct gc_cache *gc_cache;
 
   /* Selected visual, depth and colormap for this device */

@@ -187,6 +187,37 @@ Valdis.Kletnieks@vt.edu writes:
 
 
 ** SunOS/Solaris
+*** Dumping error when using GNU binutils / GNU ld on a Sun.
+
+Errors similar to the following:
+
+   Dumping under the name xemacs unexec():
+   dldump(/space/rpluim/xemacs-obj/src/xemacs): ld.so.1: ./temacs:
+   fatal: /space/rpluim/xemacs-obj/src/xemacs: unknown dynamic entry:
+   1879048176
+
+are caused by using GNU ld.  There are several workarounds available:
+
+In XEmacs 21.2 or later, configure using the new portable dumper
+(--pdump).
+
+Alternatively, you can link using the Sun version of ld, which is
+normally held in /usr/ccs/bin.  This can be done by one of:
+
+- building gcc with these configure flags:
+  configure --with-ld=/usr/ccs/bin/ld --with-as=/usr/ccs/bin/as
+
+- adding -B/usr/ccs/bin/ to CFLAGS used to configure XEmacs
+  (Note: The trailing '/' there is significant.)
+
+- uninstalling GNU ld.
+
+The Solaris2 FAQ claims:
+
+    When you install gcc, don't make the mistake of installing
+    GNU binutils or GNU libc, they are not as capable as their
+    counterparts you get with Solaris 2.x.
+
 *** Link failure when using acc on a Sun.
 
 To use acc, you need additional options just before the libraries, such as
@@ -208,7 +239,7 @@ it to `/usr/openwin'.
 
 There have been reports of Sun sed truncating very lines in the
 Makefile during configuration.  The workaround is to use GNU sed or,
-even better, think of a better way to generate Makefile, and send us a 
+even better, think of a better way to generate Makefile, and send us a
 patch. :-)
 
 *** On Solaris 2 I get undefined symbols from libcurses.a.
@@ -230,7 +261,7 @@ This only occurs if you have LANG != C.  This is a known bug with
 bash, as a workaround.
 
 *** On SunOS, you get linker errors
-    ld: Undefined symbol 
+    ld: Undefined symbol
        _get_wmShellWidgetClass
        _get_applicationShellWidgetClass
 
@@ -254,7 +285,7 @@ extensions to X11R5 are installed.
 
 *** On a Sun running SunOS 4.1.1, you get this error message from GNU ld:
 
-    /lib/libc.a(_Q_sub.o): Undefined symbol __Q_get_rp_rd referenced from text segment 
+    /lib/libc.a(_Q_sub.o): Undefined symbol __Q_get_rp_rd referenced from text segment
 
 The problem is in the Sun shared C library, not in GNU ld.
 
@@ -263,7 +294,7 @@ The solution is to install Patch-ID# 100267-03 from Sun.
 *** SunOS 4.1.2: undefined symbol _get_wmShellWidgetClass
 
   Apparently the version of libXmu.so.a that Sun ships is hosed: it's missing
-  some stuff that is in libXmu.a (the static version).  Sun has a patch for 
+  some stuff that is in libXmu.a (the static version).  Sun has a patch for
   this, but a workaround is to use the static version of libXmu, by changing
   the link command from "-lXmu" to "-Bstatic -lXmu -Bdynamic".  If you have
   OpenWindows 3.0, ask Sun for these patches:
@@ -314,7 +345,7 @@ There are a couple of problems [with use of -rpath with Irix ld], though:
   1. The ld in IRIX 5.3 ignores all but the last -rpath
      spec, so the patched configure spits out a warning
      if --x-libraries or --site-runtime-libraries are
-     specified under irix 5.x, and it only adds -rpath 
+     specified under irix 5.x, and it only adds -rpath
      entries for the --site-runtime-libraries.  This bug was
      fixed sometime between 5.3 and 6.2.
 
@@ -420,7 +451,7 @@ Marcus Thiessel <marcus@xemacs.org>
   This might be a sed problem. For your own safety make sure to use
   GNU sed while dumping XEmacs.
 
-*** On HP-UX 11.0 XEmacs causes excessive X11 errors when running. 
+*** On HP-UX 11.0 XEmacs causes excessive X11 errors when running.
     (also appears on AIX as reported in comp.emacs.xemacs)
 
 Marcus Thiessel <marcus@xemacs.org>
@@ -435,7 +466,7 @@ Marcus Thiessel <marcus@xemacs.org>
   configure:
 
      --x-libraries="/usr/lib/Motif1.2_R6 -L/usr/lib/X11R6"
- 
+
   Make sure /usr/lib/Motif1.2_R6/libXm.sl is a link to
   /usr/lib/Motif1.2_R6/libXm.3.
 
@@ -456,7 +487,7 @@ Marcus Thiessel <marcus@xemacs.org>
 *** Native cc on SCO OpenServer 5 is now OK.  Icc may still throw you
 a curve.  Here is what Robert Lipe <robertl@arnet.com> says:
 
-Unlike XEmacs 19.13, building with the native cc on SCO OpenServer 5 
+Unlike XEmacs 19.13, building with the native cc on SCO OpenServer 5
 now produces a functional binary.   I will typically build this
 configuration for COFF with:
 
@@ -464,15 +495,15 @@ configuration for COFF with:
 	  --site-includes=/usr/local/include --site-libraries=/usr/local/lib \
 	  --with-xpm --with-xface --with-sound=nas
 
-This version now supports ELF builds.  I highly recommend this to 
-reduce the in-core footprint of XEmacs.  This is now how I compile 
+This version now supports ELF builds.  I highly recommend this to
+reduce the in-core footprint of XEmacs.  This is now how I compile
 all my test releases.  Build it like this:
 
 	/path_to_XEmacs_source/configure --with-gcc=no \
 	  --site-includes=/usr/local/include --site-libraries=/usr/local/lib \
 	  --with-xpm --with-xface --with-sound=nas --dynamic
 
-The compiler known as icc [ supplied with the OpenServer 5 Development 
+The compiler known as icc [ supplied with the OpenServer 5 Development
 System ] generates a working binary, but it takes forever to generate
 XEmacs.  ICC also whines more about the code than /bin/cc does.  I do
 believe all its whining is legitimate, however.    Note that you do
@@ -484,32 +515,32 @@ The way I handle the build procedure is:
 	  --site-includes=/usr/local/include --site-libraries=/usr/local/lib \
 	  --with-xpm --with-xface --with-sound=nas --dynamic --compiler="icc"
 
-NOTE I have the xpm, xface, and audio libraries and includes in 
+NOTE I have the xpm, xface, and audio libraries and includes in
 	/usr/local/lib, /usr/local/include.  If you don't have these,
 	don't include the "--with-*" arguments in any of my examples.
 
-In previous versions of XEmacs, you had to override the defaults while 
+In previous versions of XEmacs, you had to override the defaults while
 compiling font-lock.o and extents.o when building with icc.  This seems
 to no longer be true, but I'm including this old information in case it
 resurfaces.  The process I used was:
 
-	make -k    
-	[ procure pizza, beer, repeat ] 
+	make -k
+	[ procure pizza, beer, repeat ]
 	cd src
 	make CC="icc -W0,-mP1COPT_max_tree_size=3000" font-lock.o extents.o
 	make LD=icc
 
-If you want sound support, get the tls566 supplement from 
-ftp.sco.com:/TLS or any of its mirrors.  It works just groovy 
+If you want sound support, get the tls566 supplement from
+ftp.sco.com:/TLS or any of its mirrors.  It works just groovy
 with XEmacs.
 
 The M-x manual-entry is known not to work.  If you know Lisp and would
 like help in making it work, e-mail me at <robertl@dgii.com>.
 (UNCHECKED for 19.15 -- it might work).
 
-In earlier releases, gnuserv/gnuclient/gnudoit would open a frame 
+In earlier releases, gnuserv/gnuclient/gnudoit would open a frame
 just fine, but the client would lock up and the server would
-terminate when you used C-x # to close the frame.   This is now 
+terminate when you used C-x # to close the frame.   This is now
 fixed in XEmacs.
 
 In etc/ there are two files of note. emacskeys.sco and emacsstrs.sco.
@@ -550,7 +581,7 @@ leads to instability in XEmacs.
 
 *** The XEmacs executable crashes at startup.
 
-This can be caused by many things.  
+This can be caused by many things.
 
 If you are running with X11 you need to have cygwin b19 or cygwin
 b20.1 or greater, cygwin b20 will not work.
@@ -694,7 +725,7 @@ may need to add "#define static" to the m- or the s- file.
 
 Try evaluating the form (setq lock-directory nil) and see if that helps.
 There is a problem with file-locking on some systems (possibly related
-to NFS) that I don't understand.  Please send mail to the address 
+to NFS) that I don't understand.  Please send mail to the address
 xemacs@xemacs.org if you figure this one out.
 
 *** When emacs starts up, I get lots of warnings about unknown keysyms.
@@ -702,15 +733,15 @@ xemacs@xemacs.org if you figure this one out.
 If you are running the prebuilt binaries, the Motif library expects to find
 certain thing in the XKeysymDB file.  This file is normally in /usr/lib/X11/
 or in /usr/openwin/lib/.  If you keep yours in a different place, set the
-environment variable $XKEYSYMDB to point to it before starting emacs.  If 
-you still have the problem after doing that, perhaps your version of X is 
+environment variable $XKEYSYMDB to point to it before starting emacs.  If
+you still have the problem after doing that, perhaps your version of X is
 too old.  There is a copy of the MIT X11R5 XKeysymDB file in the emacs `etc'
 directory.  Try using that one.
 
 *** My X resources used to work, and now some of them are being ignored.
 
 Check the resources in .../etc/Emacs.ad (which is the same as the file
-sample.Xdefaults).  Perhaps some of the default resources built in to 
+sample.Xdefaults).  Perhaps some of the default resources built in to
 emacs are now overriding your existing resources.  Copy and edit the
 resources in Emacs.ad as necessary.
 
@@ -870,7 +901,7 @@ info.
 XEmacs has fairly new TTY redisplay support (beginning from 19.12),
 which doesn't include some basic TTY optimizations -- like using
 scrolling regions to move around blocks of text.  This is why
-redisplay on the traditional terminals, or over slow lines can be very 
+redisplay on the traditional terminals, or over slow lines can be very
 slow.
 
 If you are interested in fixing this, please let us know at
@@ -1006,7 +1037,7 @@ problem by adding this to your .cshrc file:
 
     if ($?EMACS) then
         if ($EMACS == "t") then
-            unset edit 
+            unset edit
             stty  -icrnl -onlcr -echo susp ^Z
         endif
     endif
@@ -1333,7 +1364,7 @@ As of this writing (1998-12-28) you may get crashes while running
 XEmacs in a non-C locale.  For example, `LC_ALL=en_US xemacs' crashes
 while `LC_ALL=C xemacs' runs fine.  This happens for example with GNU
 libc 2.0.7.  Installing libintl.a and libintl.h built from gettext
-0.10.35 and re-building XEmacs solves the crashes.  Presumably soon 
+0.10.35 and re-building XEmacs solves the crashes.  Presumably soon
 everyone will upgrade to GNU Libc 2.1 and this problem will go away.
 
 *** `C-z', or `M-x suspend-emacs' hangs instead of suspending.
@@ -1377,7 +1408,7 @@ exist.  The first line in the `/etc/hosts' file should look like this
 Also make sure that the `/etc/host.conf' files contains the following
 lines:
 
-    order hosts, bind 
+    order hosts, bind
     multi on
 
 Any changes, permanent and temporary, to the host name should be
@@ -1644,11 +1675,11 @@ is giving it back 3.
 The solution is to add a pair of quotes around `tty` to make it a
 single word:
 
-if (`tty` == "/dev/console") 
+if (`tty` == "/dev/console")
 
 should be changed to:
 
-if ("`tty`" == "/dev/console") 
+if ("`tty`" == "/dev/console")
 
 Even better, move things that set up terminal sections out of .cshrc
 and into .login.
@@ -1786,7 +1817,7 @@ nobody is using and testing.
 and testers.  It probably doesn't work.
 
 ** There are no `native XEmacs' TUTORIALs for any Asian languages,
-including Japanese.  FSF Emacs and XEmacs tutorials are quite similar, 
+including Japanese.  FSF Emacs and XEmacs tutorials are quite similar,
 so it should be sufficient to skim through the differences and apply
 them to the Japanese version.
 

@@ -1,3 +1,10 @@
+to 21.2.42 "Poseidon"
+-- 64-bit platforms (Alpha) broken in 21.2.41 now fixed -- Martin Buchholz
+-- Windows packaging changes -- Andy Piper
+-- Widget bug fixes -- Andy Piper
+-- Modeline scrolling documented -- Didier Verna
+-- C-level alignment hackery -- Martin Buchholz
+
 to 21.2.41 "Polyhymnia"
 -- A very important fix to the byte-compiler was made.
    RE-BYTE-COMPILE all your .el files that were compiled by any older

@@ -3430,6 +3430,89 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2001-01-20  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.42 "Poseidon" is released.
+
+2001-01-20  Martin Buchholz  <martin@xemacs.org>
+
+	* console-x.h: typo fix du jour.  Remove #if 0'ed code.
+
+2001-01-19  Martin Buchholz  <martin@xemacs.org>
+
+	De-kludgify FIXED_TYPE free list frobbing.
+	Fix crashes on 64-bit platforms introduced by my patch of 2001-01-13.
+	* alloc.c (DECLARE_FIXED_TYPE_ALLOC): Use Lisp_Free.
+	* alloc.c (ALLOCATE_FIXED_TYPE_1): Use new definitions.
+	* alloc.c (Lisp_Free): New pseudo lisp object definition.
+	* alloc.c (LRECORD_FREE_P): New.
+	* alloc.c (MARK_LRECORD_AS_FREE): New.
+	* alloc.c (MARK_LRECORD_AS_NOT_FREE): New.
+	* alloc.c (STRUCT_FREE_P): Deleted.
+	* alloc.c (MARK_STRUCT_AS_FREE): Deleted.
+	* alloc.c (MARK_STRUCT_AS_NOT_FREE): Deleted.
+	* alloc.c (STRING_CHARS_FREE_P): New.
+	* alloc.c (MARK_STRING_CHARS_AS_FREE): New.
+	* alloc.c (PUT_FIXED_TYPE_ON_FREE_LIST): Use new definitions.
+	* alloc.c (FREE_FIXED_TYPE): Use new definitions.
+	* alloc.c (STRING_CHARS_FREE_P): Use new definitions.
+	* alloc.c (resize_string): Use new definitions.
+	* alloc.c (SWEEP_FIXED_TYPE_BLOCK): Use new definitions.
+	* alloc.c (verify_string_chars_integrity): Use new definitions.
+	* alloc.c (compact_string_chars): Use new definitions.
+	* alloc.c: Update monster comments.
+	* lrecord.h (lrecord_type): Add some new lrecord types for
+	alloc.c's use.
+
+2001-01-18  Martin Buchholz  <martin@xemacs.org>
+
+	Improve alignment hackery.
+	* lisp.h (ALIGNOF): Better definition for the non-gcc case.
+	(max_align_t): Moved from opaque.h - general purpose.
+	(ALIGN_PTR): Use size_t, not long.
+	* opaque.h (max_align_t): Move to lisp.h.
+
+2001-01-18  Norbert Koch  <nk@LF.net>
+
+	* gui.h: Fix and add prototypes to fix build problems.
+
+2001-01-18  Martin Buchholz  <martin@xemacs.org>
+
+	temacs is going away, so `dump-temacs' is now a bad name.
+	* .dbxrc (dump-temacs): Rename to `dmp'.
+	* .gdbinit (dump-temacs): Rename to `dmp'.
+
+2001-01-17  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.c (print_image_instance): comment to make martin happy.
+
+	* glyphs-x.c (x_redisplay_widget): update faces after a frame
+	change.
+
+	* glyphs-msw.c (mswindows_redisplay_widget): add code to cope with
+	activation.
+	(mswindows_tab_control_redisplay): warning suppression.
+
+	* glyphs-widget.c (widget_update): re-write to cope with updated
+	items.
+	(widget_instantiate): use new gui_item functions.
+	(tab_control_update): deleted.
+	(progress_gauge_update): deleted.
+	(image_instantiator_progress_guage): take out update reference.
+	(image_instantiator_tree_view): ditto.
+	(image_instantiator_tab_control): ditto.
+
+	* gui.c (widget_gui_parse_item_keywords): new function. Do things
+	Right the new way.
+	(gui_item_add_keyval_pair): re-write to cope with descriptors and
+	return whether anything was changed.
+	(update_gui_item_keywords): as it sounds.
+
+	* gui.h: declare widget_gui_parse_item_keywords.
+
+	* fns.c (safe_copy_tree): new function taken from Fcopy_tree.
+	(Fcopy_tree): use it. Stops infloop death in bogus instantiators.
+
 2001-01-17  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.41 "Polyhymnia" is released.

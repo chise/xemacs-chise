@@ -185,28 +185,31 @@ DESTDIR defaults to the value of `data-directory'."
   "Write out the installed package index in a net install suitable format.
 If DESTDIR is non-nil then use that as the destination directory. 
 DESTDIR defaults to the value of `package-net-setup-directory'."
-  ;; Need the local version
-  (package-get-require-base)
 
-  (setq destdir (file-name-as-directory 
-		 (or destdir (package-net-setup-directory))))
-  (let ((buf (get-buffer-create "*installed.db*")))
-    (unwind-protect
-        (save-excursion
-          (set-buffer buf)
-          (erase-buffer buf)
-          (goto-char (point-min))
-          (let ((entries package-get-base) entry plist)
-	    (while entries
-	      (setq entry (car entries))
-	      (setq plist (car (cdr entry)))
-	      (insert (format "%s %s %s\n" (symbol-name (car entry))
-			      (plist-get plist 'filename)
-			      (plist-get plist 'size)))
-	      (setq entries (cdr entries))))
-	  (make-directory-path destdir)
-	  (write-region (point-min) (point-max) (concat destdir "installed.db")))
-      (kill-buffer buf))))
+  (when (or (eq system-type 'cygwin32)
+	    (eq system-type 'window-nt))
+    (setq destdir (file-name-as-directory 
+		   (or destdir (package-net-setup-directory))))
+    (let ((buf (get-buffer-create "*installed.db*")))
+      (unwind-protect
+	  (save-excursion
+	    (set-buffer buf)
+	    (erase-buffer buf)
+	    (goto-char (point-min))
+	    ;; we use packages-package-list here as we actually want to
+	    ;; update relative to the installed reality
+	    (let ((entries packages-package-list) entry version)
+	      (while entries
+		(setq entry (car entries))
+		(setq version (plist-get (cdr entry) :version))
+		;; Unfortunately we can't read the size from this
+		(insert (format "%s %s-%3.2f-pkg.tar.gz 0\n" (symbol-name (car entry))
+				(symbol-name (car entry))
+				version))
+		(setq entries (cdr entries))))
+	    (make-directory-path destdir)
+	    (write-region (point-min) (point-max) (concat destdir "installed.db")))
+	(kill-buffer buf)))))
 
 (defun package-net-convert-download-sites-to-mirrors (&optional destdir)
   "Write out the download site list in a net install suitable format.

@@ -33,6 +33,9 @@ file.
 * Changes in XEmacs 21.2
 ========================
 
+** The modeline's text is now scrollable. Please refer to the variable
+`modeline-scrolling-method' for more information.
+
 ** The delete key now deletes forward by default.
 
 This is regulated by the variable `delete-key-deletes-forward', which

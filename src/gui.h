@@ -31,6 +31,9 @@ int separator_string_p (const Bufbyte *s);
 void get_gui_callback (Lisp_Object, Lisp_Object *, Lisp_Object *);
 int gui_item_equal_sans_selected (Lisp_Object obj1, Lisp_Object obj2, int depth);
 
+
+
+
 extern int popup_up_p;
 
 /************************************************************************/
@@ -64,9 +67,12 @@ DECLARE_LRECORD (gui_item, Lisp_Gui_Item);
 #define CHECK_GUI_ITEM(x) CHECK_RECORD (x, gui_item)
 #define CONCHECK_GUI_ITEM(x) CONCHECK_RECORD (x, gui_item)
 
-void gui_item_add_keyval_pair (Lisp_Object,
-			       Lisp_Object key, Lisp_Object val,
-			       Error_behavior errb);
+int update_gui_item_keywords (Lisp_Object gui_item, Lisp_Object item);
+Lisp_Object copy_gui_item (Lisp_Object gui_item);
+Lisp_Object widget_gui_parse_item_keywords (Lisp_Object item);
+int gui_item_add_keyval_pair (Lisp_Object gui_item,
+                              Lisp_Object key, Lisp_Object val,
+                              Error_behavior errb);
 Lisp_Object gui_parse_item_keywords (Lisp_Object item);
 Lisp_Object gui_parse_item_keywords_no_errors (Lisp_Object item);
 void gui_add_item_keywords_to_plist (Lisp_Object plist, Lisp_Object gui_item);

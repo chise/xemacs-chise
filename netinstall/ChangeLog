@@ -1,3 +1,12 @@
+2001-01-20  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.42 "Poseidon" is released.
+
+2001-01-17  Andy Piper  <andy@xemacs.org>
+
+	* ini.h: move extern "C" to aid win32 compilation. From Fabrice
+	Popineau.
+
 2001-01-17  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.41 "Polyhymnia" is released.
@@ -166,5 +175,5 @@
 
 	* all: port from cygwin setup.
 
-%%% $Id: ChangeLog,v 1.1.2.9 2001/01/12 16:11:12 andyp Exp $
-$Revision: 1.1.2.9 $
+%%% $Id: ChangeLog,v 1.1.2.11 2001/01/17 21:54:32 andyp Exp $
+$Revision: 1.1.2.11 $
