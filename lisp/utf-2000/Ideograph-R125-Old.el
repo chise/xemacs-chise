@@ -23,6 +23,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (japanese-jisx0213-2	. #x7522)	; ø»¦˜™
+    (china3-jef			. #x72FC)	; øº‡‹¼
     (ucs			. #x8002)	; è€‚
     ))
 (define-char
@@ -181,6 +182,7 @@
     (korean-ksc5601		. #x6D3A)	; ø»ŠŠ
     (japanese-jisx0213-1	. #x7A44)	; ø»¤–
     (ideograph-daikanwa		. 28853)	; ø¸‡‚µ
+    (china3-jef			. #x60B5)	; øº†‚µ
     ))
 (define-char
   '((=>ucs		. #x8005)	; è€…
