@@ -1785,6 +1785,12 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (<-same
+     ((=ucs		  . #x25055)	; 𥁕
+      (=daikanwa	  . 22978)	; &I-M-22978;
+      ))
+    (<-same*sources
+     guangyun daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1793,6 +1799,7 @@
       )
      ((=ucs		  . #x76BF)	; 皿
       ))
+    (shinjigen-1	. 5235)
     (=ucs		. #x6637)	; 昷
     (=jis-x0212		. #x4230)	; &I-JSP-4230; [34-16]
     (=cns11643-3	. #x2D24)	; &I-C3-2D24; [13-04]
@@ -1805,8 +1812,13 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x6638)	; 昸
-    (=cns11643-3	. #x2D25)	; &I-C3-2D25; [13-05]
-    (=daikanwa		. 13875)	; &I-M-13875;
+    (->subsumptive
+     ((=daikanwa	  . 13875)	; &M-13875;
+      )
+     ((=ucs@unicode	  . #x6638)	; &UU+6638;
+      )
+     ((=cns11643-3	  . #x2D25)	; &C3-2D25; [13-05]
+      ))
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
