@@ -1,5 +1,14 @@
 							-*- indented-text -*-
+to 21.2 beta6 "Apollo"
+-- mswindows compile fixes from Martin Buchholz, Andy Piper, Greg
+   Klanderman and Adrian Aichner
+-- Synch with XEmacs 21.0.60
+-- mega-patch fixes from Martin Buchholz
+-- md5 fixes and testsuite from Hrvoje Niksic
+-- database fix from Hrvoje Niksic
+
 to 21.2 beta5 "Aphrodite"
+-- synch with XEmacs 21.0.58
 -- bytecode interpreter rewritten
 -- byte compiler fixes
 -- hash table implementation rewritten

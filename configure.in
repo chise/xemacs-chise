@@ -3668,7 +3668,7 @@ for dir in $MAKE_SUBDIR; do
       done ) ;;
    * ) test -d "$dir" || mkdir "$dir" ;;
   esac
-  XE_SPACE(SUBDIR_MAKEFILES, $SUBDIR_MAKEFILES $dir/Makefile)
+  XE_SPACE(SUBDIR_MAKEFILES, $SUBDIR_MAKEFILES $dir/Makefile $dir/GNUmakefile)
   XE_SPACE(internal_makefile_list, $internal_makefile_list $dir/Makefile.in)
 done
 AC_SUBST(INSTALL_ARCH_DEP_SUBDIR)

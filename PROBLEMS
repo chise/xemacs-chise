@@ -30,6 +30,11 @@ A general advice:
 ===============================
 
 ** General
+*** egcs-1.1
+
+There have been reports of egcs-1.1 not compiling XEmacs correctly on
+Alpha Linux.  There have also been reports that egcs-1.0.3a is O.K.
+
 *** Don't use -O2 with gcc 2.7.2 under Intel/XXX without also using
 `-fno-strength-reduce'.
 

@@ -534,11 +534,8 @@ clean: FRC.clean
 ##      distribution.
 top_distclean=\
 	$(RM) config.status config.log config-tmp-* build-install Installation ; \
-	for d in src lib-src lwlib dynodump ; do \
-	  $(RM) $$d/Makefile $$d/Makefile.in ; \
-	done ; \
-	$(RM) core .sbinit Makefile Makefile.in lock/*; \
-	$(RM) lisp/finder-inf.el* Installation.el Installation.elc; \
+	$(RM) core .sbinit lock/* GNUmakefile Makefile Makefile.in ; \
+	$(RM) lisp/finder-inf.el* Installation.el Installation.elc ; \
 	$(RM) packages mule-packages site-lisp
 
 distclean: FRC.distclean
