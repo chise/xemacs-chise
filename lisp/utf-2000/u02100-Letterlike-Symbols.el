@@ -30,10 +30,10 @@
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0043)
     (=ucs		. #x2103)	; ℃
-    (=jis-x0208		. #x216E)	; &I-J90-216E;
-    (=gb2312		. #x2166)	; &I-G0-2166;
-    (=ks-x1001		. #x2149)	; &I-K0-2149;
-    (=cns11643-1	. #x226A)	; &I-C1-226A;
+    (=jis-x0208		. #x216E)	; &I-J90-216E; [01-78]
+    (=gb2312		. #x2166)	; &I-G0-2166; [01-70]
+    (=ks-x1001		. #x2149)	; &I-K0-2149; [01-41]
+    (=cns11643-1	. #x226A)	; &I-C1-226A; [02-74]
     (=big5		. #xA24A)	; &I-B-A24A;
     ))
 (define-char
@@ -50,7 +50,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0063 #x002F #x006F)
     (=ucs		. #x2105)	; ℅
-    (=cns11643-1	. #x2222)	; &I-C1-2222;
+    (=cns11643-1	. #x2222)	; &I-C1-2222; [02-02]
     (=big5		. #xA1C1)	; &I-B-A1C1;
     ))
 (define-char
@@ -83,8 +83,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0046)
     (=ucs		. #x2109)	; ℉
-    (=ks-x1001		. #x2235)	; &I-K0-2235;
-    (=cns11643-1	. #x226B)	; &I-C1-226B;
+    (=ks-x1001		. #x2235)	; &I-K0-2235; [02-21]
+    (=cns11643-1	. #x226B)	; &I-C1-226B; [02-75]
     (=big5		. #xA24B)	; &I-B-A24B;
     ))
 (define-char
@@ -134,7 +134,7 @@
     (mirrored		. nil)
     (->decomposition	font #x0127)
     (=ucs		. #x210F)	; ℏ
-    (=jis-x0213-1-2000	. #x235D)	; &I-JX1-235D;
+    (=jis-x0213-1-2000	. #x235D)	; &I-JX1-235D; [03-61]
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL I")
@@ -167,8 +167,8 @@
     (mirrored		. nil)
     (->decomposition	font #x006C)
     (=ucs		. #x2113)	; ℓ
-    (=ks-x1001		. #x2724)	; &I-K0-2724;
-    (=jis-x0213-1-2000	. #x235F)	; &I-JX1-235F;
+    (=ks-x1001		. #x2724)	; &I-K0-2724; [07-04]
+    (=jis-x0213-1-2000	. #x235F)	; &I-JX1-235F; [03-63]
     ))
 (define-char
   '((name		. "L B BAR SYMBOL")
@@ -192,10 +192,10 @@
     (mirrored		. nil)
     (->decomposition	compat #x004E #x006F)
     (=ucs		. #x2116)	; №
-    (=gb2312		. #x216D)	; &I-G0-216D;
-    (=ks-x1001		. #x2260)	; &I-K0-2260;
-    (=jis-x0212		. #x2271)	; &I-JSP-2271;
-    (=jis-x0213-1-2000	. #x2D62)	; &I-JX1-2D62;
+    (=gb2312		. #x216D)	; &I-G0-216D; [01-77]
+    (=ks-x1001		. #x2260)	; &I-K0-2260; [02-64]
+    (=jis-x0212		. #x2271)	; &I-JSP-2271; [02-81]
+    (=jis-x0213-1-2000	. #x2D62)	; &I-JX1-2D62; [13-66]
     (=big5-eten		. #xC8D2)	; &B-C8D2;
     ))
 (define-char
@@ -290,8 +290,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x0054 #x0045 #x004C)
     (=ucs		. #x2121)	; ℡
-    (=ks-x1001		. #x2265)	; &I-K0-2265;
-    (=jis-x0213-1-2000	. #x2D64)	; &I-JX1-2D64;
+    (=ks-x1001		. #x2265)	; &I-K0-2265; [02-69]
+    (=jis-x0213-1-2000	. #x2D64)	; &I-JX1-2D64; [13-68]
     (=big5-eten		. #xC8D3)	; &B-C8D3;
     ))
 (define-char
@@ -301,8 +301,8 @@
     (mirrored		. nil)
     (->decomposition	super #x0054 #x004D)
     (=ucs		. #x2122)	; ™
-    (=ks-x1001		. #x2262)	; &I-K0-2262;
-    (=jis-x0212		. #x226F)	; &I-JSP-226F;
+    (=ks-x1001		. #x2262)	; &I-K0-2262; [02-66]
+    (=jis-x0212		. #x226F)	; &I-JSP-226F; [02-79]
     ))
 (define-char
   '((name		. "VERSICLE")
@@ -333,7 +333,7 @@
     (mirrored		. nil)
     (->decomposition	#x03A9)
     (=ucs		. #x2126)	; Ω
-    (=ks-x1001		. #x2759)	; &I-K0-2759;
+    (=ks-x1001		. #x2759)	; &I-K0-2759; [07-57]
     ))
 (define-char
   '((name		. "INVERTED OHM SIGN")
@@ -341,7 +341,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2127)	; ℧
-    (=jis-x0213-1-2000	. #x2360)	; &I-JX1-2360;
+    (=jis-x0213-1-2000	. #x2360)	; &I-JX1-2360; [03-64]
     ))
 (define-char
   '((name		. "BLACK-LETTER CAPITAL Z")
@@ -373,9 +373,9 @@
     (mirrored		. nil)
     (->decomposition	#x00C5)
     (=ucs		. #x212B)	; Å
-    (=jis-x0208-1983	. #x2272)	; &I-J83-2272;
-    (=ks-x1001		. #x214A)	; &I-K0-214A;
-    (=jis-x0208-1990	. #x2272)	; &I-J90-2272;
+    (=jis-x0208-1983	. #x2272)	; &I-J83-2272; [02-82]
+    (=ks-x1001		. #x214A)	; &I-K0-214A; [01-42]
+    (=jis-x0208-1990	. #x2272)	; &I-J90-2272; [02-82]
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL B")
@@ -454,7 +454,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x05D0)
     (=ucs		. #x2135)	; ℵ
-    (=jis-x0213-1-2000	. #x235C)	; &I-JX1-235C;
+    (=jis-x0213-1-2000	. #x235C)	; &I-JX1-235C; [03-60]
     ))
 (define-char
   '((name		. "BET SYMBOL")

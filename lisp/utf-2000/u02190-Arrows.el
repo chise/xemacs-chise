@@ -5,10 +5,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2190)	; ←
-    (=jis-x0208		. #x222B)	; &I-J90-222B;
-    (=gb2312		. #x217B)	; &I-G0-217B;
-    (=ks-x1001		. #x2167)	; &I-K0-2167;
-    (=cns11643-1	. #x2258)	; &I-C1-2258;
+    (=jis-x0208		. #x222B)	; &I-J90-222B; [02-11]
+    (=gb2312		. #x217B)	; &I-G0-217B; [01-91]
+    (=ks-x1001		. #x2167)	; &I-K0-2167; [01-71]
+    (=cns11643-1	. #x2258)	; &I-C1-2258; [02-56]
     (=big5		. #xA1F6)	; &I-B-A1F6;
     (=jef-china3	. #x7BCE)	; &I-JC3-7BCE;
     ))
@@ -18,10 +18,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2191)	; ↑
-    (=jis-x0208		. #x222C)	; &I-J90-222C;
-    (=gb2312		. #x217C)	; &I-G0-217C;
-    (=ks-x1001		. #x2168)	; &I-K0-2168;
-    (=cns11643-1	. #x2255)	; &I-C1-2255;
+    (=jis-x0208		. #x222C)	; &I-J90-222C; [02-12]
+    (=gb2312		. #x217C)	; &I-G0-217C; [01-92]
+    (=ks-x1001		. #x2168)	; &I-K0-2168; [01-72]
+    (=cns11643-1	. #x2255)	; &I-C1-2255; [02-53]
     (=big5		. #xA1F4)	; &I-B-A1F4;
     (=jef-china3	. #x7BCF)	; &I-JC3-7BCF;
     ))
@@ -31,10 +31,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2192)	; →
-    (=jis-x0208		. #x222A)	; &I-J90-222A;
-    (=gb2312		. #x217A)	; &I-G0-217A;
-    (=ks-x1001		. #x2166)	; &I-K0-2166;
-    (=cns11643-1	. #x2257)	; &I-C1-2257;
+    (=jis-x0208		. #x222A)	; &I-J90-222A; [02-10]
+    (=gb2312		. #x217A)	; &I-G0-217A; [01-90]
+    (=ks-x1001		. #x2166)	; &I-K0-2166; [01-70]
+    (=cns11643-1	. #x2257)	; &I-C1-2257; [02-55]
     (=big5		. #xA1F7)	; &I-B-A1F7;
     (=jef-china3	. #x7BCD)	; &I-JC3-7BCD;
     ))
@@ -44,10 +44,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2193)	; ↓
-    (=jis-x0208		. #x222D)	; &I-J90-222D;
-    (=gb2312		. #x217D)	; &I-G0-217D;
-    (=ks-x1001		. #x2169)	; &I-K0-2169;
-    (=cns11643-1	. #x2256)	; &I-C1-2256;
+    (=jis-x0208		. #x222D)	; &I-J90-222D; [02-13]
+    (=gb2312		. #x217D)	; &I-G0-217D; [01-93]
+    (=ks-x1001		. #x2169)	; &I-K0-2169; [01-73]
+    (=cns11643-1	. #x2256)	; &I-C1-2256; [02-54]
     (=big5		. #xA1F5)	; &I-B-A1F5;
     (=jef-china3	. #x7BD0)	; &I-JC3-7BD0;
     ))
@@ -57,8 +57,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2194)	; ↔
-    (=ks-x1001		. #x216A)	; &I-K0-216A;
-    (=jis-x0213-1-2000	. #x2271)	; &I-JX1-2271;
+    (=ks-x1001		. #x216A)	; &I-K0-216A; [01-74]
+    (=jis-x0213-1-2000	. #x2271)	; &I-JX1-2271; [02-81]
     ))
 (define-char
   '((name		. "UP DOWN ARROW")
@@ -66,7 +66,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2195)	; ↕
-    (=ks-x1001		. #x2255)	; &I-K0-2255;
+    (=ks-x1001		. #x2255)	; &I-K0-2255; [02-53]
     ))
 (define-char
   '((name		. "NORTH WEST ARROW")
@@ -74,9 +74,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2196)	; ↖
-    (=ks-x1001		. #x2258)	; &I-K0-2258;
-    (=cns11643-1	. #x2259)	; &I-C1-2259;
-    (=jis-x0213-1-2000	. #x2327)	; &I-JX1-2327;
+    (=ks-x1001		. #x2258)	; &I-K0-2258; [02-56]
+    (=cns11643-1	. #x2259)	; &I-C1-2259; [02-57]
+    (=jis-x0213-1-2000	. #x2327)	; &I-JX1-2327; [03-07]
     (=big5		. #xA1F8)	; &I-B-A1F8;
     ))
 (define-char
@@ -85,9 +85,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2197)	; ↗
-    (=ks-x1001		. #x2256)	; &I-K0-2256;
-    (=cns11643-1	. #x225A)	; &I-C1-225A;
-    (=jis-x0213-1-2000	. #x2325)	; &I-JX1-2325;
+    (=ks-x1001		. #x2256)	; &I-K0-2256; [02-54]
+    (=cns11643-1	. #x225A)	; &I-C1-225A; [02-58]
+    (=jis-x0213-1-2000	. #x2325)	; &I-JX1-2325; [03-05]
     (=big5		. #xA1F9)	; &I-B-A1F9;
     ))
 (define-char
@@ -96,9 +96,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2198)	; ↘
-    (=ks-x1001		. #x2259)	; &I-K0-2259;
-    (=cns11643-1	. #x225C)	; &I-C1-225C;
-    (=jis-x0213-1-2000	. #x2326)	; &I-JX1-2326;
+    (=ks-x1001		. #x2259)	; &I-K0-2259; [02-57]
+    (=cns11643-1	. #x225C)	; &I-C1-225C; [02-60]
+    (=jis-x0213-1-2000	. #x2326)	; &I-JX1-2326; [03-06]
     (=big5		. #xA1FB)	; &I-B-A1FB;
     ))
 (define-char
@@ -107,9 +107,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2199)	; ↙
-    (=ks-x1001		. #x2257)	; &I-K0-2257;
-    (=cns11643-1	. #x225B)	; &I-C1-225B;
-    (=jis-x0213-1-2000	. #x2328)	; &I-JX1-2328;
+    (=ks-x1001		. #x2257)	; &I-K0-2257; [02-55]
+    (=cns11643-1	. #x225B)	; &I-C1-225B; [02-59]
+    (=jis-x0213-1-2000	. #x2328)	; &I-JX1-2328; [03-08]
     (=big5		. #xA1FA)	; &I-B-A1FA;
     ))
 (define-char
@@ -417,7 +417,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21C4)	; ⇄
-    (=jis-x0213-1-2000	. #x2329)	; &I-JX1-2329;
+    (=jis-x0213-1-2000	. #x2329)	; &I-JX1-2329; [03-09]
     ))
 (define-char
   '((name		. "UPWARDS ARROW LEFTWARDS OF DOWNWARDS ARROW")
@@ -519,9 +519,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21D2)	; ⇒
-    (=jis-x0208-1983	. #x224D)	; &I-J83-224D;
-    (=ks-x1001		. #x2221)	; &I-K0-2221;
-    (=jis-x0208-1990	. #x224D)	; &I-J90-224D;
+    (=jis-x0208-1983	. #x224D)	; &I-J83-224D; [02-45]
+    (=ks-x1001		. #x2221)	; &I-K0-2221; [02-01]
+    (=jis-x0208-1990	. #x224D)	; &I-J90-224D; [02-45]
     (=jef-china3	. #x7FDA)	; &I-JC3-7FDA;
     ))
 (define-char
@@ -537,9 +537,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21D4)	; ⇔
-    (=jis-x0208-1983	. #x224E)	; &I-J83-224E;
-    (=ks-x1001		. #x2222)	; &I-K0-2222;
-    (=jis-x0208-1990	. #x224E)	; &I-J90-224E;
+    (=jis-x0208-1983	. #x224E)	; &I-J83-224E; [02-46]
+    (=ks-x1001		. #x2222)	; &I-K0-2222; [02-02]
+    (=jis-x0208-1990	. #x224E)	; &I-J90-224E; [02-46]
     (=jef-china3	. #x7FDB)	; &I-JC3-7FDB;
     ))
 (define-char
@@ -667,7 +667,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21E6)	; ⇦
-    (=jis-x0213-1-2000	. #x232B)	; &I-JX1-232B;
+    (=jis-x0213-1-2000	. #x232B)	; &I-JX1-232B; [03-11]
     (=jef-china3	. #x76B2)	; &I-JC3-76B2;
     ))
 (define-char
@@ -676,7 +676,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21E7)	; ⇧
-    (=jis-x0213-1-2000	. #x232C)	; &I-JX1-232C;
+    (=jis-x0213-1-2000	. #x232C)	; &I-JX1-232C; [03-12]
     (=big5-eten		. #xC876)	; &B-C876;
     (=jef-china3	. #x76B1)	; &I-JC3-76B1;
     ))
@@ -686,7 +686,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21E8)	; ⇨
-    (=jis-x0213-1-2000	. #x232A)	; &I-JX1-232A;
+    (=jis-x0213-1-2000	. #x232A)	; &I-JX1-232A; [03-10]
     (=jef-china3	. #x76B3)	; &I-JC3-76B3;
     ))
 (define-char
@@ -695,7 +695,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21E9)	; ⇩
-    (=jis-x0213-1-2000	. #x232D)	; &I-JX1-232D;
+    (=jis-x0213-1-2000	. #x232D)	; &I-JX1-232D; [03-13]
     (=jef-china3	. #x76B0)	; &I-JC3-76B0;
     ))
 (define-char

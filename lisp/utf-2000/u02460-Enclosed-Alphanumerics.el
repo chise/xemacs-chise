@@ -8,10 +8,10 @@
     (numeric-value	. 1)
     (->decomposition	circle #x0031)
     (=ucs		. #x2460)	; ①
-    (=gb2312		. #x2259)	; &I-G0-2259;
-    (=ks-x1001		. #x2867)	; &I-K0-2867;
-    (=cns11643-1	. #x2621)	; &I-C1-2621;
-    (=jis-x0213-1-2000	. #x2D21)	; &I-JX1-2D21;
+    (=gb2312		. #x2259)	; &I-G0-2259; [02-57]
+    (=ks-x1001		. #x2867)	; &I-K0-2867; [08-71]
+    (=cns11643-1	. #x2621)	; &I-C1-2621; [06-01]
+    (=jis-x0213-1-2000	. #x2D21)	; &I-JX1-2D21; [13-01]
     (=big5-eten		. #xC6A1)	; &B-C6A1;
     (=jef-china3	. #x77C9)	; &I-JC3-77C9;
     ))
@@ -24,10 +24,10 @@
     (numeric-value	. 2)
     (->decomposition	circle #x0032)
     (=ucs		. #x2461)	; ②
-    (=gb2312		. #x225A)	; &I-G0-225A;
-    (=ks-x1001		. #x2868)	; &I-K0-2868;
-    (=cns11643-1	. #x2622)	; &I-C1-2622;
-    (=jis-x0213-1-2000	. #x2D22)	; &I-JX1-2D22;
+    (=gb2312		. #x225A)	; &I-G0-225A; [02-58]
+    (=ks-x1001		. #x2868)	; &I-K0-2868; [08-72]
+    (=cns11643-1	. #x2622)	; &I-C1-2622; [06-02]
+    (=jis-x0213-1-2000	. #x2D22)	; &I-JX1-2D22; [13-02]
     (=big5-eten		. #xC6A2)	; &B-C6A2;
     (=jef-china3	. #x77CA)	; &I-JC3-77CA;
     ))
@@ -40,10 +40,10 @@
     (numeric-value	. 3)
     (->decomposition	circle #x0033)
     (=ucs		. #x2462)	; ③
-    (=gb2312		. #x225B)	; &I-G0-225B;
-    (=ks-x1001		. #x2869)	; &I-K0-2869;
-    (=cns11643-1	. #x2623)	; &I-C1-2623;
-    (=jis-x0213-1-2000	. #x2D23)	; &I-JX1-2D23;
+    (=gb2312		. #x225B)	; &I-G0-225B; [02-59]
+    (=ks-x1001		. #x2869)	; &I-K0-2869; [08-73]
+    (=cns11643-1	. #x2623)	; &I-C1-2623; [06-03]
+    (=jis-x0213-1-2000	. #x2D23)	; &I-JX1-2D23; [13-03]
     (=big5-eten		. #xC6A3)	; &B-C6A3;
     (=jef-china3	. #x77CB)	; &I-JC3-77CB;
     ))
@@ -56,10 +56,10 @@
     (numeric-value	. 4)
     (->decomposition	circle #x0034)
     (=ucs		. #x2463)	; ④
-    (=gb2312		. #x225C)	; &I-G0-225C;
-    (=ks-x1001		. #x286A)	; &I-K0-286A;
-    (=cns11643-1	. #x2624)	; &I-C1-2624;
-    (=jis-x0213-1-2000	. #x2D24)	; &I-JX1-2D24;
+    (=gb2312		. #x225C)	; &I-G0-225C; [02-60]
+    (=ks-x1001		. #x286A)	; &I-K0-286A; [08-74]
+    (=cns11643-1	. #x2624)	; &I-C1-2624; [06-04]
+    (=jis-x0213-1-2000	. #x2D24)	; &I-JX1-2D24; [13-04]
     (=big5-eten		. #xC6A4)	; &B-C6A4;
     (=jef-china3	. #x77CC)	; &I-JC3-77CC;
     ))
@@ -72,10 +72,10 @@
     (numeric-value	. 5)
     (->decomposition	circle #x0035)
     (=ucs		. #x2464)	; ⑤
-    (=gb2312		. #x225D)	; &I-G0-225D;
-    (=ks-x1001		. #x286B)	; &I-K0-286B;
-    (=cns11643-1	. #x2625)	; &I-C1-2625;
-    (=jis-x0213-1-2000	. #x2D25)	; &I-JX1-2D25;
+    (=gb2312		. #x225D)	; &I-G0-225D; [02-61]
+    (=ks-x1001		. #x286B)	; &I-K0-286B; [08-75]
+    (=cns11643-1	. #x2625)	; &I-C1-2625; [06-05]
+    (=jis-x0213-1-2000	. #x2D25)	; &I-JX1-2D25; [13-05]
     (=big5-eten		. #xC6A5)	; &B-C6A5;
     (=jef-china3	. #x77CD)	; &I-JC3-77CD;
     ))
@@ -88,10 +88,10 @@
     (numeric-value	. 6)
     (->decomposition	circle #x0036)
     (=ucs		. #x2465)	; ⑥
-    (=gb2312		. #x225E)	; &I-G0-225E;
-    (=ks-x1001		. #x286C)	; &I-K0-286C;
-    (=cns11643-1	. #x2626)	; &I-C1-2626;
-    (=jis-x0213-1-2000	. #x2D26)	; &I-JX1-2D26;
+    (=gb2312		. #x225E)	; &I-G0-225E; [02-62]
+    (=ks-x1001		. #x286C)	; &I-K0-286C; [08-76]
+    (=cns11643-1	. #x2626)	; &I-C1-2626; [06-06]
+    (=jis-x0213-1-2000	. #x2D26)	; &I-JX1-2D26; [13-06]
     (=big5-eten		. #xC6A6)	; &B-C6A6;
     (=jef-china3	. #x77CE)	; &I-JC3-77CE;
     ))
@@ -104,10 +104,10 @@
     (numeric-value	. 7)
     (->decomposition	circle #x0037)
     (=ucs		. #x2466)	; ⑦
-    (=gb2312		. #x225F)	; &I-G0-225F;
-    (=ks-x1001		. #x286D)	; &I-K0-286D;
-    (=cns11643-1	. #x2627)	; &I-C1-2627;
-    (=jis-x0213-1-2000	. #x2D27)	; &I-JX1-2D27;
+    (=gb2312		. #x225F)	; &I-G0-225F; [02-63]
+    (=ks-x1001		. #x286D)	; &I-K0-286D; [08-77]
+    (=cns11643-1	. #x2627)	; &I-C1-2627; [06-07]
+    (=jis-x0213-1-2000	. #x2D27)	; &I-JX1-2D27; [13-07]
     (=big5-eten		. #xC6A7)	; &B-C6A7;
     (=jef-china3	. #x77CF)	; &I-JC3-77CF;
     ))
@@ -120,10 +120,10 @@
     (numeric-value	. 8)
     (->decomposition	circle #x0038)
     (=ucs		. #x2467)	; ⑧
-    (=gb2312		. #x2260)	; &I-G0-2260;
-    (=ks-x1001		. #x286E)	; &I-K0-286E;
-    (=cns11643-1	. #x2628)	; &I-C1-2628;
-    (=jis-x0213-1-2000	. #x2D28)	; &I-JX1-2D28;
+    (=gb2312		. #x2260)	; &I-G0-2260; [02-64]
+    (=ks-x1001		. #x286E)	; &I-K0-286E; [08-78]
+    (=cns11643-1	. #x2628)	; &I-C1-2628; [06-08]
+    (=jis-x0213-1-2000	. #x2D28)	; &I-JX1-2D28; [13-08]
     (=big5-eten		. #xC6A8)	; &B-C6A8;
     (=jef-china3	. #x77D0)	; &I-JC3-77D0;
     ))
@@ -136,10 +136,10 @@
     (numeric-value	. 9)
     (->decomposition	circle #x0039)
     (=ucs		. #x2468)	; ⑨
-    (=gb2312		. #x2261)	; &I-G0-2261;
-    (=ks-x1001		. #x286F)	; &I-K0-286F;
-    (=cns11643-1	. #x2629)	; &I-C1-2629;
-    (=jis-x0213-1-2000	. #x2D29)	; &I-JX1-2D29;
+    (=gb2312		. #x2261)	; &I-G0-2261; [02-65]
+    (=ks-x1001		. #x286F)	; &I-K0-286F; [08-79]
+    (=cns11643-1	. #x2629)	; &I-C1-2629; [06-09]
+    (=jis-x0213-1-2000	. #x2D29)	; &I-JX1-2D29; [13-09]
     (=big5-eten		. #xC6A9)	; &B-C6A9;
     (=jef-china3	. #x77D1)	; &I-JC3-77D1;
     ))
@@ -151,10 +151,10 @@
     (numeric-value	. 10)
     (->decomposition	circle #x0031 #x0030)
     (=ucs		. #x2469)	; ⑩
-    (=gb2312		. #x2262)	; &I-G0-2262;
-    (=ks-x1001		. #x2870)	; &I-K0-2870;
-    (=cns11643-1	. #x262A)	; &I-C1-262A;
-    (=jis-x0213-1-2000	. #x2D2A)	; &I-JX1-2D2A;
+    (=gb2312		. #x2262)	; &I-G0-2262; [02-66]
+    (=ks-x1001		. #x2870)	; &I-K0-2870; [08-80]
+    (=cns11643-1	. #x262A)	; &I-C1-262A; [06-10]
+    (=jis-x0213-1-2000	. #x2D2A)	; &I-JX1-2D2A; [13-10]
     (=big5-eten		. #xC6AA)	; &B-C6AA;
     (=jef-china3	. #x77D2)	; &I-JC3-77D2;
     ))
@@ -166,8 +166,8 @@
     (numeric-value	. 11)
     (->decomposition	circle #x0031 #x0031)
     (=ucs		. #x246A)	; ⑪
-    (=ks-x1001		. #x2871)	; &I-K0-2871;
-    (=jis-x0213-1-2000	. #x2D2B)	; &I-JX1-2D2B;
+    (=ks-x1001		. #x2871)	; &I-K0-2871; [08-81]
+    (=jis-x0213-1-2000	. #x2D2B)	; &I-JX1-2D2B; [13-11]
     (=jef-china3	. #x77D3)	; &I-JC3-77D3;
     ))
 (define-char
@@ -178,8 +178,8 @@
     (numeric-value	. 12)
     (->decomposition	circle #x0031 #x0032)
     (=ucs		. #x246B)	; ⑫
-    (=ks-x1001		. #x2872)	; &I-K0-2872;
-    (=jis-x0213-1-2000	. #x2D2C)	; &I-JX1-2D2C;
+    (=ks-x1001		. #x2872)	; &I-K0-2872; [08-82]
+    (=jis-x0213-1-2000	. #x2D2C)	; &I-JX1-2D2C; [13-12]
     (=jef-china3	. #x77D4)	; &I-JC3-77D4;
     ))
 (define-char
@@ -190,8 +190,8 @@
     (numeric-value	. 13)
     (->decomposition	circle #x0031 #x0033)
     (=ucs		. #x246C)	; ⑬
-    (=ks-x1001		. #x2873)	; &I-K0-2873;
-    (=jis-x0213-1-2000	. #x2D2D)	; &I-JX1-2D2D;
+    (=ks-x1001		. #x2873)	; &I-K0-2873; [08-83]
+    (=jis-x0213-1-2000	. #x2D2D)	; &I-JX1-2D2D; [13-13]
     (=jef-china3	. #x77D5)	; &I-JC3-77D5;
     ))
 (define-char
@@ -202,8 +202,8 @@
     (numeric-value	. 14)
     (->decomposition	circle #x0031 #x0034)
     (=ucs		. #x246D)	; ⑭
-    (=ks-x1001		. #x2874)	; &I-K0-2874;
-    (=jis-x0213-1-2000	. #x2D2E)	; &I-JX1-2D2E;
+    (=ks-x1001		. #x2874)	; &I-K0-2874; [08-84]
+    (=jis-x0213-1-2000	. #x2D2E)	; &I-JX1-2D2E; [13-14]
     (=jef-china3	. #x77D6)	; &I-JC3-77D6;
     ))
 (define-char
@@ -214,8 +214,8 @@
     (numeric-value	. 15)
     (->decomposition	circle #x0031 #x0035)
     (=ucs		. #x246E)	; ⑮
-    (=ks-x1001		. #x2875)	; &I-K0-2875;
-    (=jis-x0213-1-2000	. #x2D2F)	; &I-JX1-2D2F;
+    (=ks-x1001		. #x2875)	; &I-K0-2875; [08-85]
+    (=jis-x0213-1-2000	. #x2D2F)	; &I-JX1-2D2F; [13-15]
     (=jef-china3	. #x77D7)	; &I-JC3-77D7;
     ))
 (define-char
@@ -226,7 +226,7 @@
     (numeric-value	. 16)
     (->decomposition	circle #x0031 #x0036)
     (=ucs		. #x246F)	; ⑯
-    (=jis-x0213-1-2000	. #x2D30)	; &I-JX1-2D30;
+    (=jis-x0213-1-2000	. #x2D30)	; &I-JX1-2D30; [13-16]
     (=jef-china3	. #x77D8)	; &I-JC3-77D8;
     ))
 (define-char
@@ -237,7 +237,7 @@
     (numeric-value	. 17)
     (->decomposition	circle #x0031 #x0037)
     (=ucs		. #x2470)	; ⑰
-    (=jis-x0213-1-2000	. #x2D31)	; &I-JX1-2D31;
+    (=jis-x0213-1-2000	. #x2D31)	; &I-JX1-2D31; [13-17]
     (=jef-china3	. #x77D9)	; &I-JC3-77D9;
     ))
 (define-char
@@ -248,7 +248,7 @@
     (numeric-value	. 18)
     (->decomposition	circle #x0031 #x0038)
     (=ucs		. #x2471)	; ⑱
-    (=jis-x0213-1-2000	. #x2D32)	; &I-JX1-2D32;
+    (=jis-x0213-1-2000	. #x2D32)	; &I-JX1-2D32; [13-18]
     (=jef-china3	. #x77DA)	; &I-JC3-77DA;
     ))
 (define-char
@@ -259,7 +259,7 @@
     (numeric-value	. 19)
     (->decomposition	circle #x0031 #x0039)
     (=ucs		. #x2472)	; ⑲
-    (=jis-x0213-1-2000	. #x2D33)	; &I-JX1-2D33;
+    (=jis-x0213-1-2000	. #x2D33)	; &I-JX1-2D33; [13-19]
     (=jef-china3	. #x77DB)	; &I-JC3-77DB;
     ))
 (define-char
@@ -270,7 +270,7 @@
     (numeric-value	. 20)
     (->decomposition	circle #x0032 #x0030)
     (=ucs		. #x2473)	; ⑳
-    (=jis-x0213-1-2000	. #x2D34)	; &I-JX1-2D34;
+    (=jis-x0213-1-2000	. #x2D34)	; &I-JX1-2D34; [13-20]
     (=jef-china3	. #x77DC)	; &I-JC3-77DC;
     ))
 (define-char
@@ -282,9 +282,9 @@
     (numeric-value	. 1)
     (->decomposition	compat #x0028 #x0031 #x0029)
     (=ucs		. #x2474)	; ⑴
-    (=gb2312		. #x2245)	; &I-G0-2245;
-    (=ks-x1001		. #x2967)	; &I-K0-2967;
-    (=cns11643-1	. #x262B)	; &I-C1-262B;
+    (=gb2312		. #x2245)	; &I-G0-2245; [02-37]
+    (=ks-x1001		. #x2967)	; &I-K0-2967; [09-71]
+    (=cns11643-1	. #x262B)	; &I-C1-262B; [06-11]
     (=big5-eten		. #xC6AB)	; &B-C6AB;
     ))
 (define-char
@@ -296,9 +296,9 @@
     (numeric-value	. 2)
     (->decomposition	compat #x0028 #x0032 #x0029)
     (=ucs		. #x2475)	; ⑵
-    (=gb2312		. #x2246)	; &I-G0-2246;
-    (=ks-x1001		. #x2968)	; &I-K0-2968;
-    (=cns11643-1	. #x262C)	; &I-C1-262C;
+    (=gb2312		. #x2246)	; &I-G0-2246; [02-38]
+    (=ks-x1001		. #x2968)	; &I-K0-2968; [09-72]
+    (=cns11643-1	. #x262C)	; &I-C1-262C; [06-12]
     (=big5-eten		. #xC6AC)	; &B-C6AC;
     ))
 (define-char
@@ -310,9 +310,9 @@
     (numeric-value	. 3)
     (->decomposition	compat #x0028 #x0033 #x0029)
     (=ucs		. #x2476)	; ⑶
-    (=gb2312		. #x2247)	; &I-G0-2247;
-    (=ks-x1001		. #x2969)	; &I-K0-2969;
-    (=cns11643-1	. #x262D)	; &I-C1-262D;
+    (=gb2312		. #x2247)	; &I-G0-2247; [02-39]
+    (=ks-x1001		. #x2969)	; &I-K0-2969; [09-73]
+    (=cns11643-1	. #x262D)	; &I-C1-262D; [06-13]
     (=big5-eten		. #xC6AD)	; &B-C6AD;
     ))
 (define-char
@@ -324,9 +324,9 @@
     (numeric-value	. 4)
     (->decomposition	compat #x0028 #x0034 #x0029)
     (=ucs		. #x2477)	; ⑷
-    (=gb2312		. #x2248)	; &I-G0-2248;
-    (=ks-x1001		. #x296A)	; &I-K0-296A;
-    (=cns11643-1	. #x262E)	; &I-C1-262E;
+    (=gb2312		. #x2248)	; &I-G0-2248; [02-40]
+    (=ks-x1001		. #x296A)	; &I-K0-296A; [09-74]
+    (=cns11643-1	. #x262E)	; &I-C1-262E; [06-14]
     (=big5-eten		. #xC6AE)	; &B-C6AE;
     ))
 (define-char
@@ -338,9 +338,9 @@
     (numeric-value	. 5)
     (->decomposition	compat #x0028 #x0035 #x0029)
     (=ucs		. #x2478)	; ⑸
-    (=gb2312		. #x2249)	; &I-G0-2249;
-    (=ks-x1001		. #x296B)	; &I-K0-296B;
-    (=cns11643-1	. #x262F)	; &I-C1-262F;
+    (=gb2312		. #x2249)	; &I-G0-2249; [02-41]
+    (=ks-x1001		. #x296B)	; &I-K0-296B; [09-75]
+    (=cns11643-1	. #x262F)	; &I-C1-262F; [06-15]
     (=big5-eten		. #xC6AF)	; &B-C6AF;
     ))
 (define-char
@@ -352,9 +352,9 @@
     (numeric-value	. 6)
     (->decomposition	compat #x0028 #x0036 #x0029)
     (=ucs		. #x2479)	; ⑹
-    (=gb2312		. #x224A)	; &I-G0-224A;
-    (=ks-x1001		. #x296C)	; &I-K0-296C;
-    (=cns11643-1	. #x2630)	; &I-C1-2630;
+    (=gb2312		. #x224A)	; &I-G0-224A; [02-42]
+    (=ks-x1001		. #x296C)	; &I-K0-296C; [09-76]
+    (=cns11643-1	. #x2630)	; &I-C1-2630; [06-16]
     (=big5-eten		. #xC6B0)	; &B-C6B0;
     ))
 (define-char
@@ -366,9 +366,9 @@
     (numeric-value	. 7)
     (->decomposition	compat #x0028 #x0037 #x0029)
     (=ucs		. #x247A)	; ⑺
-    (=gb2312		. #x224B)	; &I-G0-224B;
-    (=ks-x1001		. #x296D)	; &I-K0-296D;
-    (=cns11643-1	. #x2631)	; &I-C1-2631;
+    (=gb2312		. #x224B)	; &I-G0-224B; [02-43]
+    (=ks-x1001		. #x296D)	; &I-K0-296D; [09-77]
+    (=cns11643-1	. #x2631)	; &I-C1-2631; [06-17]
     (=big5-eten		. #xC6B1)	; &B-C6B1;
     ))
 (define-char
@@ -380,9 +380,9 @@
     (numeric-value	. 8)
     (->decomposition	compat #x0028 #x0038 #x0029)
     (=ucs		. #x247B)	; ⑻
-    (=gb2312		. #x224C)	; &I-G0-224C;
-    (=ks-x1001		. #x296E)	; &I-K0-296E;
-    (=cns11643-1	. #x2632)	; &I-C1-2632;
+    (=gb2312		. #x224C)	; &I-G0-224C; [02-44]
+    (=ks-x1001		. #x296E)	; &I-K0-296E; [09-78]
+    (=cns11643-1	. #x2632)	; &I-C1-2632; [06-18]
     (=big5-eten		. #xC6B2)	; &B-C6B2;
     ))
 (define-char
@@ -394,9 +394,9 @@
     (numeric-value	. 9)
     (->decomposition	compat #x0028 #x0039 #x0029)
     (=ucs		. #x247C)	; ⑼
-    (=gb2312		. #x224D)	; &I-G0-224D;
-    (=ks-x1001		. #x296F)	; &I-K0-296F;
-    (=cns11643-1	. #x2633)	; &I-C1-2633;
+    (=gb2312		. #x224D)	; &I-G0-224D; [02-45]
+    (=ks-x1001		. #x296F)	; &I-K0-296F; [09-79]
+    (=cns11643-1	. #x2633)	; &I-C1-2633; [06-19]
     (=big5-eten		. #xC6B3)	; &B-C6B3;
     ))
 (define-char
@@ -407,9 +407,9 @@
     (numeric-value	. 10)
     (->decomposition	compat #x0028 #x0031 #x0030 #x0029)
     (=ucs		. #x247D)	; ⑽
-    (=gb2312		. #x224E)	; &I-G0-224E;
-    (=ks-x1001		. #x2970)	; &I-K0-2970;
-    (=cns11643-1	. #x2634)	; &I-C1-2634;
+    (=gb2312		. #x224E)	; &I-G0-224E; [02-46]
+    (=ks-x1001		. #x2970)	; &I-K0-2970; [09-80]
+    (=cns11643-1	. #x2634)	; &I-C1-2634; [06-20]
     (=big5-eten		. #xC6B4)	; &B-C6B4;
     ))
 (define-char
@@ -420,8 +420,8 @@
     (numeric-value	. 11)
     (->decomposition	compat #x0028 #x0031 #x0031 #x0029)
     (=ucs		. #x247E)	; ⑾
-    (=gb2312		. #x224F)	; &I-G0-224F;
-    (=ks-x1001		. #x2971)	; &I-K0-2971;
+    (=gb2312		. #x224F)	; &I-G0-224F; [02-47]
+    (=ks-x1001		. #x2971)	; &I-K0-2971; [09-81]
     ))
 (define-char
   '((name		. "PARENTHESIZED NUMBER TWELVE")
@@ -431,8 +431,8 @@
     (numeric-value	. 12)
     (->decomposition	compat #x0028 #x0031 #x0032 #x0029)
     (=ucs		. #x247F)	; ⑿
-    (=gb2312		. #x2250)	; &I-G0-2250;
-    (=ks-x1001		. #x2972)	; &I-K0-2972;
+    (=gb2312		. #x2250)	; &I-G0-2250; [02-48]
+    (=ks-x1001		. #x2972)	; &I-K0-2972; [09-82]
     ))
 (define-char
   '((name		. "PARENTHESIZED NUMBER THIRTEEN")
@@ -442,8 +442,8 @@
     (numeric-value	. 13)
     (->decomposition	compat #x0028 #x0031 #x0033 #x0029)
     (=ucs		. #x2480)	; ⒀
-    (=gb2312		. #x2251)	; &I-G0-2251;
-    (=ks-x1001		. #x2973)	; &I-K0-2973;
+    (=gb2312		. #x2251)	; &I-G0-2251; [02-49]
+    (=ks-x1001		. #x2973)	; &I-K0-2973; [09-83]
     ))
 (define-char
   '((name		. "PARENTHESIZED NUMBER FOURTEEN")
@@ -453,8 +453,8 @@
     (numeric-value	. 14)
     (->decomposition	compat #x0028 #x0031 #x0034 #x0029)
     (=ucs		. #x2481)	; ⒁
-    (=gb2312		. #x2252)	; &I-G0-2252;
-    (=ks-x1001		. #x2974)	; &I-K0-2974;
+    (=gb2312		. #x2252)	; &I-G0-2252; [02-50]
+    (=ks-x1001		. #x2974)	; &I-K0-2974; [09-84]
     ))
 (define-char
   '((name		. "PARENTHESIZED NUMBER FIFTEEN")
@@ -464,8 +464,8 @@
     (numeric-value	. 15)
     (->decomposition	compat #x0028 #x0031 #x0035 #x0029)
     (=ucs		. #x2482)	; ⒂
-    (=gb2312		. #x2253)	; &I-G0-2253;
-    (=ks-x1001		. #x2975)	; &I-K0-2975;
+    (=gb2312		. #x2253)	; &I-G0-2253; [02-51]
+    (=ks-x1001		. #x2975)	; &I-K0-2975; [09-85]
     ))
 (define-char
   '((name		. "PARENTHESIZED NUMBER SIXTEEN")
@@ -475,7 +475,7 @@
     (numeric-value	. 16)
     (->decomposition	compat #x0028 #x0031 #x0036 #x0029)
     (=ucs		. #x2483)	; ⒃
-    (=gb2312		. #x2254)	; &I-G0-2254;
+    (=gb2312		. #x2254)	; &I-G0-2254; [02-52]
     ))
 (define-char
   '((name		. "PARENTHESIZED NUMBER SEVENTEEN")
@@ -485,7 +485,7 @@
     (numeric-value	. 17)
     (->decomposition	compat #x0028 #x0031 #x0037 #x0029)
     (=ucs		. #x2484)	; ⒄
-    (=gb2312		. #x2255)	; &I-G0-2255;
+    (=gb2312		. #x2255)	; &I-G0-2255; [02-53]
     ))
 (define-char
   '((name		. "PARENTHESIZED NUMBER EIGHTEEN")
@@ -495,7 +495,7 @@
     (numeric-value	. 18)
     (->decomposition	compat #x0028 #x0031 #x0038 #x0029)
     (=ucs		. #x2485)	; ⒅
-    (=gb2312		. #x2256)	; &I-G0-2256;
+    (=gb2312		. #x2256)	; &I-G0-2256; [02-54]
     ))
 (define-char
   '((name		. "PARENTHESIZED NUMBER NINETEEN")
@@ -505,7 +505,7 @@
     (numeric-value	. 19)
     (->decomposition	compat #x0028 #x0031 #x0039 #x0029)
     (=ucs		. #x2486)	; ⒆
-    (=gb2312		. #x2257)	; &I-G0-2257;
+    (=gb2312		. #x2257)	; &I-G0-2257; [02-55]
     ))
 (define-char
   '((name		. "PARENTHESIZED NUMBER TWENTY")
@@ -515,7 +515,7 @@
     (numeric-value	. 20)
     (->decomposition	compat #x0028 #x0032 #x0030 #x0029)
     (=ucs		. #x2487)	; ⒇
-    (=gb2312		. #x2258)	; &I-G0-2258;
+    (=gb2312		. #x2258)	; &I-G0-2258; [02-56]
     ))
 (define-char
   '((name		. "DIGIT ONE FULL STOP")
@@ -526,7 +526,7 @@
     (numeric-value	. 1)
     (->decomposition	compat #x0031 #x002E)
     (=ucs		. #x2488)	; ⒈
-    (=gb2312		. #x2231)	; &I-G0-2231;
+    (=gb2312		. #x2231)	; &I-G0-2231; [02-17]
     ))
 (define-char
   '((name		. "DIGIT TWO FULL STOP")
@@ -537,7 +537,7 @@
     (numeric-value	. 2)
     (->decomposition	compat #x0032 #x002E)
     (=ucs		. #x2489)	; ⒉
-    (=gb2312		. #x2232)	; &I-G0-2232;
+    (=gb2312		. #x2232)	; &I-G0-2232; [02-18]
     ))
 (define-char
   '((name		. "DIGIT THREE FULL STOP")
@@ -548,7 +548,7 @@
     (numeric-value	. 3)
     (->decomposition	compat #x0033 #x002E)
     (=ucs		. #x248A)	; ⒊
-    (=gb2312		. #x2233)	; &I-G0-2233;
+    (=gb2312		. #x2233)	; &I-G0-2233; [02-19]
     ))
 (define-char
   '((name		. "DIGIT FOUR FULL STOP")
@@ -559,7 +559,7 @@
     (numeric-value	. 4)
     (->decomposition	compat #x0034 #x002E)
     (=ucs		. #x248B)	; ⒋
-    (=gb2312		. #x2234)	; &I-G0-2234;
+    (=gb2312		. #x2234)	; &I-G0-2234; [02-20]
     ))
 (define-char
   '((name		. "DIGIT FIVE FULL STOP")
@@ -570,7 +570,7 @@
     (numeric-value	. 5)
     (->decomposition	compat #x0035 #x002E)
     (=ucs		. #x248C)	; ⒌
-    (=gb2312		. #x2235)	; &I-G0-2235;
+    (=gb2312		. #x2235)	; &I-G0-2235; [02-21]
     ))
 (define-char
   '((name		. "DIGIT SIX FULL STOP")
@@ -581,7 +581,7 @@
     (numeric-value	. 6)
     (->decomposition	compat #x0036 #x002E)
     (=ucs		. #x248D)	; ⒍
-    (=gb2312		. #x2236)	; &I-G0-2236;
+    (=gb2312		. #x2236)	; &I-G0-2236; [02-22]
     ))
 (define-char
   '((name		. "DIGIT SEVEN FULL STOP")
@@ -592,7 +592,7 @@
     (numeric-value	. 7)
     (->decomposition	compat #x0037 #x002E)
     (=ucs		. #x248E)	; ⒎
-    (=gb2312		. #x2237)	; &I-G0-2237;
+    (=gb2312		. #x2237)	; &I-G0-2237; [02-23]
     ))
 (define-char
   '((name		. "DIGIT EIGHT FULL STOP")
@@ -603,7 +603,7 @@
     (numeric-value	. 8)
     (->decomposition	compat #x0038 #x002E)
     (=ucs		. #x248F)	; ⒏
-    (=gb2312		. #x2238)	; &I-G0-2238;
+    (=gb2312		. #x2238)	; &I-G0-2238; [02-24]
     ))
 (define-char
   '((name		. "DIGIT NINE FULL STOP")
@@ -614,7 +614,7 @@
     (numeric-value	. 9)
     (->decomposition	compat #x0039 #x002E)
     (=ucs		. #x2490)	; ⒐
-    (=gb2312		. #x2239)	; &I-G0-2239;
+    (=gb2312		. #x2239)	; &I-G0-2239; [02-25]
     ))
 (define-char
   '((name		. "NUMBER TEN FULL STOP")
@@ -624,7 +624,7 @@
     (numeric-value	. 10)
     (->decomposition	compat #x0031 #x0030 #x002E)
     (=ucs		. #x2491)	; ⒑
-    (=gb2312		. #x223A)	; &I-G0-223A;
+    (=gb2312		. #x223A)	; &I-G0-223A; [02-26]
     ))
 (define-char
   '((name		. "NUMBER ELEVEN FULL STOP")
@@ -634,7 +634,7 @@
     (numeric-value	. 11)
     (->decomposition	compat #x0031 #x0031 #x002E)
     (=ucs		. #x2492)	; ⒒
-    (=gb2312		. #x223B)	; &I-G0-223B;
+    (=gb2312		. #x223B)	; &I-G0-223B; [02-27]
     ))
 (define-char
   '((name		. "NUMBER TWELVE FULL STOP")
@@ -644,7 +644,7 @@
     (numeric-value	. 12)
     (->decomposition	compat #x0031 #x0032 #x002E)
     (=ucs		. #x2493)	; ⒓
-    (=gb2312		. #x223C)	; &I-G0-223C;
+    (=gb2312		. #x223C)	; &I-G0-223C; [02-28]
     ))
 (define-char
   '((name		. "NUMBER THIRTEEN FULL STOP")
@@ -654,7 +654,7 @@
     (numeric-value	. 13)
     (->decomposition	compat #x0031 #x0033 #x002E)
     (=ucs		. #x2494)	; ⒔
-    (=gb2312		. #x223D)	; &I-G0-223D;
+    (=gb2312		. #x223D)	; &I-G0-223D; [02-29]
     ))
 (define-char
   '((name		. "NUMBER FOURTEEN FULL STOP")
@@ -664,7 +664,7 @@
     (numeric-value	. 14)
     (->decomposition	compat #x0031 #x0034 #x002E)
     (=ucs		. #x2495)	; ⒕
-    (=gb2312		. #x223E)	; &I-G0-223E;
+    (=gb2312		. #x223E)	; &I-G0-223E; [02-30]
     ))
 (define-char
   '((name		. "NUMBER FIFTEEN FULL STOP")
@@ -674,7 +674,7 @@
     (numeric-value	. 15)
     (->decomposition	compat #x0031 #x0035 #x002E)
     (=ucs		. #x2496)	; ⒖
-    (=gb2312		. #x223F)	; &I-G0-223F;
+    (=gb2312		. #x223F)	; &I-G0-223F; [02-31]
     ))
 (define-char
   '((name		. "NUMBER SIXTEEN FULL STOP")
@@ -684,7 +684,7 @@
     (numeric-value	. 16)
     (->decomposition	compat #x0031 #x0036 #x002E)
     (=ucs		. #x2497)	; ⒗
-    (=gb2312		. #x2240)	; &I-G0-2240;
+    (=gb2312		. #x2240)	; &I-G0-2240; [02-32]
     ))
 (define-char
   '((name		. "NUMBER SEVENTEEN FULL STOP")
@@ -694,7 +694,7 @@
     (numeric-value	. 17)
     (->decomposition	compat #x0031 #x0037 #x002E)
     (=ucs		. #x2498)	; ⒘
-    (=gb2312		. #x2241)	; &I-G0-2241;
+    (=gb2312		. #x2241)	; &I-G0-2241; [02-33]
     ))
 (define-char
   '((name		. "NUMBER EIGHTEEN FULL STOP")
@@ -704,7 +704,7 @@
     (numeric-value	. 18)
     (->decomposition	compat #x0031 #x0038 #x002E)
     (=ucs		. #x2499)	; ⒙
-    (=gb2312		. #x2242)	; &I-G0-2242;
+    (=gb2312		. #x2242)	; &I-G0-2242; [02-34]
     ))
 (define-char
   '((name		. "NUMBER NINETEEN FULL STOP")
@@ -714,7 +714,7 @@
     (numeric-value	. 19)
     (->decomposition	compat #x0031 #x0039 #x002E)
     (=ucs		. #x249A)	; ⒚
-    (=gb2312		. #x2243)	; &I-G0-2243;
+    (=gb2312		. #x2243)	; &I-G0-2243; [02-35]
     ))
 (define-char
   '((name		. "NUMBER TWENTY FULL STOP")
@@ -724,7 +724,7 @@
     (numeric-value	. 20)
     (->decomposition	compat #x0032 #x0030 #x002E)
     (=ucs		. #x249B)	; ⒛
-    (=gb2312		. #x2244)	; &I-G0-2244;
+    (=gb2312		. #x2244)	; &I-G0-2244; [02-36]
     ))
 (define-char
   '((name		. "PARENTHESIZED LATIN SMALL LETTER A")
@@ -733,7 +733,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0061 #x0029)
     (=ucs		. #x249C)	; ⒜
-    (=ks-x1001		. #x294D)	; &I-K0-294D;
+    (=ks-x1001		. #x294D)	; &I-K0-294D; [09-45]
     (=jef-china3	. #x78A1)	; &I-JC3-78A1;
     ))
 (define-char
@@ -743,7 +743,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0062 #x0029)
     (=ucs		. #x249D)	; ⒝
-    (=ks-x1001		. #x294E)	; &I-K0-294E;
+    (=ks-x1001		. #x294E)	; &I-K0-294E; [09-46]
     (=jef-china3	. #x78A2)	; &I-JC3-78A2;
     ))
 (define-char
@@ -753,7 +753,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0063 #x0029)
     (=ucs		. #x249E)	; ⒞
-    (=ks-x1001		. #x294F)	; &I-K0-294F;
+    (=ks-x1001		. #x294F)	; &I-K0-294F; [09-47]
     (=jef-china3	. #x78A3)	; &I-JC3-78A3;
     ))
 (define-char
@@ -763,7 +763,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0064 #x0029)
     (=ucs		. #x249F)	; ⒟
-    (=ks-x1001		. #x2950)	; &I-K0-2950;
+    (=ks-x1001		. #x2950)	; &I-K0-2950; [09-48]
     (=jef-china3	. #x78A4)	; &I-JC3-78A4;
     ))
 (define-char
@@ -773,7 +773,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0065 #x0029)
     (=ucs		. #x24A0)	; ⒠
-    (=ks-x1001		. #x2951)	; &I-K0-2951;
+    (=ks-x1001		. #x2951)	; &I-K0-2951; [09-49]
     (=jef-china3	. #x78A5)	; &I-JC3-78A5;
     ))
 (define-char
@@ -783,7 +783,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0066 #x0029)
     (=ucs		. #x24A1)	; ⒡
-    (=ks-x1001		. #x2952)	; &I-K0-2952;
+    (=ks-x1001		. #x2952)	; &I-K0-2952; [09-50]
     (=jef-china3	. #x78A6)	; &I-JC3-78A6;
     ))
 (define-char
@@ -793,7 +793,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0067 #x0029)
     (=ucs		. #x24A2)	; ⒢
-    (=ks-x1001		. #x2953)	; &I-K0-2953;
+    (=ks-x1001		. #x2953)	; &I-K0-2953; [09-51]
     (=jef-china3	. #x78A7)	; &I-JC3-78A7;
     ))
 (define-char
@@ -803,7 +803,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0068 #x0029)
     (=ucs		. #x24A3)	; ⒣
-    (=ks-x1001		. #x2954)	; &I-K0-2954;
+    (=ks-x1001		. #x2954)	; &I-K0-2954; [09-52]
     (=jef-china3	. #x78A8)	; &I-JC3-78A8;
     ))
 (define-char
@@ -813,7 +813,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0069 #x0029)
     (=ucs		. #x24A4)	; ⒤
-    (=ks-x1001		. #x2955)	; &I-K0-2955;
+    (=ks-x1001		. #x2955)	; &I-K0-2955; [09-53]
     (=jef-china3	. #x78A9)	; &I-JC3-78A9;
     ))
 (define-char
@@ -823,7 +823,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x006A #x0029)
     (=ucs		. #x24A5)	; ⒥
-    (=ks-x1001		. #x2956)	; &I-K0-2956;
+    (=ks-x1001		. #x2956)	; &I-K0-2956; [09-54]
     (=jef-china3	. #x78AA)	; &I-JC3-78AA;
     ))
 (define-char
@@ -833,7 +833,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x006B #x0029)
     (=ucs		. #x24A6)	; ⒦
-    (=ks-x1001		. #x2957)	; &I-K0-2957;
+    (=ks-x1001		. #x2957)	; &I-K0-2957; [09-55]
     (=jef-china3	. #x78AB)	; &I-JC3-78AB;
     ))
 (define-char
@@ -843,7 +843,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x006C #x0029)
     (=ucs		. #x24A7)	; ⒧
-    (=ks-x1001		. #x2958)	; &I-K0-2958;
+    (=ks-x1001		. #x2958)	; &I-K0-2958; [09-56]
     (=jef-china3	. #x78AC)	; &I-JC3-78AC;
     ))
 (define-char
@@ -853,7 +853,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x006D #x0029)
     (=ucs		. #x24A8)	; ⒨
-    (=ks-x1001		. #x2959)	; &I-K0-2959;
+    (=ks-x1001		. #x2959)	; &I-K0-2959; [09-57]
     (=jef-china3	. #x78AD)	; &I-JC3-78AD;
     ))
 (define-char
@@ -863,7 +863,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x006E #x0029)
     (=ucs		. #x24A9)	; ⒩
-    (=ks-x1001		. #x295A)	; &I-K0-295A;
+    (=ks-x1001		. #x295A)	; &I-K0-295A; [09-58]
     (=jef-china3	. #x78AE)	; &I-JC3-78AE;
     ))
 (define-char
@@ -873,7 +873,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x006F #x0029)
     (=ucs		. #x24AA)	; ⒪
-    (=ks-x1001		. #x295B)	; &I-K0-295B;
+    (=ks-x1001		. #x295B)	; &I-K0-295B; [09-59]
     (=jef-china3	. #x78AF)	; &I-JC3-78AF;
     ))
 (define-char
@@ -883,7 +883,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0070 #x0029)
     (=ucs		. #x24AB)	; ⒫
-    (=ks-x1001		. #x295C)	; &I-K0-295C;
+    (=ks-x1001		. #x295C)	; &I-K0-295C; [09-60]
     (=jef-china3	. #x78B0)	; &I-JC3-78B0;
     ))
 (define-char
@@ -893,7 +893,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0071 #x0029)
     (=ucs		. #x24AC)	; ⒬
-    (=ks-x1001		. #x295D)	; &I-K0-295D;
+    (=ks-x1001		. #x295D)	; &I-K0-295D; [09-61]
     (=jef-china3	. #x78B1)	; &I-JC3-78B1;
     ))
 (define-char
@@ -903,7 +903,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0072 #x0029)
     (=ucs		. #x24AD)	; ⒭
-    (=ks-x1001		. #x295E)	; &I-K0-295E;
+    (=ks-x1001		. #x295E)	; &I-K0-295E; [09-62]
     (=jef-china3	. #x78B2)	; &I-JC3-78B2;
     ))
 (define-char
@@ -913,7 +913,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0073 #x0029)
     (=ucs		. #x24AE)	; ⒮
-    (=ks-x1001		. #x295F)	; &I-K0-295F;
+    (=ks-x1001		. #x295F)	; &I-K0-295F; [09-63]
     (=jef-china3	. #x78B3)	; &I-JC3-78B3;
     ))
 (define-char
@@ -923,7 +923,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0074 #x0029)
     (=ucs		. #x24AF)	; ⒯
-    (=ks-x1001		. #x2960)	; &I-K0-2960;
+    (=ks-x1001		. #x2960)	; &I-K0-2960; [09-64]
     (=jef-china3	. #x78B4)	; &I-JC3-78B4;
     ))
 (define-char
@@ -933,7 +933,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0075 #x0029)
     (=ucs		. #x24B0)	; ⒰
-    (=ks-x1001		. #x2961)	; &I-K0-2961;
+    (=ks-x1001		. #x2961)	; &I-K0-2961; [09-65]
     (=jef-china3	. #x78B5)	; &I-JC3-78B5;
     ))
 (define-char
@@ -943,7 +943,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0076 #x0029)
     (=ucs		. #x24B1)	; ⒱
-    (=ks-x1001		. #x2962)	; &I-K0-2962;
+    (=ks-x1001		. #x2962)	; &I-K0-2962; [09-66]
     (=jef-china3	. #x78B6)	; &I-JC3-78B6;
     ))
 (define-char
@@ -953,7 +953,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0077 #x0029)
     (=ucs		. #x24B2)	; ⒲
-    (=ks-x1001		. #x2963)	; &I-K0-2963;
+    (=ks-x1001		. #x2963)	; &I-K0-2963; [09-67]
     (=jef-china3	. #x78B7)	; &I-JC3-78B7;
     ))
 (define-char
@@ -963,7 +963,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0078 #x0029)
     (=ucs		. #x24B3)	; ⒳
-    (=ks-x1001		. #x2964)	; &I-K0-2964;
+    (=ks-x1001		. #x2964)	; &I-K0-2964; [09-68]
     (=jef-china3	. #x78B8)	; &I-JC3-78B8;
     ))
 (define-char
@@ -973,7 +973,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0079 #x0029)
     (=ucs		. #x24B4)	; ⒴
-    (=ks-x1001		. #x2965)	; &I-K0-2965;
+    (=ks-x1001		. #x2965)	; &I-K0-2965; [09-69]
     (=jef-china3	. #x78B9)	; &I-JC3-78B9;
     ))
 (define-char
@@ -983,7 +983,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x007A #x0029)
     (=ucs		. #x24B5)	; ⒵
-    (=ks-x1001		. #x2966)	; &I-K0-2966;
+    (=ks-x1001		. #x2966)	; &I-K0-2966; [09-70]
     (=jef-china3	. #x78BA)	; &I-JC3-78BA;
     ))
 (define-char
@@ -1309,8 +1309,8 @@
       (=ucs		  . #x24B6)	; Ⓐ
       ))
     (=ucs		. #x24D0)	; ⓐ
-    (=ks-x1001		. #x284D)	; &I-K0-284D;
-    (=jis-x0213-1-2000	. #x2C41)	; &I-JX1-2C41;
+    (=ks-x1001		. #x284D)	; &I-K0-284D; [08-45]
+    (=jis-x0213-1-2000	. #x2C41)	; &I-JX1-2C41; [12-33]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER B")
@@ -1323,8 +1323,8 @@
       (=ucs		  . #x24B7)	; Ⓑ
       ))
     (=ucs		. #x24D1)	; ⓑ
-    (=ks-x1001		. #x284E)	; &I-K0-284E;
-    (=jis-x0213-1-2000	. #x2C42)	; &I-JX1-2C42;
+    (=ks-x1001		. #x284E)	; &I-K0-284E; [08-46]
+    (=jis-x0213-1-2000	. #x2C42)	; &I-JX1-2C42; [12-34]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER C")
@@ -1337,8 +1337,8 @@
       (=ucs		  . #x24B8)	; Ⓒ
       ))
     (=ucs		. #x24D2)	; ⓒ
-    (=ks-x1001		. #x284F)	; &I-K0-284F;
-    (=jis-x0213-1-2000	. #x2C43)	; &I-JX1-2C43;
+    (=ks-x1001		. #x284F)	; &I-K0-284F; [08-47]
+    (=jis-x0213-1-2000	. #x2C43)	; &I-JX1-2C43; [12-35]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER D")
@@ -1351,8 +1351,8 @@
       (=ucs		  . #x24B9)	; Ⓓ
       ))
     (=ucs		. #x24D3)	; ⓓ
-    (=ks-x1001		. #x2850)	; &I-K0-2850;
-    (=jis-x0213-1-2000	. #x2C44)	; &I-JX1-2C44;
+    (=ks-x1001		. #x2850)	; &I-K0-2850; [08-48]
+    (=jis-x0213-1-2000	. #x2C44)	; &I-JX1-2C44; [12-36]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER E")
@@ -1365,8 +1365,8 @@
       (=ucs		  . #x24BA)	; Ⓔ
       ))
     (=ucs		. #x24D4)	; ⓔ
-    (=ks-x1001		. #x2851)	; &I-K0-2851;
-    (=jis-x0213-1-2000	. #x2C45)	; &I-JX1-2C45;
+    (=ks-x1001		. #x2851)	; &I-K0-2851; [08-49]
+    (=jis-x0213-1-2000	. #x2C45)	; &I-JX1-2C45; [12-37]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER F")
@@ -1379,8 +1379,8 @@
       (=ucs		  . #x24BB)	; Ⓕ
       ))
     (=ucs		. #x24D5)	; ⓕ
-    (=ks-x1001		. #x2852)	; &I-K0-2852;
-    (=jis-x0213-1-2000	. #x2C46)	; &I-JX1-2C46;
+    (=ks-x1001		. #x2852)	; &I-K0-2852; [08-50]
+    (=jis-x0213-1-2000	. #x2C46)	; &I-JX1-2C46; [12-38]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER G")
@@ -1393,8 +1393,8 @@
       (=ucs		  . #x24BC)	; Ⓖ
       ))
     (=ucs		. #x24D6)	; ⓖ
-    (=ks-x1001		. #x2853)	; &I-K0-2853;
-    (=jis-x0213-1-2000	. #x2C47)	; &I-JX1-2C47;
+    (=ks-x1001		. #x2853)	; &I-K0-2853; [08-51]
+    (=jis-x0213-1-2000	. #x2C47)	; &I-JX1-2C47; [12-39]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER H")
@@ -1407,8 +1407,8 @@
       (=ucs		  . #x24BD)	; Ⓗ
       ))
     (=ucs		. #x24D7)	; ⓗ
-    (=ks-x1001		. #x2854)	; &I-K0-2854;
-    (=jis-x0213-1-2000	. #x2C48)	; &I-JX1-2C48;
+    (=ks-x1001		. #x2854)	; &I-K0-2854; [08-52]
+    (=jis-x0213-1-2000	. #x2C48)	; &I-JX1-2C48; [12-40]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER I")
@@ -1421,8 +1421,8 @@
       (=ucs		  . #x24BE)	; Ⓘ
       ))
     (=ucs		. #x24D8)	; ⓘ
-    (=ks-x1001		. #x2855)	; &I-K0-2855;
-    (=jis-x0213-1-2000	. #x2C49)	; &I-JX1-2C49;
+    (=ks-x1001		. #x2855)	; &I-K0-2855; [08-53]
+    (=jis-x0213-1-2000	. #x2C49)	; &I-JX1-2C49; [12-41]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER J")
@@ -1435,8 +1435,8 @@
       (=ucs		  . #x24BF)	; Ⓙ
       ))
     (=ucs		. #x24D9)	; ⓙ
-    (=ks-x1001		. #x2856)	; &I-K0-2856;
-    (=jis-x0213-1-2000	. #x2C4A)	; &I-JX1-2C4A;
+    (=ks-x1001		. #x2856)	; &I-K0-2856; [08-54]
+    (=jis-x0213-1-2000	. #x2C4A)	; &I-JX1-2C4A; [12-42]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER K")
@@ -1449,8 +1449,8 @@
       (=ucs		  . #x24C0)	; Ⓚ
       ))
     (=ucs		. #x24DA)	; ⓚ
-    (=ks-x1001		. #x2857)	; &I-K0-2857;
-    (=jis-x0213-1-2000	. #x2C4B)	; &I-JX1-2C4B;
+    (=ks-x1001		. #x2857)	; &I-K0-2857; [08-55]
+    (=jis-x0213-1-2000	. #x2C4B)	; &I-JX1-2C4B; [12-43]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER L")
@@ -1463,8 +1463,8 @@
       (=ucs		  . #x24C1)	; Ⓛ
       ))
     (=ucs		. #x24DB)	; ⓛ
-    (=ks-x1001		. #x2858)	; &I-K0-2858;
-    (=jis-x0213-1-2000	. #x2C4C)	; &I-JX1-2C4C;
+    (=ks-x1001		. #x2858)	; &I-K0-2858; [08-56]
+    (=jis-x0213-1-2000	. #x2C4C)	; &I-JX1-2C4C; [12-44]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER M")
@@ -1477,8 +1477,8 @@
       (=ucs		  . #x24C2)	; Ⓜ
       ))
     (=ucs		. #x24DC)	; ⓜ
-    (=ks-x1001		. #x2859)	; &I-K0-2859;
-    (=jis-x0213-1-2000	. #x2C4D)	; &I-JX1-2C4D;
+    (=ks-x1001		. #x2859)	; &I-K0-2859; [08-57]
+    (=jis-x0213-1-2000	. #x2C4D)	; &I-JX1-2C4D; [12-45]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER N")
@@ -1491,8 +1491,8 @@
       (=ucs		  . #x24C3)	; Ⓝ
       ))
     (=ucs		. #x24DD)	; ⓝ
-    (=ks-x1001		. #x285A)	; &I-K0-285A;
-    (=jis-x0213-1-2000	. #x2C4E)	; &I-JX1-2C4E;
+    (=ks-x1001		. #x285A)	; &I-K0-285A; [08-58]
+    (=jis-x0213-1-2000	. #x2C4E)	; &I-JX1-2C4E; [12-46]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER O")
@@ -1505,8 +1505,8 @@
       (=ucs		  . #x24C4)	; Ⓞ
       ))
     (=ucs		. #x24DE)	; ⓞ
-    (=ks-x1001		. #x285B)	; &I-K0-285B;
-    (=jis-x0213-1-2000	. #x2C4F)	; &I-JX1-2C4F;
+    (=ks-x1001		. #x285B)	; &I-K0-285B; [08-59]
+    (=jis-x0213-1-2000	. #x2C4F)	; &I-JX1-2C4F; [12-47]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER P")
@@ -1519,8 +1519,8 @@
       (=ucs		  . #x24C5)	; Ⓟ
       ))
     (=ucs		. #x24DF)	; ⓟ
-    (=ks-x1001		. #x285C)	; &I-K0-285C;
-    (=jis-x0213-1-2000	. #x2C50)	; &I-JX1-2C50;
+    (=ks-x1001		. #x285C)	; &I-K0-285C; [08-60]
+    (=jis-x0213-1-2000	. #x2C50)	; &I-JX1-2C50; [12-48]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER Q")
@@ -1533,8 +1533,8 @@
       (=ucs		  . #x24C6)	; Ⓠ
       ))
     (=ucs		. #x24E0)	; ⓠ
-    (=ks-x1001		. #x285D)	; &I-K0-285D;
-    (=jis-x0213-1-2000	. #x2C51)	; &I-JX1-2C51;
+    (=ks-x1001		. #x285D)	; &I-K0-285D; [08-61]
+    (=jis-x0213-1-2000	. #x2C51)	; &I-JX1-2C51; [12-49]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER R")
@@ -1547,8 +1547,8 @@
       (=ucs		  . #x24C7)	; Ⓡ
       ))
     (=ucs		. #x24E1)	; ⓡ
-    (=ks-x1001		. #x285E)	; &I-K0-285E;
-    (=jis-x0213-1-2000	. #x2C52)	; &I-JX1-2C52;
+    (=ks-x1001		. #x285E)	; &I-K0-285E; [08-62]
+    (=jis-x0213-1-2000	. #x2C52)	; &I-JX1-2C52; [12-50]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER S")
@@ -1561,8 +1561,8 @@
       (=ucs		  . #x24C8)	; Ⓢ
       ))
     (=ucs		. #x24E2)	; ⓢ
-    (=ks-x1001		. #x285F)	; &I-K0-285F;
-    (=jis-x0213-1-2000	. #x2C53)	; &I-JX1-2C53;
+    (=ks-x1001		. #x285F)	; &I-K0-285F; [08-63]
+    (=jis-x0213-1-2000	. #x2C53)	; &I-JX1-2C53; [12-51]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER T")
@@ -1575,8 +1575,8 @@
       (=ucs		  . #x24C9)	; Ⓣ
       ))
     (=ucs		. #x24E3)	; ⓣ
-    (=ks-x1001		. #x2860)	; &I-K0-2860;
-    (=jis-x0213-1-2000	. #x2C54)	; &I-JX1-2C54;
+    (=ks-x1001		. #x2860)	; &I-K0-2860; [08-64]
+    (=jis-x0213-1-2000	. #x2C54)	; &I-JX1-2C54; [12-52]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER U")
@@ -1589,8 +1589,8 @@
       (=ucs		  . #x24CA)	; Ⓤ
       ))
     (=ucs		. #x24E4)	; ⓤ
-    (=ks-x1001		. #x2861)	; &I-K0-2861;
-    (=jis-x0213-1-2000	. #x2C55)	; &I-JX1-2C55;
+    (=ks-x1001		. #x2861)	; &I-K0-2861; [08-65]
+    (=jis-x0213-1-2000	. #x2C55)	; &I-JX1-2C55; [12-53]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER V")
@@ -1603,8 +1603,8 @@
       (=ucs		  . #x24CB)	; Ⓥ
       ))
     (=ucs		. #x24E5)	; ⓥ
-    (=ks-x1001		. #x2862)	; &I-K0-2862;
-    (=jis-x0213-1-2000	. #x2C56)	; &I-JX1-2C56;
+    (=ks-x1001		. #x2862)	; &I-K0-2862; [08-66]
+    (=jis-x0213-1-2000	. #x2C56)	; &I-JX1-2C56; [12-54]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER W")
@@ -1617,8 +1617,8 @@
       (=ucs		  . #x24CC)	; Ⓦ
       ))
     (=ucs		. #x24E6)	; ⓦ
-    (=ks-x1001		. #x2863)	; &I-K0-2863;
-    (=jis-x0213-1-2000	. #x2C57)	; &I-JX1-2C57;
+    (=ks-x1001		. #x2863)	; &I-K0-2863; [08-67]
+    (=jis-x0213-1-2000	. #x2C57)	; &I-JX1-2C57; [12-55]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER X")
@@ -1631,8 +1631,8 @@
       (=ucs		  . #x24CD)	; Ⓧ
       ))
     (=ucs		. #x24E7)	; ⓧ
-    (=ks-x1001		. #x2864)	; &I-K0-2864;
-    (=jis-x0213-1-2000	. #x2C58)	; &I-JX1-2C58;
+    (=ks-x1001		. #x2864)	; &I-K0-2864; [08-68]
+    (=jis-x0213-1-2000	. #x2C58)	; &I-JX1-2C58; [12-56]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER Y")
@@ -1645,8 +1645,8 @@
       (=ucs		  . #x24CE)	; Ⓨ
       ))
     (=ucs		. #x24E8)	; ⓨ
-    (=ks-x1001		. #x2865)	; &I-K0-2865;
-    (=jis-x0213-1-2000	. #x2C59)	; &I-JX1-2C59;
+    (=ks-x1001		. #x2865)	; &I-K0-2865; [08-69]
+    (=jis-x0213-1-2000	. #x2C59)	; &I-JX1-2C59; [12-57]
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER Z")
@@ -1659,8 +1659,8 @@
       (=ucs		  . #x24CF)	; Ⓩ
       ))
     (=ucs		. #x24E9)	; ⓩ
-    (=ks-x1001		. #x2866)	; &I-K0-2866;
-    (=jis-x0213-1-2000	. #x2C5A)	; &I-JX1-2C5A;
+    (=ks-x1001		. #x2866)	; &I-K0-2866; [08-70]
+    (=jis-x0213-1-2000	. #x2C5A)	; &I-JX1-2C5A; [12-58]
     ))
 (define-char
   '((name		. "CIRCLED DIGIT ZERO")
@@ -1675,100 +1675,100 @@
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER ELEVEN")
     (=ucs		. #x24EB)	; ⓫
-    (=jis-x0213-1-2000	. #x2C2B)	; &I-JX1-2C2B;
+    (=jis-x0213-1-2000	. #x2C2B)	; &I-JX1-2C2B; [12-11]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER TWELVE")
     (=ucs		. #x24EC)	; ⓬
-    (=jis-x0213-1-2000	. #x2C2C)	; &I-JX1-2C2C;
+    (=jis-x0213-1-2000	. #x2C2C)	; &I-JX1-2C2C; [12-12]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER THIRTEEN")
     (=ucs		. #x24ED)	; ⓭
-    (=jis-x0213-1-2000	. #x2C2D)	; &I-JX1-2C2D;
+    (=jis-x0213-1-2000	. #x2C2D)	; &I-JX1-2C2D; [12-13]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER FOURTEEN")
     (=ucs		. #x24EE)	; ⓮
-    (=jis-x0213-1-2000	. #x2C2E)	; &I-JX1-2C2E;
+    (=jis-x0213-1-2000	. #x2C2E)	; &I-JX1-2C2E; [12-14]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER FIFTEEN")
     (=ucs		. #x24EF)	; ⓯
-    (=jis-x0213-1-2000	. #x2C2F)	; &I-JX1-2C2F;
+    (=jis-x0213-1-2000	. #x2C2F)	; &I-JX1-2C2F; [12-15]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER SIXTEEN")
     (=ucs		. #x24F0)	; ⓰
-    (=jis-x0213-1-2000	. #x2C30)	; &I-JX1-2C30;
+    (=jis-x0213-1-2000	. #x2C30)	; &I-JX1-2C30; [12-16]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER SEVENTEEN")
     (=ucs		. #x24F1)	; ⓱
-    (=jis-x0213-1-2000	. #x2C31)	; &I-JX1-2C31;
+    (=jis-x0213-1-2000	. #x2C31)	; &I-JX1-2C31; [12-17]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER EIGHTEEN")
     (=ucs		. #x24F2)	; ⓲
-    (=jis-x0213-1-2000	. #x2C32)	; &I-JX1-2C32;
+    (=jis-x0213-1-2000	. #x2C32)	; &I-JX1-2C32; [12-18]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER NINETEEN")
     (=ucs		. #x24F3)	; ⓳
-    (=jis-x0213-1-2000	. #x2C33)	; &I-JX1-2C33;
+    (=jis-x0213-1-2000	. #x2C33)	; &I-JX1-2C33; [12-19]
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER TWENTY")
     (=ucs		. #x24F4)	; ⓴
-    (=jis-x0213-1-2000	. #x2C34)	; &I-JX1-2C34;
+    (=jis-x0213-1-2000	. #x2C34)	; &I-JX1-2C34; [12-20]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT ONE")
     (=ucs		. #x24F5)	; ⓵
-    (=jis-x0213-1-2000	. #x265A)	; &I-JX1-265A;
+    (=jis-x0213-1-2000	. #x265A)	; &I-JX1-265A; [06-58]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT TWO")
     (=ucs		. #x24F6)	; ⓶
-    (=jis-x0213-1-2000	. #x265B)	; &I-JX1-265B;
+    (=jis-x0213-1-2000	. #x265B)	; &I-JX1-265B; [06-59]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT THREE")
     (=ucs		. #x24F7)	; ⓷
-    (=jis-x0213-1-2000	. #x265C)	; &I-JX1-265C;
+    (=jis-x0213-1-2000	. #x265C)	; &I-JX1-265C; [06-60]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT FOUR")
     (=ucs		. #x24F8)	; ⓸
-    (=jis-x0213-1-2000	. #x265D)	; &I-JX1-265D;
+    (=jis-x0213-1-2000	. #x265D)	; &I-JX1-265D; [06-61]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT FIVE")
     (=ucs		. #x24F9)	; ⓹
-    (=jis-x0213-1-2000	. #x265E)	; &I-JX1-265E;
+    (=jis-x0213-1-2000	. #x265E)	; &I-JX1-265E; [06-62]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT SIX")
     (=ucs		. #x24FA)	; ⓺
-    (=jis-x0213-1-2000	. #x265F)	; &I-JX1-265F;
+    (=jis-x0213-1-2000	. #x265F)	; &I-JX1-265F; [06-63]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT SEVEN")
     (=ucs		. #x24FB)	; ⓻
-    (=jis-x0213-1-2000	. #x2660)	; &I-JX1-2660;
+    (=jis-x0213-1-2000	. #x2660)	; &I-JX1-2660; [06-64]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT EIGHT")
     (=ucs		. #x24FC)	; ⓼
-    (=jis-x0213-1-2000	. #x2661)	; &I-JX1-2661;
+    (=jis-x0213-1-2000	. #x2661)	; &I-JX1-2661; [06-65]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT NINE")
     (=ucs		. #x24FD)	; ⓽
-    (=jis-x0213-1-2000	. #x2662)	; &I-JX1-2662;
+    (=jis-x0213-1-2000	. #x2662)	; &I-JX1-2662; [06-66]
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED NUMBER TEN")
     (=ucs		. #x24FE)	; ⓾
-    (=jis-x0213-1-2000	. #x2663)	; &I-JX1-2663;
+    (=jis-x0213-1-2000	. #x2663)	; &I-JX1-2663; [06-67]
     ))

@@ -51,13 +51,13 @@
     (=ucs		. #x2E84)	; ⺄
     (=big5-cdp		. #x8D43)	; &I-CDP-8D43;
     (=gt-k		. 00008)	; &I-GT-K00008;
-    (=gt-pj-k1		. #x302E)	; ⺄
+    (=gt-pj-k1		. #x302E)	; ⺄ [16-14]
     ))
 (define-char
   '((=>ucs		. #x2E84)	; ⺄
     (total-strokes	 . 1)
     (=gt-k		. 00007)	; &GT-K00007;
-    (=gt-pj-k1		. #x302D)	; &GT-K00007;
+    (=gt-pj-k1		. #x302D)	; &GT-K00007; [16-13]
     ))
 (define-char
   '((name		. "CJK RADICAL PERSON")
@@ -88,7 +88,7 @@
     (total-strokes	 . 2)
     (=big5-cdp		. #x8BF2)	; &CDP-8BF2;
     (=gt-k		. 00143)	; &I-GT-K00143;
-    (=gt-pj-k1		. #x3D6C)	; &CDP-8BF2;
+    (=gt-pj-k1		. #x3D6C)	; &CDP-8BF2; [29-76]
     ))
 (define-char
   '((name		. "CJK RADICAL TABLE")
@@ -103,7 +103,7 @@
     (=big5-cdp		. #x8D66)	; &I-CDP-8D66;
     (=gt		. 02284)	; &I-GT-02284;
     (=gt-k		. 00086)	; &I-GT-K00086;
-    (=gt-pj-9		. #x505D)	; &I-GT-02284;
+    (=gt-pj-9		. #x505D)	; &I-GT-02284; [48-61]
     ))
 (define-char
   '((name		. "CJK RADICAL KNIFE ONE")
@@ -112,7 +112,7 @@
     (mirrored		. nil)
     (=ucs		. #x2E88)	; ⺈
     (=gt-k		. 00091)	; &I-GT-K00091;
-    (=gt-pj-k1		. #x3234)	; ⺈
+    (=gt-pj-k1		. #x3234)	; ⺈ [18-20]
     ))
 (define-char
   '((name		. "CJK RADICAL KNIFE TWO")
@@ -135,7 +135,7 @@
     (=ucs		. #x2E8A)	; ⺊
     (=big5-cdp		. #x8B78)	; &I-CDP-8B78;
     (=gt-k		. 00062)	; &I-GT-K00062;
-    (=gt-pj-k1		. #x3D4D)	; ⺊
+    (=gt-pj-k1		. #x3D4D)	; ⺊ [29-45]
     ))
 (define-char
   '((name		. "CJK RADICAL SEAL")
@@ -158,7 +158,7 @@
     (=ucs		. #x2E8C)	; ⺌
     (=big5-cdp		. #x8B54)	; &I-CDP-8B54;
     (=gt-k		. 00303)	; &I-GT-K00303;
-    (=gt-pj-k1		. #x3233)	; ⺌
+    (=gt-pj-k1		. #x3233)	; ⺌ [18-19]
     ))
 (define-char
   '((=>ucs		. #x2E8C)	; ⺌
@@ -166,7 +166,7 @@
      ((=ucs		  . #x5C0F)	; 小
       ))
     (=gt-k		. 00305)	; &GT-K00305;
-    (=gt-pj-k1		. #x324E)	; &GT-K00305;
+    (=gt-pj-k1		. #x324E)	; &GT-K00305; [18-46]
     ))
 (define-char
   '((name		. "CJK RADICAL SMALL TWO")
@@ -178,7 +178,7 @@
       ))
     (=ucs		. #x2E8D)	; ⺍
     (=gt-k		. 00325)	; &I-GT-K00325;
-    (=gt-pj-k1		. #x3251)	; ⺍
+    (=gt-pj-k1		. #x3251)	; ⺍ [18-49]
     ))
 (define-char
   '((name		. "CJK RADICAL LAME ONE")
@@ -272,7 +272,7 @@
     (=big5-cdp		. #x8B51)	; &I-CDP-8B51;
     (=gt		. 12992)	; &I-GT-12992;
     (=gt-k		. 00302)	; &I-GT-K00302;
-    (=gt-pj-3		. #x4D5F)	; &I-GT-12992;
+    (=gt-pj-3		. #x4D5F)	; &I-GT-12992; [45-63]
     ))
 (define-char
   '((name		. "CJK RADICAL HEART TWO")
@@ -325,7 +325,7 @@
       ))
     (=ucs		. #x2E9C)	; ⺜
     (=gt-k		. 00565)	; &I-GT-K00565;
-    (=gt-pj-k1		. #x3229)	; ⺜
+    (=gt-pj-k1		. #x3229)	; ⺜ [18-09]
     ))
 (define-char
   '((name		. "CJK RADICAL MOON")
@@ -460,7 +460,7 @@
       ))
     (=ucs		. #x2EA9)	; ⺩
     (=gt-k		. 00402)	; &I-GT-K00402;
-    (=gt-pj-k1		. #x3467)	; ⺩
+    (=gt-pj-k1		. #x3467)	; ⺩ [20-71]
     ))
 (define-char
   '((name		. "CJK RADICAL BOLT OF CLOTH")
@@ -494,7 +494,7 @@
     (=big5-cdp		. #x8B48)	; &GT-36329;
     (=gt		. 36329)	; &I-GT-36329;
     (=gt-k		. 01549)	; &I-GT-K01549;
-    (=gt-pj-5		. #x7264)	; &I-GT-36329;
+    (=gt-pj-5		. #x7264)	; &I-GT-36329; [82-68]
     ))
 (define-char
   '((name		. "CJK RADICAL SPIRIT ONE")
@@ -528,7 +528,7 @@
     (=ucs		. #x2EAE)	; ⺮
     (=big5-cdp		. #x8B4C)	; &I-CDP-8B4C;
     (=gt-k		. 02267)	; &I-GT-K02267;
-    (=gt-pj-k1		. #x324D)	; ⺮
+    (=gt-pj-k1		. #x324D)	; ⺮ [18-45]
     ))
 (define-char
   '((name		. "CJK RADICAL SILK")
@@ -605,7 +605,7 @@
 (define-char
   '((=>ucs		. #x2EB6)	; ⺶
     (=gt-k		. 01701)	; &GT-K01701;
-    (=gt-pj-k1		. #x3443)	; &GT-K01701;
+    (=gt-pj-k1		. #x3443)	; &GT-K01701; [20-35]
     ))
 (define-char
   '((=>ucs		. #x2EB6)	; ⺶
@@ -670,7 +670,7 @@
     (=ucs		. #x2EBC)	; ⺼
     (->subsumptive
      ((=gt		  . 37857)	; &GT-37857;
-      (=gt-pj-6		  . #x3879)	; &GT-37857;
+      (=gt-pj-6		  . #x3879)	; &GT-37857; [24-89]
       (=daikanwa	  . 29237)	; &I-M-29237;
       )
      ((=ucs@unicode	  . #x2EBC)	; &UU+2EBC;
@@ -679,7 +679,7 @@
       )
      ((=big5-cdp	  . #x8958)	; &CDP-8958;
       (=gt-k		  . 00417)	; &I-GT-K00417;
-      (=gt-pj-k1	  . #x377D)	; &CDP-8958;
+      (=gt-pj-k1	  . #x377D)	; &CDP-8958; [23-93]
       ))
     ))
 (define-char
@@ -704,11 +704,11 @@
      ((=ucs		  . #x8279)	; 艹
       ))
     (=ucs		. #x2EBE)	; ⺾
-    (=gb2312		. #x5C33)	; &I-G0-5C33;
-    (=jis-x0213-2-2000	. #x7576)	; &I-JX2-7576;
+    (=gb2312		. #x5C33)	; &I-G0-5C33; [60-19]
+    (=jis-x0213-2-2000	. #x7576)	; &I-JX2-7576; [85-86]
     (=gt		. 39639)	; &I-GT-39639;
     (=gt-k		. 00279)	; &I-GT-K00279;
-    (=gt-pj-9		. #x4F47)	; &I-GT-39639;
+    (=gt-pj-9		. #x4F47)	; &I-GT-39639; [47-39]
     (=jef-china3	. #x72FA)	; &I-JC3-72FA;
     (=ucs@unicode	. #x8279)	; ⺾
     ))
@@ -724,12 +724,12 @@
      ((=ucs		  . #x8279)	; 艹
       ))
     (=ucs		. #x2EBF)	; ⺿
-    (=cns11643-4	. #x2153)	; &I-C4-2153;
-    (=jis-x0213-2-2000	. #x7575)	; &I-JX2-7575;
+    (=cns11643-4	. #x2153)	; &I-C4-2153; [01-51]
+    (=jis-x0213-2-2000	. #x7575)	; &I-JX2-7575; [85-85]
     (=big5-cdp		. #x8AFE)	; &I-CDP-8AFE;
     (=gt		. 39643)	; &I-GT-39643;
     (=gt-k		. 00671)	; &I-GT-K00671;
-    (=gt-pj-6		. #x4664)	; &I-GT-39643;
+    (=gt-pj-6		. #x4664)	; &I-GT-39643; [38-68]
     (=daikanwa		. 30639)	; &I-M-30639;
     (=ucs@cns		. #x8279)	; ⺿
     (=ucs@jis		. #xFA5E)	; ⺿
@@ -746,10 +746,10 @@
      ((=ucs		  . #x8279)	; 艹
       ))
     (=ucs		. #x2EC0)	; ⻀
-    (=jis-x0213-2-2000	. #x7574)	; &I-JX2-7574;
+    (=jis-x0213-2-2000	. #x7574)	; &I-JX2-7574; [85-84]
     (=gt		. 39645)	; &I-GT-39645;
     (=gt-k		. 00569)	; &I-GT-K00569;
-    (=gt-pj-9		. #x4E5A)	; &I-GT-39645;
+    (=gt-pj-9		. #x4E5A)	; &I-GT-39645; [46-58]
     (=ucs@jis		. #xFA5D)	; ⻀
     ))
 (define-char
@@ -878,8 +878,8 @@
       (=ucs		  . #x2ECD)	; ⻍
       ))
     (=ucs		. #x2ECC)	; ⻌
-    (=gb2312		. #x6541)	; &I-G0-6541;
-    (=jis-x0213-2-2000	. #x7969)	; &I-JX2-7969;
+    (=gb2312		. #x6541)	; &I-G0-6541; [69-33]
+    (=jis-x0213-2-2000	. #x7969)	; &I-JX2-7969; [89-73]
     (=big5-cdp		. #x8966)	; &I-CDP-8966;
     (=jef-china3	. #x67A3)	; &I-JC3-67A3;
     (=ucs@gb		. #x8FB6)	; ⻌
@@ -897,11 +897,11 @@
      ((=ucs		  . #x8FB6)	; 辶
       ))
     (=ucs		. #x2ECD)	; ⻍
-    (=jis-x0212		. #x6134)	; &I-JSP-6134;
-    (=jis-x0213-2-2000	. #x796A)	; &I-JX2-796A;
+    (=jis-x0212		. #x6134)	; &I-JSP-6134; [65-20]
+    (=jis-x0213-2-2000	. #x796A)	; &I-JX2-796A; [89-74]
     (=gt		. 51643)	; &I-GT-51643;
     (=gt-k		. 00580)	; &I-GT-K00580;
-    (=gt-pj-7		. #x5530)	; &I-GT-51643;
+    (=gt-pj-7		. #x5530)	; &I-GT-51643; [53-16]
     (=daikanwa		. 38702)	; &I-M-38702;
     (=ucs@jis		. #x8FB6)	; ⻍
     ))
@@ -921,7 +921,7 @@
       (=ucs		  . #x2ECD)	; ⻍
       ))
     (=ucs		. #x2ECE)	; ⻎
-    (=cns11643-4	. #x2154)	; &I-C4-2154;
+    (=cns11643-4	. #x2154)	; &I-C4-2154; [01-52]
     (=big5-cdp		. #x8AF7)	; &I-CDP-8AF7;
     (=ucs@cns		. #x8FB6)	; ⻎
     ))
@@ -1093,7 +1093,7 @@
       ))
     (=gt		. 59030)	; &GT-59030;
     (=gt-k		. 06140)	; &I-GT-K06140;
-    (=gt-pj-9		. #x4F28)	; &GT-59030;
+    (=gt-pj-9		. #x4F28)	; &GT-59030; [47-08]
     ))
 (define-char
   '((name		. "CJK RADICAL EAT THREE")
