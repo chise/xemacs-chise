@@ -2,6 +2,12 @@
 
 	* u01000-Myanmar.el: Reformatted.
 
+2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R030-Mouth.el (U+5411): Delete wrong
+	`ideographic-structure' and CB-05156.
+	(U+54CD): Add `ideographic-structure' and CB-05156.
+
 2002-02-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R063-Door.el: Add some mappings to CJK Ext-B code
