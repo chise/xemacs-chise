@@ -1,3 +1,16 @@
+2000-04-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_latin_tcvn5712): New variable.
+	(Fput_char_attribute): Set up `Vcharacter_variant_table' instead
+	of `Vcharacter_composition_table' if `->decomposition' property
+	has only 1 element.
+	(Qlatin_tcvn5712): New variable.
+	(syms_of_mule_charset): Add new symbol `latin-tcvn5712'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`latin-tcvn5712'.
+
+	* char-ucs.h (LEADING_BYTE_LATIN_TCVN5712): New macro.
+
 2000-04-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* file-coding.h (struct Lisp_Coding_System): Add
