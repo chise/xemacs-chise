@@ -1,3 +1,56 @@
+2003-03-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R196-Bird.el, Ideograph-R186-Fragrant.el,
+	Ideograph-R184-Eat.el, Ideograph-R181-Leaf.el,
+	Ideograph-R172-Short-Tailed-Bird.el, Ideograph-R154-Shell.el,
+	Ideograph-R149-Speech.el, Ideograph-R142-Insect.el,
+	Ideograph-R141-Tiger.el, Ideograph-R140-Grass.el,
+	Ideograph-R125-Old.el, Ideograph-R120-Silk.el,
+	Ideograph-R119-Rice.el, Ideograph-R116-Cave.el,
+	Ideograph-R109-Eye.el, Ideograph-R096-Jade.el,
+	Ideograph-R085-Water.el, Ideograph-R079-Weapon.el,
+	Ideograph-R064-Hand.el, Ideograph-R061-Heart.el,
+	Ideograph-R046-Mountain.el, Ideograph-R043-Lame.el,
+	Ideograph-R038-Woman.el, Ideograph-R032-Earth.el,
+	Ideograph-R030-Mouth.el, Ideograph-R018-Knife.el: Rename
+	`=>ucs-cns' to `=>ucs@cns'
+
+	* char-db-util.el (insert-char-attributes): Convert `=>ucs-cns' to
+	`=>ucs@cns'.
+
+2003-03-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R198-Deer.el, Ideograph-R200-Hemp.el,
+	u02E00-CJK-Radical-Supplement.el, Ideograph-R196-Bird.el,
+	Ideograph-R186-Fragrant.el, Ideograph-R184-Eat.el,
+	Ideograph-R181-Leaf.el, Ideograph-R175-Wrong.el,
+	Ideograph-R178-Tanned-Leather.el,
+	Ideograph-R172-Short-Tailed-Bird.el, Ideograph-R170-Mound.el,
+	Ideograph-R167-Gold.el, Ideograph-R163-City.el,
+	Ideograph-R162-Walk.el, Ideograph-R152-Pig.el,
+	Ideograph-R159-Cart.el, Ideograph-R144-Walk-Enclosure.el,
+	Ideograph-R149-Speech.el, Ideograph-R141-Tiger.el,
+	Ideograph-R142-Insect.el, Ideograph-R140-Grass.el,
+	Ideograph-R124-Feather.el, Ideograph-R120-Silk.el,
+	Ideograph-R119-Rice.el, Ideograph-R116-Cave.el,
+	Ideograph-R115-Grain.el, Ideograph-R111-Arrow.el,
+	Ideograph-R113-Spirit.el, Ideograph-R106-White.el,
+	Ideograph-R109-Eye.el, Ideograph-R105-Dotted-Tent.el,
+	Ideograph-R096-Jade.el, Ideograph-R094-Dog.el,
+	Ideograph-R085-Water.el, Ideograph-R079-Weapon.el,
+	Ideograph-R082-Fur.el, Ideograph-R071-Not.el,
+	Ideograph-R072-Sun.el, Ideograph-R068-Dipper.el,
+	Ideograph-R047-River.el, Ideograph-R051-Dry.el,
+	Ideograph-R061-Heart.el, Ideograph-R046-Mountain.el,
+	Ideograph-R043-Lame.el, Ideograph-R038-Woman.el,
+	Ideograph-R037-Big.el, Ideograph-R032-Earth.el,
+	Ideograph-R029-Again.el, Ideograph-R030-Mouth.el,
+	Ideograph-R013-Down-Box.el, Ideograph-R018-Knife.el,
+	Ideograph-R010-Legs.el, Ideograph-R009-Man.el,
+	Ideograph-R003-Dot.el, Ideograph-R004-Slash.el,
+	Ideograph-R005-Second.el, Ideograph-R002-Line.el,
+	Ideograph-R001-One.el: Rename `=>ucs-cns' to `=>ucs@cns'.
+
 2003-03-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R009-Man.el: Reformatted.
