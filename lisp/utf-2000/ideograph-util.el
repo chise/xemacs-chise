@@ -404,26 +404,35 @@
 			'ideographic-structure)))
 
 ;;;###autoload
-(defun total-strokes-string< (string1 string2 &optional preferred-domains)
+(defun chise-string< (string1 string2 accessors)
   (let ((len1 (length string1))
 	(len2 (length string2))
 	len
 	(i 0)
 	c1 c2
-	s1 s2)
+	rest func
+	v1 v2)
     (setq len (min len1 len2))
     (catch 'tag
       (while (< i len)
 	(setq c1 (aref string1 i)
 	      c2 (aref string2 i))
-	(setq s1 (or (char-total-strokes c1 preferred-domains)
-		     0)
-	      s2 (or (char-total-strokes c2 preferred-domains)
-		     0))
-	(cond ((< s1 s2)
-	       (throw 'tag t))
-	      ((> s1 s2)
-	       (throw 'tag nil)))
+	(setq rest accessors)
+	(while (and rest
+		    (setq func (car rest))
+		    (setq v1 (funcall func c1)
+			  v2 (funcall func c2))
+		    (eq v1 v2))
+	  (setq rest (cdr rest)))
+	(if v1
+	    (if v2
+		(cond ((< v1 v2)
+		       (throw 'tag t))
+		      ((> v1 v2)
+		       (throw 'tag nil)))
+	      (throw 'tag nil))
+	  (if v2
+	      (throw 'tag t)))
 	(setq i (1+ i)))
       (< len1 len2))))
 
