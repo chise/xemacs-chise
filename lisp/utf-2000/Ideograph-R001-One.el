@@ -2041,6 +2041,43 @@
     (mojikyo		. 000104)	; ý €€¨
     ))
 (define-char
+  '((=>ucs		. #x20030)	; ð €°
+    (morohashi-daikanwa	ho 2)
+    (ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; â¿±
+      )
+     ((=ucs		  . #x4E0D)	; ä¸
+      )
+     ((=jis-x0208	  . #x3E2F)	; ø½Š °
+      (=ks-x1001	  . #x6134)	; ø»‰¸Ÿ
+      (=daikanwa	  . 07475)	; ø¸´³
+      ))
+    (=gt-pj-11		. #x4349)	; ý¡€€‘
+    (=gt		. 00081)	; ý¡€€‘
+    (mojikyo		. 085219)	; ý €”³£
+    ))
+(define-char
+  '((morohashi-daikanwa	ho 2 0)
+    (ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 24 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; â¿±
+      )
+     ((=ucs		  . #x4E0D)	; ä¸
+      )
+     ((=ucs		  . #x5C11)	; å°‘
+      ))
+    (=hanziku-1		. #xA8F3)	; ý¢€š£³
+    (=ucs		. #x20030)	; ð €°
+    ))
+(define-char
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
@@ -2057,22 +2094,6 @@
     (=iso-ir165		. #x4925)	; ø»©ˆ
     (=hanziku-1		. #xA8AE)	; ý¢€š¢®
     (=ucs		. #x4E27)	; ä¸§
-    ))
-(define-char
-  '((ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 7)
-    (total-strokes	 . 8)
-    (hanyu-dazidian	1 24 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; â¿±
-      )
-     ((=ucs		  . #x4E0D)	; ä¸
-      )
-     ((=ucs		  . #x5C11)	; å°‘
-      ))
-    (=hanziku-1		. #xA8F3)	; ý¢€š£³
-    (=ucs		. #x20030)	; ð €°
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
@@ -2108,13 +2129,6 @@
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (=gt-pj-11		. #x4349)	; ý¡€€‘
-    (=gt		. 00081)	; ý¡€€‘
-    ))
-(define-char
-  '((ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 7)
-    (total-strokes	 . 8)
     (hanyu-dazidian	1 24 5)
     (=big5-cdp		. #x8CB7)	; ý¢€ˆ²·
     ))
@@ -2126,6 +2140,43 @@
     (=daikanwa		. 00061)	; ø¸€€½
     (=gt		. 00090)	; ý¡€€š
     (mojikyo		. 000061)	; ý €€€½
+    ))
+(define-char
+  '((=>ucs		. #x2003C)	; ð €¼
+    (morohashi-daikanwa	ho 3)
+    (ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 8)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; â¿±
+      )
+     ((=ucs		  . #x268FB)	; ð¦£»
+      )
+     ((=jis-x0208	  . #x5029)	; ø½Š»†
+      (=ks-x1001	  . #x6751)	; ø»Š°
+      (=daikanwa	  . 00111)	; ø¸€¯
+      ))
+    (=gt-pj-11		. #x4358)	; ý¡€€˜
+    (=gt		. 00088)	; ý¡€€˜
+    ))
+(define-char
+  '((morohashi-daikanwa	ho 3 0)
+    (ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 8)
+    (total-strokes	 . 9)
+    (hanyu-dazidian	1 25 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; â¿±
+      )
+     ((=ucs		  . #x268FB)	; ð¦£»
+      )
+     ((=ucs		  . #x4E42)	; ä¹‚
+      ))
+    (=hanziku-1		. #xA958)	; ý¢€š¥˜
+    (mojikyo		. 085231)	; ý €”³¯
+    (=ucs		. #x2003C)	; ð €¼
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
@@ -2221,40 +2272,6 @@
     (hanyu-dazidian	1 26 1)
     (=big5-cdp		. #x87E8)	; ý¢€ˆŸ¨
     (=ucs		. #x2003A)	; ð €º
-    ))
-(define-char
-  '((ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 8)
-    (total-strokes	 . 9)
-    (hanyu-dazidian	1 25 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; â¿±
-      )
-     ((=ucs		  . #x268FB)	; ð¦£»
-      )
-     ((=ucs		  . #x4E42)	; ä¹‚
-      ))
-    (=hanziku-1		. #xA958)	; ý¢€š¥˜
-    (=ucs		. #x2003C)	; ð €¼
-    ))
-(define-char
-  '((=>ucs		. #x2003C)	; ð €¼
-    (ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 8)
-    (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; â¿±
-      )
-     ((=ucs		  . #x268FB)	; ð¦£»
-      )
-     ((=jis-x0208	  . #x5029)	; ø½Š»†
-      (=ks-x1001	  . #x6751)	; ø»Š°
-      (=daikanwa	  . 00111)	; ø¸€¯
-      ))
-    (=gt-pj-11		. #x4358)	; ý¡€€˜
-    (=gt		. 00088)	; ý¡€€˜
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
@@ -2434,6 +2451,25 @@
     (=ucs		. #x2004A)	; ð Š
     ))
 (define-char
+  '((morohashi-daikanwa	ho 4)
+    (ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 13)
+    (total-strokes	 . 14)
+    (hanyu-dazidian	8 7 8)
+    (=hanziku-12	. #xEB47)	; ý¢ƒŽ­‡
+    (mojikyo		. 085402)	; ý €”¶š
+    (=ucs		. #x20050)	; ð 
+    ))
+(define-char
+  '((=>ucs		. #x20050)	; ð 
+    (morohashi-daikanwa	ho 4 0)
+    (ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 13)
+    (total-strokes	 . 14)
+    (=gt-pj-11		. #x454C)	; ý¡€€ 
+    (=gt		. 00096)	; ý¡€€ 
+    ))
+(define-char
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 13)
     (total-strokes	 . 14)
@@ -2450,21 +2486,6 @@
       ))
     (=hanziku-1		. #xA9A3)	; ý¢€š¦£
     (=ucs		. #x2004F)	; ð 
-    ))
-(define-char
-  '((ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 13)
-    (total-strokes	 . 14)
-    (hanyu-dazidian	8 7 8)
-    (=hanziku-12	. #xEB47)	; ý¢ƒŽ­‡
-    (=ucs		. #x20050)	; ð 
-    ))
-(define-char
-  '((ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 13)
-    (total-strokes	 . 14)
-    (=gt-pj-11		. #x454C)	; ý¡€€ 
-    (=gt		. 00096)	; ý¡€€ 
     ))
 (define-char
   '((=>ucs		. #x20055)	; ð •
