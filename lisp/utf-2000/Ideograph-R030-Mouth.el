@@ -16923,6 +16923,7 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (hanyu-dazidian	1 661 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -16931,7 +16932,9 @@
       )
      ((=ucs		  . #x6052)	; 恒
       ))
-    (=daikanwa		. 03980)	; &M-03980;
+    (=ucs		. #x20DD0)	; 𠷐
+    (=daikanwa		. 03980)	; &I-M-03980;
+    (=hanziku-2		. #xDA64)	; &I-HZK02-DA64;
     (=cbeta		. 00090)	; &I-CB00090;
     ))
 (define-char
@@ -33779,12 +33782,6 @@
     (hanyu-dazidian	1 663 11)
     (=ucs		. #x20DB9)	; 𠶹
     (=hanziku-2		. #xDAC9)	; &I-HZK02-DAC9;
-    ))
-(define-char
-  '((ideographic-radical . 30)	; ⼝
-    (hanyu-dazidian	1 661 8)
-    (=ucs		. #x20DD0)	; 𠷐
-    (=hanziku-2		. #xDA64)	; &I-HZK02-DA64;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
