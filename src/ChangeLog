@@ -1,3 +1,8 @@
+1999-09-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fmake_reverse_direction_charset): Fix compile
+	error with non-UTF-2000-Mule.
+
 1999-09-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (Vcharset_chinese_cns11643_3): Deleted [defined
@@ -19,9 +24,9 @@
 1999-09-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (charset_get_byte1): Fix bug about 94- and
- 	96-set.  (Fmake_reverse_direction_charset): Inherit
- 	CHARSET_DECODING_TABLE, CHARSET_UCS_MIN, CHARSET_UCS_MAX and
- 	CHARSET_CODE_OFFSET.
+	96-set.
+	(Fmake_reverse_direction_charset): Inherit CHARSET_DECODING_TABLE,
+	CHARSET_UCS_MIN, CHARSET_UCS_MAX and CHARSET_CODE_OFFSET.
 
 1999-09-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
