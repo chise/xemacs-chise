@@ -2269,6 +2269,8 @@ do {					\
 
 #define DECODING_STREAM_DATA(stream) LSTREAM_TYPE_DATA (stream, decoding)
 
+#define ER_BUF_SIZE 24
+
 struct decoding_stream
 {
   /* Coding system that governs the conversion. */
@@ -2310,7 +2312,7 @@ struct decoding_stream
 #endif
 #ifdef UTF2000
   unsigned char er_counter;
-  unsigned char er_buf[16];
+  unsigned char er_buf[ER_BUF_SIZE];
 
   unsigned combined_char_count;
   Emchar combined_chars[16];
@@ -3356,7 +3358,7 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
     decoded:
       str->er_counter = 0;
     }
-  else if ( (str->er_counter >= 16) || (c >= 0x7F) )
+  else if ( (str->er_counter >= ER_BUF_SIZE) || (c >= 0x7F) )
     {
       Dynarr_add_many (dst, str->er_buf, str->er_counter);
       str->er_counter = 0;
@@ -3375,7 +3377,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
   Lisp_Object ccs;
   Lisp_Object char_type;
   int format_columns, idx;
-  char format[20];
+  char format[ER_BUF_SIZE];
 
   while (!NILP (rest))
     {
@@ -3400,7 +3402,8 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 
 	      cell = Fcdr (cell);
 	      ret = Fcar (cell);
-	      if (STRINGP (ret) && ( (idx = XSTRING_LENGTH (ret)) <= 8 ))
+	      if ( STRINGP (ret) &&
+		   ( (idx = XSTRING_LENGTH (ret)) <= (ER_BUF_SIZE - 4) ) )
 		{
 		  format[0] = '&';
 		  strncpy (&format[1], XSTRING_DATA (ret), idx);
@@ -3415,12 +3418,15 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 		{
 		  format[idx++] = '%';
 		  format_columns = XINT (ret);
-		  if ( (2 <= format_columns) && (format_columns <= 8) )
+		  if ( (2 <= format_columns) && (format_columns <= 8)
+		       && (idx + format_columns <= ER_BUF_SIZE - 1) )
 		    {
 		      format [idx++] = '0';
 		      format [idx++] = '0' + format_columns;
 		    }
 		}
+	      else
+		goto try_next;
 
 	      cell = Fcdr (cell);
 	      ret = Fcar (cell);
