@@ -1812,9 +1812,7 @@ and 'syntax.  See `valid-char-table-type-p'.
     ct->mirror_table = Qnil;
 #else
   ct->name = Qnil;
-#ifdef CHISE
-  ct->feature_table = NULL;
-#else
+#ifndef CHISE
   ct->db = Qnil;
 #endif
 #endif
@@ -1891,9 +1889,7 @@ as CHAR-TABLE.  The values will not themselves be copied.
   ctnew->default_value = ct->default_value;
   /* [tomo:2002-01-21] Perhaps this code seems wrong */
   ctnew->name = ct->name;
-#ifdef CHISE
-  ctnew->feature_table = ct->feature_table;
-#else
+#ifndef CHISE
   ctnew->db = ct->db;
 #endif
 
@@ -3391,17 +3387,8 @@ char_table_open_db_maybe (Lisp_Char_Table* cit)
   if (!NILP (attribute))
     {
 #ifdef CHISE
-      if (cit->feature_table == NULL)
-	{
-	  if ( open_chise_data_source_maybe () )
-	    return -1;
-
-	  cit->feature_table
-	    = chise_ds_get_feature (default_chise_data_source,
-				    XSTRING_DATA (Fsymbol_name (attribute)));
-	  if (cit->feature_table == NULL)
-	    return -1;
-	}
+      if ( open_chise_data_source_maybe () )
+	return -1;
 #else
       if (NILP (Fdatabase_live_p (cit->db)))
 	{
@@ -3423,13 +3410,7 @@ char_table_open_db_maybe (Lisp_Char_Table* cit)
 void
 char_table_close_db_maybe (Lisp_Char_Table* cit)
 {
-#ifdef CHISE
-  if (cit->feature_table != NULL)
-    {
-      /* chise_ft_close (cit->feature_table); */
-      cit->feature_table = NULL;
-    }
-#else
+#ifndef CHISE
   if (!NILP (cit->db))
     {
       if (!NILP (Fdatabase_live_p (cit->db)))
@@ -3446,7 +3427,12 @@ char_table_get_db (Lisp_Char_Table* cit, Emchar ch)
 #ifdef CHISE
   CHISE_Value value;
   int status
-    = chise_char_load_feature_value (ch, cit->feature_table, &value);
+    = chise_char_load_feature_value (ch,
+				     chise_ds_get_feature
+				     (default_chise_data_source,
+				      XSTRING_DATA
+				      (Fsymbol_name
+				       (cit->name))), &value);
 
   if (!status)
     {
@@ -3583,9 +3569,7 @@ Mount database file on char-attribute-table ATTRIBUTE.
       ct = XCHAR_TABLE (table);
       ct->table = Qunloaded;
       XCHAR_TABLE_UNLOADED(table) = 1;
-#ifdef CHISE
-      ct->feature_table = NULL;
-#else
+#ifndef CHISE
       ct->db = Qnil;
 #endif
       return Qt;
@@ -3727,7 +3711,8 @@ Load values of ATTRIBUTE into database file.
 	GCPRO1 (table);
 #ifdef CHISE
 	chise_char_feature_value_iterate
-	  (cit->feature_table,
+	  (chise_ds_get_feature (default_chise_data_source,
+				 XSTRING_DATA (Fsymbol_name (cit->name))),
 	   &load_char_attribute_table_map_func);
 #else
 	Fmap_database (Qload_char_attribute_table_map_function, cit->db);
