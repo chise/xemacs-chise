@@ -32,6 +32,22 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+2001-01-26  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.43 "Terspichore" is released.
+
+2001-01-21  Steve Youngs  <youngs@xemacs.org>
+
+	* ./etc/PACKAGES: Doc fix.
+
+	* README.packages: Doc fix.
+
+2001-01-17  Steve Youngs  <youngs@xemacs.org>
+
+	* README.packages: Update.
+
+	* ./etc/PACKAGES: Update.
+
 2001-01-20  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.42 "Poseidon" is released.

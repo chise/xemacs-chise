@@ -3430,6 +3430,114 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2001-01-26  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.43 "Terspichore" is released.
+
+2001-01-25  Martin Buchholz  <martin@xemacs.org>
+
+	Type fiddling for window_config.saved_windows_count
+	* window.c (struct window_config): 
+	Make saved_windows_count member unsigned.
+	* window.c (sizeof_window_config_for_n_windows): 
+	Make parameter unsigned.
+	* window.c (mark_window_config):
+	* window.c (window_config_equal):
+	* window.c (free_window_configuration):
+	* window.c (Fset_window_configuration):
+	* window.c (count_windows):
+	* window.c (Fcurrent_window_configuration):
+	* window.c (reinit_vars_of_window):
+	Update all callers and users.
+
+2001-01-25  Martin Buchholz  <martin@xemacs.org>
+
+	Alignment correctness for flexible arrays.
+	* lisp.h (FLEXIBLE_ARRAY_STRUCT_SIZEOF):
+	Make alignment-correct. Add interesting comments.
+	* alloc.c (size_vector):
+	* alloc.c (make_vector_internal):
+	* alloc.c (make_bit_vector_internal):
+	* alloc.c (sweep_bit_vectors_1):
+	* fns.c (size_bit_vector):
+	Update all callers of FLEXIBLE_ARRAY_STRUCT_SIZEOF to add new arg.
+	* window.c (sizeof_window_config_for_n_windows): 
+	Use FLEXIBLE_ARRAY_STRUCT_SIZEOF.
+
+2001-01-24  Martin Buchholz  <martin@xemacs.org>
+
+	* lread.c (read1): Rename `fexp', which is #defined in SGI's math.h
+
+2001-01-23  Andy Piper  <andy@xemacs.org>
+
+	* select.c (Fown_selection_internal): pass owned_p
+
+	* select-msw.c (mswindows_own_selection): New Signature.
+
+	* console.h (struct console_methods): add owned_p to
+	_own_selection.
+
+	* select-x.c (x_own_selection): pass owned_p
+	(hack_motif_clipboard_selection): use owned_p
+	(vars_of_select_x): new variable -
+	x_selection_strict_motif_ownership.
+
+2001-01-23  Martin Buchholz  <martin@xemacs.org>
+
+	* specifier.h (specifier_data_offset): Remove pointless parens.
+	* glyphs.h (IMAGE_SPECIFIER_DATA): Likewise.
+
+2001-01-24  Martin Buchholz  <martin@xemacs.org>
+
+	Make Lisp_Object sizeof methods be alignment-correct.
+	pdump must restore objects to the same alignment as the C compiler
+	assumes.  It really matters on SGIs.
+	* lstream.c (aligned_sizeof_lstream): New.
+	(sizeof_lstream): Use aligned_sizeof_lstream.
+	(Lstream_new): Likewise.
+	* opaque.c (aligned_sizeof_opaque): New.
+	(sizeof_opaque): Use aligned_sizeof_opaque.
+	(make_opaque): Likewise.
+	* specifier.c (aligned_sizeof_specifier): New.
+	(sizeof_specifier): Use aligned_sizeof_specifier.
+	(make_specifier_internal): Likewise.
+
+2001-01-23  Martin Buchholz  <martin@xemacs.org>
+
+	* lstream.h (struct lstream): Use max_align_t for trailing data.
+	* specifier.h (struct Lisp_Specifier): Likewise.
+
+2001-01-22  Martin Buchholz  <martin@xemacs.org>
+
+	* mule-ccl.c (CCL_Extension): Renamed from CCL_Extention.
+	(CCL_SUCCESS): Kludge to prevent Sun cc compiler warnings.
+	(CCL_SUSPEND): Likewise.
+	(CCL_INVALID_CMD): Likewise.
+	(CCL_CALL_FOR_MAP_INSTRUCTION): Likewise.
+	(ccl_driver): Likewise.
+	(CCL_WRITE_CHAR): Macro hygiene.
+	(CCL_WRITE_STRING): Macro hygiene.
+
+2001-01-22  Martin Buchholz  <martin@xemacs.org>
+
+	Port "portable" dumper to SunOS 4 and HP-UX.
+	* s/aix4.h (AIX4): Move MAP_FAILED definition elsewhere.
+	* emacs.c (main): PDUMP implies no RUN_TIME_REMAP.
+	* dumper.c (pdump_file_get): Define MAP_FAILED if not already defined.
+
+2001-01-22  Martin Buchholz  <martin@xemacs.org>
+
+	* lisp.h (ALIGNOF): A better definition for C++.
+
+2001-01-20  Martin Buchholz  <martin@xemacs.org>
+
+	Macro hygiene.
+	Fix printf warnings: int format, long int arg.
+	* regex.c (DECLARE_DESTINATION): Use DECLARE_NOTHING.
+	(PUSH_FAILURE_POINT): Use correct printf formats.
+	(POP_FAILURE_POINT): Use correct printf formats.  
+	Use do {...} while (0)
+
 2001-01-20  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.42 "Poseidon" is released.
@@ -4028,7 +4136,7 @@
 	(fast_string_match): Ditto.
 	(search_command): Ditto.
 	(search_buffer): Separate boyer_moore.  Check whether
-	boyer_moore is poosible.
+	boyer_moore is possible.
 	(simple_search): New function.
 	(boyer_moore): Separated from search_buffer. Translate char.
 

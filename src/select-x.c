@@ -46,7 +46,8 @@ Lisp_Object time_to_lisp (time_t);
 static void hack_motif_clipboard_selection (Atom selection_atom,
 					    Lisp_Object selection_value,
 					    Time thyme, Display *display,
-					    Window selecting_window);
+					    Window selecting_window,
+					    int owned_p);
 #endif
 
 #define CUT_BUFFER_SUPPORT
@@ -73,6 +74,9 @@ Lisp_Object Vx_sent_selection_hooks;
    we give up on it.  This is in seconds (0 = no timeout).
  */
 int x_selection_timeout;
+
+/* Enable motif selection optimizations. */
+int x_selection_strict_motif_ownership;
 
 
 /* Utility functions */
@@ -201,7 +205,8 @@ x_atom_to_symbol (struct device *d, Atom atom)
  */
 static Lisp_Object
 x_own_selection (Lisp_Object selection_name, Lisp_Object selection_value,
-		 Lisp_Object how_to_add, Lisp_Object selection_type)
+		 Lisp_Object how_to_add, Lisp_Object selection_type,
+		 int owned_p)
 {
   struct device *d = decode_x_device (Qnil);
   Display *display = DEVICE_X_DISPLAY (d);
@@ -233,7 +238,7 @@ x_own_selection (Lisp_Object selection_name, Lisp_Object selection_value,
 
 #ifdef MOTIF_CLIPBOARDS
   hack_motif_clipboard_selection (selection_atom, selection_value,
-				  thyme, display, selecting_window);
+				  thyme, display, selecting_window, owned_p);
 #endif
   return selection_time;
 }
@@ -249,8 +254,8 @@ hack_motif_clipboard_selection (Atom selection_atom,
 				Lisp_Object selection_value,
 				Time thyme,
 				Display *display,
-				Window selecting_window)
-     /*				Bool owned_p)*/
+				Window selecting_window,
+				int owned_p)
 {
   struct device *d = get_device_from_display (display);
   /* Those Motif wankers can't be bothered to follow the ICCCM, and do
@@ -270,7 +275,10 @@ hack_motif_clipboard_selection (Atom selection_atom,
 	 to look up the new value, and you can't Copy from a buffer, Paste
 	 into a text field, then Copy something else from the buffer and
 	 paste it into the text field -- it pastes the first thing again. */
-/*      && !owned_p */
+      && (!owned_p 
+	  /* Selectively re-enable this because for most users its
+	     just too painful - especially over a remote link. */
+	  || x_selection_strict_motif_ownership)
       )
     {
 #ifdef MOTIF_INCREMENTAL_CLIPBOARDS_WORK
@@ -1781,6 +1789,17 @@ A value of 0 means wait as long as necessary.  This is initialized from the
 \"*selectionTimeout\" resource (which is expressed in milliseconds).
 */ );
   x_selection_timeout = 0;
+
+  DEFVAR_BOOL ("x-selection-strict-motif-ownership", &x_selection_strict_motif_ownership /*
+*If true and XEmacs already owns the clipboard, don't own it again in the
+Motif way. Owning the selection on the Motif way does a huge amount of
+X protocol, and it makes killing text incredibly slow when using an
+X terminal.  However, when enabled Motif text fields don't bother to look up
+the new value, and you can't Copy from a buffer, Paste into a text
+field, then Copy something else from the buffer and paste it into the
+text field; it pastes the first thing again.
+*/ );
+  x_selection_strict_motif_ownership = 1;
 }
 
 void

@@ -280,7 +280,7 @@ It defaults to the selected device.
   if (HAS_DEVMETH_P (XDEVICE (device), own_selection))
     selection_time = DEVMETH (XDEVICE (device), own_selection,
 			      (selection_name, selection_value,
-			       how_to_add, data_type));
+			       how_to_add, data_type, !NILP (prev_value)));
   else
     selection_time = Qnil;
 

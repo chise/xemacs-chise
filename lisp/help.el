@@ -254,7 +254,7 @@ otherwise it is killed."
 
 ;; This is a grody hack of the same genotype as `advertised-undo'; if the
 ;; bindings of Backspace and C-h are the same, we want the menubar to claim
-;; that `info' in invoked with `C-h i', not `BS i'.
+;; that `info' is invoked with `C-h i', not `BS i'.
 
 (defun deprecated-help-command ()
   (interactive)
@@ -1517,7 +1517,8 @@ If INSERT (the prefix arg) is non-nil, insert the message in the buffer."
 	 val)
      (setq val (read-command
 		(if fn (format "Where is command (default %s): " fn)
-		  "Where is command: ")))
+		  "Where is command: ")
+                (and fn (symbol-name fn))))
      (list (if (equal (symbol-name val) "")
 	       fn val)
 	   current-prefix-arg)))

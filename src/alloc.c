@@ -1085,7 +1085,7 @@ mark_vector (Lisp_Object obj)
 static size_t
 size_vector (const void *lheader)
 {
-  return FLEXIBLE_ARRAY_STRUCT_SIZEOF (Lisp_Vector, contents,
+  return FLEXIBLE_ARRAY_STRUCT_SIZEOF (Lisp_Vector, Lisp_Object, contents,
 				       ((Lisp_Vector *) lheader)->size);
 }
 
@@ -1133,7 +1133,8 @@ static Lisp_Vector *
 make_vector_internal (size_t sizei)
 {
   /* no vector_next */
-  size_t sizem = FLEXIBLE_ARRAY_STRUCT_SIZEOF (Lisp_Vector, contents, sizei);
+  size_t sizem = FLEXIBLE_ARRAY_STRUCT_SIZEOF (Lisp_Vector, Lisp_Object,
+					       contents, sizei);
   Lisp_Vector *p = (Lisp_Vector *) alloc_lcrecord (sizem, &lrecord_vector);
 
   p->size = sizei;
@@ -1364,7 +1365,8 @@ static Lisp_Bit_Vector *
 make_bit_vector_internal (size_t sizei)
 {
   size_t num_longs = BIT_VECTOR_LONG_STORAGE (sizei);
-  size_t sizem = FLEXIBLE_ARRAY_STRUCT_SIZEOF (Lisp_Bit_Vector, bits, num_longs);
+  size_t sizem = FLEXIBLE_ARRAY_STRUCT_SIZEOF (Lisp_Bit_Vector, unsigned long,
+					       bits, num_longs);
   Lisp_Bit_Vector *p = (Lisp_Bit_Vector *) allocate_lisp_storage (sizem);
   set_lheader_implementation (&p->lheader, &lrecord_bit_vector);
 
@@ -2693,8 +2695,8 @@ sweep_bit_vectors_1 (Lisp_Object *prev,
 	  total_size += len;
           total_storage +=
 	    MALLOC_OVERHEAD +
-	    FLEXIBLE_ARRAY_STRUCT_SIZEOF (Lisp_Bit_Vector, bits,
-					  BIT_VECTOR_LONG_STORAGE (len));
+	    FLEXIBLE_ARRAY_STRUCT_SIZEOF (Lisp_Bit_Vector, unsigned long,
+					  bits, BIT_VECTOR_LONG_STORAGE (len));
 	  num_used++;
 	  /* #### May modify next on a C_READONLY bitvector */
 	  prev = &(bit_vector_next (v));

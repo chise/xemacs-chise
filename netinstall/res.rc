@@ -142,7 +142,7 @@ BEGIN
     CONTROL         "GNU",IDC_STATIC,"Static",SS_BITMAP,19,36,69,62
 END
 
-IDD_NET DIALOGEX 0, 0, 311, 201
+IDD_NET DIALOG 0, 0, 311, 201
 STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "XEmacs Setup"
 FONT 8, "MS Sans Serif"
@@ -174,41 +174,46 @@ BEGIN
     CONTROL         "GNU",IDC_STATIC,"Static",SS_BITMAP,19,36,69,62
 END
 
-IDD_DLSTATUS DIALOG DISCARDABLE  0, 0, 215, 95
+IDD_DLSTATUS DIALOG DISCARDABLE  0, 0, 311, 201
 STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
     WS_CAPTION | WS_SYSMENU
 CAPTION "XEmacs Setup"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Cancel",IDCANCEL,165,75,45,15
-    LTEXT           "Downloading...",IDC_STATIC,55,15,135,8
-    LTEXT           "(URL)",IDC_DLS_URL,55,30,150,8
-    LTEXT           "(RATE)",IDC_DLS_RATE,55,45,155,8
+    PUSHBUTTON      "Cancel",IDCANCEL,256,176,45,15
+    LTEXT           "",IDC_STATIC,10,10,87,151,SS_SUNKEN | NOT WS_GROUP
+    LTEXT           "",IDC_STATIC,10,169,291,1,SS_SUNKEN | NOT WS_GROUP
+    LTEXT           "Downloading Packages",IDC_STATIC,112,10,170,17
+    LTEXT           "(URL)",IDC_DLS_URL,112,26,170,11
+    LTEXT           "(RATE)",IDC_DLS_RATE,112,41,166,11
     CONTROL         "Progress1",IDC_DLS_PROGRESS,"msctls_progress32",
-                    PBS_SMOOTH | WS_BORDER,55,60,155,10
-    ICON            IDI_XEMACS,IDC_STATIC,5,5,20,20
+                    WS_BORDER,123,143,165,10
+    GROUPBOX        "Progress",IDC_STATIC,112,130,186,31
+    CONTROL         "GNU",IDC_STATIC,"Static",SS_BITMAP,19,36,69,62
 END
 
-IDD_INSTATUS DIALOG DISCARDABLE  0, 0, 215, 95
+IDD_INSTATUS DIALOG DISCARDABLE  0, 0, 311, 201
 STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
     WS_CAPTION | WS_SYSMENU
 CAPTION "XEmacs Setup"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Cancel",IDCANCEL,165,75,45,15
-    LTEXT           "Installing...",IDC_INS_ACTION,55,5,135,8
-    LTEXT           "(PKG)",IDC_INS_PKG,55,15,150,8
-    LTEXT           "(FILE)",IDC_INS_FILE,55,25,155,8
+    PUSHBUTTON      "Cancel",IDCANCEL,256,176,45,15
+    LTEXT           "",IDC_STATIC,10,10,87,151,SS_SUNKEN | NOT WS_GROUP
+    LTEXT           "",IDC_STATIC,10,169,291,1,SS_SUNKEN | NOT WS_GROUP
+    LTEXT           "Installing Packages",IDC_STATIC,112,10,170,17
+    LTEXT           "(PKG)",IDC_INS_PKG,112,26,170,11
+    LTEXT           "(FILE)",IDC_INS_FILE,112,41,166,11
     CONTROL         "Progress1",IDC_INS_DISKFULL,"msctls_progress32",
-                    PBS_SMOOTH | WS_BORDER,55,60,155,10
-    ICON            IDI_XEMACS,IDC_STATIC,5,5,20,20
+                    WS_BORDER,123,143,165,10
     CONTROL         "Progress1",IDC_INS_IPROGRESS,"msctls_progress32",
-                    PBS_SMOOTH | WS_BORDER,55,50,155,10
+                    WS_BORDER,125,106,163,10
     CONTROL         "Progress1",IDC_INS_PPROGRESS,"msctls_progress32",
-                    PBS_SMOOTH | WS_BORDER,55,40,155,10
-    RTEXT           "Package",IDC_STATIC,5,40,45,8
-    RTEXT           "Total",IDC_STATIC,10,50,40,8
-    RTEXT           "Disk",IDC_STATIC,5,60,45,8
+                    WS_BORDER,125,67,163,10
+    GROUPBOX        "Disk",IDC_STATIC,112,130,186,31
+    GROUPBOX        "Package",IDC_STATIC,112,54,186,31
+    GROUPBOX        "Total",IDC_STATIC,112,93,186,31
+    CONTROL         "GNU",IDC_STATIC,"Static",SS_BITMAP,19,36,69,62
 END
 
 IDD_PROXY_AUTH DIALOG DISCARDABLE  0, 0, 215, 95
@@ -245,7 +250,7 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,165,75,45,15
 END
 
-IDD_SPLASH DIALOGEX 0, 0, 311, 201
+IDD_SPLASH DIALOG 0, 0, 311, 201
 STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "XEmacs Setup"
 FONT 8, "MS Sans Serif"
@@ -394,6 +399,13 @@ BEGIN
         HORZGUIDE, 153
     END
 
+    IDD_INSTATUS, DIALOG
+    BEGIN
+        VERTGUIDE, 112
+        VERTGUIDE, 125
+        VERTGUIDE, 288
+    END
+
     IDD_PROXY_AUTH, DIALOG
     BEGIN
         BOTTOMMARGIN, 49
@@ -437,7 +449,7 @@ IDB_RTARROW             BITMAP  DISCARDABLE     "choose-rtarrow.bmp"
 IDB_CHECK_YES           BITMAP  DISCARDABLE     "check-yes.bmp"
 IDB_CHECK_NO            BITMAP  DISCARDABLE     "check-no.bmp"
 IDB_CHECK_NA            BITMAP  DISCARDABLE     "check-na.bmp"
-GNU                 BITMAP  DISCARDABLE     "gnu.bmp"
+GNU                     BITMAP  DISCARDABLE     "gnu.bmp"
 IDB_GNU                 BITMAP  DISCARDABLE     "gnu.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -466,7 +478,7 @@ BEGIN
     IDS_ERR_OPEN_READ       "Can't open %s for reading: %s"
     IDS_ROOT_ABSOLUTE       "The install directory must be absolute, with both a drive letter and leading slash, like C:\\Cygwin"
     IDS_DOWNLOAD_COMPLETE   "Download Complete"
-    IDS_CVSID               "\n%%% $Id: res.rc,v 1.1.2.3 2000/12/27 09:35:11 andyp Exp $\n"
+    IDS_CVSID               "\n%%% $Id: res.rc,v 1.1.2.4 2001/01/24 09:18:30 andyp Exp $\n"
     IDS_NOLOGFILE           "Cannot open log file %s for writing"
     IDS_UNINSTALL_COMPLETE  "Uninstalls complete."
     IDS_WININET             "Unable to find or load the Internet Explorer 5 DLLs"
@@ -479,24 +491,6 @@ BEGIN
 END
 
 #endif    // English (U.S.) resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
-#ifdef _WIN32
-LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
-#pragma code_page(1252)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

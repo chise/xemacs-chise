@@ -113,7 +113,7 @@ static size_t
 size_bit_vector (const void *lheader)
 {
   Lisp_Bit_Vector *v = (Lisp_Bit_Vector *) lheader;
-  return FLEXIBLE_ARRAY_STRUCT_SIZEOF (Lisp_Bit_Vector, bits,
+  return FLEXIBLE_ARRAY_STRUCT_SIZEOF (Lisp_Bit_Vector, unsigned long, bits,
 				       BIT_VECTOR_LONG_STORAGE (bit_vector_length (v)));
 }
 

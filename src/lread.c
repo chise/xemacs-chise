@@ -2520,15 +2520,15 @@ retry:
 	  case '+':
 	  case '-':
 	    {
-	      Lisp_Object fexp, obj, tem;
+	      Lisp_Object feature_exp, obj, tem;
 	      struct gcpro gcpro1, gcpro2;
 
-	      fexp = read0(readcharfun);
+	      feature_exp = read0(readcharfun);
 	      obj = read0(readcharfun);
 
 	      /* the call to `featurep' may GC. */
-	      GCPRO2 (fexp, obj);
-	      tem = call1 (Qfeaturep, fexp);
+	      GCPRO2 (feature_exp, obj);
+	      tem = call1 (Qfeaturep, feature_exp);
 	      UNGCPRO;
 
 	      if (c == '+' &&  NILP(tem)) goto retry;

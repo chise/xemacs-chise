@@ -1253,85 +1253,89 @@ typedef struct
    Does `return FAILURE_CODE' if runs out of memory.  */
 
 #if !defined (REGEX_MALLOC) && !defined (REL_ALLOC)
-#define DECLARE_DESTINATION char *destination;
+#define DECLARE_DESTINATION char *destination
 #else
-#define DECLARE_DESTINATION
+#define DECLARE_DESTINATION DECLARE_NOTHING
 #endif
 
 #define PUSH_FAILURE_POINT(pattern_place, string_place, failure_code)	\
-  do {									\
-    DECLARE_DESTINATION							\
-    /* Must be int, so when we don't save any registers, the arithmetic	\
-       of 0 + -1 isn't done as unsigned.  */				\
-    int this_reg;							\
-    									\
-    DEBUG_STATEMENT (failure_id++);					\
-    DEBUG_STATEMENT (nfailure_points_pushed++);				\
-    DEBUG_PRINT2 ("\nPUSH_FAILURE_POINT #%u:\n", failure_id);		\
-    DEBUG_PRINT2 ("  Before push, next avail: %d\n", (fail_stack).avail);\
-    DEBUG_PRINT2 ("                     size: %d\n", (fail_stack).size);\
+do {									\
+  DECLARE_DESTINATION;							\
+  /* Must be int, so when we don't save any registers, the arithmetic	\
+     of 0 + -1 isn't done as unsigned.  */				\
+  int this_reg;								\
 									\
-    DEBUG_PRINT2 ("  slots needed: %d\n", NUM_FAILURE_ITEMS);		\
-    DEBUG_PRINT2 ("     available: %d\n", REMAINING_AVAIL_SLOTS);	\
+  DEBUG_STATEMENT (failure_id++);					\
+  DEBUG_STATEMENT (nfailure_points_pushed++);				\
+  DEBUG_PRINT2 ("\nPUSH_FAILURE_POINT #%u:\n", failure_id);		\
+  DEBUG_PRINT2 ("  Before push, next avail: %lu\n",			\
+		(unsigned long) (fail_stack).avail);			\
+  DEBUG_PRINT2 ("                     size: %lu\n",			\
+		(unsigned long) (fail_stack).size);			\
 									\
-    /* Ensure we have enough space allocated for what we will push.  */	\
-    while (REMAINING_AVAIL_SLOTS < NUM_FAILURE_ITEMS)			\
-      {									\
-        if (!DOUBLE_FAIL_STACK (fail_stack))				\
-          return failure_code;						\
+  DEBUG_PRINT2 ("  slots needed: %d\n", NUM_FAILURE_ITEMS);		\
+  DEBUG_PRINT2 ("     available: %ld\n",				\
+		(long) REMAINING_AVAIL_SLOTS);				\
 									\
-        DEBUG_PRINT2 ("\n  Doubled stack; size now: %d\n",		\
-		       (fail_stack).size);				\
-        DEBUG_PRINT2 ("  slots available: %d\n", REMAINING_AVAIL_SLOTS);\
-      }									\
+  /* Ensure we have enough space allocated for what we will push.  */	\
+  while (REMAINING_AVAIL_SLOTS < NUM_FAILURE_ITEMS)			\
+    {									\
+      if (!DOUBLE_FAIL_STACK (fail_stack))				\
+	return failure_code;						\
 									\
-    /* Push the info, starting with the registers.  */			\
-    DEBUG_PRINT1 ("\n");						\
+      DEBUG_PRINT2 ("\n  Doubled stack; size now: %lu\n",		\
+		    (unsigned long) (fail_stack).size);			\
+      DEBUG_PRINT2 ("  slots available: %ld\n",				\
+		    (long) REMAINING_AVAIL_SLOTS);			\
+    }									\
 									\
-    for (this_reg = lowest_active_reg; this_reg <= highest_active_reg;	\
-         this_reg++)							\
-      {									\
-	DEBUG_PRINT2 ("  Pushing reg: %d\n", this_reg);			\
-        DEBUG_STATEMENT (num_regs_pushed++);				\
+  /* Push the info, starting with the registers.  */			\
+  DEBUG_PRINT1 ("\n");							\
 									\
-	DEBUG_PRINT2 ("    start: 0x%lx\n", (long) regstart[this_reg]);	\
-        PUSH_FAILURE_POINTER (regstart[this_reg]);			\
-                                                                        \
-	DEBUG_PRINT2 ("    end: 0x%lx\n", (long) regend[this_reg]);	\
-        PUSH_FAILURE_POINTER (regend[this_reg]);			\
+  for (this_reg = lowest_active_reg; this_reg <= highest_active_reg;	\
+       this_reg++)							\
+    {									\
+      DEBUG_PRINT2 ("  Pushing reg: %d\n", this_reg);			\
+      DEBUG_STATEMENT (num_regs_pushed++);				\
 									\
-	DEBUG_PRINT2 ("    info: 0x%lx\n      ",			\
-		      * (long *) (&reg_info[this_reg]));		\
-        DEBUG_PRINT2 (" match_null=%d",					\
-                      REG_MATCH_NULL_STRING_P (reg_info[this_reg]));	\
-        DEBUG_PRINT2 (" active=%d", IS_ACTIVE (reg_info[this_reg]));	\
-        DEBUG_PRINT2 (" matched_something=%d",				\
-                      MATCHED_SOMETHING (reg_info[this_reg]));		\
-        DEBUG_PRINT2 (" ever_matched=%d",				\
-                      EVER_MATCHED_SOMETHING (reg_info[this_reg]));	\
-	DEBUG_PRINT1 ("\n");						\
-        PUSH_FAILURE_ELT (reg_info[this_reg].word);			\
-      }									\
+      DEBUG_PRINT2 ("    start: 0x%lx\n", (long) regstart[this_reg]);	\
+      PUSH_FAILURE_POINTER (regstart[this_reg]);			\
 									\
-    DEBUG_PRINT2 ("  Pushing  low active reg: %d\n", lowest_active_reg);\
-    PUSH_FAILURE_INT (lowest_active_reg);				\
+      DEBUG_PRINT2 ("    end: 0x%lx\n", (long) regend[this_reg]);	\
+      PUSH_FAILURE_POINTER (regend[this_reg]);				\
 									\
-    DEBUG_PRINT2 ("  Pushing high active reg: %d\n", highest_active_reg);\
-    PUSH_FAILURE_INT (highest_active_reg);				\
+      DEBUG_PRINT2 ("    info: 0x%lx\n      ",				\
+		    * (long *) (&reg_info[this_reg]));			\
+      DEBUG_PRINT2 (" match_null=%d",					\
+		    REG_MATCH_NULL_STRING_P (reg_info[this_reg]));	\
+      DEBUG_PRINT2 (" active=%d", IS_ACTIVE (reg_info[this_reg]));	\
+      DEBUG_PRINT2 (" matched_something=%d",				\
+		    MATCHED_SOMETHING (reg_info[this_reg]));		\
+      DEBUG_PRINT2 (" ever_matched_something=%d",			\
+		    EVER_MATCHED_SOMETHING (reg_info[this_reg]));	\
+      DEBUG_PRINT1 ("\n");						\
+      PUSH_FAILURE_ELT (reg_info[this_reg].word);			\
+    }									\
 									\
-    DEBUG_PRINT2 ("  Pushing pattern 0x%lx: \n", (long) pattern_place);	\
-    DEBUG_PRINT_COMPILED_PATTERN (bufp, pattern_place, pend);		\
-    PUSH_FAILURE_POINTER (pattern_place);				\
+  DEBUG_PRINT2 ("  Pushing  low active reg: %d\n", lowest_active_reg);	\
+  PUSH_FAILURE_INT (lowest_active_reg);					\
 									\
-    DEBUG_PRINT2 ("  Pushing string 0x%lx: `", (long) string_place);	\
-    DEBUG_PRINT_DOUBLE_STRING (string_place, string1, size1, string2,   \
-				 size2);				\
-    DEBUG_PRINT1 ("'\n");						\
-    PUSH_FAILURE_POINTER (string_place);				\
+  DEBUG_PRINT2 ("  Pushing high active reg: %d\n", highest_active_reg);	\
+  PUSH_FAILURE_INT (highest_active_reg);				\
 									\
-    DEBUG_PRINT2 ("  Pushing failure id: %u\n", failure_id);		\
-    DEBUG_PUSH (failure_id);						\
-  } while (0)
+  DEBUG_PRINT2 ("  Pushing pattern 0x%lx: \n", (long) pattern_place);	\
+  DEBUG_PRINT_COMPILED_PATTERN (bufp, pattern_place, pend);		\
+  PUSH_FAILURE_POINTER (pattern_place);					\
+									\
+  DEBUG_PRINT2 ("  Pushing string 0x%lx: `", (long) string_place);	\
+  DEBUG_PRINT_DOUBLE_STRING (string_place, string1, size1, string2,	\
+			     size2);					\
+  DEBUG_PRINT1 ("'\n");							\
+  PUSH_FAILURE_POINTER (string_place);					\
+									\
+  DEBUG_PRINT2 ("  Pushing failure id: %u\n", failure_id);		\
+  DEBUG_PUSH (failure_id);						\
+} while (0)
 
 /* This is the number of items that are pushed and popped on the stack
    for each register.  */
@@ -1371,8 +1375,9 @@ typedef struct
    Also assumes the variables `fail_stack' and (if debugging), `bufp',
    `pend', `string1', `size1', `string2', and `size2'.  */
 
-#define POP_FAILURE_POINT(str, pat, low_reg, high_reg, regstart, regend, reg_info)\
-{									\
+#define POP_FAILURE_POINT(str, pat, low_reg, high_reg,			\
+                          regstart, regend, reg_info)			\
+do {									\
   DEBUG_STATEMENT (fail_stack_elt_t ffailure_id;)			\
   int this_reg;								\
   const unsigned char *string_temp;					\
@@ -1381,8 +1386,10 @@ typedef struct
 									\
   /* Remove failure points and point to how many regs pushed.  */	\
   DEBUG_PRINT1 ("POP_FAILURE_POINT:\n");				\
-  DEBUG_PRINT2 ("  Before pop, next avail: %d\n", fail_stack.avail);	\
-  DEBUG_PRINT2 ("                    size: %d\n", fail_stack.size);	\
+  DEBUG_PRINT2 ("  Before pop, next avail: %lu\n",			\
+		(unsigned long) fail_stack.avail);			\
+  DEBUG_PRINT2 ("                    size: %lu\n",			\
+		(unsigned long) fail_stack.size);			\
 									\
   assert (fail_stack.avail >= NUM_NONREG_ITEMS);			\
 									\
@@ -1429,7 +1436,7 @@ typedef struct
 									\
   set_regs_matched_done = 0;						\
   DEBUG_STATEMENT (nfailure_points_popped++);				\
-} /* POP_FAILURE_POINT */
+} while (0) /* POP_FAILURE_POINT */
 
 
 
@@ -3400,7 +3407,7 @@ re_compile_fastmap (struct re_pattern_buffer *bufp)
 #ifdef MATCH_MAY_ALLOCATE
   fail_stack_type fail_stack;
 #endif
-  DECLARE_DESTINATION
+  DECLARE_DESTINATION;
   /* We don't push any register information onto the failure stack.  */
 
   REGISTER char *fastmap = bufp->fastmap;

@@ -99,7 +99,8 @@ struct console_methods
   Lisp_Object (*own_selection_method)(Lisp_Object selection_name,
                                       Lisp_Object selection_value,
                                       Lisp_Object how_to_add,
-                                      Lisp_Object selection_type);
+                                      Lisp_Object selection_type,
+			  int owned_p);
   void (*disown_selection_method)(Lisp_Object selection_name,
                                   Lisp_Object timeval);
   Lisp_Object (*get_foreign_selection_method) (Lisp_Object selection_symbol,
