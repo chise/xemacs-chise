@@ -1,5 +1,5 @@
 \input texinfo.tex    @c -*-texinfo-*-
-@c $Id: texinfo.txi,v 1.50 1998/02/27 21:21:34 karl Exp $
+@c $Id: texinfo.texi,v 1.8.2.1 1999/03/04 15:48:24 steveb Exp $
 @c %**start of header
 
 @c All text is ignored before the setfilename.

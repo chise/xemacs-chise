@@ -30,7 +30,7 @@
 #undef LIBS_DEBUG
 #define ORDINARY_LINK */
 
-/*#define SYSTEM_MALLOC*/
+#undef SYSTEM_MALLOC
 
 #if 0 /* martin */
 /* Some V4.0* versions before V4.0B don't detect rename properly. */

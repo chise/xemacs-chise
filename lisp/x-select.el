@@ -50,6 +50,8 @@
   'select-make-extent-for-selection)
 (define-obsolete-function-alias 'x-cut-copy-clear-internal 'cut-copy-clear-internal)
 (define-obsolete-function-alias 'x-get-selection 'get-selection)
+(define-obsolete-function-alias 'x-disown-selection-internal
+  'disown-selection-internal)
 
 (defun x-get-secondary-selection ()
   "Return text selected from some X window."
@@ -114,7 +116,7 @@ be the text between those markers)."
 		 (and (extent-live-p value)
 		      (eq (current-buffer) (extent-object value)))
                  (and (extentp value) (not (extent-live-p value)))))
-	(x-disown-selection-internal selection))))
+	(disown-selection-internal selection))))
 
 
 ;;; Cut Buffer support
