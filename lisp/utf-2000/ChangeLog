@@ -1,3 +1,27 @@
+2001-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R050-Turban.el:
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	- Merge some CBETA numbers.
+	- Add some missing `ideographic-structure' properties.
+
+	* Ideograph-R046-Mountain.el:
+	- Merge Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+	- Add some `ideographic-structure' properties.
+	- Merge some CBETA numbers.
+
+	* Ideograph-R030-Mouth.el (M071135): New character.
+
+	* Ideograph-R022-Right-Open-Box.el:
+	- Add some `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char' properties.	
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	(C2-2558): Separate U+533C; add `->identical' for U+533C.
+	(C6-3563): Unify BC-88C4.
+
 2001-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el (U+8FC7): Fix `total-strokes'.
