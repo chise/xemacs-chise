@@ -1,3 +1,43 @@
+2002-11-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (insert-char-attributes): Add setting for
+	`=>ucs-gb'.
+
+	* Ideograph-R157-Foot.el (JX2-5F6F): Unify JU+8DBC; map to
+	U-0002F9DB instead of U+8DBC.
+	(C3-446D): Unify U-0002F9DB.
+
+	* Ideograph-R141-Tiger.el (M-32782): Separate C2-6326 and U+8669.
+	(C3-5B26): Unify U-0002F9B6.
+
+	* Ideograph-R135-Tongue.el (M-30307): Use `->same-ideograph'
+	instead of `->identical'.
+	(C3-4425): Unify U-0002F98D.
+
+	* Ideograph-R100-Life.el (C3-3D3F): Unify U-0002F934.
+
+	* Ideograph-R085-Water.el (M-17400): Unify BC-CB4C and JU+6C67;
+	map to U-0002F8FE instead of U+6C67.
+	(C3-2D52): Unify U-0002F8FE; map to JU+6C67.
+	(M-17621): Separate C3-3675; unify BC-CF6E and JU+6D34; map to
+	U-0002F907 instead of U+6D34.
+	(C3-3675): Unify U-0002F907.
+
+	* Ideograph-R075-Tree.el (C3-2D35): Unify U-0002F8DF.
+	(U+681F): Unify B-D1D9.
+	(M-15010): Separate C3-3C3A; unify BC-D1D9; map to U-0002F8E5
+	instead of U+681F.
+	(C3-3C3A): Unify U-0002F8E5.
+	(C3-416E): Unify U-0002F8E8 and JU+6942.
+
+	* Ideograph-R071-Not.el (C3-3640): Unify U-0002F8CB.
+
+	* Ideograph-R020-Wrap.el (C3-2225): Unify U-0002F82A.
+
+	* Ideograph-R013-Down-Box.el (C3-227B): Unify U-0002F815.
+
+	* Ideograph-R012-Eight.el (C3-2754): Unify U-0002F811.
+
 2002-11-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R086-Fire.el (M-18859): Map to U-0002F835 instead of
