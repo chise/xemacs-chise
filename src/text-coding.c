@@ -667,7 +667,18 @@ allocate_coding_system (enum coding_system_type type, Lisp_Object name)
 	CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i) = Qnil;
     }
 #ifdef UTF2000
-  if (type == CODESYS_BIG5)
+  if (type == CODESYS_UTF8)
+    {
+      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 0)
+	= Vcharset_ucs;
+      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 1)
+	= Qnil;
+      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 2)
+	= Qnil;
+      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 3)
+	= Qnil;
+    }
+  else if (type == CODESYS_BIG5)
     {
       CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 0)
 	= Vcharset_ascii;
@@ -1035,6 +1046,16 @@ if TYPE is 'ccl:
 	      signal_simple_error ("Unrecognized property", key);
 	  }
 #ifdef UTF2000
+	else if (ty == CODESYS_UTF8)
+	  {
+	    if      (EQ (key, Qcharset_g0)) FROB_INITIAL_CHARSET (0);
+	    else if (EQ (key, Qcharset_g1))
+	      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 1) = value;
+	    else if (EQ (key, Qcharset_g2))
+	      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 2) = value;
+	    else
+	      signal_simple_error ("Unrecognized property", key);
+	  }
 	else if (ty == CODESYS_BIG5)
 	  {
 	    if      (EQ (key, Qcharset_g0)) FROB_INITIAL_CHARSET (0);
@@ -4147,6 +4168,11 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
   unsigned int cpos	= str->cpos;
   eol_type_t eol_type	= str->eol_type;
   unsigned char counter	= str->counter;
+#ifdef UTF2000
+  Lisp_Object ccs
+    = CODING_SYSTEM_ISO2022_INITIAL_CHARSET (DECODING_STREAM_DATA
+					     (decoding)->codesys, 0);
+#endif
 
   while (n--)
     {
@@ -4198,8 +4224,11 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 	  cpos = ( cpos << 6 ) | ( c & 0x3f );
 	  if (counter == 1)
 	    {
-	      /* DECODE_ADD_UCS_CHAR (cpos, dst); */
-	      COMPOSE_ADD_CHAR (str, cpos, dst);
+	      Emchar char_id = decode_defined_char (ccs, cpos);
+
+	      if (char_id < 0)
+		char_id = cpos;
+	      COMPOSE_ADD_CHAR (str, char_id, dst);
 	      cpos = 0;
 	      counter = 0;
 	    }
@@ -4253,15 +4282,30 @@ char_encode_utf8 (struct encoding_stream *str, Emchar ch,
     }
   else
     {
-      int code_point = charset_code_point (Vcharset_ucs, ch);
+      Lisp_Object ucs_ccs
+	= CODING_SYSTEM_ISO2022_INITIAL_CHARSET (str->codesys, 0);
+      int code_point = charset_code_point (ucs_ccs, ch);
 
       if ( (code_point < 0) || (code_point > 0x10FFFF) )
 	{
-	  if (CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys))
+	  Lisp_Object map
+	    = CODING_SYSTEM_ISO2022_INITIAL_CHARSET (str->codesys, 1);
+	  Lisp_Object ret;
+
+	  if ( !NILP (map)
+	       && INTP (ret = Fget_char_attribute (make_char (ch),
+						   map, Qnil)) )
+	    code_point = XINT (ret);
+	  else if ( !NILP (map =
+			   CODING_SYSTEM_ISO2022_INITIAL_CHARSET
+			   (str->codesys, 2))
+		    && INTP (ret = Fget_char_attribute (make_char (ch),
+							map, Qnil)) )
+	    code_point = XINT (ret);
+	  else if (CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys))
 	    {
 	      Lisp_Object rest = Vcoded_charset_entity_reference_alist;
 	      Lisp_Object cell;
-	      Lisp_Object ret;
 	      Lisp_Object ccs;
 	      int format_columns, idx;
 	      char buf[16], format[16];
