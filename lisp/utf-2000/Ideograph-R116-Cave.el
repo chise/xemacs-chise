@@ -192,6 +192,10 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 116)	; ⽳
+    (=ucs		. #x7A81)	; 突
+    ))
+(define-char
   '((=>ucs@jis		. #x7A81)	; &GT-32811;
     (ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 3)
@@ -366,10 +370,6 @@
      ((=gb2312		  . #x7138)	; &G0-7138;
       (=ucs@unicode	  . #x7A80)	; &G0-7138;
       ))
-    ))
-(define-char
-  '((ideographic-radical . 116)	; ⽳
-    (=ucs		. #x7A81)	; 突
     ))
 (define-char
   '((=>ucs@jis		. #xFA55)	; 突
@@ -2394,6 +2394,12 @@
   '((ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
+    (=ucs		. #x7AB4)	; 窴
+    ))
+(define-char
+  '((ideographic-radical . 116)	; ⽳
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
     (<-denotational
      ((=ucs		  . #x7AB4)	; 窴
       ))
@@ -2648,12 +2654,6 @@
      ((=cns11643-5	  . #x4F29)	; &C5-4F29;
       (=ucs@iso		  . #x259E0)	; &C5-4F29;
       ))
-    ))
-(define-char
-  '((ideographic-radical . 116)	; ⽳
-    (ideographic-strokes . 10)
-    (total-strokes	 . 15)
-    (=ucs		. #x7AB4)	; 窴
     ))
 (define-char
   '((ideographic-radical . 116)	; ⽳
