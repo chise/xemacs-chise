@@ -1,3 +1,9 @@
+2000-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (expand_uint8_byte_table_to_uint16): New
+	function.
+	(put_byte_table): Use `expand_uint8_byte_table_to_uint16'.
+
 2000-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (complex_vars_of_mule_charset): Define new macro
