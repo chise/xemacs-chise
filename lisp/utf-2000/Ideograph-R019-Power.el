@@ -1271,6 +1271,13 @@
     (=ucs		. #x52BF)	; 势
     ))
 (define-char
+  '((morohashi-daikanwa	ho 53)
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=ucs		. #x2085D)	; 𠡝
+    ))
+(define-char
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
@@ -3430,10 +3437,33 @@
     (=ucs		. #x208AF)	; 𠢯
     ))
 (define-char
-  '((ideographic-radical . 19)	; ⼒
+  '((=>ucs		. #x208A9)	; 𠢩
+    (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (=daikanwa		. 02452)	; �����
+    ))
+(define-char
+  '((morohashi-daikanwa	2452 0 0)
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (=ucs		. #x208A9)	; 𠢩
+    ))
+(define-char
+  '((morohashi-daikanwa	ho 54)
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (=ucs		. #x208AB)	; 𠢫
+    ))
+(define-char
+  '((=>ucs		. #x208AB)	; 𠢫
+    (morohashi-daikanwa	ho 54 9)
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (=cbeta		. 09200)	; �����
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒

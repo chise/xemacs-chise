@@ -3382,6 +3382,8 @@
   '((morohashi-daikanwa	ho 52)
     (ideographic-radical@ucs . 18)	; â¼‘
     (ideographic-strokes@ucs . 12)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
     (ideographic-radical@cns . 118)	; â½µ
     (ideographic-strokes@cns . 8)
     (total-strokes	 . 14)
@@ -3389,7 +3391,7 @@
      ((=daikanwa	  . 26149)	; ø¸†˜¥
       ))
     (->same-ideograph*sources
-     kouin kangxi morohashi-daikanwa)
+     kouin kangxi daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
