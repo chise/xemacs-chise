@@ -1,5 +1,6 @@
 /* XEmacs case conversion functions.
    Copyright (C) 1985, 1992, 1993, 1994, 1997, 1998 Free Software Foundation, Inc.
+   Copyright (C) 2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -48,7 +49,11 @@ casify_object (enum case_action flag, Lisp_Object string_or_char,
 
   if (STRINGP (string_or_char))
     {
+#ifdef UTF2000
+      Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->syntax_table);
+#else
       Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
       Bufbyte *storage =
 	alloca_array (Bufbyte, XSTRING_LENGTH (string_or_char) * MAX_EMCHAR_LEN);
       Bufbyte *newp = storage;
@@ -155,7 +160,11 @@ casify_region_internal (enum case_action flag, Lisp_Object start,
 {
   /* This function can GC */
   Bufpos pos, s, e;
+#ifdef UTF2000
+  Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
   int mccount;
   int wordp = 0, wordp_prev;
 

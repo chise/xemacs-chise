@@ -393,5 +393,8 @@ the resulting string may be narrower than END-COLUMN."
 
 (make-obsolete 'function-called-at-point 'function-at-point)
 
+(when (featurep 'utf-2000)
+  (make-obsolete-variable 'utf-2000-version 'xemacs-chise-version))
+
 (provide 'obsolete)
 ;;; obsolete.el ends here
