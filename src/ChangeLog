@@ -1,3 +1,15 @@
+2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (load_char_attribute_table_map_func): New function
+	when CHISE is defined.
+	(Qload_char_attribute_table_map_function): Don't define when CHISE
+	is defined.
+	(Fload_char_attribute_table_map_function): Likewise.
+	(Fload_char_attribute_table): Use libchise when `CHISE' is
+	defined.
+	(syms_of_chartab): Don't define
+	`load-char-attribute-table-map-function' when CHISE is defined.
+
 2003-08-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c: Include <chise.h> when `CHISE' is defined.
