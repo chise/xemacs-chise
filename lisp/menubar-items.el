@@ -401,13 +401,13 @@ which will not be used as accelerators."
        ;; hack-o-matic, we can't force a load of package-base here
        ;; since it triggers dialog box interactions which we can't
        ;; deal with while using a menu
-       ("Using %_Custom" 
+       ("Using %_Custom"
 	:filter (lambda (&rest junk)
 		  (if package-get-base
 		      (submenu-generate-accelerator-spec
 		       (cdr (custom-menu-create 'packages)))
 		    '("Please load Package Index"))))
-       
+
        ["%_Help" (Info-goto-node "(xemacs)Packages")])
       ("%_Internet"
        ["Read Mail %_1 (VM)..." vm
@@ -932,7 +932,7 @@ which will not be used as accelerators."
 			(eq browse-url-browser-function 'browse-url-grail))
 	 :active (and (boundp 'browse-url-browser-function)
 		      (fboundp 'browse-url-grail))]
-	["%_Kfm" 
+	["%_Kfm"
 	 (customize-set-variable 'browse-url-browser-function
 				 'browse-url-kfm)
 	 :style radio
@@ -940,7 +940,7 @@ which will not be used as accelerators."
 			(eq browse-url-browser-function 'browse-url-kfm))
 	 :active (and (boundp 'browse-url-browser-function)
 		      (fboundp 'browse-url-kfm))]
-	))      
+	))
       ("%_Troubleshooting"
        ["%_Debug on Error"
 	(customize-set-variable 'debug-on-error (not debug-on-error))
@@ -968,17 +968,32 @@ which will not be used as accelerators."
 					(not scrollbars-visible-p))
 		:style toggle
 		:selected scrollbars-visible-p]))
-       ["%_3D Modeline"
-	(customize-set-variable 'modeline-3d-p
-				(not modeline-3d-p))
-	:style toggle
-	:selected modeline-3d-p]
        ["%_Wrap Long Lines"
 	(progn;; becomes buffer-local
 	  (setq truncate-lines (not truncate-lines))
 	  (customize-set-variable 'truncate-lines truncate-lines))
 	:style toggle
 	:selected (not truncate-lines)]
+       "----"
+       ["%_3D Modeline"
+	(customize-set-variable 'modeline-3d-p
+				(not modeline-3d-p))
+	:style toggle
+	:selected modeline-3d-p]
+       ("Modeline %_Horizontal Scrolling"
+	["%_None"
+	 (customize-set-variable 'modeline-scrolling-method nil)
+	 :style radio
+	 :selected (not modeline-scrolling-method)]
+	["As %_Text"
+	 (customize-set-variable 'modeline-scrolling-method t)
+	 :style radio
+	 :selected (eq modeline-scrolling-method t)]
+	["As %_Scrollbar"
+	 (customize-set-variable 'modeline-scrolling-method 'scrollbar)
+	 :style radio
+	 :selected (eq modeline-scrolling-method 'scrollbar)]
+	)
        ,@(if (featurep 'toolbar)
 	     '("---"
 	       ["%_Toolbars Visible"
@@ -1105,7 +1120,7 @@ which will not be used as accelerators."
 				  (not column-number-mode))
 	  (redraw-modeline))
 	:style toggle :selected column-number-mode]
-       
+
        ("\"Other %_Window\" Location"
 	["%_Always in Same Frame"
 	 (customize-set-variable
@@ -1156,7 +1171,7 @@ which will not be used as accelerators."
 	 :selected (and (boundp 'gnuserv-frame) (eq gnuserv-frame t))
 	 :active (boundp 'gnuserv-frame)]
 	)
-       )      
+       )
       ("%_Menubars"
        ["%_Frame-Local Font Menu"
 	(customize-set-variable 'font-menu-this-frame-only-p

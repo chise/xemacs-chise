@@ -1,3 +1,22 @@
+2001-01-20  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.42 "Poseidon" is released.
+
+2001-01-18  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs-faq.texi (Q1.0.11): Change XEmacs for MacOS URL.
+
+2001-01-17  Andy Piper  <andy@xemacs.org>
+
+	* internals.texi: some glyph documentation.
+
+2001-01-16  Didier Verna  <didier@xemacs.org>
+
+	* frame.texi (Mode Line Basics): new node ...
+	* frame.texi (GUI Components): ... under this one ...
+	* frame.texi (Scrollbar Basics): ... after this one ...
+	* frame.texi (Toolbar Basics): ... before this one.
+
 2001-01-17  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.41 "Polyhymnia" is released.
@@ -523,7 +542,7 @@
 
 2000-07-09  Martin Buchholz  <martin@xemacs.org>
 
-	* lispref/postgresql.texi: 
+	* lispref/postgresql.texi:
 	- Don't mention ".so" extension.
 	- Make installation instructions more generic.
 	- Mention M-x describe-installation.

@@ -94,14 +94,25 @@ Normally it also has no modelines, menubars, or toolbars."
       (set-face-foreground 'gui-button-face '(((x color) . "black")
 					      ((mswindows color) . "black")))))
 
+
+(defun gui-button-action (instance action user-data)
+  (let ((domain (image-instance-domain instance)))
+    (with-current-buffer (if (windowp domain)
+			     (window-buffer domain) nil)
+      (funcall action user-data))))
+
 (defun make-gui-button (string &optional action user-data)
   "Make a GUI button whose label is STRING and whose action is ACTION.
 If the button is inserted in a buffer and then clicked on, and ACTION
-is non-nil, ACTION will be called with one argument, USER-DATA."
+is non-nil, ACTION will be called with one argument, USER-DATA.
+When ACTION is called, the buffer containing the button is made current."
   (vector 'button
 	  :descriptor string
 	  :face 'gui-button-face
-	  :callback `(funcall (quote ,action) (quote ,user-data))))
+	  :callback-ex `(lambda (image-instance event)
+			  (gui-button-action image-instance
+					     (quote ,action)
+					     (quote ,user-data)))))
 
 (defun insert-gui-button (button &optional pos buffer)
   "Insert GUI button BUTTON at POS in BUFFER."

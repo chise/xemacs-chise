@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/11/14 23:29:27 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2001/01/18 13:35:02 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -698,7 +698,7 @@ Yes, @xref{MS Windows}.
 
 Yes, there is a port of XEmacs 19.14, tested on MacOS 7.6.1 and MacOS
 8.5.1 by @email{pjarvis@@ispchannel.com, Pitts Jarvis}.  It's available
-at @uref{http://my.ispchannel.com/~pjarvis/xemacs.html}.
+at @uref{http://homepage.mac.com/pjarvis/xemacs.html}.
 
 @node Q1.0.12, Q1.0.13, Q1.0.11, Introduction
 @unnumberedsubsec Q1.0.12: Is there a port of XEmacs to NextStep?

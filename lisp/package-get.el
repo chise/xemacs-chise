@@ -269,7 +269,7 @@ Otherwise respect the `force-current' argument of `package-get-require-base'."
   :type 'boolean
   :group 'package-get)
 
-(defcustom package-get-require-signed-base-updates t
+(defcustom package-get-require-signed-base-updates nil
   "*If set to a non-nil value, require explicit user confirmation for updates
 to the package-get database which cannot have their signature verified via PGP.
 When nil, updates which are not PGP signed are allowed without confirmation."
@@ -1048,7 +1048,8 @@ lead to Emacs accessing remote sites."
 	    (if (eval (intern (concat (symbol-name (car pkg)) "-package")))
 		(package-get (car pkg) nil))
 	    t)
-	  package-get-base))
+	  package-get-base)
+  (package-net-update-installed-db))
 
 (defun package-get-ever-installed-p (pkg &optional notused)
   (string-match "-package$" (symbol-name pkg))

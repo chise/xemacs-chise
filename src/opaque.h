@@ -26,13 +26,6 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_opaque_h_
 #define INCLUDED_opaque_h_
 
-typedef union
-{
-  struct { Lisp_Object obj; } obj;
-  struct { void *p; } p;
-  struct { double d; } d;
-} max_align_t;
-
 typedef struct Lisp_Opaque
 {
   struct lcrecord_header header;

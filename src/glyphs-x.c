@@ -2228,7 +2228,13 @@ x_redisplay_widget (Lisp_Image_Instance *p)
   /* Possibly update the colors and font */
   if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p)
       ||
+      /* #### This is not sufficient because it will not cope with widgets
+	 that are not currently visible. Once redisplay has done the
+	 visible ones it will clear this flag so that when new ones
+	 become visible they will not be updated. */
       XFRAME (IMAGE_INSTANCE_FRAME (p))->faces_changed
+      ||
+      XFRAME (IMAGE_INSTANCE_FRAME (p))->frame_changed
       ||
       IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
     {
