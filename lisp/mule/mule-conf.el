@@ -265,7 +265,7 @@
 		  code-offset	#xE00000))
   (define-charset-alias 'ideograph-daikanwa '=daikanwa)
 
-  (make-charset '=daikanwa-rev1
+  (make-charset '=daikanwa@rev1
 		"Daikanwa dictionary (revised version)"
 		`(long-name	"Daikanwa Rev."
 		  chars		256
@@ -273,10 +273,13 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  registry	"Daikanwa\\(\\.[0-9]+\\)?-2"))
-  (define-charset-alias 'ideograph-daikanwa-2 '=daikanwa-rev1)
+		  registry	"Daikanwa\\(\\.[0-9]+\\)?-2"
+		  mother	=daikanwa
+                  ))
+  (define-charset-alias 'ideograph-daikanwa-2 '=daikanwa@rev1)
+  (define-charset-alias '=daikanwa-rev1 '=daikanwa@rev1)
 
-  (make-charset '=daikanwa-rev2
+  (make-charset '=daikanwa@rev2
 		"Daikanwa dictionary (revised version 2)"
 		`(long-name	"Daikanwa"
 		  chars		256
@@ -285,9 +288,14 @@
 		  graphic	2
 		  direction	l2r
 		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
-		  min-code	#xE00000
-		  max-code	,(+ #xE00000 50100)
-		  code-offset	#xE00000))
+		  mother	=daikanwa
+		  min-code	1
+                  max-code	49964
+                  ;; min-code	#xE00000
+                  ;; max-code	,(+ #xE00000 50100)
+                  ;; code-offset	#xE00000
+		  ))
+  (define-charset-alias '=daikanwa-rev2 '=daikanwa@rev2)
 
   (make-charset '=big5-pua
 		"Big5 with private used area"

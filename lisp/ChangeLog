@@ -1,3 +1,12 @@
+2004-09-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=daikanwa@rev1): Renamed from
+	`=daikanwa-rev1'; specify `=daikanwa' as the mother; define
+	`=daikanwa-rev1' as an alias for `=daikanwa@rev1'.
+	(=daikanwa@rev2): Renamed from `=daikanwa-rev2'; specify
+	`=daikanwa' as the mother; define `=daikanwa-rev2' as an alias for
+	`=daikanwa@rev2'.
+
 2004-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=big5-cdp): Swap DOC-string and long-name.

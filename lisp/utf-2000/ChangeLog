@@ -1,3 +1,13 @@
+2004-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el: Use `=daikanwa@rev{1|2}' instead of
+	`=daikanwa-rev{1|2}'.
+
+	* char-db-util.el (char-db-make-char-spec): Use `=daikanwa@rev2'
+	instead of `=daikanwa-rev2'.
+	(char-db-insert-ccs-feature): Use `=daikanwa@rev{1|2}' instead of
+	`=daikanwa-rev{1|2}'.
+
 2004-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el (U+9054): Changed to abstract character.

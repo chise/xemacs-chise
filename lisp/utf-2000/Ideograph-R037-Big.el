@@ -972,8 +972,8 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=daikanwa-rev1	. 05898)	; &M-05897;
-    (=daikanwa-rev2	. 05897)	; &M-05897;
+    (=daikanwa@rev1	. 05898)	; &M-05897;
+    (=daikanwa@rev2	. 05897)	; &M-05897;
     (mojikyo		. 005897)	; &MCS-60001709;
     ))
 (define-char
@@ -998,8 +998,8 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=daikanwa-rev1	. 05899)	; &M-05898;
-    (=daikanwa-rev2	. 05898)	; &M-05898;
+    (=daikanwa@rev1	. 05899)	; &M-05898;
+    (=daikanwa@rev2	. 05898)	; &M-05898;
     ))
 (define-char
   '((morohashi-daikanwa	5898 0 0)
@@ -1017,8 +1017,8 @@
     (hanyu-dazidian	1 533 3)
     (=ucs		. #x215FF)	; 𡗿
     (=cns11643-6	. #x2A59)	; &I-C6-2A59; [10-57]
-    (=daikanwa-rev1	. 05900)	; 𡗿
-    (=daikanwa-rev2	. 05899)	; &M-05899;
+    (=daikanwa@rev1	. 05900)	; 𡗿
+    (=daikanwa@rev2	. 05899)	; &M-05899;
     (=hanziku-2		. #xBDB2)	; &I-HZK02-BDB2;
     (mojikyo		. 005899)	; &MCS-6000170B;
     ))
@@ -1030,8 +1030,8 @@
     (=ucs		. #x594B)	; 奋
     (=gb2312		. #x375C)	; &I-G0-375C; [23-60]
     (=cns11643-3	. #x282E)	; &I-C3-282E; [08-14]
-    (=daikanwa-rev1	. 05901)	; 奋
-    (=daikanwa-rev2	. 05900)	; &M-05900;
+    (=daikanwa@rev1	. 05901)	; 奋
+    (=daikanwa@rev2	. 05900)	; &M-05900;
     (=hanziku-2		. #xBDF0)	; &I-HZK02-BDF0;
     (mojikyo		. 005900)	; &MCS-6000170C;
     ))
@@ -1042,8 +1042,8 @@
     (hanyu-dazidian	1 535 5)
     (=ucs		. #x21604)	; 𡘄
     (=cns11643-6	. #x2A5B)	; &I-C6-2A5B; [10-59]
-    (=daikanwa-rev1	. 05902)	; 𡘄
-    (=daikanwa-rev2	. 05901)	; &M-05901;
+    (=daikanwa@rev1	. 05902)	; 𡘄
+    (=daikanwa@rev2	. 05901)	; &M-05901;
     (=hanziku-2		. #xBDF4)	; &I-HZK02-BDF4;
     (mojikyo		. 005901)	; &MCS-6000170D;
     ))
@@ -1053,8 +1053,8 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 536 1)
     (=ucs		. #x21605)	; 𡘅
-    (=daikanwa-rev1	. 05903)	; 𡘅
-    (=daikanwa-rev2	. 05902)	; &M-05902;
+    (=daikanwa@rev1	. 05903)	; 𡘅
+    (=daikanwa@rev2	. 05902)	; &M-05902;
     (=hanziku-2		. #xBE51)	; &I-HZK02-BE51;
     (mojikyo		. 005902)	; &MCS-6000170E;
     ))
@@ -1070,15 +1070,15 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=daikanwa-rev1	. 05904)	; &M-05903;
-    (=daikanwa-rev2	. 05903)	; &M-05903;
+    (=daikanwa@rev1	. 05904)	; &M-05903;
+    (=daikanwa@rev2	. 05903)	; &M-05903;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=daikanwa-rev1	. 05905)	; &M-05904;
-    (=daikanwa-rev2	. 05904)	; &M-05904;
+    (=daikanwa@rev1	. 05905)	; &M-05904;
+    (=daikanwa@rev2	. 05904)	; &M-05904;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
@@ -1087,8 +1087,8 @@
     (hanyu-dazidian	1 534 1)
     (=ucs		. #x21602)	; 𡘂
     (=cns11643-6	. #x2A5A)	; &I-C6-2A5A; [10-58]
-    (=daikanwa-rev1	. 05906)	; 𡘂
-    (=daikanwa-rev2	. 05905)	; &M-05905;
+    (=daikanwa@rev1	. 05906)	; 𡘂
+    (=daikanwa@rev2	. 05905)	; &M-05905;
     (=hanziku-2		. #xBDD0)	; &I-HZK02-BDD0;
     (mojikyo		. 005905)	; &MCS-60001711;
     ))
@@ -1098,8 +1098,8 @@
     (total-strokes	 . 8)
     (=ucs		. #x3699)	; 㚙
     (=jis-x0213-2-2000	. #x2541)	; &I-JX2-2541; [05-33]
-    (=daikanwa-rev1	. 05907)	; 㚙
-    (=daikanwa-rev2	. 05906)	; &M-05906;
+    (=daikanwa@rev1	. 05907)	; 㚙
+    (=daikanwa@rev2	. 05906)	; &M-05906;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
@@ -1108,8 +1108,8 @@
     (hanyu-dazidian	1 536 4)
     (=ucs		. #x21606)	; 𡘆
     (=cns11643-4	. #x2579)	; &I-C4-2579; [05-89]
-    (=daikanwa-rev1	. 05908)	; 𡘆
-    (=daikanwa-rev2	. 05907)	; &M-05907;
+    (=daikanwa@rev1	. 05908)	; 𡘆
+    (=daikanwa@rev2	. 05907)	; &M-05907;
     (=hanziku-2		. #xBE54)	; &I-HZK02-BE54;
     (mojikyo		. 005907)	; &MCS-60001713;
     ))
@@ -1120,8 +1120,8 @@
     (=ucs		. #x594C)	; 奌
     (=gt		. 07438)	; &I-GT-07438;
     (=gt-pj-2		. #x672F)	; &I-GT-07438; [71-15]
-    (=daikanwa-rev1	. 05909)	; 奌
-    (=daikanwa-rev2	. 05908)	; &M-05908;
+    (=daikanwa@rev1	. 05909)	; 奌
+    (=daikanwa@rev2	. 05908)	; &M-05908;
     (=jef-china3	. #x48E9)	; &I-JC3-48E9;
     (mojikyo		. 005908)	; &MCS-60001714;
     ))
@@ -1145,8 +1145,8 @@
     (total-strokes	 . 9)
     (=ucs		. #x594A)	; 奊
     (=big5		. #xD15A)	; &I-B-D15A;
-    (=daikanwa-rev1	. 05897)	; 奊
-    (=daikanwa-rev2	. 05909)	; &M-05909;
+    (=daikanwa@rev1	. 05897)	; 奊
+    (=daikanwa@rev2	. 05909)	; &M-05909;
     (mojikyo		. 005909)	; &MCS-60001715;
     ))
 (define-char
