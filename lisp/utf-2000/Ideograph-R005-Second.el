@@ -996,8 +996,7 @@
       (korean-ksc5601		  . #x5D21)	; ø»‰²”
       (ideograph-daikanwa	  . 06948)	; ø¸¬¤
       )
-     ((name		  . "CJK RADICAL SECOND TWO")
-      (ucs		  . #x2E83)	; âºƒ
+     ((ucs		  . #x4E5A)	; ä¹š
       ))
     (shinjigen-1	. 63)
     (shinjigen-2	. 63)
@@ -1067,6 +1066,14 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x8F9B)	; è¾›
+      )
+     ((ucs		  . #x4E5A)	; ä¹š
+      ))
     (ideograph-gt-pj-2	. #x315B)	; ý¡€€ƒ¼
     (ideograph-daikanwa . 00192)	; ø¸€ƒ€
     (china3-jef		. #x41C3)	; øº„‡ƒ
@@ -1402,6 +1409,24 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ucs		    . #x722B)	; çˆ«
+	)
+       ((japanese-jisx0208-1978	    . #x3B65)	; ø»‚£
+	(japanese-jisx0208	    . #x3B65)	; ø»†·˜
+	(chinese-cns11643-1	    . #x484E)	; ø»‘¼›
+	(ideograph-daikanwa	    . 27221)	; ø¸†©•
+	))
+      )
+     ((ucs		  . #x4E5A)	; ä¹š
+      ))
     (japanese-jisx0212	. #x303C)	; ø»Šº­
     (ideograph-gt-pj-2	. #x3167)	; ý¡€€„”
     (ideograph-daikanwa . 00205)	; ø¸€ƒ
