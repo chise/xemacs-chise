@@ -1,10 +1,5 @@
 1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
-	* utf-2000/u002B0-Spacing-Modifier-Letters.el,
-	utf-2000/u00250-IPA-Extensions.el: Modify formating.
-
-1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
 	* utf-2000/char-db-util.el (insert-char-data): Fix format of
 	`iso-10646-comment'; swap order of `->lowercase' and
 	`->titlecase'.
