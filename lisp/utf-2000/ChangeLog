@@ -1,4 +1,35 @@
+2003-01-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R008-Lid.el: Reformatted.
+	(U-0002015F): Modify `ideographic-structure'.
+	(U-00020182): Likewise.
+	(M-48914): Fix `ideographic-strokes'.
+	(U-00020189): Likewise.
+	(M-00339): Add mapping for U+342F; add `ideographic-structure'.
+	(U+342F): Modify `ideographic-structure'.
+	(U-00020199): Relate to M-05824.
+	(M-00341): Modify `ideographic-structure'.
+	(U-0002019D): Likewise.
+
+2003-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R013-Down-Box.el: Reformatted.
+	(BC-8A78): Use `name*' instead of `name' for non-standard name;
+	rename <ideographic radical hood> to <ideographic component hood>.
+	(M-01528): Separate GE-7A2A, C2-232C and U+518F.
+	(U+5190): Modify `ideographic-structure'.
+	(CB00155): Likewise.
+	(CB04393): Likewise.
+
+	* Ideograph-R012-Eight.el: Reformatted.
+	(M-01504): Separate H1-DAA1.
+	(C7-4D3D): Separate U+34B9.
+	(U+34B9): Unify H1-DAA1.
+
 2003-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el: Reformatted.
+	(U+52D7): Use `ideographic-' instead of `cns-radical'.
 
 	* Ideograph-R016-Table.el: Reformatted.
 	(U-00020660): Complete `ideographic-structure'.
