@@ -1268,7 +1268,6 @@ character set.  Recognized properties are:
   Lisp_Object ccl_program = Qnil;
   Lisp_Object short_name = Qnil, long_name = Qnil;
 #ifdef UTF2000
-  Emchar code_offset = 0;
   unsigned char byte_offset = 0;
 #endif
 
