@@ -32,13 +32,10 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _XEMACS_BUFFER_H_
 #define _XEMACS_BUFFER_H_
 
-#ifdef MULE
 #include "character.h"
 
 #ifdef UTF2000
 #include "mb-utf-8.h"
-#endif
-
 #endif
 
 /************************************************************************/
@@ -543,27 +540,6 @@ charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2)
 /* ---------------------------- */
 /* (D) For working with Emchars */
 /* ---------------------------- */
-
-#ifdef MULE
-
-#ifdef UTF2000
-#define valid_char_p(ch) 1
-#else
-int non_ascii_valid_char_p (Emchar ch);
-
-INLINE int valid_char_p (Emchar ch);
-INLINE int
-valid_char_p (Emchar ch)
-{
-  return ((unsigned int) (ch) <= 0xff) || non_ascii_valid_char_p (ch);
-}
-#endif
-
-#else /* not MULE */
-
-#define valid_char_p(ch) ((unsigned int) (ch) <= 0xff)
-
-#endif /* not MULE */
 
 #define CHAR_INTP(x) (INTP (x) && valid_char_p (XINT (x)))
 
