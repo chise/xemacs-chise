@@ -1,3 +1,8 @@
+2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R056-Shoot.el, Ideograph-R054-Long-Stride.el: Add some
+	mappings into CJK Ext-B code points.
+
 2002-01-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R154-Shell.el (U+8D53): Moved from
