@@ -729,19 +729,34 @@ The default status is as follows:
   ;; #### Can we now assume the existence of the 10646 coding systems?
   ;; #### These lists need to be synched with the ones in mule-coding.el.
   (cond ((eq (coding-system-type (coding-category-system 'utf-8)) 'utf-8)
-	 (set-coding-category-system 'ucs-4 'iso-10646-ucs-4)
 	 (set-coding-category-system 'utf-8 'utf-8)
-	 (set-coding-priority-list
-	  '(iso-7
-	    no-conversion
-	    utf-8
-	    iso-8-1
-	    iso-8-2
-	    iso-8-designate
-	    iso-lock-shift
-	    shift-jis
-	    big5
-	    ucs-4))
+	 (cond ((eq (coding-system-type (coding-category-system 'ucs-4))
+		    'iso-10646-ucs-4)
+		(set-coding-category-system 'ucs-4 'iso-10646-ucs-4)
+		(set-coding-priority-list
+		 '(iso-7
+		   no-conversion
+		   utf-8
+		   iso-8-1
+		   iso-8-2
+		   iso-8-designate
+		   iso-lock-shift
+		   shift-jis
+		   big5
+		   ucs-4))
+		)
+	       (t
+		(set-coding-priority-list
+		 '(iso-7
+		   no-conversion
+		   utf-8
+		   iso-8-1
+		   iso-8-2
+		   iso-8-designate
+		   iso-lock-shift
+		   shift-jis
+		   big5))
+		))
 	 )
 	(t
 	 (set-coding-priority-list

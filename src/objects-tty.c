@@ -29,7 +29,7 @@ Boston, MA 02111-1307, USA.  */
 #include "objects-tty.h"
 #ifdef MULE
 #include "device.h"
-#include "mule-charset.h"
+#include "character.h"
 #endif
 
 /* An alist mapping from color names to a cons of (FG-STRING, BG-STRING). */
@@ -242,7 +242,7 @@ tty_initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
   FONT_INSTANCE_TTY_CHARSET (f) = charset;
 #ifdef MULE
   if (CHARSETP (charset))
-    f->width = XCHARSET_COLUMNS (charset);
+    f->width = CHARSET_COLUMNS (XCHARSET (charset));
   else
 #endif
     f->width = 1;
