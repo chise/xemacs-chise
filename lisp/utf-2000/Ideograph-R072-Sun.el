@@ -1331,6 +1331,8 @@
   '((ideographic-radical . 72)	; â½‡
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (japanese-jisx0208-1978	. #x5B26)	; ø»ƒ‘‘
+    (japanese-jisx0208		. #x5B26)	; ø»‡¥™
     (japanese-jisx0208-1990	. #x5B26)	; ø½‹‹
     (ucs			. #x663F)	; æ˜¿
     ))
