@@ -70,12 +70,13 @@ functions usually did not have these optional @var{buffer} arguments
 and always operated on the current buffer.)
 
 
-@defun char-after position &optional buffer
+@defun char-after &optional position buffer
 This function returns the character in the buffer at (i.e.,
 immediately after) position @var{position}.  If @var{position} is out of
 range for this purpose, either before the beginning of the buffer, or at
-or beyond the end, then the value is @code{nil}.  If optional argument
-@var{buffer} is @code{nil}, the current buffer is assumed.
+or beyond the end, then the value is @code{nil}.  The default for
+@var{position} is point.  If optional argument @var{buffer} is
+@code{nil}, the current buffer is assumed.
 
 In the following example, assume that the first character in the
 buffer is @samp{@@}:
@@ -86,6 +87,15 @@ buffer is @samp{@@}:
      @result{} "@@"
 @end group
 @end example
+@end defun
+
+@defun char-before &optional position buffer
+This function returns the character in the current buffer immediately
+before position @var{position}.  If @var{position} is out of range for
+this purpose, either at or before the beginning of the buffer, or beyond
+the end, then the value is @code{nil}.  The default for
+@var{position} is point.  If optional argument @var{buffer} is
+@code{nil}, the current buffer is assumed.
 @end defun
 
 @defun following-char &optional buffer

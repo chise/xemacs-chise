@@ -119,9 +119,10 @@ sigprof_handler (int signo)
 	{
 	  fun = *backtrace_list->function;
 
-	  if (!SYMBOLP	     (fun) &&
-	      !COMPILED_FUNCTIONP (fun) &&
-	      !SUBRP		     (fun))
+	  if (!SYMBOLP (fun)
+	      && !COMPILED_FUNCTIONP (fun)
+	      && !SUBRP (fun)
+	      && !CONSP (fun))
 	     fun = QSunknown;
 	}
       else

@@ -371,7 +371,7 @@ if different."
 			    (md5 (current-buffer)))))
 	(unless (and location (file-writable-p location))
 	  (setq location package-get-user-index-filename))
-	(when (y-or-n-p (concat "Update package index in" location "? "))
+	(when (y-or-n-p (concat "Update package index in " location "? "))
 	  (write-file location))))))
       
 

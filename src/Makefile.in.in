@@ -320,6 +320,7 @@ DUMPENV = $(LOADPATH) $(MODULEPATH)
 temacs_loadup = $(DUMPENV) ./temacs -batch -l ${srcdir}/../lisp/loadup.el
 dump_temacs   = ${temacs_loadup} dump
 run_temacs    = ${temacs_loadup} run-temacs
+debug_temacs = $(DUMPENV) gdb temacs
 
 release: temacs ${libsrc}DOC $(mo_file) ${other_files}
 #ifdef CANNOT_DUMP
@@ -491,6 +492,9 @@ run-rtcmacs: rtcmacs
 	suppress rui; \
 	runargs -batch -l ${srcdir}/../lisp/loadup.el run-temacs -q; \
 	run' rtcmacs
+
+debug-temacs: temacs
+	-${debug_temacs}
 
 ## Purify, Quantify, PureCoverage are software quality products from
 ## Rational, formerly Pure Atria, formerly Pure Software.

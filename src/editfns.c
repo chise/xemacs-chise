@@ -440,7 +440,8 @@ If BUFFER is nil, the current buffer is assumed.
 
 DEFUN ("point-min", Fpoint_min, 0, 1, 0, /*
 Return the minimum permissible value of point in BUFFER.
-This is 1, unless narrowing (a buffer restriction) is in effect.
+This is 1, unless narrowing (a buffer restriction)
+is in effect, in which case it may be greater.
 If BUFFER is nil, the current buffer is assumed.
 */
        (buffer))
@@ -451,7 +452,8 @@ If BUFFER is nil, the current buffer is assumed.
 
 DEFUN ("point-min-marker", Fpoint_min_marker, 0, 1, 0, /*
 Return a marker to the minimum permissible value of point in BUFFER.
-This is the beginning, unless narrowing (a buffer restriction) is in effect.
+This is the beginning, unless narrowing (a buffer restriction)
+is in effect, in which case it may be greater.
 If BUFFER is nil, the current buffer is assumed.
 */
        (buffer))
@@ -463,7 +465,7 @@ If BUFFER is nil, the current buffer is assumed.
 DEFUN ("point-max", Fpoint_max, 0, 1, 0, /*
 Return the maximum permissible value of point in BUFFER.
 This is (1+ (buffer-size)), unless narrowing (a buffer restriction)
-is in effect, in which case it is less.
+is in effect, in which case it may be less.
 If BUFFER is nil, the current buffer is assumed.
 */
        (buffer))
@@ -473,9 +475,9 @@ If BUFFER is nil, the current buffer is assumed.
 }
 
 DEFUN ("point-max-marker", Fpoint_max_marker, 0, 1, 0, /*
-Return a marker to the maximum permissible value of point BUFFER.
+Return a marker to the maximum permissible value of point in BUFFER.
 This is (1+ (buffer-size)), unless narrowing (a buffer restriction)
-is in effect, in which case it is less.
+is in effect, in which case it may be less.
 If BUFFER is nil, the current buffer is assumed.
 */
        (buffer))
@@ -564,11 +566,11 @@ If BUFFER is nil, the current buffer is assumed.
 }
 
 DEFUN ("char-after", Fchar_after, 0, 2, 0, /*
-Return character in BUFFER at position POS.
-POS is an integer or a buffer pointer.
+Return the character at position POS in BUFFER.
+POS is an integer or a marker.
 If POS is out of range, the value is nil.
-If BUFFER is nil, the current buffer is assumed.
 if POS is nil, the value of point is assumed.
+If BUFFER is nil, the current buffer is assumed.
 */
        (pos, buffer))
 {
@@ -582,17 +584,17 @@ if POS is nil, the value of point is assumed.
 }
 
 DEFUN ("char-before", Fchar_before, 0, 2, 0, /*
-Return character in BUFFER before position POS.
-POS is an integer or a buffer pointer.
+Return the character preceding position POS in BUFFER.
+POS is an integer or a marker.
 If POS is out of range, the value is nil.
-If BUFFER is nil, the current buffer is assumed.
 if POS is nil, the value of point is assumed.
+If BUFFER is nil, the current buffer is assumed.
 */
        (pos, buffer))
 {
   struct buffer *b = decode_buffer (buffer, 1);
-  Bufpos n = ((NILP (pos) ? BUF_PT (b) :
-	       get_buffer_pos_char (b, pos, GB_NO_ERROR_IF_BAD)));
+  Bufpos n = (NILP (pos) ? BUF_PT (b) :
+	      get_buffer_pos_char (b, pos, GB_NO_ERROR_IF_BAD));
 
   n--;
 
@@ -2231,17 +2233,16 @@ If BUFFER is nil, the current buffer is assumed.
     ? Qt : Qnil;
 }
 
-DEFUN ("char=", Fchar_Equal, 2, 3, 0, /*
+DEFUN ("char=", Fchar_Equal, 2, 2, 0, /*
 Return t if two characters match, case is significant.
 Both arguments must be characters (i.e. NOT integers).
-The optional buffer argument is for symmetry and is ignored.
 */
-       (c1, c2, buffer))
+       (c1, c2))
 {
   CHECK_CHAR_COERCE_INT (c1);
   CHECK_CHAR_COERCE_INT (c2);
 
-  return XCHAR(c1) == XCHAR(c2) ? Qt : Qnil;
+  return EQ (c1, c2) ? Qt : Qnil;
 }
 
 #if 0 /* Undebugged FSFmacs code */

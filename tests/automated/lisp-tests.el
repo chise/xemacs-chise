@@ -755,6 +755,29 @@
 (Assert (equal (mapconcat #'identity '("1" "2" "3") "|") "1|2|3"))
 (Assert (equal (mapconcat #'identity ["1" "2" "3"]  "|") "1|2|3"))
 
+;; The following 2 functions used to crash XEmacs via mapcar1().
+;; We don't test the actual values of the mapcar, since they're undefined.
+(Assert 
+ (let ((x (list (cons 1 1) (cons 2 2) (cons 3 3))))
+   (mapcar
+    (lambda (y)
+      "Devious evil mapping function"
+      (when (eq (car y) 2) ; go out onto a limb
+	(setcdr x nil)     ; cut it off behind us
+	(garbage-collect)) ; are we riding a magic broomstick?
+      (car y))             ; sorry, hard landing
+    x)))
+
+(Assert 
+ (let ((x (list (cons 1 1) (cons 2 2) (cons 3 3))))
+   (mapcar
+    (lambda (y)
+      "Devious evil mapping function"
+      (when (eq (car y) 1)
+	(setcdr (cdr x) 42)) ; drop a brick wall onto the freeway
+      (car y))
+    x)))
+
 ;;-----------------------------------------------------
 ;; Test vector functions
 ;;-----------------------------------------------------
@@ -807,3 +830,34 @@
 (Assert (equal (split-string "foo,,bar,," ",") '("foo" "" "bar" "" "")))
 (Assert (equal (split-string "foo,,bar" ",+") '("foo" "bar")))
 (Assert (equal (split-string ",foo,,bar," ",+") '("" "foo" "bar" "")))
+
+;;-----------------------------------------------------
+;; Test near-text buffer functions.
+;;-----------------------------------------------------
+(with-temp-buffer
+  (erase-buffer)
+  (Assert (eq (char-before) nil))
+  (Assert (eq (char-before (point)) nil))
+  (Assert (eq (char-before (point-marker)) nil))
+  (Assert (eq (char-before (point) (current-buffer)) nil))
+  (Assert (eq (char-before (point-marker) (current-buffer)) nil))
+  (Assert (eq (char-after) nil))
+  (Assert (eq (char-after (point)) nil))
+  (Assert (eq (char-after (point-marker)) nil))
+  (Assert (eq (char-after (point) (current-buffer)) nil))
+  (Assert (eq (char-after (point-marker) (current-buffer)) nil))
+  (Assert (eq (preceding-char) 0))
+  (Assert (eq (preceding-char (current-buffer)) 0))
+  (Assert (eq (following-char) 0))
+  (Assert (eq (following-char (current-buffer)) 0))
+  (insert "foobar")
+  (Assert (eq (char-before) ?r))
+  (Assert (eq (char-after) nil))
+  (Assert (eq (preceding-char) ?r))
+  (Assert (eq (following-char) 0))
+  (goto-char (point-min))
+  (Assert (eq (char-before) nil))
+  (Assert (eq (char-after) ?f))
+  (Assert (eq (preceding-char) 0))
+  (Assert (eq (following-char) ?f))
+  )

@@ -705,19 +705,19 @@ This is the same as the exponent of a float.
   double f = extract_float (arg);
 
   if (f == 0.0)
-    return make_int (- (int)((((EMACS_UINT) 1) << (VALBITS - 1)))); /* most-negative-fixnum */
+    return make_int (- (EMACS_INT)(((EMACS_UINT) 1) << (VALBITS - 1))); /* most-negative-fixnum */
 #ifdef HAVE_LOGB
   {
     Lisp_Object val;
-    IN_FLOAT (val = make_int ((int) logb (f)), "logb", arg);
-    return (val);
+    IN_FLOAT (val = make_int ((EMACS_INT) logb (f)), "logb", arg);
+    return val;
   }
 #else
 #ifdef HAVE_FREXP
   {
     int exqp;
     IN_FLOAT (frexp (f, &exqp), "logb", arg);
-    return (make_int (exqp - 1));
+    return make_int (exqp - 1);
   }
 #else
   {
@@ -741,7 +741,7 @@ This is the same as the exponent of a float.
         f /= d;
         val += i;
       }
-    return (make_int (val));
+    return make_int (val);
   }
 #endif /* ! HAVE_FREXP */
 #endif /* ! HAVE_LOGB */

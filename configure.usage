@@ -61,15 +61,17 @@ Window-system options:
 --without-toolbars      Don't compile with any toolbar support.
 --without-wmcommand     Compile without realized leader window which will
                         keep the WM_COMMAND property.
+--with-athena=TYPE      Use TYPE Athena widgets
+                        (xaw, 3d, next, 95, or xpm)
 --with-menubars=TYPE    Use TYPE menubars (lucid, motif, or no).  The Lucid
                         widgets emulate Motif (mostly) but are faster.
                         *WARNING*  The Motif menubar is currently broken.
 --with-scrollbars=TYPE  Use TYPE scrollbars
-                        (lucid, motif, athena, athena3d, or no).
---with-dialogs=TYPE     Use TYPE dialog boxes (motif, athena, athena3d, or no).
+                        (lucid, motif, athena, or no).
+--with-dialogs=TYPE     Use TYPE dialog boxes (motif, athena, or no).
                         Lucid menubars and scrollbars are the default.
                         Motif dialog boxes will be used if Motif can be found.
---with-widgets=TYPE     Use TYPE widgets (motif, athena, athena3d, or no).
+--with-widgets=TYPE     Use TYPE widgets (motif, athena, or no).
                         Motif widgets will be used if Motif can be found.
                         Other widget types are currently unsupported.
 --with-dragndrop (*)    Compile in the generic drag and drop API. This is

@@ -73,7 +73,7 @@ typedef unsigned int SOCKET;
 #include <io.h>
 #include <errno.h>
 
-#if defined (__CYGWIN32__) && !defined (CYGWIN_VERSION_DLL_MAJOR)
+#if defined (__CYGWIN32__) && (CYGWIN_VERSION_DLL_MAJOR < 20)
 typedef NMHDR *LPNMHDR;
 #endif
 

@@ -101,7 +101,7 @@ ARGS are passed as extra arguments to the function.
   newargs[0] = Fwidget_get (args[0], args[1]);
   newargs[1] = args[0];
   newargs[2] = Flist (nargs - 2, args + 2);
-  GCPRO1 ((newargs[2]));
+  GCPRO1 (newargs[2]);
   RETURN_UNGCPRO (Fapply (3, newargs));
 }
 

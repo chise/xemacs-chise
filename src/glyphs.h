@@ -74,6 +74,7 @@ struct ii_keyword_entry
   Lisp_Object keyword;
   void (*validate) (Lisp_Object data);
   int multiple_p;
+  int copy_p;
 };
 
 typedef struct
@@ -130,6 +131,13 @@ struct image_instantiator_methods
   Lisp_Object (*set_property_method) (Lisp_Object image_instance,
 				      Lisp_Object property,
 				      Lisp_Object val);
+
+  /* Find out the geometry of this image instance. */
+  void (*query_geometry_method) (Lisp_Object image_instance,
+				 int* width, int* height, int disp);
+
+  /* Layout the instances children. */
+  void (*layout_children_method) (Lisp_Object image_instance);
 };
 
 /***** Calling an image-instantiator method *****/
@@ -202,29 +210,31 @@ do {								\
 /* Declare that KEYW is a valid keyword for image-instantiator format
    FORMAT.  VALIDATE_FUN if a function that returns whether the data
    is valid.  The keyword may not appear more than once. */
-#define IIFORMAT_VALID_KEYWORD(format, keyw, validate_fun)	\
-  do {								\
+#define IIFORMAT_VALID_GENERIC_KEYWORD(format, keyw, validate_fun, copy, multi) \
+  do {							\
     struct ii_keyword_entry entry;				\
-								\
-    entry.keyword = keyw;					\
+							\
+    entry.keyword = keyw;				\
     entry.validate = validate_fun;				\
-    entry.multiple_p = 0;					\
+    entry.multiple_p = multi;				\
+    entry.copy_p = copy;					\
     Dynarr_add (format##_image_instantiator_methods->keywords,	\
 		entry);						\
   } while (0)
 
+#define IIFORMAT_VALID_KEYWORD(format, keyw, validate_fun)	\
+IIFORMAT_VALID_GENERIC_KEYWORD(format, keyw, validate_fun, 1, 0)
+
 /* Same as IIFORMAT_VALID_KEYWORD except that the keyword may
    appear multiple times. */
-#define IIFORMAT_VALID_MULTI_KEYWORD(format, keyword, validate_fun)	\
-  do {									\
-    struct ii_keyword_entry entry;					\
-									\
-    entry.keyword = keyword;						\
-    entry.validate = validate_fun;					\
-    entry.multiple_p = 1;						\
-    Dynarr_add (format##_image_instantiator_methods->keywords,		\
-		entry);							\
-  } while (0)
+#define IIFORMAT_VALID_MULTI_KEYWORD(format, keyw, validate_fun)	\
+IIFORMAT_VALID_GENERIC_KEYWORD(format, keyw, validate_fun, 1, 1)
+
+/* Same as IIFORMAT_VALID_KEYWORD execpt that the argument is not
+   copied by the specifier functions. This is necessary for things
+   like callbacks etc. */
+#define IIFORMAT_VALID_NONCOPY_KEYWORD(format, keyw, validate_fun)	\
+IIFORMAT_VALID_GENERIC_KEYWORD(format, keyw, validate_fun, 0, 0)
 
 /* Declare that image-instantiator format FORMAT is supported on 
    CONSOLE type. */
@@ -362,6 +372,14 @@ enum image_instance_type
   IMAGE_LAYOUT
 };
 
+enum image_instance_geometry
+{
+  IMAGE_GEOMETRY,
+  IMAGE_DESIRED_GEOMETRY,
+  IMAGE_MIN_GEOMETRY,
+  IMAGE_MAX_GEOMETRY
+};
+
 #define IMAGE_NOTHING_MASK (1 << 0)
 #define IMAGE_TEXT_MASK (1 << 1)
 #define IMAGE_MONO_PIXMAP_MASK (1 << 2)
@@ -446,18 +464,20 @@ struct Lisp_Image_Instance
   Lisp_Object device;
   Lisp_Object name;
   enum image_instance_type type;
-  int x_offset, y_offset;	/* for layout purposes */
+  unsigned int x_offset, y_offset;	/* for layout purposes */
+  unsigned int width, height;
   unsigned int dirty : 1;
   union
   {
     struct
     {
+      unsigned int descent;
       Lisp_Object string;
     } text;
     struct
     {
-      int width, height, depth;
-      int slice, maxslice, timeout;
+      unsigned int depth;
+      unsigned int slice, maxslice, timeout;
       Lisp_Object hotspot_x, hotspot_y; /* integer or Qnil */
       Lisp_Object filename;	 /* string or Qnil */
       Lisp_Object mask_filename; /* string or Qnil */
@@ -471,7 +491,6 @@ struct Lisp_Image_Instance
     struct
     {
       Lisp_Object frame;
-      unsigned int width, height;
       void* subwindow;		/* specific devices can use this as necessary */
       unsigned int being_displayed : 1;	/* used to detect when needs to be unmapped */
       union
@@ -501,15 +520,24 @@ struct Lisp_Image_Instance
 #define IMAGE_INSTANCE_TYPE(i) ((i)->type)
 #define IMAGE_INSTANCE_XOFFSET(i) ((i)->x_offset)
 #define IMAGE_INSTANCE_YOFFSET(i) ((i)->y_offset)
+#define IMAGE_INSTANCE_WIDTH(i) ((i)->width)
+#define IMAGE_INSTANCE_HEIGHT(i) ((i)->height)
 #define IMAGE_INSTANCE_PIXMAP_TYPE_P(i)					\
  ((IMAGE_INSTANCE_TYPE (i) == IMAGE_MONO_PIXMAP)			\
   || (IMAGE_INSTANCE_TYPE (i) == IMAGE_COLOR_PIXMAP))
 #define IMAGE_INSTANCE_DIRTYP(i) ((i)->dirty)
 
 #define IMAGE_INSTANCE_TEXT_STRING(i) ((i)->u.text.string)
+#define IMAGE_INSTANCE_TEXT_WIDTH(i) \
+  IMAGE_INSTANCE_WIDTH(i)
+#define IMAGE_INSTANCE_TEXT_HEIGHT(i) \
+  IMAGE_INSTANCE_HEIGHT(i)
+#define IMAGE_INSTANCE_TEXT_DESCENT(i) ((i)->u.text.descent)
 
-#define IMAGE_INSTANCE_PIXMAP_WIDTH(i) ((i)->u.pixmap.width)
-#define IMAGE_INSTANCE_PIXMAP_HEIGHT(i) ((i)->u.pixmap.height)
+#define IMAGE_INSTANCE_PIXMAP_WIDTH(i) \
+  IMAGE_INSTANCE_WIDTH(i)
+#define IMAGE_INSTANCE_PIXMAP_HEIGHT(i) \
+  IMAGE_INSTANCE_HEIGHT(i)
 #define IMAGE_INSTANCE_PIXMAP_DEPTH(i) ((i)->u.pixmap.depth)
 #define IMAGE_INSTANCE_PIXMAP_FILENAME(i) ((i)->u.pixmap.filename)
 #define IMAGE_INSTANCE_PIXMAP_MASK_FILENAME(i) ((i)->u.pixmap.mask_filename)
@@ -523,17 +551,19 @@ struct Lisp_Image_Instance
 #define IMAGE_INSTANCE_PIXMAP_MAXSLICE(i) ((i)->u.pixmap.maxslice)
 #define IMAGE_INSTANCE_PIXMAP_TIMEOUT(i) ((i)->u.pixmap.timeout)
 
-#define IMAGE_INSTANCE_SUBWINDOW_WIDTH(i) ((i)->u.subwindow.width)
-#define IMAGE_INSTANCE_SUBWINDOW_HEIGHT(i) ((i)->u.subwindow.height)
+#define IMAGE_INSTANCE_SUBWINDOW_WIDTH(i) \
+ IMAGE_INSTANCE_WIDTH(i)
+#define IMAGE_INSTANCE_SUBWINDOW_HEIGHT(i) \
+  IMAGE_INSTANCE_HEIGHT(i)
 #define IMAGE_INSTANCE_SUBWINDOW_ID(i) ((i)->u.subwindow.subwindow)
 #define IMAGE_INSTANCE_SUBWINDOW_FRAME(i) ((i)->u.subwindow.frame)
 #define IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP(i) \
 ((i)->u.subwindow.being_displayed)
 
 #define IMAGE_INSTANCE_WIDGET_WIDTH(i) \
-  IMAGE_INSTANCE_SUBWINDOW_WIDTH(i)
+  IMAGE_INSTANCE_WIDTH(i)
 #define IMAGE_INSTANCE_WIDGET_HEIGHT(i) \
-  IMAGE_INSTANCE_SUBWINDOW_HEIGHT(i)
+  IMAGE_INSTANCE_HEIGHT(i)
 #define IMAGE_INSTANCE_WIDGET_TYPE(i) ((i)->u.subwindow.s.widget.type)
 #define IMAGE_INSTANCE_WIDGET_PROPS(i) ((i)->u.subwindow.s.widget.props)
 #define IMAGE_INSTANCE_WIDGET_FACE(i) ((i)->u.subwindow.s.widget.face)
