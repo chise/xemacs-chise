@@ -1,4 +1,23 @@
+2001-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lisp-disunion.h (XCHARVAL): New implementation for UTF-2000 to
+	support U-60000000 .. U-7FFFFFFF with 32 bits architecture.
+
+	* doprnt.c (unsigned_int_converters): Add `c'.
+	(emacs_doprnt_1): Use `XUINT' for unsigned integers.
+
+	* char-ucs.h (MIN_CHAR_DAIKANWA): Don't refer `MIN_CHAR_MOJIKYO'.
+	(MAX_CHAR_DAIKANWA): Refer `MIN_CHAR_DAIKANWA' instead of
+	`MIN_CHAR_MOJIKYO'.
+	(MIN_CHAR_MOJIKYO_0): New macro; refer `MIN_CHAR_DAIKANWA'.
+	(MAX_CHAR_MOJIKYO_0): New macro.
+	(MIN_CHAR_MOJIKYO): Changed to 0x60000000.
+
 2001-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fdefine_char): Delete cemented out code.
+	(encode_builtin_char_1): Modify for new allocation of builtin
+	Mojikyo characters.
 
 	* lisp-disunion.h (XCHARVAL): Cast the argument into EMACS_UINT.
 
