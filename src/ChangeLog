@@ -1,3 +1,8 @@
+1999-06-30  SL Baur  <steve@miho.m17n.org>
+
+	* editfns.c: Document "%s" format spec.
+	Suggested by Bob Weiner <weiner@altrasoft.com>
+
 1999-06-29  Andy Piper  <andy@xemacs.org>
 
 	* event-msw.c: fix definition booboo.
