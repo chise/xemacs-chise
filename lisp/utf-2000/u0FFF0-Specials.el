@@ -1,35 +1,35 @@
 (define-char
   '((name		. "INTERLINEAR ANNOTATION ANCHOR")
-    (ucs		. #xFFF9)
     (general-category	other format) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #xFFF9)	; ￹
     ))
 (define-char
   '((name		. "INTERLINEAR ANNOTATION SEPARATOR")
-    (ucs		. #xFFFA)
     (general-category	other format) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #xFFFA)	; ￺
     ))
 (define-char
   '((name		. "INTERLINEAR ANNOTATION TERMINATOR")
-    (ucs		. #xFFFB)
     (general-category	other format) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #xFFFB)	; ￻
     ))
 (define-char
   '((name		. "OBJECT REPLACEMENT CHARACTER")
-    (ucs		. #xFFFC)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #xFFFC)	; ￼
     ))
 (define-char
   '((name		. "REPLACEMENT CHARACTER")
-    (ucs		. #xFFFD)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #xFFFD)	; �
     ))
