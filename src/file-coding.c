@@ -1531,7 +1531,7 @@ coding_system_from_mask (int mask)
 	    }
 	}
       if (NILP (retval))
-	retval = Fget_coding_system (Qno_conversion);
+	retval = Fget_coding_system (Qraw_text);
       return retval;
     }
   else
@@ -1553,7 +1553,7 @@ coding_system_from_mask (int mask)
       if (cat >= 0)
 	return coding_category_system[cat];
       else
-	return Fget_coding_system (Qno_conversion);
+	return Fget_coding_system (Qraw_text);
     }
 }
 
@@ -5659,7 +5659,7 @@ complex_vars_of_mule_coding (void)
 
   /* Need this for bootstrapping */
   coding_category_system[CODING_CATEGORY_NO_CONVERSION] =
-    Fget_coding_system (Qno_conversion);
+    Fget_coding_system (Qraw_text);
 
 #ifdef MULE
   {
