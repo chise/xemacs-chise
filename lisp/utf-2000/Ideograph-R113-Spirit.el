@@ -3513,11 +3513,24 @@
     ))
 (define-char
   '((=>ucs		. #x9834)	; é ´
-    (morohashi-daikanwa	24824 0 1)
+    (morohashi-daikanwa	24824 0 0)
     (ideographic-radical . 113)	; â½°
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (=cns11643-3	. #x5228)	; ø»–ž©
+    ))
+(define-char
+  '((morohashi-daikanwa	24824 0 1)
+    (ideographic-radical@ucs . 181)	; â¾´
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@cns . 113)	; â½°
+    (ideographic-strokes@cns . 11)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (total-strokes	 . 16)
+    (shinjigen-2	. 5660)
+    (=jis-x0208		. #x3150)	; ø½ŠŽ‹
+    (=ucs		. #x9834)	; é ´
     ))
 (define-char
   '((ideographic-radical . 113)	; â½°
