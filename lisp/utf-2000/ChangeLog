@@ -1,3 +1,19 @@
+2000-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R080-Do-Not.el (M-16724): Add Mojikyo-050244.
+
+	* Ideograph-R077-Stop.el (M-16326'): Add Mojikyo-050239.
+	(M-16334'): Add Mojikyo-050240.
+
+2000-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R047-River.el (M-08678): Separate C1-477C.
+	(M-08679): Delete C2-223A.
+	(C6-245B): Add relation to M-08679.
+	(C1-4B56): Add relation to M-08680'.
+	(M-49065): Delete C6-245B.
+	(C2-223A): Add relation to M-49065.
+
 2000-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R087-Claw.el: Resorted; add missing
