@@ -1,3 +1,8 @@
+2003-08-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el (=iso-ir165): Define to inherit from `=gb2312'
+	in XEmacs CHISE.
+
 2003-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
