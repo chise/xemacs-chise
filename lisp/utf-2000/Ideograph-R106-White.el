@@ -970,6 +970,7 @@
     (=jis-x0213-1-2000	. #x7863)	; ø»¤“°
     (=big5		. #xE6BA)	; ý¢€Žšº
     (=daikanwa		. 22771)	; ø¸…£³
+    (=jef-china3	. #x5BA5)	; øº…®¥
     (=ucs		. #x769E)	; çšž
     ))
 (define-char

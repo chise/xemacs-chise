@@ -131,7 +131,7 @@ Version number of XEmacs CHISE.
 */ );
 #endif
 
-#if defined(CHISE)||defined(HAVE_CHISE_CLIENT)
+#ifdef HAVE_CHISE
   Fprovide (intern ("chise"));
 #endif
 
