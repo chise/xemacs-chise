@@ -259,7 +259,8 @@ uint8_byte_table_same_value_p (Lisp_Object obj)
 }
 
 static int
-map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Emchar ofs, int place,
+map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
+			   Emchar ofs, int place,
 			   int (*fn) (struct chartab_range *range,
 				      Lisp_Object val, void *arg),
 			   void *arg)
@@ -274,7 +275,21 @@ map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Emchar ofs, int place,
 
   for (i = 0, retval = 0; i < 256 && retval == 0; i++)
     {
-      if (ct->property[i] != BT_UINT8_unbound)
+      if (ct->property[i] == BT_UINT8_unloaded)
+	{
+	  c1 = c + unit;
+	  for (; c < c1 && retval == 0; c++)
+	    {
+	      Lisp_Object ret = get_char_id_table (root, c);
+
+	      if (!UNBOUNDP (ret))
+		{
+		  rainj.ch = c;
+		  retval = (fn) (&rainj, ret, arg);
+		}
+	    }
+	}
+      else if (ct->property[i] != BT_UINT8_unbound)
 	{
 	  c1 = c + unit;
 	  for (; c < c1 && retval == 0; c++)
@@ -513,7 +528,8 @@ uint16_byte_table_same_value_p (Lisp_Object obj)
 }
 
 static int
-map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Emchar ofs, int place,
+map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
+			    Emchar ofs, int place,
 			    int (*fn) (struct chartab_range *range,
 				       Lisp_Object val, void *arg),
 			    void *arg)
@@ -528,7 +544,21 @@ map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Emchar ofs, int place,
 
   for (i = 0, retval = 0; i < 256 && retval == 0; i++)
     {
-      if (ct->property[i] != BT_UINT16_unbound)
+      if (ct->property[i] == BT_UINT16_unloaded)
+	{
+	  c1 = c + unit;
+	  for (; c < c1 && retval == 0; c++)
+	    {
+	      Lisp_Object ret = get_char_id_table (root, c);
+
+	      if (!UNBOUNDP (ret))
+		{
+		  rainj.ch = c;
+		  retval = (fn) (&rainj, ret, arg);
+		}
+	    }
+	}
+      else if (ct->property[i] != BT_UINT16_unbound)
 	{
 	  c1 = c + unit;
 	  for (; c < c1 && retval == 0; c++)
@@ -690,7 +720,8 @@ byte_table_same_value_p (Lisp_Object obj)
 }
 
 static int
-map_over_byte_table (Lisp_Byte_Table *ct, Emchar ofs, int place,
+map_over_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
+		     Emchar ofs, int place,
 		     int (*fn) (struct chartab_range *range,
 				Lisp_Object val, void *arg),
 		     void *arg)
@@ -706,22 +737,40 @@ map_over_byte_table (Lisp_Byte_Table *ct, Emchar ofs, int place,
       if (UINT8_BYTE_TABLE_P (v))
 	{
 	  retval
-	    = map_over_uint8_byte_table (XUINT8_BYTE_TABLE(v),
+	    = map_over_uint8_byte_table (XUINT8_BYTE_TABLE(v), root,
 					 c, place - 1, fn, arg);
 	  c += unit;
 	}
       else if (UINT16_BYTE_TABLE_P (v))
 	{
 	  retval
-	    = map_over_uint16_byte_table (XUINT16_BYTE_TABLE(v),
+	    = map_over_uint16_byte_table (XUINT16_BYTE_TABLE(v), root,
 					  c, place - 1, fn, arg);
 	  c += unit;
 	}
       else if (BYTE_TABLE_P (v))
 	{
-	  retval = map_over_byte_table (XBYTE_TABLE(v),
+	  retval = map_over_byte_table (XBYTE_TABLE(v), root,
 					c, place - 1, fn, arg);
 	  c += unit;
+	}
+      else if (EQ (v, Qunloaded))
+	{
+	  struct chartab_range rainj;
+	  Emchar c1 = c + unit;
+
+	  rainj.type = CHARTAB_RANGE_CHAR;
+
+	  for (; c < c1 && retval == 0; c++)
+	    {
+	      Lisp_Object ret = get_char_id_table (root, c);
+
+	      if (!UNBOUNDP (ret))
+		{
+		  rainj.ch = c;
+		  retval = (fn) (&rainj, ret, arg);
+		}
+	    }
 	}
       else if (!UNBOUNDP (v))
 	{
@@ -2522,16 +2571,15 @@ map_char_table (Lisp_Char_Table *ct,
 	    return retval;
 	}
       if (UINT8_BYTE_TABLE_P (ct->table))
-	return map_over_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table),
+	return map_over_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), ct,
 					  0, 3, fn, arg);
       else if (UINT16_BYTE_TABLE_P (ct->table))
-	return map_over_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table),
+	return map_over_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), ct,
 					   0, 3, fn, arg);
       else if (BYTE_TABLE_P (ct->table))
-	return map_over_byte_table (XBYTE_TABLE(ct->table),
+	return map_over_byte_table (XBYTE_TABLE(ct->table), ct,
 				    0, 3, fn, arg);
-      else if (!UNBOUNDP (ct->table))
-#if 0
+      else if (EQ (ct->table, Qunloaded))
 	{
 	  struct chartab_range rainj;
 	  int unit = 1 << 30;
@@ -2543,14 +2591,18 @@ map_char_table (Lisp_Char_Table *ct,
 
 	  for (retval = 0; c < c1 && retval == 0; c++)
 	    {
-	      rainj.ch = c;
-	      retval = (fn) (&rainj, ct->table, arg);
+	      Lisp_Object ret = get_char_id_table (ct, c);
+
+	      if (!UNBOUNDP (ret))
+		{
+		  rainj.ch = c;
+		  retval = (fn) (&rainj, ct->table, arg);
+		}
 	    }
 	  return retval;
 	}
-#else
-      return (fn) (range, ct->table, arg);
-#endif
+      else if (!UNBOUNDP (ct->table))
+        return (fn) (range, ct->table, arg);
       return 0;
 #else
       {
@@ -3022,8 +3074,9 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
       if (NILP (table))
 	{
-	  table = make_char_id_table (Qunbound);
-	  /* table = make_char_id_table (Qunloaded); */
+	  /* table = make_char_id_table (Qunbound); */
+	  table = make_char_id_table (Qunloaded);
+	  XCHAR_TABLE (table)->default_value = Qunbound;
 	  Fputhash (attribute, table, Vchar_attribute_hash_table);
 	  XCHAR_TABLE_NAME (table) = Fsymbol_name (attribute);
 	}
