@@ -658,8 +658,3 @@ Go to the window from which completion was requested."
 					    (point-max)))))
 
 ;;; list-mode.el ends here
-
-;; [tomo] ad-hoc method to avoid slowness of the first completion
-(if (featurep 'utf-2000)
-    (with-temp-buffer
-      (completion-list-mode)))
