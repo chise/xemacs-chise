@@ -181,6 +181,7 @@
     (japanese-jisx0208-1978	. #x4A71)	; ø»‚¹ž
     (japanese-jisx0208		. #x4A71)	; ø»‡¦
     (chinese-cns11643-6		. #x2246)	; ø»›¶³
+    (mojikyo			. 050113)	; ø¸Œ
     ))
 (define-char
   '((ideographic-radical . 20)	; â¼“

@@ -70,7 +70,7 @@
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
-    (ideographic-strokes . 2)
+    (ideographic-strokes . 3)
     (kangxi-radical	 . 187)	; ⾺
     (total-strokes	 . 5)
     (non-morohashi	1611 9 1)
