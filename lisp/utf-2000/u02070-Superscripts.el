@@ -1,6 +1,5 @@
 (define-char
   '((name		. "SUPERSCRIPT ZERO")
-    (ucs		. #x2070)
     (general-category	number other) ; Normative Category
     (bidi-category	. "EN")
     (mirrored		. nil)
@@ -8,10 +7,10 @@
     (digit-value	 . 0)
     (numeric-value	 . 0)
     (->decomposition	super #x0030)
+    (ucs		. #x2070)	; â°
     ))
 (define-char
   '((name		. "SUPERSCRIPT FOUR")
-    (ucs		. #x2074)
     (general-category	number other) ; Normative Category
     (bidi-category	. "EN")
     (mirrored		. nil)
@@ -19,10 +18,11 @@
     (digit-value	 . 4)
     (numeric-value	 . 4)
     (->decomposition	super #x0034)
+    (ucs		. #x2074)	; â´
     ))
 (define-char
-  '((name		. "FULLWIDTH SUPERSCRIPT FOUR")
-    (->ucs		. #x2074)
+  '((name		. "fullwidth superscript four")
+    (->ucs		. #x2074)	; â´
     (general-category	number other) ; Normative Category
     (bidi-category	. "EN")
     (mirrored		. nil)
@@ -30,11 +30,10 @@
     (digit-value	 . 4)
     (numeric-value	 . 4)
     (->decomposition	wide #x2074)
-    (korean-ksc5601	#x29 #x79)	; ø»ˆ§”
+    (korean-ksc5601	. #x2979)	; ø»ˆ§”
     ))
 (define-char
   '((name		. "SUPERSCRIPT FIVE")
-    (ucs		. #x2075)
     (general-category	number other) ; Normative Category
     (bidi-category	. "EN")
     (mirrored		. nil)
@@ -42,10 +41,10 @@
     (digit-value	 . 5)
     (numeric-value	 . 5)
     (->decomposition	super #x0035)
+    (ucs		. #x2075)	; âµ
     ))
 (define-char
   '((name		. "SUPERSCRIPT SIX")
-    (ucs		. #x2076)
     (general-category	number other) ; Normative Category
     (bidi-category	. "EN")
     (mirrored		. nil)
@@ -53,10 +52,10 @@
     (digit-value	 . 6)
     (numeric-value	 . 6)
     (->decomposition	super #x0036)
+    (ucs		. #x2076)	; â¶
     ))
 (define-char
   '((name		. "SUPERSCRIPT SEVEN")
-    (ucs		. #x2077)
     (general-category	number other) ; Normative Category
     (bidi-category	. "EN")
     (mirrored		. nil)
@@ -64,10 +63,10 @@
     (digit-value	 . 7)
     (numeric-value	 . 7)
     (->decomposition	super #x0037)
+    (ucs		. #x2077)	; â·
     ))
 (define-char
   '((name		. "SUPERSCRIPT EIGHT")
-    (ucs		. #x2078)
     (general-category	number other) ; Normative Category
     (bidi-category	. "EN")
     (mirrored		. nil)
@@ -75,10 +74,10 @@
     (digit-value	 . 8)
     (numeric-value	 . 8)
     (->decomposition	super #x0038)
+    (ucs		. #x2078)	; â¸
     ))
 (define-char
   '((name		. "SUPERSCRIPT NINE")
-    (ucs		. #x2079)
     (general-category	number other) ; Normative Category
     (bidi-category	. "EN")
     (mirrored		. nil)
@@ -86,61 +85,62 @@
     (digit-value	 . 9)
     (numeric-value	 . 9)
     (->decomposition	super #x0039)
+    (ucs		. #x2079)	; â¹
     ))
 (define-char
   '((name		. "SUPERSCRIPT PLUS SIGN")
-    (ucs		. #x207A)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	super #x002B)
+    (ucs		. #x207A)	; âº
     ))
 (define-char
   '((name		. "SUPERSCRIPT MINUS")
-    (ucs		. #x207B)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	super #x2212)
+    (ucs		. #x207B)	; â»
     ))
 (define-char
   '((name		. "SUPERSCRIPT EQUALS SIGN")
-    (ucs		. #x207C)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	super #x003D)
+    (ucs		. #x207C)	; â¼
     ))
 (define-char
   '((name		. "SUPERSCRIPT LEFT PARENTHESIS")
-    (ucs		. #x207D)
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	super #x0028)
+    (ucs		. #x207D)	; â½
     ))
 (define-char
   '((name		. "SUPERSCRIPT RIGHT PARENTHESIS")
-    (ucs		. #x207E)
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	super #x0029)
+    (ucs		. #x207E)	; â¾
     ))
 (define-char
   '((name		. "SUPERSCRIPT LATIN SMALL LETTER N")
-    (ucs		. #x207F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	super #x006E)
+    (ucs		. #x207F)	; â¿
     ))
 (define-char
-  '((name		. "FULLWIDTH SUPERSCRIPT LATIN SMALL LETTER N")
-    (->ucs		. #x207F)
+  '((name		. "fullwidth superscript latin small letter n")
+    (->ucs		. #x207F)	; â¿
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x207F)
-    (korean-ksc5601	#x29 #x7A)	; ø»ˆ§•
+    (korean-ksc5601	. #x297A)	; ø»ˆ§•
     ))
