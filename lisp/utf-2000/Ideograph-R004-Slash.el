@@ -199,11 +199,13 @@
     (ideograph-gt	. 00159)	; ý¡€€‚Ÿ
     ))
 (define-char
-  '((name		. "cjk radical person for top")
+  '((name*		. "ideographic component person for top")
     (ideographic-	(:radical	4 ; â¼ƒ
-			 :strokes	1)
+			 :strokes	1
+			 :sources	(ucs))
 			(:radical	1 ; â¼€
-			 :strokes	1)
+			 :strokes	1
+			 :sources	(gt))
 			(:radical	9 ; â¼ˆ
 			 :strokes	0))
     (total-strokes	 . 2)
@@ -629,7 +631,8 @@
       )
      ((ucs		  . #x4E3F)	; ä¸¿
       )
-     ((korean-ksc5601	  . #x717D)	; ø»Š‘ˆ
+     ((=jis-x0208	  . #x4737)	; ø½Š®†
+      (korean-ksc5601	  . #x717D)	; ø»Š‘ˆ
       (ideograph-daikanwa . 00125)	; ø¸€½
       ))
     (shinjigen-1	. 52)
