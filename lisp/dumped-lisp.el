@@ -153,7 +153,7 @@
 	(when-feature utf-2000 "u02600-Miscellaneous-Symbols")
 	(when-feature utf-2000 "u02700-Dingbats")
 	(when-feature utf-2000 "u02800-Braille-Patterns")
-	(when-feature utf-2000 "u02E00-CJK-Radicals")
+	(when-feature utf-2000 "u02E00-CJK-Radical-Supplement")
 	(when-feature utf-2000 "u02F00-Kangxi-Radicals")
 	(when-feature utf-2000 "u02FF0-Ideographic-Description-Characters")
 	(when-feature utf-2000 "u03000-CJK-Symbols-and-Punctuation")
