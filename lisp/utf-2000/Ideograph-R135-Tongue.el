@@ -446,7 +446,8 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (->same
-     ((=daikanwa	  . 38638)	; ø¸‰›®
+     ((=jis-x0208	  . #x3C2D)	; ø½Š²
+      (=daikanwa	  . 38638)	; ø¸‰›®
       ))
     (->same*sources
      daikanwa)
