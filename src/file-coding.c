@@ -858,10 +858,6 @@ if TYPE is 'ccl:
     CHECK_STRING (doc_string);
   CODING_SYSTEM_DOC_STRING (codesys) = doc_string;
 
-#ifdef UTF2000
-  if (ty == CODESYS_NO_CONVERSION)
-    codesys->fixed.size = 1;
-#endif
   EXTERNAL_PROPERTY_LIST_LOOP (rest, key, value, props)
     {
       if (EQ (key, Qmnemonic))
@@ -5794,31 +5790,7 @@ encode_coding_no_conversion (Lstream *encoding, CONST unsigned char *src,
 	  break;
 	case 1:
 	  ch = ( ch << 6 ) | ( c & 0x3f );
-	  switch ( str->codesys->fixed.size )
-	    {
-	    case 1:
-	      Dynarr_add (dst, ch & 0xff);
-	      break;
-	    case 2:
-	      Dynarr_add (dst, (ch >> 8) & 0xff);
-	      Dynarr_add (dst,  ch       & 0xff);
-	      break;
-	    case 3:
-	      Dynarr_add (dst, (ch >> 16) & 0xff);
-	      Dynarr_add (dst, (ch >>  8) & 0xff);
-	      Dynarr_add (dst,  ch        & 0xff);
-	      break;
-	    case 4:
-	      Dynarr_add (dst, (ch >> 24) & 0xff);
-	      Dynarr_add (dst, (ch >> 16) & 0xff);
-	      Dynarr_add (dst, (ch >>  8) & 0xff);
-	      Dynarr_add (dst,  ch        & 0xff);
-	      break;
-	    default:
-	      fprintf(stderr, "It seems %d bytes stream.\n",
-		      str->codesys->fixed.size);
-	      abort ();
-	    }
+	  Dynarr_add (dst, ch & 0xff);
 	  char_boundary = 0;
 	  break;
 	default:
