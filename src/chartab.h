@@ -328,8 +328,22 @@ put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value)
   cit->table = put_byte_table (table1, (unsigned char)(code >> 24), table2);
 }
 
-void put_char_id_table (Lisp_Char_Table* table,
-			Lisp_Object character, Lisp_Object value);
+void
+decode_char_table_range (Lisp_Object range, struct chartab_range *outrange);
+
+INLINE_HEADER void
+put_char_id_table (Lisp_Char_Table* table,
+		   Lisp_Object character, Lisp_Object value);
+INLINE_HEADER void
+put_char_id_table (Lisp_Char_Table* table,
+		   Lisp_Object character, Lisp_Object value)
+{
+  struct chartab_range range;
+
+  decode_char_table_range (character, &range);
+  put_char_table (table, &range, value);
+}
+
 
 EXFUN (Fget_char_attribute, 3);
 
