@@ -191,8 +191,10 @@ struct Lisp_Char_Table
 
   enum char_table_type type;
 
+#ifndef UTF2000
   /* stuff used for syntax tables */
   Lisp_Object mirror_table;
+#endif
   Lisp_Object next_table; /* DO NOT mark through this. */
 };
 typedef struct Lisp_Char_Table Lisp_Char_Table;
