@@ -416,7 +416,8 @@ It serves as a menu to find any of the occurrences in this buffer.
 		     ;; rewritten for I18N3 snarfing
 		     (read-from-minibuffer
 		      (format "List lines matching regexp (default `%s'): "
-			      default) nil nil nil 'regexp-history)
+			      default) nil nil nil 'regexp-history nil
+                              default)
 		   (read-from-minibuffer
 		    "List lines matching regexp: "
 		    nil nil nil

@@ -179,11 +179,17 @@ finalize_lstream (void *header, int for_disksave)
     }
 }
 
+inline static size_t
+aligned_sizeof_lstream (size_t lstream_type_specific_size)
+{
+  return ALIGN_SIZE (offsetof (Lstream, data) + lstream_type_specific_size,
+		     ALIGNOF (max_align_t));
+}
+
 static size_t
 sizeof_lstream (const void *header)
 {
-  const Lstream *lstr = (const Lstream *) header;
-  return sizeof (*lstr) + lstr->imp->size - 1;
+  return aligned_sizeof_lstream (((const Lstream *) header)->imp->size);
 }
 
 DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION ("stream", lstream,
@@ -231,15 +237,15 @@ Lstream_new (const Lstream_implementation *imp, const char *mode)
       assert (lstream_type_count < countof (lstream_types));
       lstream_types[lstream_type_count] = imp;
       Vlstream_free_list[lstream_type_count] =
-	make_lcrecord_list (sizeof (*p) + imp->size - 1,
+	make_lcrecord_list (aligned_sizeof_lstream (imp->size),
 			    &lrecord_lstream);
       lstream_type_count++;
     }
 
   p = XLSTREAM (allocate_managed_lcrecord (Vlstream_free_list[i]));
   /* Zero it out, except the header. */
-  memset ((char *) p + sizeof (p->header), 0,
-	  sizeof (*p) - sizeof (p->header) + imp->size - 1);
+  memset ((char *) p + sizeof (p->header), '\0',
+	  aligned_sizeof_lstream (imp->size) - sizeof (p->header));
   p->imp = imp;
   Lstream_set_buffering (p, LSTREAM_BLOCK_BUFFERED, 0);
   p->flags = LSTREAM_FL_IS_OPEN;

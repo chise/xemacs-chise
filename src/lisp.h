@@ -216,13 +216,10 @@ typedef union
      "Types must be declared in declarations, not in expressions." */
 #  define ALIGNOF(type) offsetof (struct { char c; type member; }, member)
 # else
-/* The following should be completely portable, but might give values
-   that are larger than necessary.  But never larger than the maximum
-   possible alignment. */
-#  define ALIGNOF(type)				\
-((sizeof (type) % sizeof (max_align_t)) == 0 ?	\
- sizeof (max_align_t) :				\
- (sizeof (type) % sizeof (max_align_t)))
+/* C++ is annoying, but it has a big bag of tricks.
+   The following doesn't have the "inside out" declaration bug C does. */
+template<class T> struct alignment_trick { char c; T member; };
+#  define ALIGNOF(type) offsetof (alignment_trick<type>, member)
 # endif
 #endif /* ALIGNOF */
 
@@ -1203,14 +1200,28 @@ void set_string_char (Lisp_String *s, Charcount i, Emchar c);
 
 #endif /* not MULE */
 
-/* Return the true size of a struct with a variable-length array field.  */
-#define FLEXIBLE_ARRAY_STRUCT_SIZEOF(flexible_array_structtype,		\
-				     flexible_array_field,		\
-				     flexible_array_length)		\
-  (offsetof (flexible_array_structtype, flexible_array_field) +		\
-   (offsetof (flexible_array_structtype, flexible_array_field[1]) -	\
-    offsetof (flexible_array_structtype, flexible_array_field[0])) *	\
-   (flexible_array_length))
+/* Return the true aligned size of a struct whose last member is a
+   variable-length array field.  (this is known as the "struct hack") */
+/* Implementation: in practice, structtype and fieldtype usually have
+   the same alignment, but we can't be sure.  We need to use
+   ALIGN_SIZE to be absolutely sure of getting the correct alignment.
+   To help the compiler's optimizer, we use a ternary expression that
+   only a very stupid compiler would fail to correctly simplify. */
+#define FLEXIBLE_ARRAY_STRUCT_SIZEOF(structtype,	\
+				     fieldtype,		\
+				     fieldname,		\
+				     array_length)	\
+(ALIGNOF (structtype) == ALIGNOF (fieldtype)		\
+ ? (offsetof (structtype, fieldname) +			\
+    (offsetof (structtype, fieldname[1]) -		\
+     offsetof (structtype, fieldname[0])) *		\
+    (array_length))					\
+ : (ALIGN_SIZE						\
+    ((offsetof (structtype, fieldname) +		\
+      (offsetof (structtype, fieldname[1]) -		\
+       offsetof (structtype, fieldname[0])) *		\
+      (array_length)),					\
+     ALIGNOF (structtype))))
 
 /*------------------------------ vector --------------------------------*/
 

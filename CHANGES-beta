@@ -1,3 +1,12 @@
+to 21.2.43 "Terspichore"
+-- Important gnuserv security fix.  Upgrade if you use gnuserv.
+   -- Klaus Frank, Jan Vroonhof, Gunnar Evermann
+-- C-level alignment correctness fixes -- Martin Buchholz
+-- cut-and-paste slowness under Motif fixed -- Andy Piper
+-- pdump now works on SunOS 4 and HP-UX -- Martin Buchholz
+-- Packages documentation updates -- Steve Youngs
+-- Windows netinstall changes -- Andy Piper
+
 to 21.2.42 "Poseidon"
 -- 64-bit platforms (Alpha) broken in 21.2.41 now fixed -- Martin Buchholz
 -- Windows packaging changes -- Andy Piper
@@ -58,7 +67,7 @@ to 21.2.38 "Peisino,Ak(B"
 -- Calls to the following functions are now better optimized:
    backward-char backward-word plusp, minusp oddp evenp -- Martin Buchholz
 -- COUNT argument to following functions is now optional:
-   forward-word backward-word mark-word kill-word backward-kill-word 
+   forward-word backward-word mark-word kill-word backward-kill-word
    forward-comment delete-char backward-delete-char -- Martin Buchholz
 -- Don't put gutters/tabs on popup windows -- Andy Piper
 -- Fix up info file cross references -- Adrian Aichner

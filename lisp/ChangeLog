@@ -1,3 +1,12 @@
+2001-01-26  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.43 "Terspichore" is released.
+
+2001-01-20  Klaus Frank <klausf@i3.informatik.rwth-aachen.de>
+
+	* gnuserv.el (gnuserv-process-filter): Robuster handling of error
+	messages from gnuserv.
+
 2001-01-20  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.42 "Poseidon" is released.

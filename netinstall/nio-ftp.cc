@@ -73,7 +73,7 @@ NetIO_FTP::NetIO_FTP (char *Purl)
       code = ftp_line (c);
       if (code == 331)
 	{
-	  c->printf ("PASS cygwin-setup@\r\n");
+	  c->printf ("PASS xenacs-setup@\r\n");
 	  code = ftp_line (c);
 	}
 

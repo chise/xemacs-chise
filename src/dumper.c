@@ -1249,6 +1249,11 @@ pdump_file_get (const char *path)
   lseek (fd, 0, SEEK_SET);
 
 #ifdef HAVE_MMAP
+/* Unix 98 requires that sys/mman.h define MAP_FAILED,
+   but many earlier implementations don't. */
+# ifndef MAP_FAILED
+#  define MAP_FAILED ((void *) -1L)
+# endif
   pdump_start = (char *) mmap (0, pdump_length, PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
   if (pdump_start != (char *) MAP_FAILED)
     {
@@ -1256,7 +1261,7 @@ pdump_file_get (const char *path)
       close (fd);
       return 1;
     }
-#endif
+#endif /* HAVE_MMAP */
 
   pdump_mallocadr = xmalloc (pdump_length+255);
   pdump_free = pdump_file_free;

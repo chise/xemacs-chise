@@ -186,7 +186,8 @@ static Lisp_Object
 mswindows_own_selection (Lisp_Object selection_name,
 			 Lisp_Object selection_value,
 			 Lisp_Object how_to_add,
-			 Lisp_Object selection_type)
+			 Lisp_Object selection_type,
+			 int owned_p /* Not used */)
 {
   HGLOBAL 	hValue = NULL;
   UINT		cfType;

@@ -2645,7 +2645,7 @@ main (int argc, char **argv, char **envp)
 #endif /* _SCO_DS */
       vol_envp = environ;
     }
-#ifdef RUN_TIME_REMAP
+#if defined (RUN_TIME_REMAP) && ! defined (PDUMP)
   else
     /* obviously no-one uses this because where it was before initialized was
      *always* true */

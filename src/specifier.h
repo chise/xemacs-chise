@@ -235,7 +235,7 @@ struct Lisp_Specifier
   Lisp_Object fallback;
 
   /* type-specific extra data attached to a specifier */
-  char data[1];
+  max_align_t data[1];
 };
 typedef struct Lisp_Specifier Lisp_Specifier;
 
@@ -261,7 +261,7 @@ DECLARE_LRECORD (specifier, Lisp_Specifier);
 
 /***** Defining new specifier types *****/
 
-#define specifier_data_offset (offsetof (Lisp_Specifier, data))
+#define specifier_data_offset offsetof (Lisp_Specifier, data)
 extern const struct lrecord_description specifier_empty_extra_description[];
 
 #ifdef ERROR_CHECK_TYPECHECK

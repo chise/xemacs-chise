@@ -1,3 +1,16 @@
+2001-01-26  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.43 "Terspichore" is released.
+
+2001-01-23  Jan Vroonhof  <jan@xemacs.org>
+
+	* gnuserv.c: Add version number to object file.
+
+2001-01-20  Klaus Frank <klausf@i3.informatik.rwth-aachen.de>
+
+	* gnuserv.c (permitted): Completed the checks of the authentication
+	data length, replaced memcmp() by constant-time comparision.
+
 2001-01-20  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.42 "Poseidon" is released.

@@ -1,7 +1,7 @@
 ;;; gnuserv.el --- Lisp interface code between Emacs and gnuserv
 ;; Copyright (C) 1989-1997 Free Software Foundation, Inc.
 
-;; Version: 3.11
+;; Version: 3.12
 ;; Author: Andy Norman (ange@hplb.hpl.hp.com), originally based on server.el
 ;;         Hrvoje Niksic <hniksic@xemacs.org>
 ;; Maintainer: Jan Vroonhof <vroonhof@math.ethz.ch>,
@@ -337,8 +337,8 @@ visual screen.  Totally visible frames are preferred.  If none found, return nil
   "Process gnuserv client requests to execute Emacs commands."
   (setq gnuserv-string (concat gnuserv-string string))
   ;; C-d means end of request.
-  (when (string-match "\C-d\\'" gnuserv-string)
-    (cond ((string-match "^[0-9]+" gnuserv-string) ; client request id
+  (when (string-match "\C-d\n?\\'" gnuserv-string)
+    (cond ((string-match "\\`[0-9]+" gnuserv-string) ; client request id
 	   (let ((header (read-from-string gnuserv-string)))
 	     ;; Set the client we are talking to.
 	     (setq gnuserv-current-client (car header))
@@ -359,8 +359,9 @@ visual screen.  Totally visible frames are preferred.  If none found, return nil
 		     (signal 'quit nil)))
 	     (setq gnuserv-string "")))
 	  (t
-	   (error "%s: invalid response from gnuserv" gnuserv-string)
-	   (setq gnuserv-string "")))))
+	   (let ((response (car (split-string gnuserv-string "\C-d"))))
+	     (setq gnuserv-string "")
+	     (error "%s: invalid response from gnuserv" response))))))
 
 ;; This function is somewhat of a misnomer.  Actually, we write to the
 ;; server (using `process-send-string' to gnuserv-process), which

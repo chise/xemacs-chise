@@ -167,8 +167,8 @@ struct lstream
   size_t unget_buffer_ind; /* pointer to next buffer spot to write a character */
 
   size_t byte_count;
-  long flags;  /* Align pointer for 64 bit machines (kny) */
-  char data[1];
+  int flags;
+  max_align_t data[1];
 };
 
 #define LSTREAM_TYPE_P(lstr, type) \
