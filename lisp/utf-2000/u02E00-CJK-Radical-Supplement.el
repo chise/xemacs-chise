@@ -368,9 +368,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
-     ((ideograph-daikanwa . 19655)	; ø¸„³‡
-      ))
     (ucs		. #x2EA5)	; âº¥
     ))
 (define-char
@@ -385,6 +382,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (chinese-big5-cdp	. #x8B66)	; ý¢€ˆ­¦
     (ucs		. #x2EA7)	; âº§
     ))
 (define-char
