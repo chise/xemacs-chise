@@ -1,4 +1,20 @@
+2004-01-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R030-Mouth.el (M-03871): Unify U-00020D72, C6-3E21 and
+	H2-D6B5.
+
 2004-01-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R030-Mouth.el (U-00020077): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'.
+
+	* Ideograph-R140-Grass.el: Add some `total-strokes' features.
+
+	* Ideograph-R139-Color.el (U+8273): Add `total-strokes'.
+
+	* Ideograph-R137-Boat.el, Ideograph-R128-Ear.el: Add some
+	`total-strokes' features.
 
 	* Ideograph-R129-Brush.el (U+8083): Add `total-strokes'.
 
