@@ -1,3 +1,9 @@
+2002-05-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R094-Dog.el (M-20786'): Unify GT-26606.
+
+	* isolated-char.el (GT-26606): New character.
+
 2002-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R189-Tall.el, Ideograph-R170-Mound.el,
