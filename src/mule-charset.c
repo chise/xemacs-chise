@@ -529,6 +529,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 {
   Lisp_Object ccs;
 
+  CHECK_CHAR (character);
   ccs = Ffind_charset (attribute);
   if (!NILP (ccs))
     {
