@@ -327,6 +327,18 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define CHARSET_MOTHER(cs)	 ((cs)->mother)
 #define CHARSET_CONVERSION(cs)	 ((cs)->conversion)
 
+INLINE_HEADER int CHARSET_BYTE_SIZE (Lisp_Charset* cs);
+INLINE_HEADER int
+CHARSET_BYTE_SIZE (Lisp_Charset* cs)
+{
+  /* ad-hoc method for `ascii' */
+  if ((CHARSET_CHARS (cs) == 94) &&
+      (CHARSET_BYTE_OFFSET (cs) != 33))
+    return 128 - CHARSET_BYTE_OFFSET (cs);
+  else
+    return CHARSET_CHARS (cs);
+}
+
 INLINE_HEADER Lisp_Object CHARSET_ENCODING_TABLE (Lisp_Charset* cs);
 INLINE_HEADER Lisp_Object
 CHARSET_ENCODING_TABLE (Lisp_Charset* cs)
@@ -353,6 +365,7 @@ CHARSET_ENCODING_TABLE (Lisp_Charset* cs)
 #define XCHARSET_CCL_PROGRAM(cs)  CHARSET_CCL_PROGRAM  (XCHARSET (cs))
 #define XCHARSET_DIMENSION(cs)	  CHARSET_DIMENSION    (XCHARSET (cs))
 #define XCHARSET_CHARS(cs)	  CHARSET_CHARS        (XCHARSET (cs))
+#define XCHARSET_BYTE_SIZE(cs)	  CHARSET_BYTE_SIZE    (XCHARSET (cs))
 #define XCHARSET_REVERSE_DIRECTION_CHARSET(cs) \
   CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
 #define XCHARSET_DECODING_TABLE(cs) CHARSET_DECODING_TABLE(XCHARSET(cs))
