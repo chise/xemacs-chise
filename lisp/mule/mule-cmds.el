@@ -1237,7 +1237,7 @@ of buffer-file-coding-system set by this function."
           ;; (setq default-sendmail-coding-system default-coding)
 	  (set-coding-priority-list categories)
 	  (while priority
-	    (set (car categories) (car priority))
+	    (set-coding-category-system (car categories) (car priority))
 	    (setq priority (cdr priority) categories (cdr categories)))
           ;; (update-coding-systems-internal)
 	  ))))
