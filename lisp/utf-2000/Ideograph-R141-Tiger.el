@@ -1093,16 +1093,11 @@
     ))
 (define-char
   '((ideographic-radical . 141)	; â¾Œ
-    (ideographic-strokes . 20)
-    (ideograph-daikanwa . 32802)	; ø¸ˆ€¢
-    (ucs		. #x866A)	; è™ª
-    ))
-(define-char
-  '((ideographic-radical . 141)	; â¾Œ
     (ideographic-strokes . 21)
     (total-strokes	 . 27)
     (chinese-cns11643-2 . #x7173)	; ø»•ƒ’
     (ideograph-daikanwa . 32802)	; ø¸ˆ€¢
+    (ucs		. #x866A)	; è™ª
     ))
 (define-char
   '((ideographic-radical . 141)	; â¾Œ
