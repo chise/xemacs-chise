@@ -3070,6 +3070,8 @@
     (ideographic-radical . 173)	; â¾¬
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
+    (=gt		. 56959)	; ý¡€¹¿
+    (=gt-pj-8		. #x3571)	; ý¡€¹¿
     (mojikyo		. 050567)	; ý €Œ–‡
     ))
 (define-char
@@ -3077,7 +3079,6 @@
     (ideographic-radical . 173)	; â¾¬
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
-    (->mojikyo		. 050567)	; ý €Œ–‡
     (=cns11643-7	. #x4B57)	; ø»ž½–
     ))
 (define-char
