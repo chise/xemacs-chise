@@ -416,7 +416,7 @@ INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
-  if (c <= MAX_CHAR_GREEK)
+  if (c < MIN_CHAR_HEBREW)
     {
       Lisp_Object charsets = Vdefault_coded_charset_priority_list;
       while (!EQ (charsets, Qnil))
@@ -455,30 +455,18 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	  *c1 = c - MIN_CHAR_GREEK + 0x20;
 	  *c2 = 0;
 	}
+      else if ((MIN_CHAR_CYRILLIC <= c) && (c <= MAX_CHAR_CYRILLIC))
+	{
+	  *charset = Vcharset_cyrillic_iso8859_5;
+	  *c1 = c - MIN_CHAR_CYRILLIC + 0x20;
+	  *c2 = 0;
+	}
       else
 	{
 	  *charset = Vcharset_ucs_bmp;
 	  *c1 = c >> 8;
 	  *c2 = c & 0xff;
 	}
-    }
-  else if (c < MIN_CHAR_CYRILLIC)
-    {
-      *charset = Vcharset_ucs_bmp;
-      *c1 = c >> 8;
-      *c2 = c & 0xff;
-    }
-  else if (c <= MAX_CHAR_CYRILLIC)
-    {
-      *charset = Vcharset_cyrillic_iso8859_5;
-      *c1 = c - MIN_CHAR_CYRILLIC + 0x20;
-      *c2 = 0;
-    }
-  else if (c < MIN_CHAR_HEBREW)
-    {
-      *charset = Vcharset_ucs_bmp;
-      *c1 = c >> 8;
-      *c2 = c & 0xff;
     }
   else if (c <= MAX_CHAR_HEBREW)
     {
