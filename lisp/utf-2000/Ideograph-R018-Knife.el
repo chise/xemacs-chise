@@ -7074,15 +7074,16 @@
     ))
 (define-char
   '((morohashi-daikanwa	ho 52)
-    (ideographic-radical . 18)	; â¼‘
-    (ideographic-strokes . 12)
+    (ideographic-radical@ucs . 18)	; â¼‘
+    (ideographic-strokes@ucs . 12)
+    (ideographic-radical@cns . 118)	; â½µ
+    (ideographic-strokes@cns . 8)
     (total-strokes	 . 14)
-    (->mojikyo		. 054893)	; ø»”Œª
     (->same-ideograph
-     (:sources	(kouin kangxi morohashi-daikanwa)
-      :char	((=daikanwa	     . 26149)	; ø¸†˜¥
-		 )
+     ((=daikanwa	  . 26149)	; ø¸†˜¥
       ))
+    (->same-ideograph*sources
+     kouin kangxi morohashi-daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
@@ -7091,8 +7092,11 @@
       )
      ((=ucs		  . #x5202)	; åˆ‚
       ))
+    (=cns11643-2	. #x4C61)	; ø»”Œª
     (=jis-x0213-2-2000	. #x233D)	; ø»¤ ˜
+    (=big5		. #xE35A)	; ý¢€Žš
     (=jef-china3	. #x5EC1)	; øº…»
+    (mojikyo		. 054893)	; ý €™­
     (=ucs		. #x5284)	; åŠ„
     ))
 (define-char
