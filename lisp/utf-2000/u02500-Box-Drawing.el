@@ -649,7 +649,7 @@
     (ucs			. #x253F)	; ┿
     ))
 (define-char
-  '((name		. "BOX DRAWINGS UP HEAVY AND DOWN HORIZONTAL LIGHT")
+  '((name . "BOX DRAWINGS UP HEAVY AND DOWN HORIZONTAL LIGHT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -658,7 +658,7 @@
     (ucs		. #x2540)	; ╀
     ))
 (define-char
-  '((name		. "BOX DRAWINGS DOWN HEAVY AND UP HORIZONTAL LIGHT")
+  '((name . "BOX DRAWINGS DOWN HEAVY AND UP HORIZONTAL LIGHT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -678,7 +678,7 @@
     (ucs			. #x2542)	; ╂
     ))
 (define-char
-  '((name		. "BOX DRAWINGS LEFT UP HEAVY AND RIGHT DOWN LIGHT")
+  '((name . "BOX DRAWINGS LEFT UP HEAVY AND RIGHT DOWN LIGHT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -687,7 +687,7 @@
     (ucs		. #x2543)	; ╃
     ))
 (define-char
-  '((name		. "BOX DRAWINGS RIGHT UP HEAVY AND LEFT DOWN LIGHT")
+  '((name . "BOX DRAWINGS RIGHT UP HEAVY AND LEFT DOWN LIGHT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -696,7 +696,7 @@
     (ucs		. #x2544)	; ╄
     ))
 (define-char
-  '((name		. "BOX DRAWINGS LEFT DOWN HEAVY AND RIGHT UP LIGHT")
+  '((name . "BOX DRAWINGS LEFT DOWN HEAVY AND RIGHT UP LIGHT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -705,7 +705,7 @@
     (ucs		. #x2545)	; ╅
     ))
 (define-char
-  '((name		. "BOX DRAWINGS RIGHT DOWN HEAVY AND LEFT UP LIGHT")
+  '((name . "BOX DRAWINGS RIGHT DOWN HEAVY AND LEFT UP LIGHT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -714,7 +714,7 @@
     (ucs		. #x2546)	; ╆
     ))
 (define-char
-  '((name		. "BOX DRAWINGS DOWN LIGHT AND UP HORIZONTAL HEAVY")
+  '((name . "BOX DRAWINGS DOWN LIGHT AND UP HORIZONTAL HEAVY")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -723,7 +723,7 @@
     (ucs		. #x2547)	; ╇
     ))
 (define-char
-  '((name		. "BOX DRAWINGS UP LIGHT AND DOWN HORIZONTAL HEAVY")
+  '((name . "BOX DRAWINGS UP LIGHT AND DOWN HORIZONTAL HEAVY")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -909,7 +909,7 @@
     (ucs		. #x255D)	; ╝
     ))
 (define-char
-  '((name		. "BOX DRAWINGS VERTICAL SINGLE AND RIGHT DOUBLE")
+  '((name . "BOX DRAWINGS VERTICAL SINGLE AND RIGHT DOUBLE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -918,7 +918,7 @@
     (ucs		. #x255E)	; ╞
     ))
 (define-char
-  '((name		. "BOX DRAWINGS VERTICAL DOUBLE AND RIGHT SINGLE")
+  '((name . "BOX DRAWINGS VERTICAL DOUBLE AND RIGHT SINGLE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -959,7 +959,7 @@
     (ucs		. #x2563)	; ╣
     ))
 (define-char
-  '((name		. "BOX DRAWINGS DOWN SINGLE AND HORIZONTAL DOUBLE")
+  '((name . "BOX DRAWINGS DOWN SINGLE AND HORIZONTAL DOUBLE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -967,7 +967,7 @@
     (ucs		. #x2564)	; ╤
     ))
 (define-char
-  '((name		. "BOX DRAWINGS DOWN DOUBLE AND HORIZONTAL SINGLE")
+  '((name . "BOX DRAWINGS DOWN DOUBLE AND HORIZONTAL SINGLE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)

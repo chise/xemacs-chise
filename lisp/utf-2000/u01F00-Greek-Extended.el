@@ -23,25 +23,25 @@
     (ucs		. #x1F01)	; ἁ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER ALPHA WITH PSILI AND VARIA")
+  '((name . "GREEK SMALL LETTER ALPHA WITH PSILI AND VARIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F00 #x0300)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER ALPHA WITH PSILI AND VARIA")
+     ((name . "GREEK CAPITAL LETTER ALPHA WITH PSILI AND VARIA")
       (ucs		  . #x1F0A)	; Ἂ
       ))
     (ucs		. #x1F02)	; ἂ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER ALPHA WITH DASIA AND VARIA")
+  '((name . "GREEK SMALL LETTER ALPHA WITH DASIA AND VARIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F01 #x0300)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER ALPHA WITH DASIA AND VARIA")
+     ((name . "GREEK CAPITAL LETTER ALPHA WITH DASIA AND VARIA")
       (ucs		  . #x1F0B)	; Ἃ
       ))
     (ucs		. #x1F03)	; ἃ
@@ -53,7 +53,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F00 #x0301)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER ALPHA WITH PSILI AND OXIA")
+     ((name . "GREEK CAPITAL LETTER ALPHA WITH PSILI AND OXIA")
       (ucs		  . #x1F0C)	; Ἄ
       ))
     (ucs		. #x1F04)	; ἄ
@@ -65,7 +65,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F01 #x0301)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER ALPHA WITH DASIA AND OXIA")
+     ((name . "GREEK CAPITAL LETTER ALPHA WITH DASIA AND OXIA")
       (ucs		  . #x1F0D)	; Ἅ
       ))
     (ucs		. #x1F05)	; ἅ
@@ -119,49 +119,49 @@
     (ucs		. #x1F09)	; Ἁ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER ALPHA WITH PSILI AND VARIA")
+  '((name . "GREEK CAPITAL LETTER ALPHA WITH PSILI AND VARIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F08 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER ALPHA WITH PSILI AND VARIA")
+     ((name . "GREEK SMALL LETTER ALPHA WITH PSILI AND VARIA")
       (ucs		  . #x1F02)	; ἂ
       ))
     (ucs		. #x1F0A)	; Ἂ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER ALPHA WITH DASIA AND VARIA")
+  '((name . "GREEK CAPITAL LETTER ALPHA WITH DASIA AND VARIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F09 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER ALPHA WITH DASIA AND VARIA")
+     ((name . "GREEK SMALL LETTER ALPHA WITH DASIA AND VARIA")
       (ucs		  . #x1F03)	; ἃ
       ))
     (ucs		. #x1F0B)	; Ἃ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER ALPHA WITH PSILI AND OXIA")
+  '((name . "GREEK CAPITAL LETTER ALPHA WITH PSILI AND OXIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F08 #x0301)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER ALPHA WITH PSILI AND OXIA")
+     ((name . "GREEK SMALL LETTER ALPHA WITH PSILI AND OXIA")
       (ucs		  . #x1F04)	; ἄ
       ))
     (ucs		. #x1F0C)	; Ἄ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER ALPHA WITH DASIA AND OXIA")
+  '((name . "GREEK CAPITAL LETTER ALPHA WITH DASIA AND OXIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F09 #x0301)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER ALPHA WITH DASIA AND OXIA")
+     ((name . "GREEK SMALL LETTER ALPHA WITH DASIA AND OXIA")
       (ucs		  . #x1F05)	; ἅ
       ))
     (ucs		. #x1F0D)	; Ἅ
@@ -215,7 +215,7 @@
     (ucs		. #x1F11)	; ἑ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER EPSILON WITH PSILI AND VARIA")
+  '((name . "GREEK SMALL LETTER EPSILON WITH PSILI AND VARIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -227,7 +227,7 @@
     (ucs		. #x1F12)	; ἒ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER EPSILON WITH DASIA AND VARIA")
+  '((name . "GREEK SMALL LETTER EPSILON WITH DASIA AND VARIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -239,7 +239,7 @@
     (ucs		. #x1F13)	; ἓ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER EPSILON WITH PSILI AND OXIA")
+  '((name . "GREEK SMALL LETTER EPSILON WITH PSILI AND OXIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -251,7 +251,7 @@
     (ucs		. #x1F14)	; ἔ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER EPSILON WITH DASIA AND OXIA")
+  '((name . "GREEK SMALL LETTER EPSILON WITH DASIA AND OXIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -293,7 +293,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F18 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER EPSILON WITH PSILI AND VARIA")
+     ((name . "GREEK SMALL LETTER EPSILON WITH PSILI AND VARIA")
       (ucs		  . #x1F12)	; ἒ
       ))
     (ucs		. #x1F1A)	; Ἒ
@@ -305,7 +305,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F19 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER EPSILON WITH DASIA AND VARIA")
+     ((name . "GREEK SMALL LETTER EPSILON WITH DASIA AND VARIA")
       (ucs		  . #x1F13)	; ἓ
       ))
     (ucs		. #x1F1B)	; Ἓ
@@ -317,7 +317,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F18 #x0301)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER EPSILON WITH PSILI AND OXIA")
+     ((name . "GREEK SMALL LETTER EPSILON WITH PSILI AND OXIA")
       (ucs		  . #x1F14)	; ἔ
       ))
     (ucs		. #x1F1C)	; Ἔ
@@ -329,7 +329,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F19 #x0301)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER EPSILON WITH DASIA AND OXIA")
+     ((name . "GREEK SMALL LETTER EPSILON WITH DASIA AND OXIA")
       (ucs		  . #x1F15)	; ἕ
       ))
     (ucs		. #x1F1D)	; Ἕ
@@ -365,7 +365,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F20 #x0300)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER ETA WITH PSILI AND VARIA")
+     ((name . "GREEK CAPITAL LETTER ETA WITH PSILI AND VARIA")
       (ucs		  . #x1F2A)	; Ἢ
       ))
     (ucs		. #x1F22)	; ἢ
@@ -377,7 +377,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F21 #x0300)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER ETA WITH DASIA AND VARIA")
+     ((name . "GREEK CAPITAL LETTER ETA WITH DASIA AND VARIA")
       (ucs		  . #x1F2B)	; Ἣ
       ))
     (ucs		. #x1F23)	; ἣ
@@ -389,7 +389,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F20 #x0301)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER ETA WITH PSILI AND OXIA")
+     ((name . "GREEK CAPITAL LETTER ETA WITH PSILI AND OXIA")
       (ucs		  . #x1F2C)	; Ἤ
       ))
     (ucs		. #x1F24)	; ἤ
@@ -401,7 +401,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F21 #x0301)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER ETA WITH DASIA AND OXIA")
+     ((name . "GREEK CAPITAL LETTER ETA WITH DASIA AND OXIA")
       (ucs		  . #x1F2D)	; Ἥ
       ))
     (ucs		. #x1F25)	; ἥ
@@ -455,25 +455,25 @@
     (ucs		. #x1F29)	; Ἡ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER ETA WITH PSILI AND VARIA")
+  '((name . "GREEK CAPITAL LETTER ETA WITH PSILI AND VARIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F28 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER ETA WITH PSILI AND VARIA")
+     ((name . "GREEK SMALL LETTER ETA WITH PSILI AND VARIA")
       (ucs		  . #x1F22)	; ἢ
       ))
     (ucs		. #x1F2A)	; Ἢ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER ETA WITH DASIA AND VARIA")
+  '((name . "GREEK CAPITAL LETTER ETA WITH DASIA AND VARIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F29 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER ETA WITH DASIA AND VARIA")
+     ((name . "GREEK SMALL LETTER ETA WITH DASIA AND VARIA")
       (ucs		  . #x1F23)	; ἣ
       ))
     (ucs		. #x1F2B)	; Ἣ
@@ -557,7 +557,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F30 #x0300)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER IOTA WITH PSILI AND VARIA")
+     ((name . "GREEK CAPITAL LETTER IOTA WITH PSILI AND VARIA")
       (ucs		  . #x1F3A)	; Ἲ
       ))
     (ucs		. #x1F32)	; ἲ
@@ -569,7 +569,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F31 #x0300)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER IOTA WITH DASIA AND VARIA")
+     ((name . "GREEK CAPITAL LETTER IOTA WITH DASIA AND VARIA")
       (ucs		  . #x1F3B)	; Ἳ
       ))
     (ucs		. #x1F33)	; ἳ
@@ -581,7 +581,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F30 #x0301)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER IOTA WITH PSILI AND OXIA")
+     ((name . "GREEK CAPITAL LETTER IOTA WITH PSILI AND OXIA")
       (ucs		  . #x1F3C)	; Ἴ
       ))
     (ucs		. #x1F34)	; ἴ
@@ -593,7 +593,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F31 #x0301)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER IOTA WITH DASIA AND OXIA")
+     ((name . "GREEK CAPITAL LETTER IOTA WITH DASIA AND OXIA")
       (ucs		  . #x1F3D)	; Ἵ
       ))
     (ucs		. #x1F35)	; ἵ
@@ -647,49 +647,49 @@
     (ucs		. #x1F39)	; Ἱ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER IOTA WITH PSILI AND VARIA")
+  '((name . "GREEK CAPITAL LETTER IOTA WITH PSILI AND VARIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F38 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER IOTA WITH PSILI AND VARIA")
+     ((name . "GREEK SMALL LETTER IOTA WITH PSILI AND VARIA")
       (ucs		  . #x1F32)	; ἲ
       ))
     (ucs		. #x1F3A)	; Ἲ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER IOTA WITH DASIA AND VARIA")
+  '((name . "GREEK CAPITAL LETTER IOTA WITH DASIA AND VARIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F39 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER IOTA WITH DASIA AND VARIA")
+     ((name . "GREEK SMALL LETTER IOTA WITH DASIA AND VARIA")
       (ucs		  . #x1F33)	; ἳ
       ))
     (ucs		. #x1F3B)	; Ἳ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER IOTA WITH PSILI AND OXIA")
+  '((name . "GREEK CAPITAL LETTER IOTA WITH PSILI AND OXIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F38 #x0301)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER IOTA WITH PSILI AND OXIA")
+     ((name . "GREEK SMALL LETTER IOTA WITH PSILI AND OXIA")
       (ucs		  . #x1F34)	; ἴ
       ))
     (ucs		. #x1F3C)	; Ἴ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER IOTA WITH DASIA AND OXIA")
+  '((name . "GREEK CAPITAL LETTER IOTA WITH DASIA AND OXIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F39 #x0301)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER IOTA WITH DASIA AND OXIA")
+     ((name . "GREEK SMALL LETTER IOTA WITH DASIA AND OXIA")
       (ucs		  . #x1F35)	; ἵ
       ))
     (ucs		. #x1F3D)	; Ἵ
@@ -743,7 +743,7 @@
     (ucs		. #x1F41)	; ὁ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER OMICRON WITH PSILI AND VARIA")
+  '((name . "GREEK SMALL LETTER OMICRON WITH PSILI AND VARIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -755,7 +755,7 @@
     (ucs		. #x1F42)	; ὂ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER OMICRON WITH DASIA AND VARIA")
+  '((name . "GREEK SMALL LETTER OMICRON WITH DASIA AND VARIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -767,7 +767,7 @@
     (ucs		. #x1F43)	; ὃ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER OMICRON WITH PSILI AND OXIA")
+  '((name . "GREEK SMALL LETTER OMICRON WITH PSILI AND OXIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -779,7 +779,7 @@
     (ucs		. #x1F44)	; ὄ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER OMICRON WITH DASIA AND OXIA")
+  '((name . "GREEK SMALL LETTER OMICRON WITH DASIA AND OXIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -821,7 +821,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F48 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER OMICRON WITH PSILI AND VARIA")
+     ((name . "GREEK SMALL LETTER OMICRON WITH PSILI AND VARIA")
       (ucs		  . #x1F42)	; ὂ
       ))
     (ucs		. #x1F4A)	; Ὂ
@@ -833,7 +833,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F49 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER OMICRON WITH DASIA AND VARIA")
+     ((name . "GREEK SMALL LETTER OMICRON WITH DASIA AND VARIA")
       (ucs		  . #x1F43)	; ὃ
       ))
     (ucs		. #x1F4B)	; Ὃ
@@ -845,7 +845,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F48 #x0301)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER OMICRON WITH PSILI AND OXIA")
+     ((name . "GREEK SMALL LETTER OMICRON WITH PSILI AND OXIA")
       (ucs		  . #x1F44)	; ὄ
       ))
     (ucs		. #x1F4C)	; Ὄ
@@ -857,7 +857,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F49 #x0301)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER OMICRON WITH DASIA AND OXIA")
+     ((name . "GREEK SMALL LETTER OMICRON WITH DASIA AND OXIA")
       (ucs		  . #x1F45)	; ὅ
       ))
     (ucs		. #x1F4D)	; Ὅ
@@ -883,7 +883,7 @@
     (ucs		. #x1F51)	; ὑ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER UPSILON WITH PSILI AND VARIA")
+  '((name . "GREEK SMALL LETTER UPSILON WITH PSILI AND VARIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -891,7 +891,7 @@
     (ucs		. #x1F52)	; ὒ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER UPSILON WITH DASIA AND VARIA")
+  '((name . "GREEK SMALL LETTER UPSILON WITH DASIA AND VARIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -903,7 +903,7 @@
     (ucs		. #x1F53)	; ὓ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER UPSILON WITH PSILI AND OXIA")
+  '((name . "GREEK SMALL LETTER UPSILON WITH PSILI AND OXIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -911,7 +911,7 @@
     (ucs		. #x1F54)	; ὔ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER UPSILON WITH DASIA AND OXIA")
+  '((name . "GREEK SMALL LETTER UPSILON WITH DASIA AND OXIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -961,7 +961,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F59 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER UPSILON WITH DASIA AND VARIA")
+     ((name . "GREEK SMALL LETTER UPSILON WITH DASIA AND VARIA")
       (ucs		  . #x1F53)	; ὓ
       ))
     (ucs		. #x1F5B)	; Ὓ
@@ -973,7 +973,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F59 #x0301)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER UPSILON WITH DASIA AND OXIA")
+     ((name . "GREEK SMALL LETTER UPSILON WITH DASIA AND OXIA")
       (ucs		  . #x1F55)	; ὕ
       ))
     (ucs		. #x1F5D)	; Ὕ
@@ -1015,25 +1015,25 @@
     (ucs		. #x1F61)	; ὡ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER OMEGA WITH PSILI AND VARIA")
+  '((name . "GREEK SMALL LETTER OMEGA WITH PSILI AND VARIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F60 #x0300)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER OMEGA WITH PSILI AND VARIA")
+     ((name . "GREEK CAPITAL LETTER OMEGA WITH PSILI AND VARIA")
       (ucs		  . #x1F6A)	; Ὢ
       ))
     (ucs		. #x1F62)	; ὢ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER OMEGA WITH DASIA AND VARIA")
+  '((name . "GREEK SMALL LETTER OMEGA WITH DASIA AND VARIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F61 #x0300)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER OMEGA WITH DASIA AND VARIA")
+     ((name . "GREEK CAPITAL LETTER OMEGA WITH DASIA AND VARIA")
       (ucs		  . #x1F6B)	; Ὣ
       ))
     (ucs		. #x1F63)	; ὣ
@@ -1045,7 +1045,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F60 #x0301)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER OMEGA WITH PSILI AND OXIA")
+     ((name . "GREEK CAPITAL LETTER OMEGA WITH PSILI AND OXIA")
       (ucs		  . #x1F6C)	; Ὤ
       ))
     (ucs		. #x1F64)	; ὤ
@@ -1057,7 +1057,7 @@
     (mirrored		. nil)
     (->decomposition	#x1F61 #x0301)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER OMEGA WITH DASIA AND OXIA")
+     ((name . "GREEK CAPITAL LETTER OMEGA WITH DASIA AND OXIA")
       (ucs		  . #x1F6D)	; Ὥ
       ))
     (ucs		. #x1F65)	; ὥ
@@ -1111,49 +1111,49 @@
     (ucs		. #x1F69)	; Ὡ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER OMEGA WITH PSILI AND VARIA")
+  '((name . "GREEK CAPITAL LETTER OMEGA WITH PSILI AND VARIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F68 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER OMEGA WITH PSILI AND VARIA")
+     ((name . "GREEK SMALL LETTER OMEGA WITH PSILI AND VARIA")
       (ucs		  . #x1F62)	; ὢ
       ))
     (ucs		. #x1F6A)	; Ὢ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER OMEGA WITH DASIA AND VARIA")
+  '((name . "GREEK CAPITAL LETTER OMEGA WITH DASIA AND VARIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F69 #x0300)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER OMEGA WITH DASIA AND VARIA")
+     ((name . "GREEK SMALL LETTER OMEGA WITH DASIA AND VARIA")
       (ucs		  . #x1F63)	; ὣ
       ))
     (ucs		. #x1F6B)	; Ὣ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER OMEGA WITH PSILI AND OXIA")
+  '((name . "GREEK CAPITAL LETTER OMEGA WITH PSILI AND OXIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F68 #x0301)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER OMEGA WITH PSILI AND OXIA")
+     ((name . "GREEK SMALL LETTER OMEGA WITH PSILI AND OXIA")
       (ucs		  . #x1F64)	; ὤ
       ))
     (ucs		. #x1F6C)	; Ὤ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER OMEGA WITH DASIA AND OXIA")
+  '((name . "GREEK CAPITAL LETTER OMEGA WITH DASIA AND OXIA")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x1F69 #x0301)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER OMEGA WITH DASIA AND OXIA")
+     ((name . "GREEK SMALL LETTER OMEGA WITH DASIA AND OXIA")
       (ucs		  . #x1F65)	; ὥ
       ))
     (ucs		. #x1F6D)	; Ὥ
@@ -1244,7 +1244,8 @@
     (mirrored		. nil)
     (->decomposition	#x025B #x0300)
     (->uppercase
-     ((name . "LATIN CAPITAL LETTER OPEN E WITH GRAVE")))
+     ((name		  . "LATIN CAPITAL LETTER OPEN E WITH GRAVE")
+      ))
     (japanese-jisx0213-1	. #x2B50)	; �����
     ))
 (define-char
@@ -1267,7 +1268,8 @@
     (mirrored		. nil)
     (->decomposition	#x025B #x0301)
     (->uppercase
-     ((name . "LATIN CAPITAL LETTER OPEN E WITH ACUTE")))
+     ((name		  . "LATIN CAPITAL LETTER OPEN E WITH ACUTE")
+      ))
     (japanese-jisx0213-1	. #x2B51)	; �����
     ))
 (define-char
@@ -2005,7 +2007,7 @@
     (mirrored		. nil)
     (->decomposition	#x03B1 #x0345)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER ALPHA WITH PROSGEGRAMMENI")
+     ((name . "GREEK CAPITAL LETTER ALPHA WITH PROSGEGRAMMENI")
       (ucs		  . #x1FBC)	; ᾼ
       ))
     (ucs		. #x1FB3)	; ᾳ
@@ -2083,13 +2085,13 @@
     (ucs		. #x1FBB)	; Ά
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER ALPHA WITH PROSGEGRAMMENI")
+  '((name . "GREEK CAPITAL LETTER ALPHA WITH PROSGEGRAMMENI")
     (general-category	letter titlecase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x0391 #x0345)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER ALPHA WITH YPOGEGRAMMENI")
+     ((name . "GREEK SMALL LETTER ALPHA WITH YPOGEGRAMMENI")
       (ucs		  . #x1FB3)	; ᾳ
       ))
     (ucs		. #x1FBC)	; ᾼ
@@ -2153,7 +2155,7 @@
     (mirrored		. nil)
     (->decomposition	#x03B7 #x0345)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER ETA WITH PROSGEGRAMMENI")
+     ((name . "GREEK CAPITAL LETTER ETA WITH PROSGEGRAMMENI")
       (ucs		  . #x1FCC)	; ῌ
       ))
     (ucs		. #x1FC3)	; ῃ
@@ -2299,7 +2301,7 @@
     (ucs		. #x1FD2)	; ῒ
     ))
 (define-char
-  '((name		. "GREEK SMALL LETTER IOTA WITH DIALYTIKA AND OXIA")
+  '((name . "GREEK SMALL LETTER IOTA WITH DIALYTIKA AND OXIA")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -2569,7 +2571,7 @@
     (mirrored		. nil)
     (->decomposition	#x03C9 #x0345)
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER OMEGA WITH PROSGEGRAMMENI")
+     ((name . "GREEK CAPITAL LETTER OMEGA WITH PROSGEGRAMMENI")
       (ucs		  . #x1FFC)	; ῼ
       ))
     (ucs		. #x1FF3)	; ῳ
@@ -2647,13 +2649,13 @@
     (ucs		. #x1FFB)	; Ώ
     ))
 (define-char
-  '((name		. "GREEK CAPITAL LETTER OMEGA WITH PROSGEGRAMMENI")
+  '((name . "GREEK CAPITAL LETTER OMEGA WITH PROSGEGRAMMENI")
     (general-category	letter titlecase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x03A9 #x0345)
     (->lowercase
-     ((name		  . "GREEK SMALL LETTER OMEGA WITH YPOGEGRAMMENI")
+     ((name . "GREEK SMALL LETTER OMEGA WITH YPOGEGRAMMENI")
       (ucs		  . #x1FF3)	; ῳ
       ))
     (ucs		. #x1FFC)	; ῼ

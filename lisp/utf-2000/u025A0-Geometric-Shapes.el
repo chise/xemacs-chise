@@ -469,7 +469,7 @@
     (ucs		. #x25D4)	; ◔
     ))
 (define-char
-  '((name		. "CIRCLE WITH ALL BUT UPPER LEFT QUADRANT BLACK")
+  '((name . "CIRCLE WITH ALL BUT UPPER LEFT QUADRANT BLACK")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
