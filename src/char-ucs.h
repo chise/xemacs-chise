@@ -216,7 +216,7 @@ struct Lisp_Charset
   unsigned int graphic;
 
   /* Byte->character mapping table */
-  Emchar* decoding_table;
+  Lisp_Object decoding_table;
 
   /* Character->byte mapping table */
   Emchar_to_byte_table* to_byte1_table;
@@ -361,10 +361,15 @@ INLINE Emchar MAKE_CHAR (Lisp_Object charset, int c1, int c2);
 INLINE Emchar
 MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 {
-  Emchar* decoding_table;
-  
-  if ((decoding_table = XCHARSET_DECODING_TABLE (charset)) != NULL)
-    return decoding_table[c1 - (XCHARSET_CHARS (charset) == 94 ? 33 : 32)];
+  Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (charset);
+  int idx;
+  Lisp_Object ch;
+
+  if (!EQ(decoding_table, Qnil)
+      && (0 <= (idx = c1 - (XCHARSET_CHARS (charset) == 94 ? 33 : 32)))
+      && (idx < XVECTOR_LENGTH (decoding_table))
+      && !EQ (ch = XVECTOR_DATA(decoding_table)[idx], Qnil))
+    return XCHAR (ch);
   else if (EQ (charset, Vcharset_katakana_jisx0201))
     if (c1 < 0x60)
       return c1 + MIN_CHAR_HALFWIDTH_KATAKANA - 33;
