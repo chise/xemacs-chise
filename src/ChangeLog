@@ -1,3 +1,11 @@
+2004-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Vnext_defined_char_id): New variable.
+	(Fput_char_attribute): Accept characters in `->unified'.
+	(Fdefine_char): Refer and update Vnext_defined_char_id to allocate
+	new characters which are not related with builtin char-id ranges.
+	(vars_of_chartab): Add new variable `next-defined-char-id'.
+
 2004-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Q_unified): New variable.
