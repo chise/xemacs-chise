@@ -3,6 +3,12 @@
 	* Ideograph-R005-Second.el (U+4E7E): Delete
 	`ideographic-structure'.
 
+	* Ideograph-R010-Legs.el (U+5149): Delete incomplete
+	`ideographic-structure'.
+
+	* Ideograph-R008-Lid.el (U+4EA1): Unify B-A460.
+	(M-00287): Separate B-A460.
+
 2005-04-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R040-Roof.el (U-00021A04): Use `->denotational'
