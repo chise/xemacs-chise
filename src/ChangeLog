@@ -1,3 +1,8 @@
+2002-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (charset_code_point): if a coded-charset has a
+	final-byte, don't inherit the builtin range of the mother CCS.
+
 2002-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (charset_code_point): Fix problem about
