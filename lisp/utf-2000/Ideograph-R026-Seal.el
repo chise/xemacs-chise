@@ -64,14 +64,12 @@
     (=daikanwa		. 02839)	; &I-M-02839;
     ))
 (define-char
-  '((ideographic-	(:radical	26 ; ⼙
-			 :strokes	1)
-			(:radical	3 ; ⼂
-			 :strokes	2))
+  '((ideographic-radical@ucs . 3)	; ⼂
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@daikanwa . 26)	; ⼙
+    (ideographic-strokes@daikanwa . 1)
     (total-strokes	 . 3)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 52)
-    (hanyu-dazidian-char . 1)
+    (hanyu-dazidian	1 52 1)
     (=ucs		. #x2007E)	; 𠁾
     (=cns11643-5	. #x212D)	; &I-C5-212D;
     (=daikanwa		. 02840)	; &I-M-02840;
@@ -877,32 +875,43 @@
     (=hanziku-1		. #xE7C4)	; &I-HZK01-E7C4;
     ))
 (define-char
-  '((=>ucs		. #x537F)	; 卿
+  '((=>ucs*		. #x537F)	; 卿
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-vulgar
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 02879)	; &I-M-02879;
-		 )
+    (<-denotational
+     ((=ucs		  . #x537F)	; 卿
       ))
-    (=cns11643-6	. #x3D59)	; &M-02877;
-    (=daikanwa		. 02877)	; &I-M-02877;
+    (=ucs		. #x2F831)	; 卿
+    (->subsumptive
+     ((<-vulgar
+       ((=ucs		    . #x2F833)	; 卿
+	(=daikanwa	    . 02879)	; &I-M-02879;
+	))
+      (<-vulgar*sources
+       daikanwa)
+      (=daikanwa	  . 02877)	; &M-02877;
+      )
+     ((=cns11643-6	  . #x3D59)	; &C6-3D59;
+      (=ucs@iso		  . #x2F831)	; &C6-3D59;
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	2877 0 2)
+  '((=>daikanwa		. 02877)	; &M-02877;
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 318)
-    (hanyu-dazidian-char . 3)
-    (<-vulgar
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 868)
-		 (=daikanwa	     . 02880)	; &I-M-02880;
-		 )
+    (<-denotational
+     ((=ucs		  . #x537F)	; 卿
       ))
+    (<-vulgar
+     ((shinjigen-1	  . 868)
+      (=jis-x0208-1978	  . #x362A)	; &M-02880;
+      (=ks-x1001	  . #x4C4F)	; &I-K0-4C4F;
+      (=daikanwa	  . 02880)	; &I-M-02880;
+      ))
+    (<-vulgar*sources
+     shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -913,29 +922,36 @@
       ))
     (shinjigen-1	. 870)
     (shinjigen-2	. 870)
-    (=ucs		. #x537F)	; 卿
-    (=gb2312		. #x4764)	; &I-G0-4764;
+    (=gb2312		. #x4764)	; &GT-03656;
     (=jis-x0208-1983	. #x362A)	; &I-J83-362A;
     (=jis-x0208-1990	. #x362A)	; &I-J90-362A;
     (=cns11643-1	. #x544E)	; &I-C1-544E;
     (=gt		. 03656)	; &I-GT-03656;
     (=gt-pj-1		. #x362A)	; &I-GT-03656;
     (=jef-china3	. #x45D5)	; &I-JC3-45D5;
+    (=ucs@unicode	. #x537F)	; &GT-03656;
     ))
 (define-char
-  '((ideographic-radical . 26)	; ⼙
+  '((=>ucs*		. #x537F)	; 卿
+    (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-vulgar
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 02879)	; &I-M-02879;
-		 )
+    (<-denotational
+     ((=ucs		  . #x537F)	; 卿
       ))
-    (=cns11643-6	. #x3D5A)	; &M-02878;
+    (<-vulgar
+     ((=ucs		  . #x2F833)	; 卿
+      (=daikanwa	  . 02879)	; &I-M-02879;
+      ))
+    (<-vulgar*sources
+     daikanwa)
+    (=ucs		. #x2F832)	; 卿
+    (=cns11643-6	. #x3D5A)	; &I-C6-3D5A;
     (=daikanwa		. 02878)	; &I-M-02878;
     ))
 (define-char
-  '((ideographic-radical . 26)	; ⼙
+  '((=>ucs*		. #x537F)	; 卿
+    (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (->ideographic-variants
@@ -943,6 +959,9 @@
 		 (=daikanwa	     . 02880)	; &I-M-02880;
 		 )
       :sources	(shinjigen-1)))
+    (<-denotational
+     ((=ucs		  . #x537F)	; 卿
+      ))
     (shinjigen-1	. 869)
     (shinjigen-2	. 869)
     (=ucs		. #x2F833)	; 卿
@@ -950,11 +969,17 @@
     (=daikanwa		. 02879)	; &I-M-02879;
     ))
 (define-char
-  '((=>ucs		. #x537F)	; 卿
-    (ideographic-radical . 26)	; ⼙
+  '((ideographic-radical . 26)	; ⼙
+    (hanyu-dazidian	1 318 3)
+    (=ucs		. #x537F)	; 卿
+    ))
+(define-char
+  '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (hanyu-dazidian	1 318 3)
+    (<-denotational
+     ((=ucs		  . #x537F)	; 卿
+      ))
     (shinjigen-1	. 868)
     (shinjigen-2	. 868)
     (=jis-x0208-1978	. #x362A)	; &M-02880;
