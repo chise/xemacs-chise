@@ -12882,7 +12882,8 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (<-simplified
-     ((=daikanwa	  . 15364)	; ø¸ƒ°„
+     ((=ucs		  . #x69EA)	; æ§ª
+      (=daikanwa	  . 15364)	; ø¸ƒ°„
       ))
     (<-simplified*sources
      daikanwa)

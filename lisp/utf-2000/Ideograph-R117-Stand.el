@@ -27,7 +27,9 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (<-simplified
-     ((=daikanwa	  . 25761)	; ø¸†’¡
+     ((=jis-x0208	  . #x3E4F)	; ø½Š¡
+      (=ks-x1001	  . #x6D71)	; ø»Š‹„
+      (=daikanwa	  . 25761)	; ø¸†’¡
       ))
     (=big5-cdp		. #x8BAE)	; ý¢€ˆ®®
     ))

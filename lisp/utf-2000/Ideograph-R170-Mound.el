@@ -3486,7 +3486,9 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (<-simplified
-     ((=daikanwa	  . 41891)	; ø¸ŠŽ£
+     ((=jis-x0208	  . #x702C)	; ø½‹ª‰
+      (=ks-x1001	  . #x6B5F)	; ø»Š‡¶
+      (=daikanwa	  . 41891)	; ø¸ŠŽ£
       ))
     (<-simplified*sources
      songyuan-yilai-suzipu daikanwa)
