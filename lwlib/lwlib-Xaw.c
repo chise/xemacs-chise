@@ -880,7 +880,7 @@ xaw_create_text_field (widget_instance *instance)
 
 #endif /* LWLIB_WIDGETS_ATHENA */
 
-widget_creation_entry
+const widget_creation_entry
 xaw_creation_table [] =
 {
 #ifdef LWLIB_SCROLLBARS_ATHENA

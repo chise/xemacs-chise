@@ -1786,7 +1786,7 @@ xm_create_combo_box (widget_instance *instance)
 
 /* Table of functions to create widgets */
 
-widget_creation_entry
+const widget_creation_entry
 xm_creation_table [] =
 {
 #ifdef LWLIB_MENUBARS_MOTIF

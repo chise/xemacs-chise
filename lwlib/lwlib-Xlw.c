@@ -482,7 +482,7 @@ xlw_create_clip_window (widget_instance *instance)
 }
 #endif
 
-widget_creation_entry 
+const widget_creation_entry 
 xlw_creation_table [] =
 {
 #ifdef LWLIB_MENUBARS_LUCID

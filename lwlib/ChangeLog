@@ -1,3 +1,28 @@
+2001-01-08  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.40 is released.
+
+2001-01-06  Martin Buchholz  <martin@xemacs.org>
+
+	* lwlib-Xaw.c (xaw_creation_table): Make const.
+	* lwlib-Xaw.h (xaw_creation_table): Make const.
+	* lwlib-Xlw.c (xlw_creation_table): Make const.
+	* lwlib-Xlw.h (xlw_creation_table): Make const.
+	* lwlib-Xm.c (xm_creation_table): Make const.
+	* lwlib-Xm.h (xm_creation_table): Make const.
+	* lwlib.c (find_in_table): Use const.
+
+2001-01-02  Andy Piper  <andy@xemacs.org>
+
+	* lwlib.h (_widget_args): add args_changed. Necessary because we
+	reference count args.
+
+	* lwlib.c (lw_add_widget_value_arg): set args_changed flag.
+	(merge_widget_value_args): mark as changed if args_changed is
+	true.
+	(update_all_widget_values): reset args_changed.
+	(initialize_widget_instance): ditto.
+
 2000-12-31  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.39 is released.

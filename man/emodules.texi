@@ -350,7 +350,14 @@ This required function contains calls to macros such as
 @code{DEFVAR_LISP()}, @code{DEFVAR_BOOL()} etc, and its purpose is to
 declare and initialize all and any variables that your module defines.
 They syntax for declaring variables is identical to the syntax used for
-all internal @value{emacs} source code.
+all internal @value{emacs} source code.  If the module is intended to be
+usable statically linked into XEmacs, the actions of this function are
+severely restricted.  @xref{General Coding Rules,,,internals,
+@value{emacs} Internals Manual}.  Also see the comments in
+@file{src/emacs.c} (@code{main_1}).  Modules which perform
+initializations not permitted by these rules will probably work, but
+dual-use (dynamic loading and static linking) modules will require very
+careful, and possibly fragile, coding.
 
 @item modules_of_module
 @findex modules_of_module
@@ -665,7 +672,7 @@ although @file{.ell} is the preferred extension.
 Once all of your source code files have been compiled (including the
 generated init file) you need to link them all together to create the
 loadable module.  To do this, you invoke @code{ellcc} in link mode, by
-passing the @code{--mode-link} option.  You need to specify the final
+passing the @code{--mode=link} option.  You need to specify the final
 output file using the @code{--mod-output=NAME} option, but other than
 that all other arguments are passed on directly to the system compiler
 or linker, along with any other required arguments to create the
