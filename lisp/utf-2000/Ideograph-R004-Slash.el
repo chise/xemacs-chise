@@ -242,6 +242,7 @@
     (ideograph-cdp	. -63)
     (japanese-jisx0213-2	. #x2121)	; ø»¤€
     (ideograph-gt-pj-9		. #x4D4A)	; ý¡€€€ˆ
+    (china3-jef			. #x71FC)	; øº‡‡¼
     (chinese-big5-cdp		. #x8B4A)	; ý¢€ˆ­Š
     (ideograph-gt		. 00008)	; ý¡€€€ˆ
     (mojikyo			. 070276)	; ý €‘Š„

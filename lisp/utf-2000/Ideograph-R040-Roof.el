@@ -2981,6 +2981,7 @@
     (total-strokes	 . 12)
     (japanese-jisx0213-2	. #x2825)	; ø»¤§–
     (ideograph-daikanwa		. 07242)	; ø¸±Š
+    (china3-jef			. #x90C2)	; øº‰ƒ‚
     (ideograph-cbeta		. 00716)	; ø¸ ‹Œ
     (mojikyo			. 007242)	; ý €±Š
     ))
