@@ -1325,6 +1325,13 @@ case "$canonical" in
     NON_GNU_CPP=/usr/ccs/lib/cpp
   ;;
 
+  dnl NEC
+  mips-nec-sysv*)
+    machine=mips-nec
+    NON_GNU_CC=/usr/ccs/bin/cc
+    NON_GNU_CPP=/usr/ccs/lib/cpp
+  ;;
+
   dnl Silicon Graphics machines
   dnl Iris 2500 and Iris 2500 Turbo (aka the Iris 3030)
   m68*-sgi-iris3.5* ) machine=irist opsys=iris3-5 ;;
@@ -1481,6 +1488,9 @@ case "$canonical" in
 
   dnl Linux/68k
   m68k-*-linux* ) machine=m68k opsys=linux ;;
+
+  dnl Linux/arm
+  arm-*-linux* ) machine=arm opsys=linux ;;
 
 esac
 
@@ -1917,8 +1927,8 @@ if test "$add_runtime_path" = "yes"; then
   dnl and whether it works (or at least does no harm)
   AC_MSG_CHECKING("for runtime libraries flag")
   case "$opsys" in
-    sol2 ) dash_r = "-R" ;;
-    decosf* | linux* ) dash_r = "-rpath " ;;
+    sol2 ) dash_r="-R" ;;
+    decosf* | linux* ) dash_r="-rpath " ;;
     *)
       dash_r=""
       for try_dash_r in "-R" "-R " "-rpath "; do
@@ -2081,7 +2091,7 @@ AC_PROG_YACC
 
 dnl checks for header files
 AC_CHECK_HEADERS(mach/mach.h sys/stropts.h sys/timeb.h sys/time.h unistd.h)
-AC_CHECK_HEADERS(utime.h locale.h libgen.h fcntl.h ulimit.h cygwin32/version.h)
+AC_CHECK_HEADERS(utime.h locale.h libgen.h fcntl.h ulimit.h cygwin/version.h)
 AC_CHECK_HEADERS(linux/version.h kstat.h sys/pstat.h inttypes.h sys/un.h a.out.h)
 AC_HEADER_SYS_WAIT
 AC_HEADER_STDC
@@ -3003,14 +3013,19 @@ if test "$with_mule" = "yes" ; then
     test "$ac_cv_func_crypt" != "yes" && { AC_CHECK_LIB(crypt, crypt) }
   fi
   dnl Back to our regularly scheduled wnn hunting
-  test -z "$with_wnn" && { AC_CHECK_LIB(wnn,jl_dic_list_e,[:],with_wnn=no) }
+  if test -z "$with_wnn" -o "$with_wnn" = "yes"; then
+    AC_CHECK_LIB(wnn,jl_dic_list_e,libwnn=wnn,
+      AC_CHECK_LIB(wnn4,jl_dic_list_e,libwnn=wnn4,
+	AC_CHECK_LIB(wnn6,jl_dic_list_e,libwnn=wnn6,
+	  AC_CHECK_LIB(wnn6_fromsrc,dic_list_e,libwnn=wnn6_fromsrc,with_wnn=no))))
+  fi
   test -z "$with_wnn" && with_wnn=yes
   if test "$with_wnn" = "yes"; then
     AC_DEFINE(HAVE_WNN)
-    XE_PREPEND(-lwnn, libs_x)
+    XE_PREPEND(-l$libwnn, libs_x)
     XE_ADD_OBJS(mule-wnnfns.o)
     if test "$with_wnn6" != "no"; then
-      AC_CHECK_LIB(wnn, jl_fi_dic_list, with_wnn6=yes)
+      AC_CHECK_LIB($libwnn, jl_fi_dic_list, with_wnn6=yes)
       test "$with_wnn6" = "yes" && AC_DEFINE(WNN6)
     fi
   fi
@@ -3068,11 +3083,15 @@ dnl The realpath in ELF linux libc's is O.K.
 dnl For example, call realpath on a file thirty-five or so directories deep
 dnl and you get ELOOP even if no symlinks at all are involved.
 dnl Reports as of 11/1997 indicate BSDi has problems too.
+dnl The realpath() in UnixWare2.1.3 could not get any pathname fragment in error condition.
 case "$opsys" in
   linuxaout* | bsdos3* | freebsd* | decosf4-0* | aix4* ) XE_ADD_OBJS(realpath.o) ;;
   * )
-    AC_CHECK_FUNCS(realpath)
-    test "$ac_cv_func_realpath" != "yes" && XE_ADD_OBJS(realpath.o) ;;
+    case "$canonical" in
+      *-*-sysv4.2uw2* ) XE_ADD_OBJS(realpath.o) ;;
+      * ) AC_CHECK_FUNCS(realpath)
+	  test "$ac_cv_func_realpath" != "yes" && XE_ADD_OBJS(realpath.o) ;;
+    esac ;;
 esac
 
 dnl If netdb.h does not declare h_errno, we must declare it by hand.

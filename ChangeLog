@@ -1,3 +1,28 @@
+1998-11-28  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta4 is released.
+
+1998-11-27  SL Baur  <steve@altair.xemacs.org>
+
+	* configure.in: Linux/Arm Support.
+	From James LewisMoss <dres@ioa.com>
+
+1998-11-27  Takeshi Hagiwara  <hagiwara@ie.niigata-u.ac.jp>
+
+	* configure.in:
+	Fix the realpath() problem of UnixWare2.1.3.
+	Patches for NEC's sysv4.2 machine.
+
+1998-11-09  Kazuyuki IENAGA  <ienaga@jsys.co.jp>
+
+	* configure.in: Check if there's wnn4.2 or wnn6 specific library
+	installed. The Wnn library will be checked if the --with-wnn
+	and/or --with-wnn6 was specified compulsory.
+
+1998-07-28  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* configure.in (CPP): Too many spaces im run-patch flag detection.
+
 1998-10-15  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta3 is released.

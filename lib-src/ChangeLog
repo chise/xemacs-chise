@@ -1,3 +1,20 @@
+1998-11-28  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta4 is released.
+
+1998-10-14  Andy Piper  <andyp@parallax.co.uk>
+
+	* Makefile.in.in (movemail): add getopt.o to objects to link with.
+
+	* movemail.c (main): rewrite to use getopt(). Add options for
+	order reversal, progress output, regexp matching and message
+	deletion.
+	(popmail): add some optional verbose messages. Use pop_search_top
+	for getting messages. Make message deletion optional. Delete all
+	messages at the end rather than on a message my message basis.
+	(pop_search_top): new function. Looks for messages matching regexp.
+	(compile_regex): new function stolen from etags.
+
 1998-10-15  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta3 is released.

@@ -1,4 +1,14 @@
 							-*- indented-text -*-
+to 21.2 beta4 "Aglaophonos"
+-- isearch keymap fix from Katsumi Yamaoka
+-- directory_files cleanup from Hrvoje Niksic
+-- C implementation of base64 from Hrvoje Niksic
+-- C implementation of `buffer-substring-no-properties' from Hrvoje Niksic
+-- Experimental fix for spurious `file has changed on disk' message from
+   Charles Waldman
+-- Fix for etags.el hook calling from Malcolm Box
+-- User-name-completion fix for MS Windows NT from Greg Klanderman
+
 to 21.2 beta3 "Aglaia"
 -- case sensitiveness improvements from Didier Verna
 -- Bug fixes from 21.0
