@@ -1,3 +1,32 @@
+1999-11-19  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add "Ideograph-R012-Eight",
+	"Ideograph-R013-Down-Box", "Ideograph-R014-Cover",
+	"Ideograph-R015-Ice", "Ideograph-R016-Table",
+	"Ideograph-R017-Open-Box", "Ideograph-R018-Knife",
+	"Ideograph-R019-Power", "Ideograph-R020-Wrap", "Ideograph-R021-Spoon",
+	"Ideograph-R022-Right-Open-Box", "Ideograph-R023-Hiding-Enclosure",
+	"Ideograph-R024-Ten", "Ideograph-R025-Divination",
+	"Ideograph-R026-Seal" and "Ideograph-R027-Cliff" in UTF-2000.
+
+	* utf-2000/Ideograph-R012-Eight.el,
+	utf-2000/Ideograph-R013-Down-Box.el,
+	utf-2000/Ideograph-R014-Cover.el, utf-2000/Ideograph-R015-Ice.el,
+	utf-2000/Ideograph-R016-Table.el,
+	utf-2000/Ideograph-R017-Open-Box.el,
+	utf-2000/Ideograph-R018-Knife.el,
+	utf-2000/Ideograph-R019-Power.el, utf-2000/Ideograph-R020-Wrap.el,
+	utf-2000/Ideograph-R021-Spoon.el,
+	utf-2000/Ideograph-R022-Right-Open-Box.el,
+	utf-2000/Ideograph-R023-Hiding-Enclosure.el,
+	utf-2000/Ideograph-R024-Ten.el,
+	utf-2000/Ideograph-R025-Divination.el,
+	utf-2000/Ideograph-R026-Seal.el, utf-2000/Ideograph-R027-Cliff.el:
+	New files.
+
+	* utf-2000/ideograph-util.el (write-ideograph-radical-char-data):
+	Replace ` ' in `name' by `-'.
+
 1999-11-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* dumped-lisp.el (preloaded-file-list): Add "Ideograph-R002-Line",
