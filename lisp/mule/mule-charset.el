@@ -313,6 +313,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ideograph-gt-pj-9
 	  ideograph-gt-pj-10
 	  ideograph-gt-pj-11
+	  chinese-gb12345
 	  mojikyo
 ;;; 	  mojikyo-pj-1
 ;;; 	  mojikyo-pj-2
