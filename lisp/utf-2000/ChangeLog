@@ -1,3 +1,11 @@
+2003-07-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (U+2ECC): Specify U+FA66
+	instead of U+8FB6 for `<-radical'; separate JX2-7969 and BC-8966.
+
+	* Ideograph-R162-Walk.el (G0-6541): Unify JX2-7969 and BC-8966;
+	unify U+FA66 instead of U+8FB6; add GU+8FB6.
+
 2003-07-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* read-maps.el (mapping-table-read-file): Accept C1-HHHH and
