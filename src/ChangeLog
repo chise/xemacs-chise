@@ -1,3 +1,23 @@
+2000-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lrecord.h (enum lrecord_type): Rename
+	`lrecord_type_char_byte_table' to `lrecord_type_byte_table'.
+
+	* mule-charset.c (mark_byte_table): Renamed from
+	`mark_char_byte_table'.
+	(byte_table_equal): Renamed from `char_byte_table_equal'.
+	(byte_table_hash): Renamed from `byte_table_hash'.
+	(make_byte_table): Renamed from `make_byte_table'.
+	(copy_byte_table): Renamed from `copy_char_byte_table'.
+
+	* char-ucs.h (struct Lisp_Byte_Table): Renamed from
+	`Lisp_Char_Byte_Table'.
+	(byte_table): Renamed from `char_byte_table'.
+	(XBYTE_TABLE): Renamed from `XCHAR_BYTE_TABLE'.
+	(XSETBYTE_TABLE): Renamed from `XSET_CHAR_BYTE_TABLE'.
+	(BYTE_TABLE_P): Renamed from `XBYTE_TABLE_P'.
+	(GC_BYTE_TABLE_P): Renamed from `GC_CHAR_BYTE_TABLE_P'.
+
 2000-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* buffer.c (dfc_convert_to_external_format): Modify for UTF-2000.
