@@ -1,3 +1,14 @@
+2003-06-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (U+3654): New character.
+	(CB07009): New character.
+
+2003-06-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R021-Spoon.el (MH-0057): Unify JC3-45AC.
+
+	* Ideograph-R040-Roof.el (J0-3B21): Separate G0-326C and U+5BDF.
+
 2003-06-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U-00020C8A): Unify MH-0065 and M085233;
