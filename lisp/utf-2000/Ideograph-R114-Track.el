@@ -108,6 +108,7 @@
     (ideographic-radical . 114)	; â½±
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
+    (=ucs		. #x79BB)	; ç¦»
     (->subsumptive
      ((->subsumptive
        ((=jis-x0212	    . #x5073)	; ø»‹ª¤
@@ -121,7 +122,6 @@
       )
      ((=cns11643-2	  . #x3766)	; ø»“­¹
       ))
-    (=ucs		. #x79BB)	; ç¦»
     ))
 (define-char
   '((ideographic-radical . 114)	; â½±

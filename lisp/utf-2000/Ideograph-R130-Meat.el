@@ -23,6 +23,10 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x8089)	; è‚‰
+      ))
+    (=ucs		. #x2EBC)	; âº¼
     (->subsumptive
      ((=gt		  . 37857)	; ý¡€‰¡
       (=gt-pj-6		  . #x3879)	; ý¡€‰¡
@@ -36,10 +40,6 @@
       (=gt-k		  . 00417)	; ý¡„€†¡
       (=gt-pj-k1	  . #x377D)	; ý¢€ˆ¥˜
       ))
-    (<-ideographic-component-forms
-     ((=ucs		  . #x8089)	; è‚‰
-      ))
-    (=ucs		. #x2EBC)	; âº¼
     ))
 (define-char
   '((ideographic-radical . 130)	; â¾

@@ -257,6 +257,7 @@
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (=ucs		. #x4E3B)	; ä¸»
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -295,7 +296,6 @@
       (=gt-pj-1		  . #x3C67)	; ý¡€€‚Š
       (=ucs@unicode	  . #x4E3B)	; ø½Šž¬
       ))
-    (=ucs		. #x4E3B)	; ä¸»
     ))
 (define-char
   '((ideographic-radical . 3)	; â¼‚

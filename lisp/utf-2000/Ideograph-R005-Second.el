@@ -1141,6 +1141,7 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (=ucs		. #x4E75)	; ä¹µ
     (->subsumptive
      ((->subsumptive
        ((ideographic-structure
@@ -1184,7 +1185,6 @@
       (=jef-china3	  . #x41C3)	; øº„‡ƒ
       (mojikyo		  . 000192)	; ý €€ƒ€
       ))
-    (=ucs		. #x4E75)	; ä¹µ
     ))
 (define-char
   '((ideographic-radical . 5)	; â¼„
@@ -1992,6 +1992,7 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 11)
     (total-strokes	 . 12)
+    (=ucs		. #x3424)	; ã¤
     (->subsumptive
      ((hanyu-dazidian	  1 263 7)
       (=gt		  . 00280)	; ý¡€€„˜
@@ -2006,7 +2007,6 @@
      ((=cns11643-3	  . #x396D)	; ø»•»€
       (=ucs@unicode	  . #x3424)	; ø»•»€
       ))
-    (=ucs		. #x3424)	; ã¤
     ))
 (define-char
   '((ideographic-radical . 5)	; â¼„

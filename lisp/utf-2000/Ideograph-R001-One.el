@@ -127,6 +127,8 @@
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (hanyu-dazidian	1 3 3)
+    (=ucs		. #x4E03)	; ä¸ƒ
     (->subsumptive
      ((shinjigen-1	  . 3)
       (shinjigen-2	  . 3)
@@ -144,8 +146,6 @@
      ((=cns11643-1	  . #x4424)	; ø»‘µ¹
       (=ucs@cns		  . #x4E03)	; ø»‘µ¹
       ))
-    (hanyu-dazidian	1 3 3)
-    (=ucs		. #x4E03)	; ä¸ƒ
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
@@ -2502,8 +2502,7 @@
     (=hanziku-1		. #xA9A3)	; ý¢€š¦£
     ))
 (define-char
-  '((=>ucs		. #x20055)	; ð •
-    (ideographic-radical . 1)	; â¼€
+  '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes@daikanwa . 15)
     (total-strokes@daikanwa	  . 16)
     (ideographic-strokes@cns . 14)

@@ -1,3 +1,7 @@
+2004-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-attribute-name<): Fixed.
+
 2004-02-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mojikyo-conf.el (default-coded-charset-priority-list): Add
@@ -21,6 +25,19 @@
 
 	* Ideograph-R037-Big.el (U+5941): Modify `<-simplified'.
 	(U+5969): Use `->subsumptive'.
+
+	* char-db-util.el (char-attribute-name<): Put `->denotational'
+	into the last place and `->subsumptive' is second to last.
+	(char-db-make-char-spec): Use `=daikanwa' instead of
+	`ideograph-daikanwa'.
+	(char-db-insert-char-spec): Modify for `insert-char-attributes'.
+	(char-db-insert-alist): Likewise.
+	(insert-char-attributes): Delete optional argument
+	`ccs-attributes'; CCS-features are also specified in `attributes'.
+	(insert-char-data): Likewise.
+
+	* ideograph-util.el (insert-ideograph-radical-char-data): Modify
+	for `insert-char-data'.
 
 2004-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
