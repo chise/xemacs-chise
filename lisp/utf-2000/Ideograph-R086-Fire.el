@@ -3286,6 +3286,8 @@
     (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (japanese-jisx0208-1978	. #x3E46)	; ø»‚§‹
+    (japanese-jisx0208		. #x3E46)	; ø»†»“
     (japanese-jisx0208-1990	. #x3E46)	; ø½Š¡‡
     (mojikyo			. 050266)	; ý €Œ‘š
     (ucs			. #x713C)	; ç„¼
