@@ -1,4 +1,21 @@
+2001-12-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (JSP-342E): Separate U+532C.
+	(U+5332): Use U-00021657 instead of C4-3678 in the
+	`ideographic-structure' property.
+
+	* Ideograph-R021-Spoon.el (U+5316): Use U+4EBB instead of <CJK
+	RADICAL PERSON> in the `ideographic-structure' property.
+	(U+5318): Add `ideographic-structure'.
+
+	* Ideograph-R020-Wrap.el: Add missing `ideographic-structure'
+	properties.
+
+	* Ideograph-R015-Ice.el (M-01608): Unify U-000205AC.
+
 2001-12-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R043-Lame.el: Add some CJK Ext-B code points.
 
 	* Ideograph-R041-Inch.el: Add some CJK Ext-B code points.
 	(M-07456): Use C1-5C41 instead of U+7968 in the
