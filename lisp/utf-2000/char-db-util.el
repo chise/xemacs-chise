@@ -89,8 +89,8 @@
     nil)
    ((find-charset ka)
     (if (find-charset kb)
-	(if (<= (charset-id ka) 0)
-	    (if (<= (charset-id kb) 0)
+	(if (<= (charset-id ka) 1)
+	    (if (<= (charset-id kb) 1)
 		(cond
 		 ((= (charset-dimension ka)
 		     (charset-dimension kb))
@@ -100,7 +100,7 @@
 		     (charset-dimension kb))
 		  ))
 	      t)
-	  (if (<= (charset-id kb) 0)
+	  (if (<= (charset-id kb) 1)
 	      nil
 	    (< (charset-id ka)(charset-id kb))))
       nil))
