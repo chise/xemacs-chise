@@ -687,6 +687,23 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; ⿰
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(ucs		    . #x2FF3)	; ⿳
+	)
+       ((ucs		    . #x20089)	; 𠂉
+	)
+       ((ucs		    . #x4E00)	; 一
+	)
+       ((ucs		    . #x4E59)	; 乙
+	))
+      )
+     ((ucs		  . #x5202)	; 刂
+      ))
     (chinese-cns11643-3 . #x2325)	; �����
     (ideograph-daikanwa . 01882)	; �����
     ))
@@ -1596,14 +1613,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(ucs		    . #x2FF1)	; ⿱
-	)
-       ((ucs		    . #x53E3)	; 口
-	)
-       ((ucs		    . #x529B)	; 力
-	))
+     ((ucs		  . #x53E6)	; 另
       )
      ((ucs		  . #x5202)	; 刂
       ))
@@ -2369,6 +2379,21 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; ⿰
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; ⿱
+	)
+       ((ucs		    . #x3405)	; 㐅
+	)
+       ((ucs		    . #x6728)	; 木
+	))
+      )
+     ((ucs		  . #x5202)	; 刂
+      ))
     (shinjigen-1	. 632)
     (shinjigen-2	. 632)
     (japanese-jisx0208-1978	. #x516B)	; �����
@@ -3612,14 +3637,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(ucs		    . #x2FF1)	; ⿱
-	)
-       ((ucs		    . #x53E3)	; 口
-	)
-       ((ucs		    . #x5185)	; 内
-	))
+     ((ucs		  . #x5459)	; 呙
       )
      ((ucs		  . #x5202)	; 刂
       ))
