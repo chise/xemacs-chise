@@ -2655,6 +2655,8 @@
 (define-char
   '((ideographic-radical . 66)	; â½
     (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (japanese-jisx0212	. #x4155)	; ø»‹”„
     (ideograph-daikanwa . 13382)	; ø¸ƒ‘†
     (ucs		. #x657D)	; æ•½
     ))
