@@ -3,6 +3,11 @@
 	* text-coding.c (decode_add_er_char): Must to quote prefix string
 	as regexp.
 
+2004-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (put_char_ccs_code_point): Store characters of
+	=ucs whose code_points >= 0xF0000.
+
 2004-04-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_system_char_id): New variable in XEmacs
