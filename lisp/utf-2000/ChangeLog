@@ -1,3 +1,8 @@
+2004-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* update-cdb.el: Use `save-charset-properties' for all
+	coded-charsets when building CHISE database.
+
 2004-07-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* update-cdb.el (system-char-database-directory): Use
