@@ -86,6 +86,8 @@
       ))
     (shinjigen-1	. 33)
     (shinjigen-2	. 33)
+    (sound@ja/on/go	"ko")
+    (sound@ja/on/kan	"ka")
     (=ucs		. #x4E2A)	; ä¸ª
     (=jis-x0208		. #x5024)	; ø½Š»
     (=gb2312		. #x3876)	; ø»„©‹
@@ -151,6 +153,8 @@
     (hanyu-dazidian	1 28 10)
     (shinjigen-1	. 34)
     (shinjigen-2	. 34)
+    (sound@ja/kun	"naka")
+    (sound@ja/on	"chuu")
     (=ucs		. #x4E2D)	; ä¸­
     (=jis-x0208		. #x4366)	; ø½Š¨½
     (=gb2312		. #x5650)	; ø»…”©
@@ -251,6 +255,7 @@
     (hanyu-dazidian	1 52 12)
     (shinjigen-1	. 36)
     (shinjigen-2	. 36)
+    (sound@ja/on/kan	"kan")
     (=ucs		. #x4E31)	; ä¸±
     (=jis-x0208		. #x5025)	; ø½Š»‚
     (=cns11643-2	. #x2143)	; ø»“‚
@@ -311,6 +316,7 @@
     (hanyu-dazidian	1 30 2)
     (shinjigen-1	. 38)
     (shinjigen-2	. 38)
+    (sound@ja/kun	"kushi")
     (=ucs		. #x4E32)	; ä¸²
     (=jis-x0208		. #x367A)	; ø½Š–‹
     (=gb2312		. #x342E)	; ø»„¢‹
