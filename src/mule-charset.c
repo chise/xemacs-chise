@@ -1888,7 +1888,9 @@ make_charset (Charset_ID id, Lisp_Object name, unsigned char rep_bytes,
   CHARSET_NAME		(cs) = name;
   CHARSET_SHORT_NAME	(cs) = short_name;
   CHARSET_LONG_NAME	(cs) = long_name;
+#ifndef UTF2000
   CHARSET_REP_BYTES	(cs) = rep_bytes;
+#endif
   CHARSET_DIRECTION	(cs) = direction;
   CHARSET_TYPE		(cs) = type;
   CHARSET_COLUMNS	(cs) = columns;
