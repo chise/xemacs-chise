@@ -482,26 +482,6 @@
     (total-strokes	 . 4)
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 51)
-    (hanyu-dazidian-char . 9)
-    (chinese-big5-cdp	. #x8A45)	; ý¢€ˆ©…
-    (ucs		. #x5350)	; å
-    ))
-(define-char
-  '((ideographic-radical . 5)	; â¼„
-    (ideographic-strokes . 3)
-    (total-strokes	 . 4)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 52)
-    (hanyu-dazidian-char . 1)
-    (chinese-big5-cdp	. #x87D2)	; ý¢€ˆŸ’
-    (ucs		. #x2007E)	; ð ¾
-    ))
-(define-char
-  '((ideographic-radical . 5)	; â¼„
-    (ideographic-strokes . 3)
-    (total-strokes	 . 4)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 51)
     (hanyu-dazidian-char . 14)
     (chinese-big5-cdp	. #x88CE)	; ý¢€ˆ£Ž
     (ucs		. #x200DB)	; ð ƒ›
