@@ -150,6 +150,7 @@
     (japanese-jisx0208		. #x3B3A)	; ø»†¶­
     (chinese-cns11643-3		. #x3745)	; ø»•·œ
     (japanese-jisx0208-1990	. #x3B3A)	; ø½Šœ¡
+    (chinese-gb12345		. #x327A)	; ç”£
     (mojikyo			. 050288)	; ý €Œ‘°
     (ucs			. #x7523)	; ç”£
     ))
