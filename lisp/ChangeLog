@@ -1,3 +1,12 @@
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* startup.el (normal-top-level): Load autoload file for UTF-2000
+	in UTF-2000.
+
+	* utf-2000/auto-autoloads.el: New file.
+
+	* utf-2000/char-db-util.el: New file.
+
 1999-11-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/u00020-Basic-Latin.el (SPACE): Add `(ipa #x7F)'.
