@@ -148,6 +148,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x5C0F)	; å°
+      ))
     (=gt-pj-k1		. #x3233)	; âºŒ
     (=big5-cdp		. #x8B54)	; ý¢€ˆ­”
     (=gt-k		. 00303)	; ý¡„€„¯
@@ -155,6 +158,9 @@
     ))
 (define-char
   '((=>ucs		. #x2E8C)	; âºŒ
+    (<-ideographic-component-forms
+     ((=ucs		  . #x5C0F)	; å°
+      ))
     (=gt-pj-k1		. #x324E)	; ý¡„€„±
     (=gt-k		. 00305)	; ý¡„€„±
     ))
@@ -163,6 +169,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x5C0F)	; å°
+      ))
     (=gt-pj-k1		. #x3251)	; âº
     (=gt-k		. 00325)	; ý¡„€……
     (=ucs		. #x2E8D)	; âº
@@ -436,9 +445,14 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x738B)	; çŽ‹
+      ))
     (<-radical
      ((=ucs		  . #x248E9)	; ð¤£©
       ))
+    (=gt-pj-k1		. #x3467)	; âº©
+    (=gt-k		. 00402)	; ý¡„€†’
     (=ucs		. #x2EA9)	; âº©
     ))
 (define-char
@@ -447,6 +461,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2EAA)	; âºª
+    ))
+(define-char
+  '((=>ucs		. #x2EAA)	; âºª
+    (=big5-cdp		. #x8DC5)	; ý¢€ˆ·…
     ))
 (define-char
   '((name		. "CJK RADICAL EYE")

@@ -61,6 +61,24 @@
     ))
 (define-char
   '((=>ucs		. #x51E1)	; å‡¡
+    (morohashi-daikanwa	1739 0 0)
+    (ideographic-radical . 16)	; â¼
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; â¿µ
+      )
+     ((name		  . "CJK RADICAL TABLE")
+      (=ucs		  . #x2E87)	; âº‡
+      )
+     ((=ucs		  . #x4E36)	; ä¸¶
+      ))
+    (=gt-pj-k1		. #x403E)	; ý¡„€…°
+    (=gt-k		. 00368)	; ý¡„€…°
+    ))
+(define-char
+  '((=>ucs		. #x51E1)	; å‡¡
     (morohashi-daikanwa	1739 0 2)
     (ideographic-radical . 16)	; â¼
     (ideographic-strokes . 1)
@@ -75,6 +93,24 @@
       ))
     (shinjigen-1	. 567)
     (shinjigen-2	. 567)
+    ))
+(define-char
+  '((=>ucs		. #x51E1)	; å‡¡
+    (morohashi-daikanwa	1739 0 3)
+    (ideographic-radical . 16)	; â¼
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; â¿µ
+      )
+     ((name		  . "CJK RADICAL TABLE")
+      (=ucs		  . #x2E87)	; âº‡
+      )
+     ((=ucs		  . #x4E00)	; ä¸€
+      ))
+    (=gt-pj-k1		. #x692C)	; ý¡„€…±
+    (=gt-k		. 00369)	; ý¡„€…±
     ))
 (define-char
   '((ideographic-radical . 16)	; â¼
@@ -512,6 +548,13 @@
   '((ideographic-radical . 16)	; â¼
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (<-ancient-ideograph
+     ((shinjigen-1	  . 9211)
+      (=jis-x0208	  . #x4977)	; ø½Š²‚
+      (=daikanwa	  . 43756)	; ø¸Š«¬
+      ))
+    (<-ancient-ideograph*sources
+     shinjigen-1)
     (hanyu-dazidian	1 277 11)
     (=cns11643-3	. #x245B)	; ø»•›¸
     (=daikanwa		. 01765)	; ø¸€›¥

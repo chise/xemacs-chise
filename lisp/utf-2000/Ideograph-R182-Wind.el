@@ -2,6 +2,7 @@
   '((ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 0)
     (total-strokes	 . 9)
+    (shinjigen-1	. 9211)
     (shinjigen-2	. 9211)
     (=jis-x0208		. #x4977)	; ø½Š²‚
     (=ks-x1001		. #x7926)	; ø»Š›¡

@@ -20,6 +20,15 @@
     (=ucs		. #x590A)	; å¤Š
     ))
 (define-char
+  '((=>ucs		. #x590A)	; å¤Š
+    (morohashi-daikanwa	5708 0 1)
+    (ideographic-radical . 35)	; â¼¢
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=gt-pj-k1		. #x3262)	; ý¡„€ƒš
+    (=gt-k		. 00218)	; ý¡„€ƒš
+    ))
+(define-char
   '((=>ucs		. #x2155E)	; ð¡•ž
     (ideographic-radical . 35)	; â¼¢
     (ideographic-strokes . 3)

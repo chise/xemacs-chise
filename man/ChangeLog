@@ -1,3 +1,66 @@
+2003-09-03  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.14 is released
+
+2003-07-31  René Kyllingstad  <listmailxemacs@kyllingstad.com>
+
+	* lispref/display.texi (Invisible Text):
+          mention line-move-ignore-invisible.
+	* lispref/extents.texi (Extent Properties):
+          end-glyph will still be displayed when invisible is set.
+	* lispref/extents.texi (Extents and Events):
+          only begin-glyph is highlighted.
+
+2003-08-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi (Q1.3.8): Fix typo, note errorneous recognition.
+
+2003-08-05  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lispref/packaging.texi (Creating Packages):
+	* xemacs/packages.texi (Creating Packages):
+	Style guideline for package-info.in description.
+
+2003-06-30  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi (Q3.2.2): Fix typo.
+
+2003-06-17  Vin Shelton  <acs@xemacs.org>
+
+	* xemacs-faq.texi: Sync up with latest version from 21.5.
+
+2003-04-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi (Q6.4.3): New: auxiliary programs for Windows.
+
+2003-05-25  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.4.13 is released
+
+2003-03-20  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs-faq.texi: Fix minor typo.
+
+2003-03-19  Vin Shelton  <acs@xemacs.org>
+
+	* widget.texi: Crib Stephen's updates and Ben's fixes en masse
+	from 21.5.
+
+2003-03-18  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs/frame.texi (Gutter Basics): Describe common options for
+	buffers tab control.
+
+2003-02-03  Steve Youngs  <youngs@xemacs.org>
+
+	* xemacs/packages.texi (Local.rules File): Update to reflect Ben's
+	recent dabble into the packages.
+
+2003-02-11  Adrian Aichner  <adrian@xemacs.org>
+
+	* lispref/backups.texi (Auto-Saving): Fix auto-save xref to user
+	manual.
+
 2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.12 "Portable Code" is released.

@@ -9,7 +9,7 @@ For general XEmacs navigation tips: Press C-h t
 
 Description of available packages
 =================================
-Up-to-date as of May 15, 2001.
+Up-to-date as of Jul 31, 2003.
 
 ** Normal Packages
 ==================
@@ -28,10 +28,10 @@ A Portable Emacs Library.  Used by XEmacs MIME support.
 Basic TeX/LaTeX support.
 
 *** bbdb
-The Big Brother Data Base
+The Big Brother Data Base.
 
 *** build
-Build XEmacs using custom widgets.
+Build XEmacs from within (UNIX, Windows).
 
 *** c-support
 Basic single-file add-ons for editing C code.
@@ -43,7 +43,10 @@ Emacs calculator.
 Calendar and diary support.
 
 *** cc-mode
-C, C++ and Java language support.
+C, C++, Objective-C, Java, CORBA IDL, Pike and AWK language support.
+
+*** clearcase
+New Clearcase Version Control for XEmacs (UNIX, Windows).
 
 *** cookie
 Spook and Yow (Zippy quotes).
@@ -54,19 +57,30 @@ Crisp/Brief emulation.
 *** debug
 GUD, gdb, dbx debugging support.
 
+*** dictionary
+Interface to RFC2229 dictionary servers.
+
 *** dired
 The DIRectory EDitor is for manipulating, and running commands on
 files in a directory.
 
+*** docbookide
+DocBook editing support.
+
+*** ecb
+Emacs source code browser.
+
+*** ecrypto
+Crypto functionality in Emacs Lisp.
+
 *** edebug
-A Lisp debugger.
+An Emacs Lisp debugger.
 
 *** ediff
-Interface over patch.
+Interface over GNU patch.
 
 *** edit-utils
-Single file lisp packages for various XEmacs goodies.  Load this and
-weed out the junk you don't want.
+Miscellaneous editor extensions, you probably need this.
 
 *** edt
 DEC EDIT/EDT emulation.
@@ -74,24 +88,23 @@ DEC EDIT/EDT emulation.
 *** efs
 Treat files on remote systems the same as local files.
 
-*** eicq
-ICQ Client developed and tested on Linux x86; 
-only supported on that platform
-
 *** eieio
-Enhanced Implementation of Emacs Interpreted Objects
+Enhanced Implementation of Emacs Interpreted Objects.
 
 *** elib
 Portable Emacs Lisp utilities library.
 
 *** emerge
-Another interface over patch.
+Another interface over GNU patch.
 
 *** eshell
 Command shell implemented entirely in Emacs Lisp.
 
+*** ess
+ESS: Emacs Speaks Statistics.
+
 *** eterm
-Terminal emulator.
+Terminal emulation.
 
 *** eudc
 Emacs Unified Directory Client (LDAP, PH).
@@ -100,10 +113,13 @@ Emacs Unified Directory Client (LDAP, PH).
 Footnoting in mail message editing modes.
 
 *** forms
-Forms editing support (obsolete, use the built-in Widget instead).
+Forms editing support (obsolete, use Widget instead).
+
+*** fortran-modes
+Fortran support.
 
 *** frame-icon
-Provide a WM icon based on major mode.
+Set up mode-specific icons for each frame under XEmacs.
 
 *** fsf-compat
 FSF Emacs compatibility files.
@@ -117,8 +133,17 @@ XEmacs bug reports.
 *** gnus
 The Gnus Newsreader and Mailreader.
 
+*** haskell-mode
+Haskell editing support.
+
 *** hm--html-menus
 HTML editing.
+
+*** hyperbole
+Hyperbole: The Everyday Info Manager.
+
+*** ibuffer
+Advanced replacement for buffer-menu.
 
 *** idlwave
 Editing and Shell mode for the Interactive Data Language.
@@ -130,10 +155,13 @@ Enhanced front-end for Grep.
 Front-end for Inferior Lisp.
 
 *** ispell
-Spell-checking with ispell.
+Spell-checking with GNU ispell.
 
 *** jde
-Java language and development support.
+Integrated Development Environment for Java.
+
+*** liece
+IRC (Internet Relay Chat) client for Emacs.
 
 *** mail-lib
 Fundamental lisp files for providing email support.
@@ -148,14 +176,22 @@ Messaging in an Emacs World.
 Front end support for MH.
 
 *** mine
-Minehunt.
+Minehunt Game.
 
 *** misc-games
 Other amusements and diversions.
 
+*** mmm-mode
+Multiple major modes in a single buffer.
+
 *** net-utils
-Miscellaneous Networking Utilities.  This is a single-file package and 
-files may be deleted at will.
+Miscellaneous Networking Utilities.
+
+*** ocaml
+Objective Caml editing support.
+
+*** oo-browser
+OO-Browser: The Multi-Language Object-Oriented Code Browser.
 
 *** os-utils
 Miscellaneous single-file O/S utilities, for printing, archiving,
@@ -170,14 +206,26 @@ CVS frontend.
 *** pcomplete
 Provides programmatic completion.
 
-*** prog-modes
-Miscellaneous single-file lisp files for various programming languages.
+*** perl-modes
+Perl support.
 
-*** ps-print-nomule
-Old, but no-Mule safe ps-print.
+*** pgg
+Emacs interface to various PGP implementations.
+
+*** prog-modes
+Support for various programming languages.
+
+*** ps-print
+Printing functions and utilities.
 
 *** psgml
 Validated HTML/SGML editing.
+
+*** psgml-dtds
+Deprecated collection of DTDs for psgml.
+
+*** python-modes
+Python support.
 
 *** reftex
 Emacs support for LaTeX cross-references, citations.
@@ -185,11 +233,17 @@ Emacs support for LaTeX cross-references, citations.
 *** rmail
 An obsolete Emacs mailer.  If you do not already use it don't start.
 
+*** ruby-modes
+Ruby support.
+
+*** sasl
+Simple Authentication and Security Layer (SASL) library.
+
 *** scheme
 Front-end support for Inferior Scheme.
 
 *** semantic
-Semantic bovinator.
+Semantic bovinator (Yacc/Lex for XEmacs). Includes Senator.
 
 *** sgml
 SGML/Linuxdoc-SGML editing.
@@ -197,8 +251,14 @@ SGML/Linuxdoc-SGML editing.
 *** sh-script
 Support for editing shell scripts.
 
+*** sieve
+Manage Sieve email filtering scripts.
+
 *** slider
 User interface tool.
+
+*** sml-mode
+SML editing support.
 
 *** sounds-au
 XEmacs Sun sound files.
@@ -213,22 +273,22 @@ Provides a separate frame with convenient references.
 Mouse enhancement utility.
 
 *** supercite
-An Emacs citation tool.  Useful with all Emacs Mailers and Newsreaders.
+An Emacs citation tool for News & Mail messages.
 
 *** texinfo
 XEmacs TeXinfo support.
 
 *** text-modes
-Various single file lisp packages for editing text files.
+Miscellaneous support for editing text files.
 
 *** textools
-Single-file TeX support.
+Miscellaneous TeX support.
 
 *** time
 Display time & date on the modeline.
 
 *** tm
-Emacs MIME support. Not needed for Gnus >= 5.8.0
+Emacs MIME support. Not needed for gnus >= 5.8.0.
 
 *** tooltalk
 Support for building with Tooltalk.
@@ -236,12 +296,14 @@ Support for building with Tooltalk.
 *** tpu
 DEC EDIT/TPU support.
 
+*** tramp
+Remote shell-based file editing.
+
 *** vc
 Version Control for Free systems.
 
 *** vc-cc
-Version Control for ClearCase.  This package will shortly be
-replaced with clearcase.el
+Version Control for ClearCase (UnFree) systems.
 
 *** vhdl
 Support for VHDL.
@@ -252,21 +314,25 @@ A Unix process browsing tool.
 *** viper
 VI emulation support.
 
-
 *** vm
 An Emacs mailer.
 
 *** w3
 A Web browser.
 
+*** x-symbol
+Semi WYSIWYG for LaTeX, HTML, etc, using additional fonts.
+
 *** xemacs-base
-Fundamental XEmacs support.  Install this unless you wish a totally
-naked XEmacs.
+Fundamental XEmacs support, you almost certainly need this.
 
 *** xemacs-devel
 XEmacs Lisp developer support.  This package contains utilities for
 supporting Lisp development.  It is a single-file package so it may be 
 tailored.
+
+*** xslide
+XSL editing support.
 
 *** xslt-process
 A minor mode for (X)Emacs which allows running an XSLT processor on a
@@ -283,26 +349,30 @@ To use these packages your XEmacs must be compiled with Mule
 support.
 
 *** edict
-Lisp Interface to EDICT, Kanji Dictionary.
+MULE: Lisp Interface to EDICT, Kanji Dictionary.
 
 *** egg-its
-Wnn (4.2 and 6) support.  SJ3 support.  Must be installed prior to
-XEmacs build.
+MULE: Wnn (4.2 and 6) support.  SJ3 support.
+
+*** latin-unity
+MULE: find single ISO 8859 character set to encode a buffer.
 
 *** leim
-Quail.  Used for everything other than English and Japanese.
+MULE: Quail.  All non-English and non-Japanese language support.
 
 *** locale
-Used for localized menubars (French and Japanese) and localized splash
-screens (Japanese).
+MULE: Localized menubars and localized splash screens.
 
 *** lookup
-Dictionary support
+MULE: Dictionary support.
 
 *** mule-base
-Basic Mule support.  Must be installed prior to building with Mule.
+MULE: Basic Mule support, required for building with Mule.
+
+*** mule-ucs
+MULE: Extended coding systems (including Unicode) for XEmacs.
 
 *** skk
-Another Japanese Language Input Method.  Can be used without a
-separate process running as a dictionary server.
+MULE: Another Japanese Language Input Method.  Can be used
+without a separate process running as a dictionary server.
 

@@ -359,6 +359,7 @@ with_msw=''
 rel_alloc='default'
 with_system_malloc='default'
 with_dlmalloc='default'
+use_regex_malloc='yes'
 dnl ESD is associated with crashes and lockups due to incorrect signal use.
 with_esd_sound='no'
 native_sound_lib=''
@@ -519,9 +520,10 @@ while test $# != 0; do
 	pdump		| \
 	debug		| \
 	use_assertions	| \
+	use_regex_malloc | \
 	memory_usage_stats | \
 	with_clash_detection | \
-	with_modules | \
+	with_modules    | \
 	quick_build )
 	  dnl Make sure the value given was either "yes" or "no".
 	  case "$val" in
@@ -1123,12 +1125,12 @@ case "$canonical" in
   *-*-ultrix* )         opsys=ultrix4-3 ;;
 
   dnl AIX
-  *-*-aix3.1*  ) opsys=aix3-1	;;
-  *-*-aix3.2.5 ) opsys=aix3-2-5	;;
-  *-*-aix3*    ) opsys=aix3-2	;;
-  *-*-aix4.0*  ) opsys=aix4	;;
-  *-*-aix4.1*  ) opsys=aix4-1	;;
-  *-*-aix4*    ) opsys=aix4-2	;;
+  *-*-aix3.1*     ) opsys=aix3-1   ;;
+  *-*-aix3.2.5    ) opsys=aix3-2-5 ;;
+  *-*-aix3*       ) opsys=aix3-2   ;;
+  *-*-aix4.0*     ) opsys=aix4	   ;;
+  *-*-aix4.1*     ) opsys=aix4-1   ;;
+  *-*-aix[[4-9]]* ) opsys=aix4-2   ;;
 
   dnl Other generic OSes
   *-gnu* )			opsys=gnu    ;;
@@ -1582,9 +1584,9 @@ dnl --------------------------------------------------------------
 
 if test -z "$pdump"; then
   case "$opsys" in
-    linux* )      pdump=yes ;;    dnl glibc 2.3.1 seems to hose unexec
-    *-*-darwin* ) pdump=yes ;;    dnl No "native" working dumper available
-    *)            pdump=no ;;
+    linux* )  pdump=yes ;;    dnl glibc 2.3.1 seems to hose unexec
+    darwin )  pdump=yes ;;    dnl No "native" working dumper available
+    *)        pdump=no ;;
   esac
 fi
 
@@ -1598,6 +1600,7 @@ if test "$dynamic" = "yes"; then
   case "$opsys" in
     hpux* | sunos4* | sco5 ) opsys="${opsys}-shr" ;;
     decosf* ) ld_call_shared="-call_shared" ;;
+    darwin ) AC_DEFINE(DLSYM_NEEDS_UNDERSCORE) ;;
   esac
 else dnl "$dynamic" = "no"
   case "$opsys" in
@@ -1925,6 +1928,10 @@ if test "$cflags_specified" = "no"; then
     CFLAGS="-g -O3 -Wall -Wno-switch -Winline -Wmissing-prototypes"
     dnl Yuck, bad compares have been worth at least 3 crashes!
     CFLAGS="$CFLAGS -Wsign-compare"
+    dnl XEmacs is known not to be strict-aliasing-safe.
+    case "`gcc -v --help 2>&1`" in
+      *-fstrict-aliasing* ) CFLAGS="$CFLAGS -fno-strict-aliasing" ;;
+    esac
     dnl You get five zillion shadowing warnings with g++.
     dnl Even with gcc, -Wshadow is questionable because of its complaints
     dnl about parameters with the same names as global functions.
@@ -2489,6 +2496,14 @@ AC_CHECK_SIZEOF(long)
 AC_CHECK_SIZEOF(long long)
 AC_CHECK_SIZEOF(void *)
 
+dnl Cygwin from 1003022 has intptr_t, uintptr_t in <cygwin/types.h>
+case $opsys in
+  cygwin* ) AC_EGREP_HEADER([typedef.*intptr_t;], [cygwin/types.h],
+                            [AC_MSG_RESULT(yes)
+                             AC_DEFINE(INTPTR_T_IN_CYGWIN_TYPES_H,1)],
+                            [AC_MSG_RESULT(no)]) ;;
+esac
+
 dnl check for long file names
 AC_SYS_LONG_FILE_NAMES
 
@@ -2738,22 +2753,29 @@ if test "$with_x11" = "yes"; then
   XE_APPEND(lwlib, MAKE_SUBDIR)
   XE_APPEND(lwlib, SRC_SUBDIR_DEPS)
 
-  dnl Try to find Motif/CDE/Tooltalk dirs
-  dnl These take precedence over other X libs/includes, so PRE-pend
-  for lib_dir in "/usr/dt/lib" "/usr/lib/Motif2.1" "/usr/lib/Motif1.2" "/usr/lib/Motif1.1"; do
-    inc_dir=`echo $lib_dir | sed -e 's/lib/include/'`
-    if test -d "$lib_dir" -a -d "$inc_dir"; then
-      case "$x_libraries" in *"$lib_dir"* ) ;; *)
-        x_libraries="$lib_dir $x_libraries"
-        XE_PREPEND(-L${lib_dir}, X_LIBS) ;;
-      esac
-      case "$x_includes" in "$inc_dir"* ) ;; *)
-        x_includes="$inc_dir $x_includes"
-        XE_PREPEND(-I${inc_dir}, X_CFLAGS) ;;
-      esac
-      break; dnl only need ONE Motif implementation!
-      fi
-  done
+
+  dnl Look for Motif, but only if not found in $x_includes and $x_libraries
+  AC_CHECK_HEADER(Xm/Xm.h, [AC_CHECK_LIB(Xm, XmStringFree, got_motif=yes)])
+
+  if test "$got_motif" != "yes"; then
+    dnl Try to find Motif/CDE/Tooltalk dirs
+    dnl These take precedence over other X libs/includes, so PRE-pend
+    for lib_dir in "/usr/dt/lib" "/usr/lib/Motif2.1" \
+                   "/usr/lib/Motif1.2" "/usr/lib/Motif1.1"; do
+      inc_dir=`echo $lib_dir | sed -e 's/lib/include/'`
+      if test -d "$lib_dir" -a -d "$inc_dir"; then
+	case "$x_libraries" in *"$lib_dir"* ) ;; *)
+	  x_libraries="$lib_dir $x_libraries"
+	  XE_PREPEND(-L${lib_dir}, X_LIBS) ;;
+	esac
+	case "$x_includes" in "$inc_dir"* ) ;; *)
+	  x_includes="$inc_dir $x_includes"
+	  XE_PREPEND(-I${inc_dir}, X_CFLAGS) ;;
+	esac
+	break; dnl only need ONE Motif implementation!
+	fi
+    done
+  fi
 
   dnl Contrib X libs/includes do NOT take precedence, so AP-pend
   for rel in "X11R6" "X11R5" "X11R4"; do
@@ -2912,13 +2934,24 @@ extern Bool XRegisterIMInstantiateCallback(
   if test "$unexec" = "unexaix.o" -a "$x11_release" = "6"; then
     dnl X11R6 requires thread-safe code on AIX for some reason
     if test "$GCC" = "yes"; then
-      XE_PREPEND(-mthreads, X_CFLAGS)
-      XE_PREPEND(-mthreads, libs_x)
+      dnl gcc changed the name of the `-mthreads' option to `-pthread'
+      dnl on 2000-06-12
+      AC_MSG_CHECKING(for name of AIX gcc threads option)
+      case `$CC -v --help 2>&1` in
+        *-mthreads*) aix_threads=-mthreads ;;
+                  *) aix_threads=-pthread  ;;
+      esac
+      AC_MSG_RESULT($aix_threads)
+      XE_PREPEND($aix_threads, X_CFLAGS)
+      XE_PREPEND($aix_threads, libs_x)
     else
-      case "$CC" in
-        "xlc" ) CC="xlc_r" ;;
-        "xlC" ) CC="xlC_r" ;;
-        "cc"  ) CC="cc_r" ;;
+      dnl Try to use the thread-safe "_r" versions of xlc
+      case "$CC" in *_r) : ;;
+        *)
+         xe_save_CC="$CC"
+         CC="${CC}_r"
+         AC_CHECK_SIZEOF(short)
+         test "$ac_cv_sizeof_short" = 0 && CC="$xe_save_CC" ;;
       esac
     fi
   fi
@@ -3415,15 +3448,7 @@ if test "$with_x11" = "yes"; then
   AC_CHECKING(for X11 graphics libraries)
 fi
 
-dnl We don't automatically trigger widgets if athena is present
-dnl because of stability concerns.
-dnl But if the user wants widgets, still offer him autodetections
-case "$with_widgets" in
-  "yes" | "athena")		detect_athena=yes ;;
-   *)				detect_athena=no ;;
-esac
-
-if test "$with_x11" = "yes" -a "$detect_athena" = "yes" ; then
+if test "$with_x11" = "yes"; then
   AC_CHECKING(for the Athena widgets)
 
   dnl What in heck did the user actually want?
@@ -3437,22 +3462,24 @@ if test "$with_x11" = "yes" -a "$detect_athena" = "yes" ; then
     *)		XE_DIE("Unknown Athena widget set \`$with_athena'. This should not happen.") ;;
   esac
 
+  athena_3d_function=Xaw3dComputeBottomShadowRGB
+
   dnl Search for the Athena library...
   if test "$athena_3d" = "no"; then
     AC_CHECK_LIB($athena_variant, XawScrollbarSetThumb,
       [
         dnl Must not be a 3d library...
-        AC_CHECK_LIB($athena_variant, threeDClassRec,
+        AC_CHECK_LIB($athena_variant, $athena_3d_function,
           AC_MSG_WARN("Could not find a non-3d Athena widget library."),
           athena_lib=$athena_variant)
       ],
       AC_MSG_WARN("Could not find an Athena widget library."))
   else
     dnl The real configuration, need 3d library
-    AC_CHECK_LIB($athena_variant, threeDClassRec, athena_lib=$athena_variant,
+    AC_CHECK_LIB($athena_variant, $athena_3d_function, athena_lib=$athena_variant,
       dnl OK, couldn't find it with a proper name, try the standard Athena lib
       dnl If that is 3d, presume the user asked for what they have installed.
-      AC_CHECK_LIB(Xaw, threeDClassRec,
+      AC_CHECK_LIB(Xaw, $athena_3d_function,
         [
           athena_lib=Xaw;
           AC_MSG_WARN("Assuming that libXaw is actually $athena_variant.");
@@ -3522,7 +3549,7 @@ if test "$with_x11" = "yes" -a "$detect_athena" = "yes" ; then
 
 else
   have_xaw=no
-fi dnl "$with_x11" = "yes" -a "detect_athena" = "yes"
+fi dnl "$with_x11" = "yes"
 
 if test "$with_x11" = "yes"; then
   dnl autodetect Motif - but only add to libs_x later (if necessary)
@@ -3560,11 +3587,14 @@ esac
 case "$with_scrollbars" in "" | "yes" )
   with_scrollbars="lucid" ;;
 esac
-case "$with_widgets" in "" | "yes" | "lucid")
-  if   test "$have_motif" = "yes"; then with_widgets="motif"
-  elif test "$have_xaw"   = "yes"; then with_widgets="athena"
-  else with_widgets=no
-  fi ;;
+case "$with_widgets" in
+  "yes" | "lucid")
+    if   test "$have_motif" = "yes"; then with_widgets="motif"
+    elif test "$have_xaw"   = "yes"; then with_widgets="athena"
+    else with_widgets=no
+    fi ;;
+  "" )
+    with_widgets=no ;;
 esac
 
 all_widgets="$with_menubars $with_scrollbars $with_dialogs $with_toolbars $with_widgets"
@@ -3723,7 +3753,8 @@ if test "$with_mule" = "yes" ; then
 
   test -z "$with_chise" && with_chise=yes
   if test "$with_chise" = "yes"; then
-    AC_DEFINE(CHISE)
+    AC_DEFINE(HAVE_CHISE)
+    AC_DEFINE(HAVE_LIBCHISE)
     XE_PREPEND(-lchise, libs_x)
   fi
 
@@ -4417,6 +4448,20 @@ dnl Check for Berkeley DB.
 if test "$with_database_berkdb" != "no"; then
   AC_MSG_CHECKING(for Berkeley db.h)
   for header in "db/db.h" "db.h"; do
+    case "$opsys" in
+        *freebsd*)
+    AC_TRY_COMPILE([
+#include <stdlib.h>
+#if !(defined __GLIBC__ && __GLIBC_MINOR__ >= 1)
+#ifdef HAVE_INTTYPES_H
+#define __BIT_TYPES_DEFINED__
+#include <inttypes.h>
+#endif
+#endif
+#include <$header>
+],[], db_h_file="$header"; break)
+        ;;
+        *)
     AC_TRY_COMPILE([
 #include <stdlib.h>
 #if !(defined __GLIBC__ && __GLIBC_MINOR__ >= 1)
@@ -4433,6 +4478,8 @@ typedef uint64_t u_int64_t;
 #endif
 #include <$header>
 ],[], db_h_file="$header"; break)
+        ;;
+        esac
   done
   if test -z "$db_h_file"
   then AC_MSG_RESULT(no); with_database_berkdb=no
@@ -4470,8 +4517,8 @@ if test "$with_database_gdbm $with_database_dbm $with_database_berkdb" \
      != "no no no"; then
   AC_DEFINE(HAVE_DATABASE)
   XE_ADD_OBJS(database.o)
-  if test "$with_utf_2000" = "yes"; then
-    AC_DEFINE(HAVE_CHISE_CLIENT)
+  if test "$with_utf_2000" = "yes" -a "$with_chise" != "yes" ; then
+    AC_DEFINE(HAVE_CHISE)
   fi
 fi
 
@@ -4495,28 +4542,33 @@ if test "$with_modules" != "no"; then
   if test "$with_msw" = "yes"; then
     have_dl=yes;
   else
-    dnl Find headers and libraries
-    AC_CHECK_HEADER(dlfcn.h, [
-      AC_MSG_CHECKING([for dlopen in -lc])
-      AC_TRY_LINK([#include <dlfcn.h>],dnl
-	[dlopen ("", 0);], [ have_dl=yes ], [
-      AC_MSG_CHECKING([for dlopen in -ldl])
-      ac_save_LIBS="$LIBS"
-      LIBS="-ldl $LIBS"
-      AC_TRY_LINK([#include <dlfcn.h>],dnl
-	[dlopen ("", 0);], [ have_dl=yes ],
-	[LIBS="$ac_save_LIBS"])
-      ac_save_LIBS=])])
-    if test -n "$have_dl"; then
-      AC_DEFINE(HAVE_DLOPEN)
-    else
-      AC_CHECK_LIB(dld, shl_load, [
-        libdl=dld have_dl=yes;
-        AC_DEFINE(HAVE_SHL_LOAD)], [
-        AC_CHECK_LIB(dld, dld_init, [
-        libdl=dld have_dl=yes;
-        AC_DEFINE(HAVE_DLD_INIT)])])
-    fi
+    dnl Check for Darwin
+    case "$opsys" in
+      darwin) have_dl=yes; AC_DEFINE(HAVE_DYLD) ;;
+      *) dnl Find headers and libraries
+         AC_CHECK_HEADER(dlfcn.h, [
+           AC_MSG_CHECKING([for dlopen in -lc])
+           AC_TRY_LINK([#include <dlfcn.h>],dnl
+	      [dlopen ("", 0);], [ have_dl=yes ], [
+               AC_MSG_CHECKING([for dlopen in -ldl])
+               ac_save_LIBS="$LIBS"
+               LIBS="-ldl $LIBS"
+               AC_TRY_LINK([#include <dlfcn.h>],dnl
+	         [dlopen ("", 0);], [ have_dl=yes ],
+	         [LIBS="$ac_save_LIBS"])
+               ac_save_LIBS=])])
+        if test -n "$have_dl"; then
+           AC_DEFINE(HAVE_DLOPEN)
+        else
+           AC_CHECK_LIB(dld, shl_load, [
+           libdl=dld have_dl=yes;
+           AC_DEFINE(HAVE_SHL_LOAD)], [
+           AC_CHECK_LIB(dld, dld_init, [
+           libdl=dld have_dl=yes;
+           AC_DEFINE(HAVE_DLD_INIT)])])
+        fi
+    ;;
+    esac
   fi dnl end !MS-Windows
 
   if test -n "$have_dl"; then
@@ -4905,6 +4957,7 @@ test "$with_pop"           = "yes" && AC_DEFINE(MAIL_USE_POP)
 test "$with_kerberos"      = "yes" && AC_DEFINE(KERBEROS)
 test "$with_hesiod"        = "yes" && AC_DEFINE(HESIOD)
 test "$use_union_type"     = "yes" && AC_DEFINE(USE_UNION_TYPE)
+test "$use_regex_malloc"   = "yes" && AC_DEFINE(REGEX_MALLOC)
 test "$pdump"              = "yes" && AC_DEFINE(PDUMP)
 test "$with_ipv6_cname"    = "yes" && AC_DEFINE(IPV6_CANONICALIZE)
 
@@ -4991,6 +5044,13 @@ if test "$with_x11" = "yes"; then
   if test "$with_wmcommand" != no; then
     echo "    - Handling WM_COMMAND properly."
   fi
+fi
+if test "$need_motif" = "yes" ; then
+  echo "  Compiling in support for Motif."
+  echo "  *WARNING*  Many versions of Motif are buggy, requiring workarounds."
+  echo "             You are likely to experience slow redisplay."
+  echo "             You may need to install vendor patches to Motif."
+  echo "             See PROBLEMS for more information."
 fi
 if test "$need_athena" = "yes"; then
   echo "  Compiling in support for the Athena widget set:"
@@ -5132,6 +5192,13 @@ if test "$use_union_type" = yes; then
   echo "  Union type has been implicated in hard-to-debug runtime crashes."
   echo "  Do NOT use this build of XEmacs for ordinary work.  See PROBLEMS."
   echo "  WARNING: ---------------------------------------------------------"
+fi
+if test "$use_regex_malloc" = no; then
+  echo "  WARNING: -----------------------------------------------------------"
+  echo "  Using alloca to allocate the failure stack."
+  echo "  It may be impossible to detect stack exhaustion, and you will crash."
+  echo "  Do NOT use this build of XEmacs for ordinary work."
+  echo "  WARNING: -----------------------------------------------------------"
 fi
 test "$pdump" = yes && echo "  Using the new portable dumper."
 test "$debug" = yes && echo "  Compiling in support for extra debugging code."

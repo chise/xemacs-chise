@@ -1,3 +1,21 @@
+2003-09-03  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.14 is released
+
+2003-05-25  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.4.13 is released
+
+2003-01-31  Martin Buchholz  <martin@xemacs.org>
+
+	* lwlib-Xm.c (xm_update_progress): 
+	Don't define unless LWLIB_WIDGETS_MOTIF.
+
+2003-02-13  Martin Buchholz  <martin@xemacs.org>
+
+	* xlwmenu.c (xlwMenuClassRec):
+	Use symbolic name `XtExposeCompressMaximal' instead of `TRUE'.
+
 2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.12 "Portable Code" is released.

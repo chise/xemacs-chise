@@ -307,9 +307,14 @@ static void
 mswindows_set_frame_size (struct frame *f, int width, int height)
 {
   RECT rect;
+  int columns, rows;
+
   rect.left = rect.top = 0;
   rect.right = width;
   rect.bottom = height;
+
+  pixel_to_char_size (f, rect.right, rect.bottom, &columns, &rows);
+  change_frame_size (f, rows, columns, 0);
 
   AdjustWindowRectEx (&rect,
 		      GetWindowLong (FRAME_MSWINDOWS_HANDLE(f), GWL_STYLE),

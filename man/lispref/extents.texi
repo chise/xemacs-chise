@@ -574,7 +574,8 @@ this extent attached at a time.  @xref{Duplicable Extents}.
 
 @item invisible
 (Boolean) If @code{t}, text under this extent will not be displayed --
-it will look as if the text is not there at all.
+it will look as if the text and the begin-glyph is not there at all.
+The end-glyph will still be displayed.
 
 @item keymap
 (keymap or @code{nil}) This keymap is consulted for mouse clicks on this
@@ -894,8 +895,9 @@ overlaps the new range, the extent will simply be extended and the
 @section Interaction of Extents with Keyboard and Mouse Events
 
   If an extent has the @code{mouse-face} property set, it will be
-highlighted when the mouse passes over it.  Highlighting is accomplished
-by merging the extent's face with the face or faces specified by the
+highlighted when the mouse passes over it.  This includes the
+begin-glyph, but not the end-glyph.  Highlighting is accomplished by
+merging the extent's face with the face or faces specified by the
 @code{mouse-face} property.  The effect is as if a pseudo-extent with
 the @code{mouse-face} face were inserted after the extent in the display
 order (@pxref{Extent Endpoints}, display order).

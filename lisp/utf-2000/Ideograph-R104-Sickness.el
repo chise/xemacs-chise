@@ -7984,6 +7984,7 @@
     (shinjigen-2	. 5179)
     (=jis-x0208		. #x617A)	; ø½‹••
     (=gt-pj-1		. #x617A)	; ý¡€‡…ƒ
+    (=big5		. #xC4EE)	; ý¢€Œ“®
     (=daikanwa		. 22622)	; ø¸…¡ž
     (=ucs@jis		. #x7669)	; ø½‹••
     (=gt		. 28995)	; ý¡€‡…ƒ

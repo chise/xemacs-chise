@@ -981,6 +981,9 @@ mswindows_enqueue_mouse_button_event (HWND hwnd, UINT msg, POINTS where,
   int downp = (msg == WM_LBUTTONDOWN || msg == WM_MBUTTONDOWN ||
 	       msg == WM_RBUTTONDOWN);
 
+  /* Wheel rotation amount: positive is away from user, negative towards user */
+  int delta = (short) HIWORD (mods);
+  
   /* We always use last message time, because mouse button
      events may get delayed, and XEmacs double click
      recognition will fail */
@@ -993,7 +996,9 @@ mswindows_enqueue_mouse_button_event (HWND hwnd, UINT msg, POINTS where,
   event->timestamp = when;
   event->event.button.button =
     (msg==WM_LBUTTONDOWN || msg==WM_LBUTTONUP) ? 1 :
-    ((msg==WM_RBUTTONDOWN || msg==WM_RBUTTONUP) ? 3 : 2);
+    (msg==WM_MBUTTONDOWN || msg==WM_MBUTTONUP) ? 2 :
+    (msg==WM_RBUTTONDOWN || msg==WM_RBUTTONUP) ? 3 :
+    (msg==WM_MOUSEWHEEL && delta>0) ? 4 : 5;
   event->event.button.x = where.x;
   event->event.button.y = where.y;
   event->event.button.modifiers = mswindows_modifier_state (NULL, mods, 0);
@@ -2950,13 +2955,18 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	int keys = LOWORD (wParam); /* Modifier key flags */
 	int delta = (short) HIWORD (wParam); /* Wheel rotation amount */
 
-	if (mswindows_handle_mousewheel_event (mswindows_find_frame (hwnd),
+        /* enqueue button4/5 events if mswindows_handle_mousewheel_event
+           doesn't handle the event, such as when the scrollbars are not
+           displayed */
+	if (!mswindows_handle_mousewheel_event (mswindows_find_frame (hwnd),
 					       keys, delta,
 					       MAKEPOINTS (lParam)))
-	  /* We are not in a modal loop so no pumping is necessary. */
-	  break;
-	else
-	  goto defproc;
+          mswindows_enqueue_mouse_button_event (hwnd, message_,
+                                                MAKEPOINTS (lParam),
+                                                wParam,
+                                                GetMessageTime());
+        /* We are not in a modal loop so no pumping is necessary. */
+        break;
       }
 #endif
 
