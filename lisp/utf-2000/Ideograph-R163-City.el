@@ -2507,6 +2507,7 @@
     ))
 (define-char
   '((name		. "CJK COMPATIBILITY IDEOGRAPH-FA26")
+    (=>ucs*		. #x90FD)	; 都
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
