@@ -7,7 +7,9 @@
     (japanese-jisx0208-1978	#x51 #x61)	; ø»ƒƒ 
     (chinese-gb2312		#x5B #x49)	; ø»…›¸
     (japanese-jisx0208		#x51 #x61)	; ø»‡—¨
+    (chinese-isoir165		#x5B #x49)	; ø»Ž„ˆ
     (chinese-cns11643-2		#x21 #x23)	; ø»“Œ¢
+    (japanese-jisx0208-1990	#x51 #x61)	; å‡µ
     (ideograph-daikanwa		#x07 #x08)	; ø¹œˆ
     ))
 (define-char
@@ -43,7 +45,9 @@
     (japanese-jisx0208-1978	#x36 #x27)	; ø»‚š¼
     (chinese-gb2312		#x50 #x57)	; ø»…‹¼
     (japanese-jisx0208		#x36 #x27)	; ø»†¯„
+    (chinese-isoir165		#x50 #x57)	; ø»´Œ
     (chinese-cns11643-1		#x44 #x7E)	; ø»‘·“
+    (japanese-jisx0208-1990	#x36 #x27)	; å‡¶
     (ideograph-daikanwa		#x07 #x0B)	; ø¹œ‹
     ))
 (define-char
@@ -99,7 +103,9 @@
     (japanese-jisx0208-1978	#x46 #x4C)	; ø»‚³
     (chinese-gb2312		#x4D #x39)	; ø»…‡„
     (japanese-jisx0208		#x46 #x4C)	; ø»‡‡‰
+    (chinese-isoir165		#x4D #x39)	; ø»¯”
     (chinese-cns11643-1		#x45 #x79)	; ø»‘¸¬
+    (japanese-jisx0208-1990	#x46 #x4C)	; å‡¸
     (ideograph-daikanwa		#x07 #x11)	; ø¹œ‘
     ))
 (define-char
@@ -113,7 +119,9 @@
     (japanese-jisx0208-1978	#x31 #x7A)	; ø»‚”¹
     (chinese-gb2312		#x30 #x3C)	; ø»„œ¡
     (japanese-jisx0208		#x31 #x7A)	; ø»†©
+    (chinese-isoir165		#x30 #x3C)	; ø»„±
     (chinese-cns11643-1		#x45 #x77)	; ø»‘¸ª
+    (japanese-jisx0208-1990	#x31 #x7A)	; å‡¹
     (ideograph-daikanwa		#x07 #x12)	; ø¹œ’
     ))
 (define-char
@@ -127,7 +135,9 @@
     (japanese-jisx0208-1978	#x3D #x50)	; ø»‚¥·
     (chinese-gb2312		#x33 #x76)	; ø»„¡µ
     (japanese-jisx0208		#x3D #x50)	; ø»†¹¿
+    (chinese-isoir165		#x33 #x76)	; ø»Š…
     (chinese-cns11643-1		#x45 #x78)	; ø»‘¸«
+    (japanese-jisx0208-1990	#x3D #x50)	; å‡º
     (ideograph-daikanwa		#x07 #x13)	; ø¹œ“
     ))
 (define-char
@@ -153,6 +163,7 @@
     (total-strokes	 . 5)
     (non-morohashi	1813 9)
     (chinese-gb2312	#x3B #x77)	; ø»„­¦
+    (chinese-isoir165	#x3B #x77)	; ø»•¶
     ))
 (define-char
   '((morohashi-daikanwa	1814)
@@ -252,10 +263,13 @@
 (define-char
   '((ucs		. #x51FC)
     (ideographic-radical . 17)	; â¼
+    (kangxi-radical	 . 85)	; â½”
     (ideographic-strokes . 4)
+    (kangxi-strokes	 . 2)
     (total-strokes	 . 6)
     (non-morohashi	1822 9)
     (chinese-gb2312	#x5B #x4A)	; ø»…›¹
+    (chinese-isoir165	#x5B #x4A)	; ø»Ž„‰
     ))
 (define-char
   '((morohashi-daikanwa	1823)
@@ -290,7 +304,9 @@
     (japanese-jisx0208-1978	#x48 #x21)	; ø»‚µ’
     (chinese-gb2312		#x3A #x2F)	; ø»„«€
     (japanese-jisx0208		#x48 #x21)	; ø»‡‰š
+    (chinese-isoir165		#x3A #x2F)	; ø»“
     (chinese-cns11643-1		#x4C #x2A)	; ø»’¯
+    (japanese-jisx0208-1990	#x48 #x21)	; å‡½
     (ideograph-daikanwa		#x07 #x22)	; ø¹œ¢
     ))
 (define-char
@@ -327,6 +343,7 @@
     (shinjigen-2	. 586)
     (japanese-jisx0208-1978	#x51 #x62)	; ø»ƒƒ¡
     (japanese-jisx0208		#x51 #x62)	; ø»‡—©
+    (japanese-jisx0208-1990	#x51 #x62)	; å‡¾
     (ideograph-daikanwa		#x07 #x26)	; ø¹œ¦
     ))
 (define-char
@@ -398,6 +415,7 @@
     (total-strokes	 . 12)
     (non-morohashi	1836 9)
     (chinese-gb2312	#x54 #x64)	; ø»…’
+    (chinese-isoir165	#x54 #x64)	; ø»º‘
     ))
 (define-char
   '((morohashi-daikanwa	1837)
@@ -471,4 +489,11 @@
     (ideographic-strokes . 18)
     (total-strokes	 . 20)
     (ideograph-daikanwa #x07 #x34)	; ø¹œ´
+    ))
+(define-char
+  '((morohashi-daikanwa	48936)
+    (ideographic-radical . 17)	; â¼
+    (total-strokes	. 6)
+    (chinese-cns11643-6 #x23 #x64)	; ø»›¸¯
+    (ideograph-daikanwa #xBF #x28)	; ø¹›¼¨
     ))
