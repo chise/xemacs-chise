@@ -32,7 +32,27 @@ extern Lisp_Object Vchar_attribute_hash_table;
 
 #define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
+
+/************************************************************************/
+/*                            Exported functions                        */
+/************************************************************************/
+
+extern Lisp_Object Vcharset_ucs;
 extern Lisp_Object Vcharset_latin_jisx0201;
+extern Lisp_Object Vcharset_chinese_big5;
+extern Lisp_Object Vcharset_chinese_big5_1;
+extern Lisp_Object Vcharset_chinese_big5_2;
+extern Lisp_Object Vcharset_japanese_jisx0208;
+extern Lisp_Object Vcharset_japanese_jisx0208_1990;
+extern Lisp_Object Vcharset_japanese_jisx0212;
+
+EXFUN (Fget_charset, 1);
+
+extern Lisp_Object Qucs;
+
+Lisp_Object put_char_ccs_code_point (Lisp_Object character,
+				     Lisp_Object ccs, Lisp_Object value);
+Lisp_Object remove_char_ccs (Lisp_Object character, Lisp_Object ccs);
 
 
 /************************************************************************/
@@ -506,10 +526,6 @@ CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
 
 Emchar decode_builtin_char (Lisp_Object charset, int code_point);
 
-extern Lisp_Object Vcharset_chinese_big5;
-extern Lisp_Object Vcharset_chinese_big5_1;
-extern Lisp_Object Vcharset_chinese_big5_2;
-
 INLINE_HEADER Lisp_Object
 get_ccs_octet_table (Lisp_Object table, Lisp_Object ccs, int code);
 INLINE_HEADER Lisp_Object
@@ -829,22 +845,5 @@ CHAR_TO_CHARC (Emchar ch)
   cc.code_point = encode_char_1 (ch, &cc.charset);
   return cc;
 }
-
-
-/************************************************************************/
-/*                            Exported functions                        */
-/************************************************************************/
-
-EXFUN (Fget_charset, 1);
-
-extern Lisp_Object Qucs;
-
-extern Lisp_Object Vcharset_japanese_jisx0208;
-extern Lisp_Object Vcharset_japanese_jisx0208_1990;
-extern Lisp_Object Vcharset_japanese_jisx0212;
-
-Lisp_Object put_char_ccs_code_point (Lisp_Object character,
-				     Lisp_Object ccs, Lisp_Object value);
-Lisp_Object remove_char_ccs (Lisp_Object character, Lisp_Object ccs);
 
 #endif /* INCLUDED_char_ucs_h_ */
