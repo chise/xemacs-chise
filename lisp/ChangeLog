@@ -1,5 +1,8 @@
 1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/mule-cmds.el (set-language-environment-coding-systems):
+	Modify eol-type for XEmacs.
+
 	* mule/thai-xtis.el: Delete unused local variable `category'.
 
 	* mule/mule-cmds.el (coding-system-change-eol-conversion): New
