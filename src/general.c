@@ -89,6 +89,7 @@ Lisp_Object Qgap_overhead;
 Lisp_Object Qgeneric;
 Lisp_Object Qgeometry;
 Lisp_Object Qglobal;
+Lisp_Object Qgutter;
 Lisp_Object Qheight;
 Lisp_Object Qhighlight;
 Lisp_Object Qicon;
@@ -245,6 +246,7 @@ syms_of_general (void)
   defsymbol (&Qgeneric, "generic");
   defsymbol (&Qgeometry, "geometry");
   defsymbol (&Qglobal, "global");
+  defsymbol (&Qgutter, "gutter");
   defsymbol (&Qheight, "height");
   defsymbol (&Qhighlight, "highlight");
   defsymbol (&Qicon, "icon");

@@ -700,6 +700,50 @@ find_next_newline (struct buffer *buf, Bufpos from, int count)
   return scan_buffer (buf, '\n', from, 0, count, 0, 1);
 }
 
+Bytind
+bi_find_next_emchar_in_string (struct Lisp_String* str, Emchar target, Bytind st,
+			       EMACS_INT count)
+{
+  /* This function has been Mule-ized. */
+  Bytind lim = string_length (str) -1;
+  Bufbyte* s = string_data (str);
+
+  assert (count >= 0);
+
+#ifdef MULE
+  /* Due to the Mule representation of characters in a buffer,
+     we can simply search for characters in the range 0 - 127
+     directly.  For other characters, we do it the "hard" way.
+     Note that this way works for all characters but the other
+     way is faster. */
+  if (target >= 0200)
+    {
+      while (st < lim && count > 0)
+	{
+	  if (string_char (str, st) == target)
+	    count--;
+	  INC_CHARBYTIND (s, st);
+	}
+    }
+  else
+#endif
+    {
+      while (st < lim && count > 0)
+	{
+	  Bufbyte *bufptr = (Bufbyte *) memchr (charptr_n_addr (s, st),
+						(int) target, lim - st);
+	  if (bufptr)
+	    {
+	      count--;
+	      st =  (Bytind)(bufptr - s) + 1;
+	    }
+	  else
+	    st = lim;
+	}
+    }
+  return st;
+}
+
 /* Like find_next_newline, but returns position before the newline,
    not after, and only search up to TO.  This isn't just
    find_next_newline (...)-1, because you might hit TO.  */

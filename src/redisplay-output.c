@@ -592,7 +592,7 @@ output_display_line (struct window *w, display_line_dynarr *cdla,
 			   cdl->clip != ddl->clip)))
 		{
 		  int x, y, width, height;
-		  Lisp_Object face;
+		  face_index findex;
 
 		  must_sync = 1;
 		  x = start_pixpos;
@@ -601,23 +601,33 @@ output_display_line (struct window *w, display_line_dynarr *cdla,
 		  height = ddl->ascent + ddl->descent - ddl->clip;
 
 		  if (x < ddl->bounds.left_in)
-		    face = Vleft_margin_face;
+		    {
+		      findex = ddl->left_margin_findex ?
+			ddl->left_margin_findex 
+			: get_builtin_face_cache_index (w, Vleft_margin_face);
+		    }
 		  else if (x < ddl->bounds.right_in)
-		    face = Vdefault_face;
+		    {
+		      /* no check here because DEFAULT_INDEX == 0 anyway */
+		      findex = ddl->default_findex;
+		    }
 		  else if (x < ddl->bounds.right_out)
-		    face = Vright_margin_face;
+		    {
+		      findex = ddl->right_margin_findex ?
+			ddl->right_margin_findex 
+			: get_builtin_face_cache_index (w, Vright_margin_face);
+		    }
 		  else
-		    face = Qnil;
+		    findex = (face_index) -1;
 
-		  if (!NILP (face))
+		  if (findex != (face_index) -1)
 		    {
 		      Lisp_Object window;
 
 		      XSETWINDOW (window, w);
 
 		      /* Clear the empty area. */
-		      redisplay_clear_region (window, get_builtin_face_cache_index (w, face),
-				    x, y, width, height);
+		      redisplay_clear_region (window, findex, x, y, width, height);
 
 		      /* Mark that we should clear the border.  This is
 			 necessary because italic fonts may leave
@@ -1253,6 +1263,64 @@ redisplay_clear_top_of_window (struct window *w)
 }
 
 /*****************************************************************************
+ redisplay_clear_to_window_end
+
+ Clear the area between ypos1 and ypos2.  Each margin area and the
+ text area is handled separately since they may each have their own
+ background color.
+ ****************************************************************************/
+void
+redisplay_clear_to_window_end (struct window *w, int ypos1, int ypos2)
+{
+  struct frame *f = XFRAME (w->frame);
+  struct device *d = XDEVICE (f->device);
+
+  if (HAS_DEVMETH_P (d, clear_to_window_end))
+    DEVMETH (d, clear_to_window_end, (w, ypos1, ypos2));
+  else
+    {
+      int height = ypos2 - ypos1;
+      
+      if (height)
+	{
+	  struct frame *f = XFRAME (w->frame);
+	  Lisp_Object window;
+	  int bflag = 0 ; /* (window_needs_vertical_divider (w) ? 0 : 1);*/
+	  layout_bounds bounds;
+	  
+	  bounds = calculate_display_line_boundaries (w, bflag);
+	  XSETWINDOW (window, w);
+
+	  if (window_is_leftmost (w))
+	    redisplay_clear_region (window, DEFAULT_INDEX, FRAME_LEFT_BORDER_START (f),
+				    ypos1, FRAME_BORDER_WIDTH (f), height);
+	  
+	  if (bounds.left_in - bounds.left_out > 0)
+	    redisplay_clear_region (window,
+				    get_builtin_face_cache_index (w, Vleft_margin_face),
+				    bounds.left_out, ypos1,
+				    bounds.left_in - bounds.left_out, height);
+	  
+	  if (bounds.right_in - bounds.left_in > 0)
+	    redisplay_clear_region (window, 
+				    DEFAULT_INDEX,
+				    bounds.left_in, ypos1,
+				    bounds.right_in - bounds.left_in, height);
+	  
+	  if (bounds.right_out - bounds.right_in > 0)
+	    redisplay_clear_region (window,
+				    get_builtin_face_cache_index (w, Vright_margin_face),
+				    bounds.right_in, ypos1,
+				    bounds.right_out - bounds.right_in, height);
+	  
+	  if (window_is_rightmost (w))
+	    redisplay_clear_region (window, DEFAULT_INDEX, FRAME_RIGHT_BORDER_START (f),
+				    ypos1, FRAME_BORDER_WIDTH (f), height);
+	}
+    }
+}
+
+/*****************************************************************************
  redisplay_clear_bottom_of_window
 
  Clear window from right below the last display line to right above
@@ -1308,7 +1376,7 @@ redisplay_clear_bottom_of_window (struct window *w, display_line_dynarr *ddla,
   if (ypos2 <= ypos1)
     return;
 
-  DEVMETH (d, clear_to_window_end, (w, ypos1, ypos2));
+  redisplay_clear_to_window_end (w, ypos1, ypos2);
 }
 
 /*****************************************************************************
@@ -1602,4 +1670,29 @@ redisplay_output_window (struct window *w)
 #ifdef HAVE_SCROLLBARS
   update_window_scrollbars (w, NULL, !MINI_WINDOW_P (w), 0);
 #endif
+}
+
+/*****************************************************************************
+ bevel_modeline
+
+ Draw a 3d border around the modeline on window W.
+ ****************************************************************************/
+void
+bevel_modeline (struct window *w, struct display_line *dl)
+{
+  struct frame *f = XFRAME (w->frame);
+  struct device *d = XDEVICE (f->device);
+  int x, y, width, height;
+  int shadow_thickness = MODELINE_SHADOW_THICKNESS (w);
+
+  x = WINDOW_MODELINE_LEFT (w);
+  width = WINDOW_MODELINE_RIGHT (w) - x;
+  y = dl->ypos - dl->ascent - shadow_thickness;
+  height = dl->ascent + dl->descent + 2 * shadow_thickness;
+
+  if (XINT (w->modeline_shadow_thickness) < 0)
+    shadow_thickness = - shadow_thickness;
+
+  MAYBE_DEVMETH (d, bevel_area, 
+		 (w, MODELINE_INDEX, x, y, width, height, shadow_thickness));
 }

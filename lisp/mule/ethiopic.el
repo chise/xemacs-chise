@@ -1,6 +1,6 @@
-;;; ethiopic.el --- Support for Ethiopic
+;;; ethiopic.el --- Support for Ethiopic -*- coding: iso-2022-7bit; -*-
 
-;; Copyright (C) 1995 Electrotechnical Laboratory, JAPAN.
+;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997 MORIOKA Tomohiko
 

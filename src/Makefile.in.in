@@ -176,7 +176,7 @@ objs=\
  event-stream.o extents.o faces.o\
  fileio.o $(LOCK_OBJ) filemode.o floatfns.o fns.o font-lock.o\
  frame.o general.o glyphs.o glyphs-eimage.o glyphs-widget.o\
- gui.o $(gui_objs) hash.o imgproc.o indent.o insdel.o intl.o\
+ gui.o gutter.o $(gui_objs) hash.o imgproc.o indent.o insdel.o intl.o\
  keymap.o $(RTC_patch_objs) line-number.o lread.o lstream.o\
  macros.o marker.o md5.o minibuf.o objects.o opaque.o\
  print.o process.o profile.o\

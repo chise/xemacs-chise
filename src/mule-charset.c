@@ -32,6 +32,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lstream.h"
 #include "device.h"
 #include "faces.h"
+#include "mule-ccl.h"
 
 /* The various pre-defined charsets. */
 
@@ -111,7 +112,6 @@ Lisp_Object Qcharsetp;
 Lisp_Object Qregistry, Qfinal, Qgraphic;
 Lisp_Object Qdirection;
 Lisp_Object Qreverse_direction_charset;
-Lisp_Object Qccl_program;
 Lisp_Object Qleading_byte;
 Lisp_Object Qshort_name, Qlong_name;
 
@@ -1254,7 +1254,6 @@ syms_of_mule_charset (void)
   defsymbol (&Qgraphic, "graphic");
   defsymbol (&Qdirection, "direction");
   defsymbol (&Qreverse_direction_charset, "reverse-direction-charset");
-  defsymbol (&Qccl_program, "ccl-program");
   defsymbol (&Qshort_name, "short-name");
   defsymbol (&Qlong_name, "long-name");
 

@@ -195,6 +195,53 @@ column_at_point (struct buffer *buf, Bufpos init_pos, int cur_col)
 }
 
 int
+string_column_at_point (struct Lisp_String* s, Bufpos init_pos, int tab_width)
+{
+  int col;
+  int tab_seen;
+  int post_tab;
+  Bufpos pos = init_pos;
+  Emchar c;
+
+  if (tab_width <= 0 || tab_width > 1000) tab_width = 8;
+  col = tab_seen = post_tab = 0;
+
+  while (1)
+    {
+      if (pos <= 0)
+	break;
+
+      pos--;
+      c = string_char (s, pos);
+      if (c == '\t')
+	{
+	  if (tab_seen)
+	    col = ((col + tab_width) / tab_width) * tab_width;
+
+	  post_tab += col;
+	  col = 0;
+	  tab_seen = 1;
+	}
+      else if (c == '\n')
+	break;
+      else
+#ifdef MULE
+	  col += XCHARSET_COLUMNS (CHAR_CHARSET (c));
+#else
+	  col ++;
+#endif /* MULE */
+    }
+
+  if (tab_seen)
+    {
+      col = ((col + tab_width) / tab_width) * tab_width;
+      col += post_tab;
+    }
+
+  return col;
+}
+
+int
 current_column (struct buffer *buf)
 {
   if (buf == last_known_column_buffer

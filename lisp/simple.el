@@ -2592,7 +2592,8 @@ indicating whether soft newlines should be inserted.")
 		       bounce
 		       ;; 97/3/14 jhod: Kinsoku
 		       (re-break-point (if (featurep 'mule)
-					    (concat "[ \t\n]\\|" word-across-newline)
+					    (concat "[ \t\n]\\|" word-across-newline
+						    ".\\|." word-across-newline)
 					"[ \t\n]"))
 		       ;; end patch
 		       (first t))

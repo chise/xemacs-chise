@@ -1,3 +1,334 @@
+1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.19 is released
+
+1999-07-27  Jeff Miller  <jmiller@smart.net>
+
+	* add a "#ifdef HAVE_MENUBARS"  wrapper to gui.c around 
+	  menubar_show_keybindings.
+
+1999-07-23  SL Baur  <steve@miho>
+
+	* mule-charset.c (syms_of_mule_charset): Delete duplicated
+	definition of Qccl_program.
+
+	* mule-ccl.h: Make a global declaration of it here.
+
+1999-07-20  Bob Weiner  <weiner@beopen.com>
+
+	* s/sco7.h: Added from rr@sco.com.
+
+1999-06-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-ccl.c (ccl_driver): Fix `CCL_WriteMultibyteChar2'.
+
+1999-06-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (mule_decode): Setup `str->ccl.last_block'.
+	(mule_encode): Likewise.
+
+	* mule-ccl.c (Qccl_program): New variable.
+	(CCL_SUSPEND): New macro.
+	(CCL_INVALID_CMD): New macro.
+	(CCL_READ_CHAR): Don't regard as invalid command while processing
+	the last block even if input is empty; use
+	`CCL_STAT_SUSPEND_BY_SRC' instead of `CCL_STAT_SUSPEND'.
+	(vars_of_mule_ccl): Setup `Qccl_program' and `Qccl_program_idx'.
+
+	* mule-ccl.h (CCL_STAT_SUCCESS): Moved from mule-ccl.c.
+	(CCL_STAT_SUSPEND_BY_SRC): Imported from Emacs 20.3.10.
+	(CCL_STAT_SUSPEND_BY_DST): Likewise.
+	(CCL_STAT_INVALID_CMD): Moved from mule-ccl.c; change value from 2.
+	(CCL_STAT_QUIT): Moved from mule-ccl.c; change value from 3.
+
+1999-05-04  Ken'ichi Handa  <handa@gnu.org>
+
+	* mule-ccl.h (struct ccl_program): New member stack_idx.
+
+	* mule-ccl.c (ccl_prog_stack_struct): Declare it as static.
+	(ccl_driver): Setup stack_idx and ccl_prog correctly.  Update them
+	before returing.
+	(setup_ccl_program): Initialize ccl->stack_idx to 0.
+
+1998-10-12  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule-ccl.c (CCL_DECODE_SJIS, CCL_ENCODE_SJIS): Swap the
+	definitions.
+
+1998-08-18  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule-ccl.c (CCL_READ_CHAR): If eof is encounterd while
+	processing the last block, don't just finish but processes eol
+	block of the current CCL program.
+	(ccl_driver): Add a new jump label ccl_repeat for the above
+	change.
+
+1998-04-15  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule-ccl.c: Typo in comments fixed.
+	(Qccl_program_idx): New variables.
+	(CCL_ReadMultibyteChar2): Macro name changed from
+	CCL_ReadMultibyteCharacter.
+	(CCL_WriteMultibyteChar2): Macro name changed from
+	CCL_WriteMultibyteChar2.
+	(ccl_driver): Adjusted for the above changes.
+	(resolve_symbol_ccl_program): New function.
+	(Fccl_execute): The arg CCL-PROGRAM can be a symbol of CCL
+	program.  If CCL-PRGRAM is a vector, convert symbols in it to ID
+	numbers by resolve_symbol_ccl_program.
+	(Fccl_execute_on_string): Likewise.
+	(Fregister_ccl_program): If the arg CCL-PRGRAM is a vector,
+	convert symbols in it to ID numbers by resolve_symbol_ccl_program.
+
+1998-01-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule-ccl.h: (struct ccl_program): New member private_state.
+
+	* mule-ccl.c
+	(CCL_Call): Fix the comment.
+	(CCL_ReadMultibyteCharacter, CCL_WriteMultibyteCharacter): New
+	macros for CCL Commands.
+	(EXCMD): New macro.
+	(ccl_driver): New case lable `CCL_Extention'.
+	(setup_ccl_program): Initialize the member `private_state' of CCL.
+
+1999-07-08  Katsumi Yamaoka <yamaoka@jpl.org>
+
+	* keymap.c (copy_keymap_internal): Inherit the default binding.
+
+1999-07-14  Kazuyuki IENAGA <kazz@imasy.or.jp>
+
+	* event-Xt.c (handle_focus_event_1): Re-enable Motif/XIM to get
+	focus the event (XIM_focus_event).
+	(emacs_Xt_handle_magic_event): No side effect on Motif/XIM because 
+	XIM_SetGeometry does nothing in input_method_motif.c, but re-unify
+	the interface for future use (XIM_SetGeometry).
+	* redisplay-x.c (x_output_string): Re-enable Motif/XIM to set spot 
+	location (XIM_SetSpotLocation).
+	(x_output_eol_cursor): Ditto.
+
+1999-07-17  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* gdbinit (pobj): change lrecord_foo to &lrecord_foo to match
+	Olivier's change to lrecord.h of 1999-04-22
+
+1999-07-20  Robert Pluim  <rpluim@bigfoot.com>
+
+	* gutter.c (redraw_exposed_gutter): Change type of pos from
+	enum toolbar_pos -> enum gutter_pos, since former is only defined
+	if toolbar support is.
+
+1999-07-19  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_resize_subwindow): cope with widgets as well as
+ 	subwindows.
+
+	* gutter.c (gutter_validate): new function for the gutter specifier.
+	(specifier_type_create_gutter): declare specifier validator.
+
+	* buffer.h (INC_CHARBYTIND): add for no error checking version.
+
+1999-07-18  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.c (add_emchar_rune): use XSTRING_DATA not string_data.
+
+	* glyphs-msw.c (console_type_create_glyphs_mswindows): add
+ 	resize_subwindow.
+	(mswindows_resize_subwindow): new function.
+
+	* gutter.c (redraw_exposed_gutter): only reset the
+ 	current_display_lines if non-zero.
+	(Fgutter_pixel_height): new function.
+	(Fgutter_pixel_width): new function.
+
+	* event-msw.c (mswindows_wnd_proc): set the mask of the parameter
+ 	we want to retrive from the tab control.
+
+1999-07-17  Andy Piper  <andy@xemacs.org>
+
+	* window.c (change_window_height): mark gutters changed when we're
+ 	done.
+
+	* gutter.c (specifier_vars_of_gutter): make defaults more
+ 	sensible.
+
+	* gutter.h (WINDOW_REAL_GUTTER_BORDER_WIDTH): adjust to be 0 for 0
+ 	height gutter.
+	(DEFAULT_GUTTER_WIDTH): change.
+	(DEFAULT_GUTTER_BORDER_WIDTH): change.
+
+1999-07-18  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.c (add_emchar_rune): use XSTRING_DATA not string_data.
+
+1999-07-16  Andy Piper  <andy@xemacs.org>
+
+	* frame.c (Fmake_frame): call init_frame_gutters().
+
+	* redisplay.c (add_emchar_rune): use string functions if we are
+ 	working with a string.
+	(position_redisplay_data_type): add string element.
+
+1999-07-15  Andy Piper  <andy@xemacs.org>
+
+	* winslots.h: add real_gutter_size slots to hold the actual gutter
+ 	size. This is important for autodetected sizes.
+
+	* gutter.c (calculate_gutter_size): calculate size for gutters
+ 	that have 'autodetect size.
+
+	* redisplay-msw.c (mswindows_output_vertical_divider): adjust
+ 	extent of divider for gutters.
+
+	* redisplay-x.c (x_output_vertical_divider): adjust extent of
+ 	divider for gutters.
+
+	* scrollbar.c (update_scrollbar_instance): adjust scrollbar
+ 	position to take into account the gutters.
+
+	* redisplay.c (generate_modeline): adjust modeline position to
+ 	take into account the gutters.
+
+1999-07-14  Andy Piper  <andy@xemacs.org>
+
+	* gutter.c (frame_topmost_window): new function.
+	(frame_bottommost_window): ditto.
+	(frame_leftmost_window): ditto.
+	(frame_rightmost_window): ditto.
+
+1999-07-13  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.c (calculate_display_line_boundaries): use text
+ 	boundaries so that gutters get handled properly.
+
+1999-07-12  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_widget_instantiate): set the font Motif-style if
+ 	we're using Motif.
+
+	* redisplay-output.c (redisplay_clear_to_window_end): generalised
+ 	from redisplay-x.c
+
+	* redisplay-x.c (redisplay_clear_to_window_end): moved to
+ 	redisplay.c
+	
+	* redisplay-msw.c (redisplay_clear_to_window_end): deleted.
+
+	* gutter.c: new file - implements gutters. All new functions are
+ 	semantically equivalent to the toolbar functions.
+	(gutter_was_visible): new function.
+	(get_gutter_coords): ditto.
+	(output_gutter): ditto.
+	(clear_gutter): ditto.
+	(update_frame_gutters): ditto.
+	(redraw_exposed_gutter): ditto.
+	(redraw_exposed_gutters): ditto.
+	(free_frame_gutters): ditto.
+	(init_frame_gutters): ditto.
+	(decode_gutter_position): ditto.
+	(Fset_default_gutter_position): ditto.
+	(Fset_default_gutter_position): ditto.
+	(Fdefault_gutter_position): ditto.
+	(gutter_after_change): ditto.
+	(Fgutter_specifier_p): ditto.
+	(recompute_overlaying_specifier): ditto.
+	(gutter_specs_changed): ditto.
+	(default_gutter_specs_changed): ditto.
+	(gutter_geometry_changed_in_window): ditto.
+	(default_gutter_size_changed_in_window): ditto.
+	(default_gutter_border_width_changed_in_window): ditto.
+	(default_gutter_visible_p_changed_in_window): ditto.
+	(syms_of_gutter): ditto.
+	(vars_of_gutter): ditto.
+	(specifier_type_create_gutter): ditto.
+	(specifier_vars_of_gutter): ditto.
+
+	* gutter.h: new file. Contains gutter constants and sizing macros
+ 	similar to those for the toolbar.
+
+	* winslots.h: add gutter variables.
+
+	* window.h: declare window_is_* functions.
+
+	* window.c (window_is_lowest): make non-static.
+	(window_is_highest): ditto.
+	(window_top_toolbar_height): deleted.
+	(window_bottom_toolbar_height): deleted.
+	(window_left_toolbar_width): deleted.
+	(window_right_toolbar_width): deleted.
+	(window_top_gutter_height): add gutter sizing.
+	(window_bottom_gutter_height): ditto.
+	(window_left_gutter_width): ditto.
+	(window_right_gutter_width): ditto.
+
+	* symsinit.h: declarations for gutters vars etc.
+
+	* search.c (bi_find_next_emchar_in_string): new function.
+
+	* scrollbar.c (update_scrollbar_instance): remove reference to
+ 	window_bottom_toolbar_height which did nothing.
+
+	* redisplay.h (struct display_line): add face indices for
+ 	overriding defaults in output_display_line.
+	Add gutter_changed flags and declarations.
+
+	* redisplay.c (create_string_text_block): new function, similar to
+ 	create_text_block but for strings. Display tables etc are used
+ 	from the currently selected window.
+	(generate_string_display_line): ditto. Similar to
+ 	generate_display_line.
+	(generate_displayable_area): generate display lines for a given
+ 	area on a frame. Input is the string, with associated extents, to
+ 	display.
+	(redisplay_frame): add gutter_changed check.
+	(redisplay_device): ditto.
+	(redisplay_without_hooks): ditto.
+
+	* redisplay-x.c (bevel_modeline): moved to redisplay.c.
+	(x_redraw_exposed_area): redraw exposed gutters.
+	(x_bevel_area): new redisplay device method.
+	(x_type_create_redisplay_mswindows): add bevel_area device method.
+	(x_output_display_block): fiddly Martin-style cleanup.
+	(x_output_vertical_divider): use bevel_area.
+
+	* redisplay-output.c (output_display_line): check display_lines
+ 	for face information before using defaults.
+	(bevel_modeline): new function, calls bevel_area with appropriate
+ 	values.
+
+	* redisplay-msw.c (bevel_modeline): moved to redisplay.c.
+	(mswindows_redraw_exposed_area): redraw exposed gutters.
+	(mswindows_bevel_area): new redisplay device method.
+	(console_type_create_redisplay_mswindows): add bevel_area device
+ 	method.
+
+	* indent.c (string_column_at_point): add column_at_point but for
+ 	strings.
+
+	* glyphs-x.c (image_instantiator_format_create_glyphs_x): only
+ 	instantiate widgets that we have a toolkit for.
+
+	* general.c: add Qgutter.
+
+	* frame.h (struct frame): add display lines for gutters and
+ 	visibility flags.
+
+	* frame.c (set_frame_selected_window): mark gutters changed.
+
+	* emacs.c (main_1): add gutter initialisation.
+
+	* device.h (struct device): add gutter_changed flag and macros to
+ 	manipulate it.
+
+	* console.h (struct console_methods): new bevel area redisplay
+ 	method.
+
+	* buffer.h (REAL_INC_CHARBYTIND): new macro for strings as
+ 	REAL_INC_BYTIND is for buffers.
+	(INC_CHARPTR): ditto.
+
+	* Makefile.in.in (objs): add gutter.o
+
 1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.18 is released

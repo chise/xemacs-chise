@@ -34,6 +34,7 @@ Boston, MA 02111-1307, USA.  */
 #include "device.h"
 #include "frame.h"
 #include "glyphs.h"
+#include "gutter.h"
 #include "window.h"
 
 Lisp_Object Qinit_scrollbar_from_resources;
@@ -452,23 +453,41 @@ update_scrollbar_instance (struct window *w, int vertical,
   {
     int x_offset, y_offset;
 
-    /* Scrollbars are always the farthest from the text area. */
+    /* Scrollbars are always the farthest from the text area, barring
+       gutters. */
     if (vertical)
       {
-	x_offset = (!NILP (w->scrollbar_on_left_p)
-		    ? WINDOW_LEFT (w)
-		    : (WINDOW_RIGHT (w) - scrollbar_width
-		       - (window_needs_vertical_divider (w)
-			  ? window_divider_width (w) : 0)));
+	if (!NILP (w->scrollbar_on_left_p))
+	  {
+	    x_offset = WINDOW_LEFT (w);
+	    if (window_is_leftmost (w))
+	      x_offset += FRAME_LEFT_GUTTER_BOUNDS (f);
+	  }
+	else 
+	  {
+	    x_offset = WINDOW_RIGHT (w) - scrollbar_width;
+	    if (window_is_rightmost (w))
+	      x_offset -= FRAME_RIGHT_GUTTER_BOUNDS (f);
+	    if (window_needs_vertical_divider (w))
+	      x_offset -= window_divider_width (w);
+	  }
 	y_offset = WINDOW_TEXT_TOP (w) + f->scrollbar_y_offset;
       }
     else
       {
 	x_offset = WINDOW_TEXT_LEFT (w);
-	y_offset = f->scrollbar_y_offset +
-	  (!NILP (w->scrollbar_on_top_p)
-	   ? WINDOW_TOP (w)
-	   : WINDOW_TEXT_BOTTOM (w) + window_bottom_toolbar_height (w));
+	y_offset = f->scrollbar_y_offset;
+
+	if (!NILP (w->scrollbar_on_top_p))
+	  {
+	    y_offset += WINDOW_TOP (w);
+	    if (window_is_highest (w))
+	      y_offset += FRAME_TOP_GUTTER_BOUNDS (f);
+	  }
+	else
+	  {
+	    y_offset += WINDOW_TEXT_BOTTOM (w);
+	  }
       }
 
     new_x = x_offset;

@@ -1,4 +1,4 @@
-;;; vietnamese.el --- Support for Vietnamese
+;;; vietnamese.el --- Support for Vietnamese -*- coding: iso-2022-7bit; -*-
 
 ;; Copyright (C) 1995 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
@@ -188,7 +188,7 @@ Both tables are indexed by the position code of Vietnamese characters.")
 		       (;; Vietnamese upper
 			(read r0)
 			(r0 -= 128)
-			(write-read-repeat r0 ,(cdr viet-viscii-encode-table)))
+			(write-read-repeat r0 ,(cdr viet-vscii-encode-table)))
 		     ;; not Vietnamese
 		     (write-read-repeat r0))))))))
   "CCL program to encode VSCII-1.")
@@ -212,10 +212,16 @@ Both tables are indexed by the position code of Vietnamese characters.")
    decode ,ccl-decode-viscii
    encode ,ccl-encode-viscii))
 
+;; it is not correct, but XEmacs doesn't have `ccl' category...
+(coding-system-put 'viscii 'category 'iso-8-1)
+
 ;; (make-coding-system
 ;;  'vietnamese-viscii 4 ?V
 ;;  "8-bit encoding for Vietnamese VISCII 1.1 (MIME:VISCII)"
-;;  (cons ccl-decode-viscii ccl-encode-viscii))
+;;  '(ccl-decode-viscii . ccl-encode-viscii)
+;;  '((safe-charsets ascii vietnamese-viscii-lower vietnamese-viscii-upper)
+;;    (mime-charset . viscii)
+;;    (valid-codes (0 . 255))))
 
 ;; (define-coding-system-alias 'viscii 'vietnamese-viscii)
 
@@ -229,7 +235,9 @@ Both tables are indexed by the position code of Vietnamese characters.")
 ;; (make-coding-system
 ;;  'vietnamese-vscii 4 ?v
 ;;  "8-bit encoding for Vietnamese VSCII-1"
-;;  (cons ccl-decode-vscii ccl-encode-vscii))
+;;  '(ccl-decode-vscii . ccl-encode-vscii)
+;;  '((safe-charsets ascii vietnamese-viscii-lower vietnamese-viscii-upper)
+;;    (valid-codes (0 . 255))))
 
 ;; (define-coding-system-alias 'vscii 'vietnamese-vscii)
 
@@ -244,9 +252,13 @@ Both tables are indexed by the position code of Vietnamese characters.")
 ;; (make-coding-system
 ;;  'vietnamese-viqr 0 ?q
 ;;  "Vietnamese latin transcription (VIQR)"
-;;  nil)
-;; (put 'vietnamese-viqr 'post-read-conversion 'viqr-post-read-conversion)
-;; (put 'vietnamese-viqr 'pre-write-conversion 'viqr-pre-write-conversion)
+;;  nil
+;;  '((safe-charsets ascii vietnamese-viscii-lower vietnamese-viscii-upper)
+;;    (post-read-conversion . viqr-post-read-conversion)
+;;    (pre-write-conversion . viqr-pre-write-conversion)
+;;    (charset-origin-alist
+;;     (vietnamese-viscii-lower "VISCII" viet-encode-viscii-char)
+;;     (vietnamese-viscii-upper "VISCII" viet-encode-viscii-char))))
 
 ;; (define-coding-system-alias 'viqr 'vietnamese-viqr)
 
@@ -265,15 +277,22 @@ Both tables are indexed by the position code of Vietnamese characters.")
 ;; (setq font-ccl-encoder-alist
 ;;       (cons (cons "vscii" ccl-encode-vscii-font) font-ccl-encoder-alist))
 
+;; (defvar viet-viscii-nonascii-translation-table
+;;   (make-translation-table-from-vector viet-viscii-decode-table)
+;;   "Value of `nonascii-translation-table' in Vietnamese language environment.")
+
 (set-language-info-alist
- "Vietnamese" '((setup-function . setup-vietnamese-environment)
-		(charset . (vietnamese-viscii-lower
-			    vietnamese-viscii-upper))
-		(coding-system . (viscii vscii viqr))
+ "Vietnamese" '((charset vietnamese-viscii-lower vietnamese-viscii-upper)
+		(coding-system viscii vscii viqr)
+		(coding-priority viscii)
+		(input-method . "vietnamese-viqr")
+		(features viet-util)
 		(sample-text . "Vietnamese (Ti,1*(Bng Vi,1.(Bt)	Ch,1`(Bo b,1U(Bn")
 		(documentation . "\
 For Vietnamese, Emacs uses special charasets internally.
-They can be decoded from and encoded to VISCC, VSCII, and VIQR.")
+They can be decoded from and encoded to VISCC, VSCII, and VIQR.
+Current setting put higher priority to the coding system VISCII than VSCII.
+If you prefer VSCII, please do: (prefer-coding-system 'vietnamese-vscii)")
 		))
 
 ;;; vietnamese.el ends here

@@ -1,3 +1,18 @@
+1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.19 is released
+
+1999-07-10  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak (.SUFFIXES): Add .texi.
+	(check): Improve automated test section.
+	(info): Generate info files using XEmacs (no makeinfo.exe needed).
+
+1999-07-19  Andy Piper  <andy@xemacs.org>
+
+	* xemacs.mak (DOC_SRC3): add gutter.c
+	(TEMACS_OBJS): add gutter.obj.
+
 1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.18 is released

@@ -93,6 +93,14 @@ PROGNAME=@PROGNAME@
 ## not need to change them.  This defaults to /usr/local.
 prefix=@prefix@
 
+## Variable data (as per each program update) goes here
+## The default is ${PROGNAME}
+inststaticdir=@inststaticdir@
+
+## Static data (constant across program updates) goes here
+## The default is ${PROGNAME}-${version}
+instvardir=@instvardir@
+
 ## Like `prefix', but used for architecture-specific files.
 exec_prefix=@exec_prefix@
 
@@ -396,7 +404,7 @@ install-arch-dep: mkdir
 	   if test -f ../Installation; then \
 		${INSTALL_DATA} ../Installation ${archlibdir}/Installation; \
 	   fi; \
-	   ${INSTALL_DATA} lib-src/config.values ${archlibdir}/config.values; \
+	   ${INSTALL_DATA} lib-src/config.values ${docdir}/config.values; \
 	   ${INSTALL_DATA} lib-src/DOC ${docdir}/DOC; \
 	   for subdir in `find ${archlibdir} -type d ! -name RCS ! -name SCCS ! -name CVS -print` ; \
 	     do (cd $${subdir} && $(RM) -r RCS CVS SCCS \#* *~) ; done ; \
@@ -406,10 +414,10 @@ install-arch-dep: mkdir
 	cd ${bindir} && $(RM) ./${PROGNAME} && ${LN_S} ${PROGNAME}-${version} ./${PROGNAME}
 	if test "${prefix}" != "${exec_prefix}"; then \
 	  for dir in \
-		lib/${PROGNAME} \
-	 	lib/${PROGNAME}-${version}/etc \
-		lib/${PROGNAME}-${version}/info \
-		lib/${PROGNAME}-${version}/lisp; do \
+		lib/${inststaticdir} \
+	 	lib/${instvardir}/etc \
+		lib/${instvardir}/info \
+		lib/${instvardir}/lisp; do \
 	    if test ! -d ${exec_prefix}/$${dir}; then \
 	      $(LN_S) ${prefix}/$${dir} ${exec_prefix}/$${dir}; fi; \
 	  done; \
@@ -451,7 +459,6 @@ install-arch-indep: mkdir info
 	    chmod 0644 ${infodir}/$${file}; \
 	  done ; \
 	fi
-	## Note it's `xemacs' not ${PROGNAME}
 	cd ${srcdir}/etc && \
 	  for page in xemacs etags ctags gnuserv gnuclient gnuattach gnudoit; do \
 	    ${INSTALL_DATA} ${srcdir}/etc/$${page}.1 ${mandir}/$${page}${manext} ; \

@@ -97,6 +97,7 @@ void syms_of_glyphs_mswindows (void);
 void syms_of_glyphs (void);
 void syms_of_gui_x (void);
 void syms_of_gui (void);
+void syms_of_gutter (void);
 void syms_of_indent (void);
 void syms_of_intl (void);
 void syms_of_keymap (void);
@@ -182,6 +183,7 @@ void console_type_create_select_mswindows (void);
 
 void specifier_type_create (void);
 void specifier_type_create_image (void);
+void specifier_type_create_gutter (void);
 void specifier_type_create_objects (void);
 void specifier_type_create_toolbar (void);
 
@@ -273,6 +275,7 @@ void vars_of_glyphs_mswindows (void);
 void vars_of_glyphs (void);
 void vars_of_gui_x (void);
 void vars_of_gui (void);
+void vars_of_gutter (void);
 void vars_of_input_method_motif (void);
 void vars_of_input_method_xlib (void);
 void vars_of_indent (void);
@@ -327,6 +330,7 @@ void vars_of_eldap (void);
 /* Initialize specifier variables (dump-time only). */
 
 void specifier_vars_of_glyphs (void);
+void specifier_vars_of_gutter (void);
 void specifier_vars_of_menubar (void);
 void specifier_vars_of_redisplay (void);
 void specifier_vars_of_scrollbar (void);

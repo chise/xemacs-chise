@@ -133,7 +133,8 @@
 	(when-feature mule "japanese")
 	(when-feature mule "korean")
 	(when-feature mule "misc-lang")
-	(when-feature mule "thai-xtis")
+	(when-feature mule "thai-xtis-chars")
+	(when-feature mule "mule/thai-xtis") ; overloaded in leim/quail
 	(when-feature mule "viet-chars")
 	(when-feature mule "vietnamese")
 
@@ -164,6 +165,7 @@
 	(when-feature (and (not infodock)
 			   (or x mswindows) menubar) "menubar-items")
 	(when-feature (and infodock (or x mswindows) menubar) "id-menus")
+	(when-feature (and gutter menubar window-system) "gutter-items")
 	(when-feature x "x-faces")
 	(when-feature x "x-iso8859-1")
 	(when-feature x "x-mouse")

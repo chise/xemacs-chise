@@ -1,4 +1,4 @@
-;;; thai-xtis.el --- Thai support for pre-composed font (for XTIS).
+;;; thai-xtis.el --- Support for Thai (XTIS) -*- coding: iso-2022-7bit; -*-
 
 ;; Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
@@ -35,120 +35,180 @@
 ;;; Code:
 
 (when (featurep 'xemacs)
-  (make-charset 'thai-xtis "Precomposed Thai (XTIS by Virach)."
-		'(registry "xtis-0"
-			   dimension 2
-			   columns 1
-			   chars 94
-			   final ??
-			   graphic 0))
+  (let ((deflist	'(;; chars	syntax
+			  ("$(?!0(B-$(?NxP0R0S0`0(B-$(?e0(B"	"w")
+			  ("$(?p0(B-$(?y0(B"	"w")
+			  ("$(?O0f0_0o0z0{0(B"	"_")
+			  ))
+	elm chars len syntax to ch i)
+    (while deflist
+      (setq elm (car deflist))
+      (setq chars (car elm)
+	    len (length chars)
+	    syntax (nth 1 elm)
+	    i 0)
+      (while (< i len)
+	(if (= (aref chars i) ?-)
+	    (setq i (1+ i)
+		  to (nth 1 (split-char (aref chars i))))
+	  (setq ch (nth 1 (split-char (aref chars i)))
+		to ch))
+	(while (<= ch to)
+	  (modify-syntax-entry (vector 'thai-xtis ch) syntax)
+	  (setq ch (1+ ch)))
+	(setq i (1+ i)))
+      (setq deflist (cdr deflist))))
 
-  (modify-syntax-entry 'thai-xtis "w")
-
-  (define-category ?T "Precomposed Thai character.")
-  (modify-category-entry 'thai-xtis ?T)
+  (put-charset-property 'thai-xtis 'preferred-coding-system 'tis-620)
   )
 
+;; This is the ccl-decode-thai-xtis automaton.
+;;
+;; "WRITE x y" == (insert (make-char 'thai-xtis x y))
+;; "write x" == (insert x)
+;; rx' == (tis620-to-thai-xtis-second-byte-bitpattern rx)
+;; r3 == "no vower nor tone"
+;; r4 == (charset-id 'thai-xtis)
+;; 
+;;          |               input (= r0)
+;;   state  |--------------------------------------------
+;;          |  consonant  |    vowel    |    tone
+;; ---------+-------------+-------------+----------------
+;;  r1 == 0 | r1 = r0     | WRITE r0,r3 | WRITE r0,r3
+;;  r2 == 0 |             |             |
+;; ---------+-------------+-------------+----------------
+;;  r1 == C | WRITE r1,r3 | r2 = r0'    | WRITE r1,r3|r0'
+;;  r2 == 0 | r1 = r0     |             | r1 = 0
+;; ---------+-------------+-------------+----------------
+;;  r1 == C | WRITE r1,r2 | WRITE r1,r2 | WRITE r1,r2|r0'
+;;  r2 == V | r1 = r0     | WRITE r0,r3 | r1 = r2 = 0
+;;          | r2 = 0      | r1 = r2 = 0 |
+;; 
+;; 
+;;          |               input (= r0) 
+;;   state  |-----------------------------------------
+;;          |    symbol   |    ASCII    |     EOF
+;; ---------+-------------+-------------+-------------
+;;  r1 == 0 | WRITE r0,r3 | write r0    |
+;;  r2 == 0 |             |             |
+;; ---------+-------------+-------------+-------------
+;;  r1 == C | WRITE r1,r3 | WRITE r1,r3 | WRITE r1,r3
+;;  r2 == 0 | WRITE r0,r3 | write r0    |
+;;          | r1 = 0      | r1 = 0      |
+;; ---------+-------------+-------------+-------------
+;;  r1 == C | WRITE r1,r2 | WRITE r1,r2 | WRITE r1,r2
+;;  r2 == V | WRITE r0,r3 | write r0    |
+;;          | r1 = r2 = 0 | r1 = r2 = 0 |
 
-(defvar leading-code-private-21 #x9F)
 
-(defconst thai-xtis-leading-code
-  (concat (char-to-string leading-code-private-21)
-	  (char-to-string (charset-id 'thai-xtis))))
+(eval-and-compile
+
+;; input  : r5 = 1st byte, r6 = 2nd byte
+;; Their values will be destroyed.
+(define-ccl-program ccl-thai-xtis-write
+  '(0
+    ((r5 = ((r5 & #x7F) << 7))
+     (r6 = ((r6 & #x7F) | r5))
+     (write-multibyte-character r4 r6))))
 
 (define-ccl-program ccl-thai-xtis-consonant
-  `(0
+  '(0
     (if (r1 == 0)
-	((write ,thai-xtis-leading-code)
-	 (write r0)
-	 (r1 = r2))
-      (if (r1 == r2)
-	  ((write r1)
-	   (write ,thai-xtis-leading-code)
-	   (write r0))
-	((write r1)
-	 (write ,thai-xtis-leading-code)
-	 (write r0)
-	 (r1 = r2))))))
-
-(define-ccl-program ccl-thai-xtis-vowel-d1
-  `(0
-    (if (r1 == 0)
-	((write ,thai-xtis-leading-code)
-	 (write r0 r2))
-      (if (r1 == r2)
-	  (r1 = ?\xb8)
-	((write r1)
-	 (write ,thai-xtis-leading-code)
-	 (write r0 r2)
-	 (r1 = 0))))))
+	(r1 = r0)
+      (if (r2 == 0)
+	  ((r5 = r1) (r6 = r3) (call ccl-thai-xtis-write)
+	   (r1 = r0))
+	((r5 = r1) (r6 = r2) (call ccl-thai-xtis-write)
+	 (r1 = r0)
+	 (r2 = 0))))))
 
 (define-ccl-program ccl-thai-xtis-vowel
-  `(0
-    (if (r1 == 0)
-	((write ,thai-xtis-leading-code)
-	 (write r0 r2))
-      (if (r1 == r2)
-	  (r1 = ((r0 - 188) << 3))
-	((write r1)
-	 (write ,thai-xtis-leading-code)
-	 (write r0 r2)
-	 (r1 = 0))))))
+  '(0
+    ((if (r1 == 0)
+	 ((r5 = r0) (r6 = r3) (call ccl-thai-xtis-write))
+       ((if (r2 == 0)
+	    (r2 = ((r0 - 204) << 3))
+	  ((r5 = r1) (r6 = r2) (call ccl-thai-xtis-write)
+	   (r5 = r0) (r6 = r3) (call ccl-thai-xtis-write)
+	   (r1 = 0)
+	   (r2 = 0))))))))
+
+(define-ccl-program ccl-thai-xtis-vowel-d1
+  '(0
+    ((if (r1 == 0)
+	 ((r5 = r0) (r6 = r3) (call ccl-thai-xtis-write))
+       ((if (r2 == 0)
+	    (r2 = #x38)
+	  ((r5 = r1) (r6 = r2) (call ccl-thai-xtis-write)
+	   (r5 = r0) (r6 = r3) (call ccl-thai-xtis-write)
+	   (r1 = 0)
+	   (r2 = 0))))))))
 
 (define-ccl-program ccl-thai-xtis-vowel-ee
-  `(0
-    (if (r1 == 0)
-	((write ,thai-xtis-leading-code)
-	 (write r0 r2))
-      (if (r1 == r2)
-	  (r1 = ?\xf8)
-	((write r1)
-	 (write ,thai-xtis-leading-code)
-	 (write r0 r2)
-	 (r1 = 0))))))
+  '(0
+    ((if (r1 == 0)
+	 ((r5 = r0) (r6 = r3) (call ccl-thai-xtis-write))
+       ((if (r2 == 0)
+	    (r2 = #x78)
+	  ((r5 = r1) (r6 = r2) (call ccl-thai-xtis-write)
+	   (r5 = r0) (r6 = r3) (call ccl-thai-xtis-write)
+	   (r1 = 0)
+	   (r2 = 0))))))))
 
 (define-ccl-program ccl-thai-xtis-tone
-  `(0
+  '(0
     (if (r1 == 0)
-	((write ,thai-xtis-leading-code)
-	 (write r0 r2))
-      (if (r1 == r2)
-	  ((r0 -= 54)
-	   (write r0)
+	((r5 = r0) (r6 = r3) (call ccl-thai-xtis-write))
+      (if (r2 == 0)
+	  ((r5 = r1) (r6 = ((r0 - #xE6) | r3)) (call ccl-thai-xtis-write)
 	   (r1 = 0))
-	((r1 += (r0 - ?\xe6))
-	 (write r1)
-	 (r1 = 0))))))
+	((r5 = r1) (r6 = ((r0 - #xE6) | r2)) (call ccl-thai-xtis-write)
+	 (r1 = 0)
+	 (r2 = 0))))))
 
 (define-ccl-program ccl-thai-xtis-symbol
-  `(0
+  '(0
     (if (r1 == 0)
-	((write ,thai-xtis-leading-code)
-	 (write r0 r2))
-      (if (r1 == r2)
-	  ((write r2)
-	   (write ,thai-xtis-leading-code)
-	   (write r0 r2)
+	((r5 = r0) (r6 = r3) (call ccl-thai-xtis-write))
+      (if (r2 == 0)
+	  ((r5 = r1) (r6 = r3) (call ccl-thai-xtis-write)
+	   (r5 = r0) (r6 = r3) (call ccl-thai-xtis-write)
 	   (r1 = 0))
-	((write r1)
-	 (write ,thai-xtis-leading-code)
-	 (write r0 r2)
-	 (r1 = 0))))))
+	((r5 = r1) (r6 = r2) (call ccl-thai-xtis-write)
+	 (r5 = r0) (r6 = r3) (call ccl-thai-xtis-write)
+	 (r1 = 0)
+	 (r2 = 0))))))
+
+(define-ccl-program ccl-thai-xtis-ascii
+  '(0
+    (if (r1 == 0)
+	(write r0)
+      (if (r2 == 0)
+	  ((r5 = r1) (r6 = r3) (call ccl-thai-xtis-write)
+	   (write r0)
+	   (r1 = 0))
+	((r5 = r1) (r6 = r2) (call ccl-thai-xtis-write)
+	 (write r0)
+	 (r1 = 0)
+	 (r2 = 0))))))
+
+(define-ccl-program ccl-thai-xtis-eof
+  '(0
+    (if (r1 != 0)
+	(if (r2 == 0)
+	    ((r5 = r1) (r6 = r3) (call ccl-thai-xtis-write))
+	  ((r5 = r1) (r6 = r2) (call ccl-thai-xtis-write))))))
 
 (define-ccl-program ccl-decode-thai-xtis
   `(4
     ((read r0)
      (r1 = 0)
-     (r2 = ?\xb0)
+     (r2 = 0)
+     (r3 = #x30)
+     (r4 = ,(charset-id 'thai-xtis))
      (loop
       (if (r0 < 161)
-	  (if (r1 == 0)
-	      (write r0)
-	    (if (r1 == r2)
-		((write r2 r0)
-		 (r1 = 0))
-	      ((write r1 r0)
-	       (r1 = 0))))
+	  (call ccl-thai-xtis-ascii)
 	(branch (r0 - 161)
 		(call ccl-thai-xtis-consonant)
 		(call ccl-thai-xtis-consonant)
@@ -247,9 +307,11 @@
       (read r0)
       (repeat)))
 
-    (if (r1 != 0)
-	(write r1)
-      nil)))
+    (call ccl-thai-xtis-eof)))
+
+)
+
+(defconst leading-code-private-21 #x9F)
 
 (define-ccl-program ccl-encode-thai-xtis
   `(1
@@ -262,7 +324,7 @@
 		(write r0)
 		(read r0)
 		(r1 = (r0 & 7))
-		(r0 = ((r0 - ?\xb0) >> 3))
+		(r0 = ((r0 - #xB0) >> 3))
 		(if (r0 != 0)
 		    (write r0 [0 209 212 213 214 215 216 217 218 238]))
 		(if (r1 != 0)
@@ -275,12 +337,14 @@
 	(write-read-repeat r0))))))
 
 (if (featurep 'xemacs)
-    (make-coding-system
-     'tis-620 'ccl
-     "external=tis620, internal=thai-xtis"
-     `(mnemonic "TIS620"
-       decode ,ccl-decode-thai-xtis
-       encode ,ccl-encode-thai-xtis))
+    (progn
+      (make-coding-system
+       'tis-620 'ccl
+       "external=tis620, internal=thai-xtis"
+       `(mnemonic "TIS620"
+		  decode ,ccl-decode-thai-xtis
+		  encode ,ccl-encode-thai-xtis))
+      (coding-system-put 'tis-620 'category 'iso-8-1))
   (make-coding-system
    'tis-620 4 ?T "external=tis620, internal=thai-xtis"
    '(ccl-decode-thai-xtis . ccl-encode-thai-xtis)
@@ -290,10 +354,10 @@
 
 (set-language-info-alist
  "Thai-XTIS"
- '((setup-function . setup-thai-xtis-environment)
-   (exit-function . exit-thai-xtis-environment)
-   (charset thai-xtis)
+ '((charset thai-xtis)
    (coding-system tis-620 iso-2022-7bit)
+   (tutorial . "TUTORIAL.th")
+   (tutorial-coding-system . tis-620)
    (coding-priority tis-620 iso-2022-7bit)
    (sample-text . "$(?!:(B")
    (documentation . t)))

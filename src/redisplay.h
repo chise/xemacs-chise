@@ -233,6 +233,32 @@ typedef struct
   Dynarr_declare (glyph_block);
 } glyph_block_dynarr;
 
+/*************************************************************************/
+/*                              display lines                             */
+/*************************************************************************/
+
+/*  Modeline commentary: IMO the modeline is handled very badly, we
+  special case virtually *everything* in the redisplay routines for
+  the modeline. The fact that dl->bufpos can be either a buffer
+  position or a char count highlights this. There is no abstraction at
+  all that I can find and it means that the code is made very ugly as
+  a result. Either we should treat the modeline *entirely* separately,
+  or we should abstract to something that applies equally well to the
+  modeline and to buffer text, the things are not enormously different
+  after all and handling them identically at some level would
+  eliminate some bugs that still exist (mainly to do with modeline
+  handling). This problem doesn't help trying to implement gutters
+  which are somewhere in between buffer text and modeline text.
+
+  Redisplay commentary: Everything in redisplay is tied very tightly
+  to the things that are being displayed, and the context,
+  e.g. buffers and windows. According to Chuck this is so that we can
+  get speed, which seems fine to me, however this usage is extended
+  too far down the redispay routines IMO. At some level there should
+  be functions that know how to display strings with extents and
+  faces, regardless of buffer etc. After all the window system does
+  not care. <andy@xemacs.org> */
+
 typedef struct display_line display_line;
 struct display_line
 {
@@ -268,6 +294,10 @@ struct display_line
   /* Dynamic arrays of left and right glyph blocks */
   glyph_block_dynarr *left_glyphs;
   glyph_block_dynarr *right_glyphs;
+
+  face_index	left_margin_findex;
+  face_index	right_margin_findex;
+  face_index	default_findex;
 };
 
 #define DISPLAY_LINE_HEIGHT(dl) \
@@ -387,6 +417,10 @@ extern int asynch_device_change_pending;
 extern int toolbar_changed;
 extern int toolbar_changed_set;
 
+/* non-nil if any gutter has changed */
+extern int gutter_changed;
+extern int gutter_changed_set;
+
 /* non-nil if any window has changed since the last time redisplay completed */
 extern int windows_changed;
 
@@ -426,6 +460,7 @@ extern int windows_structure_changed;
 #define MARK_MODELINE_CHANGED MARK_TYPE_CHANGED (modeline)
 #define MARK_POINT_CHANGED MARK_TYPE_CHANGED (point)
 #define MARK_TOOLBAR_CHANGED MARK_TYPE_CHANGED (toolbar)
+#define MARK_GUTTER_CHANGED MARK_TYPE_CHANGED (gutter)
 #define MARK_GLYPHS_CHANGED MARK_TYPE_CHANGED (glyphs)
 #define MARK_SUBWINDOWS_CHANGED MARK_TYPE_CHANGED (subwindows)
 
@@ -441,6 +476,7 @@ extern int windows_structure_changed;
     modeline_changed_set = 0;		\
     point_changed_set = 0;		\
     toolbar_changed_set = 0;		\
+    gutter_changed_set = 0;		\
     glyphs_changed_set = 0;		\
     subwindows_changed_set = 0;		\
   } while (0)
@@ -522,6 +558,10 @@ void free_display_structs (struct window_mirror *mir);
 Bufbyte *generate_formatted_string (struct window *w, Lisp_Object format_str,
                                     Lisp_Object result_str, face_index findex,
                                     int type);
+void generate_displayable_area (struct window *w, Lisp_Object disp_string,
+				int xpos, int ypos, int width, int height,
+				display_line_dynarr* dl,
+				Bufpos start_pos, face_index default_face);
 int real_current_modeline_height (struct window *w);
 int pixel_to_glyph_translation (struct frame *f, int x_coord,
 				int y_coord, int *col, int *row,
@@ -565,6 +605,7 @@ void redisplay_output_subwindow (struct window *w, struct display_line *dl,
 				 face_index findex, int cursor_start, 
 				 int cursor_width, int cursor_height);
 void redisplay_unmap_subwindows_maybe (struct frame* f, int x, int y, int width, int height);
+void redisplay_clear_to_window_end (struct window *w, int ypos1, int ypos2);
 void redisplay_clear_region (Lisp_Object window, face_index findex, int x,
 			     int y, int width, int height);
 void redisplay_clear_bottom_of_window (struct window *w,

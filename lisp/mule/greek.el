@@ -33,31 +33,25 @@
 (loop for c from 54 to 126
       do (modify-syntax-entry (make-char 'greek-iso8859-7 c) "w"))
 (modify-syntax-entry (make-char 'greek-iso8859-7 32) "w") ; no-break space
-(modify-syntax-entry ?,F7(B ".")
-(modify-syntax-entry ?,F;(B ".")
-(modify-syntax-entry ?,F=(B ".")
+(modify-syntax-entry ?.FN7 ".")
+(modify-syntax-entry ?N; ".")
+(modify-syntax-entry ?N= ".")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; GREEK
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; (define-language-environment 'greek
-;;   "Greek"
-;;   (lambda ()
-;;     (set-coding-category-system 'iso-8-designate 'iso-8859-7)
-;;     (set-coding-priority-list '(iso-8-designate iso-8-1))
-;;     (set-default-buffer-file-coding-system 'iso-8859-7)
-;;     (setq terminal-coding-system 'iso-8859-7)
-;;     (setq keyboard-coding-system 'iso-8859-7)
-;;     ;; (setq-default quail-current-package
-;;     ;;               (assoc "greek" quail-package-alist))
-;;     ))
 
 ;; (make-coding-system
-;;  'iso-8859-7 2 ?7 "MIME ISO-8859-7"
-;;  '((ascii t) (greek-iso8859-7 t) nil nil
-;;    nil ascii-eol ascii-cntl nil nil nil nil))
+;;  'greek-iso-8bit 2 ?7
+;;  "ISO 2022 based 8-bit encoding for Greek (MIME:ISO-8859-7)"
+;;  '(ascii greek-iso8859-7 nil nil
+;;    nil nil nil nil nil nil nil)
+;;  '((safe-charsets ascii greek-iso8859-7)
+;;    (mime-charset . iso-8859-7)))
+
+;; (define-coding-system-alias 'iso-8859-7 'greek-iso-8bit)
 
 (make-coding-system
  'iso-8859-7 'iso2022 "MIME ISO-8859-7"
@@ -71,14 +65,14 @@
 (defun setup-greek-environment ()
   "Setup multilingual environment (MULE) for Greek."
   (interactive)
-  (setup-8-bit-environment "Greek" 'greek-iso8859-7 'iso-8859-7 "greek")
-  )
+  (set-language-environment "Greek"))
 
 (set-language-info-alist
- "Greek" '((setup-function . setup-greek-environment)
-	   (charset . (greek-iso8859-7))
-	   (coding-system . (iso-8859-7))
-	   (sample-text . "Greek (,FGkk]mija(B)	,FCei\(B ,Fsar(B")
+ "Greek" '((charset greek-iso8859-7)
+	   (coding-system iso-8859-7)
+	   (coding-priority iso-8859-7)
+	   (input-method . "greek")
+	   (sample-text . "Greek (NGNkNkN]NmNiNjNa)	NCNeNiN\ NsNaNr")
 	   (documentation . t)))
 
 ;;; greek.el ends here

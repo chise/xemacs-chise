@@ -1141,6 +1141,7 @@ copy_keymap_internal (Lisp_Keymap *keymap)
   new_keymap->sub_maps_cache = Qnil; /* No submaps */
   new_keymap->table          = Fcopy_hash_table (keymap->table);
   new_keymap->inverse_table  = Fcopy_hash_table (keymap->inverse_table);
+  new_keymap->default_binding = keymap->default_binding;
   /* After copying the inverse map, we need to copy the conses which
      are its values, lest they be shared by the copy, and mangled.
    */
