@@ -1,5 +1,10 @@
 2001-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R151-Bean.el, Ideograph-R148-Horn.el,
+	Ideograph-R134-Mortar.el: Merge GB 12345 code points.
+
+2001-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R147-See.el, Ideograph-R144-Walk-Enclosure.el,
 	Ideograph-R143-Blood.el, Ideograph-R122-Net.el: Merge GB 12345
 	code points.
