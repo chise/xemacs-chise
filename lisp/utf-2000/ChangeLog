@@ -1,3 +1,29 @@
+2004-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-chars.el (system-char-db-source-file-list): Add
+	"ruimoku6".
+
+	* char-db-util.el (insert-char-attributes): Fold long line in
+	non-special element of list in default feature.
+
+	* ruimoku6.el: New file.
+
+	* Ideograph-R062-Halberd.el (RUI6-E005): New character.
+
+	* Ideograph-R046-Mountain.el (RUI6-E008): New character.
+
+	* Ideograph-R040-Roof.el (U-00021A5C): Add `->unified' for
+	RUI6-E009 and IU-00021A5C.
+
+	* Ideograph-R037-Big.el (RUI6-E006): New character.
+
+	* Ideograph-R026-Seal.el (RUI6-E00F): New character.
+	(RUI6-E007): New character.
+
+	* Ideograph-R075-Tree.el (RUI6-E00C): New character.
+
+	* Ideograph-R024-Ten.el (BC-8B75): Unify RUI6-E00E.
+
 2004-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R040-Roof.el (U-00021A5C): New character.
