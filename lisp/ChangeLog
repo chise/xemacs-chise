@@ -1,3 +1,88 @@
+2000-02-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.30 is released.
+
+2000-02-19  Martin Buchholz  <martin@xemacs.org>
+
+	* byte-optimize.el (byte-optimize-plus): 
+	(byte-optimize-minus): 
+	(byte-optimize-multiply): 
+	Optimize (- 0) to 0, not (-)
+	Optimize (+ 5 3.0) to 8.0
+        Optimize (* 5 3.0) to 15.0
+	Improve readability.
+
+2000-02-21  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* modeline.el: (modeline-scrolling-method): change modeline
+	mswindows cursor appearance according to the value.
+
+	* msw-faces.el: (mswindows-init-device-faces): Initialise 'default
+	and 'gui-element face colors and 'gui-element face font to Windows
+	defaults.
+
+2000-02-09 Stef Epardaud  <stef@lunatech.com>
+	
+	* font-lock.el: Javadoc enhancements 
+
+1999-11-27  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
+
+	* ldap.el (toplevel): Test if LDAP support has been compiled in
+	(ldap-verbose): New option
+	(ldap-search-entries): Renamed from the previous ldap-search
+	Conditionalize message display on ldap-verbose
+	(ldap-add-entries, ldap-modify-entries, ldap-delete-entries): New
+	defuns
+	(ldap-search): Is now defined as an obsolete wrapper calling 
+	ldap-search-basic or ldap-search-entries
+
+
+1999-12-06  Hirokazu FUKUI  <hfukui@sannet.ne.jp> 
+            Shuhei KOBAYASHI <shuhei@aqua.ocn.ne.jp>
+	    Jan Vroonhof  <jan@xemacs.org>
+ 
+        * byte-optimize.el (byte-optimize-form-code-walker): Fixed. 
+        When for-effect is true, didn't call `byte-optimize-form' 
+        in and/or subforms without last. 
+ 
+1999-12-07  Jan Vroonhof  <vroonhof@math.ethz.ch> 
+ 
+        * package-get.el (package-get-download-sites): Use correct custom 
+        type. 
+ 
+2000-02-15  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* files.el (write-file): Ask for coding system when compiled with
+	file-coding.
+
+2000-02-16  Andy Piper  <andy@xemacs.org>
+
+	* buffer.el (switch-to-buffer): give norecord argument to
+	set-window-buffer instead of explicitly recording.
+
+	* gutter-items.el (buffers-tab-switch-to-buffer): don't record if
+	we have to pick a window.
+
+1999-12-24  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* mule/mule-cmds.el (describe-language-support): Don't add
+	unexist function to help-map.
+	(describe-coding-system): Don't use already assigend `C'.
+
+2000-01-23  Björn Torkelsson  <torkel@hpc2n.umu.se>
+
+	* info.el (Info-save-auto-generated-dir): nil -> 'never to make it
+	work in custom.
+
+2000-02-04  Kazuyuki IENAGA <kazz@imasy.or.jp>
+
+	* about.el: Ienaga's e-mail address change.
+
+2000-02-16  Samuel Mikes  <smikes@alumni.hmc.edu>
+
+        * etags.el (find-tag): force new window -- even if buf already
+        visible -- when other-window is t
+
 2000-02-16  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.29 is released.

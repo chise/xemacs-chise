@@ -51,27 +51,6 @@ Boston, MA 02111-1307, USA.  */
 #define DATA_END 0
 #endif
 
-/* The data segment in this machine always starts at address 0x20000000.
-   An address of data cannot be stored correctly in a Lisp object;
-   we always lose the high bits.  We must tell XPNTR to add them back.	*/
-
-#ifndef USG5_4
-#define DATA_SEG_BITS 0x20000000
-#else
-#define DATA_SEG_BITS 0
-#endif
-
-#ifdef CANNOT_DUMP
-/* Define shared memory segment symbols */
-
-#define PURE_SEG_BITS 0x30000000
-
-/* Use shared memory.  */
-/* This is turned off because it does not always work.	See etc/AIX.DUMP.  */
-/* #define HAVE_SHM */
-#define SHMKEY 5305035		/* used for shared memory code segments */
-#endif /* CANNOT_DUMP */
-
 #define N_BADMAG(x) BADMAG(x)
 #define N_TXTOFF(x) A_TEXTPOS(x)
 #define N_SYMOFF(x) A_SYMPOS(x)

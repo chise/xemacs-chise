@@ -29,10 +29,6 @@ Use -opsystem=bsd4-2 or -opsystem=bsd4-3, depending on the version of
 Berkeley you are running.
 NOTE-END  */
 
-/* XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 /* Say this machine is a tahoe */
 
 #ifndef tahoe

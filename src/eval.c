@@ -300,7 +300,7 @@ static const struct lrecord_description subr_description[] = {
 };
 
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("subr", subr,
-				     this_one_is_unmarkable, print_subr, 0, 0, 0,
+				     0, print_subr, 0, 0, 0,
 				     subr_description,
 				     Lisp_Subr);
 
@@ -4960,6 +4960,8 @@ warn_when_safe (Lisp_Object class, Lisp_Object level, const char *fmt, ...)
 void
 syms_of_eval (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (subr);
+
   defsymbol (&Qinhibit_quit, "inhibit-quit");
   defsymbol (&Qautoload, "autoload");
   defsymbol (&Qdebug_on_error, "debug-on-error");

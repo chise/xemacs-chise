@@ -2410,6 +2410,8 @@ If STACK-DEPTH is incorrect, Emacs may crash.
 void
 syms_of_bytecode (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (compiled_function);
+
   deferror (&Qinvalid_byte_code, "invalid-byte-code",
 	    "Invalid byte code", Qerror);
   defsymbol (&Qbyte_code, "byte-code");

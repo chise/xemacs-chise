@@ -771,7 +771,7 @@ Variables of note:
 		       '(find-tag find-tag-other-window tags-loop-continue))))
 	(push-tag-mark))
     (if other-window
-	(pop-to-buffer tag-buf)
+	(pop-to-buffer tag-buf t)
       (switch-to-buffer tag-buf))
     (widen)
     (push-mark)
@@ -787,7 +787,7 @@ Variables of note:
 
 ;;;###autoload
 (defun find-tag-other-window (tagname &optional next)
-  "*Find tag whose name contains TAGNAME.
+  "*Find tag whose name contains TAGNAME, in another window.
  Selects the buffer that the tag is contained in in another window
 and puts point at its definition.
  If TAGNAME is a null string, the expression in the buffer

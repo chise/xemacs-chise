@@ -1,3 +1,41 @@
+2000-02-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.30 is released.
+
+2000-02-20  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Enforce use of autoconf version >= 2.13.
+
+	* configure.in: Fix OS release test on Solaris.
+
+2000-02-19  Marcus Thiessel  <marcus@xemacs.org>
+
+	* PROBLEMS: Update email address. Describe more HP Motif errors.
+	
+2000-02-19  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* configure.in: Split Solaris version test in two parts. In the
+	Bourne shell the "-a" operator does NOT short-circuit.
+
+1999-12-15 Jan Vroonhof  <jan@xemacs.org>
+
+	*  (configure.in): Autodetect broken gcc versions. Patch from WM
+	Perry with tiny tweaks by Yoshiki Hayashi and yours truly.
+
+2000-02-17  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Autodetect sys/param.h.  Reorganize
+	AC_CHECK_HEADERS call.
+	* src/config.h.in: Add HAVE_SYS_PARAM_H.
+
+2000-02-16  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Test for arm simply using arm* instead of arm-*
+
+2000-01-05  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* etc/TUTORIAL.ja: Synch with English version.
+
 2000-02-16  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.29 is released.

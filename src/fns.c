@@ -3719,6 +3719,8 @@ Lisp_Object Qyes_or_no_p;
 void
 syms_of_fns (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (bit_vector);
+
   defsymbol (&Qstring_lessp, "string-lessp");
   defsymbol (&Qidentity, "identity");
   defsymbol (&Qyes_or_no_p, "yes-or-no-p");

@@ -124,7 +124,7 @@ memory_warnings (void *start, void (*warnfun) (const char *))
   extern void (* __after_morecore_hook) (void);	/* From gmalloc.c */
 
   if (start)
-    data_space_start = start;
+    data_space_start = (char*) start;
   else
     data_space_start = start_of_data ();
 

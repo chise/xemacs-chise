@@ -1537,8 +1537,7 @@ extent_endpoint_bytind (EXTENT extent, int endp)
   assert (EXTENT_LIVE_P (extent));
   assert (!extent_detached_p (extent));
   {
-    Memind i = (endp) ? (extent_end (extent)) :
-      (extent_start (extent));
+    Memind i = endp ? extent_end (extent) : extent_start (extent);
     Lisp_Object obj = extent_object (extent);
     return buffer_or_string_memind_to_bytind (obj, i);
   }
@@ -1550,8 +1549,7 @@ extent_endpoint_bufpos (EXTENT extent, int endp)
   assert (EXTENT_LIVE_P (extent));
   assert (!extent_detached_p (extent));
   {
-    Memind i = (endp) ? (extent_end (extent)) :
-      (extent_start (extent));
+    Memind i = endp ? extent_end (extent) : extent_start (extent);
     Lisp_Object obj = extent_object (extent);
     return buffer_or_string_memind_to_bufpos (obj, i);
   }
@@ -6661,6 +6659,10 @@ compute_buffer_extent_usage (struct buffer *b, struct overhead_stats *ovstats)
 void
 syms_of_extents (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (extent);
+  INIT_LRECORD_IMPLEMENTATION (extent_info);
+  INIT_LRECORD_IMPLEMENTATION (extent_auxiliary);
+
   defsymbol (&Qextentp, "extentp");
   defsymbol (&Qextent_live_p, "extent-live-p");
 

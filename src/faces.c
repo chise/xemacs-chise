@@ -1752,6 +1752,8 @@ LOCALE, TAG-SET, EXACT-P, and HOW-TO-ADD are as in `copy-specifier'.
 void
 syms_of_faces (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (face);
+
   /* Qdefault, Qwidget, Qleft_margin, Qright_margin defined in general.c */
   defsymbol (&Qmodeline, "modeline");
   defsymbol (&Qgui_element, "gui-element");

@@ -48,12 +48,14 @@
 set print union off
 set print pretty off
 
+set $Lisp_Type_Int = -2
+
 define decode_object
   set $obj = (unsigned long) $arg0
   if $obj & 1
   # It's an int
     set $val = $obj >> 1
-    set $type = Lisp_Type_Int
+    set $type = $Lisp_Type_Int
   else
     set $type = $obj & dbg_typemask
     if $type == Lisp_Type_Char
@@ -65,9 +67,12 @@ define decode_object
   end
 
   if $type == Lisp_Type_Record
-    set $lheader = (struct lrecord_header *) $val
-    set $imp = lrecord_implementations_table[$lheader->type]
+    set $lheader = ((struct lrecord_header *) $val)
+    set $lrecord_type = ($lheader->type)
+    set $imp = lrecord_implementations_table[$lrecord_type]
   else
+    set $lrecord_type = -1
+    set $lheader = -1
     set $imp = -1
   end
 end
@@ -85,30 +90,13 @@ end
 
 define xtype
   decode_object $arg0
-  if $type == Lisp_Type_Int
+  if $type == $Lisp_Type_Int
     echo int\n
   else
   if $type == Lisp_Type_Char
     echo char\n
   else
-  if $type == Lisp_Type_Symbol
-    echo symbol\n
-  else
-  if $type == Lisp_Type_String
-    echo string\n
-  else
-  if $type == Lisp_Type_Vector
-    echo vector\n
-  else
-  if $type == Lisp_Type_Cons
-    echo cons\n
-  else
     printf "record type: %s\n", $imp->name
-  # barf
-  end
-  end
-  end
-  end
   end
   end
 end
@@ -240,15 +228,21 @@ end
 
 # GDB's command language makes you want to ...
 
-define pstruct
-  set $xstruct = (struct $arg0 *) $val
-  print $xstruct
-  print *$xstruct
+define ptype
+  set $type_ptr = ($arg0 *) $val
+  print $type_ptr
+  print *$type_ptr
+end
+
+define pstructtype
+  set $type_ptr = (struct $arg0 *) $val
+  print $type_ptr
+  print *$type_ptr
 end
 
 define pobj
   decode_object $arg0
-  if $type == Lisp_Type_Int
+  if $type == $Lisp_Type_Int
     printf "Integer: %d\n", $val
   else
   if $type == Lisp_Type_Char
@@ -258,156 +252,167 @@ define pobj
       printf "Char: %d\n", $val
     end
   else
-  if $type == Lisp_Type_String || $imp == &lrecord_string
-    pstruct Lisp_String
+  if $lrecord_type == lrecord_type_string
+    ptype Lisp_String
   else
-  if $type == Lisp_Type_Cons   || $imp == &lrecord_cons
-    pstruct Lisp_Cons
+  if $lrecord_type == lrecord_type_cons
+    ptype Lisp_Cons
   else
-  if $type == Lisp_Type_Symbol || $imp == &lrecord_symbol
-    pstruct Lisp_Symbol
-    printf "Symbol name: %s\n", $xstruct->name->data
+  if $lrecord_type == lrecord_type_symbol
+    ptype Lisp_Symbol
+    printf "Symbol name: %s\n", $type_ptr->name->data
   else
-  if $type == Lisp_Type_Vector || $imp == &lrecord_vector
-    pstruct Lisp_Vector
-    printf "Vector of length %d\n", $xstruct->size
-    #print *($xstruct->data) @ $xstruct->size
+  if $lrecord_type == lrecord_type_vector
+    ptype Lisp_Vector
+    printf "Vector of length %d\n", $type_ptr->size
+    #print *($type_ptr->data) @ $type_ptr->size
   else
-  if $imp == &lrecord_bit_vector
-    pstruct Lisp_Bit_Vector
+  if $lrecord_type == lrecord_type_bit_vector
+    ptype Lisp_Bit_Vector
   else
-  if $imp == &lrecord_buffer
-    pstruct buffer
+  if $lrecord_type == lrecord_type_buffer
+    pstructtype buffer
   else
-  if $imp == &lrecord_char_table
-    pstruct Lisp_Char_Table
+  if $lrecord_type == lrecord_type_char_table
+    ptype Lisp_Char_Table
   else
-  if $imp == &lrecord_char_table_entry
-    pstruct Lisp_Char_Table_Entry
+  if $lrecord_type == lrecord_type_char_table_entry
+    ptype Lisp_Char_Table_Entry
   else
-  if $imp == &lrecord_charset
-    pstruct Lisp_Charset
+  if $lrecord_type == lrecord_type_charset
+    ptype Lisp_Charset
   else
-  if $imp == &lrecord_coding_system
-    pstruct Lisp_Coding_System
+  if $lrecord_type == lrecord_type_coding_system
+    ptype Lisp_Coding_System
   else
-  if $imp == &lrecord_color_instance
-    pstruct Lisp_Color_Instance
+  if $lrecord_type == lrecord_type_color_instance
+    ptype Lisp_Color_Instance
   else
-  if $imp == &lrecord_command_builder
-    pstruct command_builder
+  if $lrecord_type == lrecord_type_command_builder
+    ptype command_builder
   else
-  if $imp == &lrecord_compiled_function
-    pstruct Lisp_Compiled_Function
+  if $lrecord_type == lrecord_type_compiled_function
+    ptype Lisp_Compiled_Function
   else
-  if $imp == &lrecord_console
-    pstruct console
+  if $lrecord_type == lrecord_type_console
+    pstructtype console
   else
-  if $imp == &lrecord_database
-    pstruct Lisp_Database
+  if $lrecord_type == lrecord_type_database
+    ptype Lisp_Database
   else
-  if $imp == &lrecord_device
-    pstruct device
+  if $lrecord_type == lrecord_type_device
+    pstructtype device
   else
-  if $imp == &lrecord_event
-    pstruct Lisp_Event
+  if $lrecord_type == lrecord_type_event
+    ptype Lisp_Event
   else
-  if $imp == &lrecord_extent
-    pstruct extent
+  if $lrecord_type == lrecord_type_extent
+    pstructtype extent
   else
-  if $imp == &lrecord_extent_auxiliary
-    pstruct extent_auxiliary
+  if $lrecord_type == lrecord_type_extent_auxiliary
+    pstructtype extent_auxiliary
   else
-  if $imp == &lrecord_extent_info
-    pstruct extent_info
+  if $lrecord_type == lrecord_type_extent_info
+    pstructtype extent_info
   else
-  if $imp == &lrecord_face
-    pstruct Lisp_Face
+  if $lrecord_type == lrecord_type_face
+    ptype Lisp_Face
   else
-  if $imp == &lrecord_float
-    pstruct Lisp_Float
+  if $lrecord_type == lrecord_type_float
+    ptype Lisp_Float
   else
-  if $imp == &lrecord_font_instance
-    pstruct Lisp_Font_Instance
+  if $lrecord_type == lrecord_type_font_instance
+    ptype Lisp_Font_Instance
   else
-  if $imp == &lrecord_frame
-    pstruct frame
+  if $lrecord_type == lrecord_type_frame
+    pstructtype frame
   else
-  if $imp == &lrecord_glyph
-    pstruct Lisp_Glyph
+  if $lrecord_type == lrecord_type_glyph
+    ptype Lisp_Glyph
   else
-  if $imp == &lrecord_hash_table
-    pstruct Lisp_Hash_Table
+  if $lrecord_type == lrecord_type_gui_item
+    ptype Lisp_Gui_Item
   else
-  if $imp == &lrecord_image_instance
-    pstruct Lisp_Image_Instance
+  if $lrecord_type == lrecord_type_hash_table
+    ptype Lisp_Hash_Table
   else
-  if $imp == &lrecord_keymap
-    pstruct Lisp_Keymap
+  if $lrecord_type == lrecord_type_image_instance
+    ptype Lisp_Image_Instance
   else
-  if $imp == &lrecord_lcrecord_list
-    pstruct lcrecord_list
+  if $lrecord_type == lrecord_type_keymap
+    ptype Lisp_Keymap
   else
-  if $imp == &lrecord_lstream
-    pstruct lstream
+  if $lrecord_type == lrecord_type_lcrecord_list
+    pstructtype lcrecord_list
   else
-  if $imp == &lrecord_marker
-    pstruct Lisp_Marker
+  if $lrecord_type == lrecord_type_ldap
+    ptype Lisp_LDAP
   else
-  if $imp == &lrecord_opaque
-    pstruct Lisp_Opaque
+  if $lrecord_type == lrecord_type_lstream
+    pstructtype lstream
   else
-  if $imp == &lrecord_opaque_ptr
-    pstruct Lisp_Opaque_Ptr
+  if $lrecord_type == lrecord_type_marker
+    ptype Lisp_Marker
   else
-  if $imp == &lrecord_popup_data
-    pstruct popup_data
+  if $lrecord_type == lrecord_type_opaque
+    ptype Lisp_Opaque
   else
-  if $imp == &lrecord_process
-    pstruct Lisp_Process
+  if $lrecord_type == lrecord_type_opaque_ptr
+    ptype Lisp_Opaque_Ptr
   else
-  if $imp == &lrecord_range_table
-    pstruct Lisp_Range_Table
+  if $lrecord_type == lrecord_type_popup_data
+    ptype popup_data
   else
-  if $imp == &lrecord_specifier
-    pstruct Lisp_Specifier
+  if $lrecord_type == lrecord_type_process
+    ptype Lisp_Process
   else
-  if $imp == &lrecord_subr
-    pstruct Lisp_Subr
+  if $lrecord_type == lrecord_type_range_table
+    ptype Lisp_Range_Table
   else
-  if $imp == &lrecord_symbol_value_buffer_local
-    pstruct symbol_value_buffer_local
+  if $lrecord_type == lrecord_type_specifier
+    ptype Lisp_Specifier
   else
-  if $imp == &lrecord_symbol_value_forward
-    pstruct symbol_value_forward
+  if $lrecord_type == lrecord_type_subr
+    ptype Lisp_Subr
   else
-  if $imp == &lrecord_symbol_value_lisp_magic
-    pstruct symbol_value_lisp_magic
+  if $lrecord_type == lrecord_type_symbol_value_buffer_local
+    pstructtype symbol_value_buffer_local
   else
-  if $imp == &lrecord_symbol_value_varalias
-    pstruct symbol_value_varalias
+  if $lrecord_type == lrecord_type_symbol_value_forward
+    pstructtype symbol_value_forward
   else
-  if $imp == &lrecord_toolbar_button
-    pstruct toolbar_button
+  if $lrecord_type == lrecord_type_symbol_value_lisp_magic
+    pstructtype symbol_value_lisp_magic
   else
-  if $imp == &lrecord_tooltalk_message
-    pstruct Lisp_Tooltalk_Message
+  if $lrecord_type == lrecord_type_symbol_value_varalias
+    pstructtype symbol_value_varalias
   else
-  if $imp == &lrecord_tooltalk_pattern
-    pstruct Lisp_Tooltalk_Pattern
+  if $lrecord_type == lrecord_type_timeout
+    ptype Lisp_Timeout
   else
-  if $imp == &lrecord_weak_list
-    pstruct weak_list
+  if $lrecord_type == lrecord_type_toolbar_button
+    pstructtype toolbar_button
   else
-  if $imp == &lrecord_window
-    pstruct window
+  if $lrecord_type == lrecord_type_tooltalk_message
+    ptype Lisp_Tooltalk_Message
   else
-  if $imp == &lrecord_window_configuration
-    pstruct window_config
+  if $lrecord_type == lrecord_type_tooltalk_pattern
+    ptype Lisp_Tooltalk_Pattern
+  else
+  if $lrecord_type == lrecord_type_weak_list
+    pstructtype weak_list
+  else
+  if $lrecord_type == lrecord_type_window
+    pstructtype window
+  else
+  if $lrecord_type == lrecord_type_window_configuration
+    pstructtype window_config
   else
     echo Unknown Lisp Object type\n
     print $arg0
   # Barf, gag, retch
+  end
+  end
   end
   end
   end
@@ -443,6 +448,7 @@ define pobj
   end
   end
   # Are we having fun yet??
+  end
   end
   end
   end

@@ -31,9 +31,9 @@ Indirect:
 cl.info-1: 1164
 cl.info-2: 46306
 cl.info-3: 89087
-cl.info-4: 137816
-cl.info-5: 175812
-cl.info-6: 218417
+cl.info-4: 137810
+cl.info-5: 175806
+cl.info-6: 218409
 
 Tag Table:
 (Indirect)
@@ -74,33 +74,33 @@ Node: Other Clauses105149
 Node: Multiple Values111218
 Node: Macros113111
 Node: Declarations116329
-Node: Symbols124821
-Node: Property Lists125102
-Node: Creating Symbols127293
-Node: Numbers129371
-Node: Predicates on Numbers129851
-Node: Numerical Functions130880
-Node: Random Numbers135107
-Node: Implementation Parameters137816
-Node: Sequences141388
-Node: Sequence Basics142061
-Node: Mapping over Sequences145639
-Node: Sequence Functions151493
-Node: Searching Sequences157668
-Node: Sorting Sequences160705
-Node: Lists163253
-Node: List Functions163678
-Node: Substitution of Expressions167941
-Node: Lists as Sets169827
-Node: Association Lists173889
-Node: Hash Tables175592
-Node: Structures175812
-Node: Assertions190595
-Node: Efficiency Concerns193538
-Node: Common Lisp Compatibility199865
-Node: Old CL Compatibility203021
-Node: Porting Common Lisp207404
-Node: Function Index218417
-Node: Variable Index229566
+Node: Symbols124815
+Node: Property Lists125096
+Node: Creating Symbols127287
+Node: Numbers129365
+Node: Predicates on Numbers129845
+Node: Numerical Functions130874
+Node: Random Numbers135101
+Node: Implementation Parameters137810
+Node: Sequences141382
+Node: Sequence Basics142055
+Node: Mapping over Sequences145633
+Node: Sequence Functions151487
+Node: Searching Sequences157662
+Node: Sorting Sequences160699
+Node: Lists163247
+Node: List Functions163672
+Node: Substitution of Expressions167935
+Node: Lists as Sets169821
+Node: Association Lists173883
+Node: Hash Tables175586
+Node: Structures175806
+Node: Assertions190589
+Node: Efficiency Concerns193532
+Node: Common Lisp Compatibility199859
+Node: Old CL Compatibility203015
+Node: Porting Common Lisp207398
+Node: Function Index218409
+Node: Variable Index229558
 
 End Tag Table

@@ -204,7 +204,9 @@ struct option longopts[] =
 #define DEFAULT_LOCKING DOTLOCKING
 #endif
 
+#ifndef DISABLE_DIRECT_ACCESS
 static void lock_dot(char *);
+#endif
 static void unlock_dot(char *);
 static int parse_lock_method(char *);
 static char *unparse_lock_method(int);
@@ -566,6 +568,7 @@ dot_filename(char *filename)
 
 static char *dotlock_filename = NULL;
 
+#ifndef DISABLE_DIRECT_ACCESS
 static void
 lock_dot(char *filename)
 {
@@ -625,6 +628,7 @@ lock_dot(char *filename)
     }
   strcpy(dotlock_filename, filename);
 }
+#endif /* not DISABLE_DIRECT_ACCESS */
 
 static void
 unlock_dot(char *filename)

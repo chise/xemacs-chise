@@ -2076,6 +2076,8 @@ init_errors_once_early (void)
 void
 syms_of_data (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (weak_list);
+
   defsymbol (&Qquote, "quote");
   defsymbol (&Qlambda, "lambda");
   defsymbol (&Qlistp, "listp");

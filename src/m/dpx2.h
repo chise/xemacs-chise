@@ -33,25 +33,12 @@ Boston, MA 02111-1307, USA.  */
 /* #define ncl_el	/* DPX/2 210,220 etc */
 /* #define ncl_mr 1	/* DPX/2 320,340 (and 360,380 ?) */
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-/* #define WORD_MACHINE /**/
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically:
    Ones defined so far include vax, m68000, ns16000, pyramid,
    orion, tahoe, APOLLO and many others */
 
 /* /bin/cc on ncl_el and ncl_mr define m68k and mc68000 */
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend
-   the bit field into an int.  In other words, if bit fields
-   are always unsigned.
-
-   If you use NO_UNION_TYPE, this flag does not matter.  */
-
-#define EXPLICIT_SIGN_EXTEND
 
 /* Data type of load average, as read out of kmem.  */
 

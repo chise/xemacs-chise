@@ -580,6 +580,7 @@ instantiate_image_instantiator (Lisp_Object device, Lisp_Object domain,
 				int dest_mask, Lisp_Object glyph)
 {
   Lisp_Object ii = allocate_image_instance (device, glyph);
+  Lisp_Image_Instance* p = XIMAGE_INSTANCE (ii);
   struct image_instantiator_methods *meths;
   struct gcpro gcpro1;
   int  methp = 0;
@@ -607,6 +608,18 @@ instantiate_image_instantiator (Lisp_Object device, Lisp_Object domain,
   MAYBE_IIFORMAT_METH (meths, instantiate, (ii, instantiator, pointer_fg,
 					    pointer_bg, dest_mask, domain));
   UNGCPRO;
+
+  /* Some code may have already laid out the widget, if not then do it
+     here. */
+  if (IMAGE_INSTANCE_LAYOUT_CHANGED (p))
+    image_instance_layout (ii, IMAGE_UNSPECIFIED_GEOMETRY,
+			   IMAGE_UNSPECIFIED_GEOMETRY, domain);
+
+  /* We *must* have a clean image at this point. */
+  IMAGE_INSTANCE_TEXT_CHANGED (p) = 0;
+  IMAGE_INSTANCE_SIZE_CHANGED (p) = 0;
+  IMAGE_INSTANCE_LAYOUT_CHANGED (p) = 0;
+  IMAGE_INSTANCE_DIRTYP (p) = 0;
 
   return ii;
 }
@@ -977,7 +990,6 @@ allocate_image_instance (Lisp_Object device, Lisp_Object glyph)
   lp->parent = glyph;
   /* So that layouts get done. */
   lp->layout_changed = 1;
-  lp->dirty = 1;
 
   XSETIMAGE_INSTANCE (val, lp);
   MARK_GLYPHS_CHANGED;
@@ -1149,7 +1161,7 @@ Lisp_Object image_instance_parent_glyph (Lisp_Image_Instance* ii)
 {
   if (IMAGE_INSTANCEP (IMAGE_INSTANCE_PARENT (ii)))
     {
-      return image_instance_parent_glyph 
+      return image_instance_parent_glyph
 	(XIMAGE_INSTANCE (IMAGE_INSTANCE_PARENT (ii)));
     }
   return IMAGE_INSTANCE_PARENT (ii);
@@ -2672,7 +2684,14 @@ image_mark (Lisp_Object obj)
 static Lisp_Object
 image_instantiate_cache_result (Lisp_Object locative)
 {
-  /* locative = (instance instantiator . subtable) */
+  /* locative = (instance instantiator . subtable)
+
+     So we are using the instantiator as the key and the instance as
+     the value. Since the hashtable is key-weak this means that the
+     image instance will stay around as long as the instantiator stays
+     around. The instantiator is stored in the `image' slot of the
+     glyph, so as long as the glyph is marked the instantiator will be
+     as well and hence the cached image instance also.*/
   Fputhash (XCAR (XCDR (locative)), XCAR (locative), XCDR (XCDR (locative)));
   free_cons (XCONS (XCDR (locative)));
   free_cons (XCONS (locative));
@@ -3821,8 +3840,8 @@ glyph_layout (Lisp_Object glyph_or_image, Lisp_Object window,
  *****************************************************************************/
 
 /* #### All of this is 95% copied from face cachels.  Consider
-  consolidating.  
-  
+  consolidating.
+
   Why do we need glyph_cachels? Simply because a glyph_cachel captures
   per-window information about a particular glyph. A glyph itself is
   not created in any particular context, so if we were to rely on a
@@ -4247,18 +4266,32 @@ int find_matching_subwindow (struct frame* f, int x, int y, int width, int heigh
  *                              subwindow functions                          *
  *****************************************************************************/
 
-/* update the displayed characteristics of a subwindow */
+/* Update the displayed characteristics of a subwindow. This function
+   should generally only get called if the subwindow is actually
+   dirty. The only other time it gets called is if subwindow state
+   changed, when we can't actually tell whether its going to be dirty
+   or not. 
+   #### I suspect what we should really do is re-evaluate all the
+   gui slots that could affect this and then mark the instance as
+   dirty. Right now, updating everything is safe but expensive. */
 void
 update_subwindow (Lisp_Object subwindow)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (subwindow);
+  int count = specpdl_depth ();
+
+  /* The update method is allowed to call eval.  Since it is quite
+     common for this function to get called from somewhere in
+     redisplay we need to make sure that quits are ignored.  Otherwise
+     Fsignal will abort. */
+  specbind (Qinhibit_quit, Qt);
 
   if (IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET
       ||
       IMAGE_INSTANCE_TYPE (ii) == IMAGE_LAYOUT)
     {
       if (IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET)
-	  update_widget (subwindow);
+	update_widget (subwindow);
       /* Reset the changed flags. */
       IMAGE_INSTANCE_WIDGET_FACE_CHANGED (ii) = 0;
       IMAGE_INSTANCE_WIDGET_PERCENT_CHANGED (ii) = 0;
@@ -4273,6 +4306,8 @@ update_subwindow (Lisp_Object subwindow)
     }
 
   IMAGE_INSTANCE_SIZE_CHANGED (ii) = 0;
+
+  unbind_to (count, Qnil);
 }
 
 /* Update all the subwindows on a frame. */
@@ -4289,7 +4324,13 @@ update_frame_subwindows (struct frame *f)
 	struct subwindow_cachel *cachel =
 	  Dynarr_atp (f->subwindow_cachels, elt);
 
-	if (cachel->being_displayed)
+	if (cachel->being_displayed
+	    &&
+	    /* We only want to update if something has really
+               changed. */
+	    (f->subwindows_state_changed
+	     ||
+	     XIMAGE_INSTANCE_DIRTYP (cachel->subwindow)))
 	  {
 	    update_subwindow (cachel->subwindow);
 	  }
@@ -4357,17 +4398,6 @@ void map_subwindow (Lisp_Object subwindow, int x, int y,
   cachel->width = dga->width;
   cachel->height = dga->height;
   cachel->being_displayed = 1;
-
-#if 0
-  /* This forces any pending display changes to happen to the image
-     before we show it. I'm not sure whether or not we need mark as
-     clean here, but for now we will. */
-  if (IMAGE_INSTANCE_DIRTYP (ii))
-    {
-      update_subwindow (subwindow);
-      IMAGE_INSTANCE_DIRTYP (ii) = 0;
-    }
-#endif
 
   MAYBE_DEVMETH (XDEVICE (ii->device), map_subwindow, (ii, x, y, dga));
 }
@@ -4610,7 +4640,7 @@ Don't use this.
 		 also might not. */
 	      MARK_DEVICE_FRAMES_GLYPHS_CHANGED
 		(XDEVICE (IMAGE_INSTANCE_DEVICE (ii)));
-	      /* Cascade dirtiness so that we can have an animated glyph in a layout 
+	      /* Cascade dirtiness so that we can have an animated glyph in a layout
 		 for instance. */
 	      set_image_instance_dirty_p (value, 1);
 	    }
@@ -4657,6 +4687,9 @@ void disable_glyph_animated_timeout (int i)
 void
 syms_of_glyphs (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (glyph);
+  INIT_LRECORD_IMPLEMENTATION (image_instance);
+
   /* image instantiators */
 
   DEFSUBR (Fimage_instantiator_format_list);

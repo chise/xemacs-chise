@@ -335,7 +335,7 @@ update_widget (Lisp_Object widget)
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (widget);
   struct image_instantiator_methods* meths;
 
-  if (!IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET)
+  if (IMAGE_INSTANCE_TYPE (ii) != IMAGE_WIDGET)
     return;
 
   /* Device generic methods. We must update the widget's size as it
@@ -715,7 +715,7 @@ tab_control_query_geometry (Lisp_Object image_instance,
 			    enum image_instance_geometry disp, Lisp_Object domain)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-  Lisp_Object items = IMAGE_INSTANCE_WIDGET_ITEMS (ii);
+  Lisp_Object items = XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii));
   Lisp_Object rest;
   unsigned int tw = 0, th = 0;
 
@@ -726,7 +726,7 @@ tab_control_query_geometry (Lisp_Object image_instance,
       query_string_geometry (XGUI_ITEM (XCAR (rest))->name,
 			     IMAGE_INSTANCE_WIDGET_FACE (ii),
 			     &w, &h, 0, domain);
-      tw += 2 * WIDGET_BORDER_WIDTH; /* some bias */
+      tw += 5 * WIDGET_BORDER_WIDTH; /* some bias */
       tw += w;
       th = max (th, h + 2 * WIDGET_BORDER_HEIGHT);
     }

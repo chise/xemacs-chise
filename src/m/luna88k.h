@@ -31,15 +31,6 @@ and this notice must be preserved on all copies.  */
 
 /* Synched up with: Mule 2.0.  Not in FSF. */
 
-/* Define how to take a char and sign-extend into an int.
-   On machines where char is signed, this is a no-op.  */
-
-#define SIGN_EXTEND_CHAR(c) (c)
-
-/* XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 /* Data type of load average, as read out of kmem.  */
 
 #define LOAD_AVE_TYPE long

@@ -92,9 +92,6 @@ otherwise it is an integer representing a ShowWindow flag:
 
   CHECK_STRING (document);
 
-  /* Just get the filename if we were given it. */
-  document = Ffile_name_nondirectory (document);
-
   if (NILP (current_dir))
     current_dir = current_buffer->directory;
 
@@ -118,7 +115,11 @@ otherwise it is an integer representing a ShowWindow flag:
       TO_EXTERNAL_FORMAT (LISP_STRING, document,
 			  C_STRING_ALLOCA, f,
 			  Qfile_name);
+#ifdef __CYGWIN32__
+      CYGWIN_WIN32_PATH (f, doc);
+#else
       doc = f;
+#endif
     }
 
   UNGCPRO;

@@ -5557,6 +5557,8 @@ encode_coding_no_conversion (Lstream *encoding, const unsigned char *src,
 void
 syms_of_file_coding (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (coding_system);
+
   deferror (&Qcoding_system_error, "coding-system-error",
 	    "Coding-system error", Qio_error);
 

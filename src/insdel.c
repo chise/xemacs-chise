@@ -309,60 +309,59 @@ bytecount_to_charcount (const Bufbyte *ptr, Bytecount len)
   Charcount count = 0;
   const Bufbyte *end = ptr + len;
 
-#if (LONGBITS == 32 || LONGBITS == 64)
+#if SIZEOF_LONG == 8
+# define STRIDE_TYPE long
+# define HIGH_BIT_MASK 0x8080808080808080UL
+#elif SIZEOF_LONG_LONG == 8 && !(defined (i386) || defined (__i386__))
+# define STRIDE_TYPE long long
+# define HIGH_BIT_MASK 0x8080808080808080ULL
+#elif SIZEOF_LONG == 4
+# define STRIDE_TYPE long
+# define HIGH_BIT_MASK 0x80808080UL
+#else
+# error Add support for 128-bit systems here
+#endif
 
-# if (LONGBITS == 32)
-#  define LONG_BYTES 4
-#  define ALIGN_MASK 0xFFFFFFFCU
-#  define HIGH_BIT_MASK 0x80808080U
-# else
-#  define LONG_BYTES 8
-#  define ALIGN_MASK 0xFFFFFFFFFFFFFFF8UL
-   /* I had a dream, I was being overrun with early Intel processors ... */
-#  define HIGH_BIT_MASK 0x8080808080808080UL
-# endif
+#define ALIGN_BITS ((EMACS_UINT) (ALIGNOF (STRIDE_TYPE) - 1))
+#define ALIGN_MASK (~ ALIGN_BITS)
+#define ALIGNED(ptr) ((((EMACS_UINT) ptr) & ALIGN_BITS) == 0)
+#define STRIDE sizeof (STRIDE_TYPE)
 
-  /* When we have a large number of bytes to scan, we can be trickier
-     and significantly faster by scanning them in chunks of the CPU word
-     size (assuming that they're all ASCII -- we cut out as soon as
-     we find something non-ASCII). */
-  if (len >= 12)
-    {
-      /* Determine the section in the middle of the string that's
-	 amenable to this treatment.  Everything has to be aligned
-	 on CPU word boundaries. */
-      const Bufbyte *aligned_ptr =
-	(const Bufbyte *) (((unsigned long) (ptr + LONG_BYTES - 1)) &
-			   ALIGN_MASK);
-      const Bufbyte *aligned_end =
-	(const Bufbyte *) (((unsigned long) end) & ALIGN_MASK);
-
-      /* Handle unaligned stuff at the beginning. */
-      while (ptr < aligned_ptr)
-	{
-	  if (!BYTE_ASCII_P (*ptr))
-	    goto bail;
-	  count++, ptr++;
-	}
-      /* Now do it. */
-      while (ptr < aligned_end)
-	{
-
-	  if ((* (unsigned long *) ptr) & HIGH_BIT_MASK)
-	    goto bail;
-	  ptr += LONG_BYTES;
-	  count += LONG_BYTES;
-	}
-    }
-
-#endif /* LONGBITS == 32 || LONGBITS == 64 */
-
- bail:
   while (ptr < end)
     {
-      count++;
-      INC_CHARPTR (ptr);
+      if (BYTE_ASCII_P (*ptr))
+	{
+	  /* optimize for long stretches of ASCII */
+	  if (! ALIGNED (ptr))
+	    ptr++, count++;
+	  else
+	    {
+	      const unsigned STRIDE_TYPE *ascii_end =
+		(const unsigned STRIDE_TYPE *) ptr;
+	      /* This loop screams, because we can typically
+		 detect ASCII characters 8 at a time. */
+	      while ((const Bufbyte *) ascii_end + STRIDE <= end
+		     && !(*ascii_end & HIGH_BIT_MASK))
+		ascii_end++;
+	      if ((Bufbyte *) ascii_end == ptr)
+		ptr++, count++;
+	      else
+		{
+		  count += (Bufbyte *) ascii_end - ptr;
+		  ptr = (Bufbyte *) ascii_end;
+		}
+	    }
+	}
+      else
+	{
+	  /* optimize for successive characters from the same charset */
+	  Bufbyte leading_byte = *ptr;
+	  size_t bytes = REP_BYTES_BY_FIRST_BYTE (leading_byte);
+	  while ((ptr < end) && (*ptr == leading_byte))
+	    ptr += bytes, count++;
+	}
     }
+
 #ifdef ERROR_CHECK_BUFPOS
   /* Bomb out if the specified substring ends in the middle
      of a character.  Note that we might have already gotten

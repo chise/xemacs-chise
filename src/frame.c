@@ -3145,6 +3145,8 @@ init_frame (void)
 void
 syms_of_frame (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (frame);
+
   defsymbol (&Qdelete_frame_hook, "delete-frame-hook");
   defsymbol (&Qselect_frame_hook, "select-frame-hook");
   defsymbol (&Qdeselect_frame_hook, "deselect-frame-hook");

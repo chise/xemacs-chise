@@ -714,19 +714,19 @@ do {							\
 
 #define EXTERNAL_LIST_LOOP_1(list)					\
 Lisp_Object ELL1_elt, ELL1_hare, ELL1_tortoise;				\
-EMACS_INT ELL1_len;								\
+EMACS_INT ELL1_len;							\
 EXTERNAL_LIST_LOOP_6 (ELL1_elt, list, ELL1_len, ELL1_hare,		\
 		      ELL1_tortoise, CIRCULAR_LIST_SUSPICION_LENGTH)
 
 #define EXTERNAL_LIST_LOOP_2(elt, list)					\
 Lisp_Object hare_##elt, tortoise_##elt;					\
-EMACS_INT len_##elt;								\
+EMACS_INT len_##elt;							\
 EXTERNAL_LIST_LOOP_6 (elt, list, len_##elt, hare_##elt,			\
 		      tortoise_##elt, CIRCULAR_LIST_SUSPICION_LENGTH)
 
 #define EXTERNAL_LIST_LOOP_3(elt, list, tail)				\
 Lisp_Object tortoise_##elt;						\
-EMACS_INT len_##elt;								\
+EMACS_INT len_##elt;							\
 EXTERNAL_LIST_LOOP_6 (elt, list, len_##elt, tail,			\
 		      tortoise_##elt, CIRCULAR_LIST_SUSPICION_LENGTH)
 
@@ -790,13 +790,13 @@ EXTERNAL_LIST_LOOP_6 (elt, list, len, hare, tortoise, suspicion_length)	\
 /* Optimized and safe macros for looping over external property lists. */
 #define EXTERNAL_PROPERTY_LIST_LOOP_3(key, value, list)			\
 Lisp_Object key, value, hare_##key, tortoise_##key;			\
-EMACS_INT len_##key;								\
+EMACS_INT len_##key;							\
 EXTERNAL_PROPERTY_LIST_LOOP_7 (key, value, list, len_##key, hare_##key,	\
 		     tortoise_##key, CIRCULAR_LIST_SUSPICION_LENGTH)
 
 #define EXTERNAL_PROPERTY_LIST_LOOP_4(key, value, list, tail)		\
 Lisp_Object key, value, tail, tortoise_##key;				\
-EMACS_INT len_##key;								\
+EMACS_INT len_##key;							\
 EXTERNAL_PROPERTY_LIST_LOOP_7 (key, value, list, len_##key, tail,	\
 		     tortoise_##key, CIRCULAR_LIST_SUSPICION_LENGTH)
 
@@ -1104,7 +1104,8 @@ typedef Lisp_Object (*lisp_fn_t) (void);
 struct Lisp_Subr
 {
   struct lrecord_header lheader;
-  short min_args, max_args;
+  short min_args;
+  short max_args;
   const char *prompt;
   const char *doc;
   const char *name;
@@ -1479,12 +1480,23 @@ Lisp_Object,Lisp_Object,Lisp_Object
 /* Can't be const, because then subr->doc is read-only and
    Snarf_documentation chokes */
 
-#define subr_lheader_initializer { 0, 0, 0, 0 }
-
 #define DEFUN(lname, Fname, min_args, max_args, prompt, arglist)	\
   Lisp_Object Fname (EXFUN_##max_args);					\
-  static struct Lisp_Subr S##Fname = { subr_lheader_initializer,	\
-	min_args, max_args, prompt, 0, lname, (lisp_fn_t) Fname };	\
+  static struct Lisp_Subr S##Fname =					\
+  {									\
+    { /* struct lrecord_header */					\
+      lrecord_type_subr, /* lrecord_type_index */			\
+      1, /* mark bit */							\
+      1, /* c_readonly bit */						\
+      1  /* lisp_readonly bit */					\
+    },									\
+    min_args,								\
+    max_args,								\
+    prompt,								\
+    0,	/* doc string */						\
+    lname,								\
+    (lisp_fn_t) Fname							\
+  };									\
   Lisp_Object Fname (DEFUN_##max_args arglist)
 
 /* Heavy ANSI C preprocessor hackery to get DEFUN to declare a

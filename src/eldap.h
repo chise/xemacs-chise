@@ -62,12 +62,21 @@ Lisp_Object Fldap_status (Lisp_Object ldap);
 Lisp_Object Fldap_open (Lisp_Object host,
                         Lisp_Object ldap_plist);
 Lisp_Object Fldap_close (Lisp_Object ldap);
-Lisp_Object Fldap_search_internal (Lisp_Object ldap,
-                                   Lisp_Object filter,
-                                   Lisp_Object base,
-                                   Lisp_Object scope,
-                                   Lisp_Object attrs,
-                                   Lisp_Object attrsonly,
-                                   Lisp_Object withdn);
+Lisp_Object Fldap_search_basic (Lisp_Object ldap,
+                                Lisp_Object filter,
+                                Lisp_Object base,
+                                Lisp_Object scope,
+                                Lisp_Object attrs,
+                                Lisp_Object attrsonly,
+                                Lisp_Object withdn,
+                                Lisp_Object verbose);
+Lisp_Object Fldap_add (Lisp_Object ldap,
+                       Lisp_Object dn,
+                       Lisp_Object entry);
+Lisp_Object Fldap_modify (Lisp_Object ldap,
+                          Lisp_Object dn,
+                          Lisp_Object entry);
+Lisp_Object Fldap_delete (Lisp_Object ldap,
+                          Lisp_Object dn);
 
 #endif /* INCLUDED_eldap_h_ */

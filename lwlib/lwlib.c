@@ -261,7 +261,6 @@ merge_widget_value_args (widget_value *old, widget_value *new)
     {
       /* #### Do something more sensible here than just copying the
          new values (like actually merging the values). */
-      free_widget_value_args (old);
       lw_copy_widget_value_args (new, old);
       changed = True;
     }
@@ -1365,6 +1364,7 @@ void lw_add_value_args_to_args (widget_value* wv, ArgList addto, int* offset)
 
 void lw_add_widget_value_arg (widget_value* wv, String name, XtArgVal value)
 {
+  int i = 0;
   if (!wv->args)
     {
       wv->args = (widget_args *) malloc (sizeof (widget_args));
@@ -1378,7 +1378,19 @@ void lw_add_widget_value_arg (widget_value* wv, String name, XtArgVal value)
   if (wv->args->nargs > 10)
     return;
 
-  XtSetArg (wv->args->args [wv->args->nargs], name, value);   wv->args->nargs++;
+  /* If the arg is already there then we must replace it. */
+  for (i = 0; i < wv->args->nargs; i++)
+    {
+      if (!strcmp (wv->args->args[i].name, name))
+	{
+	  XtSetArg (wv->args->args [i], name, value);
+	  break;
+	}
+    }
+  if (i >= wv->args->nargs)
+    {
+      XtSetArg (wv->args->args [wv->args->nargs], name, value);   wv->args->nargs++;
+    }
 }
 
 static void free_widget_value_args (widget_value* wv)
@@ -1397,20 +1409,22 @@ static void free_widget_value_args (widget_value* wv)
 #endif
 	  free (wv->args->args);
 	  free (wv->args);
-	  wv->args = (widget_args*)0xDEADBEEF;
+	  wv->args = 0;
 	}
     }
 }
 
 void lw_copy_widget_value_args (widget_value* val, widget_value* copy)
 {
-  if (!val->args)
+  if (val == copy || val->args == copy->args)
+    return;
+
+  if (copy->args)
     {
-      if (copy->args)
-	free_widget_value_args (copy);
-      copy->args = 0;
+      free_widget_value_args (copy);
     }
-  else
+
+  if (val->args)
     {
       copy->args = val->args;
       copy->args->ref_count++;

@@ -696,6 +696,7 @@ int window_half_pixpos (struct window *w);
 void redisplay_echo_area (void);
 void free_display_structs (struct window_mirror *mir);
 void free_display_lines (display_line_dynarr *dla);
+void mark_redisplay_structs (display_line_dynarr *dla);
 void generate_displayable_area (struct window *w, Lisp_Object disp_string,
 				int xpos, int ypos, int width, int height,
 				display_line_dynarr* dl,

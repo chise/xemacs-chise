@@ -1425,6 +1425,8 @@ The value is returned as (HIGH . LOW).
 void
 syms_of_elhash (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (hash_table);
+
   DEFSUBR (Fhash_table_p);
   DEFSUBR (Fmake_hash_table);
   DEFSUBR (Fcopy_hash_table);

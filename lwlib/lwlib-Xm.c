@@ -1646,7 +1646,7 @@ xm_create_progress (widget_instance *instance)
   int ac = 0;
   Widget scale = 0;
   widget_value* val = instance->info->val;
-
+#if 0		/* This looks too awful, although more correct. */
   if (!val->call_data)
     {
       XtSetArg (al [ac], XmNsensitive, False);		ac++;
@@ -1655,6 +1655,9 @@ xm_create_progress (widget_instance *instance)
     {
       XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
     }
+#else
+  XtSetArg (al [ac], XmNsensitive, True);		ac++;
+#endif
   XtSetArg (al [ac], XmNalignment, XmALIGNMENT_BEGINNING);	ac++;
   XtSetArg (al [ac], XmNuserData, val->call_data);		ac++;
   XtSetArg (al [ac], XmNmappedWhenManaged, FALSE);	ac++;

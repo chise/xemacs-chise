@@ -587,22 +587,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
   sort_args (argc, argv);
 
-  /* Map in shared memory, if we are using that.  */
-#ifdef HAVE_SHM
-  if (argmatch (argv, argc, "-nl", "--no-shared-memory", 6, NULL, &skip_args))
-    {
-      map_in_data (0);
-      /* The shared memory was just restored, which clobbered this.  */
-      skip_args = 1;
-    }
-  else
-    {
-      map_in_data (1);
-      /* The shared memory was just restored, which clobbered this.  */
-      skip_args = 0;
-    }
-#endif /* HAVE_SHM */
-
 #if (defined (MSDOS) && defined (EMX)) || defined (WIN32) || defined (_SCO_DS)
   environ = envp;
 #endif
@@ -873,7 +857,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
       /* Initialize Qnil, Qt, Qunbound, and the
 	 obarray.  After this, symbols can be
-	 interned.  This depends on init_alloc_once(). */
+	 interned.  This depends on init_alloc_once_early(). */
       init_symbols_once_early ();
 
       /* Declare the basic symbols pertaining to errors,
@@ -888,6 +872,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	 The *only* thing that the syms_of_*() functions are allowed to do
 	 is call one of the following three functions:
 
+	 INIT_LRECORD_IMPLEMENTATION()
 	 defsymbol()
 	 defsubr() (i.e. DEFSUBR)
 	 deferror()
@@ -1903,13 +1888,13 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 struct standard_args
 {
-  const char * const name;
-  const char * const longname;
+  const char *name;
+  const char *longname;
   int priority;
   int nargs;
 };
 
-static struct standard_args standard_args[] =
+static const struct standard_args standard_args[] =
 {
   /* Handled by main_1 above: */
   { "-nl", "--no-shared-memory", 100, 0 },
@@ -2534,45 +2519,6 @@ shut_down_emacs (int sig, Lisp_Object stuff)
 extern char my_edata[];
 #endif
 
-#ifdef HAVE_SHM
-
-DEFUN ("dump-emacs-data", Fdump_emacs_data, 1, 1, 0, /*
-Dump current state of XEmacs into data file FILENAME.
-This function exists on systems that use HAVE_SHM.
-*/
-       (intoname))
-{
-  /* This function can GC */
-  int opurify;
-  struct gcpro gcpro1;
-  GCPRO1 (intoname);
-
-  CHECK_STRING (intoname);
-  intoname = Fexpand_file_name (intoname, Qnil);
-
-  opurify = purify_flag;
-  purify_flag = 0;
-
-  fflush (stderr);
-  fflush (stdout);
-
-  disksave_object_finalization ();
-  release_breathing_space ();
-
-  /* Tell malloc where start of impure now is */
-  /* Also arrange for warnings when nearly out of space.  */
-#ifndef SYSTEM_MALLOC
-  memory_warnings (my_edata, malloc_warning);
-#endif
-  UNGCPRO;
-  map_out_data (XSTRING_DATA (intoname));
-
-  purify_flag = opurify;
-
-  return Qnil;
-}
-
-#else /* not HAVE_SHM */
 extern void disable_free_hook (void);
 
 DEFUN ("dump-emacs", Fdump_emacs, 2, 2, 0, /*
@@ -2687,8 +2633,6 @@ and announce itself normally when it is run.
 
   return Qnil;
 }
-
-#endif /* not HAVE_SHM */
 
 #endif /* not CANNOT_DUMP */
 
@@ -2863,11 +2807,7 @@ void
 syms_of_emacs (void)
 {
 #ifndef CANNOT_DUMP
-#ifdef HAVE_SHM
-  DEFSUBR (Fdump_emacs_data);
-#else
   DEFSUBR (Fdump_emacs);
-#endif
 #endif /* !CANNOT_DUMP */
 
   DEFSUBR (Frun_emacs_from_temacs);
@@ -3108,7 +3048,7 @@ following: dot, lockf, flock, locking, mmdf.
     Vmail_lock_methods = Fcons (intern ("locking"), Vmail_lock_methods);
 #endif
   }
-  
+
   DEFVAR_CONST_LISP ("configure-mail-lock-method", &Vconfigure_mail_lock_method /*
 Mail spool locking method suggested by configure.  This is one
 of the symbols in MAIL-LOCK-METHODS.

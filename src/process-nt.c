@@ -581,7 +581,7 @@ nt_create_process (Lisp_Process *p,
     new_space++;
     
     /* Allocate space and copy variables into it */
-    penv = proc_env = alloca(new_space);
+    penv = proc_env = (char*) alloca(new_space);
     for (i = 0; i < new_length; i++)
       {
  	strcpy(penv, env[i]);

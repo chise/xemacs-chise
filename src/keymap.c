@@ -1069,7 +1069,7 @@ get_keyelt (Lisp_Object object, int accept_default)
 	  if (!INTP (XCDR (idx)))
 	    return Qnil;
 	  indirection.keysym = XCAR (idx);
-	  indirection.modifiers = XINT (XCDR (idx));
+	  indirection.modifiers = (unsigned char) XINT (XCDR (idx));
 	}
       else if (SYMBOLP (idx))
 	{
@@ -4204,6 +4204,8 @@ describe_map (Lisp_Object keymap, Lisp_Object elt_prefix,
 void
 syms_of_keymap (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (keymap);
+
   defsymbol (&Qminor_mode_map_alist, "minor-mode-map-alist");
 
   defsymbol (&Qkeymapp, "keymapp");

@@ -1008,7 +1008,7 @@ static const struct lrecord_description symbol_value_varalias_description[] = {
 
 DEFINE_LRECORD_IMPLEMENTATION ("symbol-value-forward",
 			       symbol_value_forward,
-			       this_one_is_unmarkable,
+			       0,
 			       print_symbol_value_magic, 0, 0, 0,
 			       symbol_value_forward_description,
 			       struct symbol_value_forward);
@@ -3133,14 +3133,14 @@ Lisp_Object Qnull_pointer;
 #endif
 
 /* some losing systems can't have static vars at function scope... */
-static struct symbol_value_magic guts_of_unbound_marker =
+static const struct symbol_value_magic guts_of_unbound_marker =
 { /* struct symbol_value_magic */
   { /* struct lcrecord_header */
     { /* struct lrecord_header */
-      1, /* type - index into lrecord_implementations_table */
-      0, /* mark */
-      0, /* c_readonly */
-      0, /* lisp_readonly */
+      lrecord_type_symbol_value_forward, /* lrecord_type_index */
+      1, /* mark bit */
+      1, /* c_readonly bit */
+      1, /* lisp_readonly bit */
     },
     0, /* next */
     0, /* uid  */
@@ -3153,6 +3153,12 @@ static struct symbol_value_magic guts_of_unbound_marker =
 void
 init_symbols_once_early (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (symbol);
+  INIT_LRECORD_IMPLEMENTATION (symbol_value_forward);
+  INIT_LRECORD_IMPLEMENTATION (symbol_value_buffer_local);
+  INIT_LRECORD_IMPLEMENTATION (symbol_value_lisp_magic);
+  INIT_LRECORD_IMPLEMENTATION (symbol_value_varalias);
+
   reinit_symbols_once_early ();
 
   /* Bootstrapping problem: Qnil isn't set when make_string_nocopy is
@@ -3174,21 +3180,10 @@ init_symbols_once_early (void)
   {
     /* Required to get around a GCC syntax error on certain
        architectures */
-    struct symbol_value_magic *tem = &guts_of_unbound_marker;
+    const struct symbol_value_magic *tem = &guts_of_unbound_marker;
 
     XSETSYMBOL_VALUE_MAGIC (Qunbound, tem);
   }
-  if ((const void *) XPNTR (Qunbound) !=
-      (const void *)&guts_of_unbound_marker)
-    {
-      /* This might happen on DATA_SEG_BITS machines. */
-      /* abort (); */
-      /* Can't represent a pointer to constant C data using a Lisp_Object.
-	 So heap-allocate it. */
-      struct symbol_value_magic *urk = xnew (struct symbol_value_magic);
-      memcpy (urk, &guts_of_unbound_marker, sizeof (*urk));
-      XSETSYMBOL_VALUE_MAGIC (Qunbound, urk);
-    }
 
   XSYMBOL (Qnil)->function = Qunbound;
 
@@ -3428,19 +3423,7 @@ syms_of_symbols (void)
 void
 defvar_magic (const char *symbol_name, const struct symbol_value_forward *magic)
 {
-  Lisp_Object sym, kludge;
-
-  /* Check that `magic' points somewhere we can represent as a Lisp pointer */
-  XSETOBJ (kludge, Lisp_Type_Record, magic);
-  if ((void *)magic != (void*) XPNTR (kludge))
-    {
-      /* This might happen on DATA_SEG_BITS machines. */
-      /* abort (); */
-      /* Copy it to somewhere which is representable. */
-      struct symbol_value_forward *p = xnew (struct symbol_value_forward);
-      memcpy (p, magic, sizeof *magic);
-      magic = p;
-    }
+  Lisp_Object sym;
 
 #if defined(HAVE_SHLIB)
   /*

@@ -1,3 +1,17 @@
+to 21.2.30 "Hygeia"
+-- Make (find-tag-other-window) always use other window, 
+   even if tag is found in buffer of current window, Samuel Mikes
+-- Make configure complain about broken compiler versions (Jan Vroonhof, Yoshiki Hayashi, Bill Perry)
+-- `write-region' now deals properly with non-ASCII file names, Martin Buchholz
+-- `file-truename' now respects file-name-coding-system, Martin Buchholz
+-- arm configure support fixed.
+-- non-ASCII string handling performance boost, Martin Buchholz
+-- Garbage collector performance boost, Martin Buchholz
+-- Lisp engine performance boost, Martin Buchholz
+-- New ldap API (Oscar Figueiredo)
+-- (- 0) is now optimized to 0, not (-), Martin Buchholz
+-- More gutter tabs fixes, Andy Piper
+
 to 21.2.29 "Hestia"
 -- Fix compile errors on pre-X11R6 systems, introduced in 21.2.28.
 -- Fix autodetection of Berkeley DB on Linux Glibc 2 systems.  
@@ -124,6 +138,7 @@ to 21.2.22 "Mercedes"
 -- 10% faster redisplay from Jan Vroonhof
 -- Fixes from Jeff Miller, Alexandre Oliva and Yoshiki Hayashi
 -- "If you've got problems, read PROBLEMS!" from Robert Pluim
+-- Completely revamped GPM support from William Perry
 -- Lstream code now uses size_t, ssize_t consistently, Martin Buchholz
 -- Fix `make install' if prefix != exec_prefix, Martin Buchholz
 -- Fix compile warnings and C++ compilation, Martin Buchholz

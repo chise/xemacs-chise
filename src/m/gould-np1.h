@@ -64,12 +64,6 @@
 #define C_DEBUG_SWITCH "-g"
 #define LIBS_DEBUG "-lg"
 
-
-/* The data segment in this machine always starts at address 0x1000000 = 16M.
-   An address of data cannot be stored correctly in a Lisp object;
-   we always lose the high bits.  We must tell XPNTR to add them back.  */
-
-#define DATA_SEG_BITS 0x1000000
 #define DATA_START    0x1000000
 
 /* The text segment always starts at 0.

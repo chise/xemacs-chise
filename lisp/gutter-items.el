@@ -160,7 +160,7 @@ If this is 0, then the full buffer name will be shown."
   "For use as a value for `buffers-tab-switch-to-buffer-function'."
   (unless (eq (window-buffer) buffer)
     (if (> (length (windows-of-buffer buffer)) 0)
-	(select-window (car (windows-of-buffer buffer)))
+	(select-window (car (windows-of-buffer buffer)) t)
       (switch-to-buffer buffer t))))
 
 (defun select-buffers-tab-buffers-by-mode (buf1 buf2)

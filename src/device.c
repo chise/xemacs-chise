@@ -1,4 +1,4 @@
- /* Generic device functions.
+/* Generic device functions.
    Copyright (C) 1994, 1995 Board of Trustees, University of Illinois.
    Copyright (C) 1994, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995, 1996 Ben Wing
@@ -986,7 +986,7 @@ size-icon-small       Small icon dimensions.
 size-device           Device screen or paper size in pixels.
 size-workspace        Workspace size in pixels. This can be less than or
                       equal to the above. For diplays, this is the area
-                      available to applications less window manager 
+                      available to applications less window manager
                       decorations. For printers, this is the size of
                       printable area.
 offset-workspace      Offset of workspace area from the top left corner
@@ -1244,6 +1244,8 @@ call_critical_lisp_code (struct device *d, Lisp_Object function,
 void
 syms_of_device (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (device);
+
   DEFSUBR (Fvalid_device_class_p);
   DEFSUBR (Fdevice_class_list);
 

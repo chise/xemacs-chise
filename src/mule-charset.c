@@ -1259,6 +1259,8 @@ Return a string of the characters comprising a composite character.
 void
 syms_of_mule_charset (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (charset);
+
   DEFSUBR (Fcharsetp);
   DEFSUBR (Ffind_charset);
   DEFSUBR (Fget_charset);

@@ -29,16 +29,6 @@ Use m-mips4.h for RISCOS version 4; use s-bsd4-3.h with the BSD world.
 Note that the proper m- file for the Decstation is m-pmax.h.
 NOTE-END  */
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-#undef WORD_MACHINE
-
-/* Define how to take a char and sign-extend into an int.
-   On machines where char is signed, this is a no-op.  */
-
-#define SIGN_EXTEND_CHAR(c) ((signed char)(c))
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically:
    Ones defined so far include vax, m68000, ns16000, pyramid,
@@ -46,14 +36,6 @@ NOTE-END  */
 #ifndef mips
 #	define mips
 #endif
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend
-   the bit field into an int.  In other words, if bit fields
-   are always unsigned.
-
-   If you use NO_UNION_TYPE, this flag does not matter.  */
-
-#define EXPLICIT_SIGN_EXTEND
 
 /* Data type of load average, as read out of kmem.  */
 
@@ -116,7 +98,6 @@ NOTE-END  */
 #ifdef linux
 #define TEXT_START      0x00400000
 #define DATA_START      0x10000000
-#define DATA_SEG_BITS   0x10000000
 #else /* !linux */
 #define TEXT_START 0x400000
 #define DATA_START 0x800000

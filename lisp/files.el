@@ -1831,7 +1831,7 @@ with a prefix argument, you will be prompted for the coding system."
 					  (buffer-local-variables)))
 			       nil nil (buffer-name)))
 	 t
-	 (if (and current-prefix-arg (featurep 'mule))
+	 (if (and current-prefix-arg (featurep 'file-coding))
 	     (read-coding-system "Coding system: "))))
   (and (eq (current-buffer) mouse-grabbed-buffer)
        (error "Can't write minibuffer window"))

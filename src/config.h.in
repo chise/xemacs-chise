@@ -198,30 +198,31 @@ char *alloca();
 /* Some things figured out by the configure script, grouped as they are in
    configure.in. */
 #undef HAVE_MCHECK_H
-#undef HAVE_MACH_MACH_H
-#undef HAVE_SYS_STROPTS_H
-#undef HAVE_SYS_TIMEB_H
-#undef HAVE_SYS_TIME_H
-#undef HAVE_UNISTD_H
-#undef HAVE_UTIME_H
-#undef HAVE_SYS_WAIT_H
-#undef HAVE_LIBINTL_H
+#undef HAVE_A_OUT_H
+#undef HAVE_CYGWIN_VERSION_H
+#undef HAVE_FCNTL_H
+#undef HAVE_INTTYPES_H
 #undef HAVE_LIBGEN_H
 #undef HAVE_LOCALE_H
-#undef HAVE_FCNTL_H
-#undef HAVE_ULIMIT_H
-#undef HAVE_X11_XLOCALE_H
-#undef HAVE_LINUX_VERSION_H
-#undef HAVE_CYGWIN_VERSION_H
-#undef HAVE_INTTYPES_H
+#undef HAVE_MACH_MACH_H
+#undef HAVE_SYS_PARAM_H
+#undef HAVE_SYS_PSTAT_H
+#undef HAVE_SYS_STROPTS_H
+#undef HAVE_SYS_TIME_H
+#undef HAVE_SYS_TIMEB_H
 #undef HAVE_SYS_UN_H
-#undef HAVE_A_OUT_H
+#undef HAVE_ULIMIT_H
+#undef HAVE_UNISTD_H
+#undef HAVE_UTIME_H
+
+#undef HAVE_SYS_WAIT_H
+#undef HAVE_LIBINTL_H
+#undef HAVE_X11_XLOCALE_H
 #undef STDC_HEADERS
 #undef TIME_WITH_SYS_TIME
 #undef WORDS_BIGENDIAN
 #undef HAVE_VFORK_H
 #undef HAVE_KSTAT_H
-#undef HAVE_SYS_PSTAT_H
 #undef vfork
 
 #undef HAVE_LONG_FILE_NAMES
@@ -438,6 +439,11 @@ char *alloca();
 
 /* Attempt to catch bugs related to garbage collection (e.g. not GCPRO'ing). */
 #undef ERROR_CHECK_GC
+#ifdef ERROR_CHECK_GC
+#define gc_checking_assert(assertion) assert (assertion)
+#else
+#define gc_checking_assert(assertion)
+#endif
 
 /* Attempt to catch freeing of a non-malloc()ed block, heap corruption, etc. */
 #undef ERROR_CHECK_MALLOC

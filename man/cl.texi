@@ -3218,8 +3218,8 @@ Emacs 19.
 @example
 (declaim (inline foo bar))
 (eval-when (compile load eval) (proclaim '(inline foo bar)))
-(proclaim-inline foo bar)      ; XEmacs only
-(defsubst foo (...) ...)       ; instead of defun; Emacs 19 only
+(proclaim-inline foo bar)   ; XEmacs only
+(defsubst foo (...) ...)    ; instead of defun; Emacs 19 only
 @end example
 
 @strong{Please note:}  This declaration remains in effect after the
@@ -5549,8 +5549,8 @@ referring to the name of a function.  In Emacs Lisp, it works
 just as well to use a regular quote:
 
 @example
-(loop for x in y by #'cddr collect (mapcar #'plusp x))  ; Common Lisp
-(loop for x in y by 'cddr collect (mapcar 'plusp x))    ; Emacs Lisp
+(loop for x in y by #'cddr collect (mapcar #'plusp x)) ; Common Lisp
+(loop for x in y by 'cddr collect (mapcar 'plusp x))   ; Emacs Lisp
 @end example
 
 When @code{#'} introduces a @code{lambda} form, it is best to

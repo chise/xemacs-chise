@@ -24,8 +24,6 @@ Boston, MA 02111-1307, USA.  */
    operating system this machine is likely to run.
    USUAL-OPSYS="usg5-2"  */
 
-#define EXPLICIT_SIGN_EXTEND
-
 #define LIB_STANDARD "-lc"
 
 #ifdef __GNUC__

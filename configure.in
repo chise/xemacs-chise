@@ -14,7 +14,7 @@ define([AC_INIT_NOTICE],
 ### from the file `./configure.in'.
 ### To rebuild it, execute the command
 ###	autoconf
-### in the this directory.  You must have autoconf version 2.12 or later.
+### in the this directory.  You must have autoconf version 2.13 or later.
 
 ### This file is part of XEmacs.
 
@@ -50,7 +50,7 @@ dnl configuration code and autoconf macros.
 dnl We use the m4 quoting characters [ ] (as established by the
 dnl autoconf system), so quote them like this: [[foo]]
 
-AC_PREREQ(2.12)dnl
+AC_PREREQ(2.13)dnl
 dnl Redefine some standard autoconf macros
 dnl here is how XEmacs is different:
 dnl - no cache file
@@ -1083,8 +1083,7 @@ case "$canonical" in
   m68*-sony-*      ) machine=news ;;
   mips-sony-*      ) machine=news-risc ;;
   clipper-*        ) machine=clipper ;;
-  arm-*            ) machine=arm ;;
-  armv[34][lb]-*   ) machine=arm ;;
+  arm*             ) machine=arm ;;
   ns32k-*          ) machine=ns32000 ;;
 esac
 
@@ -1861,6 +1860,70 @@ if test "$cflags_specified" = "no"; then
   fi
 fi
 
+dnl Search for GCC specific build problems we know about
+if test "$GCC" = "yes"; then
+AC_MSG_CHECKING(for buggy gcc versions)
+GCC_VERSION=`$CC --version`
+case `uname -s`:`uname -m`:$GCC_VERSION in
+	dnl egcs 2.90.21 (egcs-1.00 release)
+	dnl egcs 2.90.29 (egcs-1.0.3 release)
+    *:sun4*:2.8.1|*:sun4*:egcs-2.90.*)
+        dnl Don't use -O2 with gcc 2.8.1 and egcs 1.0 under SPARC architectures
+        dnl without also using `-fno-schedule-insns'.
+        case "$CFLAGS" in
+            *-O2*|*-O3*)
+                case "$CFLAGS" in
+                    *-fno-schedule-insns*) ;;
+                    *)
+                        AC_MSG_RESULT(Yes)
+                        AC_MSG_WARN(Don't use -O2 with gcc 2.8.1 and egcs 1.0 under SPARC architectures)
+                        AC_MSG_WARN(without also using -fno-schedule-insns.)
+                        AC_MSG_ERROR(Aborting due to known problem)
+                        ;;
+                esac
+                ;;
+        esac
+        ;;
+	dnl egcs-2.91.57 (egcs-1.1 release)
+	dnl egcs-2.91.66 (egcs-1.1.2 release)
+    Linux:alpha:egcs-2.91.*)
+        AC_MSG_RESULT(Yes)
+        AC_MSG_WARN(There have been reports of egcs-1.1 not compiling XEmacs correctly on)
+        AC_MSG_WARN(Alpha Linux.  There have also been reports that egcs-1.0.3a is O.K.)
+        AC_MSG_ERROR(Aborting due to known problem)
+        ;;
+    *:i*86*:2.7.2*)
+	case "$GCC_VERSION" in
+	    2.7.2)
+		case "$CFLAGS" in
+        	    *-O2*|*-O3*)
+                	case "$CFLAGS" in
+	                    *-fno-strength-reduce*) ;;
+        	            *)
+                                AC_MSG_RESULT(Yes)
+                      	        AC_MSG_WARN(Don't use -O2 with gcc 2.7.2 under Intel/XXX without also using)
+	                        AC_MSG_WARN(-fno-strength-reduce.)
+        	                AC_MSG_ERROR(Aborting due to known problem)
+	                        ;;
+	                esac
+	                ;;
+		esac
+		;;
+	esac
+        case "$CFLAGS" in
+	 *-fno-caller-saves*) ;;
+	 *)
+            AC_MSG_RESULT(Yes)
+	    AC_MSG_WARN(Don't use -O2 with gcc 2.7.2 under Intel/XXX without also using)
+	    AC_MSG_WARN(-fno-caller-saves.)
+            AC_MSG_ERROR(Aborting due to known problem)
+	    ;;
+        esac
+	;;
+esac
+fi
+AC_MSG_RESULT(No)
+
 dnl Inform compiler that certain flags are meant for the linker
 dnl XE_PROTECT_LINKER_FLAGS(shell_var)
 define([XE_PROTECT_LINKER_FLAGS], [
@@ -2217,9 +2280,25 @@ AC_PROG_INSTALL
 AC_PROG_YACC
 
 dnl checks for header files
-AC_CHECK_HEADERS(mach/mach.h sys/stropts.h sys/timeb.h sys/time.h unistd.h)
-AC_CHECK_HEADERS(utime.h locale.h libgen.h fcntl.h ulimit.h cygwin/version.h)
-AC_CHECK_HEADERS(kstat.h sys/pstat.h inttypes.h sys/un.h a.out.h)
+AC_CHECK_HEADERS(dnl
+  a.out.h dnl
+  cygwin/version.h dnl
+  fcntl.h dnl
+  inttypes.h dnl
+  libgen.h dnl
+  locale.h dnl
+  mach/mach.h dnl
+  sys/param.h dnl
+  sys/pstat.h dnl
+  sys/stropts.h dnl
+  sys/time.h dnl
+  sys/timeb.h dnl
+  sys/un.h dnl
+  kstat.h dnl
+  ulimit.h dnl
+  unistd.h dnl
+  utime.h dnl
+)
 AC_HEADER_SYS_WAIT
 AC_HEADER_STDC
 AC_HEADER_TIME
@@ -2344,13 +2423,15 @@ if   ${CC-cc} '-###' -xildon  no_such_file.c 2>&1 | grep '^[^ ]*/ild ' > /dev/nu
 fi
 
 dnl Link with "-z ignore" on Solaris if supported
-if test "$opsys" = "sol2" -a "$os_release" -ge 56; then
-  AC_MSG_CHECKING(for \"-z ignore\" linker flag)
-  case "`ld -h 2>&1`" in
-    *-z\ ignore\|record* ) AC_MSG_RESULT(yes)
-      XE_PREPEND(-z ignore, ld_switch_site) ;;
-    *) AC_MSG_RESULT(no) ;;
-  esac
+if test "$opsys" = "sol2"; then
+  if test "$os_release" -ge 56; then
+    AC_MSG_CHECKING(for \"-z ignore\" linker flag)
+    case "`ld -h 2>&1`" in
+      *-z\ ignore\|record* ) AC_MSG_RESULT(yes)
+        XE_PREPEND(-z ignore, ld_switch_site) ;;
+      *) AC_MSG_RESULT(no) ;;
+    esac
+  fi
 fi
 
 dnl ----------------------

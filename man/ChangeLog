@@ -1,3 +1,23 @@
+2000-02-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.30 is released.
+
+2000-02-21  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* internals/internals.texi: Made texinfmt-friendly.
+
+2000-01-20  Mark Thomas  <mthomas@jprc.com>
+
+	* lispref/backups.texi (Numbered Backups):
+	* xemacs/files.texi (Backup Deletion):
+	Change trim-versions-without-asking to delete-old-versions.
+
+2000-02-19  Martin Buchholz  <martin@xemacs.org>
+
+	* internals/internals.texi (Conversion to and from External Data):
+	Document TO_EXTERNAL_FORMAT and friends.
+	Doc bug fixes.
+
 2000-02-16  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.29 is released.

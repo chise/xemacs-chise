@@ -383,17 +383,14 @@ alloc_lcrecord (size_t size, const struct lrecord_implementation *implementation
 {
   struct lcrecord_header *lcheader;
 
-#ifdef ERROR_CHECK_TYPECHECK
-  if (implementation->static_size == 0)
-    assert (implementation->size_in_bytes_method);
-  else
-    assert (implementation->static_size == size);
-
-  assert (! implementation->basic_p);
-
-  if (implementation->hash == NULL)
-    assert (implementation->equal == NULL);
-#endif
+  type_checking_assert
+    ((implementation->static_size == 0 ?
+      implementation->size_in_bytes_method != NULL :
+      implementation->static_size == size)
+     &&
+     (! implementation->basic_p)
+     &&
+     (! (implementation->hash == NULL && implementation->equal != NULL)));
 
   lcheader = (struct lcrecord_header *) allocate_lisp_storage (size);
   set_lheader_implementation (&(lcheader->lheader), implementation);
@@ -455,22 +452,10 @@ disksave_object_finalization_1 (void)
 
   for (header = all_lcrecords; header; header = header->next)
     {
-      if (LHEADER_IMPLEMENTATION(&header->lheader)->finalizer &&
+      if (LHEADER_IMPLEMENTATION (&header->lheader)->finalizer &&
 	  !header->free)
-	((LHEADER_IMPLEMENTATION(&header->lheader)->finalizer)
-	 (header, 1));
+	LHEADER_IMPLEMENTATION (&header->lheader)->finalizer (header, 1);
     }
-}
-
-/* Semi-kludge -- lrecord_symbol_value_forward objects get stuck
-   in const space and you get SEGV's if you attempt to mark them.
-   This sits in lheader->implementation->marker. */
-
-Lisp_Object
-this_one_is_unmarkable (Lisp_Object obj)
-{
-  abort ();
-  return Qnil;
 }
 
 
@@ -489,42 +474,6 @@ EMACS_UINT dbg_typemask = (1UL << GCTYPEBITS) - 1;
 unsigned char dbg_USE_UNION_TYPE = 1;
 #else
 unsigned char dbg_USE_UNION_TYPE = 0;
-#endif
-
-unsigned char Lisp_Type_Int = 100;
-unsigned char Lisp_Type_Cons = 101;
-unsigned char Lisp_Type_String = 102;
-unsigned char Lisp_Type_Vector = 103;
-unsigned char Lisp_Type_Symbol = 104;
-
-#ifndef MULE
-unsigned char lrecord_char_table_entry;
-unsigned char lrecord_charset;
-#ifndef FILE_CODING
-unsigned char lrecord_coding_system;
-#endif
-#endif
-
-#if !((defined HAVE_X_WINDOWS) && \
-      (defined (HAVE_MENUBARS)   || \
-       defined (HAVE_SCROLLBARS) || \
-       defined (HAVE_DIALOGS)    || \
-       defined (HAVE_TOOLBARS)   || \
-       defined (HAVE_WIDGETS)))
-unsigned char lrecord_popup_data;
-#endif
-
-#ifndef HAVE_TOOLBARS
-unsigned char lrecord_toolbar_button;
-#endif
-
-#ifndef TOOLTALK
-unsigned char lrecord_tooltalk_message;
-unsigned char lrecord_tooltalk_pattern;
-#endif
-
-#ifndef HAVE_DATABASE
-unsigned char lrecord_database;
 #endif
 
 unsigned char dbg_valbits = VALBITS;
@@ -2272,22 +2221,23 @@ mark_lcrecord_list (Lisp_Object obj)
       struct free_lcrecord_header *free_header =
 	(struct free_lcrecord_header *) lheader;
 
-#ifdef ERROR_CHECK_GC
-      const struct lrecord_implementation *implementation
-	= LHEADER_IMPLEMENTATION(lheader);
-
-      /* There should be no other pointers to the free list. */
-      assert (!MARKED_RECORD_HEADER_P (lheader));
-      /* Only lcrecords should be here. */
-      assert (!implementation->basic_p);
-      /* Only free lcrecords should be here. */
-      assert (free_header->lcheader.free);
-      /* The type of the lcrecord must be right. */
-      assert (implementation == list->implementation);
-      /* So must the size. */
-      assert (implementation->static_size == 0
-	      || implementation->static_size == list->size);
-#endif /* ERROR_CHECK_GC */
+      gc_checking_assert
+	(/* There should be no other pointers to the free list. */
+	 ! MARKED_RECORD_HEADER_P (lheader)
+	 &&
+	 /* Only lcrecords should be here. */
+	 ! LHEADER_IMPLEMENTATION (lheader)->basic_p
+	 &&
+	 /* Only free lcrecords should be here. */
+	 free_header->lcheader.free
+	 &&
+	 /* The type of the lcrecord must be right. */
+	 LHEADER_IMPLEMENTATION (lheader) == list->implementation
+	 &&
+	 /* So must the size. */
+	 (LHEADER_IMPLEMENTATION (lheader)->static_size == 0 ||
+	  LHEADER_IMPLEMENTATION (lheader)->static_size == list->size)
+	 );
 
       MARK_RECORD_HEADER (lheader);
       chain = free_header->chain;
@@ -2325,23 +2275,21 @@ allocate_managed_lcrecord (Lisp_Object lcrecord_list)
 	(struct free_lcrecord_header *) XPNTR (val);
 
 #ifdef ERROR_CHECK_GC
-      struct lrecord_header *lheader =
-	(struct lrecord_header *) free_header;
-      const struct lrecord_implementation *implementation
-	= LHEADER_IMPLEMENTATION (lheader);
+      struct lrecord_header *lheader = &free_header->lcheader.lheader;
 
       /* There should be no other pointers to the free list. */
-      assert (!MARKED_RECORD_HEADER_P (lheader));
+      assert (! MARKED_RECORD_HEADER_P (lheader));
       /* Only lcrecords should be here. */
-      assert (!implementation->basic_p);
+      assert (! LHEADER_IMPLEMENTATION (lheader)->basic_p);
       /* Only free lcrecords should be here. */
       assert (free_header->lcheader.free);
       /* The type of the lcrecord must be right. */
-      assert (implementation == list->implementation);
+      assert (LHEADER_IMPLEMENTATION (lheader) == list->implementation);
       /* So must the size. */
-      assert (implementation->static_size == 0
-	      || implementation->static_size == list->size);
+      assert (LHEADER_IMPLEMENTATION (lheader)->static_size == 0 ||
+	      LHEADER_IMPLEMENTATION (lheader)->static_size == list->size);
 #endif /* ERROR_CHECK_GC */
+
       list->free = free_header->chain;
       free_header->lcheader.free = 0;
       return val;
@@ -2362,19 +2310,16 @@ free_managed_lcrecord (Lisp_Object lcrecord_list, Lisp_Object lcrecord)
   struct lcrecord_list *list = XLCRECORD_LIST (lcrecord_list);
   struct free_lcrecord_header *free_header =
     (struct free_lcrecord_header *) XPNTR (lcrecord);
-  struct lrecord_header *lheader =
-    (struct lrecord_header *) free_header;
+  struct lrecord_header *lheader = &free_header->lcheader.lheader;
   const struct lrecord_implementation *implementation
     = LHEADER_IMPLEMENTATION (lheader);
 
-#ifdef ERROR_CHECK_GC
   /* Make sure the size is correct.  This will catch, for example,
      putting a window configuration on the wrong free list. */
-  if (implementation->size_in_bytes_method)
-    assert (implementation->size_in_bytes_method (lheader) == list->size);
-  else
-    assert (implementation->static_size == list->size);
-#endif /* ERROR_CHECK_GC */
+  gc_checking_assert ((implementation->size_in_bytes_method ?
+		       implementation->size_in_bytes_method (lheader) :
+		       implementation->static_size)
+		      == list->size);
 
   if (implementation->finalizer)
     implementation->finalizer (lheader, 0);
@@ -2398,7 +2343,6 @@ Does not copy symbols.
   return obj;
 }
 
-
 
 /************************************************************************/
 /*			   Garbage Collection				*/
@@ -2407,8 +2351,16 @@ Does not copy symbols.
 /* This will be used more extensively In The Future */
 static int last_lrecord_type_index_assigned;
 
-const struct lrecord_implementation *lrecord_implementations_table[128];
-#define max_lrecord_type (countof (lrecord_implementations_table) - 1)
+/* All the built-in lisp object types are enumerated in `enum lrecord_type'.
+   Additional ones may be defined by a module (none yet).  We leave some
+   room in `lrecord_implementations_table' for such new lisp object types. */
+#define MODULE_DEFINABLE_TYPE_COUNT 32
+const struct lrecord_implementation *lrecord_implementations_table[lrecord_type_count + MODULE_DEFINABLE_TYPE_COUNT];
+
+/* Object marker functions are in the lrecord_implementation structure.
+   But copying them to a parallel array is much more cache-friendly.
+   This hack speeds up (garbage-collect) by about 5%. */
+Lisp_Object (*lrecord_markers[countof (lrecord_implementations_table)]) (Lisp_Object);
 
 struct gcpro *gcprolist;
 
@@ -2525,6 +2477,19 @@ pdump_wire_list (Lisp_Object *varaddress)
   pdump_wirevec_list[pdump_wireidx_list++] = varaddress;
 }
 
+#ifdef ERROR_CHECK_GC
+#define GC_CHECK_LHEADER_INVARIANTS(lheader) do {		\
+  struct lrecord_header * GCLI_lh = (lheader);			\
+  assert (GCLI_lh != 0);					\
+  assert (GCLI_lh->type <= last_lrecord_type_index_assigned);	\
+  assert (! C_READONLY_RECORD_HEADER_P (GCLI_lh) ||		\
+	  (MARKED_RECORD_HEADER_P (GCLI_lh) &&			\
+	   LISP_READONLY_RECORD_HEADER_P (GCLI_lh)));		\
+} while (0)
+#else
+#define GC_CHECK_LHEADER_INVARIANTS(lheader)
+#endif
+
 
 /* Mark reference to a Lisp_Object.  If the object referred to has not been
    seen yet, recursively mark all the references contained in it. */
@@ -2534,9 +2499,6 @@ mark_object (Lisp_Object obj)
 {
  tail_recurse:
 
-#ifdef ERROR_CHECK_GC
-  assert (! (EQ (obj, Qnull_pointer)));
-#endif
   /* Checks we used to perform */
   /* if (EQ (obj, Qnull_pointer)) return; */
   /* if (!POINTER_TYPE_P (XGCTYPE (obj))) return; */
@@ -2545,25 +2507,21 @@ mark_object (Lisp_Object obj)
   if (XTYPE (obj) == Lisp_Type_Record)
     {
       struct lrecord_header *lheader = XRECORD_LHEADER (obj);
-#if defined (ERROR_CHECK_GC)
-      assert (lheader->type <= last_lrecord_type_index_assigned);
-#endif
-      if (C_READONLY_RECORD_HEADER_P (lheader))
-	return;
 
-      if (! MARKED_RECORD_HEADER_P (lheader) &&
-	  ! UNMARKABLE_RECORD_HEADER_P (lheader))
+      GC_CHECK_LHEADER_INVARIANTS (lheader);
+
+      gc_checking_assert (LHEADER_IMPLEMENTATION (lheader)->basic_p ||
+			  ! ((struct lcrecord_header *) lheader)->free);
+
+      /* All c_readonly objects have their mark bit set,
+	 so that we only need to check the mark bit here. */
+      if (! MARKED_RECORD_HEADER_P (lheader))
 	{
-	  const struct lrecord_implementation *implementation =
-	    LHEADER_IMPLEMENTATION (lheader);
 	  MARK_RECORD_HEADER (lheader);
-#ifdef ERROR_CHECK_GC
-	  if (!implementation->basic_p)
-	    assert (! ((struct lcrecord_header *) lheader)->free);
-#endif
-	  if (implementation->marker)
+
+	  if (RECORD_MARKER (lheader))
 	    {
-	      obj = implementation->marker (obj);
+	      obj = RECORD_MARKER (lheader) (obj);
 	      if (!NILP (obj)) goto tail_recurse;
 	    }
 	}
@@ -2603,24 +2561,6 @@ static int gc_count_short_string_total_size;
 /* static int gc_count_total_records_used, gc_count_records_total_size; */
 
 
-int
-lrecord_type_index (const struct lrecord_implementation *implementation)
-{
-  int type_index = *(implementation->lrecord_type_index);
-  /* Have to do this circuitous validation test because of problems
-     dumping out initialized variables (ie can't set xxx_type_index to -1
-     because that would make xxx_type_index read-only in a dumped emacs. */
-  if (type_index < 0 || type_index > max_lrecord_type
-      || lrecord_implementations_table[type_index] != implementation)
-    {
-      assert (last_lrecord_type_index_assigned < max_lrecord_type);
-      type_index = ++last_lrecord_type_index_assigned;
-      lrecord_implementations_table[type_index] = implementation;
-      *(implementation->lrecord_type_index) = type_index;
-    }
-  return type_index;
-}
-
 /* stats on lcrecords in use - kinda kludgy */
 
 static struct
@@ -2635,21 +2575,21 @@ static struct
 static void
 tick_lcrecord_stats (const struct lrecord_header *h, int free_p)
 {
-  const struct lrecord_implementation *implementation =
-    LHEADER_IMPLEMENTATION (h);
-  int type_index = lrecord_type_index (implementation);
+  unsigned int type_index = h->type;
 
   if (((struct lcrecord_header *) h)->free)
     {
-      assert (!free_p);
+      gc_checking_assert (!free_p);
       lcrecord_stats[type_index].instances_on_free_list++;
     }
   else
     {
-      size_t sz = (implementation->size_in_bytes_method
-		   ? implementation->size_in_bytes_method (h)
-		   : implementation->static_size);
+      const struct lrecord_implementation *implementation =
+	LHEADER_IMPLEMENTATION (h);
 
+      size_t sz = (implementation->size_in_bytes_method ?
+		   implementation->size_in_bytes_method (h) :
+		   implementation->static_size);
       if (free_p)
 	{
 	  lcrecord_stats[type_index].instances_freed++;
@@ -2687,9 +2627,10 @@ sweep_lcrecords_1 (struct lcrecord_header **prev, int *used)
   for (header = *prev; header; header = header->next)
     {
       struct lrecord_header *h = &(header->lheader);
-      if (!C_READONLY_RECORD_HEADER_P(h)
-	  && !MARKED_RECORD_HEADER_P (h)
-	  && ! (header->free))
+
+      GC_CHECK_LHEADER_INVARIANTS (h);
+
+      if (! MARKED_RECORD_HEADER_P (h) && ! header->free)
 	{
 	  if (LHEADER_IMPLEMENTATION (h)->finalizer)
 	    LHEADER_IMPLEMENTATION (h)->finalizer (h, 0);
@@ -2699,9 +2640,9 @@ sweep_lcrecords_1 (struct lcrecord_header **prev, int *used)
   for (header = *prev; header; )
     {
       struct lrecord_header *h = &(header->lheader);
-      if (C_READONLY_RECORD_HEADER_P(h) || MARKED_RECORD_HEADER_P (h))
+      if (MARKED_RECORD_HEADER_P (h))
 	{
-	  if (MARKED_RECORD_HEADER_P (h))
+	  if (! C_READONLY_RECORD_HEADER_P (h))
 	    UNMARK_RECORD_HEADER (h);
 	  num_used++;
 	  /* total_size += n->implementation->size_in_bytes (h);*/
@@ -2740,9 +2681,9 @@ sweep_bit_vectors_1 (Lisp_Object *prev,
     {
       Lisp_Bit_Vector *v = XBIT_VECTOR (bit_vector);
       int len = v->size;
-      if (C_READONLY_RECORD_HEADER_P(&(v->lheader)) || MARKED_RECORD_P (bit_vector))
+      if (MARKED_RECORD_P (bit_vector))
 	{
-	  if (MARKED_RECORD_P (bit_vector))
+	  if (! C_READONLY_RECORD_HEADER_P(&(v->lheader)))
 	    UNMARK_RECORD_HEADER (&(v->lheader));
 	  total_size += len;
           total_storage +=
@@ -2798,7 +2739,7 @@ do {									\
 	    {								\
 	      num_used++;						\
 	    }								\
-	  else if (!MARKED_RECORD_HEADER_P (&SFTB_victim->lheader))	\
+	  else if (! MARKED_RECORD_HEADER_P (&SFTB_victim->lheader))	\
 	    {								\
 	      num_free++;						\
 	      FREE_FIXED_TYPE (typename, obj_type, SFTB_victim);	\
@@ -2853,7 +2794,7 @@ do {										\
 	      SFTB_empty = 0;							\
 	      num_used++;							\
 	    }									\
-	  else if (!MARKED_RECORD_HEADER_P (&SFTB_victim->lheader))		\
+	  else if (! MARKED_RECORD_HEADER_P (&SFTB_victim->lheader))		\
 	    {									\
 	      num_free++;							\
 	      FREE_FIXED_TYPE (typename, obj_type, SFTB_victim);		\
@@ -3032,12 +2973,8 @@ sweep_markers (void)
 void
 free_marker (Lisp_Marker *ptr)
 {
-#ifdef ERROR_CHECK_GC
   /* Perhaps this will catch freeing an already-freed marker. */
-  Lisp_Object temmy;
-  XSETMARKER (temmy, ptr);
-  assert (MARKERP (temmy));
-#endif /* ERROR_CHECK_GC */
+  gc_checking_assert (ptr->lheader.type = lrecord_type_marker);
 
 #ifndef ALLOC_NO_POOLS
   FREE_FIXED_TYPE_WHEN_NOT_IN_GC (marker, Lisp_Marker, ptr);
@@ -3253,9 +3190,6 @@ sweep_strings (void)
 int
 marked_p (Lisp_Object obj)
 {
-#ifdef ERROR_CHECK_GC
-  assert (! (EQ (obj, Qnull_pointer)));
-#endif
   /* Checks we used to perform. */
   /* if (EQ (obj, Qnull_pointer)) return 1; */
   /* if (!POINTER_TYPE_P (XGCTYPE (obj))) return 1; */
@@ -3264,10 +3198,10 @@ marked_p (Lisp_Object obj)
   if (XTYPE (obj) == Lisp_Type_Record)
     {
       struct lrecord_header *lheader = XRECORD_LHEADER (obj);
-#if defined (ERROR_CHECK_GC)
-      assert (lheader->type <= last_lrecord_type_index_assigned);
-#endif
-      return C_READONLY_RECORD_HEADER_P (lheader) || MARKED_RECORD_HEADER_P (lheader);
+
+      GC_CHECK_LHEADER_INVARIANTS (lheader);
+
+      return MARKED_RECORD_HEADER_P (lheader);
     }
   return 1;
 }
@@ -3345,7 +3279,9 @@ gc_sweep (void)
 	    {
 	      for (i=0; i<rt->count; i++)
 		{
-		  UNMARK_RECORD_HEADER ((struct lrecord_header *)(*(EMACS_INT *)p));
+		  struct lrecord_header *lh = * (struct lrecord_header **) p;
+		  if (! C_READONLY_RECORD_HEADER_P (lh))
+		    UNMARK_RECORD_HEADER (lh);
 		  p += sizeof (EMACS_INT);
 		}
 	    } else
@@ -3726,7 +3662,7 @@ Garbage collection happens automatically if you cons more than
           const char *name = lrecord_implementations_table[i]->name;
 	  int len = strlen (name);
 	  /* save this for the FSFmacs-compatible part of the summary */
-	  if (i == *lrecord_vector.lrecord_type_index)
+	  if (i == lrecord_vector.lrecord_type_index)
 	    gc_count_vector_total_size =
 	      lcrecord_stats[i].bytes_in_use + lcrecord_stats[i].bytes_freed;
 
@@ -4055,31 +3991,20 @@ reinit_alloc_once_early (void)
 void
 init_alloc_once_early (void)
 {
-  int iii;
-
   reinit_alloc_once_early ();
 
-  last_lrecord_type_index_assigned = -1;
-  for (iii = 0; iii < countof (lrecord_implementations_table); iii++)
-    {
-      lrecord_implementations_table[iii] = 0;
-    }
+  last_lrecord_type_index_assigned = lrecord_type_count - 1;
 
-  /*
-   * All the staticly
-   * defined subr lrecords were initialized with lheader->type == 0.
-   * See subr_lheader_initializer in lisp.h.  Force type index 0 to be
-   * assigned to lrecord_subr so that those predefined indexes match
-   * reality.
-   */
-  lrecord_type_index (&lrecord_subr);
-  assert (*(lrecord_subr.lrecord_type_index) == 0);
-  /*
-   * The same is true for symbol_value_forward objects, except the
-   * type is 1.
-   */
-  lrecord_type_index (&lrecord_symbol_value_forward);
-  assert (*(lrecord_symbol_value_forward.lrecord_type_index) == 1);
+  {
+    int i;
+    for (i = 0; i < countof (lrecord_implementations_table); i++)
+      lrecord_implementations_table[i] = 0;
+  }
+
+  INIT_LRECORD_IMPLEMENTATION (cons);
+  INIT_LRECORD_IMPLEMENTATION (vector);
+  INIT_LRECORD_IMPLEMENTATION (string);
+  INIT_LRECORD_IMPLEMENTATION (lcrecord_list);
 
   staticidx = 0;
 }
@@ -5190,13 +5115,10 @@ pdump_load (void)
   memcpy (lrecord_implementations_table, p, sizeof (lrecord_implementations_table));
   p += sizeof (lrecord_implementations_table);
 
-  /* Give back their numbers to the lrecord implementations */
-  for (i = 0; i < countof (lrecord_implementations_table); i++)
+  /* Reinitialize lrecord_markers from lrecord_implementations_table */
+  for (i=0; i < countof (lrecord_implementations_table); i++)
     if (lrecord_implementations_table[i])
-      {
-	*(lrecord_implementations_table[i]->lrecord_type_index) = i;
-	last_lrecord_type_index_assigned = i;
-      }
+      lrecord_markers[i] = lrecord_implementations_table[i]->marker;
 
   /* Do the relocations */
   pdump_rt_list = p;
@@ -5256,3 +5178,4 @@ pdump_load (void)
 }
 
 #endif /* PDUMP */
+

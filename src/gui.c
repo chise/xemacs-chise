@@ -625,6 +625,8 @@ DEFINE_LRECORD_IMPLEMENTATION ("gui-item", gui_item,
 void
 syms_of_gui (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (gui_item);
+
   defkeyword (&Q_active,   ":active");
   defkeyword (&Q_suffix,   ":suffix");
   defkeyword (&Q_keys,     ":keys");

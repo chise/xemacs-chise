@@ -509,6 +509,8 @@ compute_buffer_marker_usage (struct buffer *b, struct overhead_stats *ovstats)
 void
 syms_of_marker (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (marker);
+
   DEFSUBR (Fmarker_position);
   DEFSUBR (Fmarker_buffer);
   DEFSUBR (Fset_marker);

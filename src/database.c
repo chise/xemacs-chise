@@ -759,6 +759,8 @@ each key and value in the database.
 void
 syms_of_database (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (database);
+
   defsymbol (&Qdatabasep, "databasep");
 #ifdef HAVE_DBM
   defsymbol (&Qdbm, "dbm");

@@ -533,7 +533,7 @@ win32_executable_type (const char * filename, int * is_dos_app, int * is_cygnus_
 	  if (exe_header->e_magic != DOSMAGIC)
 	    goto unwind;
 
-	  if ((char *) exe_header->e_lfanew > (char *) executable.size)
+	  if ((char*) exe_header->e_lfanew > (char*) executable.size)
 	    {
 	      /* Some dos headers (pkunzip) have bogus e_lfanew fields.  */
 	      *is_dos_app = TRUE;
@@ -550,9 +550,9 @@ win32_executable_type (const char * filename, int * is_dos_app, int * is_cygnus_
 	  if (dos_header->e_magic != IMAGE_DOS_SIGNATURE)
 	    goto unwind;
 	  
-	  nt_header = (PIMAGE_NT_HEADERS) ((char *) dos_header + dos_header->e_lfanew);
+	  nt_header = (PIMAGE_NT_HEADERS) ((char*) dos_header + dos_header->e_lfanew);
 	  
-	  if ((char *) nt_header > (char *) dos_header + executable.size) 
+	  if ((char*) nt_header > (char*) dos_header + executable.size) 
 	    {
 	      /* Some dos headers (pkunzip) have bogus e_lfanew fields.  */
 	      *is_dos_app = TRUE;
@@ -571,11 +571,12 @@ win32_executable_type (const char * filename, int * is_dos_app, int * is_cygnus_
 	      IMAGE_SECTION_HEADER * section;
 
 	      section = rva_to_section (import_dir.VirtualAddress, nt_header);
-	      imports = RVA_TO_PTR (import_dir.VirtualAddress, section, executable);
+	      imports = (IMAGE_IMPORT_DESCRIPTOR *) RVA_TO_PTR (import_dir.VirtualAddress,
+								section, executable);
 	      
 	      for ( ; imports->Name; imports++)
 		{
-		  char * dllname = RVA_TO_PTR (imports->Name, section, executable);
+		  char *dllname = (char*) RVA_TO_PTR (imports->Name, section, executable);
 
 		  if (strcmp (dllname, "cygwin.dll") == 0)
 		    {
@@ -630,7 +631,7 @@ merge_and_sort_env (char **envp1, char **envp2, char **new_envp)
     *nptr++ = *optr++;
   num += optr - envp2;
 
-  qsort (new_envp, num, sizeof (char *), compare_env);
+  qsort (new_envp, num, sizeof (char*), compare_env);
 
   *nptr = NULL;
 }
@@ -681,7 +682,7 @@ sys_spawnve (int mode, const char *cmdname,
     }
   else
     {
-      (char*)cmdname = alloca (strlen (argv[0]) + 1);
+      cmdname = (char*)alloca (strlen (argv[0]) + 1);
       strcpy ((char*)cmdname, argv[0]);
     }
   UNGCPRO;
@@ -703,7 +704,7 @@ sys_spawnve (int mode, const char *cmdname,
      while leaving the real app name as argv[0].  */
   if (is_dos_app)
     {
-      cmdname = alloca (MAXPATHLEN);
+      cmdname = (char*) alloca (MAXPATHLEN);
       if (egetenv ("CMDPROXY"))
 	strcpy ((char*)cmdname, egetenv ("CMDPROXY"));
       else
@@ -802,7 +803,7 @@ sys_spawnve (int mode, const char *cmdname,
 	}
       arglen += strlen (*targ++) + 1;
     }
-  cmdline = alloca (arglen);
+  cmdline = (char*) alloca (arglen);
   targ = (char**)argv;
   parg = cmdline;
   while (*targ)
@@ -884,7 +885,7 @@ sys_spawnve (int mode, const char *cmdname,
   
   /* and envp...  */
   arglen = 1;
-  targ = (char**)envp;
+  targ = (char**) envp;
   numenv = 1; /* for end null */
   while (*targ)
     {
@@ -898,11 +899,11 @@ sys_spawnve (int mode, const char *cmdname,
   numenv++;
 
   /* merge env passed in and extra env into one, and sort it.  */
-  targ = (char **) alloca (numenv * sizeof (char *));
-  merge_and_sort_env ((char**)envp, extra_env, targ);
+  targ = (char **) alloca (numenv * sizeof (char*));
+  merge_and_sort_env ((char**) envp, extra_env, targ);
 
   /* concatenate env entries.  */
-  env = alloca (arglen);
+  env = (char*) alloca (arglen);
   parg = env;
   while (*targ)
     {

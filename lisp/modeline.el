@@ -79,7 +79,23 @@ a scrollbar for its own text, which then moves in the opposite direction."
 		  (set-glyph-image modeline-pointer-glyph "fleur" 'global 'x))
 		 (t
 		  (set-glyph-image modeline-pointer-glyph "sb_v_double_arrow"
-				   'global 'x)))))
+				   'global 'x))))
+	 (when (featurep 'mswindows)
+	   (cond ((eq val t)
+		  (set-glyph-image modeline-pointer-glyph
+				   [mswindows-resource :resource-type cursor
+						       :resource-id "SizeAll"]
+				   'global 'mswindows))
+		 ((eq val 'scrollbar)
+		  (set-glyph-image modeline-pointer-glyph
+				   [mswindows-resource :resource-type cursor
+						       :resource-id "Normal"]
+				   'global 'mswindows))
+		 (t
+		  (set-glyph-image modeline-pointer-glyph
+				   [mswindows-resource :resource-type cursor
+						       :resource-id "SizeNS"]
+				   'global 'mswindows)))))
   :group 'modeline)
 
 (defun mouse-drag-modeline (event)

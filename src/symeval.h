@@ -75,10 +75,9 @@ struct symbol_value_magic
   void *value;
   enum symbol_value_type type;
 };
-#define SYMBOL_VALUE_MAGIC_P(x)				\
-  (LRECORDP (x)						\
-   && (XRECORD_LHEADER_IMPLEMENTATION (x)->printer	\
-       == print_symbol_value_magic))
+#define SYMBOL_VALUE_MAGIC_P(x)						\
+(LRECORDP (x) &&							\
+ XRECORD_LHEADER (x)->type <= lrecord_type_max_symbol_value_magic)
 #define XSYMBOL_VALUE_MAGIC_TYPE(v) \
 	(((struct symbol_value_magic *) XPNTR (v))->type)
 #define XSETSYMBOL_VALUE_MAGIC(s, p) XSETOBJ (s, Lisp_Type_Record, p)
@@ -296,15 +295,15 @@ void deferror (Lisp_Object *symbol, const char *name,
 void defvar_magic (const char *symbol_name, const struct symbol_value_forward *magic);
 
 #define DEFVAR_SYMVAL_FWD(lname, c_location, forward_type, magicfun) do {	\
-  static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C =		\
+  static const struct symbol_value_forward I_hate_C =				\
   { /* struct symbol_value_forward */						\
     { /* struct symbol_value_magic */						\
       { /* struct lcrecord_header */						\
 	{ /* struct lrecord_header */						\
-	  1, /* type - index into lrecord_implementations_table */		\
-	  0, /* mark bit */							\
-	  0, /* c_readonly bit */						\
-	  0  /* lisp_readonly bit */						\
+	  lrecord_type_symbol_value_forward, /* lrecord_type_index */		\
+	  1, /* mark bit */							\
+	  1, /* c_readonly bit */						\
+	  1  /* lisp_readonly bit */						\
 	},									\
 	0, /* next */								\
 	0, /* uid  */								\

@@ -1804,7 +1804,11 @@ word_boundary_p (Emchar c1, Emchar c2)
 void
 syms_of_chartab (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (char_table);
+
 #ifdef MULE
+  INIT_LRECORD_IMPLEMENTATION (char_table_entry);
+
   defsymbol (&Qcategory_table_p, "category-table-p");
   defsymbol (&Qcategory_designator_p, "category-designator-p");
   defsymbol (&Qcategory_table_value_p, "category-table-value-p");

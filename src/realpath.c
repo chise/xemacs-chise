@@ -28,13 +28,14 @@ Boston, MA 02111-1307, USA.  */
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
+#include <limits.h>
+
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
-#ifdef _POSIX_VERSION
-#include <limits.h>			/* for PATH_MAX */
-#else
-#include <sys/param.h>			/* for MAXPATHLEN */
+
+#if defined (HAVE_SYS_PARAM_H)
+#include <sys/param.h>
 #endif
 
 #ifdef WINDOWSNT
@@ -74,7 +75,7 @@ xrealpath (const char *path, char resolved_path [])
 #endif
 
   /* Make a copy of the source path since we may need to modify it. */
-  strcpy(copy_path, path);
+  strcpy (copy_path, path);
   path = copy_path;
   max_path = copy_path + PATH_MAX - 2;
 #ifdef WINDOWSNT
@@ -153,21 +154,20 @@ xrealpath (const char *path, char resolved_path [])
 	      continue;
 	    }
 
-	  if (path[1] == '.')
+	  /* Handle ".." */
+	  if (path[1] == '.' &&
+	      (path[2] == '\0' || path[2] == '/'))
 	    {
-	      if (path[2] == '\0' || path[2] == '/')
-		{
-		  path += 2;
+	      path += 2;
 
-		  /* Ignore ".." at root. */
-		  if (new_path == resolved_path + 1)
-		    continue;
+	      /* Ignore ".." at root. */
+	      if (new_path == resolved_path + 1)
+		continue;
 
-		  /* Handle ".." by backing up. */
-		  while ((--new_path)[-1] != '/')
-		    ;
-		  continue;
-		}
+	      /* Handle ".." by backing up. */
+	      while ((--new_path)[-1] != '/')
+		;
+	      continue;
 	    }
 	}
 
@@ -185,7 +185,7 @@ xrealpath (const char *path, char resolved_path [])
 #ifdef S_IFLNK
       /* See if latest pathname component is a symlink. */
       *new_path = '\0';
-      n = readlink(resolved_path, link_path, PATH_MAX - 1);
+      n = readlink (resolved_path, link_path, PATH_MAX - 1);
 
       if (n < 0)
 	{

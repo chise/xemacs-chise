@@ -48,7 +48,7 @@ struct mswindows_image_instance_data
 #define IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICES(i) \
      (MSWINDOWS_IMAGE_INSTANCE_DATA (i)->bitmaps)
 #define IMAGE_INSTANCE_MSWINDOWS_MASK(i) \
-     (HBITMAP)(IMAGE_INSTANCE_PIXMAP_MASK (i))
+     (*(HBITMAP*)&(IMAGE_INSTANCE_PIXMAP_MASK (i)))		/* Make it lvalue */
 #define IMAGE_INSTANCE_MSWINDOWS_ICON(i) \
      (MSWINDOWS_IMAGE_INSTANCE_DATA (i)->icon)
 

@@ -413,7 +413,7 @@ nil or `never' never auto-generate a directory listing,
 		 (const :tag "if-outdated" if-outdated))
   :group 'info)
 
-(defcustom Info-save-auto-generated-dir nil
+(defcustom Info-save-auto-generated-dir 'never
   "*Whether an auto-generated info directory listing should be saved.
 Possible values are:
 nil or `never', the default, auto-generated info directory 

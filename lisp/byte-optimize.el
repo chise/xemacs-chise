@@ -473,6 +473,10 @@
 		     (byte-compile-log
 		      "  all subforms of %s called for effect; deleted" form))
 		 (and backwards
+                      ;; Now optimize the rest of the forms. We need the return
+                      ;; values. We already did the car.
+                      (setcdr backwards
+                              (mapcar 'byte-optimize-form (cdr backwards)))
 		      (cons fn (nreverse backwards))))
 	     (cons fn (mapcar 'byte-optimize-form (cdr form)))))
 
@@ -699,33 +703,37 @@
   (setq form (byte-optimize-delay-constants-math form 1 '+))
   (if (memq 0 form) (setq form (delq 0 (copy-sequence form))))
   ;;(setq form (byte-optimize-associative-two-args-math form))
+
   (case (length (cdr form))
-    ((0)
+    ((0)				; (+)
      (condition-case ()
 	 (eval form)
        (error form)))
 
-    ;; `add1' and `sub1' are a marginally fewer instructions
-    ;; than `plus' and `minus', so use them when possible.
-    ((2)
-     (cond
-      ((eq (nth 1 form)  1) `(1+ ,(nth 2 form))) ; (+ 1 x)   -->  (1+ x)
-      ((eq (nth 2 form)  1) `(1+ ,(nth 1 form))) ; (+ x 1)   -->  (1+ x)
-      ((eq (nth 1 form) -1) `(1- ,(nth 2 form))) ; (+ -1 x)  -->  (1- x)
-      ((eq (nth 2 form) -1) `(1- ,(nth 1 form))) ; (+ x -1)  -->  (1- x)
-      (t form)))
-
     ;; It is not safe to delete the function entirely
-    ;; (actually, it would be safe if we know the sole arg
+    ;; (actually, it would be safe if we knew the sole arg
     ;; is not a marker).
-    ;;	((null (cdr (cdr form))) (nth 1 form))
-    (t form)))
+    ;; ((1)
+    ;;  (nth 1 form))
+
+    ((2)				; (+ x y)
+     (byte-optimize-predicate
+      (cond
+       ;; `add1' and `sub1' are a marginally fewer instructions
+       ;; than `plus' and `minus', so use them when possible.
+       ((eq (nth 1 form)  1) `(1+ ,(nth 2 form))) ; (+ 1 x)   -->  (1+ x)
+       ((eq (nth 2 form)  1) `(1+ ,(nth 1 form))) ; (+ x 1)   -->  (1+ x)
+       ((eq (nth 1 form) -1) `(1- ,(nth 2 form))) ; (+ -1 x)  -->  (1- x)
+       ((eq (nth 2 form) -1) `(1- ,(nth 1 form))) ; (+ x -1)  -->  (1- x)
+       (t form))))
+
+    (t (byte-optimize-predicate form))))
 
 (defun byte-optimize-minus (form)
   ;; Put constants at the end, except the last constant.
   (setq form (byte-optimize-delay-constants-math form 2 '+))
-  ;; Now only first and last element can be a number.
-  (let ((last (car (reverse (nthcdr 3 form)))))
+  ;; Now only first and last element can be an integer.
+  (let ((last (last (nthcdr 3 form))))
     (cond ((eq 0 last)
 	   ;; (- x y ... 0)  --> (- x y ...)
 	   (setq form (copy-sequence form))
@@ -735,54 +743,55 @@
 		(numberp last))
 	   (setq form (nconc (list '- (- (nth 1 form) last) (nth 2 form))
 			     (delq last (copy-sequence (nthcdr 3 form))))))))
-  (setq form
-;;; It is not safe to delete the function entirely
-;;; (actually, it would be safe if we know the sole arg
-;;; is not a marker).
-;;;  (if (eq (nth 2 form) 0)
-;;;      (nth 1 form)			; (- x 0)  -->  x
-    (byte-optimize-predicate
-     (if (and (null (cdr (cdr (cdr form))))
-	      (eq (nth 1 form) 0))	; (- 0 x)  -->  (- x)
-	 (cons (car form) (cdr (cdr form)))
-       form))
-;;;    )
-    )
 
-  ;; `add1' and `sub1' are a marginally fewer instructions than `plus'
-  ;; and `minus', so use them when possible.
-  (cond ((and (null (nthcdr 3 form))
-	      (eq (nth 2 form) 1))
-	 (list '1- (nth 1 form)))	; (- x 1)  -->  (1- x)
-	((and (null (nthcdr 3 form))
-	      (eq (nth 2 form) -1))
-	 (list '1+ (nth 1 form)))	; (- x -1)  -->  (1+ x)
-	(t
-	 form))
-  )
+  (case (length (cdr form))
+    ((0)				; (-)
+     (condition-case ()
+	 (eval form)
+       (error form)))
+
+    ;; It is not safe to delete the function entirely
+    ;; (actually, it would be safe if we knew the sole arg
+    ;; is not a marker).
+    ;; ((1)
+    ;;  (nth 1 form)
+
+    ((2)				; (+ x y)
+     (byte-optimize-predicate
+      (cond
+       ;; `add1' and `sub1' are a marginally fewer instructions than `plus'
+       ;; and `minus', so use them when possible.
+       ((eq (nth 2 form)  1) `(1- ,(nth 1 form))) ; (- x 1)  --> (1- x)
+       ((eq (nth 2 form) -1) `(1+ ,(nth 1 form))) ; (- x -1) --> (1+ x)
+       ((eq (nth 1 form)  0) `(-  ,(nth 2 form))) ; (- 0 x)  --> (- x)
+       (t form))))
+
+    (t (byte-optimize-predicate form))))
 
 (defun byte-optimize-multiply (form)
   (setq form (byte-optimize-delay-constants-math form 1 '*))
-  ;; If there is a constant in FORM, it is now the last element.
+  ;; If there is a constant integer in FORM, it is now the last element.
   (cond ((null (cdr form)) 1)
 ;;; It is not safe to delete the function entirely
 ;;; (actually, it would be safe if we know the sole arg
 ;;; is not a marker or if it appears in other arithmetic).
 ;;;	((null (cdr (cdr form))) (nth 1 form))
-	((let ((last (car (reverse form))))
-	   (cond ((eq 0 last)  (cons 'progn (cdr form)))
-		 ((eq 1 last)  (delq 1 (copy-sequence form)))
-		 ((eq -1 last) (list '- (delq -1 (copy-sequence form))))
-		 ((and (eq 2 last)
-		       (memq t (mapcar 'symbolp (cdr form))))
-		  (prog1 (setq form (delq 2 (copy-sequence form)))
-		    (while (not (symbolp (car (setq form (cdr form))))))
-		    (setcar form (list '+ (car form) (car form)))))
-		 (form))))))
+	((let ((last (last form)))
+	   (byte-optimize-predicate
+	    (cond ((eq 0 last)  (cons 'progn (cdr form)))
+		  ((eq 1 last)  (delq 1 (copy-sequence form)))
+		  ((eq -1 last) (list '- (delq -1 (copy-sequence form))))
+		  ((and (eq 2 last)
+			(memq t (mapcar 'symbolp (cdr form))))
+		   (prog1 (setq form (delq 2 (copy-sequence form)))
+		     (while (not (symbolp (car (setq form (cdr form))))))
+		     (setcar form (list '+ (car form) (car form)))))
+		  (form)))))))
 
 (defun byte-optimize-divide (form)
   (setq form (byte-optimize-delay-constants-math form 2 '*))
-  (let ((last (car (reverse (cdr (cdr form))))))
+  ;; If there is a constant integer in FORM, it is now the last element.
+  (let ((last (last (cdr (cdr form)))))
     (if (numberp last)
 	(cond ((= (length form) 3)
 	       (if (and (numberp (nth 1 form))
@@ -801,13 +810,13 @@
     (cond
 ;;;	  ((null (cdr (cdr form)))
 ;;;	   (nth 1 form))
-	  ((eq (nth 1 form) 0)
-	   (append '(progn) (cdr (cdr form)) '(0)))
-	  ((eq last -1)
-	   (list '- (if (nthcdr 3 form)
-			(butlast form)
-		      (nth 1 form))))
-	  (form))))
+     ((eq (nth 1 form) 0)
+      (append '(progn) (cdr (cdr form)) '(0)))
+     ((eq last -1)
+      (list '- (if (nthcdr 3 form)
+		   (butlast form)
+		 (nth 1 form))))
+     (form))))
 
 (defun byte-optimize-logmumble (form)
   (setq form (byte-optimize-delay-constants-math form 1 (car form)))

@@ -74,6 +74,8 @@ File: internals.info,  Node: Top,  Next: A History of Emacs,  Prev: (dir),  Up: 
 * Index::
 
 
+--- The Detailed Node Listing ---
+
 A History of Emacs
 
 * Through Version 18::          Unification prevails.
@@ -123,7 +125,6 @@ Allocation of Objects in XEmacs Lisp
 * Allocation from Frob Blocks::
 * lrecords::
 * Low-level allocation::
-* Pure Space::
 * Cons::
 * Vector::
 * Bit Vector::
@@ -822,13 +823,13 @@ different from C):
 
    Unfortunately, there is no perfect language.  Static typing allows a
 compiler to catch programmer errors and produce more efficient code, but
-makes programming more tedious and less fun.  For the forseeable future,
-an Ideal Editing and Programming Environment (and that is what XEmacs
-aspires to) will be programmable in multiple languages: high level ones
-like Lisp for user customization and prototyping, and lower level ones
-for infrastructure and industrial strength applications.  If I had my
-way, XEmacs would be friendly towards the Python, Scheme, C++, ML,
-etc... communities.  But there are serious technical difficulties to
+makes programming more tedious and less fun.  For the foreseeable
+future, an Ideal Editing and Programming Environment (and that is what
+XEmacs aspires to) will be programmable in multiple languages: high
+level ones like Lisp for user customization and prototyping, and lower
+level ones for infrastructure and industrial strength applications.  If
+I had my way, XEmacs would be friendly towards the Python, Scheme, C++,
+ML, etc... communities.  But there are serious technical difficulties to
 achieving that goal.
 
    The word "application" in the previous paragraph was used

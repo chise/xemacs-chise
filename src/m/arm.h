@@ -20,11 +20,6 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.31. */
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-#undef WORD_MACHINE
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically:
    Ones defined so far include vax, m68000, ns16000, pyramid,
@@ -93,10 +88,6 @@ Boston, MA 02111-1307, USA.  */
 #endif /* USG */
 
 
-#ifdef USG5_4
-#define DATA_SEG_BITS 0x08000000
-#endif
-
 #ifdef MSDOS
 #define NO_REMAP
 #endif
@@ -115,17 +106,6 @@ Boston, MA 02111-1307, USA.  */
 
 #define SEGMENT_MASK ((SEGMENT_SIZE)-1)
 #endif
-
-#if 0
-#ifdef __GNUC__
-/* GCC's alloca() is semi-broken.  See lisp.h.
-
-   This brokenness has been confirmed under both Linux and NetBSD.
-   It may also exist on non-Intel architectures. */
-#define BROKEN_ALLOCA_IN_FUNCTION_CALLS
-#endif
-#endif
-
 
 /* XEmacs change: John Hughes <john@AtlanTech.COM> says using vfork
    under i386-unknown-sysv4.2 makes C-g sometimes cause a SIGSEGV

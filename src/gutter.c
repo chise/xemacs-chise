@@ -337,6 +337,22 @@ clear_gutter (struct frame *f, enum gutter_pos pos)
   redisplay_clear_region (window, findex, x, y, width, height);
 }
 
+/* #### I don't currently believe that redisplay needs to mark the
+   glyphs in its structures since these will always be referenced from
+   somewhere else. However, I'm not sure enough to stake my life on it
+   at this point, so we do the safe thing. */
+
+/* See the comment in image_instantiate_cache_result as to why marking
+   the glyph will also mark the image_instance. */
+void
+mark_gutters (struct frame* f)
+{
+  if (f->current_display_lines)
+    mark_redisplay_structs (f->current_display_lines);
+  if (f->desired_display_lines)
+    mark_redisplay_structs (f->desired_display_lines);
+}
+
 void
 update_frame_gutters (struct frame *f)
 {

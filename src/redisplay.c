@@ -6027,7 +6027,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
 	  && !f->faces_changed
 	  && !f->glyphs_changed
 	  && !f->subwindows_changed
-	  && !f->subwindows_state_changed
+	  /*	  && !f->subwindows_state_changed*/
 	  && !f->point_changed
 	  && !f->windows_structure_changed)
 	{
@@ -6049,7 +6049,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
 	      && !f->faces_changed
 	      && !f->glyphs_changed
 	      && !f->subwindows_changed
-	      && !f->subwindows_state_changed
+	      /*	      && !f->subwindows_state_changed*/
 	      && !f->windows_structure_changed)
 	    {
 	      if (point_visible (w, pointm, CURRENT_DISP)
@@ -6108,7 +6108,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
 	   && !f->faces_changed
 	   && !f->glyphs_changed
 	   && !f->subwindows_changed
-	   && !f->subwindows_state_changed
+	   /*	   && !f->subwindows_state_changed*/
 	   && !f->windows_structure_changed
 	   && !f->frame_changed
 	   && !truncation_changed
@@ -6363,8 +6363,15 @@ redisplay_frame (struct frame *f, int preemption_check)
     }
   else
     mark_subwindow_cachels_as_not_updated (f);
+
   /* We can now update the gutters, safe in the knowledge that our
      efforts won't get undone. */
+
+  /* #### This can call lisp, it may be that if the subwindow cachels
+     have been reset there are no remaining references to the
+     displayed glyphs and so they get garbage collected. We should
+     consider putting this call inside the critical redisplay
+     section. */
   update_frame_gutters (f);
 
   hold_frame_size_changes ();
@@ -7047,7 +7054,9 @@ mark_glyph_block_dynarr (glyph_block_dynarr *gba)
     }
 }
 
-static void
+/* See the comment in image_instantiate_cache_result as to why marking
+   the glyph will also mark the image_instance. */
+void
 mark_redisplay_structs (display_line_dynarr *dla)
 {
   display_line *dl = Dynarr_atp (dla, 0);
@@ -7107,6 +7116,7 @@ mark_redisplay (void)
       struct frame *f = XFRAME (XCAR (frmcons));
       update_frame_window_mirror (f);
       mark_window_mirror (f->root_mirror);
+      mark_gutters (f);
     }
 }
 

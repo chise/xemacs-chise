@@ -50,12 +50,6 @@ Boston, MA 02111-1307, USA.  */
 #define DATA_START 0x20000000
 #define DATA_END 0
 
-/* The data segment in this machine always starts at address 0x20000000.
-   An address of data cannot be stored correctly in a Lisp object;
-   we always lose the high bits.  We must tell XPNTR to add them back.  */
-
-#define DATA_SEG_BITS 0x20000000
-
 #define N_BADMAG(x) BADMAG(x)
 #define N_TXTOFF(x) A_TEXTPOS(x)
 #define N_SYMOFF(x) A_SYMPOS(x)

@@ -1301,6 +1301,9 @@ Returns t if successful, nil otherwise.
 void
 syms_of_tooltalk (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (tooltalk_message);
+  INIT_LRECORD_IMPLEMENTATION (tooltalk_pattern);
+
   defsymbol (&Qtooltalk_messagep, "tooltalk-message-p");
   DEFSUBR (Ftooltalk_message_p);
   defsymbol (&Qtooltalk_patternp, "tooltalk-pattern-p");

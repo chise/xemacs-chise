@@ -20,11 +20,6 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.31. */
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-/* #define WORD_MACHINE */
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically */
 
@@ -33,14 +28,6 @@ Boston, MA 02111-1307, USA.  */
 /* crt0.c should define a symbol `start' and do .globl with a dot.  */
 
 #define DOT_GLOBAL_START
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend
-   the bit field into an int.  In other words, if bit fields
-   are always unsigned.
-
-   If you use NO_UNION_TYPE, this flag does not matter.  */
-
-/* #define EXPLICIT_SIGN_EXTEND */
 
 /* USG systems I know of running on Vaxes do not actually
    support the load average, so disable it for them.  */

@@ -567,7 +567,7 @@ finish_init_buffer (struct buffer *b, Lisp_Object name)
      local_var_alist is set to Qnil at the same point, in
      nuke_all_buffer_slots(). */
   reset_buffer_local_variables (b, 1);
-  b->directory = ((current_buffer) ? current_buffer->directory : Qnil);
+  b->directory = current_buffer ? current_buffer->directory : Qnil;
 
   b->last_window_start = 1;
 
@@ -1304,12 +1304,12 @@ with `delete-process'.
 
     kill_buffer_processes (buf);
 
+    delete_from_buffer_alist (buf);
+
     /* #### This is a problem if this buffer is in a dedicated window.
        Need to undedicate any windows of this buffer first (and delete them?)
        */
     Freplace_buffer_in_windows (buf);
-
-    delete_from_buffer_alist (buf);
 
     font_lock_buffer_was_killed (b);
 
@@ -2148,6 +2148,8 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
 void
 syms_of_buffer (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (buffer);
+
   defsymbol (&Qbuffer_live_p, "buffer-live-p");
   defsymbol (&Qbuffer_or_string_p, "buffer-or-string-p");
   defsymbol (&Qmode_class, "mode-class");
@@ -2373,20 +2375,16 @@ List of functions called with no args to query before killing a buffer.
 
 /* Renamed from DEFVAR_PER_BUFFER because FSFmacs D_P_B takes
    a bogus extra arg, which confuses an otherwise identical make-docfile.c */
-
-/* Declaring this stuff as const produces 'Cannot reinitialize' messages
-   from SunPro C's fix-and-continue feature (a way neato feature that
-   makes debugging unbelievably more bearable) */
 #define DEFVAR_BUFFER_LOCAL_1(lname, field_name, forward_type, magicfun) do {	\
-  static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C =		\
+  static const struct symbol_value_forward I_hate_C =				\
   { /* struct symbol_value_forward */						\
     { /* struct symbol_value_magic */						\
       { /* struct lcrecord_header */						\
 	{ /* struct lrecord_header */						\
-	  1, /* type - index into lrecord_implementations_table */		\
-	  0, /* mark bit */							\
-	  0, /* c_readonly bit */						\
-	  0  /* lisp_readonly bit */						\
+	  lrecord_type_symbol_value_forward, /* lrecord_type_index */		\
+	  1, /* mark bit */							\
+	  1, /* c_readonly bit */						\
+	  1  /* lisp_readonly bit */						\
 	},									\
 	0, /* next */								\
 	0, /* uid  */								\

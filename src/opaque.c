@@ -173,5 +173,8 @@ reinit_opaque_once_early (void)
 void
 init_opaque_once_early (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (opaque);
+  INIT_LRECORD_IMPLEMENTATION (opaque_ptr);
+
   reinit_opaque_once_early ();
 }

@@ -47,11 +47,9 @@
 (define-key mule-keymap "r" 'toggle-display-direction)	 ; XEmacs
 (define-key mule-keymap "l" 'set-language-environment)
 
-(define-key help-map "\C-L" 'describe-language-support)
 (define-key help-map "L" 'describe-language-environment)
 (define-key help-map "\C-\\" 'describe-input-method)
 (define-key help-map "I" 'describe-input-method)
-(define-key help-map "C" 'describe-coding-system)
 (define-key help-map "h" 'view-hello-file)
 
 ;; Menu for XEmacs were moved to menubar-items.el.

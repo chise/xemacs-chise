@@ -29,12 +29,23 @@
 ;; This file does the magic to parse mswindows font names, and make sure that
 ;; the default and modeline attributes of new frames are specified enough.
 
-;;; Force creation of the default face font so that if it fails we get an
-;;; error now instead of a crash at frame creation.
 (defun mswindows-init-device-faces (device)
-  (unless (face-font-instance 'default device)
-    (error "Can't find a suitable default font")))
-
+  (let ((color-default (device-system-metric device 'color-default))
+	(color-3d-face (device-system-metric device 'color-3d-face)))
+    ; Force creation of the default face font so that if it fails we get
+    ; an error now instead of a crash at frame creation.
+    (unless (face-font-instance 'default device)
+      (error "Can't find a suitable default font"))
+    
+    (if (car color-default)
+	(set-face-foreground 'default (car color-default)) device)
+    (if (cdr color-default)
+	(set-face-background 'default (cdr color-default)) device)
+    (if (car color-3d-face)
+	(set-face-foreground 'gui-element (car color-3d-face)) device)
+    (if (cdr color-3d-face)
+	(set-face-background 'gui-element (cdr color-3d-face)) device)
+    (set-face-font 'gui-element "MS Sans Serif:Regular:8" device)))
 
 (defun mswindows-init-frame-faces (frame)
   )
