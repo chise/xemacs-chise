@@ -408,7 +408,7 @@ for (mps_bufcons = Qunbound,							\
 #define REAL_INC_CHARPTR(ptr) \
   ((void) ((ptr) += REP_BYTES_BY_FIRST_BYTE (* (unsigned char *) (ptr))))
 
-#define REAL_INC_CHARBYTIND(ptr,pos) \
+#define REAL_INC_CHARBYTIND(ptr, pos) \
   (pos += REP_BYTES_BY_FIRST_BYTE (* (unsigned char *) (ptr)))
 
 #define REAL_DEC_CHARPTR(ptr) do {	\
@@ -421,9 +421,9 @@ for (mps_bufcons = Qunbound,							\
   REAL_INC_CHARPTR (ptr);		\
 } while (0)
 
-#define INC_CHARBYTIND(ptr,pos) do {		\
-  ASSERT_VALID_CHARPTR (ptr);		\
-  REAL_INC_CHARBYTIND (ptr,pos);		\
+#define INC_CHARBYTIND(ptr, pos) do {		\
+  ASSERT_VALID_CHARPTR (ptr);			\
+  REAL_INC_CHARBYTIND (ptr, pos);		\
 } while (0)
 
 #define DEC_CHARPTR(ptr) do {			\
@@ -432,11 +432,11 @@ for (mps_bufcons = Qunbound,							\
   REAL_DEC_CHARPTR (dc_ptr2);			\
   assert (dc_ptr1 - dc_ptr2 ==			\
 	  REP_BYTES_BY_FIRST_BYTE (*dc_ptr2));	\
-  (ptr) = dc_ptr2;				\
+  (ptr) = (Bufbyte *) dc_ptr2;			\
 } while (0)
 
 #else /* ! ERROR_CHECK_BUFPOS */
-#define INC_CHARBYTIND(ptr,pos) REAL_INC_CHARBYTIND (ptr,pos)
+#define INC_CHARBYTIND(ptr, pos) REAL_INC_CHARBYTIND (ptr, pos)
 #define INC_CHARPTR(ptr) REAL_INC_CHARPTR (ptr)
 #define DEC_CHARPTR(ptr) REAL_DEC_CHARPTR (ptr)
 #endif /* ! ERROR_CHECK_BUFPOS */
@@ -490,7 +490,7 @@ charptr_n_addr (const Bufbyte *ptr, Charcount offset)
 
 Emchar non_ascii_charptr_emchar (const Bufbyte *ptr);
 Bytecount non_ascii_set_charptr_emchar (Bufbyte *ptr, Emchar c);
-Bytecount non_ascii_charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
+Bytecount non_ascii_charptr_copy_char (const Bufbyte *src, Bufbyte *dst);
 
 INLINE_HEADER Emchar charptr_emchar (const Bufbyte *ptr);
 INLINE_HEADER Emchar
@@ -510,14 +510,16 @@ set_charptr_emchar (Bufbyte *ptr, Emchar x)
     non_ascii_set_charptr_emchar (ptr, x);
 }
 
+/* Copy the character pointed to by SRC into DST.
+   Return the number of bytes copied.  */
 INLINE_HEADER Bytecount
-charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
+charptr_copy_char (const Bufbyte *src, Bufbyte *dst);
 INLINE_HEADER Bytecount
-charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2)
+charptr_copy_char (const Bufbyte *src, Bufbyte *dst)
 {
-  return BYTE_ASCII_P (*ptr) ?
-    simple_charptr_copy_char (ptr, ptr2) :
-    non_ascii_charptr_copy_char (ptr, ptr2);
+  return BYTE_ASCII_P (*src) ?
+    simple_charptr_copy_char (src, dst) :
+    non_ascii_charptr_copy_char (src, dst);
 }
 
 #else /* not MULE */
@@ -557,21 +559,12 @@ valid_char_p (Emchar ch)
 
 #define CHAR_OR_CHAR_INTP(x) (CHARP (x) || CHAR_INTP (x))
 
-#ifdef ERROR_CHECK_TYPECHECK
-
 INLINE_HEADER Emchar XCHAR_OR_CHAR_INT (Lisp_Object obj);
 INLINE_HEADER Emchar
 XCHAR_OR_CHAR_INT (Lisp_Object obj)
 {
-  assert (CHAR_OR_CHAR_INTP (obj));
   return CHARP (obj) ? XCHAR (obj) : XINT (obj);
 }
-
-#else
-
-#define XCHAR_OR_CHAR_INT(obj) (CHARP (obj) ? XCHAR (obj) : XINT (obj))
-
-#endif
 
 #define CHECK_CHAR_COERCE_INT(x) do {		\
   if (CHARP (x))				\
@@ -1063,8 +1056,8 @@ Bufpos bytind_to_bufpos (struct buffer *buf, Bytind x);
   DATA,   (ptr, len),    // input data is a fixed buffer of size len
   ALLOCA, (ptr, len),    // output data is in a alloca()ed buffer of size len
   MALLOC, (ptr, len),    // output data is in a malloc()ed buffer of size len
-  C_STRING_ALLOCA, ptr,  // equivalent to ALLOCA (ptr, len_ignored) on output.
-  C_STRING_MALLOC, ptr,  // equivalent to MALLOC (ptr, len_ignored) on output.
+  C_STRING_ALLOCA, ptr,  // equivalent to ALLOCA (ptr, len_ignored) on output
+  C_STRING_MALLOC, ptr,  // equivalent to MALLOC (ptr, len_ignored) on output
   C_STRING,     ptr,     // equivalent to DATA, (ptr, strlen (ptr) + 1) on input
   LISP_STRING,  string,  // input or output is a Lisp_Object of type string
   LISP_BUFFER,  buffer,  // output is written to (point) in lisp buffer
@@ -1786,5 +1779,61 @@ UPCASE (struct buffer *buf, Emchar ch)
 /* Downcase a character, or make no change if that cannot be done. */
 
 #define DOWNCASE(buf, ch) DOWNCASE_TABLE_OF (buf, ch)
+
+/************************************************************************/
+/*		Lisp string representation convenience functions	*/
+/************************************************************************/
+/* Because the representation of internally formatted data is subject to change,
+   It's bad style to do something like strcmp (XSTRING_DATA (s), "foo")
+   Instead, use the portable: bufbyte_strcmp (XSTRING_DATA (s), "foo")
+   or bufbyte_memcmp (XSTRING_DATA (s), "foo", 3) */
+
+/* Like strcmp, except first arg points at internally formatted data,
+   while the second points at a string of only ASCII chars. */
+INLINE_HEADER int
+bufbyte_strcmp (const Bufbyte *bp, const char *ascii_string);
+INLINE_HEADER int
+bufbyte_strcmp (const Bufbyte *bp, const char *ascii_string)
+{
+#ifdef MULE
+  while (1)
+    {
+      int diff;
+      type_checking_assert (BYTE_ASCII_P (*ascii_string));
+      if ((diff = charptr_emchar (bp) - *(Bufbyte *) ascii_string) != 0)
+	return diff;
+      if (*ascii_string == '\0')
+	return 0;
+      ascii_string++;
+      INC_CHARPTR (bp);
+    }
+#else
+  return strcmp ((char *)bp, ascii_string);
+#endif
+}
+
+
+/* Like memcmp, except first arg points at internally formatted data,
+   while the second points at a string of only ASCII chars. */
+INLINE_HEADER int
+bufbyte_memcmp (const Bufbyte *bp, const char *ascii_string, size_t len);
+INLINE_HEADER int
+bufbyte_memcmp (const Bufbyte *bp, const char *ascii_string, size_t len)
+{
+#ifdef MULE
+  while (len--)
+    {
+      int diff = charptr_emchar (bp) - *(Bufbyte *) ascii_string;
+      type_checking_assert (BYTE_ASCII_P (*ascii_string));
+      if (diff != 0)
+	return diff;
+      ascii_string++;
+      INC_CHARPTR (bp);
+    }
+  return 0;
+#else
+  return memcmp (bp, ascii_string, len);
+#endif
+}
 
 #endif /* INCLUDED_buffer_h_ */

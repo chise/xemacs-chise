@@ -1,10 +1,6 @@
 /* Synched up with: Not in FSF. */
 
 #include "decosf1-2.h"
-/* XEmacs change: Kim Nyberg <kny@tekla.fi> says this is needed. */
-#ifdef emacs
-#include <sys/stropts.h>
-#endif
 
 /* Supposedly gmalloc and rel_alloc will work now
    (grunwald@foobar.cs.colorado.edu) */

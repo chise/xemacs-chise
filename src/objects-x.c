@@ -284,7 +284,7 @@ x_print_color_instance (Lisp_Color_Instance *c,
 			Lisp_Object printcharfun,
 			int escapeflag)
 {
-  Bufbyte buf[100];
+  char buf[100];
   XColor color = COLOR_INSTANCE_X_COLOR (c);
   sprintf (buf, " %ld=(%X,%X,%X)",
 	   color.pixel, color.red, color.green, color.blue);
@@ -466,7 +466,7 @@ x_print_font_instance (Lisp_Font_Instance *f,
 		       Lisp_Object printcharfun,
 		       int escapeflag)
 {
-  Bufbyte buf[200];
+  char buf[200];
   sprintf (buf, " 0x%lx", (unsigned long) FONT_INSTANCE_X_FONT (f)->fid);
   write_c_string (buf, printcharfun);
 }
@@ -577,7 +577,7 @@ valid_x_font_name_p (Display *dpy, Extbyte *name)
      might be more correct.
    */
   int nnames = 0;
-  SExtbyte **names = 0;
+  Extbyte **names = 0;
   if (! name)
     return 0;
   names = XListFonts (dpy, name, 1, &nnames);
@@ -687,7 +687,7 @@ static Extbyte *
 truename_via_XListFonts (Display *dpy, Extbyte *font_name)
 {
   Extbyte *result = 0;
-  SExtbyte **names;
+  Extbyte **names;
   int count = 0;
 
 #ifndef XOPENFONT_SORTS
@@ -799,7 +799,7 @@ x_font_instance_truename (Lisp_Font_Instance *f, Error_behavior errb)
 	  return f->name;
 	}
     }
-  return (FONT_INSTANCE_X_TRUENAME (f));
+  return FONT_INSTANCE_X_TRUENAME (f);
 }
 
 static Lisp_Object
@@ -808,22 +808,23 @@ x_font_instance_properties (Lisp_Font_Instance *f)
   struct device *d = XDEVICE (f->device);
   int i;
   Lisp_Object result = Qnil;
-  XFontProp *props;
-  Display *dpy;
+  Display *dpy = DEVICE_X_DISPLAY (d);
+  XFontProp *props = FONT_INSTANCE_X_FONT (f)->properties;
 
-  dpy = DEVICE_X_DISPLAY (d);
-  props = FONT_INSTANCE_X_FONT (f)->properties;
   for (i = FONT_INSTANCE_X_FONT (f)->n_properties - 1; i >= 0; i--)
     {
       Lisp_Object name, value;
       Atom atom = props [i].name;
       Bufbyte *name_str = 0;
+      size_t name_len;
       Extbyte *namestrext = XGetAtomName (dpy, atom);
 
       if (namestrext)
-	EXTERNAL_TO_C_STRING (namestrext, name_str, Qx_atom_name_encoding);
+	TO_INTERNAL_FORMAT (C_STRING, namestrext,
+			    ALLOCA, (name_str, name_len),
+			    Qx_atom_name_encoding);
 
-      name = (name_str ? intern (name_str) : Qnil);
+      name = (name_str ? intern ((char *) name_str) : Qnil);
       if (name_str &&
 	  (atom == XA_FONT ||
 	   atom == DEVICE_XATOM_FOUNDRY (d) ||
@@ -835,17 +836,17 @@ x_font_instance_properties (Lisp_Font_Instance *f)
 	   atom == DEVICE_XATOM_SPACING (d) ||
 	   atom == DEVICE_XATOM_CHARSET_REGISTRY (d) ||
 	   atom == DEVICE_XATOM_CHARSET_ENCODING (d) ||
-	   !strcmp (name_str, "CHARSET_COLLECTIONS") ||
-	   !strcmp (name_str, "FONTNAME_REGISTRY") ||
-	   !strcmp (name_str, "CLASSIFICATION") ||
-	   !strcmp (name_str, "COPYRIGHT") ||
-	   !strcmp (name_str, "DEVICE_FONT_NAME") ||
-	   !strcmp (name_str, "FULL_NAME") ||
-	   !strcmp (name_str, "MONOSPACED") ||
-	   !strcmp (name_str, "QUALITY") ||
-	   !strcmp (name_str, "RELATIVE_SET") ||
-	   !strcmp (name_str, "RELATIVE_WEIGHT") ||
-	   !strcmp (name_str, "STYLE")))
+	   !bufbyte_strcmp (name_str, "CHARSET_COLLECTIONS") ||
+	   !bufbyte_strcmp (name_str, "FONTNAME_REGISTRY") ||
+	   !bufbyte_strcmp (name_str, "CLASSIFICATION") ||
+	   !bufbyte_strcmp (name_str, "COPYRIGHT") ||
+	   !bufbyte_strcmp (name_str, "DEVICE_FONT_NAME") ||
+	   !bufbyte_strcmp (name_str, "FULL_NAME") ||
+	   !bufbyte_strcmp (name_str, "MONOSPACED") ||
+	   !bufbyte_strcmp (name_str, "QUALITY") ||
+	   !bufbyte_strcmp (name_str, "RELATIVE_SET") ||
+	   !bufbyte_strcmp (name_str, "RELATIVE_WEIGHT") ||
+	   !bufbyte_strcmp (name_str, "STYLE")))
 	{
 	  Extbyte *val_str = XGetAtomName (dpy, props [i].card32);
 
@@ -863,7 +864,7 @@ x_font_instance_properties (Lisp_Font_Instance *f)
 static Lisp_Object
 x_list_fonts (Lisp_Object pattern, Lisp_Object device)
 {
-  SExtbyte **names;
+  Extbyte **names;
   int count = 0;
   Lisp_Object result = Qnil;
   const Extbyte *patternext;
@@ -936,7 +937,7 @@ x_font_spec_matches_charset (struct device *d, Lisp_Object charset,
 static Lisp_Object
 x_find_charset_font (Lisp_Object device, Lisp_Object font, Lisp_Object charset)
 {
-  SExtbyte **names;
+  Extbyte **names;
   int count = 0;
   Lisp_Object result = Qnil;
   const Extbyte *patternext;
@@ -950,12 +951,15 @@ x_find_charset_font (Lisp_Object device, Lisp_Object font, Lisp_Object charset)
   for (i = 0; i < count; i ++)
     {
       const Bufbyte *intname;
+      Bytecount intlen;
 
-      EXTERNAL_TO_C_STRING (names[i], intname, Qx_font_name_encoding);
+      TO_INTERNAL_FORMAT (C_STRING, names[i],
+			  ALLOCA, (intname, intlen),
+			  Qx_font_name_encoding);
       if (x_font_spec_matches_charset (XDEVICE (device), charset,
 				       intname, Qnil, 0, -1))
 	{
-	  result = build_string (intname);
+	  result = make_string (intname, intlen);
 	  break;
 	}
     }

@@ -128,7 +128,9 @@ dbox_descriptor_to_widget_value (Lisp_Object keys)
   int n = 0;
   int count = specpdl_depth ();
   Lisp_Object wv_closure, gui_item;
-  Lisp_Object question = Qnil, title = Qnil, buttons = Qnil;
+  Lisp_Object question = Qnil;
+  Lisp_Object title    = Qnil;  /* #### currently unused */
+  Lisp_Object buttons  = Qnil;
 
   {
     EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, keys)

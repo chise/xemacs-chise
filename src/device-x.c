@@ -1434,13 +1434,13 @@ found.  If the third arg is `string', a string is returned, and if it is
 returned value is the list (t) for true, (nil) for false, and is nil to
 mean ``unspecified''.
 */
-       (name, class, type, locale, device, no_error))
+       (name, class, type, locale, device, noerror))
 {
   char* name_string, *class_string;
   char *raw_result;
   XrmDatabase db;
   Display *display;
-  Error_behavior errb = decode_error_behavior_flag (no_error);
+  Error_behavior errb = decode_error_behavior_flag (noerror);
 
   CHECK_STRING (name);
   CHECK_STRING (class);

@@ -328,7 +328,7 @@ int		lb_sisheng;
 DEFUN ("wnn-server-open", Fwnn_open, 2, 2, 0, /*
 Connect to jserver of host HNAME, make an environment with
 login name LNAME in the server.
-Return nil if error occurs
+Return nil if error occurs.
 */
      (hname, lname))
 {
@@ -528,7 +528,7 @@ Return information of dictionaries.
 
 DEFUN ("wnn-server-dict-comment", Fwnn_dict_comment, 2, 2, 0, /*
 Set comment to dictionary specified by DIC-NUMBER.
-Comment string COMMENT
+Comment string COMMENT.
 */
      (dicno, comment))
 {
@@ -771,7 +771,7 @@ Get bunsetsu information specified by BUN-NUMBER.
 
 
 DEFUN ("wnn-server-henkan-quit", Fwnn_quit_henkan, 0, 0, 0, /*
-do nothing
+do nothing.
 */
      ())
 {
@@ -862,7 +862,7 @@ Update frequency of bunsetsu specified by NUM-NUMBER.
 
 DEFUN ("wnn-server-word-add", Fwnn_word_toroku, 5, 5, 0, /*
 Add a word to dictionary. Arguments are
-DIC-NUMBER, KANJI, YOMI, COMMENT, HINSI-NUMBER
+DIC-NUMBER, KANJI, YOMI, COMMENT, HINSI-NUMBER.
 */
      (dicno, kanji, yomi, comment, hinsi))
 {
@@ -888,7 +888,7 @@ DIC-NUMBER, KANJI, YOMI, COMMENT, HINSI-NUMBER
 
 
 DEFUN ("wnn-server-word-delete", Fwnn_word_sakujo, 2, 2, 0, /*
-Delete a word from dictionary, specified by DIC-NUMBER, SERIAL-NUMBER
+Delete a word from dictionary, specified by DIC-NUMBER, SERIAL-NUMBER.
 */
      (no, serial))
 {
@@ -904,7 +904,7 @@ Delete a word from dictionary, specified by DIC-NUMBER, SERIAL-NUMBER
 
 
 DEFUN ("wnn-server-word-use", Fwnn_word_use, 2, 2, 0, /*
-Toggle on/off word, specified by DIC-NUMBER and SERIAL-NUMBER
+Toggle on/off word, specified by DIC-NUMBER and SERIAL-NUMBER.
 */
      (no, serial))
 {
@@ -955,7 +955,7 @@ Return list of yomi, kanji, comment, hindo, hinshi.
 
 DEFUN ("wnn-server-word-hindo-set", Fwnn_hindo_set, 3, 3, 0, /*
 Set frequency to arbitrary value. Specified by DIC-NUMBER,
-SERIAL-NUMBER, FREQUENCY
+SERIAL-NUMBER, FREQUENCY.
 */
      (no, serial, hindo))
 {

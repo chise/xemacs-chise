@@ -972,7 +972,7 @@ is_surrogate_for_selected_frame (struct frame *f)
 }
 
 static int
-frame_matches_frametype (Lisp_Object frame, Lisp_Object type)
+frame_matches_frame_spec (Lisp_Object frame, Lisp_Object type)
 {
   struct frame *f = XFRAME (frame);
 
@@ -1033,25 +1033,25 @@ frame_matches_frametype (Lisp_Object frame, Lisp_Object type)
 }
 
 int
-device_matches_console_spec (Lisp_Object device, Lisp_Object console)
+device_matches_device_spec (Lisp_Object device, Lisp_Object device_spec)
 {
-  if (EQ (console, Qwindow_system))
+  if (EQ (device_spec, Qwindow_system))
     return DEVICE_WIN_P (XDEVICE (device));
-  if (DEVICEP (console))
-    return EQ (device, console);
-  if (CONSOLEP (console))
-    return EQ (DEVICE_CONSOLE (XDEVICE (device)), console);
-  if (valid_console_type_p (console))
-    return EQ (DEVICE_TYPE (XDEVICE (device)), console);
+  if (DEVICEP (device_spec))
+    return EQ (device, device_spec);
+  if (CONSOLEP (device_spec))
+    return EQ (DEVICE_CONSOLE (XDEVICE (device)), device_spec);
+  if (valid_console_type_p (device_spec))
+    return EQ (DEVICE_TYPE (XDEVICE (device)), device_spec);
   return 1;
 }
 
 /* Return the next frame in the frame list after FRAME.
-   FRAMETYPE and CONSOLE control which frames and devices
+   WHICH-FRAMES and WHICH-DEVICES control which frames and devices
    are considered; see `next-frame'. */
 
 Lisp_Object
-next_frame (Lisp_Object frame, Lisp_Object frametype, Lisp_Object console)
+next_frame (Lisp_Object frame, Lisp_Object which_frames, Lisp_Object which_devices)
 {
   Lisp_Object first = Qnil;
   Lisp_Object devcons, concons;
@@ -1064,7 +1064,7 @@ next_frame (Lisp_Object frame, Lisp_Object frametype, Lisp_Object console)
       Lisp_Object device = XCAR (devcons);
       Lisp_Object frmcons;
 
-      if (!device_matches_console_spec (device, console))
+      if (!device_matches_device_spec (device, which_devices))
 	{
 	  if (EQ (device, FRAME_DEVICE (XFRAME (frame))))
 	    passed = 1;
@@ -1077,7 +1077,7 @@ next_frame (Lisp_Object frame, Lisp_Object frametype, Lisp_Object console)
 
 	  if (passed)
 	    {
-	      if (frame_matches_frametype (f, frametype))
+	      if (frame_matches_frame_spec (f, which_frames))
 		return f;
 	    }
 	  else
@@ -1088,7 +1088,7 @@ next_frame (Lisp_Object frame, Lisp_Object frametype, Lisp_Object console)
 		}
 	      else
 		{
-		  if (NILP (first) && frame_matches_frametype (f, frametype))
+		  if (NILP (first) && frame_matches_frame_spec (f, which_frames))
 		    first = f;
 		}
 	    }
@@ -1107,11 +1107,11 @@ next_frame (Lisp_Object frame, Lisp_Object frametype, Lisp_Object console)
 }
 
 /* Return the previous frame in the frame list before FRAME.
-   FRAMETYPE and CONSOLE control which frames and devices
+   WHICH-FRAMES and WHICH-DEVICES control which frames and devices
    are considered; see `next-frame'. */
 
 Lisp_Object
-previous_frame (Lisp_Object frame, Lisp_Object frametype, Lisp_Object console)
+previous_frame (Lisp_Object frame, Lisp_Object which_frames, Lisp_Object which_devices)
 {
   Lisp_Object devcons, concons;
   Lisp_Object last = Qnil;
@@ -1123,7 +1123,7 @@ previous_frame (Lisp_Object frame, Lisp_Object frametype, Lisp_Object console)
       Lisp_Object device = XCAR (devcons);
       Lisp_Object frmcons;
 
-      if (!device_matches_console_spec (device, console))
+      if (!device_matches_device_spec (device, which_devices))
 	{
 	  if (EQ (device, FRAME_DEVICE (XFRAME (frame)))
 	      && !NILP (last))
@@ -1142,7 +1142,7 @@ previous_frame (Lisp_Object frame, Lisp_Object frametype, Lisp_Object console)
 	    }
 	  else
 	    {
-	      if (frame_matches_frametype (f, frametype))
+	      if (frame_matches_frame_spec (f, which_frames))
 		last = f;
 	    }
 	}
@@ -1161,13 +1161,13 @@ previous_frame (Lisp_Object frame, Lisp_Object frametype, Lisp_Object console)
 
 DEFUN ("next-frame", Fnext_frame, 0, 3, 0, /*
 Return the next frame of the right type in the frame list after FRAME.
-FRAMETYPE controls which frames are eligible to be returned; all
+WHICH-FRAMES controls which frames are eligible to be returned; all
 others will be skipped.  Note that if there is only one eligible
 frame, then `next-frame' called repeatedly will always return
 the same frame, and if there is no eligible frame, then FRAME is
 returned.
 
-Possible values for FRAMETYPE are
+Possible values for WHICH-FRAMES are
 
 'visible		 Consider only frames that are visible.
 'iconic			 Consider only frames that are iconic.
@@ -1185,43 +1185,44 @@ Possible values for FRAMETYPE are
 			 frames.
 any other value		 Consider all frames.
 
-If FRAMETYPE is omitted, 'nomini is used.  A FRAMETYPE of 0 (a number)
-is treated like 'iconic, for backwards compatibility.
+If WHICH-FRAMES is omitted, 'nomini is used.  A value for WHICH-FRAMES
+of 0 (a number) is treated like 'iconic, for backwards compatibility.
 
-If FRAMETYPE is a window, include only its own frame and any frame now
-using that window as the minibuffer.
+If WHICH-FRAMES is a window, include only its own frame and any frame
+now using that window as the minibuffer.
 
-Optional third argument CONSOLE controls which consoles or devices the
-returned frame may be on.  If CONSOLE is a console, return frames only
-on that console.  If CONSOLE is a device, return frames only on that
-device.  If CONSOLE is a console type, return frames only on consoles
-of that type.  If CONSOLE is 'window-system, return any frames on any
-window-system consoles.  If CONSOLE is nil or omitted, return frames only
-on the FRAME's console.  Otherwise, all frames are considered.
+The optional third argument WHICH-DEVICES further clarifies on which
+devices to search for frames as specified by WHICH-FRAMES.
+If nil or omitted, search all devices on FRAME's console.
+If a device, only search that device.
+If a console, search all devices on that console.
+If a device type, search all devices of that type.
+If `window-system', search all window-system devices.
+Any other non-nil value means search all devices.
 */
-       (frame, frametype, console))
+       (frame, which_frames, which_devices))
 {
   XSETFRAME (frame, decode_frame (frame));
 
-  return next_frame (frame, frametype, console);
+  return next_frame (frame, which_frames, which_devices);
 }
 
 DEFUN ("previous-frame", Fprevious_frame, 0, 3, 0, /*
 Return the next frame of the right type in the frame list after FRAME.
-FRAMETYPE controls which frames are eligible to be returned; all
+WHICH-FRAMES controls which frames are eligible to be returned; all
 others will be skipped.  Note that if there is only one eligible
 frame, then `previous-frame' called repeatedly will always return
 the same frame, and if there is no eligible frame, then FRAME is
 returned.
 
-See `next-frame' for an explanation of the FRAMETYPE and CONSOLE
+See `next-frame' for an explanation of the WHICH-FRAMES and WHICH-DEVICES
 arguments.
 */
-       (frame, frametype, console))
+       (frame, which_frames, which_devices))
 {
   XSETFRAME (frame, decode_frame (frame));
 
-  return previous_frame (frame, frametype, console);
+  return previous_frame (frame, which_frames, which_devices);
 }
 
 /* Return any frame for which PREDICATE is non-zero, or return Qnil
@@ -2405,6 +2406,7 @@ recognized for particular types of frames.
 
 DEFUN ("frame-property", Fframe_property, 2, 3, 0, /*
 Return FRAME's value for property PROPERTY.
+Return DEFAULT if there is no such property.
 See `set-frame-properties' for the built-in property names.
 */
        (frame, property, default_))
@@ -2600,21 +2602,21 @@ Specify that the frame FRAME has LINES lines.
 Optional third arg non-nil means that redisplay should use LINES lines
 but that the idea of the actual height of the frame should not be changed.
 */
-       (frame, rows, pretend))
+       (frame, lines, pretend))
 {
   struct frame *f = decode_frame (frame);
   int height, width;
   XSETFRAME (frame, f);
-  CHECK_INT (rows);
+  CHECK_INT (lines);
 
   if (window_system_pixelated_geometry (frame))
     {
-      char_to_real_pixel_size (f, 0, XINT (rows), 0, &height);
+      char_to_real_pixel_size (f, 0, XINT (lines), 0, &height);
       width = FRAME_PIXWIDTH (f);
     }
   else
     {
-      height = XINT (rows);
+      height = XINT (lines);
       width = FRAME_WIDTH (f);
     }
 
@@ -2650,7 +2652,7 @@ but that the idea of the actual width of the frame should not be changed.
 }
 
 DEFUN ("set-frame-size", Fset_frame_size, 3, 4, 0, /*
-Set the size of FRAME to COLS by ROWS.
+Set the size of FRAME to COLS by ROWS, measured in characters.
 Optional fourth arg non-nil means that redisplay should use COLS by ROWS
 but that the idea of the actual size of the frame should not be changed.
 */

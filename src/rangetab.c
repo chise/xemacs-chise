@@ -241,16 +241,17 @@ You can manipulate it using `put-range-table', `get-range-table',
 }
 
 DEFUN ("copy-range-table", Fcopy_range_table, 1, 1, 0, /*
-Make a new range table which contains the same values for the same
-ranges as the given table.  The values will not themselves be copied.
+Return a new range table which is a copy of RANGE-TABLE.
+It will contain the same values for the same ranges as RANGE-TABLE.
+The values will not themselves be copied.
 */
-       (old_table))
+       (range_table))
 {
   Lisp_Range_Table *rt, *rtnew;
   Lisp_Object obj;
 
-  CHECK_RANGE_TABLE (old_table);
-  rt = XRANGE_TABLE (old_table);
+  CHECK_RANGE_TABLE (range_table);
+  rt = XRANGE_TABLE (range_table);
 
   rtnew = alloc_lcrecord_type (Lisp_Range_Table, &lrecord_range_table);
   rtnew->entries = Dynarr_new (range_table_entry);
@@ -262,15 +263,15 @@ ranges as the given table.  The values will not themselves be copied.
 }
 
 DEFUN ("get-range-table", Fget_range_table, 2, 3, 0, /*
-Find value for position POS in TABLE.
+Find value for position POS in RANGE-TABLE.
 If there is no corresponding value, return DEFAULT (defaults to nil).
 */
-       (pos, table, default_))
+       (pos, range_table, default_))
 {
   Lisp_Range_Table *rt;
 
-  CHECK_RANGE_TABLE (table);
-  rt = XRANGE_TABLE (table);
+  CHECK_RANGE_TABLE (range_table);
+  rt = XRANGE_TABLE (range_table);
 
   CHECK_INT_COERCE_CHAR (pos);
 
@@ -403,13 +404,13 @@ put_range_table (Lisp_Object table, EMACS_INT first,
 }
 
 DEFUN ("put-range-table", Fput_range_table, 4, 4, 0, /*
-Set the value for range (START, END) to be VAL in TABLE.
+Set the value for range (START, END) to be VALUE in RANGE-TABLE.
 */
-       (start, end, val, table))
+       (start, end, value, range_table))
 {
   EMACS_INT first, last;
 
-  CHECK_RANGE_TABLE (table);
+  CHECK_RANGE_TABLE (range_table);
   CHECK_INT_COERCE_CHAR (start);
   first = XINT (start);
   CHECK_INT_COERCE_CHAR (end);
@@ -417,47 +418,47 @@ Set the value for range (START, END) to be VAL in TABLE.
   if (first > last)
     signal_simple_error_2 ("start must be <= end", start, end);
 
-  put_range_table (table, first, last, val);
-  verify_range_table (XRANGE_TABLE (table));
+  put_range_table (range_table, first, last, value);
+  verify_range_table (XRANGE_TABLE (range_table));
   return Qnil;
 }
 
 DEFUN ("remove-range-table", Fremove_range_table, 3, 3, 0, /*
-Remove the value for range (START, END) in TABLE.
+Remove the value for range (START, END) in RANGE-TABLE.
 */
-       (start, end, table))
+       (start, end, range_table))
 {
-  return Fput_range_table (start, end, Qunbound, table);
+  return Fput_range_table (start, end, Qunbound, range_table);
 }
 
 DEFUN ("clear-range-table", Fclear_range_table, 1, 1, 0, /*
-Flush TABLE.
+Flush RANGE-TABLE.
 */
-       (table))
+       (range_table))
 {
-  CHECK_RANGE_TABLE (table);
-  Dynarr_reset (XRANGE_TABLE (table)->entries);
+  CHECK_RANGE_TABLE (range_table);
+  Dynarr_reset (XRANGE_TABLE (range_table)->entries);
   return Qnil;
 }
 
 DEFUN ("map-range-table", Fmap_range_table, 2, 2, 0, /*
-Map FUNCTION over entries in TABLE, calling it with three args,
+Map FUNCTION over entries in RANGE-TABLE, calling it with three args,
 the beginning and end of the range and the corresponding value.
 
 Results are guaranteed to be correct (i.e. each entry processed
 exactly once) if FUNCTION modifies or deletes the current entry
-(i.e. passes the current range to `put-range-table' or
+\(i.e. passes the current range to `put-range-table' or
 `remove-range-table'), but not otherwise.
 */
-       (function, table))
+       (function, range_table))
 {
   Lisp_Range_Table *rt;
   int i;
 
-  CHECK_RANGE_TABLE (table);
+  CHECK_RANGE_TABLE (range_table);
   CHECK_FUNCTION (function);
 
-  rt = XRANGE_TABLE (table);
+  rt = XRANGE_TABLE (range_table);
 
   /* Do not "optimize" by pulling out the length computation below!
      FUNCTION may have changed the table. */

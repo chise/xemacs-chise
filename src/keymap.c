@@ -795,9 +795,9 @@ it is not used except when printing the keymap.
 DEFUN ("make-sparse-keymap", Fmake_sparse_keymap, 0, 1, 0, /*
 Construct and return a new keymap object.
 All entries in it are nil, meaning "command undefined".  The only
-difference between this function and make-keymap is that this function
+difference between this function and `make-keymap' is that this function
 returns a "smaller" keymap (one that is expected to contain fewer
-entries).  As keymaps dynamically resize, the distinction is not great.
+entries).  As keymaps dynamically resize, this distinction is not great.
 
 Optional argument NAME specifies a name to assign to the keymap,
 as in `set-keymap-name'.  This name is only a debugging convenience;
@@ -968,7 +968,7 @@ parents nor the current global map are searched for key bindings.
 }
 
 DEFUN ("keymapp", Fkeymapp, 1, 1, 0, /*
-Return t if ARG is a keymap object.
+Return t if OBJECT is a keymap object.
 The keymap may be autoloaded first if necessary.
 */
        (object))
@@ -2181,8 +2181,8 @@ Nil is returned if KEYS is unbound.  See documentation of `define-key'
 for valid key definitions and key-sequence specifications.
 A number is returned if KEYS is "too long"; that is, the leading
 characters fail to be a valid sequence of prefix characters in KEYMAP.
-The number is how many characters at the front of KEYS
-it takes to reach a non-prefix command.
+The number is how many key strokes at the front of KEYS it takes to
+reach a non-prefix command.
 */
        (keymap, keys, accept_default))
 {
@@ -2535,7 +2535,7 @@ the documentation for `lookup-key' for more information.
 For key-presses, the order of keymaps searched is:
   - the `keymap' property of any extent(s) at point;
   - any applicable minor-mode maps;
-  - the current-local-map of the current-buffer;
+  - the current local map of the current-buffer;
   - the current global map.
 
 For mouse-clicks, the order of keymaps searched is:
@@ -2545,9 +2545,9 @@ For mouse-clicks, the order of keymaps searched is:
     (this includes modeline extents);
   - the modeline-map of the buffer corresponding to the modeline under
     the mouse (if the click happened over a modeline);
-  - the value of toolbar-map in the current-buffer (if the click
+  - the value of `toolbar-map' in the current-buffer (if the click
     happened over a toolbar);
-  - the current-local-map of the buffer under the mouse (does not
+  - the current local map of the buffer under the mouse (does not
     apply to toolbar clicks);
   - any applicable minor-mode maps;
   - the current global map.

@@ -1,6 +1,772 @@
+2000-11-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.37 is released.
+
+2000-11-13  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* fileio.c (Finsert_file_contents_internal): UNGCPRO before return.
+	Add comments about discarded return value.
+
+2000-11-09  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* callint.c:
+	* event-stream.c: Fix comments.  Remove some #if 0'ed part.
+
+2000-10-27  Andy Piper  <andy@xemacs.org>
+
+	* gutter.c (Fset_default_gutter_position): default left and right
+	gutters to visible.
+	(calculate_gutter_size): calculate resonable heuristic for left
+	and right gutter sizes.
+	(specifier_vars_of_gutter): change left and right gutter sizes to
+	autodetect.
+	(calculate_gutter_size_from_display_lines): new function.
+	(output_gutter): check for resizing on left and right gutters.
+	(clear_gutter): don't special case top and left gutters.
+	(specifier_vars_of_gutter): use new signature for
+	set_specifier_caching.
+
+	* glyphs-x.c (x_redisplay_widget): spelling fix.
+	* glyphs.c (specifier_vars_of_glyphs):
+	* menubar.c (specifier_vars_of_menubar):
+	* redisplay.c (specifier_vars_of_redisplay):
+	* toolbar.c (specifier_vars_of_toolbar):
+	* window.c (specifier_vars_of_window):
+	* scrollbar.c (specifier_vars_of_scrollbar):
+	(complex_vars_of_scrollbar): use new signature for
+	set_specifier_caching.
+
+	* specifier.c (set_specifier_caching): include recompute flag.
+	(recompute_one_cached_specifier_in_window): always recompute if
+	flag set.
+	(recompute_one_cached_specifier_in_frame): ditto.
+	
+	* specifier.h (struct specifier_caching): add recompute flag.
+
+2000-10-24  Andy Piper  <andy@xemacs.org>
+
+	* unexcw.c (copy_executable_and_dump_data_section): add new
+	BSS_PAD_SIZE so that we can re-instate a mini-bss. This keeps gdb
+	5.0 happy.
+
+2000-11-06  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* console-x.h (x_device): New member modifier_release_time.
+	* event-Xt.c (x_handle_sticky_modifiers):
+	Bound interval modifier keys are sticky.
+	* event-stream.c (Vmodifier_keys_sticky_time): New variable.
+	* events.h: extern it.
+
+2000-11-06  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* cmdloop.c (Fcommand_loop_1): Just add C-g to event queue.
+
+2000-11-06  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* event-stream.c (execute_command_event): Preserve current_events
+	and the like when event is misc-user-event.
+	Inhibit quit during the call to maybe_echo_keys.
+
+2000-10-31  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* filelock.c (lock_buffer): Cope with kill-buffer. Don't create a
+	symlink when buffer is killed.
+	(inhibit_clash_detection): New variable.
+
+2000-10-30  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* console.c (Fset_input_method): Trigger redisplay on tty.
+
+2000-11-07  Martin Buchholz  <martin@xemacs.org>
+
+	* process.c (Fprocess_status): Revert to previous behavior:
+	(process-status "nosuchprocess") ==> nil
+
+2000-11-06  Martin Buchholz  <martin@xemacs.org>
+
+	* mule-charset.h (CHARSET_BY_LEADING_BYTE):
+	Work around another GCC 2.95.2 optimizer bug.
+
+2000-11-02  Martin Buchholz  <martin@xemacs.org>
+
+	* process.c (Fget_process): Use LIST_LOOP_2.
+	(kill_buffer_processes): Use LIST_LOOP_2.
+
+	* minibuf.c (Fall_completions):
+	Delete old non-functional code for FSF fourth argument.
+
+	* frame.c (frame_matches_frame_spec): 
+	Renamed from `frame_matches_frametype'.  Update all callers.
+	(device_matches_device_spec): 
+	Renamed from 'device_matches_console_spec'.  Update all callers.
+
+	* doc.c (Fsubstitute_command_keys):
+	Remove buffer overflow crash.  Small code cleanups.
+
+	* casetab.c (check_case_table): Simpler code.
+
+	* window.c (Freplace_buffer_in_windows):
+	Give this the same WHICH-FRAMES and WHICH-DEVICES parameters 
+	(and similar implementation) as Fdelete_windows_on.
+	Update all callers.
+
+	* alloc.c (Fmake_list):
+	* alloc.c (make_vector):
+	* alloc.c (Fmake_vector):
+	* alloc.c (make_bit_vector):
+	* alloc.c (Fmake_bit_vector):
+	* alloc.c (Fbit_vector):
+	* alloc.c (Fmake_string):
+	* alloc.c (Fpurecopy):
+	* alloc.c (Fmemory_limit):
+	* buffer.c:
+	* buffer.c (Fget_buffer):
+	* buffer.c (Fkill_buffer):
+	* buffer.c (complex_vars_of_buffer):
+	* bytecode.c (Fcompiled_function_stack_depth):
+	* callint.c (Fprefix_numeric_value):
+	* event-stream.c:
+	* event-stream.c (Fread_key_sequence):
+	* casetab.c:
+	* casetab.c (Fcase_table_p):
+	* casetab.c (check_case_table):
+	* casetab.c (Fset_case_table):
+	* casetab.c (Fset_standard_case_table):
+	* chartab.c:
+	* chartab.c (Fchar_table_type):
+	* chartab.c (Freset_char_table):
+	* chartab.c (Fget_char_table):
+	* chartab.c (Fget_range_char_table):
+	* chartab.c (Fput_char_table):
+	* chartab.c (Fmap_char_table):
+	* chartab.c (Fcategory_table_p):
+	* chartab.c (Fcheck_category_at):
+	* chartab.c (Fchar_in_category_p):
+	* chartab.c (Fcategory_table):
+	* chartab.c (Fcopy_category_table):
+	* chartab.c (Fset_category_table):
+	* chartab.c (Fcategory_designator_p):
+	* chartab.c (Fcategory_table_value_p):
+	* cmds.c (Fdelete_char):
+	* cmds.c (Fdelete_backward_char):
+	* cmds.c (Fself_insert_command):
+	* cmds.c (Fself_insert_internal):
+	* console.c (Fvalid_console_type_p):
+	* console.c (Fcdfw_console):
+	* console.c (Fconsole_type):
+	* console.c (Fconsole_name):
+	* console.c (Fconsole_device_list):
+	* console.c (Fconsole_on_window_system_p):
+	* data.c:
+	* data.c (Feq):
+	* data.c (Fold_eq):
+	* data.c (Fsubr_interactive):
+	* data.c (Fchar_to_int):
+	* data.c (Fint_to_char):
+	* data.c (Fsetcar):
+	* data.c (Fsetcdr):
+	* data.c (Fnumber_to_string):
+	* data.c (Fstring_to_number):
+	* data.c (Frem):
+	* database.c (mark_database):
+	* database.c (finalize_database):
+	* database.c (Fdatabase_live_p):
+	* database.c (Fdatabasep):
+	* device-x.c (Fx_get_resource):
+	* device.c (Fdfw_device):
+	* dired.c:
+	* dired.c (Ffile_name_completion):
+	* dired.c (Ffile_name_all_completions):
+	* dired.c (Fuser_name_completion):
+	* dired.c (Fuser_name_completion_1):
+	* dired.c (Fuser_name_all_completions):
+	* doc.c (Fdocumentation):
+	* doc.c (Fdocumentation_property):
+	* doc.c (Fsubstitute_command_keys):
+	* editfns.c:
+	* editfns.c (Fchar_to_string):
+	* editfns.c (Fstring_to_char):
+	* editfns.c (Ftemp_directory):
+	* editfns.c (Finsert_char):
+	* editfns.c (Fbuffer_substring_no_properties):
+	* editfns.c (Fnarrow_to_region):
+	* editfns.c (Fchar_equal):
+	* editfns.c (Fchar_Equal):
+	* editfns.c (Ftranspose_regions):
+	* emacs.c (Fdump_emacs):
+	* eval.c (Fthrow):
+	* eval.c (Fcommand_execute):
+	* eval.c (Fautoload):
+	* eval.c (Fbacktrace):
+	* eval.c (Fbacktrace_frame):
+	* events.c:
+	* events.c (Fcopy_event):
+	* events.c (Fcharacter_to_event):
+	* events.c (Fevent_button):
+	* events.c (Fevent_process):
+	* extents.c:
+	* extents.c (Fnext_extent_change):
+	* extents.c (Fextent_property):
+	* faces.c (Ffacep):
+	* faces.c (Fmake_face):
+	* file-coding.c:
+	* file-coding.c (Fencode_shift_jis_char):
+	* file-coding.c (Fencode_big5_char):
+	* fileio.c (Ffile_name_directory):
+	* fileio.c (Ffile_name_nondirectory):
+	* fileio.c (Ffile_name_as_directory):
+	* fileio.c (Fdirectory_file_name):
+	* fileio.c (Ffile_truename):
+	* fileio.c (Fsubstitute_in_file_name):
+	* fileio.c (Ffile_modes):
+	* fileio.c (Fset_file_modes):
+	* fileio.c (Fset_default_file_modes):
+	* fileio.c (Fverify_visited_file_modtime):
+	* floatfns.c (Facos):
+	* floatfns.c (Fasin):
+	* floatfns.c (Fatan):
+	* floatfns.c (Fcos):
+	* floatfns.c (Fsin):
+	* floatfns.c (Ftan):
+	* floatfns.c (Fbessel_j0):
+	* floatfns.c (Fbessel_j1):
+	* floatfns.c (Fbessel_jn):
+	* floatfns.c (Fbessel_y0):
+	* floatfns.c (Fbessel_y1):
+	* floatfns.c (Fbessel_yn):
+	* floatfns.c (Ferf):
+	* floatfns.c (Ferfc):
+	* floatfns.c (Flog_gamma):
+	* floatfns.c (Fexp):
+	* floatfns.c (Fexpt):
+	* floatfns.c (Flog):
+	* floatfns.c (Flog10):
+	* floatfns.c (Fsqrt):
+	* floatfns.c (Fcube_root):
+	* floatfns.c (Facosh):
+	* floatfns.c (Fasinh):
+	* floatfns.c (Fatanh):
+	* floatfns.c (Fcosh):
+	* floatfns.c (Fsinh):
+	* floatfns.c (Ftanh):
+	* floatfns.c (Fabs):
+	* floatfns.c (Ffloat):
+	* floatfns.c (Flogb):
+	* floatfns.c (Fceiling):
+	* floatfns.c (Ffloor):
+	* floatfns.c (Fround):
+	* floatfns.c (Ftruncate):
+	* floatfns.c (Ffceiling):
+	* floatfns.c (Fffloor):
+	* floatfns.c (Ffround):
+	* floatfns.c (Fftruncate):
+	* fns.c (Fstring_equal):
+	* fns.c (Fstring_lessp):
+	* fns.c (concat2):
+	* fns.c (concat3):
+	* fns.c (vconcat2):
+	* fns.c (vconcat3):
+	* fns.c (Fsubstring):
+	* fns.c (Fassoc):
+	* fns.c (Fold_assoc):
+	* fns.c (assoc_no_quit):
+	* fns.c (Fassq):
+	* fns.c (Fold_assq):
+	* fns.c (assq_no_quit):
+	* fns.c (Frassoc):
+	* fns.c (Fold_rassoc):
+	* fns.c (Frassq):
+	* fns.c (Fold_rassq):
+	* fns.c (rassq_no_quit):
+	* fns.c (Fremassoc):
+	* fns.c (remassoc_no_quit):
+	* fns.c (Fremassq):
+	* fns.c (remassq_no_quit):
+	* fns.c (Fremrassoc):
+	* fns.c (Fremrassq):
+	* fns.c (remrassq_no_quit):
+	* fns.c (Fsort):
+	* fns.c (Fplist_get):
+	* fns.c (Fplist_put):
+	* fns.c (Fplist_remprop):
+	* fns.c (Fplist_member):
+	* fns.c (Flax_plist_get):
+	* fns.c (Flax_plist_put):
+	* fns.c (Flax_plist_remprop):
+	* fns.c (Flax_plist_member):
+	* fns.c (Fequal):
+	* fns.c (Fold_equal):
+	* fns.c (Frequire):
+	* fns.c (Fbase64_encode_region):
+	* fns.c (Fbase64_encode_string):
+	* fns.c (Fbase64_decode_region):
+	* frame.c:
+	* frame.c (frame_matches_frame_spec):
+	* frame.c (device_matches_device_spec):
+	* frame.c (next_frame):
+	* frame.c (previous_frame):
+	* frame.c (Fnext_frame):
+	* frame.c (Fprevious_frame):
+	* frame.c (Fframe_property):
+	* frame.c (Fset_frame_height):
+	* frame.c (Fset_frame_size):
+	* frame.h:
+	* glyphs.c:
+	* glyphs.c (if):
+	* glyphs.c (decode_error_behavior_flag):
+	* glyphs.c (Fmake_image_instance):
+	* indent.c (Findent_to):
+	* intl.c (Fignore_defer_gettext):
+	* keymap.c (Fkeymapp):
+	* keymap.c (Flookup_key):
+	* lread.c:
+	* lread.c (Fload_internal):
+	* lread.c (Feval_buffer):
+	* lread.c (Feval_region):
+	* macros.c (Fexecute_kbd_macro):
+	* marker.c (set_marker_internal):
+	* marker.c (Fset_marker):
+	* marker.c (set_marker_restricted):
+	* marker.c (Fcopy_marker):
+	* marker.c (noseeum_copy_marker):
+	* menubar.c:
+	* menubar.c (Fpopup_menu):
+	* minibuf.c:
+	* mule-charset.c (Fcharset_name):
+	* mule-charset.c (Fchar_charset):
+	* mule-charset.c (Fchar_octet):
+	* mule-charset.c (Fsplit_char):
+	* mule-wnnfns.c (Fwnn_open):
+	* mule-wnnfns.c (Fwnn_dict_comment):
+	* mule-wnnfns.c (Fwnn_quit_henkan):
+	* mule-wnnfns.c (Fwnn_word_toroku):
+	* mule-wnnfns.c (Fwnn_word_sakujo):
+	* mule-wnnfns.c (Fwnn_word_use):
+	* mule-wnnfns.c (Fwnn_hindo_set):
+	* objects.c:
+	* objects.c (Fmake_color_instance):
+	* objects.c (Fmake_font_instance):
+	* print.c (Fwrite_char):
+	* process.c:
+	* process.c (mark_process):
+	* process.c (print_process):
+	* process.c (get_process_from_usid):
+	* process.c (Fprocessp):
+	* process.c (Fprocess_live_p):
+	* process.c (Fget_process):
+	* process.c (Fget_buffer_process):
+	* process.c (get_process):
+	* process.c (Fprocess_id):
+	* process.c (Fprocess_name):
+	* process.c (Fprocess_command):
+	* process.c (init_process_io_handles):
+	* process.c (start_process_unwind):
+	* process.c (Fstart_process_internal):
+	* process.c (Fopen_multicast_group_internal):
+	* process.c (Fset_process_window_size):
+	* process.c (read_process_output):
+	* process.c (send_process):
+	* process.c (Fprocess_tty_name):
+	* process.c (Fset_process_buffer):
+	* process.c (Fprocess_buffer):
+	* process.c (Fprocess_mark):
+	* process.c (set_process_filter):
+	* process.c (Fset_process_filter):
+	* process.c (Fprocess_filter):
+	* process.c (Fprocess_send_region):
+	* process.c (Fprocess_send_string):
+	* process.c (exec_sentinel):
+	* process.c (Fset_process_sentinel):
+	* process.c (Fprocess_sentinel):
+	* process.c (status_notify):
+	* process.c (Fprocess_status):
+	* process.c (Fprocess_exit_status):
+	* process.c (process_send_signal):
+	* process.c (Fprocess_send_eof):
+	* process.c (deactivate_process):
+	* process.c (remove_process):
+	* process.c (Fdelete_process):
+	* process.c (kill_buffer_processes):
+	* process.c (Fprocess_kill_without_query):
+	* process.c (Fprocess_kill_without_query_p):
+	* rangetab.c:
+	* rangetab.c (Fget_range_table):
+	* rangetab.c (Fput_range_table):
+	* rangetab.c (Fremove_range_table):
+	* rangetab.c (Fclear_range_table):
+	* search.c:
+	* search.c (Fskip_chars_forward):
+	* search.c (Fskip_chars_backward):
+	* search.c (Fskip_syntax_forward):
+	* search.c (Fskip_syntax_backward):
+	* search.c (search_command):
+	* search.c (Freplace_match):
+	* search.c (Fregexp_quote):
+	* select.c (Fown_selection_internal):
+	* select.c (Fselection_owner_p):
+	* select.c (Fselection_exists_p):
+	* select.c (Fget_selection_internal):
+	* specifier.c:
+	* symbols.c:
+	* symbols.c (Fintern):
+	* symbols.c (Fintern_soft):
+	* symbols.c (Funintern):
+	* symbols.c (Fapropos_internal):
+	* symbols.c (Fset_default):
+	* syntax.c:
+	* syntax.c (Fsyntax_table_p):
+	* syntax.c (Fcopy_syntax_table):
+	* syntax.c (Fset_syntax_table):
+	* syntax.c (Fchar_syntax):
+	* syntax.c (syntax_match):
+	* syntax.c (Fmatching_paren):
+	* syntax.c (Fforward_word):
+	* syntax.c (scan_lists):
+	* syntax.c (Fscan_lists):
+	* syntax.c (Fscan_sexps):
+	* syntax.c (Fparse_partial_sexp):
+	* toolbar.c (Fcheck_toolbar_button_syntax):
+	* tooltalk.doc:
+	* window.c:
+	* window.c (Fwindowp):
+	* window.c (Fwindow_live_p):
+	* window.c (Fwindow_point):
+	* window.c (Fdelete_window):
+	* window.c (Fnext_window):
+	* window.c (Fprevious_window):
+	* window.c (Fother_window):
+	* window.c (window_loop):
+	* window.c (Fget_lru_window):
+	* window.c (Fsplit_window):
+	* window.c (Fenlarge_window):
+	* window.c (Fenlarge_window_pixels):
+	* window.c (Fshrink_window):
+	* window.c (Fshrink_window_pixels):
+	* window.c (change_window_height):
+	* window.c (Fwindow_configuration_p):
+	* window.c (Fcurrent_window_configuration):
+	* window.h:
+	* casefiddle.c (casify_object):
+	* casefiddle.c (Fupcase):
+	* casefiddle.c (Fdowncase):
+	* casefiddle.c (Fcapitalize):
+	* casefiddle.c (Fupcase_initials):
+	* casefiddle.c (casify_region_internal):
+	* casefiddle.c (casify_region):
+	* casefiddle.c (Fupcase_region):
+	* casefiddle.c (Fdowncase_region):
+	* casefiddle.c (Fcapitalize_region):
+	* casefiddle.c (Fupcase_initials_region):
+	* casefiddle.c (Fupcase_word):
+	* casefiddle.c (Fdowncase_word):
+	* casefiddle.c (Fcapitalize_word):
+	Docstring arglist/Texinfo fixes.  See man/ChangeLog for details.
+	Replace 0 with '\0' when working with bytes.
+	Replace initial "(" with "\(" in docstrings.
+
+2000-11-01  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h.in: Handle alloca with Compaq C on Alpha Linux.
+
+	* m/alpha.h: Let configure handle SYSTEM_MALLOC on Linux.
+
+2000-10-31  Martin Buchholz  <martin@xemacs.org>
+
+	* eldap.c (print_ldap): 64-bit cleaner.  Fixes warning.
+
+2000-10-30  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* doprnt.c (emacs_do_prnt_1): Format (format "%01.2d" 10)
+	correctly.
+
+2000-10-30  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* fileio.c (Vauto_save_list_file_prefix): Moved from startup.el.
+	(inhibit_auto_save_session): New variable.
+	(vars_of_fileio): Declare and initialize them.
+	* fileio.c (Fdo_auto_save): Don't create session file if
+	Vinhibit_auto_save_session or Vauto_save_list_file_prefix is non-nil.
+
+2000-10-31  Martin Buchholz  <martin@xemacs.org>
+
+	* sgiplay.c (play_internal): C++ compilability.
+	* alloc.c (SWEEP_FIXED_TYPE_BLOCK): Remove unused var `SFTB_prev'.
+	* callproc.c (Fold_call_process_internal): 
+	Remove unused vars `env', `first'.
+	* scrollbar.c (update_scrollbar_instance): 
+	#### unused var `current_window'.
+	* redisplay-tty.c: Put currently unused vars insert_mode_on,
+	etc. within #ifdef NOT_YET.
+	* emacs.c: #### unused vars `initial_argc', `initial_argv'.
+	* dialog-x.c (dbox_descriptor_to_widget_value): ### unused var `title'.
+	* specifier.c (specifier_instance): 
+	#### unused var `tag'.
+	Use WINDOW_BUFFER, FRAME_DEVICE instead of their expansion.
+
+2000-10-27  Martin Buchholz  <martin@xemacs.org>
+
+	* fns.c (Fbutlast):
+	* fns.c (list_sort):
+	* fns.c (Ffillarray):
+	* fns.c (bytecode_nconc2):
+	* fns.c (Fnconc):
+	* fns.c (mapcar1):
+	* fns.c (Fmapconcat):
+	Be pedantically 64-bit correct.  For the time when someone will
+	want to have a list with length > 2**32.
+
+	* lisp.h (PRIVATE_EXTERNAL_LIST_LOOP_6):
+	Work around MIPSpro compiler bug.
+
+	* process-unix.c (unix_kill_child_process): Add snarky comment.
+	* process-unix.c (try_to_initialize_subtty):  Oops, `=' ==> `=='
+
+	* config.h.in: Oops, _getpt ==> _getpty
+
+2000-10-26  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h.in:
+	* regex.c:
+	Use void*, not char*, as return type of alloca().
+
+	* alloc.c (free_marker): Side effect inside assert expression!
+
+2000-10-16  MIYASHITA Hisashi  <himi@m17n.org>
+
+	* mule-charset.c (Fset_charset_ccl_program): To check
+	if the given ccl program is valid, use setup_ccl_program()
+	instead of CHECK_VECTOR().
+	(Fmake_charset): Likewise.
+
+2000-10-20  Golubev I. N.  <gin@mo.msk.ru>
+
+	* faces.c (get_extent_fragment_face_cache_index):
+	Fix cachel.merged_faces memory leak.
+
+2000-10-14  MIYASHITA Hisashi  <himi@m17n.org>
+
+	* mule-ccl.c (ccl_driver)<CCL_DECODE_SJIS>:
+	Reset MSB of octets obtained by DECODE_SJIS
+	because of the incompatibility with Emacs.
+	(ccl_driver)<CCL_ENCODE_SJIS>:
+	Set MSB of octets before passing them to
+	ENCODE_SJIS because of the incompatibility
+	with Emacs.
+
+2000-10-18   Daiki Ueno  <ueno@unixuser.org>
+
+	* lrecord.h (DECLARE_TYPECHECK_LRECORD): Abolish.
+	(DECLARE_LRECORD): Undo the last change.
+	(DECLARE_EXTERNAL_LRECORD): Expand typechecking stuff.
+
+2000-10-17   Daiki Ueno  <ueno@unixuser.org>
+
+	* lrecord.h (INIT_EXTERNAL_LRECORD_IMPLEMENTATION): Connect
+	the implementation to lrecord_implementations_table.
+
+2000-10-14   Daiki Ueno  <ueno@unixuser.org>
+
+	* lrecord.h (MAKE_EXTERNAL_LRECORD_IMPLEMENTATION): Don't set the
+	initial value of `lrecord_type_##c_name' and
+	`lrecord_##c_name.lrecord_type_index'; discard "const" qualifier.
+	(INIT_EXTERNAL_LRECORD_IMPLEMENTATION): New macro.
+	[ERROR_CHECK_TYPECHECK] (DECLARE_TYPECHECK_LRECORD): New macro.
+	[ERROR_CHECK_TYPECHECK] (DECLARE_LRECORD): Use it.
+	[ERROR_CHECK_TYPECHECK] (DECLARE_EXTERNAL_LRECORD): Use it.
+
+2000-10-17  Martin Buchholz  <martin@xemacs.org>
+
+	* miscplay.c (sndcnv8S_2mono):
+	(sndcnv2monounsigned): 
+	(sndcnvULaw_2linear): 
+	(sndcnv16swap): 
+	Remove implementation-defined behavior.
+
+2000-10-12  Martin Buchholz  <martin@xemacs.org>
+
+	* input-method-xlib.c: Warning suppression.
+
+2000-10-05  MIYASHITA Hisashi  <himi@m17n.org>
+
+	* mule-ccl.c: Sync up with Emacs 21.0.90.
+	(ccl_driver)<CCL_TranslateCharacter>: Disabled.
+	Do nothing.
+	(ccl_driver)<CCL_TranslateCharacterConstTbl>:
+	Likewise.
+	(ccl_driver[WriteMultibyteChar2]): Bug fix.
+	Use MAX_LEADING_BYTE_OFFICIAL_2 instead of
+	MIN_LEADING_BYTE_OFFICIAL_2 to check whether the
+	leading char belongs to official 2-dimensional charset.
+	(CCL_WRITE_CHAR): When CCL_MODE_ENCODING,
+	write the given character as is.  Otherwise,
+	if it is a multibyte char, convert it by
+	non_ascii_set_charptr_emchar, then write it.
+	(CCL_WRITE_STRING): Likewise.
+	(ccl_get_compiled_code): New function.
+	(setup_ccl_program): When ccl_prog is invalid,
+	return -1.
+	(Fregister_code_conversion_map): New function.
+	(syms_of_mule_ccl): defsubr Fregister_code_conversion_map.
+
+	* mule-ccl.h: Sync up with Emacs 21.0.90.
+	(Fregister_ccl_program): export it.
+
+	* redisplay-msw.c (separate_textual_runs):
+	If ccl program is not valid, don't do ccl conversion.
+
+	* redisplay-x.c (separate_textual_runs): Ditto.
+
+	* file-coding.c (Fmake_coding_system):
+	When type is ccl and value is vector, register it
+	with a proper symbol.  And checks whether the
+	given ccl program is valid.
+	(mule_decode): When calling ccl_driver, if src indicates
+	NULL pointer, set an empty string instead.
+	(mule_encode): Likewise.
+
+2000-10-11  Martin Buchholz  <martin@xemacs.org>
+
+	The following large batch of changes gets us back to a state of
+	C++ compilability.  Extbyte is now a char, which means that
+	Extbyte * and Bufbyte * cannot be freely interchanged - a win!
+
+	* tooltalk.c (Fset_tooltalk_message_attribute): Type correctness.
+
+	* sound.c (Fplay_sound): Type correctness.
+
+	* select-x.c (hack_motif_clipboard_selection): Type correctness.
+	(x_get_window_property): Type correctness.
+	(receive_incremental_selection): unsigned char ==> Extbyte
+	(selection_data_to_lisp_data): unsigned char ==> Extbyte
+	(Fx_get_cutbuffer_internal): unsigned char ==> Extbyte
+	(Fx_store_cutbuffer_internal): Type correctness.
+
+	* process-unix.c (try_to_initialize_subtty): Type correctness.
+
+	* objects-x.c (x_print_color_instance): Type correctness.
+	(x_print_font_instance): Type correctness.
+	(x_list_fonts): SExtbyte ==> Extbyte.
+	(valid_x_font_name_p): SExtbyte ==> Extbyte.
+	(x_find_charset_font): SExtbyte ==> Extbyte.
+	Use TO_INTERNAL_FORMAT.  build_string ==> make_string.
+	(truename_via_XListFonts): SExtbyte ==> Extbyte.
+	(x_font_instance_properties): Use TO_INTERNAL_FORMAT.
+	Use bufbyte_strcmp.
+
+	* mule-charset.h (LEADING_BYTE_PREFIX_P): unsigned char ==> Bufbyte
+	(PRIVATE_LEADING_BYTE_PREFIX): Add paranoia cast.
+	(BYTE_ASCII_P): Use bit ops for char-signedness safety.
+	(BYTE_C0_P): Use bit ops for char-signedness safety.
+	(BYTE_C1_P): Use bit ops for char-signedness safety.
+	(CHARSET_BY_LEADING_BYTE): 
+	(CHARSET_BY_ATTRIBUTES): 
+	Always use inline function.
+	Use type_checking_assert.
+	Hide chlook.
+
+	* mule-charset.c (non_ascii_charptr_copy_char):
+	Modify to work with both ASCII and non-ASCII characters.
+	Improve docs and variable names.
+	Replace over-clever fall-through switch with a simple loop.
+	(Lstream_get_emchar_1): 
+	Replace over-clever fall-through switch with a simple loop.
+
+	* menubar-x.c (menu_item_descriptor_to_widget_value_1):
+	Warning suppression.
+
+	* lstream.h (Lstream_get_emchar): BYTE_ASCII_P cannot be used on
+	the return value of Lstream_getc, which could be EOF as well.
+
+	* lstream.c (Lstream_raw_read): Now returns ssize_t, not int.
+
+	* lisp.h: Make Extbyte a char, not unsigned char, so that external
+	APIs can be used on Extbytes without casts.  Risky!
+	(SExtbyte): Remove.
+	(UExtbyte): Remove.
+
+	* input-method-xlib.c (XIM_init_device):
+	Use Xlib.h instead of IntrinsicP.h.
+	Use HAVE_XREGISTERIMINSTANTIATECALLBACK instead of THIS_IS_X11R6,
+	which will break in X11R7.
+	Use XREGISTERIMINSTANTIATECALLBACK_NONSTANDARD_PROTOTYPE,
+	to call XRegisterIMInstantiateCallback with correct types.
+
+	* gui-x.c (button_item_to_widget_value): Type correctness.
+
+	* glyphs.c (bitmap_to_lisp_data):  Type correctness.
+
+	* glyphs-x.c (pixmap_from_xbm_inline): Type correctness.
+	(xbm_instantiate_1): Type correctness.
+	(BUILD_GLYPH_INST):  Type correctness.
+
+	* fileio.c (Fsubstitute_in_file_name): Type correctness.
+
+	* file-coding.c:
+	(decode_coding_sjis):
+	(decode_coding_big5):
+	(decode_coding_ucs4):
+	(decode_coding_utf8):
+	(decode_coding_iso2022):
+	(decode_coding_no_conversion):
+	Make all decoding functions take an Extbyte * arg.
+	(encode_coding_sjis):
+	(encode_coding_big5):
+	(encode_coding_ucs4):
+	(encode_coding_utf8):
+	(encode_coding_iso2022):
+	(encode_coding_no_conversion):
+	Make all encoding functions take a Bufbyte * arg.
+	Use size_t instead of unsigned int for memory sizes.
+	Only cast to unsigned char whenever dereferencing Extbyte *.
+
+	* doc.c (unparesseuxify_doc_string): Type correctness.
+
+	* console-x.c (split_up_display_spec):
+	Rewrite without using details of internal string representation.
+	(x_semi_canonicalize_device_connection): Type correctness.
+
+	* config.h.in:
+	(HAVE_XREGISTERIMINSTANTIATECALLBACK): New.
+	(XREGISTERIMINSTANTIATECALLBACK_NONSTANDARD_PROTOTYPE): New.
+	(HAVE_XFREE386): Removed.
+
+	* buffer.h (DEC_CHARPTR): `const' correctness.
+	(bufbyte_strcmp): New.
+	(bufbyte_memcmp): New.
+
+	* buffer.c (dfc_convert_to_internal_format): Extbyte ==> Bufbyte
+
+	* buffer.h (XCHAR_OR_CHAR_INT):
+	Always use inline function.
+	Remove redundant type checking assert() - XINT will abort quite nicely.
+
+2000-10-03  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* search.c (Freplace_match): Set newtext to an empty string.
+
+2000-10-10  Martin Buchholz  <martin@xemacs.org>
+
+	* s/decosf1-3.h: Remove #include of stropts.h
+	* s/ptx.h: Remove #include of stropts.h
+	* s/usg5-4.h: Remove #include of stropts.h
+	* sysproc.h: 
+	* config.h.in: 
+	Use stropts.h, not sys/stropts.h.
+	Use strtio.h, not sys/strtio.h.
+
 2000-10-04  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.36 is released.
+
+2000-09-21  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_redisplay_widget): make sure non-structural
+	changes still involve copying the widget tree.
+	(update_widget_face): make sure a change is register in the widget
+	tree. Call update_tab_widget_face appropriately.
+	(update_tab_widget_face): ditto.
+	(x_tab_control_redisplay): make sure non-structural changes still
+	involve copying the widget tree.
 
 2000-08-31   Daiki Ueno  <ueno@unixuser.org>
 
@@ -6190,7 +6956,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* glyphs.h: Prototyped it.
 
 	* redisplay.c (add_glyph_rune): Call it.
-	(redisplay_window): Reset glyphs cachels when frame faces has
+	(redisplay_window): Reset glyphs cachels when frame faces have
 	changed, thus forcing recomputation of built-in border glyphs.
 
 2000-01-30  Martin Buchholz  <martin@xemacs.org>

@@ -182,9 +182,9 @@ sign_extend_lisp_int (EMACS_INT num)
 DEFUN ("eq", Feq, 2, 2, 0, /*
 Return t if the two args are the same Lisp object.
 */
-       (obj1, obj2))
+       (object1, object2))
 {
-  return EQ_WITH_EBOLA_NOTICE (obj1, obj2) ? Qt : Qnil;
+  return EQ_WITH_EBOLA_NOTICE (object1, object2) ? Qt : Qnil;
 }
 
 DEFUN ("old-eq", Fold_eq, 2, 2, 0, /*
@@ -199,10 +199,10 @@ functions with `old-foo' equivalents.
 
 Do not use this function!
 */
-       (obj1, obj2))
+       (object1, object2))
 {
   /* #### blasphemy */
-  return HACKEQ_UNSAFE (obj1, obj2) ? Qt : Qnil;
+  return HACKEQ_UNSAFE (object1, object2) ? Qt : Qnil;
 }
 
 DEFUN ("null", Fnull, 1, 1, 0, /*
@@ -357,7 +357,7 @@ or nil if it takes an arbitrary number of arguments or is a special form.
 }
 
 DEFUN ("subr-interactive", Fsubr_interactive, 1, 1, 0, /*
-Return the interactive spec of the subr object, or nil.
+Return the interactive spec of the subr object SUBR, or nil.
 If non-nil, the return value will be a list whose first element is
 `interactive' and whose second element is the interactive spec.
 */
@@ -395,7 +395,7 @@ as `char='.
 }
 
 DEFUN ("char-to-int", Fchar_to_int, 1, 1, 0, /*
-Convert a character into an equivalent integer.
+Convert CHARACTER into an equivalent integer.
 The resulting integer will always be non-negative.  The integers in
 the range 0 - 255 map to characters as follows:
 
@@ -409,14 +409,14 @@ values.  When Mule support exists, the values assigned to other characters
 may vary depending on the particular version of XEmacs, the order in which
 character sets were loaded, etc., and you should not depend on them.
 */
-       (ch))
+       (character))
 {
-  CHECK_CHAR (ch);
-  return make_int (XCHAR (ch));
+  CHECK_CHAR (character);
+  return make_int (XCHAR (character));
 }
 
 DEFUN ("int-to-char", Fint_to_char, 1, 1, 0, /*
-Convert an integer into the equivalent character.
+Convert integer INTEGER into the equivalent character.
 Not all integers correspond to valid characters; use `char-int-p' to
 determine whether this is the case.  If the integer cannot be converted,
 nil is returned.
@@ -614,26 +614,26 @@ Return the cdr of OBJECT if it is a cons cell, else nil.
 }
 
 DEFUN ("setcar", Fsetcar, 2, 2, 0, /*
-Set the car of CONSCELL to be NEWCAR.  Return NEWCAR.
+Set the car of CONS-CELL to be NEWCAR.  Return NEWCAR.
 */
-       (conscell, newcar))
+       (cons_cell, newcar))
 {
-  if (!CONSP (conscell))
-    conscell = wrong_type_argument (Qconsp, conscell);
+  if (!CONSP (cons_cell))
+    cons_cell = wrong_type_argument (Qconsp, cons_cell);
 
-  XCAR (conscell) = newcar;
+  XCAR (cons_cell) = newcar;
   return newcar;
 }
 
 DEFUN ("setcdr", Fsetcdr, 2, 2, 0, /*
-Set the cdr of CONSCELL to be NEWCDR.  Return NEWCDR.
+Set the cdr of CONS-CELL to be NEWCDR.  Return NEWCDR.
 */
-       (conscell, newcdr))
+       (cons_cell, newcdr))
 {
-  if (!CONSP (conscell))
-    conscell = wrong_type_argument (Qconsp, conscell);
+  if (!CONSP (cons_cell))
+    cons_cell = wrong_type_argument (Qconsp, cons_cell);
 
-  XCDR (conscell) = newcdr;
+  XCDR (cons_cell) = newcdr;
   return newcdr;
 }
 
@@ -1002,27 +1002,27 @@ lisp_to_word (Lisp_Object item)
 
 
 DEFUN ("number-to-string", Fnumber_to_string, 1, 1, 0, /*
-Convert NUM to a string by printing it in decimal.
+Convert NUMBER to a string by printing it in decimal.
 Uses a minus sign if negative.
-NUM may be an integer or a floating point number.
+NUMBER may be an integer or a floating point number.
 */
-       (num))
+       (number))
 {
   char buffer[VALBITS];
 
-  CHECK_INT_OR_FLOAT (num);
+  CHECK_INT_OR_FLOAT (number);
 
 #ifdef LISP_FLOAT_TYPE
-  if (FLOATP (num))
+  if (FLOATP (number))
     {
       char pigbuf[350];	/* see comments in float_to_string */
 
-      float_to_string (pigbuf, XFLOAT_DATA (num));
+      float_to_string (pigbuf, XFLOAT_DATA (number));
       return build_string (pigbuf);
     }
 #endif /* LISP_FLOAT_TYPE */
 
-  long_to_string (buffer, XINT (num));
+  long_to_string (buffer, XINT (number));
   return build_string (buffer);
 }
 
@@ -1039,12 +1039,12 @@ digit_to_number (int character, int base)
 }
 
 DEFUN ("string-to-number", Fstring_to_number, 1, 2, 0, /*
-Convert STRING to a number by parsing it as a decimal number.
+Convert STRING to a number by parsing it as a number in base BASE.
 This parses both integers and floating point numbers.
 It ignores leading spaces and tabs.
 
-If BASE, interpret STRING as a number in that base.  If BASE isn't
-present, base 10 is used.  BASE must be between 2 and 16 (inclusive).
+If BASE is nil or omitted, base 10 is used.
+BASE must be an integer between 2 and 16 (inclusive).
 Floating point numbers always use base 10.
 */
        (string, base))
@@ -1088,7 +1088,7 @@ Floating point numbers always use base 10.
     }
   else
     {
-      int digit, negative = 1;
+      int negative = 1;
       EMACS_INT v = 0;
 
       if (*p == '-')
@@ -1100,7 +1100,7 @@ Floating point numbers always use base 10.
 	p++;
       while (1)
 	{
-	  digit = digit_to_number (*p++, b);
+	  int digit = digit_to_number (*p++, b);
 	  if (digit < 0)
 	    break;
 	  v = v * b + digit;
@@ -1417,10 +1417,10 @@ DEFUN ("%", Frem, 2, 2, 0, /*
 Return remainder of first arg divided by second.
 Both must be integers, characters or markers.
 */
-       (num1, num2))
+       (number1, number2))
 {
-  EMACS_INT ival1 = integer_char_or_marker_to_int (num1);
-  EMACS_INT ival2 = integer_char_or_marker_to_int (num2);
+  EMACS_INT ival1 = integer_char_or_marker_to_int (number1);
+  EMACS_INT ival2 = integer_char_or_marker_to_int (number2);
 
   if (ival2 == 0)
     Fsignal (Qarith_error, Qnil);

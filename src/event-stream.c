@@ -52,8 +52,6 @@ Boston, MA 02111-1307, USA.  */
 /* TODO:
    This stuff is way too hard to maintain - needs rework.
 
-   C-x @ h <scrollbar-drag> x causes a crash.
-
    The command builder should deal only with key and button events.
    Other command events should be able to come in the MIDDLE of a key
    sequence, without disturbing the key sequence composition, or the
@@ -121,23 +119,19 @@ Lisp_Object Qpre_idle_hook, Vpre_idle_hook;
 /* Control gratuitous keyboard focus throwing. */
 int focus_follows_mouse;
 
+/* When true, modifier keys are sticky. */
 int modifier_keys_are_sticky;
+/* Modifier keys are sticky for this many milliseconds. */
+Lisp_Object Vmodifier_keys_sticky_time;
 
-#if 0 /* FSF Emacs crap */
-/* Hook run after a command if there's no more input soon.  */
-Lisp_Object Qpost_command_idle_hook, Vpost_command_idle_hook;
+/* Here FSF Emacs 20.7 defines Vpost_command_idle_hook,
+   post_command_idle_delay, Vdeferred_action_list, and
+   Vdeferred_action_function, but we don't because that stuff is crap,
+   and we're smarter than them, and their momas are fat. */
 
-/* Delay time in microseconds before running post-command-idle-hook.  */
-int post_command_idle_delay;
-
-/* List of deferred actions to be performed at a later time.
-   The precise format isn't relevant here; we just check whether it is nil.  */
-Lisp_Object Vdeferred_action_list;
-
-/* Function to call to handle deferred actions, when there are any.  */
-Lisp_Object Vdeferred_action_function;
-Lisp_Object Qdeferred_action_function;
-#endif /* FSF Emacs crap */
+/* FSF Emacs 20.7 also defines Vinput_method_function,
+   Qinput_method_exit_on_first_char and Qinput_method_use_echo_area.
+   I don't know this should be imported or not. */
 
 /* Non-nil disable property on a command means
    do not execute it; call disabled-command-hook's value instead. */
@@ -502,15 +496,7 @@ event_stream_next_event (Lisp_Event *event)
      Let's hope it doesn't.  I think the code here is fairly
      clean and doesn't do this. */
   emacs_is_blocking = 1;
-#if 0
-  /* Do this if the poll-for-quit timer seems to be taking too
-     much CPU time when idle ... */
-  reset_poll_for_quit ();
-#endif
   event_stream->next_event_cb (event);
-#if 0
-  init_poll_for_quit ();
-#endif
   emacs_is_blocking = 0;
 
 #ifdef DEBUG_XEMACS
@@ -798,7 +784,8 @@ maybe_kbd_translate (Lisp_Object event)
    keystrokes_since_auto_save is equivalent to the difference between
    num_nonmacro_input_chars and last_auto_save. */
 
-/* When an auto-save happens, record the "time", and don't do again soon.  */
+/* When an auto-save happens, record the number of keystrokes, and
+   don't do again soon.  */
 
 void
 record_auto_save (void)
@@ -812,10 +799,6 @@ void
 force_auto_save_soon (void)
 {
   keystrokes_since_auto_save = 1 + max (auto_save_interval, 20);
-
-#if 0 /* FSFmacs */
-  record_asynch_buffer_change ();
-#endif
 }
 
 static void
@@ -1695,19 +1678,6 @@ run_select_frame_hook (void)
 static void
 run_deselect_frame_hook (void)
 {
-#if 0 /* unclean!  FSF calls this at all sorts of random places,
-         including a bunch of places in their mouse.el.  If this
-         is implemented, it has to be done cleanly. */
-  run_hook (Qmouse_leave_buffer_hook); /* #### Correct?  It's also
-					  called in `call-interactively'.
-					  Does this mean it will be
-					  called twice?  Oh well, FSF
-					  bug -- FSF calls it in
-					  `handle-switch-frame',
-					  which is approximately the
-					  same as the caller of this
-					  function. */
-#endif
   run_hook (Qdeselect_frame_hook);
 }
 
@@ -2684,11 +2654,11 @@ Return non-nil iff we received any output before the timeout expired.
 }
 
 DEFUN ("sleep-for", Fsleep_for, 1, 1, 0, /*
-Pause, without updating display, for ARG seconds.
-ARG may be a float, meaning pause for some fractional part of a second.
+Pause, without updating display, for SECONDS seconds.
+SECONDS may be a float, allowing pauses for fractional parts of a second.
 
 It is recommended that you never call sleep-for from inside of a process
- filter function or timer event (either synchronous or asynchronous).
+filter function or timer event (either synchronous or asynchronous).
 */
        (seconds))
 {
@@ -2751,9 +2721,9 @@ It is recommended that you never call sleep-for from inside of a process
 }
 
 DEFUN ("sit-for", Fsit_for, 1, 2, 0, /*
-Perform redisplay, then wait ARG seconds or until user input is available.
-ARG may be a float, meaning a fractional part of a second.
-Optional second arg non-nil means don't redisplay, just wait for input.
+Perform redisplay, then wait SECONDS seconds or until user input is available.
+SECONDS may be a float, meaning a fractional part of a second.
+Optional second arg NODISPLAY non-nil means don't redisplay; just wait.
 Redisplay is preempted as always if user input arrives, and does not
  happen if input is available before it starts.
 Value is t if waited the full time with no input arriving.
@@ -3795,7 +3765,10 @@ execute_command_event (struct command_builder *command_builder,
   struct gcpro gcpro1;
 
   GCPRO1 (event); /* event may be freshly created */
-  reset_current_events (command_builder);
+
+  /* To fix C-x @ h <scrollbar-drag> x crash. */
+  if (XEVENT (event)->event_type != misc_user_event)
+    reset_current_events (command_builder);
 
   switch (XEVENT (event)->event_type)
     {
@@ -3862,17 +3835,15 @@ execute_command_event (struct command_builder *command_builder,
 
     post_command_hook ();
 
-#if 0 /* #### here was an attempted fix that didn't work */
-    if (XEVENT (event)->event_type == misc_user_event)
-      ;
-    else
-#endif
     if (!NILP (con->prefix_arg))
       {
 	/* Commands that set the prefix arg don't update last-command, don't
 	   reset the echoing state, and don't go into keyboard macros unless
-	   followed by another command. */
+	   followed by another command.  Also don't quit here.  */
+	int speccount = specpdl_depth ();
+	specbind (Qinhibit_quit, Qt);
 	maybe_echo_keys (command_builder, 0);
+	unbind_to (speccount, Qnil);
 
 	/* If we're recording a keyboard macro, and the last command
 	   executed set a prefix argument, then decrement the pointer to
@@ -3891,7 +3862,8 @@ execute_command_event (struct command_builder *command_builder,
 
 	/* Emacs 18 doesn't unconditionally clear the echoed keystrokes,
 	   so we don't either */
-	reset_this_command_keys (make_console (con), 0);
+	if (XEVENT (event)->event_type != misc_user_event)
+	  reset_this_command_keys (make_console (con), 0);
       }
   }
 
@@ -3955,34 +3927,6 @@ post_command_hook (void)
     ("Error in `post-command-hook' (setting hook to nil)",
      Qpost_command_hook, 1);
 
-#if 0 /* FSF Emacs crap */
-  if (!NILP (Vdeferred_action_list))
-    call0 (Vdeferred_action_function);
-
-  if (NILP (Vunread_command_events)
-      && NILP (Vexecuting_macro)
-      && !NILP (Vpost_command_idle_hook)
-      && !NILP (Fsit_for (make_float ((double) post_command_idle_delay
-				      / 1000000), Qnil)))
-  safe_run_hook_trapping_errors
-    ("Error in `post-command-idle-hook' (setting hook to nil)",
-     Qpost_command_idle_hook, 1);
-#endif /* FSF Emacs crap */
-
-#if 0 /* FSF Emacs */
-  if (!NILP (current_buffer->mark_active))
-    {
-      if (!NILP (Vdeactivate_mark) && !NILP (Vtransient_mark_mode))
-        {
-          current_buffer->mark_active = Qnil;
-	  run_hook (intern ("deactivate-mark-hook"));
-        }
-      else if (current_buffer != prev_buffer ||
-	       BUF_MODIFF (current_buffer) != prev_modiff)
-	run_hook (intern ("activate-mark-hook"));
-    }
-#endif /* FSF Emacs */
-
   /* #### Kludge!!! This is necessary to make sure that things
      are properly positioned even if post-command-hook moves point.
      #### There should be a cleaner way of handling this. */
@@ -3991,7 +3935,7 @@ post_command_hook (void)
 
 
 DEFUN ("dispatch-event", Fdispatch_event, 1, 1, 0, /*
-Given an event object as returned by `next-event', execute it.
+Given an event object EVENT as returned by `next-event', execute it.
 
 Key-press, button-press, and button-release events get accumulated
 until a complete key sequence (see `read-key-sequence') is reached,
@@ -4161,13 +4105,6 @@ Magic events are handled as necessary.
 	      command_builder->self_insert_countdown = 0;
 	    if (NILP (XCONSOLE (console)->prefix_arg)
 		&& NILP (Vexecuting_macro)
-#if 0
-		/* This was done in the days when there was no undo
-		   in the minibuffer.  If we don't disable this code,
-		   then each instance of "undo" undoes everything in
-		   the minibuffer. */
-		&& !EQ (minibuf_window, Fselected_window (Qnil))
-#endif
 		&& command_builder->self_insert_countdown == 0)
 	      Fundo_boundary ();
 
@@ -4178,13 +4115,13 @@ Magic events are handled as necessary.
 	      }
 	    execute_command_event
               (command_builder,
-	       internal_equal (event, command_builder-> most_current_event, 0)
+	       internal_equal (event, command_builder->most_current_event, 0)
                ? event
                /* Use the translated event that was most recently seen.
                   This way, last-command-event becomes f1 instead of
                   the P from ESC O P.  But we must copy it, else we'll
                   lose when the command-builder events are deallocated. */
-               : Fcopy_event (command_builder-> most_current_event, Qnil));
+               : Fcopy_event (command_builder->most_current_event, Qnil));
 	  }
 	break;
       }
@@ -4239,7 +4176,7 @@ Magic events are handled as necessary.
 DEFUN ("read-key-sequence", Fread_key_sequence, 1, 3, 0, /*
 Read a sequence of keystrokes or mouse clicks.
 Returns a vector of the event objects read.  The vector and the event
-objects it contains are freshly created (and will not be side-effected
+objects it contains are freshly created (and so will not be side-effected
 by subsequent calls to this function).
 
 The sequence read is sufficient to specify a non-prefix command starting
@@ -4247,19 +4184,17 @@ from the current local and global keymaps.  A C-g typed while in this
 function is treated like any other character, and `quit-flag' is not set.
 
 First arg PROMPT is a prompt string.  If nil, do not prompt specially.
-Second (optional) arg CONTINUE-ECHO, if non-nil, means this key echoes
-as a continuation of the previous key.
 
-The third (optional) arg DONT-DOWNCASE-LAST, if non-nil, means do not
-convert the last event to lower case.  (Normally any upper case event
-is converted to lower case if the original event is undefined and the lower
-case equivalent is defined.) This argument is provided mostly for
-FSF compatibility; the equivalent effect can be achieved more generally
-by binding `retry-undefined-key-binding-unshifted' to nil around the
-call to `read-key-sequence'.
+Second optional arg CONTINUE-ECHO non-nil means this key echoes as a
+continuation of the previous key.
 
-A C-g typed while in this function is treated like any other character,
-and `quit-flag' is not set.
+Third optional arg DONT-DOWNCASE-LAST non-nil means do not convert the
+last event to lower case.  (Normally any upper case event is converted
+to lower case if the original event is undefined and the lower case
+equivalent is defined.) This argument is provided mostly for FSF
+compatibility; the equivalent effect can be achieved more generally by
+binding `retry-undefined-key-binding-unshifted' to nil around the call
+to `read-key-sequence'.
 
 If the user selects a menu item while we are prompting for a key-sequence,
 the returned value will be a vector of a single menu-selection event.
@@ -4267,8 +4202,8 @@ An error will be signalled if you pass this value to `lookup-key' or a
 related function.
 
 `read-key-sequence' checks `function-key-map' for function key
-sequences, where they wouldn't conflict with ordinary bindings.  See
-`function-key-map' for more details.
+sequences, where they wouldn't conflict with ordinary bindings.
+See `function-key-map' for more details.
 */
        (prompt, continue_echo, dont_downcase_last))
 {
@@ -4404,10 +4339,10 @@ dribble_out_event (Lisp_Object event)
 
 DEFUN ("open-dribble-file", Fopen_dribble_file, 1, 1,
        "FOpen dribble file: ", /*
-Start writing all keyboard characters to a dribble file called FILE.
-If FILE is nil, close any open dribble file.
+Start writing all keyboard characters to a dribble file called FILENAME.
+If FILENAME is nil, close any open dribble file.
 */
-       (file))
+       (filename))
 {
   /* This function can GC */
   /* XEmacs change: always close existing dribble file. */
@@ -4417,12 +4352,12 @@ If FILE is nil, close any open dribble file.
       Lstream_close (XLSTREAM (Vdribble_file));
       Vdribble_file = Qnil;
     }
-  if (!NILP (file))
+  if (!NILP (filename))
     {
       int fd;
 
-      file = Fexpand_file_name (file, Qnil);
-      fd = open ((char*) XSTRING_DATA (file),
+      filename = Fexpand_file_name (filename, Qnil);
+      fd = open ((char*) XSTRING_DATA (filename),
 		 O_WRONLY | O_TRUNC | O_CREAT | OPEN_BINARY,
 		 CREAT_MODE);
       if (fd < 0)
@@ -4500,10 +4435,6 @@ syms_of_event_stream (void)
   defsymbol (&Qpre_idle_hook, "pre-idle-hook");
   defsymbol (&Qhandle_pre_motion_command, "handle-pre-motion-command");
   defsymbol (&Qhandle_post_motion_command, "handle-post-motion-command");
-#if 0 /* FSF Emacs crap */
-  defsymbol (&Qpost_command_idle_hook, "post-command-idle-hook");
-  defsymbol (&Qdeferred_action_function, "deferred-action-function");
-#endif
   defsymbol (&Qretry_undefined_key_binding_unshifted,
 	     "retry-undefined-key-binding-unshifted");
   defsymbol (&Qauto_show_make_point_visible,
@@ -4601,41 +4532,6 @@ the keyboard focus.  XEmacs cannot in general detect when this mode is
 used by the window manager, so it is up to the user to set it.
 */ );
   focus_follows_mouse = 0;
-
-#if 0 /* FSF Emacs crap */
-  /* Ill-conceived because it's not run in all sorts of cases
-     where XEmacs is blocking.  That's what `pre-idle-hook'
-     is designed to solve. */
-  xxDEFVAR_LISP ("post-command-idle-hook", &Vpost_command_idle_hook /*
-Normal hook run after each command is executed, if idle.
-`post-command-idle-delay' specifies a time in microseconds that XEmacs
-must be idle for in order for the functions on this hook to be called.
-Errors running the hook are caught and ignored.
-*/ );
-  Vpost_command_idle_hook = Qnil;
-
-  xxDEFVAR_INT ("post-command-idle-delay", &post_command_idle_delay /*
-Delay time before running `post-command-idle-hook'.
-This is measured in microseconds.
-*/ );
-  post_command_idle_delay = 5000;
-
-  /* Random FSFmacs crap.  There is absolutely nothing to gain,
-     and a great deal to lose, in using this in place of just
-     setting `post-command-hook'. */
-  xxDEFVAR_LISP ("deferred-action-list", &Vdeferred_action_list /*
-List of deferred actions to be performed at a later time.
-The precise format isn't relevant here; we just check whether it is nil.
-*/ );
-  Vdeferred_action_list = Qnil;
-
-  xxDEFVAR_LISP ("deferred-action-function", &Vdeferred_action_function /*
-Function to call to handle deferred actions, after each command.
-This function is called with no arguments after each command
-whenever `deferred-action-list' is non-nil.
-*/ );
-  Vdeferred_action_function = Qnil;
-#endif /* FSF Emacs crap */
 
   DEFVAR_LISP ("last-command-event", &Vlast_command_event /*
 Last keyboard or mouse button event that was part of a command.  This
@@ -4815,8 +4711,21 @@ This means that you can release the modifier key before pressing down
 the key that you wish to be modified.  Although this is non-standard
 behavior, it is recommended because it reduces the strain on your hand,
 thus reducing the incidence of the dreaded Emacs-pinky syndrome.
+
+Modifier keys are sticky within the inverval specified by
+`modifier-keys-sticky-time'.
 */ );
   modifier_keys_are_sticky = 0;
+
+  DEFVAR_LISP ("modifier-keys-sticky-time", &Vmodifier_keys_sticky_time /*
+*Modifier keys are sticky within this many milliseconds.
+If you don't want modifier keys sticking to be bounded, set this to
+non-integer value.
+
+This variable has no effect when `modifier-keys-are-sticky' is nil.
+Currently only implemented under X Window System.
+*/ );
+  Vmodifier_keys_sticky_time = make_int (500);
 
 #ifdef HAVE_XIM
   DEFVAR_LISP ("composed-character-default-binding",
@@ -4936,20 +4845,23 @@ useful testcases for v18/v19 compatibility:
 (global-set-key "\^Q" 'foo)
 
 without the read-key-sequence:
-  ^Q		==>  (65 17 65 [... ^Q] [^Q])
-  ^U^U^Q	==>  (65 17 65 [... ^U ^U ^Q] [^U ^U ^Q])
-  ^U^U^U^G^Q	==>  (65 17 65 [... ^U ^U ^U ^G ^Q] [^Q])
+  ^Q		==>  (?A ?\^Q ?A [... ^Q] [^Q])
+  ^U^U^Q	==>  (?A ?\^Q ?A [... ^U ^U ^Q] [^U ^U ^Q])
+  ^U^U^U^G^Q	==>  (?A ?\^Q ?A [... ^U ^U ^U ^G ^Q] [^Q])
 
 with the read-key-sequence:
-  ^Qb		==>  (65 [b] 17 98 [... ^Q b] [b])
-  ^U^U^Qb	==>  (65 [b] 17 98 [... ^U ^U ^Q b] [b])
-  ^U^U^U^G^Qb	==>  (65 [b] 17 98 [... ^U ^U ^U ^G ^Q b] [b])
+  ^Qb		==>  (?A [b] ?\^Q ?b [... ^Q b] [b])
+  ^U^U^Qb	==>  (?A [b] ?\^Q ?b [... ^U ^U ^Q b] [b])
+  ^U^U^U^G^Qb	==>  (?A [b] ?\^Q ?b [... ^U ^U ^U ^G ^Q b] [b])
 
 ;the evi-mode command "4dlj.j.j.j.j.j." is also a good testcase (gag)
 
 ;(setq x (list (read-char) quit-flag))^J^G
 ;(let ((inhibit-quit t)) (setq x (list (read-char) quit-flag)))^J^G
 ;for BOTH, x should get set to (7 t), but no result should be printed.
+;; #### According to the doc of quit-flag, second test should return
+;; (?\^G nil).  Accidentaly XEmacs returns correct value.  However,
+;; XEmacs 21.1.12 and 21.2.36 both fails on first test.
 
 ;also do this: make two frames, one viewing "*scratch*", the other "foo".
 ;in *scratch*, type (sit-for 20)^J
@@ -4969,9 +4881,9 @@ with the read-key-sequence:
 	  (quit c))
 	(read-char)))
 
- (tst)^Ja^G    ==>  ((quit) 97) with no signal
- (tst)^J^Ga    ==>  ((quit) 97) with no signal
- (tst)^Jabc^G  ==>  ((quit) 97) with no signal, and "bc" inserted in buffer
+ (tst)^Ja^G    ==>  ((quit) ?a) with no signal
+ (tst)^J^Ga    ==>  ((quit) ?a) with no signal
+ (tst)^Jabc^G  ==>  ((quit) ?a) with no signal, and "bc" inserted in buffer
 
 ; with sit-for only do the 2nd test.
 ; Do all 3 tests with (accept-process-output nil 20)

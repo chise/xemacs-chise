@@ -762,11 +762,11 @@ that it is safe to do so.
 }
 
 DEFUN ("copy-event", Fcopy_event, 1, 2, 0, /*
-Make a copy of the given event object.
-If a second argument is given, the first event is copied into the second
-and the second is returned.  If the second argument is not supplied (or
-is nil) then a new event will be made as with `make-event'.  See also
-the function `deallocate-event'.
+Make a copy of the event object EVENT1.
+If a second event argument EVENT2 is given, EVENT1 is copied into
+EVENT2 and EVENT2 is returned.  If EVENT2 is not supplied (or is nil)
+then a new event will be made as with `make-event'.  See also the
+function `deallocate-event'.
 */
        (event1, event2))
 {
@@ -1145,46 +1145,48 @@ Note that specifying both ALLOW-META and ALLOW-NON-ASCII is ambiguous, as
 }
 
 DEFUN ("character-to-event", Fcharacter_to_event, 1, 4, 0, /*
-Convert keystroke CH into an event structure ,replete with bucky bits.
-The keystroke is the first argument, and the event to fill
-in is the second.  This function contains knowledge about what the codes
-``mean'' -- for example, the number 9 is converted to the character ``Tab'',
-not the distinct character ``Control-I''.
+Convert KEY-DESCRIPTION into an event structure, replete with bucky bits.
 
-Note that CH (the keystroke specifier) can be an integer, a character,
-a symbol such as 'clear, or a list such as '(control backspace).
+KEY-DESCRIPTION is the first argument, and the event to fill in is the
+second.  This function contains knowledge about what various kinds of
+arguments ``mean'' -- for example, the number 9 is converted to the
+character ``Tab'', not the distinct character ``Control-I''.
 
-If the optional second argument is an event, it is modified;
-otherwise, a new event object is created.
+KEY-DESCRIPTION can be an integer, a character, a symbol such as 'clear,
+or a list such as '(control backspace).
+
+If the optional second argument EVENT is an event, it is modified and
+returned; otherwise, a new event object is created and returned.
 
 Optional third arg CONSOLE is the console to store in the event, and
 defaults to the selected console.
 
-If CH is an integer or character, the high bit may be interpreted as the
-meta key. (This is done for backward compatibility in lots of places.)
-If USE-CONSOLE-META-FLAG is nil, this will always be the case.  If
-USE-CONSOLE-META-FLAG is non-nil, the `meta' flag for CONSOLE affects
-whether the high bit is interpreted as a meta key. (See `set-input-mode'.)
-If you don't want this silly meta interpretation done, you should pass
-in a list containing the character.
+If KEY-DESCRIPTION is an integer or character, the high bit may be
+interpreted as the meta key. (This is done for backward compatibility
+in lots of places.)  If USE-CONSOLE-META-FLAG is nil, this will always
+be the case.  If USE-CONSOLE-META-FLAG is non-nil, the `meta' flag for
+CONSOLE affects whether the high bit is interpreted as a meta
+key. (See `set-input-mode'.)  If you don't want this silly meta
+interpretation done, you should pass in a list containing the
+character.
 
 Beware that character-to-event and event-to-character are not strictly
 inverse functions, since events contain much more information than the
-ASCII character set can encode.
+Lisp character object type can encode.
 */
-       (ch, event, console, use_console_meta_flag))
+       (keystroke, event, console, use_console_meta_flag))
 {
   struct console *con = decode_console (console);
   if (NILP (event))
     event = Fmake_event (Qnil, Qnil);
   else
     CHECK_LIVE_EVENT (event);
-  if (CONSP (ch) || SYMBOLP (ch))
-    key_desc_list_to_event (ch, event, 1);
+  if (CONSP (keystroke) || SYMBOLP (keystroke))
+    key_desc_list_to_event (keystroke, event, 1);
   else
     {
-      CHECK_CHAR_COERCE_INT (ch);
-      character_to_event (XCHAR (ch), XEVENT (event), con,
+      CHECK_CHAR_COERCE_INT (keystroke);
+      character_to_event (XCHAR (keystroke), XEVENT (event), con,
 			  !NILP (use_console_meta_flag), 1);
     }
   return event;
@@ -1527,7 +1529,7 @@ This will be a character if the event is associated with one, else a symbol.
 }
 
 DEFUN ("event-button", Fevent_button, 1, 1, 0, /*
-Return the button-number of the given button-press or button-release event.
+Return the button-number of the button-press or button-release event EVENT.
 */
        (event))
 {
@@ -2122,7 +2124,7 @@ If the event did not occur over a toolbar button, nil is returned.
 }
 
 DEFUN ("event-process", Fevent_process, 1, 1, 0, /*
-Return the process of the given process-output event.
+Return the process of the process-output event EVENT.
 */
        (event))
 {

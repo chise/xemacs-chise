@@ -198,8 +198,8 @@ intern (const char *str)
 DEFUN ("intern", Fintern, 1, 2, 0, /*
 Return the canonical symbol whose name is STRING.
 If there is none, one is created by this function and returned.
-A second optional argument specifies the obarray to use;
-it defaults to the value of `obarray'.
+Optional second argument OBARRAY specifies the obarray to use;
+it defaults to the value of the variable `obarray'.
 */
        (string, obarray))
 {
@@ -245,8 +245,8 @@ DEFUN ("intern-soft", Fintern_soft, 1, 2, 0, /*
 Return the canonical symbol named NAME, or nil if none exists.
 NAME may be a string or a symbol.  If it is a symbol, that exact
 symbol is searched for.
-A second optional argument specifies the obarray to use;
-it defaults to the value of `obarray'.
+Optional second argument OBARRAY specifies the obarray to use;
+it defaults to the value of the variable `obarray'.
 */
        (name, obarray))
 {
@@ -278,7 +278,7 @@ Delete the symbol named NAME, if any, from OBARRAY.
 The value is t if a symbol was found and deleted, nil otherwise.
 NAME may be a string or a symbol.  If it is a symbol, that symbol
 is deleted, if it belongs to OBARRAY--no other symbol is deleted.
-OBARRAY defaults to the value of the variable `obarray'
+OBARRAY defaults to the value of the variable `obarray'.
 */
        (name, obarray))
 {
@@ -490,11 +490,9 @@ apropos_mapper (Lisp_Object symbol, void *arg)
 }
 
 DEFUN ("apropos-internal", Fapropos_internal, 1, 2, 0, /*
-Show all symbols whose names contain match for REGEXP.
-If optional 2nd arg PREDICATE is non-nil, (funcall PREDICATE SYMBOL)
- is done for each symbol and a symbol is mentioned only if that
- returns non-nil.
-Return list of symbols found.
+Return a list of all symbols whose names contain match for REGEXP.
+If optional 2nd arg PREDICATE is non-nil, only symbols for which
+\(funcall PREDICATE SYMBOL) returns non-nil are returned.
 */
        (regexp, predicate))
 {
@@ -1931,7 +1929,7 @@ local bindings in certain buffers.
 }
 
 DEFUN ("set-default", Fset_default, 2, 2, 0, /*
-Set SYMBOL's default value to VAL.  SYMBOL and VAL are evaluated.
+Set SYMBOL's default value to VALUE.  SYMBOL and VALUE are evaluated.
 The default value is seen in buffers that do not have their own values
 for this variable.
 */
@@ -2597,7 +2595,7 @@ The returned info will be a symbol, one of
 
 DEFUN ("local-variable-p", Flocal_variable_p, 2, 3, 0, /*
 Return t if SYMBOL's value is local to BUFFER.
-If optional third arg AFTER-SET is true, return t if SYMBOL would be
+If optional third arg AFTER-SET is non-nil, return t if SYMBOL would be
 buffer-local after it is set, regardless of whether it is so presently.
 A nil value for BUFFER is *not* the same as (current-buffer), but means
 "no buffer".  Specifically:
@@ -3191,7 +3189,7 @@ init_symbols_once_early (void)
   XSYMBOL (Qnil)->function = Qunbound;
 
   defsymbol (&Qt, "t");
-  XSYMBOL (Qt)->value = Qt;	/* Veritas aetera */
+  XSYMBOL (Qt)->value = Qt;	/* Veritas aeterna */
   Vquit_flag = Qnil;
 
   pdump_wire (&Qnil);
