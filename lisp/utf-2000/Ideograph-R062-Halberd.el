@@ -1689,34 +1689,33 @@
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x865B)	; 虛
-      )
-     ((=ucs		  . #x6208)	; 戈
-      ))
     (=ucs		. #x6231)	; 戱
-    (=ks-x1001		. #x7D74)	; &I-K0-7D74;
-    (=daikanwa		. 11668)	; &I-M-11668;
-    (=cbeta		. 00554)	; &I-CB00554;
-    ))
-(define-char
-  '((=>ucs		. #x6231)	; 戱
-    (morohashi-daikanwa	11668 0 0)
-    (ideographic-radical . 62)	; ⼽
-    (ideographic-strokes . 12)
-    (total-strokes	 . 16)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ks-x1001	    . #x7A48)	; &M-32709;
+	(=jis-x0213-1-2000  . #x7B4E)	; &I-JX1-7B4E;
+	(=daikanwa	    . 32709)	; &I-M-32709;
+	)
+       ((=ucs		    . #x6208)	; 戈
+	))
+      (=ks-x1001	  . #x7D74)	; &M-11668;
+      (=daikanwa	  . 11668)	; &I-M-11668;
+      (=cbeta		  . 00554)	; &I-CB00554;
+      (=ucs@unicode	  . #x6231)	; &M-11668;
       )
-     ((=cns11643-1	  . #x6170)	; &C1-6170;
-      )
-     ((=ucs		  . #x6208)	; 戈
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-1	    . #x6170)	; &C1-6170;
+	)
+       ((=ucs		    . #x6208)	; 戈
+	))
+      (=cns11643-3	  . #x506D)	; &C3-506D;
       ))
-    (=cns11643-3	. #x506D)	; &C3-506D;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
