@@ -115,10 +115,14 @@
 
 (defun insert-char-data (char &optional readable
 			      attributes ccs-attributes)
-  (or attributes
-      (setq attributes (sort (char-attribute-list) #'char-attribute-name<)))
-  (or ccs-attributes
-      (setq ccs-attributes (sort (charset-list) #'char-attribute-name<)))
+  (setq attributes
+	(if attributes
+	    (copy-sequence attributes)
+	  (sort (char-attribute-list) #'char-attribute-name<)))
+  (setq ccs-attributes
+	(if ccs-attributes
+	    (copy-sequence ccs-attributes)
+	  (sort (charset-list) #'char-attribute-name<)))
   (let (name value has-long-ccs-name rest
 	radical strokes)
     (save-restriction
@@ -290,6 +294,16 @@
 	      (setq strokes value)))
 	(setq attributes (delq 'cns-strokes attributes))
 	)
+      (when (setq value (get-char-attribute char 'shinjigen-1-radical))
+	(unless (eq value radical)
+	  (insert (format "(shinjigen-1-radical . %S)\t; %c
+    "
+			  value
+			  (aref ideographic-radicals value)))
+	  (or radical
+	      (setq radical value)))
+	(setq attributes (delq 'shinjigen-1-radical attributes))
+	)
       (when (setq value (get-char-attribute char 'total-strokes))
 	(insert (format "(total-strokes\t . %S)
     "
@@ -367,6 +381,12 @@
 				   value " ")))
 	(setq attributes (delq '->titlecase attributes))
 	)
+      (when (setq value (get-char-attribute char '->mojikyo))
+	(insert (format "(->mojikyo\t\t. %06d)\t; %c
+    "
+			value (decode-char 'mojikyo value)))
+	(setq attributes (delq '->mojikyo attributes))
+	)
       (setq rest ccs-attributes)
       (while (and rest
 		    (progn
@@ -417,18 +437,30 @@
 	    (insert
 	     (format
 	      (if has-long-ccs-name
-		  (if (memq name '(ideograph-daikanwa mojikyo))
-		      "(%-26s . %05d)\t; %c
+		  (cond ((eq name 'ideograph-daikanwa)
+			 "(%-26s . %05d)\t; %c
     "
-		    "(%-26s . #x%X)\t; %c
+			 )
+			((eq name 'mojikyo)
+			 "(%-26s . %06d)\t; %c
     "
-		    )
-		(if (memq name '(ideograph-daikanwa mojikyo))
-		    "(%-18s . %05d)\t; %c
+			 )
+			(t
+			 "(%-26s . #x%X)\t; %c
     "
-		  "(%-18s . #x%X)\t; %c
+			 ))
+		(cond ((eq name 'ideograph-daikanwa)
+		       "(%-18s . %05d)\t; %c
     "
-		  ))
+		       )
+		      ((eq name 'mojikyo)
+		       "(%-18s . %06d)\t; %c
+    "
+		       )
+		      (t
+		       "(%-18s . #x%X)\t; %c
+    "
+		       )))
 	      name
 	      (if (= (charset-iso-graphic-plane name) 1)
 		  (logior value
