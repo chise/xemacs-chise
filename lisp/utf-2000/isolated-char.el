@@ -202,6 +202,10 @@
     (ideograph-gt	. 21862)
     ))
 (define-char
+  '((ideograph-gt-pj-5	. #x4579)
+    (ideograph-gt	. 30254)
+    ))
+(define-char
   '((ideograph-gt-pj-11 . #x5277)
     (ideograph-gt	. 40268)
     ))
