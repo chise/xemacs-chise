@@ -1993,7 +1993,9 @@
     (ucs		. #x983A)	; é º
     ))
 (define-char
-  '((=>ucs		. #x983B)	; é »
+  '((=>ucs*		. #x983B)	; é »
+    (=>ucs-gb		. #x983B)	; é »
+    (=>ucs-cns		. #x983B)	; é »
     (ideographic-radical . 181)	; â¾´
     (ideographic-strokes . 7)
     (japanese-strokes	 . 8)
@@ -2002,9 +2004,12 @@
     (korean-ksc5601		. #x5E3A)	; ø»‰´‹
     (japanese-jisx0213-1	. #x7D7B)	; ø»¤›ž
     (ideograph-daikanwa		. 43519)	; ø¸Š§¿
+    (ucs-ks			. #x983B)	; ï©ª
+    (ucs			. #xFA6A)	; ï©ª
     ))
 (define-char
-  '((morohashi-daikanwa	43519 0 0)
+  '((=>ucs-jis		. #xFA6A)	; ï©ª
+    (morohashi-daikanwa	43519 0 0)
     (ideographic-radical . 181)	; â¾´
     (ideographic-strokes . 7)
     (japanese-strokes	 . 8)
