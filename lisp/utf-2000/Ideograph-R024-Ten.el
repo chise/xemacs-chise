@@ -552,8 +552,8 @@
     (total-strokes	 . 8)
     (ideographic-structure
      (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+		 (ucs		     . #x2FF3)	; â¿³
 		 )
       )
      ((japanese-jisx0208-1978	  . #x5035)	; ø»ƒ–
@@ -582,8 +582,8 @@
     (total-strokes	 . 8)
     (ideographic-structure
      (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+		 (ucs		     . #x2FF3)	; â¿³
 		 )
       )
      ((ucs		  . #x4EA0)	; äº 
