@@ -1,5 +1,11 @@
 1999-08-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c (leading_code_private_11): New variable.
+	(vars_of_mule_charset): Add new variables
+	`leading-code-private-11'.
+
+1999-08-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule-charset.h (CHARSET_BY_LEADING_BYTE): Use `MIN_LEADING_BYTE'
 	and `NUM_LEADING_BYTES' in assert.
 
