@@ -5609,6 +5609,7 @@
 (define-char
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 8)
+    (total-strokes	 . 11)
     (=ucs		. #x580F)	; 堏
     ))
 (define-char
