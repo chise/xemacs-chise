@@ -6,7 +6,7 @@
     (chinese-gb2312	. #x3924)	; ø»„©—
     (=jis-x0208		. #x3929)	; ø½Š™”
     (korean-ksc5601	. #x4D6F)	; ø»‰œ‚
-    (chinese-isoir165	. #x3924)	; ø»‘§
+    (=iso-ir165		. #x3924)	; ø»‘§
     (chinese-cns11643-1 . #x4456)	; ø»‘¶«
     (=gt-pj-1		. #x3929)	; å·¥
     (chinese-big5	. #xA475)	; ý¢€Š‘µ
@@ -61,7 +61,7 @@
     (chinese-gb2312	. #x5773)	; ø»…–ª
     (=jis-x0208		. #x3A38)	; ø½Š›
     (korean-ksc5601	. #x7127)	; ø»Š²
-    (chinese-isoir165	. #x5773)	; ø»¾º
+    (=iso-ir165		. #x5773)	; ø»¾º
     (chinese-cns11643-1 . #x464A)	; ø»‘¹›
     (=gt-pj-1		. #x3A38)	; å·¦
     (chinese-big5	. #xA5AA)	; ý¢€Š–ª
@@ -77,7 +77,7 @@
     (chinese-gb2312	. #x4749)	; ø»„¾ 
     (=jis-x0208		. #x392A)	; ø½Š™•
     (korean-ksc5601	. #x4E65)	; ø»‰–
-    (chinese-isoir165	. #x4749)	; ø»¦°
+    (=iso-ir165		. #x4749)	; ø»¦°
     (chinese-cns11643-1 . #x4649)	; ø»‘¹š
     (=gt-pj-1		. #x392A)	; å·§
     (chinese-big5	. #xA5A9)	; ý¢€Š–©
@@ -100,7 +100,7 @@
     (chinese-gb2312	. #x3E5E)	; ø»„±§
     (=jis-x0208		. #x3570)	; ø½Š”£
     (korean-ksc5601	. #x4B5D)	; ø»‰˜´
-    (chinese-isoir165	. #x3E5E)	; ø»™·
+    (=iso-ir165		. #x3E5E)	; ø»™·
     (chinese-cns11643-1 . #x4648)	; ø»‘¹™
     (=gt-pj-1		. #x3570)	; å·¨
     (chinese-big5	. #xA5A8)	; ý¢€Š–¨
@@ -161,7 +161,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (chinese-gb2312	. #x392E)	; ø»„©¡
-    (chinese-isoir165	. #x392E)	; ø»‘±
+    (=iso-ir165		. #x392E)	; ø»‘±
     (=ucs		. #x5DE9)	; å·©
     ))
 (define-char
@@ -188,7 +188,7 @@
     (chinese-gb2312	. #x4E57)	; ø»…‰€
     (=jis-x0208		. #x5660)	; ø½‹„±
     (korean-ksc5601	. #x5963)	; ø»‰­ž
-    (chinese-isoir165	. #x4E57)	; ø»±
+    (=iso-ir165		. #x4E57)	; ø»±
     (chinese-cns11643-1 . #x4A27)	; ø»‘¾°
     (=gt-pj-1		. #x5660)	; å·«
     (chinese-big5	. #xA7C5)	; ý¢€ŠŸ…
@@ -262,7 +262,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (chinese-gb2312	. #x326E)	; ø»„ 
-    (chinese-isoir165	. #x326E)	; ø»ˆŸ
+    (=iso-ir165		. #x326E)	; ø»ˆŸ
     (mojikyo		. 053115)	; ý €Œ½»
     (=ucs		. #x5DEE)	; å·®
     ))
@@ -303,7 +303,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (chinese-gb2312	. #x5B4F)	; ø»…›¾
-    (chinese-isoir165	. #x5B4F)	; ø»Ž„Ž
+    (=iso-ir165		. #x5B4F)	; ø»Ž„Ž
     (mojikyo		. 052445)	; ý €Œ³
     (=ucs		. #x5DEF)	; å·¯
     ))

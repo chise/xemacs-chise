@@ -1,3 +1,8 @@
+2003-04-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el (=iso-ir165): Renamed from `chinese-isoir165'.
+	(chinese-isoir165): Changed to an alias for `=iso-ir165'.
+
 2003-04-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (chinese-isoir165): Specify iso-ir 165.

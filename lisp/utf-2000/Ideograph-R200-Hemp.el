@@ -42,7 +42,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
     (chinese-gb2312	. #x4269)	; ø»„·ª
-    (chinese-isoir165	. #x4269)	; ø»Ÿº
+    (=iso-ir165		. #x4269)	; ø»Ÿº
     (=ucs		. #x9EBB)	; éº»
     ))
 (define-char
@@ -97,7 +97,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 14)
     (chinese-gb2312	. #x7761)	; ø»†…˜
-    (chinese-isoir165	. #x7761)	; ø»Ž­¨
+    (=iso-ir165		. #x7761)	; ø»Ž­¨
     (mojikyo		. 053640)	; ý €†ˆ
     (=ucs		. #x9EBD)	; éº½
     ))
@@ -169,7 +169,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
     (chinese-gb2312	. #x7762)	; ø»†…™
-    (chinese-isoir165	. #x7762)	; ø»Ž­©
+    (=iso-ir165		. #x7762)	; ø»Ž­©
     (=ucs		. #x9EBE)	; éº¾
     ))
 (define-char

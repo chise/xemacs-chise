@@ -6,7 +6,7 @@
     (chinese-gb2312	. #x733E)	; ø»…¾½
     (=jis-x0208		. #x344C)	; ø½Š’¡
     (korean-ksc5601	. #x5D2E)	; ø»‰²¡
-    (chinese-isoir165	. #x733E)	; ø»Ž§
+    (=iso-ir165		. #x733E)	; ø»Ž§
     (chinese-cns11643-1 . #x484F)	; ø»‘¼œ
     (=gt-pj-1		. #x344C)	; ç¼¶
     (ideograph-daikanwa . 28108)	; ø¸†·Œ
@@ -58,7 +58,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (chinese-gb2312	. #x3857)	; ø»„¨¬
-    (chinese-isoir165	. #x3857)	; ø»¼
+    (=iso-ir165		. #x3857)	; ø»¼
     (=ucs		. #x7F38)	; ç¼¸
     ))
 (define-char
@@ -150,7 +150,7 @@
     (chinese-gb2312	. #x4831)	; ø»„¿¦
     (=jis-x0208		. #x657E)	; ø½‹›‘
     (korean-ksc5601	. #x4C40)	; ø»‰™µ
-    (chinese-isoir165	. #x4831)	; ø»§¶
+    (=iso-ir165		. #x4831)	; ø»§¶
     (chinese-cns11643-1 . #x574D)	; ø»’’œ
     (=gt-pj-1		. #x657E)	; ç¼º
     (ideograph-daikanwa . 28122)	; ø¸†·š
@@ -525,7 +525,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (chinese-gb2312	. #x733F)	; ø»…¾¾
-    (chinese-isoir165	. #x733F)	; ø»Ž§Ž
+    (=iso-ir165		. #x733F)	; ø»Ž§Ž
     (=ucs		. #x7F42)	; ç½‚
     ))
 (define-char
@@ -607,7 +607,7 @@
     (total-strokes	 . 17)
     (chinese-gb2312	. #x7340)	; ø»…¾¿
     (japanese-jisx0212	. #x5471)	; ø»‹°š
-    (chinese-isoir165	. #x7340)	; ø»Ž§
+    (=iso-ir165		. #x7340)	; ø»Ž§
     (chinese-cns11643-1 . #x7474)	; ø»’½©
     (=jis-x0213-2-2000	. #x7466)	; ø»¦—¿
     (ideograph-daikanwa . 28167)	; ø¸†¸‡
@@ -635,7 +635,7 @@
     (shinjigen-2	. 6233)
     (chinese-gb2312	. #x7341)	; ø»…¿€
     (=jis-x0208		. #x6621)	; ø½‹›’
-    (chinese-isoir165	. #x7341)	; ø»Ž§
+    (=iso-ir165		. #x7341)	; ø»Ž§
     (ideograph-daikanwa . 28169)	; ø¸†¸‰
     (=ucs		. #x7F45)	; ç½…
     ))
@@ -842,7 +842,7 @@
     (total-strokes	 . 21)
     (shinjigen-2	. 6237)
     (=jis-x0208		. #x6623)	; ø½‹›”
-    (chinese-isoir165	. #x7E24)	; ø»Ž¶½
+    (=iso-ir165		. #x7E24)	; ø»Ž¶½
     (chinese-cns11643-2 . #x6B7B)	; ø»”º¦
     (ideograph-daikanwa . 28187)	; ø¸†¸›
     (=ucs		. #x7F4D)	; ç½
@@ -966,7 +966,7 @@
     (ideographic-strokes . 18)
     (total-strokes	 . 24)
     (chinese-gb2312	. #x395E)	; ø»„ª‘
-    (chinese-isoir165	. #x395E)	; ø»’¡
+    (=iso-ir165		. #x395E)	; ø»’¡
     (=ucs		. #x7F50)	; ç½
     ))
 (define-char

@@ -6,7 +6,7 @@
     (chinese-gb2312	. #x5627)	; ø»…”€
     (=jis-x0208		. #x3B59)	; ø½Š€
     (korean-ksc5601	. #x7228)	; ø»Š‘‘
-    (chinese-isoir165	. #x5627)	; ø»¼
+    (=iso-ir165		. #x5627)	; ø»¼
     (chinese-cns11643-1 . #x4545)	; ø»‘·¸
     (=gt-pj-1		. #x3B59)	; æ”¯
     (chinese-big5	. #xA4E4)	; ý¢€Š“¤

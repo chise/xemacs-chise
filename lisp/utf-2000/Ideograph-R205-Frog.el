@@ -49,7 +49,7 @@
 			 :sources	(cns-11643)))
     (total-strokes	 . 8)
     (chinese-gb2312	. #x763C)	; ø»†ƒ•
-    (chinese-isoir165	. #x763C)	; ø»Ž«¥
+    (=iso-ir165		. #x763C)	; ø»Ž«¥
     (chinese-cns11643-3 . #x2772)	; ø»• ©
     (mojikyo		. 051084)	; ý €ŒžŒ
     (=ucs		. #x9EFE)	; é»¾
@@ -232,7 +232,7 @@
 (define-char
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 5)
-    (chinese-isoir165	. #x2E7B)	; ø»‚´
+    (=iso-ir165		. #x2E7B)	; ø»‚´
     (=ucs		. #x9F0C)	; é¼Œ
     ))
 (define-char
@@ -571,7 +571,7 @@
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 12)
     (chinese-gb2312	. #x763E)	; ø»†ƒ—
-    (chinese-isoir165	. #x763E)	; ø»Ž«§
+    (=iso-ir165		. #x763E)	; ø»Ž«§
     (=ucs		. #x9F0D)	; é¼
     ))
 (define-char

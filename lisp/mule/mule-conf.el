@@ -63,15 +63,15 @@
 ;; ISO-IR-165 (CCITT Extended GB)
 ;;    It is based on CCITT Recommendation T.101, includes GB 2312-80 +
 ;;    GB 8565-88 table A4 + 293 characters.
-(make-charset
- 'chinese-isoir165
- "ISO-IR-165 (CCITT Extended GB; Chinese simplified)"
- `(iso-ir 165
-   registry "isoir165"
-   dimension 2
-   chars 94
-   final ?E
-   graphic 0))
+(make-charset '=iso-ir165
+	      "ISO-IR-165 (CCITT Extended GB; Chinese simplified)"
+	      '(iso-ir 165
+		       dimension 2
+		       chars 94
+		       final ?E
+		       registry "isoir165"
+		       graphic 0))
+(define-charset-alias 'chinese-isoir165 '=iso-ir165)
 
 ;; CNS11643 Plane3 thru Plane7
 ;; These represent more and more obscure Chinese characters.

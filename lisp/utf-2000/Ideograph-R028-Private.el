@@ -7,7 +7,7 @@
     (shinjigen-2	. 889)
     (chinese-gb2312	. #x5B4C)	; ø»…›»
     (=jis-x0208		. #x5253)	; ø½Š¾¬
-    (chinese-isoir165	. #x5B4C)	; ø»Ž„‹
+    (=iso-ir165		. #x5B4C)	; ø»Ž„‹
     (chinese-cns11643-3 . #x212B)	; ø»•–®
     (=gt-pj-1		. #x5253)	; åŽ¶
     (ideograph-daikanwa . 03057)	; ø¸€¯±
@@ -230,7 +230,7 @@
     (chinese-gb2312	. #x4825)	; ø»„¿š
     (=jis-x0208		. #x356E)	; ø½Š”¡
     (korean-ksc5601	. #x4B5B)	; ø»‰˜²
-    (chinese-isoir165	. #x4825)	; ø»§ª
+    (=iso-ir165		. #x4825)	; ø»§ª
     (chinese-cns11643-1 . #x462A)	; ø»‘¸»
     (=gt-pj-1		. #x356E)	; åŽ»
     (chinese-big5	. #xA568)	; ý¢€Š•¨
@@ -394,7 +394,7 @@
       )
      ((=ucs		  . #x53BB)	; åŽ»
       ))
-    (chinese-isoir165	. #x2C21)	; ø»Œ¾ž
+    (=iso-ir165		. #x2C21)	; ø»Œ¾ž
     (=hanziku-1		. #xAEE3)	; ý¢€š»£
     (=ucs		. #x53BE)	; åŽ¾
     ))
@@ -477,7 +477,7 @@
      ((=ucs		  . #x53B6)	; åŽ¶
       ))
     (chinese-gb2312	. #x4F58)	; ø»…ŠŸ
-    (chinese-isoir165	. #x4F58)	; ø»²¯
+    (=iso-ir165		. #x4F58)	; ø»²¯
     (=hanziku-1		. #xF573)	; ý¢€Ÿ•³
     (=ucs		. #x53BF)	; åŽ¿
     ))
@@ -578,7 +578,7 @@
      ((=ucs		  . #x4E09)	; ä¸‰
       ))
     (chinese-gb2312	. #x487E)	; ø»…€³
-    (chinese-isoir165	. #x487E)	; ø»©ƒ
+    (=iso-ir165		. #x487E)	; ø»©ƒ
     (chinese-cns11643-3 . #x2769)	; ø»•  
     (ideograph-daikanwa . 03089)	; ø¸€°‘
     (=hanziku-1		. #xF577)	; ý¢€Ÿ•·
@@ -615,7 +615,7 @@
     (shinjigen-2	. 892)
     (chinese-gb2312	. #x324E)	; ø»„Ÿ¯
     (=jis-x0208		. #x3B32)	; ø½Šœ™
-    (chinese-isoir165	. #x324E)	; ø»‡¿
+    (=iso-ir165		. #x324E)	; ø»‡¿
     (chinese-cns11643-3 . #x276A)	; ø»• ¡
     (=gt-pj-1		. #x3B32)	; å‚
     (ideograph-daikanwa . 03090)	; ø¸€°’
@@ -1033,7 +1033,7 @@
        ((=ucs		    . #x53CB)	; å‹
 	))
       ))
-    (chinese-isoir165	. #x7A45)	; ø»Ž±¦
+    (=iso-ir165		. #x7A45)	; ø»Ž±¦
     (=hanziku-1		. #xF5F5)	; ý¢€Ÿ—µ
     (=ucs		. #x53C6)	; å†
     ))
@@ -1090,7 +1090,7 @@
       )
      ((=ucs		  . #x902E)	; é€®
       ))
-    (chinese-isoir165	. #x7A46)	; ø»Ž±§
+    (=iso-ir165		. #x7A46)	; ø»Ž±§
     (=hanziku-1		. #xF5FA)	; ý¢€Ÿ—º
     (=ucs		. #x53C7)	; å‡
     ))

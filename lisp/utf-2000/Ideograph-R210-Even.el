@@ -259,7 +259,7 @@
   '((ideographic-radical . 210)	; â¿‘
     (ideographic-strokes . 9)
     (chinese-gb2312	. #x6C34)	; ø»…´¡
-    (chinese-isoir165	. #x6C34)	; ø»Žœ±
+    (=iso-ir165		. #x6C34)	; ø»Žœ±
     (=ucs		. #x9F51)	; é½‘
     ))
 (define-char

@@ -4,7 +4,7 @@
     (total-strokes	 . 8)
     (chinese-gb2312	. #x4125)	; ø»„µˆ
     (=jis-x0208		. #x7030)	; ø½‹ª
-    (chinese-isoir165	. #x4125)	; ø»˜
+    (=iso-ir165		. #x4125)	; ø»˜
     (chinese-cns11643-3 . #x2A7D)	; ø»•¥Ž
     (=gt-pj-1		. #x7030)	; éš¶
     (ideograph-daikanwa . 41923)	; ø¸Šƒ

@@ -21,7 +21,7 @@
     (total-strokes	 . 2)
     (hanyu-dazidian	1 102 1)
     (chinese-gb2312	. #x486B)	; ø»…€ 
-    (chinese-isoir165	. #x486B)	; ø»¨°
+    (=iso-ir165		. #x486B)	; ø»¨°
     (chinese-cns11643-1 . #x442B)	; ø»‘¶€
     (=ucs		. #x5165)	; å…¥
     ))
@@ -358,7 +358,7 @@
       ))
     (chinese-gb2312	. #x482B)	; ø»„¿ 
     (=jis-x0208		. #x4134)	; ø½Š¥
-    (chinese-isoir165	. #x482B)	; ø»§°
+    (=iso-ir165		. #x482B)	; ø»§°
     (=gt-pj-1		. #x4134)	; å…¨
     (=gt-k		. 01658)	; ý¡„€™º
     (=ucs		. #x5168)	; å…¨
