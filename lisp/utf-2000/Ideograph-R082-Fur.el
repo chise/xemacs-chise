@@ -693,15 +693,11 @@
 (define-char
   '((ideographic-radical . 82)	; â½‘
     (ideographic-strokes . 6)
+    (total-strokes	 . 10)
     (chinese-gb2312	. #x6B24)	; ø»…²³
     (chinese-isoir165	. #x6B24)	; ø»Ž›ƒ
-    (ucs		. #x6BEA)	; æ¯ª
-    ))
-(define-char
-  '((ideographic-radical . 82)	; â½‘
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
     (chinese-cns11643-3 . #x316D)	; ø»•¯
+    (ucs		. #x6BEA)	; æ¯ª
     ))
 (define-char
   '((ideographic-radical . 82)	; â½‘
