@@ -1050,13 +1050,9 @@
 (define-char
   '((ideographic-radical . 127)	; â½¾
     (ideographic-strokes . 16)
-    (ucs		. #x8032)	; è€²
-    ))
-(define-char
-  '((ideographic-radical . 127)	; â½¾
-    (ideographic-strokes . 16)
     (total-strokes	 . 22)
     (chinese-cns11643-4 . #x692D)	; ø»™Š¤
+    (ucs		. #x8032)	; è€²
     ))
 (define-char
   '((ideographic-radical . 127)	; â½¾
