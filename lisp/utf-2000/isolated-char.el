@@ -176,7 +176,7 @@
   (insert-file-contents "../etc/char-data/GT-RS.txt")
     (goto-char (point-min))
     (let (gt-code radical strokes plane code)
-      (while (re-search-forward "\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),GT\\([0-9]+\\),....,\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" nil t)
+      (while (re-search-forward "\\([0-9]+\\),\\([0-9]+\\)?,\\([0-9]+\\)?,GT\\([0-9]+\\),....,\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" nil t)
 	(setq gt-code (string-to-int (match-string 1))
 	      plane (string-to-int (match-string 4))
 	      code (string-to-int (match-string 5) 16))

@@ -854,7 +854,6 @@ Lisp_Object Vcharacter_variant_table;
 
 Lisp_Object Q_decomposition;
 Lisp_Object Qto_ucs;
-Lisp_Object Q_ucs;
 Lisp_Object Qcompat;
 Lisp_Object Qisolated;
 Lisp_Object Qinitial;
@@ -2972,7 +2971,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	}
       value = seq;
     }
-  else if (EQ (attribute, Qto_ucs) || EQ (attribute, Q_ucs))
+  else if (EQ (attribute, Qto_ucs))
     {
       Lisp_Object ret;
       Emchar c;
@@ -2989,10 +2988,6 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
 			     make_char (c), Fcons (character, ret));
 	}
-#if 0
-      if (EQ (attribute, Q_ucs))
-	attribute = Qto_ucs;
-#endif
     }
   {
     Lisp_Object table = Fgethash (attribute,
@@ -3118,9 +3113,7 @@ Store character's ATTRIBUTES.
 	    }
 	  rest = Fcdr (rest);
 	}
-      if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) ||
-	   (!NILP (code = Fcdr (Fassq (Q_ucs, attributes)))) )
-	
+      if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) )
 	{
 	  if (!INTP (code))
 	    signal_simple_error ("Invalid argument", attributes);
@@ -3175,8 +3168,7 @@ Retrieve the character of the given ATTRIBUTES.
 	}
       rest = Fcdr (rest);
     }
-  if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) ||
-       (!NILP (code = Fcdr (Fassq (Q_ucs, attributes)))) )
+  if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) )
     {
       if (!INTP (code))
 	signal_simple_error ("Invalid argument", attributes);
@@ -3529,7 +3521,6 @@ syms_of_chartab (void)
   INIT_LRECORD_IMPLEMENTATION (byte_table);
 
   defsymbol (&Qto_ucs,			"=>ucs");
-  defsymbol (&Q_ucs,			"->ucs");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
   defsymbol (&Qisolated,		"isolated");

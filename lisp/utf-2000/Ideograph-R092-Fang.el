@@ -24,10 +24,11 @@
     (total-strokes	 . 5)
     (=jis-x0208		. #x3267)	; ø½Š€
     (=ks-x1001		. #x6433)	; ø»‰¼¸
-    (=gt-pj-1		. #x3267)	; ø½Š€
+    (=gt-pj-1		. #x3267)	; ý¡€†˜
     (=gt-k		. 00900)	; ý¡„€Ž„
     (=jef-china3	. #x58C5)	; øº…£…
     (=ucs@jis		. #x7259)	; ø½Š€
+    (=gt		. 25560)	; ý¡€†˜
     ))
 (define-char
   '((=>ucs		. #x3E26)	; ã¸¦

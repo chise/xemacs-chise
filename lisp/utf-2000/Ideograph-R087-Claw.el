@@ -8,10 +8,11 @@
     (=ks-x1001		. #x7050)	; ø»ŠŽ½
     (=iso-ir165		. #x5726)	; ø»½­
     (=cns11643-1	. #x4557)	; ø»‘¸Š
-    (=gt-pj-1		. #x445E)	; çˆª
+    (=gt-pj-1		. #x445E)	; ý¡€†Šˆ
     (=big5		. #xA4F6)	; ý¢€Š“¶
     (=daikanwa		. 19653)	; ø¸„³…
     (=gt-k		. 00466)	; ý¡„€‡’
+    (=gt		. 25224)	; ý¡€†Šˆ
     (=ucs		. #x722A)	; çˆª
     ))
 (define-char
@@ -77,8 +78,10 @@
     (=ks-x1001		. #x7770)	; ø»Š™¯
     (=iso-ir165		. #x4540)	; ø»£«
     (=cns11643-1	. #x4E67)	; ø»’…¨
+    (=gt-pj-1		. #x6028)	; ý¡€†Š™
     (=big5		. #xAAA6)	; ý¢€Šª¦
     (=daikanwa		. 19662)	; ø¸„³Ž
+    (=gt		. 25241)	; ý¡€†Š™
     (=ucs		. #x722C)	; çˆ¬
     ))
 (define-char
@@ -89,11 +92,12 @@
     (shinjigen-2	. 4699)
     (=jis-x0208		. #x6027)	; ø½‹’¤
     (=ks-x1001		. #x6E33)	; ø»Š‹¤
-    (=gt-pj-1		. #x6027)	; ø½‹’¤
+    (=gt-pj-1		. #x6027)	; ý¡€†Š–
     (=big5		. #xAAA7)	; ý¢€Šª§
     (=daikanwa		. 19663)	; ø¸„³
     (=gt-k		. 03900)	; ý¡„€¼¼
     (=ucs@jis		. #x722D)	; ø½‹’¤
+    (=gt		. 25238)	; ý¡€†Š–
     ))
 (define-char
   '((morohashi-daikanwa	19663 0 2)
@@ -181,11 +185,12 @@
     (shinjigen-2	. 4701)
     (=jis-x0208		. #x6029)	; ø½‹’¦
     (=ks-x1001		. #x6A3A)	; ø»Š…³
-    (=gt-pj-1		. #x6029)	; ø½‹’¦
+    (=gt-pj-1		. #x6029)	; ý¡€†Šš
     (=big5		. #xACB8)	; ý¢€Š²¸
     (=daikanwa		. 19672)	; ø¸„³˜
     (=gt-k		. 05358)	; ý¡„“®
     (=ucs@jis		. #x7230)	; ø½‹’¦
+    (=gt		. 25242)	; ý¡€†Šš
     ))
 (define-char
   '((morohashi-daikanwa	19672 0 2)
@@ -316,10 +321,11 @@
     (shinjigen-2	. 4703)
     (=jis-x0208		. #x602A)	; ø½‹’§
     (=ks-x1001		. #x6A53)	; ø»Š†Œ
-    (=gt-pj-1		. #x602A)	; ø½‹’§
+    (=gt-pj-1		. #x602A)	; ý¡€†Š¶
     (=daikanwa		. 19686)	; ø¸„³¦
     (=gt-k		. 09209)	; ý¡„‚¹
     (=ucs@jis		. #x7232)	; ø½‹’§
+    (=gt		. 25270)	; ý¡€†Š¶
     ))
 (define-char
   '((morohashi-daikanwa	19686 0 2)
@@ -619,7 +625,9 @@
     (=jis-x0208		. #x3C5F)	; ø½Šž¤
     (=iso-ir165		. #x3E74)	; ø»š
     (=cns11643-1	. #x743A)	; ø»’¼¯
+    (=gt-pj-1		. #x3C5F)	; ý¡€†‹¡
     (=big5		. #xC0EF)	; ý¢€Œƒ¯
+    (=gt		. 25313)	; ý¡€†‹¡
     (mojikyo		. 050273)	; ý €Œ‘¡
     (=ucs		. #x7235)	; çˆµ
     ))

@@ -1072,7 +1072,7 @@
     ))
 
 (defun insert-char-data-with-variant (char &optional printable
-					   no-ucs-variant
+					   no-ucs-unified
 					   script excluded-script)
   (insert-char-data char printable)
   (let ((variants (or (char-variants char)
@@ -1089,7 +1089,7 @@
 	       (or (null excluded-script)
 		   (null (setq vs (get-char-attribute variant 'script)))
 		   (not (memq excluded-script vs))))
-	  (or (and no-ucs-variant (get-char-attribute variant '=ucs))
+	  (or (and no-ucs-unified (get-char-attribute variant '=ucs))
 	      (insert-char-data variant printable)))
       (setq variants (cdr variants))
       )))
@@ -1100,7 +1100,7 @@
     (while (<= code max)
       (setq char (decode-char '=ucs code))
       (if (encode-char char '=ucs 'defined-only)
-	  (insert-char-data-with-variant char nil 'no-ucs-variant
+	  (insert-char-data-with-variant char nil 'no-ucs-unified
 					 script excluded-script))
       (setq code (1+ code)))))
 

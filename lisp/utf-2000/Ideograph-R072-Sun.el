@@ -1062,9 +1062,10 @@
     (shinjigen-2	. 5286)
     (=jis-x0208		. #x4B41)	; ø½Š´ˆ
     (=cns11643-6	. #x316D)	; ø»œœ
-    (=gt-pj-1		. #x4B41)	; ø½Š´ˆ
+    (=gt-pj-1		. #x4B41)	; ý¡€‡–
     (=gt-k		. 05185)	; ý¡„‘
     (=ucs@jis		. #x5192)	; ø½Š´ˆ
+    (=gt		. 29718)	; ý¡€‡–
     ))
 (define-char
   '((ideographic-radical . 72)	; â½‡

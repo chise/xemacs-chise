@@ -3703,8 +3703,10 @@
     (shinjigen-2	. 757)
     (=jis-x0208		. #x372E)	; ø½Š–
     (=cns11643-3	. #x4D2C)	; ø»–——
+    (=gt-pj-1		. #x372E)	; ý¡€†ƒ
     (=daikanwa		. 02463)	; ø¸€¦Ÿ
     (=hanziku-1		. #xF472)	; ý¢€Ÿ‘²
+    (=gt		. 24769)	; ý¡€†ƒ
     (=ucs		. #x52F2)	; å‹²
     ))
 (define-char
