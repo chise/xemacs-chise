@@ -331,7 +331,7 @@
     (ideograph-daikanwa . 34789)	; ø¸ˆŸ¥
     ))
 (define-char
-  '((->ucs		. #x8986)	; è¦†
+  '((=>ucs		. #x8986)	; è¦†
     (morohashi-daikanwa	34789 0 0)
     (ideographic-radical . 146)	; â¾‘
     (ideographic-strokes . 12)
