@@ -1,3 +1,32 @@
+2001-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R156-Run.el (M-37034'): Unify M050479.
+
+	* Ideograph-R154-Shell.el (M-36920'): Unify M050478.
+
+	* Ideograph-R140-Grass.el: Separate some characters which have
+	3-strokes-Grass-radical from the corresponding characters which
+	have 4-strokes-Grass-radical.
+	(M-*****'): Unify some missing Mojikyo numbers.
+
+2001-05-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R147-See.el (M-34827'): Separate K0-634A; unify
+	M050449.
+	(M-34836): Relate to U+8996; unify K0-634A.
+
+	* Ideograph-R145-Clothes.el (M-34470): Unify M050444.
+	(U+891C): Unify M050035.
+	(U+891D): Unify M054689.
+
+	* Ideograph-R144-Walk-Enclosure.el (M-34046): New character; unify
+	C1-5D34.
+	(M-34046'): Separate C1-5D34; unify M050439.
+	(U+8850): Unify M059923.
+	(M-34065'): Unify M050440.
+
+	* Ideograph-R148-Horn.el (M-35135'): Unify M050450.
+
 2001-05-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R143-Blood.el (M-33999'): Unify M050438.
