@@ -1,3 +1,20 @@
+2001-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_china3_jef): Renamed from
+	`Vcharset_japanese_jef_china3'.
+	(Qchina3_jef): Renamed from `Qjapanese_jef_china3'.
+	(encode_builtin_char_1): Rename `{MIN|MAX}_CHAR_CHINA3_JEF' from
+	`{MIN|MAX}_CHAR_JEF_CHINA3'..
+	(syms_of_mule_charset): Rename `china3-jef' from
+	`japanese-jef-china3'.
+	(complex_vars_of_mule_charset): Likewise; rename
+	`LEADING_BYTE_CHINA3_JEF' from `LEADING_BYTE_JEF_CHINA3'.
+
+	* char-ucs.h (LEADING_BYTE_CHINA3_JEF): Renamed from
+	`LEADING_BYTE_JEF_CHINA3'.
+	(MIN_CHAR_CHINA3_JEF): Renamed from `MIN_CHAR_JEF_CHINA3'.
+	(MAX_CHAR_CHINA3_JEF): Renamed from `MAX_CHAR_JEF_CHINA3'.
+
 2001-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (encode_builtin_char_1): Comment out special code
