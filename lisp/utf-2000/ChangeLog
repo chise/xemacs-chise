@@ -1,5 +1,9 @@
 2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R157-Foot.el, Ideograph-R151-Bean.el,
+	Ideograph-R154-Shell.el, Ideograph-R128-Ear.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
 	* u0FF00-Halfwidth-and-Fullwidth-Forms.el: Add `<-halfwidth'
 	features for <HALFWIDTH> characters.
 
