@@ -21,8 +21,11 @@
 
 (map-char-attribute
  (lambda (c v)
-   (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
-		       '=gt-pj-1 v)
+   (unless (memq v '(#x5C37 #x5C52 #x3521 #x5D62 #x5F4A
+		     #x5F5B #x6062 #x4849 #x6173 #x306B
+		     #x6328 #x6352 #x6362))
+     (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
+			 '=gt-pj-1 v))
    nil)
  '=gt-pj-1)
 
