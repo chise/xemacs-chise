@@ -233,6 +233,13 @@
 			  cell))
 	  (setq data (del-alist 'iso-10646-comment data))
 	  )
+	(when (setq cell (assq 'morohashi-daikanwa data))
+	  (setq cell (cdr cell))
+	  (insert (format "(morohashi-daikanwa\t%s)
+    "
+			  (mapconcat (function prin1-to-string) cell " ")))
+	  (setq data (del-alist 'morohashi-daikanwa data))
+	  )
 	(when (setq cell (assq 'ideographic-radical data))
 	  (setq cell (cdr cell))
 	  (insert (format "(ideographic-radical . %S)\t; %c
