@@ -1,4 +1,20 @@
+2004-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decode_builtin_char): Use <EMACS_INT> instead of
+	<int> for `code'.
+	(Fdecode_builtin_char): Use <EMACS_INT> instead of <int> for code
+	point; use <Emchar> instead of <int> for character-id.
+
 2004-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lisp-disunion.h (make_int): Cast the argument into <EMACS_INT>.
+	(make_char): Likewise.
+	(XCHARVAL): Don't use the inline function for UTF-2000 in 64 bit
+	environment.
+	(XCHARVAL[for UTF-2000 in 32 bit environment]): Use <Emchar>
+	instead of <int> as the type of return value; use <Lisp_Object>
+	instead of <Emchar> as the type of argument.
+	(XCHARVAL[macro version]): Cast the result into <Emchar>.
 
 	* syntax.h (SYNTAX_CODE_UNSAFE): Use <Lisp_Object> and <enum
 	syntaxcode> instead of <int>.
