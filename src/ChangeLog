@@ -1,3 +1,44 @@
+2002-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h: Add `extern' for `Vcharset_ucs'.
+
+	* text-coding.c (Vcoded_charset_entity_reference_alist): New
+	variable.
+	(Quse_entity_reference): New variable.
+	(Qd): New variable.
+	(Qx): New variable.
+	(QX): New variable.
+	(coding_system_description): Add description for
+	`ccs_priority_list'.
+	(mark_coding_system): Mark `ccs_priority_list' in UTF-2000.
+	(allocate_coding_system): Initialize `ccs_priority_list' in
+	UTF-2000.
+	(Fmake_coding_system): Add description about
+	'use-entity-reference; setup CODING_SYSTEM_USE_ENTITY_REFERENCE
+	(codesys).
+	(Fcoding_system_property): Accept `disable-composition' and
+	`use-entity-reference' in UTF-2000.
+	(struct decoding_stream): Add new member `er_counter' and `er_buf'
+	in UTF-2000.
+	(reset_decoding_stream): Initialize `str->er_counter' in UTF-2000.
+	(decode_coding_utf8): Decode entity-reference if
+	CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys).
+	(char_encode_utf8): Encode non-Unicode characters as
+	entity-references if CODING_SYSTEM_USE_ENTITY_REFERENCE
+	(str->codesys).
+	(syms_of_file_coding): Add new symbols `use-entity-reference',
+	`d', `x', `X'.
+	(vars_of_file_coding): Add new variable
+	`coded-charset-entity-reference-alist'.
+	(complex_vars_of_file_coding): Declare `disable-composition' and
+	`use-entity-reference' to be coding-system-properties in UTF-2000.
+
+	* file-coding.h (struct Lisp_Coding_System): Add new member
+	`use_entity_reference' and `ccs_priority_list'.
+	(CODING_SYSTEM_USE_ENTITY_REFERENCE): New macro.
+	(CODING_SYSTEM_CCS_PRIORITY_LIST): New macro.
+	(XCODING_SYSTEM_USE_ENTITY_REFERENCE): New macro.
+
 2002-07-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (save_uint8_byte_table): Don't clear the table.
