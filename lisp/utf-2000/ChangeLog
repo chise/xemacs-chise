@@ -1,3 +1,8 @@
+2003-03-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R072-Sun.el (JSP-4247): Rename `=ucs-jis-1990' to
+	`=ucs@jis-1990'.
+
 2003-03-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R181-Leaf.el, Ideograph-R172-Short-Tailed-Bird.el,
