@@ -105,18 +105,13 @@
     (ideograph-daikanwa #x00 #x72)	; ø¹²
     ))
 (define-char
-  '((name		. "BOPOMOFO LETTER U")
-    (ucs		. #x3128)
-    (general-category	letter other) ; Informative Category
-    (bidi-category	. "L")
-    (mirrored		. nil)
+  '((ucs		. #x3405)
     (morohashi-daikanwa	115)
     (ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (comment		. "<ancient character> of M00257.0")
-    (chinese-gb2312	#x28 #x68)	; ø»„‘
-    (chinese-cns11643-1 #x25 #x6A)	; ø»‘‰
+    (chinese-cns11643-6 #x21 #x23)	; ø»›´²
     (ideograph-daikanwa #x00 #x73)	; ø¹³
     ))
 (define-char
@@ -126,7 +121,6 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (japanese-jisx0212	#x30 #x31)	; ø»Šº¢
-    (chinese-cns11643-6 #x21 #x23)	; ø»›´²
     (ideograph-daikanwa #x00 #x74)	; ø¹´
     ))
 (define-char
