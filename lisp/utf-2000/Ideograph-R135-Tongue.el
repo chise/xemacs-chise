@@ -429,29 +429,27 @@
     (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (->identical
-     (:sources	(morohashi-daikanwa)
-      :char	((ideograph-daikanwa . 38638)	; ø¸‰›®
+    (->same-ideograph
+     (:char	((ideograph-daikanwa . 38638)	; ø¸‰›®
 		 )
-      ))
+      :sources	(morohashi-daikanwa)))
     (<-vulgar-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((ideograph-daikanwa . 38671)	; ø¸‰œ
+     (:char	((ideograph-daikanwa . 38671)	; ø¸‰œ
 		 )
-      )
-     (:sources	(morohashi-daikanwa)
-      :char	((ideograph-daikanwa . 38649)	; ø¸‰›¹
+      :sources	(morohashi-daikanwa))
+     (:char	((ideograph-daikanwa . 38649)	; ø¸‰›¹
 		 )
-      ))
+      :sources	(morohashi-daikanwa)))
     (ideograph-daikanwa . 30307)	; ø¸‡™£
     ))
 (define-char
-  '((=>ucs		. #x8F9E)	; è¾ž
+  '((=>ucs*		. #x8F9E)	; è¾ž
     (morohashi-daikanwa	30307 0 1)
     (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (chinese-cns11643-3 . #x4425)	; ø»–Š‚
+    (ucs		. #x2F98D)	; ð¯¦
     ))
 (define-char
   '((=>ucs		. #x269DF)	; ð¦§Ÿ
