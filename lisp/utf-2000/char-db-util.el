@@ -77,27 +77,6 @@
 
 (defun char-attribute-name< (ka kb)
   (cond
-   ((find-charset ka)
-    (cond
-     ((find-charset kb)
-      (if (<= (charset-id ka) 0)
-	  (if (<= (charset-id kb) 0)
-	      (cond
-	       ((= (charset-dimension ka)
-		   (charset-dimension kb))
-		(> (charset-id ka)(charset-id kb)))
-	       (t
-		(> (charset-dimension ka)
-		   (charset-dimension kb))
-		))
-	    t)
-	(if (<= (charset-id kb) 0)
-	    nil
-	  (< (charset-id ka)(charset-id kb)))))
-     ((symbolp kb)
-      nil)
-     (t
-      t)))
    ((eq '->denotational kb)
     t)
    ((eq '->subsumptive kb)
@@ -106,6 +85,23 @@
     nil)
    ((eq '->subsumptive ka)
     nil)
+   ((find-charset ka)
+    (if (find-charset kb)
+	(if (<= (charset-id ka) 0)
+	    (if (<= (charset-id kb) 0)
+		(cond
+		 ((= (charset-dimension ka)
+		     (charset-dimension kb))
+		  (> (charset-id ka)(charset-id kb)))
+		 (t
+		  (> (charset-dimension ka)
+		     (charset-dimension kb))
+		  ))
+	      t)
+	  (if (<= (charset-id kb) 0)
+	      nil
+	    (< (charset-id ka)(charset-id kb))))
+      nil))
    ((find-charset kb)
     t)
    ((symbolp ka)
@@ -528,7 +524,7 @@
 		     line-breaking)
 	   (format "(%-18s %s)\t; %c%s"
 		   name
-		   (mapconcat #'prin1-to-string
+		   (mapconcat (function prin1-to-string)
 			      value " ")
 		   (char-representative-of-daikanwa char)
 		   line-breaking)))
