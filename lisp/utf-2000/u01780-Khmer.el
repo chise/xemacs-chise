@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "KHMER LETTER KA")
     (general-category	letter other) ; Informative Category
