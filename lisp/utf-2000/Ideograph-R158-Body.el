@@ -870,7 +870,9 @@
 (define-char
   '((ideographic-radical . 158)	; â¾
     (ideographic-strokes . 12)
-    (ucs		. #x8EC5)	; è»…
+    (total-strokes	 . 19)
+    (japanese-jisx0208-1990	. #x6D40)	; ø½‹¦ƒ
+    (ucs			. #x8EC5)	; è»…
     ))
 (define-char
   '((ideographic-radical . 158)	; â¾
