@@ -31,7 +31,8 @@
     (ucs		. #x6237)	; æˆ·
     ))
 (define-char
-  '((ideographic-radical . 63)	; â¼¾
+  '((=>ucs		. #x6239)	; æˆ¹
+    (ideographic-radical . 63)	; â¼¾
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (ideographic-structure
@@ -46,6 +47,20 @@
     (chinese-cns11643-3 . #x224E)	; ø»•˜¯
     (ideograph-daikanwa . 11697)	; ø¸‚¶±
     (ideograph-cbeta	. 00147)	; ø¸ ‚“
+    ))
+(define-char
+  '((morohashi-daikanwa	11697 0 2)
+    (ideographic-radical . 63)	; â¼¾
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (ucs		  . #x2FF8)	; â¿¸
+      )
+     ((ucs		  . #x6237)	; æˆ·
+      )
+     ((ucs		  . #x4E59)	; ä¹™
+      ))
     (ucs		. #x6239)	; æˆ¹
     ))
 (define-char
