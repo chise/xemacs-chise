@@ -1,3 +1,8 @@
+2004-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U-00025626): Add
+	`ideographic-radical@cns*sources'.
+
 2004-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R055-Two-Hands.el (U-0002233D): Use `->subsumptive'.
