@@ -92,12 +92,14 @@
 (define-char
   '((ideographic-radical . 174)	; â¾­
     (ideographic-strokes . 4)
+    (total-strokes	 . 12)
     (=ucs		. #x9753)	; é“
     (=gb2312		. #x7626)	; ø»†‚¿
     ))
 (define-char
   '((ideographic-radical . 174)	; â¾­
     (ideographic-strokes . 4)
+    (total-strokes	 . 12)
     (=ucs		. #x9754)	; é”
     (=iso-ir165		. #x2E7A)	; ø»‚³
     ))
