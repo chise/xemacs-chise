@@ -2030,6 +2030,10 @@
     (ucs		. #x1EA6)	; áº¦
     ))
 (define-char
+  '((=>ucs		. #x1EA6)	; áº¦
+    (china3-jef		. #x85B1)	; øºˆ–±
+    ))
+(define-char
   '((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND GRAVE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
@@ -2043,6 +2047,10 @@
     (latin-viscii-lower . #xA5)	; øº’œ…
     (latin-viscii	. #xA5)	; øº’œ…
     (ucs		. #x1EA7)	; áº§
+    ))
+(define-char
+  '((=>ucs		. #x1EA7)	; áº§
+    (china3-jef		. #x85B4)	; øºˆ–´
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -2423,6 +2431,10 @@
     (ucs		. #x1EC0)	; á»€
     ))
 (define-char
+  '((=>ucs		. #x1EC0)	; á»€
+    (china3-jef		. #x85B2)	; øºˆ–²
+    ))
+(define-char
   '((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND GRAVE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
@@ -2436,6 +2448,10 @@
     (latin-viscii-lower . #xAB)	; øº’œ‹
     (latin-viscii	. #xAB)	; øº’œ‹
     (ucs		. #x1EC1)	; á»
+    ))
+(define-char
+  '((=>ucs		. #x1EC1)	; á»
+    (china3-jef		. #x85B5)	; øºˆ–µ
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -2696,6 +2712,10 @@
     (ucs		. #x1ED2)	; á»’
     ))
 (define-char
+  '((=>ucs		. #x1ED2)	; á»’
+    (china3-jef		. #x85B3)	; øºˆ–³
+    ))
+(define-char
   '((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND GRAVE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
@@ -2709,6 +2729,10 @@
     (latin-viscii-lower . #xB0)	; øº’œ
     (latin-viscii	. #xB0)	; øº’œ
     (ucs		. #x1ED3)	; á»“
+    ))
+(define-char
+  '((=>ucs		. #x1ED3)	; á»“
+    (china3-jef		. #x85B6)	; øºˆ–¶
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND HOOK ABOVE")
