@@ -1,5 +1,35 @@
 2002-11-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R075-Tree.el (C1-644D): Unify J90-3335.
+
+	* Ideograph-R031-Enclosure.el (J0-5421): Unify B-B0E9.
+	(U+5708): Separate B-B0E9.
+
+	* Ideograph-R027-Cliff.el (J90-3139): Unify JC3-45E4.
+	(J83-3139): Separate JC3-45E4.
+
+	* Ideograph-R021-Spoon.el (U+5316): Unify B-A4C6; add
+	`hanyu-dazidian'.
+	(J0-6149): Separate C1-4527 and B-A4C6; delete `hanyu-dazidian'.
+
+	* Ideograph-R010-Legs.el (H1-DED5): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R009-Man.el: Modify/fix some definitions for some
+	characters.
+
+	* Ideograph-R006-Hook.el, Ideograph-R001-One.el: Reformatted.
+
+	* Ideograph-R175-Wrong.el (J83-7051): Separate J90-7051 and
+	JU+9760.
+
+	* Ideograph-R100-Life.el (J0-3B3A): Separate C3-3745 and G1-327A.
+
+	* Ideograph-R063-Door.el (J83-4862): Separate J90-4862 and
+	JU+6249.
+
+2002-11-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R212-Dragon.el (J0-4E36): Separate G1-417A and U+9F8D;
 	add `ucs-jis' for U+9F8D.
 
