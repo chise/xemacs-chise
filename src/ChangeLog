@@ -72,6 +72,11 @@
 	(ccl_driver): New case lable `CCL_Extention'.
 	(setup_ccl_program): Initialize the member `private_state' of CCL.
 
+1999-07-05  Didier Verna  <verna@inf.enst.fr>
+
+	* indent.c: new symbol Qcoerce.
+	(Fmove_to_column): use it + doc string update.
+
 1999-07-04  Andy Piper  <andy@xemacs.org>
 
 	* console.c: undo earlier Fprovide changes.
@@ -167,7 +172,7 @@
  	X11R5.
 
 	* s/cygwin32.h: fix me website address.
-	
+
 	* event-msw.c: add NMHDR for pre b20 cygwin builds.
 
 	* gui-x.c (button_item_to_widget_value): only add callback if it
@@ -365,7 +370,7 @@
 	(HAVE_UMICH_LDAP): Removed
 	(HAVE_NS_LDAP): Removed
 
-	* eldap.h (struct Lisp_LDAP): Removed the `livep' member as  
+	* eldap.h (struct Lisp_LDAP): Removed the `livep' member as
 	suggested by Olivier Galibert
 	(CHECK_LIVE_LDAP): Test on `ld' instead of `livep'
 
@@ -383,7 +388,7 @@
 
 1999-06-16  Norbert Koch  <n.koch@eai-delta.de>
 
-	* redisplay-msw.c: Run 'ccl_driver' with 'CCL_MODE_ENCODING' as in 
+	* redisplay-msw.c: Run 'ccl_driver' with 'CCL_MODE_ENCODING' as in
 	redisplay-x.c
 
 1999-06-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
@@ -661,9 +666,9 @@
  	ARG2.
 
 1999-05-21  Andy Piper  <andy@xemacs.org>
-	
+
 	* xselect.c: deleted.
-	
+
 	* symsinit.h: declare select initialisation.
 
 	* select.h: new file. declare commonly used select functions and
@@ -796,7 +801,7 @@
 	is interned in the main obarray.
 
 1999-04-23  Gunnar Evermann  <ge204@eng.cam.ac.uk>
-        
+
 	* menubar-x.c (pre_activate_callback): set accelerator field in
 	"No menu" entries to nil. Avoid crash in
 	command_builder_operate_menu_accelerator
@@ -818,13 +823,13 @@
 	* m/intel386.h: remove redundant definitions.
 
 	* s/mingw32.h: new header for mingw32.
-	
+
 	* unexnt.c: (open_input_file): function moved to nt.c.
 	(close_file_data): ditto.
 	(rva_to_section): function moved to ntproc.
 
 	* symsinit.h: declare syms_of_ntproc();
-	
+
 	* objects-msw.c (mswindows_font_instance_truename): new function.
 
 	* ntproc.c: remove many warnings.
@@ -836,7 +841,7 @@
 	(sys_spawnve): fix bad MULE/GCPRO bug in filename handling.
 
 	* ntheap.h: remove declarations of functions that are now static.
-	
+
 	* ntheap.c: support static heap.
 
 	* nt.h: conditionalise X_OK definition.
@@ -847,7 +852,7 @@
 	(_sys_read_ahead): moved to ntproc.c
 
 	* emacs.c: make sure syms_of_ntptroc gets called under windows.
-	
+
 	* console-msw.h: support mingw32.
 	* getloadavg.c: ditto.
 	* ntplay.c: ditto.
@@ -858,14 +863,14 @@
 
 	* config.h.in: dont turn on DEBUG_ENCAPSULATION by default because
  	some systems don't have all of the encapsulated system calls.
-	
+
 	* callproc.c: warning elimination.
 	* dired-msw.c: ditto.
 	* process-nt.c: ditto.
 	* realpath.c: ditto.
-	
+
 	* Makefile.in.in: tweak : and ; for building under mswindows.
-	
+
 1999-04-26  Michael Harnois  <mharnois@willinet.net>
 
 	* eldap.c (allocate_ldap): Adapt to the new semantics of
@@ -981,7 +986,7 @@
 	* symbols.c: Make gung-ho mandatory.  make_pure_pname ->
  		  make_string or make_string_nocopy.  Fix various
 	 	  alloc_lcrecord_type.
-	
+
 	* lread.c: Remove everything purespace related.
 	(Flocate_file_clear_hashing): purified -> c_readonly.
 	(locate_file): Ditto.
@@ -1150,7 +1155,7 @@
 
 	* fns.c (base64_decode_1): Remove COUNTER.
 	(base64_decode_1): Accept CRLF in addition to CR.
-	(base64_decode_1): Disallow a stray character after final EOF; the 
+	(base64_decode_1): Disallow a stray character after final EOF; the
 	check was probably a remnant of buggy recode code.
 
 1998-12-05  Hrvoje Niksic  <hniksic@srce.hr>
@@ -1319,8 +1324,8 @@
 	(composite_char_string):
 	(make-composite-char):
 	(composite-char-string):
-	(syms_of_mule_charset): 
-	(complex_vars_of_mule_charset): 
+	(syms_of_mule_charset):
+	(complex_vars_of_mule_charset):
 	* mule-charset.h (LEADING_BYTE_COMPOSITE):
 	(CHAR_LEADING_BYTE):
 	(MAKE_CHAR):
@@ -1333,8 +1338,8 @@
 	(reset_iso2022):
 	(parse_iso2022_esc):
 	(encode_coding_iso2022):
-	#ifdef out all composite character support using 
-	#ifdef ENABLE_COMPOSITE_CHARS 
+	#ifdef out all composite character support using
+	#ifdef ENABLE_COMPOSITE_CHARS
 
 	* alloc.c: Define lrecord_coding_system only if ! FILE_CODING
 
@@ -5618,4 +5623,3 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 1998-05-10  Hrvoje Niksic  <hniksic@srce.hr>
 
 	* frame.c (Ffocus_frame): New function.
-
