@@ -1,4 +1,42 @@
+2003-07-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el (U+8363): Add `morohashi-daikanwa' for
+	M-14683 instead of using `->same-ideograph'.
+
+	* Ideograph-R102-Field.el (U+3F57): Unify JX2-7134.
+
+	* Ideograph-R098-Tile.el (U+74EF): Unify JX2-712C.
+
+	* Ideograph-R094-Dog.el (JSP-4B25): Unify JX2-7045.
+	(U+7339): Unify JX2-704A.
+
+	* Ideograph-R087-Claw.el (U+722B): Add JU+FA49.
+	(U+FA49): New character.
+
+	* Ideograph-R079-Weapon.el (JSP-4633): Unify JX2-6E25 and M-16650.
+
+	* Ideograph-R064-Hand.el (U+63F7): Unify JX2-2D3C.
+	(U+3A6E): New character.
+
+	* Ideograph-R050-Turban.el (U+3836): Unify JX2-2871.
+	(U+5E49): Unify JX2-2878.
+	(U+3861): New character.
+
 2003-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (U+3917): New character.
+	(U+6112): Unify JX2-2C5B.
+	(JX2-2C57): New character.
+
+	* Ideograph-R060-Step.el (JSP-3D32): Unify JX2-2C38.
+
+	* Ideograph-R046-Mountain.el (JSP-3B2A): Unify JX2-283C.
+	(U+37C1): Unify JX2-283E.
+	(M-08196): Unify JX2-284F.
+	(JSP-3B68): Unify JX2-285F.
+	(JSP-3B6C): Unify JX2-2862.
+
+	* Ideograph-R040-Roof.el (MH-0132): Unify JX2-2823.
 
 	* Ideograph-R213-Turtle.el (J90-6354): Unify GT-32753; don't use
 	char-ref format in `<-ancient-ideograph'; use
