@@ -799,7 +799,7 @@ typedef struct
   int int_p;
   union
   {
-    int ival;
+    EMACS_INT ival;
     double dval;
   } c;
 } int_or_double;

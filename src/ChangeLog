@@ -82,6 +82,35 @@
 	(complex_vars_of_chartab): Set up new variable
 	`word-combining-categories' and `word-separating-categories'.
 
+1999-06-22  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.17 is released
+
+1999-06-13  Oscar Figueiredo  <oscar@xemacs.org>
+
+	* config.h.in (HAVE_LDAP_SET_OPTION): New define
+	(HAVE_LDAP_GET_LDERRNO): Ditto
+	(HAVE_LDAP_RESULT2ERROR): Ditto
+	(HAVE_LDAP_PARSE_RESULT): Ditto
+	(HAVE_UMICH_LDAP): Removed
+	(HAVE_NS_LDAP): Removed
+
+	* eldap.h (struct Lisp_LDAP): Removed the `livep' member as  
+	suggested by Olivier Galibert
+	(CHECK_LIVE_LDAP): Test on `ld' instead of `livep'
+
+	* eldap.c: Take the removal of `livep' into account in all the
+	necessary functions
+	(signal_ldap_error): Take two additional parameters
+	Added new finer compilation conditions in order to use
+	ldap_parse_result or ldap_result2error if available
+	(Fldap_open): Conform to this new API
+	(Fldap_search_internal): Ditto
+
+1999-06-17  SL Baur  <steve@miho.m17n.org>
+
+	* data.c (struct int_or_double): Should use EMACS_INT not int.
+
 1999-06-16  Norbert Koch  <n.koch@eai-delta.de>
 
 	* redisplay-msw.c: Run 'ccl_driver' with 'CCL_MODE_ENCODING' as in 

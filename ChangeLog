@@ -1,3 +1,14 @@
+1999-06-22  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.17 is released
+
+1999-06-13  Oscar Figueiredo  <oscar@xemacs.org>
+
+	* configure.in (with_ldap): Check libldap independently of liblber
+	Do not test alternate library names such as libldap10
+	Test the presence of a variety of LDAP API functions which were
+	formerly assumed to be present according to dubious heuristics
+
 1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.16 is released
