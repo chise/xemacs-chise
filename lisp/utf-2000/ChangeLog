@@ -1,3 +1,14 @@
+2004-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R180-Sound.el, Ideograph-R178-Tanned-Leather.el: Use
+	`->subsumptive' for some character definitions.
+
+2004-05-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R179-Leek.el: Use `->subsumptive' for some character
+	definitions.
+	(U+97EF): Unify JC3-6CD4.
+
 2004-05-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R177-Leather.el: Use `->subsumptive' for some
