@@ -1,3 +1,10 @@
+2000-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Define new macro
+	`DEF_MOJIKYO_PJ' in UTF-2000; use `DEF_MOJIKYO_PJ' to define
+	`mojikyo-pj-*'; add "MojikyoPJ-*" to charset-registry of
+	`mojikyo-pj-*'.
+
 2000-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (decode_coding_big5): Modify for UTF-2000.
