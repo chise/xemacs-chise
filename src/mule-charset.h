@@ -567,9 +567,9 @@ extern struct charset_lookup *chlook;
 /* int not Bufbyte even though that is the actual type of a leading byte.
    This way, out-ot-range values will get caught rather than automatically
    truncated. */
-INLINE_HEADER Lisp_Object CHARSET_BY_LEADING_BYTE (Charset_ID lb);
+INLINE_HEADER Lisp_Object CHARSET_BY_LEADING_BYTE (int lb);
 INLINE_HEADER Lisp_Object
-CHARSET_BY_LEADING_BYTE (Charset_ID lb)
+CHARSET_BY_LEADING_BYTE (int lb)
 {
   assert (lb >= MIN_LEADING_BYTE &&
 	  lb < MIN_LEADING_BYTE + NUM_LEADING_BYTES);
