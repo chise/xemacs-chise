@@ -1,3 +1,8 @@
+2004-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (JC3-4DA7): Unify GT-12606 and
+	GT-K07831; add `=ucs@jp'.
+
 2004-01-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R117-Stand.el, Ideograph-R109-Eye.el,
