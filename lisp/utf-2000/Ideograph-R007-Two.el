@@ -10,8 +10,10 @@
     (korean-ksc5601	. #x6C23)	; ø»Šˆ˜
     (chinese-isoir165	. #x367E)	; ø»Ž§
     (chinese-cns11643-1 . #x4428)	; ø»‘µ½
+    (ideograph-gt-pj-1	. #x4673)	; äºŒ
     (chinese-big5	. #xA447)	; ý¢€Š‘‡
     (ideograph-daikanwa . 00247)	; ø¸€ƒ·
+    (ideograph-gt-k	. 00054)	; ý¡„€€¶
     (ucs		. #x4E8C)	; äºŒ
     ))
 (define-char
