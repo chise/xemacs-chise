@@ -1,3 +1,27 @@
+1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* config.h.in (CHAR_IS_UCS4): New macro.
+
+	* mule-charset.c (rep_bytes_by_first_byte): Modify for
+	conventional MULE representation.
+	(syms_of_mule_charset): Update to 0.3 (Imamiya).
+
+	* mule-charset.h: Reverted to original.
+
+	* redisplay-msw.c, objects-tty.c, objects-msw.c, mule-wnnfns.c,
+	mule-ccl.c, lstream.h, buffer.h: Use "character.h" instead of
+	"mule-charset.h" if CHAR_IS_UCS4 is defined.
+
+	* character.h: New file.
+
+	* file-coding.c (Fmake_coding_system): Set 1 to
+	`codesys->fixed.size' if TYPE is `no-conversion' and UTF2000 is
+	defined.
+	(encode_coding_no_conversion): New implementation for UTF2000.
+
+	* file-coding.h (struct Lisp_Coding_System): Add new member
+	`fixed.size'.
+
 1999-06-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* file-coding.c (decode_coding_iso2022): Code-point arguments of
