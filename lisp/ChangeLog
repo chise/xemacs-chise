@@ -14,15 +14,20 @@
 
 	* mule/japanese.el:
 	- Use `define-coding-system-alias' instead of `copy-coding-system'.
-	- Register `coding-priority', `input-method' and `features' keys
-	  into language-info-alist.
+	- Register `input-method' and `features' keys into
+	  language-info-alist.
+
+1998-04-06  Kenichi Handa  <handa@etl.go.jp>
+
+	* language/japanese.el: Set exit-function to
+	exit-japanese-environment for Japanese environment.
 
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/vietnamese.el:
 	- Specify `iso-8-1' as a category of coding-system `viscii'.
-	- Register `coding-priority', `input-method' and `features' keys
-	  into language-info-alist.
+	- Register `input-method' and `features' keys into
+	  language-info-alist.
 
 1999-06-03  Ken'ichi Handa  <handa@gnu.org>
 
@@ -97,6 +102,9 @@
 	setup-chinese-environment-map.  Exclude them in args of calls to
 	set-language-info-alist.  Register coding-priority key in
 	language-info-alist.
+
+	* language/japanese.el, language/korean.el,
+	language/vietnamese.el: Register coding-priority key in
 
 1997-10-21  Kenichi Handa  <handa@etl.go.jp>
 
