@@ -1,5 +1,15 @@
 2003-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R038-Woman.el (U+5982): Separate C1-4771.
+
+	* Ideograph-R078-Death.el: Reformatted.
+
+	* Ideograph-R075-Tree.el (U+6885): Unify JU+FA44.
+	(U+FA44): New character.
+
+	* Ideograph-R017-Open-Box.el (M-01803): Separate G0-5057 and
+	U+51F6; add JU+51F6.
+
 	* Ideograph-R066-Rap.el (U+654F): Unify JU+FA41.
 	(U+FA41): New character.
 
