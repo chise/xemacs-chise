@@ -1,3 +1,13 @@
+2003-06-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R050-Turban.el (J0-5672): Unify JU+5E64.
+
+	* Ideograph-R046-Mountain.el (J0-5630): Unify JU+5CBC.
+	(J0-563F): Unify JU+5D5C.
+	(J0-564E): Unify JU+5D76.
+
+	* Ideograph-R040-Roof.el (J0-5565): Unify JU+5BC9.
+
 2003-06-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R050-Turban.el (MH-0159): New character.
