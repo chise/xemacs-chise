@@ -116,6 +116,46 @@
    ((symbolp kb)
     nil)))
 
+(defun char-db-insert-char-ref (char &optional readable column)
+  (unless column
+    (setq column (current-column)))
+  (let (char-ref ret al cal key)
+    (cond ((characterp char)
+	   (cond ((setq ret (get-char-attribute char 'ucs))
+		  (setq char-ref (list (cons 'ucs ret)))
+		  (if (setq ret (get-char-attribute char 'name))
+		      (setq char-ref (cons (cons 'name ret) char-ref)))
+		  )
+		 ((setq ret (split-char char))
+		  (setq char-ref (list ret))
+		  (dolist (ccs (delq (car ret) (charset-list)))
+		    (if (and (>= (charset-iso-final-char ccs) ?0)
+			     (setq ret (get-char-attribute char ccs)))
+			(setq char-ref (cons (cons ccs ret) char-ref))))
+		  (if (setq ret (get-char-attribute char 'name))
+		      (setq char-ref (cons (cons 'name ret) char-ref)))
+		  )))
+	  ((consp char)
+	   (setq char-ref char)
+	   (setq char nil)))
+    (if (or char
+	    (setq char (condition-case nil
+			   (define-char char-ref)
+			 (error nil))))
+	(progn
+	  (setq al nil
+		cal nil)
+	  (while char-ref
+	    (setq key (car (car char-ref)))
+	    (if (find-charset key)
+		(setq cal (cons key cal))
+	      (setq al (cons key al)))
+	    (setq char-ref (cdr char-ref)))
+	  (insert-char-attributes char
+				  readable
+				  (or al 'none) cal))
+      (insert (prin1-to-string char-ref)))))
+
 (defun char-db-insert-alist (alist &optional readable column)
   (unless column
     (setq column (current-column)))
@@ -189,6 +229,52 @@
       (setq alist (cdr alist))))
   (insert ")"))
 
+(defun char-db-insert-char-map (plist &optional readable column)
+  (unless column
+    (setq column (current-column)))
+  (let ((line-breaking
+	 (concat "\n" (make-string (1+ column) ?\ )))
+	name value)
+    (insert "(")
+    (while plist
+      (setq name (pop plist))
+      (setq value (pop plist))
+      (cond ((eq name :char)
+	     (insert ":char\t")
+	     (char-db-insert-char-ref value readable)
+             (insert line-breaking))
+            (t
+	     (insert (format "%s\t%S%s"
+			     name value
+			     line-breaking))))
+      ))
+  (insert ")"))
+
+(defun char-db-decode-isolated-char (ccs code-point)
+  (let (ret)
+    (setq ret
+	  (if (and (memq ccs '(ideograph-gt-pj-1
+			       ideograph-gt-pj-2
+			       ideograph-gt-pj-3
+			       ideograph-gt-pj-4
+			       ideograph-gt-pj-5
+			       ideograph-gt-pj-6
+			       ideograph-gt-pj-7
+			       ideograph-gt-pj-8
+			       ideograph-gt-pj-9
+			       ideograph-gt-pj-10
+			       ideograph-gt-pj-11))
+		   (setq ret (decode-char ccs code-point))
+		   (setq ret (get-char-attribute ret 'ideograph-gt)))
+	      (decode-builtin-char 'ideograph-gt ret)
+	    (decode-builtin-char ccs code-point)))
+    (cond ((and (<= 0 (char-int ret))
+		(<= (char-int ret) #x1F))
+	   (decode-char 'ucs (+ #x2400 (char-int ret))))
+	  ((= (char-int ret) #x7F)
+	   ?\u2421)
+	  (t ret))))
+
 (defun insert-char-attributes (char &optional readable
 				    attributes ccs-attributes
 				    column)
@@ -217,7 +303,7 @@
       (insert (format
 	       (if (> (length value) 47)
 		   "(name . %S)%s"
-		 "(name\t\t. %S)%s")
+		 "(name               . %S)%s")
 	       value line-breaking))
       (setq attributes (delq 'name attributes))
       )
@@ -229,9 +315,16 @@
 		      line-breaking))
       (setq attributes (delq 'script attributes))
       )
+    (when (and (memq '=>ucs attributes)
+	       (setq value (get-char-attribute char '=>ucs)))
+      (insert (format "(=>ucs\t\t. #x%04X)\t; %c%s"
+		      value (decode-char 'ucs value)
+		      line-breaking))
+      (setq attributes (delq '=>ucs attributes))
+      )
     (when (and (memq '->ucs attributes)
 	       (setq value (get-char-attribute char '->ucs)))
-      (insert (format "(->ucs\t\t. #x%04X)\t; %c%s"
+      (insert (format "(=>ucs\t\t. #x%04X)\t; %c%s"
 		      value (decode-char 'ucs value)
 		      line-breaking))
       (setq attributes (delq '->ucs attributes))
@@ -450,51 +543,9 @@
 		      line-breaking))
       (setq attributes (delq '->decomposition attributes))
       )
-    (when (and (memq '->uppercase attributes)
-	       (setq value (get-char-attribute char '->uppercase)))
-      (insert (format "(->uppercase\t%s)%s"
-		      (mapconcat (lambda (code)
-				   (cond ((symbolp code)
-					  (symbol-name code))
-					 ((integerp code)
-					  (format "#x%04X" code))
-					 (t
-					  (format "%s %S"
-						  line-breaking code))))
-				 value " ")
-		      line-breaking))
-      (setq attributes (delq '->uppercase attributes))
-      )
-    (when (and (memq '->lowercase attributes)
-	       (setq value (get-char-attribute char '->lowercase)))
-      (insert (format "(->lowercase\t%s)%s"
-		      (mapconcat (lambda (code)
-				   (cond ((symbolp code)
-					  (symbol-name code))
-					 ((integerp code)
-					  (format "#x%04X" code))
-					 (t
-					  (format "%s %S"
-						  line-breaking code))))
-				 value " ")
-		      line-breaking))
-      (setq attributes (delq '->lowercase attributes))
-      )
-    (when (and (memq '->titlecase attributes)
-	       (setq value (get-char-attribute char '->titlecase)))
-      (insert (format "(->titlecase\t%s)%s"
-		      (mapconcat (lambda (code)
-				   (cond ((symbolp code)
-					  (symbol-name code))
-					 ((integerp code)
-					  (format "#x%04X" code))
-					 (t
-					  (format "%s %S"
-						  line-breaking code))))
-				 value " ")
-		      line-breaking))
-      (setq attributes (delq '->titlecase attributes))
-      )
+    (if (equal (get-char-attribute char '->titlecase)
+	       (get-char-attribute char '->uppercase))
+	(setq attributes (delq '->titlecase attributes)))
     (when (and (memq '->mojikyo attributes)
 	       (setq value (get-char-attribute char '->mojikyo)))
       (insert (format "(->mojikyo\t\t. %06d)\t; %c%s"
@@ -521,20 +572,40 @@
 		 (insert (format "(%-18s . #x%04X)%s"
 				 name value
 				 line-breaking)))
-		((string-match "^->" (symbol-name name))
-		 (insert
-		  (format "(%-18s %s)%s"
-			  name
-			  (mapconcat (lambda (code)
-				       (cond ((symbolp code)
-					      (symbol-name code))
-					     ((integerp code)
-					      (format "#x%04X" code))
-					     (t
-					      (format "%s%S"
-						      line-breaking code))))
-				     value " ")
-			  line-breaking)))
+		((memq name '(->lowercase
+			      ->uppercase ->titlecase
+			      ->fullwidth <-fullwidth
+			      ->vulgar-ideograph <-vulgar-ideograph
+			      ->ancient-ideograph <-ancient-ideograph
+			      ->same-ideograph
+			      ->bopomofo))
+		 (insert (format "(%-18s%s " name line-breaking))
+		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
+		       separator nil)
+		 (while (consp value)
+		   (setq cell (car value))
+                   (if (integerp cell)
+		       (setq cell (decode-char 'ucs cell)))
+		   (cond ((characterp cell)
+			  (if separator
+			      (insert lbs))
+			  (char-db-insert-char-ref cell readable)
+			  (setq separator lbs))
+			 ((consp cell)
+			  (if separator
+			      (insert lbs))
+			  (if (consp (car cell))
+			      (char-db-insert-char-ref cell readable)
+			    (char-db-insert-char-map cell readable))
+			  (setq separator lbs))
+			 (t
+			  (if separator
+			      (insert separator))
+			  (insert (prin1-to-string cell))
+			  (setq separator " ")))
+		   (setq value (cdr value)))
+		 (insert ")")
+		 (insert line-breaking))
 		((memq name '(ideograph=
 			      original-ideograph-of
 			      ancient-ideograph-of
@@ -562,6 +633,20 @@
 		   (setq value (cdr value)))
 		 (insert ")")
 		 (insert line-breaking))
+		((string-match "^->" (symbol-name name))
+		 (insert
+		  (format "(%-18s %s)%s"
+			  name
+			  (mapconcat (lambda (code)
+				       (cond ((symbolp code)
+					      (symbol-name code))
+					     ((integerp code)
+					      (format "#x%04X" code))
+					     (t
+					      (format "%s%S"
+						      line-breaking code))))
+				     value " ")
+			  line-breaking)))
 		((consp value)
 		 (insert (format "(%-18s " name))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
@@ -616,10 +701,14 @@
 		   (if has-long-ccs-name
 		       "(%-26s . %06d)\t; %c%s"
 		     "(%-18s . %06d)\t; %c%s"))
+		  ((eq name 'ucs)
+		   (if has-long-ccs-name
+		       "(%-26s . #x%04X)\t; %c%s"
+		     "(%-18s . #x%04X)\t; %c%s"))
 		  (t
 		   (if has-long-ccs-name
-		       "(%-26s . #x%X)\t; %c%s"
-		     "(%-18s . #x%X)\t; %c%s")))
+		       "(%-26s . #x%02X)\t; %c%s"
+		     "(%-18s . #x%02X)\t; %c%s")))
 	    name
 	    (if (= (charset-iso-graphic-plane name) 1)
 		(logior value
@@ -631,21 +720,7 @@
 			       #x808080)
 			      (t 0)))
 	      value)
-	    (if (and (memq name '(ideograph-gt-pj-1
-				  ideograph-gt-pj-2
-				  ideograph-gt-pj-3
-				  ideograph-gt-pj-4
-				  ideograph-gt-pj-5
-				  ideograph-gt-pj-6
-				  ideograph-gt-pj-7
-				  ideograph-gt-pj-8
-				  ideograph-gt-pj-9
-				  ideograph-gt-pj-10
-				  ideograph-gt-pj-11))
-		     (setq ret (decode-char name value))
-		     (setq ret (get-char-attribute ret 'ideograph-gt)))
-		(decode-builtin-char 'ideograph-gt ret)
-	      (decode-builtin-char name value))
+            (char-db-decode-isolated-char name value)
 	    line-breaking)))
       (setq ccs-attributes (cdr ccs-attributes)))
     (insert ")")))
