@@ -137,7 +137,7 @@
     (ideograph-gt-pj-2	. #x306C)	; ý¡€€‚‡
     (ideograph-daikanwa . 00097)	; ø¸€¡
     (ideograph-gt-k	. 00282)	; ý¡„€„š
-    (ideograph-cbeta	. 02728)	; ø¸ ª¨
+    (=cbeta		. #x0AA8)	; ø¸ ª¨
     (ideograph-gt	. 00135)	; ý¡€€‚‡
     (mojikyo		. 000097)	; ý €€¡
     ))

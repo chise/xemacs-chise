@@ -196,7 +196,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 09207)	; ø¸‚·
-    (ideograph-cbeta	. 05036)	; ø¸¡Ž¬
+    (=cbeta		. #x13AC)	; ø¸¡Ž¬
     (ucs		. #x221C7)	; ð¢‡‡
     ))
 (define-char

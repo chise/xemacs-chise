@@ -524,7 +524,7 @@
     (japanese-jisx0212	. #x3C7A)	; ø»‹“
     (chinese-cns11643-3 . #x505E)	; ø»–œ£
     (ideograph-daikanwa . 09948)	; ø¸‚›œ
-    (ideograph-cbeta	. 01820)	; ø¸ œœ
+    (=cbeta		. #x071C)	; ø¸ œœ
     (ucs		. #x5F5B)	; å½›
     ))
 (define-char
@@ -533,7 +533,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (=jis-x0208		. #x5734)	; ø½‹…£
-    (ideograph-cbeta	. 02362)	; ø¸ ¤º
+    (=cbeta		. #x093A)	; ø¸ ¤º
     (ucs		. #x5F5C)	; å½œ
     ))
 (define-char

@@ -78,7 +78,7 @@
       ))
     (japanese-jisx0212	. #x4146)	; ø»‹“µ
     (ideograph-daikanwa . 13067)	; ø¸ƒŒ‹
-    (ideograph-cbeta	. 02050)	; ø¸  ‚
+    (=cbeta		. #x0802)	; ø¸  ‚
     (=jef-china3	. #x50BE)	; øº…‚¾
     (ucs-jis		. #x6531)	; ø»‹“µ
     ))

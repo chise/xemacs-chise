@@ -11,7 +11,7 @@
     (ideograph-daikanwa . 00106)	; ø¸€ª
     (chinese-big5-cdp	. #x8B47)	; ý¢€ˆ­‡
     (ideograph-gt-k	. 00013)	; ý¡„€€
-    (ideograph-cbeta	. 06875)	; ø¸¡«›
+    (=cbeta		. #x1ADB)	; ø¸¡«›
     (ideograph-gt	. 00151)	; ý¡€€‚—
     (mojikyo		. 000106)	; ý €€ª
     (ucs		. #x4E3F)	; ä¸¿
@@ -388,7 +388,7 @@
     (ideograph-gt-pj-2	. #x3122)	; ý¡€€‚ 
     (ideograph-daikanwa . 00124)	; ø¸€¼
     (ideograph-gt-k	. 00245)	; ý¡„€ƒµ
-    (ideograph-cbeta	. 01415)	; ø¸ –‡
+    (=cbeta		. #x0587)	; ø¸ –‡
     (ideograph-gt	. 00160)	; ý¡€€‚ 
     (mojikyo		. 000124)	; ý €€¼
     ))

@@ -111,7 +111,7 @@
     (total-strokes	 . 10)
     (=jis-x0213-2-2000	. #x7461)	; ø»¦—º
     (ideograph-daikanwa . 28120)	; ø¸†·˜
-    (ideograph-cbeta	. 08559)	; ø¸¢…¯
+    (=cbeta		. #x216F)	; ø¸¢…¯
     (ucs-jis		. #x4343)	; ø»¦—º
     ))
 (define-char

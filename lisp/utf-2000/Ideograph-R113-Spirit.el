@@ -1890,7 +1890,7 @@
   '((ideographic-radical . 113)	; â½°
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (ideograph-cbeta	. 00865)	; ø¸ ¡
+    (=cbeta		. #x0361)	; ø¸ ¡
     ))
 (define-char
   '((=>ucs		. #x2566B)	; ð¥™«

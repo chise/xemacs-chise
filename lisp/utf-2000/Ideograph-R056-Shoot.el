@@ -36,7 +36,7 @@
     (chinese-isoir165	. #x2E36)	; ø»¯
     (chinese-cns11643-3 . #x2164)	; ø»•—§
     (ideograph-daikanwa . 09658)	; ø¸‚–º
-    (ideograph-cbeta	. 05531)	; ø¸¡–›
+    (=cbeta		. #x159B)	; ø¸¡–›
     (ucs		. #x5F0C)	; å¼Œ
     ))
 (define-char
@@ -267,7 +267,7 @@
     (chinese-isoir165	. #x5F31)	; ø»Ž‰¨
     (chinese-cns11643-3 . #x3B42)	; ø»•½‘
     (ideograph-daikanwa . 09680)	; ø¸‚—
-    (ideograph-cbeta	. 06128)	; ø¸¡Ÿ°
+    (=cbeta		. #x17F0)	; ø¸¡Ÿ°
     (ucs		. #x5F11)	; å¼‘
     ))
 (define-char

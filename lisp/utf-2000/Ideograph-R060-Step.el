@@ -310,7 +310,7 @@
       ))
     (chinese-cns11643-6 . #x2B3E)	; ø»œƒ¹
     (ideograph-daikanwa . 10065)	; ø¸‚‘
-    (ideograph-cbeta	. 04794)	; ø¸¡Šº
+    (=cbeta		. #x12BA)	; ø¸¡Šº
     (ucs		. #x38D8)	; ã£˜
     ))
 (define-char
@@ -444,7 +444,7 @@
     (=jis-x0208		. #x5748)	; ø½‹…·
     (chinese-cns11643-3 . #x2876)	; ø»•¢‹
     (ideograph-daikanwa . 10074)	; ø¸‚š
-    (ideograph-cbeta	. 01191)	; ø¸ ’§
+    (=cbeta		. #x04A7)	; ø¸ ’§
     (ucs		. #x5F83)	; å¾ƒ
     ))
 (define-char
@@ -1025,7 +1025,7 @@
       ))
     (chinese-cns11643-4 . #x2C76)	; ø»—²‡
     (ideograph-daikanwa . 10120)	; ø¸‚žˆ
-    (ideograph-cbeta	. 04553)	; ø¸¡‡‰
+    (=cbeta		. #x11C9)	; ø¸¡‡‰
     (ucs		. #x224F3)	; ð¢“³
     ))
 (define-char
@@ -1487,7 +1487,7 @@
       ))
     (chinese-cns11643-6 . #x3F67)	; ø»œ¡º
     (ideograph-daikanwa . 10156)	; ø¸‚ž¬
-    (ideograph-cbeta	. 00641)	; ø¸ Š
+    (=cbeta		. #x0281)	; ø¸ Š
     (ucs		. #x2250C)	; ð¢”Œ
     ))
 (define-char
@@ -1517,7 +1517,7 @@
      ((ucs		  . #x4F8D)	; ä¾
       ))
     (ideograph-daikanwa . 10158)	; ø¸‚ž®
-    (ideograph-cbeta	. 04795)	; ø¸¡Š»
+    (=cbeta		. #x12BB)	; ø¸¡Š»
     ))
 (define-char
   '((morohashi-daikanwa	10158 0 2)
@@ -1652,7 +1652,7 @@
       ))
     (chinese-cns11643-4 . #x3157)	; ø»—¸¾
     (ideograph-daikanwa . 10168)	; ø¸‚ž¸
-    (ideograph-cbeta	. 05518)	; ø¸¡–Ž
+    (=cbeta		. #x158E)	; ø¸¡–Ž
     (=jef-china3	. #x99F0)	; øº‰§°
     (mojikyo		. 010168)	; ý €‚ž¸
     (ucs		. #x5FA3)	; å¾£
@@ -1749,7 +1749,7 @@
       )
      ((=jis-x0208	  . #x5928)	; ø½‹ˆ“
       ))
-    (ideograph-cbeta	. 00642)	; ø¸ Š‚
+    (=cbeta		. #x0282)	; ø¸ Š‚
     ))
 (define-char
   '((morohashi-daikanwa	10174 0 3)
@@ -2078,7 +2078,7 @@
      ((ucs		  . #x5EFA)	; å»º
       ))
     (chinese-cns11643-4 . #x374A)	; ø»˜¥
-    (ideograph-cbeta	. 00735)	; ø¸ ‹Ÿ
+    (=cbeta		. #x02DF)	; ø¸ ‹Ÿ
     (mojikyo		. 050013)	; ý €Œ
     (ucs		. #x5FA4)	; å¾¤
     ))
@@ -3333,7 +3333,7 @@
       (ideograph-daikanwa . 23747)	; ø¸…³ƒ
       ))
     (ideograph-daikanwa . 10289)	; ø¸‚ ±
-    (ideograph-cbeta	. 04672)	; ø¸¡‰€
+    (=cbeta		. #x1240)	; ø¸¡‰€
     ))
 (define-char
   '((morohashi-daikanwa	10289 0 1)
