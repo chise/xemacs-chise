@@ -191,706 +191,15 @@ get_byte_from_character_table (Emchar ch, Emchar_to_byte_table* table)
     return 0;
 }
 
-#define CHAR96(ft,b)	(MIN_CHAR_96 + (ft - '0') * 96 + (b & 0x7f) - 32)
+Lisp_Object latin_jisx0201_to_ucs;
+Lisp_Object latin_iso8859_2_to_ucs;
+Lisp_Object latin_iso8859_3_to_ucs;
+Lisp_Object latin_iso8859_4_to_ucs;
+Lisp_Object latin_iso8859_9_to_ucs;
+Lisp_Object latin_viscii_lower_to_ucs;
+Lisp_Object latin_viscii_upper_to_ucs;
 
-Emchar latin_jisx0201_to_ucs[94] =
-{
-  0x0021 /* 0x21	EXCLAMATION MARK */,
-  0x0022 /* 0x22	QUOTATION MARK */,
-  0x0023 /* 0x23	NUMBER SIGN */,
-  0x0024 /* 0x24	DOLLAR SIGN */,
-  0x0025 /* 0x25	PERCENT SIGN */,
-  0x0026 /* 0x26	AMPERSAND */,
-  0x0027 /* 0x27	APOSTROPHE */,
-  0x0028 /* 0x28	LEFT PARENTHESIS */,
-  0x0029 /* 0x29	RIGHT PARENTHESIS */,
-  0x002A /* 0x2A	ASTERISK */,
-  0x002B /* 0x2B	PLUS SIGN */,
-  0x002C /* 0x2C	COMMA */,
-  0x002D /* 0x2D	HYPHEN-MINUS */,
-  0x002E /* 0x2E	FULL STOP */,
-  0x002F /* 0x2F	SOLIDUS */,
-  0x0030 /* 0x30	DIGIT ZERO */,
-  0x0031 /* 0x31	DIGIT ONE */,
-  0x0032 /* 0x32	DIGIT TWO */,
-  0x0033 /* 0x33	DIGIT THREE */,
-  0x0034 /* 0x34	DIGIT FOUR */,
-  0x0035 /* 0x35	DIGIT FIVE */,
-  0x0036 /* 0x36	DIGIT SIX */,
-  0x0037 /* 0x37	DIGIT SEVEN */,
-  0x0038 /* 0x38	DIGIT EIGHT */,
-  0x0039 /* 0x39	DIGIT NINE */,
-  0x003A /* 0x3A	COLON */,
-  0x003B /* 0x3B	SEMICOLON */,
-  0x003C /* 0x3C	LESS-THAN SIGN */,
-  0x003D /* 0x3D	EQUALS SIGN */,
-  0x003E /* 0x3E	GREATER-THAN SIGN */,
-  0x003F /* 0x3F	QUESTION MARK */,
-  0x0040 /* 0x40	COMMERCIAL AT */,
-  0x0041 /* 0x41	LATIN CAPITAL LETTER A */,
-  0x0042 /* 0x42	LATIN CAPITAL LETTER B */,
-  0x0043 /* 0x43	LATIN CAPITAL LETTER C */,
-  0x0044 /* 0x44	LATIN CAPITAL LETTER D */,
-  0x0045 /* 0x45	LATIN CAPITAL LETTER E */,
-  0x0046 /* 0x46	LATIN CAPITAL LETTER F */,
-  0x0047 /* 0x47	LATIN CAPITAL LETTER G */,
-  0x0048 /* 0x48	LATIN CAPITAL LETTER H */,
-  0x0049 /* 0x49	LATIN CAPITAL LETTER I */,
-  0x004A /* 0x4A	LATIN CAPITAL LETTER J */,
-  0x004B /* 0x4B	LATIN CAPITAL LETTER K */,
-  0x004C /* 0x4C	LATIN CAPITAL LETTER L */,
-  0x004D /* 0x4D	LATIN CAPITAL LETTER M */,
-  0x004E /* 0x4E	LATIN CAPITAL LETTER N */,
-  0x004F /* 0x4F	LATIN CAPITAL LETTER O */,
-  0x0050 /* 0x50	LATIN CAPITAL LETTER P */,
-  0x0051 /* 0x51	LATIN CAPITAL LETTER Q */,
-  0x0052 /* 0x52	LATIN CAPITAL LETTER R */,
-  0x0053 /* 0x53	LATIN CAPITAL LETTER S */,
-  0x0054 /* 0x54	LATIN CAPITAL LETTER T */,
-  0x0055 /* 0x55	LATIN CAPITAL LETTER U */,
-  0x0056 /* 0x56	LATIN CAPITAL LETTER V */,
-  0x0057 /* 0x57	LATIN CAPITAL LETTER W */,
-  0x0058 /* 0x58	LATIN CAPITAL LETTER X */,
-  0x0059 /* 0x59	LATIN CAPITAL LETTER Y */,
-  0x005A /* 0x5A	LATIN CAPITAL LETTER Z */,
-  0x005B /* 0x5B	LEFT SQUARE BRACKET */,
-  0x00A5 /* 0x5C	YEN SIGN */,
-  0x005D /* 0x5D	RIGHT SQUARE BRACKET */,
-  0x005E /* 0x5E	CIRCUMFLEX ACCENT */,
-  0x005F /* 0x5F	LOW LINE */,
-  0x0060 /* 0x60	GRAVE ACCENT */,
-  0x0061 /* 0x61	LATIN SMALL LETTER A */,
-  0x0062 /* 0x62	LATIN SMALL LETTER B */,
-  0x0063 /* 0x63	LATIN SMALL LETTER C */,
-  0x0064 /* 0x64	LATIN SMALL LETTER D */,
-  0x0065 /* 0x65	LATIN SMALL LETTER E */,
-  0x0066 /* 0x66	LATIN SMALL LETTER F */,
-  0x0067 /* 0x67	LATIN SMALL LETTER G */,
-  0x0068 /* 0x68	LATIN SMALL LETTER H */,
-  0x0069 /* 0x69	LATIN SMALL LETTER I */,
-  0x006A /* 0x6A	LATIN SMALL LETTER J */,
-  0x006B /* 0x6B	LATIN SMALL LETTER K */,
-  0x006C /* 0x6C	LATIN SMALL LETTER L */,
-  0x006D /* 0x6D	LATIN SMALL LETTER M */,
-  0x006E /* 0x6E	LATIN SMALL LETTER N */,
-  0x006F /* 0x6F	LATIN SMALL LETTER O */,
-  0x0070 /* 0x70	LATIN SMALL LETTER P */,
-  0x0071 /* 0x71	LATIN SMALL LETTER Q */,
-  0x0072 /* 0x72	LATIN SMALL LETTER R */,
-  0x0073 /* 0x73	LATIN SMALL LETTER S */,
-  0x0074 /* 0x74	LATIN SMALL LETTER T */,
-  0x0075 /* 0x75	LATIN SMALL LETTER U */,
-  0x0076 /* 0x76	LATIN SMALL LETTER V */,
-  0x0077 /* 0x77	LATIN SMALL LETTER W */,
-  0x0078 /* 0x78	LATIN SMALL LETTER X */,
-  0x0079 /* 0x79	LATIN SMALL LETTER Y */,
-  0x007A /* 0x7A	LATIN SMALL LETTER Z */,
-  0x007B /* 0x7B	LEFT CURLY BRACKET */,
-  0x007C /* 0x7C	VERTICAL LINE */,
-  0x007D /* 0x7D	RIGHT CURLY BRACKET */,
-  0x203E /* 0x7E	OVERLINE */
-};
-
-Emchar latin_iso8859_2_to_ucs[96] =
-{
-  0x00A0 /* 0xA0	NO-BREAK SPACE */,
-  0x0104 /* 0xA1	LATIN CAPITAL LETTER A WITH OGONEK */,
-  0x02D8 /* 0xA2	BREVE */,
-  0x0141 /* 0xA3	LATIN CAPITAL LETTER L WITH STROKE */,
-  0x00A4 /* 0xA4	CURRENCY SIGN */,
-  0x013D /* 0xA5	LATIN CAPITAL LETTER L WITH CARON */,
-  0x015A /* 0xA6	LATIN CAPITAL LETTER S WITH ACUTE */,
-  0x00A7 /* 0xA7	SECTION SIGN */,
-  0x00A8 /* 0xA8	DIAERESIS */,
-  0x0160 /* 0xA9	LATIN CAPITAL LETTER S WITH CARON */,
-  0x015E /* 0xAA	LATIN CAPITAL LETTER S WITH CEDILLA */,
-  0x0164 /* 0xAB	LATIN CAPITAL LETTER T WITH CARON */,
-  0x0179 /* 0xAC	LATIN CAPITAL LETTER Z WITH ACUTE */,
-  0x00AD /* 0xAD	SOFT HYPHEN */,
-  0x017D /* 0xAE	LATIN CAPITAL LETTER Z WITH CARON */,
-  0x017B /* 0xAF	LATIN CAPITAL LETTER Z WITH DOT ABOVE */,
-  0x00B0 /* 0xB0	DEGREE SIGN */,
-  0x0105 /* 0xB1	LATIN SMALL LETTER A WITH OGONEK */,
-  0x02DB /* 0xB2	OGONEK */,
-  0x0142 /* 0xB3	LATIN SMALL LETTER L WITH STROKE */,
-  0x00B4 /* 0xB4	ACUTE ACCENT */,
-  0x013E /* 0xB5	LATIN SMALL LETTER L WITH CARON */,
-  0x015B /* 0xB6	LATIN SMALL LETTER S WITH ACUTE */,
-  0x02C7 /* 0xB7	CARON */,
-  0x00B8 /* 0xB8	CEDILLA */,
-  0x0161 /* 0xB9	LATIN SMALL LETTER S WITH CARON */,
-  0x015F /* 0xBA	LATIN SMALL LETTER S WITH CEDILLA */,
-  0x0165 /* 0xBB	LATIN SMALL LETTER T WITH CARON */,
-  0x017A /* 0xBC	LATIN SMALL LETTER Z WITH ACUTE */,
-  0x02DD /* 0xBD	DOUBLE ACUTE ACCENT */,
-  0x017E /* 0xBE	LATIN SMALL LETTER Z WITH CARON */,
-  0x017C /* 0xBF	LATIN SMALL LETTER Z WITH DOT ABOVE */,
-  0x0154 /* 0xC0	LATIN CAPITAL LETTER R WITH ACUTE */,
-  0x00C1 /* 0xC1	LATIN CAPITAL LETTER A WITH ACUTE */,
-  0x00C2 /* 0xC2	LATIN CAPITAL LETTER A WITH CIRCUMFLEX */,
-  0x0102 /* 0xC3	LATIN CAPITAL LETTER A WITH BREVE */,
-  0x00C4 /* 0xC4	LATIN CAPITAL LETTER A WITH DIAERESIS */,
-  0x0139 /* 0xC5	LATIN CAPITAL LETTER L WITH ACUTE */,
-  0x0106 /* 0xC6	LATIN CAPITAL LETTER C WITH ACUTE */,
-  0x00C7 /* 0xC7	LATIN CAPITAL LETTER C WITH CEDILLA */,
-  0x010C /* 0xC8	LATIN CAPITAL LETTER C WITH CARON */,
-  0x00C9 /* 0xC9	LATIN CAPITAL LETTER E WITH ACUTE */,
-  0x0118 /* 0xCA	LATIN CAPITAL LETTER E WITH OGONEK */,
-  0x00CB /* 0xCB	LATIN CAPITAL LETTER E WITH DIAERESIS */,
-  0x011A /* 0xCC	LATIN CAPITAL LETTER E WITH CARON */,
-  0x00CD /* 0xCD	LATIN CAPITAL LETTER I WITH ACUTE */,
-  0x00CE /* 0xCE	LATIN CAPITAL LETTER I WITH CIRCUMFLEX */,
-  0x010E /* 0xCF	LATIN CAPITAL LETTER D WITH CARON */,
-  0x0110 /* 0xD0	LATIN CAPITAL LETTER D WITH STROKE */,
-  0x0143 /* 0xD1	LATIN CAPITAL LETTER N WITH ACUTE */,
-  0x0147 /* 0xD2	LATIN CAPITAL LETTER N WITH CARON */,
-  0x00D3 /* 0xD3	LATIN CAPITAL LETTER O WITH ACUTE */,
-  0x00D4 /* 0xD4	LATIN CAPITAL LETTER O WITH CIRCUMFLEX */,
-  0x0150 /* 0xD5	LATIN CAPITAL LETTER O WITH DOUBLE ACUTE */,
-  0x00D6 /* 0xD6	LATIN CAPITAL LETTER O WITH DIAERESIS */,
-  0x00D7 /* 0xD7	MULTIPLICATION SIGN */,
-  0x0158 /* 0xD8	LATIN CAPITAL LETTER R WITH CARON */,
-  0x016E /* 0xD9	LATIN CAPITAL LETTER U WITH RING ABOVE */,
-  0x00DA /* 0xDA	LATIN CAPITAL LETTER U WITH ACUTE */,
-  0x0170 /* 0xDB	LATIN CAPITAL LETTER U WITH DOUBLE ACUTE */,
-  0x00DC /* 0xDC	LATIN CAPITAL LETTER U WITH DIAERESIS */,
-  0x00DD /* 0xDD	LATIN CAPITAL LETTER Y WITH ACUTE */,
-  0x0162 /* 0xDE	LATIN CAPITAL LETTER T WITH CEDILLA */,
-  0x00DF /* 0xDF	LATIN SMALL LETTER SHARP S */,
-  0x0155 /* 0xE0	LATIN SMALL LETTER R WITH ACUTE */,
-  0x00E1 /* 0xE1	LATIN SMALL LETTER A WITH ACUTE */,
-  0x00E2 /* 0xE2	LATIN SMALL LETTER A WITH CIRCUMFLEX */,
-  0x0103 /* 0xE3	LATIN SMALL LETTER A WITH BREVE */,
-  0x00E4 /* 0xE4	LATIN SMALL LETTER A WITH DIAERESIS */,
-  0x013A /* 0xE5	LATIN SMALL LETTER L WITH ACUTE */,
-  0x0107 /* 0xE6	LATIN SMALL LETTER C WITH ACUTE */,
-  0x00E7 /* 0xE7	LATIN SMALL LETTER C WITH CEDILLA */,
-  0x010D /* 0xE8	LATIN SMALL LETTER C WITH CARON */,
-  0x00E9 /* 0xE9	LATIN SMALL LETTER E WITH ACUTE */,
-  0x0119 /* 0xEA	LATIN SMALL LETTER E WITH OGONEK */,
-  0x00EB /* 0xEB	LATIN SMALL LETTER E WITH DIAERESIS */,
-  0x011B /* 0xEC	LATIN SMALL LETTER E WITH CARON */,
-  0x00ED /* 0xED	LATIN SMALL LETTER I WITH ACUTE */,
-  0x00EE /* 0xEE	LATIN SMALL LETTER I WITH CIRCUMFLEX */,
-  0x010F /* 0xEF	LATIN SMALL LETTER D WITH CARON */,
-  0x0111 /* 0xF0	LATIN SMALL LETTER D WITH STROKE */,
-  0x0144 /* 0xF1	LATIN SMALL LETTER N WITH ACUTE */,
-  0x0148 /* 0xF2	LATIN SMALL LETTER N WITH CARON */,
-  0x00F3 /* 0xF3	LATIN SMALL LETTER O WITH ACUTE */,
-  0x00F4 /* 0xF4	LATIN SMALL LETTER O WITH CIRCUMFLEX */,
-  0x0151 /* 0xF5	LATIN SMALL LETTER O WITH DOUBLE ACUTE */,
-  0x00F6 /* 0xF6	LATIN SMALL LETTER O WITH DIAERESIS */,
-  0x00F7 /* 0xF7	DIVISION SIGN */,
-  0x0159 /* 0xF8	LATIN SMALL LETTER R WITH CARON */,
-  0x016F /* 0xF9	LATIN SMALL LETTER U WITH RING ABOVE */,
-  0x00FA /* 0xFA	LATIN SMALL LETTER U WITH ACUTE */,
-  0x0171 /* 0xFB	LATIN SMALL LETTER U WITH DOUBLE ACUTE */,
-  0x00FC /* 0xFC	LATIN SMALL LETTER U WITH DIAERESIS */,
-  0x00FD /* 0xFD	LATIN SMALL LETTER Y WITH ACUTE */,
-  0x0163 /* 0xFE	LATIN SMALL LETTER T WITH CEDILLA */,
-  0x02D9 /* 0xFF	DOT ABOVE */
-};
-
-Emchar latin_iso8859_3_to_ucs[96] =
-{
-  0x00A0 /* 0xA0	NO-BREAK SPACE */,
-  0x0126 /* 0xA1	LATIN CAPITAL LETTER H WITH STROKE */,
-  0x02D8 /* 0xA2	BREVE */,
-  0x00A3 /* 0xA3	POUND SIGN */,
-  0x00A4 /* 0xA4	CURRENCY SIGN */,
-  CHAR96('C', 0xA5),
-  0x0124 /* 0xA6	LATIN CAPITAL LETTER H WITH CIRCUMFLEX */,
-  0x00A7 /* 0xA7	SECTION SIGN */,
-  0x00A8 /* 0xA8	DIAERESIS */,
-  0x0130 /* 0xA9	LATIN CAPITAL LETTER I WITH DOT ABOVE */,
-  0x015E /* 0xAA	LATIN CAPITAL LETTER S WITH CEDILLA */,
-  0x011E /* 0xAB	LATIN CAPITAL LETTER G WITH BREVE */,
-  0x0134 /* 0xAC	LATIN CAPITAL LETTER J WITH CIRCUMFLEX */,
-  0x00AD /* 0xAD	SOFT HYPHEN */,
-  CHAR96('C', 0xAE),
-  0x017B /* 0xAF	LATIN CAPITAL LETTER Z WITH DOT ABOVE */,
-  0x00B0 /* 0xB0	DEGREE SIGN */,
-  0x0127 /* 0xB1	LATIN SMALL LETTER H WITH STROKE */,
-  0x00B2 /* 0xB2	SUPERSCRIPT TWO */,
-  0x00B3 /* 0xB3	SUPERSCRIPT THREE */,
-  0x00B4 /* 0xB4	ACUTE ACCENT */,
-  0x00B5 /* 0xB5	MICRO SIGN */,
-  0x0125 /* 0xB6	LATIN SMALL LETTER H WITH CIRCUMFLEX */,
-  0x00B7 /* 0xB7	MIDDLE DOT */,
-  0x00B8 /* 0xB8	CEDILLA */,
-  0x0131 /* 0xB9	LATIN SMALL LETTER DOTLESS I */,
-  0x015F /* 0xBA	LATIN SMALL LETTER S WITH CEDILLA */,
-  0x011F /* 0xBB	LATIN SMALL LETTER G WITH BREVE */,
-  0x0135 /* 0xBC	LATIN SMALL LETTER J WITH CIRCUMFLEX */,
-  0x00BD /* 0xBD	VULGAR FRACTION ONE HALF */,
-  CHAR96('C', 0xBE),
-  0x017C /* 0xBF	LATIN SMALL LETTER Z WITH DOT ABOVE */,
-  0x00C0 /* 0xC0	LATIN CAPITAL LETTER A WITH GRAVE */,
-  0x00C1 /* 0xC1	LATIN CAPITAL LETTER A WITH ACUTE */,
-  0x00C2 /* 0xC2	LATIN CAPITAL LETTER A WITH CIRCUMFLEX */,
-  CHAR96('C', 0xC3),
-  0x00C4 /* 0xC4	LATIN CAPITAL LETTER A WITH DIAERESIS */,
-  0x010A /* 0xC5	LATIN CAPITAL LETTER C WITH DOT ABOVE */,
-  0x0108 /* 0xC6	LATIN CAPITAL LETTER C WITH CIRCUMFLEX */,
-  0x00C7 /* 0xC7	LATIN CAPITAL LETTER C WITH CEDILLA */,
-  0x00C8 /* 0xC8	LATIN CAPITAL LETTER E WITH GRAVE */,
-  0x00C9 /* 0xC9	LATIN CAPITAL LETTER E WITH ACUTE */,
-  0x00CA /* 0xCA	LATIN CAPITAL LETTER E WITH CIRCUMFLEX */,
-  0x00CB /* 0xCB	LATIN CAPITAL LETTER E WITH DIAERESIS */,
-  0x00CC /* 0xCC	LATIN CAPITAL LETTER I WITH GRAVE */,
-  0x00CD /* 0xCD	LATIN CAPITAL LETTER I WITH ACUTE */,
-  0x00CE /* 0xCE	LATIN CAPITAL LETTER I WITH CIRCUMFLEX */,
-  0x00CF /* 0xCF	LATIN CAPITAL LETTER I WITH DIAERESIS */,
-  CHAR96('C', 0xD0),
-  0x00D1 /* 0xD1	LATIN CAPITAL LETTER N WITH TILDE */,
-  0x00D2 /* 0xD2	LATIN CAPITAL LETTER O WITH GRAVE */,
-  0x00D3 /* 0xD3	LATIN CAPITAL LETTER O WITH ACUTE */,
-  0x00D4 /* 0xD4	LATIN CAPITAL LETTER O WITH CIRCUMFLEX */,
-  0x0120 /* 0xD5	LATIN CAPITAL LETTER G WITH DOT ABOVE */,
-  0x00D6 /* 0xD6	LATIN CAPITAL LETTER O WITH DIAERESIS */,
-  0x00D7 /* 0xD7	MULTIPLICATION SIGN */,
-  0x011C /* 0xD8	LATIN CAPITAL LETTER G WITH CIRCUMFLEX */,
-  0x00D9 /* 0xD9	LATIN CAPITAL LETTER U WITH GRAVE */,
-  0x00DA /* 0xDA	LATIN CAPITAL LETTER U WITH ACUTE */,
-  0x00DB /* 0xDB	LATIN CAPITAL LETTER U WITH CIRCUMFLEX */,
-  0x00DC /* 0xDC	LATIN CAPITAL LETTER U WITH DIAERESIS */,
-  0x016C /* 0xDD	LATIN CAPITAL LETTER U WITH BREVE */,
-  0x015C /* 0xDE	LATIN CAPITAL LETTER S WITH CIRCUMFLEX */,
-  0x00DF /* 0xDF	LATIN SMALL LETTER SHARP S */,
-  0x00E0 /* 0xE0	LATIN SMALL LETTER A WITH GRAVE */,
-  0x00E1 /* 0xE1	LATIN SMALL LETTER A WITH ACUTE */,
-  0x00E2 /* 0xE2	LATIN SMALL LETTER A WITH CIRCUMFLEX */,
-  CHAR96('C', 0xE3),
-  0x00E4 /* 0xE4	LATIN SMALL LETTER A WITH DIAERESIS */,
-  0x010B /* 0xE5	LATIN SMALL LETTER C WITH DOT ABOVE */,
-  0x0109 /* 0xE6	LATIN SMALL LETTER C WITH CIRCUMFLEX */,
-  0x00E7 /* 0xE7	LATIN SMALL LETTER C WITH CEDILLA */,
-  0x00E8 /* 0xE8	LATIN SMALL LETTER E WITH GRAVE */,
-  0x00E9 /* 0xE9	LATIN SMALL LETTER E WITH ACUTE */,
-  0x00EA /* 0xEA	LATIN SMALL LETTER E WITH CIRCUMFLEX */,
-  0x00EB /* 0xEB	LATIN SMALL LETTER E WITH DIAERESIS */,
-  0x00EC /* 0xEC	LATIN SMALL LETTER I WITH GRAVE */,
-  0x00ED /* 0xED	LATIN SMALL LETTER I WITH ACUTE */,
-  0x00EE /* 0xEE	LATIN SMALL LETTER I WITH CIRCUMFLEX */,
-  0x00EF /* 0xEF	LATIN SMALL LETTER I WITH DIAERESIS */,
-  CHAR96('C', 0xF0),
-  0x00F1 /* 0xF1	LATIN SMALL LETTER N WITH TILDE */,
-  0x00F2 /* 0xF2	LATIN SMALL LETTER O WITH GRAVE */,
-  0x00F3 /* 0xF3	LATIN SMALL LETTER O WITH ACUTE */,
-  0x00F4 /* 0xF4	LATIN SMALL LETTER O WITH CIRCUMFLEX */,
-  0x0121 /* 0xF5	LATIN SMALL LETTER G WITH DOT ABOVE */,
-  0x00F6 /* 0xF6	LATIN SMALL LETTER O WITH DIAERESIS */,
-  0x00F7 /* 0xF7	DIVISION SIGN */,
-  0x011D /* 0xF8	LATIN SMALL LETTER G WITH CIRCUMFLEX */,
-  0x00F9 /* 0xF9	LATIN SMALL LETTER U WITH GRAVE */,
-  0x00FA /* 0xFA	LATIN SMALL LETTER U WITH ACUTE */,
-  0x00FB /* 0xFB	LATIN SMALL LETTER U WITH CIRCUMFLEX */,
-  0x00FC /* 0xFC	LATIN SMALL LETTER U WITH DIAERESIS */,
-  0x016D /* 0xFD	LATIN SMALL LETTER U WITH BREVE */,
-  0x015D /* 0xFE	LATIN SMALL LETTER S WITH CIRCUMFLEX */,
-  0x02D9 /* 0xFF	DOT ABOVE */
-};
-
-Emchar latin_iso8859_4_to_ucs[96] =
-{
-  0x00A0 /* 0xA0	NO-BREAK SPACE */,
-  0x0104 /* 0xA1	LATIN CAPITAL LETTER A WITH OGONEK */,
-  0x0138 /* 0xA2	LATIN SMALL LETTER KRA */,
-  0x0156 /* 0xA3	LATIN CAPITAL LETTER R WITH CEDILLA */,
-  0x00A4 /* 0xA4	CURRENCY SIGN */,
-  0x0128 /* 0xA5	LATIN CAPITAL LETTER I WITH TILDE */,
-  0x013B /* 0xA6	LATIN CAPITAL LETTER L WITH CEDILLA */,
-  0x00A7 /* 0xA7	SECTION SIGN */,
-  0x00A8 /* 0xA8	DIAERESIS */,
-  0x0160 /* 0xA9	LATIN CAPITAL LETTER S WITH CARON */,
-  0x0112 /* 0xAA	LATIN CAPITAL LETTER E WITH MACRON */,
-  0x0122 /* 0xAB	LATIN CAPITAL LETTER G WITH CEDILLA */,
-  0x0166 /* 0xAC	LATIN CAPITAL LETTER T WITH STROKE */,
-  0x00AD /* 0xAD	SOFT HYPHEN */,
-  0x017D /* 0xAE	LATIN CAPITAL LETTER Z WITH CARON */,
-  0x00AF /* 0xAF	MACRON */,
-  0x00B0 /* 0xB0	DEGREE SIGN */,
-  0x0105 /* 0xB1	LATIN SMALL LETTER A WITH OGONEK */,
-  0x02DB /* 0xB2	OGONEK */,
-  0x0157 /* 0xB3	LATIN SMALL LETTER R WITH CEDILLA */,
-  0x00B4 /* 0xB4	ACUTE ACCENT */,
-  0x0129 /* 0xB5	LATIN SMALL LETTER I WITH TILDE */,
-  0x013C /* 0xB6	LATIN SMALL LETTER L WITH CEDILLA */,
-  0x02C7 /* 0xB7	CARON */,
-  0x00B8 /* 0xB8	CEDILLA */,
-  0x0161 /* 0xB9	LATIN SMALL LETTER S WITH CARON */,
-  0x0113 /* 0xBA	LATIN SMALL LETTER E WITH MACRON */,
-  0x0123 /* 0xBB	LATIN SMALL LETTER G WITH CEDILLA */,
-  0x0167 /* 0xBC	LATIN SMALL LETTER T WITH STROKE */,
-  0x014A /* 0xBD	LATIN CAPITAL LETTER ENG */,
-  0x017E /* 0xBE	LATIN SMALL LETTER Z WITH CARON */,
-  0x014B /* 0xBF	LATIN SMALL LETTER ENG */,
-  0x0100 /* 0xC0	LATIN CAPITAL LETTER A WITH MACRON */,
-  0x00C1 /* 0xC1	LATIN CAPITAL LETTER A WITH ACUTE */,
-  0x00C2 /* 0xC2	LATIN CAPITAL LETTER A WITH CIRCUMFLEX */,
-  0x00C3 /* 0xC3	LATIN CAPITAL LETTER A WITH TILDE */,
-  0x00C4 /* 0xC4	LATIN CAPITAL LETTER A WITH DIAERESIS */,
-  0x00C5 /* 0xC5	LATIN CAPITAL LETTER A WITH RING ABOVE */,
-  0x00C6 /* 0xC6	LATIN CAPITAL LETTER AE */,
-  0x012E /* 0xC7	LATIN CAPITAL LETTER I WITH OGONEK */,
-  0x010C /* 0xC8	LATIN CAPITAL LETTER C WITH CARON */,
-  0x00C9 /* 0xC9	LATIN CAPITAL LETTER E WITH ACUTE */,
-  0x0118 /* 0xCA	LATIN CAPITAL LETTER E WITH OGONEK */,
-  0x00CB /* 0xCB	LATIN CAPITAL LETTER E WITH DIAERESIS */,
-  0x0116 /* 0xCC	LATIN CAPITAL LETTER E WITH DOT ABOVE */,
-  0x00CD /* 0xCD	LATIN CAPITAL LETTER I WITH ACUTE */,
-  0x00CE /* 0xCE	LATIN CAPITAL LETTER I WITH CIRCUMFLEX */,
-  0x012A /* 0xCF	LATIN CAPITAL LETTER I WITH MACRON */,
-  0x0110 /* 0xD0	LATIN CAPITAL LETTER D WITH STROKE */,
-  0x0145 /* 0xD1	LATIN CAPITAL LETTER N WITH CEDILLA */,
-  0x014C /* 0xD2	LATIN CAPITAL LETTER O WITH MACRON */,
-  0x0136 /* 0xD3	LATIN CAPITAL LETTER K WITH CEDILLA */,
-  0x00D4 /* 0xD4	LATIN CAPITAL LETTER O WITH CIRCUMFLEX */,
-  0x00D5 /* 0xD5	LATIN CAPITAL LETTER O WITH TILDE */,
-  0x00D6 /* 0xD6	LATIN CAPITAL LETTER O WITH DIAERESIS */,
-  0x00D7 /* 0xD7	MULTIPLICATION SIGN */,
-  0x00D8 /* 0xD8	LATIN CAPITAL LETTER O WITH STROKE */,
-  0x0172 /* 0xD9	LATIN CAPITAL LETTER U WITH OGONEK */,
-  0x00DA /* 0xDA	LATIN CAPITAL LETTER U WITH ACUTE */,
-  0x00DB /* 0xDB	LATIN CAPITAL LETTER U WITH CIRCUMFLEX */,
-  0x00DC /* 0xDC	LATIN CAPITAL LETTER U WITH DIAERESIS */,
-  0x0168 /* 0xDD	LATIN CAPITAL LETTER U WITH TILDE */,
-  0x016A /* 0xDE	LATIN CAPITAL LETTER U WITH MACRON */,
-  0x00DF /* 0xDF	LATIN SMALL LETTER SHARP S */,
-  0x0101 /* 0xE0	LATIN SMALL LETTER A WITH MACRON */,
-  0x00E1 /* 0xE1	LATIN SMALL LETTER A WITH ACUTE */,
-  0x00E2 /* 0xE2	LATIN SMALL LETTER A WITH CIRCUMFLEX */,
-  0x00E3 /* 0xE3	LATIN SMALL LETTER A WITH TILDE */,
-  0x00E4 /* 0xE4	LATIN SMALL LETTER A WITH DIAERESIS */,
-  0x00E5 /* 0xE5	LATIN SMALL LETTER A WITH RING ABOVE */,
-  0x00E6 /* 0xE6	LATIN SMALL LETTER AE */,
-  0x012F /* 0xE7	LATIN SMALL LETTER I WITH OGONEK */,
-  0x010D /* 0xE8	LATIN SMALL LETTER C WITH CARON */,
-  0x00E9 /* 0xE9	LATIN SMALL LETTER E WITH ACUTE */,
-  0x0119 /* 0xEA	LATIN SMALL LETTER E WITH OGONEK */,
-  0x00EB /* 0xEB	LATIN SMALL LETTER E WITH DIAERESIS */,
-  0x0117 /* 0xEC	LATIN SMALL LETTER E WITH DOT ABOVE */,
-  0x00ED /* 0xED	LATIN SMALL LETTER I WITH ACUTE */,
-  0x00EE /* 0xEE	LATIN SMALL LETTER I WITH CIRCUMFLEX */,
-  0x012B /* 0xEF	LATIN SMALL LETTER I WITH MACRON */,
-  0x0111 /* 0xF0	LATIN SMALL LETTER D WITH STROKE */,
-  0x0146 /* 0xF1	LATIN SMALL LETTER N WITH CEDILLA */,
-  0x014D /* 0xF2	LATIN SMALL LETTER O WITH MACRON */,
-  0x0137 /* 0xF3	LATIN SMALL LETTER K WITH CEDILLA */,
-  0x00F4 /* 0xF4	LATIN SMALL LETTER O WITH CIRCUMFLEX */,
-  0x00F5 /* 0xF5	LATIN SMALL LETTER O WITH TILDE */,
-  0x00F6 /* 0xF6	LATIN SMALL LETTER O WITH DIAERESIS */,
-  0x00F7 /* 0xF7	DIVISION SIGN */,
-  0x00F8 /* 0xF8	LATIN SMALL LETTER O WITH STROKE */,
-  0x0173 /* 0xF9	LATIN SMALL LETTER U WITH OGONEK */,
-  0x00FA /* 0xFA	LATIN SMALL LETTER U WITH ACUTE */,
-  0x00FB /* 0xFB	LATIN SMALL LETTER U WITH CIRCUMFLEX */,
-  0x00FC /* 0xFC	LATIN SMALL LETTER U WITH DIAERESIS */,
-  0x0169 /* 0xFD	LATIN SMALL LETTER U WITH TILDE */,
-  0x016B /* 0xFE	LATIN SMALL LETTER U WITH MACRON */,
-  0x02D9 /* 0xFF	DOT ABOVE */
-};
-
-Emchar latin_iso8859_9_to_ucs[96] =
-{
-  0x00A0 /* 0xA0	NO-BREAK SPACE */,
-  0x00A1 /* 0xA1	INVERTED EXCLAMATION MARK */,
-  0x00A2 /* 0xA2	CENT SIGN */,
-  0x00A3 /* 0xA3	POUND SIGN */,
-  0x00A4 /* 0xA4	CURRENCY SIGN */,
-  0x00A5 /* 0xA5	YEN SIGN */,
-  0x00A6 /* 0xA6	BROKEN BAR */,
-  0x00A7 /* 0xA7	SECTION SIGN */,
-  0x00A8 /* 0xA8	DIAERESIS */,
-  0x00A9 /* 0xA9	COPYRIGHT SIGN */,
-  0x00AA /* 0xAA	FEMININE ORDINAL INDICATOR */,
-  0x00AB /* 0xAB	LEFT-POINTING DOUBLE ANGLE QUOTATION MARK */,
-  0x00AC /* 0xAC	NOT SIGN */,
-  0x00AD /* 0xAD	SOFT HYPHEN */,
-  0x00AE /* 0xAE	REGISTERED SIGN */,
-  0x00AF /* 0xAF	MACRON */,
-  0x00B0 /* 0xB0	DEGREE SIGN */,
-  0x00B1 /* 0xB1	PLUS-MINUS SIGN */,
-  0x00B2 /* 0xB2	SUPERSCRIPT TWO */,
-  0x00B3 /* 0xB3	SUPERSCRIPT THREE */,
-  0x00B4 /* 0xB4	ACUTE ACCENT */,
-  0x00B5 /* 0xB5	MICRO SIGN */,
-  0x00B6 /* 0xB6	PILCROW SIGN */,
-  0x00B7 /* 0xB7	MIDDLE DOT */,
-  0x00B8 /* 0xB8	CEDILLA */,
-  0x00B9 /* 0xB9	SUPERSCRIPT ONE */,
-  0x00BA /* 0xBA	MASCULINE ORDINAL INDICATOR */,
-  0x00BB /* 0xBB	RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK */,
-  0x00BC /* 0xBC	VULGAR FRACTION ONE QUARTER */,
-  0x00BD /* 0xBD	VULGAR FRACTION ONE HALF */,
-  0x00BE /* 0xBE	VULGAR FRACTION THREE QUARTERS */,
-  0x00BF /* 0xBF	INVERTED QUESTION MARK */,
-  0x00C0 /* 0xC0	LATIN CAPITAL LETTER A WITH GRAVE */,
-  0x00C1 /* 0xC1	LATIN CAPITAL LETTER A WITH ACUTE */,
-  0x00C2 /* 0xC2	LATIN CAPITAL LETTER A WITH CIRCUMFLEX */,
-  0x00C3 /* 0xC3	LATIN CAPITAL LETTER A WITH TILDE */,
-  0x00C4 /* 0xC4	LATIN CAPITAL LETTER A WITH DIAERESIS */,
-  0x00C5 /* 0xC5	LATIN CAPITAL LETTER A WITH RING ABOVE */,
-  0x00C6 /* 0xC6	LATIN CAPITAL LETTER AE */,
-  0x00C7 /* 0xC7	LATIN CAPITAL LETTER C WITH CEDILLA */,
-  0x00C8 /* 0xC8	LATIN CAPITAL LETTER E WITH GRAVE */,
-  0x00C9 /* 0xC9	LATIN CAPITAL LETTER E WITH ACUTE */,
-  0x00CA /* 0xCA	LATIN CAPITAL LETTER E WITH CIRCUMFLEX */,
-  0x00CB /* 0xCB	LATIN CAPITAL LETTER E WITH DIAERESIS */,
-  0x00CC /* 0xCC	LATIN CAPITAL LETTER I WITH GRAVE */,
-  0x00CD /* 0xCD	LATIN CAPITAL LETTER I WITH ACUTE */,
-  0x00CE /* 0xCE	LATIN CAPITAL LETTER I WITH CIRCUMFLEX */,
-  0x00CF /* 0xCF	LATIN CAPITAL LETTER I WITH DIAERESIS */,
-  0x011E /* 0xD0	LATIN CAPITAL LETTER G WITH BREVE */,
-  0x00D1 /* 0xD1	LATIN CAPITAL LETTER N WITH TILDE */,
-  0x00D2 /* 0xD2	LATIN CAPITAL LETTER O WITH GRAVE */,
-  0x00D3 /* 0xD3	LATIN CAPITAL LETTER O WITH ACUTE */,
-  0x00D4 /* 0xD4	LATIN CAPITAL LETTER O WITH CIRCUMFLEX */,
-  0x00D5 /* 0xD5	LATIN CAPITAL LETTER O WITH TILDE */,
-  0x00D6 /* 0xD6	LATIN CAPITAL LETTER O WITH DIAERESIS */,
-  0x00D7 /* 0xD7	MULTIPLICATION SIGN */,
-  0x00D8 /* 0xD8	LATIN CAPITAL LETTER O WITH STROKE */,
-  0x00D9 /* 0xD9	LATIN CAPITAL LETTER U WITH GRAVE */,
-  0x00DA /* 0xDA	LATIN CAPITAL LETTER U WITH ACUTE */,
-  0x00DB /* 0xDB	LATIN CAPITAL LETTER U WITH CIRCUMFLEX */,
-  0x00DC /* 0xDC	LATIN CAPITAL LETTER U WITH DIAERESIS */,
-  0x0130 /* 0xDD	LATIN CAPITAL LETTER I WITH DOT ABOVE */,
-  0x015E /* 0xDE	LATIN CAPITAL LETTER S WITH CEDILLA */,
-  0x00DF /* 0xDF	LATIN SMALL LETTER SHARP S */,
-  0x00E0 /* 0xE0	LATIN SMALL LETTER A WITH GRAVE */,
-  0x00E1 /* 0xE1	LATIN SMALL LETTER A WITH ACUTE */,
-  0x00E2 /* 0xE2	LATIN SMALL LETTER A WITH CIRCUMFLEX */,
-  0x00E3 /* 0xE3	LATIN SMALL LETTER A WITH TILDE */,
-  0x00E4 /* 0xE4	LATIN SMALL LETTER A WITH DIAERESIS */,
-  0x00E5 /* 0xE5	LATIN SMALL LETTER A WITH RING ABOVE */,
-  0x00E6 /* 0xE6	LATIN SMALL LETTER AE */,
-  0x00E7 /* 0xE7	LATIN SMALL LETTER C WITH CEDILLA */,
-  0x00E8 /* 0xE8	LATIN SMALL LETTER E WITH GRAVE */,
-  0x00E9 /* 0xE9	LATIN SMALL LETTER E WITH ACUTE */,
-  0x00EA /* 0xEA	LATIN SMALL LETTER E WITH CIRCUMFLEX */,
-  0x00EB /* 0xEB	LATIN SMALL LETTER E WITH DIAERESIS */,
-  0x00EC /* 0xEC	LATIN SMALL LETTER I WITH GRAVE */,
-  0x00ED /* 0xED	LATIN SMALL LETTER I WITH ACUTE */,
-  0x00EE /* 0xEE	LATIN SMALL LETTER I WITH CIRCUMFLEX */,
-  0x00EF /* 0xEF	LATIN SMALL LETTER I WITH DIAERESIS */,
-  0x011F /* 0xF0	LATIN SMALL LETTER G WITH BREVE */,
-  0x00F1 /* 0xF1	LATIN SMALL LETTER N WITH TILDE */,
-  0x00F2 /* 0xF2	LATIN SMALL LETTER O WITH GRAVE */,
-  0x00F3 /* 0xF3	LATIN SMALL LETTER O WITH ACUTE */,
-  0x00F4 /* 0xF4	LATIN SMALL LETTER O WITH CIRCUMFLEX */,
-  0x00F5 /* 0xF5	LATIN SMALL LETTER O WITH TILDE */,
-  0x00F6 /* 0xF6	LATIN SMALL LETTER O WITH DIAERESIS */,
-  0x00F7 /* 0xF7	DIVISION SIGN */,
-  0x00F8 /* 0xF8	LATIN SMALL LETTER O WITH STROKE */,
-  0x00F9 /* 0xF9	LATIN SMALL LETTER U WITH GRAVE */,
-  0x00FA /* 0xFA	LATIN SMALL LETTER U WITH ACUTE */,
-  0x00FB /* 0xFB	LATIN SMALL LETTER U WITH CIRCUMFLEX */,
-  0x00FC /* 0xFC	LATIN SMALL LETTER U WITH DIAERESIS */,
-  0x0131 /* 0xFD	LATIN SMALL LETTER DOTLESS I */,
-  0x015F /* 0xFE	LATIN SMALL LETTER S WITH CEDILLA */,
-  0x00FF /* 0xFF	LATIN SMALL LETTER Y WITH DIAERESIS */,
-};
-
-Emchar latin_viscii_lower_to_ucs[96] =
-{
-  CHAR96('1', 0x20),
-  0x1eaf /* 0x21 */,
-  0x1eb1 /* 0x22 */,
-  0x1eb7 /* 0x23 */,
-  0x1ea5 /* 0x24 */,
-  0x1ea7 /* 0x25 */,
-  0x1ea9 /* 0x26 */,
-  0x1ead /* 0x27 */,
-  0x1ebd /* 0x28 */,
-  0x1eb9 /* 0x29 */,
-  0x1ebf /* 0x2a */,
-  0x1ec1 /* 0x2b */,
-  0x1ec3 /* 0x2c */,
-  0x1ec5 /* 0x2d */,
-  0x1ec7 /* 0x2e */,
-  0x1ed1 /* 0x2f */,
-  0x1ed3 /* 0x30 */,
-  0x1ed5 /* 0x31 */,
-  0x1ed7 /* 0x32 */,
-  CHAR96('1', 0x33),
-  CHAR96('1', 0x34),
-  0x1ed9 /* 0x35 */,
-  0x1edd /* 0x36 */,
-  0x1edf /* 0x37 */,
-  0x1ecb /* 0x38 */,
-  CHAR96('1', 0x39),
-  CHAR96('1', 0x3A),
-  CHAR96('1', 0x3B),
-  CHAR96('1', 0x3C),
-  0x01a1 /* 0x3d */,
-  0x1edb /* 0x3e */,
-  CHAR96('1', 0x3F),
-  CHAR96('1', 0x40),
-  CHAR96('1', 0x41),
-  CHAR96('1', 0x42),
-  CHAR96('1', 0x43),
-  CHAR96('1', 0x44),
-  CHAR96('1', 0x45),
-  0x1eb3 /* 0x46 */,
-  0x1eb5 /* 0x47 */,
-  CHAR96('1', 0x48),
-  CHAR96('1', 0x49),
-  CHAR96('1', 0x4A),
-  CHAR96('1', 0x4B),
-  CHAR96('1', 0x4C),
-  CHAR96('1', 0x4D),
-  CHAR96('1', 0x4E),
-  0x1ef3 /* 0x4f */,
-  CHAR96('1', 0x50),
-  0x1ee9 /* 0x51 */,
-  CHAR96('1', 0x52),
-  CHAR96('1', 0x53),
-  CHAR96('1', 0x54),
-  0x1ea1 /* 0x55 */,
-  0x1ef7 /* 0x56 */,
-  0x1eeb /* 0x57 */,
-  0x1eed /* 0x58 */,
-  CHAR96('1', 0x59),
-  CHAR96('1', 0x5A),
-  0x1ef9 /* 0x5b */,
-  0x1ef5 /* 0x5c */,
-  CHAR96('1', 0x5D),
-  0x1ee1 /* 0x5e */,
-  0x01b0 /* 0x5f */,
-  0x00e0 /* 0x60 */,
-  0x00e1 /* 0x61 */,
-  0x00e2 /* 0x62 */,
-  0x00e3 /* 0x63 */,
-  0x1ea3 /* 0x64 */,
-  0x0103 /* 0x65 */,
-  0x1eef /* 0x66 */,
-  0x1eab /* 0x67 */,
-  0x00e8 /* 0x68 */,
-  0x00e9 /* 0x69 */,
-  0x00ea /* 0x6a */,
-  0x1ebb /* 0x6b */,
-  0x00ec /* 0x6c */,
-  0x00ed /* 0x6d */,
-  0x0129 /* 0x6e */,
-  0x1ec9 /* 0x6f */,
-  0x0111 /* 0x70 */,
-  0x1ef1 /* 0x71 */,
-  0x00f2 /* 0x72 */,
-  0x00f3 /* 0x73 */,
-  0x00f4 /* 0x74 */,
-  0x00f5 /* 0x75 */,
-  0x1ecf /* 0x76 */,
-  0x1ecd /* 0x77 */,
-  0x1ee5 /* 0x78 */,
-  0x00f9 /* 0x79 */,
-  0x00fa /* 0x7a */,
-  0x0169 /* 0x7b */,
-  0x1ee7 /* 0x7c */,
-  0x00fd /* 0x7d */,
-  0x1ee3 /* 0x7e */,
-  CHAR96('1', 0x7F)
-};
-
-Emchar latin_viscii_upper_to_ucs[96] =
-{
-  CHAR96('2', 0x20),
-  0x1eae /* 0x21 */,
-  0x1eb0 /* 0x22 */,
-  0x1eb6 /* 0x23 */,
-  0x1ea4 /* 0x24 */,
-  0x1ea6 /* 0x25 */,
-  0x1ea8 /* 0x26 */,
-  0x1eac /* 0x27 */,
-  0x1ebc /* 0x28 */,
-  0x1eb8 /* 0x29 */,
-  0x1ebe /* 0x2a */,
-  0x1ec0 /* 0x2b */,
-  0x1ec2 /* 0x2c */,
-  0x1ec4 /* 0x2d */,
-  0x1ec6 /* 0x2e */,
-  0x1ed0 /* 0x2f */,
-  0x1ed2 /* 0x30 */,
-  0x1ed4 /* 0x31 */,
-  0x1ed6 /* 0x32 */,
-  CHAR96('2', 0x33),
-  CHAR96('2', 0x34),
-  0x1ed8 /* 0x35 */,
-  0x1edc /* 0x36 */,
-  0x1ede /* 0x37 */,
-  0x1eca /* 0x38 */,
-  CHAR96('2', 0x39),
-  CHAR96('2', 0x3a),
-  CHAR96('2', 0x3b),
-  CHAR96('2', 0x3c),
-  0x01a0 /* 0x3d */,
-  0x1eda /* 0x3e */,
-  CHAR96('2', 0x3f),
-  CHAR96('2', 0x40),
-  CHAR96('2', 0x41),
-  CHAR96('2', 0x42),
-  CHAR96('2', 0x43),
-  CHAR96('2', 0x44),
-  CHAR96('2', 0x45),
-  0x1eb2 /* 0x46 */,
-  0x1eb4 /* 0x47 */,
-  CHAR96('2', 0x48),
-  CHAR96('2', 0x49),
-  CHAR96('2', 0x4a),
-  CHAR96('2', 0x4b),
-  CHAR96('2', 0x4c),
-  CHAR96('2', 0x4d),
-  CHAR96('2', 0x4e),
-  0x1ef2 /* 0x4f */,
-  CHAR96('2', 0x50),
-  0x1ee8 /* 0x51 */,
-  CHAR96('2', 0x52),
-  CHAR96('2', 0x53),
-  CHAR96('2', 0x54),
-  0x1ea0 /* 0x55 */,
-  0x1ef6 /* 0x56 */,
-  0x1eea /* 0x57 */,
-  0x1eec /* 0x58 */,
-  CHAR96('2', 0x59),
-  CHAR96('2', 0x5a),
-  0x1ef8 /* 0x5b */,
-  0x1ef4 /* 0x5c */,
-  CHAR96('2', 0x5d),
-  0x1ee0 /* 0x5e */,
-  0x01af /* 0x5f */,
-  0x00c0 /* 0x60 */,
-  0x00c1 /* 0x61 */,
-  0x00c2 /* 0x62 */,
-  0x00c3 /* 0x63 */,
-  0x1ea2 /* 0x64 */,
-  0x0102 /* 0x65 */,
-  0x1eee /* 0x66 */,
-  0x1eaa /* 0x67 */,
-  0x00c8 /* 0x68 */,
-  0x00c9 /* 0x69 */,
-  0x00ca /* 0x6a */,
-  0x1eba /* 0x6b */,
-  0x00cc /* 0x6c */,
-  0x00cd /* 0x6d */,
-  0x0128 /* 0x6e */,
-  0x1ec8 /* 0x6f */,
-  0x0110 /* 0x70 */,
-  0x1ef0 /* 0x71 */,
-  0x00d2 /* 0x72 */,
-  0x00d3 /* 0x73 */,
-  0x00d4 /* 0x74 */,
-  0x00d5 /* 0x75 */,
-  0x1ece /* 0x76 */,
-  0x1ecc /* 0x77 */,
-  0x1ee4 /* 0x78 */,
-  0x00d9 /* 0x79 */,
-  0x00da /* 0x7a */,
-  0x0168 /* 0x7b */,
-  0x1ee6 /* 0x7c */,
-  0x00dd /* 0x7d */,
-  0x1ee2 /* 0x7e */,
-  CHAR96('2', 0x7f)
-};
-
+#if 0
 Emchar latin_tcvn5712_to_ucs[96] =
 {
   0x00A0 /* 0xA0  NO-BREAK SPACE */,
@@ -990,6 +299,7 @@ Emchar latin_tcvn5712_to_ucs[96] =
   0x1EF5 /* 0xFE  LATIN SMALL LETTER Y WITH DOT BELOW */,
   0x1ED0 /* 0xFF  LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND ACUTE */
 };
+#endif
 
 Lisp_Object Vutf_2000_version;
 #endif
@@ -1458,7 +768,7 @@ make_charset (Charset_ID id, Lisp_Object name,
 	      Bufbyte final, unsigned char direction, Lisp_Object short_name,
 	      Lisp_Object long_name, Lisp_Object doc,
 	      Lisp_Object reg,
-	      Emchar* decoding_table,
+	      Lisp_Object decoding_table,
 	      Emchar ucs_min, Emchar ucs_max, Emchar code_offset)
 {
   Lisp_Object obj;
@@ -1492,16 +802,16 @@ make_charset (Charset_ID id, Lisp_Object name,
       CHARSET_DIMENSION (cs) = 1;
       CHARSET_CHARS (cs) = 94;
 #ifdef UTF2000
-      if (decoding_table != NULL)
+      if (!EQ (decoding_table, Qnil))
 	{
 	  size_t i;
 	  CHARSET_TO_BYTE1_TABLE(cs) = make_byte_from_character_table();
 	  for (i = 0; i < 94; i++)
 	    {
-	      Emchar c = decoding_table[i];
+	      Lisp_Object c = XVECTOR_DATA(decoding_table)[i];
 
-	      if (c <= 0xffff)
-		put_byte_from_character_table (c, i + 33,
+	      if (!EQ (c, Qnil))
+		put_byte_from_character_table (XCHAR (c), i + 33,
 					       CHARSET_TO_BYTE1_TABLE(cs));
 	    }
 	}
@@ -1514,16 +824,16 @@ make_charset (Charset_ID id, Lisp_Object name,
       CHARSET_DIMENSION (cs) = 1;
       CHARSET_CHARS (cs) = 96;
 #ifdef UTF2000
-      if (decoding_table != NULL)
+      if (!EQ (decoding_table, Qnil))
 	{
 	  size_t i;
 	  CHARSET_TO_BYTE1_TABLE(cs) = make_byte_from_character_table();
 	  for (i = 0; i < 96; i++)
 	    {
-	      Emchar c = decoding_table[i];
+	      Lisp_Object c = XVECTOR_DATA(decoding_table)[i];
 
-	      if (c <= 0xffff)
-		put_byte_from_character_table (c, i + 32,
+	      if (!EQ (c, Qnil))
+		put_byte_from_character_table (XCHAR (c), i + 32,
 					       CHARSET_TO_BYTE1_TABLE(cs));
 	    }
 	}
@@ -2026,7 +1336,7 @@ character set.  Recognized properties are:
   charset = make_charset (id, name, type, columns, graphic,
 			  final, direction, short_name, long_name,
 			  doc_string, registry,
-			  NULL, 0, 0, 0);
+			  Qnil, 0, 0, 0);
   if (!NILP (ccl_program))
     XCHARSET_CCL_PROGRAM (charset) = ccl_program;
   return charset;
@@ -2080,7 +1390,7 @@ NEW-NAME is the name of the new charset.  Return the new charset.
 			      CHARSET_UCS_MAX(cs),
 			      CHARSET_CODE_OFFSET(cs)
 #else
-			      NULL, 0, 0, 0
+			      Qnil, 0, 0, 0
 #endif
 );
 
@@ -2268,7 +1578,6 @@ invalidate_charset_font_caches (Lisp_Object charset)
     }
 }
 
-/* Japanese folks may want to (set-charset-registry 'ascii "jisx0201") */
 DEFUN ("set-charset-registry", Fset_charset_registry, 2, 2, 0, /*
 Set the 'registry property of CHARSET to REGISTRY.
 */
@@ -2281,6 +1590,16 @@ Set the 'registry property of CHARSET to REGISTRY.
   face_property_was_changed (Vdefault_face, Qfont, Qglobal);
   return Qnil;
 }
+
+#ifdef UTF2000
+DEFUN ("charset-mapping-table", Fcharset_mapping_table, 1, 1, 0, /*
+Set the 'registry property of CHARSET to REGISTRY.
+*/
+       (charset))
+{
+  return XCHARSET_DECODING_TABLE (Fget_charset (charset));
+}
+#endif
 
 
 /************************************************************************/
@@ -2485,6 +1804,9 @@ syms_of_mule_charset (void)
   DEFSUBR (Fcharset_id);
   DEFSUBR (Fset_charset_ccl_program);
   DEFSUBR (Fset_charset_registry);
+#ifdef UTF2000
+  DEFSUBR (Fcharset_mapping_table);
+#endif
 
   DEFSUBR (Fmake_char);
   DEFSUBR (Fchar_charset);
@@ -2606,6 +1928,1233 @@ complex_vars_of_mule_charset (void)
      ease of access. */
 
 #ifdef UTF2000
+  staticpro (&latin_jisx0201_to_ucs);
+  latin_jisx0201_to_ucs = make_vector (94, Qnil);
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x21 - 33]
+    = make_char (0x0021) /* EXCLAMATION MARK */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x22 - 33]
+    = make_char (0x0022) /* QUOTATION MARK */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x23 - 33]
+    = make_char (0x0023) /* NUMBER SIGN */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x24 - 33]
+    = make_char (0x0024) /* DOLLAR SIGN */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x25 - 33]
+    = make_char (0x0025) /* PERCENT SIGN */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x26 - 33]
+    = make_char (0x0026) /* AMPERSAND */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x27 - 33]
+    = make_char (0x0027) /* APOSTROPHE */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x28 - 33]
+    = make_char (0x0028) /* LEFT PARENTHESIS */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x29 - 33]
+    = make_char (0x0029) /* RIGHT PARENTHESIS */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x2A - 33]
+    = make_char (0x002A) /* ASTERISK */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x2B - 33]
+    = make_char (0x002B) /* PLUS SIGN */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x2C - 33]
+    = make_char (0x002C) /* COMMA */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x2D - 33]
+    = make_char (0x002D) /* HYPHEN-MINUS */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x2E - 33]
+    = make_char (0x002E) /* FULL STOP */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x2F - 33]
+    = make_char (0x002F) /* SOLIDUS */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x30 - 33]
+    = make_char (0x0030) /* DIGIT ZERO */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x31 - 33]
+    = make_char (0x0031) /* DIGIT ONE */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x32 - 33]
+    = make_char (0x0032) /* DIGIT TWO */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x33 - 33]
+    = make_char (0x0033) /* DIGIT THREE */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x34 - 33]
+    = make_char (0x0034) /* DIGIT FOUR */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x35 - 33]
+    = make_char (0x0035) /* DIGIT FIVE */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x36 - 33]
+    = make_char (0x0036) /* DIGIT SIX */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x37 - 33]
+    = make_char (0x0037) /* DIGIT SEVEN */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x38 - 33]
+    = make_char (0x0038) /* DIGIT EIGHT */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x39 - 33]
+    = make_char (0x0039) /* DIGIT NINE */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x3A - 33]
+    = make_char (0x003A) /* COLON */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x3B - 33]
+    = make_char (0x003B) /* SEMICOLON */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x3C - 33]
+    = make_char (0x003C) /* LESS-THAN SIGN */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x3D - 33]
+    = make_char (0x003D) /* EQUALS SIGN */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x3E - 33]
+    = make_char (0x003E) /* GREATER-THAN SIGN */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x3F - 33]
+    = make_char (0x003F) /* QUESTION MARK */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x40 - 33]
+    = make_char (0x0040) /* COMMERCIAL AT */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x41 - 33]
+    = make_char (0x0041) /* LATIN CAPITAL LETTER A */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x42 - 33]
+    = make_char (0x0042) /* LATIN CAPITAL LETTER B */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x43 - 33]
+    = make_char (0x0043) /* LATIN CAPITAL LETTER C */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x44 - 33]
+    = make_char (0x0044) /* LATIN CAPITAL LETTER D */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x45 - 33]
+    = make_char (0x0045) /* LATIN CAPITAL LETTER E */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x46 - 33]
+    = make_char (0x0046) /* LATIN CAPITAL LETTER F */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x47 - 33]
+    = make_char (0x0047) /* LATIN CAPITAL LETTER G */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x48 - 33]
+    = make_char (0x0048) /* LATIN CAPITAL LETTER H */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x49 - 33]
+    = make_char (0x0049) /* LATIN CAPITAL LETTER I */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x4A - 33]
+    = make_char (0x004A) /* LATIN CAPITAL LETTER J */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x4B - 33]
+    = make_char (0x004B) /* LATIN CAPITAL LETTER K */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x4C - 33]
+    = make_char (0x004C) /* LATIN CAPITAL LETTER L */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x4D - 33]
+    = make_char (0x004D) /* LATIN CAPITAL LETTER M */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x4E - 33]
+    = make_char (0x004E) /* LATIN CAPITAL LETTER N */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x4F - 33]
+    = make_char (0x004F) /* LATIN CAPITAL LETTER O */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x50 - 33]
+    = make_char (0x0050) /* LATIN CAPITAL LETTER P */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x51 - 33]
+    = make_char (0x0051) /* LATIN CAPITAL LETTER Q */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x52 - 33]
+    = make_char (0x0052) /* LATIN CAPITAL LETTER R */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x53 - 33]
+    = make_char (0x0053) /* LATIN CAPITAL LETTER S */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x54 - 33]
+    = make_char (0x0054) /* LATIN CAPITAL LETTER T */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x55 - 33]
+    = make_char (0x0055) /* LATIN CAPITAL LETTER U */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x56 - 33]
+    = make_char (0x0056) /* LATIN CAPITAL LETTER V */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x57 - 33]
+    = make_char (0x0057) /* LATIN CAPITAL LETTER W */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x58 - 33]
+    = make_char (0x0058) /* LATIN CAPITAL LETTER X */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x59 - 33]
+    = make_char (0x0059) /* LATIN CAPITAL LETTER Y */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x5A - 33]
+    = make_char (0x005A) /* LATIN CAPITAL LETTER Z */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x5B - 33]
+    = make_char (0x005B) /* LEFT SQUARE BRACKET */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x5C - 33]
+    = make_char (0x00A5) /* YEN SIGN */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x5D - 33]
+    = make_char (0x005D) /* RIGHT SQUARE BRACKET */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x5E - 33]
+    = make_char (0x005E) /* CIRCUMFLEX ACCENT */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x5F - 33]
+    = make_char (0x005F) /* LOW LINE */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x60 - 33]
+    = make_char (0x0060) /* GRAVE ACCENT */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x61 - 33]
+    = make_char (0x0061) /* LATIN SMALL LETTER A */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x62 - 33]
+    = make_char (0x0062) /* LATIN SMALL LETTER B */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x63 - 33]
+    = make_char (0x0063) /* LATIN SMALL LETTER C */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x64 - 33]
+    = make_char (0x0064) /* LATIN SMALL LETTER D */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x65 - 33]
+    = make_char (0x0065) /* LATIN SMALL LETTER E */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x66 - 33]
+    = make_char (0x0066) /* LATIN SMALL LETTER F */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x67 - 33]
+    = make_char (0x0067) /* LATIN SMALL LETTER G */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x68 - 33]
+    = make_char (0x0068) /* LATIN SMALL LETTER H */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x69 - 33]
+    = make_char (0x0069) /* LATIN SMALL LETTER I */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x6A - 33]
+    = make_char (0x006A) /* LATIN SMALL LETTER J */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x6B - 33]
+    = make_char (0x006B) /* LATIN SMALL LETTER K */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x6C - 33]
+    = make_char (0x006C) /* LATIN SMALL LETTER L */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x6D - 33]
+    = make_char (0x006D) /* LATIN SMALL LETTER M */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x6E - 33]
+    = make_char (0x006E) /* LATIN SMALL LETTER N */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x6F - 33]
+    = make_char (0x006F) /* LATIN SMALL LETTER O */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x70 - 33]
+    = make_char (0x0070) /* LATIN SMALL LETTER P */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x71 - 33]
+    = make_char (0x0071) /* LATIN SMALL LETTER Q */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x72 - 33]
+    = make_char (0x0072) /* LATIN SMALL LETTER R */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x73 - 33]
+    = make_char (0x0073) /* LATIN SMALL LETTER S */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x74 - 33]
+    = make_char (0x0074) /* LATIN SMALL LETTER T */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x75 - 33]
+    = make_char (0x0075) /* LATIN SMALL LETTER U */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x76 - 33]
+    = make_char (0x0076) /* LATIN SMALL LETTER V */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x77 - 33]
+    = make_char (0x0077) /* LATIN SMALL LETTER W */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x78 - 33]
+    = make_char (0x0078) /* LATIN SMALL LETTER X */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x79 - 33]
+    = make_char (0x0079) /* LATIN SMALL LETTER Y */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x7A - 33]
+    = make_char (0x007A) /* LATIN SMALL LETTER Z */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x7B - 33]
+    = make_char (0x007B) /* LEFT CURLY BRACKET */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x7C - 33]
+    = make_char (0x007C) /* VERTICAL LINE */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x7D - 33]
+    = make_char (0x007D) /* RIGHT CURLY BRACKET */;
+  XVECTOR_DATA(latin_jisx0201_to_ucs)[0x7E - 33]
+    = make_char (0x203E) /* OVERLINE */;
+  
+  staticpro (&latin_iso8859_2_to_ucs);
+  latin_iso8859_2_to_ucs = make_vector (96, Qnil);
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xA0 - 0xA0]
+    = make_char (0x00A0) /* NO-BREAK SPACE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xA1 - 0xA0]
+    = make_char (0x0104) /* LATIN CAPITAL LETTER A WITH OGONEK */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xA2 - 0xA0]
+    = make_char (0x02D8) /* BREVE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xA3 - 0xA0]
+    = make_char (0x0141) /* LATIN CAPITAL LETTER L WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xA4 - 0xA0]
+    = make_char (0x00A4) /* CURRENCY SIGN */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xA5 - 0xA0]
+    = make_char (0x013D) /* LATIN CAPITAL LETTER L WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xA6 - 0xA0]
+    = make_char (0x015A) /* LATIN CAPITAL LETTER S WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xA7 - 0xA0]
+    = make_char (0x00A7) /* SECTION SIGN */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xA8 - 0xA0]
+    = make_char (0x00A8) /* DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xA9 - 0xA0]
+    = make_char (0x0160) /* LATIN CAPITAL LETTER S WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xAA - 0xA0]
+    = make_char (0x015E) /* LATIN CAPITAL LETTER S WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xAB - 0xA0]
+    = make_char (0x0164) /* LATIN CAPITAL LETTER T WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xAC - 0xA0]
+    = make_char (0x0179) /* LATIN CAPITAL LETTER Z WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xAD - 0xA0]
+    = make_char (0x00AD) /* SOFT HYPHEN */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xAE - 0xA0]
+    = make_char (0x017D) /* LATIN CAPITAL LETTER Z WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xAF - 0xA0]
+    = make_char (0x017B) /* LATIN CAPITAL LETTER Z WITH DOT ABOVE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xB0 - 0xA0]
+    = make_char (0x00B0) /* DEGREE SIGN */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xB1 - 0xA0]
+    = make_char (0x0105) /* LATIN SMALL LETTER A WITH OGONEK */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xB2 - 0xA0]
+    = make_char (0x02DB) /* OGONEK */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xB3 - 0xA0]
+    = make_char (0x0142) /* LATIN SMALL LETTER L WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xB4 - 0xA0]
+    = make_char (0x00B4) /* ACUTE ACCENT */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xB5 - 0xA0]
+    = make_char (0x013E) /* LATIN SMALL LETTER L WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xB6 - 0xA0]
+    = make_char (0x015B) /* LATIN SMALL LETTER S WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xB7 - 0xA0]
+    = make_char (0x02C7) /* CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xB8 - 0xA0]
+    = make_char (0x00B8) /* CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xB9 - 0xA0]
+    = make_char (0x0161) /* LATIN SMALL LETTER S WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xBA - 0xA0]
+    = make_char (0x015F) /* LATIN SMALL LETTER S WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xBB - 0xA0]
+    = make_char (0x0165) /* LATIN SMALL LETTER T WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xBC - 0xA0]
+    = make_char (0x017A) /* LATIN SMALL LETTER Z WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xBD - 0xA0]
+    = make_char (0x02DD) /* DOUBLE ACUTE ACCENT */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xBE - 0xA0]
+    = make_char (0x017E) /* LATIN SMALL LETTER Z WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xBF - 0xA0]
+    = make_char (0x017C) /* LATIN SMALL LETTER Z WITH DOT ABOVE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xC0 - 0xA0]
+    = make_char (0x0154) /* LATIN CAPITAL LETTER R WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xC1 - 0xA0]
+    = make_char (0x00C1) /* LATIN CAPITAL LETTER A WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xC2 - 0xA0]
+    = make_char (0x00C2) /* LATIN CAPITAL LETTER A WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xC3 - 0xA0]
+    = make_char (0x0102) /* LATIN CAPITAL LETTER A WITH BREVE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xC4 - 0xA0]
+    = make_char (0x00C4) /* LATIN CAPITAL LETTER A WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xC5 - 0xA0]
+    = make_char (0x0139) /* LATIN CAPITAL LETTER L WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xC6 - 0xA0]
+    = make_char (0x0106) /* LATIN CAPITAL LETTER C WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xC7 - 0xA0]
+    = make_char (0x00C7) /* LATIN CAPITAL LETTER C WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xC8 - 0xA0]
+    = make_char (0x010C) /* LATIN CAPITAL LETTER C WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xC9 - 0xA0]
+    = make_char (0x00C9) /* LATIN CAPITAL LETTER E WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xCA - 0xA0]
+    = make_char (0x0118) /* LATIN CAPITAL LETTER E WITH OGONEK */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xCB - 0xA0]
+    = make_char (0x00CB) /* LATIN CAPITAL LETTER E WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xCC - 0xA0]
+    = make_char (0x011A) /* LATIN CAPITAL LETTER E WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xCD - 0xA0]
+    = make_char (0x00CD) /* LATIN CAPITAL LETTER I WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xCE - 0xA0]
+    = make_char (0x00CE) /* LATIN CAPITAL LETTER I WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xCF - 0xA0]
+    = make_char (0x010E) /* LATIN CAPITAL LETTER D WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xD0 - 0xA0]
+    = make_char (0x0110) /* LATIN CAPITAL LETTER D WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xD1 - 0xA0]
+    = make_char (0x0143) /* LATIN CAPITAL LETTER N WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xD2 - 0xA0]
+    = make_char (0x0147) /* LATIN CAPITAL LETTER N WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xD3 - 0xA0]
+    = make_char (0x00D3) /* LATIN CAPITAL LETTER O WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xD4 - 0xA0]
+    = make_char (0x00D4) /* LATIN CAPITAL LETTER O WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xD5 - 0xA0]
+    = make_char (0x0150) /* LATIN CAPITAL LETTER O WITH DOUBLE ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xD6 - 0xA0]
+    = make_char (0x00D6) /* LATIN CAPITAL LETTER O WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xD7 - 0xA0]
+    = make_char (0x00D7) /* MULTIPLICATION SIGN */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xD8 - 0xA0]
+    = make_char (0x0158) /* LATIN CAPITAL LETTER R WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xD9 - 0xA0]
+    = make_char (0x016E) /* LATIN CAPITAL LETTER U WITH RING ABOVE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xDA - 0xA0]
+    = make_char (0x00DA) /* LATIN CAPITAL LETTER U WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xDB - 0xA0]
+    = make_char (0x0170) /* LATIN CAPITAL LETTER U WITH DOUBLE ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xDC - 0xA0]
+    = make_char (0x00DC) /* LATIN CAPITAL LETTER U WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xDD - 0xA0]
+    = make_char (0x00DD) /* LATIN CAPITAL LETTER Y WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xDE - 0xA0]
+    = make_char (0x0162) /* LATIN CAPITAL LETTER T WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xDF - 0xA0]
+    = make_char (0x00DF) /* LATIN SMALL LETTER SHARP S */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xE0 - 0xA0]
+    = make_char (0x0155) /* LATIN SMALL LETTER R WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xE1 - 0xA0]
+    = make_char (0x00E1) /* LATIN SMALL LETTER A WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xE2 - 0xA0]
+    = make_char (0x00E2) /* LATIN SMALL LETTER A WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xE3 - 0xA0]
+    = make_char (0x0103) /* LATIN SMALL LETTER A WITH BREVE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xE4 - 0xA0]
+    = make_char (0x00E4) /* LATIN SMALL LETTER A WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xE5 - 0xA0]
+    = make_char (0x013A) /* LATIN SMALL LETTER L WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xE6 - 0xA0]
+    = make_char (0x0107) /* LATIN SMALL LETTER C WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xE7 - 0xA0]
+    = make_char (0x00E7) /* LATIN SMALL LETTER C WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xE8 - 0xA0]
+    = make_char (0x010D) /* LATIN SMALL LETTER C WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xE9 - 0xA0]
+    = make_char (0x00E9) /* LATIN SMALL LETTER E WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xEA - 0xA0]
+    = make_char (0x0119) /* LATIN SMALL LETTER E WITH OGONEK */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xEB - 0xA0]
+    = make_char (0x00EB) /* LATIN SMALL LETTER E WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xEC - 0xA0]
+    = make_char (0x011B) /* LATIN SMALL LETTER E WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xED - 0xA0]
+    = make_char (0x00ED) /* LATIN SMALL LETTER I WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xEE - 0xA0]
+    = make_char (0x00EE) /* LATIN SMALL LETTER I WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xEF - 0xA0]
+    = make_char (0x010F) /* LATIN SMALL LETTER D WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xF0 - 0xA0]
+    = make_char (0x0111) /* LATIN SMALL LETTER D WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xF1 - 0xA0]
+    = make_char (0x0144) /* LATIN SMALL LETTER N WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xF2 - 0xA0]
+    = make_char (0x0148) /* LATIN SMALL LETTER N WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xF3 - 0xA0]
+    = make_char (0x00F3) /* LATIN SMALL LETTER O WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xF4 - 0xA0]
+    = make_char (0x00F4) /* LATIN SMALL LETTER O WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xF5 - 0xA0]
+    = make_char (0x0151) /* LATIN SMALL LETTER O WITH DOUBLE ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xF6 - 0xA0]
+    = make_char (0x00F6) /* LATIN SMALL LETTER O WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xF7 - 0xA0]
+    = make_char (0x00F7) /* DIVISION SIGN */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xF8 - 0xA0]
+    = make_char (0x0159) /* LATIN SMALL LETTER R WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xF9 - 0xA0]
+    = make_char (0x016F) /* LATIN SMALL LETTER U WITH RING ABOVE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xFA - 0xA0]
+    = make_char (0x00FA) /* LATIN SMALL LETTER U WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xFB - 0xA0]
+    = make_char (0x0171) /* LATIN SMALL LETTER U WITH DOUBLE ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xFC - 0xA0]
+    = make_char (0x00FC) /* LATIN SMALL LETTER U WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xFD - 0xA0]
+    = make_char (0x00FD) /* LATIN SMALL LETTER Y WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xFE - 0xA0]
+    = make_char (0x0163) /* LATIN SMALL LETTER T WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_2_to_ucs)[0xFF - 0xA0]
+    = make_char (0x02D9) /* DOT ABOVE */;
+  
+  staticpro (&latin_iso8859_3_to_ucs);
+  latin_iso8859_3_to_ucs = make_vector (96, Qnil);
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xA0 - 0xA0]
+    = make_char (0x00A0) /* NO-BREAK SPACE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xA1 - 0xA0]
+    = make_char (0x0126) /* LATIN CAPITAL LETTER H WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xA2 - 0xA0]
+    = make_char (0x02D8) /* BREVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xA3 - 0xA0]
+    = make_char (0x00A3) /* POUND SIGN */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xA4 - 0xA0]
+    = make_char (0x00A4) /* CURRENCY SIGN */;
+  /* XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xA5 - 0xA0]
+     = make_char (CHAR96('C', 0xA5));  */
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xA6 - 0xA0]
+    = make_char (0x0124) /* LATIN CAPITAL LETTER H WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xA7 - 0xA0]
+    = make_char (0x00A7) /* SECTION SIGN */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xA8 - 0xA0]
+    = make_char (0x00A8) /* DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xA9 - 0xA0]
+    = make_char (0x0130) /* LATIN CAPITAL LETTER I WITH DOT ABOVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xAA - 0xA0]
+    = make_char (0x015E) /* LATIN CAPITAL LETTER S WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xAB - 0xA0]
+    = make_char (0x011E) /* LATIN CAPITAL LETTER G WITH BREVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xAC - 0xA0]
+    = make_char (0x0134) /* LATIN CAPITAL LETTER J WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xAD - 0xA0]
+    = make_char (0x00AD) /* SOFT HYPHEN */;
+  /* XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xAE - 0xA0]
+     = make_char (CHAR96('C', 0xAE)); */
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xAF - 0xA0]
+    = make_char (0x017B) /* LATIN CAPITAL LETTER Z WITH DOT ABOVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xB0 - 0xA0]
+    = make_char (0x00B0) /* DEGREE SIGN */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xB1 - 0xA0]
+    = make_char (0x0127) /* LATIN SMALL LETTER H WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xB2 - 0xA0]
+    = make_char (0x00B2) /* SUPERSCRIPT TWO */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xB3 - 0xA0]
+    = make_char (0x00B3) /* SUPERSCRIPT THREE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xB4 - 0xA0]
+    = make_char (0x00B4) /* ACUTE ACCENT */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xB5 - 0xA0]
+    = make_char (0x00B5) /* MICRO SIGN */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xB6 - 0xA0]
+    = make_char (0x0125) /* LATIN SMALL LETTER H WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xB7 - 0xA0]
+    = make_char (0x00B7) /* MIDDLE DOT */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xB8 - 0xA0]
+    = make_char (0x00B8) /* CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xB9 - 0xA0]
+    = make_char (0x0131) /* LATIN SMALL LETTER DOTLESS I */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xBA - 0xA0]
+    = make_char (0x015F) /* LATIN SMALL LETTER S WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xBB - 0xA0]
+    = make_char (0x011F) /* LATIN SMALL LETTER G WITH BREVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xBC - 0xA0]
+    = make_char (0x0135) /* LATIN SMALL LETTER J WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xBD - 0xA0]
+    = make_char (0x00BD) /* VULGAR FRACTION ONE HALF */;
+  /* XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xBE - 0xA0]
+     = make_char (CHAR96('C', 0xBE)); */
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xBF - 0xA0]
+    = make_char (0x017C) /* LATIN SMALL LETTER Z WITH DOT ABOVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xC0 - 0xA0]
+    = make_char (0x00C0) /* LATIN CAPITAL LETTER A WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xC1 - 0xA0]
+    = make_char (0x00C1) /* LATIN CAPITAL LETTER A WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xC2 - 0xA0]
+    = make_char (0x00C2) /* LATIN CAPITAL LETTER A WITH CIRCUMFLEX */;
+  /* XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xC3 - 0xA0]
+     = make_char (CHAR96('C', 0xC3)); */
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xC4 - 0xA0]
+    = make_char (0x00C4) /* LATIN CAPITAL LETTER A WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xC5 - 0xA0]
+    = make_char (0x010A) /* LATIN CAPITAL LETTER C WITH DOT ABOVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xC6 - 0xA0]
+    = make_char (0x0108) /* LATIN CAPITAL LETTER C WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xC7 - 0xA0]
+    = make_char (0x00C7) /* LATIN CAPITAL LETTER C WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xC8 - 0xA0]
+    = make_char (0x00C8) /* LATIN CAPITAL LETTER E WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xC9 - 0xA0]
+    = make_char (0x00C9) /* LATIN CAPITAL LETTER E WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xCA - 0xA0]
+    = make_char (0x00CA) /* LATIN CAPITAL LETTER E WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xCB - 0xA0]
+    = make_char (0x00CB) /* LATIN CAPITAL LETTER E WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xCC - 0xA0]
+    = make_char (0x00CC) /* LATIN CAPITAL LETTER I WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xCD - 0xA0]
+    = make_char (0x00CD) /* LATIN CAPITAL LETTER I WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xCE - 0xA0]
+    = make_char (0x00CE) /* LATIN CAPITAL LETTER I WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xCF - 0xA0]
+    = make_char (0x00CF) /* LATIN CAPITAL LETTER I WITH DIAERESIS */;
+  /* XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xD0 - 0xA0]
+     = make_char (CHAR96('C', 0xD0)); */
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xD1 - 0xA0]
+    = make_char (0x00D1) /* LATIN CAPITAL LETTER N WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xD2 - 0xA0]
+    = make_char (0x00D2) /* LATIN CAPITAL LETTER O WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xD3 - 0xA0]
+    = make_char (0x00D3) /* LATIN CAPITAL LETTER O WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xD4 - 0xA0]
+    = make_char (0x00D4) /* LATIN CAPITAL LETTER O WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xD5 - 0xA0]
+    = make_char (0x0120) /* LATIN CAPITAL LETTER G WITH DOT ABOVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xD6 - 0xA0]
+    = make_char (0x00D6) /* LATIN CAPITAL LETTER O WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xD7 - 0xA0]
+    = make_char (0x00D7) /* MULTIPLICATION SIGN */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xD8 - 0xA0]
+    = make_char (0x011C) /* LATIN CAPITAL LETTER G WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xD9 - 0xA0]
+    = make_char (0x00D9) /* LATIN CAPITAL LETTER U WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xDA - 0xA0]
+    = make_char (0x00DA) /* LATIN CAPITAL LETTER U WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xDB - 0xA0]
+    = make_char (0x00DB) /* LATIN CAPITAL LETTER U WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xDC - 0xA0]
+    = make_char (0x00DC) /* LATIN CAPITAL LETTER U WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xDD - 0xA0]
+    = make_char (0x016C) /* LATIN CAPITAL LETTER U WITH BREVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xDE - 0xA0]
+    = make_char (0x015C) /* LATIN CAPITAL LETTER S WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xDF - 0xA0]
+    = make_char (0x00DF) /* LATIN SMALL LETTER SHARP S */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xE0 - 0xA0]
+    = make_char (0x00E0) /* LATIN SMALL LETTER A WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xE1 - 0xA0]
+    = make_char (0x00E1) /* LATIN SMALL LETTER A WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xE2 - 0xA0]
+    = make_char (0x00E2) /* LATIN SMALL LETTER A WITH CIRCUMFLEX */;
+  /* XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xE3 - 0xA0]
+     = make_char (CHAR96('C', 0xE3)); */
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xE4 - 0xA0]
+    = make_char (0x00E4) /* LATIN SMALL LETTER A WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xE5 - 0xA0]
+    = make_char (0x010B) /* LATIN SMALL LETTER C WITH DOT ABOVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xE6 - 0xA0]
+    = make_char (0x0109) /* LATIN SMALL LETTER C WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xE7 - 0xA0]
+    = make_char (0x00E7) /* LATIN SMALL LETTER C WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xE8 - 0xA0]
+    = make_char (0x00E8) /* LATIN SMALL LETTER E WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xE9 - 0xA0]
+    = make_char (0x00E9) /* LATIN SMALL LETTER E WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xEA - 0xA0]
+    = make_char (0x00EA) /* LATIN SMALL LETTER E WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xEB - 0xA0]
+    = make_char (0x00EB) /* LATIN SMALL LETTER E WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xEC - 0xA0]
+    = make_char (0x00EC) /* LATIN SMALL LETTER I WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xED - 0xA0]
+    = make_char (0x00ED) /* LATIN SMALL LETTER I WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xEE - 0xA0]
+    = make_char (0x00EE) /* LATIN SMALL LETTER I WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xEF - 0xA0]
+    = make_char (0x00EF) /* LATIN SMALL LETTER I WITH DIAERESIS */;
+  /* XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xF0 - 0xA0]
+     = make_char (CHAR96('C', 0xF0)); */
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xF1 - 0xA0]
+    = make_char (0x00F1) /* LATIN SMALL LETTER N WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xF2 - 0xA0]
+    = make_char (0x00F2) /* LATIN SMALL LETTER O WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xF3 - 0xA0]
+    = make_char (0x00F3) /* LATIN SMALL LETTER O WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xF4 - 0xA0]
+    = make_char (0x00F4) /* LATIN SMALL LETTER O WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xF5 - 0xA0]
+    = make_char (0x0121) /* LATIN SMALL LETTER G WITH DOT ABOVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xF6 - 0xA0]
+    = make_char (0x00F6) /* LATIN SMALL LETTER O WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xF7 - 0xA0]
+    = make_char (0x00F7) /* DIVISION SIGN */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xF8 - 0xA0]
+    = make_char (0x011D) /* LATIN SMALL LETTER G WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xF9 - 0xA0]
+    = make_char (0x00F9) /* LATIN SMALL LETTER U WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xFA - 0xA0]
+    = make_char (0x00FA) /* LATIN SMALL LETTER U WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xFB - 0xA0]
+    = make_char (0x00FB) /* LATIN SMALL LETTER U WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xFC - 0xA0]
+    = make_char (0x00FC) /* LATIN SMALL LETTER U WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xFD - 0xA0]
+    = make_char (0x016D) /* LATIN SMALL LETTER U WITH BREVE */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xFE - 0xA0]
+    = make_char (0x015D) /* LATIN SMALL LETTER S WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_3_to_ucs)[0xFF - 0xA0]
+    = make_char (0x02D9) /* DOT ABOVE */;
+  
+  staticpro (&latin_iso8859_4_to_ucs);
+  latin_iso8859_4_to_ucs = make_vector (96, Qnil);
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xA0 - 0xA0]
+    = make_char (0x00A0) /* NO-BREAK SPACE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xA1 - 0xA0]
+    = make_char (0x0104) /* LATIN CAPITAL LETTER A WITH OGONEK */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xA2 - 0xA0]
+    = make_char (0x0138) /* LATIN SMALL LETTER KRA */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xA3 - 0xA0]
+    = make_char (0x0156) /* LATIN CAPITAL LETTER R WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xA4 - 0xA0]
+    = make_char (0x00A4) /* CURRENCY SIGN */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xA5 - 0xA0]
+    = make_char (0x0128) /* LATIN CAPITAL LETTER I WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xA6 - 0xA0]
+    = make_char (0x013B) /* LATIN CAPITAL LETTER L WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xA7 - 0xA0]
+    = make_char (0x00A7) /* SECTION SIGN */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xA8 - 0xA0]
+    = make_char (0x00A8) /* DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xA9 - 0xA0]
+    = make_char (0x0160) /* LATIN CAPITAL LETTER S WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xAA - 0xA0]
+    = make_char (0x0112) /* LATIN CAPITAL LETTER E WITH MACRON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xAB - 0xA0]
+    = make_char (0x0122) /* LATIN CAPITAL LETTER G WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xAC - 0xA0]
+    = make_char (0x0166) /* LATIN CAPITAL LETTER T WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xAD - 0xA0]
+    = make_char (0x00AD) /* SOFT HYPHEN */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xAE - 0xA0]
+    = make_char (0x017D) /* LATIN CAPITAL LETTER Z WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xAF - 0xA0]
+    = make_char (0x00AF) /* MACRON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xB0 - 0xA0]
+    = make_char (0x00B0) /* DEGREE SIGN */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xB1 - 0xA0]
+    = make_char (0x0105) /* LATIN SMALL LETTER A WITH OGONEK */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xB2 - 0xA0]
+    = make_char (0x02DB) /* OGONEK */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xB3 - 0xA0]
+    = make_char (0x0157) /* LATIN SMALL LETTER R WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xB4 - 0xA0]
+    = make_char (0x00B4) /* ACUTE ACCENT */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xB5 - 0xA0]
+    = make_char (0x0129) /* LATIN SMALL LETTER I WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xB6 - 0xA0]
+    = make_char (0x013C) /* LATIN SMALL LETTER L WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xB7 - 0xA0]
+    = make_char (0x02C7) /* CARON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xB8 - 0xA0]
+    = make_char (0x00B8) /* CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xB9 - 0xA0]
+    = make_char (0x0161) /* LATIN SMALL LETTER S WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xBA - 0xA0]
+    = make_char (0x0113) /* LATIN SMALL LETTER E WITH MACRON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xBB - 0xA0]
+    = make_char (0x0123) /* LATIN SMALL LETTER G WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xBC - 0xA0]
+    = make_char (0x0167) /* LATIN SMALL LETTER T WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xBD - 0xA0]
+    = make_char (0x014A) /* LATIN CAPITAL LETTER ENG */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xBE - 0xA0]
+    = make_char (0x017E) /* LATIN SMALL LETTER Z WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xBF - 0xA0]
+    = make_char (0x014B) /* LATIN SMALL LETTER ENG */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xC0 - 0xA0]
+    = make_char (0x0100) /* LATIN CAPITAL LETTER A WITH MACRON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xC1 - 0xA0]
+    = make_char (0x00C1) /* LATIN CAPITAL LETTER A WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xC2 - 0xA0]
+    = make_char (0x00C2) /* LATIN CAPITAL LETTER A WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xC3 - 0xA0]
+    = make_char (0x00C3) /* LATIN CAPITAL LETTER A WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xC4 - 0xA0]
+    = make_char (0x00C4) /* LATIN CAPITAL LETTER A WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xC5 - 0xA0]
+    = make_char (0x00C5) /* LATIN CAPITAL LETTER A WITH RING ABOVE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xC6 - 0xA0]
+    = make_char (0x00C6) /* LATIN CAPITAL LETTER AE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xC7 - 0xA0]
+    = make_char (0x012E) /* LATIN CAPITAL LETTER I WITH OGONEK */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xC8 - 0xA0]
+    = make_char (0x010C) /* LATIN CAPITAL LETTER C WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xC9 - 0xA0]
+    = make_char (0x00C9) /* LATIN CAPITAL LETTER E WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xCA - 0xA0]
+    = make_char (0x0118) /* LATIN CAPITAL LETTER E WITH OGONEK */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xCB - 0xA0]
+    = make_char (0x00CB) /* LATIN CAPITAL LETTER E WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xCC - 0xA0]
+    = make_char (0x0116) /* LATIN CAPITAL LETTER E WITH DOT ABOVE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xCD - 0xA0]
+    = make_char (0x00CD) /* LATIN CAPITAL LETTER I WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xCE - 0xA0]
+    = make_char (0x00CE) /* LATIN CAPITAL LETTER I WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xCF - 0xA0]
+    = make_char (0x012A) /* LATIN CAPITAL LETTER I WITH MACRON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xD0 - 0xA0]
+    = make_char (0x0110) /* LATIN CAPITAL LETTER D WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xD1 - 0xA0]
+    = make_char (0x0145) /* LATIN CAPITAL LETTER N WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xD2 - 0xA0]
+    = make_char (0x014C) /* LATIN CAPITAL LETTER O WITH MACRON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xD3 - 0xA0]
+    = make_char (0x0136) /* LATIN CAPITAL LETTER K WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xD4 - 0xA0]
+    = make_char (0x00D4) /* LATIN CAPITAL LETTER O WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xD5 - 0xA0]
+    = make_char (0x00D5) /* LATIN CAPITAL LETTER O WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xD6 - 0xA0]
+    = make_char (0x00D6) /* LATIN CAPITAL LETTER O WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xD7 - 0xA0]
+    = make_char (0x00D7) /* MULTIPLICATION SIGN */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xD8 - 0xA0]
+    = make_char (0x00D8) /* LATIN CAPITAL LETTER O WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xD9 - 0xA0]
+    = make_char (0x0172) /* LATIN CAPITAL LETTER U WITH OGONEK */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xDA - 0xA0]
+    = make_char (0x00DA) /* LATIN CAPITAL LETTER U WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xDB - 0xA0]
+    = make_char (0x00DB) /* LATIN CAPITAL LETTER U WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xDC - 0xA0]
+    = make_char (0x00DC) /* LATIN CAPITAL LETTER U WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xDD - 0xA0]
+    = make_char (0x0168) /* LATIN CAPITAL LETTER U WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xDE - 0xA0]
+    = make_char (0x016A) /* LATIN CAPITAL LETTER U WITH MACRON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xDF - 0xA0]
+    = make_char (0x00DF) /* LATIN SMALL LETTER SHARP S */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xE0 - 0xA0]
+    = make_char (0x0101) /* LATIN SMALL LETTER A WITH MACRON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xE1 - 0xA0]
+    = make_char (0x00E1) /* LATIN SMALL LETTER A WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xE2 - 0xA0]
+    = make_char (0x00E2) /* LATIN SMALL LETTER A WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xE3 - 0xA0]
+    = make_char (0x00E3) /* LATIN SMALL LETTER A WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xE4 - 0xA0]
+    = make_char (0x00E4) /* LATIN SMALL LETTER A WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xE5 - 0xA0]
+    = make_char (0x00E5) /* LATIN SMALL LETTER A WITH RING ABOVE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xE6 - 0xA0]
+    = make_char (0x00E6) /* LATIN SMALL LETTER AE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xE7 - 0xA0]
+    = make_char (0x012F) /* LATIN SMALL LETTER I WITH OGONEK */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xE8 - 0xA0]
+    = make_char (0x010D) /* LATIN SMALL LETTER C WITH CARON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xE9 - 0xA0]
+    = make_char (0x00E9) /* LATIN SMALL LETTER E WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xEA - 0xA0]
+    = make_char (0x0119) /* LATIN SMALL LETTER E WITH OGONEK */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xEB - 0xA0]
+    = make_char (0x00EB) /* LATIN SMALL LETTER E WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xEC - 0xA0]
+    = make_char (0x0117) /* LATIN SMALL LETTER E WITH DOT ABOVE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xED - 0xA0]
+    = make_char (0x00ED) /* LATIN SMALL LETTER I WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xEE - 0xA0]
+    = make_char (0x00EE) /* LATIN SMALL LETTER I WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xEF - 0xA0]
+    = make_char (0x012B) /* LATIN SMALL LETTER I WITH MACRON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xF0 - 0xA0]
+    = make_char (0x0111) /* LATIN SMALL LETTER D WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xF1 - 0xA0]
+    = make_char (0x0146) /* LATIN SMALL LETTER N WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xF2 - 0xA0]
+    = make_char (0x014D) /* LATIN SMALL LETTER O WITH MACRON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xF3 - 0xA0]
+    = make_char (0x0137) /* LATIN SMALL LETTER K WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xF4 - 0xA0]
+    = make_char (0x00F4) /* LATIN SMALL LETTER O WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xF5 - 0xA0]
+    = make_char (0x00F5) /* LATIN SMALL LETTER O WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xF6 - 0xA0]
+    = make_char (0x00F6) /* LATIN SMALL LETTER O WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xF7 - 0xA0]
+    = make_char (0x00F7) /* DIVISION SIGN */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xF8 - 0xA0]
+    = make_char (0x00F8) /* LATIN SMALL LETTER O WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xF9 - 0xA0]
+    = make_char (0x0173) /* LATIN SMALL LETTER U WITH OGONEK */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xFA - 0xA0]
+    = make_char (0x00FA) /* LATIN SMALL LETTER U WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xFB - 0xA0]
+    = make_char (0x00FB) /* LATIN SMALL LETTER U WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xFC - 0xA0]
+    = make_char (0x00FC) /* LATIN SMALL LETTER U WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xFD - 0xA0]
+    = make_char (0x0169) /* LATIN SMALL LETTER U WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xFE - 0xA0]
+    = make_char (0x016B) /* LATIN SMALL LETTER U WITH MACRON */;
+  XVECTOR_DATA(latin_iso8859_4_to_ucs)[0xFF - 0xA0]
+    = make_char (0x02D9) /* DOT ABOVE */;
+  
+  staticpro (&latin_iso8859_9_to_ucs);
+  latin_iso8859_9_to_ucs = make_vector (96, Qnil);
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xA0 - 0xA0]
+    = make_char (0x00A0) /* NO-BREAK SPACE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xA1 - 0xA0]
+    = make_char (0x00A1) /* INVERTED EXCLAMATION MARK */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xA2 - 0xA0]
+    = make_char (0x00A2) /* CENT SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xA3 - 0xA0]
+    = make_char (0x00A3) /* POUND SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xA4 - 0xA0]
+    = make_char (0x00A4) /* CURRENCY SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xA5 - 0xA0]
+    = make_char (0x00A5) /* YEN SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xA6 - 0xA0]
+    = make_char (0x00A6) /* BROKEN BAR */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xA7 - 0xA0]
+    = make_char (0x00A7) /* SECTION SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xA8 - 0xA0]
+    = make_char (0x00A8) /* DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xA9 - 0xA0]
+    = make_char (0x00A9) /* COPYRIGHT SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xAA - 0xA0]
+    = make_char (0x00AA) /* FEMININE ORDINAL INDICATOR */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xAB - 0xA0]
+    = make_char (0x00AB) /* LEFT-POINTING DOUBLE ANGLE QUOTATION MARK */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xAC - 0xA0]
+    = make_char (0x00AC) /* NOT SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xAD - 0xA0]
+    = make_char (0x00AD) /* SOFT HYPHEN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xAE - 0xA0]
+    = make_char (0x00AE) /* REGISTERED SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xAF - 0xA0]
+    = make_char (0x00AF) /* MACRON */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xB0 - 0xA0]
+    = make_char (0x00B0) /* DEGREE SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xB1 - 0xA0]
+    = make_char (0x00B1) /* PLUS-MINUS SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xB2 - 0xA0]
+    = make_char (0x00B2) /* SUPERSCRIPT TWO */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xB3 - 0xA0]
+    = make_char (0x00B3) /* SUPERSCRIPT THREE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xB4 - 0xA0]
+    = make_char (0x00B4) /* ACUTE ACCENT */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xB5 - 0xA0]
+    = make_char (0x00B5) /* MICRO SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xB6 - 0xA0]
+    = make_char (0x00B6) /* PILCROW SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xB7 - 0xA0]
+    = make_char (0x00B7) /* MIDDLE DOT */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xB8 - 0xA0]
+    = make_char (0x00B8) /* CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xB9 - 0xA0]
+    = make_char (0x00B9) /* SUPERSCRIPT ONE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xBA - 0xA0]
+    = make_char (0x00BA) /* MASCULINE ORDINAL INDICATOR */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xBB - 0xA0]
+    = make_char (0x00BB) /* RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xBC - 0xA0]
+    = make_char (0x00BC) /* VULGAR FRACTION ONE QUARTER */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xBD - 0xA0]
+    = make_char (0x00BD) /* VULGAR FRACTION ONE HALF */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xBE - 0xA0]
+    = make_char (0x00BE) /* VULGAR FRACTION THREE QUARTERS */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xBF - 0xA0]
+    = make_char (0x00BF) /* INVERTED QUESTION MARK */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xC0 - 0xA0]
+    = make_char (0x00C0) /* LATIN CAPITAL LETTER A WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xC1 - 0xA0]
+    = make_char (0x00C1) /* LATIN CAPITAL LETTER A WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xC2 - 0xA0]
+    = make_char (0x00C2) /* LATIN CAPITAL LETTER A WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xC3 - 0xA0]
+    = make_char (0x00C3) /* LATIN CAPITAL LETTER A WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xC4 - 0xA0]
+    = make_char (0x00C4) /* LATIN CAPITAL LETTER A WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xC5 - 0xA0]
+    = make_char (0x00C5) /* LATIN CAPITAL LETTER A WITH RING ABOVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xC6 - 0xA0]
+    = make_char (0x00C6) /* LATIN CAPITAL LETTER AE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xC7 - 0xA0]
+    = make_char (0x00C7) /* LATIN CAPITAL LETTER C WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xC8 - 0xA0]
+    = make_char (0x00C8) /* LATIN CAPITAL LETTER E WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xC9 - 0xA0]
+    = make_char (0x00C9) /* LATIN CAPITAL LETTER E WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xCA - 0xA0]
+    = make_char (0x00CA) /* LATIN CAPITAL LETTER E WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xCB - 0xA0]
+    = make_char (0x00CB) /* LATIN CAPITAL LETTER E WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xCC - 0xA0]
+    = make_char (0x00CC) /* LATIN CAPITAL LETTER I WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xCD - 0xA0]
+    = make_char (0x00CD) /* LATIN CAPITAL LETTER I WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xCE - 0xA0]
+    = make_char (0x00CE) /* LATIN CAPITAL LETTER I WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xCF - 0xA0]
+    = make_char (0x00CF) /* LATIN CAPITAL LETTER I WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xD0 - 0xA0]
+    = make_char (0x011E) /* LATIN CAPITAL LETTER G WITH BREVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xD1 - 0xA0]
+    = make_char (0x00D1) /* LATIN CAPITAL LETTER N WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xD2 - 0xA0]
+    = make_char (0x00D2) /* LATIN CAPITAL LETTER O WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xD3 - 0xA0]
+    = make_char (0x00D3) /* LATIN CAPITAL LETTER O WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xD4 - 0xA0]
+    = make_char (0x00D4) /* LATIN CAPITAL LETTER O WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xD5 - 0xA0]
+    = make_char (0x00D5) /* LATIN CAPITAL LETTER O WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xD6 - 0xA0]
+    = make_char (0x00D6) /* LATIN CAPITAL LETTER O WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xD7 - 0xA0]
+    = make_char (0x00D7) /* MULTIPLICATION SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xD8 - 0xA0]
+    = make_char (0x00D8) /* LATIN CAPITAL LETTER O WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xD9 - 0xA0]
+    = make_char (0x00D9) /* LATIN CAPITAL LETTER U WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xDA - 0xA0]
+    = make_char (0x00DA) /* LATIN CAPITAL LETTER U WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xDB - 0xA0]
+    = make_char (0x00DB) /* LATIN CAPITAL LETTER U WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xDC - 0xA0]
+    = make_char (0x00DC) /* LATIN CAPITAL LETTER U WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xDD - 0xA0]
+    = make_char (0x0130) /* LATIN CAPITAL LETTER I WITH DOT ABOVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xDE - 0xA0]
+    = make_char (0x015E) /* LATIN CAPITAL LETTER S WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xDF - 0xA0]
+    = make_char (0x00DF) /* LATIN SMALL LETTER SHARP S */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xE0 - 0xA0]
+    = make_char (0x00E0) /* LATIN SMALL LETTER A WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xE1 - 0xA0]
+    = make_char (0x00E1) /* LATIN SMALL LETTER A WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xE2 - 0xA0]
+    = make_char (0x00E2) /* LATIN SMALL LETTER A WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xE3 - 0xA0]
+    = make_char (0x00E3) /* LATIN SMALL LETTER A WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xE4 - 0xA0]
+    = make_char (0x00E4) /* LATIN SMALL LETTER A WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xE5 - 0xA0]
+    = make_char (0x00E5) /* LATIN SMALL LETTER A WITH RING ABOVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xE6 - 0xA0]
+    = make_char (0x00E6) /* LATIN SMALL LETTER AE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xE7 - 0xA0]
+    = make_char (0x00E7) /* LATIN SMALL LETTER C WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xE8 - 0xA0]
+    = make_char (0x00E8) /* LATIN SMALL LETTER E WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xE9 - 0xA0]
+    = make_char (0x00E9) /* LATIN SMALL LETTER E WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xEA - 0xA0]
+    = make_char (0x00EA) /* LATIN SMALL LETTER E WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xEB - 0xA0]
+    = make_char (0x00EB) /* LATIN SMALL LETTER E WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xEC - 0xA0]
+    = make_char (0x00EC) /* LATIN SMALL LETTER I WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xED - 0xA0]
+    = make_char (0x00ED) /* LATIN SMALL LETTER I WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xEE - 0xA0]
+    = make_char (0x00EE) /* LATIN SMALL LETTER I WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xEF - 0xA0]
+    = make_char (0x00EF) /* LATIN SMALL LETTER I WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xF0 - 0xA0]
+    = make_char (0x011F) /* LATIN SMALL LETTER G WITH BREVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xF1 - 0xA0]
+    = make_char (0x00F1) /* LATIN SMALL LETTER N WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xF2 - 0xA0]
+    = make_char (0x00F2) /* LATIN SMALL LETTER O WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xF3 - 0xA0]
+    = make_char (0x00F3) /* LATIN SMALL LETTER O WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xF4 - 0xA0]
+    = make_char (0x00F4) /* LATIN SMALL LETTER O WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xF5 - 0xA0]
+    = make_char (0x00F5) /* LATIN SMALL LETTER O WITH TILDE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xF6 - 0xA0]
+    = make_char (0x00F6) /* LATIN SMALL LETTER O WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xF7 - 0xA0]
+    = make_char (0x00F7) /* DIVISION SIGN */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xF8 - 0xA0]
+    = make_char (0x00F8) /* LATIN SMALL LETTER O WITH STROKE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xF9 - 0xA0]
+    = make_char (0x00F9) /* LATIN SMALL LETTER U WITH GRAVE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xFA - 0xA0]
+    = make_char (0x00FA) /* LATIN SMALL LETTER U WITH ACUTE */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xFB - 0xA0]
+    = make_char (0x00FB) /* LATIN SMALL LETTER U WITH CIRCUMFLEX */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xFC - 0xA0]
+    = make_char (0x00FC) /* LATIN SMALL LETTER U WITH DIAERESIS */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xFD - 0xA0]
+    = make_char (0x0131) /* LATIN SMALL LETTER DOTLESS I */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xFE - 0xA0]
+    = make_char (0x015F) /* LATIN SMALL LETTER S WITH CEDILLA */;
+  XVECTOR_DATA(latin_iso8859_9_to_ucs)[0xFF - 0xA0]
+    = make_char (0x00FF) /* LATIN SMALL LETTER Y WITH DIAERESIS */;
+  
+  staticpro (&latin_viscii_lower_to_ucs);
+  latin_viscii_lower_to_ucs = make_vector (96, Qnil);
+  /* XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x20 - 32]
+     = make_char (CHAR96('1', 0x20)); */
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x21 - 32] = make_char (0x1eaf);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x22 - 32] = make_char (0x1eb1);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x23 - 32] = make_char (0x1eb7);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x24 - 32] = make_char (0x1ea5);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x25 - 32] = make_char (0x1ea7);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x26 - 32] = make_char (0x1ea9);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x27 - 32] = make_char (0x1ead);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x28 - 32] = make_char (0x1ebd);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x29 - 32] = make_char (0x1eb9);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x2a - 32] = make_char (0x1ebf);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x2b - 32] = make_char (0x1ec1);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x2c - 32] = make_char (0x1ec3);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x2d - 32] = make_char (0x1ec5);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x2e - 32] = make_char (0x1ec7);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x2f - 32] = make_char (0x1ed1);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x30 - 32] = make_char (0x1ed3);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x31 - 32] = make_char (0x1ed5);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x32 - 32] = make_char (0x1ed7);
+  /* XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x33 - 32]
+     = make_char (CHAR96('1', 0x33)); */
+  /* XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x34 - 32]
+     = make_char (CHAR96('1', 0x34)); */
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x35 - 32] = make_char (0x1ed9);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x36 - 32] = make_char (0x1edd);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x37 - 32] = make_char (0x1edf);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x38 - 32] = make_char (0x1ecb);
+  /* XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x39 - 32]
+     = make_char (CHAR96('1', 0x39));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x3A - 32]
+     = make_char (CHAR96('1', 0x3A));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x3B - 32]
+     = make_char (CHAR96('1', 0x3B));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x3C - 32]
+     = make_char (CHAR96('1', 0x3C)); */
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x3d - 32] = make_char (0x01a1);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x3e - 32] = make_char (0x1edb);
+  /* XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x3F - 32]
+     = make_char (CHAR96('1', 0x3F));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x40 - 32]
+     = make_char (CHAR96('1', 0x40));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x41 - 32]
+     = make_char (CHAR96('1', 0x41));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x42 - 32]
+     = make_char (CHAR96('1', 0x42));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x43 - 32]
+     = make_char (CHAR96('1', 0x43));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x44 - 32]
+     = make_char (CHAR96('1', 0x44));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x45 - 32]
+     = make_char (CHAR96('1', 0x45)); */
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x46 - 32] = make_char (0x1eb3);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x47 - 32] = make_char (0x1eb5);
+  /* XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x48 - 32]
+     = make_char (CHAR96('1', 0x48));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x49 - 32]
+     = make_char (CHAR96('1', 0x49));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x4A - 32]
+     = make_char (CHAR96('1', 0x4A));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x4B - 32]
+     = make_char (CHAR96('1', 0x4B));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x4C - 32]
+     = make_char (CHAR96('1', 0x4C));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x4D - 32]
+     = make_char (CHAR96('1', 0x4D));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x4E - 32]
+     = make_char (CHAR96('1', 0x4E)); */
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x4f - 32] = make_char (0x1ef3);
+  /* XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x50 - 32]
+     = make_char (CHAR96('1', 0x50)); */
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x51 - 32] = make_char (0x1ee9);
+  /* XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x52 - 32]
+     = make_char (CHAR96('1', 0x52));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x53 - 32]
+     = make_char (CHAR96('1', 0x53));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x54 - 32]
+     = make_char (CHAR96('1', 0x54)); */
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x55 - 32] = make_char (0x1ea1);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x56 - 32] = make_char (0x1ef7);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x57 - 32] = make_char (0x1eeb);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x58 - 32] = make_char (0x1eed);
+  /* XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x59 - 32]
+     = make_char (CHAR96('1', 0x59));
+     XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x5A - 32]
+     = make_char (CHAR96('1', 0x5A)); */
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x5b - 32] = make_char (0x1ef9);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x5c - 32] = make_char (0x1ef5);
+  /* XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x5D - 32]
+     = make_char (CHAR96('1', 0x5D)); */
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x5e - 32] = make_char (0x1ee1);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x5f - 32] = make_char (0x01b0);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x60 - 32] = make_char (0x00e0);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x61 - 32] = make_char (0x00e1);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x62 - 32] = make_char (0x00e2);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x63 - 32] = make_char (0x00e3);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x64 - 32] = make_char (0x1ea3);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x65 - 32] = make_char (0x0103);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x66 - 32] = make_char (0x1eef);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x67 - 32] = make_char (0x1eab);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x68 - 32] = make_char (0x00e8);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x69 - 32] = make_char (0x00e9);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x6a - 32] = make_char (0x00ea);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x6b - 32] = make_char (0x1ebb);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x6c - 32] = make_char (0x00ec);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x6d - 32] = make_char (0x00ed);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x6e - 32] = make_char (0x0129);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x6f - 32] = make_char (0x1ec9);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x70 - 32] = make_char (0x0111);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x71 - 32] = make_char (0x1ef1);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x72 - 32] = make_char (0x00f2);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x73 - 32] = make_char (0x00f3);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x74 - 32] = make_char (0x00f4);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x75 - 32] = make_char (0x00f5);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x76 - 32] = make_char (0x1ecf);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x77 - 32] = make_char (0x1ecd);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x78 - 32] = make_char (0x1ee5);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x79 - 32] = make_char (0x00f9);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x7a - 32] = make_char (0x00fa);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x7b - 32] = make_char (0x0169);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x7c - 32] = make_char (0x1ee7);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x7d - 32] = make_char (0x00fd);
+  XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x7e - 32] = make_char (0x1ee3);
+  /* XVECTOR_DATA(latin_viscii_lower_to_ucs)[0x7F - 32]
+     = make_char (CHAR96('1', 0x7F)); */
+
+  staticpro (&latin_viscii_upper_to_ucs);
+  latin_viscii_upper_to_ucs = make_vector (96, Qnil);
+  /* XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x20 - 32]
+     = make_char (CHAR96('2', 0x20)); */
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x21 - 32] = make_char (0x1eae);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x22 - 32] = make_char (0x1eb0);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x23 - 32] = make_char (0x1eb6);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x24 - 32] = make_char (0x1ea4);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x25 - 32] = make_char (0x1ea6);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x26 - 32] = make_char (0x1ea8);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x27 - 32] = make_char (0x1eac);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x28 - 32] = make_char (0x1ebc);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x29 - 32] = make_char (0x1eb8);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x2a - 32] = make_char (0x1ebe);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x2b - 32] = make_char (0x1ec0);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x2c - 32] = make_char (0x1ec2);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x2d - 32] = make_char (0x1ec4);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x2e - 32] = make_char (0x1ec6);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x2f - 32] = make_char (0x1ed0);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x30 - 32] = make_char (0x1ed2);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x31 - 32] = make_char (0x1ed4);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x32 - 32] = make_char (0x1ed6);
+  /* XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x33 - 32]
+     = make_char (CHAR96('2', 0x33)); */
+  /* XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x34 - 32]
+     = make_char (CHAR96('2', 0x34)); */
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x35 - 32] = make_char (0x1ed8);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x36 - 32] = make_char (0x1edc);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x37 - 32] = make_char (0x1ede);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x38 - 32] = make_char (0x1eca);
+  /* XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x39 - 32]
+     = make_char (CHAR96('2', 0x39));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x3a - 32]
+     = make_char (CHAR96('2', 0x3a));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x3b - 32]
+     = make_char (CHAR96('2', 0x3b));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x3c - 32]
+     = make_char (CHAR96('2', 0x3c)); */
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x3d - 32] = make_char (0x01a0);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x3e - 32] = make_char (0x1eda);
+  /* XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x3f - 32]
+     = make_char (CHAR96('2', 0x3f));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x40 - 32]
+     = make_char (CHAR96('2', 0x40));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x41 - 32]
+     = make_char (CHAR96('2', 0x41));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x42 - 32]
+     = make_char (CHAR96('2', 0x42));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x43 - 32]
+     = make_char (CHAR96('2', 0x43));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x44 - 32]
+     = make_char (CHAR96('2', 0x44));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x45 - 32]
+     = make_char (CHAR96('2', 0x45)); */
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x46 - 32] = make_char (0x1eb2);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x47 - 32] = make_char (0x1eb4);
+  /* XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x48 - 32]
+     = make_char (CHAR96('2', 0x48));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x49 - 32]
+     = make_char (CHAR96('2', 0x49));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x4a - 32]
+     = make_char (CHAR96('2', 0x4a));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x4b - 32]
+     = make_char (CHAR96('2', 0x4b));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x4c - 32]
+     = make_char (CHAR96('2', 0x4c));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x4d - 32]
+     = make_char (CHAR96('2', 0x4d));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x4e - 32]
+     = make_char (CHAR96('2', 0x4e)); */
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x4f - 32] = make_char (0x1ef2);
+  /* XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x50 - 32]
+     = make_char (CHAR96('2', 0x50)); */
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x51 - 32] = make_char (0x1ee8);
+  /* XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x52 - 32]
+     = make_char (CHAR96('2', 0x52));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x53 - 32]
+     = make_char (CHAR96('2', 0x53));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x54 - 32]
+     = make_char (CHAR96('2', 0x54)); */
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x55 - 32] = make_char (0x1ea0);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x56 - 32] = make_char (0x1ef6);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x57 - 32] = make_char (0x1eea);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x58 - 32] = make_char (0x1eec);
+  /* XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x59 - 32]
+     = make_char (CHAR96('2', 0x59));
+     XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x5a - 32]
+     = make_char (CHAR96('2', 0x5a)); */
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x5b - 32] = make_char (0x1ef8);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x5c - 32] = make_char (0x1ef4);
+  /* XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x5d - 32]
+     = make_char (CHAR96('2', 0x5d)); */
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x5e - 32] = make_char (0x1ee0);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x5f - 32] = make_char (0x01af);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x60 - 32] = make_char (0x00c0);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x61 - 32] = make_char (0x00c1);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x62 - 32] = make_char (0x00c2);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x63 - 32] = make_char (0x00c3);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x64 - 32] = make_char (0x1ea2);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x65 - 32] = make_char (0x0102);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x66 - 32] = make_char (0x1eee);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x67 - 32] = make_char (0x1eaa);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x68 - 32] = make_char (0x00c8);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x69 - 32] = make_char (0x00c9);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x6a - 32] = make_char (0x00ca);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x6b - 32] = make_char (0x1eba);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x6c - 32] = make_char (0x00cc);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x6d - 32] = make_char (0x00cd);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x6e - 32] = make_char (0x0128);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x6f - 32] = make_char (0x1ec8);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x70 - 32] = make_char (0x0110);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x71 - 32] = make_char (0x1ef0);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x72 - 32] = make_char (0x00d2);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x73 - 32] = make_char (0x00d3);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x74 - 32] = make_char (0x00d4);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x75 - 32] = make_char (0x00d5);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x76 - 32] = make_char (0x1ece);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x77 - 32] = make_char (0x1ecc);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x78 - 32] = make_char (0x1ee4);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x79 - 32] = make_char (0x00d9);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x7a - 32] = make_char (0x00da);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x7b - 32] = make_char (0x0168);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x7c - 32] = make_char (0x1ee6);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x7d - 32] = make_char (0x00dd);
+  XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x7e - 32] = make_char (0x1ee2);
+  /* XVECTOR_DATA(latin_viscii_upper_to_ucs)[0x7f - 32]
+     = make_char (CHAR96('2', 0x7f)); */
+
   Vcharset_ucs_bmp =
     make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp,
 		  CHARSET_TYPE_256X256, 1, 0, 0,
@@ -2614,7 +3163,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("BMP"),
 		  build_string ("BMP"),
 		  build_string (""),
-		  NULL, 0, 0xFFFF, 0);
+		  Qnil, 0, 0xFFFF, 0);
 #else
 # define latin_iso8859_2_to_ucs NULL
 # define latin_iso8859_3_to_ucs NULL
@@ -2640,7 +3189,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ASCII)"),
 		  build_string ("ASCII (ISO646 IRV)"),
 		  build_string ("\\(iso8859-[0-9]*\\|-ascii\\)"),
-		  NULL, 0, 0x7F, 0);
+		  Qnil, 0, 0x7F, 0);
   Vcharset_control_1 =
     make_charset (LEADING_BYTE_CONTROL_1, Qcontrol_1,
 		  CHARSET_TYPE_94, 1, 1, 0,
@@ -2649,7 +3198,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Control characters"),
 		  build_string ("Control characters 128-191"),
 		  build_string (""),
-		  NULL, 0x80, 0x9F, 0);
+		  Qnil, 0x80, 0x9F, 0);
   Vcharset_latin_iso8859_1 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_1, Qlatin_iso8859_1,
 		  CHARSET_TYPE_96, 1, 1, 'A',
@@ -2658,7 +3207,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-1 (Latin-1)"),
 		  build_string ("ISO8859-1 (Latin-1)"),
 		  build_string ("iso8859-1"),
-		  NULL, 0xA0, 0xFF, 32);
+		  Qnil, 0xA0, 0xFF, 32);
   Vcharset_latin_iso8859_2 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_2, Qlatin_iso8859_2,
 		  CHARSET_TYPE_96, 1, 1, 'B',
@@ -2694,7 +3243,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("TIS620 (Thai)"),
 		  build_string ("TIS620.2529 (Thai)"),
 		  build_string ("tis620"),
-		  NULL, MIN_CHAR_THAI, MAX_CHAR_THAI, 32);
+		  Qnil, MIN_CHAR_THAI, MAX_CHAR_THAI, 32);
   Vcharset_greek_iso8859_7 =
     make_charset (LEADING_BYTE_GREEK_ISO8859_7, Qgreek_iso8859_7,
 		  CHARSET_TYPE_96, 1, 1, 'F',
@@ -2703,7 +3252,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-7 (Greek)"),
 		  build_string ("ISO8859-7 (Greek)"),
 		  build_string ("iso8859-7"),
-		  NULL, MIN_CHAR_GREEK, MAX_CHAR_GREEK, 32);
+		  Qnil, MIN_CHAR_GREEK, MAX_CHAR_GREEK, 32);
   Vcharset_arabic_iso8859_6 =
     make_charset (LEADING_BYTE_ARABIC_ISO8859_6, Qarabic_iso8859_6,
 		  CHARSET_TYPE_96, 1, 1, 'G',
@@ -2712,7 +3261,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-6 (Arabic)"),
 		  build_string ("ISO8859-6 (Arabic)"),
 		  build_string ("iso8859-6"),
-		  NULL, 0, 0, 32);
+		  Qnil, 0, 0, 32);
   Vcharset_hebrew_iso8859_8 =
     make_charset (LEADING_BYTE_HEBREW_ISO8859_8, Qhebrew_iso8859_8,
 		  CHARSET_TYPE_96, 1, 1, 'H',
@@ -2721,7 +3270,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-8 (Hebrew)"),
 		  build_string ("ISO8859-8 (Hebrew)"),
 		  build_string ("iso8859-8"),
-		  NULL, MIN_CHAR_HEBREW, MAX_CHAR_HEBREW, 32);
+		  Qnil, MIN_CHAR_HEBREW, MAX_CHAR_HEBREW, 32);
   Vcharset_katakana_jisx0201 =
     make_charset (LEADING_BYTE_KATAKANA_JISX0201, Qkatakana_jisx0201,
 		  CHARSET_TYPE_94, 1, 1, 'I',
@@ -2730,7 +3279,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JISX0201.1976 (Japanese Kana)"),
 		  build_string ("JISX0201.1976 Japanese Kana"),
 		  build_string ("jisx0201.1976"),
-		  NULL,
+		  Qnil,
 		  MIN_CHAR_HALFWIDTH_KATAKANA,
 		  MAX_CHAR_HALFWIDTH_KATAKANA, 33);
   Vcharset_latin_jisx0201 =
@@ -2750,7 +3299,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-5 (Cyrillic)"),
 		  build_string ("ISO8859-5 (Cyrillic)"),
 		  build_string ("iso8859-5"),
-		  NULL, MIN_CHAR_CYRILLIC, MAX_CHAR_CYRILLIC, 32);
+		  Qnil, MIN_CHAR_CYRILLIC, MAX_CHAR_CYRILLIC, 32);
   Vcharset_latin_iso8859_9 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_9, Qlatin_iso8859_9,
 		  CHARSET_TYPE_96, 1, 1, 'M',
@@ -2769,7 +3318,7 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("JISX0208.1978 Japanese Kanji (so called \"old JIS\")"),
 		  build_string ("\\(jisx0208\\|jisc6226\\)\\.1978"),
-		  NULL, 0, 0, 33);
+		  Qnil, 0, 0, 33);
   Vcharset_chinese_gb2312 =
     make_charset (LEADING_BYTE_CHINESE_GB2312, Qchinese_gb2312,
 		  CHARSET_TYPE_94X94, 2, 0, 'A',
@@ -2778,7 +3327,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("GB2312)"),
 		  build_string ("GB2312 Chinese simplified"),
 		  build_string ("gb2312"),
-		  NULL, 0, 0, 33);
+		  Qnil, 0, 0, 33);
   Vcharset_japanese_jisx0208 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0208, Qjapanese_jisx0208,
 		  CHARSET_TYPE_94X94, 2, 0, 'B',
@@ -2787,7 +3336,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JISX0208.1983/1990 (Japanese)"),
 		  build_string ("JISX0208.1983/1990 Japanese Kanji"),
 		  build_string ("jisx0208.19\\(83\\|90\\)"),
-		  NULL, 0, 0, 33);
+		  Qnil, 0, 0, 33);
   Vcharset_korean_ksc5601 =
     make_charset (LEADING_BYTE_KOREAN_KSC5601, Qkorean_ksc5601,
 		  CHARSET_TYPE_94X94, 2, 0, 'C',
@@ -2796,7 +3345,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("KSC5601 (Korean"),
 		  build_string ("KSC5601 Korean Hangul and Hanja"),
 		  build_string ("ksc5601"),
-		  NULL, 0, 0, 33);
+		  Qnil, 0, 0, 33);
   Vcharset_japanese_jisx0212 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0212, Qjapanese_jisx0212,
 		  CHARSET_TYPE_94X94, 2, 0, 'D',
@@ -2805,7 +3354,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JISX0212 (Japanese)"),
 		  build_string ("JISX0212 Japanese Supplement"),
 		  build_string ("jisx0212"),
-		  NULL, 0, 0, 33);
+		  Qnil, 0, 0, 33);
 
 #define CHINESE_CNS_PLANE_RE(n) "cns11643[.-]\\(.*[.-]\\)?" n "$"
   Vcharset_chinese_cns11643_1 =
@@ -2817,7 +3366,7 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("CNS 11643 Plane 1 Chinese traditional"),
 		  build_string (CHINESE_CNS_PLANE_RE("1")),
-		  NULL, 0, 0, 33);
+		  Qnil, 0, 0, 33);
   Vcharset_chinese_cns11643_2 =
     make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qchinese_cns11643_2,
 		  CHARSET_TYPE_94X94, 2, 0, 'H',
@@ -2827,7 +3376,7 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("CNS 11643 Plane 2 Chinese traditional"),
 		  build_string (CHINESE_CNS_PLANE_RE("2")),
-		  NULL, 0, 0, 33);
+		  Qnil, 0, 0, 33);
 #ifdef UTF2000
   Vcharset_latin_viscii_lower =
     make_charset (LEADING_BYTE_LATIN_VISCII_LOWER, Qlatin_viscii_lower,
@@ -2857,7 +3406,7 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("Big5 Level-1 Chinese traditional"),
 		  build_string ("big5"),
-		  NULL, 0, 0, 33);
+		  Qnil, 0, 0, 33);
   Vcharset_chinese_big5_2 =
     make_charset (LEADING_BYTE_CHINESE_BIG5_2, Qchinese_big5_2,
 		  CHARSET_TYPE_94X94, 2, 0, '1',
@@ -2867,7 +3416,7 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("Big5 Level-2 Chinese traditional"),
 		  build_string ("big5"),
-		  NULL, 0, 0, 33);
+		  Qnil, 0, 0, 33);
 
 #ifdef ENABLE_COMPOSITE_CHARS
   /* #### For simplicity, we put composite chars into a 96x96 charset.
