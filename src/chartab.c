@@ -1059,8 +1059,6 @@ make_char_id_table (Lisp_Object initval)
 }
 
 
-Lisp_Object Vcharacter_variant_table;
-
 Lisp_Object Qsystem_char_id;
 
 Lisp_Object Qcomposition;
@@ -1164,8 +1162,7 @@ Return variants of CHARACTER.
   Lisp_Object ret;
 
   CHECK_CHAR (character);
-  ret = get_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
-			   XCHAR(character));
+  ret = Fget_char_attribute (character, Q_ucs_variants, Qnil);
   if (CONSP (ret))
     return Fcopy_list (ret);
   else
@@ -3200,18 +3197,17 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    {
 	      Emchar c = XINT (v);
 	      Lisp_Object ret
-		= get_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
-				     c);
+		= Fget_char_attribute (make_char (c), Q_ucs_variants, Qnil);
 
 	      if (!CONSP (ret))
 		{
-		  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
-				     make_char (c), Fcons (character, Qnil));
+		  Fput_char_attribute (make_char (c), Q_ucs_variants,
+				       Fcons (character, Qnil));
 		}
-	      else if (NILP (Fmemq (v, ret)))
+	      else if (NILP (Fmemq (character, ret)))
 		{
-		  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
-				     make_char (c), Fcons (character, ret));
+		  Fput_char_attribute (make_char (c), Q_ucs_variants,
+				       Fcons (character, ret));
 		}
 	    }
 	}
@@ -3227,16 +3223,16 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
       c = XINT (value);
 
-      ret = get_char_id_table (XCHAR_TABLE(Vcharacter_variant_table), c);
+      ret = Fget_char_attribute (make_char (c), Q_ucs_variants, Qnil);
       if (!CONSP (ret))
 	{
-	  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
-			     make_char (c), Fcons (character, Qnil));
+	  Fput_char_attribute (make_char (c), Q_ucs_variants,
+			       Fcons (character, Qnil));
 	}
       else if (NILP (Fmemq (character, ret)))
 	{
-	  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
-			     make_char (c), Fcons (character, ret));
+	  Fput_char_attribute (make_char (c), Q_ucs_variants,
+			       Fcons (character, ret));
 	}
 #if 0
       if (EQ (attribute, Q_ucs))
@@ -4144,9 +4140,6 @@ void
 vars_of_chartab (void)
 {
 #ifdef UTF2000
-  staticpro (&Vcharacter_variant_table);
-  Vcharacter_variant_table = make_char_id_table (Qunbound);
-
 #ifdef HAVE_DATABASE
   DEFVAR_LISP ("char-db-stingy-mode", &Vchar_db_stingy_mode /*
 */ );
@@ -4176,11 +4169,6 @@ complex_vars_of_chartab (void)
   staticpro (&Vchar_attribute_hash_table);
   Vchar_attribute_hash_table
     = make_lisp_hash_table (16, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
-#ifdef HAVE_DATABASE
-  Fputhash (Q_ucs_variants, Vcharacter_variant_table,
-	    Vchar_attribute_hash_table);
-  XCHAR_TABLE_NAME (Vcharacter_variant_table) = Q_ucs_variants;
-#endif /* HAVE_DATABASE */
 #endif /* UTF2000 */
 #ifdef MULE
   /* Set this now, so first buffer creation can refer to it. */
