@@ -3455,7 +3455,8 @@ char_table_get_db (Lisp_Char_Table* cit, Emchar ch)
   Lisp_Object val;
 #ifdef CHISE
   CHISE_Value value;
-  int status = chise_ft_get_value (cit->feature_table, ch, &value);
+  int status
+    = chise_char_load_feature_value (ch, cit->feature_table, &value);
 
   if (!status)
     {
@@ -3678,21 +3679,21 @@ Lisp_Char_Table* char_attribute_table_to_load;
 
 #ifdef CHISE
 int
-load_char_attribute_table_map_func (CHISE_Feature_Table *db,
-				    CHISE_Char_ID cid,
-				    CHISE_Value *valdatum);
+load_char_attribute_table_map_func (CHISE_Char_ID cid,
+				    CHISE_Feature feature,
+				    CHISE_Value *value);
 int
-load_char_attribute_table_map_func (CHISE_Feature_Table *db,
-				    CHISE_Char_ID cid,
-				    CHISE_Value *valdatum)
+load_char_attribute_table_map_func (CHISE_Char_ID cid,
+				    CHISE_Feature feature,
+				    CHISE_Value *value)
 {
   Emchar code = cid;
   Lisp_Object ret = get_char_id_table_0 (char_attribute_table_to_load, code);
 
   if (EQ (ret, Qunloaded))
     put_char_id_table_0 (char_attribute_table_to_load, code,
-			 Fread (make_string ((Bufbyte *) valdatum->data,
-					     valdatum->size)));
+			 Fread (make_string ((Bufbyte *) value->data,
+					     value->size)));
   return 0;
 }
 #else
@@ -3735,8 +3736,9 @@ Load values of ATTRIBUTE into database file.
 
 	GCPRO1 (table);
 #ifdef CHISE
-	chise_ft_iterate (cit->feature_table,
-			  &load_char_attribute_table_map_func);
+	chise_char_feature_value_iterate
+	  (cit->feature_table,
+	   &load_char_attribute_table_map_func);
 #else
 	Fmap_database (Qload_char_attribute_table_map_function, cit->db);
 #endif
