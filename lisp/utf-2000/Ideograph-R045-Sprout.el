@@ -180,8 +180,12 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x37B7)	; 㞷
-    (=cns11643-4	. #x2376)	; &I-C4-2376; [03-86]
-    (=daikanwa		. 07840)	; &I-M-07840;
+    (->subsumptive
+     ((=cns11643-4	  . #x2376)	; &M-07840; [03-86]
+      (=daikanwa	  . 07840)	; &I-M-07840;
+      )
+     ((=ucs@unicode	  . #x37B7)	; &UU+37B7;
+      ))
     ))
 (define-char
   '((=>ucs		. #x21D08)	; 𡴈
