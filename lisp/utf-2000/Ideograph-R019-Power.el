@@ -4105,7 +4105,6 @@
       (=ucs		  . #x2FF0)	; â¿°
       )
      ((=jis-x0212	  . #x6676)	; ø»ŒŠ»
-      (=jis-x0213-2-2000  . #x7B73)	; ø»¦¢ž
       (=daikanwa	  . 42120)	; ø¸Š’ˆ
       )
      ((=ucs		  . #x529B)	; åŠ›
@@ -4141,7 +4140,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((=gt		  . 56531)	; ý¡€³“
+     ((=jis-x0213-2-2000  . #x7B73)	; ø»¦¢ž
       )
      ((=ucs		  . #x529B)	; åŠ›
       ))
