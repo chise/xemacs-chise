@@ -1527,7 +1527,7 @@
     (chinese-isoir165		. #x4F41)	; ø»²˜
     (chinese-cns11643-3		. #x2D71)	; ø»•©œ
     (japanese-jisx0208-1990	. #x3639)	; ø½Š•Š
-    (mojikyo			. 050276)	; ø¸Œ‘¤
+    (mojikyo			. 050276)	; ý €Œ‘¤
     (ucs			. #x72ED)	; ç‹­
     ))
 (define-char
@@ -2600,7 +2600,7 @@
     (japanese-jisx0208		. #x4376)	; ø»‡ƒ™
     (chinese-isoir165		. #x566D)	; ø»½–
     (japanese-jisx0208-1990	. #x4376)	; ø½Š©
-    (mojikyo			. 050277)	; ø¸Œ‘¥
+    (mojikyo			. 050277)	; ý €Œ‘¥
     (ucs			. #x732A)	; çŒª
     ))
 (define-char
@@ -2614,12 +2614,15 @@
   '((morohashi-daikanwa	20512 1)
     (ideographic-radical . 94)	; â½
     (ideographic-strokes . 8)
-    (mojikyo		. 050278)	; ø¸Œ‘¦
+    (total-strokes	 . 11)
+    (mojikyo		. 050278)	; ý €Œ‘¦
     (ucs		. #x731F)	; çŒŸ
     ))
 (define-char
   '((ideographic-radical . 94)	; â½
     (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (mojikyo		. 059773)	; ý €Ž¥½
     (ucs		. #x7320)	; çŒ 
     ))
 (define-char
@@ -4482,12 +4485,15 @@
   '((morohashi-daikanwa	20714 1)
     (ideographic-radical . 94)	; â½
     (ideographic-strokes . 12)
-    (mojikyo		. 050279)	; ø¸Œ‘§
+    (total-strokes	 . 15)
+    (mojikyo		. 050279)	; ý €Œ‘§
     (ucs		. #x7363)	; ç£
     ))
 (define-char
   '((ideographic-radical . 94)	; â½
     (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (mojikyo		. 065381)	; ý €½¥
     (ucs		. #x7364)	; ç¤
     ))
 (define-char
@@ -5130,7 +5136,7 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
     (chinese-cns11643-7 . #x405B)	; ø»ž­
-    (mojikyo		. 050280)	; ø¸Œ‘¨
+    (mojikyo		. 050280)	; ý €Œ‘¨
     ))
 (define-char
   '((ideographic-radical . 94)	; â½
@@ -5217,14 +5223,14 @@
     (ideographic-radical . 94)	; â½
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (mojikyo		. 050281)	; ø¸Œ‘©
+    (mojikyo		. 050281)	; ý €Œ‘©
     ))
 (define-char
   '((morohashi-daikanwa	20786 1 2)
     (ideographic-radical . 94)	; â½
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (->mojikyo		. 050281)	; ø¸Œ‘©
+    (->mojikyo		. 050281)	; ý €Œ‘©
     (chinese-cns11643-7 . #x4777)	; ø»ž·¾
     ))
 (define-char
