@@ -623,7 +623,21 @@
 			       #x808080)
 			      (t 0)))
 	      value)
-	    (decode-builtin-char name value)
+	    (if (and (memq name '(ideograph-gt-pj-1
+				  ideograph-gt-pj-2
+				  ideograph-gt-pj-3
+				  ideograph-gt-pj-4
+				  ideograph-gt-pj-5
+				  ideograph-gt-pj-6
+				  ideograph-gt-pj-7
+				  ideograph-gt-pj-8
+				  ideograph-gt-pj-9
+				  ideograph-gt-pj-10
+				  ideograph-gt-pj-11))
+		     (setq ret (decode-char name value))
+		     (setq ret (get-char-attribute ret 'ideograph-gt)))
+		(decode-builtin-char 'ideograph-gt ret)
+	      (decode-builtin-char name value))
 	    line-breaking)))
       (setq ccs-attributes (cdr ccs-attributes)))
     (insert ")")))
