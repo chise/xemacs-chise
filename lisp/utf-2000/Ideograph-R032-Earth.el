@@ -3277,16 +3277,16 @@
     (ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (japanese-jisx0208-1978	. #x3E7D)	; ø»‚¨‚
-    (japanese-jisx0208		. #x3E7D)	; ø»†¼Š
+    (mojikyo		. 005188)	; ý €‘„
     ))
 (define-char
   '((->ucs		. #x57F4)	; åŸ´
-    (morohashi-daikanwa	5188 0 0)
+    (morohashi-daikanwa	5188 0 1)
     (ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (mojikyo		. 005188)	; ý €‘„
+    (japanese-jisx0208-1978	. #x3E7D)	; ø»‚¨‚
+    (japanese-jisx0208		. #x3E7D)	; ø»†¼Š
     ))
 (define-char
   '((morohashi-daikanwa	5188 0 3)
