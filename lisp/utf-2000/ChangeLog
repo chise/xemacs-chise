@@ -1,5 +1,7 @@
 2003-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R146-West.el (U+8980): Unify JX2-7845.
+
 	* Ideograph-R119-Rice.el (JSP-5334): Separate C4-4574; unify
 	JX2-7378.
 
