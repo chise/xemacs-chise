@@ -1,8 +1,8 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
-;; Copyright (C) 1999 MORIOKA Tomohiko.
+;; Copyright (C) 1999,2000 MORIOKA Tomohiko.
 
-;; Author: MORIOKA Tomohiko <tomo@m17n.org>
+;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
 
 ;; This file is part of UTF-2000.
@@ -75,10 +75,12 @@
 		    chinese-isoir165
 		    chinese-big5-1
 		    chinese-big5-2))
-	ret)
+	ret script)
     (while (<= i #x9FFF)
-      (setq char (int-char i))
-      (when (setq radical (char-ideograph-radical char))
+      (setq char (decode-char 'ucs i))
+      (when (and (or (null (setq script (get-char-attribute char 'script)))
+		     (memq 'Ideograph script))
+		 (setq radical (char-ideograph-radical char)))
 	(or (get-char-attribute char 'ucs)
 	    (put-char-attribute char 'ucs i))
 	(if (not (memq char
@@ -89,8 +91,10 @@
       (setq i (1+ i)))
     (setq i #x100000)
     (while (<= i #x10FFFF)
-      (setq char (int-char i))
-      (when (setq radical (char-ideograph-radical char))
+      (setq char (decode-char 'ucs i))
+      (when (and (or (null (setq script (get-char-attribute char 'script)))
+		     (memq 'Ideograph script))
+		 (setq radical (char-ideograph-radical char)))
 	(if (not (memq char
 		       (setq ret
 			     (aref ideograph-radical-chars-vector radical))))
@@ -117,7 +121,9 @@
 	(setq j 33)
 	(while (< j 127)
 	  (setq char (make-char (car charsets) i j))
-	  (if (and (setq radical (char-ideograph-radical char))
+	  (if (and (or (null (setq script (get-char-attribute char 'script)))
+		       (memq 'Ideograph script))
+		   (setq radical (char-ideograph-radical char))
 		   (not (memq char
 			      (setq ret
 				    (aref ideograph-radical-chars-vector
