@@ -457,6 +457,7 @@
     (total-strokes	 . 16)
     (japanese-jisx0208-1978	. #x5734)	; ø»ƒ‹§
     (japanese-jisx0208		. #x5734)	; ø»‡Ÿ¯
+    (japanese-jisx0208-1990	. #x5734)	; ø½‹…£
     (ucs			. #x5F5C)	; å½œ
     ))
 (define-char
