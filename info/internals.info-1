@@ -3,7 +3,7 @@ internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* Internals: (internals).	XEmacs Internals Manual.
+* Internals: (internals).       XEmacs Internals Manual.
 END-INFO-DIR-ENTRY
 
    Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
@@ -595,8 +595,8 @@ Some of these objects (in particular windows and frames) have
 displayable representations, and XEmacs provides a function
 `redisplay()' that ensures that the display of all such objects matches
 their internal state.  Most of the time, a standard Lisp environment is
-in a "read-eval-print" loop - i.e. "read some Lisp code, execute it,
-and print the results".  XEmacs has a similar loop:
+in a "read-eval-print" loop--i.e. "read some Lisp code, execute it, and
+print the results".  XEmacs has a similar loop:
 
    * read an event
 
@@ -739,7 +739,7 @@ between C and Lisp:
      installed by the top-level event loop, is executed; this prints
      out the error and continues.) Routines can also specify cleanup
      code (called an "unwind-protect") that will be called when control
-     exits from a block of code, no matter how that exit occurs - i.e.
+     exits from a block of code, no matter how that exit occurs--i.e.
      even if a function deeply nested below it causes a non-local exit
      back to the top level.
 
@@ -753,8 +753,8 @@ between C and Lisp:
      "see" the local variable you declared.  This is actually
      considered a bug in Emacs Lisp and in all other early dialects of
      Lisp, and was corrected in Common Lisp. (In Common Lisp, you can
-     still declare dynamically scoped variables if you want to - they
-     are sometimes useful - but variables by default are "lexically
+     still declare dynamically scoped variables if you want to--they
+     are sometimes useful--but variables by default are "lexically
      scoped" as in C.)
 
    For those familiar with Lisp, Emacs Lisp is modelled after MacLisp,

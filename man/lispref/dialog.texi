@@ -44,15 +44,15 @@ that all following buttons should be flushright instead of flushleft.
 The syntax, more precisely:
 
 @example
-   form		:=  <something to pass to `eval'>
-   command	:=  <a symbol or string, to pass to `call-interactively'>
-   callback 	:=  command | form
-   active-p	:=  <t, nil, or a form to evaluate to decide whether this
-		    button should be selectable>
-   name		:=  <string>
-   partition	:=  'nil'
-   button	:=  '['  name callback active-p ']'
-   dialog	:=  '(' name [ button ]+ [ partition [ button ]+ ] ')'
+   form         :=  <something to pass to `eval'>
+   command      :=  <a symbol or string, to pass to `call-interactively'>
+   callback     :=  command | form
+   active-p     :=  <t, nil, or a form to evaluate to decide whether this
+                    button should be selectable>
+   name         :=  <string>
+   partition    :=  'nil'
+   button       :=  '['  name callback active-p ']'
+   dialog       :=  '(' name [ button ]+ [ partition [ button ]+ ] ')'
 @end example
 
 @node Dialog Box Functions

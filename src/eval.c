@@ -295,7 +295,7 @@ print_subr (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 static const struct lrecord_description subr_description[] = {
-  { XD_DOC_STRING, offsetof(Lisp_Subr, doc)    },
+  { XD_DOC_STRING, offsetof (Lisp_Subr, doc) },
   { XD_END }
 };
 
@@ -1482,7 +1482,7 @@ If BODYFORM exits nonlocally, the UNWINDFORMS are executed anyway.
 static Lisp_Object
 condition_bind_unwind (Lisp_Object loser)
 {
-  struct Lisp_Cons *victim;
+  Lisp_Cons *victim;
   /* ((handler-fun . handler-args) ... other handlers) */
   Lisp_Object tem = XCAR (loser);
 
@@ -1504,7 +1504,7 @@ condition_bind_unwind (Lisp_Object loser)
 static Lisp_Object
 condition_case_unwind (Lisp_Object loser)
 {
-  struct Lisp_Cons *victim;
+  Lisp_Cons *victim;
 
   /* ((<unbound> . clauses) ... other handlers */
   victim = XCONS (XCAR (loser));
@@ -2740,7 +2740,7 @@ this does nothing and returns nil.
       /* Attempt to avoid consing identical (string=) pure strings. */
       file = Fsymbol_name (Fintern (file, Qnil));
     }
-  
+
   return Ffset (function, Fcons (Qautoload, list4 (file,
 						   docstring,
 						   interactive,
@@ -3006,7 +3006,7 @@ Evaluate FORM and return its value.
       else
 	{
 	wrong_number_of_arguments:
-	  val = signal_wrong_number_of_arguments_error (fun, nargs);
+	  val = signal_wrong_number_of_arguments_error (original_fun, nargs);
 	}
     }
   else if (COMPILED_FUNCTIONP (fun))
@@ -4463,7 +4463,7 @@ specbind_unwind_local (Lisp_Object ovalue)
 {
   Lisp_Object current = Fcurrent_buffer ();
   Lisp_Object symbol = specpdl_ptr->symbol;
-  struct Lisp_Cons *victim = XCONS (ovalue);
+  Lisp_Cons *victim = XCONS (ovalue);
   Lisp_Object buf = get_buffer (victim->car, 0);
   ovalue = victim->cdr;
 
@@ -4617,7 +4617,7 @@ unbind_to_hairy (int count)
 	{
 	  /* We checked symbol for validity when we specbound it,
 	     so only need to call Fset if symbol has magic value.  */
-	  struct Lisp_Symbol *sym = XSYMBOL (specpdl_ptr->symbol);
+	  Lisp_Symbol *sym = XSYMBOL (specpdl_ptr->symbol);
 	  if (!SYMBOL_VALUE_MAGIC_P (sym->value))
 	    sym->value = specpdl_ptr->old_value;
 	  else

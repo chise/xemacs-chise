@@ -24,8 +24,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Written by Chuck Thompson and Ben Wing. */
 
-#ifndef _XEMACS_DEVICE_H_
-#define _XEMACS_DEVICE_H_
+#ifndef INCLUDED_device_h_
+#define INCLUDED_device_h_
 
 #include "console.h"
 
@@ -420,4 +420,4 @@ void set_device_selected_frame (struct device *d, Lisp_Object frame);
 Lisp_Object domain_device_type (Lisp_Object domain);
 int window_system_pixelated_geometry (Lisp_Object domain);
 
-#endif /* _XEMACS_DEVICE_H_ */
+#endif /* INCLUDED_device_h_ */

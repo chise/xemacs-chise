@@ -121,7 +121,7 @@ static CONST String x_fallback_resources[] =
 
 static Lisp_Object x_keysym_to_emacs_keysym (KeySym keysym, int simple_p);
 void emacs_Xt_mapping_action (Widget w, XEvent *event);
-void debug_process_finalization (struct Lisp_Process *p);
+void debug_process_finalization (Lisp_Process *p);
 void emacs_Xt_event_handler (Widget wid, XtPointer closure, XEvent *event,
 			     Boolean *continue_to_dispatch);
 
@@ -175,6 +175,198 @@ Lisp_Object Qsans_modifiers;
    use a pop-up-window instead.)
  */
 
+/* For every key on the keyboard that has a known character correspondence,
+   we define the ascii-character property of the keysym, and make the
+   default binding for the key be self-insert-command.
+
+   The following magic is basically intimate knowledge of X11/keysymdef.h.
+   The keysym mappings defined by X11 are based on the iso8859 standards,
+   except for Cyrillic and Greek.
+
+   In a non-Mule world, a user can still have a multi-lingual editor, by doing
+   (set-face-font "...-iso8859-2" (current-buffer))
+   for all their Latin-2 buffers, etc.  */
+
+static Lisp_Object
+x_keysym_to_character (KeySym keysym)
+{
+#ifdef MULE
+  Lisp_Object charset = Qzero;
+#define USE_CHARSET(var,cs) \
+  ((var) = CHARSET_BY_LEADING_BYTE (LEADING_BYTE_##cs))
+#else
+#define USE_CHARSET(var,lb)
+#endif /* MULE */
+  int code = 0;
+
+  if ((keysym & 0xff) < 0xa0)
+    return Qnil;
+
+  switch (keysym >> 8)
+    {
+    case 0: /* ASCII + Latin1 */
+      USE_CHARSET (charset, LATIN_ISO8859_1);
+      code = keysym & 0x7f;
+      break;
+    case 1: /* Latin2 */
+      USE_CHARSET (charset, LATIN_ISO8859_2);
+      code = keysym & 0x7f;
+      break;
+    case 2: /* Latin3 */
+      USE_CHARSET (charset, LATIN_ISO8859_3);
+      code = keysym & 0x7f;
+      break;
+    case 3: /* Latin4 */
+      USE_CHARSET (charset, LATIN_ISO8859_4);
+      code = keysym & 0x7f;
+      break;
+    case 4: /* Katakana */
+      USE_CHARSET (charset, KATAKANA_JISX0201);
+      if ((keysym & 0xff) > 0xa0)
+	code = keysym & 0x7f;
+      break;
+    case 5: /* Arabic */
+      USE_CHARSET (charset, ARABIC_ISO8859_6);
+      code = keysym & 0x7f;
+      break;
+    case 6: /* Cyrillic */
+      {
+	static unsigned char const cyrillic[] = /* 0x20 - 0x7f */
+	{0x00, 0x72, 0x73, 0x71, 0x74, 0x75, 0x76, 0x77,
+	 0x78, 0x79, 0x7a, 0x7b, 0x7c, 0x00, 0x7e, 0x7f,
+	 0x70, 0x22, 0x23, 0x21, 0x24, 0x25, 0x26, 0x27,
+	 0x28, 0x29, 0x2a, 0x2b, 0x2c, 0x00, 0x2e, 0x2f,
+	 0x6e, 0x50, 0x51, 0x66, 0x54, 0x55, 0x64, 0x53,
+	 0x65, 0x58, 0x59, 0x5a, 0x5b, 0x5c, 0x5d, 0x5e,
+	 0x5f, 0x6f, 0x60, 0x61, 0x62, 0x63, 0x56, 0x52,
+	 0x6c, 0x6b, 0x57, 0x68, 0x6d, 0x69, 0x67, 0x6a,
+	 0x4e, 0x30, 0x31, 0x46, 0x34, 0x35, 0x44, 0x33,
+	 0x45, 0x38, 0x39, 0x3a, 0x3b, 0x3c, 0x3d, 0x3e,
+	 0x3f, 0x4f, 0x40, 0x41, 0x42, 0x43, 0x36, 0x32,
+	 0x4c, 0x4b, 0x37, 0x48, 0x4d, 0x49, 0x47, 0x4a};
+	USE_CHARSET (charset, CYRILLIC_ISO8859_5);
+	code = cyrillic[(keysym & 0x7f) - 0x20];
+	break;
+      }
+    case 7: /* Greek */
+      {
+	static unsigned char const greek[] = /* 0x20 - 0x7f */
+	{0x00, 0x36, 0x38, 0x39, 0x3a, 0x5a, 0x00, 0x3c,
+	 0x3e, 0x5b, 0x00, 0x3f, 0x00, 0x00, 0x35, 0x2f,
+	 0x00, 0x5c, 0x5d, 0x5e, 0x5f, 0x7a, 0x40, 0x7c,
+	 0x7d, 0x7b, 0x60, 0x7e, 0x00, 0x00, 0x00, 0x00,
+	 0x00, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47,
+	 0x48, 0x49, 0x4a, 0x4b, 0x4c, 0x4d, 0x4e, 0x4f,
+	 0x50, 0x51, 0x53, 0x00, 0x54, 0x55, 0x56, 0x57,
+	 0x58, 0x59, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+	 0x00, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67,
+	 0x68, 0x69, 0x6a, 0x6b, 0x6c, 0x6d, 0x6e, 0x6f,
+	 0x70, 0x71, 0x73, 0x72, 0x74, 0x75, 0x76, 0x77,
+	 0x78, 0x79, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+	USE_CHARSET (charset, GREEK_ISO8859_7);
+	code = greek[(keysym & 0x7f) - 0x20];
+	break;
+      }
+    case 8: /* Technical */
+      break;
+    case 9: /* Special */
+      break;
+    case 10: /* Publishing */
+      break;
+    case 11: /* APL */
+      break;
+    case 12: /* Hebrew */
+      USE_CHARSET (charset, HEBREW_ISO8859_8);
+      code = keysym & 0x7f;
+      break;
+    case 13: /* Thai */
+      /* #### This needs to deal with character composition. */
+      USE_CHARSET (charset, THAI_TIS620);
+      code = keysym & 0x7f;
+      break;
+    case 14: /* Korean Hangul */
+      break;
+    case 19: /* Latin 9 - ISO8859-15 - unsupported charset. */
+      break;
+    case 32: /* Currency */
+      break;
+    default:
+      break;
+    }
+
+  if (code == 0)
+    return Qnil;
+
+#ifdef MULE
+  return make_char (MAKE_CHAR (charset, code, 0));
+#else
+  return make_char (code + 0x80);
+#endif
+}
+
+/* #### The way that keysym correspondence to characters should work:
+   - a Lisp_Event should contain a keysym AND a character slot.
+   - keybindings are tried with the keysym.  If no binding can be found,
+   and there is a corresponding character, call self-insert-command.
+
+   #### Nuke x-iso8859-1.el.
+   #### Nuke the Qascii_character property.
+   #### Nuke Vcharacter_set_property.
+*/
+static void
+maybe_define_x_key_as_self_inserting_character (KeySym keysym, Lisp_Object symbol)
+{
+  Lisp_Object character = x_keysym_to_character (keysym);
+
+  if (CHARP (character))
+    {
+      extern Lisp_Object Vcurrent_global_map;
+      extern Lisp_Object Qascii_character;
+      Fput (symbol, Qascii_character, character);
+      if (NILP (Flookup_key (Vcurrent_global_map, symbol, Qnil)))
+	Fdefine_key (Vcurrent_global_map, symbol, Qself_insert_command);
+    }
+}
+
+static void
+x_has_keysym (KeySym keysym, Lisp_Object hash_table, int with_modifiers)
+{
+  KeySym upper_lower[2];
+  int j;
+
+  if (keysym < 0x80) /* Optimize for ASCII keysyms */
+    return;
+  /* If you do:  xmodmap -e 'keysym NN = scaron'
+     and then press (Shift scaron), X11 will return the different
+     keysym Scaron, but  xmodmap -pke  might not even mention Scaron.
+     So we `register' both scaron and Scaron. */
+  XConvertCase (keysym, &upper_lower[0], &upper_lower[1]);
+
+  for (j = 0; j < (upper_lower[0] == upper_lower[1] ? 1 : 2); j++)
+    {
+      char *name;
+      keysym = upper_lower[j];
+
+      name = XKeysymToString (keysym);
+      if (name)
+	{
+	  /* X guarantees NAME to be in the Host Portable Character Encoding */
+	  Lisp_Object sym = x_keysym_to_emacs_keysym (keysym, 0);
+	  Lisp_Object new_value = with_modifiers ? Qt : Qsans_modifiers;
+	  Lisp_Object old_value = Fgethash (sym, hash_table, Qnil);
+
+	  if (! EQ (old_value, new_value)
+	      && ! (EQ (old_value, Qsans_modifiers) &&
+		    EQ (new_value, Qt)))
+	    {
+	      maybe_define_x_key_as_self_inserting_character (keysym, sym);
+	      Fputhash (build_ext_string (name, Qbinary), new_value, hash_table);
+	      Fputhash (sym, new_value, hash_table);
+	    }
+	}
+    }
+}
+
 static void
 x_reset_key_mapping (struct device *d)
 {
@@ -212,29 +404,13 @@ x_reset_key_mapping (struct device *d)
       if (keysym[0] == NoSymbol)
 	continue;
 
-      {
-	char *name = XKeysymToString (keysym[0]);
-	Lisp_Object sym = x_keysym_to_emacs_keysym (keysym[0], 0);
-	if (name)
-	  {
-	    Fputhash (build_string (name), Qsans_modifiers, hash_table);
-	    Fputhash (sym, Qsans_modifiers, hash_table);
-	  }
-      }
+      x_has_keysym (keysym[0], hash_table, 0);
 
       for (j = 1; j < keysyms_per_code; j++)
 	{
 	  if (keysym[j] != keysym[0] &&
 	      keysym[j] != NoSymbol)
-	    {
-	      char *name = XKeysymToString (keysym[j]);
-	      Lisp_Object sym = x_keysym_to_emacs_keysym (keysym[j], 0);
-	      if (name && NILP (Fgethash (sym, hash_table, Qnil)))
-		{
-		  Fputhash (build_string (name), Qt, hash_table);
-		  Fputhash (sym, Qt, hash_table);
-		}
-	    }
+	    x_has_keysym (keysym[j], hash_table, 1);
 	}
     }
 }
@@ -860,10 +1036,9 @@ x_to_emacs_keysym (XKeyPressedEvent *event, int simple_p)
 	Lstream *istr;
 	struct gcpro gcpro1, gcpro2;
 
-	fb_instream =
-          make_fixed_buffer_input_stream ((unsigned char *) bufptr, len);
+	fb_instream = make_fixed_buffer_input_stream (bufptr, len);
 
-        /* ### Use Fget_coding_system (Vcomposed_input_coding_system) */
+        /* #### Use Fget_coding_system (Vcomposed_input_coding_system) */
 	instream =
 	  make_decoding_input_stream (XLSTREAM (fb_instream),
 				      Fget_coding_system (Qundecided));
@@ -874,7 +1049,7 @@ x_to_emacs_keysym (XKeyPressedEvent *event, int simple_p)
         while ((ch = Lstream_get_emchar (istr)) != EOF)
           {
             Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
-	    struct Lisp_Event *ev = XEVENT (emacs_event);
+	    Lisp_Event *ev          = XEVENT (emacs_event);
             ev->channel	            = DEVICE_CONSOLE (d);
             ev->event_type	    = key_press_event;
             ev->timestamp	    = event->time;
@@ -921,7 +1096,7 @@ set_last_server_timestamp (struct device *d, XEvent *x_event)
 }
 
 static int
-x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
+x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
 {
   Display *display    = x_event->xany.display;
   struct device *d    = get_device_from_display (display);
@@ -1191,7 +1366,7 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
 					    make_string ((Bufbyte *)"8bit", 4),
 					    make_ext_string ((Extbyte *)data,
 							     strlen((char *)data),
-							     FORMAT_CTEXT) ) );
+							     Qctext) ) );
 		break;
 	      case DndMIME:
 		/* we have to parse this in some way to extract
@@ -1204,7 +1379,7 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
 		l_type = Qdragdrop_MIME;
 		l_dndlist = list1 ( make_ext_string ((Extbyte *)data,
 						     strlen((char *)data),
-						     FORMAT_BINARY) );
+						     Qbinary) );
 		break;
 	      case DndFile:
 	      case DndDir:
@@ -1225,7 +1400,7 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
 		   and escaping again will break them (cause % is unsave) */
 		l_dndlist = list1 ( make_ext_string ((Extbyte *)data,
 						     strlen ((char *)data),
-						     FORMAT_FILENAME) );
+						     Qfile_name) );
 		l_type = Qdragdrop_URL;
 		break;
 	      default: /* Unknown, RawData and any other type */
@@ -1233,7 +1408,7 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
 					    make_string ((Bufbyte *)"8bit", 4),
 					    make_ext_string ((Extbyte *)data,
 							     size,
-							     FORMAT_BINARY) ) );
+							     Qbinary) ) );
 		l_type = Qdragdrop_MIME;
 		break;
 	      }
@@ -1541,7 +1716,7 @@ handle_client_message (struct frame *f, XEvent *event)
 }
 
 static void
-emacs_Xt_handle_magic_event (struct Lisp_Event *emacs_event)
+emacs_Xt_handle_magic_event (Lisp_Event *emacs_event)
 {
   /* This function can GC */
   XEvent *event = &emacs_event->event.magic.underlying_x_event;
@@ -1782,7 +1957,7 @@ emacs_Xt_remove_timeout (int id)
 }
 
 static void
-Xt_timeout_to_emacs_event (struct Lisp_Event *emacs_event)
+Xt_timeout_to_emacs_event (Lisp_Event *emacs_event)
 {
   struct Xt_timeout *timeout = completed_timeouts;
   assert (timeout);
@@ -1949,7 +2124,7 @@ unselect_filedesc (int fd)
 }
 
 static void
-emacs_Xt_select_process (struct Lisp_Process *p)
+emacs_Xt_select_process (Lisp_Process *p)
 {
   Lisp_Object process;
   int infd = event_stream_unixoid_select_process (p);
@@ -1959,7 +2134,7 @@ emacs_Xt_select_process (struct Lisp_Process *p)
 }
 
 static void
-emacs_Xt_unselect_process (struct Lisp_Process *p)
+emacs_Xt_unselect_process (Lisp_Process *p)
 {
   int infd = event_stream_unixoid_unselect_process (p);
 
@@ -1988,7 +2163,7 @@ emacs_Xt_delete_stream_pair (Lisp_Object instream, Lisp_Object outstream)
    If we've still got pointers to it in this file, we're gonna lose hard.
  */
 void
-debug_process_finalization (struct Lisp_Process *p)
+debug_process_finalization (Lisp_Process *p)
 {
 #if 0 /* #### */
   int i;
@@ -2008,7 +2183,7 @@ debug_process_finalization (struct Lisp_Process *p)
 }
 
 static void
-Xt_process_to_emacs_event (struct Lisp_Event *emacs_event)
+Xt_process_to_emacs_event (Lisp_Event *emacs_event)
 {
   int i;
 
@@ -2068,7 +2243,7 @@ emacs_Xt_unselect_console (struct console *con)
    to be deleted.) */
 
 static int
-Xt_tty_to_emacs_event (struct Lisp_Event *emacs_event)
+Xt_tty_to_emacs_event (Lisp_Event *emacs_event)
 {
   int i;
 
@@ -2114,7 +2289,7 @@ describe_event_window (Window window, Display *display)
       char *buf = alloca_array (char, XSTRING_LENGTH (f->name) + 4);
       sprintf (buf, " \"%s\"", XSTRING_DATA (f->name));
       write_string_to_stdio_stream (stderr, 0, (Bufbyte *) buf, 0,
-				    strlen (buf), FORMAT_TERMINAL);
+				    strlen (buf), Qterminal);
     }
   stderr_out ("\n");
 }
@@ -2353,7 +2528,7 @@ signal_special_Xt_user_event (Lisp_Object channel, Lisp_Object function,
 }
 
 static void
-emacs_Xt_next_event (struct Lisp_Event *emacs_event)
+emacs_Xt_next_event (Lisp_Event *emacs_event)
 {
  we_didnt_get_an_event:
 
@@ -2738,10 +2913,10 @@ emacs_Xt_event_pending_p (int user_p)
    the '#if 0'.  Note, however, that I got "unknown structure"
    errors when I tried this. */
 XtConvertArgRec Const colorConvertArgs[] = {
-  {XtWidgetBaseOffset, (XtPointer)XtOffsetOf(WidgetRec, core.screen),
-   sizeof(Screen *)},
-  {XtWidgetBaseOffset, (XtPointer)XtOffsetOf(WidgetRec, core.colormap),
-   sizeof(Colormap)}
+  { XtWidgetBaseOffset, (XtPointer)XtOffsetOf(WidgetRec, core.screen),
+    sizeof (Screen *) },
+  { XtWidgetBaseOffset, (XtPointer)XtOffsetOf(WidgetRec, core.colormap),
+    sizeof (Colormap) }
 };
 
 #endif
@@ -2891,6 +3066,7 @@ syms_of_event_Xt (void)
 {
   defsymbol (&Qkey_mapping, "key-mapping");
   defsymbol (&Qsans_modifiers, "sans-modifiers");
+  defsymbol (&Qself_insert_command, "self-insert-command");
 }
 
 void

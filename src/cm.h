@@ -23,8 +23,8 @@ Boston, MA 02111-1307, USA.  */
 /* #### Chuck -- This file should be deleted.  I'm not deleting it yet
    because there might be something you want out of it. */
 
-#ifndef _XEMACS_CM_H_
-#define _XEMACS_CM_H_
+#ifndef INCLUDED_cm_h_
+#define INCLUDED_cm_h_
 
 /* Holds the minimum and maximum costs for the parametrized capabilities.  */
 struct parmcap
@@ -181,4 +181,4 @@ void cmgoto (int, int);
 void Wcm_clear (void);
 int Wcm_init (void);
 
-#endif /* _XEMACS_CM_H_ */
+#endif /* INCLUDED_cm_h_ */

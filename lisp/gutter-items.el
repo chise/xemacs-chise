@@ -30,6 +30,11 @@
   "Input from the gutters."
   :group 'environment)
 
+(defvar gutter-buffers-tab nil
+  "A tab widget in the gutter for displaying buffers.
+Do not set this. Use `glyph-image-instance' and
+`set-image-instance-property' to change the properties of the tab.")
+
 (defcustom gutter-visible-p 
   (specifier-instance default-gutter-visible-p)
   "Whether the default gutter is globally visible. This option can be
@@ -38,12 +43,8 @@ customized through the options menu."
   :type 'boolean
   :set #'(lambda (var val)
 	   (set-specifier default-gutter-visible-p val)
-	   (setq gutter-visible-p val)))
-
-(defvar gutter-buffers-tab nil
-  "A tab widget in the gutter for displaying buffers.
-Do not set this. Use `glyph-image-instance' and
-`set-image-instance-property' to change the properties of the tab.")
+	   (setq gutter-visible-p val)
+	   (when gutter-buffers-tab (update-tab-in-gutter))))
 
 (defcustom default-gutter-position
   (default-gutter-position)
@@ -193,8 +194,12 @@ This just returns the buffer's name, optionally truncated."
   (let ((len (specifier-instance buffers-tab-default-buffer-line-length)))
     (if (and (> len 0)
 	     (> (length (buffer-name buffer)) len))
-	(concat (substring (buffer-name buffer) 
-			   0 (- len 3)) "...")
+	(if (string-match ".*<.>$" (buffer-name buffer))
+	    (concat (substring (buffer-name buffer) 
+			       0 (- len 6)) "..."
+			       (substring (buffer-name buffer) -3))
+	  (concat (substring (buffer-name buffer)
+			     0 (- len 3)) "..."))
       (buffer-name buffer))))
 
 (defsubst build-buffers-tab-internal (buffers)
@@ -282,7 +287,7 @@ items by redefining the function `format-buffers-menu-line'."
 		   (eq (default-gutter-position)
 		       gutter-buffers-tab-orientation))
 	(add-tab-to-gutter))
-      (when (valid-image-instantiator-format-p 'tab-control)
+      (when (valid-image-instantiator-format-p 'tab-control locale)
 	(let ((inst (glyph-image-instance 
 		     gutter-buffers-tab
 		     (when (framep frame-or-buffer)
@@ -335,7 +340,7 @@ This just removes the progress gauge and calls quit."
   (make-glyph
    (vector 'progress-gauge
 	   :pixel-height (- progress-glyph-height 8)
-	   :pixel-width 250
+	   :pixel-width 50
 	   :descriptor "Progress")))
 
 (defvar progress-text-glyph

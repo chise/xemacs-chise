@@ -22,8 +22,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Written by Chuck Thompson */
 
-#ifndef _XEMACS_DEBUG_H_
-#define _XEMACS_DEBUG_H_
+#ifndef INCLUDED_debug_h_
+#define INCLUDED_debug_h_
 
 #define DEBUG_STDERR	1
 #define DEBUG_ABORT	2
@@ -76,4 +76,4 @@ extern struct debug_classes active_debug_classes;
 
 #endif /* !DEBUG_XEMACS */
 
-#endif /* _XEMACS_DEBUG_H_ */
+#endif /* INCLUDED_debug_h_ */

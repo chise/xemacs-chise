@@ -281,7 +281,7 @@ truncate_undo_list (Lisp_Object list, int minsize, int maxsize)
       && NILP (XCAR (next)))
     {
       /* Add in the space occupied by this element and its chain link.  */
-      size_so_far += sizeof (struct Lisp_Cons);
+      size_so_far += sizeof (Lisp_Cons);
 
       /* Advance to next element.  */
       prev = next;
@@ -294,12 +294,12 @@ truncate_undo_list (Lisp_Object list, int minsize, int maxsize)
       elt = XCAR (next);
 
       /* Add in the space occupied by this element and its chain link.  */
-      size_so_far += sizeof (struct Lisp_Cons);
+      size_so_far += sizeof (Lisp_Cons);
       if (CONSP (elt))
 	{
-	  size_so_far += sizeof (struct Lisp_Cons);
+	  size_so_far += sizeof (Lisp_Cons);
 	  if (STRINGP (XCAR (elt)))
-	    size_so_far += (sizeof (struct Lisp_String) - 1
+	    size_so_far += (sizeof (Lisp_String) - 1
 			    + XSTRING_LENGTH (XCAR (elt)));
 	}
 
@@ -329,12 +329,12 @@ truncate_undo_list (Lisp_Object list, int minsize, int maxsize)
 	}
 
       /* Add in the space occupied by this element and its chain link.  */
-      size_so_far += sizeof (struct Lisp_Cons);
+      size_so_far += sizeof (Lisp_Cons);
       if (CONSP (elt))
 	{
-	  size_so_far += sizeof (struct Lisp_Cons);
+	  size_so_far += sizeof (Lisp_Cons);
 	  if (STRINGP (XCAR (elt)))
-	    size_so_far += (sizeof (struct Lisp_String) - 1
+	    size_so_far += (sizeof (Lisp_String) - 1
                             + XSTRING_LENGTH (XCAR (elt)));
 	}
 

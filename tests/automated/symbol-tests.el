@@ -250,33 +250,70 @@
 ;; Magic symbols
 ;;-----------------------------------------------------
 
-;; Magic symbols are almost totally unimplemented.  However, a
-;; rudimentary subset of the functionality is being used to implement
-;; backward compatibility or clearer error messages for new features
-;; such as specifiers and glyphs.  These tests try to test that
-;; working subset.
+;; Magic symbols are only half implemented.  However, a subset of the
+;; functionality is being used to implement backward compatibility or
+;; clearer error messages for new features such as specifiers and
+;; glyphs.  These tests try to test that working subset.
 
-(let ((mysym (make-symbol "test-symbol")))
+(let ((mysym (make-symbol "test-symbol"))
+      save)
   (dontusethis-set-symbol-value-handler
    mysym
    'set-value
    (lambda (&rest args)
      (throw 'test-tag args)))
+  (Assert (not (boundp mysym)))
   (Assert (equal (catch 'test-tag
 		   (set mysym 'foo))
-		 `(,mysym (foo) set nil nil))))
+		 `(,mysym (foo) set nil nil)))
+  (Assert (not (boundp mysym)))
+  (dontusethis-set-symbol-value-handler
+   mysym
+   'set-value
+   (lambda (&rest args) (setq save (nth 1 args))))
+  (set mysym 'foo)
+  (Assert (equal save '(foo)))
+  (Assert (eq (symbol-value mysym) 'foo))
+  )
 
-;; #### These two make XEmacs crash!
+(let ((mysym (make-symbol "test-symbol"))
+      save)
+  (dontusethis-set-symbol-value-handler
+   mysym
+   'make-unbound
+   (lambda (&rest args)
+     (throw 'test-tag args)))
+  (Assert (equal (catch 'test-tag
+		   (makunbound mysym))
+		 `(,mysym nil makunbound nil nil)))
+  (dontusethis-set-symbol-value-handler
+   mysym
+   'make-unbound
+   (lambda (&rest args) (setq save (nth 2 args))))
+  (Assert (not (boundp mysym)))
+  (set mysym 'bar)
+  (Assert (null save))
+  (Assert (eq (symbol-value mysym) 'bar))
+  (makunbound mysym)
+  (Assert (not (boundp mysym)))
+  (Assert (eq save 'makunbound))
+  )
 
-;(let ((mysym (make-symbol "test-symbol")))
-;  (dontusethis-set-symbol-value-handler
-;   mysym
-;   'make-unbound
-;   (lambda (&rest args)
-;     (throw 'test-tag args)))
-;  (Assert (equal (catch 'test-tag
-;		   (set mysym 'foo))
-;		 `(,mysym (foo) set nil nil))))
+(when (featurep 'file-coding)
+  (Assert (eq pathname-coding-system file-name-coding-system))
+  (let ((val1 file-name-coding-system)
+	(val2 pathname-coding-system))
+    (Assert (eq val1 val2))
+    (let ((file-name-coding-system 'no-conversion-dos))
+      (Assert (eq file-name-coding-system 'no-conversion-dos))
+      (Assert (eq pathname-coding-system file-name-coding-system)))
+    (let ((pathname-coding-system 'no-conversion-mac))
+      (Assert (eq file-name-coding-system 'no-conversion-mac))
+      (Assert (eq pathname-coding-system file-name-coding-system)))
+    (Assert (eq file-name-coding-system pathname-coding-system))
+    (Assert (eq val1 file-name-coding-system)))
+  (Assert (eq pathname-coding-system file-name-coding-system)))
+
 
 ;(let ((mysym (make-symbol "test-symbol")))
 ;  (dontusethis-set-symbol-value-handler
@@ -286,4 +323,4 @@
 ;     (throw 'test-tag args)))
 ;  (Assert (equal (catch 'test-tag
 ;		   (set mysym 'foo))
-;		 `(,mysym (foo) set nil nil))))
+;		 `(,mysym (foo) make-local nil nil))))

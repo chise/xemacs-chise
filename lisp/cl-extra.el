@@ -639,12 +639,11 @@ argument VECP, this copies vectors as well as conses."
 ;; XEmacs: our `get' groks DEFAULT.
 (defalias 'get* 'get)
 
-(defun getf (plist tag &optional def)
-  "Search PROPLIST for property PROPNAME; return its value or DEFAULT.
-PROPLIST is a list of the sort returned by `symbol-plist'."
+(defun getf (plist property &optional default)
+  "Search PLIST for property PROPERTY; return its value or DEFAULT.
+PLIST is a list of the sort returned by `symbol-plist'."
   (setplist '--cl-getf-symbol-- plist)
-  (or (get '--cl-getf-symbol-- tag)
-      (and def (get* '--cl-getf-symbol-- tag def))))
+  (get '--cl-getf-symbol-- property default))
 
 (defun cl-set-getf (plist tag val)
   (let ((p plist))

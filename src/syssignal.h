@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.30. */
 
-#ifndef _XEMACS_SYSSIGNAL_H_
-#define _XEMACS_SYSSIGNAL_H_
+#ifndef INCLUDED_syssignal_h_
+#define INCLUDED_syssignal_h_
 
 /* In the old world, one could not #include <signal.h> here.  The party line
    was that that header should always be #included before <config.h>, because
@@ -234,7 +234,7 @@ extern CONST char *sys_siglist[];
 SIGTYPE memory_warning_signal (int sig);
 #endif
 
-#ifdef _WIN32
+#ifdef WINDOWSNT
 /* Prototypes for signal functions, see nt.c */
 typedef void (__cdecl *msw_sighandler) (int);
 msw_sighandler msw_sigset (int sig, msw_sighandler handler);
@@ -244,4 +244,4 @@ int msw_sigpause (int nsig);
 int msw_raise (int nsig);
 #endif /* _WIN32 */
 
-#endif /* _XEMACS_SYSSIGNAL_H_ */
+#endif /* INCLUDED_syssignal_h_ */

@@ -799,7 +799,7 @@ dseek (long offset, int from)
 
 /* Like ftell, but for a buffer in memory */
 static long
-dtell()
+dtell (void)
 {
   return file_posn;
 }
@@ -807,7 +807,7 @@ dtell()
 /* Data buffer analogs for FileReadS and FileReadL in NAS. */
 
 static unsigned short
-DataReadS(int swapit)
+DataReadS (int swapit)
 {
     unsigned short us;
 
@@ -818,7 +818,7 @@ DataReadS(int swapit)
 }
 
 static AuUint32
-DataReadL(int swapit)
+DataReadL (int swapit)
 {
     AuUint32 ul;
 
@@ -829,7 +829,7 @@ DataReadL(int swapit)
 }
 
 static int
-readChunk(RiffChunk *c)
+readChunk (RiffChunk *c)
 {
     int             status;
     char            n;
@@ -845,8 +845,8 @@ readChunk(RiffChunk *c)
    read the wave data from a buffer in memory. */
 
 static WaveInfo *
-WaveOpenDataForReading(CONST char *data,
-		       int length)
+WaveOpenDataForReading (CONST char *data,
+			int length)
 {
     RiffChunk       ck;
     RIFF_FOURCC     fourcc;

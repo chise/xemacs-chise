@@ -373,7 +373,7 @@ Hashed files are not understood, see `auto-save-hash-p'."
   ;; save file in the same directory as FILENAME.  But if this
   ;; directory is not writable, use auto-save-directory-fallback.
   ;; FILENAME is assumed to be in non-directory form (no trailing slash).
-  ;; It may be a name without a directory part (pesumably it really
+  ;; It may be a name without a directory part (presumably it really
   ;; comes from a buffer name then), the fallback is used then.
   ;; Optional PREFIX is string to use instead of "#" to prefix name.
   (let ((directory (file-name-directory filename)))

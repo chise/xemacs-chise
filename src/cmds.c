@@ -327,7 +327,7 @@ internal_self_insert (Emchar c1, int noautofill)
   REGISTER enum syntaxcode synt;
   REGISTER Emchar c2;
   Lisp_Object overwrite;
-  struct Lisp_Char_Table *syntax_table;
+  Lisp_Char_Table *syntax_table;
   struct buffer *buf = current_buffer;
   int tab_width;
 

@@ -203,6 +203,7 @@ anything that the functions on selection-converter-alist know about.
        (selection_name, selection_value, device))
 {
   Lisp_Object selection_time, selection_data, prev_value;
+  struct gcpro gcpro1;
 
   CHECK_SYMBOL (selection_name);
   if (NILP (selection_value)) error ("selection-value may not be nil.");
@@ -214,6 +215,8 @@ anything that the functions on selection-converter-alist know about.
   selection_data = list3 (selection_name,
 			  selection_value,
 			  Qnil);
+  GCPRO1 (selection_data);
+
   prev_value = assq_no_quit (selection_name, Vselection_alist);
   Vselection_alist = Fcons (selection_data, Vselection_alist);
     
@@ -241,6 +244,8 @@ anything that the functions on selection-converter-alist know about.
     selection_time = Qnil;
 
   Fsetcar (XCDR (XCDR (selection_data)), selection_time);
+
+  UNGCPRO;
 
   return selection_value;
 }

@@ -195,7 +195,7 @@ column_at_point (struct buffer *buf, Bufpos init_pos, int cur_col)
 }
 
 int
-string_column_at_point (struct Lisp_String* s, Bufpos init_pos, int tab_width)
+string_column_at_point (Lisp_String* s, Bufpos init_pos, int tab_width)
 {
   int col;
   int tab_seen;

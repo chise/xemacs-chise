@@ -150,7 +150,7 @@ static long *xmalloc (unsigned int);
 #ifdef MAIL_USE_POP
 static int popmail (char *, char *, char *);
 static int pop_retr (popserver server, int msgno,
-		     int (*action)(char *, FILE *), void *arg);
+		     int (*action)(char *, FILE *), FILE *arg);
 static int mbx_write (char *, FILE *);
 static int mbx_delimit_begin (FILE *);
 static int mbx_delimit_end (FILE *);
@@ -771,7 +771,7 @@ popmail (char *user, char *outfile, char *password)
       return (1);
     }
 #if !defined(__CYGWIN32__) && !defined(WINDOWSNT)
-  fchown (mbfi, getuid (), -1);
+  fchown (mbfi, getuid (), (gid_t) -1);
 #endif
 
   if ((mbf = fdopen (mbfi, "wb")) == NULL)
@@ -863,7 +863,7 @@ popmail (char *user, char *outfile, char *password)
 }
 
 static int
-pop_retr (popserver server, int msgno, int (*action)(char *, FILE *), void *arg)
+pop_retr (popserver server, int msgno, int (*action)(char *, FILE *), FILE *arg)
 {
   char *line;
   int ret;

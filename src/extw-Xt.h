@@ -19,8 +19,8 @@ Boston, MA 02111-1307, USA. */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _EXTW_XT_H_
-#define _EXTW_XT_H_
+#ifndef INCLUDED_extw_Xt_h_
+#define INCLUDED_extw_Xt_h_
 
 #include "extw-Xlib.h"
 
@@ -41,4 +41,4 @@ Bool extw_wait_for_response(Widget w, XEvent *event, unsigned long request_num,
 			    en_extw_notify type, unsigned long timeout);
 
 
-#endif /* _EXTW_XT_H_ */
+#endif /* INCLUDED_extw_Xt_h_ */

@@ -1,5 +1,5 @@
-#ifndef _LWLIB_UTILS_H_
-#define _LWLIB_UTILS_H_
+#ifndef INCLUDED_lwlib_utils_h_
+#define INCLUDED_lwlib_utils_h_
 
 void destroy_all_children (Widget widget);
 void XtNoClearRefreshWidget (Widget);
@@ -21,4 +21,5 @@ void XtSafelyDestroyWidget (Widget);
 #ifdef USE_DEBUG_MALLOC
 #include <dmalloc.h>
 #endif
-#endif /* _LWLIB_UTILS_H_ */
+
+#endif /* INCLUDED_lwlib_utils_h_ */

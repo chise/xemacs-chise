@@ -22,10 +22,8 @@ Boston, MA 02111-1307, USA.  */
    process-unix.c, process-msw.c etc. The Lisp_Process structure and other
    contents of this file is not exported to the rest of the world */
 
-#ifndef _XEMACS_PROCIMPL_H_
-#define _XEMACS_PROCIMPL_H_
-
-struct Lisp_Process;
+#ifndef INCLUDED_procimpl_h_
+#define INCLUDED_procimpl_h_
 
 /*
  * Structure which keeps methods of the process implementation.
@@ -37,17 +35,16 @@ struct Lisp_Process;
 
 struct process_methods
 {
-  void (*mark_process_data) (struct Lisp_Process *proc);
-  void (*print_process_data) (struct Lisp_Process *proc,
-			      Lisp_Object printcharfun);
-  void (*finalize_process_data) (struct Lisp_Process *proc, int for_disksave);
-  void (*alloc_process_data) (struct Lisp_Process *p);
-  void (*init_process_io_handles) (struct Lisp_Process *p,
+  void (*mark_process_data) (Lisp_Process *proc);
+  void (*print_process_data) (Lisp_Process *proc, Lisp_Object printcharfun);
+  void (*finalize_process_data) (Lisp_Process *proc, int for_disksave);
+  void (*alloc_process_data) (Lisp_Process *p);
+  void (*init_process_io_handles) (Lisp_Process *p,
 				   void* in, void* out, int flags);
-  int  (*create_process) (struct Lisp_Process *p,
+  int  (*create_process) (Lisp_Process *p,
 			  Lisp_Object *argv, int nargv,
 			  Lisp_Object program, Lisp_Object cur_dir);
-  int  (*tooltalk_connection_p) (struct Lisp_Process *p);
+  int  (*tooltalk_connection_p) (Lisp_Process *p);
 #ifdef HAVE_SOCKETS
   void (*open_network_stream) (Lisp_Object name, Lisp_Object host,
 			       Lisp_Object service, Lisp_Object protocol,
@@ -59,16 +56,16 @@ struct process_methods
 #endif /* HAVE_MULTICAST */
 #endif /* HAVE_SOCKETS */
   Lisp_Object (*canonicalize_host_name) (Lisp_Object host);
-  int  (*set_window_size) (struct Lisp_Process* p, int height, int width);
+  int  (*set_window_size) (Lisp_Process* p, int height, int width);
   void (*send_process) (Lisp_Object proc, struct lstream* lstream);
   void (*reap_exited_processes) (void);
-  void (*update_status_if_terminated) (struct Lisp_Process* p);
+  void (*update_status_if_terminated) (Lisp_Process* p);
   void (*kill_child_process) (Lisp_Object proc, int signo,
 			      int current_group, int nomsg);
   int  (*kill_process_by_pid) (int pid, int sigcode);
   int  (*process_send_eof) (Lisp_Object proc);
-  Lisp_Object (*get_tty_name) (struct Lisp_Process *p);
-  USID (*deactivate_process) (struct Lisp_Process *p);
+  Lisp_Object (*get_tty_name) (Lisp_Process *p);
+  USID (*deactivate_process) (Lisp_Process *p);
   void (*init_process) (void);
 };
 
@@ -177,11 +174,11 @@ extern Lisp_Object network_stream_blocking_port_list;
 #endif  /* PROCESS_IO_BLOCKING */
 
 Lisp_Object make_process_internal (Lisp_Object name);
-void init_process_io_handles (struct Lisp_Process *p, void* in,
+void init_process_io_handles (Lisp_Process *p, void* in,
 			      void* out, int flags);
 void send_process (Lisp_Object proc,
 		   Lisp_Object relocatable,
 		   CONST Bufbyte *nonrelocatable,
 		   int start, int len);
 
-#endif /* _XEMACS_PROCIMPL_H_ */
+#endif /* INCLUDED_procimpl_h_ */

@@ -22,8 +22,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Written by Ben Wing, May, 1994. */
 
-#ifndef _EmacsShell_h
-#define _EmacsShell_h
+#ifndef INCLUDED_EmacsShell_h_
+#define INCLUDED_EmacsShell_h_
 
 #ifndef XtNwidthCells
 #define XtNwidthCells "widthCells"
@@ -68,4 +68,4 @@ void EmacsShellSetSizeUserSpecified (Widget gw);
 void EmacsShellSetPositionUserSpecified (Widget gw);
 void EmacsShellSmashIconicHint (Widget shell, int iconic_p);
 
-#endif /* _EmacsShell_h */
+#endif /* INCLUDED_EmacsShell_h_ */

@@ -1,3 +1,35 @@
+to 21.2.28 "Hermes"
+-- Add configure support for NetWinders, Sean MacLennan
+-- Make the "Load .emacs" menu item work again, Kirill Katsnelson
+-- Make --without-x work again.
+-- Detect Xaw3d and friends using #include <Xaw3d/FOO.h>
+-- Experimental Drag-N-Drop now defaults to "no" until there is again
+   active development.
+-- SGI dumping fixes should make XEmacs work again on Irix 6.
+-- More warning flags on by default when building with gcc.
+-- process coding changes, Kirill Katsnelson
+-- help now knows how to print macro arglists, Yoshiki Hayashi
+-- Windows printing support, Kirill Katsnelson
+-- Obscure crash fixes, Martin Buchholz
+-- Memory leak fixes, Martin Buchholz
+-- We now always use our own realpath(), never the system-provided one.
+-- More gutter/tab widget changes, Andy Piper
+-- Crash fix when using dead processes, Gunnar Evermann (fix PR#1061)
+-- Pdump stability fixes, Olivier Galibert
+-- New coding system alias implementation, Ben Wing and Martin Buchholz
+-- New internal data conversion infrastructure, Ben Wing and Martin Buchholz
+-- IPv6 support, URA Hiroshi
+-- Runtime Athena mismatch warnings added, Daniel Pittman
+-- Removal of old MSDOS support, Kirill Katsnelson
+-- Correctly define Latin-3 and Latin-4 character syntax as "w".
+-- Auto-define all X-defined keysyms as self-inserting, not just Latin-1.
+-- Workaround egcs-20000131 c++ compiler bug
+-- Byte-optimize (length "foo") to 3.
+-- (define-key ctl-x-4-map "p" global-map) no longer causes stack overflow crash.
+-- Partially implement dontusethis-set-symbol-value-handler.
+-- Fix bug: (getf nil t t) ==> Lisp nesting exceeds `max-lisp-eval-depth'
+-- lib-src partially C++ized, Zack Weinberg.
+
 to 21.2.27 "Hera"
 -- Dynamic layout for widgets from Andy Piper
 -- config.sub, config.guess major upgrade, Marcus Thiessel

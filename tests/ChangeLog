@@ -1,3 +1,23 @@
+2000-02-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.28 is released.
+
+2000-02-07  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/lisp-tests.el: Add plist manipulation tests.
+
+2000-02-02  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/symbol-tests.el: Crashes fixed, so resurrect
+	makunbound test for dontusethis-set-symbol-value-handler.
+	Add more dontusethis-set-symbol-value-handler tests.
+	Should fix any lingering problems with gnus playing with
+	pathname-coding-system.
+
+2000-01-25  Martin Buchholz  <martin@xemacs.org>
+
+	* mule-tests.el: Add coding-system tests.
+
 2000-01-18  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.27 is released.

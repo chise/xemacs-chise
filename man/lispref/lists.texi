@@ -1448,7 +1448,7 @@ becomes clearer if the association is written in dotted pair notation:
 
 @defun remassoc key alist
 This function deletes by side effect any associations with key @var{key}
-in @var{alist} -- i.e. it removes any elements from @var{alist} whose
+in @var{alist}---i.e. it removes any elements from @var{alist} whose
 @code{car} is @code{equal} to @var{key}.  The modified @var{alist} is
 returned.
 
@@ -1460,7 +1460,7 @@ value of @code{foo}.
 
 @defun remassq key alist
 This function deletes by side effect any associations with key @var{key}
-in @var{alist} -- i.e. it removes any elements from @var{alist} whose
+in @var{alist}---i.e. it removes any elements from @var{alist} whose
 @code{car} is @code{eq} to @var{key}.  The modified @var{alist} is
 returned.
 
@@ -1471,7 +1471,7 @@ This function is exactly like @code{remassoc}, but comparisons between
 
 @defun remrassoc value alist
 This function deletes by side effect any associations with value @var{value}
-in @var{alist} -- i.e. it removes any elements from @var{alist} whose
+in @var{alist}---i.e. it removes any elements from @var{alist} whose
 @code{cdr} is @code{equal} to @var{value}.  The modified @var{alist} is
 returned.
 
@@ -1488,7 +1488,7 @@ based on its value instead of its key.
 
 @defun remrassq value alist
 This function deletes by side effect any associations with value @var{value}
-in @var{alist} -- i.e. it removes any elements from @var{alist} whose
+in @var{alist}---i.e. it removes any elements from @var{alist} whose
 @code{cdr} is @code{eq} to @var{value}.  The modified @var{alist} is
 returned.
 
@@ -1771,7 +1771,7 @@ lists of another function's buffers or markers.  When that function is
 done with the elements, they will automatically disappear from the list.
 
 Weak lists are used internally, for example, to manage the list holding
-the children of an extent -- an extent that is unused but has a parent
+the children of an extent---an extent that is unused but has a parent
 will still be reclaimed, and will automatically be removed from its
 parent's list of children.
 

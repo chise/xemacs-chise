@@ -248,6 +248,21 @@ specifier, it will automatically be converted into a @code{generic}
 specifier.
 @end defun
 
+@defun remove-face-property face property &optional local tag-set exact-p
+This function removes a property of a @var{face}.
+
+For built-in properties, this is analogous to @code{remove-specifier}.
+For more information, @xref{Other Specification Functions}.
+
+When @var{property} is not a built-in property, this function will just
+remove its value if @var{locale} is @code{nil} or @code{all}.  However,
+if @var{locale} is other than that, this function will attempt to remove
+@var{value} as the instantiator for the given @var{locale} with
+@code{remove-specifier}.  If the value of the property is not a
+specifier, it will be converted into a @code{generic} specifier
+automatically.
+@end defun
+
 @defun face-property face property &optional locale
 This function returns @var{face}'s value of the given @var{property}.
 

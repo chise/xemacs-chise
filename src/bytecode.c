@@ -686,7 +686,7 @@ execute_optimized_program (CONST Opbyte *program,
 	do_varset:
 	{
 	  Lisp_Object symbol = constants_data[n];
-	  struct Lisp_Symbol *symbol_ptr = XSYMBOL (symbol);
+	  Lisp_Symbol *symbol_ptr = XSYMBOL (symbol);
 	  Lisp_Object old_value = symbol_ptr->value;
 	  Lisp_Object new_value = POP;
 	  if (!SYMBOL_VALUE_MAGIC_P (old_value) || UNBOUNDP (old_value))
@@ -707,7 +707,7 @@ execute_optimized_program (CONST Opbyte *program,
 	do_varbind:
 	{
 	  Lisp_Object symbol = constants_data[n];
-	  struct Lisp_Symbol *symbol_ptr = XSYMBOL (symbol);
+	  Lisp_Symbol *symbol_ptr = XSYMBOL (symbol);
 	  Lisp_Object old_value = symbol_ptr->value;
 	  Lisp_Object new_value = POP;
 	  if (!SYMBOL_VALUE_MAGIC_P (old_value) || UNBOUNDP (old_value))
@@ -1894,8 +1894,7 @@ optimize_compiled_function (Lisp_Object compiled_function)
 			  program, &program_length, &varbind_count);
       f->specpdl_depth = XINT (Flength (f->arglist)) + varbind_count;
       f->instructions =
-	make_opaque (program_length * sizeof (Opbyte),
-		     (CONST void *) program);
+	make_opaque (program, program_length * sizeof (Opbyte));
     }
 
   assert (OPAQUEP (f->instructions));
@@ -2024,9 +2023,12 @@ compiled_function_hash (Lisp_Object obj, int depth)
 }
 
 static const struct lrecord_description compiled_function_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Compiled_Function, instructions), 4 },
+  { XD_LISP_OBJECT, offsetof (Lisp_Compiled_Function, instructions) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Compiled_Function, constants) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Compiled_Function, arglist) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Compiled_Function, doc_and_interactive) },
 #ifdef COMPILED_FUNCTION_ANNOTATION_HACK
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Compiled_Function, annotated), 1 },
+  { XD_LISP_OBJECT, offsetof (Lisp_Compiled_Function, annotated) },
 #endif
   { XD_END }
 };

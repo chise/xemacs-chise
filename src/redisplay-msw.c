@@ -46,7 +46,6 @@ Boston, MA 02111-1307, USA.  */
 #include "sysdep.h"
 #include "window.h"
 
-#include "windows.h"
 #ifdef MULE
 #include "mule-ccl.h"
 #include "mule-charset.h"
@@ -57,13 +56,15 @@ Boston, MA 02111-1307, USA.  */
 /*
  * Random forward declarations
  */
-static void mswindows_update_dc (HDC hdc, Lisp_Object font, Lisp_Object fg,
-				 Lisp_Object bg, Lisp_Object bg_pmap);
+static void mswindows_update_dc (HDC hdc, Lisp_Object fg, Lisp_Object bg,
+				 Lisp_Object bg_pmap);
+static void mswindows_set_dc_font (HDC hdc, Lisp_Object font,
+				   int under, int strike);
 static void mswindows_output_vertical_divider (struct window *w, int clear);
 static void mswindows_redraw_exposed_windows (Lisp_Object window, int x,
 					int y, int width, int height);
 static void mswindows_output_dibitmap (struct frame *f, 
-				       struct Lisp_Image_Instance *p,
+				       Lisp_Image_Instance *p,
 				       struct display_box* db,
 				       struct display_glyph_area* dga);
 
@@ -183,7 +184,7 @@ mswindows_text_width_single_run (HDC hdc, struct face_cachel *cachel,
 				 textual_run *run)
 {
   Lisp_Object font_inst = FACE_CACHEL_FONT (cachel, run->charset);
-  struct Lisp_Font_Instance *fi = XFONT_INSTANCE (font_inst);
+  Lisp_Font_Instance *fi = XFONT_INSTANCE (font_inst);
   SIZE size;
 
   if (!fi->proportional_p || !hdc)
@@ -191,12 +192,38 @@ mswindows_text_width_single_run (HDC hdc, struct face_cachel *cachel,
   else
     {
       assert(run->dimension == 1);	/* #### FIXME! */
-      mswindows_update_dc (hdc, font_inst, Qnil, Qnil, Qnil);
+      mswindows_set_dc_font (hdc, font_inst,
+			     cachel->underline, cachel->strikethru);
       GetTextExtentPoint32 (hdc, run->ptr, run->len, &size);
       return(size.cx);
     }
 }
 
+/*
+ * Given F, retrieve device context. F can be a display frame, or
+ * a print job.
+ */
+static HDC
+get_frame_dc (struct frame *f)
+{
+  if (FRAME_MSWINDOWS_P (f))
+    return FRAME_MSWINDOWS_DC (f);
+  else
+    return DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f)));
+}
+
+/*
+ * Given F, retrieve compatible device context. F can be a display
+ * frame, or a print job.
+ */
+static HDC
+get_frame_compdc (struct frame *f)
+{
+  if (FRAME_MSWINDOWS_P (f))
+    return FRAME_MSWINDOWS_CDC (f);
+  else
+    return FRAME_MSPRINTER_CDC (f);
+}
 
 /*****************************************************************************
  mswindows_update_dc
@@ -204,18 +231,15 @@ mswindows_text_width_single_run (HDC hdc, struct face_cachel *cachel,
  Given a number of parameters munge the DC so it has those properties.
  ****************************************************************************/
 static void
-mswindows_update_dc (HDC hdc, Lisp_Object font, Lisp_Object fg,
-		     Lisp_Object bg, Lisp_Object bg_pmap)
+mswindows_update_dc (HDC hdc, Lisp_Object fg, Lisp_Object bg,
+		     Lisp_Object bg_pmap)
 {
-  if (!NILP (font))
-    SelectObject(hdc, FONT_INSTANCE_MSWINDOWS_HFONT (XFONT_INSTANCE (font)));
-
-
   if (!NILP (fg))
     {
       SetTextColor (hdc, COLOR_INSTANCE_MSWINDOWS_COLOR 
 		    (XCOLOR_INSTANCE (fg)));
     }
+
   if (!NILP (bg))
     { 
       SetBkMode (hdc, OPAQUE);
@@ -227,53 +251,12 @@ mswindows_update_dc (HDC hdc, Lisp_Object font, Lisp_Object fg,
     }
 }
 
-
-/*****************************************************************************
- mswindows_apply_face_effects
-
- Draw underline and strikeout as if this was X.
- #### On mswindows this really should be done as part of drawing the font.
- The line width used is chosen arbitrarily from the font height.
- ****************************************************************************/
-static void
-mswindows_apply_face_effects (HDC hdc, struct display_line *dl, int xpos,
-			      int width, struct Lisp_Font_Instance *fi,
-			      struct face_cachel *cachel,
-			      struct face_cachel *color_cachel)
+static void mswindows_set_dc_font (HDC hdc, Lisp_Object font,
+				   int under, int strike)
 {
-  int yclip;
-  HBRUSH brush, oldbrush;
-  RECT rect;
-
-  brush = CreateSolidBrush (COLOR_INSTANCE_MSWINDOWS_COLOR (
-			    XCOLOR_INSTANCE (color_cachel->foreground)));
-  if (brush)
-    {
-      yclip = dl->ypos + dl->descent - dl->clip;
-      rect.left = xpos;
-      rect.right = xpos + width;
-      oldbrush = SelectObject (hdc, brush);
-
-      if (cachel->underline)
-	{
-	  rect.top = dl->ypos + dl->descent/2;
-	  rect.bottom = rect.top + (fi->height >= 0x20 ? 2 : 1);
-	  if (rect.bottom <= yclip)
-	    FillRect (hdc, &rect, brush);
-	}
-      if (cachel->strikethru)
-	{
-	  rect.top = dl->ypos + dl->descent - (dl->ascent + dl->descent)/2;
-	  rect.bottom = rect.top + (fi->height >= 0x20 ? 2 : 1);
-	  if (rect.bottom <= yclip)
-	    FillRect (hdc, &rect, brush);
-	}
-
-      SelectObject (hdc, oldbrush);
-      DeleteObject (brush);
-    }
+  SelectObject(hdc, mswindows_get_hfont (XFONT_INSTANCE (font),
+					 under, strike));
 }
-
 
 /*****************************************************************************
  mswindows_output_hline
@@ -297,6 +280,7 @@ mswindows_output_blank (struct window *w, struct display_line *dl,
 			struct rune *rb, int start_pixpos)
 {
   struct frame *f = XFRAME (w->frame);
+  HDC hdc = get_frame_dc (f);
   RECT rect = { rb->xpos, DISPLAY_LINE_YPOS (dl),
 		rb->xpos+rb->width, 
 		DISPLAY_LINE_YEND (dl) };
@@ -321,18 +305,15 @@ mswindows_output_blank (struct window *w, struct display_line *dl,
 					 start_pixpos, rb->width,
 					 &db, &dga);
       /* blank the background in the appropriate color */
-      mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, cachel->foreground,
+      mswindows_update_dc (hdc, cachel->foreground,
 			   cachel->background, Qnil);
       redisplay_output_pixmap (w, bg_pmap, &db, &dga, rb->findex,
 			       0, 0, 0, TRUE);
     }
   else 
     {
-      mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, Qnil,
-			   cachel->background, Qnil);
-      
-      ExtTextOut (FRAME_MSWINDOWS_DC (f), 0, 0, ETO_OPAQUE, 
-		  &rect, NULL, 0, NULL);
+      mswindows_update_dc (hdc, Qnil, cachel->background, Qnil);
+      ExtTextOut (hdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
     }
 }
 
@@ -352,8 +333,8 @@ mswindows_output_cursor (struct window *w, struct display_line *dl, int xpos,
   struct face_cachel *cachel=0;
   Lisp_Object font = Qnil;
   int focus = EQ (w->frame, DEVICE_FRAME_WITH_FOCUS_REAL (d));
-  HDC hdc = FRAME_MSWINDOWS_DC (f);
-  unsigned int face_index=0;
+  HDC hdc = get_frame_dc (f);
+  unsigned int local_face_index=0;
   char *p_char = NULL;
   int n_char = 0;
   RECT rect = { xpos,
@@ -392,16 +373,16 @@ mswindows_output_cursor (struct window *w, struct display_line *dl, int xpos,
       /* Use cursor fg/bg for block cursor, or character fg/bg for the bar
 	 or when we need to erase the cursor. Output nothing at eol if bar
 	 cursor */
-      face_index = get_builtin_face_cache_index (w, Vtext_cursor_face);
+      local_face_index = get_builtin_face_cache_index (w, Vtext_cursor_face);
       color_cachel = WINDOW_FACE_CACHEL (w, ((!cursor_p || bar_p) ?
-					     findex : face_index));
-      mswindows_update_dc (hdc, font, color_cachel->foreground,
+					     findex : local_face_index));
+      mswindows_update_dc (hdc, color_cachel->foreground,
 			   color_cachel->background, Qnil);
+      if (real_char_p)
+        mswindows_set_dc_font (hdc, font,
+			       cachel->underline, cachel->strikethru);
+
       ExtTextOut (hdc, xpos, dl->ypos, ETO_OPAQUE|ETO_CLIPPED, &rect, p_char, n_char, NULL);
-      if (real_char_p && (cachel->underline || cachel->strikethru))
-        mswindows_apply_face_effects (hdc, dl, xpos, width,
-				      XFONT_INSTANCE (font),
-				      cachel, color_cachel);
     }
 
   if (!cursor_p)
@@ -410,9 +391,9 @@ mswindows_output_cursor (struct window *w, struct display_line *dl, int xpos,
   if (focus && bar_p)
     {
       rect.right = rect.left + (EQ (bar, Qt) ? 1 : min (2, width));
-      face_index = get_builtin_face_cache_index (w, Vtext_cursor_face);
-      cachel = WINDOW_FACE_CACHEL (w, face_index);
-      mswindows_update_dc (hdc, Qnil, Qnil, cachel->background, Qnil);
+      local_face_index = get_builtin_face_cache_index (w, Vtext_cursor_face);
+      cachel = WINDOW_FACE_CACHEL (w, local_face_index);
+      mswindows_update_dc (hdc, Qnil, cachel->background, Qnil);
       ExtTextOut (hdc, xpos, dl->ypos, ETO_OPAQUE, &rect, NULL, 0, NULL);
     }
   else if (!focus)
@@ -428,16 +409,12 @@ mswindows_output_cursor (struct window *w, struct display_line *dl, int xpos,
 	  n_char = 1;
 	}
 
-      face_index = get_builtin_face_cache_index (w, Vdefault_face);
-      cachel = WINDOW_FACE_CACHEL (w, (real_char_p ? findex : face_index));
-      mswindows_update_dc (hdc, Qnil, cachel->foreground,
-			   cachel->background, Qnil);
+      local_face_index = get_builtin_face_cache_index (w, Vdefault_face);
+      cachel = WINDOW_FACE_CACHEL (w, (real_char_p ? findex : local_face_index));
+      mswindows_update_dc (hdc, 
+			   cachel->foreground, cachel->background, Qnil);
       ExtTextOut (hdc, xpos, dl->ypos, ETO_OPAQUE | ETO_CLIPPED,
 		  &rect, p_char, n_char, NULL);
-      if (cachel->underline || cachel->strikethru)
-        mswindows_apply_face_effects (hdc, dl, xpos+1, width-2,
-				      XFONT_INSTANCE (font),
-				      cachel, cachel);
     }
 }
 
@@ -466,7 +443,7 @@ mswindows_output_cursor (struct window *w, struct display_line *dl, int xpos,
  FINDEX		Index for the face cache element describing how to display
  		the text.
  ****************************************************************************/
-void
+static void
 mswindows_output_string (struct window *w, struct display_line *dl,
 			 Emchar_dynarr *buf, int xpos, int xoffset, int clip_start,
 			 int width, face_index findex,
@@ -476,7 +453,7 @@ mswindows_output_string (struct window *w, struct display_line *dl,
   struct frame *f = XFRAME (w->frame);
   /* struct device *d = XDEVICE (f->device);*/
   Lisp_Object window;
-  HDC hdc = FRAME_MSWINDOWS_DC (f);
+  HDC hdc = get_frame_dc (f);
   int clip_end;
   Lisp_Object bg_pmap;
   int len = Dynarr_length (buf);
@@ -531,8 +508,8 @@ mswindows_output_string (struct window *w, struct display_line *dl,
       redisplay_calculate_display_boxes (dl, xpos + xoffset, 0,
 					 clip_start, width, &db, &dga);
       /* blank the background in the appropriate color */
-      mswindows_update_dc (hdc, Qnil, cachel->foreground,
-			   cachel->background, Qnil);
+      mswindows_update_dc (hdc,
+			   cachel->foreground, cachel->background, Qnil);
       redisplay_output_pixmap (w, bg_pmap, &db, &dga, findex,
 			       0, 0, 0, TRUE);
       /* output pixmap calls this so we have to recall to get correct
@@ -546,14 +523,15 @@ mswindows_output_string (struct window *w, struct display_line *dl,
   for (i = 0; i < nruns; i++)
     {
       Lisp_Object font = FACE_CACHEL_FONT (cachel, runs[i].charset);
-      struct Lisp_Font_Instance *fi = XFONT_INSTANCE (font);
+      Lisp_Font_Instance *fi = XFONT_INSTANCE (font);
       int this_width;
 
       if (EQ (font, Vthe_null_font_instance))
 	continue;
 
-      mswindows_update_dc (hdc, font, cachel->foreground,
+      mswindows_update_dc (hdc, cachel->foreground,
 			   NILP(bg_pmap) ? cachel->background : Qnil, Qnil);
+      mswindows_set_dc_font (hdc, font, cachel->underline, cachel->strikethru);
 
       this_width = mswindows_text_width_single_run (hdc, cachel, runs + i);
       
@@ -579,21 +557,17 @@ mswindows_output_string (struct window *w, struct display_line *dl,
 		  NILP(bg_pmap) ? ETO_CLIPPED | ETO_OPAQUE : ETO_CLIPPED,
 		  &rect, (char *) runs[i].ptr, runs[i].len, NULL); 
 
-      /* #### X does underline/strikethrough here so we do the same.
-	 On mswindows, underline/strikethrough really belongs to the font */
-      if (cachel->underline || cachel->strikethru)
-        mswindows_apply_face_effects (hdc, dl, xpos, this_width, fi,
-				      cachel, cachel);
       xpos += this_width;
     }
 }
 
 static void
-mswindows_output_dibitmap (struct frame *f, struct Lisp_Image_Instance *p,
+mswindows_output_dibitmap (struct frame *f, Lisp_Image_Instance *p,
 			   struct display_box* db,
 			   struct display_glyph_area* dga)
 {
-  HDC hdc = FRAME_MSWINDOWS_DC (f);
+  HDC hdc = get_frame_dc (f);
+  HDC hcompdc = get_frame_compdc (f);
   HGDIOBJ old=NULL;
   COLORREF bgcolor = GetBkColor (hdc);
 
@@ -606,34 +580,33 @@ mswindows_output_dibitmap (struct frame *f, struct Lisp_Image_Instance *p,
       col.rgbGreen = GetGValue (bgcolor);
       col.rgbReserved = 0;
 
-      old = SelectObject (FRAME_MSWINDOWS_CDC (f),
-			  IMAGE_INSTANCE_MSWINDOWS_MASK (p));
+      old = SelectObject (hcompdc, IMAGE_INSTANCE_MSWINDOWS_MASK (p));
       
-      SetDIBColorTable (FRAME_MSWINDOWS_CDC (f), 1, 1, &col);
+      SetDIBColorTable (hcompdc, 1, 1, &col);
 
       BitBlt (hdc, 
 	      db->xpos, db->ypos,
 	      dga->width, dga->height, 
-	      FRAME_MSWINDOWS_CDC (f),
+	      hcompdc,
 	      dga->xoffset, dga->yoffset, 
 	      SRCCOPY);                  
 
-      SelectObject (FRAME_MSWINDOWS_CDC (f), old);
+      SelectObject (hcompdc, old);
     }
   
   /* Now blt the bitmap itself, or one of its slices. */
-  old = SelectObject (FRAME_MSWINDOWS_CDC (f),
+  old = SelectObject (hcompdc,
 		      IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICE 
 		      (p, IMAGE_INSTANCE_PIXMAP_SLICE (p)));
 
   BitBlt (hdc, 
 	  db->xpos, db->ypos,
 	  dga->width, dga->height,
-	  FRAME_MSWINDOWS_CDC (f),
+	  hcompdc,
 	  dga->xoffset, dga->yoffset, 
 	  IMAGE_INSTANCE_MSWINDOWS_MASK (p) ? SRCINVERT : SRCCOPY);
 
-  SelectObject (FRAME_MSWINDOWS_CDC (f),old);
+  SelectObject (hcompdc, old);
 }
 
 /* X gc's have this nice property that setting the bg pixmap will
@@ -643,7 +616,7 @@ mswindows_output_dibitmap (struct frame *f, struct Lisp_Image_Instance *p,
  * outputted once and are scrollable */
 static void
 mswindows_output_dibitmap_region (struct frame *f, 
-				  struct Lisp_Image_Instance *p,
+				  Lisp_Image_Instance *p,
 				  struct display_box *db,
 				  struct display_glyph_area *dga)
 {
@@ -702,16 +675,16 @@ mswindows_output_pixmap (struct window *w, Lisp_Object image_instance,
 			 int cursor_height, int bg_pixmap)
 {
   struct frame *f = XFRAME (w->frame);
-  HDC hdc = FRAME_MSWINDOWS_DC (f);
+  HDC hdc = get_frame_dc (f);
 
-  struct Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
   Lisp_Object window;
 
   XSETWINDOW (window, w);
 
   /* Output the pixmap. Have to do this as many times as is required
    to fill the given area */
-  mswindows_update_dc (hdc, Qnil,
+  mswindows_update_dc (hdc,
 		       WINDOW_FACE_CACHEL_FOREGROUND (w, findex),
 		       WINDOW_FACE_CACHEL_BACKGROUND (w, findex), Qnil);
 
@@ -753,7 +726,7 @@ mswindows_redisplay_deadbox_maybe (struct window *w, CONST RECT* prc)
   if (IntersectRect (&rect_paint, &rect_dead, prc))
     {
       struct frame *f = XFRAME (WINDOW_FRAME (w));
-      FillRect (FRAME_MSWINDOWS_DC (f), &rect_paint,
+      FillRect (get_frame_dc (f), &rect_paint,
 		(HBRUSH) (COLOR_BTNFACE+1));
     }
 }
@@ -932,9 +905,10 @@ mswindows_bevel_area (struct window *w, face_index findex, int x, int y,
   {
     RECT rect = { x, y, x + width, y + height };
     Lisp_Object color = WINDOW_FACE_CACHEL_BACKGROUND (w, findex);
-    mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, Qnil, color, Qnil);
+    HDC hdc = get_frame_dc (f);
 
-    DrawEdge (FRAME_MSWINDOWS_DC (f), &rect, edge, border);
+    mswindows_update_dc (hdc, Qnil, color, Qnil);
+    DrawEdge (hdc, &rect, edge, border);
   }
 }
 
@@ -990,13 +964,14 @@ static int
 mswindows_flash (struct device *d)
 {
   struct frame *f = device_selected_frame (d);
+  HDC hdc = get_frame_dc (f);
   RECT rc;
 
   GetClientRect (FRAME_MSWINDOWS_HANDLE (f), &rc);
-  InvertRect (FRAME_MSWINDOWS_DC (f), &rc);
+  InvertRect (hdc, &rc);
   GdiFlush ();
   Sleep (25);
-  InvertRect (FRAME_MSWINDOWS_DC (f), &rc);
+  InvertRect (hdc, &rc);
 
   return 1;
 }
@@ -1139,11 +1114,11 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 	  else if (rb->type == RUNE_DGLYPH)
 	    {
 	      Lisp_Object instance;
-	      struct display_box db;
+	      struct display_box dbox;
 	      struct display_glyph_area dga;
 	      redisplay_calculate_display_boxes (dl, rb->xpos, rb->object.dglyph.xoffset,
 						 start_pixpos, rb->width,
-						 &db, &dga);
+						 &dbox, &dga);
 
 	      XSETWINDOW (window, w);
 	      instance = glyph_image_instance (rb->object.dglyph.glyph,
@@ -1176,7 +1151,7 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 
 		  case IMAGE_MONO_PIXMAP:
 		  case IMAGE_COLOR_PIXMAP:
-		    redisplay_output_pixmap (w, instance, &db, &dga, findex,
+		    redisplay_output_pixmap (w, instance, &dbox, &dga, findex,
 					     cursor_start, cursor_width,
 					     cursor_height, 0);
 		    if (rb->cursor_type == CURSOR_ON)
@@ -1189,7 +1164,7 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 
 		  case IMAGE_SUBWINDOW:
 		  case IMAGE_WIDGET:
-		    redisplay_output_subwindow (w, instance, &db, &dga, findex,
+		    redisplay_output_subwindow (w, instance, &dbox, &dga, findex,
 						cursor_start, cursor_width,
 						cursor_height);
 		    if (rb->cursor_type == CURSOR_ON)
@@ -1198,7 +1173,7 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 		    break;
 
 		  case IMAGE_LAYOUT:
-		    redisplay_output_layout (w, instance, &db, &dga, findex,
+		    redisplay_output_layout (w, instance, &dbox, &dga, findex,
 					     cursor_start, cursor_width,
 					     cursor_height);
 		    if (rb->cursor_type == CURSOR_ON)
@@ -1246,6 +1221,7 @@ static void
 mswindows_output_vertical_divider (struct window *w, int clear_unused)
 {
   struct frame *f = XFRAME (w->frame);
+  HDC hdc = get_frame_dc (f);
   RECT rect;
   int spacing = XINT (w->vertical_divider_spacing);
   int shadow = XINT (w->vertical_divider_shadow_thickness);
@@ -1260,15 +1236,15 @@ mswindows_output_vertical_divider (struct window *w, int clear_unused)
     {
       rect.top = y1;
       rect.bottom = y2;
-      mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, Qnil,
+      mswindows_update_dc (hdc, Qnil,
 		   WINDOW_FACE_CACHEL_BACKGROUND (w, DEFAULT_INDEX), Qnil);
       rect.right = WINDOW_RIGHT (w);
       rect.left = rect.right - spacing;
-      ExtTextOut (FRAME_MSWINDOWS_DC (f), 0, 0, ETO_OPAQUE, 
+      ExtTextOut (hdc, 0, 0, ETO_OPAQUE, 
 		  &rect, NULL, 0, NULL);
       rect.left = div_left;
       rect.right = div_left + spacing;
-      ExtTextOut (FRAME_MSWINDOWS_DC (f), 0, 0, ETO_OPAQUE, 
+      ExtTextOut (hdc, 0, 0, ETO_OPAQUE, 
 		  &rect, NULL, 0, NULL);
     }
   
@@ -1281,10 +1257,9 @@ mswindows_output_vertical_divider (struct window *w, int clear_unused)
     {
       face_index div_face
 	= get_builtin_face_cache_index (w, Vvertical_divider_face);
-      mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, Qnil,
+      mswindows_update_dc (hdc, Qnil,
 		   WINDOW_FACE_CACHEL_BACKGROUND (w, div_face), Qnil);
-      ExtTextOut (FRAME_MSWINDOWS_DC (f), 0, 0, ETO_OPAQUE, 
-		  &rect, NULL, 0, NULL);
+      ExtTextOut (hdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
     }
 
   /* Draw a shadow around the divider */
@@ -1292,7 +1267,7 @@ mswindows_output_vertical_divider (struct window *w, int clear_unused)
     {
       /* #### This will be fixed to support arbitrary thickness */
       InflateRect (&rect, abs_shadow, abs_shadow);
-      DrawEdge (FRAME_MSWINDOWS_DC (f), &rect,
+      DrawEdge (hdc, &rect,
 		shadow > 0 ? EDGE_RAISED : EDGE_SUNKEN, BF_RECT);
     }
 }
@@ -1307,6 +1282,7 @@ static int
 mswindows_text_width (struct frame *f, struct face_cachel *cachel,
 		      CONST Emchar *str, Charcount len)
 {
+  HDC hdc = get_frame_dc (f);
   int width_so_far = 0;
   unsigned char *text_storage = (unsigned char *) alloca (2 * len);
   textual_run *runs = alloca_array (textual_run, len);
@@ -1316,7 +1292,7 @@ mswindows_text_width (struct frame *f, struct face_cachel *cachel,
   nruns = separate_textual_runs (text_storage, runs, str, len);
 
   for (i = 0; i < nruns; i++)
-    width_so_far += mswindows_text_width_single_run (FRAME_MSWINDOWS_DC (f),
+    width_so_far += mswindows_text_width_single_run (hdc,
 						     cachel, runs + i);
 
   return width_so_far;
@@ -1336,19 +1312,20 @@ mswindows_clear_region (Lisp_Object locale, struct device* d, struct frame* f,
 			Lisp_Object background_pixmap)
 {
   RECT rect = { x, y, x+width, y+height };
+  HDC hdc = get_frame_dc (f);
 
   if (!NILP (background_pixmap))
     {
       struct display_box db = { x, y, width, height };
-      mswindows_update_dc (FRAME_MSWINDOWS_DC (f),
-			   Qnil, fcolor, bcolor, background_pixmap);
+      mswindows_update_dc (hdc,
+			   fcolor, bcolor, background_pixmap);
       mswindows_output_dibitmap_region 
 	( f, XIMAGE_INSTANCE (background_pixmap), &db, 0);
     }
   else
     {
-      mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, Qnil, fcolor, Qnil);
-      ExtTextOut (FRAME_MSWINDOWS_DC (f), 0, 0, ETO_OPAQUE, 
+      mswindows_update_dc (hdc, Qnil, fcolor, Qnil);
+      ExtTextOut (hdc, 0, 0, ETO_OPAQUE, 
 		  &rect, NULL, 0, NULL);
     }
 
@@ -1374,7 +1351,7 @@ mswindows_clear_frame (struct frame *f)
 void
 console_type_create_redisplay_mswindows (void)
 {
-  /* redisplay methods */
+  /* redisplay methods - display*/
   CONSOLE_HAS_METHOD (mswindows, text_width);
   CONSOLE_HAS_METHOD (mswindows, output_display_block);
   CONSOLE_HAS_METHOD (mswindows, divider_height);
@@ -1389,4 +1366,18 @@ console_type_create_redisplay_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, bevel_area);
   CONSOLE_HAS_METHOD (mswindows, output_string);
   CONSOLE_HAS_METHOD (mswindows, output_pixmap);
+
+  /* redisplay methods - printer */
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, text_width);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_display_block);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, divider_height);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, eol_cursor_width);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_vertical_divider);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, clear_region);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, clear_frame);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_begin);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_end);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, bevel_area);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_string);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_pixmap);
 }

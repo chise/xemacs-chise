@@ -668,7 +668,7 @@ GaugeConvert (Widget	w,
 	  *rval++ = XA_INTEGER ;
 	  *rval++ = XA_STRING ;
 	  *rval++ = XA_TEXT(XtDisplay(w)) ;
-	  bcopy((char *)stdTargets, (char *)rval, stdLength*sizeof(Atom)) ;
+	  memcpy((char *)rval, (char *)stdTargets, stdLength*sizeof(Atom)) ;
 	  XtFree((char*) stdTargets) ;
 	  *format = 8*sizeof(Atom) ;	/* TODO: needed? */
 	  return True ;

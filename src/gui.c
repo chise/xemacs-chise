@@ -105,10 +105,10 @@ get_gui_callback (Lisp_Object data, Lisp_Object *fn, Lisp_Object *arg)
  */
 void
 gui_item_add_keyval_pair (Lisp_Object gui_item,
-			  Lisp_Object key, Lisp_Object val, 
+			  Lisp_Object key, Lisp_Object val,
 			  Error_behavior errb)
 {
-  struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
 
   if (!KEYWORDP (key))
     signal_simple_error_2 ("Non-keyword in gui item", key, pgui_item->name);
@@ -122,7 +122,7 @@ gui_item_add_keyval_pair (Lisp_Object gui_item,
   else if (EQ (key, Q_selected)) pgui_item->selected = val;
   else if (EQ (key, Q_keys))	 pgui_item->keys     = val;
   else if (EQ (key, Q_callback))	 pgui_item->callback     = val;
-  else if (EQ (key, Q_key_sequence)) ;   /* ignored for FSF compatability */
+  else if (EQ (key, Q_key_sequence)) ;   /* ignored for FSF compatibility */
   else if (EQ (key, Q_label)) ;   /* ignored for 21.0 implement in 21.2  */
   else if (EQ (key, Q_accelerator))
     {
@@ -138,7 +138,7 @@ gui_item_add_keyval_pair (Lisp_Object gui_item,
 void
 gui_item_init (Lisp_Object gui_item)
 {
-  struct Lisp_Gui_Item *lp = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item *lp = XGUI_ITEM (gui_item);
 
   lp->name     = Qnil;
   lp->callback = Qnil;
@@ -156,8 +156,7 @@ gui_item_init (Lisp_Object gui_item)
 Lisp_Object
 allocate_gui_item (void)
 {
-  struct Lisp_Gui_Item *lp =
-    alloc_lcrecord_type (struct Lisp_Gui_Item, &lrecord_gui_item);
+  Lisp_Gui_Item *lp = alloc_lcrecord_type (Lisp_Gui_Item, &lrecord_gui_item);
   Lisp_Object val;
 
   zero_lcrecord (lp);
@@ -180,7 +179,7 @@ make_gui_item_from_keywords_internal (Lisp_Object item,
   int length, plist_p, start;
   Lisp_Object *contents;
   Lisp_Object gui_item = allocate_gui_item ();
-  struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
 
   CHECK_VECTOR (item);
   length = XVECTOR_LENGTH (item);
@@ -207,7 +206,7 @@ make_gui_item_from_keywords_internal (Lisp_Object item,
       pgui_item->callback = contents [1];
       start = 2;
     }
-  else 
+  else
     start =1;
 
   if (!plist_p && length > 2)
@@ -252,8 +251,8 @@ gui_parse_item_keywords_no_errors (Lisp_Object item)
 void
 gui_add_item_keywords_to_plist (Lisp_Object plist, Lisp_Object gui_item)
 {
-  struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
-  
+  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+
   if (!NILP (pgui_item->callback))
     Fplist_put (plist, Q_callback, pgui_item->callback);
   if (!NILP (pgui_item->suffix))
@@ -294,8 +293,8 @@ gui_item_active_p (Lisp_Object gui_item)
 Lisp_Object
 gui_item_accelerator (Lisp_Object gui_item)
 {
-  struct Lisp_Gui_Item* pgui = XGUI_ITEM (gui_item);
-  
+  Lisp_Gui_Item* pgui = XGUI_ITEM (gui_item);
+
   if (!NILP (pgui->accelerator))
     return pgui->accelerator;
 
@@ -348,7 +347,7 @@ int
 gui_item_included_p (Lisp_Object gui_item, Lisp_Object conflist)
 {
   /* This function can call lisp */
-  struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
 
   /* Evaluate :included first. Shortcut to avoid evaluating Qt each time */
   if (!EQ (pgui_item->included, Qt)
@@ -386,7 +385,7 @@ gui_item_display_flush_left  (Lisp_Object gui_item,
   /* This function can call lisp */
   char *p = buf;
   Bytecount len;
-  struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
 
   /* Copy item name first */
   CHECK_STRING (pgui_item->name);
@@ -432,7 +431,7 @@ unsigned int
 gui_item_display_flush_right (Lisp_Object gui_item,
 			      char* buf, Bytecount buf_len)
 {
-  struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
   *buf = 0;
 
 #ifdef HAVE_MENUBARS
@@ -473,7 +472,7 @@ gui_item_display_flush_right (Lisp_Object gui_item,
 static Lisp_Object
 mark_gui_item (Lisp_Object obj)
 {
-  struct Lisp_Gui_Item *p = XGUI_ITEM (obj);
+  Lisp_Gui_Item *p = XGUI_ITEM (obj);
 
   mark_object (p->name);
   mark_object (p->callback);
@@ -494,7 +493,7 @@ mark_gui_item (Lisp_Object obj)
 static unsigned long
 gui_item_hash (Lisp_Object obj, int depth)
 {
-  struct Lisp_Gui_Item *p = XGUI_ITEM (obj);
+  Lisp_Gui_Item *p = XGUI_ITEM (obj);
 
   return HASH2 (HASH5 (internal_hash (p->name, depth + 1),
 		       internal_hash (p->callback, depth + 1),
@@ -524,8 +523,8 @@ gui_item_id_hash (Lisp_Object hashtable, Lisp_Object gitem, int slot)
 static int
 gui_item_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Gui_Item *p1 = XGUI_ITEM (obj1);
-  struct Lisp_Gui_Item *p2 = XGUI_ITEM (obj2);
+  Lisp_Gui_Item *p1 = XGUI_ITEM (obj1);
+  Lisp_Gui_Item *p2 = XGUI_ITEM (obj2);
 
   if (!(internal_equal (p1->name, p2->name, depth + 1)
 	&&
@@ -555,7 +554,7 @@ gui_item_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 static void
 print_gui_item (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  struct Lisp_Gui_Item *g = XGUI_ITEM (obj);
+  Lisp_Gui_Item *g = XGUI_ITEM (obj);
   char buf[20];
 
   if (print_readably)
@@ -600,7 +599,7 @@ Lisp_Object parse_gui_item_tree_children (Lisp_Object list)
 	sub = parse_gui_item_tree_list (XCAR (rest));
       else
 	sub = parse_gui_item_tree_item (XCAR (rest));
-      
+
       ret = Fcons (sub, ret);
     }
   /* make the order the same as the items we have parsed */
@@ -621,7 +620,7 @@ DEFINE_LRECORD_IMPLEMENTATION ("gui-item", gui_item,
 			       0, gui_item_equal,
 			       gui_item_hash,
 			       0,
-			       struct Lisp_Gui_Item);
+			       Lisp_Gui_Item);
 
 void
 syms_of_gui (void)

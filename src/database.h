@@ -21,9 +21,10 @@ Boston, MA 02111-1307, USA.  */
 /* This file is only necessary to get INLINE handling correct.
    See inline.c  */
 
-#ifndef _XEMACS_DATABASE_H
-#define _XEMACS_DATABASE_H
+#ifndef INCLUDED_database_h_
+#define INCLUDED_database_h_
 
-DECLARE_LRECORD (database, struct Lisp_Database);
+typedef struct Lisp_Database Lisp_Database;
+DECLARE_LRECORD (database, Lisp_Database);
 
-#endif
+#endif /* INCLUDED_database_h_ */

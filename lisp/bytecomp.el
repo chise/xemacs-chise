@@ -1522,11 +1522,7 @@ With prefix arg (noninteractively: 2nd arg), load the file after compiling."
 	(unless byte-compile-overwrite-file
 	  (ignore-file-errors (delete-file target-file)))
 	(if (file-writable-p target-file)
-	    (progn
-	      (when (memq system-type '(ms-dos windows-nt))
-		(defvar buffer-file-type)
-		(setq buffer-file-type t))
-	      (write-region 1 (point-max) target-file))
+	    (write-region 1 (point-max) target-file)
 	  ;; This is just to give a better error message than write-region
 	  (signal 'file-error
 		  (list "Opening output file"
@@ -1749,16 +1745,17 @@ With argument, insert value in current buffer after the form."
   ;; extended characters are output properly and distinguished properly.
   ;; Otherwise, use `raw-text' for maximum portability with non-Mule
   ;; Emacsen.
-  (when (featurep 'mule)
+  (when (featurep '(or mule file-coding))
     (defvar buffer-file-coding-system)
-    (if (save-excursion
-	  (set-buffer byte-compile-inbuffer)
-	  (goto-char (point-min))
-	  ;; mrb- There must be a better way than skip-chars-forward
-	  (skip-chars-forward (concat (char-to-string 0) "-"
-				      (char-to-string 255)))
-	  (eq (point) (point-max)))
-	(setq buffer-file-coding-system 'raw-text)
+    (if (or (featurep '(not mule)) ;; Don't scan buffer if we are not muleized
+	    (save-excursion
+	      (set-buffer byte-compile-inbuffer)
+	      (goto-char (point-min))
+	      ;; mrb- There must be a better way than skip-chars-forward
+	      (skip-chars-forward (concat (char-to-string 0) "-"
+					  (char-to-string 255)))
+	      (eq (point) (point-max))))
+	(setq buffer-file-coding-system 'raw-text-unix)
       (insert "(require 'mule)\n;;;###coding system: escape-quoted\n")
       (setq buffer-file-coding-system 'escape-quoted)
       ;; #### Lazy loading not yet implemented for MULE files
@@ -1967,7 +1964,7 @@ list that represents a doc string reference.
 	       (while (if (setq form (cdr form))
 			  (byte-compile-constp (car form))))
 	       (null form)))
-	;; eval the macro autoload into the compilation enviroment
+	;; eval the macro autoload into the compilation environment
 	(eval form))
 
     (if name

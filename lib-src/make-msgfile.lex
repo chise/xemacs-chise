@@ -223,7 +223,7 @@ Boston, MA 02111-1307, USA.  */
      "string" ... ;###translate
 
    where the magic token ";###translate" on a line means that the string 
-   constant on this line should go into the message catalog.  This is analagous
+   constant on this line should go into the message catalog.  This is analogous
    to the magic ";###autoload" comments, and to the magic comments used in the
    EPSF structuring conventions.
 

@@ -2070,9 +2070,9 @@ regex_compile (CONST char *pattern, int size, reg_syntax_t syntax,
                 /* If we get here, we found another repeat character.  */
                 if (!(syntax & RE_NO_MINIMAL_MATCHING))
                   {
-                    /* `*?' and `+?' and `??' are okay (and mean match
-                       minimally), but other sequences (such as `*??' and
-                       `+++') are rejected (reserved for future use). */
+                    /* "*?" and "+?" and "??" are okay (and mean match
+                       minimally), but other sequences (such as "*??" and
+                       "+++") are rejected (reserved for future use). */
                     if (minimal || c != '?')
                       FREE_STACK_RETURN (REG_BADRPT);
                     minimal = true;

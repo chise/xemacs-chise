@@ -111,10 +111,16 @@ int nCmdShow = 0;
    version, we need to bootstrap our heap and .bss section into our
    address space before we can actually hand off control to the startup
    code supplied by NT (primarily because that code relies upon malloc ()).  */
+
+/* **********************
+   Hackers please remember, this _start() thingy is *not* called neither
+   when dumping portably, nor when running from temacs! Do not put
+   significant XEmacs initialization here!
+   ********************** */
+
 void
 _start (void)
 {
-  char * p;
   extern void mainCRTStartup (void);
 
   /* Cache system info, e.g., the NT page size.  */
@@ -134,18 +140,29 @@ _start (void)
 	  exit (1);
 	}
 
-      /* To allow profiling, make sure executable_path names the .exe
-	 file, not the file created by the profiler */
-      p = strrchr (executable_path, '\\');
-      strcpy (p+1, PATH_PROGNAME ".exe");
+      /* #### This is super-bogus. When I rename xemacs.exe,
+	 the renamed file still loads its heap from xemacs.exe --kkm */
+#if 0
+      {
+	/* To allow profiling, make sure executable_path names the .exe
+	   file, not the file created by the profiler */
+	char *p = strrchr (executable_path, '\\');
+	strcpy (p+1, PATH_PROGNAME ".exe");
+      }
+#endif
 
       recreate_heap (executable_path);
       heap_state = HEAP_LOADED;
     }
 
+  /* #### This is bogus, too. _fmode is set to different values
+     when we run `xemacs' and `temacs run-emacs'. The sooner we
+     hit and fix all the weirdities this causes us, the better --kkm */
+#if 0
   /* The default behavior is to treat files as binary and patch up
      text files appropriately, in accordance with the MSDOS code.  */
   _fmode = O_BINARY;
+#endif
 
 #if 0
   /* This prevents ctrl-c's in shells running while we're suspended from

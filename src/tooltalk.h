@@ -22,20 +22,20 @@ Boston, MA 02111-1307, USA.
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_TOOLTALK_H_
-#define _XEMACS_TOOLTALK_H_
+#ifndef INCLUDED_tooltalk_h_
+#define INCLUDED_tooltalk_h_
 #include TT_C_H_PATH
 
-struct Lisp_Tooltalk_Message;
-DECLARE_LRECORD (tooltalk_message, struct Lisp_Tooltalk_Message);
-#define XTOOLTALK_MESSAGE(x) XRECORD (x, tooltalk_message, struct Lisp_Tooltalk_Message)
+typedef struct Lisp_Tooltalk_Message Lisp_Tooltalk_Message;
+DECLARE_LRECORD (tooltalk_message, Lisp_Tooltalk_Message);
+#define XTOOLTALK_MESSAGE(x) XRECORD (x, tooltalk_message, Lisp_Tooltalk_Message)
 #define XSETTOOLTALK_MESSAGE(x, p) XSETRECORD (x, p, tooltalk_message)
 #define TOOLTALK_MESSAGEP(x) RECORDP (x, tooltalk_message)
 #define CHECK_TOOLTALK_MESSAGE(x) CHECK_RECORD (x, tooltalk_message)
 
-struct Lisp_Tooltalk_Pattern;
-DECLARE_LRECORD (tooltalk_pattern, struct Lisp_Tooltalk_Pattern);
-#define XTOOLTALK_PATTERN(x) XRECORD (x, tooltalk_pattern, struct Lisp_Tooltalk_Pattern)
+typedef struct Lisp_Tooltalk_Pattern Lisp_Tooltalk_Pattern;
+DECLARE_LRECORD (tooltalk_pattern, Lisp_Tooltalk_Pattern);
+#define XTOOLTALK_PATTERN(x) XRECORD (x, tooltalk_pattern, Lisp_Tooltalk_Pattern)
 #define XSETTOOLTALK_PATTERN(x, p) XSETRECORD (x, p, tooltalk_pattern)
 #define TOOLTALK_PATTERNP(x) RECORDP (x, tooltalk_pattern)
 #define CHECK_TOOLTALK_PATTERN(x) CHECK_RECORD (x, tooltalk_pattern)
@@ -59,4 +59,4 @@ Tt_message unbox_tooltalk_message (Lisp_Object msg);
 
 extern Lisp_Object Qtooltalk_error;
 
-#endif /* _XEMACS_TOOLTALK_H_ */
+#endif /* INCLUDED_tooltalk_h_ */

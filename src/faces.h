@@ -21,14 +21,14 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_FACES_H_
-#define _XEMACS_FACES_H_
+#ifndef INCLUDED_faces_h_
+#define INCLUDED_faces_h_
 
 #include "buffer.h" /* for NUM_LEADING_BYTES */
 
-/* a struct Lisp_Face is the C object corresponding to a face.  There
-   is one of these per face.  It basically contains all of the specifiers
-   for the built-in face properties, plus the plist of user-specified
+/* a Lisp_Face is the C object corresponding to a face.  There is one
+   of these per face.  It basically contains all of the specifiers for
+   the built-in face properties, plus the plist of user-specified
    properties. */
 
 struct Lisp_Face
@@ -222,8 +222,8 @@ struct face_cachel
   unsigned char font_updated[NUM_LEADING_BYTES];
 };
 
-DECLARE_LRECORD (face, struct Lisp_Face);
-#define XFACE(x) XRECORD (x, face, struct Lisp_Face)
+DECLARE_LRECORD (face, Lisp_Face);
+#define XFACE(x) XRECORD (x, face, Lisp_Face)
 #define XSETFACE(x, p) XSETRECORD (x, p, face)
 #define FACEP(x) RECORDP (x, face)
 #define CHECK_FACE(x) CHECK_RECORD (x, face)
@@ -358,6 +358,8 @@ Lisp_Object face_property_matching_instance (Lisp_Object face,
   FACE_PROPERTY_INSTANCE (face, Qbackground_pixmap, domain, 0, Qzero)
 #define FACE_UNDERLINE_P(face, domain)					\
   (!NILP (FACE_PROPERTY_INSTANCE (face, Qunderline, domain, 0, Qzero)))
+#define FACE_STRIKETHRU_P(face, domain)					\
+  (!NILP (FACE_PROPERTY_INSTANCE (face, Qstrikethru, domain, 0, Qzero)))
 #define FACE_HIGHLIGHT_P(face, domain)					\
   (!NILP (FACE_PROPERTY_INSTANCE (face, Qhighlight, domain, 0, Qzero)))
 #define FACE_DIM_P(face, domain)					\
@@ -367,4 +369,4 @@ Lisp_Object face_property_matching_instance (Lisp_Object face,
 #define FACE_REVERSE_P(face, domain)					\
   (!NILP (FACE_PROPERTY_INSTANCE (face, Qreverse, domain, 0, Qzero)))
 
-#endif /* _XEMACS_FACES_H_ */
+#endif /* INCLUDED_faces_h_ */

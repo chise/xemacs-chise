@@ -75,9 +75,6 @@ Lisp_Object Vdatabase_coding_system;
 
 Lisp_Object Qdatabasep;
 
-struct Lisp_Database;
-typedef struct Lisp_Database Lisp_Database;
-
 typedef struct
 {
   Lisp_Object (*get_subtype) (Lisp_Database *);
@@ -489,7 +486,7 @@ berkdb_map (Lisp_Database *db, Lisp_Object func)
        status == 0;
        status = dbp->seq (dbp, &keydatum, &valdatum, R_NEXT))
     {
-      /* ### Needs mule-izing */
+      /* #### Needs mule-izing */
       key = make_string ((Bufbyte *) keydatum.data, keydatum.size);
       val = make_string ((Bufbyte *) valdatum.data, valdatum.size);
       call2 (func, key, val);
@@ -502,12 +499,12 @@ berkdb_map (Lisp_Database *db, Lisp_Object func)
     status = dbp->cursor (dbp, NULL, &dbcp, 0);
 #else
     status = dbp->cursor (dbp, NULL, &dbcp);
-#endif   
+#endif
     for (status = dbcp->c_get (dbcp, &keydatum, &valdatum, DB_FIRST);
 	 status == 0;
 	 status = dbcp->c_get (dbcp, &keydatum, &valdatum, DB_NEXT))
       {
-	/* ### Needs mule-izing */
+	/* #### Needs mule-izing */
 	key = make_string ((Bufbyte *) keydatum.data, keydatum.size);
 	val = make_string ((Bufbyte *) valdatum.data, valdatum.size);
 	call2 (func, key, val);
@@ -581,7 +578,9 @@ and defaults to 0755.
   file = Fexpand_file_name (file, Qnil);
   UNGCPRO;
 
-  GET_C_CHARPTR_EXT_FILENAME_DATA_ALLOCA (XSTRING_DATA (file), filename);
+  TO_EXTERNAL_FORMAT (LISP_STRING, file,
+		      C_STRING_ALLOCA, filename,
+		      Qfile_name);
 
   if (NILP (access_))
     {

@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_EXTENTS_H_
-#define _XEMACS_EXTENTS_H_
+#ifndef INCLUDED_extents_h_
+#define INCLUDED_extents_h_
 
 DECLARE_LRECORD (extent, struct extent);
 #define XEXTENT(x) XRECORD (x, extent, struct extent)
@@ -397,4 +397,4 @@ int compute_buffer_extent_usage (struct buffer *b,
 
 #endif /* emacs */
 
-#endif /* _XEMACS_EXTENTS_H_ */
+#endif /* INCLUDED_extents_h_ */

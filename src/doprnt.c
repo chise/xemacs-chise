@@ -538,7 +538,7 @@ emacs_doprnt_1 (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
 	  else
 	    {
 	      Lisp_Object obj = largs[spec->argnum - 1];
-	      struct Lisp_String *ls;
+	      Lisp_String *ls;
 
 	      if (ch == 'S')
 		{

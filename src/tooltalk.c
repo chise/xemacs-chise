@@ -161,7 +161,7 @@ static void
 print_tooltalk_message (Lisp_Object obj, Lisp_Object printcharfun,
 			int escapeflag)
 {
-  struct Lisp_Tooltalk_Message *p = XTOOLTALK_MESSAGE (obj);
+  Lisp_Tooltalk_Message *p = XTOOLTALK_MESSAGE (obj);
 
   char buf[200];
 
@@ -176,15 +176,14 @@ print_tooltalk_message (Lisp_Object obj, Lisp_Object printcharfun,
 DEFINE_LRECORD_IMPLEMENTATION ("tooltalk-message", tooltalk_message,
                                mark_tooltalk_message, print_tooltalk_message,
                                0, 0, 0, 0,
-			       struct Lisp_Tooltalk_Message);
+			       Lisp_Tooltalk_Message);
 
 static Lisp_Object
 make_tooltalk_message (Tt_message m)
 {
   Lisp_Object val;
-  struct Lisp_Tooltalk_Message *msg =
-    alloc_lcrecord_type (struct Lisp_Tooltalk_Message,
-			 &lrecord_tooltalk_message);
+  Lisp_Tooltalk_Message *msg =
+    alloc_lcrecord_type (Lisp_Tooltalk_Message, &lrecord_tooltalk_message);
 
   msg->m = m;
   msg->callback = Qnil;
@@ -235,7 +234,7 @@ static void
 print_tooltalk_pattern (Lisp_Object obj, Lisp_Object printcharfun,
 			int escapeflag)
 {
-  struct Lisp_Tooltalk_Pattern *p = XTOOLTALK_PATTERN (obj);
+  Lisp_Tooltalk_Pattern *p = XTOOLTALK_PATTERN (obj);
 
   char buf[200];
 
@@ -250,14 +249,13 @@ print_tooltalk_pattern (Lisp_Object obj, Lisp_Object printcharfun,
 DEFINE_LRECORD_IMPLEMENTATION ("tooltalk-pattern", tooltalk_pattern,
                                mark_tooltalk_pattern, print_tooltalk_pattern,
                                0, 0, 0, 0,
-			       struct Lisp_Tooltalk_Pattern);
+			       Lisp_Tooltalk_Pattern);
 
 static Lisp_Object
 make_tooltalk_pattern (Tt_pattern p)
 {
-  struct Lisp_Tooltalk_Pattern *pat =
-    alloc_lcrecord_type (struct Lisp_Tooltalk_Pattern,
-			 &lrecord_tooltalk_pattern);
+  Lisp_Tooltalk_Pattern *pat =
+    alloc_lcrecord_type (Lisp_Tooltalk_Pattern, &lrecord_tooltalk_pattern);
   Lisp_Object val;
 
   pat->p = p;
@@ -702,8 +700,10 @@ New arguments can be added to a message with add-tooltalk-message-arg.
 {
   Tt_message m = unbox_tooltalk_message (message_);
   int n = 0;
+  Tt_status (*fun_str) (Tt_message, const char *) = 0;
 
   CHECK_SYMBOL (attribute);
+
   if (EQ (attribute, (Qtt_arg_bval))  ||
       EQ (attribute, (Qtt_arg_ival))  ||
       EQ (attribute, (Qtt_arg_val)))
@@ -715,7 +715,7 @@ New arguments can be added to a message with add-tooltalk-message-arg.
   if (!VALID_TOOLTALK_MESSAGEP (m))
     return Qnil;
 
-  else if (EQ (attribute, Qtt_address))
+  if (EQ (attribute, Qtt_address))
     {
       CHECK_TOOLTALK_CONSTANT (value);
       tt_message_address_set (m, (Tt_address) tooltalk_constant_value (value));
@@ -731,73 +731,37 @@ New arguments can be added to a message with add-tooltalk-message-arg.
       tt_message_disposition_set (m, ((Tt_disposition)
 				      tooltalk_constant_value (value)));
     }
-  else if (EQ (attribute, Qtt_file))
-    {
-      CONST char *value_ext;
-      CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
-      tt_message_file_set (m, value_ext);
-    }
-  else if (EQ (attribute, Qtt_handler_ptype))
-    {
-      CONST char *value_ext;
-      CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
-      tt_message_handler_ptype_set (m, value_ext);
-    }
-  else if (EQ (attribute, Qtt_handler))
-    {
-      CONST char *value_ext;
-      CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
-      tt_message_handler_set (m, value_ext);
-    }
-  else if (EQ (attribute, Qtt_object))
-    {
-      CONST char *value_ext;
-      CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
-      tt_message_object_set (m, value_ext);
-    }
-  else if (EQ (attribute, Qtt_op))
-    {
-      CONST char *value_ext;
-      CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
-      tt_message_op_set (m, value_ext);
-    }
-  else if (EQ (attribute, Qtt_otype))
-    {
-      CONST char *value_ext;
-      CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
-      tt_message_otype_set (m, value_ext);
-    }
   else if (EQ (attribute, Qtt_scope))
     {
       CHECK_TOOLTALK_CONSTANT (value);
       tt_message_scope_set (m, (Tt_scope) tooltalk_constant_value (value));
     }
+  else if (EQ (attribute, Qtt_file))
+    fun_str = tt_message_file_set;
+  else if (EQ (attribute, Qtt_handler_ptype))
+    fun_str = tt_message_handler_ptype_set;
+  else if (EQ (attribute, Qtt_handler))
+    fun_str = tt_message_handler_set;
+  else if (EQ (attribute, Qtt_object))
+    fun_str = tt_message_object_set;
+  else if (EQ (attribute, Qtt_op))
+    fun_str = tt_message_op_set;
+  else if (EQ (attribute, Qtt_otype))
+    fun_str = tt_message_otype_set;
   else if (EQ (attribute, Qtt_sender_ptype))
-    {
-      CONST char *value_ext;
-      CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
-      tt_message_sender_ptype_set (m, value_ext);
-    }
+    fun_str = tt_message_sender_ptype_set;
   else if (EQ (attribute, Qtt_session))
-    {
-      CONST char *value_ext;
-      CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
-      tt_message_session_set (m, value_ext);
-    }
+    fun_str = tt_message_session_set;
+  else if (EQ (attribute, Qtt_status_string))
+    fun_str = tt_message_status_string_set;
   else if (EQ (attribute, Qtt_arg_bval))
     {
       Extbyte *value_ext;
       Extcount value_ext_len;
       CHECK_STRING (value);
-      GET_STRING_OS_DATA_ALLOCA (value, value_ext, value_ext_len);
+      TO_EXTERNAL_FORMAT (LISP_STRING, value,
+			  ALLOCA, (value_ext, value_ext_len),
+			  Qnative);
       tt_message_arg_bval_set (m, n, value_ext, value_ext_len);
     }
   else if (EQ (attribute, Qtt_arg_ival))
@@ -809,20 +773,13 @@ New arguments can be added to a message with add-tooltalk-message-arg.
     {
       CONST char *value_ext;
       CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
+      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
       tt_message_arg_val_set (m, n, value_ext);
     }
   else if (EQ (attribute, Qtt_status))
     {
       CHECK_INT (value);
       tt_message_status_set (m, XINT (value));
-    }
-  else if (EQ (attribute, Qtt_status_string))
-    {
-      CONST char *value_ext;
-      CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
-      tt_message_status_string_set (m, value_ext);
     }
   else if (EQ (attribute, Qtt_callback))
     {
@@ -836,6 +793,15 @@ New arguments can be added to a message with add-tooltalk-message-arg.
   else
     signal_simple_error ("Invalid value for `set-tooltalk-message-attribute'",
 			 attribute);
+
+  if (fun_str)
+    {
+      CONST char *value_ext;
+      CHECK_STRING (value);
+      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
+      (*fun_str) (m, value_ext);
+    }
+
   return Qnil;
 }
 
@@ -948,13 +914,13 @@ embedded nulls (use 'arg_bval).
   {
     CONST char *vtype_ext;
 
-    GET_C_STRING_OS_DATA_ALLOCA (vtype, vtype_ext);
+    TO_EXTERNAL_FORMAT (LISP_STRING, vtype, C_STRING_ALLOCA, vtype_ext, Qnative);
     if (NILP (value))
       tt_message_arg_add (m, n, vtype_ext, NULL);
     else if (STRINGP (value))
       {
 	CONST char *value_ext;
-	GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
+	TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
 	tt_message_arg_add (m, n, vtype_ext, value_ext);
       }
     else if (INTP (value))
@@ -1059,28 +1025,28 @@ less the "tooltalk_pattern_" prefix and the "_add" ...
     {
       CONST char *value_ext;
       CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
+      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
       tt_pattern_file_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_object))
     {
       CONST char *value_ext;
       CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
+      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
       tt_pattern_object_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_op))
     {
       CONST char *value_ext;
       CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
+      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
       tt_pattern_op_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_otype))
     {
       CONST char *value_ext;
       CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
+      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
       tt_pattern_otype_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_scope))
@@ -1092,21 +1058,21 @@ less the "tooltalk_pattern_" prefix and the "_add" ...
     {
       CONST char *value_ext;
       CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
+      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
       tt_pattern_sender_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_sender_ptype))
     {
       CONST char *value_ext;
       CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
+      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
       tt_pattern_sender_ptype_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_session))
     {
       CONST char *value_ext;
       CHECK_STRING (value);
-      GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
+      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
       tt_pattern_session_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_state))
@@ -1147,13 +1113,13 @@ is added.  At present there's no way to add a binary data argument.
   {
     CONST char *vtype_ext;
 
-    GET_C_STRING_OS_DATA_ALLOCA (vtype, vtype_ext);
+    TO_EXTERNAL_FORMAT (LISP_STRING, vtype, C_STRING_ALLOCA, vtype_ext, Qnative);
     if (NILP (value))
       tt_pattern_arg_add (p, n, vtype_ext, NULL);
     else if (STRINGP (value))
       {
 	CONST char *value_ext;
-	GET_C_STRING_OS_DATA_ALLOCA (value, value_ext);
+	TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
 	tt_pattern_arg_add (p, n, vtype_ext, value_ext);
       }
     else if (INTP (value))
@@ -1257,8 +1223,8 @@ init_tooltalk (void)
   Lisp_Object fil;
 
 
-  /* tt_open() messes with our signal handler flags (at least when no 
-     ttsessions is running on the machine), therefore we save the 
+  /* tt_open() messes with our signal handler flags (at least when no
+     ttsessions is running on the machine), therefore we save the
      actions and restore them after the call */
 #ifdef HAVE_SIGPROCMASK
   {

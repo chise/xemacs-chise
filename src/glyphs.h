@@ -21,8 +21,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_GLYPHS_H_
-#define _XEMACS_GLYPHS_H_
+#ifndef INCLUDED_glyphs_h_
+#define INCLUDED_glyphs_h_
 
 #include "specifier.h"
 #include "gui.h"
@@ -55,14 +55,14 @@ struct image_instantiator_methods;
   subwindow			subwindow
   inherit			mono-pixmap
   autodetect			mono-pixmap, color-pixmap, pointer, text
-  button				widget
+  button			widget
   edit-field			widget
   combo	-box			widget
   progress-gauge		widget
   tab-control			widget
   tree-view			widget
   scrollbar			widget
-  static				widget
+  static			widget
 */
 
 /* These are methods specific to a particular format of image instantiator
@@ -89,7 +89,7 @@ enum image_instance_geometry
   IMAGE_GEOMETRY,
   IMAGE_DESIRED_GEOMETRY,
   IMAGE_MIN_GEOMETRY,
-  IMAGE_MAX_GEOMETRY, 
+  IMAGE_MAX_GEOMETRY,
   IMAGE_UNSPECIFIED_GEOMETRY = ~0
 };
 
@@ -149,9 +149,9 @@ struct image_instantiator_methods
    image instance. */
   void (*query_geometry_method) (Lisp_Object image_instance,
 				 unsigned int* width, unsigned int* height,
-				 enum image_instance_geometry disp, 
+				 enum image_instance_geometry disp,
 				 Lisp_Object domain);
-  
+
   /* Layout the instance and its children bounded by the provided
      dimensions. */
   void (*layout_method) (Lisp_Object image_instance,
@@ -230,12 +230,12 @@ do {								\
    FORMAT.  VALIDATE_FUN if a function that returns whether the data
    is valid.  The keyword may not appear more than once. */
 #define IIFORMAT_VALID_GENERIC_KEYWORD(format, keyw, validate_fun, copy, multi) \
-  do {							\
+  do {								\
     struct ii_keyword_entry entry;				\
-							\
-    entry.keyword = keyw;				\
+								\
+    entry.keyword = keyw;					\
     entry.validate = validate_fun;				\
-    entry.multiple_p = multi;				\
+    entry.multiple_p = multi;					\
     entry.copy_p = copy;					\
     Dynarr_add (format##_image_instantiator_methods->keywords,	\
 		entry);						\
@@ -255,9 +255,9 @@ IIFORMAT_VALID_GENERIC_KEYWORD(format, keyw, validate_fun, 1, 1)
 #define IIFORMAT_VALID_NONCOPY_KEYWORD(format, keyw, validate_fun)	\
 IIFORMAT_VALID_GENERIC_KEYWORD(format, keyw, validate_fun, 0, 0)
 
-/* Declare that image-instantiator format FORMAT is supported on 
+/* Declare that image-instantiator format FORMAT is supported on
    CONSOLE type. */
-#define IIFORMAT_VALID_CONSOLE(console, format)		\
+#define IIFORMAT_VALID_CONSOLE(console, format)			\
   do {								\
     struct console_type_entry entry;				\
 								\
@@ -267,8 +267,8 @@ IIFORMAT_VALID_GENERIC_KEYWORD(format, keyw, validate_fun, 0, 0)
 		entry);						\
   } while (0)
 
-#define DEFINE_DEVICE_IIFORMAT(type, format)\
-DECLARE_IMAGE_INSTANTIATOR_FORMAT(format);		\
+#define DEFINE_DEVICE_IIFORMAT(type, format)	\
+DECLARE_IMAGE_INSTANTIATOR_FORMAT(format);	\
 struct image_instantiator_methods *type##_##format##_image_instantiator_methods
 
 #define INITIALIZE_DEVICE_IIFORMAT(type, format)			\
@@ -321,20 +321,21 @@ void check_valid_face (Lisp_Object data);
 void check_valid_vector (Lisp_Object data);
 void check_valid_item_list_1 (Lisp_Object items);
 
-void initialize_subwindow_image_instance (struct Lisp_Image_Instance*);
+void initialize_subwindow_image_instance (Lisp_Image_Instance*);
 void subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			    Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 			    int dest_mask, Lisp_Object domain);
 void widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			 Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 			 int dest_mask, Lisp_Object domain);
-void image_instance_query_geometry (Lisp_Object image_instance, 
-				    unsigned int* width, unsigned int* height, 
+void image_instance_query_geometry (Lisp_Object image_instance,
+				    unsigned int* width, unsigned int* height,
 				    enum image_instance_geometry disp,
 				    Lisp_Object domain);
-void image_instance_layout (Lisp_Object image_instance, 
-			    unsigned int width, unsigned int height, 
+void image_instance_layout (Lisp_Object image_instance,
+			    unsigned int width, unsigned int height,
 			    Lisp_Object domain);
+int invalidate_glyph_geometry_maybe (Lisp_Object glyph_or_ii, struct window* w);
 
 DECLARE_DOESNT_RETURN (incompatible_image_types (Lisp_Object instantiator,
                                                  int given_dest_mask,
@@ -376,9 +377,8 @@ struct image_specifier
 /*			Image Instance Object				*/
 /************************************************************************/
 
-DECLARE_LRECORD (image_instance, struct Lisp_Image_Instance);
-#define XIMAGE_INSTANCE(x) \
-  XRECORD (x, image_instance, struct Lisp_Image_Instance)
+DECLARE_LRECORD (image_instance, Lisp_Image_Instance);
+#define XIMAGE_INSTANCE(x) XRECORD (x, image_instance, Lisp_Image_Instance)
 #define XSETIMAGE_INSTANCE(x, p) XSETRECORD (x, p, image_instance)
 #define IMAGE_INSTANCEP(x) RECORDP (x, image_instance)
 #define CHECK_IMAGE_INSTANCE(x) CHECK_RECORD (x, image_instance)
@@ -426,14 +426,14 @@ enum image_instance_type
 #define LAYOUT_IMAGE_INSTANCEP(ii) \
      IMAGE_INSTANCE_TYPE_P (ii, IMAGE_LAYOUT)
 
-#define CHECK_NOTHING_IMAGE_INSTANCE(x) do {		\
-  CHECK_IMAGE_INSTANCE (x);				\
+#define CHECK_NOTHING_IMAGE_INSTANCE(x) do {			\
+  CHECK_IMAGE_INSTANCE (x);					\
   if (!NOTHING_IMAGE_INSTANCEP (x))				\
     x = wrong_type_argument (Qnothing_image_instance_p, (x));	\
 } while (0)
 
-#define CHECK_TEXT_IMAGE_INSTANCE(x) do {		\
-  CHECK_IMAGE_INSTANCE (x);				\
+#define CHECK_TEXT_IMAGE_INSTANCE(x) do {			\
+  CHECK_IMAGE_INSTANCE (x);					\
   if (!TEXT_IMAGE_INSTANCEP (x))				\
     x = wrong_type_argument (Qtext_image_instance_p, (x));	\
 } while (0)
@@ -444,33 +444,33 @@ enum image_instance_type
     x = wrong_type_argument (Qmono_pixmap_image_instance_p, (x));	\
 } while (0)
 
-#define CHECK_COLOR_PIXMAP_IMAGE_INSTANCE(x) do {		\
-  CHECK_IMAGE_INSTANCE (x);					\
+#define CHECK_COLOR_PIXMAP_IMAGE_INSTANCE(x) do {			\
+  CHECK_IMAGE_INSTANCE (x);						\
   if (!COLOR_PIXMAP_IMAGE_INSTANCEP (x))				\
     x = wrong_type_argument (Qcolor_pixmap_image_instance_p, (x));	\
 } while (0)
 
-#define CHECK_POINTER_IMAGE_INSTANCE(x) do {		\
-  CHECK_IMAGE_INSTANCE (x);				\
+#define CHECK_POINTER_IMAGE_INSTANCE(x) do {			\
+  CHECK_IMAGE_INSTANCE (x);					\
   if (!POINTER_IMAGE_INSTANCEP (x))				\
     x = wrong_type_argument (Qpointer_image_instance_p, (x));	\
 } while (0)
 
-#define CHECK_SUBWINDOW_IMAGE_INSTANCE(x) do {		\
+#define CHECK_SUBWINDOW_IMAGE_INSTANCE(x) do {			\
   CHECK_IMAGE_INSTANCE (x);					\
   if (!SUBWINDOW_IMAGE_INSTANCEP (x)				\
       && !WIDGET_IMAGE_INSTANCEP (x))				\
     x = wrong_type_argument (Qsubwindow_image_instance_p, (x));	\
 } while (0)
 
-#define CHECK_WIDGET_IMAGE_INSTANCE(x) do {		\
-  CHECK_IMAGE_INSTANCE (x);				\
+#define CHECK_WIDGET_IMAGE_INSTANCE(x) do {			\
+  CHECK_IMAGE_INSTANCE (x);					\
   if (!WIDGET_IMAGE_INSTANCEP (x))				\
     x = wrong_type_argument (Qwidget_image_instance_p, (x));	\
 } while (0)
 
-#define CHECK_LAYOUT_IMAGE_INSTANCE(x) do {		\
-  CHECK_IMAGE_INSTANCE (x);				\
+#define CHECK_LAYOUT_IMAGE_INSTANCE(x) do {			\
+  CHECK_IMAGE_INSTANCE (x);					\
   if (!LAYOUT_IMAGE_INSTANCEP (x))				\
     x = wrong_type_argument (Qlayout_image_instance_p, (x));	\
 } while (0)
@@ -517,25 +517,14 @@ struct Lisp_Image_Instance
       unsigned int h_resize : 1;	/* Whether the hsize is allowed to change. */
       unsigned int orientation : 1; /* Vertical or horizontal. */
       unsigned int justification : 2; /* Left, right or center. */
-      union
-      {
-	struct
-	{
-	  /* Face for colors and font. We specify this here becuase we
-	     want people to be able to put :face in the instantiator
-	     spec. Using gyph-face is more inconvenient, although more
-	     general. */
-	  Lisp_Object face;	
-	  Lisp_Object type;
-	  Lisp_Object props;	/* properties */
-	  Lisp_Object gui_item;	/* a list of gui_items */
-	} widget;		/* widgets are subwindows */
-	struct
-	{
-	  Lisp_Object children;	/* managed children */
-	  Lisp_Object border;	/* Style of enclosing border or text. */
-	} layout;
-      } s;
+      /* Face for colors and font. We specify this here becuase we
+	 want people to be able to put :face in the instantiator
+	 spec. Using gyph-face is more inconvenient, although more
+	 general. */
+      Lisp_Object face;
+      Lisp_Object type;
+      Lisp_Object props;	/* properties or border*/
+      Lisp_Object items;	/* a list of gui_items or children */
     } subwindow;
   } u;
 
@@ -560,8 +549,8 @@ struct Lisp_Image_Instance
 #define IMAGE_INSTANCE_YOFFSET(i) ((i)->y_offset)
 #define IMAGE_INSTANCE_WIDTH(i) ((i)->width)
 #define IMAGE_INSTANCE_HEIGHT(i) ((i)->height)
-#define IMAGE_INSTANCE_PIXMAP_TYPE_P(i)					\
- ((IMAGE_INSTANCE_TYPE (i) == IMAGE_MONO_PIXMAP)			\
+#define IMAGE_INSTANCE_PIXMAP_TYPE_P(i)			\
+ ((IMAGE_INSTANCE_TYPE (i) == IMAGE_MONO_PIXMAP)	\
   || (IMAGE_INSTANCE_TYPE (i) == IMAGE_COLOR_PIXMAP))
 #define IMAGE_INSTANCE_DIRTYP(i) ((i)->dirty)
 #define IMAGE_INSTANCE_FACE(i) \
@@ -614,23 +603,23 @@ struct Lisp_Image_Instance
   IMAGE_INSTANCE_WIDTH(i)
 #define IMAGE_INSTANCE_WIDGET_HEIGHT(i) \
   IMAGE_INSTANCE_HEIGHT(i)
-#define IMAGE_INSTANCE_WIDGET_TYPE(i) ((i)->u.subwindow.s.widget.type)
-#define IMAGE_INSTANCE_WIDGET_PROPS(i) ((i)->u.subwindow.s.widget.props)
+#define IMAGE_INSTANCE_WIDGET_TYPE(i) ((i)->u.subwindow.type)
+#define IMAGE_INSTANCE_WIDGET_PROPS(i) ((i)->u.subwindow.props)
 #define SET_IMAGE_INSTANCE_WIDGET_FACE(i,f) \
- ((i)->u.subwindow.s.widget.face = f)
-#define IMAGE_INSTANCE_WIDGET_FACE(i) \
-  (!NILP ((i)->u.subwindow.s.widget.face) ? (i)->u.subwindow.s.widget.face : \
-  !NILP (IMAGE_INSTANCE_FACE (i)) ? IMAGE_INSTANCE_FACE (i) : \
+ ((i)->u.subwindow.face = f)
+#define IMAGE_INSTANCE_WIDGET_FACE(i)				\
+  (!NILP ((i)->u.subwindow.face) ? (i)->u.subwindow.face :	\
+  !NILP (IMAGE_INSTANCE_FACE (i)) ? IMAGE_INSTANCE_FACE (i) :	\
   Vwidget_face)
-#define IMAGE_INSTANCE_WIDGET_ITEMS(i) ((i)->u.subwindow.s.widget.gui_item)
-#define IMAGE_INSTANCE_WIDGET_ITEM(i) \
-(CONSP (IMAGE_INSTANCE_WIDGET_ITEMS (i)) ? \
-XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (i)) : \
+#define IMAGE_INSTANCE_WIDGET_ITEMS(i) ((i)->u.subwindow.items)
+#define IMAGE_INSTANCE_WIDGET_ITEM(i)		\
+(CONSP (IMAGE_INSTANCE_WIDGET_ITEMS (i)) ?	\
+XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (i)) :	\
   IMAGE_INSTANCE_WIDGET_ITEMS (i))
 #define IMAGE_INSTANCE_WIDGET_TEXT(i) XGUI_ITEM (IMAGE_INSTANCE_WIDGET_ITEM (i))->name
 
-#define IMAGE_INSTANCE_LAYOUT_CHILDREN(i) ((i)->u.subwindow.s.layout.children)
-#define IMAGE_INSTANCE_LAYOUT_BORDER(i) ((i)->u.subwindow.s.layout.border)
+#define IMAGE_INSTANCE_LAYOUT_CHILDREN(i) ((i)->u.subwindow.items)
+#define IMAGE_INSTANCE_LAYOUT_BORDER(i) ((i)->u.subwindow.props)
 
 #define XIMAGE_INSTANCE_DEVICE(i) \
   IMAGE_INSTANCE_DEVICE (XIMAGE_INSTANCE (i))
@@ -772,7 +761,7 @@ struct Lisp_Glyph
   Lisp_Object baseline;		/* percent above baseline */
 
   Lisp_Object face;		/* if non-nil, face to use when displaying */
-  
+
   Lisp_Object plist;
   void (*after_change) (Lisp_Object glyph, Lisp_Object property,
 			Lisp_Object locale);
@@ -780,9 +769,10 @@ struct Lisp_Glyph
   unsigned int dirty : 1;	/* So that we can selectively
                                    redisplay changed glyphs. */
 };
+typedef struct Lisp_Glyph Lisp_Glyph;
 
-DECLARE_LRECORD (glyph, struct Lisp_Glyph);
-#define XGLYPH(x) XRECORD (x, glyph, struct Lisp_Glyph)
+DECLARE_LRECORD (glyph, Lisp_Glyph);
+#define XGLYPH(x) XRECORD (x, glyph, Lisp_Glyph)
 #define XSETGLYPH(x, p) XSETRECORD (x, p, glyph)
 #define GLYPHP(x) RECORDP (x, glyph)
 #define CHECK_GLYPH(x) CHECK_RECORD (x, glyph)
@@ -858,9 +848,9 @@ Lisp_Object allocate_glyph (enum glyph_type type,
 						  Lisp_Object property,
 						  Lisp_Object locale));
 void query_string_geometry ( Lisp_Object string, Lisp_Object face,
-			     unsigned int* width, unsigned int* height, 
+			     unsigned int* width, unsigned int* height,
 			     unsigned int* descent, Lisp_Object domain);
-Lisp_Object query_string_font (Lisp_Object string, 
+Lisp_Object query_string_font (Lisp_Object string,
 			       Lisp_Object face, Lisp_Object domain);
 Lisp_Object add_glyph_animated_timeout (EMACS_INT tickms, Lisp_Object device);
 void disable_glyph_animated_timeout (int i);
@@ -966,4 +956,4 @@ struct expose_ignore
 int check_for_ignored_expose (struct frame* f, int x, int y, int width, int height);
 extern int hold_ignored_expose_registration;
 
-#endif /* _XEMACS_GLYPHS_H_ */
+#endif /* INCLUDED_glyphs_h_ */

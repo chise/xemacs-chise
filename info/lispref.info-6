@@ -950,7 +950,7 @@ of property lists and association lists.
 
  - Function: remassoc key alist
      This function deletes by side effect any associations with key KEY
-     in ALIST - i.e. it removes any elements from ALIST whose `car' is
+     in ALIST--i.e. it removes any elements from ALIST whose `car' is
      `equal' to KEY.  The modified ALIST is returned.
 
      If the first member of ALIST has a `car' that is `equal' to KEY,
@@ -960,7 +960,7 @@ of property lists and association lists.
 
  - Function: remassq key alist
      This function deletes by side effect any associations with key KEY
-     in ALIST - i.e. it removes any elements from ALIST whose `car' is
+     in ALIST--i.e. it removes any elements from ALIST whose `car' is
      `eq' to KEY.  The modified ALIST is returned.
 
      This function is exactly like `remassoc', but comparisons between
@@ -968,7 +968,7 @@ of property lists and association lists.
 
  - Function: remrassoc value alist
      This function deletes by side effect any associations with value
-     VALUE in ALIST - i.e. it removes any elements from ALIST whose
+     VALUE in ALIST--i.e. it removes any elements from ALIST whose
      `cdr' is `equal' to VALUE.  The modified ALIST is returned.
 
      If the first member of ALIST has a `car' that is `equal' to VALUE,
@@ -983,7 +983,7 @@ of property lists and association lists.
 
  - Function: remrassq value alist
      This function deletes by side effect any associations with value
-     VALUE in ALIST - i.e. it removes any elements from ALIST whose
+     VALUE in ALIST--i.e. it removes any elements from ALIST whose
      `cdr' is `eq' to VALUE.  The modified ALIST is returned.
 
      This function is exactly like `remrassoc', but comparisons between
@@ -1236,7 +1236,7 @@ lists of another function's buffers or markers.  When that function is
 done with the elements, they will automatically disappear from the list.
 
    Weak lists are used internally, for example, to manage the list
-holding the children of an extent - an extent that is unused but has a
+holding the children of an extent--an extent that is unused but has a
 parent will still be reclaimed, and will automatically be removed from
 its parent's list of children.
 

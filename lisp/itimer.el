@@ -48,7 +48,7 @@
 ;;
 ;; See the doc strings of these functions for more information.
 
-(defvar itimer-version "1.08"
+(defvar itimer-version "1.09"
   "Version number of the itimer package.")
 
 (defvar itimer-list nil
@@ -673,7 +673,7 @@ x      start a new itimer
 	(inhibit-quit t))
     (setq next-wakeup 600)
     (cond ((and (boundp 'last-command-event-time)
-		(consp 'last-command-event-time))
+		(consp last-command-event-time))
 	   (setq last-event-time last-command-event-time
 		 idle-time (itimer-time-difference (current-time)
 						   last-event-time)))

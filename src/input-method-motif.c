@@ -41,7 +41,7 @@ Initialize_Locale (void)
 {
   char *locale;
 
-  /* dverna - Nov. 98: ### DON'T DO THIS !!! The default XtLanguageProc
+  /* dverna - Nov. 98: #### DON'T DO THIS !!! The default XtLanguageProc
      routine calls setlocale(LC_ALL, lang) which fucks up our lower-level
      locale management, and especially the value of LC_NUMERIC. Anyway, since
      at this point, we don't know yet whether we're gonna need an X11 frame,
@@ -162,7 +162,7 @@ XIM_SetGeometry (struct frame *f)
 void
 XIM_SetSpotLocation (struct frame *f, int x, int y)
 {
-  /* ### FIX: Must make sure spot fits within Preedit Area */
+  /* #### FIX: Must make sure spot fits within Preedit Area */
   XPoint *spot = &(FRAME_X_XIC_SPOT (f));
   if (spot->x == (short) x &&
       spot->y == (short) y)

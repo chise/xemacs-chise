@@ -174,7 +174,7 @@ you type a word-delimiter at the end of an abbreviation.
 In this version of Emacs, what you see is what you get: in contrast to
 some other versions, no abbreviations are expanded after you have sent the
 mail.  This means you don't suffer the annoyance of having the system do
-things behind your back --- if the system rewrites an address you typed,
+things behind your back---if the system rewrites an address you typed,
 you know it immediately, instead of after the mail has been sent and
 it's too late to do anything about it.  For example, you will never
 again be in trouble because you forgot to delete an old alias from your

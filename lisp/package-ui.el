@@ -535,7 +535,7 @@ Designed to be called interactively (from a keypress)."
     (set-buffer (event-buffer event))
     (goto-char (event-point event))
     (popup-menu pui-menu event)
-    ;; I agreee with dired.el this is seriously bogus.
+    ;; I agree with dired.el - this is seriously bogus.
     (while (popup-menu-up-p)
       (dispatch-event (next-event)))))
 

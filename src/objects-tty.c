@@ -143,7 +143,7 @@ See `set-tty-dynamic-color-specs'.
 #endif /* 0 */
 
 static int
-tty_initialize_color_instance (struct Lisp_Color_Instance *c, Lisp_Object name,
+tty_initialize_color_instance (Lisp_Color_Instance *c, Lisp_Object name,
 			       Lisp_Object device, Error_behavior errb)
 {
   Lisp_Object result;
@@ -168,28 +168,28 @@ tty_initialize_color_instance (struct Lisp_Color_Instance *c, Lisp_Object name,
 }
 
 static void
-tty_mark_color_instance (struct Lisp_Color_Instance *c)
+tty_mark_color_instance (Lisp_Color_Instance *c)
 {
   mark_object (COLOR_INSTANCE_TTY_SYMBOL (c));
 }
 
 static void
-tty_print_color_instance (struct Lisp_Color_Instance *c,
+tty_print_color_instance (Lisp_Color_Instance *c,
 			  Lisp_Object printcharfun,
 			  int escapeflag)
 {
 }
 
 static void
-tty_finalize_color_instance (struct Lisp_Color_Instance *c)
+tty_finalize_color_instance (Lisp_Color_Instance *c)
 {
   if (c->data)
     xfree (c->data);
 }
 
 static int
-tty_color_instance_equal (struct Lisp_Color_Instance *c1,
-			  struct Lisp_Color_Instance *c2,
+tty_color_instance_equal (Lisp_Color_Instance *c1,
+			  Lisp_Color_Instance *c2,
 			  int depth)
 {
   return (EQ (COLOR_INSTANCE_TTY_SYMBOL (c1),
@@ -197,7 +197,7 @@ tty_color_instance_equal (struct Lisp_Color_Instance *c1,
 }
 
 static unsigned long
-tty_color_instance_hash (struct Lisp_Color_Instance *c, int depth)
+tty_color_instance_hash (Lisp_Color_Instance *c, int depth)
 {
   return LISP_HASH (COLOR_INSTANCE_TTY_SYMBOL (c));
 }
@@ -214,7 +214,7 @@ tty_valid_color_name_p (struct device *d, Lisp_Object color)
 
 
 static int
-tty_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object name,
+tty_initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
 			      Lisp_Object device, Error_behavior errb)
 {
   Bufbyte *str = XSTRING_DATA (name);
@@ -255,20 +255,20 @@ tty_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object name,
 }
 
 static void
-tty_mark_font_instance (struct Lisp_Font_Instance *f)
+tty_mark_font_instance (Lisp_Font_Instance *f)
 {
   mark_object (FONT_INSTANCE_TTY_CHARSET (f));
 }
 
 static void
-tty_print_font_instance (struct Lisp_Font_Instance *f,
+tty_print_font_instance (Lisp_Font_Instance *f,
 			 Lisp_Object printcharfun,
 			 int escapeflag)
 {
 }
 
 static void
-tty_finalize_font_instance (struct Lisp_Font_Instance *f)
+tty_finalize_font_instance (Lisp_Font_Instance *f)
 {
   if (f->data)
     xfree (f->data);
@@ -301,7 +301,7 @@ tty_font_spec_matches_charset (struct device *d, Lisp_Object charset,
     return 0;
   the_nonreloc++;
   {
-    struct Lisp_String *s = symbol_name (XSYMBOL (XCHARSET_NAME (charset)));
+    Lisp_String *s = symbol_name (XSYMBOL (XCHARSET_NAME (charset)));
     return !strcmp ((CONST char *) the_nonreloc,
 		    (CONST char *) string_data (s));
   }

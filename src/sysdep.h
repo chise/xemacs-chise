@@ -20,12 +20,14 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.30.  Split out of sysdep.c/emacs.c. */
 
-#ifndef _XEMACS_SYSDEP_H_
-#define _XEMACS_SYSDEP_H_
+#ifndef INCLUDED_sysdep_h_
+#define INCLUDED_sysdep_h_
 
 #include <setjmp.h>
 
+#ifndef WINDOWSNT
 extern char **environ;
+#endif
 
 int eight_bit_tty (struct device *d);
 
@@ -179,4 +181,4 @@ extern int h_errno;
 char *xrealpath(CONST char *path, char resolved_path []);
 #endif
 
-#endif /* _XEMACS_SYSDEP_H_ */
+#endif /* INCLUDED_sysdep_h_ */

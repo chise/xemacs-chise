@@ -399,7 +399,7 @@ This only has an effect when `custom-unlispify-tag-names' or
     (custom-unlispify-menu-entry symbol t)))
 
 (defun custom-prefix-add (symbol prefixes)
-  ;; Addd SYMBOL to list of ignored PREFIXES.
+  ;; Add SYMBOL to list of ignored PREFIXES.
   (cons (or (get symbol 'custom-prefix)
 	    (concat (symbol-name symbol) "-"))
 	prefixes))
@@ -1247,7 +1247,7 @@ item in another window.\n\n"))
 
 (defun custom-browse-insert-prefix (prefix)
   "Insert PREFIX.  On XEmacs convert it to line graphics."
-  ;; ### Unfinished.
+  ;; #### Unfinished.
   (if nil ; (string-match "XEmacs" emacs-version)
       (progn
 	(insert "*")
@@ -1985,7 +1985,7 @@ Otherwise, look up symbol in `custom-guess-type-alist'."
 	(widget-put widget :custom-magic magic)
 	(push magic buttons))
       ;; Insert documentation.
-      ;; ### NOTE: this is ugly!!!! I need to do update the :buttons property
+      ;; #### NOTE: this is ugly!!!! I need to do update the :buttons property
       ;; before the call to `widget-default-format-handler'. Otherwise, I
       ;; loose my current `buttons'. This function shouldn't be called like
       ;; this anyway. The doc string widget should be added like the others.
@@ -2308,19 +2308,33 @@ OS/2 Presentation Manager")
 					   pm)
 				    (const :format "MSWindows "
 					   :sibling-args (:help-echo "\
-Windows NT/95/97")
+Microsoft Windows, displays")
 					   mswindows)
-				    (const :format "DOS "
+				    (const :format "MSPrinter "
 					   :sibling-args (:help-echo "\
-Plain MS-DOS")
-					   pc)
+Microsoft Windows, printers")
+					   msprinter)
 				    (const :format "TTY%n"
 					   :sibling-args (:help-echo "\
 Plain text terminals")
 					   tty)))
 		  (group :sibling-args (:help-echo "\
+Only match display or printer devices")
+			 (const :format "Output: "
+				class)
+			 (checklist :inline t
+				    :offset 0
+				    (const :format "Display "
+					   :sibling-args (:help-echo "\
+Match display devices")
+					   display)
+				    (const :format "Printer%n"
+					   :sibling-args (:help-echo "\
+Match printer devices")
+					   printer)))
+		  (group :sibling-args (:help-echo "\
 Only match the frames with the specified color support")
-			 (const :format "Class: "
+			 (const :format "Color support: "
 				class)
 			 (checklist :inline t
 				    :offset 0
@@ -3279,7 +3293,7 @@ Leave point at the location of the call, or after the last expression."
  		      (princ "\n '(")
  		      (prin1 symbol)
  		      (princ " ")
-		      ;; This comment stuf is in the way ####
+		      ;; This comment stuff is in the way ####
 		      ;; Is (eq (third spec) (car saved-value)) ????
  		      ;; (prin1 (third spec))
 		      (prin1 (car (get symbol 'saved-value)))

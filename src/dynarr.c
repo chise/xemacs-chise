@@ -101,15 +101,14 @@ Use the following functions/macros:
 Use the following global variable:
 
    Dynarr_min_size
-      Minimum allowable size for a dynamic array when it is resized.  The
-      default is 32 and does not normally need to be changed.
+      Minimum allowable size for a dynamic array when it is resized.
 
 */
 
 #include <config.h>
 #include "lisp.h"
 
-int Dynarr_min_size = 1;
+static int Dynarr_min_size = 8;
 
 static void
 Dynarr_realloc (Dynarr *dy, int new_size)

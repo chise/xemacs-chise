@@ -18,9 +18,9 @@ However, there are some features of the X Window System that do not
 generalize well, and they are covered specially here.
 
 @menu
-* X Selections::		Transferring text to and from other X clients.
-* X Server::			Information about the X server connected to
-				  a particular device.
+* X Selections::                Transferring text to and from other X clients.
+* X Server::                    Information about the X server connected to
+                                  a particular device.
 * X Miscellaneous::             Other X-specific functions and variables.
 @end menu
 
@@ -86,9 +86,9 @@ This section describes how to access and change the overall status of
 the X server XEmacs is using.
 
 @menu
-* Resources::			Getting resource values from the server.
-* Server Data::			Getting info about the X server.
-* Grabs::			Restricting access to the server by other apps.
+* Resources::                   Getting resource values from the server.
+* Server Data::                 Getting info about the X server.
+* Grabs::                       Restricting access to the server by other apps.
 @end menu
 
 @node Resources
@@ -161,8 +161,8 @@ is an interface to a C call something like
 
 @example
     @code{XrmGetResource (db, "xemacs.buffer.@var{buffer-name}.foreground",
-			"Emacs.EmacsLocaleType.EmacsBuffer.Foreground",
-			"String");}
+                        "Emacs.EmacsLocaleType.EmacsBuffer.Foreground",
+                        "String");}
 @end example
 
 @item
@@ -176,8 +176,8 @@ is an interface to a C call something like
 @example
 
     @code{XrmGetResource (db, "xemacs.frame.@var{frame-name}.foreground",
-			"Emacs.EmacsLocaleType.EmacsFrame.Foreground",
-			"String");}
+                        "Emacs.EmacsLocaleType.EmacsFrame.Foreground",
+                        "String");}
 @end example
 
 @item
@@ -191,8 +191,8 @@ is an interface to a C call something like
 
 @example
     @code{XrmGetResource (db, "xemacs.device.@var{device-name}.foreground",
-			"Emacs.EmacsLocaleType.EmacsDevice.Foreground",
-			"String");}
+                        "Emacs.EmacsLocaleType.EmacsDevice.Foreground",
+                        "String");}
 @end example
 
 @item
@@ -206,8 +206,8 @@ is an interface to a C call something like
 
 @example
     @code{XrmGetResource (db, "xemacs.foreground",
-			"Emacs.Foreground",
-			"String");}
+                        "Emacs.Foreground",
+                        "String");}
 @end example
 @end enumerate
 
@@ -278,7 +278,7 @@ from previous versions of XEmacs, which returned @code{StaticGray},
 @defun x-grab-keyboard &optional device
 This function grabs the keyboard on the given device (defaulting to the
 selected one).  So long as the keyboard is grabbed, all keyboard events
-will be delivered to XEmacs -- it is not possible for other X clients to
+will be delivered to XEmacs---it is not possible for other X clients to
 eavesdrop on them.  Ungrab the keyboard with @code{x-ungrab-keyboard}
 (use an @code{unwind-protect}).  Returns @code{t} if the grab was
 successful; @code{nil} otherwise.

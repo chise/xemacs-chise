@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_SELECT_H_
-#define _XEMACS_SELECT_H_
+#ifndef INCLUDED_select_h_
+#define INCLUDED_select_h_
 
 extern Lisp_Object QPRIMARY, QSECONDARY, QSTRING, QINTEGER, QCLIPBOARD, QTIMESTAMP,
   QTEXT, QDELETE, QMULTIPLE, QINCR, QEMACS_TMP, QTARGETS, QATOM, QNULL,
@@ -47,4 +47,4 @@ extern Lisp_Object Qselection_conversion_error;
 Lisp_Object get_local_selection (Lisp_Object selection_symbol, Lisp_Object target_type);
 void handle_selection_clear (Lisp_Object selection_symbol);
 
-#endif
+#endif /* INCLUDED_select_h_ */

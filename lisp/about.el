@@ -1358,6 +1358,7 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "ChangGil Han" "cghan@phys401.phys.pusan.ac.kr")
        (print-short "Derek Harding" "dharding@lssec.bt.co.uk")
        (print-short "Michael Harnois" "mharnois@sbt.net")
+       (print-short "Yoshiki Hayashi" "yoshiki@xemacs.org")
        (print-short "John Haxby" "J.Haxby@isode.com")
        (print-short "Karl M. Hegbloom" "karlheg@inetarena.com")
        (print-short "Benedikt Heinen" "beh@icemark.thenet.ch")

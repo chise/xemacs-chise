@@ -139,7 +139,9 @@ symbol_to_x_atom (struct device *d, Lisp_Object sym, int only_if_exists)
 
   {
     CONST char *nameext;
-    GET_C_STRING_CTEXT_DATA_ALLOCA (Fsymbol_name (sym), nameext);
+    TO_EXTERNAL_FORMAT (LISP_STRING, Fsymbol_name (sym),
+			C_STRING_ALLOCA, nameext,
+			Qctext);
     return XInternAtom (display, nameext, only_if_exists ? True : False);
   }
 }
@@ -183,16 +185,16 @@ x_atom_to_symbol (struct device *d, Atom atom)
 #endif
 
   {
-    Lisp_Object newsym;
-    CONST Bufbyte *intstr;
+    char *intstr;
     char *str = XGetAtomName (display, atom);
 
     if (! str) return Qnil;
 
-    GET_C_CHARPTR_INT_CTEXT_DATA_ALLOCA (str, intstr);
-    newsym = intern ((char *) intstr);
+    TO_INTERNAL_FORMAT (C_STRING, str,
+			C_STRING_ALLOCA, intstr,
+			Qctext);
     XFree (str);
-    return newsym;
+    return intern (intstr);
   }
 }
 
@@ -230,7 +232,7 @@ x_own_selection (Lisp_Object selection_name, Lisp_Object selection_value)
      
      Opaque pointers are the clean way to go here.
   */
-  selection_time = make_opaque (sizeof (thyme), (void *) &thyme);
+  selection_time = make_opaque (&thyme, sizeof (thyme));
 
 #ifdef MOTIF_CLIPBOARDS
   hack_motif_clipboard_selection (selection_atom, selection_value,
@@ -314,10 +316,14 @@ hack_motif_clipboard_selection (Atom selection_atom,
 	  }
 
 	if (chartypes == LATIN_1)
-	  GET_STRING_BINARY_DATA_ALLOCA (selection_value, data, bytes);
+	  TO_EXTERNAL_FORMAT (LISP_STRING, selection_value,
+			      ALLOCA, (data, bytes),
+			      Qbinary);
 	else if (chartypes == WORLD)
 	  {
-	    GET_STRING_CTEXT_DATA_ALLOCA (selection_value, data, bytes);
+	    TO_EXTERNAL_FORMAT (LISP_STRING, selection_value,
+				ALLOCA, (data, bytes),
+				Qctext);
 	    encoding = "COMPOUND_TEXT";
 	  }
       }
@@ -1164,7 +1170,7 @@ selection_data_to_lisp_data (struct device *d,
     return make_ext_string (data, size,
 			    type == DEVICE_XATOM_TEXT (d) ||
 			    type == DEVICE_XATOM_COMPOUND_TEXT (d)
-			    ? FORMAT_CTEXT : FORMAT_BINARY);
+			    ? Qctext : Qbinary);
 
   /* Convert a single atom to a Lisp Symbol.
      Convert a set of atoms to a vector of symbols. */
@@ -1263,10 +1269,9 @@ lisp_data_to_selection_data (struct device *d,
       CONST Extbyte *extval;
       Extcount extvallen;
 
-      if (NILP (type))
-	GET_STRING_CTEXT_DATA_ALLOCA (obj, extval, extvallen);
-      else
-	GET_STRING_BINARY_DATA_ALLOCA (obj, extval, extvallen);
+      TO_EXTERNAL_FORMAT (LISP_STRING, obj,
+			  ALLOCA, (extval, extvallen),
+			  (NILP (type) ? Qctext : Qbinary));
       *format_ret = 8;
       *size_ret = extvallen;
       *data_ret = (unsigned char *) xmalloc (*size_ret);
@@ -1286,7 +1291,9 @@ lisp_data_to_selection_data (struct device *d,
 
       *format_ret = 8;
       len = set_charptr_emchar (buf, XCHAR (obj));
-      GET_CHARPTR_EXT_CTEXT_DATA_ALLOCA (buf, len, extval, extvallen);
+      TO_EXTERNAL_FORMAT (DATA, (buf, len),
+			  ALLOCA, (extval, extvallen),
+			  Qctext);
       *size_ret = extvallen;
       *data_ret = (unsigned char *) xmalloc (*size_ret);
       memcpy (*data_ret, extval, *size_ret);
@@ -1540,7 +1547,7 @@ Return the value of the named CUTBUFFER (typically CUT_BUFFER0).
   ret = (bytes ?
 	 make_ext_string (data, bytes,
 			  memchr (data, 0x1b, bytes) ?
-			  FORMAT_CTEXT : FORMAT_BINARY)
+			  Qctext : Qbinary)
 	 : Qnil);
   xfree (data);
   return ret;
@@ -1603,9 +1610,13 @@ Set the value of the named CUTBUFFER (typically CUT_BUFFER0) to STRING.
     }
 
   if (chartypes == LATIN_1)
-    GET_STRING_BINARY_DATA_ALLOCA (string, data, bytes);
+    TO_EXTERNAL_FORMAT (LISP_STRING, string,
+			ALLOCA, (data, bytes),
+			Qbinary);
   else if (chartypes == WORLD)
-    GET_STRING_CTEXT_DATA_ALLOCA  (string, data, bytes);
+    TO_EXTERNAL_FORMAT (LISP_STRING, string,
+			ALLOCA, (data, bytes),
+			Qctext);
 #endif /* MULE */
 
   bytes_remaining = bytes;
@@ -1661,7 +1672,7 @@ positive means move values forward, negative means backward.
 /************************************************************************/
 
 void
-syms_of_xselect (void)
+syms_of_select_x (void)
 {
 
 #ifdef CUT_BUFFER_SUPPORT
@@ -1697,7 +1708,7 @@ console_type_create_select_x (void)
 }
 
 void
-reinit_vars_of_xselect (void)
+reinit_vars_of_select_x (void)
 {
   reading_selection_reply = 0;
   reading_which_selection = 0;
@@ -1707,9 +1718,9 @@ reinit_vars_of_xselect (void)
 }
 
 void
-vars_of_xselect (void)
+vars_of_select_x (void)
 {
-  reinit_vars_of_xselect ();
+  reinit_vars_of_select_x ();
 
 #ifdef CUT_BUFFER_SUPPORT
   cut_buffers_initialized = 0;
@@ -1741,7 +1752,7 @@ A value of 0 means wait as long as necessary.  This is initialized from the
 }
 
 void
-Xatoms_of_xselect (struct device *d)
+Xatoms_of_select_x (struct device *d)
 {
   Display *D = DEVICE_X_DISPLAY (d);
 

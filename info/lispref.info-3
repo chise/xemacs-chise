@@ -71,7 +71,7 @@ confoundance disease".  In particular, many functions such as `eq',
 `old-memq', etc.) that pretend like characters are integers are the
 same.  Byte code compiled under any version 19 Emacs will have all such
 functions mapped to their `old-' equivalents when the byte code is read
-into XEmacs 20.  This is to preserve compatibility - Emacs 19 converts
+into XEmacs 20.  This is to preserve compatibility--Emacs 19 converts
 all constant characters to the equivalent integer during
 byte-compilation, and thus there is no other way to preserve byte-code
 compatibility even if the code has specifically been written with the
@@ -81,7 +81,7 @@ distinction between characters and integers in mind.
 code".  For example, the character `A' is represented as the
 integer 65, following the standard ASCII representation of characters.
 If XEmacs was not compiled with MULE support, the range of this integer
-will always be 0 to 255 - eight bits, or one byte. (Integers outside
+will always be 0 to 255--eight bits, or one byte. (Integers outside
 this range are accepted but silently truncated; however, you should
 most decidedly _not_ rely on this, because it will not work under
 XEmacs with MULE support.)  When MULE support is present, the range of

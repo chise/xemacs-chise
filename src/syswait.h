@@ -19,7 +19,8 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-/* Cleanup by Martin Buchholz for Autoconf 2 (see the Autoconf Manual) */
+#ifndef INCLUDED_syswait_h_
+#define INCLUDED_syswait_h_
 
 #include <sys/types.h>
 
@@ -52,3 +53,4 @@ Boston, MA 02111-1307, USA.  */
 #define WRETCODE(s) ((s) >> 8)
 #endif
 
+#endif /* INCLUDED_syswait_h_ */

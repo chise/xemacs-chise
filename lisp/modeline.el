@@ -293,13 +293,9 @@ the buffer of the window whose modeline was clicked upon.")
 (make-face 'modeline-mousable "Face for mousable portions of the modeline.")
 (set-face-parent 'modeline-mousable 'modeline nil '(default))
 (when (featurep 'window-system)
-  (set-face-foreground 'modeline-mousable
-		       '(((default color x) . "firebrick")
-			 ((default color mswindows) . "firebrick"))
-			 'global))
-(when (featurep 'x)
-  (set-face-font 'modeline-mousable [bold] nil '(default mono x))
-  (set-face-font 'modeline-mousable [bold] nil '(default grayscale x)))
+  (set-face-foreground 'modeline-mousable "firebrick" nil '(default color win))
+  (set-face-font 'modeline-mousable [bold] nil '(default mono win))
+  (set-face-font 'modeline-mousable [bold] nil '(default grayscale win)))
 
 (defmacro make-modeline-command-wrapper (command)
   `#'(lambda (event)
@@ -333,12 +329,8 @@ in the list takes precedence.")
 (set-face-parent 'modeline-mousable-minor-mode 'modeline-mousable nil
 		 '(default))
 (when (featurep 'window-system)
-  (set-face-foreground 'modeline-mousable-minor-mode
-		       '(((default color x) . "green4")
-			 ((default color x) . "forestgreen")
-			 ((default color mswindows) . "green4")
-			 ((default color mswindows) . "forestgreen"))
-		       'global))
+  (set-face-foreground 'modeline-mousable-minor-mode '("green4" "forestgreen")
+		       nil '(default color win)))
 
 (defvar modeline-mousable-minor-mode-extent (make-extent nil nil)
   ;; alliteration at its finest.
@@ -538,13 +530,9 @@ parentheses on the modeline."
 	   "Face for the buffer ID string in the modeline.")
 (set-face-parent 'modeline-buffer-id 'modeline nil '(default))
 (when (featurep 'window-system)
-  (set-face-foreground 'modeline-buffer-id
-		       '(((default color x) . "blue4")
-			 ((default color mswindows) . "blue4"))
-		       'global))
-(when (featurep 'x)
-  (set-face-font 'modeline-buffer-id [bold-italic] nil '(default mono x))
-  (set-face-font 'modeline-buffer-id [bold-italic] nil '(default grayscale x)))
+  (set-face-foreground 'modeline-buffer-id "blue4" nil '(default color win))
+  (set-face-font 'modeline-buffer-id [bold-italic] nil '(default mono win))
+  (set-face-font 'modeline-buffer-id [bold-italic] nil '(default grayscale win)))
 (when (featurep 'tty)
   (set-face-font 'modeline-buffer-id [bold-italic] nil '(default tty)))
 

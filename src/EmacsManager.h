@@ -23,8 +23,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Written by Ben Wing. */
 
-#ifndef _EmacsManager_h
-#define _EmacsManager_h
+#ifndef INCLUDED_EmacsManager_h_
+#define INCLUDED_EmacsManager_h_
 
 #ifndef XtNresizeCallback
 #define XtNresizeCallback "resizeCallback"
@@ -59,4 +59,4 @@ typedef struct
 
 void EmacsManagerChangeSize (Widget w, Dimension width, Dimension height);
 
-#endif /* _EmacsManager_h */
+#endif /* INCLUDED_EmacsManager_h_ */

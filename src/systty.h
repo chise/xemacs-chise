@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.30. */
 
-#ifndef _XEMACS_SYSTTY_H_
-#define _XEMACS_SYSTTY_H_
+#ifndef INCLUDED_systty_h_
+#define INCLUDED_systty_h_
 
 #ifdef HAVE_TERMIOS
 # define HAVE_TCATTR
@@ -180,10 +180,6 @@ Boston, MA 02111-1307, USA.  */
 /*           inhibiting particular features              */
 /* ----------------------------------------------------- */
 
-
-#ifdef APOLLO
-#undef TIOCSTART
-#endif
 
 #if defined (XENIX) || defined (BROKEN_TIOCGETC)
 #undef TIOCGETC  /* Avoid confusing some conditionals that test this.  */
@@ -441,4 +437,4 @@ int emacs_set_tty (int fd, struct emacs_tty *settings, int flushp);
 #endif /* not def HAVE_TERMIO */
 #endif /* not def HAVE_TERMIOS */
 
-#endif /* _XEMACS_SYSTTY_H_ */
+#endif /* INCLUDED_systty_h_ */

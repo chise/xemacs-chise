@@ -3,7 +3,7 @@ xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* FAQ: (xemacs-faq).		XEmacs FAQ.
+* FAQ: (xemacs-faq).            XEmacs FAQ.
 END-INFO-DIR-ENTRY
 
 
@@ -30,75 +30,75 @@ still stands true.
 
      Now examine the space used by directory:
 
-     0	/usr/local/bin/xemacs
-     2048	/usr/local/bin/xemacs-19.13
+     0       /usr/local/bin/xemacs
+     2048    /usr/local/bin/xemacs-19.13
      
-     1546	/usr/local/lib/xemacs-19.13/i486-miranova-sco3.2v4.2
-     1158	/usr/local/lib/xemacs-19.13/i486-unknown-linux1.2.13
+     1546    /usr/local/lib/xemacs-19.13/i486-miranova-sco3.2v4.2
+     1158    /usr/local/lib/xemacs-19.13/i486-unknown-linux1.2.13
 
      You need to keep these.  XEmacs isn't stripped by default in
      installation, you should consider stripping.  That will save you
      about 5MB right there.
 
-     207	/usr/local/lib/xemacs-19.13/etc/w3
-     122	/usr/local/lib/xemacs-19.13/etc/sounds
-     18	/usr/local/lib/xemacs-19.13/etc/sparcworks
-     159	/usr/local/lib/xemacs-19.13/etc/vm
-     6	/usr/local/lib/xemacs-19.13/etc/e
-     21	/usr/local/lib/xemacs-19.13/etc/eos
-     172	/usr/local/lib/xemacs-19.13/etc/toolbar
-     61	/usr/local/lib/xemacs-19.13/etc/ns
-     43	/usr/local/lib/xemacs-19.13/etc/gnus
+     207     /usr/local/lib/xemacs-19.13/etc/w3
+     122     /usr/local/lib/xemacs-19.13/etc/sounds
+     18      /usr/local/lib/xemacs-19.13/etc/sparcworks
+     159     /usr/local/lib/xemacs-19.13/etc/vm
+     6       /usr/local/lib/xemacs-19.13/etc/e
+     21      /usr/local/lib/xemacs-19.13/etc/eos
+     172     /usr/local/lib/xemacs-19.13/etc/toolbar
+     61      /usr/local/lib/xemacs-19.13/etc/ns
+     43      /usr/local/lib/xemacs-19.13/etc/gnus
 
      These are support directories for various packages.  In general
      they match a directory under
      ./xemacs-19.13/lib/xemacs-19.13/lisp/.  If you do not require the
      package, you may delete or gzip the support too.
 
-     1959	/usr/local/lib/xemacs-19.13/etc
-     175	/usr/local/lib/xemacs-19.13/lisp/bytecomp
-     340	/usr/local/lib/xemacs-19.13/lisp/calendar
-     342	/usr/local/lib/xemacs-19.13/lisp/comint
-     517	/usr/local/lib/xemacs-19.13/lisp/dired
-     42	/usr/local/lib/xemacs-19.13/lisp/electric
-     212	/usr/local/lib/xemacs-19.13/lisp/emulators
-     238	/usr/local/lib/xemacs-19.13/lisp/energize
-     289	/usr/local/lib/xemacs-19.13/lisp/gnus
-     457	/usr/local/lib/xemacs-19.13/lisp/ilisp
-     1439	/usr/local/lib/xemacs-19.13/lisp/modes
-     2276	/usr/local/lib/xemacs-19.13/lisp/packages
-     1040	/usr/local/lib/xemacs-19.13/lisp/prim
-     176	/usr/local/lib/xemacs-19.13/lisp/pcl-cvs
-     154	/usr/local/lib/xemacs-19.13/lisp/rmail
-     3	/usr/local/lib/xemacs-19.13/lisp/epoch
-     45	/usr/local/lib/xemacs-19.13/lisp/term
-     860	/usr/local/lib/xemacs-19.13/lisp/utils
-     851	/usr/local/lib/xemacs-19.13/lisp/vm
-     13	/usr/local/lib/xemacs-19.13/lisp/vms
-     157	/usr/local/lib/xemacs-19.13/lisp/x11
-     19	/usr/local/lib/xemacs-19.13/lisp/tooltalk
-     14	/usr/local/lib/xemacs-19.13/lisp/sunpro
-     291	/usr/local/lib/xemacs-19.13/lisp/games
-     198	/usr/local/lib/xemacs-19.13/lisp/edebug
-     619	/usr/local/lib/xemacs-19.13/lisp/w3
-     229	/usr/local/lib/xemacs-19.13/lisp/eos
-     55	/usr/local/lib/xemacs-19.13/lisp/iso
-     59	/usr/local/lib/xemacs-19.13/lisp/mailcrypt
-     187	/usr/local/lib/xemacs-19.13/lisp/eterm
-     356	/usr/local/lib/xemacs-19.13/lisp/ediff
-     408	/usr/local/lib/xemacs-19.13/lisp/hyperbole/kotl
-     1262	/usr/local/lib/xemacs-19.13/lisp/hyperbole
-     247	/usr/local/lib/xemacs-19.13/lisp/hm--html-menus
-     161	/usr/local/lib/xemacs-19.13/lisp/mh-e
-     299	/usr/local/lib/xemacs-19.13/lisp/viper
-     53	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-x
-     4	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/DocWindow.nib
-     3	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/InfoPanel.nib
-     3	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/TreeView.nib
-     11	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj
-     53	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx
-     466	/usr/local/lib/xemacs-19.13/lisp/oobr
-     14142	/usr/local/lib/xemacs-19.13/lisp
+     1959    /usr/local/lib/xemacs-19.13/etc
+     175     /usr/local/lib/xemacs-19.13/lisp/bytecomp
+     340     /usr/local/lib/xemacs-19.13/lisp/calendar
+     342     /usr/local/lib/xemacs-19.13/lisp/comint
+     517     /usr/local/lib/xemacs-19.13/lisp/dired
+     42      /usr/local/lib/xemacs-19.13/lisp/electric
+     212     /usr/local/lib/xemacs-19.13/lisp/emulators
+     238     /usr/local/lib/xemacs-19.13/lisp/energize
+     289     /usr/local/lib/xemacs-19.13/lisp/gnus
+     457     /usr/local/lib/xemacs-19.13/lisp/ilisp
+     1439    /usr/local/lib/xemacs-19.13/lisp/modes
+     2276    /usr/local/lib/xemacs-19.13/lisp/packages
+     1040    /usr/local/lib/xemacs-19.13/lisp/prim
+     176     /usr/local/lib/xemacs-19.13/lisp/pcl-cvs
+     154     /usr/local/lib/xemacs-19.13/lisp/rmail
+     3       /usr/local/lib/xemacs-19.13/lisp/epoch
+     45      /usr/local/lib/xemacs-19.13/lisp/term
+     860     /usr/local/lib/xemacs-19.13/lisp/utils
+     851     /usr/local/lib/xemacs-19.13/lisp/vm
+     13      /usr/local/lib/xemacs-19.13/lisp/vms
+     157     /usr/local/lib/xemacs-19.13/lisp/x11
+     19      /usr/local/lib/xemacs-19.13/lisp/tooltalk
+     14      /usr/local/lib/xemacs-19.13/lisp/sunpro
+     291     /usr/local/lib/xemacs-19.13/lisp/games
+     198     /usr/local/lib/xemacs-19.13/lisp/edebug
+     619     /usr/local/lib/xemacs-19.13/lisp/w3
+     229     /usr/local/lib/xemacs-19.13/lisp/eos
+     55      /usr/local/lib/xemacs-19.13/lisp/iso
+     59      /usr/local/lib/xemacs-19.13/lisp/mailcrypt
+     187     /usr/local/lib/xemacs-19.13/lisp/eterm
+     356     /usr/local/lib/xemacs-19.13/lisp/ediff
+     408     /usr/local/lib/xemacs-19.13/lisp/hyperbole/kotl
+     1262    /usr/local/lib/xemacs-19.13/lisp/hyperbole
+     247     /usr/local/lib/xemacs-19.13/lisp/hm--html-menus
+     161     /usr/local/lib/xemacs-19.13/lisp/mh-e
+     299     /usr/local/lib/xemacs-19.13/lisp/viper
+     53      /usr/local/lib/xemacs-19.13/lisp/oobr/tree-x
+     4       /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/DocWindow.nib
+     3       /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/InfoPanel.nib
+     3       /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/TreeView.nib
+     11      /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj
+     53      /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx
+     466     /usr/local/lib/xemacs-19.13/lisp/oobr
+     14142   /usr/local/lib/xemacs-19.13/lisp
 
      These are all Emacs Lisp source code and bytecompiled object code.
      You may safely gzip everything named *.el here.  You may remove
@@ -124,13 +124,13 @@ still stands true.
      definitely do *not* want to delete, although certain packages can
      be removed from them if you do not use them.
 
-          1972	/usr/local/lib/xemacs-19.13/info
+          1972    /usr/local/lib/xemacs-19.13/info
 
      These are online texinfo sources.  You may either gzip them or
      remove them.  In either case, `C-h i' (info mode) will no longer
      work.
 
-          20778	/usr/local/lib/xemacs-19.13
+          20778   /usr/local/lib/xemacs-19.13
 
      The 20MB achieved is less than half of what the full distribution
      takes up, *and* can be achieved without deleting a single file.
@@ -270,7 +270,7 @@ ELF libraries are out of date.  You have the following options:
      `_h_errno^@' with `h_errno^@^@'.  Any version of Emacs will
      suffice.  If you don't understand how to do this, don't do it.
 
-  3. Rebuild XEmacs yourself - any working ELF version of libc should be
+  3. Rebuild XEmacs yourself--any working ELF version of libc should be
      O.K.
 
    Hrvoje Niksic <hniksic@xemacs.org> writes:
@@ -633,10 +633,10 @@ Q2.1.8: got (wrong-type-argument color-instance-p nil)
      color backgrounds and foregrounds into your
      `.../app-defaults/Emacs' like:
 
-          *Foreground:	Black	;everything will be of black on grey95,
-          *Background:	Grey95	;unless otherwise specified.
-          *cursorColor:	Red3	;red3 cursor with grey95 border.
-          *pointerColor:	Red3	;red3 pointer with grey95 border.
+          *Foreground:    Black   ;everything will be of black on grey95,
+          *Background:    Grey95  ;unless otherwise specified.
+          *cursorColor:   Red3    ;red3 cursor with grey95 border.
+          *pointerColor:  Red3    ;red3 pointer with grey95 border.
 
    Natalie Kershaw adds:
 
@@ -1249,29 +1249,4 @@ work!  Is there a reason for this?  If you do it at the EVAL prompt it
 works fine!! How strange.
 
    Use `setq-default' instead, since `tab-width' is all-buffer-local.
-
-
-File: xemacs-faq.info,  Node: Q3.0.4,  Next: Q3.0.5,  Prev: Q3.0.3,  Up: Customization
-
-Q3.0.4: How can I add directories to the `load-path'?
------------------------------------------------------
-
-   Here are two ways to do that, one that puts your directories at the
-front of the load-path, the other at the end:
-
-     ;;; Add things at the beginning of the load-path, do not add
-     ;;; duplicate directories:
-     (pushnew "bar" load-path :test 'equal)
-     
-     (pushnew "foo" load-path :test 'equal)
-     
-     ;;; Add things at the end, unconditionally
-     (setq load-path (nconc load-path '("foo" "bar")))
-
-   keith (k.p.) hanlan <keithh@nortel.ca> writes:
-
-     To add directories using Unix shell metacharacters use
-     `expand-file-name' like this:
-
-          (push (expand-file-name "~keithh/.emacsdir") load-path)
 

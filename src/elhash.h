@@ -20,12 +20,14 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_ELHASH_H_
-#define _XEMACS_ELHASH_H_
+#ifndef INCLUDED_elhash_h_
+#define INCLUDED_elhash_h_
 
-DECLARE_LRECORD (hash_table, struct Lisp_Hash_Table);
+typedef struct Lisp_Hash_Table Lisp_Hash_Table;
 
-#define XHASH_TABLE(x) XRECORD (x, hash_table, struct Lisp_Hash_Table)
+DECLARE_LRECORD (hash_table, Lisp_Hash_Table);
+
+#define XHASH_TABLE(x) XRECORD (x, hash_table, Lisp_Hash_Table)
 #define XSETHASH_TABLE(x, p) XSETRECORD (x, p, hash_table)
 #define HASH_TABLEP(x) RECORDP (x, hash_table)
 #define CHECK_HASH_TABLE(x) CHECK_RECORD (x, hash_table)
@@ -63,8 +65,6 @@ typedef unsigned long (*hash_table_hash_function_t) (Lisp_Object obj);
 typedef int (*maphash_function_t) (Lisp_Object key, Lisp_Object value,
 				   void* extra_arg);
 
-struct Lisp_Hash_Table;
-
 Lisp_Object make_general_lisp_hash_table (enum hash_table_test test,
 					  size_t size,
 					  double rehash_size,
@@ -84,6 +84,6 @@ void elisp_map_remhash (maphash_function_t predicate,
 int finish_marking_weak_hash_tables (void);
 void prune_weak_hash_tables (void);
 
-void reorganize_hash_table (struct Lisp_Hash_Table *ht);
+void pdump_reorganize_hash_table (Lisp_Object);
 
-#endif /* _XEMACS_ELHASH_H_ */
+#endif /* INCLUDED_elhash_h_ */

@@ -22,8 +22,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_REDISPLAY_H_
-#define _XEMACS_REDISPLAY_H_
+#ifndef INCLUDED_redisplay_h_
+#define INCLUDED_redisplay_h_
 
 /* Redisplay DASSERT types */
 #define DB_DISP_POS		1
@@ -784,4 +784,4 @@ void output_display_line (struct window *w, display_line_dynarr *cdla,
 			  display_line_dynarr *ddla, int line,
 			  int force_start, int force_end);
 
-#endif /* _XEMACS_REDISPLAY_H_ */
+#endif /* INCLUDED_redisplay_h_ */

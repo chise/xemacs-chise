@@ -51,7 +51,7 @@
 (call-with-condition-handler 'really-early-error-handler
     #'(lambda ()
 
-	;; Initializa Installation-string.  We do it before loading
+	;; Initialize Installation-string.  We do it before loading
 	;; anything so that dumped code can make use of its value.
 	(setq Installation-string
 	      (save-current-buffer

@@ -83,4 +83,3 @@ extern void emodules_doc_sym (CONST char *objname, CONST char *docstr);
 #endif /* EMODULES_GATHER_VERSION */
 
 #endif /* EMODULES_HDR */
-

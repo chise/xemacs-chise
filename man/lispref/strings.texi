@@ -18,7 +18,7 @@ XEmacs Lisp has many functions expressly for manipulating them.  XEmacs
 Lisp programs use strings more often than individual characters.
 
 @menu
-* Basics: String Basics.      Basic properties of strings and characters.
+* String Basics::             Basic properties of strings and characters.
 * Predicates for Strings::    Testing whether an object is a string or char.
 * Creating Strings::          Functions to allocate new strings.
 * Predicates for Characters:: Testing whether an object is a character.

@@ -159,8 +159,9 @@ push_lisp_string_as_unicode (unsigned_char_dynarr* dynarr, Lisp_Object string)
   Charcount length = XSTRING_CHAR_LENGTH (string);
   LPWSTR uni_string;
 
-  GET_C_CHARPTR_EXT_DATA_ALLOCA (XSTRING_DATA (string),
-				 FORMAT_OS, mbcs_string);
+  TO_EXTERNAL_FORMAT (LISP_STRING, string,
+		      C_STRING_ALLOCA, mbcs_string,
+		      Qnative);
   uni_string = alloca_array (WCHAR, length + 1);
   length = MultiByteToWideChar (CP_ACP, 0, mbcs_string, -1,
 				uni_string, sizeof(WCHAR) * (length + 1));
@@ -344,7 +345,7 @@ mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
     for (i = 0; i < Dynarr_length (dialog_items); ++i)
       {
 	Lisp_Object* gui_item = Dynarr_atp (dialog_items, i);
-	struct Lisp_Gui_Item *pgui_item = XGUI_ITEM (*gui_item);
+	Lisp_Gui_Item *pgui_item = XGUI_ITEM (*gui_item);
 
 	item_tem.style = (WS_CHILD | WS_VISIBLE | WS_TABSTOP | BS_PUSHBUTTON
 			  | (gui_item_active_p (*gui_item) ? 0 : WS_DISABLED));

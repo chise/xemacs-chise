@@ -21,8 +21,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_LRECORD_H_
-#define _XEMACS_LRECORD_H_
+#ifndef INCLUDED_lrecord_h_
+#define INCLUDED_lrecord_h_
 
 /* The "lrecord" type of Lisp object is used for all object types
    other than a few simple ones.  This allows many types to be
@@ -210,17 +210,19 @@ extern int gc_in_progress;
    The description ends with a "XD_END" or "XD_SPECIFIER_END" record.
 
    Some example descriptions :
+
    static const struct lrecord_description cons_description[] = {
-     { XD_LISP_OBJECT, offsetof(struct Lisp_Cons, car), 2 },
+     { XD_LISP_OBJECT, offsetof (Lisp_Cons, car) },
+     { XD_LISP_OBJECT, offsetof (Lisp_Cons, cdr) },
      { XD_END }
    };
 
-   Which means "two lisp objects starting at the 'car' element"
+   Which means "two lisp objects starting at the 'car' and 'cdr' elements"
 
   static const struct lrecord_description string_description[] = {
-    { XD_BYTECOUNT,       offsetof(Lisp_String, size) },
-    { XD_OPAQUE_DATA_PTR, offsetof(Lisp_String, data), XD_INDIRECT(0, 1) },
-    { XD_LISP_OBJECT,     offsetof(Lisp_String, plist), 1 },
+    { XD_BYTECOUNT,       offsetof (Lisp_String, size) },
+    { XD_OPAQUE_DATA_PTR, offsetof (Lisp_String, data), XD_INDIRECT(0, 1) },
+    { XD_LISP_OBJECT,     offsetof (Lisp_String, plist) },
     { XD_END }
   };
   "A pointer to string data at 'data', the size of the pointed array being the value
@@ -228,10 +230,13 @@ extern int gc_in_progress;
 
   The existing types :
     XD_LISP_OBJECT
-  Lisp objects.  The third element is the count.  This is also the type to use
-  for pointers to other lrecords.
+  A Lisp object.  This is also the type to use for pointers to other lrecords.
 
-    XD_LO_RESET_NIL
+    XD_LISP_OBJECT_ARRAY
+  An array of Lisp objects or pointers to lrecords.
+  The third element is the count.
+
+  XD_LO_RESET_NIL
   Lisp objects which will be reset to Qnil when dumping.  Useful for cleaning
   up caches.
 
@@ -287,6 +292,7 @@ extern int gc_in_progress;
 */
 
 enum lrecord_description_type {
+  XD_LISP_OBJECT_ARRAY,
   XD_LISP_OBJECT,
   XD_LO_RESET_NIL,
   XD_LO_LINK,
@@ -323,9 +329,9 @@ struct struct_description {
 #define XD_INDIRECT_DELTA(code) (((-1-code)>>8) & 255)
 
 #define XD_DYNARR_DESC(base_type, sub_desc) \
-  { XD_STRUCT_PTR, offsetof(base_type, base), XD_INDIRECT(1, 0), sub_desc }, \
-  { XD_INT,        offsetof(base_type, cur) }, \
-  { XD_INT_RESET,  offsetof(base_type, max), XD_INDIRECT(1, 0) }
+  { XD_STRUCT_PTR, offsetof (base_type, base), XD_INDIRECT(1, 0), sub_desc }, \
+  { XD_INT,        offsetof (base_type, cur) }, \
+  { XD_INT_RESET,  offsetof (base_type, max), XD_INDIRECT(1, 0) }
 
 /* Declaring the following structures as const puts them in the
    text (read-only) segment, which makes debugging inconvenient
@@ -497,4 +503,4 @@ void *alloc_lcrecord (size_t size, CONST struct lrecord_implementation *);
    memset ((char *) (lcr) + sizeof (struct lcrecord_header), 0,	\
 	   sizeof (*(lcr)) - sizeof (struct lcrecord_header))
 
-#endif /* _XEMACS_LRECORD_H_ */
+#endif /* INCLUDED_lrecord_h_ */

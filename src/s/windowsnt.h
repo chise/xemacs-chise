@@ -182,49 +182,15 @@ typedef int pid_t;
 
 #define MODE_LINE_BINARY_TEXT(_b_) (NILP ((_b_)->buffer_file_type) ? "T" : "B")
 
-/* get some redefinitions in place */
-
-#if 0
-/* IO calls that are emulated or shadowed */
-#define access  sys_access
-#define chdir   sys_chdir
-#define chmod   sys_chmod
-#define close   sys_close
-#define creat   sys_creat
-#define ctime sys_ctime
-#define dup     sys_dup
-#define dup2    sys_dup2
-#define fopen   sys_fopen
-#define link    sys_link
-#define mktemp  sys_mktemp
-#define open    sys_open
-#define read    sys_read
-#define rename  sys_rename
-#define unlink  sys_unlink
-#define write   sys_write
-#define mkdir   sys_mkdir
-#define rmdir   sys_rmdir
-
-#endif
-
-#if 0
-/* this is hacky, but is necessary to avoid warnings about macro
-   redefinitions using the SDK compilers */
-#ifndef __STDC__
-#define __STDC__ 1
-#define MUST_UNDEF__STDC__
-#endif
-#include <direct.h>
-#include <io.h>
-#include <stdio.h>
-#ifdef MUST_UNDEF__STDC__
-#undef __STDC__
-#undef MUST_UNDEF__STDC__
-#endif
-#endif
 
 #include <stdio.h>
 
+/* subprocess calls that are emulated */
+#ifndef DONT_ENCAPSULATE
+#define spawnve sys_spawnve
+int spawnve (int mode, CONST char *cmdname, 
+	     CONST char * CONST *argv, CONST char *CONST *envp);
+#endif
 
 /* IO calls that are emulated or shadowed */
 #define pipe    sys_pipe
@@ -235,11 +201,6 @@ int sys_pipe (int * phandles);
 void sleep (int seconds);
 #endif
 
-/* subprocess calls that are emulated */
-#define spawnve sys_spawnve
-int spawnve (int mode, CONST char *cmdname, 
-	     CONST char * CONST *argv, CONST char *CONST *envp);
-
 #define wait    sys_wait
 int wait (int *status);
 
@@ -249,37 +210,6 @@ int kill (int pid, int sig);
 /* map to MSVC names */
 #define popen     _popen
 #define pclose    _pclose
-
-#if 0
-#define chdir     _chdir
-#define execlp    _execlp
-#define execvp    _execvp
-#define fcloseall _fcloseall
-#define fdopen    _fdopen
-#define fgetchar  _fgetchar
-#define fileno    _fileno
-#define flushall  _flushall
-#define fputchar  _fputchar
-#define getw      _getw
-#define getpid    _getpid
-#define isatty    _isatty
-#define logb      _logb
-#define _longjmp  longjmp
-#define lseek     _lseek
-#define putw      _putw
-#define umask     _umask
-/* #define utime     _utime */
-/* #define index     strchr */
-/* #define rindex    strrchr */
-#define read	  _read
-#define write	  _write
-#define getcwd    _getcwd
-
-#ifdef HAVE_NTGUI
-#define abort	win32_abort
-#endif
-
-#endif /* 0 */
 
 typedef int uid_t;
 typedef int gid_t;
@@ -320,7 +250,6 @@ gid_t getegid (void);
 #define sighold(s) msw_sighold(s)
 #define sigrelse(s) msw_sigrelse(s)
 #define sigpause(s) msw_sigpause(s)
-#define signal sigset
 
 /* Defines that we need that aren't in the standard signal.h  */
 #define SIGHUP  1               /* Hang up */
@@ -332,13 +261,6 @@ gid_t getegid (void);
 /* For integration with MSDOS support.  */
 #define getdisk()               (_getdrive () - 1)
 #define getdefdir(_drv, _buf)   _getdcwd (_drv, _buf, MAXPATHLEN)
-
-#if 0 /* they do. -kkm */
-/* Define this so that winsock.h definitions don't get included when windows.h
-   is...  I don't know if they do the right thing for emacs.  For this to
-   have proper effect, config.h must always be included before windows.h.  */
-#define _WINSOCKAPI_    1
-#endif /* 0 */
 
 /* Defines size_t and alloca ().  */
 #include <malloc.h>

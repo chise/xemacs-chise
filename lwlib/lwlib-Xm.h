@@ -1,5 +1,5 @@
-#ifndef LWLIB_XM_H
-#define LWLIB_XM_H
+#ifndef INCLUDED_lwlib_Xm_h_
+#define INCLUDED_lwlib_Xm_h_
 
 #include "lwlib-internal.h"
 
@@ -36,4 +36,4 @@ xm_pop_instance (widget_instance* instance, Boolean up);
 
 extern Widget first_child (Widget);	/* garbage */
 
-#endif /* LWLIB_XM_H */
+#endif /* INCLUDED_lwlib_Xm_h_ */

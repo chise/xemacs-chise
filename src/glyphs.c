@@ -168,7 +168,7 @@ decode_device_ii_format (Lisp_Object device, Lisp_Object format,
 	  if ((NILP (d) && NILP (device))
 	      ||
 	      (!NILP (device) &&
-	       EQ (CONSOLE_TYPE (XCONSOLE 
+	       EQ (CONSOLE_TYPE (XCONSOLE
 				 (DEVICE_CONSOLE (XDEVICE (device)))), d)))
 	    return Dynarr_at (the_image_instantiator_format_entry_dynarr, i).meths;
 	}
@@ -563,7 +563,7 @@ normalize_image_instantiator (Lisp_Object instantiator,
     struct image_instantiator_methods *meths;
 
     GCPRO1 (instantiator);
-    
+
     meths = decode_image_instantiator_format (XVECTOR_DATA (instantiator)[0],
 					      ERROR_ME);
     RETURN_UNGCPRO (IIFORMAT_METH_OR_GIVEN (meths, normalize,
@@ -594,7 +594,7 @@ instantiate_image_instantiator (Lisp_Object device, Lisp_Object domain,
   methp = (int)HAS_IIFORMAT_METH_P (meths, instantiate);
   MAYBE_IIFORMAT_METH (meths, instantiate, (ii, instantiator, pointer_fg,
 					    pointer_bg, dest_mask, domain));
-  
+
   /* now do device specific instantiation */
   meths = decode_device_ii_format (device, XVECTOR_DATA (instantiator)[0],
 				   ERROR_ME_NOT);
@@ -620,7 +620,7 @@ Lisp_Object Qimage_instancep;
 static Lisp_Object
 mark_image_instance (Lisp_Object obj)
 {
-  struct Lisp_Image_Instance *i = XIMAGE_INSTANCE (obj);
+  Lisp_Image_Instance *i = XIMAGE_INSTANCE (obj);
 
   mark_object (i->name);
   /* We don't mark the glyph reference since that would create a
@@ -641,17 +641,12 @@ mark_image_instance (Lisp_Object obj)
       break;
 
     case IMAGE_WIDGET:
+    case IMAGE_LAYOUT:
       mark_object (IMAGE_INSTANCE_WIDGET_TYPE (i));
       mark_object (IMAGE_INSTANCE_WIDGET_PROPS (i));
       mark_object (IMAGE_INSTANCE_WIDGET_FACE (i));
       mark_object (IMAGE_INSTANCE_WIDGET_ITEMS (i));
     case IMAGE_SUBWINDOW:
-      mark_object (IMAGE_INSTANCE_SUBWINDOW_FRAME (i));
-      break;
-
-    case IMAGE_LAYOUT:
-      mark_object (IMAGE_INSTANCE_LAYOUT_CHILDREN (i));
-      mark_object (IMAGE_INSTANCE_LAYOUT_BORDER (i));
       mark_object (IMAGE_INSTANCE_SUBWINDOW_FRAME (i));
       break;
 
@@ -669,7 +664,7 @@ print_image_instance (Lisp_Object obj, Lisp_Object printcharfun,
 		      int escapeflag)
 {
   char buf[100];
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (obj);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (obj);
 
   if (print_readably)
     error ("printing unreadable object #<image-instance 0x%x>",
@@ -781,10 +776,10 @@ print_image_instance (Lisp_Object obj, Lisp_Object printcharfun,
       write_c_string (" on #<", printcharfun);
       {
 	struct frame* f  = XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
-	
+
 	if (!FRAME_LIVE_P (f))
 	  write_c_string ("dead", printcharfun);
-	else 
+	else
 	  write_c_string (DEVICE_TYPE_NAME (XDEVICE (FRAME_DEVICE (f))),
 			  printcharfun);
 
@@ -793,7 +788,7 @@ print_image_instance (Lisp_Object obj, Lisp_Object printcharfun,
       write_c_string (">", printcharfun);
       sprintf (buf, " 0x%p", IMAGE_INSTANCE_SUBWINDOW_ID (ii));
       write_c_string (buf, printcharfun);
-      
+
       break;
 
     default:
@@ -809,7 +804,7 @@ print_image_instance (Lisp_Object obj, Lisp_Object printcharfun,
 static void
 finalize_image_instance (void *header, int for_disksave)
 {
-  struct Lisp_Image_Instance *i = (struct Lisp_Image_Instance *) header;
+  Lisp_Image_Instance *i = (Lisp_Image_Instance *) header;
 
   if (IMAGE_INSTANCE_TYPE (i) == IMAGE_NOTHING)
     /* objects like this exist at dump time, so don't bomb out. */
@@ -821,7 +816,7 @@ finalize_image_instance (void *header, int for_disksave)
       ||
       IMAGE_INSTANCE_TYPE (i) == IMAGE_SUBWINDOW)
     {
-      MARK_FRAME_SUBWINDOWS_CHANGED 
+      MARK_FRAME_SUBWINDOWS_CHANGED
 	(XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (i)));
     }
 
@@ -831,8 +826,8 @@ finalize_image_instance (void *header, int for_disksave)
 static int
 image_instance_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Image_Instance *i1 = XIMAGE_INSTANCE (obj1);
-  struct Lisp_Image_Instance *i2 = XIMAGE_INSTANCE (obj2);
+  Lisp_Image_Instance *i1 = XIMAGE_INSTANCE (obj1);
+  Lisp_Image_Instance *i2 = XIMAGE_INSTANCE (obj2);
   struct device *d1 = XDEVICE (i1->device);
   struct device *d2 = XDEVICE (i2->device);
 
@@ -881,6 +876,7 @@ image_instance_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
       break;
 
     case IMAGE_WIDGET:
+    case IMAGE_LAYOUT:
       if (!(EQ (IMAGE_INSTANCE_WIDGET_TYPE (i1),
 		IMAGE_INSTANCE_WIDGET_TYPE (i2))
 	    && IMAGE_INSTANCE_SUBWINDOW_ID (i1) ==
@@ -894,19 +890,7 @@ image_instance_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 	    ))
 	return 0;
       break;
-      
-    case IMAGE_LAYOUT:
-      if (IMAGE_INSTANCE_TYPE (i1) == IMAGE_LAYOUT
-	  &&
-	  !(EQ (IMAGE_INSTANCE_LAYOUT_BORDER (i1),
-		IMAGE_INSTANCE_LAYOUT_BORDER (i2))
-	    &&
-	    internal_equal (IMAGE_INSTANCE_LAYOUT_CHILDREN (i1),
-			    IMAGE_INSTANCE_LAYOUT_CHILDREN (i2),
-			    depth + 1)))
-	return 0;
-      break;
-      
+
     case IMAGE_SUBWINDOW:
       if (!(IMAGE_INSTANCE_SUBWINDOW_ID (i1) ==
 	    IMAGE_INSTANCE_SUBWINDOW_ID (i2)))
@@ -923,7 +907,7 @@ image_instance_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 static unsigned long
 image_instance_hash (Lisp_Object obj, int depth)
 {
-  struct Lisp_Image_Instance *i = XIMAGE_INSTANCE (obj);
+  Lisp_Image_Instance *i = XIMAGE_INSTANCE (obj);
   struct device *d = XDEVICE (i->device);
   unsigned long hash = HASH3 ((unsigned long) d,
 			      IMAGE_INSTANCE_WIDTH (i),
@@ -949,19 +933,13 @@ image_instance_hash (Lisp_Object obj, int depth)
       break;
 
     case IMAGE_WIDGET:
-      hash = HASH4 (hash, 
+    case IMAGE_LAYOUT:
+      hash = HASH4 (hash,
 		    internal_hash (IMAGE_INSTANCE_WIDGET_TYPE (i), depth + 1),
 		    internal_hash (IMAGE_INSTANCE_WIDGET_PROPS (i), depth + 1),
 		    internal_hash (IMAGE_INSTANCE_WIDGET_ITEMS (i), depth + 1));
     case IMAGE_SUBWINDOW:
       hash = HASH2 (hash, (int) IMAGE_INSTANCE_SUBWINDOW_ID (i));
-      break;
-
-    case IMAGE_LAYOUT:
-      hash = HASH3 (hash,
-		    internal_hash (IMAGE_INSTANCE_LAYOUT_BORDER (i), depth + 1),
-		    internal_hash (IMAGE_INSTANCE_LAYOUT_CHILDREN (i),
-				   depth + 1));
       break;
 
     default:
@@ -976,13 +954,13 @@ DEFINE_LRECORD_IMPLEMENTATION ("image-instance", image_instance,
 			       mark_image_instance, print_image_instance,
 			       finalize_image_instance, image_instance_equal,
 			       image_instance_hash, 0,
-			       struct Lisp_Image_Instance);
+			       Lisp_Image_Instance);
 
 static Lisp_Object
 allocate_image_instance (Lisp_Object device, Lisp_Object glyph)
 {
-  struct Lisp_Image_Instance *lp =
-    alloc_lcrecord_type (struct Lisp_Image_Instance, &lrecord_image_instance);
+  Lisp_Image_Instance *lp =
+    alloc_lcrecord_type (Lisp_Image_Instance, &lrecord_image_instance);
   Lisp_Object val;
 
   zero_lcrecord (lp);
@@ -1241,7 +1219,7 @@ If DEST-TYPES is omitted, all possible types are allowed.
 NO-ERROR controls what happens when the image cannot be generated.
 If nil, an error message is generated.  If t, no messages are
 generated and this function returns nil.  If anything else, a warning
-message is generated and this function returns nil.  
+message is generated and this function returns nil.
 */
        (data, device, dest_types, no_error))
 {
@@ -1296,13 +1274,13 @@ This will only be non-nil for text image instances and widgets.
 }
 
 DEFUN ("image-instance-property", Fimage_instance_property, 2, 2, 0, /*
-Return the given property of the given image instance.  
+Return the given property of the given image instance.
 Returns nil if the property or the property method do not exist for
-the image instance in the domain.  
+the image instance in the domain.
 */
        (image_instance, prop))
 {
-  struct Lisp_Image_Instance* ii;
+  Lisp_Image_Instance* ii;
   Lisp_Object type, ret;
   struct image_instantiator_methods* meths;
 
@@ -1312,10 +1290,10 @@ the image instance in the domain.
 
   /* ... then try device specific methods ... */
   type = encode_image_instance_type (IMAGE_INSTANCE_TYPE (ii));
-  meths = decode_device_ii_format (IMAGE_INSTANCE_DEVICE (ii), 
+  meths = decode_device_ii_format (IMAGE_INSTANCE_DEVICE (ii),
 				   type, ERROR_ME_NOT);
   if (meths && HAS_IIFORMAT_METH_P (meths, property)
-      && 
+      &&
       !UNBOUNDP (ret =  IIFORMAT_METH (meths, property, (image_instance, prop))))
     {
       return ret;
@@ -1333,13 +1311,13 @@ the image instance in the domain.
 }
 
 DEFUN ("set-image-instance-property", Fset_image_instance_property, 3, 3, 0, /*
-Set the given property of the given image instance.  
+Set the given property of the given image instance.
 Does nothing if the property or the property method do not exist for
 the image instance in the domain.
 */
        (image_instance, prop, val))
 {
-  struct Lisp_Image_Instance* ii;
+  Lisp_Image_Instance* ii;
   Lisp_Object type, ret;
   struct image_instantiator_methods* meths;
 
@@ -1348,11 +1326,11 @@ the image instance in the domain.
   ii = XIMAGE_INSTANCE (image_instance);
   type = encode_image_instance_type (IMAGE_INSTANCE_TYPE (ii));
   /* try device specific methods first ... */
-  meths = decode_device_ii_format (IMAGE_INSTANCE_DEVICE (ii), 
+  meths = decode_device_ii_format (IMAGE_INSTANCE_DEVICE (ii),
 				   type, ERROR_ME_NOT);
   if (meths && HAS_IIFORMAT_METH_P (meths, set_property)
       &&
-      !UNBOUNDP (ret = 
+      !UNBOUNDP (ret =
 		 IIFORMAT_METH (meths, set_property, (image_instance, prop, val))))
     {
       val = ret;
@@ -1363,7 +1341,7 @@ the image instance in the domain.
       meths = decode_device_ii_format (Qnil, type, ERROR_ME_NOT);
       if (meths && HAS_IIFORMAT_METH_P (meths, set_property)
 	  &&
-	  !UNBOUNDP (ret = 
+	  !UNBOUNDP (ret =
 		     IIFORMAT_METH (meths, set_property, (image_instance, prop, val))))
 	{
 	  val = ret;
@@ -1374,7 +1352,10 @@ the image instance in the domain.
 	}
     }
 
-  /* Make sure the image instance gets redisplayed. */
+  /* Make sure the image instance gets redisplayed.
+
+     ### This currently does not change the dirty state of an
+     enclosing layout which may be bad. */
   MARK_IMAGE_INSTANCE_CHANGED (ii);
   MARK_SUBWINDOWS_STATE_CHANGED;
   MARK_GLYPHS_CHANGED;
@@ -1551,7 +1532,7 @@ colorized mono pixmaps and for pointers.)
     case IMAGE_WIDGET:
       return FACE_FOREGROUND (
 			      XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
-			      XIMAGE_INSTANCE_SUBWINDOW_FRAME 
+			      XIMAGE_INSTANCE_SUBWINDOW_FRAME
 			      (image_instance));
 
     default:
@@ -1578,7 +1559,7 @@ colorized mono pixmaps and for pointers.)
     case IMAGE_WIDGET:
       return FACE_BACKGROUND (
 			      XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
-			      XIMAGE_INSTANCE_SUBWINDOW_FRAME 
+			      XIMAGE_INSTANCE_SUBWINDOW_FRAME
 			      (image_instance));
 
     default:
@@ -1628,21 +1609,21 @@ instance is a mono pixmap; otherwise, the same image instance is returned.
 /* Find out desired geometry of the image instance. If there is no
    special function then just return the width and / or height. */
 void
-image_instance_query_geometry (Lisp_Object image_instance, 
-			       unsigned int* width, unsigned int* height, 
+image_instance_query_geometry (Lisp_Object image_instance,
+			       unsigned int* width, unsigned int* height,
 			       enum image_instance_geometry disp,
 			       Lisp_Object domain)
 {
-  struct Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object type;
   struct image_instantiator_methods* meths;
 
   type = encode_image_instance_type (IMAGE_INSTANCE_TYPE (ii));
   meths = decode_device_ii_format (Qnil, type, ERROR_ME_NOT);
-  
+
   if (meths && HAS_IIFORMAT_METH_P (meths, query_geometry))
     {
-      IIFORMAT_METH (meths, query_geometry, (image_instance, width, height, 
+      IIFORMAT_METH (meths, query_geometry, (image_instance, width, height,
 					     disp, domain));
     }
   else
@@ -1662,11 +1643,11 @@ image_instance_query_geometry (Lisp_Object image_instance,
    don't mind what size you have (normal widgets) and one where you
    want to specifiy something (layout widgets). */
 void
-image_instance_layout (Lisp_Object image_instance, 
-		       unsigned int width, unsigned int height, 
+image_instance_layout (Lisp_Object image_instance,
+		       unsigned int width, unsigned int height,
 		       Lisp_Object domain)
 {
-  struct Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object type;
   struct image_instantiator_methods* meths;
 
@@ -1683,8 +1664,8 @@ image_instance_layout (Lisp_Object image_instance,
       /* Get the desired geometry. */
       if (meths && HAS_IIFORMAT_METH_P (meths, query_geometry))
 	{
-	  IIFORMAT_METH (meths, query_geometry, (image_instance, &dwidth, &dheight, 
-						 IMAGE_DESIRED_GEOMETRY, 
+	  IIFORMAT_METH (meths, query_geometry, (image_instance, &dwidth, &dheight,
+						 IMAGE_DESIRED_GEOMETRY,
 						 domain));
 	}
       else
@@ -1704,12 +1685,46 @@ image_instance_layout (Lisp_Object image_instance,
      we set the glyph geometry and lay it out. */
   IMAGE_INSTANCE_WIDTH (ii) = width;
   IMAGE_INSTANCE_HEIGHT (ii) = height;
-  
+
   if (meths && HAS_IIFORMAT_METH_P (meths, layout))
     {
       IIFORMAT_METH (meths, layout, (image_instance, width, height, domain));
     }
   /* else no change to the geometry. */
+
+  XIMAGE_INSTANCE_DIRTYP (image_instance) = 0;
+}
+
+/*
+ * Mark image instance in W as dirty if (a) W's faces have changed and
+ * (b) GLYPH_OR_II instance in W is a string.
+ *
+ * Return non-zero if instance has been marked dirty.
+ */
+int
+invalidate_glyph_geometry_maybe (Lisp_Object glyph_or_ii, struct window* w)
+{
+  if (XFRAME(WINDOW_FRAME(w))->faces_changed)
+    {
+      Lisp_Object image = glyph_or_ii;
+
+      if (GLYPHP (glyph_or_ii))
+	{
+	  Lisp_Object window;
+	  XSETWINDOW (window, w);
+	  image = glyph_image_instance (glyph_or_ii, window, ERROR_ME_NOT, 1);
+	}
+
+      if (TEXT_IMAGE_INSTANCEP (image))
+	{
+	  XIMAGE_INSTANCE_DIRTYP (image) = 1;
+	  if (GLYPHP (glyph_or_ii))
+	    XGLYPH_DIRTYP (glyph_or_ii) = 1;
+	  return 1;
+	}
+    }
+
+  return 0;
 }
 
 
@@ -1745,7 +1760,7 @@ nothing_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		     Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		     int dest_mask, Lisp_Object domain)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
   if (dest_mask & IMAGE_NOTHING_MASK)
     IMAGE_INSTANCE_TYPE (ii) = IMAGE_NOTHING;
@@ -1815,8 +1830,8 @@ string_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		    int dest_mask, Lisp_Object domain)
 {
   Lisp_Object string = find_keyword_in_vector (instantiator, Q_data);
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-  
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+
   /* Should never get here with a domain other than a window. */
   assert (!NILP (string) && WINDOWP (domain));
   if (dest_mask & IMAGE_TEXT_MASK)
@@ -1835,7 +1850,7 @@ string_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
    helper that is used elsewhere for calculating text geometry. */
 void
 query_string_geometry (Lisp_Object string, Lisp_Object face,
-		       unsigned int* width, unsigned int* height, 
+		       unsigned int* width, unsigned int* height,
 		       unsigned int* descent, Lisp_Object domain)
 {
   struct font_metric_info fm;
@@ -1851,7 +1866,7 @@ query_string_geometry (Lisp_Object string, Lisp_Object face,
       find_charsets_in_bufbyte_string (charsets,
 				       XSTRING_DATA   (string),
 				       XSTRING_LENGTH (string));
-      
+
       /* Fallback to the default face if none was provided. */
       if (!NILP (face))
 	{
@@ -1863,16 +1878,16 @@ query_string_geometry (Lisp_Object string, Lisp_Object face,
 	{
 	  cachel = WINDOW_FACE_CACHEL (XWINDOW (domain), DEFAULT_INDEX);
 	}
-      
+
       ensure_face_cachel_complete (cachel, domain, charsets);
       face_cachel_charset_font_metric_info (cachel, charsets, &fm);
-      
+
       *height = fm.ascent + fm.descent;
       /* #### descent only gets set if we query the height as well. */
       if (descent)
 	*descent = fm.descent;
     }
-    
+
   /* Compute width */
   if (width)
     {
@@ -1900,22 +1915,22 @@ query_string_font (Lisp_Object string, Lisp_Object face, Lisp_Object domain)
   find_charsets_in_bufbyte_string (charsets,
 				   XSTRING_DATA   (string),
 				   XSTRING_LENGTH (string));
- 
+
   reset_face_cachel (&frame_cachel);
   update_face_cachel_data (&frame_cachel, frame, face);
   cachel = &frame_cachel;
 
   ensure_face_cachel_complete (cachel, domain, charsets);
-  
+
   for (i = 0; i < NUM_LEADING_BYTES; i++)
     {
       if (charsets[i])
 	{
-	  return FACE_CACHEL_FONT (cachel, 
-				   CHARSET_BY_LEADING_BYTE (i + 
+	  return FACE_CACHEL_FONT (cachel,
+				   CHARSET_BY_LEADING_BYTE (i +
 							    MIN_LEADING_BYTE));
 
-	}  
+	}
     }
 
   return Qnil;			/* NOT REACHED */
@@ -1923,10 +1938,10 @@ query_string_font (Lisp_Object string, Lisp_Object face, Lisp_Object domain)
 
 static void
 text_query_geometry (Lisp_Object image_instance,
-		     unsigned int* width, unsigned int* height, 
+		     unsigned int* width, unsigned int* height,
 		     enum image_instance_geometry disp, Lisp_Object domain)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   unsigned int descent = 0;
 
   query_string_geometry (IMAGE_INSTANCE_TEXT_STRING (ii),
@@ -1943,7 +1958,7 @@ static Lisp_Object
 text_set_property (Lisp_Object image_instance, Lisp_Object prop,
 		   Lisp_Object val)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
   if (EQ (prop, Q_data))
     {
@@ -1982,7 +1997,7 @@ formatted_string_instantiate (Lisp_Object image_instance,
   warn_when_safe (Qunimplemented, Qnotice,
 		  "`formatted-string' not yet implemented; assuming `string'");
 
-  string_instantiate (image_instance, instantiator, 
+  string_instantiate (image_instance, instantiator,
 		      pointer_fg, pointer_bg, dest_mask, domain);
 }
 
@@ -2149,7 +2164,9 @@ bitmap_to_lisp_data (Lisp_Object name, int *xhot, int *yhot,
   int result;
   CONST char *filename_ext;
 
-  GET_C_STRING_FILENAME_DATA_ALLOCA (name, filename_ext);
+  TO_EXTERNAL_FORMAT (LISP_STRING, name,
+		      C_STRING_ALLOCA, filename_ext,
+		      Qfile_name);
   result = read_bitmap_data_from_file (filename_ext, &w, &h,
 				       &data, xhot, yhot);
 
@@ -2159,7 +2176,7 @@ bitmap_to_lisp_data (Lisp_Object name, int *xhot, int *yhot,
       int len = (w + 7) / 8 * h;
 
       retval = list3 (make_int (w), make_int (h),
-		      make_ext_string (data, len, FORMAT_BINARY));
+		      make_ext_string (data, len, Qbinary));
       XFree ((char *) data);
       return retval;
     }
@@ -2392,8 +2409,10 @@ pixmap_to_lisp_data (Lisp_Object name, int ok_if_data_invalid)
   char **data;
   int result;
   char *fname = 0;
-  
-  GET_C_STRING_FILENAME_DATA_ALLOCA (name, fname);
+
+  TO_EXTERNAL_FORMAT (LISP_STRING, name,
+		      C_STRING_ALLOCA, fname,
+		      Qfile_name);
   result = XpmReadFileToData (fname, &data);
 
   if (result == XpmSuccess)
@@ -2603,7 +2622,7 @@ DEFINE_SPECIFIER_TYPE (image);
 static void
 image_create (Lisp_Object obj)
 {
-  struct Lisp_Specifier *image = XIMAGE_SPECIFIER (obj);
+  Lisp_Specifier *image = XIMAGE_SPECIFIER (obj);
 
   IMAGE_SPECIFIER_ALLOWED (image) = ~0; /* all are allowed */
   IMAGE_SPECIFIER_ATTACHEE (image) = Qnil;
@@ -2613,7 +2632,7 @@ image_create (Lisp_Object obj)
 static void
 image_mark (Lisp_Object obj)
 {
-  struct Lisp_Specifier *image = XIMAGE_SPECIFIER (obj);
+  Lisp_Specifier *image = XIMAGE_SPECIFIER (obj);
 
   mark_object (IMAGE_SPECIFIER_ATTACHEE (image));
   mark_object (IMAGE_SPECIFIER_ATTACHEE_PROPERTY (image));
@@ -2694,7 +2713,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	  /* For the image instance cache, we do comparisons with EQ rather
 	     than with EQUAL, as we do for color and font names.
 	     The reasons are:
-	     
+
 	     1) pixmap data can be very long, and thus the hashing and
 	     comparing will take awhile.
 	     2) It's not so likely that we'll run into things that are EQUAL
@@ -2730,15 +2749,15 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	     round it. */
 	  if (UNBOUNDP (instance)
 	      &&
-	      dest_mask & (IMAGE_SUBWINDOW_MASK 
+	      dest_mask & (IMAGE_SUBWINDOW_MASK
 			   | IMAGE_WIDGET_MASK
 			   | IMAGE_TEXT_MASK))
 	    {
 	      if (!WINDOWP (domain))
 		signal_simple_error ("Can't instantiate text or subwindow outside a window",
 				     instantiator);
-	      instance = Fgethash (instantiator, 
-				   XWINDOW (domain)->subwindow_instance_cache, 
+	      instance = Fgethash (instantiator,
+				   XWINDOW (domain)->subwindow_instance_cache,
 				   Qunbound);
 	    }
 	}
@@ -2750,7 +2769,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 			  noseeum_cons (pointerp ? ls3 : instantiator,
 					subtable));
 	  int speccount = specpdl_depth ();
-	  
+
 	  /* make sure we cache the failures, too.
 	     Use an unwind-protect to catch such errors.
 	     If we fail, the unwind-protect records nil in
@@ -2765,7 +2784,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 						     pointer_fg, pointer_bg,
 						     dest_mask,
 						     glyph);
-	  
+
 	  Fsetcar (locative, instance);
 	  /* only after the image has been instantiated do we know
              whether we need to put it in the per-window image instance
@@ -2777,7 +2796,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	      if (!WINDOWP (domain))
 		signal_simple_error ("Can't instantiate subwindow outside a window",
 				     instantiator);
-	      
+
 	      Fsetcdr (XCDR (locative), XWINDOW (domain)->subwindow_instance_cache );
  	    }
 	  unbind_to (speccount, Qnil);
@@ -2875,7 +2894,7 @@ void
 set_image_attached_to (Lisp_Object obj, Lisp_Object face_or_glyph,
 		       Lisp_Object property)
 {
-  struct Lisp_Specifier *image = XIMAGE_SPECIFIER (obj);
+  Lisp_Specifier *image = XIMAGE_SPECIFIER (obj);
 
   IMAGE_SPECIFIER_ATTACHEE (image) = face_or_glyph;
   IMAGE_SPECIFIER_ATTACHEE_PROPERTY (image) = property;
@@ -2946,7 +2965,7 @@ image_copy_vector_instantiator (Lisp_Object instantiator)
   instantiator = Fcopy_sequence (instantiator);
   elt = XVECTOR_DATA (instantiator);
   instantiator_len = XVECTOR_LENGTH (instantiator);
-  
+
   meths = decode_image_instantiator_format (elt[0], ERROR_ME);
 
   for (i = 1; i < instantiator_len; i += 2)
@@ -3197,7 +3216,7 @@ file).
 static Lisp_Object
 mark_glyph (Lisp_Object obj)
 {
-  struct Lisp_Glyph *glyph = XGLYPH (obj);
+  Lisp_Glyph *glyph = XGLYPH (obj);
 
   mark_object (glyph->image);
   mark_object (glyph->contrib_p);
@@ -3210,7 +3229,7 @@ mark_glyph (Lisp_Object obj)
 static void
 print_glyph (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  struct Lisp_Glyph *glyph = XGLYPH (obj);
+  Lisp_Glyph *glyph = XGLYPH (obj);
   char buf[20];
 
   if (print_readably)
@@ -3233,8 +3252,8 @@ print_glyph (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 static int
 glyph_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Glyph *g1 = XGLYPH (obj1);
-  struct Lisp_Glyph *g2 = XGLYPH (obj2);
+  Lisp_Glyph *g1 = XGLYPH (obj1);
+  Lisp_Glyph *g2 = XGLYPH (obj2);
 
   depth++;
 
@@ -3259,7 +3278,7 @@ glyph_hash (Lisp_Object obj, int depth)
 static Lisp_Object
 glyph_getprop (Lisp_Object obj, Lisp_Object prop)
 {
-  struct Lisp_Glyph *g = XGLYPH (obj);
+  Lisp_Glyph *g = XGLYPH (obj);
 
   if (EQ (prop, Qimage))     return g->image;
   if (EQ (prop, Qcontrib_p)) return g->contrib_p;
@@ -3307,7 +3326,7 @@ glyph_remprop (Lisp_Object obj, Lisp_Object prop)
 static Lisp_Object
 glyph_plist (Lisp_Object obj)
 {
-  struct Lisp_Glyph *glyph = XGLYPH (obj);
+  Lisp_Glyph *glyph = XGLYPH (obj);
   Lisp_Object result = glyph->plist;
 
   result = cons3 (Qface,      glyph->face,      result);
@@ -3319,7 +3338,11 @@ glyph_plist (Lisp_Object obj)
 }
 
 static const struct lrecord_description glyph_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Glyph, image), 5 },
+  { XD_LISP_OBJECT, offsetof (Lisp_Glyph, image) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Glyph, contrib_p) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Glyph, baseline) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Glyph, face) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Glyph, plist) },
   { XD_END }
 };
 
@@ -3328,7 +3351,7 @@ DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS ("glyph", glyph,
 					  glyph_equal, glyph_hash, glyph_description,
 					  glyph_getprop, glyph_putprop,
 					  glyph_remprop, glyph_plist,
-					  struct Lisp_Glyph);
+					  Lisp_Glyph);
 
 Lisp_Object
 allocate_glyph (enum glyph_type type,
@@ -3337,8 +3360,7 @@ allocate_glyph (enum glyph_type type,
 {
   /* This function can GC */
   Lisp_Object obj = Qnil;
-  struct Lisp_Glyph *g =
-    alloc_lcrecord_type (struct Lisp_Glyph, &lrecord_glyph);
+  Lisp_Glyph *g = alloc_lcrecord_type (Lisp_Glyph, &lrecord_glyph);
 
   g->type = type;
   g->image = Fmake_specifier (Qimage); /* This function can GC */
@@ -3347,8 +3369,8 @@ allocate_glyph (enum glyph_type type,
     {
     case GLYPH_BUFFER:
       XIMAGE_SPECIFIER_ALLOWED (g->image) =
-	IMAGE_NOTHING_MASK | IMAGE_TEXT_MASK 
-	| IMAGE_MONO_PIXMAP_MASK | IMAGE_COLOR_PIXMAP_MASK 
+	IMAGE_NOTHING_MASK | IMAGE_TEXT_MASK
+	| IMAGE_MONO_PIXMAP_MASK | IMAGE_COLOR_PIXMAP_MASK
 	| IMAGE_SUBWINDOW_MASK | IMAGE_WIDGET_MASK
 	| IMAGE_LAYOUT_MASK;
       break;
@@ -3500,9 +3522,10 @@ glyph_image_instance (Lisp_Object glyph, Lisp_Object domain,
 
   /* This can never return Qunbound.  All glyphs have 'nothing as
      a fallback. */
-  Lisp_Object image_instance = specifier_instance (specifier, Qunbound, 
+  Lisp_Object image_instance = specifier_instance (specifier, Qunbound,
 						   domain, errb, no_quit, 0,
 						   Qzero);
+  assert (!UNBOUNDP (image_instance));
 
   return image_instance;
 }
@@ -3595,7 +3618,7 @@ glyph_height (Lisp_Object glyph_or_image, Lisp_Object domain)
 {
   Lisp_Object instance = glyph_image_instance_maybe (glyph_or_image,
 						     domain);
-  
+
   if (!IMAGE_INSTANCEP (instance))
     return 0;
 
@@ -3644,13 +3667,6 @@ that redisplay will.
   CHECK_GLYPH (glyph);
 
   return make_int (glyph_height (glyph, window));
-}
-
-static unsigned int
-glyph_dirty_p (Lisp_Object glyph_or_image, Lisp_Object window)
-{
-  return XIMAGE_INSTANCE_DIRTYP (glyph_image_instance_maybe 
-				 (glyph_or_image, window));
 }
 
 static void
@@ -3728,14 +3744,14 @@ glyph_property_was_changed (Lisp_Object glyph, Lisp_Object property,
 #if 0				/* Not used for now */
 static void
 glyph_query_geometry (Lisp_Object glyph_or_image, Lisp_Object window,
-		      unsigned int* width, unsigned int* height, 
+		      unsigned int* width, unsigned int* height,
 		      enum image_instance_geometry disp, Lisp_Object domain)
 {
   Lisp_Object instance = glyph_or_image;
 
   if (GLYPHP (glyph_or_image))
     instance = glyph_image_instance (glyph_or_image, window, ERROR_ME_NOT, 1);
-  
+
   image_instance_query_geometry (instance, width, height, disp, domain);
 }
 
@@ -3747,7 +3763,7 @@ glyph_layout (Lisp_Object glyph_or_image, Lisp_Object window,
 
   if (GLYPHP (glyph_or_image))
     instance = glyph_image_instance (glyph_or_image, window, ERROR_ME_NOT, 1);
-  
+
   image_instance_layout (instance, width, height, domain);
 }
 #endif
@@ -3782,17 +3798,25 @@ update_glyph_cachel_data (struct window *w, Lisp_Object glyph,
 			  struct glyph_cachel *cachel)
 {
   if (!cachel->updated || NILP (cachel->glyph) || !EQ (cachel->glyph, glyph)
-      || XGLYPH_DIRTYP (cachel->glyph))
+      || XGLYPH_DIRTYP (cachel->glyph)
+      || XFRAME(WINDOW_FRAME(w))->faces_changed)
     {
       Lisp_Object window, instance;
 
       XSETWINDOW (window, w);
 
       cachel->glyph   = glyph;
-    /* Speed things up slightly by grabbing the glyph instantiation
-       and passing it to the size functions. */
+      /* Speed things up slightly by grabbing the glyph instantiation
+	 and passing it to the size functions. */
       instance = glyph_image_instance (glyph, window, ERROR_ME_NOT, 1);
-      cachel->dirty = XGLYPH_DIRTYP (glyph) = glyph_dirty_p (glyph, window);
+
+      /* Mark text instance of the glyph dirty if faces have changed,
+	 because its geometry might have changed. */
+      invalidate_glyph_geometry_maybe (instance, w);
+
+      /* #### Do the following 2 lines buy us anything? --kkm */
+      XGLYPH_DIRTYP (glyph) = XIMAGE_INSTANCE_DIRTYP (instance);
+      cachel->dirty   = XGLYPH_DIRTYP (glyph);
       cachel->width   = glyph_width   (instance, window);
       cachel->ascent  = glyph_ascent  (instance, window);
       cachel->descent = glyph_descent (instance, window);
@@ -3877,7 +3901,7 @@ mark_glyph_cachels_as_not_updated (struct window *w)
 }
 
 /* Unset the dirty bit on all the glyph cachels that have it. */
-void 
+void
 mark_glyph_cachels_as_clean (struct window* w)
 {
   int elt;
@@ -4010,7 +4034,7 @@ update_subwindow_cachel (Lisp_Object subwindow)
     {
       struct subwindow_cachel *cachel =
 	Dynarr_atp (f->subwindow_cachels, elt);
-      
+
       if (EQ (cachel->subwindow, subwindow) && !NILP (subwindow))
 	{
 	  update_subwindow_cachel_data (f, subwindow, cachel);
@@ -4082,7 +4106,7 @@ check_for_ignored_expose (struct frame* f, int x, int y, int width, int height)
 	 we have to check for overlaps. Being conservative we will
 	 check for exposures wholly contained by the subwindow, this
 	 might give us what we want.*/
-      if (ei->x <= x && ei->y <= y 
+      if (ei->x <= x && ei->y <= y
 	  && ei->x + ei->width >= x + width
 	  && ei->y + ei->height >= y + height)
 	{
@@ -4094,7 +4118,7 @@ check_for_ignored_expose (struct frame* f, int x, int y, int width, int height)
 	    f->subwindow_exposures = ei->next;
 	  else
 	    prev->next = ei->next;
-	  
+
 	  if (ei == f->subwindow_exposures_tail)
 	    f->subwindow_exposures_tail = prev;
 
@@ -4112,15 +4136,15 @@ register_ignored_expose (struct frame* f, int x, int y, int width, int height)
   if (!hold_ignored_expose_registration)
     {
       struct expose_ignore *ei;
-      
+
       ei = Blocktype_alloc (the_expose_ignore_blocktype);
-      
+
       ei->next = NULL;
       ei->x = x;
       ei->y = y;
       ei->width = width;
       ei->height = height;
-      
+
       /* we have to add the exposure to the end of the list, since we
 	 want to check the oldest events first. for speed we keep a record
 	 of the end so that we can add right to it. */
@@ -4154,7 +4178,7 @@ int find_matching_subwindow (struct frame* f, int x, int y, int width, int heigh
       if (cachel->being_displayed
 	  &&
 	  cachel->x <= x && cachel->y <= y
-	  && 
+	  &&
 	  cachel->x + cachel->width >= x + width
 	  &&
 	  cachel->y + cachel->height >= y + height)
@@ -4174,7 +4198,7 @@ int find_matching_subwindow (struct frame* f, int x, int y, int width, int heigh
 static void
 update_subwindow (Lisp_Object subwindow)
 {
-  struct Lisp_Image_Instance* ii = XIMAGE_INSTANCE (subwindow);
+  Lisp_Image_Instance* ii = XIMAGE_INSTANCE (subwindow);
 
   if (!IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET
       ||
@@ -4201,7 +4225,7 @@ update_frame_subwindows (struct frame *f)
       {
 	struct subwindow_cachel *cachel =
 	  Dynarr_atp (f->subwindow_cachels, elt);
-	
+
 	if (cachel->being_displayed)
 	  {
 	    update_subwindow (cachel->subwindow);
@@ -4212,7 +4236,7 @@ update_frame_subwindows (struct frame *f)
 /* remove a subwindow from its frame */
 void unmap_subwindow (Lisp_Object subwindow)
 {
-  struct Lisp_Image_Instance* ii = XIMAGE_INSTANCE (subwindow);
+  Lisp_Image_Instance* ii = XIMAGE_INSTANCE (subwindow);
   int elt;
   struct subwindow_cachel* cachel;
   struct frame* f;
@@ -4244,8 +4268,8 @@ void unmap_subwindow (Lisp_Object subwindow)
 void map_subwindow (Lisp_Object subwindow, int x, int y,
 		    struct display_glyph_area *dga)
 {
-  struct Lisp_Image_Instance* ii = XIMAGE_INSTANCE (subwindow);
-  int elt; 
+  Lisp_Image_Instance* ii = XIMAGE_INSTANCE (subwindow);
+  int elt;
   struct subwindow_cachel* cachel;
   struct frame* f;
 
@@ -4277,7 +4301,7 @@ void map_subwindow (Lisp_Object subwindow, int x, int y,
   if (IMAGE_INSTANCE_DIRTYP (ii))
     {
       update_subwindow (subwindow);
-      IMAGE_INSTANCE_DIRTYP (ii) = 0; 
+      IMAGE_INSTANCE_DIRTYP (ii) = 0;
     }
 
   MAYBE_DEVMETH (XDEVICE (ii->device), map_subwindow, (ii, x, y, dga));
@@ -4295,7 +4319,7 @@ subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		       Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		       int dest_mask, Lisp_Object domain)
 {
-  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
   Lisp_Object frame = FW_FRAME (domain);
   Lisp_Object width = find_keyword_in_vector (instantiator, Q_pixel_width);
@@ -4303,7 +4327,7 @@ subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   if (NILP (frame))
     signal_simple_error ("No selected frame", device);
-  
+
   if (!(dest_mask & IMAGE_SUBWINDOW_MASK))
     incompatible_image_types (instantiator, dest_mask, IMAGE_SUBWINDOW_MASK);
 
@@ -4315,7 +4339,7 @@ subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   /* #### This stuff may get overidden by the widget code and is
      actually really dumb now that we have dynamic geometry
      calculations. What should really happen is that the subwindow
-     should query its child for and appropriate geometry. */
+     should query its child for an appropriate geometry. */
   if (NILP (width))
     IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii) = 20;
   else
@@ -4498,10 +4522,10 @@ Don't use this.
   if (!NILP (XWEAK_LIST_LIST (arg)) && !NILP (XCAR (XWEAK_LIST_LIST (arg))))
     {
       Lisp_Object value = XCAR (XWEAK_LIST_LIST (arg));
-      
+
       if (IMAGE_INSTANCEP (value))
 	{
-	  struct Lisp_Image_Instance* ii = XIMAGE_INSTANCE (value);
+	  Lisp_Image_Instance* ii = XIMAGE_INSTANCE (value);
 
 	  if (COLOR_PIXMAP_IMAGE_INSTANCEP (value)
 	      &&
@@ -4516,7 +4540,7 @@ Don't use this.
 		% IMAGE_INSTANCE_PIXMAP_MAXSLICE (ii);
 	      /* We might need to kick redisplay at this point - but we
 		 also might not. */
-	      MARK_DEVICE_FRAMES_GLYPHS_CHANGED 
+	      MARK_DEVICE_FRAMES_GLYPHS_CHANGED
 		(XDEVICE (IMAGE_INSTANCE_DEVICE (ii)));
 	      MARK_IMAGE_INSTANCE_CHANGED (ii);
 	    }
@@ -4676,7 +4700,8 @@ syms_of_glyphs (void)
 }
 
 static const struct lrecord_description image_specifier_description[] = {
-  { XD_LISP_OBJECT, specifier_data_offset + offsetof(struct image_specifier, attachee), 2 },
+  { XD_LISP_OBJECT, specifier_data_offset + offsetof (struct image_specifier, attachee) },
+  { XD_LISP_OBJECT, specifier_data_offset + offsetof (struct image_specifier, attachee_property) },
   { XD_END }
 };
 
@@ -4704,50 +4729,52 @@ reinit_specifier_type_create_image (void)
 
 
 static const struct lrecord_description iike_description_1[] = {
-  { XD_LISP_OBJECT, offsetof(ii_keyword_entry, keyword), 1 },
+  { XD_LISP_OBJECT, offsetof (ii_keyword_entry, keyword) },
   { XD_END }
 };
 
 static const struct struct_description iike_description = {
-  sizeof(ii_keyword_entry),
+  sizeof (ii_keyword_entry),
   iike_description_1
 };
 
 static const struct lrecord_description iiked_description_1[] = {
-  XD_DYNARR_DESC(ii_keyword_entry_dynarr, &iike_description),
+  XD_DYNARR_DESC (ii_keyword_entry_dynarr, &iike_description),
   { XD_END }
 };
 
 static const struct struct_description iiked_description = {
-  sizeof(ii_keyword_entry_dynarr),
+  sizeof (ii_keyword_entry_dynarr),
   iiked_description_1
 };
 
 static const struct lrecord_description iife_description_1[] = {
-  { XD_LISP_OBJECT, offsetof(image_instantiator_format_entry, symbol), 2 },
-  { XD_STRUCT_PTR,  offsetof(image_instantiator_format_entry, meths),  1, &iim_description },
+  { XD_LISP_OBJECT, offsetof (image_instantiator_format_entry, symbol) },
+  { XD_LISP_OBJECT, offsetof (image_instantiator_format_entry, device) },
+  { XD_STRUCT_PTR,  offsetof (image_instantiator_format_entry, meths),  1, &iim_description },
   { XD_END }
 };
 
 static const struct struct_description iife_description = {
-  sizeof(image_instantiator_format_entry),
+  sizeof (image_instantiator_format_entry),
   iife_description_1
 };
 
 static const struct lrecord_description iifed_description_1[] = {
-  XD_DYNARR_DESC(image_instantiator_format_entry_dynarr, &iife_description),
+  XD_DYNARR_DESC (image_instantiator_format_entry_dynarr, &iife_description),
   { XD_END }
 };
 
 static const struct struct_description iifed_description = {
-  sizeof(image_instantiator_format_entry_dynarr),
+  sizeof (image_instantiator_format_entry_dynarr),
   iifed_description_1
 };
 
 static const struct lrecord_description iim_description_1[] = {
-  { XD_LISP_OBJECT, offsetof(struct image_instantiator_methods, symbol), 2 },
-  { XD_STRUCT_PTR,  offsetof(struct image_instantiator_methods, keywords), 1, &iiked_description },
-  { XD_STRUCT_PTR,  offsetof(struct image_instantiator_methods, consoles), 1, &cted_description },
+  { XD_LISP_OBJECT, offsetof (struct image_instantiator_methods, symbol) },
+  { XD_LISP_OBJECT, offsetof (struct image_instantiator_methods, device) },
+  { XD_STRUCT_PTR,  offsetof (struct image_instantiator_methods, keywords), 1, &iiked_description },
+  { XD_STRUCT_PTR,  offsetof (struct image_instantiator_methods, consoles), 1, &cted_description },
   { XD_END }
 };
 
@@ -4874,8 +4901,8 @@ vars_of_glyphs (void)
 
   /* image instances */
 
-  Vimage_instance_type_list = Fcons (Qnothing, 
-				     list6 (Qtext, Qmono_pixmap, Qcolor_pixmap, 
+  Vimage_instance_type_list = Fcons (Qnothing,
+				     list6 (Qtext, Qmono_pixmap, Qcolor_pixmap,
 					    Qpointer, Qsubwindow, Qwidget));
   staticpro (&Vimage_instance_type_list);
 

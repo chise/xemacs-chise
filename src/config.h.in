@@ -267,7 +267,9 @@ char *alloca();
 #undef HAVE_FPATHCONF
 #undef HAVE_FREXP
 #undef HAVE_FTIME
+#undef HAVE_GETADDRINFO
 #undef HAVE_GETHOSTNAME
+#undef HAVE_GETNAMEINFO
 #undef HAVE_GETPAGESIZE
 #undef HAVE_GETTIMEOFDAY
 #undef HAVE_GETWD
@@ -400,17 +402,32 @@ char *alloca();
 /* Check the entire extent structure of a buffer each time an extent
    change is done, and do other extent-related checks. */
 #undef ERROR_CHECK_EXTENTS
+
 /* Make sure that all X... macros are dereferencing the correct type,
    and that all XSET... macros (as much as possible) are setting the
    correct type of structure.  Highly recommended for all
    development work. */
 #undef ERROR_CHECK_TYPECHECK
+#ifdef ERROR_CHECK_TYPECHECK
+#define type_checking_assert(assertion) assert (assertion)
+#else
+#define type_checking_assert(assertion)
+#endif
+
 /* Make sure valid buffer positions are passed to BUF_* macros. */
 #undef ERROR_CHECK_BUFPOS
+#ifdef ERROR_CHECK_BUFPOS
+#define bufpos_checking_assert(assertion) assert (assertion)
+#else
+#define bufpos_checking_assert(assertion)
+#endif
+
 /* Attempt to catch bugs related to garbage collection (e.g. not GCPRO'ing). */
 #undef ERROR_CHECK_GC
+
 /* Attempt to catch freeing of a non-malloc()ed block, heap corruption, etc. */
 #undef ERROR_CHECK_MALLOC
+
 /* Minor sanity checking of the bytecode interpreter.  Useful for
    debugging the byte compiler.  */
 #undef ERROR_CHECK_BYTE_CODE
@@ -612,6 +629,7 @@ extern "C" {
 #undef LWLIB_TABS_LUCID
 #undef LWLIB_WIDGETS_MOTIF
 #undef LWLIB_WIDGETS_ATHENA
+#undef HAVE_ATHENA_3D
 
 /* Other things that can be disabled by configure. */
 #undef HAVE_MENUBARS

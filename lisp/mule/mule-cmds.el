@@ -1439,7 +1439,7 @@ It can be retrieved with `(get-char-code-property CHAR PROPNAME)'."
 ;;               (memq (char-charset char) safe-charsets))
 ;;       ;; We must find the encoded string of CHAR.  But, just encoding
 ;;       ;; CHAR will put extra control sequences (usually to designate
-;;       ;; ASCII charaset) at the tail if type of CODING is ISO 2022.
+;;       ;; ASCII charset) at the tail if type of CODING is ISO 2022.
 ;;       ;; To exclude such tailing bytes, we at first encode one-char
 ;;       ;; string and two-char string, then check how many bytes at the
 ;;       ;; tail of both encoded strings are the same.

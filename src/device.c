@@ -68,9 +68,9 @@ Lisp_Object
   Qfont_menubar, Qfont_dialog, Qsize_cursor, Qsize_scrollbar,
   Qsize_menu, Qsize_toolbar, Qsize_toolbar_button,
   Qsize_toolbar_border, Qsize_icon, Qsize_icon_small, Qsize_device,
-  Qsize_workspace, Qsize_device_mm, Qdevice_dpi, Qnum_bit_planes,
-  Qnum_color_cells, Qmouse_buttons, Qswap_buttons, Qshow_sounds,
-  Qslow_device, Qsecurity;
+  Qsize_workspace, Qoffset_workspace, Qsize_device_mm, Qdevice_dpi,
+  Qnum_bit_planes, Qnum_color_cells, Qmouse_buttons, Qswap_buttons,
+  Qshow_sounds, Qslow_device, Qsecurity;
 
 Lisp_Object Qdevicep, Qdevice_live_p;
 Lisp_Object Qcreate_device_hook;
@@ -125,7 +125,7 @@ print_device (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   sprintf (buf, "#<%s-device", !DEVICE_LIVE_P (d) ? "dead" :
 	   DEVICE_TYPE_NAME (d));
   write_c_string (buf, printcharfun);
-  if (DEVICE_LIVE_P (d))
+  if (DEVICE_LIVE_P (d) && !NILP (DEVICE_CONNECTION (d)))
     {
       write_c_string (" on ", printcharfun);
       print_internal (DEVICE_CONNECTION (d), printcharfun, 1);
@@ -386,16 +386,24 @@ static Lisp_Object
 semi_canonicalize_device_connection (struct console_methods *meths,
 				     Lisp_Object name, Error_behavior errb)
 {
-  return CONTYPE_METH_OR_GIVEN (meths, semi_canonicalize_device_connection,
-				(name, errb), name);
+  if (HAS_CONTYPE_METH_P (meths, semi_canonicalize_device_connection))
+    return CONTYPE_METH (meths, semi_canonicalize_device_connection,
+			 (name, errb));
+  else
+    return CONTYPE_METH_OR_GIVEN (meths, canonicalize_device_connection,
+				  (name, errb), name);
 }
 
 static Lisp_Object
 canonicalize_device_connection (struct console_methods *meths,
 				Lisp_Object name, Error_behavior errb)
 {
-  return CONTYPE_METH_OR_GIVEN (meths, canonicalize_device_connection,
-				(name, errb), name);
+  if (HAS_CONTYPE_METH_P (meths, canonicalize_device_connection))
+    return CONTYPE_METH (meths, canonicalize_device_connection,
+			 (name, errb));
+  else
+    return CONTYPE_METH_OR_GIVEN (meths, semi_canonicalize_device_connection,
+				  (name, errb), name);
 }
 
 static Lisp_Object
@@ -911,6 +919,17 @@ Return the output baud rate of DEVICE.
   return make_int (DEVICE_BAUD_RATE (decode_device (device)));
 }
 
+DEFUN ("device-printer-p", Fdevice_printer_p, 0, 1, 0, /*
+Return t if DEVICE is a printer, nil if it is a display. DEVICE defaults
+to selected device if omitted, and must be live if specified.
+*/
+       (device))
+{
+  return (MAYBE_INT_DEVMETH (decode_device (device),
+			     device_implementation_flags, ())
+	  & XDEVIMPF_IS_A_PRINTER) ? Qt : Qnil;
+}
+
 DEFUN ("device-system-metric", Fdevice_system_metric, 1, 3, 0, /*
 Get a metric for DEVICE as provided by the system.
 
@@ -966,11 +985,14 @@ size-toolbar-button   Toolbar button size.
 size-toolbar-border   Toolbar border width and height.
 size-icon             Icon dimensions.
 size-icon-small       Small icon dimensions.
-size-device           Device screen size in pixels.
-size-workspace        Workspace size in pixels. This can be less than the
-                      above if window manager has decorations which
-                      effectively shrink the area remaining for application
-                      windows.
+size-device           Device screen or paper size in pixels.
+size-workspace        Workspace size in pixels. This can be less than or
+                      equal to the above. For diplays, this is the area
+                      available to applications less window manager 
+                      decorations. For printers, this is the size of
+                      printable area.
+offset-workspace      Offset of workspace area from the top left corner
+                      of screen or paper.
 size-device-mm        Device screen size in millimeters.
 device-dpi            Device resolution, in dots per inch.
 num-bit-planes        Integer, number of device bit planes.
@@ -1027,6 +1049,7 @@ security              Non-zero if user environment is secure.
   FROB (size_icon_small);
   FROB (size_device);
   FROB (size_workspace);
+  FROB (offset_workspace);
   FROB (size_device_mm);
   FROB (device_dpi);
   FROB (num_bit_planes);
@@ -1089,6 +1112,7 @@ DEVICE defaults to selected device when omitted.
   FROB (size_icon_small);
   FROB (size_device);
   FROB (size_workspace);
+  FROB (offset_workspace);
   FROB (size_device_mm);
   FROB (device_dpi);
   FROB (num_bit_planes);
@@ -1246,6 +1270,7 @@ syms_of_device (void)
   DEFSUBR (Fset_device_baud_rate);
   DEFSUBR (Fdevice_baud_rate);
   DEFSUBR (Fdomain_device_type);
+  DEFSUBR (Fdevice_printer_p);
 
   defsymbol (&Qdevicep, "devicep");
   defsymbol (&Qdevice_live_p, "device-live-p");
@@ -1285,6 +1310,7 @@ syms_of_device (void)
   defsymbol (&Qsize_icon_small, "size-icon-small");
   defsymbol (&Qsize_device, "size-device");
   defsymbol (&Qsize_workspace, "size-workspace");
+  defsymbol (&Qoffset_workspace, "offset-workspace");
   defsymbol (&Qsize_device_mm, "size-device-mm");
   defsymbol (&Qnum_bit_planes, "num-bit-planes");
   defsymbol (&Qnum_color_cells, "num-color-cells");

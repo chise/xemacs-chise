@@ -75,11 +75,10 @@ Boston, MA 02111-1307, USA.  */
 #include "buffer.h"
 #include "regex.h"
 
-#include "sysdir.h"
 #include "sysfile.h"
+#include "sysdir.h"
 #include "sysproc.h"
 
-#include <windows.h>
 #include <limits.h>
 #include <time.h>
 

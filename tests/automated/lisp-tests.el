@@ -861,3 +861,18 @@
   (Assert (eq (preceding-char) 0))
   (Assert (eq (following-char) ?f))
   )
+
+;;-----------------------------------------------------
+;; Test plist manipulation functions.
+;;-----------------------------------------------------
+(let ((sym (make-symbol "test-symbol")))
+  (Assert (eq t (get* sym t t)))
+  (Assert (eq t (get  sym t t)))
+  (Assert (eq t (getf nil t t)))
+  (Assert (eq t (plist-get nil t t)))
+  (put sym 'bar 'baz)
+  (Assert (eq 'baz (get sym 'bar)))
+  (Assert (eq 'baz (getf '(bar baz) 'bar)))
+  (Assert (eq 'baz (getf (symbol-plist sym) 'bar)))
+  (Assert (eq 2 (getf '(1 2) 1)))
+  )

@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef BALLOON_HELP_H
-#define BALLOON_HELP_H
+#ifndef INCLUDED_balloon_help_h_
+#define INCLUDED_balloon_help_h_
 
 #include "xintrinsic.h"
 
@@ -33,4 +33,4 @@ void balloon_help_show (CONST char* text);
 void balloon_help_hide (void);
 void balloon_help_move_to_pointer (void);
 
-#endif /* BALLOON_HELP_H */
+#endif /* INCLUDED_balloon_help_h_ */

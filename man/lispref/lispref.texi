@@ -287,7 +287,7 @@ Editing Types
 
 * Buffer Type::             The basic object of editing.
 * Window Type::             What makes buffers visible.
-* Window Configuration Type::Save what the screen looks like.
+* Window Configuration Type:: Save what the screen looks like.
 * Marker Type::             A position in a buffer.
 * Process Type::            A process running on the underlying OS.
 * Stream Type::             Receive or send characters.
@@ -308,7 +308,7 @@ Numbers
 
 Strings and Characters
 
-* Basics: String Basics.      Basic properties of strings and characters.
+* String Basics::             Basic properties of strings and characters.
 * Predicates for Strings::    Testing whether an object is a string or char.
 * Creating Strings::          Functions to allocate new strings.
 * Predicates for Characters:: Testing whether an object is a character.

@@ -175,7 +175,7 @@ file. The following example shows how to enable the font-lock mode when
 the major mode is c-mode. 
 
 @example
-(add-hook 'c-mode-hook		'turn-on-font-lock)
+(add-hook 'c-mode-hook          'turn-on-font-lock)
 @end example
 
 @noindent

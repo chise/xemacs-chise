@@ -279,23 +279,23 @@ elements of this vector may also be keysyms if they have no modifiers.
 That is, the @kbd{A} keystroke is represented by all of these forms:
 
 @example
-	A	?A	65	(A)	(?A)	(65)
-	[A]	[?A]	[65]	[(A)]	[(?A)]	[(65)]
+        A       ?A      65      (A)     (?A)    (65)
+        [A]     [?A]    [65]    [(A)]   [(?A)]  [(65)]
 @end example
-	   
+           
 the @kbd{control-a} keystroke is represented by these forms:
 
 @example
-	(control A)	(control ?A)	(control 65)
-	[(control A)]	[(control ?A)]	[(control 65)]
+        (control A)     (control ?A)    (control 65)
+        [(control A)]   [(control ?A)]  [(control 65)]
 @end example
 
 the key sequence @kbd{control-c control-a} is represented by these
 forms:
 
 @example
-	[(control c) (control a)]	[(control ?c) (control ?a)]
-	[(control 99) (control 65)]	etc.
+        [(control c) (control a)]       [(control ?c) (control ?a)]
+        [(control 99) (control 65)]     etc.
 @end example
 
   Mouse button clicks work just like keypresses: @code{(control
@@ -319,26 +319,26 @@ actually bind both of those key sequences.  Likewise for the following
 pairs:
 
 @example
-		control h	backspace
-		control i   	tab
-		control m   	return
-		control j   	linefeed
-		control [   	escape
-		control @@	control space
+                control h       backspace
+                control i       tab
+                control m       return
+                control j       linefeed
+                control [       escape
+                control @@      control space
 @end example
 
   After binding a command to two key sequences with a form like
 
 @example
-	(define-key global-map "\^X\^I" 'command-1)
+        (define-key global-map "\^X\^I" 'command-1)
 @end example
 
 @noindent
 it is possible to redefine only one of those sequences like so:
 
 @example
-	(define-key global-map [(control x) (control i)] 'command-2)
-	(define-key global-map [(control x) tab] 'command-3)
+        (define-key global-map [(control x) (control i)] 'command-2)
+        (define-key global-map [(control x) tab] 'command-3)
 @end example
 
   Of course, all of this applies only when running under a window
@@ -614,22 +614,22 @@ of entries, including one prefix key, @kbd{C-x}.
 @result{} #<keymap lisp-interaction-mode-map 5 entries 0x558>
 (describe-bindings-internal (current-local-map))
 @result{}  ; @r{Inserted into the buffer:}
-backspace	backward-delete-char-untabify
-linefeed	eval-print-last-sexp
-delete		delete-char
-C-j		eval-print-last-sexp
-C-x		<< Prefix Command >>
-M-tab		lisp-complete-symbol
-M-;		lisp-indent-for-comment
-M-C-i		lisp-complete-symbol
-M-C-q		indent-sexp
-M-C-x		eval-defun
-Alt-backspace	backward-kill-sexp
-Alt-delete	kill-sexp
+backspace       backward-delete-char-untabify
+linefeed        eval-print-last-sexp
+delete          delete-char
+C-j             eval-print-last-sexp
+C-x             << Prefix Command >>
+M-tab           lisp-complete-symbol
+M-;             lisp-indent-for-comment
+M-C-i           lisp-complete-symbol
+M-C-q           indent-sexp
+M-C-x           eval-defun
+Alt-backspace   backward-kill-sexp
+Alt-delete      kill-sexp
 @end group
 
 @group
-C-x x		edebug-defun
+C-x x           edebug-defun
 @end group
 @end example
 @end defun

@@ -22,8 +22,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Written by Ben Wing, May, 1994. */
 
-#ifndef _EmacsShellP_h
-#define _EmacsShellP_h
+#ifndef INCLUDED_EmacsShellP_h_
+#define INCLUDED_EmacsShellP_h_
 
 #include "xintrinsic.h"
 #include <X11/ShellP.h>
@@ -99,4 +99,4 @@ typedef struct _TransientEmacsShellRec {	/* full instance record */
 /* class pointer */
 extern TransientEmacsShellClassRec transientEmacsShellClassRec;
 
-#endif /* _EmacsShellP_h */
+#endif /* INCLUDED_EmacsShellP_h_ */

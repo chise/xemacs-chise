@@ -1,5 +1,5 @@
-#ifndef LWLIB_INTERNAL_H
-#define LWLIB_INTERNAL_H
+#ifndef INCLUDED_lwlib_internal_h_
+#define INCLUDED_lwlib_internal_h_
 
 #include "lwlib.h"
 
@@ -55,5 +55,4 @@ lw_get_widget_value_for_widget (widget_instance* instance, Widget w);
 
 widget_info *lw_get_widget_info (LWLIB_ID id);
 
-#endif /* LWLIB_INTERNAL_H */
-
+#endif /* INCLUDED_lwlib_internal_h_ */

@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA. */
 
 /* Written by Ben Wing. */
 
-#ifndef _ExternalClientP_h
-#define _ExternalClientP_h
+#ifndef INCLUDED_ExternalClientP_h_
+#define INCLUDED_ExternalClientP_h_
 
 #include "ExternalClient.h"
 #ifdef EXTW_USES_MOTIF
@@ -63,4 +63,4 @@ typedef struct _ExternalClientRec {	/* full instance record */
 
 extern ExternalClientClassRec externalClientClassRec;	 /* class pointer */
 
-#endif /* _ExternalClientP_h */
+#endif /* INCLUDED_ExternalClientP_h_ */

@@ -46,7 +46,7 @@ statements do.
 (add-hook 'texinfo-mode-hook    'turn-on-font-lock)
 
 ;;; enables the font-lock mode in C Mode
-(add-hook 'c-mode-hook		'turn-on-font-lock)
+(add-hook 'c-mode-hook          'turn-on-font-lock)
 @end example
 
 To turn on the font-lock mode in other Major Modes like emacs-lisp, just

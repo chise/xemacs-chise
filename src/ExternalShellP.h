@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA. */
 
 /* Written by Ben Wing, September 1993. */
 
-#ifndef _ExternalShellP_h
-#define _ExternalShellP_h
+#ifndef INCLUDED_ExternalShellP_h_
+#define INCLUDED_ExternalShellP_h_
 
 #include "xintrinsic.h"
 #include <X11/ShellP.h>
@@ -56,4 +56,4 @@ typedef struct _ExternalShellRec {	/* full instance record */
 
 extern ExternalShellClassRec externalShellClassRec;	 /* class pointer */
 
-#endif /* _ExternalShellP_h */
+#endif /* INCLUDED_ExternalShellP_h_ */

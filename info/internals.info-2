@@ -3,7 +3,7 @@ internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* Internals: (internals).	XEmacs Internals Manual.
+* Internals: (internals).       XEmacs Internals Manual.
 END-INFO-DIR-ENTRY
 
    Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
@@ -71,18 +71,18 @@ internal operations.)
      like integers in many ways but are logically considered text
      rather than numbers and have a different read syntax. (the read
      syntax for a char contains the char itself or some textual
-     encoding of it - for example, a Japanese Kanji character might be
-     encoded as `^[$(B#&^[(B' using the ISO-2022 encoding standard -
-     rather than the numerical representation of the char; this way, if
-     the mapping between chars and integers changes, which is quite
-     possible for Kanji characters and other extended characters, the
-     same character will still be created.  Note that some primitives
-     confuse chars and integers.  The worst culprit is `eq', which
-     makes a special exception and considers a char to be `eq' to its
-     integer equivalent, even though in no other case are objects of two
-     different types `eq'.  The reason for this monstrosity is
-     compatibility with existing code; the separation of char from
-     integer came fairly recently.)
+     encoding of it--for example, a Japanese Kanji character might be
+     encoded as `^[$(B#&^[(B' using the ISO-2022 encoding
+     standard--rather than the numerical representation of the char;
+     this way, if the mapping between chars and integers changes, which
+     is quite possible for Kanji characters and other extended
+     characters, the same character will still be created.  Note that
+     some primitives confuse chars and integers.  The worst culprit is
+     `eq', which makes a special exception and considers a char to be
+     `eq' to its integer equivalent, even though in no other case are
+     objects of two different types `eq'.  The reason for this
+     monstrosity is compatibility with existing code; the separation of
+     char from integer came fairly recently.)
 
 `symbol'
      An object that contains Lisp objects and is referred to by name;
@@ -415,10 +415,10 @@ chars, the lower 28 bits contain the value of the integer or char; for
 all others, the lower 28 bits contain a pointer.  The mark bit is used
 during garbage-collection, and is always 0 when garbage collection is
 not happening. (The way that garbage collection works, basically, is
-that it loops over all places where Lisp objects could exist - this
+that it loops over all places where Lisp objects could exist--this
 includes all global variables in C that contain Lisp objects [including
 `Vobarray', the C equivalent of `obarray'; through this, all Lisp
-variables will get marked], plus various other places - and recursively
+variables will get marked], plus various other places--and recursively
 scans through the Lisp objects, marking each object it finds by setting
 the mark bit.  Then it goes through the lists of all objects allocated,
 freeing the ones that are not marked and turning off the mark bit of
@@ -522,10 +522,10 @@ that don't, a more complicated definition is selected by defining
 `EXPLICIT_SIGN_EXTEND'.
 
    Note that when `ERROR_CHECK_TYPECHECK' is defined, the extractor
-macros become more complicated - they check the tag bits and/or the
-type field in the first four bytes of a record type to ensure that the
+macros become more complicated--they check the tag bits and/or the type
+field in the first four bytes of a record type to ensure that the
 object is really of the correct type.  This is great for catching places
-where an incorrect type is being dereferenced - this typically results
+where an incorrect type is being dereferenced--this typically results
 in a pointer being dereferenced as the wrong type of structure, with
 unpredictable (and sometimes not easily traceable) results.
 
@@ -607,6 +607,15 @@ included before any other header files (including system header files)
 to ensure that certain tricks played by various `s/' and `m/' files
 work out correctly.
 
+   When including header files, always use angle brackets, not double
+quotes, except when the file to be included is in the same directory as
+the including file.  If either file is a generated file, then that is
+not likely to be the case.  In order to understand why we have this
+rule, imagine what happens when you do a build in the source directory
+using `./configure' and another build in another directory using
+`../work/configure'.  There will be two different `config.h' files.
+Which one will be used if you `#include "config.h"'?
+
    *All global and static variables that are to be modifiable must be
 declared uninitialized.*  This means that you may not use the "declare
 with initializer" form for these variables, such as `int some_variable
@@ -616,7 +625,7 @@ so that it becomes part of the (unmodifiable) code segment in the
 dumped executable.  This allows this memory to be shared among multiple
 running XEmacs processes.  XEmacs is careful to place as much constant
 data as possible into initialized variables (in particular, into what's
-called the "pure space" - see below) during the `temacs' phase.
+called the "pure space"--see below) during the `temacs' phase.
 
    *Please note:* This kludge only works on a few systems nowadays, and
 is rapidly becoming irrelevant because most modern operating systems
@@ -645,10 +654,10 @@ them.  This awful kludge has been removed in XEmacs because
    The C source code makes heavy use of C preprocessor macros.  One
 popular macro style is:
 
-     #define FOO(var, value) do {		\
-       Lisp_Object FOO_value = (value);	\
-       ... /* compute using FOO_value */	\
-       (var) = bar;				\
+     #define FOO(var, value) do {           \
+       Lisp_Object FOO_value = (value);      \
+       ... /* compute using FOO_value */     \
+       (var) = bar;                          \
      } while (0)
 
    The `do {...} while (0)' is a standard trick to allow FOO to have

@@ -23,6 +23,9 @@ Boston, MA 02111-1307, USA.  */
 	last edit:	09-Jul-1983	D A Gwyn
 */
 
+#ifndef INCLUDED_ndir_h_
+#define INCLUDED_ndir_h_
+
 #define DIRBLKSIZ	512		/* size of directory block */
 #ifdef WINDOWSNT
 #define MAXNAMLEN	255
@@ -55,3 +58,5 @@ long telldir (DIR *dirp);
 void seekdir (DIR *dirp, long loc);
 
 #define rewinddir( dirp )	seekdir( dirp, 0L )
+
+#endif /* INCLUDED_ndir_h_ */

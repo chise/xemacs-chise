@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.30. */
 
-#ifndef _XEMACS_FRAME_H_
-#define _XEMACS_FRAME_H_
+#ifndef INCLUDED_frame_h_
+#define INCLUDED_frame_h_
 
 #ifdef HAVE_SCROLLBARS
 #include "scrollbar.h"
@@ -779,4 +779,4 @@ void invalidate_vertical_divider_cache_in_frame (struct frame *f);
 
 void init_frame (void);
 
-#endif /* _XEMACS_FRAME_H_ */
+#endif /* INCLUDED_frame_h_ */

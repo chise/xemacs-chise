@@ -359,7 +359,7 @@ add_to_argv (CONST char *str)
       switch (sm)
         {
         case 0: /* Start of case - string leading whitespace */
-          if (isspace (*str))
+          if (isspace ((unsigned char) *str))
             str++;
           else
             {
@@ -369,7 +369,7 @@ add_to_argv (CONST char *str)
           break;
 
         case 1: /* Non-whitespace character. Mark the start */
-          if (isspace (*str))
+          if (isspace ((unsigned char) *str))
             {
               /* Reached the end of the argument. Add it. */
               int l = str-s;

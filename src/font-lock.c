@@ -414,8 +414,7 @@ static void
 find_context (struct buffer *buf, Bufpos pt)
 {
   /* This function can GC */
-  struct Lisp_Char_Table *mirrortab =
-    XCHAR_TABLE (buf->mirror_syntax_table);
+  Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
   Lisp_Object syntaxtab = buf->syntax_table;
   Emchar prev_c, c;
   Bufpos target = pt;

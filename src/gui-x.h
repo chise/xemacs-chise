@@ -21,8 +21,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_XLWLIB_H_
-#define _XEMACS_XLWLIB_H_
+#ifndef INCLUDED_gui_x_h_
+#define INCLUDED_gui_x_h_
 
 #include "../lwlib/lwlib.h"
 
@@ -75,4 +75,4 @@ Lisp_Object menu_name_to_accelerator (char *name);
 char *menu_separator_style (CONST char *s);
 Lisp_Object widget_value_unwind (Lisp_Object closure);
 
-#endif /* _XEMACS_XLWLIB_H_ */
+#endif /* INCLUDED_gui_x_h_ */

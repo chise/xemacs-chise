@@ -1360,6 +1360,24 @@ If FRAME is nil or omitted, initialize them for all frames."
 		 (get-custom-frame-properties frame))
     (initialize-custom-faces frame)))
 
+(defun startup-initialize-custom-faces ()
+  "Reset faces created by defface.  Only called at startup.
+Don't use this function in your program."
+  (when default-custom-frame-properties
+    ;; Reset default value to the actual frame, not stream.
+    (setq default-custom-frame-properties
+	  (extract-custom-frame-properties (selected-frame)))
+    ;; like initialize-custom-faces but removes property first.
+    (mapc (lambda (symbol)
+	    (let ((spec (or (get symbol 'saved-face)
+			    (get symbol 'face-defface-spec))))
+	      (when spec
+		;; Reset faces created during auto-autoloads loading.
+		(reset-face symbol)
+		;; And set it according to the spec.
+		(face-display-set symbol spec nil))))
+	  (face-list))))
+
 
 (defun make-empty-face (name &optional doc-string temporary)
   "Like `make-face', but doesn't query the resource database."
@@ -1521,7 +1539,7 @@ you want to add code to do stuff like this, use the create-device-hook."
   ;; It's unreasonable to expect to be able to make a font italic all
   ;; the time.  For many languages, italic is an alien concept.
   ;; Basically, because italic is not a globally meaningful concept,
-  ;; the use of the italic face should really be oboleted.
+  ;; the use of the italic face should really be obsoleted.
 
   ;; I disagree with above.  In many languages, the concept of capital
   ;; letters is just as alien, and yet we use them.  Italic is here to

@@ -109,7 +109,7 @@ x_output_toolbar_button (struct frame *f, Lisp_Object button)
   GC top_shadow_gc, bottom_shadow_gc, background_gc;
   Lisp_Object instance, frame, window, glyph;
   struct toolbar_button *tb = XTOOLBAR_BUTTON (button);
-  struct Lisp_Image_Instance *p;
+  Lisp_Image_Instance *p;
   struct window *w;
   int vertical = tb->vertical;
   int border_width = tb->border_width;

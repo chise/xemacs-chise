@@ -29,8 +29,8 @@ Boston, MA 02111-1307, USA.  */
       multi-device work by Chuck Thompson).
  */
 
-#ifndef _XEMACS_CONSOLE_X_H_
-#define _XEMACS_CONSOLE_X_H_
+#ifndef INCLUDED_console_x_h_
+#define INCLUDED_console_x_h_
 
 #ifdef HAVE_X_WINDOWS
 
@@ -95,7 +95,7 @@ struct x_device
   Atom Xatom_WM_TAKE_FOCUS;
   Atom Xatom_WM_STATE;
 
-  /* allocated in Xatoms_of_xselect in xselect.c */
+  /* allocated in Xatoms_of_select_x in xselect.c */
   Atom Xatom_CLIPBOARD;
   Atom Xatom_TIMESTAMP;
   Atom Xatom_TEXT;
@@ -213,7 +213,7 @@ struct x_device
 #define DEVICE_XATOM_WM_TAKE_FOCUS(d)	 (DEVICE_X_DATA (d)->Xatom_WM_TAKE_FOCUS)
 #define DEVICE_XATOM_WM_STATE(d)	 (DEVICE_X_DATA (d)->Xatom_WM_STATE)
 
-/* allocated in Xatoms_of_xselect in xselect.c */
+/* allocated in Xatoms_of_select_x in xselect.c */
 #define DEVICE_XATOM_CLIPBOARD(d) 	(DEVICE_X_DATA (d)->Xatom_CLIPBOARD)
 #define DEVICE_XATOM_TIMESTAMP(d) 	(DEVICE_X_DATA (d)->Xatom_TIMESTAMP)
 #define DEVICE_XATOM_TEXT(d) 		(DEVICE_X_DATA (d)->Xatom_TEXT)
@@ -398,7 +398,7 @@ void x_handle_selection_request (XSelectionRequestEvent *event);
 void x_handle_selection_clear (XSelectionClearEvent *event);
 void x_handle_property_notify (XPropertyEvent *event);
 
-void Xatoms_of_xselect (struct device *d);
+void Xatoms_of_select_x (struct device *d);
 void Xatoms_of_objects_x (struct device *d);
 
 void x_wm_set_shell_iconic_p (Widget shell, int iconic_p);
@@ -419,7 +419,7 @@ void x_output_string (struct window *w, struct display_line *dl,
 		      int start_pixpos, int width, face_index findex,
 		      int cursor, int cursor_start, int cursor_width,
 		      int cursor_height);
-void x_output_x_pixmap (struct frame *f, struct Lisp_Image_Instance *p,
+void x_output_x_pixmap (struct frame *f, Lisp_Image_Instance *p,
 			int x, int y, int xoffset, int yoffset,
 			int width, int height,
 			unsigned long fg, unsigned long bg,
@@ -492,4 +492,5 @@ extern int in_specifier_change_function;
 extern Lisp_Object Vx_initial_argv_list; /* #### ugh! */
 
 #endif /* HAVE_X_WINDOWS */
-#endif /* _XEMACS_DEVICE_X_H_ */
+
+#endif /* INCLUDED_console_x_h_ */

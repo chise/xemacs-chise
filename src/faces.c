@@ -57,9 +57,8 @@ Lisp_Object Vdefault_face, Vmodeline_face, Vgui_element_face;
 Lisp_Object Vleft_margin_face, Vright_margin_face, Vtext_cursor_face;
 Lisp_Object Vpointer_face, Vvertical_divider_face, Vtoolbar_face, Vwidget_face;
 
-/* Qdefault, Qhighlight defined in general.c */
-Lisp_Object Qmodeline, Qgui_element, Qleft_margin, Qright_margin, Qtext_cursor;
-Lisp_Object Qvertical_divider;
+/* Qdefault, Qhighlight, Qleft_margin, Qright_margin defined in general.c */
+Lisp_Object Qmodeline, Qgui_element, Qtext_cursor, Qvertical_divider;
 
 /* In the old implementation Vface_list was a list of the face names,
    not the faces themselves.  We now distinguish between permanent and
@@ -75,7 +74,7 @@ Lisp_Object Vbuilt_in_face_specifiers;
 static Lisp_Object
 mark_face (Lisp_Object obj)
 {
-  struct Lisp_Face *face =  XFACE (obj);
+  Lisp_Face *face =  XFACE (obj);
 
   mark_object (face->name);
   mark_object (face->doc_string);
@@ -100,7 +99,7 @@ mark_face (Lisp_Object obj)
 static void
 print_face (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  struct Lisp_Face *face = XFACE (obj);
+  Lisp_Face *face = XFACE (obj);
 
   if (print_readably)
     {
@@ -130,8 +129,8 @@ print_face (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 static int
 face_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Face *f1 = XFACE (obj1);
-  struct Lisp_Face *f2 = XFACE (obj2);
+  Lisp_Face *f1 = XFACE (obj1);
+  Lisp_Face *f2 = XFACE (obj2);
 
   depth++;
 
@@ -154,7 +153,7 @@ face_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 static unsigned long
 face_hash (Lisp_Object obj, int depth)
 {
-  struct Lisp_Face *f = XFACE (obj);
+  Lisp_Face *f = XFACE (obj);
 
   depth++;
 
@@ -168,7 +167,7 @@ face_hash (Lisp_Object obj, int depth)
 static Lisp_Object
 face_getprop (Lisp_Object obj, Lisp_Object prop)
 {
-  struct Lisp_Face *f = XFACE (obj);
+  Lisp_Face *f = XFACE (obj);
 
   return
     (EQ (prop, Qforeground)	   ? f->foreground	  :
@@ -189,7 +188,7 @@ face_getprop (Lisp_Object obj, Lisp_Object prop)
 static int
 face_putprop (Lisp_Object obj, Lisp_Object prop, Lisp_Object value)
 {
-  struct Lisp_Face *f = XFACE (obj);
+  Lisp_Face *f = XFACE (obj);
 
   if (EQ (prop, Qforeground)        ||
       EQ (prop, Qbackground)        ||
@@ -219,7 +218,7 @@ face_putprop (Lisp_Object obj, Lisp_Object prop, Lisp_Object value)
 static int
 face_remprop (Lisp_Object obj, Lisp_Object prop)
 {
-  struct Lisp_Face *f = XFACE (obj);
+  Lisp_Face *f = XFACE (obj);
 
   if (EQ (prop, Qforeground)        ||
       EQ (prop, Qbackground)        ||
@@ -246,7 +245,7 @@ face_remprop (Lisp_Object obj, Lisp_Object prop)
 static Lisp_Object
 face_plist (Lisp_Object obj)
 {
-  struct Lisp_Face *face = XFACE (obj);
+  Lisp_Face *face = XFACE (obj);
   Lisp_Object result = face->plist;
 
   result = cons3 (Qreverse,	      face->reverse,	       result);
@@ -265,8 +264,21 @@ face_plist (Lisp_Object obj)
 }
 
 static const struct lrecord_description face_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Face, name),       2 },
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Face, foreground), 13 },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, name) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, doc_string) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, foreground) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, background) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, font) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, display_table) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, background_pixmap) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, underline) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, strikethru) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, highlight) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, dim) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, blinking) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, reverse) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, plist) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, charsets_warned_about) },
   { XD_END }
 };
 
@@ -274,7 +286,7 @@ DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS ("face", face,
 					  mark_face, print_face, 0, face_equal,
 					  face_hash, face_description, face_getprop,
 					  face_putprop, face_remprop,
-					  face_plist, struct Lisp_Face);
+					  face_plist, Lisp_Face);
 
 /************************************************************************/
 /*                             face read syntax                         */
@@ -340,7 +352,7 @@ face_instantiate (Lisp_Object data)
  ****************************************************************************/
 
 static void
-reset_face (struct Lisp_Face *f)
+reset_face (Lisp_Face *f)
 {
   f->name = Qnil;
   f->doc_string = Qnil;
@@ -360,11 +372,10 @@ reset_face (struct Lisp_Face *f)
   f->charsets_warned_about = Qnil;
 }
 
-static struct Lisp_Face *
+static Lisp_Face *
 allocate_face (void)
 {
-  struct Lisp_Face *result =
-    alloc_lcrecord_type (struct Lisp_Face, &lrecord_face);
+  Lisp_Face *result = alloc_lcrecord_type (Lisp_Face, &lrecord_face);
 
   reset_face (result);
   return result;
@@ -759,7 +770,7 @@ If TEMPORARY is non-nil, this face will cease to exist if not in use.
        (name, doc_string, temporary))
 {
   /* This function can GC if initialized is non-zero */
-  struct Lisp_Face *f;
+  Lisp_Face *f;
   Lisp_Object face;
 
   CHECK_SYMBOL (name);
@@ -1127,7 +1138,7 @@ face_cachel_charset_font_metric_info (struct face_cachel *cachel,
 	{
 	  Lisp_Object charset = CHARSET_BY_LEADING_BYTE (i + MIN_LEADING_BYTE);
 	  Lisp_Object font_instance = FACE_CACHEL_FONT (cachel, charset);
-	  struct Lisp_Font_Instance *fi = XFONT_INSTANCE (font_instance);
+	  Lisp_Font_Instance *fi = XFONT_INSTANCE (font_instance);
 
 	  assert (CHARSETP (charset));
 	  assert (FONT_INSTANCEP (font_instance));
@@ -1679,7 +1690,7 @@ LOCALE, TAG-SET, EXACT-P, and HOW-TO-ADD are as in `copy-specifier'.
 */
        (old_face, new_name, locale, tag_set, exact_p, how_to_add))
 {
-  struct Lisp_Face *fold, *fnew;
+  Lisp_Face *fold, *fnew;
   Lisp_Object new_face = Qnil;
   struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
 
@@ -1741,11 +1752,9 @@ LOCALE, TAG-SET, EXACT-P, and HOW-TO-ADD are as in `copy-specifier'.
 void
 syms_of_faces (void)
 {
-  /* Qdefault & Qwidget defined in general.c */
+  /* Qdefault, Qwidget, Qleft_margin, Qright_margin defined in general.c */
   defsymbol (&Qmodeline, "modeline");
   defsymbol (&Qgui_element, "gui-element");
-  defsymbol (&Qleft_margin, "left-margin");
-  defsymbol (&Qright_margin, "right-margin");
   defsymbol (&Qtext_cursor, "text-cursor");
   defsymbol (&Qvertical_divider, "vertical-divider");
 
@@ -1867,6 +1876,8 @@ complex_vars_of_faces (void)
     bg_fb = acons (list1 (Qtty), Fvector (0, 0), bg_fb);
 #endif
 #ifdef HAVE_MS_WINDOWS
+    fg_fb = acons (list1 (Qmsprinter), build_string ("black"), fg_fb);
+    bg_fb = acons (list1 (Qmsprinter), build_string ("white"), bg_fb);
     fg_fb = acons (list1 (Qmswindows), build_string ("black"), fg_fb);
     bg_fb = acons (list1 (Qmswindows), build_string ("white"), bg_fb);
 #endif
@@ -1913,6 +1924,12 @@ complex_vars_of_faces (void)
 		       inst_list);
 #endif /* HAVE_TTY */
 #ifdef HAVE_MS_WINDOWS
+    /* Fixedsys does not exist for printers */
+    inst_list = Fcons (Fcons (list1 (Qmsprinter),
+		       build_string ("Courier:Regular:10::Western")), inst_list);
+    inst_list = Fcons (Fcons (list1 (Qmsprinter),
+		       build_string ("Courier New:Regular:10::Western")), inst_list);
+
     inst_list = Fcons (Fcons (list1 (Qmswindows),
 		       build_string ("Fixedsys:Regular:9::Western")), inst_list);
     inst_list = Fcons (Fcons (list1 (Qmswindows),
@@ -1956,6 +1973,8 @@ complex_vars_of_faces (void)
     bg_fb = acons (list1 (Qtty), Fvector (0, 0), bg_fb);
 #endif
 #ifdef HAVE_MS_WINDOWS
+    fg_fb = acons (list1 (Qmsprinter), build_string ("black"), fg_fb);
+    bg_fb = acons (list1 (Qmsprinter), build_string ("white"), bg_fb);
     fg_fb = acons (list1 (Qmswindows), build_string ("black"), fg_fb);
     bg_fb = acons (list1 (Qmswindows), build_string ("Gray75"), bg_fb);
 #endif

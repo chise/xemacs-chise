@@ -283,7 +283,7 @@ CODESYS defaults to the value of `terminal-coding-system'.
   return Qnil;
 }
 
-/* ### Move this function to lisp */
+/* #### Move this function to lisp */
 DEFUN ("set-console-tty-coding-system", Fset_console_tty_coding_system,
        0, 2, 0, /*
 Set the input and output coding systems of tty console CONSOLE to CODESYS.

@@ -55,7 +55,7 @@ This variable can be customized through the options menu."
 ;; vertical scrollbar functions
 ;;
 
-;;; ### Move functions from C into Lisp here!
+;;; #### Move functions from C into Lisp here!
 
 ;;
 ;; horizontal scrollbar functions

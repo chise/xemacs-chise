@@ -1,3 +1,839 @@
+2000-02-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.28 is released.
+
+2000-02-06  Martin Buchholz  <martin@xemacs.org>
+
+	* event-Xt.c (x_keysym_to_character): New.
+	(maybe_define_x_key_as_self_inserting_character): New.
+	(x_has_keysym): New.
+	Auto-define all keys on the keyboard as self-insert-key.
+
+2000-02-02  Martin Buchholz  <martin@xemacs.org>
+
+	* menubar.c (vars_of_menubar): A small code simplification.
+
+	* minibuf.c (echo_area_append): Workaround egcs-20000131 c++ compiler bug
+
+	* ExternalShell.c: 
+	* ExternalClient.c: 
+	* EmacsShell-sub.c: 
+	* EmacsManager.c: 
+	* EmacsFrame.c: 
+	Use consistent style for specifying X resources.
+
+	* symbols.c (Fset): Further implement SYMVAL_LISP_MAGIC.
+	This makes (dontusethis-set-symbol-value-handler) actually usable.
+
+	* lrecord.h (lrecord_decription_type):
+	* alloc.c (pdump_register_sub): 
+	(pdump_dump_data): 
+	(pdump_reloc_one): 
+	Add XD_LISP_OBJECT_ARRAY to describe multiple Lisp_Objects.
+	Comply with XEmacs coding style.
+	All lrecord descriptions updated to use XD_LISP_OBJECT with 2
+	args, and XD_LISP_OBJECT_ARRAY with 3 args.
+
+	* keymap.c (Faccessible_keymaps): 
+	Make (accessible-keymaps map "\C-h") do the Right Thing.
+	Make (accessible-keymaps map []) do the Right Thing.
+	Make (accessible-keymaps map "") do the Right Thing.
+	(check_keymap_definition_loop): New function.
+	(keymap_store_internal): Keep luser from shooting self in foot,
+	  via (define-key ctl-x-4-map "p" global-map).
+	Remove fullness slot from struct Lisp_Keymap, since hash tables
+	are now reliable.
+	(print_keymap): Remove 'Yuck' factor by simply printing "size %d".
+
+2000-01-30  Martin Buchholz  <martin@xemacs.org>
+
+	* redisplay.c (init_redisplay): Fix small memory leak.
+	* elhash.h: 
+	* elhash.c (pdump_reorganize_hash_table): 
+	Rename from reorganize_hash_table. Change prototype.
+	Reuse the original memory for hentries.  Save 100k.
+	* alloc.c (PDUMP_READ): new macro.
+	* alloc.c (pdump_load): Replace LISP_TO_VOID with higher-level macros.
+	* alloc.c: No need to #ifndef before #undef.
+
+	* print.c: Allow debug_print() to print readably by modifying
+	debug_print_readably.  Use consistent variable names.
+
+	* .dbxrc: Try to get things to work even if stopped in a function
+	without source available by explicitly specifying source files.
+2000-02-03  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* unexnt.c (_start): Removed bogus code which caused loading heap
+	from differrent executable file.
+	Removed bogus assignment to _fmode, which caused inconsistencies.
+
+2000-02-03  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* s\windowsnt.h: Removed lots of #if 0 blocks of Emacs heritage.
+	Have spawnve encapsulation regard DONT_ENCAPSULATE.
+	Do not preliminary `#define signal sigset'.
+
+	* systime.h: Do not prototype environ on windows nt and cygwin,
+	this conflicts with system header.
+
+	* syssignal.h: Use correct define for WINDOWSNT
+
+	* sysdep.h: Do not prototype environ on windows nt, this conflicts
+	with system header.
+
+	* sysdep.c (near start of file): Fixed commentary and rearranged
+	ifdefs in readable order.
+	(NEED_STARTS): Do not force NEED_STARTS when PDUMPing.
+	(start_of_text):
+	(end_of_text): 
+	(end_of_data): Do not compile in if using PDUMP.
+
+	* symsinit.h: Protptyped vars_of_nt().
+
+	* ntproc.c (windows9x_p): Added, instead of os_subtype.
+	(find_child_console): Use it.
+	(sys_kill): Use it.
+
+	* ntheap.h: Do not extern os_subtype.
+
+	* ntheap.c (cache_system_info): Do not cache unneeded:
+	nt_major_version, nt_minor_version and os_subtype.
+	(recreate_heap): Do not compile in when PDUMPing.
+
+	* nt.c (geteuid and friends): Use the new varibale
+	nt_fake_unix_uid, instead of hashing fake uid out of NT RID.
+	(init_user_info): Removed the above mentioned hackery.
+	(fstat, stat): Do not compile in if using MSVC 5.0 and above -
+	stat has been fixed in the C runtime.
+	(vars_of_nt): Added, defined the nt_fake_unix_uid variable there.
+	
+	* file-coding.c (struct file_coding_dump): Do not define
+	ucs_to_mule_table in the struct if not MULE.
+	(struct struct lrecord_description fcd_description_1): Do not dump
+	the above.
+
+	* emacs.c (main_1): Call vars_of_nt().
+	(right before Fdump_emacs_data): Don't need lastfile if using both
+	portabe dumper and system malloc.
+
+	* alloc.c (Fmemory_limit): Conditionalized out.
+	(pdump): Use OPEN_BINARY for the portable dump file.
+	(pdump_load): Ditto.
+
+2000-02-02  Mike Alexander  <mta@arbortext.com>
+
+	* nt.c (convert_time): Set tm_isdst before calling mktime and
+	avoid calling it at all if the compiler supports 64 bit integers.
+	Also initialize utc_base_ft before using it.
+
+2000-02-03   Daiki Ueno  <ueno@ueda.info.waseda.ac.jp>
+
+	* frame.c (change_frame_size_1): Take f->internal_border_width
+	into consideration when calculating the width of the frame.
+
+2000-02-01  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* window.c (frame_min_height):
+	(frame_size_valid_p):
+	(frame_pixsize_valid_p): Added.
+	(check_frame_size): Generalized.
+
+	* window.h: Prototyped the above.
+
+	* lisp.h:
+	* general.c: Added Qbottom_margin, Qduplex, Qlandscape,
+	Qleft_margin, Qorientation, Qportrait, Qright_margin, Qtop_margin.
+	Deleted Vwin32_* and Vbinary_process_* unused variables.
+
+	* device-msw.c (msprinter_init_device): Do not get printer font
+	list; Added DEVMODE functions.
+
+	* frame-msw.c: Added lots of printer code.
+
+	* faces.c: Moved 'left-margin and 'right-margin defsymbols to
+	general.c.
+
+	* console-msw.h: Added more msprinter device private slots.	
+
+2000-02-01  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* event-msw.c (key_needs_default_processing_p): Added.
+	(mswindows_wnd_proc, WM_KEYUP, KEYDOWN): Call it.
+
+2000-01-29  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* glyphs.c (image_instance_layout): Mark image instance as clean
+	after layout.
+	(glyph_dirty_p): Removed redundant function.
+	(invalidate_glyph_geometry_maybe): Added.
+	(update_glyph_cachel_data): Call it.
+
+	* glyphs.h: Prototyped it.
+
+	* redisplay.c (add_glyph_rune): Call it.
+	(redisplay_window): Reset glyphs cachels when frame faces has
+	changed, thus forcing recomputation of built-in border glyphs.
+
+2000-01-30  Martin Buchholz  <martin@xemacs.org>
+
+	* Makefile.in.in: Make portable dumper and purify play well together.
+	Add imperfect, but better than nothing, support for pdump.
+	Remove xemacs.dmp when temacs is re-generated.
+	Don't ignore errors when dumping xemacs.
+
+	* symbols.c (maybe_call_magic_handler): Remove one magic number.
+
+2000-01-28  Andy Piper  <andy@xemacs.org>
+
+	* frame.c (allocate_frame_core): Use new Fset_window_buffer signature.
+	(setup_normal_frame): ditto.
+	(setup_frame_without_minibuffer): ditto.
+	(setup_minibuffer_frame): ditto.
+	(delete_frame_internal): ditto.
+	(Fmake_frame_invisible): ditto.
+	(Ficonify_frame): ditto.
+
+	* window.h: change Fset_window_buffer signature.
+
+	* window.c (Fsplit_window): Use new Fset_window_buffer signature.
+	(Fset_window_buffer): allow recording of buffer if the window is
+	the selected window.
+	(window_loop): Use new Fset_window signature.
+
+2000-01-23  Daniel Pittman  <daniel@danann.net>
+
+	* config.h.in: Added template for `HAVE_ATHENA_3D'
+
+2000-01-29  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_resize_subwindow): Try and catch bogus resizes.
+
+	* gutter.c (output_gutter): Don't output if the window isn't live.
+
+2000-01-28  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* glyphs-msw.c (mswindows_unmap_subwindow): Fix of corrupted patch
+	of 01/12/00: Moved SetFocus back here where it belongs.
+
+2000-01-23  Andy Piper  <andy@xemacs.org>
+
+	* s/cygwin32.h: declare printer things.
+
+2000-01-26  Andy Piper  <andy@xemacs.org>
+
+	* select.c (Fown_selection_internal): GCPRO bug fix from Mike
+	Alexander.
+
+2000-01-24  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-msw.c (mswindows_locate_pixmap_file): Expand filename.
+	(mswindows_button_instantiate): Make sure glyph is a pixmap.
+
+	* glyphs-widget.c (widget_instantiate): Avoid shadows.
+
+	* frame-msw.c (msprinter_init_frame_3): Nuke warning.
+
+	* glyphs-msw.c: (mswindows_string_to_color): remove declaration.
+
+	* redisplay-msw.c (mswindows_output_cursor): Avoid shadows.
+	(mswindows_output_display_block): Avoid local shadows.
+
+	* event-msw.c (mswindows_enqueue_magic_event): Avoid shadows.
+	(mswindows_enqueue_mouse_button_event): ditto.
+	(mswindows_handle_gui_wm_command): remove declaration.
+
+	* console-msw.c (mswindows_canonicalize_console_connection): Avoid
+	warnings.
+
+	* console-msw.h: Avoid shadows.
+	(mswindows_get_toolbar_button_text):
+	(emacs_mswindows_create_stream_pair):
+	(emacs_mswindows_delete_stream_pair):
+	(mswindows_handle_toolbar_wm_command): declare.
+
+	* device-msw.c (build_syscolor_string): Avoid shadows.
+
+2000-01-23  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-widget.c (widget_instantiate): reverse the items for
+	layouts so that children are in the expected order.
+
+2000-01-28  Martin Buchholz  <martin@xemacs.org>
+
+	* ralloc.c: safe_bcopy ==> memmove
+	* gmalloc.c: Remove MEMMOVE_MISSING conditional code.
+	* s/msdos.h: Remove BCOPY macros.
+	* insdel.c (gap_right): Remove BCOPY conditional code.
+	* insdel.c (gap_left): Remove BCOPY conditional code.
+	XEmacs demands a working ANSI C compiler - hence memmove.
+
+	* regex.c (regex_compile): Remove accidental use of trigraphs.
+
+2000-01-27  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* event-msw.c (mswindows_enqueue_misc_user_event): Initialize
+	event timestamp.
+
+2000-01-26  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* event-msw.c (mswindows_drain_windows_queue): Added the
+	parameter.
+	(mswindows_need_event): Commented the call to
+	mswindows_drain_windows_queue().
+	(emacs_mswindows_quit_p): Lookup the windows for keyboard messages
+	only.
+
+	* console-msw.h: Moved a few function prototypes here from
+	event-msw.c. 
+
+	* gui-msw.c (mswindows_handle_gui_wm_command): Changed the ID
+	parameter from unsigned short to unsigned long.
+	(Fmswindows_shell_execute): Added return value.
+
+2000-01-27  URA Hiroshi <ura@hiru.aoba.yokohama.jp>
+
+	* sysdep.c (init_system_name): 
+	  process-unix.c (unix_canonicalized_host_name): 
+	Don't call freeaddrinfo() if getaddrinfo() fails.
+
+	* process-unix.c (unix_open_unix_network_stream):
+	Moved the code to get a port # into address loop.
+
+2000-01-27  Martin Buchholz  <martin@xemacs.org>
+
+	* buffer.c (reinit_vars_of_buffer): 
+	The right place to initialize conversion_in_dynarr and
+	conversion_out_dynarr.
+
+	* alloc.c (pdump): Use the real open() till sys_open() is functional.
+
+	* process-unix.c (unix_canonicalize_host_name): Muleize.
+	(unix_open_network_stream): Muleize.
+
+	* buffer.h: Fix up prototypes for ralloc.c functions.
+
+2000-01-27  URA Hiroshi <ura@hiru.aoba.yokohama.jp>
+	* config.h.in: added HAVE_GETADDRINFO and HAVE_GETNAMEINFO
+	* sysdep.c: In init_system_name(), add code to use getaddrinfo()
+		instead of gethostbyname()
+	* process-unix.c: In unix_canonicalize_host_name() and
+		unix_open_network_stream(), add code to use getaddrinfo()
+		instead of gethostbyname().
+
+2000-01-27  Daniel Pittman <daniel@danann.net>
+
+	* device-x.c (x_init_device): Warn at run-time if using Athena 3d
+	libs when built with flat Athena.
+
+2000-01-27  Martin Buchholz  <martin@xemacs.org>
+
+	* ralloc.c: Replace SIZE (conflicts with Windows headers) with size_t.
+	Use coding standards for function prototypes.
+
+2000-01-25  Martin Buchholz  <martin@xemacs.org>
+
+	* dialog-msw.c (push_lisp_string_as_unicode):
+	* doc.c (unparesseuxify_doc_string):
+	* dired.c (Fuser_name_completion_1):
+	* dired.c (Fuser_name_all_completions):
+	* dired.c (free_user_cache):
+	* dired.c (user_name_completion):
+	* console-x.c (get_display_arg_connection):
+	* minibuf.c (clear_echo_area_internal):
+	* minibuf.c (echo_area_append):
+	* eldap.c (Fldap_open):
+	* eldap.c (Fldap_search_internal):
+	* frame-x.c (x_set_frame_text_value):
+	* frame-x.c (x_set_frame_properties):
+	* frame-x.c (x_create_widgets):
+	* redisplay-tty.c (term_get_fkeys_1):
+	* objects-x.c (x_parse_nearest_color):
+	* objects-x.c (x_valid_color_name_p):
+	* objects-x.c (x_initialize_font_instance):
+	* objects-x.c (x_list_fonts):
+	* objects-x.c (x_find_charset_font):
+	* tooltalk.c (Fadd_tooltalk_message_arg):
+	* tooltalk.c (Fadd_tooltalk_pattern_attribute):
+	* tooltalk.c (Fadd_tooltalk_pattern_arg):
+	* process-unix.c (unix_create_process):
+	* ntproc.c (sys_spawnve):
+	* sound.c (Fplay_sound_file):
+	* sound.c (Fplay_sound):
+	* buffer.c (init_initial_directory):
+	* buffer.c (init_buffer):
+	* editfns.c (init_editfns):
+	* editfns.c (Ftemp_directory):
+	* editfns.c (Fuser_full_name):
+	* editfns.c (uncache_home_directory):
+	* editfns.c (get_home_directory):
+	* editfns.c (Fuser_home_directory):
+	* editfns.c (Fformat_time_string):
+	* editfns.c (Fcurrent_time_string):
+	* gui-x.c (button_item_to_widget_value):
+	* database.c (Fopen_database):
+	* event-Xt.c (x_to_emacs_keysym):
+	* event-Xt.c (x_event_to_emacs_event):
+	* event-Xt.c (describe_event_window):
+	* event-msw.c (mswindows_wnd_proc):
+	* glyphs-eimage.c (jpeg_instantiate):
+	* glyphs-eimage.c (gif_instantiate):
+	* glyphs-eimage.c (png_instantiate):
+	* glyphs-eimage.c (tiff_instantiate):
+	* glyphs-x.c (xbm_instantiate_1):
+	* glyphs-x.c (x_xbm_instantiate):
+	* glyphs-x.c (x_xface_instantiate):
+	* glyphs-x.c (autodetect_instantiate):
+	* glyphs-x.c (cursor_font_instantiate):
+	* glyphs-x.c (x_widget_instantiate):
+	* glyphs-x.c (x_widget_set_property):
+	* glyphs-x.c (x_widget_property):
+	* glyphs-x.c (BUILD_GLYPH_INST):
+	* print.c (write_string_to_stdio_stream):
+	* print.c (output_string):
+	* print.c (Falternate_debugging_output):
+	* print.c (Fexternal_debugging_output):
+	* glyphs-msw.c (extract_xpm_color_names):
+	* glyphs-msw.c (mswindows_xpm_instantiate):
+	* glyphs-msw.c (bmp_instantiate):
+	* glyphs-msw.c (resource_name_to_resource):
+	* glyphs-msw.c (mswindows_resource_instantiate):
+	* glyphs-msw.c (xbm_instantiate_1):
+	* glyphs-msw.c (mswindows_xbm_instantiate):
+	* glyphs-msw.c (mswindows_xface_instantiate):
+	* glyphs-msw.c (mswindows_widget_instantiate):
+	* glyphs-msw.c (add_tree_item):
+	* glyphs-msw.c (add_tab_item):
+	* glyphs-msw.c (mswindows_combo_box_instantiate):
+	* glyphs-msw.c (mswindows_widget_property):
+	* glyphs-msw.c (mswindows_combo_box_property):
+	* glyphs-msw.c (mswindows_widget_set_property):
+	* console.c (stuff_buffered_input):
+	* objects-msw.c (mswindows_initialize_color_instance):
+	* objects-msw.c (mswindows_valid_color_name_p):
+	* objects-msw.c (mswindows_list_fonts):
+	* objects-msw.c (mswindows_font_instance_truename):
+	* bytecode.c (optimize_compiled_function):
+	* select-x.c (symbol_to_x_atom):
+	* select-x.c (x_atom_to_symbol):
+	* select-x.c (hack_motif_clipboard_selection):
+	* select-x.c (selection_data_to_lisp_data):
+	* select-x.c (lisp_data_to_selection_data):
+	* select-x.c (Fx_get_cutbuffer_internal):
+	* select-x.c (Fx_store_cutbuffer_internal):
+	* buffer.h (TO_EXTERNAL_FORMAT): New function.
+	* buffer.h (TO_INTERNAL_FORMAT): New function.
+	* emacs.c (make_arg_list_1):
+	* emacs.c (make_argc_argv):
+	* emacs.c (main_1):
+	* emacs.c (Fdump_emacs):
+	* emacs.c (split_string_by_emchar_1):
+	* file-coding.h:
+	* lisp.h:
+	* lstream.h:
+	* symsinit.h:
+	* device-x.c (x_init_device):
+	* device-x.c (Fx_valid_keysym_name_p):
+	* device-x.c (Fx_get_font_path):
+	* device-x.c (Fx_set_font_path):
+	* glyphs.c (bitmap_to_lisp_data):
+	* glyphs.c (pixmap_to_lisp_data):
+	* alloc.c (make_ext_string): Use coding system arguments.  Update
+	all callers.
+	* alloc.c (build_string):
+	* callproc.c (child_setup):
+	* callproc.c (init_callproc):
+	* fileio.c (lisp_strerror):
+	* fileio.c (directory_file_name):
+	* fileio.c (Fexpand_file_name):
+	* fileio.c (Ffile_truename):
+	* fileio.c (Fsysnetunam):
+	* fileio.c (Fdo_auto_save):
+	* sysdep.c (sys_readdir):
+	* tests.c: New file.  Allow adding C tests.
+	Replace GET_* macros with a more comprehensible and flexible
+	interface, TO_INTERNAL_FORMAT() and TO_EXTERNAL_FORMAT().
+	Modify all calls.
+	Any coding system can be used to do format conversion.
+	Eliminate enum external_data_format.
+	Eliminate convert_to_external_format.
+	Eliminate convert_to_internal_format.
+	Make sure file-name, keyboard, terminal, and ctext are always
+	defined as coding systems or aliases.  Make
+	file-name-coding-system, terminal-coding-system, and
+	keyboard-coding-system magical variables that are equivalent to
+	defining the corresponding coding system aliases.
+	
+	* file-coding.c (Fcoding_system_canonical_name_p): New function.
+	* file-coding.c (Fcoding_system_alias_p): New function.
+	* file-coding.c (Fcoding_system_aliasee): New function.
+	* file-coding.c (append_suffix_to_symbol): New function.
+	* file-coding.c (dangling_coding_system_alias_p): New function.
+	* file-coding.c (Ffind_coding_system):
+	* file-coding.c (Fcopy_coding_system):
+	* file-coding.c (encode_coding_no_conversion):
+	* file-coding.c (syms_of_file_coding):
+	* file-coding.c (vars_of_file_coding):
+	Rewrite coding system alias code.
+	Allow nested aliases, like symbolic links.
+	Allow redefinition of coding system aliases.
+	Prevent existence of dangling coding system aliases.
+
+	* dired.c (Fuser_name_completion_1):
+	* dired.c (Fuser_name_all_completions):
+	A crash would happen if user did QUIT in the middle of building
+	user_name_cache.  Remove redundant code in mainline and unwind_protect.
+
+	* lisp.h:
+	* dynarr.c (Dynarr_min_size): Make static.  Increase value to 8.
+
+	* lstream.c (make_fixed_buffer_input_stream): Take a void *, not
+	an unsigned char *.  Update all callers.
+
+2000-01-26  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* callproc.c (Fcall_process_internal): Ignore Vbinary-process_output.
+
+2000-01-25  Martin Buchholz  <martin@xemacs.org>
+
+	* elhash.c (hentry_description): Use more portable definition.
+	(resize_hash_table): Initialize new hentries using
+	xnew_array_and_zero, thereby simplifying the code.
+
+	* mule-charset.c (make_charset): Make sure entire object is
+	intialized, to avoid Purify warnings.
+
+	* alloc.c (resize_string): Fix unlikely crash with big strings.
+
+2000-01-24  Martin Buchholz  <martin@xemacs.org>
+
+	* realpath.c (xrealpath): 
+	Don't call getwd().
+
+2000-01-25  Martin Buchholz  <martin@xemacs.org>
+
+	* lread.c (read_bit_vector): Fix memory leak reading literal bit vectors.
+
+1999-12-28  Max Matveev  <max@melbourne.sgi.com>
+
+	* unexelfsgi.c (unexec): Change the way we decide which segment
+	should be extended.
+
+	Assumption that .bss section should be outside the PT_LOADable
+ 	segment. On IRIX with version 6.2 and above, .bss (or .sbss, if
+ 	it's present) is inside the 'data' segment. This would fail the
+ 	test which was used to find a segment to grow and cover new
+ 	heap. Instead of this assumption, I created another one - on IRIX
+ 	the segment to grow should start below .bss and it's address
+ 	should extent above the end of .bss. Once this segment is
+ 	identified, it's grown to accommodate the new heap and new
+ 	zero-length .bss section is added at the end of .data2.
+
+2000-01-25  Martin Buchholz  <martin@xemacs.org>
+
+	* eval.c (Feval): Wrong number of arguments should use original
+	function, not the indirect_function version of it.
+
+2000-01-24  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* glyphs-x.c (x_button_instantiate): Don't add image if
+	it is not a pixmap.
+	(x_locate_pixmap_file): Call Fexpand_file_name when file name
+	is relative.
+
+2000-01-21  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* symeval.h (DEFVAR_LISP_MAGIC): Remove semicolon after macro
+	declaration.
+	(DEFVAR_INT_MAGIC): Ditto.
+	(DEFVAR_BOOL_MAGIC): Ditto.
+	* glyphs.h: Reindent backslash.
+
+2000-01-24  Martin Buchholz  <martin@xemacs.org>
+
+	* glyphs-widget.c (layout_query_geometry): 
+	(layout_layout): Use correct types for gheight, gwidth.
+
+2000-01-24  Martin Buchholz  <martin@xemacs.org>
+
+	* EmacsManager.c (QueryGeometry): Purified.
+
+2000-01-23  Martin Buchholz  <martin@xemacs.org>
+
+	* alloc.c (make_float): Make sure entire object is intialized, to
+	avoid Purify warnings.
+	(pdump_register_sub): Remove useless assignment.
+	(pdump): Use xmalloc, not malloc.
+	(pdump_load): Use xmalloc, not malloc.
+
+2000-01-23  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* callproc.c: 
+	* dired-msw.c: 
+	* fileio.c: 
+	* process-nt.c: 
+	* redisplay-msw.c: 
+	* sysdep.c: Removed redundant #include <windows.h>
+
+2000-01-22  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* frame.c (delete_frame_internal): Do not delete device when its
+	implementation so declares.
+	(delete_frame_internal): Set device selected frame to nil when
+	last frame goes away. 
+
+	* device-msw.c (msprinter_device_system_metrics): Implemented.
+	(mswindows_device_system_metrics): Added 'device-dpi property.
+
+	* device.c: (Fdevice_printer_p): Added.
+	Added 'offset-workspace device metric.
+
+	* console.h (device_metrics): Declared DM_offset_workspace.
+
+2000-01-23  Martin Buchholz  <martin@xemacs.org>
+
+	* fileio.c (Ffile_truename): Remove pointless and confusing
+	initialization of elen.
+
+	* glyphs-widget.c: Compiler warning fixes.
+
+2000-01-23  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* process.h (PROCESS_LIVE_P): Modify to take a Lisp_Process
+	instead of a Lisp_Object as argument to make it consistent with
+	the other LIVE_P macros.
+	(CHECK_LIVE_PROCESS): New macro.
+
+	* process.c: Declare Qprocess_live_p.
+	(Fprocess_live_p): New function.
+	(create_process): Use PROCESS_LIVE_P.
+	(read_process_output): Ditto.
+	(set_process_filter): Ditto.
+	(Fdelete_process): Ditto.
+	(kill_buffer_processes): Ditto
+	(process_send_signal): Use CHECK_LIVE_PROCESS.
+	(Fprocess_input_coding_system): Check whether process is still
+	alive (fix PR#1061).
+	(Fprocess_output_coding_system): Ditto.
+	(Fprocess_coding_system): Ditto.
+	(Fset_process_input_coding_system): Ditto.
+	(Fset_process_output_coding_system): Ditto.
+
+2000-01-23  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.h (struct Lisp_Image_Instance): change format by unifying
+	layout and widget.
+
+	* glyphs.c (mark_image_instance): take into account changed
+	image_instance format.
+	(image_instance_equal): ditto.
+	(image_instance_hash): ditto.
+
+	* glyphs-widget.c (widget_instantiate): Incorporate layout
+	instantiation here. Delay layout of the layout until later.
+	(layout_instantiate): deleted.
+	(layout_query_geometry): new function. get the geometry of a
+	layout.
+	(layout_layout): layout a layout dynamically.
+	(image_instantiator_widget): New function - splitting up
+	image_instantiator_format_create_glyphs_widget for netwinder
+	compilation.
+	(image_instantiator_buttons):
+	(image_instantiator_edit_fields):
+	(image_instantiator_combo_box):
+	(image_instantiator_scrollbar):
+	(image_instantiator_progress_guage):
+	(image_instantiator_tree_view):
+	(image_instantiator_tab_control):
+	(image_instantiator_labels):
+	(image_instantiator_layout): ditto.
+	(image_instantiator_format_create_glyphs_widget): Call preceeding
+	functions.
+
+2000-01-22  Martin Buchholz  <martin@xemacs.org>
+
+	* process.c (Fset_process_coding_system):
+	* device-x.c (Fx_keysym_hash_table): 
+	Docstring fixes.
+
+	* lstream.c (Lstream_write): Return documented value, not 0.
+
+	* fileio.c (directory_file_name): 
+	(Fsubstitute_in_file_name): 
+	(Fsubstitute_insert_file_contents_internal): 
+	(Fwrite_region_internal):
+	* emacs.c:
+	* sysdep.c:
+	* getloadavg.c: 
+	* systty.h:
+	Remove vestigial APOLLO-conditional code.
+
+2000-01-21  Martin Buchholz  <martin@xemacs.org>
+
+	* getpagesize.h: Add guard macros.
+	* libsst.h: Add guard macros.
+	* libst.h: Add guard macros.
+	* line-number.h: Add guard macros.
+	* ndir.h: Add guard macros.
+	* sysfloat.h: Add guard macros.
+	* sysfile.h: Add guard macros.
+	* sysproc.h: Add guard macros.
+	* syswait.h: Add guard macros.
+	* xintrinsic.h: Add guard macros.
+	* xintrinsicp.h: Add guard macros.
+	* xmmanager.h: Add guard macros.
+	* xmmanagerp.h: Add guard macros.
+	* xmprimitive.h: Add guard macros.
+	* xmu.h: Add guard macros.
+	* gpmevent.h: Add copyright statement. Add guard macros.
+	* miscplay.h: Add guard macros.
+	* *.h: Use consistent C-standards-approved guard macro names.
+
+	* opaque.c (make_opaque): Switch parameter order. 
+	* opaque.h (make_opaque): Switch parameter order.
+	Update all callers.
+	* buffer.h (MAKE_MIRROR_TRT_TABLE): Use symbolic constant OPAQUE_CLEAR.
+
+	* config.h.in (type_checking_assert): Added.
+	(bufpos_checking_assert): Added.
+
+2000-01-21  Martin Buchholz  <martin@xemacs.org>
+
+	* alloc.c: Harmless pdump changes.
+	- Use countof().
+	- spell alignment correctly.
+	* sysdep.c: Use countof()
+
+2000-01-20  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* console.c (create_console): Use CONMETH_OR_GIVEN when calling
+	initially_selected_for_input() console method, default to 0.
+	(semi_canonicalize_console_connection): Try to delegate to
+	canonicalize_console_connection if no such console method.
+	(canonicalize_console_connection): Vice versa.
+	(print_console): Do not print nil connection.
+
+	* console.h (XDEVIMPF_IS_A_PRINTER): Added.
+	(XDEVIMPF_NO_AUTO_REDISPLAY): Added.
+	(XDEVIMPF_FRAMELESS_OK): Added.
+	(CONSOLE_INHERITS_METHOD): Added.
+
+	* console-msw.c (mswindows_canonicalize_console_connection):
+	Added.
+	(mswindows_canonicalize_device_connection): Added.
+
+	* console-msw.h (struct msprinter_device): Added this struct and
+	accessor macros.
+	(mswindows_device): Made fontlist a lisp object.
+
+	* device.c (semi_canonicalize_device_connection):  Try to delegate
+	to canonicalize_device_connection if no such console method.
+	(canonicalize_device_connection): Vice versa.
+	(print_device): Do not print nil connection.
+
+	* device-msw.c (mswindows_init_device): Call InitCommonControls
+	when have widgets.
+	(mswindows_delete_device): Removed fontlist deallocation.
+	(mswindows_mark_device): Added.
+
+	* events.c (event_equal): Added abort() at unreached code.
+	(event_hash): Ditto.
+
+	* faces.c (complex_vars_of_faces): Added Qmsprinter to the list of
+	fallback tags of Windows devices.
+
+	* general.c (syms_of_general): Initialized Qmsprinter.
+
+	* gutter.c (complex_vars_of_gutters): Added Qmsprinter to the list
+	of fallback tags of Windows devices.
+
+	* lisp.h: Declared Qmsprinter.
+
+	* objects-msw.c (font_enum_callback_2): Rewrote to build lisp list
+	of strings.
+	(mswindows_list_fonts): Ditto.
+	(mswindows_enumerate_fonts): Removed dependency on XDEVICE, so
+	that it can be used by both mswindows and msprinter devices.
+	(initialize_font_instance): Added.
+	(mswindows_initialize_font_instance): Use it.
+	(msprinter_initialize_font_instance): Added.
+
+	* redisplay.c (redisplay_device): Added the parameter AUTOMATIC
+	and implementation flags check.
+	(redisplay_without_hooks): Changed the call to the above.
+	(Fredraw_device): Ditto.
+	(Fredisplay_device): Ditto.
+
+	* redisplay-msw.c (get_frame_dc): Implemented.
+	(get_frame_compdc): Implemented.
+	(many functions): Use the two functions above to get device
+	contexts, ether for a window or a printer.
+
+2000-01-21  Olivier Galibert  <galibert@pobox.com>
+
+	* symbols.c (reinit_symbols_once_early): Put Qzero/Qnull_pointer
+	initialization here.
+	(init_symbols_once_early): Call it.
+	* emacs.c (main_1): Call it.
+	* symsinit.h: Declare it.
+
+2000-01-19  Olivier Galibert  <galibert@pobox.com>
+
+	* alloc.c: Use a lrecord_header * in the backtrace instead of a
+	Lisp_Object.
+	(pdump_backtrace): Ditto.
+	(pdump_register_object): Ditto.  Cleanup use of the pointers.
+	(pdump_get_entry): Abort if trying to register a null pointer.
+	(pdump_dump_data): Cleanup types when relocating.
+	(pdump_dump_staticvec): Cleanup types w.r.t the reloc table.
+	(pdump_dump_rtables): Remove bad casts.
+	(pdump_load): Cleanup relocation w.r.t union type.  Use a
+	Lisp_Object instead of a EMACS_INT for the hashtable
+	reorganization.
+
+2000-01-20  Martin Buchholz  <martin@xemacs.org>
+
+	* emacs.c (main_1): Rearrange morass of #ifdef's for correctness.
+
+	* callproc.c (call_process_cleanup): Isolate WINDOWSNT code for clarity.
+
+	* EmacsManager.c (GeometryManager): Avoid use of CPP for clarity.
+
+	* *.[ch]: global-replace 's/_of_xselect/_of_select_x/g' *.[ch]
+
+2000-01-17  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* faces.h (FACE_STRIKETHRU_P): Added.
+
+	* glyphs-msw.c (mswindows_widget_hfont): Implemented, to take care
+	of font variants.
+
+	* redisplay-msw.c (mswindows_apply_face_effects): Deleted.
+	(mswindows_set_dc_font): New function, aware of font variants,
+	separated from mswindows_update_dc.
+
+	* objects-msw.h (struct mswindows_font_instance_data): Added
+	definition.
+
+	* objects-msw.c (mswindows_finalize_font_instance): Delete all
+	cached fonts and the data structure.
+	(mswindows_initialize_font_instance): Added creation of font data
+	structure.
+	(mswindows_print_font_instance): Print at least something.
+	(mswindows_create_font_variant): Implemented.
+	(mswindows_get_hfont): Implemented.
+
+2000-01-13  Fabrice Popineau  <Fabrice.Popineau@supelec.fr>
+
+	* dired-msw.c: permute "sysdir.h" with "sysfile.h" because of
+	prototyping problem with msvc.
+
+	* emacs.c (main_1): added syms_of_gui_mswindows() call
+
+	* gui-msw.c: added "mswindows-shell-execute" lisp subr and
+	syms_of_gui_mswindows() function
+
+	* symsinit.h: added the prototype for syms_of_gui_mswindows()
+
 2000-01-18  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.27 is released.

@@ -1424,11 +1424,11 @@ For example:
 
 @example
   (setq tag-table-alist
-	'(("/usr/src/public/perl/" . "/usr/src/public/perl/perl-3.0/")
-	  ("\\.el$" . "/usr/local/emacs/src/")
-	  ("/jbw/gnu/" . "/usr15/degree/stud/jbw/gnu/")
-	  ("" . "/usr/local/emacs/src/")
-	  ))
+        '(("/usr/src/public/perl/" . "/usr/src/public/perl/perl-3.0/")
+          ("\\.el$" . "/usr/local/emacs/src/")
+          ("/jbw/gnu/" . "/usr15/degree/stud/jbw/gnu/")
+          ("" . "/usr/local/emacs/src/")
+          ))
 @end example
 
 The example defines the tags table alist in the following way:
@@ -1540,15 +1540,15 @@ Variables of note include the following:
 @table @kbd
 @item tag-table-alist
 Controls which tables apply to which buffers.
-@item tags-file-name		
+@item tags-file-name
 Stores a default tags table.
-@item tags-build-completion-table   
+@item tags-build-completion-table
 Controls completion behavior.
-@item buffer-tag-table		
+@item buffer-tag-table
 Specifies a buffer-local table.
-@item make-tags-files-invisible	
+@item make-tags-files-invisible
 Sets whether tags tables should be very hidden.
-@item tag-mark-stack-max		
+@item tag-mark-stack-max
 Specifies how many tags-based hops to remember.
 @end table
 

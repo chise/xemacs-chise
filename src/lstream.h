@@ -23,8 +23,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Written by Ben Wing. */
 
-#ifndef _XEMACS_LSTREAM_H_
-#define _XEMACS_LSTREAM_H_
+#ifndef INCLUDED_lstream_h_
+#define INCLUDED_lstream_h_
 
 /************************************************************************/
 /*                     definition of Lstream object                     */
@@ -339,10 +339,8 @@ int filedesc_stream_fd (Lstream *stream);
 Lisp_Object make_lisp_string_input_stream (Lisp_Object string,
 					   Bytecount offset,
 					   Bytecount len);
-Lisp_Object make_fixed_buffer_input_stream (CONST unsigned char *buf,
-					    size_t size);
-Lisp_Object make_fixed_buffer_output_stream (unsigned char *buf,
-					     size_t size);
+Lisp_Object make_fixed_buffer_input_stream (CONST void *buf, size_t size);
+Lisp_Object make_fixed_buffer_output_stream (void *buf, size_t size);
 CONST unsigned char *fixed_buffer_input_stream_ptr (Lstream *stream);
 unsigned char *fixed_buffer_output_stream_ptr (Lstream *stream);
 Lisp_Object make_resizing_buffer_output_stream (void);
@@ -356,4 +354,4 @@ Lisp_Object make_lisp_buffer_output_stream (struct buffer *buf, Bufpos pos,
 					    int flags);
 Bufpos lisp_buffer_stream_startpos (Lstream *stream);
 
-#endif /* _XEMACS_LSTREAM_H_ */
+#endif /* INCLUDED_lstream_h_ */

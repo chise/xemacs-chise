@@ -429,7 +429,7 @@ for experimentation purposes.  @xref{Specifiers}.
   Image instantiators come in many formats: @code{xbm}, @code{xpm},
 @code{gif}, @code{jpeg}, etc.  This describes the format of the data
 describing the image.  The resulting image instances also come in many
-types -- @code{mono-pixmap}, @code{color-pixmap}, @code{text},
+types---@code{mono-pixmap}, @code{color-pixmap}, @code{text},
 @code{pointer}, etc.  This refers to the behavior of the image and the
 sorts of places it can appear. (For example, a color-pixmap image has
 fixed colors specified for it, while a mono-pixmap image comes in two

@@ -116,7 +116,7 @@ then `set-language-environment' is called with LANGUAGE-ENVIRONMENT.")
        (setenv "LC_MESSAGES" "C")
        (setenv "LC_TIME"     "C"))))
   
-  ;; Register avairable input methods by loading LEIM list file.
+  ;; Register available input methods by loading LEIM list file.
   (load "leim-list.el" 'noerror 'nomessage 'nosuffix)
   )
 

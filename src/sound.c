@@ -126,7 +126,9 @@ Windows the sound file must be in WAV format.
     {
       char *fileext;
 
-      GET_C_STRING_FILENAME_DATA_ALLOCA (file, fileext);
+      TO_EXTERNAL_FORMAT (LISP_STRING, file,
+			  C_STRING_ALLOCA, fileext,
+			  Qfile_name);
       /* #### NAS code should allow specification of a device. */
       if (nas_play_sound_file (fileext, vol))
 	return Qnil;
@@ -138,7 +140,9 @@ Windows the sound file must be in WAV format.
     {
       char *fileext;
 
-      GET_C_STRING_FILENAME_DATA_ALLOCA (file, fileext);
+      TO_EXTERNAL_FORMAT (LISP_STRING, file,
+			  C_STRING_ALLOCA, fileext,
+			  Qfile_name);
       if (esd_play_sound_file (fileext, vol))
        return Qnil;
     }
@@ -149,7 +153,9 @@ Windows the sound file must be in WAV format.
     {
       CONST char *fileext;
 
-      GET_C_STRING_FILENAME_DATA_ALLOCA (file, fileext);
+      TO_EXTERNAL_FORMAT (LISP_STRING, file,
+			  C_STRING_ALLOCA, fileext,
+			  Qfile_name);
       /* The sound code doesn't like getting SIGIO interrupts.
 	 Unix sucks! */
       stop_interrupts ();
@@ -314,7 +320,9 @@ See the variable `sound-alist'.
       CONST Extbyte *soundext;
       Extcount soundextlen;
 
-      GET_STRING_BINARY_DATA_ALLOCA (sound, soundext, soundextlen);
+      TO_EXTERNAL_FORMAT (LISP_STRING, sound,
+			  ALLOCA, (soundext, soundextlen),
+			  Qbinary);
       if (nas_play_sound_data ((unsigned char*)soundext, soundextlen, vol))
 	return Qnil;
     }
@@ -326,7 +334,8 @@ See the variable `sound-alist'.
       Extbyte *soundext;
       Extcount soundextlen;
 
-      GET_STRING_BINARY_DATA_ALLOCA (sound, soundext, soundextlen);
+      TO_EXTERNAL_FORMAT (LISP_STRING, sound, ALLOCA, (soundext, soundextlen),
+			  Qbinary);
       if (esd_play_sound_data (soundext, soundextlen, vol))
        return Qnil;
     }
@@ -339,7 +348,9 @@ See the variable `sound-alist'.
       CONST Extbyte *soundext;
       Extcount soundextlen;
 
-      GET_STRING_BINARY_DATA_ALLOCA (sound, soundext, soundextlen);
+      TO_EXTERNAL_FORMAT (LISP_STRING, sound,
+			  ALLOCA, (soundext, soundextlen),
+			  Qbinary);
       /* The sound code doesn't like getting SIGIO interrupts. Unix sucks! */
       stop_interrupts ();
       play_sound_data ((unsigned char*)soundext, soundextlen, vol);

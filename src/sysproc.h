@@ -20,6 +20,9 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not really in FSF. */
 
+#ifndef INCLUDED_sysproc_h_
+#define INCLUDED_sysproc_h_
+
 #ifdef HAVE_VFORK_H
 # include <vfork.h>
 #endif
@@ -103,3 +106,5 @@ int poll_fds_for_input (SELECT_TYPE mask);
 /* Damn that local process.h!  Instead we can define P_WAIT ourselves.  */
 #define P_WAIT 1
 #endif
+
+#endif /* INCLUDED_sysproc_h_ */
