@@ -156,33 +156,29 @@
 (defun update-ideograph-radical-table ()
   (interactive)
   (let (ret radical script)
-    (dolist (domain char-db-feature-domains)
+    (dolist (feature
+	     (cons 'ideographic-radical
+		   (mapcar
+		    (lambda (domain)
+		      (intern (format "%s@%s" 'ideographic-radical domain)))
+		    char-db-feature-domains)))
       (map-char-attribute
-       (lambda (char radical)
-	 (when (and radical
-		    (or (null (setq script (get-char-attribute char 'script)))
-			(memq 'Ideograph script)))
-	   (unless (memq char
-			 (setq ret
-			       (aref ideograph-radical-chars-vector radical)))
-	     (char-ideographic-strokes char)
-	     (aset ideograph-radical-chars-vector radical
-		   (cons char ret))))
+       (lambda (chr radical)
+	 (dolist (char (cons chr
+			     (get-char-attribute chr '->denotational)))
+	   (when (and radical
+		      (or (null (setq script
+				      (get-char-attribute char 'script)))
+			  (memq 'Ideograph script)))
+	     (unless (memq char
+			   (setq ret
+				 (aref ideograph-radical-chars-vector
+				       radical)))
+	       (char-ideographic-strokes char)
+	       (aset ideograph-radical-chars-vector radical
+		     (cons char ret)))))
 	 nil)
-       (intern (format "%s@%s" 'ideographic-radical domain))))
-    (map-char-attribute
-     (lambda (char radical)
-       (when (and radical
-		  (or (null (setq script (get-char-attribute char 'script)))
-		      (memq 'Ideograph script)))
-	 (unless (memq char
-		       (setq ret
-			     (aref ideograph-radical-chars-vector radical)))
-	   (char-ideographic-strokes char)
-	   (aset ideograph-radical-chars-vector radical
-		 (cons char ret))))
-       nil)
-     'ideographic-radical)
+       feature))
     (map-char-attribute
      (lambda (char data)
        (dolist (cell data)
@@ -305,7 +301,12 @@
 (defun char-daikanwa (char)
   (or (encode-char char 'ideograph-daikanwa 'defined-only)
       (encode-char char '=daikanwa-rev2 'defined-only)
-      (get-char-attribute char '=>daikanwa)
+      (let ((ret (char-feature char '=>daikanwa)))
+	(and ret
+	     (if (or (get-char-attribute char '<-unified)
+		     (get-char-attribute char '<-denotational))
+		 (list ret 0)
+	       ret)))
       (get-char-attribute char 'morohashi-daikanwa)))
 
 ;;;###autoload
