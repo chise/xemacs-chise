@@ -221,8 +221,8 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
        buffer's current directory.  We can't just have the child check
        for an error when it does the chdir, since it's in a vfork.  */
 
-    NGCPRO2 (current_dir, path);   /* Caller gcprotects args[] */
     current_dir = current_buffer->directory;
+    NGCPRO2 (current_dir, path);   /* Caller gcprotects args[] */
     current_dir = Funhandled_file_name_directory (current_dir);
     current_dir = expand_and_dir_to_file (current_dir, Qnil);
 #if 0

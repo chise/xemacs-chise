@@ -1073,7 +1073,7 @@ exactly equivalent to @code{(setq x y)}, and @code{setq} itself is
 strictly speaking redundant now that @code{setf} exists.  Many
 programmers continue to prefer @code{setq} for setting simple
 variables, though, purely for stylistic or historical reasons.
-The macro @code{(setf x y)} actually expands to @code{(setq x y)},
+The form @code{(setf x y)} actually expands to @code{(setq x y)},
 so there is no performance penalty for using it in compiled code.
 
 @item
@@ -4581,7 +4581,7 @@ This is equivalent to @code{(nconc (mapcar* 'cons @var{keys} @var{values})
 
 @noindent
 Hash tables are now implemented directly in the C code and documented in
-@ref{Hash Tables,,, lispref, XEmacs Lisp Programmer's Manual}.
+@ref{Hash Tables,,, lispref, XEmacs Lisp Reference Manual}.
 
 @ignore
 A @dfn{hash table} is a data structure that maps ``keys'' onto
@@ -5099,20 +5099,19 @@ will also include all non-constant arguments of the top-level
 (assert (> x 10) t "x is too small: %d")
 @end example
 
-This usage of @var{show-args} is an extension to Common Lisp.  In
+This usage of @var{show-args} is a change to Common Lisp.  In
 true Common Lisp, the second argument gives a list of @var{places}
 which can be @code{setf}'d by the user before continuing from the
-error.  Since Emacs Lisp does not support continuable errors, it
-makes no sense to specify @var{places}.
+error.
 @end defspec
 
-@defspec check-type form type [string]
-This form verifies that @var{form} evaluates to a value of type
+@defspec check-type place type &optional string
+This form verifies that @var{place} evaluates to a value of type
 @var{type}.  If so, it returns @code{nil}.  If not, @code{check-type}
-signals a @code{wrong-type-argument} error.  The default error message
-lists the erroneous value along with @var{type} and @var{form}
-themselves.  If @var{string} is specified, it is included in the
-error message in place of @var{type}.  For example:
+signals a continuable @code{wrong-type-argument} error.  The default
+error message lists the erroneous value along with @var{type} and
+@var{place} themselves.  If @var{string} is specified, it is included in
+the error message in place of @var{type}.  For example:
 
 @example
 (check-type x (integer 1 *) "a positive integer")
@@ -5121,10 +5120,10 @@ error message in place of @var{type}.  For example:
 @xref{Type Predicates}, for a description of the type specifiers
 that may be used for @var{type}.
 
-Note that in Common Lisp, the first argument to @code{check-type}
-must be a @var{place} suitable for use by @code{setf}, because
-@code{check-type} signals a continuable error that allows the
-user to modify @var{place}.
+Note that as in Common Lisp, the first argument to @code{check-type}
+should be a @var{place} suitable for use by @code{setf}, because
+@code{check-type} signals a continuable error that allows the user to
+modify @var{place}, most simply by returning a value from the debugger.
 @end defspec
 
 The following error-related macro is also defined:

@@ -652,8 +652,8 @@ beyond the minimum needed to end a sentence.
 
   In XEmacs, you can search for the next match for a regexp either
 incrementally or not.  Incremental search commands are described in the
-@cite{The XEmacs Reference Manual}.  @xref{Regexp Search, , Regular Expression
-Search, emacs, The XEmacs Reference Manual}.  Here we describe only the search
+@cite{The XEmacs Lisp Reference Manual}.  @xref{Regexp Search, , Regular Expression
+Search, xemacs, The XEmacs Lisp Reference Manual}.  Here we describe only the search
 functions useful in programs.  The principal one is
 @code{re-search-forward}.
 

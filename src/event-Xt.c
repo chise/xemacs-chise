@@ -1350,10 +1350,10 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
 	    Lisp_Object l_dndlist = Qnil, l_item = Qnil;
 	    struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
 
-	    GCPRO4 (l_type, l_data, l_dndlist, l_item);
-
 	    if (! frame)
 	      return 0;	/* not for us */
+
+	    GCPRO4 (l_type, l_data, l_dndlist, l_item);
 	    XSETFRAME (emacs_event->channel, frame);
 
 	    emacs_event->event_type = misc_user_event;

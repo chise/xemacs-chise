@@ -219,6 +219,10 @@ xm_update_label (widget_instance* instance, Widget widget, widget_value* val)
 
   if (val->value)
     {
+      /* #### Temporary fix. I though Motif was supposed to grok %_
+         type things. */
+      lw_remove_accelerator_spec (val->value);
+  
 #ifdef LWLIB_DIALOGS_MOTIF
       /*
        * Sigh.  The main text of a label is the name field for menubar

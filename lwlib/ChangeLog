@@ -1,3 +1,49 @@
+2000-12-05  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.38 is released.
+
+2000-11-30  Andy Piper  <andy@xemacs.org>
+
+	* lwlib-Xm.c (xm_update_label): Hack to stop %_ labels until
+	someone fixes it properly.
+
+2000-11-24  Andy Piper  <andy@xemacs.org>
+
+	* xlwtabsP.h: add visible flag, realRows and remove displayChildren.
+
+	* xlwtabs.c (TabVisible): new macro. Consults visible flag.
+	(TabsInit): remove displayChildren, add realRows.
+	(TabsConstraintInitialize): ditto.
+	(TabsResize): ditto.
+	(TabsGeometryManager): ditto.
+	(TabsChangeManaged): ditto.
+	(TabsSelect): ditto.
+	(TabsPage): ditto.
+	(TabsHighlight): ditto.
+	(DrawTabs): ditto.
+	(TabLayout): Caclulate rows for all children and whether they
+	should be visible or not..
+	(TabsShuffleRows): shuffle rows based on both real and displayed
+	rows. Adjust visibility of all children.
+	(PreferredSize): ditto.
+
+2000-11-19  Martin Buchholz  <martin@xemacs.org>
+
+	* xlwtabs.c (TabsResize): Don't delete `tab', mark unused instead.
+
+2000-11-18  Martin Buchholz  <martin@xemacs.org>
+
+	* xlwmenu.c (make_windows_if_needed): 
+	(XlwMenuRealize): 
+	The proper type for `mask' is `unsigned long', not `int'.
+
+2000-11-18  Martin Buchholz  <martin@xemacs.org>
+
+	* xlwtabs.c (defaultAccelerators): Add #### to unused var.
+	(TabsResize): Remove unused var.
+	* xlwmenu.c (XlwMenuInitialize): Remove unused vars.
+	* lwlib-Xlw.c (xlw_update_one_widget): Add #### for probable bug.
+
 2000-11-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.37 is released.

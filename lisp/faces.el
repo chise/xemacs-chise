@@ -1636,7 +1636,7 @@ expected in this case, other types of image data will not work.
 If the optional FRAME argument is provided, change only
 in that frame; otherwise change each frame."
   (while (not (find-face face))
-    (setq face (signal 'wrong-type-argument (list 'facep face))))
+    (setq face (wrong-type-argument 'facep face)))
   (let ((bitmap-path (ecase (console-type)
 		       (x         x-bitmap-file-path)
 		       (mswindows mswindows-bitmap-file-path)))
@@ -1661,8 +1661,7 @@ in that frame; otherwise change each frame."
 		   (and (listp pixmap) (= (length pixmap) 3)))))
 	(setq pixmap (signal 'wrong-type-argument
 			     (list 'stipple-pixmap-p pixmap)))))
-    (while (and frame (not (framep frame)))
-      (setq frame (signal 'wrong-type-argument (list 'framep frame))))
+    (check-type frame (or null frame))
     (set-face-background-pixmap face instantiator frame)))
 
 

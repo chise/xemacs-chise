@@ -701,8 +701,6 @@ or `replace'. ATTR is the LDAP attribute type to modify.
   Lisp_Object values  = Qnil;
   struct gcpro gcpro1, gcpro2;
 
-  GCPRO2 (current, values);
-
   /* Do all the parameter checking  */
   CHECK_LIVE_LDAP (ldap);
   ld = XLDAP (ldap)->ld;
@@ -720,6 +718,8 @@ or `replace'. ATTR is the LDAP attribute type to modify.
   ldap_mods = alloca_array (LDAPMod, len);
   ldap_mods_ptrs = alloca_array (LDAPMod *, 1 + len);
   i = 0;
+
+  GCPRO2 (current, values);
   EXTERNAL_LIST_LOOP (mods, mods)
     {
       current = XCAR (mods);

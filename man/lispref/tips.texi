@@ -534,7 +534,7 @@ The indentation commands of the Lisp modes in XEmacs, such as @kbd{M-;}
 (@code{indent-for-comment}) and @key{TAB} (@code{lisp-indent-line})
 automatically indent comments according to these conventions,
 depending on the number of semicolons.  @xref{Comments,,
-Manipulating Comments, emacs, The XEmacs Reference Manual}.
+Manipulating Comments, xemacs, The XEmacs User's Manual}.
 
 @node Library Headers
 @section Conventional Headers for XEmacs Libraries

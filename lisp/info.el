@@ -2008,7 +2008,7 @@ NAME may be an abbreviation of the reference name."
 	    ;; Kludge.
 	    ;; Allow dots in node name not followed by whitespace.
 	    (re-search-forward
-	     (concat "\\(([^)]+)[^."
+	     (concat "\\(([^)]+)[^.,"
 		     (if multi-line "" "\n")
 		     "]*\\|\\([^.,\t"
 		     (if multi-line "" "\n")
@@ -3103,7 +3103,7 @@ The locations are of the format used in Info-history, i.e.
 	    (forward-char 1)
 	    (insert "\n")
 	    (just-one-space)
-	    (backward-delete-char 1)
+	    (delete-backward-char 1)
 	    (setq p (point)
 		  len 0))))
       (toggle-read-only 1)

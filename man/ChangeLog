@@ -1,3 +1,87 @@
+2000-12-05  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.38 is released.
+
+2000-12-01  Martin Buchholz  <martin@xemacs.org>
+
+	* lispref/compile.texi:
+	Document differences between compiler and interpreter.
+
+2000-11-29  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* internals/index.texi:
+	internals/internals.texi:
+	Change "X Windows" to "the X Window System" randomly.
+	* internals/internals.texi (Glyphs): fiddling, move lwlib to new node.
+	(Lucid Widget Library): new node, added new text, ASCII art, subnode
+        structure.
+	* xemacs/frame.texi (GUI Components): new node.
+	* xemacs/packages.texi: minor updates.
+
+2000-11-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* info.texi (Creating an Info File): Fix typos in xrefs.
+
+2000-11-08  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs/cmdargs.texi (Command Switches):  Add documentation of
+	portable dumper switches.  Other minor edits.
+
+2000-11-21  Martin Buchholz  <martin@xemacs.org>
+
+	* lispref/positions.texi (Word Motion):
+	forward-word arg is now optional.
+	backward-word arg is now optional.
+	Remove vile comment advising lisp programmer to use (forward-word -1)
+	instead of (backward-word 1).
+	* lispref/syntax.texi (Parsing Expressions):
+	Similarly for forward-comment.
+	* lispref/text.texi (Deletion):
+	Similarly for delete-char.
+	Similarly for delete-backward-char.
+
+2000-11-09  Martin Buchholz  <martin@xemacs.org>
+
+	* cl.texi (Assertions):
+	Remove claim that elisp doesn't have continuable errors.
+	Document check-type as being continuable.
+
+2000-11-14  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs/calendar.texi (Calendar/Diary): Correct INFO-FILE-NAME
+	from elisp to lispref and from emacs to xemacs in relevant ?xefs.
+	This should also serve as a reminder for future merges with GNU
+	Emacs.
+	Unify PRINTED-MANUAL-TITLE to "XEmacs Lisp Reference Manual" and
+	"XEmacs User's Manual" for lispref and xemacs respectively.
+
+2000-11-14  Adrian Aichner  <adrian@xemacs.org>
+
+	* lispref/abbrevs.texi (Abbrevs): Ditto.
+	* lispref/backups.texi (Auto-Saving): Ditto.
+	* lispref/backups.texi (Reverting): Ditto.
+	* lispref/display.texi (The Echo Area): Ditto.
+	* lispref/help.texi (Documentation Basics): Ditto.
+	* lispref/help.texi (Help Functions): Ditto.
+	* lispref/keymaps.texi (Scanning Keymaps): Ditto.
+	* lispref/locals.texi (Standard Buffer-Local Variables): Ditto.
+	* lispref/modes.texi (Auto Major Mode): Ditto.
+	* lispref/positions.texi (List Motion): Ditto.
+	* lispref/searching.texi (Regexp Search): Ditto.
+	* lispref/symbols.texi (Symbol Components): Ditto.
+	* lispref/tips.texi (Comment Tips): Ditto.
+	* lispref/tips.texi (Library Headers): Ditto.
+
+2000-11-14  Adrian Aichner  <adrian@xemacs.org>
+
+	* internals/internals.texi (The Buffer Object): Ditto.
+
+2000-11-14  Adrian Aichner  <adrian@xemacs.org>
+
+	* cl.texi (Hash Tables): Ditto.
+	* texinfo.texi (Other Info Files): Ditto.
+	* xemacs-faq.texi (Q1.0.14): Ditto.
+
 2000-11-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.37 is released.

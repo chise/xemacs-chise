@@ -53,7 +53,11 @@ unexec (char *, char *, void *, void *,	void *)
 ((((unsigned long)addr) + ALLOC_UNIT) & ALLOC_MASK)
 /* Note that all sections must be aligned on a 0x1000 boundary so
    this is the minimum size that our dummy bss can be. */
+#ifdef BROKEN_GDB
 #define BSS_PAD_SIZE	0x1000
+#else
+#define BSS_PAD_SIZE	0
+#endif
 
 /* To prevent zero-initialized variables from being placed into the bss
    section, use non-zero values to represent an uninitialized state.  */
@@ -121,7 +125,7 @@ void unexec (char *out_name, char *in_name, void *start_data,
     }
 
   if ((a_new = open (new_name, O_WRONLY | O_TRUNC | O_CREAT | OPEN_BINARY,
-		     CREAT_MODE)) < 0)
+		     0755)) < 0)
     {
       PERROR (new_name);
     }
@@ -306,6 +310,9 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
   lseek (a_new, 0, SEEK_SET);
   /* write file header */
   f_hdr.f_symptr += file_sz_change;
+#ifndef BROKEN_GDB
+  f_hdr.f_nscns--;
+#endif
 
   printf("writing file header\n");
   if (write(a_new, &f_hdr, sizeof(f_hdr)) != sizeof(f_hdr))
@@ -333,7 +340,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
     {
       PERROR("failed to write text header");
     }
-
+#ifdef BROKEN_GDB
   /* Write small bss section. */
   if (!sections_reversed)
     {
@@ -345,7 +352,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
 	  PERROR("failed to write bss header");
 	}
     }
-
+#endif
   /* write new data header */
   printf("writing .data header\n");
 
@@ -353,7 +360,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
     {
       PERROR("failed to write data header");
     }
-
+#ifdef BROKEN_GDB
   /* Write small bss section. */
   if (sections_reversed)
     {
@@ -365,7 +372,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
 	  PERROR("failed to write bss header");
 	}
     }
-
+#endif
   printf("writing following data header\n");
   f_nextdata.s_scnptr += file_sz_change;
   if (f_nextdata.s_lnnoptr != 0) f_nextdata.s_lnnoptr += file_sz_change;
@@ -392,7 +399,14 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
 	  PERROR("failed to write data header");
 	}
     }
-
+#ifndef BROKEN_GDB
+  /* dump bss to maintain offsets */
+  memset(&f_bss, 0, sizeof(f_bss));
+  if (write(a_new, &f_bss, sizeof(f_bss)) != sizeof(f_bss))
+    {
+      PERROR("failed to write bss header");
+    }
+#endif
   size=lseek(a_new, 0, SEEK_CUR);
   CHECK_AOUT_POS(size);
 

@@ -1236,7 +1236,7 @@ command_builder_find_menu_accelerator (struct command_builder *builder)
   if (menubar_widget
       && CONSP (Vmenu_accelerator_modifiers))
     {
-      Lisp_Object fake;
+      Lisp_Object fake = Qnil;
       Lisp_Object last = Qnil;
       struct gcpro gcpro1;
       Lisp_Object matchp;

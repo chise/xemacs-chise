@@ -1,5 +1,5 @@
 \input texinfo.tex    @c -*-texinfo-*-
-@c $Id: texinfo.texi,v 1.8.2.4 1999/12/05 19:02:24 martinb Exp $
+@c $Id: texinfo.texi,v 1.8.2.5 2000/11/14 23:29:15 adrian Exp $
 @c %**start of header
 
 @c All text is ignored before the setfilename.
@@ -5158,16 +5158,16 @@ The format looks like this:@refill
 @end example
 
 For example, to refer directly to the @samp{Outlining} and
-@samp{Rebinding} nodes in the @cite{Emacs Manual}, you would write a
-menu like this:@refill
+@samp{Rebinding} nodes in the @cite{XEmacs User's Manual}, you would
+write a menu like this:@refill
 
 @example
 @group
 @@menu
-* Outlining: (emacs)Outline Mode. The major mode for
-                                  editing outlines.
-* Rebinding: (emacs)Rebinding.    How to redefine the
-                                  meaning of a key.
+* Outlining: (xemacs)Outline Mode. The major mode for
+                                   editing outlines.
+* Rebinding: (xemacs)Rebinding.    How to redefine the
+                                   meaning of a key.
 @@end menu
 @end group
 @end example

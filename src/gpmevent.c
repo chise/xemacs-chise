@@ -112,7 +112,7 @@ This function is the process handler for the GPM connection.
 	Gpm_Event ev;
 	int modifiers = 0;
 	int button = 1;
-	Lisp_Object fake_event;
+	Lisp_Object fake_event = Qnil;
 	Lisp_Event *event = NULL;
 	struct gcpro gcpro1;
 	static int num_events;
@@ -217,9 +217,9 @@ tty_get_foreign_selection (Lisp_Object selection_symbol, Lisp_Object target_type
 	struct device *d = decode_device (Qnil);
 	int fd = DEVICE_INFD (d);
 	char c = 3;
-	Lisp_Object output_stream;
-	Lisp_Object terminal_stream;
-	Lisp_Object output_string;
+	Lisp_Object output_stream = Qnil;
+	Lisp_Object terminal_stream = Qnil ;
+	Lisp_Object output_string = Qnil;
 	struct gcpro gcpro1,gcpro2,gcpro3;
 
 	GCPRO3(output_stream,terminal_stream,output_string);

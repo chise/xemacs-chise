@@ -135,7 +135,7 @@ This Info file contains v1.0 of the XEmacs Internals Manual.
 * Specifiers::
 * Menus::
 * Subprocesses::
-* Interface to X Windows::
+* Interface to the X Window System::
 * Index::
 
 @detailmenu
@@ -7178,19 +7178,19 @@ Many are accessible indirectly in Lisp programs via Lisp primitives.
 @table @code
 @item name
 The buffer name is a string that names the buffer.  It is guaranteed to
-be unique.  @xref{Buffer Names,,, lispref, XEmacs Lisp Programmer's
+be unique.  @xref{Buffer Names,,, lispref, XEmacs Lisp Reference
 Manual}.
 
 @item save_modified
 This field contains the time when the buffer was last saved, as an
-integer.  @xref{Buffer Modification,,, lispref, XEmacs Lisp Programmer's
+integer.  @xref{Buffer Modification,,, lispref, XEmacs Lisp Reference
 Manual}.
 
 @item modtime
 This field contains the modification time of the visited file.  It is
 set when the file is written or read.  Every time the buffer is written
 to the file, this field is compared to the modification time of the
-file.  @xref{Buffer Modification,,, lispref, XEmacs Lisp Programmer's
+file.  @xref{Buffer Modification,,, lispref, XEmacs Lisp Reference
 Manual}.
 
 @item auto_save_modified
@@ -7202,39 +7202,39 @@ the last time the buffer was displayed in a window.
 
 @item undo_list
 This field points to the buffer's undo list.  @xref{Undo,,, lispref,
-XEmacs Lisp Programmer's Manual}.
+XEmacs Lisp Reference Manual}.
 
 @item syntax_table_v
 This field contains the syntax table for the buffer.  @xref{Syntax
-Tables,,, lispref, XEmacs Lisp Programmer's Manual}.
+Tables,,, lispref, XEmacs Lisp Reference Manual}.
 
 @item downcase_table
 This field contains the conversion table for converting text to lower
-case.  @xref{Case Tables,,, lispref, XEmacs Lisp Programmer's Manual}.
+case.  @xref{Case Tables,,, lispref, XEmacs Lisp Reference Manual}.
 
 @item upcase_table
 This field contains the conversion table for converting text to upper
-case.  @xref{Case Tables,,, lispref, XEmacs Lisp Programmer's Manual}.
+case.  @xref{Case Tables,,, lispref, XEmacs Lisp Reference Manual}.
 
 @item case_canon_table
 This field contains the conversion table for canonicalizing text for
 case-folding search.  @xref{Case Tables,,, lispref, XEmacs Lisp
-Programmer's Manual}.
+Reference Manual}.
 
 @item case_eqv_table
 This field contains the equivalence table for case-folding search.
-@xref{Case Tables,,, lispref, XEmacs Lisp Programmer's Manual}.
+@xref{Case Tables,,, lispref, XEmacs Lisp Reference Manual}.
 
 @item display_table
 This field contains the buffer's display table, or @code{nil} if it
 doesn't have one.  @xref{Display Tables,,, lispref, XEmacs Lisp
-Programmer's Manual}.
+Reference Manual}.
 
 @item markers
 This field contains the chain of all markers that currently point into
 the buffer.  Deletion of text in the buffer, and motion of the buffer's
 gap, must check each of these markers and perhaps update it.
-@xref{Markers,,, lispref, XEmacs Lisp Programmer's Manual}.
+@xref{Markers,,, lispref, XEmacs Lisp Reference Manual}.
 
 @item backed_up
 This field is a flag that tells whether a backup file has been made for
@@ -7243,7 +7243,7 @@ the visited file of this buffer.
 @item mark
 This field contains the mark for the buffer.  The mark is a marker,
 hence it is also included on the list @code{markers}.  @xref{The Mark,,,
-lispref, XEmacs Lisp Programmer's Manual}.
+lispref, XEmacs Lisp Reference Manual}.
 
 @item mark_active
 This field is non-@code{nil} if the buffer's mark is active.
@@ -7253,12 +7253,12 @@ This field contains the association list describing the variables local
 in this buffer, and their values, with the exception of local variables
 that have special slots in the buffer object.  (Those slots are omitted
 from this table.)  @xref{Buffer-Local Variables,,, lispref, XEmacs Lisp
-Programmer's Manual}.
+Reference Manual}.
 
 @item modeline_format
 This field contains a Lisp object which controls how to display the mode
 line for this buffer.  @xref{Modeline Format,,, lispref, XEmacs Lisp
-Programmer's Manual}.
+Reference Manual}.
 
 @item base_buffer
 This field holds the buffer's base buffer (if it is an indirect buffer),
@@ -8723,12 +8723,13 @@ Not yet documented.
 
 Glyphs are graphical elements that can be displayed in XEmacs buffers or
 gutters. We use the term graphical element here in the broadest possible
-sense since glyphs can be as mundane as text to as arcane as a native
+sense since glyphs can be as mundane as text or as arcane as a native
 tab widget.
 
 In XEmacs, glyphs represent the uninstantiated state of graphical
 elements, i.e. they hold all the information necessary to produce an
-image on-screen but the image does not exist at this stage.
+image on-screen but the image need not exist at this stage, and multiple
+screen images can be instantiated from a single glyph.
 
 Glyphs are lazily instantiated by calling one of the glyph
 functions. This usually occurs within redisplay when
@@ -8746,7 +8747,7 @@ and every usage - and this would be extremely memory and cpu intensive.
 Widget-glyphs (a.k.a native widgets) are not cached in this way. This is
 because widget-glyph image-instances on screen are toolkit windows, and
 thus cannot be reused in multiple XEmacs domains. Thus widget-glyphs are
-cached on a window basis.
+cached on an XEmacs window basis.  
 
 Any action on a glyph first consults the cache before actually
 instantiating a widget.
@@ -8757,28 +8758,10 @@ To Do
 
 @section Widget-Glyphs in the X Environment
 
-Widget-glyphs under X make heavy use of lwlib for manipulating the
-native toolkit objects. This is primarily so that different toolkits can
-be supported for widget-glyphs, just as they are supported for features
-such as menubars etc.
-
-Lwlib is extremely poorly documented and quite hairy so here is my
-understanding of what goes on.
-
-Lwlib maintains a set of widget_instances which mirror the hierarchical
-state of Xt widgets. I think this is so that widgets can be updated and
-manipulated generically by the lwlib library. For instance
-update_one_widget_instance can cope with multiple types of widget and
-multiple types of toolkit. Each element in the widget hierarchy is updated
-from its corresponding widget_instance by walking the widget_instance
-tree recursively.
-
-This has desirable properties such as lw_modify_all_widgets which is
-called from @file{glyphs-x.c} and updates all the properties of a widget
-without having to know what the widget is or what toolkit it is from.
-Unfortunately this also has hairy properties such as making the lwlib
-code quite complex. And of course lwlib has to know at some level what
-the widget is and how to set its properties.
+Widget-glyphs under X make heavy use of lwlib (@pxref{Lucid Widget
+Library}) for manipulating the native toolkit objects. This is primarily
+so that different toolkits can be supported for widget-glyphs, just as
+they are supported for features such as menubars etc.
 
 @node Specifiers, Menus, Glyphs, Top
 @chapter Specifiers
@@ -8837,7 +8820,7 @@ a function to call (either @code{eval} or @code{call-interactively}) and
 its argument, which is the callback function or form given in the menu's
 description.
 
-@node Subprocesses, Interface to X Windows, Menus, Top
+@node Subprocesses, Interface to the X Window System, Menus, Top
 @chapter Subprocesses
 
   The fields of a process are:
@@ -8910,10 +8893,139 @@ The name of the terminal that the subprocess is using,
 or @code{nil} if it is using pipes.
 @end table
 
-@node Interface to X Windows, Index , Subprocesses, Top
-@chapter Interface to X Windows
+@node Interface to the X Window System, Index, Subprocesses, Top
+@chapter Interface to the X Window System
 
-Not yet documented.
+Mostly undocumented.
+
+@menu
+* Lucid Widget Library::        An interface to various widget sets.
+@end menu
+
+@node Lucid Widget Library, , , Interface to the X Window System
+@section Lucid Widget Library
+
+Lwlib is extremely poorly documented and quite hairy.  The author(s)
+blame that on X, Xt, and Motif, with some justice, but also sufficient
+hypocrisy to avoid drawing the obvious conclusion about their own work.
+
+The Lucid Widget Library is composed of two more or less independent
+pieces.  The first, as the name suggests, is a set of widgets.  These
+widgets are intended to resemble and improve on widgets provided in the
+Motif toolkit but not in the Athena widgets, including menubars and
+scrollbars.  Recent additions by Andy Piper integrate some ``modern''
+widgets by Edward Falk, including checkboxes, radio buttons, progress
+gauges, and index tab controls (aka notebooks).
+
+The second piece of the Lucid widget library is a generic interface to
+several toolkits for X (including Xt, the Athena widget set, and Motif,
+as well as the Lucid widgets themselves) so that core XEmacs code need
+not know which widget set has been used to build the graphical user
+interface.
+
+@menu
+* Generic Widget Interface::    The lwlib generic widget interface.
+* Scrollbars::
+* Menubars::
+* Checkboxes and Radio Buttons::
+* Progress Bars::
+* Tab Controls::
+@end menu
+
+@node Generic Widget Interface, Scrollbars, , Lucid Widget Library
+@subsection Generic Widget Interface
+
+In general in any toolkit a widget may be a composite object.  In Xt,
+all widgets have an X window that they manage, but typically a complex
+widget will have widget children, each of which manages a subwindow of
+the parent widget's X window.  These children may themselves be
+composite widgets.  Thus a widget is actually a tree or hierarchy of
+widgets.
+
+For each toolkit widget, lwlib maintains a tree of @code{widget_values}
+which mirror the hierarchical state of Xt widgets (including Motif,
+Athena, 3D Athena, and Falk's widget sets).  Each @code{widget_value}
+has @code{contents} member, which points to the head of a linked list of
+its children.  The linked list of siblings is chained through the
+@code{next} member of @code{widget_value}.
+
+@example
+           +-----------+
+           | composite |
+           +-----------+
+                 |
+                 | contents
+                 V
+             +-------+ next +-------+ next +-------+
+             | child |----->| child |----->| child |
+             +-------+      +-------+      +-------+
+                                |
+                                | contents
+                                V
+                         +-------------+ next +-------------+
+                         | grand child |----->| grand child |
+                         +-------------+      +-------------+
+
+The @code{widget_value} hierarchy of a composite widget with two simple
+children and one composite child.
+@end example
+
+The @code{widget_instance} structure maintains the inverse view of the
+tree.  As for the @code{widget_value}, siblings are chained through the
+@code{next} member.  However, rather than naming children, the
+@code{widget_instance} tree links to parents.
+
+@example
+           +-----------+
+           | composite |
+           +-----------+
+                 A
+                 | parent
+                 |
+             +-------+ next +-------+ next +-------+
+             | child |----->| child |----->| child |
+             +-------+      +-------+      +-------+
+                                A
+                                | parent
+                                |
+                         +-------------+ next +-------------+
+                         | grand child |----->| grand child |
+                         +-------------+      +-------------+
+
+The @code{widget_value} hierarchy of a composite widget with two simple
+children and one composite child.
+@end example
+
+This permits widgets derived from different toolkits to be updated and
+manipulated generically by the lwlib library. For instance
+@code{update_one_widget_instance} can cope with multiple types of widget
+and multiple types of toolkit. Each element in the widget hierarchy is
+updated from its corresponding @code{widget_value} by walking the
+@code{widget_value} tree.  This has desirable properties.  For example,
+@code{lw_modify_all_widgets} is called from @file{glyphs-x.c} and
+updates all the properties of a widget without having to know what the
+widget is or what toolkit it is from.  Unfortunately this also has its
+hairy properties; the lwlib code quite complex. And of course lwlib has
+to know at some level what the widget is and how to set its properties.
+
+The @code{widget_instance} structure also contains a pointer to the root
+of its tree.  Widget instances are further confi
+
+
+@node Scrollbars, Menubars, Generic Widget Interface, Lucid Widget Library
+@subsection Scrollbars
+
+@node Menubars, Checkboxes and Radio Buttons, Scrollbars, Lucid Widget Library
+@subsection Menubars
+
+@node Checkboxes and Radio Buttons, Progress Bars, Menubars, Lucid Widget Library
+@subsection Checkboxes and Radio Buttons
+
+@node Progress Bars, Tab Controls, Checkboxes and Radio Buttons, Lucid Widget Library
+@subsection Progress Bars
+
+@node Tab Controls, , Progress Bars, Lucid Widget Library
+@subsection Tab Controls
 
 @include index.texi
 

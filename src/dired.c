@@ -110,7 +110,7 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
       /* MATCH might be a flawed regular expression.  Rather than
 	 catching and signalling our own errors, we just call
 	 compile_pattern to do the work for us.  */
-      bufp = compile_pattern (match, 0, 0, 0, ERROR_ME);
+      bufp = compile_pattern (match, 0, Qnil, 0, ERROR_ME);
     }
 
   /* Now *bufp is the compiled form of MATCH; don't call anything

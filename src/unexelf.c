@@ -424,7 +424,7 @@ extern void fatal (const char *, ...);
 #include <errno.h>
 #include <unistd.h>
 #include <fcntl.h>
-#if !defined (__NetBSD__) && !defined (__OpenBSD__)
+#ifdef HAVE_ELF_H
 #include <elf.h>
 #endif
 #include <sys/mman.h>

@@ -90,7 +90,7 @@ With argument, move that many columns."
     ;; but we might as well let the user move across them.
     (and (< arg 0)
 	 (> (current-column) target-column)
-	 (forward-char -1))))
+	 (backward-char 1))))
 
 (defun picture-backward-column (arg)
   "Move cursor left, making whitespace if necessary.
@@ -207,7 +207,7 @@ Do \\[command-apropos] `picture-movement' to see those commands."
     (delete-char -1)
     ;; FSF changes the following to last-command-event.
     (insert last-command-char)
-    (forward-char -1)
+    (backward-char 1)
     (picture-move)
     ;; XEmacs addition:
     (setq zmacs-region-stays nil)))

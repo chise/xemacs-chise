@@ -476,10 +476,11 @@ This command deletes the text in @var{buffer} in the region defined by
 argument @var{buffer} is @code{nil}, the current buffer is assumed.
 @end deffn
 
-@deffn Command delete-char count &optional killp
+@deffn Command delete-char &optional count killp
 This command deletes @var{count} characters directly after point, or
-before point if @var{count} is negative.  If @var{killp} is
-non-@code{nil}, then it saves the deleted characters in the kill ring.
+before point if @var{count} is negative.  @var{count} defaults to @code{1}.
+If @var{killp} is non-@code{nil}, then it saves the deleted characters
+in the kill ring.
 
 In an interactive call, @var{count} is the numeric prefix argument, and
 @var{killp} is the unprocessed prefix argument.  Therefore, if a prefix
@@ -490,11 +491,12 @@ the kill ring.
 The value returned is always @code{nil}.
 @end deffn
 
-@deffn Command delete-backward-char count &optional killp
+@deffn Command delete-backward-char &optional count killp
 @cindex delete previous char
 This command deletes @var{count} characters directly before point, or
-after point if @var{count} is negative.  If @var{killp} is
-non-@code{nil}, then it saves the deleted characters in the kill ring.
+after point if @var{count} is negative.  @var{count} defaults to 1.
+If @var{killp} is non-@code{nil}, then it saves the deleted characters
+in the kill ring.
 
 In an interactive call, @var{count} is the numeric prefix argument, and
 @var{killp} is the unprocessed prefix argument.  Therefore, if a prefix

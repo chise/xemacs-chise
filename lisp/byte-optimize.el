@@ -2,8 +2,9 @@
 
 ;;; Copyright (c) 1991, 1994 Free Software Foundation, Inc.
 
-;; Author: Jamie Zawinski <jwz@jwz.org>
-;;	Hallvard Furuseth <hbf@ulrik.uio.no>
+;; Authors: Jamie Zawinski <jwz@jwz.org>
+;;          Hallvard Furuseth <hbf@ulrik.uio.no>
+;;          Martin Buchholz <martin@xemacs.org>
 ;; Keywords: internal
 
 ;; This file is part of XEmacs.
@@ -566,8 +567,7 @@
 	(progn
 ;;	  (if (equal form new) (error "bogus optimizer -- %s" opt))
 	  (byte-compile-log "  %s\t==>\t%s" form new)
-	  (setq new (byte-optimize-form new for-effect))
-	  new)
+	  (byte-optimize-form new for-effect))
       form)))
 
 
@@ -699,124 +699,62 @@
 				(list (apply fun (nreverse constants)))))))))
     form))
 
+;;; It is not safe to optimize calls to arithmetic ops with one arg
+;;; away entirely (actually, it would be safe if we know the sole arg
+;;; is not a marker or if it appears in other arithmetic).
+
+;;; But this degree of paranoia is normally unjustified, so optimize unless
+;;; the user has done (declaim (safety 3)).  Implemented in bytecomp.el.
+
 (defun byte-optimize-plus (form)
-  (setq form (byte-optimize-delay-constants-math form 1 '+))
-  (if (memq 0 form) (setq form (delq 0 (copy-sequence form))))
-  ;;(setq form (byte-optimize-associative-two-args-math form))
-
-  (case (length (cdr form))
-    ((0)				; (+)
-     (condition-case ()
-	 (eval form)
-       (error form)))
-
-    ;; It is not safe to delete the function entirely
-    ;; (actually, it would be safe if we knew the sole arg
-    ;; is not a marker).
-    ;; ((1)
-    ;;  (nth 1 form))
-
-    ((2)				; (+ x y)
-     (byte-optimize-predicate
-      (cond
-       ;; `add1' and `sub1' are a marginally fewer instructions
-       ;; than `plus' and `minus', so use them when possible.
-       ((eq (nth 1 form)  1) `(1+ ,(nth 2 form))) ; (+ 1 x)   -->  (1+ x)
-       ((eq (nth 2 form)  1) `(1+ ,(nth 1 form))) ; (+ x 1)   -->  (1+ x)
-       ((eq (nth 1 form) -1) `(1- ,(nth 2 form))) ; (+ -1 x)  -->  (1- x)
-       ((eq (nth 2 form) -1) `(1- ,(nth 1 form))) ; (+ x -1)  -->  (1- x)
-       (t form))))
-
-    (t (byte-optimize-predicate form))))
-
-(defun byte-optimize-minus (form)
-  ;; Put constants at the end, except the last constant.
-  (setq form (byte-optimize-delay-constants-math form 2 '+))
-  ;; Now only first and last element can be an integer.
-  (let ((last (last (nthcdr 3 form))))
-    (cond ((eq 0 last)
-	   ;; (- x y ... 0)  --> (- x y ...)
-	   (setq form (copy-sequence form))
-	   (setcdr (cdr (cdr form)) (delq 0 (nthcdr 3 form))))
-	  ;; If form is (- CONST foo... CONST), merge first and last.
-	  ((and (numberp (nth 1 form))
-		(numberp last))
-	   (setq form (nconc (list '- (- (nth 1 form) last) (nth 2 form))
-			     (delq last (copy-sequence (nthcdr 3 form))))))))
-
-  (case (length (cdr form))
-    ((0)				; (-)
-     (condition-case ()
-	 (eval form)
-       (error form)))
-
-    ;; It is not safe to delete the function entirely
-    ;; (actually, it would be safe if we knew the sole arg
-    ;; is not a marker).
-    ;; ((1)
-    ;;  (nth 1 form)
-
-    ((2)				; (+ x y)
-     (byte-optimize-predicate
-      (cond
-       ;; `add1' and `sub1' are a marginally fewer instructions than `plus'
-       ;; and `minus', so use them when possible.
-       ((eq (nth 2 form)  1) `(1- ,(nth 1 form))) ; (- x 1)  --> (1- x)
-       ((eq (nth 2 form) -1) `(1+ ,(nth 1 form))) ; (- x -1) --> (1+ x)
-       ((eq (nth 1 form)  0) `(-  ,(nth 2 form))) ; (- 0 x)  --> (- x)
-       (t form))))
-
-    (t (byte-optimize-predicate form))))
+  (byte-optimize-predicate (byte-optimize-delay-constants-math form 1 '+)))
 
 (defun byte-optimize-multiply (form)
   (setq form (byte-optimize-delay-constants-math form 1 '*))
   ;; If there is a constant integer in FORM, it is now the last element.
-  (cond ((null (cdr form)) 1)
-;;; It is not safe to delete the function entirely
-;;; (actually, it would be safe if we know the sole arg
-;;; is not a marker or if it appears in other arithmetic).
-;;;	((null (cdr (cdr form))) (nth 1 form))
-	((let ((last (last form)))
-	   (byte-optimize-predicate
-	    (cond ((eq 0 last)  (cons 'progn (cdr form)))
-		  ((eq 1 last)  (delq 1 (copy-sequence form)))
-		  ((eq -1 last) (list '- (delq -1 (copy-sequence form))))
-		  ((and (eq 2 last)
-			(memq t (mapcar 'symbolp (cdr form))))
-		   (prog1 (setq form (delq 2 (copy-sequence form)))
-		     (while (not (symbolp (car (setq form (cdr form))))))
-		     (setcar form (list '+ (car form) (car form)))))
-		  (form)))))))
+
+  (case (car (last form))
+    ;; (* x y 0) --> (progn x y 0)
+    (0 (cons 'progn (cdr form)))
+    (t (byte-optimize-predicate form))))
+
+(defun byte-optimize-minus (form)
+  ;; Put constants at the end, except the first arg.
+  (setq form (byte-optimize-delay-constants-math form 2 '+))
+  ;; Now only the first and last args can be integers.
+  (let ((last (car (last (nthcdr 3 form)))))
+    (cond
+     ;; If form is (- CONST foo... CONST), merge first and last.
+     ((and (numberp (nth 1 form)) (numberp last))
+      (decf (nth 1 form) last)
+      (butlast form))
+
+     ;; (- 0 x ...)  -->  (- (- x) ...)
+     ((and (eq 0 (nth 1 form)) (>= (length form) 3))
+      `(- (- ,(nth 2 form)) ,@(nthcdr 3 form)))
+
+     (t (byte-optimize-predicate form)))))
 
 (defun byte-optimize-divide (form)
+  ;; Put constants at the end, except the first arg.
   (setq form (byte-optimize-delay-constants-math form 2 '*))
-  ;; If there is a constant integer in FORM, it is now the last element.
-  (let ((last (last (cdr (cdr form)))))
-    (if (numberp last)
-	(cond ((= (length form) 3)
-	       (if (and (numberp (nth 1 form))
-			(not (zerop last))
-			(condition-case nil
-			    (/ (nth 1 form) last)
-			  (error nil)))
-		   (setq form (list 'progn (/ (nth 1 form) last)))))
-	      ((= last 1)
-	       (setq form (butlast form)))
-	      ((numberp (nth 1 form))
-	       (setq form (cons (car form)
-				(cons (/ (nth 1 form) last)
-				      (butlast (cdr (cdr form)))))
-		     last nil))))
+  ;; Now only the first and last args can be integers.
+  (let ((last (car (last (nthcdr 3 form)))))
     (cond
-;;;	  ((null (cdr (cdr form)))
-;;;	   (nth 1 form))
+     ;; If form is (/ CONST foo... CONST), merge first and last.
+     ((and (numberp (nth 1 form)) (numberp last))
+      (condition-case nil
+	  (cons (nth 0 form)
+		(cons (/ (nth 1 form) last)
+		      (butlast (cdr (cdr form)))))
+	(error form)))
+
+     ;; (/ 0 x y) --> (progn x y 0)
      ((eq (nth 1 form) 0)
       (append '(progn) (cdr (cdr form)) '(0)))
-     ((eq last -1)
-      (list '- (if (nthcdr 3 form)
-		   (butlast form)
-		 (nth 1 form))))
-     (form))))
+
+     ;; We don't have to check for divide-by-zero because `/' does.
+     (t (byte-optimize-predicate form)))))
 
 (defun byte-optimize-logmumble (form)
   (setq form (byte-optimize-delay-constants-math form 1 (car form)))
@@ -848,9 +786,11 @@
       (setq ok (byte-compile-constp (car rest))
 	    rest (cdr rest)))
     (if ok
-	(condition-case ()
+	(condition-case err
 	    (list 'quote (eval form))
-	  (error form))
+	  (error
+	   (byte-compile-warn "evaluating %s: %s" form err)
+	   form))
 	form)))
 
 (defun byte-optimize-identity (form)
@@ -905,6 +845,7 @@
 (put '*   'byte-optimizer 'byte-optimize-multiply)
 (put '-   'byte-optimizer 'byte-optimize-minus)
 (put '/   'byte-optimizer 'byte-optimize-divide)
+(put '%   'byte-optimizer 'byte-optimize-predicate)
 (put 'max 'byte-optimizer 'byte-optimize-associative-math)
 (put 'min 'byte-optimizer 'byte-optimize-associative-math)
 
@@ -1074,17 +1015,71 @@
 (put 'if    'byte-optimizer 'byte-optimize-if)
 (put 'while 'byte-optimizer 'byte-optimize-while)
 
-;; Remove any reason for avoiding `char-before'.
-(defun byte-optimize-char-before (form)
-  `(char-after (1- ,(or (nth 1 form) '(point))) ,@(cdr (cdr form))))
+;; The supply of bytecodes is small and constrained by backward compatibility.
+;; Several functions have byte-coded versions and hence are very efficient.
+;; Related functions which can be expressed in terms of the byte-coded
+;; ones should be transformed into bytecoded calls for efficiency.
+;; This is especially the case for functions with a backward- and
+;; forward- version, but with a bytecode only for the forward one.
 
-(put 'char-before 'byte-optimizer 'byte-optimize-char-before)
+;; Some programmers have hand-optimized calls like (backward-char)
+;; into the call (forward-char -1).
+;; But it's so much nicer for the byte-compiler to do this automatically!
+
+;; (char-before) ==> (char-after (1- (point)))
+(put 'char-before   'byte-optimizer 'byte-optimize-char-before)
+(defun byte-optimize-char-before (form)
+  `(char-after
+    ,(cond
+      ((null (nth 1 form))
+       '(1- (point)))
+      ((equal '(point) (nth 1 form))
+       '(1- (point)))
+      (t `(1- (or ,(nth 1 form) (point)))))
+    ,@(cdr (cdr form))))
+
+;; (backward-char n) ==> (forward-char (- n))
+(put 'backward-char 'byte-optimizer 'byte-optimize-backward-char)
+(defun byte-optimize-backward-char (form)
+  `(forward-char
+    ,(typecase (nth 1 form)
+       (null -1)
+       (integer (- (nth 1 form)))
+       (t `(- (or ,(nth 1 form) 1))))
+    ,@(cdr (cdr form))))
+
+;; (backward-word n) ==> (forward-word (- n))
+(put 'backward-word 'byte-optimizer 'byte-optimize-backward-word)
+(defun byte-optimize-backward-word (form)
+  `(forward-word
+    ,(typecase (nth 1 form)
+       (null -1)
+       (integer (- (nth 1 form)))
+       (t `(- (or ,(nth 1 form) 1))))
+    ,@(cdr (cdr form))))
+
+;; The following would be a valid optimization of the above kind, but
+;; the gain in performance is very small, since the saved funcall is
+;; counterbalanced by the necessity of adding a bytecode for (point).
+;;
+;; Also, users are more likely to have modified the behavior of
+;; delete-char via advice or some similar mechanism.  This is much
+;; less of a problem for the previous functions because it wouldn't
+;; make sense to modify the behaviour of `backward-char' without also
+;; modifying `forward-char', for example.
+
+;; (delete-char n) ==> (delete-region (point) (+ (point) n))
+;; (put 'delete-char 'byte-optimizer 'byte-optimize-delete-char)
+;; (defun byte-optimize-delete-char (form)
+;;   (case (length (cdr form))
+;;     (0 `(delete-region (point) (1+ (point))))
+;;     (1 `(delete-region (point) (+ (point) ,(nth 1 form))))
+;;     (t form)))
 
 ;; byte-compile-negation-optimizer lives in bytecomp.el
 ;(put '/= 'byte-optimizer 'byte-compile-negation-optimizer)
 (put 'atom 'byte-optimizer 'byte-compile-negation-optimizer)
 (put 'nlistp 'byte-optimizer 'byte-compile-negation-optimizer)
-
 
 (defun byte-optimize-funcall (form)
   ;; (funcall '(lambda ...) ...) ==> ((lambda ...) ...)
@@ -1255,7 +1250,7 @@
 
 (defun byte-compile-splice-in-already-compiled-code (form)
   ;; form is (byte-code "..." [...] n)
-  (if (not (memq byte-optimize '(t lap)))
+  (if (not (memq byte-optimize '(t byte)))
       (byte-compile-normal-call form)
     (byte-inline-lapcode
      (byte-decompile-bytecode-1 (nth 1 form) (nth 2 form) t))

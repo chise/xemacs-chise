@@ -337,34 +337,29 @@ The name is made by appending a number to PREFIX, default \"G\"."
 
 ;;; Numbers.
 
-(defun floatp-safe (x)
-  "Return t if OBJECT is a floating point number.
-On Emacs versions that lack floating-point support, this function
-always returns nil."
-  ;;(and (numberp x) (not (integerp x)))
-  ;; XEmacs: use floatp.  XEmacs is always compiled with
-  ;; floating-point, anyway.
-  (floatp x))
+(defun floatp-safe (object)
+  "Return t if OBJECT is a floating point number."
+  (floatp object))
 
-(defun plusp (x)
+(defun plusp (number)
   "Return t if NUMBER is positive."
-  (> x 0))
+  (> number 0))
 
-(defun minusp (x)
+(defun minusp (number)
   "Return t if NUMBER is negative."
-  (< x 0))
+  (< number 0))
 
-(defun oddp (x)
+(defun oddp (integer)
   "Return t if INTEGER is odd."
-  (eq (logand x 1) 1))
+  (eq (logand integer 1) 1))
 
-(defun evenp (x)
+(defun evenp (integer)
   "Return t if INTEGER is even."
-  (eq (logand x 1) 0))
+  (eq (logand integer 1) 0))
 
-(defun cl-abs (x)
-  "Return the absolute value of ARG."
-  (if (>= x 0) x (- x)))
+(defun cl-abs (number)
+  "Return the absolute value of NUMBER."
+  (if (>= number 0) number (- number)))
 (or (fboundp 'abs) (defalias 'abs 'cl-abs))   ; This is built-in to Emacs 19
 
 (defvar *random-state* (vector 'cl-random-state-tag -1 30 (cl-random-time)))

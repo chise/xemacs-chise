@@ -748,7 +748,7 @@ at the initial click position."
       (let* ((edges (window-pixel-edges window))
 	     (row (event-y-pixel event))
 	     (text-start (nth 1 edges))
-	     (text-end (+ (nth 3 edges))))
+	     (text-end (nth 3 edges)))
 	(if (or (< row text-start)
 		(> row text-end))
 	    nil ;; Scroll

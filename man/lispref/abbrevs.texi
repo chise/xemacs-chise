@@ -30,7 +30,7 @@ Therefore, it is safe to use them in an extremely nonstandard way.
 @xref{Creating Symbols}.
 
   For the user-level commands for abbrevs, see @ref{Abbrevs,, Abbrev
-Mode, emacs, The XEmacs Reference Manual}.
+Mode, xemacs, The XEmacs User's Manual}.
 
 @menu
 * Abbrev Mode::                 Setting up XEmacs for abbreviation.

@@ -236,8 +236,11 @@ The output file's name is made by appending `c' to the end of FILENAME."
       (princ "\nTesting Compiled Lisp\n\n")
       (let (code)
 	(condition-case error-info
-	    (setq code (let ((byte-compile-warnings nil))
-			 (byte-compile (test-harness-read-from-buffer inbuffer))))
+	    (setq code
+		  ;; our lisp code is often intentionally dubious,
+		  ;; so throw away _all_ the byte compiler warnings.
+		  (letf (((symbol-function 'byte-compile-warn) 'ignore))
+		    (byte-compile (test-harness-read-from-buffer inbuffer))))
 	  (error
 	   (princ (format "Unexpected error %S while byte-compiling code\n"
 			  error-info))))

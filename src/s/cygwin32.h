@@ -179,6 +179,12 @@ double	logb (double);
 
 #define NO_MATHERR
 
+/*
+ *      Define HAVE_PTYS if the system supports pty devices.
+ */
+
+#define HAVE_PTYS
+
 /* define MAIL_USE_FLOCK if the mailer uses flock
    to interlock access to /usr/spool/mail/$USER.
    The alternative is that a lock file named

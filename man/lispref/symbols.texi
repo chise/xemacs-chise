@@ -115,7 +115,8 @@ the four cells of the symbol @code{buffer-file-name}:
 @noindent
 Because this symbol is the variable which holds the name of the file
 being visited in the current buffer, the value cell contents we see are
-the name of the source file of this chapter of the XEmacs Lisp Manual.
+the name of the source file of this chapter of the XEmacs Lisp Reference
+Manual.
 The property list cell contains the list @code{(variable-documentation
 29529)} which tells the documentation functions where to find the
 documentation string for the variable @code{buffer-file-name} in the

@@ -2954,6 +2954,17 @@ image_instantiator_format_create_glyphs_x (void)
   IIFORMAT_HAS_METHOD (autodetect, validate);
   IIFORMAT_HAS_METHOD (autodetect, normalize);
   IIFORMAT_HAS_METHOD (autodetect, possible_dest_types);
+  /* #### autodetect is flawed IMO: 
+  1. It makes the assumption that you can detect whether the user
+  wanted a cursor or a string based on the data, since the data is a
+  string you have to prioritise cursors. Instead we will force users
+  to pick the appropriate image type, this is what we do under
+  MS-Windows anyway.
+  2. It doesn't fit with the new domain model - you cannot tell which
+  domain it needs to be instantiated in until you've actually
+  instantiated it, which mucks up caching.
+  3. It only copes with cursors and strings which seems bogus. */
+  IIFORMAT_HAS_SHARED_METHOD (autodetect, governing_domain, subwindow);
   IIFORMAT_HAS_METHOD (autodetect, instantiate);
   IIFORMAT_VALID_CONSOLE (x, autodetect);
 

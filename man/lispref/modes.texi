@@ -502,7 +502,7 @@ list at the end of the file and in the @samp{-*-} line.  The variable
 If you run @code{normal-mode} interactively, the argument
 @var{find-file} is normally @code{nil}.  In this case,
 @code{normal-mode} unconditionally processes any local variables list.
-@xref{File variables, , Local Variables in Files, emacs, The XEmacs
+@xref{File variables, , Local Variables in Files, xemacs, The XEmacs
 Reference Manual}, for the syntax of the local variables section of a file.
 
 @cindex file mode specification error
@@ -542,7 +542,7 @@ line, on the visited file name (using @code{auto-mode-alist}), or on the
 value of a local variable.  However, this function does not look for
 the @samp{mode:} local variable near the end of a file; the
 @code{hack-local-variables} function does that.  @xref{Choosing Modes, ,
-How Major Modes are Chosen, emacs, The XEmacs Reference Manual}.
+How Major Modes are Chosen, xemacs, The XEmacs Lisp Reference Manual}.
 @end defun
 
 @defopt default-major-mode
