@@ -1,3 +1,21 @@
+2002-11-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (J0-3C31): Separate C1-787C, G1-4A36
+	and U+8B58.
+	(JC3-65CA): New character.
+
+	* Ideograph-R044-Corpse.el (U-00021C5D): New character; unify
+	CB02980 and M054861.
+
+	* Ideograph-R029-Again.el (CB01008): New character.
+	(M079933): New character.
+
+2002-11-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el (M-31014): Add `ideographic-structure'.
+	(U-00026BBD): Likewise; unify M073602.
+	(CB01651): New character.
+
 2002-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R130-Meat.el: Add some missing mappings between CNS
