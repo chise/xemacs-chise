@@ -129,6 +129,10 @@
 
 2005-03-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Add C5-to-UCS.txt to the check list.
+
+2005-03-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* read-maps.el (mapping-table-ccs-setting-alist): Add setting for
 	CNS 11643-5.
 
