@@ -1,5 +1,10 @@
 2004-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R213-Turtle.el (U+9F9D): Use `->subsumptive';
+	integrate C3-5E47 instead of using `->same'.
+
+	* Ideograph-R115-Grain.el (C3-5E47): Use `->subsumptive'.
+
 	* Ideograph-R182-Wind.el: Add mappings between CJK Ext B and CNS
 	11643 plain 5.
 
