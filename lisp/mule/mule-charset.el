@@ -317,6 +317,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  ideograph-gt-pj-9
 	  ideograph-gt-pj-10
 	  ideograph-gt-pj-11
+	  ideograph-gt-pj-k1
+	  ideograph-gt-pj-k2
 	  ideograph-daikanwa-2
 	  chinese-big5-cdp
 	  chinese-big5-eten-a
