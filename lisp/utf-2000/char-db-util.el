@@ -211,10 +211,14 @@
 	  cal nil)
     (while char-spec
       (setq key (car (car char-spec)))
-      (if (find-charset key)
-	  (setq cal (cons key cal))
-	(setq al (cons key al)))
+      (unless (memq key char-db-ignored-attributes)
+	(if (find-charset key)
+	    (setq cal (cons key cal))
+	  (setq al (cons key al))))
       (setq char-spec (cdr char-spec)))
+    (unless (or cal
+		(memq 'ideographic-structure al))
+      (push 'ideographic-structure al))
     (insert-char-attributes char
 			    readable
 			    (or al 'none) cal)
@@ -356,6 +360,8 @@
 
 (defvar char-db-convert-obsolete-format t)
 
+(defvar char-db-ignored-attributes nil)
+
 (defun insert-char-attributes (char &optional readable
 				    attributes ccs-attributes
 				    column)
@@ -363,18 +369,32 @@
     (setq attributes
 	  (sort (if attributes
 		    (if (consp attributes)
-			(copy-sequence attributes))
+			(progn
+			  (dolist (name attributes)
+			    (unless (memq name char-db-ignored-attributes)
+			      (push name atr-d)))
+			  atr-d))
 		  (dolist (name (char-attribute-list))
-		    (if (find-charset name)
-			(push name ccs-d)
-		      (push name atr-d)))
+		    (unless (memq name char-db-ignored-attributes)
+		      (if (find-charset name)
+			  (push name ccs-d)
+			(push name atr-d))))
 		  atr-d)
 		#'char-attribute-name<))
     (setq ccs-attributes
 	  (sort (if ccs-attributes
-		    (copy-sequence ccs-attributes)
+		    (progn
+		      (setq ccs-d nil)
+		      (dolist (name ccs-attributes)
+			(unless (memq name char-db-ignored-attributes)
+			  (push name ccs-d)))
+		      ccs-d)
 		  (or ccs-d
-		      (charset-list)))
+		      (progn
+			(dolist (name (charset-list))
+			  (unless (memq name char-db-ignored-attributes)
+			    (push name ccs-d)))
+			ccs-d)))
 		#'char-attribute-name<)))
   (unless column
     (setq column (current-column)))
