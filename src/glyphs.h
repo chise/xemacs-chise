@@ -327,6 +327,8 @@ do {									\
 #define IIFORMAT_INHERITS_SHARED_DEVMETHOD(type, from, format, m, fromformat) \
   (type##_##format##_image_instantiator_methods->m##_method = from##_##fromformat##_##m)
 
+#define INSTANTIATOR_TYPE(inst) (XVECTOR_DATA ((inst))[0])
+
 struct image_instantiator_methods *
 decode_device_ii_format (Lisp_Object device, Lisp_Object format,
 			 Error_behavior errb);
@@ -374,6 +376,7 @@ int layout_layout (Lisp_Object image_instance,
 		   int width, int height, int xoffset, int yoffset,
 		   Lisp_Object domain);
 int invalidate_glyph_geometry_maybe (Lisp_Object glyph_or_ii, struct window* w);
+Lisp_Object make_image_instance_cache_hash_table (void);
 
 DECLARE_DOESNT_RETURN (incompatible_image_types (Lisp_Object instantiator,
                                                  int given_dest_mask,

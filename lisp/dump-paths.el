@@ -28,6 +28,7 @@
 
 ;; This sets up the various paths for continuing loading files for
 ;; dumping.
+;; #### This code is duplicated in startup.el (startup-setup-paths).
 
 (let ((debug-paths (or debug-paths
 		      (and (getenv "EMACSDEBUGPATHS")

@@ -264,6 +264,10 @@ merge_widget_value_args (widget_value *old, widget_value *new)
       lw_copy_widget_value_args (new, old);
       changed = True;
     }
+  else if (new->args && new->args == old->args && new->args->args_changed == True)
+    {
+      changed = True;
+    }
 
   return changed;
 }
@@ -756,7 +760,11 @@ update_all_widget_values (widget_info *info, Boolean deep_p)
     update_one_widget_instance (instance, deep_p);
 
   for (val = info->val; val; val = val->next)
-    val->change = NO_CHANGE;
+    {
+      val->change = NO_CHANGE;
+      if (val->args)
+	val->args->args_changed = False;
+    }
 }
 
 void
@@ -821,7 +829,11 @@ initialize_widget_instance (widget_instance *instance)
   update_one_widget_instance (instance, True);
 
   for (val = instance->info->val; val; val = val->next)
-    val->change = NO_CHANGE;
+    {
+      val->change = NO_CHANGE;
+      if (val->args)
+	val->args->args_changed = False;
+    }
 }
 
 /* strcasecmp() is not sufficiently portable or standard,
@@ -841,9 +853,9 @@ ascii_strcasecmp (const char *s1, const char *s2)
 }
 
 static widget_creation_function
-find_in_table (const char *type, widget_creation_entry *table)
+find_in_table (const char *type, const widget_creation_entry table[])
 {
-  widget_creation_entry *cur;
+  const widget_creation_entry *cur;
   for (cur = table; cur->type; cur++)
     if (!ascii_strcasecmp (type, cur->type))
       return cur->function;
@@ -1393,6 +1405,8 @@ void lw_add_widget_value_arg (widget_value* wv, String name, XtArgVal value)
   if (wv->args->nargs > 10)
     return;
 
+  /* Register the change. */
+  wv->args->args_changed = True;
   /* If the arg is already there then we must replace it. */
   for (i = 0; i < wv->args->nargs; i++)
     {

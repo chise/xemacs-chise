@@ -1,4 +1,4 @@
-This is ../info/texinfo.info, produced by makeinfo version 4.0 from
+This is ../info/texinfo.info, produced by makeinfo version 4.0b from
 texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
@@ -1192,7 +1192,7 @@ For example,
 
 produces
 
-     For more information, see *Note Hurricanes.
+     For more information, see *Note Hurricanes::.
 
 and
 

@@ -1,4 +1,4 @@
-This is ../info/texinfo.info, produced by makeinfo version 4.0 from
+This is ../info/texinfo.info, produced by makeinfo version 4.0b from
 texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
@@ -34,317 +34,317 @@ translation approved by the Free Software Foundation.
 
 
 Indirect:
-texinfo.info-1: 1484
-texinfo.info-2: 48703
-texinfo.info-3: 96677
-texinfo.info-4: 146069
-texinfo.info-5: 196054
-texinfo.info-6: 245146
-texinfo.info-7: 293741
-texinfo.info-8: 343556
-texinfo.info-9: 392869
-texinfo.info-10: 435247
-texinfo.info-11: 481363
-texinfo.info-12: 519523
+texinfo.info-1: 1485
+texinfo.info-2: 48704
+texinfo.info-3: 96678
+texinfo.info-4: 146070
+texinfo.info-5: 196057
+texinfo.info-6: 245149
+texinfo.info-7: 293744
+texinfo.info-8: 343559
+texinfo.info-9: 392872
+texinfo.info-10: 435250
+texinfo.info-11: 481366
+texinfo.info-12: 519526
 
 Tag Table:
 (Indirect)
-Node: Top1484
-Node: Copying23799
-Node: Overview25804
-Node: Overview-Footnotes27233
-Ref: Overview-Footnote-127297
-Node: Using Texinfo27769
-Node: Info Files30252
-Node: Info Files-Footnotes34288
-Ref: Info Files-Footnote-134356
-Node: Printed Books34535
-Node: Printed Books-Footnotes37207
-Ref: Printed Books-Footnote-137281
-Node: Formatting Commands37491
-Node: Formatting Commands-Footnotes40318
-Ref: Formatting Commands-Footnote-140404
-Node: Conventions41020
-Node: Comments43582
-Node: Minimum45005
-Node: Six Parts47191
-Node: Short Sample48703
-Node: Acknowledgements52839
-Node: Texinfo Mode53674
-Node: Texinfo Mode Overview55046
-Node: Emacs Editing55822
-Node: Inserting57952
-Node: Showing the Structure62233
-Node: Updating Nodes and Menus64760
-Node: Updating Commands65833
-Node: Updating Requirements71894
-Node: Other Updating Commands74191
-Node: Info Formatting77459
-Node: Printing78717
-Node: Texinfo Mode Summary81062
-Node: Beginning a File85816
-Node: Four Parts86707
-Node: Sample Beginning88177
-Node: Header89797
-Node: First Line91149
-Node: Start of Header92138
-Node: setfilename92851
-Node: settitle94787
-Node: setchapternewpage96677
-Node: paragraphindent99438
-Node: End of Header100920
-Node: Info Summary and Permissions101759
-Node: Titlepage & Copyright Page102778
-Node: titlepage104384
-Node: titlepage-Footnotes106666
-Ref: titlepage-Footnote-1106732
-Node: titlefont center sp107006
-Node: title subtitle author108232
-Node: Copyright & Permissions110504
-Node: end titlepage112505
-Node: headings on off114211
-Node: The Top Node116256
-Node: Title of Top Node117411
-Node: Master Menu Parts118664
-Node: Software Copying Permissions120901
-Node: Ending a File122069
-Node: Printing Indices & Menus122917
-Node: Contents125226
-Node: File End127566
-Node: Structuring128239
-Node: Tree Structuring129896
-Node: Structuring Command Types131339
-Node: makeinfo top133666
-Node: chapter134199
-Node: unnumbered & appendix135223
-Node: majorheading & chapheading136062
-Node: section136883
-Node: unnumberedsec appendixsec heading137647
-Node: subsection138636
-Node: unnumberedsubsec appendixsubsec subheading139208
-Node: subsubsection140161
-Node: Raise/lower sections141711
-Node: Nodes143846
-Node: Two Paths144783
-Node: Node Menu Illustration146069
-Node: node149764
-Node: Node Names152460
-Node: Writing a Node153536
-Node: Node Line Tips155554
-Node: Node Line Requirements156348
-Node: First Node157949
-Node: makeinfo top command159393
-Node: Top Node Summary160572
-Node: makeinfo Pointer Creation162022
-Node: Menus163269
-Node: Menus-Footnotes164208
-Ref: Menus-Footnote-1164266
-Node: Menu Location164559
-Node: Writing a Menu166236
-Node: Menu Parts167202
-Node: Less Cluttered Menu Entry168360
-Node: Menu Example168985
-Node: Other Info Files170506
-Node: Cross References172374
-Node: References173331
-Node: Cross Reference Commands175078
-Node: Cross Reference Parts176137
-Node: xref178973
-Node: Reference Syntax179772
-Node: One Argument181426
-Node: Two Arguments182438
-Node: Three Arguments183553
-Node: Four and Five Arguments185944
-Node: Top Node Naming188356
-Node: ref189366
-Node: pxref190756
-Node: inforef193138
-Node: uref194431
-Node: Marking Text195430
-Node: Indicating196054
-Node: Useful Highlighting197959
-Node: code199348
-Node: kbd202386
-Node: key204256
-Node: samp205589
-Node: var207176
-Node: file208969
-Node: dfn209576
-Node: cite210486
-Node: url210940
-Node: email211504
-Node: Emphasis212316
-Node: emph & strong213216
-Node: Smallcaps214202
-Node: Fonts215529
-Node: Customized Highlighting216617
-Node: Customized Highlighting-Footnotes219432
-Ref: Customized Highlighting-Footnote-1219526
-Node: Quotations and Examples219652
-Node: Block Enclosing Commands221274
-Node: quotation223299
-Node: example224389
-Node: noindent226444
-Node: Lisp Example227908
-Node: Lisp Example-Footnotes228610
-Ref: Lisp Example-Footnote-1228682
-Node: smallexample & smalllisp228800
-Node: display230825
-Node: format231457
-Node: exdent231918
-Node: flushleft & flushright232998
-Node: cartouche234264
-Node: Lists and Tables235031
-Node: Introducing Lists235707
-Node: itemize237372
-Node: enumerate239519
-Node: Two-column Tables242024
-Node: table242713
-Node: ftable vtable245146
-Node: itemx246247
-Node: Multi-column Tables247258
-Node: Multitable Column Widths247929
-Node: Multitable Rows249383
-Node: Indices251160
-Node: Index Entries252310
-Node: Predefined Indices253443
-Node: Indexing Commands254440
-Node: Combining Indices258980
-Node: syncodeindex260343
-Node: synindex262005
-Node: New Indices262530
-Node: Insertions264355
-Node: Braces Atsigns265539
-Node: Inserting An Atsign266091
-Node: Inserting Braces266365
-Node: Inserting Space266728
-Node: Not Ending a Sentence267232
-Node: Ending a Sentence268586
-Node: Multiple Spaces269715
-Node: dmn270934
-Node: Inserting Accents272141
-Node: Dots Bullets273898
-Node: dots274720
-Node: bullet275244
-Node: TeX and copyright275641
-Node: tex276208
-Node: copyright symbol276624
-Node: pounds276884
-Node: minus277248
-Node: math278170
-Node: Glyphs278898
-Node: Glyphs Summary280011
-Node: result280639
-Node: expansion281124
-Node: Print Glyph282080
-Node: Error Glyph282957
-Node: Equivalence283790
-Node: Point Glyph284478
-Node: Images286035
-Node: Breaks287702
-Node: Break Commands289133
-Node: Line Breaks289974
-Node: - and hyphenation290992
-Node: w292242
-Node: sp292955
-Node: page293364
-Node: group293741
-Node: need295484
-Node: Definition Commands296214
-Node: Def Cmd Template297785
-Node: Optional Arguments300782
-Node: deffnx302370
-Node: Def Cmds in Detail303325
-Node: Functions Commands304435
-Node: Variables Commands307440
-Node: Typed Functions309526
-Node: Typed Variables313068
-Node: Abstract Objects315051
-Node: Data Types320276
-Node: Def Cmd Conventions321531
-Node: Sample Function Definition322094
-Node: Footnotes324978
-Node: Footnotes-Footnotes325366
-Ref: Footnotes-Footnote-1325432
-Node: Footnote Commands325712
-Node: Footnote Commands-Footnotes327209
-Ref: Footnote Commands-Footnote-1327291
-Node: Footnote Styles327327
-Node: Conditionals329913
-Node: Conditional Commands330724
-Node: Conditional Not Commands332217
-Node: Raw Formatter Commands332962
-Node: set clear value334792
-Node: ifset ifclear335593
-Node: value338772
-Node: value Example340184
-Node: Macros341762
-Node: Defining Macros342467
-Node: Invoking Macros343556
-Node: Format/Print Hardcopy344662
-Node: Use TeX346499
-Node: Format with tex/texindex347127
-Node: Format with texi2dvi350768
-Node: Print with lpr351359
-Node: Within Emacs352213
-Node: Texinfo Mode Printing353132
-Node: Compile-Command356542
-Node: Requirements Summary357430
-Node: Preparing for TeX358743
-Node: Overfull hboxes361530
-Node: smallbook363089
-Node: A4 Paper364607
-Node: Cropmarks and Magnification365832
-Node: Create an Info File367773
-Node: makeinfo advantages369076
-Node: Invoking makeinfo369992
-Node: makeinfo options370680
-Node: Pointer Validation376164
-Node: makeinfo in Emacs377508
-Node: texinfo-format commands380066
-Node: Batch Formatting381337
-Node: Tag and Split Files382553
-Node: Install an Info File385907
-Node: Directory file386725
-Node: New Info File388593
-Node: Other Info Directories389654
-Node: Installing Dir Entries392869
-Node: Invoking install-info394862
-Node: Command List397277
-Node: Tips435247
-Node: Sample Texinfo File446657
-Node: Sample Permissions448776
-Node: Inserting Permissions449819
-Node: ifinfo Permissions452125
-Node: Titlepage Permissions453746
-Node: Include Files455008
-Node: Using Include Files456095
-Node: texinfo-multiple-files-update458050
-Node: Include File Requirements460411
-Node: Sample Include File461656
-Node: Include Files Evolution463175
-Node: Headings465146
-Node: Headings Introduced465783
-Node: Heading Format467671
-Node: Heading Choice470123
-Node: Custom Headings471495
-Node: Catching Mistakes475823
-Node: makeinfo Preferred477112
-Node: Debugging with Info478017
-Node: Debugging with TeX481363
-Node: Using texinfo-show-structure485643
-Node: Using occur488742
-Node: Running Info-Validate490279
-Node: Using Info-validate491340
-Node: Unsplit493182
-Node: Tagifying494228
-Node: Splitting495080
-Node: Refilling Paragraphs496696
-Node: Refilling Paragraphs-Footnotes498350
-Ref: Refilling Paragraphs-Footnote-1498438
-Node: Command Syntax498601
-Node: Obtaining TeX501558
-Node: Command and Variable Index503671
-Node: Concept Index519523
+Node: Top1485
+Node: Copying23800
+Node: Overview25805
+Node: Overview-Footnotes27234
+Ref: Overview-Footnote-127298
+Node: Using Texinfo27770
+Node: Info Files30253
+Node: Info Files-Footnotes34289
+Ref: Info Files-Footnote-134357
+Node: Printed Books34536
+Node: Printed Books-Footnotes37208
+Ref: Printed Books-Footnote-137282
+Node: Formatting Commands37492
+Node: Formatting Commands-Footnotes40319
+Ref: Formatting Commands-Footnote-140405
+Node: Conventions41021
+Node: Comments43583
+Node: Minimum45006
+Node: Six Parts47192
+Node: Short Sample48704
+Node: Acknowledgements52840
+Node: Texinfo Mode53675
+Node: Texinfo Mode Overview55047
+Node: Emacs Editing55823
+Node: Inserting57953
+Node: Showing the Structure62234
+Node: Updating Nodes and Menus64761
+Node: Updating Commands65834
+Node: Updating Requirements71895
+Node: Other Updating Commands74192
+Node: Info Formatting77460
+Node: Printing78718
+Node: Texinfo Mode Summary81063
+Node: Beginning a File85817
+Node: Four Parts86708
+Node: Sample Beginning88178
+Node: Header89798
+Node: First Line91150
+Node: Start of Header92139
+Node: setfilename92852
+Node: settitle94788
+Node: setchapternewpage96678
+Node: paragraphindent99439
+Node: End of Header100921
+Node: Info Summary and Permissions101760
+Node: Titlepage & Copyright Page102779
+Node: titlepage104385
+Node: titlepage-Footnotes106667
+Ref: titlepage-Footnote-1106733
+Node: titlefont center sp107007
+Node: title subtitle author108233
+Node: Copyright & Permissions110505
+Node: end titlepage112506
+Node: headings on off114212
+Node: The Top Node116257
+Node: Title of Top Node117412
+Node: Master Menu Parts118665
+Node: Software Copying Permissions120902
+Node: Ending a File122070
+Node: Printing Indices & Menus122918
+Node: Contents125227
+Node: File End127567
+Node: Structuring128240
+Node: Tree Structuring129897
+Node: Structuring Command Types131340
+Node: makeinfo top133667
+Node: chapter134200
+Node: unnumbered & appendix135224
+Node: majorheading & chapheading136063
+Node: section136884
+Node: unnumberedsec appendixsec heading137648
+Node: subsection138637
+Node: unnumberedsubsec appendixsubsec subheading139209
+Node: subsubsection140162
+Node: Raise/lower sections141712
+Node: Nodes143847
+Node: Two Paths144784
+Node: Node Menu Illustration146070
+Node: node149765
+Node: Node Names152461
+Node: Writing a Node153537
+Node: Node Line Tips155555
+Node: Node Line Requirements156349
+Node: First Node157950
+Node: makeinfo top command159394
+Node: Top Node Summary160573
+Node: makeinfo Pointer Creation162023
+Node: Menus163270
+Node: Menus-Footnotes164209
+Ref: Menus-Footnote-1164267
+Node: Menu Location164560
+Node: Writing a Menu166237
+Node: Menu Parts167203
+Node: Less Cluttered Menu Entry168361
+Node: Menu Example168986
+Node: Other Info Files170507
+Node: Cross References172375
+Node: References173332
+Node: Cross Reference Commands175079
+Node: Cross Reference Parts176138
+Node: xref178974
+Node: Reference Syntax179773
+Node: One Argument181427
+Node: Two Arguments182439
+Node: Three Arguments183554
+Node: Four and Five Arguments185945
+Node: Top Node Naming188357
+Node: ref189367
+Node: pxref190759
+Node: inforef193141
+Node: uref194434
+Node: Marking Text195433
+Node: Indicating196057
+Node: Useful Highlighting197962
+Node: code199351
+Node: kbd202389
+Node: key204259
+Node: samp205592
+Node: var207179
+Node: file208972
+Node: dfn209579
+Node: cite210489
+Node: url210943
+Node: email211507
+Node: Emphasis212319
+Node: emph & strong213219
+Node: Smallcaps214205
+Node: Fonts215532
+Node: Customized Highlighting216620
+Node: Customized Highlighting-Footnotes219435
+Ref: Customized Highlighting-Footnote-1219529
+Node: Quotations and Examples219655
+Node: Block Enclosing Commands221277
+Node: quotation223302
+Node: example224392
+Node: noindent226447
+Node: Lisp Example227911
+Node: Lisp Example-Footnotes228613
+Ref: Lisp Example-Footnote-1228685
+Node: smallexample & smalllisp228803
+Node: display230828
+Node: format231460
+Node: exdent231921
+Node: flushleft & flushright233001
+Node: cartouche234267
+Node: Lists and Tables235034
+Node: Introducing Lists235710
+Node: itemize237375
+Node: enumerate239522
+Node: Two-column Tables242027
+Node: table242716
+Node: ftable vtable245149
+Node: itemx246250
+Node: Multi-column Tables247261
+Node: Multitable Column Widths247932
+Node: Multitable Rows249386
+Node: Indices251163
+Node: Index Entries252313
+Node: Predefined Indices253446
+Node: Indexing Commands254443
+Node: Combining Indices258983
+Node: syncodeindex260346
+Node: synindex262008
+Node: New Indices262533
+Node: Insertions264358
+Node: Braces Atsigns265542
+Node: Inserting An Atsign266094
+Node: Inserting Braces266368
+Node: Inserting Space266731
+Node: Not Ending a Sentence267235
+Node: Ending a Sentence268589
+Node: Multiple Spaces269718
+Node: dmn270937
+Node: Inserting Accents272144
+Node: Dots Bullets273901
+Node: dots274723
+Node: bullet275247
+Node: TeX and copyright275644
+Node: tex276211
+Node: copyright symbol276627
+Node: pounds276887
+Node: minus277251
+Node: math278173
+Node: Glyphs278901
+Node: Glyphs Summary280014
+Node: result280642
+Node: expansion281127
+Node: Print Glyph282083
+Node: Error Glyph282960
+Node: Equivalence283793
+Node: Point Glyph284481
+Node: Images286038
+Node: Breaks287705
+Node: Break Commands289136
+Node: Line Breaks289977
+Node: - and hyphenation290995
+Node: w292245
+Node: sp292958
+Node: page293367
+Node: group293744
+Node: need295487
+Node: Definition Commands296217
+Node: Def Cmd Template297788
+Node: Optional Arguments300785
+Node: deffnx302373
+Node: Def Cmds in Detail303328
+Node: Functions Commands304438
+Node: Variables Commands307443
+Node: Typed Functions309529
+Node: Typed Variables313071
+Node: Abstract Objects315054
+Node: Data Types320279
+Node: Def Cmd Conventions321534
+Node: Sample Function Definition322097
+Node: Footnotes324981
+Node: Footnotes-Footnotes325369
+Ref: Footnotes-Footnote-1325435
+Node: Footnote Commands325715
+Node: Footnote Commands-Footnotes327212
+Ref: Footnote Commands-Footnote-1327294
+Node: Footnote Styles327330
+Node: Conditionals329916
+Node: Conditional Commands330727
+Node: Conditional Not Commands332220
+Node: Raw Formatter Commands332965
+Node: set clear value334795
+Node: ifset ifclear335596
+Node: value338775
+Node: value Example340187
+Node: Macros341765
+Node: Defining Macros342470
+Node: Invoking Macros343559
+Node: Format/Print Hardcopy344665
+Node: Use TeX346502
+Node: Format with tex/texindex347130
+Node: Format with texi2dvi350771
+Node: Print with lpr351362
+Node: Within Emacs352216
+Node: Texinfo Mode Printing353135
+Node: Compile-Command356545
+Node: Requirements Summary357433
+Node: Preparing for TeX358746
+Node: Overfull hboxes361533
+Node: smallbook363092
+Node: A4 Paper364610
+Node: Cropmarks and Magnification365835
+Node: Create an Info File367776
+Node: makeinfo advantages369079
+Node: Invoking makeinfo369995
+Node: makeinfo options370683
+Node: Pointer Validation376167
+Node: makeinfo in Emacs377511
+Node: texinfo-format commands380069
+Node: Batch Formatting381340
+Node: Tag and Split Files382556
+Node: Install an Info File385910
+Node: Directory file386728
+Node: New Info File388596
+Node: Other Info Directories389657
+Node: Installing Dir Entries392872
+Node: Invoking install-info394865
+Node: Command List397280
+Node: Tips435250
+Node: Sample Texinfo File446660
+Node: Sample Permissions448779
+Node: Inserting Permissions449822
+Node: ifinfo Permissions452128
+Node: Titlepage Permissions453749
+Node: Include Files455011
+Node: Using Include Files456098
+Node: texinfo-multiple-files-update458053
+Node: Include File Requirements460414
+Node: Sample Include File461659
+Node: Include Files Evolution463178
+Node: Headings465149
+Node: Headings Introduced465786
+Node: Heading Format467674
+Node: Heading Choice470126
+Node: Custom Headings471498
+Node: Catching Mistakes475826
+Node: makeinfo Preferred477115
+Node: Debugging with Info478020
+Node: Debugging with TeX481366
+Node: Using texinfo-show-structure485646
+Node: Using occur488745
+Node: Running Info-Validate490282
+Node: Using Info-validate491343
+Node: Unsplit493185
+Node: Tagifying494231
+Node: Splitting495083
+Node: Refilling Paragraphs496699
+Node: Refilling Paragraphs-Footnotes498353
+Ref: Refilling Paragraphs-Footnote-1498441
+Node: Command Syntax498604
+Node: Obtaining TeX501561
+Node: Command and Variable Index503674
+Node: Concept Index519526
 
 End Tag Table

@@ -490,17 +490,17 @@ disksave_object_finalization_1 (void)
    about expressions in src/.gdbinit.  See src/.gdbinit or src/.dbxrc
    to see how this is used.  */
 
-EMACS_UINT dbg_valmask = ((1UL << VALBITS) - 1) << GCBITS;
-EMACS_UINT dbg_typemask = (1UL << GCTYPEBITS) - 1;
+const EMACS_UINT dbg_valmask = ((1UL << VALBITS) - 1) << GCBITS;
+const EMACS_UINT dbg_typemask = (1UL << GCTYPEBITS) - 1;
 
 #ifdef USE_UNION_TYPE
-unsigned char dbg_USE_UNION_TYPE = 1;
+const unsigned char dbg_USE_UNION_TYPE = 1;
 #else
-unsigned char dbg_USE_UNION_TYPE = 0;
+const unsigned char dbg_USE_UNION_TYPE = 0;
 #endif
 
-unsigned char dbg_valbits = VALBITS;
-unsigned char dbg_gctypebits = GCTYPEBITS;
+const unsigned char dbg_valbits = VALBITS;
+const unsigned char dbg_gctypebits = GCTYPEBITS;
 
 /* Macros turned into functions for ease of debugging.
    Debuggers don't know about macros! */
@@ -4065,8 +4065,6 @@ init_alloc_once_early (void)
   staticidx = 0;
 }
 
-int pure_bytes_used = 0;
-
 void
 reinit_alloc (void)
 {
@@ -4116,10 +4114,6 @@ By binding this temporarily to a large number, you can effectively
 prevent garbage collection during a part of the program.
 
 See also `consing-since-gc'.
-*/ );
-
-  DEFVAR_INT ("pure-bytes-used", &pure_bytes_used /*
-Number of bytes of sharable Lisp data allocated so far.
 */ );
 
 #ifdef DEBUG_XEMACS

@@ -125,8 +125,11 @@
     ;; (setq egg-default-startup-file "eggrc-wnn")
     (setq-default its:*current-map* (its:get-mode-map "roma-kana"))))
 
-;; stuff for providing gramatic processing of Japanese text
+;; stuff for providing grammatic processing of Japanese text
 ;; something like this should probably be created for all environments...
+;; #### Arrgh.  This stuff should defvar'd in either fill.el or kinsoku.el.
+;; Then the language environment should set these things, probably buffer-
+;; locally.
 
 (defvar aletter (concat "\\(" ascii-char "\\|" kanji-char "\\)"))
 (defvar kanji-space-insertable (concat 
@@ -137,6 +140,7 @@
 	   ascii-alphanumeric  kanji-kanji-char "\\|"
 	   kanji-kanji-char    ascii-alphanumeric ))
 
+;; #### will be moved to fill.el
 (defvar space-insertable (concat " " aletter "\\|" kanji-space-insertable)
   "Regexp for finding points that can have spaces inserted into them for justification")
 

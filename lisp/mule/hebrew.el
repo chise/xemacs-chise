@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; For Hebrew, the character sets ISO8859-8 is supported.
+;;  ISO 8859-8 (Hebrew) support.
 
 ;;; Code:
 
@@ -34,19 +34,9 @@
 (modify-syntax-entry (make-char 'hebrew-iso8859-8 32) "w") ; no-break space
 
 
-;; (make-coding-system
-;;  'hebrew-iso-8bit 2 ?8
-;;  "ISO 2022 based 8-bit encoding for Hebrew (MIME:ISO-8859-8)"
-;;  '(ascii hebrew-iso8859-8 nil nil
-;;    nil ascii-eol ascii-cntl nil nil nil nil nil t)
-;;  '((safe-charsets ascii hebrew-iso8859-8)
-;;    (mime-charset . iso-8859-8)))
-
-;; (define-coding-system-alias 'iso-8859-8 'hebrew-iso-8bit)
-
 (make-coding-system
  'iso-8859-8 'iso2022
- "MIME ISO-8859-8"
+ "ISO-8859-8 (ISO 2022 based 8-bit encoding for Hebrew)"
  '(charset-g0 ascii
    charset-g1 hebrew-iso8859-8
    charset-g2 t
@@ -57,7 +47,7 @@
 
 (make-coding-system
  'ctext-hebrew 'iso2022
- "Coding-system of Hebrew."
+ "Coding-system for Hebrew."
  '(charset-g0 ascii
    charset-g1 hebrew-iso8859-8
    charset-g2 t
@@ -67,7 +57,7 @@
 
 (defun setup-hebrew-environment ()
   "Setup multilingual environment (MULE) for Hebrew.
-But, please note that right-to-left writing is not yet supported."
+Note: right-to-left writing is not yet supported."
   (interactive)
   (set-language-environment "Hebrew"))
 

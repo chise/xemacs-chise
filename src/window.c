@@ -281,9 +281,8 @@ allocate_window (void)
   p->face_cachels     = Dynarr_new (face_cachel);
   p->glyph_cachels    = Dynarr_new (glyph_cachel);
   p->line_start_cache = Dynarr_new (line_start_cache);
-  p->subwindow_instance_cache = make_lisp_hash_table (30,
-						      HASH_TABLE_KEY_VALUE_WEAK,
-						      HASH_TABLE_EQ);
+  p->subwindow_instance_cache = make_image_instance_cache_hash_table ();
+
   p->line_cache_last_updated = Qzero;
   INIT_DISP_VARIABLE (last_point_x, 0);
   INIT_DISP_VARIABLE (last_point_y, 0);
@@ -3604,9 +3603,7 @@ make_dummy_parent (Lisp_Object window)
   p->face_cachels     = Dynarr_new (face_cachel);
   p->glyph_cachels    = Dynarr_new (glyph_cachel);
   p->subwindow_instance_cache =
-    make_lisp_hash_table (30,
-			  HASH_TABLE_KEY_VALUE_WEAK,
-			  HASH_TABLE_EQ);
+    make_image_instance_cache_hash_table ();
 
   /* Put new into window structure in place of window */
   replace_window (window, new);
@@ -5478,9 +5475,8 @@ by `current-window-configuration' (which see).
 	     set. */
 	  if (NILP (w->subwindow_instance_cache))
 	    w->subwindow_instance_cache =
-	      make_lisp_hash_table (30,
-				    HASH_TABLE_KEY_VALUE_WEAK,
-				    HASH_TABLE_EQ);
+	      make_image_instance_cache_hash_table ();
+
 	  SET_LAST_MODIFIED (w, 1);
 	  SET_LAST_FACECHANGE (w);
 	  w->config_mark = 0;
@@ -5861,14 +5857,20 @@ its value is -not- saved.
   /*
   config->frame_width = FRAME_WIDTH (f);
   config->frame_height = FRAME_HEIGHT (f); */
-  /* When using `push-window-configuration', often the minibuffer ends
+  /* #### When using `push-window-configuration', often the minibuffer ends
      up as the selected window because functions run as the result of
      user interaction e.g. hyper-apropos. It seems to me the sensible
-     thing to do is not record the minibuffer here. */
+     thing to do is not record the minibuffer here. 
+
+     #### Unfortunately this is a change to previous behaviour, however logical
+     it may be, so revert for the moment. */
+#if 0
   if (FRAME_MINIBUF_ONLY_P (f) || minibuf_level)
     config->current_window = FRAME_SELECTED_WINDOW (f);
   else
     config->current_window = FRAME_LAST_NONMINIBUF_WINDOW (f);
+#endif
+  config->current_window = FRAME_SELECTED_WINDOW (f);
   XSETBUFFER (config->current_buffer, current_buffer);
   config->minibuffer_scroll_window = Vminibuffer_scroll_window;
   config->root_window = FRAME_ROOT_WINDOW (f);

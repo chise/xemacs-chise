@@ -519,6 +519,26 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2001-01-08  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.40 is released.
+
+2001-01-06  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* mule/hebrew.el: Fix comments and typos.
+	mule/japanese.el: Fix comments, typos, and 8-bit character encoding.
+
+2001-01-06  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* ChangeLog.1: move ancient log from fill.el.
+
+	* dump-paths.el:
+	paragraphs.el:
+	mule/mule-category.el:
+	Miscellaneous typo fixes and slight doc clarifications.
+
+	* mule/mule-ccl.el:  Correct file name in header.
+
 2000-12-31  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.39 is released.

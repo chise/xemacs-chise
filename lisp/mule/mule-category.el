@@ -279,6 +279,11 @@ Each element is a list of a charset, a designator, and maybe a doc string.")
 
 ;;; At the present, I know Japanese and Chinese text can
 ;;; break line at any point under a restriction of 'kinsoku'.
+;;; #### SJT this needs to be set by language environments and probably should
+;;; be buffer-local---strategy for dealing with this: check all $language.el
+;;; files and also mule-base/$language-utils.el files for variables set;
+;;; these should be made buffer local and some kind of a- or p-list of vars
+;;; to be set for a language environment created. 
 (defvar word-across-newline "\\(\\cj\\|\\cc\\|\\ct\\)"
   "Regular expression of such characters which can be a word across newline.")
 

@@ -4169,7 +4169,7 @@ re_search_2 (struct re_pattern_buffer *bufp, const char *str1,
 
 /* Call before fetching a character with *d.  This switches over to
    string2 if necessary.  */
-#define PREFETCH()							\
+#define REGEX_PREFETCH()							\
   while (d == dend)						    	\
     {									\
       /* End of string2 => fail.  */					\
@@ -4711,7 +4711,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 		  Emchar pat_ch, buf_ch;
 		  Bytecount pat_len;
 
-		  PREFETCH ();
+		  REGEX_PREFETCH ();
 		  pat_ch = charptr_emchar (p);
 		  buf_ch = charptr_emchar (d);
 		  if (RE_TRANSLATE (buf_ch) != pat_ch)
@@ -4723,7 +4723,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 		  
 		  mcnt -= pat_len;
 #else /* not MULE */
-		  PREFETCH ();
+		  REGEX_PREFETCH ();
 		  if ((unsigned char) RE_TRANSLATE (*d++) != *p++)
                     goto fail;
 		  mcnt--;
@@ -4735,7 +4735,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 	    {
 	      do
 		{
-		  PREFETCH ();
+		  REGEX_PREFETCH ();
 		  if (*d++ != *p++) goto fail;
 		}
 	      while (--mcnt);
@@ -4748,7 +4748,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 	case anychar:
           DEBUG_PRINT1 ("EXECUTING anychar.\n");
 
-          PREFETCH ();
+          REGEX_PREFETCH ();
 
           if ((!(bufp->syntax & RE_DOT_NEWLINE) && TRANSLATE (*d) == '\n')
               || (bufp->syntax & RE_DOT_NOT_NULL && TRANSLATE (*d) == '\000'))
@@ -4768,7 +4768,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 
             DEBUG_PRINT2 ("EXECUTING charset%s.\n", not ? "_not" : "");
 
-	    PREFETCH ();
+	    REGEX_PREFETCH ();
 	    c = TRANSLATE (*d); /* The character to match.  */
 
             /* Cast to `unsigned' instead of `unsigned char' in case the
@@ -4795,7 +4795,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 
             DEBUG_PRINT2 ("EXECUTING charset_mule%s.\n", not ? "_not" : "");
 
-	    PREFETCH ();
+	    REGEX_PREFETCH ();
 	    c = charptr_emchar ((const Bufbyte *) d);
 	    c = TRANSLATE_EXTENDED_UNSAFE (c); /* The character to match.  */
 
@@ -5047,7 +5047,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 		if (d2 == dend2) break;
 
 		/* If necessary, advance to next segment in data.  */
-		PREFETCH ();
+		REGEX_PREFETCH ();
 
 		/* How many characters left in this segment to match.  */
 		mcnt = dend - d;
@@ -5606,7 +5606,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 	    int matches;
 	    Emchar emch;
 
-	    PREFETCH ();
+	    REGEX_PREFETCH ();
 	    emch = charptr_emchar ((const Bufbyte *) d);
 	    matches = (SYNTAX_UNSAFE
 		       (XCHAR_TABLE (regex_emacs_buffer->mirror_syntax_table),
@@ -5639,7 +5639,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 	    Emchar emch;
 
 	    mcnt = *p++;
-	    PREFETCH ();
+	    REGEX_PREFETCH ();
 	    emch = charptr_emchar ((const Bufbyte *) d);
 	    INC_CHARPTR (d);
 	    if (check_category_char(emch, regex_emacs_buffer->category_table,
@@ -5657,7 +5657,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 #else /* not emacs */
 	case wordchar:
           DEBUG_PRINT1 ("EXECUTING non-Emacs wordchar.\n");
-	  PREFETCH ();
+	  REGEX_PREFETCH ();
           if (!WORDCHAR_P_UNSAFE ((int) (*d)))
             goto fail;
 	  SET_REGS_MATCHED ();
@@ -5666,7 +5666,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 
 	case notwordchar:
           DEBUG_PRINT1 ("EXECUTING non-Emacs notwordchar.\n");
-	  PREFETCH ();
+	  REGEX_PREFETCH ();
           if (!WORDCHAR_P_UNSAFE ((int) (*d)))
             goto fail;
           SET_REGS_MATCHED ();
