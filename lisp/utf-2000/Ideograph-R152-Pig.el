@@ -166,8 +166,12 @@
     (=ucs		. #x27C30)	; ð§°°
     ))
 (define-char
-  '((ideographic-radical . 152)	; â¾—
-    (ideographic-strokes . 4)
+  '((ideographic-radical@ucs . 59)	; â¼º
+    (ideographic-strokes@ucs . 8)
+    (ideographic-radical@cns . 152)	; â¾—
+    (ideographic-strokes@cns . 4)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 11)
     (hanyu-dazidian	2 854 17)
     (=cns11643-5	. #x3560)	; ø»š‰ƒ
