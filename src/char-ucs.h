@@ -504,12 +504,13 @@ extern Lisp_Object Vcharset_chinese_big5_2;
 int decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len);
 
 INLINE_HEADER void
-decoding_table_remove_char (Lisp_Object v, int dim, int byte_offset,
-			    int code_point);
+decoding_table_remove_char (Lisp_Object ccs, int code_point);
 INLINE_HEADER void
-decoding_table_remove_char (Lisp_Object v, int dim, int byte_offset,
-			    int code_point)
+decoding_table_remove_char (Lisp_Object ccs, int code_point)
 {
+  Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
+  int dim = XCHARSET_DIMENSION (ccs);
+  int byte_offset = XCHARSET_BYTE_OFFSET (ccs);
   int i = -1;
 
   while (dim > 0)
@@ -528,12 +529,15 @@ decoding_table_remove_char (Lisp_Object v, int dim, int byte_offset,
 }
 
 INLINE_HEADER void
-decoding_table_put_char (Lisp_Object v, int dim, int byte_offset,
+decoding_table_put_char (Lisp_Object ccs,
 			 int code_point, Lisp_Object character);
 INLINE_HEADER void
-decoding_table_put_char (Lisp_Object v, int dim, int byte_offset,
+decoding_table_put_char (Lisp_Object ccs,
 			 int code_point, Lisp_Object character)
 {
+  Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
+  int dim = XCHARSET_DIMENSION (ccs);
+  int byte_offset = XCHARSET_BYTE_OFFSET (ccs);
   int i = -1;
   Lisp_Object nv;
   int ccs_len = XVECTOR_LENGTH (v);
