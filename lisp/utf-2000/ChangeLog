@@ -1,4 +1,26 @@
+2005-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el (U+9FB9): New character.
+	(GT-K01769): Map to U+9FB9 instead of U-00020509.
+	(BC-8BFA): Likewise.
+
+	* Ideograph-R011-Enter.el (U+5168): Use `->denotational' instead
+	of `->subsumptive'.
+	(UU+5168): Use `<-denotational' for U+5168; unify U+FA72.
+
+	* Ideograph-R002-Line.el (U+4E35): Use `->subsumptive'.
+
+	* Ideograph-R001-One.el (M-00053): Unify GT-00089 and GT-K06059;
+	map to U+FA70 instead of U+4E26.
+	(U+FA70): New character.
+
 2005-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el (U+52FA): Changed to abstract character.
+	(GT-03204): Use `<-denotational' U+52FA; unify U+FA77; add
+	UU+52FA.
+
+	* Ideograph-R019-Power.el (UU+52C7): Unify U+FA76.
 
 	* Ideograph-R005-Second.el (U+9FB4): New character; unify BC-8B69.
 
