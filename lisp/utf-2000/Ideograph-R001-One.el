@@ -50,9 +50,10 @@
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (japanese-jisx0212	#x30 #x21)	; ø»Šº’
-    (chinese-cns11643-4 #x21 #x26)	; ø»— ­
-    (ideograph-daikanwa #x00 #x03)	; ø¹€ƒ
+    (japanese-jisx0212		#x30 #x21)	; ø»Šº’
+    (chinese-cns11643-4		#x21 #x26)	; ø»— ­
+    (japanese-jisx0213-2	#x21 #x22)	; ä¸‚
+    (ideograph-daikanwa		#x00 #x03)	; ø¹€ƒ
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER O")
@@ -318,8 +319,9 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (shinjigen-1	. 19)
-    (chinese-cns11643-2 #x21 #x2D)	; ø»“Œ¬
-    (ideograph-daikanwa #x00 #x15)	; ø¹€•
+    (chinese-cns11643-2		#x21 #x2D)	; ø»“Œ¬
+    (japanese-jisx0213-2	#x21 #x23)	; ä¸
+    (ideograph-daikanwa		#x00 #x15)	; ø¹€•
     ))
 (define-char
   '((ucs		. #x4E10)
@@ -402,9 +404,10 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (shinjigen-2	. 17)
-    (japanese-jisx0212	#x30 #x25)	; ø»Šº–
-    (chinese-cns11643-4 #x21 #x39)	; ø»—¡€
-    (ideograph-daikanwa #x00 #x1C)	; ø¹€œ
+    (japanese-jisx0212		#x30 #x25)	; ø»Šº–
+    (chinese-cns11643-4		#x21 #x39)	; ø»—¡€
+    (japanese-jisx0213-2	#x21 #x24)	; ä¸’
+    (ideograph-daikanwa		#x00 #x1C)	; ø¹€œ
     ))
 (define-char
   '((ucs		. #x4E13)
@@ -883,4 +886,10 @@
     (total-strokes	 . 5)
     (chinese-cns11643-6 #x22 #x2B)	; ø»›¶˜
     (ideograph-daikanwa #xBF #x07)	; ø¹›¼‡
+    ))
+(define-char
+  '((ucs		. #x3402)
+    (ideographic-radical . 1)	; â¼€
+    (japanese-strokes	. 5)
+    (japanese-jisx0213-1	#x2E #x23)	; ã‚
     ))
