@@ -4,11 +4,15 @@
 
 #include <time.h>
 
+#ifdef __MINGW32__
+#include <winsock.h>
+#else
 struct timeval 
   {
     long tv_sec;	/* seconds */
     long tv_usec;	/* microseconds */
   };
+#endif
 
 struct timezone 
   {
