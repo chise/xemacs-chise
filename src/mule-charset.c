@@ -421,8 +421,7 @@ put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table)
 }
 
 
-Lisp_Object Vcharacter_attribute_table;
-Lisp_Object Vcharacter_name_table;
+Lisp_Object Vchar_attribute_hash_table;
 Lisp_Object Vcharacter_ideographic_radical_table;
 Lisp_Object Vcharacter_ideographic_strokes_table;
 Lisp_Object Vcharacter_total_strokes_table;
@@ -461,12 +460,6 @@ Emchar to_char_id (Lisp_Object v, char* err_msg, Lisp_Object err_arg);
 Lisp_Object put_char_ccs_code_point (Lisp_Object character,
 				     Lisp_Object ccs, Lisp_Object value);
 Lisp_Object remove_char_ccs (Lisp_Object character, Lisp_Object ccs);
-
-Lisp_Object put_char_attribute (Lisp_Object character,
-				Lisp_Object attribute, Lisp_Object value);
-Lisp_Object remove_char_attribute (Lisp_Object character,
-				   Lisp_Object attribute);
-
 
 Emchar
 to_char_id (Lisp_Object v, char* err_msg, Lisp_Object err_arg)
@@ -555,22 +548,58 @@ Return variants of CHARACTER.
 					Vcharacter_variant_table));
 }
 
+
+/* We store the char-id-tables in hash tables with the attributes as
+   the key and the actual char-id-table object as the value.  Each
+   char-id-table stores values of an attribute corresponding with
+   characters.  Occasionally we need to get attributes of a character
+   in a association-list format.  These routines provide us with
+   that. */
+struct char_attribute_alist_closure
+{
+  Emchar char_id;
+  Lisp_Object *char_attribute_alist;
+};
+
+static int
+add_char_attribute_alist_mapper (Lisp_Object key, Lisp_Object value,
+				 void *char_attribute_alist_closure)
+{
+  /* This function can GC */
+  struct char_attribute_alist_closure *caacl =
+    (struct char_attribute_alist_closure*) char_attribute_alist_closure;
+  Lisp_Object ret = get_char_id_table (caacl->char_id, value);
+  if (!UNBOUNDP (ret))
+    {
+      Lisp_Object *char_attribute_alist = caacl->char_attribute_alist;
+      *char_attribute_alist
+	= Fcons (Fcons (key, ret), *char_attribute_alist);
+    }
+  return 0;
+}
+
 DEFUN ("char-attribute-alist", Fchar_attribute_alist, 1, 1, 0, /*
 Return the alist of attributes of CHARACTER.
 */
        (character))
 {
-  Lisp_Object alist, ret;
+  Lisp_Object alist = Qnil;
+  Lisp_Object ret;
   int i;
 
   CHECK_CHAR (character);
-  alist = Fcopy_alist (get_char_id_table (XCHAR (character),
-					  Vcharacter_attribute_table));
-
-  ret = get_char_id_table (XCHAR (character), Vcharacter_name_table);
-  if (!NILP (ret))
-    alist = Fcons (Fcons (Qname, ret), alist);
-
+  {
+    struct gcpro gcpro1;
+    struct char_attribute_alist_closure char_attribute_alist_closure;
+  
+    GCPRO1 (alist);
+    char_attribute_alist_closure.char_id = XCHAR (character);
+    char_attribute_alist_closure.char_attribute_alist = &alist;
+    elisp_maphash (add_char_attribute_alist_mapper,
+		   Vchar_attribute_hash_table,
+		   &char_attribute_alist_closure);
+    UNGCPRO;
+  }
   ret = get_char_id_table (XCHAR (character),
 			   Vcharacter_ideographic_radical_table);
   if (!NILP (ret))
@@ -641,10 +670,6 @@ Return the value of CHARACTER's ATTRIBUTE.
       else
 	return Qnil;
     }
-  else if (EQ (attribute, Qname))
-    {
-      return get_char_id_table (XCHAR (character), Vcharacter_name_table);
-    }
   else if (EQ (attribute, Qideographic_radical))
     {
       return get_char_id_table (XCHAR (character),
@@ -672,14 +697,17 @@ Return the value of CHARACTER's ATTRIBUTE.
     }
   else
     {
-      Lisp_Object ret
-	= get_char_id_table (XCHAR (character), Vcharacter_attribute_table);
-
-      if (EQ (ret, Qnil))
-	return Qnil;
-      else
-	return Fcdr (Fassq (attribute, ret));
+      Lisp_Object table = Fgethash (attribute,
+				    Vchar_attribute_hash_table,
+				    Qunbound);
+      if (!UNBOUNDP (table))
+	{
+	  Lisp_Object ret = get_char_id_table (XCHAR (character), table);
+	  if (!UNBOUNDP (ret))
+	    return ret;
+	}
     }
+  return Qnil;
 }
 
 DEFUN ("put-char-attribute", Fput_char_attribute, 3, 3, 0, /*
@@ -694,12 +722,6 @@ Store CHARACTER's ATTRIBUTE with VALUE.
   if (!NILP (ccs))
     {
       return put_char_ccs_code_point (character, ccs, value);
-    }
-  else if (EQ (attribute, Qname))
-    {
-      CHECK_STRING (value);
-      put_char_id_table (XCHAR (character), value, Vcharacter_name_table);
-      return value;
     }
   else if (EQ (attribute, Qideographic_radical))
     {
@@ -816,7 +838,19 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 			     Vcharacter_variant_table);
 	}
     }
-  return put_char_attribute (character, attribute, value);
+  {
+    Lisp_Object table = Fgethash (attribute,
+				  Vchar_attribute_hash_table,
+				  Qnil);
+
+    if (NILP (table))
+      {
+	table = make_char_id_table (Qunbound, 0);
+	Fputhash (attribute, table, Vchar_attribute_hash_table);
+      }
+    put_char_id_table (XCHAR (character), value, table);
+    return value;
+  }
 }
   
 DEFUN ("remove-char-attribute", Fremove_char_attribute, 2, 2, 0, /*
@@ -832,7 +866,18 @@ Remove CHARACTER's ATTRIBUTE.
     {
       return remove_char_ccs (character, ccs);
     }
-  return remove_char_attribute (character, attribute);
+  else
+    {
+      Lisp_Object table = Fgethash (attribute,
+				    Vchar_attribute_hash_table,
+				    Qunbound);
+      if (!UNBOUNDP (table))
+	{
+	  put_char_id_table (XCHAR (character), Qunbound, table);
+	  return Qt;
+	}
+    }
+  return Qnil;
 }
 
 INLINE_HEADER int CHARSET_BYTE_SIZE (Lisp_Charset* cs);
@@ -1036,58 +1081,6 @@ remove_char_ccs (Lisp_Object character, Lisp_Object ccs)
   return Qt;
 }
 
-Lisp_Object
-put_char_attribute (Lisp_Object character, Lisp_Object attribute,
-		    Lisp_Object value)
-{
-  Emchar char_id = XCHAR (character);
-  Lisp_Object ret = get_char_id_table (char_id, Vcharacter_attribute_table);
-  Lisp_Object cell;
-
-  cell = Fassq (attribute, ret);
-
-  if (NILP (cell))
-    {
-      ret = Fcons (Fcons (attribute, value), ret);
-    }
-  else if (!EQ (Fcdr (cell), value))
-    {
-      Fsetcdr (cell, value);
-    }
-  put_char_id_table (char_id, ret, Vcharacter_attribute_table);
-  return ret;
-}
-
-Lisp_Object
-remove_char_attribute (Lisp_Object character, Lisp_Object attribute)
-{
-  Emchar char_id = XCHAR (character);
-  Lisp_Object alist = get_char_id_table (char_id, Vcharacter_attribute_table);
-
-  if (EQ (attribute, Fcar (Fcar (alist))))
-    {
-      alist = Fcdr (alist);
-    }
-  else
-    {
-      Lisp_Object pr = alist;
-      Lisp_Object r = Fcdr (alist);
-
-      while (!NILP (r))
-	{
-	  if (EQ (attribute, Fcar (Fcar (r))))
-	    {
-	      XCDR (pr) = Fcdr (r);
-	      break;
-	    }
-	  pr = r;
-	  r = Fcdr (r);
-	}
-    }
-  put_char_id_table (char_id, alist, Vcharacter_attribute_table);
-  return alist;
-}
-
 EXFUN (Fmake_char, 3);
 EXFUN (Fdecode_char, 2);
 
@@ -1169,8 +1162,7 @@ Store character's ATTRIBUTES.
     ignored:
       rest = Fcdr (rest);
     }
-  return
-    get_char_id_table (XCHAR (character), Vcharacter_attribute_table);
+  return character;
 }
 
 Lisp_Object Vutf_2000_version;
@@ -3204,12 +3196,6 @@ Leading-code of private TYPE9N charset of column-width 1.
 Version number of UTF-2000.
 */ );
 
-  staticpro (&Vcharacter_attribute_table);
-  Vcharacter_attribute_table = make_char_id_table (Qnil, 0);
-
-  staticpro (&Vcharacter_name_table);
-  Vcharacter_name_table = make_char_id_table (Qnil, 0);
-
   /* staticpro (&Vcharacter_ideographic_radical_table); */
   Vcharacter_ideographic_radical_table = make_char_id_table (Qnil, -1);
 
@@ -3250,6 +3236,10 @@ complex_vars_of_mule_charset (void)
      ease of access. */
 
 #ifdef UTF2000
+  staticpro (&Vchar_attribute_hash_table);
+  Vchar_attribute_hash_table
+    = make_lisp_hash_table (16, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
+
   staticpro (&Vcharset_ucs);
   Vcharset_ucs =
     make_charset (LEADING_BYTE_UCS, Qucs, 256, 4,
