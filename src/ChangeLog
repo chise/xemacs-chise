@@ -1,8 +1,11 @@
 2000-12-09  MORIOKA Tomohiko  <tomo@m17n.org>
 
-	* search.c (search_buffer): Use charset-id as charset_base_code in
-	UTF-2000 [I'm not sure it is right thing].
+	* search.c (search_buffer): Make `charset_base_code' as
+	character-id >> 6 to eliminate the corresponding last byte in
+	UTF-8 representation [I'm not sure it is right thing].
 	(boyer_moore): Likewise.
+
+2000-12-09  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* emacs.c (vars_of_emacs): Convert XEMACS_CODENAME to internal
 	representation in MULE.
