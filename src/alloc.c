@@ -368,6 +368,9 @@ allocate_lisp_storage (size_t size)
    After doing the mark phase, GC will walk this linked list
    and free any lcrecord which hasn't been marked. */
 static struct lcrecord_header *all_lcrecords;
+#ifdef UTF2000
+static struct lcrecord_header *all_older_lcrecords;
+#endif
 
 void *
 alloc_lcrecord (size_t size, const struct lrecord_implementation *implementation)
@@ -447,6 +450,14 @@ disksave_object_finalization_1 (void)
 	  !header->free)
 	LHEADER_IMPLEMENTATION (&header->lheader)->finalizer (header, 1);
     }
+#ifdef UTF2000
+  for (header = all_older_lcrecords; header; header = header->next)
+    {
+      if (LHEADER_IMPLEMENTATION (&header->lheader)->finalizer &&
+	  !header->free)
+	LHEADER_IMPLEMENTATION (&header->lheader)->finalizer (header, 1);
+    }
+#endif
 }
 
 
@@ -1152,6 +1163,21 @@ make_vector (size_t length, Lisp_Object init)
     return vector;
   }
 }
+
+#ifdef UTF2000
+Lisp_Object
+make_older_vector (size_t length, Lisp_Object init)
+{
+  struct lcrecord_header* orig_all_lcrecords = all_lcrecords;
+  Lisp_Object obj;
+
+  all_lcrecords = all_older_lcrecords;
+  obj = make_vector (length, init);
+  all_older_lcrecords = all_lcrecords;
+  all_lcrecords = orig_all_lcrecords;
+  return obj;
+}
+#endif
 
 DEFUN ("make-vector", Fmake_vector, 2, 2, 0, /*
 Return a new vector of length LENGTH, with each element being INIT.
@@ -3894,6 +3920,9 @@ reinit_alloc_once_early (void)
   XSETINT (all_bit_vectors, 0); /* Qzero may not be set yet. */
   XSETINT (Vgc_message, 0);
   all_lcrecords = 0;
+#ifdef UTF2000
+  all_older_lcrecords = 0;
+#endif
   ignore_malloc_warnings = 1;
 #ifdef DOUG_LEA_MALLOC
   mallopt (M_TRIM_THRESHOLD, 128*1024); /* trim threshold */
