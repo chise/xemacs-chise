@@ -248,11 +248,10 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (<-vulgar-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 47)
+     (:char	((shinjigen-1	     . 47)
 		 (ideograph-daikanwa . 00118)	; ø¸€¶
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (hanyu-dazidian	1 51 2)
     (shinjigen-1	. 48)
     (chinese-cns11643-3 . #x2130)	; ø»•–³
@@ -274,12 +273,11 @@
       )
      ((ucs		  . #x4E3F)	; ä¸¿
       )
-     ((chinese-big5-cdp	  . #x88ED)	; ý¢€ˆ£­
+     ((ucs		  . #x4E03)	; ä¸ƒ
       ))
     (chinese-gb2312		. #x5831)	; ø»…—†
     (japanese-jisx0212		. #x3032)	; ø»Šº£
     (chinese-isoir165		. #x5831)	; ø»¿–
-    (chinese-cns11643-2		. #x2128)	; ø»“Œ§
     (japanese-jisx0213-2	. #x2129)	; ø»¤ˆ
     (ideograph-gt-pj-2		. #x307D)	; ý¡€€‚§
     (chinese-big5		. #xC947)	; ý¢€Œ¥‡
@@ -288,6 +286,15 @@
     (china3-jef			. #x41B7)	; øº„†·
     (ideograph-gt		. 00167)	; ý¡€€‚§
     (ucs			. #x4E47)	; ä¹‡
+    ))
+(define-char
+  '((=>ucs		. #x4E47)	; ä¹‡
+    (morohashi-daikanwa	120 0 0)
+    (ideographic-radical . 4)	; â¼ƒ
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (chinese-cns11643-2 . #x2128)	; ø»“Œ§
+    (ucs-cns		. #x4E47)	; ø»“Œ§
     ))
 (define-char
   '((ideographic-radical . 4)	; â¼ƒ
