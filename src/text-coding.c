@@ -2260,11 +2260,7 @@ struct decoding_stream
 };
 
 #ifdef UTF2000
-#ifdef HAVE_DATABASE
 extern Lisp_Object Qcomposition;
-#else
-extern Lisp_Object Vcharacter_composition_table;
-#endif
 
 INLINE_HEADER void
 decode_flush_er_chars (struct decoding_stream *str, unsigned_char_dynarr* dst);
@@ -2409,22 +2405,10 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 {
   if (CODING_SYSTEM_DISABLE_COMPOSITION (str->codesys))
     decode_add_er_char (str, character, dst);
-  else if (
-#ifdef HAVE_DATABASE
-	   !CONSP (str->combining_table)
-#else
-	   !CHAR_TABLEP (str->combining_table)
-#endif
-	   )
+  else if (!CONSP (str->combining_table))
     {
-      Lisp_Object ret =
-#ifdef HAVE_DATABASE
-	Fget_char_attribute (make_char (character), Qcomposition, Qnil)
-#else
-	get_char_id_table (XCHAR_TABLE(Vcharacter_composition_table),
-			   character)
-#endif
-	;
+      Lisp_Object ret
+	= Fget_char_attribute (make_char (character), Qcomposition, Qnil);
 
       if (NILP (ret))
 	decode_add_er_char (str, character, dst);
@@ -2437,26 +2421,12 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
     }
   else
     {
-      Lisp_Object ret =
-#ifdef HAVE_DATABASE
-	Fcdr (Fassq (make_char (character), str->combining_table))
-#else
-	get_char_id_table (XCHAR_TABLE(str->combining_table),
-			   character)
-#endif
-	;
+      Lisp_Object ret = Fcdr (Fassq (make_char (character), str->combining_table));
 
       if (CHARP (ret))
 	{
 	  Emchar char2 = XCHARVAL (ret);
-	  ret =
-#ifdef HAVE_DATABASE
-	    Fget_char_attribute (make_char (character), Qcomposition, Qnil)
-#else
-	    get_char_id_table (XCHAR_TABLE(Vcharacter_composition_table),
-			       char2)
-#endif
-	    ;
+	  ret = Fget_char_attribute (make_char (character), Qcomposition, Qnil);
 	  if (NILP (ret))
 	    {
 	      decode_add_er_char (str, character, dst);
@@ -2470,13 +2440,6 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 	      str->combining_table = ret;
 	    }
 	}
-#ifndef HAVE_DATABASE
-      else if (CHAR_TABLEP (ret))
-	{
-	  str->combined_chars[str->combined_char_count++] = character;
-	  str->combining_table = ret;
-	}
-#endif
       else
 	{
 	  COMPOSE_FLUSH_CHARS (str, dst);
