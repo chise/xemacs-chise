@@ -1,0 +1,227 @@
+The XEmacs Packages Quick Start Guide
+-------------------------------------
+
+This text is intended to help you get started installing a new XEmacs
+and its packages from start.  For details see the 'Startup Paths' and
+'Packages' sections of the XEmacs info manual.
+
+Real Real Quickstart FAQ
+------------------------
+
+Q. Do I need to have the packages to compile XEmacs?
+A. If you want to compile with MULE, you need the mule-base package installed.
+   Otherwise, no package is required before compilation.
+
+Q. I really liked the old way that packages were bundled and do not
+   want to mess with packages at all.
+A. You can grab all the packages at once like you used to with old
+   XEmacs versions, skip to the 'Sumo Tarball' section below.
+
+A note of caution
+-----------------
+
+The XEmacs package system is still in its infancy. Please expect a few 
+minor hurdles on the way. Also neither the interface nor the structure is 
+set in stone. The XEmacs maintainers reserve the right to sacrifice
+backwards compatibility as quirks are worked out over the coming
+releases. 
+
+Some Package Theory
+-------------------
+
+In order to reduce the size and increase the maintainability of XEmacs,
+the majority of the Elisp packages that came with previous releases
+have been unbundled. They have been replaced by the package system.
+Each elisp add-on (or groups of them when they are small) now comes
+in its own tarball that contains a small search hierarchy.
+
+You select just the ones you need. Install them by untarring them into 
+the right place. On startup XEmacs will find them, set up the load
+path correctly, install autoloads, etc, etc.
+
+Package hierarchies
+-------------------
+
+On Startup XEmacs looks for packages in so called package hierarchies.
+These can be specified by the 'package-path' parameter to the
+'configure' script. However by default there are three system wide
+hierarchies.
+
+$prefix/lib/xemacs/site-packages
+     Local and 3rd party packages go here.
+
+$prefix/lib/xemacs/mule-packages
+     Only searched by MULE-enabled XEmacsen.
+
+$prefix/lib/xemacs/xemacs-packages
+     Normal packages go here.
+
+Where to get the packages
+-------------------------
+
+Packages are available from ftp://ftp.xemacs.org/pub/xemacs/packages
+and its mirror.
+
+How to install the packages
+---------------------------
+
+1. All at once, using the 'Sumo Tarball'.
+2. By hand.
+3. Automatically, using the package tools from XEmacs.
+
+The Sumo Tarball
+----------------
+
+Those with little time, cheap connections and plenty of disk space can
+install all packages at once using the sumo tarballs.
+Download the files
+
+xemacs-sumo-<date>.tar.gz if you have a latin-1 XEmacs.
+
+or
+
+xemacs-mule-sumo-<date>.tar.gz if you have a MULE XEmacs.
+
+N.B. There are called 'Sumo Tarballs' for good reason. They are
+currently 15MB and 23MB (gzipped) respectively.
+
+Install them by
+
+cd $prefix/lib/xemacs ; gunzip -c <tarballname> | tar xf -
+
+As the Sumo tarballs are not regenerated as often as the individual
+packages, it is recommended that you use the automatic package tools
+afterwards to pick up any recent updates.
+
+Installing by Hand
+------------------
+
+Fetch the packages from the ftp site, CDROM whatever. The filenames
+have the form name-<version>-pkg.tar.gz and are gzipped tar files. For
+a fresh install it is sufficient to untar the file at the top of the
+package hierarchy. For example if we are installing the 'xemacs-base'
+package in version 1.27:
+
+mkdir $prefix/lib/xemacs/xemacs-packages # if it does not exist yet
+cd $prefix/lib/xemacs/xemacs-packages
+gunzip -c ...../xemacs-base-1.27-pkg.tar.gz | tar xf -
+
+For MULE related packages, it is best to untar in the mule-packages
+hierarchy, i.e. for the mule-base package, version 1.25
+
+mkdir $prefix/lib/xemacs/mule-packages # if it does not exist yet
+cd $prefix/lib/xemacs/mule-packages
+gunzip -c ...../mule-base-1.25-pkg.tar.gz | tar xf -
+
+Installing automatically
+------------------------
+
+XEmacs comes with some tools to make the periodic updating and
+installing easier. It will notice if new packages or versions are
+available and will fetch them from the ftp site.
+
+Unfortunately this requires that a few packages are alreadyin place. 
+You will have to install them by hand as above or use a SUMO tarball. 
+This requirement will hopefully go away in the future. The packages
+you need are:
+
+   efs          - To fetch the files from the ftp site or mirrors.
+   xemacs-base  - Needed by efs.
+
+and optionally:
+
+   mailcrypt    - If you have PGP installed and want to verify the
+                  signature of the index file.
+   mule-base    - Needed if you want to compile XEmacs with MULE.
+
+After installing these by hand, you can start XEmacs. (It is a good
+idea to use 'xemacs -vanilla' here as your startup files might need
+things now moved to packages.)
+
+ - First you need to specify an FTP site to use.
+      Use Options->Manage Packages->Add Download Site
+       or M-x customize-variable RET package-get-remote RET
+
+   Alternatively, if you already have the packages on a local disk
+   then you can specify this directly using 'M-x
+   pui-add-install-directory'. Please make sure you also have a
+   corresponding copy of the package index there.
+
+ - Invoke Options->Manage Packages->List & Install
+      or M-x pui-list-packages RET
+   XEmacs will now first try to fetch a new version of the package
+   index from the FTP site. Depending on whether you are using
+   'mailcrypt/PGP', you will get some question about keys to fetch or
+   whether to use the index without verifying the signature. If the
+   new index was different from the one already on disk, XEmacs will
+   offer you to overwrite the old index.
+
+-  XEmacs will show you a buffer named "*Packages*" with an overview
+   of available and installed packages, including a short description.
+   In this buffer you can select which packages you want using the
+   mouse or using RET.
+
+-  When you are finished choosing packages, invoke
+   'Packages->Install/Remove Select' from the menu or type 'x' to
+   begin installing packages.
+    
+After Installation
+------------------
+
+New packages can only be used by XEmacs after a restart.
+
+Note to MULE users
+------------------
+
+Unlike all other packages the mule-base package is used at build/dump 
+time. This means that you need this available before compiling XEmacs
+with MULE. Also it is a good idea to keep packages that are
+MULE-only separate by putting them in the mule-packages hierarchy.
+
+Which Packages to install?
+--------------------------
+
+This is difficult to say. When in doubt install a package. If you
+administrate a big site it might be a good idea to just install
+everything. A good minimal set of packages for XEmacs-latin1 would be
+
+xemacs-base, xemacs-devel, c-support, cc-mode, debug, dired, efs,
+edit-utils, fsf-compat, mail-lib, net-utils, os-utils, prog-modes,
+text-modes, time
+
+Unfortunately the package system currently provides neither
+dependencies nor conflicts. This will be a future enhancement. The
+above set includes most packages that are used by others.
+
+See also '.../etc/PACKAGES' for further descriptions of the individual
+packages (currently outdated).
+
+Upgrading/Removing Packages
+---------------------------
+
+As the exact files and their locations contained in a package may
+change it is recommend to remove a package first before installing a
+new version. In order to facilitate removal each package contains an
+pgkinfo/MANIFEST.pkgname file which list all the files belong to the
+package. M-x package-admin-delete-binary-package RET can be used to
+remove a package using this file.
+
+Note that the interactive package tools included with XEmacs already do
+this for you.
+
+User Package directories
+------------------------
+
+In addition to the system wide packages, each user can have his own
+packages installed in "./xemacs" (Note that this will most likely
+change to "./xemacs/packages" in the near future). If you want to
+install packages there using the interactive tools, you need to set
+'pui-package-install-dest-dir' to "/xemacs"
+
+Site lisp/Site start
+--------------------
+
+The site-packages hierarchy replaces the old 'site-lisp' directory.
+XEmacs no longer looks into a 'site-lisp' directly by default.
+A good place to put 'site-start.el' would be in
+$prefix/lib/xemacs/site-packages/lisp/
