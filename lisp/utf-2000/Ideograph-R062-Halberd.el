@@ -151,6 +151,15 @@
     (ucs		. #x39AE)	; ã¦®
     ))
 (define-char
+  '((=>ucs		. #x39AE)	; ã¦®
+    (morohashi-daikanwa	11542 0 0)
+    (ideographic-radical . 62)	; â¼½
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideograph-gt-pj-k1 . #x3564)	; ý¡„€¢„
+    (=gt-k		. 02180)	; ý¡„€¢„
+    ))
+(define-char
   '((morohashi-daikanwa	11542 1)
     (ideographic-radical . 62)	; â¼½
     (ideographic-strokes . 2)
