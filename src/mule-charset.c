@@ -1425,7 +1425,7 @@ character set.  Recognized properties are:
   Lisp_Object rest, keyword, value;
   Lisp_Object ccl_program = Qnil;
   Lisp_Object short_name = Qnil, long_name = Qnil;
-  unsigned char byte_offset = 0;
+  int byte_offset = -1;
 
   CHECK_SYMBOL (name);
   if (!NILP (doc_string))
@@ -1552,6 +1552,17 @@ character set.  Recognized properties are:
 
   if (columns == -1)
     columns = dimension;
+
+  if (byte_offset < 0)
+    {
+      if (chars == 94)
+	byte_offset = 33;
+      else if (chars == 96)
+	byte_offset = 32;
+      else
+	byte_offset = 0;
+    }
+
   charset = make_charset (id, name, type, columns, graphic,
 			  final, direction, short_name, long_name,
 			  doc_string, registry,
