@@ -1,6 +1,44 @@
 2001-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R200-Hemp.el (J83-4B7B): Unify J78-4B7B and J90-4B7B.
+	* char-db-util.el (insert-char-attributes): Regard `->synonymous'
+	as a character-reference.
+
+	* Ideograph-R210-Even.el (J90-6C5A): Separate J78-6C5A, J83-6C5A
+	and K0-6E32.
+
+	* u03000-CJK-Symbols-and-Punctuation.el: Merge Big5-Eten code
+	points.
+
+	* Ideograph-R199-Wheat.el: Merge missing JIS X 0208 code points.
+	(J78-7351): Separate J83-7351 and J90-7351.
+	(J83-396D): Unify J90-396D; add `total-strokes'.
+	(J83-4C4D): Unify J90-4C4D; add `total-strokes'.
+
+	* Ideograph-R209-Nose.el (J90-4921): Unify J78-4921 and J83-4921.
+
+	* Ideograph-R208-Rat.el (J83-736B): Unify J78-736B and J90-736B.
+
+	* Ideograph-R203-Black.el (J78-4263): Separate J83-4263 and
+	J90-4263.
+
+	* Ideograph-R196-Bird.el: Merge missing JIS X 0208 code points.
+	(J83-463E): Separate J78-463E.
+	(J78-3974): Separate J83-3974, C1-7827, J90-3974 and U+9D60.
+
+	* Ideograph-R013-Down-Box.el (EGB-7A29): Separate C2-212E and
+	Big5-C94E and move them to Ideograph-R001-One.el; delete
+	`kangxi-radical' and `kangxi-strokes'.
+	(U+5188): Use `->same-ideograph' instead of `comment'; unify
+	Big5-C8A2.
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL SECOND TWO): Add
+	`<-radical'; unify Big5-C87B and Big5:U+4E5A.
+	(CJK RADICAL KNIFE TWO): Add `<-radical'; unify Big5-C87D and
+	Big5:U+5202.
+
+	* u00400-Cyrillic.el: Merge Big5-Eten code points.
+
+2001-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R197-Salt.el (J83-3834): Unify J90-3834.
 
@@ -54,6 +92,10 @@
 	and U+9905.
 	(J90-713B): Unify J78-713B and J83-713B; delete `daikanwa-radical'
 	and `daikanwa-strokes'; add `total-strokes'.
+
+2001-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R200-Hemp.el (J83-4B7B): Unify J78-4B7B and J90-4B7B.
 
 2001-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
