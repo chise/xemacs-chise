@@ -1,5 +1,22 @@
 2004-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R205-Frog.el (U+9F0B): Moved from
+	Ideograph-R213-Turtle.el.
+
+	* Ideograph-R213-Turtle.el (U+9F9F): Add `total-strokes'.
+	(U+9F0B): Moved to Ideograph-R205-Frog.el.
+
+2004-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R211-Tooth.el, Ideograph-R201-Yellow.el,
+	Ideograph-R205-Frog.el, Ideograph-R203-Black.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R196-Bird.el: Add some `total-strokes' features.
+	(U+9E34): Fix strokes.
+	(U+9E4B): Likewise.
+	(U+9E54): Likewise.
+
 	* Ideograph-R197-Salt.el (U+9E7E): Add `total-strokes'.
 
 	* Ideograph-R193-Cauldron.el (U+9B36): Add `total-strokes'.
