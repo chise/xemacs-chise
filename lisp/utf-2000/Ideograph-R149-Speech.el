@@ -5380,7 +5380,7 @@
     (ideograph-daikanwa . 49723)	; ø¸Œˆ»
     ))
 (define-char
-  '((->ucs		. #x8AAE)	; èª®
+  '((=>ucs		. #x8AAE)	; èª®
     (ideographic-radical . 149)	; â¾”
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
