@@ -1778,6 +1778,7 @@
       ))
     (japanese-jisx0212		. #x2B48)	; ø»Š³£
     (japanese-jisx0213-1	. #x2A62)	; ø»¢¡‹
+    (china3-jef			. #x86CA)	; øºˆ›Š
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER K WITH CEDILLA")
@@ -3137,6 +3138,10 @@
     (ucs		. #x015E)	; Åž
     ))
 (define-char
+  '((=>ucs		. #x015E)	; Åž
+    (china3-jef		. #x8BCB)	; øºˆ¯‹
+    ))
+(define-char
   '((name . "fullwidth latin capital letter s with cedilla")
     (=>ucs		. #x015E)	; Åž
     (general-category	letter uppercase) ; Normative Category
@@ -3300,6 +3305,7 @@
       ))
     (japanese-jisx0212		. #x2A61)	; ø»Š²ž
     (japanese-jisx0213-1	. #x2A47)	; ø»¢ °
+    (china3-jef			. #x8BCC)	; øºˆ¯Œ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER T WITH CEDILLA")
