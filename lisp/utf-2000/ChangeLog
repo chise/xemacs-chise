@@ -47,6 +47,9 @@
 
 	* Ideograph-R005-Second.el: Unify some GT-Kddddd numbers.
 
+	* u02E00-CJK-Radical-Supplement.el (U+2EB6): Unify BC-8970.
+	(BC-8CCC): New character.
+
 2003-01-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R003-Dot.el, Ideograph-R002-Line.el: Unify some
