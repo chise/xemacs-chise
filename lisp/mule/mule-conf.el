@@ -594,6 +594,18 @@
 	       mother =ucs@unicode
 	       min-code #x2E00 max-code #x2FFF))
   (make-charset
+   '=ucs-hangul
+   "Hangul Syllables of UCS"
+   '(long-name "UCS-Hangul-Syllables"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-Hangul-.*-ucs-0"
+	       mother =ucs
+	       min-code #xAC00 max-code #xD7AF))
+  (make-charset
    '=ucs-bmp-cjk
    "CJK Characters in BMP of UCS"
    '(long-name "UCS-BMP-CJK"
