@@ -77,37 +77,45 @@
     (=daikanwa		. 04678)	; &I-M-04678;
     ))
 (define-char
-  '((=>ucs		. #x361D)	; 㘝
-    (ideographic-radical . 31)	; ⼞
+  '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=ucs		  . #x56D7)	; 囗
-      )
-     ((=ks-x1001	  . #x6951)	; &M-03115; [73-49]
-      (=daikanwa	  . 03115)	; &I-M-03115;
-      ))
-    (=daikanwa		. 04679)	; &M-04679;
-    (=cbeta		. 01404)	; &I-CB01404;
-    ))
-(define-char
-  '((morohashi-daikanwa	4679 0 0)
-    (ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 2)
-    (total-strokes	 . 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=ucs		  . #x56D7)	; 囗
-      )
-     ((=ucs		  . #x53C8)	; 又
-      ))
     (=ucs		. #x361D)	; 㘝
-    (=cns11643-3	. #x2232)	; &I-C3-2232; [02-18]
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x56D7)	; 囗
+	)
+       ((=ks-x1001	    . #x6951)	; &M-03115; [73-49]
+	(=daikanwa	    . 03115)	; &I-M-03115;
+	))
+      (=daikanwa	  . 04679)	; &M-04679;
+      (=cbeta		  . 01404)	; &I-CB01404;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x56D7)	; 囗
+	)
+       ((=jis-x0208	    . #x4B74)	; &GT-03944; [43-84]
+	(=gb2312	    . #x5356)	; &I-G0-5356; [51-54]
+	(=cns11643-1	    . #x4434)	; &I-C1-4434; [36-20]
+	))
+      (=cns11643-3	  . #x2232)	; &C3-2232; [02-18]
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x56D7)	; 囗
+	)
+       ((=gt-k		    . 00064)	; &GT-K00064;
+	))
+      (=ucs@unicode	  . #x361D)	; &UU+361D;
+      ))
     ))
 (define-char
   '((=>ucs		. #x56DA)	; 囚
