@@ -757,6 +757,9 @@
     (->subsumptive
      ((<-original
        ((shinjigen-1	    . 3960)
+	(=jis-x0208	    . #x5D45)	; &GT-20995; [61-37]
+	(=ks-x1001	    . #x4F7D)	; &I-K0-4F7D; [47-93]
+	(=cns11643-1	    . #x7657)	; &I-C1-7657; [86-55]
 	(=daikanwa	    . 16349)	; &I-M-16349;
 	))
       (<-original*sources

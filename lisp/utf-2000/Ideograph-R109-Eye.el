@@ -1291,7 +1291,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (<-original
-     ((=daikanwa	  . 01473)	; &I-M-01473;
+     ((=ucs		  . #x2F811)	; 具
+      (=daikanwa	  . 01473)	; &I-M-01473;
       ))
     (<-original*sources
      daikanwa)
@@ -2163,7 +2164,8 @@
     (=ucs		. #x7714)	; 眔
     (->subsumptive
      ((<-original
-       ((=daikanwa	    . 23221)	; &I-M-23221;
+       ((=jis-x0212	    . #x4E5F)	; &M-23221; [46-63]
+	(=daikanwa	    . 23221)	; &I-M-23221;
 	))
       (<-original*sources
        daikanwa)

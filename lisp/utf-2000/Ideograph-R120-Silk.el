@@ -13678,7 +13678,9 @@
     (=ucs		. #x2F970)	; 繅
     (->subsumptive
      ((<-original
-       ((=daikanwa	    . 27854)	; &I-M-27854;
+       ((=jis-x0212	    . #x5450)	; &M-27854; [52-48]
+	(=jis-x0213-2-2000  . #x7457)	; &I-JX2-7457; [84-55]
+	(=daikanwa	    . 27854)	; &I-M-27854;
 	))
       (<-original*sources
        zhengzi-tong daikanwa)
