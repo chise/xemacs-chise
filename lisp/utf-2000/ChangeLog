@@ -1,3 +1,14 @@
+2002-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R160-Bitter.el (M-38638): Add `<-vulgar-ideograph' for
+	M-38671 and M-38649; delete `kangxi-radical' and `kangxi-strokes'.
+
+	* Ideograph-R135-Tongue.el (C1-485F): Fix :char of
+	`<-original-ideograph'.
+	(M-30307): Separate J90-3C2D; map to U+8F9E; add `->identical' for
+	M-38638; add `<-vulgar-ideograph' for M-38671 and M-38649.
+	(C3-4425): Map to U+8F9E.
+
 2002-02-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R085-Water.el (M-49217): Unify U+6E12.
@@ -42,6 +53,11 @@
 2002-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R005-Second.el (U-000200D5): Add
+	`ideographic-structure'.
+
+2002-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R135-Tongue.el (U+820D): Don't use char-ref in the
 	`ideographic-structure'.
 
 2002-02-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
