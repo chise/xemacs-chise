@@ -1,5 +1,12 @@
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/japanese.el:
+	- Use `define-coding-system-alias' instead of `copy-coding-system'.
+	- Register `coding-priority', `input-method' and `features' keys
+	  into language-info-alist.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/vietnamese.el:
 	- Specify `iso-8-1' as a category of coding-system `viscii'.
 	- Register `coding-priority', `input-method' and `features' keys
@@ -66,9 +73,10 @@
 1998-08-31  Paul Eggert  <eggert@twinsun.com>
 
 	* mule/chinese.el, mule/cyrillic.el, mule/ethiopic.el,
-	mule/european.el, mule/hebrew.el, mule/vietnamese.el: Add coding:
-	local variable, to avoid bootstrapping problem if you need to
-	recompile all the Lisp files using interpreted code.
+	mule/european.el, mule/hebrew.el, mule/japanese.el,
+	mule/vietnamese.el: Add coding: local variable, to avoid
+	bootstrapping problem if you need to recompile all the Lisp files
+	using interpreted code.
 
 1998-01-21  Kenichi Handa  <handa@etl.go.jp>
 
