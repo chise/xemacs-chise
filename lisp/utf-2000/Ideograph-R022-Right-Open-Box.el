@@ -98,12 +98,13 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (<-vulgar
-     (:sources	(shinjigen-1)
-      :char	((ideographic-radical . 50)	; ⼱
-		 (shinjigen-1	     . 2079)
-		 (=ucs		     . #x5E00)	; 帀
-		 )
+     ((shinjigen-1	  . 2079)
+      (=ucs		  . #x5E00)	; 帀
+      (=jis-x0212	  . #x3C24)	; &I-JSP-3C24;
+      (=jis-x0213-2-2000  . #x2870)	; &I-JX2-2870;
       ))
+    (<-vulgar*sources
+     shinjigen-1)
     (hanyu-dazidian	1 82 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
