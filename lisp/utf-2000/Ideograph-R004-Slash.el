@@ -1698,7 +1698,8 @@
     (=ucs		. #x20B61)	; ð ­¡
     ))
 (define-char
-  '((ideographic-radical . 4)	; â¼ƒ
+  '((morohashi-daikanwa	ho 5)
+    (ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 41 7)
@@ -1712,6 +1713,22 @@
       ))
     (=hanziku-1		. #xAC7E)	; ý¢€š±¾
     (=ucs		. #x200C0)	; ð ƒ€
+    ))
+(define-char
+  '((=>ucs		. #x200C0)	; ð ƒ€
+    (morohashi-daikanwa	ho 5 0)
+    (ideographic-radical . 4)	; â¼ƒ
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; â¿±
+      )
+     ((mojikyo		  . 000155)	; ý €€‚›
+      )
+     ((=ucs		  . #x200CC)	; ð ƒŒ
+      ))
+    (mojikyo		. 085275)	; ý €”´›
     ))
 (define-char
   '((ideographic-radical . 4)	; â¼ƒ
