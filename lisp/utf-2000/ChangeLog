@@ -1,5 +1,16 @@
 2003-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R075-Tree.el (JX1-7565): Unify U+FA44 instead of
+	U+6885.
+	(JX1-763B): Unify U+F91D instead of U+6B04.
+
+	* Ideograph-R019-Power.el (JX1-2E63): Unify U+FA33 instead of
+	U+52C9; use `->same-ideograph*sources' instead of char-ref in
+	`->same-ideograph'.
+	(J0-3650): Use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(JX1-2E68): Unify U+FA34 instead of U+52E4.
+
 	* Ideograph-R132-Self.el (JX1-7A58): Unify U+FA5C instead of
 	U+81ED.
 
