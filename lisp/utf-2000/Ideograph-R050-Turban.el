@@ -1069,6 +1069,9 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=gb2312		. #x5663)	; ø»…”¼
+    (=gt-pj-9		. #x5941)	; ý¡€‚­¾
+    (=gt-k		. 03871)	; ý¡„€¼Ÿ
+    (=gt		. 11134)	; ý¡€‚­¾
     (=ucs		. #x5E1A)	; å¸š
     ))
 (define-char
