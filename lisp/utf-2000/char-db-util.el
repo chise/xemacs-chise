@@ -1,6 +1,6 @@
 ;;; char-db-util.el --- Character Database utility
 
-;; Copyright (C) 1998,1999,2000,2001 MORIOKA Tomohiko.
+;; Copyright (C) 1998,1999,2000,2001,2002 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -125,7 +125,7 @@
 		       t)))
 		 (if (charset-iso-final-char kb)
 		     nil
-		   (> (charset-id ka)(charset-id kb)))))
+		   (< (charset-id ka)(charset-id kb)))))
 	      ((<= (charset-chars ka)(charset-chars kb)))))
        (t
 	(< (charset-dimension ka)
