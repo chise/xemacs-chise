@@ -185,6 +185,20 @@
 	nil)
     (numberp (car b))))
 
+(defun morohashi-daikanwa< (a b)
+  (cond ((eq (car a) 'ho)
+	 (if (eq (car b) 'ho)
+	     (int-list< (cdr a)(cdr b))
+	   nil))
+	((numberp (car a))
+	 (if (eq (car b) 'ho)
+	     t
+	   (int-list< a b)))
+	(t
+	 (if (eq (car b) 'ho)
+	     t
+	   (int-list< a b)))))
+
 (defun ideograph-char< (a b)
   (let ((a-m-m (get-char-attribute a 'ideograph-daikanwa))
 	(b-m-m (get-char-attribute b 'ideograph-daikanwa))
@@ -234,8 +248,8 @@
 	    (if (= a-s b-s)
 		(if a-m-m
 		    (if b-m-m
-			(int-list< (cons a-m-m a-m-r)
-				   (cons b-m-m b-m-r))
+			(morohashi-daikanwa< (cons a-m-m a-m-r)
+					     (cons b-m-m b-m-r))
 		      t)
 		  (if b-m-m
 		      nil
