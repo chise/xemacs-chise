@@ -1,5 +1,16 @@
 2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* chartab.c (load_char_attribute_maybe): Don't make directories.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h: Add EXFUN for `Fmake_directory_internal'.
+
+	* mule-charset.c (put_char_ccs_code_point): Don't prepare a vector
+	for decoding-table.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* mule-charset.c (Fsave_charset_mapping_table): Use
 	`XCHARSET_BYTE_SIZE' instead of `XCHARSET_CHARS'.
 
