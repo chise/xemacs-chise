@@ -1,9 +1,45 @@
+2005-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R057-Bow.el (U-000223F3): Use `->denotational'.
+	(M-09788): Map to U+38B8.
+	(U+5F30): Use `->denotational'.
+	(M-09790): Unify U-000223E5.
+	(U+5F31): Use `->denotational'.
+	(U+38BC): Likewise.
+	(U+38BA): Use `->subsumptive'.
+	(M-09807): Map to U-000223F3.
+	(M-09809): Unify H3-CBDC and IU-000223F4; map to U-000223F4.
+	(M-09816): Use `<-denotational' for U+38BC.
+	(U+5F38): Use `->subsumptive'.
+	(C5-3246): Use `<-subsumptive' for U+38BA.
+	(U-000223F4): Use `->subsumptive'.
+	(M-09829): Map to U+38BD.
+	(U-00022403): Use `->denotational'.
+	(M-09831): Map to U-00022404.
+	(U+38BE): Use `->subsumptive'.
+	(U+38BD): Likewise.
+	(C6-4855): Use `<-subsumptive' for U-000223F4.
+	(U-00022404): Use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el: Delete duplicated character definition.
+
+	* Ideograph-R195-Fish.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
+2005-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el, Ideograph-R128-Ear.el: Add mappings for
+	Big5 code points.
+
 2005-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el: Add `hanyu-dazidian' for some
 	characters.
 
 2005-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R174-Blue.el (U+5568): Use `->denotational' instead of
+	`->subsumptive'.
 
 	* Ideograph-R075-Tree.el (U+67FB): Use `->subsumptive'; add
 	`<-denotational' for J97-3A3A.
