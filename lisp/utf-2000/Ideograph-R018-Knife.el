@@ -842,14 +842,8 @@
       )
      ((ucs		  . #x5200)	; åˆ€
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(ucs		    . #x2FF0)	; â¿°
-	)
-       ((ucs		    . #x5200)	; åˆ€
-	)
-       ((ucs		    . #x5200)	; åˆ€
-	))
+     ((chinese-cns11643-4 . #x2141)	; ø»—¡ˆ
+      (ideograph-daikanwa . 01862)	; ø¸€†
       ))
     (japanese-jisx0212		. #x3335)	; ø»Š¿€
     (chinese-cns11643-3		. #x2326)	; ø»•™¥
