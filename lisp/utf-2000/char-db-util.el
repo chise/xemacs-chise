@@ -1,6 +1,6 @@
 ;;; char-db-util.el --- Character Database utility
 
-;; Copyright (C) 1998,1999,2000,2001,2002,2003 MORIOKA Tomohiko.
+;; Copyright (C) 1998,1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -902,9 +902,10 @@
 			      ancient-ideograph-of
 			      vulgar-ideograph-of
 			      wrong-ideograph-of
-			      simplified-ideograph-of
+                              ;; simplified-ideograph-of
 			      ideographic-variants
-			      ideographic-different-form-of))
+                              ;; ideographic-different-form-of
+			      ))
 		 (insert (format "(%-18s%s " name line-breaking))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
 		       separator nil)
@@ -924,21 +925,7 @@
 		   (setq value (cdr value)))
 		 (insert ")")
 		 (insert line-breaking))
-                ;; ((string-match "^->" (symbol-name name))
-                ;;  (insert
-                ;;   (format "(%-18s %s)%s"
-                ;;           name
-                ;;           (mapconcat (lambda (code)
-                ;;                        (cond ((symbolp code)
-                ;;                               (symbol-name code))
-                ;;                              ((integerp code)
-                ;;                               (format "#x%04X" code))
-                ;;                              (t
-                ;;                               (format "%s%S"
-                ;;                                       line-breaking code))))
-                ;;                      value " ")
-                ;;           line-breaking)))
-		((consp value)
+                ((consp value)
 		 (insert (format "(%-18s " name))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
 		       separator nil)
