@@ -822,8 +822,8 @@
     (=ucs		. #x9E97)	; 麗
     (->subsumptive
      ((shinjigen-2	  . 9782)
-      (=jis-x0208-1978	  . #x4E6F)	; &GT-64844; [46-79]
-      (=jis-x0208-1983	  . #x4E6F)	; &I-J83-4E6F; [46-79]
+      (=jis-x0208@1978	  . #x4E6F)	; &GT-64844; [46-79]
+      (=jis-x0208@1983	  . #x4E6F)	; &I-J83-4E6F; [46-79]
       (=ks-x1001	  . #x5572)	; &I-K0-5572; [53-82]
       (=gt		  . 64844)	; &I-GT-64844;
       (=gt-pj-1		  . #x4E6F)	; &I-GT-64844; [46-79]
@@ -832,7 +832,7 @@
      ((=gb12345		  . #x4076)	; &UU+9E97; [32-86]
       (=ucs@unicode	  . #x9E97)	; &UU+9E97;
       )
-     ((=jis-x0208-1990	  . #x4E6F)	; &J90-4E6F; [46-79]
+     ((=jis-x0208@1990	  . #x4E6F)	; &J90-4E6F; [46-79]
       (=ucs@jis		  . #x9E97)	; &J90-4E6F;
       )
      ((=cns11643-1	  . #x795E)	; &C1-795E; [89-62]
@@ -1159,47 +1159,34 @@
   '((ideographic-radical . 198)	; ⿅
     (ideographic-strokes . 12)
     (total-strokes	 . 23)
-    (->synonyms
-     (:sources	(setsumon-tsuukun-teisei morohashi-daikanwa)
-      :char	((=daikanwa	     . 47643)	; &I-M-47643;
-		 )
-      )
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 19417)	; &I-M-19417;
-		 )
-      ))
     (=ucs		. #x9E9F)	; 麟
-    (=gb2312		. #x776B)	; &I-G0-776B; [87-75]
-    (=daikanwa		. 47690)	; &I-M-47690;
-    ))
-(define-char
-  '((=>ucs		. #x9E9F)	; 麟
-    (morohashi-daikanwa	47690 0 0)
-    (ideographic-radical . 198)	; ⿅
-    (ideographic-strokes . 12)
-    (total-strokes	 . 23)
-    (=cns11643-1	. #x7C5B)	; &C1-7C5B; [92-59]
-    ))
-(define-char
-  '((=>ucs		. #x9E9F)	; 麟
-    (morohashi-daikanwa	47690 0 1)
-    (ideographic-radical . 198)	; ⿅
-    (ideographic-strokes . 12)
-    (total-strokes	 . 23)
-    (=jis-x0208-1978	. #x4E5B)	; &J83-4E5B; [46-59]
-    (=jis-x0208-1983	. #x4E5B)	; &I-J83-4E5B; [46-59]
-    ))
-(define-char
-  '((=>ucs		. #x9E9F)	; 麟
-    (morohashi-daikanwa	47690 0 2)
-    (ideographic-radical . 198)	; ⿅
-    (ideographic-strokes . 12)
-    (total-strokes	 . 23)
-    (=ks-x1001		. #x5778)	; &GT-64883; [55-88]
-    (=jis-x0208-1990	. #x4E5B)	; &I-J90-4E5B; [46-59]
-    (=gt		. 64883)	; &I-GT-64883;
-    (=gt-pj-1		. #x4E5B)	; &I-GT-64883; [46-59]
-    (=ucs@jis		. #x9E9F)	; &GT-64883;
+    (->subsumptive
+     ((->synonyms@daikanwa
+       ((=daikanwa	    . 19417)	; &I-M-19417;
+	))
+      (->synonyms@daikanwa*sources
+       daikanwa)
+      (->synonyms@shuowen-tongxun-dingsheng
+       ((=daikanwa	    . 47643)	; &I-M-47643;
+	))
+      (->synonyms@shuowen-tongxun-dingsheng*sources
+       shuowen-tongxun-dingsheng daikanwa)
+      (=daikanwa	  . 47690)	; &M-47690;
+      )
+     ((=gb2312		  . #x776B)	; &G0-776B; [87-75]
+      (=ucs@unicode	  . #x9E9F)	; &G0-776B;
+      )
+     ((=cns11643-1	  . #x7C5B)	; &C1-7C5B; [92-59]
+      )
+     ((=jis-x0208@1978	  . #x4E5B)	; &J83-4E5B; [46-59]
+      (=jis-x0208@1983	  . #x4E5B)	; &I-J83-4E5B; [46-59]
+      )
+     ((=ks-x1001	  . #x5778)	; &GT-64883; [55-88]
+      (=jis-x0208@1990	  . #x4E5B)	; &I-J90-4E5B; [46-59]
+      (=gt		  . 64883)	; &I-GT-64883;
+      (=gt-pj-1		  . #x4E5B)	; &I-GT-64883; [46-59]
+      (=ucs@jis		  . #x9E9F)	; &GT-64883;
+      ))
     ))
 (define-char
   '((ideographic-radical . 198)	; ⿅
