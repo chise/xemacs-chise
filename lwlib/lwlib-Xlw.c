@@ -524,6 +524,10 @@ lw_lucid_widget_p (Widget widget)
       XtClass (((CompositeWidget)widget)->composite.children [0])
 	== xlwMenuWidgetClass;
 #endif
+#ifdef HAVE_WIDGETS
+  if (the_class == emacsManagerWidgetClass)
+    return True;
+#endif
   return False;
 }
 

@@ -1,3 +1,13 @@
+1999-12-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.24 is released.
+
+1999-12-07  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* xemacs/startup.texi (Startup Paths): fix typo: EMACSPACKAGEPATH
+	instead of PACKAGEPATH 
+	From Marcus Harnisch <harnisch@mikrom.de>
+
 1999-12-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.23 is released.

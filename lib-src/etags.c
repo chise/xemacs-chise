@@ -37,9 +37,6 @@ char pot_etags_version[] = "@(#) pot revision number is 13.33";
 #define	TRUE	1
 #define	FALSE	0
 
-#ifndef _GNU_SOURCE
-# define _GNU_SOURCE		/* enables some compiler checks on GNU */
-#endif
 #ifndef DEBUG
 # define DEBUG FALSE
 #endif
@@ -52,6 +49,10 @@ char pot_etags_version[] = "@(#) pot revision number is 13.33";
 # define ETAGS_REGEXPS		/* use the regexp features */
 # define LONG_OPTIONS		/* accept long options */
 #endif /* HAVE_CONFIG_H */
+
+#ifndef _GNU_SOURCE
+# define _GNU_SOURCE 1		/* enables some compiler checks on GNU */
+#endif
 
 #ifdef MSDOS
 # include <fcntl.h>

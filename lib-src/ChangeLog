@@ -1,3 +1,11 @@
+1999-12-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.24 is released.
+
+1999-12-13  Martin Buchholz  <martin@xemacs.org>
+
+	* etags.c: Fix warning: `_GNU_SOURCE' redefined.
+
 1999-12-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.23 is released.

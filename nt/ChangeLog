@@ -1,3 +1,12 @@
+1999-12-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.24 is released.
+
+1999-11-28  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak (depend): Only update `depend' if there were changes.
+	Use "perl ./make-src-depend" instead of "mkdepend".
+
 1999-12-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.23 is released.

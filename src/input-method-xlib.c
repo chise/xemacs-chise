@@ -81,7 +81,6 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef THIS_IS_X11R6
 #include <X11/IntrinsicP.h>
-#include <X11/Xaw/XawImP.h>
 #endif
 
 #ifndef XIM_XLIB
@@ -323,9 +322,6 @@ XIM_init_frame (struct frame *f)
   static XtResource resources[] =
   {
     /*  name              class          represent'n   field    default value */
-#ifdef THIS_IS_X11R6
-    res(XtNinputMethod,   XtCInputMethod, XtRString,   inputmethod, (XtPointer) NULL),
-#endif
     res(XtNximStyles,     XtCXimStyles,  XtRXimStyles, styles,  (XtPointer) DefaultXIMStyles),
     res(XtNfontSet,       XtCFontSet,    XtRFontSet,   fontset, (XtPointer) XtDefaultFontSet),
     res(XtNximForeground, XtCForeground, XtRPixel,     fg,      (XtPointer) XtDefaultForeground),

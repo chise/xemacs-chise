@@ -124,8 +124,10 @@ Additional features:
 --with-sound=TYPE,[TYPE],... Compile with native sound support.
 			Valid types are `native', `nas' and `esd'.
 			Prefix a type with 'no' to disable.
-			The first option can be `none' or `all' to change
-			the default which is: native,esd
+			The first option can be `none' or `all'.
+			`none' is a synonym for `nonative,nonas,noesd'.
+			`all' is a synonym for native,nas,esd or `all'.
+			The default is to autodetect all sound support.
 --native-sound-lib=LIB  Native sound support library.  Needed on Suns
                         with --with-sound=both because both sound libraries
                         are called libaudio.
