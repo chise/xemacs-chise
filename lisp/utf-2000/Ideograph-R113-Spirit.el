@@ -1473,22 +1473,6 @@
   '((ideographic-radical . 113)	; â½°
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (chinese-gb2312	. #x353B)	; ø»„£¶
-    (chinese-isoir165	. #x353B)	; ø»Œ†
-    (chinese-cns11643-4 . #x395A)	; ø»˜„±
-    (ucs		. #x7977)	; ç¥·
-    ))
-(define-char
-  '((=>ucs		. #x7977)	; ç¥·
-    (ideographic-radical . 113)	; â½°
-    (ideographic-strokes . 7)
-    (total-strokes	 . 12)
-    (japanese-jisx0208-1990	. #x4578)	; ø½Š¬‹
-    ))
-(define-char
-  '((ideographic-radical . 113)	; â½°
-    (ideographic-strokes . 7)
-    (total-strokes	 . 12)
     (chinese-gb2312	. #x3B76)	; ø»„­¥
     (chinese-isoir165	. #x3B76)	; ø»•µ
     (ucs		. #x7978)	; ç¥¸
@@ -1848,6 +1832,11 @@
   '((ideographic-radical . 113)	; â½°
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
+    (<-vulgar-ideograph
+     (:sources	(sougen-irai-zokujifu morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 24835)	; ø¸†„ƒ
+		 )
+      ))
     (chinese-gb2312	. #x6C78)	; ø»…µ¥
     (chinese-isoir165	. #x6C78)	; ø»Žµ
     (ideograph-daikanwa . 24754)	; ø¸†‚²
@@ -1859,6 +1848,8 @@
     (ideographic-radical . 113)	; â½°
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
+    (japanese-jisx0208-1978	. #x4135)	; ø»‚«”
+    (japanese-jisx0208		. #x4135)	; ø»†¿œ
     (japanese-jisx0208-1990	. #x4135)	; ø½Š¥
     ))
 (define-char
@@ -3088,6 +3079,25 @@
     (chinese-cns11643-1 . #x7856)	; ø»“ƒƒ
     (chinese-gb12345	. #x353B)	; ç¦±
     (ucs		. #x79B1)	; ç¦±
+    ))
+(define-char
+  '((morohashi-daikanwa	24852 0 5)
+    (ideographic-radical . 113)	; â½°
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (chinese-gb2312	. #x353B)	; ø»„£¶
+    (chinese-isoir165	. #x353B)	; ø»Œ†
+    (chinese-cns11643-4 . #x395A)	; ø»˜„±
+    (ucs		. #x7977)	; ç¥·
+    ))
+(define-char
+  '((=>ucs		. #x7977)	; ç¥·
+    (morohashi-daikanwa	24852 0 6)
+    (ideographic-radical . 113)	; â½°
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (japanese-jisx0208		. #x4578)	; ø»‡†—
+    (japanese-jisx0208-1990	. #x4578)	; ø½Š¬‹
     ))
 (define-char
   '((ideographic-radical . 113)	; â½°
