@@ -1,3 +1,12 @@
+2004-02-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-representative-of-daikanwa): Fixed.
+
+2004-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R165-Distinguish.el: Add missing mappings between CJK
+	Ext B and CNS 11643 plain 5.
+
 2004-02-26  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* Ideograph-R042-Small.el (M-07516): Moved into U-000202D3.
