@@ -184,7 +184,7 @@
 			  (split-char char)))
 		  (setq char-spec (list ret))
 		  (dolist (ccs (delq (car ret) (charset-list)))
-		    (if (or (and (>= (charset-iso-final-char ccs) ?0)
+		    (if (or (and (charset-iso-final-char ccs)
 				 (setq ret (get-char-attribute char ccs)))
 			    (eq ccs 'ideograph-daikanwa))
 			(setq char-spec (cons (cons ccs ret) char-spec))))
