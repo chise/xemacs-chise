@@ -132,7 +132,7 @@ DECLARE_LRECORD (char_table, Lisp_Char_Table);
 #ifdef MULE
 
 Lisp_Object get_non_ascii_char_table_value (Lisp_Char_Table *ct,
-					    int leading_byte,
+					    Charset_ID leading_byte,
 					    Emchar c);
 
 INLINE_HEADER Lisp_Object
