@@ -46,6 +46,8 @@ Lisp_Object Vcoding_system_for_read;
 Lisp_Object Vcoding_system_for_write;
 Lisp_Object Vfile_name_coding_system;
 
+Lisp_Object Vcoded_charset_entity_reference_alist;
+
 /* Table of symbols identifying each coding category. */
 Lisp_Object coding_category_symbol[CODING_CATEGORY_LAST];
 
@@ -103,6 +105,8 @@ Lisp_Object Qshort, Qno_ascii_eol, Qno_ascii_cntl, Qseven, Qlock_shift;
 #endif
 #ifdef UTF2000
 Lisp_Object Qdisable_composition;
+Lisp_Object Quse_entity_reference;
+Lisp_Object Qd, Qx, QX;
 #endif
 Lisp_Object Qencode, Qdecode;
 
@@ -329,6 +333,9 @@ static const struct lrecord_description coding_system_description[] = {
   { XD_STRUCT_PTR,  offsetof (Lisp_Coding_System, iso2022.output_conv), 1, &ccsd_description },
   { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, ccl.decode) },
   { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, ccl.encode) },
+#ifdef UTF2000
+  { XD_LISP_OBJECT, offsetof (Lisp_Coding_System, ccs_priority_list) },
+#endif
 #endif
   { XD_END }
 };
@@ -397,6 +404,9 @@ mark_coding_system (Lisp_Object obj)
     }
 
   mark_object (CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys));
+#ifdef UTF2000
+  mark_object (CODING_SYSTEM_CCS_PRIORITY_LIST (codesys));
+#endif
   return CODING_SYSTEM_POST_READ_CONVERSION (codesys);
 }
 
@@ -645,6 +655,9 @@ allocate_coding_system (enum coding_system_type type, Lisp_Object name)
   CODING_SYSTEM_TYPE     (codesys) = type;
   CODING_SYSTEM_MNEMONIC (codesys) = Qnil;
 #ifdef MULE
+#ifdef UTF2000
+  CODING_SYSTEM_CCS_PRIORITY_LIST (codesys) = Qnil;
+#endif
   if (type == CODESYS_ISO2022)
     {
       int i;
@@ -814,6 +827,9 @@ character set.  Recognized properties are:
      If non-nil, composition/decomposition for combining characters
      are disabled.
 
+'use-entity-reference
+     If non-nil, SGML style entity-reference is used for non-system-characters.
+
 'post-read-conversion
      Function called after a file has been read in, to perform the
      decoding.  Called with two arguments, START and END, denoting
@@ -965,6 +981,8 @@ if TYPE is 'ccl:
 #ifdef UTF2000
 	else if (EQ (key, Qdisable_composition))
 	  CODING_SYSTEM_DISABLE_COMPOSITION (codesys) = !NILP (value);
+	else if (EQ (key, Quse_entity_reference))
+	  CODING_SYSTEM_USE_ENTITY_REFERENCE (codesys) = !NILP (value);
 #endif
 #ifdef MULE
 	else if (ty == CODESYS_ISO2022)
@@ -1427,6 +1445,12 @@ Return the PROP property of CODING-SYSTEM.
   else if (EQ (prop, Qpre_write_conversion))
     return XCODING_SYSTEM_PRE_WRITE_CONVERSION (coding_system);
 #ifdef MULE
+#ifdef UTF2000
+  else if (EQ (prop, Qdisable_composition))
+    return XCODING_SYSTEM_DISABLE_COMPOSITION (coding_system) ? Qt : Qnil;
+  else if (EQ (prop, Quse_entity_reference))
+    return XCODING_SYSTEM_USE_ENTITY_REFERENCE (coding_system) ? Qt : Qnil;
+#endif
   else if (type == CODESYS_ISO2022)
     {
       if (EQ (prop, Qcharset_g0))
@@ -2224,6 +2248,9 @@ struct decoding_stream
   unsigned char counter;
 #endif
 #ifdef UTF2000
+  unsigned char er_counter;
+  unsigned char er_buf[16];
+
   unsigned combined_char_count;
   Emchar combined_chars[16];
   Lisp_Object combining_table;
@@ -2446,6 +2473,7 @@ reset_decoding_stream (struct decoding_stream *str)
   str->counter = 0;
 #endif /* MULE */
 #ifdef UTF2000
+  str->er_counter = 0;
   str->combined_char_count = 0;
   str->combining_table = Qnil;
 #endif
@@ -4005,6 +4033,7 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
   unsigned int cpos	= str->cpos;
   eol_type_t eol_type	= str->eol_type;
   unsigned char counter	= str->counter;
+  unsigned char er_counter = str->er_counter;
 
   while (n--)
     {
@@ -4013,33 +4042,149 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 	{
 	  if ( c < 0xC0 )
 	    {
-	      DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
-	      DECODE_ADD_UCS_CHAR (c, dst);
-	    }
-	  else if ( c < 0xE0 )
-	    {
-	      cpos = c & 0x1f;
-	      counter = 1;
-	    }
-	  else if ( c < 0xF0 )
-	    {
-	      cpos = c & 0x0f;
-	      counter = 2;
-	    }
-	  else if ( c < 0xF8 )
-	    {
-	      cpos = c & 0x07;
-	      counter = 3;
-	    }
-	  else if ( c < 0xFC )
-	    {
-	      cpos = c & 0x03;
-	      counter = 4;
+	      if (!CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys))
+		{
+		  DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
+		  DECODE_ADD_UCS_CHAR (c, dst);
+		}
+	      else if (er_counter == 0)
+		{
+		  if (c == '&')
+		    {
+		      str->er_buf[0] = '&';
+		      er_counter++;
+		    }
+		  else
+		    {
+		      DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
+		      DECODE_ADD_UCS_CHAR (c, dst);
+		    }
+		}
+	      else if (c == ';')
+		{
+		  Lisp_Object string = make_string (str->er_buf, er_counter);
+		  Lisp_Object rest = Vcoded_charset_entity_reference_alist;
+		  Lisp_Object cell;
+		  Lisp_Object ret;
+		  Lisp_Object pat;
+		  Lisp_Object ccs;
+		  int base;
+
+		  while (!NILP (rest))
+		    {		      
+		      cell = Fcar (rest);
+		      ccs = Fcar (cell);
+		      if (NILP (ccs = Ffind_charset (ccs)))
+			continue;
+
+		      cell = Fcdr (cell);
+		      ret = Fcar (cell);
+		      if (STRINGP (ret))
+			pat = ret;
+		      else
+			continue;
+
+		      cell = Fcdr (cell);
+		      cell = Fcdr (cell);
+		      ret = Fcar (cell);
+		      if (EQ (ret, Qd))
+			{
+			  pat = concat3 (build_string ("^&"),
+					 pat, build_string ("\\([0-9]+\\)$"));
+			  base = 10;
+			}
+		      else if (EQ (ret, Qx))
+			{
+			  pat = concat3 (build_string ("^&"),
+					 pat,
+					 build_string ("\\([0-9a-f]+\\)$"));
+			  base = 16;
+			}
+		      else if (EQ (ret, QX))
+			{
+			  pat = concat3 (build_string ("^&"),
+					 pat,
+					 build_string ("\\([0-9A-F]+\\)$"));
+			  base = 16;
+			}
+		      else
+			continue;
+
+		      if (!NILP (Fstring_match (pat, string, Qnil, Qnil)))
+			{
+			  int code
+			    = XINT (Fstring_to_number
+				    (Fsubstring (string,
+						 Fmatch_beginning
+						 (make_int (1)),
+						 Fmatch_end (make_int (1))),
+				     make_int (base)));
+
+			  DECODE_ADD_UCS_CHAR (DECODE_CHAR (ccs, code), dst);
+			  goto decoded;
+			}
+		      rest = Fcdr (rest);
+		    }
+		  if (!NILP (Fstring_match
+			     (build_string ("^&MCS-\\([0-9A-F]+\\)$"),
+			      string, Qnil, Qnil)))
+		    {
+		      int code
+			= XINT (Fstring_to_number
+				(Fsubstring (string,
+					     Fmatch_beginning
+					     (make_int (1)),
+					     Fmatch_end (make_int (1))),
+				 make_int (16)));
+
+		      DECODE_ADD_UCS_CHAR (code, dst);
+		    }
+		  else
+		    {
+		      Dynarr_add_many (dst, str->er_buf, er_counter);
+		      Dynarr_add (dst, ';');
+		    }
+		decoded:
+		  er_counter = 0;
+		}
+	      else if ( (er_counter >= 16) || (c <= ' ') || (c >= 0x7F) )
+		{
+		  Dynarr_add_many (dst, str->er_buf, er_counter);
+		  er_counter = 0;
+		  DECODE_ADD_UCS_CHAR (c, dst);
+		}
+	      else
+		str->er_buf[er_counter++] = c;
 	    }
 	  else
 	    {
-	      cpos = c & 0x01;
-	      counter = 5;
+	      Dynarr_add_many (dst, str->er_buf, er_counter);
+	      er_counter = 0;
+	      if ( c < 0xE0 )
+		{
+		  cpos = c & 0x1f;
+		  counter = 1;
+		}
+	      else if ( c < 0xF0 )
+		{
+		  cpos = c & 0x0f;
+		  counter = 2;
+		}
+	      else if ( c < 0xF8 )
+		{
+		  cpos = c & 0x07;
+		  counter = 3;
+		}
+	      else if ( c < 0xFC )
+		{
+		  cpos = c & 0x03;
+		  counter = 4;
+		}
+	      else
+		{
+		  cpos = c & 0x01;
+		  counter = 5;
+		}
 	    }
 	}
       else if ( (c & 0xC0) == 0x80 )
@@ -4065,15 +4210,23 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
     }
 
   if (flags & CODING_STATE_END)
-    if (counter > 0)
-      {
-	decode_output_utf8_partial_char (counter, cpos, dst);
-	cpos = 0;
-	counter = 0;
-      }
+    {
+      if (counter > 0)
+	{
+	  decode_output_utf8_partial_char (counter, cpos, dst);
+	  cpos = 0;
+	  counter = 0;
+	}
+      else if ( er_counter > 0)
+	{
+	  Dynarr_add_many (dst, str->er_buf, er_counter);
+	  er_counter = 0;
+	}
+    }
   str->flags	= flags;
   str->cpos	= cpos;
   str->counter	= counter;
+  str->er_counter = er_counter;
 }
 
 void
@@ -4093,40 +4246,117 @@ char_encode_utf8 (struct encoding_stream *str, Emchar ch,
     {
       Dynarr_add (dst, ch);
     }
-  else if (ch <= 0x7ff)
-    {
-      Dynarr_add (dst, (ch >> 6) | 0xc0);
-      Dynarr_add (dst, (ch & 0x3f) | 0x80);
-    }
-  else if (ch <= 0xffff)
-    {
-      Dynarr_add (dst,  (ch >> 12) | 0xe0);
-      Dynarr_add (dst, ((ch >>  6) & 0x3f) | 0x80);
-      Dynarr_add (dst,  (ch        & 0x3f) | 0x80);
-    }
-  else if (ch <= 0x1fffff)
-    {
-      Dynarr_add (dst,  (ch >> 18) | 0xf0);
-      Dynarr_add (dst, ((ch >> 12) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((ch >>  6) & 0x3f) | 0x80);
-      Dynarr_add (dst,  (ch        & 0x3f) | 0x80);
-    }
-  else if (ch <= 0x3ffffff)
-    {
-      Dynarr_add (dst,  (ch >> 24) | 0xf8);
-      Dynarr_add (dst, ((ch >> 18) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((ch >> 12) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((ch >>  6) & 0x3f) | 0x80);
-      Dynarr_add (dst,  (ch        & 0x3f) | 0x80);
-    }
   else
     {
-      Dynarr_add (dst,  (ch >> 30) | 0xfc);
-      Dynarr_add (dst, ((ch >> 24) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((ch >> 18) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((ch >> 12) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((ch >>  6) & 0x3f) | 0x80);
-      Dynarr_add (dst,  (ch        & 0x3f) | 0x80);
+      int code_point = charset_code_point (Vcharset_ucs, ch);
+
+      if ( (code_point < 0) || (code_point > 0x10FFFF) )
+	{
+	  if (CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys))
+	    {
+	      Lisp_Object rest = Vcoded_charset_entity_reference_alist;
+	      Lisp_Object cell;
+	      Lisp_Object ret;
+	      Lisp_Object ccs;
+	      int format_columns, idx;
+	      char buf[16], format[16];
+
+	      while (!NILP (rest))
+		{
+		  cell = Fcar (rest);
+		  ccs = Fcar (cell);
+		  if (!NILP (ccs = Ffind_charset (ccs)))
+		    {
+		      if ( (code_point
+			    = charset_code_point (ccs, ch)) >= 0 )
+			{
+			  cell = Fcdr (cell);
+			  ret = Fcar (cell);
+			  if (STRINGP (ret)
+			      && ((idx =XSTRING_LENGTH (ret)) <= 6))
+			    {
+			      strncpy (format, XSTRING_DATA (ret), idx);
+			    }
+			  else
+			    continue;
+
+			  cell = Fcdr (cell);
+			  ret = Fcar (cell);
+			  if (INTP (ret))
+			    {
+			      format [idx++] = '%';
+			      format_columns = XINT (ret);
+			      if ( (2 <= format_columns)
+				   && (format_columns <= 8) )
+				{
+				  format [idx++] = '0';
+				  format [idx++] = '0' + format_columns;
+				}
+			    }
+
+			  cell = Fcdr (cell);
+			  ret = Fcar (cell);
+			  if (EQ (ret, Qd))
+			    format [idx++] = 'd';
+			  else if (EQ (ret, Qx))
+			    format [idx++] = 'x';
+			  else if (EQ (ret, QX))
+			    format [idx++] = 'X';
+			  else
+			    continue;
+			  format [idx++] = 0;
+
+			  sprintf (buf, format, code_point);
+			  Dynarr_add (dst, '&');
+			  Dynarr_add_many (dst, buf, strlen (buf));
+			  Dynarr_add (dst, ';');
+			  return;
+			}
+		    }
+		  rest = Fcdr (rest);
+		}
+	      sprintf (buf, "&MCS-%08X;", ch);
+	      Dynarr_add_many (dst, buf, strlen (buf));
+	      return;
+	    }
+	  else
+	    code_point = ch;
+	}
+      if (code_point <= 0x7ff)
+	{
+	  Dynarr_add (dst, (code_point >> 6) | 0xc0);
+	  Dynarr_add (dst, (code_point & 0x3f) | 0x80);
+	}
+      else if (code_point <= 0xffff)
+	{
+	  Dynarr_add (dst,  (code_point >> 12) | 0xe0);
+	  Dynarr_add (dst, ((code_point >>  6) & 0x3f) | 0x80);
+	  Dynarr_add (dst,  (code_point        & 0x3f) | 0x80);
+	}
+      else if (code_point <= 0x1fffff)
+	{
+	  Dynarr_add (dst,  (code_point >> 18) | 0xf0);
+	  Dynarr_add (dst, ((code_point >> 12) & 0x3f) | 0x80);
+	  Dynarr_add (dst, ((code_point >>  6) & 0x3f) | 0x80);
+	  Dynarr_add (dst,  (code_point        & 0x3f) | 0x80);
+	}
+      else if (code_point <= 0x3ffffff)
+	{
+	  Dynarr_add (dst,  (code_point >> 24) | 0xf8);
+	  Dynarr_add (dst, ((code_point >> 18) & 0x3f) | 0x80);
+	  Dynarr_add (dst, ((code_point >> 12) & 0x3f) | 0x80);
+	  Dynarr_add (dst, ((code_point >>  6) & 0x3f) | 0x80);
+	  Dynarr_add (dst,  (code_point        & 0x3f) | 0x80);
+	}
+      else
+	{
+	  Dynarr_add (dst,  (code_point >> 30) | 0xfc);
+	  Dynarr_add (dst, ((code_point >> 24) & 0x3f) | 0x80);
+	  Dynarr_add (dst, ((code_point >> 18) & 0x3f) | 0x80);
+	  Dynarr_add (dst, ((code_point >> 12) & 0x3f) | 0x80);
+	  Dynarr_add (dst, ((code_point >>  6) & 0x3f) | 0x80);
+	  Dynarr_add (dst,  (code_point        & 0x3f) | 0x80);
+	}
     }
 }
 
@@ -5789,6 +6019,10 @@ syms_of_file_coding (void)
 #endif /* MULE */
 #ifdef UTF2000
   defsymbol (&Qdisable_composition, "disable-composition");
+  defsymbol (&Quse_entity_reference, "use-entity-reference");
+  defsymbol (&Qd, "d");
+  defsymbol (&Qx, "x");
+  defsymbol (&QX, "X");
 #endif
   defsymbol (&Qencode, "encode");
   defsymbol (&Qdecode, "decode");
@@ -5892,6 +6126,17 @@ Coding system used to convert pathnames when accessing files.
 */ );
   Vfile_name_coding_system = Qnil;
 
+  DEFVAR_LISP ("coded-charset-entity-reference-alist",
+	       &Vcoded_charset_entity_reference_alist /*
+Alist of coded-charset vs corresponding entity-reference.
+Each element looks like (CCS PREFIX CODE-COLUMNS CODE-TYPE).
+CCS is coded-charset.
+CODE-COLUMNS is columns of code-point of entity-reference.
+CODE-TYPE is format type of code-point of entity-reference.
+`d' means decimal value and `x' means hexadecimal value.
+*/ );
+  Vcoded_charset_entity_reference_alist = Qnil;
+
   DEFVAR_BOOL ("enable-multibyte-characters", &enable_multibyte_characters /*
 Non-nil means the buffer contents are regarded as multi-byte form
 of characters, not a binary code.  This affects the display, file I/O,
@@ -5948,6 +6193,10 @@ complex_vars_of_file_coding (void)
 
   DEFINE_CODESYS_PROP (CODESYS_PROP_CCL,     Qencode);
   DEFINE_CODESYS_PROP (CODESYS_PROP_CCL,     Qdecode);
+#ifdef UTF2000
+  DEFINE_CODESYS_PROP (CODESYS_PROP_ALL_OK,  Qdisable_composition);
+  DEFINE_CODESYS_PROP (CODESYS_PROP_ALL_OK,  Quse_entity_reference);
+#endif
 #endif /* MULE */
   /* Need to create this here or we're really screwed. */
   Fmake_coding_system
