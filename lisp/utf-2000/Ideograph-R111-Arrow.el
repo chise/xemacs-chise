@@ -115,19 +115,17 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (=ucs		. #x77E6)	; 矦
-    (=jis-x0212		. #x4F46)	; &I-JSP-4F46; [47-38]
-    (=jis-x0213-2-2000	. #x7236)	; &I-JX2-7236; [82-22]
-    (=daikanwa		. 23937)	; &I-M-23937;
-    (=jef-china3	. #x5BE9)	; &I-JC3-5BE9;
-    ))
-(define-char
-  '((=>ucs		. #x77E6)	; 矦
-    (morohashi-daikanwa	23937 0 0)
-    (ideographic-radical . 111)	; ⽮
-    (ideographic-strokes . 4)
-    (total-strokes	 . 9)
-    (=cns11643-3	. #x2E36)	; &CDP-8AC7; [14-22]
-    (=big5-cdp		. #x8AC7)	; &I-CDP-8AC7;
+    (->subsumptive
+     ((=jis-x0212	  . #x4F46)	; &M-23937; [47-38]
+      (=jis-x0213-2-2000  . #x7236)	; &I-JX2-7236; [82-22]
+      (=daikanwa	  . 23937)	; &I-M-23937;
+      (=jef-china3	  . #x5BE9)	; &I-JC3-5BE9;
+      (=ucs@jis		  . #x77E6)	; &M-23937;
+      )
+     ((=big5-cdp	  . #x8AC7)	; &CDP-8AC7;
+      )
+     ((=cns11643-3	  . #x2E36)	; &C3-2E36; [14-22]
+      ))
     ))
 (define-char
   '((ideographic-radical . 111)	; ⽮
