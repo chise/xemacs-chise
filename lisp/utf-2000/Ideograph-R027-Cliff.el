@@ -686,7 +686,7 @@
 (define-char
   '((ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 7)
-    (mojikyo		. 059160)	; ø¸Žœ˜
+    (mojikyo		. 059160)	; ý €Žœ˜
     (ucs		. #x539B)	; åŽ›
     ))
 (define-char
@@ -1644,17 +1644,24 @@
     (ideograph-daikanwa . 03048)	; ø¸€¯¨
     ))
 (define-char
-  '((morohashi-daikanwa	3048 1)
+  '((script		JP-Jouyou Ideograph)
+    (morohashi-daikanwa	3048 1)
     (ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
-    (comment		. "[JP-Jouyou] <simplified character> of S1-1286")
     (shinjigen-1	. 1285)
     (shinjigen-2	. 1285)
+    (simplified-ideograph-of
+     ((sources		  shinjigen-1)
+      (char . ((ideographic-radical . 30)	; â¼
+	       (shinjigen-1	   . 1286)
+	       (ideograph-daikanwa . 04589)	; ø¸‡­
+	       ))
+      ))
     (japanese-jisx0208-1978	. #x3837)	; ø»‚žˆ
     (japanese-jisx0208		. #x3837)	; ø»†²
     (chinese-cns11643-3		. #x5445)	; ø»–¢‚
-    (mojikyo			. 050115)	; ø¸Œƒ
+    (mojikyo			. 050115)	; ý €Œƒ
     (ucs			. #x53B3)	; åŽ³
     ))
 (define-char
