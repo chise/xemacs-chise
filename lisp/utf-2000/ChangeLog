@@ -1,3 +1,21 @@
+2001-06-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R212-Dragon.el (M-48818): Unify M048818.
+	(C1-733E): Add `ideographic-strokes'.
+
+	* Ideograph-R211-Tooth.el (M-48631): Separate J0-7373, C2-6B49 and
+	U+9F60; unify M058052.
+	(U+9F60): Unify M048631.
+	(M-48632): Unify M048632.
+
+2001-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R209-Nose.el (M-48498): Unify M048498.
+
+2001-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R205-Frog.el (U+9F08): Unify M055920.
+
 2001-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R203-Black.el (M-48063): Unify M048063.
