@@ -13134,7 +13134,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((=daikanwa	  . 13145)	; ø¸ƒ™
+     ((=big5-cdp	  . #x8CB6)	; ý¢€ˆ²¶
+      (=daikanwa	  . 13145)	; ø¸ƒ™
       )
      ((=ucs		  . #x53E3)	; å£
       ))
