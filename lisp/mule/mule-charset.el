@@ -324,7 +324,6 @@ DESCRIPTION (string) is the description string of the charset."
 ;;; 	  mojikyo-pj-21
 	  ideograph-daikanwa
 	  ucs-bmp
-	  arabic-iso8859-6
-	  ucs)))
+	  arabic-iso8859-6)))
 
 ;;; mule-charset.el ends here
