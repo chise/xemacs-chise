@@ -1117,6 +1117,7 @@ ccl_driver (struct ccl_program *ccl, CONST unsigned char *source,
 	case CCL_Extention:
 	  switch (EXCMD)
 	    {
+#ifndef UTF2000
 	    case CCL_ReadMultibyteChar2:
 	      if (!src)
 		CCL_INVALID_CMD;
@@ -1230,6 +1231,7 @@ ccl_driver (struct ccl_program *ccl, CONST unsigned char *source,
 		CCL_SUSPEND (CCL_STAT_SUSPEND_BY_SRC);
 
 	      break;
+#endif
 
 	    case CCL_WriteMultibyteChar2:
 	      i = reg[RRR]; /* charset */
