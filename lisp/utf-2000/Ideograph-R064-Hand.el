@@ -3935,8 +3935,21 @@
   '((ideographic-radical . 64)	; â¼¿
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (chinese-cns11643-5 . #x2D62)	; ø»™½•
-    (ideograph-daikanwa . 12077)	; ø¸‚¼­
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 56)
+    (hanyu-dazidian-char . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x627F)	; æ‰¿
+      )
+     ((ucs		  . #x4E01)	; ä¸
+      ))
+    (chinese-cns11643-5		. #x2D62)	; ø»™½•
+    (ideograph-daikanwa		. 12077)	; ø¸‚¼­
+    (ideograph-hanziku-1	. #xAFA9)	; ý¢€š¾©
+    (ucs			. #x22B2B)	; ð¢¬«
     ))
 (define-char
   '((=>ucs		. #x39EF)	; ã§¯
