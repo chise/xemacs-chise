@@ -145,6 +145,9 @@ font. If it fails, it returns nil."
 (defun mswindows-find-smaller-font (font &optional device)
   "Loads a new version of the given font (or font name) 1 point smaller.
 Returns the font if it succeeds, nil otherwise."
+  (if (stringp font) (setq font (make-font-instance font device)))
+  (if (font-instance-p font) (setq font (font-instance-truename font)))
+  (if (stringp font) (setq font (make-font-instance font device)))
   (if (font-instance-p font)
       (let (old-size (name (mswindows-font-canonicalize-name font)))
 	(string-match "^[a-zA-Z ]+:[a-zA-Z ]*:\\([0-9]+\\):" name)
@@ -160,6 +163,9 @@ Returns the font if it succeeds, nil otherwise."
 (defun mswindows-find-larger-font (font &optional device)
   "Loads a new version of the given font (or font name) 1 point larger.
 Returns the font if it succeeds, nil otherwise."
+  (if (stringp font) (setq font (make-font-instance font device)))
+  (if (font-instance-p font) (setq font (font-instance-truename font)))
+  (if (stringp font) (setq font (make-font-instance font device)))
   (if (font-instance-p font)
       (let (old-size (name (mswindows-font-canonicalize-name font)))
 	(string-match "^[a-zA-Z ]+:[a-zA-Z ]*:\\([0-9]+\\):" name)

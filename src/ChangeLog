@@ -1,3 +1,165 @@
+1998-11-28  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta4 is released.
+
+1998-11-27  SL Baur  <steve@altair.xemacs.org>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Fix graphic
+	property in control-1 charset.
+	From Julian Bradfield <jcb@daimi.au.dk>
+
+1998-11-26  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* gui-x.c (button_item_to_widget_value): Ignore :key-sequence
+	keyword.
+	Add stub for :label.
+
+	* gui.c (gui_item_add_keyval_pair): ditto.
+
+	* menubar-x.c (menu_item_descriptor_to_widget_value_1): Ignore
+	:key-sequence keyword.
+	Add stub for:label.
+	Support :active for submenus like the Windows code and FSF Emacs.
+
+1998-11-27  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* dired.c (make_directory_hash_table): make_string() is OK because 
+	readdir() Mule-encapsulates.
+
+1998-11-26  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (Fbase64_encode_string): Fix docstring.
+	(Fbase64_decode_string): Ditto.
+
+1998-11-26  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* editfns.c (Ftranslate_region): Use
+	convert_bufbyte_string_into_emchar_string().
+
+1998-11-25  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* editfns.c (Ftranslate_region): Accept vectors and char-tables as 
+	well as strings.
+	(Ftranslate_region): Turn table into an array of Emchars for
+	larger regions.
+
+1998-11-25  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* chartab.c (Freset_char_table): Fix wrong placement of #endif.
+
+1998-11-24  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* chartab.c (Freset_char_table): Don't blindly fill chartables of
+	type `char' with nils.
+
+	* chartab.c (canonicalize_char_table_value): Coerce ints to chars
+	for tables of type `char'.
+
+1998-11-26  Didier Verna  <verna@inf.enst.fr>
+
+	* input-method-xlib.c (Initialize_Locale): don't call
+	XtSetLanguageProc. We've done the whole work here.
+	* input-method-xfs.c (Initialize_Locale): ditto.
+	* input-method-motif.c (Initialize_Locale): ditto.
+
+1998-11-26  Didier Verna  <verna@inf.enst.fr>
+
+	* process-unix.c (unix_create_process): handle properly
+	Vfile_name_coding_system for converting the program and directory
+	names. 
+
+1998-11-27  SL Baur  <steve@altair.xemacs.org>
+
+	* m/arm.h: New file.
+	From James LewisMoss <dres@ioa.com>
+
+1998-11-27  Takeshi Hagiwara  <hagiwara@ie.niigata-u.ac.jp>
+
+	* m/mips-nec.h:
+	Fix the realpath() problem of UnixWare2.1.3.
+	Patches for NEC's sysv4.2 machine.
+
+1998-11-25  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* dired.c (Fdirectory_files): Remove redundant code.
+
+1998-11-25  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (free_malloced_ptr): New function.
+	(XMALLOC_OR_ALLOCA): New macro.
+	(XMALLOC_UNBIND): Ditto.
+	(Fbase64_encode_region): Use malloc() for large blocks; arrange it 
+	to be freed in case of non-local exit.
+	(Fbase64_encode_string): Ditto.
+	(Fbase64_decode_region): Ditto.
+	(Fbase64_decode_string): Ditto.
+	(STORE_BYTE): New macro.
+	(base64_decode_1): Use it.
+
+1998-11-25  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (base64_value_to_char): Base64 stuff.
+
+1998-11-24  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* editfns.c (Fbuffer_substring): New function.
+
+	* lisp.h: Declare make_string_from_buffer_no_extents().
+
+	* insdel.c (make_string_from_buffer_1): New function.
+	(make_string_from_buffer_no_extents): Ditto.
+
+1998-11-15  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* linuxplay.c: Including <fcntl.h> instead of <sys/fcntl.h> makes
+	sound work on AIX with OSS installed.  Linux should still work.
+
+1998-11-03  Andy Piper  <andyp@parallax.co.uk>
+
+	* config.h.in: name change for cygwin/version.h
+
+	* configure.in: check for cygwin/version.h now.
+
+	* cygwin32.h: track CYGWIN_DLL_VERSION_MAJOR ->
+	CYGWIN_VERSION_DLL_MAJOR name change in cygwin b20.
+	move cygwin32/version.h to cygwin/version.h
+
+1998-11-03  Olivier Galibert  <galibert@pobox.com>
+
+	* lisp.h  (struct  Lisp_Bit_Vector): Fix declaration of  bits from
+	int to long.
+
+1998-10-22  Andy Piper  <andyp@parallax.co.uk>
+
+	* cygwin32.h: track CYGWIN_DLL_VERSION_MAJOR ->
+	CYGWIN_VERSION_DLL_MAJOR name change in cygwin b20.
+	enable BROKEN_SIGIO under b20 to make QUIT work.
+
+1998-10-22  Andy Piper  <andyp@parallax.co.uk>
+
+	* frame-msw.c (mswindows_size_frame_internal): force frame sizing
+	to fit within the constraints of the screen size. I.e. make the
+	frame small enough to fit and move it if some of it will be
+	off-screen.
+
+1998-10-19  Greg Klanderman  <greg@alphatech.com>
+
+	* dired.c: conditionalize inclusion of user-name-completion
+	primitives on non-Windows NT.  The needed functions don't exist on NT.
+
+1998-11-24  SL Baur  <steve@altair.xemacs.org>
+
+	* gifrlib.h: Clean up types for 64 bit compile.
+	* dgif_lib.c (DGifInitRead): Ditto.
+	(MakeSavedImage): Ditto.
+	* emacs.c (decode_path): Ditto.
+	From Steve Carney <carney@pa.dec.com>
+
+1998-10-16  William M. Perry  <wmperry@aventail.com>
+
+	* glyphs-msw.c (bitmap_table): Fixed typo in builtin bitmaps
+	  (cehckboxes instead of checkboxes).
+
 1998-10-15  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta3 is released.

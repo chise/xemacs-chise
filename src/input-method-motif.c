@@ -41,7 +41,12 @@ Initialize_Locale (void)
 {
   char *locale;
 
-  XtSetLanguageProc (NULL, (XtLanguageProc) NULL, NULL);
+  /* dverna - Nov. 98: ### DON'T DO THIS !!! The default XtLanguageProc
+     routine calls setlocale(LC_ALL, lang) which fucks up our lower-level
+     locale management, and especially the value of LC_NUMERIC. Anyway, since
+     at this point, we don't know yet whether we're gonna need an X11 frame,
+     we should really do it manually and not use Xlib's dumb default routine */
+  /*XtSetLanguageProc (NULL, (XtLanguageProc) NULL, NULL);*/
   if ((locale = setlocale (LC_ALL, "")) == NULL)
     {
       stderr_out ("Can't set locale.\n");

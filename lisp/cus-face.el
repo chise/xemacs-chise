@@ -226,6 +226,7 @@ If FRAME is nil, use the default face."
 	 (fontobj (font-create-object font)))
     (font-family fontobj)))
 
+;;;###autoload
 (defun custom-set-face-update-spec (face display plist)
   "Customize the FACE for display types matching DISPLAY, merging
   in the new items from PLIST"

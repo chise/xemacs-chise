@@ -1249,7 +1249,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("iso8859-1"));
   Vcharset_control_1 =
     make_charset (-1, Qcontrol_1, LEADING_BYTE_CONTROL_1, 2,
-		  CHARSET_TYPE_94, 1, 0, 0,
+		  CHARSET_TYPE_94, 1, 1, 0,
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Control characters"),
 		  build_string (""));

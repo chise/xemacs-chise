@@ -2992,22 +2992,20 @@ buffer_replace_char (struct buffer *buf, Bufpos pos, Emchar ch,
 /* Make a string from a buffer.  This needs to take into account the gap,
    and add any necessary extents from the buffer. */
 
-Lisp_Object
-make_string_from_buffer (struct buffer *buf, Bufpos pos, Charcount length)
+static Lisp_Object
+make_string_from_buffer_1 (struct buffer *buf, Bufpos pos, Charcount length,
+			   int no_extents)
 {
   /* This function can GC */
-  Lisp_Object val;
+  Bytind    bi_ind = bufpos_to_bytind (buf, pos);
+  Bytecount bi_len = bufpos_to_bytind (buf, pos + length) - bi_ind;
+  Lisp_Object  val = make_uninit_string (bi_len);
+
   struct gcpro gcpro1;
-  Bytind bi_ind;
-  Bytecount bi_len;
-
-  bi_ind = bufpos_to_bytind (buf, pos);
-  bi_len = bufpos_to_bytind (buf, pos + length) - bi_ind;
-
-  val = make_uninit_string (bi_len);
   GCPRO1 (val);
 
-  add_string_extents (val, buf, bi_ind, bi_len);
+  if (!no_extents)
+    add_string_extents (val, buf, bi_ind, bi_len);
 
   {
     Bytecount len1 = BI_BUF_GPT (buf) - bi_ind;
@@ -3037,6 +3035,19 @@ make_string_from_buffer (struct buffer *buf, Bufpos pos, Charcount length)
 
   UNGCPRO;
   return val;
+}
+
+Lisp_Object
+make_string_from_buffer (struct buffer *buf, Bufpos pos, Charcount length)
+{
+  return make_string_from_buffer_1 (buf, pos, length, 0);
+}
+
+Lisp_Object
+make_string_from_buffer_no_extents (struct buffer *buf, Bufpos pos,
+				    Charcount length)
+{
+  return make_string_from_buffer_1 (buf, pos, length, 1);
 }
 
 void

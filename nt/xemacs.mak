@@ -439,7 +439,7 @@ LIB_SRC_DEFINES = -DHAVE_CONFIG_H -DWIN32 -DWINDOWSNT
 # Individual dependencies
 ETAGS_DEPS = $(LIB_SRC)/getopt.c $(LIB_SRC)/getopt1.c $(LIB_SRC)/../src/regex.c
 $(LIB_SRC)/etags.exe : $(LIB_SRC)/etags.c $(ETAGS_DEPS)
-#### ootags???
+$(LIB_SRC)/movemail.exe: $(LIB_SRC)/movemail.c $(ETAGS_DEPS)
 
 LIB_SRC_TOOLS = \
 	$(LIB_SRC)/make-docfile.exe	\

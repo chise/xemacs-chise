@@ -552,13 +552,15 @@ Reset a char table to its default state.
   switch (ct->type)
     {
     case CHAR_TABLE_TYPE_CHAR:
+      fill_char_table (ct, make_char (0));
+      break;
     case CHAR_TABLE_TYPE_DISPLAY:
     case CHAR_TABLE_TYPE_GENERIC:
 #ifdef MULE
     case CHAR_TABLE_TYPE_CATEGORY:
+#endif /* MULE */
       fill_char_table (ct, Qnil);
       break;
-#endif /* MULE */
 
     case CHAR_TABLE_TYPE_SYNTAX:
       fill_char_table (ct, make_int (Sinherit));
@@ -775,7 +777,7 @@ get_non_ascii_char_table_value (struct Lisp_Char_Table *ct, int leading_byte,
 
 #endif /* MULE */
 
-static Lisp_Object
+Lisp_Object
 get_char_table (Emchar ch, struct Lisp_Char_Table *ct)
 {
 #ifdef MULE
@@ -987,6 +989,10 @@ canonicalize_char_table_value (Lisp_Object value, enum char_table_type type)
 	  CHECK_CHAR_COERCE_INT (cdr);
 	  return Fcons (car, cdr);
 	}
+      break;
+    case CHAR_TABLE_TYPE_CHAR:
+      CHECK_CHAR_COERCE_INT (value);
+      break;
     default:
       break;
     }

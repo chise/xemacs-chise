@@ -735,7 +735,7 @@ unix_create_process (struct Lisp_Process *p,
 
   /* Nothing below here GCs so our string pointers shouldn't move. */
   new_argv = alloca_array (char *, nargv + 2);
-  new_argv[0] = (char *) XSTRING_DATA (program);
+  GET_C_STRING_FILENAME_DATA_ALLOCA (program, new_argv[0]);
   for (i = 0; i < nargv; i++)
     {
       Lisp_Object tem = argv[i];
@@ -743,7 +743,7 @@ unix_create_process (struct Lisp_Process *p,
       new_argv[i + 1] = (char *) XSTRING_DATA (tem);
     }
   new_argv[i + 1] = 0;
-  current_dir = (char *) XSTRING_DATA (cur_dir);
+  GET_C_STRING_FILENAME_DATA_ALLOCA (cur_dir, current_dir);
 
 #ifdef HAVE_PTYS
   if (!NILP (Vprocess_connection_type))

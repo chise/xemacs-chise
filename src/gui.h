@@ -69,6 +69,7 @@ struct gui_item
 
 extern Lisp_Object Q_accelerator, Q_active, Q_config, Q_filter, Q_included;
 extern Lisp_Object Q_keys, Q_selected, Q_suffix, Qradio, Qtoggle;
+extern Lisp_Object Q_key_sequence, Q_label;
 
 void gui_item_init (struct gui_item *pgui_item);
 void gui_item_add_keyval_pair (struct gui_item *pgui_item,

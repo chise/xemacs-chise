@@ -110,7 +110,7 @@ void DGifInitRead(GifFileType *GifFile)
     /* The GIF Version number is ignored at this time. Maybe we should do    */
     /* something more useful with it.					     */
     Buf[GIF_STAMP_LEN] = 0;
-    if (strncmp(GIF_STAMP, Buf, GIF_VERSION_POS) != 0) {
+    if (strncmp(GIF_STAMP, (const char *) Buf, GIF_VERSION_POS) != 0) {
 	GifInternError(GifFile, D_GIF_ERR_NOT_GIF_FILE);
     }
 
@@ -856,7 +856,7 @@ SavedImage *MakeSavedImage(GifFileType *GifFile, SavedImage *CopyFrom)
 				  CopyFrom->ImageDesc.ColorMap->Colors);
 
 	    /* next, the raster */
-	    sp->RasterBits = (char *)malloc(sizeof(GifPixelType)
+	    sp->RasterBits = (GifPixelType*)malloc(sizeof(GifPixelType)
 				* CopyFrom->ImageDesc.Height
 				* CopyFrom->ImageDesc.Width);
 	    memcpy(sp->RasterBits,

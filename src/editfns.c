@@ -39,6 +39,7 @@ Boston, MA 02111-1307, USA.  */
 #include "frame.h"
 #include "insdel.h"
 #include "window.h"
+#include "chartab.h"
 #include "line-number.h"
 
 #include "systime.h"
@@ -1622,6 +1623,23 @@ If BUFFER is nil, the current buffer is assumed.
   return make_string_from_buffer (b, begv, zv - begv);
 }
 
+/* It might make more sense to name this
+   `buffer-substring-no-extents', but this name is FSFmacs-compatible,
+   and what the function does is probably good enough for what the
+   user-code will typically want to use it for. */
+DEFUN ("buffer-substring-no-properties", Fbuffer_substring_no_properties, 0, 3, 0, /*
+Return the text from BEG to END, as a string, without copying the extents.
+*/
+       (start, end, buffer))
+{
+  /* This function can GC */
+  Bufpos begv, zv;
+  struct buffer *b = decode_buffer (buffer, 1);
+
+  get_buffer_range_char (b, start, end, &begv, &zv, GB_ALLOW_NIL);
+  return make_string_from_buffer_no_extents (b, begv, zv - begv);
+}
+
 DEFUN ("insert-buffer-substring", Finsert_buffer_substring, 1, 3, 0, /*
 Insert before point a substring of the contents of buffer BUFFER.
 BUFFER may be a buffer or a buffer name.
@@ -1783,42 +1801,149 @@ and don't mark the buffer as really changed.
   return Qnil;
 }
 
+/* #### Shouldn't this also accept a BUFFER argument, in the good old
+   XEmacs tradition?  */
 DEFUN ("translate-region", Ftranslate_region, 3, 3, 0, /*
-From START to END, translate characters according to TABLE.
-TABLE is a string; the Nth character in it is the mapping
-for the character with code N.  Returns the number of characters changed.
+Translate characters from START to END according to TABLE.
+
+If TABLE is a string, the Nth character in it is the mapping for the
+character with code N.
+
+If TABLE is a vector, its Nth element is the mapping for character
+with code N.  The values of elements may be characters, strings, or
+nil (nil meaning don't replace.)
+
+If TABLE is a char-table, its elements describe the mapping between
+characters and their replacements.  The char-table should be of type
+`char' or `generic'.
+
+Returns the number of substitutions performed.
 */
        (start, end, table))
 {
   /* This function can GC */
   Bufpos pos, stop;	/* Limits of the region. */
-  REGISTER Emchar oc;		/* Old character. */
-  REGISTER Emchar nc;		/* New character. */
-  int cnt;		/* Number of changes made. */
-  Charcount size;	/* Size of translate table. */
+  int cnt = 0;		/* Number of changes made. */
   int mc_count;
   struct buffer *buf = current_buffer;
+  Emchar oc;
 
   get_buffer_range_char (buf, start, end, &pos, &stop, 0);
-  CHECK_STRING (table);
-
-  size = XSTRING_CHAR_LENGTH (table);
-
-  cnt = 0;
   mc_count = begin_multiple_change (buf, pos, stop);
-  for (; pos < stop; pos++)
+  if (STRINGP (table))
     {
-      oc = BUF_FETCH_CHAR (buf, pos);
-      if (oc >= 0 && oc < size)
+      struct Lisp_String *stable = XSTRING (table);
+      Charcount size = string_char_length (stable);
+#ifdef MULE
+      /* Under Mule, string_char(n) is O(n), so for large tables or
+         large regions it makes sense to create an array of Emchars.  */
+      if (size * (stop - pos) > 65536)
 	{
-	  nc = string_char (XSTRING (table), oc);
-	  if (nc != oc)
+	  Emchar *etable = alloca_array (Emchar, size);
+	  convert_bufbyte_string_into_emchar_string
+	    (string_data (stable), string_length (stable), etable);
+	  for (; pos < stop && (oc = BUF_FETCH_CHAR (buf, pos), 1); pos++)
 	    {
-	      buffer_replace_char (buf, pos, nc, 0, 0);
-	      ++cnt;
+	      if (oc < size)
+		{
+		  Emchar nc = etable[oc];
+		  if (nc != oc)
+		    {
+		      buffer_replace_char (buf, pos, nc, 0, 0);
+		      ++cnt;
+		    }
+		}
+	    }
+	}
+      else
+#endif /* MULE */
+	{
+	  for (; pos < stop && (oc = BUF_FETCH_CHAR (buf, pos), 1); pos++)
+	    {
+	      if (oc < size)
+		{
+		  Emchar nc = string_char (stable, oc);
+		  if (nc != oc)
+		    {
+		      buffer_replace_char (buf, pos, nc, 0, 0);
+		      ++cnt;
+		    }
+		}
 	    }
 	}
     }
+  else if (VECTORP (table))
+    {
+      Charcount size = XVECTOR_LENGTH (table);
+      Lisp_Object *vtable = XVECTOR_DATA (table);
+
+      for (; pos < stop && (oc = BUF_FETCH_CHAR (buf, pos), 1); pos++)
+	{
+	  if (oc < size)
+	    {
+	      Lisp_Object replacement = vtable[oc];
+	    retry:
+	      if (CHAR_OR_CHAR_INTP (replacement))
+		{
+		  Emchar nc = XCHAR_OR_CHAR_INT (replacement);
+		  if (nc != oc)
+		    {
+		      buffer_replace_char (buf, pos, nc, 0, 0);
+		      ++cnt;
+		    }
+		}
+	      else if (STRINGP (replacement))
+		{
+		  Charcount incr = XSTRING_CHAR_LENGTH (replacement) - 1;
+		  buffer_delete_range (buf, pos, pos + 1, 0);
+		  buffer_insert_lisp_string_1 (buf, pos, replacement, 0);
+		  pos += incr, stop += incr;
+		  ++cnt;
+		}
+	      else if (!NILP (replacement))
+		{
+		  replacement = wrong_type_argument (Qchar_or_string_p, replacement);
+		  goto retry;
+		}
+	    }
+	}
+    }
+  else if (CHAR_TABLEP (table)
+	   && (XCHAR_TABLE_TYPE (table) == CHAR_TABLE_TYPE_GENERIC
+	       || XCHAR_TABLE_TYPE (table) == CHAR_TABLE_TYPE_CHAR))
+    {
+      struct Lisp_Char_Table *ctable = XCHAR_TABLE (table);
+
+      for (; pos < stop && (oc = BUF_FETCH_CHAR (buf, pos), 1); pos++)
+	{
+	  Lisp_Object replacement = get_char_table (oc, ctable);
+	retry2:
+	  if (CHAR_OR_CHAR_INTP (replacement))
+	    {
+	      Emchar nc = XCHAR_OR_CHAR_INT (replacement);
+	      if (nc != oc)
+		{
+		  buffer_replace_char (buf, pos, nc, 0, 0);
+		  ++cnt;
+		}
+	    }
+	  else if (STRINGP (replacement))
+	    {
+	      Charcount incr = XSTRING_CHAR_LENGTH (replacement) - 1;
+	      buffer_delete_range (buf, pos, pos + 1, 0);
+	      buffer_insert_lisp_string_1 (buf, pos, replacement, 0);
+	      pos += incr, stop += incr;
+	      ++cnt;
+	    }
+	  else if (!NILP (replacement))
+	    {
+	      replacement = wrong_type_argument (Qchar_or_string_p, replacement);
+	      goto retry2;
+	    }
+	}
+    }
+  else
+    dead_wrong_type_argument (Qstringp, table);
   end_multiple_change (buf, mc_count);
 
   return make_int (cnt);
@@ -2263,6 +2388,7 @@ syms_of_editfns (void)
   DEFSUBR (Fstring_to_char);
   DEFSUBR (Fchar_to_string);
   DEFSUBR (Fbuffer_substring);
+  DEFSUBR (Fbuffer_substring_no_properties);
 
   DEFSUBR (Fpoint_marker);
   DEFSUBR (Fmark_marker);

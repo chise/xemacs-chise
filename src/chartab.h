@@ -180,6 +180,7 @@ struct chartab_range
 void fill_char_table (struct Lisp_Char_Table *ct, Lisp_Object value);
 void put_char_table (struct Lisp_Char_Table *ct, struct chartab_range *range,
 		     Lisp_Object val);
+Lisp_Object get_char_table (Emchar, struct Lisp_Char_Table *);
 int map_char_table (struct Lisp_Char_Table *ct,
 		    struct chartab_range *range,
 		    int (*fn) (struct chartab_range *range,

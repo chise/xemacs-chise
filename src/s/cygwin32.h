@@ -71,8 +71,8 @@ Boston, MA 02111-1307, USA.  */
 /* cheesy way to determine cygwin version */
 #ifndef NOT_C_CODE
 #include <signal.h>
-#ifdef HAVE_CYGWIN32_VERSION_H
-#include <cygwin32/version.h>
+#ifdef HAVE_CYGWIN_VERSION_H
+#include <cygwin/version.h>
 #else
 #ifdef SIGIO
 #define CYGWIN_B19
@@ -85,7 +85,7 @@ extern void cygwin32_win32_to_posix_path_list(const char*, char*);
 extern int cygwin32_win32_to_posix_path_list_buf_size(const char*);
 extern void cygwin32_posix_to_win32_path_list(const char*, char*);
 extern int cygwin32_posix_to_win32_path_list_buf_size(const char*);
-#ifndef CYGWIN_DLL_VERSION_MAJOR
+#ifndef CYGWIN_VERSION_DLL_MAJOR
 struct timeval;
 struct timezone;
 struct itimerval;
@@ -151,8 +151,12 @@ extern long random();
 #define DATA_END -1
 #define HEAP_IN_DATA
 #define UNEXEC "unexcw.o"
-/* #define BROKEN_SIGIO */
+
+#ifdef CYGWIN_VERSION_DLL_MAJOR
+#define BROKEN_SIGIO
+#else
 #define PROCESS_IO_BLOCKING
+#endif
 #define strnicmp strncasecmp
 #ifndef HAVE_SOCKETS
 #define HAVE_SOCKETS

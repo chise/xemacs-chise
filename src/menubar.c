@@ -501,6 +501,13 @@ The possible keywords are this:
 		     Basically, the filter function should have no
 		     side-effects.
 
+ :key-sequence keys  Used in FSF Emacs as an hint to an equivalent keybinding.
+                     Ignored by XEnacs for easymenu.el compatability.
+
+ :label <form>       (unimplemented!) Like :suffix, but replaces label
+                     completely.
+                     (might be added in 21.2).
+ 
 For example:
 
  ("File"

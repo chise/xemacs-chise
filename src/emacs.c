@@ -2513,7 +2513,7 @@ decode_path (CONST char *path)
 
   GET_C_CHARPTR_INT_FILENAME_DATA_ALLOCA (path, newpath);
 
-  len = strlen (newpath);
+  len = strlen ((const char *) newpath);
   /* #### Does this make sense?  It certainly does for
      decode_env_path(), but it looks dubious here.  Does any code
      depend on decode_path("") returning nil instead of an empty

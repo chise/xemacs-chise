@@ -3346,7 +3346,10 @@ to the value of CODESYS.  If this is nil, no code conversion occurs.
     /* On VMS and APOLLO, must do the stat after the close
        since closing changes the modtime.  */
     /* As it does on Windows too - kkm */
-#if !defined (WINDOWSNT) /* !defined (VMS) && !defined (APOLLO) */
+    /* The spurious warnings appear on Linux too.  Rather than handling 
+       this on a per-system basis, unconditionally do the stat after the close - cgw */
+       
+#if 0 /* !defined (WINDOWSNT)  /* !defined (VMS) && !defined (APOLLO) */
     fstat (desc, &st);
 #endif
 
@@ -3364,9 +3367,9 @@ to the value of CODESYS.  If this is nil, no code conversion occurs.
     unbind_to (speccount, Qnil);
   }
 
-#if defined (WINDOWSNT) /* defined (VMS) || defined (APOLLO) */
+  /* # if defined (WINDOWSNT) /* defined (VMS) || defined (APOLLO) */
   stat ((char *) XSTRING_DATA (fn), &st);
-#endif
+  /* #endif */
 
 #ifdef CLASH_DETECTION
   if (!auto_saving)

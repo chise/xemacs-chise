@@ -53,6 +53,7 @@ buffer, together with their properties (when relevant).
                        position stored in a register.
 * Transposition::    Swapping two portions of a buffer.
 * Change Hooks::     Supplying functions to be run when text is changed.
+* Transformations::  MD5 and base64 support.
 @end menu
 
 @node Near Point
@@ -2668,3 +2669,139 @@ This obsolete variable holds one function to call after any buffer modification
 This variable is a normal hook that is run whenever a buffer is changed
 that was previously in the unmodified state.
 @end defvar
+
+@node Transformations
+@section Textual transformations---MD5 and base64 support
+@cindex MD5 digests
+@cindex base64
+
+Some textual operations inherently require examining each character in
+turn, and performing arithmetic operations on them.  Such operations
+can, of course, be implemented in Emacs Lisp, but tend to be very slow
+for large portions of text or data.  This is why some of them are
+implemented in C, with an appropriate interface for Lisp programmers.
+Examples of algorithms thus provided are MD5 and base64 support.
+
+MD5 is an algorithm for calculating message digests, as described in
+rfc1321.  Given a message of arbitrary length, MD5 produces an 128-bit
+``fingerprint'' (``message digest'') corresponding to that message.  It
+is considered computationally infeasible to produce two messages having
+the same MD5 digest, or to produce a message having a prespecified
+target digest.  MD5 is used heavily by various authentication schemes.
+
+Emacs Lisp interface to MD5 consists of a single function @code{md5}:
+
+@defun md5 object &optional start end
+This function returns the MD5 message digest of @var{object}, a buffer
+or string.
+
+Optional arguments @var{start} and @var{end} denote positions for
+computing the digest of a portion of @var{object}.
+
+Some examples of usage:
+
+@example
+@group
+;; @r{Calculate the digest of the entire buffer}
+(md5 (current-buffer))
+     @result{} "8842b04362899b1cda8d2d126dc11712"
+@end group
+
+@group
+;; @r{Calculate the digest of the current line}
+(md5 (current-buffer) (point-at-bol) (point-at-eol))
+     @result{} "60614d21e9dee27dfdb01fa4e30d6d00"
+@end group
+
+@group
+;; @r{Calculate the digest of your name and email address}
+(md5 (concat (format "%s <%s>" (user-full-name) user-mail-address)))
+     @result{} "0a2188c40fd38922d941fe6032fce516"
+@end group
+@end example
+@end defun
+
+Base64 is a portable encoding for arbitrary sequences of octets, in a
+form that need not be readable by humans.  It uses a 65-character subset
+of US-ASCII, as described in rfc2045.  Base64 is used by MIME to encode
+binary bodies, and to encode binary characters in message headers.
+
+The Lisp interface to base64 consists of four functions:
+
+@defun base64-encode-region beg end &optional no-line-break
+This function encodes the region between @var{beg} and @var{end} of the
+current buffer to base64 format.  This means that the original region is 
+deleted, and replaced with its base64 equivalent.
+
+Normally, encoded base64 output is multi-line, with 76-character lines.
+If @var{no-line-break} is non-@code{nil}, newlines will not be inserted, 
+resulting in single-line output.
+
+Mule note: you should make sure that you convert the multibyte
+characters (those that do not fit into 0--255 range) to something else,
+because they cannot be meaningfully converted to base64.  If the
+@code{base64-encode-region} encounters such characters, it will signal
+an error.
+
+@code{base64-encode-region} returns the length of the encoded text.
+
+@example
+@group
+;; @r{Encode the whole buffer in base64}
+(base64-encode-region (point-min) (point-max))
+@end group
+@end example
+
+The function can also be used interactively, in which case it works on
+the currently active region.
+@end defun
+
+@defun base64-encode-string string
+This function encodes @var{string} to base64, and returns the encoded
+string.
+
+For Mule, the same considerations apply as for
+@code{base64-encode-region}.
+
+@example
+@group
+(base64-encode-string "fubar")
+    @result{} "ZnViYXI="
+@end group
+@end example
+@end defun
+
+@defun base64-decode-region beg end
+This function decodes the region between @var{beg} and @var{end} of the
+current buffer.  The region should be in base64 encoding.
+
+If the region was decoded correctly, @code{base64-decode-region} returns
+the length of the decoded region.  If the decoding failed, @code{nil} is 
+returned.
+
+@example
+@group
+;; @r{Decode a base64 buffer, and replace it with the decoded version}
+(base64-decode-region (point-min) (point-max))
+@end group
+@end example
+@end defun
+
+@defun base64-decode-string string
+This function decodes @var{string} to base64, and returns the decoded
+string.  @var{string} should be valid base64-encoded text.
+
+If encoding was not possible, @code{nil} is returned.
+
+@example
+@group
+(base64-decode-string "ZnViYXI=")
+    @result{} "fubar"
+@end group
+
+@group
+(base64-decode-string "totally bogus")
+    @result{} nil
+@end group
+@end example
+@end defun

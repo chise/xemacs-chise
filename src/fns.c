@@ -49,6 +49,9 @@ Boston, MA 02111-1307, USA.  */
 #include "extents.h"
 #include "frame.h"
 #include "systime.h"
+#include "insdel.h"
+#include "lstream.h"
+#include "opaque.h"
 
 /* NOTE: This symbol is also used in lread.c */
 #define FEATUREP_SYNTAX
@@ -3522,7 +3525,428 @@ If FILENAME is omitted, the printname of FEATURE is used as the file name.
       return unbind_to (speccount, feature);
     }
 }
+
+/* base64 encode/decode functions.
+   Based on code from GNU recode. */
 
+#define MIME_LINE_LENGTH 76
+
+#define IS_ASCII(Character) \
+  ((Character) < 128)
+#define IS_BASE64(Character) \
+  (IS_ASCII (Character) && base64_char_to_value[Character] >= 0)
+
+/* Table of characters coding the 64 values.  */
+static char base64_value_to_char[64] =
+{
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',	/*  0- 9 */
+  'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',	/* 10-19 */
+  'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd',	/* 20-29 */
+  'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',	/* 30-39 */
+  'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',	/* 40-49 */
+  'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7',	/* 50-59 */
+  '8', '9', '+', '/'					/* 60-63 */
+};
+
+/* Table of base64 values for first 128 characters.  */
+static short base64_char_to_value[128] =
+{
+  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,	/*   0-  9 */
+  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,	/*  10- 19 */
+  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,	/*  20- 29 */
+  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,	/*  30- 39 */
+  -1,  -1,  -1,  62,  -1,  -1,  -1,  63,  52,  53,	/*  40- 49 */
+  54,  55,  56,  57,  58,  59,  60,  61,  -1,  -1,	/*  50- 59 */
+  -1,  -1,  -1,  -1,  -1,  0,   1,   2,   3,   4,	/*  60- 69 */
+  5,   6,   7,   8,   9,   10,  11,  12,  13,  14,	/*  70- 79 */
+  15,  16,  17,  18,  19,  20,  21,  22,  23,  24,	/*  80- 89 */
+  25,  -1,  -1,  -1,  -1,  -1,  -1,  26,  27,  28,	/*  90- 99 */
+  29,  30,  31,  32,  33,  34,  35,  36,  37,  38,	/* 100-109 */
+  39,  40,  41,  42,  43,  44,  45,  46,  47,  48,	/* 110-119 */
+  49,  50,  51,  -1,  -1,  -1,  -1,  -1			/* 120-127 */
+};
+
+/* The following diagram shows the logical steps by which three octets
+   get transformed into four base64 characters.
+
+		 .--------.  .--------.  .--------.
+		 |aaaaaabb|  |bbbbcccc|  |ccdddddd|
+		 `--------'  `--------'  `--------'
+                    6   2      4   4       2   6
+	       .--------+--------+--------+--------.
+	       |00aaaaaa|00bbbbbb|00cccccc|00dddddd|
+	       `--------+--------+--------+--------'
+
+	       .--------+--------+--------+--------.
+	       |AAAAAAAA|BBBBBBBB|CCCCCCCC|DDDDDDDD|
+	       `--------+--------+--------+--------'
+
+   The octets are divided into 6 bit chunks, which are then encoded into
+   base64 characters.  */
+
+#define ADVANCE_INPUT(c, stream)				\
+ (ec = Lstream_get_emchar (stream),				\
+  ec == -1 ? 0 :						\
+  ((ec > 255) ?							\
+   (error ("Non-ascii character detected in base64 input"), 0)	\
+   : (c = (Bufbyte)ec, 1)))
+
+static Bytind
+base64_encode_1 (Lstream *istream, Bufbyte *to, int line_break)
+{
+  EMACS_INT counter = 0;
+  Bufbyte *e = to;
+  Emchar ec;
+  unsigned int value;
+
+  while (1)
+    {
+      Bufbyte c;
+      if (!ADVANCE_INPUT (c, istream))
+	break;
+
+      /* Wrap line every 76 characters.  */
+      if (line_break)
+	{
+	  if (counter < MIME_LINE_LENGTH / 4)
+	    counter++;
+	  else
+	    {
+	      *e++ = '\n';
+	      counter = 1;
+	    }
+	}
+
+      /* Process first byte of a triplet.  */
+      *e++ = base64_value_to_char[0x3f & c >> 2];
+      value = (0x03 & c) << 4;
+
+      /* Process second byte of a triplet.  */
+      if (!ADVANCE_INPUT (c, istream))
+	{
+	  *e++ = base64_value_to_char[value];
+	  *e++ = '=';
+	  *e++ = '=';
+	  break;
+	}
+
+      *e++ = base64_value_to_char[value | (0x0f & c >> 4)];
+      value = (0x0f & c) << 2;
+
+      /* Process third byte of a triplet.  */
+      if (!ADVANCE_INPUT (c, istream))
+	{
+	  *e++ = base64_value_to_char[value];
+	  *e++ = '=';
+	  break;
+	}
+
+      *e++ = base64_value_to_char[value | (0x03 & c >> 6)];
+      *e++ = base64_value_to_char[0x3f & c];
+    }
+
+  /* Complete last partial line.  */
+  if (line_break)
+    if (counter > 0)
+      *e++ = '\n';
+
+  return e - to;
+}
+#undef ADVANCE_INPUT
+
+#define ADVANCE_INPUT(c, stream)		\
+ (ec = Lstream_get_emchar (stream),		\
+  ec == -1 ? 0 : (c = (Bufbyte)ec, 1))
+
+#define INPUT_EOF_P(stream)				\
+ (ADVANCE_INPUT (c2, stream)				\
+  ? (Lstream_unget_emchar (stream, (Emchar)c2), 0)	\
+  : 1)
+
+#define STORE_BYTE(pos, val) do {					\
+  pos += set_charptr_emchar (pos, (Emchar)((unsigned char)(val)));	\
+  ++*ccptr;								\
+} while (0)
+
+static Bytind
+base64_decode_1 (Lstream *istream, Bufbyte *to, Charcount *ccptr)
+{
+  EMACS_INT counter = 0;
+  Emchar ec;
+  Bufbyte *e = to;
+  unsigned long value;
+
+  *ccptr = 0;
+  while (1)
+    {
+      Bufbyte c, c2;
+
+      if (!ADVANCE_INPUT (c, istream))
+	break;
+
+      /* Accept wrapping lines, reversibly if at each 76 characters.  */
+      if (c == '\n')
+	{
+	  if (!ADVANCE_INPUT (c, istream))
+	    break;
+	  if (INPUT_EOF_P (istream))
+	    break;
+	  /* FSF Emacs has this check, apparently inherited from
+             recode.  However, I see no reason to be this picky about
+             line length -- why reject base64 with say 72-byte lines?
+             (yes, there are programs that generate them.)  */
+	  /*if (counter != MIME_LINE_LENGTH / 4) return -1;*/
+	  counter = 1;
+	}
+      else
+	counter++;
+
+      /* Process first byte of a quadruplet.  */
+      if (!IS_BASE64 (c))
+	return -1;
+      value = base64_char_to_value[c] << 18;
+
+      /* Process second byte of a quadruplet.  */
+      if (!ADVANCE_INPUT (c, istream))
+	return -1;
+
+      if (!IS_BASE64 (c))
+	return -1;
+      value |= base64_char_to_value[c] << 12;
+
+      STORE_BYTE (e, value >> 16);
+
+      /* Process third byte of a quadruplet.  */
+      if (!ADVANCE_INPUT (c, istream))
+	return -1;
+
+      if (c == '=')
+	{
+	  if (!ADVANCE_INPUT (c, istream))
+	    return -1;
+	  if (c != '=')
+	    return -1;
+	  continue;
+	}
+
+      if (!IS_BASE64 (c))
+	return -1;
+      value |= base64_char_to_value[c] << 6;
+
+      STORE_BYTE (e, 0xff & value >> 8);
+
+      /* Process fourth byte of a quadruplet.  */
+      if (!ADVANCE_INPUT (c, istream))
+	return -1;
+
+      if (c == '=')
+	continue;
+
+      if (!IS_BASE64 (c))
+	return -1;
+      value |= base64_char_to_value[c];
+
+      STORE_BYTE (e, 0xff & value);
+    }
+
+  return e - to;
+}
+#undef ADVANCE_INPUT
+#undef INPUT_EOF_P
+
+static Lisp_Object
+free_malloced_ptr (Lisp_Object unwind_obj)
+{
+  void *ptr = (void *)get_opaque_ptr (unwind_obj);
+  xfree (ptr);
+  free_opaque_ptr (unwind_obj);
+  return Qnil;
+}
+
+/* Don't use alloca for regions larger than this, lest we overflow
+   the stack.  */
+#define MAX_ALLOCA 65536
+
+/* We need to setup proper unwinding, because there is a number of
+   ways these functions can blow up, and we don't want to have memory
+   leaks in those cases.  */
+#define XMALLOC_OR_ALLOCA(ptr, len, type) do {			\
+  if ((len) > MAX_ALLOCA)					\
+    {								\
+      ptr = (type *)xmalloc ((len) * sizeof (type));		\
+      speccount = specpdl_depth ();				\
+      record_unwind_protect (free_malloced_ptr,			\
+			     make_opaque_ptr ((void *)ptr));	\
+    }								\
+  else								\
+    ptr = alloca_array (type, len);				\
+} while (0)
+
+#define XMALLOC_UNBIND(ptr, len) do {		\
+  if ((len) > MAX_ALLOCA)			\
+    unbind_to (speccount, Qnil);		\
+} while (0)
+
+DEFUN ("base64-encode-region", Fbase64_encode_region, 2, 3, "r", /*
+Base64-encode the region between BEG and END.
+Return the length of the encoded text.
+Optional third argument NO-LINE-BREAK means do not break long lines
+into shorter lines.
+*/
+       (beg, end, no_line_break))
+{
+  Bufbyte *encoded;
+  Bytind encoded_length;
+  Charcount allength, length;
+  struct buffer *buf = current_buffer;
+  Bufpos begv, zv, old_pt = BUF_PT (buf);
+  Lisp_Object input;
+  int speccount;
+
+  get_buffer_range_char (buf, beg, end, &begv, &zv, 0);
+
+  /* We need to allocate enough room for encoding the text.
+     We need 33 1/3% more space, plus a newline every 76
+     characters, and then we round up. */
+  length = zv - begv;
+  allength = length + length/3 + 1;
+  allength += allength / MIME_LINE_LENGTH + 1 + 6;
+
+  input = make_lisp_buffer_input_stream (buf, begv, zv, 0);
+  /* We needn't multiply allength with MAX_EMCHAR_LEN because all the
+     base64 characters will be single-byte.  */
+  XMALLOC_OR_ALLOCA (encoded, allength, Bufbyte);
+  encoded_length = base64_encode_1 (XLSTREAM (input), encoded,
+				    NILP (no_line_break));
+  if (encoded_length > allength)
+    abort ();
+  Lstream_delete (XLSTREAM (input));
+
+  /* Now we have encoded the region, so we insert the new contents
+     and delete the old.  (Insert first in order to preserve markers.)  */
+  buffer_insert_raw_string_1 (buf, begv, encoded, encoded_length, 0);
+  XMALLOC_UNBIND (encoded, allength);
+  buffer_delete_range (buf, begv + encoded_length, zv + encoded_length, 0);
+
+  /* Simulate FSF Emacs: if point was in the region, place it at the
+     beginning.  */
+  if (old_pt >= begv && old_pt < zv)
+    BUF_SET_PT (buf, begv);
+
+  /* We return the length of the encoded text. */
+  return make_int (encoded_length);
+}
+
+DEFUN ("base64-encode-string", Fbase64_encode_string, 1, 1, 0, /*
+Base64 encode STRING and return the result.
+*/
+       (string))
+{
+  Charcount allength, length;
+  Bytind encoded_length;
+  Bufbyte *encoded;
+  Lisp_Object input, result;
+  int speccount;
+
+  CHECK_STRING (string);
+
+  length = XSTRING_CHAR_LENGTH (string);
+  allength = length + length/3 + 1 + 6;
+
+  input = make_lisp_string_input_stream (string, 0, -1);
+  XMALLOC_OR_ALLOCA (encoded, allength, Bufbyte);
+  encoded_length = base64_encode_1 (XLSTREAM (input), encoded, 0);
+  if (encoded_length > allength)
+    abort ();
+  Lstream_delete (XLSTREAM (input));
+  result = make_string (encoded, encoded_length);
+  XMALLOC_UNBIND (encoded, allength);
+  return result;
+}
+
+DEFUN ("base64-decode-region", Fbase64_decode_region, 2, 2, "r", /*
+Base64-decode the region between BEG and END.
+Return the length of the decoded text.
+If the region can't be decoded, return nil and don't modify the buffer.
+*/
+       (beg, end))
+{
+  struct buffer *buf = current_buffer;
+  Bufpos begv, zv, old_pt = BUF_PT (buf);
+  Bufbyte *decoded;
+  Bytind decoded_length;
+  Charcount length, cc_decoded_length;
+  Lisp_Object input;
+  int speccount;
+
+  get_buffer_range_char (buf, beg, end, &begv, &zv, 0);
+  length = zv - begv;
+
+  input = make_lisp_buffer_input_stream (buf, begv, zv, 0);
+  /* We need to allocate enough room for decoding the text. */
+  XMALLOC_OR_ALLOCA (decoded, length * MAX_EMCHAR_LEN, Bufbyte);
+  decoded_length = base64_decode_1 (XLSTREAM (input), decoded, &cc_decoded_length);
+  if (decoded_length > length * MAX_EMCHAR_LEN)
+    abort ();
+  Lstream_delete (XLSTREAM (input));
+
+  if (decoded_length < 0)
+    {
+      /* The decoding wasn't possible. */
+      XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN);
+      return Qnil;
+    }
+
+  /* Now we have decoded the region, so we insert the new contents
+     and delete the old.  (Insert first in order to preserve markers.)  */
+  BUF_SET_PT (buf, begv);
+  buffer_insert_raw_string_1 (buf, begv, decoded, decoded_length, 0);
+  XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN);
+  buffer_delete_range (buf, begv + cc_decoded_length,
+		       zv + cc_decoded_length, 0);
+
+  /* Simulate FSF Emacs: if point was in the region, place it at the
+     beginning.  */
+  if (old_pt >= begv && old_pt < zv)
+    BUF_SET_PT (buf, begv);
+
+  return make_int (cc_decoded_length);
+}
+
+DEFUN ("base64-decode-string", Fbase64_decode_string, 1, 1, 0, /*
+Base64-decode STRING and return the result.
+*/
+       (string))
+{
+  Bufbyte *decoded;
+  Bytind decoded_length;
+  Charcount length, cc_decoded_length;
+  Lisp_Object input, result;
+  int speccount;
+
+  CHECK_STRING (string);
+
+  length = XSTRING_CHAR_LENGTH (string);
+  /* We need to allocate enough room for decoding the text. */
+  XMALLOC_OR_ALLOCA (decoded, length * MAX_EMCHAR_LEN, Bufbyte);
+
+  input = make_lisp_string_input_stream (string, 0, -1);
+  decoded_length = base64_decode_1 (XLSTREAM (input), decoded,
+				    &cc_decoded_length);
+  if (decoded_length > length * MAX_EMCHAR_LEN)
+    abort ();
+  Lstream_delete (XLSTREAM (input));
+
+  if (decoded_length < 0)
+    {
+      return Qnil;
+      XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN);
+    }
+
+  result = make_string (decoded, decoded_length);
+  XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN);
+  return result;
+}
 
 Lisp_Object Qyes_or_no_p;
 
@@ -3608,6 +4032,10 @@ syms_of_fns (void)
   DEFSUBR (Ffeaturep);
   DEFSUBR (Frequire);
   DEFSUBR (Fprovide);
+  DEFSUBR (Fbase64_encode_region);
+  DEFSUBR (Fbase64_encode_string);
+  DEFSUBR (Fbase64_decode_region);
+  DEFSUBR (Fbase64_decode_string);
 }
 
 void

@@ -554,7 +554,7 @@ Make it buffer-local in a mode hook.  The function is called with no
  arguments.")
 
 (defvar find-tag-hook nil
-  "Function to call after a tag is found.
+  "*Function to call after a tag is found.
 Make it buffer-local in a mode hook.  The function is called with no
  arguments.")
 
@@ -777,11 +777,11 @@ Variables of note:
     (push-mark)
     (goto-char tag-point)
     (if find-tag-hook
-	(funcall find-tag-hook)
+		(run-hooks 'find-tag-hook)
       (if local-find-tag-hook
-	  (funcall local-find-tag-hook))))
+		  (run-hooks 'local-find-tag-hook))))
   (setq tags-loop-scan (list 'find-tag nil nil)
-	tags-loop-operate nil)
+		tags-loop-operate nil)
   ;; Return t in case used as the tags-loop-scan.
   t)
 

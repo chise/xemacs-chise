@@ -146,8 +146,10 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	{
 	  Lisp_Object key, val;
 	  Lisp_Object include_p = Qnil, hook_fn = Qnil, config_tag = Qnil;
+	  Lisp_Object active_p = Qt;
 	  Lisp_Object accel;
 	  int included_spec = 0;
+	  int active_spec = 0;
 	  wv->type = CASCADE_TYPE;
 	  wv->enabled = 1;
 	  wv->name = (char *) XSTRING_DATA (LISP_GETTEXT (XCAR (desc)));
@@ -172,6 +174,8 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 		config_tag = val;
 	      else if (EQ (key, Q_filter))
 		hook_fn = val;
+	      else if (EQ (key, Q_active))
+		active_p = val, active_spec = 1;
 	      else if (EQ (key, Q_accelerator))
 		{
 		  if ( SYMBOLP (val)
@@ -179,6 +183,10 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 		    wv->accel = LISP_TO_VOID (val);
 		  else
 		    signal_simple_error ("bad keyboard accelerator", val);
+		}
+	      else if (EQ (key, Q_label))
+		{
+		  /* implement in 21.2 */
 		}
 	      else
 		signal_simple_error ("unknown menu cascade keyword", cascade);
@@ -191,7 +199,11 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	      wv = NULL;
 	      goto menu_item_done;
 	    }
-	  if (!NILP (hook_fn))
+
+	  if (active_spec)
+	    active_p = Feval (active_p);
+	  
+	  if (!NILP (hook_fn) && !NILP (active_p))
 	    {
 #if defined LWLIB_MENUBARS_LUCID || defined LWLIB_MENUBARS_MOTIF
 	      if (filter_p || depth == 0)
@@ -236,6 +248,24 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	      wv->contents = title_wv;
 	      prev = sep_wv;
 	    }
+	  wv->enabled = ! NILP (active_p);
+	  if (deep_p && !wv->enabled  && !NILP (desc))
+	    {
+	      widget_value *dummy;
+	      /* Add a fake entry so the menus show up */
+	      wv->contents = dummy = xmalloc_widget_value ();
+	      dummy->name = "(inactive)";
+	      dummy->accel = NULL;
+	      dummy->enabled = 0;
+	      dummy->selected = 0;
+	      dummy->value = NULL;
+	      dummy->type = BUTTON_TYPE;
+	      dummy->call_data = NULL;
+	      dummy->next = NULL;
+	      
+	      goto menu_item_done;
+	}
+
 	}
       else if (menubar_root_p)
 	{
@@ -248,8 +278,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	  signal_simple_error ("menu name (first element) must be a string",
                                desc);
 	}
-
-      wv->enabled = 1;
+      
       if (deep_p || menubar_root_p)
 	{
 	  widget_value *next;

@@ -960,7 +960,7 @@ struct Lisp_Bit_Vector
   struct lrecord_header lheader;
   Lisp_Object next;
   long size;
-  unsigned int bits[1];
+  unsigned long bits[1];
 };
 
 DECLARE_LRECORD (bit_vector, struct Lisp_Bit_Vector);
@@ -2048,6 +2048,7 @@ Bufpos bufpos_clip_to_bounds (Bufpos, Bufpos, Bufpos);
 Bytind bytind_clip_to_bounds (Bytind, Bytind, Bytind);
 void buffer_insert1 (struct buffer *, Lisp_Object);
 Lisp_Object make_string_from_buffer (struct buffer *, int, int);
+Lisp_Object make_string_from_buffer_no_extents (struct buffer *, int, int);
 Lisp_Object save_excursion_save (void);
 Lisp_Object save_restriction_save (void);
 Lisp_Object save_excursion_restore (Lisp_Object);

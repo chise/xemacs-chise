@@ -665,10 +665,14 @@ The format is suitable for use with `easy-menu-define'." nil nil)
 
 ;;;***
 
-;;;### (autoloads (custom-set-faces custom-declare-face) "cus-face" "lisp/cus-face.el")
+;;;### (autoloads (custom-set-faces custom-set-face-update-spec custom-declare-face) "cus-face" "lisp/cus-face.el")
 
 (autoload 'custom-declare-face "cus-face" "\
 Like `defface', but FACE is evaluated as a normal argument." nil nil)
+
+(autoload 'custom-set-face-update-spec "cus-face" "\
+Customize the FACE for display types matching DISPLAY, merging
+  in the new items from PLIST" nil nil)
 
 (autoload 'custom-set-faces "cus-face" "\
 Initialize faces according to user preferences.
@@ -1204,21 +1208,37 @@ Install a pre-bytecompiled XEmacs package into package hierarchy." t nil)
 
 ;;;***
 
-;;;### (autoloads (package-get-custom package-get-package-provider package-get package-get-dependencies package-get-all package-get-update-all package-get-delete-package package-get-update-base-from-buffer package-get-update-base package-get-update-base-entry package-get-require-base) "package-get" "lisp/package-get.el")
+;;;### (autoloads (package-get-custom package-get-package-provider package-get package-get-dependencies package-get-all package-get-update-all package-get-delete-package package-get-save-base package-get-update-base-from-buffer package-get-update-base package-get-update-base-entry package-get-require-base package-get-download-menu) "package-get" "lisp/package-get.el")
+
+(autoload 'package-get-download-menu "package-get" "\
+Build the `Add Download Site' menu." nil nil)
 
 (autoload 'package-get-require-base "package-get" "\
-Require that a package-get database has been loaded." nil nil)
+Require that a package-get database has been loaded.
+If the optional FORCE-CURRENT argument or the value of
+`package-get-always-update' is Non-nil, try to update the database
+from a location in `package-get-remote'. Otherwise a local copy is used
+if available and remote access is never done.
+
+Please use FORCE-CURRENT only when the user is explictly dealing with packages
+and remote access is likely in the near future." nil nil)
 
 (autoload 'package-get-update-base-entry "package-get" "\
 Update an entry in `package-get-base'." nil nil)
 
 (autoload 'package-get-update-base "package-get" "\
-Update the package-get database file with entries from DB-FILE." t nil)
+Update the package-get database file with entries from DB-FILE.
+Unless FORCE-CURRENT is non-nil never try to update the database." t nil)
 
 (autoload 'package-get-update-base-from-buffer "package-get" "\
 Update the package-get database with entries from BUFFER.
 BUFFER defaults to the current buffer.  This command can be
 used interactively, for example from a mail or news buffer." t nil)
+
+(autoload 'package-get-save-base "package-get" "\
+Write the package-get database to FILE.
+
+Note: This database will be unsigned of course." t nil)
 
 (autoload 'package-get-delete-package "package-get" "\
 Delete an installation of PACKAGE below directory PKG-TOPDIR.
@@ -1272,7 +1292,10 @@ successfully installed but errors occurred during initialization, or
 Search for a package that provides SYM and return the name and
   version.  Searches in `package-get-base' for SYM.   If SYM is a
   consp, then it must match a corresponding (provide (SYM VERSION)) from 
-  the package." t nil)
+  the package.
+
+If FORCE-CURRENT is non-nil make sure the database is up to date. This might
+lead to Emacs accessing remote sites." t nil)
 
 (autoload 'package-get-custom "package-get" "\
 Fetch and install the latest versions of all customized packages." t nil)

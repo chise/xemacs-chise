@@ -1,3 +1,132 @@
+1998-11-28  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta4 is released.
+
+1998-11-27  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* easymenu.el (easy-menu-add-item): Wraper around add-menu-btton.
+	(easy-menu-item-present-p): Wrapper around find-menu-item.
+	(easy-menu-remove-item): Wrapper around delete-menu-item.
+
+	* menubar.el (delete-menu-item): Add 'from-menu' argument.
+	(add-menu-button): Add 'in-menu' argument.
+	(add-menu-item-1): Add in-menu support to helper function.
+
+1998-11-27  Katsumi Yamaoka  <yamaoka@jpl.org>
+
+	* isearch-mode.el (isearch-mode): Fix keymap lossage.
+
+1998-11-26  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* faces.el (get-custom-frame-properties): Revert Hrvoje Niksic change 
+	of Dec 4, 1997.
+
+1998-11-25  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* process.el (shell-command-on-region): Report if the command
+	succeeded or failed.
+
+1998-11-24  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* subr.el (buffer-substring-no-properties): Comment out.
+
+1998-11-07  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* msw-faces.el (mswindows-find-smaller-font): Turning font names
+	  into font instances first, like `x-frob-font-size' does.
+	  (mswindows-find-larger-font): ditto
+
+1998-11-04  Greg Klanderman  <greg@alphatech.com>
+
+	* package-ui.el (pui-install-selected-packages): fix args in call
+	to `package-get'.
+
+1998-10-29  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* package-get.el (host-name): New widget type.
+	(package-get-remote): Better customization using new type.
+	(package-get-download-sites): idem dito.
+
+	(package-get-custom): Do not use package-get-all untill we have
+	runtime dependencies.
+
+	(package-get-remove-copy): Default to 't' we no longer need this
+	kludge as we do not currently use depenencies.
+	
+	(package-get-was-current): New variable.
+	(package-get-require-base): New 'force-current' argument.
+	(package-get-update-base): idem
+	(package-get-package-provider):  idem
+	(package-get-locate-index-file): New 'no-remote' argument.
+	(package-get-locate-file): idem.
+	
+	(package-get-maybe-save-index): New function.
+	(package-get-update-base): Use it.
+
+1998-10-28 Greg Klanderman <greg@alphatech.com>
+
+	* package-get.el (package-get-remote): default to nil; by default, 
+	don't go out to the net via EFS.  They must select a download site.
+	(package-get-download-sites): new variable.
+	(package-get-download-menu): new function.
+	(package-get-locate-index-file): new function.
+	(package-get-update-base): use it.
+
+	* menubar-items.el (default-menubar): add "Update Package Index"
+	and "Add Download Site" menus under Options | Manage Packages.
+
+1998-10-19  Greg Klanderman  <greg@alphatech.com>
+
+	* package-get.el (package-get): bugfix code checking installed version
+	for case where package is not currently installed.
+	(package-get-require-signed-base-updates): new variable.
+	(package-get-update-base-from-buffer): remove REMOTE-SOURCE arg, it was 
+	deemed not a goot thing.  Use the variable
+	package-get-allow-unsigned-base-updates instead.
+
+1998-10-16 Greg Klanderman <greg@alphatech.com>
+
+	* package-get.el (package-get): Don't install an older version than 
+	we already have unless explicitly told to.  Issue a warning.
+
+	* package-ui.el (pui-add-required-packages): when adding
+	dependencies, don't add packages that are up to date.
+	(pui-package-symbol-char):  Don't consider a package out of date 
+	if you have a newer version installed than the latest version in
+	package-get-base.
+
+	* package-get.el (package-get-base-filename): document that it may 
+	be a path relative to package-get-remote;  new default value.
+	(package-get-locate-file): new function.
+	(package-get-update-base): use it to expand package-get-base-filename.
+	(package-get-save-base): new function to save the package-get database
+	to file.
+	(package-get-update-base-from-buffer): add REMOTE-SOURCE argument.
+	(package-get-update-base): pass the REMOTE-SOURCE arg.
+	(package-get-update-base-entry): call package-get-custom-add-entry.
+	(package-get-file-installed-p): removed; no longer needed.
+	(package-get-create-custom): ditto.
+	(toplevel): remove code to build and load package-get-custom.el
+	(package-get-custom-add-entry): new function.
+
+1998-10-12  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* wid-edit.el (widget-button-click): Don't switch window.
+
+1998-10-22  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* cus-face.el (custom-set-face-update-spec): Add autoload cookie
+
+1998-10-20  Malcolm Box  <malcolm@brownale.demon.co.uk>
+        
+	* etags.el (find-tag-default): Run find-tag-hook using
+	run-hooks rather than funcall
+
+1998-10-19  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* isearch-mode.el (isearch-mode): Set the current minor mode maps
+	and the current local map as the parents to isearch-mode-map.
+
 1998-10-15  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta3 is released.
