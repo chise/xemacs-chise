@@ -433,7 +433,15 @@ LEADING_BYTE_PREFIX_P (unsigned char lb)
 
 /* Does this byte represent the first byte of a character? */
 
+#ifdef UTF2000
+INLINE int
+BUFBYTE_FIRST_BYTE_P(Bufbyte c)
+{
+  return (c <= 0x7f) || (0xc0 <= c);
+}
+#else
 #define BUFBYTE_FIRST_BYTE_P(c) ((c) < 0xA0)
+#endif
 
 /* Does this byte represent the first byte of a multi-byte character? */
 
@@ -580,6 +588,25 @@ CHARSET_BY_LEADING_BYTE (int lb)
 #define CHARSET_BY_ATTRIBUTES(type, final, dir) \
   (charset_by_attributes[type][final][dir])
 
+#ifdef UTF2000
+INLINE int REP_BYTES_BY_FIRST_BYTE (int fb);
+INLINE int
+REP_BYTES_BY_FIRST_BYTE (int fb)
+{
+  if ( fb >= 0xfc )
+    return 6;
+  else if ( fb >= 0xf8 )
+    return 5;
+  else if ( fb >= 0xf0 )
+    return 4;
+  else if ( fb >= 0xe0 )
+    return 3;
+  else if ( fb >= 0xc0 )
+    return 2;
+  else
+    return 1;
+}
+#else /* MULE */
 #ifdef ERROR_CHECK_TYPECHECK
 
 /* Number of bytes in the string representation of a character */
@@ -594,6 +621,7 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
 #else
 #define REP_BYTES_BY_FIRST_BYTE(fb) (rep_bytes_by_first_byte[fb])
 #endif
+#endif /* end MULE */
 
 
 /************************************************************************/
