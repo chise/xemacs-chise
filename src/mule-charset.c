@@ -2316,10 +2316,9 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
   accessmask = DB_RDONLY;
 
   dt_ccs
-    = chise_ds_open_ccs_table (default_chise_data_source,
-			       XSTRING_DATA (Fsymbol_name
-					     (XCHARSET_NAME(ccs))),
-			       real_subtype, accessmask, modemask);
+    = chise_ds_get_ccs (default_chise_data_source,
+			XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(ccs))),
+			real_subtype, accessmask, modemask);
   if (dt_ccs == NULL)
     {
       printf ("Can't open decoding-table %s\n",
@@ -2328,17 +2327,12 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
     }
 
   char_id = chise_ccs_decode (dt_ccs, code_point);
-  /*
-  printf ("%s's 0x%X (%d) => 0x%X\n",
-	  XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(ccs))),
-	  code_point, code_point, char_id);
-  */
   if (char_id >= 0)
     decoding_table_put_char (ccs, code_point, make_char (char_id));
   else
     decoding_table_put_char (ccs, code_point, Qnil);
 
-  chise_ccst_close (dt_ccs);
+  /* chise_ccst_close (dt_ccs); */
   return char_id;
 #else
   Lisp_Object db;
