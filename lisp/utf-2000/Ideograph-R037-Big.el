@@ -3486,3 +3486,12 @@
     (=ucs		. #x2169F)	; ð¡šŸ
     (=hanziku-2		. #xC15D)	; ý¢€¬…
     ))
+(define-char
+  '((ideographic-radical . 37)	; â¼¤
+    (<-unknown
+     ((=ucs		  . #x215DB)	; ð¡—›
+      ))
+    (sources		bos=A016462-00003 bos=A016430-00004
+			bos=A016594-00007)
+    (=ruimoku-v6	. #xE006)	; øº€†
+    ))
