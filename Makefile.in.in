@@ -241,8 +241,8 @@ INSTALL_ARCH_DEP_SUBDIR = @INSTALL_ARCH_DEP_SUBDIR@
 ## avoid nuking an existing dir file, so we don't do that here;
 ## instead, we have written out explicit code in the `install' targets.
 #ifdef HAVE_CHISE
-COPYDIR = ${srcdir}/etc ${srcdir}/lisp ${srcdir}/lib-src/char-db
-COPYDESTS = ${etcdir} ${lispdir} ${archlibdir}/char-db
+COPYDIR = ${srcdir}/etc ${srcdir}/lisp ${srcdir}/lib-src/chise-db
+COPYDESTS = ${etcdir} ${lispdir} ${archlibdir}/chise-db
 #else
 COPYDIR = ${srcdir}/etc ${srcdir}/lisp
 COPYDESTS = ${etcdir} ${lispdir}
@@ -518,7 +518,7 @@ install-arch-indep: mkdir info
 	    chmod 0644 ${mandir}/$${page}${manext} ; \
 	  done
 #ifdef HAVE_LIBCHISE
-	${LN_S} ${archlibdir}/char-db `${blddir}/src/${PROGNAME} -batch -vanilla -eval "\
+	${LN_S} ${archlibdir}/chise-db `${blddir}/src/${PROGNAME} -batch -vanilla -eval "\
 (let ((path (expand-file-name \"db\" chise-db-directory)))\
   (if (file-exists-p chise-db-directory)\
       (if (file-exists-p path)\
