@@ -1,3 +1,60 @@
+2000-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* file-coding.c (ucs_to_char): Don't use `CHARSET_TYPE_*'; modify
+	for `CHARSET_BY_ATTRIBUTES'.
+	(parse_iso2022_esc): Don't use `CHARSET_TYPE_*'; modify for
+	`CHARSET_BY_ATTRIBUTES'.
+
+	* text-coding.c (struct decoding_stream): Rename member `CH' to
+	`CPOS'.
+	(reset_decoding_stream): Use `str->cpos' instead of `str->ch'.
+	(decode_coding_sjis): Likewise.
+	(decode_coding_big5): Likewise.
+	(decode_coding_ucs4): Likewise.
+	(decode_coding_utf8): Likewise.
+	(parse_iso2022_esc): Don't use `CHARSET_TYPE_*'; modify for
+	`CHARSET_BY_ATTRIBUTES'.
+	(decode_coding_iso2022): Use `str->cpos' instead of `str->ch'; use
+	`str->counter'; decode 3, 4 bytes sets.
+	(char_encode_iso2022): Don't use `BREAKUP_CHAR'; encode 3, 4 bytes
+	sets.
+	(decode_coding_no_conversion): Use `str->cpos' instead of
+	`str->ch'.
+
+	* mule-charset.c (Vcharset_mojikyo_2022_1): New variable.
+	(Qmojikyo_2022_1): New variable.
+	(make_charset): Don't use `CHARSET_TYPE_*'.
+	(range_charset_code_point): Support coded-charset
+	`mojikyo-2022-1'.
+	(encode_builtin_char_1): Modify for `CHARSET_BY_ATTRIBUTES'.
+	(Fmake_charset): Don't use `CHARSET_TYPE_*'; modify for
+	`CHARSET_BY_ATTRIBUTES'.
+	(Fcharset_from_attributes): Don't use `CHARSET_TYPE_*'; modify for
+	`CHARSET_BY_ATTRIBUTES'.
+	(syms_of_mule_charset): Add new symbol `mojikyo-2022-1'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`mojikyo-2022-1'.
+
+	* mule-charset.h (CHARSET_BY_ATTRIBUTES): New implementation and
+	interface; changed to inline function.
+
+	* char-ucs.h (Vcharset_mojikyo_2022_1): New variable.
+	(LEADING_BYTE_MOJIKYO_2022_1): New macro.
+	(LEADING_BYTE_MOJIKYO_2022_2): New macro.
+	(CHARSET_TYPE_94): Deleted.
+	(CHARSET_TYPE_94X94): Deleted.
+	(CHARSET_TYPE_96): Deleted.
+	(CHARSET_TYPE_96X96): Deleted.
+	(CHARSET_TYPE_128): Deleted.
+	(CHARSET_TYPE_128X128): Deleted.
+	(CHARSET_TYPE_256): Deleted.
+	(CHARSET_TYPE_256X256): Deleted.
+	(CHARSET_BY_ATTRIBUTES): New implementation and interface; changed
+	to inline function.
+	(DECODE_MOJIKYO_2022): New inline function.
+	(DECODE_CHAR): Use `DECODE_MOJIKYO_2022'; decode
+	`Vcharset_mojikyo_2022_1'.
+
 2000-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (byte_table_same_value_p): Use `internal_equal'
