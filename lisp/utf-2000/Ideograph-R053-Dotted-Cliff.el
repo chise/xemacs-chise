@@ -2567,6 +2567,7 @@
     ))
 (define-char
   '((=>ucs		. #x2F88E)	; 廊
+    (=>ucs*		. #x5ECA)	; 廊
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -2578,6 +2579,7 @@
     ))
 (define-char
   '((=>ucs		. #x2F88E)	; 廊
+    (=>ucs*		. #x5ECA)	; 廊
     (morohashi-daikanwa	9437 0 0)
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 10)
@@ -2586,7 +2588,7 @@
     (ucs		. #xF928)	; 廊
     ))
 (define-char
-  '((=>ucs		. #x5ECA)	; 廊
+  '((=>ucs*		. #x5ECA)	; 廊
     (morohashi-daikanwa	9437 0 1)
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 10)
