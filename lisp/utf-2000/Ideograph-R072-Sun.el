@@ -1831,7 +1831,8 @@
       (=jis-x0208	  . #x5A6C)	; &I-J90-5A6C;
       ))
     (<-vulgar
-     ((=daikanwa	  . 13948)	; &I-M-13948;
+     ((=ucs		  . #x665D)	; 晝
+      (=daikanwa	  . 13948)	; &I-M-13948;
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu daikanwa)

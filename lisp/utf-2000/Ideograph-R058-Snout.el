@@ -110,7 +110,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (<-vulgar
-     ((=daikanwa	  . 21890)	; &I-M-21890;
+     ((=ucs		  . #x7576)	; 當
+      (=daikanwa	  . 21890)	; &I-M-21890;
       ))
     (<-vulgar*sources
      daikanwa)
