@@ -822,10 +822,18 @@
     (hanyu-dazidian-vol	 . 4)
     (hanyu-dazidian-page . 2802)
     (hanyu-dazidian-char . 2)
-    (chinese-cns11643-5 . #x277B)	; ø»™´º
-    (ideograph-daikanwa . 00281)	; ø¸€„™
-    (mojikyo		. 000281)	; ý €€„™
-    (ucs		. #x20131)	; ð „±
+    (chinese-cns11643-5		. #x277B)	; ø»™´º
+    (ideograph-daikanwa		. 00281)	; ø¸€„™
+    (ideograph-hanziku-7	. #xEEEB)	; ý¢¾»«
+    (mojikyo			. 000281)	; ý €€„™
+    (ucs			. #x20131)	; ð „±
+    ))
+(define-char
+  '((ideographic-radical . 7)	; â¼†
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideograph-hanziku-1	. #xF5B0)	; ý¢€Ÿ–°
+    (ucs			. #x20134)	; ð „´
     ))
 (define-char
   '((ideographic-radical . 7)	; â¼†
@@ -851,16 +859,16 @@
     (ucs			. #x20135)	; ð „µ
     ))
 (define-char
-  '((ideographic-radical . 7)	; â¼†
+  '((=>ucs		. #x20AFC)	; ð «¼
+    (ideographic-radical . 7)	; â¼†
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 387)
-    (hanyu-dazidian-char . 18)
+    (->identical
+     ((ucs		  . #x20AFC)	; ð «¼
+      ))
     (chinese-cns11643-6 . #x352E)	; ø»œ’•
     (ideograph-daikanwa . 00283)	; ø¸€„›
     (mojikyo		. 000283)	; ý €€„›
-    (ucs		. #x20AFC)	; ð «¼
     ))
 (define-char
   '((ideographic-radical . 7)	; â¼†
