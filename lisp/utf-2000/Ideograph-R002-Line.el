@@ -512,6 +512,21 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 30)
     (hanyu-dazidian-char . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((chinese-big5-cdp	  . #x8969)	; ý¢€ˆ¥©
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((chinese-big5-cdp   . #x89BC)	; ý¢€ˆ¦¼
+	)
+       ((chinese-big5-cdp   . #x8BDE)	; ý¢€ˆ¯ž
+	))
+      ))
     (chinese-gb2312	. #x4159)	; ø»„µ¼
     (chinese-isoir165	. #x4159)	; ø»žŒ
     (ucs		. #x4E34)	; ä¸´
