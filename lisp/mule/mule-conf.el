@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
-;; Copyright (C) 1997,1999,2000,2002 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2000,2002,2003 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -144,8 +144,6 @@
 	       graphic 2
 	       direction l2r
 	       mother ucs-jis))
-  (define-charset-alias 'ucs-jis-1990 '=ucs-jis-1990)
-  (define-charset-alias 'ucs-jis-2000 '=ucs-jis-2000)
   (make-charset
    'chinese-big5-pua
    "Big5-PUA"
