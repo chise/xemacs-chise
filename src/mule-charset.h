@@ -552,7 +552,7 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 
 struct charset_lookup {
   /* Table of charsets indexed by leading byte. */
-  Lisp_Object charset_by_leading_byte[128];
+  Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
 
   /* Table of charsets indexed by type/final-byte/direction. */
   Lisp_Object charset_by_attributes[4][128][2];
@@ -570,7 +570,8 @@ CHARSET_BY_LEADING_BYTE (Bufbyte lb)
   /* When error-checking is on, x86 GCC 2.95.2 -O3 miscompiles the
      following unless we introduce `tem'. */
   int tem = lb;
-  type_checking_assert (tem >= 0x80 && tem <= 0xFF);
+  type_checking_assert (tem >= MIN_LEADING_BYTE &&
+			tem <= (MIN_LEADING_BYTE + NUM_LEADING_BYTES));
 #endif
   return chlook->charset_by_leading_byte[lb - 128];
 }

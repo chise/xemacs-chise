@@ -590,8 +590,8 @@ make_charset (int id, Lisp_Object name, unsigned char rep_bytes,
       chlook->charset_by_attributes[type][final][direction] = obj;
     }
 
-  assert (NILP (chlook->charset_by_leading_byte[id - 128]));
-  chlook->charset_by_leading_byte[id - 128] = obj;
+  assert (NILP (chlook->charset_by_leading_byte[id - MIN_LEADING_BYTE]));
+  chlook->charset_by_leading_byte[id - MIN_LEADING_BYTE] = obj;
 
   /* Some charsets are "faux" and don't have names or really exist at
      all except in the leading-byte table. */
