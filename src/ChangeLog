@@ -1,5 +1,10 @@
 1999-09-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* file-coding.c (decode_coding_iso2022): Use
+	`DECODE_ADD_UCS_CHAR'; don't use `XCHARSET_REP_BYTES'.
+
+1999-09-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
 	to 0.7 (Hirano).
 
