@@ -28,20 +28,20 @@ Boston, MA 02111-1307, USA.  */
 #define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
 
-struct Lisp_Char_Byte_Table
+struct Lisp_Byte_Table
 {
   struct lcrecord_header header;
 
   Lisp_Object property[256];
 };
-typedef struct Lisp_Char_Byte_Table Lisp_Char_Byte_Table;
+typedef struct Lisp_Byte_Table Lisp_Byte_Table;
 
-DECLARE_LRECORD (char_byte_table, Lisp_Char_Byte_Table);
-#define XCHAR_BYTE_TABLE(x) XRECORD (x, char_byte_table, Lisp_Char_Byte_Table)
-#define XSETCHAR_BYTE_TABLE(x, p) XSETRECORD (x, p, char_byte_table)
-#define CHAR_BYTE_TABLE_P(x) RECORDP (x, char_byte_table)
-#define GC_CHAR_BYTE_TABLE_P(x) GC_RECORDP (x, char_byte_table)
-/* #define CHECK_CHAR_BYTE_TABLE(x) CHECK_RECORD (x, char_byte_table)
+DECLARE_LRECORD (byte_table, Lisp_Byte_Table);
+#define XBYTE_TABLE(x) XRECORD (x, byte_table, Lisp_Byte_Table)
+#define XSETBYTE_TABLE(x, p) XSETRECORD (x, p, byte_table)
+#define BYTE_TABLE_P(x) RECORDP (x, byte_table)
+#define GC_BYTE_TABLE_P(x) GC_RECORDP (x, byte_table)
+/* #define CHECK_BYTE_TABLE(x) CHECK_RECORD (x, byte_table)
    char table entries should never escape to Lisp */
 
 
