@@ -1,3 +1,74 @@
+2000-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.h (get_non_ascii_char_table_value): Use <Charset_ID>
+	instead of <int>.
+
+	* lisp.h (Charset_ID): New type.
+
+	* redisplay-output.c (redisplay_output_layout): Use <Charset_ID>
+	instead of <unsigned char>.
+
+	* glyphs.c (query_string_geometry): Use <Charset_ID> instead of
+	<unsigned char>.
+	(query_string_font): Likewise.
+
+	* mule-charset.h (struct charset_lookup): Use <Charset_ID> instead
+	of <Bufbyte> for `charset_by_leading_byte'; use
+	`NUM_LEADING_BYTES' for `charset_by_leading_byte'.
+
+1999-09-02  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* chartab.h (CHAR_TABLE_NON_ASCII_VALUE_UNSAFE): Use `Charset_ID'
+	instead of `unsigned char'.
+
+1999-09-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (non_ascii_set_charptr_emchar): Use `Charset_ID'
+	instead of `Bufbyte'.
+	(make_charset): Use `Charset_ID' instead of `int'.
+	(get_unallocated_leading_byte): Likewise.
+
+	* insdel.c (find_charsets_in_bufbyte_string): Use `Charset_ID'
+	instead of `unsigned char'; use `MIN_LEADING_BYTE' instead of 128.
+	(find_charsets_in_emchar_string): Likewise.
+
+	* file-coding.c (Fdecode_big5_char): Use `Charset_ID' instead of
+	`int'.
+	(decode_coding_iso2022): Likewise.
+
+	* toolbar-x.c (x_output_toolbar_button): Use `Charset_ID' instead
+	of `unsigned char'.
+
+	* redisplay.c (redisplay_text_width_emchar_string): Use
+	`Charset_ID' instead of `unsigned char'.
+	(redisplay_frame_text_width_string): Likewise.
+
+	* faces.h, faces.c (ensure_face_cachel_complete): Use `Charset_ID'
+	instead of `unsigned char'.
+	(face_cachel_charset_font_metric_info): Likewise.
+
+	* chartab.c (print_char_table): Use `Charset_ID' instead of `int'.
+	(get_non_ascii_char_table_value): Likewise.
+	(map_over_other_charset): Likewise.
+	(map_char_table): Likewise.
+
+	* buffer.h (find_charsets_in_bufbyte_string): Use `Charset_ID'
+	instead of `unsigned char'.
+	(find_charsets_in_emchar_string): Likewise.
+
+1999-08-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.h (CHARSET_BY_LEADING_BYTE): Use `MIN_LEADING_BYTE
+	+ NUM_LEADING_BYTES' instead of 0xFF.
+
+1999-08-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.h (CHARSET_BY_LEADING_BYTE): Use `MIN_LEADING_BYTE'
+	instead of 128.
+
+	* faces.h (FACE_CACHEL_FONT): Use `MIN_LEADING_BYTE' instead of
+	128.
+
 1999-10-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* doprnt.c (emacs_doprnt_1): Fix problem with %0XXd for a negative
