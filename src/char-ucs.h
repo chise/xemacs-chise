@@ -26,6 +26,10 @@ Boston, MA 02111-1307, USA.  */
 #define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
 
+/************************************************************************/
+/*                               Char-ID Tables                         */
+/************************************************************************/
+
 struct Lisp_Uint8_Byte_Table
 {
   struct lcrecord_header header;
@@ -785,8 +789,14 @@ CHAR_TO_CHARC (Emchar ch)
 
 EXFUN (Fget_charset, 1);
 
+extern Lisp_Object Qucs;
+
 extern Lisp_Object Vcharset_japanese_jisx0208;
 extern Lisp_Object Vcharset_japanese_jisx0208_1990;
 extern Lisp_Object Vcharset_japanese_jisx0212;
+
+Lisp_Object put_char_ccs_code_point (Lisp_Object character,
+				     Lisp_Object ccs, Lisp_Object value);
+Lisp_Object remove_char_ccs (Lisp_Object character, Lisp_Object ccs);
 
 #endif /* INCLUDED_char_ucs_h_ */
