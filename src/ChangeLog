@@ -1,3 +1,12 @@
+1998-09-13  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* file-coding.c (decode_coding_sjis): fixed.
+
+1998-09-04  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* Delete mule-coding.c and mule-coding.h because they are not
+	used.
+
 1999-03-12  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.13 is released

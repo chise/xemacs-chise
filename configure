@@ -7790,8 +7790,8 @@ cat >> confdefs.h <<\EOF
 EOF
 }
 
-  extra_objs="$extra_objs mule.o mule-ccl.o mule-charset.o mule-coding.o file-coding.o" &&  if test "$extra_verbose" = "yes"; then
-   echo "    xemacs will be linked with \"mule.o mule-ccl.o mule-charset.o mule-coding.o file-coding.o\""
+  extra_objs="$extra_objs mule.o mule-ccl.o mule-charset.o file-coding.o" &&  if test "$extra_verbose" = "yes"; then
+   echo "    xemacs will be linked with \"mule.o mule-ccl.o mule-charset.o file-coding.o\""
  fi
 
     for ac_hdr in libintl.h
