@@ -958,7 +958,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8B55)	; ý¢€ˆ­•
+     ((ucs		  . #x4E37)	; ä¸·
       )
      ((ucs		  . #x5144)	; å…„
       ))
@@ -1512,12 +1512,16 @@
     (hanyu-dazidian-page . 273)
     (hanyu-dazidian-char . 11)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (ucs		  . #x2FF1)	; â¿±
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (ucs		  . #x2FF5)	; â¿µ
       )
-     ((ucs		  . #x5C1A)	; å°š
+     ((ideographic-structure
+       ((chinese-big5-cdp   . #x8B54)	; ý¢€ˆ­”
+	)
+       ((ucs		    . #x5196)	; å†–
+	))
       )
-     ((ucs		  . #x513F)	; å„¿
+     ((ucs		  . #x5144)	; å…„
       ))
     (shinjigen-1	. 474)
     (shinjigen-2	. 474)
