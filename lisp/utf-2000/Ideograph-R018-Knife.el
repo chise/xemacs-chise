@@ -2665,28 +2665,13 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (<-ancient-ideograph
-     (:sources	(jiiho morohashi-daikanwa)
-      :char	((=daikanwa	     . 01917)	; ø¸€½
-		 )
+     ((=daikanwa	  . 01917)	; ø¸€½
       ))
+    (<-ancient-ideograph*sources
+     zihui-bei daikanwa)
     (=ucs		. #x206F9)	; ð ›¹
     (=cns11643-6	. #x2967)	; ø»œ¦
     (=daikanwa		. 01980)	; ø¸€ž¼
-    ))
-(define-char
-  '((morohashi-daikanwa	1980 0 5)
-    (ideographic-radical . 18)	; â¼‘
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (->ideographic-variants
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 609)
-		 (=daikanwa	     . 01917)	; ø¸€½
-		 )
-      ))
-    (shinjigen-1	. 610)
-    (=ucs		. #x20702)	; ð œ‚
-    (=cns11643-6	. #x2968)	; ø»œ§
     ))
 (define-char
   '((=>ucs		. #x20706)	; ð œ†
@@ -2807,6 +2792,21 @@
     (=cns11643-4	. #x254E)	; ø»—§
     (=daikanwa		. 01988)	; ø¸€Ÿ„
     (=hanziku-1		. #xEB52)	; ý¢€ž­’
+    ))
+(define-char
+  '((ideographic-radical . 18)	; â¼‘
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (->ideographic-variants
+     ((shinjigen-1	  . 609)
+      (=daikanwa	  . 01917)	; ø¸€½
+      ))
+    (->ideographic-variants*sources
+     shinjigen-1)
+    (shinjigen-1	. 610)
+    (=ucs		. #x20702)	; ð œ‚
+    (=cns11643-6	. #x2968)	; ø»œ§
+    (=daikanwa		. 48938)	; ø¸‹¼ª
     ))
 (define-char
   '((ideographic-radical . 18)	; â¼‘
