@@ -1176,6 +1176,15 @@ ZONE is an integer indicating the number of seconds east of Greenwich.
 
 static void set_time_zone_rule (char *tzstring);
 
+/* from GNU Emacs 21, per Simon Josefsson, modified by stephen
+   The slight inefficiency is justified since negative times are weird. */
+Lisp_Object
+make_time (time_t time)
+{
+  return list2 (make_int (time < 0 ? time / 0x10000 : time >> 16),
+		make_int (time & 0xFFFF));
+}
+
 DEFUN ("encode-time", Fencode_time, 6, MANY, 0, /*
   Convert SECOND, MINUTE, HOUR, DAY, MONTH, YEAR and ZONE to internal time.
 This is the reverse operation of `decode-time', which see.
@@ -1249,7 +1258,7 @@ If you want them to stand for years in this century, you must do that yourself.
   if (the_time == (time_t) -1)
     error ("Specified time is not representable");
 
-  return wasteful_word_to_lisp (the_time);
+  return make_time (the_time);
 }
 
 DEFUN ("current-time-string", Fcurrent_time_string, 0, 1, 0, /*

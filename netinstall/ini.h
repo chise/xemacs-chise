@@ -73,7 +73,8 @@ extern int npackages;
 Package *new_package (char *name);
 void	ini_init (char *string);
 
-#define pi (package[i].info[package[i].trust])
+#define pinfo(p) ((p).info[(p).trust])
+#define pi pinfo(package[i])
 
 #define LOOP_PACKAGES \
   for (i=0; i<npackages; i++) \

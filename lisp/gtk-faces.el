@@ -51,7 +51,7 @@
   (if (not (eq (device-type device) 'gtk))
       nil
     (gtk-init-pointers)
-    '(let* ((style (gtk-style-info device))
+    (let* ((style (gtk-style-info device))
 	   ;;(normal 0)			; GTK_STATE_NORMAL
 	   ;;(active 1)			; GTK_STATE_ACTIVE
 	   (prelight 2)			; GTK_STATE_PRELIGHT

@@ -74,6 +74,7 @@ CPP=@CPP@
 LN_S=@LN_S@
 CFLAGS=@CFLAGS@
 CPPFLAGS=@CPPFLAGS@
+LDFLAGS=@LDFLAGS@
 
 ## These help us choose version- and architecture-specific directories
 ## to install files in.

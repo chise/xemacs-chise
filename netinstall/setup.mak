@@ -26,7 +26,6 @@
 
 TARGETOS=BOTH
 APPVER=4.0
-!include "c:\Program Files\Microsoft Platform SDK\Include\win32.mak"
 
 default: all
 
@@ -55,9 +54,9 @@ OUTDIR = obj
 VERBOSECC=0
 !endif
 !if $(VERBOSECC)
-cc=$(cc)
+CCV=$(CC)
 !else
-cc=@$(cc)
+CCV=@$(CC)
 !endif
 
 !if $(DEBUG_XEMACS)
@@ -83,6 +82,7 @@ OBJS = 	\
 	$(OUTDIR)\geturl.obj \
 	$(OUTDIR)\hash.obj \
 	$(OUTDIR)\ini.obj \
+	$(OUTDIR)\init.obj \
 	$(OUTDIR)\inilex.obj \
 	$(OUTDIR)\iniparse.obj \
 	$(OUTDIR)\install.obj \
@@ -101,7 +101,6 @@ OBJS = 	\
 	$(OUTDIR)\nio-http.obj \
 	$(OUTDIR)\other.obj \
 	$(OUTDIR)\postinstall.obj \
-#	$(OUTDIR)\res.obj \
 	$(OUTDIR)\root.obj \
 	$(OUTDIR)\simpsock.obj \
 	$(OUTDIR)\site.obj \
@@ -109,6 +108,7 @@ OBJS = 	\
 	$(OUTDIR)\splash.obj \
 	$(OUTDIR)\state.obj \
 	$(OUTDIR)\tar.obj \
+	$(OUTDIR)\uninstall.obj \
 	$(OUTDIR)\version.obj
 
 #
@@ -126,9 +126,9 @@ LIBS = libcmt.lib $(olelibsmt) \
 
 # nmake rule
 .cc{$(OUTDIR)}.obj:
-	$(cc) /TP $(cflags) $(cdebug) $(cvarsmt) $(defines) -Fo$@ $<
+	$(CC) /TP $(cflags) $(cdebug) $(cvarsmt) $(defines) -Fo$@ $<
 .c{$(OUTDIR)}.obj:
-	$(cc) $(cflags) $(cdebug) $(cvarsmt) $(defines) -Fo$@ $<
+	$(CC) $(cflags) $(cdebug) $(cvarsmt) $(defines) -Fo$@ $<
 
 #
 # Main target
@@ -169,8 +169,9 @@ distclean:: clean
 # DO NOT DELETE
 
 $(OUTDIR)/autoload.obj: autoload.c win32.h 
-$(OUTDIR)/inilex.obj: inilex.c win32.h  ini.h iniparse.h \
-	
+$(OUTDIR)/inilex.obj: inilex.c win32.h  ini.h iniparse.h
+$(OUTDIR)/init.obj: win32.h  dialog.h resource.h \
+	state.h ini.h concat.h msg.h log.h find.h reginfo.h
 $(OUTDIR)/iniparse.obj: iniparse.c ini.h iniparse.h port.h
 $(OUTDIR)/inilex.obj: inilex.c win32.h  ini.h iniparse.h
 $(OUTDIR)/mklink2.obj: mklink2.c win32.h 
@@ -237,6 +238,10 @@ $(OUTDIR)/source.obj: source.cc win32.h  dialog.h resource.h \
 $(OUTDIR)/splash.obj: splash.cc win32.h  dialog.h resource.h msg.h \
 	version.h
 $(OUTDIR)/state.obj: state.cc state.h
+$(OUTDIR)/uninstall.obj: install.cc win32.h  \
+	$(ZLIBDIR)/zlib.h $(ZLIBDIR)/zconf.h \
+	resource.h ini.h dialog.h concat.h geturl.h mkdir.h state.h tar.h \
+	diskfull.h msg.h regedit.h reginfo.h log.h hash.h port.h
 $(OUTDIR)/tar.obj: tar.cc win32.h  \
 	$(ZLIBDIR)/zlib.h $(ZLIBDIR)/zconf.h \
 	tar.h mkdir.h log.h port.h

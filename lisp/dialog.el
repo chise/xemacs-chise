@@ -262,6 +262,18 @@ The keywords allowed are
 
 ---------------------------------------------------------------------------
 
+For type `directory':
+
+The keywords allowed are
+
+:initial-directory
+  The initial directory to be selected in the dialog box (defaults to the
+  current buffer's `default-directory).
+:title
+  The title of the dialog box (defaults to \"Open\").
+
+---------------------------------------------------------------------------
+
 For type `print':
 
 This invokes the Windows standard Print dialog.

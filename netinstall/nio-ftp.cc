@@ -43,7 +43,7 @@ ftp_line (SimpleSocket *s)
     last_line = s->gets ();
     log (LOG_BABBLE, "ftp > %s", last_line);
   } while (last_line && (!isdigit (last_line[0]) || last_line[3] != ' '));
-  return atoi (last_line ? last_line : "0");
+  return atoi (last_line ?: "0");
 }
 
 NetIO_FTP::NetIO_FTP (char *Purl)
@@ -73,7 +73,7 @@ NetIO_FTP::NetIO_FTP (char *Purl)
       code = ftp_line (c);
       if (code == 331)
 	{
-	  c->printf ("PASS xenacs-setup@\r\n");
+	  c->printf ("PASS xemacs-setup@\r\n");
 	  code = ftp_line (c);
 	}
 

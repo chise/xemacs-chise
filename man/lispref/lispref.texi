@@ -130,6 +130,8 @@ Reference Manual, corresponding to XEmacs version 21.0.
 * Copying::                 Conditions for copying and changing XEmacs.
 * Introduction::            Introduction and conventions used.
 
+* Packaging::               Lisp library administrative infrastructure.
+
 * Lisp Data Types::         Data types of objects in XEmacs Lisp.
 * Numbers::                 Numbers and arithmetic functions.
 * Strings and Characters::  Strings, and functions that work on them.
@@ -249,6 +251,34 @@ Format of Descriptions
 
 * A Sample Function Description::
 * A Sample Variable Description::
+
+Packaging
+
+* Package Overview::       Lisp Libraries and Packages.
+* Package Terminology::    Basic stuff.
+* Building Packages::      Turn packaged source into a tarball.
+* Local.rules File::       Tell the XEmacs Packaging System about your host.
+* Creating Packages::      Tell the XEmacs Packaging System about your package.
+* Issues::
+
+Package Overview
+
+* The User's View::
+* The Library Maintainer's View::
+* The Package Release Engineer's View::
+
+The Library Maintainer's View
+
+* Infrastructure::    Global Makefiles and common rules.
+* Control Files::     Package-specific Makefiles and administrative files.
+* Obtaining::         Obtaining the XEmacs Packaging System and utilities.
+
+Creating Packages
+
+* package-compile.el::
+* package-info.in Fields::
+* Makefile Variables::
+* Makefile Targets::
 
 Lisp Data Types
 
@@ -970,6 +1000,7 @@ Glyphs
 * Redisplay Glyphs::    Glyphs controlling various redisplay functions.
 * Subwindows::          Inserting an externally-controlled subwindow
                           into a buffer.
+* Glyph Examples::      Examples of how to work with glyphs.
 
 Glyph Functions
 
@@ -1153,6 +1184,7 @@ Building XEmacs and Object Allocation
 @end menu
 
 @include intro.texi
+@include packaging.texi
 @include objects.texi
 @include numbers.texi
 @include strings.texi

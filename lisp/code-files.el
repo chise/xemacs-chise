@@ -116,7 +116,8 @@ something other than what it is at the moment."
 	   (coding-system-base buffer-file-coding-system)
 	   (cond ((eq eol-type 'lf) 'crlf)
 		 ((eq eol-type 'crlf) 'lf)
-		 ((eq eol-type 'cr) 'lf))))))
+		 ((eq eol-type 'cr) 'lf))))
+    (set-buffer-modified-p t)))
 
 (define-obsolete-function-alias
   'set-file-coding-system

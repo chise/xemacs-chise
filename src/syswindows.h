@@ -74,6 +74,7 @@ extern BOOL WINAPI PlaySound(LPCSTR,HMODULE,DWORD);
 #define Status int
 #endif
 #include <mmsystem.h>
+#include <shlobj.h>
 #include <shellapi.h>
 #include <ddeml.h>
 #endif
@@ -104,6 +105,17 @@ extern BOOL WINAPI PlaySound(LPCSTR,HMODULE,DWORD);
 #endif
 #ifndef PHYSICALOFFSETY
 #define PHYSICALOFFSETY 113
+#endif
+
+/* shlobj.h defines. */
+#ifndef BIF_EDITBOX
+#define BIF_EDITBOX 0x10
+#endif
+#ifndef BIF_VALIDATE
+#define BIF_VALIDATE 0x20
+#endif
+#ifndef BFFM_VALIDATEFAILED
+#define BFFM_VALIDATEFAILED 3
 #endif
 
 /* windows.h defines. */
@@ -238,10 +250,15 @@ Lisp_Object tstr_to_local_file_format (Extbyte *pathout);
 #define LOCAL_TO_WIN32_FILE_FORMAT(path, pathout)			\
 do {									\
   Lisp_Object ltwff1 = (path);						\
-  int ltwff2 =								\
-    cygwin_posix_to_win32_path_list_buf_size (XSTRING_DATA (ltwff1));	\
-  pathout = (Bufbyte *) alloca (ltwff2);				\
-  cygwin_posix_to_win32_path_list (XSTRING_DATA (ltwff1), pathout);	\
+  Bufbyte* ltwffp = XSTRING_DATA (ltwff1);				\
+  if (isalpha (ltwffp[0]) && (IS_DEVICE_SEP (ltwffp[1])))			\
+    pathout = ltwffp;							\
+  else {									\
+    int ltwff2 =								\
+      cygwin_posix_to_win32_path_list_buf_size (ltwffp);	\
+    pathout = (Bufbyte *) alloca (ltwff2);				\
+    cygwin_posix_to_win32_path_list (ltwffp, pathout);	\
+  }									\
 } while (0)
 #else
 #define LOCAL_TO_WIN32_FILE_FORMAT(path, pathout)	\

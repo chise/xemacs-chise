@@ -36,6 +36,7 @@ This function returns @code{t} if @var{object} is a glyph.
 * Redisplay Glyphs::    Glyphs controlling various redisplay functions.
 * Subwindows::          Inserting an externally-controlled subwindow
                           into a buffer.
+* Glyph Examples::      Examples of how to work with glyphs.
 @end menu
 
 @node Glyph Functions
@@ -1380,3 +1381,199 @@ Subwindows are not currently implemented.
 @defun subwindowp object
 This function returns non-@code{nil} if @var{object} is a subwindow.
 @end defun
+
+@node Glyph Examples
+@section Glyph Examples
+
+For many applications, displaying graphics is a simple process: you
+create a glyph, and then you insert it into a buffer.
+
+The easiest way to create a glyph is to use a file that contains a
+graphical image, such as a JPEG, TIFF, or PNG file:
+
+@lisp
+;; Create a glyph from a JPEG file:
+(setq foo (make-glyph [jpeg :file "/tmp/file1.jpg"]))
+@end lisp
+
+@lisp
+;; Create a glyph from a XPM file:
+(setq foo (make-glyph [xpm :file "/tmp/file2.xpm"]))
+@end lisp
+
+@lisp
+;; Create a glyph from a PNG file:
+(setq foo (make-glyph [png :file "/tmp/file3.png"]))
+@end lisp
+
+@lisp
+;; Create a glyph from a TIFF file:
+(setq foo (make-glyph [tiff :file "/tmp/file4.tiff"]))
+@end lisp
+
+The parameters passed to @code{make-glyph} are called "Image
+Specifiers", and can handle more image types than those shown above.
+You can also put the raw image data into a string (e.g., if you put the
+contents of a JPEG file into a string), and use that to create a glyph.
+@xref{Image Specifiers}, for more information.
+
+@quotation
+@strong{Caution}: In order for XEmacs to read a particular graphics file
+format, support for that format must have been compiled into XEmacs.
+It's possible, although somewhat unlikely, for XEmacs to have been
+compiled without support for any of the various graphics file formats.
+To see what graphics formats your particular version of XEmacs supports,
+use @kbd{M-x describe-installation}.
+
+To programmatically query whether or not a particular file format is
+supported, you can use the @code{featurep} function, with one of:
+@code{gif}, @code{tiff}, @code{jpeg}, @code{xpm}, @code{xbm},
+@code{png}, or @code{xface}.  For an up-to-date list, @ref{Image
+Specifiers}.  Example:
+
+@example
+;; Returns `t' if TIFF is supported:
+(featurep 'tiff)
+@end example
+
+Another example is:
+
+@example
+;; Returns a list of `t' or `nil', depending on whether or not the
+;; corresponding feature is supported:
+(mapcar #'(lambda (format-symbol) (featurep format-symbol))
+        '(gif tiff jpeg xpm png))
+@end example
+
+@end quotation
+
+Once you have a glyph, you can then insert it into a buffer.  Example:
+
+@lisp
+;; Use this function to insert a glyph at the left edge of point in the
+;; current buffer.  Any existing glyph at this location is replaced.
+(defun insert-glyph (gl)
+  "Insert a glyph at the left edge of point."
+  (let ( (prop 'myimage)        ;; myimage is an arbitrary name, chosen 
+                                ;; to (hopefully) not conflict with any
+                                ;; other properties.  Change it if
+                                ;; necessary.
+         extent )
+    ;; First, check to see if one of our extents already exists at
+    ;; point.  For ease-of-programming, we are creating and using our
+    ;; own extents (multiple extents are allowed to exist/overlap at the
+    ;; same point, and it's quite possible for other applications to
+    ;; embed extents in the current buffer without your knowledge).
+    ;; Basically, if an extent, with the property stored in "prop",
+    ;; exists at point, we assume that it is one of ours, and we re-use
+    ;; it (this is why it is important for the property stored in "prop"
+    ;; to be unique, and only used by us).
+    (if (not (setq extent (extent-at (point) (current-buffer) prop)))
+      (progn
+        ;; If an extent does not already exist, create a zero-length
+        ;; extent, and give it our special property.
+        (setq extent (make-extent (point) (point) (current-buffer)))
+        (set-extent-property extent prop t)
+        ))
+    ;; Display the glyph by storing it as the extent's "begin-glyph".
+    (set-extent-property extent 'begin-glyph gl)
+    ))
+
+;; You can then use this function like:
+(insert-glyph (make-glyph [jpeg :file "/tmp/file1.jpg"]))
+;; This will insert the glyph at point.
+
+;; Here's an example of how to insert two glyphs side-by-side, at point
+;; (using the above code):
+(progn
+  (insert-glyph (make-glyph [jpeg :file "/tmp/file1.jpg"]))
+  ;; Create a new extent at point.  We can't simply call "insert-glyph",
+  ;; as "insert-glyph" will simply replace the first glyph with the
+  ;; second.
+  (setq extent (make-extent (point) (point) (current-buffer)))
+  ;; Here, we're only setting the 'myimage property in case we need
+  ;; to later identify/locate/reuse this particular extent.
+  (set-extent-property extent 'myimage t)
+  (set-extent-property extent 'begin-glyph
+                       (make-glyph [jpeg :file "/tmp/file2.jpg"]))
+  )
+
+@end lisp
+
+Here are the gory details:
+
+@itemize @bullet
+
+@item
+Glyphs are displayed by attaching them to extents (see @ref{Extents}),
+either to the beginning or the end of extents.
+
+Note that extents can be used for many things, and not just for
+displaying images (although, in the above example, we are creating our
+own extent for the sole purpose of displaying an image).  Also, note
+that multiple extents are allowed to exist at the same position, and
+they can overlap.
+
+@item
+Glyphs are often displayed inside the text area (alongside text).  This
+is the default.
+
+Although glyphs can also be displayed in the margins, how to do this
+will not be described here.  For more information on this, see
+@ref{Annotation Basics} (look for information on "layout types") and
+@ref{Extent Properties} (look for @code{begin-glyph-layout} and
+@code{end-glyph-layout}).
+
+@item
+The easiest way to insert a glyph into text is to create a zero-length
+extent at the point where you want the glyph to appear.
+
+Note that zero-length extents are attached to the character to the
+right of the extent; deleting this character will also delete the extent.
+
+@item
+It's often a good idea to assign a unique property to the newly-created
+extent, in case you later want to locate it, and replace any existing
+glyph with a different one (or just delete the existing one).  In the
+above example, we are using "myimage" as our (hopefully) unique property
+name.
+
+If you need to locate all of the extents, you'll have to use functions
+like @code{extent-list} or @code{next-extent}, or provide additional
+parameters to the @code{extent-at} function.  Assigning a unique
+property to the extent makes it easy to locate your extents; for
+example, @code{extent-list} can return only those extents with a
+particular property.  @xref{Finding Extents}, and @ref{Mapping Over
+Extents}, for more information.
+
+@item
+Glyphs are displayed by assigning then to the @code{begin-glyph} or
+@code{end-glyph} property of the extent.  For zero-length extents, it
+doesn't really matter if you assign the glyph to the @code{begin-glyph}
+or @code{end-glyph} property, as they are both at the same location;
+however, for non-zero-length extents (extents that cover one or more
+characters of text), it does matter which one you use.
+
+Assigning @code{nil} to the @code{begin-glyph} or @code{end-glyph}
+property will delete any existing glyph.  In this case, you may also
+want to delete the extent, assuming that the extent is used for no other
+purpose.
+
+@item
+If you happen to insert two glyphs, side-by-side, note that the example
+@code{insert-glyph} function will have trouble, if it's again used at
+the same point (it can only locate one of the two extents).
+@xref{Finding Extents}, and @ref{Mapping Over Extents}, for more
+information on locating extents in a buffer.
+
+@item
+Among other things, glyphs provide a way of displaying graphics
+alongside text.  Note, however, that glyphs only provide a way of
+displaying graphics; glyphs are not actually part of the text, and are
+only displayed alongside the text.  If you save the text in the buffer,
+the graphics are not saved.  The low-level glyph code does not provide a
+way of saving graphics with the text.  If you need to save graphics and
+text, you have to write your own code to do this, and this topic is
+outside the scope of this discussion.
+
+@end itemize

@@ -68,7 +68,6 @@ void
 do_splash (HINSTANCE h)
 {
   int rv = 0;
-  HANDLE gnu = LoadImage (h, MAKEINTRESOURCE (IDB_GNU), IMAGE_BITMAP, 0, 0, 0);
   rv = DialogBox (h, MAKEINTRESOURCE (IDD_SPLASH), 0, dialog_proc);
   if (rv == -1)
     fatal (IDS_DIALOG_FAILED);

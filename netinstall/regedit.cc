@@ -180,6 +180,7 @@ create_xemacs_root (char *path, int issystem, int isnative)
 	   path, path);
   RegSetValueEx (key, XEMACS_INFO_XEMACS_PACKAGE_KEY, 
 		 0, REG_SZ, (BYTE *)buf, strlen (buf)+1);
+  RegCloseKey (key);
 }
 
 void
@@ -201,6 +202,117 @@ set_app_path (char *exe, char* path, int issystem)
 
   RegSetValueEx (key, "Path", 
 		 0, REG_SZ, (BYTE *)path, strlen (path)+1);
+  RegCloseKey (key);
+}
+
+void
+set_install_path (char* path, int issystem)
+{
+  char buf[1000];
+  HKEY key;
+  DWORD disposition;
+
+  sprintf (buf, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\XEmacs");
+
+  HKEY kr = issystem ? HKEY_LOCAL_MACHINE : HKEY_CURRENT_USER;
+  RegDeleteKey (kr, buf);
+  
+  if (RegCreateKeyEx (kr, buf, 0, "XEmacs", 0, KEY_ALL_ACCESS,
+		      0, &key, &disposition) != ERROR_SUCCESS)
+    fatal ("set_install_path");
+
+  RegSetValueEx (key, "DisplayName", 
+		 0, REG_SZ, (BYTE *)"XEmacs", strlen ("XEmacs")+1);
+
+  sprintf (buf, "%s\\setup.exe -u", path);
+  RegSetValueEx (key, "UninstallString", 
+		 0, REG_SZ, (BYTE *)buf, strlen (buf)+1);
+  RegCloseKey (key);
+}
+
+void
+setup_explorer (char* file_type, char* name, char *exe)
+{
+  char buf[1000];
+  char ftype[32];
+  HKEY key;
+  DWORD disposition;
+
+  sprintf (buf, ".%s", file_type);
+  RegDeleteKey (HKEY_CLASSES_ROOT, buf);
+
+  if (RegCreateKeyEx (HKEY_CLASSES_ROOT, buf, 0, "XEmacs", 0, KEY_ALL_ACCESS,
+		      0, &key, &disposition) != ERROR_SUCCESS)
+    fatal ("setup_explorer");
+
+  // set default key
+  sprintf (ftype, "%sfile", file_type);
+  RegSetValueEx (key, NULL, 
+		 0, REG_SZ, (BYTE *)ftype, strlen (ftype)+1);
+  RegCloseKey (key);
+
+  // create file type entry
+  RegDeleteKey (HKEY_CLASSES_ROOT, ftype);
+  if (RegCreateKeyEx (HKEY_CLASSES_ROOT, ftype, 0, "XEmacs", 
+		      0, KEY_ALL_ACCESS,
+		      0, &key, &disposition) != ERROR_SUCCESS)
+    fatal ("setup_explorer");
+  RegSetValueEx (key, NULL,
+		 0, REG_SZ, (BYTE *)name, strlen (name)+1);
+  RegSetValueEx (key, "AlwaysShowExt",
+		 0, REG_SZ, (BYTE *)"", strlen ("")+1);
+  RegCloseKey (key);
+
+  // make xemacs file the default icon
+  sprintf(buf, "%s\\DefaultIcon", ftype);
+  if (RegCreateKeyEx (HKEY_CLASSES_ROOT, buf, 0, "XEmacs", 0, KEY_ALL_ACCESS,
+		      0, &key, &disposition) != ERROR_SUCCESS)
+    fatal ("setup_explorer");
+
+  sprintf(buf, "%s,1", exe);
+  RegSetValueEx (key, NULL, 
+		 0, REG_SZ, (BYTE *)buf, strlen (buf)+1);
+  RegCloseKey (key);
+
+  // command default key (exe)
+  sprintf(buf, "%s\\shell\\Open\\command", ftype);
+  if (RegCreateKeyEx (HKEY_CLASSES_ROOT, buf, 0, "XEmacs", 0, KEY_ALL_ACCESS,
+		      0, &key, &disposition) != ERROR_SUCCESS)
+    fatal ("setup_explorer");
+
+  sprintf(buf, "\"%s\"", exe);	// Don't need %1 because dde will open the file
+  RegSetValueEx (key, NULL, 
+		 0, REG_SZ, (BYTE *)buf, strlen (buf)+1);
+  RegCloseKey (key);
+
+  // ddeexec
+  sprintf(buf, "%s\\shell\\Open\\ddeexec", ftype);
+  if (RegCreateKeyEx (HKEY_CLASSES_ROOT, buf, 0, "XEmacs", 0, KEY_ALL_ACCESS,
+		      0, &key, &disposition) != ERROR_SUCCESS)
+    fatal ("setup_explorer");
+
+#define DDE_OPEN "Open(\"%1\")"
+  RegSetValueEx (key, NULL, 
+		 0, REG_SZ, (BYTE *)DDE_OPEN, strlen (DDE_OPEN)+1);
+  RegCloseKey (key);
+
+  // ddeexec application
+  sprintf(buf, "%s\\shell\\Open\\ddeexec\\application", ftype);
+  if (RegCreateKeyEx (HKEY_CLASSES_ROOT, buf, 0, "XEmacs", 0, KEY_ALL_ACCESS,
+		      0, &key, &disposition) != ERROR_SUCCESS)
+    fatal ("setup_explorer");
+  RegSetValueEx (key, NULL, 
+		 0, REG_SZ, (BYTE *)"XEmacs", strlen ("XEmacs")+1);
+  RegCloseKey (key);
+
+  // ddeexec topic
+  sprintf(buf, "%s\\shell\\Open\\ddeexec\\topic", ftype);
+  if (RegCreateKeyEx (HKEY_CLASSES_ROOT, buf, 0, "XEmacs", 0, KEY_ALL_ACCESS,
+		      0, &key, &disposition) != ERROR_SUCCESS)
+    fatal ("setup_explorer");
+  RegSetValueEx (key, NULL, 
+		 0, REG_SZ, (BYTE *)"system", strlen ("system")+1);
+  RegCloseKey (key);
 }
 
 static void
@@ -211,7 +323,10 @@ remove1 (HKEY rkey)
   sprintf (buf, "Software\\%s\\%s",
 	   XEMACS_INFO_XEMACS_ORG_REGISTRY_NAME,
 	   XEMACS_INFO_XEMACS_REGISTRY_NAME);
+  RegDeleteKey (rkey, buf);
 
+  sprintf (buf, "Software\\%s",
+	   XEMACS_INFO_XEMACS_ORG_REGISTRY_NAME);
   RegDeleteKey (rkey, buf);
 }
 
@@ -222,3 +337,23 @@ remove_xemacs_root ()
   remove1 (HKEY_CURRENT_USER);
 }
 
+void
+remove_app_path (char *exe)
+{
+  char buf[1000];
+  sprintf (buf, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\%s",
+	   exe);
+
+  RegDeleteKey (HKEY_LOCAL_MACHINE, buf);
+  RegDeleteKey (HKEY_CURRENT_USER, buf);
+}
+
+void
+remove_uninstall_path ()
+{
+  char buf[1000];
+  sprintf (buf, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\XEmacs");
+
+  RegDeleteKey (HKEY_LOCAL_MACHINE, buf);
+  RegDeleteKey (HKEY_CURRENT_USER, buf);
+}

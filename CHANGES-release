@@ -22,6 +22,52 @@ build-time, and "documentation and data" changes.
 For more details, including developers involved and dates, see the
 ChangeLogs, or use CVS diff to view the patches.
 
+to XEmacs 21.4.6 "Common Lisp"
+
+  - Changing coding system marks buffer as modified.
+  - More file/directory dialogs available on Windows.
+  - In replace-regexp, subexpression replacement supported.
+  - Motif bug causes intermittent crashes.  Patch Motif: see PROBLEMS.
+  - Common subexpression optimization caused an illegal pointer
+    reference in regexp replace; fixed.
+  - Autosave files are now saved in current coding system (where file
+    coding supported).  This resolves the "doubled escape" bug common
+    in Japanese mail files, but increases the chance that autosave
+    files will contain garbage (because the buffer contents cannot be
+    saved correctly in the current coding system).
+  - Failure to save certain customizations fixed.
+  - Ability to customize fonts improved, especially the "cannot
+    customize italic" bug
+  - Window loop now properly iterates over multiple devices; some
+    problems with wrong window being selected (eg, with gnuclient)
+    resolved.
+  - Certain infloops in password prompts, etc, fixed.
+  - Make space for symbols defined in modules in Lisp symbol tables
+  - Errors due to failure to conform to pop-up menu API in GTK fixed.
+  - Cygwin URL handling in shell calls fixed.
+  - Inability to select directories fixed.
+  - Initial VC.NET support.
+  - New node on "packaging" for library developers in Lispref.
+  - Fix incorrect ctime to Lisp conversion.
+  - HP-UX LDFLAGS fix.
+  - Many typo fixes and small documentation enhancements.
+  - New section of examples of glyph usage in Lispref.
+  - Make `truncate-partial-width-windows' effect buffer-local.
+  - Suppress bogus focus changes.
+  - Fix custom's handling of font size and family.
+  - Fix comboreloc crash (common on Linux when making first frame).
+  - Default --with-ipv6-cname=no.
+  - From 21.4.5 "Civil Service (Windows)":
+    - Fixed a scrollbar problem when selecting the frame with focus.
+    - Fixed `mswindows-shell-execute' under cygwin.
+    - Added a new function `mswindows-cygwin-to-win32-path' for JDE.
+    - Added support for dialog-based directory selection.
+    - The installer version has been updated to the 21.5 netinstaller.  The
+      21.5 installer now does proper dde file association and adds uninstall
+      capability.
+    - Handle leak fix from Mike Alexander.
+    - New release build script.
+
 to XEmacs 21.4.5 "Civil Service"
 
   - Now installs arch-specific files relative to $execdir, not $prefix.

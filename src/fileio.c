@@ -952,7 +952,7 @@ See also the function `substitute-in-file-name'.
 	      if (IS_DIRECTORY_SEP (nm[1]))
 		{
 		  if (strcmp ((char *) nm, (char *) XSTRING_DATA (name)) != 0)
-		    name = build_string ((CBufbyte *) nm);
+		    name = build_string ((Bufbyte *) nm);
 		}
 	      /* drive must be set, so this is okay */
 	      else if (strcmp ((char *) nm - 2,
@@ -3858,8 +3858,8 @@ auto_save_1 (Lisp_Object ignored)
   return
     /* !!#### need to deal with this 'escape-quoted everywhere */
     Fwrite_region_internal (Qnil, Qnil, a, Qnil, Qlambda, Qnil,
-#ifdef MULE
-			    Qescape_quoted
+#ifdef FILE_CODING
+			    current_buffer->buffer_file_coding_system
 #else
 			    Qnil
 #endif

@@ -707,6 +707,81 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.6 "Common Lisp" is released.
+
+2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.6 "Common Lisp" is released.
+
+2001-11-21  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* package-net.el: Inadvertant synch with Windows branch.  From
+	Andy's log:
+	(package-net-kit-version): new variable.
+	(package-net-generate-bin-ini): use it. Remove unwanted functions.
+
+2001-11-28  Steve Youngs  <youngs@xemacs.org>
+
+	* package-get.el (package-get-locate-index-file): Also search the
+	core etc/ directory for the package index file if it can't be
+	found in ~/.xemacs/.
+
+2001-12-13  William Perry  <wmperry@gnu.org>
+
+	* dialog-gtk.el (popup-builtin-question-dialog):
+	Conform to API in gui.c.
+	
+2001-11-12  Andy Piper  <andy@xemacs.org>
+
+	* cus-edit.el (custom-save-face-internal): make sure we save
+	non-themed faces.
+	(custom-save-variables): ditto variables.
+
+2001-11-20  Stephen J. Turnbull  <stephen@xemacs.og>
+
+	* faces.el (make-face-family):
+	(make-face-size):
+	New face-modifying functions per Jan Vroonhof.
+
+	cus-face.el (custom-set-face-font-family):
+	(custom-set-face-font-size):
+	Use them.
+
+	* font.el (font-window-system-mappings): More precise docstring.
+
+	(font-create-name):
+	(font-create-object):
+	(tty-font-create-object):
+	(tty-font-create-plist):
+	(x-font-create-object):
+	(x-font-create-name):
+	(ns-font-create-name):
+	(mswindows-font-create-object):
+	(mswindows-font-create-name):
+	Add doctrings.
+
+2001-11-14  John Paul Wallington <jpw@shootybangbang.com>
+
+	* gtk-faces.el (gtk-init-device-faces): removed spurious
+	quote before let* expression.
+
+2001-10-29  Andy Piper  <andy@xemacs.org>
+
+	* code-files.el (toggle-buffer-file-coding-system): mark buffer as
+	modified when changing coding system.
+
+	* toolbar-items.el (toolbar-dired): Use interactive "D" spec so
+	that we invoke the GUI directory selector.
+
+2001-10-25  Andy Piper  <andy@xemacs.org>
+
+	* dialog.el (make-dialog-box): use new directory dialog support.
+	* minibuf.el (read-file-name-1): ditto.
+	(read-file-name): ditto.
+	(read-directory-name): ditto.
+
 2001-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.5 "Civil Service" is released.

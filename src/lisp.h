@@ -2395,6 +2395,9 @@ enum arith_comparison {
   arith_grtr_or_equal };
 Lisp_Object arithcompare (Lisp_Object, Lisp_Object, enum arith_comparison);
 
+/* Do NOT use word_to_lisp or wasteful_word_to_lisp to decode time_t's
+   unless you KNOW arg is non-negative.  They cannot return negative
+   values!  Use make_time.  */
 Lisp_Object word_to_lisp (unsigned int);
 unsigned int lisp_to_word (Lisp_Object);
 
@@ -2433,6 +2436,7 @@ Bytind bytind_clip_to_bounds (Bytind, Bytind, Bytind);
 void buffer_insert1 (struct buffer *, Lisp_Object);
 Lisp_Object make_string_from_buffer (struct buffer *, Bufpos, Charcount);
 Lisp_Object make_string_from_buffer_no_extents (struct buffer *, Bufpos, Charcount);
+Lisp_Object make_time (time_t);
 Lisp_Object save_excursion_save (void);
 Lisp_Object save_restriction_save (void);
 Lisp_Object save_excursion_restore (Lisp_Object);

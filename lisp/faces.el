@@ -986,6 +986,27 @@ multi-charset environments."
 		  (face-property-instance unfrobbed-face 'font domain))
 	   (set-face-property face 'font (vector frobbed-face) the-locale tags)))))))
 
+;; WE DEMAND FOUNDRY FROBBING!
+
+;; Family frobbing
+;; Thx Jan Vroonhof, Ref xemacs-beta <87oflypbum.fsf@petteflet.ntlworld.com>
+;; Brainlessly derived from make-face-size by Stephen; don't blame Jan.
+;; I'm long since flown to Rio, it does you little good to blame me, either.
+(defun make-face-family (face family &optional locale tags)
+  "Set FACE's family to FAMILY in LOCALE, if possible.
+
+Add/replace settings specified by TAGS only."
+  (frob-face-property face 'font
+		      ;; uses dynamic scope of family
+		      #'(lambda (f d)
+			  ;; keep the dependency on font.el for now
+			  (let ((fo (font-create-object (font-instance-name f)
+							d)))
+			    (set-font-family fo family)
+			    (font-create-name fo d)))
+		      nil locale tags))
+
+;; Style (ie, typographical face) frobbing
 (defun make-face-bold (face &optional locale tags)
   "Make FACE bold in LOCALE, if possible.
 This will attempt to make the font bold for X/MSW locales and will set the
@@ -1158,6 +1179,23 @@ specifics on exactly how this function works."
      ([italic] . [default])
      ([bold-italic] . [bold]))))
 
+
+;; Size frobbing
+;; Thx Jan Vroonhof, Ref xemacs-beta <87oflypbum.fsf@petteflet.ntlworld.com>
+;; Jan had a separate helper function 
+(defun make-face-size (face size &optional locale tags)
+  "Adjust FACE to SIZE in LOCALE, if possible.
+
+Add/replace settings specified by TAGS only."
+  (frob-face-property face 'font
+		      ;; uses dynamic scope of size
+		      #'(lambda (f d)
+			  ;; keep the dependency on font.el for now
+			  (let ((fo (font-create-object (font-instance-name f)
+							d)))
+			    (set-font-size fo size)
+			    (font-create-name fo d)))
+		      nil locale tags))
 
 ;; Why do the following two functions lose so badly in so many
 ;; circumstances?

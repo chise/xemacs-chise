@@ -55,32 +55,9 @@
 ;;
 ;; 3. For package releases that's all you need to do. For binary
 ;; releases you need to build both cygwin and win32 binaries and put
-;; them in appropriate tarballs:
+;; them in appropriate tarballs: This can be achieved by running
+;; build-msw-release.sh
 ;;
-;; For cygwin, configure, make and install and then do (this is for
-;; 21.1.13):
-;;
-;;   cd <install dir>
-;;   tar cvzf xemacs-i686-pc-cygwin32-21.1.13.tar.gz \
-;;      ./bin/i686-pc-cygwin32 ./lib/xemacs-21.1.13 \
-;;      ./lib/xemacs/lock ./man/man1/xemacs.1 \
-;;      ./man/man1/ctags.1 ./man/man1/gnu*.1'
-;;
-;;  Note that the naming of the package is important. Don't be tempted
-;;  to change the order in any way.
-;;
-;; For win32 build and install the release and then (again for
-;; 21.1.13):
-;;
-;;   cd <install dir>
-;;   tar cvzf xemacs-i386-pc-win32-21.1.13.tar.gz ./XEmacs-21.1.13
-;; 
-;; The binaries should be uploaded to
-;; `ftp://ftp.xemacs.org/pub/xemacs/binaries/cygwin32' and
-;; `ftp://ftp.xemacs.org/pub/xemacs/binaries/win32' respectively. Take
-;; a note of their sizes and set `package-net-cygwin32-binary-size'
-;; and `package-net-win32-binary-size' appropriately in this file and
-;; then follow step 2.
 
 (require 'package-admin)
 (require 'package-get)
@@ -99,11 +76,14 @@
 ;;
 ;; 2. Generating setup.ini should be more automatic.
 
-(defvar package-net-cygwin32-binary-size 7559692
+(defvar package-net-cygwin32-binary-size 0
   "The size in bytes of the cygwin32 binary distribution.")
 
-(defvar package-net-win32-binary-size 7421788
+(defvar package-net-win32-binary-size 0
   "The size in bytes of the win32 binary distribution.")
+
+(defvar package-net-setup-version "1.0"
+  "The version string of setup.")
 
 ;;;###autoload
 (defun package-net-setup-directory ()
@@ -171,11 +151,8 @@ DESTDIR defaults to the value of `data-directory'."
 	  (write-region (point-min) (point-max) (concat destdir "setup.ini")))
       (kill-buffer buf))))
 
-(defun package-net-generate-bin-ini (&optional destdir version)
-  "Convert the package index to ini file format in DESTDIR.
-DESTDIR defaults to the value of `data-directory'."
-
-  (setq destdir (file-name-as-directory (or destdir data-directory)))
+(defun package-net-generate-bin-ini (&optional version)
+  "Convert the package index to ini file format in the current directory."
   (let ((buf (get-buffer-create "*setup-bin.ini*")))
     (unwind-protect
         (save-excursion
@@ -189,7 +166,7 @@ DESTDIR defaults to the value of `data-directory'."
 			  (+ (* (car (current-time)) 65536) (car (cdr (current-time))))))
 	  (insert (format "setup-version: %s\n\n" (or version "1.0")))
 	  ;; Native version
-	  (insert (format "@ %s\n" "xemacs-i386-pc-win32"))
+	  (insert (format "@ %s\n" "xemacs-i586-pc-win32"))
 	  (insert (format "version: %s\n" emacs-program-version))
 	  (insert "type: native\n")
 	  (insert (format "install: win32/%s %d\n\n"
@@ -207,16 +184,14 @@ DESTDIR defaults to the value of `data-directory'."
 				  emacs-program-version ".tar.gz") 
 			  package-net-cygwin32-binary-size))
 	  (insert "# setup.ini file ends here\n")
-	  (write-region (point-min) (point-max) (concat destdir "setup-bin.ini")))
-      (kill-buffer buf))))
+	  (write-region (point-min) (point-max) "setup-bin.ini")))
+    (kill-buffer buf)))
 
 (defun package-net-batch-generate-bin-ini ()
   "Convert the package index to ini file format."
   (unless noninteractive
     (error "`package-net-batch-generate-bin-ini' is to be used only with -batch"))
-  (let ((dir (car command-line-args-left))
-	(version (car (cdr command-line-args-left))))
-    (package-net-generate-bin-ini dir version)))
+  (package-net-generate-bin-ini package-net-setup-version))
 
 ;;;###autoload
 (defun package-net-update-installed-db (&optional destdir)

@@ -94,6 +94,9 @@ MINGW_ZLIB_DIR	= /usr/local/lib
 PROGS	= setup.exe
 XEMACS=${blddir}/src/${PROGNAME}
 
+CYGWIN_SIZE=0
+WIN32_SIZE=0
+
 CONFIG_H = ../src/config.h
 
 OBJS = \
@@ -111,6 +114,7 @@ OBJS = \
 	ini.o \
 	inilex.o \
 	iniparse.o \
+	init.o \
 	install.o \
 	localdir.o \
 	log.o \
@@ -135,6 +139,7 @@ OBJS = \
 	splash.o \
 	state.o \
 	tar.o \
+	uninstall.o \
 	version.o
 
 .SUFFIXES:
@@ -151,12 +156,15 @@ setup.exe: $(OBJS)
 		-L$(MINGW_ZLIB_DIR) -lz -lmingw32
 	@chmod a-x $@
 
-setup-bin.ini: setup.exe
+setup-bin.ini:
 	V=`grep '^\$$Revision.*' $(srcdir)/ChangeLog \
-	| sed -e 's/\$$Revision:* *//' \
-	  -e 's/ *$$.*//'` ;\
-	$(XEMACS) -batch -vanilla -l ${srcdir}/../lisp/package-net.el \
-		-f package-net-batch-generate-bin-ini . $$V
+	| sed -e 's/\$$Revision:* *//' -e 's/ *$$.*//'` ;\
+	$(XEMACS) -batch -vanilla \
+		-eval '(setq package-net-cygwin32-binary-size $(CYGWIN_SIZE) \
+			package-net-win32-binary-size $(WIN32_SIZE) \
+			package-net-setup-version "'$$V'")' \
+		-l ${srcdir}/../lisp/package-net.el \
+		-f package-net-batch-generate-bin-ini
 
 install:
 	@echo; echo "Installing net setup."
@@ -191,7 +199,7 @@ inilex.c : inilex.l iniparse.h
 .PHONY: mostlyclean clean distclean realclean extraclean
 
 mostlyclean:
-	$(RM) *.o *.i core $(PROGS)
+	$(RM) *.o *.i *.ini core $(PROGS)
 
 clean: mostlyclean
 
@@ -227,6 +235,10 @@ iniparse.o: iniparse.c ini.h \
  iniparse.h \
  port.h
 install.o: install.cc win32.h \
+ resource.h ini.h dialog.h concat.h geturl.h mkdir.h state.h tar.h \
+ diskfull.h msg.h regedit.h reginfo.h log.h hash.h port.h
+init.o: init.cc win32.h resource.h dialog.h state.h msg.h log.h 
+uninstall.o: uninstall.cc win32.h \
  resource.h ini.h dialog.h concat.h geturl.h mkdir.h state.h tar.h \
  diskfull.h msg.h regedit.h reginfo.h log.h hash.h port.h
 localdir.o: localdir.cc win32.h dialog.h resource.h state.h msg.h \

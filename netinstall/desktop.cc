@@ -40,6 +40,7 @@
 #include "reginfo.h"
 #include "regedit.h"
 #include "port.h"
+#include "log.h"
 
 extern "C" {
   void make_link_2 (char *exepath, char *args, char *icon, char *lname);
@@ -60,27 +61,31 @@ static OSVERSIONINFO verinfo;
 
 static char *iconname;
 static char *batname;
+static char *uninstname;
 
 static void
-make_link (char *linkpath, char *title, char *target)
+make_link (char *linkpath, char *title, char *target, char* args)
 {
+#if 0
   char argbuf[_MAX_PATH];
+#endif
   char *fname = concat (linkpath, "/", title, ".lnk", 0);
 
   if (_access (fname, 0) == 0)
     return; /* already exists */
 
-  msg ("make_link %s, %s, %s\n", fname, title, target);
+  msg ("make_link %s, %s, %s, %s\n", fname, title, target, args);
 
   mkdir_p (0, fname);
 
-  char *exepath, *args;
-
+  char *exepath;
+#if 0
   /* If we are running Win9x, build a command line. */
   if (verinfo.dwPlatformId == VER_PLATFORM_WIN32_NT)
     {
+#endif
       exepath = target;
-      args = "";
+#if 0
     }
   else
     {
@@ -91,9 +96,9 @@ make_link (char *linkpath, char *title, char *target)
       sprintf (argbuf, "%s %s", COMMAND9XARGS, target);
       args = argbuf;
     }
-
+#endif
   msg ("make_link_2 (%s, %s, %s, %s)", exepath, args, iconname, fname);
-  make_link_2 (exepath, args, iconname, fname);
+  make_link_2 (backslash (exepath), args, iconname, fname);
 }
 
 static char* 
@@ -107,7 +112,7 @@ find_xemacs_exe_path ()
 			      "\\", XEMACS_NATIVE_ARCH_NAME, 0));
 }
 
-static char* 
+char* 
 find_xemacs_exe_name ()
 {
   /* Hack to support older versions. */
@@ -123,7 +128,27 @@ find_xemacs_exe_name ()
 }
 
 static void
-start_menu (char *title, char *target)
+remove_link (char *linkpath, char* title)
+{
+  if (title)
+    {
+      char *fname = backslash (concat (linkpath, "/", title, ".lnk", 0));
+      msg ("remove_link %s, %s\n", fname, title);
+      if (_access (fname, 0) != 0)
+	return; /* doesn't exist */
+      _unlink (fname);
+    }
+  else 
+    {
+      msg ("remove_link %s\n", linkpath);
+      if (_access (linkpath, 0) != 0)
+	return; /* doesn't exist */
+      _rmdir (linkpath);
+    }
+}
+
+static void
+start_menu (char *title, char *target, int rem, char* args)
 {
   char path[_MAX_PATH];
   LPITEMIDLIST id;
@@ -139,13 +164,16 @@ start_menu (char *title, char *target)
      msg("Program directory for program link changed to: %s",path);
   }
 // end of Win95 addition
-  strcat (path, "/");
+  strcat (path, "\\");
   strcat (path, XEMACS_INFO_XEMACS_ORG_REGISTRY_NAME);
-  make_link (path, title, target);
+  if (rem == 0)
+    make_link (path, title, target, args);
+  else
+    remove_link (path, title);
 }
 
 static void
-desktop_icon (char *title, char *target)
+desktop_icon (char *title, char *target, int rem)
 {
   char path[_MAX_PATH];
   LPITEMIDLIST id;
@@ -162,59 +190,10 @@ desktop_icon (char *title, char *target)
      msg("Desktop directory for deskop link changed to: %s",path);
   }
 // end of Win95 addition
-  make_link (path, title, target);
-}
-
-static int
-uexists (char *path)
-{
-  char *f = concat (root_dir, path, 0);
-  int a = _access (f, 0);
-  free (f);
-  if (a == 0)
-    return 1;
-  return 0;
-}
-
-static void
-make_passwd_group ()
-{
-  if (verinfo.dwPlatformId != VER_PLATFORM_WIN32_NT)
-    {
-      int i;
-
-      LOOP_PACKAGES
-	{
-	  if (!strcmp (package[i].name, "cygwin"))
-	    {
-	      /* mkpasswd and mkgroup are not working on 9x/ME up to 1.1.5-4 */
-	      char *border_version = canonicalize_version ("1.1.5-4");
-	      char *inst_version = canonicalize_version (pi.version);
-
-	      if (strcmp (inst_version, border_version) <= 0)
-		return;
-
-	      break;
-	    }
-	}
-    }
-
-  if (uexists ("/etc/passwd") && uexists ("/etc/group"))
-    return;
-
-  char *fname = concat (root_dir, "/etc/postinstall/passwd-grp.bat", 0);
-  mkdir_p (0, fname);
-
-  FILE *p = fopen (fname, "wb");
-  if (!p)
-    return;
-
-  if (!uexists ("/etc/passwd"))
-    fprintf (p, "bin\\mkpasswd -l > etc\\passwd\n");
-  if (!uexists ("/etc/group"))
-    fprintf (p, "bin\\mkgroup -l > etc\\group\n");
-
-  fclose (p);
+  if (rem == 0)
+    make_link (path, title, target, "");
+  else
+    remove_link (path, title);
 }
 
 static void
@@ -240,52 +219,121 @@ save_icon ()
     }
 }
 
+void
+remove_desktop_setup()
+{
+  start_menu ("XEmacs", 0, 1, 0);
+  start_menu ("Uninstall XEmacs", 0, 1, 0);
+  start_menu (0, 0, 1, 0);
+  desktop_icon ("XEmacs", 0, 1);
+
+  if (xemacs_package != 0)
+    {
+#define FROB(exe)	  remove_app_path (exe)
+      FROB (find_xemacs_exe_name ());
+      FROB ("runemacs.exe");
+      FROB ("xemacs.exe");
+#undef FROB
+    }
+}
+
 static void
 do_desktop_setup()
 {
   save_icon ();
 
   if (root_menu && batname) {
-    start_menu ("XEmacs", batname);
+    start_menu ("XEmacs", batname, 0, "");
+    start_menu ("Uninstall XEmacs", uninstname, 0, "-u");
   }
 
   if (root_desktop && batname) {
-    desktop_icon ("XEmacs", batname);
+    desktop_icon ("XEmacs", batname, 0);
   }
 
   // set regkeys for the application
   if (xemacs_package != 0)
     {
       int issystem = (root_scope == IDC_ROOT_SYSTEM ? 1 : 0);
-      if (xemacs_package->type == TY_NATIVE)
+      if (xemacs_package->type == TY_NATIVE
+	  || xemacs_package->type == TY_CYGWIN)
 	{
+	  if (xemacs_package->type == TY_NATIVE)
+	    {
 #define FROB(exe)	  set_app_path ((exe), \
 			find_xemacs_exe_path (), \
 			issystem)
-	  FROB (find_xemacs_exe_name ());
-	  FROB ("runemacs.exe");
-	  FROB ("xemacs.exe");
+	      FROB (find_xemacs_exe_name ());
+	      FROB ("runemacs.exe");
+	      FROB ("xemacs.exe");
 #undef FROB
-	}
-      else if (xemacs_package->type == TY_CYGWIN)
-	{
-	  int junk;
-	  char* root = find_cygwin_root (&junk);
+	    }
+	  else if (xemacs_package->type == TY_CYGWIN)
+	    {
+	      int junk;
+	      char* root = find_cygwin_root (&junk);
 #define FROB(exe)	set_app_path ((exe), \
 			concat (find_xemacs_exe_path (), ";", \
 				root, "\\bin;", \
 				root, "\\usr\\bin", 0), \
 			issystem)
-	  FROB (find_xemacs_exe_name ());
-	  FROB ("runemacs.exe");
-	  FROB ("xemacs.exe");
+	      FROB (find_xemacs_exe_name ());
+	      FROB ("runemacs.exe");
+	      FROB ("xemacs.exe");
 #undef FROB
+	    }
+	  set_install_path (find_xemacs_exe_path(), issystem);
+	}
+      // Register file types
+      if (batname)
+	{
+	  if (reg_java)
+	    {
+	      log (0, "Registering .java files");
+	      setup_explorer ("java", "Java Source file", batname);
+	      setup_explorer ("jav", "Java Source file", batname);
+	    }
+	  if (reg_cpp)
+	    {
+	      log (0, "Registering .cpp files");
+	      setup_explorer ("cpp", "C++ Source file", batname);
+	      setup_explorer ("cc", "C++ Source file", batname);
+	      setup_explorer ("hh", "C++ Header file", batname);
+	    }
+	  if (reg_c)
+	    {
+	      log (0, "Registering .c files");
+	      setup_explorer ("c", "C Source file", batname);
+	      setup_explorer ("h", "C Header file", batname);
+	    }
+	  if (reg_elisp)
+	    {
+	      log (0, "Registering .el files");
+	      setup_explorer ("el", "E-Lisp Source file", batname);
+	    }
+	  if (reg_txt)
+	    {
+	      log (0, "Registering .txt files");
+	      setup_explorer ("txt", "Text file", batname);
+	    }
+	  if (reg_idl)
+	    {
+	      log (0, "Registering .idl files");
+	      setup_explorer ("idl", "OMG IDL file", batname);
+	    }
 	}
     }
 }
 
 static int da[] = { IDC_ROOT_DESKTOP, 0 };
 static int ma[] = { IDC_ROOT_MENU, 0 };
+
+static int ct[] = { IDC_C_TYPE, 0 };
+static int javat[] = { IDC_JAVA_TYPE, 0 };
+static int cppt[] = { IDC_CPP_TYPE, 0 };
+static int elispt[] = { IDC_ELISP_TYPE, 0 };
+static int txtt[] = { IDC_TXT_TYPE, 0 };
+static int idlt[] = { IDC_IDL_TYPE, 0 };
 
 static void
 check_if_enable_next (HWND h)
@@ -298,6 +346,12 @@ load_dialog (HWND h)
 {
   rbset (h, da, root_desktop);
   rbset (h, ma, root_menu);
+  rbset (h, ct, reg_c);
+  rbset (h, javat, reg_java);
+  rbset (h, cppt, reg_cpp);
+  rbset (h, elispt, reg_elisp);
+  rbset (h, txtt, reg_txt);
+  rbset (h, idlt, reg_idl);
   check_if_enable_next (h);
 }
 
@@ -346,14 +400,14 @@ static int check_startmenu (char *title, char *target)
      msg ("Program directory for program link changed to: %s",path);
   }
   // end of Win95 addition
-  strcat (path, "/");
+  strcat (path, "\\");
   strcat (path, XEMACS_INFO_XEMACS_ORG_REGISTRY_NAME);
-  char *fname = concat (path, "/", title, ".lnk", 0);
+  char *fname = concat (path, "\\", title, ".lnk", 0);
 
   if (_access (fname, 0) == 0)
     return 0; /* already exists */
   
-  fname = concat (path, "/", title, ".pif", 0); /* check for a pif as well */
+  fname = concat (path, "\\", title, ".pif", 0); /* check for a pif as well */
   
   if (_access (fname, 0) == 0)
     return 0; /* already exists */
@@ -366,6 +420,12 @@ save_dialog (HWND h)
 {
   root_desktop= rbget (h, da);
   root_menu = rbget (h, ma);
+  reg_c = rbget (h, ct);
+  reg_java = rbget (h, javat);
+  reg_cpp = rbget (h, cppt);
+  reg_elisp = rbget (h, elispt);
+  reg_txt = rbget (h, txtt);
+  reg_idl = rbget (h, idlt);
 }
 
 static BOOL
@@ -420,19 +480,33 @@ do_desktop (HINSTANCE h)
   verinfo.dwOSVersionInfoSize = sizeof (verinfo);
   GetVersionEx (&verinfo);
   batname = 0;
+  uninstname = 0;
 
   if (xemacs_package != 0 && xemacs_package->type != TY_GENERIC)
     {
       batname = concat (find_xemacs_exe_path (), "\\",
 			find_xemacs_exe_name (), 
 			0);
+      uninstname = concat (find_xemacs_exe_path (), "\\", "setup.exe", 0);
       root_desktop = check_desktop ("XEmacs", batname);
       root_menu = check_startmenu ("XEmacs", batname);
+      reg_c = IDC_C_TYPE;
+      reg_cpp = IDC_CPP_TYPE;
+      reg_java = IDC_JAVA_TYPE;
+      reg_elisp = IDC_ELISP_TYPE;
+      reg_txt = IDC_TXT_TYPE;
+      reg_idl = IDC_IDL_TYPE;
     }
   else
     {
       root_desktop = 0;
       root_menu = 0;
+      reg_c = 0;
+      reg_cpp = 0;
+      reg_java = 0;
+      reg_elisp = 0;
+      reg_txt = 0;
+      reg_idl = 0;
     }
   
   int rv = 0;

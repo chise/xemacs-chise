@@ -1,3 +1,33 @@
+2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.6 "Common Lisp" is released.
+
+2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.6 "Common Lisp" is released.
+
+man/ChangeLog
+2001-12-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lispref/packaging.texi (The User's View):
+	Correct description of man subdirectory.
+
+	(The Package Release Engineer's View):
+	(package-compile.el):
+	Change hazmat to useful documentation.
+
+	(Issues):
+	Hazmat removal.
+
+2001-11-27  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lispref/packaging.texi: New file.
+	* lispref/lispref.texi (Top): Add Packaging & subnodes to menus.
+	Include packaging.texi.
+	* lispref/intro.texi (Introduction): Next -> Packaging.
+	* lispref/objects.texi (Lisp Data Types): Previous -> Packaging.
+	* Makefile (lispref-srcs): Depend on lispref/packaging.texi.
+	
 2001-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.5 "Civil Service" is released.

@@ -41,6 +41,7 @@ Boston, MA 02111-1307, USA.  */
 #define VERTICAL_SCROLLBAR_DRAG_HACK
 
 static int vertical_drag_in_progress = 0;
+extern Lisp_Object mswindows_find_frame (HWND hwnd);
 
 static void
 mswindows_create_scrollbar_instance (struct frame *f, int vertical,
@@ -203,23 +204,36 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
   }
 
   sb = (struct scrollbar_instance *)GetWindowLong (hwnd, GWL_USERDATA);
-  win = real_window ((sb==NULL) ? GetFocus() : sb->mirror, 1);
-  /* "0 as the second parameter" refers to the call to real_window above.
-     This comment was taken from Ben's 21.5 code that differs somewhat
-     from this, I don't think the 21.4 code ever had a 0 there.
-     #### we're still hitting an abort here with 0 as the second
-     parameter, although only occasionally.  It seems that sometimes we
-     receive events for scrollbars that don't exist anymore.  I assume
-     it must happen like this: The user does something that causes a
-     scrollbar to disappear (e.g. Alt-TAB, causing recomputation of
-     everything in the new frame) and then immediately uses the mouse
-     wheel, generating scrollbar events.  Both events get posted before
-     we have a chance to process them, and in processing the first, the
-     scrollbar mentioned in the second disappears. */
-  if (NILP (win))
-    return;
-  frame = XWINDOW (win)->frame;
-  f = XFRAME (frame);
+  if (sb != NULL) 
+    {
+      win = real_window (sb->mirror, 1);
+      /* "0 as the second parameter" refers to the call to real_window
+     above.  This comment was taken from Ben's 21.5 code that differs
+     somewhat from this, I don't think the 21.4 code ever had a 0
+     there.  #### we're still hitting an abort here with 0 as the
+     second parameter, although only occasionally.  It seems that
+     sometimes we receive events for scrollbars that don't exist
+     anymore.  I assume it must happen like this: The user does
+     something that causes a scrollbar to disappear (e.g. Alt-TAB,
+     causing recomputation of everything in the new frame) and then
+     immediately uses the mouse wheel, generating scrollbar events.
+     Both events get posted before we have a chance to process them,
+     and in processing the first, the scrollbar mentioned in the
+     second disappears. */
+      if (NILP (win))
+	return;
+      frame = XWINDOW (win)->frame;
+      f = XFRAME (frame);
+    }
+  else 
+    {
+      /* I'm not sure if this is right, but its much better than
+	 passing an HNWD to real_window() - which is what the previous
+	 code did -- andyp */
+      frame = mswindows_find_frame (GetFocus());
+      f = XFRAME (frame);
+      win = FRAME_SELECTED_WINDOW (f);
+    }
 
   /* SB_LINEDOWN == SB_CHARLEFT etc. This is the way they will
      always be - any Windows is binary compatible backward with

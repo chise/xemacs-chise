@@ -92,6 +92,7 @@ SYMBOL_KEYWORD (Q_descriptor);
 SYMBOL (Qdevice);
 SYMBOL_KEYWORD (Q_device);
 SYMBOL (Qdialog);
+SYMBOL (Qdirectory);
 SYMBOL (Qdimension);
 SYMBOL (Qdisplay);
 SYMBOL (Qdoc_string);
