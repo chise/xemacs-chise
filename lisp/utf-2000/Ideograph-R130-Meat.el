@@ -5386,17 +5386,17 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x8127)	; 脧
-    (=jis-x0212		. #x5631)	; &I-JSP-5631; [54-17]
-    (=jis-x0213-2-2000	. #x7544)	; &I-JX2-7544; [85-36]
-    (=daikanwa		. 29531)	; &I-M-29531;
-    ))
-(define-char
-  '((=>ucs		. #x8127)	; 脧
-    (morohashi-daikanwa	29531 0 0)
-    (ideographic-radical . 130)	; ⾁
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
-    (=cns11643-2	. #x3853)	; &C2-3853; [24-51]
+    (->subsumptive
+     ((=daikanwa	  . 29531)	; &M-29531;
+      )
+     ((=cns11643-2	  . #x3853)	; &C2-3853; [24-51]
+      )
+     ((=jis-x0212	  . #x5631)	; &JX2-7544; [54-17]
+      (=jis-x0213-2-2000  . #x7544)	; &I-JX2-7544; [85-36]
+      (=ucs@jis		  . #x8127)	; &JX2-7544;
+      )
+     ((=ucs@unicode	  . #x8127)	; &UU+8127;
+      ))
     ))
 (define-char
   '((ideographic-radical . 130)	; ⾁
