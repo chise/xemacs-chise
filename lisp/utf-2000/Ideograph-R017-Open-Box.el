@@ -18,7 +18,7 @@
     (ideograph-daikanwa . 01801)	; ø¸€œ‰
     ))
 (define-char
-  '((morohashi-daikanwa	1801 0 \?)
+  '((morohashi-daikanwa	1801 0 9)
     (ideographic-radical . 17)	; â¼
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
