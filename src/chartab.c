@@ -2411,11 +2411,21 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 	*/
 	if ( CHAR_TABLEP (encoding_table) )
 	  {
+	    Lisp_Object mother = XCHARSET_MOTHER (range->charset);
+
 	    char_attribute_table_to_put = ct;
 	    value_to_put = val;
 	    Fmap_char_attribute (Qput_char_table_map_function,
 				 XCHAR_TABLE_NAME (encoding_table),
 				 Qnil);
+	    if ( CHARSETP (mother) )
+	      {
+		struct chartab_range r;
+
+		r.type = CHARTAB_RANGE_CHARSET;
+		r.charset = mother;
+		put_char_table (ct, &r, val);
+	      }
 	  }
 #if 0
 	else
