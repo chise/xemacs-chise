@@ -1,6 +1,34 @@
 2000-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* lrecord.h (enum lrecord_type): Rename
+	`lrecord_type_char_code_table' to `lrecord_type_char_id_table'.
+
+	* text-coding.c (COMPOSE_ADD_CHAR): Use `CHAR_ID_TABLE_P' and
+	`get_char_id_table' instead of `CHAR_CODE_TABLE_P' and
+	`get_char_code_table'.
+
+	* mule-charset.c (mark_char_id_table): Renamed from
+	`mark_char_code_table'.
+	(char_id_table_equal): Renamed from `char_code_table_equal'.
+	(char_id_table_hash): Renamed from `char_code_table_hash'.
+	(make_char_id_table): Renamed from `make_char_code_table'.
+	(copy_char_id_table): Renamed from `copy_char_code_table'.
+	(get_char_id_table): Renamed from `get_char_code_table'.
+	(put_char_id_table): Renamed from `put_char_code_table'.
+	(to_char_id): Renamed from `to_char_code'.
+
+	* char-ucs.h (struct Lisp_Char_ID_Table): Renamed from
+	`Lisp_Char_Code_Table'.
+	(char_id_table): Renamed from `char_code_table'.
+	(XCHAR_ID_TABLE): Renamed from `XCHAR_CODE_TABLE'.
+	(XSETCHAR_ID_TABLE): Renamed from `XSETCHAR_CODE_TABLE'.
+	(CHAR_ID_TABLE_P): Renamed from `CHAR_CODE_TABLE_P'.
+	(GC_CHAR_ID_TABLE_P): Renamed from `GC_CHAR_CODE_TABLE_P'.
+	(get_char_id_table): Renamed from `get_char_code_table'.
+
+2000-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lrecord.h (enum lrecord_type): Rename
 	`lrecord_type_char_byte_table' to `lrecord_type_byte_table'.
 
 	* mule-charset.c (mark_byte_table): Renamed from
