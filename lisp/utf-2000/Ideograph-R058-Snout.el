@@ -195,6 +195,18 @@
     ))
 (define-char
   '((ideographic-radical . 58)	; â¼¹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (->identical
+     ((chinese-cns11643-6 . #x2D32)	; ø»œ†©
+      ))
+    (->same-ideograph
+     ((ideograph-daikanwa . 21759)	; ø¸…“¿
+      ))
+    (ucs		. #x22456)	; ð¢‘–
+    ))
+(define-char
+  '((ideographic-radical . 58)	; â¼¹
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (chinese-cns11643-6 . #x3123)	; ø»œŒ’

@@ -1186,16 +1186,6 @@
     ))
 (define-char
   '((ideographic-radical . 12)	; â¼‹
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 250)
-    (hanyu-dazidian-char . 13)
-    (chinese-big5-cdp	. #x87C7)	; ý¢€ˆŸ‡
-    (ucs		. #x24564)	; ð¤•¤
-    ))
-(define-char
-  '((ideographic-radical . 12)	; â¼‹
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (ideograph-daikanwa . 01497)	; ø¸€—™

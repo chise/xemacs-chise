@@ -4293,6 +4293,15 @@
     ))
 (define-char
   '((ideographic-radical . 170)	; â¾©
+    (ideographic-strokes . 23)
+    (total-strokes	 . 31)
+    (->same-ideograph
+     ((ideograph-daikanwa . 19650)	; ø¸„³‚
+      ))
+    (ucs		. #x28F75)	; ð¨½µ
+    ))
+(define-char
+  '((ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 24)
     (total-strokes	 . 27)
     (ideograph-daikanwa . 41921)	; ø¸Š

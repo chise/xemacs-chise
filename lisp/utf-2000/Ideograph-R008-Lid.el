@@ -2134,6 +2134,9 @@
   '((ideographic-radical . 8)	; â¼‡
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (->same-ideograph
+     ((ideograph-daikanwa . 23981)	; ø¸…¶­
+      ))
     (hanyu-dazidian	1 290 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

@@ -2041,6 +2041,18 @@
     ))
 (define-char
   '((ideographic-radical . 29)	; â¼œ
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (->identical
+     ((chinese-cns11643-6 . #x537B)	; ø»œ¿¦
+      ))
+    (->same-ideograph
+     ((ideograph-daikanwa . 16642)	; ø¸„„‚
+      ))
+    (ucs		. #x20B81)	; ð ®
+    ))
+(define-char
+  '((ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (hanyu-dazidian-vol	 . 1)

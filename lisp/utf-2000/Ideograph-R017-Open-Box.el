@@ -675,3 +675,15 @@
     (total-strokes	 . 20)
     (ideograph-daikanwa . 01844)	; ø¸€œ´
     ))
+(define-char
+  '((ideographic-radical . 17)	; â¼
+    (ideographic-strokes . 18)
+    (total-strokes	 . 20)
+    (->identical
+     ((chinese-cns11643-7 . #x4E3E)	; ø»Ÿ—
+      ))
+    (->same-ideograph
+     ((ideograph-daikanwa . 49274)	; ø¸Œº
+      ))
+    (ucs		. #x206A1)	; ð š¡
+    ))

@@ -191,14 +191,6 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (hanyu-dazidian	1 42 13)
-    (chinese-big5-cdp	. #x87D6)	; ý¢€ˆŸ–
-    (ucs		. #x225A9)	; ð¢–©
-    ))
-(define-char
-  '((ideographic-radical . 3)	; â¼‚
-    (ideographic-strokes . 2)
-    (total-strokes	 . 3)
     (ideograph-gt-pj-9	. #x4C4C)	; ý¡€€‚†
     (ideograph-gt	. 00134)	; ý¡€€‚†
     ))
