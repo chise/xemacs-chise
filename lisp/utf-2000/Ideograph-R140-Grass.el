@@ -31789,7 +31789,15 @@
     (=gt		. 43909)	; ý¡€Š®…
     ))
 (define-char
-  '((morohashi-daikanwa	32519 0 1)
+  '((=>ucs		. #x862D)	; è˜­
+    (morohashi-daikanwa	32519 0 1)
+    (ideographic-radical . 140)	; â¾‹
+    (ideographic-strokes . 17)
+    (total-strokes	 . 21)
+    (=jef-china3	. #x62F6)	; øº†‹¶
+    ))
+(define-char
+  '((morohashi-daikanwa	32519 0 2)
     (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 17)
     (total-strokes	 . 20)

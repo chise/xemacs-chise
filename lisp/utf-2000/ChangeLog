@@ -1,3 +1,27 @@
+2003-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R178-Tanned-Leather.el: Add mappings for Big5 code
+	points.
+
+2003-10-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R193-Cauldron.el: Add missing mappings between CJK Ext
+	B and CNS 11643 plain 5 and 6.
+
+2003-10-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el: Add mappings for Big5 code points.
+
+2003-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (JC3-62F6): New character.
+
+2003-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0AC00-Hangul-Syllables.el (U+AD6C): Unify JC3-93F2 instead of
+	JC3-82E4.
+	(U+B300): Unify JC3-93FC.
+
 2003-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R108-Dish.el (U-00025085): Separated from M-23493 and
