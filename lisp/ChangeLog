@@ -1,3 +1,12 @@
+2004-04-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for chinese-gb2312, =iso-ir165, latin-iso8859-{1..4},
+	cyrillic-iso8859-5, greek-iso8859-7, hebrew-iso8859-8,
+	latin-iso8859-9, latin-jisx0201, katakana-jisx0201,
+	latin-tcvn5712, thai-tis620, lao, ethiopic, arabic-{1|2}-column,
+	arabic-digit, ipa and ``&I-B-XXXX;''.
+
 2004-03-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
