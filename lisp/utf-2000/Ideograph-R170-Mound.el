@@ -2980,13 +2980,9 @@
 (define-char
   '((ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 11)
-    (ucs		. #x96A1)	; éš¡
-    ))
-(define-char
-  '((ideographic-radical . 170)	; â¾©
-    (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (chinese-cns11643-2 . #x4F24)	; ø»”‡
+    (ucs		. #x96A1)	; éš¡
     ))
 (define-char
   '((ideographic-radical . 170)	; â¾©
