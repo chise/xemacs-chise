@@ -1,3 +1,9 @@
+2002-10-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R159-Cart.el (M-38297): Separate K0-4E72, C1-6724,
+	G1-3D4F and U+8F03.
+	(K0-4E72): Unify JC3-66F0 and M058204.
+
 2002-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R032-Earth.el: Add some missing mappings for Daikanwa
