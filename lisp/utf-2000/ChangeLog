@@ -1,3 +1,940 @@
+2003-02-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R181-Leaf.el (U+985E): Add JU+F9D0.
+	(U+F9D0): Use `=>ucs*' instead of `->decomposition' for U+985E.
+
+	* Ideograph-R170-Mound.el (U+9686): Add JU+F9DC.
+	(U+F9DC): Add `=>ucs*' for U+9686.
+
+2003-02-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R072-Sun.el (JSP-4175): Unify JX1-752C.
+	(JSP-423F): Unify JX1-7537.
+	(JSP-4247): Add JU1990+6677 instead of JU+6677; add KU+6677.
+	(C1-5F63): Unify JX1-7540, CU+6677, BU+6677 and JU2000+6677.
+
+	* Ideograph-R027-Cliff.el: Reformatted.
+
+2003-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R177-Leather.el (M-43089): Separate C1-7D36.
+	(JSP-675C): Separate G1-7735 and U+97C9; unify JX1-7D72 and
+	JU+97C9.
+
+	* Ideograph-R145-Clothes.el (U+891C): Separate JSP-5C5F.
+	(JSP-5C5F): Unify JX1-7B6E and JU+891C.
+
+	* u03200-Enclosed-CJK-Letters-and-Months.el: Add some missing
+	characters of JIS X 0213:2000.
+
+	* u02460-Enclosed-Alphanumerics.el: Add some missing characters of
+	JIS X 0213:2000.
+
+	* Ideograph-R195-Fish.el (U+9B79): Unify JX1-7E41.
+
+2003-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (JX1-7654): Use `=ucs-jis-2000' instead
+	of `ucs-jis'.
+	(JSP-4879): Unify JX1-7735.
+	(U+6FF9): Fix strokes.
+	(JX1-7739): New character.
+
+2003-02-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el: Add some missing code points of JIS X
+	0213:2000 plain 1.
+
+2003-02-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R120-Silk.el: Add some missing `total-strokes'.
+	(U+7E28): Separate JSP-5448.
+	(JSP-5448): Unify JX1-7A2F.
+
+	* Ideograph-R115-Grain.el (U+7A5D): Separate JSP-5148 and
+	JC3-5DBF.
+	(JSP-5148): Unify JX1-794F.
+
+2003-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u031F0-Katakana-Phonetic-Extensions.el: New file.
+
+	* u02300-Miscellaneous-Technical.el: Add some missing characters
+	of JIS X 0213:2000.
+
+	* u02980-Miscellaneous-Mathematical-Symbols-B.el,
+	u02900-Supplemental-Arrows-B.el: New files.
+
+	* Ideograph-R119-Rice.el (JSP-5344): Unify JX1-7977.
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el (FULLWIDTH LEFT WHITE
+	PARENTHESIS): New character.
+	(FULLWIDTH RIGHT WHITE PARENTHESIS): New character.
+
+	* u0FE30-CJK-Compatibility-Forms.el (SESAME DOT): New character.
+	(WHITE SESAME DOT): New character.
+
+	* u030A0-Katakana.el (KATAKANA-HIRAGANA DOUBLE HYPHEN): New
+	character.
+	(KATAKANA DIGRAPH KOTO): New character.
+
+	* u03040-Hiragana.el (HIRAGANA DIGRAPH YORI): New character.
+
+	* u03000-CJK-Symbols-and-Punctuation.el (VERTICAL IDEOGRAPHIC
+	ITERATION MARK): New character.
+	(MASU MARK): New character.
+	(PART ALTERNATION MARK): New character.
+
+	* u02000-General-Punctuation.el (DOUBLE QUESTION MARK): New
+	character.
+	(TWO ASTERISKS ALIGNED VERTICALLY): New character.
+
+	* Ideograph-R086-Fire.el: Add some missing code points of JIS X
+	0213:2000 plain 1.
+
+	* Ideograph-R057-Bow.el (U+5F45): Separate JSP-3C74 and JC3-4CF6.
+	(JSP-3C74): Unify JX1-743A.
+
+	* Ideograph-R061-Heart.el (U+61BC): Unify JX1-745F.
+
+	* Ideograph-R015-Ice.el (M-01721): Separate B-E8F9.
+
+	* Ideograph-R075-Tree.el: Add some missing code points of JIS X
+	0213:2000 plain 1.
+
+	* Ideograph-R073-Say.el (U+66FA): Unify JX1-754C.
+
+2003-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R013-Down-Box.el (GT-K00079): New character.
+	(U+5187): Unify B-C94E.
+	(C2-212E): New character.
+
+	* Ideograph-R005-Second.el, Ideograph-R004-Slash.el,
+	Ideograph-R003-Dot.el, Ideograph-R002-Line.el: Add some missing
+	`ucs-cns' and `ucs-big5' attributes.
+
+	* Ideograph-R001-One.el (GT-K00002): New character.
+	(C2-212E): Separate B-C94E; add CU+5187; use `ideographic-'
+	instead of `ideographic-radical' and `ideographic-strokes' to add
+	UCS's radical and strokes.
+
+2003-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R200-Hemp.el (K0-582B): Unify M-47887; separate
+	C1-5E28.
+	(C1-5E28): Relate to M-47887 instead of M-47888.
+	(C6-463E): Likewise.
+	(M-47888): Separate G0-4269 and U+9EBB.
+
+	* Ideograph-R009-Man.el: Reformatted.
+
+2003-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R210-Even.el (M-48560): Separate CNS and GB.
+
+	* Ideograph-R191-Fight.el (M-45657): Separate all.
+	(U+9B2D): Unify CB10823.
+
+	* Ideograph-R198-Deer.el (M-47586): Separate GB and CNS.
+
+2003-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R189-Tall.el: Reformatted.
+	(M-45313): Separate G0-385F, C1-586D and U+9AD8.
+
+	* Ideograph-R187-Horse.el (M-44894): Separate C1-7A55, G1-6539 and
+	U+9A2B.
+
+	* Ideograph-R181-Leaf.el (JX1-7D7B): Unify U+FA6A and KU+983B; map
+	to GU+983B and CU+983B.
+	(U+983B): Map to JU+FA6A.
+
+	* Ideograph-R030-Mouth.el, Ideograph-R009-Man.el: Reformatted.
+
+	* Ideograph-R180-Sound.el (JX1-7D76): Unify U+FA69.
+
+	* Ideograph-R175-Wrong.el (M-42585): Separate C1-4F66.
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Reformatted.
+	(C2-643D): Separate U+96DA; unify CU+96DA.
+	(JX1-7D63): Unify U+FA68 and KU+96E3; map to GU+96E3 and CU+96E3.
+	(U+96E3): Map to JU+FA68.
+
+2003-01-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R162-Walk.el (JX1-7C59): Unify U+FA67 and KU+9038.
+	(M-38985): Unify GT-K10928 and KU+9042.
+	(U+9042): Unify GT-K09081.
+	(U+9045): Add `<-simplified-ideograph' for M-39113.
+	(M-39046): Add S1-8338.
+	(C3-4A27): Separate U+905F.
+	(M-39113): Add S1-8337; add `->ideographic-variants' for S1-8338.
+
+2003-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el (M-41704): Separate all.
+
+	* Ideograph-R169-Gate.el (M-41379): Separate all.
+	(M-41433): Likewise.
+
+	* Ideograph-R164-Wine.el (M-40006): Separate G1-523D and U+91AB;
+	add JU+91AB and KU+91AB.
+
+	* Ideograph-R163-City.el (U+90C1): Separate C1-5368.
+
+	* Ideograph-R160-Bitter.el (M-38636): Separate G0-393C, C1-624B
+	and U+8F9C; add JU+8F9C and KU+8F9C.
+	(M-38642): Separate G0-3159, C1-6728 and U+8F9F; add JU+8F9F.
+
+	* Ideograph-R157-Foot.el (M-37741): Separate G0-653F, C2-5F6B and
+	U+8E47; add JU+8E47 and KU+8E47.
+
+	* Ideograph-R154-Shell.el (U+8D2A): Modify
+	`ideographic-structure'.
+	(JX1-7C38): Unify U+FA64 and KU+8CD3; map to GU+8CD3 and CU+8CD3.
+	(U+8CD3): Map to JU+FA64.
+	(JX1-7C3D): Unify U+FA65 and KU+8D08.
+
+	* Ideograph-R159-Cart.el (J90-475A): Separate C1-6F45.
+
+	* Ideograph-R032-Earth.el, Ideograph-R030-Mouth.el: Reformatted.
+
+2003-01-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R149-Speech.el (M-35458): Separate G0-5532, C1-6669
+	and U+8A79; add JU+8A79 and KU+8A79.
+	(M-35757): Separate C1-7240, G1-5A4B and U+8B01; unify U+FA62 and
+	KU+8B01; map to GU+8B01 and CU+8B01.
+	(M-35900): Separate C1-773F, G1-3D77 and U+8B39; unify U+FA63 and
+	KU+8B39; map to GU+8B39 and CU+8B39.
+
+2003-01-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R121-Jar.el (JX2-7461): Unify CB08559.
+
+2003-01-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R147-See.el (JX1-7B79): Unify U+FA61 and KU+8996.
+
+2003-01-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R152-Pig.el (C5-2329): Unify GT-K02141.
+
+	* Ideograph-R146-West.el (CDP-8BD5): New character.
+	(U+8980): Add `total-strokes'; relate to M-34763.
+
+	* Ideograph-R145-Clothes.el (U+88B0): Separate J0-6A5E.
+	(M-34435): Unify U+FA60 and KU+8910; separate G0-3A56, C1-6E6E and
+	U+8910; unify BC-BDC5 instead of B-BDC5.
+
+	* Ideograph-R142-Insect.el (M-33094): Separate HZK1-CFE7 and
+	U+45BA.
+	(M-33143): Separate G0-435B, C1-6A6D and U+871C.
+
+2003-01-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL MEAT): Unify
+	M-29237.
+	(CDP-8958): Relate to M-29237.
+	(CDP-8A73): New character.
+
+2003-01-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R144-Walk-Enclosure.el (M-34046): Add S1-7325.
+	(J0-3D51): Add S1-7324.
+
+	* Ideograph-R141-Tiger.el (U+865B): Separate C1-6170.
+
+	* Ideograph-R140-Grass.el: Reformatted.
+	(M-30801): Separate JSP-5756, C2-2D41 and U+82EA.
+	(CDP-8D60): New character.
+	(K0-6E4A): Unify JX1-7B27, U+FA5F and KU+8457.
+	(M-31410): Map to U+FA5F instead of U+8457; unify KU+8457.
+	(U+855A): Add `<-vulgar-ideograph' for U+843C.
+	(M-32123): Separate C1-7531.
+	(M-32505): Separate U+8625; unify CU+8625.
+
+2003-01-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R130-Meat.el (M-29237): Unify <CJK RADICAL MEAT>.
+	(CDP-8A73): Add mapping for U+2EBC.
+	(CDP-8958): New character.
+	(C6-2549): Unify CDP-8B6A.
+
+2003-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el: Reformatted.
+	(GT-K01569): New character.
+
+	* Ideograph-R132-Self.el (U+81ED): Unify JU+FA5C.
+	(U+FA5C): New character.
+
+	* Ideograph-R125-Old.el (JX1-7A44): Unify U+FA5B and KU+8005; add
+	mapping for CU-0002F97A.
+	(U-0002F97A): Add mapping for JU+FA5B and KU+8005.
+
+	* Ideograph-R122-Net.el: Reformatted.
+	(M-28201): Separate JSP-5475 and U+7F53; unify G0-3854, C4-2152,
+	BE-C8A2, CDP-85BE and U+5188.
+	(U+34C1): Unify CDP-8C7E.
+	(JX1-7A3A): Unify U+FA5A and KU+7F72.
+
+	* Ideograph-R079-Weapon.el (M-16634): Separate U+6BB9.
+	(JSP-4631): Separate C4-3250.
+
+	* Ideograph-R072-Sun.el: Reformatted.
+	(M-14050): Separate C3-4156.
+
+	* Ideograph-R124-Feather.el: Reformatted.
+	(GT-K01762): New character.
+	(JC3-60A5): Add `ideographic-structure'.
+
+	* Ideograph-R013-Down-Box.el (U+5188): Unify M-28201.
+
+	* Ideograph-R121-Jar.el (GT-K01231): New character.
+
+	* Ideograph-R086-Fire.el, Ideograph-R050-Turban.el,
+	Ideograph-R030-Mouth.el: Reformatted.
+
+	* Ideograph-R009-Man.el: Reformatted.
+
+	* Ideograph-R120-Silk.el (M-49471): Add `ideographic-structure'.
+	(U-0002035E): Complete `ideographic-structure'.
+	(JX1-7A2E): Unify U+FA57 and KU+7DF4; add mapping for GU+7DF4 and
+	CU+7DF4.
+	(U+7DF4): Add mapping for JU+FA57.
+	(JX1-7A33): Unify U+FA59 and CU+7E41 and KU+7E41; add mapping for
+	GU+7E41.
+	(U+7E41): Add mapping for JU+FA59.
+	(HZK1-E2C2): Modify `ideographic-structure'.
+
+2003-01-28  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R123-Sheep.el: Reformatted.
+	(GT-K01352): New character.
+
+	* Ideograph-R009-Man.el (U-0002035E): Modify
+	`ideographic-structure'.
+
+2003-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (M-03555): Separate G0-3F48, C1-503D and
+	U+54B3.
+
+	* Ideograph-R118-Bamboo.el: Reformatted.
+	(JX1-7964): Unify U+FA56 and KU+7BC0.
+
+	* Ideograph-R116-Cave.el (JX1-7951): Unify U+FA55 and KU+7A81; add
+	mapping for GU+7A81 and CU+7A81.
+	(C1-5273): Unify CU+7A81; add mapping for JU+FA55.
+	(U+7A81): Add mapping for JU+FA55.
+
+	* Ideograph-R050-Turban.el: Reformatted.
+
+2003-01-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R075-Tree.el: Reformatted.
+	(JX1-763B): Unify JU+F91D.
+	(U+F91D): New character.
+
+	* Ideograph-R032-Earth.el: Reformatted.
+
+2003-01-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R114-Track.el (U-0002573C): Unify M-24887; modify
+	`ideographic-structure'.
+	(C6-334D): Relate to M-24887; modify `ideographic-structure'.
+
+	* Ideograph-R009-Man.el (M-00998): Unify HZK1-CFBC and U+3478;
+	modify `ideographic-structure'.
+	(C5-3421): Modify `ideographic-structure'.
+
+2003-01-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (U+79E6): Separate C1-5736.
+	(M-25221): Unify JX1-794D, U+FA54 and KU+7A40.
+	(U+7A40): Add mapping for JU+FA54.
+
+	* Ideograph-R113-Spirit.el (JX1-7933): Unify U+FA4C and KU+793E.
+	(JX1-7937): Unify U+FA4E and KU+7948.
+	(JX1-7934): Unify U+FA4D and KU+7949.
+	(JX1-7938): Unify U+FA4F and KU+7950.
+	(JX1-7939): Unify U+FA50 and KU+7956.
+	(JX1-793B): Unify U+FA51 and KU+795D.
+	(JX1-793F): Unify U+FA52 and KU+798D.
+	(JX1-7940): Unify U+FA53 and KU+798E.
+
+	* Ideograph-R112-Stone.el (U+7891): Unify JU+FA4B.
+	(U+FA4B): New character.
+
+	* Ideograph-R109-Eye.el (C5-3421): Modify `ideographic-structure'.
+
+	* Ideograph-R111-Arrow.el (U+77E3): Separate C1-4B32.
+
+	* Ideograph-R106-White.el (U+7686): Separate C1-5255.
+
+	* Ideograph-R105-Dotted-Tent.el (M-22661): Separate C2-2C40 and
+	U+7679.
+
+	* Ideograph-R096-Jade.el (U+7422): Unify JU+FA4A.
+	(U+FA4A): New character.
+
+	* Ideograph-R095-Profound.el: Reformatted.
+
+	* Ideograph-R009-Man.el (U-000202DC): Add `ideographic-strokes'
+	and `total-strokes'.
+	(U-00020442): Unify C7-476F and M-19757; don't use `->identical'
+	for M-19757; use `ideographic-' instead of `ideographic-radical'
+	and `ideographic-strokes'; modify `ideographic-structure'.
+
+2003-01-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R089-Double-X.el (U-00024568): Modify
+	`ideographic-structure'.
+	(C7-476F): Unify U-00020442 and HZK1-D6F4; use `ideographic-'
+	instead of `ideographic-radical' and `ideographic-strokes'; don't
+	use `->identical'; modify `ideographic-structure'.
+
+2003-01-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R071-Not.el (JC3-50F4): Map to U+FA42 instead of
+	U+65E3.
+	(U+FA42): New character.
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL SMALL ONE): Unify
+	BC-8B54 and GT-K00303.
+	(GT-K00305): New character.
+	(CJK RADICAL SMALL TWO): Unify GT-K00325.
+	(CJK RADICAL HEART ONE): Unify GT-K00302.
+
+	* Ideograph-R086-Fire.el: Reformatted.
+	(U+716E): Unify B-B54E.
+	(JX1-7755): Unify U+FA48 and KU+716E; unify BC-B54E instead of
+	B-B54E.
+
+2003-01-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R075-Tree.el (GT-19861): Unify JX1-7624, JU+69EA and
+	KU+69EA.
+
+	* Ideograph-R038-Woman.el (J90-3247): Unify J78-3247, J83-3247 and
+	K0-4A2A; separate C1-6360.
+	(B-B6F9): Separate S2-1716, G0-3C5E, J0-3247, K0-4A2A and U+5AC1.
+
+2003-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (U+4E47): Separate C2-2128; modify
+	`ideographic-structure' to use U+4E03 instead of BC-88ED.
+
+	* Ideograph-R001-One.el (U+4E03): Unify BC-88ED.
+
+	* Ideograph-R085-Water.el (U+6D77): Unify JU+FA45.
+	(U+FA45): New character.
+	(JX1-7677): Unify U+FA46 and KU+6E1A; unify BC-B25A instead of
+	B-B25A.
+	(U+6E1A): Unify B-B25A.
+	(U+6F22): Unify JU+FA47.
+	(U+FA47): New character.
+	(C1-6947): Unify CU+6F22.
+
+	* Ideograph-R084-Steam.el: Reformatted.
+
+2003-01-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R018-Knife.el (U+5277): Use `->identical' instead of
+	`->same-ideograph' for U-0002F823.
+
+	* Ideograph-R010-Legs.el (U-0002F80F): Modify
+	`ideographic-structure' to use U+FA32 instead of U-0002F80E.
+
+2003-01-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R082-Fur.el (U+6BDB): Separate C1-4553.
+
+	* Ideograph-R072-Sun.el: Reformatted.
+	(U+3AE6): Separate C4-323B; modify `ideographic-strokes' and
+	`total-strokes'; complete `ideographic-structure'.
+	(JX1-7543): Unify U+FA43 and KU+6691; separate C6-533C.
+
+	* Ideograph-R061-Heart.el (U+6094): Unify JU+FA3D.
+	(U+FA3D): New character.
+	(JC3-4ED6): Unify BC-B46E instead of B-B46E; map to U+FA3E instead
+	of U+6168; map to KU+6168.
+	(JX1-745C): Unify U+FA3E and KU+6168.
+	(U+6168): Unify B-B46E.
+	(JX1-745E): Unify U+FA3F and KU+618E; unify BC-BCA8 instead of
+	B-BCA8.
+	(U+618E): Unify B-BCA8.
+	(U-0002F8B0): Unify JU+61F2.
+	(M-11424): Separate JX1-7461; delete `ucs-jis'; unify KU+61F2; map
+	to U+FA40 instead of U+61F2.
+	(U+61F2): Map to JU+FA40.
+	(C1-7834): Map to JU+FA40; unify CU+61F2.
+
+	* Ideograph-R040-Roof.el (M-07325): Separate G0-653C, C1-6C4E and
+	U+5BEE.
+
+2003-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (U+5982): Separate C1-4771.
+
+	* Ideograph-R078-Death.el: Reformatted.
+
+	* Ideograph-R075-Tree.el (U+6885): Unify JU+FA44.
+	(U+FA44): New character.
+
+	* Ideograph-R017-Open-Box.el (M-01803): Separate G0-5057 and
+	U+51F6; add JU+51F6.
+
+	* Ideograph-R066-Rap.el (U+654F): Unify JU+FA41.
+	(U+FA41): New character.
+
+2003-01-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (U+FA39): New character.
+	(U+5841): Use `<-simplified-ideograph' instead of
+	`simplified-ideograph-of'.
+	(U+58A8): Add JU+FA3A.
+	(U+FA3A): New character.
+
+	* Ideograph-R009-Man.el (U-0002020C): Delete incomplete
+	`ideographic-structure'.
+
+2003-01-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R044-Corpse.el (JX1-4F61): Unify U+FA3B and KU+5C64;
+	unify BC-BC68 instead of B-BC68.
+	(U+5C64): Unify B-BC68.
+
+	* Ideograph-R045-Sprout.el (U+5C6E): Unify JU+FA3C.
+	(U+FA3C): New character.
+	(U-00021CFE): Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+
+2003-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el (GT-K00059): New character.
+
+	* Ideograph-R010-Legs.el (JX1-2E50): Unify U+FA32 instead of
+	U-0002F80E; add CU-0002F80E.
+	(U-0002F80E): Add `->identical' for U+FA32.
+
+	* Ideograph-R009-Man.el (U+4EBA): Unify GT-K00048.
+	(GT-K00049): New character.
+	(ideographic component person as roof): Unify GT-K00057.
+	(ideographic component person as left roof): New character.
+	(U+4FAE): Unify JU+FA30.
+	(U+FA30): New character.
+	(U+50A9): Modify `ideographic-structure'.
+	(JX1-2E49): Unify U+FA31 and KU+50E7; unify BC-B9AC instead of
+	B-B9AC.
+	(U+50E7): Unify B-B9AC.
+
+	* Ideograph-R030-Mouth.el (U+559D): Unify JU+FA36.
+	(U+FA36): New character.
+	(U+5606): Separate C1-682C; unify JU+FA37.
+	(U+FA37): New character.
+	(U+5668): Unify JU+FA38.
+	(U+FA38): New character.
+
+	* Ideograph-R024-Ten.el (U+5341): Unify GT-K00047.
+	(U+5351): Unify JU+FA35.
+	(U+FA35): New character.
+	(J0-485C): Use `<-vulgar-ideograph' instead of
+	`vulgar-ideograph-of'.
+
+	* Ideograph-R019-Power.el (U+52C9): Unify JU+FA33.
+	(U+FA33): New character.
+	(U+52E4): Unify JU+FA34.
+	(U+FA34): New character.
+
+	* Ideograph-R018-Knife.el (J0-4561): Unify GT-K00053.
+	(J0-517C): Modify `ideographic-structure'.
+	(J0-517D): Likewise.
+	(M-02245): Separate C3-5037, HZK1-F042, CB00669 and U+5294.
+	(J0-517B): Separate JC3-44CF and U+5271.
+
+2003-01-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R029-Again.el (U+53C8): Unify GT-K00063.
+
+	* Ideograph-R025-Divination.el (U+535C): Unify GT-K00060.
+	(GT-K00061): New character.
+
+	* Ideograph-R012-Eight.el (J0-482C): Unify GT-K00056.
+
+	* Ideograph-R011-Enter.el (J0-467E): Unify GT-K00050.
+
+	* Ideograph-R007-Two.el (U+4E8C): Unify GT-K00054.
+
+	* Ideograph-R005-Second.el (U-000200CA): Unify GT-K00029.
+	(GT-K00027): New character.
+	(U-000200CC): Unify GT-K00023.
+
+2003-01-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R008-Lid.el (JC3-81C1): Unify GT-K02308.
+
+	* Ideograph-R167-Gold.el (U+9485): Unify CDP-895A.
+
+2003-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el: Unify some GT-Kddddd numbers.
+	(U-00020086): Unify GT-00152; use `ideographic-' instead of
+	`ideographic-radical', `ideographic-strokes' and `total-strokes'.
+	(GT-00163): Unify G0-3C30, J0-355A, C6-2161 and U+53CA; use
+	`ideographic-' instead of `ideographic-radical',
+	`ideographic-strokes' and `total-strokes'.
+	(M-00125): Unify GT-00166; use `ideographic-' instead of
+	`ideographic-radical', `ideographic-strokes' and `total-strokes'.
+	(M-00133): Unify GT-00175; use `ideographic-' instead of
+	`ideographic-radical', `ideographic-strokes' and `total-strokes'.
+
+	* Ideograph-R040-Roof.el (GT-K07616): New character.
+	(BC-8D7C): New character.
+
+	* Ideograph-R029-Again.el (C1-452F): Unify B-A4CE; add CU+53CA.
+	(U+53CA): Separate B-A4CE; unify GT-00163; use `ideographic-'
+	instead of `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'.
+
+	* Ideograph-R064-Hand.el (U+624D): Unify GT-00010 and GT-K00176;
+	use `ideographic-' instead of `ideographic-radical' and
+	`ideographic-strokes'.
+	(U+63FA): Add S1-3022; add `<-simplified-ideograph' for S1-3023.
+	(U+6416): Add S1-3023.
+
+	* Ideograph-R013-Down-Box.el (GT-02025): Unify GT-K06707.
+
+	* Ideograph-R012-Eight.el (GT-01936): Unify GT-K06415.
+
+	* Ideograph-R009-Man.el (GT-00767): Unify GT-K03991.
+
+	* Ideograph-R001-One.el: Unify some GT-Kddddd numbers.
+	(GT-K00010): Unify U+624D; use `ideographic-' instead of
+	`ideographic-radical' and `ideographic-strokes'.
+	(U+4E0E): Separate B-C94F; unify GT-00023; use `ideographic-'
+	instead of `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'.
+	(U+4E21): Delete relation for BC-8564.
+
+2003-01-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R005-Second.el: Unify some GT-Kddddd numbers.
+
+	* u02E00-CJK-Radical-Supplement.el (U+2EB6): Unify BC-8970.
+	(BC-8CCC): New character.
+
+2003-01-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R003-Dot.el, Ideograph-R002-Line.el: Unify some
+	GT-Kddddd numbers.
+
+2003-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R094-Dog.el (U+731F): Add S1-4810; add
+	`<-simplified-ideograph' for S1-4811.
+	(U+7363): Add S1-4842; add `<-simplified-ideograph' for S1-4843.
+	(U+7375): Add S1-4811.
+	(U+7378): Add S1-4843.
+
+	* isolated-char.el: Read "../etc/char-data/GT-fmap-K4.txt".
+
+2003-01-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R036-Evening.el (J0-546D): Add S1-1552.
+	(U+5922): Add `<-simplified-ideograph' for S1-1550.
+	(M-05802): Add S1-1550.
+	(M-05803): Separate U+5923; add S1-1553; add `<-vulgar-ideograph'
+	for S1-1550.
+
+	* Ideograph-R029-Again.el (M-03115): Unify GT-K00065.
+	(GT-K00064): New character.
+
+2003-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* isolated-char.el: Read "../etc/char-data/GT-fmap-K3.txt".
+
+2003-01-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R062-Halberd.el (C5-3F46): Unify HZK1-D0CF and
+	U-000203B6; use `ideographic-' instead of `ideographic-radical'
+	and `ideographic-strokes'; complete `ideographic-structure'.
+
+	* Ideograph-R056-Shoot.el (GT-K00233): New character.
+
+	* Ideograph-R007-Two.el (GT-K00083): New character.
+
+	* Ideograph-R009-Man.el (GT-K03992): New character.
+	(U-000203B6): Unify C5-3F46 and M-11626; don't use `->identical';
+	use `ideographic-' instead of `ideographic-radical' and
+	`ideographic-strokes'; complete `ideographic-structure'.
+
+2003-01-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R019-Power.el (M-02302): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R005-Second.el (U-000200ED): Modify
+	`ideographic-structure'.
+	(GT-00254): Add `ideographic-structure'.
+
+2003-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (U-00022483): Complete
+	`ideographic-structure'.
+
+	* Ideograph-R071-Not.el: Reformatted.
+	(M-13717): Separate C2-213E.
+
+	* Ideograph-R066-Rap.el (M-13226): Separate B-B1CE.
+	(U-00022FC5): Complete `ideographic-structure'.
+
+	* Ideograph-R046-Mountain.el: Reformatted.
+	(M-08121): Separate U+37CF.
+
+	* Ideograph-R040-Roof.el (M-07239): Add S1-0557.
+	(J0-3428): Add S1-0556.
+
+	* Ideograph-R030-Mouth.el: Reformatted.
+	(M-03709): Unify B-ADF0; separate JC3-45FE.
+	(U+5510): Separate B-ADF0; unify JC3-45FE.
+	(M-03756): Separate C1-5949.
+	(M-03780): Unify B-D473; separate JC3-46E0.
+	(U+553C): Separate B-D473 and C2-3376; separate JC3-46E0.
+	(C3-3A42): Add `ideographic-structure'.
+	(JC3-46EB): Likewise.
+	(U+55BB): Separate B-B3EB.
+	(C1-5E51): Add `ideographic-structure'.
+	(U-00020DD1): Modify `ideographic-structure'.
+	(M-04247): Likewise; separate JC3-46FD.
+	(U+5630): Unify JC3-46FD.
+	(M-04329): Add `ideographic-structure'.
+	(C5-4C45): Unify U-000203E7.
+	(H1-D44F): New character; relate to M-04329.
+	(U-00020FEE): New character.
+	(M-04392): Separate C2-564D and U+566D.
+	(CB02743): Fix `ideographic-strokes' and `total-strokes'; add
+	mapping for U-00020FEE.
+
+2003-01-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R011-Enter.el (H1-C3C3): Separate U+516A.
+
+2003-01-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R099-Sweet.el: Reformatted.
+
+	* Ideograph-R073-Say.el (U+52D7):
+	New character; use `ideographic-' instead of `cns-radical'.
+	(M-14302): Separate C2-3C4C, JX2-2E37, B-D9A9 and U+6701.
+
+2003-01-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R101-Use.el (M-21720): Modify `ideographic-structure'.
+
+	* Ideograph-R075-Tree.el: Reformatted.
+
+2003-01-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R022-Right-Open-Box.el: Reformatted.
+	(M-02629): Modify `ideographic-structure'.
+	(K0-5D63): Likewise.
+
+	* Ideograph-R008-Lid.el: Reformatted.
+	(U-0002015F): Modify `ideographic-structure'.
+	(U-00020182): Likewise.
+	(M-48914): Fix `ideographic-strokes'.
+	(U-00020189): Likewise.
+	(M-00339): Add mapping for U+342F; add `ideographic-structure'.
+	(U+342F): Modify `ideographic-structure'.
+	(U-00020199): Relate to M-05824.
+	(M-00341): Modify `ideographic-structure'.
+	(U-0002019D): Likewise.
+
+2003-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R051-Dry.el (M-09169): Separate C2-223B, B-C9DB and
+	U+5E75.
+
+	* Ideograph-R040-Roof.el (M-07205): Separate G0-435C, C1-596F and
+	U+5BC6.
+
+	* Ideograph-R036-Evening.el (M-05824):
+	Add mapping to U-00020199; modify `ideographic-structure'.
+	(CB00833): Likewise.
+	(U-00020199): New character; relate to M-05824.
+
+2003-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R013-Down-Box.el: Reformatted.
+	(BC-8A78): Use `name*' instead of `name' for non-standard name;
+	rename <ideographic radical hood> to <ideographic component hood>.
+	(M-01528): Separate GE-7A2A, C2-232C and U+518F.
+	(U+5190): Modify `ideographic-structure'.
+	(CB00155): Likewise.
+	(CB04393): Likewise.
+
+	* Ideograph-R012-Eight.el: Reformatted.
+	(M-01504): Separate H1-DAA1.
+	(C7-4D3D): Separate U+34B9.
+	(U+34B9): Unify H1-DAA1.
+
+2003-01-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R042-Small.el: Reformatted.
+
+	* Ideograph-R037-Big.el (U+595A): Separate C1-5471.
+
+	* Ideograph-R034-Go.el: Reformatted.
+	(J0-4A51): Separate U+5909.
+
+2003-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el: Reformatted.
+	(U+52D7): Use `ideographic-' instead of `cns-radical'.
+
+	* Ideograph-R016-Table.el: Reformatted.
+	(U-00020660): Complete `ideographic-structure'.
+
+	* Ideograph-R009-Man.el: Reformatted.
+
+2003-01-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R061-Heart.el: Reformatted.
+	(U-00022608): Complete `ideographic-structure'.
+	(U-00022614): Likewise.
+	(U+60B3): Delete incomplete `ideographic-structure'.
+	(U+60EA): Unify C3-3B4D.
+
+2003-01-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R001-One.el (JC3-41A2): Fixed.
+
+	* Ideograph-R038-Woman.el: Reformatted.
+	(U+36A2): Use `<-ancient-ideograph' instead of
+	`ancient-ideograph-of'.
+	(U+59C9): Use `<-vulgar-ideograph' instead of
+	`vulgar-ideograph-of'.
+
+	* Ideograph-R021-Spoon.el: Reformatted.
+	(U-00020915): Delete `hanyu-dazidian-{vol|page|char}'.
+
+	* Ideograph-R020-Wrap.el: Reformatted.
+	(U-0002F828): Modify the operator of `ideographic-structure'.
+	(J0-4A71): Don't use char-ref for the operator of
+	`ideographic-structure'.
+	(C2-2556): Likewise; modify the operator of
+	`ideographic-structure'.
+
+	* Ideograph-R074-Moon.el: Reformatted.
+
+	* Ideograph-R068-Dipper.el (M-13508): Unify C1-5A7C.
+
+	* Ideograph-R050-Turban.el: Reformatted.
+	(M-09023): Don't use char-ref for the operator of
+	`ideographic-structure'.
+	(U+5E4D): Likewise.
+	(M-09024): Likewise.
+	(U+5E4E): Likewise.
+	(M-09134): Likewise.
+
+	* Ideograph-R037-Big.el: Reformatted.
+
+2003-01-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R070-Square.el, Ideograph-R060-Step.el,
+	Ideograph-R041-Inch.el: Reformatted.
+
+	* Ideograph-R040-Roof.el: Reformatted.
+	(M-07226): Separate C2-3B36 and U+5BCB.
+
+	* Ideograph-R039-Child.el: Reformatted.
+	(M-06987): Separate G1-4B6F and U+5B6B.
+
+2003-01-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (CB01092): Delete incorrect
+	`ideographic-structure'.
+	(CB00102): Add `ideographic-structure'.
+
+2003-01-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R009-Man.el: Reformatted.
+	(U+20089): Use `name*' instead of `name' for non-standard name;
+	rename <cjk radical person for top> to <ideographic component
+	person for top>; add `:sources' of `:radical' and `:strokes'.
+	(JC3-71FA): Use `name*' instead of `name' for non-standard name;
+	rename <cjk radical person as roof> to <ideographic component
+	person as roof>.
+
+	* Ideograph-R033-Scholar.el, Ideograph-R031-Enclosure.el:
+	Reformatted.
+
+2003-01-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R027-Cliff.el, Ideograph-R026-Seal.el: Reformatted.
+
+	* Ideograph-R024-Ten.el: Reformatted.
+	(U-0002099C): Separate BC-88DF.
+	(U-000209A4): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+
+	* Ideograph-R001-One.el, Ideograph-R004-Slash.el (U-00020089): Use
+	`name*' instead of `name' for non-standard name; rename <cjk
+	radical person for top> to <ideographic component person for top>;
+	add `:sources' of `:radical' and `:strokes'.
+
+2003-01-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-db-make-char-spec): Use
+	`get-char-attribute' instead of `split-char' to break up a
+	character which does not have `ucs' attribute.
+
+2003-01-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R029-Again.el, Ideograph-R028-Private.el,
+	Ideograph-R025-Divination.el: Reformatted.
+
+	* Ideograph-R011-Enter.el: Reformatted.
+	(U-000204EE): Simplify `ideographic-structure'.
+	(C6-353D): Likewise.
+
+	* Ideograph-R005-Second.el: Reformatted.
+	(C4-2157): Add `ideographic-structure'.
+
+	* Ideograph-R002-Line.el (U+4E2A): Use `name*' instead of `name'
+	for non-standard name; rename <cjk radical person as roof> to
+	<ideographic component person as roof>.
+
+2003-01-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el: Reformatted.
+
+	* Ideograph-R018-Knife.el:
+	- Reformatted.
+	- Don't use char-ref for the operator of `ideographic-structure'.
+	(M-01848): Separate G0-4850, K0-6C53, JC3-44B3 and U+5203.
+	(J0-516B): Unify BC-AB62.
+
+	* Ideograph-R015-Ice.el, Ideograph-R014-Cover.el: Reformatted.
+
+	* char-db-util.el (char-db-make-char-spec): Add `name*' as same as
+	`name'.
+
+2003-01-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R010-Legs.el: Reformatted.
+
+	* Ideograph-R007-Two.el, Ideograph-R006-Hook.el: Reformatted.
+
+2003-01-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
+	`chinese-big5-cdp' to `ideograph-cbeta' and `china3-jef'.
+	(insert-char-attributes): Format `name*' like `name'.
+
 2003-01-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R123-Sheep.el, Ideograph-R093-Cow.el,
