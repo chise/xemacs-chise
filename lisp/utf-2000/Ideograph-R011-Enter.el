@@ -77,6 +77,7 @@
       ))
     (japanese-jisx0212	. #x326E)	; ø»Š¾›
     (ideograph-daikanwa . 01417)	; ø¸€–‰
+    (ucs-jis		. #x5166)	; ø»Š¾›
     ))
 (define-char
   '((=>ucs		. #x5166)	; å…¦

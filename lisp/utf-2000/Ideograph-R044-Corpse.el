@@ -1892,6 +1892,7 @@
     (chinese-big5		. #xBC68)	; ý¢€‹±¨
     (ideograph-daikanwa		. 07798)	; ø¸¹¶
     (china3-jef			. #x4AE0)	; øº„« 
+    (ucs-jis			. #x5C64)	; ø»Š—–
     ))
 (define-char
   '((morohashi-daikanwa	7798 0 2)
@@ -1909,7 +1910,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (=jis-x0208		. #x4158)	; ø½Š¥³
-    (ucs-jis		. #x5C64)	; ø½Š¥³
+    (ucs-jis		. #x5C64)	; ø»Š—–
     ))
 (define-char
   '((ideographic-radical . 44)	; â¼«

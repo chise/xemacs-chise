@@ -246,9 +246,6 @@
     (ideographic-radical . 23)	; â¼–
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 85)
-    (hanyu-dazidian-char . 14)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (ucs		  . #x2FF7)	; â¿·
@@ -259,6 +256,7 @@
       ))
     (japanese-jisx0212	. #x3433)	; ø»‹€œ
     (ideograph-daikanwa . 02683)	; ø¸€©»
+    (ucs-jis		. #x533C)	; ø»‹€œ
     ))
 (define-char
   '((morohashi-daikanwa	2683 0 0)
@@ -433,6 +431,7 @@
     (japanese-jisx0213-2	. #x2350)	; ø»¤ «
     (chinese-big5		. #xB0D0)	; ý¢€‹ƒ
     (ideograph-daikanwa		. 02689)	; ø¸€ª
+    (ucs-jis			. #x533E)	; ø»‹€ž
     ))
 (define-char
   '((=>ucs		. #x533E)	; åŒ¾

@@ -105,6 +105,7 @@
     (japanese-jisx0212		. #x3C7C)	; ø»‹•
     (japanese-jisx0213-2	. #x2C33)	; ø»¤­œ
     (ideograph-daikanwa		. 09971)	; ø¸‚›³
+    (ucs-jis			. #x5F63)	; ø»‹•
     ))
 (define-char
   '((morohashi-daikanwa	9971 0 0)
@@ -126,6 +127,7 @@
     (chinese-big5		. #xA7CD)	; ý¢€ŠŸ
     (ideograph-daikanwa		. 09972)	; ø¸‚›´
     (china3-jef			. #x4DA5)	; øº„¶¥
+    (ucs-jis			. #x5F64)	; ø»‹–
     ))
 (define-char
   '((morohashi-daikanwa	9972 0 0)

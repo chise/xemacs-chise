@@ -183,6 +183,7 @@
     (japanese-jisx0213-1	. #x7A44)	; ø»¤–
     (ideograph-daikanwa		. 28853)	; ø¸‡‚µ
     (china3-jef			. #x60B5)	; øº†‚µ
+    (ucs-jis			. #x2F97A)	; ø»ŠŠ
     (ucs-ks			. #x8005)	; ø»ŠŠ
     ))
 (define-char

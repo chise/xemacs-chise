@@ -21,6 +21,7 @@
     (chinese-cns11643-4		. #x2151)	; ø»—¡˜
     (japanese-jisx0213-2	. #x702A)	; ø»¦‘‹
     (ideograph-daikanwa		. 19655)	; ø¸„³‡
+    (ucs-jis			. #x722B)	; ø»‹¡…
     ))
 (define-char
   '((morohashi-daikanwa	19655 0 2)
@@ -157,6 +158,7 @@
     (total-strokes	 . 9)
     (japanese-jisx0212	. #x4A49)	; ø»‹¡†
     (ideograph-daikanwa . 19671)	; ø¸„³—
+    (ucs-jis		. #x722F)	; ø»‹¡†
     ))
 (define-char
   '((morohashi-daikanwa	19671 0 2)

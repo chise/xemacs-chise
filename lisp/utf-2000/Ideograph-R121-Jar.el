@@ -674,6 +674,7 @@
     (japanese-jisx0212		. #x5472)	; ø»‹°›
     (japanese-jisx0213-1	. #x7A39)	; ø»¤–‚
     (ideograph-daikanwa		. 28175)	; ø¸†¸
+    (ucs-jis			. #x7F47)	; ø»‹°›
     ))
 (define-char
   '((morohashi-daikanwa	28175 0 2)

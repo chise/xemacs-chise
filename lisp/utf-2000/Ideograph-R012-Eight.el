@@ -440,6 +440,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (japanese-jisx0213-2	. #x2327)	; ø»¤ ‚
+    (ucs-jis			. #x20509)	; ø»¤ ‚
     ))
 (define-char
   '((=>ucs		. #x20509)	; ð ”‰
@@ -1124,6 +1125,7 @@
     (ideograph-daikanwa . 01494)	; ø¸€—–
     (ideograph-cbeta	. 00042)	; ø¸ €ª
     (china3-jef		. #x43E7)	; øº„§
+    (ucs-jis		. #x517E)	; ø»Š¾œ
     ))
 (define-char
   '((=>ucs		. #x517E)	; å…¾

@@ -27,6 +27,7 @@
     (japanese-jisx0212		. #x6644)	; ø»ŒŠ‰
     (chinese-cns11643-3		. #x2143)	; ø»•—†
     (japanese-jisx0213-2	. #x7A25)	; ø»¦Ÿ²
+    (ucs-jis			. #x961D)	; ø»ŒŠ‰
     ))
 (define-char
   '((ideographic-radical . 163)	; â¾¢
@@ -4492,6 +4493,7 @@
     (japanese-jisx0212		. #x6250)	; ø»Œ„
     (japanese-jisx0213-2	. #x7A3D)	; ø»¦ Š
     (ideograph-daikanwa		. 39711)	; ø¸‰¬Ÿ
+    (ucs-jis			. #x913A)	; ø»Œ„
     ))
 (define-char
   '((=>ucs		. #x913A)	; é„º

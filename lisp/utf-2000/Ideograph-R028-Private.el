@@ -29,6 +29,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (japanese-jisx0213-2	. #x2359)	; ø»¤ ´
+    (ucs-jis			. #x20AD3)	; ø»¤ ´
     ))
 (define-char
   '((ideographic-radical . 28)	; â¼›

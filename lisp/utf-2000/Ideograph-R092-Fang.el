@@ -160,6 +160,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (japanese-jisx0212	. #x4A57)	; ø»‹¡”
+    (ucs-jis		. #x725A)	; ø»‹¡”
     ))
 (define-char
   '((ideographic-radical . 92)	; â½›

@@ -818,6 +818,7 @@
     (japanese-jisx0212		. #x386A)	; ø»‹‡‹
     (japanese-jisx0213-2	. #x253D)	; ø»¤£”
     (ideograph-daikanwa		. 05805)	; ø¸š­
+    (ucs-jis			. #x5924)	; ø»‹‡‹
     ))
 (define-char
   '((morohashi-daikanwa	5805 0 0)

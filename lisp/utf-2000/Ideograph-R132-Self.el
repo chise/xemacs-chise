@@ -293,6 +293,7 @@
     (japanese-jisx0212	. #x5665)	; ø»‹³Š
     (ideograph-daikanwa . 30124)	; ø¸‡–¬
     (chinese-big5-cdp	. #x8BEF)	; ý¢€ˆ¯¯
+    (ucs-jis		. #x81F1)	; ø»‹³Š
     ))
 (define-char
   '((=>ucs		. #x81F1)	; è‡±

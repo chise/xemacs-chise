@@ -589,6 +589,7 @@
     (japanese-jisx0212	. #x4E4F)	; ø»‹§„
     (ideograph-daikanwa . 22992)	; ø¸…§
     (china3-jef		. #x9BEE)	; øº‰¯®
+    (ucs-jis		. #x76D4)	; ø»‹§„
     ))
 (define-char
   '((morohashi-daikanwa	22992 0 2)

@@ -23,6 +23,7 @@
     (chinese-big5		. #xA5C2)	; ý¢€Š—‚
     (ideograph-daikanwa		. 17027)	; ø¸„Šƒ
     (china3-jef			. #x55A8)	; øº…–¨
+    (ucs-jis			. #x6C10)	; ø»‹›Ž
     ))
 (define-char
   '((morohashi-daikanwa	17027 0 3)
