@@ -1083,18 +1083,32 @@ The default status is as follows:
   (set-coding-category-system 'no-conversion	'raw-text)
   (set-coding-category-system 'shift-jis	'shift_jis)
   (set-coding-category-system 'big5		'big5)
-  (set-coding-category-system 'ucs-4		'binary)
-  (set-coding-category-system 'utf-8		'raw-text)
-    
-  (set-coding-priority-list
-   '(iso-8-1
-     iso-8-2
-     iso-7
-     iso-lock-shift
-     iso-8-designate
-     no-conversion
-     shift-jis
-     big5))
+  (cond ((eq (coding-system-type (coding-category-system 'utf-8)) 'utf-8)
+	 (set-coding-category-system 'ucs-4 'iso-10646-ucs-4)
+	 (set-coding-category-system 'utf-8 'utf-8)
+	 (set-coding-priority-list
+	  '(iso-8-1
+	    iso-8-2
+	    iso-7
+	    iso-lock-shift
+	    iso-8-designate
+	    utf-8
+	    ucs-4
+	    no-conversion
+	    shift-jis
+	    big5))
+	 )
+	(t
+	 (set-coding-priority-list
+	  '(iso-8-1
+	    iso-8-2
+	    iso-7
+	    iso-lock-shift
+	    iso-8-designate
+	    no-conversion
+	    shift-jis
+	    big5))
+	 ))
 
   ;; (update-coding-systems-internal)
 
