@@ -1972,6 +1972,7 @@
     (=jis-x0208		. #x6348)	; ø½‹—Ÿ
     (korean-ksc5601	. #x7922)	; ø»Š›
     (ideograph-daikanwa . 25127)	; ø¸†ˆ§
+    (ucs-jis		. #x7A1F)	; ø½‹—Ÿ
     ))
 (define-char
   '((morohashi-daikanwa	25127 0 0)
