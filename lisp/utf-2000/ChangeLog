@@ -1,5 +1,14 @@
 2004-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R164-Wine.el (J0-3D39): Moved into U+919C.
+	(U+919C): Use `->subsumptive'.
+
+	* Ideograph-R001-One.el: Add some `<-simplified@CN' features.
+	(U+4E07): Use `<-simplified' instead of `<-simplified@JP/Jouyou'
+	for U+842C; put `<-simplified*sources' to add JP/Jouyou and CN.
+	(U+4E3D): Copied from Ideograph-R003-Dot.el.
+	(C3-2740): Add `<-denotational' for U+4E3D.
+
 	* Ideograph-R075-Tree.el (U+696D): Use `->subsumptive'.
 	(C1-6446): Moved into U+696D.
 
