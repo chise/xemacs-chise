@@ -226,12 +226,6 @@ static Lisp_Object execute_optimized_program (CONST Opbyte *program,
 
 extern Lisp_Object Qand_rest, Qand_optional;
 
-/* Define ERROR_CHECK_BYTE_CODE to enable some minor sanity checking.
-   Useful for debugging the byte compiler.  */
-#ifdef DEBUG_XEMACS
-#define ERROR_CHECK_BYTE_CODE
-#endif
-
 /* Define BYTE_CODE_METER to enable generation of a byte-op usage histogram.
    This isn't defined in FSF Emacs and isn't defined in XEmacs v19. */
 /* #define BYTE_CODE_METER */

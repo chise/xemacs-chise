@@ -32,32 +32,31 @@
 
 ;;; Code:
 
+(defvar selected-text-type
+  (if (featurep 'mule) '(COMPOUND_TEXT STRING) 'STRING)
+  "The type atom used to obtain selections from the X server.
+Can be either a valid X selection data type, or a list of such types.
+COMPOUND_TEXT and STRING are the most commonly used data types.
+If a list is provided, the types are tried in sequence until
+there is a successful conversion.")
+
 (defun copy-primary-selection ()
   "Copy the selection to the Clipboard and the kill ring."
   (interactive)
   (and (console-on-window-system-p)
        (cut-copy-clear-internal 'copy)))
-(define-obsolete-function-alias
-  'x-copy-primary-selection
-  'copy-primary-selection)
 
 (defun kill-primary-selection ()
   "Copy the selection to the Clipboard and the kill ring, then delete it."
   (interactive "*")
   (and (console-on-window-system-p)
        (cut-copy-clear-internal 'cut)))
-(define-obsolete-function-alias
-  'x-kill-primary-selection
-  'kill-primary-selection)
 
 (defun delete-primary-selection ()
   "Delete the selection without copying it to the Clipboard or the kill ring."
   (interactive "*")
   (and (console-on-window-system-p)
        (cut-copy-clear-internal 'clear)))
-(define-obsolete-function-alias
-  'x-delete-primary-selection
-  'delete-primary-selection)
 
 (defun yank-clipboard-selection ()
   "Insert the current Clipboard selection at point."
@@ -67,30 +66,34 @@
     (mswindows (mswindows-paste-clipboard))
     (otherwise nil)))
 
-(defun selection-owner-p (&optional selection)
-  "Return t if current XEmacs process owns the given Selection.
-The arg should be the name of the selection in question, typically one
-of the symbols PRIMARY, SECONDARY, or CLIPBOARD.  (For convenience,
-the symbol nil is the same as PRIMARY, and t is the same as
-SECONDARY.)"
-  (interactive)
-  (case (device-type (selected-device))
-    (x (x-selection-owner-p selection))
-    (mswindows (mswindows-selection-owner-p selection))
-    (otherwise nil)))
+(define-device-method get-cutbuffer
+  "Return the value of one of the cut buffers.
+This will do nothing under anything other than X.")
 
-(defun selection-exists-p (&optional selection)
-  "Whether there is an owner for the given Selection.  
-The arg should be the name of the selection in question, typically one
-of the symbols PRIMARY, SECONDARY, or CLIPBOARD.  (For convenience,
-the symbol nil is the same as PRIMARY, and t is the same as
-SECONDARY."
-  (interactive)
-  (case (device-type (selected-device))
-    (x (x-selection-exists-p selection))
-    (mswindows (mswindows-selection-exists-p))
-    (otherwise nil)))
+(defun get-selection (&optional type data-type)
+  "Return the value of a Windows selection.
+The argument TYPE (default `PRIMARY') says which selection,
+and the argument DATA-TYPE (default `STRING', or `COMPOUND_TEXT' under Mule)
+says how to convert the data."
+  (or type (setq type 'PRIMARY))
+  (or data-type (setq data-type selected-text-type))
+  (let ((text
+	 (if (consp data-type)
+	     (condition-case err
+		 (get-selection-internal type (car data-type))
+	       (selection-conversion-error
+		(if (cdr data-type)
+		    (get-selection type (cdr data-type))
+		  (signal (car err) (cdr err)))))
+	   (get-selection-internal type data-type))))
+    (when (and (consp text) (symbolp (car text)))
+      (setq text (cdr text)))
+    (when (not (stringp text))
+      (error "Selection is not a string: %S" text))
+    text))
 
+;; FSFmacs calls this `x-set-selection', and reverses the
+;; arguments (duh ...).  This order is more logical.
 (defun own-selection (data &optional type)
   "Make an Windows selection of type TYPE and value DATA.
 The argument TYPE (default `PRIMARY') says which selection,
@@ -109,26 +112,64 @@ Interactively, the text of the region is used as the selection value."
   (interactive (if (not current-prefix-arg)
 		   (list (read-string "Store text for pasting: "))
 		 (list (substring (region-beginning) (region-end)))))
-  (case (device-type (selected-device))
-    (x (x-own-selection data type))
-    (mswindows (mswindows-own-selection data type))
-    (otherwise nil)))
+  ;FSFmacs huh??  It says:
+  ;; "This is for temporary compatibility with pre-release Emacs 19."
+  ;(if (stringp type)
+  ;    (setq type (intern type)))
+  (or (valid-simple-selection-p data)
+      (and (vectorp data)
+	   (let ((valid t)
+		 (i (1- (length data))))
+	     (while (>= i 0)
+	       (or (valid-simple-selection-p (aref data i))
+		   (setq valid nil))
+	       (setq i (1- i)))
+	     valid))
+      (signal 'error (list "invalid selection" data)))
+  (or type (setq type 'PRIMARY))
+  (if data
+      (own-selection-internal type data)
+    (disown-selection-internal type))
+  (cond ((eq type 'PRIMARY)
+	 (setq primary-selection-extent
+	       (select-make-extent-for-selection
+		data primary-selection-extent)))
+	((eq type 'SECONDARY)
+	 (setq secondary-selection-extent
+	       (select-make-extent-for-selection
+		data secondary-selection-extent))))
+  (setq zmacs-region-stays t)
+  data)
+
+(defun dehilight-selection (selection)
+  "for use as a value of `lost-selection-hooks'."
+  (cond ((eq selection 'PRIMARY)
+	 (if primary-selection-extent
+	     (let ((inhibit-quit t))
+	       (if (consp primary-selection-extent)
+		   (mapcar 'delete-extent primary-selection-extent)
+		 (delete-extent primary-selection-extent))
+	       (setq primary-selection-extent nil)))
+	 (if zmacs-regions (zmacs-deactivate-region)))
+	((eq selection 'SECONDARY)
+	 (if secondary-selection-extent
+	     (let ((inhibit-quit t))
+	       (if (consp secondary-selection-extent)
+		   (mapcar 'delete-extent secondary-selection-extent)
+		 (delete-extent secondary-selection-extent))
+	       (setq secondary-selection-extent nil)))))
+  nil)
+
+(setq lost-selection-hooks 'dehilight-selection)
 
 (defun own-clipboard (string)
-  "Paste the given string to the Clipboard."
-  (case (device-type (selected-device))
-    (x (x-own-clipboard string))
-    (mswindows (mswindows-own-clipboard string))
-    (otherwise nil)))
+  "Paste the given string to the X Clipboard."
+  (own-selection string 'CLIPBOARD))
 
 (defun disown-selection (&optional secondary-p)
   "Assuming we own the selection, disown it.  With an argument, discard the
 secondary selection instead of the primary selection."
-  (case (device-type (selected-device))
-    (x (x-disown-selection secondary-p))
-    (mswindows (mswindows-disown-selection secondary-p))
-    (otherwise nil)))
-
+  (disown-selection-internal (if secondary-p 'SECONDARY 'PRIMARY)))
 
 ;; from x-init.el
 ;; selections and active regions
@@ -218,9 +259,6 @@ secondary selection instead of the primary selection."
 	  (default-mouse-track-next-move-rect start end previous-extent)
 	  ))
 	previous-extent))))
-(define-obsolete-function-alias
-  'x-select-make-extent-for-selection
-  'select-make-extent-for-selection)
 
 ;; moved from x-select.el
 (defun valid-simple-selection-p (data)
@@ -242,9 +280,6 @@ secondary selection instead of the primary selection."
 	       (marker-buffer (cdr data)))
 	   (buffer-live-p (marker-buffer (car data)))
 	   (buffer-live-p (marker-buffer (cdr data))))))
-(define-obsolete-function-alias
-  'x-valid-simple-selection-p
-  'valid-simple-selection-p)
 
 (defun cut-copy-clear-internal (mode)
   (or (memq mode '(cut copy clear)) (error "unkown mode %S" mode))
@@ -287,8 +322,241 @@ secondary selection instead of the primary selection."
 	       (delete-region s e))))
       (disown-selection nil)
       )))
-(define-obsolete-function-alias
-  'x-cut-copy-clear-internal
-  'cut-copy-clear-internal)
+
+;;; Functions to convert the selection into various other selection
+;;; types.  Every selection type that emacs handles is implemented
+;;; this way, except for TIMESTAMP, which is a special case. These are
+;;; all moved from x-select.el
+
+(defun select-convert-to-text (selection type value)
+  (cond ((stringp value)
+	 value)
+	((extentp value)
+	 (save-excursion
+	   (set-buffer (extent-object value))
+	   (save-restriction
+	     (widen)
+	     (buffer-substring (extent-start-position value)
+			       (extent-end-position value)))))
+	((and (consp value)
+	      (markerp (car value))
+	      (markerp (cdr value)))
+	 (or (eq (marker-buffer (car value)) (marker-buffer (cdr value)))
+	     (signal 'error
+		     (list "markers must be in the same buffer"
+			   (car value) (cdr value))))
+	 (save-excursion
+	   (set-buffer (or (marker-buffer (car value))
+			   (error "selection is in a killed buffer")))
+	   (save-restriction
+	     (widen)
+	     (buffer-substring (car value) (cdr value)))))
+	(t nil)))
+
+(defun select-convert-to-string (selection type value)
+  (let ((outval (select-convert-to-text selection type value)))
+    ;; force the string to be not in Compound Text format.
+    (if (stringp outval)
+	(cons 'STRING outval)
+      outval)))
+
+(defun select-convert-to-compound-text (selection type value)
+  ;; converts to compound text automatically
+  (select-convert-to-text selection type value))
+
+(defun select-convert-to-length (selection type value)
+  (let ((value
+	 (cond ((stringp value)
+		(length value))
+	       ((extentp value)
+		(extent-length value))
+	       ((and (consp value)
+		     (markerp (car value))
+		     (markerp (cdr value)))
+		(or (eq (marker-buffer (car value))
+			(marker-buffer (cdr value)))
+		    (signal 'error
+			    (list "markers must be in the same buffer"
+				  (car value) (cdr value))))
+		(abs (- (car value) (cdr value)))))))
+    (if value ; force it to be in 32-bit format.
+	(cons (ash value -16) (logand value 65535))
+      nil)))
+
+(defun select-convert-to-targets (selection type value)
+  ;; return a vector of atoms, but remove duplicates first.
+  (let* ((all (cons 'TIMESTAMP (mapcar 'car selection-converter-alist)))
+	 (rest all))
+    (while rest
+      (cond ((memq (car rest) (cdr rest))
+	     (setcdr rest (delq (car rest) (cdr rest))))
+	    ((eq (car (cdr rest)) '_EMACS_INTERNAL)  ; shh, it's a secret
+	     (setcdr rest (cdr (cdr rest))))
+	    (t
+	     (setq rest (cdr rest)))))
+    (apply 'vector all)))
+
+(defun select-convert-to-delete (selection type value)
+  (disown-selection-internal selection)
+  ;; A return value of nil means that we do not know how to do this conversion,
+  ;; and replies with an "error".  A return value of NULL means that we have
+  ;; done the conversion (and any side-effects) but have no value to return.
+  'NULL)
+
+(defun select-convert-to-filename (selection type value)
+  (cond ((extentp value)
+	 (buffer-file-name (or (extent-object value)
+			       (error "selection is in a killed buffer"))))
+	((and (consp value)
+	      (markerp (car value))
+	      (markerp (cdr value)))
+	 (buffer-file-name (or (marker-buffer (car value))
+			       (error "selection is in a killed buffer"))))
+	(t nil)))
+
+(defun select-convert-to-charpos (selection type value)
+  (let (a b tmp)
+    (cond ((cond ((extentp value)
+		  (setq a (extent-start-position value)
+			b (extent-end-position value)))
+		 ((and (consp value)
+		       (markerp (car value))
+		       (markerp (cdr value)))
+		  (setq a (car value)
+			b (cdr value))))
+	   (setq a (1- a) b (1- b)) ; zero-based
+	   (if (< b a) (setq tmp a a b b tmp))
+	   (cons 'SPAN
+		 (vector (cons (ash a -16) (logand a 65535))
+			 (cons (ash b -16) (logand b 65535))))))))
+
+(defun select-convert-to-lineno (selection type value)
+  (let (a b buf tmp)
+    (cond ((cond ((extentp value)
+		  (setq buf (extent-object value)
+			a (extent-start-position value)
+			b (extent-end-position value)))
+		 ((and (consp value)
+		       (markerp (car value))
+		       (markerp (cdr value)))
+		  (setq a (marker-position (car value))
+			b (marker-position (cdr value))
+			buf (marker-buffer (car value)))))
+	   (save-excursion
+	     (set-buffer buf)
+	     (save-restriction
+	       (widen)
+	       (goto-char a)
+	       (beginning-of-line)
+	       (setq a (1+ (count-lines 1 (point))))
+	       (goto-char b)
+	       (beginning-of-line)
+	       (setq b (1+ (count-lines 1 (point))))))
+	   (if (< b a) (setq tmp a a b b tmp))
+	   (cons 'SPAN
+		 (vector (cons (ash a -16) (logand a 65535))
+			 (cons (ash b -16) (logand b 65535))))))))
+
+(defun select-convert-to-colno (selection type value)
+  (let (a b buf tmp)
+    (cond ((cond ((extentp value)
+		  (setq buf (extent-object value)
+			a (extent-start-position value)
+			b (extent-end-position value)))
+		 ((and (consp value)
+		       (markerp (car value))
+		       (markerp (cdr value)))
+		  (setq a (car value)
+			b (cdr value)
+			buf (marker-buffer a))))
+	   (save-excursion
+	     (set-buffer buf)
+	     (goto-char a)
+	     (setq a (current-column))
+	     (goto-char b)
+	     (setq b (current-column)))
+	   (if (< b a) (setq tmp a a b b tmp))
+	   (cons 'SPAN
+		 (vector (cons (ash a -16) (logand a 65535))
+			 (cons (ash b -16) (logand b 65535))))))))
+
+(defun select-convert-to-sourceloc (selection type value)
+  (let (a b buf file-name tmp)
+    (cond ((cond ((extentp value)
+		  (setq buf (or (extent-object value)
+				(error "selection is in a killed buffer"))
+			a (extent-start-position value)
+			b (extent-end-position value)
+			file-name (buffer-file-name buf)))
+		 ((and (consp value)
+		       (markerp (car value))
+		       (markerp (cdr value)))
+		  (setq a (marker-position (car value))
+			b (marker-position (cdr value))
+			buf (or (marker-buffer (car value))
+				(error "selection is in a killed buffer"))
+			file-name (buffer-file-name buf))))
+	   (save-excursion
+	     (set-buffer buf)
+	     (save-restriction
+	       (widen)
+	       (goto-char a)
+	       (beginning-of-line)
+	       (setq a (1+ (count-lines 1 (point))))
+	       (goto-char b)
+	       (beginning-of-line)
+	       (setq b (1+ (count-lines 1 (point))))))
+	   (if (< b a) (setq tmp a a b b tmp))
+	   (format "%s:%d" file-name a)))))
+
+(defun select-convert-to-os (selection type size)
+  (symbol-name system-type))
+
+(defun select-convert-to-host (selection type size)
+  (system-name))
+
+(defun select-convert-to-user (selection type size)
+  (user-full-name))
+
+(defun select-convert-to-class (selection type size)
+  x-emacs-application-class)
+
+;; We do not try to determine the name Emacs was invoked with,
+;; because it is not clean for a program's behavior to depend on that.
+(defun select-convert-to-name (selection type size)
+  ;invocation-name
+  "xemacs")
+
+(defun select-convert-to-integer (selection type value)
+  (and (integerp value)
+       (cons (ash value -16) (logand value 65535))))
+
+(defun select-convert-to-atom (selection type value)
+  (and (symbolp value) value))
+
+(defun select-convert-to-identity (selection type value) ; used internally
+  (vector value))
+
+(setq selection-converter-alist
+      '((TEXT . select-convert-to-text)
+	(STRING . select-convert-to-string)
+	(COMPOUND_TEXT . select-convert-to-compound-text)
+	(TARGETS . select-convert-to-targets)
+	(LENGTH . select-convert-to-length)
+	(DELETE . select-convert-to-delete)
+	(FILE_NAME . select-convert-to-filename)
+	(CHARACTER_POSITION . select-convert-to-charpos)
+	(SOURCE_LOC . select-convert-to-sourceloc)
+	(LINE_NUMBER . select-convert-to-lineno)
+	(COLUMN_NUMBER . select-convert-to-colno)
+	(OWNER_OS . select-convert-to-os)
+	(HOST_NAME . select-convert-to-host)
+	(USER . select-convert-to-user)
+	(CLASS . select-convert-to-class)
+	(NAME . select-convert-to-name)
+	(ATOM . select-convert-to-atom)
+	(INTEGER . select-convert-to-integer)
+	(_EMACS_INTERNAL . select-convert-to-identity)
+	))
 
 ;;; select.el ends here

@@ -328,7 +328,7 @@ x_wm_store_class_hints (Widget shell, char *frame_name)
   XSetClassHint (dpy, XtWindow (shell), &classhint);
 }
 
-#ifndef HAVE_SESSION
+#ifndef HAVE_WMCOMMAND
 static void
 x_wm_maybe_store_wm_command (struct frame *f)
 {
@@ -379,7 +379,7 @@ x_wm_maybe_move_wm_command (struct frame *f)
 
     }
 }
-#endif /* !HAVE_SESSION */
+#endif /* !HAVE_WMCOMMAND */
 
 static int
 x_frame_iconified_p (struct frame *f)
@@ -2059,9 +2059,9 @@ x_popup_frame (struct frame *f)
 	/* tell the window manager about us. */
 	x_wm_store_class_hints (shell_widget, XtName (frame_widget));
 
-#ifndef HAVE_SESSION
+#ifndef HAVE_WMCOMMAND
 	x_wm_maybe_store_wm_command (f);
-#endif /* HAVE_SESSION */
+#endif /* HAVE_WMCOMMAND */
 
 	x_wm_hack_wm_protocols (shell_widget);
       }
@@ -2625,10 +2625,10 @@ x_delete_frame (struct frame *f)
 {
   Display *dpy;
 
-#ifndef HAVE_SESSION
+#ifndef HAVE_WMCOMMAND
   if (FRAME_X_TOP_LEVEL_FRAME_P (f))
     x_wm_maybe_move_wm_command (f);
-#endif /* HAVE_SESSION */
+#endif /* HAVE_WMCOMMAND */
 
 #ifdef HAVE_CDE
   DtDndDropUnregister (FRAME_X_TEXT_WIDGET (f));

@@ -1,3 +1,214 @@
+1999-05-30  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
+
+	* ldap.el (ldap-ignore-attribute-codings): New variable
+	(ldap-default-attribute-decoder): New variable
+	(ldap-coding-system): New variable
+	(ldap-attribute-syntax-encoders): New variable
+	(ldap-attribute-syntax-decoders): New variable
+	(ldap-attribute-syntaxes-alist): New variable
+	(ldap-encode-boolean): New function
+	(ldap-decode-boolean): New function
+	(ldap-encode-country-string): New function
+	(ldap-decode-string): New function
+	(ldap-decode-address): New function
+	(ldap-encode-address): New function
+	(ldap-decode-attribute): New function
+	(ldap-search): Use some of these
+
+1999-05-25  Jan Vroonhof  <jan@xemacs.org>
+
+	* version.el (emacs-version): Make the patch level/beta come
+	before the XEmacs qualifier so that it gets into (funcall
+	emacs-version) and thus in the bug reports.
+	(emacs-version>=): Support patch levels.
+
+1999-06-03  SL Baur  <steve@xemacs.org>
+
+	* version.el: implement x.y.z version number
+	From Jan Vroonhof <vroonhof@math.ethz.ch>
+
+1999-05-27  Yoshiki Hayashi <g740685@komaba.ecc.u-tokyo.ac.jp>
+
+	* mule/mule-cmds.el (read-input-method-name): set input-method properly.
+
+1999-05-22  Vin Shelton <acs@xemacs.org>
+
+	* startup.el: Document -private and break out non-standard X options.
+
+1999-05-26  SL Baur  <steve@gneiss.etl.go.jp>
+
+	* mule/mule-charset.el (charset-after): New function.
+	(charset-direction): Synch with Mule, update docstring.
+	(get-charset-property): New function.
+	(put-charset-property): New function.
+	(charset-plist): New function.
+
+	* mule/mule-charset.el (compose-region):
+	(decompose-region): remove;  these functions (which don't work
+	since we don't do composite characters) have been moved to
+	mule-util.el.
+	(toplevel): follow coding standards
+
+1999-05-26  SL Baur  <steve@gneiss.etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): mule-files.el does not
+	exist any more.
+
+	* code-files.el: Fix commentary to follow coding standards.  Move
+	the single line left in mule-files.el to here.
+
+	* mule/mule-files.el: delete.
+
+1999-05-24  SL Baur  <steve@gneiss.etl.go.jp>
+
+	* info.el (Info-scroll-prev): Use event functions instead of the
+	old emacs 19 interface.
+
+1999-06-02  Andy Piper  <andy@xemacs.org>
+
+	* x-font-menu.el (x-font-menu-load-font):
+ 	font-menu-registry-encoding -> x-font-menu-registry-encoding type.
+
+1999-05-31  Andy Piper  <andy@xemacs.org>
+
+	* font-menu.el (font-menu-ignore-scaled-fonts): move to font-menu
+ 	group.
+	(font-menu-this-frame-only-p): ditto.
+	(font-menu-max-items): reinstate, from Jan Vroonhof
+ 	<vroonhof@math.ethz.ch>
+	(font-menu-submenu-name-format): ditto.
+	(font-menu-split-long-menu): ditto, for use by the family
+ 	constructor.
+	(font-menu-family-constructor): use it.
+
+1999-05-30  Andy Piper  <andy@xemacs.org>
+
+	* msw-faces.el (mswindows-font-regexp): new font matching regexp
+ 	for use by the font menu.
+
+	* msw-font-menu.el: new file implementing mswindows specific
+ 	font-menu behaviour.
+ 	(mswindows-font-menu-registry-encoding): new function mirroring x version.
+	(mswindows-font-menu-junk-families): ditto.
+	(hack-font-truename): ditto.
+	(mswindows-font-regexp-ascii): ditto.
+	(mswindows-reset-device-font-menus): ditto.
+	(mswindows-font-menu-font-data): ditto.
+	(mswindows-font-menu-load-font): ditto.
+
+	* x-font-menu.el (x-reset-device-font-menus): made device specific. 
+	(x-font-menu-font-data): ditto.
+	(x-font-menu-load-font): ditto.
+
+	* font-menu.el: new file implementing generic font menu behaviour.
+ 	(font-menu-ignore-scaled-fonts): copied from x-font-menu.el and
+ 	made device independent.
+	(font-menu-this-frame-only-p): ditto.
+	(font-menu-preferred-resolution): ditto.
+	(font-menu-size-scaling): new variable used to determine whether
+ 	sizes are in points or tenths of a point.
+	(vassoc): moved from x-font-menu.el.
+	(device-fonts-cache): ditto.
+	(device-fonts-cache): ditto.
+	(flush-device-fonts-cache): ditto.
+	(reset-device-font-menus): copied from x-font-menu.el and made
+ 	device independent. Most functionality deferred to
+ 	device-dependent versions.
+	(font-menu-family-constructor): copied from x-font-menu.el and
+ 	made device independent.
+	(font-menu-size-constructor): ditto.
+	(font-menu-weight-constructor): ditto.
+	(font-menu-set-font): ditto.
+	(font-menu-change-face): ditto.
+	(font-menu-load-font): new device method.
+	(font-menu-font-data): ditto.
+
+	* x-font-menu.el: The above functions deleted.
+
+1999-05-26  Andy Piper  <andy@xemacs.org>
+
+	* update-elc.el:
+	* make-docfile.el:
+	* loadup.el: rehash expand-file-name usage to not use default-directory.
+
+1999-05-21  Andy Piper  <andy@xemacs.org>
+
+	* x-select.el (x-select-convert-to-text):
+	(x-selected-text-type):
+	(x-get-selection):
+	(xselect-convert-to-string):
+	(xselect-convert-to-compound-text):
+	(xselect-convert-to-length):
+	(xselect-convert-to-targets):
+	(xselect-convert-to-delete):
+	(xselect-convert-to-filename):
+	(xselect-convert-to-charpos):
+	(xselect-convert-to-lineno):
+	(xselect-convert-to-colno):
+	(xselect-convert-to-sourceloc):
+	(xselect-convert-to-os):
+	(xselect-convert-to-host):
+	(xselect-convert-to-user):
+	(xselect-convert-to-class):
+	(xselect-convert-to-name):
+	(xselect-convert-to-integer):
+	(xselect-convert-to-atom):
+	(xselect-convert-to-identity): functions renamed from x-* and
+ 	moved to select.el.
+	(x-get-secondary-selection): use rename get-selection.
+	(x-get-clipboard): ditto.
+	(x-own-selection): moved to select.el.
+	(x-valid-simple-selection-p): ditto.
+	(x-dehilight-selection): ditto.
+	(x-own-clipboard): ditto.
+	(x-disown-selection): ditto.
+
+	* x-mouse.el (x-yank-function): moved to mouse.el.
+	(x-insert-selection): ditto.
+	(x-set-point-and-move-selection): use renamed function.
+
+	* select.el (selected-text-type): moved and renamed from
+ 	x-select.el.
+	(selection-owner-p): moved to C.
+	(selection-exists-p): ditto.
+	(get-cutbuffer): new device method.
+	(get-selection): generalised and moved from x-select.el.
+	(own-selection): moved x-own-selection functionality into here.
+	(dehilight-selection): renamed and moved from x-select.el.
+	(own-clipboard): functionality moved from x-select.el using new
+ 	generic C builtins.
+	(disown-clipboard): ditto.
+	(select-convert-to-text):
+	(select-convert-to-string):
+	(select-convert-to-compound-text):
+	(select-convert-to-length):
+	(select-convert-to-targets):
+	(select-convert-to-delete):
+	(select-convert-to-filename):
+	(select-convert-to-charpos):
+	(select-convert-to-lineno):
+	(select-convert-to-colno):
+	(select-convert-to-sourceloc):
+	(select-convert-to-os):
+	(select-convert-to-host):
+	(select-convert-to-user):
+	(select-convert-to-class):
+	(select-convert-to-name):
+	(select-convert-to-integer):
+	(select-convert-to-atom):
+	(select-convert-to-identity): new functions renamed from x-* and
+ 	moved from x-select.el.
+
+	* mouse.el (mouse-consolidated-yank): subsume x-yank-function
+ 	into here and use as the default window-system mouse yank.
+	(insert-selection): generalised and moved from x-mouse.el.
+	(own-clipboard): moved to C.
+
+	* msw-select.el	(mswindows-selection-owned-p): deleted.
+	(mswindows-own-selection): generalised and moved to select.el.
+	(mswindows-disown-selection): generalised and moved to C.
+	(mswindows-selection-owner-p): ditto.
+
 1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.14 is released

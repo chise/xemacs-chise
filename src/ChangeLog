@@ -1,3 +1,148 @@
+1999-06-03  SL Baur  <steve@xemacs.org>
+
+	* config.h.in:
+	* emacs.c:  Implement x.y.z version numbers
+	From Jan Vroonhof <vroonhof@math.ethz.ch>
+
+1999-05-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Registry of
+	japanese-jisx0208-1978 should not match with "jisx0208.1983" nor
+	"jisc6226.1983".
+
+1999-06-03  SL Baur  <steve@xemacs.org>
+
+	* frame-x.c:
+	* device-x.c: rename session option to wmcommand.
+	From Oliver Graf <ograf@rhein-zeitung.de>
+
+1999-05-27  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (Fsubstring): Don't traverse the same region twice with
+ 	charcount_to_bytecount().
+
+1999-06-03  SL Baur  <steve@steve1.m17n.org>
+
+	* m/alpha.h (SYSTEM_MALLOC): Fix indented preprocessor directive
+	garbage.
+
+	* s/decosf4-0.h: Defining ORDINARY_LINK here is redundant (and it
+	doesn't really work as is implied by the commentary).
+	Don't define SYSTEM_MALLOC so the old GNU malloc can be used.
+
+1999-06-02  SL Baur  <steve@steve1.m17n.org>
+
+	* symsinit.h: Declare vars_of_ntproc.
+	* emacs.c (main_1): Call it.
+
+	* ntproc.c (syms_of_ntproc): Move variable initializations from
+	here ...
+	(vars_of_ntproc): ... to here [new function].
+
+	* file-coding.c (syms_of_file_coding): Rename.
+	(vars_of_file_coding): Ditto.
+	(complex_vars_of_file_coding): Ditto.
+
+	* symsinit.h: Rename *_mule_coding to *_file_coding.
+
+	* emacs.c (main_1): Call them by the proper name.
+
+	* device-msw.c (syms_of_device_mswindows): Move variable
+	initializations from here ...
+	(vars_of_device_mswindows): ... to here.
+
+	* chartab.c (vars_of_chartab): New function.
+
+	* symsinit.h: New function, vars_of_chartab.
+
+	* emacs.c (main_1): Call it.
+
+	* mule-canna.c (syms_of_mule_canna): Move CANNA initialization ...
+	(vars_of_mule_canna): ... to here.
+
+	* mule-ccl.c (vars_of_mule_ccl): New function.  Move variable
+	initializations out of syms_of_mule_ccl.
+
+	* symsinit.h: Declare new function vars_of_mule_ccl.
+
+	* emacs.c (main_1): Call it.
+
+1999-05-27  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (base64_decode_1): Ignore whitespace.
+
+1999-05-27  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* mule-charset.c (Fmake_char): Strip the eighth bit off ARG1 and
+ 	ARG2.
+
+1999-05-21  Andy Piper  <andy@xemacs.org>
+	
+	* xselect.c: deleted.
+	
+	* symsinit.h: declare select initialisation.
+
+	* select.h: new file. declare commonly used select functions and
+ 	variables.
+
+	* select.c: new file. generalised from xselect.c.
+	(clean_local_selection_data): moved from xselect.c.
+	(get_local_selection): ditto. device specific pieces called via a
+ 	devmeth.
+	(handle_selection_clear): ditto.
+	(Fown_selection_internal): renamed and generalised from
+ 	Fx_own_selection_internal. moved from xselect.c.
+	(Fdisown_selection_internal): ditto.
+	(Fselection_owner_p): ditto.
+	(Fselection_exists_p): ditto.
+	(Fget_selection_internal): ditto.
+	(syms_of_select): new function. QXXXX values moved from xselect.c
+	(vars_of_select): new function. selection_converter_alist,
+ 	lost_selection_hooks moved and renamed from xselect.c
+
+	* select-x.c: renamed from xselect.c.
+ 	(x_own_selection): converted to device specific. non-X-specific
+ 	bits moved to select.c.
+	(x_get_foreign_selection): ditto.
+	(x_disown_selection): ditto.
+	(x_selection_exists_p): ditto.
+	(console_type_create_select_x): new function.
+
+	* select-msw.c (mswindows_own_selection): new device method to set
+ 	the clipboard when we 'own' the selection.
+	(mswindows_get_foreign_selection): new device method to get the
+ 	clipboard.
+	(mswindows_disown_selection): new device method to delete the
+ 	selection when we 'disown' it.
+	(console_type_create_select_mswindows): new function.
+
+	* emacs.c (main_1): add select to things to initialise.
+
+	* console.h (struct console_methods): new console methods for
+ 	selection.
+
+	* Makefile.in.in (x_objs): xselect.c renamed to select-x.c
+
+1999-05-20  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* print.c (long_to_string): Install a faster version.
+
+1999-05-16  Andy Piper  <andy@xemacs.org>
+
+	* ntproc.c (syms_of_ntproc): default
+ 	win32-start-process-share-console to t.
+
+1999-05-14  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* config.h.in: Do it here.
+
+	* bytecode.c: Don't define ERROR_CHECK_TYPECHECK here.
+
+1999-05-14  Andy Piper  <andy@xemacs.org>
+
+	* toolbar-msw.c (mswindows_output_toolbar): hash on something
+ 	hashable.
+
 1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.14 is released

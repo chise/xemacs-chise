@@ -91,7 +91,7 @@
  (nconc load-path (split-path (getenv "EMACSBOOTSTRAPLOADPATH"))))
 
 (let (preloaded-file-list)
-  (load (concat default-directory "../lisp/dumped-lisp.el"))
+  (load (expand-file-name "../lisp/dumped-lisp.el"))
 
   (let ((package-preloaded-file-list
 	 (packages-collect-package-dumped-lisps late-package-load-path)))

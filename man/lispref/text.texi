@@ -2464,18 +2464,59 @@ ThXs Xs the contents of the buffer before.
 
 @defun translate-region start end table
 This function applies a translation table to the characters in the
-buffer between positions @var{start} and @var{end}.
+buffer between positions @var{start} and @var{end}.  The translation
+table @var{table} can be either a string, a vector, or a char-table.
 
-The translation table @var{table} is a string; @code{(aref @var{table}
-@var{ochar})} gives the translated character corresponding to
-@var{ochar}.  If the length of @var{table} is less than 256, any
-characters with codes larger than the length of @var{table} are not
-altered by the translation.
+If @var{table} is a string, its @var{n}th element is the mapping for the 
+character with code @var{n}.
+
+If @var{table} is a vector, its @var{n}th element is the mapping for
+character with code @var{n}.  Legal mappings are characters, strings, or
+@code{nil} (meaning don't replace.)
+
+If @var{table} is a char-table, its elements describe the mapping
+between characters and their replacements.  The char-table should be of
+type @code{char} or @code{generic}.
+
+When the @var{table} is a string or vector and its length is less than
+the total number of characters (256 without Mule), any characters with
+codes larger than the length of @var{table} are not altered by the
+translation.
 
 The return value of @code{translate-region} is the number of
 characters that were actually changed by the translation.  This does
 not count characters that were mapped into themselves in the
 translation table.
+
+@strong{NOTE}: Prior to XEmacs 21.2, the @var{table} argument was
+allowed only to be a string.  This is still the case in FSF Emacs.
+
+The following example creates a char-table that is passed to
+@code{translate-region}, which translates character @samp{a} to
+@samp{the letter a}, removes character @samp{b}, and translates
+character @samp{c} to newline.
+
+@example
+@group
+---------- Buffer: foo ----------
+Here is a sentence in the buffer.
+---------- Buffer: foo ----------
+@end group
+
+@group
+(let ((table (make-char-table 'generic)))
+  (put-char-table ?a "the letter a" table)
+  (put-char-table ?b "" table)
+  (put-char-table ?c ?\n table)
+  (translate-region (point-min) (point-max) table))
+     @result{} 3
+
+---------- Buffer: foo ----------
+Here is the letter a senten
+e in the uffer.
+---------- Buffer: foo ----------
+@end group
+@end example
 @end defun
 
 @node Registers

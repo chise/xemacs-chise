@@ -171,6 +171,8 @@ ldflags  = $(LDFLAGS) $(ld_switch_general) $(ld_libs_general)
 .c.o:
 	${CC} -c $(cflags) $<
 
+.PHONY : all maybe-blessmail install uninstall
+
 all: ${UTILITIES} ${INSTALLABLES} srcdir-symlink.stamp
 
 ## Make symlinks for shell scripts if using --srcdir
@@ -229,7 +231,6 @@ ${archlibdir}: all
 
 ## We do not need to install "wakeup" explicitly, because it will be
 ## copied when this whole directory is copied.
-.PHONY : all maybe-blessmail install uninstall
 install: ${archlibdir}
 	@echo; echo "Installing utilities for users to run."
 	for file in ${INSTALLABLES} ; do \

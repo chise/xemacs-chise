@@ -5403,7 +5403,7 @@ convert_from_external_format (CONST Extbyte *ptr,
 /************************************************************************/
 
 void
-syms_of_mule_coding (void)
+syms_of_file_coding (void)
 {
   defsymbol (&Qbuffer_file_coding_system, "buffer-file-coding-system");
   deferror (&Qcoding_system_error, "coding-system-error",
@@ -5515,7 +5515,7 @@ syms_of_mule_coding (void)
 }
 
 void
-lstream_type_create_mule_coding (void)
+lstream_type_create_file_coding (void)
 {
   LSTREAM_HAS_METHOD (decoding, reader);
   LSTREAM_HAS_METHOD (decoding, writer);
@@ -5535,7 +5535,7 @@ lstream_type_create_mule_coding (void)
 }
 
 void
-vars_of_mule_coding (void)
+vars_of_file_coding (void)
 {
   int i;
 
@@ -5597,7 +5597,7 @@ Setting this to nil does not do anything.
 }
 
 void
-complex_vars_of_mule_coding (void)
+complex_vars_of_file_coding (void)
 {
   staticpro (&Vcoding_system_hash_table);
   Vcoding_system_hash_table =

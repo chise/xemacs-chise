@@ -37,16 +37,19 @@ Warning, this variable did not exist in XEmacs versions prior to 20.3")
 
 (defconst emacs-version
   (purecopy
-   (format "%d.%d %s%s%s"
+   (format "%d.%d %s%s%s%s"
 	   emacs-major-version
 	   emacs-minor-version
-	   (if xemacs-codename
-	       (concat "\"" xemacs-codename "\"")
+	   (if emacs-patch-level
+	       (format "(patch %d)" emacs-patch-level)
 	     "")
-	   " XEmacs Lucid"
 	   (if xemacs-betaname
 	       (concat " " xemacs-betaname)
-	     "")))
+	     "")
+	   (if xemacs-codename
+	       (concat " \"" xemacs-codename "\"")
+	     "")
+	   " XEmacs Lucid"))
   "Version numbers of this version of XEmacs.")
 
 (if (featurep 'infodock)
@@ -107,16 +110,19 @@ to the system configuration; look at `system-configuration' instead."
        (t          (insert version-string))))))
 
 ;; from emacs-vers.el
-(defun emacs-version>= (major &optional minor)
-  "Return true if the Emacs version is >= to the given MAJOR and MINOR numbers.
-The MAJOR version number argument is required, but the MINOR version number
-argument is optional.  If the minor version number is not specified (or is the
-symbol `nil') then only the major version numbers are considered in the test."
-  (if (null minor)
-      (>= emacs-major-version major)
-    (or (> emacs-major-version major)
-	(and (=  emacs-major-version major)
-	     (>= emacs-minor-version minor)))))
+(defun emacs-version>= (major &optional minor patch)
+  "Return true if the Emacs version is >= to the given MAJOR, MINOR,
+   and PATCH numbers.
+The MAJOR version number argument is required, but the other arguments
+argument are optional. Only the Non-nil arguments are used in the test."
+  (let ((emacs-patch (or emacs-patch-level emacs-beta-version -1)))
+    (cond ((> emacs-major-version major))
+	  ((< emacs-major-version major) nil)
+	  ((null minor))
+	  ((> emacs-minor-version minor))
+	  ((< emacs-minor-version minor) nil)
+	  ((null patch))
+	  ((>= emacs-patch patch)))))
 
 ;;; We hope that this alias is easier for people to find.
 (define-function 'version 'emacs-version)

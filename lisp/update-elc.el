@@ -84,7 +84,7 @@
 ;; (print (prin1-to-string update-elc-files-to-compile))
 
 (let (preloaded-file-list site-load-packages)
-  (load (concat default-directory "../lisp/dumped-lisp.el"))
+  (load (expand-file-name "../lisp/dumped-lisp.el"))
 
   ;; Path setup
   (let ((package-preloaded-file-list

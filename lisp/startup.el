@@ -200,12 +200,18 @@ remaining command-line args are in the variable `command-line-args-left'.")
     (princ (concat "\n" (emacs-version) "\n\n"))
     (princ
      (if (featurep 'x)
-	 (concat (emacs-name)
-		 " accepts all standard X Toolkit command line options.\n"
-		 "In addition, the")
+	 (concat "When creating a window on an X display, "
+		 (emacs-name)
+		 " accepts all standard X Toolkit
+command line options plus the following:
+  -iconname <title>     Use title as the icon name.
+  -mc <color>           Use color as the mouse color.
+  -cr <color>           Use color as the text-cursor foregound color.
+  -private              Install a private colormap.
+
+In addition, the")
        "The"))
     (princ " following options are accepted:
-
   -t <device>           Use TTY <device> instead of the terminal for input
                         and output.  This implies the -nw option.
   -nw                   Inhibit the use of any window-system-specific

@@ -1462,7 +1462,7 @@ converts to an integer whose value is 17297.
 1.983e-4
 @end example
 
-converts to a float whose value is 1983.23e-4, or .0001983.
+converts to a float whose value is 1.983e-4, or .0001983.
 
 @example
 ?b

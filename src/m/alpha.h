@@ -20,7 +20,7 @@ Boston, MA 02111-1307, USA.  */
 
 
 #ifdef LINUX
- # define SYSTEM_MALLOC
+# define SYSTEM_MALLOC
 #endif
 
 #ifdef OSF1

@@ -117,7 +117,7 @@
 	      ;;(print (format "guessed-roots: %S" (paths-find-emacs-roots invocation-directory invocation-name)))
 	      nil)))
 
-	(load (concat default-directory "../lisp/dumped-lisp.el"))
+	(load (expand-file-name "../lisp/dumped-lisp.el"))
 
 	(let ((files preloaded-file-list)
 	      file)

@@ -224,6 +224,9 @@ Use @var{color} as the mouse color.
 
 @item -cr @var{color}
 Use @var{color} as the text-cursor foreground color.
+
+@item -private
+Install a private colormap for XEmacs.
 @end table
 
 In addition, XEmacs allows you to use a number of standard Xt

@@ -29,6 +29,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+#include "select.h"
 
 #include "console-msw.h"
 
@@ -92,6 +93,20 @@ Copy STRING to the mswindows clipboard.
   return i ? Qt : Qnil;
 }
 
+/* Do protocol to assert ourself as a selection owner. Under mswindows
+this is easy, we just set the clipboard.  */
+static Lisp_Object
+mswindows_own_selection (Lisp_Object selection_name, Lisp_Object selection_value)
+{
+  Lisp_Object converted_value = get_local_selection (selection_name, QSTRING);
+  if (!NILP (converted_value) &&
+      CONSP (converted_value) &&
+      EQ (XCAR (converted_value), QSTRING))
+    Fmswindows_set_clipboard (XCDR (converted_value));
+
+  return Qnil;
+}
+
 DEFUN ("mswindows-get-clipboard", Fmswindows_get_clipboard, 0, 0, 0, /*
 Return the contents of the mswindows clipboard.
 */
@@ -144,6 +159,12 @@ Return the contents of the mswindows clipboard.
   return ret;
 }
 
+static Lisp_Object
+mswindows_get_foreign_selection (Lisp_Object selection_symbol, Lisp_Object target_type)
+{
+  return Fmswindows_get_clipboard ();
+}
+
 DEFUN ("mswindows-selection-exists-p", Fmswindows_selection_exists_p, 0, 0, 0, /*
 Whether there is an MS-Windows selection.
 */
@@ -160,10 +181,24 @@ Remove the current MS-Windows selection from the clipboard.
   return EmptyClipboard () ? Qt : Qnil;
 }
 
+static void
+mswindows_disown_selection (Lisp_Object selection, Lisp_Object timeval)
+{
+  Fmswindows_delete_selection ();
+}
+
 
 /************************************************************************/
 /*                            initialization                            */
 /************************************************************************/
+
+void
+console_type_create_select_mswindows (void)
+{
+  CONSOLE_HAS_METHOD (mswindows, own_selection);
+  CONSOLE_HAS_METHOD (mswindows, disown_selection);
+  CONSOLE_HAS_METHOD (mswindows, get_foreign_selection);
+}
 
 void
 syms_of_select_mswindows (void)

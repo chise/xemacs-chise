@@ -61,6 +61,7 @@ char *alloca();
 /* The version info from version.sh. Used in #pragma ident in emacs.c */
 #undef EMACS_MAJOR_VERSION
 #undef EMACS_MINOR_VERSION
+#undef EMACS_PATCH_LEVEL
 #undef EMACS_BETA_VERSION
 #undef EMACS_VERSION
 #undef XEMACS_CODENAME
@@ -399,6 +400,9 @@ char *alloca();
 #undef ERROR_CHECK_GC
 /* Attempt to catch freeing of a non-malloc()ed block, heap corruption, etc. */
 #undef ERROR_CHECK_MALLOC
+/* Minor sanity checking of the bytecode interpreter.  Useful for
+   debugging the byte compiler.  */
+#undef ERROR_CHECK_BYTE_CODE
 
 /* Define DEBUG_XEMACS if you want extra debugging code compiled in.
    This is mainly intended for use by developers. */
@@ -453,8 +457,8 @@ char *alloca();
 /* Compile in generic Drag'n'Drop API */
 #undef HAVE_DRAGNDROP
 
-/* Compile in support for proper session-management. */
-#undef HAVE_SESSION
+/* Compile in support for proper handling of WM_COMMAND. */
+#undef HAVE_WMCOMMAND
 
 /* Define this if you want Mule support (multi-byte character support).
    There may be some performance penalty, although it should be small
