@@ -3789,6 +3789,10 @@ char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
 }
 #endif /* not HAVE_LIBCHISE */
 
+#ifdef HAVE_LIBCHISE
+Lisp_Object save_charset_properties (Lisp_Object charset);
+#endif /* HAVE_LIBCHISE */
+
 DEFUN ("save-char-attribute-table", Fsave_char_attribute_table, 1, 1, 0, /*
 Save values of ATTRIBUTE into database file.
 */
@@ -3829,7 +3833,14 @@ Save values of ATTRIBUTE into database file.
     {
       Lisp_Object (*filter)(Lisp_Object value);
 
-      if ( EQ (attribute, Qideographic_structure)
+      if ( !NILP (Ffind_charset (attribute)) )
+	{
+#ifdef HAVE_LIBCHISE
+	  save_charset_properties (attribute);
+#endif /* HAVE_LIBCHISE */
+	  filter = NULL;
+	}
+      else if ( EQ (attribute, Qideographic_structure)
 	   || EQ (attribute, Q_identical)
 	   || EQ (attribute, Q_identical_from)
 	   || !NILP (Fstring_match
