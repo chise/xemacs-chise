@@ -1,5 +1,15 @@
 2005-02-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R136-Oppose.el: Add mappings for Big5 code points.
+
+	* Ideograph-R134-Mortar.el (U+820A): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R124-Feather.el (U+7FEE): Use `->denotational'.
+	(U+7FEF): Likewise.
+
+	* Ideograph-R075-Tree.el (U+69C5): Use `->subsumptive'.
+
 	* Ideograph-R133-Arrive.el, Ideograph-R131-Minister.el: Add
 	mappings for Big5 code points.
 
@@ -17,6 +27,8 @@
 2005-02-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-722F.
+
+	* Ideograph-R157-Foot.el (U+8E47): Use `->subsumptive'.
 
 2005-02-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
