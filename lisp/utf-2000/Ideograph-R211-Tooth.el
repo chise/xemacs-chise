@@ -482,10 +482,23 @@
     (ucs		. #x9F61)	; é½¡
     ))
 (define-char
-  '((morohashi-daikanwa	48632 1)
+  '((=>ucs		. #x9F62)	; é½¢
+    (morohashi-daikanwa	48632 1)
     (ideographic-radical . 211)	; â¿’
     (ideographic-strokes . 5)
-    (mojikyo		. 050612)	; ý €Œ–´
+    (total-strokes	 . 17)
+    (<-simplified-ideograph
+     ((japanese-jisx0208-1990	  . #x7374)	; ø½‹¯«
+      (ideograph-daikanwa	  . 48632)	; ø¸‹·¸
+      ))
+    (japanese-jisx0208-1990	. #x4E70)	; ø½Š¹‘
+    (mojikyo			. 050612)	; ý €Œ–´
+    ))
+(define-char
+  '((morohashi-daikanwa	48632 1 1)
+    (ideographic-radical . 211)	; â¿’
+    (ideographic-strokes . 5)
+    (total-strokes	 . 17)
     (ucs		. #x9F62)	; é½¢
     ))
 (define-char
