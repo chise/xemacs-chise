@@ -342,6 +342,19 @@
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 34)
+    (hanyu-dazidian-char . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (ucs		  . #x2FF2)	; â¿²
+      )
+     ((ucs		  . #x4E3F)	; ä¸¿
+      )
+     ((ideograph-daikanwa . 00114)	; ø¸€²
+      )
+     ((ucs		  . #x4E5A)	; ä¹š
+      ))
     (ideograph-gt-pj-2		. #x314A)	; ý¡€€ƒ¬
     (ideograph-daikanwa		. 00173)	; ø¸€‚­
     (ideograph-hanziku-1	. #xAAFB)	; ý¢€š«»
