@@ -458,13 +458,7 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
       else
 	return XCHAR (ch);
     }
-  if (EQ (charset, Vcharset_katakana_jisx0201))
-    if (c1 < 0x60)
-      return c1 + MIN_CHAR_HALFWIDTH_KATAKANA - 33;
-    else
-      /* return MIN_CHAR_94 + ('I' - '0') * 94 + (c1 - 33); */
-      return ' ';
-  else if (XCHARSET_UCS_MAX (charset))
+  if (XCHARSET_UCS_MAX (charset))
     {
       Emchar code
 	= (XCHARSET_DIMENSION (charset) == 1
