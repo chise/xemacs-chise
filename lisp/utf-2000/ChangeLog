@@ -1,3 +1,8 @@
+2003-08-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R009-Man.el (U-000279F9): Unify C5-497B; relate to
+	M-35522; moved to Ideograph-R149-Speech.el.
+
 2003-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R153-Badger.el, Ideograph-R149-Speech.el: Add missing
