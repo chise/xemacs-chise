@@ -1,3 +1,8 @@
+1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	thai-tis620 and hebrew-iso8859-8; namely all BMP are covered.
+
 1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
