@@ -1434,8 +1434,16 @@
     (total-strokes	 . 10)
     (chinese-gb2312	. #x5E49)	; ø»… ’
     (chinese-isoir165	. #x5E49)	; ø»Žˆ¢
-    (chinese-cns11643-1 . #x5471)	; ø»’Ž¦
     (ucs		. #x595A)	; å¥š
+    ))
+(define-char
+  '((=>ucs		. #x595A)	; å¥š
+    (morohashi-daikanwa	5930 0 3)
+    (ideographic-radical . 37)	; â¼¤
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (chinese-cns11643-1 . #x5471)	; ø»’Ž¦
+    (ucs-cns		. #x595A)	; ø»’Ž¦
     ))
 (define-char
   '((=>ucs		. #x20AFB)	; ð «»
