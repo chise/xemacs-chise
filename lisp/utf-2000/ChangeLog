@@ -1,3 +1,40 @@
+2001-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (C1-4B56): Moved from
+	Ideograph-R047-River.el.
+	(G0-3169): Unify M053401.
+	(M-39002'): Separate U+904E.
+	(U+904E): Unify M053376.
+
+	* Ideograph-R049-Oneself.el (U+5DFC): Fix `ideographic-strokes';
+	add `total-strokes'; unify M059575.
+
+2001-06-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R048-Work.el (U+5DEC): Delete `kangxi-radical' and
+	`kangxi-strokes'.
+	(U+5DED): Likewise.
+	(M-08732): Separate G0-326E and U+5DEE.
+	(G0-326E): Unify U+5DEE and M053115.
+	(U+5DEF): Fix `ideographic-strokes'; delete `kangxi-strokes';
+	unify M052445.
+	(C2-425D): Separate U+5DF0; fix `ideographic-strokes'; delete
+	`kangxi-strokes'.
+	(U+5DF0): Fix strokes; unify M053083.
+
+	* Ideograph-R046-Mountain.el (U+5C76): Delete `non-morohashi'.
+	(U+5C77): Add `total-strokes'; unify M059512.
+	(U+5C7F): Delete `non-morohashi'.
+	(U+5C81): Likewise.
+	(U+5C82): Likewise.
+	(U+5C83): Likewise; unify M059514.
+
+	* Ideograph-R042-Small.el (M-07493): Unify M007493; separate
+	C3-2851.
+	(M-07494): Unify M007494; separate C5-2567.
+	(M-07495): Unify M007495; separate C6-2A6B.
+	(M-07497): Unify M007497; separate C6-3032.
+
 2001-06-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R047-River.el (C1-4B56): Moved to
