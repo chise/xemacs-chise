@@ -2875,6 +2875,12 @@
   '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (=ucs		. #x5E3D)	; 帽
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (<-denotational
      ((=ucs		  . #x5E3D)	; 帽
       ))
@@ -2894,12 +2900,6 @@
     (=daikanwa		. 08971)	; &I-M-08971;
     (=jef-china3	. #x4CA6)	; &I-JC3-4CA6;
     (=ucs@unicode	. #x5E3D)	; &GT-11336;
-    ))
-(define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=ucs		. #x5E3D)	; 帽
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
