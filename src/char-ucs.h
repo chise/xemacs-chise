@@ -501,31 +501,49 @@ extern Lisp_Object Vcharset_chinese_big5;
 extern Lisp_Object Vcharset_chinese_big5_1;
 extern Lisp_Object Vcharset_chinese_big5_2;
 
-int decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len);
-
-INLINE_HEADER void
-decoding_table_remove_char (Lisp_Object ccs, int code_point);
-INLINE_HEADER void
-decoding_table_remove_char (Lisp_Object ccs, int code_point)
+INLINE_HEADER Lisp_Object
+get_ccs_octet_table (Lisp_Object table, Lisp_Object ccs, int code);
+INLINE_HEADER Lisp_Object
+get_ccs_octet_table (Lisp_Object table, Lisp_Object ccs, int code)
 {
-  Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
-  int dim = XCHARSET_DIMENSION (ccs);
   int byte_offset = XCHARSET_BYTE_OFFSET (ccs);
-  int i = -1;
 
-  while (dim > 0)
+  if (VECTORP (table))
     {
-      Lisp_Object nv;
+      int idx = code - byte_offset;
 
-      dim--;
-      i = ((code_point >> (8 * dim)) & 255) - byte_offset;
-      nv = XVECTOR_DATA(v)[i];
-      if (!VECTORP (nv))
-	break;
-      v = nv;
+      if (idx < XVECTOR_LENGTH(table))
+	return XVECTOR_DATA(table)[idx];
+      else
+	return Qunbound;
     }
-  if (i >= 0)
-    XVECTOR_DATA(v)[i] = Qnil;
+  else
+    return table;
+}
+
+INLINE_HEADER Lisp_Object
+put_ccs_octet_table (Lisp_Object table, Lisp_Object ccs, int code,
+		     Lisp_Object value);
+INLINE_HEADER Lisp_Object
+put_ccs_octet_table (Lisp_Object table, Lisp_Object ccs, int code,
+		     Lisp_Object value)
+{
+  int byte_offset = XCHARSET_BYTE_OFFSET (ccs);
+  int ccs_len = XCHARSET_CHARS (ccs);
+
+  if (VECTORP (table))
+    {
+      XVECTOR_DATA(table)[code - byte_offset] = value;
+      return table;
+    }
+  else if (EQ (table, value))
+    return table;
+  else
+    {
+      table = make_vector (ccs_len, table);
+      XVECTOR_DATA(table)[code - byte_offset] = value;
+      return table;
+    }
 }
 
 INLINE_HEADER void
@@ -535,6 +553,66 @@ INLINE_HEADER void
 decoding_table_put_char (Lisp_Object ccs,
 			 int code_point, Lisp_Object character)
 {
+#if 0
+  Lisp_Object table = XCHARSET_DECODING_TABLE (ccs);
+
+  if (!CHAR_TABLEP (table))
+    XCHARSET_DECODING_TABLE (ccs) = table = make_char_id_table (Qunbound);
+  put_char_id_table_0 (XCHAR_TABLE(table), code_point, character);
+#else
+#if 1
+  Lisp_Object table1 = XCHARSET_DECODING_TABLE (ccs);
+  int dim = XCHARSET_DIMENSION (ccs);
+
+  if (dim == 1)
+    XCHARSET_DECODING_TABLE (ccs)
+      = put_ccs_octet_table (table1, ccs, code_point, character);
+  else if (dim == 2)
+    {
+      Lisp_Object table2
+	= get_ccs_octet_table (table1, ccs, (unsigned char)(code_point >> 8));
+
+      table2 = put_ccs_octet_table (table2, ccs,
+				    (unsigned char)code_point, character);
+      XCHARSET_DECODING_TABLE (ccs)
+	= put_ccs_octet_table (table1, ccs,
+			       (unsigned char)(code_point >> 8), table2);
+    }
+  else if (dim == 3)
+    {
+      Lisp_Object table2
+	= get_ccs_octet_table (table1, ccs, (unsigned char)(code_point >> 16));
+      Lisp_Object table3
+	= get_ccs_octet_table (table2, ccs, (unsigned char)(code_point >>  8));
+
+      table3 = put_ccs_octet_table (table3, ccs,
+				    (unsigned char)code_point, character);
+      table2 = put_ccs_octet_table (table2, ccs,
+				    (unsigned char)(code_point >> 8), table3);
+      XCHARSET_DECODING_TABLE (ccs)
+	= put_ccs_octet_table (table1, ccs,
+			       (unsigned char)(code_point >> 16), table2);
+    }
+  else /* if (dim == 4) */
+    {
+      Lisp_Object table2
+	= get_ccs_octet_table (table1, ccs, (unsigned char)(code_point >> 24));
+      Lisp_Object table3
+	= get_ccs_octet_table (table2, ccs, (unsigned char)(code_point >> 16));
+      Lisp_Object table4
+	= get_ccs_octet_table (table3, ccs, (unsigned char)(code_point >>  8));
+
+      table4 = put_ccs_octet_table (table4, ccs,
+				    (unsigned char)code_point, character);
+      table3 = put_ccs_octet_table (table3, ccs,
+				    (unsigned char)(code_point >>  8), table4);
+      table2 = put_ccs_octet_table (table2, ccs,
+				    (unsigned char)(code_point >> 16), table3);
+      XCHARSET_DECODING_TABLE (ccs)
+	= put_ccs_octet_table (table1, ccs,
+			       (unsigned char)(code_point >> 24), table2);
+    }
+#else
   Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
   int dim = XCHARSET_DIMENSION (ccs);
   int byte_offset = XCHARSET_BYTE_OFFSET (ccs);
@@ -550,43 +628,69 @@ decoding_table_put_char (Lisp_Object ccs,
       if (dim > 0)
 	{
 	  if (!VECTORP (nv))
-	    nv = (XVECTOR_DATA(v)[i] = make_vector (ccs_len, Qnil));
+	    {
+	      if (EQ (nv, character))
+		return;
+	      else
+		nv = (XVECTOR_DATA(v)[i] = make_vector (ccs_len, Qnil));
+	    }
 	  v = nv;
 	}
       else
 	break;
     }
   XVECTOR_DATA(v)[i] = character;
+#endif
+#endif
+}
+
+INLINE_HEADER void
+decoding_table_remove_char (Lisp_Object ccs, int code_point);
+INLINE_HEADER void
+decoding_table_remove_char (Lisp_Object ccs, int code_point)
+{
+#if 0
+  Lisp_Object table = XCHARSET_DECODING_TABLE (ccs);
+
+  if (CHAR_TABLEP (table))
+    put_char_id_table_0 (XCHAR_TABLE(table), code_point, Qunbound);
+#else
+  decoding_table_put_char (ccs, code_point, Qunbound);
+#endif
 }
 
 INLINE_HEADER Emchar
 DECODE_DEFINED_CHAR (Lisp_Object charset, int code_point);
 INLINE_HEADER Emchar
-DECODE_DEFINED_CHAR (Lisp_Object charset, int code_point)
+DECODE_DEFINED_CHAR (Lisp_Object ccs, int code_point)
 {
-  int dim = XCHARSET_DIMENSION (charset);
-  Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (charset);
-  int idx;
-  Lisp_Object ch;
+#if 0
+  Lisp_Object table = XCHARSET_DECODING_TABLE (ccs);
+
+  if (CHAR_TABLEP (table))
+    {
+      Lisp_Object ret = get_char_id_table (XCHAR_TABLE(table), code_point);
+
+      if (CHARP (ret))
+	return XCHAR (ret);
+    }
+  return -1;
+#else
+  int dim = XCHARSET_DIMENSION (ccs);
+  Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (ccs);
 
   while (dim > 0)
     {
       dim--;
-      if ( VECTORP (decoding_table)
-	   && ( 0 <= (idx = ((code_point >> (dim * 8))
-			     & 255) - XCHARSET_BYTE_OFFSET (charset)) )
-	   && ( idx < XVECTOR_LENGTH (decoding_table) )
-	   && !NILP (ch = XVECTOR_DATA(decoding_table)[idx]) )
-	{
-	  if (CHARP (ch))
-	    return XCHAR (ch);
-	  else
-	    decoding_table = ch;
-	}
-      else
-	break;
+      decoding_table
+	= get_ccs_octet_table (decoding_table, ccs,
+			       (code_point >> (dim * 8)) & 255);
     }
-  return -1;
+  if (CHARP (decoding_table))
+    return XCHAR (decoding_table);
+  else
+    return -1;
+#endif
 }
 
 INLINE_HEADER Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
