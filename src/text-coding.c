@@ -4837,6 +4837,11 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
 			       Vdefault_coded_charset_priority_list));
 	    }
 	  BREAKUP_CHAR (ch, charset, byte1, byte2);
+	  if (!XCHARSET_FINAL (charset))
+	    {
+	      charset = Vcharset_ascii;
+	      byte1 = '~';
+	    }
 	found:
 	  Vdefault_coded_charset_priority_list
 	    = original_default_coded_charset_priority_list;
