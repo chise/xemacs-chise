@@ -91,7 +91,6 @@ Lisp_Object Vcharset_ideograph_hanziku_9;
 Lisp_Object Vcharset_ideograph_hanziku_10;
 Lisp_Object Vcharset_ideograph_hanziku_11;
 Lisp_Object Vcharset_ideograph_hanziku_12;
-Lisp_Object Vcharset_ideograph_cbeta;
 Lisp_Object Vcharset_ideograph_gt;
 Lisp_Object Vcharset_ideograph_gt_pj_1;
 Lisp_Object Vcharset_ideograph_gt_pj_2;
@@ -365,7 +364,6 @@ Lisp_Object Qascii,
   Qideograph_hanziku_10,
   Qideograph_hanziku_11,
   Qideograph_hanziku_12,
-  Qideograph_cbeta,
   Qideograph_daikanwa_2,
   Qideograph_daikanwa,
   Qideograph_gt,
@@ -2767,7 +2765,6 @@ syms_of_mule_charset (void)
   defsymbol (&Qideograph_hanziku_10,	"ideograph-hanziku-10");
   defsymbol (&Qideograph_hanziku_11,	"ideograph-hanziku-11");
   defsymbol (&Qideograph_hanziku_12,	"ideograph-hanziku-12");
-  defsymbol (&Qideograph_cbeta,		"ideograph-cbeta");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
 #endif
   defsymbol (&Qchinese_big5_1,		"chinese-big5-1");
@@ -3267,16 +3264,6 @@ complex_vars_of_mule_charset (void)
   DEF_HANZIKU (10);
   DEF_HANZIKU (11);
   DEF_HANZIKU (12);
-  staticpro (&Vcharset_ideograph_cbeta);
-  Vcharset_ideograph_cbeta =
-    make_charset (LEADING_BYTE_CBETA, Qideograph_cbeta, 256, 2,
-		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("CB"),
-		  build_string ("CBETA"),
-		  build_string ("CBETA private characters"),
-		  build_string ("cbeta-0"),
-		  Qnil, MIN_CHAR_CBETA, MAX_CHAR_CBETA,
-		  MIN_CHAR_CBETA, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ideograph_gt);
   Vcharset_ideograph_gt =
     make_charset (LEADING_BYTE_GT, Qideograph_gt, 256, 3,
