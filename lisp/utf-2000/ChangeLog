@@ -1,5 +1,49 @@
 2001-05-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R203-Black.el (M-48063'): Unify M050609; separate
+	C4-5560; fix `total-strokes'.
+
+	* Ideograph-R184-Eat.el (M-44023'): Unify M050580; separate
+	C1-586A.
+	(M-44037'): New character; unify M050581.
+	(M-44063'): Unify M050582; separate C1-6323.
+	(M-44064): New character; relate to U+98EF; unify K0-5A79.
+	(M-44064'): Separate K0-5A79; unify M050583; separate C1-6321.
+	(M-44107'): Unify M050584.
+	(M-44109'): Unify M050585.
+	(M-44111'): Unify M050586.
+	(M-44168'): Unify M050587; separate C1-6F73.
+	(M-44237): New character; relate to U+9928; unify K0-4E3D.
+	(M-44237'): Separate K0-4E3D; unify M050588; separate C1-7328.
+	(M-44459'): Unify M050589; separate C7-5A34.
+
+	* Ideograph-R209-Nose.el (M-48498'): Unify M050611.
+
+	* Ideograph-R205-Frog.el (M-48300'): Unify M050610.
+	(M-48301): Delete `kangxi-strokes' property.
+
+	* Ideograph-R201-Yellow.el (M-47926'): Unify M050608.
+
+	* Ideograph-R187-Horse.el (M-44633'): Unify M050591.
+	(M-44695'): Unify M050592.
+	(M-44833'): Unify M050593; separate C5-6646.
+	(M-44834'): Unify M050594.
+	(M-44915): New character; relate to U+9A30; unify K0-5479.
+	(M-44915'): Separate K0-5479; unify M050595.
+	(M-45013'): Separate C1-7C51; fix strokes; unify M050596.
+	(M-45029): New character; relate to U+9A5A; unify C1-7C51.
+	(M-45043'): Unify M050597.
+	(M-45089'): Unify M050598.
+
+	* Ideograph-R181-Leaf.el (M-43529'): Unify M050574.
+	(M-43591'): Unify M050575.
+	(M-43608'): Unify M050576.
+	(M-43609'): Unify M050577.
+	(U+9867): Separate J0-385C, K0-4D53 and M-43689'; unify M057193.
+	(M-43689'): Separate U+9867; unify M054112.
+
+2001-05-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R196-Bird.el (M-47074'): Unify M050605.
 
 	* Ideograph-R195-Fish.el (M-46226'): Unify M050603.
