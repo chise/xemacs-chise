@@ -63,6 +63,8 @@ void Dynarr_delete_many (void *d, int start, int len);
 void Dynarr_free (void *d);
 
 #define Dynarr_new(type) ((type##_dynarr *) Dynarr_newf (sizeof (type)))
+#define Dynarr_new2(dynarr_type, type) \
+  ((dynarr_type *) Dynarr_newf (sizeof (type)))
 #define Dynarr_at(d, pos) ((d)->base[pos])
 #define Dynarr_atp(d, pos) (&Dynarr_at (d, pos))
 #define Dynarr_length(d) ((d)->cur)
@@ -1543,6 +1545,12 @@ Lisp_Object,Lisp_Object,Lisp_Object
 extern int specpdl_depth_counter;
 #define specpdl_depth() specpdl_depth_counter
 
+
+#define CHECK_FUNCTION(fun) do {		\
+ while (NILP (Ffunctionp (fun)))		\
+   signal_invalid_function_error (fun);		\
+ } while (0)
+
 
 /************************************************************************/
 /*			   Checking for QUIT				*/
@@ -2049,6 +2057,9 @@ char *egetenv (const char *);
 /* Defined in console.c */
 void stuff_buffered_input (Lisp_Object);
 
+/* Defined in console-msw.c */
+EXFUN (Fmswindows_message_box, 3);
+
 /* Defined in data.c */
 DECLARE_DOESNT_RETURN (c_write_error (Lisp_Object));
 DECLARE_DOESNT_RETURN (lisp_write_error (Lisp_Object));
@@ -2127,6 +2138,7 @@ Lisp_Object decode_env_path (const char *, const char *);
 Lisp_Object decode_path (const char *);
 /* Nonzero means don't do interactive redisplay and don't change tty modes */
 extern int noninteractive, noninteractive1;
+extern int fatal_error_in_progress;
 extern int preparing_for_armageddon;
 extern int emacs_priority;
 extern int running_asynch_code;
@@ -2252,6 +2264,7 @@ void reset_this_command_keys (Lisp_Object, int);
 Lisp_Object enqueue_misc_user_event (Lisp_Object, Lisp_Object, Lisp_Object);
 Lisp_Object enqueue_misc_user_event_pos (Lisp_Object, Lisp_Object,
 					 Lisp_Object, int, int, int, int);
+extern int modifier_keys_are_sticky;
 
 /* Defined in event-Xt.c */
 void enqueue_Xt_dispatch_event (Lisp_Object event);
@@ -2642,6 +2655,7 @@ EXFUN (Fforward_char, 2);
 EXFUN (Fforward_line, 2);
 EXFUN (Ffset, 2);
 EXFUN (Ffuncall, MANY);
+EXFUN (Ffunctionp, 1);
 EXFUN (Fgeq, MANY);
 EXFUN (Fget, 3);
 EXFUN (Fget_buffer_process, 1);
@@ -2780,7 +2794,8 @@ EXFUN (Fvertical_motion, 3);
 EXFUN (Fwiden, 1);
 
 
-extern Lisp_Object Q_style, Qactually_requested, Qactivate_menubar_hook;
+extern Lisp_Object Q_style, Qabort, Qactually_requested;
+extern Lisp_Object Qactivate_menubar_hook;
 extern Lisp_Object Qafter, Qall, Qand;
 extern Lisp_Object Qarith_error, Qarrayp, Qassoc, Qat, Qautodetect, Qautoload;
 extern Lisp_Object Qbackground, Qbackground_pixmap, Qbad_variable, Qbefore;
@@ -2788,7 +2803,7 @@ extern Lisp_Object Qbeginning_of_buffer, Qbig5, Qbinary;
 extern Lisp_Object Qbitmap, Qbitp, Qblinking;
 extern Lisp_Object Qboolean, Qbottom, Qbottom_margin, Qbuffer;
 extern Lisp_Object Qbuffer_glyph_p, Qbuffer_live_p, Qbuffer_read_only, Qbutton;
-extern Lisp_Object Qbyte_code, Qcall_interactively, Qcategory;
+extern Lisp_Object Qbyte_code, Qcall_interactively, Qcancel, Qcategory;
 extern Lisp_Object Qcategory_designator_p, Qcategory_table_value_p, Qccl, Qcdr;
 extern Lisp_Object Qchannel, Qchar, Qchar_or_string_p, Qcharacter, Qcharacterp;
 extern Lisp_Object Qchars, Qcharset_g0, Qcharset_g1, Qcharset_g2, Qcharset_g3;
@@ -2813,8 +2828,9 @@ extern Lisp_Object Qfont, Qforce_g0_on_output, Qforce_g1_on_output;
 extern Lisp_Object Qforce_g2_on_output, Qforce_g3_on_output, Qforeground;
 extern Lisp_Object Qformat, Qframe, Qframe_live_p, Qfuncall, Qfunction;
 extern Lisp_Object Qgap_overhead, Qgeneric, Qgeometry, Qglobal, Qheight;
-extern Lisp_Object Qhighlight, Qhorizontal, Qicon;
-extern Lisp_Object Qicon_glyph_p, Qid, Qidentity, Qimage, Qinfo, Qinherit;
+extern Lisp_Object Qhelp, Qhighlight, Qhorizontal, Qicon;
+extern Lisp_Object Qicon_glyph_p, Qid, Qidentity, Qignore, Qimage, Qinfo;
+extern Lisp_Object Qinherit;
 extern Lisp_Object Qinhibit_quit, Qinhibit_read_only;
 extern Lisp_Object Qinput_charset_conversion, Qinteger;
 extern Lisp_Object Qinteger_char_or_marker_p, Qinteger_or_char_p;
@@ -2830,12 +2846,13 @@ extern Lisp_Object Qmenubar;
 extern Lisp_Object Qmax, Qmemory, Qmessage, Qminus, Qmnemonic, Qmodifiers;
 extern Lisp_Object Qmono_pixmap_image_instance_p, Qmotion;
 extern Lisp_Object Qmouse_leave_buffer_hook, Qmsprinter, Qmswindows;
-extern Lisp_Object Qname, Qnas, Qnatnump;
-extern Lisp_Object Qno_ascii_cntl, Qno_ascii_eol, Qno_catch;
+extern Lisp_Object Qname, Qnas, Qnatnump, Qnative_layout;
+extern Lisp_Object Qno, Qno_ascii_cntl, Qno_ascii_eol, Qno_catch;
 extern Lisp_Object Qno_conversion, Qno_iso6429, Qnone, Qnot, Qnothing;
 extern Lisp_Object Qnothing_image_instance_p, Qnotice;
 extern Lisp_Object Qnumber_char_or_marker_p, Qnumberp;
-extern Lisp_Object Qobject, Qold_assoc, Qold_delete, Qold_delq, Qold_rassoc;
+extern Lisp_Object Qobject, Qok, Qold_assoc, Qold_delete, Qold_delq;
+extern Lisp_Object Qold_rassoc;
 extern Lisp_Object Qold_rassq, Qonly, Qor, Qother;
 extern Lisp_Object Qorientation, Qoutput_charset_conversion;
 extern Lisp_Object Qoverflow_error, Qpoint, Qpointer, Qpointer_glyph_p;
@@ -2845,7 +2862,7 @@ extern Lisp_Object Qprint_string_length, Qprocess, Qprogn, Qprovide, Qquit;
 extern Lisp_Object Qquote, Qrange_error, Qrassoc, Qrassq, Qread_char;
 extern Lisp_Object Qread_from_minibuffer, Qreally_early_error_handler;
 extern Lisp_Object Qregion_beginning, Qregion_end, Qrequire, Qresource;
-extern Lisp_Object Qreturn, Qreverse, Qright, Qright_margin;
+extern Lisp_Object Qretry, Qreturn, Qreverse, Qright, Qright_margin;
 extern Lisp_Object Qrun_hooks, Qsans_modifiers;
 extern Lisp_Object Qsave_buffers_kill_emacs, Qsearch, Qselected;
 extern Lisp_Object Qself_insert_command, Qself_insert_defer_undo;
@@ -2866,7 +2883,7 @@ extern Lisp_Object Qvariable_documentation, Qvariable_domain, Qvertical;
 extern Lisp_Object Qvoid_function, Qvoid_variable, Qwarning;
 extern Lisp_Object Qwidth, Qwidget, Qwindow;
 extern Lisp_Object Qwindow_live_p, Qwindow_system, Qwrong_number_of_arguments;
-extern Lisp_Object Qwrong_type_argument, Qx, Qy, Qyes_or_no_p;
+extern Lisp_Object Qwrong_type_argument, Qx, Qy, Qyes, Qyes_or_no_p;
 extern Lisp_Object Vactivate_menubar_hook, Vascii_canon_table;
 extern Lisp_Object Vascii_downcase_table, Vascii_eqv_table;
 extern Lisp_Object Vascii_upcase_table, Vautoload_queue, Vblank_menubar;

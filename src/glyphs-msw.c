@@ -20,7 +20,7 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-/* written by Andy Piper <andy@xemacs.org> plagerising bits from
+/* written by Andy Piper <andy@xemacs.org> plagiarising bits from
    glyphs-x.c */
 
 #include <config.h>
@@ -57,7 +57,6 @@ DECLARE_IMAGE_INSTANTIATOR_FORMAT (nothing);
 DECLARE_IMAGE_INSTANTIATOR_FORMAT (string);
 DECLARE_IMAGE_INSTANTIATOR_FORMAT (formatted_string);
 DECLARE_IMAGE_INSTANTIATOR_FORMAT (inherit);
-DECLARE_IMAGE_INSTANTIATOR_FORMAT (layout);
 #ifdef HAVE_JPEG
 DECLARE_IMAGE_INSTANTIATOR_FORMAT (jpeg);
 #endif
@@ -80,6 +79,8 @@ DEFINE_DEVICE_IIFORMAT (msprinter, xbm);
 DEFINE_DEVICE_IIFORMAT (mswindows, xface);
 DEFINE_DEVICE_IIFORMAT (msprinter, xface);
 #endif
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (layout);
+DEFINE_DEVICE_IIFORMAT (mswindows, native_layout);
 DEFINE_DEVICE_IIFORMAT (mswindows, button);
 DEFINE_DEVICE_IIFORMAT (mswindows, edit_field);
 DEFINE_DEVICE_IIFORMAT (mswindows, subwindow);
@@ -132,8 +133,7 @@ get_device_compdc (struct device *d)
  */
 static void init_image_instance_geometry (Lisp_Image_Instance *ii)
 {
-  Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
-  struct device *d = XDEVICE (device);
+  struct device *d = DOMAIN_XDEVICE (ii->domain);
   
   if (/* #### Scaleable && */ DEVICE_MSPRINTER_P (d))
     {
@@ -349,8 +349,7 @@ init_image_instance_from_dibitmap (Lisp_Image_Instance *ii,
 				   int x_hot, int y_hot,
 				   int create_mask)
 {
-  Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
-  struct device *d = XDEVICE (device);
+  struct device *d = XDEVICE (IMAGE_INSTANCE_DEVICE (ii));
   void* bmp_buf=0;
   enum image_instance_type type;
   HBITMAP bitmap;
@@ -2072,11 +2071,13 @@ extern int debug_widget_instances;
 static void
 mswindows_finalize_image_instance (Lisp_Image_Instance *p)
 {
-  if (DEVICE_LIVE_P (XDEVICE (p->device)))
+  if (!p->data)
+    return;
+
+  if (DEVICE_LIVE_P (XDEVICE (IMAGE_INSTANCE_DEVICE (p))))
     {
-      if (IMAGE_INSTANCE_TYPE (p) == IMAGE_WIDGET
-	  ||
-	  IMAGE_INSTANCE_TYPE (p) == IMAGE_SUBWINDOW)
+      if (image_instance_type_to_mask (IMAGE_INSTANCE_TYPE (p))
+	  & (IMAGE_WIDGET_MASK | IMAGE_SUBWINDOW_MASK))
 	{
 #ifdef DEBUG_WIDGETS
 	  debug_widget_instances--;
@@ -2139,6 +2140,14 @@ mswindows_widget_hfont (Lisp_Image_Instance *p,
   return mswindows_get_hfont (XFONT_INSTANCE (font), under, strike);
 }
 
+static HDWP
+begin_defer_window_pos (struct frame *f)
+{
+  if (FRAME_MSWINDOWS_DATA (f)->hdwp == 0)
+    FRAME_MSWINDOWS_DATA (f)->hdwp = BeginDeferWindowPos (10);
+  return FRAME_MSWINDOWS_DATA (f)->hdwp;
+}
+  
 /* unmap the image if it is a widget. This is used by redisplay via
    redisplay_unmap_subwindows */
 static void
@@ -2146,11 +2155,26 @@ mswindows_unmap_subwindow (Lisp_Image_Instance *p)
 {
   if (IMAGE_INSTANCE_SUBWINDOW_ID (p))
     {
-      SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
-		    NULL,
-		    0, 0, 0, 0,
-		    SWP_HIDEWINDOW | SWP_NOMOVE | SWP_NOSIZE
-		    | SWP_NOSENDCHANGING);
+      struct frame *f = XFRAME (IMAGE_INSTANCE_FRAME (p));
+      HDWP hdwp = begin_defer_window_pos (f);
+      HDWP new_hdwp;
+      new_hdwp = DeferWindowPos (hdwp, IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
+				 NULL,
+				 0, 0, 0, 0,
+				 SWP_HIDEWINDOW | SWP_NOACTIVATE |
+				 SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER
+				 /* Setting this flag causes the call to
+				    DeferWindowPos to fail with
+				    "Invalid parameter".  I don't understand
+				    why we bother to try and set this
+				    anyway. -- ben */
+				 /* | SWP_NOSENDCHANGING */
+				 );
+      if (!new_hdwp)
+	mswindows_output_last_error ("unmapping");
+      else
+	hdwp = new_hdwp;
+      FRAME_MSWINDOWS_DATA (f)->hdwp = hdwp;
       if (GetFocus() == WIDGET_INSTANCE_MSWINDOWS_HANDLE (p))
 	SetFocus (GetParent (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p)));
     }
@@ -2162,6 +2186,9 @@ static void
 mswindows_map_subwindow (Lisp_Image_Instance *p, int x, int y,
 			 struct display_glyph_area* dga)
 {
+  struct frame *f = XFRAME (IMAGE_INSTANCE_FRAME (p));
+  HDWP hdwp = begin_defer_window_pos (f);
+  HDWP new_hdwp;
   /* move the window before mapping it ... */
   SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
 		NULL,
@@ -2175,12 +2202,24 @@ mswindows_map_subwindow (Lisp_Image_Instance *p, int x, int y,
 		SWP_NOZORDER | SWP_NOSIZE
 		| SWP_NOCOPYBITS | SWP_NOSENDCHANGING);
   /* ... now map it - we are not allowed to move it at the same time. */
-  SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
-		NULL,
-		0, 0, 0, 0,
-		SWP_NOZORDER | SWP_NOSIZE | SWP_NOMOVE
-		| SWP_SHOWWINDOW | SWP_NOCOPYBITS
-		| SWP_NOSENDCHANGING);
+  new_hdwp = DeferWindowPos (hdwp, IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
+			     NULL,
+			     0, 0, 0, 0,
+			     SWP_NOZORDER | SWP_NOSIZE | SWP_NOMOVE
+			     | SWP_SHOWWINDOW
+			     /* | SWP_NOCOPYBITS */
+			     /* Setting this flag causes the call to
+				DeferWindowPos to fail with
+				"Invalid parameter".  I don't understand
+				why we bother to try and set this
+				anyway. -- ben */
+			     /* | SWP_NOSENDCHANGING */
+			     | SWP_NOACTIVATE);
+  if (!new_hdwp)
+    mswindows_output_last_error ("mapping");
+  else
+    hdwp = new_hdwp;
+  FRAME_MSWINDOWS_DATA (f)->hdwp = hdwp;
 }
 
 /* resize the subwindow instance */
@@ -2188,11 +2227,12 @@ static void
 mswindows_resize_subwindow (Lisp_Image_Instance* ii, int w, int h)
 {
   /* Set the size of the control .... */
-  SetWindowPos (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
-		NULL,
-		0, 0, w, h,
-		SWP_NOZORDER | SWP_NOMOVE
-		| SWP_NOCOPYBITS | SWP_NOSENDCHANGING);
+  if (!SetWindowPos (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
+		     NULL,
+		     0, 0, w, h,
+		     SWP_NOZORDER | SWP_NOMOVE
+		     | SWP_NOCOPYBITS | SWP_NOSENDCHANGING))
+    mswindows_output_last_error ("resizing");
 }
 
 /* Simply resize the window here. */
@@ -2210,17 +2250,16 @@ static void
 mswindows_update_widget (Lisp_Image_Instance *p)
 {
   /* Possibly update the face font and colors. */
-  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p)
-      ||
-      XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (p))->faces_changed
-      ||
-      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
+  if (!NILP (IMAGE_INSTANCE_WIDGET_TEXT (p))
+      && (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p)
+	  || XFRAME (IMAGE_INSTANCE_FRAME (p))->faces_changed
+	  || IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p)))
     {
       /* set the widget font from the widget face */
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
 		   WM_SETFONT,
 		   (WPARAM) mswindows_widget_hfont
-		   (p, IMAGE_INSTANCE_SUBWINDOW_FRAME (p)),
+		   (p, IMAGE_INSTANCE_FRAME (p)),
 		   MAKELPARAM (TRUE, 0));
     }
   /* Possibly update the dimensions. */
@@ -2231,7 +2270,8 @@ mswindows_update_widget (Lisp_Image_Instance *p)
 				  IMAGE_INSTANCE_HEIGHT (p));
     }
   /* Possibly update the text in the widget. */
-  if (IMAGE_INSTANCE_TEXT_CHANGED (p))
+  if (IMAGE_INSTANCE_TEXT_CHANGED (p)
+      && !NILP (IMAGE_INSTANCE_WIDGET_TEXT (p)))
     {
       Extbyte* lparam=0;
       TO_EXTERNAL_FORMAT (LISP_STRING, IMAGE_INSTANCE_WIDGET_TEXT (p),
@@ -2249,7 +2289,7 @@ static int
 mswindows_register_gui_item (Lisp_Object image_instance,
 			     Lisp_Object gui, Lisp_Object domain)
 {
-  Lisp_Object frame = FW_FRAME (domain);
+  Lisp_Object frame = DOMAIN_FRAME (domain);
   struct frame* f = XFRAME (frame);
   int id = gui_item_id_hash (FRAME_MSWINDOWS_WIDGET_HASH_TABLE2 (f),
 			     gui,
@@ -2278,7 +2318,7 @@ mswindows_subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instant
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
-  Lisp_Object frame = FW_FRAME (domain);
+  Lisp_Object frame = DOMAIN_FRAME (domain);
   HWND wnd;
 
   CHECK_MSWINDOWS_DEVICE (device);
@@ -2400,7 +2440,7 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
   /* this function can call lisp */
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii), style;
-  Lisp_Object frame = FW_FRAME (domain);
+  Lisp_Object frame = DOMAIN_FRAME (domain);
   Extbyte* nm=0;
   HWND wnd;
   int id = 0xffff;
@@ -2438,7 +2478,7 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 			IMAGE_INSTANCE_WIDGET_WIDTH (ii),
 			IMAGE_INSTANCE_WIDGET_HEIGHT (ii),
 			/* parent window */
-			FRAME_MSWINDOWS_HANDLE (XFRAME (frame)),
+			DOMAIN_MSWINDOWS_HANDLE (domain),
 			(HMENU)id,       /* No menu */
 			NULL, /* must be null for this class */
 			NULL)) == NULL)
@@ -2468,9 +2508,32 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
   IMAGE_INSTANCE_SUBWINDOW_ID (ii) = wnd;
   SetWindowLong (wnd, GWL_USERDATA, (LONG)LISP_TO_VOID(image_instance));
   /* set the widget font from the widget face */
-  SendMessage (wnd, WM_SETFONT,
-	       (WPARAM) mswindows_widget_hfont (ii, domain),
-	       MAKELPARAM (TRUE, 0));
+  if (!NILP (IMAGE_INSTANCE_WIDGET_TEXT (ii)))
+    SendMessage (wnd, WM_SETFONT,
+		 (WPARAM) mswindows_widget_hfont (ii, domain),
+		 MAKELPARAM (TRUE, 0));
+}
+
+/* Instantiate a native layout widget. */
+static void
+mswindows_native_layout_instantiate (Lisp_Object image_instance,
+				     Lisp_Object instantiator,
+				     Lisp_Object pointer_fg, Lisp_Object pointer_bg,
+				     int dest_mask, Lisp_Object domain)
+{
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+
+  mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
+				pointer_bg, dest_mask, domain, "STATIC", 
+				/* Approximation to styles available with
+				   an XEmacs layout. */
+				EQ (IMAGE_INSTANCE_LAYOUT_BORDER (ii),
+				    Qetched_in) ||
+				EQ (IMAGE_INSTANCE_LAYOUT_BORDER (ii),
+				    Qetched_out) ||
+				GLYPHP (IMAGE_INSTANCE_LAYOUT_BORDER (ii))
+				? SS_ETCHEDFRAME : SS_SUNKEN,
+				0);
 }
 
 /* Instantiate a button widget. Unfortunately instantiated widgets are
@@ -2593,7 +2656,7 @@ mswindows_progress_gauge_instantiate (Lisp_Object image_instance, Lisp_Object in
 			 (XCOLOR_INSTANCE
 			  (FACE_BACKGROUND
 			   (XIMAGE_INSTANCE_WIDGET_FACE (ii),
-			    XIMAGE_INSTANCE_SUBWINDOW_FRAME (ii))))));
+			    XIMAGE_INSTANCE_FRAME (ii))))));
 #endif
 #ifdef PBS_SETBARCOLOR
   SendMessage (wnd, PBS_SETBARCOLOR, 0,
@@ -2601,7 +2664,7 @@ mswindows_progress_gauge_instantiate (Lisp_Object image_instance, Lisp_Object in
 			  (XCOLOR_INSTANCE
 			   (FACE_FOREGROUND
 			    (XIMAGE_INSTANCE_WIDGET_FACE (ii),
-			     XIMAGE_INSTANCE_SUBWINDOW_FRAME (ii))))));
+			     XIMAGE_INSTANCE_FRAME (ii))))));
 #endif
 }
 
@@ -2785,7 +2848,7 @@ mswindows_tab_control_update (Lisp_Object image_instance)
       LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)))
 	{
 	  add_tab_item (image_instance, wnd, XCAR (rest),
-			IMAGE_INSTANCE_SUBWINDOW_FRAME (ii), i);
+			IMAGE_INSTANCE_FRAME (ii), i);
 	  if (gui_item_selected_p (XCAR (rest)))
 	    selected = i;
 	  i++;
@@ -3013,7 +3076,6 @@ image_instantiator_format_create_glyphs_mswindows (void)
 {
   IIFORMAT_VALID_CONSOLE2 (mswindows, msprinter, nothing);
   IIFORMAT_VALID_CONSOLE2 (mswindows, msprinter, string);
-  IIFORMAT_VALID_CONSOLE2 (mswindows, msprinter, layout);
   IIFORMAT_VALID_CONSOLE2 (mswindows, msprinter, formatted_string);
   IIFORMAT_VALID_CONSOLE2 (mswindows, msprinter, inherit);
   /* image-instantiator types */
@@ -3046,44 +3108,41 @@ image_instantiator_format_create_glyphs_mswindows (void)
   IIFORMAT_VALID_CONSOLE2 (mswindows, msprinter, gif);
 #endif
 #ifdef HAVE_WIDGETS
+  INITIALIZE_DEVICE_IIFORMAT (mswindows, widget);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, widget, property);
+  /* layout widget */
+  IIFORMAT_VALID_CONSOLE (mswindows, layout);
+  INITIALIZE_DEVICE_IIFORMAT (mswindows, native_layout);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, native_layout, instantiate);
   /* button widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, button);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, property);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, instantiate);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, update);
-
+  /* edit-field widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, edit_field);
   IIFORMAT_HAS_DEVMETHOD (mswindows, edit_field, instantiate);
-
+  /* subwindow */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, subwindow);
   IIFORMAT_HAS_DEVMETHOD (mswindows, subwindow, instantiate);
-
-  INITIALIZE_DEVICE_IIFORMAT (mswindows, widget);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, widget, property);
-
   /* label */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, label);
   IIFORMAT_HAS_DEVMETHOD (mswindows, label, instantiate);
-
   /* combo box */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, combo_box);
   IIFORMAT_HAS_DEVMETHOD (mswindows, combo_box, property);
   IIFORMAT_HAS_DEVMETHOD (mswindows, combo_box, instantiate);
-
   /* scrollbar */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, scrollbar);
   IIFORMAT_HAS_DEVMETHOD (mswindows, scrollbar, instantiate);
-
   /* progress gauge */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, progress_gauge);
   IIFORMAT_HAS_DEVMETHOD (mswindows, progress_gauge, update);
   IIFORMAT_HAS_DEVMETHOD (mswindows, progress_gauge, instantiate);
-
   /* tree view widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, tree_view);
   /*  IIFORMAT_HAS_DEVMETHOD (mswindows, progress, set_property);*/
   IIFORMAT_HAS_DEVMETHOD (mswindows, tree_view, instantiate);
-
   /* tab control widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, tab_control);
   IIFORMAT_HAS_DEVMETHOD (mswindows, tab_control, instantiate);

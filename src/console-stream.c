@@ -201,16 +201,6 @@ stream_eol_cursor_width (void)
 }
 
 static void
-stream_output_begin (struct device *d)
-{
-}
-
-static void
-stream_output_end (struct device *d)
-{
-}
-
-static void
 stream_output_display_block (struct window *w, struct display_line *dl,
 			     int block, int start, int end,
 			     int start_pixpos, int cursor_start,
@@ -219,25 +209,10 @@ stream_output_display_block (struct window *w, struct display_line *dl,
 }
 
 static void
-stream_output_vertical_divider (struct window *w, int clear)
-{
-}
-
-static void
-stream_clear_to_window_end (struct window *w, int ypos1, int ypos2)
-{
-}
-
-static void
 stream_clear_region (Lisp_Object window, struct device* d, struct frame * f,
 		  face_index findex, int x, int y,
 		  int width, int height, Lisp_Object fcolor, Lisp_Object bcolor,
 		  Lisp_Object background_pixmap)
-{
-}
-
-static void
-stream_clear_frame (struct frame *f)
 {
 }
 
@@ -285,14 +260,9 @@ console_type_create_stream (void)
   CONSOLE_HAS_METHOD (stream, right_margin_width);
   CONSOLE_HAS_METHOD (stream, text_width);
   CONSOLE_HAS_METHOD (stream, output_display_block);
-  CONSOLE_HAS_METHOD (stream, output_vertical_divider);
   CONSOLE_HAS_METHOD (stream, divider_height);
   CONSOLE_HAS_METHOD (stream, eol_cursor_width);
-  CONSOLE_HAS_METHOD (stream, clear_to_window_end);
   CONSOLE_HAS_METHOD (stream, clear_region);
-  CONSOLE_HAS_METHOD (stream, clear_frame);
-  CONSOLE_HAS_METHOD (stream, output_begin);
-  CONSOLE_HAS_METHOD (stream, output_end);
   CONSOLE_HAS_METHOD (stream, flash);
   CONSOLE_HAS_METHOD (stream, ring_bell);
 }

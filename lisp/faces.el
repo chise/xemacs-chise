@@ -292,41 +292,41 @@ If PROPERTY is not a built-in property, then this function will
 The following symbols have predefined meanings:
 
  foreground         The foreground color of the face.
-                    For valid instantiators, see `color-specifier-p'.
+                    For valid instantiators, see `make-color-specifier'.
 
  background         The background color of the face.
-                    For valid instantiators, see `color-specifier-p'.
+                    For valid instantiators, see `make-color-specifier'.
 
  font               The font used to display text covered by this face.
-                    For valid instantiators, see `font-specifier-p'.
+                    For valid instantiators, see `make-font-specifier'.
 
  display-table      The display table of the face.
                     This should be a vector of 256 elements.
 
  background-pixmap  The pixmap displayed in the background of the face.
                     Only used by faces on X devices.
-                    For valid instantiators, see `image-specifier-p'.
+                    For valid instantiators, see `make-image-specifier'.
 
  underline          Underline all text covered by this face.
-                    For valid instantiators, see `face-boolean-specifier-p'.
+                    For valid instantiators, see `make-face-boolean-specifier'.
 
  strikethru         Draw a line through all text covered by this face.
-                    For valid instantiators, see `face-boolean-specifier-p'.
+                    For valid instantiators, see `make-face-boolean-specifier'.
 
  highlight          Highlight all text covered by this face.
                     Only used by faces on TTY devices.
-                    For valid instantiators, see `face-boolean-specifier-p'.
+                    For valid instantiators, see `make-face-boolean-specifier'.
 
  dim                Dim all text covered by this face.
-                    For valid instantiators, see `face-boolean-specifier-p'.
+                    For valid instantiators, see `make-face-boolean-specifier'.
 
  blinking           Blink all text covered by this face.
                     Only used by faces on TTY devices.
-                    For valid instantiators, see `face-boolean-specifier-p'.
+                    For valid instantiators, see `make-face-boolean-specifier'.
 
  reverse            Reverse the foreground and background colors.
                     Only used by faces on TTY devices.
-                    For valid instantiators, see `face-boolean-specifier-p'.
+                    For valid instantiators, see `make-face-boolean-specifier'.
 
  doc-string         Description of what the face's normal use is.
                     NOTE: This is not a specifier, unlike all
@@ -433,7 +433,7 @@ See `face-property-instance' for more information."
 
 FACE may be either a face object or a symbol representing a face.
 
-FONT should be an instantiator (see `font-specifier-p'), a list of
+FONT should be an instantiator (see `make-font-specifier'), a list of
   instantiators, an alist of specifications (each mapping a
   locale to an instantiator list), or a font specifier object.
 
@@ -490,7 +490,7 @@ See `face-property-instance' for more information."
 
 FACE may be either a face object or a symbol representing a face.
 
-COLOR should be an instantiator (see `color-specifier-p'), a list of
+COLOR should be an instantiator (see `make-color-specifier'), a list of
   instantiators, an alist of specifications (each mapping a locale to
   an instantiator list), or a color specifier object.
 
@@ -547,7 +547,7 @@ See `face-property-instance' for more information."
 
 FACE may be either a face object or a symbol representing a face.
 
-COLOR should be an instantiator (see `color-specifier-p'), a list of
+COLOR should be an instantiator (see `make-color-specifier'), a list of
   instantiators, an alist of specifications (each mapping a locale to
   an instantiator list), or a color specifier object.
 
@@ -595,7 +595,7 @@ This property is only used on window system devices.
 
 FACE may be either a face object or a symbol representing a face.
 
-PIXMAP should be an instantiator (see `image-specifier-p'), a list
+PIXMAP should be an instantiator (see `make-image-specifier'), a list
   of instantiators, an alist of specifications (each mapping a locale
   to an instantiator list), or an image specifier object.
 
@@ -652,7 +652,7 @@ See `face-property-instance' for the semantics of the DOMAIN argument."
 				  how-to-add)
   "Change the underline property of FACE to UNDERLINE-P.
 UNDERLINE-P is normally a face-boolean instantiator; see
- `face-boolean-specifier-p'.
+ `make-face-boolean-specifier'.
 See `set-face-property' for the semantics of the LOCALE, TAG-SET, and
  HOW-TO-ADD arguments."
   (interactive (face-interactive "underline-p" "underlined"))
@@ -667,7 +667,7 @@ See `face-property-instance' for the semantics of the DOMAIN argument."
 				  how-to-add)
   "Change whether FACE is strikethru-d (i.e. struck through) in LOCALE.
 STRIKETHRU-P is normally a face-boolean instantiator; see
- `face-boolean-specifier-p'.
+ `make-face-boolean-specifier'.
 See `set-face-property' for the semantics of the LOCALE, TAG-SET, and
  HOW-TO-ADD arguments."
   (interactive (face-interactive "strikethru-p" "strikethru-d"))
@@ -682,7 +682,7 @@ See `face-property-instance' for the semantics of the DOMAIN argument."
 				  how-to-add)
   "Change whether FACE is highlighted in LOCALE (TTY locales only).
 HIGHLIGHT-P is normally a face-boolean instantiator; see
- `face-boolean-specifier-p'.
+ `make-face-boolean-specifier'.
 See `set-face-property' for the semantics of the LOCALE, TAG-SET, and
  HOW-TO-ADD arguments."
   (interactive (face-interactive "highlight-p" "highlighted"))
@@ -696,7 +696,7 @@ See `face-property-instance' for the semantics of the DOMAIN argument."
 (defun set-face-dim-p (face dim-p &optional locale tag-set how-to-add)
   "Change whether FACE is dimmed in LOCALE.
 DIM-P is normally a face-boolean instantiator; see
- `face-boolean-specifier-p'.
+ `make-face-boolean-specifier'.
 See `set-face-property' for the semantics of the LOCALE, TAG-SET, and
  HOW-TO-ADD arguments."
   (interactive (face-interactive "dim-p" "dimmed"))
@@ -711,7 +711,7 @@ See `face-property-instance' for the semantics of the DOMAIN argument."
 				 how-to-add)
   "Change whether FACE is blinking in LOCALE (TTY locales only).
 BLINKING-P is normally a face-boolean instantiator; see
- `face-boolean-specifier-p'.
+ `make-face-boolean-specifier'.
 See `set-face-property' for the semantics of the LOCALE, TAG-SET, and
  HOW-TO-ADD arguments."
   (interactive (face-interactive "blinking-p" "blinking"))
@@ -725,7 +725,7 @@ See `face-property-instance' for the semantics of the DOMAIN argument."
 (defun set-face-reverse-p (face reverse-p &optional locale tag-set how-to-add)
   "Change whether FACE is reversed in LOCALE (TTY locales only).
 REVERSE-P is normally a face-boolean instantiator; see
- `face-boolean-specifier-p'.
+ `make-face-boolean-specifier'.
 See `set-face-property' for the semantics of the LOCALE, TAG-SET, and
  HOW-TO-ADD arguments."
   (interactive (face-interactive "reverse-p" "reversed"))

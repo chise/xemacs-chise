@@ -130,8 +130,6 @@ mark_frame (Lisp_Object obj)
 #define MARKED_SLOT(x) mark_object (f->x)
 #include "frameslots.h"
 
-  mark_subwindow_cachels (f->subwindow_cachels);
-
   if (FRAME_LIVE_P (f)) /* device is nil for a dead frame */
     MAYBE_FRAMEMETH (f, mark_frame, (f));
 
@@ -208,7 +206,7 @@ allocate_frame_core (Lisp_Object device)
   f->last_nonminibuf_window = root_window;
 
   /* cache of subwindows visible on frame */
-  f->subwindow_cachels    = Dynarr_new (subwindow_cachel);
+  f->subwindow_instance_cache    = make_weak_list (WEAK_LIST_SIMPLE);
 
   /* associated exposure ignore list */
   f->subwindow_exposures = 0;
@@ -466,7 +464,6 @@ See `set-frame-properties', `default-x-frame-plist', and
 #endif
       reset_face_cachels (XWINDOW (FRAME_SELECTED_WINDOW (f)));
       reset_glyph_cachels (XWINDOW (FRAME_SELECTED_WINDOW (f)));
-      reset_subwindow_cachels (f);
 
       change_frame_size (f, f->height, f->width, 0);
     }
@@ -1553,6 +1550,12 @@ delete_frame_internal (struct frame *f, int force,
   free_frame_toolbars (f);
 #endif
   free_frame_gutters (f);
+  /* Unfortunately deleting the frame will also delete the parent of
+     all of the subwindow instances current on the frame. I think this
+     can lead to bad things when trying to finalize the
+     instances. Thus we loop over the instance cache calling the
+     finalize method for each instance. */
+  free_frame_subwindow_instance_cache (f);
 
   /* This must be done before the window and window_mirror structures
      are freed.  The scrollbar information is attached to them. */
@@ -1564,11 +1567,7 @@ delete_frame_internal (struct frame *f, int force,
   f->root_window = Qnil;
 
   /* clear out the cached glyph information */
-  if (f->subwindow_cachels)
-    {
-      Dynarr_free (f->subwindow_cachels);
-      f->subwindow_cachels = 0;
-    }
+  f->subwindow_instance_cache = Qnil;
 
   /* Remove the frame now from the list.  This way, any events generated
      on this frame by the maneuvers below will disperse themselves. */

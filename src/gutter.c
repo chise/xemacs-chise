@@ -789,14 +789,9 @@ gutter_validate (Lisp_Object instantiator)
 
 DEFUN ("gutter-specifier-p", Fgutter_specifier_p, 1, 1, 0, /*
 Return non-nil if OBJECT is a gutter specifier.
-Gutter specifiers are used to specify the format of a gutter.
-The values of the variables `default-gutter', `top-gutter',
-`left-gutter', `right-gutter', and `bottom-gutter' are always
-gutter specifiers.
 
-Valid gutter instantiators are called "gutter descriptors" and are
-either strings or property-lists of strings.  See `default-gutter' for
-a description of the exact format.
+See `make-gutter-specifier' for a description of possible gutter
+instantiators.
 */
        (object))
 {
@@ -932,15 +927,8 @@ gutter_size_validate (Lisp_Object instantiator)
 DEFUN ("gutter-size-specifier-p", Fgutter_size_specifier_p, 1, 1, 0, /*
 Return non-nil if OBJECT is a gutter-size specifier.
 
-Gutter-size specifiers are used to specify the size of a gutter.  The
-values of the variables `default-gutter-size', `top-gutter-size',
-`left-gutter-size', `right-gutter-size', and `bottom-gutter-size' are
-always gutter-size specifiers.
-
-Valid gutter-size instantiators are either integers or the special
-symbol 'autodetect. If a gutter-size is set to 'autodetect them the
-size of the gutter will be adjusted to just accomodate the gutters
-contents. 'autodetect only works for top and bottom gutters.
+See `make-gutter-size-specifier' for a description of possible gutter-size
+instantiators.
 */
        (object))
 {
@@ -977,17 +965,8 @@ gutter_visible_validate (Lisp_Object instantiator)
 DEFUN ("gutter-visible-specifier-p", Fgutter_visible_specifier_p, 1, 1, 0, /*
 Return non-nil if OBJECT is a gutter-visible specifier.
 
-Gutter-visible specifiers are used to specify the visibility of a
-gutter.  The values of the variables `default-gutter-visible-p',
-`top-gutter-visible-p', `left-gutter-visible-p',
-`right-gutter-visible-p', and `bottom-gutter-visible-p' are always
-gutter-visible specifiers.
-
-Valid gutter-visible instantiators are t, nil or a list of symbols.
-If a gutter-visible instantiator is set to a list of symbols, and the
-correspondong gutter specification is a property-list strings, then
-elements of the gutter specification will only be visible if the
-corresponding symbol occurs in the gutter-visible instantiator.
+See `make-gutter-visible-specifier' for a description of possible
+gutter-visible instantiators.
 */
        (object))
 {
@@ -1009,7 +988,9 @@ Ensure that all gutters are correctly showing their gutter specifier.
       DEVICE_FRAME_LOOP (frmcons, d)
 	{
 	  struct frame *f = XFRAME (XCAR (frmcons));
-	  
+
+	  MAYBE_DEVMETH (d, frame_output_begin, (f));
+
 	  /* Sequence is quite important here. We not only want to
 	   redisplay the gutter area but we also want to flush any
 	   frame size changes out so that the gutter redisplay happens
@@ -1035,12 +1016,9 @@ Ensure that all gutters are correctly showing their gutter specifier.
 	      update_frame_gutters (f);
 	      unhold_one_frame_size_changes (f);
 	    }
-	}
-      /* We now call the output_end routine for tty frames.  We delay
-	 doing so in order to avoid cursor flicker.  So much for 100%
-	 encapsulation. */
-      if (DEVICE_TTY_P (d))
-	DEVMETH (d, output_end, (d));
+
+	  MAYBE_DEVMETH (d, frame_output_end, (f));
+      }
       
       d->gutter_changed = 0;
     }

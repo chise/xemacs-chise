@@ -138,39 +138,40 @@ tty_eol_cursor_width (void)
 }
 
 /*****************************************************************************
- tty_output_begin
+ tty_frame_output_begin
 
  Perform any necessary initialization prior to an update.
  ****************************************************************************/
 #ifdef DEBUG_XEMACS
-void tty_output_begin (struct device *d);
+void tty_frame_output_begin (struct frame *f);
 void
 #else
 static void
 #endif
-tty_output_begin (struct device *d)
+tty_frame_output_begin (struct frame *f)
 {
 #ifndef HAVE_TERMIOS
   /* Termcap requires `ospeed' to be a global variable so we have to
      always set it for whatever tty console we are actually currently
      working with. */
-  ospeed = DEVICE_TTY_DATA (d)->ospeed;
+  ospeed = DEVICE_TTY_DATA (XDEVICE (FRAME_DEVICE (f)))->ospeed;
 #endif
 }
 
 /*****************************************************************************
- tty_output_end
+ tty_frame_output_end
 
  Perform any necessary flushing of queues when an update has completed.
  ****************************************************************************/
 #ifdef DEBUG_XEMACS
-void tty_output_end (struct device *d);
+void tty_frame_output_end (struct frame *f);
 void
 #else
 static void
 #endif
-tty_output_end (struct device *d)
+tty_frame_output_end (struct frame *f)
 {
+  struct device *d = XDEVICE (FRAME_DEVICE (f));
   struct console *c = XCONSOLE (DEVICE_CONSOLE (d));
 
   CONSOLE_TTY_CURSOR_X (c) = CONSOLE_TTY_FINAL_CURSOR_X (c);
@@ -340,20 +341,19 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
 		    case IMAGE_COLOR_PIXMAP:
 		    case IMAGE_SUBWINDOW:
 		    case IMAGE_WIDGET:
-		    case IMAGE_LAYOUT:
 		      /* just do nothing here */
 		      break;
-		      
+
 		    case IMAGE_NOTHING:
 		      /* nothing is as nothing does */
 		      break;
-		      
+
 		    case IMAGE_TEXT:
 		    case IMAGE_POINTER:
 		    default:
 		      abort ();
 		    }
-		  IMAGE_INSTANCE_OPTIMIZE_OUTPUT 
+		  IMAGE_INSTANCE_OPTIMIZE_OUTPUT
 		    (XIMAGE_INSTANCE (instance)) = 0;
 		}
 
@@ -887,7 +887,7 @@ reset_tty_modes (struct console *c)
   OUTPUT1_IF (c, TTY_SD (c).keypad_off);
   OUTPUT1_IF (c, TTY_SD (c).cursor_normal);
   OUTPUT1_IF (c, TTY_SD (c).end_motion);
-  tty_output_end (XDEVICE (CONSOLE_SELECTED_DEVICE (c)));
+  tty_frame_output_end (XFRAME (CONSOLE_SELECTED_FRAME (c)));
 }
 
 /*****************************************************************************
@@ -914,7 +914,7 @@ tty_redisplay_shutdown (struct console *c)
 
 	  /* And then stick the cursor there. */
 	  tty_set_final_cursor_coords (f, f->height, 0);
-	  tty_output_end (XDEVICE (dev));
+	  tty_frame_output_end (f);
 	}
     }
 }
@@ -925,7 +925,7 @@ tty_redisplay_shutdown (struct console *c)
 
 
 /* FLAGS - these don't need to be console local since only one console
- 	   can be being updated at a time. */
+	   can be being updated at a time. */
 static int insert_mode_on;		/* nonzero if in insert mode */
 static int standout_mode_on;		/* nonzero if in standout mode */
 static int underline_mode_on;		/* nonzero if in underline mode */
@@ -1491,8 +1491,8 @@ console_type_create_redisplay_tty (void)
   CONSOLE_HAS_METHOD (tty, clear_to_window_end);
   CONSOLE_HAS_METHOD (tty, clear_region);
   CONSOLE_HAS_METHOD (tty, clear_frame);
-  CONSOLE_HAS_METHOD (tty, output_begin);
-  CONSOLE_HAS_METHOD (tty, output_end);
+  CONSOLE_HAS_METHOD (tty, frame_output_begin);
+  CONSOLE_HAS_METHOD (tty, frame_output_end);
   CONSOLE_HAS_METHOD (tty, flash);
   CONSOLE_HAS_METHOD (tty, ring_bell);
   CONSOLE_HAS_METHOD (tty, set_final_cursor_coords);

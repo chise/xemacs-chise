@@ -532,31 +532,52 @@ Return a new specifier object of type TYPE.
 
 A specifier is an object that can be used to keep track of a property
 whose value can be per-buffer, per-window, per-frame, or per-device,
-and can further be restricted to a particular console-type or device-class.
-Specifiers are used, for example, for the various built-in properties of a
-face; this allows a face to have different values in different frames,
-buffers, etc.  For more information, see `specifier-instance',
+and can further be restricted to a particular console-type or
+device-class.  Specifiers are used, for example, for the various
+built-in properties of a face; this allows a face to have different
+values in different frames, buffers, etc.
+
+When speaking of the value of a specifier, it is important to
+distinguish between the *setting* of a specifier, called an
+\"instantiator\", and the *actual value*, called an \"instance\".  You
+put various possible instantiators (i.e. settings) into a specifier
+and associate them with particular locales (buffer, window, frame,
+device, global), and then the instance (i.e. actual value) is
+retrieved in a specific domain (window, frame, device) by looking
+through the possible instantiators (i.e. settings).  This process is
+called \"instantiation\".
+ 
+To put settings into a specifier, use `set-specifier', or the
+lower-level functions `add-spec-to-specifier' and
+`add-spec-list-to-specifier'.  You can also temporarily bind a setting
+to a specifier using `let-specifier'.  To retrieve settings, use
+`specifier-specs', or its lower-level counterpart
+`specifier-spec-list'.  To determine the actual value, use
+`specifier-instance'.
+
+For more information, see `set-specifier', `specifier-instance',
 `specifier-specs', and `add-spec-to-specifier'; or, for a detailed
-description of specifiers, including how they are instantiated over a
-particular domain (i.e. how their value in that domain is determined),
-see the chapter on specifiers in the XEmacs Lisp Reference Manual.
+description of specifiers, including how exactly the instantiation
+process works, see the chapter on specifiers in the XEmacs Lisp
+Reference Manual.
 
 TYPE specifies the particular type of specifier, and should be one of
-the symbols 'generic, 'integer, 'boolean, 'color, 'font, 'image,
-'face-boolean, 'gutter, 'gutter-size, 'gutter-visible or 'toolbar.
+the symbols 'generic, 'integer, 'natnum, 'boolean, 'color, 'font,
+'image, 'face-boolean, 'display-table, 'gutter, 'gutter-size,
+'gutter-visible or 'toolbar.
 
 For more information on particular types of specifiers, see the
-functions `generic-specifier-p', `integer-specifier-p',
-`boolean-specifier-p', `color-specifier-p', `font-specifier-p',
-`image-specifier-p', `face-boolean-specifier-p', `gutter-specifier-p,
-`gutter-size-specifier-p, `gutter-visible-specifier-p and
-`toolbar-specifier-p'.
+functions `make-generic-specifier', `make-integer-specifier',
+`make-natnum-specifier', `make-boolean-specifier',
+`make-color-specifier', `make-font-specifier', `make-image-specifier',
+`make-face-boolean-specifier', `make-gutter-size-specifier',
+`make-gutter-visible-specifier', `default-toolbar', `default-gutter',
+and `current-display-table'.
 */
        (type))
 {
   /* This function can GC */
-  struct specifier_methods *meths = decode_specifier_type (type,
-							   ERROR_ME);
+  struct specifier_methods *meths = decode_specifier_type (type, ERROR_ME);
 
   return make_specifier (meths);
 }
@@ -609,15 +630,19 @@ Valid locales are devices, frames, windows, buffers, and 'global.
 DEFUN ("valid-specifier-domain-p", Fvalid_specifier_domain_p, 1, 1, 0, /*
 Return t if DOMAIN is a valid specifier domain.
 A domain is used to instance a specifier (i.e. determine the specifier's
-value in that domain).  Valid domains are windows, frames, and devices.
-\(nil is not valid.)
+value in that domain).  Valid domains are image instances, windows, frames,
+and devices. \(nil is not valid.) image instances are pseudo-domains since
+instantiation will actually occur in the window the image instance itself is
+instantiated in.
 */
      (domain))
 {
   /* This cannot GC. */
   return ((DEVICEP (domain) && DEVICE_LIVE_P (XDEVICE (domain))) ||
 	  (FRAMEP  (domain) && FRAME_LIVE_P  (XFRAME  (domain))) ||
-	  (WINDOWP (domain) && WINDOW_LIVE_P (XWINDOW (domain))))
+	  (WINDOWP (domain) && WINDOW_LIVE_P (XWINDOW (domain))) ||
+	  /* #### get image instances out of domains! */
+	  IMAGE_INSTANCEP (domain))
     ? Qt : Qnil;
 }
 
@@ -729,7 +754,7 @@ check_valid_domain (Lisp_Object domain)
     signal_simple_error ("Invalid specifier domain", domain);
 }
 
-static Lisp_Object
+Lisp_Object
 decode_domain (Lisp_Object domain)
 {
   if (NILP (domain))
@@ -2435,7 +2460,7 @@ specifier_instance_from_inst_list (Lisp_Object specifier,
   GCPRO2 (specifier, inst_list);
 
   sp = XSPECIFIER (specifier);
-  device = DFW_DEVICE (domain);
+  device = DOMAIN_DEVICE (domain);
 
   if (no_quit)
   /* The instantiate method is allowed to call eval.  Since it
@@ -2515,16 +2540,20 @@ specifier_instance (Lisp_Object specifier, Lisp_Object matchspec,
 
   /* Attempt to determine buffer, window, frame, and device from the
      domain. */
-  if (WINDOWP (domain))
+  /* #### get image instances out of domains! */
+  if (IMAGE_INSTANCEP (domain))
+    window = DOMAIN_WINDOW (domain);
+  else if (WINDOWP (domain))
     window = domain;
   else if (FRAMEP (domain))
     frame = domain;
   else if (DEVICEP (domain))
     device = domain;
   else
-    /* #### dmoore - dammit, this should just signal an error or something
-       shouldn't it?
-       #### No. Errors are handled in Lisp primitives implementation.
+    /* dmoore writes: [dammit, this should just signal an error or something
+       shouldn't it?]
+
+       No. Errors are handled in Lisp primitives implementation.
        Invalid domain is a design error here - kkm. */
     abort ();
 
@@ -2959,8 +2988,9 @@ DEFINE_SPECIFIER_TYPE (generic);
 
    What really needs to be done is to write a function
    `make-specifier-type' that creates new specifier types.
-   #### I'll look into this for 19.14.
- */
+
+   #### [I'll look into this for 19.14.]  Well, sometime. (Currently
+   May 2000, 21.2 is in development.  19.14 was released in June 1996.) */
 
 "A generic specifier is a generalized kind of specifier with user-defined\n"
 "semantics.  The instantiator can be any kind of Lisp object, and the\n"
@@ -2997,8 +3027,8 @@ DEFINE_SPECIFIER_TYPE (generic);
 DEFUN ("generic-specifier-p", Fgeneric_specifier_p, 1, 1, 0, /*
 Return non-nil if OBJECT is a generic specifier.
 
-A generic specifier allows any kind of Lisp object as an instantiator,
-and returns back the Lisp object unchanged when it is instantiated.
+See `make-generic-specifier' for a description of possible generic
+instantiators.
 */
        (object))
 {
@@ -3020,6 +3050,9 @@ integer_validate (Lisp_Object instantiator)
 
 DEFUN ("integer-specifier-p", Finteger_specifier_p, 1, 1, 0, /*
 Return non-nil if OBJECT is an integer specifier.
+
+See `make-integer-specifier' for a description of possible integer
+instantiators.
 */
        (object))
 {
@@ -3040,6 +3073,9 @@ natnum_validate (Lisp_Object instantiator)
 
 DEFUN ("natnum-specifier-p", Fnatnum_specifier_p, 1, 1, 0, /*
 Return non-nil if OBJECT is a natnum (non-negative-integer) specifier.
+
+See `make-natnum-specifier' for a description of possible natnum
+instantiators.
 */
        (object))
 {
@@ -3061,6 +3097,9 @@ boolean_validate (Lisp_Object instantiator)
 
 DEFUN ("boolean-specifier-p", Fboolean_specifier_p, 1, 1, 0, /*
 Return non-nil if OBJECT is a boolean specifier.
+
+See `make-boolean-specifier' for a description of possible boolean
+instantiators.
 */
        (object))
 {
@@ -3073,11 +3112,11 @@ Return non-nil if OBJECT is a boolean specifier.
 
 DEFINE_SPECIFIER_TYPE (display_table);
 
-#define VALID_SINGLE_DISPTABLE_INSTANTIATOR_P(instantiator)			\
-  (VECTORP (instantiator)							\
-   || (CHAR_TABLEP (instantiator)						\
-       && (XCHAR_TABLE_TYPE (instantiator) == CHAR_TABLE_TYPE_CHAR		\
-	   || XCHAR_TABLE_TYPE (instantiator) == CHAR_TABLE_TYPE_GENERIC))	\
+#define VALID_SINGLE_DISPTABLE_INSTANTIATOR_P(instantiator)		   \
+  (VECTORP (instantiator)						   \
+   || (CHAR_TABLEP (instantiator)					   \
+       && (XCHAR_TABLE_TYPE (instantiator) == CHAR_TABLE_TYPE_CHAR	   \
+	   || XCHAR_TABLE_TYPE (instantiator) == CHAR_TABLE_TYPE_GENERIC)) \
    || RANGE_TABLEP (instantiator))
 
 static void
@@ -3109,6 +3148,9 @@ display_table_validate (Lisp_Object instantiator)
 
 DEFUN ("display-table-specifier-p", Fdisplay_table_specifier_p, 1, 1, 0, /*
 Return non-nil if OBJECT is a display-table specifier.
+
+See `current-display-table' for a description of possible display-table
+instantiators.
 */
        (object))
 {

@@ -3229,10 +3229,13 @@ Examples:
   (featurep '(or (and xemacs 19.15) (and emacs 19.34)))
     => ; Non-nil on XEmacs 19.15 and later, or FSF Emacs 19.34 and later.
 
+  (featurep '(and xemacs 21.02))
+    => ; Non-nil on XEmacs 21.2 and later.
+
 NOTE: The advanced arguments of this function (anything other than a
 symbol) are not yet supported by FSF Emacs.  If you feel they are useful
 for supporting multiple Emacs variants, lobby Richard Stallman at
-<bug-gnu-emacs@prep.ai.mit.edu>.
+<bug-gnu-emacs@gnu.org>.
 */
        (fexp))
 {

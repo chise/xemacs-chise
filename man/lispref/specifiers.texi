@@ -703,7 +703,7 @@ and can be used to restrict the scope of that instantiator to a
 particular device class or device type and/or to mark instantiators
 added by a particular package so that they can be later removed.
 
-A specifier tag set consists of a list of zero of more specifier tags,
+A specifier tag set consists of a list of zero or more specifier tags,
 each of which is a symbol that is recognized by XEmacs as a tag.  (The
 valid device types and device classes are always tags, as are any tags
 defined by @code{define-specifier-tag}.) It is called a ``tag set'' (as
@@ -934,11 +934,11 @@ of the symbols @code{generic}, @code{integer}, @code{natnum},
 @code{face-boolean}, or @code{toolbar}.
 
 For more information on particular types of specifiers, see the
-functions @code{generic-specifier-p}, @code{integer-specifier-p},
-@code{natnum-specifier-p}, @code{boolean-specifier-p},
-@code{color-specifier-p}, @code{font-specifier-p},
-@code{image-specifier-p}, @code{face-boolean-specifier-p}, and
-@code{toolbar-specifier-p}.
+functions @code{make-generic-specifier}, @code{make-integer-specifier},
+@code{make-natnum-specifier}, @code{make-boolean-specifier},
+@code{make-color-specifier}, @code{make-font-specifier},
+@code{make-image-specifier}, @code{make-face-boolean-specifier}, and
+@code{make-toolbar-specifier}.
 @end defun
 
 @defun make-specifier-and-init type spec-list &optional dont-canonicalize
@@ -952,6 +952,59 @@ the full spec-list form is accepted, and is converted to the full form;
 however, if optional argument @var{dont-canonicalize} is non-@code{nil},
 this conversion is not performed, and the @var{spec-list} must already
 be in full form.  See @code{canonicalize-spec-list}.
+@end defun
+
+@defun make-integer-specifier spec-list
+
+Return a new @code{integer} specifier object with the given
+specification list.  @var{spec-list} can be a list of specifications
+(each of which is a cons of a locale and a list of instantiators), a
+single instantiator, or a list of instantiators.
+
+Valid instantiators for integer specifiers are integers.
+@end defun
+
+@defun make-boolean-specifier spec-list
+
+Return a new @code{boolean} specifier object with the given
+specification list.  @var{spec-list} can be a list of specifications
+(each of which is a cons of a locale and a list of instantiators), a
+single instantiator, or a list of instantiators.
+
+Valid instantiators for boolean specifiers are @code{t} and @code{nil}.
+@end defun
+
+@defun make-natnum-specifier spec-list
+
+Return a new @code{natnum} specifier object with the given specification
+list.  @var{spec-list} can be a list of specifications (each of which is
+a cons of a locale and a list of instantiators), a single instantiator,
+or a list of instantiators.
+
+Valid instantiators for natnum specifiers are non-negative integers.
+@end defun
+
+@defun make-generic-specifier spec-list
+
+Return a new @code{generic} specifier object with the given
+specification list.  @var{spec-list} can be a list of specifications
+(each of which is a cons of a locale and a list of instantiators), a
+single instantiator, or a list of instantiators.
+
+Valid instantiators for generic specifiers are all Lisp values.  They
+are returned back unchanged when a specifier is instantiated.
+@end defun
+
+@defun make-display-table-specifier spec-list
+
+Return a new @code{display-table} specifier object with the given spec
+list.  @var{spec-list} can be a list of specifications (each of which is
+a cons of a locale and a list of instantiators), a single instantiator,
+or a list of instantiators.
+
+Valid instantiators for display-table specifiers are described in detail
+in the doc string for @code{current-display-table} (@pxref{Active
+Display Table}).
 @end defun
 
 @node Specifier Validation Functions

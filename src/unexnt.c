@@ -61,6 +61,9 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include <fcntl.h>
 #include <windows.h>
 
+#include "nt.h"
+#include "ntheap.h"
+
 /* From IMAGEHLP.H which is not installed by default by MSVC < 5 */
 /* The IMAGEHLP.DLL library is not distributed by default with Windows95 */
 typedef PIMAGE_NT_HEADERS
@@ -72,9 +75,8 @@ typedef PIMAGE_NT_HEADERS
 extern BOOL ctrl_c_handler (unsigned long type);
 #endif
 
-#include "ntheap.h"
-
-/* Sync with FSF Emacs 19.34.6 note: struct file_data is now defined in ntheap.h */
+/* Sync with FSF Emacs 19.34.6
+   note: struct file_data is now defined in nt.h */
 
 enum {
   HEAP_UNINITIALIZED = 1,
@@ -280,40 +282,6 @@ unexec (char *new_name, char *old_name, void *start_data, void *start_bss,
 
   close_file_data (&in_file);
   close_file_data (&out_file);
-}
-
-
-/* File handling.  */
-
-
-int
-open_output_file (file_data *p_file, const char *filename, unsigned long size)
-{
-  HANDLE file;
-  HANDLE file_mapping;
-  void  *file_base;
-
-  file = CreateFile (filename, GENERIC_READ | GENERIC_WRITE, 0, NULL,
-		     CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
-  if (file == INVALID_HANDLE_VALUE) 
-    return FALSE;
-
-  file_mapping = CreateFileMapping (file, NULL, PAGE_READWRITE, 
-				    0, size, NULL);
-  if (!file_mapping) 
-    return FALSE;
-  
-  file_base = MapViewOfFile (file_mapping, FILE_MAP_WRITE, 0, 0, size);
-  if (file_base == NULL) 
-    return FALSE;
-  
-  p_file->name = filename;
-  p_file->size = size;
-  p_file->file = file;
-  p_file->file_mapping = file_mapping;
-  p_file->file_base = (char*) file_base;
-
-  return TRUE;
 }
 
 /* Routines to manipulate NT executable file sections.  */

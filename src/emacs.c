@@ -2,6 +2,7 @@
    Copyright (C) 1985, 1986, 1987, 1992, 1993, 1994
    Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 2000 Ben Wing.
 
 This file is part of XEmacs.
 
@@ -21,6 +22,141 @@ the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Mule 2.0, FSF 19.28. */
+
+/* Capsule summary of the various releases of Lucid Emacs/XEmacs and
+   FSF/GNU Emacs.  Provided here for use in cross-referencing version
+   releases and dates in comments, esp. in the authorship comments at
+   the beginning of each file.  More information about history can be
+   found in the beginning of the Internals Manual and in the About page.
+
+
+-- A time line for Lucid Emacs/XEmacs is
+
+version 19.0 shipped with Energize 1.0, April 1992.
+version 19.1 released June 4, 1992.
+version 19.2 released June 19, 1992.
+version 19.3 released September 9, 1992.
+version 19.4 released January 21, 1993.
+version 19.5 was a repackaging of 19.4 with a few bug fixes and
+  shipped with Energize 2.0.  Never released to the net.
+version 19.6 released April 9, 1993.
+version 19.7 was a repackaging of 19.6 with a few bug fixes and
+  shipped with Energize 2.1.  Never released to the net.
+version 19.8 released September 6, 1993.
+version 19.9 released January 12, 1994.
+version 19.10 released May 27, 1994.
+version 19.11 (first XEmacs) released September 13, 1994.
+version 19.12 released June 23, 1995.
+version 19.13 released September 1, 1995.
+version 19.14 released June 23, 1996.
+version 20.0 released February 9, 1997.
+version 19.15 released March 28, 1997.
+version 20.1 (not released to the net) April 15, 1997.
+version 20.2 released May 16, 1997.
+version 19.16 released October 31, 1997.
+version 20.3 (the first stable version of XEmacs 20.x) released
+  November 30, 1997.
+version 20.4 released February 28, 1998.
+
+
+-- A time line for GNU Emacs version 19 is
+
+version 19.7 (beta) (first beta release) released ??????; prob. late May 1993.
+version 19.8 (beta) released May 27, 1993.
+version 19.9 (beta) released May 27, 1993.
+version 19.10 (beta) released May 30, 1993.
+version 19.11 (beta) released June 1, 1993.
+version 19.12 (beta) released June 2, 1993.
+version 19.13 (beta) released June 8, 1993.
+version 19.14 (beta) released June 17, 1993.
+version 19.15 (beta) released June 19, 1993.
+version 19.16 (beta) released July 6, 1993.
+version 19.17 (beta) released late July, 1993.
+version 19.18 (beta) released August 9, 1993.
+version 19.19 (beta) released August 15, 1993.
+version 19.20 (beta) released November 17, 1993.
+version 19.21 (beta) released November 17, 1993.
+version 19.22 (beta) released November 28, 1993.
+version 19.23 (beta) released May 17, 1994.
+version 19.24 (beta) released May 16, 1994.
+version 19.25 (beta) released June 3, 1994.
+version 19.26 (beta) released September 11, 1994.
+version 19.27 (beta) released September 14, 1994.
+version 19.28 (first ``official'' release) released November 1, 1994.
+version 19.29 released June 21, 1995.
+version 19.30 released November 24, 1995.
+version 19.31 released May 25, 1996.
+version 19.32 released July 31, 1996.
+version 19.33 released August 11, 1996.
+version 19.34 released August 21, 1996.
+version 19.34b released September 6, 1996.
+
+
+-- A time line for GNU Emacs version 20 is
+
+version 20.1 released September 17, 1997.
+version 20.2 released September 20, 1997.
+version 20.3 released August 19, 1998.
+
+
+-- A time line for GNU Emacs version 18 and older is
+
+GNU Emacs version 15 (15.34) was released sometime in 1984 or 1985 and
+  shared some code with a version of Emacs written by James Gosling (the
+  same James Gosling who later created the Java language).
+GNU Emacs version 16 (first released version was 16.56) was released on
+  July 15, 1985.  All Gosling code was removed due to potential copyright
+  problems with the code.
+version 16.57: released on September 16, 1985.
+versions 16.58, 16.59: released on September 17, 1985.
+version 16.60: released on September 19, 1985.  These later version 16's
+  incorporated patches from the net, esp. for getting Emacs to work under
+  System V.
+version 17.36 (first official v17 release) released on December 20, 1985.
+  Included a TeX-able user manual.  First official unpatched version that
+   worked on vanilla System V machines.
+version 17.43 (second official v17 release) released on January 25, 1986.
+version 17.45 released on January 30, 1986.
+version 17.46 released on February 4, 1986.
+version 17.48 released on February 10, 1986.
+version 17.49 released on February 12, 1986.
+version 17.55 released on March 18, 1986.
+version 17.57 released on March 27, 1986.
+version 17.58 released on April 4, 1986.
+version 17.61 released on April 12, 1986.
+version 17.63 released on May 7, 1986.
+version 17.64 released on May 12, 1986.
+version 18.24 (a beta version) released on October 2, 1986.
+version 18.30 (a beta version) released on November 15, 1986.
+version 18.31 (a beta version) released on November 23, 1986.
+version 18.32 (a beta version) released on December 7, 1986.
+version 18.33 (a beta version) released on December 12, 1986.
+version 18.35 (a beta version) released on January 5, 1987.
+version 18.36 (a beta version) released on January 21, 1987.
+January 27, 1987: The Great Usenet Renaming.  net.emacs is now comp.emacs.
+version 18.37 (a beta version) released on February 12, 1987.
+version 18.38 (a beta version) released on March 3, 1987.
+version 18.39 (a beta version) released on March 14, 1987.
+version 18.40 (a beta version) released on March 18, 1987.
+version 18.41 (the first ``official'' release) released on March 22, 1987.
+version 18.45 released on June 2, 1987.
+version 18.46 released on June 9, 1987.
+version 18.47 released on June 18, 1987.
+version 18.48 released on September 3, 1987.
+version 18.49 released on September 18, 1987.
+version 18.50 released on February 13, 1988.
+version 18.51 released on May 7, 1988.
+version 18.52 released on September 1, 1988.
+version 18.53 released on February 24, 1989.
+version 18.54 released on April 26, 1989.
+version 18.55 released on August 23, 1989.  This is the earliest version
+  that is still available by FTP.
+version 18.56 released on January 17, 1991.
+version 18.57 released late January, 1991.
+version 18.58 released ?????.
+version 18.59 released October 31, 1992.
+
+*/
 
 /* Note: It is necessary to specify <config.h> and not "config.h" in
    order for the --srcdir type of compilation to work properly.
@@ -170,8 +306,10 @@ Lisp_Object Vconfigure_exec_prefix_directory, Vconfigure_prefix_directory;
    priority. */
 int emacs_priority;
 
-/* If non-zero a filter or a sentinel is running.  Tested to save the match
-   data on the first attempt to change it inside asynchronous code. */
+/* Some FSF junk with running_asynch_code, to preserve the match
+   data.  Not necessary because we don't call process filters
+   asynchronously (i.e. from within QUIT). */
+/* #### Delete this when merging the rest of my code */
 int running_asynch_code;
 
 /* If non-zero, a window-system was specified on the command line. */
@@ -241,11 +379,63 @@ Lisp_Object Qsave_buffers_kill_emacs;
 extern Lisp_Object Vlisp_EXEC_SUFFIXES;
 
 
-/* Signal code for the fatal signal that was received */
-static int fatal_error_code;
 
-/* Nonzero if handling a fatal error already */
-static int fatal_error_in_progress;
+/* Ben's capsule summary about expected and unexpected exits from XEmacs.
+
+   Expected exits occur when the user directs XEmacs to exit, for example
+   by pressing the close button on the only frame in XEmacs, or by typing
+   C-x C-c.  This runs `save-buffers-kill-emacs', which saves any necessary
+   buffers, and then exits using the primitive `kill-emacs'.
+
+   However, unexpected exits occur in a few different ways:
+
+     -- a memory access violation or other hardware-generated exception
+        occurs.  This is the worst possible problem to deal with, because
+        the fault can occur while XEmacs is in any state whatsoever, even
+        quite unstable ones.  As a result, we need to be *extremely* careful
+        what we do.
+     -- we are using one X display (or if we've used more, we've closed the
+        others already), and some hardware or other problem happens and
+        suddenly we've lost our connection to the display.  In this situation,
+	things are not so dire as in the last one; our code itself isn't
+	trashed, so we can continue execution as normal, after having set
+	things up so that we can exit at the appropriate time.  Our exit
+	still needs to be of the emergency nature; we have no displays, so
+	any attempts to use them will fail.  We simply want to auto-save
+	(the single most important thing to do during shut-down), do minimal
+	cleanup of stuff that has an independent existence outside of XEmacs,
+	and exit.
+
+	Currently, both unexpected exit scenarios described above set
+	preparing_for_armageddon to indicate that nonessential and possibly
+	dangerous things should not be done, specifically:
+
+	-- no garbage collection.
+	-- no hooks are run.
+	-- no messages of any sort from autosaving.
+	-- autosaving tries harder, ignoring certain failures.
+	-- existing frames are not deleted.
+
+	(Also, all places that set preparing_for_armageddon also
+	set dont_check_for_quit.  This happens separately because it's
+	also necessary to set other variables to make absolutely sure
+	no quitting happens.)
+
+	In the first scenario above (the access violation), we also set
+	fatal_error_in_progress.  This causes more things to not happen:
+
+	-- assertion failures do not abort.
+	-- printing code does not do code conversion or gettext when
+	   printing to stdout/stderr.
+*/
+
+/* Nonzero if handling a fatal error already. */
+int fatal_error_in_progress;
+
+/* Non-nil means we're going down, so we better not run any hooks
+   or do other non-essential stuff. */
+int preparing_for_armageddon;
+
 
 static JMP_BUF run_temacs_catch;
 
@@ -255,23 +445,54 @@ static char *run_temacs_args;
 static size_t run_temacs_argv_size;
 static size_t run_temacs_args_size;
 
-static void shut_down_emacs (int sig, Lisp_Object stuff);
+static void shut_down_emacs (int sig, Lisp_Object stuff, int no_auto_save);
+
+static void
+ensure_no_quitting_from_now_on (void)
+{
+  /* make sure no quitting from now on!! */
+  dont_check_for_quit = 1;
+  Vinhibit_quit = Qt;
+  Vquit_flag = Qnil;
+}
 
 /* Handle bus errors, illegal instruction, etc. */
 SIGTYPE
 fatal_error_signal (int sig)
 {
-  fatal_error_code = sig;
-  signal (sig, SIG_DFL);
+  fatal_error_in_progress++;
+  preparing_for_armageddon = 1;
+
+  ensure_no_quitting_from_now_on ();
+
   /* Unblock the signal so that if the same signal gets sent in the
      code below, we avoid a deadlock. */
-  EMACS_UNBLOCK_SIGNAL (fatal_error_code);
+  EMACS_UNBLOCK_SIGNAL (sig);
 
-  /* If fatal error occurs in code below, avoid infinite recursion.  */
-  if (! fatal_error_in_progress)
+  /* Only try auto-saving first time through.  If we crash in auto-saving,
+     don't do it again. */
+  if (fatal_error_in_progress == 1)
     {
-      fatal_error_in_progress = dont_check_for_quit = 1;
-      shut_down_emacs (sig, Qnil);
+      Fdo_auto_save (Qt, Qnil); /* do this before anything hazardous */
+      /* Do this so that the variable has the same value of 2 regardless of
+	 whether we made it through auto-saving correctly. */
+      fatal_error_in_progress++;
+    }
+  else if (fatal_error_in_progress == 2)
+    stderr_out ("WARNING: Unable to auto-save your files properly.\n"
+		"Some or all may in fact have been auto-saved.\n"
+		"\n");
+
+  /* Now, reset our signal handler, so the next time, we just die.
+     Don't do this before auto-saving. */
+  signal (sig, SIG_DFL);
+
+  /* Keep in mind that there's more than one signal that we can crash
+     on. */
+  /* If fatal error occurs in code below, avoid infinite recursion.  */
+  if (fatal_error_in_progress <= 2)
+    {
+      shut_down_emacs (sig, Qnil, 1);
       stderr_out ("\nLisp backtrace follows:\n\n");
       Fbacktrace (Qexternal_debugging_output, Qt);
 # if 0	/* This is evil, rarely useful, and causes grief in some cases. */
@@ -290,9 +511,62 @@ fatal_error_signal (int sig)
 # endif
     }
   /* Signal the same code; this time it will really be fatal. */
-  kill (getpid (), fatal_error_code);
+  kill (getpid (), sig);
   SIGRETURN;
 }
+
+#ifdef _MSC_VER
+
+static DWORD
+mswindows_handle_hardware_exceptions (DWORD code)
+{
+  if (code != STATUS_ACCESS_VIOLATION && code != STATUS_ILLEGAL_INSTRUCTION
+      && code != STATUS_PRIVILEGED_INSTRUCTION
+      && code != STATUS_DATATYPE_MISALIGNMENT)
+    return EXCEPTION_CONTINUE_SEARCH;
+
+  /* I don't know if this filter is still wrapped in the outer __try, but
+     it doesn't hurt to have another one. --ben */
+  __try
+    {
+      fatal_error_in_progress++;
+      preparing_for_armageddon = 1;
+
+      ensure_no_quitting_from_now_on ();
+
+      /* Only try auto-saving first time through.  If we crash in auto-saving,
+	 don't do it again. */
+      if (fatal_error_in_progress == 1)
+	{
+	  Fdo_auto_save (Qt, Qnil); /* do this before anything hazardous */
+	  /* Do this so that the variable has the same value of 2 regardless of
+	     whether we made it through auto-saving correctly. */
+	  fatal_error_in_progress++;
+	}
+      else if (fatal_error_in_progress == 2)
+	stderr_out ("WARNING: Unable to auto-save your files properly.\n"
+		    "Some or all may in fact have been auto-saved.\n"
+		    "\n");
+
+      /* If fatal error occurs in code below, avoid infinite recursion.  */
+      if (fatal_error_in_progress <= 2)
+	{
+	  shut_down_emacs (-1, Qnil, 1);
+	  stderr_out ("\nLisp backtrace follows:\n\n");
+	  Fbacktrace (Qexternal_debugging_output, Qt);
+	}
+    }
+  /* VC++ documentation says that
+     GetExceptionCode() cannot be called inside the filter itself. */
+  __except (mswindows_handle_hardware_exceptions (GetExceptionCode ())) {}
+
+  /* pretend we didn't handle this, so that the debugger is invoked and/or
+     the normal GPF box appears. */
+  return EXCEPTION_CONTINUE_SEARCH;
+}
+
+#endif /* _MSC_VER */
+
 
 
 #ifdef SIGDANGER
@@ -1686,7 +1960,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #endif
       reinit_vars_of_objects ();
       reinit_vars_of_print ();
-      reinit_vars_of_redisplay ();
       reinit_vars_of_search ();
       reinit_vars_of_undo ();
       reinit_vars_of_window ();
@@ -2173,6 +2446,16 @@ Do not call this.  It will reinitialize your XEmacs.  You'll be sorry.
 int
 main (int argc, char **argv, char **envp)
 {
+
+#ifdef _MSC_VER
+  /* Under VC++, access violations and the like are not sent through
+     the standard signal() mechanism.  Rather, they need to be handled
+     using the Microsoft "structured exception handling" mechanism,
+     which vaguely resembles the C++ mechanisms. */
+  __try
+  {
+#endif
+
   int     volatile vol_argc = argc;
   char ** volatile vol_argv = argv;
   char ** volatile vol_envp = envp;
@@ -2290,6 +2573,14 @@ main (int argc, char **argv, char **envp)
   run_temacs_argc = -1;
 
   main_1 (vol_argc, vol_argv, vol_envp, restarted);
+
+#ifdef _MSC_VER
+  }
+  /* VC++ documentation says that
+     GetExceptionCode() cannot be called inside the filter itself. */
+  __except (mswindows_handle_hardware_exceptions (GetExceptionCode ())) {}
+#endif
+
   return 0; /* unreached */
 }
 
@@ -2334,9 +2625,7 @@ all of which are called before XEmacs is actually killed.
   if (!preparing_for_armageddon && !noninteractive)
     run_hook (Qkill_emacs_hook);
 
-  /* make sure no quitting from now on!! */
-  dont_check_for_quit = 1;
-  Vinhibit_quit = Qt;
+  ensure_no_quitting_from_now_on ();
 
   if (!preparing_for_armageddon)
     {
@@ -2364,7 +2653,7 @@ all of which are called before XEmacs is actually killed.
 
   UNGCPRO;
 
-  shut_down_emacs (0, STRINGP (arg) ? arg : Qnil);
+  shut_down_emacs (0, STRINGP (arg) ? arg : Qnil, 0);
 
 #if defined(GNU_MALLOC)
   __free_hook =
@@ -2387,45 +2676,54 @@ all of which are called before XEmacs is actually killed.
 
    If SIG is a signal number, print a message for it.
 
-   This is called by fatal signal handlers, X protocol error handlers,
-   and Fkill_emacs.  */
+   This is called by fatal signal handlers and Fkill_emacs.  It used to
+   be called by X protocol error handlers, but instead they now call
+   Fkill_emacs. */
 static void
-shut_down_emacs (int sig, Lisp_Object stuff)
+shut_down_emacs (int sig, Lisp_Object stuff, int no_auto_save)
 {
   /* This function can GC */
   /* Prevent running of hooks and other non-essential stuff
      from now on.  */
   preparing_for_armageddon = 1;
 
-  /* In case frames or windows are screwed up, avoid assertion
-     failures here */
-  Vinhibit_quit = Qt;
+  ensure_no_quitting_from_now_on ();
 
 #ifdef QUANTIFY
   quantify_stop_recording_data ();
 #endif /* QUANTIFY */
 
-#if 0
   /* This is absolutely the most important thing to do, so make sure
      we do it now, before anything else.  We might have crashed and
      be in a weird inconsistent state, and potentially anything could
      set off another protection fault and cause us to bail out
      immediately. */
-  /* I'm not removing the code entirely, yet.  We have run up against
+  /* Steve writes the following:
+
+     [[I'm not removing the code entirely, yet.  We have run up against
      a spate of problems in diagnosing crashes due to crashes within
      crashes.  It has very definitely been determined that code called
      during auto-saving cannot work if XEmacs crashed inside of GC.
      We already auto-save on an itimer so there cannot be too much
      unsaved stuff around, and if we get better crash reports we might
-     be able to get more problems fixed so I'm disabling this.  -slb */
-  Fdo_auto_save (Qt, Qnil); /* do this before anything hazardous */
-#endif
+     be able to get more problems fixed so I'm disabling this.  -slb]]
+
+     and DISABLES AUTO-SAVING ENTIRELY during crashes!  Way way bad idea.
+
+     Instead let's just be more intelligent about avoiding crashing
+     when possible, esp. nested crashes.
+  */
+  if (!no_auto_save)
+    Fdo_auto_save (Qt, Qnil); /* do this before anything hazardous */
 
   fflush (stdout);
   reset_all_consoles ();
   if (sig && sig != SIGTERM)
     {
-      stderr_out ("\nFatal error (%d).\n", sig);
+      if (sig == -1)
+	stderr_out ("\nFatal error.\n\n");
+      else
+	stderr_out ("\nFatal error (%d).\n\n", sig);
       stderr_out
 	("Your files have been auto-saved.\n"
 	 "Use `M-x recover-session' to recover them.\n"
@@ -2444,6 +2742,7 @@ shut_down_emacs (int sig, Lisp_Object stuff)
 #endif
 	 "*MAKE SURE* to include the information in the command\n"
 	 "M-x describe-installation.\n"
+#ifndef _MSC_VER
 	 "\n"
 	 "If at all possible, *please* try to obtain a C stack backtrace;\n"
 	 "it will help us immensely in determining what went wrong.\n"
@@ -2452,7 +2751,10 @@ shut_down_emacs (int sig, Lisp_Object stuff)
 	 "directory in which you started the editor, or maybe in your home\n"
 	 "directory), and type\n"
 	 "\n"
-	 "  gdb ");
+	 "  gdb "
+#endif
+	 );
+#ifndef _MSC_VER
       {
 	const char *name;
 	char *dir = 0;
@@ -2479,6 +2781,7 @@ shut_down_emacs (int sig, Lisp_Object stuff)
 	 "(If you don't have GDB on your system, you might have DBX,\n"
 	 "or XDB, or SDB.  A similar procedure should work for all of\n"
 	 "these.  Ask your system administrator if you need more help.)\n");
+#endif /* _MSC_VER */
     }
 
   stuff_buffered_input (stuff);
@@ -2742,17 +3045,75 @@ Non-nil return value means XEmacs is running without interactive terminal.
 #ifdef USE_ASSERTIONS
 /* This highly dubious kludge ... shut up Jamie, I'm tired of your slagging. */
 
-DOESNT_RETURN
+static int in_assert_failed;
+static const char *assert_failed_file;
+static int assert_failed_line;
+static const char *assert_failed_expr;
+
+#ifdef fprintf
+#undef fprintf
+#endif
+
+#undef abort	/* avoid infinite #define loop... */
+
+#if defined (WINDOWSNT) && defined (DEBUG_XEMACS)
+#define enter_debugger() DebugBreak ()
+#else
+#define enter_debugger()
+#endif
+
+void
 assert_failed (const char *file, int line, const char *expr)
 {
-  stderr_out ("Fatal error: assertion failed, file %s, line %d, %s\n",
-	      file, line, expr);
-#undef abort	/* avoid infinite #define loop... */
-#if defined (WINDOWSNT) && defined (DEBUG_XEMACS)
-  DebugBreak ();
-#elif !defined (ASSERTIONS_DONT_ABORT)
+  /* If we're already crashing, let's not crash again.  This might be
+     critical to getting auto-saving working properly. */
+  if (fatal_error_in_progress)
+    return;
+
+  /* We are extremely paranoid so we sensibly deal with recursive
+     assertion failures. */
+  in_assert_failed++;
+
+  if (in_assert_failed >= 4)
+    _exit (-1);
+  else if (in_assert_failed == 3)
+    {
+      enter_debugger ();
+      _exit (-1);
+    }
+  else if (in_assert_failed == 2)
+    {
+      /* Not stderr_out(), which does additional things and may trigger
+	 a recursive assertion failure.  fprintf was undeffed above, in
+	 case it was encapsulated. */
+      fprintf (stderr,
+	       "Fatal error: recursive assertion failure, "
+	       "file %s, line %d, %s\n",
+	       file, line, expr);
+      fprintf (stderr,
+	       "Original assertion failure: file %s, line %d, %s\n",
+	       assert_failed_file, assert_failed_line, assert_failed_expr);
+    }
+  else
+    {
+      assert_failed_file = file;
+      assert_failed_line = line;
+      assert_failed_expr = expr;
+ 
+      if (!initialized)
+	fprintf (stderr,
+		 "Fatal error: assertion failed, file %s, line %d, %s\n",
+		 file, line, expr);
+      else
+	stderr_out ("Fatal error: assertion failed, file %s, line %d, %s\n",
+		    file, line, expr);
+    }
+
+  enter_debugger ();
+#if !defined (ASSERTIONS_DONT_ABORT)
   abort ();
 #endif
+  in_assert_failed = 0;
 }
 #endif /* USE_ASSERTIONS */
 
@@ -3175,19 +3536,6 @@ configure's idea of what DATA-DIRECTORY will be.
 or were installed as packages, and are intended for XEmacs to use.
 */ );
   Vdata_directory_list = Qnil;
-
-#ifdef CLASH_DETECTION
-  DEFVAR_LISP ("configure-lock-directory", &Vconfigure_lock_directory /*
-For internal use by the build procedure only.
-configure's idea of what LOCK-DIRECTORY will be.
-*/ );
-#ifdef PATH_LOCK
-  Vconfigure_lock_directory = Ffile_name_as_directory
-    (build_string ((char *) PATH_LOCK));
-#else
-  Vconfigure_lock_directory = Qnil;
-#endif
-#endif /* CLASH_DETECTION */
 
   DEFVAR_LISP ("site-directory", &Vsite_directory /*
 *Directory of site-specific Lisp files that come with XEmacs.

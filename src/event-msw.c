@@ -1,4 +1,4 @@
-/* The  mswindows event_stream interface.
+/* The mswindows event_stream interface.
    Copyright (C) 1991, 1992, 1993, 1994, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 1996, 2000 Ben Wing.
@@ -58,6 +58,7 @@ Boston, MA 02111-1307, USA.  */
 #include "process.h"
 #include "redisplay.h"
 #include "select.h"
+#include "window.h"
 #include "sysproc.h"
 #include "syswait.h"
 #include "systime.h"
@@ -76,10 +77,6 @@ typedef unsigned int SOCKET;
 
 #if !(defined(__CYGWIN32__) || defined(__MINGW32__))
 # include <shlobj.h>	/* For IShellLink */
-#endif
-
-#if defined (__CYGWIN32__) && (CYGWIN_VERSION_DLL_MAJOR < 20)
-typedef NMHDR *LPNMHDR;
 #endif
 
 #ifdef HAVE_MENUBARS
@@ -103,6 +100,8 @@ static int mswindows_modifier_state (BYTE* keymap, int has_AltGr);
 static void mswindows_set_chord_timer (HWND hwnd);
 static int mswindows_button2_near_enough (POINTS p1, POINTS p2);
 static int mswindows_current_layout_has_AltGr (void);
+static int mswindows_handle_sticky_modifiers (WPARAM wParam, LPARAM lParam,
+					      int downp, int keyp);
 
 static struct event_stream *mswindows_event_stream;
 
@@ -150,6 +149,10 @@ int mswindows_num_mouse_buttons;
 int mswindows_mouse_button_max_skew_x;
 int mswindows_mouse_button_max_skew_y;
 int mswindows_mouse_button_tolerance;
+
+#ifdef DEBUG_XEMACS
+int mswindows_debug_events;
+#endif
 
 /* This is the event signaled by the event pump.
    See mswindows_pump_outstanding_events for comments */
@@ -936,17 +939,21 @@ mswindows_enqueue_process_event (Lisp_Process* p)
 }
 
 static void
-mswindows_enqueue_mouse_button_event (HWND hwnd, UINT msg, POINTS where, DWORD when)
+mswindows_enqueue_mouse_button_event (HWND hwnd, UINT msg, POINTS where,
+				      DWORD when)
 {
+  int downp = (msg == WM_LBUTTONDOWN || msg == WM_MBUTTONDOWN ||
+	       msg == WM_RBUTTONDOWN);
 
   /* We always use last message time, because mouse button
      events may get delayed, and XEmacs double click
      recognition will fail */
 
   Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
-  Lisp_Event* event = XEVENT(emacs_event);
+  Lisp_Event* event = XEVENT (emacs_event);
 
-  event->channel = mswindows_find_frame(hwnd);
+  mswindows_handle_sticky_modifiers (0, 0, downp, 0);
+  event->channel = mswindows_find_frame (hwnd);
   event->timestamp = when;
   event->event.button.button =
     (msg==WM_LBUTTONDOWN || msg==WM_LBUTTONUP) ? 1 :
@@ -955,8 +962,7 @@ mswindows_enqueue_mouse_button_event (HWND hwnd, UINT msg, POINTS where, DWORD w
   event->event.button.y = where.y;
   event->event.button.modifiers = mswindows_modifier_state (NULL, 0);
 
-  if (msg==WM_LBUTTONDOWN || msg==WM_MBUTTONDOWN ||
-      msg==WM_RBUTTONDOWN)
+  if (downp)
     {
       event->event_type = button_press_event;
       SetCapture (hwnd);
@@ -1664,6 +1670,9 @@ mswindows_handle_paint (struct frame *frame)
 	 windows are unmapped, however once we are in the guts of
 	 WM_PAINT we need to make sure that we don't register
 	 unmaps then because they will not actually occur. */
+      /* #### commenting out the next line seems to fix some problems
+	 but not all.  only andy currently understands this stuff and
+	 he needs to review it more carefully. --ben */
       if (!check_for_ignored_expose (frame, x, y, width, height))
 	{
 	  hold_ignored_expose_registration = 1;
@@ -1681,17 +1690,288 @@ mswindows_handle_paint (struct frame *frame)
 static int
 key_needs_default_processing_p (UINT vkey)
 {
-  if (mswindows_alt_by_itself_activates_menu && vkey == VK_MENU)
+  if (mswindows_alt_by_itself_activates_menu && vkey == VK_MENU
+      /* if we let ALT activate the menu like this, then sticky ALT-modified
+	 keystrokes become impossible. */
+      && !modifier_keys_are_sticky)
     return 1;
 
   return 0;
 }
 
+/* key-handling code is always ugly.  It just ends up working out
+   that way.
+
+   #### Most of the sticky-modifier code below is copied from similar
+   code in event-Xt.c.  They should somehow or other be merged.
+
+   Here are some pointers:
+
+   -- DOWN_MASK indicates which modifiers should be treated as "down"
+      when the corresponding upstroke happens.  It gets reset for
+      a particular modifier when that modifier goes up, and reset
+      for all modifiers when a non-modifier key is pressed.  Example:
+
+      I press Control-A-Shift and then release Control-A-Shift.
+      I want the Shift key to be sticky but not the Control key.
+
+   -- If a modifier key is sticky, I can unstick it by pressing
+      the modifier key again. */
+
+static WPARAM last_downkey;
+static int need_to_add_mask, down_mask;
+
+#define XEMSW_LCONTROL (1<<0)
+#define XEMSW_RCONTROL (1<<1)
+#define XEMSW_LSHIFT (1<<2)
+#define XEMSW_RSHIFT (1<<3)
+#define XEMSW_LMENU (1<<4)
+#define XEMSW_RMENU (1<<5)
+
+static int
+mswindows_handle_sticky_modifiers (WPARAM wParam, LPARAM lParam,
+				   int downp, int keyp)
+{
+  int mods = 0;
+
+  if (!modifier_keys_are_sticky) /* Optimize for non-sticky modifiers */
+    return 0;
+
+  if (! (keyp &&
+	 (wParam == VK_CONTROL || wParam == VK_LCONTROL ||
+	  wParam == VK_RCONTROL ||
+	  wParam == VK_MENU || wParam == VK_LMENU ||
+	  wParam == VK_RMENU ||
+	  wParam == VK_SHIFT || wParam == VK_LSHIFT ||
+	  wParam == VK_RSHIFT)))
+    { /* Not a modifier key */
+      if (downp && keyp && !last_downkey)
+	last_downkey = wParam;
+      /* If I hold press-and-release the Control key and then press
+	 and hold down the right arrow, I want it to auto-repeat
+	 Control-Right.  On the other hand, if I do the same but
+	 manually press the Right arrow a bunch of times, I want
+	 to see one Control-Right and then a bunch of Rights.
+	 This means that we need to distinguish between an
+	 auto-repeated key and a key pressed and released a bunch
+	 of times. */
+      else if (downp && !keyp ||
+	       (downp && keyp && last_downkey &&
+		(wParam != last_downkey ||
+		 /* the "previous key state" bit indicates autorepeat */
+		 ! (lParam & (1 << 30)))))
+	{
+	  need_to_add_mask = 0;
+	  last_downkey = 0;
+	}
+      if (downp)
+	down_mask = 0;
+
+      mods = need_to_add_mask;
+    }
+  else                          /* Modifier key pressed */
+    {
+      /* If a non-modifier key was pressed in the middle of a bunch
+	 of modifiers, then it unsticks all the modifiers that were
+	 previously pressed.  We cannot unstick the modifiers until
+	 now because we want to check for auto-repeat of the
+	 non-modifier key. */
+
+      if (last_downkey)
+	{
+	  last_downkey = 0;
+	  need_to_add_mask = 0;
+	}
+
+#define FROB(mask)				\
+do {						\
+  if (downp && keyp)				\
+    {						\
+      /* If modifier key is already sticky,	\
+         then unstick it.  Note that we do	\
+         not test down_mask to deal with the	\
+	 unlikely but possible case that the	\
+	 modifier key auto-repeats. */		\
+      if (need_to_add_mask & mask)		\
+	{					\
+	  need_to_add_mask &= ~mask;		\
+	  down_mask &= ~mask;			\
+	}					\
+      else					\
+	down_mask |= mask;			\
+    }						\
+  else						\
+    {						\
+      if (down_mask & mask)			\
+	{					\
+	  down_mask &= ~mask;			\
+	  need_to_add_mask |= mask;		\
+	}					\
+    }						\
+} while (0)
+
+      if (wParam == VK_CONTROL && (lParam & 0x1000000)
+	  || wParam == VK_RCONTROL)
+	FROB (XEMSW_RCONTROL);
+      if (wParam == VK_CONTROL && !(lParam & 0x1000000)
+	  || wParam == VK_LCONTROL)
+	FROB (XEMSW_LCONTROL);
+
+      if (wParam == VK_SHIFT && (lParam & 0x1000000)
+	  || wParam == VK_RSHIFT)
+	FROB (XEMSW_RSHIFT);
+      if (wParam == VK_SHIFT && !(lParam & 0x1000000)
+	  || wParam == VK_LSHIFT)
+	FROB (XEMSW_LSHIFT);
+
+      if (wParam == VK_MENU && (lParam & 0x1000000)
+	  || wParam == VK_RMENU)
+	FROB (XEMSW_RMENU);
+      if (wParam == VK_MENU && !(lParam & 0x1000000)
+	  || wParam == VK_LMENU)
+	FROB (XEMSW_LMENU);
+    }
+#undef FROB
+
+  if (mods && downp)
+    {
+      BYTE keymap[256];
+
+      GetKeyboardState (keymap);
+
+      if (mods & XEMSW_LCONTROL)
+	{
+	  keymap [VK_CONTROL] |= 0x80;
+	  keymap [VK_LCONTROL] |= 0x80;
+	}
+      if (mods & XEMSW_RCONTROL)
+	{
+	  keymap [VK_CONTROL] |= 0x80;
+	  keymap [VK_RCONTROL] |= 0x80;
+	}
+
+      if (mods & XEMSW_LSHIFT)
+	{
+	  keymap [VK_SHIFT] |= 0x80;
+	  keymap [VK_LSHIFT] |= 0x80;
+	}
+      if (mods & XEMSW_RSHIFT)
+	{
+	  keymap [VK_SHIFT] |= 0x80;
+	  keymap [VK_RSHIFT] |= 0x80;
+	}
+
+      if (mods & XEMSW_LMENU)
+	{
+	  keymap [VK_MENU] |= 0x80;
+	  keymap [VK_LMENU] |= 0x80;
+	}
+      if (mods & XEMSW_RMENU)
+	{
+	  keymap [VK_MENU] |= 0x80;
+	  keymap [VK_RMENU] |= 0x80;
+	}
+
+      SetKeyboardState (keymap);
+      return 1;
+    }
+
+  return 0;
+}
+
+static void
+clear_sticky_modifiers (void)
+{
+  need_to_add_mask = 0;
+  last_downkey     = 0;
+  down_mask        = 0;
+}
+
+#ifdef DEBUG_XEMACS
+
+static void
+output_modifier_keyboard_state (void)
+{
+  BYTE keymap[256];
+
+  GetKeyboardState (keymap);
+
+  stderr_out ("GetKeyboardState VK_MENU %d %d VK_LMENU %d %d VK_RMENU %d %d\n",
+	      keymap[VK_MENU] & 0x80 ? 1 : 0,
+	      keymap[VK_MENU] & 0x1 ? 1 : 0,
+	      keymap[VK_LMENU] & 0x80 ? 1 : 0,
+	      keymap[VK_LMENU] & 0x1 ? 1 : 0,
+	      keymap[VK_RMENU] & 0x80 ? 1 : 0,
+	      keymap[VK_RMENU] & 0x1 ? 1 : 0);
+  stderr_out ("GetKeyboardState VK_CONTROL %d %d VK_LCONTROL %d %d VK_RCONTROL %d %d\n",
+	      keymap[VK_CONTROL] & 0x80 ? 1 : 0,
+	      keymap[VK_CONTROL] & 0x1 ? 1 : 0,
+	      keymap[VK_LCONTROL] & 0x80 ? 1 : 0,
+	      keymap[VK_LCONTROL] & 0x1 ? 1 : 0,
+	      keymap[VK_RCONTROL] & 0x80 ? 1 : 0,
+	      keymap[VK_RCONTROL] & 0x1 ? 1 : 0);
+  stderr_out ("GetKeyboardState VK_SHIFT %d %d VK_LSHIFT %d %d VK_RSHIFT %d %d\n",
+	      keymap[VK_SHIFT] & 0x80 ? 1 : 0,
+	      keymap[VK_SHIFT] & 0x1 ? 1 : 0,
+	      keymap[VK_LSHIFT] & 0x80 ? 1 : 0,
+	      keymap[VK_LSHIFT] & 0x1 ? 1 : 0,
+	      keymap[VK_RSHIFT] & 0x80 ? 1 : 0,
+	      keymap[VK_RSHIFT] & 0x1 ? 1 : 0);
+}
+
+/* try to debug the stuck-alt-key problem.
+
+ #### this happens only inconsistently, and may only happen when using
+ StickyKeys in the Win2000 accessibility section of the control panel,
+ which is extremely broken for other reasons.  */
+
+static void
+output_alt_keyboard_state (void)
+{
+  BYTE keymap[256];
+  SHORT keystate[3];
+  // SHORT asyncstate[3];
+
+  GetKeyboardState (keymap);
+  keystate[0] = GetKeyState (VK_MENU);
+  keystate[1] = GetKeyState (VK_LMENU);
+  keystate[2] = GetKeyState (VK_RMENU);
+  /* Doing this interferes with key processing. */
+/*   asyncstate[0] = GetAsyncKeyState (VK_MENU); */
+/*   asyncstate[1] = GetAsyncKeyState (VK_LMENU); */
+/*   asyncstate[2] = GetAsyncKeyState (VK_RMENU); */
+
+  stderr_out ("GetKeyboardState VK_MENU %d %d VK_LMENU %d %d VK_RMENU %d %d\n",
+	      keymap[VK_MENU] & 0x80 ? 1 : 0,
+	      keymap[VK_MENU] & 0x1 ? 1 : 0,
+	      keymap[VK_LMENU] & 0x80 ? 1 : 0,
+	      keymap[VK_LMENU] & 0x1 ? 1 : 0,
+	      keymap[VK_RMENU] & 0x80 ? 1 : 0,
+	      keymap[VK_RMENU] & 0x1 ? 1 : 0);
+  stderr_out ("GetKeyState VK_MENU %d %d VK_LMENU %d %d VK_RMENU %d %d\n",
+	      keystate[0] & 0x8000 ? 1 : 0,
+	      keystate[0] & 0x1 ? 1 : 0,
+	      keystate[1] & 0x8000 ? 1 : 0,
+	      keystate[1] & 0x1 ? 1 : 0,
+	      keystate[2] & 0x8000 ? 1 : 0,
+	      keystate[2] & 0x1 ? 1 : 0);
+/*   stderr_out ("GetAsyncKeyState VK_MENU %d %d VK_LMENU %d %d VK_RMENU %d %d\n", */
+/* 	      asyncstate[0] & 0x8000 ? 1 : 0, */
+/* 	      asyncstate[0] & 0x1 ? 1 : 0, */
+/* 	      asyncstate[1] & 0x8000 ? 1 : 0, */
+/* 	      asyncstate[1] & 0x1 ? 1 : 0, */
+/* 	      asyncstate[2] & 0x8000 ? 1 : 0, */
+/* 	      asyncstate[2] & 0x1 ? 1 : 0); */
+}
+
+#endif /* DEBUG_XEMACS */  
+
+
 /*
  * The windows procedure for the window class XEMACS_CLASS
  */
 LRESULT WINAPI
-mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
   /* Note: Remember to initialize emacs_event and event before use.
      This code calls code that can GC. You must GCPRO before calling such code. */
@@ -1726,11 +2006,23 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
     case WM_KEYUP:
     case WM_SYSKEYUP:
+
       /* See Win95 comment under WM_KEYDOWN */
       {
 	BYTE keymap[256];
 	int should_set_keymap = 0;
 
+#ifdef DEBUG_XEMACS
+	if (mswindows_debug_events)
+	  {
+	    stderr_out ("%s wparam=%d lparam=%d\n",
+			message == WM_KEYUP ? "WM_KEYUP" : "WM_SYSKEYUP",
+			wParam, (int)lParam);
+	    output_alt_keyboard_state ();
+	  }	    
+#endif /* DEBUG_XEMACS */  
+
+	mswindows_handle_sticky_modifiers (wParam, lParam, 0, 1);
 	if (wParam == VK_CONTROL)
 	  {
 	    GetKeyboardState (keymap);
@@ -1744,12 +2036,13 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	    should_set_keymap = 1;
 	  }
 
-	if (should_set_keymap
-	    && (message != WM_SYSKEYUP
-		|| NILP (Vmenu_accelerator_enabled)))
+	if (should_set_keymap)
+	  //	    && (message != WM_SYSKEYUP
+	  //	|| NILP (Vmenu_accelerator_enabled)))
 	  SetKeyboardState (keymap);
 
       }
+      
       if (key_needs_default_processing_p (wParam))
 	goto defproc;
       else
@@ -1757,6 +2050,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
     case WM_KEYDOWN:
     case WM_SYSKEYDOWN:
+
       /* In some locales the right-hand Alt key is labelled AltGr. This key
        * should produce alternative charcaters when combined with another key.
        * eg on a German keyboard pressing AltGr+q should produce '@'.
@@ -1766,24 +2060,58 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
        * We get round this by removing all modifiers from the keymap before
        * calling TranslateMessage() unless AltGr is *really* down. */
       {
-	BYTE keymap[256];
+	BYTE keymap_trans[256];
+	BYTE keymap_orig[256];
+	BYTE keymap_sticky[256];
 	int has_AltGr = mswindows_current_layout_has_AltGr ();
-	int mods;
+	int mods = 0;
 	int extendedp = lParam & 0x1000000;
 	Lisp_Object keysym;
+	int sticky_changed;
 
+#ifdef DEBUG_XEMACS
+	if (mswindows_debug_events)
+	  {
+	    stderr_out ("%s wparam=%d lparam=%d\n",
+			message == WM_KEYDOWN ? "WM_KEYDOWN" : "WM_SYSKEYDOWN",
+			wParam, (int)lParam);
+	    output_alt_keyboard_state ();
+	  }	    
+#endif /* DEBUG_XEMACS */  
+
+	GetKeyboardState (keymap_orig);
 	frame = XFRAME (mswindows_find_frame (hwnd));
-	GetKeyboardState (keymap);
-	mods = mswindows_modifier_state (keymap, has_AltGr);
+	if ((sticky_changed =
+	     mswindows_handle_sticky_modifiers (wParam, lParam, 1, 1)))
+	  {
+	    GetKeyboardState (keymap_sticky);
+	    if (keymap_sticky[VK_MENU] & 0x80)
+	      {
+		message = WM_SYSKEYDOWN;
+		/* We have to set the "context bit" so that the
+		   TranslateMessage() call below that generates the
+		   SYSCHAR message does its thing; see the documentation
+		   on WM_SYSKEYDOWN */
+		lParam |= 1 << 29;
+	      }
+	  }
+	else
+	  memcpy (keymap_sticky, keymap_orig, 256);
+
+	mods = mswindows_modifier_state (keymap_sticky, has_AltGr);
 
 	/* Handle non-printables */
 	if (!NILP (keysym = mswindows_key_to_emacs_keysym (wParam, mods,
 							   extendedp)))
-	  mswindows_enqueue_keypress_event (hwnd, keysym, mods);
+	  {
+	    mswindows_enqueue_keypress_event (hwnd, keysym, mods);
+	    if (sticky_changed)
+	      SetKeyboardState (keymap_orig);
+	  }
 	else	/* Normal keys & modifiers */
 	  {
-	    Emchar quit_ch = CONSOLE_QUIT_CHAR (XCONSOLE (mswindows_find_console (hwnd)));
-	    BYTE keymap_orig[256];
+	    Emchar quit_ch =
+	      CONSOLE_QUIT_CHAR (XCONSOLE (mswindows_find_console (hwnd)));
 	    POINT pnt = { LOWORD (GetMessagePos()), HIWORD (GetMessagePos()) };
 	    MSG msg, tranmsg;
 	    int potential_accelerator = 0;
@@ -1800,11 +2128,15 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	     * to loosely track Left and Right modifiers on behalf of the OS,
 	     * without screwing up Windows NT which tracks them properly. */
 	    if (wParam == VK_CONTROL)
-	      keymap [extendedp ? VK_RCONTROL : VK_LCONTROL] |= 0x80;
+	      {
+		keymap_orig[extendedp ? VK_RCONTROL : VK_LCONTROL] |= 0x80;
+		keymap_sticky[extendedp ? VK_RCONTROL : VK_LCONTROL] |= 0x80;
+	      }
 	    else if (wParam == VK_MENU)
-	      keymap [extendedp ? VK_RMENU : VK_LMENU] |= 0x80;
-
-	    memcpy (keymap_orig, keymap, 256);
+	      {
+		keymap_orig[extendedp ? VK_RMENU : VK_LMENU] |= 0x80;
+		keymap_sticky[extendedp ? VK_RMENU : VK_LMENU] |= 0x80;
+	      }
 
 	    if (!NILP (Vmenu_accelerator_enabled) &&
 		!(mods & XEMACS_MOD_SHIFT) && message == WM_SYSKEYDOWN)
@@ -1813,24 +2145,27 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	    /* Remove shift modifier from an ascii character */
 	    mods &= ~XEMACS_MOD_SHIFT;
 
+	    memcpy (keymap_trans, keymap_sticky, 256);
+
 	    /* Clear control and alt modifiers unless AltGr is pressed */
-	    keymap [VK_RCONTROL] = 0;
-	    keymap [VK_LMENU] = 0;
-	    if (!has_AltGr || !(keymap [VK_LCONTROL] & 0x80)
-		|| !(keymap [VK_RMENU] & 0x80))
+	    keymap_trans[VK_RCONTROL] = 0;
+	    keymap_trans[VK_LMENU] = 0;
+	    if (!has_AltGr || !(keymap_trans[VK_LCONTROL] & 0x80)
+		|| !(keymap_trans[VK_RMENU] & 0x80))
 	      {
-		keymap [VK_LCONTROL] = 0;
-		keymap [VK_CONTROL] = 0;
-		keymap [VK_RMENU] = 0;
-		keymap [VK_MENU] = 0;
+		keymap_trans[VK_LCONTROL] = 0;
+		keymap_trans[VK_CONTROL] = 0;
+		keymap_trans[VK_RMENU] = 0;
+		keymap_trans[VK_MENU] = 0;
 	      }
-	    SetKeyboardState (keymap);
+	    SetKeyboardState (keymap_trans);
 
 	    /* Maybe generate some WM_[SYS]CHARs in the queue */
 	    TranslateMessage (&msg);
 
 	    while (PeekMessage (&tranmsg, hwnd, WM_CHAR, WM_CHAR, PM_REMOVE)
-		   || PeekMessage (&tranmsg, hwnd, WM_SYSCHAR, WM_SYSCHAR, PM_REMOVE))
+		   || PeekMessage (&tranmsg, hwnd, WM_SYSCHAR, WM_SYSCHAR,
+				   PM_REMOVE))
 	      {
 		int mods1 = mods;
 		WPARAM ch = tranmsg.wParam;
@@ -1840,9 +2175,12 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		   upon dequeueing the event */
 		/* #### This might also not withstand localization, if
 		   quit character is not a latin-1 symbol */
-		if (((quit_ch < ' ' && (mods & XEMACS_MOD_CONTROL) && quit_ch + 'a' - 1 == ch)
-		     || (quit_ch >= ' ' && !(mods & XEMACS_MOD_CONTROL) && quit_ch == ch))
-		    && ((mods  & ~(XEMACS_MOD_CONTROL | XEMACS_MOD_SHIFT)) == 0))
+		if (((quit_ch < ' ' && (mods & XEMACS_MOD_CONTROL)
+		      && quit_ch + 'a' - 1 == ch)
+		     || (quit_ch >= ' ' && !(mods & XEMACS_MOD_CONTROL)
+			 && quit_ch == ch))
+		    && ((mods  & ~(XEMACS_MOD_CONTROL | XEMACS_MOD_SHIFT))
+			== 0))
 		  {
 		    mods1 |= FAKE_MOD_QUIT;
 		    ++mswindows_quit_chars_count;
@@ -1855,16 +2193,21 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		  }
 		mswindows_enqueue_keypress_event (hwnd, make_char (ch), mods1);
 	      } /* while */
-	    SetKeyboardState (keymap_orig);
+
 	    /* This generates WM_SYSCHAR messages, which are interpreted
 	       by DefWindowProc as the menu selections. */
 	    if (got_accelerator)
 	      { 
+		SetKeyboardState (keymap_sticky);
 		TranslateMessage (&msg);
+		SetKeyboardState (keymap_orig);
 		goto defproc;
 	      }
+
+	    SetKeyboardState (keymap_orig);
 	  } /* else */
       }
+
       if (key_needs_default_processing_p (wParam))
 	goto defproc;
       else
@@ -2389,7 +2732,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		       (XCOLOR_INSTANCE
 			(FACE_BACKGROUND
 			 (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
-			  XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
+			  XIMAGE_INSTANCE_FRAME (image_instance)))));
 		  }
 		last_widget_brushed = ii;
 		SetTextColor
@@ -2398,7 +2741,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		   (XCOLOR_INSTANCE
 		    (FACE_FOREGROUND
 		     (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
-		      XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
+		      XIMAGE_INSTANCE_FRAME (image_instance)))));
 		SetBkMode (hdc, OPAQUE);
 		SetBkColor
 		  (hdc,
@@ -2406,7 +2749,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		   (XCOLOR_INSTANCE
 		    (FACE_BACKGROUND
 		     (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
-		      XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
+		      XIMAGE_INSTANCE_FRAME (image_instance)))));
 		return (LRESULT)widget_brush;
 	      }
 	  }
@@ -2582,13 +2925,15 @@ mswindows_current_layout_has_AltGr (void)
 
 /* Returns the state of the modifier keys in the format expected by the
  * Lisp_Event key_data, button_data and motion_data modifiers member */
-int mswindows_modifier_state (BYTE* keymap, int has_AltGr)
+static int
+mswindows_modifier_state (BYTE* keymap, int has_AltGr)
 {
   int mods = 0;
+  BYTE keymap2[256];
 
   if (keymap == NULL)
     {
-      keymap = (BYTE*) alloca(256);
+      keymap = keymap2;
       GetKeyboardState (keymap);
       has_AltGr = mswindows_current_layout_has_AltGr ();
     }
@@ -2839,18 +3184,19 @@ emacs_mswindows_handle_magic_event (Lisp_Event *emacs_event)
 	struct frame *f = XFRAME (frame);
 	int in_p = (EVENT_MSWINDOWS_MAGIC_TYPE(emacs_event) == WM_SETFOCUS);
 	Lisp_Object conser;
+	struct gcpro gcpro1;
 
-	/* struct gcpro gcpro1; */
-
-	/* Clear sticky modifiers here (if we had any) */
+	/* On focus change, clear all memory of sticky modifiers
+	   to avoid non-intuitive behavior. */
+	clear_sticky_modifiers ();
 
 	conser = Fcons (frame, Fcons (FRAME_DEVICE (f), in_p ? Qt : Qnil));
-	/* GCPRO1 (conser); XXX Not necessary? */
+	GCPRO1 (conser);
 	emacs_handle_focus_change_preliminary (conser);
 	/* Under X the stuff up to here is done in the X event handler.
 	   I Don't know why */
 	emacs_handle_focus_change_final (conser);
-	/* UNGCPRO; */
+	UNGCPRO;
 
       }
       break;
@@ -3164,6 +3510,20 @@ vars_of_event_mswindows (void)
 
   mswindows_error_caught_in_modal_loop = Qnil;
   staticpro (&mswindows_error_caught_in_modal_loop);
+
+
+#ifdef DEBUG_XEMACS
+  DEFVAR_INT ("mswindows-debug-events", &mswindows_debug_events /*
+If non-zero, display debug information about Windows events that XEmacs sees.
+Information is displayed in a console window.  Currently defined values are:
+
+1 == non-verbose output
+2 == verbose output
+
+#### Unfortunately, not yet implemented.
+*/ );
+  mswindows_debug_events = 0;
+#endif
 
   DEFVAR_BOOL ("mswindows-alt-by-itself-activates-menu",
 	       &mswindows_alt_by_itself_activates_menu /*

@@ -9,7 +9,9 @@
 
 @menu
 * Toolbar Intro::		An introduction.
-* Toolbar Descriptor Format::	How to create a toolbar.
+* Creating Toolbar::            How to create a toolbar.
+* Toolbar Descriptor Format::	Accessing and modifying a toolbar's
+                                  properties.
 * Specifying the Toolbar::	Setting a toolbar's contents.
 * Other Toolbar Variables::	Controlling the size of toolbars.
 @end menu
@@ -56,6 +58,27 @@ such as VM that wants to put its own toolbar in a different location
 from the default just sets the position-specific specifiers, and if
 the user sets the default toolbar to the same position, it will just
 not be visible.
+
+@node Creating Toolbar
+@section Creating Toolbar
+
+@defun make-toolbar-specifier spec-list
+
+Return a new @code{toolbar} specifier object with the given
+specification list.  @var{spec-list} can be a list of specifications
+(each of which is a cons of a locale and a list of instantiators), a
+single instantiator, or a list of instantiators.  @xref{Specifiers}, for
+more information about specifiers.
+
+Toolbar specifiers are used to specify the format of a toolbar.  The
+values of the variables @code{default-toolbar}, @code{top-toolbar},
+@code{left-toolbar}, @code{right-toolbar}, and @code{bottom-toolbar} are
+always toolbar specifiers.
+
+Valid toolbar instantiators are called "toolbar descriptors"
+and are lists of vectors.  See @code{default-toolbar} for a description
+of the exact format.
+@end defun
 
 @node Toolbar Descriptor Format
 @section Toolbar Descriptor Format

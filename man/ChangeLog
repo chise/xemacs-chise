@@ -1,3 +1,31 @@
+2000-05-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.34 is released.
+
+2000-05-17  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* xemacs/basic.texi: Document translation of tutorial.
+	* xemacs/startup.texi: Remove lock-directory.
+	* xemacs/enterings.texi: Update.
+
+2000-05-17  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* lispref/display.texi:
+	* lispref/faces.texi:
+	* lispref/glyphs.texi:
+	* lispref/gutter.texi:
+	* lispref/modes.texi:
+	* lispref/specifiers.texi:
+	* lispref/toolbar.texi:
+	Update.  Merge Ben's doc-string update.
+
+2000-05-08  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* xemacs/basic.texi:
+	* xemacs/enterings.texi:
+	* xemacs/mini.texi:
+	Partial sync with FSF Emacs 20.6 and some update.
+
 2000-05-01  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.33 is released.

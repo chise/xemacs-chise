@@ -40,13 +40,6 @@ Boston, MA 02111-1307, USA.  */
 #include "frame.h"
 #include "sysdep.h"
 
-#if (defined (__CYGWIN32__) || defined(__MINGW32__)) && \
-	CYGWIN_VERSION_DLL_MAJOR < 21
-extern BOOL WINAPI DdeFreeStringHandle(DWORD,HSZ);
-#else
-#include <winspool.h>
-#endif
-
 #if !(defined (__CYGWIN32__) || defined(__MINGW32__))
 # include <objbase.h>	/* For CoInitialize */
 #endif

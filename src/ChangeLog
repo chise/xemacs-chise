@@ -1,3 +1,875 @@
+2000-05-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.34 is released.
+
+2000-05-22  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* redisplay.c (VERTICAL_CLIP): No longer reset when updating line
+	start cache.
+	(updating_line_start_cache): Gone.
+	(regenerate_window): Replace resetting of VERTICAL_CLIP by
+	generic code to force a minimum of 1 line laid out in the
+	CMOTION_DISP case.
+
+2000-05-22  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* glyphs.c (instantiate_image_instantiator): Check for initialized
+	height & width no longer special cases IMAGE_NOTHING.
+	(nothing_instantiate): Set height and width of instance.
+
+2000-05-24  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* unexelf.c (unexec): Search for ".data" section.
+	Initialize new_data2_offset from old_data_index.
+	Remove redundant check for ElfW.
+
+2000-05-23  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.c (get_image_instantiator_governing_domain): allow more
+	specific domains as the governing domain rather than expecting an
+	exact match. This fixes problems with layouts.
+
+2000-05-22  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (compare_runes): check for non-images
+
+	* glyphs.c (set_glyph_dirty_p): ditto.
+	(update_glyph_cachel_data): ditto.
+
+	* glyphs-widget.c (layout_post_instantiate): ditto.
+	(layout_post_instantiate): ditto.
+
+	* event-msw.c (mswindows_wnd_proc): warning removal.
+
+2000-05-12  Craig Lanning  <CraigL@DyCon.com>
+
+	* s\mingw32.h: Added #undef for CLASH_DETECTION.
+
+	* syswindows.h: Moved PBS_SMOOTH definition to syscommctrl.h.
+
+	* syscommctrl.h (PBS_SMOOTH): Moved from syswindows.h.
+
+	* nt.c (rva_to_section): mingw32 needs rva_to_section.
+	(mswindows_executable_type): mingw32 now has enough headers for
+	this to work.
+
+2000-05-20  Andy Piper  <andy@xemacs.org>
+
+	* console-msw.c (mswindows_output_last_error): ; -> ,
+
+2000-05-12  Andy Piper  <andy@xemacs.org>
+
+	* console-msw.c (FROB): compare ints with ints.
+
+2000-05-11  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_finalize_image_instance): make minimal build
+	happy.
+
+2000-05-20  Ben Wing  <ben@xemacs.org>
+
+	* event-Xt.c:
+	* event-Xt.c (vars_of_event_Xt):
+	move modifier-keys-are-sticky to event-stream.c.
+	
+	* event-msw.c:
+	* event-msw.c (mswindows_enqueue_mouse_button_event):
+	* event-msw.c (key_needs_default_processing_p):
+	* event-msw.c (XEMSW_LCONTROL):
+	* event-msw.c (mswindows_handle_sticky_modifiers):
+	* event-msw.c (FROB):
+	* event-msw.c (clear_sticky_modifiers):
+	* event-msw.c (output_modifier_keyboard_state):
+	* event-msw.c (output_alt_keyboard_state):
+	* event-msw.c (mswindows_wnd_proc):
+	* event-msw.c (mswindows_modifier_state):
+	* event-msw.c (emacs_mswindows_handle_magic_event):
+	implement sticky modifiers.
+	
+	* event-stream.c:
+	* event-stream.c (vars_of_event_stream):
+	move modifier-keys-are-sticky here.
+
+	* lisp.h:
+	add CHECK_FUNCTION.
+	
+	* rangetab.c:
+	implement map-range-table.
+
+
+2000-05-17  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* redisplay-tty.c (reset_tty_modes):
+	(tty_redisplay_shutdown): Adjust argument type to
+	tty_frame_output_end.
+
+2000-05-11  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* eval.c (Fbacktrace): Don't output a line with only right
+	parenthesis.
+
+2000-05-17  Kenji Itoh  <keit@tpj.co.jp>
+
+	* postgresql.c (Fpq_connect_poll): Replace `PS' with `polling_status'.
+	(Fpq_reset_poll): Ditto.
+
+2000-05-16  Katsumi Yamaoka  <yamaoka@jpl.org>
+
+	* redisplay-tty.c: Replace tty_output_end with tty_frame_output_end.
+
+2000-05-16  Ben Wing  <ben@xemacs.org>
+
+	* buffer.c:
+	* buffer.c (dfc_convert_to/from_internal_format):
+	* buffer.c (reinit_vars_of_buffer):
+	Fix conversion functions to allow reentrancy.
+	
+	* console-msw.c:
+	* console-msw.c (mswindows_output_last_error):
+	New fun, generally useful -- output a human-readable
+	version of GetLastError() on the console.
+	
+	* console-msw.h:
+	* console-msw.h (struct mswindows_frame):
+	Changes for DeferWindowPos.  Declare mswindows_output_last_error().
+	
+	* console-stream.c (stream_output_begin):
+	* console-stream.c (stream_output_end):
+	* console-stream.c (stream_output_vertical_divider):
+	* console-stream.c (stream_clear_region):
+	* console-stream.c (stream_flash):
+	* console-stream.c (console_type_create_stream):
+	Delete blank stream methods, not needed.
+	
+	* console.h (struct console_methods):
+	Split begin/end methods into window and frame.
+	
+	* event-msw.c:
+	* event-msw.c (mswindows_handle_paint):
+	* event-msw.c (output_alt_keyboard_state):
+	* event-msw.c (mswindows_wnd_proc):
+	* event-msw.c (vars_of_event_mswindows):
+	Comment about problems with ignored-expose.
+	Define mswindows-debug-events; not really implemented.
+	
+	* frame-msw.c (mswindows_init_frame_1):
+	random cleanups.
+	
+	* glyphs-msw.c:
+	* glyphs-msw.c (begin_defer_window_pos):
+	* glyphs-msw.c (mswindows_unmap_subwindow):
+	* glyphs-msw.c (mswindows_map_subwindow):
+	* glyphs-msw.c (mswindows_resize_subwindow):
+	Use DeferWindowPos to reduce flashing when mapping/unmapping.
+	
+	* glyphs.c (make_image_instance_1):
+	Fix crash.
+	
+	* gutter.c (Fredisplay_gutter_area):
+	Use new begin/end methods.
+	
+	* lisp.h (Dynarr_new2):
+	New creation fun.
+	
+	* redisplay-msw.c:
+	* redisplay-msw.c (mswindows_frame_output_begin):
+	* redisplay-msw.c (mswindows_frame_output_end):
+	* redisplay-msw.c (console_type_create_redisplay_mswindows):
+	New begin/end methods -- handle DeferWindowPos.
+	
+	* redisplay-output.c (redisplay_move_cursor):
+	* redisplay-output.c (redraw_cursor_in_window):
+	* redisplay-output.c (redisplay_update_line):
+	* redisplay-output.c (redisplay_output_window):
+	New begin/end methods.
+
+	* redisplay-tty.c:
+	* redisplay-tty.c (tty_frame_output_begin):
+	* redisplay-tty.c (tty_frame_output_end):
+	* redisplay-tty.c (console_type_create_redisplay_tty):
+	New begin/end methods.
+
+	* redisplay-x.c:
+	* redisplay-x.c (x_window_output_begin):
+	* redisplay-x.c (x_window_output_end):
+	* redisplay-x.c (console_type_create_redisplay_x):
+	New begin/end methods.
+
+	* redisplay.c (redisplay_frame):
+	* redisplay.c (Fredisplay_echo_area):
+	New begin/end methods.
+	use MAYBE_DEVMETH for clear_frame; it may not exist.
+
+	* window.h (WINDOW_XFRAME):
+	WINDOW_XFOO macros -- get locale and decode struct pointer.
+
+
+2000-05-12  Ben Wing  <ben@xemacs.org>
+
+	* emacs.c:
+	* emacs.c (ensure_no_quitting_from_now_on):
+	* emacs.c (fatal_error_signal):
+	* emacs.c (mswindows_handle_hardware_exceptions):
+	* emacs.c (main):
+	* emacs.c (Fkill_emacs):
+	* emacs.c (shut_down_emacs):
+	* emacs.c (assert_failed):
+	various improvements in fatal error handling.
+	
+	* eval.c:
+	move preparing_for_armageddon to emacs.c.
+	
+	* lisp.h:
+	declare fatal_error_in_progress.
+	
+	* print.c:
+	* print.c (std_handle_out_external):
+	* print.c (std_handle_out_va):
+	* print.c (stderr_out):
+	* print.c (stdout_out):
+	use console under mswin when no standard output.
+	don't do code conversion during fatal error.
+	
+	* scrollbar.c (Fscrollbar_page_up):
+	* scrollbar.c (Fscrollbar_page_down):
+	fix missing else.  reindent.
+
+2000-05-11  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	Emergency fix.	
+	
+	* glyphs.h (GLYPH_CACHEL_DESCENT): 
+	(GLYPH_CACHEL_DESCENT): 
+	(GLYPH_CACHEL_DESCENT): 
+	* glyphs.h (GLYPH_CACHEL_ASCENT): Match parameters to variables
+	used in case these are inline functions.
+	Use more absurd values to error check.
+
+	include window.h for error check functions.
+
+2000-05-11  Ben Wing  <ben@xemacs.org>
+
+	* cmdloop.c (Freally_early_error_handler):
+	Display message box under windows; otherwise, message will disappear
+	before it can be viewed.
+
+	* console-msw.c:
+	* console-msw.c (Fmswindows_message_box):
+	* console-msw.c (FROB):
+	* console-msw.c (syms_of_console_mswindows):
+	Define new fun `mswindows-message-box'.
+	#### I will merge this into `popup-dialog-box'; just give me
+	a bit of time.
+	
+	* general.c:
+	* general.c (syms_of_general):
+	Some new symbols used in `mswindows-message-box'.
+	
+	* glyphs.c:
+	* glyphs.c (Fset_image_instance_property):
+	put warning in this fun.
+	
+	* glyphs.h:
+	* glyphs.h (GLYPH_CACHEL_WIDTH):
+	* glyphs.h (GLYPH_CACHEL_ASCENT):
+	* glyphs.h (GLYPH_CACHEL):
+	* glyphs.h (GLYPH_CACHEL_GLYPH):
+	define error-checking versions to try to catch a bug i've seen --
+	redisplay gets in an infinite loop because the glyph width of the
+	continuation glyph is 65535.
+	
+	* lisp.h:
+	Extern message-box stuff.
+
+	* window.c (allocate_window):
+	* window.c (make_dummy_parent):
+	* window.c (Fset_window_configuration):
+	Use EQUAL not EQ for subwindow caches to make them work a bit
+	better. (Something is still very broken.)
+	
+
+2000-05-11  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* glyphs.c (image_instantiate): Suppress gcc warnings.
+	(Fmake_image_instance): Fix doc string.
+	* specifier.c (Fmake_specifier): Ditto.
+
+2000-05-02  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* paths.h.in (PATH_LOCK): Removed.
+	* config.h.in (LOCKDIR_USER_DEFINED): Removed.
+	* emacs.c (complex_vars_of_emacs): Remove configure-lock-directory.
+
+2000-05-08  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* fns.c (Ffeaturep): Update e-mail address in doc-string.
+	Document (featurep '(and xemacs 21.02)).
+
+2000-05-09  Ben Wing  <ben@xemacs.org>
+
+	* buffer.c (complex_vars_of_buffer):
+	update modeline-format doc.
+	
+	* device.h:
+	comment about how DFW_DEVICE should be merged with DOMAIN_DEVICE.
+	
+	* emacs.c:
+	timeline of all released versions of Emacs, for use in creating
+	authorship comments and in synching up.
+	
+	* glyphs-widget.c (image_instantiator_buttons):
+	* glyphs-widget.c (image_instantiator_edit_fields):
+	* glyphs-widget.c (image_instantiator_combo_box):
+	* glyphs-widget.c (image_instantiator_scrollbar):
+	* glyphs-widget.c (image_instantiator_progress_guage):
+	* glyphs-widget.c (image_instantiator_tree_view):
+	* glyphs-widget.c (image_instantiator_tab_control):
+	* glyphs-widget.c (image_instantiator_labels):
+	* glyphs-widget.c (image_instantiator_layout):
+	* glyphs-widget.c (image_instantiator_native_layout):
+	rename decode_domain method to governing_domain.
+	
+	* glyphs.c:
+	* glyphs.c (Fvalid_image_instantiator_format_p): doc update.
+	* glyphs.c (add_entry_to_device_ii_format_list):
+	make sure we don't put an entry more than once into the list.
+	* glyphs.c (check_instance_cache_mapper):
+	*************************************************************
+	allow for nil.  THIS SHOULD FIX A REAL CRASH THAT MANY PEOPLE
+	HAVE BEEN GETTING.
+	*************************************************************
+	* glyphs.c (get_image_instantiator_governing_domain):
+	clean up, expand on new concept of governing domain.
+	* glyphs.c (instantiate_image_instantiator):
+	* glyphs.c (allocate_image_instance):
+	use governing_domain instead of cache_domain in naming.
+	* glyphs.c (Fvalid_image_instance_type_p): fix docs.
+	* glyphs.c (make_image_instance_1):
+	* glyphs.c (Fmake_image_instance):
+	allow for any domain (not just device), and process the
+	governing domain correctly.  very big doc fix.
+	* glyphs.c (Fimage_instance_domain):
+	new primitive, to retrieve the governing domain of an image instance.
+	* glyphs.c (image_instantiate):
+	use new governing_domain stuff.  this fixes a crash you could get
+	by instantiating certain widget glyphs in frame locales. (should
+	signal an error instead of crashing.)
+	* glyphs.c (Fimage_specifier_p): move doc to make-image-specifier.
+	* glyphs.c (Fglyphp): clean up doc.
+	* glyphs.c (subwindow_governing_domain): renamed from *_decode_domain.
+	* glyphs.c (syms_of_glyphs):
+	declare Fimage_instance_domain, remove unused Qlayout_image_instance_p.
+	* glyphs.c (image_instantiator_format_create): add some comments about
+	bogus code.
+	* glyphs.c (specifier_vars_of_glyphs): totally rewrite the doc string
+	for current-display-table. (Apparently Hrjove implemented in 1998 a
+	design I wrote up in 1996, but didn't update the doc string.)
+	
+	* glyphs.h: clean up a doc string.
+	* glyphs.h (governing_domain):
+	* glyphs.h (struct image_instantiator_methods):
+	changes for governing_domain stuff.
+	
+	* gutter.c:
+	* gutter.c (Fgutter_specifier_p):
+	* gutter.c (Fgutter_size_specifier_p):
+	* gutter.c (Fgutter_visible_specifier_p):
+	* objects.c:
+	* objects.c (Fcolor_specifier_p):
+	* objects.c (Ffont_specifier_p):
+	* objects.c (Fface_boolean_specifier_p):
+	doc strings moved to make-*-specifier.
+	
+	* redisplay.c (add_disp_table_entry_runes_1):
+	* redisplay.c (generate_fstring_runes):
+	* redisplay.c (screen):
+	add random comments and doc strings.
+	
+	* specifier.c:
+	* specifier.c (Fmake_specifier):
+	major overhaul of this doc string.
+	
+	* specifier.c (Fvalid_specifier_domain_p):
+	comment about the bogosity of image instances being domains.
+	* specifier.c (decode_domain):
+	now non-static, used in glyphs.c.
+	* specifier.c (specifier_instance):
+	comment about the bogosity of image instances being domains.
+	* specifier.c (Fgeneric_specifier_p):
+	move doc string to make-generic-specifier.
+	* specifier.c (VALID_SINGLE_DISPTABLE_INSTANTIATOR_P):
+	rebackslashify.
+	
+	* specifier.h:
+	* specifier.h (DOMAIN_FRAME):
+	* specifier.h (DOMAIN_LIVE_P):
+	* specifier.h (DOMAIN_XDEVICE):
+	rebackslashify.
+	add comments about problems with these macros.
+	prototype for decode_domain.
+	
+	* toolbar.c:
+	* toolbar.c (Ftoolbar_specifier_p):
+	move doc string to `make-toolbar-specifier'.
+	
+	* window.c (window_unmap_subwindows_cache_mapper):
+	*************************************************************
+	allow for nil.  THIS SHOULD FIX A REAL CRASH THAT MANY PEOPLE
+	HAVE BEEN GETTING.
+	*************************************************************
+
+2000-05-09  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.h: declare reset_frame_subwindow_instance_cache.
+
+	* window.c (Fset_window_configuration): reset the frame subwindow
+	cache and re-initialize the window subwindow caches.
+
+	* glyphs.c (reset_frame_subwindow_instance_cache): new function.
+
+2000-05-09  Ben Wing  <ben@xemacs.org>
+
+	* ntheap.c (recreate_heap): Changed unknown (VC6 only?) SIZE_T to
+	DWORD.
+
+2000-04-26  Mike Woolley  <mike@bulsara.com>
+
+	* ntheap.c: Changed recreate_heap to limit the amount reserved
+	for the heap to that which is actually available. Also now
+	displays a message box (with some dignostics) in the event that
+	it still can't start.
+
+2000-05-07  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* callproc.c (Fold_call_process_internal): GCPRO path
+
+2000-05-08  Jan Vroonhof  <jan@xemacs.org>
+
+	Patch by Bill Perry.
+	
+	* scrollbar.c (Fscrollbar_page_up): Conditionalize on type of call 
+	back data instead of #ifdef.
+	(Fscrollbar_page_down): ditto.
+
+2000-05-07  Ben Wing  <ben@xemacs.org>
+
+	* buffer.h:
+	Kludge for defining Qmswindows_tstr.
+	
+	* nt.c:
+	* nt.c (open_input_file):
+	* nt.c (open_output_file):
+	* nt.c (rva_to_section):
+	* nt.c (mswindows_executable_type):
+	Move all memory-mapped-file routines here (some were in unexnt.c,
+	which is bad because they are used by process-nt.c, and unexnt
+	won't be around when portable dumping).  Synched the above routines
+	with FSF 20.6.
+	
+	* nt.h:
+	Removed ifdef'd out bogus code.
+	Fixed some prototypes.
+	
+	* nt.h (file_data):
+	* nt.h (OFFSET_TO_RVA):
+	* nt.h (RVA_TO_OFFSET):
+	* nt.h (RVA_TO_PTR):
+	Moved the memory-mapped-file structures, macros and prototypes
+	here, to parallel nt.c.  ntheap.h should really be removed
+	entirely, and it's a non-portable-dumper specific file.
+	
+	* ntheap.h (round_to_next):
+	Moved the memory-mapped-file structures, macros and prototypes
+	to nt.h.
+
+	* ntproc.c (compare_env):
+	Moved rva_to_section and mswindows_executable_type to nt.c.
+	Moved compare_env to process-nt.c.
+	ntproc.c will die, one day.
+
+	* ntproc.c (sys_spawnve):
+	Account for win32_ -> mswindows_.
+
+	* process-nt.c:
+	* process-nt.c (struct nt_process_data):
+	* process-nt.c (ensure_console_window_exists):
+	* process-nt.c (compare_env):
+	* process-nt.c (nt_create_process):
+	* process-nt.c (nt_kill_process_by_pid):
+	* process-nt.c (syms_of_process_nt):
+	* process-nt.c (vars_of_process_nt):
+	Introduce variable `mswindows-quote-process-args', from FSF 20.6.
+	Copy argument quoting code from FSF 20.6 (with appropriate Mule-ization
+	changes).  Eliminate our old `nt-quote-process-args' mechanism.
+	Synch up nt_create_process with FSF 20.6 sys_spawnve.
+	Move compare_env here from ntproc.c.
+	
+	* process.c (Fprocess_send_region):
+	Takes an optional fourth argument, BUFFER, which should fix some
+	problems with call-process.
+	
+	* syscommctrl.h:
+	Move ICC_BAR_CLASSES here from syswindows.h, to avoid a warning.
+	
+	* syswindows.h:
+	Move ICC_BAR_CLASSES to syscommctrl.h.
+	Add preliminary macros for MSWindows/Mule.  More to come.
+
+	* unexnt.c:
+	* unexnt.c (unexec):
+	open_output_file moved to nt.c.
+
+
+2000-05-05  Andy Piper  <andy@xemacs.org>
+
+	* window.c (window_unmap_subwindows_cache_mapper): remove the dead
+	instance from the frame cache also since GC may catch up too late
+	to make frame deletion sane.
+
+2000-05-04  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_widget_instantiate): gcpro widget callbacks.
+	(x_finalize_image_instance): ungcpro on deletion.
+
+	* glyphs.c (image_instantiator_format_create): give pointers a
+	query geometry method so that the geometry is at least set.
+
+	* glyphs-x.c (image_instantiator_format_create_glyphs_x): only
+	initialize layouts if using widgets.
+
+2000-05-03  Andy Piper  <andy@xemacs.org>
+
+	* nt.c: remove bogus reference to sysmmsystem.h
+
+	* gui-x.c (popup_selection_callback): fix no selection abort.
+
+2000-05-02  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-msw.c (mswindows_update_widget): cope with nil text.
+	(mswindows_widget_instantiate): ditto.
+
+	* glyphs-widget.c (initialize_widget_image_instance): initialize
+	children correctly.
+	(widget_instantiate): cope with children and items in the same
+	instance.
+
+	* glyphs.c (mark_image_instance): cope with children as a first
+	class member.
+	(image_instance_equal): ditto.
+	(image_instance_hash): ditto.
+	(image_instance_changed): ditto.
+
+2000-04-30  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.c (subwindow_query_geometry): new function. Return some
+	defaults.
+	(subwindow_instantiate): don't assign dimensions if none have been
+	given.
+	(image_instantiator_format_create): add subwindow_query_geometry.
+	(print_image_instance): cope with layouts as widgets.
+
+2000-04-29  Andy Piper  <andy@xemacs.org>
+
+	* frame.c (delete_frame_internal): call
+	free_frame_subwindow_instance_cache so that all subwindows are
+	finalized before their parent.
+	(mark_frame): remove subwindow_cachels.
+	(Fmake_frame): remove subwindow_cachel manipulation.
+	(allocate_frame_core): subwindow_instance_cache is a weak list.
+	(delete_frame_internal): set subwindow_instance_cache to nil.
+
+	* glyphs-msw.c (mswindows_finalize_image_instance): make double
+	finalization safe.
+	(mswindows_finalize_image_instance): use the device
+	not the domain as the domain may have died already.
+
+	* glyphs-x.c (x_finalize_image_instance): ditto.
+	(x_subwindow_instantiate): remove SUBWINDOW_WIDTH &
+	HEIGHT.
+
+	* redisplay-output.c (redisplay_unmap_subwindows): update for
+	subwindow instance cache as a weak list.
+	(redisplay_unmap_subwindows_maybe): ditto.
+	(redisplay_unmap_subwindows_except_us): ditto.
+
+	* glyphs.c (unmap_subwindow): error checking will check the domain
+	so don't deal with it here. Don't use cachels anymore.
+	(map_subwindow): ditto.
+	(update_subwindow_cachel_data): remove old accessor names.
+	(subwindow_instantiate): remove SUBWINDOW_WIDTH & HEIGHT.
+	(Fresize_subwindow): don't update cachel.
+	(mark_subwindow_cachels):
+	(update_subwindow_cachel_data):
+	(add_subwindow_cachel):
+	(get_subwindow_cachel_index):
+	(update_subwindow_cachel):
+	(reset_subwindow_cachels):
+	(mark_subwindow_cachels_as_not_updated): deleted.
+	(cache_subwindow_instance_in_frame_maybe): new function. Add a
+	subwindow instance to the frame cache.
+	(find_matching_subwindow): update for subwindow instance cache as
+	a weak list.
+	(update_widget_instances): ditto.
+	(image_instance_type_to_mask):inlined.
+	(free_frame_subwindow_instance_cache): new function. finalize all
+	subwindows that are instantiated.
+
+	* glyphs.h (struct Lisp_Image_Instance): add display_data instead
+	of cachel information.
+	(IMAGE_INSTANCE_DISPLAY_X):
+	(IMAGE_INSTANCE_DISPLAY_Y):
+	(IMAGE_INSTANCE_DISPLAY_WIDTH):
+	(IMAGE_INSTANCE_DISPLAY_HEIGHT):
+	(XIMAGE_INSTANCE_DISPLAY_X):
+	(XIMAGE_INSTANCE_DISPLAY_Y):
+	(XIMAGE_INSTANCE_DISPLAY_WIDTH):
+	(XIMAGE_INSTANCE_DISPLAY_HEIGHT): new accessors.  
+	remove subwindow_cachel structure and function references.
+	(image_instance_type_to_mask): inline from glyphs.c
+
+	* redisplay.c (redisplay_frame): remove subwindow_cachel
+	references.
+
+	* frame.h (struct frame): remove subwindow_cachels.
+	(FRAME_SUBWINDOW_CACHE): access subwindow_instance_cache.
+
+	* frameslots.h: add subwindow_instance_cache.
+
+	* window.c (replace_window): check subwindow cache of replacement.
+	(window_unmap_subwindows_cache_mapper):
+	(window_unmap_subwindows): new functions. Unmap all subwindows
+	cached on this window.
+	(mark_window_as_deleted): unmap all subwindows.
+
+2000-04-27  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.h (IIFORMAT_METH_OR_GIVEN): cope with null meths.
+
+	* glyphs-widget.c (widget_layout): return something.
+	(layout_layout): return something. Fail if not intialized.
+	(layout_query_geometry): ditto.
+	(image_instantiator_native_layout): new function. Initialized the
+	native layout type.
+	(widget_instantiate): don't do layout stuff here.
+
+	* glyphs.c (instantiate_image_instantiator): reorded calling or
+	instantiate and post_instantiate with layout in between.
+	(image_instance_layout): be more selective about deciding whether
+	the layout has been done or not.
+
+	* glyphs.h (struct image_instantiator_methods): return a value
+	from layout_method.
+
+2000-04-26  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.c (allocate_image_instance): make initial width and
+	height unspecified. Set initialized to 0.
+
+	* syscommctrl.h new file. Encapsulates commctrl.h.
+
+	* syswindows.h new file. Encapsulates windows.h.
+
+	* ntplay.c: use new syswindows.h and syscommctrl.h header.
+	* nt.c: ditto.
+	* console-msw.h: ditto.
+	
+	* redisplay-tty.c (tty_output_display_block): remove layout references.
+
+	* glyphs-msw.c (mswindows_widget_instantiate): use the domain
+	window handle rather than just the frame.
+
+	* glyphs.c (mark_image_instance): remove layout references.
+	(print_image_instance): ditto.
+	(image_instance_equal): ditto.
+	(image_instance_hash): ditto.
+	(decode_image_instance_type): ditto.
+	(encode_image_instance_type): ditto.
+	(image_instantiate): ditto.
+	(allocate_glyph): ditto.
+	(Fimage_instance_height): ditto.
+	(Fimage_instance_width): ditto.
+	(update_subwindow): ditto.
+
+	* redisplay-x.c (x_output_display_block): recode for layouts as
+	widgets.
+
+	* redisplay-output.c (redisplay_output_layout): recode for layouts
+	as widgets.
+	(compare_runes): remove layout references.
+
+	* redisplay-msw.c (mswindows_output_display_block): recode for
+	layouts as widgets.
+
+	* glyphs-widget.c (image_instantiator_layout): remove
+	layout_possible_dest_types.
+	(layout_possible_dest_types): deleted.
+
+	* glyphs.h (image_instance_type): remove layout references.
+	(struct Lisp_Image_Instance): ditto. Add initialized flag.
+	(IMAGE_INSTANCE_INITIALIZED): new accessor.
+	(XIMAGE_INSTANCE_INITIALIZED): ditto.
+	
+2000-04-25  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-widget.c (image_instantiator_buttons):
+	(image_instantiator_edit_fields):
+	(image_instantiator_combo_box):
+	(image_instantiator_scrollbar):
+	(image_instantiator_progress_guage):
+	(image_instantiator_tree_view):
+	(image_instantiator_tab_control):
+	(image_instantiator_labels):
+	(image_instantiator_layout): call default post_instantiate method.
+	(widget_post_instantiate): new function. Simply lays out the
+	widgets.
+
+	* glyphs.h (struct image_instantiator_methods): add
+	post_instantiate method.
+
+	* glyphs.c (instantiate_image_instantiator): add post_instantiate
+	method calls.
+
+2000-04-23  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.h (struct image_instantiator_methods): add
+	decode_domain_method.
+	(struct Lisp_Image_Instance): remove subwindow frame - it can be
+	derived from the domain.
+	(IMAGE_INSTANCE_FRAME): new accessor.
+	(XIMAGE_INSTANCE_FRAME): ditto.
+
+	* glyphs.c (print_image_instance): use IMAGE_INSTANCE_FRAME
+	instead of _SUBWINDOW_FRAME.
+	(finalize_image_instance): ditto.
+	(Fimage_instance_foreground): ditto.
+	(Fimage_instance_background): ditto.
+	(image_instantiate): ditto.
+	(update_subwindow_cachel): ditto.
+	(update_subwindow): ditto.
+	(unmap_subwindow): ditto.
+	(map_subwindow): ditto
+	(subwindow_instantiate): ditto.
+	* glyphs-msw.c (mswindows_update_widget): ditto.
+	(mswindows_progress_gauge_instantiate): ditto.
+	(mswindows_tab_control_update): ditto.
+	* glyphs-x.c (x_update_widget): ditto.
+	(x_widget_instantiate): ditto.
+	(x_tab_control_instantiate): ditto.
+	(x_tab_control_update): ditto.
+	* event-msw.c (mswindows_wnd_proc): ditto
+
+	* glyphs-widget.c (image_instantiator_layout): use
+	subwindow_decode_domain.
+	(image_instantiator_buttons): ditto.
+	(image_instantiator_edit_fields): ditto.
+	(image_instantiator_combo_box): ditto.
+	(image_instantiator_scrollbar): ditto.
+	(image_instantiator_progress_guage): ditto.
+	(image_instantiator_tree_view): ditto.
+	(image_instantiator_tab_control): ditto.
+	(image_instantiator_labels): ditto.
+	(image_instantiator_layout): ditto.
+
+	* glyphs.c: add instance error checking to many functions.
+	(instantiate_image_instantiator): decode device from cache_domain.
+	(image_instantiate): partially rewrite by using
+	decode_image_instantiator_domain to determine what domain the
+	instance needs to be cached in.
+	(decode_image_instantiator_domain): new function. Determine what
+	domain the image needs to be cached in.
+	(check_window_subwindow_cache): new error checking function.
+	(check_instance_cache_mapper): ditto.
+	(check_image_instance_structure): ditto.
+	(subwindow_decode_domain): new function. Encodes a window as a
+	subwindow's cache domain.
+	(image_instantiator_format_create): use it for text and
+	subwindows.
+
+2000-04-21  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.c (image_instance_device): new function.
+	(image_instance_frame): new function.
+	(image_instance_window): new function.
+	(image_instance_live_p): new function.
+
+	* window.c (mark_window_as_deleted): reset the subwindow_instance_
+	cache to nil.
+
+	* glyphs.h (struct Lisp_Image_Instance): device->domain.
+	(IMAGE_INSTANCE_DOMAIN): new accessor.
+	(XIMAGE_INSTANCE_DOMAIN): ditto.
+
+	* glyphs-x.c (x_finalize_image_instance): device->domain.
+
+	* glyphs-msw.c (init_image_instance_geometry): device->domain.
+	(mswindows_finalize_image_instance): ditto.
+
+	* glyphs-eimage.c (jpeg_instantiate): device->domain.
+	(gif_instantiate): ditto.
+	(png_instantiate): ditto.
+	(tiff_instantiate): ditto.
+
+	* glyphs.c (instantiate_image_instantiator): use domain rather
+	than device.
+	(mark_image_instance): device -> domain.
+	(print_image_instance): ditto.
+	(finalize_image_instance): ditto.
+	(image_instance_equal): ditto.
+	(allocate_image_instance): ditto.
+	(Fcolorize_image_instance): ditto.
+	(query_string_geometry): ditto.
+	(image_instantiate): ditto
+	(query_string_font): ditto.
+	(image_instantiate): ditto.
+	(update_subwindow): ditto.
+	(unmap_subwindow): ditto.
+	(map_subwindow): ditto.
+	(subwindow_instantiate): ditto.
+
+	* specifier.h (DOMAIN_DEVICE): new, semantically correct, decoder.
+	(DOMAIN_FRAME): ditto.
+	(DOMAIN_WINDOW): ditto.
+	(DOMAIN_LIVE_P): ditto.
+	(XDOMAIN_DEVICE): ditto.
+	(XDOMAIN_FRAME): ditto.
+	(XDOMAIN_WINDOW): ditto.
+
+	* specifier.c (Fvalid_specifier_domain_p): add image instances as
+	a valid specifier domain.
+
+2000-04-19  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-widget.c (syms_of_glyphs_widget): remove
+	widget-callback-current-channel.
+	(vars_of_glyphs_widget): ditto.
+	* glyphs.h: ditto
+
+	* gui.c (get_gui_callback): revert to previous behaviour.
+
+2000-04-18  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.h (struct Lisp_Image_Instance): add margin_width.
+	(IMAGE_INSTANCE_MARGIN_WIDTH): new.
+	(XIMAGE_INSTANCE_MARGIN_WIDTH): new.
+
+	* glyphs.c (image_instance_equal): add margin_width.
+	(image_instance_hash): ditto.
+
+	* glyphs-widget.c (widget_instantiate): deal with margin-width.
+	(layout_query_geometry): ditto.
+	(layout_layout): ditto.
+	(syms_of_glyphs_widget): add margin-width.
+	(image_instantiator_layout): allow margin-width.
+
+	* glyphs.c (update_widget_instances): make a normal function.
+	(syms_of_glyphs): remove Qupdate_widget_instances.
+	* glyphs.h: ditto.
+
+	* gui-x.c (popup_selection_callback): use enqueue_magic_eval_event
+	so that we don't corrupt ideas about the last event or
+	command. Remove widget-callback-current-channel fiddling.
+	* gui-msw.c (mswindows_handle_gui_wm_command): ditto.
+
 2000-05-01  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.33 is released.

@@ -1,3 +1,11 @@
+2000-05-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.34 is released.
+
+2000-05-12  Craig Lanning  <CraigL@DyCon.com>
+
+	* inc\sys\socket.h: Don't define timeval as ws_timeval for mingw32
+
 2000-05-01  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.33 is released.

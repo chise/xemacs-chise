@@ -7,15 +7,15 @@
 @chapter Glyphs
 @cindex glyphs
 
-  A @dfn{glyph} is an object that is used for pixmaps and images of all
-sorts, as well as for things that ``act'' like pixmaps, such as
-non-textual strings (@dfn{annotations}) displayed in a buffer or in the
-margins.  It is used in begin-glyphs and end-glyphs attached to extents,
-marginal and textual annotations, overlay arrows (@code{overlay-arrow-*}
-variables), toolbar buttons, mouse pointers, frame icons, truncation and
-continuation markers, and the like. (Basically, any place there is an
-image or something that acts like an image, there will be a glyph object
-representing it.)
+  A @dfn{glyph} is an object that is used for pixmaps, widgets and
+images of all sorts, as well as for things that ``act'' like pixmaps,
+such as non-textual strings (@dfn{annotations}) displayed in a buffer or
+in the margins.  It is used in begin-glyphs and end-glyphs attached to
+extents, marginal and textual annotations, overlay arrows
+(@code{overlay-arrow-*} variables), toolbar buttons, mouse pointers,
+frame icons, truncation and continuation markers, and the
+like. (Basically, any place there is an image or something that acts
+like an image, there will be a glyph object representing it.)
 
   The actual image that is displayed (as opposed to its position or
 clipping) is defined by an @dfn{image specifier} object contained
@@ -71,6 +71,179 @@ one of @code{buffer} (used for glyphs in an extent, the modeline, the
 toolbar, or elsewhere in a buffer), @code{pointer} (used for the
 mouse-pointer), or @code{icon} (used for a frame's icon), and defaults
 to @code{buffer}.  @xref{Glyph Types}.
+
+A glyph in XEmacs does @strong{NOT} refer to a single unit of textual
+display (the XEmacs term for this is @dfn{rune}), but rather is an
+object encapsulating a graphical element, such as an image or widget (an
+element such as a button or text field; @dfn{widget} is the term for
+this under X Windows, and it's called a @dfn{control} under MS Windows).
+This graphical element could appear in a buffer, a margin, a gutter, or
+a toolbar, or as a mouse pointer or an icon, for example.
+
+Creating a glyph using @code{make-glyph} does not specify @emph{where}
+the glyph will be used, but it does specify @emph{what} the glyph will
+look like.  In particular, SPEC-LIST is used to specify this, and it's
+used to initialize the glyph's @code{image} property, which is an image
+specifier. (Note that @dfn{image} as used in the context of a glyph's
+@code{image} property or in the terms @dfn{image specifier}, @dfn{image
+instantiator}, or @dfn{image instance} does not refer to what people
+normally think of as an image (which in XEmacs is called a
+@dfn{pixmap}), but to any graphical element---a pixmap, a widget, or
+even a block of text, when used in the places that call for a glyph.)
+The format of the SPEC-LIST is typically an image instantiator (a string
+or a vector; @ref{Image Specifiers}), but can also be a list of such
+instantiators (each one in turn is tried until an image is successfully
+produced), a cons of a locale (frame, buffer, etc.)  and an
+instantiator, a list of such conses, or any other form accepted by
+@code{canonicalize-spec-list}. @xref{Specifiers}, for more information
+about specifiers.
+
+If you're not familiar with specifiers, you should be in order to
+understand how glyphs work.  The clearest introduction to specifiers
+is in the Lispref manual, available under Info. (Choose
+Help->Info->Info Contents on the menubar or type C-h i.) You can
+also see @code{make-specifier} for a capsule summary.  What's important to
+keep in mind is that a specifier lets you set a different value for
+any particular buffer, window, frame, device, or console.  This allows
+for a great deal of flexibility; in particular, only one global glyph
+needs to exist for a particular purpose (e.g. the icon used to represent
+an iconified frame, the mouse pointer used over particular areas of a
+frame, etc.), and in these cases you do not create your own glyph, but
+rather modify the existing one.
+
+As well as using @var{spec-list} to initialize the glyph, you can set
+specifications using @code{set-glyph-image}.  Note that, due to a
+possibly questionable historical design decision, a glyph itself is not
+actually a specifier, but rather is an object containing an image
+specifier (as well as other, seldom-used properties).  Therefore, you
+cannot set or access specifications for the glyph's image by directly
+using @code{set-specifier}, @code{specifier-instance} or the like on the
+glyph; instead use them on @code{(glyph-image @var{glyph})} or use the
+convenience functions @code{set-glyph-image},
+@code{glyph-image-instance}, and @code{glyph-image}.
+
+Once you have created a glyph, you specify where it will be used as
+follows:
+
+@itemize @bullet
+@item
+To insert a glyph into a buffer, create an extent in the buffer and then
+use @code{set-extent-begin-glyph} or @code{set-extent-end-glyph} to set
+a glyph to be displayed at the corresponding edge of the extent. (It is
+common to create zero-width extents for this purpose.)
+
+@item
+To insert a glyph into the left or right margin of a buffer, first
+make sure the margin is visible by setting a value for the specifiers
+@code{left-margin-width} or @code{right-margin-width}. (Not strictly necessary
+when using margin glyphs with layout policy @code{whitespace}.) Then follow
+the same procedure above for inserting a glyph in a buffer, and then
+set a non-default layout policy for the glyph using
+@code{set-extent-begin-glyph-layout} or @code{set-extent-end-glyph-layout}.
+Alternatively, use the high-level annotations API (see
+@code{make-annotation}). (In point of fact, you can also use the annotations
+API for glyphs in a buffer, by setting a layout policy of @code{text}.)
+
+@item
+To insert a glyph into the modeline, just put the glyph directly as one
+of the modeline elements. (Unfortunately you can't currently put a begin
+glyph or end glyph on one of the modeline extents---they're ignored.)
+
+@item
+To insert a glyph into a toolbar, specify it as part of a toolbar
+instantiator (typically set on the specifier @code{default-toolbar}).
+See @code{default-toolbar} for more information. (Note that it is
+standard practice to use a symbol in place of the glyph list in the
+toolbar instantiator; the symbol is evalled to get the glyph list.  This
+facilitates both creating the toolbar instantiator and modifying
+individual glyphs in a toolbar later on.  For example, you can change
+the way that the Mail toolbar button looks by modifying the value of the
+variable @code{toolbar-mail-icon} (in general, @code{toolbar-*-icon})
+and then calling @code{(set-specifier-dirty-flag default-toolbar)}.
+(#### Unfortunately this doesn't quite work the way it should; the
+change will appear in new frames, but not existing ones.
+
+@item
+To insert a glyph into a gutter, create or modify a gutter instantiator
+(typically set on the specifier @code{default-gutter}).  Gutter
+instantiators consist of strings or lists of strings, so to insert a
+glyph, create an extent over the string, and use
+@code{set-extent-begin-glyph} or @code{set-extent-end-glyph} to set a
+glyph to be displayed at the corresponding edge of the extent, just like
+for glyphs in a buffer.
+
+@item
+To use a glyph as the icon for a frame, you do not actually create a new
+glyph; rather, you change the specifications for the existing glyph
+@code{frame-icon-glyph}. (Remember that, because of the specifier nature
+of glyphs, you can set different values for any particular buffer or
+frame.)
+
+@item
+To use a glyph as the mouse pointer, in general you do not create a new
+glyph, but rather you change the specifications of various existing
+glyphs, such as @code{text-pointer-glyph} for the pointer used over
+text, @code{modeline-pointer-glyph} for the pointer used over the
+modeline, etc.  Do an apropos over @code{*-pointer-glyph} to find all of
+them. (Note also that you can temporarily set the mouse pointer to some
+specific shape by using @code{set-frame-pointer}, which takes an image
+instace, as obtained from calling @code{glyph-image-instance} on a glyph
+of type @code{pointer} -- either one of the above-mentioned variables or
+one you created yourself.  (See below for what it means to create a
+glyph of type @code{pointer}.)  This pointer will last only until the
+next mouse motion event is processed or certain other things happen,
+such as creating or deleting a window. (In fact, the above-mentioned
+pointer glyph variables are implemented as part of the default handler
+for mouse motion events.  If you want to customize this behavior, take a
+look at @code{mode-motion-hook}, or @code{mouse-motion-handler} if you
+really want to get low-level.)
+
+@item
+To use a glyph to control the shape of miscellaneous redisplay effects
+such as the truncation and continuation markers, set the appropriate
+existing glyph variables, as for icons and pointers above.  See
+@code{continuation-glyph}, @code{control-arrow-glyph},
+@code{hscroll-glyph}, @code{invisible-text-glyph},
+@code{octal-escape-glyph}, and @code{truncation-glyph}.  See also
+@code{overlay-arrow-string}, an odd redisplay leftover which can be set
+to a glyph you created, and will cause the glyph to be displayed on top
+of the text position specified in the marker stored in
+@code{overlay-arrow-position}.
+
+@item
+To use a glyph in a display table (i.e. to control the appearance of any
+individual character), create the appropriate character glyphs and then
+set a specification for the specifier @code{current-display-table},
+which controls the appearance of characters.  You can also set an
+overriding display table for use with text displayed in a particular
+face; see @code{set-face-display-table} and @code{make-display-table}.
+#### Note: Display tables do not currently support general Mule
+characters.  They will be overhauled at some point to support this
+and to provide other features required under Mule.
+
+@item
+To use a glyph as the background pixmap of a face: Note that the
+background pixmap of a face is actually an image specifier -- probably
+the only place in XEmacs where an image specifier occurs outside of a
+glyph.  Similarly to how the glyph's image specifier works, you don't
+create your own image specifier, but rather add specifications to the
+existing one (using @code{set-face-background-pixmap}).  Note that the
+image instance that is generated in order to actually display the
+background pixmap is of type @code{mono-pixmap}, meaning that it's a
+two-color image and the foreground and background of the image get
+filled in with the corresponding colors from the face.
+@end itemize
+
+It is extremely rare that you will ever have to specify a value for
+TYPE, which should be one of @code{buffer} (used for glyphs in an
+extent, the modeline, the toolbar, or elsewhere in a buffer),
+@code{pointer} (used for the mouse-pointer), or @code{icon} (used for a
+frame's icon), and defaults to @code{buffer}.  The only cases where it
+needs to be specified is when creating icon or pointer glyphs, and in
+both cases the necessary glyphs have already been created at startup and
+are accessed through the appropriate variables,
+e.g. @code{text-pointer-glyph} (or in general, @code{*-pointer-glyph})
+and @code{frame-icon-glyph}.  @xref{Glyph Types}.
 @end defun
 
 @defun make-glyph-internal &optional type
@@ -78,13 +251,25 @@ This function creates a new, uninitialized glyph of type @var{type}.
 @end defun
 
 @defun make-pointer-glyph &optional spec-list
-This function is equivalent to calling @code{make-glyph} with a
-@var{type} of @code{pointer}.
+
+Return a new @code{pointer-glyph} object with the specification list
+@var{spec-list}.  This function is equivalent to calling
+@code{make-glyph} with a @var{type} of @code{pointer}.
+
+It is extremely unlikely that you will ever need to create a pointer
+glyph.  Instead, you probably want to be calling @code{set-glyph-image}
+on an existing glyph, e.g. @code{text-pointer-glyph}.
 @end defun
 
 @defun make-icon-glyph &optional spec-list
-This function is equivalent to calling @code{make-glyph} with a
-@var{type} of @code{icon}.
+
+Return a new @code{pointer-glyph} object with the specification list
+@var{spec-list}.  This function is equivalent to calling
+@code{make-glyph} with a @var{type} of @code{icon}.
+
+It is extremely unlikely that you will ever need to create a pointer
+glyph.  Instead, you probably want to be calling @code{set-glyph-image}
+on an existing glyph, e.g. @code{text-pointer-glyph}.
 @end defun
 
 @node Glyph Properties
@@ -420,10 +605,21 @@ a glyph.
 @end defun
 
 @defun make-image-specifier spec-list
-This function creates a new image specifier object and initializes
-it according to @var{spec-list}.  It is unlikely that you will ever
-want to do this, but this function is provided for completeness and
-for experimentation purposes.  @xref{Specifiers}.
+This function creates a new image specifier object and initializes it
+according to @var{spec-list}. @xref{Specifiers}.
+
+Note that, in practice, you rarely, if ever, need to actually create an
+image specifier! (This function exists mainly for completeness.) Pretty
+much the only use for image specifiers is to control how glyphs are
+displayed, and the image specifier associated with a glyph (the
+@code{image} property of a glyph) is created automatically when a glyph
+is created and need not (and cannot, for that matter) ever be changed
+(@pxref{Glyphs}).  In fact, the design decision to create a separate
+image specifier type, rather than make glyphs themselves be specifiers,
+is debatable---the other properties of glyphs are rarely used and could
+conceivably have been incorporated into the glyph's instantiator.  The
+rarely used glyph types (buffer, pointer, icon) could also have been
+incorporated into the instantiator.
 @end defun
 
   Image instantiators come in many formats: @code{xbm}, @code{xpm},
@@ -516,8 +712,49 @@ A glyph from a font; i.e. the name of a font, and glyph index into it
 of the form @samp{@var{font} fontname index [[mask-font] mask-index]}.
 Only if X support was compiled into this XEmacs.  Currently can only be
 instanced as @code{pointer}, although this should probably be fixed.
+@item mswindows-resource
+An MS Windows pointer resource.  Specifies a resource to retrieve
+directly from the system (an OEM resource) or from a file, particularly
+an executable file.  If the resource is to be retrieved from a file, use
+:file and optionally :resource-id.  Otherwise use :resource-id.  Always
+specify :resource-type to specify the type (cursor, bitmap or icon) of
+the resource.  Possible values for :resource-id are listed below.  Can
+be instanced as @code{pointer} or @code{color-pixmap}.
 @item subwindow
-An embedded X window; not currently implemented.
+An embedded windowing system window.  Can only be instanced as
+@code{subwindow}.
+@item button
+A button widget; either a push button, radio button or toggle button.
+Can only be instanced as @code{widget}.
+@item combo-box
+A drop list of selectable items in a widget, for editing text.
+Can only be instanced as @code{widget}.
+@item edit-field
+A text editing widget.  Can only be instanced as @code{widget}.
+@item label
+A static, text-only, widget; for displaying text.  Can only be instanced
+as @code{widget}.
+@item layout
+A widget for controlling the positioning of children underneath it.
+Through the use of nested layouts, a widget hierarchy can be created
+which can have the appearance of any standard dialog box or similar
+arrangement; all of this is counted as one @dfn{glyph} and could appear
+in many of the places that expect a single glyph.  Can only be instanced
+as @code{widget}.
+@item native-layout
+@c   #### Document me better!
+The native version of a layout widget.
+Can only be instanced as @code{widget}.
+@item progress-gauge
+A sliding widget, for showing progress.  Can only be instanced as
+@code{widget}.
+@item tab-control
+A tab widget; a series of user selectable tabs.  Can only be instanced
+as @code{widget}.
+@item tree-view
+A folding widget.  Can only be instanced as @code{widget}.
+@item scrollbar
+A scrollbar widget.  Can only be instanced as @code{widget}.
 @item autodetect
 XEmacs tries to guess what format the data is in.  If X support exists,
 the data string will be checked to see if it names a filename.  If so,
@@ -528,6 +765,9 @@ is one of the allowable image-instance types and the string names a
 valid cursor-font name, the image will be created as a pointer.
 Otherwise, the image will be displayed as text.  If no X support exists,
 the image will always be displayed as text.
+@item inherit
+Inherit from the background-pixmap property of a face.  Can only be
+instanced as @code{mono-pixmap}.
 @end table
 
 The valid keywords are:
@@ -587,7 +827,43 @@ specify symbolic color names to the actual color to be used for that
 symbolic color (in the form of a string or a color-specifier object).
 If this is not specified, the contents of @code{xpm-color-symbols} are
 used to generate the alist.
+@item :resource-id
+Only for @code{mswindows-resource}.  This must be either an integer
+(which directly specifies a resource number) or a string.  Valid strings
+are
+
+For bitmaps:
+
+"close", "uparrow", "dnarrow", "rgarrow", "lfarrow",
+"reduce", "zoom", "restore", "reduced", "zoomd",
+"restored", "uparrowd", "dnarrowd", "rgarrowd", "lfarrowd",
+"mnarrow", "combo", "uparrowi", "dnarrowi", "rgarrowi",
+"lfarrowi", "size", "btsize", "check", "checkboxes", and
+"btncorners".
+
+For cursors:
+
+"normal", "ibeam", "wait", "cross", "up", "sizenwse",
+"sizenesw", "sizewe", "sizens", "sizeall", and "no".
+
+For icons:
+
+"sample", "hand", "ques", "bang", "note", and "winlogo".
+@item :resource-type
+Only for @code{mswindows-resource}.  This must be a symbol, either
+@code{cursor}, @code{icon}, or @code{bitmap}, specifying the type of
+resource to be retrieved.
+@item :face
+Only for @code{inherit}.  This specifies the face to inherit from.  For
+widgets this also specifies the face to use for display. It defaults to
+gui-element-face.
 @end table
+
+Keywords accepted as menu item specs are also accepted by widgets.
+These are @code{:selected}, @code{:active}, @code{:suffix},
+@code{:keys}, @code{:style}, @code{:filter}, @code{:config},
+@code{:included}, @code{:key-sequence}, @code{:accelerator},
+@code{:label} and @code{:callback}.
 
 If instead of a vector, the instantiator is a string, it will be
 converted into a vector by looking it up according to the specs in the
@@ -770,10 +1046,14 @@ This function returns non-@code{nil} if @var{object} is an image
 instance of type @code{nothing}.
 @end defun
 
+@defun widget-image-instance-p object
+Return t if @var{object} is an image instance of type @code{widget}.
+@end defun
+
 @node Image Instance Functions
 @subsubsection Image Instance Functions
 
-@defun make-image-instance data &optional device dest-types no-error
+@defun make-image-instance data &optional domain dest-types no-error
 This function creates a new image-instance object.
 
 @var{data} is an image instantiator, which describes the image
@@ -789,13 +1069,46 @@ image formats, the most natural types are @code{color-pixmap}, followed
 by @code{mono-pixmap}, followed by @code{pointer}.  For the string and
 formatted-string formats, the most natural types are @code{text},
 followed by @code{mono-pixmap} (not currently implemented), followed by
-@code{color-pixmap} (not currently implemented).  The other formats can
-only be instantiated as one type. (If you want to control more
-specifically the order of the types into which an image is instantiated,
-just call @code{make-image-instance} repeatedly until it succeeds,
-passing less and less preferred destination types each time.
+@code{color-pixmap} (not currently implemented).  For MS Windows
+resources, the most natural type for pointer resources is
+@code{pointer}, and for the others it's @code{color-pixmap}.  The other
+formats can only be instantiated as one type. (If you want to control
+more specifically the order of the types into which an image is
+instantiated, just call @code{make-image-instance} repeatedly until it
+succeeds, passing less and less preferred destination types each time.
 
 If @var{dest-types} is omitted, all possible types are allowed.
+
+@var{domain} specifies the domain to which the image instance will be
+attached.  This domain is termed the @dfn{governing domain}.  The type
+of the governing domain depends on the image instantiator
+format. (Although, more correctly, it should probably depend on the
+image instance type.) For example, pixmap image instances are specific
+to a device, but widget image instances are specific to a particular
+XEmacs window because in order to display such a widget when two windows
+onto the same buffer want to display the widget, two separate underlying
+widgets must be created. (That's because a widget is actually a child
+window-system window, and all window-system windows have a unique
+existence on the screen.) This means that the governing domain for a
+pixmap image instance will be some device (most likely, the only
+existing device), whereas the governing domain for a widget image
+instance will be some XEmacs window.
+
+If you specify an overly general @var{domain} (e.g. a frame when a
+window was wanted), an error is signaled.  If you specify an overly
+specific @var{domain} (e.g. a window when a device was wanted), the
+corresponding general domain is fetched and used instead.  For
+@code{make-image-instance}, it makes no difference whether you specify
+an overly specific domain or the properly general domain derived from
+it.  However, it does matter when creating an image instance by
+instantiating a specifier or glyph (e.g. with
+@code{glyph-image-instance}), because the more specific domain causes
+spec lookup to start there and proceed to more general domains. (It
+would also matter when creating an image instance with an instantiator
+format of @code{inherit}, but we currently disallow this. #### We should
+fix this.)
+n
+If omitted, @var{domain} defaults to the selected window.
 
 @var{no-error} controls what happens when the image cannot be generated.
 If @var{nil}, an error message is generated.  If @var{t}, no messages
@@ -817,6 +1130,17 @@ returned.
 @defun image-instance-name image-instance
 This function returns the name of the given image instance.
 @end defun
+
+@defun image-instance-domain image-instance
+
+Return the governing domain of the given @var{image-instance}.  The
+governing domain of an image instance is the domain that the image
+instance is specific to.  It is @emph{NOT} necessarily the domain that
+was given to the call to @code{specifier-instance} that resulted in the
+creation of this image instance.  See @code{make-image-instance} for
+more information on governing domains.
+@end defun
+
 
 @defun image-instance-string image-instance
 This function returns the string of the given image instance.  This will

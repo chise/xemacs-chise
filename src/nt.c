@@ -47,8 +47,7 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include <stdlib.h>
 #include <stdio.h>
 
-#include <windows.h>
-#include <mmsystem.h>
+#include "syswindows.h"
 
 #include "nt.h"
 #include <sys/dir.h>
@@ -2004,9 +2003,15 @@ int setitimer (int kind, const struct itimerval* itnew,
     return errno = EINVAL;
 }
 
+
+/*--------------------------------------------------------------------*/
+/*                        Memory-mapped files                         */
+/*--------------------------------------------------------------------*/
+
 int
 open_input_file (file_data *p_file, const char *filename)
 {
+  /* Synched with FSF 20.6.  We fixed some warnings. */
   HANDLE file;
   HANDLE file_mapping;
   void  *file_base;
@@ -2034,6 +2039,179 @@ open_input_file (file_data *p_file, const char *filename)
   p_file->file_base = (char *)file_base;
 
   return TRUE;
+}
+
+int
+open_output_file (file_data *p_file, const char *filename, unsigned long size)
+{
+  /* Synched with FSF 20.6.  We fixed some warnings. */
+  HANDLE file;
+  HANDLE file_mapping;
+  void  *file_base;
+
+  file = CreateFile (filename, GENERIC_READ | GENERIC_WRITE, 0, NULL,
+		     CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
+  if (file == INVALID_HANDLE_VALUE) 
+    return FALSE;
+
+  file_mapping = CreateFileMapping (file, NULL, PAGE_READWRITE, 
+				    0, size, NULL);
+  if (!file_mapping) 
+    return FALSE;
+  
+  file_base = MapViewOfFile (file_mapping, FILE_MAP_WRITE, 0, 0, size);
+  if (file_base == NULL) 
+    return FALSE;
+  
+  p_file->name = filename;
+  p_file->size = size;
+  p_file->file = file;
+  p_file->file_mapping = file_mapping;
+  p_file->file_base = (char*) file_base;
+
+  return TRUE;
+}
+
+#if 1 /* !defined(__MINGW32__) */
+/* Return pointer to section header for section containing the given
+   relative virtual address. */
+static IMAGE_SECTION_HEADER *
+rva_to_section (DWORD rva, IMAGE_NT_HEADERS * nt_header)
+{
+  /* Synched with FSF 20.6.  We added MINGW32 stuff. */
+  PIMAGE_SECTION_HEADER section;
+  int i;
+
+  section = IMAGE_FIRST_SECTION (nt_header);
+
+  for (i = 0; i < nt_header->FileHeader.NumberOfSections; i++)
+    {
+      /* Some linkers (eg. the NT SDK linker I believe) swapped the
+	 meaning of these two values - or rather, they ignored
+	 VirtualSize entirely and always set it to zero.  This affects
+	 some very old exes (eg. gzip dated Dec 1993).  Since
+	 mswindows_executable_type relies on this function to work reliably,
+	 we need to cope with this.  */
+      DWORD real_size = max (section->SizeOfRawData,
+			     section->Misc.VirtualSize);
+      if (rva >= section->VirtualAddress
+	  && rva < section->VirtualAddress + real_size)
+	return section;
+      section++;
+    }
+  return NULL;
+}
+#endif
+
+void
+mswindows_executable_type (const char * filename, int * is_dos_app,
+			   int * is_cygnus_app)
+{
+  /* Synched with FSF 20.6.  We added MINGW32 stuff and casts. */
+  file_data executable;
+  char * p;
+
+  /* Default values in case we can't tell for sure.  */
+  *is_dos_app = FALSE;
+  *is_cygnus_app = FALSE;
+
+  if (!open_input_file (&executable, filename))
+    return;
+
+  p = strrchr (filename, '.');
+
+  /* We can only identify DOS .com programs from the extension. */
+  if (p && stricmp (p, ".com") == 0)
+    *is_dos_app = TRUE;
+  else if (p && (stricmp (p, ".bat") == 0 ||
+		 stricmp (p, ".cmd") == 0))
+    {
+      /* A DOS shell script - it appears that CreateProcess is happy to
+	 accept this (somewhat surprisingly); presumably it looks at
+	 COMSPEC to determine what executable to actually invoke.
+	 Therefore, we have to do the same here as well. */
+      /* Actually, I think it uses the program association for that
+	 extension, which is defined in the registry.  */
+      p = egetenv ("COMSPEC");
+      if (p)
+	mswindows_executable_type (p, is_dos_app, is_cygnus_app);
+    }
+  else
+    {
+      /* Look for DOS .exe signature - if found, we must also check that
+	 it isn't really a 16- or 32-bit Windows exe, since both formats
+	 start with a DOS program stub.  Note that 16-bit Windows
+	 executables use the OS/2 1.x format. */
+
+#if 0 /* defined( __MINGW32__ ) */
+      /* mingw32 doesn't have enough headers to detect cygwin
+	 apps, just do what we can. */
+      FILHDR * exe_header;
+
+      exe_header = (FILHDR*) executable.file_base;
+      if (exe_header->e_magic != DOSMAGIC)
+	goto unwind;
+
+      if ((char*) exe_header->e_lfanew > (char*) executable.size)
+	{
+	  /* Some dos headers (pkunzip) have bogus e_lfanew fields.  */
+	  *is_dos_app = TRUE;
+	} 
+      else if (exe_header->nt_signature != NT_SIGNATURE)
+	{
+	  *is_dos_app = TRUE;
+	}
+#else
+      IMAGE_DOS_HEADER * dos_header;
+      IMAGE_NT_HEADERS * nt_header;
+
+      dos_header = (PIMAGE_DOS_HEADER) executable.file_base;
+      if (dos_header->e_magic != IMAGE_DOS_SIGNATURE)
+	goto unwind;
+	  
+      nt_header = (PIMAGE_NT_HEADERS) ((char*) dos_header + dos_header->e_lfanew);
+	  
+      if ((char*) nt_header > (char*) dos_header + executable.size) 
+	{
+	  /* Some dos headers (pkunzip) have bogus e_lfanew fields.  */
+	  *is_dos_app = TRUE;
+	} 
+      else if (nt_header->Signature != IMAGE_NT_SIGNATURE &&
+	       LOWORD (nt_header->Signature) != IMAGE_OS2_SIGNATURE)
+	{
+	  *is_dos_app = TRUE;
+	}
+      else if (nt_header->Signature == IMAGE_NT_SIGNATURE)
+	{
+	  /* Look for cygwin.dll in DLL import list. */
+	  IMAGE_DATA_DIRECTORY import_dir =
+	    nt_header->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT];
+	  IMAGE_IMPORT_DESCRIPTOR * imports;
+	  IMAGE_SECTION_HEADER * section;
+
+	  section = rva_to_section (import_dir.VirtualAddress, nt_header);
+	  imports = (IMAGE_IMPORT_DESCRIPTOR *) RVA_TO_PTR (import_dir.VirtualAddress,
+							    section, executable);
+	      
+	  for ( ; imports->Name; imports++)
+	    {
+	      char *dllname = (char*) RVA_TO_PTR (imports->Name, section, executable);
+
+	      /* The exact name of the cygwin dll has changed with
+		 various releases, but hopefully this will be reasonably
+		 future proof.  */
+	      if (strncmp (dllname, "cygwin", 6) == 0)
+		{
+		  *is_cygnus_app = TRUE;
+		  break;
+		}
+	    }
+	}
+#endif
+    }
+
+ unwind:
+  close_file_data (&executable);
 }
 
 /* Close the system structures associated with the given file.  */

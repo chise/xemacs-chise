@@ -56,6 +56,7 @@ Boston, MA 02111-1307, USA.  */
 #include "buffer.h"
 #include "frame.h"
 #include "opaque.h"
+#include "window.h"
 
 #include "sysfile.h"
 
@@ -480,7 +481,7 @@ jpeg_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   /* Step 6.5: Create the pixmap and set up the image instance */
   /* now instantiate */
-  MAYBE_DEVMETH (XDEVICE (ii->device),
+  MAYBE_DEVMETH (DOMAIN_XDEVICE (ii->domain),
 		 init_image_instance_from_eimage,
 		 (ii, cinfo.output_width, cinfo.output_height, 1,
 		  unwind.eimage, dest_mask,
@@ -706,7 +707,7 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
       }
 
     /* now instantiate */
-    MAYBE_DEVMETH (XDEVICE (ii->device),
+    MAYBE_DEVMETH (DOMAIN_XDEVICE (ii->domain),
 		   init_image_instance_from_eimage,
 		   (ii, width, height, unwind.giffile->ImageCount, unwind.eimage, dest_mask,
 		    instantiator, domain));
@@ -1017,7 +1018,7 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   }
 
   /* now instantiate */
-  MAYBE_DEVMETH (XDEVICE (ii->device),
+  MAYBE_DEVMETH (DOMAIN_XDEVICE (ii->domain),
 		 init_image_instance_from_eimage,
 		 (ii, width, height, 1, unwind.eimage, dest_mask,
 		  instantiator, domain));
@@ -1299,7 +1300,7 @@ tiff_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   }
 
   /* now instantiate */
-  MAYBE_DEVMETH (XDEVICE (ii->device),
+  MAYBE_DEVMETH (DOMAIN_XDEVICE (ii->domain),
 		 init_image_instance_from_eimage,
 		 (ii, width, height, 1, unwind.eimage, dest_mask,
 		  instantiator, domain));

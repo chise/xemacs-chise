@@ -108,6 +108,61 @@ non-nil if it is visible in optional DOMAIN."
     (or (and (listp spec) (memq 'buffers-tab spec))
  	spec)))
 
+(defun make-gutter-specifier (spec-list)
+  "Return a new `gutter' specifier object with the given specification list.
+SPEC-LIST can be a list of specifications (each of which is a cons of a
+locale and a list of instantiators), a single instantiator, or a list
+of instantiators.  See `make-specifier' for more information about
+specifiers.
+
+Gutter specifiers are used to specify the format of a gutter.
+The values of the variables `default-gutter', `top-gutter',
+`left-gutter', `right-gutter', and `bottom-gutter' are always
+gutter specifiers.
+
+Valid gutter instantiators are called \"gutter descriptors\" and are
+either strings or property-lists of strings.  See `default-gutter' for
+a description of the exact format."
+  (make-specifier-and-init 'gutter spec-list))
+
+(defun make-gutter-size-specifier (spec-list)
+  "Return a new `gutter-size' specifier object with the given spec list.
+SPEC-LIST can be a list of specifications (each of which is a cons of a
+locale and a list of instantiators), a single instantiator, or a list
+of instantiators.  See `make-specifier' for more information about
+specifiers.
+
+Gutter-size specifiers are used to specify the size of a gutter.  The
+values of the variables `default-gutter-size', `top-gutter-size',
+`left-gutter-size', `right-gutter-size', and `bottom-gutter-size' are
+always gutter-size specifiers.
+
+Valid gutter-size instantiators are either integers or the special
+symbol 'autodetect. If a gutter-size is set to 'autodetect them the
+size of the gutter will be adjusted to just accomodate the gutters
+contents. 'autodetect only works for top and bottom gutters."
+  (make-specifier-and-init 'gutter-size spec-list))
+
+(defun make-gutter-visible-specifier (spec-list)
+  "Return a new `gutter-visible' specifier object with the given spec list.
+SPEC-LIST can be a list of specifications (each of which is a cons of a
+locale and a list of instantiators), a single instantiator, or a list
+of instantiators.  See `make-specifier' for more information about
+specifiers.
+
+Gutter-visible specifiers are used to specify the visibility of a
+gutter.  The values of the variables `default-gutter-visible-p',
+`top-gutter-visible-p', `left-gutter-visible-p',
+`right-gutter-visible-p', and `bottom-gutter-visible-p' are always
+gutter-visible specifiers.
+
+Valid gutter-visible instantiators are t, nil or a list of symbols.
+If a gutter-visible instantiator is set to a list of symbols, and the
+correspondong gutter specification is a property-list strings, then
+elements of the gutter specification will only be visible if the
+corresponding symbol occurs in the gutter-visible instantiator."
+  (make-specifier-and-init 'gutter-visible spec-list))
+
 (defun init-gutter ()
   "Initialize the gutter."
   ;; do nothing as yet.

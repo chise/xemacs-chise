@@ -143,23 +143,6 @@
   "Find the documentation directory."
   (paths-find-architecture-directory roots "lib-src" nil configure-doc-directory))
 
-(defun paths-find-lock-directory (roots)
-  "Find the lock directory."
-  (defvar configure-lock-directory)
-  (paths-find-site-directory roots "lock" "EMACSLOCKDIR" configure-lock-directory))
-
-(defun paths-find-superlock-file (lock-directory)
-  "Find the superlock file."
-  ;; #### There is no such variable configure-superlock-file!
-  (cond
-   ((null lock-directory)
-    nil)
-   ((and configure-superlock-file
-	 (file-directory-p (file-name-directory configure-superlock-file)))
-    configure-superlock-file)
-   (t
-    (expand-file-name "!!!SuperLock!!!" lock-directory))))
-
 (defun paths-find-exec-directory (roots)
   "Find the binary directory."
   (paths-find-architecture-directory roots "lib-src"

@@ -1,3 +1,21 @@
+2000-05-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.34 is released.
+
+2000-05-15  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* configure.in:
+	Do not define DOUG_LEA_MALLOC when using other malloc scheme.
+	Remove unused variable use_minimal_tagbits.
+
+2000-05-02  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* configure.in: Remove lockdir.
+
+2000-04-15  Andy Piper  <andy@xemacs.org>
+
+	* etc/Emacs.ad: add select-start() back into text translations.
+
 2000-05-01  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.33 is released.

@@ -250,6 +250,9 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
       XSETWINDOW (window, w);
       image = glyph_image_instance (crb->object.dglyph.glyph,
 				    window, ERROR_ME_NOT, 1);
+
+      if (!IMAGE_INSTANCEP (image))
+	return 0;
       ii = XIMAGE_INSTANCE (image);
 
       if (TEXT_IMAGE_INSTANCEP (image) && 
@@ -281,13 +284,7 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
 	  return 0;
 	}
       else
-	{
-#ifdef DEBUG_WIDGET_OUTPUT
-	  if (XIMAGE_INSTANCE_TYPE (image) == IMAGE_LAYOUT)
-	    printf ("glyph layout %p considered unchanged\n", ii);
-#endif
-	  return 1;
-	}
+	return 1;
     }
   /* We now do this last so that glyph checks can do their own thing
      for face changes. Face changes quite often happen when we are
@@ -901,7 +898,10 @@ redisplay_move_cursor (struct window *w, Bufpos new_point, int no_output_end)
     }
   else
     {
-      DEVMETH (d, output_begin, (d));
+      {
+	MAYBE_DEVMETH (d, frame_output_begin, (f));
+	MAYBE_DEVMETH (d, window_output_begin, (w));
+      }
       rb->cursor_type = CURSOR_OFF;
       dl->cursor_elt = -1;
       output_display_line (w, 0, cla, y, rb->xpos, rb->xpos + rb->width);
@@ -916,7 +916,10 @@ redisplay_move_cursor (struct window *w, Bufpos new_point, int no_output_end)
   if (w != XWINDOW (FRAME_SELECTED_WINDOW (device_selected_frame (d))))
     {
       if (!no_output_end)
-	DEVMETH (d, output_end, (d));
+	{
+	  MAYBE_DEVMETH (d, window_output_end, (w));
+	  MAYBE_DEVMETH (d, frame_output_end, (f));
+	}
 
       return 1;
     }
@@ -935,7 +938,10 @@ redisplay_move_cursor (struct window *w, Bufpos new_point, int no_output_end)
       output_display_line (w, 0, cla, y, rb->xpos, rb->xpos + rb->width);
 
       if (!no_output_end)
-	DEVMETH (d, output_end, (d));
+	{
+	  MAYBE_DEVMETH (d, window_output_end, (w));
+	  MAYBE_DEVMETH (d, frame_output_end, (f));
+	}
       return 1;
     }
   else
@@ -999,7 +1005,10 @@ redisplay_move_cursor (struct window *w, Bufpos new_point, int no_output_end)
 			       make_int (ADJ_BUFPOS), w->buffer);
 
 		  if (!no_output_end)
-		    DEVMETH (d, output_end, (d));
+		    {
+		      MAYBE_DEVMETH (d, window_output_end, (w));
+		      MAYBE_DEVMETH (d, frame_output_end, (f));
+		    }
 		  return 1;
 		}
 
@@ -1012,7 +1021,10 @@ redisplay_move_cursor (struct window *w, Bufpos new_point, int no_output_end)
     }
 
   if (!no_output_end)
-    DEVMETH (d, output_end, (d));
+    {
+      MAYBE_DEVMETH (d, window_output_end, (w));
+      MAYBE_DEVMETH (d, frame_output_end, (f));
+    }
   return 0;
 }
 #undef ADJ_BUFPOS
@@ -1067,12 +1079,18 @@ redraw_cursor_in_window (struct window *w, int run_end_begin_meths)
 		     (f, dl->ypos - 1, rb->xpos));
 
       if (run_end_begin_meths)
-	DEVMETH (d, output_begin, (d));
+	{
+	  MAYBE_DEVMETH (d, frame_output_begin, (f));
+	  MAYBE_DEVMETH (d, window_output_begin, (w));
+	}
 
       output_display_line (w, 0, dla, y, rb->xpos, rb->xpos + rb->width);
 
       if (run_end_begin_meths)
-	DEVMETH (d, output_end, (d));
+	{
+	  MAYBE_DEVMETH (d, window_output_end, (w));
+	  MAYBE_DEVMETH (d, frame_output_end, (f));
+	}
     }
 }
 
@@ -1146,22 +1164,27 @@ redisplay_output_display_block (struct window *w, struct display_line *dl, int b
 static void redisplay_unmap_subwindows (struct frame* f, int x, int y, int width, int height,
 					Lisp_Object ignored_window)
 {
-  int elt;
+  Lisp_Object rest;
 
-  for (elt = 0; elt < Dynarr_length (f->subwindow_cachels); elt++)
+  LIST_LOOP (rest, XWEAK_LIST_LIST (FRAME_SUBWINDOW_CACHE (f)))
     {
-      struct subwindow_cachel *cachel =
-	Dynarr_atp (f->subwindow_cachels, elt);
+      Lisp_Image_Instance *ii = XIMAGE_INSTANCE (XCAR (rest));
 
-      if (cachel->being_displayed
+      if (IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP (ii)
 	  &&
-	  cachel->x + cachel->width > x && cachel->x < x + width
+	  IMAGE_INSTANCE_DISPLAY_X (ii)
+	  + IMAGE_INSTANCE_DISPLAY_WIDTH (ii) > x 
+	  && 
+	  IMAGE_INSTANCE_DISPLAY_X (ii) < x + width
 	  &&
-	  cachel->y + cachel->height > y && cachel->y < y + height
+	  IMAGE_INSTANCE_DISPLAY_Y (ii)
+	  + IMAGE_INSTANCE_DISPLAY_HEIGHT (ii) > y 
+	  && 
+	  IMAGE_INSTANCE_DISPLAY_Y (ii) < y + height
 	  &&
-	  !EQ (cachel->subwindow, ignored_window))
+	  !EQ (XCAR (rest), ignored_window))
 	{
-	  unmap_subwindow (cachel->subwindow);
+	  unmap_subwindow (XCAR (rest));
 	}
     }
 }
@@ -1174,7 +1197,7 @@ static void redisplay_unmap_subwindows (struct frame* f, int x, int y, int width
  ****************************************************************************/
 void redisplay_unmap_subwindows_maybe (struct frame* f, int x, int y, int width, int height)
 {
-  if (Dynarr_length (FRAME_SUBWINDOW_CACHE (f)))
+  if (!NILP (XWEAK_LIST_LIST (FRAME_SUBWINDOW_CACHE (f))))
     {
       redisplay_unmap_subwindows (f, x, y, width, height, Qnil);
     }
@@ -1183,7 +1206,7 @@ void redisplay_unmap_subwindows_maybe (struct frame* f, int x, int y, int width,
 static void redisplay_unmap_subwindows_except_us (struct frame* f, int x, int y, int width,
 						  int height, Lisp_Object subwindow)
 {
-  if (Dynarr_length (FRAME_SUBWINDOW_CACHE (f)))
+  if (!NILP (XWEAK_LIST_LIST (FRAME_SUBWINDOW_CACHE (f))))
     {
       redisplay_unmap_subwindows (f, x, y, width, height, subwindow);
     }
@@ -1466,16 +1489,17 @@ redisplay_output_layout (struct window *w,
 		  break;
 
 		case IMAGE_WIDGET:
+		  if (EQ (IMAGE_INSTANCE_WIDGET_TYPE (childii), Qlayout))
+		    {
+		      redisplay_output_layout (w, child, &cdb, &cdga, findex,
+					       0, 0, 0);
+		      break;
+		    }
 		case IMAGE_SUBWINDOW:
 		  if (!IMAGE_INSTANCE_OPTIMIZE_OUTPUT (childii) ||
 		      IMAGE_INSTANCE_DIRTYP (childii))
 		    redisplay_output_subwindow (w, child, &cdb, &cdga, findex,
 						0, 0, 0);
-		  break;
-
-		case IMAGE_LAYOUT:
-		  redisplay_output_layout (w, child, &cdb, &cdga, findex,
-					   0, 0, 0);
 		  break;
 
 		case IMAGE_NOTHING:
@@ -2037,7 +2061,7 @@ redisplay_update_line (struct window *w, int first_line, int last_line,
   display_line_dynarr *cdla = window_display_lines (w, CURRENT_DISP);
   display_line_dynarr *ddla = window_display_lines (w, DESIRED_DISP);
 
-  DEVMETH (d, output_begin, (d));
+  MAYBE_DEVMETH (d, window_output_begin, (w));
 
   while (first_line <= last_line)
     {
@@ -2122,14 +2146,8 @@ redisplay_update_line (struct window *w, int first_line, int last_line,
   }
 #endif
 
-  /* This has to be done after we've updated the values.  We don't
-     call output_end for tty frames.  Redisplay will do this after all
-     tty windows have been updated.  This cuts down on cursor
-     flicker. */
-  if (FRAME_TTY_P (f))
-    redisplay_redraw_cursor (f, 0);
-  else
-    DEVMETH (d, output_end, (d));
+  redisplay_redraw_cursor (f, 0);
+  MAYBE_DEVMETH (d, window_output_end, (w));
 }
 
 /*****************************************************************************
@@ -2243,7 +2261,7 @@ redisplay_output_window (struct window *w)
     }
 
   /* Perform any output initialization. */
-  DEVMETH (d, output_begin, (d));
+  MAYBE_DEVMETH (d, window_output_begin, (w));
 
   /* If the window's structure has changed clear the internal border
      above it if it is topmost (the function will check). */
@@ -2266,7 +2284,7 @@ redisplay_output_window (struct window *w)
   if (window_needs_vertical_divider (w)
       && (f->windows_structure_changed || f->clear))
     {
-      DEVMETH (d, output_vertical_divider, (w, f->windows_structure_changed));
+      MAYBE_DEVMETH (d, output_vertical_divider, (w, f->windows_structure_changed));
     }
 
   /* Clear the rest of the window, if necessary. */
@@ -2300,13 +2318,8 @@ redisplay_output_window (struct window *w)
      get invalidated when it should be. */
   INVALIDATE_DEVICE_PIXEL_TO_GLYPH_CACHE (d);
 
-  /* We don't call output_end for tty frames.  Redisplay will do this
-     after all tty windows have been updated.  This cuts down on
-     cursor flicker. */
-  if (FRAME_TTY_P (f))
-    redisplay_redraw_cursor (f, 0);
-  else
-    DEVMETH (d, output_end, (d));
+  redisplay_redraw_cursor (f, 0);
+  MAYBE_DEVMETH (d, window_output_end, (w));
 
 #ifdef HAVE_SCROLLBARS
   update_window_scrollbars (w, NULL, !MINI_WINDOW_P (w), 0);

@@ -33,8 +33,7 @@
 
 (defvar gutter-buffers-tab nil
   "A tab widget in the gutter for displaying buffers.
-Do not set this. Use `glyph-image-instance' and
-`set-image-instance-property' to change the properties of the tab.")
+Do not set this. Use `set-glyph-image' to change the properties of the tab.")
 
 (defcustom gutter-buffers-tab-visible-p
   (gutter-element-visible-p default-gutter-visible-p 'buffers-tab)
@@ -278,16 +277,7 @@ items by redefining the function `format-buffers-menu-line'."
     (set-extent-begin-glyph 
      gutter-buffers-tab-extent
      (setq gutter-buffers-tab 
-	   (make-glyph 
-	    (vector 'tab-control :descriptor "Buffers" :face buffers-tab-face
-		    :orientation gutter-buffers-tab-orientation
-		    (if (or (eq gutter-buffers-tab-orientation 'top)
-			    (eq gutter-buffers-tab-orientation 'bottom))
-			:pixel-width :pixel-height)
-		    (if (or (eq gutter-buffers-tab-orientation 'top)
-			    (eq gutter-buffers-tab-orientation 'bottom))
-			'(gutter-pixel-width) '(gutter-pixel-height))
-		    :properties (list :items (buffers-tab-items nil nil t))))))
+	   (make-glyph)))
 
     ;; Nuke all existing tabs
     (remove-gutter-element top-gutter 'buffers-tab)
@@ -324,52 +314,44 @@ items by redefining the function `format-buffers-menu-line'."
 		 )))
      (console-type-list))))
 
-(defun update-tab-in-gutter (&optional frame-or-buffer force-selection)
+(defun update-tab-in-gutter (frame &optional force-selection)
   "Update the tab control in the gutter area."
-  (let ((locale (if (framep frame-or-buffer) frame-or-buffer)))
     ;; dedicated frames don't get tabs
-    (unless (and (framep locale)
-		 (window-dedicated-p (frame-selected-window locale)))
-      (when (specifier-instance default-gutter-visible-p locale)
-	(unless (and gutter-buffers-tab 
-		     (eq (default-gutter-position)
-			 gutter-buffers-tab-orientation))
-	  (add-tab-to-gutter))
-	(when (valid-image-instantiator-format-p 'tab-control locale)
-	  (let ((inst (glyph-image-instance 
-		       gutter-buffers-tab
-		       (when (framep frame-or-buffer)
-			 (last-nonminibuf-window frame-or-buffer)))))
-	    (set-image-instance-property inst :items 
-					 (buffers-tab-items 
-					  nil locale force-selection))))))))
-
-(defun remove-buffer-from-gutter-tab ()
-  "Remove the current buffer from the tab control in the gutter area."
-  (when (and (valid-image-instantiator-format-p 'tab-control)
-	     (specifier-instance default-gutter-visible-p))
-    (let ((inst (glyph-image-instance gutter-buffers-tab))
-	  (buffers (buffers-tab-items t)))
-      (unless buffers
-	(setq buffers (build-buffers-tab-internal 
-		       (list 
-			(get-buffer-create "*scratch*")))))
-      (set-image-instance-property inst :items buffers))))
+  (unless (window-dedicated-p (frame-selected-window frame))
+    (when (specifier-instance default-gutter-visible-p frame)
+      (unless (and gutter-buffers-tab
+		   (eq (default-gutter-position)
+		       gutter-buffers-tab-orientation))
+	(add-tab-to-gutter))
+      (when (valid-image-instantiator-format-p 'tab-control frame)
+	(set-glyph-image
+	 gutter-buffers-tab
+	 (vector 'tab-control :descriptor "Buffers" :face buffers-tab-face
+		 :orientation gutter-buffers-tab-orientation
+		 (if (or (eq gutter-buffers-tab-orientation 'top)
+			 (eq gutter-buffers-tab-orientation 'bottom))
+		     :pixel-width :pixel-height)
+		 (if (or (eq gutter-buffers-tab-orientation 'top)
+			 (eq gutter-buffers-tab-orientation 'bottom))
+		     '(gutter-pixel-width) '(gutter-pixel-height))
+		 :properties
+		 (list :items
+		       (buffers-tab-items nil frame force-selection)))
+	 frame)))))
 
 ;; A myriad of different update hooks all doing slightly different things
-(add-hook 'kill-buffer-hook 'remove-buffer-from-gutter-tab)
 (add-hook 'create-frame-hook 
 	  #'(lambda (frame)
 	      (when gutter-buffers-tab (update-tab-in-gutter frame t))))
 (add-hook 'buffer-list-changed-hook 'update-tab-in-gutter)
 (add-hook 'default-gutter-position-changed-hook
 	  #'(lambda ()
-	      (when gutter-buffers-tab (update-tab-in-gutter))))
+	      (when gutter-buffers-tab
+		(mapc #'update-tab-in-gutter (frame-list)))))
 (add-hook 'gutter-element-visibility-changed-hook
 	  #'(lambda (prop visible-p)
 	      (when (and (eq prop 'buffers-tab) visible-p)
-		(update-tab-in-gutter))))
-
+		(mapc #'update-tab-in-gutter (frame-list)))))
 ;;
 ;; progress display
 ;; ripped off from message display
@@ -382,8 +364,8 @@ textual and displayed in the echo area."
   :type 'boolean
   :group 'gutter)
 
-(defvar progress-glyph-height 32
-  "Height of the gutter area for progress messages.")
+(defvar progress-glyph-height 24
+  "Height of the progress gauge glyph.")
 
 (defvar progress-display-popup-period 0.5
   "The time that the progress gauge should remain up after completion")
@@ -396,7 +378,7 @@ textual and displayed in the echo area."
 (defvar progress-gauge-glyph
   (make-glyph
    `[progress-gauge
-     :pixel-height (- progress-glyph-height 8)
+     :pixel-height (eval progress-glyph-height)
      :pixel-width 250
      :descriptor "Progress"]))
 
@@ -407,30 +389,31 @@ displayed above the gauge itself. If STYLE is 'small then the gauge
 and text are arranged side-by-side."  
   (cond
    ((eq style 'small)
-    (setq progress-glyph-height 24)
+    (setq progress-glyph-height 16)
     (setq progress-layout-glyph
 	  (make-glyph
 	   `[layout
 	     :orientation horizontal
+	     :margin-width 4
 	     :items (,progress-gauge-glyph
 		     [button
-		      :pixel-height (- progress-glyph-height 8)
+		      :pixel-height (eval progress-glyph-height)
 		      ;; 'quit is special and acts "asynchronously".
 		      :descriptor "Stop" :callback 'quit]
 		     ,progress-text-glyph)])))
    (t 
-    (setq progress-glyph-height 32)
+    (setq progress-glyph-height 24)
     (setq progress-layout-glyph
 	  (make-glyph
 	   `[layout 
 	     :orientation vertical :justify left
+	     :margin-width 4
 	     :items (,progress-text-glyph
 		     [layout 
-		      :pixel-height (eval progress-glyph-height)
 		      :orientation horizontal
 		      :items (,progress-gauge-glyph
 			      [button 
-			       :pixel-height (- progress-glyph-height 8)
+			       :pixel-height (eval progress-glyph-height)
 			       :descriptor " Stop "
 			       ;; 'quit is special and acts "asynchronously".
 			       :callback 'quit])])])))))
@@ -457,6 +440,7 @@ Do not modify this directly--use the `progress-display' or
    `[layout :orientation vertical :justify left
 	    :items (,progress-text-glyph
 		    [layout
+		     :margin-width 4
 		     :pixel-height progress-glyph-height
 		     :orientation horizontal])]))
 
@@ -537,6 +521,8 @@ you should just use (progress nil)."
 	(progn
 	  (setcdr top message)
 	  (if (equal tmsg message)
+	      ;; #### use of set-image-instance-property is wrong.
+	      ;; use set-glyph-image instead.
 	      (set-image-instance-property 
 	       (glyph-image-instance progress-gauge-glyph
 				     (frame-selected-window frame))
@@ -572,6 +558,8 @@ you should just use (progress nil)."
 	  ;; fixup the gutter specifiers
 	  (set-gutter-element bottom-gutter 'progress gutter-string frame)
 	  (set-specifier bottom-gutter-border-width 2 frame)
+	  ;; #### use of set-image-instance-property is wrong.
+	  ;; use set-glyph-image instead.
 	  (set-image-instance-property 
 	   (glyph-image-instance progress-text-glyph
 				 (frame-selected-window frame)) :data message)
@@ -600,6 +588,8 @@ you should just use (progress nil)."
       ;; fixup the gutter specifiers
       (set-gutter-element bottom-gutter 'progress gutter-string frame)
       (set-specifier bottom-gutter-border-width 2 frame)
+      ;; #### use of set-image-instance-property is wrong.
+      ;; use set-glyph-image instead.
       (set-image-instance-property 
        (glyph-image-instance progress-gauge-glyph 
 			     (frame-selected-window frame))

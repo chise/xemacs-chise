@@ -369,10 +369,9 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 	(princ "\n\n" stream)))
     (when (not suppress-early-error-handler-backtrace)
       (backtrace stream t)))
+  (if (fboundp 'mswindows-message-box)
+      (mswindows-message-box "Initialization error"))
   (kill-emacs -1))
-
-(defvar lock-directory)
-(defvar superlock-file)
 
 (defun normal-top-level ()
   (if command-line-processed
@@ -1146,18 +1145,6 @@ It's idempotent, so call this as often as you like!"
       (princ (format "Info-directory-list:\n%S\n" Info-directory-list)
 	     'external-debugging-output))
 
-  (if (boundp 'lock-directory)
-      (progn
-	(setq lock-directory (paths-find-lock-directory roots))
-	(setq superlock-file (paths-find-superlock-file lock-directory))
-
-	(if debug-paths
-	    (progn
-	      (princ (format "lock-directory:\n%S\n" lock-directory)
-		     'external-debugging-output)
-	      (princ (format "superlock-file:\n%S\n" superlock-file)
-		     'external-debugging-output)))))
-
   (setq exec-directory (paths-find-exec-directory roots))
 
   (if debug-paths
@@ -1205,20 +1192,15 @@ It's idempotent, so call this as often as you like!"
     (princ (buffer-string) 'external-debugging-output)))
 
 (defun startup-setup-paths-warning ()
-  (let ((lock (if (boundp 'lock-directory) lock-directory 't))
-	(warnings '()))
-    (if (and (stringp lock) (null (file-directory-p lock)))
-	(setq lock nil))
+  (let ((warnings '()))
     (cond
      ((null (and lisp-directory exec-directory data-directory doc-directory
-		 load-path
-		 lock))
+		 load-path))
       (save-excursion
 	(set-buffer (get-buffer-create " *warning-tmp*"))
 	(erase-buffer)
 	(buffer-disable-undo (current-buffer))
 	(if (null lisp-directory) (push "lisp-directory" warnings))
-	(if (null lock)           (push "lock-directory" warnings))
 	(if (null exec-directory) (push "exec-directory" warnings))
 	(if (null data-directory) (push "data-directory" warnings))
 	(if (null doc-directory)  (push "doc-directory"  warnings))

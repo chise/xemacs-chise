@@ -158,16 +158,6 @@ variable @code{INFOPATH}
 @vindex INFOPATH
 to @code{Info-directory-list}.
 
-@item lock-directory
-@itemx superlock-file
-@vindex lock-directory
-@vindex superlock-file
-Are the site-specific locations of the lock directory and the superlock
-file, respectively.  The @code{lock-directory} variable may also be
-initialized from the @code{EMACSLOCKDIR}
-@vindex EMACSLOCKDIR
-environment variable.
-
 @item exec-directory
 @vindex exec-directory
 Is the directory of architecture-dependent files that come with XEmacs,

@@ -44,9 +44,9 @@ internals.info-2: 46628
 internals.info-3: 94463
 internals.info-4: 143504
 internals.info-5: 193454
-internals.info-6: 243016
-internals.info-7: 286633
-internals.info-8: 335499
+internals.info-6: 243017
+internals.info-7: 286634
+internals.info-8: 335500
 
 Tag Table:
 (Indirect)
@@ -115,75 +115,75 @@ Node: Dumping228018
 Node: Overview230239
 Node: Data descriptions230809
 Node: Dumping phase232814
-Node: Object inventory233216
-Node: Address allocation236070
-Node: The header237457
-Node: Data dumping237965
-Node: Pointers dumping238626
-Node: Reloading phase239844
-Node: Remaining issues241605
-Node: Events and the Event Loop242566
-Node: Introduction to Events243016
-Node: Main Loop244965
-Node: Specifics of the Event Gathering Mechanism248540
-Node: Specifics About the Emacs Event260993
-Node: The Event Stream Callback Routines261248
-Node: Other Event Loop Functions261493
-Node: Converting Events262633
-Node: Dispatching Events; The Command Builder263242
-Node: Evaluation; Stack Frames; Bindings263477
-Node: Evaluation263819
-Node: Dynamic Binding; The specbinding Stack; Unwind-Protects270374
-Node: Simple Special Forms272758
-Node: Catch and Throw273541
-Node: Symbols and Variables276116
-Node: Introduction to Symbols276380
-Node: Obarrays277448
-Node: Symbol Values280981
-Node: Buffers and Textual Representation283269
-Node: Introduction to Buffers283927
-Node: The Text in a Buffer286633
-Node: Buffer Lists293783
-Node: Markers and Extents295734
-Node: Bufbytes and Emchars297999
-Node: The Buffer Object298214
-Node: MULE Character Sets and Encodings301694
-Node: Character Sets302756
-Node: Encodings306241
-Node: Japanese EUC (Extended Unix Code)307308
-Node: JIS7308140
-Node: Internal Mule Encodings309490
-Node: Internal String Encoding311320
-Node: Internal Character Encoding313465
-Node: CCL315189
-Node: The Lisp Reader and Compiler321941
-Node: Lstreams322154
-Node: Creating an Lstream323185
-Node: Lstream Types324412
-Node: Lstream Functions324664
-Node: Lstream Methods328230
-Node: Consoles; Devices; Frames; Windows331372
-Node: Introduction to Consoles; Devices; Frames; Windows331687
-Node: Point334220
-Node: Window Hierarchy335499
-Node: The Window Object339947
-Node: The Redisplay Mechanism343384
-Node: Critical Redisplay Sections344176
-Node: Line Start Cache345163
-Node: Redisplay Piece by Piece348399
-Node: Extents350436
-Node: Introduction to Extents350970
-Node: Extent Ordering352112
-Node: Format of the Extent Info353353
-Node: Zero-Length Extents355240
-Node: Mathematics of Extent Ordering356638
-Node: Extent Fragments361395
-Node: Faces362481
-Node: Glyphs362597
-Node: Specifiers365614
-Node: Menus365743
-Node: Subprocesses368001
-Node: Interface to X Windows369977
-Node: Index370148
+Node: Object inventory233217
+Node: Address allocation236071
+Node: The header237458
+Node: Data dumping237966
+Node: Pointers dumping238627
+Node: Reloading phase239845
+Node: Remaining issues241606
+Node: Events and the Event Loop242567
+Node: Introduction to Events243017
+Node: Main Loop244966
+Node: Specifics of the Event Gathering Mechanism248541
+Node: Specifics About the Emacs Event260994
+Node: The Event Stream Callback Routines261249
+Node: Other Event Loop Functions261494
+Node: Converting Events262634
+Node: Dispatching Events; The Command Builder263243
+Node: Evaluation; Stack Frames; Bindings263478
+Node: Evaluation263820
+Node: Dynamic Binding; The specbinding Stack; Unwind-Protects270375
+Node: Simple Special Forms272759
+Node: Catch and Throw273542
+Node: Symbols and Variables276117
+Node: Introduction to Symbols276381
+Node: Obarrays277449
+Node: Symbol Values280982
+Node: Buffers and Textual Representation283270
+Node: Introduction to Buffers283928
+Node: The Text in a Buffer286634
+Node: Buffer Lists293784
+Node: Markers and Extents295735
+Node: Bufbytes and Emchars298000
+Node: The Buffer Object298215
+Node: MULE Character Sets and Encodings301695
+Node: Character Sets302757
+Node: Encodings306242
+Node: Japanese EUC (Extended Unix Code)307309
+Node: JIS7308141
+Node: Internal Mule Encodings309491
+Node: Internal String Encoding311321
+Node: Internal Character Encoding313466
+Node: CCL315190
+Node: The Lisp Reader and Compiler321942
+Node: Lstreams322155
+Node: Creating an Lstream323186
+Node: Lstream Types324413
+Node: Lstream Functions324665
+Node: Lstream Methods328231
+Node: Consoles; Devices; Frames; Windows331373
+Node: Introduction to Consoles; Devices; Frames; Windows331688
+Node: Point334221
+Node: Window Hierarchy335500
+Node: The Window Object339948
+Node: The Redisplay Mechanism343385
+Node: Critical Redisplay Sections344177
+Node: Line Start Cache345164
+Node: Redisplay Piece by Piece348400
+Node: Extents350437
+Node: Introduction to Extents350971
+Node: Extent Ordering352113
+Node: Format of the Extent Info353354
+Node: Zero-Length Extents355241
+Node: Mathematics of Extent Ordering356639
+Node: Extent Fragments361396
+Node: Faces362482
+Node: Glyphs362598
+Node: Specifiers365615
+Node: Menus365744
+Node: Subprocesses368002
+Node: Interface to X Windows369978
+Node: Index370149
 
 End Tag Table

@@ -14,13 +14,15 @@ can contain arbitrary text or graphics.
 
 @menu
 * Gutter Intro::		An introduction.
-* Gutter Descriptor Format::	How to create a gutter.
+* Creating Gutter::             How to create a gutter.
+* Gutter Descriptor Format::	Accessing and modifying a gutter's
+                                  properties.
 * Specifying a Gutter::		Setting a gutter's contents.
 * Other Gutter Variables::	Controlling the size of gutters.
 * Common Gutter Widgets::       Things to put in gutters.
 @end menu
 
-@node Gutter Intro, Gutter Descriptor Format, , Gutter
+@node Gutter Intro, Creating Gutter, Gutter, Gutter
 @section Gutter Intro
 
   A @dfn{gutter} is a rectangle displayed along one edge of a frame.  It
@@ -57,7 +59,70 @@ from the default just sets the position-specific specifiers, and if
 the user sets the default gutter to the same position, it will just
 not be visible.
 
-@node Gutter Descriptor Format, Specifying a Gutter, Gutter Intro, Gutter
+@node Creating Gutter, Gutter Descriptor Format, Gutter Intro, Gutter
+@section Creating Gutter
+
+@defun make-gutter-specifier spec-list
+
+Return a new @code{gutter} specifier object with the given specification
+list.  @var{spec-list} can be a list of specifications (each of which is
+a cons of a locale and a list of instantiators), a single instantiator,
+or a list of instantiators.  @xref{Specifiers}, for more information
+about specifiers.
+
+Gutter specifiers are used to specify the format of a gutter.  The
+values of the variables @code{default-gutter}, @code{top-gutter},
+@code{left-gutter}, @code{right-gutter}, and @code{bottom-gutter} are
+always gutter specifiers.
+
+Valid gutter instantiators are called "gutter descriptors" and are
+either strings or property-lists of strings.  See @code{default-gutter}
+for a description of the exact format.
+@end defun
+
+@defun make-gutter-size-specifier spec-list
+
+Return a new @code{gutter-size} specifier object with the given spec
+list.  @var{spec-list} can be a list of specifications (each of which is
+a cons of a locale and a list of instantiators), a single instantiator,
+or a list of instantiators.  @xref{Specifiers}, for more information
+about specifiers.
+
+Gutter-size specifiers are used to specify the size of a gutter.  The
+values of the variables @code{default-gutter-size},
+@code{top-gutter-size}, @code{left-gutter-size},
+@code{right-gutter-size}, and @code{bottom-gutter-size} are always
+gutter-size specifiers.
+
+Valid gutter-size instantiators are either integers or the special
+symbol @code{autodetect}. If a gutter-size is set to @code{autodetect}
+them the size of the gutter will be adjusted to just accomodate the
+gutters contents. @code{autodetect} only works for top and bottom
+gutters.
+@end defun
+
+@defun make-gutter-visible-specifier spec-list
+
+Return a new @code{gutter-visible} specifier object with the given spec
+list.  @var{spec-list} can be a list of specifications (each of which is
+a cons of a locale and a list of instantiators), a single instantiator,
+or a list of instantiators.  @xref{Specifiers}, for more information
+about specifiers.
+
+Gutter-visible specifiers are used to specify the visibility of a
+gutter.  The values of the variables @code{default-gutter-visible-p},
+@code{top-gutter-visible-p}, @code{left-gutter-visible-p},
+@code{right-gutter-visible-p}, and @code{bottom-gutter-visible-p} are
+always gutter-visible specifiers.
+
+Valid gutter-visible instantiators are t, nil or a list of symbols.  If
+a gutter-visible instantiator is set to a list of symbols, and the
+correspondong gutter specification is a property-list strings, then
+elements of the gutter specification will only be visible if the
+corresponding symbol occurs in the gutter-visible instantiator.
+@end defun
+
+@node Gutter Descriptor Format, Specifying a Gutter, Creating Gutter, Gutter
 @section Gutter Descriptor Format
 
   The contents of a gutter are specified using a @dfn{gutter descriptor}.
@@ -383,13 +448,13 @@ time-consuming operations like downloading.
 * Progress Bars::       Visual indication of operation progress.
 @end menu
 
-@node Buffer Tabs, Progress Bars, , Common Gutter Widgets
-@section Buffer Tabs
+@node Buffer Tabs, Progress Bars, ,Common Gutter Widgets
+@subsection Buffer Tabs
 
   Not documented yet.
 
-@node Progress Bars, , Buffer Tabs, Common Gutter Widgets
-@section Progress Bars
+@node Progress Bars,  , Buffer Tabs, Common Gutter Widgets
+@subsection Progress Bars
 
   Not documented yet.
 

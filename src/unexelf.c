@@ -494,16 +494,6 @@ typedef struct {
 # define SHN_ABS	Elf_eshn_absolute
 # define SHN_COMMON	Elf_eshn_common
 
-/*
- * The magic of picking the right size types is handled by the ELFSIZE
- * definition above.
- */
-# ifdef __STDC__
-#  define ElfW(type)    Elf_##type
-# else
-#  define ElfW(type)    Elf_/**/type
-# endif
-
 # ifdef __alpha__
 #  include <sys/exec_ecoff.h>
 #  define HDRR		struct ecoff_symhdr
@@ -685,7 +675,6 @@ unexec (char *new_name, char *old_name, unsigned int data_start,
       old_sbss_index = -1;
       old_bss_addr = OLD_SECTION_H(old_bss_index).sh_addr;
       old_bss_size = OLD_SECTION_H(old_bss_index).sh_size;
-      new_data2_offset = OLD_SECTION_H(old_bss_index).sh_offset;
       new_data2_index = old_bss_index;
     }
   else
@@ -693,7 +682,6 @@ unexec (char *new_name, char *old_name, unsigned int data_start,
       old_bss_addr = OLD_SECTION_H(old_sbss_index).sh_addr;
       old_bss_size = OLD_SECTION_H(old_bss_index).sh_size
 	+ OLD_SECTION_H(old_sbss_index).sh_size;
-      new_data2_offset = OLD_SECTION_H(old_sbss_index).sh_offset;
       new_data2_index = old_sbss_index;
     }
 
@@ -711,6 +699,20 @@ unexec (char *new_name, char *old_name, unsigned int data_start,
     if (old_mdebug_index == old_file_h->e_shnum)
 	old_mdebug_index = 0;
 
+  for (old_data_index = 1; old_data_index < (int) old_file_h->e_shnum;
+       old_data_index++)
+    {
+#ifdef DEBUG
+      fprintf (stderr, "Looking for .data - found %s\n",
+	       old_section_names + OLD_SECTION_H (old_data_index).sh_name);
+#endif
+      if (!strcmp (old_section_names + OLD_SECTION_H (old_data_index).sh_name,
+		   ".data"))
+	break;
+    }
+    if (old_data_index == old_file_h->e_shnum)
+	old_data_index = 0;
+
 #if defined (emacs) || !defined (DEBUG)
   new_bss_addr = (ElfW(Addr)) sbrk (0);
 #else
@@ -718,6 +720,8 @@ unexec (char *new_name, char *old_name, unsigned int data_start,
 #endif
   new_data2_addr = old_bss_addr;
   new_data2_size = new_bss_addr - old_bss_addr;
+  new_data2_offset  = OLD_SECTION_H (old_data_index).sh_offset +
+    (new_data2_addr - OLD_SECTION_H (old_data_index).sh_addr);
 
 #ifdef DEBUG
   fprintf (stderr, "old_bss_index %d\n", old_bss_index);

@@ -1306,6 +1306,11 @@ typedef union { char c; void *p; } *dfc_aliasing_voidpp;
    argument to TO_EXTERNAL_FORMAT() and TO_INTERNAL_FORMAT(). */
 #define Qnative Qfile_name
 
+#ifdef HAVE_MS_WINDOWS
+/* #### kludge!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   Remove this as soon as my Mule code is integrated. */
+#define Qmswindows_tstr Qnative
+#endif
 
 /************************************************************************/
 /*                                                                      */

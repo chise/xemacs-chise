@@ -1124,25 +1124,55 @@ File: xemacs.info,  Node: Entering Emacs,  Next: Exiting,  Prev: Pull-down Menus
 Entering and Exiting Emacs
 **************************
 
-   The usual way to invoke Emacs is to type `emacs <RET>' at the shell
-(for XEmacs, type `xemacs <RET>').  Emacs clears the screen and then
-displays an initial advisory message and copyright notice.  You can
-begin typing Emacs commands immediately afterward.
+   The usual way to invoke XEmacs is to type `xemacs <RET>' at the
+shell.  XEmacs clears the screen and then displays an initial advisory
+message and copyright notice.  You can begin typing XEmacs commands
+immediately afterward.
 
-   Some operating systems insist on discarding all type-ahead when Emacs
-starts up; they give Emacs no way to prevent this.  Therefore, it is
-wise to wait until Emacs clears the screen before typing the first
-editing command.
+   Some operating systems insist on discarding all type-ahead when
+XEmacs starts up; they give XEmacs no way to prevent this.  Therefore,
+it is advisable to wait until XEmacs clears the screen before typing
+your first editing command.
+
+   If you run XEmacs from a shell window under the X Window System, run
+it in the background with `xemacs&'.  This way, XEmacs does not tie up
+the shell window, so you can use that to run other shell commands while
+XEmacs operates its own X windows.  You can begin typing XEmacs commands
+as soon as you direct your keyboard input to the XEmacs frame.
 
    Before Emacs reads the first command, you have not had a chance to
 give a command to specify a file to edit.  Since Emacs must always have
-a current buffer for editing, it presents a buffer, by default, a
-buffer named `*scratch*'.  The buffer is in Lisp Interaction mode; you
-can use it to type Lisp expressions and evaluate them, or you can
-ignore that capability and simply doodle.  You can specify a different
-major mode for this buffer by setting the variable `initial-major-mode'
-in your init file.  *Note Init File::.
+a current buffer for editing, it presents a buffer, by default, a buffer
+named `*scratch*'.  The buffer is in Lisp Interaction mode; you can use
+it to type Lisp expressions and evaluate them, or you can ignore that
+capability and simply doodle.  (You can specify a different major mode
+for this buffer by setting the variable `initial-major-mode' in your
+init file.  *Note Init File::.)
 
-   It is possible to give Emacs arguments in the shell command line to
-specify files to visit, Lisp files to load, and functions to call.
+   It is possible to specify files to be visited, Lisp files to be
+loaded, and functions to be called, by giving Emacs arguments in the
+shell command line.  *Note Command Switches::.  But we don't recommend
+doing this.  The feature exists mainly for compatibility with other
+editors.
+
+   Many other editors are designed to be started afresh each time you
+want to edit.  You edit one file and then exit the editor.  The next
+time you want to edit either another file or the same one, you must run
+the editor again.  With these editors, it makes sense to use a
+command-line argument to say which file to edit.
+
+   But starting a new Emacs each time you want to edit a different file
+does not make sense.  For one thing, this would be annoyingly slow.  For
+another, this would fail to take advantage of Emacs's ability to visit
+more than one file in a single editing session.  And it would lose the
+other accumulated context, such as registers, undo history, and the mark
+ring.
+
+   The recommended way to use XEmacs is to start it only once, just
+after you log in, and do all your editing in the same Emacs session.
+Each time you want to edit a different file, you visit it with the
+existing Emacs, which eventually comes to have many files in it ready
+for editing.  Usually you do not kill the Emacs until you are about to
+log out.  *Note Files::, for more information on visiting more than one
+file.
 

@@ -303,48 +303,59 @@ char buf[128];
  Convert escape sequences \n and \t to newline and tab;
  discard \ followed by newline.  */
 
+#define MDGET do { prevc = c; c = getc (infile); } while (0)
 static int
 read_c_string (FILE *infile, int printflag, int c_docstring)
 {
-  register int c;
+  register int prevc = 0, c = 0;
   char *p = buf;
   int start = -1;
 
-  c = getc (infile);
+  MDGET;
   while (c != EOF)
     {
       while ((c_docstring || c != '"') && c != EOF)
 	{
-	  if (start)
+	  if (c == '*')
 	    {
-	      if (c == '*')
+	      int cc = getc (infile);
+	      if (cc == '/')
 		{
-		  int cc = getc (infile);
-		  if (cc == '/')
-		    break;
-		  else
-		    ungetc (cc, infile);
+		  if (prevc != '\n')
+		    {
+		      if (printflag > 0)
+			{
+			  if (ellcc)
+			    fprintf (outfile, "\\n\\");
+			  putc ('\n', outfile);
+			}
+		      else if (printflag < 0)
+			*p++ = '\n';
+		    }
+		  break;
 		}
+	      else
+		ungetc (cc, infile);
+	    }
 
-	      if (start != -1)
+	  if (start == 1)
+	    {
+	      if (printflag > 0)
 		{
-		  if (printflag > 0)
-            {
-              if (ellcc)
-                fprintf (outfile, "\\n\\");
-              putc ('\n', outfile);
-            }
-		  else if (printflag < 0)
-		    *p++ = '\n';
+		  if (ellcc)
+		    fprintf (outfile, "\\n\\");
+		  putc ('\n', outfile);
 		}
+	      else if (printflag < 0)
+		*p++ = '\n';
 	    }
 
 	  if (c == '\\')
 	    {
-	      c = getc (infile);
+	      MDGET;
 	      if (c == '\n')
 		{
-		  c = getc (infile);
+		  MDGET;
 		  start = 1;
 		  continue;
 		}
@@ -358,32 +369,36 @@ read_c_string (FILE *infile, int printflag, int c_docstring)
 	  else
 	    {
 	      start = 0;
-	      if (printflag > 0) {
-                if (ellcc && c == '"')
-                  putc ('\\', outfile);
-		putc (c, outfile);
-              }
+	      if (printflag > 0)
+		{
+		  if (ellcc && c == '"')
+		    putc ('\\', outfile);
+		  putc (c, outfile);
+		}
 	      else if (printflag < 0)
 		*p++ = c;
 	    }
-	  c = getc (infile);
+	  MDGET;
 	}
       /* look for continuation of string */
       if (Current_file_type == c_file)
 	{
-	  while (isspace (c = getc (infile)))
-	    ;
+	  do
+	    {
+	      MDGET;
+	    }
+	  while (isspace (c));
 	  if (c != '"')
 	    break;
 	}
       else
 	{
-	  c = getc (infile);
+	  MDGET;
 	  if (c != '"')
 	    break;
 	  /* If we had a "", concatenate the two strings.  */
 	}
-      c = getc (infile);
+      MDGET;
     }
 
   if (printflag < 0)
