@@ -1275,7 +1275,9 @@ mark_char_table (Lisp_Object obj)
 
   mark_object (ct->table);
   mark_object (ct->name);
+#ifndef CHISE
   mark_object (ct->db);
+#endif
 #else
   int i;
 
@@ -1605,7 +1607,9 @@ static const struct lrecord_description char_table_description[] = {
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, table) },
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, default_value) },
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, name) },
+#ifndef CHISE
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, db) },
+#endif
 #else
   { XD_LISP_OBJECT_ARRAY, offsetof (Lisp_Char_Table, ascii), NUM_ASCII_CHARS },
 #ifdef MULE
@@ -1807,7 +1811,9 @@ and 'syntax.  See `valid-char-table-type-p'.
     ct->mirror_table = Qnil;
 #else
   ct->name = Qnil;
+#ifndef CHISE
   ct->db = Qnil;
+#endif
 #endif
   ct->next_table = Qnil;
   XSETCHAR_TABLE (obj, ct);
@@ -1882,7 +1888,9 @@ as CHAR-TABLE.  The values will not themselves be copied.
   ctnew->default_value = ct->default_value;
   /* [tomo:2002-01-21] Perhaps this code seems wrong */
   ctnew->name = ct->name;
+#ifndef CHISE
   ctnew->db = ct->db;
+#endif
 
   if (UINT8_BYTE_TABLE_P (ct->table))
     {
@@ -3435,7 +3443,9 @@ Mount database file on char-attribute-table ATTRIBUTE.
       ct = XCHAR_TABLE (table);
       ct->table = Qunloaded;
       XCHAR_TABLE_UNLOADED(table) = 1;
+#ifndef CHISE
       ct->db = Qnil;
+#endif
       return Qt;
     }
 #endif
@@ -3457,12 +3467,14 @@ Close database of ATTRIBUTE.
   else
     return Qnil;
 
+#ifndef CHISE
   if (!NILP (ct->db))
     {
       if (!NILP (Fdatabase_live_p (ct->db)))
 	Fclose_database (ct->db);
       ct->db = Qnil;
     }
+#endif
 #endif
   return Qnil;
 }
@@ -3489,9 +3501,11 @@ Reset values of ATTRIBUTE with database file.
 	}
       ct = XCHAR_TABLE (table);
       ct->table = Qunloaded;
+#ifndef CHISE
       if (!NILP (Fdatabase_live_p (ct->db)))
 	Fclose_database (ct->db);
       ct->db = Qnil;
+#endif
       XCHAR_TABLE_UNLOADED(table) = 1;
       return Qt;
     }
@@ -3517,11 +3531,13 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
       CHISE_Value value;
       Lisp_Object val;
 
+#ifndef CHISE
       if (!NILP (cit->db) && NILP (Fdatabase_live_p (cit->db)))
 	{
 	  Fclose_database (cit->db);
 	  cit->db = Qnil;
 	}
+#endif
 
       if (NILP (db_dir))
 	db_dir = build_string ("../lib-src");
@@ -3645,8 +3661,9 @@ Load values of ATTRIBUTE into database file.
   if (CHAR_TABLEP (table))
     {
 #ifdef CHISE
+#ifndef CHISE
       Lisp_Char_Table *cit = XCHAR_TABLE (table);
-
+#endif
       Lisp_Object db_dir = Vexec_directory;
       CHISE_DS ds;
       CHISE_Feature_Table *ft_feature;
@@ -3655,11 +3672,13 @@ Load values of ATTRIBUTE into database file.
       DBTYPE real_subtype;
       int status;
 
+#ifndef CHISE
       if (!NILP (cit->db) && NILP (Fdatabase_live_p (cit->db)))
 	{
 	  Fclose_database (cit->db);
 	  cit->db = Qnil;
 	}
+#endif
 
       if (NILP (db_dir))
 	db_dir = build_string ("../lib-src");
