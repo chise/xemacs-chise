@@ -93,7 +93,7 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (=jis-x0213-1-2000	. #x2921)	; ø»¢ž¬
-    (chinese-big5	. #xA3E1)	; ý¢€Š¡
+    (=big5		. #xA3E1)	; ý¢€Š¡
     (=ucs		. #x20AC)	; â‚¬
     ))
 (define-char

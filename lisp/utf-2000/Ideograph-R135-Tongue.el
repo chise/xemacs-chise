@@ -9,7 +9,7 @@
     (=ks-x1001		. #x605F)	; ø»‰·¬
     (=iso-ir165		. #x4960)	; ø»ªƒ
     (=gt-pj-1		. #x4065)	; èˆŒ
-    (chinese-big5	. #xA6DE)	; ý¢€Š›ž
+    (=big5		. #xA6DE)	; ý¢€Š›ž
     (ideograph-daikanwa . 30277)	; ø¸‡™…
     (=gt-k		. 01652)	; ý¡„€™´
     (=ucs		. #x820C)	; èˆŒ
@@ -49,7 +49,7 @@
     (=iso-ir165		. #x4961)	; ø»ª„
     (chinese-cns11643-1 . #x4F3C)	; ø»’†›
     (=gt-pj-1		. #x6752)	; èˆ
-    (chinese-big5	. #xAAD9)	; ý¢€Š«™
+    (=big5		. #xAAD9)	; ý¢€Š«™
     (ideograph-daikanwa . 30278)	; ø¸‡™†
     (=gt-k		. 03908)	; ý¡„€½„
     (=ucs		. #x820D)	; èˆ
@@ -143,7 +143,7 @@
     (chinese-gb2312	. #x7342)	; ø»…¿
     (=jis-x0208		. #x6753)	; ø½‹¢
     (=iso-ir165		. #x7342)	; ø»Ž§‘
-    (chinese-big5	. #xAFE7)	; ý¢€Š¿§
+    (=big5		. #xAFE7)	; ý¢€Š¿§
     (ideograph-daikanwa . 30283)	; ø¸‡™‹
     (=ucs		. #x8210)	; èˆ
     ))
@@ -300,7 +300,7 @@
     (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (chinese-big5	. #xD752)	; ý¢€’
+    (=big5		. #xD752)	; ý¢€’
     (ideograph-daikanwa . 30295)	; ø¸‡™—
     ))
 (define-char
@@ -403,7 +403,7 @@
     (=iso-ir165		. #x4A66)	; ø»«§
     (chinese-cns11643-1 . #x6154)	; ø»’¡
     (=gt-pj-1		. #x5030)	; èˆ’
-    (chinese-big5	. #xB5CE)	; ý¢€‹—Ž
+    (=big5		. #xB5CE)	; ý¢€‹—Ž
     (ideograph-daikanwa . 30300)	; ø¸‡™œ
     (=gt-k		. 09164)	; ý¡„‚Œ
     (=ucs		. #x8212)	; èˆ’
@@ -540,7 +540,7 @@
       ))
     (chinese-gb2312	. #x4C72)	; ø»…†Ÿ
     (=iso-ir165		. #x4C72)	; ø»®¯
-    (chinese-big5	. #xBB51)	; ý¢€‹­‘
+    (=big5		. #xBB51)	; ý¢€‹­‘
     (=ucs		. #x8214)	; èˆ”
     ))
 (define-char
@@ -581,7 +581,7 @@
       )
      ((=ucs		  . #x708E)	; ç‚Ž
       ))
-    (chinese-big5	. #xE3AB)	; ý¢€ŽŽ«
+    (=big5		. #xE3AB)	; ý¢€ŽŽ«
     (ideograph-daikanwa . 30314)	; ø¸‡™ª
     (=ucs		. #x8215)	; èˆ•
     ))
@@ -716,7 +716,7 @@
     (=jis-x0208		. #x6754)	; ø½‹£
     (=iso-ir165		. #x2F76)	; ø»„
     (chinese-cns11643-2 . #x532E)	; ø»”–‰
-    (chinese-big5	. #xE745)	; ý¢€Ž…
+    (=big5		. #xE745)	; ý¢€Ž…
     (ideograph-daikanwa . 30323)	; ø¸‡™³
     (=ucs		. #x8216)	; èˆ–
     ))

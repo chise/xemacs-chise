@@ -46,7 +46,7 @@
     (=jis-x0208		. #x217A)	; ø½‰·•
     (=ks-x1001		. #x215A)	; ø»ˆ›…
     (chinese-cns11643-1 . #x2178)	; ø»‘ƒ³
-    (chinese-big5	. #xA1B9)	; ý¢€Š†¹
+    (=big5		. #xA1B9)	; ý¢€Š†¹
     (=ucs		. #x2605)	; â˜…
     ))
 (define-char
@@ -58,7 +58,7 @@
     (=jis-x0208		. #x2179)	; ø½‰·”
     (=ks-x1001		. #x2159)	; ø»ˆ›„
     (chinese-cns11643-1 . #x2177)	; ø»‘ƒ²
-    (chinese-big5	. #xA1B8)	; ý¢€Š†¸
+    (=big5		. #xA1B8)	; ý¢€Š†¸
     (=ucs		. #x2606)	; â˜†
     ))
 (define-char
@@ -451,7 +451,7 @@
     (=jis-x0208		. #x216A)	; ø½‰·…
     (=ks-x1001		. #x214F)	; ø»ˆšº
     (chinese-cns11643-1 . #x2251)	; ø»‘„ª
-    (chinese-big5	. #xA1F0)	; ý¢€Š‡°
+    (=big5		. #xA1F0)	; ý¢€Š‡°
     (=ucs		. #x2640)	; â™€
     ))
 (define-char
@@ -470,7 +470,7 @@
     (=jis-x0208		. #x2169)	; ø½‰·„
     (=ks-x1001		. #x214E)	; ø»ˆš¹
     (chinese-cns11643-1 . #x2252)	; ø»‘„«
-    (chinese-big5	. #xA1F1)	; ý¢€Š‡±
+    (=big5		. #xA1F1)	; ý¢€Š‡±
     (=ucs		. #x2642)	; â™‚
     ))
 (define-char

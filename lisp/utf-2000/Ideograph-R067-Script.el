@@ -4,7 +4,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ks-x1001		. #x597E)	; ø»‰­¹
-    (chinese-big5	. #xA4E5)	; ý¢€Š“¥
+    (=big5		. #xA4E5)	; ý¢€Š“¥
     (ideograph-daikanwa . 13450)	; ø¸ƒ’Š
     (=jef-china3	. #x50D6)	; øº…ƒ–
     ))
@@ -347,7 +347,7 @@
     (=jis-x0208		. #x494C)	; ø½Š±—
     (=ks-x1001		. #x5E30)	; ø»‰´
     (=gt-pj-1		. #x494C)	; ø½Š±—
-    (chinese-big5	. #xD979)	; ý¢€¥¹
+    (=big5		. #xD979)	; ý¢€¥¹
     (ideograph-daikanwa . 13468)	; ø¸ƒ’œ
     (=gt-k		. 09135)	; ý¡„‚Ž¯
     (=ucs@jis		. #x658C)	; ø½Š±—
@@ -390,7 +390,7 @@
     (shinjigen-2	. 3207)
     (=jis-x0208-1990	. #x4865)	; ø½Š°’
     (=gt-pj-1		. #x4865)	; ø½Š°’
-    (chinese-big5	. #xB4B4)	; ý¢€‹’´
+    (=big5		. #xB4B4)	; ý¢€‹’´
     (=gt-k		. 09130)	; ý¡„‚Žª
     (=ucs@jis		. #x6590)	; ø½Š°’
     ))
@@ -420,7 +420,7 @@
     (=jis-x0208		. #x4843)	; ø½Š¯°
     (=ks-x1001		. #x5A68)	; ø»‰¯
     (=gt-pj-1		. #x4843)	; ø½Š¯°
-    (chinese-big5	. #xB4B3)	; ý¢€‹’³
+    (=big5		. #xB4B3)	; ý¢€‹’³
     (ideograph-daikanwa . 13470)	; ø¸ƒ’ž
     (=gt-k		. 09126)	; ý¡„‚Ž¦
     (=ucs@jis		. #x6591)	; ø½Š¯°
@@ -441,7 +441,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=jis-x0212		. #x4159)	; ø»‹”ˆ
-    (chinese-big5	. #xDDBD)	; ý¢€¶½
+    (=big5		. #xDDBD)	; ý¢€¶½
     (ideograph-daikanwa . 13471)	; ø¸ƒ’Ÿ
     (=ucs@jis		. #x6592)	; ø»‹”ˆ
     ))
@@ -627,7 +627,7 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
-    (chinese-big5	. #xEFD8)	; ý¢€Ž¿˜
+    (=big5		. #xEFD8)	; ý¢€Ž¿˜
     (ideograph-daikanwa . 13484)	; ø¸ƒ’¬
     ))
 (define-char
@@ -659,7 +659,7 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 21)
     (=jis-x0212		. #x415A)	; ø»‹”‰
-    (chinese-big5	. #xC4E3)	; ý¢€Œ“£
+    (=big5		. #xC4E3)	; ý¢€Œ“£
     (=ucs@jis		. #x6595)	; ø»‹”‰
     ))
 (define-char
@@ -692,7 +692,7 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 19)
     (total-strokes	 . 23)
-    (chinese-big5	. #xF7DE)	; ý¢€Ÿž
+    (=big5		. #xF7DE)	; ý¢€Ÿž
     ))
 (define-char
   '((morohashi-daikanwa	13487 0 9)
@@ -700,7 +700,7 @@
     (ideographic-strokes . 19)
     (total-strokes	 . 23)
     (chinese-cns11643-2 . #x6F2D)	; ø»”¿
-    (chinese-big5	. #xF7DE)	; ý¢€Ÿž
+    (=big5		. #xF7DE)	; ý¢€Ÿž
     (=ucs		. #x6596)	; æ––
     ))
 (define-char

@@ -6,7 +6,7 @@
     (=iso-ir165		. #x6578)	; ø»Ž“£
     (chinese-cns11643-2 . #x212B)	; ø»“Œª
     (=jis-x0213-1-2000	. #x4F62)	; ø»£—¡
-    (chinese-big5	. #xC94B)	; ý¢€Œ¥‹
+    (=big5		. #xC94B)	; ý¢€Œ¥‹
     (ideograph-daikanwa . 07825)	; ø¸º‘
     (=ucs@jis		. #xFA3C)	; å±®
     (=ucs		. #x5C6E)	; å±®
@@ -67,7 +67,7 @@
     (chinese-gb2312	. #x4D4D)	; ø»…‡˜
     (=iso-ir165		. #x4D4D)	; ø»¯¨
     (chinese-cns11643-1 . #x453A)	; ø»‘·­
-    (chinese-big5	. #xA4D9)	; ý¢€Š“™
+    (=big5		. #xA4D9)	; ý¢€Š“™
     (=ucs		. #x5C6F)	; å±¯
     ))
 (define-char

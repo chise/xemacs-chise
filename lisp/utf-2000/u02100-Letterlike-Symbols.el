@@ -32,7 +32,7 @@
     (=jis-x0208		. #x216E)	; ø½‰·‰
     (=ks-x1001		. #x2149)	; ø»ˆš´
     (chinese-cns11643-1 . #x226A)	; ø»‘…ƒ
-    (chinese-big5	. #xA24A)	; ý¢€Š‰Š
+    (=big5		. #xA24A)	; ý¢€Š‰Š
     (=ucs		. #x2103)	; â„ƒ
     ))
 (define-char
@@ -49,7 +49,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0063 #x002F #x006F)
     (chinese-cns11643-1 . #x2222)	; ø»‘ƒ»
-    (chinese-big5	. #xA1C1)	; ý¢€Š‡
+    (=big5		. #xA1C1)	; ý¢€Š‡
     (=ucs		. #x2105)	; â„…
     ))
 (define-char
@@ -83,7 +83,7 @@
     (->decomposition	compat #x00B0 #x0046)
     (=ks-x1001		. #x2235)	; ø»ˆ›¾
     (chinese-cns11643-1 . #x226B)	; ø»‘…„
-    (chinese-big5	. #xA24B)	; ý¢€Š‰‹
+    (=big5		. #xA24B)	; ý¢€Š‰‹
     (=ucs		. #x2109)	; â„‰
     ))
 (define-char

@@ -3456,7 +3456,7 @@
      ((=ucs		  . #x5202)	; åˆ‚
       ))
     (chinese-cns11643-2 . #x4C61)	; ø»”Œª
-    (chinese-big5	. #xE35A)	; ý¢€Žš
+    (=big5		. #xE35A)	; ý¢€Žš
     ))
 (define-char
   '((ideographic-radical . 118)	; â½µ
