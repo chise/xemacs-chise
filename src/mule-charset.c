@@ -226,9 +226,7 @@ put_char_ccs_code_point (Lisp_Object character,
       || (XCHAR (character) != XINT (value)))
     {
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
-      int dim = XCHARSET_DIMENSION (ccs);
       int ccs_len = XCHARSET_BYTE_SIZE (ccs);
-      int byte_offset = XCHARSET_BYTE_OFFSET (ccs);
       int code_point;
 
       if (CONSP (value))
@@ -278,7 +276,7 @@ put_char_ccs_code_point (Lisp_Object character,
 	  Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
 	  if (INTP (cpos))
 	    {
-	      decoding_table_remove_char (v, dim, byte_offset, XINT (cpos));
+	      decoding_table_remove_char (ccs, XINT (cpos));
 	    }
 	}
       else
@@ -287,7 +285,7 @@ put_char_ccs_code_point (Lisp_Object character,
 	    = v = make_vector (ccs_len, Qnil);
 	}
 
-      decoding_table_put_char (v, dim, byte_offset, code_point, character);
+      decoding_table_put_char (ccs, code_point, character);
     }
   return value;
 }
@@ -304,10 +302,7 @@ remove_char_ccs (Lisp_Object character, Lisp_Object ccs)
 
       if (!NILP (cpos))
 	{
-	  decoding_table_remove_char (decoding_table,
-				      XCHARSET_DIMENSION (ccs),
-				      XCHARSET_BYTE_OFFSET (ccs),
-				      XINT (cpos));
+	  decoding_table_remove_char (ccs, XINT (cpos));
 	}
     }
   if (CHAR_TABLEP (encoding_table))
