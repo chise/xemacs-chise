@@ -975,6 +975,7 @@
     (chinese-big5-cdp	. #x8C49)	; ý¢€ˆ±‰
     (china3-jef		. #x73FC)	; øº‡¼
     (mojikyo		. 058536)	; ý €Ž’¨
+    (ucs		. #x2099D)	; ð ¦
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
