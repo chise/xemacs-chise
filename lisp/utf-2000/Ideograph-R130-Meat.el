@@ -39,7 +39,9 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=gt-pj-k1		. #x377D)	; ý¢€ˆ¥˜
     (=big5-cdp		. #x8958)	; ý¢€ˆ¥˜
+    (=gt-k		. 00417)	; ý¡„€†¡
     ))
 (define-char
   '((ideographic-radical . 130)	; â¾
