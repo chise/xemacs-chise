@@ -178,7 +178,7 @@
     (ucs			. #x9B2A)	; 鬪
     ))
 (define-char
-  '((->ucs		. #x95D8)	; 闘
+  '((=>ucs		. #x95D8)	; 闘
     (morohashi-daikanwa	45649 1)
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 10)
