@@ -3550,7 +3550,13 @@ detect_coding_big5 (struct detection_state *st, const Extbyte *src, size_t n)
 	  if (c < 0x40 || (c >= 0x80 && c <= 0xA0))
 	    return 0;
 	}
-      else if (c >= 0xA1)
+      else if (
+#ifdef UTF2000
+	       c >= 0x81
+#else
+	       c >= 0xA1
+#endif
+	       )
 	st->big5.in_second_byte = 1;
     }
   return CODING_CATEGORY_BIG5_MASK;
