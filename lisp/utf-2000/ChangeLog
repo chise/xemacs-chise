@@ -1,5 +1,10 @@
 2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R013-Down-Box.el (U+5188): Unify BE-C8A2 instead of
+	B-C8A2; unify BC-85BE.
+
+2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* char-db-util.el (char-attribute-name<): Modify for new
 	charset-id allocation method for private coded-charsets.
 
