@@ -1,3 +1,52 @@
+2003-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (U+36A8): Separate C3-2349.
+	(C3-2349): Unify M083506.
+	(U+5986): Unify M054753.
+	(U+59D7): Separate C3-2846.
+	(C3-2846): Unify M053432.
+	(U+59EB): Separate C3-2C23; delete `daikanwa-radical' and
+	`daikanwa-strokes'.
+	(M-06230): Separate G0-3C27, C1-5478, B-AE56 and U+59EC; delete
+	`kangxi-strokes'.
+	(C6-364C): Unify U-0002F862; relate to M-06230.
+	(C1-5478): Unify M053433.
+	(U+59ED): Separate C2-2977.
+	(U+36CA): Separate C4-2867.
+	(U+5A31): Separate C3-304B.
+	(053766): New character.
+	(U+5A32): Don't use `non-morohashi'.
+	(U+5A33): Separate C2-2E66.
+	(C2-2E66): Unify M059421.
+	(U-00021793): Separate C6-3E4B.
+	(M-06456): Separate U+5A72.
+	(U+5A73): Delete `kangxi-strokes'; separate C3-3537.
+	(C3-3537): Unify M052259.
+	(U+5AAB): Separate C3-3A78.
+	(C3-3A78): Unify M059449.
+	(U+5AAC): Separate C2-3B23.
+	(M050008): New character.
+	(U+5AAD): Delete `kangxi-strokes'.
+	(U+5AAE): Separate C2-3B25 and B-D8C1.
+	(M053055): New character.
+	(M085321): New character.
+	(U+3715): Separate C3-464B; modify strokes.
+	(M083523): New character.
+	(U+5AF3): Separate C2-495A and B-E173.
+	(U+5AAF): Relate to M-06720; separate C2-3A77.
+	(C2-3A77): Unify M053429.
+	(U+5B01): Separate C2-5026.
+	(M-06722): Separate C2-5024 and U+5B02.
+	(U+5B03): Separate C2-5022.
+	(U+5A75): Separate C3-3535.
+	(C3-3535): Unify M052260.
+	(U+3728): Separate C3-4B55.
+	(M083525): New character.
+	(M085489): New character.
+	(M-06808): Separate C2-5C5D and U+5B23.
+	(U+5B37): Separate C3-5453.
+	(M059475): New character.
+
 2003-05-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R142-Insect.el (M-33508): Separate C2-5F34 and U+87B7.
