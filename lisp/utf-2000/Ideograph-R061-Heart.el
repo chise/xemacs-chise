@@ -15367,7 +15367,7 @@
 (define-char
   '((=>ucs*		. #x61F2)	; æ‡²
     (=>ucs@gb		. #x61F2)	; æ‡²
-    (=>ucs-cns		. #x61F2)	; ø»“‚¡
+    (=>ucs@cns		. #x61F2)	; ø»“‚¡
     (=>ucs-ks		. #x61F2)	; ø»Š’«
     (morohashi-daikanwa	11424 0 1)
     (ideographic-radical . 61)	; â¼¼

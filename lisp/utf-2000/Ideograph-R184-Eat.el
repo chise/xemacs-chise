@@ -3775,7 +3775,7 @@
     ))
 (define-char
   '((=>ucs		. #x9929)	; 餩
-    (=>ucs-cns		. #x2FA04)	; 餩
+    (=>ucs@cns		. #x2FA04)	; 餩
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 8)
     (total-strokes	 . 17)
@@ -3791,7 +3791,7 @@
     (=ucs		. #x2FA04)	; 餩
     ))
 (define-char
-  '((=>ucs-cns		. #x2FA04)	; 餩
+  '((=>ucs@cns		. #x2FA04)	; 餩
     (morohashi-daikanwa	44239 0 1)
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 8)

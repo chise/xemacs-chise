@@ -4754,7 +4754,7 @@
     (=ucs@cns		. #x5D43)	; ø»“³‰
     ))
 (define-char
-  '((=>ucs-cns		. #x2F87C)	; ð¯¡¼
+  '((=>ucs@cns		. #x2F87C)	; ð¯¡¼
     (morohashi-daikanwa	8268 0 1)
     (ideographic-radical . 46)	; â¼­
     (ideographic-strokes . 9)

@@ -12578,7 +12578,7 @@
     (=ucs@cns		. #x5B3E)	; ø»”°¾
     ))
 (define-char
-  '((=>ucs-cns		. #x2F86A)	; ð¯¡ª
+  '((=>ucs@cns		. #x2F86A)	; ð¯¡ª
     (morohashi-daikanwa	6872 0 3)
     (ideographic-radical . 38)	; â¼¥
     (ideographic-strokes . 16)

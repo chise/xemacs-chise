@@ -508,7 +508,7 @@
     (=ucs		. #x4594)	; 䖔
     ))
 (define-char
-  '((=>ucs-cns		. #x2F9B4)	; 虜
+  '((=>ucs@cns		. #x2F9B4)	; 虜
     (morohashi-daikanwa	32720 1)
     (ideographic-radical . 141)	; ⾌
     (ideographic-strokes . 7)

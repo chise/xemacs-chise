@@ -6360,7 +6360,7 @@
     ))
 (define-char
   '((=>ucs		. #x6D41)	; 流
-    (=>ucs-cns		. #x2F902)	; 流
+    (=>ucs@cns		. #x2F902)	; 流
     (morohashi-daikanwa	17572 1)
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 7)
@@ -20216,7 +20216,7 @@
     ))
 (define-char
   '((=>ucs		. #x701E)	; 瀞
-    (=>ucs-cns		. #x2F914)	; 瀞
+    (=>ucs@cns		. #x2F914)	; 瀞
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
@@ -20228,7 +20228,7 @@
     (=jef-china3	. #x57B6)	; �����
     ))
 (define-char
-  '((=>ucs-cns		. #x2F914)	; 瀞
+  '((=>ucs@cns		. #x2F914)	; 瀞
     (morohashi-daikanwa	18520 0 5)
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 14)

@@ -4610,7 +4610,7 @@
     (=ucs		. #x2FA0E)	; 䳭
     ))
 (define-char
-  '((=>ucs-cns		. #x2FA0E)	; 䳭
+  '((=>ucs@cns		. #x2FA0E)	; 䳭
     (morohashi-daikanwa	47115 0 5)
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 9)

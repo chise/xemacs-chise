@@ -3175,7 +3175,7 @@
     (=ucs		. #x2F949)	; 䀹
     ))
 (define-char
-  '((=>ucs-cns		. #x2F949)	; 䀹
+  '((=>ucs@cns		. #x2F949)	; 䀹
     (morohashi-daikanwa	23381 0 0)
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 7)

@@ -9456,7 +9456,7 @@
 (define-char
   '((=>ucs*		. #x7DF4)	; 練
     (=>ucs@gb		. #x7DF4)	; 練
-    (=>ucs-cns		. #x7DF4)	; 練
+    (=>ucs@cns		. #x7DF4)	; 練
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 9)
     (total-strokes	 . 15)

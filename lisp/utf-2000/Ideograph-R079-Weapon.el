@@ -236,7 +236,7 @@
     ))
 (define-char
   '((=>ucs		. #x6BBA)	; 殺
-    (=>ucs-cns		. #x2F8F5)	; 殺
+    (=>ucs@cns		. #x2F8F5)	; 殺
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
@@ -265,7 +265,7 @@
     (=ucs		. #x2F8F5)	; 殺
     ))
 (define-char
-  '((=>ucs-cns		. #x2F8F5)	; 殺
+  '((=>ucs@cns		. #x2F8F5)	; 殺
     (morohashi-daikanwa	16629 0 3)
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)

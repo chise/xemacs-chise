@@ -334,7 +334,7 @@
 (define-char
   '((=>ucs*		. #x7A81)	; çª
     (=>ucs@gb		. #x7A81)	; çª
-    (=>ucs-cns		. #x7A81)	; ø»’‹¬
+    (=>ucs@cns		. #x7A81)	; ø»’‹¬
     (ideographic-radical . 116)	; â½³
     (ideographic-strokes . 4)
     (total-strokes	 . 9)

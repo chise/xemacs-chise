@@ -3427,7 +3427,7 @@
     (=ucs		. #x2F83C)	; 咞
     ))
 (define-char
-  '((=>ucs-cns		. #x2F83C)	; 咞
+  '((=>ucs@cns		. #x2F83C)	; 咞
     (morohashi-daikanwa	3385 0 0)
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 4)
@@ -3730,7 +3730,7 @@
     (=ucs		. #x2F83E)	; 呈
     ))
 (define-char
-  '((=>ucs-cns		. #x2F83E)	; 呈
+  '((=>ucs@cns		. #x2F83E)	; 呈
     (morohashi-daikanwa	3401 0 0)
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 4)
@@ -13169,7 +13169,7 @@
     (=ucs		. #x2F843)	; 啓
     ))
 (define-char
-  '((=>ucs-cns		. #x2F843)	; 啓
+  '((=>ucs@cns		. #x2F843)	; 啓
     (morohashi-daikanwa	3820 0 5)
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 8)

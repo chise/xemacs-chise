@@ -4437,7 +4437,7 @@
     ))
 (define-char
   '((=>ucs		. #x7471)	; 瑱
-    (=>ucs-cns		. #x2F930)	; 瑱
+    (=>ucs@cns		. #x2F930)	; 瑱
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
