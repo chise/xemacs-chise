@@ -1,3 +1,10 @@
+2002-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el,
+	u0AC00-Hangul-Syllables.el, u01E00-Latin-Extended-Additional.el,
+	u00180-Latin-Extended-B.el, u00100-Latin-Extended-A.el: Add some
+	missing mappings to CHINA3-JEF code points.
+
 2002-10-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R132-Self.el, Ideograph-R111-Arrow.el,
