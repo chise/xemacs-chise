@@ -1,3 +1,66 @@
+1999-09-03  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mb-utf-8.h (MULTIBYTE): New macro.
+	(MAX_EMCHAR_LEN): Moved from buffer.h.
+	(REP_BYTES_BY_FIRST_BYTE): Moved from char-ucs.h.
+
+	* char-ucs.h (REP_BYTES_BY_FIRST_BYTE): Moved to mb-utf-8.h.
+
+	* mb-lb.h, multibyte.h: New files.
+
+	* char-1byte.h (Charset_ID): Moved from buffer.h.
+	(MIN_LEADING_BYTE): Likewise.
+	(LEADING_BYTE_ASCII): Likewise.
+	(NUM_LEADING_BYTES): Likewise.
+	(CHARSETP): Likewise.
+	(CHARSET_BY_LEADING_BYTE): Likewise.
+	(XCHARSET_LEADING_BYTE): Likewise.
+	(XCHARSET_GRAPHIC): Likewise.
+	(XCHARSET_COLUMNS): Likewise.
+	(XCHARSET_DIMENSION): Likewise.
+	(CHAR_CHARSET): Likewise.
+	(CHAR_LEADING_BYTE): Likewise.
+	(BREAKUP_CHAR): Likewise.
+	(Vcharset_ascii): Likewise.
+
+	* buffer.h: Include multibyte.h unconditionally.
+	(VALID_CHARPTR_P): Moved to multibyte.h.
+	(ASSERT_VALID_CHARPTR): Likewise.
+	(REAL_INC_CHARPTR): Likewise.
+	(REAL_INC_CHARBYTIND): Likewise.
+	(REAL_DEC_CHARPTR): Likewise.
+	(INC_CHARPTR): Likewise.
+	(INC_CHARBYTIND): Likewise.
+	(DEC_CHARPTR): Likewise.
+	(VALIDATE_CHARPTR_BACKWARD): Likewise.
+	(VALIDATE_CHARPTR_FORWARD): Likewise.
+	(charptr_n_addr): Likewise.
+	(MAX_EMCHAR_LEN): Moved to mb-*.h.
+	(simple_charptr_emchar): Moved to multibyte.h.
+	(simple_set_charptr_emchar): Likewise.
+	(simple_charptr_copy_char): Likewise.
+	(non_ascii_charptr_emchar): Likewise.
+	(non_ascii_set_charptr_emchar): Likewise.
+	(non_ascii_charptr_copy_char): Likewise.
+	(charptr_emchar): Likewise.
+	(set_charptr_emchar): Likewise.
+	(charptr_copy_char): Likewise.
+	(charptr_emchar_n): Likewise.
+	(Charset_ID): Moved to char-1byte.h.
+	(Vcharset_ascii): Likewise.
+	(CHAR_CHARSET): Likewise.
+	(CHAR_LEADING_BYTE): Likewise.
+	(LEADING_BYTE_ASCII): Likewise.
+	(NUM_LEADING_BYTES): Likewise.
+	(MIN_LEADING_BYTE): Likewise.
+	(CHARSETP): Likewise.
+	(CHARSET_BY_LEADING_BYTE): Likewise.
+	(XCHARSET_LEADING_BYTE): Likewise.
+	(XCHARSET_GRAPHIC): Likewise.
+	(XCHARSET_COLUMNS): Likewise.
+	(XCHARSET_DIMENSION): Likewise.
+	(BREAKUP_CHAR): Likewise.
+
 1999-09-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* character.h: Add document about interface for characters.
