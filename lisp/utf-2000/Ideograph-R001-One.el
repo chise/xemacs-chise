@@ -405,6 +405,11 @@
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (->synonyms
+     (:sources	(morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 30212)	; ø¸‡˜„
+		 )
+      ))
     (ideograph-cdp	. 17)
     (ideographic-structure
      (:cdp-combinator	3
@@ -616,6 +621,7 @@
       ))
     (chinese-cns11643-2 . #x212E)	; ø»“Œ­
     (chinese-big5	. #xC94E)	; øº¡¥’
+    (mojikyo		. 053001)	; ý €Œ¼‰
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
@@ -720,6 +726,7 @@
     (japanese-jisx0208-1990	. #x5242)	; ø½Š¾›
     (ideograph-gt-pj-1		. #x5242)	; ý¡€€€°
     (ideograph-gt		. 00048)	; ý¡€€€°
+    (mojikyo			. 054512)	; ý €“°
     (ucs			. #x4E17)	; ä¸—
     ))
 (define-char
@@ -728,6 +735,7 @@
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (->mojikyo		. 054512)	; ä¸—
     (chinese-cns11643-4 . #x2155)	; ø»—¡œ
     ))
 (define-char
