@@ -1,5 +1,20 @@
 2001-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R198-Deer.el (M-47690): Use `->synonyms' instead of
+	`->synonymous'.
+
+	* Ideograph-R113-Spirit.el, Ideograph-R102-Field.el,
+	Ideograph-R098-Tile.el: Merge missing JIS X 0208:1990 and JIS X
+	0212 code points.
+
+	* Ideograph-R093-Cow.el (M-19923): Separate U+725C.
+	(U+725C): Unify JSP-4A58.
+
+	* Ideograph-R085-Water.el, Ideograph-R075-Tree.el: Merge missing
+	JIS X 0208:1990 and JIS X 0212 code points.
+
+2001-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* char-db-util.el (insert-char-attributes): Use `<-bopomofo'
 	instead of `->ideograph'.
 
