@@ -27,16 +27,27 @@
 	(ccl-dump-ex-cmd, ccl-dump-read-multibyte-character,
 	ccl-dump-write-multibyte-character): New functions.
 
+1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* files.el (insert-file-contents-literally): Treat file as binary;
+	call file-name-handlers. [sync with Emacs 20.3.10]
+
+1999-06-23  SL Baur  <steve@miho.m17n.org>
+
+	* mule/mule-category.el (Top Level): ASCII is also latin-1.
+
+1999-06-15  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* packages.el (package-locations): Changed default early package
+	hierarchy to ~/.xemacs/packages.
+	(package-locations): Removed `packages' as a possible name for a
+	late package hierarchy.
+
 1999-06-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/mule-category.el (word-combining-categories): Set up new
 	variable.
 	(word-separating-categories): Likewise.
-
-1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* files.el (insert-file-contents-literally): Treat file as binary;
-	call file-name-handlers. [sync with Emacs 20.3.10]
 
 1999-06-22  XEmacs Build Bot <builds@cvs.xemacs.org>
 

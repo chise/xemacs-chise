@@ -24,6 +24,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+#include <stddef.h>
 #include "bytecode.h"
 #include "elhash.h"
 
@@ -364,11 +365,28 @@ finalize_hash_table (void *header, int for_disksave)
     }
 }
 
+static const struct lrecord_description hentry_description_1[] = {
+  { XD_LISP_OBJECT, offsetof(hentry, key), 2 },
+  { XD_END }
+};
+
+static const struct struct_description hentry_description = {
+  sizeof(hentry),
+  hentry_description_1
+};
+
+static const struct lrecord_description hash_table_description[] = {
+  { XD_SIZE_T,     offsetof(Lisp_Hash_Table, size) },
+  { XD_STRUCT_PTR, offsetof(Lisp_Hash_Table, hentries), XD_INDIRECT(0), &hentry_description },
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("hash-table", hash_table,
                                mark_hash_table, print_hash_table,
 			       finalize_hash_table,
 			       /* #### Implement hash_table_hash()! */
 			       hash_table_equal, 0,
+			       hash_table_description,
 			       Lisp_Hash_Table);
 
 static Lisp_Hash_Table *

@@ -266,7 +266,7 @@ face_plist (Lisp_Object obj)
 
 DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS ("face", face,
 					  mark_face, print_face, 0, face_equal,
-					  face_hash, face_getprop,
+					  face_hash, 0, face_getprop,
 					  face_putprop, face_remprop,
 					  face_plist, struct Lisp_Face);
 

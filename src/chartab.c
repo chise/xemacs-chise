@@ -37,6 +37,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+#include <stddef.h>
 
 #include "buffer.h"
 #include "chartab.h"
@@ -129,10 +130,16 @@ char_table_entry_hash (Lisp_Object obj, int depth)
   return internal_array_hash (cte->level2, 96, depth);
 }
 
+static const struct lrecord_description char_table_entry_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Table_Entry, level2), 96 },
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("char-table-entry", char_table_entry,
                                mark_char_table_entry, internal_object_printer,
 			       0, char_table_entry_equal,
 			       char_table_entry_hash,
+			       char_table_entry_description,
 			       struct Lisp_Char_Table_Entry);
 #endif /* MULE */
 
@@ -420,9 +427,18 @@ char_table_hash (Lisp_Object obj, int depth)
   return hashval;
 }
 
+static const struct lrecord_description char_table_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Table, ascii), NUM_ASCII_CHARS },
+#ifdef MULE
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Table, level1), NUM_LEADING_BYTES },
+#endif
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("char-table", char_table,
                                mark_char_table, print_char_table, 0,
 			       char_table_equal, char_table_hash,
+			       char_table_description,
 			       struct Lisp_Char_Table);
 
 DEFUN ("char-table-p", Fchar_table_p, 1, 1, 0, /*
@@ -1745,7 +1761,7 @@ word_boundary_p (Emchar c1, Emchar c2)
     c2 = cmpchar_component (c2, 0, 1);
 #endif
 
-  if (CHAR_CHARSET (c1) == CHAR_CHARSET (c2))
+  if (EQ (CHAR_CHARSET (c1), CHAR_CHARSET (c2)))
     {
       tail = Vword_separating_categories;
       default_result = 0;

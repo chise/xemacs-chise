@@ -213,6 +213,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+#include <stddef.h>
 
 #include "buffer.h"
 #include "debug.h"
@@ -927,7 +928,7 @@ mark_extent_auxiliary (Lisp_Object obj, void (*markobj) (Lisp_Object))
 
 DEFINE_LRECORD_IMPLEMENTATION ("extent-auxiliary", extent_auxiliary,
                                mark_extent_auxiliary, internal_object_printer,
-			       0, 0, 0, struct extent_auxiliary);
+			       0, 0, 0, 0, struct extent_auxiliary);
 
 void
 allocate_extent_auxiliary (EXTENT ext)
@@ -1025,7 +1026,7 @@ finalize_extent_info (void *header, int for_disksave)
 
 DEFINE_LRECORD_IMPLEMENTATION ("extent-info", extent_info,
                                mark_extent_info, internal_object_printer,
-			       finalize_extent_info, 0, 0,
+			       finalize_extent_info, 0, 0, 0,
 			       struct extent_info);
 
 static Lisp_Object
@@ -2924,6 +2925,12 @@ static int extent_putprop (Lisp_Object obj, Lisp_Object prop,
 static int extent_remprop (Lisp_Object obj, Lisp_Object prop);
 static Lisp_Object extent_plist (Lisp_Object obj);
 
+static const struct lrecord_description extent_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct extent, object), 2 },
+  { XD_LISP_OBJECT, offsetof(struct extent, plist), 1 },
+  { XD_END }
+};
+
 DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS ("extent", extent,
 						mark_extent,
 						print_extent,
@@ -2933,6 +2940,7 @@ DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS ("extent", extent,
 						   Shaft city. */
 						0,
 						extent_equal, extent_hash,
+						extent_description,
 						extent_getprop, extent_putprop,
 						extent_remprop, extent_plist,
 						struct extent);

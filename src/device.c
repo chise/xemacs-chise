@@ -136,7 +136,7 @@ print_device (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 DEFINE_LRECORD_IMPLEMENTATION ("device", device,
-			       mark_device, print_device, 0, 0, 0,
+			       mark_device, print_device, 0, 0, 0, 0,
 			       struct device);
 
 int

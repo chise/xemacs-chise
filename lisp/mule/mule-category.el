@@ -245,9 +245,11 @@ Each element is a list of a charset, a designator, and maybe a doc string.")
 
 (let (i l)
   (define-category ?a "ASCII character set.")
+  (define-category ?l "Latin-1 through Latin-5 character set")
   (setq i 32)
   (while (< i 127)
     (modify-category-entry i ?a)
+    (modify-category-entry i ?l)
     (setq i (1+ i)))
   (setq l predefined-category-list)
   (while l
