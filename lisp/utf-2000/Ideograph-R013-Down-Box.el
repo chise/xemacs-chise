@@ -91,23 +91,23 @@
 (define-char
   '((ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 2)
-    (kangxi-radical	 . 1)	; â¼€
-    (kangxi-strokes	 . 3)
     (total-strokes	 . 4)
     (chinese-isoir165	. #x7A29)	; ø»Ž±Š
-    (chinese-cns11643-2 . #x212E)	; ø»“Œ­
-    (chinese-big5	. #xC94E)	; øº¡¥’
     (ucs		. #x5187)	; å†‡
     ))
 (define-char
   '((ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (comment		. "= U+7F53?")
-    (daikanwa-radical	. 122)
+    (->same-ideograph
+     ((ideographic-radical . 122)	; â½¹
+      (ideograph-daikanwa . 28201)	; ø¸†¸©
+      (ucs		  . #x7F53)	; ç½“
+      ))
     (chinese-gb2312	. #x3854)	; ø»„¨©
     (chinese-isoir165	. #x3854)	; ø»¹
     (chinese-cns11643-4 . #x2152)	; ø»—¡™
+    (chinese-big5	. #xC8A2)	; øº »«
     (ucs		. #x5188)	; å†ˆ
     ))
 (define-char
