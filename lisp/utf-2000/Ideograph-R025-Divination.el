@@ -18,29 +18,41 @@
     (=daikanwa		. 02774)	; &I-M-02774;
     ))
 (define-char
-  '((=>ucs		. #x535C)	; 卜
-    (morohashi-daikanwa	2774 0 0)
+  '((=>daikanwa		. 02774)	; 卜
     (ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (<-denotational
+     ((=ucs		  . #x535C)	; 卜
+      ))
     (=gt-k		. 00061)	; &GT-K00061;
     (=gt-pj-k1		. #x3671)	; &GT-K00061; [22-81]
     ))
 (define-char
-  '((=>ucs		. #x20061)	; 𠁡
-    (ideographic-radical . 25)	; ⼘
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (->same
-     ((=ucs		  . #x20061)	; 𠁡
-      ))
+  '((total-strokes	 . 2)
     (<-ancient
-     ((=daikanwa	  . 02774)	; &I-M-02774;
+     ((=ucs		  . #x535C)	; 卜
+      (=daikanwa	  . 02774)	; &I-M-02774;
       ))
     (<-ancient*sources
      shuowen daikanwa)
-    (=cns11643-6	. #x212C)	; &M-02775; [01-12]
-    (=daikanwa		. 02775)	; &I-M-02775;
+    (hanyu-dazidian	1 28 4)
+    (=ucs		. #x20061)	; 𠁡
+    (=cns11643-6	. #x212C)	; &I-C6-212C; [01-12]
+    (=big5-cdp		. #x87B1)	; &I-CDP-87B1;
+    (=gt		. 00103)	; &I-GT-00103;
+    (=gt-pj-2		. #x3055)	; &I-GT-00103; [16-53]
+    (->subsumptive
+     ((ideographic-radical . 2)	; ⼁
+      (ideographic-strokes . 1)
+      (ideographic-radical*sources daikanwa=00069 gt ucs)
+      (=daikanwa	  . 00069)	; &M-00069;
+      )
+     ((ideographic-radical . 25)	; ⼘
+      (ideographic-strokes . 0)
+      (ideographic-radical*sources daikanwa=02775 cns11643)
+      (=daikanwa	  . 02775)	; &M-02775;
+      ))
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
@@ -543,11 +555,15 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (<-ancient
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 839)
-		 (=daikanwa	     . 02791)	; &I-M-02791;
-		 )
-      :denied	(setsumon-tsuukun-teisei morohashi-daikanwa)))
+     ((shinjigen-1	  . 839)
+      (=ucs		  . #x5363)	; 卣
+      (=jis-x0212	  . #x343C)	; &I-JSP-343C; [20-28]
+      (=jis-x0213-1-2000  . #x2E70)	; &I-JX1-2E70; [14-80]
+      ))
+    (<-ancient*denied
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-ancient*sources
+     shinjigen-1)
     (shinjigen-1	. 840)
     (=ucs		. #x209EA)	; 𠧪
     (=cns11643-4	. #x2851)	; &I-C4-2851; [08-49]
