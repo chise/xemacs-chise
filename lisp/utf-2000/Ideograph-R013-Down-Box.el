@@ -43,8 +43,8 @@
     (hanyu-dazidian-page . 96)
     (hanyu-dazidian-char . 15)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-      (ucs		  . #x2FF5)	; ⿵
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (ucs		  . #x2FF4)	; ⿴
       )
      ((ucs		  . #x5182)	; 冂
       )
@@ -155,13 +155,12 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (ucs		  . #x2FF1)	; ⿱
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (ucs		  . #x2FF8)	; ⿸
       )
      ((ucs		  . #x20087)	; 𠂇
       )
-     ((name		  . "CJK RADICAL BOX")
-      (ucs		  . #x2E86)	; ⺆
+     ((ucs		  . #x5182)	; 冂
       ))
     (chinese-isoir165	. #x7A29)	; �����
     (ucs		. #x5187)	; 冇
@@ -179,8 +178,8 @@
       (ucs		  . #x7F53)	; 罓
       ))
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-      (ucs		  . #x2FF5)	; ⿵
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (ucs		  . #x2FF4)	; ⿴
       )
      ((ucs		  . #x5182)	; 冂
       )
@@ -512,8 +511,8 @@
     (hanyu-dazidian-page . 100)
     (hanyu-dazidian-char . 12)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-      (ucs		  . #x2FF5)	; ⿵
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (ucs		  . #x2FF4)	; ⿴
       )
      ((chinese-big5-cdp	  . #x8C58)	; ������
       )
