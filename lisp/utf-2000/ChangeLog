@@ -1,3 +1,30 @@
+2003-01-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R123-Sheep.el, Ideograph-R093-Cow.el,
+	Ideograph-R089-Double-X.el, Ideograph-R086-Fire.el,
+	Ideograph-R078-Death.el, Ideograph-R077-Stop.el: Reformatted.
+
+2003-01-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R075-Tree.el, Ideograph-R066-Rap.el,
+	Ideograph-R064-Hand.el, Ideograph-R059-Bristle.el,
+	Ideograph-R057-Bow.el, Ideograph-R050-Turban.el,
+	Ideograph-R049-Oneself.el, Ideograph-R047-River.el,
+	Ideograph-R037-Big.el, Ideograph-R032-Earth.el,
+	Ideograph-R031-Enclosure.el, Ideograph-R030-Mouth.el,
+	Ideograph-R029-Again.el, Ideograph-R028-Private.el,
+	Ideograph-R027-Cliff.el, Ideograph-R026-Seal.el,
+	Ideograph-R025-Divination.el, Ideograph-R024-Ten.el,
+	Ideograph-R022-Right-Open-Box.el, Ideograph-R020-Wrap.el,
+	Ideograph-R019-Power.el, Ideograph-R018-Knife.el,
+	Ideograph-R017-Open-Box.el, Ideograph-R016-Table.el,
+	Ideograph-R015-Ice.el, Ideograph-R014-Cover.el,
+	Ideograph-R013-Down-Box.el, Ideograph-R012-Eight.el,
+	Ideograph-R010-Legs.el, Ideograph-R009-Man.el,
+	Ideograph-R008-Lid.el, Ideograph-R006-Hook.el,
+	Ideograph-R007-Two.el, Ideograph-R004-Slash.el,
+	Ideograph-R002-Line.el: Reformatted.
+
 2003-01-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R152-Pig.el (JSP-5E72): Unify JU+8C59.
