@@ -2074,10 +2074,15 @@ NEW-NAME is the name of the new charset.  Return the new charset.
   new_charset = make_charset (id, new_name, type, columns,
 			      graphic, final, direction, short_name, long_name,
 			      doc_string, registry,
+#ifdef UTF2000
 			      CHARSET_DECODING_TABLE(cs),
 			      CHARSET_UCS_MIN(cs),
 			      CHARSET_UCS_MAX(cs),
-			      CHARSET_CODE_OFFSET(cs));
+			      CHARSET_CODE_OFFSET(cs)
+#else
+			      NULL, 0, 0, 0
+#endif
+);
 
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = new_charset;
   XCHARSET_REVERSE_DIRECTION_CHARSET (new_charset) = charset;
