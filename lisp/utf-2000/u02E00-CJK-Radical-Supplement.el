@@ -478,7 +478,23 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x76EE)	; ç›®
+      ))
     (=ucs		. #x2EAB)	; âº«
+    ))
+(define-char
+  '((=>ucs		. #x2EAB)	; âº«
+    (ideographic-radical . 109)	; â½¬
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x76EE)	; ç›®
+      ))
+    (=big5-cdp		. #x8B48)	; ý¢€ˆ­ˆ
+    (=gt		. 36329)	; ý¡€ˆ·©
+    (=gt-k		. 01549)	; ý¡„€˜
+    (=gt-pj-5		. #x7264)	; ý¡€ˆ·©
     ))
 (define-char
   '((name		. "CJK RADICAL SPIRIT ONE")
@@ -641,43 +657,30 @@
     ))
 (define-char
   '((name		. "CJK RADICAL MEAT")
+    (=>daikanwa		. 29237)	; ý¡€‰¡
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (->subsumptive
+     ((=gt		  . 37857)	; ý¡€‰¡
+      (=gt-pj-6		  . #x3879)	; ý¡€‰¡
+      (=daikanwa	  . 29237)	; ø¸‡ˆµ
+      )
+     ((=ucs@unicode	  . #x2EBC)	; ó°€€
+      )
+     ((=big5-cdp	  . #x8A73)	; ý¢€ˆ©³
+      )
+     ((=big5-cdp	  . #x8958)	; ý¢€ˆ¥˜
+      (=gt-k		  . 00417)	; ý¡„€†¡
+      (=gt-pj-k1	  . #x377D)	; ý¢€ˆ¥˜
+      ))
     (<-ideographic-component-forms
      ((=ucs		  . #x8089)	; è‚‰
       ))
     (=ucs		. #x2EBC)	; âº¼
-    (=gt		. 37857)	; ý¡€‰¡
-    (=gt-pj-6		. #x3879)	; ý¡€‰¡
-    (=daikanwa		. 29237)	; ø¸‡ˆµ
-    ))
-(define-char
-  '((=>ucs		. #x2EBC)	; âº¼
-    (morohashi-daikanwa	29237 0 1)
-    (ideographic-radical . 130)	; â¾
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x8089)	; è‚‰
-      ))
-    (=big5-cdp		. #x8958)	; ý¢€ˆ¥˜
-    (=gt-k		. 00417)	; ý¡„€†¡
-    (=gt-pj-k1		. #x377D)	; ý¢€ˆ¥˜
-    ))
-(define-char
-  '((=>ucs		. #x2EBC)	; âº¼
-    (morohashi-daikanwa	29237 0 0)
-    (ideographic-radical . 130)	; â¾
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x8089)	; è‚‰
-      ))
-    (=big5-cdp		. #x8A73)	; ý¢€ˆ©³
     ))
 (define-char
   '((name		. "CJK RADICAL MORTAR")

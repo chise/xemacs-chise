@@ -1203,11 +1203,11 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (<-vulgar-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 796)
-		 (=daikanwa	     . 02655)	; ø¸€©Ÿ
-		 )
+     ((shinjigen-1	  . 796)
+      (=daikanwa	  . 02655)	; ø¸€©Ÿ
       ))
+    (<-vulgar-ideograph*sources
+     shinjigen-1)
     (hanyu-dazidian	1 89 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")

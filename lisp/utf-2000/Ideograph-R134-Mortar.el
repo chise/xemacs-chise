@@ -65,14 +65,20 @@
     (=gt-pj-k1		. #x3F6D)	; ý¡„€˜¡
     ))
 (define-char
-  '((ideographic-radical . 134)	; â¾…
+  '((=>daikanwa		. 30177)	; ø»‹³
+    (ideographic-radical . 134)	; â¾…
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
+    (->subsumptive
+     ((=jis-x0212	  . #x566B)	; ø»‹³
+      (=cns11643-4	  . #x276D)	; ø»—ª¨
+      (=jis-x0213-2-2000  . #x755B)	; ø»¦™’
+      (=daikanwa	  . 30177)	; ø¸‡—¡
+      (=ucs@jis		  . #x81FD)	; ø»‹³
+      )
+     ((=ucs@unicode	  . #x81FD)	; ó°€™
+      ))
     (=ucs		. #x81FD)	; è‡½
-    (=jis-x0212		. #x566B)	; ø»‹³
-    (=cns11643-4	. #x276D)	; ø»—ª¨
-    (=jis-x0213-2-2000	. #x755B)	; ø»¦™’
-    (=daikanwa		. 30177)	; ø¸‡—¡
     ))
 (define-char
   '((ideographic-radical . 134)	; â¾…

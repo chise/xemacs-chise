@@ -103,8 +103,10 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x64A5)	; æ’¥
-      (=jis-x0208	  . #x597B)	; ø½‹‰¦
+     ((=jis-x0208	  . #x6224)	; ø½‹•
+      (=ks-x1001	  . #x5B21)	; ø»‰¯˜
+      (=cns11643-1	  . #x6075)	; ø»’ ’
+      (=daikanwa	  . 22669)	; ø¸…¢
       ))
     (=ucs		. #x767A)	; ç™º
     (=jis-x0208		. #x482F)	; ø½Š¯œ

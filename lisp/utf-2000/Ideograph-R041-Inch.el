@@ -723,7 +723,8 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (<-simplified
-     ((=daikanwa	     . 07465)	; ø¸´©
+     ((=ks-x1001	  . #x5374)	; ø»‰¤»
+      (=daikanwa	  . 07465)	; ø¸´©
       ))
     (<-simplified*sources
      daikanwa)

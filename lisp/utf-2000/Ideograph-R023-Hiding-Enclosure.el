@@ -91,7 +91,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (<-simplified
-     ((=daikanwa	  . 02691)	; ø¸€ªƒ
+     ((=cns11643-1	  . #x5934)	; ø»’”¿
+      (=daikanwa	  . 02691)	; ø¸€ªƒ
       ))
     (<-simplified*sources
      daikanwa)
@@ -114,6 +115,7 @@
     (total-strokes	 . 4)
     (<-simplified
      ((shinjigen-1	  . 802)
+      (=cns11643-1	  . #x5934)	; ø»’”¿
       (=daikanwa	  . 02691)	; ø¸€ªƒ
       ))
     (<-simplified*sources

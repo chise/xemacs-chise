@@ -20,7 +20,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (<-simplified
-     ((=daikanwa	  . 37034)	; ø¸‰‚ª
+     ((=ucs		  . #x8D70)	; èµ°
+      (=daikanwa	  . 37034)	; ø¸‰‚ª
       ))
     (<-simplified*sources
      daikanwa)

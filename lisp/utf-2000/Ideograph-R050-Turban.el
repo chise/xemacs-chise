@@ -5578,14 +5578,7 @@
       )
      ((=ucs		  . #x5DFE)	; å·¾
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; â¿±
-	)
-       ((=daikanwa	    . 25406)	; ø¸†Œ¾
-	)
-       ((=ucs		    . #x767B)	; ç™»
-	))
+     ((=daikanwa	  . 25659)	; ø¸†»
       ))
     (=daikanwa		. 09148)	; ø¸‚Ž¼
     (=cbeta		. 01251)	; ø¸ “£

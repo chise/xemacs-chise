@@ -1596,6 +1596,13 @@
     (=gt-k		. 07529)	; ý¡„µ©
     (=gt-pj-2		. #x313A)	; ý¡€€ƒ“
     (=daikanwa		. 00155)	; ø¸€‚›
+    ))
+(define-char
+  '((=>ucs		. #x200B9)	; ð ‚¹
+    (=>daikanwa		. 00155)	; ð ‚¹
+    (ideographic-radical . 4)	; â¼ƒ
+    (ideographic-strokes . 9)
+    (total-strokes	 . 10)
     (mojikyo		. 000155)	; ý €€‚›
     ))
 (define-char

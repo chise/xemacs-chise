@@ -269,7 +269,6 @@
 	  )
 	 ((name*	      . "ideographic component person as roof")
 	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
-	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  )
 	 ((name		      . "CJK RADICAL SMALL ONE")
 	  (=ucs		      . #x2E8C)	; âºŒ
@@ -360,7 +359,6 @@
 	  )
 	 ((name*	      . "ideographic component person as roof")
 	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
-	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  )
 	 ((=ucs		      . #x6B62)	; æ­¢
 	  )

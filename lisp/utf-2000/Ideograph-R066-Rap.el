@@ -2105,7 +2105,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((=daikanwa	  . 03441)	; ø¸€µ±
+     ((=ks-x1001	  . #x7132)	; ø»Š½
+      (=cns11643-6	  . #x2A3C)	; ø»œ‚™
+      (=daikanwa	  . 03441)	; ø¸€µ±
       )
      ((mojikyo		  . 013108)	; ý €ƒŒ´
       ))
