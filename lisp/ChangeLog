@@ -1,3 +1,9 @@
+2000-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `chinese-gb2312' than `chinese-cns11643-*'; add
+	`chinese-isoir165'.
+
 2000-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* format.el (format-alist): Revive `image/jpeg', `image/gif',
