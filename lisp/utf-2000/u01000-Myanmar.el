@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "MYANMAR LETTER KA")
     (general-category	letter other) ; Informative Category

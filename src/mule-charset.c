@@ -1,7 +1,7 @@
 /* Functions to handle multilingual characters.
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -67,6 +67,7 @@ Lisp_Object Vcharset_japanese_jisx0212;
 Lisp_Object Vcharset_chinese_cns11643_1;
 Lisp_Object Vcharset_chinese_cns11643_2;
 #ifdef UTF2000
+Lisp_Object Vcharset_system_char_id;
 Lisp_Object Vcharset_ucs;
 Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_ucs_smp;
@@ -179,9 +180,10 @@ Lisp_Object
 put_char_ccs_code_point (Lisp_Object character,
 			 Lisp_Object ccs, Lisp_Object value)
 {
-  if (!EQ (XCHARSET_NAME (ccs), Qmap_ucs)
-      || !INTP (value)
-      || (XCHAR (character) != XINT (value)))
+  if ( !( EQ (XCHARSET_NAME (ccs), Qmap_ucs)
+	  && INTP (value) && (XINT (value) < 0xF0000)
+	  && XCHAR (character) == XINT (value) )
+       || !INTP (value) )
     {
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
       int code_point;
@@ -306,6 +308,7 @@ Lisp_Object Qascii,
   Qmap_cns11643_1,
   Qmap_cns11643_2,
 #ifdef UTF2000
+  Qsystem_char_id,
   Qmap_ucs, Qucs,
   Qucs_bmp,
   Qucs_smp,
@@ -967,7 +970,7 @@ decode_builtin_char (Lisp_Object charset, int code_point)
     {
       if ( CHARSETP (mother) )
 	{
-	  int code
+	  EMACS_INT code
 	    = decode_ccs_conversion (XCHARSET_CONVERSION (charset),
 				     code_point);
 
@@ -2360,6 +2363,170 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
   return -1;
 #endif /* not HAVE_LIBCHISE */
 }
+
+#ifdef HAVE_LIBCHISE
+DEFUN ("save-charset-properties", Fsave_charset_properties, 1, 1, 0, /*
+Save properties of CHARSET.
+*/
+       (charset))
+{
+  struct Lisp_Charset *cs;
+  CHISE_Property property;
+  Lisp_Object ccs;
+  unsigned char* feature_name;
+
+  ccs = Fget_charset (charset);
+  cs = XCHARSET (ccs);
+
+  if ( open_chise_data_source_maybe () )
+    return -1;
+
+  if ( SYMBOLP (charset) && !EQ (charset, XCHARSET_NAME (ccs)) )
+    {
+      property = chise_ds_get_property (default_chise_data_source,
+					"true-name");
+      feature_name = XSTRING_DATA (Fsymbol_name (charset));
+      chise_feature_set_property_value
+	(chise_ds_get_feature (default_chise_data_source, feature_name),
+	 property, XSTRING_DATA (Fprin1_to_string (CHARSET_NAME (cs),
+						   Qnil)));
+      chise_property_sync (property);
+    }
+  charset = XCHARSET_NAME (ccs);
+  feature_name = XSTRING_DATA (Fsymbol_name (charset));
+
+  property = chise_ds_get_property (default_chise_data_source,
+				    "description");
+  chise_feature_set_property_value
+    (chise_ds_get_feature (default_chise_data_source, feature_name),
+     property, XSTRING_DATA (Fprin1_to_string
+			     (CHARSET_DOC_STRING (cs), Qnil)));
+  chise_property_sync (property);
+
+  property = chise_ds_get_property (default_chise_data_source, "type");
+  chise_feature_set_property_value
+    (chise_ds_get_feature (default_chise_data_source, feature_name),
+     property, "CCS");
+  chise_property_sync (property);
+
+  property = chise_ds_get_property (default_chise_data_source, "chars");
+  chise_feature_set_property_value
+    (chise_ds_get_feature (default_chise_data_source, feature_name),
+     property, XSTRING_DATA (Fprin1_to_string (make_int
+					       (CHARSET_CHARS (cs)),
+					       Qnil)));
+  chise_property_sync (property);
+
+  property = chise_ds_get_property (default_chise_data_source, "dimension");
+  chise_feature_set_property_value
+    (chise_ds_get_feature (default_chise_data_source, feature_name),
+     property, XSTRING_DATA (Fprin1_to_string (make_int
+					       (CHARSET_DIMENSION (cs)),
+					       Qnil)));
+  chise_property_sync (property);
+
+  if ( CHARSET_FINAL (cs) != 0 )
+    {
+      property = chise_ds_get_property (default_chise_data_source,
+					"final-byte");
+      chise_feature_set_property_value
+	(chise_ds_get_feature (default_chise_data_source, feature_name),
+	 property, XSTRING_DATA (Fprin1_to_string (make_int
+						   (CHARSET_FINAL (cs)),
+						   Qnil)));
+      chise_property_sync (property);
+    }
+
+  if ( !NILP (CHARSET_MOTHER (cs)) )
+    {
+      Lisp_Object mother = CHARSET_MOTHER (cs);
+
+      if ( CHARSETP (mother) )
+	mother = XCHARSET_NAME (mother);
+
+      property = chise_ds_get_property (default_chise_data_source,
+					"mother");
+      chise_feature_set_property_value
+	(chise_ds_get_feature (default_chise_data_source, feature_name),
+	 property, XSTRING_DATA (Fprin1_to_string (mother, Qnil)));
+      chise_property_sync (property);
+    }
+
+  if ( CHARSET_MAX_CODE (cs) != 0 )
+    {
+      char str[16];
+
+      property = chise_ds_get_property (default_chise_data_source,
+					"mother-code-min");
+      if ( CHARSET_MIN_CODE (cs) == 0 )
+	chise_feature_set_property_value
+	  (chise_ds_get_feature (default_chise_data_source, feature_name),
+	   property, "0");
+      else
+	{
+	  sprintf (str, "#x%X", CHARSET_MIN_CODE (cs));
+	  chise_feature_set_property_value
+	    (chise_ds_get_feature (default_chise_data_source, feature_name),
+	     property, str);
+	}
+      chise_property_sync (property);
+
+      property = chise_ds_get_property (default_chise_data_source,
+					"mother-code-max");
+      sprintf (str, "#x%X", CHARSET_MAX_CODE (cs));
+      chise_feature_set_property_value
+	(chise_ds_get_feature (default_chise_data_source, feature_name),
+	 property, str);
+      chise_property_sync (property);
+
+      property = chise_ds_get_property (default_chise_data_source,
+					"mother-code-offset");
+      if ( CHARSET_CODE_OFFSET (cs) == 0 )
+	chise_feature_set_property_value
+	  (chise_ds_get_feature (default_chise_data_source, feature_name),
+	   property, "0");
+      else
+	{
+	  sprintf (str, "#x%X", CHARSET_CODE_OFFSET (cs));
+	  chise_feature_set_property_value
+	    (chise_ds_get_feature (default_chise_data_source, feature_name),
+	     property, str);
+	}
+      chise_property_sync (property);
+
+      property = chise_ds_get_property (default_chise_data_source,
+					"mother-code-conversion");
+      if ( CHARSET_CONVERSION (cs) == CONVERSION_IDENTICAL )
+	chise_feature_set_property_value
+	  (chise_ds_get_feature (default_chise_data_source, feature_name),
+	   property, "identical");
+      else
+	{
+	  Lisp_Object sym = Qnil;
+
+	  if ( CHARSET_CONVERSION (cs) == CONVERSION_94x60 )
+	    sym = Q94x60;
+	  else if ( CHARSET_CONVERSION (cs) == CONVERSION_94x94x60 )
+	    sym = Q94x94x60;
+	  else if ( CHARSET_CONVERSION (cs) == CONVERSION_BIG5_1 )
+	    sym = Qbig5_1;
+	  else if ( CHARSET_CONVERSION (cs) == CONVERSION_BIG5_2 )
+	    sym = Qbig5_2;
+	  if ( !NILP (sym) )
+	    chise_feature_set_property_value
+	      (chise_ds_get_feature (default_chise_data_source, feature_name),
+	       property, XSTRING_DATA (Fprin1_to_string (sym, Qnil)));
+	  else
+	    chise_feature_set_property_value
+	      (chise_ds_get_feature (default_chise_data_source, feature_name),
+	       property, "unknown");
+	}
+      chise_property_sync (property);
+    }
+  return Qnil;
+}
+#endif /* HAVE_LIBCHISE */
+
 #endif /* HAVE_CHISE */
 #endif /* UTF2000 */
 
@@ -2396,7 +2563,8 @@ Make a builtin character from CHARSET and code-point CODE.
 */
        (charset, code))
 {
-  int c;
+  EMACS_INT c;
+  Emchar ch;
 
   charset = Fget_charset (charset);
   CHECK_INT (code);
@@ -2430,9 +2598,9 @@ Make a builtin character from CHARSET and code-point CODE.
   if (XCHARSET_GRAPHIC (charset) == 1)
     c &= 0x7F7F7F7F;
 #endif
-  c = decode_builtin_char (charset, c);
+  ch = decode_builtin_char (charset, c);
   return
-    c >= 0 ? make_char (c) : Fdecode_char (charset, code, Qnil, Qnil);
+    ch >= 0 ? make_char (ch) : Fdecode_char (charset, code, Qnil, Qnil);
 }
 #endif
 
@@ -2701,6 +2869,9 @@ syms_of_mule_charset (void)
 #ifdef HAVE_CHISE
   DEFSUBR (Fsave_charset_mapping_table);
   DEFSUBR (Freset_charset_mapping_table);
+#ifdef HAVE_LIBCHISE
+  DEFSUBR (Fsave_charset_properties);
+#endif /* HAVE_LIBCHISE */
 #endif /* HAVE_CHISE */
   DEFSUBR (Fdecode_char);
   DEFSUBR (Fdecode_builtin_char);
@@ -2766,6 +2937,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qmap_cns11643_1,		"=cns11643-1");
   defsymbol (&Qmap_cns11643_2,		"=cns11643-2");
 #ifdef UTF2000
+  defsymbol (&Qsystem_char_id,		"system-char-id");
   defsymbol (&Qmap_ucs,			"=ucs");
   defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
@@ -2851,6 +3023,15 @@ complex_vars_of_mule_charset (void)
      ease of access. */
 
 #ifdef UTF2000
+  staticpro (&Vcharset_system_char_id);
+  Vcharset_system_char_id =
+    make_charset (LEADING_BYTE_SYSTEM_CHAR_ID, Qsystem_char_id, 256, 4,
+		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("SCID"),
+		  build_string ("CHAR-ID"),
+		  build_string ("System char-id"),
+		  build_string (""),
+		  Qnil, 0, 0x7FFFFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs);
   Vcharset_ucs =
     make_charset (LEADING_BYTE_UCS, Qmap_ucs, 256, 4,
@@ -2859,7 +3040,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS"),
 		  build_string ("ISO/IEC 10646"),
 		  build_string (""),
-		  Qnil, 0, 0x7FFFFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0xEFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_bmp);
   Vcharset_ucs_bmp =
     make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp, 256, 2,

@@ -11,7 +11,7 @@ complete typing the whole string. All searches in Emacs ignore the case
 of the text they are searching, i.e. if you are searching for "String",
 then "string" will also be one of the selections. If you want a case
 sensitive search select the @b{Case Sensitive Search} from the
-@b{Option} menu. You can also set the variable @var{case-fold-search} to
+@b{Option} menu. You can also set the variable @code{case-fold-search} to
 @code{nil} for making searches case-sensitive. For information on setting
 variables, @xref{Setting Variables}. The two commands for searching for
 strings in XEmacs are:

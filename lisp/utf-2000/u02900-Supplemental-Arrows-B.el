@@ -1,11 +1,11 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name . "ARROW POINTING RIGHTWARDS THEN CURVING UPWARDS")
     (=ucs		. #x2934)	; â¤´
-    (=jis-x0213-1-2000	. #x232E)	; ø»¢–…
+    (=jis-x0213-1-2000	. #x232E)	; &I-JX1-232E; [03-14]
     ))
 (define-char
   '((name . "ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS")
     (=ucs		. #x2935)	; â¤µ
-    (=jis-x0213-1-2000	. #x232F)	; ø»¢–†
+    (=jis-x0213-1-2000	. #x232F)	; &I-JX1-232F; [03-15]
     ))

@@ -111,7 +111,6 @@
 		preloaded-file-list
 		(if (featurep 'utf-2000)
 		    system-char-db-source-file-list)
-		packages-useful-lisp
 		site-load-packages))
   (while preloaded-file-list
     (let ((arg (car preloaded-file-list)))
@@ -136,25 +135,25 @@
 				 dumped-exe))))
 	      (setq need-to-dump t)))
 
-      (if (null (member (file-name-nondirectory arg)
-			packages-unbytecompiled-lisp))
+;      (if (null (member (file-name-nondirectory arg)
+;			packages-unbytecompiled-lisp))
+;	  (progn
+      (setq arg (locate-library arg))
+      (if (null arg)
 	  (progn
-	    (setq arg (locate-library arg))
-	    (if (null arg)
-		(progn
-		  (print (format "Error: Library file %s not found"
-				 (car preloaded-file-list)))
-		  ;; Uncomment in case of trouble
-		  ;;(print (format "late-packages: %S" late-packages))
-		  ;;(print (format "guessed-roots: %S" (paths-find-emacs-roots invocation-directory invocation-name)))
-		  (kill-emacs)))
-	    (if (string-match "\\.elc?\\'" arg)
-		(setq arg (substring arg 0 (match-beginning 0))))
-	    (if (and (null (member arg processed))
-		     (file-exists-p (concat arg ".el"))
-		     (file-newer-than-file-p (concat arg ".el")
-					     (concat arg ".elc")))
-		(setq processed (cons (concat arg ".el") processed)))))
+	    (print (format "Error: Library file %s not found"
+			   (car preloaded-file-list)))
+	    ;; Uncomment in case of trouble
+	    ;;(print (format "late-packages: %S" late-packages))
+	    ;;(print (format "guessed-roots: %S" (paths-find-emacs-roots invocation-directory invocation-name)))
+	    (kill-emacs)))
+      (if (string-match "\\.elc?\\'" arg)
+	  (setq arg (substring arg 0 (match-beginning 0))))
+      (if (and (null (member arg processed))
+	       (file-exists-p (concat arg ".el"))
+	       (file-newer-than-file-p (concat arg ".el")
+				       (concat arg ".elc")))
+	  (setq processed (cons (concat arg ".el") processed)))
       (setq preloaded-file-list (cdr preloaded-file-list))))
 
   (if need-to-dump

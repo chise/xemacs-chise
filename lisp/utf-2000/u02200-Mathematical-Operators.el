@@ -1,14 +1,14 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "FOR ALL")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2200)	; âˆ€
-    (=jis-x0208-1983	. #x224F)	; ø»†’”
-    (=ks-x1001		. #x2223)	; ø»ˆ›¬
-    (=jis-x0208-1990	. #x224F)	; ø½‰¸ˆ
-    (=jef-china3	. #x7FDC)	; øº‡¿œ
+    (=jis-x0208-1983	. #x224F)	; &I-J83-224F; [02-47]
+    (=ks-x1001		. #x2223)	; &I-K0-2223; [02-03]
+    (=jis-x0208-1990	. #x224F)	; &I-J90-224F; [02-47]
+    (=jef-china3	. #x7FDC)	; &I-JC3-7FDC;
     ))
 (define-char
   '((name		. "COMPLEMENT")
@@ -23,10 +23,10 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2202)	; âˆ‚
-    (=jis-x0208-1983	. #x225F)	; ø»†’¤
-    (=ks-x1001		. #x2153)	; ø»ˆš¾
-    (=jis-x0208-1990	. #x225F)	; ø½‰¸˜
-    (=jef-china3	. #x7FE1)	; øº‡¿¡
+    (=jis-x0208-1983	. #x225F)	; &I-J83-225F; [02-63]
+    (=ks-x1001		. #x2153)	; &I-K0-2153; [01-51]
+    (=jis-x0208-1990	. #x225F)	; &I-J90-225F; [02-63]
+    (=jef-china3	. #x7FE1)	; &I-JC3-7FE1;
     ))
 (define-char
   '((name		. "THERE EXISTS")
@@ -34,10 +34,10 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2203)	; âˆƒ
-    (=jis-x0208-1983	. #x2250)	; ø»†’•
-    (=ks-x1001		. #x2224)	; ø»ˆ›­
-    (=jis-x0208-1990	. #x2250)	; ø½‰¸‰
-    (=jef-china3	. #x7FDD)	; øº‡¿
+    (=jis-x0208-1983	. #x2250)	; &I-J83-2250; [02-48]
+    (=ks-x1001		. #x2224)	; &I-K0-2224; [02-04]
+    (=jis-x0208-1990	. #x2250)	; &I-J90-2250; [02-48]
+    (=jef-china3	. #x7FDD)	; &I-JC3-7FDD;
     ))
 (define-char
   '((name		. "THERE DOES NOT EXIST")
@@ -53,7 +53,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2205)	; âˆ…
-    (=jis-x0213-1-2000	. #x2247)	; ø»¢•€
+    (=jis-x0213-1-2000	. #x2247)	; &I-JX1-2247; [02-39]
     ))
 (define-char
   '((name		. "INCREMENT")
@@ -68,10 +68,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2207)	; âˆ‡
-    (=jis-x0208-1983	. #x2260)	; ø»†’¥
-    (=ks-x1001		. #x2154)	; ø»ˆš¿
-    (=jis-x0208-1990	. #x2260)	; ø½‰¸™
-    (=jef-china3	. #x7FE2)	; øº‡¿¢
+    (=jis-x0208-1983	. #x2260)	; &I-J83-2260; [02-64]
+    (=ks-x1001		. #x2154)	; &I-K0-2154; [01-52]
+    (=jis-x0208-1990	. #x2260)	; &I-J90-2260; [02-64]
+    (=jef-china3	. #x7FE2)	; &I-JC3-7FE2;
     ))
 (define-char
   '((name		. "ELEMENT OF")
@@ -79,11 +79,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2208)	; âˆˆ
-    (=gb2312		. #x214A)	; ø»„†­
-    (=jis-x0208-1983	. #x223A)	; ø»†‘¿
-    (=ks-x1001		. #x2174)	; ø»ˆ›Ÿ
-    (=jis-x0208-1990	. #x223A)	; ø½‰·³
-    (=jef-china3	. #x7FD0)	; øº‡¿
+    (=gb2312		. #x214A)	; &I-G0-214A; [01-42]
+    (=jis-x0208-1983	. #x223A)	; &I-J83-223A; [02-26]
+    (=ks-x1001		. #x2174)	; &I-K0-2174; [01-84]
+    (=jis-x0208-1990	. #x223A)	; &I-J90-223A; [02-26]
+    (=jef-china3	. #x7FD0)	; &I-JC3-7FD0;
     ))
 (define-char
   '((name		. "NOT AN ELEMENT OF")
@@ -92,7 +92,7 @@
     (mirrored		. t)
     (->decomposition	#x2208 #x0338)
     (=ucs		. #x2209)	; âˆ‰
-    (=jis-x0213-1-2000	. #x2246)	; ø»¢”¿
+    (=jis-x0213-1-2000	. #x2246)	; &I-JX1-2246; [02-38]
     ))
 (define-char
   '((name		. "SMALL ELEMENT OF")
@@ -107,10 +107,10 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x220B)	; âˆ‹
-    (=jis-x0208-1983	. #x223B)	; ø»†’€
-    (=ks-x1001		. #x2175)	; ø»ˆ› 
-    (=jis-x0208-1990	. #x223B)	; ø½‰·´
-    (=jef-china3	. #x7FD1)	; øº‡¿‘
+    (=jis-x0208-1983	. #x223B)	; &I-J83-223B; [02-27]
+    (=ks-x1001		. #x2175)	; &I-K0-2175; [01-85]
+    (=jis-x0208-1990	. #x223B)	; &I-J90-223B; [02-27]
+    (=jef-china3	. #x7FD1)	; &I-JC3-7FD1;
     ))
 (define-char
   '((name		. "DOES NOT CONTAIN AS MEMBER")
@@ -140,8 +140,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x220F)	; âˆ
-    (=gb2312		. #x2147)	; ø»„†ª
-    (=ks-x1001		. #x2233)	; ø»ˆ›¼
+    (=gb2312		. #x2147)	; &I-G0-2147; [01-39]
+    (=ks-x1001		. #x2233)	; &I-K0-2233; [02-19]
     ))
 (define-char
   '((name		. "N-ARY COPRODUCT")
@@ -156,8 +156,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2211)	; âˆ‘
-    (=gb2312		. #x2146)	; ø»„†©
-    (=ks-x1001		. #x2232)	; ø»ˆ›»
+    (=gb2312		. #x2146)	; &I-G0-2146; [01-38]
+    (=ks-x1001		. #x2232)	; &I-K0-2232; [02-18]
     ))
 (define-char
   '((name		. "MINUS SIGN")
@@ -165,7 +165,7 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (=ucs		. #x2212)	; âˆ’
-    (=jis-x0208		. #x215D)	; ø½‰¶¸
+    (=jis-x0208		. #x215D)	; &I-J90-215D; [01-61]
     ))
 (define-char
   '((name		. "MINUS-OR-PLUS SIGN")
@@ -173,7 +173,7 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (=ucs		. #x2213)	; âˆ“
-    (=jis-x0213-1-2000	. #x235B)	; ø»¢–²
+    (=jis-x0213-1-2000	. #x235B)	; &I-JX1-235B; [03-59]
     ))
 (define-char
   '((name		. "DOT PLUS")
@@ -188,8 +188,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2215)	; âˆ•
-    (=cns11643-1	. #x2261)	; ø»‘„º
-    (=big5		. #xA241)	; ý¢€Š‰
+    (=cns11643-1	. #x2261)	; &I-C1-2261; [02-65]
+    (=big5		. #xA241)	; &I-B-A241;
     ))
 (define-char
   '((name		. "SET MINUS")
@@ -225,12 +225,12 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x221A)	; âˆš
-    (=gb2312		. #x214C)	; ø»„†¯
-    (=jis-x0208-1983	. #x2265)	; ø»†’ª
-    (=ks-x1001		. #x216E)	; ø»ˆ›™
-    (=jis-x0208-1990	. #x2265)	; ø½‰¸ž
-    (=cns11643-1	. #x2235)	; ø»‘„Ž
-    (=big5		. #xA1D4)	; ý¢€Š‡”
+    (=gb2312		. #x214C)	; &I-G0-214C; [01-44]
+    (=jis-x0208-1983	. #x2265)	; &I-J83-2265; [02-69]
+    (=ks-x1001		. #x216E)	; &I-K0-216E; [01-78]
+    (=jis-x0208-1990	. #x2265)	; &I-J90-2265; [02-69]
+    (=cns11643-1	. #x2235)	; &I-C1-2235; [02-21]
+    (=big5		. #xA1D4)	; &I-B-A1D4;
     ))
 (define-char
   '((name		. "CUBE ROOT")
@@ -252,11 +252,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x221D)	; âˆ
-    (=gb2312		. #x2158)	; ø»„†»
-    (=jis-x0208-1983	. #x2267)	; ø»†’¬
-    (=ks-x1001		. #x2170)	; ø»ˆ››
-    (=jis-x0208-1990	. #x2267)	; ø½‰¸ 
-    (=jef-china3	. #x7FE7)	; øº‡¿§
+    (=gb2312		. #x2158)	; &I-G0-2158; [01-56]
+    (=jis-x0208-1983	. #x2267)	; &I-J83-2267; [02-71]
+    (=ks-x1001		. #x2170)	; &I-K0-2170; [01-80]
+    (=jis-x0208-1990	. #x2267)	; &I-J90-2267; [02-71]
+    (=jef-china3	. #x7FE7)	; &I-JC3-7FE7;
     ))
 (define-char
   '((name		. "INFINITY")
@@ -264,11 +264,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x221E)	; âˆž
-    (=jis-x0208		. #x2167)	; ø½‰·‚
-    (=gb2312		. #x215E)	; ø»„‡
-    (=ks-x1001		. #x2144)	; ø»ˆš¯
-    (=cns11643-1	. #x223C)	; ø»‘„•
-    (=big5		. #xA1DB)	; ý¢€Š‡›
+    (=jis-x0208		. #x2167)	; &I-J90-2167; [01-71]
+    (=gb2312		. #x215E)	; &I-G0-215E; [01-62]
+    (=ks-x1001		. #x2144)	; &I-K0-2144; [01-36]
+    (=cns11643-1	. #x223C)	; &I-C1-223C; [02-28]
+    (=big5		. #xA1DB)	; &I-B-A1DB;
     ))
 (define-char
   '((name		. "RIGHT ANGLE")
@@ -276,9 +276,9 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x221F)	; âˆŸ
-    (=cns11643-1	. #x2249)	; ø»‘„¢
-    (=jis-x0213-1-2000	. #x2D78)	; ø»¢¥»
-    (=big5		. #xA1E8)	; ý¢€Š‡¨
+    (=cns11643-1	. #x2249)	; &I-C1-2249; [02-41]
+    (=jis-x0213-1-2000	. #x2D78)	; &I-JX1-2D78; [13-88]
+    (=big5		. #xA1E8)	; &I-B-A1E8;
     ))
 (define-char
   '((name		. "ANGLE")
@@ -286,13 +286,13 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2220)	; âˆ 
-    (=gb2312		. #x214F)	; ø»„†²
-    (=jis-x0208-1983	. #x225C)	; ø»†’¡
-    (=ks-x1001		. #x2150)	; ø»ˆš»
-    (=jis-x0208-1990	. #x225C)	; ø½‰¸•
-    (=cns11643-1	. #x2248)	; ø»‘„¡
-    (=big5		. #xA1E7)	; ý¢€Š‡§
-    (=jef-china3	. #x7FDE)	; øº‡¿ž
+    (=gb2312		. #x214F)	; &I-G0-214F; [01-47]
+    (=jis-x0208-1983	. #x225C)	; &I-J83-225C; [02-60]
+    (=ks-x1001		. #x2150)	; &I-K0-2150; [01-48]
+    (=jis-x0208-1990	. #x225C)	; &I-J90-225C; [02-60]
+    (=cns11643-1	. #x2248)	; &I-C1-2248; [02-40]
+    (=big5		. #xA1E7)	; &I-B-A1E7;
+    (=jef-china3	. #x7FDE)	; &I-JC3-7FDE;
     ))
 (define-char
   '((name		. "MEASURED ANGLE")
@@ -314,7 +314,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2223)	; âˆ£
-    (=big5		. #xA1FD)	; ý¢€Š‡½
+    (=big5		. #xA1FD)	; &I-B-A1FD;
     ))
 (define-char
   '((name		. "DOES NOT DIVIDE")
@@ -330,10 +330,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2225)	; âˆ¥
-    (=gb2312		. #x214E)	; ø»„†±
-    (=ks-x1001		. #x212B)	; ø»ˆš–
-    (=jis-x0213-1-2000	. #x2254)	; ø»¢•
-    (=big5		. #xA1FC)	; ý¢€Š‡¼
+    (=gb2312		. #x214E)	; &I-G0-214E; [01-46]
+    (=ks-x1001		. #x212B)	; &I-K0-212B; [01-11]
+    (=jis-x0213-1-2000	. #x2254)	; &I-JX1-2254; [02-52]
+    (=big5		. #xA1FC)	; &I-B-A1FC;
     ))
 (define-char
   '((name		. "NOT PARALLEL TO")
@@ -342,7 +342,7 @@
     (mirrored		. t)
     (->decomposition	#x2225 #x0338)
     (=ucs		. #x2226)	; âˆ¦
-    (=jis-x0213-1-2000	. #x2255)	; ø»¢•Ž
+    (=jis-x0213-1-2000	. #x2255)	; &I-JX1-2255; [02-53]
     ))
 (define-char
   '((name		. "LOGICAL AND")
@@ -350,10 +350,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2227)	; âˆ§
-    (=gb2312		. #x2144)	; ø»„†§
-    (=jis-x0208-1983	. #x224A)	; ø»†’
-    (=ks-x1001		. #x217C)	; ø»ˆ›§
-    (=jis-x0208-1990	. #x224A)	; ø½‰¸ƒ
+    (=gb2312		. #x2144)	; &I-G0-2144; [01-36]
+    (=jis-x0208-1983	. #x224A)	; &I-J83-224A; [02-42]
+    (=ks-x1001		. #x217C)	; &I-K0-217C; [01-92]
+    (=jis-x0208-1990	. #x224A)	; &I-J90-224A; [02-42]
     ))
 (define-char
   '((name		. "LOGICAL OR")
@@ -361,10 +361,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2228)	; âˆ¨
-    (=gb2312		. #x2145)	; ø»„†¨
-    (=jis-x0208-1983	. #x224B)	; ø»†’
-    (=ks-x1001		. #x217D)	; ø»ˆ›¨
-    (=jis-x0208-1990	. #x224B)	; ø½‰¸„
+    (=gb2312		. #x2145)	; &I-G0-2145; [01-37]
+    (=jis-x0208-1983	. #x224B)	; &I-J83-224B; [02-43]
+    (=ks-x1001		. #x217D)	; &I-K0-217D; [01-93]
+    (=jis-x0208-1990	. #x224B)	; &I-J90-224B; [02-43]
     ))
 (define-char
   '((name		. "INTERSECTION")
@@ -372,12 +372,12 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2229)	; âˆ©
-    (=gb2312		. #x2149)	; ø»„†¬
-    (=jis-x0208-1983	. #x2241)	; ø»†’†
-    (=ks-x1001		. #x217B)	; ø»ˆ›¦
-    (=jis-x0208-1990	. #x2241)	; ø½‰·º
-    (=cns11643-1	. #x2245)	; ø»‘„ž
-    (=big5		. #xA1E4)	; ý¢€Š‡¤
+    (=gb2312		. #x2149)	; &I-G0-2149; [01-41]
+    (=jis-x0208-1983	. #x2241)	; &I-J83-2241; [02-33]
+    (=ks-x1001		. #x217B)	; &I-K0-217B; [01-91]
+    (=jis-x0208-1990	. #x2241)	; &I-J90-2241; [02-33]
+    (=cns11643-1	. #x2245)	; &I-C1-2245; [02-37]
+    (=big5		. #xA1E4)	; &I-B-A1E4;
     ))
 (define-char
   '((name		. "UNION")
@@ -385,12 +385,12 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x222A)	; âˆª
-    (=gb2312		. #x2148)	; ø»„†«
-    (=jis-x0208-1983	. #x2240)	; ø»†’…
-    (=ks-x1001		. #x217A)	; ø»ˆ›¥
-    (=jis-x0208-1990	. #x2240)	; ø½‰·¹
-    (=cns11643-1	. #x2246)	; ø»‘„Ÿ
-    (=big5		. #xA1E5)	; ý¢€Š‡¥
+    (=gb2312		. #x2148)	; &I-G0-2148; [01-40]
+    (=jis-x0208-1983	. #x2240)	; &I-J83-2240; [02-32]
+    (=ks-x1001		. #x217A)	; &I-K0-217A; [01-90]
+    (=jis-x0208-1990	. #x2240)	; &I-J90-2240; [02-32]
+    (=cns11643-1	. #x2246)	; &I-C1-2246; [02-38]
+    (=big5		. #xA1E5)	; &I-B-A1E5;
     ))
 (define-char
   '((name		. "INTEGRAL")
@@ -398,13 +398,13 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x222B)	; âˆ«
-    (=gb2312		. #x2152)	; ø»„†µ
-    (=jis-x0208-1983	. #x2269)	; ø»†’®
-    (=ks-x1001		. #x2172)	; ø»ˆ›
-    (=jis-x0208-1990	. #x2269)	; ø½‰¸¢
-    (=cns11643-1	. #x224D)	; ø»‘„¦
-    (=big5		. #xA1EC)	; ý¢€Š‡¬
-    (=jef-china3	. #x7FE8)	; øº‡¿¨
+    (=gb2312		. #x2152)	; &I-G0-2152; [01-50]
+    (=jis-x0208-1983	. #x2269)	; &I-J83-2269; [02-73]
+    (=ks-x1001		. #x2172)	; &I-K0-2172; [01-82]
+    (=jis-x0208-1990	. #x2269)	; &I-J90-2269; [02-73]
+    (=cns11643-1	. #x224D)	; &I-C1-224D; [02-45]
+    (=big5		. #xA1EC)	; &I-B-A1EC;
+    (=jef-china3	. #x7FE8)	; &I-JC3-7FE8;
     ))
 (define-char
   '((name		. "DOUBLE INTEGRAL")
@@ -413,10 +413,10 @@
     (mirrored		. t)
     (->decomposition	compat #x222B #x222B)
     (=ucs		. #x222C)	; âˆ¬
-    (=jis-x0208-1983	. #x226A)	; ø»†’¯
-    (=ks-x1001		. #x2173)	; ø»ˆ›ž
-    (=jis-x0208-1990	. #x226A)	; ø½‰¸£
-    (=jef-china3	. #x7FE9)	; øº‡¿©
+    (=jis-x0208-1983	. #x226A)	; &I-J83-226A; [02-74]
+    (=ks-x1001		. #x2173)	; &I-K0-2173; [01-83]
+    (=jis-x0208-1990	. #x226A)	; &I-J90-226A; [02-74]
+    (=jef-china3	. #x7FE9)	; &I-JC3-7FE9;
     ))
 (define-char
   '((name		. "TRIPLE INTEGRAL")
@@ -432,11 +432,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x222E)	; âˆ®
-    (=gb2312		. #x2153)	; ø»„†¶
-    (=ks-x1001		. #x2231)	; ø»ˆ›º
-    (=cns11643-1	. #x224E)	; ø»‘„§
-    (=jis-x0213-1-2000	. #x2D73)	; ø»¢¥¶
-    (=big5		. #xA1ED)	; ý¢€Š‡­
+    (=gb2312		. #x2153)	; &I-G0-2153; [01-51]
+    (=ks-x1001		. #x2231)	; &I-K0-2231; [02-17]
+    (=cns11643-1	. #x224E)	; &I-C1-224E; [02-46]
+    (=jis-x0213-1-2000	. #x2D73)	; &I-JX1-2D73; [13-83]
+    (=big5		. #xA1ED)	; &I-B-A1ED;
     ))
 (define-char
   '((name		. "SURFACE INTEGRAL")
@@ -481,11 +481,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2234)	; âˆ´
-    (=jis-x0208		. #x2168)	; ø½‰·ƒ
-    (=gb2312		. #x2160)	; ø»„‡ƒ
-    (=ks-x1001		. #x2145)	; ø»ˆš°
-    (=cns11643-1	. #x2250)	; ø»‘„©
-    (=big5		. #xA1EF)	; ý¢€Š‡¯
+    (=jis-x0208		. #x2168)	; &I-J90-2168; [01-72]
+    (=gb2312		. #x2160)	; &I-G0-2160; [01-64]
+    (=ks-x1001		. #x2145)	; &I-K0-2145; [01-37]
+    (=cns11643-1	. #x2250)	; &I-C1-2250; [02-48]
+    (=big5		. #xA1EF)	; &I-B-A1EF;
     ))
 (define-char
   '((name		. "BECAUSE")
@@ -493,12 +493,12 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2235)	; âˆµ
-    (=gb2312		. #x215F)	; ø»„‡‚
-    (=jis-x0208-1983	. #x2268)	; ø»†’­
-    (=ks-x1001		. #x2171)	; ø»ˆ›œ
-    (=jis-x0208-1990	. #x2268)	; ø½‰¸¡
-    (=cns11643-1	. #x224F)	; ø»‘„¨
-    (=big5		. #xA1EE)	; ý¢€Š‡®
+    (=gb2312		. #x215F)	; &I-G0-215F; [01-63]
+    (=jis-x0208-1983	. #x2268)	; &I-J83-2268; [02-72]
+    (=ks-x1001		. #x2171)	; &I-K0-2171; [01-81]
+    (=jis-x0208-1990	. #x2268)	; &I-J90-2268; [02-72]
+    (=cns11643-1	. #x224F)	; &I-C1-224F; [02-47]
+    (=big5		. #xA1EE)	; &I-B-A1EE;
     ))
 (define-char
   '((name		. "RATIO")
@@ -506,7 +506,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2236)	; âˆ¶
-    (=gb2312		. #x2143)	; ø»„†¦
+    (=gb2312		. #x2143)	; &I-G0-2143; [01-35]
     ))
 (define-char
   '((name		. "PROPORTION")
@@ -514,7 +514,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2237)	; âˆ·
-    (=gb2312		. #x214B)	; ø»„†®
+    (=gb2312		. #x214B)	; &I-G0-214B; [01-43]
     ))
 (define-char
   '((name		. "DOT MINUS")
@@ -550,9 +550,9 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x223C)	; âˆ¼
-    (=ks-x1001		. #x212D)	; ø»ˆš˜
-    (=cns11643-1	. #x2244)	; ø»‘„
-    (=big5		. #xA1E3)	; ý¢€Š‡£
+    (=ks-x1001		. #x212D)	; &I-K0-212D; [01-13]
+    (=cns11643-1	. #x2244)	; &I-C1-2244; [02-36]
+    (=big5		. #xA1E3)	; &I-B-A1E3;
     (=ucs@big5		. #xFF5E)	; âˆ¼
     ))
 (define-char
@@ -562,11 +562,11 @@
     (mirrored		. t)
     (iso-10646-comment	. "lazy S")
     (=ucs		. #x223D)	; âˆ½
-    (=gb2312		. #x2157)	; ø»„†º
-    (=jis-x0208-1983	. #x2266)	; ø»†’«
-    (=ks-x1001		. #x216F)	; ø»ˆ›š
-    (=jis-x0208-1990	. #x2266)	; ø½‰¸Ÿ
-    (=jef-china3	. #x7FE6)	; øº‡¿¦
+    (=gb2312		. #x2157)	; &I-G0-2157; [01-55]
+    (=jis-x0208-1983	. #x2266)	; &I-J83-2266; [02-70]
+    (=ks-x1001		. #x216F)	; &I-K0-216F; [01-79]
+    (=jis-x0208-1990	. #x2266)	; &I-J90-2266; [02-70]
+    (=jef-china3	. #x7FE6)	; &I-JC3-7FE6;
     ))
 (define-char
   '((name		. "INVERTED LAZY S")
@@ -610,7 +610,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2243)	; â‰ƒ
-    (=jis-x0213-1-2000	. #x226C)	; ø»¢•¥
+    (=jis-x0213-1-2000	. #x226C)	; &I-JX1-226C; [02-76]
     ))
 (define-char
   '((name		. "NOT ASYMPTOTICALLY EQUAL TO")
@@ -626,7 +626,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2245)	; â‰…
-    (=jis-x0213-1-2000	. #x226D)	; ø»¢•¦
+    (=jis-x0213-1-2000	. #x226D)	; &I-JX1-226D; [02-77]
     ))
 (define-char
   '((name		. "APPROXIMATELY BUT NOT ACTUALLY EQUAL TO")
@@ -649,8 +649,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2248)	; â‰ˆ
-    (=gb2312		. #x2156)	; ø»„†¹
-    (=jis-x0213-1-2000	. #x226E)	; ø»¢•§
+    (=gb2312		. #x2156)	; &I-G0-2156; [01-54]
+    (=jis-x0213-1-2000	. #x226E)	; &I-JX1-226E; [02-78]
     ))
 (define-char
   '((name		. "NOT ALMOST EQUAL TO")
@@ -680,7 +680,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x224C)	; â‰Œ
-    (=gb2312		. #x2155)	; ø»„†¸
+    (=gb2312		. #x2155)	; &I-G0-2155; [01-53]
     ))
 (define-char
   '((name		. "EQUIVALENT TO")
@@ -723,11 +723,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2252)	; â‰’
-    (=jis-x0208-1983	. #x2262)	; ø»†’§
-    (=ks-x1001		. #x2156)	; ø»ˆ›
-    (=jis-x0208-1990	. #x2262)	; ø½‰¸›
-    (=cns11643-1	. #x223D)	; ø»‘„–
-    (=big5		. #xA1DC)	; ý¢€Š‡œ
+    (=jis-x0208-1983	. #x2262)	; &I-J83-2262; [02-66]
+    (=ks-x1001		. #x2156)	; &I-K0-2156; [01-54]
+    (=jis-x0208-1990	. #x2262)	; &I-J90-2262; [02-66]
+    (=cns11643-1	. #x223D)	; &I-C1-223D; [02-29]
+    (=big5		. #xA1DC)	; &I-B-A1DC;
     ))
 (define-char
   '((name		. "IMAGE OF OR APPROXIMATELY EQUAL TO")
@@ -827,11 +827,11 @@
     (mirrored		. t)
     (->decomposition	#x003D #x0338)
     (=ucs		. #x2260)	; â‰ 
-    (=jis-x0208		. #x2162)	; ø½‰¶½
-    (=gb2312		. #x2159)	; ø»„†¼
-    (=ks-x1001		. #x2141)	; ø»ˆš¬
-    (=cns11643-1	. #x223B)	; ø»‘„”
-    (=big5		. #xA1DA)	; ý¢€Š‡š
+    (=jis-x0208		. #x2162)	; &I-J90-2162; [01-66]
+    (=gb2312		. #x2159)	; &I-G0-2159; [01-57]
+    (=ks-x1001		. #x2141)	; &I-K0-2141; [01-33]
+    (=cns11643-1	. #x223B)	; &I-C1-223B; [02-27]
+    (=big5		. #xA1DA)	; &I-B-A1DA;
     ))
 (define-char
   '((name		. "IDENTICAL TO")
@@ -839,12 +839,12 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2261)	; â‰¡
-    (=gb2312		. #x2154)	; ø»„†·
-    (=jis-x0208-1983	. #x2261)	; ø»†’¦
-    (=ks-x1001		. #x2155)	; ø»ˆ›€
-    (=jis-x0208-1990	. #x2261)	; ø½‰¸š
-    (=cns11643-1	. #x223E)	; ø»‘„—
-    (=big5		. #xA1DD)	; ý¢€Š‡
+    (=gb2312		. #x2154)	; &I-G0-2154; [01-52]
+    (=jis-x0208-1983	. #x2261)	; &I-J83-2261; [02-65]
+    (=ks-x1001		. #x2155)	; &I-K0-2155; [01-53]
+    (=jis-x0208-1990	. #x2261)	; &I-J90-2261; [02-65]
+    (=cns11643-1	. #x223E)	; &I-C1-223E; [02-30]
+    (=big5		. #xA1DD)	; &I-B-A1DD;
     ))
 (define-char
   '((name		. "NOT IDENTICAL TO")
@@ -853,7 +853,7 @@
     (mirrored		. t)
     (->decomposition	#x2261 #x0338)
     (=ucs		. #x2262)	; â‰¢
-    (=jis-x0213-1-2000	. #x226B)	; ø»¢•¤
+    (=jis-x0213-1-2000	. #x226B)	; &I-JX1-226B; [02-75]
     ))
 (define-char
   '((name		. "STRICTLY EQUIVALENT TO")
@@ -868,8 +868,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2264)	; â‰¤
-    (=gb2312		. #x215C)	; ø»„†¿
-    (=ks-x1001		. #x2142)	; ø»ˆš­
+    (=gb2312		. #x215C)	; &I-G0-215C; [01-60]
+    (=ks-x1001		. #x2142)	; &I-K0-2142; [01-34]
     ))
 (define-char
   '((name		. "GREATER-THAN OR EQUAL TO")
@@ -877,8 +877,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2265)	; â‰¥
-    (=gb2312		. #x215D)	; ø»„‡€
-    (=ks-x1001		. #x2143)	; ø»ˆš®
+    (=gb2312		. #x215D)	; &I-G0-215D; [01-61]
+    (=ks-x1001		. #x2143)	; &I-K0-2143; [01-35]
     ))
 (define-char
   '((name		. "LESS-THAN OVER EQUAL TO")
@@ -886,9 +886,9 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2266)	; â‰¦
-    (=jis-x0208		. #x2165)	; ø½‰·€
-    (=cns11643-1	. #x2239)	; ø»‘„’
-    (=big5		. #xA1D8)	; ý¢€Š‡˜
+    (=jis-x0208		. #x2165)	; &I-J90-2165; [01-69]
+    (=cns11643-1	. #x2239)	; &I-C1-2239; [02-25]
+    (=big5		. #xA1D8)	; &I-B-A1D8;
     ))
 (define-char
   '((name		. "GREATER-THAN OVER EQUAL TO")
@@ -896,9 +896,9 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2267)	; â‰§
-    (=jis-x0208		. #x2166)	; ø½‰·
-    (=cns11643-1	. #x223A)	; ø»‘„“
-    (=big5		. #xA1D9)	; ý¢€Š‡™
+    (=jis-x0208		. #x2166)	; &I-J90-2166; [01-70]
+    (=cns11643-1	. #x223A)	; &I-C1-223A; [02-26]
+    (=big5		. #xA1D9)	; &I-B-A1D9;
     ))
 (define-char
   '((name		. "LESS-THAN BUT NOT EQUAL TO")
@@ -920,10 +920,10 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x226A)	; â‰ª
-    (=jis-x0208-1983	. #x2263)	; ø»†’¨
-    (=ks-x1001		. #x216C)	; ø»ˆ›—
-    (=jis-x0208-1990	. #x2263)	; ø½‰¸œ
-    (=jef-china3	. #x7FE3)	; øº‡¿£
+    (=jis-x0208-1983	. #x2263)	; &I-J83-2263; [02-67]
+    (=ks-x1001		. #x216C)	; &I-K0-216C; [01-76]
+    (=jis-x0208-1990	. #x2263)	; &I-J90-2263; [02-67]
+    (=jef-china3	. #x7FE3)	; &I-JC3-7FE3;
     ))
 (define-char
   '((name		. "MUCH GREATER-THAN")
@@ -931,10 +931,10 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x226B)	; â‰«
-    (=jis-x0208-1983	. #x2264)	; ø»†’©
-    (=ks-x1001		. #x216D)	; ø»ˆ›˜
-    (=jis-x0208-1990	. #x2264)	; ø½‰¸
-    (=jef-china3	. #x7FE4)	; øº‡¿¤
+    (=jis-x0208-1983	. #x2264)	; &I-J83-2264; [02-68]
+    (=ks-x1001		. #x216D)	; &I-K0-216D; [01-77]
+    (=jis-x0208-1990	. #x2264)	; &I-J90-2264; [02-68]
+    (=jef-china3	. #x7FE4)	; &I-JC3-7FE4;
     ))
 (define-char
   '((name		. "BETWEEN")
@@ -958,7 +958,7 @@
     (mirrored		. t)
     (->decomposition	#x003C #x0338)
     (=ucs		. #x226E)	; â‰®
-    (=gb2312		. #x215A)	; ø»„†½
+    (=gb2312		. #x215A)	; &I-G0-215A; [01-58]
     ))
 (define-char
   '((name		. "NOT GREATER-THAN")
@@ -967,7 +967,7 @@
     (mirrored		. t)
     (->decomposition	#x003E #x0338)
     (=ucs		. #x226F)	; â‰¯
-    (=gb2312		. #x215B)	; ø»„†¾
+    (=gb2312		. #x215B)	; &I-G0-215B; [01-59]
     ))
 (define-char
   '((name		. "NEITHER LESS-THAN NOR EQUAL TO")
@@ -1021,7 +1021,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2276)	; â‰¶
-    (=jis-x0213-1-2000	. #x226F)	; ø»¢•¨
+    (=jis-x0213-1-2000	. #x226F)	; &I-JX1-226F; [02-79]
     ))
 (define-char
   '((name		. "GREATER-THAN OR LESS-THAN")
@@ -1029,7 +1029,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2277)	; â‰·
-    (=jis-x0213-1-2000	. #x2270)	; ø»¢•©
+    (=jis-x0213-1-2000	. #x2270)	; &I-JX1-2270; [02-80]
     ))
 (define-char
   '((name		. "NEITHER LESS-THAN NOR GREATER-THAN")
@@ -1111,10 +1111,10 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2282)	; âŠ‚
-    (=jis-x0208-1983	. #x223E)	; ø»†’ƒ
-    (=ks-x1001		. #x2178)	; ø»ˆ›£
-    (=jis-x0208-1990	. #x223E)	; ø½‰··
-    (=jef-china3	. #x7FD4)	; øº‡¿”
+    (=jis-x0208-1983	. #x223E)	; &I-J83-223E; [02-30]
+    (=ks-x1001		. #x2178)	; &I-K0-2178; [01-88]
+    (=jis-x0208-1990	. #x223E)	; &I-J90-223E; [02-30]
+    (=jef-china3	. #x7FD4)	; &I-JC3-7FD4;
     ))
 (define-char
   '((name		. "SUPERSET OF")
@@ -1122,10 +1122,10 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2283)	; âŠƒ
-    (=jis-x0208-1983	. #x223F)	; ø»†’„
-    (=ks-x1001		. #x2179)	; ø»ˆ›¤
-    (=jis-x0208-1990	. #x223F)	; ø½‰·¸
-    (=jef-china3	. #x7FD5)	; øº‡¿•
+    (=jis-x0208-1983	. #x223F)	; &I-J83-223F; [02-31]
+    (=ks-x1001		. #x2179)	; &I-K0-2179; [01-89]
+    (=jis-x0208-1990	. #x223F)	; &I-J90-223F; [02-31]
+    (=jef-china3	. #x7FD5)	; &I-JC3-7FD5;
     ))
 (define-char
   '((name		. "NOT A SUBSET OF")
@@ -1134,7 +1134,7 @@
     (mirrored		. t)
     (->decomposition	#x2282 #x0338)
     (=ucs		. #x2284)	; âŠ„
-    (=jis-x0213-1-2000	. #x2242)	; ø»¢”»
+    (=jis-x0213-1-2000	. #x2242)	; &I-JX1-2242; [02-34]
     ))
 (define-char
   '((name		. "NOT A SUPERSET OF")
@@ -1143,7 +1143,7 @@
     (mirrored		. t)
     (->decomposition	#x2283 #x0338)
     (=ucs		. #x2285)	; âŠ…
-    (=jis-x0213-1-2000	. #x2243)	; ø»¢”¼
+    (=jis-x0213-1-2000	. #x2243)	; &I-JX1-2243; [02-35]
     ))
 (define-char
   '((name		. "SUBSET OF OR EQUAL TO")
@@ -1151,10 +1151,10 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2286)	; âŠ†
-    (=jis-x0208-1983	. #x223C)	; ø»†’
-    (=ks-x1001		. #x2176)	; ø»ˆ›¡
-    (=jis-x0208-1990	. #x223C)	; ø½‰·µ
-    (=jef-china3	. #x7FD2)	; øº‡¿’
+    (=jis-x0208-1983	. #x223C)	; &I-J83-223C; [02-28]
+    (=ks-x1001		. #x2176)	; &I-K0-2176; [01-86]
+    (=jis-x0208-1990	. #x223C)	; &I-J90-223C; [02-28]
+    (=jef-china3	. #x7FD2)	; &I-JC3-7FD2;
     ))
 (define-char
   '((name		. "SUPERSET OF OR EQUAL TO")
@@ -1162,10 +1162,10 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x2287)	; âŠ‡
-    (=jis-x0208-1983	. #x223D)	; ø»†’‚
-    (=ks-x1001		. #x2177)	; ø»ˆ›¢
-    (=jis-x0208-1990	. #x223D)	; ø½‰·¶
-    (=jef-china3	. #x7FD3)	; øº‡¿“
+    (=jis-x0208-1983	. #x223D)	; &I-J83-223D; [02-29]
+    (=ks-x1001		. #x2177)	; &I-K0-2177; [01-87]
+    (=jis-x0208-1990	. #x223D)	; &I-J90-223D; [02-29]
+    (=jef-china3	. #x7FD3)	; &I-JC3-7FD3;
     ))
 (define-char
   '((name		. "NEITHER A SUBSET OF NOR EQUAL TO")
@@ -1189,7 +1189,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x228A)	; âŠŠ
-    (=jis-x0213-1-2000	. #x2244)	; ø»¢”½
+    (=jis-x0213-1-2000	. #x2244)	; &I-JX1-2244; [02-36]
     ))
 (define-char
   '((name		. "SUPERSET OF WITH NOT EQUAL TO")
@@ -1197,7 +1197,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x228B)	; âŠ‹
-    (=jis-x0213-1-2000	. #x2245)	; ø»¢”¾
+    (=jis-x0213-1-2000	. #x2245)	; &I-JX1-2245; [02-37]
     ))
 (define-char
   '((name		. "MULTISET")
@@ -1268,9 +1268,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2295)	; âŠ•
-    (=cns11643-1	. #x2253)	; ø»‘„¬
-    (=jis-x0213-1-2000	. #x2251)	; ø»¢•Š
-    (=big5		. #xA1F2)	; ý¢€Š‡²
+    (=cns11643-1	. #x2253)	; &I-C1-2253; [02-51]
+    (=jis-x0213-1-2000	. #x2251)	; &I-JX1-2251; [02-49]
+    (=big5		. #xA1F2)	; &I-B-A1F2;
     ))
 (define-char
   '((name		. "CIRCLED MINUS")
@@ -1278,7 +1278,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2296)	; âŠ–
-    (=jis-x0213-1-2000	. #x2252)	; ø»¢•‹
+    (=jis-x0213-1-2000	. #x2252)	; &I-JX1-2252; [02-50]
     ))
 (define-char
   '((name		. "CIRCLED TIMES")
@@ -1286,7 +1286,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2297)	; âŠ—
-    (=jis-x0213-1-2000	. #x2253)	; ø»¢•Œ
+    (=jis-x0213-1-2000	. #x2253)	; &I-JX1-2253; [02-51]
     ))
 (define-char
   '((name		. "CIRCLED DIVISION SLASH")
@@ -1301,10 +1301,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2299)	; âŠ™
-    (=gb2312		. #x2151)	; ø»„†´
-    (=ks-x1001		. #x2241)	; ø»ˆœŠ
-    (=cns11643-1	. #x2254)	; ø»‘„­
-    (=big5		. #xA1F3)	; ý¢€Š‡³
+    (=gb2312		. #x2151)	; &I-G0-2151; [01-49]
+    (=ks-x1001		. #x2241)	; &I-K0-2241; [02-33]
+    (=cns11643-1	. #x2254)	; &I-C1-2254; [02-52]
+    (=big5		. #xA1F3)	; &I-B-A1F3;
     ))
 (define-char
   '((name		. "CIRCLED RING OPERATOR")
@@ -1389,12 +1389,12 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x22A5)	; âŠ¥
-    (=gb2312		. #x214D)	; ø»„†°
-    (=jis-x0208-1983	. #x225D)	; ø»†’¢
-    (=ks-x1001		. #x2151)	; ø»ˆš¼
-    (=jis-x0208-1990	. #x225D)	; ø½‰¸–
-    (=cns11643-1	. #x2247)	; ø»‘„ 
-    (=big5		. #xA1E6)	; ý¢€Š‡¦
+    (=gb2312		. #x214D)	; &I-G0-214D; [01-45]
+    (=jis-x0208-1983	. #x225D)	; &I-J83-225D; [02-61]
+    (=ks-x1001		. #x2151)	; &I-K0-2151; [01-49]
+    (=jis-x0208-1990	. #x225D)	; &I-J90-225D; [02-61]
+    (=cns11643-1	. #x2247)	; &I-C1-2247; [02-39]
+    (=big5		. #xA1E6)	; &I-B-A1E6;
     ))
 (define-char
   '((name		. "ASSERTION")
@@ -1581,9 +1581,9 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x22BF)	; âŠ¿
-    (=cns11643-1	. #x224A)	; ø»‘„£
-    (=jis-x0213-1-2000	. #x2D79)	; ø»¢¥¼
-    (=big5		. #xA1E9)	; ý¢€Š‡©
+    (=cns11643-1	. #x224A)	; &I-C1-224A; [02-42]
+    (=jis-x0213-1-2000	. #x2D79)	; &I-JX1-2D79; [13-89]
+    (=big5		. #xA1E9)	; &I-B-A1E9;
     ))
 (define-char
   '((name		. "N-ARY LOGICAL AND")
@@ -1591,7 +1591,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x22C0)	; â‹€
-    (=jef-china3	. #x7FD8)	; øº‡¿˜
+    (=jef-china3	. #x7FD8)	; &I-JC3-7FD8;
     ))
 (define-char
   '((name		. "N-ARY LOGICAL OR")
@@ -1599,7 +1599,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x22C1)	; â‹
-    (=jef-china3	. #x7FD9)	; øº‡¿™
+    (=jef-china3	. #x7FD9)	; &I-JC3-7FD9;
     ))
 (define-char
   '((name		. "N-ARY INTERSECTION")
@@ -1607,7 +1607,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x22C2)	; â‹‚
-    (=jef-china3	. #x7FD7)	; øº‡¿—
+    (=jef-china3	. #x7FD7)	; &I-JC3-7FD7;
     ))
 (define-char
   '((name		. "N-ARY UNION")
@@ -1615,7 +1615,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x22C3)	; â‹ƒ
-    (=jef-china3	. #x7FD6)	; øº‡¿–
+    (=jef-china3	. #x7FD6)	; &I-JC3-7FD6;
     ))
 (define-char
   '((name		. "DIAMOND OPERATOR")
@@ -1777,7 +1777,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x22DA)	; â‹š
-    (=jis-x0213-1-2000	. #x2776)	; ø»¢…
+    (=jis-x0213-1-2000	. #x2776)	; &I-JX1-2776; [07-86]
     ))
 (define-char
   '((name		. "GREATER-THAN EQUAL TO OR LESS-THAN")
@@ -1785,7 +1785,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x22DB)	; â‹›
-    (=jis-x0213-1-2000	. #x2777)	; ø»¢†
+    (=jis-x0213-1-2000	. #x2777)	; &I-JX1-2777; [07-87]
     ))
 (define-char
   '((name		. "EQUAL TO OR LESS-THAN")

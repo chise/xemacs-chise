@@ -76,7 +76,6 @@ EXFUN (Fchar_refs_simplify_char_specs, 1);
 extern Lisp_Object Qideographic_structure;
 
 Lisp_Object Vnext_defined_char_id;
-EXFUN (Fdefine_char, 1);
 
 EXFUN (Fmap_char_attribute, 3);
 
@@ -1130,16 +1129,16 @@ make_char_id_table (Lisp_Object initval)
 }
 
 
-#if defined(HAVE_CHISE) && !defined(HAVE_LIBCHISE_LIBCHISE)
-Lisp_Object Qsystem_char_id;
-#endif
-
 Lisp_Object Qcomposition;
 Lisp_Object Q_decomposition;
+Lisp_Object Q_identical;
+Lisp_Object Q_identical_from;
 Lisp_Object Q_denotational;
 Lisp_Object Q_denotational_from;
 Lisp_Object Q_subsumptive;
 Lisp_Object Q_subsumptive_from;
+Lisp_Object Q_component;
+Lisp_Object Q_component_of;
 Lisp_Object Qto_ucs;
 Lisp_Object Q_ucs_unified;
 Lisp_Object Qcompat;
@@ -3275,6 +3274,41 @@ Return DEFAULT-VALUE if the value is not exist.
   return default_value;
 }
 
+static Lisp_Object
+find_char_feature_in_family (Lisp_Object character,
+			     Lisp_Object con_feature,
+			     Lisp_Object feature,
+			     Lisp_Object feature_rel_max)
+{
+  Lisp_Object ancestors
+    = Fget_char_attribute (character, con_feature, Qnil);
+
+  while (!NILP (ancestors))
+    {
+      Lisp_Object ancestor = XCAR (ancestors);
+      Lisp_Object ret;
+
+      if (EQ (ancestor, character))
+	return Qunbound;
+
+      ret = Fchar_feature (ancestor, feature, Qunbound,
+			   Qnil, make_int (0));
+      if (!UNBOUNDP (ret))
+	return ret;
+
+      ancestors = XCDR (ancestors);
+
+      ret = Fget_char_attribute (ancestor, Q_subsumptive_from, Qnil);
+      if (!NILP (ret))
+	ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
+
+      ret = Fget_char_attribute (ancestor, Q_denotational_from, Qnil);
+      if (!NILP (ret))
+	ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
+    }
+  return Qunbound;
+}
+
 DEFUN ("char-feature", Fchar_feature, 2, 5, 0, /*
 Return the value of CHARACTER's FEATURE.
 Return DEFAULT-VALUE if the value is not exist.
@@ -3313,7 +3347,8 @@ Return DEFAULT-VALUE if the value is not exist.
 	}
     }
 
-  if ( !(EQ (attribute, Q_subsumptive_from)) &&
+  if ( !(EQ (attribute, Q_identical)) &&
+       !(EQ (attribute, Q_subsumptive_from)) &&
        !(EQ (attribute, Q_denotational_from)) &&
        ( (NILP (char_rel_max)
 	  || (INTP (char_rel_max) &&
@@ -3324,34 +3359,20 @@ Return DEFAULT-VALUE if the value is not exist.
 
       if ( (name_str[0] != '=') || (name_str[1] == '>') )
 	{
-	  Lisp_Object ancestors
-	    = Fget_char_attribute (character, Q_subsumptive_from, Qnil);
+	  ret = find_char_feature_in_family (character, Q_identical,
+					     attribute, feature_rel_max);
+	  if (!UNBOUNDP (ret))
+	    return ret;
 
-	  if (NILP (ancestors))
-	    ancestors
-	      = Fget_char_attribute (character, Q_denotational_from, Qnil);
+	  ret = find_char_feature_in_family (character, Q_subsumptive_from,
+					     attribute, feature_rel_max);
+	  if (!UNBOUNDP (ret))
+	    return ret;
 
-	  while (!NILP (ancestors))
-	    {
-	      Lisp_Object ancestor = XCAR (ancestors);
-
-	      if (!EQ (ancestor, character))
-		{
-		  ret = Fchar_feature (ancestor, attribute, Qunbound,
-				       Qnil, make_int (0));
-		  if (!UNBOUNDP (ret))
-		    return ret;
-
-		  ancestors = XCDR (ancestors);
-		  ret = Fget_char_attribute (ancestor,
-					     Q_subsumptive_from, Qnil);
-		  if (!NILP (ret))
-		    ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
-		}
-	      else
-		return default_value;
-	      /* ancestors = XCDR (ancestors); */
-	    }
+	  ret = find_char_feature_in_family (character, Q_denotational_from,
+					     attribute, feature_rel_max);
+	  if (!UNBOUNDP (ret))
+	    return ret;
 	}
     }
   return default_value;
@@ -3404,7 +3425,7 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 
       if (INTP (v))
 	{
-	  Emchar c = XINT (v);
+	  Emchar c = DECODE_CHAR (Vcharset_ucs, XINT (v), 0);
 	  Lisp_Object ret
 	    = Fchar_feature (make_char (c), Q_ucs_unified, Qnil,
 			     Qnil, Qnil);
@@ -3467,7 +3488,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       if (!INTP (value))
 	signal_simple_error ("Invalid value for =>ucs", value);
 
-      c = XINT (value);
+      c = DECODE_CHAR (Vcharset_ucs, XINT (value), 0);
 
       ret = Fchar_feature (make_char (c), Q_ucs_unified, Qnil,
 			   Qnil, Qnil);
@@ -3482,9 +3503,17 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_subsumptive_from) ||
 	    EQ (attribute, Q_denotational) ||
 	    EQ (attribute, Q_denotational_from) ||
-	    !NILP (Fstring_match (build_string ("^<-simplified[^*]*$"),
-				  Fsymbol_name (attribute),
-				  Qnil, Qnil)) )
+	    EQ (attribute, Q_identical) ||
+	    EQ (attribute, Q_identical_from) ||
+	    EQ (attribute, Q_component) ||
+	    EQ (attribute, Q_component_of) ||
+	    !NILP (Fstring_match
+		   (build_string ("^\\(<-\\|->\\)\\(simplified"
+				  "\\|same\\|vulgar\\|wrong"
+				  "\\|original\\|ancient"
+				  "\\)[^*]*$"),
+		    Fsymbol_name (attribute),
+		    Qnil, Qnil)) )
     {
       Lisp_Object rest = value;
       Lisp_Object ret;
@@ -3492,7 +3521,11 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       struct gcpro gcpro1;
       GCPRO1 (rev_feature);
 
-      if (EQ (attribute, Q_subsumptive))
+      if (EQ (attribute, Q_identical))
+	rev_feature = Q_identical_from;
+      else if (EQ (attribute, Q_identical_from))
+	rev_feature = Q_identical;
+      else if (EQ (attribute, Q_subsumptive))
 	rev_feature = Q_subsumptive_from;
       else if (EQ (attribute, Q_subsumptive_from))
 	rev_feature = Q_subsumptive;
@@ -3500,19 +3533,32 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	rev_feature = Q_denotational_from;
       else if (EQ (attribute, Q_denotational_from))
 	rev_feature = Q_denotational;
+      else if (EQ (attribute, Q_component))
+	rev_feature = Q_component_of;
+      else if (EQ (attribute, Q_component_of))
+	rev_feature = Q_component;
       else
 	{
 	  Lisp_String* name = symbol_name (XSYMBOL (attribute));
 	  Bufbyte *name_str = string_data (name);
 
-	  if (name_str[0] == '<' && name_str[1] == '-')
+	  if ( (name_str[0] == '<' && name_str[1] == '-') || 
+	       (name_str[0] == '-' && name_str[1] == '>') )
 	    {
 	      Bytecount length = string_length (name);
 	      Bufbyte *rev_name_str = alloca (length + 1);
 
 	      memcpy (rev_name_str + 2, name_str + 2, length - 2);
-	      rev_name_str[0] = '-';
-	      rev_name_str[1] = '>';
+	      if (name_str[0] == '<')
+		{
+		  rev_name_str[0] = '-';
+		  rev_name_str[1] = '>';
+		}
+	      else
+		{
+		  rev_name_str[0] = '<';
+		  rev_name_str[1] = '-';
+		}
 	      rev_name_str[length] = 0;
 	      rev_feature = intern (rev_name_str);
 	    }
@@ -3533,8 +3579,9 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	      if (!CONSP (ffv))
 		put_char_attribute (ret, rev_feature, list1 (character));
 	      else if (NILP (Fmemq (character, ffv)))
-		put_char_attribute (ret, rev_feature,
-				    Fcons (character, ffv));
+		put_char_attribute
+		  (ret, rev_feature,
+		   nconc2 (Fcopy_sequence (ffv), list1 (character)));
 	      Fsetcar (rest, ret);
 	    }
 	  rest = XCDR (rest);
@@ -3587,11 +3634,11 @@ open_chise_data_source_maybe ()
 {
   if (default_chise_data_source == NULL)
     {
-      Lisp_Object db_dir = Vexec_directory;
+      Lisp_Object db_dir = Vdata_directory;
       int modemask = 0755;		/* rwxr-xr-x */
 
       if (NILP (db_dir))
-	db_dir = build_string ("../lib-src");
+	db_dir = build_string ("../etc");
       db_dir = Fexpand_file_name (build_string ("chise-db"), db_dir);
 
       default_chise_data_source
@@ -3695,10 +3742,10 @@ Lisp_Object
 char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
 			       int writing_mode)
 {
-  Lisp_Object db_dir = Vexec_directory;
+  Lisp_Object db_dir = Vdata_directory;
 
   if (NILP (db_dir))
-    db_dir = build_string ("../lib-src");
+    db_dir = build_string ("../etc");
 
   db_dir = Fexpand_file_name (build_string ("chise-db"), db_dir);
   if (writing_mode && NILP (Ffile_exists_p (db_dir)))
@@ -3781,9 +3828,16 @@ Save values of ATTRIBUTE into database file.
     {
       Lisp_Object (*filter)(Lisp_Object value);
 
-      if ( EQ (attribute, Qideographic_structure)
+      if ( !NILP (Ffind_charset (attribute)) )
+	filter = NULL;
+      else if ( EQ (attribute, Qideographic_structure)
+	   || EQ (attribute, Q_identical)
+	   || EQ (attribute, Q_identical_from)
 	   || !NILP (Fstring_match
-		     (build_string ("^\\(<-\\|->\\)simplified[^*]*$"),
+		     (build_string ("^\\(<-\\|->\\)\\(simplified"
+				    "\\|same\\|vulgar\\|wrong"
+				    "\\|original\\|ancient"
+				    "\\)[^*]*$"),
 		      Fsymbol_name (attribute),
 		      Qnil, Qnil)) )
 	filter = &Fchar_refs_simplify_char_specs;
@@ -4549,16 +4603,16 @@ syms_of_chartab (void)
   INIT_LRECORD_IMPLEMENTATION (uint16_byte_table);
   INIT_LRECORD_IMPLEMENTATION (byte_table);
 
-#if defined(HAVE_CHISE) && !defined(HAVE_LIBCHISE_LIBCHISE)
-  defsymbol (&Qsystem_char_id,		"system-char-id");
-#endif
-
   defsymbol (&Qto_ucs,			"=>ucs");
   defsymbol (&Q_ucs_unified,		"->ucs-unified");
   defsymbol (&Q_subsumptive,		"->subsumptive");
   defsymbol (&Q_subsumptive_from,	"<-subsumptive");
   defsymbol (&Q_denotational,		"->denotational");
   defsymbol (&Q_denotational_from,	"<-denotational");
+  defsymbol (&Q_identical,		"->identical");
+  defsymbol (&Q_identical_from,		"<-identical");
+  defsymbol (&Q_component,		"->ideographic-component-forms");
+  defsymbol (&Q_component_of,		"<-ideographic-component-forms");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
