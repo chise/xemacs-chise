@@ -79,14 +79,18 @@
    ((find-charset ka)
     (cond
      ((find-charset kb)
-      (cond
-       ((= (charset-dimension ka)
-	   (charset-dimension kb))
-	(< (charset-id ka)(charset-id kb)))
-       (t
-	(> (charset-dimension ka)
-	   (charset-dimension kb))
-	)))
+      (if (< (charset-id ka) 0)
+	  (if (< (charset-id kb) 0)
+	      (cond
+	       ((= (charset-dimension ka)
+		   (charset-dimension kb))
+		(< (charset-id ka)(charset-id kb)))
+	       (t
+		(> (charset-dimension ka)
+		   (charset-dimension kb))
+		))
+	    t)
+	(< (charset-id ka)(charset-id kb))))
      ((symbolp kb)
       nil)
      (t
