@@ -39,15 +39,7 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 2)	; ⼁
-    (ideographic-strokes@ucs . 1)
-    (ideographic-radical@ucs*sources
-     daikanwa=00069 gt ucs)
-    (ideographic-radical@cns . 25)	; ⼘
-    (ideographic-strokes@cns . 0)
-    (ideographic-radical@cns*sources
-     daikanwa=02775 cns11643)
-    (total-strokes	 . 2)
+  '((total-strokes	 . 2)
     (<-ancient
      ((=ucs		  . #x535C)	; 卜
       (=daikanwa	  . 02774)	; &I-M-02774;
@@ -61,9 +53,15 @@
     (=gt		. 00103)	; &I-GT-00103;
     (=gt-pj-2		. #x3055)	; &I-GT-00103; [16-53]
     (->subsumptive
-     ((=daikanwa	  . 00069)	; &M-00069;
+     ((ideographic-radical . 2)	; ⼁
+      (ideographic-strokes . 1)
+      (ideographic-radical*sources daikanwa=00069 gt ucs)
+      (=daikanwa	  . 00069)	; &M-00069;
       )
-     ((=daikanwa	  . 02775)	; &M-02775;
+     ((ideographic-radical . 25)	; ⼘
+      (ideographic-strokes . 0)
+      (ideographic-radical*sources daikanwa=02775 cns11643)
+      (=daikanwa	  . 02775)	; &M-02775;
       ))
     ))
 (define-char
