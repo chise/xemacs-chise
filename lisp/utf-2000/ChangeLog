@@ -1,3 +1,13 @@
+2003-05-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (U+5A7A): Unify JC3-91C4.
+	(U+5A7F): Unify GT-08178.
+	(U+5AEB): Unify JC3-8CC4.
+	(U+5B03): Unify JC3-91C8.
+	(JX2-2573): Unify JC3-91C9.
+	(JSP-3A3B): Unify JC3-49EA.
+	(JX2-2576): Unify JC3-48F6.
+
 2003-05-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R086-Fire.el (U+71B3): Unify JC3-57F8.
