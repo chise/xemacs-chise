@@ -1,6 +1,7 @@
 2003-07-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* Ideograph-R140-Grass.el: Add some GT code points.
+	* Ideograph-R147-See.el, Ideograph-R140-Grass.el: Add some GT code
+	points.
 
 2003-07-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
