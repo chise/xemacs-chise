@@ -1,6 +1,6 @@
 ;; mule-misc.el --- Miscellaneous Mule functions.
 
-;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
+;; Copyright (C) 1995 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1992,93,94,95 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Amdahl Corporation.
@@ -208,17 +208,6 @@ because its `find-charset-string' ignores ASCII charset."
 		code (lsh code -7)
 		i (1+ i)))
 	(cons charset dest)
-	))))
-
-(defun split-char-or-char-int (char)
-  "Return list of charset and one or two position-codes of CHAR.
-CHAR must be character or integer."
-  (if (characterp char)
-      (split-char char)
-    (let ((c (int-char char)))
-      (if c
-	  (split-char c)
-	(list 'ascii c)
 	))))
 
 
