@@ -1,0 +1,1207 @@
+This is Info file ../info/xemacs-faq.info, produced by Makeinfo version
+1.68 from the input file xemacs-faq.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* FAQ: (xemacs-faq).		XEmacs FAQ.
+END-INFO-DIR-ENTRY
+
+
+File: xemacs-faq.info,  Node: Installation,  Next: Customization,  Prev: Introduction,  Up: Top
+
+2 Installation and Trouble Shooting
+***********************************
+
+   This is part 2 of the XEmacs Frequently Asked Questions list.  This
+section is devoted to Installation, Maintenance and Trouble Shooting.
+
+* Menu:
+
+Installation:
+* Q2.0.1::      Running XEmacs without installing.
+* Q2.0.2::      XEmacs is too big.
+* Q2.0.3::      Compiling XEmacs with Netaudio.
+* Q2.0.4::      Problems with Linux and ncurses.
+* Q2.0.5::      Do I need X11 to run XEmacs?
+* Q2.0.6::      I'm having strange crashes.  What do I do?
+* Q2.0.7::      Libraries in non-standard locations.
+* Q2.0.8::      can't resolve symbol _h_errno
+* Q2.0.9::      Where do I find external libraries?
+* Q2.0.10::     After I run configure I find a coredump, is something wrong?
+* Q2.0.11::     XEmacs can't resolve host names.
+* Q2.0.12::     Why can't I strip XEmacs?
+* Q2.0.13::     Can't link XEmacs on Solaris with Gcc.
+* Q2.0.14::     Make on HP/UX 9 fails after linking temacs
+
+Trouble Shooting:
+* Q2.1.1::      XEmacs just crashed on me!
+* Q2.1.2::      Cryptic Minibuffer messages.
+* Q2.1.3::      Translation Table Syntax messages at Startup.
+* Q2.1.4::      Startup warnings about deducing proper fonts?
+* Q2.1.5::      XEmacs cannot connect to my X Terminal.
+* Q2.1.6::      XEmacs just locked up my Linux X server.
+* Q2.1.7::      HP Alt key as Meta.
+* Q2.1.8::      got (wrong-type-argument color-instance-p nil)!
+* Q2.1.9::      XEmacs causes my OpenWindows 3.0 server to crash.
+* Q2.1.10::     Warnings from incorrect key modifiers.
+* Q2.1.11::     Can't instantiate image error... in toolbar
+* Q2.1.12::     Regular Expression Problems on DEC OSF1.
+* Q2.1.13::     HP/UX 10.10 and `create_process' failure
+* Q2.1.14::     `C-g' doesn't work for me.  Is it broken?
+* Q2.1.15::     How to debug an XEmacs problem with a debugger.
+* Q2.1.16::     XEmacs crashes in `strcat' on HP/UX 10.
+* Q2.1.17::     `Marker does not point anywhere'.
+* Q2.1.18::     19.14 hangs on HP/UX 10.10.
+* Q2.1.19::     XEmacs does not follow the local timezone.
+* Q2.1.20::     `Symbol's function definition is void: hkey-help-show.'
+* Q2.1.21::     Every so often the XEmacs frame freezes.
+* Q2.1.22::     XEmacs seems to take a really long time to do some things.
+* Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
+
+
+File: xemacs-faq.info,  Node: Q2.0.1,  Next: Q2.0.2,  Prev: Installation,  Up: Installation
+
+2.0: Installation
+=================
+
+Q2.0.1: Running XEmacs without installing
+-----------------------------------------
+
+   The `INSTALL' file says that up to 108 MB of space is needed
+temporarily during installation!  How can I just try it out?
+
+   XEmacs will run in place without requiring installation and copying
+of the Lisp directories, and without having to specify a special
+build-time flag.  It's the copying of the Lisp directories that
+requires so much space.  XEmacs is largely written in Lisp.
+
+   A good method is to make a shell alias for xemacs:
+
+     alias xemacs=/i/xemacs-20.2/src/xemacs
+
+   (You will obviously use whatever directory you downloaded the source
+tree to instead of `/i/xemacs-20.2').
+
+   This will let you run XEmacs without massive copying.
+
+
+File: xemacs-faq.info,  Node: Q2.0.2,  Next: Q2.0.3,  Prev: Q2.0.1,  Up: Installation
+
+Q2.0.2: XEmacs is too big
+-------------------------
+
+   Although this entry has been written for XEmacs 19.13, most of it
+still stands true.
+
+   Steve Baur <steve@altair.xemacs.org> writes:
+
+     The 45MB of space required by the installation directories can be
+     reduced dramatically if desired.  Gzip all the .el files.  Remove
+     all the packages you'll never want to use (or even ones you do
+     like the two obsolete mailcrypts and Gnus 4 in 19.13).  Remove the
+     TexInfo manuals.  Remove the Info (and use just hardcopy versions
+     of the manual).  Remove most of the stuff in etc.  Remove or gzip
+     all the source code.  Gzip or remove the C source code.  Configure
+     it so that copies are not made of the support lisp.  I'm not
+     advocating any of these things, just pointing out ways to reduce
+     the disk requirements if desired.
+
+     Now examine the space used by directory:
+
+     0	/usr/local/bin/xemacs
+     2048	/usr/local/bin/xemacs-19.13
+     
+     1546	/usr/local/lib/xemacs-19.13/i486-miranova-sco3.2v4.2
+     1158	/usr/local/lib/xemacs-19.13/i486-unknown-linux1.2.13
+
+     You need to keep these.  XEmacs isn't stripped by default in
+     installation, you should consider stripping.  That will save you
+     about 5MB right there.
+
+     207	/usr/local/lib/xemacs-19.13/etc/w3
+     122	/usr/local/lib/xemacs-19.13/etc/sounds
+     18	/usr/local/lib/xemacs-19.13/etc/sparcworks
+     159	/usr/local/lib/xemacs-19.13/etc/vm
+     6	/usr/local/lib/xemacs-19.13/etc/e
+     21	/usr/local/lib/xemacs-19.13/etc/eos
+     172	/usr/local/lib/xemacs-19.13/etc/toolbar
+     61	/usr/local/lib/xemacs-19.13/etc/ns
+     43	/usr/local/lib/xemacs-19.13/etc/gnus
+
+     These are support directories for various packages.  In general
+     they match a directory under
+     ./xemacs-19.13/lib/xemacs-19.13/lisp/.  If you do not require the
+     package, you may delete or gzip the support too.
+
+     1959	/usr/local/lib/xemacs-19.13/etc
+     175	/usr/local/lib/xemacs-19.13/lisp/bytecomp
+     340	/usr/local/lib/xemacs-19.13/lisp/calendar
+     342	/usr/local/lib/xemacs-19.13/lisp/comint
+     517	/usr/local/lib/xemacs-19.13/lisp/dired
+     42	/usr/local/lib/xemacs-19.13/lisp/electric
+     212	/usr/local/lib/xemacs-19.13/lisp/emulators
+     238	/usr/local/lib/xemacs-19.13/lisp/energize
+     289	/usr/local/lib/xemacs-19.13/lisp/gnus
+     457	/usr/local/lib/xemacs-19.13/lisp/ilisp
+     1439	/usr/local/lib/xemacs-19.13/lisp/modes
+     2276	/usr/local/lib/xemacs-19.13/lisp/packages
+     1040	/usr/local/lib/xemacs-19.13/lisp/prim
+     176	/usr/local/lib/xemacs-19.13/lisp/pcl-cvs
+     154	/usr/local/lib/xemacs-19.13/lisp/rmail
+     3	/usr/local/lib/xemacs-19.13/lisp/epoch
+     45	/usr/local/lib/xemacs-19.13/lisp/term
+     860	/usr/local/lib/xemacs-19.13/lisp/utils
+     851	/usr/local/lib/xemacs-19.13/lisp/vm
+     13	/usr/local/lib/xemacs-19.13/lisp/vms
+     157	/usr/local/lib/xemacs-19.13/lisp/x11
+     19	/usr/local/lib/xemacs-19.13/lisp/tooltalk
+     14	/usr/local/lib/xemacs-19.13/lisp/sunpro
+     291	/usr/local/lib/xemacs-19.13/lisp/games
+     198	/usr/local/lib/xemacs-19.13/lisp/edebug
+     619	/usr/local/lib/xemacs-19.13/lisp/w3
+     229	/usr/local/lib/xemacs-19.13/lisp/eos
+     55	/usr/local/lib/xemacs-19.13/lisp/iso
+     59	/usr/local/lib/xemacs-19.13/lisp/mailcrypt
+     187	/usr/local/lib/xemacs-19.13/lisp/eterm
+     356	/usr/local/lib/xemacs-19.13/lisp/ediff
+     408	/usr/local/lib/xemacs-19.13/lisp/hyperbole/kotl
+     1262	/usr/local/lib/xemacs-19.13/lisp/hyperbole
+     247	/usr/local/lib/xemacs-19.13/lisp/hm--html-menus
+     161	/usr/local/lib/xemacs-19.13/lisp/mh-e
+     299	/usr/local/lib/xemacs-19.13/lisp/viper
+     53	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-x
+     4	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/DocWindow.nib
+     3	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/InfoPanel.nib
+     3	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/TreeView.nib
+     11	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj
+     53	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx
+     466	/usr/local/lib/xemacs-19.13/lisp/oobr
+     14142	/usr/local/lib/xemacs-19.13/lisp
+
+     These are all Emacs Lisp source code and bytecompiled object code.
+     You may safely gzip everything named *.el here.  You may remove
+     any package you don't use.  *Nothing bad will happen if you delete
+     a package that you do not use*.  You must be sure you do not use
+     it though, so be conservative at first.
+
+     Possible candidates for deletion include w3 (newer versions exist,
+     or you may just use Lynx or Netscape for web browsing), games,
+     hyperbole, mh-e, hm-html-menus (better packages exist), vm, viper,
+     oobr, gnus (new versions exist), etc.  Ask yourself, *Do I ever
+     want to use this package?*  If the answer is no, then it is a
+     candidate for removal.
+
+     First, gzip all the .el files.  Then go about package by package
+     and start gzipping the .elc files.  Then run XEmacs and do
+     whatever it is you normally do.  If nothing bad happens, then
+     delete the directory.  Be conservative about deleting directories,
+     and it would be handy to have a backup tape around in case you get
+     too zealous.
+
+     `prim', `modes', `packages', and `utils' are four directories you
+     definitely do *not* want to delete, although certain packages can
+     be removed from them if you do not use them.
+
+          1972	/usr/local/lib/xemacs-19.13/info
+
+     These are online texinfo sources.  You may either gzip them or
+     remove them.  In either case, `C-h i' (info mode) will no longer
+     work.
+
+          20778	/usr/local/lib/xemacs-19.13
+
+     The 20MB achieved is less than half of what the full distribution
+     takes up, *and* can be achieved without deleting a single file.
+
+   Giacomo Boffi <boffi@hp735.stru.polimi.it> provides this procedure:
+
+     Substitute `/usr/local/lib/' with the path where the xemacs tree is
+     rooted, then use this script:
+
+          #!/bin/sh
+          
+          r=/usr/local/lib/xemacs-19.13/lisp
+          
+          cd $r ; rm -f cmpr ; touch cmpr
+          
+          du -s .
+          
+          for d in * ; do
+            if test -d $d ; then
+              cd $d
+              for f in *.el ; do
+          #     compress (remove) only (ONLY) the sources that have a
+          #     corresponding compiled file --- do not (DO NOT)
+          #     touch other sources
+                if test -f ${f}c ; then gzip -v9 $f >> $r/cmpr ; fi
+              done
+              cd ..
+            fi
+          done
+          
+          du -s .
+
+     A step beyond would be substituting `rm -f' for `gzip -v9', but
+     you have to be desperate for removing the sources (remember that
+     emacs can access compressed files transparently).
+
+     Also, a good megabyte could easily be trimmed from the $r/../etc
+     directory, e.g., the termcap files, some O+NEWS, others that I
+     don't remember as well.
+
+     XEmacs 21.0 will unbundle the lisp hierarchy and allow the
+     installer to choose exactly how much support code gets installed.
+
+
+File: xemacs-faq.info,  Node: Q2.0.3,  Next: Q2.0.4,  Prev: Q2.0.2,  Up: Installation
+
+Q2.0.3: Compiling XEmacs with Netaudio.
+---------------------------------------
+
+   What is the best way to compile XEmacs with the netaudio system,
+since I have got the netaudio system compiled but installed at a weird
+place, I am not root.  Also in the READMEs it does not say anything
+about compiling with the audioserver?
+
+   You should only need to add some stuff to the configure command line.
+To tell it to compile in netaudio support: `--with-sound=both', or
+`--with-sound=nas' if you don't want native sound support for some
+reason.) To tell it where to find the netaudio includes and libraries:
+
+     --site-libraries=WHATEVER
+     --site-includes=WHATEVER
+
+   Then (fingers crossed) it should compile and it will use netaudio if
+you have a server running corresponding to the X server. The netaudio
+server has to be there when XEmacs starts. If the netaudio server goes
+away and another is run, XEmacs should cope (fingers crossed, error
+handling in netaudio isn't perfect).
+
+   BTW, netaudio has been renamed as it has a name clash with something
+else, so if you see references to NAS or Network Audio System, it's the
+same thing.  It also might be found at
+`ftp://ftp.x.org/contrib/audio/nas/'.
+
+
+File: xemacs-faq.info,  Node: Q2.0.4,  Next: Q2.0.5,  Prev: Q2.0.3,  Up: Installation
+
+Q2.0.4: Problems with Linux and ncurses.
+----------------------------------------
+
+   On Linux 1.3.98 with termcap 2.0.8 and the ncurses that came with
+libc 5.2.18, XEmacs 20.0b20 is unable to open a tty device:
+
+     src/xemacs -nw -q
+     Initialization error:
+     Terminal type `xterm' undefined (or can't access database?)
+
+   Ben Wing <ben@666.com> writes:
+
+     Your ncurses configuration is messed up.  Your /usr/lib/terminfo
+     is a bad pointer, perhaps to a CD-ROM that is not inserted.
+
+
+File: xemacs-faq.info,  Node: Q2.0.5,  Next: Q2.0.6,  Prev: Q2.0.4,  Up: Installation
+
+Q2.0.5: Do I need X11 to run XEmacs?
+------------------------------------
+
+   No.  The name "XEmacs" is unfortunate in the sense that it is *not*
+an X Window System-only version of Emacs.  Starting with 19.14 XEmacs
+has full color support on a color-capable character terminal.
+
+
+File: xemacs-faq.info,  Node: Q2.0.6,  Next: Q2.0.7,  Prev: Q2.0.5,  Up: Installation
+
+Q2.0.6: I'm having strange crashes.  What do I do?
+--------------------------------------------------
+
+   There have been a variety of reports of crashes due to compilers with
+buggy optimizers.  Please see the `PROBLEMS' file that comes with
+XEmacs to read what it says about your platform.
+
+
+File: xemacs-faq.info,  Node: Q2.0.7,  Next: Q2.0.8,  Prev: Q2.0.6,  Up: Installation
+
+Q2.0.7: Libraries in non-standard locations
+-------------------------------------------
+
+   I have x-faces, jpeg, xpm etc. all in different places.  I've tried
+space-separated, comma-separated, several -site-libraries, all to no
+avail.
+
+     --site-libraries='/path/one /path/two /path/etc'
+
+
+File: xemacs-faq.info,  Node: Q2.0.8,  Next: Q2.0.9,  Prev: Q2.0.7,  Up: Installation
+
+Q2.0.8: can't resolve symbol _h_errno
+-------------------------------------
+
+   You are using the Linux/ELF distribution of XEmacs 19.14, and your
+ELF libraries are out of date.  You have the following options:
+
+  1. Upgrade your libc to at least 5.2.16 (better is 5.2.18, 5.3.12, or
+     5.4.10).
+
+  2. Patch the XEmacs binary by replacing all occurrences of
+     `_h_errno^@' with `h_errno^@^@'.  Any version of Emacs will
+     suffice.  If you don't understand how to do this, don't do it.
+
+  3. Rebuild XEmacs yourself - any working ELF version of libc should be
+     O.K.
+
+   Hrvoje Niksic <hniksic@srce.hr> writes:
+
+     Why not use a Perl one-liner for No. 2?
+
+          perl -pi -e 's/_h_errno\0/h_errno\0\0/g' \
+          /usr/local/bin/xemacs-19.14
+
+     NB: You *must* patch `/usr/local/bin/xemacs-19.14', and not
+     `xemacs' because `xemacs' is a link to `xemacs-19.14'; the Perl
+     `-i' option will cause unwanted side-effects if applied to a
+     symbolic link.
+
+   SL Baur <steve@xemacs.org> writes:
+
+     If you build against a recent libc-5.4 (late enough to have caused
+     problems earlier in the beta cycle) and then run with an earlier
+     version of libc, you get a
+
+          $ xemacs
+          xemacs: can't resolve symbol '__malloc_hook'
+          zsh: 7942 segmentation fault (core dumped)  xemacs
+
+     (Example binary compiled against libc-5.4.23 and run with
+     libc-5.4.16).
+
+     The solution is to upgrade to at least libc-5.4.23.  Sigh.  Drat.
+
+
+File: xemacs-faq.info,  Node: Q2.0.9,  Next: Q2.0.10,  Prev: Q2.0.8,  Up: Installation
+
+Q2.0.9: Where do I find external libraries?
+-------------------------------------------
+
+   All external libraries used by XEmacs can be found at the XEmacs FTP
+site `ftp://ftp.xemacs.org/pub/xemacs/aux/'.
+
+   The canonical locations (at the time of this writing) are as follows:
+
+JPEG
+     `ftp://ftp.uu.net/graphics/jpeg/'.  Version 6a is current.
+
+XPM
+     `ftp://ftp.x.org/contrib/libraries/'.  Version 3.4j is current.
+     Older versions of this package are known to cause XEmacs crashes.
+
+TIFF
+     `ftp://ftp.sgi.com/graphics/tiff/'.  v3.4 is current.  The latest
+     beta is v3.4b035.  There is a HOWTO here.
+
+PNG
+     `ftp://ftp.uu.net/graphics/png/'.  0.89c is current.  XEmacs
+     requires a fairly recent version to avoid using temporary files.
+
+     `ftp://swrinde.nde.swri.edu/pub/png/src/'
+
+Compface
+     `ftp://ftp.cs.indiana.edu/pub/faces/compface/'.  This library has
+     been frozen for about 6 years, and is distributed without version
+     numbers.  *It should be compiled with the same options that X11 was
+     compiled with on your system*.  The version of this library at
+     XEmacs.org includes the `xbm2xface.pl' script, written by
+     <stig@hackvan.com>, which may be useful when generating your own
+     xface.
+
+NAS
+     `ftp://ftp.x.org/contrib/audio/nas/'.  Version 1.2p5 is current.
+     There is a FAQ here.
+
+
+File: xemacs-faq.info,  Node: Q2.0.10,  Next: Q2.0.11,  Prev: Q2.0.9,  Up: Installation
+
+Q2.0.10: After I run configure I find a core dump, is something wrong?
+----------------------------------------------------------------------
+
+   Not necessarily.  If you have GNU sed 3.0 you should downgrade it to
+2.05.  From the `README' at prep.ai.mit.edu:
+
+     sed 3.0 has been withdrawn from distribution.  It has major
+     revisions, which mostly seem to be improvements; but it turns out
+     to have bugs too which cause trouble in some common cases.
+
+     Tom Lord won't be able to work fixing the bugs until May.  So in
+     the mean time, we've decided to withdraw sed 3.0 from distribution
+     and make version 2.05 once again the recommended version.
+
+   It has also been observed that the vfork test on Solaris will leave a
+core dump.
+
+
+File: xemacs-faq.info,  Node: Q2.0.11,  Next: Q2.0.12,  Prev: Q2.0.10,  Up: Installation
+
+Q2.0.11: XEmacs doesn't resolve hostnames.
+------------------------------------------
+
+   This is the result of a long-standing problem with SunOS and the fact
+that stock SunOS systems do not ship with DNS resolver code in libc.
+
+   Christopher Davis <ckd@loiosh.kei.com> writes:
+
+     That's correct [The SunOS 4.1.3 precompiled binaries don't do name
+     lookup].  Since Sun figured that everyone used NIS to do name
+     lookups (that DNS thing was apparently only a passing fad,
+     right?), the stock SunOS 4.x systems don't have DNS-based name
+     lookups in libc.
+
+     This is also why Netscape ships two binaries for SunOS 4.1.x.
+
+     The best solution is to compile it yourself; the configure script
+     will check to see if you've put DNS in the shared libc and will
+     then proceed to link against the DNS resolver library code.
+
+
+File: xemacs-faq.info,  Node: Q2.0.12,  Next: Q2.0.13,  Prev: Q2.0.11,  Up: Installation
+
+Q2.0.12: Why can't I strip XEmacs?
+----------------------------------
+
+   Richard Cognot <cognot@fronsac.ensg.u-nancy.fr> writes:
+
+     Because of the way XEmacs (and every other Emacsen, AFAIK) is
+     built. The link gives you a bare-boned emacs (called temacs).
+     temacs is then run, preloading some of the lisp files. The result
+     is then dumped into a new executable, named xemacs, which will
+     contain all of the preloaded lisp functions and data.
+
+     Now, during the dump itself, the executable (code+data+symbols) is
+     written on disk using a special unexec() function. This function is
+     obviously heavily system dependent. And on some systems, it leads
+     to an executable which, although valid, cannot be stripped without
+     damage. If memory serves, this is especially the case for AIX
+     binaries. On other architecture it might work OK.
+
+     The Right Way to strip the emacs binary is to strip temacs prior to
+     dumping xemacs. This will always work, although you can do that
+     only if you install from sources (as temacs is `not' part of the
+     binary kits).
+
+   Nat Makarevitch <nat@nataa.fr.eu.org> writes:
+
+     Here is the trick:
+
+       1. [ ./configure; make ]
+
+       2. rm src/xemacs
+
+       3. strip src/temacs
+
+       4. make
+
+       5. cp src/xemacs /usr/local/bin/xemacs
+
+       6. cp lib-src/DOC-19.16-XEmacs
+          /usr/local/lib/xemacs-19.16/i586-unknown-linuxaout
+
+
+File: xemacs-faq.info,  Node: Q2.0.13,  Next: Q2.0.14,  Prev: Q2.0.12,  Up: Installation
+
+Q2.0.13: Problems linking with Gcc on Solaris
+---------------------------------------------
+
+   There are known difficulties linking with Gnu ld on Solaris.  A
+typical error message might look like:
+
+     unexec(): dlopen(../dynodump/dynodump.so): ld.so.1: ./temacs:
+     fatal: relocation error:
+     symbol not found: main: referenced in ../dynodump/dynodump.so
+
+   Martin Buchholz <martin@xemacs.org> writes:
+
+     You need to specify `-fno-gnu-linker' as part of your flags to pass
+     to ld.  Future releases of XEmacs will try to do this
+     automatically.
+
+
+File: xemacs-faq.info,  Node: Q2.0.14,  Next: Q2.1.1,  Prev: Q2.0.13,  Up: Installation
+
+Q2.0.14: Make on HP/UX 9 fails after linking temacs
+---------------------------------------------------
+
+   Problem when building xemacs-19.16 on hpux 9:
+
+   Richard Cognot <cognot@ensg.u-nancy.fr> writes:
+
+     make on hpux fails after linking temacs with a message:
+
+          "make: don't know how to make .y."
+
+     Solution: This is a problem with HP make revision 70.X.  Either
+     use GNU make, or install PHCO_6552, which will bring make to
+     revision 72.24.1.17.
+
+
+File: xemacs-faq.info,  Node: Q2.1.1,  Next: Q2.1.2,  Prev: Q2.0.14,  Up: Installation
+
+2.1: Trouble Shooting
+=====================
+
+Q2.1.1: Help!  XEmacs just crashed on me!
+-----------------------------------------
+
+   First of all, don't panic.  Whenever XEmacs crashes, it tries
+extremely hard to auto-save all of your files before dying.  (The main
+time that this will not happen is if the machine physically lost power
+or if you killed the XEmacs process using `kill -9').  The next time
+you try to edit those files, you will be informed that a more recent
+auto-save file exists.  You can use `M-x recover-file' to retrieve the
+auto-saved version of the file.
+
+   Starting with 19.14, you may use the command `M-x recover-session'
+after a crash to pick up where you left off.
+
+   Now, XEmacs is not perfect, and there may occasionally be times, or
+particular sequences of actions, that cause it to crash.  If you can
+come up with a reproducible way of doing this (or even if you have a
+pretty good memory of exactly what you were doing at the time), the
+maintainers would be very interested in knowing about it.  Post a
+message to comp.emacs.xemacs or send mail to <crashes@xemacs.org>.
+Please note that the `crashes' address is exclusively for crash reports.
+
+   If at all possible, include a stack backtrace of the core dump that
+was produced.  This shows where exactly things went wrong, and makes it
+much easier to diagnose problems.  To do this, you need to locate the
+core file (it's called `core', and is usually sitting in the directory
+that you started XEmacs from, or your home directory if that other
+directory was not writable).  Then, go to that directory and execute a
+command like:
+
+     gdb `which xemacs` core
+
+   and then issue the command `where' to get the stack backtrace.  You
+might have to use `dbx' or some similar debugger in place of `gdb'.  If
+you don't have any such debugger available, complain to your system
+administrator.
+
+   It's possible that a core file didn't get produced, in which case
+you're out of luck.  Go complain to your system administrator and tell
+him not to disable core files by default.  Also *Note Q2.1.15::, for
+tips and techniques for dealing with a debugger.
+
+   When making a problem report make sure that:
+
+  1. Report *all* of the information output by XEmacs during the crash.
+
+  2. You mention what O/S & Hardware you are running XEmacs on.
+
+  3. What version of XEmacs you are running.
+
+  4. What build options you are using.
+
+  5. If the problem is related to graphics, we will also need to know
+     what version of the X Window System you are running, and what
+     window manager you are using.
+
+  6. If the problem happened on a tty, please include the terminal type.
+
+
+File: xemacs-faq.info,  Node: Q2.1.2,  Next: Q2.1.3,  Prev: Q2.1.1,  Up: Installation
+
+Q2.1.2: Cryptic Minibuffer messages.
+------------------------------------
+
+   When I try to use some particular option of some particular package,
+I get a cryptic error in the minibuffer.
+
+   If you can't figure out what's going on, select Options/General
+Options/Debug on Error from the Menubar and then try and make the error
+happen again.  This will give you a backtrace that may be enlightening.
+If not, try reading through this FAQ; if that fails, you could try
+posting to comp.emacs.xemacs (making sure to include the backtrace) and
+someone may be able to help.  If you can identify which Emacs lisp
+source file the error is coming from you can get a more detailed stack
+backtrace by doing the following:
+
+  1. Visit the .el file in an XEmacs buffer.
+
+  2. Issue the command `M-x eval-current-buffer'.
+
+  3. Reproduce the error.
+
+   Depending on the version of XEmacs, you may either select Edit->Show
+Messages (19.13 and earlier) or Help->Recent Keystrokes/Messages (19.14
+and later) from the menubar to see the most recent messages.  This
+command is bound to `C-h l' by default.
+
+
+File: xemacs-faq.info,  Node: Q2.1.3,  Next: Q2.1.4,  Prev: Q2.1.2,  Up: Installation
+
+Q2.1.3: Translation Table Syntax messages at Startup
+----------------------------------------------------
+
+   I get tons of translation table syntax error messages during startup.
+How do I get rid of them?
+
+   There are two causes of this problem.  The first usually only strikes
+people using the prebuilt binaries.  The culprit in both cases is the
+file `XKeysymDB'.
+
+   * The binary cannot find the `XKeysymDB' file.  The location is
+     hardcoded at compile time so if the system the binary was built on
+     puts it a different place than your system does, you have
+     problems.  To fix, set the environment variable XKEYSYMDB to the
+     location of the `XKeysymDB' file on your system or to the location
+     of the one included with XEmacs which should be at
+     `<xemacs_root_directory>/lib/xemacs-19.16/etc/XKeysymDB'.
+
+   * The binary is finding the XKeysymDB but it is out-of-date on your
+     system and does not contain the necessary lines.  Either ask your
+     system administrator to replace it with the one which comes with
+     XEmacs (which is the stock R6 version and is backwards compatible)
+     or set your XKEYSYMDB variable to the location of XEmacs's
+     described above.
+
+
+File: xemacs-faq.info,  Node: Q2.1.4,  Next: Q2.1.5,  Prev: Q2.1.3,  Up: Installation
+
+Q2.1.4: Startup warnings about deducing proper fonts?
+-----------------------------------------------------
+
+   How can I avoid the startup warnings about deducing proper fonts?
+
+   This is highly dependent on your installation, but try with the
+following font as your base font for XEmacs and see what it does:
+
+-adobe-courier-medium-r-*-*-*-120-*-*-*-*-iso8859-1
+
+   More precisely, do the following in your resource file:
+
+Emacs.default.attributeFont: \
+-adobe-courier-medium-r-*-*-*-120-*-*-*-*-iso8859-1
+
+   If you just don't want to see the `*Warnings*' buffer at startup
+time, you can set this:
+
+     (setq display-warning-minimum-level 'error)
+
+   The buffer still exists; it just isn't in your face.
+
+
+File: xemacs-faq.info,  Node: Q2.1.5,  Next: Q2.1.6,  Prev: Q2.1.4,  Up: Installation
+
+Q2.1.5: XEmacs cannot connect to my X Terminal!
+-----------------------------------------------
+
+   Help!  I can not get XEmacs to display on my Envizex X-terminal!
+
+   Try setting the DISPLAY variable using the numeric IP address of the
+host you are running XEmacs from.
+
+
+File: xemacs-faq.info,  Node: Q2.1.6,  Next: Q2.1.7,  Prev: Q2.1.5,  Up: Installation
+
+Q2.1.6: XEmacs just locked up my Linux X server!
+------------------------------------------------
+
+   There have been several reports of the X server locking up under
+Linux.  In all reported cases removing speedo and scaled fonts from the
+font path corrected the problem.  This can be done with the command
+`xset'.
+
+   It is possible that using a font server may also solve the problem.
+
+
+File: xemacs-faq.info,  Node: Q2.1.7,  Next: Q2.1.8,  Prev: Q2.1.6,  Up: Installation
+
+Q2.1.7: HP Alt key as Meta.
+---------------------------
+
+   How can I make XEmacs recognize the Alt key of my HP workstation as a
+Meta key?
+
+   Put the following line into a file and load it with xmodmap(1) before
+starting XEmacs:
+
+     remove Mod1 = Mode_switch
+
+
+File: xemacs-faq.info,  Node: Q2.1.8,  Next: Q2.1.9,  Prev: Q2.1.7,  Up: Installation
+
+Q2.1.8: got (wrong-type-argument color-instance-p nil)
+------------------------------------------------------
+
+   Natalie Kershaw <nataliek@rd.scitec.com.au> writes:
+
+     I am trying to run xemacs 19.13 under X11R4. Whenever I move the
+     mouse I get the following error. Has anyone seen anything like
+     this? This doesn't occur on X11R5.
+
+          Signalling:
+          (error "got (wrong-type-argument color-instance-p nil)
+          and I don't know why!")
+
+   dinos <map01kd@gold.ac.uk> writes:
+
+     I think this is due to undefined resources; You need to define
+     color backgrounds and foregrounds into your
+     `.../app-defaults/Emacs' like:
+
+          *Foreground:	Black	;everything will be of black on grey95,
+          *Background:	Grey95	;unless otherwise specified.
+          *cursorColor:	Red3	;red3 cursor with grey95 border.
+          *pointerColor:	Red3	;red3 pointer with grey95 border.
+
+   Natalie Kershaw adds:
+
+     What fixed the problem was adding some more colors to the X color
+     database (copying the X11R5 colors over), and also defining the
+     following resources:
+
+          xemacs*cursorColor:    black
+          xemacs*pointerColor:   black
+
+     With the new colors installed the problem still occurs if the above
+     resources are not defined.
+
+     If the new colors are not present then an additional error occurs
+     on XEmacs startup, which says `Color Red3' not defined.
+
+
+File: xemacs-faq.info,  Node: Q2.1.9,  Next: Q2.1.10,  Prev: Q2.1.8,  Up: Installation
+
+Q2.1.9: XEmacs causes my OpenWindows 3.0 server to crash.
+---------------------------------------------------------
+
+   The OpenWindows 3.0 server is incredibly buggy.  Your best bet is to
+replace it with one from the generic MIT X11 release.  You might also
+try disabling parts of your `.emacs', like enabling background pixmaps.
+
+
+File: xemacs-faq.info,  Node: Q2.1.10,  Next: Q2.1.11,  Prev: Q2.1.9,  Up: Installation
+
+Q2.1.10: Warnings from incorrect key modifiers.
+-----------------------------------------------
+
+   The following information comes from the `PROBLEMS' file that comes
+with XEmacs.
+
+   If you're having troubles with HP/UX it is because HP/UX defines the
+modifiers wrong in X.  Here is a shell script to fix the problem; be
+sure that it is run after VUE configures the X server.
+
+     #! /bin/sh
+     xmodmap 2> /dev/null - << EOF
+     keysym Alt_L = Meta_L
+     keysym Alt_R = Meta_R
+     EOF
+     
+     xmodmap - << EOF
+     clear mod1
+     keysym Mode_switch = NoSymbol
+     add mod1 = Meta_L
+     keysym Meta_R = Mode_switch
+     add mod2 = Mode_switch
+     EOF
+
+
+File: xemacs-faq.info,  Node: Q2.1.11,  Next: Q2.1.12,  Prev: Q2.1.10,  Up: Installation
+
+Q2.1.11: `Can't instantiate image error...' in toolbar
+------------------------------------------------------
+
+   Dr. Ram Samudrala <expt@alanine.ram.org> writes:
+
+   I just installed the XEmacs (20.4-2) RPMS that I downloaded from
+`http://www.xemacs.org/'.  Everything works fine, except that when I
+place my mouse over the toolbar, it beeps and gives me this message:
+
+      Can't instantiate image (probably cached):
+      [xbm :mask-file "/usr/include/X11/bitmaps/leftptrmsk :mask-data
+      (16 16 <strange control characters> ...
+
+   Kyle Jones <kyle_jones@wonderworks.com> writes:
+     This is problem specific to some Chips and Technologies video
+     chips, when running XFree86.  Putting
+
+     `Option "sw_cursor"'
+
+     in `XF86Config' gets rid of the problem.
+
+
+File: xemacs-faq.info,  Node: Q2.1.12,  Next: Q2.1.13,  Prev: Q2.1.11,  Up: Installation
+
+Q2.1.12: Problems with Regular Expressions on DEC OSF1.
+-------------------------------------------------------
+
+   I have xemacs 19.13 running on an alpha running OSF1 V3.2 148 and
+ispell would not run because it claimed the version number was incorrect
+although it was indeed OK. I traced the problem to the regular
+expression handler.
+
+   Douglas Kosovic <douglask@dstc.edu.au> writes:
+
+     Actually it's a DEC cc optimization bug that screws up the regexp
+     handling in XEmacs.
+
+     Rebuilding using the `-migrate' switch for DEC cc (which uses a
+     different sort of optimization) works fine.
+
+   See `xemacs-19_13-dunix-3_2c.patch' at the following URL on how to
+build with the `-migrate' flag:
+
+     `http://www-digital.cern.ch/carney/emacs/emacs.html'
+
+   NOTE: There have been a variety of other problems reported that are
+fixed in this fashion.
+
+
+File: xemacs-faq.info,  Node: Q2.1.13,  Next: Q2.1.14,  Prev: Q2.1.12,  Up: Installation
+
+Q2.1.13: HP/UX 10.10 and `create_process' failure.
+--------------------------------------------------
+
+   Dave Carrigan <Dave.Carrigan@ipl.ca> writes:
+
+     With XEmacs 19.13 and HP/UX 10.10, anything that relies on the
+     `create_process' function fails. This breaks a lot of things
+     (shell-mode, compile, ange-ftp, to name a few).
+
+   Phil Johnson <johnson@dtc.hp.com> writes:
+
+     This is a problem specific to HP-UX 10.10.  It only occurs when
+     XEmacs is compiled for shared libraries (the default), so you can
+     work around it by compiling a statically-linked binary (run
+     configure with `--dynamic=no').
+
+     I'm not sure whether the problem is with a particular shared
+     library or if it's a kernel problem which crept into 10.10.
+
+   Richard Cognot <cognot@ensg.u-nancy.fr> writes:
+
+     I had a few problems with 10.10. Apparently, some of them were
+     solved by forcing a static link of libc (manually).
+
+
+File: xemacs-faq.info,  Node: Q2.1.14,  Next: Q2.1.15,  Prev: Q2.1.13,  Up: Installation
+
+Q2.1.14: `C-g' doesn't work for me.  Is it broken?
+--------------------------------------------------
+
+   Ben Wing <ben@666.com> writes:
+
+     `C-g' does work for most people in most circumstances.  If it
+     doesn't, there are only two explanations:
+
+       1. The code is wrapped with a binding of `inhibit-quit' to `t'.
+          `Ctrl-Shift-G' should still work, I think.
+
+       2. SIGIO is broken on your system, but BROKEN_SIGIO isn't
+          defined.
+
+     To test #2, try executing `(while t)' from the `*scratch*' buffer.
+     If `C-g' doesn't interrupt, then you're seeing #2.
+
+   Morten Welinder <terra@diku.dk> writes:
+
+     On some (but *not* all) machines a hung XEmacs can be revived by
+     `kill -FPE <pid>'.  This is a hack, of course, not a solution.
+     This technique works on a Sun4 running 4.1.3_U1.  To see if it
+     works for you, start another XEmacs and test with that first.  If
+     you get a core dump the method doesn't work and if you get
+     `Arithmetic error' then it does.
+
+
+File: xemacs-faq.info,  Node: Q2.1.15,  Next: Q2.1.16,  Prev: Q2.1.14,  Up: Installation
+
+Q2.1.15: How to Debug an XEmacs problem with a debugger
+-------------------------------------------------------
+
+   If XEmacs does crash on you, one of the most productive things you
+can do to help get the bug fixed is to poke around a bit with the
+debugger.  Here are some hints:
+
+   * First of all, if the crash is at all reproducible, consider very
+     strongly recompiling your XEmacs with debugging symbols, with no
+     optimization, and with the configure options `--debug=yes' and
+     `--error-checking=all'.  This will make your XEmacs run somewhat
+     slower but make it a lot more likely to catch the problem earlier
+     (closer to its source), and a lot easier to determine what's going
+     on with a debugger.
+
+   * If you're able to run XEmacs under a debugger and reproduce the
+     crash (if it's inconvenient to do this because XEmacs is already
+     running or is running in batch mode as part of a bunch of scripts,
+     consider attaching to the existing process with your debugger;
+     most debuggers let you do this by substituting the process ID for
+     the core file when you invoke the debugger from the command line,
+     or by using the `attach' command or something similar), here are
+     some things you can do:
+
+   * If XEmacs is hitting an assertion failure, put a breakpoint on
+     `assert_failed()'.
+
+   * If XEmacs is hitting some weird Lisp error that's causing it to
+     crash (e.g. during startup), put a breakpoint on
+     `signal_1()'--this is declared static in eval.c.
+
+   * Internally, you will probably see lots of variables that hold
+     objects of type `Lisp_Object'.  These are exactly what they appear
+     to be, i.e. references to Lisp objects.  Printing them out with
+     the debugger probably won't be too useful--you'll likely just see
+     a number.  To decode them, do this:
+
+          call debug_print (OBJECT)
+
+     where OBJECT is whatever you want to decode (it can be a variable,
+     a function call, etc.).  This will print out a readable
+     representation on the TTY from which the xemacs process was
+     invoked.
+
+   * If you want to get a Lisp backtrace showing the Lisp call stack,
+     do this:
+
+          call debug_backtrace ()
+
+   * Using `debug_print' and `debug_backtrace' has two disadvantages -
+     it can only be used with a running xemacs process, and it cannot
+     display the internal C structure of a Lisp Object.  Even if all
+     you've got is a core dump, all is not lost.
+
+     If you're using GDB, there are some macros in the file
+     `src/gdbinit' in the XEmacs source distribution that should make it
+     easier for you to decode Lisp objects.  Copy this file to
+     `~/.gdbinit', or `source' it from `~/.gdbinit', and use the macros
+     defined therein.  In particular, use the `pobj' macro to print the
+     internal C representation of a lisp object.  This will work with a
+     core file or not-yet-run executable.  The aliases `ldp' and `lbt'
+     are provided for conveniently calling `debug_print' and
+     `debug_backtrace'.
+
+     If you are using Sun's `dbx' debugger, there is an equivalent file
+     `src/dbxrc' to copy to or source from `~/.dbxrc'.
+
+   * If you're using a debugger to get a C stack backtrace and you're
+     seeing stack traces with some of the innermost frames mangled, it
+     may be due to dynamic linking. (This happens especially under
+     Linux.) Consider reconfiguring with `--dynamic=no'.  Also,
+     sometimes (again under Linux), stack backtraces of core dumps will
+     have the frame where the fatal signal occurred mangled; if you can
+     obtain a stack trace while running the XEmacs process under a
+     debugger, the stack trace should be clean.
+
+     Curtiss <1CMC3466@ibm.mtsac.edu> suggests upgrading to ld.so
+     version 1.8 if dynamic linking and debugging is a problem on Linux.
+
+   * If you're using a debugger to get a C stack backtrace and you're
+     getting a completely mangled and bogus stack trace, it's probably
+     due to one of the following:
+
+       a. Your executable has been stripped.  Bad news.  Tell your
+          sysadmin not to do this--it doesn't accomplish anything
+          except to save a bit of disk space, and makes debugging much
+          much harder.
+
+       b. Your stack is getting trashed.  Debugging this is hard; you
+          have to do a binary-search type of narrowing down where the
+          crash occurs, until you figure out exactly which line is
+          causing the problem.  Of course, this only works if the bug
+          is highly reproducible.
+
+       c. If your stack trace has exactly one frame in it, with address
+          0x0, this could simply mean that XEmacs attempted to execute
+          code at that address, e.g. through jumping to a null function
+          pointer.  Unfortunately, under those circumstances, GDB under
+          Linux doesn't know how to get a stack trace. (Yes, this is
+          the third Linux-related problem I've mentioned.  I have no
+          idea why GDB under Linux is so bogus.  Complain to the GDB
+          authors, or to comp.os.linux.development.system).  Again,
+          you'll have to use the narrowing-down process described above.
+
+       d. If you compiled 19.14 with `--debug' (or by default in later
+          versions), you will get a Lisp backtrace output when XEmacs
+          crashes, so you'll have something useful.
+
+
+   * If you compile with the newer gcc variants gcc-2.8 or egcs, you
+     will also need gdb 4.17.  Earlier releases of gdb can't handle the
+     debug information generated by the newer compilers.
+
+   * The above information on using `src/gdbinit' works for XEmacs-21.0
+     and above.  For older versions of XEmacs, there are different
+     `gdbinit' files provided in the `src' directory.  Use the one
+     corresponding to the configure options used when building XEmacs.
+
+
+File: xemacs-faq.info,  Node: Q2.1.16,  Next: Q2.1.17,  Prev: Q2.1.15,  Up: Installation
+
+Q2.1.16: XEmacs crashes in `strcat' on HP/UX 10
+-----------------------------------------------
+
+   >From the problems database (through
+`http://support.mayfield.hp.com/'):
+
+     Problem Report: 5003302299
+     Status:         Open
+     
+     System/Model:   9000/700
+     Product Name:   HPUX S800 10.0X
+     Product Vers:   9245XB.10.00
+     
+     Description: strcat(3C) may read beyond
+     end of source string, can cause SIGSEGV
+     
+     
+     *** PROBLEM TEXT ***
+     strcat(3C) may read beyond the source string onto an unmapped page,
+     causing a segmentation violation.
+
+
+File: xemacs-faq.info,  Node: Q2.1.17,  Next: Q2.1.18,  Prev: Q2.1.16,  Up: Installation
+
+Q2.1.17: `Marker does not point anywhere'
+-----------------------------------------
+
+   As with other errors, set `debug-on-error' to `t' to get the
+backtrace when the error occurs.  Specifically, two problems have been
+reported (and fixed).
+
+  1. A problem with line-number-mode in XEmacs 19.14 affected a large
+     number of other packages.  If you see this error message, turn off
+     line-number-mode.
+
+  2. A problem with some early versions of Gnus 5.4 caused this error.
+     Upgrade your Gnus.
+
+
+File: xemacs-faq.info,  Node: Q2.1.18,  Next: Q2.1.19,  Prev: Q2.1.17,  Up: Installation
+
+Q2.1.18: 19.14 hangs on HP/UX 10.10.
+------------------------------------
+
+   Richard Cognot <cognot@ensg.u-nancy.fr> writes:
+
+     For the record, compiling on hpux 10.10 leads to a hang in Gnus
+     when compiled with optimization on.
+
+     I've just discovered that my hpux 10.01 binary was working less
+     well than expected. In fact, on a 10.10 system, `(while t)' was not
+     interrupted by `C-g'. I defined `BROKEN_SIGIO' and recompiled on
+     10.10, and... the hang is now gone.
+
+     As far as configure goes, this will be a bit tricky: `BROKEN_SIGIO'
+     is needed on 10.10, but *not* on 10.01: if I run my 10.01 binary
+     on a 10.01 machine, without `BROKEN_SIGIO' being defined, `C-g'
+     works as expected.
+
+   Richard Cognot <cognot@ensg.u-nancy.fr> adds:
+
+     Apparently somebody has found the reason why there is this `poll:
+     interrupted...' message for each event.  For some reason, libcurses
+     reimplements a `select()' system call, in a highly broken fashion.
+     The fix is to add a -lc to the link line *before* the -lxcurses.
+     XEmacs will then use the right version of `select()'.
+
+   Alain Fauconnet <af@biomath.jussieu.fr> writes:
+
+     The *real* solution is to *not* link -lcurses in!  I just changed
+     -lcurses to -ltermcap in the Makefile and it fixed:
+
+       1. The `poll: interrupted system call' message.
+
+       2. A more serious problem I had discovered in the meantime, that
+          is the fact that subprocess handling was seriously broken:
+          subprocesses e.g. started by AUC TeX for TeX compilation of a
+          buffer would *hang*.  Actually they would wait forever for
+          emacs to read the socket which connects stdout...
+
+
+File: xemacs-faq.info,  Node: Q2.1.19,  Next: Q2.1.20,  Prev: Q2.1.18,  Up: Installation
+
+Q2.1.19: XEmacs does not follow the local timezone.
+---------------------------------------------------
+
+   When using one of the prebuilt binaries many users have observed that
+XEmacs uses the timezone under which it was built, but not the timezone
+under which it is running.  The solution is to add:
+
+     (set-time-zone-rule "MET")
+
+   to your `.emacs' or the `site-start.el' file if you can.  Replace
+`MET' with your local timezone.
+
+
+File: xemacs-faq.info,  Node: Q2.1.20,  Next: Q2.1.21,  Prev: Q2.1.19,  Up: Installation
+
+Q2.1.20: `Symbol's function definition is void: hkey-help-show.'
+----------------------------------------------------------------
+
+   This is a problem with a partially loaded hyperbole.  Try adding:
+
+     (require 'hmouse-drv)
+
+   where you load hyperbole and the problem should go away.
+
+
+File: xemacs-faq.info,  Node: Q2.1.21,  Next: Q2.1.22,  Prev: Q2.1.20,  Up: Installation
+
+Q2.1.21: Every so often the XEmacs frame freezes
+------------------------------------------------
+
+   This problem has been fixed in 19.15, and was due to a not easily
+reproducible race condition.
+
+
+File: xemacs-faq.info,  Node: Q2.1.22,  Next: Q2.1.23,  Prev: Q2.1.21,  Up: Installation
+
+Q2.1.22: XEmacs seems to take a really long time to do some things
+------------------------------------------------------------------
+
+   David Moore <dmoore@ucsd.edu> writes:
+
+     Two things you can do:
+
+     1) C level:
+
+     When you see it going mad like this, you might want to use gdb
+     from an 'xterm' to attach to the running process and get a stack
+     trace.  To do this just run:
+
+          gdb /path/to/xemacs/xemacs ####
+
+     Where `####' is the process id of your xemacs, instead of
+     specifying the core.  When gdb attaches, the xemacs will stop [1]
+     and you can type `where' in gdb to get a stack trace as usual.  To
+     get things moving again, you can just type `quit' in gdb.  It'll
+     tell you the program is running and ask if you want to quit
+     anyways.  Say 'y' and it'll quit and have your emacs continue from
+     where it was at.
+
+     2) Lisp level:
+
+     Turn on debug-on-quit early on.  When you think things are going
+     slow hit C-g and it may pop you in the debugger so you can see
+     what routine is running.  Press `c' to get going again.
+
+     debug-on-quit doesn't work if something's turned on inhibit-quit
+     or in some other strange cases.
+
+
+File: xemacs-faq.info,  Node: Q2.1.23,  Prev: Q2.1.22,  Up: Installation
+
+Q2.1.23:  Movemail on Linux does not work for XEmacs 19.15 and later.
+---------------------------------------------------------------------
+
+   Movemail used to work fine in 19.14 but has stopped working in 19.15
+and 20.x.  I am using Linux.
+
+   SL Baur <steve@xemacs.org> writes:
+
+     Movemail on Linux used to default to using flock file locking.
+     With 19.15 and later versions it now defaults to using `.lock' file
+     locking.  If this is not appropriate for your system, edit
+     src/s/linux.h and uncomment the line that reads:
+
+          #define MAIL_USE_FLOCK
+
