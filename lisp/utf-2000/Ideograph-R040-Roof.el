@@ -1410,7 +1410,6 @@
   '((ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (comment		. "<CJK>")
     (chinese-cns11643-3 . #x3056)	; ø»•­›
     (ideograph-daikanwa . 07190)	; ø¸°–
     (ucs		. #x5BBB)	; å®»
@@ -1650,12 +1649,18 @@
     (ideograph-daikanwa . 07210)	; ø¸°ª
     ))
 (define-char
-  '((ideographic-radical . 40)	; â¼§
+  '((->ucs		. #x5BC8)	; å¯ˆ
+    (ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (comment		. "<CJK>")
-    (chinese-cns11643-3 . #x353F)	; ø»•´š
     (ideograph-daikanwa . 07211)	; ø¸°«
+    ))
+(define-char
+  '((morohashi-daikanwa	7211 0 3)
+    (ideographic-radical . 40)	; â¼§
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (chinese-cns11643-3 . #x353F)	; ø»•´š
     (ucs		. #x5BC8)	; å¯ˆ
     ))
 (define-char
@@ -1867,12 +1872,18 @@
     (ucs		. #x3763)	; ã£
     ))
 (define-char
-  '((ideographic-radical . 40)	; â¼§
+  '((->ucs		. #x5BD1)	; å¯‘
+    (ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (comment		. "<CJK>")
-    (chinese-cns11643-2 . #x3B38)	; ø»“³ƒ
     (ideograph-daikanwa . 07238)	; ø¸±†
+    ))
+(define-char
+  '((morohashi-daikanwa	7238 0 0)
+    (ideographic-radical . 40)	; â¼§
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (chinese-cns11643-2 . #x3B38)	; ø»“³ƒ
     (ucs		. #x5BD1)	; å¯‘
     ))
 (define-char
@@ -2196,12 +2207,18 @@
     (ucs			. #x5BDB)	; å¯›
     ))
 (define-char
-  '((ideographic-radical . 40)	; â¼§
+  '((->ucs		. #x5BDC)	; å¯œ
+    (ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (comment		. "<CJK>")
-    (chinese-cns11643-3 . #x4073)	; ø»–…˜
     (ideograph-daikanwa . 07277)	; ø¸±­
+    ))
+(define-char
+  '((morohashi-daikanwa	7277 0 0)
+    (ideographic-radical . 40)	; â¼§
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (chinese-cns11643-3 . #x4073)	; ø»–…˜
     (ucs		. #x5BDC)	; å¯œ
     ))
 (define-char
