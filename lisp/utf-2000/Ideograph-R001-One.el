@@ -386,8 +386,9 @@
     (total-strokes	 . 4)
     (comment		. "<vulgar character> of S1-0009")
     (shinjigen-1	. 11)
-    (chinese-cns11643-3 #x21 #x44)	; ø»•—‡
-    (ideograph-daikanwa #x00 #x1A)	; ø¹€š
+    (chinese-cns11643-3		#x21 #x44)	; ø»•—‡
+    (japanese-jisx0213-1	#x2E #x22)	; ø»•—‡
+    (ideograph-daikanwa		#x00 #x1A)	; ø¹€š
     ))
 (define-char
   '((morohashi-daikanwa	27)
