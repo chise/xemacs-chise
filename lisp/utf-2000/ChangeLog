@@ -1,3 +1,10 @@
+2000-09-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (ideograph-radical-strokes-vector): Change
+	R085 to 3 from 4; change R140 to 4 from 3.
+	(update-ideograph-radical-table): Add `mojikyo' characters which
+	are not included in `ideograph-daikanwa'.
+
 2000-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el: Resorted; add missing
