@@ -1,3 +1,14 @@
+2002-03-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* update-cdb.el: When feature `chise' is not provided, just load
+	up files defined in `system-char-db-source-file-list'.
+	(system-char-database-directory): Don't define it when feature
+	`chise' is not provided.
+	(file-name-char-attribute-name): Likewise.  Don't call
+	`reset-char-attribute-table' for files in
+	`system-char-database-directory' when feature `chise' is not
+	provided.
+
 2002-03-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* update-cdb.el: Delete system-char-database-directory before
