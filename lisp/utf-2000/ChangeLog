@@ -1,3 +1,83 @@
+2002-06-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R210-Even.el, Ideograph-R189-Tall.el,
+	Ideograph-R195-Fish.el, Ideograph-R196-Bird.el,
+	Ideograph-R180-Sound.el, Ideograph-R184-Eat.el,
+	Ideograph-R160-Bitter.el, Ideograph-R162-Walk.el,
+	Ideograph-R149-Speech.el, Ideograph-R136-Oppose.el,
+	Ideograph-R137-Boat.el, Ideograph-R140-Grass.el,
+	Ideograph-R124-Feather.el, Ideograph-R130-Meat.el,
+	Ideograph-R123-Sheep.el, Ideograph-R120-Silk.el,
+	Ideograph-R113-Spirit.el, Ideograph-R114-Track.el,
+	Ideograph-R119-Rice.el, Ideograph-R100-Life.el,
+	Ideograph-R101-Use.el, Ideograph-R102-Field.el,
+	Ideograph-R077-Stop.el, Ideograph-R078-Death.el,
+	Ideograph-R086-Fire.el, Ideograph-R075-Tree.el,
+	Ideograph-R040-Roof.el, Ideograph-R057-Bow.el,
+	Ideograph-R059-Bristle.el, Ideograph-R064-Hand.el,
+	Ideograph-R036-Evening.el, Ideograph-R037-Big.el,
+	Ideograph-R038-Woman.el, Ideograph-R032-Earth.el,
+	Ideograph-R031-Enclosure.el, Ideograph-R030-Mouth.el,
+	Ideograph-R019-Power.el, Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R025-Divination.el, Ideograph-R027-Cliff.el,
+	Ideograph-R028-Private.el, Ideograph-R013-Down-Box.el,
+	Ideograph-R014-Cover.el, Ideograph-R015-Ice.el,
+	Ideograph-R016-Table.el, Ideograph-R018-Knife.el,
+	Ideograph-R010-Legs.el, Ideograph-R011-Enter.el,
+	Ideograph-R012-Eight.el, Ideograph-R008-Lid.el,
+	Ideograph-R009-Man.el, Ideograph-R001-One.el: Reformatted; fix
+	and/or add some definitions.
+
+2002-06-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* ideograph-util.el (char-attributes-poly<): New function.
+	(char-daikanwa-strokes): Likewise.
+	(char-daikanwa): Likewise.
+	(char-ucs): Likewise.
+	(char-id): Likewise.
+	(ideograph-char<): New implementation [use
+	`char-attributes-poly<'].
+
+2002-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R076-Lack.el, Ideograph-R077-Stop.el,
+	Ideograph-R074-Moon.el, Ideograph-R075-Tree.el,
+	Ideograph-R066-Rap.el, Ideograph-R067-Script.el,
+	Ideograph-R068-Dipper.el, Ideograph-R069-Axe.el,
+	Ideograph-R070-Square.el, Ideograph-R071-Not.el,
+	Ideograph-R072-Sun.el, Ideograph-R073-Say.el,
+	Ideograph-R042-Small.el: Add some missing mappings for Big5 code
+	points or fix some definitions.
+
+2002-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R125-Old.el, Ideograph-R126-And.el,
+	Ideograph-R127-Plow.el, Ideograph-R128-Ear.el,
+	Ideograph-R121-Jar.el, Ideograph-R122-Net.el,
+	Ideograph-R123-Sheep.el, Ideograph-R124-Feather.el,
+	Ideograph-R119-Rice.el, Ideograph-R120-Silk.el,
+	Ideograph-R035-Go-Slowly.el, Ideograph-R079-Weapon.el,
+	Ideograph-R118-Bamboo.el, Ideograph-R010-Legs.el,
+	Ideograph-R008-Lid.el, Ideograph-R009-Man.el,
+	Ideograph-R004-Slash.el: Add some mappings for CJK Ext-B code
+	points.
+
+2002-04-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Modify
+	for new definitions of big5 variants.
+
+2002-04-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* ideograph-util.el (insert-ideograph-radical-char-data): Refer
+	`char-db-ignored-attributes'.
+
+	* char-db-util.el (char-db-ignored-attributes): New variable.
+	(char-db-insert-char-spec): Refer `char-db-ignored-attributes';
+	add `ideographic-structure' into requesting non-CCS attributes if
+	requesting is nil.
+	(insert-char-attributes): Refer `char-db-ignored-attributes'.
+
 2002-05-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R094-Dog.el (M-20786'): Unify GT-26606.
@@ -126,9 +206,6 @@
 	of Big5 variants.
 
 2002-04-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
-
-	* char-db-util.el (char-db-coded-charset-priority-list): Modify
-	for new definitions of big5 variants.
 
 	* ad-hoc-cdp.el:
 	- Use `chinese-big5-pua' instead of `chinese-big5' as the private
