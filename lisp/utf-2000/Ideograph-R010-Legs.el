@@ -36,6 +36,23 @@
     (=daikanwa		. 01337)	; &I-M-01337;
     ))
 (define-char
+  '((=>ucs*		. #x5140)	; 兀
+    (=>daikanwa		. 07542)	; &M-07542;
+    (ideographic-radical@unknown . 43)	; ⼪
+    (ideographic-strokes@unknown . 0)
+    (ideographic-radical@unicode . 10)	; ⼉
+    (ideographic-strokes@unicode . 1)
+    (total-strokes	 . 3)
+    (<-denotational
+     ((=ucs		  . #x5140)	; 兀
+      ))
+    (<-unknown
+     ((=daikanwa	  . 07542)	; &M-07542;
+      ))
+    (=ucs		. #xFA0C)	; 兀
+    (=big5		. #xC94A)	; &I-B-C94A;
+    ))
+(define-char
   '((ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
@@ -369,8 +386,8 @@
       ))
     (shinjigen-1	. 455)
     (shinjigen-2	. 455)
+    (sound@ja/kun	"saki" "ma-zu")
     (sound@ja/on	"sen")
-    (sound@ja/on/kun	"saki" "ma-zu")
     (=ucs		. #x5148)	; 先
     (=jis-x0208		. #x4068)	; &I-J90-4068; [32-72]
     (=gb2312		. #x4F48)	; &I-G0-4F48; [47-40]
