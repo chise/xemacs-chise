@@ -1,3 +1,13 @@
+2002-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R148-Horn.el, Ideograph-R113-Spirit.el,
+	Ideograph-R073-Say.el, Ideograph-R074-Moon.el,
+	Ideograph-R075-Tree.el, Ideograph-R068-Dipper.el,
+	Ideograph-R069-Axe.el, Ideograph-R070-Square.el,
+	Ideograph-R071-Not.el, Ideograph-R072-Sun.el,
+	Ideograph-R066-Rap.el, Ideograph-R064-Hand.el: Add some missing
+	mappings to CBETA numbers.
+
 2002-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u01E00-Latin-Extended-Additional.el (JC3-85B1): Map to U+1EA6.
@@ -8,7 +18,7 @@
 	(JC3-85B6): Map to U+1ED3.
 
 	* u00180-Latin-Extended-B.el (JC3-85B1): Deleted, because it seems
-	* WITH CIRCUMFLEX AND GRAVE, not WITH DOUBLE GRAVE.
+	WITH CIRCUMFLEX AND GRAVE, not WITH DOUBLE GRAVE.
 	(JC3-85B4): Likewise.
 	(JC3-85B2): Likewise.
 	(JC3-85B5): Likewise.
