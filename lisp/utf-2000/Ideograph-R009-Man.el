@@ -8727,7 +8727,7 @@
     ))
 (define-char
   '((->ucs		. #x50CD)	; 働
-    (morohashi-daikanwa	1079)
+    (morohashi-daikanwa	1079 0 7)
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
