@@ -1,3 +1,16 @@
+2004-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+54E1): Add S1-1080.
+
+	* Ideograph-R040-Roof.el (U+3749): New character.
+
+2004-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R084-Steam.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
 2004-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R081-Compare.el, Ideograph-R080-Do-Not.el,
