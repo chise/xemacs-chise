@@ -225,9 +225,9 @@
   '((ideographic-radical . 41)	; â¼¨
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (comment		. "R018:S1-0638 ($(BQn(B) $(B$NB/;z(B")
     (shinjigen-1	. 639)
     (shinjigen-2	. 639)
+    (vulgar-char-of-shinjigen-1 . 638)
     (japanese-jisx0208-1978	. #x5571)	; ø»ƒ‰¨
     (japanese-jisx0208		. #x5571)	; ø»‡°
     (chinese-isoir165		. #x2D61)	; ø»€¼
