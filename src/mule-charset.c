@@ -1,6 +1,7 @@
 /* Functions to handle multilingual characters.
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 1999,2000 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -581,12 +582,14 @@ Store CHARACTER's ATTRIBUTE with VALUE.
   ccs = Ffind_charset (attribute);
   if (!NILP (ccs))
     {
-      Lisp_Object rest;
+      Lisp_Object cpos, rest;
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
       Lisp_Object nv;
       int i = -1;
       int ccs_len;
-
+      int dim;
+      int code_point;
+	      
       /* ad-hoc method for `ascii' */
       if ((XCHARSET_CHARS (ccs) == 94) &&
 	  (XCHARSET_BYTE_OFFSET (ccs) != 33))
@@ -594,26 +597,58 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       else
 	ccs_len = XCHARSET_CHARS (ccs);
 	  
-      if (!CONSP (value))
-	signal_simple_error ("Invalid value for coded-charset",
-			     value);
+      if (CONSP (value))
+	{
+	  Lisp_Object ret = Fcar (value);
+
+	  if (!INTP (ret))
+	    signal_simple_error ("Invalid value for coded-charset", value);
+	  code_point = XINT (ret);
+	  if (XCHARSET_GRAPHIC (ccs) == 1)
+	    code_point &= 0x7F;
+	  rest = Fcdr (value);
+	  while (!NILP (rest))
+	    {
+	      int i;
+
+	      if (!CONSP (rest))
+		signal_simple_error ("Invalid value for coded-charset", value);
+	      ret = Fcar (rest);
+	      if (!INTP (ret))
+		signal_simple_error ("Invalid value for coded-charset", value);
+	      i = XINT (ret);
+	      if (XCHARSET_GRAPHIC (ccs) == 1)
+		i &= 0x7F;
+	      code_point = (code_point << 8) | i;
+	      rest = Fcdr (rest);
+	    }
+	  value = make_int (code_point);
+	}
+      else if (INTP (value))
+	{
+	  if (XCHARSET_GRAPHIC (ccs) == 1)
+	    value = make_int (XINT (value) & 0x7F7F7F7F);
+	}
+      else
+	signal_simple_error ("Invalid value for coded-charset", value);
 
       attribute = ccs;
-      rest = Fget_char_attribute (character, attribute);
+      cpos = Fget_char_attribute (character, attribute);
       if (VECTORP (v))
 	{
-	  if (!NILP (rest))
+	  if (!NILP (cpos))
 	    {
-	      while (!NILP (rest))
+	      dim = XCHARSET_DIMENSION (ccs);
+	      code_point = XINT (cpos);
+	      while (dim > 0)
 		{
-		  Lisp_Object ei = Fcar (rest);
-		  
-		  i = XINT (ei) - XCHARSET_BYTE_OFFSET (ccs);
+		  dim--;
+		  i = ((code_point >> (8 * dim)) & 255)
+		    - XCHARSET_BYTE_OFFSET (ccs);
 		  nv = XVECTOR_DATA(v)[i];
 		  if (!VECTORP (nv))
 		    break;
 		  v = nv;
-		  rest = Fcdr (rest);
 		}
 	      if (i >= 0)
 		XVECTOR_DATA(v)[i] = Qnil;
@@ -625,33 +660,18 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  XCHARSET_DECODING_TABLE (ccs) = v = make_vector (ccs_len, Qnil);
 	}
 
-      if (XCHARSET_GRAPHIC (ccs) == 1)
-	value = Fcopy_list (value);
-      rest = value;
+      dim = XCHARSET_DIMENSION (ccs);
+      code_point = XINT (value);
       i = -1;
-      while (CONSP (rest))
+      while (dim > 0)
 	{
-	  Lisp_Object ei = Fcar (rest);
-	  
-	  if (!INTP (ei))
-	    signal_simple_error ("Invalid value for coded-charset", value);
-	  i = XINT (ei);
-	  if ((i < 0) || (255 < i))
-	    signal_simple_error ("Invalid value for coded-charset", value);
-	  if (XCHARSET_GRAPHIC (ccs) == 1)
-	    {
-	      i &= 0x7F;
-	      Fsetcar (rest, make_int (i));
-	    }
-	  i -= XCHARSET_BYTE_OFFSET (ccs);
+	  dim--;
+	  i = ((code_point >> (8 * dim)) & 255) - XCHARSET_BYTE_OFFSET (ccs);
 	  nv = XVECTOR_DATA(v)[i];
-	  rest = Fcdr (rest);
-	  if (CONSP (rest))
+	  if (dim > 0)
 	    {
 	      if (!VECTORP (nv))
-		{
-		  nv = (XVECTOR_DATA(v)[i] = make_vector (ccs_len, Qnil));
-		}
+		nv = (XVECTOR_DATA(v)[i] = make_vector (ccs_len, Qnil));
 	      v = nv;
 	    }
 	  else
@@ -1424,7 +1444,7 @@ get_unallocated_leading_byte (int dimension)
 }
 
 #ifdef UTF2000
-Lisp_Object
+int
 range_charset_code_point (Lisp_Object charset, Emchar ch)
 {
   int d;
@@ -1435,35 +1455,31 @@ range_charset_code_point (Lisp_Object charset, Emchar ch)
       d = ch - XCHARSET_UCS_MIN (charset) + XCHARSET_CODE_OFFSET (charset);
 		       
       if (XCHARSET_DIMENSION (charset) == 1)
-	return list1 (make_int (d + XCHARSET_BYTE_OFFSET (charset)));
+	return d + XCHARSET_BYTE_OFFSET (charset);
       else if (XCHARSET_DIMENSION (charset) == 2)
-	return list2 (make_int (d / XCHARSET_CHARS (charset)
-				+ XCHARSET_BYTE_OFFSET (charset)),
-		      make_int (d % XCHARSET_CHARS (charset)
-				+ XCHARSET_BYTE_OFFSET (charset)));
+	return
+	  ((d / XCHARSET_CHARS (charset)
+	    + XCHARSET_BYTE_OFFSET (charset)) << 8)
+	  | (d % XCHARSET_CHARS (charset) + XCHARSET_BYTE_OFFSET (charset));
       else if (XCHARSET_DIMENSION (charset) == 3)
-	return list3 (make_int (d / (XCHARSET_CHARS (charset)
-					* XCHARSET_CHARS (charset))
-				+ XCHARSET_BYTE_OFFSET (charset)),
-		      make_int (d / XCHARSET_CHARS (charset)
-				% XCHARSET_CHARS (charset)
-				+ XCHARSET_BYTE_OFFSET (charset)),
-		      make_int (d % XCHARSET_CHARS (charset)
-				+ XCHARSET_BYTE_OFFSET (charset)));
+	return
+	  ((d / (XCHARSET_CHARS (charset) * XCHARSET_CHARS (charset))
+	    + XCHARSET_BYTE_OFFSET (charset)) << 16)
+	  | ((d / XCHARSET_CHARS (charset)
+	      % XCHARSET_CHARS (charset)
+	      + XCHARSET_BYTE_OFFSET (charset)) << 8)
+	  | (d % XCHARSET_CHARS (charset) + XCHARSET_BYTE_OFFSET (charset));
       else /* if (XCHARSET_DIMENSION (charset) == 4) */
-	return list4 (make_int (d / (XCHARSET_CHARS (charset)
-					* XCHARSET_CHARS (charset)
-					* XCHARSET_CHARS (charset))
-				+ XCHARSET_BYTE_OFFSET (charset)),
-		      make_int (d / (XCHARSET_CHARS (charset)
-					* XCHARSET_CHARS (charset))
-				% XCHARSET_CHARS (charset)
-				+ XCHARSET_BYTE_OFFSET (charset)),
-		      make_int (d / XCHARSET_CHARS (charset)
-				% XCHARSET_CHARS (charset)
-				+ XCHARSET_BYTE_OFFSET (charset)),
-		      make_int (d % XCHARSET_CHARS (charset)
-				+ XCHARSET_BYTE_OFFSET (charset)));
+	return
+	  ((d / (XCHARSET_CHARS (charset)
+		 * XCHARSET_CHARS (charset) * XCHARSET_CHARS (charset))
+	    + XCHARSET_BYTE_OFFSET (charset)) << 24)
+	  | ((d / (XCHARSET_CHARS (charset) * XCHARSET_CHARS (charset))
+	      % XCHARSET_CHARS (charset)
+	      + XCHARSET_BYTE_OFFSET (charset)) << 16)
+	  | ((d / XCHARSET_CHARS (charset) % XCHARSET_CHARS (charset)
+	      + XCHARSET_BYTE_OFFSET (charset)) << 8)
+	  | (d % XCHARSET_CHARS (charset) + XCHARSET_BYTE_OFFSET (charset));
     }
   else if (XCHARSET_CODE_OFFSET (charset) == 0)
     {
@@ -1474,17 +1490,17 @@ range_charset_code_point (Lisp_Object charset, Emchar ch)
 	      if (((d = ch - (MIN_CHAR_94
 			      + (XCHARSET_FINAL (charset) - '0') * 94)) >= 0)
 		  && (d < 94))
-		return list1 (make_int (d + 33));
+		return d + 33;
 	    }
 	  else if (XCHARSET_CHARS (charset) == 96)
 	    {
 	      if (((d = ch - (MIN_CHAR_96
 			      + (XCHARSET_FINAL (charset) - '0') * 96)) >= 0)
 		  && (d < 96))
-		return list1 (make_int (d + 32));
+		return d + 32;
 	    }
 	  else
-	    return Qnil;
+	    return -1;
 	}
       else if (XCHARSET_DIMENSION (charset) == 2)
 	{
@@ -1494,8 +1510,7 @@ range_charset_code_point (Lisp_Object charset, Emchar ch)
 			      + (XCHARSET_FINAL (charset) - '0') * 94 * 94))
 		   >= 0)
 		  && (d < 94 * 94))
-		return list2 (make_int ((d / 94) + 33),
-			      make_int (d % 94 + 33));
+		return (((d / 94) + 33) << 8) | (d % 94 + 33);
 	    }
 	  else if (XCHARSET_CHARS (charset) == 96)
 	    {
@@ -1503,115 +1518,122 @@ range_charset_code_point (Lisp_Object charset, Emchar ch)
 			      + (XCHARSET_FINAL (charset) - '0') * 96 * 96))
 		   >= 0)
 		  && (d < 96 * 96))
-		return list2 (make_int ((d / 96) + 32),
-			      make_int (d % 96 + 32));
+		return (((d / 96) + 32) << 8) | (d % 96 + 32);
 	    }
+	  else
+	    return -1;
 	}
     }
-  return Qnil;
+  return -1;
 }
 
-Lisp_Object
-split_builtin_char (Emchar c)
+int
+encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
 {
   if (c <= MAX_CHAR_BASIC_LATIN)
     {
-      return list2 (Vcharset_ascii, make_int (c));
+      *charset = Vcharset_ascii;
+      return c;
     }
   else if (c < 0xA0)
     {
-      return list2 (Vcharset_control_1, make_int (c & 0x7F));
+      *charset = Vcharset_control_1;
+      return c & 0x7F;
     }
   else if (c <= 0xff)
     {
-      return list2 (Vcharset_latin_iso8859_1, make_int (c & 0x7F));
+      *charset = Vcharset_latin_iso8859_1;
+      return c & 0x7F;
     }
   else if ((MIN_CHAR_GREEK <= c) && (c <= MAX_CHAR_GREEK))
     {
-      return list2 (Vcharset_greek_iso8859_7,
-		    make_int (c - MIN_CHAR_GREEK + 0x20));
+      *charset = Vcharset_greek_iso8859_7;
+      return c - MIN_CHAR_GREEK + 0x20;
     }
+  /*
   else if ((MIN_CHAR_CYRILLIC <= c) && (c <= MAX_CHAR_CYRILLIC))
     {
-      return list2 (Vcharset_cyrillic_iso8859_5,
-		    make_int (c - MIN_CHAR_CYRILLIC + 0x20));
+      *charset = Vcharset_cyrillic_iso8859_5;
+      return c - MIN_CHAR_CYRILLIC + 0x20;
     }
+  */
   else if ((MIN_CHAR_HEBREW <= c) && (c <= MAX_CHAR_HEBREW))
     {
-      return list2 (Vcharset_hebrew_iso8859_8,
-		    make_int (c - MIN_CHAR_HEBREW + 0x20));
+      *charset = Vcharset_hebrew_iso8859_8;
+      return c - MIN_CHAR_HEBREW + 0x20;
     }
   else if ((MIN_CHAR_THAI <= c) && (c <= MAX_CHAR_THAI))
     {
-      return list2 (Vcharset_thai_tis620,
-		    make_int (c - MIN_CHAR_THAI + 0x20));
+      *charset = Vcharset_thai_tis620;
+      return c - MIN_CHAR_THAI + 0x20;
     }
+  /*
   else if ((MIN_CHAR_HALFWIDTH_KATAKANA <= c)
 	   && (c <= MAX_CHAR_HALFWIDTH_KATAKANA))
     {
       return list2 (Vcharset_katakana_jisx0201,
 		    make_int (c - MIN_CHAR_HALFWIDTH_KATAKANA + 33));
     }
+  */
   else if (c <= MAX_CHAR_BMP)
     {
-      return list3 (Vcharset_ucs_bmp,
-		    make_int (c >> 8), make_int (c & 0xff));
+      *charset = Vcharset_ucs_bmp;
+      return c & 0xFFFF;
     }
   else if ((MIN_CHAR_DAIKANWA <= c) && (c <= MAX_CHAR_DAIKANWA))
     {
-      return list3 (Vcharset_ideograph_daikanwa,
-		    make_int ((c - MIN_CHAR_DAIKANWA) >> 8),
-		    make_int ((c - MIN_CHAR_DAIKANWA) & 255));
+      *charset = Vcharset_ideograph_daikanwa;
+      return c - MIN_CHAR_DAIKANWA;
     }
   else if (c <= MAX_CHAR_94)
     {
-      return list2 (CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94,
-					   ((c - MIN_CHAR_94) / 94) + '0',
-					   CHARSET_LEFT_TO_RIGHT),
-		    make_int (((c - MIN_CHAR_94) % 94) + 33));
+      *charset = CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94,
+					((c - MIN_CHAR_94) / 94) + '0',
+					CHARSET_LEFT_TO_RIGHT);
+      return ((c - MIN_CHAR_94) % 94) + 33;
     }
   else if (c <= MAX_CHAR_96)
     {
-      return list2 (CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96,
-					   ((c - MIN_CHAR_96) / 96) + '0',
-					   CHARSET_LEFT_TO_RIGHT),
-		    make_int (((c - MIN_CHAR_96) % 96) + 32));
+      *charset = CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96,
+					((c - MIN_CHAR_96) / 96) + '0',
+					CHARSET_LEFT_TO_RIGHT);
+      return ((c - MIN_CHAR_96) % 96) + 32;
     }
   else if (c <= MAX_CHAR_94x94)
     {
-      return list3 (CHARSET_BY_ATTRIBUTES
-		    (CHARSET_TYPE_94X94,
-		     ((c - MIN_CHAR_94x94) / (94 * 94)) + '0',
-		     CHARSET_LEFT_TO_RIGHT),
-		    make_int ((((c - MIN_CHAR_94x94) / 94) % 94) + 33),
-		    make_int (((c - MIN_CHAR_94x94) % 94) + 33));
+      *charset
+	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94X94,
+				 ((c - MIN_CHAR_94x94) / (94 * 94)) + '0',
+				 CHARSET_LEFT_TO_RIGHT);
+      return (((((c - MIN_CHAR_94x94) / 94) % 94) + 33) << 8)
+	| (((c - MIN_CHAR_94x94) % 94) + 33);
     }
   else if (c <= MAX_CHAR_96x96)
     {
-      return list3 (CHARSET_BY_ATTRIBUTES
-		    (CHARSET_TYPE_96X96,
-		     ((c - MIN_CHAR_96x96) / (96 * 96)) + '0',
-		     CHARSET_LEFT_TO_RIGHT),
-		    make_int ((((c - MIN_CHAR_96x96) / 96) % 96) + 32),
-		    make_int (((c - MIN_CHAR_96x96) % 96) + 32));
+      *charset
+	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96X96,
+				 ((c - MIN_CHAR_96x96) / (96 * 96)) + '0',
+				 CHARSET_LEFT_TO_RIGHT);
+      return ((((c - MIN_CHAR_96x96) / 96) % 96) + 32) << 8
+	| (((c - MIN_CHAR_96x96) % 96) + 32);
     }
   else
     {
-      return Qnil;
+      return -1;
     }
 }
 
-Lisp_Object
+int
 charset_code_point (Lisp_Object charset, Emchar ch)
 {
   Lisp_Object cdef = get_char_code_table (ch, Vcharacter_attribute_table);
 
-  if (!EQ (cdef, Qnil))
+  if (!NILP (cdef))
     {
       Lisp_Object field = Fassq (charset, cdef);
 
-      if (!EQ (field, Qnil))
-	return Fcdr (field);
+      if (!NILP (field))
+	return XINT (Fcdr (field));
     }
   return range_charset_code_point (charset, ch);
 }
@@ -2372,18 +2394,6 @@ Return list of charset and one or two position-codes of CHAR.
 */
        (character))
 {
-#ifdef UTF2000
-  Lisp_Object ret;
-  Lisp_Object charset;
-
-  CHECK_CHAR_COERCE_INT (character);
-  ret = SPLIT_CHAR (XCHAR (character));
-  charset = Fcar (ret);
-  if (CHARSETP (charset))
-    return Fcons (XCHARSET_NAME (charset), Fcopy_list (Fcdr (ret)));
-  else
-    return ret;
-#else
   /* This function can GC */
   struct gcpro gcpro1, gcpro2;
   Lisp_Object charset = Qnil;
@@ -2406,7 +2416,6 @@ Return list of charset and one or two position-codes of CHAR.
   UNGCPRO;
 
   return rc;
-#endif
 }
 
 
