@@ -31,7 +31,7 @@ Boston, MA 02111-1307, USA.  */
 
 Lisp_Object Q_active, Q_suffix, Q_keys, Q_style, Q_selected;
 Lisp_Object Q_filter, Q_config, Q_included, Q_key_sequence;
-Lisp_Object Q_accelerator, Q_label;
+Lisp_Object Q_accelerator, Q_label, Q_callback;
 Lisp_Object Qtoggle, Qradio;
 
 #ifdef HAVE_POPUPS
@@ -123,7 +123,8 @@ gui_item_init (struct gui_item *pgui_item)
  */
 void
 gui_item_add_keyval_pair (struct gui_item *pgui_item,
-			  Lisp_Object key, Lisp_Object val)
+			  Lisp_Object key, Lisp_Object val, 
+			  Error_behavior errb)
 {
   if (!KEYWORDP (key))
     signal_simple_error_2 ("Non-keyword in gui item", key, pgui_item->name);
@@ -136,9 +137,10 @@ gui_item_add_keyval_pair (struct gui_item *pgui_item,
   else if (EQ (key, Q_style))	 pgui_item->style    = val;
   else if (EQ (key, Q_selected)) pgui_item->selected = val;
   else if (EQ (key, Q_keys))	 pgui_item->keys     = val;
+  else if (EQ (key, Q_callback))	 pgui_item->callback     = val;
   else if (EQ (key, Q_key_sequence)) ;   /* ignored for FSF compatability */
   else if (EQ (key, Q_label)) ;   /* ignored for 21.0 implement in 21.2  */
-  else
+  else if (ERRB_EQ (errb, ERROR_ME))
     signal_simple_error_2 ("Unknown keyword in gui item", key, pgui_item->name);
 }
 
@@ -147,8 +149,9 @@ gui_item_add_keyval_pair (struct gui_item *pgui_item,
  * function extracts the description of the item into the PGUI_ITEM
  * structure.
  */
-void
-gui_parse_item_keywords (Lisp_Object item, struct gui_item *pgui_item)
+static void
+gui_parse_item_keywords_internal (Lisp_Object item, struct gui_item *pgui_item,
+				  Error_behavior errb)
 {
   int length, plist_p, start;
   Lisp_Object *contents;
@@ -201,9 +204,21 @@ gui_parse_item_keywords (Lisp_Object item, struct gui_item *pgui_item)
 	{
 	  Lisp_Object key = contents [i++];
 	  Lisp_Object val = contents [i++];
-	  gui_item_add_keyval_pair (pgui_item, key, val);
+	  gui_item_add_keyval_pair (pgui_item, key, val, errb);
 	}
     }
+}
+
+void
+gui_parse_item_keywords (Lisp_Object item, struct gui_item *pgui_item)
+{
+  gui_parse_item_keywords_internal (item, pgui_item, ERROR_ME);
+}
+
+void
+gui_parse_item_keywords_no_errors (Lisp_Object item, struct gui_item *pgui_item)
+{
+  gui_parse_item_keywords_internal (item, pgui_item, ERROR_ME_NOT);
 }
 
 /*
@@ -403,6 +418,7 @@ syms_of_gui (void)
   defkeyword (&Q_included, ":included");
   defkeyword (&Q_accelerator, ":accelerator");
   defkeyword (&Q_label, ":label");
+  defkeyword (&Q_callback, ":callback");
 
   defsymbol (&Qtoggle, "toggle");
   defsymbol (&Qradio, "radio");

@@ -2,6 +2,7 @@
 ##   Copyright (C) 1985, 1987, 1988, 1993, 1994 Free Software Foundation, Inc.
 ##   Copyright (C) 1994, 1995 Board of Trustees, University of Illinois
 ##   Copyright (C) 1996, 1997 Sun Microsystems, Inc.
+##   Copyright (C) 1998, 1999 J. Kean Johnston.
 
 ## This file is part of XEmacs.
 
@@ -42,6 +43,7 @@ SHELL=/bin/sh
 RM = rm -f
 
 lispdir = ${srcdir}/../lisp/
+moduledir = ${srcdir}/../modules/
 libsrc = ../lib-src/
 etcdir = ../etc/
 
@@ -308,8 +310,9 @@ mo_dir = ${etcdir}
 mo_file = ${mo_dir}emacs.mo
 #endif
 
-LOADPATH =  EMACSBOOTSTRAPLOADPATH="${lispdir}:${blddir}"
-DUMPENV = $(LOADPATH)
+LOADPATH   =  EMACSBOOTSTRAPLOADPATH="${lispdir}:${blddir}"
+MODULEPATH =  EMACSBOOTSTRAPMODULEPATH="${moduledir}:${blddir}"
+DUMPENV = $(LOADPATH) $(MODULEPATH)
 temacs_loadup = $(DUMPENV) ./temacs -batch -l ${srcdir}/../lisp/loadup.el
 dump_temacs   = ${temacs_loadup} dump
 run_temacs    = ${temacs_loadup} run-temacs
@@ -708,6 +711,33 @@ unlock:
 
 relock:
 	chmod -w $(SOURCES)
+
+## Header files for ellcc
+#ifdef HAVE_SHLIB
+MAKEPATH=../lib-src/make-path
+install: ${PROGNAME}
+	${MAKEPATH} ${archlibdir}/include ${archlibdir}/include/m ${archlibdir}/include/s
+	-@echo "Copying include files for ellcc..."
+	-@hdir=`pwd`; \
+	cd ${srcdir}; hdrdir2=`pwd`; cd $$hdir; \
+	test "$$hdrdir2" != "$$hdir" && hdir="$$hdir $$hdrdir2"; \
+	(for thisdir in $$hdir; do \
+		cd $$hdir && \
+		(hdrtars=; \
+		for hdrfile in *.h; do \
+			hdrtars="$$hdrtars $$hdrfile"; \
+		done; \
+		test -d s && hdrtars="$$hdrtars s/*"; \
+		test -d m && hdrtars="$$hdrtars m/*"; \
+		test -n "$$hdrtars" && (tar cf - $$hdrtars) | \
+			(cd ${archlibdir}/include && umask 022 && tar xf -); \
+		chmod 755 ${archlibdir}/include; \
+		test -d ${archlibdir}/include/s && \
+		  chmod 755 ${archlibdir}/include/s; \
+		test -d ${archlibdir}/include/m && \
+		  chmod 755 ${archlibdir}/include/s;) \
+	done)
+#endif
 
 ## Dependency processing using home-grown script, not makedepend
 .PHONY: depend

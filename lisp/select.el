@@ -68,7 +68,7 @@
     (otherwise nil)))
 
 (defun selection-owner-p (&optional selection)
-  "Return t if current emacs process owns the given Selection.
+  "Return t if current XEmacs process owns the given Selection.
 The arg should be the name of the selection in question, typically one
 of the symbols PRIMARY, SECONDARY, or CLIPBOARD.  (For convenience,
 the symbol nil is the same as PRIMARY, and t is the same as
@@ -249,7 +249,7 @@ secondary selection instead of the primary selection."
 (defun cut-copy-clear-internal (mode)
   (or (memq mode '(cut copy clear)) (error "unkown mode %S" mode))
   (or (selection-owner-p)
-      (error "emacs does not own the primary selection"))
+      (error "XEmacs does not own the primary selection"))
   (setq last-command nil)
   (or primary-selection-extent
       (error "the primary selection is not an extent?"))

@@ -7,15 +7,16 @@
 #undef C_OPTIMIZE_SWITCH
 #undef C_DEBUG_SWITCH
 #undef C_SWITCH_SYSTEM
-#define C_SWITCH_SYSTEM "-D_NO_STATIC -D_SCO_ELF"
 
 #ifndef __GNUC__
-#define LINKER "cc -dy -Xc"
-#define C_OPTIMIZE_SWITCH "-O3 -Xc -dy"
-#define C_DEBUG_SWITCH "-g -Xc -dy"
+#define LINKER "cc -belf -dy -Xc"
+#define C_OPTIMIZE_SWITCH "-O3 -Xc"
+#define C_DEBUG_SWITCH "-g -Xc"
+#define C_SWITCH_SYSTEM "-belf -D_NO_STATIC -D_SCO_ELF"
 #else
 #define LINKER "gcc -melf -Xc"
-#define C_OPTIMIZE_SWITCH "-O99 -m486 -fomit-frame-pointer -Xc -melf"
-#define C_DEBUG_SWITCH "-g -Xc -melf"
+#define C_OPTIMIZE_SWITCH "-O99 -m486 -fomit-frame-pointer -Xc"
+#define C_DEBUG_SWITCH "-g -Xc"
+#define C_SWITCH_SYSTEM "-melf -D_NO_STATIC -D_SCO_ELF"
 #endif
 

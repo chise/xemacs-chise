@@ -596,9 +596,10 @@ for use in the 'weight' field of an X font string.")
 ;;;###autoload
 (defun font-default-object-for-device (&optional device)
   (let ((font (font-default-font-for-device device)))
-    (unless (cdr-safe (assoc font font-default-cache))
-      (push (cons font (font-create-object font)) font-default-cache)
-      (cdr-safe (assoc font font-default-cache)))))
+    (or (cdr-safe (assoc font font-default-cache))
+	(let ((object (font-create-object font)))
+	  (push (cons font object) font-default-cache)
+	  object))))
 
 ;;;###autoload
 (defun font-default-family-for-device (&optional device)

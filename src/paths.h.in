@@ -34,9 +34,13 @@
 
    PATH_LOADSEARCH	The default value of `load-path'.
 
+   PATH_MODULESEARCH	The default value of `module-load-path'.
+
    PATH_PACKAGEPATH     The default value of `package-path'.
 
    PATH_SITE            The default location of site-specific Lisp files.
+
+   PATH_SITE_MODULES	The default location of site-specific modules.
 
    PATH_EXEC		The default value of `exec-directory' and `exec-path'.
 			(exec-path also contains the value of whatever is in
@@ -67,6 +71,18 @@
 
 #ifdef LISPDIR_USER_DEFINED
 #define  PATH_LOADSEARCH "@LISPDIR@"
+#endif
+
+#ifdef MODULEDIR_USER_DEFINED
+#define  PATH_MODULESEARCH "@MODULEDIR@"
+#endif
+
+#ifdef SITELISPDIR_USER_DEFINED
+#define  PATH_SITE "@SITELISPDIR@"
+#endif
+
+#ifdef SITEMODULEDIR_USER_DEFINED
+#define  PATH_SITE_MODULES "@SITEMODULEDIR@"
 #endif
 
 #ifdef PACKAGE_PATH_USER_DEFINED

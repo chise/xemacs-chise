@@ -50,8 +50,10 @@
     #'(lambda ()
 	;; message not defined yet ...
 	(setq load-path (split-path (getenv "EMACSBOOTSTRAPLOADPATH")))
+	(setq module-load-path (split-path (getenv "EMACSBOOTSTRAPMODULEPATH")))
 
 	(external-debugging-output (format "\nUsing load-path %s" load-path))
+	(external-debugging-output (format "\nUsing module-load-path %s" module-load-path))
 
 	;; We don't want to have any undo records in the dumped XEmacs.
 	(buffer-disable-undo (get-buffer "*scratch*"))

@@ -620,13 +620,13 @@ DECLARE_LRECORD (glyph, struct Lisp_Glyph);
 #define XGLYPH_BASELINE(g) GLYPH_BASELINE (XGLYPH (g))
 #define XGLYPH_FACE(g) GLYPH_FACE (XGLYPH (g))
 
-extern Lisp_Object Qxpm;
+extern Lisp_Object Qxpm, Qxface;
 extern Lisp_Object Q_data, Q_file, Q_color_symbols, Qconst_glyph_variable;
-extern Lisp_Object Qxbm, Qedit, Qgroup, Qlabel, Qcombo, Qscrollbar;
+extern Lisp_Object Qxbm, Qedit, Qgroup, Qlabel, Qcombo, Qscrollbar, Qprogress;
 extern Lisp_Object Q_mask_file, Q_mask_data, Q_hotspot_x, Q_hotspot_y;
 extern Lisp_Object Q_foreground, Q_background, Q_face, Q_descriptor, Q_group;
-extern Lisp_Object Q_width, Q_height, Q_pixel_width, Q_pixel_height;
-extern Lisp_Object Q_items, Q_properties, Qimage_conversion_error;
+extern Lisp_Object Q_width, Q_height, Q_pixel_width, Q_pixel_height, Q_text;
+extern Lisp_Object Q_items, Q_properties, Q_image, Q_percent, Qimage_conversion_error;
 extern Lisp_Object Vcontinuation_glyph, Vcontrol_arrow_glyph, Vhscroll_glyph;
 extern Lisp_Object Vinvisible_text_glyph, Voctal_escape_glyph, Vtruncation_glyph;
 extern Lisp_Object Vxemacs_logo;

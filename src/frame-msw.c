@@ -181,7 +181,9 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
   hwnd = CreateWindowEx (exstyle,
 			 XEMACS_CLASS,
 			 STRINGP(f->name) ? XSTRING_DATA(f->name) :
-			 (STRINGP(name) ? XSTRING_DATA(name) : XEMACS_CLASS),
+			 (STRINGP(name) ? 
+			  (CONST Extbyte*)XSTRING_DATA(name) : 
+			  (CONST Extbyte*)XEMACS_CLASS),
 			 style,
 			 rect_default.left, rect_default.top,
 			 rect_default.width, rect_default.height,

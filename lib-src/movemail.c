@@ -79,7 +79,7 @@ extern char *optarg;
 extern int optind, opterr;
 
 #ifndef HAVE_STRERROR
-static char * strerror (int errnum);
+char * strerror (int errnum);
 #endif /* HAVE_STRERROR */
 
 #ifdef MSDOS
@@ -879,7 +879,7 @@ compile_regex (char* pattern)
 #endif /* MAIL_USE_POP */
 
 #ifndef HAVE_STRERROR
-static char *
+char *
 strerror (int errnum)
 {
   extern char *sys_errlist[];

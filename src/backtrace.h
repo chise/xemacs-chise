@@ -277,6 +277,9 @@ extern int specpdl_size;
 #define CHECK_SPECBIND_VARIABLE DO_NOTHING
 #endif
 
+#if 0
+/* Unused.  It's too hard to guarantee that the current bindings
+   contain only variables.  */
 /* Another inline version of unbind_to().  VALUE is GC-protected.
    Caller guarantees that:
    - all of the elements on the binding stack are variable bindings.
@@ -303,6 +306,7 @@ extern int specpdl_size;
 	}							\
     }								\
 } while (0)
+#endif /* unused */
 
 /* A faster, but less safe inline version of Fset().
    Caller guarantees that:

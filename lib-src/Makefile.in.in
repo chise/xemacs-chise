@@ -55,6 +55,9 @@ libdir=@libdir@
 srcdir=@srcdir@
 archlibdir=@archlibdir@
 configuration=@configuration@
+moduledir=@moduledir@
+sitemoduledir=@sitemoduledir@
+
 ## ==================== Utility Programs for the Build =================
 
 INSTALL = @install_pp@ @INSTALL@
@@ -71,10 +74,18 @@ INSTALL_DATA = @INSTALL_DATA@
 ## which should be installed in bindir.
 INSTALLABLES_BASE = etags ctags b2m gnuclient ootags
 INSTALLABLE_SCRIPTS = rcs-checkin pstogif gnudoit gnuattach
+#ifdef HAVE_SHLIB
 #ifdef HAVE_MS_WINDOWS
-INSTALLABLES = $(INSTALLABLES_BASE) runemacs
+INSTALLABLES = $(INSTALLABLES_BASE) runxemacs rungnuclient ellcc
+#else
+INSTALLABLES = $(INSTALLABLES_BASE) ellcc
+#endif
+#else
+#ifdef HAVE_MS_WINDOWS
+INSTALLABLES = $(INSTALLABLES_BASE) runxemacs rungnuclient
 #else
 INSTALLABLES = $(INSTALLABLES_BASE) 
+#endif
 #endif
 
 
@@ -229,7 +240,7 @@ mostlyclean:
 clean: mostlyclean
 	$(RM) ${INSTALLABLES} ${UTILITIES} *.exe
 distclean: clean
-	$(RM) DOC *.tab.c *.tab.h aixcc.c TAGS
+	$(RM) DOC *.tab.c *.tab.h aixcc.c TAGS ellcc.h
 	$(RM) GNUmakefile Makefile Makefile.in blessmail config.values
 realclean: distclean
 extraclean: distclean
@@ -269,15 +280,30 @@ etags_deps   = ${srcdir}/etags.c $(GETOPTDEPS) regex.o ../src/config.h
 etags: ${etags_deps}
 	$(CC) ${etags_args} -o $@
 
-runemacs_args = -I. $(cflags) -I${srcdir} -I${srcdir}/../src \
-	-DVERSION='"${version}"' ${srcdir}/../nt/runemacs.c \
-	$(ldflags) -Wl,--subsystem,windows
-runemacs_deps   = ${srcdir}/../nt/runemacs.c ${srcdir}/../nt/xemacs.ico ../src/config.h
+ellcc_args = -I. $(cflags) -I${srcdir} -I${srcdir}/../src \
+    ${srcdir}/ellcc.c $(ldflags)
+ellcc_deps = ${srcdir}/ellcc.c ellcc.h ../src/config.h
 
-runemacs: ${runemacs_deps}
-	echo "runemacs ICON DISCARDABLE \"../nt/xemacs.ico\"" \
-	| windres -o runemacs_res.o
-	$(CC) runemacs_res.o ${runemacs_args} -o $@
+ellcc: ${ellcc_deps}
+	$(CC) ${ellcc_args} -o $@
+
+run_args = -I. $(cflags) -I${srcdir} -I${srcdir}/../src \
+	-DVERSION='"${version}"' ${srcdir}/run.c \
+	$(ldflags) -Wl,--subsystem,windows -e _mainCRTStartup
+run_deps   = ${srcdir}/run.c ${srcdir}/run.h ${srcdir}/run.rc \
+	${srcdir}/../nt/xemacs.ico ${srcdir}/../nt/file.ico \
+	${srcdir}/../nt/lisp.ico
+
+run: ${run_deps}
+	windres --include-dir ${srcdir}/../nt -i run.rc -o run_res.o
+	$(CC) run_res.o ${run_args} -o $@
+	strip $@.exe
+
+runxemacs: run
+	cp run.exe $@.exe
+
+rungnuclient: run
+	cp run.exe $@.exe
 
 ootags_args = -I. $(cflags) -I${srcdir} -I${srcdir}/../src \
 	-DVERSION='"${version}"' ${srcdir}/ootags.c \

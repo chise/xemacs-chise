@@ -549,7 +549,7 @@ copy_executable_and_dump_data_section (file_data *p_infile,
 static void
 dump_bss_and_heap (file_data *p_infile, file_data *p_outfile)
 {
-    unsigned char *heap_data, *bss_data;
+    unsigned char *heap_data;
     unsigned long size, index;
 
     DUMP_MSG (("Dumping heap onto end of executable...\n"));
@@ -565,16 +565,15 @@ dump_bss_and_heap (file_data *p_infile, file_data *p_outfile)
     memcpy ((PUCHAR) p_outfile->file_base + index, heap_data, size);
 
 #ifndef DUMP_SEPARATE_SECTION
-    printf ("Dumping bss onto end of executable...\n");
+    DUMP_MSG (("Dumping bss onto end of executable...\n"));
     
     index += size;
     size = bss_size;
-    bss_data = bss_start;
 
-    DUMP_MSG (("\t0x%08x BSS start in process.\n", bss_data));
+    DUMP_MSG (("\t0x%08x BSS start in process.\n", bss_start));
     DUMP_MSG (("\t0x%08x BSS offset in executable.\n", index));
     DUMP_MSG (("\t0x%08x BSS size in bytes.\n", size));
-    memcpy ((char *) p_outfile->file_base + index, bss_data, size);
+    memcpy ((char *) p_outfile->file_base + index, bss_start, size);
 #endif
 }
 

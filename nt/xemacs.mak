@@ -26,6 +26,7 @@
 
 XEMACS=..
 LISP=$(XEMACS)\lisp
+MODULES=$(XEMACS)\modules
 NT=$(XEMACS)\nt
 
 # Program name and version
@@ -125,9 +126,9 @@ USE_INDEXED_LRECORD_IMPLEMENTATION=0
 # System configuration
 #
 !if !defined(PROCESSOR_ARCHITECTURE) && "$(OS)" != "Windows_NT"
-EMACS_CONFIGURATION=i386-pc-win32
+EMACS_CONFIGURATION=i586-pc-win32
 !else if "$(PROCESSOR_ARCHITECTURE)" == "x86"
-EMACS_CONFIGURATION=i386-pc-win32
+EMACS_CONFIGURATION=i586-pc-win32
 !else if "$(PROCESSOR_ARCHITECTURE)" == "MIPS"
 EMACS_CONFIGURATION=mips-pc-win32
 !else if "$(PROCESSOR_ARCHITECTURE)" == "ALPHA"
@@ -291,9 +292,9 @@ USE_INDEXED_LRECORD_IMPLEMENTATION=$(GUNG_HO)
 VERBOSECC=0
 !endif
 !if $(VERBOSECC)
-CCV=$(CC) -nologo
+CCV=$(CC)
 !else
-CCV=@$(CC) -nologo
+CCV=@$(CC)
 !endif
 
 !if $(DEBUG_XEMACS)
@@ -302,7 +303,7 @@ OPT=-Od -Zi
 OPT=-O2 -G5 -Zi
 !endif
 
-WARN_CPP_FLAGS = -W3
+CFLAGS=-nologo -W3 $(OPT)
 
 !if $(HAVE_X)
 X_DEFINES=-DHAVE_X_WINDOWS
@@ -416,7 +417,7 @@ OUTDIR=obj
 # Compiler Information
 !if defined(CCV) &&\
 [echo What compiler should XEmacs be built with?>>Installation] &&\
-[echo $(CCV)>>Installation]
+[echo $(CC) $(CFLAGS)>>Installation]
 !endif
 # Window System Information
 !if [echo What window system should XEmacs use?>>Installation]
@@ -499,7 +500,7 @@ CONFIG_VALUES = $(LIB_SRC)\config.values
 # Inferred rule
 {$(LIB_SRC)}.c{$(LIB_SRC)}.exe :
 	@cd $(LIB_SRC)
-	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) -O2 -W3 -Fe$@ $**
+	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) $(CFLAGS) -Fe$@ $**
 	@cd $(NT)
 
 # Individual dependencies
@@ -507,7 +508,7 @@ ETAGS_DEPS = $(LIB_SRC)/getopt.c $(LIB_SRC)/getopt1.c $(LIB_SRC)/../src/regex.c
 $(LIB_SRC)/etags.exe : $(LIB_SRC)/etags.c $(ETAGS_DEPS)
 $(LIB_SRC)/movemail.exe: $(LIB_SRC)/movemail.c $(LIB_SRC)/pop.c $(ETAGS_DEPS)
 	@cd $(LIB_SRC)
-	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) -O2 -W3 -Fe$@ $** wsock32.lib
+	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) $(CFLAGS) -Fe$@ $** wsock32.lib
 	@cd $(NT)
 
 LIB_SRC_TOOLS = \
@@ -521,12 +522,15 @@ LIB_SRC_TOOLS = \
 
 #------------------------------------------------------------------------------
 
-# runemacs proglet
+# runxemacs proglet
 
-RUNEMACS = $(XEMACS)\src\runemacs.exe
+RUNEMACS = $(XEMACS)\src\runxemacs.exe
 
-$(RUNEMACS): $(NT)\runemacs.c $(NT)\xemacs.res
-	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc -O2 -W3 -Fe$@ $** kernel32.lib user32.lib
+$(RUNEMACS): $(LIB_SRC)\run.c $(LIB_SRC)\run.res
+	$(CCV) -I$(LIB_SRC) -O2 -Fe$@ $** kernel32.lib user32.lib
+
+$(LIB_SRC)\run.res: $(LIB_SRC)\run.rc
+	rc -I$(LIB_SRC) -FO$(LIB_SRC)\run.res $(LIB_SRC)\run.rc
 
 #------------------------------------------------------------------------------
 
@@ -534,7 +538,7 @@ $(RUNEMACS): $(NT)\runemacs.c $(NT)\xemacs.res
 
 LASTFILE=$(OUTDIR)\lastfile.lib
 LASTFILE_SRC=$(XEMACS)\src
-LASTFILE_FLAGS=$(WARN_CPP_FLAGS) $(OPT) $(INCLUDES) -Fo$@ -c
+LASTFILE_FLAGS=$(CFLAGS) $(INCLUDES) -Fo$@ -c
 LASTFILE_OBJS= \
 	$(OUTDIR)\lastfile.obj
 
@@ -552,7 +556,7 @@ $(OUTDIR)\lastfile.obj:	$(LASTFILE_SRC)\lastfile.c
 
 LWLIB=$(OUTDIR)\lwlib.lib
 LWLIB_SRC=$(XEMACS)\lwlib
-LWLIB_FLAGS=$(WARN_CPP_FLAGS) $(OPT) $(INCLUDES) $(DEFINES) \
+LWLIB_FLAGS=$(CFLAGS) $(INCLUDES) $(DEFINES) \
  -DNEED_ATHENA -DNEED_LUCID \
  -D_WINDOWS -DMENUBARS_LUCID -DSCROLLBARS_LUCID -DDIALOGS_ATHENA \
  -Fo$@ -c
@@ -637,6 +641,7 @@ DOC_SRC3=\
  $(XEMACS)\src\general.c \
  $(XEMACS)\src\glyphs.c \
  $(XEMACS)\src\glyphs-eimage.c \
+ $(XEMACS)\src\glyphs-widget.c \
  $(XEMACS)\src\gmalloc.c \
  $(XEMACS)\src\gui.c  \
  $(XEMACS)\src\hash.c \
@@ -670,7 +675,6 @@ DOC_SRC4=\
  $(XEMACS)\src\redisplay.c \
  $(XEMACS)\src\regex.c \
  $(XEMACS)\src\scrollbar.c \
- $(XEMACS)\src\scrollbar-msw.c \
  $(XEMACS)\src\search.c \
  $(XEMACS)\src\signal.c \
  $(XEMACS)\src\sound.c 
@@ -720,6 +724,7 @@ DOC_SRC7=\
  $(XEMACS)\src\event-msw.c  \
  $(XEMACS)\src\frame-msw.c \
  $(XEMACS)\src\glyphs-msw.c \
+ $(XEMACS)\src\gui-msw.c \
  $(XEMACS)\src\menubar-msw.c \
  $(XEMACS)\src\objects-msw.c \
  $(XEMACS)\src\redisplay-msw.c \
@@ -733,11 +738,13 @@ DOC_SRC7=\
 
 !if $(HAVE_MULE)
 DOC_SRC8=\
- $(XEMACS)\src\input-method-xlib.c \
  $(XEMACS)\src\mule.c \
  $(XEMACS)\src\mule-charset.c \
  $(XEMACS)\src\mule-ccl.c \
  $(XEMACS)\src\mule-coding.c
+! if $(HAVE_X)
+ DOC_SRC8=$(DOC_SRC8) $(XEMACS)\src\input-method-xlib.c
+! endif
 !endif
 
 !if $(DEBUG_XEMACS)
@@ -759,21 +766,19 @@ TEMACS=$(TEMACS_DIR)\temacs.exe
 TEMACS_BROWSE=$(TEMACS_DIR)\temacs.bsc
 TEMACS_SRC=$(XEMACS)\src
 TEMACS_LIBS=$(LASTFILE) $(LWLIB) $(X_LIBS) $(MSW_LIBS) \
- kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib \
- shell32.lib ole32.lib oleaut32.lib uuid.lib wsock32.lib winmm.lib libc.lib
+ kernel32.lib user32.lib gdi32.lib advapi32.lib \
+ shell32.lib wsock32.lib winmm.lib libc.lib
 TEMACS_LFLAGS=-nologo $(LIBRARIES) $(DEBUG_FLAGS) -base:0x1000000\
  -stack:0x800000 -entry:_start -subsystem:console\
  -pdb:$(TEMACS_DIR)\temacs.pdb -map:$(TEMACS_DIR)\temacs.map \
  -heap:0x00100000 -out:$@
-TEMACS_CPP_FLAGS= $(WARN_CPP_FLAGS) $(INCLUDES) $(DEFINES) $(DEBUG_DEFINES) \
+TEMACS_CPP_FLAGS=-ML -c $(CFLAGS) $(INCLUDES) $(DEFINES) $(DEBUG_DEFINES) \
  -DEMACS_MAJOR_VERSION=$(emacs_major_version) \
  -DEMACS_MINOR_VERSION=$(emacs_minor_version) \
  $(EMACS_BETA_VERSION) \
  -DXEMACS_CODENAME=\"$(xemacs_codename)\" \
  -DEMACS_CONFIGURATION=\"$(EMACS_CONFIGURATION)\" \
  -DPATH_PACKAGEPATH=\"$(PATH_PACKAGEPATH)\"
-
-TEMACS_FLAGS=-ML $(WARN_CPP_FALGS) $(OPT) -c $(TEMACS_CPP_FLAGS)
 
 !if $(HAVE_X)
 TEMACS_X_OBJS=\
@@ -807,6 +812,7 @@ TEMACS_MSW_OBJS=\
 	$(OUTDIR)\event-msw.obj \
 	$(OUTDIR)\frame-msw.obj \
 	$(OUTDIR)\glyphs-msw.obj \
+	$(OUTDIR)\gui-msw.obj \
 	$(OUTDIR)\menubar-msw.obj \
 	$(OUTDIR)\objects-msw.obj \
 	$(OUTDIR)\redisplay-msw.obj \
@@ -820,11 +826,14 @@ TEMACS_MSW_OBJS=\
 
 !if $(HAVE_MULE)
 TEMACS_MULE_OBJS=\
-	$(OUTDIR)\input-method-xlib.obj \
 	$(OUTDIR)\mule.obj \
 	$(OUTDIR)\mule-charset.obj \
 	$(OUTDIR)\mule-ccl.obj \
 	$(OUTDIR)\mule-coding.obj
+! if $(HAVE_X)
+TEMACS_MULE_OBJS=\
+	$(TEMACS_MULE_OBJS) $(OUTDIR)\input-method-xlib.obj
+! endif
 !endif
 
 !if $(DEBUG_XEMACS)
@@ -879,6 +888,7 @@ TEMACS_OBJS= \
 	$(OUTDIR)\general.obj \
 	$(OUTDIR)\glyphs.obj \
 	$(OUTDIR)\glyphs-eimage.obj \
+	$(OUTDIR)\glyphs-widget.obj \
 	$(OUTDIR)\gmalloc.obj \
 	$(OUTDIR)\gui.obj \
 	$(OUTDIR)\hash.obj \
@@ -934,13 +944,13 @@ TEMACS_OBJS= \
 
 # nmake rule
 {$(TEMACS_SRC)}.c{$(OUTDIR)}.obj:
-	$(CCV) $(TEMACS_FLAGS) $< -Fo$@ -Fr$*.sbr
+	$(CCV) $(TEMACS_CPP_FLAGS) $< -Fo$@ -Fr$*.sbr
 
 $(OUTDIR)\TopLevelEmacsShell.obj:	$(TEMACS_SRC)\EmacsShell-sub.c
-	$(CCV) $(TEMACS_FLAGS) -DDEFINE_TOP_LEVEL_EMACS_SHELL $** -Fo$@
+	$(CCV) $(TEMACS_CPP_FLAGS) -DDEFINE_TOP_LEVEL_EMACS_SHELL $** -Fo$@
 
 $(OUTDIR)\TransientEmacsShell.obj: $(TEMACS_SRC)\EmacsShell-sub.c
-	$(CCV) $(TEMACS_FLAGS) -DDEFINE_TRANSIENT_EMACS_SHELL $** -Fo$@
+	$(CCV) $(TEMACS_CPP_FLAGS) -DDEFINE_TRANSIENT_EMACS_SHELL $** -Fo$@
 
 $(OUTDIR)\alloc.obj: $(TEMACS_SRC)\alloc.c $(TEMACS_SRC)\puresize-adjust.h
 
@@ -987,7 +997,8 @@ $(LISP)\Installation.el: Installation.el
 	copy Installation.el $(LISP)
 
 update-elc: $(LISP)\Installation.el
-	set EMACSBOOTSTRAPLOADPATH=$(LISP)
+	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
+	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
 	$(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\update-elc.el
 
 # This rule dumps xemacs and then possibly spawns sub-make if PURESPACE
@@ -995,7 +1006,7 @@ update-elc: $(LISP)\Installation.el
 dump-xemacs: $(TEMACS)
 	@echo >$(TEMACS_DIR)\SATISFIED
 	cd $(TEMACS_DIR)
-	set EMACSBOOTSTRAPLOADPATH=$(LISP)
+	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
 	-1 $(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\loadup.el dump
 	@cd $(NT)
 	@if not exist $(TEMACS_DIR)\SATISFIED nmake -nologo -f xemacs.mak $@
@@ -1065,7 +1076,7 @@ distclean:
 	-del /s /q *.bak *.elc *.orig *.rej
 
 depend:
-	mkdepend -f xemacs.mak -p$(OUTDIR)\ -o.obj -w9999 -- $(TEMACS_CPP_FLAGS) --  $(DOC_SRC1) $(DOC_SRC2) $(DOC_SRC3) $(DOC_SRC4) $(DOC_SRC5) $(DOC_SRC6) $(DOC_SRC7) $(DOC_SRC8) $(DOC_SRC9) $(LASTFILE_SRC)\lastfile.c $(LIB_SRC)\make-docfile.c .\runemacs.c
+	mkdepend -f xemacs.mak -p$(OUTDIR)\ -o.obj -w9999 -- $(TEMACS_CPP_FLAGS) --  $(DOC_SRC1) $(DOC_SRC2) $(DOC_SRC3) $(DOC_SRC4) $(DOC_SRC5) $(DOC_SRC6) $(DOC_SRC7) $(DOC_SRC8) $(DOC_SRC9) $(LASTFILE_SRC)\lastfile.c $(LIB_SRC)\make-docfile.c $(LIB_SRC)\run.c
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 

@@ -1,6 +1,6 @@
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (make-glyph [xpm :file "../etc/xemacs-icon.xpm"]))
+ (setq icon (make-glyph [xpm :file "../etc/xemacs-icon.xpm"])))
 
 (defun foo ()
   (interactive) 
@@ -20,9 +20,45 @@
 ;; normal pushbutton
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (setq pbutton (make-glyph [button :width 10 :height 2 
-				   :face modeline-mousable
-				   :descriptor ["ok" foo :selected t]])))
+ (setq pbutton (make-glyph 
+		[button :width 10 :height 2 
+			:face modeline-mousable
+			:descriptor "ok" :callback foo 
+			:selected t])))
+;; progress gauge
+(set-extent-begin-glyph 
+ (make-extent (point) (point))
+ (setq pgauge (make-glyph 
+	       [progress :width 10 :height 2 
+			 :descriptor "ok"])))
+;; progress the progress ...
+(let ((x 0))
+  (while (<= x 100)
+    (set-image-instance-property (glyph-image-instance pgauge) :percent x)
+    (setq x (+ x 5))
+    (sit-for 0.1)))
+
+;; progress gauge in the modeline
+(setq global-mode-string 
+      (cons (make-extent nil nil)
+	    (setq pg (make-glyph 
+		      [progress :width 5 :pixel-height 16
+				:descriptor "ok"]))))
+;; progress the progress ...
+(let ((x 0))
+  (while (<= x 100)
+    (set-image-instance-property (glyph-image-instance pg) :percent x)
+    (setq x (+ x 5))
+    (sit-for 0.1)))
+
+(set-extent-begin-glyph 
+ (make-extent (point) (point))
+ (make-glyph 
+  [button :face modeline-mousable
+	  :descriptor "ok" :callback foo
+	  :image (make-glyph 
+		  [xpm :file "../etc/xemacs-icon.xpm"])]))
+
 ;; normal pushbutton
 (set-extent-begin-glyph 
  (make-extent (point) (point))

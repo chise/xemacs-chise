@@ -29,7 +29,7 @@
 ;;; Test database functionality
 ;;; See test-harness.el
 
-(condition-case err
+(condition-case nil
     (require 'test-harness)
   (file-error
    (when (and (boundp 'load-file-name) (stringp load-file-name))
@@ -53,7 +53,7 @@
   (let ((filename (expand-file-name "test-harness" (temp-directory))))
 
     (dolist (fn (list filename (concat filename ".db")))
-      (condition-case nil (delete-file fn) (file-error nil)))
+      (ignore-file-errors (delete-file fn)))
 
     (dolist (db-type `(dbm berkeley-db))
       (when (featurep db-type)

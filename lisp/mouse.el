@@ -1385,6 +1385,7 @@ and `mode-motion-hook'."
     (cond ((extentp help)
            (or inhibit-help-echo
                (eq help last-help-echo-object) ;save some time
+	       (eq (selected-window) (minibuffer-window))
                (let ((hprop (extent-property help 'help-echo)))
                  (setq last-help-echo-object help)
                  (or (stringp hprop)
@@ -1395,11 +1396,12 @@ and `mode-motion-hook'."
                 (toolbar-button-enabled-p help))
 	   (or (not toolbar-help-enabled)
 	       (eq help last-help-echo-object) ;save some time
+	       (eq (selected-window) (minibuffer-window))
 	       (let ((hstring (toolbar-button-help-string button)))
 		 (setq last-help-echo-object help)
 		 (or (stringp hstring)
 		     (setq hstring (funcall hstring help)))
-		 (show-help-echo hstring))))
+		 (and hstring (show-help-echo hstring)))))
           (last-help-echo-object
 	   (clear-help-echo)))
     (if mouse-grabbed-buffer (setq buffer mouse-grabbed-buffer))

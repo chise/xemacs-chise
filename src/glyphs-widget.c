@@ -20,6 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
+/* written by Andy Piper <andy@xemacs.org> */
+
 #include <config.h>
 #include "lisp.h"
 #include "lstream.h"
@@ -28,7 +30,7 @@ Boston, MA 02111-1307, USA.  */
 #include "faces.h"
 #include "glyphs.h"
 #include "objects.h"
-
+#include "bytecode.h"
 #include "window.h"
 #include "buffer.h"
 #include "frame.h"
@@ -49,8 +51,11 @@ Lisp_Object Qgroup;
 #endif
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (label);
 Lisp_Object Qlabel;
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (progress);
+Lisp_Object Qprogress;
 
 Lisp_Object Q_descriptor, Q_height, Q_width, Q_properties, Q_items;
+Lisp_Object Q_image, Q_text, Q_percent;
 
 #define WIDGET_BORDER_HEIGHT 2
 #define WIDGET_BORDER_WIDTH 4
@@ -58,7 +63,6 @@ Lisp_Object Q_descriptor, Q_height, Q_width, Q_properties, Q_items;
 /* TODO:
    - more complex controls.
    - tooltips for controls.
-   - images in controls.
  */
 
 /* In windows normal windows work in pixels, dialog boxes work in
@@ -99,16 +103,47 @@ widget_possible_dest_types (void)
   return IMAGE_WIDGET_MASK;
 }
 
-#if 0 /* currently unused */
 static void
-check_valid_glyph (Lisp_Object data)
+check_valid_glyph_or_image (Lisp_Object data)
 {
+  Lisp_Object glyph = data;
   if (SYMBOLP (data))
-    CHECK_BUFFER_GLYPH (XSYMBOL (data)->value);
-  else
-    CHECK_BUFFER_GLYPH (data);
+    glyph = XSYMBOL (data)->value;
+
+  if (IMAGE_INSTANCEP (glyph))
+    CHECK_IMAGE_INSTANCE (glyph);
+  else if (!CONSP (glyph))
+    CHECK_BUFFER_GLYPH (glyph);
 }
-#endif /* currently unused */
+
+static void
+check_valid_anything (Lisp_Object data)
+{
+}
+
+static void
+check_valid_callback (Lisp_Object data)
+{
+    if (!SYMBOLP (data)
+	&& !COMPILED_FUNCTIONP (data)
+	&& !CONSP (data))
+    {
+	signal_simple_error (":callback must be a function or expression", data);
+    }
+}
+
+static void
+check_valid_symbol (Lisp_Object data)
+{
+    CHECK_SYMBOL (data);
+}
+
+static void
+check_valid_string_or_vector (Lisp_Object data)
+{
+    if (!STRINGP (data) && !VECTORP (data))
+	signal_simple_error (":descriptor must be a string or a vector", data);
+}
 
 static void
 check_valid_item_list (Lisp_Object data)
@@ -204,7 +239,8 @@ widget_validate (Lisp_Object instantiator)
   if (NILP (desc))
     signal_simple_error ("Must supply :descriptor", instantiator);
 
-  gui_parse_item_keywords (desc, &gui);
+  if (VECTORP (desc))
+      gui_parse_item_keywords (desc, &gui);
 
   if (!NILP (find_keyword_in_vector (instantiator, Q_width))
 	     && !NILP (find_keyword_in_vector (instantiator, Q_pixel_width)))
@@ -221,6 +257,40 @@ combo_validate (Lisp_Object instantiator)
   widget_validate (instantiator);
   if (NILP (find_keyword_in_vector (instantiator, Q_properties)))
     signal_simple_error ("Must supply item list", instantiator);
+}
+
+/* we need to convert things like glyphs to images, eval expressions
+   etc.*/
+static Lisp_Object
+widget_normalize (Lisp_Object inst, Lisp_Object console_type)
+{
+  /* This function can call lisp */
+  Lisp_Object glyph = find_keyword_in_vector (inst, Q_image);
+
+  /* we need to eval glyph if its an expression, we do this for the
+     same reasons we normalize file to data. */
+  if (!NILP (glyph))
+    {
+      int i;
+      struct gcpro gcpro1;
+      if (SYMBOLP (glyph))
+	glyph = XSYMBOL (glyph)->value;
+      GCPRO1 (glyph);
+
+      if (CONSP (glyph))
+	glyph = Feval (glyph);
+      /* substitute the new glyph */
+      for (i = 0; i < XVECTOR_LENGTH (inst); i++)
+	{
+	  if (EQ (Q_image, XVECTOR_DATA (inst)[i]))
+	    {
+	      XVECTOR_DATA (inst)[i+1] = glyph;
+	      break;
+	    }
+	}
+      UNGCPRO;
+    }
+  return inst;
 }
 
 static void
@@ -253,6 +323,7 @@ widget_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
   Lisp_Object pixwidth = find_keyword_in_vector (instantiator, Q_pixel_width);
   Lisp_Object pixheight = find_keyword_in_vector (instantiator, Q_pixel_height);
   Lisp_Object desc = find_keyword_in_vector (instantiator, Q_descriptor);
+  Lisp_Object glyph = find_keyword_in_vector (instantiator, Q_image);
   int pw=0, ph=0, tw=0, th=0;
   
   /* this just does pixel type sizing */
@@ -272,12 +343,17 @@ widget_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
   IMAGE_INSTANCE_WIDGET_PROPS (ii) = 
     find_keyword_in_vector (instantiator, Q_properties);
 
-  /* retrieve the gui item information */
+  /* retrieve the gui item information. This is easy if we have been
+     provided with a vector, more difficult if we have just been given
+     keywords */
   if (STRINGP (desc) || NILP (desc))
-    IMAGE_INSTANCE_WIDGET_TEXT (ii) = desc;
+    {
+      /* big cheat - we rely on the fact that a gui item looks like an instantiator */
+      gui_parse_item_keywords_no_errors (instantiator, pgui);
+      IMAGE_INSTANCE_WIDGET_TEXT (ii) = desc;
+    }
   else
-    gui_parse_item_keywords (find_keyword_in_vector (instantiator, Q_descriptor),
-			     pgui);
+    gui_parse_item_keywords_no_errors (desc, pgui);
 
   /* normalize size information */
   if (!NILP (width))
@@ -289,6 +365,18 @@ widget_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
   if (!NILP (pixheight))
     ph = XINT (pixheight);
 
+  /* for a widget with an image pick up the dimensions from that */
+  if (!NILP (glyph))
+    {
+      if (!pw && !tw)
+	pw = glyph_width (glyph, Qnil, DEFAULT_INDEX, domain) 
+	  + 2 * WIDGET_BORDER_WIDTH;
+      if (!ph && !th)
+	ph = glyph_height (glyph, Qnil, DEFAULT_INDEX, domain) 
+	  + 2 * WIDGET_BORDER_HEIGHT;
+    }
+
+  /* if we still don' t have sizes, guess from text size */
   if (!tw && !pw && !NILP (IMAGE_INSTANCE_WIDGET_TEXT (ii)))
     tw = XSTRING_LENGTH (IMAGE_INSTANCE_WIDGET_TEXT (ii));
   if (!th && !ph)
@@ -300,7 +388,7 @@ widget_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
       else
 	ph = default_pixheight;
     }
-
+  
   if (tw !=0 || th !=0)
     widget_text_to_pixel_conversion (domain,
 				     IMAGE_INSTANCE_WIDGET_FACE (ii),
@@ -355,11 +443,36 @@ syms_of_glyphs_widget (void)
   defkeyword (&Q_width, ":width");
   defkeyword (&Q_properties, ":properties");
   defkeyword (&Q_items, ":items");
+  defkeyword (&Q_image, ":image");
+  defkeyword (&Q_percent, ":percent");
+  defkeyword (&Q_text, "text");
 }
 
 void
 image_instantiator_format_create_glyphs_widget (void)
 {
+#define VALID_GUI_KEYWORDS(type) \
+  IIFORMAT_VALID_KEYWORD (type, Q_active, check_valid_anything); \
+  IIFORMAT_VALID_KEYWORD (type, Q_suffix, check_valid_anything); \
+  IIFORMAT_VALID_KEYWORD (type, Q_keys, check_valid_string);		\
+  IIFORMAT_VALID_KEYWORD (type, Q_style, check_valid_symbol);		\
+  IIFORMAT_VALID_KEYWORD (type, Q_selected, check_valid_anything);	\
+  IIFORMAT_VALID_KEYWORD (type, Q_filter, check_valid_anything);		\
+  IIFORMAT_VALID_KEYWORD (type, Q_config, check_valid_symbol);		\
+  IIFORMAT_VALID_KEYWORD (type, Q_included, check_valid_anything);	\
+  IIFORMAT_VALID_KEYWORD (type, Q_key_sequence, check_valid_string);	\
+  IIFORMAT_VALID_KEYWORD (type, Q_accelerator, check_valid_string);	\
+  IIFORMAT_VALID_KEYWORD (type, Q_label, check_valid_anything);		\
+  IIFORMAT_VALID_KEYWORD (type, Q_callback, check_valid_callback); 		\
+  IIFORMAT_VALID_KEYWORD (type, Q_descriptor, check_valid_string_or_vector)
+
+#define VALID_WIDGET_KEYWORDS(type) \
+  IIFORMAT_VALID_KEYWORD (type, Q_width, check_valid_int);		\
+  IIFORMAT_VALID_KEYWORD (type, Q_height, check_valid_int);		\
+  IIFORMAT_VALID_KEYWORD (type, Q_pixel_width, check_valid_int);	\
+  IIFORMAT_VALID_KEYWORD (type, Q_pixel_height, check_valid_int);	\
+  IIFORMAT_VALID_KEYWORD (type, Q_face, check_valid_face)
+
   /* we only do this for properties */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT_NO_SYM (widget, "widget");
   IIFORMAT_HAS_METHOD (widget, property);
@@ -370,58 +483,58 @@ image_instantiator_format_create_glyphs_widget (void)
   IIFORMAT_HAS_SHARED_METHOD (button, validate, widget);
   IIFORMAT_HAS_SHARED_METHOD (button, possible_dest_types, widget);
   IIFORMAT_HAS_SHARED_METHOD (button, instantiate, widget);
+  IIFORMAT_HAS_SHARED_METHOD (button, normalize, widget);
+  IIFORMAT_VALID_KEYWORD (button, Q_image, check_valid_glyph_or_image);
+  VALID_WIDGET_KEYWORDS (button);
+  VALID_GUI_KEYWORDS (button);
 
-  IIFORMAT_VALID_KEYWORD (button, Q_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (button, Q_height, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (button, Q_pixel_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (button, Q_pixel_height, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (button, Q_face, check_valid_face);
-  IIFORMAT_VALID_KEYWORD (button, Q_descriptor, check_valid_vector);
   /* edit fields */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (edit, "edit");
   IIFORMAT_HAS_SHARED_METHOD (edit, validate, widget);
   IIFORMAT_HAS_SHARED_METHOD (edit, possible_dest_types, widget);
   IIFORMAT_HAS_SHARED_METHOD (edit, instantiate, widget);
+  VALID_WIDGET_KEYWORDS (edit);
+  VALID_GUI_KEYWORDS (edit);
 
-  IIFORMAT_VALID_KEYWORD (edit, Q_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (edit, Q_height, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (edit, Q_pixel_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (edit, Q_pixel_height, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (edit, Q_face, check_valid_face);
-  IIFORMAT_VALID_KEYWORD (edit, Q_descriptor, check_valid_vector);
   /* combo box */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (combo, "combo");
   IIFORMAT_HAS_METHOD (combo, validate);
   IIFORMAT_HAS_SHARED_METHOD (combo, possible_dest_types, widget);
   IIFORMAT_HAS_METHOD (combo, instantiate);
+  VALID_GUI_KEYWORDS (combo);
 
   IIFORMAT_VALID_KEYWORD (combo, Q_width, check_valid_int);
   IIFORMAT_VALID_KEYWORD (combo, Q_height, check_valid_int);
   IIFORMAT_VALID_KEYWORD (combo, Q_pixel_width, check_valid_int);
   IIFORMAT_VALID_KEYWORD (combo, Q_face, check_valid_face);
-  IIFORMAT_VALID_KEYWORD (combo, Q_descriptor, check_valid_vector);
   IIFORMAT_VALID_KEYWORD (combo, Q_properties, check_valid_item_list);
+
   /* scrollbar */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (scrollbar, "scrollbar");
   IIFORMAT_HAS_SHARED_METHOD (scrollbar, validate, widget);
   IIFORMAT_HAS_SHARED_METHOD (scrollbar, possible_dest_types, widget);
   IIFORMAT_HAS_SHARED_METHOD (scrollbar, instantiate, widget);
+  VALID_GUI_KEYWORDS (scrollbar);
 
   IIFORMAT_VALID_KEYWORD (scrollbar, Q_pixel_width, check_valid_int);
   IIFORMAT_VALID_KEYWORD (scrollbar, Q_pixel_height, check_valid_int);
   IIFORMAT_VALID_KEYWORD (scrollbar, Q_face, check_valid_face);
-  IIFORMAT_VALID_KEYWORD (scrollbar, Q_descriptor, check_valid_vector);
+
+  /* progress guage */
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (progress, "progress");
+  IIFORMAT_HAS_SHARED_METHOD (progress, validate, widget);
+  IIFORMAT_HAS_SHARED_METHOD (progress, possible_dest_types, widget);
+  IIFORMAT_HAS_SHARED_METHOD (progress, instantiate, widget);
+  VALID_WIDGET_KEYWORDS (progress);
+  VALID_GUI_KEYWORDS (progress);
+
   /* labels */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (label, "label");
   IIFORMAT_HAS_SHARED_METHOD (label, possible_dest_types, widget);
   IIFORMAT_HAS_SHARED_METHOD (label, instantiate, static);
-
-  IIFORMAT_VALID_KEYWORD (label, Q_pixel_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (label, Q_pixel_height, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (label, Q_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (label, Q_height, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (label, Q_face, check_valid_face);
+  VALID_WIDGET_KEYWORDS (label);
   IIFORMAT_VALID_KEYWORD (label, Q_descriptor, check_valid_string);
+
 #if 0
   /* group */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (group, "group");

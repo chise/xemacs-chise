@@ -28,44 +28,16 @@ Boston, MA 02111-1307, USA.  */
  * horribly. What does get defined is HAVE_MS_WINDOWS, but this is 
  * done by configure and only applies to the window system.
  *
- * The important thing about building is that it is done on a binary
- * mounted filesystem. i.e. something mounted like: mount -b c:
- * /binary. If you do not do this then compilation of el files may
- * produce garbage.  As of b24 there are fixes in xemacs to make
- * building on text mounts but I don't generally do this. Make sure
- * you have installed cygwin32 b18 + patched dll (which can be found
- * at http://www.lexa.ru/sos or on my home page
- * http://www.parallax.co.uk/~andyp. Alternatively when b19 comes out
- * the patched dll will be unnecessary. Also make sure your HOME path
- * is unix style - i.e. without a drive letter.
+ * When building make sure your HOME path is unix style - i.e. without
+ * a drive letter.
  *
- * Note that some people have reported problems with the patched
- * cygwin.dll on Sergey's home page so you may want to use the one on
- * mine which I *know* works.
- *
- * once you have done this, configure and make. If you want unexec
- * support you need to download a.out.h from my web page or use cygwin
- * b19. You probably want to build with mule support since this
- * addresses crlf issues in a sensible way.
+ * once you have done this, configure and make.
  *
  * windows '95 - I haven't tested this under '95, it will probably
  * build but I konw there are some limitations with cygwin under 95 so
  * YMMV. I build with NT4 SP3.
  *
- * What I want to do:
- *
- * the fileio stuff merely uses the unix system calls this means that
- * the mount type of your fs will determine how files are edited. This
- * is fine except in the instance that you want to convert one to the
- * other. In this instance I would like to bring the buffer_file_type
- * code into the picture without all the other windows-nt
- * cruft. Apparently the best way to do this is use the mule coding
- * stuff.
- *
- * process support needs fixing although basic support works (a la
- * make-docfile)
- *
- * Andy Piper <andyp@parallax.co.uk> 8/1/98 
+ * Andy Piper <andy@xemacs.org> 8/1/98 
  * http://www.parallax.co.uk/~andyp */
 
 /* cheesy way to determine cygwin version */
@@ -132,6 +104,8 @@ extern long random();
 
 #endif
 #endif
+
+#define PBS_SMOOTH              0x01
 
 #ifdef HAVE_MS_WINDOWS
 #define HAVE_NTGUI
@@ -270,7 +244,7 @@ cygwin32_posix_to_win32_path_list(src, dst)
 
 /* Pseudo-terminal support under SVR4 only loops to deal with errors. */
 
-#define PTY_ITERATION for (i = 0; i < 1; i++)
+#define PTY_ITERATION for (i = 0, c = 0; i < 1; i++)
 
 /* This sets the name of the master side of the PTY. */
 

@@ -1,3 +1,27 @@
+1999-02-02  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.9 is released
+
+1999-01-14  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak (MODULES): Adding variable.
+	(update-elc): Setting EMACSBOOTSTRAPMODULEPATH.
+
+1998-12-17  Charles G. Waldman <cgw@pgt.com>
+
+	* minitar.c:  New file
+	* minitar.mak: New file
+
+1998-12-29  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak:
+	  Changed x86 EMACS_CONFIGURATION to i586-pc-win32 since we
+	  build optimised for Pentium.
+	  Created CFLAGS variable, used in building all objects and in
+	  constructing config.values.
+	  Added glyphs-widget.c and gui-msw.c to list of sources.
+	  Added PACKAGE_PATH to EMACSBOOTSTRAPLOADPATH for mule builds.
+
 1998-12-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.8 is released.

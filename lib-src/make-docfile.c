@@ -1,6 +1,7 @@
 /* Generate doc-string file for XEmacs from source files.
    Copyright (C) 1985, 1986, 1992, 1993, 1994 Free Software Foundation, Inc.
-   Copyright (C) 1995 Board of Trustees, University of Illinois
+   Copyright (C) 1995 Board of Trustees, University of Illinois.
+   Copyright (C) 1998, 1999 J. Kean Johnston.
 
 This file is part of XEmacs.
 
@@ -108,6 +109,9 @@ static int scan_lisp_file (CONST char *filename, CONST char *mode);
 /* Name this program was invoked with.  */
 char *progname;
 
+/* Set to 1 if this was invoked by ellcc */
+int ellcc = 0;
+
 /* Print error message.  `s1' is printf control string, `s2' is arg for it. */
 
 static void
@@ -213,6 +217,12 @@ main (int argc, char **argv)
       outfile = fopen (argv[i + 1], APPEND_BINARY);
       i += 2;
     }
+  if (argc > i + 1 && !strcmp (argv[i], "-E"))
+    {
+      outfile = fopen (argv[i + 1], APPEND_BINARY);
+      i += 2;
+      ellcc = 1;
+    }
   if (argc > i + 1 && !strcmp (argv[i], "-d"))
     {
       chdir (argv[i + 1]);
@@ -226,6 +236,9 @@ main (int argc, char **argv)
 
   if (outfile == 0)
     fatal ("No output file specified", "");
+
+  if (ellcc)
+    fprintf (outfile, "{\n");
 
   first_infile = i;
   for (; i < argc; i++)
@@ -249,6 +262,8 @@ main (int argc, char **argv)
   }
 
   putc ('\n', outfile);
+  if (ellcc)
+    fprintf (outfile, "}\n\n");
 #ifndef VMS
   exit (err_count > 0);
 #endif /* VMS */
@@ -262,12 +277,12 @@ static int
 scan_file (CONST char *filename)
 {
   int len = strlen (filename);
-  if (len > 4 && !strcmp (filename + len - 4, ".elc"))
+  if (ellcc == 0 && len > 4 && !strcmp (filename + len - 4, ".elc"))
     {
       Current_file_type = elc_file;
       return scan_lisp_file (filename, READ_BINARY);
     }
-  else if (len > 3 && !strcmp (filename + len - 3, ".el"))
+  else if (ellcc == 0 && len > 3 && !strcmp (filename + len - 3, ".el"))
     {
       Current_file_type = el_file;
       return scan_lisp_file (filename, READ_TEXT);
@@ -314,7 +329,11 @@ read_c_string (FILE *infile, int printflag, int c_docstring)
 	      if (start != -1)
 		{
 		  if (printflag > 0)
-		    putc ('\n', outfile);
+            {
+              if (ellcc)
+                fprintf (outfile, "\\n\\");
+              putc ('\n', outfile);
+            }
 		  else if (printflag < 0)
 		    *p++ = '\n';
 		}
@@ -339,8 +358,11 @@ read_c_string (FILE *infile, int printflag, int c_docstring)
 	  else
 	    {
 	      start = 0;
-	      if (printflag > 0)
+	      if (printflag > 0) {
+                if (ellcc && c == '"')
+                  putc ('\\', outfile);
 		putc (c, outfile);
+              }
 	      else if (printflag < 0)
 		*p++ = c;
 	    }
@@ -464,7 +486,8 @@ write_c_args (FILE *out, CONST char *func, char *buff, int minargs,
       need_space = 0;
 #endif
     }
-  putc ('\n', out); /* XEmacs addition */
+  if (!ellcc)
+    putc ('\n', out); /* XEmacs addition */
 }
 
 /* Read through a c file.  If a .o file is named,
@@ -639,9 +662,15 @@ scan_c_file (CONST char *filename, CONST char *mode)
 
       if (defunflag || defvarflag || c == '"')
 	{
-	  putc (037, outfile);
-	  putc (defvarflag ? 'V' : 'F', outfile);
-	  fprintf (outfile, "%s\n", buf);
+      if (ellcc)
+        fprintf (outfile, "  CDOC%s(\"%s\", \"\\\n",
+                 defvarflag ? "SYM" : "SUBR", buf);
+      else
+        {
+          putc (037, outfile);
+          putc (defvarflag ? 'V' : 'F', outfile);
+          fprintf (outfile, "%s\n", buf);
+        }
 	  c = read_c_string (infile, 1, (defunflag || defvarflag));
 
 	  /* If this is a defun, find the arguments and print them.  If
@@ -673,9 +702,14 @@ scan_c_file (CONST char *filename, CONST char *mode)
 	      while (c != ')');
 	      *p = '\0';
 	      /* Output them.  */
-	      fprintf (outfile, "\n\n");
+          if (ellcc)
+            fprintf (outfile, "\\n\\\n\\n\\\n");
+          else
+            fprintf (outfile, "\n\n");
 	      write_c_args (outfile, buf, argbuf, minargs, maxargs);
 	    }
+      if (ellcc)
+        fprintf (outfile, "\\n\");\n\n");
 	}
     }
  eof:

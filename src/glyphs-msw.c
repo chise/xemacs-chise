@@ -47,6 +47,9 @@ Boston, MA 02111-1307, USA.  */
 #endif
 #include <stdio.h>
 #include <ctype.h>
+#ifdef HAVE_XFACE
+#include <setjmp.h>
+#endif
 
 #define WIDGET_GLYPH_SLOT 0
 
@@ -54,6 +57,9 @@ Boston, MA 02111-1307, USA.  */
 DEFINE_DEVICE_IIFORMAT (mswindows, xpm);
 #endif
 DEFINE_DEVICE_IIFORMAT (mswindows, xbm);
+#ifdef HAVE_XFACE
+DEFINE_DEVICE_IIFORMAT (mswindows, xface);
+#endif
 DEFINE_DEVICE_IIFORMAT (mswindows, button);
 DEFINE_DEVICE_IIFORMAT (mswindows, edit);
 #if 0
@@ -64,6 +70,7 @@ DEFINE_DEVICE_IIFORMAT (mswindows, widget);
 DEFINE_DEVICE_IIFORMAT (mswindows, label);
 DEFINE_DEVICE_IIFORMAT (mswindows, scrollbar);
 DEFINE_DEVICE_IIFORMAT (mswindows, combo);
+DEFINE_DEVICE_IIFORMAT (mswindows, progress);
 
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (bmp);
 Lisp_Object Qbmp;
@@ -1176,8 +1183,7 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
 #ifdef __CYGWIN32__
       CYGWIN_WIN32_PATH (f, fname);
 #else
-      /* #### FIXME someone who knows ... */
-      fname = f
+      fname = f;
 #endif
       
       if (NILP (resource_id))
@@ -1562,7 +1568,7 @@ xbm_create_bitmap_from_data (HDC hdc, char *data,
 			     int mask, COLORREF fg, COLORREF bg)
 {
   int old_width = (width + 7)/8;
-  int new_width = 2*((width + 15)/16);
+  int new_width = BPLINE (2*((width + 15)/16));
   unsigned char *offset;
   void *bmp_buf = 0;
   unsigned char *new_data, *new_offset;
@@ -1574,7 +1580,7 @@ xbm_create_bitmap_from_data (HDC hdc, char *data,
   if (!bmp_info)
     return NULL;
   
-  new_data = (unsigned char *) xmalloc (height * new_width);
+  new_data = (unsigned char *) xmalloc_and_zero (height * new_width);
       
   if (!new_data)
     {
@@ -1587,8 +1593,6 @@ xbm_create_bitmap_from_data (HDC hdc, char *data,
       offset = data + i*old_width;
       new_offset = new_data + i*new_width;
 
-      new_offset[new_width - 1] = 0; /* there may be an extra byte
-                                        that needs to be padded */
       for (j=0; j<old_width; j++)
 	{
 	  int byte = offset[j];
@@ -1608,7 +1612,7 @@ xbm_create_bitmap_from_data (HDC hdc, char *data,
     }
 
   bmp_info->bmiHeader.biWidth=width;
-  bmp_info->bmiHeader.biHeight=-height;
+  bmp_info->bmiHeader.biHeight=-(LONG)height;
   bmp_info->bmiHeader.biPlanes=1;
   bmp_info->bmiHeader.biSize=sizeof(BITMAPINFOHEADER);
   bmp_info->bmiHeader.biBitCount=1; 
@@ -1832,6 +1836,93 @@ mswindows_xbm_instantiate (Lisp_Object image_instance,
 		     pointer_bg, dest_mask, XINT (XCAR (data)),
 		     XINT (XCAR (XCDR (data))), gcc_go_home);
 }
+
+#ifdef HAVE_XFACE
+/**********************************************************************
+ *                             X-Face                                 *
+ **********************************************************************/
+#if defined(EXTERN)
+/* This is about to get redefined! */
+#undef EXTERN
+#endif
+/* We have to define SYSV32 so that compface.h includes string.h
+   instead of strings.h. */
+#define SYSV32
+#ifdef __cplusplus
+extern "C" {
+#endif
+#include <compface.h>
+#ifdef __cplusplus
+}
+#endif
+/* JMP_BUF cannot be used here because if it doesn't get defined
+   to jmp_buf we end up with a conflicting type error with the
+   definition in compface.h */
+extern jmp_buf comp_env;
+#undef SYSV32
+
+static void
+mswindows_xface_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+			     Lisp_Object pointer_fg, Lisp_Object pointer_bg,
+			     int dest_mask, Lisp_Object domain)
+{
+  Lisp_Object data = find_keyword_in_vector (instantiator, Q_data);
+  int i, stattis;
+  char *p, *bits, *bp;
+  CONST char * volatile emsg = 0;
+  CONST char * volatile dstring;
+
+  assert (!NILP (data));
+
+  GET_C_STRING_BINARY_DATA_ALLOCA (data, dstring);
+
+  if ((p = strchr (dstring, ':')))
+    {
+      dstring = p + 1;
+    }
+
+  /* Must use setjmp not SETJMP because we used jmp_buf above not JMP_BUF */
+  if (!(stattis = setjmp (comp_env)))
+    {
+      UnCompAll ((char *) dstring);
+      UnGenFace ();
+    }
+
+  switch (stattis)
+    {
+    case -2:
+      emsg = "uncompface: internal error";
+      break;
+    case -1:
+      emsg = "uncompface: insufficient or invalid data";
+      break;
+    case 1:
+      emsg = "uncompface: excess data ignored";
+      break;
+    }
+
+  if (emsg)
+    signal_simple_error_2 (emsg, data, Qimage);
+
+  bp = bits = (char *) alloca (PIXELS / 8);
+
+  /* the compface library exports char F[], which uses a single byte per
+     pixel to represent a 48x48 bitmap.  Yuck. */
+  for (i = 0, p = F; i < (PIXELS / 8); ++i)
+    {
+      int n, b;
+      /* reverse the bit order of each byte... */
+      for (b = n = 0; b < 8; ++b)
+	{
+	  n |= ((*p++) << b);
+	}
+      *bp++ = (char) n;
+    }
+
+  xbm_instantiate_1 (image_instance, instantiator, pointer_fg,
+		     pointer_bg, dest_mask, 48, 48, bits);
+}
+#endif /* HAVE_XFACE */
 
 
 /************************************************************************/
@@ -2159,9 +2250,20 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
   int flags = BS_NOTIFY;
   Lisp_Object style;
   struct gui_item* pgui = &IMAGE_INSTANCE_WIDGET_ITEM (ii);
-  
+  Lisp_Object glyph = find_keyword_in_vector (instantiator, Q_image);
+
   if (!gui_item_active_p (pgui))
     flags |= WS_DISABLED;
+
+  if (!NILP (glyph))
+    {
+      if (!IMAGE_INSTANCEP (glyph))
+	glyph = glyph_image_instance (glyph, domain, ERROR_ME, 1);
+
+      if (IMAGE_INSTANCEP (glyph))
+	flags |= XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) ? 
+	  BS_BITMAP : BS_ICON;
+    }
 
   style = pgui->style;
 
@@ -2186,6 +2288,16 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
     SendMessage (wnd, BM_SETCHECK, (WPARAM)BST_CHECKED, 0); 
   else
     SendMessage (wnd, BM_SETCHECK, (WPARAM)BST_UNCHECKED, 0);
+  /* add the image if one was given */
+  if (!NILP (glyph) && IMAGE_INSTANCEP (glyph))
+    {
+      SendMessage (wnd, BM_SETIMAGE, 
+		   (WPARAM) (XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) ? 
+			     IMAGE_BITMAP : IMAGE_ICON),
+		   (LPARAM) (XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) ?
+			     XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) :
+			     XIMAGE_INSTANCE_MSWINDOWS_ICON (glyph)));
+    }
 }
 
 /* instantiate an edit control */
@@ -2199,6 +2311,38 @@ mswindows_edit_instantiate (Lisp_Object image_instance, Lisp_Object instantiator
 				ES_LEFT | ES_AUTOHSCROLL | WS_TABSTOP
 				| WS_BORDER,
 				WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT);
+}
+
+/* instantiate an edit control */
+static void
+mswindows_progress_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+				Lisp_Object pointer_fg, Lisp_Object pointer_bg,
+				int dest_mask, Lisp_Object domain)
+{
+  HWND wnd;
+  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
+				pointer_bg, dest_mask, domain, PROGRESS_CLASS, 
+				WS_TABSTOP | WS_BORDER | PBS_SMOOTH,
+				WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT);
+  wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
+  /* set the colors */
+#ifdef PBS_SETBKCOLOR
+  SendMessage (wnd, PBS_SETBKCOLOR, 0, 
+	       (LPARAM) (COLOR_INSTANCE_MSWINDOWS_COLOR 
+			 (XCOLOR_INSTANCE 
+			  (FACE_BACKGROUND 
+			   (XIMAGE_INSTANCE_WIDGET_FACE (ii),
+			    XIMAGE_INSTANCE_SUBWINDOW_FRAME (ii))))));
+#endif
+#ifdef PBS_SETBARCOLOR
+  SendMessage (wnd, PBS_SETBARCOLOR, 0, 
+	       (L:PARAM) (COLOR_INSTANCE_MSWINDOWS_COLOR 
+			  (XCOLOR_INSTANCE 
+			   (FACE_FOREGROUND 
+			    (XIMAGE_INSTANCE_WIDGET_FACE (ii),
+			     XIMAGE_INSTANCE_SUBWINDOW_FRAME (ii))))));
+#endif
 }
 
 /* instantiate a static control possible for putting other things in */
@@ -2283,7 +2427,7 @@ mswindows_widget_property (Lisp_Object image_instance, Lisp_Object prop)
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   HANDLE wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* get the text from a control */
-  if (EQ (prop, Qtext))
+  if (EQ (prop, Q_text))
     {
       Extcount len = SendMessage (wnd, WM_GETTEXTLENGTH, 0, 0);
       Extbyte* buf =alloca (len+1);
@@ -2301,7 +2445,7 @@ mswindows_button_property (Lisp_Object image_instance, Lisp_Object prop)
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   HANDLE wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* check the state of a button */
-  if (EQ (prop, Qselected))
+  if (EQ (prop, Q_selected))
     {
       if (SendMessage (wnd, BM_GETSTATE, 0, 0) & BST_CHECKED)
 	return Qt;
@@ -2318,7 +2462,7 @@ mswindows_combo_property (Lisp_Object image_instance, Lisp_Object prop)
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   HANDLE wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* get the text from a control */
-  if (EQ (prop, Qtext))
+  if (EQ (prop, Q_text))
     {
       long item = SendMessage (wnd, CB_GETCURSEL, 0, 0);
       Extcount len = SendMessage (wnd, CB_GETLBTEXTLEN, (WPARAM)item, 0);
@@ -2336,13 +2480,30 @@ mswindows_widget_set_property (Lisp_Object image_instance, Lisp_Object prop,
 {
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
-  if (EQ (prop, Qtext))
+  if (EQ (prop, Q_text))
     {
       Extbyte* lparam=0;
       CHECK_STRING (val);
       GET_C_STRING_OS_DATA_ALLOCA (val, lparam);
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
 		   WM_SETTEXT, 0, (LPARAM)lparam);
+      return Qt;
+    }
+  return Qunbound;
+}
+
+/* set the properties of a progres guage */
+static Lisp_Object
+mswindows_progress_set_property (Lisp_Object image_instance, Lisp_Object prop,
+				 Lisp_Object val)
+{
+  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+
+  if (EQ (prop, Q_percent))
+    {
+      CHECK_INT (val);
+      SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
+		   PBM_SETPOS, (WPARAM)XINT (val), 0);
       return Qt;
     }
   return Qunbound;
@@ -2386,7 +2547,10 @@ image_instantiator_format_create_glyphs_mswindows (void)
 #endif
   INITIALIZE_DEVICE_IIFORMAT (mswindows, xbm);
   IIFORMAT_HAS_DEVMETHOD (mswindows, xbm, instantiate);
-
+#ifdef HAVE_XFACE
+  INITIALIZE_DEVICE_IIFORMAT (mswindows, xface);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, xface, instantiate);
+#endif
   INITIALIZE_DEVICE_IIFORMAT (mswindows, button);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, property);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, instantiate);
@@ -2413,6 +2577,10 @@ image_instantiator_format_create_glyphs_mswindows (void)
 
   INITIALIZE_DEVICE_IIFORMAT (mswindows, scrollbar);
   IIFORMAT_HAS_DEVMETHOD (mswindows, scrollbar, instantiate);
+
+  INITIALIZE_DEVICE_IIFORMAT (mswindows, progress);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, progress, set_property);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, progress, instantiate);
 
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (bmp, "bmp");
 
@@ -2454,6 +2622,7 @@ This is used by the `make-image-instance' function.
   Fprovide (Qcombo);
   Fprovide (Qscrollbar);
   Fprovide (Qlabel);
+  Fprovide (Qprogress);
 }
 
 void

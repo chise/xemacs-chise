@@ -25,18 +25,18 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 #include "sysdll.h"
 
-/* This whole file is conditional upon HAVE_DLL */
+/* This whole file is conditional upon HAVE_SHLIB */
 #ifdef HAVE_SHLIB
 
 /* Thankfully, most systems follow the ELFish dlopen() method.
 ** HAVE__DLOPEN is lame, but SCO has their dl* functions as _dl*, and
 ** unless you include dlfcn.h you don't get the macros to mask them, and
-** autoconf fails to find them.
+** autoconf fails to find them. No longer true as of 5.0.5.
 **
 ** Anybody who wants to use this on SCO needs to have their configure.in
 ** look for _dlopen() as well as dlopen()
 */
-#if defined(HAVE_DLOPEN) || defined(HAVE__DLOPEN)
+#if defined(HAVE_DLOPEN) || defined(HAVE__DLOPEN) || defined(HAVE_DLFCN_H)
 #include <dlfcn.h>
 
 #ifndef RTLD_LAZY
@@ -80,14 +80,22 @@ dll_function (dll_handle h, CONST char *n)
 dll_var
 dll_variable (dll_handle h, CONST char *n)
 {
+#ifdef DLSYM_NEEDS_UNDERSCORE
+  char *buf = alloca_array (char, strlen (n) + 2);
+  *buf = '_';
+  (void)strcpy(buf + 1, n);
+  n = buf;
+#endif
   return (dll_var)dlsym ((void *)h, n);
 }
 
 CONST char *
 dll_error (dll_handle h)
 {
-#ifdef HAVE_DLERROR
+#if defined(HAVE_DLERROR) || defined(dlerror)
   return (CONST char *)dlerror ();
+#elif defined(HAVE__DLERROR)
+  return (const char *)_dlerror();
 #else
   return "Shared library error";
 #endif

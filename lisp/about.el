@@ -80,7 +80,7 @@
     (martin   "Martin Buchholz"   "martin@xemacs.org")
     (ograf    "Oliver Graf"       "ograf@fga.de")
     (pez      "Peter Pezaris"	  "pez@dwwc.com")
-    (piper    "Andy Piper"        "andyp@parallax.co.uk")
+    (piper    "Andy Piper"        "andy@xemacs.org")
     (rickc    "Rick Campbell"     "rickc@lehman.com")
     (rossini  "Anthony Rossini"	  "rossini@stat.sc.edu")
     (vin      "Vin Shelton"	  "acs@acm.org")
@@ -88,7 +88,7 @@
     (slb      "SL Baur"           "steve@xemacs.org")
     (stig     "Jonathan Stigelman" "stig@hackvan.com")
     (stigb    "Stig Bjorlykke"	  "stigb@tihlde.hist.no")
-    (thiessel "Marcus Thiessel"   "marcus_thiessel@hp.com")
+    (thiessel "Marcus Thiessel"   "marcus@xemacs.org")
     (vladimir "Vladimir Ivanovic" "vladimir@mri.com")
     (wing     "Ben Wing"          "ben@xemacs.org")
     (wmperry  "William Perry"     "wmperry@aventail.com"))
@@ -116,7 +116,7 @@
     (marcpa    . "http://www.positron911.com/products/power.htm")
     (ograf     . "http://www.fga.de/~ograf/")
     (pez       . "http://www.dwwc.com/")
-    (piper     . "http://www.parallax.co.uk/~andyp")
+    (piper     . "http://www.xemacs.freeserve.co.uk/")
     (vin       . "http://www.upa.org/")
     (stigb     . "http://www.tihlde.hist.no/~stigb/")
     (wget      . "ftp://gnjilux.cc.fer.hr/pub/unix/util/wget/")
@@ -817,15 +817,13 @@ He has a page at ")
      (widget-insert ".\n"))
     (thiessel
      (widget-insert "\
-Worked at University of Kaiserslautern where he took part in the 
-development and design of a CAD framework for analog integrated
-circuits with special emphasis on distributed software concepts. He 
-has now joined HP as technical consultant.  
-
-For XEmacs he does beta testing and tries to take care of XEmacs
-website at ")
-     (about-url-link 'xemacs "Visit XEmacs web site")
-     (widget-insert ".\n"))
+                      All of the buildings,
+                      all of the cars
+                      were once just a dream
+                      in somebody's head.\n
+                                     P. Gabriel\n\n
+")
+     (widget-insert "\n"))
     (sperber
      (widget-insert "\
 Mike ported EFS to XEmacs 20 and integrated EFS into XEmacs.  He's
@@ -1135,13 +1133,12 @@ XEmacs will speak Scheme.\n")
 Vin helps maintain the older, more mature (read: moldy) versions of
 XEmacs.  Vin has maintained the official XEmacs patch pages.\n")
     (about-show-linked-info 'thiessel "\
-On May 1, 1996 he started working at University of Kaiserslautern in
-the field of computer aided analog circuit design. His
-responsibilities include the development and design of a CAD-Tool for
-analog integrated circuits with special emphasis on distributed
-software concepts.
+Worked at University of Kaiserslautern where he took part in the 
+development and design of a CAD framework for analog integrated
+circuits with special emphasis on distributed software concepts. He 
+has now joined HP as technical consultant.  
 
-When all the daily hacking is done he tries to take care of XEmacs
+For XEmacs he does beta testing and tries to take care of XEmacs
 website at <http://www.xemacs.org>.\n")
     (about-show-linked-info 'ajc "\
 When not helping maintain the XEmacs website, Andrew is a Network

@@ -53,6 +53,20 @@ or if the replacement text has any uppercase letters in it.")
   "Non-nil means `query-replace' uses the last search string.
 That becomes the \"string to replace\".")
 
+(defvar replace-search-function
+  (lambda (str limit)
+    (search-forward str limit t))
+  "Function used by perform-replace to search forward for a string. It will be 
+called with two arguments: the string to search for and a limit bounding the
+search.")
+
+(defvar replace-re-search-function
+  (lambda (regexp limit)
+    (re-search-forward regexp limit t))
+  "Function used by perform-replace to search forward for a regular
+expression. It will be called with two arguments: the regexp to search for and
+a limit bounding the search.")
+
 (defun query-replace-read-args (string regexp-flag)
   (let (from to)
     (if query-replace-interactive
@@ -209,24 +223,25 @@ Applies to all lines after point."
   (interactive (list (read-from-minibuffer
 		      "Keep lines (containing match for regexp): "
 		      nil nil nil 'regexp-history)))
-  (save-excursion
-    (or (bolp) (forward-line 1))
-    (let ((start (point)))
-      (while (not (eobp))
-	;; Start is first char not preserved by previous match.
-	(if (not (re-search-forward regexp nil 'move))
-	    (delete-region start (point-max))
-	  (let ((end (save-excursion (goto-char (match-beginning 0))
-				     (beginning-of-line)
-				     (point))))
-	    ;; Now end is first char preserved by the new match.
-	    (if (< start end)
-		(delete-region start end))))
-	(setq start (save-excursion (forward-line 1)
-				    (point)))
-	;; If the match was empty, avoid matching again at same place.
-	(and (not (eobp)) (= (match-beginning 0) (match-end 0))
-	     (forward-char 1))))))
+  (with-interactive-search-caps-disable-folding regexp t
+    (save-excursion
+      (or (bolp) (forward-line 1))
+      (let ((start (point)))
+	(while (not (eobp))
+	  ;; Start is first char not preserved by previous match.
+	  (if (not (re-search-forward regexp nil 'move))
+	      (delete-region start (point-max))
+	    (let ((end (save-excursion (goto-char (match-beginning 0))
+				       (beginning-of-line)
+				       (point))))
+	      ;; Now end is first char preserved by the new match.
+	      (if (< start end)
+		  (delete-region start end))))
+	  (setq start (save-excursion (forward-line 1)
+				      (point)))
+	  ;; If the match was empty, avoid matching again at same place.
+	  (and (not (eobp)) (= (match-beginning 0) (match-end 0))
+	       (forward-char 1)))))))
 
 (define-function 'flush-lines 'delete-matching-lines)
 (defun delete-matching-lines (regexp)
@@ -236,13 +251,14 @@ Applies to lines after point."
   (interactive (list (read-from-minibuffer
 		      "Flush lines (containing match for regexp): "
 		      nil nil nil 'regexp-history)))
-  (save-excursion
-    (while (and (not (eobp))
-		(re-search-forward regexp nil t))
-      (delete-region (save-excursion (goto-char (match-beginning 0))
-				     (beginning-of-line)
-				     (point))
-		     (progn (forward-line 1) (point))))))
+  (with-interactive-search-caps-disable-folding regexp t
+    (save-excursion
+      (while (and (not (eobp))
+		  (re-search-forward regexp nil t))
+	(delete-region (save-excursion (goto-char (match-beginning 0))
+				       (beginning-of-line)
+				       (point))
+		       (progn (forward-line 1) (point)))))))
 
 (define-function 'how-many 'count-matches)
 (defun count-matches (regexp)
@@ -250,15 +266,16 @@ Applies to lines after point."
   (interactive (list (read-from-minibuffer
 		      "How many matches for (regexp): "
 		      nil nil nil 'regexp-history)))
-  (let ((count 0) opoint)
-    (save-excursion
-     (while (and (not (eobp))
-		 (progn (setq opoint (point))
-			(re-search-forward regexp nil t)))
-       (if (= opoint (point))
-	   (forward-char 1)
-	 (setq count (1+ count))))
-     (message "%d occurrences" count))))
+  (with-interactive-search-caps-disable-folding regexp t
+    (let ((count 0) opoint)
+      (save-excursion
+	(while (and (not (eobp))
+		    (progn (setq opoint (point))
+			   (re-search-forward regexp nil t)))
+	  (if (= opoint (point))
+	      (forward-char 1)
+	    (setq count (1+ count))))
+	(message "%d occurrences" count)))))
 
 
 (defvar occur-mode-map ())
@@ -445,84 +462,86 @@ It serves as a menu to find any of the occurrences in this buffer.
 	(setq occur-pos-list ()))
       (if (eq buffer standard-output)
 	  (goto-char (point-max)))
-      (save-excursion
-	(if list-matching-lines-whole-buffer
-	    (beginning-of-buffer))
-	(message "Searching for %s ..." regexp)
-	;; Find next match, but give up if prev match was at end of buffer.
-	(while (and (not (= prevpos (point-max)))
-		    (re-search-forward regexp nil t))
-	  (goto-char (match-beginning 0))
-	  (beginning-of-line)
-	  (save-match-data
-            (setq linenum (+ linenum (count-lines prevpos (point)))))
-	  (setq prevpos (point))
-	  (goto-char (match-end 0))
-	  (let* ((start (save-excursion
-			  (goto-char (match-beginning 0))
-			  (forward-line (if (< nlines 0) nlines (- nlines)))
-			  (point)))
-		 (end (save-excursion
-			(goto-char (match-end 0))
-			(if (> nlines 0)
-			    (forward-line (1+ nlines))
+      (with-interactive-search-caps-disable-folding regexp t
+	(save-excursion
+	  (if list-matching-lines-whole-buffer
+	      (beginning-of-buffer))
+	  (message "Searching for %s ..." regexp)
+	  ;; Find next match, but give up if prev match was at end of buffer.
+	  (while (and (not (= prevpos (point-max)))
+		      (re-search-forward regexp nil t))
+	    (goto-char (match-beginning 0))
+	    (beginning-of-line)
+	    (save-match-data
+	      (setq linenum (+ linenum (count-lines prevpos (point)))))
+	    (setq prevpos (point))
+	    (goto-char (match-end 0))
+	    (let* ((start (save-excursion
+			    (goto-char (match-beginning 0))
+			    (forward-line (if (< nlines 0) nlines (- nlines)))
+			    (point)))
+		   (end (save-excursion
+			  (goto-char (match-end 0))
+			  (if (> nlines 0)
+			      (forward-line (1+ nlines))
 			    (forward-line 1))
-			(point)))
-		 (tag (format "%5d" linenum))
-		 (empty (make-string (length tag) ?\ ))
-		 tem)
-	    (save-excursion
-	      (setq tem (make-marker))
-	      (set-marker tem (point))
-	      (set-buffer standard-output)
-	      (setq occur-pos-list (cons tem occur-pos-list))
-	      (or first (zerop nlines)
-		  (insert "--------\n"))
-	      (setq first nil)
-	      (insert-buffer-substring buffer start end)
-	      (set-marker final-context-start 
-			  (- (point) (- end (match-end 0))))
-	      (backward-char (- end start))
-	      (setq tem (if (< nlines 0) (- nlines) nlines))
-	      (while (> tem 0)
-		(insert empty ?:)
-		(forward-line 1)
-		(setq tem (1- tem)))
-	      (let ((this-linenum linenum))
-		(while (< (point) final-context-start)
-		  (if (null tag)
-		      (setq tag (format "%5d" this-linenum)))
-		  (insert tag ?:)
-;; FSFmacs -- we handle this using mode-motion-highlight-line, above.
-;		  (put-text-property (save-excursion
-;				       (beginning-of-line)
-;				       (point))
-;				     (save-excursion
-;				       (end-of-line)
-;				       (point))
-;				     'mouse-face 'highlight)
-		  (forward-line 1)
-		  (setq tag nil)
-		  (setq this-linenum (1+ this-linenum)))
-		(while (<= (point) final-context-start)
+			  (point)))
+		   (tag (format "%5d" linenum))
+		   (empty (make-string (length tag) ?\ ))
+		   tem)
+	      (save-excursion
+		(setq tem (make-marker))
+		(set-marker tem (point))
+		(set-buffer standard-output)
+		(setq occur-pos-list (cons tem occur-pos-list))
+		(or first (zerop nlines)
+		    (insert "--------\n"))
+		(setq first nil)
+		(insert-buffer-substring buffer start end)
+		(set-marker final-context-start 
+			    (- (point) (- end (match-end 0))))
+		(backward-char (- end start))
+		(setq tem (if (< nlines 0) (- nlines) nlines))
+		(while (> tem 0)
 		  (insert empty ?:)
 		  (forward-line 1)
-		  (setq this-linenum (1+ this-linenum))))
-	      (while (< tem nlines)
-		(insert empty ?:)
-		(forward-line 1)
-		(setq tem (1+ tem)))
-	      (goto-char (point-max)))
-	    (forward-line 1)))
-	(set-buffer standard-output)
-	;; Put positions in increasing order to go with buffer.
-	(setq occur-pos-list (nreverse occur-pos-list))
-	(goto-char (point-min))
-	(if (= (length occur-pos-list) 1)
-	    (insert "1 line")
-	  (insert (format "%d lines" (length occur-pos-list))))
-	(if (interactive-p)
-	    (message "%d matching lines." (length occur-pos-list)))))))
+		  (setq tem (1- tem)))
+		(let ((this-linenum linenum))
+		  (while (< (point) final-context-start)
+		    (if (null tag)
+			(setq tag (format "%5d" this-linenum)))
+		    (insert tag ?:)
+		    ;; FSFmacs -- 
+		    ;; we handle this using mode-motion-highlight-line, above.
+		    ;;		  (put-text-property (save-excursion
+		    ;;				       (beginning-of-line)
+		    ;;				       (point))
+		    ;;				     (save-excursion
+		    ;;				       (end-of-line)
+		    ;;				       (point))
+		    ;;				     'mouse-face 'highlight)
+		    (forward-line 1)
+		    (setq tag nil)
+		    (setq this-linenum (1+ this-linenum)))
+		  (while (<= (point) final-context-start)
+		    (insert empty ?:)
+		    (forward-line 1)
+		    (setq this-linenum (1+ this-linenum))))
+		(while (< tem nlines)
+		  (insert empty ?:)
+		  (forward-line 1)
+		  (setq tem (1+ tem)))
+		(goto-char (point-max)))
+	      (forward-line 1)))
+	  (set-buffer standard-output)
+	  ;; Put positions in increasing order to go with buffer.
+	  (setq occur-pos-list (nreverse occur-pos-list))
+	  (goto-char (point-min))
+	  (if (= (length occur-pos-list) 1)
+	      (insert "1 line")
+	    (insert (format "%d lines" (length occur-pos-list))))
+	  (if (interactive-p)
+	      (message "%d matching lines." (length occur-pos-list))))))))
 
 ;; It would be nice to use \\[...], but there is no reasonable way
 ;; to make that display both SPC and Y.
@@ -604,14 +623,17 @@ Don't use this in your own program unless you want to query and set the mark
 just as `query-replace' does.  Instead, write a simple loop like this:
   (while (re-search-forward \"foo[ \t]+bar\" nil t)
     (replace-match \"foobar\" nil nil))
-which will run faster and probably do exactly what you want."
+which will run faster and probably do exactly what you want.
+When searching for a match, this function use `replace-search-function' and `replace-re-search-function'"
   (or map (setq map query-replace-map))
   (let* ((event (make-event))
 	 (nocasify (not (and case-fold-search case-replace
 			    (string-equal from-string
 					  (downcase from-string)))))
 	 (literal (not regexp-flag))
-	 (search-function (if regexp-flag 're-search-forward 'search-forward))
+	 (search-function (if regexp-flag 
+			      replace-re-search-function 
+			    replace-search-function))
 	 (search-string from-string)
 	 (real-match-data nil)		; the match data for the current match
 	 (next-replacement nil)
@@ -646,7 +668,7 @@ which will run faster and probably do exactly what you want."
 	(setq next-replacement replacements)
       (or repeat-count (setq repeat-count 1)))
     (if delimited-flag
-	(setq search-function 're-search-forward
+	(setq search-function replace-re-search-function
 	      search-string (concat "\\b"
 				    (if regexp-flag from-string
 				      (regexp-quote from-string))
@@ -658,7 +680,7 @@ which will run faster and probably do exactly what you want."
 	(while (and keep-going
 		    (not (eobp))
 		    (let ((case-fold-search qr-case-fold-search))
-		      (funcall search-function search-string limit t))
+		      (funcall search-function search-string limit))
 		    ;; If the search string matches immediately after
 		    ;; the previous match, but it did not match there
 		    ;; before the replacement was done, ignore the match.
@@ -672,7 +694,7 @@ which will run faster and probably do exactly what you want."
 			  ;; right after end of previous replacement.
 			  (forward-char 1)
 			  (let ((case-fold-search qr-case-fold-search))
-			    (funcall search-function search-string limit t)))
+			    (funcall search-function search-string limit)))
 		      t))
 
 	  ;; Save the data associated with the real match.

@@ -529,7 +529,11 @@ funcall_compiled_function (Lisp_Object fun, int nargs, Lisp_Object args[])
 				 f->stack_depth,
 				 XVECTOR_DATA (f->constants));
 
-    UNBIND_TO_GCPRO_VARIABLES_ONLY (speccount, value);
+    /* The attempt to optimize this by only unbinding variables failed
+       because using buffer-local variables as function parameters
+       leads to specpdl_ptr->func != 0 */
+    /* UNBIND_TO_GCPRO_VARIABLES_ONLY (speccount, value); */
+    UNBIND_TO_GCPRO (speccount, value);
     return value;
   }
 

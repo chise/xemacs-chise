@@ -27,7 +27,7 @@ Boston, MA 02111-1307, USA.  */
    It has been tested with:
    - UMich LDAP 3.3 (http://www.umich.edu/~dirsvcs/ldap/)
    - OpenLDAP 1.0.3 (http://www.openldap.org/)
-   - Netscape's LDAP SDK 1.0 (http://developer.netscape.com) */
+   - Netscape's LDAP SDK 1.0 (http://developer.netscape.com/) */
 
 
 #include <config.h>
@@ -288,7 +288,10 @@ the LDAP library XEmacs was compiled with: `simple', `krbv41' and `krbv42'.
     }
 
   /* Connect to the server and bind */
+  slow_down_interrupts ();
   ld = ldap_open ((char *)XSTRING_DATA (host), ldap_port);
+  speed_up_interrupts ();
+
   if (ld == NULL )
     signal_simple_error_2 ("Failed connecting to host",
                            host,
@@ -563,7 +566,6 @@ syms_of_eldap (void)
 void
 vars_of_eldap (void)
 {
-  Fprovide (intern ("ldap"));
 
   ldap_default_port = LDAP_PORT;
   Vldap_default_base =  Qnil;

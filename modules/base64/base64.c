@@ -1,5 +1,5 @@
 /* base64 interface for XEmacs.
-   Copyright (C) 1998 Free Software Foundation, Inc.
+   Copyright (C) 1998, 1999 Free Software Foundation, Inc.
 
 This file is part of XEmacs.
 
@@ -22,15 +22,7 @@ Boston, MA 02111-1307, USA.  */
 
 /* Author: William Perry <wmperry@aventail.com> */
 
-#include <config.h>
-
-#include "lisp.h"
-#include "buffer.h"
-#include "insdel.h"
-#include "lstream.h"
-#ifdef FILE_CODING
-#include "file-coding.h"
-#endif
+#include <emodules.h>
 
 unsigned char alphabet[64] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
@@ -416,14 +408,14 @@ determined.  Else assume binary coding if all else fails.
 }
 
 void
-syms_of (void)
+syms_of_base64 (void)
 {
   DEFSUBR(Fbase64_encode);
   DEFSUBR(Fbase64_decode);
 }
 
 void
-vars_of (void)
+vars_of_base64 (void)
 {
   Fprovide (intern ("base64"));
 }

@@ -125,14 +125,8 @@ could #define sco and I think everything would work. rjl */
 #ifdef _SCO_ELF
 #undef COFF /* coz we're NOT */
 #define UNEXEC "unexelf.o"
-#if defined (__GNUC_MINOR__)
-#if ((__GNUC__ == 2) && (__GNUC_MINOR__ > 7)) || ((__GNUC__ > 2))
-#define LIB_GCC "-lgcc"
-#else
-#define LIB_GCC "-lgcc-elf"
-#endif
-#else /* __GNUC_MINOR__ is undefined */
-#define LIB_GCC "-lgcc-elf"
-#endif
 #endif
 
+/* For GCC 2.7.2.3 we require the "JKJ" version of gcc.
+   Works fine with egcs and gcc 2.8.x. */
+#define LIB_GCC "`$(LD) $(LDFLAGS) -print-libgcc-file-name`"

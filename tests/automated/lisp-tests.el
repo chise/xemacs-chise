@@ -776,3 +776,12 @@
 (Assert (equal (bit-vector 0 1 0) #*010))
 (Assert (equal (make-bit-vector 3 1) #*111))
 (Assert (equal (make-bit-vector 3 0) #*000))
+
+;;-----------------------------------------------------
+;; Test buffer-local variables used as (ugh!) function parameters
+;;-----------------------------------------------------
+(make-local-variable 'test-emacs-buffer-local-variable)
+(byte-compile
+ (defun test-emacs-buffer-local-parameter (test-emacs-buffer-local-variable)
+   (setq test-emacs-buffer-local-variable nil)))
+(test-emacs-buffer-local-parameter nil)

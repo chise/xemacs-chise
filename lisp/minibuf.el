@@ -67,7 +67,7 @@ The value may alternatively be a function, which is given three arguments:
   CODE, which says what kind of things to do.
 CODE can be nil, t or `lambda'.
 nil means to return the best completion of STRING, nil if there is none,
-  or t if it is was already a unique completion.
+  or t if it is already a unique completion.
 t means to return a list of all possible completions of STRING.
 `lambda' means to return t if STRING is a valid completion as it stands.")
 

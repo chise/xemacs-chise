@@ -1672,7 +1672,14 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  int quit_ch = CONSOLE_QUIT_CHAR (XCONSOLE (mswindows_find_console (hwnd)));
 	  BYTE keymap_orig[256];
 	  POINT pnt = { LOWORD (GetMessagePos()), HIWORD (GetMessagePos()) };
-	  MSG msg = { hwnd, message, wParam, lParam, GetMessageTime(), pnt };
+	  MSG msg;
+	  
+	  msg.hwnd = hwnd;
+	  msg.message = message;
+	  msg.wParam = wParam;
+	  msg.lParam = lParam;
+	  msg.time = GetMessageTime();
+	  msg.pt = pnt;
 
 	  /* GetKeyboardState() does not work as documented on Win95. We have
 	   * to loosely track Left and Right modifiers on behalf of the OS,
@@ -2157,7 +2164,6 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case CBN_SELCHANGE:
 	  if (!NILP (mswindows_handle_gui_wm_command (frame, cid, id)))
 	    return 0;
-	default:		/* do nothing */
 	}
       /* menubars always must come last since the hashtables do not
          always exist*/

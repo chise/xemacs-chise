@@ -34,9 +34,9 @@
 
 (defun switch-to-buffer (bufname &optional norecord)
   "Select buffer BUFNAME in the current window.
-BUFNAME may be a buffer or a buffer name and is created if did not exist.
-Optional second arg NORECORD non-nil means
-do not put this buffer at the front of the list of recently selected ones.
+BUFNAME may be a buffer or a buffer name and is created if it did not exist.
+Optional second arg NORECORD non-nil means do not put this buffer at the
+front of the list of recently selected ones.
 
 WARNING: This is NOT the way to work on another buffer temporarily
 within a Lisp program!  Use `set-buffer' instead.  That avoids messing with
