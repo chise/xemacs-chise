@@ -1,0 +1,1394 @@
+This is ../info/xemacs-faq.info, produced by makeinfo version 4.0 from
+xemacs-faq.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* FAQ: (xemacs-faq).            XEmacs FAQ.
+END-INFO-DIR-ENTRY
+
+
+File: xemacs-faq.info,  Node: Q3.1.5,  Next: Q3.1.6,  Prev: Q3.1.4,  Up: Customization
+
+Q3.1.5: How can I get the icon to just say `XEmacs'?
+----------------------------------------------------
+
+   I'd like the icon to just say `XEmacs', and not include the name of
+the current file in it.
+
+   Add the following line to your `init.el'/`.emacs':
+
+     (setq frame-icon-title-format "XEmacs")
+
+
+File: xemacs-faq.info,  Node: Q3.1.6,  Next: Q3.1.7,  Prev: Q3.1.5,  Up: Customization
+
+Q3.1.6: How can I have the window title area display the full path?
+-------------------------------------------------------------------
+
+   I'd like to have the window title area display the full
+directory/name of the current buffer file and not just the name.
+
+   Add the following line to your `init.el'/`.emacs':
+
+     (setq frame-title-format "%S: %f")
+
+   A more sophisticated title might be:
+
+     (setq frame-title-format
+           '("%S: " (buffer-file-name "%f"
+                                      (dired-directory dired-directory "%b"))))
+
+   That is, use the file name, or the dired-directory, or the buffer
+name.
+
+
+File: xemacs-faq.info,  Node: Q3.1.7,  Next: Q3.1.8,  Prev: Q3.1.6,  Up: Customization
+
+Q3.1.7: `xemacs -name junk' doesn't work?
+-----------------------------------------
+
+   When I run `xterm -name junk', I get an xterm whose class name
+according to xprop, is `junk'.  This is the way it's supposed to work,
+I think.  When I run `xemacs -name junk' the class name is not set to
+`junk'.  It's still `emacs'.  What does `xemacs -name' really do?  The
+reason I ask is that my window manager (fvwm) will make a window sticky
+and I use XEmacs to read my mail.  I want that XEmacs window to be
+sticky, without having to use the window manager's function to set the
+window sticky.  What gives?
+
+   `xemacs -name' sets the application name for the program (that is,
+the thing which normally comes from `argv[0]').  Using `-name' is the
+same as making a copy of the executable with that new name.  The
+`WM_CLASS' property on each frame is set to the frame-name, and the
+application-class.  So, if you did `xemacs -name FOO' and then created
+a frame named BAR, you'd get an X window with WM_CLASS = `( "BAR",
+"Emacs")'.  However, the resource hierarchy for this widget would be:
+
+     Name:    FOO   .shell             .container   .BAR
+     Class:   Emacs .TopLevelEmacsShell.EmacsManager.EmacsFrame
+
+   instead of the default
+
+     Name:    xemacs.shell             .container   .emacs
+     Class:   Emacs .TopLevelEmacsShell.EmacsManager.EmacsFrame
+
+   It is arguable that the first element of WM_CLASS should be set to
+the application-name instead of the frame-name, but I think that's less
+flexible, since it does not give you the ability to have multiple frames
+with different WM_CLASS properties.  Another possibility would be for
+the default frame name to come from the application name instead of
+simply being `emacs'.  However, at this point, making that change would
+be troublesome: it would mean that many users would have to make yet
+another change to their resource files (since the default frame name
+would suddenly change from `emacs' to `xemacs', or whatever the
+executable happened to be named), so we'd rather avoid it.
+
+   To make a frame with a particular name use:
+
+     (make-frame '((name . "the-name")))
+
+
+File: xemacs-faq.info,  Node: Q3.1.8,  Next: Q3.2.1,  Prev: Q3.1.7,  Up: Customization
+
+Q3.1.8: `-iconic' doesn't work.
+-------------------------------
+
+   When I start up XEmacs using `-iconic' it doesn't work right.  Using
+`-unmapped' on the command line, and setting the `initiallyUnmapped' X
+Resource don't seem to help much either...
+
+   Ben Wing <ben@xemacs.org> writes:
+
+     Ugh, this stuff is such an incredible mess that I've about given up
+     getting it to work.  The principal problem is numerous
+     window-manager bugs...
+
+
+File: xemacs-faq.info,  Node: Q3.2.1,  Next: Q3.2.2,  Prev: Q3.1.8,  Up: Customization
+
+3.2: Textual Fonts & Colors
+===========================
+
+Q3.2.1: How can I set color options from `init.el'/`.emacs'?
+------------------------------------------------------------
+
+   How can I set the most commonly used color options from my
+`init.el'/`.emacs' instead of from my `.Xdefaults'?
+
+   Like this:
+
+     (set-face-background 'default      "bisque") ; frame background
+     (set-face-foreground 'default      "black") ; normal text
+     (set-face-background 'zmacs-region "red") ; When selecting w/
+                                             ; mouse
+     (set-face-foreground 'zmacs-region "yellow")
+     (set-face-font       'default      "*courier-bold-r*120-100-100*")
+     (set-face-background 'highlight    "blue") ; Ie when selecting
+                                             ; buffers
+     (set-face-foreground 'highlight    "yellow")
+     (set-face-background 'modeline     "blue") ; Line at bottom
+                                             ; of buffer
+     (set-face-foreground 'modeline     "white")
+     (set-face-font       'modeline     "*bold-r-normal*140-100-100*")
+     (set-face-background 'isearch      "yellow") ; When highlighting
+                                             ; while searching
+     (set-face-foreground 'isearch      "red")
+     (setq x-pointer-foreground-color   "black") ; Adds to bg color,
+                                             ; so keep black
+     (setq x-pointer-background-color   "blue") ; This is color
+                                             ; you really
+                                             ; want ptr/crsr
+
+
+File: xemacs-faq.info,  Node: Q3.2.2,  Next: Q3.2.3,  Prev: Q3.2.1,  Up: Customization
+
+Q3.2.2: How do I set the text, menu and modeline fonts?
+-------------------------------------------------------
+
+   Note that you should use `Emacs.' and not `Emacs*' when setting face
+values.
+
+   In `.Xdefaults':
+
+     Emacs.default.attributeFont:  -*-*-medium-r-*-*-*-120-*-*-m-*-*-*
+     Emacs*menubar*font:           fixed
+     Emacs.modeline.attributeFont: fixed
+
+   This is confusing because modeline is a face, and can be found listed
+with all faces in the current mode by using `M-x set-face-font (enter)
+?'.  It uses the face specification of `attributeFont', while menubar
+is a normal X thing that uses the specification `font'.  With Motif it
+may be necessary to use `fontList' instead of `font'.
+
+
+File: xemacs-faq.info,  Node: Q3.2.3,  Next: Q3.2.4,  Prev: Q3.2.2,  Up: Customization
+
+Q3.2.3: How can I set the colors when highlighting a region?
+------------------------------------------------------------
+
+   How can I set the background/foreground colors when highlighting a
+region?
+
+   You can change the face `zmacs-region' either in your `.Xdefaults':
+
+     Emacs.zmacs-region.attributeForeground: firebrick
+     Emacs.zmacs-region.attributeBackground: lightseagreen
+
+   or in your `init.el'/`.emacs':
+
+     (set-face-background 'zmacs-region "red")
+     (set-face-foreground 'zmacs-region "yellow")
+
+
+File: xemacs-faq.info,  Node: Q3.2.4,  Next: Q3.2.5,  Prev: Q3.2.3,  Up: Customization
+
+Q3.2.4: How can I limit color map usage?
+----------------------------------------
+
+   I'm using Netscape (or another color grabber like XEmacs); is there
+any way to limit the number of available colors in the color map?
+
+   Answer: No, but you can start Netscape before XEmacs, and it will use
+the closest available color if the colormap is full.  You can also limit
+the number of colors Netscape uses, using the flags -mono, -ncols <#> or
+-install (for mono, limiting to <#> colors, or for using a private color
+map).
+
+   If you have the money, another solution would be to use a truecolor
+or direct color video.
+
+
+File: xemacs-faq.info,  Node: Q3.2.5,  Next: Q3.2.6,  Prev: Q3.2.4,  Up: Customization
+
+Q3.2.5: My tty supports color, but XEmacs doesn't use them.
+-----------------------------------------------------------
+
+   XEmacs tries to automatically determine whether your tty supports
+color, but sometimes guesses wrong.  In that case, you can make XEmacs
+Do The Right Thing using this Lisp code:
+
+     (if (eq 'tty (device-type))
+         (set-device-class nil 'color))
+
+
+File: xemacs-faq.info,  Node: Q3.2.6,  Next: Q3.3.1,  Prev: Q3.2.5,  Up: Customization
+
+Q3.2.6: Can I have pixmap backgrounds in XEmacs?
+------------------------------------------------
+
+   Juan Villacis <jvillaci@wahnsinnig.extreme.indiana.edu> writes:
+
+     There are several ways to do it.  For example, you could specify a
+     default pixmap image to use in your `~/.Xresources', e.g.,
+
+            Emacs*EmacsFrame.default.attributeBackgroundPixmap: /path/to/image.xpm
+
+     and then reload ~/.Xresources and restart XEmacs.  Alternatively,
+     since each face can have its own pixmap background, a better way
+     would be to set a face's pixmap within your XEmacs init file, e.g.,
+
+            (set-face-background-pixmap 'default "/path/to/image.xpm")
+            (set-face-background-pixmap 'bold    "/path/to/another_image.xpm")
+
+     and so on.  You can also do this interactively via `M-x
+     edit-faces'.
+
+
+
+File: xemacs-faq.info,  Node: Q3.3.1,  Next: Q3.3.2,  Prev: Q3.2.6,  Up: Customization
+
+3.3: The Modeline
+=================
+
+Q3.3.1: How can I make the modeline go away?
+--------------------------------------------
+
+     (set-specifier has-modeline-p nil)
+
+
+File: xemacs-faq.info,  Node: Q3.3.2,  Next: Q3.3.3,  Prev: Q3.3.1,  Up: Customization
+
+Q3.3.2: How do you have XEmacs display the line number in the modeline?
+-----------------------------------------------------------------------
+
+   Add the following line to your `init.el'/`.emacs' file to display
+the line number:
+
+     (line-number-mode 1)
+
+   Use the following to display the column number:
+
+     (column-number-mode 1)
+
+   Or select from the `Options' menu `Advanced
+(Customize)->Emacs->Editing->Basics->Line Number Mode' and/or `Advanced
+(Customize)->Emacs->Editing->Basics->Column Number Mode'
+
+   Or type `M-x customize <RET> editing-basics <RET>'.
+
+
+File: xemacs-faq.info,  Node: Q3.3.3,  Next: Q3.3.4,  Prev: Q3.3.2,  Up: Customization
+
+Q3.3.3: How do I get XEmacs to put the time of day on the modeline?
+-------------------------------------------------------------------
+
+   Add the following line to your `init.el'/`.emacs' file to display
+the time:
+
+     (display-time)
+
+   See `Customize' from the `Options' menu for customization.
+
+
+File: xemacs-faq.info,  Node: Q3.3.4,  Next: Q3.3.5,  Prev: Q3.3.3,  Up: Customization
+
+Q3.3.4: How do I turn off current chapter from AUC TeX modeline?
+----------------------------------------------------------------
+
+   With AUC TeX, fast typing is hard because the current chapter,
+section etc. are given in the modeline.  How can I turn this off?
+
+   It's not AUC TeX, it comes from `func-menu' in `func-menu.el'.
+
+   David Hughes <dhughes@origin-at.co.uk> writes:
+
+     Try this; you'll still get the function name displayed in the
+     modeline, but it won't attempt to keep track when you modify the
+     file. To refresh when it gets out of synch, you simply need click
+     on the `Rescan Buffer' option in the function-menu.
+
+          (setq-default fume-auto-rescan-buffer-p nil)
+
+
+File: xemacs-faq.info,  Node: Q3.3.5,  Next: Q3.4.1,  Prev: Q3.3.4,  Up: Customization
+
+Q3.3.5: How can one change the modeline color based on the mode used?
+---------------------------------------------------------------------
+
+   You can use something like the following:
+
+     (add-hook 'lisp-mode-hook
+               (lambda ()
+                 (set-face-background 'modeline "red" (current-buffer))))
+
+   Then, when editing a Lisp file (i.e. when in Lisp mode), the modeline
+colors change from the default set in your `init.el'/`.emacs'.  The
+change will only be made in the buffer you just entered (which contains
+the Lisp file you are editing) and will not affect the modeline colors
+anywhere else.
+
+   Notes:
+
+   * The hook is the mode name plus `-hook'.  eg. c-mode-hook,
+     c++-mode-hook, emacs-lisp-mode-hook (used for your
+     `init.el'/`.emacs' or a `xx.el' file), lisp-interaction-mode-hook
+     (the `*scratch*' buffer), text-mode-hook, etc.
+
+   * Be sure to use `add-hook', not `(setq c-mode-hook xxxx)',
+     otherwise you will erase anything that anybody has already put on
+     the hook.
+
+   * You can also do `(set-face-font 'modeline FONT)', eg.
+     `(set-face-font 'modeline "*bold-r-normal*140-100-100*"
+     (current-buffer))' if you wish the modeline font to vary based on
+     the current mode.
+
+   There are additional modeline faces, `modeline-buffer-id',
+`modeline-mousable', and `modeline-mousable-minor-mode', which you may
+want to customize.
+
+
+File: xemacs-faq.info,  Node: Q3.4.1,  Next: Q3.4.2,  Prev: Q3.3.5,  Up: Customization
+
+3.4: Multiple Device Support
+============================
+
+Q3.4.1: How do I open a frame on another screen of my multi-headed display?
+---------------------------------------------------------------------------
+
+   Use the command `M-x make-frame-on-display'.  This command is also
+on the File menu in the menubar.
+
+   The command `make-frame-on-tty' also exists, which will establish a
+connection to any tty-like device.  Opening the TTY devices should be
+left to `gnuclient', though.
+
+
+File: xemacs-faq.info,  Node: Q3.4.2,  Next: Q3.5.1,  Prev: Q3.4.1,  Up: Customization
+
+Q3.4.2: Can I really connect to a running XEmacs after calling up over a modem?  How?
+-------------------------------------------------------------------------------------
+
+   Yes.  Use `gnuclient -nw'. (Prior to 20.3, use the `gnuattach'
+program supplied with XEmacs instead.)
+
+   Also *Note Q5.0.12::.
+
+
+File: xemacs-faq.info,  Node: Q3.5.1,  Next: Q3.5.2,  Prev: Q3.4.2,  Up: Customization
+
+3.5: The Keyboard
+=================
+
+Q3.5.1: How can I bind complex functions (or macros) to keys?
+-------------------------------------------------------------
+
+   As an example, say you want the `paste' key on a Sun keyboard to
+insert the current Primary X selection at point. You can accomplish this
+with:
+
+     (define-key global-map [f18] 'x-insert-selection)
+
+   However, this only works if there is a current X selection (the
+selection will be highlighted).  The functionality I like is for the
+`paste' key to insert the current X selection if there is one,
+otherwise insert the contents of the clipboard.  To do this you need to
+pass arguments to `x-insert-selection'.  This is done by wrapping the
+call in a 'lambda form:
+
+     (global-set-key [f18]
+       (lambda () (interactive) (x-insert-selection t nil)))
+
+   This binds the f18 key to a "generic" functional object.  The
+interactive spec is required because only interactive functions can be
+bound to keys.
+
+   For the FAQ example you could use:
+
+     (global-set-key [(control ?.)]
+       (lambda () (interactive) (scroll-up 1)))
+     (global-set-key [(control ?;)]
+       (lambda () (interactive) (scroll-up -1)))
+
+   This is fine if you only need a few functions within the lambda body.
+If you're doing more it's cleaner to define a separate function as in
+question 3.5.3 (*note Q3.5.3::).
+
+
+File: xemacs-faq.info,  Node: Q3.5.2,  Next: Q3.5.3,  Prev: Q3.5.1,  Up: Customization
+
+Q3.5.2: How can I stop down-arrow from adding empty lines to the bottom of my buffers?
+--------------------------------------------------------------------------------------
+
+   Add the following line to your `init.el'/`.emacs' file:
+
+     (setq next-line-add-newlines nil)
+
+   This has been the default setting in XEmacs for some time.
+
+
+File: xemacs-faq.info,  Node: Q3.5.3,  Next: Q3.5.4,  Prev: Q3.5.2,  Up: Customization
+
+Q3.5.3: How do I bind C-. and C-; to scroll one line up and down?
+-----------------------------------------------------------------
+
+   Add the following (Thanks to Richard Mlynarik <mly@adoc.xerox.com>
+and Wayne Newberry <wayne@zen.cac.stratus.com>) to `.emacs':
+
+     (defun scroll-up-one-line ()
+       (interactive)
+       (scroll-up 1))
+     
+     (defun scroll-down-one-line ()
+       (interactive)
+       (scroll-down 1))
+     
+     (global-set-key [(control ?.)] 'scroll-up-one-line) ; C-.
+     (global-set-key [(control ?;)] 'scroll-down-one-line) ; C-;
+
+   The key point is that you can only bind simple functions to keys; you
+can not bind a key to a function that you're also passing arguments to.
+(*note Q3.5.1:: for a better answer).
+
+
+File: xemacs-faq.info,  Node: Q3.5.4,  Next: Q3.5.5,  Prev: Q3.5.3,  Up: Customization
+
+Q3.5.4: Globally binding `Delete'?
+----------------------------------
+
+   I cannot manage to globally bind my `Delete' key to something other
+than the default.  How does one do this?
+
+   Answer: The problem is that many modes explicitly bind `Delete'.  To
+get around this, try the following:
+
+     (defun foo ()
+       (interactive)
+       (message "You hit DELETE"))
+     
+     (define-key key-translation-map 'delete 'redirected-delete)
+     (global-set-key 'redirected-delete 'foo)
+
+   Also *Note Q3.5.10::.
+
+
+File: xemacs-faq.info,  Node: Q3.5.5,  Next: Q3.5.6,  Prev: Q3.5.4,  Up: Customization
+
+Q3.5.5: Scrolling one line at a time.
+-------------------------------------
+
+   Can the cursor keys scroll the screen a line at a time, rather than
+the default half page jump?  I tend it to find it disorienting.
+
+   Try this:
+
+     (defun scroll-one-line-up (&optional arg)
+       "Scroll the selected window up (forward in the text) one line (or N lines)."
+       (interactive "p")
+       (scroll-up (or arg 1)))
+     
+     (defun scroll-one-line-down (&optional arg)
+       "Scroll the selected window down (backward in the text) one line (or N)."
+       (interactive "p")
+       (scroll-down (or arg 1)))
+     
+     (global-set-key [up]   'scroll-one-line-up)
+     (global-set-key [down] 'scroll-one-line-down)
+
+   The following will also work but will affect more than just the
+cursor keys (i.e. `C-n' and `C-p'):
+
+     (setq scroll-step 1)
+
+   Starting with XEmacs-20.3 you can also change this with Customize.
+Select from the `Options' menu `Advanced
+(Customize)->Emacs->Environment->Windows->Scroll Step...' or type `M-x
+customize <RET> windows <RET>'.
+
+
+File: xemacs-faq.info,  Node: Q3.5.6,  Next: Q3.5.7,  Prev: Q3.5.5,  Up: Customization
+
+Q3.5.6: How to map `Help' key alone on Sun type4 keyboard?
+----------------------------------------------------------
+
+   The following works in GNU Emacs 19:
+
+     (global-set-key [help] 'help-command);; Help
+
+   The following works in XEmacs with the addition of shift:
+
+     (global-set-key [(shift help)] 'help-command);; Help
+
+   But it doesn't work alone.  This is in the file `PROBLEMS' which
+should have come with your XEmacs installation: _Emacs ignores the
+`help' key when running OLWM_.
+
+   OLWM grabs the `help' key, and retransmits it to the appropriate
+client using `XSendEvent'.  Allowing Emacs to react to synthetic events
+is a security hole, so this is turned off by default.  You can enable
+it by setting the variable `x-allow-sendevents' to t.  You can also
+cause fix this by telling OLWM to not grab the help key, with the null
+binding `OpenWindows.KeyboardCommand.Help:'.
+
+
+File: xemacs-faq.info,  Node: Q3.5.7,  Next: Q3.5.8,  Prev: Q3.5.6,  Up: Customization
+
+Q3.5.7: How can you type in special characters in XEmacs?
+---------------------------------------------------------
+
+   One way is to use the package `x-compose'.  Then you can use
+sequences like `Compose " a' to get ä, etc.
+
+   Another way is to use the `iso-insert' package. Then you can use
+sequences like `C-x 8 " a' to get ä, etc.
+
+   Glynn Clements <glynn@sensei.co.uk> writes:
+
+     It depends upon your X server.
+
+     Generally, the simplest way is to define a key as Multi_key with
+     xmodmap, e.g.
+                  xmodmap -e 'keycode 0xff20 = Multi_key'
+
+     You will need to pick an appropriate keycode. Use xev to find out
+     the keycodes for each key.
+
+     [NB: On a `Windows' keyboard, recent versions of XFree86
+     automatically define the right `Windows' key as Multi_key'.]
+
+     Once you have Multi_key defined, you can use e.g.
+                  Multi a '       => á
+                  Multi e "       => ë
+                  Multi c ,       => ç
+
+     etc.
+
+     Also, recent versions of XFree86 define various AltGr-<key>
+     combinations as dead keys, i.e.
+                  AltGr [         => dead_diaeresis
+                  AltGr ]         => dead_tilde
+                  AltGr ;         => dead_acute
+     etc.
+
+     Running `xmodmap -pk' will list all of the defined keysyms.
+
+
+File: xemacs-faq.info,  Node: Q3.5.8,  Next: Q3.5.9,  Prev: Q3.5.7,  Up: Customization
+
+Q3.5.8: [This question intentionally left blank]
+------------------------------------------------
+
+   Obsolete question, left blank to avoid renumbering.
+
+
+File: xemacs-faq.info,  Node: Q3.5.9,  Next: Q3.5.10,  Prev: Q3.5.8,  Up: Customization
+
+Q3.5.9: How do I make the Delete key delete forward?
+----------------------------------------------------
+
+   With XEmacs-20.2 use the `delbs' package:
+
+     (require 'delbs)
+
+   This will give you the functions `delbs-enable-delete-forward' to
+set things up, and `delbs-disable-delete-forward' to revert to "normal"
+behavior.  Note that `delbackspace' package is obsolete.
+
+   Starting with XEmacs-20.3 better solution is to set variable
+`delete-key-deletes-forward' to t.  You can also change this with
+Customize. Select from the `Options' menu `Advanced
+(Customize)->Emacs->Editing->Basics->Delete Key Deletes Forward' or
+type `M-x customize <RET> editing-basics <RET>'.
+
+   Also *Note Q3.5.4::.
+
+
+File: xemacs-faq.info,  Node: Q3.5.10,  Next: Q3.5.11,  Prev: Q3.5.9,  Up: Customization
+
+Q3.5.10: Can I turn on "sticky" modifier keys?
+----------------------------------------------
+
+   Yes, with `(setq modifier-keys-are-sticky t)'.  This will give the
+effect of being able to press and release Shift and have the next
+character typed come out in upper case.  This will affect all the other
+modifier keys like Control and Meta as well.
+
+   Ben Wing <ben@xemacs.org> writes:
+
+     One thing about the sticky modifiers is that if you move the mouse
+     out of the frame and back in, it cancels all currently "stuck"
+     modifiers.
+
+
+File: xemacs-faq.info,  Node: Q3.5.11,  Next: Q3.6.1,  Prev: Q3.5.10,  Up: Customization
+
+Q3.5.11: How do I map the arrow keys?
+-------------------------------------
+
+   Say you want to map `C-<right>' to forward-word:
+
+   Sam Steingold <sds@usa.net> writes:
+
+          ; both XEmacs and Emacs
+          (define-key global-map [(control right)] 'forward-word)
+     or
+          ; Emacs only
+          (define-key global-map [C-right] 'forward-word)
+     or
+          ; ver > 20, both
+          (define-key global-map (kbd "C-<right>") 'forward-word)
+
+
+File: xemacs-faq.info,  Node: Q3.6.1,  Next: Q3.6.2,  Prev: Q3.5.11,  Up: Customization
+
+3.6: The Cursor
+===============
+
+Q3.6.1: Is there a way to make the bar cursor thicker?
+------------------------------------------------------
+
+   I'd like to have the bar cursor a little thicker, as I tend to
+"lose" it often.
+
+   For a 1 pixel bar cursor, use:
+
+     (setq bar-cursor t)
+
+   For a 2 pixel bar cursor, use:
+
+     (setq bar-cursor 'anything-else)
+
+   Starting with XEmacs-20.3 you can also change these with Customize.
+Select from the `Options' menu `Advanced
+(Customize)->Emacs->Environment->Display->Bar Cursor...' or type `M-x
+customize <RET> display <RET>'.
+
+   You can use a color to make it stand out better:
+
+     Emacs*cursorColor:      Red
+
+
+File: xemacs-faq.info,  Node: Q3.6.2,  Next: Q3.6.3,  Prev: Q3.6.1,  Up: Customization
+
+Q3.6.2: Is there a way to get back the block cursor?
+----------------------------------------------------
+
+     (setq bar-cursor nil)
+
+   Starting with XEmacs 20.3 you can also change this with Customize.
+Select from the `Options' menu `Advanced
+(Customize)->Emacs->Environment->Display->Bar Cursor...' or type `M-x
+customize <RET> display <RET>'.
+
+
+File: xemacs-faq.info,  Node: Q3.6.3,  Next: Q3.7.1,  Prev: Q3.6.2,  Up: Customization
+
+Q3.6.3: Can I make the cursor blink?
+------------------------------------
+
+   Yes, like this:
+
+     (blink-cursor-mode)
+
+   This function toggles between a steady cursor and a blinking cursor.
+You may also set this mode from the menu bar by selecting `Options =>
+Frame Appearance => Blinking Cursor'.  Remember to save options.
+
+
+File: xemacs-faq.info,  Node: Q3.7.1,  Next: Q3.7.2,  Prev: Q3.6.3,  Up: Customization
+
+3.7: The Mouse and Highlighting
+===============================
+
+Q3.7.1: How can I turn off Mouse pasting?
+-----------------------------------------
+
+   I keep hitting the middle mouse button by accident and getting stuff
+pasted into my buffer so how can I turn this off?
+
+   Here is an alternative binding, whereby the middle mouse button
+selects (but does not cut) the expression under the mouse. Clicking
+middle on a left or right paren will select to the matching one.  Note
+that you can use `define-key' or `global-set-key'.
+
+     (defun mouse-set-point-and-select (event)
+       "Sets the point at the mouse location, then marks following form"
+       (interactive "@e")
+       (mouse-set-point event)
+       (mark-sexp 1))
+     (define-key global-map [button2] 'mouse-set-point-and-select)
+
+
+File: xemacs-faq.info,  Node: Q3.7.2,  Next: Q3.7.3,  Prev: Q3.7.1,  Up: Customization
+
+Q3.7.2: How do I set control/meta/etc modifiers on mouse buttons?
+-----------------------------------------------------------------
+
+   Use, for instance, `[(meta button1)]'. For example, here is a common
+setting for Common Lisp programmers who use the bundled `ilisp'
+package, whereby meta-button1 on a function name will find the file
+where the function name was defined, and put you at that location in
+the source file.
+
+   [Inside a function that gets called by the lisp-mode-hook and
+ilisp-mode-hook]
+
+     (local-set-key [(meta button1)] 'edit-definitions-lisp)
+
+
+File: xemacs-faq.info,  Node: Q3.7.3,  Next: Q3.7.4,  Prev: Q3.7.2,  Up: Customization
+
+Q3.7.3: Clicking the left button does not do anything in buffer list.
+---------------------------------------------------------------------
+
+   I do `C-x C-b' to get a list of buffers and the entries get
+highlighted when I move the mouse over them but clicking the left mouse
+does not do anything.
+
+   Use the middle mouse button.
+
+
+File: xemacs-faq.info,  Node: Q3.7.4,  Next: Q3.7.5,  Prev: Q3.7.3,  Up: Customization
+
+Q3.7.4: How can I get a list of buffers when I hit mouse button 3?
+------------------------------------------------------------------
+
+   The following code will replace the default popup on button3:
+
+     (global-set-key [button3] 'popup-buffer-menu)
+
+
+File: xemacs-faq.info,  Node: Q3.7.5,  Next: Q3.7.6,  Prev: Q3.7.4,  Up: Customization
+
+Q3.7.5: Why does cut-and-paste not work between XEmacs and a cmdtool?
+---------------------------------------------------------------------
+
+   We don't know.  It's a bug.  There does seem to be a work-around,
+however.  Try running xclipboard first.  It appears to fix the problem
+even if you exit it.  (This should be mostly fixed in 19.13, but we
+haven't yet verified that).
+
+
+File: xemacs-faq.info,  Node: Q3.7.6,  Next: Q3.7.7,  Prev: Q3.7.5,  Up: Customization
+
+Q3.7.6: How I can set XEmacs up so that it pastes where the text cursor is?
+---------------------------------------------------------------------------
+
+   By default XEmacs pastes X selections where the mouse pointer is.
+How do I disable this?
+
+   Examine the function `mouse-yank', by typing `C-h f mouse-yank
+<RET>'.
+
+   To get XEmacs to paste at the text cursor, add this your
+`init.el'/`.emacs':
+
+     (setq mouse-yank-at-point t)
+
+   Starting with XEmacs-20.2 you can also change this with Customize.
+Select from the `Options' menu `Advanced
+(Customize)->Emacs->Editing->Mouse->Yank At Point...' or type `M-x
+customize <RET> mouse <RET>'.
+
+
+File: xemacs-faq.info,  Node: Q3.7.7,  Next: Q3.7.8,  Prev: Q3.7.6,  Up: Customization
+
+Q3.7.7: How do I select a rectangular region?
+---------------------------------------------
+
+   Just select the region normally, then use the rectangle commands
+(e.g.  `kill-rectangle' on it.  The region does not highlight as a
+rectangle, but the commands work just fine.
+
+   To actually sweep out rectangular regions with the mouse you can use
+`mouse-track-do-rectangle' which is assigned to `M-button1'.  Then use
+rectangle commands.
+
+   You can also do the following to change default behavior to sweep out
+rectangular regions:
+
+     (setq mouse-track-rectangle-p t)
+
+   Starting with XEmacs-20.2 you can also change this with Customize.
+Select from the `Options' menu `Advanced
+(Customize)->Emacs->Editing->Mouse->Track Rectangle...' or type `M-x
+customize <RET> mouse <RET>'.
+
+      mouse-track-do-rectangle: (event)
+        -- an interactive compiled Lisp function.
+      Like `mouse-track' but selects rectangles instead of regions.
+
+
+File: xemacs-faq.info,  Node: Q3.7.8,  Next: Q3.8.1,  Prev: Q3.7.7,  Up: Customization
+
+Q3.7.8: Why does `M-w' take so long?
+------------------------------------
+
+   It actually doesn't.  It leaves the region visible for a second so
+that you can see what area is being yanked.  If you start working,
+though, it will immediately complete its operation.  In other words, it
+will only delay for a second if you let it.
+
+
+File: xemacs-faq.info,  Node: Q3.8.1,  Next: Q3.8.2,  Prev: Q3.7.8,  Up: Customization
+
+3.8: The Menubar and Toolbar
+============================
+
+Q3.8.1: How do I get rid of the menu (or menubar)?
+--------------------------------------------------
+
+     (set-specifier menubar-visible-p nil)
+
+
+File: xemacs-faq.info,  Node: Q3.8.2,  Next: Q3.8.3,  Prev: Q3.8.1,  Up: Customization
+
+Q3.8.2: Can I customize the basic menubar?
+------------------------------------------
+
+   For an extensive menubar, add this line to your `init.el'/`.emacs':
+
+     (load "big-menubar")
+
+   If you'd like to write your own, this file provides as good a set of
+examples as any to start from.  The file is located in
+`lisp/packages/big-menubar.el' in the XEmacs installation directory.
+
+
+File: xemacs-faq.info,  Node: Q3.8.3,  Next: Q3.8.4,  Prev: Q3.8.2,  Up: Customization
+
+Q3.8.3: How do I control how many buffers are listed in the menu `Buffers List'?
+--------------------------------------------------------------------------------
+
+   Add the following to your `init.el'/`.emacs' (suit to fit):
+
+     (setq buffers-menu-max-size 20)
+
+   For no limit, use an argument of `nil'.
+
+   Starting with XEmacs-20.3 you can also change this with Customize.
+Select from the `Options' menu `Advanced
+(Customize)->Emacs->Environment->Menu->Buffers Menu->Max Size...' or
+type `M-x customize <RET> buffers-menu <RET>'.
+
+
+File: xemacs-faq.info,  Node: Q3.8.4,  Next: Q3.8.5,  Prev: Q3.8.3,  Up: Customization
+
+Q3.8.4: Resources like `Emacs*menubar*font' are not working?
+------------------------------------------------------------
+
+   I am trying to use a resource like `Emacs*menubar*font' to set the
+font of the menubar but it's not working.
+
+   If you are using the real Motif menubar, this resource is not
+recognized; you have to say:
+
+     Emacs*menubar*fontList: FONT
+
+   If you are using the Lucid menubar, the former resource will be
+recognized only if the latter resource is unset.  This means that the
+resource
+
+     *fontList: FONT
+
+   will override
+
+     Emacs*menubar*font: FONT
+
+   even though the latter is more specific.
+
+
+File: xemacs-faq.info,  Node: Q3.8.5,  Next: Q3.9.1,  Prev: Q3.8.4,  Up: Customization
+
+Q3.8.5: How can I bind a key to a function to toggle the toolbar?
+-----------------------------------------------------------------
+
+   Try something like:
+
+     (defun my-toggle-toolbar ()
+       (interactive)
+       (set-specifier default-toolbar-visible-p
+                      (not (specifier-instance default-toolbar-visible-p))))
+     (global-set-key "\C-xT" 'my-toggle-toolbar)
+
+   There are redisplay bugs in 19.14 that may make the preceding result
+in a messed-up display, especially for frames with multiple windows.
+You may need to resize the frame before XEmacs completely realizes the
+toolbar is really gone.
+
+   Thanks to Martin Buchholz <martin@xemacs.org> for the correct code.
+
+
+File: xemacs-faq.info,  Node: Q3.9.1,  Next: Q3.9.2,  Prev: Q3.8.5,  Up: Customization
+
+3.9: Scrollbars
+===============
+
+Q3.9.1: How can I disable the scrollbar?
+----------------------------------------
+
+   To disable them for all frames, add the following line to your
+`.Xdefaults':
+
+     Emacs.scrollBarWidth:  0
+
+   Or select from the `Options' menu `Frame Appearance->Scrollbars'.
+Remember to save options.
+
+   To turn the scrollbar off on a per-frame basis, use the following
+function:
+
+     (set-specifier scrollbar-width 0 (selected-frame))
+
+   You can actually turn the scrollbars on at any level you want by
+substituting for (selected-frame) in the above command.  For example, to
+turn the scrollbars off only in a single buffer:
+
+     (set-specifier scrollbar-width 0 (current-buffer))
+
+
+File: xemacs-faq.info,  Node: Q3.9.2,  Next: Q3.9.3,  Prev: Q3.9.1,  Up: Customization
+
+Q3.9.2: How can one use resources to change scrollbar colors?
+-------------------------------------------------------------
+
+   Here's a recap of how to use resources to change your scrollbar
+colors:
+
+     ! Motif scrollbars
+     
+     Emacs*XmScrollBar.Background: skyblue
+     Emacs*XmScrollBar.troughColor: lightgray
+     
+     ! Athena scrollbars
+     
+     Emacs*Scrollbar.Foreground: skyblue
+     Emacs*Scrollbar.Background: lightgray
+
+   Note the capitalization of `Scrollbar' for the Athena widget.
+
+
+File: xemacs-faq.info,  Node: Q3.9.3,  Next: Q3.9.4,  Prev: Q3.9.2,  Up: Customization
+
+Q3.9.3: Moving the scrollbar can move the point; can I disable this?
+--------------------------------------------------------------------
+
+   When I move the scrollbar in an XEmacs window, it moves the point as
+well, which should not be the default behavior.  Is this a bug or a
+feature?  Can I disable it?
+
+   The current behavior is a feature, not a bug.  Point remains at the
+same buffer position as long as that position does not scroll off the
+screen.  In that event, point will end up in either the upper-left or
+lower-left hand corner.
+
+   This cannot be changed.
+
+
+File: xemacs-faq.info,  Node: Q3.9.4,  Next: Q3.10.1,  Prev: Q3.9.3,  Up: Customization
+
+Q3.9.4: How can I turn off automatic horizontal scrolling in specific modes?
+----------------------------------------------------------------------------
+
+   Do `(setq truncate-lines t)' in the mode-hooks for any modes in
+which you want lines truncated.
+
+   More precisely: If `truncate-lines' is nil, horizontal scrollbars
+will never appear.  Otherwise, they will appear only if the value of
+`scrollbar-height' for that buffer/window/etc. is non-zero.  If you do
+
+     (set-specifier scrollbar-height 0)
+
+   then horizontal scrollbars will not appear in truncated buffers
+unless the package specifically asked for them.
+
+
+File: xemacs-faq.info,  Node: Q3.10.1,  Next: Q3.10.2,  Prev: Q3.9.4,  Up: Customization
+
+3.10: Text Selections
+=====================
+
+Q3.10.1: How can I turn off or change highlighted selections?
+-------------------------------------------------------------
+
+   The `zmacs' mode allows for what some might call gratuitous
+highlighting for selected regions (either by setting mark or by using
+the mouse).  This is the default behavior.  To turn off, add the
+following line to your `init.el'/`.emacs' file:
+
+     (setq zmacs-regions nil)
+
+   Starting with XEmacs-20.2 you can also change this with Customize.
+Select from the `Options' menu `Advanced
+(Customize)->Emacs->Editing->Basics->Zmacs Regions' or type `M-x
+customize <RET> editing-basics <RET>'.
+
+   To change the face for selection, look at `Options->Customize' on
+the menubar.
+
+
+File: xemacs-faq.info,  Node: Q3.10.2,  Next: Q3.10.3,  Prev: Q3.10.1,  Up: Customization
+
+Q3.10.2: How do I get that typing on an active region removes it?
+-----------------------------------------------------------------
+
+   I want to change things so that if I select some text and start
+typing, the typed text replaces the selected text, similar to Motif.
+
+   You want to use something called "pending delete".  Pending delete
+is what happens when you select a region (with the mouse or keyboard)
+and you press a key to replace the selected region by the key you typed.
+Usually backspace kills the selected region.
+
+   To get this behavior, add the following lines to your
+`init.el'/`.emacs':
+
+     (cond
+      ((fboundp 'turn-on-pending-delete)
+       (turn-on-pending-delete))
+      ((fboundp 'pending-delete-on)
+       (pending-delete-on t)))
+
+   Note that this will work with both Backspace and Delete.  This code
+is a tad more complicated than it has to be for XEmacs in order to make
+it more portable.
+
+
+File: xemacs-faq.info,  Node: Q3.10.3,  Next: Q3.10.4,  Prev: Q3.10.2,  Up: Customization
+
+Q3.10.3: Can I turn off the highlight during isearch?
+-----------------------------------------------------
+
+   I do not like my text highlighted while I am doing isearch as I am
+not able to see what's underneath.  How do I turn it off?
+
+   Put the following in your `init.el'/`.emacs':
+
+     (setq isearch-highlight nil)
+
+   Starting with XEmacs-20.2 you can also change this with Customize.
+Type `M-x customize-variable <RET> isearch-highlight <RET>'.
+
+   Note also that isearch-highlight affects query-replace and ispell.
+Instead of disabling isearch-highlight you may find that a better
+solution consists of customizing the `isearch' face.
+
+
+File: xemacs-faq.info,  Node: Q3.10.4,  Next: Q3.10.5,  Prev: Q3.10.3,  Up: Customization
+
+Q3.10.4: How do I turn off highlighting after `C-x C-p' (mark-page)?
+--------------------------------------------------------------------
+
+   Put this in your `.emacs':
+
+     (setq zmacs-regions nil)
+
+   *Warning: This command turns off all region highlighting.*
+
+   Also *Note Q3.10.1::.
+
+
+File: xemacs-faq.info,  Node: Q3.10.5,  Prev: Q3.10.4,  Up: Customization
+
+Q3.10.5: The region disappears when I hit the end of buffer while scrolling.
+----------------------------------------------------------------------------
+
+   This has been fixed by default starting with XEmacs-20.3.
+
+   With older versions you can turn this feature (if it indeed is a
+feature) off like this:
+
+     (defadvice scroll-up (around scroll-up freeze)
+       (interactive "_P")
+       (let ((zmacs-region-stays t))
+         (if (interactive-p)
+             (condition-case nil
+                 ad-do-it
+               (end-of-buffer (goto-char (point-max))))
+           ad-do-it)))
+     
+     (defadvice scroll-down (around scroll-down freeze)
+       (interactive "_P")
+       (let ((zmacs-region-stays t))
+         (if (interactive-p)
+             (condition-case nil
+                 ad-do-it
+               (beginning-of-buffer (goto-char (point-min))))
+           ad-do-it)))
+
+   Thanks to T. V. Raman <raman@adobe.com> for assistance in deriving
+this answer.
+
+
+File: xemacs-faq.info,  Node: Subsystems,  Next: Miscellaneous,  Prev: Customization,  Up: Top
+
+4 Major Subsystems
+******************
+
+   This is part 4 of the XEmacs Frequently Asked Questions list.  This
+section is devoted to major XEmacs subsystems.
+
+* Menu:
+
+Reading Mail with VM:
+* Q4.0.1::      How do I set up VM to retrieve remote mail using POP?
+* Q4.0.2::      How do I get VM to filter mail for me?
+* Q4.0.3::      How can I get VM to automatically check for new mail?
+* Q4.0.4::      [This question intentionally left blank]
+* Q4.0.5::      How do I get my outgoing mail archived?
+* Q4.0.6::      I have various addresses at which I receive mail.  How can I tell VM to ignore them when doing a "reply-all"?
+* Q4.0.7::      Is there a mailing list or FAQ for VM?
+* Q4.0.8::      Remote mail reading with VM.
+* Q4.0.9::      rmail or VM gets an error incorporating new mail.
+* Q4.0.10::     How do I make VM stay in a single frame?
+* Q4.0.11::     How do I make VM or mh-e display graphical smilies?
+* Q4.0.12::     Customization of VM not covered in the manual or here.
+
+Web browsing with W3:
+* Q4.1.1::      What is W3?
+* Q4.1.2::      How do I run W3 from behind a firewall?
+* Q4.1.3::      Is it true that W3 supports style sheets and tables?
+
+Reading Netnews and Mail with Gnus:
+* Q4.2.1::      GNUS, (ding) Gnus, Gnus 5, September Gnus, Red Gnus,argh!
+* Q4.2.2::      [This question intentionally left blank]
+* Q4.2.3::      How do I make Gnus stay within a single frame?
+* Q4.2.4::      How do I customize the From: line?
+
+Other Mail & News:
+* Q4.3.1::      How can I read and/or compose MIME messages?
+* Q4.3.2::      What is TM and where do I get it?
+* Q4.3.3::      Why isn't this `movemail' program working?
+* Q4.3.4::      Movemail is also distributed by Netscape?  Can that cause problems?
+* Q4.3.5::      Where do I find pstogif (required by tm)?
+
+Sparcworks, EOS, and WorkShop:
+* Q4.4.1::      What is SPARCworks, EOS, and WorkShop
+* Q4.4.2::      How do I start the Sun Workshop support in XEmacs 21?
+
+Energize:
+* Q4.5.1::      What is/was Energize?
+
+Infodock:
+* Q4.6.1::      What is Infodock?
+
+Other Unbundled Packages:
+* Q4.7.1::      What is AUC TeX?  Where do you get it?
+* Q4.7.2::      Are there any Emacs Lisp Spreadsheets?
+* Q4.7.3::      [This question intentionally left blank]
+* Q4.7.4::      Problems installing AUC TeX
+* Q4.7.5::      Is there a reason for an Emacs package not to be included in XEmacs?
+* Q4.7.6::      Is there a MatLab mode?
+
+
+File: xemacs-faq.info,  Node: Q4.0.1,  Next: Q4.0.2,  Prev: Subsystems,  Up: Subsystems
+
+4.0: Reading Mail with VM
+=========================
+
+Q4.0.1: How do I set up VM to retrieve mail from a remote site using POP?
+-------------------------------------------------------------------------
+
+   Use `vm-spool-files', like this for example:
+
+     (setq vm-spool-files '("/var/spool/mail/wing"
+                            "netcom23.netcom.com:110:pass:wing:MYPASS"))
+
+   Of course substitute your actual password for MYPASS.
+
+
+File: xemacs-faq.info,  Node: Q4.0.2,  Next: Q4.0.3,  Prev: Q4.0.1,  Up: Subsystems
+
+Q4.0.2: How do I get VM to filter mail for me?
+----------------------------------------------
+
+   One possibility is to use procmail to split your mail before it gets
+to VM.  I prefer this personally, since there are many strange and
+wonderful things one can do with procmail.  Procmail may be found at
+`ftp://ftp.informatik.rwth-aachen.de/pub/packages/procmail/'.
+
+   Also see the Mail Filtering FAQ at:
+`ftp://rtfm.mit.edu/pub/usenet/news.answers/mail/filtering-faq'.
+
+
+File: xemacs-faq.info,  Node: Q4.0.3,  Next: Q4.0.4,  Prev: Q4.0.2,  Up: Subsystems
+
+Q4.0.3: How can I get VM to automatically check for new mail?
+-------------------------------------------------------------
+
+   John Turner <turner@lanl.gov> writes:
+
+     Use the following:
+
+          (setq vm-auto-get-new-mail 60)
+
+
+File: xemacs-faq.info,  Node: Q4.0.4,  Next: Q4.0.5,  Prev: Q4.0.3,  Up: Subsystems
+
+Q4.0.4: [This question intentionally left blank]
+------------------------------------------------
+
+   Obsolete question, left blank to avoid renumbering.
+
+
+File: xemacs-faq.info,  Node: Q4.0.5,  Next: Q4.0.6,  Prev: Q4.0.4,  Up: Subsystems
+
+Q4.0.5: How do I get my outgoing mail archived?
+-----------------------------------------------
+
+     (setq mail-archive-file-name "~/outbox")
+
+
+File: xemacs-faq.info,  Node: Q4.0.6,  Next: Q4.0.7,  Prev: Q4.0.5,  Up: Subsystems
+
+Q4.0.6: I have various addresses at which I receive mail.  How can I tell VM to ignore them when doing a "reply-all"?
+---------------------------------------------------------------------------------------------------------------------
+
+   Set `vm-reply-ignored-addresses' to a list, like
+
+     (setq vm-reply-ignored-addresses
+           '("wing@nuspl@nvwls.cc.purdue.edu,netcom[0-9]*.netcom.com"
+             "wing@netcom.com" "wing@xemacs.org"))
+
+   Note that each string is a regular expression.
+
+
+File: xemacs-faq.info,  Node: Q4.0.7,  Next: Q4.0.8,  Prev: Q4.0.6,  Up: Subsystems
+
+Q4.0.7: Is there a mailing list or FAQ for VM?
+----------------------------------------------
+
+   A FAQ for VM exists at `http://www.cyberpass.net/~gorkab/vmfaq.htm'.
+
+   VM has its own newsgroups gnu.emacs.vm.info and gnu.emacs.vm.bug.
+
+
+File: xemacs-faq.info,  Node: Q4.0.8,  Next: Q4.0.9,  Prev: Q4.0.7,  Up: Subsystems
+
+Q4.0.8: Remote mail reading with VM.
+------------------------------------
+
+   My mailbox lives at the office on a big honkin server.  My regular
+INBOX lives on my honkin desktop machine.  I now can PPP to the office
+from home which is far from honking...  I'd like to be able to read
+mail at home without storing it here and I'd like to use xemacs and VM
+at home...  Is there a recommended setup?
+
+   Joseph J. Nuspl Jr. <nuspl@nvwls.cc.purdue.edu> writes:
+
+     There are several ways to do this.
+
+       1. Set your display to your home machine and run dxpc or one of
+          the other X compressors.
+
+       2. NFS mount your desktop machine on your home machine and
+          modify your pop command on your home machine to rsh to your
+          desktop machine and actually do the pop get's.
+
+       3. Run a POP server on your desktop machine as well and do a
+          sort of two tiered POP get.
+
+   William Perry <wmperry@monolith.spry.com> adds:
+
+     Or you could run a pop script periodically on your desktop
+     machine, and just use ange-ftp or NFS to get to your mailbox.  I
+     used to do this all the time back at IU.
+
+
+File: xemacs-faq.info,  Node: Q4.0.9,  Next: Q4.0.10,  Prev: Q4.0.8,  Up: Subsystems
+
+Q4.0.9: rmail or VM gets an error incorporating new mail.
+---------------------------------------------------------
+
+   Quoting the XEmacs PROBLEMS file:
+
+     rmail and VM get new mail from `/usr/spool/mail/$USER' using a
+     program called `movemail'.  This program interlocks with
+     `/bin/mail' using the protocol defined by `/bin/mail'.
+
+     There are two different protocols in general use.  One of them
+     uses the `flock' system call.  The other involves creating a lock
+     file; `movemail' must be able to write in `/usr/spool/mail' in
+     order to do this.  You control which one is used by defining, or
+     not defining, the macro `MAIL_USE_FLOCK' in `config.h' or the m-
+     or s- file it includes.
+
+     *IF YOU DON'T USE THE FORM OF INTERLOCKING THAT IS NORMAL ON YOUR
+     SYSTEM, YOU CAN LOSE MAIL!*
+
+     If your system uses the lock file protocol, and fascist
+     restrictions prevent ordinary users from writing the lock files in
+     `/usr/spool/mail', you may need to make `movemail' setgid to a
+     suitable group such as `mail'.  You can use these commands (as
+     root):
+
+          chgrp mail movemail
+          chmod 2755 movemail
+
+     If your system uses the lock file protocol, and fascist
+     restrictions prevent ordinary users from writing the lock files in
+     `/usr/spool/mail', you may need to make `movemail' setgid to a
+     suitable group such as `mail'.  To do this, use the following
+     commands (as root) after doing the make install.
+
+          chgrp mail movemail
+          chmod 2755 movemail
+
+     Installation normally copies movemail from the build directory to
+     an installation directory which is usually under `/usr/local/lib'.
+     The installed copy of `movemail' is usually in the directory
+     `/usr/local/lib/emacs/VERSION/TARGET'.  You must change the group
+     and mode of the installed copy; changing the group and mode of the
+     build directory copy is ineffective.
+
+
+File: xemacs-faq.info,  Node: Q4.0.10,  Next: Q4.0.11,  Prev: Q4.0.9,  Up: Subsystems
+
+Q4.0.10: How do I make VM stay in a single frame?
+-------------------------------------------------
+
+   John.John S Cooper <Cooper@Eng.Sun.COM> writes:
+
+                                                  ; Don't use multiple frames
+          (setq vm-frame-per-composition nil)
+          (setq vm-frame-per-folder nil)
+          (setq vm-frame-per-edit nil)
+          (setq vm-frame-per-summary nil)
+
+
+File: xemacs-faq.info,  Node: Q4.0.11,  Next: Q4.0.12,  Prev: Q4.0.10,  Up: Subsystems
+
+Q4.0.11: How do I make VM or mh-e display graphical smilies?
+------------------------------------------------------------
+
+   For mh-e use the following:
+
+     (add-hook 'mh-show-mode-hook '(lambda ()
+                                     (smiley-region (point-min)
+                                                    (point-max))))
+
+   WJCarpenter <bill@carpenter.ORG> writes: For VM use the following:
+            (autoload 'smiley-region "smiley" nil t)
+            (add-hook 'vm-select-message-hook
+                      '(lambda ()
+                         (smiley-region (point-min)
+                                        (point-max))))
+
+   For tm use the following:
+     (autoload 'smiley-buffer "smiley" nil t)
+     (add-hook 'mime-viewer/plain-text-preview-hook 'smiley-buffer)
+
+
+File: xemacs-faq.info,  Node: Q4.0.12,  Next: Q4.1.1,  Prev: Q4.0.11,  Up: Subsystems
+
+Q4.0.12: Customization of VM not covered in the manual, or here.
+----------------------------------------------------------------
+
+   giacomo boffi <boffi@hp735.stru.polimi.it> writes:
+
+     The meta-answer is to look into the file `vm-vars.el', in the vm
+     directory of the lisp library.
+
+     `vm-vars.el' contains, initializes and carefully describes, with
+     examples of usage, the plethora of user options that _fully_
+     control VM's behavior.
+
+     Enter vm-vars, `forward-search' for toolbar, find the variables
+     that control the toolbar placement, appearance, existence, copy to
+     your `init.el'/`.emacs' or `.vm' and modify according to the
+     detailed instructions.
+
+     The above also applies to all the various features of VM: search
+     for some keywords, maybe the first you conjure isn't appropriate,
+     find the appropriate variables, copy and experiment.
+

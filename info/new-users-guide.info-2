@@ -1,0 +1,1247 @@
+This is ../info/new-users-guide.info, produced by makeinfo version 4.0
+from new-users-guide/new-users-guide.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Intro: (new-users-guide).	Introduction to the XEmacs Editor.
+END-INFO-DIR-ENTRY
+
+   This manual serves as an introduction to the XEmacs editor.
+
+   Copyright (C) 1985, 1986, 1988 Richard M. Stallman.  Copyright (C)
+1991, 1992, 1993, 1994 Lucid, Inc.  Copyright (C) 1993, 1994 Sun
+Microsystems, Inc.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+
+File: new-users-guide.info,  Node: Help,  Next: Modes,  Prev: Customization Basics,  Up: Top
+
+Help
+****
+
+   XEmacs provides a comprehensive Help facility. On the extreme right
+of the menu-bar there is a Help menu. There are several help commands
+provided by this menu. You can also use `C-h' for invoking the Help
+facility. Type "?" for a list of keys you can type after typing `C-h'.
+If you want more information on what your options are and what kind of
+help you can get type "?" again. You will get a listing of all the keys
+you can type and what they will do. Initially if you want help, type
+`C-h' three times.
+
+* Menu:
+
+* The Help Menu::                   Items on the Help menu
+
+
+File: new-users-guide.info,  Node: The Help Menu,  Prev: Help,  Up: Help
+
+Help menu
+=========
+
+   When you click on the Help menu with any of the mouse buttons you
+will get the following menu items:
+
+Info
+     Selecting this item will take you to the Info page which is the
+     online documentation browsing system. You can simply click on the
+     highlighted items and "Info" will take you to the document
+     providing information about that topic.
+
+Describe Mode
+     After you select this item, you will get a documentation on the
+     major and minor modes which are enabled in the buffer you are
+     working with. *Note Modes::, for information on Modes.
+
+Hyper Apropos...
+     After you select this item, you will see the following message in
+     the echo area:
+
+          List symbols matching regexp:
+
+     If you type "mode" and hit <RET>, you will get a list of all the
+     symbols (like functions and commands). You can now get
+     documentation on any of the given symbols by "clicking" on any of
+     the symbols (i.e. drag your mouse on the appropriate symbol and
+     release the button). For example, if you "click" on the
+     'auto-fill-mode' you will get the following message in the window
+     at the bottom:
+
+          auto-fill-mode
+          
+          Function, Command:
+          
+            Toggle auto-fill mode.
+            With arg, turn auto-fill mode on if and only if arg is positive.
+            In auto-fill mode, inserting a space at a column beyond `fill-column'
+            automatically breaks the line at a previous space.
+          
+          Variable:
+          
+            value = nil
+          
+            variable not documented
+
+Command Apropos...
+     Selecting this item will prompt you for a string just like when you
+     select Hyper Apropos.... After you give a string name, you will get
+     a listing of all the functions and commands containing that string
+     name with a very short description about what that command does.
+
+Full Apropos...
+     After you select this item, you will be prompted for a string name
+     in the echo area:
+
+          Apropos (regexp):
+
+     Now you can give any string name, for example "mode" and hit
+     <RET>. You will get a listing of all the variables and commands
+     containing that string i.e "mode" with a short description of its
+     function.
+
+List Keybindings
+     Select this item and you will get a listing of all the keys and the
+     commands that they execute. Depending on which Major mode your
+     buffer is in, you will get a listing of the special keybindings
+     for that particular buffer also. For example, if you are in
+     "Texinfo" mode, part of your list will contain:
+
+          C-c C-c n       texinfo-insert-@node
+          C-c C-c o       texinfo-insert-@noindent
+          C-c C-c s       texinfo-insert-@samp
+          C-c C-c t       texinfo-insert-@table
+          C-c C-c v       texinfo-insert-@var
+          C-c C-c x       texinfo-insert-@example
+          C-c C-c {      texinfo-insert-braces
+
+     These keybindings apply only to "Texinfo" mode. *Note Modes::, for
+     more information on various modes.
+
+Describe Key...
+     After you select this item, you will be see the following message
+     in the echo area:
+
+          Describe Key:
+     After you type a command key sequence, full documentation of that
+     command will be displayed. For example if you type `C-g', you will
+     see the following documentation for `C-g':
+
+          keyboard-quit:
+          Signal a `quit' condition.
+     This means that `C-g' will quit whatever command you gave earlier.
+
+Describe Function...
+     This menu item provides documentation for a function. After you
+     select this item, it will prompt you for a function name in the
+     echo area:
+
+          Describe function (default <some function name>):
+
+     If you hit <RET> without giving a function name, you will get
+     documentation for that default function name, otherwise if you
+     type a function name and hit <RET>, you will get documentation for
+     the given function.
+
+Describe Variable...
+     You can get documentation on any variable by selecting this menu
+     item. It is similar to Describe Function and will prompt you for a
+     variable name.
+
+Unix Manual...
+     After you select this item you will be prompted for a Unix command
+     for which you wish to see the man page. You will see the following
+     message in the echo area:
+
+          Manual entry: (default <some name>)
+
+     Now you can type any command, for example type `who' and press
+     <RET>. You will get the man page for the Unix command `who' which
+     lists who is on the system.
+
+Emacs Tutorial
+     Select this item and you will get a tutorial on Emacs. It is good
+     for new users.
+
+Emacs News
+     Select this item and you will get a lot of historical and current
+     news on Emacs !
+
+   For more information on the Help facility, *Note Help: (xemacs)Help.
+
+
+File: new-users-guide.info,  Node: Modes,  Next: Files,  Prev: Help,  Up: Top
+
+Major and Minor Modes
+*********************
+
+   XEmacs is "language sensitive". It has several "major" and "minor"
+modes.  The major modes customize Emacs to edit text of a particular
+sort. There are major modes for C, Lisp, Emacs Lisp, LaTeX, English
+etc. Within each major mode, certain functions and keys are redefined
+to "suit" that particular sort of text. The minor modes provide certain
+features which can be turned off or on at any time. Emacs can only be
+in one major mode at any time, but it can turn on several minor modes
+at the same time. After you have selected any major or minor mode, you
+can select Describe Mode from the Help menu and you will get
+documentation about those modes.
+
+* Menu:
+
+* Major Modes::                 Choosing Major Modes
+* Minor Modes::                 Auto-Fill, Abbrev and other minor modes
+
+
+File: new-users-guide.info,  Node: Major Modes,  Next: Minor Modes,  Prev: Modes,  Up: Modes
+
+Major Modes
+===========
+
+   Emacs has several major modes which customize Emacs to edit text of
+various sorts. You can have only one major mode at any time. Within each
+major mode, Emacs redefines certain functions (like cursor movement,
+indentation and text killing) to suit the needs of the text being
+edited. When you are editing a specific type of text you should switch
+to the appropriate mode. If you are working with C code, you should
+switch to C mode; if you are working with Lisp code, then switch to lisp
+mode and if you are working with English text switch to Text mode.
+
+   When you open a file to work on, Emacs usually selects the
+appropriate mode. For example, if you open a file called `guide.c' then
+Emacs will select the C mode because of the ".c" extension of the file.
+To explicitly select a mode type the following command:
+
+     ;;; selects lisp mode
+     M-x lisp-mode
+     
+     ;;; selects C mode
+     M-x c-mode
+
+To select any other mode, just add the major mode name before the
+'-mode'. The current mode in which you are in will be displayed in
+parenthesis in the mode-line at the bottom of the frame. All major
+modes have some special keybindings and you can get a listing of those
+keybindings by selecting List Keybindings from the Help menu on the
+menu bar.
+
+   Some of the available modes in XEmacs are :
+
+fundamental-mode
+     When you start XEmacs, usually you start with the default
+     "Fundamental" mode. This mode has no special definitions or
+     settings.
+
+nroff-mode
+     Use this mode when you have to format a text with nroff before it
+     can be available in readable form. It redefines some indentation
+     commands. *Note Nroff Mode: (xemacs)Nroff Mode, for information on
+     this mode.
+
+tex-mode
+     Use this mode if you are using the LaTeX text-formatter. It
+     provides commands for insertion of quotes, braces and other
+     characters. It also allows you to format the buffer for printing.
+     *Note TeX Mode: (xemacs)TeX Mode, for information on this mode.
+
+texinfo-mode
+     Texinfo is a documentation system that uses a single source file to
+     produce both printed output and on-line documentation. When you
+     use this mode, there will be some special keybindings for
+     inserting some characters and executing some commands.
+
+     This info file which you are reading right now is produced by
+     'Texinfo'
+
+outline-mode
+     Use this mode for editing outlines. When you enable this mode, you
+     can make part of the text temporarily invisible so that you can
+     see the overall structure of the outline. *Note Outline Mode:
+     (xemacs)Outline Mode, for information on this mode.
+
+c-mode
+     Use this mode for C programs. It will redefine some indentation
+     commands. *Note C Indent: (xemacs)C Indent.
+
+lisp-mode
+     Use this mode for Lisp programs. Look at the XEmacs User's Manual
+     for more information.
+
+fortran-mode
+     Use this mode for Fortran programs. This mode provides special
+     commands to move around and some other indentation commands.  For
+     more information on this mode, *Note Fortran: (xemacs)Fortran.
+
+edit-picture
+     This is the picture mode which you can use to create a picture out
+     of text characters. *Note Picture: (xemacs)Picture, for more
+     information.
+
+asm-mode
+     Use asm-mode for editing files of assembler code. Look at the file
+     ` /usr/local/lib/xemacs-VERSION/lisp/modes/asm.el' for more
+     information.
+
+   There are some other modes and commands for working with other kinds
+of text or programs. Emacs also provides commands for reading and
+sending Mail. For more information on these features look at the XEmacs
+Manual. Emacs also provides the functions of a desk calendar, with a
+diary of past or planned events. For more information on the calendar
+mode look at the manual for Calendar Mode and Diary.
+
+
+File: new-users-guide.info,  Node: Minor Modes,  Prev: Major Modes,  Up: Modes
+
+Minor Modes
+===========
+
+   The minor modes in Emacs provide some optional features which you can
+turn on or off. Any number of minor modes can be active at the same time
+with any major mode. You can enable a minor mode in one buffer and
+disable it in other mode. To enable a minor mode, for example the
+font-lock mode type the following command:
+
+     M-x font-lock-mode
+
+To enable the other minor modes, replace the "font-lock" with the name
+of the minor mode. To disable the mode type the command again. A
+positive argument will always turn the mode on. Whenever you type this
+command, it will turn the mode on if it was off, OR it will turn it off
+if it was on i.e. it toggles. Look at the mode-line at the bottom of the
+frame. If it says FLock in parentheses, then it means that this mode is
+on, otherwise it is off.
+
+   The following are some of the minor modes available in XEmacs. To
+enable any one of them type "M-x" in front of them.
+
+font-lock-mode
+     You can also choose this mode by selecting the Syntax Highlighting
+     menu item from the Options menu on the menu-bar at the top. If you
+     wish to have this mode enabled permanently, choose Save Options
+     from the Options menu. *Note Options Menu::, for more information
+     on the Options menu.  You can also add statements in your
+     `init.el' file. For each major mode in which you wish to enable
+     this minor mode, you need a statement in your `init.el' file. The
+     following example shows how to enable the font-lock mode when the
+     major mode is c-mode.
+
+          (add-hook 'c-mode-hook          'turn-on-font-lock)
+
+     *Note Other Customizations::.
+
+     When you enable this mode, the text will be displayed in different
+     colors and fonts depending on the type of the text. This makes the
+     text very easy to read and understand. For example, comments might
+     be displayed in red, variables in black, functions in blue and
+     other keywords in different colors and fonts. When you select More
+     from the Syntax Highlighting option, you get very detailed display
+     of colors and fonts; function names within comments themselves
+     might appear in a different font and color.
+
+auto-fill-mode
+     Enabling this mode will provide automatic word-wrapping. The <SPC>
+     key will break lines i.e. insert newlines as you type to prevent
+     lines from becoming too long.
+
+overwrite-mode
+     When you enable this mode, the text that you type will replace the
+     existing text rather than moving it to the right (the default
+     case). You can enable this mode by selecting Overstrike menu-item
+     from the Options menu from the menu-bar.
+
+abbrev-mode
+     After you enable this mode, you can define words which will expand
+     into some different text i.e. you can define abbreviations. For
+     example, you might define "expand" to "expand will eventually
+     expand to this text". After this definition you will be able to
+     get "expand will eventually expand to this text" simply by typing
+
+          expand <SPC>
+
+     *Note Abbrevs: (xemacs)Abbrevs, for more information on this mode
+     and on defining abbreviations.
+
+auto-save-mode
+     After you enable this mode in a buffer, the contents of that
+     buffer will be saved periodically. This will reduce the amount you
+     might lose in case of a system crash.
+
+line-number-mode
+     After you enable this mode, the line number at which your cursor is
+     present will be displayed continuously in the mode line.
+
+blink-paren
+     To enable this command, just type
+          M-x blink-paren
+
+     Do not add the "-mode" to it.  You can also select the Paren
+     Highlighting option from the Options menu. After you enable this
+     command, put your cursor on one of the left parenthesis. The other
+     matching parenthesis will start blinking. *Note Options Menu::,
+     for more information on the Paren Highlighting option.
+
+   For information on some other modes, look at the XEmacs User's Manual
+and the associated files.
+
+
+File: new-users-guide.info,  Node: Files,  Next: Other Customizations,  Prev: Modes,  Up: Top
+
+Files
+*****
+
+   The basic unit of stored data in Unix is the "file".  To edit a file,
+you must tell Emacs to read the file into a buffer. This is called
+"visiting" the file. You can now edit the buffer and to save the
+changes you must write the buffer back to the file.
+
+   In addition to visiting and saving files, Emacs can delete, copy,
+rename, and append to files, and operate on file directories.
+
+* Menu:
+
+* File Names::                  How to type and edit file name arguments.
+* Visiting::                    Visiting a file prepares Emacs to edit the file.
+* Saving Files::                How to save Emacs files.
+
+
+File: new-users-guide.info,  Node: File Names,  Next: Visiting,  Prev: Files,  Up: Files
+
+File Names
+==========
+
+   Most of the Emacs commands that operate on a file require you to
+specify a file name. For example, you might specify the file name
+initially when you enter Emacs :
+
+     xemacs myfile RET
+
+After you hit <RET>, you will enter XEmacs with "myfile" read into the
+current buffer. If you do not specify the filename when entering Emacs,
+you can use the Open... option from the File menu. You will be prompted
+for a filename in the echo area:
+
+     Find file: /usr/workspace/
+
+Type in a file name which you want to open after the "/" and hit <RET>.
+The specified file will be read into the current buffer. The
+"/usr/workspace" might be the "default directory". When Emacs prompts
+you for a file, it uses the default-directory unless you specify a
+directory. You can see what the default directory of the current buffer
+is by using the Describe Variable option from the Help menu. When Emacs
+prompts you for the variable name to describe, type DEFAULT-DIRECTORY.
+If you wish to open a file in some other directory, use <DEL> or the
+<BackSpace> key to go back and type the path name of the new directory.
+
+   You can create a new directory by typing `M-x make-directory'. This
+command will prompt you for a directory name:
+
+     Create directory: /usr/workspace/
+
+After you type a directory name and press <RET>, a new directory with
+the specified name will be created. If you do not wish to create a new
+directory, then simply press `C-g' to quit the command. Similarly, you
+can also remove a directory by using the command `remove-directory'.
+The command `M-x pwd' will print the current buffer's default
+directory. For more information on file names, *Note File Names:
+(xemacs)File Names.
+
+
+File: new-users-guide.info,  Node: Visiting,  Next: Saving Files,  Prev: File Names,  Up: Files
+
+Visiting Files
+==============
+
+   To edit a file in Emacs you need to "visit" it. "Visiting" a file
+means copying its contents (or reading them) into the current buffer.
+Emacs will create a new buffer for each file that you visit. The buffer
+will be named after the file that you open. If you open a file
+`/usr/workspace/myfile.texinfo', the buffer will be called
+"myfile.texinfo". If a buffer with this name already exists, a unique
+name will be constructed by appending `<2>', `<3>', etc. If this is the
+second buffer with the same name, a "<2>" will be appended, "<3>" for a
+third buffer and so on. The name of the buffer which is being displayed
+in the window will be shown both at the top and bottom of the frame.
+Once you are in XEmacs, you can use the following commands:
+
+`C-x C-f'
+     This command will visit a file (`find-file'). It will prompt you
+     for a file name to visit. The Open... option from the File menu
+     does the same thing:
+
+          Find file: /usr/workspace/
+
+     Type in a filename and press <RET>. You will see a new buffer on
+     the screen with its name in the mode-line. If the filename you
+     specify already exists in Emacs, the buffer containing that file
+     will be selected. You will get an error message if the filename
+     does not exist. If you still press <RET>, a new buffer with the
+     given filename will be displayed on the screen.
+
+`C-x C-v'
+     This command (`find-alternate-file'), will visit a different file
+     instead of the one visited last. It is similar to `C-c C-f' except
+     that it kills the current buffer (after offering to save it).
+
+`C-x 5 C-f'
+     This command will visit a file in another frame
+     (`find-file-other-frame') without changing the current window or
+     frame. The Open in New Frame... from the File menu will do the
+     same thing. It will prompt you for a file name in the echo area.
+     After you type the file name and press <RET>, the specified file
+     will be read into a new buffer and displayed on a new frame.
+
+
+File: new-users-guide.info,  Node: Saving Files,  Prev: Visiting,  Up: Files
+
+Saving Files
+============
+
+   The changes that you make after visiting a file will not be saved
+unless you save the buffer. When you save the buffer, Emacs writes the
+current contents of the buffer into the visited file. Some commands to
+save buffers are:
+
+`C-x C-s'
+     This command will permanently save the current buffer in its
+     visited file (`save-buffer'). You will see the following message
+     in the echo area if you save a file called "myfile.texinfo" :
+
+          Wrote /usr/workspace/myfile.texinfo
+
+     Try using this command twice. You will get the above message the
+     first time you use this command, the second time you will get the
+     following message:
+
+          (No changes need to be saved)
+
+     This message indicates that you haven't made any changes since the
+     last time you saved the file.
+
+`C-x s'
+     This command will save all the buffers in their visited files
+     (`save-some-buffers'). It will prompt you for typing yes or no:
+
+          Save file /usr/workspace/myfile.texinfo? (y or n)
+
+     You will get the above message for all the buffers. Type "y" if
+     you want to save the buffer.
+
+`C-x C-w'
+     This command will prompt you for a file name and save the current
+     buffer in that file. (`write-file'). You will see the following
+     message in the echo area:
+
+          Write file: /usr/workspace/
+
+     After you type in a file name, press <RET>. The buffer will be
+     saved in a new file. You can make copies of a particular file
+     using this command.
+
+   You can also undo all the changes made since the file was visited or
+saved by reading the text from the file again (called "reverting"). For
+more information on this option, *Note Reverting: (xemacs)Reverting.
+
+   When you save a file in Emacs, it destroys its old contents. However,
+if you set the variable MAKE-BACKUP-FILES to non-`nil' i.e. `t', Emacs
+will create a "backup" file. Select the Describe variable option from
+the Help menu and look at the documentation for this variable. Its
+default value should be `t'. However, if its not then use `M-x
+set-variable' to set it to `t' (*note Setting Variables::). The backup
+file will contain the contents from the last time you visited the file.
+Emacs also provides options for creating numbered backups. For more
+information on backups, *Note Backup: (xemacs)Backup.
+
+   Emacs also saves all the files from time to time so that in case of a
+system crash you don't lose lot of your work. You will see the message
+`Auto-saving...' displayed in the echo area when the buffer is being
+saved automatically. The auto saved files are named by putting the
+character `#' in front and back. For example a file called
+"myfile.texinfo" would be named as `#myfile.texinfo#'. For information
+on controlling auto-saving and recovering data from auto-saving, *Note
+Auto Save Files: (xemacs)Auto Save Files.
+
+   Emacs provides protection from simultaneous editing which occurs if
+two users are visiting the same file and trying to save their changes.
+It will put a lock on a file which is being visited and modified. If
+any other user tries to modify that file, it will inform the user about
+the lock and provide some options. For more information on protection
+against simultaneous editing, *Note Interlocking: (xemacs)Interlocking.
+
+
+File: new-users-guide.info,  Node: Other Customizations,  Next: Select and Move,  Prev: Files,  Up: Top
+
+Other Customizations
+********************
+
+   You can modify the behavior of Emacs in minor ways permanently by
+putting your changes in your `init.el' file. This file contains Lisp
+function call expressions. Each of these expressions will consist of a
+function name followed by arguments, all surrounded by parentheses. For
+example, to turn on the auto-fill-mode (i.e. break lines automatically
+when they become too long) , put the following  line in your `init.el'
+file:
+
+     (add-hook 'text-mode-hook
+             '(lambda() (auto-fill-mode 1)))
+
+Emacs has a function named "turn-on-auto-fill" which is defined as
+"(lambda() (auto-fill-mode 1))". Therefore you can also write the above
+as:
+
+     (add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+Emacs provides a number of hooks for the sake of customization. The hook
+variables contain list of functions to be called with no arguments. To
+turn on the auto-fill-mode, add the appropriate hook as shown in the
+example above.
+
+   Similarly, to enable the "font-lock mode" which displays your
+program in different fonts and colors(*note Modes::), put the following
+in your `init.el' file. The comments above the statement explain what
+the statements do.
+
+     ;;; enables the font-lock-mode in Lisp Mode
+     (add-hook 'lisp-mode-hook    'turn-on-font-lock)
+     
+     ;;; enables the font-lock-mode in Texinfo Mode
+     (add-hook 'texinfo-mode-hook    'turn-on-font-lock)
+     
+     ;;; enables the font-lock mode in C Mode
+     (add-hook 'c-mode-hook          'turn-on-font-lock)
+
+   To turn on the font-lock mode in other Major Modes like emacs-lisp,
+just put the name of the mode with "-hook" appended to it as the middle
+parameter in the above examples. You can also select the color that the
+functions, comments or other keywords  should be displayed in :
+
+     ;;; the function names will now be displayed in blue color
+     (set-face-foreground 'font-lock-function-name-face "blue")
+     
+     ;;; the comments will be displayed in forest green
+      (set-face-foreground 'font-lock-comment-face "forest green")
+
+For other customizations regarding the font-lock face, look at the file
+`/usr/local/lib/xemacs-VERSION/etc/sample.init.el'.
+
+* Menu:
+
+* Setting Variables::           Customizing Emacs variables
+* Init File::                   Some examples of Lisp expressions in
+                                init.el file
+
+
+File: new-users-guide.info,  Node: Setting Variables,  Next: Init File,  Prev: Other Customizations,  Up: Other Customizations
+
+Other Customizations
+====================
+
+   In XEmacs, "variables" are used for internal record-keeping and
+customizations. There are some variables called "options" which you can
+use for customizations. To examine a variable use:
+
+     ;;; print the value and documentation of the variable, use either of the
+     ;;; following commands
+     C-h v
+     M-x describe variable
+
+   After you type any of the above commands, you will be prompted for a
+variable name in the "echo area". Type in the name of the variable, for
+example, type  CASE-FOLD-SEARCH <RET> Your window will split into two
+and you will see the following message in that window:
+
+     case-fold-search's value is t
+     This value is specific to the current buffer.
+     
+     Documentation:
+     *Non-nil if searches should ignore case.
+     Automatically becomes buffer-local when set in any fashion.
+
+Since this variable's value is 't' searches will ignore case. If you
+want case-sensitive-search (i.e. if you are searching for "Foo" and you
+do not want "foo" to be included in the search, you need to set this
+variable to "nil". In order to do that, use:
+
+     M-x set-variable
+
+Emacs will prompt you for the variable which you wish to set. Type in
+"case-fold-search" and hit <RET>. You will see the following message:
+
+     Set case-fold-search to value:
+
+Type "nil" and hit <RET>.  Now if you again use `M-x describe variable'
+, you will see that the new value of case-fold-search will be "nil" and
+your searches will be case-sensitive. This will be effective only for
+that Emacs session. If you want to change the value of a variable
+permanently put the following statement in your `init.el' file :
+
+     (setq case-fold-search nil)
+
+This statement will make searches case-sensitive only in the current
+buffer which is the `init.el' file. This will not be very useful. To
+make searches case-sensitive globally in all buffers, use:
+
+     (setq-default case-fold-search nil)
+
+   If you want to change the value of any other variable, use :
+
+     (setq <variable-name> <new value>)
+
+"setq" will assign the "new value" to the "variable-name" .
+
+   If you want a list of the "options" i.e. the variables available for
+customization type:
+
+
+     ;;; displays a buffer listing names, values and documentation of options
+     M-x list-options
+     
+     ;;; displays options and allows you to edit those list of options
+     M-x edit-options
+
+Try these options. If you are using edit-options to edit a variable,
+just point at the variable you wish to edit and use one of the following
+commands:
+
+1
+     Set the value of the variable to t (non-nil).
+
+0
+     Set the value of the variable to nil.
+
+n
+     Move to the next variable.
+
+p
+     Move to the previous variable.
+
+   There are some other options available to make the value of a
+variable local to a buffer and then to switch to its global value. You
+can also have a "local variables list" in a file which specifies the
+values to use for certain Emacs variables when you edit that file.
+*Note Variables: (xemacs)Variables, for information on these options.
+
+
+File: new-users-guide.info,  Node: Init File,  Prev: Setting Variables,  Up: Other Customizations
+
+Init File Examples
+==================
+
+   For customizing Emacs, you need to put Lisp expressions in your
+`init.el' file. The following are some useful Lisp expressions. If you
+find any of them useful, just type them in your `init.el' file:
+
+   * The following expression will make <TAB> in C mode insert a real
+     tab character if the cursor or point is in the middle of the line.
+     Now hitting the <TAB> key will indent a line only if the cursor is
+     at the left margin or in the line's indentation:
+
+          (setq c-tab-always-indent nil)
+
+     The value of the variable C-TAB-ALWAYS-INDENT is usually `t' for
+     `true'. When this variable is true, then hitting the <TAB> key
+     always indents the current line.
+
+   * This expression will turn on the AUTO-FILL-MODE when you are in
+     text mode:
+
+          (setq text-mode-hook 'turn-on-auto-fill)
+
+     This mode will automatically break lines when you type a space so
+     that the lines don't become too long. The length of the lines is
+     controlled by the variable FILL-COLUMN. You can set this variable
+     to a value you wish. Look at the documentation for this variable
+     to see its default value. To change the value to 75 for example,
+     use:
+
+          (setq-default fill-column 75)
+
+     This will change the value of this variable globally.
+
+   * The following expression will enable the use of EVAL-EXPRESSION
+     without confirmation:
+
+          (put 'eval-expression 'disabled nil)
+
+     Now when you use EVAL-EXPRESSION, it will print the value of the
+     expression you specify in the "echo area" without confirming with
+     you.
+
+   * This expression will remove the binding of `C-x C-c', because its
+     easy to hit this key by mistake and you will exit Emacs
+     unintentionally. You can use the Exit Emacs option from the File
+     menu to exit Emacs.
+
+          (global-set-key "\C-x\C-c" nil)
+
+     Now if you type `C-x C-c', you won't exit Emacs.
+
+   * The following expression will make the <BACKSPACE> and the <DEL>
+     key work in the same manner:
+
+          (global-set-key 'backspace [delete])
+
+   * This expression will make searches case sensitive:
+
+          (setq-default case-fold-search nil)
+
+     If we use "setq" instead of "setq-default" then searches will be
+     case-sensitive only in the current buffer's local value. In this
+     case the buffer would be the `init.el' file. Since this would not
+     be too helpful and we want to have case-sensitive searches in all
+     buffers, we have to use "setq-default".
+
+   * This expression will enable the font-lock mode when you are using
+     texinfo mode:
+
+          (add-hook 'texinfo-mode-hook 'turn-on-font-lock)
+
+     *Note Minor Modes::, for information on font-lock mode.
+
+   * Rebinds the key `C-x l' to run the function `make-symbolic-link':
+
+          (global-set-key "\C-xl" 'make-symbolic-link)
+
+     We use the single quote before "make-symbolic-link" because its a
+     function name. You can also use the following expression which
+     does the same thing:
+
+          (define-key global-map "C-xl" 'make-symbolic-link)
+
+   * The following expression will bind `C-x l' to run the function
+     `make-symbolic-link' in C mode only:
+
+          (define-key c-mode-map "C-xl" 'make-symbolic-link)
+
+     Instead of binding `C-xl' to run `make-symbolic-link', you can
+     bind the <F1> key to run this function:
+
+          (define-key c-mode-map 'f1 'make-symbolic-link)
+
+     Here, you have to use lower case for naming function keys like
+     <F1>.
+
+   * You can bind the function `undo' i.e. `C-x u' to any key, for
+     example to <F2>:
+
+          (global-set-key 'f2 'undo)
+
+   * The following statement will display the current time in the
+     modeline of the buffer:
+
+          (display-time)
+
+   * This displays the current line number on which the cursor is
+     present in the modeline:
+
+          (setq line-number-mode t)
+
+   * If you don't want the text to be highlighted when you use commands
+     for marking regions so as to use the "kill" and "yank" commands
+     later, you can use the following expression in your `init.el' file:
+
+          (setq zmacs-regions nil)
+
+     Now if you use a command like `C-x C-p' (`mark-page'), the text
+     will not be highlighted.
+
+   * To control the number of buffers listed when you select the Buffers
+     menu, you need to set the variable BUFFERS-MENU-MAX-SIZE to
+     whatever value you wish. For example, if you want 20 buffers to be
+     listed when you select Buffers use:
+
+          (setq buffers-menu-max-size 20)
+
+   * If you want the window title area to display the full
+     directory/name of the current buffer's file, and not just the
+     name, use:
+
+          (setq frame-title-format "%S: %f")
+
+   * To get rid of the menu, use :
+
+          (set-menubar nil)
+
+   * If you want an extensive menu-bar use the following expression in
+     your `init.el' file.
+
+          (load "big-menubar")
+
+     If you want to write your own menus, you can look at some of the
+     examples in
+     `/usr/local/lib/xemacs-VERSION/lisp/packages/big-menubar.el' file.
+
+
+   For more information on initializing your `init.el' file, *Note Init
+File: (xemacs)Init File. You should also look at
+`/usr/local/lib/xemacs-VERSION/etc/sample.init.el', which is a sample
+`init.el' file. It contains some of the commonly desired customizations
+in Emacs.
+
+
+File: new-users-guide.info,  Node: Select and Move,  Next: Search and Replace,  Prev: Other Customizations,  Up: Top
+
+Selecting and Moving Text
+*************************
+
+   Many Emacs commands operate on an arbitrary contiguous part of the
+current buffer. You can select some part of the buffer and edit only
+that part of the buffer. This selected buffer is called a "region". You
+can select text in two ways:
+
+   * You use special keys to select text by defining a region between
+     the cursor and "the mark" (which you set).
+
+   * If you are running XEmacs under X, you can also select text with
+     the mouse.
+
+* Menu:
+
+* Selecting Text::              Select a region of text by setting the Mark
+* Mouse::                       Selecting Text with Mouse
+* Region Operation::            Various ways to operate on a selected text
+* Moving Text::                 Moving Text
+* Accumulating text::           Accumulating Text from several buffers
+
+
+File: new-users-guide.info,  Node: Selecting Text,  Next: Mouse,  Prev: Select and Move,  Up: Select and Move
+
+Setting the Mark
+================
+
+   To define a region you need to set "the mark" at one end of it and
+move the cursor to the other end. Once you set the mark, it remains
+there until you set it again to some other place. Each buffer has its
+own "mark ring" (a place where Emacs remembers 16 previous locations of
+the mark). To set "the mark", you can use the following commands:
+
+`C-<SPC>'
+     This command will set "the mark" at the position of your cursor
+     (`set-mark-command').  You can move your cursor around and "the
+     mark" will stay there.
+
+`C-x C-x'
+     Interchange mark and point (`exchange-point-and-mark'). Since Emacs
+     will have only one cursor, after you move the cursor it will be
+     unable to show you where you set the "the mark". In order to see
+     "the mark" you can type the command `C-x C-x' which will put your
+     cursor on the position of your mark and your mark on the position
+     of your cursor. Use the command again to reset the positions of
+     your cursor and mark.
+
+`C-<'
+     This command will push the mark at the beginning of the buffer
+     without changing the position of your cursor.
+
+`C->'
+     This command will push the mark at the end of the buffer without
+     changing the position of your cursor.
+
+You can also give arguments to `C-<' or `C->'. *Note The Mark and the
+Region: (xemacs)The Mark and the Region, for more information.
+
+
+File: new-users-guide.info,  Node: Mouse,  Next: Region Operation,  Prev: Selecting Text,  Up: Select and Move
+
+Selecting Text with Mouse
+=========================
+
+   If you are using XEmacs under X, you can use the mouse to select
+text. The selected text will always be highlighted, so just by looking
+at the text you know what you have selected so far. To select a word
+just double-click with the left-mouse-button on the word. To select a
+whole line triple-click anywhere on the line with the
+left-mouse-button. You can also use the Copy item from the Edit menu on
+the menu-bar to select text. This kind of selection is called Clipboard
+selection, *Note X Clipboard Selection: (xemacs)X Clipboard Selection,
+for more information. To select an arbitrary region, follow these steps:
+
+  1. Move the mouse cursor over the character at the beginning of the
+     region of text you want to select.
+
+  2. Press and hold the left mouse button.
+
+  3. While holding the left mouse button down, drag the cursor to the
+     character at the end of the region of text you want to select.
+
+  4. Release the left mouse button.
+        The selected region of text is highlighted.
+
+   *Note Selecting Text with the Mouse: (xemacs)Selecting Text with the
+Mouse, for more information regarding the Mouse and additional mouse
+operations.
+
+
+File: new-users-guide.info,  Node: Region Operation,  Next: Moving Text,  Prev: Mouse,  Up: Select and Move
+
+Operating on the Region
+=======================
+
+   Once you have selected a region you can do a lot of things to the
+text in the region:
+   * Kill the text with `C-w'. For example if you want to kill a
+     paragraph, position the cursor to the beginning of the paragraph
+     and type `C-SPC'. Then go to the end of the paragraph and type
+     `C-w'. The entire paragraph will be deleted. You can also select
+     the text with a mouse and type `C-w' to kill the entire region.
+     *Note Killing: (xemacs)Killing, for more information.
+
+   * Save the text in a buffer or a file (*note Accumulating Text:
+     (xemacs)Accumulating Text.).
+
+   * You can convert the case of the text with `C-x C-l' or `C-x C-u'
+     If you type `C-x C-u' the selected text will become all
+     upper-case. If you type `C-x C-l' the selected text will become all
+     lower-case.
+
+   * Print hardcopy with `M-x print-region'. *Note Hardcopy:
+     (xemacs)Hardcopy, for more information. This command will print a
+     hardcopy of only the selected text.
+
+   * Indent it with `C-x <TAB>' or `C-M-\' *Note Indentation:
+     (xemacs)Indentation, for more information.
+
+
+File: new-users-guide.info,  Node: Moving Text,  Next: Accumulating text,  Prev: Region Operation,  Up: Select and Move
+
+Moving Text
+===========
+
+   The most common way to move or copy text in Emacs is through
+"killing" or `cutting' it and then "yanking" or `pasting' it. You can
+also use the Cut or Copy option from the Edit menu for killing and
+copying respectively. *Note Edit menu::, for reviewing the commands for
+killing text. All the killed text in Emacs is recorded in the "kill
+ring". Since there is only one kill ring in Emacs, you can kill text in
+one buffer and yank it in another buffer. To `paste' or `yank' the
+killed text you can use the following commands:
+`C-y'
+     This command will yank or paste the last killed text (`yank').
+
+`M-w'
+     Save region as last killed text without actually killing it
+     (`copy-region-as-kill'). You can use this command to copy a
+     selected region and then yank (or paste) it without actually
+     removing it from the buffer.
+
+`C-M-w'
+     Append next kill to last batch of killed text
+     (`append-next-kill'). This command will append whatever you killed
+     last to what you kill now. Then later you will be able to yank the
+     entire appended text from the "kill ring".
+
+
+File: new-users-guide.info,  Node: Accumulating text,  Prev: Moving Text,  Up: Select and Move
+
+Accumulating Text
+=================
+
+   The following commands can be used for accumulating text from
+different buffers into one place or for copying one region of text into
+many buffers:
+
+`M-x append-to-buffer'
+     Append region to contents of specified buffer
+     (`append-to-buffer'). After you type in this command and press
+     <RET>, Emacs will prompt you for a buffer name. You will see a
+     message in the echo area:
+          Append to buffer: (default <buffer name>)
+
+     After you type in a buffer name, a copy of the region will be
+     inserted at the location of the cursor into that buffer. If there
+     is no buffer with the name given by you, Emacs will create a new
+     buffer with that name. By default the cursor's position in the
+     <buffer name> is at the end.
+
+`M-x prepend-to-buffer'
+     Prepend region to contents of specified buffer. This command is
+     similar to the above command except that the cursor in the buffer
+     (by default) is at the beginning rather than at the end.
+
+`M-x copy-to-buffer'
+     Copy region into specified buffer, deleting that buffer's old
+     contents. This command will also prompt you for a buffer name.
+
+`M-x insert-buffer'
+     Insert contents of specified buffer into current buffer at point.
+     This command will prompt you for a buffer name which you want to
+     be copied into the current buffer at the location of the cursor.
+
+`M-x append-to-file'
+     This command will prompt you for a filename and append the region
+     to the end of the contents of the specified file.
+
+*Note Accumulating Text: (xemacs)Accumulating Text, for more
+information regarding this topic.
+
+   You can also use "rectangle commands" for operating on rectangular
+areas of text. *Note Rectangles: (xemacs)Rectangles, for more
+information regarding rectangle commands.
+
+   Emacs also provides "registers" which serve as temporary storage for
+text or positions. Each register has a one character name and they can
+store "regions", a "rectangle", or a "mark" i.e. a cursor position.
+Whatever you store in register stays there until you store something
+else in that register. To find out about commands which manipulate
+registers *Note Registers: (xemacs)Registers.
+
+
+File: new-users-guide.info,  Node: Search and Replace,  Prev: Select and Move,  Up: Top
+
+Searching and Replacing
+***********************
+
+   Emacs provides commands for searching for occurrences of a particular
+string. The search is incremental i.e. it begins even before you
+complete typing the whole string. All searches in Emacs ignore the case
+of the text they are searching, i.e. if you are searching for "String",
+then "string" will also be one of the selections. If you want a case
+sensitive search select the Case Sensitive Search from the Option menu.
+You can also set the variable CASE-FOLD-SEARCH to `nil' for making
+searches case-sensitive. For information on setting variables, *Note
+Setting Variables::. The two commands for searching for strings in
+XEmacs are:
+
+`C-s'
+     This command will prompt you for a string to search :
+
+          I-search:
+
+     If you type "myname" as the string to be searched, then Emacs will
+     start searching for "m", "my", "myn", etc as you go on typing the
+     whole string in the forward direction. The cursor will be on the
+     matching string which has been found so far. If you find the
+     correct match just hit <RET> or type `C-f' or `C-b' to set the
+     cursor's position. If you find a matching string "myname" but you
+     were looking for a different occurrence of it, use `C-s' again. If
+     the search is unable to find the string, it will give you an error
+     message.
+
+`C-r'
+     This command will perform an incremental search in the backward
+     direction. It will prompt you for a string name:
+
+          I-search backward:
+
+     After you start typing the string name, it will search for the
+     string in the same fashion as it does for `C-s' except that it
+     will search in the backward direction. If it cannot find the
+     string name, it will give you an error message.
+
+   If you make a mistake while typing the string names when you use the
+above commands, you can use the <DEL> key to erase characters. Each
+<DEL> will erase the last character. At any time if you want to quit
+the search, just type `C-g'.
+
+   To do a non-incremental search i.e. to start the search only after
+you have typed the whole string you can use the following commands:
+
+`C-s RET "string" RET'
+     This command will search for the specified string in the forward
+     direction and will give an error message if the string is not
+     found.
+
+`C-r RET "string" RET'
+     This command will search for the specified string in the backward
+     direction.
+
+   For information on how Emacs searches for words and regular
+expressions, *Note Search: (xemacs)Search.
+
+   To replace all occurrences of a string in Emacs, you can use the
+following command:
+     M-x replace-string
+
+After you type `M-x replace-string', you will be prompted for a string
+name to replace:
+
+     Replace string:
+
+After you type in a string name, for example "FOO" and press <RET>, you
+will see another prompt:
+
+     Replace string FOO with:
+
+Now type the string which you want to replace "FOO" with and press
+<RET>. After all the occurrences are replaced you will see the message
+"Done" in the echo area.  If you want only some occurrences of the
+string to be replaced, use `M-x query-replace RET <string> RET
+<newstring> RET'. For more information, *Note Query Replace:
+(xemacs)Query Replace.
+
+   XEmacs also provides a utility for checking spellings. Use `M-x
+ispell-buffer' to check for spellings in the whole buffer. You can also
+check the spelling of a word or a region. You can use menus to check
+for spellings:
+
+Evaluate the expression `(load "big-menubar")'. To evaluate this
+expression you need to hit the <META> or the <ESC> key twice and type
+in the expression in the echo area before hitting <RET>. You will get
+an extensive menubar. Select the Spell Check menu item from the
+Utilities menu for checking spellings.
+
+
+File: new-users-guide.info,  Node: Key Index,  Next: Command Index,  Prev: Intro,  Up: Top
+
+Key (Character) Index
+*********************
+
+* Menu:
+
+* C-<:                                   Selecting Text.
+* C->:                                   Selecting Text.
+* C-a:                                   Cursor Position.
+* C-b:                                   Cursor Position.
+* C-d:                                   Erase.
+* C-e:                                   Cursor Position.
+* C-fx:                                  Cursor Position.
+* C-g:                                   The Help Menu.
+* C-h d:                                 The Help Menu.
+* C-h k:                                 The Help Menu.
+* C-h t:                                 Edit.
+* C-k:                                   Erase.
+* C-M-\:                                 Region Operation.
+* C-n:                                   Cursor Position.
+* C-p:                                   Cursor Position.
+* C-r:                                   Search and Replace.
+* C-s:                                   Search and Replace.
+* C-SPC <1>:                             Region Operation.
+* C-SPC:                                 Selecting Text.
+* C-t:                                   Cursor Position.
+* C-u:                                   Numeric Argument.
+* C-v:                                   Cursor Position.
+* C-w:                                   Region Operation.
+* C-x 0:                                 XEmacs Window.
+* C-x 1:                                 XEmacs Window.
+* C-x 2:                                 XEmacs Window.
+* C-x 3:                                 XEmacs Window.
+* C-x 4:                                 XEmacs Window.
+* C-x 4 b:                               XEmacs Window.
+* C-x 4 d:                               XEmacs Window.
+* C-x 4 f:                               XEmacs Window.
+* C-x 4 m:                               XEmacs Window.
+* C-x 5 C-f:                             Visiting.
+* C-x C-c:                               Exiting.
+* C-x C-f:                               Visiting.
+* C-x C-l:                               Region Operation.
+* C-x C-s:                               Saving Files.
+* C-x C-u:                               Region Operation.
+* C-x C-v:                               Visiting.
+* C-x C-w:                               Saving Files.
+* C-x C-x:                               Selecting Text.
+* C-x s:                                 Saving Files.
+* C-x TAB:                               Region Operation.
+* C-x u:                                 Undo.
+* C-y:                                   Moving Text.
+* C-z:                                   Exiting.
+* DEL:                                   Insert.
+* M--:                                   Numeric Argument.
+* M-<:                                   Cursor Position.
+* M->:                                   Cursor Position.
+* M-C-v:                                 XEmacs Window.
+* M-d:                                   Erase.
+* M-DEL:                                 Erase.
+* M-k:                                   Erase.
+* M-v:                                   Cursor Position.
+* M-z:                                   Erase.
+* RET:                                   Insert.
+
