@@ -29,12 +29,12 @@
     (ideographic-radical . 97)	; â½ 
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (=ks-x1001		. #x4D7E)	; ø»‰œ‘
     (=jis-x0208		. #x313B)	; ø½Š¶
+    (=ks-x1001		. #x4D7E)	; ø»‰œ‘
     (=gt		. 27382)	; ý¡€†«¶
     (=gt-k		. 01570)	; ý¡„€˜¢
     (=gt-pj-1		. #x313B)	; ý¡€†«¶
-    (=ucs@jis		. #x74DC)	; ø»‰œ‘
+    (=ucs@jis		. #x74DC)	; ø½Š¶
     ))
 (define-char
   '((=>ucs		. #x74DD)	; ç“
@@ -176,11 +176,11 @@
     (ideographic-radical . 97)	; â½ 
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=jis-x0213-2-2000	. #x712B)	; ø»¦’ª
     (=jis-x0212		. #x4C72)	; ø»‹¤«
+    (=jis-x0213-2-2000	. #x712B)	; ø»¦’ª
     (=daikanwa		. 21380)	; ø¸…Ž„
     (=jef-china3	. #x5AB0)	; øº…ª°
-    (=ucs@jis		. #x74DE)	; ø»¦’ª
+    (=ucs@jis		. #x74DE)	; ø»‹¤«
     ))
 (define-char
   '((morohashi-daikanwa	21380 0 0)
@@ -380,9 +380,9 @@
     (ideographic-radical . 97)	; â½ 
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (=ks-x1001		. #x7B52)	; ø»ŠŸ‰
-    (=jis-x0208-1983	. #x6121)	; ø»‡®ˆ
     (=jis-x0208-1978	. #x6121)	; ø»ƒš€
+    (=jis-x0208-1983	. #x6121)	; ø»‡®ˆ
+    (=ks-x1001		. #x7B52)	; ø»ŠŸ‰
     ))
 (define-char
   '((=>ucs		. #x74E0)	; ç“ 
@@ -766,11 +766,11 @@
     (ideographic-radical . 97)	; â½ 
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (=ks-x1001		. #x7878)	; ø»Š›•
     (=jis-x0208		. #x493B)	; ø½Š±†
+    (=ks-x1001		. #x7878)	; ø»Š›•
     (=gt		. 27502)	; ý¡€†­®
     (=gt-pj-1		. #x493B)	; ý¡€†­®
-    (=ucs@jis		. #x74E2)	; ø»Š›•
+    (=ucs@jis		. #x74E2)	; ø½Š±†
     ))
 (define-char
   '((=>ucs		. #x74E2)	; ç“¢
@@ -834,13 +834,13 @@
     (ideographic-radical . 97)	; â½ 
     (ideographic-strokes . 14)
     (total-strokes	 . 19)
-    (=ks-x1001		. #x777B)	; ø»Š™º
     (=jis-x0208		. #x6122)	; ø½‹“½
+    (=ks-x1001		. #x777B)	; ø»Š™º
     (=big5		. #xC3A4)	; ý¢€ŒŽ¤
     (=gt		. 27515)	; ý¡€†­»
     (=gt-pj-1		. #x6122)	; ý¡€†­»
     (=daikanwa		. 21425)	; ø¸…Ž±
-    (=ucs@jis		. #x74E3)	; ø»Š™º
+    (=ucs@jis		. #x74E3)	; ø½‹“½
     ))
 (define-char
   '((morohashi-daikanwa	21425 0 1)

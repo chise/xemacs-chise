@@ -5,10 +5,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25A0)	; â– 
-    (=cns11643-1	. #x217C)	; ø»‘ƒ·
-    (=ks-x1001		. #x2161)	; ø»ˆ›Œ
-    (=gb2312		. #x2176)	; ø»„‡™
     (=jis-x0208		. #x2223)	; ø½‰·œ
+    (=gb2312		. #x2176)	; ø»„‡™
+    (=ks-x1001		. #x2161)	; ø»ˆ›Œ
+    (=cns11643-1	. #x217C)	; ø»‘ƒ·
     (=big5		. #xA1BD)	; ý¢€Š†½
     ))
 (define-char
@@ -17,10 +17,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25A1)	; â–¡
-    (=cns11643-1	. #x217B)	; ø»‘ƒ¶
-    (=ks-x1001		. #x2160)	; ø»ˆ›‹
-    (=gb2312		. #x2175)	; ø»„‡˜
     (=jis-x0208		. #x2222)	; ø½‰·›
+    (=gb2312		. #x2175)	; ø»„‡˜
+    (=ks-x1001		. #x2160)	; ø»ˆ›‹
+    (=cns11643-1	. #x217B)	; ø»‘ƒ¶
     (=big5		. #xA1BC)	; ý¢€Š†¼
     ))
 (define-char
@@ -149,10 +149,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25B2)	; â–²
-    (=cns11643-1	. #x2175)	; ø»‘ƒ°
-    (=ks-x1001		. #x2163)	; ø»ˆ›Ž
-    (=gb2312		. #x2178)	; ø»„‡›
     (=jis-x0208		. #x2225)	; ø½‰·ž
+    (=gb2312		. #x2178)	; ø»„‡›
+    (=ks-x1001		. #x2163)	; ø»ˆ›Ž
+    (=cns11643-1	. #x2175)	; ø»‘ƒ°
     (=big5		. #xA1B6)	; ý¢€Š†¶
     ))
 (define-char
@@ -161,10 +161,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25B3)	; â–³
-    (=cns11643-1	. #x2174)	; ø»‘ƒ¯
-    (=ks-x1001		. #x2162)	; ø»ˆ›
-    (=gb2312		. #x2177)	; ø»„‡š
     (=jis-x0208		. #x2224)	; ø½‰·
+    (=gb2312		. #x2177)	; ø»„‡š
+    (=ks-x1001		. #x2162)	; ø»ˆ›
+    (=cns11643-1	. #x2174)	; ø»‘ƒ¯
     (=big5		. #xA1B5)	; ý¢€Š†µ
     ))
 (define-char
@@ -187,8 +187,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25B6)	; â–¶
-    (=jis-x0213-1-2000	. #x2322)	; ø»¢•¹
     (=ks-x1001		. #x223A)	; ø»ˆœƒ
+    (=jis-x0213-1-2000	. #x2322)	; ø»¢•¹
     ))
 (define-char
   '((name		. "WHITE RIGHT-POINTING TRIANGLE")
@@ -196,8 +196,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25B7)	; â–·
-    (=jis-x0213-1-2000	. #x2321)	; ø»¢•¸
     (=ks-x1001		. #x2239)	; ø»ˆœ‚
+    (=jis-x0213-1-2000	. #x2321)	; ø»¢•¸
     ))
 (define-char
   '((name		. "BLACK RIGHT-POINTING SMALL TRIANGLE")
@@ -233,9 +233,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25BC)	; â–¼
-    (=cns11643-1	. #x217E)	; ø»‘ƒ¹
-    (=ks-x1001		. #x2165)	; ø»ˆ›
     (=jis-x0208		. #x2227)	; ø½‰· 
+    (=ks-x1001		. #x2165)	; ø»ˆ›
+    (=cns11643-1	. #x217E)	; ø»‘ƒ¹
     (=big5		. #xA1BF)	; ý¢€Š†¿
     ))
 (define-char
@@ -244,9 +244,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25BD)	; â–½
-    (=cns11643-1	. #x217D)	; ø»‘ƒ¸
-    (=ks-x1001		. #x2164)	; ø»ˆ›
     (=jis-x0208		. #x2226)	; ø½‰·Ÿ
+    (=ks-x1001		. #x2164)	; ø»ˆ›
+    (=cns11643-1	. #x217D)	; ø»‘ƒ¸
     (=big5		. #xA1BE)	; ý¢€Š†¾
     ))
 (define-char
@@ -269,8 +269,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25C0)	; â—€
-    (=jis-x0213-1-2000	. #x2324)	; ø»¢•»
     (=ks-x1001		. #x2238)	; ø»ˆœ
+    (=jis-x0213-1-2000	. #x2324)	; ø»¢•»
     ))
 (define-char
   '((name		. "WHITE LEFT-POINTING TRIANGLE")
@@ -278,8 +278,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25C1)	; â—
-    (=jis-x0213-1-2000	. #x2323)	; ø»¢•º
     (=ks-x1001		. #x2237)	; ø»ˆœ€
+    (=jis-x0213-1-2000	. #x2323)	; ø»¢•º
     ))
 (define-char
   '((name		. "BLACK LEFT-POINTING SMALL TRIANGLE")
@@ -315,10 +315,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25C6)	; â—†
-    (=cns11643-1	. #x217A)	; ø»‘ƒµ
-    (=ks-x1001		. #x215F)	; ø»ˆ›Š
-    (=gb2312		. #x2174)	; ø»„‡—
     (=jis-x0208		. #x2221)	; ø½‰·š
+    (=gb2312		. #x2174)	; ø»„‡—
+    (=ks-x1001		. #x215F)	; ø»ˆ›Š
+    (=cns11643-1	. #x217A)	; ø»‘ƒµ
     (=big5		. #xA1BB)	; ý¢€Š†»
     ))
 (define-char
@@ -327,10 +327,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25C7)	; â—‡
-    (=cns11643-1	. #x2179)	; ø»‘ƒ´
-    (=ks-x1001		. #x215E)	; ø»ˆ›‰
-    (=gb2312		. #x2173)	; ø»„‡–
     (=jis-x0208		. #x217E)	; ø½‰·™
+    (=gb2312		. #x2173)	; ø»„‡–
+    (=ks-x1001		. #x215E)	; ø»ˆ›‰
+    (=cns11643-1	. #x2179)	; ø»‘ƒ´
     (=big5		. #xA1BA)	; ý¢€Š†º
     ))
 (define-char
@@ -362,10 +362,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25CB)	; â—‹
-    (=cns11643-1	. #x2172)	; ø»‘ƒ­
-    (=ks-x1001		. #x215B)	; ø»ˆ›†
-    (=gb2312		. #x2170)	; ø»„‡“
     (=jis-x0208		. #x217B)	; ø½‰·–
+    (=gb2312		. #x2170)	; ø»„‡“
+    (=ks-x1001		. #x215B)	; ø»ˆ›†
+    (=cns11643-1	. #x2172)	; ø»‘ƒ­
     (=big5		. #xA1B3)	; ý¢€Š†³
     ))
 (define-char
@@ -388,10 +388,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25CE)	; â—Ž
-    (=cns11643-1	. #x2176)	; ø»‘ƒ±
-    (=ks-x1001		. #x215D)	; ø»ˆ›ˆ
-    (=gb2312		. #x2172)	; ø»„‡•
     (=jis-x0208		. #x217D)	; ø½‰·˜
+    (=gb2312		. #x2172)	; ø»„‡•
+    (=ks-x1001		. #x215D)	; ø»ˆ›ˆ
+    (=cns11643-1	. #x2176)	; ø»‘ƒ±
     (=big5		. #xA1B7)	; ý¢€Š†·
     ))
 (define-char
@@ -400,10 +400,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25CF)	; â—
-    (=cns11643-1	. #x2173)	; ø»‘ƒ®
-    (=ks-x1001		. #x215C)	; ø»ˆ›‡
-    (=gb2312		. #x2171)	; ø»„‡”
     (=jis-x0208		. #x217C)	; ø½‰·—
+    (=gb2312		. #x2171)	; ø»„‡”
+    (=ks-x1001		. #x215C)	; ø»ˆ›‡
+    (=cns11643-1	. #x2173)	; ø»‘ƒ®
     (=big5		. #xA1B4)	; ý¢€Š†´
     ))
 (define-char
@@ -412,8 +412,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25D0)	; â—
-    (=jis-x0213-1-2000	. #x2867)	; ø»¢ž”
     (=ks-x1001		. #x2244)	; ø»ˆœ
+    (=jis-x0213-1-2000	. #x2867)	; ø»¢ž”
     ))
 (define-char
   '((name		. "CIRCLE WITH RIGHT HALF BLACK")
@@ -421,8 +421,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25D1)	; â—‘
-    (=jis-x0213-1-2000	. #x2868)	; ø»¢ž•
     (=ks-x1001		. #x2245)	; ø»ˆœŽ
+    (=jis-x0213-1-2000	. #x2868)	; ø»¢ž•
     ))
 (define-char
   '((name		. "CIRCLE WITH LOWER HALF BLACK")
@@ -644,8 +644,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x25EF)	; â—¯
-    (=jis-x0208-1990	. #x227E)	; ø½‰¸·
     (=jis-x0208-1983	. #x227E)	; ø»†“ƒ
+    (=jis-x0208-1990	. #x227E)	; ø½‰¸·
     ))
 (define-char
   '((name		. "WHITE SQUARE WITH UPPER LEFT QUADRANT")

@@ -5,10 +5,10 @@
     (total-strokes	 . 6)
     (shinjigen-2	. 6598)
     (=ucs		. #x81EA)	; è‡ª
-    (=cns11643-1	. #x485C)	; ø»‘¼©
-    (=ks-x1001		. #x6D3B)	; ø»ŠŠŽ
-    (=gb2312		. #x5754)	; ø»…–‹
     (=jis-x0208		. #x3C2B)	; ø½Š°
+    (=gb2312		. #x5754)	; ø»…–‹
+    (=ks-x1001		. #x6D3B)	; ø»ŠŠŽ
+    (=cns11643-1	. #x485C)	; ø»‘¼©
     (=gt		. 38936)	; ý¡€‰ ˜
     (=gt-k		. 01630)	; ý¡„€™ž
     (=gt-pj-1		. #x3C2B)	; ý¡€‰ ˜
@@ -35,8 +35,8 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 7)
     (=ucs		. #x81EB)	; è‡«
-    (=cns11643-4	. #x2473)	; ø»—¦”
     (=jis-x0212		. #x5662)	; ø»‹³‡
+    (=cns11643-4	. #x2473)	; ø»—¦”
     (=daikanwa		. 30098)	; ø¸‡–’
     (=jef-china3	. #x60E5)	; øº†ƒ¥
     ))
@@ -128,9 +128,9 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (=ucs		. #x81EC)	; è‡¬
-    (=jis-x0213-2-2000	. #x7559)	; ø»¦™
-    (=jis-x0212		. #x5663)	; ø»‹³ˆ
     (=gb2312		. #x742B)	; ø»†€ˆ
+    (=jis-x0212		. #x5663)	; ø»‹³ˆ
+    (=jis-x0213-2-2000	. #x7559)	; ø»¦™
     (=daikanwa		. 30107)	; ø¸‡–›
     (=jef-china3	. #x52F0)	; øº…‹°
     ))
@@ -147,10 +147,10 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (=ucs		. #x81ED)	; è‡­
-    (=jis-x0213-1-2000	. #x7A58)	; ø»¤–¡
-    (=cns11643-1	. #x5768)	; ø»’’·
-    (=ks-x1001		. #x762B)	; ø»Š—Œ
     (=gb2312		. #x3374)	; ø»„¡³
+    (=ks-x1001		. #x762B)	; ø»Š—Œ
+    (=cns11643-1	. #x5768)	; ø»’’·
+    (=jis-x0213-1-2000	. #x7A58)	; ø»¤–¡
     (=daikanwa		. 30108)	; ø¸‡–œ
     (=jef-china3	. #x60E3)	; øº†ƒ£
     (=ucs@jis		. #xFA5C)	; è‡­
@@ -266,8 +266,8 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (=ucs		. #x81F0)	; è‡°
-    (=cns11643-4	. #x3A4C)	; ø»˜†
     (=jis-x0212		. #x5664)	; ø»‹³‰
+    (=cns11643-4	. #x3A4C)	; ø»˜†
     (=daikanwa		. 30120)	; ø¸‡–¨
     ))
 (define-char
@@ -403,8 +403,8 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (=ucs		. #x81F2)	; è‡²
-    (=cns11643-2	. #x5960)	; ø»”Ÿ¯
     (=jis-x0212		. #x5666)	; ø»‹³‹
+    (=cns11643-2	. #x5960)	; ø»”Ÿ¯
     (=daikanwa		. 30130)	; ø¸‡–²
     ))
 (define-char

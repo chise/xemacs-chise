@@ -5,14 +5,14 @@
     (ideographic-strokes . 0)
     (cns-radical	 . 35)	; â¼¢
     (total-strokes	 . 3)
-    (=cns11643-3	. #x2139)	; ø»•–¼
     (=jis-x0208		. #x5469)	; ø½‹¾
+    (=cns11643-3	. #x2139)	; ø»•–¼
     (=big5-cdp		. #x8B45)	; ý¢€ˆ­…
     (=gt		. 07201)	; ý¡€°¡
     (=gt-k		. 00217)	; ý¡„€ƒ™
     (=gt-pj-1		. #x5469)	; ý¡€°¡
     (=daikanwa		. 05691)	; ø¸˜»
-    (=ucs@jis		. #x5902)	; ø»•–¼
+    (=ucs@jis		. #x5902)	; ø½‹¾
     ))
 (define-char
   '((morohashi-daikanwa	5691 0 1)
@@ -81,8 +81,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; â¿º
       )
-     ((=cns11643-3	  . #x2139)	; ø»•–¼
-      (=jis-x0208	  . #x5469)	; ø½‹¾
+     ((=jis-x0208	  . #x5469)	; ø½‹¾
+      (=cns11643-3	  . #x2139)	; ø»•–¼
       (=daikanwa	  . 05691)	; ø¸˜»
       )
      ((=ucs		  . #x535C)	; åœ
@@ -101,8 +101,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; â¿º
       )
-     ((=cns11643-3	  . #x2139)	; ø»•–¼
-      (=jis-x0208	  . #x5469)	; ø½‹¾
+     ((=jis-x0208	  . #x5469)	; ø½‹¾
+      (=cns11643-3	  . #x2139)	; ø»•–¼
       (=daikanwa	  . 05691)	; ø¸˜»
       )
      ((=ucs		  . #x4EBA)	; äºº
@@ -123,8 +123,8 @@
      ((=ucs		  . #x3404)	; ã„
       ))
     (=ucs		. #x5905)	; å¤…
-    (=jis-x0213-2-2000	. #x2538)	; ø»¤£
     (=jis-x0212		. #x385F)	; ø»‹‡€
+    (=jis-x0213-2-2000	. #x2538)	; ø»¤£
     (=daikanwa		. 05695)	; ø¸˜¿
     (=jef-china3	. #x48CE)	; øº„£Ž
     ))
@@ -177,10 +177,10 @@
      ((=ucs		  . #x4E30)	; ä¸°
       ))
     (=ucs		. #x5906)	; å¤†
-    (=jis-x0213-2-2000	. #x2539)	; ø»¤£
-    (=cns11643-2	. #x2350)	; ø»“‹
-    (=iso-ir165		. #x7B26)	; ø»Ž²¥
     (=jis-x0212		. #x3860)	; ø»‹‡
+    (=iso-ir165		. #x7B26)	; ø»Ž²¥
+    (=cns11643-2	. #x2350)	; ø»“‹
+    (=jis-x0213-2-2000	. #x2539)	; ø»¤£
     (=big5		. #xCAB0)	; ý¢€Œª°
     (=daikanwa		. 05698)	; ø¸™‚
     (=jef-china3	. #x48CF)	; øº„£
@@ -259,8 +259,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((=ks-x1001	  . #x6632)	; ø»‰¿³
-      (=jis-x0208	  . #x4B72)	; ø½Š´¹
+     ((=jis-x0208	  . #x4B72)	; ø½Š´¹
+      (=ks-x1001	  . #x6632)	; ø»‰¿³
       (=daikanwa	  . 00293)	; ø¸€„¥
       )
      ((=jis-x0208	  . #x546A)	; ø½‹¿
@@ -287,12 +287,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((=ks-x1001	  . #x6632)	; ø»‰¿³
-      (=jis-x0208	  . #x4B72)	; ø½Š´¹
+     ((=jis-x0208	  . #x4B72)	; ø½Š´¹
+      (=ks-x1001	  . #x6632)	; ø»‰¿³
       (=daikanwa	  . 00293)	; ø¸€„¥
       )
-     ((=cns11643-3	  . #x2139)	; ø»•–¼
-      (=jis-x0208	  . #x5469)	; ø½‹¾
+     ((=jis-x0208	  . #x5469)	; ø½‹¾
+      (=cns11643-3	  . #x2139)	; ø»•–¼
       (=daikanwa	  . 05691)	; ø¸˜»
       ))
     (shinjigen-2	. 3201)
@@ -312,8 +312,8 @@
       )
      ((=ucs		  . #x4EA6)	; äº¦
       )
-     ((=cns11643-3	  . #x2139)	; ø»•–¼
-      (=jis-x0208	  . #x5469)	; ø½‹¾
+     ((=jis-x0208	  . #x5469)	; ø½‹¾
+      (=cns11643-3	  . #x2139)	; ø»•–¼
       (=daikanwa	  . 05691)	; ø¸˜»
       ))
     (=ucs		. #x5909)	; å¤‰

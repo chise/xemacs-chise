@@ -102,18 +102,20 @@
    ((find-charset ka)
     (cond
      ((find-charset kb)
-      (if (< (charset-id ka) 0)
-	  (if (< (charset-id kb) 0)
+      (if (<= (charset-id ka) 0)
+	  (if (<= (charset-id kb) 0)
 	      (cond
 	       ((= (charset-dimension ka)
 		   (charset-dimension kb))
-		(< (charset-id ka)(charset-id kb)))
+		(> (charset-id ka)(charset-id kb)))
 	       (t
 		(> (charset-dimension ka)
 		   (charset-dimension kb))
 		))
 	    t)
-	(< (charset-id ka)(charset-id kb))))
+	(if (<= (charset-id kb) 0)
+	    nil
+	  (< (charset-id ka)(charset-id kb)))))
      ((symbolp kb)
       nil)
      (t
@@ -145,7 +147,7 @@
     japanese-jisx0212
     japanese-jisx0208-1978
     chinese-gb2312
-    =cns11643-1
+    chinese-cns11643-1
     chinese-cns11643-2
     chinese-cns11643-3
     chinese-cns11643-4
@@ -235,7 +237,7 @@
 (defun char-db-insert-char-spec (char &optional readable column)
   (unless column
     (setq column (current-column)))
-  (let (char-spec ret al cal key temp-char)
+  (let (char-spec al cal key temp-char)
     (setq char-spec (char-db-make-char-spec char))
     (unless (or (characterp char) ; char
 		(condition-case nil
