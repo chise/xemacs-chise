@@ -1,5 +1,25 @@
 2003-12-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R173-Rain.el (U+4A0C): Unify M-42223; separate
+	C3-3F7D.
+	(M-42224): Separate U+96ED.
+	(U-000290CB): New character.
+	(U-000290D2): New character.
+	(C5-5F59): Map to U-000290D2.
+	(M-42330): Separate U+9712.
+	(U+9714): Separate C3-534D.
+	(U+9715): Separate C3-534C.
+	(U+4A2D): Separate C3-5B57.
+	(M-42428): Separate U+4A2E.
+	(M-42452): Separate U+972E.
+	(JSP-672B): Separate U+9731.
+	(M-42467): Separate U+4A31.
+	(M-42477): Separate U+9735.
+	(JX2-7B79): Separate U+9736.
+
+	* Ideograph-R154-Shell.el: Add some mappings between CNS 11643-5
+	and CJK Ext-B code points.
+
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL REPEAT>): Add
 	`<-ideographic-component-forms' for U-00020120.
 	(<CJK RADICAL MEAT>): Add `<-ideographic-component-forms' for
