@@ -1,3 +1,33 @@
+2001-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el: Add `ideographic-structure'.
+	(U+52F9): Unify Big5-CDP-8B57.
+	(M-02497): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+
+2001-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R183-Fly.el (U+98DB): Unify G1-3749.
+
+	* Ideograph-R180-Sound.el, Ideograph-R173-Rain.el,
+	Ideograph-R167-Gold.el, Ideograph-R140-Grass.el: Merge GB 12345
+	code points.
+
+2001-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el: Delete `ideograph-cdp' if its value is
+	positive.
+
+	* Ideograph-R015-Ice.el (U+51AC): Simplify
+	`ideographic-structure'.
+
+2001-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R045-Sprout.el (M-07825): Unify G0-6578, C2-212B,
+	Big5-C94B and U+5C6E; add `total-strokes'.
+	(M-07826): Separate G0-6578, C2-212B and U+5C6E; add `->synonyms'
+	for M-08720 and comment.
+
 2001-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* README.en (Character Reference): Add `kaihen'.
