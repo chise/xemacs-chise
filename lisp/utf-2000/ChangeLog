@@ -1,3 +1,25 @@
+2004-04-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R173-Rain.el (U+96F2): Use `->subsumptive'.
+	(C1-6278): Moved into U+96F2.
+
+	* Ideograph-R169-Gate.el (M-41233): Moved into U+958B.
+	(U+958B): Use `->subsumptive'.
+
+	* Ideograph-R087-Claw.el (J0-6027): Moved into U+722D.
+	(U+722D): Use `->subsumptive'.
+
+	* Ideograph-R037-Big.el (M-05860): Moved into U+4E54.
+	(U+4E54): Use `->subsumptive'; add `<-simplified@CN' into G0-4747
+	for U+55AC.
+
+	* Ideograph-R004-Slash.el: Add some `<-simplified@CN' features.
+	(GT-00160): Moved into U+4E49.
+	(U+4E49): Use `->subsumptive'.
+	(U+4E54): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'; use
+	`->subsumptive'.
+
 2004-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* read-maps.el (jp-jouyou-read-file): Check `<-simplified' and
@@ -7,6 +29,10 @@
 	corresponding with JP, JP/Jouyou and CN specified in
 	{<-|->}FOO*sources into required-features; add special code for
 	{<-|->}FOO@CN to add Chinese CCSs into required-features.
+
+2004-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R002-Line.el: Add some `<-simplified@CN' features.
 
 2004-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
