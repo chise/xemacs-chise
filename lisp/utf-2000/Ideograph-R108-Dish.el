@@ -1032,8 +1032,9 @@
     (total-strokes@cns*sources
      cns11643)
     (ideographic-strokes@jis . 10)
-    (ideographic-strokes@jis*sources jis-x0208-1997)
-    (total-strokes@jis	. 15)
+    (total-strokes@jis	     . 15)
+    (ideographic-strokes@jis*sources
+     jis-x0208-1997)
     (=jis-x0208		. #x3446)	; ø½Š’›
     (=ks-x1001		. #x4A78)	; ø»‰—±
     (=cns11643-1	. #x6971)	; ø»’­œ
