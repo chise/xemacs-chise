@@ -1,3 +1,13 @@
+2005-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (U+59B5): Change hierarchy.
+	(U+59C8): Likewise.
+	(M006516): Likewise.
+
+	* Ideograph-R032-Earth.el (G0-4C6E): Unify M053142.
+
+	* Ideograph-R030-Mouth.el (U+53F2): Change hierarchy.
+
 2005-02-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R152-Pig.el (U+8C59): Use `->subsumptive'.
