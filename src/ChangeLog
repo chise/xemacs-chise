@@ -1,3 +1,8 @@
+2001-07-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (MAX_LEADING_BYTE_PRIVATE): Fixed.
+	(MAX_CHAR_GT): Changed to `(MIN_CHAR_GT + 66773)'.
+
 2001-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_ideograph_gt): New variable.
