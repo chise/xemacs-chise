@@ -438,9 +438,9 @@ However, if it does have dependnacies, it must call
 
 @example
 @cartouche
-int emodules_load (CONST char *module,
-                   CONST char *modname,
-                   CONST char *modver)
+int emodules_load (const char *module,
+                   const char *modname,
+                   const char *modver)
 @end cartouche
 @end example
 

@@ -36,7 +36,6 @@ Boston, MA 02111-1307, USA.  */
 #define HIGH_BIT_P(c) ((c) & hi_bit)
 #define HAS_ZERO(c) (((((c) + magic) ^ (c)) & not_magic) != not_magic)
 
-/* CONST IS LOSING, but const is part of the interface of strcmp */
 int
 strcmp (const char *x, const char *y)
 {
@@ -44,8 +43,8 @@ strcmp (const char *x, const char *y)
     return 0;
   else if (ALIGNED (x) && ALIGNED (y))
     {
-      CONST unsigned long *x1 = (CONST unsigned long *) x;
-      CONST unsigned long *y1 = (CONST unsigned long *) y;
+      const unsigned long *x1 = (const unsigned long *) x;
+      const unsigned long *y1 = (const unsigned long *) y;
       unsigned long c;
       unsigned long magic = MAGIC;
       unsigned long not_magic = ~magic;
@@ -59,8 +58,8 @@ strcmp (const char *x, const char *y)
                 return 0;
               else
                 {
-                  x = (CONST char *) x1;
-                  y = (CONST char *) y1;
+                  x = (const char *) x1;
+                  y = (const char *) y1;
                   goto slow_loop;
                 }
             }
@@ -69,8 +68,8 @@ strcmp (const char *x, const char *y)
           y1++;
         }
 
-      x = (CONST char *) x1;
-      y = (CONST char *) y1;
+      x = (const char *) x1;
+      y = (const char *) y1;
       goto slow_loop;
     }
   else
@@ -91,14 +90,14 @@ strcmp (const char *x, const char *y)
 
 
 int
-strncmp (CONST char *x, CONST char *y, size_t n)
+strncmp (const char *x, const char *y, size_t n)
 {
   if ((x == y) || (n <= 0))
     return 0;
   else if (ALIGNED (x) && ALIGNED (y))
     {
-      CONST unsigned long *x1 = (CONST unsigned long *) x;
-      CONST unsigned long *y1 = (CONST unsigned long *) y;
+      const unsigned long *x1 = (const unsigned long *) x;
+      const unsigned long *y1 = (const unsigned long *) y;
       unsigned long c;
       unsigned long magic = MAGIC;
       unsigned long not_magic = ~magic;
@@ -116,8 +115,8 @@ strncmp (CONST char *x, CONST char *y, size_t n)
                 return 0;
               else
                 {
-                  x = (CONST char *) x1;
-                  y = (CONST char *) y1;
+                  x = (const char *) x1;
+                  y = (const char *) y1;
                   goto slow_loop;
                 }
             }
@@ -126,8 +125,8 @@ strncmp (CONST char *x, CONST char *y, size_t n)
           y1++;
         }
 
-      x = (CONST char *) x1;
-      y = (CONST char *) y1;
+      x = (const char *) x1;
+      y = (const char *) y1;
       goto slow_loop;
     }
   else

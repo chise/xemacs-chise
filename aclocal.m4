@@ -92,7 +92,7 @@ if test "$XEGCC" = yes; then
     # PIC is the default for these OSes.
     ;;
 
-  os2*)
+  aix3* | aix4* | os2*)
     # We can build DLLs from non-PIC.
     ;;
   amigaos*)

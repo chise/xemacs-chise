@@ -925,9 +925,7 @@ to selected device if omitted, and must be live if specified.
 */
        (device))
 {
-  return (MAYBE_INT_DEVMETH (decode_device (device),
-			     device_implementation_flags, ())
-	  & XDEVIMPF_IS_A_PRINTER) ? Qt : Qnil;
+  return DEVICE_PRINTER_P (decode_device (device)) ? Qt : Qnil;
 }
 
 DEFUN ("device-system-metric", Fdevice_system_metric, 1, 3, 0, /*

@@ -275,9 +275,9 @@ popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
 #endif
 
 char *
-menu_separator_style (CONST char *s)
+menu_separator_style (const char *s)
 {
-  CONST char *p;
+  const char *p;
   char first;
 
   if (!s || s[0] == '\0')
@@ -346,7 +346,7 @@ button_item_to_widget_value (Lisp_Object gui_item, widget_value *wv,
 
   if (!NILP (pgui->suffix))
     {
-      CONST char *const_bogosity;
+      const char *const_bogosity;
       Lisp_Object suffix2;
 
       /* Shortcut to avoid evaluating suffix each time */

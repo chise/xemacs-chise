@@ -2599,12 +2599,11 @@ extent_fragment_delete (struct extent_fragment *ef)
   xfree (ef);
 }
 
-/* Note:  CONST is losing, but `const' is part of the interface of qsort() */
 static int
 extent_priority_sort_function (const void *humpty, const void *dumpty)
 {
-  CONST EXTENT foo = * (CONST EXTENT *) humpty;
-  CONST EXTENT bar = * (CONST EXTENT *) dumpty;
+  const EXTENT foo = * (const EXTENT *) humpty;
+  const EXTENT bar = * (const EXTENT *) dumpty;
   if (extent_priority (foo) < extent_priority (bar))
     return -1;
   return extent_priority (foo) > extent_priority (bar);
@@ -2910,38 +2909,6 @@ extent_fragment_update (struct window *w, struct extent_fragment *ef,
    extent objects.  They are similar to the functions for other
    lrecord objects.  allocate_extent() is in alloc.c, not here. */
 
-static Lisp_Object mark_extent (Lisp_Object);
-static int extent_equal (Lisp_Object, Lisp_Object, int depth);
-static unsigned long extent_hash (Lisp_Object obj, int depth);
-static void print_extent (Lisp_Object obj, Lisp_Object printcharfun,
-			  int escapeflag);
-static Lisp_Object extent_getprop (Lisp_Object obj, Lisp_Object prop);
-static int extent_putprop (Lisp_Object obj, Lisp_Object prop,
-			   Lisp_Object value);
-static int extent_remprop (Lisp_Object obj, Lisp_Object prop);
-static Lisp_Object extent_plist (Lisp_Object obj);
-
-static const struct lrecord_description extent_description[] = {
-  { XD_LISP_OBJECT, offsetof (struct extent, object) },
-  { XD_LISP_OBJECT, offsetof (struct extent, flags.face) },
-  { XD_LISP_OBJECT, offsetof (struct extent, plist) },
-  { XD_END }
-};
-
-DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS ("extent", extent,
-						mark_extent,
-						print_extent,
-						/* NOTE: If you declare a
-						   finalization method here,
-						   it will NOT be called.
-						   Shaft city. */
-						0,
-						extent_equal, extent_hash,
-						extent_description,
-						extent_getprop, extent_putprop,
-						extent_remprop, extent_plist,
-						struct extent);
-
 static Lisp_Object
 mark_extent (Lisp_Object obj)
 {
@@ -3007,9 +2974,9 @@ print_extent (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
   if (escapeflag)
     {
-      CONST char *title = "";
-      CONST char *name = "";
-      CONST char *posttitle = "";
+      const char *title = "";
+      const char *name = "";
+      const char *posttitle = "";
       Lisp_Object obj2 = Qnil;
 
       /* Destroyed extents have 't' in the object field, causing
@@ -3131,6 +3098,13 @@ extent_hash (Lisp_Object obj, int depth)
 		internal_hash (extent_object (e), depth + 1));
 }
 
+static const struct lrecord_description extent_description[] = {
+  { XD_LISP_OBJECT, offsetof (struct extent, object) },
+  { XD_LISP_OBJECT, offsetof (struct extent, flags.face) },
+  { XD_LISP_OBJECT, offsetof (struct extent, plist) },
+  { XD_END }
+};
+
 static Lisp_Object
 extent_getprop (Lisp_Object obj, Lisp_Object prop)
 {
@@ -3188,6 +3162,20 @@ extent_plist (Lisp_Object obj)
 {
   return Fextent_properties (obj);
 }
+
+DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS ("extent", extent,
+						mark_extent,
+						print_extent,
+						/* NOTE: If you declare a
+						   finalization method here,
+						   it will NOT be called.
+						   Shaft city. */
+						0,
+						extent_equal, extent_hash,
+						extent_description,
+						extent_getprop, extent_putprop,
+						extent_remprop, extent_plist,
+						struct extent);
 
 
 /************************************************************************/

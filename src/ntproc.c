@@ -400,7 +400,7 @@ reader_thread (void *arg)
 static const char * process_dir;
 
 static BOOL 
-create_child (CONST char *exe, char *cmdline, char *env,
+create_child (const char *exe, char *cmdline, char *env,
 	      int * pPid, child_process *cp)
 {
   STARTUPINFO start;
@@ -487,7 +487,7 @@ rva_to_section (DWORD rva, IMAGE_NT_HEADERS * nt_header)
 #endif
 
 void
-win32_executable_type (CONST char * filename, int * is_dos_app, int * is_cygnus_app)
+win32_executable_type (const char * filename, int * is_dos_app, int * is_cygnus_app)
 {
   file_data executable;
   char * p;
@@ -638,8 +638,8 @@ merge_and_sort_env (char **envp1, char **envp2, char **new_envp)
 /* When a new child process is created we need to register it in our list,
    so intercept spawn requests.  */
 int 
-sys_spawnve (int mode, CONST char *cmdname,
-	     CONST char * CONST *argv, CONST char *CONST *envp)
+sys_spawnve (int mode, const char *cmdname,
+	     const char * const *argv, const char *const *envp)
 {
   Lisp_Object program, full;
   char *cmdline, *env, *parg, **targ;
@@ -689,7 +689,7 @@ sys_spawnve (int mode, CONST char *cmdname,
   /* make sure argv[0] and cmdname are both in DOS format */
   unixtodos_filename ((char*)cmdname);
   /* #### KLUDGE */
-  ((CONST char**)argv)[0] = cmdname;
+  ((const char**)argv)[0] = cmdname;
 
   /* Determine whether program is a 16-bit DOS executable, or a Win32
      executable that is implicitly linked to the Cygnus dll (implying it
@@ -1100,7 +1100,7 @@ sys_kill (int pid, int sig)
 
 #if 0
 /* Sync with FSF Emacs 19.34.6 note: ifdef'ed out in XEmacs */
-extern int report_file_error (CONST char *, Lisp_Object);
+extern int report_file_error (const char *, Lisp_Object);
 #endif
 /* The following two routines are used to manipulate stdin, stdout, and
    stderr of our child processes.

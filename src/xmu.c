@@ -53,10 +53,10 @@
 #include <ctype.h>
 
 
-int XmuCursorNameToIndex (CONST char *name)
+int XmuCursorNameToIndex (const char *name)
 {
-    static CONST struct _CursorName {
-	CONST char	*name;
+    static const struct _CursorName {
+	const char	*name;
 	unsigned int	shape;
     } cursor_names[] = {
 			{"x_cursor",		XC_X_cursor},
@@ -137,7 +137,7 @@ int XmuCursorNameToIndex (CONST char *name)
 			{"watch",		XC_watch},
 			{"xterm",		XC_xterm},
     };
-    CONST struct _CursorName *table;
+    const struct _CursorName *table;
     int i;
     char tmp[40];
 
@@ -368,7 +368,7 @@ int XmuReadBitmapData (
 }
 
 
-int XmuReadBitmapDataFromFile (CONST char *filename,
+int XmuReadBitmapDataFromFile (const char *filename,
 			       /* Remaining args are RETURNED */
 			       unsigned int *width,
 			       unsigned int *height,
@@ -530,7 +530,7 @@ int XmuSimpleErrorHandler (Display *dpy, XErrorEvent *errorp)
     return XmuPrintDefaultErrorMessage (dpy, errorp, stderr);
 }
 
-void XmuCopyISOLatin1Lowered(char *dst, CONST char *src)
+void XmuCopyISOLatin1Lowered(char *dst, const char *src)
 {
     unsigned char *dest   = (unsigned char *) dst;
     unsigned char *source = (unsigned char *) src;

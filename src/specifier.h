@@ -87,7 +87,7 @@ extern const struct struct_description specifier_methods_description;
 
 struct specifier_methods
 {
-  CONST char *name;
+  const char *name;
   Lisp_Object predicate_symbol;
 
   /* Implementation specific methods: */

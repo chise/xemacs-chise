@@ -610,14 +610,14 @@ This function returns the tick counter for @samp{string}.
 @cindex string properties
 @cindex properties of strings
 
-Similar to symbols, extents, faces, and glyphs, you can attach
+Just as with symbols, extents, faces, and glyphs, you can attach
 additional information to strings in the form of @dfn{string
 properties}.  These differ from text properties, which are logically
 attached to particular characters in the string.
 
 To attach a property to a string, use @code{put}.  To retrieve a property
 from a string, use @code{get}.  You can also use @code{remprop} to remove
-a property from a string and @code{object-props} to retrieve a list of
+a property from a string and @code{object-plist} to retrieve a list of
 all the properties in a string.
 
 @node Formatting Strings

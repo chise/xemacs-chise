@@ -76,7 +76,7 @@ static void free_widget_value_args (widget_value* wv);
 
 /* utility functions for widget_instance and widget_info */
 static char *
-safe_strdup (CONST char *s)
+safe_strdup (const char *s)
 {
   char *result;
   if (! s) return 0;
@@ -330,7 +330,7 @@ replace_widget_value_tree (widget_value *node, widget_value *newtree)
 }
 
 static widget_info *
-allocate_widget_info (CONST char *type, CONST char *name,
+allocate_widget_info (const char *type, const char *name,
                       LWLIB_ID id, widget_value *val,
 		      lw_callback pre_activate_cb, lw_callback selection_cb,
 		      lw_callback post_activate_cb)
@@ -503,7 +503,7 @@ find_instance (LWLIB_ID id, Widget parent, Boolean pop_up_p)
 
 /* utility function for widget_value */
 static Boolean
-safe_strcmp (CONST char *s1, CONST char *s2)
+safe_strcmp (const char *s1, const char *s2)
 {
   if (!!s1 ^ !!s2) return True;
   return (s1 && s2) ? strcmp (s1, s2) : s1 ? False : !!s2;
@@ -690,7 +690,7 @@ merge_widget_value (widget_value *val1, widget_value *val2, int level)
 
 /* modifying the widgets */
 static Widget
-name_to_widget (widget_instance *instance, CONST char *name)
+name_to_widget (widget_instance *instance, const char *name)
 {
   Widget widget = NULL;
 
@@ -827,7 +827,7 @@ initialize_widget_instance (widget_instance *instance)
 
 
 static widget_creation_function
-find_in_table (CONST char *type, widget_creation_entry *table)
+find_in_table (const char *type, widget_creation_entry *table)
 {
   widget_creation_entry *cur;
   for (cur = table; cur->type; cur++)
@@ -837,7 +837,7 @@ find_in_table (CONST char *type, widget_creation_entry *table)
 }
 
 static Boolean
-dialog_spec_p (CONST char *name)
+dialog_spec_p (const char *name)
 {
   /* return True if name matches [EILPQeilpq][1-9][Bb] or
      [EILPQeilpq][1-9][Bb][Rr][1-9] */
@@ -921,7 +921,7 @@ instantiate_widget_instance (widget_instance *instance)
 }
 
 void
-lw_register_widget (CONST char *type, CONST char *name,
+lw_register_widget (const char *type, const char *name,
                     LWLIB_ID id, widget_value *val,
 		    lw_callback pre_activate_cb, lw_callback selection_cb,
 		    lw_callback post_activate_cb)
@@ -957,7 +957,7 @@ lw_make_widget (LWLIB_ID id, Widget parent, Boolean pop_up_p)
 }
 
 Widget
-lw_create_widget (CONST char *type, CONST char *name,
+lw_create_widget (const char *type, const char *name,
                   LWLIB_ID id, widget_value *val,
 		  Widget parent, Boolean pop_up_p, lw_callback pre_activate_cb,
 		  lw_callback selection_cb, lw_callback post_activate_cb)

@@ -1319,7 +1319,7 @@ r_alloc_check (void)
 #include <stdio.h>
 
 typedef void *VM_ADDR;		/* VM addresses */
-static CONST VM_ADDR VM_FAILURE_ADDR = (VM_ADDR) -1; /* mmap returns this when it fails. */
+static const VM_ADDR VM_FAILURE_ADDR = (VM_ADDR) -1; /* mmap returns this when it fails. */
 
 /* Configuration for relocating allocator. */
 

@@ -291,6 +291,7 @@ widget_set_property (Lisp_Object image_instance, Lisp_Object prop, Lisp_Object v
   if (EQ (prop, Q_text))
     {
       IMAGE_INSTANCE_WIDGET_TEXT (ii) = val;
+      IMAGE_INSTANCE_TEXT_CHANGED (ii) = 1;
     }
 
   /* Now try device specific methods first ... */
@@ -318,6 +319,36 @@ widget_set_property (Lisp_Object image_instance, Lisp_Object prop, Lisp_Object v
   IMAGE_INSTANCE_WIDGET_PROPS (ii)
     = Fplist_put (IMAGE_INSTANCE_WIDGET_PROPS (ii), prop, val);
   return val;
+}
+
+/* Like the rest of redisplay, we want widget updates to occur
+asynchronously. Thus toolkit specific methods for setting properties
+must be called by redisplay instead of by *_set_property. Thus
+*_set_property records the change and this function actually
+implements it. We want to be slightly clever about this however by
+supplying format specific functions for the updates instead of lumping
+them all into this function. Note that there is no need for format
+generic functions. */
+void
+update_widget (Lisp_Object widget)
+{
+  Lisp_Image_Instance* ii = XIMAGE_INSTANCE (widget);
+  struct image_instantiator_methods* meths;
+
+  if (!IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET)
+    return;
+
+  /* Device generic methods. We must update the widget's size as it
+     may have been changed by the the layout routines. We also do this
+     here so that explicit resizing from lisp does not result in
+     synchronous updates. */
+  MAYBE_DEVMETH (XDEVICE (ii->device), update_widget, (ii));
+
+  /* Device-format specific methods */
+  meths = decode_device_ii_format (IMAGE_INSTANCE_DEVICE (ii), 
+				   IMAGE_INSTANCE_WIDGET_TYPE (ii), 
+				   ERROR_ME_NOT);
+  MAYBE_IIFORMAT_METH (meths, update, (widget));
 }
 
 /* Query for a widgets desired geometry. If no type specific method is
@@ -522,8 +553,10 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	  /* We are going to be sneaky here and add the border text as
 	     just another child, the layout and output routines don't know
 	     this and will just display at the offsets we prescribe. */
-	  children = Fcons (glyph_image_instance (border, domain, ERROR_ME, 1),
-			    children);
+	  Lisp_Object gii = glyph_image_instance (border, domain, ERROR_ME, 1);
+	  /* make sure we are designated as the parent. */
+	  XIMAGE_INSTANCE_PARENT (gii) = image_instance;
+	  children = Fcons (gii, children);
 	  IMAGE_INSTANCE_LAYOUT_BORDER (ii) = make_int (0);
 	}
       else
@@ -536,6 +569,8 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	{
 	  /* make sure the image is instantiated */
 	  Lisp_Object gii = glyph_image_instance (XCAR (rest), domain, ERROR_ME, 1);
+	  /* make sure we are designated as the parent. */
+	  XIMAGE_INSTANCE_PARENT (gii) = image_instance;
 	  children = Fcons (gii, children);
 	  /* Make sure elements in the layout are in the order the
              user expected. */
@@ -637,8 +672,6 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			 pw ? pw : IMAGE_UNSPECIFIED_GEOMETRY,
 			 ph ? ph : IMAGE_UNSPECIFIED_GEOMETRY,
 			 domain);
-  /* Layout has already been done so we don't need to re-layout. */
-  IMAGE_INSTANCE_DIRTYP (ii) = 0;
 
 #ifdef DEBUG_WIDGETS
   debug_widget_instances++;
@@ -709,6 +742,51 @@ tab_control_query_geometry (Lisp_Object image_instance,
       if (height)	*height = th;
       if (width)	*width = tw;
     }
+}
+
+/* Get the geometry of a tab control. This is based on the number of
+   items and text therin in the tab control. */
+static Lisp_Object
+tab_control_set_property (Lisp_Object image_instance, 
+			  Lisp_Object prop,
+			  Lisp_Object val)
+{
+  /* Record new items for update. *_tab_control_update will do the
+     rest. */
+  if (EQ (prop, Q_items))
+    {
+      Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
+      check_valid_item_list_1 (val);
+
+      IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
+	Fcons (XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)),
+	       parse_gui_item_tree_children (val));
+      
+      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii) = 1;
+
+      return Qt;
+    }
+  return Qunbound;
+}
+
+/* set the properties of a progres guage */
+static Lisp_Object
+progress_gauge_set_property (Lisp_Object image_instance,
+			     Lisp_Object prop,
+			     Lisp_Object val)
+{
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+
+  if (EQ (prop, Q_percent))
+    {
+      CHECK_INT (val);
+      IMAGE_INSTANCE_WIDGET_PROPS (ii)
+	= Fplist_put (IMAGE_INSTANCE_WIDGET_PROPS (ii), prop, val);
+      IMAGE_INSTANCE_WIDGET_PERCENT_CHANGED (ii) = 1;
+
+      return Qt;
+    }
+  return Qunbound;
 }
 
 
@@ -884,7 +962,6 @@ layout_layout (Lisp_Object image_instance,
 	}
       else
 	{
-
 	  nitems ++;
 	  if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
 	      == LAYOUT_HORIZONTAL)
@@ -975,9 +1052,6 @@ layout_layout (Lisp_Object image_instance,
       /* Now layout subwidgets if they require it. */
       image_instance_layout (glyph, gwidth, gheight, domain);
     }
-
-  IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii) = width;
-  IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii) = height;
 }
 
 
@@ -1096,6 +1170,7 @@ static void image_instantiator_progress_guage (void)
   IIFORMAT_HAS_SHARED_METHOD (progress_gauge, validate, widget);
   IIFORMAT_HAS_SHARED_METHOD (progress_gauge, possible_dest_types, widget);
   IIFORMAT_HAS_SHARED_METHOD (progress_gauge, instantiate, widget);
+  IIFORMAT_HAS_METHOD (progress_gauge, set_property);
   VALID_WIDGET_KEYWORDS (progress_gauge);
   VALID_GUI_KEYWORDS (progress_gauge);
 }
@@ -1119,6 +1194,7 @@ static void image_instantiator_tab_control (void)
   IIFORMAT_HAS_SHARED_METHOD (tab_control, possible_dest_types, widget);
   IIFORMAT_HAS_SHARED_METHOD (tab_control, instantiate, widget);
   IIFORMAT_HAS_METHOD (tab_control, query_geometry);
+  IIFORMAT_HAS_METHOD (tab_control, set_property);
   VALID_WIDGET_KEYWORDS (tab_control);
   VALID_GUI_KEYWORDS (tab_control);
   IIFORMAT_VALID_KEYWORD (tab_control, Q_orientation, check_valid_tab_orientation);

@@ -22,12 +22,12 @@ Boston, MA 02111-1307, USA.  */
 
 typedef struct
 {
-  CONST void *key;
+  const void *key;
   void	     *contents;
 } hentry;
 
-typedef int           (*hash_table_test_function) (CONST void *, CONST void *);
-typedef unsigned long (*hash_table_hash_function) (CONST void *);
+typedef int           (*hash_table_test_function) (const void *, const void *);
+typedef unsigned long (*hash_table_hash_function) (const void *);
 typedef size_t hash_size_t;
 
 struct hash_table
@@ -57,18 +57,18 @@ void clrhash (struct hash_table *hash_table);
 void free_hash_table (struct hash_table *hash_table);
 
 /* Returns a hentry whose key is 0 if the entry does not exist in HASH-TABLE */
-CONST void *gethash (CONST void *key, struct hash_table *hash_table,
-		     CONST void **ret_value);
+const void *gethash (const void *key, struct hash_table *hash_table,
+		     const void **ret_value);
 
 /* KEY should be different from 0 */
-void puthash (CONST void *key, void *contents, struct hash_table *hash_table);
+void puthash (const void *key, void *contents, struct hash_table *hash_table);
 
 /* delete the entry with key KEY */
-void remhash (CONST void *key, struct hash_table *hash_table);
+void remhash (const void *key, struct hash_table *hash_table);
 
-typedef int (*maphash_function) (CONST void* key, void* contents, void* arg);
+typedef int (*maphash_function) (const void* key, void* contents, void* arg);
 
-typedef int (*remhash_predicate) (CONST void* key, CONST void* contents,
+typedef int (*remhash_predicate) (const void* key, const void* contents,
                                   void* arg);
 
 /* Call MF (key, contents, arg) for every entry in HASH-TABLE */

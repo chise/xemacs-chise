@@ -420,8 +420,6 @@ Boston, MA 02111-1307, USA.  */
    compiling-running-crashing. */
 #undef NO_DOC_FILE
 
-#define CONST const
-
 /* If not defined, use unions instead of ints.  A few systems (DEC Alpha)
    seem to require this, probably because something with the int
    definitions isn't right with 64-bit systems.

@@ -33,14 +33,8 @@
 #include <sys/fcntl.h>
 #include <sys/file.h>
 
-/* libaudio.h includes a header which defines CONST.  We temporarily
-   undefine it in order to eliminate a compiler warning.  Yes, this is
-   a gross hack. */
-#undef CONST
 #include <multimedia/libaudio.h>
 #include <multimedia/audio_device.h>
-#undef CONST
-#define CONST const
 
 #ifdef emacs
 # include <config.h>
@@ -312,7 +306,7 @@ play_sound_data (unsigned char *data, int length, int volume)
 
 /* #### sigcontext doesn't exist in Solaris.  This should be updated
    to be correct for Solaris. */
-static void
+static SIGTYPE
 sighandler (int sig)
 {
   if (audio_fd > 0)

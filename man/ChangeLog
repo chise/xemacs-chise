@@ -1,3 +1,18 @@
+2000-02-16  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.29 is released.
+
+2000-02-16  Martin Buchholz  <martin@xemacs.org>
+
+	* internals/internals.texi: Integrate Olivier's portable dumping docs.
+
+2000-02-09  Martin Buchholz  <martin@xemacs.org>
+
+	* lispref/symbols.texi (Object Plists): 
+	Document `object-plist'.
+	Document `remprop'.
+	Rework all plist frobbing docs for accuracy.
+
 2000-02-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.28 is released.

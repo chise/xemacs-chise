@@ -107,12 +107,12 @@ int stdout_needs_newline;
 
 void
 write_string_to_stdio_stream (FILE *stream, struct console *con,
-			      CONST Bufbyte *str,
+			      const Bufbyte *str,
 			      Bytecount offset, Bytecount len,
 			      Lisp_Object coding_system)
 {
   Extcount extlen;
-  CONST Extbyte *extptr;
+  const Extbyte *extptr;
 
   TO_EXTERNAL_FORMAT (DATA, (str + offset, len),
 		      ALLOCA, (extptr, extlen),
@@ -152,7 +152,7 @@ write_string_to_stdio_stream (FILE *stream, struct console *con,
    buffer_insert_string_1() in insdel.c. */
 
 static void
-output_string (Lisp_Object function, CONST Bufbyte *nonreloc,
+output_string (Lisp_Object function, const Bufbyte *nonreloc,
 	       Lisp_Object reloc, Bytecount offset, Bytecount len)
 {
   /* This function can GC */
@@ -162,7 +162,7 @@ output_string (Lisp_Object function, CONST Bufbyte *nonreloc,
      other functions that take both a nonreloc and a reloc, or things
      may get confused and an assertion failure in
      fixup_internal_substring() may get triggered. */
-  CONST Bufbyte *newnonreloc = nonreloc;
+  const Bufbyte *newnonreloc = nonreloc;
   struct gcpro gcpro1, gcpro2;
 
   /* Emacs won't print while GCing, but an external debugger might */
@@ -347,7 +347,7 @@ print_finish (Lisp_Object stream, Lisp_Object frame_kludge)
 
 /* Used for printing a single-byte character (*not* any Emchar).  */
 #define write_char_internal(string_of_length_1, stream)			\
-  output_string (stream, (CONST Bufbyte *) (string_of_length_1),	\
+  output_string (stream, (const Bufbyte *) (string_of_length_1),	\
 		 Qnil, 0, 1)
 
 /* NOTE: Do not call this with the data of a Lisp_String, as
@@ -360,7 +360,7 @@ print_finish (Lisp_Object stream, Lisp_Object frame_kludge)
    canonicalize_printcharfun() (i.e. Qnil means stdout, not
    Vstandard_output, etc.)  */
 void
-write_string_1 (CONST Bufbyte *str, Bytecount size, Lisp_Object stream)
+write_string_1 (const Bufbyte *str, Bytecount size, Lisp_Object stream)
 {
   /* This function can GC */
 #ifdef ERROR_CHECK_BUFPOS
@@ -370,10 +370,10 @@ write_string_1 (CONST Bufbyte *str, Bytecount size, Lisp_Object stream)
 }
 
 void
-write_c_string (CONST char *str, Lisp_Object stream)
+write_c_string (const char *str, Lisp_Object stream)
 {
   /* This function can GC */
-  write_string_1 ((CONST Bufbyte *) str, strlen (str), stream);
+  write_string_1 ((const Bufbyte *) str, strlen (str), stream);
 }
 
 
@@ -859,7 +859,7 @@ long_to_string (char *buffer, long number)
 }
 
 static void
-print_vector_internal (CONST char *start, CONST char *end,
+print_vector_internal (const char *start, const char *end,
                        Lisp_Object obj,
                        Lisp_Object printcharfun, int escapeflag)
 {
@@ -1407,7 +1407,7 @@ to 0.
   Bufbyte str[MAX_EMCHAR_LEN];
   Bytecount len;
   int extlen;
-  CONST Extbyte *extptr;
+  const Extbyte *extptr;
 
   CHECK_CHAR_COERCE_INT (character);
   len = set_charptr_emchar (str, XCHAR (character));

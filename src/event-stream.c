@@ -1115,7 +1115,7 @@ mark_timeout (Lisp_Object obj)
 static void
 print_timeout (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  CONST Lisp_Timeout *t = XTIMEOUT (obj);
+  const Lisp_Timeout *t = XTIMEOUT (obj);
   char buf[64];
 
   sprintf (buf, "#<INTERNAL OBJECT (XEmacs bug?) (timeout) 0x%lx>",
@@ -3412,7 +3412,7 @@ menu_accelerator_junk_on_error (Lisp_Object errordata, Lisp_Object ignored)
       args[1] = errordata;
       warn_when_safe_lispobj
 	(Qerror, Qwarning,
-	 emacs_doprnt_string_lisp ((CONST Bufbyte *) "%s: %s",
+	 emacs_doprnt_string_lisp ((const Bufbyte *) "%s: %s",
 				   Qnil, -1, 2, args));
     }
 

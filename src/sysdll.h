@@ -38,13 +38,13 @@ typedef void * dll_handle;
 typedef void * dll_func;
 typedef void * dll_var;
 
-int dll_init(CONST char *);
+int dll_init(const char *);
 int dll_shutdown(void);
-dll_handle dll_open(CONST char *);
+dll_handle dll_open(const char *);
 int dll_close(dll_handle);
-dll_func dll_function(dll_handle,CONST char *);
-dll_var dll_variable(dll_handle,CONST char *);
-CONST char *dll_error(dll_handle);
+dll_func dll_function(dll_handle,const char *);
+dll_var dll_variable(dll_handle,const char *);
+const char *dll_error(dll_handle);
 
 #ifdef __cplusplus
 }

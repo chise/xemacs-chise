@@ -127,7 +127,7 @@ close_descriptor_pair (int in, int out)
    to get rid of irrelevant descriptors.  */
 
 static int
-close_process_descs_mapfun (CONST void* key, void* contents, void* arg)
+close_process_descs_mapfun (const void* key, void* contents, void* arg)
 {
   Lisp_Object proc;
   CVOID_TO_LISP (proc, contents);
@@ -372,7 +372,7 @@ get_internet_address (Lisp_Object host, struct sockaddr_in *address,
 #endif /*  !(HAVE_GETADDRINFO && HAVE_GETNAMEINFO) */
 
 static void
-set_socket_nonblocking_maybe (int fd, int port, CONST char* proto)
+set_socket_nonblocking_maybe (int fd, int port, const char* proto)
 {
 #ifdef PROCESS_IO_BLOCKING
   Lisp_Object tail;
@@ -1223,7 +1223,7 @@ unix_process_send_eof (Lisp_Object proc)
   Bufbyte eof_char = get_eof_char (XPROCESS (proc));
   send_process (proc, Qnil, &eof_char, 0, 1);
 #else
-  send_process (proc, Qnil, (CONST Bufbyte *) "\004", 0, 1);
+  send_process (proc, Qnil, (const Bufbyte *) "\004", 0, 1);
 #endif
   return 1;
 }

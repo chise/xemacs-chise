@@ -50,9 +50,9 @@ Boston, MA 02111-1307, USA.  */
 #include "sysfile.h"
 #include "systime.h"
 
-#if defined(HAVE_DLOPEN) && defined(LWLIB_USES_ATHENA) && !defined(HAVE_ATHENA_3D)
+#if defined(HAVE_SHLIB) && defined(LWLIB_USES_ATHENA) && !defined(HAVE_ATHENA_3D)
 #include "sysdll.h"
-#endif /* HAVE_DLOPEN and LWLIB_USES_ATHENA and not HAVE_ATHENA_3D */
+#endif /* HAVE_SHLIB and LWLIB_USES_ATHENA and not HAVE_ATHENA_3D */
 
 #ifdef HAVE_OFFIX_DND
 #include "offix.h"
@@ -460,9 +460,9 @@ x_init_device (struct device *d, Lisp_Object props)
   Widget app_shell;
   int argc;
   char **argv;
-  CONST char *app_class;
-  CONST char *app_name;
-  CONST char *disp_name;
+  const char *app_class;
+  const char *app_name;
+  const char *disp_name;
   Visual *visual = NULL;
   int depth = 8;		/* shut up the compiler */
   Colormap cmap;
@@ -470,7 +470,7 @@ x_init_device (struct device *d, Lisp_Object props)
   /* */
   int best_visual_found = 0;
 
-#if defined(HAVE_DLOPEN) && defined(LWLIB_USES_ATHENA) && !defined(HAVE_ATHENA_3D)
+#if defined(HAVE_SHLIB) && defined(LWLIB_USES_ATHENA) && !defined(HAVE_ATHENA_3D)
   /*
    * In order to avoid the lossage with flat Athena widgets dynamically
    * linking to one of the ThreeD variants, using the dynamic symbol helpers
@@ -539,7 +539,7 @@ x_init_device (struct device *d, Lisp_Object props)
 	dll_close (xaw_dll_handle);
       }
   }
-#endif /* HAVE_DLOPEN and LWLIB_USES_ATHENA and not HAVE_ATHENA_3D */
+#endif /* HAVE_SHLIB and LWLIB_USES_ATHENA and not HAVE_ATHENA_3D */
 
 
   XSETDEVICE (device, d);
@@ -609,10 +609,10 @@ x_init_device (struct device *d, Lisp_Object props)
        data-directory/app-defaults/$LANG/Emacs.
        This is in addition to the standard app-defaults files, and
        does not override resources defined elsewhere */
-    CONST char *data_dir;
+    const char *data_dir;
     char *path;
     XrmDatabase db = XtDatabase (dpy); /* #### XtScreenDatabase(dpy) ? */
-    CONST char *locale = XrmLocaleOfDatabase (db);
+    const char *locale = XrmLocaleOfDatabase (db);
 
     if (STRINGP (Vx_app_defaults_directory) &&
 	XSTRING_LENGTH (Vx_app_defaults_directory) > 0)
@@ -913,10 +913,10 @@ x_delete_device (struct device *d)
 /*				handle X errors				*/
 /************************************************************************/
 
-CONST char *
+const char *
 x_event_name (int event_type)
 {
-  static CONST char *events[] =
+  static const char *events[] =
   {
     "0: ERROR!",
     "1: REPLY",
@@ -1684,7 +1684,7 @@ Valid keysyms are listed in the files /usr/include/X11/keysymdef.h and in
 */
        (keysym))
 {
-  CONST char *keysym_ext;
+  const char *keysym_ext;
 
   CHECK_STRING (keysym);
   TO_EXTERNAL_FORMAT (LISP_STRING, keysym,
@@ -1890,7 +1890,7 @@ See also `x-set-font-path'.
 {
   Display *dpy = get_x_display (device);
   int ndirs_return;
-  CONST char **directories = (CONST char **) XGetFontPath (dpy, &ndirs_return);
+  const char **directories = (const char **) XGetFontPath (dpy, &ndirs_return);
   Lisp_Object font_path = Qnil;
 
   if (!directories)
@@ -1922,7 +1922,7 @@ See also `x-get-font-path'.
 {
   Display *dpy = get_x_display (device);
   Lisp_Object path_entry;
-  CONST char **directories;
+  const char **directories;
   int i=0,ndirs=0;
 
   EXTERNAL_LIST_LOOP (path_entry, font_path)
@@ -1931,7 +1931,7 @@ See also `x-get-font-path'.
       ndirs++;
     }
 
-  directories = alloca_array (CONST char *, ndirs);
+  directories = alloca_array (const char *, ndirs);
 
   EXTERNAL_LIST_LOOP (path_entry, font_path)
     {
@@ -1987,7 +1987,7 @@ void
 reinit_console_type_create_device_x (void)
 {
   /* Initialize variables to speed up X resource interactions */
-  CONST char *valid_resource_chars =
+  const char *valid_resource_chars =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
   while (*valid_resource_chars)
     valid_resource_char_p[(unsigned int) (*valid_resource_chars++)] = 1;

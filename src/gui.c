@@ -52,9 +52,9 @@ See `popup-menu' and `popup-dialog-box'.
 #endif /* HAVE_POPUPS */
 
 int
-separator_string_p (CONST char *s)
+separator_string_p (const char *s)
 {
-  CONST char *p;
+  const char *p;
   char first;
 
   if (!s || s[0] == '\0')
@@ -299,7 +299,7 @@ gui_item_accelerator (Lisp_Object gui_item)
     return pgui->accelerator;
 
   else
-    return pgui->name;
+    return gui_name_accelerator (pgui->name);
 }
 
 Lisp_Object
@@ -446,7 +446,7 @@ gui_item_display_flush_right (Lisp_Object gui_item,
       CHECK_STRING (pgui_item->keys);
       if (XSTRING_LENGTH (pgui_item->keys) > buf_len)
 	signal_too_long_error (pgui_item->name);
-      strcpy (buf, (CONST char *) XSTRING_DATA (pgui_item->keys));
+      strcpy (buf, (const char *) XSTRING_DATA (pgui_item->keys));
       return XSTRING_LENGTH (pgui_item->keys);
     }
 

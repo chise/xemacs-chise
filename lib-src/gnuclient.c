@@ -231,13 +231,13 @@ filename_expand (char *fullpath, char *filename)
 /* Encase the string in quotes, escape all the backslashes and quotes
    in string.  */
 static char *
-clean_string (CONST char *s)
+clean_string (const char *s)
 {
   int i = 0;
   char *p, *res;
 
   {
-    CONST char *const_p;
+    const char *const_p;
     for (const_p = s; *const_p; const_p++, i++)
       {
 	if (*const_p == '\\' || *const_p == '\"')
@@ -293,7 +293,7 @@ clean_string (CONST char *s)
 
 /* A strdup imitation. */
 static char *
-my_strdup (CONST char *s)
+my_strdup (const char *s)
 {
   char *new_s = (char *) malloc (strlen (s) + 1);
   if (new_s)

@@ -142,7 +142,7 @@ mark_event (Lisp_Object obj)
 }
 
 static void
-print_event_1 (CONST char *str, Lisp_Object obj, Lisp_Object printcharfun)
+print_event_1 (const char *str, Lisp_Object obj, Lisp_Object printcharfun)
 {
   char buf[255];
   write_c_string (str, printcharfun);
@@ -1266,7 +1266,7 @@ format_event_object (char *buf, Lisp_Event *event, int brief)
       }
     case magic_event:
       {
-        CONST char *name = NULL;
+        const char *name = NULL;
 
 #ifdef HAVE_X_WINDOWS
 	{
@@ -1314,7 +1314,7 @@ format_event_object (char *buf, Lisp_Event *event, int brief)
     }
   else if (SYMBOLP (key))
     {
-      CONST char *str = 0;
+      const char *str = 0;
       if (brief)
 	{
 	  if      (EQ (key, QKlinefeed))  str = "LFD";

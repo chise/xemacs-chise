@@ -135,6 +135,7 @@ Lisp_Object Qpointer;
 Lisp_Object Qpopup;
 Lisp_Object Qportrait;
 Lisp_Object Qprint;
+Lisp_Object Qprinter;
 Lisp_Object Qprocess;
 Lisp_Object Qprovide;
 Lisp_Object Qrassoc;
@@ -286,6 +287,7 @@ syms_of_general (void)
   defsymbol (&Qpopup, "popup");
   defsymbol (&Qportrait, "portrait");
   defsymbol (&Qprint, "print");
+  defsymbol (&Qprinter, "printer");
   defsymbol (&Qprocess, "process");
   defsymbol (&Qprovide, "provide");
   defsymbol (&Qrassoc, "rassoc");

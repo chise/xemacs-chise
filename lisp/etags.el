@@ -638,7 +638,7 @@ If it returns non-nil, this file needs processing by evalling
 	  (t
 	   (setq tag-table-currently-matching-exact t)))
     ;; \_ in the tagname is used to indicate a symbol boundary.
-    (setq exact-tagname (concat "\\_" tagname "\\_"))
+    (setq exact-tagname (format "\C-?\\_%s\\_\C-a\\|\\_%s\\_" tagname tagname))
     (while (string-match "\\\\_" exact-tagname)
       (aset exact-tagname (1- (match-end 0)) ?b))
     (save-excursion
@@ -671,7 +671,9 @@ If it returns non-nil, this file needs processing by evalling
 		;; tag searches?
 		(while (re-search-forward tag-target nil t)
 		  (and (save-match-data
-			 (looking-at "[^\n\C-?]*\C-?"))
+			 (save-excursion
+			   (goto-char (match-beginning 0))
+			   (looking-at "[^\n\C-?]*\C-?")))
 		       ;; If we're looking for inexact matches, skip
 		       ;; exact matches since we've visited them
 		       ;; already.
@@ -690,6 +692,7 @@ If it returns non-nil, this file needs processing by evalling
 	       (if next "more " "")
 	       (if exact "matching" "containing")
 	       tagname))
+      (beginning-of-line)
       (search-forward "\C-?")
       (setq file (expand-file-name (file-of-tag)
 				   ;; In XEmacs, this needs to be

@@ -329,8 +329,8 @@ static XtActionsRec xaw_actions [] = {
 static Boolean actions_initted = False;
 
 static Widget
-make_dialog (CONST char* name, Widget parent, Boolean pop_up_p,
-	     CONST char* shell_title, CONST char* icon_name,
+make_dialog (const char* name, Widget parent, Boolean pop_up_p,
+	     const char* shell_title, const char* icon_name,
              Boolean text_input_slot,
 	     Boolean radio_box, Boolean list,
 	     int left_buttons, int right_buttons)
@@ -438,8 +438,8 @@ xaw_create_dialog (widget_instance* instance)
   Widget parent = instance->parent;
   Widget widget;
   Boolean pop_up_p = instance->pop_up_p;
-  CONST char *shell_name = 0;
-  CONST char *icon_name = 0;
+  const char *shell_name = 0;
+  const char *icon_name = 0;
   Boolean text_input_slot = False;
   Boolean radio_box = False;
   Boolean list = False;

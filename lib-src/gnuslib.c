@@ -194,7 +194,7 @@ disconnect_from_ipc_server (int s, struct msgbuf *msgp, int echo)
   send_string -- send string to socket.
 */
 void
-send_string (int s, CONST char *msg)
+send_string (int s, const char *msg)
 {
 #if 0
   if (send(s,msg,strlen(msg),0) < 0) {

@@ -135,7 +135,7 @@ EXFUN (Frunning_temacs_p, 0);
 /* signal a file error when errno contains a meaningful value. */
 
 DOESNT_RETURN
-report_file_error (CONST char *string, Lisp_Object data)
+report_file_error (const char *string, Lisp_Object data)
 {
   /* #### dmoore - This uses current_buffer, better make sure no one
      has GC'd the current buffer.  File handlers are giving me a headache
@@ -148,7 +148,7 @@ report_file_error (CONST char *string, Lisp_Object data)
 }
 
 void
-maybe_report_file_error (CONST char *string, Lisp_Object data,
+maybe_report_file_error (const char *string, Lisp_Object data,
 			 Lisp_Object class, Error_behavior errb)
 {
   /* Optimization: */
@@ -164,14 +164,14 @@ maybe_report_file_error (CONST char *string, Lisp_Object data,
 /* signal a file error when errno does not contain a meaningful value. */
 
 DOESNT_RETURN
-signal_file_error (CONST char *string, Lisp_Object data)
+signal_file_error (const char *string, Lisp_Object data)
 {
   signal_error (Qfile_error,
                 list2 (build_translated_string (string), data));
 }
 
 void
-maybe_signal_file_error (CONST char *string, Lisp_Object data,
+maybe_signal_file_error (const char *string, Lisp_Object data,
 			 Lisp_Object class, Error_behavior errb)
 {
   /* Optimization: */
@@ -183,7 +183,7 @@ maybe_signal_file_error (CONST char *string, Lisp_Object data,
 }
 
 DOESNT_RETURN
-signal_double_file_error (CONST char *string1, CONST char *string2,
+signal_double_file_error (const char *string1, const char *string2,
 			  Lisp_Object data)
 {
   signal_error (Qfile_error,
@@ -193,7 +193,7 @@ signal_double_file_error (CONST char *string1, CONST char *string2,
 }
 
 void
-maybe_signal_double_file_error (CONST char *string1, CONST char *string2,
+maybe_signal_double_file_error (const char *string1, const char *string2,
 				Lisp_Object data, Lisp_Object class,
 				Error_behavior errb)
 {
@@ -208,7 +208,7 @@ maybe_signal_double_file_error (CONST char *string1, CONST char *string2,
 }
 
 DOESNT_RETURN
-signal_double_file_error_2 (CONST char *string1, CONST char *string2,
+signal_double_file_error_2 (const char *string1, const char *string2,
 			    Lisp_Object data1, Lisp_Object data2)
 {
   signal_error (Qfile_error,
@@ -218,7 +218,7 @@ signal_double_file_error_2 (CONST char *string1, CONST char *string2,
 }
 
 void
-maybe_signal_double_file_error_2 (CONST char *string1, CONST char *string2,
+maybe_signal_double_file_error_2 (const char *string1, const char *string2,
 				  Lisp_Object data1, Lisp_Object data2,
 				  Lisp_Object class, Error_behavior errb)
 {
@@ -289,7 +289,7 @@ read_allowing_quit (int fildes, void *buf, size_t size)
 }
 
 ssize_t
-write_allowing_quit (int fildes, CONST void *buf, size_t size)
+write_allowing_quit (int fildes, const void *buf, size_t size)
 {
   QUIT;
   return sys_write_1 (fildes, buf, size, 1);
@@ -581,7 +581,7 @@ except for (file-name-as-directory \"\") => \"./\".
  */
 
 static int
-directory_file_name (CONST char *src, char *dst)
+directory_file_name (const char *src, char *dst)
 {
   long slen = strlen (src);
   /* Process as Unix format: just remove any final slash.
@@ -723,7 +723,7 @@ be an absolute file name.
 
       QUIT;
 
-      if (stat ((CONST char *) data, &ignored) < 0)
+      if (stat ((const char *) data, &ignored) < 0)
 	{
 	  /* We want to return only if errno is ENOENT.  */
 	  if (errno == ENOENT)
@@ -1611,7 +1611,7 @@ expand_and_dir_to_file (Lisp_Object filename, Lisp_Object defdir)
    If the file does not exist, STATPTR->st_mode is set to 0.  */
 
 static void
-barf_or_query_if_file_exists (Lisp_Object absname, CONST char *querystring,
+barf_or_query_if_file_exists (Lisp_Object absname, const char *querystring,
 			      int interactive, struct stat *statptr)
 {
   /* This function can GC.  GC checked 1997.04.06. */
@@ -1629,7 +1629,7 @@ barf_or_query_if_file_exists (Lisp_Object absname, CONST char *querystring,
 	  struct gcpro gcpro1;
 
 	  prompt = emacs_doprnt_string_c
-	    ((CONST Bufbyte *) GETTEXT ("File %s already exists; %s anyway? "),
+	    ((const Bufbyte *) GETTEXT ("File %s already exists; %s anyway? "),
 	     Qnil, -1, XSTRING_DATA (absname),
 	     GETTEXT (querystring));
 
@@ -1721,7 +1721,7 @@ A prefix arg makes KEEP-TIME non-nil.
       || INTP (ok_if_already_exists))
     barf_or_query_if_file_exists (newname, "copy to it",
 				  INTP (ok_if_already_exists), &out_st);
-  else if (stat ((CONST char *) XSTRING_DATA (newname), &out_st) < 0)
+  else if (stat ((const char *) XSTRING_DATA (newname), &out_st) < 0)
     out_st.st_mode = 0;
 
   ifd = interruptible_open ((char *) XSTRING_DATA (filename), O_RDONLY | OPEN_BINARY, 0);
@@ -1794,7 +1794,7 @@ A prefix arg makes KEEP-TIME non-nil.
 			    mtime))
 	  report_file_error ("I/O error", list1 (newname));
       }
-      chmod ((CONST char *) XSTRING_DATA (newname),
+      chmod ((const char *) XSTRING_DATA (newname),
 	     st.st_mode & 07777);
     }
 
@@ -2186,7 +2186,7 @@ check_executable (char *filename)
 /* Return nonzero if file FILENAME exists and can be written.  */
 
 static int
-check_writable (CONST char *filename)
+check_writable (const char *filename)
 {
 #ifdef HAVE_EACCESS
   return (eaccess (filename, 2) >= 0);
@@ -3954,10 +3954,10 @@ Non-nil second argument means save only current buffer.
 	      set_buffer_internal (b);
 	      if (!auto_saved && NILP (no_message))
 		{
-		  static CONST unsigned char *msg
-		    = (CONST unsigned char *) "Auto-saving...";
+		  static const unsigned char *msg
+		    = (const unsigned char *) "Auto-saving...";
 		  echo_area_message (selected_frame (), msg, Qnil,
-				     0, strlen ((CONST char *) msg),
+				     0, strlen ((const char *) msg),
 				     Qauto_saving);
 		}
 
@@ -3983,7 +3983,7 @@ Non-nil second argument means save only current buffer.
 		 auto save name.  */
 	      if (listdesc >= 0)
 		{
-		  CONST Extbyte *auto_save_file_name_ext;
+		  const Extbyte *auto_save_file_name_ext;
 		  Extcount auto_save_file_name_ext_len;
 
 		  TO_EXTERNAL_FORMAT (LISP_STRING, b->auto_save_file_name,
@@ -3992,7 +3992,7 @@ Non-nil second argument means save only current buffer.
 				      Qfile_name);
 		  if (!NILP (b->filename))
 		    {
-		      CONST Extbyte *filename_ext;
+		      const Extbyte *filename_ext;
 		      Extcount filename_ext_len;
 
 		      TO_EXTERNAL_FORMAT (LISP_STRING, b->filename,
@@ -4061,10 +4061,10 @@ Non-nil second argument means save only current buffer.
   if (auto_saved && NILP (no_message)
       && NILP (clear_echo_area (selected_frame (), Qauto_saving, 0)))
     {
-      static CONST unsigned char *msg
-        = (CONST unsigned char *)"Auto-saving...done";
+      static const unsigned char *msg
+        = (const unsigned char *)"Auto-saving...done";
       echo_area_message (selected_frame (), msg, Qnil, 0,
-			 strlen ((CONST char *) msg), Qauto_saving);
+			 strlen ((const char *) msg), Qauto_saving);
     }
 
   Vquit_flag = oquit;

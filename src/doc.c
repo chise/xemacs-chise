@@ -392,7 +392,7 @@ translation.
 }
 
 static void
-weird_doc (Lisp_Object sym, CONST char *weirdness, CONST char *type, int pos)
+weird_doc (Lisp_Object sym, const char *weirdness, const char *type, int pos)
 {
   if (!strcmp (weirdness, GETTEXT ("duplicate"))) return;
   message ("Note: Strange doc (%s) for %s %s @ %d",

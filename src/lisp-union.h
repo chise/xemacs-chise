@@ -76,7 +76,7 @@ union Lisp_Object
      GCC to accept any (yes, any) pointer as the argument of
      a function declared to accept a Lisp_Object. */
   struct nosuchstruct *v;
-  CONST struct nosuchstruct *cv;
+  const struct nosuchstruct *cv;
 }
 Lisp_Object;
 
@@ -136,9 +136,9 @@ extern Lisp_Object Qnull_pointer, Qzero;
 #define VOID_TO_LISP(larg,varg) \
      ((void) ((larg).v = (struct nosuchstruct *) (varg)))
 #define CVOID_TO_LISP(larg,varg) \
-     ((void) ((larg).cv = (CONST struct nosuchstruct *) (varg)))
+     ((void) ((larg).cv = (const struct nosuchstruct *) (varg)))
 #define LISP_TO_VOID(larg) ((void *) ((larg).v))
-#define LISP_TO_CVOID(larg) ((CONST void *) ((larg).cv))
+#define LISP_TO_CVOID(larg) ((const void *) ((larg).cv))
 
 /* Convert a Lisp_Object into something that can't be used as an
    lvalue.  Useful for type-checking. */

@@ -457,7 +457,7 @@ string_width_u (XlwMenuWidget mw,
 }
 
 static void
-massage_resource_name (CONST char *in, char *out)
+massage_resource_name (const char *in, char *out)
 {
   /* Turn a random string into something suitable for using as a resource.
      For example:
@@ -520,7 +520,7 @@ nameResource[] =
  *    not inserted if value is a zero length string.
  */
 static char*
-parameterize_string (CONST char *string, CONST char *value)
+parameterize_string (const char *string, const char *value)
 {
   char *percent;
   char *result;
@@ -1873,7 +1873,7 @@ radio_button_draw (XlwMenuWidget mw,
 
 static struct _shadow_names
 {
-  CONST char *      name;
+  const char *      name;
   shadow_type type;
 } shadow_names[] =
 {

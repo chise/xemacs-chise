@@ -44,7 +44,7 @@ Lisp_Object Vopaque_ptr_free_list;
 static void
 print_opaque (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  CONST Lisp_Opaque *p = XOPAQUE (obj);
+  const Lisp_Opaque *p = XOPAQUE (obj);
   char buf[200];
 
   sprintf (buf, "#<INTERNAL OBJECT (XEmacs bug?) (opaque, size=%lu) 0x%lx>",
@@ -53,9 +53,9 @@ print_opaque (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 static size_t
-sizeof_opaque (CONST void *header)
+sizeof_opaque (const void *header)
 {
-  CONST Lisp_Opaque *p = (CONST Lisp_Opaque *) header;
+  const Lisp_Opaque *p = (const Lisp_Opaque *) header;
   return offsetof (Lisp_Opaque, data) + p->size;
 }
 
@@ -64,7 +64,7 @@ sizeof_opaque (CONST void *header)
    If DATA is OPAQUE_UNINIT, the object's data is uninitialized.
    Else the object's data is initialized by copying from DATA. */
 Lisp_Object
-make_opaque (CONST void *data, size_t size)
+make_opaque (const void *data, size_t size)
 {
   Lisp_Opaque *p = (Lisp_Opaque *)
     alloc_lcrecord (offsetof (Lisp_Opaque, data) + size, &lrecord_opaque);
@@ -121,7 +121,7 @@ DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION ("opaque", opaque,
 static void
 print_opaque_ptr (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  CONST Lisp_Opaque_Ptr *p = XOPAQUE_PTR (obj);
+  const Lisp_Opaque_Ptr *p = XOPAQUE_PTR (obj);
   char buf[200];
 
   sprintf (buf, "#<INTERNAL OBJECT (XEmacs bug?) (opaque_ptr, adr=0x%lx) 0x%lx>",

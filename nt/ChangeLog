@@ -1,3 +1,12 @@
+2000-02-16  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.29 is released.
+
+2000-02-06  Mike Alexander  <mta@arbortext.com>
+
+	* xemacs.mak (install): Copy xemacs.dmp if using the portable
+	dumper.
+
 2000-02-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.28 is released.

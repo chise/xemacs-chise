@@ -436,7 +436,7 @@ control_meta_superify (Lisp_Object frob, unsigned int modifiers)
 }
 
 static Lisp_Object
-make_key_description (CONST struct key_data *key, int prettify)
+make_key_description (const struct key_data *key, int prettify)
 {
   Lisp_Object keysym = key->keysym;
   unsigned int modifiers = key->modifiers;
@@ -464,7 +464,7 @@ make_key_description (CONST struct key_data *key, int prettify)
 
 static Lisp_Object
 raw_lookup_key (Lisp_Object keymap,
-                CONST struct key_data *raw_keys, int raw_keys_count,
+                const struct key_data *raw_keys, int raw_keys_count,
                 int keys_so_far, int accept_default);
 
 /* Relies on caller to gc-protect args */
@@ -645,7 +645,7 @@ create_bucky_submap (Lisp_Keymap *k, unsigned int modifiers,
 
 /* Relies on caller to gc-protect keymap, keysym, value */
 static void
-keymap_store (Lisp_Object keymap, CONST struct key_data *key,
+keymap_store (Lisp_Object keymap, const struct key_data *key,
               Lisp_Object value)
 {
   Lisp_Object keysym = key->keysym;
@@ -1100,7 +1100,7 @@ get_keyelt (Lisp_Object object, int accept_default)
 }
 
 static Lisp_Object
-keymap_lookup_1 (Lisp_Object keymap, CONST struct key_data *key,
+keymap_lookup_1 (Lisp_Object keymap, const struct key_data *key,
                  int accept_default)
 {
   /* This function can GC */
@@ -1596,7 +1596,7 @@ event_matches_key_specifier_p (Lisp_Event *event, Lisp_Object key_specifier)
 }
 
 static int
-meta_prefix_char_p (CONST struct key_data *key)
+meta_prefix_char_p (const struct key_data *key)
 {
   Lisp_Event event;
 
@@ -1992,7 +1992,7 @@ these features.
 struct raw_lookup_key_mapper_closure
 {
   int remaining;
-  CONST struct key_data *raw_keys;
+  const struct key_data *raw_keys;
   int raw_keys_count;
   int keys_so_far;
   int accept_default;
@@ -2003,7 +2003,7 @@ static Lisp_Object raw_lookup_key_mapper (Lisp_Object k, void *);
 /* Caller should gc-protect args (keymaps may autoload) */
 static Lisp_Object
 raw_lookup_key (Lisp_Object keymap,
-                CONST struct key_data *raw_keys, int raw_keys_count,
+                const struct key_data *raw_keys, int raw_keys_count,
                 int keys_so_far, int accept_default)
 {
   /* This function can GC */
@@ -2026,7 +2026,7 @@ raw_lookup_key_mapper (Lisp_Object k, void *arg)
   int accept_default = c->accept_default;
   int remaining = c->remaining;
   int keys_so_far = c->keys_so_far;
-  CONST struct key_data *raw_keys = c->raw_keys;
+  const struct key_data *raw_keys = c->raw_keys;
   Lisp_Object cmd;
 
   if (! meta_prefix_char_p (&(raw_keys[0])))
@@ -2741,7 +2741,7 @@ Return the current global keymap.
 
 struct map_keymap_unsorted_closure
 {
-  void (*fn) (CONST struct key_data *, Lisp_Object binding, void *arg);
+  void (*fn) (const struct key_data *, Lisp_Object binding, void *arg);
   void *arg;
   unsigned int modifiers;
 };
@@ -2880,7 +2880,7 @@ map_keymap_sort_predicate (Lisp_Object obj1, Lisp_Object obj2,
 static void
 map_keymap_sorted (Lisp_Object keymap_table,
                    unsigned int modifiers,
-                   void (*function) (CONST struct key_data *key,
+                   void (*function) (const struct key_data *key,
                                      Lisp_Object binding,
                                      void *map_keymap_sorted_closure),
                    void *map_keymap_sorted_closure)
@@ -2925,7 +2925,7 @@ map_keymap_sorted (Lisp_Object keymap_table,
 
 /* used by Fmap_keymap() */
 static void
-map_keymap_mapper (CONST struct key_data *key,
+map_keymap_mapper (const struct key_data *key,
                    Lisp_Object binding,
                    void *function)
 {
@@ -2938,7 +2938,7 @@ map_keymap_mapper (CONST struct key_data *key,
 
 static void
 map_keymap (Lisp_Object keymap_table, int sort_first,
-            void (*function) (CONST struct key_data *key,
+            void (*function) (const struct key_data *key,
                               Lisp_Object binding,
                               void *fn_arg),
             void *fn_arg)
@@ -3525,9 +3525,9 @@ where_is_recursive_mapper (Lisp_Object map, void *arg)
   /* This function can GC */
   struct where_is_closure *c = (struct where_is_closure *) arg;
   Lisp_Object definition = c->definition;
-  CONST int firstonly = c->firstonly;
-  CONST unsigned int keys_count = c->keys_count;
-  CONST unsigned int modifiers_so_far = c->modifiers_so_far;
+  const int firstonly = c->firstonly;
+  const unsigned int keys_count = c->keys_count;
+  const unsigned int modifiers_so_far = c->modifiers_so_far;
   char *target_buffer = c->target_buffer;
   Lisp_Object keys = Fgethash (definition,
                                XKEYMAP (map)->inverse_table,
@@ -3643,7 +3643,7 @@ where_is_recursive_mapper (Lisp_Object map, void *arg)
 	  if (! c->keys_so_far_malloced)
 	    {
 	      struct key_data *new = xnew_array (struct key_data, size);
-	      memcpy ((void *)new, (CONST void *)c->keys_so_far,
+	      memcpy ((void *)new, (const void *)c->keys_so_far,
 		      c->keys_so_far_total_size * sizeof (struct key_data));
 	    }
 	  else
@@ -3896,7 +3896,7 @@ struct describe_map_closure
 
 struct describe_map_shadow_closure
   {
-    CONST struct key_data *raw_key;
+    const struct key_data *raw_key;
     Lisp_Object self;
   };
 
@@ -3925,7 +3925,7 @@ keymap_lookup_inherited_mapper (Lisp_Object km, void *arg)
 
 
 static void
-describe_map_mapper (CONST struct key_data *key,
+describe_map_mapper (const struct key_data *key,
                      Lisp_Object binding,
 		     void *describe_map_closure)
 {
@@ -4339,7 +4339,7 @@ Incremented for each change to any keymap.
 
   staticpro (&Vcurrent_global_map);
 
-  Vsingle_space_string = make_string ((CONST Bufbyte *) " ", 1);
+  Vsingle_space_string = make_string ((const Bufbyte *) " ", 1);
   staticpro (&Vsingle_space_string);
 }
 

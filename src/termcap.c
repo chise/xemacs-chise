@@ -94,16 +94,16 @@ xrealloc (ptr, size)
    for tgetnum, tgetflag and tgetstr to find.  */
 static char *term_entry;
 
-static CONST char *tgetst1 (CONST char *ptr, char **area);
+static const char *tgetst1 (const char *ptr, char **area);
 
 /* Search entry BP for capability CAP.
    Return a pointer to the capability (in BP) if found,
    0 if not found.  */
 
-static CONST char *
+static const char *
 find_capability (bp, cap)
-     CONST char *bp;
-     CONST char *cap;
+     const char *bp;
+     const char *cap;
 {
   for (; *bp; bp++)
     if (bp[0] == ':'
@@ -115,9 +115,9 @@ find_capability (bp, cap)
 
 int
 tgetnum (cap)
-     CONST char *cap;
+     const char *cap;
 {
-  CONST char *ptr = find_capability (term_entry, cap);
+  const char *ptr = find_capability (term_entry, cap);
   if (!ptr || ptr[-1] != '#')
     return -1;
   return atoi (ptr);
@@ -125,9 +125,9 @@ tgetnum (cap)
 
 int
 tgetflag (cap)
-     CONST char *cap;
+     const char *cap;
 {
-  CONST char *ptr = find_capability (term_entry, cap);
+  const char *ptr = find_capability (term_entry, cap);
   return 0 != ptr && ptr[-1] == ':';
 }
 
@@ -136,12 +136,12 @@ tgetflag (cap)
    to store the string.  That pointer is advanced over the space used.
    If AREA is zero, space is allocated with `malloc'.  */
 
-CONST char *
+const char *
 tgetstr (cap, area)
-     CONST char *cap;
+     const char *cap;
      char **area;
 {
-  CONST char *ptr = find_capability (term_entry, cap);
+  const char *ptr = find_capability (term_entry, cap);
   if (!ptr || (ptr[-1] != '=' && ptr[-1] != '~'))
     return 0;
   return tgetst1 (ptr, area);
@@ -162,12 +162,12 @@ static char esctab[]
    into the block that *AREA points to,
    or to newly allocated storage if AREA is 0.  */
 
-static CONST char *
+static const char *
 tgetst1 (ptr, area)
-     CONST char *ptr;
+     const char *ptr;
      char **area;
 {
-  CONST char *p;
+  const char *p;
   char *r;
   int c;
   int size;
@@ -250,7 +250,7 @@ static short speeds[] =
 
 void
 tputs (string, nlines, outfun)
-     CONST char *string;
+     const char *string;
      int nlines;
      void (*outfun) (int);
 {
@@ -269,7 +269,7 @@ tputs (string, nlines, outfun)
   if (string == (char *) 0)
     return;
 
-  while (isdigit (* (CONST unsigned char *) string))
+  while (isdigit (* (const unsigned char *) string))
     {
       padcount += *string++ - '0';
       padcount *= 10;
@@ -331,18 +331,18 @@ static int name_match ();
 int
 tgetent (bp, name)
      char *bp;
-     CONST char *name;
+     const char *name;
 {
   char *tem;
   int fd;
   struct buffer buf;
   char *bp1;
   char *bp2;
-  CONST char *term;
+  const char *term;
   int malloc_size = 0;
   int c;
   char *tcenv;			/* TERMCAP value, if it contais :tc=.  */
-  CONST char *indirect = 0;	/* Terminal type in :tc= in TERMCAP value.  */
+  const char *indirect = 0;	/* Terminal type in :tc= in TERMCAP value.  */
 
   tem = getenv ("TERMCAP");
   if (tem && *tem == 0) tem = 0;
@@ -637,7 +637,7 @@ main (argc, argv)
 }
 
 tprint (cap)
-     CONST char *cap;
+     const char *cap;
 {
   char *x = tgetstr (cap, 0);
   char *y;

@@ -24,12 +24,12 @@
 
 #else
 
-int XmuCursorNameToIndex (CONST char *name);
-int XmuReadBitmapDataFromFile (CONST char *filename, unsigned int *width,
+int XmuCursorNameToIndex (const char *name);
+int XmuReadBitmapDataFromFile (const char *filename, unsigned int *width,
                                unsigned int *height, unsigned char **datap,
                                int *x_hot, int *y_hot);
 int XmuPrintDefaultErrorMessage (Display *dpy, XErrorEvent *event, FILE *fp);
-void XmuCopyISOLatin1Lowered (char *, CONST char *);
+void XmuCopyISOLatin1Lowered (char *, const char *);
 
 #define Max(x, y)       (((x) > (y)) ? (x) : (y))
 #define Min(x, y)       (((x) < (y)) ? (x) : (y))

@@ -168,7 +168,7 @@ run_in_other_process (HANDLE h_process,
 		      LPVOID data, size_t data_size)
 {
   process_memory pm;
-  CONST size_t code_size = FRAGMENT_CODE_SIZE;
+  const size_t code_size = FRAGMENT_CODE_SIZE;
   /* Need at most 3 extra bytes of memory, for data alignment */
   size_t total_size = code_size + data_size + 3;
   LPVOID remote_data;

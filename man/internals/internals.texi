@@ -69,6 +69,7 @@ instead of in the original English.
 @author Martin Buchholz
 @author Hrvoje Niksic
 @author Matthias Neubauer
+@author Olivier Galibert
 @page
 @vskip 0pt plus 1fill
 
@@ -118,6 +119,7 @@ This Info file contains v1.0 of the XEmacs Internals Manual.
 * Rules When Writing New C Code::
 * A Summary of the Various XEmacs Modules::
 * Allocation of Objects in XEmacs Lisp::
+* Dumping::
 * Events and the Event Loop::
 * Evaluation; Stack Frames; Bindings::
 * Symbols and Variables::
@@ -134,19 +136,16 @@ This Info file contains v1.0 of the XEmacs Internals Manual.
 * Menus::
 * Subprocesses::
 * Interface to X Windows::
-* Index::                   Index including concepts, functions, variables,
-                              and other terms.
+* Index::
 
-      --- The Detailed Node Listing ---
-
-Here are other nodes that are inferiors of those already listed,
-mentioned here so you can get to them in one step:
+@detailmenu --- The Detailed Node Listing ---
 
 A History of Emacs
 
 * Through Version 18::          Unification prevails.
 * Lucid Emacs::                 One version 19 Emacs.
 * GNU Emacs 19::                The other version 19 Emacs.
+* GNU Emacs 20::                The other version 20 Emacs.
 * XEmacs::                      The continuation of Lucid Emacs.
 
 Rules When Writing New C Code
@@ -154,7 +153,16 @@ Rules When Writing New C Code
 * General Coding Rules::
 * Writing Lisp Primitives::
 * Adding Global Lisp Variables::
+* Coding for Mule::
 * Techniques for XEmacs Developers::
+
+Coding for Mule
+
+* Character-Related Data Types::
+* Working With Character and Byte Positions::
+* Conversion to and from External Data::
+* General Guidelines for Writing Mule-Aware Code::
+* An Example of Mule-Aware Code::
 
 A Summary of the Various XEmacs Modules
 
@@ -189,6 +197,32 @@ Allocation of Objects in XEmacs Lisp
 * Marker::
 * String::
 * Compiled Function::
+
+Garbage Collection - Step by Step
+
+* Invocation::
+* garbage_collect_1::
+* mark_object::
+* gc_sweep::
+* sweep_lcrecords_1::
+* compact_string_chars::
+* sweep_strings::
+* sweep_bit_vectors_1::
+
+Dumping
+
+* Overview::
+* Data descriptions::
+* Dumping phase::
+* Reloading phase::
+
+Dumping phase
+
+* Object inventory::
+* Address allocation::
+* The header::
+* Data dumping::
+* Pointers dumping::
 
 Events and the Event Loop
 
@@ -228,6 +262,7 @@ MULE Character Sets and Encodings
 * Character Sets::
 * Encodings::
 * Internal Mule Encodings::
+* CCL::
 
 Encodings
 
@@ -239,20 +274,25 @@ Internal Mule Encodings
 * Internal String Encoding::
 * Internal Character Encoding::
 
-The Lisp Reader and Compiler
-
 Lstreams
+
+* Creating an Lstream::         Creating an lstream object.
+* Lstream Types::               Different sorts of things that are streamed.
+* Lstream Functions::           Functions for working with lstreams.
+* Lstream Methods::             Creating new lstream types.
 
 Consoles; Devices; Frames; Windows
 
 * Introduction to Consoles; Devices; Frames; Windows::
 * Point::
 * Window Hierarchy::
+* The Window Object::
 
 The Redisplay Mechanism
 
 * Critical Redisplay Sections::
 * Line Start Cache::
+* Redisplay Piece by Piece::
 
 Extents
 
@@ -260,21 +300,10 @@ Extents
 * Extent Ordering::             How extents are ordered internally.
 * Format of the Extent Info::   The extent information in a buffer or string.
 * Zero-Length Extents::         A weird special case.
-* Mathematics of Extent Ordering::      A rigorous foundation.
+* Mathematics of Extent Ordering::  A rigorous foundation.
 * Extent Fragments::            Cached information useful for redisplay.
 
-Faces
-
-Glyphs
-
-Specifiers
-
-Menus
-
-Subprocesses
-
-Interface to X Windows
-
+@end detailmenu
 @end menu
 
 @node A History of Emacs, XEmacs From the Outside, Top, Top
@@ -315,7 +344,7 @@ Lisp, a programming language developed at MIT that underlies Emacs.)
 * XEmacs::                      The continuation of Lucid Emacs.
 @end menu
 
-@node Through Version 18
+@node Through Version 18, Lucid Emacs, A History of Emacs, A History of Emacs
 @section Through Version 18
 @cindex Gosling, James
 @cindex Great Usenet Renaming
@@ -428,7 +457,7 @@ version 18.58 released ?????.
 version 18.59 released October 31, 1992.
 @end itemize
 
-@node Lucid Emacs
+@node Lucid Emacs, GNU Emacs 19, Through Version 18, A History of Emacs
 @section Lucid Emacs
 @cindex Lucid Emacs
 @cindex Lucid Inc.
@@ -516,7 +545,7 @@ version 20.3 (the first stable version of XEmacs 20.x) released November 30,
 version 20.4 released February 28, 1998.
 @end itemize
 
-@node GNU Emacs 19
+@node GNU Emacs 19, GNU Emacs 20, Lucid Emacs, A History of Emacs
 @section GNU Emacs 19
 @cindex GNU Emacs 19
 @cindex FSF Emacs
@@ -593,7 +622,7 @@ Lucid Emacs; the work was mostly done by Richard Mlynarik, who had been
 working on and using GNU Emacs for a long time (back as far as version
 16 or 17).
 
-@node GNU Emacs 20
+@node GNU Emacs 20, XEmacs, GNU Emacs 19, A History of Emacs
 @section GNU Emacs 20
 @cindex GNU Emacs 20
 @cindex FSF Emacs
@@ -612,7 +641,7 @@ version 20.2 released September 20, 1997.
 version 20.3 released August 19, 1998.
 @end itemize
 
-@node XEmacs
+@node XEmacs,  , GNU Emacs 20, A History of Emacs
 @section XEmacs
 @cindex XEmacs
 
@@ -1765,7 +1794,7 @@ situations, often in code far away from where the actual breakage is.
 * Techniques for XEmacs Developers::
 @end menu
 
-@node General Coding Rules
+@node General Coding Rules, Writing Lisp Primitives, Rules When Writing New C Code, Rules When Writing New C Code
 @section General Coding Rules
 
 The C code is actually written in a dialect of C called @dfn{Clean C},
@@ -1880,7 +1909,7 @@ the list.  The macros @code{EXTERNAL_LIST_LOOP_DELETE_IF} and
 @code{LIST_LOOP_DELETE_IF} delete elements from a lisp list satisfying some
 predicate.
 
-@node Writing Lisp Primitives
+@node Writing Lisp Primitives, Adding Global Lisp Variables, General Coding Rules, Rules When Writing New C Code
 @section Writing Lisp Primitives
 
 Lisp primitives are Lisp functions implemented in C.  The details of
@@ -2124,7 +2153,7 @@ number of arguments.  They work by calling @code{Ffuncall}.
 @file{lisp.h} contains the definitions for important macros and
 functions.
 
-@node Adding Global Lisp Variables
+@node Adding Global Lisp Variables, Coding for Mule, Writing Lisp Primitives, Rules When Writing New C Code
 @section Adding Global Lisp Variables
 
 Global variables whose names begin with @samp{Q} are constants whose
@@ -2186,7 +2215,7 @@ is in use, and will happily collect it and reuse its storage for another
 Lisp object, and you will be the one who's unhappy when you can't figure
 out how your variable got overwritten.
 
-@node Coding for Mule
+@node Coding for Mule, Techniques for XEmacs Developers, Adding Global Lisp Variables, Rules When Writing New C Code
 @section Coding for Mule
 @cindex Coding for Mule
 
@@ -2209,7 +2238,7 @@ code generalization for future I18N work.
 * An Example of Mule-Aware Code::
 @end menu
 
-@node Character-Related Data Types
+@node Character-Related Data Types, Working With Character and Byte Positions, Coding for Mule, Coding for Mule
 @subsection Character-Related Data Types
 
 First, let's review the basic character-related datatypes used by
@@ -2283,7 +2312,7 @@ which are equivalent to @code{unsigned char}.  Obviously, an
 and Extcounts are not all that frequent in XEmacs code.
 @end table
 
-@node Working With Character and Byte Positions
+@node Working With Character and Byte Positions, Conversion to and from External Data, Character-Related Data Types, Coding for Mule
 @subsection Working With Character and Byte Positions
 
 Now that we have defined the basic character-related types, we can look
@@ -2407,7 +2436,7 @@ Bufbyte *charptr_n_addr (Bufbyte *p, Charcount cc);
 @end example
 @end table
 
-@node Conversion to and from External Data
+@node Conversion to and from External Data, General Guidelines for Writing Mule-Aware Code, Working With Character and Byte Positions, Coding for Mule
 @subsection Conversion to and from External Data
 
 When an external function, such as a C library function, returns a
@@ -2521,7 +2550,7 @@ representation, with the external format being incoded into the name of
 the macro.
 @end table
 
-@node General Guidelines for Writing Mule-Aware Code
+@node General Guidelines for Writing Mule-Aware Code, An Example of Mule-Aware Code, Conversion to and from External Data, Coding for Mule
 @subsection General Guidelines for Writing Mule-Aware Code
 
 This section contains some general guidance on how to write Mule-aware
@@ -2560,7 +2589,7 @@ needs to be decoded only once, when it is read.  After that, it is
 passed around in internal format.
 @end table
 
-@node An Example of Mule-Aware Code
+@node An Example of Mule-Aware Code,  , General Guidelines for Writing Mule-Aware Code, Coding for Mule
 @subsection An Example of Mule-Aware Code
 
 As an example of Mule-aware code, we shall will analyze the
@@ -2611,7 +2640,7 @@ over the XEmacs code.  For starters, I recommend
 understood this section of the manual and studied the examples, you can
 proceed writing new Mule-aware code.
 
-@node Techniques for XEmacs Developers
+@node Techniques for XEmacs Developers,  , Coding for Mule, Rules When Writing New C Code
 @section Techniques for XEmacs Developers
 
 To make a quantified XEmacs, do: @code{make quantmacs}.
@@ -2733,7 +2762,7 @@ make check
 * Modules for Internationalization::
 @end menu
 
-@node Low-Level Modules
+@node Low-Level Modules, Basic Lisp Modules, A Summary of the Various XEmacs Modules, A Summary of the Various XEmacs Modules
 @section Low-Level Modules
 
 @example
@@ -2957,7 +2986,7 @@ This is not currently used.
 
 
 
-@node Basic Lisp Modules
+@node Basic Lisp Modules, Modules for Standard Editing Operations, Low-Level Modules, A Summary of the Various XEmacs Modules
 @section Basic Lisp Modules
 
 @example
@@ -3163,7 +3192,7 @@ structures.  Note that the byte-code @emph{compiler} is written in Lisp.
 
 
 
-@node Modules for Standard Editing Operations
+@node Modules for Standard Editing Operations, Editor-Level Control Flow Modules, Basic Lisp Modules, A Summary of the Various XEmacs Modules
 @section Modules for Standard Editing Operations
 
 @example
@@ -3333,7 +3362,7 @@ Most of this could be implemented in Lisp.
 
 
 
-@node Editor-Level Control Flow Modules
+@node Editor-Level Control Flow Modules, Modules for the Basic Displayable Lisp Objects, Modules for Standard Editing Operations, A Summary of the Various XEmacs Modules
 @section Editor-Level Control Flow Modules
 
 @example
@@ -3431,7 +3460,7 @@ code is loaded).
 
 
 
-@node Modules for the Basic Displayable Lisp Objects
+@node Modules for the Basic Displayable Lisp Objects, Modules for other Display-Related Lisp Objects, Editor-Level Control Flow Modules, A Summary of the Various XEmacs Modules
 @section Modules for the Basic Displayable Lisp Objects
 
 @example
@@ -3505,7 +3534,7 @@ types such as scrollbars.
 
 
 
-@node Modules for other Display-Related Lisp Objects
+@node Modules for other Display-Related Lisp Objects, Modules for the Redisplay Mechanism, Modules for the Basic Displayable Lisp Objects, A Summary of the Various XEmacs Modules
 @section Modules for other Display-Related Lisp Objects
 
 @example
@@ -3584,7 +3613,7 @@ These modules decode GIF-format image files, for use with glyphs.
 
 
 
-@node Modules for the Redisplay Mechanism
+@node Modules for the Redisplay Mechanism, Modules for Interfacing with the File System, Modules for other Display-Related Lisp Objects, A Summary of the Various XEmacs Modules
 @section Modules for the Redisplay Mechanism
 
 @example
@@ -3656,7 +3685,7 @@ probably be merged into @file{redisplay-tty.c}.
 
 
 
-@node Modules for Interfacing with the File System
+@node Modules for Interfacing with the File System, Modules for Other Aspects of the Lisp Interpreter and Object System, Modules for the Redisplay Mechanism, A Summary of the Various XEmacs Modules
 @section Modules for Interfacing with the File System
 
 @example
@@ -3757,7 +3786,7 @@ a broken implementation.
 
 
 
-@node Modules for Other Aspects of the Lisp Interpreter and Object System
+@node Modules for Other Aspects of the Lisp Interpreter and Object System, Modules for Interfacing with the Operating System, Modules for Interfacing with the File System, A Summary of the Various XEmacs Modules
 @section Modules for Other Aspects of the Lisp Interpreter and Object System
 
 @example
@@ -3919,7 +3948,7 @@ various security applications on the Internet.
 
 
 
-@node Modules for Interfacing with the Operating System
+@node Modules for Interfacing with the Operating System, Modules for Interfacing with X Windows, Modules for Other Aspects of the Lisp Interpreter and Object System, A Summary of the Various XEmacs Modules
 @section Modules for Interfacing with the Operating System
 
 @example
@@ -4158,7 +4187,7 @@ XEmacs.
 
 
 
-@node Modules for Interfacing with X Windows
+@node Modules for Interfacing with X Windows, Modules for Internationalization, Modules for Interfacing with the Operating System, A Summary of the Various XEmacs Modules
 @section Modules for Interfacing with X Windows
 
 @example
@@ -4300,7 +4329,7 @@ Don't touch this code; something is liable to break if you do.
 
 
 
-@node Modules for Internationalization
+@node Modules for Internationalization,  , Modules for Interfacing with X Windows, A Summary of the Various XEmacs Modules
 @section Modules for Internationalization
 
 @example
@@ -4377,7 +4406,7 @@ Asian-language support, and is not currently used.
 
 
 
-@node Allocation of Objects in XEmacs Lisp, Events and the Event Loop, A Summary of the Various XEmacs Modules, Top
+@node Allocation of Objects in XEmacs Lisp, Dumping, A Summary of the Various XEmacs Modules, Top
 @chapter Allocation of Objects in XEmacs Lisp
 
 @menu
@@ -4399,7 +4428,7 @@ Asian-language support, and is not currently used.
 * Compiled Function::
 @end menu
 
-@node Introduction to Allocation
+@node Introduction to Allocation, Garbage Collection, Allocation of Objects in XEmacs Lisp, Allocation of Objects in XEmacs Lisp
 @section Introduction to Allocation
 
   Emacs Lisp, like all Lisps, has garbage collection.  This means that
@@ -4502,7 +4531,7 @@ extend. (FSF calls items of type (c) @code{Lisp_Misc} and items of type
 (d) @code{Lisp_Vectorlike}, with separate tags for each, although
 @code{Lisp_Vectorlike} is also used for vectors.)
 
-@node Garbage Collection
+@node Garbage Collection, GCPROing, Introduction to Allocation, Allocation of Objects in XEmacs Lisp
 @section Garbage Collection
 @cindex garbage collection
 
@@ -4576,7 +4605,7 @@ by calling @code{garbage-collect} but is also called automatically
 by @code{eval}, once a certain amount of memory has been allocated
 since the last garbage collection (according to @code{gc-cons-threshold}).
 
-@node GCPROing
+@node GCPROing, Garbage Collection - Step by Step, Garbage Collection, Allocation of Objects in XEmacs Lisp
 @section @code{GCPRO}ing
 
 @code{GCPRO}ing is one of the ugliest and trickiest parts of Emacs
@@ -4729,7 +4758,7 @@ will result in a few objects not getting collected when they should, but
 it obviates the need for @code{GCPRO}ing, and allows garbage collection
 to happen at any point at all, such as during object allocation.
 
-@node Garbage Collection - Step by Step
+@node Garbage Collection - Step by Step, Integers and Characters, GCPROing, Allocation of Objects in XEmacs Lisp
 @section Garbage Collection - Step by Step
 @cindex garbage collection step by step
 
@@ -4744,12 +4773,12 @@ to happen at any point at all, such as during object allocation.
 * sweep_bit_vectors_1::
 @end menu
 
-@node Invocation
+@node Invocation, garbage_collect_1, Garbage Collection - Step by Step, Garbage Collection - Step by Step
 @subsection Invocation
 @cindex garbage collection, invocation
 
 The first thing that anyone should know about garbage collection is:
-when and how the garbage collector is invoked. One might think that this 
+when and how the garbage collector is invoked. One might think that this
 could happen every time new memory is allocated, e.g. new objects are
 created, but this is @emph{not} the case. Instead, we have the following
 situation:
@@ -4758,7 +4787,7 @@ The entry point of any process of garbage collection is an invocation
 of the function @code{garbage_collect_1} in file @code{alloc.c}. The
 invocation can occur @emph{explicitly} by calling the function
 @code{Fgarbage_collect} (in addition this function provides information
-about the freed memory), or can occur @emph{implicitly} in four different 
+about the freed memory), or can occur @emph{implicitly} in four different
 situations:
 @enumerate
 @item
@@ -4769,7 +4798,7 @@ checking-constant @code{ERROR_CHECK_GC} is defined.
 @item
 In function @code{disksave_object_finalization} in file
 @code{alloc.c}. The only purpose of this function is to clear the
-objects from memory which need not be stored with xemacs when we dump out 
+objects from memory which need not be stored with xemacs when we dump out
 an executable. This is only done by @code{Fdump_emacs} or by
 @code{Fdump_emacs_data} respectively (both in @code{emacs.c}). The
 actual clearing is accomplished by making these objects unreachable and
@@ -4804,7 +4833,7 @@ miscellaneous @code{gui_item_...} functions, everything related to
 @code{Fsignal}. The latter is used to handle signals, as for example the
 ones raised by every @code{QUITE}-macro triggered after pressing Ctrl-g.
 
-@node garbage_collect_1
+@node garbage_collect_1, mark_object, Invocation, Garbage Collection - Step by Step
 @subsection @code{garbage_collect_1}
 @cindex @code{garbage_collect_1}
 
@@ -4812,7 +4841,7 @@ We can now describe exactly what happens after the invocation takes
 place.
 @enumerate
 @item
-There are several cases in which the garbage collector is left immediately: 
+There are several cases in which the garbage collector is left immediately:
 when we are already garbage collecting (@code{gc_in_progress}), when
 the garbage collection is somehow forbidden
 (@code{gc_currently_forbidden}), when we are currently displaying something
@@ -4830,7 +4859,7 @@ The state of @code{gc_currently_forbidden} must be restored after
 the garbage collection, no matter what happens during the process. We
 accomplish this by @code{record_unwind_protect}ing the suitable function
 @code{restore_gc_inhibit} together with the current value of
-@code{gc_currently_forbidden}. 
+@code{gc_currently_forbidden}.
 @item
 If we are concurrently running an interactive xemacs session, the next step
 is simply to show the garbage collector's cursor/message.
@@ -4844,7 +4873,7 @@ frame. However, this seems to be a currently unused feature.
 Before actually starting to go over all live objects, references to
 objects that are no longer used are pruned. We only have to do this for events
 (@code{clear_event_resource}) and for specifiers
-(@code{cleanup_specifiers}). 
+(@code{cleanup_specifiers}).
 @item
 Now the mark phase begins and marks all accessible elements. In order to
 start from
@@ -4856,13 +4885,13 @@ shown in their processed order:
 @item
 all constant symbols and static variables that are registered via
 @code{staticpro}@ in the array @code{staticvec}.
-@xref{Adding Global Lisp Variables}. 
+@xref{Adding Global Lisp Variables}.
 @item
 all Lisp objects that are created in C functions and that must be
 protected from freeing them. They are registered in the global
 list @code{gcprolist}.
 @xref{GCPROing}.
-@item 
+@item
 all local variables (i.e. their name fields @code{symbol} and old
 values @code{old_values}) that are bound during the evaluation by the Lisp
 engine. They are stored in @code{specbinding} structs pushed on a stack
@@ -4875,13 +4904,13 @@ cause the creation of structs @code{catchtag} inserted in the list
 are freshly created objects and therefore have to be marked.
 @xref{Catch and Throw}.
 @item
-every function application pushes new structs @code{backtrace} 
-on the call stack of the Lisp engine (@code{backtrace_list}). The unique 
+every function application pushes new structs @code{backtrace}
+on the call stack of the Lisp engine (@code{backtrace_list}). The unique
 parts that have to be marked are the fields for each function
 (@code{function}) and all their arguments (@code{args}).
 @xref{Evaluation}.
 @item
-all objects that are used by the redisplay engine that must not be freed 
+all objects that are used by the redisplay engine that must not be freed
 are marked by a special function called @code{mark_redisplay} (in
 @code{redisplay.c}).
 @item
@@ -4899,8 +4928,8 @@ Any object referenced only by weak pointers is collected
 anyway, and the reference to it is cleared. In hash tables there are
 different usage patterns of them, manifesting in different types of hash
 tables, namely 'non-weak', 'weak', 'key-weak' and 'value-weak'
-(internally also 'key-car-weak' and 'value-car-weak') hash tables, each 
-clearing entries depending on different conditions. More information can 
+(internally also 'key-car-weak' and 'value-car-weak') hash tables, each
+clearing entries depending on different conditions. More information can
 be found in the documentation to the function @code{make-hash-table}.
 
 Because there are complicated dependency rules about when and what to
@@ -4911,13 +4940,13 @@ while marking. Instead their marking is done each separately by the
 function @code{finish_marking_weak_hash_tables}. This function iterates
 over each hash table entry @code{hentries} for each weak hash table in
 @code{Vall_weak_hash_tables}. Depending on the type of a table, the
-appropriate action is performed. 
+appropriate action is performed.
 If a table is acting as @code{HASH_TABLE_KEY_WEAK}, and a key already marked,
-everything reachable from the @code{value} component is marked. If it is 
+everything reachable from the @code{value} component is marked. If it is
 acting as a @code{HASH_TABLE_VALUE_WEAK} and the value component is
-already marked, the marking starts beginning only from the 
+already marked, the marking starts beginning only from the
 @code{key} component.
-If it is a @code{HASH_TABLE_KEY_CAR_WEAK} and the car 
+If it is a @code{HASH_TABLE_KEY_CAR_WEAK} and the car
 of the key entry is already marked, we mark both the @code{key} and
 @code{value} components.
 Finally, if the table is of the type @code{HASH_TABLE_VALUE_CAR_WEAK}
@@ -4929,9 +4958,9 @@ lists. There exist different peculiarities of their types called
 @code{simple}, @code{assoc}, @code{key-assoc} and
 @code{value-assoc}. You can find further details about them in the
 description to the function @code{make-weak-list}. The scheme of their
-marking is similar: all weak lists are listed in @code{Qall_weak_lists}, 
+marking is similar: all weak lists are listed in @code{Qall_weak_lists},
 therefore we iterate over them. The marking is advanced until we hit an
-already marked pair. Then we know that during a former run all 
+already marked pair. Then we know that during a former run all
 the rest has been marked completely. Again, depending on the special
 type of the weak list, our jobs differ. If it is a @code{WEAK_LIST_SIMPLE}
 and the elem is marked, we mark the @code{cons} part. If it is a
@@ -4944,7 +4973,7 @@ cdr of the elem, we mark both the @code{cons} and the @code{elem}.
 
 Since, by marking objects in reach from weak hash tables and weak lists,
 other objects could get marked, this perhaps implies further marking of
-other weak objects, both finishing functions are redone as long as 
+other weak objects, both finishing functions are redone as long as
 yet unmarked objects get freshly marked.
 
 @item
@@ -4956,7 +4985,7 @@ the table or the list.
 The function @code{prune_weak_hash_tables} does the job for weak hash
 tables. Totally unmarked hash tables are removed from the list
 @code{Vall_weak_hash_tables}. The other ones are treated more carefully
-by scanning over all entries and removing one as soon as one of 
+by scanning over all entries and removing one as soon as one of
 the components @code{key} and @code{value} is unmarked.
 
 The same idea applies to the weak lists. It is accomplished by
@@ -4966,12 +4995,12 @@ carefully by going over it and removing just the unmarked pairs.
 
 @item
 The function @code{prune_specifiers} checks all listed specifiers held
-in @code{Vall_speficiers} and removes the ones from the lists that are 
+in @code{Vall_speficiers} and removes the ones from the lists that are
 unmarked.
 
 @item
 All syntax tables are stored in a list called
-@code{Vall_syntax_tables}. The function @code{prune_syntax_tables} walks 
+@code{Vall_syntax_tables}. The function @code{prune_syntax_tables} walks
 through it and unlinks the tables that are unmarked.
 
 @item
@@ -4979,11 +5008,11 @@ Next, we will attack the complete sweeping - the function
 @code{gc_sweep} which holds the predominance.
 @item
 First, all the variables with respect to garbage collection are
-reset. @code{consing_since_gc} - the counter of the created cells since 
+reset. @code{consing_since_gc} - the counter of the created cells since
 the last garbage collection - is set back to 0, and
 @code{gc_in_progress} is not @code{true} anymore.
 @item
-In case the session is interactive, the displayed cursor and message are 
+In case the session is interactive, the displayed cursor and message are
 removed again.
 @item
 The state of @code{gc_inhibit} is restored to the former value by
@@ -4991,10 +5020,10 @@ unwinding the stack.
 @item
 A small memory reserve is always held back that can be reached by
 @code{breathing_space}. If nothing more is left, we create a new reserve
-and exit. 
+and exit.
 @end enumerate
 
-@node mark_object
+@node mark_object, gc_sweep, garbage_collect_1, Garbage Collection - Step by Step
 @subsection @code{mark_object}
 @cindex @code{mark_object}
 
@@ -5002,7 +5031,7 @@ The first thing that is checked while marking an object is whether the
 object is a real Lisp object @code{Lisp_Type_Record} or just an integer
 or a character. Integers and characters are the only two types that are
 stored directly - without another level of indirection, and therefore they
-don't have to be marked and collected. 
+don't have to be marked and collected.
 @xref{How Lisp Objects Are Represented in C}.
 
 The second case is the one we have to handle. It is the one when we are
@@ -5013,14 +5042,14 @@ i.e. marked (@code{C_READONLY_RECORD_HEADER}). The object in question is
 already marked, and need not be marked for the second time (checked by
 @code{MARKED_RECORD_HEADER_P}). If it is a special, unmarkable object
 (@code{UNMARKABLE_RECORD_HEADER_P}, apparently, these are objects that
-sit in some CONST space, and can therefore not be marked, see
+sit in some const space, and can therefore not be marked, see
 @code{this_one_is_unmarkable} in @code{alloc.c}).
 
 Now, the actual marking is feasible. We do so by once using the macro
 @code{MARK_RECORD_HEADER} to mark the object itself (actually the
 special flag in the lrecord header), and calling its special marker
 "method" @code{marker} if available. The marker method marks every
-other object that is in reach from our current object. Note, that these 
+other object that is in reach from our current object. Note, that these
 marker methods should not call @code{mark_object} recursively, but
 instead should return the next object from where further marking has to
 be performed.
@@ -5028,11 +5057,11 @@ be performed.
 In case another object was returned, as mentioned before, we reiterate
 the whole @code{mark_object} process beginning with this next object.
 
-@node gc_sweep
+@node gc_sweep, sweep_lcrecords_1, mark_object, Garbage Collection - Step by Step
 @subsection @code{gc_sweep}
 @cindex @code{gc_sweep}
 
-The job of this function is to free all unmarked records from memory. As 
+The job of this function is to free all unmarked records from memory. As
 we know, there are different types of objects implemented and managed, and
 consequently different ways to free them from memory.
 @xref{Introduction to Allocation}.
@@ -5041,7 +5070,7 @@ We start with all objects stored through @code{lcrecords}. All
 bulkier objects are allocated and handled using that scheme of
 @code{lcrecords}. Each object is @code{malloc}ed separately
 instead of placing it in one of the contiguous frob blocks. All types
-that are currently stored 
+that are currently stored
 using @code{lcrecords}'s  @code{alloc_lcrecord} and
 @code{make_lcrecord_list} are the types: vectors, buffers,
 char-table, char-table-entry, console, weak-list, database, device,
@@ -5076,12 +5105,12 @@ After that, the other types are swept step by step using functions
 compiled-functions, symbol, marker, extent, and event stored in
 so-called "frob blocks", and therefore we can basically do the same on
 every type objects, using the same macros, especially defined only to
-handle everything with respect to fixed-size blocks. The only fixed-size 
+handle everything with respect to fixed-size blocks. The only fixed-size
 type that is not handled here are the fixed-size portion of strings,
 because we took special care of them earlier.
 
 The only big exceptions are bit vectors stored differently and
-therefore treated differently by the function @code{sweep_bit_vectors_1} 
+therefore treated differently by the function @code{sweep_bit_vectors_1}
 described later.
 
 At first, we need some brief information about how
@@ -5090,7 +5119,7 @@ how the sweeping is done. They have all a fixed size, and are therefore
 stored in big blocks of memory - allocated at once - that can hold a
 certain amount of objects of one type. The macro
 @code{DECLARE_FIXED_TYPE_ALLOC} creates the suitable structures for
-every type. More precisely, we have the block struct 
+every type. More precisely, we have the block struct
 (holding a pointer to the previous block @code{prev} and the
 objects in @code{block[]}), a pointer to current block
 (@code{current_..._block)}) and its last index
@@ -5106,45 +5135,45 @@ macro @code{UNMARK_...} that is used to unmark the object. They define a
 macro @code{ADDITIONAL_FREE_...} that defines additional work that has
 to be done when converting an object from in use to not in use (so far,
 only markers use it in order to unchain them). Then, they all call
-the macro @code{SWEEP_FIXED_TYPE_BLOCK} instantiated with their type name 
+the macro @code{SWEEP_FIXED_TYPE_BLOCK} instantiated with their type name
 and their struct name.
 
 This call in particular does the following: we go over all blocks
 starting with the current moving towards the oldest.
 For each block, we look at every object in it. If the object already
 freed (checked with @code{FREE_STRUCT_P} using the first pointer of the
-object), or if it is 
+object), or if it is
 set to read only (@code{C_READONLY_RECORD_HEADER_P}, nothing must be
 done. If it is unmarked (checked with @code{MARKED_RECORD_HEADER_P}), it
 is put in the free list and set free (using the macro
-@code{FREE_FIXED_TYPE}, otherwise it stays in the block, but is unmarked 
+@code{FREE_FIXED_TYPE}, otherwise it stays in the block, but is unmarked
 (by @code{UNMARK_...}). While going through one block, we note if the
 whole block is empty. If so, the whole block is freed (using
 @code{xfree}) and the free list state is set to the state it had before
 handling this block.
 
-@node sweep_lcrecords_1
+@node sweep_lcrecords_1, compact_string_chars, gc_sweep, Garbage Collection - Step by Step
 @subsection @code{sweep_lcrecords_1}
 @cindex @code{sweep_lcrecords_1}
 
 After nullifying the complete lcrecord statistics, we go over all
-lcrecords two separate times. They are all chained together in a list with 
-a head called @code{all_lcrecords}. 
+lcrecords two separate times. They are all chained together in a list with
+a head called @code{all_lcrecords}.
 
-The first loop calls for each object its @code{finalizer} method, but only 
+The first loop calls for each object its @code{finalizer} method, but only
 in the case that it is not read only
 (@code{C_READONLY_RECORD_HEADER_P)}, it is not already marked
 (@code{MARKED_RECORD_HEADER_P}), it is not already in a free list (list of
 freed objects, field @code{free}) and finally it owns a finalizer
 method.
- 
-The second loop actually frees the appropriate objects again by iterating 
-through the whole list. In case an object is read only or marked, it 
+
+The second loop actually frees the appropriate objects again by iterating
+through the whole list. In case an object is read only or marked, it
 has to persist, otherwise it is manually freed by calling
 @code{xfree}. During this loop, the lcrecord statistics are kept up to
-date by calling @code{tick_lcrecord_stats} with the right arguments, 
+date by calling @code{tick_lcrecord_stats} with the right arguments,
 
-@node compact_string_chars
+@node compact_string_chars, sweep_strings, sweep_lcrecords_1, Garbage Collection - Step by Step
 @subsection @code{compact_string_chars}
 @cindex @code{compact_string_chars}
 
@@ -5156,7 +5185,7 @@ The procedure with which this is done is as follows. We are keeping two
 positions in the @code{string_chars_block}s using two pointer/integer
 pairs, namely @code{from_sb}/@code{from_pos} and
 @code{to_sb}/@code{to_pos}. They stand for the actual positions, from
-where to where, to copy the actually handled string. 
+where to where, to copy the actually handled string.
 
 While going over all chained @code{string_char_block}s and their held
 strings, staring at @code{first_string_chars_block}, both pointers
@@ -5167,7 +5196,7 @@ More precisely, we can distinguish between the following actions.
 @itemize @bullet
 @item
 The string at @code{from_sb}'s position could be marked as free, which
-is indicated by an invalid pointer to the pointer that should point back 
+is indicated by an invalid pointer to the pointer that should point back
 to the fixed size string object, and which is checked by
 @code{FREE_STRUCT_P}. In this case, the @code{from_sb}/@code{from_pos}
 is advanced to the next string, and nothing has to be copied.
@@ -5176,7 +5205,7 @@ Also, if a string object itself is unmarked, nothing has to be
 copied. We likewise advance the @code{from_sb}/@code{from_pos}
 pair as described above.
 @item
-In all other cases, we have a marked string at hand. The string data 
+In all other cases, we have a marked string at hand. The string data
 must be moved from the from-position to the to-position. In case
 there is not enough space in the actual @code{to_sb}-block, we advance
 this pointer to the beginning of the next block before copying. In case the
@@ -5190,7 +5219,7 @@ is reset on the last block to which we moved a string,
 i.e. @code{to_block}, and all remaining blocks (we know that they just
 carry garbage) are explicitly @code{xfree}d.
 
-@node sweep_strings
+@node sweep_strings, sweep_bit_vectors_1, compact_string_chars, Garbage Collection - Step by Step
 @subsection @code{sweep_strings}
 @cindex @code{sweep_strings}
 
@@ -5202,7 +5231,7 @@ into the suitable free list is done by using the macro
 definitions are a little bit special compared to the ones used
 for the other fixed size types.
 
-@code{UNMARK_string} is defined the same way except some additional code 
+@code{UNMARK_string} is defined the same way except some additional code
 used for updating the bookkeeping information.
 
 For strings, @code{ADDITIONAL_FREE_string} has to do something in
@@ -5211,7 +5240,7 @@ addition: in case, the string was not allocated in a
 therefore it was @code{malloc}ed separately, we know also @code{xfree}
 it explicitly.
 
-@node sweep_bit_vectors_1
+@node sweep_bit_vectors_1,  , sweep_strings, Garbage Collection - Step by Step
 @subsection @code{sweep_bit_vectors_1}
 @cindex @code{sweep_bit_vectors_1}
 
@@ -5220,12 +5249,12 @@ individually. Consequently, while sweeping, all further needless
 bit vectors must be freed by hand. This is done, as one might imagine,
 the expected way: since they are all registered in a list called
 @code{all_bit_vectors}, all elements of that list are traversed,
-all unmarked bit vectors are unlinked by calling @code{xfree} and all of 
+all unmarked bit vectors are unlinked by calling @code{xfree} and all of
 them become unmarked.
-In addition, the bookkeeping information used for garbage 
+In addition, the bookkeeping information used for garbage
 collector's output purposes is updated.
 
-@node Integers and Characters
+@node Integers and Characters, Allocation from Frob Blocks, Garbage Collection - Step by Step, Allocation of Objects in XEmacs Lisp
 @section Integers and Characters
 
   Integer and character Lisp objects are created from integers using the
@@ -5239,7 +5268,7 @@ directly in the @code{Lisp_Object}.
 are too big; i.e. you won't get the value you expected but the tag bits
 will at least be correct.
 
-@node Allocation from Frob Blocks
+@node Allocation from Frob Blocks, lrecords, Integers and Characters, Allocation of Objects in XEmacs Lisp
 @section Allocation from Frob Blocks
 
 The uninitialized memory required by a @code{Lisp_Object} of a particular type
@@ -5266,7 +5295,7 @@ last frob block for space, and creates a new frob block if there is
 none. (There are actually two versions of these macros, one of which is
 more defensive but less efficient and is used for error-checking.)
 
-@node lrecords
+@node lrecords, Low-level allocation, Allocation from Frob Blocks, Allocation of Objects in XEmacs Lisp
 @section lrecords
 
   [see @file{lrecord.h}]
@@ -5505,7 +5534,7 @@ simply return the object's size in bytes, exactly as you might expect.
 For an example, see the methods for window configurations and opaques.
 @end enumerate
 
-@node Low-level allocation
+@node Low-level allocation, Pure Space, lrecords, Allocation of Objects in XEmacs Lisp
 @section Low-level allocation
 
   Memory that you want to allocate directly should be allocated using
@@ -5577,12 +5606,12 @@ appropriate times; this keeps statistics on how much memory is
 allocated, so that garbage-collection can be invoked when the
 threshold is reached.
 
-@node Pure Space
+@node Pure Space, Cons, Low-level allocation, Allocation of Objects in XEmacs Lisp
 @section Pure Space
 
   Not yet documented.
 
-@node Cons
+@node Cons, Vector, Pure Space, Allocation of Objects in XEmacs Lisp
 @section Cons
 
   Conses are allocated in standard frob blocks.  The only thing to
@@ -5596,7 +5625,7 @@ However, you have to be @emph{extremely} careful when doing this.
 If you mess this up, you will get BADLY BURNED, and it has happened
 before.
 
-@node Vector
+@node Vector, Bit Vector, Cons, Allocation of Objects in XEmacs Lisp
 @section Vector
 
   As mentioned above, each vector is @code{malloc()}ed individually, and
@@ -5607,7 +5636,7 @@ Note that the @code{struct Lisp_Vector} is declared with its
 is actually @code{malloc()}ed with the right size, however, and access
 to any element through the @code{contents} array works fine.
 
-@node Bit Vector
+@node Bit Vector, Symbol, Vector, Allocation of Objects in XEmacs Lisp
 @section Bit Vector
 
   Bit vectors work exactly like vectors, except for more complicated
@@ -5617,7 +5646,7 @@ that there's an lrecord implementation pointer at the beginning and the
 tag field in bit vector Lisp words is ``lrecord'' rather than
 ``vector''.)
 
-@node Symbol
+@node Symbol, Marker, Bit Vector, Allocation of Objects in XEmacs Lisp
 @section Symbol
 
   Symbols are also allocated in frob blocks.  Note that the code
@@ -5631,7 +5660,7 @@ chained through their @code{next} field.
 Remember that @code{intern} looks up a symbol in an obarray, creating
 one if necessary.
 
-@node Marker
+@node Marker, String, Symbol, Allocation of Objects in XEmacs Lisp
 @section Marker
 
   Markers are allocated in frob blocks, as usual.  They are kept
@@ -5642,7 +5671,7 @@ long time due to the O(N^2) time required to remove lots of
 markers from a buffer.) Markers are removed from a buffer in
 the finalize stage, in @code{ADDITIONAL_FREE_marker()}.
 
-@node String
+@node String, Compiled Function, Marker, Allocation of Objects in XEmacs Lisp
 @section String
 
   As mentioned above, strings are a special case.  A string is logically
@@ -5703,12 +5732,374 @@ string data (which would normally be obtained from the now-non-existent
 The string compactor recognizes this special 0xFFFFFFFF marker and
 handles it correctly.
 
-@node Compiled Function
+@node Compiled Function,  , String, Allocation of Objects in XEmacs Lisp
 @section Compiled Function
 
   Not yet documented.
 
-@node Events and the Event Loop, Evaluation; Stack Frames; Bindings, Allocation of Objects in XEmacs Lisp, Top
+
+@node Dumping, Events and the Event Loop, Allocation of Objects in XEmacs Lisp, Top
+@chapter Dumping
+
+@section What is dumping and its justification
+
+The C code of XEmacs is just a Lisp engine with a lot of built-in
+primitives useful for writing an editor.  The editor itself is written
+mostly in Lisp, and represents around 100K lines of code.  Loading and
+executing the initialization of all this code takes a bit a time (five
+to ten times the usual startup time of current xemacs) and requires
+having all the lisp source files around.  Having to reload them each
+time the editor is started would not be acceptable.
+
+The traditional solution to this problem is called dumping: the build
+process first creates the lisp engine under the name @file{temacs}, then
+runs it until it has finished loading and initializing all the lisp
+code, and eventually creates a new executable called @file{xemacs}
+including both the object code in @file{temacs} and all the contents of
+the memory after the initialization.
+
+This solution, while working, has a huge problem: the creation of the
+new executable from the actual contents of memory is an extremely
+system-specific process, quite error-prone, and which interferes with a
+lot of system libraries (like malloc).  It is even getting worse
+nowadays with libraries using constructors which are automatically
+called when the program is started (even before main()) which tend to
+crash when they are called multiple times, once before dumping and once
+after (IRIX 6.x libz.so pulls in some C++ image libraries thru
+dependencies which have this problem).  Writing the dumper is also one
+of the most difficult parts of porting XEmacs to a new operating system.
+Basically, `dumping' is an operation that is just not officially
+supported on many operating systems.
+
+The aim of the portable dumper is to solve the same problem as the
+system-specific dumper, that is to be able to reload quickly, using only
+a small number of files, the fully initialized lisp part of the editor,
+without any system-specific hacks.
+
+@menu
+* Overview::
+* Data descriptions::
+* Dumping phase::
+* Reloading phase::
+* Remaining issues::
+@end menu
+
+@node Overview, Data descriptions, Dumping, Dumping
+@section Overview
+
+The portable dumping system has to:
+
+@enumerate
+@item
+At dump time, write all initialized, non-quickly-rebuildable data to a
+file [Note: currently named @file{xemacs.dmp}, but the name will
+change], along with all informations needed for the reloading.
+
+@item
+When starting xemacs, reload the dump file, relocate it to its new
+starting address if needed, and reinitialize all pointers to this
+data.  Also, rebuild all the quickly rebuildable data.
+@end enumerate
+
+@node Data descriptions, Dumping phase, Overview, Dumping
+@section Data descriptions
+
+The more complex task of the dumper is to be able to write lisp objects
+(lrecords) and C structs to disk and reload them at a different address,
+updating all the pointers they include in the process.  This is done by
+using external data descriptions that give information about the layout
+of the structures in memory.
+
+The specification of these descriptions is in lrecord.h.  A description
+of an lrecord is an array of struct lrecord_description.  Each of these
+structs include a type, an offset in the structure and some optional
+parameters depending on the type.  For instance, here is the string
+description:
+
+@example
+static const struct lrecord_description string_description[] = @{
+  @{ XD_BYTECOUNT,         offsetof (Lisp_String, size) @},
+  @{ XD_OPAQUE_DATA_PTR,   offsetof (Lisp_String, data), XD_INDIRECT(0, 1) @},
+  @{ XD_LISP_OBJECT,       offsetof (Lisp_String, plist) @},
+  @{ XD_END @}
+@};
+@end example
+
+The first line indicates a member of type Bytecount, which is used by
+the next, indirect directive.  The second means "there is a pointer to
+some opaque data in the field @code{data}".  The length of said data is
+given by the expression @code{XD_INDIRECT(0, 1)}, which means "the value
+in the 0th line of the description (welcome to C) plus one".  The third
+line means "there is a Lisp_Object member @code{plist} in the Lisp_String
+structure".  @code{XD_END} then ends the description.
+
+This gives us all the information we need to move around what is pointed
+to by a structure (C or lrecord) and, by transitivity, everything that
+it points to.  The only missing information for dumping is the size of
+the structure.  For lrecords, this is part of the
+lrecord_implementation, so we don't need to duplicate it.  For C
+structures we use a struct struct_description, which includes a size
+field and a pointer to an associated array of lrecord_description.
+
+@node Dumping phase, Reloading phase, Data descriptions, Dumping
+@section Dumping phase
+
+Dumping is done by calling the function pdump() (in alloc.c) which is
+invoked from Fdump_emacs (in emacs.c).  This function performs a number
+of tasks.
+
+@menu
+* Object inventory::
+* Address allocation::
+* The header::
+* Data dumping::
+* Pointers dumping::
+@end menu
+
+@node Object inventory, Address allocation, Dumping phase, Dumping phase
+@subsection Object inventory
+
+The first task is to build the list of the objects to dump.  This
+includes:
+
+@itemize @bullet
+@item lisp objects
+@item C structures
+@end itemize
+
+We end up with one @code{pdump_entry_list_elmt} per object group (arrays
+of C structs are kept together) which includes a pointer to the first
+object of the group, the per-object size and the count of objects in the
+group, along with some other information which is initialized later.
+
+These entries are linked together in @code{pdump_entry_list} structures
+and can be enumerated thru either:
+
+@enumerate
+@item
+the @code{pdump_object_table}, an array of @code{pdump_entry_list}, one
+per lrecord type, indexed by type number.
+
+@item
+the @code{pdump_opaque_data_list}, used for the opaque data which does
+not include pointers, and hence does not need descriptions.
+
+@item
+the @code{pdump_struct_table}, which is a vector of
+@code{struct_description}/@code{pdump_entry_list} pairs, used for
+non-opaque C structures.
+@end enumerate
+
+This uses a marking strategy similar to the garbage collector.  Some
+differences though:
+
+@enumerate
+@item
+We do not use the mark bit (which does not exist for C structures
+anyway), we use a big hash table instead.
+
+@item
+We do not use the mark function of lrecords but instead rely on the
+external descriptions.  This happens essentially because we need to
+follow pointers to C structures and opaque data in addition to
+Lisp_Object members.
+@end enumerate
+
+This is done by @code{pdump_register_object}, which handles Lisp_Object
+variables, and pdump_register_struct which handles C structures, which
+both delegate the description management to pdump_register_sub.
+
+The hash table doubles as a map object to pdump_entry_list_elmt (i.e.
+allows us to look up a pdump_entry_list_elmt with the object it points
+to).  Entries are added with @code{pdump_add_entry()} and looked up with
+@code{pdump_get_entry()}.  There is no need for entry removal.  The hash
+value is computed quite basically from the object pointer by
+@code{pdump_make_hash()}.
+
+The roots for the marking are:
+
+@enumerate
+@item
+the @code{staticpro}'ed variables (there is a special @code{staticpro_nodump()}
+call for protected variables we do not want to dump).
+
+@item
+the @code{pdump_wire}'d variables (@code{staticpro} is equivalent to
+@code{staticpro_nodump()} + @code{pdump_wire()}).
+
+@item
+the @code{dumpstruct}'ed variables, which points to C structures.
+@end enumerate
+
+This does not include the GCPRO'ed variables, the specbinds, the
+catchtags, the backlist, the redisplay or the profiling info, since we
+do not want to rebuild the actual chain of lisp calls which end up to
+the dump-emacs call, only the global variables.
+
+Weak lists and weak hash tables are dumped as if they were their
+non-weak equivalent (without changing their type, of course).  This has
+not yet been a problem.
+
+@node Address allocation, The header, Object inventory, Dumping phase
+@subsection Address allocation
+
+
+The next step is to allocate the offsets of each of the objects in the
+final dump file.  This is done by @code{pdump_allocate_offset()} which
+is called indirectly by @code{pdump_scan_by_alignment()}.
+
+The strategy to deal with alignment problems uses these facts:
+
+@enumerate
+@item
+real world alignment requirements are powers of two.
+
+@item
+the C compiler is required to adjust the size of a struct so that you
+can have an array of them next to each other.  This means you can have a
+upper bound of the alignment requirements of a given structure by
+looking at which power of two its size is a multiple.
+
+@item
+the non-variant part of variable size lrecords has an alignment
+requirement of 4.
+@end enumerate
+
+Hence, for each lrecord type, C struct type or opaque data block the
+alignment requirement is computed as a power of two, with a minimum of
+2^2 for lrecords.  @code{pdump_scan_by_alignment()} then scans all the
+@code{pdump_entry_list_elmt}'s, the ones with the highest requirements
+first.  This ensures the best packing.
+
+The maximum alignment requirement we take into account is 2^8.
+
+@code{pdump_allocate_offset()} only has to do a linear allocation,
+starting at offset 256 (this leaves room for the header and keep the
+alignments happy).
+
+@node The header, Data dumping, Address allocation, Dumping phase
+@subsection The header
+
+The next step creates the file and writes a header with a signature and
+some random informations in it (number of staticpro, number of assigned
+lrecord types, etc...).  The reloc_address field, which indicates at
+which address the file should be loaded if we want to avoid post-reload
+relocation, is set to 0.  It then seeks to offset 256 (base offset for
+the objects).
+
+@node Data dumping, Pointers dumping, The header, Dumping phase
+@subsection Data dumping
+
+The data is dumped in the same order as the addresses were allocated by
+@code{pdump_dump_data()}, called from @code{pdump_scan_by_alignment()}.
+This function copies the data to a temporary buffer, relocates all
+pointers in the object to the addresses allocated in step Address
+Allocation, and writes it to the file.  Using the same order means that,
+if we are careful with lrecords whose size is not a multiple of 4, we
+are ensured that the object is always written at the offset in the file
+allocated in step Address Allocation.
+
+@node Pointers dumping,  , Data dumping, Dumping phase
+@subsection Pointers dumping
+
+A bunch of tables needed to reassign properly the global pointers are
+then written.  They are:
+
+@enumerate
+@item the staticpro array
+@item the dumpstruct array
+@item the lrecord_implementation_table array
+@item a vector of all the offsets to the objects in the file that include a
+description (for faster relocation at reload time)
+@item the pdump_wired and pdump_wired_list arrays
+@end enumerate
+
+For each of the arrays we write both the pointer to the variables and
+the relocated offset of the object they point to.  Since these variables
+are global, the pointers are still valid when restarting the program and
+are used to regenerate the global pointers.
+
+The @code{pdump_wired_list} array is a special case.  The variables it
+points to are the head of weak linked lists of lisp objects of the same
+type.  Not all objects of this list are dumped so the relocated pointer
+we associate with them points to the first dumped object of the list, or
+Qnil if none is available.  This is also the reason why they are not
+used as roots for the purpose of object enumeration.
+
+This is the end of the dumping part.
+
+@node Reloading phase, Remaining issues, Dumping phase, Dumping
+@section Reloading phase
+
+@subsection File loading
+
+The file is mmap'ed in memory (which ensures a PAGESIZE alignment, at
+least 4096), or if mmap is unavailable or fails, a 256-bytes aligned
+malloc is done and the file is loaded.
+
+Some variables are reinitialized from the values found in the header.
+
+The difference between the actual loading address and the reloc_address
+is computed and will be used for all the relocations.
+
+
+@subsection Putting back the staticvec
+
+The staticvec array is memcpy'd from the file and the variables it
+points to are reset to the relocated objects addresses.
+
+
+@subsection Putting back the dumpstructed variables
+
+The variables pointed to by dumpstruct in the dump phase are reset to
+the right relocated object addresses.
+
+
+@subsection lrecord_implementations_table
+
+The lrecord_implementations_table is reset to its dump time state and
+the right lrecord_type_index values are put in.
+
+
+@subsection Object relocation
+
+All the objects are relocated using their description and their offset
+by @code{pdump_reloc_one}.  This step is unnecessary if the
+reloc_address is equal to the file loading address.
+
+
+@subsection Putting back the pdump_wire and pdump_wire_list variables
+
+Same as Putting back the dumpstructed variables.
+
+
+@subsection Reorganize the hash tables
+
+Since some of the hash values in the lisp hash tables are
+address-dependent, their layout is now wrong.  So we go through each of
+them and have them resorted by calling @code{pdump_reorganize_hash_table}.
+
+@node Remaining issues,  , Reloading phase, Dumping
+@section Remaining issues
+
+The build process will have to start a post-dump xemacs, ask it the
+loading address (which will, hopefully, be always the same between
+different xemacs invocations) and relocate the file to the new address.
+This way the object relocation phase will not have to be done, which
+means no writes in the objects and that, because of the use of mmap, the
+dumped data will be shared between all the xemacs running on the
+computer.
+
+Some executable signature will be necessary to ensure that a given dump
+file is really associated with a given executable, or random crashes
+will occur.  Maybe a random number set at compile or configure time thru
+a define.  This will also allow for having differently-compiled xemacsen
+on the same system (mule and no-mule comes to mind).
+
+The DOC file contents should probably end up in the dump file.
+
+
+@node Events and the Event Loop, Evaluation; Stack Frames; Bindings, Dumping, Top
 @chapter Events and the Event Loop
 
 @menu
@@ -5722,7 +6113,7 @@ handles it correctly.
 * Dispatching Events; The Command Builder::
 @end menu
 
-@node Introduction to Events
+@node Introduction to Events, Main Loop, Events and the Event Loop, Events and the Event Loop
 @section Introduction to Events
 
   An event is an object that encapsulates information about an
@@ -5761,7 +6152,7 @@ Emacs events---there may not be a one-to-one correspondence.
   Emacs events are documented in @file{events.h}; I'll discuss them
 later.
 
-@node Main Loop
+@node Main Loop, Specifics of the Event Gathering Mechanism, Introduction to Events, Events and the Event Loop
 @section Main Loop
 
   The @dfn{command loop} is the top-level loop that the editor is always
@@ -5828,7 +6219,7 @@ wrapper similar to @code{command_loop_2()}.  Note also that
 invoking @code{top_level_1()}, just like when it invokes
 @code{command_loop_2()}.
 
-@node Specifics of the Event Gathering Mechanism
+@node Specifics of the Event Gathering Mechanism, Specifics About the Emacs Event, Main Loop, Events and the Event Loop
 @section Specifics of the Event Gathering Mechanism
 
   Here is an approximate diagram of the collection processes
@@ -6067,13 +6458,13 @@ a SIGINT?   emacs_Xt_next_event()
             using `dispatch-event'
 @end example
 
-@node Specifics About the Emacs Event
+@node Specifics About the Emacs Event, The Event Stream Callback Routines, Specifics of the Event Gathering Mechanism, Events and the Event Loop
 @section Specifics About the Emacs Event
 
-@node The Event Stream Callback Routines
+@node The Event Stream Callback Routines, Other Event Loop Functions, Specifics About the Emacs Event, Events and the Event Loop
 @section The Event Stream Callback Routines
 
-@node Other Event Loop Functions
+@node Other Event Loop Functions, Converting Events, The Event Stream Callback Routines, Events and the Event Loop
 @section Other Event Loop Functions
 
   @code{detect_input_pending()} and @code{input-pending-p} look for
@@ -6095,7 +6486,7 @@ or scrollbar action), calling @code{dispatch-event} on any others.
 the right kind of input method support, it is possible for (read-char)
 to return a Kanji character.
 
-@node Converting Events
+@node Converting Events, Dispatching Events; The Command Builder, Other Event Loop Functions, Events and the Event Loop
 @section Converting Events
 
   @code{character_to_event()}, @code{event_to_character()},
@@ -6106,7 +6497,7 @@ event was not a keypress, @code{event_to_character()} returns -1 and
 between character representation and the split-up event representation
 (keysym plus mod keys).
 
-@node Dispatching Events; The Command Builder
+@node Dispatching Events; The Command Builder,  , Converting Events, Events and the Event Loop
 @section Dispatching Events; The Command Builder
 
 Not yet documented.
@@ -6121,7 +6512,7 @@ Not yet documented.
 * Catch and Throw::
 @end menu
 
-@node Evaluation
+@node Evaluation, Dynamic Binding; The specbinding Stack; Unwind-Protects, Evaluation; Stack Frames; Bindings, Evaluation; Stack Frames; Bindings
 @section Evaluation
 
   @code{Feval()} evaluates the form (a Lisp object) that is passed to
@@ -6251,7 +6642,7 @@ arguments are given as separate C arguments rather than being passed as
 an array).  @code{apply1()} uses @code{Fapply()} while the others use
 @code{Ffuncall()} to do the real work.
 
-@node Dynamic Binding; The specbinding Stack; Unwind-Protects
+@node Dynamic Binding; The specbinding Stack; Unwind-Protects, Simple Special Forms, Evaluation, Evaluation; Stack Frames; Bindings
 @section Dynamic Binding; The specbinding Stack; Unwind-Protects
 
 @example
@@ -6305,7 +6696,7 @@ a local-variable binding (@code{func} is 0, @code{symbol} is not
 the symbol's value).
 @end enumerate
 
-@node Simple Special Forms
+@node Simple Special Forms, Catch and Throw, Dynamic Binding; The specbinding Stack; Unwind-Protects, Evaluation; Stack Frames; Bindings
 @section Simple Special Forms
 
 @code{or}, @code{and}, @code{if}, @code{cond}, @code{progn},
@@ -6322,7 +6713,7 @@ typically called in real life only in interpreted code, since the byte
 compiler knows how to convert calls to these functions directly into
 byte code.
 
-@node Catch and Throw
+@node Catch and Throw,  , Simple Special Forms, Evaluation; Stack Frames; Bindings
 @section Catch and Throw
 
 @example
@@ -6390,7 +6781,7 @@ created since the catch.
 * Symbol Values::
 @end menu
 
-@node Introduction to Symbols
+@node Introduction to Symbols, Obarrays, Symbols and Variables, Symbols and Variables
 @section Introduction to Symbols
 
   A symbol is basically just an object with four fields: a name (a
@@ -6407,7 +6798,7 @@ property list is used as a more general mechanism of associating
 additional values with particular names, and once again the namespace is
 independent of the function and variable namespaces.
 
-@node Obarrays
+@node Obarrays, Symbol Values, Introduction to Symbols, Symbols and Variables
 @section Obarrays
 
   The identity of symbols with their names is accomplished through a
@@ -6474,7 +6865,7 @@ returns the removed symbol. (Remember: You can't put the symbol back
 into any obarray.) Finally, @code{mapatoms} maps over all of the symbols
 in an obarray.
 
-@node Symbol Values
+@node Symbol Values,  , Obarrays, Symbols and Variables
 @section Symbol Values
 
   The value field of a symbol normally contains a Lisp object.  However,
@@ -6529,7 +6920,7 @@ well-documented in comments in @file{buffer.c}, @file{symbols.c}, and
 * The Buffer Object::           The Lisp object corresponding to a buffer.
 @end menu
 
-@node Introduction to Buffers
+@node Introduction to Buffers, The Text in a Buffer, Buffers and Textual Representation, Buffers and Textual Representation
 @section Introduction to Buffers
 
   A buffer is logically just a Lisp object that holds some text.
@@ -6582,7 +6973,7 @@ and @dfn{buffer of the selected window}, and the distinction between
 window. (This latter distinction is explained in detail in the section
 on windows.)
 
-@node The Text in a Buffer
+@node The Text in a Buffer, Buffer Lists, Introduction to Buffers, Buffers and Textual Representation
 @section The Text in a Buffer
 
   The text in a buffer consists of a sequence of zero or more
@@ -6722,7 +7113,7 @@ in the internal Emacs buffer representation rather than in one of a
 number of possible alternative representations (e.g. EUC-encoded text,
 etc.).
 
-@node Buffer Lists
+@node Buffer Lists, Markers and Extents, The Text in a Buffer, Buffers and Textual Representation
 @section Buffer Lists
 
   Recall earlier that buffers are @dfn{permanent} objects, i.e.  that
@@ -6758,7 +7149,7 @@ respectively.  You can also force a new buffer to be created using
 a unique name from this by appending a number, and then creates the
 buffer.  This is basically like the symbol operation @code{gensym}.
 
-@node Markers and Extents
+@node Markers and Extents, Bufbytes and Emchars, Buffer Lists, Buffers and Textual Representation
 @section Markers and Extents
 
   Among the things associated with a buffer are things that are
@@ -6798,12 +7189,12 @@ given the buffer.  Extents remain in a buffer until they are detached
 (which could happen as a result of text being deleted) or the buffer is
 deleted, and primitives do exist to enumerate the extents in a buffer.
 
-@node Bufbytes and Emchars
+@node Bufbytes and Emchars, The Buffer Object, Markers and Extents, Buffers and Textual Representation
 @section Bufbytes and Emchars
 
   Not yet documented.
 
-@node The Buffer Object
+@node The Buffer Object,  , Bufbytes and Emchars, Buffers and Textual Representation
 @section The Buffer Object
 
   Buffers contain fields not directly accessible by the Lisp programmer.
@@ -6922,7 +7313,7 @@ representation is that it's compact and is compatible with ASCII.
 * CCL::
 @end menu
 
-@node Character Sets
+@node Character Sets, Encodings, MULE Character Sets and Encodings, MULE Character Sets and Encodings
 @section Character Sets
 
   A character set (or @dfn{charset}) is an ordered set of characters.  A
@@ -7003,7 +7394,7 @@ Bytes           Character set           Range
 
   This is a bit ad-hoc but gets the job done.
 
-@node Encodings
+@node Encodings, Internal Mule Encodings, Character Sets, MULE Character Sets and Encodings
 @section Encodings
 
   An @dfn{encoding} is a way of numerically representing characters from
@@ -7030,7 +7421,7 @@ encodings:
 * JIS7::
 @end menu
 
-@node Japanese EUC (Extended Unix Code)
+@node Japanese EUC (Extended Unix Code), JIS7, Encodings, Encodings
 @subsection Japanese EUC (Extended Unix Code)
 
 This encompasses the character sets Printing-ASCII, Japanese-JISX0201,
@@ -7052,7 +7443,7 @@ Japanese-JISX0212        PC1 + 0x80 | PC2 + 0x80
 @end example
 
 
-@node JIS7
+@node JIS7,  , Japanese EUC (Extended Unix Code), Encodings
 @subsection JIS7
 
 This encompasses the character sets Printing-ASCII,
@@ -7087,7 +7478,7 @@ Escape sequence   ASCII equivalent   Meaning
 
   Initially, Printing-ASCII is invoked.
 
-@node Internal Mule Encodings
+@node Internal Mule Encodings, CCL, Encodings, MULE Character Sets and Encodings
 @section Internal Mule Encodings
 
 In XEmacs/Mule, each character set is assigned a unique number, called a
@@ -7133,7 +7524,7 @@ followed later by the exact details.)
 * Internal Character Encoding::
 @end menu
 
-@node Internal String Encoding
+@node Internal String Encoding, Internal Character Encoding, Internal Mule Encodings, Internal Mule Encodings
 @subsection Internal String Encoding
 
 ASCII characters are encoded using their position code directly.  Other
@@ -7183,7 +7574,7 @@ conditions.  For example, EUC satisfies only (2) and (3), while
 Shift-JIS and Big5 (not yet described) satisfy only (2). (All
 non-modal encodings must satisfy (2), in order to be unambiguous.)
 
-@node Internal Character Encoding
+@node Internal Character Encoding,  , Internal String Encoding, Internal Mule Encodings
 @subsection Internal Character Encoding
 
   One 19-bit word represents a single character.  The word is
@@ -7218,7 +7609,7 @@ Composite                 0x1F             ?               ?
   Note that character codes 0 - 255 are the same as the ``binary encoding''
 described above.
 
-@node CCL
+@node CCL,  , Internal Mule Encodings, MULE Character Sets and Encodings
 @section CCL
 
 @example
@@ -7409,7 +7800,7 @@ blocking data together in order to achieve efficiency.
 * Lstream Methods::             Creating new lstream types.
 @end menu
 
-@node Creating an Lstream
+@node Creating an Lstream, Lstream Types, Lstreams, Lstreams
 @section Creating an Lstream
 
 Lstreams come in different types, depending on what is being interfaced
@@ -7440,7 +7831,7 @@ and he's probably right.
   Open for writing, but never writes partial MULE characters.
 @end table
 
-@node Lstream Types
+@node Lstream Types, Lstream Functions, Creating an Lstream, Lstreams
 @section Lstream Types
 
 @table @asis
@@ -7465,10 +7856,10 @@ and he's probably right.
 @item encoding
 @end table
 
-@node Lstream Functions
+@node Lstream Functions, Lstream Methods, Lstream Types, Lstreams
 @section Lstream Functions
 
-@deftypefun {Lstream *} Lstream_new (Lstream_implementation *@var{imp}, CONST char *@var{mode})
+@deftypefun {Lstream *} Lstream_new (Lstream_implementation *@var{imp}, const char *@var{mode})
 Allocate and return a new Lstream.  This function is not really meant to
 be called directly; rather, each stream type should provide its own
 stream creation function, which creates the stream and does any other
@@ -7548,7 +7939,7 @@ necessary storage structures, for example.
 Rewind the stream to the beginning.
 @end deftypefun
 
-@node Lstream Methods
+@node Lstream Methods,  , Lstream Functions, Lstreams
 @section Lstream Methods
 
 @deftypefn {Lstream Method} ssize_t reader (Lstream *@var{stream}, unsigned char *@var{data}, size_t @var{size})
@@ -7568,7 +7959,7 @@ calls @code{Lstream_read()} with a very small size.
 This function can be @code{NULL} if the stream is output-only.
 @end deftypefn
 
-@deftypefn {Lstream Method} ssize_t writer (Lstream *@var{stream}, CONST unsigned char *@var{data}, size_t @var{size})
+@deftypefn {Lstream Method} ssize_t writer (Lstream *@var{stream}, const unsigned char *@var{data}, size_t @var{size})
 Send some data to the stream's end.  Data to be sent is in @var{data}
 and is @var{size} bytes.  Return the number of bytes sent.  This
 function can send and return fewer bytes than is passed in; in that
@@ -7623,7 +8014,7 @@ Mark this object for garbage collection.  Same semantics as a standard
 * The Window Object::
 @end menu
 
-@node Introduction to Consoles; Devices; Frames; Windows
+@node Introduction to Consoles; Devices; Frames; Windows, Point, Consoles; Devices; Frames; Windows, Consoles; Devices; Frames; Windows
 @section Introduction to Consoles; Devices; Frames; Windows
 
 A window-system window that you see on the screen is called a
@@ -7665,7 +8056,7 @@ selected, and changing the selected frame causes the remembered window
 within it to become the selected window.  Similar relationships apply
 for consoles to devices and devices to frames.
 
-@node Point
+@node Point, Window Hierarchy, Introduction to Consoles; Devices; Frames; Windows, Consoles; Devices; Frames; Windows
 @section Point
 
   Recall that every buffer has a current insertion position, called
@@ -7686,7 +8077,7 @@ you must special-case on the selected window and retrieve the
 buffer's point instead.  This is related to why @code{save-window-excursion}
 does not save the selected window's value of @code{point}.
 
-@node Window Hierarchy
+@node Window Hierarchy, The Window Object, Point, Consoles; Devices; Frames; Windows
 @section Window Hierarchy
 @cindex window hierarchy
 @cindex hierarchy of windows
@@ -7784,7 +8175,7 @@ is @code{nil} but the @code{prev} points to itself. (#### This is an
 artifact that should be fixed.)
 @end enumerate
 
-@node The Window Object
+@node The Window Object,  , Window Hierarchy, Consoles; Devices; Frames; Windows
 @section The Window Object
 
   Windows have the following accessible fields:
@@ -7916,7 +8307,7 @@ It Is Better To Be Fast Than Not To Be.
 * Redisplay Piece by Piece::
 @end menu
 
-@node Critical Redisplay Sections
+@node Critical Redisplay Sections, Line Start Cache, The Redisplay Mechanism, The Redisplay Mechanism
 @section Critical Redisplay Sections
 @cindex critical redisplay sections
 
@@ -7948,7 +8339,7 @@ we simply return. #### We should abort instead.
 #### If a frame-size change does occur we should probably
 actually be preempting redisplay.
 
-@node Line Start Cache
+@node Line Start Cache, Redisplay Piece by Piece, Critical Redisplay Sections, The Redisplay Mechanism
 @section Line Start Cache
 @cindex line start cache
 
@@ -8009,7 +8400,7 @@ the part of the cache starting at where the modification occurs.
   In case you're wondering, the Second Golden Rule of Redisplay is not
 applicable.
 
-@node Redisplay Piece by Piece
+@node Redisplay Piece by Piece,  , Line Start Cache, The Redisplay Mechanism
 @section Redisplay Piece by Piece
 @cindex Redisplay Piece by Piece
 
@@ -8051,7 +8442,7 @@ display code has many bugs that the standard redisplay code does not.
 The guts of @code{display_line} generation are in
 @code{create_text_block}, which creates a single display line for the
 desired locale. This incrementally parses the characters on the current
-line and generates redisplay structures for each. 
+line and generates redisplay structures for each.
 
 Gutter redisplay is different. Because the data to display is stored in
 a string we cannot use @code{create_text_block}. Instead we use
@@ -8068,11 +8459,11 @@ display have been removed.
 * Extent Ordering::             How extents are ordered internally.
 * Format of the Extent Info::   The extent information in a buffer or string.
 * Zero-Length Extents::         A weird special case.
-* Mathematics of Extent Ordering::      A rigorous foundation.
+* Mathematics of Extent Ordering::  A rigorous foundation.
 * Extent Fragments::            Cached information useful for redisplay.
 @end menu
 
-@node Introduction to Extents
+@node Introduction to Extents, Extent Ordering, Extents, Extents
 @section Introduction to Extents
 
   Extents are regions over a buffer, with a start and an end position
@@ -8094,7 +8485,7 @@ further work needing to be done.  It didn't work out that way,
 however, and just ended up complexifying and buggifying all the
 rest of the code.)
 
-@node Extent Ordering
+@node Extent Ordering, Format of the Extent Info, Introduction to Extents, Extents
 @section Extent Ordering
 
   Extents are compared using memory indices.  There are two orderings
@@ -8128,7 +8519,7 @@ theorem about the display order also applies to the e-order if you swap
 all occurrences of ``display order'' and ``e-order'', ``less than'' and
 ``greater than'', and ``extent start'' and ``extent end''.
 
-@node Format of the Extent Info
+@node Format of the Extent Info, Zero-Length Extents, Extent Ordering, Extents
 @section Format of the Extent Info
 
   An extent-info structure consists of a list of the buffer or string's
@@ -8162,7 +8553,7 @@ not be aware of the fact that the extent list is implemented as an
 array, except for the fact that positions are integers (this should be
 generalized to handle integers and linked list equally well).
 
-@node Zero-Length Extents
+@node Zero-Length Extents, Mathematics of Extent Ordering, Format of the Extent Info, Extents
 @section Zero-Length Extents
 
   Extents can be zero-length, and will end up that way if their endpoints
@@ -8191,7 +8582,7 @@ endpoint is open, the extent remains in the buffer, moving as necessary.
 exactly like markers and that open-closed, non-detachable zero-length
 extents behave like the ``point-type'' marker in Mule.
 
-@node Mathematics of Extent Ordering
+@node Mathematics of Extent Ordering, Extent Fragments, Zero-Length Extents, Extents
 @section Mathematics of Extent Ordering
 @cindex extent mathematics
 @cindex mathematics of extents
@@ -8326,7 +8717,7 @@ greater than @math{I} and thus it is greater than any extent in
 @math{S}, including @math{F}.  Otherwise, @math{F2} includes @math{I}
 and thus is in @math{S}, and thus @math{F2 >= F}.
 
-@node Extent Fragments
+@node Extent Fragments,  , Mathematics of Extent Ordering, Extents
 @section Extent Fragments
 @cindex extent fragment
 
@@ -8545,7 +8936,7 @@ The name of the terminal that the subprocess is using,
 or @code{nil} if it is using pipes.
 @end table
 
-@node Interface to X Windows, Index, Subprocesses, Top
+@node Interface to X Windows, Index , Subprocesses, Top
 @chapter Interface to X Windows
 
 Not yet documented.

@@ -80,7 +80,7 @@ extern unsigned char *round_to_next (unsigned char *address,
 /* Useful routines for manipulating memory-mapped files. */
 
 typedef struct file_data {
-    CONST char    *name;
+    const char    *name;
     unsigned long  size;
     HANDLE         file;
     HANDLE         file_mapping;
@@ -96,8 +96,8 @@ typedef struct file_data {
 #define RVA_TO_PTR(var,section,filedata) \
 	  ((void *)(RVA_TO_OFFSET(var,section) + (filedata).file_base))
 
-int open_input_file (file_data *p_file, CONST char *name);
-int open_output_file (file_data *p_file, CONST char *name, unsigned long size);
+int open_input_file (file_data *p_file, const char *name);
+int open_output_file (file_data *p_file, const char *name, unsigned long size);
 void close_file_data (file_data *p_file);
 
 #endif /* INCLUDED_ntheap_h_ */

@@ -281,10 +281,10 @@ static void
 print_subr (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
   Lisp_Subr *subr = XSUBR (obj);
-  CONST char *header =
+  const char *header =
     (subr->max_args == UNEVALLED) ? "#<special-form " : "#<subr ";
-  CONST char *name = subr_name (subr);
-  CONST char *trailer = subr->prompt ? " (interactive)>" : ">";
+  const char *name = subr_name (subr);
+  const char *trailer = subr->prompt ? " (interactive)>" : ">";
 
   if (print_readably)
     error ("printing unreadable object %s%s%s", header, name, trailer);
@@ -2214,13 +2214,13 @@ maybe_signal_continuable_error (Lisp_Object sig, Lisp_Object data,
 /* dump an error message; called like printf */
 
 DOESNT_RETURN
-error (CONST char *fmt, ...)
+error (const char *fmt, ...)
 {
   Lisp_Object obj;
   va_list args;
 
   va_start (args, fmt);
-  obj = emacs_doprnt_string_va ((CONST Bufbyte *) GETTEXT (fmt), Qnil, -1,
+  obj = emacs_doprnt_string_va ((const Bufbyte *) GETTEXT (fmt), Qnil, -1,
 				args);
   va_end (args);
 
@@ -2229,7 +2229,7 @@ error (CONST char *fmt, ...)
 }
 
 void
-maybe_error (Lisp_Object class, Error_behavior errb, CONST char *fmt, ...)
+maybe_error (Lisp_Object class, Error_behavior errb, const char *fmt, ...)
 {
   Lisp_Object obj;
   va_list args;
@@ -2239,7 +2239,7 @@ maybe_error (Lisp_Object class, Error_behavior errb, CONST char *fmt, ...)
     return;
 
   va_start (args, fmt);
-  obj = emacs_doprnt_string_va ((CONST Bufbyte *) GETTEXT (fmt), Qnil, -1,
+  obj = emacs_doprnt_string_va ((const Bufbyte *) GETTEXT (fmt), Qnil, -1,
 				args);
   va_end (args);
 
@@ -2248,13 +2248,13 @@ maybe_error (Lisp_Object class, Error_behavior errb, CONST char *fmt, ...)
 }
 
 Lisp_Object
-continuable_error (CONST char *fmt, ...)
+continuable_error (const char *fmt, ...)
 {
   Lisp_Object obj;
   va_list args;
 
   va_start (args, fmt);
-  obj = emacs_doprnt_string_va ((CONST Bufbyte *) GETTEXT (fmt), Qnil, -1,
+  obj = emacs_doprnt_string_va ((const Bufbyte *) GETTEXT (fmt), Qnil, -1,
 				args);
   va_end (args);
 
@@ -2264,7 +2264,7 @@ continuable_error (CONST char *fmt, ...)
 
 Lisp_Object
 maybe_continuable_error (Lisp_Object class, Error_behavior errb,
-			 CONST char *fmt, ...)
+			 const char *fmt, ...)
 {
   Lisp_Object obj;
   va_list args;
@@ -2274,7 +2274,7 @@ maybe_continuable_error (Lisp_Object class, Error_behavior errb,
     return Qnil;
 
   va_start (args, fmt);
-  obj = emacs_doprnt_string_va ((CONST Bufbyte *) GETTEXT (fmt), Qnil, -1,
+  obj = emacs_doprnt_string_va ((const Bufbyte *) GETTEXT (fmt), Qnil, -1,
 				args);
   va_end (args);
 
@@ -2291,13 +2291,13 @@ maybe_continuable_error (Lisp_Object class, Error_behavior errb,
    where the error is occurring). */
 
 DOESNT_RETURN
-signal_simple_error (CONST char *reason, Lisp_Object frob)
+signal_simple_error (const char *reason, Lisp_Object frob)
 {
   signal_error (Qerror, list2 (build_translated_string (reason), frob));
 }
 
 void
-maybe_signal_simple_error (CONST char *reason, Lisp_Object frob,
+maybe_signal_simple_error (const char *reason, Lisp_Object frob,
 			   Lisp_Object class, Error_behavior errb)
 {
   /* Optimization: */
@@ -2308,13 +2308,13 @@ maybe_signal_simple_error (CONST char *reason, Lisp_Object frob,
 }
 
 Lisp_Object
-signal_simple_continuable_error (CONST char *reason, Lisp_Object frob)
+signal_simple_continuable_error (const char *reason, Lisp_Object frob)
 {
   return Fsignal (Qerror, list2 (build_translated_string (reason), frob));
 }
 
 Lisp_Object
-maybe_signal_simple_continuable_error (CONST char *reason, Lisp_Object frob,
+maybe_signal_simple_continuable_error (const char *reason, Lisp_Object frob,
 				       Lisp_Object class, Error_behavior errb)
 {
   /* Optimization: */
@@ -2335,13 +2335,13 @@ maybe_signal_simple_continuable_error (CONST char *reason, Lisp_Object frob,
 */
 
 DOESNT_RETURN
-error_with_frob (Lisp_Object frob, CONST char *fmt, ...)
+error_with_frob (Lisp_Object frob, const char *fmt, ...)
 {
   Lisp_Object obj;
   va_list args;
 
   va_start (args, fmt);
-  obj = emacs_doprnt_string_va ((CONST Bufbyte *) GETTEXT (fmt), Qnil, -1,
+  obj = emacs_doprnt_string_va ((const Bufbyte *) GETTEXT (fmt), Qnil, -1,
 				args);
   va_end (args);
 
@@ -2351,7 +2351,7 @@ error_with_frob (Lisp_Object frob, CONST char *fmt, ...)
 
 void
 maybe_error_with_frob (Lisp_Object frob, Lisp_Object class,
-		       Error_behavior errb, CONST char *fmt, ...)
+		       Error_behavior errb, const char *fmt, ...)
 {
   Lisp_Object obj;
   va_list args;
@@ -2361,7 +2361,7 @@ maybe_error_with_frob (Lisp_Object frob, Lisp_Object class,
     return;
 
   va_start (args, fmt);
-  obj = emacs_doprnt_string_va ((CONST Bufbyte *) GETTEXT (fmt), Qnil, -1,
+  obj = emacs_doprnt_string_va ((const Bufbyte *) GETTEXT (fmt), Qnil, -1,
 				args);
   va_end (args);
 
@@ -2370,13 +2370,13 @@ maybe_error_with_frob (Lisp_Object frob, Lisp_Object class,
 }
 
 Lisp_Object
-continuable_error_with_frob (Lisp_Object frob, CONST char *fmt, ...)
+continuable_error_with_frob (Lisp_Object frob, const char *fmt, ...)
 {
   Lisp_Object obj;
   va_list args;
 
   va_start (args, fmt);
-  obj = emacs_doprnt_string_va ((CONST Bufbyte *) GETTEXT (fmt), Qnil, -1,
+  obj = emacs_doprnt_string_va ((const Bufbyte *) GETTEXT (fmt), Qnil, -1,
 				args);
   va_end (args);
 
@@ -2386,7 +2386,7 @@ continuable_error_with_frob (Lisp_Object frob, CONST char *fmt, ...)
 
 Lisp_Object
 maybe_continuable_error_with_frob (Lisp_Object frob, Lisp_Object class,
-				   Error_behavior errb, CONST char *fmt, ...)
+				   Error_behavior errb, const char *fmt, ...)
 {
   Lisp_Object obj;
   va_list args;
@@ -2396,7 +2396,7 @@ maybe_continuable_error_with_frob (Lisp_Object frob, Lisp_Object class,
     return Qnil;
 
   va_start (args, fmt);
-  obj = emacs_doprnt_string_va ((CONST Bufbyte *) GETTEXT (fmt), Qnil, -1,
+  obj = emacs_doprnt_string_va ((const Bufbyte *) GETTEXT (fmt), Qnil, -1,
 				args);
   va_end (args);
 
@@ -2413,7 +2413,7 @@ maybe_continuable_error_with_frob (Lisp_Object frob, Lisp_Object class,
    is three objects, a string and two related Lisp objects. */
 
 DOESNT_RETURN
-signal_simple_error_2 (CONST char *reason,
+signal_simple_error_2 (const char *reason,
                        Lisp_Object frob0, Lisp_Object frob1)
 {
   signal_error (Qerror, list3 (build_translated_string (reason), frob0,
@@ -2421,7 +2421,7 @@ signal_simple_error_2 (CONST char *reason,
 }
 
 void
-maybe_signal_simple_error_2 (CONST char *reason, Lisp_Object frob0,
+maybe_signal_simple_error_2 (const char *reason, Lisp_Object frob0,
 			     Lisp_Object frob1, Lisp_Object class,
 			     Error_behavior errb)
 {
@@ -2434,7 +2434,7 @@ maybe_signal_simple_error_2 (CONST char *reason, Lisp_Object frob0,
 
 
 Lisp_Object
-signal_simple_continuable_error_2 (CONST char *reason, Lisp_Object frob0,
+signal_simple_continuable_error_2 (const char *reason, Lisp_Object frob0,
 				   Lisp_Object frob1)
 {
   return Fsignal (Qerror, list3 (build_translated_string (reason), frob0,
@@ -2442,7 +2442,7 @@ signal_simple_continuable_error_2 (CONST char *reason, Lisp_Object frob0,
 }
 
 Lisp_Object
-maybe_signal_simple_continuable_error_2 (CONST char *reason, Lisp_Object frob0,
+maybe_signal_simple_continuable_error_2 (const char *reason, Lisp_Object frob0,
 					 Lisp_Object frob1, Lisp_Object class,
 					 Error_behavior errb)
 {
@@ -2831,7 +2831,7 @@ do_autoload (Lisp_Object fundef,
 /************************************************************************/
 
 static Lisp_Object funcall_lambda (Lisp_Object fun,
-                                   int nargs, Lisp_Object args[]);
+				   int nargs, Lisp_Object args[]);
 static int in_warnings;
 
 static Lisp_Object
@@ -4138,7 +4138,7 @@ caught_a_squirmer (Lisp_Object errordata, Lisp_Object arg)
       args[1] = errordata;
       warn_when_safe_lispobj
 	(Qerror, Qwarning,
-	 emacs_doprnt_string_lisp ((CONST Bufbyte *) "%s: %s",
+	 emacs_doprnt_string_lisp ((const Bufbyte *) "%s: %s",
 				   Qnil, -1, 2, args));
     }
   return Qunbound;
@@ -4181,7 +4181,7 @@ catch_them_squirmers_eval_in_buffer (Lisp_Object cons)
 }
 
 Lisp_Object
-eval_in_buffer_trapping_errors (CONST char *warning_string,
+eval_in_buffer_trapping_errors (const char *warning_string,
 				struct buffer *buf, Lisp_Object form)
 {
   int speccount = specpdl_depth();
@@ -4221,7 +4221,7 @@ catch_them_squirmers_run_hook (Lisp_Object hook_symbol)
 }
 
 Lisp_Object
-run_hook_trapping_errors (CONST char *warning_string, Lisp_Object hook_symbol)
+run_hook_trapping_errors (const char *warning_string, Lisp_Object hook_symbol)
 {
   int speccount;
   Lisp_Object tem;
@@ -4254,7 +4254,7 @@ run_hook_trapping_errors (CONST char *warning_string, Lisp_Object hook_symbol)
    if an error occurs. */
 
 Lisp_Object
-safe_run_hook_trapping_errors (CONST char *warning_string,
+safe_run_hook_trapping_errors (const char *warning_string,
 			       Lisp_Object hook_symbol,
 			       int allow_quit)
 {
@@ -4300,7 +4300,7 @@ catch_them_squirmers_call0 (Lisp_Object function)
 }
 
 Lisp_Object
-call0_trapping_errors (CONST char *warning_string, Lisp_Object function)
+call0_trapping_errors (const char *warning_string, Lisp_Object function)
 {
   int speccount;
   Lisp_Object tem;
@@ -4347,7 +4347,7 @@ catch_them_squirmers_call2 (Lisp_Object cons)
 }
 
 Lisp_Object
-call1_trapping_errors (CONST char *warning_string, Lisp_Object function,
+call1_trapping_errors (const char *warning_string, Lisp_Object function,
 		       Lisp_Object object)
 {
   int speccount = specpdl_depth();
@@ -4384,7 +4384,7 @@ call1_trapping_errors (CONST char *warning_string, Lisp_Object function,
 }
 
 Lisp_Object
-call2_trapping_errors (CONST char *warning_string, Lisp_Object function,
+call2_trapping_errors (const char *warning_string, Lisp_Object function,
 		       Lisp_Object object1, Lisp_Object object2)
 {
   int speccount = specpdl_depth();
@@ -4937,13 +4937,13 @@ warn_when_safe_lispobj (Lisp_Object class, Lisp_Object level,
    automatically be called when it is safe to do so. */
 
 void
-warn_when_safe (Lisp_Object class, Lisp_Object level, CONST char *fmt, ...)
+warn_when_safe (Lisp_Object class, Lisp_Object level, const char *fmt, ...)
 {
   Lisp_Object obj;
   va_list args;
 
   va_start (args, fmt);
-  obj = emacs_doprnt_string_va ((CONST Bufbyte *) GETTEXT (fmt),
+  obj = emacs_doprnt_string_va ((const Bufbyte *) GETTEXT (fmt),
 				Qnil, -1, args);
   va_end (args);
 

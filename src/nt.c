@@ -2012,7 +2012,7 @@ int setitimer (int kind, const struct itimerval* itnew,
 }
 
 int
-open_input_file (file_data *p_file, CONST char *filename)
+open_input_file (file_data *p_file, const char *filename)
 {
   HANDLE file;
   HANDLE file_mapping;

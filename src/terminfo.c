@@ -65,14 +65,14 @@ char *UP, *BC, PC;
 extern void *xmalloc (int size);
 
 #if 0 /* If this isn't declared somewhere, too bad */
-extern char * tparm (CONST char *string, int arg1, int arg2, int arg3,
+extern char * tparm (const char *string, int arg1, int arg2, int arg3,
                      int arg4, int arg5, int arg6, int arg7, int arg8,
                      int arg9);
 #endif
 /* XEmacs: renamed this function because just tparam() conflicts with
    ncurses (We don't use this function anyway!) */
 char *
-emacs_tparam (CONST char *string, char *outstring, int len, int arg1,
+emacs_tparam (const char *string, char *outstring, int len, int arg1,
 	      int arg2, int arg3, int arg4, int arg5, int arg6, int arg7,
 	      int arg8, int arg9)
 {

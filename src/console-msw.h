@@ -33,9 +33,6 @@ Boston, MA 02111-1307, USA.  */
 #define INCLUDED_console_msw_h_
 
 #include "console.h"
-#ifdef CONST			/* I suspect this is safe */
-#undef CONST
-#endif
 #include <windows.h>
 #include <ddeml.h>	/* DDE management library */
 #if !defined(__CYGWIN32__) && !defined(__MINGW32__) \
@@ -136,9 +133,12 @@ struct msprinter_device
 #define CHECK_MSPRINTER_DEVICE(z) CHECK_DEVICE_TYPE (z, msprinter)
 #define CONCHECK_MSPRINTER_DEVICE(z) CONCHECK_DEVICE_TYPE (z, msprinter)
 
-/* Printer functions */
+/* Printer functions in device-msw.c */
 DEVMODE* msprinter_get_devmode_copy (struct device *d);
 void msprinter_apply_devmode (struct device *d, DEVMODE *devmode);
+
+/* Printer functions in frame-msw.c */
+void msprinter_start_page (struct frame *f);
 
 /*
  * Frame
@@ -242,6 +242,7 @@ struct msprinter_frame
   int charheight, charwidth;		/* As per proplist or -1 if not gven */
   Lisp_Object orientation, duplex;	/* nil for printer's default */
   int job_started : 1;
+  int page_started : 1;
 };
 
 #define FRAME_MSPRINTER_DATA(f) FRAME_TYPE_DATA (f, msprinter)
@@ -251,6 +252,7 @@ struct msprinter_frame
 #define FRAME_MSPRINTER_BOTTOM_MARGIN(f) (FRAME_MSPRINTER_DATA (f)->bottom_margin)
 #define FRAME_MSPRINTER_CDC(f)	  	 (FRAME_MSPRINTER_DATA (f)->hcdc)
 #define FRAME_MSPRINTER_JOB_STARTED(f)	 (FRAME_MSPRINTER_DATA (f)->job_started)
+#define FRAME_MSPRINTER_PAGE_STARTED(f)	 (FRAME_MSPRINTER_DATA (f)->page_started)
 #define FRAME_MSPRINTER_ORIENTATION(f)	 (FRAME_MSPRINTER_DATA (f)->orientation)
 #define FRAME_MSPRINTER_DUPLEX(f)	 (FRAME_MSPRINTER_DATA (f)->duplex)
 #define FRAME_MSPRINTER_CHARWIDTH(f)	 (FRAME_MSPRINTER_DATA (f)->charheight)
@@ -311,7 +313,7 @@ mswindows_handle_toolbar_wm_command (struct frame* f, HWND ctrl, WORD id);
 #endif
 Lisp_Object
 mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, DWORD id);
-COLORREF mswindows_string_to_color (CONST char *name);
+COLORREF mswindows_string_to_color (const char *name);
 USID emacs_mswindows_create_stream_pair (void* inhandle, void* outhandle,
 					 Lisp_Object* instream,
 					 Lisp_Object* outstream,

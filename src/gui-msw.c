@@ -82,25 +82,69 @@ otherwise it is an integer representing a ShowWindow flag:
 */
        (operation, document, parameters, show_flag))
 {
-  Lisp_Object current_dir;
+  /* Encode filename and current directory.  */
+  Lisp_Object current_dir = Ffile_name_directory (document);
+  char* path = NULL;
+  char* doc = NULL;
+  Extbyte* f=0;
+  int ret;
+  struct gcpro gcpro1, gcpro2;
 
   CHECK_STRING (document);
 
-  /* Encode filename and current directory.  */
-  current_dir = current_buffer->directory;
-  if ((int) ShellExecute (NULL,
-			  (STRINGP (operation) ?
-			   XSTRING (operation)->data : NULL),
-			  XSTRING (document)->data,
-			  (STRINGP (parameters) ?
-			   XSTRING (parameters)->data : NULL),
-			  XSTRING (current_dir)->data,
-			  (INTP (show_flag) ?
-			   XINT (show_flag) : SW_SHOWDEFAULT))
-      > 32)
-    return Qt;
+  /* Just get the filename if we were given it. */
+  document = Ffile_name_nondirectory (document);
 
-  error ("ShellExecute failed");
+  if (NILP (current_dir))
+    current_dir = current_buffer->directory;
+
+  GCPRO2 (current_dir, document);
+
+  /* Use mule and cygwin-safe APIs top get at file data. */
+  if (STRINGP (current_dir))
+    {
+      TO_EXTERNAL_FORMAT (LISP_STRING, current_dir,
+			  C_STRING_ALLOCA, f,
+			  Qfile_name);
+#ifdef __CYGWIN32__
+      CYGWIN_WIN32_PATH (f, path);
+#else
+      path = f;
+#endif
+    }
+
+  if (STRINGP (document))
+    {
+      TO_EXTERNAL_FORMAT (LISP_STRING, document,
+			  C_STRING_ALLOCA, f,
+			  Qfile_name);
+      doc = f;
+    }
+
+  UNGCPRO;
+
+  ret = (int) ShellExecute (NULL,
+			    (STRINGP (operation) ?
+			     XSTRING_DATA (operation) : NULL),
+			    doc, 
+			    (STRINGP (parameters) ?
+			     XSTRING_DATA (parameters) : NULL),
+			    path,
+			    (INTP (show_flag) ?
+			     XINT (show_flag) : SW_SHOWDEFAULT));
+
+  if (ret > 32)
+    return Qt;
+  
+  if (ret == ERROR_FILE_NOT_FOUND || ret == SE_ERR_FNF)
+    signal_simple_error ("file not found", document);
+  else if (ret == ERROR_PATH_NOT_FOUND || ret == SE_ERR_PNF)
+    signal_simple_error ("path not found", current_dir);
+  else if (ret == ERROR_BAD_FORMAT)
+    signal_simple_error ("bad executable format", document);
+  else
+    error ("internal error");
+
   return Qnil;
 }
 

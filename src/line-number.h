@@ -24,7 +24,7 @@ Boston, MA 02111-1307, USA.  */
 
 void narrow_line_number_cache (struct buffer *);
 void insert_invalidate_line_number_cache (struct buffer *, Bufpos,
-					  CONST Bufbyte *, Bytecount);
+					  const Bufbyte *, Bytecount);
 void delete_invalidate_line_number_cache (struct buffer *, Bufpos, Bufpos);
 
 EMACS_INT buffer_line_number (struct buffer *, Bufpos, int);

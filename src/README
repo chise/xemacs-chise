@@ -44,9 +44,6 @@ General changes for XEmacs:
 
 2. Storage classes:
 
-   -- All occurrences of `const' should get replaced by CONST.  This
-      is to work around a header conflict with X11R4.
-
    -- All occurrences of `register' should be replaced by `REGISTER'.
       It interferes with backtraces so we disable it if DEBUG_XEMACS
       is defined.

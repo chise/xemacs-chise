@@ -14,9 +14,6 @@
 #include <stdlib.h> /* for qsort() and malloc() */
 #include <string.h>
 static void *xmalloc (size_t);
-#ifndef CONST
-# define CONST const
-#endif
 
 #define NUL	'\0'
 #define MARKER '\037'
@@ -96,7 +93,7 @@ enum state
   WAITING, BEG_NAME, NAME_GET, BEG_DESC, DESC_GET
 };
 
-CONST char *states[] =
+const char *states[] =
 {
   "WAITING", "BEG_NAME", "NAME_GET", "BEG_DESC", "DESC_GET"
 };
@@ -201,12 +198,7 @@ main (int argc, char *argv[])
     /* sort the array by name; within each name, by type */
 
     qsort ((char*)array, cnt, sizeof (DOCSTR*),
-	   /* was cast to (int (*)(CONST void *, CONST void *))
-	      but that loses on HP because CONST_IS_LOSING. */
-	   /* This one loses too: (int (*)()) */
-	   /* Ok, so let's try const instead of CONST.  Fuck me!!! */
-	   (int (*)(const void *, const void *))
-	   cmpdoc);
+	   (int (*)(const void *, const void *)) cmpdoc);
 
     /* write the output header */
 

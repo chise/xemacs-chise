@@ -144,7 +144,7 @@ struct linebuffer lb;
 #define MAIL_PROGRAM_NAME "/bin/mail"
 #endif
 
-static CONST char *my_name;
+static const char *my_name;
 static char *the_date;
 static char *the_user;
 static line_list file_preface;
@@ -171,7 +171,7 @@ static struct passwd *my_entry;
 /* Print error message.  `s1' is printf control string, `s2' is arg for it. */
 
 static void
-error (CONST char *s1, CONST char *s2)
+error (const char *s1, const char *s2)
 {
   printf ("%s: ", my_name);
   printf (s1, s2);
@@ -182,7 +182,7 @@ error (CONST char *s1, CONST char *s2)
 /* Print error message and exit.  */
 
 static void
-fatal (CONST char *s1, CONST char *s2)
+fatal (const char *s1, const char *s2)
 {
   error (s1, s2);
   exit (1);
@@ -419,20 +419,20 @@ put_string (char *s)
 }
 
 static void
-put_line (CONST char *string)
+put_line (const char *string)
 {
   register stream_list rem;
   for (rem = the_streams;
        rem != ((stream_list) NULL);
        rem = rem->rest_streams)
     {
-      CONST char *s = string;
+      const char *s = string;
       int column = 0;
 
       /* Divide STRING into lines.  */
       while (*s != 0)
 	{
-	  CONST char *breakpos;
+	  const char *breakpos;
 
 	  /* Find the last char that fits.  */
 	  for (breakpos = s; *breakpos && column < 78; ++breakpos)

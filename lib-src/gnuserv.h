@@ -216,7 +216,7 @@ int make_connection (char *hostarg, int portarg, int *s);
 void disconnect_from_ipc_server();
 #endif
 #if defined(INTERNET_DOMAIN_SOCKETS) || defined(UNIX_DOMAIN_SOCKETS)
-void send_string (int s, CONST char *msg);
+void send_string (int s, const char *msg);
 void disconnect_from_server (int s, int echo);
 int read_line (int s, char *dest);
 #endif

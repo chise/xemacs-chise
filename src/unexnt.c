@@ -278,7 +278,7 @@ unexec (char *new_name, char *old_name, void *start_data, void *start_bss,
 
 
 int
-open_output_file (file_data *p_file, CONST char *filename, unsigned long size)
+open_output_file (file_data *p_file, const char *filename, unsigned long size)
 {
   HANDLE file;
   HANDLE file_mapping;

@@ -57,10 +57,10 @@ customized through the options menu."
   "The location of the default toolbar. It can be 'top, 'bottom, 'left or
 'right. This option can be customized through the options menu."
   :group 'display
-  :type '(choice (const :tag "top" 'top)
-		 (const :tag "bottom" 'bottom)
-		 (const :tag "left" 'left)
-		 (const :tag "right" 'right))
+  :type '(choice (const :tag "top" top)
+		 (const :tag "bottom" bottom)
+		 (const :tag "left" left)
+		 (const :tag "right" right))
   :set #'(lambda (var val)
 	   (set-default-toolbar-position val)
 	   (setq default-toolbar-position val))

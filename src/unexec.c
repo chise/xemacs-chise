@@ -382,7 +382,7 @@ report_error (const char *file, int fd)
 static void
 report_error_1 (fd, msg, a1, a2)
      int fd;
-     CONST char *msg;
+     const char *msg;
      int a1, a2;
 {
   close (fd);
