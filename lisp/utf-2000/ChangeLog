@@ -1,3 +1,17 @@
+2003-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (GT-47938): New character.
+	(U-00027A93): Relate to M-35778'; add strokes.
+
+	* Ideograph-R142-Insect.el (GT-45720): New character.
+	(U-00027553): New character.
+
+	* Ideograph-R152-Pig.el (GT-48918): New character.
+	(GT-48914): Likewise.
+
+	* Ideograph-R145-Clothes.el (GT-46478): New character.
+	(GT-46764): New character.
+
 2003-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R042-Small.el (U+5C19): Unify BC-A97C.
