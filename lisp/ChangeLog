@@ -1,3 +1,8 @@
+2003-03-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el (=ucs@ks): Renamed from `ucs-ks'.
+	(ucs-ks): Changed to an alias for `=ucs@ks'.
+
 2003-03-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (=ucs@jis-2000): Renamed from `=ucs-jis-2000'.
