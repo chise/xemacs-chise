@@ -1,3 +1,13 @@
+2003-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (save_uint8_byte_table): Add new argument `filter'.
+	(save_uint16_byte_table): Likewise.
+	(save_byte_table): Likewise; convert values by it.
+	(Fput_char_attribute): Don't use `char-refs-simplify-char-specs'
+	for `ideographic-structure'.
+	(Fsave_char_attribute_table): Use `char-refs-simplify-char-specs'
+	as the filter for `ideographic-structure'.
+
 2003-01-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (put_char_composition): New function.
