@@ -1,5 +1,24 @@
 2001-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R012-Eight.el (M-01459): Separate JX2-2328.
+	(U+5173): Unify JX2-2328.
+	- Use `=>ucs' instead of `->ucs'.
+	- Big5, KS X 1001 and GB 12345 code points.
+
+	* Ideograph-R175-Wrong.el (J83-7051): Separate J78-7051 and
+	J90-7051.
+
+	* Ideograph-R173-Rain.el (J90-3C36): Unify J78-3C36 and J83-3C36.
+	(J83-4A37): Separate J90-4A37.
+	(J90-7049): Separate J78-7049, J83-7049 and K0-7038.
+
+	* Ideograph-R162-Walk.el (M-38711): Unify J78-4454; fix
+	`jisx0208-difference'.
+	(J83-4454): Separate J78-4454; fix `total-strokes'; fix
+	`jisx0208-difference'.
+
+2001-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R172-Short-Tailed-Bird.el (J83-5256): Use `=>ucs'
 	instead of `->ucs'; separate J90-5256.
 
