@@ -65,8 +65,7 @@
     (=gt-pj-k1		. #x3F6D)	; &GT-K01569; [31-77]
     ))
 (define-char
-  '((=>daikanwa		. 30177)	; &M-30177;
-    (ideographic-radical . 134)	; ⾅
+  '((ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
     (=ucs		. #x81FD)	; 臽
@@ -110,6 +109,15 @@
     (total-strokes	 . 8)
     (=ucs		. #x26955)	; 𦥕
     (=cns11643-6	. #x2D74)	; &I-C6-2D74; [13-84]
+    ))
+(define-char
+  '((ideographic-radical . 134)	; ⾅
+    (ideographic-strokes . 2)
+    (total-strokes	 . 8)
+    (<-unknown
+     ((=ucs		  . #x81FD)	; 臽
+      ))
+    (=cbeta		. 07105)	; &CB07105;
     ))
 (define-char
   '((=>ucs		. #x81FF)	; 臿
