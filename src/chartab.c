@@ -3420,15 +3420,13 @@ Close database of ATTRIBUTE.
   else
     return Qnil;
 
-  if (!NILP (Fdatabase_live_p (ct->db)))
-    {
-      Fclose_database (ct->db);
-    }
   if (!NILP (ct->db))
     {
+      if (!NILP (Fdatabase_live_p (ct->db)))
+	Fclose_database (ct->db);
       ct->db = Qnil;
-      ct->db_file = Qnil;
     }
+  ct->db_file = Qnil;
 #endif
   return Qnil;
 }
