@@ -1,3 +1,13 @@
+2004-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (utf-8-jis): Use `=ucs@jis-2000' instead of
+	`ucs-jis'.
+	(utf-8-jis-er): Likewise.
+	(utf-8-jp): New coding-system.
+	(utf-8-jp-er): Likewise.
+
+	* mule/mule-conf.el (=ucs@jp): New coded-charset for XEmacs CHISE.
+
 2004-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (euc-jisx0213): Moved from mule/japanese.el.
