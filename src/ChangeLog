@@ -1,3 +1,11 @@
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Use
+	`XCHARSET_BYTE_SIZE' instead of `XCHARSET_CHARS'.
+
+	* char-ucs.h (put_ccs_octet_table): Use `XCHARSET_BYTE_SIZE'
+	instead of `XCHARSET_CHARS'.
+
 2002-02-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (CHARSET_BYTE_SIZE): Moved to char-ucs.h.
