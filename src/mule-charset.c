@@ -213,9 +213,6 @@ put_char_ccs_code_point (Lisp_Object character,
       || (XCHAR (character) != XINT (value)))
     {
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
-#if 0
-      int ccs_len = XCHARSET_BYTE_SIZE (ccs);
-#endif
       int code_point;
 
       if (CONSP (value))
@@ -268,13 +265,6 @@ put_char_ccs_code_point (Lisp_Object character,
 	      decoding_table_remove_char (ccs, XINT (cpos));
 	    }
 	}
-#if 0
-      else
-	{
-	  XCHARSET_DECODING_TABLE (ccs)
-	    = v = make_vector (ccs_len, Qnil);
-	}
-#endif
       decoding_table_put_char (ccs, code_point, character);
     }
   return value;
@@ -2043,24 +2033,13 @@ Save mapping-table of CHARSET.
   struct Lisp_Charset *cs;
   int byte_min, byte_max;
   Lisp_Object db;
-  Lisp_Object db_dir = Vexec_directory;
   Lisp_Object db_file;
 
   charset = Fget_charset (charset);
   cs = XCHARSET (charset);
 
-  if (NILP (db_dir))
-    db_dir = build_string ("../lib-src");
-
-  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-  if (NILP (Ffile_exists_p (db_dir)))
-    Fmake_directory_internal (db_dir);
-
-  db_dir = Fexpand_file_name (Fsymbol_name (CHARSET_NAME (cs)), db_dir);
-  if (NILP (Ffile_exists_p (db_dir)))
-    Fmake_directory_internal (db_dir);
-
-  db_file = Fexpand_file_name (build_string ("system-char-id"), db_dir);
+  db_file = char_attribute_system_db_file (CHARSET_NAME (cs),
+					   Qsystem_char_id, 1);
   db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
       
   byte_min = CHARSET_BYTE_OFFSET (cs);
@@ -2194,14 +2173,10 @@ Emchar
 load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 {
   Lisp_Object db;
-  Lisp_Object db_dir = Vexec_directory;
-  Lisp_Object db_file;
+  Lisp_Object db_file
+    = char_attribute_system_db_file (XCHARSET_NAME(ccs), Qsystem_char_id,
+				     0);
 
-  if (NILP (db_dir))
-    db_dir = build_string ("../lib-src");
-  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-  db_dir = Fexpand_file_name (Fsymbol_name (XCHARSET_NAME (ccs)), db_dir);
-  db_file = Fexpand_file_name (build_string ("system-char-id"), db_dir);
   db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
   if (!NILP (db))
     {
