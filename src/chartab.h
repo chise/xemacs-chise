@@ -34,7 +34,8 @@ Boston, MA 02111-1307, USA.  */
 
 Lisp_Object make_char_id_table (Lisp_Object initval);
 
-void put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table);
+void put_char_id_table (Lisp_Char_ID_Table* table,
+			Lisp_Object character, Lisp_Object value);
 
 EXFUN (Fget_char_attribute, 3);
 
