@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2002/12/12 06:21:19 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2002/12/04 14:04:08 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -1092,7 +1092,7 @@ XEmacs) is @uref{http://www.ibiblio.org/sergei/Software/Software.html}
 
 Partially, as an external encoding for files, processes, and terminals.
 It does not yet support Unicode fonts @ref{Q1.3.9, Does XEmacs support
-Unicode Fonts?}
+Unicode Fonts?}.
 
 To get Unicode support, you need a Mule-enabled XEmacs.  Install
 Mule-UCS from packages in the usual way.  Put

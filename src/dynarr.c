@@ -116,7 +116,8 @@ Dynarr_realloc (Dynarr *dy, int new_size)
   if (DUMPEDP (dy->base))
     {
       void *new_base = malloc (new_size);
-      memcpy (new_base, dy->base, dy->max > new_size ? new_size : dy->max);
+	  int max_bytes = dy->max * dy->elsize;
+	  memcpy (new_base, dy->base, max_bytes > new_size ? new_size : max_bytes);
       dy->base = new_base;
     }
   else

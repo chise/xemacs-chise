@@ -1,3 +1,300 @@
+2003-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Vchise_system_db_directory): New variable.
+	(vars_of_chartab): Add new variable `chise-system-db-directory'.
+
+2003-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c: EXFUN `Fmount_char_attribute_table'.
+	(print_chartab_range): Don't define when `UTF2000' is defined.
+	(open_chise_data_source_maybe): Specify 0 instead of DB_HASH for
+	`CHISE_DS_open'.
+
+2003-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fchar_attribute_list): When HAVE_LIBCHISE is defined
+	and optional argument `rehash' is specified, call
+	`open_chise_data_source_maybe' before
+	`chise_ds_foreach_char_feature_name' is called.
+
+2003-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (char_attribute_list_reset_map_func): New function
+	when HAVE_LIBCHISE is defined.
+	(Fchar_attribute_list): Add new optional argument `rehash' when
+	HAVE_LIBCHISE is defined.
+	(open_chise_data_source_maybe): Use "chise-db" instead of
+	"char-db".
+	(char_attribute_system_db_file): Likewise.
+	(Fload_char_attribute_table): Use
+	`chise_feature_foreach_char_with_value' instead of
+	`chise_char_feature_value_iterate'.
+
+2003-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Vchise_db_directory): New variable.
+	(vars_of_chartab): Add new built-in variable `chise-db-directory'.
+
+2003-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Freset_charset_mapping_table): Use HAVE_LIBCHISE
+	instead of HAVE_CHISE to specify using with libchise.
+
+	* config.h.in (HAVE_CHISE_CLIENT): Deleted.
+
+	* chartab.h: Don't use HAVE_CHISE_CLIENT.
+
+	* chartab.c (Qsystem_char_id): Don't define when HAVE_CHISE is not
+	defined or HAVE_LIBCHISE_LIBCHISE is defined.
+	(char_attribute_system_db_file): Don't define when HAVE_LIBCHISE
+	is defined.
+	(Freset_char_attribute_table): Use HAVE_LIBCHISE instead of
+	HAVE_CHISE to specify using with libchise.
+	(syms_of_chartab): Don't define symbol `system-char-id' when
+	HAVE_CHISE is not defined or HAVE_LIBCHISE_LIBCHISE is defined.
+
+2003-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c: Use HAVE_CHISE instead of HAVE_CHISE_CLIENT to
+	specify CHISE DB support.
+	(Freset_charset_mapping_table): Use `chise_ccs_setup_db' instead
+	of `char_attribute_system_db_file' to check feature DB file.
+
+	* chartab.h, casetab.c, char-ucs.h: Use HAVE_CHISE instead of
+	HAVE_CHISE_CLIENT to specify CHISE DB support.
+
+	* chartab.c: Use HAVE_CHISE instead of HAVE_CHISE_CLIENT to
+	specify CHISE DB support.
+	(open_chise_data_source_maybe): Don't define when HAVE_LIBCHISE is
+	not defined.
+	(Freset_char_attribute_table): Use `chise_feature_setup_db'
+	instead of `char_attribute_system_db_file' to check feature DB
+	file.
+
+2003-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule.c (vars_of_mule): Use `HAVE_CHISE' instead of `CHISE' and
+	`HAVE_CHISE_CLIENT'.
+
+2003-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c: Use HAVE_LIBCHISE instead of CHISE.
+	(Fsave_charset_mapping_table): Don't use
+	`char_attribute_system_db_file' when HAVE_LIBCHISE is defined.
+
+	* config.h.in (HAVE_CHISE): Renamed from `CHISE'.
+	(HAVE_LIBCHISE): New macro.
+
+	* chartab.h: Use HAVE_LIBCHISE instead of CHISE.
+
+	* chartab.c: Use HAVE_LIBCHISE instead of CHISE.
+	(Fsave_char_attribute_table): Don't use
+	`char_attribute_system_db_file' when HAVE_LIBCHISE is defined.
+
+2003-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (save_uint8_byte_table): Use libchise when CHISE is
+	defined.
+	(save_uint16_byte_table): Likewise.
+	(save_byte_table): Likewise.
+	(char_table_get_db): Use `chise_ds_load_char_feature_value'
+	instead of `chise_char_load_feature_value'.
+	(Fsave_char_attribute_table): Use libchise when CHISE is defined.
+
+2003-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.h (struct Lisp_Char_Table): Delete member
+	`feature_table' if CHISE is defined.
+
+	* chartab.c (Fmake_char_table): Don't refer `ct->feature_table'.
+	(Fcopy_char_table): Likewise.
+	(char_table_open_db_maybe): Likewise.
+	(char_table_close_db_maybe): Likewise.
+	(char_table_get_db): Likewise.
+	(Fmount_char_attribute_table): Likewise.
+	(Fload_char_attribute_table): Likewise.
+
+2003-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (load_char_decoding_entry_maybe): Use
+	`chise_ds_decode_char' instead of `chise_ds_get_ccs' and
+	`chise_ccs_decode'.
+
+2003-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (open_chise_data_source_maybe): Use `CHISE_DS_open'
+	instead of `chise_open_data_source'.
+	(Fclose_char_data_source): Use `CHISE_DS_close' instead of
+	`chise_ds_close'.
+
+2003-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (char_table_open_db_maybe): Use `chise_ds_get_feature'
+	instead of `chise_ds_open_feature_table'.
+	(char_table_close_db_maybe): Don't use `chise_ft_close'.
+
+2003-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Use
+	`chise_ds_get_ccs' instead of `chise_ds_open_ccs_table'; use
+	`chise_ccs_set_decoded_char' instead of `chise_ccst_put_char'; use
+	`chise_ccs_sync' instead of `chise_ccst_close'.
+	(load_char_decoding_entry_maybe): Modify for `chise_ds_get_ccs'.
+
+	* chartab.c (open_chise_data_source_maybe): Modify for
+	`chise_open_data_source'.
+	(char_table_open_db_maybe): Modify for
+	`chise_ds_open_feature_table'.
+
+2003-08-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (load_char_decoding_entry_maybe): Use
+	`chise_ds_get_ccs' instead of `chise_ds_open_ccs_table'; don't use
+	`chise_ccst_close'.
+
+2003-08-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Use
+	`chise_ds_open_ccs_table', `chise_ccst_put_char' and
+	`chise_ccst_close' instead of `chise_ds_open_decoding_table',
+	`chise_dt_put_char' and `chise_dt_close'.
+	(load_char_decoding_entry_maybe): Use `chise_ds_open_ccs_table',
+	`chise_ccs_decode' and `chise_ccst_close' instead of
+	`chise_ds_open_decoding_table', `chise_dt_get_char' and
+	`chise_dt_close'.
+
+	* chartab.c (char_table_get_db): Use
+	`chise_char_load_feature_value' instead of `chise_ft_get_value'.
+	(load_char_attribute_table_map_func): Modify for
+	`chise_char_feature_value_iterate'.
+	(Fload_char_attribute_table): Use
+	`chise_char_feature_value_iterate' instead of `chise_ft_iterate'.
+
+2003-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (COMPOSE_ADD_CHAR): Fixed.
+
+2003-08-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (put_char_table): Modify for inherited coded-charsets
+	in XEmacs CHISE.
+
+2003-08-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Fput_char_table_map_function): Fixed.
+	(word_boundary_p): Don't check charset in XEmacs CHISE.
+
+2003-08-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Use
+	`open_chise_data_source_maybe'; use `chise_ds_open_decoding_table'
+	instead of `chise_open_decoding_table'; refer
+	`default_chise_data_source'; use `chise_dt_close' instead of
+	`chise_close_decoding_table'.
+	(load_char_decoding_entry_maybe): Likewise.
+
+	* chartab.c (default_chise_data_source): New variable when `CHISE'
+	is defined.
+	(Fcopy_char_table): `ct->ds' is deleted.
+	(open_chise_data_source_maybe): New function.
+	(Fclose_char_data_source): New function.
+	(char_table_open_db_maybe): Use `open_chise_data_source_maybe';
+	use `chise_ds_open_feature_table' instead of
+	`chise_open_feature_table'.
+	(char_table_close_db_maybe): Use `chise_ft_close' instead of
+	`chise_close_feature_table'; `cit->ds' is deleted.
+	(syms_of_chartab): Add new builtin function
+	`close-char-data-source' when `HAVE_CHISE_CLIENT' is defined.
+
+	* chartab.h (default_chise_data_source): New extern variable.
+	(open_chise_data_source_maybe): New prototype.
+	(struct Lisp_Char_Table): Delete `ds'.
+
+2003-08-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Use libchise when
+	`CHISE' is defined.
+
+2003-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (char_table_open_db_maybe): Defined even if `CHISE' is
+	not defined; add code for non-libchise setting.
+	(char_table_close_db_maybe): Likewise.
+	(char_table_get_db): New function when `HAVE_CHISE_CLIENT' is
+	defined.
+	(Fclose_char_attribute_table): Use `char_table_close_db_maybe'
+	even if `CHISE' is not defined.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Use `char_table_open_db_maybe' and
+	`char_table_close_db_maybe' even if `CHISE' is not defined; use
+	`char_table_get_db'.
+	(Fload_char_attribute_table): Use `char_table_open_db_maybe' and
+	`char_table_close_db_maybe' even if `CHISE' is not defined.
+
+2003-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (char_table_open_db_maybe): New function.
+	(char_table_close_db_maybe): New function.
+	(Fclose_char_attribute_table): Use `char_table_close_db_maybe'.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Use `char_table_open_db_maybe' and
+	`char_table_close_db_maybe'.
+	(Fload_char_attribute_table): Likewise.
+
+2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c: Don't include <chise.h> because it is included in
+	chartab.h.
+	(Fmake_char_table): Initialize `ct->feature_table' when `CHISE' is
+	defined.
+	(Fcopy_char_table): Copy `ct->ds' and `ct->feature_table' when
+	`CHISE' is defined.
+	(Fmount_char_attribute_table): Initialize `ct->feature_table' when
+	`CHISE' is defined.
+	(Fclose_char_attribute_table): Close `ct->feature_table' and
+	`ct->ds' when `CHISE' is defined.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Use `cit->ds' and
+	`cit->feature_table' when `CHISE' is defined.
+	(Fload_char_attribute_table): Likewise.
+
+	* chartab.h: Include <chise.h> when `CHISE' is defined.
+	(struct Lisp_Char_Table): Add new member `ds' and `feature_table'
+	when `CHISE' is defined.
+
+2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (mark_char_table): Member `db' is deleted when `CHISE'
+	is defined.
+	(char_table_description): Likewise.
+	(Fmake_char_table): Likewise.
+	(Fcopy_char_table): Likewise.
+	(Fmount_char_attribute_table): Likewise.
+	(Fclose_char_attribute_table): Likewise.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+
+	* chartab.h (struct Lisp_Char_Table): Delete `db' when `CHISE' is
+	defined.
+
+2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (load_char_attribute_table_map_func): New function
+	when CHISE is defined.
+	(Qload_char_attribute_table_map_function): Don't define when CHISE
+	is defined.
+	(Fload_char_attribute_table_map_function): Likewise.
+	(Fload_char_attribute_table): Use libchise when `CHISE' is
+	defined.
+	(syms_of_chartab): Don't define
+	`load-char-attribute-table-map-function' when CHISE is defined.
+
+2003-08-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c: Include <chise.h> when `CHISE' is defined.
+	(load_char_attribute_maybe): Use libchise when `CHISE' is defined.
+
 2003-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (charset_code_point): Fix problem when searching
@@ -4807,6 +5104,96 @@
 	(Vcharset_hebrew_iso8859_8): Likewise.
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
+
+2003-05-25  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.4.13 is released
+
+2003-03-20  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* config.h.in (INTPTR_T_IN_CYGWIN_TYPES_H): 
+	* lisp.h (<inttypes.h>):
+	Cygwin defines these types in <cygwin/types.h>.  Don't duplicate
+	the definition.
+
+2003-03-15  Martin Buchholz  <martin@xemacs.org>
+
+	* dumper.c (pdump_load): Pdump'ed XEmacs can't find its .dmp file.
+	Scenario: Prepend ~/bin to PATH; then `mkdir ~/bin/xemacs'
+	Result: "temacs can only be run in -batch mode."
+	Fix: Check xemacs executable candidate for directory-ness.
+
+2003-03-03  Robert Pluim  <rpluim@bigfoot.com>
+
+	* database.c: Don't use the u_int8_t etc typedefs on FreeBSD,
+	  they conflict with <sys/types.h>.
+
+2003-02-14  Martin Buchholz  <martin@xemacs.org>
+
+	* database.c: Berkeley DB wants __STDC__ to be defined.
+
+2003-02-13  Martin Buchholz  <martin@xemacs.org>
+
+	* EmacsFrame.c: Use symbolic name `NotUseful' in lieu of `0'.
+
+2003-02-01  Martin Buchholz  <martin@xemacs.org>
+
+	* process-unix.c (unix_send_process): Fix C++ compile error.
+
+2003-02-25  Andrew Begel  <abegel@cs.berkeley.edu>
+
+	* Added .dylib as an acceptable shared library file extension
+	* to support MacOSX.
+
+2003-02-01  Martin Buchholz  <martin@xemacs.org>
+
+	* EmacsFrameP.h (EmacsFramePart):
+	Kludge to allow compiling with Motif1, but linking with Motif2.
+
+2003-01-28  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h.in (_ALL_SOURCE): Guard against multiple definition.
+
+
+2003-02-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* config.h.in (DLSYM_NEEDS_UNDERSCORE): Define on darwin.
+
+2003-02-06  Andrew Begel  <abegel@CS.Berkeley.EDU>
+
+	* sysdll.c: Included lisp.h to define needed alloca_array.
+
+2003-02-13  Martin Buchholz  <martin@xemacs.org>
+
+	Make XEmacs redisplay 10 times faster.
+	If, that is, you're using a slow X connection and MoveOpaque.
+	Use compress_exposure = XtExposeCompressMaximal | XtExposeNoRegion.
+	Use compress_motion = TRUE.
+	* EmacsFrame.c (emacsFrameClassRec): 
+	* EmacsShell-sub.c (EMACS_SHELL_CLASS_REC):
+	* EmacsManager.c (emacsManagerClassRec):
+	* xintrinsicp.h: Make sure XtExposeNoRegion is defined.
+
+2003-01-30  Vin Shelton  <acs@xemacs.org>
+
+	* s/linux.h (ORDINARY_LINK): define ORDINARY_LINK for linux.
+
+2003-01-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* glyphs-eimage.c (tiff_memory_seek): Lobotomize unsigned typedef.
+	Patch by Martin Buchholz.
+
+2003-01-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* glyphs-eimage.c (tiff_instantiate): Fix unsigned comparison.
+	Thanks to icc for warning and Martin Buchholz for reporting.
+
+2003-01-29  Vin Shelton <acs@xemacs.org>
+
+	Patch courtesy of Andrew Begel <abegel@cs.berkeley.edu>
+
+	* dynarr.c (Dynarr_realloc): memcpy copies number of bytes, so
+	remember to multiply by the element size.
 
 2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
 

@@ -24,7 +24,11 @@
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
-;;; Synched up with: FSF 20.7.
+;;; Synched up with: FSF 20.7 except where marked.
+;;; [[ Synched up with: FSF 20.7. ]]
+;;; DO NOT PUT IN AN INVALID SYNC MESSAGE WHEN YOU DO A PARTIAL SYNC. --ben
+
+;; BEGIN SYNC WITH 20.7.
 
 ;;; Commentary:
 
@@ -292,8 +296,10 @@
 				(compiled-function-constants fn)
 				(compiled-function-stack-depth fn)))
 		    (cdr form)))
-	  (if (not (eq (car fn) 'lambda)) (error "%s is not a lambda" name))
-	  (cons fn (cdr form)))))))
+	  (if (eq (car-safe fn) 'lambda)
+	      (cons fn (cdr form))
+	    ;; Give up on inlining.
+	    form))))))
 
 ;;; ((lambda ...) ...)
 ;;;
@@ -351,6 +357,7 @@
 		(byte-compile-warn
 		 "attempt to open-code %s with too many arguments" name))
 	    form)
+	(setq body (mapcar 'byte-optimize-form body))
 	(let ((newform
 	       (if bindings
 		   (cons 'let (cons (nreverse bindings) body))
@@ -520,6 +527,14 @@
 					    byte-compile-macro-environment))))
 	   (byte-optimize-form form for-effect))
 
+	  ;; Support compiler macros as in cl.el.
+	  ((and (fboundp 'compiler-macroexpand)
+		(symbolp (car-safe form))
+		(get (car-safe form) 'cl-compiler-macro)
+	        (not (eq form
+		         (setq form (compiler-macroexpand form)))))
+	   (byte-optimize-form form for-effect))
+
 	  ((not (symbolp fn))
 	   (or (eq 'mocklisp (car-safe fn)) ; ha!
 	       (byte-compile-warn "%s is a malformed function"
@@ -567,7 +582,8 @@
 	(progn
 ;;	  (if (equal form new) (error "bogus optimizer -- %s" opt))
 	  (byte-compile-log "  %s\t==>\t%s" form new)
-	  (byte-optimize-form new for-effect))
+	  (setq new (byte-optimize-form new for-effect))
+	  new)
       form)))
 
 
@@ -699,6 +715,8 @@
 				(list (apply fun (nreverse constants)))))))))
     form))
 
+;; END SYNC WITH 20.7.
+
 ;;; It is not safe to optimize calls to arithmetic ops with one arg
 ;;; away entirely (actually, it would be safe if we know the sole arg
 ;;; is not a marker or if it appears in other arithmetic).
@@ -761,6 +779,8 @@
 
      ;; We don't have to check for divide-by-zero because `/' does.
      (t (byte-optimize-predicate form)))))
+
+;; BEGIN SYNC WITH 20.7.
 
 (defun byte-optimize-logmumble (form)
   (setq form (byte-optimize-delay-constants-math form 1 (car form)))
@@ -945,6 +965,8 @@
 	(byte-optimize-predicate form)
       (nth 1 form))))
 
+;; END SYNC WITH 20.7.
+
 ;;; For the byte optimizer, `cond' is just overly sweet syntactic sugar.
 ;;; So we rewrite (cond ...) in terms of `if' and `or',
 ;;; which are easier to optimize.
@@ -962,6 +984,8 @@
        (t `(if ,(nth 0 (car clauses)) (progn ,@(cdr (car clauses))))))
      (when (cdr clauses) (list (byte-optimize-cond-1 (cdr clauses))))))
    (t (error "malformed cond clause %s" (car clauses)))))
+
+;; BEGIN SYNC WITH 20.7.
 
 (defun byte-optimize-if (form)
   ;; (if <true-constant> <then> <else...>) ==> <then>
@@ -1355,7 +1379,9 @@
 					     tags)))))))
 	    ((cond ((eq op 'byte-constant2) (setq op 'byte-constant) t)
 		   ((memq op byte-constref-ops)))
-	     (setq tmp (aref constvec offset)
+	     (setq tmp (if (>= offset (length constvec))
+			   (list 'out-of-range offset)
+			 (aref constvec offset))
 		   offset (if (eq op 'byte-constant)
 			      (byte-compile-get-constant tmp)
 			    (or (assq tmp byte-compile-variables)
@@ -1467,33 +1493,7 @@
 ;;; variables.
 
 ;(defconst byte-boolean-vars
-;  '(abbrev-all-caps purify-flag find-file-compare-truenames
-;    find-file-use-truenames delete-auto-save-files byte-metering-on
-;    x-seppuku-on-epipe zmacs-regions zmacs-region-active-p
-;    zmacs-region-stays atomic-extent-goto-char-p
-;    suppress-early-error-handler-backtrace noninteractive
-;    inhibit-early-packages inhibit-autoloads debug-paths
-;    inhibit-site-lisp debug-on-quit debug-on-next-call
-;    modifier-keys-are-sticky x-allow-sendevents
-;    mswindows-dynamic-frame-resize focus-follows-mouse
-;    inhibit-input-event-recording enable-multibyte-characters
-;    disable-auto-save-when-buffer-shrinks
-;    allow-deletion-of-last-visible-frame indent-tabs-mode
-;    load-in-progress load-warn-when-source-newer
-;    load-warn-when-source-only load-ignore-elc-files
-;    load-force-doc-strings fail-on-bucky-bit-character-escapes
-;    popup-menu-titles menubar-show-keybindings completion-ignore-case
-;    canna-empty-info canna-through-info canna-underline
-;    canna-inhibit-hankakukana enable-multibyte-characters
-;    re-short-flag x-handle-non-fully-specified-fonts
-;    print-escape-newlines print-readably delete-exited-processes
-;    windowed-process-io visible-bell no-redraw-on-reenter
-;    cursor-in-echo-area inhibit-warning-display
-;    column-number-start-at-one parse-sexp-ignore-comments
-;    words-include-escapes scroll-on-clipped-lines)
-;  "DEFVAR_BOOL variables.  Giving these any non-nil value sets them to t.
-;If this does not enumerate all DEFVAR_BOOL variables, the byte-optimizer
-;may generate incorrect code.")
+;   ...)
 
 (defun byte-optimize-lapcode (lap &optional for-effect)
   "Simple peephole optimizer.  LAP is both modified and returned."
@@ -1954,14 +1954,16 @@
     (while rest
       (setq lap0 (car rest)
 	    lap1 (nth 1 rest))
-      (case (car lap0)
-	((byte-varref byte-varset byte-varbind)
-	 (incf (gethash (cdr lap0) variable-frequency 0))
-	 (unless (memq (cdr lap0) byte-compile-variables)
-	   (push (cdr lap0) byte-compile-variables)))
-	((byte-constant)
-	 (unless (memq (cdr lap0) byte-compile-constants)
-	   (push (cdr lap0) byte-compile-constants))))
+      (if (memq (car lap0) byte-constref-ops)
+	  (if (not (eq (car lap0) 'byte-constant))
+	      (progn 
+		(incf (gethash (cdr lap0) variable-frequency 0))
+		(or (memq (cdr lap0) byte-compile-variables)
+		    (setq byte-compile-variables
+			  (cons (cdr lap0) byte-compile-variables))))
+	    (or (memq (cdr lap0) byte-compile-constants)
+		(setq byte-compile-constants (cons (cdr lap0)
+						   byte-compile-constants)))))
       (cond (;;
 	     ;; const-C varset-X  const-C  -->  const-C dup varset-X
 	     ;; const-C varbind-X const-C  -->  const-C dup varbind-X
@@ -2046,5 +2048,7 @@
 	  byte-optimize-form-code-walker
 	  byte-optimize-lapcode))))
  nil)
+
+;; END SYNC WITH 20.7.
 
 ;;; byte-optimize.el ends here

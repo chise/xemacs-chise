@@ -140,11 +140,9 @@ Boston, MA 02111-1307, USA.  */
 #ifdef LINUX_ELF
 #define UNEXEC "unexelf.o"
 #define UNEXEC_USE_MAP_PRIVATE
-#if 0
-/* mrb - Ordinary link is simple and effective */
-/* slb - Not any more ... :-( */
+/* Although slb thinks ORDINARY_LINK does not work on linux, ORDINARY_LINK
+   has been enabled in 21.5 for some time with no ill effects. */
 #define ORDINARY_LINK
-#endif /* 0 */
 
 /* I still think ORDINARY_LINK should be the default, but since slb
    insists, ORDINARY_LINK will stay on until we expunge the dump code.
