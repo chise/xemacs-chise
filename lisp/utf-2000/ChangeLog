@@ -1,3 +1,43 @@
+2004-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+
+	* Ideograph-R021-Spoon.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+	(U+5315): Use `<-denotational' for J97-5238.
+	(J97-5238): New abstract character.
+	(U-0002090E): Use `<-denotational' for J97-5238.
+
+	* Ideograph-R018-Knife.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+	(U+5206): Use `->subsumptive'.
+	(U+525D): Use `<-denotational' for J97-476D.
+	(J97-476D): New abstract character.
+	(U+5265): Use `<-denotational' for J97-476D.
+	(U+5275): Use `->subsumptive'.
+	(U+527E): Use `->subsumptive'.
+
+	* Ideograph-R014-Cover.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+	(U+51A4): Changed to an abstract character.
+	(U-0002F818): Use `<-denotational' for U+51A4.
+	(G0-5429): Likewise; use `->subsumptive' to integrate JC3-43F0.
+
+2004-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el: Use
+	`=jis-x0208@{1978|1983|1990}' instead of
+	`=jis-x0208-{1978|1983|1990}'.
+	(U+533A): Use `->subsumptive'.
+	(U+5340): Use `->subsumptive'.
+
+	* Ideograph-R015-Ice.el: Use `=jis-x0208@{1978|1983|1990}' instead
+	of `=jis-x0208-{1978|1983|1990}'.
+	(U+51C7): Use `->subsumptive'.
+	(U+51CB): Use `->subsumptive'.
+	(U+51DC): Use `->subsumptive'.
+
 2004-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R003-Dot.el (C3-2740): Compact
