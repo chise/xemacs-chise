@@ -1063,6 +1063,7 @@ Lisp_Object Vcharacter_variant_table;
 Lisp_Object Q_decomposition;
 Lisp_Object Qto_ucs;
 Lisp_Object Q_ucs;
+Lisp_Object Q_ucs_variants;
 Lisp_Object Qcompat;
 Lisp_Object Qisolated;
 Lisp_Object Qinitial;
@@ -3131,6 +3132,26 @@ Return DEFAULT-VALUE if the value is not exist.
 
   table = Fgethash (attribute, Vchar_attribute_hash_table,
 		    Qunbound);
+#if 0 && defined(HAVE_DATABASE)
+  if (UNBOUNDP (table))
+    {
+      Lisp_Object db_dir = Vexec_directory;
+      Lisp_Object db_file;
+
+      if (NILP (db_dir))
+	db_dir = build_string ("../lib-src");
+      db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+      db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
+      db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
+      if (!NILP (Ffile_exists_p (db_file)))
+	{
+	  table = make_char_id_table (Qunloaded);
+	  XCHAR_TABLE (table)->default_value = Qunbound;
+	  Fputhash (attribute, table, Vchar_attribute_hash_table);
+	  XCHAR_TABLE_NAME (table) = attribute;
+	}
+    }
+#endif
   if (!UNBOUNDP (table))
     {
       Lisp_Object ret = get_char_id_table (XCHAR_TABLE(table),
@@ -4005,6 +4026,7 @@ syms_of_chartab (void)
 
   defsymbol (&Qto_ucs,			"=>ucs");
   defsymbol (&Q_ucs,			"->ucs");
+  defsymbol (&Q_ucs_variants,		"->ucs-variants");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
   defsymbol (&Qisolated,		"isolated");
@@ -4128,6 +4150,11 @@ complex_vars_of_chartab (void)
   staticpro (&Vchar_attribute_hash_table);
   Vchar_attribute_hash_table
     = make_lisp_hash_table (16, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
+#ifdef HAVE_DATABASE
+  Fputhash (Q_ucs_variants, Vcharacter_variant_table,
+	    Vchar_attribute_hash_table);
+  XCHAR_TABLE_NAME (Vcharacter_variant_table) = Q_ucs_variants;
+#endif /* HAVE_DATABASE */
 #endif /* UTF2000 */
 #ifdef MULE
   /* Set this now, so first buffer creation can refer to it. */
