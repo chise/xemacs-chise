@@ -1,3 +1,72 @@
+2001-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (GT-56364): New character.
+
+	* Ideograph-R042-Small.el, Ideograph-R039-Child.el,
+	Ideograph-R033-Scholar.el: Add some CJK Ext-B code points.
+
+	* Ideograph-R019-Power.el: Add some missing
+	`ideographic-structure' properties.
+	(U+52A6): Don't use BC-8DF6 in the `ideographic-structure'
+	property.
+	(U+52B1): Use `script' and `<-simplified-ideograph' instead of
+	`comment'.
+	(U+52C9): Don't use char-ref format for the operator of the
+	`ideographic-structure' property.
+	(C1-6339): Use M-31078 instead of U+83AB in the
+	`ideographic-structure' property.
+	(J0-342B): Use `script' and `<-simplified-ideograph' instead of
+	`comment'.
+	(C2-4F5C): Use C1-655C instead of U+842C.
+
+	* Ideograph-R018-Knife.el: Add some missing
+	`ideographic-structure' properties.
+	(U+521D): Use U+8864 instead of <CJK RADICAL CLOTHES>.
+	(U+5231): Simplified `ideographic-structure'.
+	(C2-2554): Likewise.
+	(U+524D): Use U+4491 instead of BC-8B4B.
+	(U+524E): Use M-14471 instead of BC-8CBA.
+	(J0-4B36): Use JSP-3523 instead of U+5485.
+	(U+5294): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+
+	* Ideograph-R013-Down-Box.el (J78-514B): Don't use char-ref format
+	in the `ideographic-structure' property.
+
+	* Ideograph-R010-Legs.el (U+5151): Use U+4E37 instead of U+8B55 in
+	the `ideographic-structure' property.
+	(U+515A): Modify `ideographic-structure'.
+
+2001-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R062-Halberd.el:
+	- Merge some Big5 code points.
+	- Add some CBETA numbers.
+	- Add some `ideographic-structure' properties.
+	- Use `=>ucs' instead of `->ucs'.
+
+2001-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (GT-00767): Relate to M-01054; add
+	`ideographic-structure'.
+
+	* Ideograph-R003-Dot.el (U+4E37): Unify BC-8B55.
+
+2001-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el: Add some CJK Ext-B code points.
+
+	* Ideograph-R012-Eight.el (U+517C): Use U+4491 instead of BC-8B4B
+	in the `ideographic-structure' property.
+
+	* Ideograph-R010-Legs.el (C4-233B): Separate U+514F.
+	(U+514F): Add `ideographic-structure'.
+
+	* Ideograph-R001-One.el (U+4E19): Use U+5185 instead of BC-8C57 in
+	the `ideographic-structure' property.
+	(U+4E26): Use U+4491 instead of BC-8B4B in the
+	`ideographic-structure' property.
+
 2001-12-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R031-Enclosure.el: Add some CJK Ext-B code points.
