@@ -1,4 +1,20 @@
-2003-06-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+2003-06-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (M-07061): New character.
+	(U-000219BA): New character.
+	(M-07062): New character.
+	(U+374B): New character.
+
+	* Ideograph-R012-Eight.el (U-00020503): Unify M-48904; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' and
+	`ideographic-radical@ucs*sources' instead of
+	`ideographic-{radical|strokes}'; don't use char-ref format in
+	`<-vulgar-ideograph'; use `<-vulgar-ideograph*sources' instead.
+
+	* Ideograph-R001-One.el (M-48904): New character [unified to
+	U-00020503 and copied from Ideograph-R012-Eight.el].
+
+2003-06-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R032-Earth.el (U+3654): New character.
 	(CB07009): New character.
