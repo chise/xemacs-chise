@@ -1503,7 +1503,7 @@ range_charset_code_point (Lisp_Object charset, Emchar ch)
 Lisp_Object
 split_builtin_char (Emchar c)
 {
-  if (c < MIN_CHAR_OBS_94x94)
+  if (c <= MAX_CHAR_BMP)
     {
       if (c <= MAX_CHAR_BASIC_LATIN)
 	{
