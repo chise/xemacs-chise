@@ -420,6 +420,8 @@
     (ideographic-strokes@ucs . 4)
     (ideographic-radical@cns . 66)	; ⽁
     (ideographic-strokes@cns . 5)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 9)
     (=ucs		. #x25626)	; 𥘦
     (->subsumptive
