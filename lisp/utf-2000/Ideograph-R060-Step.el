@@ -3103,7 +3103,9 @@
     (total-strokes	 . 16)
     (=jis-x0208-1983	. #x352B)	; ø»†­ª
     (=jis-x0208-1990	. #x352B)	; ø½Š“ž
+    (=gt-pj-1		. #x352B)	; ý¡€ˆ®…
     (=ucs@jis		. #x5FBD)	; ø»†­ª
+    (=gt		. 35717)	; ý¡€ˆ®…
     ))
 (define-char
   '((=>ucs		. #x2256C)	; ð¢•¬
