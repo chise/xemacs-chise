@@ -1,5 +1,17 @@
 2004-04-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R041-Inch.el (U+5C08): Use `->subsumptive'.
+	(JC3-4ACE): Moved into U+5C08.
+	(U+5C02): Use `=>daikanwa' instead of `morohashi-daikanwa' for
+	M-07439.
+
+	* Ideograph-R010-Legs.el (U+5145): Omit `=>daikanwa'.
+
+2004-04-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-daikanwa): Return value of `=>daikanwa'
+	with subcode 0.
+
 	* Ideograph-R066-Rap.el (K0-4A72): Moved into U+6562.
 	(J83-343A): Likewise.
 	(U+6562): Use `->subsumptive'.
