@@ -514,7 +514,7 @@
   (define-charset-alias '=ucs@jp '=ucs@JP)
   (make-charset '=ucs@ks
 		"ISO/IEC 10646 for Korean Standards"
-		`(long-name	"UCS for KS"
+		'(long-name	"UCS for KS"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -524,7 +524,7 @@
   (define-charset-alias 'ucs-ks '=ucs@ks)
   (make-charset '=ucs@big5
 		"ISO/IEC 10646 for Big5"
-		`(long-name	"UCS for Big5"
+		'(long-name	"UCS for Big5"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -532,11 +532,29 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
-
+  (make-charset '=ucs@big5/cns11643
+		"ISO/IEC 10646 for Big5 based on www.cns11643.gov.tw"
+		'(long-name	"UCS for Big5@CNS11643"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@big5))
+  (make-charset '=ucs@cns11643
+		"ISO/IEC 10646 for CNS based on www.cns11643.gov.tw"
+		'(long-name	"UCS for CNS11643"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@cns))
+  
   (make-charset
    '=ucs-radicals
    "CJK Radicals of UCS"
-   `(long-name "UCS-Radicals"
+   '(long-name "UCS-Radicals"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -548,7 +566,7 @@
   (make-charset
    '=ucs-radicals@unicode
    "CJK Radicals of UCS"
-   `(long-name "UCS-Radicals"
+   '(long-name "UCS-Radicals"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -560,7 +578,7 @@
   (make-charset
    '=ucs-bmp-cjk
    "CJK Characters in BMP of UCS"
-   `(long-name "UCS-BMP-CJK"
+   '(long-name "UCS-BMP-CJK"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -572,7 +590,7 @@
   (make-charset
    '=ucs-bmp-cjk@unicode
    "CJK Characters in BMP of Unicode"
-   `(long-name "Unicode-BMP-CJK"
+   '(long-name "Unicode-BMP-CJK"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -584,7 +602,7 @@
   (make-charset
    '=ucs-sip-ext-b
    "CJK Ideographs Extension B"
-   `(long-name "UCS CJK Ext-B"
+   '(long-name "UCS CJK Ext-B"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -597,7 +615,7 @@
   (make-charset
    '=ucs-sip-ext-b@iso
    "CJK Ideographs Extension B (ISO/IEC 10646-2)"
-   `(long-name "UCS CJK Ext-B"
+   '(long-name "UCS CJK Ext-B"
 	       chars 256
 	       dimension 2
 	       columns 2
