@@ -66,6 +66,8 @@ Lisp_Object Vcharset_chinese_cns11643_2;
 #ifdef UTF2000
 Lisp_Object Vcharset_ucs;
 Lisp_Object Vcharset_ucs_bmp;
+Lisp_Object Vcharset_ucs_smp;
+Lisp_Object Vcharset_ucs_sip;
 Lisp_Object Vcharset_ucs_cns;
 Lisp_Object Vcharset_ucs_jis;
 Lisp_Object Vcharset_ucs_ks;
@@ -431,6 +433,8 @@ Lisp_Object Qascii,
 #ifdef UTF2000
   Qucs,
   Qucs_bmp,
+  Qucs_smp,
+  Qucs_sip,
   Qucs_cns,
   Qucs_jis,
   Qucs_ks,
@@ -1243,6 +1247,16 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
     {
       *charset = Vcharset_ucs_bmp;
       return c;
+    }
+  else if (c <= MAX_CHAR_SMP)
+    {
+      *charset = Vcharset_ucs_smp;
+      return c - MIN_CHAR_SMP;
+    }
+  else if (c <= MAX_CHAR_SIP)
+    {
+      *charset = Vcharset_ucs_sip;
+      return c - MIN_CHAR_SIP;
     }
   else if (c < MIN_CHAR_DAIKANWA)
     {
@@ -2372,6 +2386,8 @@ syms_of_mule_charset (void)
 #ifdef UTF2000
   defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
+  defsymbol (&Qucs_smp,			"ucs-smp");
+  defsymbol (&Qucs_sip,			"ucs-sip");
   defsymbol (&Qucs_cns,			"ucs-cns");
   defsymbol (&Qucs_jis,			"ucs-jis");
   defsymbol (&Qucs_ks,			"ucs-ks");
@@ -2519,14 +2535,33 @@ complex_vars_of_mule_charset (void)
     make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp, 256, 2,
 		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("BMP"),
-		  build_string ("BMP"),
+		  build_string ("UCS-BMP"),
 		  build_string ("ISO/IEC 10646 Group 0 Plane 0 (BMP)"),
-		  build_string ("\\(ISO10646.*-1\\|UNICODE[23]?-0\\)"),
+		  build_string
+		  ("\\(ISO10646.*-[01]\\|UCS00-0\\|UNICODE[23]?-0\\)"),
 		  Qnil, 0, 0xFFFF, 0, 0);
+  staticpro (&Vcharset_ucs_smp);
+  Vcharset_ucs_smp =
+    make_charset (LEADING_BYTE_UCS_SMP, Qucs_smp, 256, 2,
+		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("SMP"),
+		  build_string ("UCS-SMP"),
+		  build_string ("ISO/IEC 10646 Group 0 Plane 1 (SMP)"),
+		  build_string ("UCS00-1"),
+		  Qnil, MIN_CHAR_SMP, MAX_CHAR_SMP, 0, 0);
+  staticpro (&Vcharset_ucs_sip);
+  Vcharset_ucs_sip =
+    make_charset (LEADING_BYTE_UCS_SIP, Qucs_sip, 256, 2,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("SIP"),
+		  build_string ("UCS-SIP"),
+		  build_string ("ISO/IEC 10646 Group 0 Plane 2 (SIP)"),
+		  build_string ("\\(ISO10646.*-2\\|UCS00-2\\)"),
+		  Qnil, MIN_CHAR_SIP, MAX_CHAR_SIP, 0, 0);
   staticpro (&Vcharset_ucs_cns);
   Vcharset_ucs_cns =
     make_charset (LEADING_BYTE_UCS_CNS, Qucs_cns, 256, 3,
-		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("UCS for CNS"),
 		  build_string ("UCS for CNS 11643"),
 		  build_string ("ISO/IEC 10646 for CNS 11643"),
@@ -2535,7 +2570,7 @@ complex_vars_of_mule_charset (void)
   staticpro (&Vcharset_ucs_jis);
   Vcharset_ucs_jis =
     make_charset (LEADING_BYTE_UCS_JIS, Qucs_jis, 256, 3,
-		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("UCS for JIS"),
 		  build_string ("UCS for JIS X 0208, 0212 and 0213"),
 		  build_string ("ISO/IEC 10646 for JIS X 0208, 0212 and 0213"),
@@ -2544,7 +2579,7 @@ complex_vars_of_mule_charset (void)
   staticpro (&Vcharset_ucs_ks);
   Vcharset_ucs_ks =
     make_charset (LEADING_BYTE_UCS_KS, Qucs_ks, 256, 3,
-		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("UCS for KS"),
 		  build_string ("UCS for CCS defined by KS"),
 		  build_string ("ISO/IEC 10646 for Korean Standards"),
@@ -2553,7 +2588,7 @@ complex_vars_of_mule_charset (void)
   staticpro (&Vcharset_ucs_big5);
   Vcharset_ucs_big5 =
     make_charset (LEADING_BYTE_UCS_BIG5, Qucs_big5, 256, 3,
-		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("UCS for Big5"),
 		  build_string ("UCS for Big5"),
 		  build_string ("ISO/IEC 10646 for Big5"),
