@@ -1,5 +1,12 @@
 1999-09-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c (make_charset): Delete argument `rep_bytes'.
+	(Fmake_charset): Modify for `make_charset'.
+	(Fmake_reverse_direction_charset): Likewise.
+	(complex_vars_of_mule_charset): Likewise.
+
+1999-09-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* text-coding.c (char_encode_shift_jis): Use table
 	`ucs_to_latin_jisx0201' and BREAKUP_CHAR.
 
