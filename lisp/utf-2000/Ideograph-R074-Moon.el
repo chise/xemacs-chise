@@ -825,6 +825,8 @@
 (define-char
   '((ideographic-radical . 74)	; â½‰
     (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (chinese-gb12345	. #x7C4A)	; è†¶
     (ucs		. #x81B6)	; è†¶
     ))
 (define-char
@@ -897,6 +899,7 @@
     (japanese-jisx0208-1978	. #x5B30)	; ø»ƒ‘›
     (japanese-jisx0208		. #x5B30)	; ø»‡¥£
     (japanese-jisx0208-1990	. #x5B30)	; ø½‹‹—
+    (chinese-gb12345		. #x6B4A)	; æœ§
     (ideograph-daikanwa		. 14411)	; ø¸ƒ¡‹
     (ucs			. #x6727)	; æœ§
     ))
