@@ -1,3 +1,7 @@
+2003-06-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R018-Knife.el (GT-02691): Unify GT-K08026.
+
 2003-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R018-Knife.el (MH-0048): New character; unify U+5C76
