@@ -1218,6 +1218,7 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
+	(=gt-k		    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -5269,6 +5270,7 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
+	(=gt-k		    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -7937,9 +7939,10 @@
       )
      ((ucs		  . #x53E3)	; å£
       )
-     ((ucs		  . #x5349)	; å‰
+     ((ucs		  . #x2F82C)	; ð¯ ¬
       ))
     (ideograph-daikanwa . 03598)	; ø¸€¸Ž
+    (mojikyo . 03598)	; ø¸€¸Ž
     (=cbeta		. 01216)	; ø¸ “€
     ))
 (define-char
