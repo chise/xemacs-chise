@@ -22,17 +22,6 @@ build-time, and "documentation and data" changes.
 For more details, including developers involved and dates, see the
 ChangeLogs, or use CVS diff to view the patches.
 
-to 21.4.12 "Portable Code"
-
--- Fix: Type typos (welcome back!) -- Martin Buchholz
--- Fix: Cygwin link breakage with new binutils -- Sergey Okhapkin
--- Fix: Cygwin: Bump stack size to 8MB for large regexps -- Andy Piper
--- Fix: Cygwin build breakage from Ben's printing patch -- Rick Rankin
--- Fix: Don't require GNOME for Mozilla -- Ville Skyttä
--- Fix: nnimap hangs in process output -- Daiki Ueno
--- Update: about.el information -- Ilya Golubev
--- Update: More tests/automated/regexp-tests.el cases -- Stephen Turnbull
-
 to 21.4.11 "Native Windows TTY Support"
 
 -- (**) More menubar options for browse-url -- Ville Skyttä

@@ -5,6 +5,7 @@
     (shinjigen-2	. 2260)
     (=gb2312		. #x5F2E)	; ø»…¡•
     (=jis-x0208		. #x5735)	; ø½‹…¤
+    (=iso-ir165		. #x5F2E)	; ø»Ž‰¥
     (=cns11643-1	. #x445D)	; ø»‘¶²
     (=gt-pj-1		. #x5735)	; ý¡€‚¾‡
     (=big5		. #xA47C)	; ý¢€Š‘¼
@@ -105,6 +106,7 @@
     (=gb2312		. #x4A3D)	; ø»…‚®
     (=jis-x0208		. #x3C30)	; ø½Šµ
     (=ks-x1001		. #x6352)	; ø»‰»¹
+    (=iso-ir165		. #x4A3D)	; ø»ª¾
     (=cns11643-1	. #x4822)	; ø»‘»¯
     (=gt-pj-1		. #x3C30)	; ý¡€‚¾‘
     (=big5		. #xA6A1)	; ý¢€Šš¡
@@ -191,6 +193,7 @@
   '((ideographic-radical . 56)	; â¼·
     (ideographic-strokes . 5)
     (=gb2312		. #x5F30)	; ø»…¡—
+    (=iso-ir165		. #x5F30)	; ø»Ž‰§
     (=ucs		. #x7519)	; ç”™
     ))
 (define-char
@@ -249,6 +252,7 @@
     (ideographic-radical . 56)	; â¼·
     (ideographic-strokes . 6)
     (=gb2312		. #x3721)	; ø»„¦˜
+    (=iso-ir165		. #x3721)	; ø»Ž¨
     (=ucs		. #x8D30)	; è´°
     ))
 (define-char
@@ -273,6 +277,7 @@
     (=gb2312		. #x5F31)	; ø»…¡˜
     (=jis-x0208		. #x5736)	; ø½‹…¥
     (=ks-x1001		. #x633D)	; ø»‰»¤
+    (=iso-ir165		. #x5F31)	; ø»Ž‰¨
     (=cns11643-3	. #x3B42)	; ø»•½‘
     (=gt-pj-1		. #x5736)	; ý¡€‚¾¦
     (=daikanwa		. 09680)	; ø¸‚—
