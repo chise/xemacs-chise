@@ -1,5 +1,15 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* dumped-lisp.el (preloaded-file-list): Add "u02E00-CJK-Radicals",
+	"u02F00-Kangxi-Radicals" and
+	"u02FF0-Ideographic-Description-Characters".
+
+	* utf-2000/u02E00-CJK-Radicals.el,
+	utf-2000/u02F00-Kangxi-Radicals.el,
+	utf-2000/u02FF0-Ideographic-Description-Characters.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* dumped-lisp.el (preloaded-file-list): Add
 	"u02600-Miscellaneous-Symbols", "u02700-Dingbats" and
 	"u02800-Braille-Patterns" in UTF-2000.
