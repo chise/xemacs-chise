@@ -1,4 +1,13 @@
+2004-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el, Ideograph-R169-Gate.el,
+	Ideograph-R164-Wine.el, Ideograph-R165-Distinguish.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
 2004-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el, Ideograph-R159-Cart.el: Add some
+	`<-simplified@JP/Jouyou' features.
 
 	* Ideograph-R104-Sickness.el (G1-3B3E): Unify U+7613.
 
