@@ -4,7 +4,7 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
-;; Copyright (C) 1997 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2002 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -170,6 +170,29 @@
    lock-shift t
    mnemonic "ISO7/Lock"
    ))
+
+(when (featurep 'utf-2000)
+  (make-coding-system
+   'utf-8-er 'utf-8
+   "Coding-system of ISO/IEC 10646 UTF-8 with entity-reference."
+   '(mnemonic "UTF8" use-entity-reference t))
+
+  (setq coded-charset-entity-reference-alist
+	'((chinese-big5-cdp "CDP-" 4 X)
+	  (ideograph-daikanwa "M-" 5 d)
+	  (ideograph-cbeta "CB" 5 d)
+	  (ideograph-gt "GT-" 5 d)
+	  (japanese-jisx0208-1990 "J90-" 4 X)
+	  (japanese-jisx0208 "J83-" 4 X)
+	  (chinese-cns11643-1 "C1-" 4 X)
+	  (chinese-cns11643-2 "C2-" 4 X)
+	  (chinese-cns11643-3 "C3-" 4 X)
+	  (chinese-cns11643-4 "C4-" 4 X)
+	  (chinese-cns11643-5 "C5-" 4 X)
+	  (chinese-cns11643-6 "C6-" 4 X)
+	  (chinese-cns11643-7 "C7-" 4 X)
+	  ))
+  )
 
 ;; initialize the coding categories to something semi-reasonable
 ;; so that the remaining Lisp files can contain extended characters.
