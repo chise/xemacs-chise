@@ -2263,6 +2263,18 @@ struct decoding_stream
 extern Lisp_Object Vcharacter_composition_table;
 
 INLINE_HEADER void
+decode_flush_er_chars (struct decoding_stream *str, unsigned_char_dynarr* dst);
+INLINE_HEADER void
+decode_flush_er_chars (struct decoding_stream *str, unsigned_char_dynarr* dst)
+{
+  if ( str->er_counter > 0)
+    {
+      Dynarr_add_many (dst, str->er_buf, str->er_counter);
+      str->er_counter = 0;
+    }
+}
+
+INLINE_HEADER void
 COMPOSE_FLUSH_CHARS (struct decoding_stream *str, unsigned_char_dynarr* dst);
 INLINE_HEADER void
 COMPOSE_FLUSH_CHARS (struct decoding_stream *str, unsigned_char_dynarr* dst)
@@ -4034,7 +4046,6 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
   unsigned int cpos	= str->cpos;
   eol_type_t eol_type	= str->eol_type;
   unsigned char counter	= str->counter;
-  unsigned char er_counter = str->er_counter;
 
   while (n--)
     {
@@ -4043,30 +4054,27 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 	{
 	  if ( c < ' ' )
 	    {
-	      if ( er_counter > 0)
-		{
-		  Dynarr_add_many (dst, str->er_buf, er_counter);
-		  er_counter = 0;
-		}
+	      decode_flush_er_chars (str, dst);
 	      DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
 	      DECODE_ADD_UCS_CHAR (c, dst);
 	    }
 	  else if ( c < 0xC0 )
 	    {
-	      if (er_counter == 0)
+	      if (str->er_counter == 0)
 		{
 		  if (CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys)
 		      && (c == '&') )
 		    {
 		      str->er_buf[0] = '&';
-		      er_counter++;
+		      str->er_counter++;
 		    }
 		  else
 		    DECODE_ADD_UCS_CHAR (c, dst);
 		}
 	      else if (c == ';')
 		{
-		  Lisp_Object string = make_string (str->er_buf, er_counter);
+		  Lisp_Object string = make_string (str->er_buf,
+						    str->er_counter);
 		  Lisp_Object rest = Vcoded_charset_entity_reference_alist;
 		  Lisp_Object cell;
 		  Lisp_Object ret;
@@ -4145,25 +4153,25 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 		    }
 		  else
 		    {
-		      Dynarr_add_many (dst, str->er_buf, er_counter);
+		      Dynarr_add_many (dst, str->er_buf, str->er_counter);
 		      Dynarr_add (dst, ';');
 		    }
 		decoded:
-		  er_counter = 0;
+		  str->er_counter = 0;
 		}
-	      else if ( (er_counter >= 16) || (c >= 0x7F) )
+	      else if ( (str->er_counter >= 16) || (c >= 0x7F) )
 		{
-		  Dynarr_add_many (dst, str->er_buf, er_counter);
-		  er_counter = 0;
+		  Dynarr_add_many (dst, str->er_buf, str->er_counter);
+		  str->er_counter = 0;
 		  DECODE_ADD_UCS_CHAR (c, dst);
 		}
 	      else
-		str->er_buf[er_counter++] = c;
+		str->er_buf[str->er_counter++] = c;
 	    }
 	  else
 	    {
-	      Dynarr_add_many (dst, str->er_buf, er_counter);
-	      er_counter = 0;
+	      Dynarr_add_many (dst, str->er_buf, str->er_counter);
+	      str->er_counter = 0;
 	      if ( c < 0xE0 )
 		{
 		  cpos = c & 0x1f;
@@ -4215,11 +4223,7 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 
   if (flags & CODING_STATE_END)
     {
-      if ( er_counter > 0)
-	{
-	  Dynarr_add_many (dst, str->er_buf, er_counter);
-	  er_counter = 0;
-	}
+      decode_flush_er_chars (str, dst);
       if (counter > 0)
 	{
 	  decode_output_utf8_partial_char (counter, cpos, dst);
@@ -4230,7 +4234,6 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
   str->flags	= flags;
   str->cpos	= cpos;
   str->counter	= counter;
-  str->er_counter = er_counter;
 }
 
 void
