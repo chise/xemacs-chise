@@ -1,5 +1,13 @@
 2005-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R009-Man.el (U+4FC0): Unify B-CDED.
+	(UU+4FC0): Separate B-CDED.
+	(UU+5068): Delete `=ucs@big5'.
+	(JSP-317E): Use `=ucs@jis' instead of `=ucs@jis/1990'.
+	(UU+50C8): Modify `ideographic-structure'.
+	(M-01211): Separate H1-D46E.
+	(M-01228): Delete `ideographic-structure'.
+
 	* Ideograph-R038-Woman.el (U+5A67): Unify B-D4D1.
 	(G0-663A): Separate B-D4D1.
 	(U+5AB5): Unify B-DCF9.
