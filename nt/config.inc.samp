@@ -1,0 +1,72 @@
+# -*- mode: makefile -*-
+
+############################################################################
+
+INSTALL_DIR=c:\Program Files\XEmacs\XEmacs-$(XEMACS_VERSION_STRING)
+
+PACKAGE_PREFIX=c:\Program Files\XEmacs
+
+############################################################################
+
+# Multilingual support (not currently working).
+HAVE_MULE=0
+
+# Native MS Windows support.
+HAVE_MSW=1
+
+# X Windows support.
+HAVE_X=0
+X11_DIR=
+
+############################################################################
+
+# Set this to enable XPM support (virtually mandatory), and specify
+# the directory containing xpm.
+HAVE_XPM=1
+XPM_DIR=f:\src\xpm-3.4k
+
+# Set this to enable GIF support.
+HAVE_GIF=1
+
+# Set this to enable PNG support (virtually mandatory), and specify
+# the directories containing png and zlib.
+HAVE_PNG=1
+PNG_DIR=f:\src\libpng-1.0.3
+ZLIB_DIR=f:\src\zlib
+
+# Set this to enable TIFF support, and specify the directory containing tiff.
+HAVE_TIFF=0
+TIFF_DIR=
+
+# Set this to enable JPEG support, and specify the directory containing jpeg.
+HAVE_JPEG=0
+JPEG_DIR=
+
+# Set this to enable XFace support, and specify the directory containing
+# compface.
+HAVE_XFACE=0
+COMPFACE_DIR=
+
+############################################################################
+
+# Set this to specify the location of makeinfo. (If not set, XEmacs will
+# attempt to use its built-in texinfo support when building info files.)
+MAKEINFO=f:\src\texinfo-4.0\makeinfo\makeinfo.exe
+
+############################################################################
+
+# Set this to enable some debug code that doesn't slow things down.
+DEBUG_XEMACS=1
+
+# Set this to see exactly which compilation commands are being run (not
+# generally recommended).
+VERBOSECC=0
+
+############################################################################
+
+# Some technical options.
+
+USE_MINIMAL_TAGBITS=0
+USE_INDEXED_LRECORD_IMPLEMENTATION=0
+USE_PORTABLE_DUMPER=0
+GUNG_HO=0

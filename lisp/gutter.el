@@ -1,0 +1,118 @@
+;;; gutter.el --- Gutter manipulation for XEmacs.
+
+;; Copyright (C) 1999 Free Software Foundation, Inc.
+;; Copyright (C) 1999, 2000 Andy Piper.
+
+;; Maintainer: XEmacs Development Team
+;; Keywords: frames, extensions, internal, dumped
+
+;; This file is part of XEmacs.
+
+;; XEmacs is free software; you can redistribute it and/or modify it
+;; under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+
+;; XEmacs is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with Xmacs; see the file COPYING.  If not, write to the
+;; Free Software Foundation, 59 Temple Place - Suite 330,
+;; Boston, MA 02111-1307, USA.
+
+;; Some of this is taken from the buffer-menu stuff in menubar-items.el
+;; and the custom specs in toolbar.el.
+
+(defgroup gutter nil
+  "Input from the gutters."
+  :group 'environment)
+
+;; Although these customizations appear bogus, they are neccessary in
+;; order to be able to save options through the options menu.
+(defcustom default-gutter-position
+  (default-gutter-position)
+  "The location of the default gutter. It can be 'top, 'bottom, 'left or
+'right. This option should be customized through the options menu.
+To set the gutter position explicitly use `set-default-gutter-position'"
+  :group 'gutter
+  :type '(choice (const :tag "top" top)
+		 (const :tag "bottom" bottom)
+		 (const :tag "left" left)
+		 (const :tag "right" right))
+  :set #'(lambda (var val)
+	   (set-default-gutter-position val)
+	   (setq default-gutter-position val)))
+
+;;; Gutter helper functions
+
+;; called by Fset_default_gutter_position()
+(defvar default-gutter-position-changed-hook nil
+  "Function or functions to be called when the gutter position is changed.
+The value of this variable may be buffer-local.")
+
+;; called by set-gutter-element-visible-p
+(defvar gutter-element-visibility-changed-hook nil
+  "Function or functions to be called when the visibility of an
+element in the gutter changes.  The value of this variable may be
+buffer-local. The gutter element symbol is passed as an argument to
+the hook, as is the visibility flag.")
+
+(defun set-gutter-element (gutter-specifier prop val &optional locale tag-set)
+  "Set GUTTER-SPECIFIER gutter element PROP to VAL in optional LOCALE.
+This is a convenience function for setting gutter elements.
+VAL in general must be a string. If VAL is a glyph then a string will be
+created to put the glyph into."
+  (let ((spec val))
+    (when (glyphp val)
+      (setq spec (copy-sequence "\n"))
+      (set-extent-begin-glyph (make-extent 0 1 spec) val))
+    (map-extents #'(lambda (extent arg) 
+		     (set-extent-property extent 'duplicable t)) spec)
+    (modify-specifier-instances gutter-specifier #'plist-put (list prop spec)
+				'force nil locale tag-set)))
+
+(defun remove-gutter-element (gutter-specifier prop &optional locale tag-set)
+  "Remove gutter element PROP from GUTTER-SPECIFIER in optional LOCALE.
+This is a convenience function for removing gutter elements."
+  (modify-specifier-instances gutter-specifier #'plist-remprop (list prop)
+                              'force nil locale tag-set))
+
+(defun set-gutter-element-visible-p (gutter-visible-specifier-p
+				     prop &optional visible-p
+				     locale tag-set)
+  "Change the visibility of gutter elements.
+Set the visibility of element PROP to VISIBLE-P for
+GUTTER-SPECIFIER-VISIBLE-P in optional LOCALE.  
+This is a convenience function for hiding and showing gutter elements."
+  (modify-specifier-instances 
+   gutter-visible-specifier-p #'(lambda (spec prop visible-p)
+				  (if (consp spec)
+				      (if visible-p 
+					  (if (memq prop spec) spec  
+					    (cons prop spec))
+					(delq prop spec))
+				    (if visible-p (list prop))))
+   (list prop visible-p)
+   'force nil locale tag-set)
+  (run-hook-with-args 'gutter-element-visibility-changed-hook prop visible-p))
+
+(defun gutter-element-visible-p (gutter-visible-specifier-p
+				 prop &optional domain)
+  "Determine whether a gutter element is visible.
+Given GUTTER-VISIBLE-SPECIFIER-P and gutter element PROP, return
+non-nil if it is visible in optional DOMAIN."
+  (let ((spec (specifier-instance gutter-visible-specifier-p domain)))
+    (or (and (listp spec) (memq 'buffers-tab spec))
+ 	spec)))
+
+(defun init-gutter ()
+  "Initialize the gutter."
+  ;; do nothing as yet.
+  )
+
+;;; gutter.el ends here.
+
+
