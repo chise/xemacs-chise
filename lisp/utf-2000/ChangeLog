@@ -1,3 +1,35 @@
+2001-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el (U+88C9): Unify C2-4035.
+	(M-49710): Fixed; separate JSP-5D23 and U+897D.
+	(JSP-5D23): Unify U+897D and M056407.
+
+2001-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (M-14683): Relate to U+8363.
+	(C3-2D33): Likewise.
+
+	* Ideograph-R148-Horn.el (M-35123): Separate U+89F0.
+	(C2-543B): Unify U+89F0.
+
+	* Ideograph-R142-Insect.el (C4-2F6D): Unify U+8688.
+	(M-33049): Separate C4-3A75 and U+8688.
+	(U+8715): Unify C3-4446.
+	(U+877D): Unify C3-4E59.
+	(C2-536C): Unify U+87E1.
+	(U+8781): Unify C2-5A2F.
+	(U+87D1): Unify C1-7538.
+	(U+8824): Unify C2-6C33.
+
+	* Ideograph-R141-Tiger.el (C2-7173): Unify U+866A.
+
+2001-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el:
+	- Separate C*-**** code points which represent characters which have
+	  left-hand radical SILK.
+	- Fix some bugs.
+
 2001-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R135-Tongue.el (M-30285): Relate to U+654C; separate
