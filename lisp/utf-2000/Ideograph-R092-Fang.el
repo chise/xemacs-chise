@@ -47,10 +47,16 @@
     (=ucs		. #x3E26)	; ã¸¦
     ))
 (define-char
-  '((ideographic-radical . 92)	; â½›
-    (ideographic-strokes . 3)
+  '((ideographic-radical@ucs . 92)	; â½›
+    (ideographic-strokes@ucs . 3)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 39)	; â¼¦
+    (ideographic-strokes@cns . 4)
     (total-strokes	 . 7)
+    (=cns11643-5	. #x2368)	; ø»™®¯
     (=daikanwa		. 19911)	; ø¸„·‡
+    (=ucs		. #x24605)	; ð¤˜…
     ))
 (define-char
   '((ideographic-radical . 92)	; â½›
