@@ -5498,3 +5498,12 @@
     (total-strokes	 . 22)
     (=cns11643-7	. #x5863)	; ø»Ÿ¨
     ))
+(define-char
+  '((=>ucs		. #x21B18)	; ð¡¬˜
+    (ideographic-radical@ucs . 40)	; â¼§
+    (ideographic-strokes@ucs . 23)
+    (ideographic-radical@daikanwa . 124)	; â½»
+    (ideographic-strokes@daikanwa . 20)
+    (total-strokes	 . 26)
+    (=daikanwa		. 28841)	; ø¸‡‚©
+    ))
