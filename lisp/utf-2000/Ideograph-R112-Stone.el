@@ -1248,7 +1248,9 @@
   '((ideographic-radical . 112)	; â½¯
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (japanese-jisx0208-1978	. #x626A)	; ø»ƒœ§
     (chinese-gb2312		. #x6D42)	; ø»…¶
+    (japanese-jisx0208		. #x4557)	; ø»‡…¶
     (chinese-isoir165		. #x6D42)	; ø»Žž
     (japanese-jisx0208-1990	. #x4557)	; ø½Š«ª
     (ucs			. #x783A)	; ç º
