@@ -1,5 +1,12 @@
 1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/char-db-util.el (insert-char-data): Ignore
+	`kangxi-radical' and `japanese-radical' if they have the same
+	value of `ideographic-radical'; ignore `japanese-strokes' if it
+	has the same value of `ideographic-strokes'.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/mule-conf.el (japanese-jisx0213-1): New coded-charset.
 	(japanese-jisx0213-2): New coded-charset.
 
