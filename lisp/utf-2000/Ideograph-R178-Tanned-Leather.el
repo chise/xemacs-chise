@@ -815,6 +815,8 @@
 (define-char
   '((ideographic-radical . 178)	; â¾±
     (ideographic-strokes . 10)
+    (total-strokes	 . 19)
+    (chinese-cns11643-2 . #x6771)	; ø»”´¤
     (ucs		. #x97DF)	; éŸŸ
     ))
 (define-char
@@ -823,12 +825,6 @@
     (chinese-gb2312	. #x683A)	; ø»…®¯
     (chinese-isoir165	. #x683A)	; ø»Ž–¿
     (ucs		. #x97EC)	; éŸ¬
-    ))
-(define-char
-  '((ideographic-radical . 178)	; â¾±
-    (ideographic-strokes . 10)
-    (total-strokes	 . 19)
-    (chinese-cns11643-2 . #x6771)	; ø»”´¤
     ))
 (define-char
   '((ideographic-radical . 178)	; â¾±
