@@ -1,564 +1,564 @@
 (define-char
   '((name		. "SINHALA SIGN ANUSVARAYA")
-    (ucs		. #x0D82)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D82)	; ං
     ))
 (define-char
   '((name		. "SINHALA SIGN VISARGAYA")
-    (ucs		. #x0D83)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D83)	; ඃ
     ))
 (define-char
   '((name		. "SINHALA LETTER AYANNA")
-    (ucs		. #x0D85)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D85)	; අ
     ))
 (define-char
   '((name		. "SINHALA LETTER AAYANNA")
-    (ucs		. #x0D86)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D86)	; ආ
     ))
 (define-char
   '((name		. "SINHALA LETTER AEYANNA")
-    (ucs		. #x0D87)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D87)	; ඇ
     ))
 (define-char
   '((name		. "SINHALA LETTER AEEYANNA")
-    (ucs		. #x0D88)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D88)	; ඈ
     ))
 (define-char
   '((name		. "SINHALA LETTER IYANNA")
-    (ucs		. #x0D89)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D89)	; ඉ
     ))
 (define-char
   '((name		. "SINHALA LETTER IIYANNA")
-    (ucs		. #x0D8A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D8A)	; ඊ
     ))
 (define-char
   '((name		. "SINHALA LETTER UYANNA")
-    (ucs		. #x0D8B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D8B)	; උ
     ))
 (define-char
   '((name		. "SINHALA LETTER UUYANNA")
-    (ucs		. #x0D8C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D8C)	; ඌ
     ))
 (define-char
   '((name		. "SINHALA LETTER IRUYANNA")
-    (ucs		. #x0D8D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D8D)	; ඍ
     ))
 (define-char
   '((name		. "SINHALA LETTER IRUUYANNA")
-    (ucs		. #x0D8E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D8E)	; ඎ
     ))
 (define-char
   '((name		. "SINHALA LETTER ILUYANNA")
-    (ucs		. #x0D8F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D8F)	; ඏ
     ))
 (define-char
   '((name		. "SINHALA LETTER ILUUYANNA")
-    (ucs		. #x0D90)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D90)	; ඐ
     ))
 (define-char
   '((name		. "SINHALA LETTER EYANNA")
-    (ucs		. #x0D91)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D91)	; එ
     ))
 (define-char
   '((name		. "SINHALA LETTER EEYANNA")
-    (ucs		. #x0D92)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D92)	; ඒ
     ))
 (define-char
   '((name		. "SINHALA LETTER AIYANNA")
-    (ucs		. #x0D93)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D93)	; ඓ
     ))
 (define-char
   '((name		. "SINHALA LETTER OYANNA")
-    (ucs		. #x0D94)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D94)	; ඔ
     ))
 (define-char
   '((name		. "SINHALA LETTER OOYANNA")
-    (ucs		. #x0D95)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D95)	; ඕ
     ))
 (define-char
   '((name		. "SINHALA LETTER AUYANNA")
-    (ucs		. #x0D96)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D96)	; ඖ
     ))
 (define-char
   '((name		. "SINHALA LETTER ALPAPRAANA KAYANNA")
-    (ucs		. #x0D9A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D9A)	; ක
     ))
 (define-char
   '((name		. "SINHALA LETTER MAHAAPRAANA KAYANNA")
-    (ucs		. #x0D9B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D9B)	; ඛ
     ))
 (define-char
   '((name		. "SINHALA LETTER ALPAPRAANA GAYANNA")
-    (ucs		. #x0D9C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D9C)	; ග
     ))
 (define-char
   '((name		. "SINHALA LETTER MAHAAPRAANA GAYANNA")
-    (ucs		. #x0D9D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D9D)	; ඝ
     ))
 (define-char
   '((name		. "SINHALA LETTER KANTAJA NAASIKYAYA")
-    (ucs		. #x0D9E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D9E)	; ඞ
     ))
 (define-char
   '((name		. "SINHALA LETTER SANYAKA GAYANNA")
-    (ucs		. #x0D9F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0D9F)	; ඟ
     ))
 (define-char
   '((name		. "SINHALA LETTER ALPAPRAANA CAYANNA")
-    (ucs		. #x0DA0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DA0)	; ච
     ))
 (define-char
   '((name		. "SINHALA LETTER MAHAAPRAANA CAYANNA")
-    (ucs		. #x0DA1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DA1)	; ඡ
     ))
 (define-char
   '((name		. "SINHALA LETTER ALPAPRAANA JAYANNA")
-    (ucs		. #x0DA2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DA2)	; ජ
     ))
 (define-char
   '((name		. "SINHALA LETTER MAHAAPRAANA JAYANNA")
-    (ucs		. #x0DA3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DA3)	; ඣ
     ))
 (define-char
   '((name		. "SINHALA LETTER TAALUJA NAASIKYAYA")
-    (ucs		. #x0DA4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DA4)	; ඤ
     ))
 (define-char
   '((name		. "SINHALA LETTER TAALUJA SANYOOGA NAAKSIKYAYA")
-    (ucs		. #x0DA5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DA5)	; ඥ
     ))
 (define-char
   '((name		. "SINHALA LETTER SANYAKA JAYANNA")
-    (ucs		. #x0DA6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DA6)	; ඦ
     ))
 (define-char
   '((name		. "SINHALA LETTER ALPAPRAANA TTAYANNA")
-    (ucs		. #x0DA7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DA7)	; ට
     ))
 (define-char
   '((name		. "SINHALA LETTER MAHAAPRAANA TTAYANNA")
-    (ucs		. #x0DA8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DA8)	; ඨ
     ))
 (define-char
   '((name		. "SINHALA LETTER ALPAPRAANA DDAYANNA")
-    (ucs		. #x0DA9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DA9)	; ඩ
     ))
 (define-char
   '((name		. "SINHALA LETTER MAHAAPRAANA DDAYANNA")
-    (ucs		. #x0DAA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DAA)	; ඪ
     ))
 (define-char
   '((name		. "SINHALA LETTER MUURDHAJA NAYANNA")
-    (ucs		. #x0DAB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DAB)	; ණ
     ))
 (define-char
   '((name		. "SINHALA LETTER SANYAKA DDAYANNA")
-    (ucs		. #x0DAC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DAC)	; ඬ
     ))
 (define-char
   '((name		. "SINHALA LETTER ALPAPRAANA TAYANNA")
-    (ucs		. #x0DAD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DAD)	; ත
     ))
 (define-char
   '((name		. "SINHALA LETTER MAHAAPRAANA TAYANNA")
-    (ucs		. #x0DAE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DAE)	; ථ
     ))
 (define-char
   '((name		. "SINHALA LETTER ALPAPRAANA DAYANNA")
-    (ucs		. #x0DAF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DAF)	; ද
     ))
 (define-char
   '((name		. "SINHALA LETTER MAHAAPRAANA DAYANNA")
-    (ucs		. #x0DB0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DB0)	; ධ
     ))
 (define-char
   '((name		. "SINHALA LETTER DANTAJA NAYANNA")
-    (ucs		. #x0DB1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DB1)	; න
     ))
 (define-char
   '((name		. "SINHALA LETTER SANYAKA DAYANNA")
-    (ucs		. #x0DB3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DB3)	; ඳ
     ))
 (define-char
   '((name		. "SINHALA LETTER ALPAPRAANA PAYANNA")
-    (ucs		. #x0DB4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DB4)	; ප
     ))
 (define-char
   '((name		. "SINHALA LETTER MAHAAPRAANA PAYANNA")
-    (ucs		. #x0DB5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DB5)	; ඵ
     ))
 (define-char
   '((name		. "SINHALA LETTER ALPAPRAANA BAYANNA")
-    (ucs		. #x0DB6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DB6)	; බ
     ))
 (define-char
   '((name		. "SINHALA LETTER MAHAAPRAANA BAYANNA")
-    (ucs		. #x0DB7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DB7)	; භ
     ))
 (define-char
   '((name		. "SINHALA LETTER MAYANNA")
-    (ucs		. #x0DB8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DB8)	; ම
     ))
 (define-char
   '((name		. "SINHALA LETTER AMBA BAYANNA")
-    (ucs		. #x0DB9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DB9)	; ඹ
     ))
 (define-char
   '((name		. "SINHALA LETTER YAYANNA")
-    (ucs		. #x0DBA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DBA)	; ය
     ))
 (define-char
   '((name		. "SINHALA LETTER RAYANNA")
-    (ucs		. #x0DBB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DBB)	; ර
     ))
 (define-char
   '((name		. "SINHALA LETTER DANTAJA LAYANNA")
-    (ucs		. #x0DBD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DBD)	; ල
     ))
 (define-char
   '((name		. "SINHALA LETTER VAYANNA")
-    (ucs		. #x0DC0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DC0)	; ව
     ))
 (define-char
   '((name		. "SINHALA LETTER TAALUJA SAYANNA")
-    (ucs		. #x0DC1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DC1)	; ශ
     ))
 (define-char
   '((name		. "SINHALA LETTER MUURDHAJA SAYANNA")
-    (ucs		. #x0DC2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DC2)	; ෂ
     ))
 (define-char
   '((name		. "SINHALA LETTER DANTAJA SAYANNA")
-    (ucs		. #x0DC3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DC3)	; ස
     ))
 (define-char
   '((name		. "SINHALA LETTER HAYANNA")
-    (ucs		. #x0DC4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DC4)	; හ
     ))
 (define-char
   '((name		. "SINHALA LETTER MUURDHAJA LAYANNA")
-    (ucs		. #x0DC5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DC5)	; ළ
     ))
 (define-char
   '((name		. "SINHALA LETTER FAYANNA")
-    (ucs		. #x0DC6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DC6)	; ෆ
     ))
 (define-char
   '((name		. "SINHALA SIGN AL-LAKUNA")
-    (ucs		. #x0DCA)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x0DCA)	; ්
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN AELA-PILLA")
-    (ucs		. #x0DCF)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DCF)	; ා
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN KETTI AEDA-PILLA")
-    (ucs		. #x0DD0)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DD0)	; ැ
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN DIGA AEDA-PILLA")
-    (ucs		. #x0DD1)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DD1)	; ෑ
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN KETTI IS-PILLA")
-    (ucs		. #x0DD2)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x0DD2)	; ි
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN DIGA IS-PILLA")
-    (ucs		. #x0DD3)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x0DD3)	; ී
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN KETTI PAA-PILLA")
-    (ucs		. #x0DD4)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x0DD4)	; ු
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN DIGA PAA-PILLA")
-    (ucs		. #x0DD6)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x0DD6)	; ූ
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN GAETTA-PILLA")
-    (ucs		. #x0DD8)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DD8)	; ෘ
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN KOMBUVA")
-    (ucs		. #x0DD9)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DD9)	; ෙ
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN DIGA KOMBUVA")
-    (ucs		. #x0DDA)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0DD9 #x0DCA)
     (mirrored		. nil)
+    (->decomposition	#x0DD9 #x0DCA)
+    (ucs		. #x0DDA)	; ේ
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN KOMBU DEKA")
-    (ucs		. #x0DDB)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DDB)	; ෛ
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN KOMBUVA HAA AELA-PILLA")
-    (ucs		. #x0DDC)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0DD9 #x0DCF)
     (mirrored		. nil)
+    (->decomposition	#x0DD9 #x0DCF)
+    (ucs		. #x0DDC)	; ො
     ))
 (define-char
-  '((name		. "SINHALA VOWEL SIGN KOMBUVA HAA DIGA AELA-PILLA")
-    (ucs		. #x0DDD)
+  '((name . "SINHALA VOWEL SIGN KOMBUVA HAA DIGA AELA-PILLA")
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0DDC #x0DCA)
     (mirrored		. nil)
+    (->decomposition	#x0DDC #x0DCA)
+    (ucs		. #x0DDD)	; ෝ
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN KOMBUVA HAA GAYANUKITTA")
-    (ucs		. #x0DDE)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0DD9 #x0DDF)
     (mirrored		. nil)
+    (->decomposition	#x0DD9 #x0DDF)
+    (ucs		. #x0DDE)	; ෞ
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN GAYANUKITTA")
-    (ucs		. #x0DDF)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DDF)	; ෟ
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN DIGA GAETTA-PILLA")
-    (ucs		. #x0DF2)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DF2)	; ෲ
     ))
 (define-char
   '((name		. "SINHALA VOWEL SIGN DIGA GAYANUKITTA")
-    (ucs		. #x0DF3)
     (general-category	mark spacing-combining) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DF3)	; ෳ
     ))
 (define-char
   '((name		. "SINHALA PUNCTUATION KUNDDALIYA")
-    (ucs		. #x0DF4)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0DF4)	; ෴
     ))
