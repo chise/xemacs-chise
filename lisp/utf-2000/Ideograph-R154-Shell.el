@@ -57,7 +57,15 @@
   '((ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 2)
     (total-strokes	 . 9)
+    (<-vulgar
+     ((shinjigen-1	  . 1080)
+      (=ucs		  . #x54E1)	; 員
+      (=jis-x0208	  . #x3077)	; &I-J90-3077; [16-87]
+      ))
+    (<-vulgar*sources
+     shinjigen-1)
     (hanyu-dazidian	6 3624 4)
+    (shinjigen-1	. 1081)
     (=ucs		. #x8C9F)	; 貟
     (=cns11643-3	. #x2F2E)	; &I-C3-2F2E; [15-14]
     (=daikanwa		. 36659)	; &I-M-36659;
