@@ -1,3 +1,7 @@
+2003-07-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* C1-to-UCS.txt, C2-to-UCS.txt: New files.
+
 2003-07-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* JX2-to-UCS.txt: Complete some mappings.
