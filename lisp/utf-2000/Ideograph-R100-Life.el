@@ -133,7 +133,7 @@
     (total-strokes	 . 10)
     (=jis-x0212		. #x4D25)	; ø»‹¤¼
     (=iso-ir165		. #x7D57)	; ø»Ž¶’
-    (chinese-cns11643-2 . #x3123)	; ø»“¤‚
+    (=cns11643-2	. #x3123)	; ø»“¤‚
     (=big5		. #xD2C0)	; ý¢€‹€
     (ideograph-daikanwa . 21680)	; ø¸…’°
     (=jef-china3	. #x5ABD)	; øº…ª½

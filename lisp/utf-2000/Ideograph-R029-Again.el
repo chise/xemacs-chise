@@ -2241,7 +2241,7 @@
     (shinjigen-2	. 928)
     (=jis-x0208		. #x3143)	; ø½Š¾
     (=ks-x1001		. #x6755)	; ø»Š´
-    (chinese-cns11643-2 . #x5646)	; ø»”š»
+    (=cns11643-2	. #x5646)	; ø»”š»
     (=gt-pj-1		. #x3143)	; å¡
     (=big5		. #xE8FB)	; ý¢€Ž£»
     (ideograph-daikanwa . 03214)	; ø¸€²Ž

@@ -304,7 +304,7 @@
     (shinjigen-1	. 44)
     (shinjigen-2	. 44)
     (=jis-x0208		. #x5027)	; ø½Š»„
-    (chinese-cns11643-2 . #x2144)	; ø»“ƒ
+    (=cns11643-2	. #x2144)	; ø»“ƒ
     (=gt-pj-1		. #x5027)	; ý¡€€‚‹
     (=big5		. #xC964)	; ý¢€Œ¥¤
     (ideograph-daikanwa . 00101)	; ø¸€¥

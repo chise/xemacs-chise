@@ -6,7 +6,7 @@
     (=gb2312		. #x5B49)	; ø»…›¸
     (=jis-x0208		. #x5161)	; ø½Š½œ
     (=iso-ir165		. #x5B49)	; ø»Ž„ˆ
-    (chinese-cns11643-2 . #x2123)	; ø»“Œ¢
+    (=cns11643-2	. #x2123)	; ø»“Œ¢
     (=gt-pj-1		. #x5161)	; å‡µ
     (=big5		. #xC942)	; ý¢€Œ¥‚
     (ideograph-daikanwa . 01800)	; ø¸€œˆ

@@ -52,7 +52,7 @@
   '((ideographic-radical . 36)	; â¼£
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (chinese-cns11643-2 . #x2151)	; ø»“
+    (=cns11643-2	. #x2151)	; ø»“
     (=big5		. #xC970)	; ý¢€Œ¥°
     (ideograph-daikanwa . 05752)	; ø¸™¸
     (=jef-china3	. #x48D7)	; øº„£—

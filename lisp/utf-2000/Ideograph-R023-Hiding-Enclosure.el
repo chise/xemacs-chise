@@ -285,7 +285,7 @@
       )
      ((=ucs		  . #x5408)	; åˆ
       ))
-    (chinese-cns11643-2 . #x2558)	; ø»““
+    (=cns11643-2	. #x2558)	; ø»““
     (=big5		. #xCBD8)	; ý¢€Œ¯˜
     (=jef-china3	. #x45B6)	; øº„–¶
     (=ucs		. #x533C)	; åŒ¼
@@ -319,7 +319,7 @@
       )
      ((chinese-cns11643-3 . #x2551)	; ø»•Œ
       ))
-    (chinese-cns11643-2 . #x2936)	; ø»“˜¥
+    (=cns11643-2	. #x2936)	; ø»“˜¥
     ))
 (define-char
   '((morohashi-daikanwa	2684 0 1)

@@ -141,7 +141,7 @@
       )
      ((=ucs		  . #x53B6)	; åŽ¶
       ))
-    (chinese-cns11643-2 . #x2138)	; ø»“Œ·
+    (=cns11643-2	. #x2138)	; ø»“Œ·
     (=big5		. #xC958)	; ý¢€Œ¥˜
     (ideograph-daikanwa . 03065)	; ø¸€¯¹
     (=jef-china3	. #x8EAF)	; øºˆº¯

@@ -553,7 +553,7 @@
     (ideographic-radical . 77)	; â½Œ
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (chinese-cns11643-2 . #x2F7C)	; ø»“¢Ÿ
+    (=cns11643-2	. #x2F7C)	; ø»“¢Ÿ
     ))
 (define-char
   '((ideographic-radical . 77)	; â½Œ

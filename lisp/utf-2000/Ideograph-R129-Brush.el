@@ -59,7 +59,7 @@
     (ideographic-strokes . 4)
     (cns-radical	 . 78)	; â½
     (total-strokes	 . 10)
-    (chinese-cns11643-2 . #x2F7D)	; ø»“¢ 
+    (=cns11643-2	. #x2F7D)	; ø»“¢ 
     (ideograph-daikanwa . 29221)	; ø¸‡ˆ¥
     (=ucs		. #x8082)	; è‚‚
     ))

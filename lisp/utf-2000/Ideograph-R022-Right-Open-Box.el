@@ -8,7 +8,7 @@
     (=gb2312		. #x584E)	; ø»…—£
     (=jis-x0208		. #x5239)	; ø½Š¾’
     (=iso-ir165		. #x584E)	; ø»¿³
-    (chinese-cns11643-2 . #x2124)	; ø»“Œ£
+    (=cns11643-2	. #x2124)	; ø»“Œ£
     (=gt-pj-1		. #x5239)	; åŒš
     (=big5		. #xC943)	; ý¢€Œ¥ƒ
     (ideograph-daikanwa . 02595)	; ø¸€¨£
@@ -81,7 +81,7 @@
       )
      ((=cns11643-1	  . #x443E)	; ø»‘¶“
       ))
-    (chinese-cns11643-2 . #x214D)	; ø»“Œ
+    (=cns11643-2	. #x214D)	; ø»“Œ
     ))
 (define-char
   '((ideographic-radical . 22)	; â¼•
@@ -196,7 +196,7 @@
       )
      ((=ucs		  . #x4EA2)	; äº¢
       ))
-    (chinese-cns11643-2 . #x2222)	; ø»“¿
+    (=cns11643-2	. #x2222)	; ø»“¿
     (=ucs		. #x531F)	; åŒŸ
     ))
 (define-char
@@ -298,7 +298,7 @@
       )
      ((=ucs		  . #x52FF)	; å‹¿
       ))
-    (chinese-cns11643-2 . #x2221)	; ø»“¾
+    (=cns11643-2	. #x2221)	; ø»“¾
     (=big5		. #xC9C1)	; ý¢€Œ§
     (ideograph-daikanwa . 02608)	; ø¸€¨°
     (=ucs		. #x5322)	; åŒ¢
@@ -471,7 +471,7 @@
       )
      ((=ucs		  . #x5408)	; åˆ
       ))
-    (chinese-cns11643-2 . #x2558)	; ø»““
+    (=cns11643-2	. #x2558)	; ø»““
     (=big5		. #xCBD8)	; ý¢€Œ¯˜
     (=jef-china3	. #x45B6)	; øº„–¶
     (=ucs		. #x533C)	; åŒ¼
@@ -920,7 +920,7 @@
       ))
     (shinjigen-1	. 792)
     (=jis-x0212		. #x342F)	; ø»‹€˜
-    (chinese-cns11643-2 . #x3372)	; ø»“¨
+    (=cns11643-2	. #x3372)	; ø»“¨
     (=gb12345		. #x5850)	; åŒ­
     (=big5		. #xD46F)	; ý¢€‘¯
     (ideograph-daikanwa . 02639)	; ø¸€©
@@ -1152,7 +1152,7 @@
      ((=ucs		  . #x55AE)	; å–®
       ))
     (=jis-x0212		. #x3430)	; ø»‹€™
-    (chinese-cns11643-2 . #x492C)	; ø»”‡›
+    (=cns11643-2	. #x492C)	; ø»”‡›
     (=big5		. #xE145)	; ý¢€Ž……
     (ideograph-daikanwa . 02650)	; ø¸€©š
     (=ucs		. #x5330)	; åŒ°
@@ -1338,7 +1338,7 @@
       )
      ((=ucs		  . #x7B97)	; ç®—
       ))
-    (chinese-cns11643-2 . #x5645)	; ø»”šº
+    (=cns11643-2	. #x5645)	; ø»”šº
     (=big5		. #xE8FA)	; ý¢€Ž£º
     (ideograph-daikanwa . 02659)	; ø¸€©£
     (=ucs		. #x5334)	; åŒ´
@@ -1521,7 +1521,7 @@
       )
      ((=ucs		  . #x77BF)	; çž¿
       ))
-    (chinese-cns11643-2 . #x686A)	; ø»”µ»
+    (=cns11643-2	. #x686A)	; ø»”µ»
     (=ucs		. #x5337)	; åŒ·
     ))
 (define-char

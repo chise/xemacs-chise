@@ -1256,7 +1256,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-cns11643-2 . #x247A)	; ø»“’“
+     ((=cns11643-2	  . #x247A)	; ø»“’“
       (ideograph-daikanwa . 30679)	; ø¸‡Ÿ—
       )
      ((=ucs		  . #x513F)	; å„¿
@@ -1386,7 +1386,7 @@
     (=gb2312		. #x3533)	; ø»„£®
     (=jis-x0208		. #x455E)	; ø½Š«±
     (=iso-ir165		. #x3533)	; ø»‹¾
-    (chinese-cns11643-2 . #x2E21)	; ø»“Ÿ¦
+    (=cns11643-2	. #x2E21)	; ø»“Ÿ¦
     (=gt-pj-1		. #x455E)	; å…š
     (=big5		. #xD0DE)	; ý¢€ƒž
     (ideograph-daikanwa . 01381)	; ø¸€•¥
@@ -1615,7 +1615,7 @@
      ((=ucs		  . #x5148)	; å…ˆ
       ))
     (=jis-x0212		. #x326C)	; ø»Š¾™
-    (chinese-cns11643-2 . #x3A44)	; ø»“±±
+    (=cns11643-2	. #x3A44)	; ø»“±±
     (=big5		. #xD860)	; ý¢€¡ 
     (ideograph-daikanwa . 01391)	; ø¸€•¯
     (=jef-china3	. #x43D2)	; øº„’

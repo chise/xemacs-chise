@@ -207,7 +207,7 @@
     (total-strokes	 . 9)
     (shinjigen-1	. 2072)
     (=jis-x0212		. #x3C23)	; ø»‹‹¼
-    (chinese-cns11643-2 . #x2A30)	; ø»“™½
+    (=cns11643-2	. #x2A30)	; ø»“™½
     (=big5		. #xCEAF)	; ý¢€Œº¯
     (ideograph-daikanwa . 08758)	; ø¸‚ˆ¶
     (=ucs		. #x5DF9)	; å·¹

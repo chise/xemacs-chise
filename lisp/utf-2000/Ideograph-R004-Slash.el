@@ -101,7 +101,7 @@
     (shinjigen-1	. 45)
     (shinjigen-2	. 45)
     (=iso-ir165		. #x7A23)	; ø»Ž±„
-    (chinese-cns11643-2 . #x2121)	; ø»“Œ 
+    (=cns11643-2	. #x2121)	; ø»“Œ 
     (=big5		. #xC940)	; ý¢€Œ¥€
     (=ucs		. #x4E42)	; ä¹‚
     ))
@@ -293,7 +293,7 @@
     (ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (chinese-cns11643-2 . #x2128)	; ø»“Œ§
+    (=cns11643-2	. #x2128)	; ø»“Œ§
     (=ucs@cns		. #x4E47)	; ø»“Œ§
     ))
 (define-char

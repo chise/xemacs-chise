@@ -206,7 +206,7 @@
      ((name		  . "CJK RADICAL BOX")
       (=ucs		  . #x2E86)	; âº†
       ))
-    (chinese-cns11643-2 . #x212E)	; ø»“Œ­
+    (=cns11643-2	. #x212E)	; ø»“Œ­
     (=ucs@cns		. #x5187)	; ø»“Œ­
     ))
 (define-char
@@ -539,7 +539,7 @@
     (ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (chinese-cns11643-2 . #x232C)	; ø»“§
+    (=cns11643-2	. #x232C)	; ø»“§
     (=ucs@cns		. #x518F)	; ø»“§
     ))
 (define-char
@@ -827,7 +827,7 @@
       ))
     (shinjigen-1	. 523)
     (shinjigen-2	. 523)
-    (chinese-cns11643-2 . #x2E23)	; ø»“Ÿ¨
+    (=cns11643-2	. #x2E23)	; ø»“Ÿ¨
     (=jis-x0208-1990	. #x514A)	; ø½Š½…
     (=gt-pj-1		. #x514A)	; å†“
     (=gt-k		. 06574)	; ý¡„¦®
@@ -866,7 +866,7 @@
       )
      ((=ucs		  . #x5401)	; å
       ))
-    (chinese-cns11643-2 . #x2E22)	; ø»“Ÿ§
+    (=cns11643-2	. #x2E22)	; ø»“Ÿ§
     (ideograph-daikanwa . 01542)	; ø¸€˜†
     (=ucs		. #x5194)	; å†”
     ))

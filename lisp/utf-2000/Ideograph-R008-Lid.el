@@ -2174,7 +2174,7 @@
      ((=ucs		  . #x65E6)	; æ—¦
       ))
     (=iso-ir165		. #x7A38)	; ø»Ž±™
-    (chinese-cns11643-2 . #x4158)	; ø»“¼—
+    (=cns11643-2	. #x4158)	; ø»“¼—
     (=ucs		. #x4EB6)	; äº¶
     ))
 (define-char
@@ -3401,7 +3401,7 @@
       )
      ((=ucs		  . #x820B)	; èˆ‹
       ))
-    (chinese-cns11643-2 . #x6D44)	; ø»”¼«
+    (=cns11643-2	. #x6D44)	; ø»”¼«
     (=ucs		. #x4EB9)	; äº¹
     ))
 (define-char

@@ -90,7 +90,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (=jis-x0212		. #x5E63)	; ø»‹¾¸
-    (chinese-cns11643-2 . #x3950)	; ø»“°Ÿ
+    (=cns11643-2	. #x3950)	; ø»“°Ÿ
     (=jis-x0213-2-2000	. #x7876)	; ø»¦ž‡
     (ideograph-daikanwa . 36191)	; ø¸ˆµŸ
     (=ucs		. #x8C39)	; è°¹
@@ -139,7 +139,7 @@
     (ideographic-radical . 150)	; â¾•
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
-    (chinese-cns11643-2 . #x3951)	; ø»“° 
+    (=cns11643-2	. #x3951)	; ø»“° 
     (=ucs		. #x8C3B)	; è°»
     ))
 (define-char
@@ -193,7 +193,7 @@
   '((ideographic-radical . 150)	; â¾•
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (chinese-cns11643-2 . #x4758)	; ø»”…‹
+    (=cns11643-2	. #x4758)	; ø»”…‹
     (ideograph-daikanwa . 36202)	; ø¸ˆµª
     (=ucs		. #x8C3C)	; è°¼
     ))
@@ -241,7 +241,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
     (=jis-x0212		. #x5E64)	; ø»‹¾¹
-    (chinese-cns11643-2 . #x4E38)	; ø»”Ž½
+    (=cns11643-2	. #x4E38)	; ø»”Ž½
     (=jis-x0213-2-2000	. #x7878)	; ø»¦ž‰
     (ideograph-daikanwa . 36207)	; ø¸ˆµ¯
     (=ucs		. #x8C3D)	; è°½
@@ -305,7 +305,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
     (=jis-x0212		. #x5E65)	; ø»‹¾º
-    (chinese-cns11643-2 . #x544E)	; ø»”˜‡
+    (=cns11643-2	. #x544E)	; ø»”˜‡
     (ideograph-daikanwa . 36213)	; ø¸ˆµµ
     (=ucs		. #x8C3E)	; è°¾
     ))
@@ -457,7 +457,7 @@
     (ideographic-radical . 150)	; â¾•
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
-    (chinese-cns11643-2 . #x6359)	; ø»”®”
+    (=cns11643-2	. #x6359)	; ø»”®”
     (=ucs		. #x8C42)	; è±‚
     ))
 (define-char
@@ -503,7 +503,7 @@
   '((ideographic-radical . 150)	; â¾•
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
-    (chinese-cns11643-2 . #x6730)	; ø»”³£
+    (=cns11643-2	. #x6730)	; ø»”³£
     (ideograph-daikanwa . 36230)	; ø¸ˆ¶†
     (=ucs		. #x8C43)	; è±ƒ
     ))
@@ -623,7 +623,7 @@
     (ideographic-radical . 150)	; â¾•
     (ideographic-strokes . 16)
     (total-strokes	 . 23)
-    (chinese-cns11643-2 . #x6F52)	; ø»”¿µ
+    (=cns11643-2	. #x6F52)	; ø»”¿µ
     ))
 (define-char
   '((ideographic-radical . 150)	; â¾•
