@@ -24,6 +24,68 @@
 
 ;;; Code:
 
+(defvar mapping-table-ccs-setting-alist
+  '((=jis-x0208@1990
+     "^J90-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@jis
+     "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=jis-x0212
+     "^JSP-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@jis/1990
+     "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=jis-x0213-1-2000
+     "^JX1-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@jis/2000
+     "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=jis-x0213-2-2000
+     "^JX2-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@jis/2000
+     "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=cns11643-1
+     "^C1-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@cns
+     "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=cns11643-2     
+     "^C2-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@cns
+     "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=cns11643-3
+     "^C3-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@cns
+     "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=cns11643-4     
+     "^C4-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@cns
+     "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=big5     
+     "^B-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@big5
+     "\tBU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=jef-china3     
+     "^JC3-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     nil
+     nil)
+    )
+  "*List of information about mapping table formats.
+Elements are of the form
+\(CCS CODE-REGEXP PAREN-EXP BASE UCS-CCS UCS-REGEXP).
+
+CCS	is a symbol, which is a name of a target coded-charset.
+
+CODE-REGEXP is a regular expression to match against
+	the representation of the target coded-charset.
+
+PAREN-EXP is a number specifies which parenthesized expression
+	in the CODE-REGEXP.
+
+BASE	base of code in the string specified by CODE-REGEXP and
+	PAREN-EXP.
+
+UCS-CCS is a symbol, which is a name of a UCS-CCS.
+
+UCS-REGEXP is a regular expression to match against
+	the representation of the UCS-CCS.")
+
 ;;;###autoload
 (defun mapping-table-read-file (filename)
   "Read mapping table." 
@@ -32,84 +94,25 @@
     (buffer-disable-undo)
     (insert-file-contents filename)
     (goto-char (point-min))
-    (let (line ccs code ucs ucs-pat ucs-ccs ucs-code chr)
+    (let (rest setting ccs code ucs ucs-pat ucs-ccs ucs-code chr)
       (while (not (eobp))
-	(cond ((looking-at "^J90-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs 'japanese-jisx0208-1990
-		     code (string-to-int (match-string 1) 16)
-		     ucs-pat "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
-		     ucs-ccs 'ucs-jis)
-	       (goto-char (match-end 0))
-	       )
-	      ((looking-at "^JSP-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs 'japanese-jisx0212
-		     code (string-to-int (match-string 1) 16)
-		     ucs-pat "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
-		     ucs-ccs '=ucs-jis-1990)
-	       (goto-char (match-end 0))
-	       )
-	      ((looking-at "^JX1-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs '=jis-x0213-1-2000
-		     code (string-to-int (match-string 1) 16)
-		     ucs-pat "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
-		     ucs-ccs '=ucs-jis-2000)
-	       (goto-char (match-end 0))
-	       )
-	      ((looking-at "^JX2-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs '=jis-x0213-2-2000
-		     code (string-to-int (match-string 1) 16)
-		     ucs-pat "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
-		     ucs-ccs '=ucs@jis-2000)
-	       (goto-char (match-end 0))
-	       )
-	      ((looking-at "^C1-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs 'chinese-cns11643-1
-		     code (string-to-int (match-string 1) 16)
-		     ucs-pat "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
-		     ucs-ccs 'ucs-cns)
-	       (goto-char (match-end 0))
-	       )
-	      ((looking-at "^C2-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs 'chinese-cns11643-2
-		     code (string-to-int (match-string 1) 16)
-		     ucs-pat "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
-		     ucs-ccs 'ucs-cns)
-	       (goto-char (match-end 0))
-	       )
-	      ((looking-at "^C3-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs 'chinese-cns11643-3
-		     code (string-to-int (match-string 1) 16)
-		     ucs-pat "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
-		     ucs-ccs 'ucs-cns)
-	       (goto-char (match-end 0))
-	       )
-	      ((looking-at "^C4-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs 'chinese-cns11643-4
-		     code (string-to-int (match-string 1) 16)
-		     ucs-pat "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
-		     ucs-ccs 'ucs-cns)
-	       (goto-char (match-end 0))
-	       )
-	      ((looking-at "^B-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs 'chinese-big5
-		     code (string-to-int (match-string 1) 16)
-		     ucs-pat "\tBU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
-		     ucs-ccs 'ucs-big5)
-	       (goto-char (match-end 0))
-	       )
-	      ((looking-at "^JC3-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs '=jef-china3
-		     code (string-to-int (match-string 1) 16)
-		     ucs-pat nil
-		     ucs-ccs nil)
-	       (goto-char (match-end 0))
-	       )
-	      (t
-	       (setq ccs nil
-		     code nil
-		     ucs-pat nil
-		     ucs-ccs nil)
-	       ))
+	(setq rest mapping-table-ccs-setting-alist)
+	(catch 'matched
+	  (while rest
+	    (setq setting (car rest)
+		  ccs (pop setting))
+	    (when (looking-at (pop setting))
+	      (setq code (string-to-int (match-string (pop setting))
+					(pop setting))
+		    ucs-ccs (pop setting)
+		    ucs-pat (car setting))
+	      (goto-char (match-end 0))
+	      (throw 'matched t))
+	    (setq rest (cdr rest)))
+	  (setq ccs nil
+		code nil
+		ucs-pat nil
+		ucs-ccs nil))
 	(setq ucs-code
 	      (if (and ucs-pat
 		       (looking-at ucs-pat))
@@ -130,9 +133,9 @@
 	  (when (and ucs-code
 		     (not
 		      (eq (or (encode-char chr ucs-ccs 'defined-only)
-			      (if (memq ucs-ccs '(ucs-jis
-						  =ucs-jis-1990
-						  =ucs-jis-2000
+			      (if (memq ucs-ccs '(=ucs@jis
+						  =ucs@jis/1990
+						  =ucs@jis/2000
 						  ;; ucs-big5
 						  ))
 				  (encode-char chr '=ucs@jis/fw
@@ -142,9 +145,9 @@
 	    (put-char-attribute chr ucs-ccs ucs-code))
 	  (when (and ucs
 		     (not (eq (or (encode-char chr '=ucs 'defined-only)
-				  (and (not (memq ucs-ccs '(ucs-jis
-							    =ucs-jis-1990
-                                                            =ucs-jis-2000
+				  (and (not (memq ucs-ccs '(=ucs@jis
+							    =ucs@jis/1990
+                                                            =ucs@jis/2000
 							    ;; ucs-big5
 							    )))
 				       (char-feature chr '=>ucs)))
