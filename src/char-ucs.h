@@ -673,40 +673,13 @@ decoding_table_remove_char (Lisp_Object ccs, int code_point)
 Emchar load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point);
 #endif
 
-INLINE_HEADER Emchar
-DECODE_DEFINED_CHAR (Lisp_Object charset, int code_point);
-INLINE_HEADER Emchar
-DECODE_DEFINED_CHAR (Lisp_Object ccs, int code_point)
-{
-  int dim = XCHARSET_DIMENSION (ccs);
-  Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (ccs);
-
-  while (dim > 0)
-    {
-      dim--;
-      decoding_table
-	= get_ccs_octet_table (decoding_table, ccs,
-			       (code_point >> (dim * 8)) & 255);
-    }
-  if (CHARP (decoding_table))
-    return XCHAR (decoding_table);
-#ifdef HAVE_DATABASE
-  if (EQ (decoding_table, Qunloaded) ||
-      EQ (decoding_table, Qunbound) ||
-      NILP (decoding_table) )
-    {
-      return load_char_decoding_entry_maybe (ccs, code_point);
-    }
-#endif
-  else
-    return -1;
-}
+Emchar decode_defined_char (Lisp_Object charset, int code_point);
 
 INLINE_HEADER Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
 INLINE_HEADER Emchar
 DECODE_CHAR (Lisp_Object charset, int code_point)
 {
-  Emchar char_id = DECODE_DEFINED_CHAR (charset, code_point);
+  Emchar char_id = decode_defined_char (charset, code_point);
 
   if (char_id >= 0)
     return char_id;
