@@ -194,6 +194,7 @@
      ((ucs		  . #x4E3F)	; ä¸¿
       ))
     (chinese-gb12345	. #x7D3D)	; ä¸†
+    (chinese-big5-cdp	. #x896C)	; ý¢€ˆ¥¬
     (mojikyo		. 058599)	; ý €Ž“§
     (ucs		. #x4E06)	; ä¸†
     ))
@@ -870,6 +871,13 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (->mojikyo		. 054512)	; ä¸—
+    (ideographic-structure
+     ((ucs		  . #x2FF1)	; â¿±
+      )
+     ((chinese-big5-cdp	  . #x89D7)	; ý¢€ˆ§—
+      )
+     ((ucs		  . #x4E00)	; ä¸€
+      ))
     (chinese-cns11643-4 . #x2155)	; ø»—¡œ
     ))
 (define-char
