@@ -1,3 +1,12 @@
+2003-08-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R009-Man.el (U+4EBB): Unify GT-K00141 and GT-00457.
+	(U-00020089): Use `ideographic-{radical|strokes}@{ucs|gt|misc}'
+	and `ideographic-radical@{ucs|gt}*sources' instead of
+	`ideographic-'; delete `ideograph-cdp'.
+	(M-48920): Separate C6-353A and U-0002028B; modify
+	`ideographic-structure'.
+
 2003-07-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R004-Slash.el (U-00020088): Separate C6-2124.
