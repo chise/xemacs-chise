@@ -1,3 +1,9 @@
+2002-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* etc/char-data/B-to-UCS.txt, etc/char-data/J90-to-UCS.txt,
+	etc/char-data/JSP-to-UCS.txt, etc/char-data/JX1-to-UCS.txt,
+	etc/char-data/JX2-to-UCS.txt: New files.
+
 2002-07-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* etc/char-data/GT-RS.txt: Moved from etc/GT-RS.txt.
