@@ -2767,9 +2767,17 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (=jis-x0208		. #x3252)	; ø½Š«
-    (chinese-cns11643-1 . #x697E)	; ø»’­©
     (ucs-jis		. #x798D)	; ø½Š«
     (mojikyo		. 050313)	; ý €Œ’‰
+    ))
+(define-char
+  '((=>ucs		. #x798D)	; ç¦
+    (morohashi-daikanwa	24766 1 0)
+    (ideographic-radical . 113)	; â½°
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (chinese-cns11643-1 . #x697E)	; ø»’­©
+    (ucs-cns		. #x798D)	; ø»’­©
     ))
 (define-char
   '((morohashi-daikanwa	24766 1 3)
