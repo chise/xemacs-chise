@@ -1,5 +1,15 @@
 2001-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R102-Field.el (J90-6136): Unify MH-347; use
+	`->same-ideograph' for M-21735; delete `ideographic-variants' for
+	M021735.
+
+	* Ideograph-R045-Sprout.el (M-07853): New character.
+
+	* Ideograph-R039-Child.el (M-07001): New character.
+
+2001-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* char-db-util.el (char-db-insert-char-spec): Don't use `ucs' for
 	private area of BMP; use `chinese-big5-cdp' if it is defined; use
 	`find-char' instead of `define-char'.
