@@ -450,6 +450,8 @@
       )
      ((ucs		  . #x5382)	; åŽ‚
       ))
+    (ideograph-gt-pj-k1 . #x3A57)	; ý¡„€¤„
+    (ideograph-gt-k	. 02308)	; ý¡„€¤„
     (china3-jef		. #x81C1)	; øºˆ‡
     ))
 (define-char
