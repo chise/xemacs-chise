@@ -1,3 +1,10 @@
+2003-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* update-cdb.el (system-char-database-directory): Use "chise-db"
+	instead of "char-db".
+	- When `char-attribute-list' has optional argument `rehash', use
+	`char-attribute-list' to mount each db files.
+
 2003-08-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* close-cdb.el: Call `close-char-data-source'.
