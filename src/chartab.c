@@ -65,9 +65,10 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 
 #ifdef UTF2000
 
+EXFUN (Fmap_char_attribute, 3);
+
 #if defined(HAVE_DATABASE)
 EXFUN (Fload_char_attribute_table, 1);
-EXFUN (Fmap_char_attribute, 3);
 
 Lisp_Object Vchar_db_stingy_mode;
 #endif
@@ -1058,9 +1059,6 @@ make_char_id_table (Lisp_Object initval)
 }
 
 
-#ifndef HAVE_DATABASE
-Lisp_Object Vcharacter_composition_table;
-#endif
 Lisp_Object Vcharacter_variant_table;
 
 Lisp_Object Qsystem_char_id;
@@ -1137,7 +1135,6 @@ Return character corresponding with list.
 */
        (list))
 {
-#ifdef HAVE_DATABASE
   Lisp_Object base, modifier;
   Lisp_Object rest;
 
@@ -1148,7 +1145,7 @@ Return character corresponding with list.
   while (!NILP (rest))
     {
       if (!CHARP (base))
-	signal_simple_error ("Invalid value for composition", list);
+	return Qnil;
       if (!CONSP (rest))
 	signal_simple_error ("Invalid value for composition", list);
       modifier = Fcar (rest);
@@ -1157,35 +1154,6 @@ Return character corresponding with list.
 			  Fget_char_attribute (base, Qcomposition, Qnil)));
     }
   return base;
-#else
-  Lisp_Object table = Vcharacter_composition_table;
-  Lisp_Object rest = list;
-
-  while (CONSP (rest))
-    {
-      Lisp_Object v = Fcar (rest);
-      Lisp_Object ret;
-      Emchar c = to_char_id (v, "Invalid value for composition", list);
-
-      ret = get_char_id_table (XCHAR_TABLE(table), c);
-
-      rest = Fcdr (rest);
-      if (NILP (rest))
-	{
-	  if (!CHAR_TABLEP (ret))
-	    return ret;
-	  else
-	    return Qt;
-	}
-      else if (!CONSP (rest))
-	break;
-      else if (CHAR_TABLEP (ret))
-	table = ret;
-      else
-	signal_simple_error ("Invalid table is found with", list);
-    }
-  signal_simple_error ("Invalid value for composition", list);
-#endif
 }
 
 DEFUN ("char-variants", Fchar_variants, 1, 1, 0, /*
@@ -3189,10 +3157,6 @@ Store CHARACTER's ATTRIBUTE with VALUE.
     }
   else if (EQ (attribute, Q_decomposition))
     {
-#ifndef HAVE_DATABASE
-      Lisp_Object seq;
-#endif
-
       CHECK_CHAR (character);
       if (!CONSP (value))
 	signal_simple_error ("Invalid value for ->decomposition",
@@ -3200,7 +3164,6 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
       if (CONSP (Fcdr (value)))
 	{
-#ifdef HAVE_DATABASE
 	  if (NILP (Fcdr (Fcdr (value))))
 	    {
 	      Lisp_Object base = Fcar (value);
@@ -3228,46 +3191,6 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 		    Fsetcdr (ret, character);
 		}
 	    }
-#else
-	  Lisp_Object rest = value;
-	  Lisp_Object table = Vcharacter_composition_table;
-	  size_t len;
-	  int i = 0;
-
-	  GET_EXTERNAL_LIST_LENGTH (rest, len);
-	  seq = make_vector (len, Qnil);
-
-	  while (CONSP (rest))
-	    {
-	      Lisp_Object v = Fcar (rest);
-	      Lisp_Object ntable;
-	      Emchar c
-		= to_char_id (v, "Invalid value for ->decomposition", value);
-
-	      if (c < 0)
-		XVECTOR_DATA(seq)[i++] = v;
-	      else
-		XVECTOR_DATA(seq)[i++] = make_char (c);
-	      rest = Fcdr (rest);
-	      if (!CONSP (rest))
-		{
-		  put_char_id_table (XCHAR_TABLE(table),
-				     make_char (c), character);
-		  break;
-		}
-	      else
-		{
-		  ntable = get_char_id_table (XCHAR_TABLE(table), c);
-		  if (!CHAR_TABLEP (ntable))
-		    {
-		      ntable = make_char_id_table (Qnil);
-		      put_char_id_table (XCHAR_TABLE(table),
-					 make_char (c), ntable);
-		    }
-		  table = ntable;
-		}
-	    }
-#endif
 	}
       else
 	{
@@ -3291,13 +3214,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 				     make_char (c), Fcons (character, ret));
 		}
 	    }
-#ifndef HAVE_DATABASE
-	  seq = make_vector (1, v);
-#endif
 	}
-#ifndef HAVE_DATABASE
-      value = seq;
-#endif
     }
   else if (EQ (attribute, Qto_ucs) || EQ (attribute, Q_ucs))
     {
@@ -3371,6 +3288,7 @@ Remove CHARACTER's ATTRIBUTE.
   return Qnil;
 }
 
+#ifdef HAVE_DATABASE
 Lisp_Object
 char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
 			       int writing_mode)
@@ -3422,7 +3340,7 @@ char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
   return Fexpand_file_name (Fsymbol_name (attribute), db_dir);
 #endif
 }
-  
+
 DEFUN ("save-char-attribute-table", Fsave_char_attribute_table, 1, 1, 0, /*
 Save values of ATTRIBUTE into database file.
 */
@@ -3543,7 +3461,6 @@ Reset values of ATTRIBUTE with database file.
   return Qnil;
 }
 
-#ifdef HAVE_DATABASE
 Lisp_Object
 load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
 {
@@ -3597,14 +3514,12 @@ For internal use.  Don't use it.
     put_char_id_table_0 (char_attribute_table_to_load, code, Fread (value));
   return Qnil;
 }
-#endif
 
 DEFUN ("load-char-attribute-table", Fload_char_attribute_table, 1, 1, 0, /*
 Load values of ATTRIBUTE into database file.
 */
        (attribute))
 {
-#ifdef HAVE_DATABASE
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table,
 				Qunbound);
@@ -3635,8 +3550,8 @@ Load values of ATTRIBUTE into database file.
 	}
     }
   return Qnil;
-#endif
 }
+#endif
 
 DEFUN ("map-char-attribute", Fmap_char_attribute, 2, 3, 0, /*
 Map FUNCTION over entries in ATTRIBUTE, calling it with two args,
@@ -4160,16 +4075,16 @@ syms_of_chartab (void)
   DEFSUBR (Ffind_char_attribute_table);
   defsymbol (&Qput_char_table_map_function, "put-char-table-map-function");
   DEFSUBR (Fput_char_table_map_function);
+#ifdef HAVE_DATABASE
   DEFSUBR (Fsave_char_attribute_table);
   DEFSUBR (Fmount_char_attribute_table);
   DEFSUBR (Freset_char_attribute_table);
   DEFSUBR (Fclose_char_attribute_table);
-#ifdef HAVE_DATABASE
   defsymbol (&Qload_char_attribute_table_map_function,
 	     "load-char-attribute-table-map-function");
   DEFSUBR (Fload_char_attribute_table_map_function);
-#endif
   DEFSUBR (Fload_char_attribute_table);
+#endif
   DEFSUBR (Fchar_attribute_alist);
   DEFSUBR (Fget_char_attribute);
   DEFSUBR (Fput_char_attribute);
@@ -4229,11 +4144,6 @@ void
 vars_of_chartab (void)
 {
 #ifdef UTF2000
-#ifndef HAVE_DATABASE
-  staticpro (&Vcharacter_composition_table);
-  Vcharacter_composition_table = make_char_id_table (Qnil);
-#endif
-
   staticpro (&Vcharacter_variant_table);
   Vcharacter_variant_table = make_char_id_table (Qunbound);
 
