@@ -471,15 +471,9 @@ CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
 #define MAX_CHAR_BASIC_LATIN	0x007F
 
 /*
-#define MIN_CHAR_GREEK		0x0370
-#define MAX_CHAR_GREEK		0x03CF
-
-#define MIN_CHAR_CYRILLIC	0x0400
-#define MAX_CHAR_CYRILLIC	0x045F
-*/
-
 #define MIN_CHAR_HEBREW		0x0590
 #define MAX_CHAR_HEBREW		0x05EF
+*/
 
 #define MIN_CHAR_THAI		0x0E00
 #define MAX_CHAR_THAI		0x0E5F
