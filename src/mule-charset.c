@@ -98,12 +98,16 @@ Bytecount rep_bytes_by_first_byte[0xA0] =
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   /* 0x80 - 0x8f are for Dimension-1 official charsets */
-  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3,
   /* 0x90 - 0x9d are for Dimension-2 official charsets */
   /* 0x9e is for Dimension-1 private charsets */
   /* 0x9f is for Dimension-2 private charsets */
   3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4
 };
+
+Lisp_Object Vutf_2000_version;
+
+int leading_code_private_11;
 
 Lisp_Object Qcharsetp;
 
@@ -1277,6 +1281,17 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_big5_2,		"chinese-big5-2");
 
   defsymbol (&Qcomposite,		"composite");
+
+  Vutf_2000_version = build_string("0.1");
+  DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
+Version number of UTF-2000.
+*/ );
+
+  leading_code_private_11 = PRE_LEADING_BYTE_PRIVATE_1;
+  DEFVAR_INT ("leading-code-private-11", &leading_code_private_11 /*
+Leading-code of private TYPE9N charset of column-width 1.
+*/ );
+  leading_code_private_11 = PRE_LEADING_BYTE_PRIVATE_1;
 }
 
 void
