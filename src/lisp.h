@@ -3133,6 +3133,7 @@ EXFUN (Fspecifier_spec_list, 4);
 EXFUN (Fstring_equal, 2);
 EXFUN (Fstring_lessp, 2);
 EXFUN (Fstring_match, 4);
+EXFUN (Fstring_to_number, 2);
 EXFUN (Fsub1, 1);
 EXFUN (Fsubr_max_args, 1);
 EXFUN (Fsubr_min_args, 1);
