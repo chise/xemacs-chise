@@ -1,3 +1,27 @@
+2001-10-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R187-Horse.el: Merge GB 12345 code points.
+
+	* char-db-util.el (char-db-insert-char-spec): Make temporary
+	character if corresponding character is not found for char-spec.
+
+	* Ideograph-R184-Eat.el: Merge GB 12345 code points.
+
+2001-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0E000-Private-Use.el (U+F512): Separate Big5-8B78 and
+	Big5-CDP-8B78.
+
+	* Ideograph-R174-Blue.el: Merge GB 12345 code points.
+
+2001-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el: Add `ideographic-structure'.
+	(U+531D): Use `<-vulgar-ideograph' instead of `comment'.
+	(U+533C): Use `->same-ideograph' instead of `morohashi-daikanwa'.
+
+	* Ideograph-R190-Hair.el: Merge GB 12345 code points.
+
 2001-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R021-Spoon.el: Add `ideographic-structure'.
@@ -8,6 +32,11 @@
 
 	* Ideograph-R178-Tanned-Leather.el, Ideograph-R177-Leather.el:
 	Merge GB 12345 code points.
+
+2001-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R194-Ghost.el, Ideograph-R191-Fight.el: Merge GB 12345
+	code points.
 
 2001-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
