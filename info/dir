@@ -27,7 +27,7 @@ File: dir	Node: Top	This is the top of the INFO tree
   This is Info, the online documentation browsing system.
   This page (the Directory node) gives a menu of major topics.
 
-  button1 or button2 on a highlighted word follows that cross-reference.
+  button2 on a highlighted word follows that cross-reference.
   button3 anywhere brings up a menu of commands.
   ? lists additional keyboard commands.
   h invokes the Info tutorial.

@@ -746,7 +746,7 @@ maybe_kbd_translate (Lisp_Object event)
 	     This way is safer. */
 	  zero_event (&ev2);
 	  character_to_event (XCHAR (traduit), &ev2,
-			      XCONSOLE (EVENT_CHANNEL (XEVENT (event))), 1, 1);
+			      XCONSOLE (EVENT_CHANNEL (XEVENT (event))), 0, 1);
 	  XEVENT (event)->event.key.keysym = ev2.event.key.keysym;
 	  XEVENT (event)->event.key.modifiers = ev2.event.key.modifiers;
 	  did_translate = 1;
@@ -768,7 +768,7 @@ maybe_kbd_translate (Lisp_Object event)
 
 	  zero_event (&ev2);
 	  character_to_event (XCHAR (traduit), &ev2,
-			      XCONSOLE (EVENT_CHANNEL (XEVENT (event))), 1, 1);
+			      XCONSOLE (EVENT_CHANNEL (XEVENT (event))), 0, 1);
 	  XEVENT (event)->event.key.keysym = ev2.event.key.keysym;
 	  XEVENT (event)->event.key.modifiers |= ev2.event.key.modifiers;
 	  did_translate = 1;

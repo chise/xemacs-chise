@@ -1,6 +1,6 @@
 /* Lisp object printing and output streams.
    Copyright (C) 1985, 1986, 1988, 1992-1995 Free Software Foundation, Inc.
-   Copyright (C) 1995, 1996, 2000 Ben Wing.
+   Copyright (C) 1995, 1996, 2000, 2002 Ben Wing.
 
 This file is part of XEmacs.
 
@@ -182,7 +182,7 @@ std_handle_out_va (FILE *stream, const char *fmt, va_list args)
   int retval;
 
   retval = vsprintf ((char *) kludge, fmt, args);
-  if (initialized && !fatal_error_in_progress)
+  if (initialized && !inhibit_non_essential_printing_operations)
     TO_EXTERNAL_FORMAT (DATA, (kludge, strlen ((char *) kludge)),
 			ALLOCA, (extptr, extlen),
 			Qnative);
@@ -261,9 +261,16 @@ write_string_to_stdio_stream (FILE *stream, struct console *con,
   {
     Bufbyte *puta = (Bufbyte *) alloca (len);
     memcpy (puta, str + offset, len);
+
+    if (initialized && !inhibit_non_essential_printing_operations)
     TO_EXTERNAL_FORMAT (DATA, (puta, len),
 			ALLOCA, (extptr, extlen),
 			coding_system);
+    else
+      {
+	extptr = (Extbyte *) puta;
+	extlen = (Bytecount) len;
+      }
   }
 
   if (stream)
@@ -505,6 +512,18 @@ write_c_string (const char *str, Lisp_Object stream)
 {
   /* This function can GC */
   write_string_1 ((const Bufbyte *) str, strlen (str), stream);
+}
+
+static void
+write_fmt_string (Lisp_Object stream, const char *fmt, ...)
+{
+  va_list va;
+  char bigbuf[666];
+
+  va_start (va, fmt);
+  vsprintf (bigbuf, fmt, va);
+  va_end (va);
+  write_c_string (bigbuf, stream);
 }
 
 
@@ -1197,6 +1216,52 @@ internal_object_printer (Lisp_Object obj, Lisp_Object printcharfun,
   write_c_string (buf, printcharfun);
 }
 
+enum printing_badness
+{
+  BADNESS_INTEGER_OBJECT,
+  BADNESS_POINTER_OBJECT,
+  BADNESS_NO_TYPE
+};
+
+static void
+printing_major_badness (Lisp_Object printcharfun,
+			Char_ASCII *badness_string, int type, void *val,
+			enum printing_badness badness)
+{
+  char buf[666];
+
+  switch (badness)
+    {
+    case BADNESS_INTEGER_OBJECT:
+      sprintf (buf, "%s %d object %ld", badness_string, type,
+		  (EMACS_INT) val);
+      break;
+
+    case BADNESS_POINTER_OBJECT:
+      sprintf (buf, "%s %d object %p", badness_string, type, val);
+      break;
+
+    case BADNESS_NO_TYPE:
+      sprintf (buf, "%s object %p", badness_string, val);
+      break;
+    }
+
+  /* Don't abort or signal if called from debug_print() or already
+     crashing */
+  if (!inhibit_non_essential_printing_operations)
+    {
+#ifdef ERROR_CHECK_TYPES
+      abort ();
+#else  /* not ERROR_CHECK_TYPES */
+      if (print_readably)
+	type_error (Qinternal_error, "printing %s", buf);
+#endif /* not ERROR_CHECK_TYPES */
+    }
+  write_fmt_string (printcharfun,
+		    "#<EMACS BUG: %s Save your buffers immediately and "
+		    "please report this bug>", buf);
+}
+
 void
 print_internal (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
@@ -1322,49 +1387,101 @@ print_internal (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
     case Lisp_Type_Record:
       {
 	struct lrecord_header *lheader = XRECORD_LHEADER (obj);
-	struct gcpro gcpro1, gcpro2;
 
-	if (CONSP (obj) || VECTORP(obj))
+	/* Try to check for various sorts of bogus pointers if we're in a
+	   situation where it may be likely -- i.e. called from
+	   debug_print() or we're already crashing.  In such cases,
+	   (further) crashing is counterproductive. */
+
+	if (inhibit_non_essential_printing_operations &&
+	    !debug_can_access_memory (lheader, sizeof (*lheader)))
+	    {
+	      write_fmt_string (printcharfun,
+				"#<EMACS BUG: BAD MEMORY ACCESS %p>",
+				lheader);
+	      break;
+	    }
+
+	if (CONSP (obj) || VECTORP (obj))
 	  {
 	    /* If deeper than spec'd depth, print placeholder.  */
 	    if (INTP (Vprint_level)
 		&& print_depth > XINT (Vprint_level))
 	      {
-		GCPRO2 (obj, printcharfun);
 		write_c_string ("...", printcharfun);
-		UNGCPRO;
 		break;
 	      }
 	  }
 
-	GCPRO2 (obj, printcharfun);
+	if (lheader->type == lrecord_type_free)
+	  {
+	    printing_major_badness (printcharfun, "freed lrecord", 0,
+				    lheader, BADNESS_NO_TYPE);
+	    break;
+	  }
+	else if (lheader->type == lrecord_type_undefined)
+	  {
+	    printing_major_badness (printcharfun, "lrecord_type_undefined", 0,
+				    lheader, BADNESS_NO_TYPE);
+	    break;
+	  }
+	else if (lheader->type >= lrecord_type_count)
+	  {
+	    printing_major_badness (printcharfun, "illegal lrecord type",
+				    (int) (lheader->type),
+				    lheader, BADNESS_POINTER_OBJECT);
+	    break;
+	  }
+
+	/* Further checks for bad memory in critical situations.  We don't
+	   normally do these because they may be expensive or weird
+	   (e.g. under Unix we typically have to set a SIGSEGV handler and
+	   try to trigger a seg fault). */
+
+	if (inhibit_non_essential_printing_operations)
+	  {
+	    const struct lrecord_implementation *imp =
+	      LHEADER_IMPLEMENTATION (lheader);
+
+  	  if (!debug_can_access_memory
+		(lheader, imp->size_in_bytes_method ?
+		 imp->size_in_bytes_method (lheader) :
+		 imp->static_size))
+	      {
+		write_fmt_string (printcharfun,
+				  "#<EMACS BUG: type %s BAD MEMORY ACCESS %p>",
+				  LHEADER_IMPLEMENTATION (lheader)->name,
+				  lheader);
+		break;
+	      }
+
+	    if (STRINGP (obj))
+	      {
+		Lisp_String *l = (Lisp_String *) lheader;
+		if (!debug_can_access_memory (l->data, l->size))
+		  {
+		    write_fmt_string
+		      (printcharfun,
+		       "#<EMACS BUG: %p (CAN'T ACCESS STRING DATA %p)>",
+		       lheader, l->data);
+		    break;
+		  }
+	      }
+	  }
+
 	if (LHEADER_IMPLEMENTATION (lheader)->printer)
 	  ((LHEADER_IMPLEMENTATION (lheader)->printer)
 	   (obj, printcharfun, escapeflag));
 	else
 	  default_object_printer (obj, printcharfun, escapeflag);
-	UNGCPRO;
 	break;
       }
 
     default:
       {
-#ifdef ERROR_CHECK_TYPECHECK
-	abort ();
-#else  /* not ERROR_CHECK_TYPECHECK */
-	char buf[128];
 	/* We're in trouble if this happens! */
-	if (print_readably)
-	  error ("printing illegal data type #o%03o",
-		 (int) XTYPE (obj));
-	write_c_string ("#<EMACS BUG: ILLEGAL DATATYPE ",
-			printcharfun);
-	sprintf (buf, "(#o%3o)", (int) XTYPE (obj));
-	write_c_string (buf, printcharfun);
-	write_c_string
-	  (" Save your buffers immediately and please report this bug>",
-	   printcharfun);
-#endif /* not ERROR_CHECK_TYPECHECK */
+	printing_major_badness (printcharfun, "illegal data type", XTYPE (obj),
+				LISP_TO_VOID (obj), BADNESS_INTEGER_OBJECT);
 	break;
       }
     }
@@ -1653,6 +1770,7 @@ debug_print_no_newline (Lisp_Object debug_print_obj)
   print_depth = 0;
   print_readably = debug_print_readably != -1 ? debug_print_readably : 0;
   print_unbuffered++;
+  inhibit_non_essential_printing_operations = 1;
   /* Could use unwind-protect, but why bother? */
   if (debug_print_length > 0)
     Vprint_length = make_int (debug_print_length);
@@ -1672,6 +1790,7 @@ debug_print_no_newline (Lisp_Object debug_print_obj)
   Vprint_length  = save_Vprint_length;
   print_depth    = save_print_depth;
   print_readably = save_print_readably;
+  inhibit_non_essential_printing_operations = 0;
   print_unbuffered--;
   UNGCPRO;
 }
@@ -1705,6 +1824,7 @@ debug_backtrace (void)
   print_depth = 0;
   print_readably = 0;
   print_unbuffered++;
+  inhibit_non_essential_printing_operations = 1;
   /* Could use unwind-protect, but why bother? */
   if (debug_print_length > 0)
     Vprint_length = make_int (debug_print_length);
@@ -1719,6 +1839,7 @@ debug_backtrace (void)
   Vprint_length  = old_print_length;
   print_depth    = old_print_depth;
   print_readably = old_print_readably;
+  inhibit_non_essential_printing_operations = 0;
   print_unbuffered--;
 
   UNGCPRO;

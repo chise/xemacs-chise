@@ -1,3 +1,56 @@
+2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.11 "Native Windows TTY Support" is released.
+
+2003-01-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in (Generate Installation): 
+	* configure.usage (--use-union-type): 
+	* PROBLEMS (XEmacs crashes mysteriously):
+	Deprecate --use-union-type for production builds.
+
+2002-12-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (Running): Document general regex.c/alloca crash.
+
+2002-12-05  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/OXYMORONS (21.4.11): Inadvertant contrib from Andy.
+
+2002-12-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in: Move pdump default for Darwin to opsys default area.
+
+2002-11-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in (getaddrinfo): Disable for hpux11*, not hpux11.
+
+2002-11-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in: Default pdump on for Linux.
+	Improve "broken compiler" panic message per V. Kletnieks.
+
+2002-11-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (Running/Linux): Lesstif 0.93.36 info, from F. McIngvale.
+
+2002-10-30  Katsumi Yamaoka  <yamaoka@jpl.org>
+
+	* etc/TUTORIAL.ja: Typo fix.
+
+2002-10-31  John Paul Wallington  <jpw@shootybangbang.com>
+
+	* info/dir (File): button1 on a highlighted word doesn't 
+	follow that cross-reference.
+
+2002-11-11  Stephen J. Turnbull  <steve@tleepslib.sk.tsukuba.ac.jp>
+
+	* etc/Emacs.ad (Emacs.bold-italic.attributeFont): Per G. Boffi.
+
+2002-11-04  Giacomo Boffi  <giacomo.boffi@polimi.it>
+
+	* etc/sample.Xdefaults (Emacs.bold-italic.attributeFont): New.
+
 2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.10 "Military Intelligence" is released.

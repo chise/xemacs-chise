@@ -2,7 +2,7 @@
    Copyright (C) 1985, 1986, 1987, 1992, 1993, 1994
    Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 2000 Ben Wing.
+   Copyright (C) 2000, 2002 Ben Wing.
 
 This file is part of XEmacs.
 
@@ -461,6 +461,9 @@ int fatal_error_in_progress;
    or do other non-essential stuff. */
 int preparing_for_armageddon;
 
+/* Nonzero means we're in an unstable situation and need to skip
+   i18n conversions and such during printing. */
+int inhibit_non_essential_printing_operations;
 
 static JMP_BUF run_temacs_catch;
 
@@ -471,6 +474,101 @@ static EMACS_INT run_temacs_argv_size;
 static EMACS_INT run_temacs_args_size;
 
 static void shut_down_emacs (int sig, Lisp_Object stuff, int no_auto_save);
+
+/* ------------------------------- */
+/*  low-level debugging functions  */
+/* ------------------------------- */
+
+#if defined (WIN32_NATIVE) && defined (DEBUG_XEMACS)
+#define debugging_breakpoint() DebugBreak ()
+#else
+#define debugging_breakpoint()
+#endif
+
+void
+debug_break (void)
+{
+  debugging_breakpoint ();
+}
+
+#if defined (WIN32_NATIVE) || defined (CYGWIN)
+
+/* Return whether all bytes in the specified memory block can be read. */
+int
+debug_can_access_memory (void *ptr, Bytecount len)
+{
+  return !IsBadReadPtr (ptr, len);
+}
+
+#else /* !(defined (WIN32_NATIVE) || defined (CYGWIN)) */
+
+/* #### There must be a better way!!!! */
+
+static JMP_BUF memory_error_jump;
+
+static SIGTYPE
+debug_memory_error (int signum)
+{
+  EMACS_REESTABLISH_SIGNAL (signum, debug_memory_error);
+  EMACS_UNBLOCK_SIGNAL (signum);
+  LONGJMP (memory_error_jump, 1);
+}
+
+/* Return whether all bytes in the specified memory block can be read. */
+int
+debug_can_access_memory (void *ptr, Bytecount len)
+{
+  /* Use volatile to protect variables from being clobbered by longjmp. */
+  SIGTYPE (*volatile old_sigbus) (int);
+  SIGTYPE (*volatile old_sigsegv) (int);
+  volatile int old_errno = errno;
+  volatile int retval = 1;
+
+  if (!SETJMP (memory_error_jump))
+    {
+      old_sigbus =
+	(SIGTYPE (*) (int)) signal (SIGBUS, debug_memory_error);
+      old_sigsegv =
+	(SIGTYPE (*) (int)) signal (SIGSEGV, debug_memory_error);
+
+      if (len > 1)
+	/* If we can, try to avoid problems with super-optimizing compilers
+	   that might decide that memcmp (ptr, ptr, len) can be optimized
+	   away since its result is always 1. */
+	memcmp (ptr, (char *) ptr + 1, len - 1);
+      else
+	memcmp (ptr, ptr, len);
+    }
+  else
+    retval = 0;
+  signal (SIGBUS, old_sigbus);
+  signal (SIGSEGV, old_sigsegv);
+  errno = old_errno;
+
+  return retval;
+}
+
+#endif /* defined (WIN32_NATIVE) || defined (CYGWIN) */
+
+#ifdef DEBUG_XEMACS
+
+DEFUN ("force-debugging-signal", Fforce_debugging_signal, 0, 1, 0, /*
+Cause XEmacs to enter the debugger.
+On some systems, there may be no way to do this gracefully; if so,
+nothing happens unless ABORT is non-nil, in which case XEmacs will
+abort() -- a sure-fire way to immediately get back to the debugger,
+but also a sure-fire way to kill XEmacs (and dump core on Unix
+systems)!
+*/
+       (abort_))
+{
+  debugging_breakpoint ();
+  if (!NILP (abort_))
+    abort ();
+  return Qnil;
+}
+
+#endif /* DEBUG_XEMACS */
 
 static void
 ensure_no_quitting_from_now_on (void)
@@ -486,6 +584,7 @@ SIGTYPE
 fatal_error_signal (int sig)
 {
   fatal_error_in_progress++;
+  inhibit_non_essential_printing_operations = 1;
   preparing_for_armageddon = 1;
 
   ensure_no_quitting_from_now_on ();
@@ -557,6 +656,7 @@ mswindows_handle_hardware_exceptions (DWORD code)
   __try
     {
       fatal_error_in_progress++;
+      inhibit_non_essential_printing_operations = 1;
       preparing_for_armageddon = 1;
 
       ensure_no_quitting_from_now_on ();
@@ -869,6 +969,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #endif /* not SYSTEM_MALLOC or HAVE_LIBMCHECK or DOUG_LEA_MALLOC */
 
   noninteractive = 0;
+  inhibit_non_essential_printing_operations = 1;
 
 #ifdef NeXT
   /* 19-Jun-1995 -baw
@@ -2349,6 +2450,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #endif /* QUANTIFY */
 
   initialized = 1;
+  inhibit_non_essential_printing_operations = 0;
 
   /* This never returns.  */
   initial_command_loop (load_me);
@@ -2700,6 +2802,7 @@ main (int argc, char **argv, char **envp)
   quantify_clear_data ();
 #endif /* QUANTIFY */
 
+  inhibit_non_essential_printing_operations = 1;
   suppress_early_error_handler_backtrace = 0;
   lim_data = 0; /* force reinitialization of this variable */
 
@@ -2713,7 +2816,8 @@ main (int argc, char **argv, char **envp)
   if (!initialized)
     {
 #ifdef DOUG_LEA_MALLOC
-      mallopt (M_MMAP_MAX, 0);
+      if (mallopt (M_MMAP_MAX, 0) != 1)
+	abort();
 #endif
       run_temacs_argc = 0;
       if (! SETJMP (run_temacs_catch))
@@ -2770,7 +2874,8 @@ main (int argc, char **argv, char **envp)
     defined(_NO_MALLOC_WARNING_) || \
     (defined(__GLIBC__) && __GLIBC_MINOR__ < 1 && !defined(MULE)) || \
     defined(DEBUG_DOUG_LEA_MALLOC)
-      mallopt (M_MMAP_MAX, 64);
+      if(mallopt (M_MMAP_MAX, 0) != 1)
+	abort();
 #endif
 #ifdef REL_ALLOC
       r_alloc_reinit ();
@@ -3276,6 +3381,7 @@ assert_failed (const char *file, int line, const char *expr)
   /* We are extremely paranoid so we sensibly deal with recursive
      assertion failures. */
   in_assert_failed++;
+  inhibit_non_essential_printing_operations = 1;
 
   if (in_assert_failed >= 4)
     _exit (-1);
@@ -3316,6 +3422,7 @@ assert_failed (const char *file, int line, const char *expr)
 #if !defined (ASSERTIONS_DONT_ABORT)
   abort ();
 #endif
+  inhibit_non_essential_printing_operations = 0;
   in_assert_failed = 0;
 }
 #endif /* USE_ASSERTIONS */
@@ -3364,6 +3471,10 @@ syms_of_emacs (void)
   DEFSUBR (Finvocation_directory);
   DEFSUBR (Fkill_emacs);
   DEFSUBR (Fnoninteractive);
+
+#ifdef DEBUG_XEMACS
+  DEFSUBR (Fforce_debugging_signal);
+#endif
 
 #ifdef QUANTIFY
   DEFSUBR (Fquantify_start_recording_data);

@@ -465,6 +465,9 @@ before the attribute name indicates whether the attribute is
 attribute by invoking that field.  When the attribute is enabled, you
 can change the attribute value in the usual ways.
 
+@xref{Faces}, for description of how @code{face-frob-from-locale-first}
+variable affects changing @samp{Bold} and @samp{Italic} attributes.
+
 @c Is this true for XEmacs?
 @c  On a black-and-white display, the colors you can use for the
 @c background are @samp{black}, @samp{white}, @samp{gray}, @samp{gray1},
@@ -1992,11 +1995,6 @@ Change the foreground color of the given @var{face}.
 Change whether the given @var{face} is underlined.
 @end table
 
-@findex make-face-bold
-@findex make-face-bold-italic
-@findex make-face-italic
-@findex make-face-unbold
-@findex make-face-unitalic
 @findex make-face-larger
 @findex make-face-smaller
 
@@ -2008,6 +2006,34 @@ background are set to the background and foreground of the default face.
 When calling this from a program, you can supply the optional argument 
 @var{frame} to specify which frame is affected; otherwise, all frames
 are affected.
+
+@findex make-face-bold
+@findex make-face-bold-italic
+@findex make-face-italic
+@findex make-face-unbold
+@findex make-face-unitalic
+@vindex face-frob-from-locale-first
+The work of @code{make-face-bold}, @code{make-face-bold-italic},
+@code{make-face-italic}, @code{make-face-unbold},
+@code{make-face-unitalic} functions is affected by
+@code{face-frob-from-locale-first} variable.  If it is @code{nil}, those
+functions first try to manipulate device specific data like X font names
+to obtain the desired font face specification.  This may be unsuitable
+in environments using different font face specifications for different
+frames, non-Mule environments in particular.
+
+If the variable is non-@code{nil}, those functions first try to figure
+out whether the face font is the same as one of predefined faces:
+@code{default}, @code{bold}, @code{italic}, @code{bold-italic}.  If it
+is the same, then the new face font specification is set to be the same
+as that of a corresponding predefined face.  Thus if the predefined face
+is set up properly for different frames, the same will hold for the face
+being changed by the functions.  This is the behavior one might desire
+in non-Mule environments mentioned above: face being changed still looks
+right in all frames.
+
+How predefined faces might be set up for different frames in such an
+environments is described in @ref{Face Resources}.
 
 @findex set-face-background
 You can set the background color of the specified @var{face} with the

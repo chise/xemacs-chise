@@ -66,7 +66,7 @@ static int
 widget_border_width (Lisp_Object domain);
 static int
 widget_spacing (Lisp_Object domain);
-
+#define BORDER_FIDDLE_FACTOR 10
 #ifdef DEBUG_WIDGETS
 int debug_widget_instances;
 #endif
@@ -1317,6 +1317,9 @@ layout_query_geometry (Lisp_Object image_instance, int* width,
       glyph_query_geometry (XCAR (items), &gwidth, &gheight, disp,
 			    image_instance);
       ph_adjust = gheight;
+      /* Include text width in vertical layouts. */
+      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) == LAYOUT_VERTICAL)
+	maxpw = gwidth + BORDER_FIDDLE_FACTOR;
       items = XCDR (items);
     }
 
@@ -1431,7 +1434,7 @@ layout_layout (Lisp_Object image_instance,
       IMAGE_INSTANCE_LAYOUT_BORDER (ii) = make_int (gheight / 2);
 
       /* #### Really, what should this be? */
-      glyph_do_layout (border, gwidth, gheight, 10, 0,
+      glyph_do_layout (border, gwidth, gheight, BORDER_FIDDLE_FACTOR, 0,
 		       image_instance);
     }
 

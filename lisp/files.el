@@ -1147,9 +1147,11 @@ run `normal-mode' explicitly."
 		  "File local-variables error: %s"
 		  (error-message-string err))))))
 
-;; #### This variable sucks in the package model.  There should be a
-;; way for new packages to add their entries to auto-mode-alist in a
-;; clean way.  Per Abrahamsen suggested splitting auto-mode-alist to
+;; `auto-mode-alist' used to contain entries for modes in core and in packages.
+;; The applicable entries are now located in the corresponding modes in
+;; packages, the ones here are for core modes.  Ditto for
+;; `interpreter-mode-alist' below.
+;; Per Abrahamsen suggested splitting auto-mode-alist to
 ;; several distinct variables such as, in order of precedence,
 ;; `user-auto-mode-alist' for users, `package-auto-mode-alist' for
 ;; packages and `auto-mode-alist' (which might also be called
@@ -1158,82 +1160,20 @@ run `normal-mode' explicitly."
 
 (defvar auto-mode-alist
   '(("\\.te?xt\\'" . text-mode)
-    ("\\.[chi]\\'" . c-mode)
     ("\\.el\\'" . emacs-lisp-mode)
-    ("\\.\\(?:[CH]\\|cc\\|hh\\)\\'" . c++-mode)
-    ("\\.[ch]\\(pp\\|xx\\|\\+\\+\\)\\'" . c++-mode)
-    ("\\.java\\'" . java-mode)
-    ("\\.idl\\'" . idl-mode)
-    ("\\.f\\(?:or\\)?\\'" . fortran-mode)
-    ("\\.F\\(?:OR\\)?\\'" . fortran-mode)
-    ("\\.[fF]90\\'" . f90-mode)
-;;; Less common extensions come here
-;;; so more common ones above are found faster.
-    ("\\.\\([pP][Llm]\\|al\\)\\'" . perl-mode)
-    ("\\.py\\'" . python-mode)
-    ("\\.texi\\(?:nfo\\)?\\'" . texinfo-mode)
-    ("\\.ad[abs]\\'" . ada-mode)
     ("\\.c?l\\(?:i?sp\\)?\\'" . lisp-mode)
-    ("\\.p\\(?:as\\)?\\'" . pascal-mode)
-    ("\\.ltx\\'" . latex-mode)
-    ("\\.[sS]\\'" . asm-mode)
-    ("[Cc]hange.?[Ll]og?\\(?:.[0-9]+\\)?\\'" . change-log-mode)
-    ("\\$CHANGE_LOG\\$\\.TXT" . change-log-mode)
-    ("\\.scm?\\(?:\\.[0-9]*\\)?\\'" . scheme-mode)
-    ("\\.e\\'" . eiffel-mode)
-    ("\\.mss\\'" . scribe-mode)
-    ("\\.m\\(?:[mes]\\|an\\)\\'" . nroff-mode)
-    ("\\.icn\\'" . icon-mode)
-    ("\\.\\(?:[ckz]?sh\\|shar\\)\\'" . sh-mode)
-    ("\\.[Pp][Rr][Oo]\\'" . idlwave-mode)
-    ("\\.si\\(v\\|eve\\)\\'" . sieve-mode)
-    ;; #### Unix-specific!
-    ("/\\.\\(?:bash_\\|z\\)?\\(profile\\|login\\|logout\\)\\'" . sh-mode)
-    ("/\\.\\(?:[ckz]sh\\|bash\\|tcsh\\|es\\|xinit\\|startx\\)rc\\'" . sh-mode)
-    ("/\\.\\(?:[kz]shenv\\|xsession\\)\\'" . sh-mode)
-    ("\\.m?spec$" .sh-mode)
-    ;; The following come after the ChangeLog pattern for the sake of
-    ;; ChangeLog.1, etc. and after the .scm.[0-9] pattern too.
-    ("\\.[123456789]\\'" . nroff-mode)
-    ("\\.[tT]e[xX]\\'" . tex-mode)
-    ("\\.\\(?:sty\\|cls\\|bbl\\)\\'" . latex-mode)
-    ("\\.bib\\'" . bibtex-mode)
     ("\\.article\\'" . text-mode)
     ("\\.letter\\'" . text-mode)
-    ("\\.\\(?:tcl\\|exp\\)\\'" . tcl-mode)
-    ("\\.wrl\\'" . vrml-mode)
-    ("\\.awk\\'" . awk-mode)
-    ("\\.prolog\\'" . prolog-mode)
-    ("\\.\\(?:arc\\|zip\\|lzh\\|zoo\\)\\'" . archive-mode)
     ;; Mailer puts message to be edited in /tmp/Re.... or Message
     ;; #### Unix-specific!
     ("\\`/tmp/Re" . text-mode)
     ("/Message[0-9]*\\'" . text-mode)
-    ("/drafts/[0-9]+\\'" . mh-letter-mode)
     ;; some news reader is reported to use this
     ("^/tmp/fol/" . text-mode)
-    ("\\.y\\'" . c-mode)
-    ("\\.lex\\'" . c-mode)
-    ("\\.m\\'" . objc-mode)
-    ("\\.oak\\'" . scheme-mode)
-    ("\\.[sj]?html?\\'" . html-mode)
-    ("\\.jsp\\'" . html-mode)
-    ("\\.xml\\'" . xml-mode)
-    ("\\.\\(?:sgml?\\|dtd\\)\\'" . sgml-mode)
-    ("\\.c?ps\\'" . postscript-mode)
     ;; .emacs following a directory delimiter in either Unix or
     ;; Windows syntax.
     ("[/\\][._].*emacs\\'" . emacs-lisp-mode)
-    ("\\.m4\\'" . autoconf-mode)
-    ("configure\\(\\.in\\|\\.ac\\)\\'" . autoconf-mode)
     ("\\.ml\\'" . lisp-mode)
-    ("\\.ma?ke?\\'" . makefile-mode)
-    ("\\(GNU\\)?[Mm]akefile\\(\\.\\|\\'\\)" . makefile-mode)
-    ("[./\\]X\\(defaults\\|environment\\|resources\\|modmap\\)\\'" . xrdb-mode)
-    ;; #### The following three are Unix-specific (but do we care?)
-    ("/app-defaults/" . xrdb-mode)
-    ("\\.[^/]*wm2?\\(?:rc\\)?\\'" . winmgr-mode)
-    ("\\.\\(?:jpe?g\\|JPE?G\\|png\\|PNG\\|gif\\|GIF\\|tiff?\\|TIFF?\\)\\'" . image-mode)
     )
 "Alist of filename patterns vs. corresponding major mode functions.
 Each element looks like (REGEXP . FUNCTION) or (REGEXP FUNCTION NON-NIL).
@@ -1246,17 +1186,7 @@ calling FUNCTION (if it's not nil), we delete the suffix that matched
 REGEXP and search the list again for another match.")
 
 (defvar interpreter-mode-alist
-  '(("^#!.*csh"	  . sh-mode)
-    ("^#!.*\\b\\(scope\\|wish\\|tcl\\|tclsh\\|expect\\)" . tcl-mode)
-    ("^#!.*sh\\b" . sh-mode)
-    ("perl"   . perl-mode)
-    ("python" . python-mode)
-    ("awk\\b" . awk-mode)
-    ("rexx"   . rexx-mode)
-    ("scm\\|guile" . scheme-mode)
-    ("emacs" . emacs-lisp-mode)
-    ("make" . makefile-mode)
-    ("^:"     . sh-mode))
+  '(("emacs" . emacs-lisp-mode))
   "Alist mapping interpreter names to major modes.
 This alist is used to guess the major mode of a file based on the
 contents of the first line.  This line often contains something like:

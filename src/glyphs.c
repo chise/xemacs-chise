@@ -4634,8 +4634,8 @@ void unmap_subwindow (Lisp_Object subwindow)
 
   ERROR_CHECK_IMAGE_INSTANCE (subwindow);
 
-  if (!image_instance_type_to_mask (IMAGE_INSTANCE_TYPE (ii))
-      & (IMAGE_WIDGET_MASK | IMAGE_SUBWINDOW_MASK)
+  if (!(image_instance_type_to_mask (IMAGE_INSTANCE_TYPE (ii))
+	& (IMAGE_WIDGET_MASK | IMAGE_SUBWINDOW_MASK))
       ||
       !IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP (ii))
     return;
@@ -4665,8 +4665,8 @@ void map_subwindow (Lisp_Object subwindow, int x, int y,
 
   ERROR_CHECK_IMAGE_INSTANCE (subwindow);
 
-  if (!image_instance_type_to_mask (IMAGE_INSTANCE_TYPE (ii))
-      & (IMAGE_WIDGET_MASK | IMAGE_SUBWINDOW_MASK))
+  if (!(image_instance_type_to_mask (IMAGE_INSTANCE_TYPE (ii))
+	& (IMAGE_WIDGET_MASK | IMAGE_SUBWINDOW_MASK)))
     return;
 
 #ifdef DEBUG_WIDGETS

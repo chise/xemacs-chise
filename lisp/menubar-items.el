@@ -897,6 +897,14 @@ which will not be used as accelerators."
 	 :active (and (boundp 'browse-url-browser-function)
 		      (fboundp 'browse-url-w3)
 		      (fboundp 'w3-fetch))]
+        ["Emacs-%_W3 (gnudoit)"
+         (customize-set-variable 'browse-url-browser-function 'browse-url-w3-gnudoit)
+         :style radio
+         :selected (and (boundp 'browse-url-browser-function)
+                        (eq browse-url-browser-function
+                            'browse-url-w3-gnudoit))
+	 :active (and (boundp 'browse-url-browser-function)
+		      (fboundp 'browse-url-w3-gnudoit))]
 	["%_Netscape"
 	 (customize-set-variable 'browse-url-browser-function
 				 'browse-url-netscape)
@@ -952,14 +960,66 @@ which will not be used as accelerators."
 			(eq browse-url-browser-function 'browse-url-grail))
 	 :active (and (boundp 'browse-url-browser-function)
 		      (fboundp 'browse-url-grail))]
-	["%_Kfm"
+	["%_KDE"
 	 (customize-set-variable 'browse-url-browser-function
-				 'browse-url-kfm)
+				 'browse-url-kde)
 	 :style radio
 	 :selected (and (boundp 'browse-url-browser-function)
-			(eq browse-url-browser-function 'browse-url-kfm))
+			(eq browse-url-browser-function 'browse-url-kde))
 	 :active (and (boundp 'browse-url-browser-function)
-		      (fboundp 'browse-url-kfm))]
+		      (fboundp 'browse-url-kde))]
+	["Mo%_zilla"
+	 (customize-set-variable 'browse-url-browser-function
+				 'browse-url-gnome-moz)
+	 :style radio
+	 :selected (and (boundp 'browse-url-browser-function)
+			(eq browse-url-browser-function 'browse-url-gnome-moz))
+	 :active (and (boundp 'browse-url-browser-function)
+		      (fboundp 'browse-url-gnome-moz))]
+	["G%_aleon"
+	 (customize-set-variable 'browse-url-browser-function
+				 'browse-url-galeon)
+	 :style radio
+	 :selected (and (boundp 'browse-url-browser-function)
+			(eq browse-url-browser-function 'browse-url-galeon))
+	 :active (and (boundp 'browse-url-browser-function)
+		      (fboundp 'browse-url-galeon))]
+	["%_Opera"
+	 (customize-set-variable 'browse-url-browser-function
+				 'browse-url-opera)
+	 :style radio
+	 :selected (and (boundp 'browse-url-browser-function)
+			(eq browse-url-browser-function 'browse-url-opera))
+	 :active (and (boundp 'browse-url-browser-function)
+		      (fboundp 'browse-url-opera))]
+	["%_MMM"
+	 (customize-set-variable 'browse-url-browser-function
+				 'browse-url-mmm)
+	 :style radio
+	 :selected (and (boundp 'browse-url-browser-function)
+			(eq browse-url-browser-function 'browse-url-mmm))
+	 :active (and (boundp 'browse-url-browser-function)
+		      (fboundp 'browse-url-mmm))]
+	["MS-Windows Default %_Browser"
+	 (customize-set-variable 'browse-url-browser-function
+				 'browse-url-default-windows-browser)
+	 :style radio
+	 :selected (and (boundp 'browse-url-browser-function)
+			(eq browse-url-browser-function
+                            'browse-url-default-windows-browser))
+	 :active (and (boundp 'browse-url-browser-function)
+		      (fboundp 'mswindows-shell-execute)
+		      (fboundp 'browse-url-default-windows-browser))]
+	["G%_eneric Browser"
+	 (customize-set-variable 'browse-url-browser-function
+				 'browse-url-generic)
+	 :style radio
+	 :selected (and (boundp 'browse-url-browser-function)
+			(eq browse-url-browser-function 'browse-url-generic))
+	 :active (and (boundp 'browse-url-browser-function)
+		      (boundp 'browse-url-generic-program)
+		      browse-url-generic-program
+		      (fboundp 'browse-url-generic))]
 	))
       ("%_Troubleshooting"
        ["%_Debug on Error"

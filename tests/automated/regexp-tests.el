@@ -248,7 +248,27 @@
 (Assert (not (string-match "a\\<" "a")))
 (Assert (not (string-match "\\>a" "a")))
 ;; Expect these to fail :-(
+;; Added Known-Bug 2002-09-09
 (Assert (not (string-match "\\b" "")))
 (Assert (not (string-match " \\b" " ")))
 (Assert (not (string-match "\\b " " ")))
 
+;; Added 2002-12-27
+(if (featurep 'mule)
+    ;; note: (int-to-char 65) => ?A
+    (let ((ch0 (make-char 'japanese-jisx0208 52 65))
+	  (ch1 (make-char 'japanese-jisx0208 51 65)))
+      (Assert (not (string-match "A" (string ch0))))
+      (Assert (not (string-match "[A]" (string ch0))))
+      (Assert (eq (string-match "[^A]" (string ch0)) 0))
+      (Assert (not (string-match "@A" (string ?@ ch0))))
+      (Assert (not (string-match "@[A]" (string ?@ ch0))))
+      (Assert (eq (string-match "@[^A]" (string ?@ ch0)) 0))
+      (Assert (not (string-match "@?A" (string ?@ ch0))))
+      (Assert (not (string-match "A" (string ch1))))
+      (Assert (not (string-match "[A]" (string ch1))))
+      (Assert (eq (string-match "[^A]" (string ch1)) 0))
+      (Assert (not (string-match "@A" (string ?@ ch1))))
+      (Assert (not (string-match "@[A]" (string ?@ ch1))))
+      (Assert (eq (string-match "@[^A]" (string ?@ ch1)) 0))
+      (Assert (not (string-match "@?A" (string ?@ ch1))))))
