@@ -1,3 +1,70 @@
+1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (Emchar_to_byte_table): New type.
+	(get_byte_from_character_table): New function interface.
+	(Vcharset_latin_jisx0201): New variable.
+	(latin_jisx0201_to_ucs): New variable.
+	(ucs_to_latin_jisx0201): New variable.
+	(Vcharset_latin_iso8859_2): New variable.
+	(latin_iso8859_2_to_ucs): New variable.
+	(ucs_to_latin_iso8859_2): New variable.
+	(Vcharset_latin_iso8859_3): New variable.
+	(latin_iso8859_3_to_ucs): New variable.
+	(ucs_to_latin_iso8859_3): New variable.
+	(Vcharset_latin_iso8859_4): New variable.
+	(latin_iso8859_4_to_ucs): New variable.
+	(ucs_to_latin_iso8859_4): New variable.
+	(Vcharset_latin_iso8859_9): New variable.
+	(latin_iso8859_9_to_ucs): New variable.
+	(ucs_to_latin_iso8859_9): New variable.
+	(Vcharset_latin_viscii_lower): New variable.
+	(latin_viscii_lower_to_ucs): New variable.
+	(ucs_to_latin_viscii_lower): New variable.
+	(Vcharset_latin_viscii_upper): New variable.
+	(latin_viscii_upper_to_ucs): New variable.
+	(ucs_to_latin_viscii_upper): New variable.
+	(CHARSET_ID_OFFSET_94): Changed from 0x60 to 0x55.
+	(LEADING_BYTE_LATIN_VISCII_LOWER): New macro.
+	(LEADING_BYTE_LATIN_VISCII_UPPER): New macro.
+	(MAKE_CHAR): Map `latin-iso8859-2', `latin-iso8859-3',
+	`latin-iso8859-4', `latin-iso8859-9', `latin-jisx0201',
+	`vietnamese-viscii-lower' and `vietnamese-viscii-upper' to BMP.
+	(breakup_char_1): Use `ucs_to_latin_iso8859_2',
+	`ucs_to_latin_iso8859_3', `ucs_to_latin_iso8859_4',
+	`ucs_to_latin_iso8859_9', `ucs_to_latin_viscii_lower',
+	`ucs_to_latin_viscii_upper' and `ucs_to_latin_jisx0201' tables.
+
+	* mule-charset.c (Vcharset_latin_viscii_lower): New variable.
+	(Vcharset_latin_viscii_upper): New variable.
+	(make_byte_from_character_table): New function.
+	(put_byte_from_character_table): New function.
+	(get_byte_from_character_table): New function.
+	(CHAR96): New macro.
+	(ucs_to_latin_jisx0201): New variable.
+	(latin_jisx0201_to_ucs): New variable.
+	(ucs_to_latin_iso8859_2): New variable.
+	(latin_iso8859_2_to_ucs): New variable.
+	(ucs_to_latin_iso8859_3): New variable.
+	(latin_iso8859_3_to_ucs): New variable.
+	(ucs_to_latin_iso8859_4): New variable.
+	(latin_iso8859_4_to_ucs): New variable.
+	(ucs_to_latin_iso8859_9): New variable.
+	(latin_iso8859_9_to_ucs): New variable.
+	(ucs_to_latin_viscii_lower): New variable.
+	(latin_viscii_lower_to_ucs): New variable.
+	(ucs_to_latin_viscii_upper): New variable.
+	(latin_viscii_upper_to_ucs): New variable.
+	(ucs_to_latin_tcvn5712): New variable.
+	(latin_tcvn5712_to_ucs): New variable.
+	(Qlatin_viscii_lower): New variable.
+	(Qlatin_viscii_upper): New variable.
+	(syms_of_mule_charset): Set up new symbol
+	`vietnamese-viscii-lower' and `vietnamese-viscii-upper'.
+	(complex_vars_of_mule_charset): Set up new charset
+	`vietnamese-viscii-lower' and `vietnamese-viscii-upper'; new macro
+	`GENERATE_94_SET' and `GENERATE_96_SET'; use them to generate
+	`ucs_to_<CHARSET>' tables.
+
 1999-09-08  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* text-coding.c: New file.
