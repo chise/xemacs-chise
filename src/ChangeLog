@@ -1,3 +1,8 @@
+2000-01-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.13 (Takaida).
+
 2000-01-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (split_builtin_char): Delete builtin support for
