@@ -1,3 +1,82 @@
+2001-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el: Add some CHINA3-JEF code points.
+	(C6-3D67): Unify M-48963.
+	(C1-5937): Use `->identical' instead of `ideograph='.
+
+	* Ideograph-R028-Private.el: Add some CHINA3-JEF code points.
+	(C4-2856): Delete `non-morohashi'; unify M-48989.
+
+	* Ideograph-R027-Cliff.el (M-02979): Unify C6-3D60 and U-00020A78.
+	(U-00020A9A): Unify BC-8D4D; add `ideographic-structure'.
+	- Add some `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char' properties.
+	- Add some missing `ideographic-structure' properties.
+	- Add some BIG5-CDP code points.
+	- Add some CHINA3-JEF code points.
+
+	* Ideograph-R026-Seal.el (U+5369): Unify BC-8B5A.
+	(U+353E): Unify BC-8BE6.
+	(U+536A): Unify BC-8D7A.
+	(U+5373): Use `script' and `<-vulgar-ideograph' instead of
+	`comment'; add `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'; add `ideographic-structure'.
+	(U+537B): Use `->ideographic-variants' instead of
+	`variant-of-shinjigen-1'; add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; add
+	`ideographic-structure'.
+	(U+537D): Use `->ideographic-variants' instead of
+	`variant-of-shinjigen-1'; unify JC3-45D4.
+	(M-02875): Separate C6-2F3C; use `->same-ideograph' instead of
+	`comment'; relate to U-00020A1E.
+	(C6-2F3C): Unify U-00020A1E.
+	- Add some CHINA3-JEF code points.
+	- Add some missing `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char' properties.
+	- Add some missing `ideographic-structure' properties.
+	- Merge some CJK Ext-B code points.
+
+	* Ideograph-R024-Ten.el (U+5344): Unify BC-8975.
+	(C4-2244): Use `<-original-ideograph' instead of
+	`original-char-of-shinjigen-1'; unify U-00020983.
+	(C3-2329): Use `->ideographic-variants' instead of
+	`variant-of-shinjigen-1'.
+	(C6-2639): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'; unify U-00020991.
+	(C4-2553): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'; unify U-00024C1E.
+	(M-02739): Unify C4-2553 and U-00024C1E; use `<-vulgar-ideograph'
+	instead of `vulgar-ideograph-of'.
+	(J0-4234): Use U+4ECE instead of BC-8DF5 + U+4EBA in the
+	`ideographic-structure'.
+	(U+5352): Likewise.
+	- Add some missing `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char' properties.	
+	- Add some missing `ideographic-structure' properties.
+	- Merge some CHINA3-JEF code points.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	- Merge some CJK Ext-B code points.
+	- Merge some missing Big5-CDP code points.
+
+	* Ideograph-R022-Right-Open-Box.el, Ideograph-R021-Spoon.el: Merge
+	some CHINA3-JEF code points.
+
+	* Ideograph-R017-Open-Box.el (U+51FC): Delete `kangxi-radical' and
+	`kangxi-strokes'; delete `non-morohashi'; unify JC3-80AC.
+
+	* Ideograph-R016-Table.el: Merge some CHINA3-JEF code points.
+
+	* Ideograph-R004-Slash.el (U-00020086): Unify BC-8BB4.
+	(U-000200A2): Unify BC-8CB4; add `ideographic-structure'.
+
+2001-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R014-Cover.el (C6-3D3E): Relate to M-01589.
+
+	* Ideograph-R013-Down-Box.el (U+5188): Separate C4-2152; add
+	`->identical' for C4-2152.
+
 2001-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R053-Dotted-Cliff.el:
