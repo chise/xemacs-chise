@@ -1,3 +1,21 @@
+2003-08-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Use
+	`chise_ds_open_ccs_table', `chise_ccst_put_char' and
+	`chise_ccst_close' instead of `chise_ds_open_decoding_table',
+	`chise_dt_put_char' and `chise_dt_close'.
+	(load_char_decoding_entry_maybe): Use `chise_ds_open_ccs_table',
+	`chise_ccs_decode' and `chise_ccst_close' instead of
+	`chise_ds_open_decoding_table', `chise_dt_get_char' and
+	`chise_dt_close'.
+
+	* chartab.c (char_table_get_db): Use
+	`chise_char_load_feature_value' instead of `chise_ft_get_value'.
+	(load_char_attribute_table_map_func): Modify for
+	`chise_char_feature_value_iterate'.
+	(Fload_char_attribute_table): Use
+	`chise_char_feature_value_iterate' instead of `chise_ft_iterate'.
+
 2003-08-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (put_char_table): Modify for inherited coded-charsets
