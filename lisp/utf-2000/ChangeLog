@@ -1,3 +1,16 @@
+2001-06-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el, Ideograph-R098-Tile.el:
+	- Add missing relations between C*-**** and M-*****.
+	- Add missing relations between C*-**** and U-****.
+
+2001-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (C3-5846): Moved from
+	Ideograph-R112-Stone.el; fix `ideographic-radical' and add
+	`cns-radical?' property.
+	(C3-5847): Likewise.
+
 2001-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R109-Eye.el (M-23221): Separate U+7714.
