@@ -285,6 +285,11 @@ typedef unsigned char Bufbyte;
 
 typedef unsigned char Extbyte;
 
+/* ID of coded-charset; legacy Mule has only 128 charsets, but there
+   are no limitation about number of coded-charsets in UTF-2000 or
+   Unicode based implementation. */
+typedef unsigned char Charset_ID;
+
 /* To the user, a buffer is made up of characters, declared as follows.
    In the non-Mule world, characters and Bufbytes are equivalent.
    In the Mule world, a character requires (typically) 1 to 4
