@@ -741,6 +741,7 @@
     (total-strokes	 . 8)
     (chinese-cns11643-6 . #x2951)	; ø»œ
     (ideograph-daikanwa . 01371)	; ø¸€•›
+    (ideograph-cbeta	. 01781)	; ø¸ ›µ
     (mojikyo		. 001371)	; ý €€•›
     ))
 (define-char
@@ -765,6 +766,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideograph-daikanwa . 01374)	; ø¸€•ž
+    (ideograph-cbeta	. 05839)	; ø¸¡›
     (mojikyo		. 001374)	; ý €€•ž
     ))
 (define-char
