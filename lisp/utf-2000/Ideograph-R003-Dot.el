@@ -371,19 +371,10 @@
     (=gt-pj-9		. #x4A2F)	; &GT-00144; [42-15]
     ))
 (define-char
-  '((ideographic-radical@daikanwa . 3)	; ⼂
-    (ideographic-strokes@daikanwa . 7)
-    (total-strokes@daikanwa	  . 8)
-    (ideographic-radical@daikanwa*sources
-     daikanwa gt)
+  '((ideographic-radical@ucs . 3)	; ⼂
+    (ideographic-radical@ucs*sources
+     daikanwa gt ucs)
     (ideographic-radical@cns . 1)	; ⼀
-    (ideographic-strokes@cns . 7)
-    (total-strokes@cns	     . 8)
-    (ideographic-radical@cns*sources
-     cns11643)
-    (ideographic-radical@unicode . 3)
-    (ideographic-strokes@unicode . 6)
-    (total-strokes@unicode . 7)
     (=ucs		. #x4E3D)	; 丽
     ))
 (define-char
