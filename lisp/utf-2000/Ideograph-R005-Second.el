@@ -1621,14 +1621,6 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 56 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x2099D)	; 𠦝
-      )
-     ((=ucs		  . #x4E5E)	; 乞
-      ))
     (shinjigen-1	. 64)
     (shinjigen-2	. 64)
     (sound@ja/kun	"kawa+k5" "ho+s5" "inui")
