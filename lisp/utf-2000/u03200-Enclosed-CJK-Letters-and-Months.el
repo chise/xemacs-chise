@@ -5,7 +5,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1100 #x0029)
-    (korean-ksc5601	#x29 #x31)	; $(C)1(B
+    (korean-ksc5601	#x29 #x31)	; ø»ˆ¦Œ
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL NIEUN")
@@ -14,7 +14,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1102 #x0029)
-    (korean-ksc5601	#x29 #x32)	; $(C)2(B
+    (korean-ksc5601	#x29 #x32)	; ø»ˆ¦
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL TIKEUT")
@@ -23,7 +23,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1103 #x0029)
-    (korean-ksc5601	#x29 #x33)	; $(C)3(B
+    (korean-ksc5601	#x29 #x33)	; ø»ˆ¦Ž
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL RIEUL")
@@ -32,7 +32,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1105 #x0029)
-    (korean-ksc5601	#x29 #x34)	; $(C)4(B
+    (korean-ksc5601	#x29 #x34)	; ø»ˆ¦
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL MIEUM")
@@ -41,7 +41,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1106 #x0029)
-    (korean-ksc5601	#x29 #x35)	; $(C)5(B
+    (korean-ksc5601	#x29 #x35)	; ø»ˆ¦
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL PIEUP")
@@ -50,7 +50,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1107 #x0029)
-    (korean-ksc5601	#x29 #x36)	; $(C)6(B
+    (korean-ksc5601	#x29 #x36)	; ø»ˆ¦‘
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL SIOS")
@@ -59,7 +59,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1109 #x0029)
-    (korean-ksc5601	#x29 #x37)	; $(C)7(B
+    (korean-ksc5601	#x29 #x37)	; ø»ˆ¦’
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL IEUNG")
@@ -68,7 +68,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110B #x0029)
-    (korean-ksc5601	#x29 #x38)	; $(C)8(B
+    (korean-ksc5601	#x29 #x38)	; ø»ˆ¦“
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL CIEUC")
@@ -77,7 +77,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110C #x0029)
-    (korean-ksc5601	#x29 #x39)	; $(C)9(B
+    (korean-ksc5601	#x29 #x39)	; ø»ˆ¦”
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL CHIEUCH")
@@ -86,7 +86,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110E #x0029)
-    (korean-ksc5601	#x29 #x3A)	; $(C):(B
+    (korean-ksc5601	#x29 #x3A)	; ø»ˆ¦•
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL KHIEUKH")
@@ -95,7 +95,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110F #x0029)
-    (korean-ksc5601	#x29 #x3B)	; $(C);(B
+    (korean-ksc5601	#x29 #x3B)	; ø»ˆ¦–
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL THIEUTH")
@@ -104,7 +104,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1110 #x0029)
-    (korean-ksc5601	#x29 #x3C)	; $(C)<(B
+    (korean-ksc5601	#x29 #x3C)	; ø»ˆ¦—
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL PHIEUPH")
@@ -113,7 +113,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1111 #x0029)
-    (korean-ksc5601	#x29 #x3D)	; $(C)=(B
+    (korean-ksc5601	#x29 #x3D)	; ø»ˆ¦˜
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL HIEUH")
@@ -122,7 +122,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1112 #x0029)
-    (korean-ksc5601	#x29 #x3E)	; $(C)>(B
+    (korean-ksc5601	#x29 #x3E)	; ø»ˆ¦™
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL KIYEOK A")
@@ -131,7 +131,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1100 #x1161 #x0029)
-    (korean-ksc5601	#x29 #x3F)	; $(C)?(B
+    (korean-ksc5601	#x29 #x3F)	; ø»ˆ¦š
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL NIEUN A")
@@ -140,7 +140,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1102 #x1161 #x0029)
-    (korean-ksc5601	#x29 #x40)	; $(C)@(B
+    (korean-ksc5601	#x29 #x40)	; ø»ˆ¦›
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL TIKEUT A")
@@ -149,7 +149,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1103 #x1161 #x0029)
-    (korean-ksc5601	#x29 #x41)	; $(C)A(B
+    (korean-ksc5601	#x29 #x41)	; ø»ˆ¦œ
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL RIEUL A")
@@ -158,7 +158,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1105 #x1161 #x0029)
-    (korean-ksc5601	#x29 #x42)	; $(C)B(B
+    (korean-ksc5601	#x29 #x42)	; ø»ˆ¦
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL MIEUM A")
@@ -167,7 +167,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1106 #x1161 #x0029)
-    (korean-ksc5601	#x29 #x43)	; $(C)C(B
+    (korean-ksc5601	#x29 #x43)	; ø»ˆ¦ž
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL PIEUP A")
@@ -176,7 +176,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1107 #x1161 #x0029)
-    (korean-ksc5601	#x29 #x44)	; $(C)D(B
+    (korean-ksc5601	#x29 #x44)	; ø»ˆ¦Ÿ
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL SIOS A")
@@ -185,7 +185,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1109 #x1161 #x0029)
-    (korean-ksc5601	#x29 #x45)	; $(C)E(B
+    (korean-ksc5601	#x29 #x45)	; ø»ˆ¦ 
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL IEUNG A")
@@ -194,7 +194,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110B #x1161 #x0029)
-    (korean-ksc5601	#x29 #x46)	; $(C)F(B
+    (korean-ksc5601	#x29 #x46)	; ø»ˆ¦¡
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL CIEUC A")
@@ -203,7 +203,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110C #x1161 #x0029)
-    (korean-ksc5601	#x29 #x47)	; $(C)G(B
+    (korean-ksc5601	#x29 #x47)	; ø»ˆ¦¢
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL CHIEUCH A")
@@ -212,7 +212,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110E #x1161 #x0029)
-    (korean-ksc5601	#x29 #x48)	; $(C)H(B
+    (korean-ksc5601	#x29 #x48)	; ø»ˆ¦£
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL KHIEUKH A")
@@ -221,7 +221,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110F #x1161 #x0029)
-    (korean-ksc5601	#x29 #x49)	; $(C)I(B
+    (korean-ksc5601	#x29 #x49)	; ø»ˆ¦¤
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL THIEUTH A")
@@ -230,7 +230,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1110 #x1161 #x0029)
-    (korean-ksc5601	#x29 #x4A)	; $(C)J(B
+    (korean-ksc5601	#x29 #x4A)	; ø»ˆ¦¥
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL PHIEUPH A")
@@ -239,7 +239,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1111 #x1161 #x0029)
-    (korean-ksc5601	#x29 #x4B)	; $(C)K(B
+    (korean-ksc5601	#x29 #x4B)	; ø»ˆ¦¦
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL HIEUH A")
@@ -248,7 +248,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1112 #x1161 #x0029)
-    (korean-ksc5601	#x29 #x4C)	; $(C)L(B
+    (korean-ksc5601	#x29 #x4C)	; ø»ˆ¦§
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL CIEUC U")
@@ -257,7 +257,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110C #x116E #x0029)
-    (korean-ksc5601	#x22 #x5F)	; $(C"_(B
+    (korean-ksc5601	#x22 #x5F)	; ø»ˆœ¨
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH ONE")
@@ -266,7 +266,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E00 #x0029)
-    (chinese-gb2312	#x22 #x65)	; $(A"e(B
+    (chinese-gb2312	#x22 #x65)	; ø»„ˆ¦
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH TWO")
@@ -275,7 +275,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E8C #x0029)
-    (chinese-gb2312	#x22 #x66)	; $(A"f(B
+    (chinese-gb2312	#x22 #x66)	; ø»„ˆ§
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH THREE")
@@ -284,7 +284,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E09 #x0029)
-    (chinese-gb2312	#x22 #x67)	; $(A"g(B
+    (chinese-gb2312	#x22 #x67)	; ø»„ˆ¨
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH FOUR")
@@ -293,7 +293,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x56DB #x0029)
-    (chinese-gb2312	#x22 #x68)	; $(A"h(B
+    (chinese-gb2312	#x22 #x68)	; ø»„ˆ©
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH FIVE")
@@ -302,7 +302,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E94 #x0029)
-    (chinese-gb2312	#x22 #x69)	; $(A"i(B
+    (chinese-gb2312	#x22 #x69)	; ø»„ˆª
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH SIX")
@@ -311,7 +311,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x516D #x0029)
-    (chinese-gb2312	#x22 #x6A)	; $(A"j(B
+    (chinese-gb2312	#x22 #x6A)	; ø»„ˆ«
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH SEVEN")
@@ -320,7 +320,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E03 #x0029)
-    (chinese-gb2312	#x22 #x6B)	; $(A"k(B
+    (chinese-gb2312	#x22 #x6B)	; ø»„ˆ¬
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH EIGHT")
@@ -329,7 +329,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x516B #x0029)
-    (chinese-gb2312	#x22 #x6C)	; $(A"l(B
+    (chinese-gb2312	#x22 #x6C)	; ø»„ˆ­
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH NINE")
@@ -338,7 +338,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E5D #x0029)
-    (chinese-gb2312	#x22 #x6D)	; $(A"m(B
+    (chinese-gb2312	#x22 #x6D)	; ø»„ˆ®
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH TEN")
@@ -347,7 +347,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x5341 #x0029)
-    (chinese-gb2312	#x22 #x6E)	; $(A"n(B
+    (chinese-gb2312	#x22 #x6E)	; ø»„ˆ¯
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH MOON")
@@ -412,6 +412,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x682A #x0029)
+    (japanese-jisx0213-1	#x2D #x6A)	; ãˆ±
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH HAVE")
@@ -420,6 +421,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x6709 #x0029)
+    (japanese-jisx0213-1	#x2D #x6B)	; ãˆ²
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH SOCIETY")
@@ -476,6 +478,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4EE3 #x0029)
+    (japanese-jisx0213-1	#x2D #x6C)	; ãˆ¹
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH CALL")
@@ -564,7 +567,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1100)
-    (korean-ksc5601	#x28 #x31)	; $(C(1(B
+    (korean-ksc5601	#x28 #x31)	; ø»ˆ¤®
     ))
 (define-char
   '((name		. "CIRCLED HANGUL NIEUN")
@@ -573,7 +576,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1102)
-    (korean-ksc5601	#x28 #x32)	; $(C(2(B
+    (korean-ksc5601	#x28 #x32)	; ø»ˆ¤¯
     ))
 (define-char
   '((name		. "CIRCLED HANGUL TIKEUT")
@@ -582,7 +585,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1103)
-    (korean-ksc5601	#x28 #x33)	; $(C(3(B
+    (korean-ksc5601	#x28 #x33)	; ø»ˆ¤°
     ))
 (define-char
   '((name		. "CIRCLED HANGUL RIEUL")
@@ -591,7 +594,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1105)
-    (korean-ksc5601	#x28 #x34)	; $(C(4(B
+    (korean-ksc5601	#x28 #x34)	; ø»ˆ¤±
     ))
 (define-char
   '((name		. "CIRCLED HANGUL MIEUM")
@@ -600,7 +603,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1106)
-    (korean-ksc5601	#x28 #x35)	; $(C(5(B
+    (korean-ksc5601	#x28 #x35)	; ø»ˆ¤²
     ))
 (define-char
   '((name		. "CIRCLED HANGUL PIEUP")
@@ -609,7 +612,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1107)
-    (korean-ksc5601	#x28 #x36)	; $(C(6(B
+    (korean-ksc5601	#x28 #x36)	; ø»ˆ¤³
     ))
 (define-char
   '((name		. "CIRCLED HANGUL SIOS")
@@ -618,7 +621,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1109)
-    (korean-ksc5601	#x28 #x37)	; $(C(7(B
+    (korean-ksc5601	#x28 #x37)	; ø»ˆ¤´
     ))
 (define-char
   '((name		. "CIRCLED HANGUL IEUNG")
@@ -627,7 +630,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110B)
-    (korean-ksc5601	#x28 #x38)	; $(C(8(B
+    (korean-ksc5601	#x28 #x38)	; ø»ˆ¤µ
     ))
 (define-char
   '((name		. "CIRCLED HANGUL CIEUC")
@@ -636,7 +639,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110C)
-    (korean-ksc5601	#x28 #x39)	; $(C(9(B
+    (korean-ksc5601	#x28 #x39)	; ø»ˆ¤¶
     ))
 (define-char
   '((name		. "CIRCLED HANGUL CHIEUCH")
@@ -645,7 +648,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110E)
-    (korean-ksc5601	#x28 #x3A)	; $(C(:(B
+    (korean-ksc5601	#x28 #x3A)	; ø»ˆ¤·
     ))
 (define-char
   '((name		. "CIRCLED HANGUL KHIEUKH")
@@ -654,7 +657,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110F)
-    (korean-ksc5601	#x28 #x3B)	; $(C(;(B
+    (korean-ksc5601	#x28 #x3B)	; ø»ˆ¤¸
     ))
 (define-char
   '((name		. "CIRCLED HANGUL THIEUTH")
@@ -663,7 +666,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1110)
-    (korean-ksc5601	#x28 #x3C)	; $(C(<(B
+    (korean-ksc5601	#x28 #x3C)	; ø»ˆ¤¹
     ))
 (define-char
   '((name		. "CIRCLED HANGUL PHIEUPH")
@@ -672,7 +675,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1111)
-    (korean-ksc5601	#x28 #x3D)	; $(C(=(B
+    (korean-ksc5601	#x28 #x3D)	; ø»ˆ¤º
     ))
 (define-char
   '((name		. "CIRCLED HANGUL HIEUH")
@@ -681,7 +684,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1112)
-    (korean-ksc5601	#x28 #x3E)	; $(C(>(B
+    (korean-ksc5601	#x28 #x3E)	; ø»ˆ¤»
     ))
 (define-char
   '((name		. "CIRCLED HANGUL KIYEOK A")
@@ -690,7 +693,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1100 #x1161)
-    (korean-ksc5601	#x28 #x3F)	; $(C(?(B
+    (korean-ksc5601	#x28 #x3F)	; ø»ˆ¤¼
     ))
 (define-char
   '((name		. "CIRCLED HANGUL NIEUN A")
@@ -699,7 +702,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1102 #x1161)
-    (korean-ksc5601	#x28 #x40)	; $(C(@(B
+    (korean-ksc5601	#x28 #x40)	; ø»ˆ¤½
     ))
 (define-char
   '((name		. "CIRCLED HANGUL TIKEUT A")
@@ -708,7 +711,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1103 #x1161)
-    (korean-ksc5601	#x28 #x41)	; $(C(A(B
+    (korean-ksc5601	#x28 #x41)	; ø»ˆ¤¾
     ))
 (define-char
   '((name		. "CIRCLED HANGUL RIEUL A")
@@ -717,7 +720,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1105 #x1161)
-    (korean-ksc5601	#x28 #x42)	; $(C(B(B
+    (korean-ksc5601	#x28 #x42)	; ø»ˆ¤¿
     ))
 (define-char
   '((name		. "CIRCLED HANGUL MIEUM A")
@@ -726,7 +729,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1106 #x1161)
-    (korean-ksc5601	#x28 #x43)	; $(C(C(B
+    (korean-ksc5601	#x28 #x43)	; ø»ˆ¥€
     ))
 (define-char
   '((name		. "CIRCLED HANGUL PIEUP A")
@@ -735,7 +738,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1107 #x1161)
-    (korean-ksc5601	#x28 #x44)	; $(C(D(B
+    (korean-ksc5601	#x28 #x44)	; ø»ˆ¥
     ))
 (define-char
   '((name		. "CIRCLED HANGUL SIOS A")
@@ -744,7 +747,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1109 #x1161)
-    (korean-ksc5601	#x28 #x45)	; $(C(E(B
+    (korean-ksc5601	#x28 #x45)	; ø»ˆ¥‚
     ))
 (define-char
   '((name		. "CIRCLED HANGUL IEUNG A")
@@ -753,7 +756,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110B #x1161)
-    (korean-ksc5601	#x28 #x46)	; $(C(F(B
+    (korean-ksc5601	#x28 #x46)	; ø»ˆ¥ƒ
     ))
 (define-char
   '((name		. "CIRCLED HANGUL CIEUC A")
@@ -762,7 +765,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110C #x1161)
-    (korean-ksc5601	#x28 #x47)	; $(C(G(B
+    (korean-ksc5601	#x28 #x47)	; ø»ˆ¥„
     ))
 (define-char
   '((name		. "CIRCLED HANGUL CHIEUCH A")
@@ -771,7 +774,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110E #x1161)
-    (korean-ksc5601	#x28 #x48)	; $(C(H(B
+    (korean-ksc5601	#x28 #x48)	; ø»ˆ¥…
     ))
 (define-char
   '((name		. "CIRCLED HANGUL KHIEUKH A")
@@ -780,7 +783,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110F #x1161)
-    (korean-ksc5601	#x28 #x49)	; $(C(I(B
+    (korean-ksc5601	#x28 #x49)	; ø»ˆ¥†
     ))
 (define-char
   '((name		. "CIRCLED HANGUL THIEUTH A")
@@ -789,7 +792,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1110 #x1161)
-    (korean-ksc5601	#x28 #x4A)	; $(C(J(B
+    (korean-ksc5601	#x28 #x4A)	; ø»ˆ¥‡
     ))
 (define-char
   '((name		. "CIRCLED HANGUL PHIEUPH A")
@@ -798,7 +801,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1111 #x1161)
-    (korean-ksc5601	#x28 #x4B)	; $(C(K(B
+    (korean-ksc5601	#x28 #x4B)	; ø»ˆ¥ˆ
     ))
 (define-char
   '((name		. "CIRCLED HANGUL HIEUH A")
@@ -807,7 +810,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1112 #x1161)
-    (korean-ksc5601	#x28 #x4C)	; $(C(L(B
+    (korean-ksc5601	#x28 #x4C)	; ø»ˆ¥‰
     ))
 (define-char
   '((name		. "KOREAN STANDARD SYMBOL")
@@ -815,7 +818,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x5E)	; $(C"^(B
+    (korean-ksc5601	#x22 #x5E)	; ø»ˆœ§
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH ONE")
@@ -1114,7 +1117,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x6B63)
-    (chinese-cns11643-1 #x22 #x21)	; $(G"!(B
+    (chinese-cns11643-1 #x22 #x21)	; ø»‘ƒº
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH HIGH")
@@ -1123,6 +1126,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x4E0A)
+    (japanese-jisx0213-1	#x2D #x65)	; ãŠ¤
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH CENTRE")
@@ -1131,6 +1135,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x4E2D)
+    (japanese-jisx0213-1	#x2D #x66)	; ãŠ¥
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH LOW")
@@ -1139,6 +1144,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x4E0B)
+    (japanese-jisx0213-1	#x2D #x67)	; ãŠ¦
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH LEFT")
@@ -1147,6 +1153,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x5DE6)
+    (japanese-jisx0213-1	#x2D #x68)	; ãŠ§
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH RIGHT")
@@ -1155,6 +1162,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x53F3)
+    (japanese-jisx0213-1	#x2D #x69)	; ãŠ¨
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH MEDICINE")
@@ -1323,6 +1331,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30A2)
+    (japanese-jisx0213-1	#x2C #x5B)	; ã‹
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA I")
@@ -1331,6 +1340,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30A4)
+    (japanese-jisx0213-1	#x2C #x5C)	; ã‹‘
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA U")
@@ -1339,6 +1349,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30A6)
+    (japanese-jisx0213-1	#x2C #x5D)	; ã‹’
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA E")
@@ -1347,6 +1358,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30A8)
+    (japanese-jisx0213-1	#x2C #x5E)	; ã‹“
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA O")
@@ -1355,6 +1367,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30AA)
+    (japanese-jisx0213-1	#x2C #x5F)	; ã‹”
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KA")
@@ -1363,6 +1376,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30AB)
+    (japanese-jisx0213-1	#x2C #x60)	; ã‹•
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KI")
@@ -1371,6 +1385,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30AD)
+    (japanese-jisx0213-1	#x2C #x61)	; ã‹–
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KU")
@@ -1379,6 +1394,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30AF)
+    (japanese-jisx0213-1	#x2C #x62)	; ã‹—
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KE")
@@ -1387,6 +1403,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30B1)
+    (japanese-jisx0213-1	#x2C #x63)	; ã‹˜
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KO")
@@ -1395,6 +1412,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30B3)
+    (japanese-jisx0213-1	#x2C #x64)	; ã‹™
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SA")
@@ -1403,6 +1421,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30B5)
+    (japanese-jisx0213-1	#x2C #x65)	; ã‹š
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SI")
@@ -1411,6 +1430,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30B7)
+    (japanese-jisx0213-1	#x2C #x66)	; ã‹›
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SU")
@@ -1419,6 +1439,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30B9)
+    (japanese-jisx0213-1	#x2C #x67)	; ã‹œ
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SE")
@@ -1427,6 +1448,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30BB)
+    (japanese-jisx0213-1	#x2C #x68)	; ã‹
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SO")
@@ -1435,6 +1457,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30BD)
+    (japanese-jisx0213-1	#x2C #x69)	; ã‹ž
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TA")
@@ -1443,6 +1466,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30BF)
+    (japanese-jisx0213-1	#x2C #x6A)	; ã‹Ÿ
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TI")
@@ -1451,6 +1475,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30C1)
+    (japanese-jisx0213-1	#x2C #x6B)	; ã‹ 
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TU")
@@ -1459,6 +1484,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30C4)
+    (japanese-jisx0213-1	#x2C #x6C)	; ã‹¡
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TE")
@@ -1467,6 +1493,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30C6)
+    (japanese-jisx0213-1	#x2C #x6D)	; ã‹¢
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TO")
@@ -1475,6 +1502,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30C8)
+    (japanese-jisx0213-1	#x2C #x6E)	; ã‹£
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA NA")
@@ -1491,6 +1519,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30CB)
+    (japanese-jisx0213-1	#x2C #x71)	; ã‹¥
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA NU")
@@ -1523,6 +1552,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30CF)
+    (japanese-jisx0213-1	#x2C #x70)	; ã‹©
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA HI")
@@ -1547,6 +1577,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30D8)
+    (japanese-jisx0213-1	#x2C #x73)	; ã‹¬
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA HO")
@@ -1555,6 +1586,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30DB)
+    (japanese-jisx0213-1	#x2C #x72)	; ã‹­
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA MA")
@@ -1659,6 +1691,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x30ED)
+    (japanese-jisx0213-1	#x2C #x6F)	; ã‹º
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA WA")

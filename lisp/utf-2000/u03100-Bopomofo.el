@@ -4,8 +4,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x45)	; $(A(E(B
-    (chinese-cns11643-1 #x25 #x47)	; $(G%G(B
+    (chinese-gb2312	#x28 #x45)	; ø»„º
+    (chinese-cns11643-1 #x25 #x47)	; ø»‘ˆº
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER P")
@@ -13,8 +13,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x46)	; $(A(F(B
-    (chinese-cns11643-1 #x25 #x48)	; $(G%H(B
+    (chinese-gb2312	#x28 #x46)	; ø»„»
+    (chinese-cns11643-1 #x25 #x48)	; ø»‘ˆ»
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER M")
@@ -22,8 +22,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x47)	; $(A(G(B
-    (chinese-cns11643-1 #x25 #x49)	; $(G%I(B
+    (chinese-gb2312	#x28 #x47)	; ø»„¼
+    (chinese-cns11643-1 #x25 #x49)	; ø»‘ˆ¼
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER F")
@@ -31,8 +31,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x48)	; $(A(H(B
-    (chinese-cns11643-1 #x25 #x4A)	; $(G%J(B
+    (chinese-gb2312	#x28 #x48)	; ø»„½
+    (chinese-cns11643-1 #x25 #x4A)	; ø»‘ˆ½
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER D")
@@ -40,8 +40,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x49)	; $(A(I(B
-    (chinese-cns11643-1 #x25 #x4B)	; $(G%K(B
+    (chinese-gb2312	#x28 #x49)	; ø»„¾
+    (chinese-cns11643-1 #x25 #x4B)	; ø»‘ˆ¾
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER T")
@@ -49,8 +49,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x4A)	; $(A(J(B
-    (chinese-cns11643-1 #x25 #x4C)	; $(G%L(B
+    (chinese-gb2312	#x28 #x4A)	; ø»„¿
+    (chinese-cns11643-1 #x25 #x4C)	; ø»‘ˆ¿
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER N")
@@ -58,8 +58,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x4B)	; $(A(K(B
-    (chinese-cns11643-1 #x25 #x4D)	; $(G%M(B
+    (chinese-gb2312	#x28 #x4B)	; ø»„‘€
+    (chinese-cns11643-1 #x25 #x4D)	; ø»‘‰€
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER L")
@@ -67,8 +67,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x4C)	; $(A(L(B
-    (chinese-cns11643-1 #x25 #x4E)	; $(G%N(B
+    (chinese-gb2312	#x28 #x4C)	; ø»„‘
+    (chinese-cns11643-1 #x25 #x4E)	; ø»‘‰
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER G")
@@ -76,8 +76,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x4D)	; $(A(M(B
-    (chinese-cns11643-1 #x25 #x4F)	; $(G%O(B
+    (chinese-gb2312	#x28 #x4D)	; ø»„‘‚
+    (chinese-cns11643-1 #x25 #x4F)	; ø»‘‰‚
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER K")
@@ -85,8 +85,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x4E)	; $(A(N(B
-    (chinese-cns11643-1 #x25 #x50)	; $(G%P(B
+    (morohashi-daikanwa	3)
+    (ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (chinese-gb2312	#x28 #x4E)	; ø»„‘ƒ
+    (chinese-cns11643-1 #x25 #x50)	; ø»‘‰ƒ
+    (ideograph-daikanwa #x00 #x03)	; ø¹€ƒ
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER H")
@@ -94,8 +99,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x4F)	; $(A(O(B
-    (chinese-cns11643-1 #x25 #x51)	; $(G%Q(B
+    (chinese-gb2312	#x28 #x4F)	; ø»„‘„
+    (chinese-cns11643-1 #x25 #x51)	; ø»‘‰„
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER J")
@@ -103,8 +108,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x50)	; $(A(P(B
-    (chinese-cns11643-1 #x25 #x52)	; $(G%R(B
+    (chinese-gb2312	#x28 #x50)	; ø»„‘…
+    (chinese-cns11643-1 #x25 #x52)	; ø»‘‰…
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER Q")
@@ -112,8 +117,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x51)	; $(A(Q(B
-    (chinese-cns11643-1 #x25 #x53)	; $(G%S(B
+    (chinese-gb2312	#x28 #x51)	; ø»„‘†
+    (chinese-cns11643-1 #x25 #x53)	; ø»‘‰†
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER X")
@@ -121,8 +126,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x52)	; $(A(R(B
-    (chinese-cns11643-1 #x25 #x54)	; $(G%T(B
+    (chinese-gb2312	#x28 #x52)	; ø»„‘‡
+    (chinese-cns11643-1 #x25 #x54)	; ø»‘‰‡
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER ZH")
@@ -130,8 +135,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x53)	; $(A(S(B
-    (chinese-cns11643-1 #x25 #x55)	; $(G%U(B
+    (chinese-gb2312	#x28 #x53)	; ø»„‘ˆ
+    (chinese-cns11643-1 #x25 #x55)	; ø»‘‰ˆ
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER CH")
@@ -139,8 +144,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x54)	; $(A(T(B
-    (chinese-cns11643-1 #x25 #x56)	; $(G%V(B
+    (chinese-gb2312	#x28 #x54)	; ø»„‘‰
+    (chinese-cns11643-1 #x25 #x56)	; ø»‘‰‰
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER SH")
@@ -148,8 +153,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x55)	; $(A(U(B
-    (chinese-cns11643-1 #x25 #x57)	; $(G%W(B
+    (chinese-gb2312	#x28 #x55)	; ø»„‘Š
+    (chinese-cns11643-1 #x25 #x57)	; ø»‘‰Š
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER R")
@@ -157,8 +162,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x56)	; $(A(V(B
-    (chinese-cns11643-1 #x25 #x58)	; $(G%X(B
+    (chinese-gb2312	#x28 #x56)	; ø»„‘‹
+    (chinese-cns11643-1 #x25 #x58)	; ø»‘‰‹
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER Z")
@@ -166,8 +171,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x57)	; $(A(W(B
-    (chinese-cns11643-1 #x25 #x59)	; $(G%Y(B
+    (chinese-gb2312	#x28 #x57)	; ø»„‘Œ
+    (chinese-cns11643-1 #x25 #x59)	; ø»‘‰Œ
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER C")
@@ -175,8 +180,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x58)	; $(A(X(B
-    (chinese-cns11643-1 #x25 #x5A)	; $(G%Z(B
+    (morohashi-daikanwa	9)
+    (ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (chinese-gb2312	#x28 #x58)	; ø»„‘
+    (chinese-cns11643-1 #x25 #x5A)	; ø»‘‰
+    (ideograph-daikanwa #x00 #x09)	; ø¹€‰
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER S")
@@ -184,8 +194,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x59)	; $(A(Y(B
-    (chinese-cns11643-1 #x25 #x5B)	; $(G%[(B
+    (chinese-gb2312	#x28 #x59)	; ø»„‘
+    (chinese-cns11643-1 #x25 #x5B)	; ø»‘‰
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER A")
@@ -193,8 +203,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x5A)	; $(A(Z(B
-    (chinese-cns11643-1 #x25 #x5C)	; $(G%\(B
+    (chinese-gb2312	#x28 #x5A)	; ø»„‘
+    (chinese-cns11643-1 #x25 #x5C)	; ø»‘‰
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER O")
@@ -202,8 +212,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x5B)	; $(A([(B
-    (chinese-cns11643-1 #x25 #x5D)	; $(G%](B
+    (morohashi-daikanwa	4)
+    (ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (chinese-gb2312	#x28 #x5B)	; ø»„‘
+    (chinese-cns11643-1 #x25 #x5D)	; ø»‘‰
+    (ideograph-daikanwa #x00 #x04)	; ø¹€„
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER E")
@@ -211,8 +226,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x5C)	; $(A(\(B
-    (chinese-cns11643-1 #x25 #x5E)	; $(G%^(B
+    (morohashi-daikanwa	5)
+    (ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (chinese-gb2312	#x28 #x5C)	; ø»„‘‘
+    (chinese-cns11643-1 #x25 #x5E)	; ø»‘‰‘
+    (ideograph-daikanwa #x00 #x05)	; ø¹€…
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER EH")
@@ -220,8 +240,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x5D)	; $(A(](B
-    (chinese-cns11643-1 #x25 #x5F)	; $(G%_(B
+    (chinese-gb2312	#x28 #x5D)	; ø»„‘’
+    (chinese-cns11643-1 #x25 #x5F)	; ø»‘‰’
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER AI")
@@ -229,8 +249,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x5E)	; $(A(^(B
-    (chinese-cns11643-1 #x25 #x60)	; $(G%`(B
+    (chinese-gb2312	#x28 #x5E)	; ø»„‘“
+    (chinese-cns11643-1 #x25 #x60)	; ø»‘‰“
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER EI")
@@ -238,8 +258,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x5F)	; $(A(_(B
-    (chinese-cns11643-1 #x25 #x61)	; $(G%a(B
+    (chinese-gb2312	#x28 #x5F)	; ø»„‘”
+    (chinese-cns11643-1 #x25 #x61)	; ø»‘‰”
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER AU")
@@ -247,8 +267,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x60)	; $(A(`(B
-    (chinese-cns11643-1 #x25 #x62)	; $(G%b(B
+    (chinese-gb2312	#x28 #x60)	; ø»„‘•
+    (chinese-cns11643-1 #x25 #x62)	; ø»‘‰•
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER OU")
@@ -256,8 +276,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x61)	; $(A(a(B
-    (chinese-cns11643-1 #x25 #x63)	; $(G%c(B
+    (chinese-gb2312	#x28 #x61)	; ø»„‘–
+    (chinese-cns11643-1 #x25 #x63)	; ø»‘‰–
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER AN")
@@ -265,8 +285,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x62)	; $(A(b(B
-    (chinese-cns11643-1 #x25 #x64)	; $(G%d(B
+    (chinese-gb2312	#x28 #x62)	; ø»„‘—
+    (chinese-cns11643-1 #x25 #x64)	; ø»‘‰—
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER EN")
@@ -274,8 +294,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x63)	; $(A(c(B
-    (chinese-cns11643-1 #x25 #x65)	; $(G%e(B
+    (chinese-gb2312	#x28 #x63)	; ø»„‘˜
+    (chinese-cns11643-1 #x25 #x65)	; ø»‘‰˜
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER ANG")
@@ -283,8 +303,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x64)	; $(A(d(B
-    (chinese-cns11643-1 #x25 #x66)	; $(G%f(B
+    (chinese-gb2312	#x28 #x64)	; ø»„‘™
+    (chinese-cns11643-1 #x25 #x66)	; ø»‘‰™
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER ENG")
@@ -292,8 +312,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x65)	; $(A(e(B
-    (chinese-cns11643-1 #x25 #x67)	; $(G%g(B
+    (chinese-gb2312	#x28 #x65)	; ø»„‘š
+    (chinese-cns11643-1 #x25 #x67)	; ø»‘‰š
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER ER")
@@ -301,8 +321,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x66)	; $(A(f(B
-    (chinese-cns11643-1 #x25 #x68)	; $(G%h(B
+    (chinese-gb2312	#x28 #x66)	; ø»„‘›
+    (chinese-cns11643-1 #x25 #x68)	; ø»‘‰›
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER I")
@@ -310,8 +330,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x67)	; $(A(g(B
-    (chinese-cns11643-1 #x25 #x69)	; $(G%i(B
+    (chinese-gb2312	#x28 #x67)	; ø»„‘œ
+    (chinese-cns11643-1 #x25 #x69)	; ø»‘‰œ
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER U")
@@ -319,8 +339,14 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x68)	; $(A(h(B
-    (chinese-cns11643-1 #x25 #x6A)	; $(G%j(B
+    (morohashi-daikanwa	115)
+    (ideographic-radical . 4)	; â¼ƒ
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (comment		. "<ancient character> of M00257.0")
+    (chinese-gb2312	#x28 #x68)	; ø»„‘
+    (chinese-cns11643-1 #x25 #x6A)	; ø»‘‰
+    (ideograph-daikanwa #x00 #x73)	; ø¹³
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER IU")
@@ -328,8 +354,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (chinese-gb2312	#x28 #x69)	; $(A(i(B
-    (chinese-cns11643-1 #x25 #x6B)	; $(G%k(B
+    (chinese-gb2312	#x28 #x69)	; ø»„‘
+    (chinese-cns11643-1 #x25 #x6B)	; ø»‘‰
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER V")
