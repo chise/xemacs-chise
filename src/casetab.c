@@ -1,6 +1,7 @@
 /* XEmacs routines to deal with case tables.
    Copyright (C) 1987, 1992, 1993, 1994 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -29,6 +30,7 @@ Boston, MA 02111-1307, USA.  */
    distribution file chartab.c for details. */
 
 /* Modified for Mule by Ben Wing. */
+/* Modified for UTF-2000 by MORIOKA Tomohiko */
 
 /* Case table consists of four char-table.  Those are for downcase,
    upcase, canonical and equivalent respectively.
@@ -50,6 +52,9 @@ Boston, MA 02111-1307, USA.  */
 
 Lisp_Object Qcase_tablep, Qdowncase, Qupcase;
 Lisp_Object Vstandard_case_table;
+#ifdef UTF2000
+Lisp_Object Qflippedcase, Q_lowercase, Q_uppercase;
+#endif
 
 static void compute_trt_inverse (Lisp_Object trt, Lisp_Object inverse);
 Lisp_Object case_table_char (Lisp_Object ch, Lisp_Object table);
@@ -450,6 +455,11 @@ syms_of_casetab (void)
   defsymbol (&Qcase_tablep, "case-table-p");
   defsymbol (&Qdowncase, "downcase");
   defsymbol (&Qupcase, "upcase");
+#ifdef UTF2000
+  defsymbol (&Qflippedcase, "flippedcase");
+  defsymbol (&Q_lowercase, "->lowercase");
+  defsymbol (&Q_uppercase, "->uppercase");
+#endif
 
   DEFSUBR (Fcase_table_p);
   DEFSUBR (Fget_case_table);
@@ -472,7 +482,14 @@ complex_vars_of_casetab (void)
 
   Vstandard_case_table = allocate_case_table ();
 
+#ifdef UTF2000
   tem = MAKE_TRT_TABLE ();
+#ifdef HAVE_DATABASE
+  XCHAR_TABLE_NAME (tem) = Qdowncase;
+#endif
+#else
+  tem = MAKE_TRT_TABLE ();
+#endif
   XSET_CASE_TABLE_DOWNCASE (Vstandard_case_table, tem);
   XSET_CASE_TABLE_CANON (Vstandard_case_table, tem);
 
@@ -485,7 +502,14 @@ complex_vars_of_casetab (void)
       SET_TRT_TABLE_CHAR_1 (tem, i, lowered);
     }
 
+#ifdef UTF2000
   tem = MAKE_TRT_TABLE ();
+#ifdef HAVE_DATABASE
+  XCHAR_TABLE_NAME (tem) = Qflippedcase;
+#endif
+#else
+  tem = MAKE_TRT_TABLE ();
+#endif
   XSET_CASE_TABLE_UPCASE (Vstandard_case_table, tem);
   XSET_CASE_TABLE_EQV (Vstandard_case_table, tem);
 
