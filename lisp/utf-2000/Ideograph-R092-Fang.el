@@ -12,6 +12,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=gb2312		. #x5140)	; ø»…ƒ
+    (=iso-ir165		. #x5140)	; ø»µ“
     (=big5		. #xA4FA)	; ý¢€Š“º
     (=ucs		. #x7259)	; ç‰™
     ))
@@ -23,11 +24,10 @@
     (total-strokes	 . 5)
     (=jis-x0208		. #x3267)	; ø½Š€
     (=ks-x1001		. #x6433)	; ø»‰¼¸
-    (=gt-pj-1		. #x3267)	; ý¡€†˜
+    (=gt-pj-1		. #x3267)	; ø½Š€
     (=gt-k		. 00900)	; ý¡„€Ž„
     (=jef-china3	. #x58C5)	; øº…£…
     (=ucs@jis		. #x7259)	; ø½Š€
-    (=gt		. 25560)	; ý¡€†˜
     ))
 (define-char
   '((=>ucs		. #x3E26)	; ã¸¦

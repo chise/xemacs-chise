@@ -218,6 +218,7 @@
     (japanese-strokes	 . 9)
     (total-strokes	 . 9)
     (=gb2312		. #x3834)	; ø»„¨‰
+    (=iso-ir165		. #x3834)	; ø»™
     (=jis-x0213-2-2000	. #x253B)	; ø»¤£’
     (=big5		. #xCE60)	; ý¢€Œ¹ 
     (=jef-china3	. #x81FB)	; øºˆ‡»
@@ -300,6 +301,7 @@
     (=gb2312		. #x4F44)	; ø»…Š‹
     (=jis-x0208		. #x3246)	; ø½ŠŸ
     (=ks-x1001		. #x793E)	; ø»Š›¹
+    (=iso-ir165		. #x4F44)	; ø»²›
     (=gt-pj-1		. #x3246)	; ý¡€°±
     (=big5		. #xAE4C)	; ý¢€Š¹Œ
     (=gt-k		. 06381)	; ý¡„£­
@@ -715,6 +717,7 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
     (=gb2312		. #x5967)	; ø»…™š
+    (=iso-ir165		. #x5967)	; ø»Žª
     (=big5		. #xC4DC)	; ý¢€Œ“œ
     (=ucs		. #x5914)	; å¤”
     ))
