@@ -858,7 +858,7 @@
       )
     (unless readable
       (dolist (ignored '(composition
-			 ->denotational <-unified ->ucs-unified))
+			 ->denotational <-subsumptive ->ucs-unified))
 	(setq attributes (delq ignored attributes))))
     (setq rest ccs-attributes)
     (while (and rest
@@ -894,11 +894,11 @@
 		   (setq cell (car value))
                    (if (integerp cell)
 		       (setq cell (decode-char '=ucs cell)))
-		   (cond ((eq name '->unified)
+		   (cond ((eq name '->subsumptive)
 			  (if separator
 			      (insert lbs))
 			  (let ((char-db-ignored-attributes
-				 (cons '<-unified
+				 (cons '<-subsumptive
 				       char-db-ignored-attributes)))
 			    (insert-char-attributes cell readable))
 			  (setq separator lbs))
