@@ -1,717 +1,907 @@
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER AYB")
-    (ucs		. #x0531)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0561)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER AYB")
+      (ucs		  . #x0561)	; ա
+      ))
+    (ucs		. #x0531)	; Ա
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER BEN")
-    (ucs		. #x0532)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0562)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER BEN")
+      (ucs		  . #x0562)	; բ
+      ))
+    (ucs		. #x0532)	; Բ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER GIM")
-    (ucs		. #x0533)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0563)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER GIM")
+      (ucs		  . #x0563)	; գ
+      ))
+    (ucs		. #x0533)	; Գ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER DA")
-    (ucs		. #x0534)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0564)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER DA")
+      (ucs		  . #x0564)	; դ
+      ))
+    (ucs		. #x0534)	; Դ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER ECH")
-    (ucs		. #x0535)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0565)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER ECH")
+      (ucs		  . #x0565)	; ե
+      ))
+    (ucs		. #x0535)	; Ե
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER ZA")
-    (ucs		. #x0536)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0566)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER ZA")
+      (ucs		  . #x0566)	; զ
+      ))
+    (ucs		. #x0536)	; Զ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER EH")
-    (ucs		. #x0537)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0567)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER EH")
+      (ucs		  . #x0567)	; է
+      ))
+    (ucs		. #x0537)	; Է
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER ET")
-    (ucs		. #x0538)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0568)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER ET")
+      (ucs		  . #x0568)	; ը
+      ))
+    (ucs		. #x0538)	; Ը
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER TO")
-    (ucs		. #x0539)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0569)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER TO")
+      (ucs		  . #x0569)	; թ
+      ))
+    (ucs		. #x0539)	; Թ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER ZHE")
-    (ucs		. #x053A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x056A)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER ZHE")
+      (ucs		  . #x056A)	; ժ
+      ))
+    (ucs		. #x053A)	; Ժ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER INI")
-    (ucs		. #x053B)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x056B)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER INI")
+      (ucs		  . #x056B)	; ի
+      ))
+    (ucs		. #x053B)	; Ի
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER LIWN")
-    (ucs		. #x053C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x056C)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER LIWN")
+      (ucs		  . #x056C)	; լ
+      ))
+    (ucs		. #x053C)	; Լ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER XEH")
-    (ucs		. #x053D)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x056D)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER XEH")
+      (ucs		  . #x056D)	; խ
+      ))
+    (ucs		. #x053D)	; Խ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER CA")
-    (ucs		. #x053E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x056E)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER CA")
+      (ucs		  . #x056E)	; ծ
+      ))
+    (ucs		. #x053E)	; Ծ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER KEN")
-    (ucs		. #x053F)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x056F)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER KEN")
+      (ucs		  . #x056F)	; կ
+      ))
+    (ucs		. #x053F)	; Կ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER HO")
-    (ucs		. #x0540)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0570)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER HO")
+      (ucs		  . #x0570)	; հ
+      ))
+    (ucs		. #x0540)	; Հ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER JA")
-    (ucs		. #x0541)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0571)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER JA")
+      (ucs		  . #x0571)	; ձ
+      ))
+    (ucs		. #x0541)	; Ձ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER GHAD")
-    (ucs		. #x0542)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0572)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER GHAD")
+      (ucs		  . #x0572)	; ղ
+      ))
+    (ucs		. #x0542)	; Ղ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER CHEH")
-    (ucs		. #x0543)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0573)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER CHEH")
+      (ucs		  . #x0573)	; ճ
+      ))
+    (ucs		. #x0543)	; Ճ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER MEN")
-    (ucs		. #x0544)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0574)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER MEN")
+      (ucs		  . #x0574)	; մ
+      ))
+    (ucs		. #x0544)	; Մ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER YI")
-    (ucs		. #x0545)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0575)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER YI")
+      (ucs		  . #x0575)	; յ
+      ))
+    (ucs		. #x0545)	; Յ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER NOW")
-    (ucs		. #x0546)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0576)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER NOW")
+      (ucs		  . #x0576)	; ն
+      ))
+    (ucs		. #x0546)	; Ն
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER SHA")
-    (ucs		. #x0547)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0577)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER SHA")
+      (ucs		  . #x0577)	; շ
+      ))
+    (ucs		. #x0547)	; Շ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER VO")
-    (ucs		. #x0548)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0578)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER VO")
+      (ucs		  . #x0578)	; ո
+      ))
+    (ucs		. #x0548)	; Ո
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER CHA")
-    (ucs		. #x0549)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0579)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER CHA")
+      (ucs		  . #x0579)	; չ
+      ))
+    (ucs		. #x0549)	; Չ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER PEH")
-    (ucs		. #x054A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x057A)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER PEH")
+      (ucs		  . #x057A)	; պ
+      ))
+    (ucs		. #x054A)	; Պ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER JHEH")
-    (ucs		. #x054B)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x057B)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER JHEH")
+      (ucs		  . #x057B)	; ջ
+      ))
+    (ucs		. #x054B)	; Ջ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER RA")
-    (ucs		. #x054C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x057C)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER RA")
+      (ucs		  . #x057C)	; ռ
+      ))
+    (ucs		. #x054C)	; Ռ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER SEH")
-    (ucs		. #x054D)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x057D)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER SEH")
+      (ucs		  . #x057D)	; ս
+      ))
+    (ucs		. #x054D)	; Ս
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER VEW")
-    (ucs		. #x054E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x057E)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER VEW")
+      (ucs		  . #x057E)	; վ
+      ))
+    (ucs		. #x054E)	; Վ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER TIWN")
-    (ucs		. #x054F)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x057F)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER TIWN")
+      (ucs		  . #x057F)	; տ
+      ))
+    (ucs		. #x054F)	; Տ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER REH")
-    (ucs		. #x0550)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0580)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER REH")
+      (ucs		  . #x0580)	; ր
+      ))
+    (ucs		. #x0550)	; Ր
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER CO")
-    (ucs		. #x0551)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0581)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER CO")
+      (ucs		  . #x0581)	; ց
+      ))
+    (ucs		. #x0551)	; Ց
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER YIWN")
-    (ucs		. #x0552)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0582)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER YIWN")
+      (ucs		  . #x0582)	; ւ
+      ))
+    (ucs		. #x0552)	; Ւ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER PIWR")
-    (ucs		. #x0553)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0583)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER PIWR")
+      (ucs		  . #x0583)	; փ
+      ))
+    (ucs		. #x0553)	; Փ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER KEH")
-    (ucs		. #x0554)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0584)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER KEH")
+      (ucs		  . #x0584)	; ք
+      ))
+    (ucs		. #x0554)	; Ք
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER OH")
-    (ucs		. #x0555)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0585)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER OH")
+      (ucs		  . #x0585)	; օ
+      ))
+    (ucs		. #x0555)	; Օ
     ))
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER FEH")
-    (ucs		. #x0556)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->lowercase	#x0586)
+    (->lowercase
+     ((name		  . "ARMENIAN SMALL LETTER FEH")
+      (ucs		  . #x0586)	; ֆ
+      ))
+    (ucs		. #x0556)	; Ֆ
     ))
 (define-char
   '((name		. "ARMENIAN MODIFIER LETTER LEFT HALF RING")
-    (ucs		. #x0559)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0559)	; ՙ
     ))
 (define-char
   '((name		. "ARMENIAN APOSTROPHE")
-    (ucs		. #x055A)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x055A)	; ՚
     ))
 (define-char
   '((name		. "ARMENIAN EMPHASIS MARK")
-    (ucs		. #x055B)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x055B)	; ՛
     ))
 (define-char
   '((name		. "ARMENIAN EXCLAMATION MARK")
-    (ucs		. #x055C)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x055C)	; ՜
     ))
 (define-char
   '((name		. "ARMENIAN COMMA")
-    (ucs		. #x055D)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x055D)	; ՝
     ))
 (define-char
   '((name		. "ARMENIAN QUESTION MARK")
-    (ucs		. #x055E)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x055E)	; ՞
     ))
 (define-char
   '((name		. "ARMENIAN ABBREVIATION MARK")
-    (ucs		. #x055F)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x055F)	; ՟
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER AYB")
-    (ucs		. #x0561)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0531)
-    (->titlecase	#x0531)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER AYB")
+      (ucs		  . #x0531)	; Ա
+      ))
+    (ucs		. #x0561)	; ա
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER BEN")
-    (ucs		. #x0562)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0532)
-    (->titlecase	#x0532)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER BEN")
+      (ucs		  . #x0532)	; Բ
+      ))
+    (ucs		. #x0562)	; բ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER GIM")
-    (ucs		. #x0563)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0533)
-    (->titlecase	#x0533)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER GIM")
+      (ucs		  . #x0533)	; Գ
+      ))
+    (ucs		. #x0563)	; գ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER DA")
-    (ucs		. #x0564)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0534)
-    (->titlecase	#x0534)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER DA")
+      (ucs		  . #x0534)	; Դ
+      ))
+    (ucs		. #x0564)	; դ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER ECH")
-    (ucs		. #x0565)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0535)
-    (->titlecase	#x0535)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER ECH")
+      (ucs		  . #x0535)	; Ե
+      ))
+    (ucs		. #x0565)	; ե
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER ZA")
-    (ucs		. #x0566)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0536)
-    (->titlecase	#x0536)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER ZA")
+      (ucs		  . #x0536)	; Զ
+      ))
+    (ucs		. #x0566)	; զ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER EH")
-    (ucs		. #x0567)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0537)
-    (->titlecase	#x0537)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER EH")
+      (ucs		  . #x0537)	; Է
+      ))
+    (ucs		. #x0567)	; է
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER ET")
-    (ucs		. #x0568)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0538)
-    (->titlecase	#x0538)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER ET")
+      (ucs		  . #x0538)	; Ը
+      ))
+    (ucs		. #x0568)	; ը
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER TO")
-    (ucs		. #x0569)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0539)
-    (->titlecase	#x0539)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER TO")
+      (ucs		  . #x0539)	; Թ
+      ))
+    (ucs		. #x0569)	; թ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER ZHE")
-    (ucs		. #x056A)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x053A)
-    (->titlecase	#x053A)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER ZHE")
+      (ucs		  . #x053A)	; Ժ
+      ))
+    (ucs		. #x056A)	; ժ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER INI")
-    (ucs		. #x056B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x053B)
-    (->titlecase	#x053B)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER INI")
+      (ucs		  . #x053B)	; Ի
+      ))
+    (ucs		. #x056B)	; ի
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER LIWN")
-    (ucs		. #x056C)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x053C)
-    (->titlecase	#x053C)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER LIWN")
+      (ucs		  . #x053C)	; Լ
+      ))
+    (ucs		. #x056C)	; լ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER XEH")
-    (ucs		. #x056D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x053D)
-    (->titlecase	#x053D)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER XEH")
+      (ucs		  . #x053D)	; Խ
+      ))
+    (ucs		. #x056D)	; խ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER CA")
-    (ucs		. #x056E)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x053E)
-    (->titlecase	#x053E)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER CA")
+      (ucs		  . #x053E)	; Ծ
+      ))
+    (ucs		. #x056E)	; ծ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER KEN")
-    (ucs		. #x056F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x053F)
-    (->titlecase	#x053F)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER KEN")
+      (ucs		  . #x053F)	; Կ
+      ))
+    (ucs		. #x056F)	; կ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER HO")
-    (ucs		. #x0570)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0540)
-    (->titlecase	#x0540)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER HO")
+      (ucs		  . #x0540)	; Հ
+      ))
+    (ucs		. #x0570)	; հ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER JA")
-    (ucs		. #x0571)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0541)
-    (->titlecase	#x0541)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER JA")
+      (ucs		  . #x0541)	; Ձ
+      ))
+    (ucs		. #x0571)	; ձ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER GHAD")
-    (ucs		. #x0572)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0542)
-    (->titlecase	#x0542)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER GHAD")
+      (ucs		  . #x0542)	; Ղ
+      ))
+    (ucs		. #x0572)	; ղ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER CHEH")
-    (ucs		. #x0573)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0543)
-    (->titlecase	#x0543)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER CHEH")
+      (ucs		  . #x0543)	; Ճ
+      ))
+    (ucs		. #x0573)	; ճ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER MEN")
-    (ucs		. #x0574)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0544)
-    (->titlecase	#x0544)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER MEN")
+      (ucs		  . #x0544)	; Մ
+      ))
+    (ucs		. #x0574)	; մ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER YI")
-    (ucs		. #x0575)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0545)
-    (->titlecase	#x0545)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER YI")
+      (ucs		  . #x0545)	; Յ
+      ))
+    (ucs		. #x0575)	; յ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER NOW")
-    (ucs		. #x0576)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0546)
-    (->titlecase	#x0546)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER NOW")
+      (ucs		  . #x0546)	; Ն
+      ))
+    (ucs		. #x0576)	; ն
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER SHA")
-    (ucs		. #x0577)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0547)
-    (->titlecase	#x0547)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER SHA")
+      (ucs		  . #x0547)	; Շ
+      ))
+    (ucs		. #x0577)	; շ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER VO")
-    (ucs		. #x0578)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0548)
-    (->titlecase	#x0548)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER VO")
+      (ucs		  . #x0548)	; Ո
+      ))
+    (ucs		. #x0578)	; ո
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER CHA")
-    (ucs		. #x0579)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0549)
-    (->titlecase	#x0549)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER CHA")
+      (ucs		  . #x0549)	; Չ
+      ))
+    (ucs		. #x0579)	; չ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER PEH")
-    (ucs		. #x057A)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x054A)
-    (->titlecase	#x054A)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER PEH")
+      (ucs		  . #x054A)	; Պ
+      ))
+    (ucs		. #x057A)	; պ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER JHEH")
-    (ucs		. #x057B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x054B)
-    (->titlecase	#x054B)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER JHEH")
+      (ucs		  . #x054B)	; Ջ
+      ))
+    (ucs		. #x057B)	; ջ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER RA")
-    (ucs		. #x057C)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x054C)
-    (->titlecase	#x054C)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER RA")
+      (ucs		  . #x054C)	; Ռ
+      ))
+    (ucs		. #x057C)	; ռ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER SEH")
-    (ucs		. #x057D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x054D)
-    (->titlecase	#x054D)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER SEH")
+      (ucs		  . #x054D)	; Ս
+      ))
+    (ucs		. #x057D)	; ս
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER VEW")
-    (ucs		. #x057E)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x054E)
-    (->titlecase	#x054E)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER VEW")
+      (ucs		  . #x054E)	; Վ
+      ))
+    (ucs		. #x057E)	; վ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER TIWN")
-    (ucs		. #x057F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x054F)
-    (->titlecase	#x054F)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER TIWN")
+      (ucs		  . #x054F)	; Տ
+      ))
+    (ucs		. #x057F)	; տ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER REH")
-    (ucs		. #x0580)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0550)
-    (->titlecase	#x0550)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER REH")
+      (ucs		  . #x0550)	; Ր
+      ))
+    (ucs		. #x0580)	; ր
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER CO")
-    (ucs		. #x0581)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0551)
-    (->titlecase	#x0551)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER CO")
+      (ucs		  . #x0551)	; Ց
+      ))
+    (ucs		. #x0581)	; ց
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER YIWN")
-    (ucs		. #x0582)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0552)
-    (->titlecase	#x0552)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER YIWN")
+      (ucs		  . #x0552)	; Ւ
+      ))
+    (ucs		. #x0582)	; ւ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER PIWR")
-    (ucs		. #x0583)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0553)
-    (->titlecase	#x0553)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER PIWR")
+      (ucs		  . #x0553)	; Փ
+      ))
+    (ucs		. #x0583)	; փ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER KEH")
-    (ucs		. #x0584)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0554)
-    (->titlecase	#x0554)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER KEH")
+      (ucs		  . #x0554)	; Ք
+      ))
+    (ucs		. #x0584)	; ք
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER OH")
-    (ucs		. #x0585)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0555)
-    (->titlecase	#x0555)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER OH")
+      (ucs		  . #x0555)	; Օ
+      ))
+    (ucs		. #x0585)	; օ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LETTER FEH")
-    (ucs		. #x0586)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->uppercase	#x0556)
-    (->titlecase	#x0556)
+    (->uppercase
+     ((name		  . "ARMENIAN CAPITAL LETTER FEH")
+      (ucs		  . #x0556)	; Ֆ
+      ))
+    (ucs		. #x0586)	; ֆ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LIGATURE ECH YIWN")
-    (ucs		. #x0587)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0565 #x0582)
+    (ucs		. #x0587)	; և
     ))
 (define-char
   '((name		. "ARMENIAN FULL STOP")
-    (ucs		. #x0589)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x0589)	; ։
     ))
 (define-char
   '((name		. "ARMENIAN HYPHEN")
-    (ucs		. #x058A)
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x058A)	; ֊
     ))
