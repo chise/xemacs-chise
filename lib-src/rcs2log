@@ -28,7 +28,7 @@ Options:
 
 Report bugs to <bug-gnu-emacs@prep.ai.mit.edu>.'
 
-Id='$Id: rcs2log,v 1.2 1997/07/09 04:31:03 steve Exp $'
+Id='$Id: rcs2log,v 1.37 1997/03/21 22:19:30 eggert Exp $'
 
 # Copyright 1992, 1993, 1994, 1995, 1996, 1997 Free Software Foundation, Inc.
 
