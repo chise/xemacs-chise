@@ -1,5 +1,15 @@
 2004-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* ideograph-util.el (update-ideograph-radical-table): Support
+	`->denotational'.
+	(char-daikanwa): If a character has a mother character, return
+	(NUM 0) instead of NUM.
+
+	* char-db-util.el (insert-char-attributes): Ignore
+	`->denotational'.
+
+2004-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* dumped-chars.el (system-char-db-source-file-list): Add
 	"ruimoku6".
 
@@ -23,6 +33,8 @@
 	* Ideograph-R075-Tree.el (RUI6-E00C): New character.
 
 	* Ideograph-R024-Ten.el (BC-8B75): Unify RUI6-E00E.
+
+	* Ideograph-R009-Man.el: Use `->unified' for some characters.
 
 2004-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
