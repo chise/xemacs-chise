@@ -825,7 +825,7 @@ get_char_table (Emchar ch, Lisp_Char_Table *ct)
       val = ct->ascii[byte1 + 128];
     else
       {
-	Charset_ID lb = XCHARSET_LEADING_BYTE (charset) - MIN_LEADING_BYTE;
+	int lb = XCHARSET_LEADING_BYTE (charset) - MIN_LEADING_BYTE;
 	val = ct->level1[lb];
 	if (CHAR_TABLE_ENTRYP (val))
 	  {
@@ -1077,8 +1077,7 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 	}
       else
 	{
-	  Charset_ID lb
-	    = XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE;
+	  int lb = XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE;
 	  ct->level1[lb] = val;
 	}
       break;
@@ -1086,8 +1085,7 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
     case CHARTAB_RANGE_ROW:
       {
 	Lisp_Char_Table_Entry *cte;
-	Charset_ID lb
-	  = XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE;
+	int lb = XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE;
 	/* make sure that there is a separate entry for the row. */
 	if (!CHAR_TABLE_ENTRYP (ct->level1[lb]))
 	  ct->level1[lb] = make_char_table_entry (ct->level1[lb]);
@@ -1111,7 +1109,7 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 	else
 	  {
 	    Lisp_Char_Table_Entry *cte;
-	    Charset_ID lb = XCHARSET_LEADING_BYTE (charset) - MIN_LEADING_BYTE;
+	    int lb = XCHARSET_LEADING_BYTE (charset) - MIN_LEADING_BYTE;
 	    /* make sure that there is a separate entry for the row. */
 	    if (!CHAR_TABLE_ENTRYP (ct->level1[lb]))
 	      ct->level1[lb] = make_char_table_entry (ct->level1[lb]);

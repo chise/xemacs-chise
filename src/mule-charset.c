@@ -59,6 +59,7 @@ Lisp_Object Vcharset_chinese_cns11643_1;
 Lisp_Object Vcharset_chinese_cns11643_2;
 #ifdef UTF2000
 Lisp_Object Vcharset_ucs_bmp;
+Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_hiragana_jisx0208;
@@ -132,47 +133,188 @@ const Bytecount rep_bytes_by_first_byte[0xA0] =
 #endif
 
 #ifdef UTF2000
-int
-get_byte_from_character_table (Emchar ch, Lisp_Object ccs)
+static Lisp_Object
+mark_char_byte_table (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
-  Lisp_Charset* cs = XCHARSET(ccs);
-  Lisp_Object decoding_table = CHARSET_DECODING_TABLE (cs);
-  int byte_offset = CHARSET_BYTE_OFFSET (cs);
+  struct Lisp_Char_Byte_Table *cte = XCHAR_BYTE_TABLE (obj);
+  int i;
 
-  if (VECTORP (decoding_table))
+  for (i = 0; i < 256; i++)
     {
-      int row;
+      mark_object (cte->property[i]);
+    }
+  return Qnil;
+}
 
-      for (row = 0; row < XVECTOR_LENGTH (decoding_table); row++)
+static int
+char_byte_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
+{
+  struct Lisp_Char_Byte_Table *cte1 = XCHAR_BYTE_TABLE (obj1);
+  struct Lisp_Char_Byte_Table *cte2 = XCHAR_BYTE_TABLE (obj2);
+  int i;
+
+  for (i = 0; i < 256; i++)
+    if (CHAR_BYTE_TABLE_P (cte1->property[i]))
+      {
+	if (CHAR_BYTE_TABLE_P (cte2->property[i]))
+	  {
+	    if (!char_byte_table_equal (cte1->property[i],
+					cte2->property[i], depth + 1))
+	      return 0;
+	  }
+	else
+	  return 0;
+      }
+    else
+      if (!internal_equal (cte1->property[i], cte2->property[i], depth + 1))
+	return 0;
+  return 1;
+}
+
+static unsigned long
+char_byte_table_hash (Lisp_Object obj, int depth)
+{
+  struct Lisp_Char_Byte_Table *cte = XCHAR_BYTE_TABLE (obj);
+
+  return internal_array_hash (cte->property, 256, depth);
+}
+
+static const struct lrecord_description char_byte_table_description[] = {
+  { XD_LISP_OBJECT_ARRAY, offsetof(Lisp_Char_Byte_Table, property), 256 },
+  { XD_END }
+};
+
+DEFINE_LRECORD_IMPLEMENTATION ("char-code-table", char_byte_table,
+                               mark_char_byte_table,
+			       internal_object_printer,
+			       0, char_byte_table_equal,
+			       char_byte_table_hash,
+			       char_byte_table_description,
+			       Lisp_Char_Byte_Table);
+
+
+static Lisp_Object
+make_char_byte_table (Lisp_Object initval)
+{
+  Lisp_Object obj;
+  int i;
+  struct Lisp_Char_Byte_Table *cte =
+    alloc_lcrecord_type (struct Lisp_Char_Byte_Table,
+			 &lrecord_char_byte_table);
+
+  for (i = 0; i < 256; i++)
+    cte->property[i] = initval;
+
+  XSETCHAR_BYTE_TABLE (obj, cte);
+  return obj;
+}
+
+static Lisp_Object
+copy_char_byte_table (Lisp_Object entry)
+{
+  struct Lisp_Char_Byte_Table *cte = XCHAR_BYTE_TABLE (entry);
+  Lisp_Object obj;
+  int i;
+  struct Lisp_Char_Byte_Table *ctenew =
+    alloc_lcrecord_type (struct Lisp_Char_Byte_Table,
+			 &lrecord_char_byte_table);
+
+  for (i = 0; i < 256; i++)
+    {
+      Lisp_Object new = cte->property[i];
+      if (CHAR_BYTE_TABLE_P (new))
+	ctenew->property[i] = copy_char_byte_table (new);
+      else
+	ctenew->property[i] = new;
+    }
+
+  XSETCHAR_BYTE_TABLE (obj, ctenew);
+  return obj;
+}
+
+#define make_char_code_table(initval) make_char_byte_table(initval)
+
+Lisp_Object
+get_char_code_table (Emchar ch, Lisp_Object table)
+{
+  struct Lisp_Char_Byte_Table* cpt = XCHAR_BYTE_TABLE (table);
+  Lisp_Object ret = cpt->property [ch >> 24];
+
+  if (CHAR_BYTE_TABLE_P (ret))
+    cpt = XCHAR_BYTE_TABLE (ret);
+  else
+    return ret;
+
+  ret = cpt->property [(unsigned char) (ch >> 16)];
+  if (CHAR_BYTE_TABLE_P (ret))
+    cpt = XCHAR_BYTE_TABLE (ret);
+  else
+    return ret;
+
+  ret = cpt->property [(unsigned char) (ch >> 8)];
+  if (CHAR_BYTE_TABLE_P (ret))
+    cpt = XCHAR_BYTE_TABLE (ret);
+  else
+    return ret;
+  
+  return cpt->property [(unsigned char) ch];
+}
+
+void
+put_char_code_table (Emchar ch, Lisp_Object value, Lisp_Object table)
+{
+  struct Lisp_Char_Byte_Table* cpt1 = XCHAR_BYTE_TABLE (table);
+  Lisp_Object ret = cpt1->property[ch >> 24];
+
+  if (CHAR_BYTE_TABLE_P (ret))
+    {
+      struct Lisp_Char_Byte_Table* cpt2 = XCHAR_BYTE_TABLE (ret);
+      
+      ret = cpt2->property[(unsigned char)(ch >> 16)];
+      if (CHAR_BYTE_TABLE_P (ret))
 	{
-	  Lisp_Object elt = XVECTOR_DATA(decoding_table)[row];
-
-	  if (VECTORP (elt))
+	  struct Lisp_Char_Byte_Table* cpt3 = XCHAR_BYTE_TABLE (ret);
+	  
+	  ret = cpt3->property[(unsigned char)(ch >> 8)];
+	  if (CHAR_BYTE_TABLE_P (ret))
 	    {
-	      int cell;
-
-	      for (cell = 0; cell < XVECTOR_LENGTH (elt); cell++)
-		{
-		  Lisp_Object obj = XVECTOR_DATA(elt)[cell];
-
-		  if (CHARP (obj))
-		    {
-		      if (XCHAR (obj) == ch)
-			return
-			  ( (row + byte_offset) << 8 )
-			  | (cell + byte_offset);
-		    }
-		}
+	      struct Lisp_Char_Byte_Table* cpt4
+		= XCHAR_BYTE_TABLE (ret);
+	      
+	      cpt4->property[(unsigned char)ch] = value;
 	    }
-	  else if (CHARP (elt))
+	  else if (!EQ (ret, value))
 	    {
-	      if (XCHAR (elt) == ch)
-		return (row + byte_offset) << 8;
+	      Lisp_Object cpt4 = make_char_byte_table (ret);
+	      
+	      XCHAR_BYTE_TABLE(cpt4)->property[(unsigned char)ch] = value;
+	      cpt3->property[(unsigned char)(ch >> 8)] = cpt4;
 	    }
 	}
+      else if (!EQ (ret, value))
+	{
+	  Lisp_Object cpt3 = make_char_byte_table (ret);
+	  Lisp_Object cpt4 = make_char_byte_table (ret);
+	  
+	  XCHAR_BYTE_TABLE(cpt4)->property[(unsigned char)ch] = value;
+	  XCHAR_BYTE_TABLE(cpt3)->property[(unsigned char)(ch >> 8)]
+	    = cpt4;
+	  cpt2->property[(unsigned char)(ch >> 16)] = cpt3;
+	}
     }
-  return 0;
+  else if (!EQ (ret, value))
+    {
+      Lisp_Object cpt2 = make_char_byte_table (ret);
+      Lisp_Object cpt3 = make_char_byte_table (ret);
+      Lisp_Object cpt4 = make_char_byte_table (ret);
+      
+      XCHAR_BYTE_TABLE(cpt4)->property[(unsigned char)ch] = value;
+      XCHAR_BYTE_TABLE(cpt3)->property[(unsigned char)(ch >>  8)] = cpt4;
+      XCHAR_BYTE_TABLE(cpt2)->property[(unsigned char)(ch >> 16)] = cpt3;
+      cpt1->property[(unsigned char)(ch >> 24)] = cpt2;
+    }
 }
+
 
 Lisp_Object Vutf_2000_version;
 #endif
@@ -213,6 +355,7 @@ Lisp_Object Qascii,
   Qchinese_cns11643_2,
 #ifdef UTF2000
   Qucs_bmp,
+  Qlatin_viscii,
   Qlatin_viscii_lower,
   Qlatin_viscii_upper,
   Qvietnamese_viscii_lower,
@@ -563,6 +706,7 @@ mark_charset (Lisp_Object obj)
   mark_object (cs->ccl_program);
 #ifdef UTF2000
   mark_object (cs->decoding_table);
+  mark_object (cs->encoding_table);
 #endif
   return cs->name;
 }
@@ -609,7 +753,10 @@ static const struct lrecord_description charset_description[] = {
   { XD_LISP_OBJECT, offsetof (Lisp_Charset, long_name) },
   { XD_LISP_OBJECT, offsetof (Lisp_Charset, reverse_direction_charset) },
   { XD_LISP_OBJECT, offsetof (Lisp_Charset, ccl_program) },
+#ifdef UTF2000
   { XD_LISP_OBJECT, offsetof (Lisp_Charset, decoding_table) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Charset, encoding_table) },
+#endif
   { XD_END }
 };
 
@@ -651,14 +798,15 @@ make_charset (Charset_ID id, Lisp_Object name,
   CHARSET_CCL_PROGRAM	(cs) = Qnil;
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = Qnil;
 #ifdef UTF2000
-  CHARSET_DECODING_TABLE(cs) = decoding_table;
+  CHARSET_DECODING_TABLE(cs) = Qnil;
+  CHARSET_ENCODING_TABLE(cs) = Qnil;
   CHARSET_UCS_MIN(cs) = ucs_min;
   CHARSET_UCS_MAX(cs) = ucs_max;
   CHARSET_CODE_OFFSET(cs) = code_offset;
   CHARSET_BYTE_OFFSET(cs) = byte_offset;
 #endif
-  
-  switch ( CHARSET_TYPE (cs) )
+
+  switch (CHARSET_TYPE (cs))
     {
     case CHARSET_TYPE_94:
       CHARSET_DIMENSION (cs) = 1;
@@ -677,9 +825,17 @@ make_charset (Charset_ID id, Lisp_Object name,
       CHARSET_CHARS (cs) = 96;
       break;
 #ifdef UTF2000
+    case CHARSET_TYPE_128:
+      CHARSET_DIMENSION (cs) = 1;
+      CHARSET_CHARS (cs) = 128;
+      break;
     case CHARSET_TYPE_128X128:
       CHARSET_DIMENSION (cs) = 2;
       CHARSET_CHARS (cs) = 128;
+      break;
+    case CHARSET_TYPE_256:
+      CHARSET_DIMENSION (cs) = 1;
+      CHARSET_CHARS (cs) = 256;
       break;
     case CHARSET_TYPE_256X256:
       CHARSET_DIMENSION (cs) = 2;
@@ -734,6 +890,12 @@ get_unallocated_leading_byte (int dimension)
 {
   Charset_ID lb;
 
+#ifdef UTF2000
+  if (chlook->next_allocated_leading_byte > MAX_LEADING_BYTE_PRIVATE)
+    lb = 0;
+  else
+    lb = chlook->next_allocated_leading_byte++;
+#else
   if (dimension == 1)
     {
       if (chlook->next_allocated_1_byte_leading_byte > MAX_LEADING_BYTE_PRIVATE_1)
@@ -748,6 +910,7 @@ get_unallocated_leading_byte (int dimension)
       else
 	lb = chlook->next_allocated_2_byte_leading_byte++;
     }
+#endif
 
   if (!lb)
     signal_simple_error
@@ -761,12 +924,29 @@ get_unallocated_leading_byte (int dimension)
 unsigned char
 charset_get_byte1 (Lisp_Object charset, Emchar ch)
 {
+  Lisp_Object table;
   int d;
 
-  if ((d = get_byte_from_character_table (ch, charset)) > 0)
-    return d >> 8;
-  else if ((XCHARSET_UCS_MIN (charset) <= ch)
-	   && (ch <= XCHARSET_UCS_MAX (charset)))
+  if (!EQ (table = XCHARSET_ENCODING_TABLE (charset), Qnil))
+    {
+      Lisp_Object value = get_char_code_table (ch, table);
+
+      if (INTP (value))
+	{
+	  Emchar code = XINT (value);
+
+	  if (code < (1 << 8))
+	    return code;
+	  else if (code < (1 << 16))
+	    return code >> 8;
+	  else if (code < (1 << 24))
+	    return code >> 16;
+	  else
+	    return code >> 24;
+	}
+    }
+  if ((XCHARSET_UCS_MIN (charset) <= ch)
+      && (ch <= XCHARSET_UCS_MAX (charset)))
     return (ch - XCHARSET_UCS_MIN (charset)
 	    + XCHARSET_CODE_OFFSET (charset))
       / (XCHARSET_DIMENSION (charset) == 1 ?
@@ -832,12 +1012,26 @@ charset_get_byte2 (Lisp_Object charset, Emchar ch)
     return 0;
   else
     {
-      int d;
+      Lisp_Object table;
 
-      if ((d = get_byte_from_character_table (ch, charset)) > 0)
-	return d & 0xFF;
-      else if ((XCHARSET_UCS_MIN (charset) <= ch)
-	       && (ch <= XCHARSET_UCS_MAX (charset)))
+      if (!EQ (table = XCHARSET_ENCODING_TABLE (charset), Qnil))
+	{
+	  Lisp_Object value = get_char_code_table (ch, table);
+	  
+	  if (INTP (value))
+	    {
+	      Emchar code = XINT (value);
+
+	      if (code < (1 << 16))
+		return (unsigned char)code;
+	      else if (code < (1 << 24))
+		return (unsigned char)(code >> 16);
+	      else
+		return (unsigned char)(code >> 24);
+	    }
+	}
+      if ((XCHARSET_UCS_MIN (charset) <= ch)
+	  && (ch <= XCHARSET_UCS_MAX (charset)))
 	return ((ch - XCHARSET_UCS_MIN (charset)
 		 + XCHARSET_CODE_OFFSET (charset))
 		/ (XCHARSET_DIMENSION (charset) == 2 ?
@@ -1013,6 +1207,10 @@ character set.  Recognized properties are:
   Lisp_Object charset;
   Lisp_Object ccl_program = Qnil;
   Lisp_Object short_name = Qnil, long_name = Qnil;
+#ifdef UTF2000
+  Emchar code_offset = 0;
+  unsigned char byte_offset = 0;
+#endif
 
   CHECK_SYMBOL (name);
   if (!NILP (doc_string))
@@ -1065,7 +1263,11 @@ character set.  Recognized properties are:
 	  {
 	    CHECK_INT (value);
 	    graphic = XINT (value);
+#ifdef UTF2000
+	    if (graphic < 0 || graphic > 2)
+#else
 	    if (graphic < 0 || graphic > 1)
+#endif
 	      signal_simple_error ("Invalid value for 'graphic", value);
 	  }
 
@@ -1129,12 +1331,17 @@ character set.  Recognized properties are:
     {
       if (chars == 94)
 	{
-	  /* id = CHARSET_ID_OFFSET_94 + final; */
-	  id = get_unallocated_leading_byte (dimension);
+	  if (code_offset == 0)
+	    id = CHARSET_ID_OFFSET_94 + final;
+	  else
+	    id = get_unallocated_leading_byte (dimension);
 	}
       else if (chars == 96)
 	{
-	  id = get_unallocated_leading_byte (dimension);
+	  if (code_offset == 0)
+	    id = CHARSET_ID_OFFSET_96 + final;
+	  else
+	    id = get_unallocated_leading_byte (dimension);
 	}
       else
 	{
@@ -1145,7 +1352,10 @@ character set.  Recognized properties are:
     {
       if (chars == 94)
 	{
-	  id = get_unallocated_leading_byte (dimension);
+	  if (code_offset == 0)
+	    id = CHARSET_ID_OFFSET_94x94 + final;
+	  else
+	    id = get_unallocated_leading_byte (dimension);
 	}
       else if (chars == 96)
 	{
@@ -1159,6 +1369,13 @@ character set.  Recognized properties are:
   else
     {
       abort ();
+    }
+  if (final)
+    {
+      if (chars == 94)
+	byte_offset = 33;
+      else if (chars == 96)
+	byte_offset = 32;
     }
 #else
   id = get_unallocated_leading_byte (dimension);
@@ -1181,7 +1398,7 @@ character set.  Recognized properties are:
   charset = make_charset (id, name, type, columns, graphic,
 			  final, direction, short_name, long_name,
 			  doc_string, registry,
-			  Qnil, 0, 0, 0, 0);
+			  Qnil, 0, 0, 0, byte_offset);
   if (!NILP (ccl_program))
     XCHARSET_CCL_PROGRAM (charset) = ccl_program;
   return charset;
@@ -1463,12 +1680,79 @@ Set mapping-table of CHARSET to TABLE.
        (charset, table))
 {
   struct Lisp_Charset *cs;
+  Lisp_Object old_table;
+  size_t i;
 
   charset = Fget_charset (charset);
-  CHECK_VECTOR (table);
-  
   cs = XCHARSET (charset);
-  CHARSET_DECODING_TABLE(cs) = table;
+
+  if (EQ (table, Qnil))
+    {
+      CHARSET_DECODING_TABLE(cs) = table;
+      CHARSET_ENCODING_TABLE(cs) = Qnil;
+      return table;
+    }
+  else if (VECTORP (table))
+    {
+      if (XVECTOR_LENGTH (table) > CHARSET_CHARS (cs))
+	args_out_of_range (table, make_int (CHARSET_CHARS (cs)));
+      old_table = CHARSET_ENCODING_TABLE(cs);
+      CHARSET_DECODING_TABLE(cs) = table;
+    }
+  else
+    signal_error (Qwrong_type_argument,
+		  list2 (build_translated_string ("vector-or-nil-p"),
+			 table));
+  /* signal_simple_error ("Wrong type argument: vector-or-nil-p", table); */
+
+  switch (CHARSET_DIMENSION (cs))
+    {
+    case 1:
+      CHARSET_ENCODING_TABLE(cs) = make_char_code_table (Qnil);
+      for (i = 0; i < XVECTOR_LENGTH (table); i++)
+	{
+	  Lisp_Object c = XVECTOR_DATA(table)[i];
+
+	  if (CHARP (c))
+	    put_char_code_table (XCHAR (c),
+				 make_int (i + CHARSET_BYTE_OFFSET (cs)),
+				 CHARSET_ENCODING_TABLE(cs));
+	}
+      break;
+    case 2:
+      CHARSET_ENCODING_TABLE(cs) = make_char_code_table (Qnil);
+      for (i = 0; i < XVECTOR_LENGTH (table); i++)
+	{
+	  Lisp_Object v = XVECTOR_DATA(table)[i];
+
+	  if (VECTORP (v))
+	    {
+	      size_t j;
+
+	      if (XVECTOR_LENGTH (v) > CHARSET_CHARS (cs))
+		{
+		  CHARSET_DECODING_TABLE(cs) = old_table;
+		  args_out_of_range (v, make_int (CHARSET_CHARS (cs)));
+		}
+	      for (j = 0; j < XVECTOR_LENGTH (v); j++)
+		{
+		  Lisp_Object c = XVECTOR_DATA(v)[j];
+
+		  if (CHARP (c))
+		    put_char_code_table
+		      (XCHAR (c),
+		       make_int (( (i + CHARSET_BYTE_OFFSET (cs)) << 8)
+				 | (j + CHARSET_BYTE_OFFSET (cs))),
+		       CHARSET_ENCODING_TABLE(cs));
+		}
+	    }
+	  else if (CHARP (v))
+	    put_char_code_table (XCHAR (v),
+				 make_int (i + CHARSET_BYTE_OFFSET (cs)),
+				 CHARSET_ENCODING_TABLE(cs));
+	}
+      break;
+    }
   return table;
 }
 #endif
@@ -1681,6 +1965,7 @@ void
 syms_of_mule_charset (void)
 {
   INIT_LRECORD_IMPLEMENTATION (charset);
+  INIT_LRECORD_IMPLEMENTATION (char_byte_table);
 
   DEFSUBR (Fcharsetp);
   DEFSUBR (Ffind_charset);
@@ -1752,6 +2037,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
 #ifdef UTF2000
   defsymbol (&Qucs_bmp,			"ucs-bmp");
+  defsymbol (&Qlatin_viscii,		"latin-viscii");
   defsymbol (&Qlatin_viscii_lower,	"latin-viscii-lower");
   defsymbol (&Qlatin_viscii_upper,	"latin-viscii-upper");
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
@@ -1793,10 +2079,10 @@ vars_of_mule_charset (void)
 	chlook->charset_by_attributes[i][j][k] = Qnil;
 #endif
 
-  chlook->next_allocated_1_byte_leading_byte = MIN_LEADING_BYTE_PRIVATE_1;
 #ifdef UTF2000
-  chlook->next_allocated_2_byte_leading_byte = LEADING_BYTE_CHINESE_BIG5_2 + 1;
+  chlook->next_allocated_leading_byte = MIN_LEADING_BYTE_PRIVATE;
 #else
+  chlook->next_allocated_1_byte_leading_byte = MIN_LEADING_BYTE_PRIVATE_1;
   chlook->next_allocated_2_byte_leading_byte = MIN_LEADING_BYTE_PRIVATE_2;
 #endif
 
@@ -1809,7 +2095,7 @@ Leading-code of private TYPE9N charset of column-width 1.
 #endif
 
 #ifdef UTF2000
-  Vutf_2000_version = build_string("0.8 (Kami)");
+  Vutf_2000_version = build_string("0.9 (Kyūhōji)");
   DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
 Version number of UTF-2000.
 */ );
@@ -1817,7 +2103,7 @@ Version number of UTF-2000.
   Vdefault_coded_charset_priority_list = Qnil;
   DEFVAR_LISP ("default-coded-charset-priority-list",
 	       &Vdefault_coded_charset_priority_list /*
-Default order of preferred coded-character-set.
+Default order of preferred coded-character-sets.
 */ );
 #endif
 }
@@ -1836,12 +2122,12 @@ complex_vars_of_mule_charset (void)
   staticpro (&Vcharset_ucs_bmp);
   Vcharset_ucs_bmp =
     make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp,
-		  CHARSET_TYPE_256X256, 1, 0, 0,
+		  CHARSET_TYPE_256X256, 1, 2, 0,
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("BMP"),
 		  build_string ("BMP"),
-		  build_string ("BMP"),
-		  build_string (""),
+		  build_string ("ISO/IEC 10646 Group 0 Plane 0 (BMP)"),
+		  build_string ("\\(ISO10646.*-1\\|UNICODE[23]?-0\\)"),
 		  Qnil, 0, 0xFFFF, 0, 0);
 #else
 # define MIN_CHAR_THAI 0
@@ -2081,7 +2367,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("VISCII lower"),
 		  build_string ("VISCII lower (Vietnamese)"),
 		  build_string ("VISCII lower (Vietnamese)"),
-		  build_string ("VISCII1\\.1"),
+		  build_string ("MULEVISCII-LOWER"),
 		  Qnil, 0, 0, 0, 32);
   staticpro (&Vcharset_latin_viscii_upper);
   Vcharset_latin_viscii_upper =
@@ -2091,18 +2377,18 @@ complex_vars_of_mule_charset (void)
 		  build_string ("VISCII upper"),
 		  build_string ("VISCII upper (Vietnamese)"),
 		  build_string ("VISCII upper (Vietnamese)"),
-		  build_string ("VISCII1\\.1"),
+		  build_string ("MULEVISCII-UPPER"),
 		  Qnil, 0, 0, 0, 32);
-  /*
-  Fputhash (Qvietnamese_viscii_lower, Vcharset_latin_viscii_lower,
-	    Vcharset_hash_table);
-  Fputhash (Qvietnamese_viscii_upper, Vcharset_latin_viscii_upper,
-	    Vcharset_hash_table);
-  */
-  Fdefine_charset_alias (Qvietnamese_viscii_lower,
-			 Vcharset_latin_viscii_lower);
-  Fdefine_charset_alias (Qvietnamese_viscii_upper,
-			 Vcharset_latin_viscii_upper);
+  staticpro (&Vcharset_latin_viscii);
+  Vcharset_latin_viscii =
+    make_charset (LEADING_BYTE_LATIN_VISCII, Qlatin_viscii,
+		  CHARSET_TYPE_256, 1, 2, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("VISCII"),
+		  build_string ("VISCII 1.1 (Vietnamese)"),
+		  build_string ("VISCII 1.1 (Vietnamese)"),
+		  build_string ("VISCII1\\.1"),
+		  Qnil, 0, 0, 0, 0);
   staticpro (&Vcharset_hiragana_jisx0208);
   Vcharset_hiragana_jisx0208 =
     make_charset (LEADING_BYTE_HIRAGANA_JISX0208, Qhiragana_jisx0208,

@@ -3119,8 +3119,14 @@ find_charsets_in_bufbyte_string (Charset_ID *charsets, const Bufbyte *str,
 
   while (str < strend)
     {
+#ifdef UTF2000
+      charsets[CHAR_CHARSET_ID (charptr_emchar (str))
+	      - MIN_LEADING_BYTE] = 1;
+#else /* I'm not sure the definition for UTF2000 works with leading-byte
+	 representation. */
       charsets[CHAR_LEADING_BYTE (charptr_emchar (str))
 	      - MIN_LEADING_BYTE] = 1;
+#endif
       INC_CHARPTR (str);
     }
 #endif
@@ -3147,7 +3153,12 @@ find_charsets_in_emchar_string (Charset_ID *charsets, const Emchar *str,
 
   for (i = 0; i < len; i++)
     {
+#ifdef UTF2000
+      charsets[CHAR_CHARSET_ID (str[i]) - MIN_LEADING_BYTE] = 1;
+#else /* I'm not sure the definition for UTF2000 works with leading-byte
+	 representation. */
       charsets[CHAR_LEADING_BYTE (str[i]) - MIN_LEADING_BYTE] = 1;
+#endif
     }
 #endif
 }

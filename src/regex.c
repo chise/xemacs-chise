@@ -3362,8 +3362,12 @@ compile_extended_range (re_char **p_ptr, re_char *pend,
      ranges entirely within the first 256 chars. */
 
   if ((range_start >= 0x100 || range_end >= 0x100)
-      && CHAR_LEADING_BYTE (range_start) !=
-      CHAR_LEADING_BYTE (range_end))
+#ifdef UTF2000
+      && CHAR_CHARSET_ID (range_start) != CHAR_CHARSET_ID (range_end)
+#else
+      && CHAR_LEADING_BYTE (range_start) != CHAR_LEADING_BYTE (range_end)
+#endif
+      )
     return REG_ERANGESPAN;
 
   /* As advertised, translations only work over the 0 - 0x7F range.

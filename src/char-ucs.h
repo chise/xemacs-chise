@@ -29,8 +29,24 @@ Boston, MA 02111-1307, USA.  */
 #define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
 
-int
-get_byte_from_character_table (Emchar ch, Lisp_Object ccs);
+struct Lisp_Char_Byte_Table
+{
+  struct lcrecord_header header;
+
+  Lisp_Object property[256];
+};
+typedef struct Lisp_Char_Byte_Table Lisp_Char_Byte_Table;
+
+DECLARE_LRECORD (char_byte_table, Lisp_Char_Byte_Table);
+#define XCHAR_BYTE_TABLE(x) \
+  XRECORD (x, char_byte_table, struct Lisp_Char_Byte_Table)
+#define XSETCHAR_BYTE_TABLE(x, p) XSETRECORD (x, p, char_byte_table)
+#define CHAR_BYTE_TABLE_P(x) RECORDP (x, char_byte_table)
+/* #define CHECK_CHAR_BYTE_TABLE(x) CHECK_RECORD (x, char_byte_table)
+   char table entries should never escape to Lisp */
+
+Lisp_Object get_char_code_table (Emchar ch, Lisp_Object table);
+
 
 extern Lisp_Object Vcharset_ucs_bmp;
 extern Lisp_Object Vcharset_latin_jisx0201;
@@ -48,15 +64,26 @@ extern Lisp_Object Vcharset_latin_viscii_upper;
 
 typedef int Charset_ID;
 
-#define MIN_LEADING_BYTE		0x80
+#define MIN_LEADING_BYTE		-0x40
+#define CHARSET_ID_OFFSET		0x00
 
-#define LEADING_BYTE_UCS_BMP		0x80
-#define LEADING_BYTE_CONTROL_1		0x81 /* represent normal 80-9F */
-#define LEADING_BYTE_HIRAGANA_JISX0208	0x82
-#define LEADING_BYTE_KATAKANA_JISX0208	0x83
+/* represent normal 80-9F */
+#define LEADING_BYTE_CONTROL_1		(CHARSET_ID_OFFSET - 1)
+
+/* ISO/IEC 10646 BMP */
+#define LEADING_BYTE_UCS_BMP		(CHARSET_ID_OFFSET - 2)
+
+/* VISCII 1.1 */
+#define LEADING_BYTE_LATIN_VISCII	(CHARSET_ID_OFFSET - 3)
+
+#define LEADING_BYTE_HIRAGANA_JISX0208	(CHARSET_ID_OFFSET - 4)
+#define LEADING_BYTE_KATAKANA_JISX0208	(CHARSET_ID_OFFSET - 5)
+
+#define MIN_LEADING_BYTE_PRIVATE	MIN_LEADING_BYTE
+#define MAX_LEADING_BYTE_PRIVATE	(CHARSET_ID_OFFSET - 6)
 
 
-#define CHARSET_ID_OFFSET_94		0x55
+#define CHARSET_ID_OFFSET_94		(CHARSET_ID_OFFSET - '0')
 
 #define MIN_CHARSET_ID_PRIVATE_94	(CHARSET_ID_OFFSET_94 + '0')
 #define MAX_CHARSET_ID_PRIVATE_94	(CHARSET_ID_OFFSET_94 + '?')
@@ -71,7 +98,7 @@ typedef int Charset_ID;
 #define LEADING_BYTE_LATIN_JISX0201	(CHARSET_ID_OFFSET_94 + 'J')
 
 
-#define CHARSET_ID_OFFSET_96		0x70
+#define CHARSET_ID_OFFSET_96		(CHARSET_ID_OFFSET_94 + 80)
 
 #define LEADING_BYTE_LATIN_VISCII_LOWER	(CHARSET_ID_OFFSET_96 + '1')
 #define LEADING_BYTE_LATIN_VISCII_UPPER	(CHARSET_ID_OFFSET_96 + '2')
@@ -107,11 +134,7 @@ typedef int Charset_ID;
 #define LEADING_BYTE_THAI_TIS620	(CHARSET_ID_OFFSET_96 + 'T')
 
 
-#define MIN_LEADING_BYTE_PRIVATE_1	0xD0
-#define MAX_LEADING_BYTE_PRIVATE_1	0xDF
-
-
-#define CHARSET_ID_OFFSET_94x94		0xB0
+#define CHARSET_ID_OFFSET_94x94		(CHARSET_ID_OFFSET_96 + 80)
 
 /* Big5 Level 1 */
 #define LEADING_BYTE_CHINESE_BIG5_1	('0' + CHARSET_ID_OFFSET_94x94)
@@ -165,10 +188,8 @@ typedef int Charset_ID;
 /* DPRK Hangul KPS 9566-1997 */
 #define LEADING_BYTE_KOREAN_KPS9566	('N' + CHARSET_ID_OFFSET_94x94)
 
-#define MIN_LEADING_BYTE_OFFICIAL_2	LEADING_BYTE_JAPANESE_JISX0208_1978
-#define MAX_LEADING_BYTE_OFFICIAL_2	LEADING_BYTE_KOREAN_KPS9566
 
-#define NUM_LEADING_BYTES 256
+#define NUM_LEADING_BYTES	(80 * 3 - MIN_LEADING_BYTE)
 
 
 /************************************************************************/
@@ -215,6 +236,9 @@ struct Lisp_Charset
   /* Byte->character mapping table */
   Lisp_Object decoding_table;
 
+  /* Character->byte mapping table */
+  Lisp_Object encoding_table;
+
   /* Range of character code */
   Emchar ucs_min, ucs_max;
 
@@ -233,12 +257,14 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define CHECK_CHARSET(x) CHECK_RECORD (x, charset)
 #define CONCHECK_CHARSET(x) CONCHECK_RECORD (x, charset)
 
-#define CHARSET_TYPE_94      0 /* This charset includes 94    characters. */
-#define CHARSET_TYPE_96      1 /* This charset includes 96    characters. */
-#define CHARSET_TYPE_94X94   2 /* This charset includes 94x94 characters. */
-#define CHARSET_TYPE_96X96   3 /* This charset includes 96x96 characters. */
-#define CHARSET_TYPE_128X128 4 /* This charset includes 128x128 characters. */
-#define CHARSET_TYPE_256X256 5 /* This charset includes 256x256 characters. */
+#define CHARSET_TYPE_94      0 /* This charset includes 94      characters. */
+#define CHARSET_TYPE_94X94   1 /* This charset includes 94x94   characters. */
+#define CHARSET_TYPE_96      2 /* This charset includes 96      characters. */
+#define CHARSET_TYPE_96X96   3 /* This charset includes 96x96   characters. */
+#define CHARSET_TYPE_128     4 /* This charset includes 128     characters. */
+#define CHARSET_TYPE_128X128 5 /* This charset includes 128x128 characters. */
+#define CHARSET_TYPE_256     6 /* This charset includes 256     characters. */
+#define CHARSET_TYPE_256X256 7 /* This charset includes 256x256 characters. */
 
 #define CHARSET_LEFT_TO_RIGHT	0
 #define CHARSET_RIGHT_TO_LEFT	1
@@ -261,6 +287,7 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define CHARSET_CHARS(cs)	 ((cs)->chars)
 #define CHARSET_REVERSE_DIRECTION_CHARSET(cs) ((cs)->reverse_direction_charset)
 #define CHARSET_DECODING_TABLE(cs) ((cs)->decoding_table)
+#define CHARSET_ENCODING_TABLE(cs) ((cs)->encoding_table)
 #define CHARSET_UCS_MIN(cs)	 ((cs)->ucs_min)
 #define CHARSET_UCS_MAX(cs)	 ((cs)->ucs_max)
 #define CHARSET_CODE_OFFSET(cs)	 ((cs)->code_offset)
@@ -284,6 +311,7 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define XCHARSET_REVERSE_DIRECTION_CHARSET(cs) \
   CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
 #define XCHARSET_DECODING_TABLE(cs) CHARSET_DECODING_TABLE(XCHARSET(cs))
+#define XCHARSET_ENCODING_TABLE(cs) CHARSET_ENCODING_TABLE(XCHARSET(cs))
 #define XCHARSET_UCS_MIN(cs)	  CHARSET_UCS_MIN(XCHARSET(cs))
 #define XCHARSET_UCS_MAX(cs)	  CHARSET_UCS_MAX(XCHARSET(cs))
 #define XCHARSET_CODE_OFFSET(cs)  CHARSET_CODE_OFFSET(XCHARSET(cs))
@@ -296,8 +324,7 @@ struct charset_lookup {
   /* Table of charsets indexed by type/final-byte. */
   Lisp_Object charset_by_attributes[4][128];
 
-  Charset_ID next_allocated_1_byte_leading_byte;
-  Charset_ID next_allocated_2_byte_leading_byte;
+  Charset_ID next_allocated_leading_byte;
 };
 
 extern struct charset_lookup *chlook;
@@ -380,18 +407,17 @@ INLINE_HEADER Emchar
 MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 {
   Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (charset);
-  int ofs, idx;
+  int idx;
   Lisp_Object ch;
 
   if (!EQ (decoding_table, Qnil)
-      && (0 <= (idx =
-		c1 - (ofs = (XCHARSET_CHARS (charset) == 94 ? 33 : 32))))
+      && (0 <= (idx = c1 - XCHARSET_BYTE_OFFSET (charset)))
       && (idx < XVECTOR_LENGTH (decoding_table))
       && !EQ (ch = XVECTOR_DATA(decoding_table)[idx], Qnil))
     {
       if (VECTORP (ch))
 	{
-	  if ((0 <= (idx = c2 - ofs))
+	  if ((0 <= (idx = c2 - XCHARSET_BYTE_OFFSET (charset)))
 	      && (idx < XVECTOR_LENGTH (ch))
 	      && !EQ (ch = XVECTOR_DATA(ch)[idx], Qnil))
 	    return XCHAR (ch);
@@ -600,8 +626,7 @@ CHAR_CHARSET (Emchar ch)
   return charset;
 }
 
-#define CHAR_LEADING_BYTE(c) (XCHARSET_LEADING_BYTE(CHAR_CHARSET(c)))
-
+#define CHAR_CHARSET_ID(c)  (XCHARSET_ID(CHAR_CHARSET(c)))
 #define CHAR_COLUMNS(c)     (CHARSET_COLUMNS(XCHARSET(CHAR_CHARSET(c))))
 
 

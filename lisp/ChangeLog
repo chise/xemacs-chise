@@ -1,3 +1,30 @@
+1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`latin-viscii'; prefer it for characters used in Vietnamese.
+
+	* utf-2000/ccs-viscii.el: Add mapping-table for `latin-viscii'.
+
+1999-10-08   Daiki Ueno  <ueno@ueda.info.waseda.ac.jp>
+
+	* bytecomp.el (byte-compile-insert-header): Fix regexp.
+
+1999-10-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/ccs-viscii.el: Rename `vietnamese-viscii-*' to
+	`latin-viscii-*'.
+
+1999-10-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/viet-chars.el (latin-viscii-lower): Renamed from charset
+	`vietnamese-viscii-lower'.
+	(latin-viscii-upper): Renamed from charset
+	`vietnamese-viscii-upper'.
+	(vietnamese-viscii-lower): New alias for charset
+	`latin-viscii-lower'.
+	(vietnamese-viscii-upper): New alias for charset
+	`latin-viscii-upper'.
+
 1999-10-05  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):

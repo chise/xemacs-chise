@@ -3240,15 +3240,16 @@ char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
     }
   else
     {
-      Lisp_Object charset;
+      Lisp_Object charset, value;
       unsigned int c1, c2, s1, s2;
       
 #ifdef UTF2000
-      if ( (c1 =
-	    get_byte_from_character_table (ch, Vcharset_latin_jisx0201))
-	   >= 0 )
+      if (INTP (value =
+		get_char_code_table
+		(ch, XCHARSET_ENCODING_TABLE (Vcharset_latin_jisx0201))))
 	{
 	  charset = Vcharset_latin_jisx0201;
+	  c1 = XINT (value);
 	  c2 = 0;
 	}
       else
@@ -5058,7 +5059,24 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
 	    }
 	}
       if (reg == -1)
-	BREAKUP_CHAR (ch, charset, byte1, byte2);
+	{
+	  Lisp_Object original_default_coded_charset_priority_list
+	    = Vdefault_coded_charset_priority_list;
+
+	  while (!EQ (Vdefault_coded_charset_priority_list, Qnil))
+	    {
+	      BREAKUP_CHAR (ch, charset, byte1, byte2);
+	      if (XCHARSET_FINAL (charset))
+		goto found;
+	      Vdefault_coded_charset_priority_list
+		= Fcdr (Fmemq (XCHARSET_NAME (charset),
+			       Vdefault_coded_charset_priority_list));
+	    }
+	  BREAKUP_CHAR (ch, charset, byte1, byte2);
+	found:
+	  Vdefault_coded_charset_priority_list
+	    = original_default_coded_charset_priority_list;
+	}
       ensure_correct_direction (XCHARSET_DIRECTION (charset),
 				codesys, dst, flags, 0);
       
