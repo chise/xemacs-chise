@@ -10,7 +10,8 @@
      shinjigen-1 cns11643 gt)
     (total-strokes	 . 11)
     (<-vulgar
-     ((ideographic-radical . 213)	; ⿔
+     ((=jis-x0208-1983	  . #x737D)	; &GT-66712;
+      (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F;
       (=daikanwa	  . 48847)	; &I-M-48847;
       ))
     (<-vulgar*sources
