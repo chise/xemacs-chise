@@ -879,6 +879,7 @@
     (korean-ksc5601		. #x6235)	; ø»‰¹¾
     (chinese-cns11643-3		. #x434A)	; ø»–‰‰
     (japanese-jisx0208-1990	. #x4328)	; ø½Š§¿
+    (chinese-gb12345		. #x4A7A)	; ç«ª
     (ideograph-daikanwa		. 25790)	; ø¸†’¾
     (ucs			. #x7AEA)	; ç«ª
     ))
@@ -1328,6 +1329,7 @@
     (korean-ksc5601		. #x4C66)	; ø»‰š›
     (chinese-cns11643-1		. #x7A23)	; ø»“…Œ
     (japanese-jisx0208-1990	. #x3625)	; ø½Š”¶
+    (chinese-gb12345		. #x3E3A)	; ç«¶
     (ideograph-daikanwa		. 25831)	; ø¸†“§
     (ucs			. #x7AF6)	; ç«¶
     ))
