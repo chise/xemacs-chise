@@ -1,8 +1,24 @@
+2001-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R002-Line.el (BC-8BF1): New character.
+
+2001-12-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el:
+	- Add some missing `ideographic-structure' properties.
+	- Add some Hanziku-1 code points.
+
 2001-12-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R038-Woman.el: Add some CHINA3-JEF code points.
 
 	* Ideograph-R010-Legs.el (U+5156): Unify H1-E0CF.
+
+2001-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el: Add some Daikanwa numbers of the revised
+	version if the numbers were changed in the second revised version.
+	(U+5934): Unify BC-8A62.
 
 2001-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
