@@ -1,5 +1,23 @@
 2001-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R179-Leek.el (M-43256'): Separate C7-5148; unify
+	M050571.
+	(M-43256"): Separate C3-5D52; unify M050572.
+
+	* Ideograph-R173-Rain.el (M-42216): New character; relate to
+	U+96EA; unify K0-6064.
+	(M-42216'): Separate K0-6064 and C1-5D7B; unify M050564.
+	(M-42309'): Separate C3-4F60; unify M050565.
+	(M-42343'): Separate C4-5458; unify M050566.
+	(M-42417'): Separate C7-4B57; unify M050567.
+
+	* Ideograph-R164-Wine.el (M-39870): New character; relate to
+	U+9177; unify K0-7B65.
+	(M-39870'): Separate K0-7B65; unify M050543.
+	(M-40064'): Unify M050544.
+
+2001-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R169-Gate.el (M-41260'): Unify M050554.
 	(M-41341'): Unify M050555.
 
