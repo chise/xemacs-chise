@@ -1,3 +1,125 @@
+2000-06-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* toolbar-x.c (x_output_toolbar_button): Use <Charc_dynarr *>
+	instead of <Emchar_dynarr *> for buf; use
+	`convert_bufbyte_string_into_charc_dynarr' instead of
+	`convert_bufbyte_string_into_emchar_dynarr'; use
+	`find_charsets_in_charc_string' instead of
+	`find_charsets_in_emchar_string'.
+
+	* redisplay.h:
+	- Include "character.h".
+	(struct rune): New member `cglyph'; delete member `chr'.
+
+	* redisplay.c (redisplay_text_width_charc_string): New function;
+	delete `redisplay_text_width_emchar_string'.
+	(rtw_charc_dynarr): New variable; renamed from
+	`rtw_emchar_dynarr'.
+	(redisplay_text_width_string): Use `rtw_charc_dynarr' instead of
+	`rtw_emchar_dynarr'; use
+	`convert_bufbyte_string_into_charc_dynarr' instead of
+	`convert_bufbyte_string_into_emchar_dynarr'; use
+	`redisplay_text_width_charc_string' instead of
+	`redisplay_text_width_emchar_string'.
+	(redisplay_frame_text_width_string): Use `rtw_charc_dynarr'
+	instead of `rtw_emchar_dynarr'; use
+	`convert_bufbyte_string_into_charc_dynarr' instead of
+	`convert_bufbyte_string_into_emchar_dynarr'.
+	(add_emchar_rune): Add <Charc> instead of <Emchar>; use
+	`redisplay_text_width_charc_string' instead of
+	`redisplay_text_width_emchar_string'.
+	(create_text_block): Modify for <struct rune> change.
+	(generate_formatted_string_db): Likewise.
+	(create_string_text_block): Likewise.
+	(pixel_to_glyph_translation): Likewise.
+
+	* redisplay-x.c (separate_textual_runs): Use <const Charc *>
+	instead of <const Emchar *>.
+	(x_text_width): Likewise.
+	(x_output_display_block): Use <Charc_dynarr *> instead
+	<Emchar_dynarr *>; modify for <structure rune> change.
+	(x_output_string): Use <Charc_dynarr *> instead of <Emchar_dynarr
+	*>.
+
+	* redisplay-tty.c (tty_text_width): Use <const Charc *> instead of
+	<const Emchar *>; use `charc_string_displayed_columns' instead of
+	`emchar_string_displayed_columns'.
+	(tty_output_display_block): Use <Charc_dynarr *> instead of
+	<Emchar_dynarr *> for buf; modify for <structure rune> change; use
+	`tty_output_charc_dynarr' instead of `tty_output_emchar_dynarr'.
+	(tty_output_charc_dynarr_dynarr): New variable; renamed from
+	`tty_output_emchar_dynarr_dynarr'.
+	(tty_output_charc_dynarr): New function; delete
+	`tty_output_charc_dynarr'.
+
+	* redisplay-output.c (compare_runes): Modify for `struct rune'.
+	(redisplay_output_layout): Use <Charc_dynarr *> instead of
+	<Emchar_dynarr *> for buf; use
+	`convert_bufbyte_string_into_charc_dynarr' instead of
+	`convert_bufbyte_string_into_emchar_dynarr'.
+
+	* frame.c (title_string_charc_dynarr): New variable; renamed from
+	`title_string_emchar_dynarr'.
+	(generate_title_string): Use `title_string_charc_dynarr' instead
+	of `title_string_emchar_dynarr'; use
+	`convert_charc_string_into_malloced_string' instead of
+	`convert_emchar_string_into_malloced_string'.
+	(init_frame): Use `title_string_charc_dynarr' instead of
+	`title_string_emchar_dynarr'.
+
+	* console.h:
+	- Include "character.h".
+	(struct console_methods): Use <const Charc *> instead of <const
+	Emchar *> in `text_width_method'; use <Charc_dynarr *> instead of
+	<Emchar_dynarr *> in output_string_method.
+
+	* console-x.h (x_output_string): Use <Charc_dynarr *> instead of
+	<Emchar_dynarr *>.
+
+	* console-stream.c (stream_text_width): Use <const Charc *>
+	instead of <const Emchar *>.
+
+	* character.h (Charc_dynarr): New type.
+
+	* char-ucs.h (structure Charc): New structure; define new type
+	`Charc'.
+
+	* char-lb.h (DECODE_CHAR): New inline function.
+	(encode_char_1): New inline function.
+	(ENCODE_CHAR): New macro.
+	(structure Charc): New structure; define new type `Charc'.
+
+	* char-1byte.h (Vcharset_control_1): New macro.
+	(Vcharset_latin_iso8859_1): New macro.
+	(DECODE_CHAR): New inline function.
+	(encode_char_1): New inline function.
+	(ENCODE_CHAR): New macro.
+	(structure Charc): New structure; define new type `Charc'.
+
+	* insdel.c (find_charsets_in_charc_string): New function; delete
+	`find_charsets_in_emchar_string'.
+	(charc_string_displayed_columns): New function; delete
+	`emchar_string_displayed_columns'.
+	(convert_bufbyte_string_into_charc_dynarr): New function; delete
+	`convert_bufbyte_string_into_emchar_dynarr'.
+	(convert_charc_string_into_bufbyte_dynarr): New function; delete
+	`convert_charc_string_into_bufbyte_dynarr'.
+	(convert_charc_string_into_malloced_string): New function; delete
+	`convert_charc_string_into_malloced_string'.
+
+	* buffer.h (find_charsets_in_charc_string): New prototype; delete
+	`find_charsets_in_emchar_string'.
+	(charc_string_displayed_columns): New prototype; delete
+	`emchar_string_displayed_columns'.
+	(convert_charc_string_into_bufbyte_dynarr): New prototype; delete
+	`convert_charc_string_into_bufbyte_dynarr'.
+	(convert_charc_string_into_malloced_string): New prototype; delete
+	`convert_charc_string_into_malloced_string'.
+
+2000-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* select-x.c (Fx_store_cutbuffer_internal): Modify for UTF-2000.
+
 2000-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.h (get_non_ascii_char_table_value): Use <Charset_ID>.
