@@ -1,3 +1,8 @@
+2002-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* isolated-char.el (GT-21862): New character.
+	(GT-40268): New character.
+
 2002-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R140-Grass.el (MH-521): Use `=>ucs' instead of
