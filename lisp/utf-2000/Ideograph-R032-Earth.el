@@ -7790,12 +7790,14 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 32)	; ⼟
+  '((=>ucs*		. #x585A)	; 塚
+    (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (<-denotational
      ((=ucs		  . #x585A)	; 塚
       ))
+    (=ucs		. #xFA7C)	; 塚
     (->subsumptive
      ((<-simplified@JP/Jouyou
        ((=ucs		    . #xFA10)	; 塚
@@ -7807,6 +7809,8 @@
       (=gt		  . 06661)	; &I-GT-06661;
       (=gt-pj-1		  . #x444D)	; &I-GT-06661; [36-45]
       (=ucs@jis		  . #x585A)	; &GT-06661;
+      )
+     ((=ucs@unicode	  . #xFA7C)	; &UU+FA7C;
       )
      ((=jef-china3	  . #x47C9)	; &JC3-47C9;
       ))
