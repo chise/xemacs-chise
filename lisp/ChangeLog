@@ -1,5 +1,14 @@
 1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/char-db-util.el (insert-char-data): Generate comment
+	for `cns-radical'.
+
+	* utf-2000/Ideograph-R004-Slash.el (M00129): Separated from
+	U+5301.
+	(M00135): Separate C6-222F.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/Ideograph-R003-Dot.el (M00100): Fixed.
 
 1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
