@@ -1058,12 +1058,14 @@ make_char_id_table (Lisp_Object initval)
 }
 
 
+#ifndef HAVE_DATABASE
 Lisp_Object Vcharacter_composition_table;
+#endif
 Lisp_Object Vcharacter_variant_table;
-
 
 Lisp_Object Qsystem_char_id;
 
+Lisp_Object Qcomposition;
 Lisp_Object Q_decomposition;
 Lisp_Object Qto_ucs;
 Lisp_Object Q_ucs;
@@ -1135,6 +1137,27 @@ Return character corresponding with list.
 */
        (list))
 {
+#ifdef HAVE_DATABASE
+  Lisp_Object base, modifier;
+  Lisp_Object rest;
+
+  if (!CONSP (list))
+    signal_simple_error ("Invalid value for composition", list);
+  base = Fcar (list);
+  rest = Fcdr (list);
+  while (!NILP (rest))
+    {
+      if (!CHARP (base))
+	signal_simple_error ("Invalid value for composition", list);
+      if (!CONSP (rest))
+	signal_simple_error ("Invalid value for composition", list);
+      modifier = Fcar (rest);
+      rest = Fcdr (rest);
+      base = Fcdr (Fassq (modifier,
+			  Fget_char_attribute (base, Qcomposition, Qnil)));
+    }
+  return base;
+#else
   Lisp_Object table = Vcharacter_composition_table;
   Lisp_Object rest = list;
 
@@ -1162,6 +1185,7 @@ Return character corresponding with list.
 	signal_simple_error ("Invalid table is found with", list);
     }
   signal_simple_error ("Invalid value for composition", list);
+#endif
 }
 
 DEFUN ("char-variants", Fchar_variants, 1, 1, 0, /*
@@ -3165,7 +3189,9 @@ Store CHARACTER's ATTRIBUTE with VALUE.
     }
   else if (EQ (attribute, Q_decomposition))
     {
+#ifndef HAVE_DATABASE
       Lisp_Object seq;
+#endif
 
       CHECK_CHAR (character);
       if (!CONSP (value))
@@ -3174,6 +3200,35 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
       if (CONSP (Fcdr (value)))
 	{
+#ifdef HAVE_DATABASE
+	  if (NILP (Fcdr (Fcdr (value))))
+	    {
+	      Lisp_Object base = Fcar (value);
+	      Lisp_Object modifier = Fcar (Fcdr (value));
+
+	      if (INTP (base))
+		{
+		  base = make_char (XINT (base));
+		  Fsetcar (value, base);
+		}
+	      if (INTP (modifier))
+		{
+		  modifier = make_char (XINT (modifier));
+		  Fsetcar (Fcdr (value), modifier);
+		}
+	      if (CHARP (base))
+		{
+		  Lisp_Object alist = Fget_char_attribute (base, Qcomposition, Qnil);
+		  Lisp_Object ret = Fassq (modifier, alist);
+
+		  if (NILP (ret))
+		    Fput_char_attribute (base, Qcomposition,
+					 Fcons (Fcons (modifier, character), alist));
+		  else
+		    Fsetcdr (ret, character);
+		}
+	    }
+#else
 	  Lisp_Object rest = value;
 	  Lisp_Object table = Vcharacter_composition_table;
 	  size_t len;
@@ -3212,6 +3267,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 		  table = ntable;
 		}
 	    }
+#endif
 	}
       else
 	{
@@ -3235,9 +3291,13 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 				     make_char (c), Fcons (character, ret));
 		}
 	    }
+#ifndef HAVE_DATABASE
 	  seq = make_vector (1, v);
+#endif
 	}
+#ifndef HAVE_DATABASE
       value = seq;
+#endif
     }
   else if (EQ (attribute, Qto_ucs) || EQ (attribute, Q_ucs))
     {
@@ -4077,6 +4137,7 @@ syms_of_chartab (void)
   defsymbol (&Qto_ucs,			"=>ucs");
   defsymbol (&Q_ucs,			"->ucs");
   defsymbol (&Q_ucs_variants,		"->ucs-variants");
+  defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
   defsymbol (&Qisolated,		"isolated");
@@ -4168,8 +4229,10 @@ void
 vars_of_chartab (void)
 {
 #ifdef UTF2000
+#ifndef HAVE_DATABASE
   staticpro (&Vcharacter_composition_table);
   Vcharacter_composition_table = make_char_id_table (Qnil);
+#endif
 
   staticpro (&Vcharacter_variant_table);
   Vcharacter_variant_table = make_char_id_table (Qunbound);
