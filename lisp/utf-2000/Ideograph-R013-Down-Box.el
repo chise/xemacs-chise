@@ -277,9 +277,18 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 16)
     (hanyu-dazidian-char . 1)
-    (chinese-cns11643-4 . #x215D)	; ø»—¡¤
-    (ideograph-daikanwa . 01518)	; ø¸€—®
-    (ucs		. #x20542)	; ð •‚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x4E00)	; ä¸€
+      )
+     ((chinese-big5-cdp	  . #x87F0)	; ý¢€ˆŸ°
+      ))
+    (chinese-cns11643-4		. #x215D)	; ø»—¡¤
+    (ideograph-daikanwa		. 01518)	; ø¸€—®
+    (ideograph-hanziku-1	. #xA769)	; ý¢€š©
+    (ucs			. #x20542)	; ð •‚
     ))
 (define-char
   '((=>ucs		. #x20543)	; ð •ƒ
@@ -1211,6 +1220,9 @@
   '((ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 20)
     (total-strokes	 . 22)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 101)
+    (hanyu-dazidian-char . 9)
     (chinese-cns11643-7 . #x574F)	; ø»ŸŽ¶
     (ideograph-daikanwa . 01564)	; ø¸€˜œ
     (ucs		. #x20572)	; ð •²
