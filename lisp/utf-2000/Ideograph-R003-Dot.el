@@ -7,6 +7,7 @@
     (japanese-jisx0208-1978	#x50 #x26)	; ø»ƒ‡
     (chinese-gb2312		#x58 #x3C)	; ø»…—‘
     (japanese-jisx0208		#x50 #x26)	; ø»‡•
+    (chinese-isoir165		#x58 #x3C)	; ø»¿¡
     (chinese-cns11643-3		#x21 #x22)	; ø»•–¥
     (japanese-jisx0208-1990	#x50 #x26)	; ä¸¶
     (ideograph-daikanwa		#x00 #x5B)	; ø¹›
@@ -15,6 +16,7 @@
   '((ucs		. #x4E37)
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 0)
+    (kangxi-strokes	 . 1)
     (total-strokes	 . 1)
     (non-morohashi	91 9)
     ))
@@ -41,8 +43,10 @@
     (shinjigen-1	. 39)
     (shinjigen-2	. 39)
     (japanese-jisx0208-1978	#x34 #x5D)	; ø»‚˜¶
+    (chinese-gb2312		#x4D #x68)	; ø»…‡³
     (japanese-jisx0208		#x34 #x5D)	; ø»†¬¾
     (korean-ksc5601		#x7C #x2F)	; ø»Š „
+    (chinese-isoir165		#x4D #x68)	; ø»°ƒ
     (chinese-cns11643-6		#x21 #x31)	; ø»›µ€
     (japanese-jisx0208-1990	#x34 #x5D)	; ä¸¸
     (ideograph-daikanwa		#x00 #x5E)	; ø¹ž
@@ -101,9 +105,18 @@
     (chinese-gb2312		#x35 #x24)	; ø»„£Ÿ
     (japanese-jisx0208		#x43 #x30)	; ø»‡‚“
     (korean-ksc5601		#x53 #x21)	; ø»‰£¨
+    (chinese-isoir165		#x35 #x24)	; ø»‹¯
     (chinese-cns11643-1		#x44 #x65)	; ø»‘¶º
     (japanese-jisx0208-1990	#x43 #x30)	; ä¸¹
     (ideograph-daikanwa		#x00 #x63)	; ø¹£
+    ))
+(define-char
+  '((ucs		. #xF95E)
+    (morohashi-daikanwa	99 0 0)
+    (ideographic-radical . 3)	; â¼‚
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (korean-ksc5601	#x55 #x2E)	; ø»‰¦±
     ))
 (define-char
   '((ucs		. #x4E3A)
@@ -112,6 +125,7 @@
     (total-strokes	 . 4)
     (non-morohashi	99 9)
     (chinese-gb2312	#x4E #x2A)	; ø»…ˆ“
+    (chinese-isoir165	#x4E #x2A)	; ø»°£
     ))
 (define-char
   '((->ucs		. #x4E3B)
@@ -135,6 +149,7 @@
     (chinese-gb2312		#x56 #x77)	; ø»…•
     (japanese-jisx0208		#x3C #x67)	; ø»†¸¸
     (korean-ksc5601		#x71 #x2B)	; ø»Š¶
+    (chinese-isoir165		#x56 #x77)	; ø»½ 
     (chinese-cns11643-1		#x45 #x64)	; ø»‘¸—
     (japanese-jisx0208-1990	#x3C #x67)	; ä¸»
     ))
@@ -185,6 +200,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (chinese-gb2312	#x40 #x76)	; ø»„´»
+    (chinese-isoir165	#x40 #x76)	; ø»‹
     ))
 (define-char
   '((ucs		. #x4E3E)
@@ -193,6 +209,7 @@
     (total-strokes	 . 9)
     (non-morohashi	104 9)
     (chinese-gb2312	#x3E #x59)	; ø»„±¢
+    (chinese-isoir165	#x3E #x59)	; ø»™²
     ))
 (define-char
   '((morohashi-daikanwa	105)
