@@ -1,3 +1,29 @@
+2001-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Cancel temporary hack.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(get_char_id_table): Refer `cit->default_value'.
+	(put_char_id_table): Support `CHARTAB_RANGE_DEFAULT'.
+	(map_char_id_table): Use `1 << 30' instead of `1 << 24' as number
+	of character-id ranges.
+	(mark_char_table): Mark `ct->default_value'.
+	(char_table_description): Add `default_value'.
+	(fill_char_table): Use `default_value'.
+	(decode_char_table_range): Decode `nil' as
+	`CHARTAB_RANGE_DEFAULT'.
+	(get_char_id_table): Refer `cit->default_value'.
+	(put_char_id_table): Support `CHARTAB_RANGE_DEFAULT'.
+	(map_char_table): Support `CHARTAB_RANGE_DEFAULT'; cancel
+	temporary hack; check value of char-table is bound or not.
+	(slow_map_char_table_fun): Support `CHARTAB_RANGE_DEFAULT'.
+
+	* chartab.h (struct Lisp_Char_Table): Add new member
+	`default_value' in XEmacs UTF-2000.
+	(CHAR_TABLE_VALUE_UNSAFE): Use `default_value'.
+	(enum chartab_range_type): Add `CHARTAB_RANGE_DEFAULT' in XEmacs
+	UTF-2000.
+
 2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.h (Lisp_Char_ID_Table): Deleted.
