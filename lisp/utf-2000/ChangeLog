@@ -1,5 +1,15 @@
 2004-09-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R041-Inch.el: Use `->subsumptive' or
+	`{<-|->}denotational' for some character definitions.
+	(U+5C05): Use `<-vulgar' instead of `vulgar-char-of-shinjigen-1'
+	for S1-0638.
+	(K0-637C): Unify GT-09374 and GT-K09077.
+
+	* Ideograph-R038-Woman.el (U+5A11): Use `->subsumptive'.
+
+2004-09-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R063-Door.el (U-00022A2E): New character.
 	(U+39BF): Map to M-11710.
 	(U+39C0): Map to M-11713.
