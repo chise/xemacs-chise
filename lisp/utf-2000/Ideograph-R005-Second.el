@@ -1886,8 +1886,7 @@
      shinjigen-1 cns11643 gt)
     (total-strokes	 . 11)
     (<-vulgar
-     ((ideographic-radical . 213)	; ⿔
-      (=daikanwa	  . 48847)	; &I-M-48847;
+     ((=daikanwa	  . 48847)	; &I-M-48847;
       ))
     (<-vulgar*sources
      daikanwa)
