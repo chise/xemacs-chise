@@ -1,5 +1,13 @@
 2003-01-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R089-Double-X.el (U-00024568): Modify
+	`ideographic-structure'.
+	(C7-476F): Unify U-00020442 and HZK1-D6F4; use `ideographic-'
+	instead of `ideographic-radical' and `ideographic-strokes'; don't
+	use `->identical'; modify `ideographic-structure'.
+
+2003-01-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R071-Not.el (JC3-50F4): Map to U+FA42 instead of
 	U+65E3.
 	(U+FA42): New character.
