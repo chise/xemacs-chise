@@ -78,7 +78,6 @@ Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_jis_x0208;
 Lisp_Object Vcharset_chinese_big5;
-Lisp_Object Vcharset_ideograph_daikanwa_2;
 Lisp_Object Vcharset_ethiopic_ucs;
 #endif
 Lisp_Object Vcharset_chinese_big5_1;
@@ -324,7 +323,6 @@ Lisp_Object Qascii,
   Qvietnamese_viscii_upper,
   Qjis_x0208,
   Qchinese_big5,
-  Qideograph_daikanwa_2,
   Qethiopic_ucs,
 #endif
   Qchinese_big5_1,
@@ -2673,7 +2671,6 @@ syms_of_mule_charset (void)
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qjis_x0208, 		"=jis-x0208");
-  defsymbol (&Qideograph_daikanwa_2,	"ideograph-daikanwa-2");
   defsymbol (&Qchinese_big5,		"chinese-big5");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
 #endif
@@ -3129,17 +3126,6 @@ complex_vars_of_mule_charset (void)
 		  Qnil,
 		  MIN_CHAR_BIG5_CDP, MAX_CHAR_BIG5_CDP,
 		  MIN_CHAR_BIG5_CDP, 0, Qnil, CONVERSION_IDENTICAL);
-
-  staticpro (&Vcharset_ideograph_daikanwa_2);
-  Vcharset_ideograph_daikanwa_2 =
-    make_charset (LEADING_BYTE_DAIKANWA_2, Qideograph_daikanwa_2, 256, 2,
-		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Daikanwa Rev."),
-		  build_string ("Morohashi's Daikanwa Rev."),
-		  build_string
-		  ("Daikanwa dictionary (revised version)"),
-		  build_string ("Daikanwa\\(\\.[0-9]+\\)?-2"),
-		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL);
 
   staticpro (&Vcharset_ethiopic_ucs);
   Vcharset_ethiopic_ucs =
