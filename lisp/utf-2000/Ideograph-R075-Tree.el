@@ -10995,6 +10995,7 @@
     (total-strokes	 . 14)
     (chinese-cns11643-3 . #x474E)	; ø»–…
     (ideograph-daikanwa . 49176)	; ø¸Œ€˜
+    (ucs		. #x699D)	; æ¦
     ))
 (define-char
   '((ideographic-radical . 75)	; â½Š
@@ -11142,12 +11143,6 @@
     (total-strokes	 . 14)
     (chinese-cns11643-3 . #x4750)	; ø»–‡
     (ucs		. #x3BBA)	; ã®º
-    ))
-(define-char
-  '((ideographic-radical . 75)	; â½Š
-    (ideographic-strokes . 10)
-    (chinese-cns11643-3 . #x474E)	; ø»–…
-    (ucs		. #x699D)	; æ¦
     ))
 (define-char
   '((ideographic-radical . 75)	; â½Š
