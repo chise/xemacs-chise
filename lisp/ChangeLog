@@ -1,3 +1,15 @@
+2002-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (ideograph-gt-k): New coded-charset in
+	UTF-2000.
+	(ideograph-gt-pj-k1): Likewise.
+	(ideograph-gt-pj-k2): Likewise.
+
+2002-11-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=jis-x0208'.
+
 2002-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (china3-jef): Add new coded-charset when
