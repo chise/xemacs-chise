@@ -1,5 +1,10 @@
 1999-06-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/mule-cmds.el (mule-keymap): Use `list-coding-systems'
+	instead of `list-coding-system'.
+
+1999-06-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/mule-cmds.el (reset-language-environment): Must specify
 	coding-systems of coding-categories `ucs-4' and `utf-8'.
 
