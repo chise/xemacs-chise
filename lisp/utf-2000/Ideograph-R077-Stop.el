@@ -20,7 +20,10 @@
     (ideographic-radical . 77)	; â½Œ
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=gt-pj-4		. #x4128)	; ý¡€…†“
     (=daikanwa		. 16254)	; ø¸ƒ½¾
+    (=gt-k		. 00187)	; ý¡„€‚»
+    (=gt		. 20883)	; ý¡€…†“
     ))
 (define-char
   '((morohashi-daikanwa	16254 0 0)
