@@ -194,6 +194,7 @@
   '((ideographic-radical . 49)	; â¼°
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (chinese-gb12345	. #x7D60)	; å·¼
     (mojikyo		. 059575)	; ý €Ž¢·
     (ucs		. #x5DFC)	; å·¼
     ))
