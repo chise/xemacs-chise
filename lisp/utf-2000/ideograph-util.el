@@ -255,10 +255,17 @@
   (let (ret rret radical script dest)
     (dolist (feature
 	     (cons 'ideographic-radical
-		   (mapcar
-		    (lambda (domain)
-		      (intern (format "%s@%s" 'ideographic-radical domain)))
-		    char-db-feature-domains)))
+		   (progn
+		     (dolist (feature (char-attribute-list))
+		       (if (string-match "^ideographic-radical@[^@*]+$"
+					 (symbol-name feature))
+			   (setq dest (cons feature dest))))
+		     dest)
+                   ;; (mapcar
+                   ;;  (lambda (domain)
+                   ;;    (intern (format "%s@%s" 'ideographic-radical domain)))
+                   ;;  char-db-feature-domains)
+		   ))
       (map-char-attribute
        (lambda (chr radical)
 	 (dolist (char (append
