@@ -1,4 +1,4 @@
-2001-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+2001-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R170-Mound.el (U+49BE): New character.
 	(H1-DE72): Moved from Ideograph-R010-Legs.el.
