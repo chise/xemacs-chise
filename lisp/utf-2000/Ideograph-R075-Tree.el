@@ -14931,7 +14931,9 @@
     (ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (=jis-x0213-1-2000	. #x757D)	; ø»¤°
     (=big5		. #xE256)	; ý¢€Ž‰–
+    (=ucs@jis		. #x69CF)	; ø»¤°
     ))
 (define-char
   '((=>ucs		. #x69D0)	; æ§
