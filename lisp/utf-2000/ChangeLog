@@ -23,6 +23,8 @@
 
 2004-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-{3522|334C}.
+
 	* Ideograph-R080-Do-Not.el, Ideograph-R076-Lack.el: Add some
 	`<-simplified@JP/Jouyou' features.
 
