@@ -1,5 +1,5 @@
 /* XEmacs case conversion functions.
-   Copyright (C) 1985, 1992, 1993, 1994 Free Software Foundation, Inc.
+   Copyright (C) 1985, 1992, 1993, 1994, 1997, 1998 Free Software Foundation, Inc.
 
 This file is part of XEmacs.
 
@@ -18,13 +18,12 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-/* Synched up with: FSF 19.34. */
+/* Synched up with: FSF 19.34, but substantially rewritten by Martin. */
 
 #include <config.h>
 #include "lisp.h"
 
 #include "buffer.h"
-#include "commands.h"
 #include "insdel.h"
 #include "syntax.h"
 
@@ -34,100 +33,117 @@ static Lisp_Object
 casify_object (enum case_action flag, Lisp_Object obj, Lisp_Object buffer)
 {
   struct buffer *buf = decode_buffer (buffer, 0);
-  REGISTER int inword = (flag == CASE_DOWN);
-  struct Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
 
-  while (1)
+ retry:
+
+  if (CHAR_OR_CHAR_INTP (obj))
     {
-      if (CHAR_OR_CHAR_INTP (obj))
-	{
-	  Emchar c;
-	  CHECK_CHAR_COERCE_INT (obj);
-	  c = XCHAR (obj);
-	  if (IN_TRT_TABLE_DOMAIN (c))
-	    {
-	      if (inword)
-		obj = make_char (DOWNCASE (buf, c));
-	      else if (!UPPERCASEP (buf, c))
-		obj = make_char (UPCASE1 (buf, c));
-	    }
-	  return obj;
-	}
-      if (STRINGP (obj))
-	{
-	  Charcount i;
-	  Charcount len = XSTRING_CHAR_LENGTH (obj);
-	  obj = Fcopy_sequence (obj);
-	  for (i = 0; i < len; i++)
-	    {
-	      Emchar c = string_char (XSTRING (obj), i);
-	      if (inword && flag != CASE_CAPITALIZE_UP)
-		c = DOWNCASE (buf, c);
-	      else if (!UPPERCASEP (buf, c)
-		       && (!inword || flag != CASE_CAPITALIZE_UP))
-		c = UPCASE1 (buf, c);
-	      set_string_char (XSTRING (obj), i, c);
-	      if ((int) flag >= (int) CASE_CAPITALIZE)
-		inword = WORD_SYNTAX_P (syntax_table, c);
-	    }
-	  return obj;
-	}
-      obj = wrong_type_argument (Qchar_or_string_p, obj);
+      Emchar c;
+      CHECK_CHAR_COERCE_INT (obj);
+      c = XCHAR (obj);
+      c = (flag == CASE_DOWN) ? DOWNCASE (buf, c) : UPCASE (buf, c);
+      return make_char (c);
     }
+
+  if (STRINGP (obj))
+    {
+      struct Lisp_Char_Table *syntax_table =
+	XCHAR_TABLE (buf->mirror_syntax_table);
+      Bufbyte *storage =
+	alloca_array (Bufbyte, XSTRING_LENGTH (obj) * MAX_EMCHAR_LEN);
+      Bufbyte *newp = storage;
+      Bufbyte *oldp = XSTRING_DATA (obj);
+      int wordp = 0, wordp_prev;
+
+      while (*oldp)
+	{
+	  Emchar c = charptr_emchar (oldp);
+	  switch (flag)
+	    {
+	    case CASE_UP:
+	      c = UPCASE (buf, c);
+	      break;
+	    case CASE_DOWN:
+	      c = DOWNCASE (buf, c);
+	      break;
+	    case CASE_CAPITALIZE:
+	    case CASE_CAPITALIZE_UP:
+	      wordp_prev = wordp;
+	      wordp = WORD_SYNTAX_P (syntax_table, c);
+	      if (!wordp) break;
+	      if (wordp_prev)
+		{
+		  if (flag == CASE_CAPITALIZE)
+		    c = DOWNCASE (buf, c);
+		}
+	      else
+		c = UPCASE (buf, c);
+	      break;
+	    }
+
+	  newp += set_charptr_emchar (newp, c);
+	  INC_CHARPTR (oldp);
+	}
+
+      return make_string (storage, newp - storage);
+    }
+
+  obj = wrong_type_argument (Qchar_or_string_p, obj);
+  goto retry;
 }
 
 DEFUN ("upcase", Fupcase, 1, 2, 0, /*
-Convert argument to upper case and return that.
-The argument may be a character or string.  The result has the same type.
-The argument object is not altered--the value is a copy.
+Convert OBJECT to upper case and return that.
+OBJECT may be a character or string.  The result has the same type.
+OBJECT is not altered--the value is a copy.
 See also `capitalize', `downcase' and `upcase-initials'.
 Optional second arg BUFFER specifies which buffer's case tables to use,
  and defaults to the current buffer.
 */
-       (obj, buffer))
+       (object, buffer))
 {
-  return casify_object (CASE_UP, obj, buffer);
+  return casify_object (CASE_UP, object, buffer);
 }
 
 DEFUN ("downcase", Fdowncase, 1, 2, 0, /*
-Convert argument to lower case and return that.
-The argument may be a character or string.  The result has the same type.
-The argument object is not altered--the value is a copy.
+Convert OBJECT to lower case and return that.
+OBJECT may be a character or string.  The result has the same type.
+OBJECT is not altered--the value is a copy.
 Optional second arg BUFFER specifies which buffer's case tables to use,
  and defaults to the current buffer.
 */
-       (obj, buffer))
+       (object, buffer))
 {
-  return casify_object (CASE_DOWN, obj, buffer);
+  return casify_object (CASE_DOWN, object, buffer);
 }
 
 DEFUN ("capitalize", Fcapitalize, 1, 2, 0, /*
-Convert argument to capitalized form and return that.
+Convert OBJECT to capitalized form and return that.
 This means that each word's first character is upper case
 and the rest is lower case.
-The argument may be a character or string.  The result has the same type.
-The argument object is not altered--the value is a copy.
+OBJECT may be a character or string.  The result has the same type.
+OBJECT is not altered--the value is a copy.
 Optional second arg BUFFER specifies which buffer's case tables to use,
  and defaults to the current buffer.
 */
-       (obj, buffer))
+       (object, buffer))
 {
-  return casify_object (CASE_CAPITALIZE, obj, buffer);
+  return casify_object (CASE_CAPITALIZE, object, buffer);
 }
 
-/* Like Fcapitalize but change only the initials.  */
+/* Like Fcapitalize but change only the initial characters.  */
 
 DEFUN ("upcase-initials", Fupcase_initials, 1, 2, 0, /*
-Convert the initial of each word in the argument to upper case.
+Convert the initial of each word in OBJECT to upper case.
 Do not change the other letters of each word.
-The argument may be a character or string.  The result has the same type.
-The argument object is not altered--the value is a copy.
+OBJECT may be a character or string.  The result has the same type.
+OBJECT is not altered--the value is a copy.
 Optional second arg BUFFER specifies which buffer's case tables to use,
  and defaults to the current buffer.
 */
-       (obj, buffer))
+       (object, buffer))
 {
-  return casify_object (CASE_CAPITALIZE_UP, obj, buffer);
+  return casify_object (CASE_CAPITALIZE_UP, object, buffer);
 }
 
 /* flag is CASE_UP, CASE_DOWN or CASE_CAPITALIZE or CASE_CAPITALIZE_UP.
@@ -140,9 +156,10 @@ casify_region_internal (enum case_action flag, Lisp_Object b, Lisp_Object e,
   /* This function can GC */
   REGISTER Bufpos i;
   Bufpos start, end;
-  REGISTER int inword = (flag == CASE_DOWN);
   struct Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
   int mccount;
+  Emchar oldc, c;
+  int wordp = 0, wordp_prev;
 
   if (EQ (b, e))
     /* Not modifying because nothing marked */
@@ -155,25 +172,38 @@ casify_region_internal (enum case_action flag, Lisp_Object b, Lisp_Object e,
 
   for (i = start; i < end; i++)
     {
-      Emchar c = BUF_FETCH_CHAR (buf, i);
-      Emchar oldc = c;
+      c = oldc = BUF_FETCH_CHAR (buf, i);
 
-      if (inword && flag != CASE_CAPITALIZE_UP)
-	c = DOWNCASE (buf, c);
-      else if (!UPPERCASEP (buf, c)
-	       && (!inword || flag != CASE_CAPITALIZE_UP))
-	c = UPCASE1 (buf, c);
-
-      if (oldc != c)
+      switch (flag)
 	{
-	  buffer_replace_char (buf, i, c, 1, (i == start));
-	  BUF_MODIFF (buf)++;
+	case CASE_UP:
+	  c = UPCASE (buf, oldc);
+	  break;
+	case CASE_DOWN:
+	  c = DOWNCASE (buf, oldc);
+	  break;
+	case CASE_CAPITALIZE:
+	case CASE_CAPITALIZE_UP:
+	  /* !!#### need to revalidate the start and end pointers in case
+	     the buffer was changed */
+	  wordp_prev = wordp;
+	  wordp = WORD_SYNTAX_P (syntax_table, c);
+	  if (!wordp) continue;
+	  if (wordp_prev)
+	    {
+	      if (flag == CASE_CAPITALIZE)
+		c = DOWNCASE (buf, c);
+	    }
+	  else
+	    c = UPCASE (buf, c);
+	  break;
 	}
-      /* !!#### need to revalidate the start and end pointers in case
-	 the buffer was changed */
-      if ((int) flag >= (int) CASE_CAPITALIZE)
-	inword = WORD_SYNTAX_P (syntax_table, c);
+
+      if (oldc == c) continue;
+      buffer_replace_char (buf, i, c, 1, (i == start));
+      BUF_MODIFF (buf)++;
     }
+
   end_multiple_change (buf, mccount);
 }
 

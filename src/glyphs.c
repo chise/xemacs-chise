@@ -2366,15 +2366,17 @@ pairs.  FORMAT should be one of
   instanced as `mono-pixmap', `color-pixmap', or `pointer'.)
 'gif
   (A GIF87 or GIF89 image; only if GIF support was compiled into this
-   XEmacs.  Can be instanced as `color-pixmap'.)
+   XEmacs.  NOTE: only the first frame of animated gifs will be displayed.
+   Can be instanced as `color-pixmap'.)
 'jpeg
   (A JPEG image; only if JPEG support was compiled into this XEmacs.
    Can be instanced as `color-pixmap'.)
 'png
-  (A PNG/GIF24 image; only if PNG support was compiled into this XEmacs.
+  (A PNG image; only if PNG support was compiled into this XEmacs.
    Can be instanced as `color-pixmap'.)
 'tiff
-  (A TIFF image; not currently implemented.)
+  (A TIFF image; only if TIFF support was compiled into this XEmacs.
+   Can be instanced as `color-pixmap'.)
 'cursor-font
   (One of the standard cursor-font names, such as "watch" or
    "right_ptr" under X.  Under X, this is, more specifically, any

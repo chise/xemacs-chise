@@ -39,6 +39,9 @@ Boston, MA 02111-1307, USA.  */
 #include <winsock.h>
 #endif
 
+/* Arbitrary size limit for code fragments passed to run_in_other_process */
+#define FRAGMENT_CODE_SIZE 32
+
 /* Bound by winnt.el */
 Lisp_Object Qnt_quote_process_args;
 
@@ -143,8 +146,8 @@ free_process_memory (process_memory* pmc)
 
 /*
  * Run ROUTINE in the context of process determined by H_PROCESS. The
- * routine is passed the address of DATA as parameter. CODE_END is the 
- * address immediately after ROUTINE's code. DATA_SIZE is the size of
+ * routine is passed the address of DATA as parameter. The ROUTINE must
+ * not be longer than ROUTINE_CODE_SIZE bytes. DATA_SIZE is the size of
  * DATA structure.
  *
  * Note that the code must be positionally independent, and compiled
@@ -157,11 +160,11 @@ free_process_memory (process_memory* pmc)
  */
 static DWORD
 run_in_other_process (HANDLE h_process,
-		      LPTHREAD_START_ROUTINE routine, LPVOID code_end,
+		      LPTHREAD_START_ROUTINE routine,
 		      LPVOID data, size_t data_size)
 {
   process_memory pm;
-  size_t code_size = (LPBYTE)code_end - (LPBYTE)routine;
+  CONST size_t code_size = FRAGMENT_CODE_SIZE;
   /* Need at most 3 extra bytes of memory, for data alignment */
   size_t total_size = code_size + data_size + 3;
   LPVOID remote_data;
@@ -223,6 +226,11 @@ run_in_other_process (HANDLE h_process,
  * SIGKILL, SIGTERM, SIGQUIT, SIGHUP - These four translate to ExitProcess
  *    executed by the remote process
  * SIGINT - The remote process is sent CTRL_BREAK_EVENT
+ *
+ * The MSVC5.0 compiler feels free to re-order functions within a
+ * compilation unit, so we have no way of finding out the size of the
+ * following functions. Therefore these functions must not be larger than
+ * FRAGMENT_CODE_SIZE.
  */
 
 /*
@@ -240,12 +248,6 @@ sigkill_proc (sigkill_data* data)
   return 1;
 }
 
-/* Watermark in code space */
-static void
-sigkill_code_end (void)
-{
-}
-
 /*
  * Sending break or control c
  */
@@ -261,12 +263,6 @@ sigint_proc (sigint_data* data)
   return (*data->adr_GenerateConsoleCtrlEvent) (data->event, 0);
 }
 
-/* Watermark in code space */
-static void
-sigint_code_end (void)
-{
-}
-
 /*
  * Enabling signals
  */
@@ -280,12 +276,6 @@ sig_enable_proc (sig_enable_data* data)
 {
   (*data->adr_SetConsoleCtrlHandler) (NULL, FALSE);
   return 1;
-}
-
-/* Watermark in code space */
-static void
-sig_enable_code_end (void)
-{
 }
 
 /*
@@ -316,8 +306,7 @@ send_signal (HANDLE h_process, int signo)
 	sigkill_data d;
 	d.adr_ExitProcess = GetProcAddress (h_kernel, "ExitProcess");
 	assert (d.adr_ExitProcess);
-	retval = run_in_other_process (h_process,
-				       sigkill_proc, sigkill_code_end,
+	retval = run_in_other_process (h_process, sigkill_proc,
 				       &d, sizeof (d));
 	break;
       }
@@ -328,8 +317,7 @@ send_signal (HANDLE h_process, int signo)
 	  GetProcAddress (h_kernel, "GenerateConsoleCtrlEvent");
 	assert (d.adr_GenerateConsoleCtrlEvent);
 	d.event = CTRL_C_EVENT;
-	retval = run_in_other_process (h_process,
-				       sigint_proc, sigint_code_end,
+	retval = run_in_other_process (h_process, sigint_proc,
 				       &d, sizeof (d));
 	break;
       }
@@ -353,8 +341,7 @@ enable_child_signals (HANDLE h_process)
   d.adr_SetConsoleCtrlHandler =
     GetProcAddress (h_kernel, "SetConsoleCtrlHandler");
   assert (d.adr_SetConsoleCtrlHandler);
-  run_in_other_process (h_process,
-			sig_enable_proc, sig_enable_code_end,
+  run_in_other_process (h_process, sig_enable_proc,
 			&d, sizeof (d));
 }
   

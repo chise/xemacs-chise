@@ -194,6 +194,7 @@ char *alloca();
 #undef HAVE_ULIMIT_H
 #undef HAVE_X11_XLOCALE_H
 #undef HAVE_LINUX_VERSION_H
+#undef HAVE_CYGWIN32_VERSION_H
 #undef HAVE_INTTYPES_H
 #undef HAVE_SYS_UN_H
 #undef HAVE_A_OUT_H

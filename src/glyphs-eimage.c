@@ -49,6 +49,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lstream.h"
 #include "console.h"
 #include "device.h"
+#include "faces.h"
 #include "glyphs.h"
 #include "objects.h"
 
@@ -516,7 +517,7 @@ jpeg_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
  *                               GIF                                  *
  **********************************************************************/
 
-#include <gifrlib.h>
+#include "gifrlib.h"
 
 static void
 gif_validate (Lisp_Object instantiator)
@@ -697,8 +698,12 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     eip = unwind.eimage;
     for (i = 0; i < height; i++)
       {
-	if (interlace && row >= height)
-	  row = InterlacedOffset[++pass];
+	if (interlace)
+	  if (row >= height) {
+	    row = InterlacedOffset[++pass];
+	    while (row > height) 
+	      row = InterlacedOffset[++pass];
+	  }
 	eip = unwind.eimage + (row * width * 3);
 	for (j = 0; j < width; j++)
 	  {
@@ -812,6 +817,8 @@ png_instantiate_unwind (Lisp_Object unwind_obj)
   if (data->instream)
     fclose (data->instream);
 
+  if (data->eimage) xfree(data->eimage);
+
   return Qnil;
 }
 
@@ -902,6 +909,42 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     for (y = 0; y < height; y++)
       row_pointers[y] = unwind.eimage + (width * 3 * y);
 
+    {
+      /* if the png specifies a background chunk, go ahead and
+	 use it, else use what we can get from the default face. */
+      png_color_16 my_background, *image_background;
+      Lisp_Object bkgd = Qnil;
+
+      my_background.red   = 0x7fff;
+      my_background.green = 0x7fff;
+      my_background.blue  = 0x7fff;
+      bkgd = FACE_BACKGROUND (Vdefault_face, domain);
+      if (!COLOR_INSTANCEP (bkgd))
+	{
+	  warn_when_safe (Qpng, Qinfo, "Couldn't get background color!");
+	}
+      else
+	{
+	  struct Lisp_Color_Instance *c;
+	  Lisp_Object rgblist;
+
+	  c = XCOLOR_INSTANCE (bkgd);
+	  rgblist = MAYBE_LISP_DEVMETH (XDEVICE (c->device),
+					color_instance_rgb_components,
+					(c));
+	  my_background.red = XINT (XCAR (rgblist));
+	  my_background.green = XINT (XCAR (XCDR (rgblist)));
+	  my_background.blue = XINT (XCAR (XCDR (XCDR (rgblist))));
+	}
+      
+      if (png_get_bKGD (png_ptr, info_ptr, &image_background))
+	png_set_background (png_ptr, image_background,
+			    PNG_BACKGROUND_GAMMA_FILE, 1, 1.0);
+      else 
+	png_set_background (png_ptr, &my_background,
+			    PNG_BACKGROUND_GAMMA_SCREEN, 0, 1.0);
+    }
+
     /* Now that we're using EImage, ask for 8bit RGB triples for any type
        of image*/
     /* convert palatte images to full RGB */
@@ -914,12 +957,6 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     /* we can't handle alpha values */
     if (info_ptr->color_type & PNG_COLOR_MASK_ALPHA)
       png_set_strip_alpha (png_ptr);
-    /* rip out any transparancy layers/colors */
-    if (png_get_valid (png_ptr, info_ptr, PNG_INFO_tRNS))
-      {
-        png_set_expand (png_ptr);
-	png_set_strip_alpha (png_ptr);
-      }
     /* tell libpng to strip 16 bit depth files down to 8 bits */
     if (info_ptr->bit_depth == 16)
       png_set_strip_16 (png_ptr);
@@ -932,25 +969,6 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	  png_set_packing (png_ptr);
       }
 
-#if 1 /* tests? or permanent? */
-    {
-      /* if the png specifies a background chunk, go ahead and
-	 use it */
-      png_color_16 my_background, *image_background;
-    
-      /* ### how do I get the background of the current frame? */
-      my_background.red   = 0x7fff;
-      my_background.green = 0x7fff;
-      my_background.blue  = 0x7fff;
-
-      if (png_get_bKGD (png_ptr, info_ptr, &image_background))
-	png_set_background (png_ptr, image_background,
-			    PNG_BACKGROUND_GAMMA_FILE, 1, 1.0);
-      else 
-	png_set_background (png_ptr, &my_background,
-			    PNG_BACKGROUND_GAMMA_SCREEN, 0, 1.0);
-    }
-#endif
     png_read_image (png_ptr, row_pointers);
     png_read_end (png_ptr, info_ptr);
     

@@ -2651,6 +2651,7 @@ x_delete_frame (struct frame *f)
   }
 #else
   XtDestroyWidget (w);
+  XFlush (XtDisplay(w));   /* make sure the windows are really gone! */
 #endif /* EXTERNAL_WIDGET */
 
   if (FRAME_X_GEOM_FREE_ME_PLEASE (f))

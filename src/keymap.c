@@ -4325,10 +4325,12 @@ Keymap of key translations that can override keymaps.
 This keymap works like `function-key-map', but comes after that,
 and applies even for keys that have ordinary bindings.
 */ );
+  Vkey_translation_map = Qnil;
 
   DEFVAR_LISP ("vertical-divider-map", &Vvertical_divider_map /*
 Keymap which handles mouse clicks over vertical dividers.
 */ );
+  Vvertical_divider_map = Qnil;
 
   DEFVAR_INT ("keymap-tick", &keymap_tick /*
 Incremented for each change to any keymap.

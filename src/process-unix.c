@@ -920,12 +920,14 @@ unix_create_process (struct Lisp_Process *p,
 	      EMACS_SET_TTY_PROCESS_GROUP (xforkin, &piddly);
 	    }
 
-# ifdef AIX
 	    /* On AIX, we've disabled SIGHUP above once we start a
 	       child on a pty.  Now reenable it in the child, so it
-	       will die when we want it to.  */
+	       will die when we want it to.
+	       JV: This needs to be done ALWAYS as we might have inherited
+	       a SIG_IGN handling from our parent (nohup) and we are in new
+	       process group.	       
+	    */
 	    signal (SIGHUP, SIG_DFL);
-# endif /* AIX */
 	  }
 #endif /* HAVE_PTYS */
 

@@ -71,15 +71,21 @@ Boston, MA 02111-1307, USA.  */
 /* cheesy way to determine cygwin version */
 #ifndef NOT_C_CODE
 #include <signal.h>
+#ifdef HAVE_CYGWIN32_VERSION_H
+#include <cygwin32/version.h>
+#else
 #ifdef SIGIO
 #define CYGWIN_B19
 #else
 #define BROKEN_CYGWIN
 #endif
+#endif
+
 extern void cygwin32_win32_to_posix_path_list(const char*, char*);
 extern int cygwin32_win32_to_posix_path_list_buf_size(const char*);
 extern void cygwin32_posix_to_win32_path_list(const char*, char*);
 extern int cygwin32_posix_to_win32_path_list_buf_size(const char*);
+#ifndef CYGWIN_DLL_VERSION_MAJOR
 struct timeval;
 struct timezone;
 struct itimerval;
@@ -102,6 +108,14 @@ extern int utimes(char *file, struct timeval *tvp);
 
 extern int srandom( unsigned seed);
 extern long random();
+
+#define SND_ASYNC		1
+#define SND_NODEFAULT		2
+#define SND_MEMORY		4
+#define SND_FILENAME		0x2000L
+#define VK_APPS			0x5D
+#define SIF_TRACKPOS	0x0010
+#endif
 #endif
 
 #ifdef HAVE_MS_WINDOWS
@@ -117,12 +131,10 @@ extern long random();
 #define LIBS_SYSTEM -lwinmm
 
 #define ICC_BAR_CLASSES 4
-#define SIF_TRACKPOS	0x0010
 #define FW_BLACK	FW_HEAVY
 #define FW_ULTRABOLD	FW_EXTRABOLD
 #define FW_DEMIBOLD	FW_SEMIBOLD
 #define FW_ULTRALIGHT	FW_EXTRALIGHT
-#define VK_APPS			0x5D
 #define APPCMD_FILTERINITS	0x20L
 #define CBF_FAIL_SELFCONNECTIONS 0x1000
 #define CBF_SKIP_ALLNOTIFICATIONS	0x3C0000
@@ -130,10 +142,6 @@ extern long random();
 #define CBF_FAIL_POKES		0x10000
 #define CBF_FAIL_REQUESTS	0x20000
 #define SZDDESYS_TOPIC		"System"
-#define SND_ASYNC		1
-#define SND_NODEFAULT		2
-#define SND_MEMORY		4
-#define SND_FILENAME		0x2000L
 #define JOHAB_CHARSET 		130
 #define MAC_CHARSET 		77
 

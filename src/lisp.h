@@ -2689,6 +2689,7 @@ EXFUN (Fsymbol_function, 1);
 EXFUN (Fsymbol_name, 1);
 EXFUN (Fsymbol_plist, 1);
 EXFUN (Fsymbol_value, 1);
+EXFUN (Fsystem_name, 0);
 EXFUN (Fthrow, 2);
 EXFUN (Ftimes, MANY);
 EXFUN (Ftruncate, 1);

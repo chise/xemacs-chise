@@ -241,7 +241,3 @@ Boston, MA 02111-1307, USA.  */
        the next few times we add a new slot.  */
     MARKED_SLOT (extra1, extra2, extra3);
 #endif
-  /* The cache of positions for whilch line number has last been
-     calculated.  See line-number.c. */
-    MARKED_SLOT (line_number_cache);
-

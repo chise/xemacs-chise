@@ -132,6 +132,8 @@ new_child (void)
   xzero (*cp);
   cp->fd = -1;
   cp->pid = -1;
+  if (cp->procinfo.hProcess)
+    CloseHandle(cp->procinfo.hProcess);
   cp->procinfo.hProcess = NULL;
   cp->status = STATUS_READ_ERROR;
 
@@ -234,10 +236,19 @@ reader_thread (void *arg)
   /* Our identity */
   cp = (child_process *)arg;
   
-  /* We have to wait for the go-ahead before we can start */
+  /* <matts@tibco.com> - I think the test below is wrong - we don't
+     want to wait for someone to signal char_consumed, as we haven't
+     read anything for them to consume yet! */
+
+  /*
   if (cp == NULL ||
       WaitForSingleObject (cp->char_consumed, INFINITE) != WAIT_OBJECT_0)
-    return 1;
+  */
+
+  if (cp == NULL)
+  {
+      return 1;
+  }
 
   for (;;)
     {
@@ -255,7 +266,28 @@ reader_thread (void *arg)
 	}
 
       if (rc == STATUS_READ_ERROR)
-	return 1;
+      {
+        /* We are finished, so clean up handles and set to NULL so
+           that CHILD_ACTIVE will see what is going on */
+        if (cp->char_avail) {
+          CloseHandle (cp->char_avail);
+          cp->char_avail = NULL;
+        }
+        if (cp->thrd) {
+          CloseHandle (cp->thrd);
+          cp->thrd = NULL;
+        }
+        if (cp->char_consumed) {
+          CloseHandle(cp->char_consumed);
+          cp->char_consumed = NULL;
+        }
+        if (cp->procinfo.hProcess)
+        {
+          CloseHandle (cp->procinfo.hProcess);
+          cp->procinfo.hProcess=NULL;
+        }
+        return 1;
+      }
         
       /* If the read died, the child has died so let the thread die */
       if (rc == STATUS_READ_FAILED)
@@ -269,6 +301,26 @@ reader_thread (void *arg)
 	  break;
         }
     }
+  /* We are finished, so clean up handles and set to NULL so that
+     CHILD_ACTIVE will see what is going on */
+  if (cp->char_avail) {
+    CloseHandle (cp->char_avail);
+    cp->char_avail = NULL;
+  }
+  if (cp->thrd) {
+    CloseHandle (cp->thrd);
+    cp->thrd = NULL;
+  }
+  if (cp->char_consumed) {
+    CloseHandle(cp->char_consumed);
+    cp->char_consumed = NULL;
+  }
+  if (cp->procinfo.hProcess)
+  {
+    CloseHandle (cp->procinfo.hProcess);
+    cp->procinfo.hProcess=NULL;
+  }
+  
   return 0;
 }
 
@@ -324,6 +376,11 @@ create_child (char *exe, char *cmdline, char *env,
     goto EH_Fail;
 
   cp->pid = (int) cp->procinfo.dwProcessId;
+
+  CloseHandle (cp->procinfo.hThread);
+  CloseHandle (cp->procinfo.hProcess);
+  cp->procinfo.hThread=NULL;
+  cp->procinfo.hProcess=NULL;
 
   /* Hack for Windows 95, which assigns large (ie negative) pids */
   if (cp->pid < 0)

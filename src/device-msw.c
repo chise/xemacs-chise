@@ -39,13 +39,6 @@ Boston, MA 02111-1307, USA.  */
 #include "frame.h"
 #include "sysdep.h"
 
-#ifndef __CYGWIN32__
-#include <commctrl.h>
-#else
-#define FONTENUMPROC FONTENUMEXPROC
-#define ntmTm ntmentm
-#endif
-
 /* win32 DDE management library globals */
 #ifdef HAVE_DRAGNDROP
 DWORD mswindows_dde_mlid;
@@ -65,76 +58,10 @@ Lisp_Object Vmswindows_get_true_file_attributes;
 
 Lisp_Object Qinit_pre_mswindows_win, Qinit_post_mswindows_win;
 
-struct font_enum_t
-{
-  HDC hdc;
-  struct device *d;
-};
-
 
 /************************************************************************/
 /*                               helpers                                */
 /************************************************************************/
-
-static int CALLBACK
-font_enum_callback_2 (ENUMLOGFONTEX *lpelfe, NEWTEXTMETRICEX *lpntme, 
-		      int FontType, struct font_enum_t *font_enum)
-{
-  struct mswindows_font_enum *fontlist, **fonthead;
-  char fontname[MSW_FONTSIZE];
-
-  /* The enumerated font weights are not to be trusted because:
-   *  a) lpelfe->elfStyle is only filled in for TrueType fonts.
-   *  b) Not all Bold and Italic styles of all fonts (inluding some Vector,
-   *     Truetype and Raster fonts) are enumerated.
-   * I guess that fonts for which Bold and Italic styles are generated
-   * 'on-the-fly' are not enumerated. It would be overly restrictive to
-   * disallow Bold And Italic weights for these fonts, so we just leave
-   * weights unspecified. This means that we have to weed out duplicates of
-   * those fonts that do get enumerated with different weights. */
-
-  if (FontType == 0 /*vector*/ || FontType == TRUETYPE_FONTTYPE)
-    /* Scalable, so leave pointsize blank */
-    sprintf (fontname, "%s::::%s", lpelfe->elfLogFont.lfFaceName,
-	     lpelfe->elfScript);
-  else
-    /* Formula for pointsize->height from LOGFONT docs in Platform SDK */
-    sprintf (fontname, "%s::%d::%s", lpelfe->elfLogFont.lfFaceName,
-	     MulDiv (lpntme->ntmTm.tmHeight - lpntme->ntmTm.tmInternalLeading,
-	             72, DEVICE_MSWINDOWS_LOGPIXELSY (font_enum->d)),
-             lpelfe->elfScript);
-
-  fonthead = &DEVICE_MSWINDOWS_FONTLIST (font_enum->d);
-  fontlist = *fonthead;
-  while (fontlist)
-    if (!strcmp (fontname, fontlist->fontname))
-      return 1;		/* found a duplicate */
-    else
-      fontlist = fontlist->next;
-
-  /* Insert entry at head */
-  fontlist = *fonthead;
-  *fonthead = xmalloc (sizeof (struct mswindows_font_enum));
-  if (*fonthead == NULL)
-    {
-      *fonthead = fontlist;
-      return 0;
-    }
-  strcpy ((*fonthead)->fontname, fontname);
-  (*fonthead)->next = fontlist;
-  return 1;
-}
-
-static int CALLBACK
-font_enum_callback_1 (ENUMLOGFONTEX *lpelfe, NEWTEXTMETRICEX *lpntme, 
-		      int FontType, struct font_enum_t *font_enum)
-{
-  /* This function gets called once per facename per character set.
-   * We call a second callback to enumerate the fonts in each facename */
-  return EnumFontFamiliesEx (font_enum->hdc, &lpelfe->elfLogFont,
-			     (FONTENUMPROC) font_enum_callback_2,
-			     (LPARAM) font_enum, 0);
-}
 
 static Lisp_Object
 build_syscolor_string (int index)
@@ -182,8 +109,6 @@ mswindows_init_device (struct device *d, Lisp_Object props)
 {
   WNDCLASSEX wc;
   HDC hdc;
-  LOGFONT logfont;
-  struct font_enum_t font_enum;
 
   DEVICE_CLASS (d) = Qcolor;
   DEVICE_INFD (d) = DEVICE_OUTFD (d) = -1;
@@ -204,16 +129,9 @@ mswindows_init_device (struct device *d, Lisp_Object props)
   DEVICE_MSWINDOWS_HORZSIZE(d) = GetDeviceCaps(hdc, HORZSIZE);
   DEVICE_MSWINDOWS_VERTSIZE(d) = GetDeviceCaps(hdc, VERTSIZE);
   DEVICE_MSWINDOWS_BITSPIXEL(d) = GetDeviceCaps(hdc, BITSPIXEL);
-
-  DEVICE_MSWINDOWS_FONTLIST (d) = NULL;
-  logfont.lfCharSet = DEFAULT_CHARSET;
-  logfont.lfFaceName[0] = '\0';
-  logfont.lfPitchAndFamily = DEFAULT_PITCH;
-  font_enum.hdc = hdc;
-  font_enum.d = d;
-  EnumFontFamiliesEx (hdc, &logfont, (FONTENUMPROC) font_enum_callback_1,
-		      (LPARAM) (&font_enum), 0);
   DeleteDC (hdc);
+
+  mswindows_enumerate_fonts (d);
 
   /* Register the main window class */
   wc.cbSize = sizeof (WNDCLASSEX);

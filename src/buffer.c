@@ -232,6 +232,8 @@ mark_buffer (Lisp_Object obj, void (*markobj) (Lisp_Object))
 #undef MARKED_SLOT
 
   ((markobj) (buf->extent_info));
+  if (buf->text)
+    ((markobj) (buf->text->line_number_cache));
 
   /* Don't mark normally through the children slot.
      (Actually, in this case, it doesn't matter.)  */
@@ -614,12 +616,11 @@ The value is never nil.
   b->text = &b->own_text;
   b->base_buffer = 0;
   b->indirect_children = Qnil;
-  init_buffer_text (b, 0);
+  init_buffer_text (b);
 
   return finish_init_buffer (b, name);
 }
 
-#if 0 /* #### implement this!  Need various changes in insdel.c */
 DEFUN ("make-indirect-buffer", Fmake_indirect_buffer, 2, 2,
        "bMake indirect buffer (to buffer): \nBName of indirect buffer: ", /*
 Create and return an indirect buffer for buffer BASE, named NAME.
@@ -631,44 +632,40 @@ If BASE is an indirect buffer itself, the base buffer for that buffer
 */
        (base_buffer, name))
 {
-  Lisp_Object buf;
-  REGISTER struct buffer *b;
+  /* This function can GC */
+
+  /* #### The above interactive specification is totally bogus,
+     because it offers an existing buffer as default answer to the
+     second question.  However, the second argument may not BE an
+     existing buffer!  */
+  struct buffer *b;
+
+  base_buffer = get_buffer (base_buffer, 1);
 
 #ifdef I18N3
   /* #### Doc string should indicate that the buffer name will get
      translated. */
 #endif
-
+  CHECK_STRING (name);
   name = LISP_GETTEXT (name);
-  buf = Fget_buffer (name);
-  if (!NILP (buf))
-    error ("Buffer name `%s' is in use", XSTRING_DATA (name));
-
-  base_buffer = Fget_buffer (base_buffer);
-  if (NILP (base_buffer))
-    error ("No such buffer: `%s'", XSTRING_DATA (XBUFFER (base_buffer)->name));
-
+  if (!NILP (Fget_buffer (name)))
+    signal_simple_error ("Buffer name already in use", name);
   if (XSTRING_LENGTH (name) == 0)
     error ("Empty string for buffer name is not allowed");
 
   b = allocate_buffer ();
 
-  if (XBUFFER (base_buffer)->base_buffer)
-    b->base_buffer = XBUFFER (base_buffer)->base_buffer;
-  else
-    b->base_buffer = XBUFFER (base_buffer);
+  b->base_buffer = BUFFER_BASE_BUFFER (XBUFFER (base_buffer));
 
   /* Use the base buffer's text object.  */
   b->text = b->base_buffer->text;
   b->indirect_children = Qnil;
-  XSETBUFFER (buf, b);
   b->base_buffer->indirect_children =
-    Fcons (buf, b->base_buffer->indirect_children);
-  init_buffer_text (b, 1);
+    Fcons (make_buffer (b), b->base_buffer->indirect_children);
+  init_buffer_text (b);
 
   return finish_init_buffer (b, name);
 }
-#endif /* 0 */
 
 
 
@@ -812,41 +809,6 @@ If BUFFER is indirect, the return value will always be nil; see
   struct buffer *buf = decode_buffer (buffer, 0);
 
   return Fcopy_sequence (buf->indirect_children);
-}
-
-/* Map MAPFUN over all buffers that share the same text as BUF
-   (this includes BUF).  Pass two arguments to MAPFUN: a buffer,
-   and CLOSURE.  If any invocation of MAPFUN returns non-zero,
-   halt immediately and return that value.  Otherwise, continue
-   the mapping to the end and return 0. */
-
-int
-map_over_sharing_buffers (struct buffer *buf,
-			  int (*mapfun) (struct buffer *buf, void *closure),
-			  void *closure)
-{
-  int result;
-  Lisp_Object tail;
-
-  if (buf->base_buffer)
-    {
-      buf = buf->base_buffer;
-      assert (!buf->base_buffer);
-    }
-
-  result = (mapfun) (buf, closure);
-  if (result)
-    return result;
-
-  LIST_LOOP (tail, buf->indirect_children)
-    {
-      Lisp_Object buffer = XCAR (tail);
-      result = (mapfun) (XBUFFER (buffer), closure);
-      if (result)
-	return result;
-    }
-
-  return 0;
 }
 
 DEFUN ("buffer-local-variables", Fbuffer_local_variables, 0, 1, 0, /*
@@ -1287,7 +1249,12 @@ with `delete-process'.
       GCPRO1 (buf);
 
       LIST_LOOP (rest, b->indirect_children)
-	Fkill_buffer (XCAR (rest));
+	{
+	  Fkill_buffer (XCAR (rest));
+	  /* Keep indirect_children updated in case a
+             query-function/hook throws.  */
+	  b->indirect_children = XCDR (rest);
+	}
 
       UNGCPRO;
     }
@@ -1372,7 +1339,7 @@ with `delete-process'.
     kill_buffer_local_variables (b);
 
     b->name = Qnil;
-    uninit_buffer_text (b, !!b->base_buffer);
+    uninit_buffer_text (b);
     b->undo_list = Qnil;
     uninit_buffer_extents (b);
     if (b->base_buffer)
@@ -1869,9 +1836,7 @@ syms_of_buffer (void)
   DEFSUBR (Fget_buffer);
   DEFSUBR (Fget_file_buffer);
   DEFSUBR (Fget_buffer_create);
-#if 0
   DEFSUBR (Fmake_indirect_buffer);
-#endif
 
   DEFSUBR (Fgenerate_new_buffer_name);
   DEFSUBR (Fbuffer_name);

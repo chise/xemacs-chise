@@ -693,8 +693,18 @@ x_get_gc (struct device *d, Lisp_Object font, Lisp_Object fg, Lisp_Object bg,
       mask |= GCBackground;
     }
 
-  if (IMAGE_INSTANCEP (bg_pmap)
-      && IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (bg_pmap)))
+  /* This special case comes from a request to draw text with a face which has
+     the dim property. We'll use a stippled foreground GC. */
+  if (EQ (bg_pmap, Qdim))
+    {
+      assert (DEVICE_X_GRAY_PIXMAP (d) != None);
+
+      gcv.fill_style = FillStippled;
+      gcv.stipple = DEVICE_X_GRAY_PIXMAP (d);
+      mask |= (GCFillStyle | GCStipple);
+    }
+  else  if (IMAGE_INSTANCEP (bg_pmap)
+	    && IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (bg_pmap)))
     {
       if (XIMAGE_INSTANCE_PIXMAP_DEPTH (bg_pmap) == 0)
 	{
@@ -915,6 +925,18 @@ x_output_string (struct window *w, struct display_line *dl,
       if (cursor && cursor_cachel && focus && NILP (bar_cursor_value))
 	gc = x_get_gc (d, font, cursor_cachel->foreground,
 		       cursor_cachel->background, Qnil, Qnil);
+      else if (cachel->dim)
+	{
+	  /* Ensure the gray bitmap exists */
+	  if (DEVICE_X_GRAY_PIXMAP (d) == None)
+	    DEVICE_X_GRAY_PIXMAP (d) = 
+	      XCreateBitmapFromData (dpy, x_win, (char *)gray_bits,
+				     gray_width, gray_height);
+
+	  /* Request a GC with the gray stipple pixmap to draw dimmed text */
+	  gc = x_get_gc (d, font, cachel->foreground, cachel->background,
+			 Qdim, Qnil);
+	}
       else
 	gc = x_get_gc (d, font, cachel->foreground, cachel->background,
 		       Qnil, Qnil);

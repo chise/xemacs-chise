@@ -251,4 +251,6 @@ HANDLE get_nt_process_handle (struct Lisp_Process *p);
 extern Lisp_Object Vmswindows_frame_being_created;
 extern Lisp_Object mswindows_frame_being_created;
 
+void mswindows_enumerate_fonts (struct device *d);
+
 #endif /* _XEMACS_CONSOLE_MSW_H_ */

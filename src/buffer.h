@@ -102,6 +102,10 @@ struct buffer_text
   Bytind mule_bytind_cache[16];
 #endif
 
+  /* Similar to the above, we keep track of positions for which line
+     number has last been calculated.  See line-number.c. */
+  Lisp_Object line_number_cache;
+
   /* Change data that goes with the text. */
   struct buffer_text_change_data *changes;
 
@@ -232,6 +236,23 @@ DECLARE_LRECORD (buffer, struct buffer);
   if (!BUFFER_LIVE_P (XBUFFER (x)))			\
     x = wrong_type_argument (Qbuffer_live_p, (x));	\
 } while (0)
+
+#define BUFFER_BASE_BUFFER(b) ((b)->base_buffer ? (b)->base_buffer : (b))
+
+/* Map over buffers sharing the same text as MPS_BUF.  MPS_BUFVAR is a
+   variable that gets the buffer values (beginning with the base
+   buffer, then the children), and MPS_BUFCONS should be a temporary
+   Lisp_Object variable.  */
+#define MAP_INDIRECT_BUFFERS(mps_buf, mps_bufvar, mps_bufcons)			\
+for (mps_bufcons = Qunbound,							\
+     mps_bufvar = BUFFER_BASE_BUFFER (mps_buf);					\
+     UNBOUNDP (mps_bufcons) ?							\
+	(mps_bufcons = mps_bufvar->indirect_children,				\
+	1)									\
+       : (!NILP (mps_bufcons)							\
+	  && (mps_bufvar = XBUFFER (XCAR (mps_bufcons)), 1)			\
+	  && (mps_bufcons = XCDR (mps_bufcons), 1));				\
+     )
 
 
 /* NOTE: In all the following macros, we follow these rules concerning

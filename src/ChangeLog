@@ -1,3 +1,432 @@
+1998-09-29  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta2 is released.
+
+1998-09-27  P. E. Jareth Hein  <jareth@camelot.co.jp>
+
+	* regex.c (re_match_2_internal): Add in code to reset lowest_active_reg
+	to prevent memory corruption in the case of jumping out of a series of
+	nested match patterns. This is a rather brute force approach, though.
+
+1998-09-02  Andy Piper  <andyp@parallax.co.uk>
+
+	* config.h.in: ditto.
+
+	* s/cygwin32.h: rearrange declarations to cope with cygwin
+ 	b20. Include cygwin32/version.h if it exists.
+
+1998-09-20  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* device-msw.c (mswindows_init_device): Call new
+	  mswindows_enumerate_fonts() function in objects-msw.c instead
+	  of font_enum_callback_1() to enumerate fonts.
+
+	  font_enum_callback_1() and _2() moved to objects-msw.c. 
+
+	* faces.c (complex_vars_of_faces): Make the mswindows default 
+	  face font fully specified and provide some fallbacks.
+
+	* objects-msw.c: font_enum_callback_1() and _2() moved here
+	  from objects-msw.c. Obtain the enumerated font's character
+	  sets by table lookup instead of using the locale-specific
+	  string provided by Windows.
+
+	  New public non-method mswindows_enumerate_fonts() that fills
+	  in the supplied mswindows device's font list.
+
+	  mswindows_initialize_font_instance: Use the supplied name
+	  variable instead of f->name when signalling errors. Match font
+	  weights and character sets using lookup tables which handle
+	  spaces instead of by frobbing.
+
+1998-09-20  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* process-nt.c: Define an arbitrary limit, FRAGMENT_CODE_SIZE,
+	  on the size of code fragments passed to run_in_other_process.
+
+	  run_in_other_process(): Use FRAGMENT_CODE_SIZE to determine
+	  the amount of memory to allocate in the other process.
+
+	  Removed sigkill_code_end(), sigint_code_end() and
+	  sig_enable_code_end() since they are now redundant.
+
+	  send_signal() and enable_child_signals(): Don't try to work
+	  out the end of the code fragments passed to 
+	  run_in_other_process()
+
+1998-09-10  Kazuyuki IENAGA  <ienaga@jsys.co.jp>
+
+	* src/s/freebsd.h: Added __ELF__ and compiler/liker flags for
+	FreeBSD-current.
+
+	* src/unexelf.c: Partially synched with FSF's 20.3.
+
+1998-09-10  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* insdel.c (signal_after_change): Map across indirect buffers
+	here, and not in the upper-level functions.
+	(signal_first_change): Don't check for Armageddon.
+	(signal_before_change): Map across indirect buffers here.
+	(prepare_to_modify_buffer): ...and here.
+
+1998-09-09  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* insdel.c (signal_after_change): Add return value.
+	(buffer_insert_string_1): Use it.
+	(buffer_delete_range): Ditto.
+	(buffer_replace_char): Ditto.
+	(cancel_multiple_change): Map the indirect buffers.
+
+1998-09-06  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* insdel.c (init_buffer_text): Remove INDIRECT_P parameter.
+	(uninit_buffer_text): Ditto.
+
+	* buffer.c (Fmake_indirect_buffer): Implement stricter
+	error-checking.
+
+1998-09-04  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* insdel.c (change_function_restore): Reverse order of
+	function-call and assignment.
+	(first_change_hook_restore): Ditto.
+
+	* extents.c (mark_extent_auxiliary): Mark them.
+	(Fset_extent_property): Set them.
+	(Fextent_property): Get them.
+	(Fextent_properties): Ditto.
+	(vars_of_extents): Set their default.
+
+	* extents.h (struct extent_auxiliary): Add before_change_functions
+	and after_change_functions.
+
+	* insdel.c (signal_before_change): Use it.
+	(signal_after_change): Ditto.
+
+	* extents.c (report_extent_modification): New function.
+
+	* insdel.c (signal_before_change): Don't check for Armageddon.
+	(signal_after_change): Ditto.
+
+1998-09-11  Gunnar Evermann  <Gunnar.Evermann@nats.informatik.uni-hamburg.de>
+
+	* redisplay.c (redisplay_window): make sure a new starting point
+	is chosen if it somehow got moved from the beginning of the line
+	-- this can happen because Fwiden was called recently.
+
+	* window.c (Fset_window_start): set start_at_line_beg correctly
+	(Fset_window_buffer): Ditto
+
+1998-09-06  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* insdel.c (init_buffer_text): Remove INDIRECT_P parameter.
+	(uninit_buffer_text): Ditto.
+
+	* buffer.c (Fmake_indirect_buffer): Implement stricter
+	error-checking.
+
+1998-05-14  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* emacs.c (main_1): Removed references to *vars_of_filelock.
+
+	* lisp.h: Added Fsystem_name.
+
+	* filelock.c: Replaced by version from FSF 20.2. Now implements
+	locking by using symlinks which is NFS safe. However keep the
+	GCPRO's in lock_file and the calls to callx_in_buffer like our old 
+	version (and of course use ansi C, acessor macros, etc).
+
+1998-09-06  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* process-unix.c (unix_create_process): Reset SIGHUP handler to
+	SIG_DFL. We now try to conserve any inherted SIG_IGN settings
+	in init_signals_very_early. However these should not be passed 
+	on to children attached to the new pty.
+
+1998-08-28  Andy Piper  <andyp@parallax.co.uk>
+
+	* glyphs-eimage.c (png_instantiate_unwind): clean up eimage after use.
+
+1998-09-07  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* fileio.c (file-name-directory, file_name_as_directory):
+	  Don't call CORRECT_DIR_SEPS, even when #defined WINDOWSNT. 
+
+1998-09-02  Andy Piper  <andyp@parallax.co.uk>
+
+	* emacs.c (main_1): init_ralloc() if initialised and we have REL_ALLOC
+
+	* ralloc.c: uncomment __morecore.
+
+1998-09-92  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* event-msw.c(winsock_writer): Supply a dummy 4th argument to
+	  WriteFile() to fix a winsock 1.x bug on Win95.
+
+1998-08-28  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* event-Xt.c (emacs_Xt_mapping_action): Check for device being
+ 	deleted.
+	(x_event_to_emacs_event): Ditto.
+	(emacs_Xt_handle_focus_event): Ditto.
+	(emacs_Xt_handle_magic_event): Ditto.
+
+	* console-x.h (struct x_device): New flag being_deleted.
+	(DEVICE_X_BEING_DELETED): New macro.
+
+	* device-x.c (x_IO_error_handler): Throw to top-level instead of
+	returning.  Before doing that, set the being_deleted flag on the
+	device.
+
+1998-08-27  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* device-x.c (x-seppuku-on-epipe): Removed.
+
+1998-08-26  Gunnar Evermann  <Gunnar.Evermann@nats.informatik.uni-hamburg.de>
+
+	* frame-x.c (x_delete_frame): Flush the X output buffer after
+	calling XtDestroyWidget to ensure that the windows are really
+	killed right now. 
+
+1998-08-26  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* menubar-x.c (my_run_hook): New unused function.
+	(pre_activate_callback): Use run_hook for Qactivate_menubar_hook,
+	since we ignore the results of the contained functions anyway.
+
+1998-08-26  P. E. Jareth Hein  <jareth@camelot.co.jp>
+
+	* glyphs-eimage.c (gif_instantiate): Fix a crash in handling
+	interlaced GIF files that are smaller than 4 lines high...
+
+1998-08-31  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* buffer.c (map_over_sharing_buffers): Deleted.
+
+	* insdel.c (MAP_INDIRECT_BUFFERS): Move to buffer.h.
+
+	* buffer.c (Fkill_buffer): Keep indirect_children updated while
+	killing them.
+
+1998-08-31  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* insdel.c (buffer_insert_string_1): Advance the point bytind in
+	all the buffers.
+	(buffer_delete_range): Ditto.
+
+	* marker.c (init_buffer_markers): Set point-marker to the value of 
+	point in an indirect buffer.
+
+1998-08-30  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* undo.c (undo_prelude): Test last-undo-buffer against base
+ 	buffer.
+
+	* insdel.c (MAP_INDIRECT_BUFFERS): Use it.
+
+	* buffer.h (BUFFER_BASE_BUFFER): New macro.
+
+1998-08-30  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* insdel.c (init_buffer_text): Initialize it here.
+
+	* line-number.c: Address line_number_cache through buffer->text.
+
+	* buffer.c (mark_buffer): Mark line number cache.
+
+	* bufslots.h (line_number_cache): Move to struct buffer_text.
+
+	* insdel.c (buffer_insert_string_1): Propagate signals and changes
+	across the children buffers.
+	(buffer_delete_range): Ditto.
+	(buffer_replace_char): Ditto.
+	(gap_left): Ditto.
+	(gap_right): Ditto.
+
+	* insdel.c (MAP_INDIRECT_BUFFERS): New macro.
+
+	* buffer.c (Fmake_indirect_buffer): Uncomment.
+
+1998-08-31  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* macros.c (Fend_kbd_macro): Remove trailing period from error
+	message.
+	(Fexecute_kbd_macro): Ditto.
+
+1998-08-21  Greg Klanderman  <greg@alphatech.com>
+
+	* dired.c (Fuser_name_completion): remove optional 2nd argument.
+	(Fuser_name_completion_1): new function to return uniqueness
+	indication in addition to the user name completion.
+	(user_name_completion): change type of `uniq' argument.
+
+1998-08-19  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* lread.c (vars_of_lread): Removed `source-directory' variable.
+
+1998-08-22  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fileio.c (Ffile_readable_p): Apply the DOS/Windows logic to
+	Cygwin.
+
+1998-08-19  SL Baur  <steve@altair.xemacs.org>
+
+	* dired.c (vars_of_dired): Fix misapplied patch.
+
+1998-08-16  Martin Buchholz  <martin@xemacs.org>
+
+	* fns.c (Fremrassq, remrassq_no_quit):
+	A XCAR that should have been an XCDR turned Fremrassq into Fremassq
+
+1998-07-17  Didier Verna  <verna@inf.enst.fr>
+
+	* redisplay-x.c (x_get_gc): returns a GC with a FillStipple fill
+	style as foreground GC for faces that have the `dim' property.
+	(x_output_string): when the `dim' face property is set,
+	ensure the gray pixmap has been created, and get a proper
+	foreground GC to draw the text.
+
+1998-08-09  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* event-msw.c (mswindows_wnd_proc): Workaround for a Win95 bug:
+	  Manually track the state of the left and right Ctrl and Alt
+	  modifiers.
+
+1998-08-07 Matt Stupple <matts@tibco.com>
+
+        * ntproc.c: don't wait on char_consumed at thread entry. 
+	Additionally, to get the 'process' marked as finished, ensure
+	that the CHILD_ACTIVE macro returns false, so before exiting
+	close char_avail and set it to NULL, and close other handles
+	to reduce handle leak problems.
+
+1998-08-09  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* menubar-msw.c (displayable_menu_item): take account of menu
+	  depth when deciding whether to try to display accelerators.
+
+1998-08-04  Andy Piper  <andyp@parallax.co.uk>
+
+	* event-msw.c: use MsgWaitForMultipleObjects if there are no
+	subprocesses.
+
+	* glyphs-msw.c: fix a couple of potential handle leaks.
+
+1998-08-04  P. E. Jareth Hein  <jareth@camelot.co.jp>
+
+	* dgif_lib.c gif_io.c gifrlib.h: New files to put GIF
+	  *decoding ONLY* back into the core.
+	* glyphs-eimage.c: Change referenced header file for GIF
+	  reading to point to the incore version.
+
+1998-07-20  Martin Buchholz  <martin@xemacs.org>
+
+	* casefiddle.c (casify_object): 
+	Change algorithm from O(N**2) to O(N).
+	Code cleanup.
+	Doc string cleanup.
+
+1998-07-22  Greg Klanderman  <greg@alphatech.com>
+
+	* dired.c (file_name_completion_unwind): don't leak the cons.
+
+1998-07-20  Greg Klanderman  <greg@alphatech.com>
+
+	* dired.c (Fuser_name_completion): new function.
+	(Fuser_name_all_completions): new function.
+	(user_name_completion): new function.
+	(syms_of_dired): 2 new DEFSUBRs.
+	(vars_of_dired): initialize user name cache vars.
+
+1998-07-29  P. E. Jareth Hein  <jareth@camelot.co.jp>
+
+	* glyphs-eimage.c (png_instantiate): Add proper handling for background
+ 	colors taken from the default face.  Also correct a thinko in
+	transparency (not alpha) handling.
+
+1998-07-23  Martin Buchholz  <martin@xemacs.org>
+
+	* s/decosf4-0.h:  Use a perfectly ordinary link.  Nuke BSD crap.
+	* unexalpha.c: ANSI C-ize.  Clean compiler warnings.
+	* lread.c (Fload_internal):  Be very careful with printfs of
+	size_t's
+	* gui-x.c (menu_name_to_accelerator): tolower wants an `int'
+	argument.
+
+1998-07-27  Gunnar Evermann  <Gunnar.Evermann@nats.informatik.uni-hamburg.de>
+
+	* callint.c (Fcall_interactively): GCPRO prompt string before
+	passing it to Fread_key_sequence
+
+1998-07-27  SL Baur  <steve@altair.xemacs.org>
+
+	* keymap.c (vars_of_keymap): Initialize Vkey_translation_map and
+	Vvertical_divider_map.
+
+	* mule-canna.c (vars_of_mule_canna): Initialize every symbol to
+	Qnil or 0, none were initialized prior to this change.
+
+	Rename misnamed `V' prefixed integer variables:
+	Vcanna_empty_info, Vcanna_through_info, Vcanna_underline,
+	Vcanna_inhibit_hankakukana, Vcanna_henkan_length, Vcanna_henkan_revPos,
+	Vcanna_henkan_revLen, Vcanna_ichiran_length, Vcanna_ichiran_revPos,
+	Vcanna_ichiran_revLen.
+
+	Rename misnamed `V' prefixed integer variables and initialize
+	properly in the vars_of routine.
+	Vcanna_mode_AlphaMode, Vcanna_mode_EmptyMode, Vcanna_mode_KigoMode,
+	Vcanna_mode_YomiMode, Vcanna_mode_JishuMode, Vcanna_mode_TankouhoMode,
+	Vcanna_mode_IchiranMode, Vcanna_mode_YesNoMode, Vcanna_mode_OnOffMode,
+	Vcanna_mode_AdjustBunsetsuMode, Vcanna_mode_ChikujiYomiMode,
+	Vcanna_mode_ChikujiTanMode, Vcanna_mode_HenkanMode,
+	Vcanna_mode_HenkanNyuryokuMode, Vcanna_mode_ZenHiraHenkanMode,
+	Vcanna_mode_HanHiraHenkanMode, Vcanna_mode_ZenKataHenkanMode,
+	Vcanna_mode_HanKataHenkanMode, Vcanna_mode_HanKataHenkanMode,
+	Vcanna_mode_ZenAlphaHenkanMode, Vcanna_mode_HanAlphaHenkanMode,
+	Vcanna_mode_ZenHiraKakuteiMode, Vcanna_mode_HanHiraKakuteiMode,
+	Vcanna_mode_ZenKataKakuteiMode, Vcanna_mode_HanKataKakuteiMode,
+	Vcanna_mode_ZenAlphaKakuteiMode, Vcanna_mode_HanAlphaKakuteiMode,
+	Vcanna_mode_HexMode, Vcanna_mode_BushuMode, Vcanna_mode_ExtendMode,
+	Vcanna_mode_RussianMode, Vcanna_mode_GreekMode, Vcanna_mode_LineMode,
+	Vcanna_mode_ChangingServerMode, Vcanna_mode_HenkanMethodMode,
+	Vcanna_mode_DeleteDicMode, Vcanna_mode_TourokuMode,
+	Vcanna_mode_TourokuEmptyMode, Vcanna_mode_TourokuHinshiMode,
+	Vcanna_mode_TourokuDicMode, Vcanna_mode_QuotedInsertMode,
+	Vcanna_mode_BubunMuhenkanMode, Vcanna_mode_MountDicMode,
+	Vcanna_fn_SelfInsert, Vcanna_fn_FunctionalInsert,
+	Vcanna_fn_QuotedInsert, Vcanna_fn_JapaneseMode, Vcanna_fn_AlphaMode,
+	Vcanna_fn_HenkanNyuryokuMode, Vcanna_fn_Forward, Vcanna_fn_Backward,
+	Vcanna_fn_Next, Vcanna_fn_Prev, Vcanna_fn_BeginningOfLine,
+	Vcanna_fn_EndOfLine, Vcanna_fn_DeleteNext, Vcanna_fn_DeletePrevious,
+	Vcanna_fn_KillToEndOfLine, Vcanna_fn_Henkan, Vcanna_fn_Kakutei,
+	Vcanna_fn_Extend, Vcanna_fn_Shrink, Vcanna_fn_AdjustBunsetsu,
+	Vcanna_fn_Quit, Vcanna_fn_ConvertAsHex, Vcanna_fn_ConvertAsBushu,
+	Vcanna_fn_KouhoIchiran, Vcanna_fn_BubunMuhenkan, Vcanna_fn_Zenkaku,
+	Vcanna_fn_Hankaku, Vcanna_fn_ExtendMode, Vcanna_fn_ToUpper,
+	Vcanna_fn_Capitalize, Vcanna_fn_ToLower, Vcanna_fn_Hiragana,
+	Vcanna_fn_Katakana, Vcanna_fn_Romaji, Vcanna_fn_BaseHiragana,
+	Vcanna_fn_BaseKatakana, Vcanna_fn_BaseEisu, Vcanna_fn_BaseZenkaku,
+	Vcanna_fn_BaseHankaku, Vcanna_fn_BaseKana, Vcanna_fn_BaseKakutei,
+	Vcanna_fn_BaseHenkan, Vcanna_fn_BaseHiraKataToggle,
+	Vcanna_fn_BaseZenHanToggle, Vcanna_fn_BaseKanaEisuToggle,
+	Vcanna_fn_BaseKakuteiHenkanToggle, Vcanna_fn_BaseRotateForward,
+	Vcanna_fn_BaseRotateBackward, Vcanna_fn_Touroku, Vcanna_fn_HexMode,
+	Vcanna_fn_BushuMode, Vcanna_fn_KigouMode, Vcanna_fn_Mark,
+	Vcanna_fn_TemporalMode, Vcanna_key_Nfer, Vcanna_key_Xfer,
+	Vcanna_key_Up, Vcanna_key_Left, Vcanna_key_Right, Vcanna_key_Down,
+	Vcanna_key_Insert, Vcanna_key_Rollup, Vcanna_key_Rolldown,
+	Vcanna_key_Home, Vcanna_key_Help, Vcanna_key_KP_Key,
+	Vcanna_key_Shift_Nfer, Vcanna_key_Shift_Xfer, Vcanna_key_Shift_Up,
+	Vcanna_key_Shift_Left, Vcanna_key_Shift_Right, Vcanna_key_Shift_Down,
+	Vcanna_key_Cntrl_Nfer, Vcanna_key_Cntrl_Xfer, Vcanna_key_Cntrl_Up,
+	Vcanna_key_Cntrl_Left, Vcanna_key_Cntrl_Right, Vcanna_key_Cntrl_Down
+
+1998-07-16  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* event-Xt.c (x_to_emacs_keysym): Return nil for modifier keysyms.
+	(x_event_to_emacs_event): Let x_to_emacs_keysym check for modifier 
+	keys thus no longer considering all keysyms on a key.
+
 1998-07-19  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta1 is released.

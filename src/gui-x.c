@@ -324,8 +324,11 @@ menu_name_to_accelerator (char *name)
       ++name;
       if (!(*name))
 	return Qnil;
-      if (*name=='_'&&*(name+1))
-	return make_char (tolower(*(name+1)));
+      if (*name=='_' && *(name+1))
+	{
+	  int accelerator = (int) (unsigned char) (*(name+1));
+	  return make_char (tolower (accelerator));
+	}
     }
     ++name;
   }

@@ -1919,8 +1919,12 @@ complex_vars_of_faces (void)
 		       inst_list);
 #endif /* HAVE_TTY */
 #ifdef HAVE_MS_WINDOWS
-    inst_list = Fcons (Fcons (list1 (Qmswindows), build_string ("Courier New")),
-		       inst_list);
+    inst_list = Fcons (Fcons (list1 (Qmswindows),
+		       build_string ("Fixedsys:Regular:9::Western")), inst_list);
+    inst_list = Fcons (Fcons (list1 (Qmswindows),
+		       build_string ("Courier:Regular:10::Western")), inst_list);
+    inst_list = Fcons (Fcons (list1 (Qmswindows),
+		       build_string ("Courier New:Regular:10::Western")), inst_list);
 #endif /* HAVE_MS_WINDOWS */
     set_specifier_fallback (Fget (Vdefault_face, Qfont, Qnil), inst_list);
   }

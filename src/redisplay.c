@@ -5066,7 +5066,10 @@ redisplay_window (Lisp_Object window, int skip_selected)
          temporary change to the echo area. */
       && !(MINI_WINDOW_P (w) && f->buffers_changed)
       && !f->frame_changed
-      && !truncation_changed)
+      && !truncation_changed
+      /* check whether start is really at the begining of a line  GE */
+      && (!w->start_at_line_beg || beginning_of_line_p (b, startp))
+      )
     {
       /* Check if the cursor has actually moved. */
       if (EQ (Fmarker_buffer (w->last_point[CURRENT_DISP]), w->buffer)

@@ -333,6 +333,33 @@ restore_in_menu_callback (Lisp_Object val)
 }
 #endif /* LWLIB_MENUBARS_LUCID || LWLIB_MENUBARS_MOTIF */
 
+#if 0
+/* #### Sort of a hack needed to process Vactivate_menubar_hook
+   correctly wrt buffer-local values.  A correct solution would
+   involve adding a callback mechanism to run_hook().  This function
+   is currently unused.  */
+static int
+my_run_hook (Lisp_Object hooksym, int allow_global_p)
+{
+  /* This function can GC */
+  Lisp_Object tail;
+  Lisp_Object value = Fsymbol_value (hooksym);
+  int changes = 0;
+
+  if (!NILP (value) && (!CONSP (value) || EQ (XCAR (value), Qlambda)))
+    return !EQ (call0 (value), Qt);
+
+  EXTERNAL_LIST_LOOP (tail, value)
+    {
+      if (allow_global_p && EQ (XCAR (tail), Qt))
+	changes |= my_run_hook (Fdefault_value (hooksym), 0);
+      if (!EQ (call0 (XCAR (tail)), Qt))
+	changes = 1;
+    }
+  return changes;
+}
+#endif
+
 
 /* The order in which callbacks are run is funny to say the least.
    It's sometimes tricky to avoid running a callback twice, and to
@@ -358,12 +385,9 @@ static void
 pre_activate_callback (Widget widget, LWLIB_ID id, XtPointer client_data)
 {
   /* This function can GC */
-  struct gcpro gcpro1;
   struct device *d = get_device_from_display (XtDisplay (widget));
   struct frame *f = x_any_window_to_frame (d, XtWindow (widget));
-  Lisp_Object rest = Qnil;
   Lisp_Object frame;
-  int any_changes = 0;
   int count;
 
   /* set in lwlib to the time stamp associated with the most recent menu
@@ -418,24 +442,17 @@ pre_activate_callback (Widget widget, LWLIB_ID id, XtPointer client_data)
       replace_widget_value_tree (hack_wv, wv->contents);
       free_popup_widget_value_tree (wv);
     }
+  else if (!POPUP_DATAP (FRAME_MENUBAR_DATA (f)))
+    return;
   else
     {
-      if (!POPUP_DATAP (FRAME_MENUBAR_DATA (f)))
-	return;
+#if 0 /* Unused, see comment below. */
+      int any_changes;
+
       /* #### - this menubar update mechanism is expensively anti-social and
 	 the activate-menubar-hook is now mostly obsolete. */
-      /* make the activate-menubar-hook be a list of functions, not a single
-	 function, just to simplify things. */
-      if (!NILP (Vactivate_menubar_hook) &&
-	  (!CONSP (Vactivate_menubar_hook) ||
-	   EQ (XCAR (Vactivate_menubar_hook), Qlambda)))
-	Vactivate_menubar_hook = Fcons (Vactivate_menubar_hook, Qnil);
+      any_changes = my_run_hook (Qactivate_menubar_hook, 1);
 
-      GCPRO1 (rest);
-      for (rest = Vactivate_menubar_hook; !NILP (rest); rest = Fcdr (rest))
-	if (!EQ (call0 (XCAR (rest)), Qt))
-	  any_changes = 1;
-#if 0
       /* #### - It is necessary to *ALWAYS* call set_frame_menubar() now that
 	 incremental menus are implemented.  If a subtree of a menu has been
 	 updated incrementally (a destructive operation), then that subtree
@@ -446,12 +463,14 @@ pre_activate_callback (Widget widget, LWLIB_ID id, XtPointer client_data)
 	 that an INCREMENTAL_TYPE widget_value can be recreated...  Hmmmmm. */
       if (any_changes ||
 	  !XFRAME_MENUBAR_DATA (f)->menubar_contents_up_to_date)
-#endif
 	set_frame_menubar (f, 1, 0);
+#else
+      run_hook (Qactivate_menubar_hook);
+      set_frame_menubar (f, 1, 0);
+#endif
       DEVICE_X_MOUSE_TIMESTAMP (XDEVICE (FRAME_DEVICE (f))) =
 	DEVICE_X_GLOBAL_MOUSE_TIMESTAMP (XDEVICE (FRAME_DEVICE (f))) =
 	x_focus_timestamp_really_sucks_fix_me_better;
-      UNGCPRO;
     }
 }
 

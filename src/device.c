@@ -817,6 +817,9 @@ delete_device_internal (struct device *d, int force,
 void
 io_error_delete_device (Lisp_Object device)
 {
+  /* Note: it's the console that should get deleted, but
+     delete_device_internal() contains a hack that also deletes the
+     console when called from this function.  */
   delete_device_internal (XDEVICE (device), 1, 0, 1);
 }
 

@@ -1657,6 +1657,8 @@ gap_left (struct buffer *buf, Bytind pos)
   Bufbyte *to, *from;
   Bytecount i;
   Bytind new_s1;
+  struct buffer *mbuf;
+  Lisp_Object bufcons;
 
   from = BUF_GPT_ADDR (buf);
   to = from + BUF_GAP_SIZE (buf);
@@ -1708,13 +1710,22 @@ gap_left (struct buffer *buf, Bytind pos)
   /* Adjust markers, and buffer data structure, to put the gap at POS.
      POS is where the loop above stopped, which may be what was specified
      or may be where a quit was detected.  */
-  adjust_markers (buf, pos, BI_BUF_GPT (buf), BUF_GAP_SIZE (buf));
-  adjust_extents (make_buffer (buf), pos, BI_BUF_GPT (buf),
-		  BUF_GAP_SIZE (buf));
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      adjust_markers (mbuf, pos, BI_BUF_GPT (mbuf), BUF_GAP_SIZE (mbuf));
+    }
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      adjust_extents (make_buffer (mbuf), pos, BI_BUF_GPT (mbuf),
+		      BUF_GAP_SIZE (mbuf));
+    }
   SET_BI_BUF_GPT (buf, pos);
   SET_GAP_SENTINEL (buf);
 #ifdef ERROR_CHECK_EXTENTS
-  sledgehammer_extent_check (make_buffer (buf));
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      sledgehammer_extent_check (make_buffer (mbuf));
+    }
 #endif
   QUIT;
 }
@@ -1725,6 +1736,8 @@ gap_right (struct buffer *buf, Bytind pos)
   Bufbyte *to, *from;
   Bytecount i;
   Bytind new_s1;
+  struct buffer *mbuf;
+  Lisp_Object bufcons;
 
   to = BUF_GPT_ADDR (buf);
   from = to + BUF_GAP_SIZE (buf);
@@ -1775,13 +1788,22 @@ gap_right (struct buffer *buf, Bytind pos)
 
   {
     int gsize = BUF_GAP_SIZE (buf);
-    adjust_markers (buf, BI_BUF_GPT (buf) + gsize, pos + gsize, - gsize);
-    adjust_extents (make_buffer (buf), BI_BUF_GPT (buf) + gsize, pos + gsize,
-		    - gsize);
+    MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+      {
+	adjust_markers (mbuf, BI_BUF_GPT (mbuf) + gsize, pos + gsize, - gsize);
+      }
+    MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+      {
+	adjust_extents (make_buffer (mbuf), BI_BUF_GPT (mbuf) + gsize,
+			pos + gsize, - gsize);
+      }
     SET_BI_BUF_GPT (buf, pos);
     SET_GAP_SENTINEL (buf);
 #ifdef ERROR_CHECK_EXTENTS
-    sledgehammer_extent_check (make_buffer (buf));
+    MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+      {
+	sledgehammer_extent_check (make_buffer (mbuf));
+      }
 #endif
   }
   if (pos == BI_BUF_Z (buf))
@@ -2080,8 +2102,10 @@ static int inside_change_hook;
 static Lisp_Object
 change_function_restore (Lisp_Object buffer)
 {
-  Fset_buffer (buffer);
+  /* We should first reset the variable and then change the buffer,
+     because Fset_buffer() can throw.  */
   inside_change_hook = 0;
+  Fset_buffer (buffer);
   return Qnil;
 }
 
@@ -2090,8 +2114,8 @@ static int in_first_change;
 static Lisp_Object
 first_change_hook_restore (Lisp_Object buffer)
 {
-  Fset_buffer (buffer);
   in_first_change = 0;
+  Fset_buffer (buffer);
   return Qnil;
 }
 
@@ -2106,8 +2130,7 @@ signal_first_change (struct buffer *buf)
 
   if (!in_first_change)
     {
-      if (!preparing_for_armageddon &&
-	  !NILP (symbol_value_in_buffer (Qfirst_change_hook, buffer)))
+      if (!NILP (symbol_value_in_buffer (Qfirst_change_hook, buffer)))
 	{
 	  int speccount = specpdl_depth ();
 	  record_unwind_protect (first_change_hook_restore, buffer);
@@ -2126,11 +2149,13 @@ static void
 signal_before_change (struct buffer *buf, Bufpos start, Bufpos end)
 {
   /* This function can GC */
-  Lisp_Object buffer;
-  XSETBUFFER (buffer, buf);
+  struct buffer *mbuf;
+  Lisp_Object bufcons;
 
   if (!inside_change_hook)
     {
+      Lisp_Object buffer;
+
       /* Are we in a multiple-change session? */
       if (buf->text->changes->in_multiple_change &&
 	  buf->text->changes->mc_begin != 0)
@@ -2159,35 +2184,46 @@ signal_before_change (struct buffer *buf, Bufpos start, Bufpos end)
 
       /* If buffer is unmodified, run a special hook for that case.  */
       if (BUF_SAVE_MODIFF (buf) >= BUF_MODIFF (buf))
-	signal_first_change (buf);
+	{
+	  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	    {
+	      signal_first_change (mbuf);
+	    }
+	}
 
       /* Now in any case run the before-change-functions if any.  */
 
-      if (!preparing_for_armageddon &&
-	  (!NILP (symbol_value_in_buffer (Qbefore_change_functions, buffer)) ||
-	   /* Obsolete, for compatibility */
-	   !NILP (symbol_value_in_buffer (Qbefore_change_function, buffer))))
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
 	{
-	  int speccount = specpdl_depth ();
-	  record_unwind_protect (change_function_restore, Fcurrent_buffer ());
-	  set_buffer_internal (buf);
-	  inside_change_hook = 1;
-	  va_run_hook_with_args (Qbefore_change_functions, 2,
-				 make_int (start), make_int (end));
-	  /* Obsolete, for compatibility */
-	  va_run_hook_with_args (Qbefore_change_function, 2,
-				 make_int (start), make_int (end));
- 	  unbind_to (speccount, Qnil);
+	  XSETBUFFER (buffer, mbuf);
+	  if (!NILP (symbol_value_in_buffer (Qbefore_change_functions, buffer))
+	      /* Obsolete, for compatibility */
+	      || !NILP (symbol_value_in_buffer (Qbefore_change_function, buffer)))
+	    {
+	      int speccount = specpdl_depth ();
+	      record_unwind_protect (change_function_restore, Fcurrent_buffer ());
+	      set_buffer_internal (buf);
+	      inside_change_hook = 1;
+	      va_run_hook_with_args (Qbefore_change_functions, 2,
+				     make_int (start), make_int (end));
+	      /* Obsolete, for compatibility */
+	      va_run_hook_with_args (Qbefore_change_function, 2,
+				     make_int (start), make_int (end));
+	      unbind_to (speccount, Qnil);
+	    }
+	}
+
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  XSETBUFFER (buffer, mbuf);
+	  report_extent_modification (buffer, start, end,
+				      &inside_change_hook, 0);
 	}
 
       /* Only now do we indicate that the before-change-functions have
 	 been called, in case some function throws out. */
       buf->text->changes->mc_begin_signaled = 1;
     }
-
-  /* #### At this point we should map over extents calling
-     modification-hooks, insert-before-hooks and insert-after-hooks
-     of relevant extents */
 }
 
 /* Signal a change immediately after it happens.
@@ -2201,15 +2237,25 @@ signal_after_change (struct buffer *buf, Bufpos start, Bufpos orig_end,
 		     Bufpos new_end)
 {
   /* This function can GC */
-  Lisp_Object buffer;
-  XSETBUFFER (buffer, buf);
+  struct buffer *mbuf;
+  Lisp_Object bufcons;
 
-  /* always do this. */
-  buffer_signal_changed_region (buf, start, new_end);
-  font_lock_maybe_update_syntactic_caches (buf, start, orig_end, new_end);
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      /* always do this. */
+      buffer_signal_changed_region (mbuf, start, new_end);
+    }
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      /* #### This seems inefficient.  Wouldn't it be better to just
+         keep one cache per base buffer?  */
+      font_lock_maybe_update_syntactic_caches (mbuf, start, orig_end, new_end);
+    }
 
   if (!inside_change_hook)
     {
+      Lisp_Object buffer;
+
       if (buf->text->changes->in_multiple_change &&
 	  buf->text->changes->mc_begin != 0)
 	{
@@ -2221,30 +2267,38 @@ signal_after_change (struct buffer *buf, Bufpos start, Bufpos orig_end,
 	  return; /* after-change-functions signalled when all changes done */
 	}
 
-      if (!preparing_for_armageddon &&
-	  (!NILP (symbol_value_in_buffer (Qafter_change_functions, buffer)) ||
-	   /* Obsolete, for compatibility */
-	   !NILP (symbol_value_in_buffer (Qafter_change_function, buffer))))
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
 	{
-	  int speccount = specpdl_depth ();
-	  record_unwind_protect (change_function_restore, Fcurrent_buffer ());
-	  set_buffer_internal (buf);
-	  inside_change_hook = 1;
-	  /* The actual after-change functions take slightly
-	     different arguments than what we were passed. */
-	  va_run_hook_with_args (Qafter_change_functions, 3,
-				 make_int (start), make_int (new_end),
-				 make_int (orig_end - start));
-	  /* Obsolete, for compatibility */
-	  va_run_hook_with_args (Qafter_change_function, 3,
-				 make_int (start), make_int (new_end),
-				 make_int (orig_end - start));
- 	  unbind_to (speccount, Qnil);
+	  XSETBUFFER (buffer, mbuf);
+
+	  if (!NILP (symbol_value_in_buffer (Qafter_change_functions, buffer))
+	      /* Obsolete, for compatibility */
+	      || !NILP (symbol_value_in_buffer (Qafter_change_function, buffer)))
+	    {
+	      int speccount = specpdl_depth ();
+	      record_unwind_protect (change_function_restore, Fcurrent_buffer ());
+	      set_buffer_internal (buf);
+	      inside_change_hook = 1;
+	      /* The actual after-change functions take slightly
+		 different arguments than what we were passed. */
+	      va_run_hook_with_args (Qafter_change_functions, 3,
+				     make_int (start), make_int (new_end),
+				     make_int (orig_end - start));
+	      /* Obsolete, for compatibility */
+	      va_run_hook_with_args (Qafter_change_function, 3,
+				     make_int (start), make_int (new_end),
+				     make_int (orig_end - start));
+	      unbind_to (speccount, Qnil);
+	    }
+	}
+
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  XSETBUFFER (buffer, mbuf);
+	  report_extent_modification (buffer, start, new_end,
+				      &inside_change_hook, 1);
 	}
     }
-
-  /* #### At this point we should map over extents calling
-     some sort of modification hooks of relevant extents */
 }
 
 /* Call this if you're about to change the region of BUFFER from START
@@ -2260,10 +2314,14 @@ prepare_to_modify_buffer (struct buffer *buf, Bufpos start, Bufpos end,
   /* dmoore - This function can also kill the buffer buf, the current
      buffer, and do anything it pleases.  So if you call it, be
      careful. */
-  Lisp_Object buffer;
+  struct buffer *mbuf;
+  Lisp_Object buffer, bufcons;
   struct gcpro gcpro1;
 
-  barf_if_buffer_read_only (buf, start, end);
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      barf_if_buffer_read_only (mbuf, start, end);
+    }
 
   /* if this is the first modification, see about locking the buffer's
      file */
@@ -2307,7 +2365,10 @@ prepare_to_modify_buffer (struct buffer *buf, Bufpos start, Bufpos end,
   Vdeactivate_mark = Qt;
 #endif
 
-  buf->point_before_scroll = Qnil;
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      mbuf->point_before_scroll = Qnil;
+    }
 }
 
 
@@ -2367,6 +2428,8 @@ buffer_insert_string_1 (struct buffer *buf, Bufpos pos,
   Bytind ind;
   Charcount cclen;
   int move_point = 0;
+  struct buffer *mbuf;
+  Lisp_Object bufcons;
 
   /* Defensive steps just in case a buffer gets deleted and a calling
      function doesn't notice it. */
@@ -2391,7 +2454,8 @@ buffer_insert_string_1 (struct buffer *buf, Bufpos pos,
   if ((length + BUF_Z (buf)) > EMACS_INT_MAX)
     error ("Maximum buffer size exceeded");
 
-  /* theoretically not necessary -- caller should GCPRO */
+  /* theoretically not necessary -- caller should GCPRO.
+     #### buffer_insert_from_buffer_1() doesn't!  */
   GCPRO1 (reloc);
 
   prepare_to_modify_buffer (buf, pos, pos, !(flags & INSDEL_NO_LOCKING));
@@ -2433,7 +2497,11 @@ buffer_insert_string_1 (struct buffer *buf, Bufpos pos,
 
   insert_invalidate_line_number_cache (buf, pos, nonreloc + offset, length);
 
-  record_insert (buf, pos, cclen);
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      record_insert (mbuf, pos, cclen);
+    }
+
   BUF_MODIFF (buf)++;
   MARK_BUFFERS_CHANGED;
 
@@ -2445,7 +2513,10 @@ buffer_insert_string_1 (struct buffer *buf, Bufpos pos,
 
   SET_BUF_GAP_SIZE (buf, BUF_GAP_SIZE (buf) - length);
   SET_BI_BUF_GPT (buf, BI_BUF_GPT (buf) + length);
-  SET_BOTH_BUF_ZV (buf, BUF_ZV (buf) + cclen, BI_BUF_ZV (buf) + length);
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      SET_BOTH_BUF_ZV (mbuf, BUF_ZV (mbuf) + cclen, BI_BUF_ZV (mbuf) + length);
+    }
   SET_BOTH_BUF_Z (buf, BUF_Z (buf) + cclen, BI_BUF_Z (buf) + length);
   SET_GAP_SENTINEL (buf);
 
@@ -2453,29 +2524,48 @@ buffer_insert_string_1 (struct buffer *buf, Bufpos pos,
   buffer_mule_signal_inserted_region (buf, pos, length, cclen);
 #endif
 
-  process_extents_for_insertion (make_buffer (buf), ind, length);
-  /* We know the gap is at IND so the cast is OK. */
-  adjust_markers_for_insert (buf, (Memind) ind, length);
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      process_extents_for_insertion (make_buffer (mbuf), ind, length);
+    }
+
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      /* We know the gap is at IND so the cast is OK. */
+      adjust_markers_for_insert (mbuf, (Memind) ind, length);
+    }
 
   /* Point logically doesn't move, but may need to be adjusted because
      it's a byte index.  point-marker doesn't change because it's a
      memory index. */
-  if (BI_BUF_PT (buf) > ind)
-    JUST_SET_POINT (buf, BUF_PT (buf) + cclen, BI_BUF_PT (buf) + length);
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      if (BI_BUF_PT (mbuf) > ind)
+	JUST_SET_POINT (mbuf, BUF_PT (mbuf) + cclen,
+			BI_BUF_PT (mbuf) + length);
+    }
 
   /* Well, point might move. */
   if (move_point)
     BI_BUF_SET_PT (buf, ind + length);
 
   if (STRINGP (reloc))
-    splice_in_string_extents (reloc, buf, ind, length, offset);
+    {
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  splice_in_string_extents (reloc, mbuf, ind, length, offset);
+	}
+    }
 
   if (flags & INSDEL_BEFORE_MARKERS)
     {
-      /* ind - 1 is correct because the FROM argument is exclusive.
-	 I formerly used DEC_BYTIND() but that caused problems at the
-	 beginning of the buffer. */
-      adjust_markers (buf, ind - 1, ind, length);
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  /* ind - 1 is correct because the FROM argument is exclusive.
+	     I formerly used DEC_BYTIND() but that caused problems at the
+	     beginning of the buffer. */
+	  adjust_markers (mbuf, ind - 1, ind, length);
+	}
     }
 
   signal_after_change (buf, pos, pos, pos + cclen);
@@ -2507,7 +2597,9 @@ buffer_insert_lisp_string_1 (struct buffer *buf, Bufpos pos, Lisp_Object str,
 			     int flags)
 {
   /* This function can GC */
+#ifdef ERROR_CHECK_TYPECHECK
   assert (STRINGP (str));
+#endif
   return buffer_insert_string_1 (buf, pos, 0, str, 0,
 				 XSTRING_LENGTH (str),
 				 flags);
@@ -2520,7 +2612,6 @@ buffer_insert_c_string_1 (struct buffer *buf, Bufpos pos, CONST char *s,
 			  int flags)
 {
   /* This function can GC */
-
   CONST char *translated = GETTEXT (s);
   return buffer_insert_string_1 (buf, pos, (CONST Bufbyte *) translated, Qnil,
 				 0, strlen (translated), flags);
@@ -2532,9 +2623,7 @@ buffer_insert_emacs_char_1 (struct buffer *buf, Bufpos pos, Emchar ch,
 {
   /* This function can GC */
   Bufbyte str[MAX_EMCHAR_LEN];
-  Bytecount len;
-
-  len = set_charptr_emchar (str, ch);
+  Bytecount len = set_charptr_emchar (str, ch);
   return buffer_insert_string_1 (buf, pos, str, Qnil, 0, len, flags);
 }
 
@@ -2573,7 +2662,8 @@ buffer_delete_range (struct buffer *buf, Bufpos from, Bufpos to, int flags)
   Bytind bi_from, bi_to;
   Bytecount bc_numdel;
   EMACS_INT shortage;
-  Lisp_Object bufobj;
+  struct buffer *mbuf;
+  Lisp_Object bufcons;
 
   /* Defensive steps just in case a buffer gets deleted and a calling
      function doesn't notice it. */
@@ -2604,8 +2694,6 @@ buffer_delete_range (struct buffer *buf, Bufpos from, Bufpos to, int flags)
   if ((numdel = to - from) <= 0)
     return;
 
-  XSETBUFFER (bufobj, buf);
-
   /* Redisplay needs to know if a newline was in the deleted region.
      If we've already marked the changed region as having a deleted
      newline there is no use in performing the check. */
@@ -2613,7 +2701,12 @@ buffer_delete_range (struct buffer *buf, Bufpos from, Bufpos to, int flags)
     {
       scan_buffer (buf, '\n', from, to, 1, &shortage, 1);
       if (!shortage)
-	buf->changes->newline_was_deleted = 1;
+	{
+	  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	    {
+	      mbuf->changes->newline_was_deleted = 1;
+	    }
+	}
     }
 
   bi_from = bufpos_to_bytind (buf, from);
@@ -2627,49 +2720,70 @@ buffer_delete_range (struct buffer *buf, Bufpos from, Bufpos to, int flags)
     {
       /* avoid moving the gap just to delete from the bottom. */
 
-      record_delete (buf, from, numdel);
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  record_delete (mbuf, from, numdel);
+	}
       BUF_MODIFF (buf)++;
       MARK_BUFFERS_CHANGED;
 
-      /* ### Point used to be modified here, but this causes problems with MULE,
-	 as point is used to calculate bytinds, and if the offset in bc_numdel causes
-	 point to move to a non first-byte location, causing some other function to
-	 throw an assertion in ASSERT_VALID_BYTIND. I've moved the code to right after
-	  the other movements and adjustments, but before the gap is moved.
-	  -- jh 970813 */
+      /* #### Point used to be modified here, but this causes problems
+	 with MULE, as point is used to calculate bytinds, and if the
+	 offset in bc_numdel causes point to move to a non first-byte
+	 location, causing some other function to throw an assertion
+	 in ASSERT_VALID_BYTIND. I've moved the code to right after
+	 the other movements and adjustments, but before the gap is
+	 moved.  -- jh 970813 */
 
       /* Detach any extents that are completely within the range [FROM, TO],
 	 if the extents are detachable.
 
-	 This must come AFTER record_delete(), so that the appropriate extents
-	 will be present to be recorded, and BEFORE the gap size is increased,
-	 as otherwise we will be confused about where the extents end. */
-      process_extents_for_deletion (bufobj, bi_from, bi_to, 0);
-
-      /* Relocate all markers pointing into the new, larger gap
-	 to point at the end of the text before the gap.  */
-      adjust_markers (buf,
-		      (bi_to + BUF_GAP_SIZE (buf)),
-		      (bi_to + BUF_GAP_SIZE (buf)),
-		      (- bc_numdel));
-
-      /* Relocate any extent endpoints just like markers. */
-      adjust_extents_for_deletion (bufobj, bi_from, bi_to,
-				   BUF_GAP_SIZE (buf), bc_numdel, 0);
-
-      /* Relocate point as if it were a marker.  */
-      if (bi_from < BI_BUF_PT (buf))
+	 This must come AFTER record_delete(), so that the appropriate
+	 extents will be present to be recorded, and BEFORE the gap
+	 size is increased, as otherwise we will be confused about
+	 where the extents end. */
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
 	{
-	  if (BI_BUF_PT (buf) < bi_to)
-	    JUST_SET_POINT (buf, from, bi_from);
-	  else
-	    JUST_SET_POINT (buf, BUF_PT (buf) - numdel,
-			    BI_BUF_PT (buf) - bc_numdel);
+	  process_extents_for_deletion (make_buffer (mbuf), bi_from, bi_to, 0);
+	}
+
+      /* Relocate all markers pointing into the new, larger gap to
+	 point at the end of the text before the gap.  */
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  adjust_markers (mbuf,
+			  (bi_to + BUF_GAP_SIZE (mbuf)),
+			  (bi_to + BUF_GAP_SIZE (mbuf)),
+			  (- bc_numdel));
+	}
+
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  /* Relocate any extent endpoints just like markers. */
+	  adjust_extents_for_deletion (make_buffer (mbuf), bi_from, bi_to,
+				       BUF_GAP_SIZE (mbuf), bc_numdel, 0);
+	}
+
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  /* Relocate point as if it were a marker.  */
+	  if (bi_from < BI_BUF_PT (mbuf))
+	    {
+	      if (BI_BUF_PT (mbuf) < bi_to)
+		JUST_SET_POINT (mbuf, from, bi_from);
+	      else
+		JUST_SET_POINT (mbuf, BUF_PT (mbuf) - numdel,
+				BI_BUF_PT (mbuf) - bc_numdel);
+	    }
 	}
 
       SET_BUF_END_GAP_SIZE (buf, BUF_END_GAP_SIZE (buf) + bc_numdel);
 
-      SET_BOTH_BUF_ZV (buf, BUF_ZV (buf) - numdel, BI_BUF_ZV (buf) - bc_numdel);
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  SET_BOTH_BUF_ZV (mbuf, BUF_ZV (mbuf) - numdel,
+			   BI_BUF_ZV (mbuf) - bc_numdel);
+	}
       SET_BOTH_BUF_Z (buf, BUF_Z (buf) - numdel, BI_BUF_Z (buf) - bc_numdel);
       SET_GAP_SENTINEL (buf);
     }
@@ -2681,16 +2795,20 @@ buffer_delete_range (struct buffer *buf, Bufpos from, Bufpos to, int flags)
       if (bi_from > BI_BUF_GPT (buf))
 	gap_right (buf, bi_from);
 
-      record_delete (buf, from, numdel);
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  record_delete (mbuf, from, numdel);
+	}
       BUF_MODIFF (buf)++;
       MARK_BUFFERS_CHANGED;
 
-      /* ### Point used to be modified here, but this causes problems with MULE,
-	 as point is used to calculate bytinds, and if the offset in bc_numdel causes
-	 point to move to a non first-byte location, causing some other function to
-	 throw an assertion in ASSERT_VALID_BYTIND. I've moved the code to right after
-	  the other movements and adjustments, but before the gap is moved.
-	  -- jh 970813 */
+      /* #### Point used to be modified here, but this causes problems
+	 with MULE, as point is used to calculate bytinds, and if the
+	 offset in bc_numdel causes point to move to a non first-byte
+	 location, causing some other function to throw an assertion
+	 in ASSERT_VALID_BYTIND. I've moved the code to right after
+	 the other movements and adjustments, but before the gap is
+	 moved.  -- jh 970813 */
 
       /* Detach any extents that are completely within the range [FROM, TO],
 	 if the extents are detachable.
@@ -2698,31 +2816,48 @@ buffer_delete_range (struct buffer *buf, Bufpos from, Bufpos to, int flags)
 	 This must come AFTER record_delete(), so that the appropriate extents
 	 will be present to be recorded, and BEFORE the gap size is increased,
 	 as otherwise we will be confused about where the extents end. */
-      process_extents_for_deletion (bufobj, bi_from, bi_to, 0);
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  process_extents_for_deletion (make_buffer (mbuf), bi_from, bi_to, 0);
+	}
 
-      /* Relocate all markers pointing into the new, larger gap
-	 to point at the end of the text before the gap.  */
-      adjust_markers (buf,
-		      (bi_to + BUF_GAP_SIZE (buf)),
-		      (bi_to + BUF_GAP_SIZE (buf)),
-		      (- bc_numdel - BUF_GAP_SIZE (buf)));
+      /* Relocate all markers pointing into the new, larger gap to
+	 point at the end of the text before the gap.  */
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  adjust_markers (mbuf,
+			  (bi_to + BUF_GAP_SIZE (mbuf)),
+			  (bi_to + BUF_GAP_SIZE (mbuf)),
+			  (- bc_numdel - BUF_GAP_SIZE (mbuf)));
+	}
 
       /* Relocate any extent endpoints just like markers. */
-      adjust_extents_for_deletion (bufobj, bi_from, bi_to, BUF_GAP_SIZE (buf),
-				   bc_numdel, BUF_GAP_SIZE (buf));
-
-      /* Relocate point as if it were a marker.  */
-      if (bi_from < BI_BUF_PT (buf))
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
 	{
-	  if (BI_BUF_PT (buf) < bi_to)
-	    JUST_SET_POINT (buf, from, bi_from);
-	  else
-	    JUST_SET_POINT (buf, BUF_PT (buf) - numdel,
-			    BI_BUF_PT (buf) - bc_numdel);
+	  adjust_extents_for_deletion (make_buffer (mbuf), bi_from, bi_to,
+				       BUF_GAP_SIZE (mbuf),
+				       bc_numdel, BUF_GAP_SIZE (mbuf));
+	}
+
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  /* Relocate point as if it were a marker.  */
+	  if (bi_from < BI_BUF_PT (mbuf))
+	    {
+	      if (BI_BUF_PT (mbuf) < bi_to)
+		JUST_SET_POINT (mbuf, from, bi_from);
+	      else
+		JUST_SET_POINT (mbuf, BUF_PT (mbuf) - numdel,
+				BI_BUF_PT (mbuf) - bc_numdel);
+	    }
 	}
 
       SET_BUF_GAP_SIZE (buf, BUF_GAP_SIZE (buf) + bc_numdel);
-      SET_BOTH_BUF_ZV (buf, BUF_ZV (buf) - numdel, BI_BUF_ZV (buf) - bc_numdel);
+      MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	{
+	  SET_BOTH_BUF_ZV (mbuf, BUF_ZV (mbuf) - numdel,
+			   BI_BUF_ZV (mbuf) - bc_numdel);
+	}
       SET_BOTH_BUF_Z (buf, BUF_Z (buf) - numdel, BI_BUF_Z (buf) - bc_numdel);
       SET_BI_BUF_GPT (buf, bi_from);
       SET_GAP_SENTINEL (buf);
@@ -2733,7 +2868,10 @@ buffer_delete_range (struct buffer *buf, Bufpos from, Bufpos to, int flags)
 #endif
 
 #ifdef ERROR_CHECK_EXTENTS
-  sledgehammer_extent_check (bufobj);
+  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+    {
+      sledgehammer_extent_check (make_buffer (mbuf));
+    }
 #endif
 
   signal_after_change (buf, from, to, from);
@@ -2747,7 +2885,7 @@ buffer_delete_range (struct buffer *buf, Bufpos from, Bufpos to, int flags)
 /* Replace the character at POS in buffer B with CH. */
 
 void
-buffer_replace_char (struct buffer *b, Bufpos pos, Emchar ch,
+buffer_replace_char (struct buffer *buf, Bufpos pos, Emchar ch,
 		     int not_real_change, int force_lock_check)
 {
   /* This function can GC */
@@ -2757,42 +2895,54 @@ buffer_replace_char (struct buffer *b, Bufpos pos, Emchar ch,
 
   /* Defensive steps just in case a buffer gets deleted and a calling
      function doesn't notice it. */
-  if (!BUFFER_LIVE_P (b))
+  if (!BUFFER_LIVE_P (buf))
     return;
 
-  curlen = BUF_CHARPTR_COPY_CHAR (b, pos, curstr);
+  curlen = BUF_CHARPTR_COPY_CHAR (buf, pos, curstr);
   newlen = set_charptr_emchar (newstr, ch);
 
   if (curlen == newlen)
     {
+      struct buffer *mbuf;
+      Lisp_Object bufcons;
+
       /* then we can just replace the text. */
-      prepare_to_modify_buffer (b, pos, pos + 1,
+      prepare_to_modify_buffer (buf, pos, pos + 1,
 				!not_real_change || force_lock_check);
       /* Defensive steps in case the before-change-functions fuck around */
-      if (!BUFFER_LIVE_P (b))
+      if (!BUFFER_LIVE_P (buf))
 	/* Bad bad pre-change function. */
 	return;
 
       /* Make args be valid again.  prepare_to_modify_buffer() might have
 	 modified the buffer. */
-      if (pos < BUF_BEGV (b))
-	pos = BUF_BEGV (b);
-      if (pos >= BUF_ZV (b))
-	pos = BUF_ZV (b) - 1;
-      if (pos < BUF_BEGV (b))
+      if (pos < BUF_BEGV (buf))
+	pos = BUF_BEGV (buf);
+      if (pos >= BUF_ZV (buf))
+	pos = BUF_ZV (buf) - 1;
+      if (pos < BUF_BEGV (buf))
 	/* no more characters in buffer! */
 	return;
 
-      if (BUF_FETCH_CHAR (b, pos) == '\n')
-	b->changes->newline_was_deleted = 1;
+      if (BUF_FETCH_CHAR (buf, pos) == '\n')
+	{
+	  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	    {
+	      mbuf->changes->newline_was_deleted = 1;
+	    }
+	}
       MARK_BUFFERS_CHANGED;
       if (!not_real_change)
 	{
-	  record_change (b, pos, 1);
-	  BUF_MODIFF (b)++;
+	  MAP_INDIRECT_BUFFERS (buf, mbuf, bufcons)
+	    {
+	      record_change (mbuf, pos, 1);
+	    }
+	  BUF_MODIFF (buf)++;
 	}
-      memcpy (BUF_BYTE_ADDRESS (b, pos), newstr, newlen);
-      signal_after_change (b, pos, pos + 1, pos + 1);
+      memcpy (BUF_BYTE_ADDRESS (buf, pos), newstr, newlen);
+
+      signal_after_change (buf, pos, pos + 1, pos + 1);
 
       /* We do not have to adjust the Mule data; we just replaced a
 	 character with another of the same number of bytes. */
@@ -2807,21 +2957,21 @@ buffer_replace_char (struct buffer *b, Bufpos pos, Emchar ch,
        * point.  Point will drift backward by one position and stay
        * there otherwise.
        */
-      int movepoint = (pos == BUF_PT (b) - 1);
+      int movepoint = (pos == BUF_PT (buf) - 1);
 
-      buffer_delete_range (b, pos, pos + 1, 0);
+      buffer_delete_range (buf, pos, pos + 1, 0);
       /* Defensive steps in case the before-change-functions fuck around */
-      if (!BUFFER_LIVE_P (b))
+      if (!BUFFER_LIVE_P (buf))
 	/* Bad bad pre-change function. */
 	return;
 
       /* Make args be valid again.  prepare_to_modify_buffer() might have
 	 modified the buffer. */
-      if (pos < BUF_BEGV (b))
-	pos = BUF_BEGV (b);
-      if (pos >= BUF_ZV (b))
-	pos = BUF_ZV (b) - 1;
-      if (pos < BUF_BEGV (b))
+      if (pos < BUF_BEGV (buf))
+	pos = BUF_BEGV (buf);
+      if (pos >= BUF_ZV (buf))
+	pos = BUF_ZV (buf) - 1;
+      if (pos < BUF_BEGV (buf))
 	/* no more characters in buffer! */
 	return;
       /*
@@ -2829,7 +2979,7 @@ buffer_replace_char (struct buffer *b, Bufpos pos, Emchar ch,
        * insertion, which we must do if the deletion moved point
        * backward so that it now equals the insertion point.
        */
-      buffer_insert_string_1 (b, (movepoint ? -1 : pos),
+      buffer_insert_string_1 (buf, (movepoint ? -1 : pos),
 			      newstr, Qnil, 0, newlen, 0);
     }
 }
@@ -3085,9 +3235,9 @@ vars_of_insdel (void)
 }
 
 void
-init_buffer_text (struct buffer *b, int indirect_p)
+init_buffer_text (struct buffer *b)
 {
-  if (!indirect_p)
+  if (!b->base_buffer)
     {
       SET_BUF_GAP_SIZE (b, 20);
       BUFFER_ALLOC (b->text->beg, BUF_GAP_SIZE (b) + BUF_END_SENTINEL_SIZE);
@@ -3115,6 +3265,7 @@ init_buffer_text (struct buffer *b, int indirect_p)
 	  }
       }
 #endif /* MULE */
+      b->text->line_number_cache = Qnil;
 
       BUF_MODIFF (b) = 1;
       BUF_SAVE_MODIFF (b) = 1;
@@ -3145,9 +3296,9 @@ init_buffer_text (struct buffer *b, int indirect_p)
 }
 
 void
-uninit_buffer_text (struct buffer *b, int indirect_p)
+uninit_buffer_text (struct buffer *b)
 {
-  if (!indirect_p)
+  if (!b->base_buffer)
     {
       BUFFER_FREE (b->text->beg);
       xfree (b->text->changes);

@@ -4857,8 +4857,16 @@ re_match_2_internal (struct re_pattern_buffer *bufp, CONST char *string1,
                   highest_active_reg = NO_HIGHEST_ACTIVE_REG;
                 }
               else
-                highest_active_reg = r;
-            }
+		{
+		  highest_active_reg = r;
+
+		  /* 98/9/21 jhod:  We've also gotta set lowest_active_reg, don't we? */
+		  r = 1;
+		  while (r < highest_active_reg && !IS_ACTIVE(reg_info[r]))
+		    r++;
+		  lowest_active_reg = r;
+		}
+	    }
 
           /* If just failed to match something this time around with a
              group that's operated on by a repetition operator, try to

@@ -1108,7 +1108,9 @@ r_alloc_thaw ()
 
 /* The hook `malloc' uses for the function which gets more space
    from the system.  */
-/* extern POINTER (*__morecore) (long size); */
+#ifndef DOUG_LEA_MALLOC
+extern POINTER (*__morecore) (long size);
+#endif
 
 /* Initialize various things for memory allocation. */
 

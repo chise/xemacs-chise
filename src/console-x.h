@@ -70,6 +70,9 @@ struct x_device
   /* The X connection of this device. */
   Display *display;
 
+  /* Set by x_IO_error_handler(). */
+  int being_deleted;
+
   /* Xt application info. */
   Widget Xt_app_shell;
 
@@ -184,6 +187,7 @@ struct x_device
 
 #define FRAME_X_DISPLAY(f) (DEVICE_X_DISPLAY (XDEVICE (f->device)))
 #define DEVICE_X_DISPLAY(d) 	(DEVICE_X_DATA (d)->display)
+#define DEVICE_X_BEING_DELETED(d) (DEVICE_X_DATA (d)->being_deleted)
 #define DEVICE_X_VISUAL(d)	(DEVICE_X_DATA (d)->visual)
 #define DEVICE_X_DEPTH(d)	(DEVICE_X_DATA (d)->depth)
 #define DEVICE_X_COLORMAP(d) 	(DEVICE_X_DATA (d)->device_cmap)

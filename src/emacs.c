@@ -612,6 +612,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #if defined (HAVE_MMAP) && defined (REL_ALLOC)
   /* ralloc can only be used if using the GNU memory allocator. */
   init_ralloc ();
+#elif defined (REL_ALLOC) && !defined(DOUG_LEA_MALLOC)
+  if (initialized)
+    init_ralloc();
 #endif
 
 #ifdef HAVE_SOCKS
@@ -1278,9 +1281,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_extents ();
       vars_of_faces ();
       vars_of_fileio ();
-#ifdef CLASH_DETECTION
-      vars_of_filelock ();
-#endif
       vars_of_floatfns ();
       vars_of_font_lock ();
       vars_of_frame ();
@@ -1534,10 +1534,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
       /* These two might call Ffile_name_as_directory(), which
 	 might depend on all sorts of things; I'm not sure. */
       complex_vars_of_emacs ();
-
-#ifdef CLASH_DETECTION
-      complex_vars_of_filelock ();
-#endif /* CLASH_DETECTION */
 
       /* This creates a couple of basic keymaps and depends on Lisp
 	 hashtables and Ffset() (both of which depend on some variables

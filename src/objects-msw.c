@@ -51,12 +51,14 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef __CYGWIN32__
 #define stricmp strcasecmp
+#define FONTENUMPROC FONTENUMEXPROC
+#define ntmTm ntmentm
 #endif
 
 typedef struct colormap_t 
 {
-  char *name;
-  COLORREF colorref;
+  CONST char *name;
+  CONST COLORREF colorref;
 } colormap_t;
 
 /* Colors from X11R6 "XConsortium: rgb.txt,v 10.41 94/02/20 18:39:36 rws Exp" */
@@ -721,6 +723,58 @@ static CONST colormap_t mswindows_X_color_map[] =
   {"LightGreen"			, PALETTERGB (144, 238, 144) }
 };
 
+
+typedef struct fontmap_t 
+{
+  CONST char *name;
+  CONST int value;
+} fontmap_t;
+
+/* Default weight first, preferred names listed before synonyms */
+static CONST fontmap_t fontweight_map[] = 
+{
+  {"Regular"		, FW_REGULAR},	/* The standard font weight */
+  {"Thin"		, FW_THIN},
+  {"Extra Light"	, FW_EXTRALIGHT},
+  {"Ultra Light"	, FW_ULTRALIGHT},
+  {"Light"		, FW_LIGHT},
+  {"Normal"		, FW_NORMAL},
+  {"Medium"		, FW_MEDIUM},
+  {"Semi Bold"		, FW_SEMIBOLD},
+  {"Demi Bold"		, FW_DEMIBOLD},
+  {"Bold"		, FW_BOLD},	/* The standard bold font weight */
+  {"Extra Bold"		, FW_EXTRABOLD},
+  {"Ultra Bold"		, FW_ULTRABOLD},
+  {"Heavy"		, FW_HEAVY},
+  {"Black"		, FW_BLACK}
+};
+
+/* Default charset first, no synonyms allowed because these names are 
+ * matched against the names reported by win32 by match_font() */
+static CONST fontmap_t charset_map[] = 
+{
+  {"Western"		, ANSI_CHARSET},
+  {"Symbol"		, SYMBOL_CHARSET},
+  {"Shift JIS"		, SHIFTJIS_CHARSET},	/* #### Name to be verified */
+  {"GB2312"		, GB2312_CHARSET},	/* #### Name to be verified */
+  {"Hanguel"		, HANGEUL_CHARSET},
+  {"Chinese Big 5"	, CHINESEBIG5_CHARSET},	/* #### Name to be verified */
+#if (WINVER >= 0x0400)
+  {"Johab"		, JOHAB_CHARSET},	/* #### Name to be verified */
+  {"Hebrew"		, HEBREW_CHARSET},	/* #### Name to be verified */
+  {"Arabic"		, ARABIC_CHARSET},	/* #### Name to be verified */
+  {"Greek"		, GREEK_CHARSET},
+  {"Turkish"		, TURKISH_CHARSET},
+  {"Vietnamese"		, VIETNAMESE_CHARSET},	/* #### Name to be verified */
+  {"Thai"		, THAI_CHARSET},	/* #### Name to be verified */
+  {"Central European"	, EASTEUROPE_CHARSET},
+  {"Cyrillic"		, RUSSIAN_CHARSET},
+  {"Mac"		, MAC_CHARSET},
+  {"Baltic"		, BALTIC_CHARSET},
+#endif
+  {"OEM/DOS"		, OEM_CHARSET}
+};
+
 
 /************************************************************************/
 /*                               helpers                                */
@@ -872,6 +926,120 @@ match_font (char *pattern1, char *pattern2, char *fontname)
   return 1;
 }
 
+
+
+
+
+/************************************************************************/
+/*                                 exports                              */
+/************************************************************************/
+
+struct font_enum_t
+{
+  HDC hdc;
+  struct device *d;
+};
+
+static int CALLBACK
+font_enum_callback_2 (ENUMLOGFONTEX *lpelfe, NEWTEXTMETRICEX *lpntme, 
+		      int FontType, struct font_enum_t *font_enum)
+{
+  struct mswindows_font_enum *fontlist, **fonthead;
+  char fontname[MSW_FONTSIZE];
+  int i;
+
+  /*
+   * The enumerated font weights are not to be trusted because:
+   *  a) lpelfe->elfStyle is only filled in for TrueType fonts.
+   *  b) Not all Bold and Italic styles of all fonts (inluding some Vector,
+   *     Truetype and Raster fonts) are enumerated.
+   * I guess that fonts for which Bold and Italic styles are generated
+   * 'on-the-fly' are not enumerated. It would be overly restrictive to
+   * disallow Bold And Italic weights for these fonts, so we just leave
+   * weights unspecified. This means that we have to weed out duplicates of
+   * those fonts that do get enumerated with different weights.
+   */
+  if (FontType == 0 /*vector*/ || FontType == TRUETYPE_FONTTYPE)
+    /* Scalable, so leave pointsize blank */
+    sprintf (fontname, "%s::::", lpelfe->elfLogFont.lfFaceName);
+  else
+    /* Formula for pointsize->height from LOGFONT docs in Platform SDK */
+    sprintf (fontname, "%s::%d::", lpelfe->elfLogFont.lfFaceName,
+	     MulDiv (lpntme->ntmTm.tmHeight - lpntme->ntmTm.tmInternalLeading,
+	             72, DEVICE_MSWINDOWS_LOGPIXELSY (font_enum->d)));
+
+  /*
+   * The enumerated font character set strings are not to be trusted because
+   * lpelfe->elfScript is returned in the host language and not in English.
+   * We can't know a priori the translations of "Western", "Central European"
+   * etc into the host language, so we must use English. The same argument
+   * applies to the font weight string when matching fonts.
+   */
+  for (i=0; i<countof (charset_map); i++)
+    if (lpelfe->elfLogFont.lfCharSet == charset_map[i].value)
+      {
+	strcat (fontname, charset_map[i].name);
+	break;
+      }
+  if (i==countof (charset_map))
+    strcpy (fontname, charset_map[0].name);
+
+  /* Check that the new font is not a duplicate */
+  fonthead = &DEVICE_MSWINDOWS_FONTLIST (font_enum->d);
+  fontlist = *fonthead;
+  while (fontlist)
+    if (!strcmp (fontname, fontlist->fontname))
+      return 1;		/* found a duplicate */
+    else
+      fontlist = fontlist->next;
+
+  /* Insert entry at head */
+  fontlist = *fonthead;
+  *fonthead = xmalloc (sizeof (struct mswindows_font_enum));
+  if (*fonthead == NULL)
+    {
+      *fonthead = fontlist;
+      return 0;
+    }
+  strcpy ((*fonthead)->fontname, fontname);
+  (*fonthead)->next = fontlist;
+  return 1;
+}
+
+static int CALLBACK
+font_enum_callback_1 (ENUMLOGFONTEX *lpelfe, NEWTEXTMETRICEX *lpntme, 
+		      int FontType, struct font_enum_t *font_enum)
+{
+  /* This function gets called once per facename per character set.
+   * We call a second callback to enumerate the fonts in each facename */
+  return EnumFontFamiliesEx (font_enum->hdc, &lpelfe->elfLogFont,
+			     (FONTENUMPROC) font_enum_callback_2,
+			     (LPARAM) font_enum, 0);
+}
+
+/*
+ * Enumerate the available fonts. Called by mswindows_init_device().
+ * Fills in the device's device-type-specfic fontlist.
+ */
+void
+mswindows_enumerate_fonts (struct device *d)
+{
+  HDC hdc = CreateCompatibleDC (NULL);
+  LOGFONT logfont;
+  struct font_enum_t font_enum;
+
+  assert (hdc!=NULL);
+  logfont.lfCharSet = DEFAULT_CHARSET;
+  logfont.lfFaceName[0] = '\0';
+  logfont.lfPitchAndFamily = DEFAULT_PITCH;
+  font_enum.hdc = hdc;
+  font_enum.d = d;
+  DEVICE_MSWINDOWS_FONTLIST (d) = NULL;
+  EnumFontFamiliesEx (hdc, &logfont, (FONTENUMPROC) font_enum_callback_1,
+		      (LPARAM) (&font_enum), 0);
+  DeleteDC (hdc);
+}
+
 
 /************************************************************************/
 /*                               methods                                */
@@ -970,19 +1138,23 @@ mswindows_finalize_font_instance (struct Lisp_Font_Instance *f)
     }
 }
 
+
 static int
 mswindows_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object name,
 				    Lisp_Object device, Error_behavior errb)
 {
   CONST char *extname;
   LOGFONT logfont;
-  int fields;
+  int fields, i;
   int pt;
   char fontname[LF_FACESIZE], weight[LF_FACESIZE], *style, points[8];
   char effects[LF_FACESIZE], charset[LF_FACESIZE];
   char *c;
-  
-  GET_C_STRING_CTEXT_DATA_ALLOCA (f->name, extname);
+  HDC hdc;
+  HFONT holdfont;
+  TEXTMETRIC metrics;
+
+  extname = XSTRING_DATA (name);
 
   /*
    * mswindows fonts look like:
@@ -1003,12 +1175,12 @@ mswindows_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object na
   /* This function is implemented in a fairly ad-hoc manner.
    * The general idea is to validate and canonicalize each of the above fields
    * at the same time as we build up the win32 LOGFONT structure. This enables
-   * us to use math_font() on a canonicalized font string to check the
+   * us to use match_font() on a canonicalized font string to check the
    * availability of the requested font */
 
-  if (fields<0)
+  if (fields < 0)
   {
-    maybe_signal_simple_error ("Invalid font", f->name, Qfont, errb);
+    maybe_signal_simple_error ("Invalid font", name, Qfont, errb);
     return (0);
   }
 
@@ -1019,13 +1191,13 @@ mswindows_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object na
   }
   else
   {
-    maybe_signal_simple_error ("Must specify a font name", f->name, Qfont, errb);
+    maybe_signal_simple_error ("Must specify a font name", name, Qfont, errb);
     return (0);
   }
 
   /* weight */
   if (fields < 2)
-    strcpy (weight, "Regular");
+    strcpy (weight, fontweight_map[0].name);
 
   /* Maybe split weight into weight and style */
   if ((c=strchr(weight, ' ')))
@@ -1036,36 +1208,25 @@ mswindows_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object na
   else
     style = NULL;
 
-#define FROB(wgt)				\
-  if (stricmp (weight, #wgt) == 0)		\
-    logfont.lfWeight = FW_##wgt
-
-  FROB (REGULAR);
-  else FROB (THIN);
-  else FROB (EXTRALIGHT);
-  else FROB (ULTRALIGHT);
-  else FROB (LIGHT);
-  else FROB (NORMAL);
-  else FROB (MEDIUM);
-  else FROB (SEMIBOLD);
-  else FROB (DEMIBOLD);
-  else FROB (BOLD);
-  else FROB (EXTRABOLD);
-  else FROB (ULTRABOLD);
-  else FROB (HEAVY);
-  else FROB (BLACK);
-  else if (!style)
+  for (i=0; i<countof (fontweight_map); i++)
+    if (!stricmp (weight, fontweight_map[i].name))
+      {	
+	logfont.lfWeight = fontweight_map[i].value;
+	break;
+      }
+  if (i == countof (fontweight_map))	/* No matching weight */
     {
-      logfont.lfWeight = FW_REGULAR;
-      style = weight;	/* May have specified style without weight */
+      if (!style)
+	{
+	  logfont.lfWeight = FW_REGULAR;
+	  style = weight;	/* May have specified style without weight */
+	}
+      else
+	{
+	  maybe_signal_simple_error ("Invalid font weight", name, Qfont, errb);
+	  return (0);
+	}
     }
-  else
-    {
-      maybe_signal_simple_error ("Invalid font weight", f->name, Qfont, errb);
-      return (0);
-    }
-
-#undef FROB
 
   if (style)
     {
@@ -1074,7 +1235,7 @@ mswindows_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object na
 	logfont.lfItalic = TRUE;
       else
       {
-        maybe_signal_simple_error ("Invalid font weight or style", f->name, Qfont, errb);
+        maybe_signal_simple_error ("Invalid font weight or style", name, Qfont, errb);
 	return (0);
       }
 
@@ -1089,12 +1250,12 @@ mswindows_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object na
     pt = 10;	/* #### Should we reject strings that don't specify a size? */
   else if ((pt=atoi(points)) == 0)
     {
-      maybe_signal_simple_error ("Invalid font pointsize", f->name, Qfont, errb);
+      maybe_signal_simple_error ("Invalid font pointsize", name, Qfont, errb);
       return (0);
     }
 
   /* Formula for pointsize->height from LOGFONT docs in MSVC5 Platform SDK */
-  logfont.lfHeight = -MulDiv(pt, DEVICE_MSWINDOWS_LOGPIXELSY(XDEVICE (device)), 72);
+  logfont.lfHeight = -MulDiv(pt, DEVICE_MSWINDOWS_LOGPIXELSY (XDEVICE (device)), 72);
   logfont.lfWidth = 0;
 
   /* Effects */
@@ -1119,8 +1280,7 @@ mswindows_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object na
 	logfont.lfStrikeOut = TRUE;
       else
         {
-          maybe_signal_simple_error ("Invalid font effect", f->name,
-				     Qfont, errb);
+          maybe_signal_simple_error ("Invalid font effect", name, Qfont, errb);
 	  return (0);
 	}
 
@@ -1132,7 +1292,7 @@ mswindows_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object na
 	    logfont.lfStrikeOut = TRUE;
 	  else
 	    {
-	      maybe_signal_simple_error ("Invalid font effect", f->name,
+	      maybe_signal_simple_error ("Invalid font effect", name,
 					 Qfont, errb);
 	      return (0);
 	    }
@@ -1152,63 +1312,50 @@ mswindows_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object na
   else
     effects[0] = '\0';
 
-#define FROB(cs)				\
-  else if (stricmp (charset, #cs) == 0)		\
-    logfont.lfCharSet = cs##_CHARSET
-
-  /* Charset aliases. Hangeul = Hangul is defined in windows.h.
-     We do not use the name "russian", only "cyrillic", as it is
-     the common name of this charset, used in other languages
-     than Russian. */
-#define CYRILLIC_CHARSET RUSSIAN_CHARSET
-#define CENTRALEUROPEAN_CHARSET EASTEUROPE_CHARSET
-#define CENTRALEUROPEAN_CHARSET EASTEUROPE_CHARSET
-
+  /* Charset */
   /* charset can be specified even if earlier fields havn't been */
-  if ((fields < 5) && (c=strchr (extname, ':')) && (c=strchr (c+1, ':')) &&
-      (c=strchr (c+1, ':')) && (c=strchr (c+1, ':')))
+  if (fields < 5)
     {
-      strncpy (charset, c+1, LF_FACESIZE);
-      charset[LF_FACESIZE-1] = '\0';
+      if ((c=strchr (extname, ':')) && (c=strchr (c+1, ':')) &&
+	  (c=strchr (c+1, ':')) && (c=strchr (c+1, ':')))
+	{
+	  strncpy (charset, c+1, LF_FACESIZE);
+	  charset[LF_FACESIZE-1] = '\0';
+	}
+      else
+	strcpy (charset, charset_map[0].name);
     }
-  else
-    charset[0] = '\0';
-	  
-  if (charset[0] == '\0' || (stricmp (charset, "ansi") == 0) ||
-      (stricmp (charset, "western") == 0))
+
+  for (i=0; i<countof (charset_map); i++)
+    if (!stricmp (charset, charset_map[i].name))
+      {
+	logfont.lfCharSet = charset_map[i].value;
+	break;
+      }
+
+  if (i == countof (charset_map))	/* No matching charset */
     {
-      logfont.lfCharSet = ANSI_CHARSET;
-      strcpy (charset, "western");
-    }
-  FROB (SYMBOL);
-  FROB (SHIFTJIS);
-  FROB (GB2312);
-  FROB (HANGEUL);
-  FROB (CHINESEBIG5);
-  FROB (JOHAB);
-  FROB (HEBREW);
-  FROB (ARABIC);
-  FROB (GREEK);
-  FROB (TURKISH);
-  FROB (THAI);
-  FROB (EASTEUROPE);
-  FROB (CENTRALEUROPEAN);
-  FROB (CYRILLIC);
-  FROB (MAC);
-  FROB (BALTIC);
-  else if (stricmp (charset, "oem/dos") == 0)
-    logfont.lfCharSet = OEM_CHARSET;
-  else
-    {
-      maybe_signal_simple_error ("Invalid charset", f->name, Qfont, errb);
+      maybe_signal_simple_error ("Invalid charset", name, Qfont, errb);
       return 0;
     }
 
-#undef FROB
+  /* Misc crud */
+  logfont.lfEscapement = logfont.lfOrientation = 0;
+#if 1
+  logfont.lfOutPrecision = OUT_DEFAULT_PRECIS;
+  logfont.lfClipPrecision = CLIP_DEFAULT_PRECIS;
+  logfont.lfQuality = DEFAULT_QUALITY;
+#else
+  logfont.lfOutPrecision = OUT_STROKE_PRECIS;
+  logfont.lfClipPrecision = CLIP_STROKE_PRECIS;
+  logfont.lfQuality = PROOF_QUALITY;
+#endif
+  /* Default to monospaced if the specified fontname doesn't exist. */
+  logfont.lfPitchAndFamily = FF_MODERN;
 
   /* Windows will silently substitute a default font if the fontname 
    * specifies a non-existent font. So we check the font against the device's
-   * list of font patterns to make sure that at least one of them matches */
+   * list of font patterns to make sure that at least one of them matches. */
   {
     struct mswindows_font_enum *fontlist;
     char truename[MSW_FONTSIZE];
@@ -1223,58 +1370,37 @@ mswindows_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object na
       }
     if (!done)
       {
-	maybe_signal_simple_error ("No matching font", f->name, Qfont, errb);
+	maybe_signal_simple_error ("No matching font", name, Qfont, errb);
 	return 0;
       }
   }
 
-  /* Misc crud */
-  logfont.lfEscapement = logfont.lfOrientation = 0;
-#if 1
-  logfont.lfOutPrecision = OUT_DEFAULT_PRECIS;
-  logfont.lfClipPrecision = CLIP_DEFAULT_PRECIS;
-  logfont.lfQuality = DEFAULT_QUALITY;
-#else
-  logfont.lfOutPrecision = OUT_STROKE_PRECIS;
-  logfont.lfClipPrecision = CLIP_STROKE_PRECIS;
-  logfont.lfQuality = PROOF_QUALITY;
-#endif
-  /* Default to monospaced if the specified fontname doesn't exist.
-   * The match_font calls above should mean that this can't happen. */
-  logfont.lfPitchAndFamily = FF_MODERN;
-
   if ((f->data = CreateFontIndirect(&logfont)) == NULL)
   {
-    maybe_signal_simple_error ("Couldn't create font", f->name, Qfont, errb);
+    maybe_signal_simple_error ("Couldn't create font", name, Qfont, errb);
     return 0;
   }
 
-  {
-    HDC hdc;
-    HFONT holdfont;
-    TEXTMETRIC metrics;
-
-    hdc = CreateCompatibleDC (NULL);
-    if (hdc)
-      {
-	holdfont = SelectObject(hdc, f->data);
-	if (holdfont)
-	  {
-	    GetTextMetrics (hdc, &metrics);
-	    SelectObject(hdc, holdfont);
-	    DeleteDC (hdc);
-	    f->width = (unsigned short) metrics.tmAveCharWidth;
-	    f->height = (unsigned short) metrics.tmHeight;
-	    f->ascent = (unsigned short) metrics.tmAscent;
-	    f->descent = (unsigned short) metrics.tmDescent;
-	    f->proportional_p = (metrics.tmPitchAndFamily & TMPF_FIXED_PITCH);
-	    return 1;
-	  }
-	DeleteDC (hdc);
-      }
-    mswindows_finalize_font_instance (f);
-    maybe_signal_simple_error ("Couldn't map font", f->name, Qfont, errb);
-  }
+  hdc = CreateCompatibleDC (NULL);
+  if (hdc)
+    {
+      holdfont = SelectObject(hdc, f->data);
+      if (holdfont)
+	{
+	  GetTextMetrics (hdc, &metrics);
+	  SelectObject(hdc, holdfont);
+	  DeleteDC (hdc);
+	  f->width = (unsigned short) metrics.tmAveCharWidth;
+	  f->height = (unsigned short) metrics.tmHeight;
+	  f->ascent = (unsigned short) metrics.tmAscent;
+	  f->descent = (unsigned short) metrics.tmDescent;
+	  f->proportional_p = (metrics.tmPitchAndFamily & TMPF_FIXED_PITCH);
+	  return 1;
+	}
+      DeleteDC (hdc);
+    }
+  mswindows_finalize_font_instance (f);
+  maybe_signal_simple_error ("Couldn't map font", name, Qfont, errb);
   return 0;
 }
 

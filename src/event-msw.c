@@ -98,6 +98,7 @@ static struct event_stream *mswindows_event_stream;
 #ifdef HAVE_MSG_SELECT
 extern SELECT_TYPE input_wait_mask, non_fake_input_wait_mask;
 extern SELECT_TYPE process_only_mask, tty_only_mask;
+SELECT_TYPE zero_mask;
 extern int signal_event_pipe_initialized;
 int windows_fd;
 #endif
@@ -727,8 +728,11 @@ winsock_writer (Lstream *stream, CONST unsigned char *data, size_t size)
   
   {
     ResetEvent (str->ov.hEvent);
-    
-    if (WriteFile ((HANDLE)str->s, data, size, NULL, &str->ov)
+
+    /* Docs indicate that 4th parameter to WriteFile can be NULL since this is
+     * an overlapped operation. This fails on Win95 with winsock 1.x so we
+     * supply a spare address which is ignored by Win95 anyway. Sheesh. */
+    if (WriteFile ((HANDLE)str->s, data, size, (LPDWORD)&str->buffer, &str->ov)
 	|| GetLastError() == ERROR_IO_PENDING)
       str->pending_p = 1;
     else
@@ -1294,6 +1298,29 @@ mswindows_need_event (int badly_p)
 	  EMACS_TIME_TO_SELECT_TIME (sometime, select_time_to_block);
 	  pointer_to_this = &select_time_to_block;
 	}
+
+      /* select() is slow and buggy so if we don't have any processes
+         just wait as normal */
+      if (memcmp (&process_only_mask, &zero_mask, sizeof(SELECT_TYPE))==0)
+	{
+	  /* Now try getting a message or process event */
+	  active = MsgWaitForMultipleObjects (0, mswindows_waitable_handles,
+					      FALSE, badly_p ? INFINITE : 0,
+					      QS_ALLINPUT);
+	  
+	  if (active == WAIT_TIMEOUT)
+	    {
+	      /* No luck trying - just return what we've already got */
+	      return;
+	    }
+	  else if (active == WAIT_OBJECT_0)
+	    {
+	      /* Got your message, thanks */
+	      mswindows_drain_windows_queue ();
+	      continue;
+	    }
+	}
+
       active = select (MAXDESC, &temp_mask, 0, 0, pointer_to_this);
       
       if (active == 0)
@@ -1572,8 +1599,37 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
     mswindows_enqueue_misc_user_event (fobj, Qeval, list3 (Qdelete_frame, fobj, Qt));
     break;
 
+  case WM_KEYUP:
+  case WM_SYSKEYUP:
+    /* See Win95 comment under WM_KEYDOWN */
+    {
+      BYTE keymap[256];
+
+      if (wParam == VK_CONTROL)
+        {
+	  GetKeyboardState (keymap);
+	  keymap [(lParam & 0x1000000) ? VK_RCONTROL : VK_LCONTROL] &= ~0x80;
+	  SetKeyboardState (keymap);
+	}
+      else if (wParam == VK_MENU)
+	{
+	  GetKeyboardState (keymap);
+	  keymap [(lParam & 0x1000000) ? VK_RMENU : VK_LMENU] &= ~0x80;
+	  SetKeyboardState (keymap);
+	}
+    };
+    goto defproc;
+
   case WM_KEYDOWN:
   case WM_SYSKEYDOWN:
+    /* In some locales the right-hand Alt key is labelled AltGr. This key
+     * should produce alternative charcaters when combined with another key.
+     * eg on a German keyboard pressing AltGr+q should produce '@'.
+     * AltGr generates exactly the same keystrokes as LCtrl+RAlt. But if
+     * TranslateMessage() is called with *any* combination of Ctrl+Alt down,
+     * it translates as if AltGr were down.
+     * We get round this by removing all modifiers from the keymap before
+     * calling TranslateMessage() unless AltGr is *really* down. */
     {
       BYTE keymap[256];
       int has_AltGr = mswindows_current_layout_has_AltGr ();
@@ -1583,7 +1639,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
       GetKeyboardState (keymap);
       mods = mswindows_modifier_state (keymap, has_AltGr);
 
-      /* Handle those keys that TranslateMessage won't generate a WM_CHAR for */
+      /* Handle those keys for which TranslateMessage won't generate a WM_CHAR */
       if (!NILP (keysym = mswindows_key_to_emacs_keysym(wParam, mods)))
 	mswindows_enqueue_keypress_event (hwnd, keysym, mods);
       else
@@ -1591,12 +1647,21 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  int quit_ch = CONSOLE_QUIT_CHAR (XCONSOLE (mswindows_find_console (hwnd)));
 	  BYTE keymap_orig[256];
 	  MSG msg = { hwnd, message, wParam, lParam, GetMessageTime(), (GetMessagePos()) };
+
+	  /* GetKeyboardState() does not work as documented on Win95. We have
+	   * to loosely track Left and Right modifiers on behalf of the OS,
+	   * without screwing up Windows NT which tracks them properly. */
+	  if (wParam == VK_CONTROL)
+	    keymap [(lParam & 0x1000000) ? VK_RCONTROL : VK_LCONTROL] |= 0x80;
+	  else if (wParam == VK_MENU)
+	    keymap [(lParam & 0x1000000) ? VK_RMENU : VK_LMENU] |= 0x80;
+
 	  memcpy (keymap_orig, keymap, 256);
 
 	  /* Remove shift modifier from an ascii character */
 	  mods &= ~MOD_SHIFT;
 
-	  /* Clear control and alt modifiers out of the keymap */
+	  /* Clear control and alt modifiers unless AltGr is pressed */
 	  keymap [VK_RCONTROL] = 0;
 	  keymap [VK_LMENU] = 0;
 	  if (!has_AltGr || !(keymap [VK_LCONTROL] & 0x80) || !(keymap [VK_RMENU] & 0x80))
@@ -1608,7 +1673,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	    }
 	  SetKeyboardState (keymap);
 
-	  /* Have some WM_[SYS]CHARS in the queue */
+	  /* Maybe generate some WM_[SYS]CHARs in the queue */
 	  TranslateMessage (&msg);
 
 	  while (PeekMessage (&msg, hwnd, WM_CHAR, WM_CHAR, PM_REMOVE)
@@ -2778,9 +2843,7 @@ init_event_mswindows_late (void)
   windows_fd = open("/dev/windows", O_RDONLY | O_NONBLOCK, 0);
   assert (windows_fd>=0);
   FD_SET (windows_fd, &input_wait_mask);
-  /* for some reason I get blocks on the signal event pipe, which is
-     bad... 
-     signal_event_pipe_initialized = 0; */
+  FD_ZERO(&zero_mask);
 #endif
 
   event_stream = mswindows_event_stream;
