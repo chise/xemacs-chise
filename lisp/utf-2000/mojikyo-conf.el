@@ -44,10 +44,11 @@
 	(append default-coded-charset-priority-list
 		'(mojikyo-2022-1))))
 
-(unless (memq 'mojikyo char-db-coded-charset-priority-list)
-  (setq char-db-coded-charset-priority-list
-	(append char-db-coded-charset-priority-list
-		'(mojikyo))))
+(eval-after-load "char-db-util"
+  '(unless (memq 'mojikyo char-db-coded-charset-priority-list)
+     (setq char-db-coded-charset-priority-list
+	   (append char-db-coded-charset-priority-list
+		   '(mojikyo)))))
 
 (provide 'mojikyo-conf)
 
