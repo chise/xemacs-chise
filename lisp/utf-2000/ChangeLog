@@ -1,3 +1,12 @@
+2001-12-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R087-Claw.el (M-19655): Separate U+722B.
+
+	* Ideograph-R075-Tree.el (U+6740): Relate to M-14471; add
+	`->same-ideograph' for M-14471.
+
+	* Ideograph-R003-Dot.el (U-00020084): Unify H4-E461.
+
 2001-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL PAW ONE): Add
