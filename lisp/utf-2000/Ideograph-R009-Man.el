@@ -22015,21 +22015,30 @@
 (define-char
   '((morohashi-daikanwa	49471 0 1)
     (ideographic-	(:radical	120 ; â½·
-			 :strokes	7)
+			 :strokes	7
+			 :sources	(morohashi-daikanwa cns-11643))
 			(:radical	9 ; â¼ˆ
-			 :strokes	11))
+			 :strokes	11
+			 :sources	(ucs)))
     (total-strokes	 . 13)
     (->same-ideograph
      ((ideograph-daikanwa . 49471)	; ø¸Œ„¿
       ))
     (hanyu-dazidian	1 210 15)
     (ideographic-structure
-     (:cdp-combinator	4)
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
      ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
-     ((ucs		  . #x6534)	; æ”´
-      )
-     ((ucs		  . #x7CF8)	; ç³¸
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ucs		    . #x6534)	; æ”´
+	)
+       ((ucs		    . #x7CF8)	; ç³¸
+	))
       ))
     (chinese-cns11643-6		. #x564E)	; ø»ƒ“
     (ideograph-hanziku-1	. #xD1AF)	; ý¢€†¯
