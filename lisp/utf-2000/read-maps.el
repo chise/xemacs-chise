@@ -1,6 +1,6 @@
 ;;; read-maps.el --- Read mapping-tables.
 
-;; Copyright (C) 2002,2003 MORIOKA Tomohiko
+;; Copyright (C) 2002,2003,2004 MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: mapping table, character, CCS, multiscript, multilingual
@@ -145,6 +145,34 @@
 		(put-char-attribute chr ucs-ccs ucs)))))
 	(forward-line)))))
 
+(defun jp-jouyou-read-file (filename)
+  (interactive "fjp-jouyou file : ")
+  (with-temp-buffer
+    (buffer-disable-undo)
+    (insert-file-contents filename)
+    (goto-char (point-min))
+    (let (char tchars)
+      (while (re-search-forward "^[^\t\n ]+\t\\(.\\)\t*" nil t)
+	(setq char (aref (match-string 1) 0)
+	      tchars (buffer-substring (match-end 0)
+				       (point-at-eol)))
+	(when (> (length tchars) 0)
+	  (setq tchars
+		(mapcar (lambda (c)
+			  (aref c 0))
+			(split-string tchars " ")))
+	  (put-char-attribute char
+			      '<-simplified@JP/Jouyou
+			      tchars))
+        ;; (put-char-attribute
+        ;;  char 'script (adjoin
+        ;;                'JP
+        ;;                (adjoin
+        ;;                 'Jouyou
+        ;;                 (adjoin
+        ;;                  'Ideograph
+        ;;                  (get-char-attribute char 'script)))))
+	))))
 
 (provide 'read-maps)
 
