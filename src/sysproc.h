@@ -118,12 +118,12 @@ Boston, MA 02111-1307, USA.  */
 #include <sys/select.h>
 #endif
 
-#ifdef HAVE_SYS_STROPTS_H
-#include <sys/stropts.h>	/* isastream(), I_PUSH */
+#ifdef HAVE_STROPTS_H
+#include <stropts.h>		/* isastream(), I_PUSH */
 #endif
 
-#ifdef HAVE_SYS_STRTIO_H
-#include <sys/strtio.h>		/* TIOCSIGNAL */
+#ifdef HAVE_STRTIO_H
+#include <strtio.h>		/* TIOCSIGNAL */
 #endif
 
 #ifdef HAVE_PTY_H

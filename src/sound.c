@@ -334,7 +334,7 @@ See the variable `sound-alist'.
       
       /* #### ESD uses alarm(). But why should we also stop SIGIO? */
       stop_interrupts ();
-      succes = esd_play_sound_data (soundext, soundextlen, vol);
+      succes = esd_play_sound_data ((unsigned char *) soundext, soundextlen, vol);
       start_interrupts ();
       QUIT;
       if(succes)

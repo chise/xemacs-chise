@@ -549,7 +549,7 @@ device, global), and then the instance (i.e. actual value) is
 retrieved in a specific domain (window, frame, device) by looking
 through the possible instantiators (i.e. settings).  This process is
 called \"instantiation\".
- 
+
 To put settings into a specifier, use `set-specifier', or the
 lower-level functions `add-spec-to-specifier' and
 `add-spec-list-to-specifier'.  You can also temporarily bind a setting
@@ -1986,8 +1986,8 @@ with the function `specifier-spec-list' or `specifier-specs'.
 }
 
 DEFUN ("add-spec-list-to-specifier", Fadd_spec_list_to_specifier, 2, 3, 0, /*
-Add a spec-list (a list of specifications) to SPECIFIER.
-The format of a spec-list is
+Add SPEC-LIST (a list of specifications) to SPECIFIER.
+The format of SPEC-LIST is
 
   ((LOCALE (TAG-SET . INSTANTIATOR) ...) ...)
 
@@ -2556,11 +2556,8 @@ specifier_instance (Lisp_Object specifier, Lisp_Object matchspec,
   Lisp_Object window = Qnil;
   Lisp_Object frame = Qnil;
   Lisp_Object device = Qnil;
-  Lisp_Object tag = Qnil;
-  struct device *d;
-  Lisp_Specifier *sp;
-
-  sp = XSPECIFIER (specifier);
+  Lisp_Object tag = Qnil;	/* #### currently unused */
+  Lisp_Specifier *sp = XSPECIFIER (specifier);
 
   /* Attempt to determine buffer, window, frame, and device from the
      domain. */
@@ -2582,17 +2579,16 @@ specifier_instance (Lisp_Object specifier, Lisp_Object matchspec,
     abort ();
 
   if (NILP (buffer) && !NILP (window))
-    buffer = XWINDOW (window)->buffer;
+    buffer = WINDOW_BUFFER (XWINDOW (window));
   if (NILP (frame) && !NILP (window))
     frame = XWINDOW (window)->frame;
   if (NILP (device))
     /* frame had better exist; if device is undeterminable, something
        really went wrong. */
-    device = XFRAME (frame)->device;
+    device = FRAME_DEVICE (XFRAME (frame));
 
   /* device had better be determined by now; abort if not. */
-  d = XDEVICE (device);
-  tag = DEVICE_CLASS (d);
+  tag = DEVICE_CLASS (XDEVICE (device));
 
   depth = make_int (1 + XINT (depth));
   if (XINT (depth) > 20)
@@ -2836,7 +2832,8 @@ set_specifier_caching (Lisp_Object specifier, int struct_window_offset,
 		       int struct_frame_offset,
 		       void (*value_changed_in_frame)
 		       (Lisp_Object specifier, struct frame *f,
-			Lisp_Object oldval))
+			Lisp_Object oldval),
+		       int always_recompute)
 {
   Lisp_Specifier *sp = XSPECIFIER (specifier);
   assert (!GHOST_SPECIFIER_P (sp));
@@ -2847,6 +2844,7 @@ set_specifier_caching (Lisp_Object specifier, int struct_window_offset,
   sp->caching->value_changed_in_window = value_changed_in_window;
   sp->caching->offset_into_struct_frame = struct_frame_offset;
   sp->caching->value_changed_in_frame = value_changed_in_frame;
+  sp->caching->always_recompute = always_recompute;
   Vcached_specifiers = Fcons (specifier, Vcached_specifiers);
   if (BODILY_SPECIFIER_P (sp))
     GHOST_SPECIFIER(sp)->caching = sp->caching;
@@ -2858,7 +2856,7 @@ recompute_one_cached_specifier_in_window (Lisp_Object specifier,
 					  struct window *w)
 {
   Lisp_Object window;
-  Lisp_Object newval, *location;
+  Lisp_Object newval, *location, oldval;
 
   assert (!GHOST_SPECIFIER_P (XSPECIFIER (specifier)));
 
@@ -2879,9 +2877,9 @@ recompute_one_cached_specifier_in_window (Lisp_Object specifier,
      calling equal is no good either as this doesn't take into account
      things attached to the specifier - for instance strings on
      extents. --andyp */
-  if (!EQ (newval, *location))
+  if (!EQ (newval, *location) || XSPECIFIER (specifier)->caching->always_recompute)
     {
-      Lisp_Object oldval = *location;
+      oldval = *location;
       *location = newval;
       (XSPECIFIER (specifier)->caching->value_changed_in_window)
 	(specifier, w, oldval);
@@ -2893,7 +2891,7 @@ recompute_one_cached_specifier_in_frame (Lisp_Object specifier,
 					 struct frame *f)
 {
   Lisp_Object frame;
-  Lisp_Object newval, *location;
+  Lisp_Object newval, *location, oldval;
 
   assert (!GHOST_SPECIFIER_P (XSPECIFIER (specifier)));
 
@@ -2907,9 +2905,9 @@ recompute_one_cached_specifier_in_frame (Lisp_Object specifier,
      method. */
   location = (Lisp_Object *)
     ((char *) f + XSPECIFIER (specifier)->caching->offset_into_struct_frame);
-  if (!EQ (newval, *location))
+  if (!EQ (newval, *location) || XSPECIFIER (specifier)->caching->always_recompute)
     {
-      Lisp_Object oldval = *location;
+      oldval = *location;
       *location = newval;
       (XSPECIFIER (specifier)->caching->value_changed_in_frame)
 	(specifier, f, oldval);

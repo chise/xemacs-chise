@@ -2601,9 +2601,10 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
   /* This function can call lisp */
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   HWND wnd;
-  int flags = WS_TABSTOP;/* BS_NOTIFY #### is needed to get exotic feedback
-			    only. Since we seem to want nothing beyond BN_CLICK,
-			    the style is perhaps not necessary -- kkm */
+  int flags = WS_TABSTOP | BS_NOTIFY;
+  /* BS_NOTIFY #### is needed to get exotic feedback only. Since we
+     seem to want nothing beyond BN_CLICK, the style is perhaps not
+     necessary -- kkm */
   Lisp_Object style;
   Lisp_Object gui = IMAGE_INSTANCE_WIDGET_ITEM (ii);
   Lisp_Gui_Item* pgui = XGUI_ITEM (gui);

@@ -81,7 +81,6 @@ Boston, MA 02111-1307, USA.  */
 #include <sys/ttold.h>
 #include <signal.h>
 #include <sys/stream.h>
-#include <sys/stropts.h>
 #include <sys/termios.h>
 #endif
 

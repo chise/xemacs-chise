@@ -289,11 +289,11 @@ ignore_completion_p (Lisp_Object completion_string,
 }
 
 
-/* #### Maybe we should allow ALIST to be a hash table.  It is wrong
-   for the use of obarrays to be better-rewarded than the use of
-   hash tables.  By better-rewarded I mean that you can pass an obarray
-   to all of the completion functions, whereas you can't do anything
-   like that with a hash table.
+/* #### Maybe we should allow COLLECTION to be a hash table.
+   It is wrong for the use of obarrays to be better-rewarded than the
+   use of hash tables.  By better-rewarded I mean that you can pass an
+   obarray to all of the completion functions, whereas you can't do
+   anything like that with a hash table.
 
    To do so, there should probably be a
    map_obarray_or_alist_or_hash_table function which would be used by
@@ -301,26 +301,29 @@ ignore_completion_p (Lisp_Object completion_string,
    additional funcalls slow things down?  */
 
 DEFUN ("try-completion", Ftry_completion, 2, 3, 0, /*
-Return common substring of all completions of STRING in ALIST.
-Each car of each element of ALIST is tested to see if it begins with STRING.
+Return common substring of all completions of STRING in COLLECTION.
+COLLECTION must be an alist, an obarray, or a function.
+Each string in COLLECTION is tested to see if it begins with STRING.
 All that match are compared together; the longest initial sequence
-common to all matches is returned as a string.
-If there is no match at all, nil is returned.
-For an exact match, t is returned.
+common to all matches is returned as a string.  If there is no match
+at all, nil is returned.  For an exact match, t is returned.
 
-ALIST can be an obarray instead of an alist.
-Then the print names of all symbols in the obarray are the possible matches.
+If COLLECTION is an alist, the cars of the elements of the alist
+\(which must be strings) form the set of possible completions.
 
-ALIST can also be a function to do the completion itself.
-It receives three arguments: the values STRING, PREDICATE and nil.
-Whatever it returns becomes the value of `try-completion'.
+If COLLECTION is an obarray, the names of all symbols in the obarray
+are the possible completions.
 
-If optional third argument PREDICATE is non-nil,
-it is used to test each possible match.
-The match is a candidate only if PREDICATE returns non-nil.
-The argument given to PREDICATE is the alist element or the symbol from the obarray.
+If COLLECTION is a function, it is called with three arguments: the
+values STRING, PREDICATE and nil.  Whatever it returns becomes the
+value of `try-completion'.
+
+If optional third argument PREDICATE is non-nil, it is used to test
+each possible match.  The match is a candidate only if PREDICATE
+returns non-nil.  The argument given to PREDICATE is the alist element
+or the symbol from the obarray.
 */
-       (string, alist, pred))
+       (string, collection, predicate))
 {
   /* This function can GC */
   Lisp_Object bestmatch, tail;
@@ -334,31 +337,31 @@ The argument given to PREDICATE is the alist element or the symbol from the obar
 
   CHECK_STRING (string);
 
-  if (CONSP (alist))
+  if (CONSP (collection))
     {
-      Lisp_Object tem = XCAR (alist);
+      Lisp_Object tem = XCAR (collection);
       if (SYMBOLP (tem))	/* lambda, autoload, etc.  Emacs-lisp sucks */
-	return call3 (alist, string, pred, Qnil);
+	return call3 (collection, string, predicate, Qnil);
       else
 	list = 1;
     }
-  else if (VECTORP (alist))
+  else if (VECTORP (collection))
     list = 0;
-  else if (NILP (alist))
+  else if (NILP (collection))
     list = 1;
   else
-    return call3 (alist, string, pred, Qnil);
+    return call3 (collection, string, predicate, Qnil);
 
   bestmatch = Qnil;
   blength = 0;
   slength = XSTRING_CHAR_LENGTH (string);
 
-  /* If ALIST is not a list, set TAIL just for gc pro.  */
-  tail = alist;
+  /* If COLLECTION is not a list, set TAIL just for gc pro.  */
+  tail = collection;
   if (!list)
     {
-      obsize = XVECTOR_LENGTH (alist);
-      bucket = XVECTOR_DATA (alist)[indice];
+      obsize = XVECTOR_LENGTH (collection);
+      bucket = XVECTOR_DATA (collection)[indice];
     }
   else /* warning suppression */
     {
@@ -405,7 +408,7 @@ The argument given to PREDICATE is the alist element or the symbol from the obar
 	    break;
 	  else
 	    {
-	      bucket = XVECTOR_DATA (alist)[indice];
+	      bucket = XVECTOR_DATA (collection)[indice];
 	      continue;
 	    }
 	}
@@ -424,7 +427,7 @@ The argument given to PREDICATE is the alist element or the symbol from the obar
                 struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
                 int loser;
                 GCPRO4 (tail, string, eltstring, bestmatch);
-                loser = ignore_completion_p (eltstring, pred, elt);
+                loser = ignore_completion_p (eltstring, predicate, elt);
                 UNGCPRO;
                 if (loser)      /* reject this one */
                   continue;
@@ -509,23 +512,27 @@ The argument given to PREDICATE is the alist element or the symbol from the obar
 
 
 DEFUN ("all-completions", Fall_completions, 2, 3, 0, /*
-Search for partial matches to STRING in ALIST.
-Each car of each element of ALIST is tested to see if it begins with STRING.
-The value is a list of all the strings from ALIST that match.
-ALIST can be an obarray instead of an alist.
-Then the print names of all symbols in the obarray are the possible matches.
+Search for partial matches to STRING in COLLECTION.
+COLLECTION must be an alist, an obarray, or a function.
+Each string in COLLECTION is tested to see if it begins with STRING.
+The value is a list of all the strings from COLLECTION that match.
 
-ALIST can also be a function to do the completion itself.
-It receives three arguments: the values STRING, PREDICATE and t.
-Whatever it returns becomes the value of `all-completions'.
+If COLLECTION is an alist, the cars of the elements of the alist
+\(which must be strings) form the set of possible completions.
 
-If optional third argument PREDICATE is non-nil,
-it is used to test each possible match.
-The match is a candidate only if PREDICATE returns non-nil.
-The argument given to PREDICATE is the alist element or
-the symbol from the obarray.
+If COLLECTION is an obarray, the names of all symbols in the obarray
+are the possible completions.
+
+If COLLECTION is a function, it is called with three arguments: the
+values STRING, PREDICATE and t.  Whatever it returns becomes the
+value of `all-completions'.
+
+If optional third argument PREDICATE is non-nil, it is used to test
+each possible match.  The match is a candidate only if PREDICATE
+returns non-nil.  The argument given to PREDICATE is the alist element
+or the symbol from the obarray.
 */
-       (string, alist, pred))
+       (string, collection, predicate))
 {
   /* This function can GC */
   Lisp_Object tail;
@@ -538,30 +545,30 @@ the symbol from the obarray.
 
   CHECK_STRING (string);
 
-  if (CONSP (alist))
+  if (CONSP (collection))
     {
-      Lisp_Object tem = XCAR (alist);
+      Lisp_Object tem = XCAR (collection);
       if (SYMBOLP (tem))	/* lambda, autoload, etc.  Emacs-lisp sucks */
-	return call3 (alist, string, pred, Qt);
+	return call3 (collection, string, predicate, Qt);
       else
 	list = 1;
     }
-  else if (VECTORP (alist))
+  else if (VECTORP (collection))
     list = 0;
-  else if (NILP (alist))
+  else if (NILP (collection))
     list = 1;
   else
-    return call3 (alist, string, pred, Qt);
+    return call3 (collection, string, predicate, Qt);
 
   allmatches = Qnil;
   slength = XSTRING_CHAR_LENGTH (string);
 
-  /* If ALIST is not a list, set TAIL just for gc pro.  */
-  tail = alist;
+  /* If COLLECTION is not a list, set TAIL just for gc pro.  */
+  tail = collection;
   if (!list)
     {
-      obsize = XVECTOR_LENGTH (alist);
-      bucket = XVECTOR_DATA (alist)[indice];
+      obsize = XVECTOR_LENGTH (collection);
+      bucket = XVECTOR_DATA (collection)[indice];
     }
   else /* warning suppression */
     {
@@ -602,7 +609,7 @@ the symbol from the obarray.
 	    break;
 	  else
 	    {
-	      bucket = XVECTOR_DATA (alist)[indice];
+	      bucket = XVECTOR_DATA (collection)[indice];
 	      continue;
 	    }
 	}
@@ -611,11 +618,6 @@ the symbol from the obarray.
 
       if (STRINGP (eltstring)
           && (slength <= XSTRING_CHAR_LENGTH (eltstring))
-	  /* Reject alternatives that start with space
-	     unless the input starts with space.  */
-	  && ((XSTRING_CHAR_LENGTH (string) > 0 &&
-	       string_char (XSTRING (string), 0) == ' ')
-	      || string_char (XSTRING (eltstring), 0) != ' ')
           && (0 > scmp (XSTRING_DATA (eltstring),
                         XSTRING_DATA (string),
                         slength)))
@@ -624,7 +626,7 @@ the symbol from the obarray.
           struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
           int loser;
           GCPRO4 (tail, eltstring, allmatches, string);
-          loser = ignore_completion_p (eltstring, pred, elt);
+          loser = ignore_completion_p (eltstring, predicate, elt);
           UNGCPRO;
           if (!loser)
             /* Ok => put it on the list. */

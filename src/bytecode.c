@@ -2264,7 +2264,7 @@ Return the constants vector of the compiled-function object FUNCTION.
 }
 
 DEFUN ("compiled-function-stack-depth", Fcompiled_function_stack_depth, 1, 1, 0, /*
-Return the max stack depth of the compiled-function object FUNCTION.
+Return the maximum stack depth of the compiled-function object FUNCTION.
 */
        (function))
 {

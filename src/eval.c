@@ -67,7 +67,7 @@ struct backtrace *backtrace_list;
 #define AV_8(av) AV_7(av), av[7]
 
 #define PRIMITIVE_FUNCALL_1(fn, av, ac) \
-(((Lisp_Object (*)(EXFUN_##ac)) (fn)) (AV_##ac (av)))
+  (((Lisp_Object (*)(EXFUN_##ac)) (fn)) (AV_##ac (av)))
 
 /* If subrs take more than 8 arguments, more cases need to be added
    to this switch.  (But wait - don't do it - if you really need
@@ -727,7 +727,7 @@ BODY can be zero or more expressions.  If BODY is nil, return nil.
 }
 
 DEFUN ("cond", Fcond, 0, UNEVALLED, 0, /*
-(cond CLAUSES...): try each clause until one succeeds.
+\(cond CLAUSES...): try each clause until one succeeds.
 Each clause looks like (CONDITION BODY...).  CONDITION is evaluated
 and, if the value is non-nil, this clause succeeds:
 then the expressions in BODY are evaluated and the last one's
@@ -1471,12 +1471,12 @@ throw_or_bomb_out (Lisp_Object tag, Lisp_Object val, int bomb_out_p,
 */
 
 DEFUN ("throw", Fthrow, 2, 2, 0, /*
-\(throw TAG VALUE): throw to the catch for TAG and return VALUE from it.
+Throw to the catch for TAG and return VALUE from it.
 Both TAG and VALUE are evalled.
 */
-       (tag, val))
+       (tag, value))
 {
-  throw_or_bomb_out (tag, val, 0, Qnil, Qnil); /* Doesn't return */
+  throw_or_bomb_out (tag, value, 0, Qnil, Qnil); /* Doesn't return */
   return Qnil;
 }
 
@@ -2932,7 +2932,7 @@ Optional second arg RECORD-FLAG is as in `call-interactively'.
 The argument KEYS specifies the value to use instead of (this-command-keys)
 when reading the arguments.
 */
-       (cmd, record, keys))
+       (cmd, record_flag, keys))
 {
   /* This function can GC */
   Lisp_Object prefixarg;
@@ -2967,7 +2967,7 @@ when reading the arguments.
       backtrace.debug_on_exit = 0;
       PUSH_BACKTRACE (backtrace);
 
-      final = Fcall_interactively (cmd, record, keys);
+      final = Fcall_interactively (cmd, record_flag, keys);
 
       POP_BACKTRACE (backtrace);
       return final;
@@ -3066,24 +3066,24 @@ and input is currently coming from the keyboard (not in keyboard macro).
 /************************************************************************/
 
 DEFUN ("autoload", Fautoload, 2, 5, 0, /*
-Define FUNCTION to autoload from FILE.
-FUNCTION is a symbol; FILE is a file name string to pass to `load'.
-Third arg DOCSTRING is documentation for the function.
-Fourth arg INTERACTIVE if non-nil says function can be called interactively.
-Fifth arg TYPE indicates the type of the object:
+Define FUNCTION to autoload from FILENAME.
+FUNCTION is a symbol; FILENAME is a file name string to pass to `load'.
+The remaining optional arguments provide additional info about the
+real definition.
+DOCSTRING is documentation for FUNCTION.
+INTERACTIVE, if non-nil, says FUNCTION can be called interactively.
+TYPE indicates the type of the object:
    nil or omitted says FUNCTION is a function,
    `keymap' says FUNCTION is really a keymap, and
    `macro' or t says FUNCTION is really a macro.
-Third through fifth args give info about the real definition.
-They default to nil.
-If FUNCTION is already defined other than as an autoload,
-this does nothing and returns nil.
+If FUNCTION already has a non-void function definition that is not an
+autoload object, this function does nothing and returns nil.
 */
-       (function, file, docstring, interactive, type))
+       (function, filename, docstring, interactive, type))
 {
   /* This function can GC */
   CHECK_SYMBOL (function);
-  CHECK_STRING (file);
+  CHECK_STRING (filename);
 
   /* If function is defined and not as an autoload, don't override */
   {
@@ -3095,10 +3095,10 @@ this does nothing and returns nil.
   if (purify_flag)
     {
       /* Attempt to avoid consing identical (string=) pure strings. */
-      file = Fsymbol_name (Fintern (file, Qnil));
+      filename = Fsymbol_name (Fintern (filename, Qnil));
     }
 
-  return Ffset (function, Fcons (Qautoload, list4 (file,
+  return Ffset (function, Fcons (Qautoload, list4 (filename,
 						   docstring,
 						   interactive,
 						   type)));
@@ -3897,7 +3897,7 @@ called to run the hook.  If the value is a function, it is called with
 the given arguments and its return value is returned.  If it is a list
 of functions, those functions are called, in order,
 with the given arguments ARGS.
-It is best not to depend on the value return by `run-hook-with-args',
+It is best not to depend on the value returned by `run-hook-with-args',
 as that may change.
 
 To make a hook variable buffer-local, use `make-local-hook',
@@ -5103,10 +5103,10 @@ backtrace_specials (int speccount, int speclimit, Lisp_Object stream)
 DEFUN ("backtrace", Fbacktrace, 0, 2, "", /*
 Print a trace of Lisp function calls currently active.
 Optional arg STREAM specifies the output stream to send the backtrace to,
-and defaults to the value of `standard-output'.  Optional second arg
-DETAILED means show places where currently active variable bindings,
-catches, condition-cases, and unwind-protects were made as well as
-function calls.
+and defaults to the value of `standard-output'.
+Optional second arg DETAILED non-nil means show places where currently
+active variable bindings, catches, condition-cases, and
+unwind-protects, as well as function calls, were made.
 */
        (stream, detailed))
 {
@@ -5231,8 +5231,8 @@ function calls.
 }
 
 
-DEFUN ("backtrace-frame", Fbacktrace_frame, 1, 1, "", /*
-Return the function and arguments N frames up from current execution point.
+DEFUN ("backtrace-frame", Fbacktrace_frame, 1, 1, 0, /*
+Return the function and arguments NFRAMES up from current execution point.
 If that frame has not evaluated the arguments yet (or is a special form),
 the value is (nil FUNCTION ARG-FORMS...).
 If that frame has evaluated its arguments and called its function already,
@@ -5240,7 +5240,7 @@ the value is (t FUNCTION ARG-VALUES...).
 A &rest arg is represented as the tail of the list ARG-VALUES.
 FUNCTION is whatever was supplied as car of evaluated list,
 or a lambda expression for macro calls.
-If N is more than the number of frames, the value is nil.
+If NFRAMES is more than the number of frames, the value is nil.
 */
        (nframes))
 {

@@ -328,7 +328,7 @@ play_internal (unsigned char *data, int length, AudioContext ac)
   if (ac == (AudioContext) 0)
     return;
 
-  data = ac->ac_data;
+  data = (unsigned char *) ac->ac_data;
   limit = data + ac->ac_size;
   while (data < limit)
     {

@@ -1000,12 +1000,13 @@ int read_bitmap_data_from_file (const char *filename, unsigned int *width,
 static Pixmap
 pixmap_from_xbm_inline (Lisp_Object device, int width, int height,
 			/* Note that data is in ext-format! */
-			const Extbyte *bits)
+			const char *bits)
 {
-  return XCreatePixmapFromBitmapData (DEVICE_X_DISPLAY (XDEVICE(device)),
-				      XtWindow (DEVICE_XT_APP_SHELL (XDEVICE (device))),
-				      (char *) bits, width, height,
-				      1, 0, 1);
+  return XCreatePixmapFromBitmapData
+    (DEVICE_X_DISPLAY (XDEVICE (device)),
+     XtWindow (DEVICE_XT_APP_SHELL (XDEVICE (device))),
+     (char *) bits, width, height,
+     1, 0, 1);
 }
 
 /* Given inline data for a mono pixmap, initialize the given
@@ -1168,7 +1169,7 @@ xbm_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
       mask = pixmap_from_xbm_inline (IMAGE_INSTANCE_DEVICE (ii),
 				     XINT (XCAR (mask_data)),
 				     XINT (XCAR (XCDR (mask_data))),
-				     (const unsigned char *) ext_data);
+				     ext_data);
     }
 
   init_image_instance_from_xbm_inline (ii, width, height, bits,
@@ -2209,8 +2210,8 @@ x_redisplay_widget (Lisp_Image_Instance *p)
 	 reference to the real values rather than a copy thus any
 	 changes we make to the values we get back will look like they
 	 have already been applied. If we rebuild the widget tree then
-	 we may lose propertie. */
-      wv = copy_widget_value_tree (lw_get_all_values
+	 we may lose properties. */
+      wv = copy_widget_value_tree (lw_get_all_values 
 				   (IMAGE_INSTANCE_X_WIDGET_LWID (p)),
 				   NO_CHANGE);
     }
@@ -2980,7 +2981,7 @@ complex_vars_of_glyphs_x (void)
      vector3 (Qxbm, Q_data,					\
 	      list3 (make_int (name##_width),			\
 		     make_int (name##_height),			\
-		     make_ext_string (name##_bits,		\
+		     make_ext_string ((Extbyte *) name##_bits,	\
 				      sizeof (name##_bits),	\
 				      Qbinary))),		\
      Qglobal, Qx, Qnil)
