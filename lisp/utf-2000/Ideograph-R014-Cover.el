@@ -107,11 +107,6 @@
     (ideographic-radical . 14)	; â¼
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x556D)	; ø½‹ƒ 
-      (=ks-x1001	  . #x5E50)	; ø»‰´¡
-      (=daikanwa	  . 07320)	; ø¸²˜
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
@@ -151,7 +146,6 @@
 (define-char
   '((ideographic-radical . 14)	; â¼
     (ideographic-strokes . 3)
-    (total-strokes	 . 5)
     (hanyu-dazidian	1 303 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -505,7 +499,6 @@
     (=cns11643-6	. #x3544)	; ø»œ’«
     (=big5		. #xADDE)	; ý¢€Š·ž
     (=daikanwa		. 01587)	; ø¸€˜³
-    (=ucs@big5		. #x51A4)	; ø»ƒƒŒ
     ))
 (define-char
   '((morohashi-daikanwa	1587 0 3)
@@ -581,7 +574,6 @@
     (=gt-pj-1		. #x4C3D)	; ý¡€€ ¯
     (=daikanwa		. 01588)	; ø¸€˜´
     (=ucs@jis		. #x51A5)	; ø½Šµ¢
-    (=ucs@big5		. #x51A5)	; ø½Šµ¢
     ))
 (define-char
   '((morohashi-daikanwa	1588 0 0)
@@ -643,7 +635,6 @@
 (define-char
   '((ideographic-radical . 14)	; â¼
     (ideographic-strokes . 8)
-    (total-strokes	 . 10)
     (hanyu-dazidian	8 10 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -778,21 +769,21 @@
     ))
 (define-char
   '((=>ucs		. #x6700)	; æœ€
-    (ideographic-radical@daikanwa . 14)	; â¼
-    (ideographic-strokes@daikanwa . 10)
-    (ideographic-radical@cns . 13)	; â¼Œ
-    (ideographic-strokes@cns . 10)
+    (ideographic-	(:radical	13 ; â¼Œ
+			 :strokes	10
+			 :sources	(cns-11643))
+			(:radical	14 ; â¼
+			 :strokes	10
+			 :sources	(morohashi-daikanwa)))
     (total-strokes	 . 12)
     (<-original-ideograph
-     ((=daikanwa	  . 14301)	; ø¸ƒŸ
-      ))
-    (<-original-ideograph*sources
-     zhengzi-tong daikanwa)
+     (:char	((=daikanwa	     . 14301)	; ø¸ƒŸ
+		 )
+      :sources	(seiji-tsuu morohashi-daikanwa)))
     (hanyu-dazidian	2 1516 8)
     (=cns11643-1	. #x5E32)	; ø»’œ“
     (=big5		. #xB3CC)	; ý¢€‹Œ
     (=daikanwa		. 01597)	; ø¸€˜½
-    (=ucs@big5		. #x6700)	; ø»’œ“
     ))
 (define-char
   '((ideographic-radical . 14)	; â¼

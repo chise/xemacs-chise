@@ -442,11 +442,10 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (->ideographic-variants
-     ((shinjigen-1	  . 772)
-      (=ucs		  . #x5306)	; åŒ†
-      ))
-    (->ideographic-variants*sources
-     shinjigen-1)
+     (:char	((shinjigen-1	     . 772)
+		 (=ucs		     . #x5306)	; åŒ†
+		 )
+      :sources	(shinjigen-1)))
     (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
       (=ucs		  . #x2FFB)	; â¿»
@@ -584,7 +583,6 @@
       ))
     (=big5		. #xCA71)	; ý¢€Œ©±
     (=daikanwa		. 02515)	; ø¸€§“
-    (=ucs@big5		. #x5309)	; ý¢€Œ©±
     ))
 (define-char
   '((morohashi-daikanwa	2515 0 2)

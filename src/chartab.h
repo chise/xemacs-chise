@@ -1,7 +1,7 @@
 /* Declarations having to do with Mule char tables.
    Copyright (C) 1992 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -425,7 +425,6 @@ put_char_id_table (Lisp_Char_Table* table,
 
 
 EXFUN (Fget_char_attribute, 3);
-EXFUN (Fchar_feature, 5);
 
 #endif
 

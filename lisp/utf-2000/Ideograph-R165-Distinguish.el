@@ -90,10 +90,8 @@
     (ideographic-radical . 165)	; â¾¤
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6E59)	; ø½‹§º
-      (=ks-x1001	  . #x6037)	; ø»‰·„
-      (=daikanwa	  . 40129)	; ø¸‰³
+    (<-simplified-ideograph
+     ((=daikanwa	  . 40129)	; ø¸‰³
       ))
     (=ucs		. #x91C8)	; é‡ˆ
     (=jis-x0208		. #x3C61)	; ø½Šž¦
@@ -124,7 +122,6 @@
 (define-char
   '((ideographic-radical . 165)	; â¾¤
     (ideographic-strokes . 5)
-    (total-strokes	 . 12)
     (=ucs		. #x91CA)	; é‡Š
     (=gb2312		. #x4A4D)	; ø»…‚¾
     ))
