@@ -771,6 +771,7 @@
     (japanese-jisx0208		. #x622D)	; ø»‡¯²
     (chinese-cns11643-1		. #x6D73)	; ø»’³–
     (japanese-jisx0208-1990	. #x622D)	; ø½‹•¦
+    (chinese-gb12345		. #x3028)	; çšš
     (ideograph-daikanwa		. 22765)	; ø¸…£­
     (ucs			. #x769A)	; çšš
     ))
