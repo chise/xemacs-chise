@@ -879,8 +879,16 @@
   '((ideographic-radical . 158)	; â¾
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
+    (ucs		. #x8EC5)	; è»…
+    ))
+(define-char
+  '((=>ucs		. #x8EC5)	; è»…
+    (ideographic-radical . 158)	; â¾
+    (ideographic-strokes . 12)
+    (total-strokes	 . 19)
+    (japanese-jisx0208-1978	. #x6D40)	; ø»ƒ¬‡
+    (japanese-jisx0208		. #x6D40)	; ø»ˆ€
     (japanese-jisx0208-1990	. #x6D40)	; ø½‹¦ƒ
-    (ucs			. #x8EC5)	; è»…
     ))
 (define-char
   '((ideographic-radical . 158)	; â¾
