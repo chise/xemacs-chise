@@ -1,5 +1,23 @@
 2003-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (Freset_charset_mapping_table): Use HAVE_LIBCHISE
+	instead of HAVE_CHISE to specify using with libchise.
+
+	* config.h.in (HAVE_CHISE_CLIENT): Deleted.
+
+	* chartab.h: Don't use HAVE_CHISE_CLIENT.
+
+	* chartab.c (Qsystem_char_id): Don't define when HAVE_CHISE is not
+	defined or HAVE_LIBCHISE_LIBCHISE is defined.
+	(char_attribute_system_db_file): Don't define when HAVE_LIBCHISE
+	is defined.
+	(Freset_char_attribute_table): Use HAVE_LIBCHISE instead of
+	HAVE_CHISE to specify using with libchise.
+	(syms_of_chartab): Don't define symbol `system-char-id' when
+	HAVE_CHISE is not defined or HAVE_LIBCHISE_LIBCHISE is defined.
+
+2003-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c: Use HAVE_CHISE instead of HAVE_CHISE_CLIENT to
 	specify CHISE DB support.
 	(Freset_charset_mapping_table): Use `chise_ccs_setup_db' instead
