@@ -16645,15 +16645,7 @@
       )
      ((=ucs		  . #x4EBB)	; äº»
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; â¿¸
-	)
-       ((=jis-x0208	    . #x5678)	; ø½‹…‰
-	(=daikanwa	    . 09221)	; ø¸‚…
-	)
-       ((=big5-cdp	    . #x8DBD)	; ý¢€ˆ¶½
-	))
+     ((=daikanwa	  . 09306)	; ø¸‚‘š
       ))
     (=daikanwa		. 00882)	; ø¸€²
     ))
@@ -16669,14 +16661,7 @@
       )
      ((=ucs		  . #x4EBB)	; äº»
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; â¿¸
-	)
-       ((=ucs		    . #x5E7F)	; å¹¿
-	)
-       ((=big5-cdp	    . #x8DBD)	; ý¢€ˆ¶½
-	))
+     ((=ucs		  . #x387F)	; ã¡¿
       ))
     (=ucs		. #x202B4)	; ð Š´
     (=cns11643-6	. #x3D27)	; ø»œ¾
