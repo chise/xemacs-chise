@@ -58,7 +58,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
     (ideograph-gt-pj-k1 . #x3F6D)	; ý¡„€˜¡
-    (ideograph-gt-k	. 01569)	; ý¡„€˜¡
+    (=gt-k		. 01569)	; ý¡„€˜¡
     ))
 (define-char
   '((ideographic-radical . 134)	; â¾…

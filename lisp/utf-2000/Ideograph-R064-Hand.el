@@ -37,7 +37,7 @@
     (chinese-isoir165	. #x3245)	; ø»‡¶
     (chinese-cns11643-1 . #x445F)	; ø»‘¶´
     (ideograph-gt-pj-9	. #x4A2B)	; ý¡€€€Š
-    (ideograph-gt-k	. 00176)	; ý¡„€‚°
+    (=gt-k		. 00176)	; ý¡„€‚°
     (ideograph-gt	. 00010)	; ý¡€€€Š
     (ucs		. #x624D)	; æ‰
     ))

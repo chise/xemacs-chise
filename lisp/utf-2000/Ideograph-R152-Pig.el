@@ -43,7 +43,7 @@
     (chinese-cns11643-5 . #x2329)	; ø»™­°
     (ideograph-gt-pj-k1 . #x3461)	; ø»™­°
     (ideograph-daikanwa . 36336)	; ø¸ˆ·°
-    (ideograph-gt-k	. 02141)	; ý¡„€¡
+    (=gt-k		. 02141)	; ý¡„€¡
     ))
 (define-char
   '((ideographic-radical . 152)	; â¾—

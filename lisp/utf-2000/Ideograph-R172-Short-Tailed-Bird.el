@@ -2767,7 +2767,7 @@
       (ideograph-daikanwa . 41937)	; ø¸Š‘
       ))
     (ideograph-gt-pj-9	. #x4C4B)	; ý¡€°¬
-    (ideograph-gt-k	. 08651)	; ý¡„‚‡‹
+    (=gt-k		. 08651)	; ý¡„‚‡‹
     (ideograph-gt	. 56364)	; ý¡€°¬
     ))
 (define-char

@@ -2577,7 +2577,7 @@
       )
      ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
+      (=gt-k		  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       )
      ((=big5-cdp	  . #x857C)	; ý¢€ˆ•¼

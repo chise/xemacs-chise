@@ -18,7 +18,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (ideograph-gt-pj-k1 . #x385C)	; ý¡„€“
-    (ideograph-gt-k	. 01231)	; ý¡„€“
+    (=gt-k		. 01231)	; ý¡„€“
     ))
 (define-char
   '((ideographic-radical . 121)	; â½¸

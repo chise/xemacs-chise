@@ -13,7 +13,7 @@
     (ideograph-gt-pj-1	. #x4673)	; äºŒ
     (chinese-big5	. #xA447)	; ý¢€Š‘‡
     (ideograph-daikanwa . 00247)	; ø¸€ƒ·
-    (ideograph-gt-k	. 00054)	; ý¡„€€¶
+    (=gt-k		. 00054)	; ý¡„€€¶
     (ucs		. #x4E8C)	; äºŒ
     ))
 (define-char
@@ -23,7 +23,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (ideograph-gt-pj-k1 . #x3B78)	; ý¡„€“
-    (ideograph-gt-k	. 00083)	; ý¡„€“
+    (=gt-k		. 00083)	; ý¡„€“
     ))
 (define-char
   '((ideographic-radical . 7)	; â¼†
