@@ -1,3 +1,4340 @@
+2002-08-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* emacs.c (Vutf_2000_lisp_directory): New variable.
+	(Vconfigure_utf_2000_lisp_directory): Likewise.
+	(complex_vars_of_emacs): Add new variable
+	`utf-2000-lisp-directory' and `configure-utf-2000-lisp-directory'.
+
+2002-08-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h (DECODE_CHAR): Delete special code for
+	`chinese-big5-1' and `chinese-big5-2'.
+
+	* mule-charset.c (Qbig5_1): New variable in UTF-2000.
+	(Qbig5_2): Likewise.
+	(decode_defined_char): Support CONVERSION_BIG5_1 and
+	CONVERSION_BIG5_2.
+	(decode_builtin_char): Likewise.
+	(charset_code_point): Likewise.
+	(Fmake_charset): Accept `big5-1' and `big5-2' as a value of
+	'conversion in UTF-2000.
+	(syms_of_mule_charset): Add new symbol `big5-1' and `big5-2'.
+	(complex_vars_of_mule_charset): Define `chinese-big5-1' and
+	`chinese-big5-2' as children of `chinese-big5'.
+
+	* char-ucs.h (CONVERSION_BIG5_1): New macro.
+	(CONVERSION_BIG5_2): New macro.
+
+2002-08-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c (char_encode_big5): Support entity-reference.
+
+2002-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c (char_encode_as_entity_reference): New function.
+	(char_encode_utf8): Use `char_encode_as_entity_reference'.
+
+2002-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c (decode_coding_big5): Support entity-reference
+	decoding feature.
+
+2002-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (allocate_coding_system): Initialize initial
+	charsets for CODESYS_UTF8.
+	(Fmake_coding_system): Accept charset-g0, charset-g1 and
+	charset-g2 for CODESYS_UTF8.
+	(decode_coding_utf8): Use charset-g0.
+	(char_encode_utf8): Use charset-g0; use charset-g1 and charset-g2
+	to force variants to map to UCS.
+
+2002-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Qutf_8_mcs): New variable.
+	(syms_of_file_coding): Add new symbol `utf-8-mcs' in UTF-2000.
+	(complex_vars_of_file_coding): Define coding-system `utf-8-mcs'
+	instead of `utf-8' in UTF-2000.
+
+2002-07-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (charset_code_point): If CHARSET_CONVERSION is
+	CONVERSION_IDENTICAL, identical conversion is used even if a CCS
+	is ISO-2022 style; instead of it, CONVERSION_94, CONVERSION_96,
+	CONVERSION_94x94, CONVERSION_96x96, CONVERSION_94x94x94,
+	CONVERSION_96x96x96, CONVERSION_94x94x94x94 and
+	CONVERSION_96x96x96x96 are introduced.
+	(complex_vars_of_mule_charset): Specify CONVERSION_96 instead of
+	CONVERSION_IDENTICAL for thai-tis620; Specify CONVERSION_94x94
+	instead of CONVERSION_IDENTICAL for japanese-jisx0208-1990.
+
+	* char-ucs.h (CONVERSION_94): New macro.
+	(CONVERSION_96): New macro.
+	(CONVERSION_94x94): New macro.
+	(CONVERSION_96x96): New macro.
+	(CONVERSION_94x94x94): New macro.
+	(CONVERSION_96x96x96): New macro.
+	(CONVERSION_94x94x94x60): New macro.
+	(CONVERSION_94x94x94x94): New macro.
+	(CONVERSION_96x96x96x96): New macro.
+
+2002-07-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Vcharacter_variant_table): Deleted.
+	(Fchar_variants): Use character-attribute `->ucs-variants' instead
+	of `Vcharacter_variant_table'.
+	(Fput_char_attribute): Likewise.
+	(vars_of_chartab): Don't setup `Vcharacter_variant_table'.
+	(complex_vars_of_chartab): Likewise.
+
+2002-07-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* lisp.h: Add an EXFUN for `Fchar_ref_p'.
+
+	* fns.c (Qideographic_structure): New variable.
+	(Qkeyword_char): New variable.
+	(ids_format_unit): New function.
+	(Fideographic_structure_to_ids): New function.
+	(syms_of_fns): Add new symbols `ideographic-structure' and
+	`:char'; add new builtin function `ideographic-structure-to-ids'.
+
+	* data.c (Fchar_ref_p): New function.
+	(syms_of_data): Add new builtin function `char-ref-p'.
+
+	* chartab.h: Add an EXFUN for `Ffind_char'.
+
+2002-07-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Vcharacter_composition_table): Deleted.
+	(COMPOSE_ADD_CHAR): Use the implementation for external-DB support
+	in every UTF-2000.
+
+	* chartab.c: Add EXFUN for `Fmap_char_attribute' in every
+	UTF-2000.
+	(Vcharacter_composition_table): Deleted.
+	(Fget_composite_char): Use the implementation for external-DB
+	support in every UTF-2000.
+	(Fput_char_attribute): Likewise.
+	(char_attribute_system_db_file): Don't define if external-DB
+	feature is not available.
+	(Fsave_char_attribute_table): Likewise.
+	(Fmount_char_attribute_table): Likewise.
+	(Fclose_char_attribute_table): Likewise.
+	(Freset_char_attribute_table): Likewise.
+	(Fload_char_attribute_table): Likewise.
+	(syms_of_chartab): Don't define `save-char-attribute-table',
+	`mount-char-attribute-table', `reset-char-attribute-table',
+	`close-char-attribute-table' and `load-char-attribute-table' if
+	external-DB feature is not available.
+	(vars_of_chartab): Don't setup `Vcharacter_composition_table'.
+
+2002-07-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c (Qcomposition): Add extern if external-DB feature
+	is supported.
+	(Vcharacter_composition_table): Don't add extern if external-DB
+	feature is supported.
+	(COMPOSE_ADD_CHAR): Modify for new data-representation of
+	character composition rule if external-DB feature is supported.
+
+	* chartab.c (Vcharacter_composition_table): Don't define if
+	external-DB feature is supported.
+	(Qcomposition): New variable.
+	(Fget_composite_char): New implementation for external-DB support.
+	(Fput_char_attribute): Use `composition' property of each
+	character instead of `Vcharacter_composition_table' to store
+	character-composition rules if external-DB feature is supported.
+	(syms_of_chartab): Add new symbol `composition'.
+	(vars_of_chartab): Don't setup `Vcharacter_composition_table' if
+	external-DB feature is supported.
+
+2002-07-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Vchar_db_stingy_mode): New variable.
+	(load_char_attribute_maybe): Close database if
+	Vchar_db_stingy_mode is not NIL.
+	(Fload_char_attribute_table_map_function): Use
+	`get_char_id_table_0' instead of `get_char_id_table'.
+	(vars_of_chartab): Add new variable `char-db-stingy-mode'.
+
+	* chartab.h (get_char_id_table_0): New inline function.
+	(get_char_id_table): Use `get_char_id_table_0'.
+
+2002-07-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c (decode_coding_utf8): Use `COMPOSE_FLUSH_CHARS'
+	and `COMPOSE_ADD_CHAR'.
+	(decode_coding_iso2022): Use `decode_flush_er_chars'.
+
+2002-07-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c (COMPOSE_FLUSH_CHARS): Use `decode_add_er_char'
+	instead of `DECODE_ADD_UCS_CHAR'.
+	(COMPOSE_ADD_CHAR): Likewise.
+
+2002-07-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c (decode_flush_er_chars): New inline function.
+	(decode_add_er_char): New function.
+	(decode_coding_utf8): Use `decode_flush_er_chars' and
+	`decode_add_er_char'.
+
+2002-07-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c (decode_coding_utf8): Flush for er_buf must be
+	done before `decode_output_utf8_partial_char'.
+
+	* mule-charset.c (complex_vars_of_mule_charset): Specify
+	`Vcharset_ucs' as the mother of `Vcharset_ucs_cns',
+	`Vcharset_ucs_ks' and `Vcharset_ucs_big5'.
+
+2002-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decode_defined_char): New function; search
+	mother.
+	(decode_builtin_char): Don't search mother if
+	XCHARSET_MAX_CODE(charset) == 0.
+	(charset_code_point): Search mother if XCHARSET_MAX_CODE(charset)
+	== 0 even if code >= XCHARSET_MAX_CODE(charset).
+	(Fdecode_char): Use `decode_defined_char' instead of
+	`DECODE_DEFINED_CHAR'.
+	(complex_vars_of_mule_charset): Specify `Vcharset_ucs' as the
+	mother of `Vcharset_ucs_jis'.
+
+	* text-coding.c (decode_coding_big5): Use `decode_defined_char'
+	instead of `DECODE_DEFINED_CHAR'.
+
+	* char-ucs.h (decode_defined_char): Renamed from
+	`DECODE_DEFINED_CHAR'; changed to normal function.
+	(DECODE_CHAR): Use `decode_defined_char' instead of
+	`DECODE_DEFINED_CHAR'.
+
+	* lisp.h: Add `EXFUN' for `Fstring_to_number'.
+
+2002-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h: Add `extern' for `Vcharset_ucs'.
+
+	* text-coding.c (Vcoded_charset_entity_reference_alist): New
+	variable.
+	(Quse_entity_reference): New variable.
+	(Qd): New variable.
+	(Qx): New variable.
+	(QX): New variable.
+	(coding_system_description): Add description for
+	`ccs_priority_list'.
+	(mark_coding_system): Mark `ccs_priority_list' in UTF-2000.
+	(allocate_coding_system): Initialize `ccs_priority_list' in
+	UTF-2000.
+	(Fmake_coding_system): Add description about
+	'use-entity-reference; setup CODING_SYSTEM_USE_ENTITY_REFERENCE
+	(codesys).
+	(Fcoding_system_property): Accept `disable-composition' and
+	`use-entity-reference' in UTF-2000.
+	(struct decoding_stream): Add new member `er_counter' and `er_buf'
+	in UTF-2000.
+	(reset_decoding_stream): Initialize `str->er_counter' in UTF-2000.
+	(decode_coding_utf8): Decode entity-reference if
+	CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys).
+	(char_encode_utf8): Encode non-Unicode characters as
+	entity-references if CODING_SYSTEM_USE_ENTITY_REFERENCE
+	(str->codesys).
+	(syms_of_file_coding): Add new symbols `use-entity-reference',
+	`d', `x', `X'.
+	(vars_of_file_coding): Add new variable
+	`coded-charset-entity-reference-alist'.
+	(complex_vars_of_file_coding): Declare `disable-composition' and
+	`use-entity-reference' to be coding-system-properties in UTF-2000.
+
+	* file-coding.h (struct Lisp_Coding_System): Add new member
+	`use_entity_reference' and `ccs_priority_list'.
+	(CODING_SYSTEM_USE_ENTITY_REFERENCE): New macro.
+	(CODING_SYSTEM_CCS_PRIORITY_LIST): New macro.
+	(XCODING_SYSTEM_USE_ENTITY_REFERENCE): New macro.
+
+2002-07-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (save_uint8_byte_table): Don't clear the table.
+	(save_uint16_byte_table): Likewise.
+	(save_byte_table): Likewise.
+	(Fmount_char_attribute_table): New function.
+	(syms_of_chartab): Add new builtin function
+	`mount-char-attribute-table'.
+
+2002-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Open database as
+	"w+" mode.
+	(load_char_decoding_entry_maybe): Open database as read-only mode.
+
+	* chartab.c (Fsave_char_attribute_table): Don't share `ct->db';
+	open database as "w+" mode.
+	(load_char_attribute_maybe): Open database as read-only mode.
+	(Fload_char_attribute_table): Likewise.
+
+2002-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (mark_char_table): Don't refer `ct->db_file'.
+	(char_table_description): Delete member `db_file'.
+	(Fmake_char_table): Don't refer `ct->db_file'.
+	(Fcopy_char_table): Likewise.
+	(Fsave_char_attribute_table): Likewise.
+	(Fclose_char_attribute_table): Likewise.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+
+	* chartab.h (struct Lisp_Char_Table): Delete member `db_file'.
+
+2002-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c: Add an EXFUN for `Fmap_char_attribute'.
+	(Fsave_char_attribute_table): Don't check `ct->db_file' if
+	`ct->db' is living.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+
+2002-07-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Fclose_char_attribute_table): Set Qnil on
+	`ct->db_file' unconditionally.
+
+2002-07-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (mark_char_table): Mark `ct->db_file' and `ct->db' in
+	UTF-2000.
+	(char_table_description): Add description for `db_file' and `db'
+	in UTF-2000.
+	(Fmake_char_table): Initialize `ct->db_file' and `ct->db' in
+	UTF-2000.
+	(Fcopy_char_table): Copy `ct->db_file' and `ct->db' in UTF-2000.
+	(Fsave_char_attribute_table): Use `ct->db_file' and `ct->db'.
+	(Fclose_char_attribute_table): New function.
+	(Freset_char_attribute_table): Reset `ct->db_file' and `ct->db'.
+	(load_char_attribute_maybe): Change interface; use `cit->db_file'
+	and `cit->db'.
+	(Fload_char_attribute_table): Use `ct->db_file' and `ct->db'.
+	(syms_of_chartab): Add new builtin function
+	`Fclose_char_attribute_table'.
+
+2002-06-28  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.h (struct Lisp_Char_Table): Add new member `db_file' and
+	`db' in UTF-2000.
+	(load_char_attribute_maybe): Change interface.
+	(get_char_id_table): Modify for `load_char_attribute_maybe'.
+
+2002-06-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* database.h: Add an EXFUN for `Fdatabase_live_p'.
+
+2002-04-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decode_builtin_char): Use `decode_builtin_char'
+	instead of `DECODE_CHAR' for mother; don't use special code for
+	chinese-big5 to use code space of chinese-big5-1 and
+	chinese-big5-2.
+	(complex_vars_of_mule_charset): Use `MIN_CHAR_BIG5_CDP' and
+	`MAX_CHAR_BIG5_CDP' for chinese-big5.
+
+	* char-ucs.h (MIN_CHAR_BIG5_CDP): Revival.
+	(MAX_CHAR_BIG5_CDP): Revival.
+
+2002-04-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Use "big5-0" as
+	the XLFD registry-encoding name of `chinese-big5'.
+
+2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Vcharset_chinese_big5_cdp): Deleted.
+	(Qchinese_big5_cdp): Deleted.
+	(syms_of_mule_charset): Delete symbol `chinese-big5-cdp'.
+	(complex_vars_of_mule_charset): Delete coded-charset
+	`chinese-big5-cdp'.
+
+	* char-ucs.h (CHARSET_ID_OFFSET): Deleted.
+	(LEADING_BYTE_*): Use `MIN_LEADING_BYTE + n' instead of
+	`CHARSET_ID_OFFSET - n' for private CCS.
+	(LEADING_BYTE_CHINESE_BIG5_CDP): Deleted.
+	(MIN_LEADING_BYTE_PRIVATE): Use `(MIN_LEADING_BYTE + 97)' instead
+	of `MIN_LEADING_BYTE'.
+	(MAX_LEADING_BYTE_PRIVATE): Use `-1' instead of
+	`(CHARSET_ID_OFFSET - 97)'.
+	(MIN_CHAR_BIG5_CDP): Deleted.
+	(MAX_CHAR_BIG5_CDP): Deleted.
+
+2002-03-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule.c (vars_of_mule): Update `utf-2000-version' to 0.19.
+
+2002-03-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule.c (Vutf_2000_version): New variable [moved from chartab.c].
+	(vars_of_mule): Add new variable `utf-2000-version' [moved from
+	chartab.c].
+
+	* chartab.c (Vutf_2000_version): Moved to mule.c.
+	(vars_of_chartab): Move code about `utf-2000-version' into mule.c.
+
+2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (load_char_decoding_entry_maybe): Don't define it
+	when HAVE_CHISE_CLIENT is not defined.
+
+	* mule.c (vars_of_mule): Provide feature `chise' when
+	HAVE_CHISE_CLIENT is defined.
+
+2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* config.h.in (UTF2000): Add comment.
+	(HAVE_CHISE_CLIENT): New macro.
+
+2002-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Fchar_variants): Check Vcharacter_variant_table is
+	CONSP.
+	(Fput_char_attribute): Likewise.
+	(char_attribute_system_db_file): Encode file-name of attribute.
+	(vars_of_chartab): Set Qunbound into Vcharacter_variant_table as
+	the initial value.
+
+2002-02-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (put_char_ccs_code_point): Delete unused codes.
+	(Fsave_charset_mapping_table): Use
+	`char_attribute_system_db_file'.
+	(load_char_decoding_entry_maybe): Likewise.
+
+	* chartab.h (Qsystem_char_id): New external variable.
+	(char_attribute_system_db_file): New prototype.
+
+	* chartab.c (Qsystem_char_id): New variable in UTF-2000.
+	(char_attribute_system_db_file): New function.
+	(Fsave_char_attribute_table): Use `char_attribute_system_db_file'.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+	(syms_of_chartab): Add new symbol `system-char-id'.
+
+2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h (DECODE_DEFINED_CHAR): Don't check
+	`XCHARSET_GRAPHIC(ccs)'.
+
+2002-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Fixed.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Q_ucs_variants): New variable.
+	(syms_of_chartab): Add new symbol `->ucs-variants'.
+	(complex_vars_of_chartab): Set `Vcharacter_variant_table' on
+	`Vchar_attribute_hash_table' as the value of `->ucs-variants'; set
+	`->ucs-variants' on `XCHAR_TABLE_NAME (Vcharacter_variant_table)'.
+
+	* mule-charset.c (load_char_decoding_entry_maybe): New function.
+
+	* char-ucs.h (load_char_decoding_entry_maybe): New prototype when
+	`HAVE_DATABASE' is defined.
+	(DECODE_DEFINED_CHAR): Use `load_char_decoding_entry_maybe' when
+	`HAVE_DATABASE' is defined.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Fsave_char_attribute_table): Don't clear internal
+	attribute-table.
+	(Freset_char_attribute_table): New function.
+	(syms_of_chartab): Add new builtin function
+	`reset-char-attribute-table'.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (load_char_attribute_maybe): Don't make directories.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h: Add EXFUN for `Fmake_directory_internal'.
+
+	* mule-charset.c (put_char_ccs_code_point): Don't prepare a vector
+	for decoding-table.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Use
+	`XCHARSET_BYTE_SIZE' instead of `XCHARSET_CHARS'.
+
+	* char-ucs.h (put_ccs_octet_table): Use `XCHARSET_BYTE_SIZE'
+	instead of `XCHARSET_CHARS'.
+
+2002-02-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (CHARSET_BYTE_SIZE): Moved to char-ucs.h.
+	(XCHARSET_BYTE_SIZE): Likewise.
+
+	* char-ucs.h (CHARSET_BYTE_SIZE): New inline function [moved from
+	mule-charset.c].
+	(XCHARSET_BYTE_SIZE): Likewise.
+
+2002-02-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Fput_char_attribute): Use exec-directory instead of
+	data-directory to store database.
+	(Fsave_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+
+2002-02-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): New function.
+	(syms_of_mule_charset): Add new builtin function
+	`save-charset-mapping-table'.
+
+2002-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (decoding_table_check_elements): Delete prototype.
+	(get_ccs_octet_table): New inline function.
+	(put_ccs_octet_table): Likewise.
+	(decoding_table_put_char): Use `get_ccs_octet_table' and
+	`put_ccs_octet_table'.
+	(decoding_table_remove_char): Use `decoding_table_put_char'.
+	(DECODE_DEFINED_CHAR): Use `get_ccs_octet_table'.
+
+	* mule-charset.c (remove_char_ccs): Store Qunbound instead of Qnil
+	into encoding_table.
+	(make_charset): Use Qunbound instead Qnil as initial value of
+	decoding_table.
+
+2002-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Set Qunbound if an
+	element is Qunloaded.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_table): Likewise for CHARTAB_RANGE_ALL in UTF-2000; when
+	CHARTAB_RANGE_CHARSET is specified in UTF-2000 with external
+	database support, load encoding-table of the specified
+	coded-charset if it is not loaded yet.
+	(save_uint8_byte_table): New function of UTF-2000 with external
+	database support.
+	(save_uint16_byte_table): Likewise.
+	(save_byte_table): Likewise.
+	(Fput_char_attribute): Don't store value into external database
+	even if the external database feature is supported in UTF-2000;
+	set `attribute' as name of char-table if the external database
+	feature is supported.
+	(Fsave_char_attribute_table): New function in UTF-2000.
+	(syms_of_chartab): Add new builtin function
+	`save-char-attribute-table' in UTF-2000.
+
+2002-02-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (char_attribute_table_to_put): New variable in
+	UTF-2000.
+	(Qput_char_table_map_function): Likewise.
+	(value_to_put): Likewise.
+	(Fput_char_table_map_function): New function in UTF-2000.
+	(put_char_table): Use `Fmap_char_attribute' for
+	CHARTAB_RANGE_CHARSET in UTF-2000.
+	(Fput_char_attribute): Store symbol instead of string in
+	`XCHAR_TABLE_NAME (table)'.
+	(load_char_attribute_maybe): Likewise.
+	(syms_of_chartab): Add new symbol/function
+	`put-char-table-map-function'.
+
+2002-01-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* database.h: Add new EXFUN for `Fmap_database'.
+
+	* database.c (Fmap_database): Renamed from `Fmapdatabase'.
+	(syms_of_database): Likewise.
+
+	* chartab.h (struct Lisp_Char_Table): Add new member `unloaded' in
+	UTF-2000.
+	(CHAR_TABLE_UNLOADED): New macro of UTF-2000.
+	(XCHAR_TABLE_UNLOADED): Likewise.
+
+	* chartab.c (fill_char_table): Initialize `ct->unloaded'.
+	(Fput_char_attribute): Set XCHAR_TABLE_UNLOADED(table) if
+	HAVE_DATABASE is defined.
+	(char_attribute_table_to_load): New variable of UTF-2000 with
+	external database support.
+	(Qload_char_attribute_table_map_function): Likewise.
+	(Fload_char_attribute_table_map_function): New function of
+	UTF-2000 with external database support.
+	(Fload_char_attribute_table): New function of UTF-2000.
+	(Fmap_char_attribute): Call Fload_char_attribute_table if
+	CHAR_TABLE_UNLOADED(ct) is set when HAVE_DATABASE is defined.
+	(syms_of_chartab): Add new symbol and function
+	`load-char-attribute-table-map-function' in UTF-2000 with external
+	database support; add new function `load-char-attribute-table' in
+	UTF-2000.
+
+2002-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.h (load_char_attribute_maybe): New prototype for
+	UTF-2000 with DATABASE support.
+	(get_char_id_table): Use `load_char_attribute_maybe' if
+	HAVE_DATABASE is defined.
+
+	* chartab.c (load_char_attribute_maybe): New function in UTF-2000
+	with DATABASE support.
+
+2002-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Use S-expression as key of
+	external database.
+
+	* chartab.h (get_char_id_table): Use S-expression as key of
+	external database.
+
+2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Add new argument `root';
+	if an element is not loaded, load the corresponding attributes
+	from an external database.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_table): Modify for `map_over_uint8_byte_table',
+	`map_over_uint16_byte_table' and `map_over_byte_table'; if an
+	element is not loaded, load the corresponding attributes from an
+	external database.
+	(Fput_char_attribute): Change initial values to Qunloaded.
+
+	* chartab.h (get_char_id_table): If a character attribute is not
+	loaded and the attribute value is not found in an external
+	database, store Qunbound as the attribute value.
+
+2002-01-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (BT_UINT8_unloaded): New macro.
+	(UINT8_VALUE_P): Accept Qunloaded.
+	(UINT8_ENCODE): Likewise.
+	(UINT8_DECODE): Likewise.
+	(BT_UINT16_unloaded): New macro.
+	(UINT16_VALUE_P): Accept Qunloaded.
+	(UINT16_ENCODE): Likewise.
+	(UINT16_DECODE): Likewise.
+	(UINT8_TO_UINT16): Convert BT_UINT8_unloaded into
+	BT_UINT16_unloaded.
+	(mark_char_table): Mark `ct->name' in UTF-2000.
+	(char_table_description): Add `name' in UTF-2000.
+	(Fmake_char_table): Initialize `ct->name'.
+	(Fcopy_char_table): Copy `ct->name'.
+	(Fput_char_attribute): Store value into an external database if
+	HAVE_DATABASE is defined.
+
+	* chartab.h (struct Lisp_Char_Table): Add new member `name' in
+	UTF-2000.
+	(CHAR_TABLE_NAME): New macro in UTF-2000.
+	(XCHAR_TABLE_NAME): New macro in UTF-2000.
+	(get_char_id_table): Try to read an external database if Qunloaded
+	is stored in a table.
+
+	* symbols.c (init_symbols_once_early): Assign '#<unloaded> into
+	Qunloaded.
+
+2002-01-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* database.h: Add EXFUN definitions for Fopen_database,
+	Fput_database, Fget_database and Fclose_database.
+
+	* data.c (Qunloaded): New variable in UTF-2000.
+
+	* lisp.h (Qunloaded): New variable in UTF-2000.
+
+2002-01-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (put_char_ccs_code_point): Modify for
+	`decoding_table_remove_char' and `decoding_table_put_char'.
+	(remove_char_ccs): Modify for `decoding_table_remove_char'.
+
+	* char-ucs.h (decoding_table_remove_char): Change arguments to
+	hide decoding_table vector.
+	(decoding_table_put_char): Likewise.
+
+2002-01-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decoding_table_remove_char): Moved to
+	char-ucs.h.
+	(decoding_table_put_char): Likewise.
+
+	* char-ucs.h (decoding_table_check_elements): New prototype [moved
+	from mule-charset.c].
+	(decoding_table_remove_char): New inline function [moved from
+	mule-charset.c].
+	(decoding_table_put_char): Likewise.
+
+2002-01-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fmake_charset): Modify DOC-string for UTF-2000
+	extension.
+
+2001-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (decode_builtin_char): Support mother charsets.
+
+2001-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Q94x94x60): New variable.
+	(charset_code_point): Support conversion `94x94x60'.
+	(Fmake_charset): Likewise.
+	(syms_of_mule_charset): Add new symbol `94x94x60'.
+
+	* char-ucs.h (CONVERSION_94x94x60): New macro.
+
+2001-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (charset_code_point): Unify code about
+	`code-offset'.
+
+2001-12-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (charset_code_point): Merge code about builtin
+	characters into code about mother charsets; don't use
+	`range_charset_code_point'.
+	(range_charset_code_point): Deleted.
+
+2001-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Qcode_offset): New variable.
+	(Fmake_charset): Use `XUINT' to get value of `min-code' and
+	`max-code'; accept new property `code-offset'.
+	(syms_of_mule_charset): Add new symbol `code-offset'.
+
+2001-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (range_charset_code_point): Fixed.
+
+2001-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decode_builtin_char): Change semantics of
+	code-offset of coded-charset.
+	(charset_code_point): Likewise.
+	(range_charset_code_point): Likewise.
+	(complex_vars_of_mule_charset): Modify for the change.
+
+2001-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fencode_char): Reverse arguments.
+
+	* mule-charset.c (charset_code_point): Fixed.
+
+2001-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_mojikyo): Deleted.
+	(Vcharset_mojikyo_2022_1): Deleted.
+	(Vcharset_mojikyo_pj_{1..21}): Deleted.
+	(Qmin_code): New variable in UTF-2000.
+	(Qmax_code): Likewise.
+	(Qmother): Likewise.
+	(Qconversion): Likewise.
+	(Q94x60): Likewise.
+	(Qmojikyo): Deleted.
+	(Qmojikyo_2022_1): Deleted.
+	(Qmojikyo_pj_{1..22}): Deleted.
+	(mark_charset): Mark `cs->mother'.
+	(charset_description): Add description for `mother'.
+	(make_charset): Rename `ucs_{min|max}' to `{min|max}_code'; add
+	new arguments `mother' and `conversion'; use
+	`CHARSET_{MIN|MAX}_CODE' instead of `CHARSET_UCS_{MIN|MAX}'.
+	(charset_code_point): Moved from char-ucs.h; support `mother'
+	charset feature.
+	(range_charset_code_point): use `CHARSET_{MIN|MAX}_CODE' instead
+	of `CHARSET_UCS_{MIN|MAX}'; delete hard code for `mojikyo-2022-1'.
+	(Fmake_charset): Allow 3 and 4 as the value of `dimension' in
+	UTF-2000; allow 128 and 256 as the value of `chars' in UTF-2000;
+	allow 2 as the value of `graphic' in UTF-2000; add new properties
+	`min-code', `max-code', `mother', `conversion' in UTF-2000; don't
+	require `final' in UTF-2000; modify for `make_charset'.
+	(Fmake_reverse_direction_charset): use `CHARSET_{MIN|MAX}_CODE'
+	instead of `CHARSET_UCS_{MIN|MAX}'; modify for `make_charset'.
+	(Fcharset_property): Support `mother', `min-code' and `max-code'.
+	(Fencode_char): New function.
+	(syms_of_mule_charset): Add new builtin function `encode-char' in
+	UTF-2000; add new symbols `min-code', `max-code', `mother',
+	`conversion' and `94x60'; delete symbols `mojikyo',
+	`mojikyo-2022-1' and `mojikyo-pj-{1..21}'.
+	(complex_vars_of_mule_charset): Modify for `make_charset' change;
+	delete coded-charsets `mojikyo', `mojikyo-2022-1' and
+	`mojikyo-pj-{1..21}'; delete `DEF_MOJIKYO_PJ'.
+
+	* chartab.c (Fdefine_char): Use `XCHARSET_MAX_CODE' instead of
+	`XCHARSET_UCS_MAX'; regard `chinese-big5' as a base CCS.
+
+	* char-ucs.h (Vcharset_mojikyo): Deleted.
+	(Vcharset_mojikyo_2022_1): Deleted.
+	(LEADING_BYTE_MOJIKYO): Deleted.
+	(LEADING_BYTE_MOJIKYO_2022_1): Deleted.
+	(LEADING_BYTE_MOJIKYO_2022_2): Deleted.
+	(LEADING_BYTE_MOJIKYO_PJ_{1 .. 21}): Deleted.
+	(struct Lisp_Charset): Rename `ucs_{min|max}' to `{min|max}_code';
+	add new member `mother'; add new member `conversion'.
+	(CHARSET_MIN_CODE): Renamed from `CHARSET_UCS_MIN'.
+	(CHARSET_MAX_CODE): Renamed from `CHARSET_UCS_MAX'.
+	(CHARSET_MOTHER): New macro.
+	(CHARSET_CONVERSION): New macro.
+	(CONVERSION_IDENTICAL): New macro.
+	(CONVERSION_94x60): New macro.
+	(XCHARSET_MIN_CODE): Renamed from `CHARSET_MIN_CODE'.
+	(XCHARSET_MAX_CODE): Renamed from `CHARSET_MAX_CODE'.
+	(XCHARSET_MOTHER): New macro.
+	(XCHARSET_CONVERSION): New macro.
+	(MIN_CHAR_MOJIKYO): Deleted.
+	(MAX_CHAR_MOJIKYO): Deleted.
+	(DECODE_MOJIKYO_2022): Deleted.
+	(DECODE_CHAR): Delete hard code for builtin Mojikyo characters.
+	(charset_code_point): Changed to non-inline function.
+	(encode_char_1): Use `charset_code_point'.
+	(CHAR_TO_CHARC): Delete hard code for Mojikyo characters.
+
+2001-12-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lread.c (read_compiled_function): Fix prototype.
+	(read_vector): Likewise.
+
+2001-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lrecord.h (struct lrecord_header): Delete `older'.
+	(set_lheader_implementation): Delete code for `older'.
+	(set_lheader_older_implementation): Deleted.
+	(enum lrecord_type): Delete `lrecord_type_char_id_table'.
+	(OLDER_RECORD_P): Deleted.
+	(OLDER_RECORD_HEADER_P): Deleted.
+	(alloc_older_lcrecord): Deleted.
+	(alloc_older_lcrecord_type): Deleted.
+
+	* alloc.c (all_older_lcrecords): Deleted.
+	(alloc_older_lcrecord): Deleted.
+	(disksave_object_finalization_1): Delete code for older objects.
+	(mark_object): Don't use `OLDER_RECORD_HEADER_P'.
+	(reinit_alloc_once_early): Don't initialize `all_older_lcrecords'.
+
+2001-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decoding_table_put_char): Use `make_vector'
+	instead of `make_older_vector'.
+	(put_char_ccs_code_point): Likewise.
+	(mark_charset): Mark `cs->decoding_table'.
+	(Fset_charset_mapping_table): Don't use `make_vector_newer'.
+
+	* lisp.h (make_older_vector): Deleted.
+	(make_vector_newer): Deleted.
+
+	* config.h.in (HAVE_GGC): Deleted.
+
+	* alloc.c (make_older_vector): Deleted.
+	(make_vector_newer_1): Deleted.
+	(make_vector_newer): Deleted.
+
+2001-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ideograph_daikanwa_2): New variable.
+	(Qideograph_daikanwa_2): New variable.
+	(syms_of_mule_charset): Add new symbol `ideograph-daikanwa-2'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`ideograph-daikanwa-2'; use `LEADING_BYTE_DAIKANWA_3' instead of
+	`LEADING_BYTE_DAIKANWA'.
+
+	* char-ucs.h (LEADING_BYTE_DAIKANWA_0): New macro.
+	(LEADING_BYTE_DAIKANWA_1): New macro.
+	(LEADING_BYTE_DAIKANWA_2): New macro.
+	(LEADING_BYTE_DAIKANWA_3): Renamed from `LEADING_BYTE_DAIKANWA'.
+
+2001-12-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Change
+	DOC-strings and registry of `ideograph-daikanwa'; now it indicates
+	the second revised version.
+
+2001-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ucs_smp): New variable.
+	(Vcharset_ucs_sip): New variable.
+	(Qucs_smp): New variable.
+	(Qucs_sip): New variable.
+	(encode_builtin_char_1): Treat MIN_CHAR_{SMP|SIP} to
+	MAX_CHAR_{SMP|SIP} as `ucs-{smp|sip}'.
+	(syms_of_mule_charset): Add new symbols `ucs-smp' and `ucs-sip'.
+	(complex_vars_of_mule_charset): Modify middle-DOC and registry of
+	`ucs-bmp'; add new coded-charset `ucs-smp' and `ucs-sip'; change
+	charset width of `ucs-cns', `ucs-jis', `ucs-ks' and `ucs-big5'.
+
+	* char-ucs.h (LEADING_BYTE_UCS_SMP): New macro.
+	(LEADING_BYTE_UCS_SIP): New macro.
+	(MIN_CHAR_SMP): New macro.
+	(MAX_CHAR_SMP): New macro.
+	(MIN_CHAR_SIP): New macro.
+	(MAX_CHAR_SIP): New macro.
+
+2001-11-30  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* dumper.c (PDUMP_HASH_SIZE): Increase the size of hash table when
+	utf-2000.
+
+2001-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (put_char_ccs_code_point): Return canonicalized
+	value; don't store value into `encoding_table' of `Lisp_Charset'.
+	(mark_charset): `encoding_table' was deleted.
+	(charset_description): Likewise.
+	(make_charset): Likewise.
+	(Fset_charset_mapping_table): Use `Fput_char_attribute' instead of
+	`put_char_ccs_code_point'.
+
+	* chartab.h (Fput_char_attribute): New EXFUN.
+
+	* chartab.c (Fchar_attribute_alist): Name space of CCS-attributes
+	is unified with normal symbol space.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise; behavior of
+	`put_char_ccs_code_point' is changed.
+
+	* char-ucs.h: Include "elhash.h".
+	(Vchar_attribute_hash_table): New external variable.
+	(struct Lisp_Charset): Delete `encoding_table'.
+	(CHARSET_ENCODING_TABLE): New implementation; refer
+	`Vchar_attribute_hash_table' instead of `encoding_table' of struct
+	`Lisp_Charset'.
+
+2001-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fcharset_property): Return Qnil if CHARSET_FINAL
+	(cs) == 0.
+
+2001-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_big5): Prefer charset-g1 than
+	`chinese-big5'.
+
+2001-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (uint8_byte_table_description): New constant.
+	(uint8-byte-table): Use `uint8_byte_table_description'.
+	(uint16_byte_table_description): New constant.
+	(uint16-byte-table): Use `uint16_byte_table_description'.
+
+2001-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Don't use builtin
+	range MIN_CHAR_BIG5_CDP .. MAX_CHAR_BIG5_CDP.
+
+2001-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ucs_ks): New variable.
+	(Qucs_ks): New variable.
+	(syms_of_mule_charset): Add new symbol `ucs-ks'.
+	(complex_vars_of_mule_charset): Add new coded-charset `ucs-ks'.
+
+	* char-ucs.h (LEADING_BYTE_UCS_KS): New macro.
+
+2001-10-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.h (Fmake_char): New EXFUN; moved from chartab.c.
+	(Fdecode_char): Likewise.
+
+	* chartab.c: Move EXFUN for Fmake_char and Fdecode_char into
+	chartab.h.
+	(Fdefine_char): Modify for Fdecode_char.
+	(Ffind_char): Likewise.
+
+	* mule-charset.c (Fdecode_char): Add new optional argument
+	`defined-only'.
+	(Fdecode_builtin_char): Modify for `Fdecode_char'.
+
+2001-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (mark_coding_system): Mark initial-charset-g0 and
+	-g1 of CODESYS_BIG5 in XEmacs UTF-2000.
+	(allocate_coding_system): Initialize initial-charsets of
+	CODESYS_BIG5 in XEmacs UTF-2000.
+	(Fmake_coding_system): Accept `charset-g0' and `charset-g1' for
+	CODESYS_BIG5 in XEmacs UTF-2000.
+	(decode_coding_big5): Use initial-charset-g0 and -g1 of
+	CODESYS_BIG5 in XEmacs UTF-2000; use `DECODE_DEFINED_CHAR'.
+
+	* mule-charset.c (Vcharset_ideograph_hanziku_{1 .. 12}): New
+	variables.
+	(Qideograph_hanziku_{1 .. 12}): Likewise.
+	(syms_of_mule_charset): Add new symbols `ideograph-hanziku-{1
+	.. 12}'.
+	(complex_vars_of_mule_charset): Use `MIN_CHAR_BIG5_CDP' to
+	`MAX_CHAR_BIG5_CDP' for `chinese-big5'; add news coded-charsets
+	`ideograph-hanziku-{1 .. 12}'.
+
+	* char-ucs.h (MIN_LEADING_BYTE): Changed to -0x200.
+	(LEADING_BYTE_HANZIKU_{1 .. 12}): New macros.
+	({MIN|MAX}_CHAR_BIG5_CDP): New macros.
+	({MIN|MAX}_CHAR_HANZIKU_{1 .. 12}): New macros.
+	(DECODE_DEFINED_CHAR): New inline function.
+	(DECODE_CHAR): Use `DECODE_DEFINED_CHAR'.
+
+2001-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_china3_jef): Renamed from
+	`Vcharset_japanese_jef_china3'.
+	(Qchina3_jef): Renamed from `Qjapanese_jef_china3'.
+	(encode_builtin_char_1): Rename `{MIN|MAX}_CHAR_CHINA3_JEF' from
+	`{MIN|MAX}_CHAR_JEF_CHINA3'..
+	(syms_of_mule_charset): Rename `china3-jef' from
+	`japanese-jef-china3'.
+	(complex_vars_of_mule_charset): Likewise; rename
+	`LEADING_BYTE_CHINA3_JEF' from `LEADING_BYTE_JEF_CHINA3'.
+
+	* char-ucs.h (LEADING_BYTE_CHINA3_JEF): Renamed from
+	`LEADING_BYTE_JEF_CHINA3'.
+	(MIN_CHAR_CHINA3_JEF): Renamed from `MIN_CHAR_JEF_CHINA3'.
+	(MAX_CHAR_CHINA3_JEF): Renamed from `MAX_CHAR_JEF_CHINA3'.
+
+2001-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (encode_builtin_char_1): Comment out special code
+	for MIN_CHAR_MOJIKYO_0 ... MAX_CHAR_MOJIKYO_0.
+
+	* char-ucs.h (MIN_CHAR_MOJIKYO_0): Comment out.
+	(MAX_CHAR_MOJIKYO_0): Comment out.
+	(MIN_CHAR_CBETA): Changed to 0x00E20000.
+	(MAX_CHAR_CBETA): Changed to 0x00E2FFFF.
+	(MIN_CHAR_JEF_CHINA3): Changed to 0x00E80000.
+	(MAX_CHAR_JEF_CHINA3): Changed to 0x00E8FFFF.
+
+2001-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ideograph_cbeta): New variable.
+	(Qideograph_cbeta): New variable.
+	(encode_builtin_char_1): Comment out special code for
+	coded-charset `mojikyo' and `japanese-jef-china3'.
+	(syms_of_mule_charset): Add new symbol `ideograph-cbeta'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`ideograph-cbeta'.
+
+	* char-ucs.h (LEADING_BYTE_CBETA): New macro.
+	(MIN_CHAR_CBETA): New macro.
+	(MAX_CHAR_CBETA): New macro.
+
+2001-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (MIN_LEADING_BYTE): Changed to -0x100.
+	(LEADING_BYTE_JEF_CHINA3): New macro.
+	(MIN_CHAR_JEF_CHINA3): New macro.
+	(MAX_CHAR_JEF_CHINA3): Likewise.
+	(DECODE_CHAR): Fixed.
+
+2001-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_japanese_jef_china3): New variable.
+	(Qjapanese_jef_china3): New variable.
+	(encode_builtin_char_1): Support `japanese-jef-china3'.
+	(syms_of_mule_charset): Add new symbol `japanese-jef-china3'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`japanese-jef-china3'.
+
+2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (XCHARSET_CELL_RANGE): New inline function.
+	(decode_char_table_range): Use `XCHARSET_CELL_RANGE'; accept 94^3,
+	94^4, 96^3, 96^4, 128^n and 256^n set.
+	(put_char_table): Use `XCHARSET_CELL_RANGE'.
+	(map_char_table): Likewise.
+
+2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (get_char_table): Use `get_char_id_table' in XEmacs
+	UTF-2000.
+
+2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.h (get_char_id_table): New inline function.
+
+	* chartab.c (get_char_id_table): Moved to chartab.h as an inline
+	function.
+
+2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.h (decode_char_table_range): New prototype in XEmacs
+	UTF-2000.
+	(put_char_id_table): New inline function in XEmacs UTF-2000.
+
+	* chartab.c (put_char_id_table): Moved to chartab.h as an inline
+	function.
+	(decode_char_table_range): Delete static declaration in XEmacs
+	UTF-2000.
+
+2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (put_char_id_table): Use `put_char_table'.
+
+2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Delete argument `ccs'.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_table): Modify for `map_over_uint8_byte_table',
+	`map_over_uint16_byte_table' and `map_over_byte_table' in XEmacs
+	UTF-2000.
+
+2001-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (struct map_char_table_for_charset_arg): New
+	structure.
+	(map_char_table_for_charset_fun): New function.
+	(map_char_table): Use `map_char_table' for encoding_table of
+	`range->charset'.
+
+2001-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_char_table): Check a character is found in
+	range->charset instead of non default value is defined in
+	char-table when range is CHARTAB_RANGE_ROW.
+
+2001-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_char_id_table): Deleted.
+	(Fmap_char_attribute): Use `map_char_table' instead of
+	`map_char_id_table'.
+
+2001-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* syntax.h (SYNTAX_CODE_UNSAFE): New implementation in XEmacs
+	UTF-2000.
+	(update_syntax_table): Deleted in XEmacs UTF-2000.
+
+	* syntax.c (find_defun_start): Use `syntax_table' instead of
+	`mirror_syntax_table' in XEmacs UTF-2000.
+	(Fset_syntax_table): Don't use `mirror_syntax_table' in XEmacs
+	UTF-2000.
+	(Fchar_syntax): Use `syntax_table' instead of `mirror_table' in
+	XEmacs UTF-2000.
+	(Fmatching_paren): Likewise.
+	(scan_words): Use `syntax_table' instead of `mirror_syntax_table'
+	in XEmacs UTF-2000.
+	(find_start_of_comment): Likewise.
+	(find_end_of_comment): Likewise.
+	(Fforward_comment): Likewise.
+	(scan_lists): Likewise.
+	(char_quoted): Likewise.
+	(Fbackward_prefix_chars): Likewise.
+	(scan_sexps_forward): Likewise.
+	(update_just_this_syntax_table): Deleted in XEmacs UTF-2000.
+	(update_syntax_table): Likewise.
+
+	* search.c (skip_chars): Use `syntax_table' instead of
+	`mirror_syntax_table' in XEmacs UTF-2000.
+	(wordify): Likewise.
+	(Freplace_match): Likewise.
+
+	* regex.c (re_compile_fastmap): Use `syntax_table' instead of
+	`mirror_syntax_table' in XEmacs UTF-2000.
+	(WORDCHAR_P_UNSAFE): Likewise.
+	(re_match_2_internal): Likewise.
+
+	* font-lock.c (find_context): Use `buf->syntax_table' instead of
+	`buf->mirror_syntax_table' in XEmacs UTF-2000.
+
+	* cmds.c (internal_self_insert): Use `buf->syntax_table' instead
+	of `buf->mirror_syntax_table' in XEmacs UTF-2000.
+
+	* chartab.h (struct Lisp_Char_Table): Delete `mirror_table' in
+	XEmacs UTF-2000.
+
+	* chartab.c (mark_char_table): Don't mark `mirror_table' in XEmacs
+	UTF-2000.
+	(print_char_table): Print `default_value' in XEmacs UTF-2000.
+	(char_table_description): Delete `mirror_table' in XEmacs
+	UTF-2000.
+	(fill_char_table): Don't call `update_syntax_table' in XEmacs
+	UTF-2000.
+	(Fmake_char_table): Don't use `mirror_table' in XEmacs UTF-2000.
+	(Fcopy_char_table): Likewise.
+	(put_char_table): Don't call `update_syntax_table' in XEmacs
+	UTF-2000.
+
+	* casefiddle.c (casify_object): Use `buf->syntax_table' instead of
+	`buf->mirror_syntax_table' in XEmacs UTF-2000.
+	(casify_region_internal): Likewise.
+
+	* bufslots.h: Delete `mirror_syntax_table' in XEmacs UTF-2000.
+
+	* buffer.c (common_init_complex_vars_of_buffer): Don't use
+	`mirror_syntax_table' in XEmacs UTF-2000.
+
+	* abbrev.c (abbrev_match): Use `buf->syntax_table' instead of
+	`buf->mirror_syntax_table' in XEmacs UTF-2000.
+	(Fexpand_abbrev): Likewise.
+
+2001-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (vars_of_chartab): Update `utf-2000-version' to 0.18.
+
+2001-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Cancel temporary hack.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(get_char_id_table): Refer `cit->default_value'.
+	(put_char_id_table): Support `CHARTAB_RANGE_DEFAULT'.
+	(map_char_id_table): Use `1 << 30' instead of `1 << 24' as number
+	of character-id ranges.
+	(mark_char_table): Mark `ct->default_value'.
+	(char_table_description): Add `default_value'.
+	(fill_char_table): Use `default_value'.
+	(decode_char_table_range): Decode `nil' as
+	`CHARTAB_RANGE_DEFAULT'.
+	(get_char_id_table): Refer `cit->default_value'.
+	(put_char_id_table): Support `CHARTAB_RANGE_DEFAULT'.
+	(map_char_table): Support `CHARTAB_RANGE_DEFAULT'; cancel
+	temporary hack; check value of char-table is bound or not.
+	(slow_map_char_table_fun): Support `CHARTAB_RANGE_DEFAULT'.
+
+	* chartab.h (struct Lisp_Char_Table): Add new member
+	`default_value' in XEmacs UTF-2000.
+	(CHAR_TABLE_VALUE_UNSAFE): Use `default_value'.
+	(enum chartab_range_type): Add `CHARTAB_RANGE_DEFAULT' in XEmacs
+	UTF-2000.
+
+2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.h (Lisp_Char_ID_Table): Deleted.
+
+	* chartab.c (char_table_description): Fix typo.
+	(Fmap_char_attribute): Use `Lisp_Char_Table' instead of
+	`Lisp_Char_ID_Table'.
+
+2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (COMPOSE_ADD_CHAR): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+
+	* mule-charset.c (remove_char_ccs): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+
+	* chartab.h (XCHAR_ID_TABLE): Deleted.
+	(XSETCHAR_ID_TABLE): Deleted.
+	(CHAR_ID_TABLE_P): Deleted.
+
+	* chartab.c (put_char_id_table): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+	(Fget_composite_char): Likewise.
+	(put_char_table): Likewise.
+	(add_char_attribute_alist_mapper): Fixed.
+	(Fchar_attribute_alist): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+	(Fget_char_attribute): Likewise.
+	(Fget_char_attribute): Likewise.
+	(Fmap_char_attribute): Likewise.
+
+	* char-ucs.h (charset_code_point): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+	(encode_char_1): Likewise.
+
+2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (COMPOSE_ADD_CHAR): Use `XCHAR_TABLE' instead of
+	`XCHAR_ID_TABLE'.
+
+	* mule-charset.c (put_char_ccs_code_point): Use `XCHAR_TABLE'
+	instead of `XCHAR_ID_TABLE'.
+	(remove_char_ccs): Likewise.
+
+	* chartab.c (put_char_id_table): Use `XCHAR_TABLE' instead of
+	`XCHAR_ID_TABLE'.
+	(Fget_composite_char): Likewise.
+	(Fchar_variants): Likewise.
+	(put_char_table): Likewise.
+	(add_char_attribute_alist_mapper): Likewise.
+	(Fchar_attribute_alist): Likewise.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise.
+	(Fmap_char_attribute): Likewise.
+	(Fmap_char_attribute): Likewise.
+
+	* char-ucs.h (charset_code_point): Use `XCHAR_TABLE' instead of
+	`XCHAR_ID_TABLE'.
+	(encode_char_1): Likewise.
+
+2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_char_id_table): Use `Lisp_Char_Table' instead of
+	`Lisp_Char_ID_Table'.
+	(mark_char_id_table): Deleted.
+	(print_char_id_table): Likewise.
+	(char_id_table_equal): Likewise.
+	(char_id_table_hash): Likewise.
+	(char_id_table_description): Likewise.
+	(char_id_table): Likewise.
+	(make_char_id_table): Use `Fmake_char_table' and
+	`fill_char_table'.
+	(get_char_id_table): Use `Lisp_Char_Table' instead of
+	`Lisp_Char_ID_Table'.
+	(put_char_id_table): Likewise.
+	(Fput_char_attribute): Use `XCHAR_TABLE' instead of
+	`XCHAR_ID_TABLE'.
+	(Fremove_char_attribute): Likewise.
+	(syms_of_chartab): Don't define type `char-id-table'.
+
+	* chartab.h (struct Lisp_Char_ID_Table): Deleted.
+	(char_id_table): Likewise.
+	(GC_CHAR_ID_TABLE_P): Likewise.
+	(Lisp_Char_ID_Table): Use structure `Lisp_Char_Table'.
+	(XCHAR_ID_TABLE): Use `XCHAR_TABLE'.
+	(XSETCHAR_ID_TABLE): Use `XSETCHAR_TABLE'.
+	(CHAR_ID_TABLE_P): Use `CHAR_TABLEP'.
+	(get_char_id_table): Use `Lisp_Char_Table' instead of
+	`Lisp_Char_ID_Table'.
+	(put_char_id_table_0): Likewise.
+	(put_char_id_table): Likewise.
+
+2001-09-02  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
+
+	* chartab.h: Lisp_Byte_Table related codes are moved from
+	chartab.h.
+
+	* char-ucs.h: Move Lisp_Byte_Table related codes to chartab.h.
+
+2001-09-02  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
+
+	* chartab.h: Don't include "chartab.h".
+	(struct Lisp_Char_ID_Table): Moved from char-ucs.h.
+	(Lisp_Char_ID_Table): Likewise.
+	(char_id_table): Likewise.
+	(XCHAR_ID_TABLE): Likewise.
+	(XSETCHAR_ID_TABLE): Likewise.
+	(CHAR_ID_TABLE_P): Likewise.
+	(GC_CHAR_ID_TABLE_P): Likewise.
+	(get_char_id_table): Likewise.
+
+	* char-ucs.h: Include "chartab.h".
+	(struct Lisp_Char_ID_Table): Moved to chartab.h.
+	(Lisp_Char_ID_Table): Likewise.
+	(char_id_table): Likewise.
+	(XCHAR_ID_TABLE): Likewise.
+	(XSETCHAR_ID_TABLE): Likewise.
+	(CHAR_ID_TABLE_P): Likewise.
+	(GC_CHAR_ID_TABLE_P): Likewise.
+	(get_char_id_table): Likewise.
+
+2001-09-01  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
+
+	* chartab.c (copy_uint8_byte_table): New function.
+	(copy_uint16_byte_table): New function.
+	(copy_byte_table): New function.
+	(map_over_uint8_byte_table): Modify to avoid huge numbers of
+	characters to call.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(get_byte_table): Move prototype to chartab.h.
+	(put_byte_table): Likewise.
+	(put_char_id_table_0): Moved to chartab.h.
+	(mark_char_table_entry): Don't define in XEmacs UTF-2000.
+	(char_table_entry_equal): Likewise.
+	(char_table_entry_hash): Likewise.
+	(char_table_entry_description): Likewise.
+	(char_table_entry): Likewise.
+	(make_char_table_entry): Likewise.
+	(copy_char_table_entry): Likewise.
+	(get_non_ascii_char_table_value): Likewise.
+	(map_over_charset_ascii): Likewise.
+	(map_over_charset_control_1): Likewise.
+	(map_over_charset_row): Likewise.
+	(map_over_other_charset): Likewise.
+	(mark_char_table): Modify for new structure in XEmacs UTF-2000.
+	(print_char_table): Likewise.
+	(char_table_equal): Likewise.
+	(char_table_hash): Likewise.
+	(char_table_description): Likewise.
+	(fill_char_table): Likewise.
+	(Fcopy_char_table): Likewise.
+	(get_char_table): Likewise.
+	(Fget_range_char_table): Likewise.
+	(put_char_table): Likewise.
+	(map_char_table): Likewise.
+	(syms_of_chartab): Don't define `char_table_entry' in XEmacs
+	UTF-2000.
+
+2001-08-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* cmds.c (vars_of_cmds): Use `put_char_id_table_0' for
+	`Vauto_fill_chars' in XEmacs UTF-2000.
+
+	* chartab.h (get_byte_table): New prototype [moved from
+	chartab.c].
+	(put_byte_table): Likewise [moved from chartab.c].
+	(put_char_id_table_0): New inline function [moved from chartab.c].
+	(struct Lisp_Char_Table_Entry): Don't define in XEmacs UTF-2000.
+	(Lisp_Char_Table_Entry): Likewise.
+	(char_table_entry): Likewise.
+	(XCHAR_TABLE_ENTRY): Likewise.
+	(XSETCHAR_TABLE_ENTRY): Likewise.
+	(CHAR_TABLE_ENTRYP): Likewise.
+	(CHECK_CHAR_TABLE_ENTRY): Likewise.
+	(NUM_ASCII_CHARS): Likewise.
+	(struct Lisp_Char_Table): New implementation in XEmacs UTF-2000.
+	(CHAR_TABLE_VALUE_UNSAFE): Likewise.
+
+2001-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (get_char_id_table): Change interface.
+	(put_char_id_table_0): New function.
+	(put_char_id_table): Change interface; new implementation.
+	(Fget_composite_char): Modify for interface change of
+	`get_char_id_table'.
+	(Fchar_variants): Likewise.
+	(add_char_attribute_alist_mapper): Likewise.
+	(Fchar_attribute_alist): Likewise.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Allow coded-charset or [CODED-CHARSET ROW]
+	as same as character as the first argument like `put-char-table';
+	modify for interface change of `put_char_id_table'.
+	(Fremove_char_attribute): Modify for interface change of
+	`put_char_id_table'.
+
+2001-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c: Sync up with XEmacs 21.2.41.
+	(COMPOSE_ADD_CHAR): Modify for interface change of
+	`get_char_id_table'.
+
+	* mule-charset.c (put_char_ccs_code_point): Modify for interface
+	change of `put_char_id_table'.
+	(remove_char_ccs): Likewise.
+
+	* chartab.h (put_char_id_table): Change interface.
+
+	* char-ucs.h (get_char_id_table): Change interface.
+	(charset_code_point): Modify for interface change of
+	`get_char_id_table'.
+	(encode_char_1): Likewise.
+
+2001-08-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Change arguments; add new
+	argument `ccs'.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_id_table): Add new argument `range' like
+	`map_char_table'.
+	(Fmap_char_attribute): Add new argument `range' like
+	`Fmap_char_table'.
+
+2001-08-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Change interface of
+	mapping function to use struct chartab_range instead of Emchar.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_id_table): Likewise.
+	(struct slow_map_char_id_table_arg): Deleted.
+	(slow_map_char_id_table_fun): Deleted.
+	(Fmap_char_attribute): Use struct `slow_map_char_table_arg' and
+	function `slow_map_char_table_fun' instead of struct
+	`slow_map_char_id_table_arg' and function
+	`slow_map_char_id_table_fun'.
+
+2001-08-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c: Move char-it-table related codes to chartab.c.
+	(Vutf_2000_version): Moved to chartab.c.
+	(Fdefine_char): Likewise.
+	(Ffind_char): Likewise.
+	(syms_of_mule_charset): Move types `uint8-byte-table',
+	`uint16-byte-table', `byte-table' and `char-id-table' to
+	chartab.c; move functions `char_attribute_list,
+	`find_char_attribute_table, `char_attribute_alist,
+	`get_char_attribute, `put_char_attribute, `remove_char_attribute,
+	`map_char_attribute, `define_char, `find_char, `char_variants and
+	`get_composite_char to chartab.c; move symbols `=>ucs',
+	`->decomposition', `compat', `isolated', `initial', `medial',
+	`final', `vertical', `noBreak', `fraction', `super', `sub',
+	`circle', `square', `wide', `narrow', `small' and `font' to
+	chartab.c.
+	(vars_of_mule_charset): Move `utf-2000-version' to chartab.c; move
+	setting codes for `Vcharacter_composition_table' and
+	`Vcharacter_variant_table' to chartab.c.
+	(complex_vars_of_mule_charset): Move setting code for
+	`Vchar_attribute_hash_table' to chartab.c.
+
+	* chartab.h: Include "char-ucs.h" if --with-utf-2000 is specified.
+	(make_char_id_table): New prototype.
+	(put_char_id_table): Likewise.
+	(Fget_char_attribute): Likewise.
+
+	* chartab.c: Move char-id-table related code from mule-charset.c.
+	(Vutf_2000_version): Moved from mule-charset.c.
+
+	* char-ucs.h (Qucs): New external variable.
+	(put_char_ccs_code_point): New prototype.
+	(remove_char_ccs): Likewise.
+
+2001-08-14  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
+
+	* mule-charset.c (Vcharset_ucs_jis): New variable.
+	(Qucs_jis): Likewise.
+	(syms_of_mule_charset): Add new symbol `ucs-jis'.
+	(complex_vars_of_mule_charset): Add new coded-charset `ucs-jis'.
+
+	* char-ucs.h (LEADING_BYTE_UCS_JIS): New macro.
+
+2001-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (map_over_uint8_byte_table): New function.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_id_table): Likewise.
+	(slow_map_char_id_table_fun): Likewise.
+	(Fmap_char_attribute): Likewise.
+	(syms_of_mule_charset): Add new function `map-char-attribute'.
+
+2001-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Ffind_char): New function in XEmacs UTF-2000.
+	(syms_of_mule_charset): Add new function `find-char'.
+
+2001-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_chinese_big5_cdp): New variable in
+	XEmacs UTF-2000.
+	(Qchinese_big5_cdp): New variable in XEmacs UTF-2000.
+	(syms_of_mule_charset): Add new symbol `chinese-big5-cdp' in
+	XEmacs UTF-2000.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`chinese-big5-cdp' in XEmacs UTF-2000; change registry of
+	`ideograph-gt-pj-*'.
+
+	* char-ucs.h (LEADING_BYTE_CHINESE_BIG5_CDP): New macro.
+
+2001-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (encode_builtin_char_1): Purge codes about
+	{MIN|MAX}_CHAR_{GREEK|CYRILLIC}; comment out code about
+	{MIN|MAX}_CHAR_HEBREW.
+	(complex_vars_of_mule_charset): Comment out {MIN|MAX}_CHAR_HEBREW;
+	don't use {MIN|MAX}_CHAR_HEBREW to define `hebrew-iso8859-8'.
+
+	* char-ucs.h (MIN_CHAR_GREEK): Purged.
+	(MAX_CHAR_GREEK): Purged.
+	(MIN_CHAR_CYRILLIC): Purged.
+	(MAX_CHAR_CYRILLIC): Purged.
+	(MIN_CHAR_HEBREW): Commented out.
+	(MAX_CHAR_HEBREW): Likewise.
+
+2001-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Qto_ucs): New variable.
+	(Fput_char_attribute): Treat `=>ucs' as same as `->ucs'.
+	(Fdefine_char): Likewise.
+	(syms_of_mule_charset): Add new symbol `=>ucs'.
+
+2001-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fdecode_char): Fixed.
+
+2001-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Modify registry
+	of latin-tcvn5712 to accept "tcvn5712.1993-1" as same as
+	"tcvn5712-1".
+
+2001-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ucs_big5): New variable.
+	(Qucs_big5): Likewise.
+	(syms_of_mule_charset): Add new symbol `ucs-big5'.
+	(complex_vars_of_mule_charset): Add new coded-charset `ucs-big5'.
+
+	* char-ucs.h (LEADING_BYTE_UCS_BIG5): New macro.
+
+2001-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decode_builtin_char): Check Big5 code range
+	which can be mapped to `chinese-big5-1' and `chinese-big5-2'.
+
+2001-07-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_chinese_gb12345): New variable.
+	(Qchinese_gb12345): Likewise.
+	(Fdecode_builtin_char): Fixed.
+	(syms_of_mule_charset): Add `chinese-gb12345'.
+	(complex_vars_of_mule_charset): Add coded-charset
+	`chinese-gb12345'.
+
+	* char-ucs.h (MIN_LEADING_BYTE): Changed to -0x70.
+	(LEADING_BYTE_CHINESE_GB12345): New macro.
+
+2001-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fdecode_builtin_char): Use `latin-viscii-lower'
+	and `latin-viscii-upper' for `latin-viscii'.
+
+2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fdecode_builtin_char): Comment out
+	regularization code for ISO-IR GR representation.
+
+2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decode_builtin_char): New function; renamed from
+	`make_builtin_char'; return -1 instead of signal.
+	(Fdecode_builtin_char): Use `decode_builtin_char'.
+
+	* char-ucs.h (decode_builtin_char): New prototype; renamed from
+	`make_builtin_char'.
+	(DECODE_CHAR): Use `decode_builtin_char' instead of
+	`make_builtin_char'; use mapping table of `chinese-big5' for
+	`chinese-big5-{1,2}'.
+
+2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_big5): New function.
+	(char_finish_big5): Likewise.
+	(reset_encoding_stream): Use `char_encode_big5' and
+	`char_finish_big5' for CODESYS_BIG5.
+	(mule_encode): Don't use `encode_coding_big5'.
+	(encode_coding_big5): Deleted.
+
+2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (BYTE_BIG5_TWO_BYTE_1_P): Support private area
+	0x81- in XEmacs UTF-2000.
+	(detect_coding_big5): Likewise.
+
+2001-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fdefine_char): Don't use a CCS property to
+	generate character-id if the CCS property does not have
+	corresponding predefined character.
+	(make_builtin_char): Return -1 if corresponding predefined
+	character is not found.
+	(Fdecode_char): Return nil if corresponding character is not
+	found.
+	(complex_vars_of_mule_charset): Change `ucs-cns' to 256^3-set and
+	don't map to builtin ucs space.
+
+2001-07-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (MAX_LEADING_BYTE_PRIVATE): Fixed.
+	(MAX_CHAR_GT): Changed to `(MIN_CHAR_GT + 66773)'.
+
+2001-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ideograph_gt): New variable.
+	(Vcharset_ideograph_gt_pj_{1..11}): Likewise.
+	(Qideograph_gt): Likewise.
+	(Qideograph_gt_pj_{1..11}): Likewise.
+	(syms_of_mule_charset): Add `ideograph-gt', `ideograph-gt-pj-1',
+	`ideograph-gt-pj-2', ..., `ideograph-gt-pj-10' and
+	`ideograph-gt-pj-11'.
+	(complex_vars_of_mule_charset): Add coded-charset `ideograph-gt',
+	`ideograph-gt-pj-1', `ideograph-gt-pj-2', ...,
+	`ideograph-gt-pj-10' and `ideograph-gt-pj-11'.
+
+	* char-ucs.h (LEADING_BYTE_GT): New macro.
+	(LEADING_BYTE_GT_PJ_{1..11}): Likewise.
+	(MIN_CHAR_GT): Likewise.
+	(MAX_CHAR_GT): Likewise.
+
+2001-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lisp-disunion.h (XCHARVAL): New implementation for UTF-2000 to
+	support U-60000000 .. U-7FFFFFFF with 32 bits architecture.
+
+	* doprnt.c (unsigned_int_converters): Add `c'.
+	(emacs_doprnt_1): Use `XUINT' for unsigned integers.
+
+	* char-ucs.h (MIN_CHAR_DAIKANWA): Don't refer `MIN_CHAR_MOJIKYO'.
+	(MAX_CHAR_DAIKANWA): Refer `MIN_CHAR_DAIKANWA' instead of
+	`MIN_CHAR_MOJIKYO'.
+	(MIN_CHAR_MOJIKYO_0): New macro; refer `MIN_CHAR_DAIKANWA'.
+	(MAX_CHAR_MOJIKYO_0): New macro.
+	(MIN_CHAR_MOJIKYO): Changed to 0x60000000.
+
+2001-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fdefine_char): Delete cemented out code.
+	(encode_builtin_char_1): Modify for new allocation of builtin
+	Mojikyo characters.
+
+	* lisp-disunion.h (XCHARVAL): Cast the argument into EMACS_UINT.
+
+2001-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ucs_cns): New variable.
+	(Qucs_cns): New variable.
+	(syms_of_mule_charset): Add new symbol `ucs-cns'.
+	(complex_vars_of_mule_charset): Add new coded-charset `ucs-cns'.
+
+2001-05-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (LEADING_BYTE_UCS_CNS): New macro.
+
+2000-12-09  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* search.c (search_buffer): Make `charset_base_code' as
+	character-id >> 6 to eliminate the corresponding last byte in
+	UTF-8 representation [I'm not sure it is right thing].
+	(boyer_moore): Likewise.
+
+2000-12-09  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* emacs.c (vars_of_emacs): Convert XEMACS_CODENAME to internal
+	representation in MULE.
+
+2000-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Fmake_coding_system): Use
+	`EXTERNAL_PROPERTY_LIST_LOOP_3' instead of
+	`EXTERNAL_PROPERTY_LIST_LOOP'.
+
+2000-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (decode_output_utf8_partial_char): New function.
+	(decode_coding_utf8): Use `decode_output_utf8_partial_char'.
+
+2000-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (decode_coding_utf8): Output original byte
+	sequence if it is broken; change order of conditions.
+
+	* mb-utf-8.h (REP_BYTES_BY_FIRST_BYTE): Use Bufbyte; reverse order
+	of conditions.
+
+	* mb-multibyte.h (BYTE_ASCII_P):
+	Use bit ops for char-signedness safety.
+	(BYTE_C0_P): Use bit ops for char-signedness safety.
+	(BYTE_C1_P): Use bit ops for char-signedness safety.
+
+	* character.h: (XCHAR_OR_CHAR_INT):
+	Always use inline function.
+	Remove redundant type checking assert() - XINT will abort quite
+	nicely.
+
+2000-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c: (Fencode_shift_jis_char):
+	(Fencode_big5_char):
+	Docstring arglist/Texinfo fixes.  See man/ChangeLog for details.
+	Replace 0 with '\0' when working with bytes.
+	Replace initial "(" with "\(" in docstrings.
+
+	(Fmake_coding_system):
+	When type is ccl and value is vector, register it with a proper
+	symbol.  And checks whether the given ccl program is valid.
+	(mule_decode): When calling ccl_driver, if src indicates
+	NULL pointer, set an empty string instead.
+	(mule_encode): Likewise.
+
+	(detect_eol_type):
+	(detect_coding_sjis):
+	(decode_coding_sjis):
+	(detect_coding_big5):
+	(decode_coding_big5):
+	(detect_coding_ucs4):
+	(decode_coding_ucs4):
+	(detect_coding_utf8):
+	(decode_coding_utf8):
+	(detect_coding_iso2022):
+	(decode_coding_iso2022):
+	(decode_coding_no_conversion):
+	(mule_decode):
+	Make all detecting and decoding functions take an Extbyte * arg.
+	(text_encode_generic):
+	(encode_coding_big5):
+	(encode_coding_no_conversion):
+	(mule_encode):
+	Make all encoding functions take a Bufbyte * arg.
+	Use size_t instead of unsigned int for memory sizes.
+	Only cast to unsigned char whenever dereferencing Extbyte *.
+
+	(struct lrecord_description fcd_description_1): Use countof.
+	(complex_vars_of_file_coding):
+	Use countof instead of sizeof.
+	Use CHECK_NATNUM instead of CHECK_INT.
+
+2000-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fget_char_attribute): Add new optional argument
+	`default-value'.
+	(put_char_ccs_code_point): Modify for `Fget_char_attribute'.
+	(remove_char_ccs): Likewise.
+
+2000-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_shift_jis): New implementation in
+	UTF-2000.
+	(decode_coding_big5): Use `DECODE_CHAR (Vcharset_chinese_big5,
+	...)'.
+
+	* mule-charset.c (Vcharset_chinese_big5): New variable in
+	UTF-2000.
+	(Qchinese_big5): New variable in UTF-2000.
+	(BIG5_SAME_ROW): New macro in UTF-2000.
+	(make_builtin_char): Use builtin characters of
+	`Vcharset_chinese_big5_1' and `Vcharset_chinese_big5_2' as builtin
+	characters of `Vcharset_chinese_big5'.
+	(syms_of_mule_charset): Add new symbol `chinese-big5' in UTF-2000.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`chinese-big5' in UTF-2000.
+
+	* char-ucs.h (LEADING_BYTE_CHINESE_BIG5): New macro.
+	(Vcharset_chinese_big5): New external variable declaration.
+	(Vcharset_japanese_jisx0208_1990): Likewise.
+
+2000-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (expand_uint8_byte_table_to_uint16): New
+	function.
+	(put_byte_table): Use `expand_uint8_byte_table_to_uint16'.
+
+2000-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Define new macro
+	`DEF_MOJIKYO_PJ' in UTF-2000; use `DEF_MOJIKYO_PJ' to define
+	`mojikyo-pj-*'; add "MojikyoPJ-*" to charset-registry of
+	`mojikyo-pj-*'.
+
+2000-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (decode_coding_big5): Modify for UTF-2000.
+
+2000-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.17.
+
+2000-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* file-coding.c (ucs_to_char): Don't use `CHARSET_TYPE_*'; modify
+	for `CHARSET_BY_ATTRIBUTES'.
+	(parse_iso2022_esc): Don't use `CHARSET_TYPE_*'; modify for
+	`CHARSET_BY_ATTRIBUTES'.
+
+	* text-coding.c (struct decoding_stream): Rename member `CH' to
+	`CPOS'.
+	(reset_decoding_stream): Use `str->cpos' instead of `str->ch'.
+	(decode_coding_sjis): Likewise.
+	(decode_coding_big5): Likewise.
+	(decode_coding_ucs4): Likewise.
+	(decode_coding_utf8): Likewise.
+	(parse_iso2022_esc): Don't use `CHARSET_TYPE_*'; modify for
+	`CHARSET_BY_ATTRIBUTES'.
+	(decode_coding_iso2022): Use `str->cpos' instead of `str->ch'; use
+	`str->counter'; decode 3, 4 bytes sets.
+	(char_encode_iso2022): Don't use `BREAKUP_CHAR'; encode 3, 4 bytes
+	sets.
+	(decode_coding_no_conversion): Use `str->cpos' instead of
+	`str->ch'.
+
+	* mule-charset.c (Vcharset_mojikyo_2022_1): New variable.
+	(Qmojikyo_2022_1): New variable.
+	(make_charset): Don't use `CHARSET_TYPE_*'.
+	(range_charset_code_point): Support coded-charset
+	`mojikyo-2022-1'.
+	(encode_builtin_char_1): Modify for `CHARSET_BY_ATTRIBUTES'.
+	(Fmake_charset): Don't use `CHARSET_TYPE_*'; modify for
+	`CHARSET_BY_ATTRIBUTES'.
+	(Fcharset_from_attributes): Don't use `CHARSET_TYPE_*'; modify for
+	`CHARSET_BY_ATTRIBUTES'.
+	(syms_of_mule_charset): Add new symbol `mojikyo-2022-1'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`mojikyo-2022-1'.
+
+	* mule-charset.h (CHARSET_BY_ATTRIBUTES): New implementation and
+	interface; changed to inline function.
+
+	* char-ucs.h (Vcharset_mojikyo_2022_1): New variable.
+	(LEADING_BYTE_MOJIKYO_2022_1): New macro.
+	(LEADING_BYTE_MOJIKYO_2022_2): New macro.
+	(CHARSET_TYPE_94): Deleted.
+	(CHARSET_TYPE_94X94): Deleted.
+	(CHARSET_TYPE_96): Deleted.
+	(CHARSET_TYPE_96X96): Deleted.
+	(CHARSET_TYPE_128): Deleted.
+	(CHARSET_TYPE_128X128): Deleted.
+	(CHARSET_TYPE_256): Deleted.
+	(CHARSET_TYPE_256X256): Deleted.
+	(CHARSET_BY_ATTRIBUTES): New implementation and interface; changed
+	to inline function.
+	(DECODE_MOJIKYO_2022): New inline function.
+	(DECODE_CHAR): Use `DECODE_MOJIKYO_2022'; decode
+	`Vcharset_mojikyo_2022_1'.
+
+2000-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (byte_table_same_value_p): Use `internal_equal'
+	instead of `EQ'.
+	(put_byte_table): Likewise.
+	(char_id_table_equal): Use `get_byte_table' [new implementation].
+
+2000-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c: Include <limits.h> in UTF-2000.
+	(BT_UINT8_MIN): New macro in UTF-2000.
+	(BT_UINT8_MAX): New macro in UTF-2000.
+	(BT_UINT8_t): New macro in UTF-2000.
+	(BT_UINT8_nil): New macro in UTF-2000.
+	(BT_UINT8_unbound): New macro in UTF-2000.
+	(INT_UINT8_P): New inline function in UTF-2000.
+	(UINT8_VALUE_P): New inline function in UTF-2000.
+	(UINT8_ENCODE): New inline function in UTF-2000.
+	(UINT8_DECODE): New inline function in UTF-2000.
+	(mark_uint8_byte_table): New function in UTF-2000.
+	(print_uint8_byte_table): New function in UTF-2000.
+	(uint8_byte_table_equal): New function in UTF-2000.
+	(uint8_byte_table_hash): New function in UTF-2000.
+	(make_uint8_byte_table): New function in UTF-2000.
+	(uint8_byte_table_same_value_p): New function in UTF-2000.
+	(BT_UINT16_MIN): New macro in UTF-2000.
+	(BT_UINT16_MAX): New macro in UTF-2000.
+	(BT_UINT16_t): New macro in UTF-2000.
+	(BT_UINT16_nil): New macro in UTF-2000.
+	(BT_UINT16_unbound): New macro in UTF-2000.
+	(INT_UINT16_P): New inline function in UTF-2000.
+	(UINT16_VALUE_P): New inline function in UTF-2000.
+	(UINT16_ENCODE): New inline function in UTF-2000.
+	(UINT16_DECODE): New inline function in UTF-2000.
+	(UINT8_TO_UINT16): New inline function in UTF-2000.
+	(mark_uint16_byte_table): New function in UTF-2000.
+	(print_uint16_byte_table): New function in UTF-2000.
+	(uint16_byte_table_equal): New function in UTF-2000.
+	(uint16_byte_table_hash): New function in UTF-2000.
+	(make_uint16_byte_table): New function in UTF-2000.
+	(uint16_byte_table_same_value_p): New function in UTF-2000.
+	(print_byte_table): New function in UTF-2000.
+	(byte-table): Use `print_byte_table' as printer.
+	(make_byte_table): Delete second argument `older'.
+	(byte_table_same_value_p): New function in UTF-2000.
+	(copy_byte_table): Deleted.
+	(get_byte_table): New function in UTF-2000.
+	(put_byte_table): New function in UTF-2000.
+	(print_char_id_table): New function in UTF-2000.
+	(char-id-table): Use `print_char_id_table' as printer.
+	(make_char_id_table): Delete second argument `older'.
+	(get_char_id_table): Use `get_byte_table [new implementation].
+	(put_char_id_table): Use `get_byte_table and `put_byte_table' [new
+	implementation].
+	(Ffind_char_attribute_table): New function in UTF-2000.
+	(mark_charset): Mark `cs->encoding_table' in UTF-2000.
+	(syms_of_mule_charset): Add LRECORD_IMPLEMENTATION
+	`uint8_byte_table' and `uint16_byte_table' in UTF-2000.
+	(syms_of_mule_charset): Add new function
+	`find-char-attribute-table' in UTF-2000.
+
+	* lrecord.h (enum lrecord_type): Add
+	`lrecord_type_uint16_byte_table' and
+	`lrecord_type_uint8_byte_table'.
+
+	* char-ucs.h (struct Lisp_Uint8_Byte_Table): New structure.
+	(Lisp_Uint8_Byte_Table): New type.
+	(XUINT8_BYTE_TABLE): New macro.
+	(XSETUINT8_BYTE_TABLE): New macro.
+	(UINT8_BYTE_TABLE_P): New macro.
+	(GC_UINT8_BYTE_TABLE_P): New macro.
+	(struct Lisp_Uint16_Byte_Table): New structure.
+	(Lisp_Uint16_Byte_Table): New type.
+	(XUINT16_BYTE_TABLE): New macro.
+	(XSETUINT16_BYTE_TABLE): New macro.
+	(UINT16_BYTE_TABLE_P): New macro.
+	(GC_UINT16_BYTE_TABLE_P): New macro.
+
+2000-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharacter_ideographic_radical_table): Deleted.
+	(Vcharacter_ideographic_strokes_table): Deleted.
+	(Vcharacter_total_strokes_table): Deleted.
+	(Vcharacter_morohashi_daikanwa_table): Deleted.
+	(Vcharacter_decomposition_table): Deleted.
+	(Qname): Deleted because it is duplicated.
+	(Qideographic_radical): Deleted.
+	(Qideographic_strokes): Deleted.
+	(Qtotal_strokes): Deleted.
+	(Qmorohashi_daikanwa): Deleted.
+	(Fchar_attribute_alist): Use `Vchar_attribute_hash_table' for
+	`ideographic-radical', `ideographic-strokes', `total-strokes',
+	`morohashi-daikanwa' and `->decomposition'.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise; use `make-vector' instead of
+	`make_older_vector' for `->decomposition' value.
+	(Fdefine_char): Comment out code to check `morohashi-daikanwa' and
+	`ideograph-daikanwa'.
+	(syms_of_mule_charset): Delete builtin symbols `name',
+	`ideographic-radical', `ideographic-strokes', `total-strokes' and
+	`morohashi-daikanwa'.
+	(vars_of_mule_charset): Don't setup
+	`Vcharacter_ideographic_radical_table',
+	`Vcharacter_ideographic_strokes_table',
+	`Vcharacter_total_strokes_table',
+	`Vcharacter_morohashi_daikanwa_table' and
+	`Vcharacter_decomposition_table'.
+
+2000-06-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* alloc.c: Use `HAVE_GGC' instead of `UTF2000' for
+	`make_older_vector', `make_vector_newer_1' and
+	`make_vector_newer'.
+
+	* lisp.h: Use `HAVE_GGC' instead of `UTF2000' for
+	`make_older_vector' and `make_vector_newer'.
+
+	* config.h.in (HAVE_GGC): New macro.
+
+2000-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (struct char_attribute_list_closure): New
+	structure in UTF-2000.
+	(add_char_attribute_to_list_mapper): New function in UTF-2000.
+	(Fchar_attribute_list): Likewise.
+	(Fset_charset_mapping_table): Use `make_vector_newer'.
+	(Fdecode_builtin_char): New function in UTF-2000.
+	(syms_of_mule_charset): Add new function `char-attribute-list' and
+	`decode-builtin-char' in UTF-2000.
+
+	* lisp.h (make_vector_newer): New prototype.
+
+	* alloc.c (make_vector_newer_1): New function.
+	(make_vector_newer): New function.
+
+2000-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (MAX_CHAR_DAIKANWA): Changed to `(MIN_CHAR_MOJIKYO +
+	50100)'.
+
+2000-06-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vchar_attribute_hash_table): New variable.
+	(Vcharacter_attribute_table): Deleted.
+	(Vcharacter_name_table): Deleted.
+	(put_char_attribute): Deleted.
+	(remove_char_attribute): Deleted.
+	(struct char_attribute_alist_closure): New structure.
+	(add_char_attribute_alist_mapper): New function.
+	(Fchar_attribute_alist): Use `Vchar_attribute_hash_table' instead
+	of `Vcharacter_attribute_table' and `Vcharacter_name_table'.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise.
+	(Fremove_char_attribute): Use `Vchar_attribute_hash_table' instead
+	of `remove_char_attribute'.
+	(Fdefine_char): Return character.
+	(vars_of_mule_charset): Don't setup `Vcharacter_attribute_table'
+	and `Vcharacter_name_table'.
+	(complex_vars_of_mule_charset): Likewise
+	`Vchar_attribute_hash_table'.
+
+2000-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* character.h (CHARC_CHARSET): New macro.
+	(CHARC_CHARSET_ID): New macro.
+	(CHARC_CODE_POINT): New macro.
+	(CHARC_COLUMNS): New macro.
+	(CHARC_TO_CHAR): New inline function.
+	(CHARC_EQ): New inline function.
+	(CHARC_ASCII_EQ): New inline function.
+	(CHARC_IS_SPACE): New inline function.
+	(ASCII_TO_CHARC): New inline function.
+
+	* char-ucs.h (encode_char_2): Deleted.
+	(ENCODE_CHAR): Use `encode_char_1' again.
+	(breakup_char_1): Likewise.
+	(CHAR_TO_CHARC): New inline function.
+
+	* char-lb.h, char-1byte.h (CHAR_TO_CHARC): New inline function.
+
+2000-06-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* redisplay.c (add_emchar_rune): Use `ASCII_TO_CHARC',
+	`CHAR_TO_CHARC' and `CHARC_CHARSET'.
+	(create_text_block): Use `CHARC_ASCII_EQ' and `CHARC_IS_SPACE'.
+	(generate_formatted_string_db): Use `CHARC_TO_CHAR'.
+	(create_string_text_block): Use `CHARC_ASCII_EQ' and
+	`CHARC_IS_SPACE'.
+	(pixel_to_glyph_translation): Use `CHARC_ASCII_EQ'.
+
+	* redisplay-x.c (separate_textual_runs): Use `CHARC_CHARSET' and
+	`CHARC_CODE_POINT'.
+	(x_output_display_block): Use `CHARC_CHARSET' and
+	`CHARC_ASCII_EQ'.
+
+	* redisplay-tty.c (tty_output_display_block): Use
+	`CHARC_ASCII_EQ'.
+	(tty_output_display_block): Likewise; use `ASCII_TO_CHARC'.
+
+	* redisplay-output.c (compare_runes): Use `CHARC_EQ'.
+
+	* insdel.c (find_charsets_in_charc_string): Use
+	`CHARC_CHARSET_ID'.
+	(charc_string_displayed_columns): Use `CHARC_COLUMNS'.
+	(convert_bufbyte_string_into_charc_dynarr): Use `CHAR_TO_CHARC'.
+	(convert_charc_string_into_bufbyte_dynarr): Use `CHARC_TO_CHAR'.
+	(convert_charc_string_into_malloced_string): Likewise.
+
+2000-06-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* toolbar-x.c (x_output_toolbar_button): Use <Charc_dynarr *>
+	instead of <Emchar_dynarr *> for buf; use
+	`convert_bufbyte_string_into_charc_dynarr' instead of
+	`convert_bufbyte_string_into_emchar_dynarr'; use
+	`find_charsets_in_charc_string' instead of
+	`find_charsets_in_emchar_string'.
+
+	* redisplay.h:
+	- Include "character.h".
+	(struct rune): New member `cglyph'; delete member `chr'.
+
+	* redisplay.c (redisplay_text_width_charc_string): New function;
+	delete `redisplay_text_width_emchar_string'.
+	(rtw_charc_dynarr): New variable; renamed from
+	`rtw_emchar_dynarr'.
+	(redisplay_text_width_string): Use `rtw_charc_dynarr' instead of
+	`rtw_emchar_dynarr'; use
+	`convert_bufbyte_string_into_charc_dynarr' instead of
+	`convert_bufbyte_string_into_emchar_dynarr'; use
+	`redisplay_text_width_charc_string' instead of
+	`redisplay_text_width_emchar_string'.
+	(redisplay_frame_text_width_string): Use `rtw_charc_dynarr'
+	instead of `rtw_emchar_dynarr'; use
+	`convert_bufbyte_string_into_charc_dynarr' instead of
+	`convert_bufbyte_string_into_emchar_dynarr'.
+	(add_emchar_rune): Add <Charc> instead of <Emchar>; use
+	`redisplay_text_width_charc_string' instead of
+	`redisplay_text_width_emchar_string'.
+	(create_text_block): Modify for <struct rune> change.
+	(generate_formatted_string_db): Likewise.
+	(create_string_text_block): Likewise.
+	(pixel_to_glyph_translation): Likewise.
+
+	* redisplay-x.c (separate_textual_runs): Use <const Charc *>
+	instead of <const Emchar *>.
+	(x_text_width): Likewise.
+	(x_output_display_block): Use <Charc_dynarr *> instead
+	<Emchar_dynarr *>; modify for <structure rune> change.
+	(x_output_string): Use <Charc_dynarr *> instead of <Emchar_dynarr
+	*>.
+
+	* redisplay-tty.c (tty_text_width): Use <const Charc *> instead of
+	<const Emchar *>; use `charc_string_displayed_columns' instead of
+	`emchar_string_displayed_columns'.
+	(tty_output_display_block): Use <Charc_dynarr *> instead of
+	<Emchar_dynarr *> for buf; modify for <structure rune> change; use
+	`tty_output_charc_dynarr' instead of `tty_output_emchar_dynarr'.
+	(tty_output_charc_dynarr_dynarr): New variable; renamed from
+	`tty_output_emchar_dynarr_dynarr'.
+	(tty_output_charc_dynarr): New function; delete
+	`tty_output_charc_dynarr'.
+
+	* redisplay-output.c (compare_runes): Modify for `struct rune'.
+	(redisplay_output_layout): Use <Charc_dynarr *> instead of
+	<Emchar_dynarr *> for buf; use
+	`convert_bufbyte_string_into_charc_dynarr' instead of
+	`convert_bufbyte_string_into_emchar_dynarr'.
+
+	* frame.c (title_string_charc_dynarr): New variable; renamed from
+	`title_string_emchar_dynarr'.
+	(generate_title_string): Use `title_string_charc_dynarr' instead
+	of `title_string_emchar_dynarr'; use
+	`convert_charc_string_into_malloced_string' instead of
+	`convert_emchar_string_into_malloced_string'.
+	(init_frame): Use `title_string_charc_dynarr' instead of
+	`title_string_emchar_dynarr'.
+
+	* console.h:
+	- Include "character.h".
+	(struct console_methods): Use <const Charc *> instead of <const
+	Emchar *> in `text_width_method'; use <Charc_dynarr *> instead of
+	<Emchar_dynarr *> in output_string_method.
+
+	* console-x.h (x_output_string): Use <Charc_dynarr *> instead of
+	<Emchar_dynarr *>.
+
+	* console-stream.c (stream_text_width): Use <const Charc *>
+	instead of <const Emchar *>.
+
+	* character.h (Charc_dynarr): New type.
+
+	* char-ucs.h (structure Charc): New structure; define new type
+	`Charc'.
+
+	* char-lb.h (DECODE_CHAR): New inline function.
+	(encode_char_1): New inline function.
+	(ENCODE_CHAR): New macro.
+	(structure Charc): New structure; define new type `Charc'.
+
+	* char-1byte.h (Vcharset_control_1): New macro.
+	(Vcharset_latin_iso8859_1): New macro.
+	(DECODE_CHAR): New inline function.
+	(encode_char_1): New inline function.
+	(ENCODE_CHAR): New macro.
+	(structure Charc): New structure; define new type `Charc'.
+
+	* insdel.c (find_charsets_in_charc_string): New function; delete
+	`find_charsets_in_emchar_string'.
+	(charc_string_displayed_columns): New function; delete
+	`emchar_string_displayed_columns'.
+	(convert_bufbyte_string_into_charc_dynarr): New function; delete
+	`convert_bufbyte_string_into_emchar_dynarr'.
+	(convert_charc_string_into_bufbyte_dynarr): New function; delete
+	`convert_charc_string_into_bufbyte_dynarr'.
+	(convert_charc_string_into_malloced_string): New function; delete
+	`convert_charc_string_into_malloced_string'.
+
+	* buffer.h (find_charsets_in_charc_string): New prototype; delete
+	`find_charsets_in_emchar_string'.
+	(charc_string_displayed_columns): New prototype; delete
+	`emchar_string_displayed_columns'.
+	(convert_charc_string_into_bufbyte_dynarr): New prototype; delete
+	`convert_charc_string_into_bufbyte_dynarr'.
+	(convert_charc_string_into_malloced_string): New prototype; delete
+	`convert_charc_string_into_malloced_string'.
+
+2000-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* select-x.c (Fx_store_cutbuffer_internal): Modify for UTF-2000.
+
+2000-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.h (get_non_ascii_char_table_value): Use <Charset_ID>.
+
+	* char-ucs.h: Use <short> for <Charset_ID>.
+
+	* mule-charset.h, char-1byte.h: Use <unsigned char> for
+	<Charset_ID>.
+
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.16.
+
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharacter_morohashi_daikanwa_table): New
+	variable.
+	(Qmorohashi_daikanwa): New variable.
+	(Fchar_attribute_alist): Use `Vcharacter_morohashi_daikanwa_table'
+	for `morohashi-daikanwa' attribute.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise.
+	(Fdefine_char): Don't setup `morohashi-daikanwa' attribute if it
+	has the same value of `ideograph-daikanwa'.
+	(syms_of_mule_charset): Add new symbol `morohashi-daikanwa'.
+	(vars_of_mule_charset): Setup
+	`Vcharacter_morohashi_daikanwa_table'.
+
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fchar_attribute_alist): Add coded-charset
+	attributes.
+	(add_charset_to_list_mapper): Add `key' instead of
+	`XCHARSET_NAME (value)' to return aliases.
+
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharacter_ideographic_radical_table): New
+	variable.
+	(Vcharacter_ideographic_strokes_table): New variable.
+	(Qideographic_radical): New variable.
+	(Qideographic_strokes): New variable.
+	(Fchar_attribute_alist): Use
+	`Vcharacter_ideographic_radical_table' for `ideographic-radical'
+	attribute; use `Vcharacter_ideographic_strokes_table' for
+	`ideographic-strokes' attribute.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise.
+	(syms_of_mule_charset): Add new symbol `ideographic-radical' and
+	`ideographic-strokes'.
+	(vars_of_mule_charset): Setup
+	`Vcharacter_ideographic_radical_table' and
+	`Vcharacter_ideographic_strokes_table'.
+
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharacter_total_strokes_table): New variable.
+	(Qtotal_strokes): New variable.
+	(Fchar_attribute_alist): Use `Vcharacter_total_strokes_table' for
+	`total-strokes' attribute.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise.
+	(syms_of_mule_charset): Add new symbol `total-strokes'.
+	(vars_of_mule_charset): Setup `Vcharacter_total_strokes_table'.
+
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharacter_decomposition_table): New variable.
+	(Fchar_attribute_alist): Add `name' and `->decomposition' if they
+	are found.
+	(Fget_char_attribute): Use `Vcharacter_decomposition_table' for
+	`->decomposition' attribute.
+	(Fput_char_attribute): Likewise.
+	(vars_of_mule_charset): Setup `Vcharacter_decomposition_table'.
+
+2000-06-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decoding_table_check_elements): New function.
+	(Fset_charset_mapping_table): Use `decoding_table_check_elements'.
+
+2000-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fset_charset_mapping_table): Use
+	`put_char_ccs_code_point'.
+
+2000-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decoding_table_put_char): New inline function.
+	(put_char_ccs_code_point): Use `decoding_table_put_char'.
+
+2000-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (CHARSET_BYTE_SIZE): New inline function.
+	(XCHARSET_BYTE_SIZE): New macro.
+	(decoding_table_remove_char): New inline function.
+	(put_char_ccs_code_point): Use `XCHARSET_BYTE_SIZE'; use
+	`decoding_table_remove_char'.
+	(remove_char_ccs): Use `decoding_table_remove_char'.
+	(Fset_charset_mapping_table): Use `CHARSET_BYTE_SIZE'.
+
+2000-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharacter_name_table): New variable.
+	(Qname): New variable.
+	(Fget_char_attribute): Use `Vcharacter_name_table' for `name'
+	attribute.
+	(Fput_char_attribute): Use function `put_char_ccs_code_point'; use
+	`Vcharacter_name_table' for `name' attribute.
+	(Fremove_char_attribute): Use function `remove_char_ccs'.
+	(put_char_ccs_code_point): New function.
+	(remove_char_ccs): New function.
+	(syms_of_mule_charset): Add new symbol `name'.
+	(vars_of_mule_charset): Setup `Vcharacter_name_table'.
+
+2000-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (make_byte_table): Add new argument `older'.
+	(make_char_id_table): Likewise.
+	(copy_char_id_table): Comment out because it is not used.
+	(put_char_id_table): Modify for `make_byte_table'.
+	(Fput_char_attribute): Make encoding_table as older object;
+	inherit older bit of `Vcharacter_composition_table'.
+	(mark_charset): Don't mark `cs->encoding_table'.
+	(vars_of_mule_charset): Make `Vcharacter_attribute_table' as a
+	normal object; make `Vcharacter_composition_table' as an older
+	object; delete staticpro for `Vcharacter_composition_table'; make
+	`Vcharacter_variant_table' as a normal object.
+
+	* alloc.c (alloc_older_lcrecord): New function in UTF-2000.
+	(mark_object): Don't check older object in UTF-2000.
+
+	* lrecord.h (struct lrecord_header): Add new member `older' in
+	UTF-2000.
+	(set_lheader_implementation): Setup `SLI_header->older' in
+	UTF-2000.
+	(set_lheader_older_implementation): New macro in UTF-2000.
+	(OLDER_RECORD_P): New macro in UTF-2000.
+	(OLDER_RECORD_HEADER_P): New macro in UTF-2000.
+	(alloc_older_lcrecord): New prototype in UTF-2000.
+	(alloc_older_lcrecord_type): New macro in UTF-2000.
+
+2000-05-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (byte_table_description): Use
+	`XD_LISP_OBJECT_ARRAY' instead of `XD_LISP_OBJECT'.
+	(char_id_table_description): Delete bogus `, 1'.
+	(Fget_char_attribute): Refer encoding_table of each coded-charset
+	to get value of coded-charset attribute of a character.
+	(Fput_char_attribute): Use `make_older_vector' instead of
+	`make_vector'; use encoding_table of each coded-charset to store
+	value of coded-charset attribute of a character.
+	(Fremove_char_attribute): Use encoding_table of each coded-charset
+	to store value of coded-charset attribute of a character.
+	(mark_charset): Mark `cs->encoding_table'; don't mark
+	`cs->decoding_table'.
+	(charset_description): Add description of new member
+	`encoding_table'.
+	(make_charset): Initialize `encoding_table'.
+
+	* char-ucs.h (struct Lisp_Charset): Add new member
+	`encoding_table'.
+	(CHARSET_ENCODING_TABLE): New macro.
+	(XCHARSET_ENCODING_TABLE): New macro.
+	(charset_code_point): New implementation.
+	(encode_char_1): Likewise.
+
+	* alloc.c (all_older_lcrecords): New variable in UTF-2000.
+	(disksave_object_finalization_1): Call finalizers of
+	`all_older_lcrecords' in UTF-2000.
+	(make_older_vector): New function in UTF-2000.
+	(reinit_alloc_once_early): Initialize `all_older_lcrecords' in
+	UTF-2000.
+
+	* lisp.h (make_older_vector): New prototype in UTF-2000.
+
+2000-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lrecord.h (enum lrecord_type): Rename
+	`lrecord_type_char_code_table' to `lrecord_type_char_id_table'.
+
+	* text-coding.c (COMPOSE_ADD_CHAR): Use `CHAR_ID_TABLE_P' and
+	`get_char_id_table' instead of `CHAR_CODE_TABLE_P' and
+	`get_char_code_table'.
+
+	* mule-charset.c (mark_char_id_table): Renamed from
+	`mark_char_code_table'.
+	(char_id_table_equal): Renamed from `char_code_table_equal'.
+	(char_id_table_hash): Renamed from `char_code_table_hash'.
+	(make_char_id_table): Renamed from `make_char_code_table'.
+	(copy_char_id_table): Renamed from `copy_char_code_table'.
+	(get_char_id_table): Renamed from `get_char_code_table'.
+	(put_char_id_table): Renamed from `put_char_code_table'.
+	(to_char_id): Renamed from `to_char_code'.
+
+	* char-ucs.h (struct Lisp_Char_ID_Table): Renamed from
+	`Lisp_Char_Code_Table'.
+	(char_id_table): Renamed from `char_code_table'.
+	(XCHAR_ID_TABLE): Renamed from `XCHAR_CODE_TABLE'.
+	(XSETCHAR_ID_TABLE): Renamed from `XSETCHAR_CODE_TABLE'.
+	(CHAR_ID_TABLE_P): Renamed from `CHAR_CODE_TABLE_P'.
+	(GC_CHAR_ID_TABLE_P): Renamed from `GC_CHAR_CODE_TABLE_P'.
+	(get_char_id_table): Renamed from `get_char_code_table'.
+
+2000-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lrecord.h (enum lrecord_type): Rename
+	`lrecord_type_char_byte_table' to `lrecord_type_byte_table'.
+
+	* mule-charset.c (mark_byte_table): Renamed from
+	`mark_char_byte_table'.
+	(byte_table_equal): Renamed from `char_byte_table_equal'.
+	(byte_table_hash): Renamed from `byte_table_hash'.
+	(make_byte_table): Renamed from `make_byte_table'.
+	(copy_byte_table): Renamed from `copy_char_byte_table'.
+
+	* char-ucs.h (struct Lisp_Byte_Table): Renamed from
+	`Lisp_Char_Byte_Table'.
+	(byte_table): Renamed from `char_byte_table'.
+	(XBYTE_TABLE): Renamed from `XCHAR_BYTE_TABLE'.
+	(XSETBYTE_TABLE): Renamed from `XSET_CHAR_BYTE_TABLE'.
+	(BYTE_TABLE_P): Renamed from `XBYTE_TABLE_P'.
+	(GC_BYTE_TABLE_P): Renamed from `GC_CHAR_BYTE_TABLE_P'.
+
+2000-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* buffer.c (dfc_convert_to_external_format): Modify for UTF-2000.
+	(dfc_convert_to_internal_format): Likewise.
+	
+	* text-coding.c (Fcoding_system_canonical_name_p): New function.
+	* text-coding.c (Fcoding_system_alias_p): New function.
+	* text-coding.c (Fcoding_system_aliasee): New function.
+	* text-coding.c (append_suffix_to_symbol): New function.
+	* text-coding.c (dangling_coding_system_alias_p): New function.
+	* text-coding.c (Ffind_coding_system):
+	* text-coding.c (Fcopy_coding_system):
+	* text-coding.c (encode_coding_no_conversion):
+	* text-coding.c (syms_of_file_coding):
+	* text-coding.c (vars_of_file_coding):
+	Rewrite coding system alias code.
+	Allow nested aliases, like symbolic links.
+	Allow redefinition of coding system aliases.
+	Prevent existence of dangling coding system aliases.
+	Eliminate convert_to_external_format.
+	Eliminate convert_to_internal_format.
+	
+	* text-coding.c: Change enum eol_type to eol_type_t.
+
+2000-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (encode_builtin_char_1): Limit builtin-code-range
+	of `mojikyo' to MIN_CHAR_MOJIKYO + 94 * 60 * 22.
+
+	* char-ucs.h (MAX_CHAR_MOJIKYO): Limit builtin-code-range to
+	MIN_CHAR_MOJIKYO + 94 * 60 * 22.
+
+2000-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (encode_builtin_char_1): Use `mojikyo' instead of
+	`ideograph-daikanwa'.
+
+	* char-ucs.h (Vcharset_ucs): Deleted because it is not used.
+	(Vcharset_ucs_bmp): Likewise.
+	(Vcharset_mojikyo): Add new extern variable definition.
+	(Vcharset_latin_iso8859_2): Deleted because it is not used.
+	(Vcharset_latin_iso8859_3): Likewise.
+	(Vcharset_latin_iso8859_4): Likewise.
+	(Vcharset_latin_iso8859_9): Likewise.
+	(Vcharset_latin_viscii_lower): Likewise.
+	(Vcharset_latin_viscii_upper): Likewise.
+	(DECODE_CHAR): If charset is `mojikyo-pj-N', corresponding
+	`mojikyo' code-point is used to decode.
+	(encode_char_2): New function [to convert `mojikyo' code-point to
+	Mojikyo font encoding].
+	(ENCODE_CHAR): Use `encode_char_2' instead of `encode_code_1'.
+	(breakup_char_1): Likewise.
+	(CHAR_CHARSET): Use `ENCODE_CHAR' instead of `BREAKUP_CHAR'.
+
+2000-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Fmake_coding_system): Add document about
+	`disable-composition' property.
+
+2000-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Qdisable_composition): New variable; delete
+	`Qcomposite'.
+	(Fmake_coding_system): Add new property `disable-composite';
+	delete property `composite'.
+	(COMPOSE_ADD_CHAR): Use `CODING_SYSTEM_DISABLE_COMPOSITION'
+	instead of `!CODING_SYSTEM_COMPOSITE'.
+	(syms_of_file_coding): Add new symbol `disable-composition';
+	delete symbol `composite'.
+
+	* file-coding.h (struct Lisp_Coding_System): Add
+	`disable_composition'; delete `enable_composition'.
+	(CODING_SYSTEM_DISABLE_COMPOSITION): New macro; delete
+	`CODING_SYSTEM_COMPOSITE'.
+	(XCODING_SYSTEM_DISABLE_COMPOSITION): New macro; delete
+	`XCODING_SYSTEM_COMPOSITE'.
+
+2000-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.15.
+
+2000-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Qcomposite): New variable.
+	(Fmake_coding_system): Add new property `composite'.
+	(struct decoding_stream): Add `combined_char_count',
+	`combined_chars' and `combining_table' in UTF-2000.
+	(COMPOSE_FLUSH_CHARS): New macro.
+	(COMPOSE_ADD_CHAR): New macro.
+	(reset_decoding_stream): Reset `str->combined_char_count' and
+	`str->combining_table' in UTF-2000.
+	(decode_coding_iso2022): Modify for character-decomposition.
+	(syms_of_file_coding): Add new symbol `composite'.
+
+2000-04-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_latin_tcvn5712): New variable.
+	(Fput_char_attribute): Set up `Vcharacter_variant_table' instead
+	of `Vcharacter_composition_table' if `->decomposition' property
+	has only 1 element.
+	(Qlatin_tcvn5712): New variable.
+	(syms_of_mule_charset): Add new symbol `latin-tcvn5712'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`latin-tcvn5712'.
+
+	* char-ucs.h (LEADING_BYTE_LATIN_TCVN5712): New macro.
+
+2000-04-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* file-coding.h (struct Lisp_Coding_System): Add
+	`enable_composition'.
+	(CODING_SYSTEM_COMPOSITE): New macro.
+	(XCODING_SYSTEM_COMPOSITE): New macro.
+
+2000-03-17  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule-canna.c (c2mu): Fix problem with UTF-2000.
+
+2000-03-16  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule-charset.c (Fput_char_attribute): Don't make mapping-table
+	if ATTRIBUTE is `ucs' and character-id of CHARACTER = VALUE.
+
+2000-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule-charset.c (Vcharset_mojikyo): New variable.
+	(Fdefine_char): Don't use coded-charset which does not have
+	non-builtin character range to allocate character-id.
+	(Qmojikyo): New variable.
+	(syms_of_mule_charset): Add new symbol `mojikyo'.
+	(complex_vars_of_mule_charset): Add new coded-charset `mojikyo'.
+
+	* char-ucs.h (LEADING_BYTE_DAIKANWA_EKANJI): New macro.
+	(LEADING_BYTE_MOJIKYO): New macro.
+	(MIN_CHAR_MOJIKYO): New macro.
+	(MIN_CHAR_DAIKANWA): Use `MIN_CHAR_MOJIKYO'.
+	(MAX_CHAR_MOJIKYO): New macro.
+
+2000-02-12  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule-charset.c (remove_char_attribute): Fixed.
+
+2000-02-08  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule-charset.c (remove_char_attribute): New function.
+	(Fremove_char_attribute): New function.
+	(encode_builtin_char_1): Comment out builtin-support for
+	greek-iso8859-7 and cyrillic-iso8859-5.
+	(Fdecode_char): Check `code' is an integer.
+	(syms_of_mule_charset): Add `remove-char-attribute'.
+	(MIN_CHAR_GREEK): Deleted.
+	(MAX_CHAR_GREEK): Likewise.
+	(MIN_CHAR_CYRILLIC): Likewise.
+	(MAX_CHAR_CYRILLIC): Likewise.
+	(complex_vars_of_mule_charset): Don't use MIN_CHAR_GREEK and
+	MAX_CHAR_GREEK for `greek-iso8859-7'.
+
+	* char-ucs.h (MIN_CHAR_GREEK): Comment out.
+	(MAX_CHAR_GREEK): Likewise.
+	(MIN_CHAR_CYRILLIC): Likewise.
+	(MAX_CHAR_CYRILLIC): Likewise.
+
+2000-02-02  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule-charset.c (Fdefine_char): Fix problem when new code-point
+	format is used without `ucs' property.
+	(Fdecode_char): Fix problem with GR representation.
+	(complex_vars_of_mule_charset): Don't use `MIN_CHAR_CYRILLIC' and
+	`MAX_CHAR_CYRILLIC' as range of builtin `cyrillic-iso8859-5'.
+
+2000-01-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (make_builtin_char): New function.
+	(encode_builtin_char_1): Check ISO-2022-charset is defined or not.
+	(Fset_charset_mapping_table): Modify for new representation of
+	code-point.
+	(Fdecode_char): New function.
+	(syms_of_mule_charset): Add new builtin function `decode-char' in
+	UTF-2000.
+
+	* char-ucs.h (make_builtin_char): New prototype.
+	(DECODE_CHAR): New inline function.
+	(MAKE_CHAR): Use `DECODE_CHAR'.
+
+2000-01-28  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* text-coding.c (parse_charset_conversion_specs): Use
+	`XCHARSET_CHARS' and `XCHARSET_DIMENSION' instead of
+	`XCHARSET_TYPE'.
+	(iso2022_designate): Likewise.
+
+	* chartab.c (decode_char_table_range): Use `XCHARSET_CHARS' and
+	`XCHARSET_DIMENSION' instead of `XCHARSET_TYPE'.
+
+	* mule-charset.c (Vcharset_ucs): New variable.
+	(print_charset): Change design; use `CHARSET_CHARS' and
+	`CHARSET_DIMENSION' instead of `CHARSET_TYPE'.
+	(make_charset): Change signature to specify `chars' and
+	`dimension' instead of `type'.
+	(range_charset_code_point): Modify for 256^n-set.
+	(encode_builtin_char_1): Encode as `ucs' in default.
+	(Fmake_charset): Modify for `make_charset'.
+	(Fmake_reverse_direction_charset): Likewise.
+	(Fsplit_char): Use `ENCODE_CHAR' instead of `BREAKUP_CHAR' in
+	UTF-2000.
+	(complex_vars_of_mule_charset): Add coded-charset `ucs'; modify
+	for `make_charset'.
+
+	* char-ucs.h (Vcharset_ucs): New variable.
+	(LEADING_BYTE_UCS): New macro.
+	(struct Lisp_Charset): Delete `type'; change type of `dimension'
+	and `chars' to `unsigned short' from `unsigned int'.
+	(CHARSET_TYPE): Deleted.
+	(XCHARSET_TYPE): Deleted.
+
+2000-01-27  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule-charset.c (charset_code_point): Moved to char-ucs.h.
+
+	* char-ucs.h (charset_code_point): Moved from mule-charset.c.
+	(ENCODE_CHAR): New macro.
+
+2000-01-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.14 (Kawachi-Katakami).
+
+2000-01-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c (char_encode_shift_jis): Modify for
+	`charset_code_point'.
+	(char_encode_iso2022): Likewise.
+
+	* mule-charset.c (Fput_char_attribute): Use <Lisp_Object>
+	(integer) instead of list of <Lisp_Object>s (integers) as the
+	format of code-point of a coded-charset.
+	(range_charset_code_point): Return <int> instead of <Lisp_Object>.
+	(encode_builtin_char_1): New function; delete
+	`split_builtin_char'.
+	(charset_code_point): Return <int> instead of <Lisp_Object>.
+	(Fsplit_char): Don't use `SPLIT_CHAR'.
+
+	* char-ucs.h (encode_builtin_char_1): New prototype; delete
+	prototype for `split_builtin_char'.
+	(range_charset_code_point): Return <int> instead of <Lisp_Object>.
+	(charset_code_point): Likewise.
+	(encode_char_1): New inline function; delete `SPLIT_CHAR'.
+	(breakup_char_1): Use `encode_char_1' instead of `SPLIT_CHAR'.
+
+2000-01-20  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Don't define
+	`japanese-jisx0208-1990' in non-UTF-2000 Mule.
+
+2000-01-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (split_builtin_char): Don't support OBS_94x94.
+
+	* char-ucs.h (MIN_CHAR_OBS_94x94): Deleted.
+	(MAX_CHAR_OBS_94x94): Deleted.
+
+2000-01-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (split_builtin_char): Use `MAX_CHAR_BMP'.
+
+	* char-ucs.h (MAX_CHAR_BMP): New macro.
+
+2000-01-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c: Sync with r21-2-24.
+
+2000-01-08  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c: Modify for UTF-2000.
+
+2000-01-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.13 (Takaida).
+
+2000-01-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (split_builtin_char): Delete builtin support for
+	`katakana-jisx0201'.
+	(complex_vars_of_mule_charset): Don't map `katakana-jisx0201' to
+	BMP area in builtin representation.
+
+	* char-ucs.h (MAKE_CHAR): Delete builtin support for
+	`Vcharset_katakana_jisx0201'.
+
+1999-12-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Vcharset_mojikyo_pj_[1 .. 21]): New variable.
+	(Qisolated): New variable.
+	(Qinitial): New variable.
+	(Qmedial): New variable.
+	(Qfinal): New variable.
+	(Qvertical): New variable.
+	(Qsmall): New variable.
+	(to_char_code): Use `Qisolated', `Qinitial', `Qmedial', `Qfinal',
+	`Qvertical' and `Qsmall'.
+	(Qmojikyo_pj_[1 .. 21]): New variable.
+	(syms_of_mule_charset): Add new symbols `isolated', `initial',
+	`medial', `final', `vertical', `small' and `mojikyo-pj-[1 .. 21]'.
+	(complex_vars_of_mule_charset): Add new charset `mojikyo-pj-[1
+	.. 21]'.
+
+1999-11-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (MIN_LEADING_BYTE): Changed to -0x60.
+	(LEADING_BYTE_MOJIKYO_PJ_[1 .. 21]): New macros.
+	(MAX_LEADING_BYTE_PRIVATE): Changed to `(CHARSET_ID_OFFSET - 32)'.
+
+1999-11-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Vcharset_japanese_jisx0208_1990): New variable.
+	(Fdefine_char): Use Group 00 Plane 10 for non-coded variants of
+	BMP.
+	(Qjapanese_jisx0208_1990): New variable.
+	(syms_of_mule_charset): Add new symbol `Qjapanese_jisx0208_1990'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`japanese-jisx0208-1990'.
+
+	* char-ucs.h (LEADING_BYTE_JAPANESE_JISX0208_1990): New macro.
+	(MIN_CHAR_JIS_X0208_1990): New macro.
+	(MAX_CHAR_JIS_X0208_1990): New macro.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* text-coding.c (char_encode_iso2022): Output `~' if ISO 2022
+	coded-charset is not found.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fget_char_attribute): Forgot to `CHECK_CHAR'.
+	(Fdefine_char): Use `Fmake_char'.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Vcharset_ideograph_daikanwa): New variable.
+	(Vcharset_hiragana_jisx0208): Deleted.
+	(Vcharset_katakana_jisx0208): Deleted.
+	(Qideograph_daikanwa): New variable.
+	(Qhiragana_jisx0208): Deleted.
+	(Qkatakana_jisx0208): Deleted.
+	(split_builtin_char): Split `ideograph-daikanwa'.
+	(Fsplit_char): New implementation for UTF-2000.
+	(syms_of_mule_charset): Add new symbol `ideograph-daikanwa';
+	delete symbol `hiragana-jisx0208' and `katakana-jisx0208'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`ideograph-daikanwa'; delete coded-charset `hiragana-jisx0208' and
+	`katakana-jisx0208'.
+
+	* char-ucs.h (LEADING_BYTE_DAIKANWA): New macro.
+	(LEADING_BYTE_HIRAGANA_JISX0208): Deleted.
+	(LEADING_BYTE_KATAKANA_JISX0208): Deleted.
+	(MIN_CHAR_DAIKANWA): New macro.
+	(MAX_CHAR_DAIKANWA): New macro.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* data.c (Fstring_to_number): Don't recognize floating point if
+	base is not 10.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fput_char_attribute): Forgot to `CHECK_CHAR'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Qsquare): New variable.
+	(to_char_code): Add `Qsquare'.
+	(syms_of_mule_charset): Add new symbol `square'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Qcircle): New variable.
+	(to_char_code): Add `Qcircle'.
+	(syms_of_mule_charset): Add new symbol `circle'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Qfont): New variable.
+	(to_char_code): Add `Qfont'.
+	(syms_of_mule_charset): Add new symbol `font'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Qsub): New variable.
+	(to_char_code): Add `Qsub'.
+	(syms_of_mule_charset): Add new symbol `sub'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fput_char_attribute): Convert each element of
+	VALUE to GL position if ATTRIBUTE is a GR-set,
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fput_char_attribute): Allow GR code-point if a
+	coded-charset is a GR-set.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fput_char_attribute): Check each element of
+	VALUE is a byte if ATTRIBUTE is a coded-charset or its name.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Vcharset_ethiopic_ucs): New variable in
+	UTF-2000.
+	(Qethiopic_ucs): New variable in UTF-2000.
+	(syms_of_mule_charset): Add new symbol `ethiopic-ucs' in UTF-2000.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`ethiopic-ucs' in UTF-2000.
+
+	* char-ucs.h (LEADING_BYTE_ETHIOPIC_UCS): New macro.
+	(LEADING_BYTE_HIRAGANA_JISX0208): Changed to `(CHARSET_ID_OFFSET -
+	9)'.
+	(LEADING_BYTE_KATAKANA_JISX0208): Changed to `(CHARSET_ID_OFFSET -
+	10)'.
+	(LEADING_BYTE_PRIVATE): Changed to `(CHARSET_ID_OFFSET - 11)'.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fset_charset_mapping_table): Fix problem with
+	`ascii'.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Vcharacter_variant_table): New variable.
+	(Q_ucs): New variable.
+	(Fchar_variants): New function.
+	(Fput_char_attribute): Register `->ucs' value to
+	`Vcharacter_variant_table'.
+	(syms_of_mule_charset): Add new function `char-variants' and new
+	symbol `->ucs'.
+	(vars_of_mule_charset): Setup `Vcharacter_variant_table'.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (get_char_code_table): Allow negative character
+	code.
+	(put_char_code_table): Likewise.
+	(Vcharacter_composition_table): New variable.
+	(Q_decomposition): New variable.
+	(Qwide): New variable.
+	(Qnarrow): New variable.
+	(Qcompat): New variable.
+	(QnoBreak): New variable.
+	(Qsuper): New variable.
+	(Qfraction): New variable.
+	(to_char_code): New function.
+	(Fget_composite_char): New function.
+	(Fput_char_attribute): Register `->decomposition' value to
+	`Vcharacter_composition_table'.
+	(syms_of_mule_charset): Add new function `get-composite-char', new
+	symbol `->decomposition', `wide', `narrow', `compat', `noBreak',
+	`super' and `fraction'.
+	(vars_of_mule_charset): Setup `Vcharacter_composition_table'.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fchar_attribute_alist): Check the argument is a
+	character; copy the return value.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (SPLIT_CHAR): Use `split_builtin_char'.
+
+	* mule-charset.c (range_charset_code_point): Must use make_int.
+	(split_builtin_char): New function.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (char_byte_table): Change name from
+	"char-code-table" to "char-byte-table".
+	(mark_char_code_table): New function.
+	(char_code_table_equal): New function.
+	(char_code_table_hash): New function.
+	(char_code_table_description): New constant.
+	(char_code_table): New type.
+	(make_char_code_table): New function.
+	(copy_char_code_table): New function.
+	(get_char_code_table): Modify for `char_code_table' type.
+	(put_char_code_table): Likewise.
+	(vars_of_mule_charset): Update `utf-2000-version' to 0.12
+	(Kashiwara).
+
+	* char-ucs.h (char_code_table): New type.
+	(XCHAR_CODE_TABLE): New macro.
+	(XSETCHAR_CODE_TABLE): New macro.
+	(CHAR_CODE_TABLE_P): New macro.
+	(GC_CHAR_CODE_TABLE_P): New macro.
+	(struct Lisp_Char_Code_Table): New structure.
+
+1999-11-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fmake_charset): Setup byte_offset for
+	{94|96}^n-set.
+
+1999-11-09  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fdefine_char): Fix problem with non-UCS
+	character.
+
+1999-11-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (SPLIT_CHAR): Don't make new cell if a charset slot
+	is found.
+
+1999-11-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fget_char_attribute): If ATTRIBUTE is a name of
+	charset, it is regarded as a charset.
+	(put_char_attribute): New function in UTF-2000.
+	(Fput_char_attribute): If ATTRIBUTE is a charset or a name of
+	charset, mapping-table of the charset is modified.
+	(Fdefine_char): New function in UTF-2000.
+	(Fset_charset_mapping_table): Use `put_char_attribute' instead of
+	`Fput_char_attribute'.
+	(syms_of_mule_charset): Add new function `define-char' and new
+	symbol `ucs' in UTF-2000.
+	(vars_of_mule_charset): Update `utf-2000-version' to 0.11 (Shiki).
+
+1999-10-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fcharset_name): Define `byte_offset' in
+	non-UTF-2000 configuration.
+
+1999-10-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c (char_encode_shift_jis): Use `charset_code_point'
+	not to use `XCHARSET_ENCODING_TABLE (Vcharset_latin_jisx0201)'.
+
+	* mule-charset.c (mark_charset): `cs->encoding_table' has been
+	deleted.
+	(make_charset): Don't use `CHARSET_ENCODING_TABLE(cs)'.
+	(Fset_charset_mapping_table): Likewise.
+
+	* char-ucs.h (struct Lisp_Charset): Delete `encoding_table'.
+	(CHARSET_ENCODING_TABLE): Delete.
+	(XCHARSET_ENCODING_TABLE): Delete.
+	(charset_code_point): New interface.
+
+1999-10-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c (char_encode_iso2022): Use `charset_code_point'
+	instead of `charset_get_byte1' and `charset_get_byte2'.
+
+	* mule-charset.c, char-ucs.h (charset_get_byte1): Deleted.
+	(charset_get_byte2): Deleted.
+
+1999-10-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (SPLIT_CHAR): New inline function.
+	(breakup_char_1): Use `SPLIT_CHAR'.
+
+	* mule-charset.c (range_charset_code_point): New function.
+	(charset_code_point): New function.
+
+	* char-ucs.h (range_charset_code_point): New interface.
+	(breakup_char_1): Use `range_charset_code_point'.
+
+1999-10-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fmake_charset): Delete unused local variable
+	`code_offset'.
+
+	* char-ucs.h (Vcharacter_attribute_table): New extern variable.
+	(breakup_char_1): Find a charset and code-point in
+	`Vcharacter_attribute_table'.
+
+1999-10-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.10 (Yao).
+
+1999-10-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Vcharacter_attribute_table): New variable.
+	(Fchar_attribute_alist): New function.
+	(Fget_char_attribute): New function.
+	(Fput_char_attribute): New function.
+	(Fset_charset_mapping_table): Setup `Vcharacter_attribute_table'
+	too.
+	(syms_of_mule_charset): Add new function `char-attribute-alist',
+	`get-char-attribute' and `put-char-attribute'.
+	(vars_of_mule_charset): Setup `Vcharacter_attribute_table'.
+
+1999-10-19  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fmake_charset): Just use
+	`get_unallocated_leading_byte'.
+
+	* char-ucs.h (LEADING_BYTE_*): Use ISO-IR numbers for official
+	sets; don't use final-byte based number for private sets.
+
+1999-10-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* doprnt.c (emacs_doprnt_1): Fix problem with %0XXd for a negative
+	integer.
+
+1999-10-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.9.
+
+1999-10-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* regex.c (compile_extended_range): Use `CHAR_CHARSET_ID' instead
+	of `CHAR_LEADING_BYTE' in UTF-2000.
+
+	* insdel.c (find_charsets_in_bufbyte_string): Use
+	`CHAR_CHARSET_ID' instead of `CHAR_LEADING_BYTE' in UTF-2000.
+	(find_charsets_in_emchar_string): Likewise.
+
+	* chartab.h (CHAR_TABLE_NON_ASCII_VALUE_UNSAFE): Use
+	`CHAR_CHARSET_ID' instead of `CHAR_LEADING_BYTE' in UTF-2000.
+
+	* char-ucs.h (CHAR_LEADING_BYTE): Deleted.
+	(CHAR_CHARSET_ID): New macro.
+
+1999-10-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* chartab.c (get_char_table): Don't use type `Charset_ID' for
+	charset-id - MIN_LEADING_BYTE.
+	(put_char_table): Likewise.
+
+1999-10-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-ucs.h (MIN_LEADING_BYTE): Changed to `-0x40'.
+	(NUM_LEADING_BYTES): Changed to (80 * 3 - MIN_LEADING_BYTE).
+	(CHARSET_LEADING_BYTE): Don't cast by `Bufbyte'.
+	(CHARSET_ID_OFFSET): New macro.
+	(LEADING_BYTE_CONTROL_1): Changed to (CHARSET_ID_OFFSET - 1).
+	(LEADING_BYTE_UCS_BMP): Changed to (CHARSET_ID_OFFSET - 2).
+	(LEADING_BYTE_LATIN_VISCII): Changed to (CHARSET_ID_OFFSET - 3).
+	(LEADING_BYTE_HIRAGANA_JISX0208): Changed to (CHARSET_ID_OFFSET -
+	4).
+	(LEADING_BYTE_KATAKANA_JISX0208): Changed to (CHARSET_ID_OFFSET -
+	5).
+	(MIN_LEADING_BYTE_PRIVATE): Changed to `MIN_LEADING_BYTE'.
+	(MAX_LEADING_BYTE_PRIVATE): Changed to (CHARSET_ID_OFFSET - 6).
+	(CHARSET_ID_OFFSET_94): Changed to (CHARSET_ID_OFFSET - '0').
+	(CHARSET_ID_OFFSET_96): Changed to (CHARSET_ID_OFFSET_94 + 80).
+	(CHARSET_ID_OFFSET_94x94): Changed to (CHARSET_ID_OFFSET_96 + 80).
+
+1999-10-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (next_allocated_leading_byte): New variable in
+	UTF-2000.
+	(next_allocated_1_byte_leading_byte): Don't define in UTF-2000.
+	(next_allocated_2_byte_leading_byte): Don't define in UTF-2000.
+	(get_unallocated_leading_byte): Simply use
+	`next_allocated_leading_byte' [ignore dimension] in UTF-2000.
+	(vars_of_mule_charset): Setup `next_allocated_leading_byte' in
+	UTF-2000.
+
+	* char-ucs.h (MIN_LEADING_BYTE_PRIVATE): New macro.
+	(MAX_LEADING_BYTE_PRIVATE): New macro.
+	(MIN_LEADING_BYTE_OFFICIAL_2): Deleted.
+	(MAX_LEADING_BYTE_OFFICIAL_2): Deleted.
+
+1999-10-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fmake_charset): Allocate final-byte based
+	charset-id for 94-set, 96-set and 94x94-set.
+
+1999-10-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (char_byte_table_equal): Fill braces to avoid
+	ambiguous `else'.
+	(Fmake_charset): Likewise.
+	(complex_vars_of_mule_charset): Modify the font registry of
+	`ucs-bmp' not to match `Ethiopic-Unicode'.
+
+1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Add font
+	registory of `ucs-bmp'.
+
+1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* text-coding.c (char_encode_iso2022): Ignore non-ISO-2022
+	coded-charsets in `default-coded-charset-priority-list' when
+	breaking up a character.
+
+	* mule-charset.c (Vcharset_latin_viscii): New variable.
+	(Qlatin_viscii): New variable.
+	(make_charset): Don't use `decoding_table'.
+	(Fmake_charset): Regard graphic = 2 as 256^n-set; setup
+	byte_offset.
+	(Fset_charset_mapping_table): New implementation.
+	(syms_of_mule_charset): Add new symbol `latin-viscii'.
+	(complex_vars_of_mule_charset): Set `graphic' attribute of charset
+	`ucs-bmp' and `latin_viscii' to 2; change font registry of charset
+	`latin-viscii-lower' to "MULEVISCII-LOWER"; change font registry
+	of charset `latin-viscii-upper' to "MULEVISCII-UPPER"; add new
+	charset `latin_viscii'.
+
+	* char-ucs.h (LEADING_BYTE_LATIN_VISCII): New macro.
+	(CHARSET_TYPE_94X94): Change to 1 from 2.
+	(CHARSET_TYPE_96): Change to 2 from 1.
+	(CHARSET_TYPE_128): New macro.
+	(CHARSET_TYPE_128X128): Change to 5 from 4.
+	(CHARSET_TYPE_256): New macro.
+	(CHARSET_TYPE_256X256): Change to 7 from 5.
+	(MAKE_CHAR): Use `XCHARSET_BYTE_OFFSET(charset)'.
+
+1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* text-coding.c (char_encode_shift_jis): Refer
+	`XCHARSET_ENCODING_TABLE(Vcharset_latin_jisx0201)' instead of
+	`XCHARSET_TO_BYTE1_TABLE(Vcharset_latin_jisx0201)'.
+
+	* mule-charset.c (mark_char_byte_table): New function in UTF-2000.
+	(char_byte_table_equal): New function in UTF-2000.
+	(char_byte_table_hash): New function in UTF-2000.
+	(char_byte_table_description): New constant in UTF-2000.
+	(char_byte_table): New type in UTF-2000.
+	(make_char_byte_table): New function in UTF-2000.
+	(copy_char_byte_table): New function in UTF-2000.
+	(make_char_code_table): New macro in UTF-2000.
+	(get_char_code_table): New function in UTF-2000.
+	(put_char_code_table): New function in UTF-2000.
+	(mark_charset): Mark `cs->encoding_table' in UTF-2000.
+	(charset_description): Add setting in UTF-2000.
+	(make_charset): Setup `CHARSET_ENCODING_TABLE(cs)' instead of
+	`CHARSET_TO_BYTE1_TABLE(cs)'.
+	(charset_get_byte1): Refer `XCHARSET_ENCODING_TABLE(charset)'
+	instead of `XCHARSET_TO_BYTE1_TABLE(charset)'.
+	(charset_get_byte2): Refer `XCHARSET_ENCODING_TABLE(charset)'
+	instead of `XCHARSET_TO_BYTE2_TABLE(charset)'.
+	(Fset_charset_mapping_table): Setup `CHARSET_ENCODING_TABLE(cs)'
+	instead of `CHARSET_TO_BYTE1_TABLE(cs)' and
+	`CHARSET_TO_BYTE2_TABLE(cs)'.
+
+	* char-ucs.h (char_byte_table): New type.
+	(XCHAR_BYTE_TABLE): New macro.
+	(XSETCHAR_BYTE_TABLE): New macro.
+	(CHAR_BYTE_TABLE_P): New macro.
+	(GC_CHAR_BYTE_TABLE_P): New macro.
+	(struct Lisp_Char_Byte_Table): New structure.
+	(get_char_code_table): New interface.
+	(Emchar_to_byte_table): Deleted.
+	(get_byte_from_character_table): Deleted.
+	(struct Lisp_Charset): Add `encoding_table'; delete
+	`to_byte1_table' and `to_byte2_table'.
+	(CHARSET_ENCODING_TABLE): New macro.
+	(CHARSET_TO_BYTE1_TABLE): Deleted.
+	(CHARSET_TO_BYTE2_TABLE): Deleted.
+	(XCHARSET_ENCODING_TABLE): New macro.
+	(XCHARSET_TO_BYTE1_TABLE): Deleted.
+	(XCHARSET_TO_BYTE2_TABLE): Deleted.
+
+1999-10-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (syms_of_mule_charset): Delete charset alias
+	`vietnamese-viscii-*'.
+
+1999-10-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Qvietnamese_viscii_lower): New variable.
+	(Qvietnamese_viscii_upper): New variable.
+	(Fdefine_charset_alias): New function.
+	(syms_of_mule_charset): Add new function `define-charset-alias'.
+	(syms_of_mule_charset): Rename charset `vietnamese-viscii-*' to
+	`latin-viscii-*'; define `vietnamese-viscii-*' as aliases for
+	`latin-viscii-*'.
+
+1999-10-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (MIN_CHAR_OBS_94x94): New macro.
+	(MAX_CHAR_OBS_94x94): New macro.
+	(breakup_char_1): Support obsolete XEmacs-UCS private code space
+	for 94x94 sets.
+
+	* mule-charset.c (put_byte_from_character_table): Change unit size
+	from 128 to 256.
+	(mark_charset): Don't mark `cs->decoding_table' if `UTF2000' is
+	not defined.
+	(Fmake_reverse_direction_charset): Modify dummy argument of
+	`make_charset' for non-UTF-2000 environment.
+
+1999-10-03  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-ucs.h (MAKE_CHAR): Allow nested decoding-table.
+
+	* mule-charset.c (destroy_byte_from_character_table): New macro.
+	(latin_jisx0201_to_ucs): Deleted.
+	(latin_iso8859_2_to_ucs): Deleted.
+	(latin_iso8859_3_to_ucs): Deleted.
+	(latin_iso8859_4_to_ucs): Deleted.
+	(latin_iso8859_9_to_ucs): Deleted.
+	(latin_viscii_lower_to_ucs): Deleted.
+	(latin_viscii_upper_to_ucs): Deleted.
+	(mark_charset): Mark `cs->decoding_table'.
+	(Fcharset_mapping_table): Fix DOC-string.
+	(Fset_charset_mapping_table): New function.
+	(syms_of_mule_charset): Add nwe function
+	`set-charset-mapping-table'.
+	(complex_vars_of_mule_charset): Don't setup and use
+	`latin_*_to_ucs'.
+
+1999-10-01  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-ucs.h (MAKE_CHAR): Check the result for range-represented
+	charset.
+
+1999-09-30  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Vcharset_hiragana_jisx0208): New variable.
+	(Vcharset_katakana_jisx0208): New variable.
+	(Qhiragana_jisx0208): New variable.
+	(Qkatakana_jisx0208): New variable.
+	(make_charset): Add new argument `byte_offset'.
+	(charset_get_byte1): Modify for new coded-charset definition; use
+	`XCHARSET_UCS_MIN', `XCHARSET_UCS_MAX', `XCHARSET_CODE_OFFSET' and
+	`XCHARSET_BYTE_OFFSET'.
+	(Fmake_charset): Modify for `make_charset'.
+	(Fmake_reverse_direction_charset): Likewise.
+	(syms_of_mule_charset): Add new symbols `hiragana-jisx0208' and
+	`katakana-jisx0208'.
+	(complex_vars_of_mule_charset): Modify for `make_charset'; quote
+	`.'  in font registry of charset `katakana-jisx0201',
+	`latin-jisx0201', `vietnamese-viscii-lower' and
+	`vietnamese-viscii-upper'; modify DOC-string of charset
+	`japanese-jisx0208-1978' and `japanese-jisx0208'; modify font
+	registry of charset `japanese-jisx0208' not to use font for JIS
+	X0208:1990; add new charset `hiragana-jisx0208' and
+	`katakana-jisx0208'.
+
+	* char-ucs.h (LEADING_BYTE_HIRAGANA_JISX0208): New macro.
+	(LEADING_BYTE_KATAKANA_JISX0208): New macro.
+	(struct Lisp_Charset): Add `byte_offset'.
+	(CHARSET_BYTE_OFFSET): New macro.
+	(XCHARSET_UCS_MIN): New macro.
+	(XCHARSET_UCS_MAX): New macro.
+	(XCHARSET_CODE_OFFSET): New macro.
+	(XCHARSET_BYTE_OFFSET): New macro.
+	(MIN_CHAR_HIRAGANA): New macro.
+	(MAX_CHAR_HIRAGANA): New macro.
+	(MIN_CHAR_KATAKANA): New macro.
+	(MAX_CHAR_KATAKANA): New macro.
+	(MAKE_CHAR): Modify for new coded-charset definition; use
+	`XCHARSET_UCS_MIN', `XCHARSET_UCS_MAX', `XCHARSET_CODE_OFFSET' and
+	`XCHARSET_BYTE_OFFSET'.
+
+1999-09-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (CHAR96): Deleted.
+	(latin_jisx0201_to_ucs): Type is changed from array of <Emchar> to
+	<Lisp_Object>.
+	(latin_iso8859_2_to_ucs): Likewise.
+	(latin_iso8859_3_to_ucs): Likewise.
+	(latin_iso8859_4_to_ucs): Likewise.
+	(latin_iso8859_9_to_ucs): Likewise.
+	(latin_viscii_lower_to_ucs): Likewise.
+	(latin_viscii_upper_to_ucs): Likewise.
+	(latin_tcvn5712_to_ucs): Commented out.
+	(make_charset): Change type of argument `decoding_table' from
+	<Emchar*> to <Lisp_Object> [vector of characters].
+	(Fmake_charset): Modify for `make_charset'.
+	(Fmake_reverse_direction_charset): Likewise.
+	(Fcharset_mapping_table): New function in UTF-2000.
+	(syms_of_mule_charset): Setup `Fcharset_mapping_table' in
+	UTF-2000.
+	(complex_vars_of_mule_charset): Modify for type change of
+	`*_to_ucs'; modify for `make_charset'.
+
+	* char-ucs.h (struct Lisp_Charset): Change type of
+	`decoding_table' from <Emchar*> to <Lisp_Object>.
+	(MAKE_CHAR): Modify for new specification of `decoding_table'.
+
+1999-09-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fmake_reverse_direction_charset): Fix compile
+	error with non-UTF-2000-Mule.
+
+1999-09-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Vcharset_chinese_cns11643_3): Deleted [defined
+	in lisp again].
+  	(Vcharset_chinese_cns11643_4): Likewise.
+  	(Vcharset_chinese_cns11643_5): Likewise.
+  	(Vcharset_chinese_cns11643_6): Likewise.
+  	(Vcharset_chinese_cns11643_7): Likewise.
+  	(Qchinese_cns11643_3): Likewise.
+  	(Qchinese_cns11643_4): Likewise.
+  	(Qchinese_cns11643_5): Likewise.
+  	(Qchinese_cns11643_6): Likewise.
+  	(Qchinese_cns11643_7): Likewise.
+  	(syms_of_mule_charset): Move definitions for `chinese-cns11643-3',
+	`chinese-cns11643-4', `chinese-cns11643-5', `chinese-cns11643-6'
+	and `chinese-cns11643-7' to lisp/mule/chinese.el.
+  	(complex_vars_of_mule_charset): Likewise.
+
+1999-09-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (charset_get_byte1): Fix bug about 94- and
+	96-set.
+	(Fmake_reverse_direction_charset): Inherit CHARSET_DECODING_TABLE,
+	CHARSET_UCS_MIN, CHARSET_UCS_MAX and CHARSET_CODE_OFFSET.
+
+1999-09-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (MIN_CHAR_HALFWIDTH_KATAKANA): Changed to 0xFF61 from
+ 	0xFF60.
+	(MAKE_CHAR): Change offset for katakana-jisx0201 to 33 from 0x20.
+	(breakup_char_1): Likewise.
+
+	* text-coding.c (char_encode_iso2022): Keep designated charsets if
+ 	one of them includes the specified character.
+
+1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c: Update `utf-2000-version' to 0.8 (Kami).
+
+1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (MAKE_CHAR): Fix problem in 2-dimension charset.
+
+1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (latin_iso8859_2_to_ucs NULL): Add pseudo
+	definition for non-UTF-2000 Mule.
+	(latin_iso8859_3_to_ucs): Likewise.
+	(latin_iso8859_4_to_ucs): Likewise.
+	(latin_iso8859_9_to_ucs): Likewise.
+	(latin_jisx0201_to_ucs): Likewise.
+	(MIN_CHAR_THAI): Likewise.
+	(MAX_CHAR_THAI): Likewise.
+	(MIN_CHAR_GREEK): Likewise.
+	(MAX_CHAR_GREEK): Likewise.
+	(MIN_CHAR_HEBREW): Likewise.
+	(MAX_CHAR_HEBREW): Likewise.
+	(MIN_CHAR_HALFWIDTH_KATAKANA): Likewise.
+	(MAX_CHAR_HALFWIDTH_KATAKANA): Likewise.
+	(MIN_CHAR_CYRILLIC): Likewise.
+	(MAX_CHAR_CYRILLIC): Likewise.
+
+1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (breakup_char_1): Use
+	`Vdefault_coded_charset_priority_list' for hebrew-iso8859-8,
+	thai-tis620 and katakana-jisx0201 area.
+
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-ucs.h (breakup_char_1): Use
+	`Vdefault_coded_charset_priority_list' for cyrillic-iso8859-5
+	area.
+
+	* text-coding.c (reset_encoding_stream): Fixed.
+	(char_encode_ucs4): Delete `& 255'.
+
+	* char-ucs.h (breakup_char_1): Use
+	`Vdefault_coded_charset_priority_list' for greek-iso8859-7 area.
+
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* file-coding.c (Fmake_coding_system): Don't set up
+	`codesys->fixed.size'.
+	(encode_coding_no_conversion): Don't refer
+	`str->codesys->fixed.size'.
+
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c, char-ucs.h (latin_a_char_to_charset): Deleted.
+	(latin_a_char_to_byte1): Deleted.
+	(latin_a_char_to_byte2): Deleted.
+
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (make_charset): Add new argument `ucs_min',
+	`ucs_max' and `code_offset'.
+	(charset_get_byte1): New implementation [delete specific charset
+	depended implementations].
+	(Fmake_charset): Modify for `make_charset'.
+	(Fmake_reverse_direction_charset): Likewise.
+	(complex_vars_of_mule_charset): Likewise.
+
+	* char-ucs.h (struct Lisp_Charset): Add `ucs_min', `ucs_max' and
+	`code_offset'.
+	(CHARSET_UCS_MIN): New macro.
+	(CHARSET_UCS_MAX): New macro.
+	(CHARSET_CODE_OFFSET): New macro.
+	(MAKE_CHAR): Delete charset depended definitions [except
+	katakana-jisx0201].
+
+1999-09-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (breakup_char_1): Use
+	`Vdefault_coded_charset_priority_list' for C0-Controls,
+	Basic-Latin, C1-Controls and Latin-1-Supplement area.
+
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-ucs.h (charset_get_byte1): New function.
+	(XCHARSET_GET_BYTE1): Deleted.
+	(charset_get_byte2): New function.
+	(XCHARSET_GET_BYTE2): Deleted.
+	(Vdefault_coded_charset_priority_list): New external variable.
+	(breakup_char_1): Use `charset_get_byte1', `charset_get_byte2' and
+	`Vdefault_preferred_coded_charset_list'.
+
+	* mule-charset.c (charset_get_byte1): New function.
+	(charset_get_byte2): New function.
+	(Vdefault_coded_charset_priority_list): New variable.
+	(vars_of_mule_charset): Add new variable
+	`default-coded-charset-priority-list'.
+
+1999-09-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-ucs.h (XCHARSET_GET_BYTE1): New inline function.
+	(XCHARSET_GET_BYTE2): New inline function.
+	(breakup_char_1): Use `XCHARSET_GET_BYTE1' and
+	`XCHARSET_GET_BYTE2'.
+
+1999-09-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (make_charset): Initialize
+	`CHARSET_TO_BYTE1_TABLE(cs)' and `CHARSET_TO_BYTE2_TABLE(cs)' by
+	NULL if table is not defined.
+
+1999-09-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* text-coding.c (char_encode_shift_jis): Use
+	`XCHARSET_TO_BYTE1_TABLE' for `Vcharset_latin_jisx0201' instead of
+	`ucs_to_latin_jisx0201'.
+
+	* mule-charset.c (ucs_to_latin_jisx0201): Deleted.
+	(ucs_to_latin_iso8859_2): Deleted.
+	(ucs_to_latin_iso8859_3): Deleted.
+	(ucs_to_latin_iso8859_4): Deleted.
+	(ucs_to_latin_iso8859_9): Deleted.
+	(ucs_to_latin_viscii_lower): Deleted.
+	(ucs_to_latin_viscii_upper): Deleted.
+	(ucs_to_latin_tcvn5712): Deleted.
+	(make_charset): Add new argument `decoding_table'; set up
+	`CHARSET_DECODING_TABLE(cs)' in UTF-2000; set up
+	`CHARSET_TO_BYTE1_TABLE(cs)' for 94-set and 96-set if
+	`decoding_table' is defined in UTF-2000.
+	(Fmake_charset): Modify for `make_charset'.
+	(Fmake_reverse_direction_charset): Likewise.
+	(complex_vars_of_mule_charset): Likewise; delete `GENERATE_94_SET'
+	and `GENERATE_96_SET'.
+
+	* char-ucs.h (latin_jisx0201_to_ucs): Deleted.
+	(ucs_to_latin_jisx0201): Deleted.
+	(latin_iso8859_2_to_ucs): Deleted.
+	(ucs_to_latin_iso8859_2): Deleted.
+	(latin_iso8859_3_to_ucs): Deleted.
+	(ucs_to_latin_iso8859_3): Deleted.
+	(latin_iso8859_4_to_ucs): Deleted.
+	(ucs_to_latin_iso8859_4): Deleted.
+	(latin_iso8859_9_to_ucs): Deleted.
+	(ucs_to_latin_iso8859_9): Deleted.
+	(latin_viscii_lower_to_ucs): Deleted.
+	(ucs_to_latin_viscii_lower): Deleted.
+	(latin_viscii_upper_to_ucs): Deleted.
+	(ucs_to_latin_viscii_upper): Deleted.
+	(struct Lisp_Charset): Renamed `encoding_table' to
+	`to_byte1_table'; add `to_byte2_table'.
+	(CHARSET_DECODING_TABLE): New macro.
+	(CHARSET_TO_BYTE1_TABLE): New macro.
+	(CHARSET_TO_BYTE2_TABLE): New macro.
+	(XCHARSET_DECODING_TABLE): New macro.
+	(XCHARSET_TO_BYTE1_TABLE): New macro.
+	(XCHARSET_TO_BYTE2_TABLE): New macro.
+	(MAKE_CHAR): Use `XCHARSET_DECODING_TABLE'; don't use `*_to_ucs'
+	tables.
+	(breakup_char_1): Use `XCHARSET_TO_BYTE1_TABLE' if it is defined;
+	don't use `ucs_to_*' tables.
+
+1999-09-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* text-coding.c (Fmake_coding_system): Don't set up
+	`codesys->fixed.size'.
+	(encode_coding_no_conversion): Use `if' instead of `switch'.
+
+	* file-coding.h (struct Lisp_Coding_System): Delete `fixed.size'.
+
+1999-09-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (make_charset): Delete argument `rep_bytes'.
+	(Fmake_charset): Modify for `make_charset'.
+	(Fmake_reverse_direction_charset): Likewise.
+	(complex_vars_of_mule_charset): Likewise.
+
+1999-09-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c (char_encode_shift_jis): Use table
+	`ucs_to_latin_jisx0201' and BREAKUP_CHAR.
+
+1999-09-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c (text_encode_generic): Use `if' instead of
+	`switch'.
+	(decode_coding_sjis): Use `MAKE_CHAR' and `DECODE_ADD_UCS_CHAR' to
+	decode JIS-Latin.
+
+1999-09-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c (encode_coding_sjis): Deleted.
+	(char_encode_shift_jis): New function.
+	(char_finish_shift_jis): New function.
+	(reset_encoding_stream): Set up `encode_char' and `finish' for
+	`CODESYS_UCS4' and `CODESYS_SHIFT_JIS'.
+	(mule_encode): Use generic encoder for `CODESYS_SHIFT_JIS'.
+	(char_encode_utf8): Treat `eol_type'.
+
+1999-09-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (decode_coding_iso2022): Use
+	`DECODE_ADD_UCS_CHAR'; don't use `XCHARSET_REP_BYTES'.
+
+1999-09-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.7 (Hirano).
+
+1999-09-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-lb.h (CHAR_COLUMNS): New macro.
+
+1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c (char_encode_ucs4): New function.
+	(char_finish_ucs4): New function.
+	(encode_coding_ucs4): Deleted.
+	(mule_encode): Use generic encoder for `CODESYS_UCS4'.
+	(text_encode_generic): Delete local variable `charset' and `half'.
+	(ucs_to_mule_table): Deleted.
+	(mule_to_ucs_table): Deleted.
+	(Fset_ucs_char): Deleted.
+	(ucs_to_char): Deleted.
+	(Fucs_char): Deleted.
+	(Fset_char_ucs): Deleted.
+	(Fchar_ucs): Deleted.
+	(decode_ucs4): Deleted.
+	(mule_char_to_ucs4): Deleted.
+	(encode_ucs4): Deleted.
+	(decode_coding_ucs4): Use `DECODE_ADD_UCS_CHAR'.
+	(decode_coding_utf8): Likewise.
+	(decode_coding_iso2022): Likewise; don't use `XCHARSET_REP_BYTES'.
+	(char_encode_iso2022): Fixed.
+	(syms_of_file_coding): Delete `Fset_ucs_char', `Fucs_char',
+	`Fset_char_ucs' and `Fchar_ucs'.
+	(complex_vars_of_file_coding): Don't initialize
+	`ucs_to_mule_table'.
+
+	* objects-tty.c (tty_initialize_font_instance): Don't use
+	`XCHARSET_COLUMNS'.
+
+	* mule-charset.c (make_charset): Don't set up CHARSET_REP_BYTES in
+	UTF-2000.
+
+	* redisplay-tty.c (tty_output_display_block): Use `CHAR_COLUMNS'
+	instead of `XCHARSET_COLUMNS' and `CHAR_CHARSET'.
+
+	* insdel.c (bufbyte_string_displayed_columns): Use `CHAR_COLUMNS'
+	instead of `XCHARSET_COLUMNS' and `CHAR_CHARSET'.
+	(emchar_string_displayed_columns): Likewise.
+
+	* indent.c (column_at_point): Use `CHAR_COLUMNS' instead of
+	`XCHARSET_COLUMNS' and `CHAR_CHARSET'.
+	(string_column_at_point): Likewise.
+	(Fmove_to_column): Likewise.
+
+	* char-ucs.h (struct Lisp_Charset): Delete `rep_bytes'; add
+	`encoding_table' and `decoding_table'.
+	(CHARSET_REP_BYTES): Deleted.
+	(XCHARSET_REP_BYTES): Deleted.
+	(XCHARSET_COLUMNS): Deleted.
+	(CHAR_COLUMNS): New macro.
+	(lookup_composite_char): Deleted unconditionally.
+	(composite_char_string): Likewise.
+
+1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (Emchar_to_byte_table): New type.
+	(get_byte_from_character_table): New function interface.
+	(Vcharset_latin_jisx0201): New variable.
+	(latin_jisx0201_to_ucs): New variable.
+	(ucs_to_latin_jisx0201): New variable.
+	(Vcharset_latin_iso8859_2): New variable.
+	(latin_iso8859_2_to_ucs): New variable.
+	(ucs_to_latin_iso8859_2): New variable.
+	(Vcharset_latin_iso8859_3): New variable.
+	(latin_iso8859_3_to_ucs): New variable.
+	(ucs_to_latin_iso8859_3): New variable.
+	(Vcharset_latin_iso8859_4): New variable.
+	(latin_iso8859_4_to_ucs): New variable.
+	(ucs_to_latin_iso8859_4): New variable.
+	(Vcharset_latin_iso8859_9): New variable.
+	(latin_iso8859_9_to_ucs): New variable.
+	(ucs_to_latin_iso8859_9): New variable.
+	(Vcharset_latin_viscii_lower): New variable.
+	(latin_viscii_lower_to_ucs): New variable.
+	(ucs_to_latin_viscii_lower): New variable.
+	(Vcharset_latin_viscii_upper): New variable.
+	(latin_viscii_upper_to_ucs): New variable.
+	(ucs_to_latin_viscii_upper): New variable.
+	(CHARSET_ID_OFFSET_94): Changed from 0x60 to 0x55.
+	(LEADING_BYTE_LATIN_VISCII_LOWER): New macro.
+	(LEADING_BYTE_LATIN_VISCII_UPPER): New macro.
+	(MAKE_CHAR): Map `latin-iso8859-2', `latin-iso8859-3',
+	`latin-iso8859-4', `latin-iso8859-9', `latin-jisx0201',
+	`vietnamese-viscii-lower' and `vietnamese-viscii-upper' to BMP.
+	(breakup_char_1): Use `ucs_to_latin_iso8859_2',
+	`ucs_to_latin_iso8859_3', `ucs_to_latin_iso8859_4',
+	`ucs_to_latin_iso8859_9', `ucs_to_latin_viscii_lower',
+	`ucs_to_latin_viscii_upper' and `ucs_to_latin_jisx0201' tables.
+
+	* mule-charset.c (Vcharset_latin_viscii_lower): New variable.
+	(Vcharset_latin_viscii_upper): New variable.
+	(make_byte_from_character_table): New function.
+	(put_byte_from_character_table): New function.
+	(get_byte_from_character_table): New function.
+	(CHAR96): New macro.
+	(ucs_to_latin_jisx0201): New variable.
+	(latin_jisx0201_to_ucs): New variable.
+	(ucs_to_latin_iso8859_2): New variable.
+	(latin_iso8859_2_to_ucs): New variable.
+	(ucs_to_latin_iso8859_3): New variable.
+	(latin_iso8859_3_to_ucs): New variable.
+	(ucs_to_latin_iso8859_4): New variable.
+	(latin_iso8859_4_to_ucs): New variable.
+	(ucs_to_latin_iso8859_9): New variable.
+	(latin_iso8859_9_to_ucs): New variable.
+	(ucs_to_latin_viscii_lower): New variable.
+	(latin_viscii_lower_to_ucs): New variable.
+	(ucs_to_latin_viscii_upper): New variable.
+	(latin_viscii_upper_to_ucs): New variable.
+	(ucs_to_latin_tcvn5712): New variable.
+	(latin_tcvn5712_to_ucs): New variable.
+	(Qlatin_viscii_lower): New variable.
+	(Qlatin_viscii_upper): New variable.
+	(syms_of_mule_charset): Set up new symbol
+	`vietnamese-viscii-lower' and `vietnamese-viscii-upper'.
+	(complex_vars_of_mule_charset): Set up new charset
+	`vietnamese-viscii-lower' and `vietnamese-viscii-upper'; new macro
+	`GENERATE_94_SET' and `GENERATE_96_SET'; use them to generate
+	`ucs_to_<CHARSET>' tables.
+
+1999-09-08  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c: New file.
+
+1999-09-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fmake_char): Fix problem of 256-set.
+
+	* char-ucs.h (Vcharset_ucs_bmp): New variable.
+	(MAKE_CHAR): Modify for `ucs-bmp'.
+	(breakup_char_1): Return `ucs-bmp' and code point of BMP for
+	non-MULE characters of BMP.
+
+1999-09-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.6.
+
+1999-09-05  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* lstream.h:
+	- Include multibyte.h instead of character.h for `BYTE_ASCII_P'.
+	- Include character.h for `CHAR_ASCII_P'.
+
+	* mb-multibyte.h (CHAR_MULTIBYTE_P): Moved from mule-charset.h.
+
+	* mule-charset.h (CHAR_MULTIBYTE_P): Moved to mb-multibyte.h.
+	(CHAR_ASCII_P): Don't use `CHAR_MULTIBYTE_P'.
+
+	* mb-multibyte.h (BYTE_ASCII_P): Moved from char-ucs.h.
+	(BYTE_C0_P): Likewise.
+	(BYTE_C1_P): Likewise.
+	(Lstream_get_emchar_1): Likewise.
+	(Lstream_fput_emchar): Likewise.
+	(Lstream_funget_emchar): Likewise.
+	(copy_internal_to_external): Likewise.
+	(copy_external_to_internal): Likewise.
+
+	* char-ucs.h (BYTE_ASCII_P): Moved to mb-multibyte.h.
+	(BYTE_C0_P): Likewise.
+	(BYTE_C1_P): Likewise.
+	(Lstream_get_emchar_1): Likewise.
+	(Lstream_fput_emchar): Likewise.
+	(Lstream_funget_emchar): Likewise.
+	(copy_internal_to_external): Likewise.
+	(copy_external_to_internal): Likewise.
+
+	* mb-1byte.h (BYTE_ASCII_P): Moved from buffer.h.
+	(REP_BYTES_BY_FIRST_BYTE): Likewise.
+
+	* buffer.h (REP_BYTES_BY_FIRST_BYTE): Moved to mb-1byte.h.
+	(BYTE_ASCII_P): Moved to mb-1byte.h.
+
+1999-09-04  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mb-utf-8.h, mb-lb.h: Include mb-multibyte.h.
+
+	* multibyte.h: Include mb-1byte.h in unibyte-XEmacs.
+	(MAX_EMCHAR_LEN): Moved to mb-1byte.h.
+	(VALID_CHARPTR_P): Moved to mb-*byte.h.
+	(VALIDATE_CHARPTR_BACKWARD): Likewise.
+	(VALIDATE_CHARPTR_FORWARD): Likewise.
+	(simple_charptr_emchar): Moved to mb-multibyte.h.
+	(simple_set_charptr_emchar): Likewise.
+	(simple_charptr_copy_char): Likewise.
+	(non_ascii_charptr_emchar): Likewise.
+	(non_ascii_set_charptr_emchar): Likewise.
+	(non_ascii_charptr_copy_char): Likewise.
+	(charptr_emchar): Moved to mb-*byte.h.
+	(set_charptr_emchar): Likewise.
+	(charptr_copy_char): Likewise.
+
+	* mb-1byte.h, mb-multibyte.h: New files.
+
+1999-09-03  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mb-utf-8.h (MULTIBYTE): New macro.
+	(MAX_EMCHAR_LEN): Moved from buffer.h.
+	(REP_BYTES_BY_FIRST_BYTE): Moved from char-ucs.h.
+
+	* char-ucs.h (REP_BYTES_BY_FIRST_BYTE): Moved to mb-utf-8.h.
+
+	* mb-lb.h, multibyte.h: New files.
+
+	* char-1byte.h (Charset_ID): Moved from buffer.h.
+	(MIN_LEADING_BYTE): Likewise.
+	(LEADING_BYTE_ASCII): Likewise.
+	(NUM_LEADING_BYTES): Likewise.
+	(CHARSETP): Likewise.
+	(CHARSET_BY_LEADING_BYTE): Likewise.
+	(XCHARSET_LEADING_BYTE): Likewise.
+	(XCHARSET_GRAPHIC): Likewise.
+	(XCHARSET_COLUMNS): Likewise.
+	(XCHARSET_DIMENSION): Likewise.
+	(CHAR_CHARSET): Likewise.
+	(CHAR_LEADING_BYTE): Likewise.
+	(BREAKUP_CHAR): Likewise.
+	(Vcharset_ascii): Likewise.
+
+	* buffer.h: Include multibyte.h unconditionally.
+	(VALID_CHARPTR_P): Moved to multibyte.h.
+	(ASSERT_VALID_CHARPTR): Likewise.
+	(REAL_INC_CHARPTR): Likewise.
+	(REAL_INC_CHARBYTIND): Likewise.
+	(REAL_DEC_CHARPTR): Likewise.
+	(INC_CHARPTR): Likewise.
+	(INC_CHARBYTIND): Likewise.
+	(DEC_CHARPTR): Likewise.
+	(VALIDATE_CHARPTR_BACKWARD): Likewise.
+	(VALIDATE_CHARPTR_FORWARD): Likewise.
+	(charptr_n_addr): Likewise.
+	(MAX_EMCHAR_LEN): Moved to mb-*.h.
+	(simple_charptr_emchar): Moved to multibyte.h.
+	(simple_set_charptr_emchar): Likewise.
+	(simple_charptr_copy_char): Likewise.
+	(non_ascii_charptr_emchar): Likewise.
+	(non_ascii_set_charptr_emchar): Likewise.
+	(non_ascii_charptr_copy_char): Likewise.
+	(charptr_emchar): Likewise.
+	(set_charptr_emchar): Likewise.
+	(charptr_copy_char): Likewise.
+	(charptr_emchar_n): Likewise.
+	(Charset_ID): Moved to char-1byte.h.
+	(Vcharset_ascii): Likewise.
+	(CHAR_CHARSET): Likewise.
+	(CHAR_LEADING_BYTE): Likewise.
+	(LEADING_BYTE_ASCII): Likewise.
+	(NUM_LEADING_BYTES): Likewise.
+	(MIN_LEADING_BYTE): Likewise.
+	(CHARSETP): Likewise.
+	(CHARSET_BY_LEADING_BYTE): Likewise.
+	(XCHARSET_LEADING_BYTE): Likewise.
+	(XCHARSET_GRAPHIC): Likewise.
+	(XCHARSET_COLUMNS): Likewise.
+	(XCHARSET_DIMENSION): Likewise.
+	(BREAKUP_CHAR): Likewise.
+
+1999-09-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* character.h: Add document about interface for characters.
+
+	* char-ucs.h (CHAR_ASCII_P): Modify name of argument.
+	(MAKE_CHAR): Delete comment about
+	`FIELD2_TO_OFFICIAL_LEADING_BYTE' and
+	`FIELD2_TO_PRIVATE_LEADING_BYTE'.
+	(BREAKUP_CHAR): Modify name of arguments.
+	(CHAR_CHARSET): Modify name of argument.
+
+	* buffer.h: Delete document about Emchar accessors.
+
+1999-09-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* character.h (CHAR_INTP): Moved from buffer.h
+	(CHAR_OR_CHAR_INTP): Likewise.
+	(XCHAR_OR_CHAR_INT): Likewise.
+	(CHECK_CHAR_COERCE_INT): Likewise.
+
+	* buffer.h (CHAR_INTP): Moved to character.h
+	(CHAR_OR_CHAR_INTP): Likewise.
+	(XCHAR_OR_CHAR_INT): Likewise.
+	(CHECK_CHAR_COERCE_INT): Likewise.
+
+1999-09-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* character.h:
+	- Move definitions about UCS-2000 (UCS-4) to char-ucs.h.
+	- Include char-1byte.h, char-lb.h or char-ucs.h.
+
+	* mb-utf-8.h (CHAR_ASCII_P): Moved to char-ucs.h.
+
+	* buffer.h: Include character unconditionally.
+	(valid_char_p): Moved to char-*.h.
+	(non_ascii_valid_char_p): Moved to char-lb.h.
+
+	* char-1byte.h, char-lb.h, char-ucs.h: New files.
+
+1999-09-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-ccl.c (ccl_driver): Don't define `CCL_WriteMultibyteChar2'
+	in UTF-2000 because it is not ported yet and not to use
+	`FIELD2_TO_OFFICIAL_LEADING_BYTE', `MIN_LEADING_BYTE_OFFICIAL_2',
+	`FIELD1_TO_OFFICIAL_LEADING_BYTE' and
+	`FIELD1_TO_PRIVATE_LEADING_BYTE'.
+
+	* mb-utf-8.h (CHAR_MULTIBYTE_P): Moved from character.h.
+	(CHAR_ASCII_P): Moved from character.h.
+
+	* character.h (CHAR_MULTIBYTE_P): Moved to mb-utf-8.h.
+	(CHAR_ASCII_P): Likewise.
+	(CHAR_FIELD1_MASK): Deleted.
+	(CHAR_FIELD2_MASK): Deleted.
+	(CHAR_FIELD3_MASK): Deleted.
+	(MAX_CHAR_BASIC_LATIN): New macro.
+	(CHAR_FIELD1): Deleted.
+	(CHAR_FIELD2_INTERNAL): Deleted.
+	(CHAR_FIELD3_INTERNAL): Deleted.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Deleted.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Deleted.
+	(FIELD2_TO_PRIVATE_LEADING_BYTE): Deleted.
+	(FIELD2_TO_OFFICIAL_LEADING_BYTE): Deleted.
+	(MIN_CHAR_FIELD1_OFFICIAL): Deleted.
+	(MAX_CHAR_FIELD1_OFFICIAL): Deleted.
+	(MIN_CHAR_FIELD2_PRIVATE): Deleted.
+	(MAX_CHAR_FIELD2_PRIVATE): Deleted.
+	(MIN_CHAR_FIELD1_PRIVATE): Deleted.
+	(MAX_CHAR_FIELD1_PRIVATE): Deleted.
+	(MULE_CHAR_PRIVATE_OFFSET): Deleted.
+	(MIN_CHAR_PRIVATE_TYPE9N): Deleted.
+	(MAX_CHAR_PRIVATE_TYPE9N): Deleted.
+	(MIN_CHAR_PRIVATE_TYPE9NX9N): Deleted.
+	(MIN_CHAR_OFFICIAL_TYPE9NX9N): Deleted.
+	(MIN_CHAR_COMPOSITION): Deleted.
+	(breakup_char_1): Use `MAX_CHAR_BASIC_LATIN' instead of
+	`CHAR_ASCII_P'; use `0x7f' instead of `CHAR_FIELD3_INTERNAL'.
+
+1999-09-02  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* buffer.h: Include mb-utf-8.h in UTF-2000.
+
+	* character.h (BUFBYTE_FIRST_BYTE_P): Moved to mb-utf-8.h.
+
+	* mb-utf-8.h: New file.
+
+1999-09-02  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* chartab.h (CHAR_TABLE_NON_ASCII_VALUE_UNSAFE): Use `Charset_ID'
+	instead of `int'.
+
+	* mule-charset.h, buffer.h (Charset_ID): New type.
+
+1999-09-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-canna.c (c2mu): Use `MAKE_CHAR',
+	`Vcharset_japanese_jisx0212' and `Vcharset_japanese_jisx0208'
+	instead of `MULE_CHAR_PRIVATE_OFFSET',
+	`LEADING_BYTE_JAPANESE_JISX0212', `LEADING_BYTE_JAPANESE_JISX0208'
+	and `FIELD1_TO_OFFICIAL_LEADING_BYTE'.
+	(m2c): Use `BREAKUP_CHAR' and `XCHARSET_FINAL'.
+
+	* character.h (Vcharset_japanese_jisx0212): New variable
+	definition.
+
+1999-09-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Vcharset_ucs_bmp): New variable in UTF-2000.
+	(charset_by_attributes): Delete array about direction.
+	(latin_a_char_to_charset): New variable in UTF-2000.
+	(latin_a_char_to_byte1): New variable in UTF-2000.
+	(latin_a_char_to_byte2): New variable in UTF-2000.
+	(Qucs_bmp): New variable.
+	(next_allocated_1_byte_leading_byte): Use `Charset_ID' instead of
+	`Bufbyte'.
+	(next_allocated_2_byte_leading_byte): Likewise.
+	(non_ascii_set_charptr_emchar): Likewise.
+	(make_charset): Likewise; add `CHARSET_TYPE_128X128' and
+	`CHARSET_TYPE_256X256' in UTF-2000; modify for
+	`charset_by_attributes'.
+	(get_unallocated_leading_byte): Use `Charset_ID' instead of `int'.
+	(char-charset): Use `CHAR_CHARSET' instead of `CHAR_LEADING_BYTE'
+	and `CHARSET_BY_LEADING_BYTE'.
+	(syms_of_mule_charset): Set up `ucs-bmp'; move setting of
+	`utf-2000-version' to `vars_of_mule_charset'.
+	(vars_of_mule_charset): Modify for `charset_by_attributes'; don't
+	define `leading-code-private-11' in UTF-2000; move setting of
+	`utf-2000-version' from `syms_of_mule_charset'.
+	(complex_vars_of_mule_charset): Set up charset `ucs-bmp' in
+	UTF-2000.
+
+	* character.h (Charset_ID): New type.
+	(LEADING_BYTE_UCS_BMP): New macro.
+	(LEADING_BYTE_CONTROL_1): Changed from 0x8F to 0x81.
+	(CHARSET_ID_OFFSET_94): New macro.
+	(MIN_CHARSET_ID_PRIVATE_94): New macro.
+	(MAX_CHARSET_ID_PRIVATE_94): New macro.
+	(LEADING_BYTE_ASCII): Changed to use CHARSET_ID_OFFSET_94 and
+	final-byte.
+	(LEADING_BYTE_KATAKANA_JISX0201): Likewise.
+	(LEADING_BYTE_LATIN_JISX0201): Likewise.
+	(CHARSET_ID_OFFSET_96): New macro.
+	(LEADING_BYTE_LATIN_ISO8859_1): Changed to use
+	CHARSET_ID_OFFSET_96 and final-byte.
+	(LEADING_BYTE_LATIN_ISO8859_2): Likewise.
+	(LEADING_BYTE_LATIN_ISO8859_3): Likewise.
+	(LEADING_BYTE_LATIN_ISO8859_4): Likewise.
+	(LEADING_BYTE_GREEK_ISO8859_7): Likewise.
+	(LEADING_BYTE_ARABIC_ISO8859_6): Likewise.
+	(LEADING_BYTE_HEBREW_ISO8859_8): Likewise.
+	(LEADING_BYTE_CYRILLIC_ISO8859_5): Likewise.
+	(LEADING_BYTE_LATIN_ISO8859_9): Likewise.
+	(LEADING_BYTE_THAI_TIS620): Likewise.
+	(MIN_LEADING_BYTE_PRIVATE_1): Changed from 0x0D0 to 0xD0.
+	(MAX_LEADING_BYTE_PRIVATE_1): Changed from 0x11f to 0xDF.
+	(CHARSET_ID_OFFSET_94x94): New macro.
+	(LEADING_BYTE_CHINESE_BIG5_1): Changed to use
+	CHARSET_ID_OFFSET_94x94 and final-byte.
+	(LEADING_BYTE_CHINESE_BIG5_2): Likewise.
+	(MIN_LEADING_BYTE_PRIVATE_2): Likewise.
+	(MAX_LEADING_BYTE_PRIVATE_2): Likewise.
+	(LEADING_BYTE_JAPANESE_JISX0208_1978): Likewise.
+	(LEADING_BYTE_CHINESE_GB2312): Likewise.
+	(LEADING_BYTE_JAPANESE_JISX0208): Likewise.
+	(LEADING_BYTE_KOREAN_KSC5601): Likewise.
+	(LEADING_BYTE_JAPANESE_JISX0212): Likewise.
+	(LEADING_BYTE_CHINESE_CCITT_GB): Likewise.
+	(LEADING_BYTE_CHINESE_CNS11643_*): Likewise.
+	(LEADING_BYTE_KOREAN_KPS9566): Likewise.
+	(CHARSET_TYPE_128X128): New macro.
+	(CHARSET_TYPE_256X256): New macro.
+	(XCHARSET_PRIVATE_P): Delete unconditionally.
+	(charset_by_attributes): Delete array about direction.
+	(CHARSET_BY_LEADING_BYTE): Use `Charset_ID' instead of `int'.
+	(CHARSET_BY_ATTRIBUTES): Modify for `charset_by_attributes'.
+	(MIN_CHAR_94): New macro.
+	(MAX_CHAR_94): New macro.
+	(MIN_CHAR_96): New macro.
+	(MAX_CHAR_96): New macro.
+	(MIN_CHAR_94x94): New macro.
+	(MAX_CHAR_94x94): New macro.
+	(MIN_CHAR_96x96): New macro.
+	(MAX_CHAR_96x96): New macro.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Use `CHARSET_ID_OFFSET_94x94'.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Likewise.
+	(FIELD2_TO_PRIVATE_LEADING_BYTE): Use `(MIN_LEADING_BYTE_PRIVATE_1
+	- 32)'.
+	(FIELD2_TO_OFFICIAL_LEADING_BYTE): Use `LEADING_BYTE_ASCII'.
+	(MIN_CHAR_FIELD2_OFFICIAL): Deleted.
+	(MAX_CHAR_FIELD2_OFFICIAL): Deleted.
+	(MIN_CHAR_OFFICIAL_TYPE9N): Deleted.
+	(MAX_CHAR_PRIVATE_TYPE9N): Changed.
+	(MAKE_CHAR): Use `XCHARSET_FINAL' instead of
+	`XCHARSET_LEADING_BYTE' to make code-point.
+	(latin_a_char_to_charset): New variable.
+	(latin_a_char_to_byte1): New variable.
+	(latin_a_char_to_byte2): New variable.
+	(breakup_char_1): Use `latin_a_char_to_{charset|byte1|byte2}' for
+	Latin Extended-A; use `CHARSET_BY_ATTRIBUTES' instead of
+	`CHARSET_BY_LEADING_BYTE' to get charset for ISO-2022 characters.
+
+	* insdel.c (find_charsets_in_bufbyte_string): Use `Charset_ID'
+	instead of `unsigned char'; use `MIN_LEADING_BYTE' instead of 128.
+	(find_charsets_in_emchar_string): Likewise.
+	(vars_of_insdel): Don't define local variable `i' in UTF-2000.
+
+	* file-coding.c (Fdecode_big5_char): Use `Charset_ID' instead of
+	`int'.
+	(decode_coding_iso2022): Likewise.
+
+	* toolbar-x.c (x_output_toolbar_button): Use `Charset_ID' instead
+	of `unsigned char'.
+
+	* redisplay.c (redisplay_text_width_emchar_string): Use
+	`Charset_ID' instead of `unsigned char'.
+	(redisplay_frame_text_width_string): Likewise.
+
+	* glyphs.c (glyph_height_internal): Use `Charset_ID' instead of
+	`unsigned char'.
+
+	* faces.h, faces.c (ensure_face_cachel_complete): Use `Charset_ID'
+	instead of `unsigned char'.
+	(face_cachel_charset_font_metric_info): Likewise.
+
+	* chartab.c (print_char_table): Use `Charset_ID' instead of `int'.
+	(get_non_ascii_char_table_value): Likewise.
+	(get_char_table): Likewise.
+	(put_char_table): Likewise.
+	(map_over_other_charset): Likewise.
+	(map_char_table): Likewise.
+
+	* buffer.h (find_charsets_in_bufbyte_string): Use `Charset_ID'
+	instead of `unsigned char'.
+
+1999-08-31  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* character.h (PRE_LEADING_BYTE_PRIVATE_1): Deleted.
+	(PRE_LEADING_BYTE_PRIVATE_2): Deleted.
+
+	* mule-charset.c (leading_code_private_11): Don't define in
+	UTF-2000.
+
+	* mule-ccl.c (ccl_driver): Don't define `CCL_ReadMultibyteChar2'
+	in UTF-2000 because it is not ported yet and not to use
+	`PRE_LEADING_BYTE_PRIVATE_1' and `PRE_LEADING_BYTE_PRIVATE_2'.
+
+1999-08-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* character.h (LEADING_BYTE_COMPOSITE): Deleted.
+
+1999-08-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* regex.c (re_compile_fastmap): Don't use `LEADING_BYTE_PREFIX_P'
+	in UTF-2000.
+
+	* chartab.h (CHAR_TABLE_NON_ASCII_VALUE_UNSAFE): Use int instead
+	of unsigned char to store leading-byte.
+
+	* chartab.c (get_non_ascii_char_table_value): Don't use
+	`BREAKUP_CHAR_1_UNSAFE' in UTF-2000.
+
+	* file-coding.c (encode_coding_big5): Delete bogus implementation
+	in UTF2000.
+
+	* character.h (LEADING_BYTE_*): Delete definition for
+	non-UTF-2000.
+	(LEADING_BYTE_PRIVATE_P): Deleted unconditionally.
+	(LEADING_BYTE_PREFIX_P): Deleted.
+	(PRIVATE_LEADING_BYTE_PREFIX): Deleted.
+	(BUFBYTE_FIRST_BYTE_P): Delete definition for non-UTF-2000.
+	(BUFBYTE_LEADING_BYTE_P): Deleted.
+	(CHARSET_PRIVATE_P): Deleted unconditionally.
+	(rep_bytes_by_first_byte): Deleted unconditionally.
+	(REP_BYTES_BY_FIRST_BYTE): Delete definition for non-UTF-2000.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Likewise.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Likewise.
+	(FIELD2_TO_PRIVATE_LEADING_BYTE): Likewise.
+	(CHAR_FIELD2): Deleted.
+	(CHAR_FIELD3): Deleted.
+	(MAKE_CHAR): Delete definition for non-UTF-2000.
+	(BREAKUP_CHAR_1_UNSAFE): Deleted.
+	(breakup_char_1): New implementation.
+	(CHAR_CHARSET): Use `BREAKUP_CHAR'.
+	(CHAR_LEADING_BYTE): Use `CHAR_CHARSET'.
+
+1999-08-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* character.h (REP_BYTES_BY_FIRST_BYTE): Change order of
+	condition.
+
+1999-08-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* character.h (LEADING_BYTE_PRIVATE_P): Don't define in UTF2000.
+	(CHARSET_PRIVATE_P): Likewise.
+	(XCHARSET_PRIVATE_P): Likewise.
+	(MAKE_CHAR): Don't use XCHARSET_PRIVATE_P in UTF2000.
+
+	* file-coding.c (encode_coding_ucs4): Delete bogus implement in
+	UTF2000.
+	(decode_coding_iso2022): Don't use XCHARSET_PRIVATE_P in UTF2000.
+
+1999-08-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* character.h (LEADING_BYTE_*): Changed in UTF2000.
+	(NUM_LEADING_BYTES): Changed from 128 to 256.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Change value to 0x80 in UTF2000.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Change value to 0x80 in
+	UTF2000.
+	(FIELD2_TO_PRIVATE_LEADING_BYTE): Change value to 0x80 in UTF2000.
+
+	* mule-charset.c (Vcharset_chinese_cns11643_3): New variable in
+	UTF2000.
+	(Vcharset_chinese_cns11643_4): New variable in UTF2000.
+	(Vcharset_chinese_cns11643_5): New variable in UTF2000.
+	(Vcharset_chinese_cns11643_6): New variable in UTF2000.
+	(Vcharset_chinese_cns11643_7): New variable in UTF2000.
+	(Qchinese_cns11643_3): New variable in UTF2000.
+	(Qchinese_cns11643_4): New variable in UTF2000.
+	(Qchinese_cns11643_5): New variable in UTF2000.
+	(Qchinese_cns11643_6): New variable in UTF2000.
+	(Qchinese_cns11643_7): New variable in UTF2000.
+	(syms_of_mule_charset): Define `chinese-cns11643-3',
+	`chinese-cns11643-4', `chinese-cns11643-5', `chinese-cns11643-6'
+	and `chinese-cns11643-7' in UTF2000.
+	(vars_of_mule_charset): Initialize
+	next_allocated_2_byte_leading_byte by LEADING_BYTE_CHINESE_BIG5_2
+	+ 1 in UTF2000.
+	(complex_vars_of_mule_charset): Setup charset
+	`chinese-cns11643-3', `chinese-cns11643-4', `chinese-cns11643-5',
+	`chinese-cns11643-6' and `chinese-cns11643-7' in UTF2000.
+
+1999-08-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c: Move setting for `leading-code-private-11' from
+	`syms_of_mule_charset' to `vars_of_mule_charset'.
+
+1999-08-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.h (CHARSET_BY_LEADING_BYTE): Use `MIN_LEADING_BYTE'
+	and `NUM_LEADING_BYTES' in assert.
+
+1999-08-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* character.h (charset_by_leading_byte): Use `NUM_LEADING_BYTES'
+	instead of 128.
+	(CHARSET_BY_LEADING_BYTE): Use `MIN_LEADING_BYTE' and
+	`NUM_LEADING_BYTES' instead of 128.
+
+1999-08-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.h (charset_by_leading_byte): Use
+	`NUM_LEADING_BYTES' instead of 128.
+	(CHARSET_BY_LEADING_BYTE): Use `MIN_LEADING_BYTE' instead of 128.
+
+	* mule-charset.c (charset_by_leading_byte): Use
+	`NUM_LEADING_BYTES' instead of 128.
+	(make_charset): Use `MIN_LEADING_BYTE' instead of 128.
+
+	* faces.h (FACE_CACHEL_FONT): Use `MIN_LEADING_BYTE' instead of
+	128.
+
+1999-08-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (syms_of_mule_charset): Update to
+	0.4 (Shin-Imamiya).
+
+1999-07-13 Daiki Ueno <ueno@ueda.info.waseda.ac.jp>
+
+	* file-coding.c (encode_coding_sjis): New implementation for
+	UTF2000.  (decode_coding_sjis): Ditto.
+
+1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c, character.h (Bytecount rep_bytes_by_first_byte):
+	Don't define in UTF2000.
+
+	* character.h: Include mule-charset.h if CHAR_IS_UCS4 is not
+	defined.
+
+	* redisplay-msw.c, objects-tty.c, objects-msw.c, mule-wnnfns.c,
+	mule-ccl.c, lstream.h, buffer.h: Include character.h in every
+	MULE.
+
+1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* config.h.in (CHAR_IS_UCS4): New macro.
+
+	* mule-charset.c (rep_bytes_by_first_byte): Modify for
+	conventional MULE representation.
+	(syms_of_mule_charset): Update to 0.3 (Imamiya).
+
+	* mule-charset.h: Reverted to original.
+
+	* redisplay-msw.c, objects-tty.c, objects-msw.c, mule-wnnfns.c,
+	mule-ccl.c, lstream.h, buffer.h: Use "character.h" instead of
+	"mule-charset.h" if CHAR_IS_UCS4 is defined.
+
+	* character.h: New file.
+
+	* file-coding.c (Fmake_coding_system): Set 1 to
+	`codesys->fixed.size' if TYPE is `no-conversion' and UTF2000 is
+	defined.
+	(encode_coding_no_conversion): New implementation for UTF2000.
+
+	* file-coding.h (struct Lisp_Coding_System): Add new member
+	`fixed.size'.
+
+1999-06-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (decode_coding_iso2022): Code-point arguments of
+	`MAKE_CHAR' must be smaller than 0x80 in UTF2000.
+	(encode_coding_iso2022): New implementation for UTF2000.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-canna.c (c2mu): New implementation for UTF2000.
+	(m2c): Likewise.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (encode_coding_no_conversion): Modify for UTF2000.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (reset_encoding_stream): Set 0 to
+	`str->iso2022.current_char_boundary' in UTF2000.
+	(encode_utf8): Don't define in UTF2000.
+	(encode_coding_utf8): New implementation for UTF-8 representation
+	of UTF2000.
+	(complex_vars_of_file_coding): Define coding-system `utf-8'.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule.c (vars_of_mule): Provide `utf-2000' in UTF2000.
+
+	* mule-charset.h (BUFBYTE_FIRST_BYTE_P): Modify for UTF-8 in
+	UTF2000.
+	(REP_BYTES_BY_FIRST_BYTE): Likewise.
+
+	* buffer.h (non_ascii_valid_char_p): Don't define in UTF2000.
+
+	* mule-charset.c (non_ascii_set_charptr_emchar): Don't define
+	local variables `lb', `c1', `c2' and `charset' in UTF2000; encode
+	as UTF-8 in UTF2000.
+	(non_ascii_charptr_emchar): Decode as UTF-8 in UTF2000.
+	(non_ascii_valid_char_p): Don't define in UTF2000.
+	(non_ascii_charptr_copy_char): Add case 5 and 6 in UTF2000.
+	(Lstream_get_emchar_1): Likewise.
+	(utf-2000-version): New variable in UTF2000.
+
+	* lread.c (read_escape): Add new reader `u'.
+
+	* insdel.c (three_to_one_table): Don't define in UTF2000.
+	(bufpos_to_bytind_func): Use `buf->text->mule_size' instead of
+	`buf->text->mule_shifter' and `buf->text->mule_three_p' in
+	UTF2000.
+	(bytind_to_bufpos_func): Likewise.
+	(buffer_mule_signal_inserted_region): Likewise.
+	(vars_of_insdel): Don't initialize `three_to_one_table'.
+	(init_buffer_text): Use `buf->text->mule_size' instead of
+	`buf->text->mule_shifter' and `buf->text->mule_three_p' in
+	UTF2000.
+
+	* file-coding.c (DECODE_ADD_BINARY_CHAR): New implementation for
+	UTF-8 representation in UTF2000.
+	(DECODE_ADD_UCS_CHAR): New macro in UTF2000.
+	(decode_ucs4): Use `DECODE_ADD_UCS_CHAR' in UTF2000.
+	(decode_coding_iso2022): Don't define local variable `lb' in
+	UTF2000; don't use LEADING_BYTE in UTF2000; use
+	`DECODE_ADD_UCS_CHAR' in UTF2000.
+	(convert_to_external_format): Decode as UTF-8 in UTF2000.
+
+	* config.h.in (UTF2000): New macro.
+
+	* buffer.h (struct buffer_text): Add new member `mule_size' and
+	don't add `mule_shifter' and `mule_three_p' in UTF2000.
+	(valid_char_p): Return always 1 in UTF2000.
+	(MAX_EMCHAR_LEN): 6 in UTF2000.
+	(three_to_one_table): Don't define in UTF2000.
+	(real_bufpos_to_bytind): Modify for UTF-8 representation in
+	UTF2000.
+	(real_bytind_to_bufpos): Likewise.
+
+	* alloc.c (Fmake_string): Add case 5 and 6 for UTF2000.
+
+1999-06-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (rep_bytes_by_first_byte): Modified for character
+	representation change.
+	(Vutf_2000_version): New variable.
+	(leading_code_private_11): New variable.
+	(syms_of_mule_charset): Add new variables `utf-2000-version' and
+	`leading-code-private-11'.
+
+	* mule-charset.h (LEADING_BYTE_CHINESE_CCITT_GB): New macro.
+	(LEADING_BYTE_CHINESE_BIG5_1): Changed to 0x96 temporally.
+	(LEADING_BYTE_CHINESE_CNS11643_1): Changed to 0x97.
+	(LEADING_BYTE_CHINESE_CNS11643_2): Changed to 0x98.
+	(LEADING_BYTE_CHINESE_CNS11643_3): New macro.
+	(LEADING_BYTE_CHINESE_CNS11643_4): Likewise.
+	(LEADING_BYTE_CHINESE_CNS11643_5): Likewise.
+	(LEADING_BYTE_CHINESE_CNS11643_6): Likewise.
+	(LEADING_BYTE_CHINESE_CNS11643_7): Likewise [but not used].
+	(LEADING_BYTE_CHINESE_BIG5_2): Changed to 0x9D temporally.
+	(LEADING_BYTE_KOREAN_KPS9566): New macro [but not used].
+	(CHAR_FIELD1_MASK): Changed to (0x7F << 14).
+	(MIN_CHAR_GREEK): New macro.
+	(MAX_CHAR_GREEK): New macro.
+	(MIN_CHAR_CYRILLIC): New macro.
+	(MAX_CHAR_CYRILLIC): New macro.
+	(MIN_CHAR_HEBREW): New macro.
+	(MAX_CHAR_HEBREW): New macro.
+	(MIN_CHAR_THAI): New macro.
+	(MAX_CHAR_THAI): New macro.
+	(MIN_CHAR_HALFWIDTH_KATAKANA): New macro.
+	(MAX_CHAR_HALFWIDTH_KATAKANA): New macro.
+	(CHAR_FIELD2_INTERNAL): New macro [renamed from `CHAR_FIELD2'.
+	(CHAR_FIELD3_INTERNAL): New macro [renamed from `CHAR_FIELD3'.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Changed to 0xc0.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Changed to 0x50.
+	(CHAR_FIELD2): New inline function.
+	(CHAR_FIELD3): New inline function.
+	(MULE_CHAR_PRIVATE_OFFSET): New macro.
+	(MIN_CHAR_OFFICIAL_TYPE9N): Shifted to `MULE_CHAR_PRIVATE_OFFSET'.
+	(MIN_CHAR_PRIVATE_TYPE9N): Likewise.
+	(MIN_CHAR_PRIVATE_TYPE9NX9N): Likewise.
+	(MIN_CHAR_OFFICIAL_TYPE9NX9N): Likewise.
+	(MIN_CHAR_COMPOSITION): Likewise.
+	(CHAR_LEADING_BYTE): Modified for character representation change.
+	(MAKE_CHAR): Likewise.
+
+	* lisp.h (Vcharset_latin_iso8859_1): New variable.
+	(Vcharset_greek_iso8859_7): Likewise.
+	(Vcharset_cyrillic_iso8859_5): Likewise.
+	(Vcharset_hebrew_iso8859_8): Likewise.
+	(Vcharset_thai_tis620): Likewise.
+	(Vcharset_katakana_jisx0201): Likewise.
+
 2001-03-21  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.46 "Urania" is released.
