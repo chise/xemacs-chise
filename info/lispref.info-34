@@ -1,0 +1,1070 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Extent Properties,  Next: Detached Extents,  Prev: Mapping Over Extents,  Up: Extents
+
+Properties of Extents
+=====================
+
+   Each extent has a property list associating property names with
+values.  Some property names have predefined meanings, and can usually
+only assume particular values.  Assigning other values to such a
+property either cause the value to be converted into a legal value
+(e.g., assigning anything but `nil' to a Boolean property will cause
+the value of `t' to be assigned to the property) or will cause an
+error.  Property names without predefined meanings can be assigned any
+value.  An undefined property is equivalent to a property with a value
+of `nil', or with a particular default value in the case of properties
+with predefined meanings.  Note that, when an extent is created, the
+`end-open' and `detachable' properties are set on it.
+
+   If an extent has a parent, all of its properties actually derive
+from that parent (or from the root ancestor if the parent in turn has a
+parent), and setting a property of the extent actually sets that
+property on the parent.  *Note Extent Parents::.
+
+ - Function: extent-property extent property
+     This function returns the value of PROPERTY in EXTENT.  If
+     PROPERTY is undefined, `nil' is returned.
+
+ - Function: extent-properties extent
+     This function returns a list of all of EXTENT's properties that do
+     not have the value of `nil' (or the default value, for properties
+     with predefined meanings).
+
+ - Function: set-extent-property extent property value
+     This function sets PROPERTY to VALUE in EXTENT. (If PROPERTY has a
+     predefined meaning, only certain values are allowed, and some
+     values may be converted to others before being stored.)
+
+ - Function: set-extent-properties extent plist
+     Change some properties of EXTENT.  PLIST is a property list.  This
+     is useful to change many extent properties at once.
+
+   The following table lists the properties with predefined meanings,
+along with their allowable values.
+
+`detached'
+     (Boolean) Whether the extent is detached.   Setting this is the
+     same as calling `detach-extent'.  *Note Detached Extents::.
+
+`destroyed'
+     (Boolean) Whether the extent has been deleted.  Setting this is
+     the same as calling `delete-extent'.
+
+`priority'
+     (integer) The extent's redisplay priority.  Defaults to 0.  *Note
+     priority: Intro to Extents.  This property can also be set with
+     `set-extent-priority' and accessed with `extent-priority'.
+
+`start-open'
+     (Boolean) Whether the start position of the extent is open,
+     meaning that characters inserted at that position go outside of
+     the extent.  *Note Extent Endpoints::.
+
+`start-closed'
+     (Boolean) Same as `start-open' but with the opposite sense.
+     Setting this property clears `start-open' and vice-versa.
+
+`end-open'
+     (Boolean) Whether the end position of the extent is open, meaning
+     that characters inserted at that position go outside of the
+     extent.  This is `t' by default.  *Note Extent Endpoints::.
+
+`end-closed'
+     (Boolean) Same as `end-open' but with the opposite sense.  Setting
+     this property clears `end-open' and vice-versa.
+
+`read-only'
+     (Boolean) Whether text within this extent will be unmodifiable.
+
+`face'
+     (face, face name, list of faces or face names, or `nil') The face
+     in which to display the extent's text.  This property can also be
+     set with `set-extent-face' and accessed with `extent-face'.  Note
+     that if a list of faces is specified, the faces are merged
+     together, with faces earlier in the list having priority over
+     faces later in the list.
+
+`mouse-face'
+     (face, face name, list of faces or face names, or `nil') The face
+     used to display the extent when the mouse moves over it.  This
+     property can also be set with `set-extent-mouse-face' and accessed
+     with `extent-mouse-face'.  Note that if a list of faces is
+     specified, the faces are merged together, with faces earlier in
+     the list having priority over faces later in the list.  *Note
+     Extents and Events::.
+
+`pointer'
+     (pointer glyph)  The glyph used as the pointer when the mouse
+     moves over the extent.  This takes precedence over the
+     `text-pointer-glyph' and `nontext-pointer-glyph' variables.  If
+     for any reason this glyph is an invalid pointer, the standard
+     glyphs will be used as fallbacks.  *Note Mouse Pointer::.
+
+`detachable'
+     (Boolean) Whether this extent becomes detached when all of the
+     text it covers is deleted.  This is `t' by default.  *Note
+     Detached Extents::.
+
+`duplicable'
+     (Boolean) Whether this extent should be copied into strings, so
+     that kill, yank, and undo commands will restore or copy it.  *Note
+     Duplicable Extents::.
+
+`unique'
+     (Boolean) Meaningful only in conjunction with `duplicable'.  When
+     this is set, there may be only one instance of this extent
+     attached at a time.  *Note Duplicable Extents::.
+
+`invisible'
+     (Boolean) If `t', text under this extent will not be displayed -
+     it will look as if the text is not there at all.
+
+`keymap'
+     (keymap or `nil') This keymap is consulted for mouse clicks on this
+     extent or keypresses made while `point' is within the extent.
+     *Note Extents and Events::.
+
+`copy-function'
+     This is a hook that is run when a duplicable extent is about to be
+     copied from a buffer to a string (or the kill ring).  *Note
+     Duplicable Extents::.
+
+`paste-function'
+     This is a hook that is run when a duplicable extent is about to be
+     copied from a string (or the kill ring) into a buffer.  *Note
+     Duplicable Extents::.
+
+`begin-glyph'
+     (glyph or `nil') This extent's begin glyph.  *Note Annotations::.
+
+`end-glyph'
+     (glyph or `nil') This extent's end glyph.  *Note Annotations::.
+
+`begin-glyph-layout'
+     (`text', `whitespace', `inside-margin', or `outside-margin') The
+     layout policy for this extent's begin glyph.  Defaults to `text'.
+     *Note Annotations::.
+
+`end-glyph-layout'
+     (`text', `whitespace', `inside-margin', or `outside-margin') The
+     layout policy for this extent's end glyph.  Defaults to `text'.
+     *Note Annotations::.
+
+`initial-redisplay-function'
+     (any funcallable object) The function to be called the first time
+     (a part of) the extent is redisplayed.  It will be called with the
+     extent as its argument.
+
+     This is used by `lazy-shot' to implement lazy font-locking.  The
+     functionality is still experimental, and may change without further
+     notice.
+
+   The following convenience functions are provided for accessing
+particular properties of an extent.
+
+ - Function: extent-face extent
+     This function returns the `face' property of EXTENT.  This might
+     also return a list of face names.  Do not modify this list
+     directly!  Instead, use `set-extent-face'.
+
+     Note that you can use `eq' to compare lists of faces as returned
+     by `extent-face'.  In other words, if you set the face of two
+     different extents to two lists that are `equal' but not `eq', then
+     the return value of `extent-face' on the two extents will return
+     the identical list.
+
+ - Function: extent-mouse-face extent
+     This function returns the `mouse-face' property of EXTENT.  This
+     might also return a list of face names.  Do not modify this list
+     directly!  Instead, use `set-extent-mouse-face'.
+
+     Note that you can use `eq' to compare lists of faces as returned
+     by `extent-mouse-face', just like for `extent-face'.
+
+ - Function: extent-priority extent
+     This function returns the `priority' property of EXTENT.
+
+ - Function: extent-keymap extent
+     This function returns the `keymap' property of EXTENT.
+
+ - Function: extent-begin-glyph-layout extent
+     This function returns the `begin-glyph-layout' property of EXTENT,
+     i.e. the layout policy associated with the EXTENT's begin glyph.
+
+ - Function: extent-end-glyph-layout extent
+     This function returns the `end-glyph-layout' property of EXTENT,
+     i.e. the layout policy associated with the EXTENT's end glyph.
+
+ - Function: extent-begin-glyph extent
+     This function returns the `begin-glyph' property of EXTENT, i.e.
+     the glyph object displayed at the beginning of EXTENT.  If there
+     is none, `nil' is returned.
+
+ - Function: extent-end-glyph extent
+     This function returns the `end-glyph' property of EXTENT, i.e. the
+     glyph object displayed at the end of EXTENT.  If there is none,
+     `nil' is returned.
+
+   The following convenience functions are provided for setting
+particular properties of an extent.
+
+ - Function: set-extent-priority extent pri
+     This function sets the `priority' property of EXTENT to PRI.
+
+ - Function: set-extent-face extent face
+     This function sets the `face' property of EXTENT to FACE.
+
+ - Function: set-extent-mouse-face extent face
+     This function sets the `mouse-face' property of EXTENT to FACE.
+
+ - Function: set-extent-keymap extent keymap
+     This function sets the `keymap' property of EXTENT to KEYMAP.
+     KEYMAP must be either a keymap object, or `nil'.
+
+ - Function: set-extent-begin-glyph-layout extent layout
+     This function sets the `begin-glyph-layout' property of EXTENT to
+     LAYOUT.
+
+ - Function: set-extent-end-glyph-layout extent layout
+     This function sets the `end-glyph-layout' property of EXTENT to
+     LAYOUT.
+
+ - Function: set-extent-begin-glyph extent begin-glyph &optional layout
+     This function sets the `begin-glyph' and `glyph-layout' properties
+     of EXTENT to BEGIN-GLYPH and LAYOUT, respectively. (LAYOUT
+     defaults to `text' if not specified.)
+
+ - Function: set-extent-end-glyph extent end-glyph &optional layout
+     This function sets the `end-glyph' and `glyph-layout' properties
+     of EXTENT to END-GLYPH and LAYOUT, respectively. (LAYOUT defaults
+     to `text' if not specified.)
+
+ - Function: set-extent-initial-redisplay-function extent function
+     This function sets the `initial-redisplay-function' property of the
+     extent to FUNCTION.
+
+
+File: lispref.info,  Node: Detached Extents,  Next: Extent Parents,  Prev: Extent Properties,  Up: Extents
+
+Detached Extents
+================
+
+   A detached extent is an extent that is not attached to a buffer or
+string but can be re-inserted.  Detached extents have a start position
+and end position of `nil'.  Extents can be explicitly detached using
+`detach-extent'.  An extent is also detached when all of its characters
+are all killed by a deletion, if its `detachable' property is set; if
+this property is not set, the extent becomes a zero-length extent.
+(Zero-length extents with the `detachable' property set behave
+specially.  *Note zero-length extents: Extent Endpoints.)
+
+ - Function: detach-extent extent
+     This function detaches EXTENT from its buffer or string.  If
+     EXTENT has the `duplicable' property, its detachment is tracked by
+     the undo mechanism.  *Note Duplicable Extents::.
+
+ - Function: extent-detached-p extent
+     This function returns `nil' if EXTENT is detached, and `t'
+     otherwise.
+
+ - Function: copy-extent extent &optional object
+     This function makes a copy of EXTENT.  It is initially detached.
+     Optional argument OBJECT defaults to EXTENT's object (normally a
+     buffer or string, but could be `nil').
+
+ - Function: insert-extent extent &optional start end no-hooks object
+     This function inserts EXTENT from START to END in OBJECT (a buffer
+     or string).  If EXTENT is detached from a different buffer or
+     string, or in most cases when EXTENT is already attached, the
+     extent will first be copied as if with `copy-extent'.  This
+     function operates the same as if `insert' were called on a string
+     whose extent data calls for EXTENT to be inserted, except that if
+     NO-HOOKS is non-`nil', EXTENT's `paste-function' will not be
+     invoked.  *Note Duplicable Extents::.
+
+
+File: lispref.info,  Node: Extent Parents,  Next: Duplicable Extents,  Prev: Detached Extents,  Up: Extents
+
+Extent Parents
+==============
+
+   An extent can have a parent extent set for it.  If this is the case,
+the extent derives all its properties from that extent and has no
+properties of its own.  The only "properties" that the extent keeps are
+the buffer or string it refers to and the start and end points.  (More
+correctly, the extent's own properties are shadowed.  If you later
+change the extent to have no parent, its own properties will become
+visible again.)
+
+   It is possible for an extent's parent to itself have a parent, and
+so on.  Through this, a whole tree of extents can be created, all
+deriving their properties from one root extent.  Note, however, that
+you cannot create an inheritance loop--this is explicitly disallowed.
+
+   Parent extents are used to implement the extents over the modeline.
+
+ - Function: set-extent-parent extent parent
+     This function sets the parent of EXTENT to PARENT.  If PARENT is
+     `nil', the extent is set to have no parent.
+
+ - Function: extent-parent extent
+     This function return the parents (if any) of EXTENT, or `nil'.
+
+ - Function: extent-children extent
+     This function returns a list of the children (if any) of EXTENT.
+     The children of an extent are all those extents whose parent is
+     that extent.  This function does not recursively trace children of
+     children.
+
+ - Function: extent-descendants extent
+     This function returns a list of all descendants of EXTENT,
+     including EXTENT.  This recursively applies `extent-children' to
+     any children of EXTENT, until no more children can be found.
+
+
+File: lispref.info,  Node: Duplicable Extents,  Next: Extents and Events,  Prev: Extent Parents,  Up: Extents
+
+Duplicable Extents
+==================
+
+   If an extent has the `duplicable' property, it will be copied into
+strings, so that kill, yank, and undo commands will restore or copy it.
+
+   Specifically:
+
+   * When a string is created using `buffer-substring' or
+     `buffer-string', any duplicable extents in the region corresponding
+     to the string will be copied into the string (*note Buffer
+     Contents::).  When the string in inserted into a buffer using
+     `insert', `insert-before-markers', `insert-buffer' or
+     `insert-buffer-substring', the extents in the string will be copied
+     back into the buffer (*note Insertion::).  The extents in a string
+     can, of course, be retrieved explicitly using the standard extent
+     primitives over the string.
+
+   * Similarly, when text is copied or cut into the kill ring, any
+     duplicable extents will be remembered and reinserted later when
+     the text is pasted back into a buffer.
+
+   * When `concat' is called on strings, the extents in the strings are
+     copied into the resulting string.
+
+   * When `substring' is called on a string, the relevant extents are
+     copied into the resulting string.
+
+   * When a duplicable extent is detached by `detach-extent' or string
+     deletion, or inserted by `insert-extent' or string insertion, the
+     action is recorded by the undo mechanism so that it can be undone
+     later.  Note that if an extent gets detached and then a later undo
+     causes the extent to get reinserted, the new extent will not be
+     `eq' to the original extent.
+
+   * Extent motion, face changes, and attachment via `make-extent' are
+     not recorded by the undo mechanism.  This means that extent changes
+     which are to be undo-able must be performed by character editing,
+     or by insertion and detachment of duplicable extents.
+
+   * A duplicable extent's `copy-function' property, if non-`nil',
+     should be a function, and will be run when a duplicable extent is
+     about to be copied from a buffer to a string (or the kill ring).
+     It is called with three arguments: the extent and the buffer
+     positions within it which are being copied.  If this function
+     returns `nil', then the extent will not be copied; otherwise it
+     will.
+
+   * A duplicable extent's `paste-function' property, if non-`nil',
+     should be a function, and will be run when a duplicable extent is
+     about to be copied from a string (or the kill ring) into a buffer.
+     It is called with three arguments: the original extent and the
+     buffer positions which the copied extent will occupy. (This hook
+     is run after the corresponding text has already been inserted into
+     the buffer.) Note that the extent argument may be detached when
+     this function is run.  If this function returns `nil', no extent
+     will be inserted.  Otherwise, there will be an extent covering the
+     range in question.
+
+     Note: if the extent to be copied is already attached to the buffer
+     and overlaps the new range, the extent will simply be extended and
+     the `paste-function' will not be called.
+
+
+File: lispref.info,  Node: Extents and Events,  Next: Atomic Extents,  Prev: Duplicable Extents,  Up: Extents
+
+Interaction of Extents with Keyboard and Mouse Events
+=====================================================
+
+   If an extent has the `mouse-face' property set, it will be
+highlighted when the mouse passes over it.  Highlighting is accomplished
+by merging the extent's face with the face or faces specified by the
+`mouse-face' property.  The effect is as if a pseudo-extent with the
+`mouse-face' face were inserted after the extent in the display order
+(*note Extent Endpoints::, display order).
+
+ - Variable: mouse-highlight-priority
+     This variable holds the priority to use when merging in the
+     highlighting pseudo-extent.  The default is 1000.  This is
+     purposely set very high so that the highlighting pseudo-extent
+     shows up even if there are other extents with various priorities
+     at the same location.
+
+   You can also explicitly cause an extent to be highlighted.  Only one
+extent at a time can be highlighted in this fashion, and any other
+highlighted extent will be de-highlighted.
+
+ - Function: highlight-extent extent &optional highlight-p
+     This function highlights (if HIGHLIGHT-P is non-`nil') or
+     de-highlights (if HIGHLIGHT-P is `nil') EXTENT, if EXTENT has the
+     `mouse-face' property. (Nothing happens if EXTENT does not have
+     the `mouse-face' property.)
+
+ - Function: force-highlight-extent extent &optional highlight-p
+     This function is similar to `highlight-extent' but highlights or
+     de-highlights the extent regardless of whether it has the
+     `mouse-face' property.
+
+   If an extent has a `keymap' property, this keymap will be consulted
+for mouse clicks on the extent and keypresses made while `point' is
+within the extent.  The behavior of mouse clicks and keystrokes not
+defined in the keymap is as normal for the buffer.
+
+
+File: lispref.info,  Node: Atomic Extents,  Prev: Extents and Events,  Up: Extents
+
+Atomic Extents
+==============
+
+   If the Lisp file `atomic-extents' is loaded, then the atomic extent
+facility is available.  An "atomic extent" is an extent for which
+`point' cannot be positioned anywhere within it.  This ensures that
+when selecting text, either all or none of the extent is selected.
+
+   To make an extent atomic, set its `atomic' property.
+
+
+File: lispref.info,  Node: Specifiers,  Next: Faces and Window-System Objects,  Prev: Extents,  Up: Top
+
+Specifiers
+**********
+
+   A specifier is an object used to keep track of a property whose value
+may vary depending on the particular situation (e.g. particular buffer
+displayed in a particular window) that it is used in.  The value of many
+built-in properties, such as the font, foreground, background, and such
+properties of a face and variables such as `modeline-shadow-thickness'
+and `top-toolbar-height', is actually a specifier object.  The
+specifier object, in turn, is "instanced" in a particular situation to
+yield the real value of the property in that situation.
+
+ - Function: specifierp object
+     This function returns non-`nil' if OBJECT is a specifier.
+
+* Menu:
+
+* Introduction to Specifiers::  Specifiers provide a clean way for
+                                display and other properties to vary
+                                (under user control) in a wide variety
+                                of contexts.
+* Specifiers In-Depth::         Gory details about specifier innards.
+* Specifier Instancing::        Instancing means obtaining the ``value'' of
+                                a specifier in a particular context.
+* Specifier Types::             Specifiers come in different flavors.
+* Adding Specifications::       Specifications control a specifier's ``value''
+                                by giving conditions under which a
+                                particular value is valid.
+* Retrieving Specifications::   Querying a specifier's specifications.
+* Specifier Tag Functions::     Working with specifier tags.
+* Specifier Instancing Functions::
+                                Functions to instance a specifier.
+* Specifier Example::           Making all this stuff clearer.
+* Creating Specifiers::         Creating specifiers for your own use.
+* Specifier Validation Functions::
+                                Validating the components of a specifier.
+* Other Specification Functions::
+                                Other ways of working with specifications.
+
+
+File: lispref.info,  Node: Introduction to Specifiers,  Next: Specifiers In-Depth,  Up: Specifiers
+
+Introduction to Specifiers
+==========================
+
+   Sometimes you may want the value of a property to vary depending on
+the context the property is used in.  A simple example of this in XEmacs
+is buffer-local variables.  For example, the variable
+`modeline-format', which controls the format of the modeline, can have
+different values depending on the particular buffer being edited.  The
+variable has a default value which most modes will use, but a
+specialized package such as Calendar might change the variable so as to
+tailor the modeline to its own purposes.
+
+   Other properties (such as those that can be changed by the
+`modify-frame-parameters' function, for example the color of the text
+cursor) can have frame-local values, although it might also make sense
+for them to have buffer-local values.  In other cases, you might want
+the property to vary depending on the particular window within the
+frame that applies (e.g. the top or bottom window in a split frame), the
+device type that that frame appears on (X or tty), etc.  Perhaps you can
+envision some more complicated scenario where you want a particular
+value in a specified buffer, another value in all other buffers
+displayed on a particular frame, another value in all other buffers
+displayed in all other frames on any mono (two-color, e.g. black and
+white only) displays, and a default value in all other circumstances.
+
+   A "specifier" is a generalization of this, allowing a great deal of
+flexibility in controlling exactly what value a property has in which
+circumstances.  It is most commonly used for display properties, such as
+an image or the foreground color of a face.  As a simple example, you
+can specify that the foreground of the default face be
+
+   * blue for a particular buffer
+
+   * green for all other buffers
+
+   As a more complicated example, you could specify that the foreground
+of the default face be
+
+   * forest green for all buffers displayed in a particular Emacs
+     window, or green if the X server doesn't recognize the color
+     `forest green'
+
+   * blue for all buffers displayed in a particular frame
+
+   * red for all other buffers displayed on a color device
+
+   * white for all other buffers
+
+
+File: lispref.info,  Node: Specifiers In-Depth,  Next: Specifier Instancing,  Prev: Introduction to Specifiers,  Up: Specifiers
+
+In-Depth Overview of a Specifier
+================================
+
+   A specifier object encapsulates a set of "specifications", each of
+which says what its value should be if a particular condition applies.
+For example, one specification might be "The value should be
+darkseagreen2 on X devices" another might be "The value should be blue
+in the *Help* buffer".  In specifier terminology, these conditions are
+called "locales" and the values are called "instantiators".  Given a
+specifier, a logical question is "What is its value in a particular
+situation?" This involves looking through the specifications to see
+which ones apply to this particular situation, and perhaps preferring
+one over another if more than one applies.  In specifier terminology, a
+"particular situation" is called a "domain", and determining its value
+in a particular domain is called "instancing".  Most of the time, a
+domain is identified by a particular window.  For example, if the
+redisplay engine is drawing text in the default face in a particular
+window, it retrieves the specifier for the foreground color of the
+default face and "instances" it in the domain given by that window; in
+other words, it asks the specifier, "What is your value in this
+window?".
+
+   More specifically, a specifier contains a set of "specifications",
+each of which associates a "locale" (a window object, a buffer object,
+a frame object, a device object, or the symbol `global') with an
+"inst-list", which is a list of one or more "inst-pairs". (For each
+possible locale, there can be at most one specification containing that
+locale.) Each inst-pair is a cons of a "tag set" (an unordered list of
+zero or more symbols, or "tags") and an "instantiator" (the allowed
+form of this varies depending on the type of specifier).  In a given
+specification, there may be more than one inst-pair with the same tag
+set; this is unlike for locales.
+
+   The tag set is used to restrict the sorts of devices over which the
+instantiator is valid and to uniquely identify instantiators added by a
+particular application, so that different applications can work on the
+same specifier and not interfere with each other.  Each tag can have a
+"predicate" associated with it, which is a function of one argument (a
+device) that specifies whether the tag matches that particular device.
+(If a tag does not have a predicate, it matches all devices.)  All tags
+in a tag set must match a device for the associated inst-pair to be
+instantiable over that device.  (A null tag set is perfectly valid.)
+
+   The valid device types (normally `x', `tty', and `stream') and
+device classes (normally `color', `grayscale', and `mono') can always
+be used as tags, and match devices of the associated type or class
+(*note Consoles and Devices::).  User-defined tags may be defined, with
+an optional predicate specified.  An application can create its own
+tag, use it to mark all its instantiators, and be fairly confident that
+it will not interfere with other applications that modify the same
+specifier--Functions that add a specification to a specifier usually
+only overwrite existing inst-pairs with the same tag set as was given,
+and a particular tag or tag set can be specified when removing
+instantiators.
+
+   When a specifier is instanced in a domain, both the locale and the
+tag set can be viewed as specifying necessary conditions that must
+apply in that domain for an instantiator to be considered as a possible
+result of the instancing.  More specific locales always override more
+general locales (thus, there is no particular ordering of the
+specifications in a specifier); however, the tag sets are simply
+considered in the order that the inst-pairs occur in the
+specification's inst-list.
+
+   Note also that the actual object that results from the instancing
+(called an "instance object") may not be the same as the instantiator
+from which it was derived.  For some specifier types (such as integer
+specifiers and boolean specifiers), the instantiator will be returned
+directly as the instance object.  For other types, however, this is not
+the case.  For example, for font specifiers, the instantiator is a
+font-description string and the instance object is a font-instance
+object, which describes how the font is displayed on a particular
+device.  A font-instance object encapsulates such things as the actual
+font name used to display the font on that device (a font-description
+string under X is usually a wildcard specification that may resolve to
+different font names, with possibly different foundries, widths, etc.,
+on different devices), the extra properties of that font on that
+device, etc.  Furthermore, this conversion (called "instantiation")
+might fail--a font or color might not exist on a particular device, for
+example.
+
+
+File: lispref.info,  Node: Specifier Instancing,  Next: Specifier Types,  Prev: Specifiers In-Depth,  Up: Specifiers
+
+How a Specifier Is Instanced
+============================
+
+   Instancing of a specifier in a particular window domain proceeds as
+follows:
+
+   * First, XEmacs searches for a specification whose locale is the
+     same as the window.  If that fails, the search is repeated,
+     looking for a locale that is the same as the window's buffer.  If
+     that fails, the search is repeated using the window's frame, then
+     using the device that frame is on.  Finally, the specification
+     whose locale is the symbol `global' (if there is such a
+     specification) is considered.
+
+   * The inst-pairs contained in the specification that was found are
+     considered in their order in the inst-list, looking for one whose
+     tag set matches the device that is derived from the window domain.
+     (The tag set is an unordered list of zero or more tag symbols.
+     For all tags that have predicates associated with them, the
+     predicate must match the device.)
+
+   * If a matching tag set is found, the corresponding instantiator is
+     passed to the specifier's instantiation method, which is specific
+     to the type of the specifier.  If it succeeds, the resulting
+     instance object is returned as the result of the instancing and
+     the instancing is done.  Otherwise, the operation continues,
+     looking for another matching inst-pair in the current
+     specification.
+
+   * When there are no more inst-pairs to be considered in the current
+     specification, the search starts over, looking for another
+     specification as in the first step above.
+
+   * If all specifications are exhausted and no instance object can be
+     derived, the instancing fails. (Actually, this is not completely
+     true.  Some specifier objects for built-in properties have a
+     "fallback" value, which is either an inst-list or another
+     specifier object, that is consulted if the instancing is about to
+     fail.  If it is an inst-list, the searching proceeds using the
+     inst-pairs in that list.  If it is a specifier, the entire
+     instancing starts over using that specifier instead of the given
+     one.  Fallback values are set by the C code and cannot be
+     modified, except perhaps indirectly, using any Lisp functions.
+     The purpose of them is to supply some values to make sure that
+     instancing of built-in properties can't fail and to implement some
+     basic specifier inheritance, such as the fact that faces inherit
+     their properties from the `default' face.)
+
+   It is also possible to instance a specifier over a frame domain or
+device domain instead of over a window domain.  The C code, for example,
+instances the `top-toolbar-height' variable over a frame domain in
+order to determine the height of a frame's top toolbar.  Instancing over
+a frame or device is similar to instancing over a window except that
+specifications for locales that cannot be derived from the domain are
+ignored.  Specifically, instancing over a frame looks first for frame
+locales, then device locales, then the `global' locale.  Instancing
+over a device domain looks only for device locales and the `global'
+locale.
+
+
+File: lispref.info,  Node: Specifier Types,  Next: Adding Specifications,  Prev: Specifier Instancing,  Up: Specifiers
+
+Specifier Types
+===============
+
+   There are various different types of specifiers.  The type of a
+specifier controls what sorts of instantiators are valid, how an
+instantiator is instantiated, etc.  Here is a list of built-in specifier
+types:
+
+`boolean'
+     The valid instantiators are the symbols `t' and `nil'.  Instance
+     objects are the same as instantiators so no special instantiation
+     function is needed.
+
+`integer'
+     The valid instantiators are integers.  Instance objects are the
+     same as instantiators so no special instantiation function is
+     needed.  `modeline-shadow-thickness' is an example of an integer
+     specifier (negative thicknesses indicate that the shadow is drawn
+     recessed instead of raised).
+
+`natnum'
+     The valid instantiators are natnums (non-negative integers).
+     Instance objects are the same as instantiators so no special
+     instantiation function is needed.  Natnum specifiers are used for
+     dimension variables such as `top-toolbar-height'.
+
+`generic'
+     All Lisp objects are valid instantiators.  Instance objects are
+     the same as instantiators so no special instantiation function is
+     needed.
+
+`font'
+     The valid instantiators are strings describing fonts or vectors
+     indicating inheritance from the font of some face.  Instance
+     objects are font-instance objects, which are specific to a
+     particular device.  The instantiation method for font specifiers
+     can fail, unlike for integer, natnum, boolean, and generic
+     specifiers.
+
+`color'
+     The valid instantiators are strings describing colors or vectors
+     indicating inheritance from the foreground or background of some
+     face.  Instance objects are color-instance objects, which are
+     specific to a particular device.  The instantiation method for
+     color specifiers can fail, as for font specifiers.
+
+`image'
+     Images are perhaps the most complicated type of built-in
+     specifier.  The valid instantiators are strings (a filename,
+     inline data for a pixmap, or text to be displayed in a text glyph)
+     or vectors describing inline data of various sorts or indicating
+     inheritance from the background-pixmap property of some face.
+     Instance objects are either strings (for text images),
+     image-instance objects (for pixmap images), or subwindow objects
+     (for subwindow images).  The instantiation method for image
+     specifiers can fail, as for font and color specifiers.
+
+`face-boolean'
+     The valid instantiators are the symbols `t' and `nil' and vectors
+     indicating inheritance from a boolean property of some face.
+     Specifiers of this sort are used for all of the built-in boolean
+     properties of faces.  Instance objects are either the symbol `t'
+     or the symbol `nil'.
+
+`toolbar'
+     The valid instantiators are toolbar descriptors, which are lists
+     of toolbar-button descriptors (each of which is a vector of two or
+     four elements).  *Note Toolbar::, for more information.
+
+   Color and font instance objects can also be used in turn as
+instantiators for a new color or font instance object.  Since these
+instance objects are device-specific, the instantiator can be used
+directly as the new instance object, but only if they are of the same
+device.  If the devices differ, the base color or font of the
+instantiating object is effectively used instead as the instantiator.
+
+   *Note Faces and Window-System Objects::, for more information on
+fonts, colors, and face-boolean specifiers.  *Note Glyphs::, for more
+information about image specifiers.  *Note Toolbar::, for more
+information on toolbar specifiers.
+
+ - Function: specifier-type specifier
+     This function returns the type of SPECIFIER.  The returned value
+     will be a symbol: one of `integer', `boolean', etc., as listed in
+     the above table.
+
+   Functions are also provided to query whether an object is a
+particular kind of specifier:
+
+ - Function: boolean-specifier-p object
+     This function returns non-`nil' if OBJECT is a boolean specifier.
+
+ - Function: integer-specifier-p object
+     This function returns non-`nil' if OBJECT is an integer specifier.
+
+ - Function: natnum-specifier-p object
+     This function returns non-`nil' if OBJECT is a natnum specifier.
+
+ - Function: generic-specifier-p object
+     This function returns non-`nil' if OBJECT is a generic specifier.
+
+ - Function: face-boolean-specifier-p object
+     This function returns non-`nil' if OBJECT is a face-boolean
+     specifier.
+
+ - Function: toolbar-specifier-p object
+     This function returns non-`nil' if OBJECT is a toolbar specifier.
+
+ - Function: font-specifier-p object
+     This function returns non-`nil' if OBJECT is a font specifier.
+
+ - Function: color-specifier-p object
+     This function returns non-`nil' if OBJECT is a color specifier.
+
+ - Function: image-specifier-p object
+     This function returns non-`nil' if OBJECT is an image specifier.
+
+
+File: lispref.info,  Node: Adding Specifications,  Next: Retrieving Specifications,  Prev: Specifier Types,  Up: Specifiers
+
+Adding specifications to a Specifier
+====================================
+
+ - Function: add-spec-to-specifier specifier instantiator &optional
+          locale tag-set how-to-add
+     This function adds a specification to SPECIFIER.  The
+     specification maps from LOCALE (which should be a window, buffer,
+     frame, device, or the symbol `global', and defaults to `global')
+     to INSTANTIATOR, whose allowed values depend on the type of the
+     specifier.  Optional argument TAG-SET limits the instantiator to
+     apply only to the specified tag set, which should be a list of
+     tags all of which must match the device being instantiated over
+     (tags are a device type, a device class, or tags defined with
+     `define-specifier-tag').  Specifying a single symbol for TAG-SET
+     is equivalent to specifying a one-element list containing that
+     symbol.  Optional argument HOW-TO-ADD specifies what to do if
+     there are already specifications in the specifier.  It should be
+     one of
+
+    `prepend'
+          Put at the beginning of the current list of instantiators for
+          LOCALE.
+
+    `append'
+          Add to the end of the current list of instantiators for
+          LOCALE.
+
+    `remove-tag-set-prepend'
+          This is the default.  Remove any existing instantiators whose
+          tag set is the same as TAG-SET; then put the new instantiator
+          at the beginning of the current list.
+
+    `remove-tag-set-append'
+          Remove any existing instantiators whose tag set is the same as
+          TAG-SET; then put the new instantiator at the end of the
+          current list.
+
+    `remove-locale'
+          Remove all previous instantiators for this locale before
+          adding the new spec.
+
+    `remove-locale-type'
+          Remove all specifications for all locales of the same type as
+          LOCALE (this includes LOCALE itself) before adding the new
+          spec.
+
+    `remove-all'
+          Remove all specifications from the specifier before adding
+          the new spec.
+
+     `remove-tag-set-prepend' is the default.
+
+     You can retrieve the specifications for a particular locale or
+     locale type with the function `specifier-spec-list' or
+     `specifier-specs'.
+
+ - Function: add-spec-list-to-specifier specifier spec-list &optional
+          how-to-add
+     This function adds a "spec-list" (a list of specifications) to
+     SPECIFIER.  The format of a spec-list is
+
+            `((LOCALE (TAG-SET . INSTANTIATOR) ...) ...)'
+
+     where
+
+        * LOCALE := a window, a buffer, a frame, a device, or `global'
+
+        * TAG-SET := an unordered list of zero or more TAGS, each of
+          which is a symbol
+
+        * TAG := a device class (*note Consoles and Devices::), a
+          device type, or a tag defined with `define-specifier-tag'
+
+        * INSTANTIATOR := format determined by the type of specifier
+
+     The pair `(TAG-SET . INSTANTIATOR)' is called an "inst-pair".  A
+     list of inst-pairs is called an "inst-list".  The pair `(LOCALE .
+     INST-LIST)' is called a "specification".  A spec-list, then, can
+     be viewed as a list of specifications.
+
+     HOW-TO-ADD specifies how to combine the new specifications with
+     the existing ones, and has the same semantics as for
+     `add-spec-to-specifier'.
+
+     In many circumstances, the higher-level function `set-specifier' is
+     more convenient and should be used instead.
+
+ - Macro: let-specifier specifier-list &rest body
+     This special form temporarily adds specifications to specifiers,
+     evaluates forms in BODY and restores the specifiers to their
+     previous states.  The specifiers and their temporary
+     specifications are listed in SPECIFIER-LIST.
+
+     The format of SPECIFIER-LIST is
+
+          ((SPECIFIER VALUE &optional LOCALE TAG-SET HOW-TO-ADD) ...)
+
+     SPECIFIER is the specifier to be temporarily modified.  VALUE is
+     the instantiator to be temporarily added to specifier in LOCALE.
+     LOCALE, TAG-SET and HOW-TO-ADD have the same meaning as in
+     `add-spec-to-specifier'.
+
+     This special form is implemented as a macro; the code resulting
+     from macro expansion will add specifications to specifiers using
+     `add-spec-to-specifier'.  After forms in BODY are evaluated, the
+     temporary specifications are removed and old specifier spec-lists
+     are restored.
+
+     LOCALE, TAG-SET and HOW-TO-ADD may be omitted, and default to
+     `nil'.  The value of the last form in BODY is returned.
+
+     NOTE: If you want the specifier's instance to change in all
+     circumstances, use `(selected-window)' as the LOCALE.  If LOCALE
+     is `nil' or omitted, it defaults to `global'.
+
+     The following example removes the 3D modeline effect in the
+     currently selected window for the duration of a second:
+
+          (let-specifier ((modeline-shadow-thickness 0 (selected-window)))
+            (sit-for 1))
+
+ - Function: set-specifier specifier value &optional how-to-add
+     This function adds some specifications to SPECIFIER.  VALUE can be
+     a single instantiator or tagged instantiator (added as a global
+     specification), a list of tagged and/or untagged instantiators
+     (added as a global specification), a cons of a locale and
+     instantiator or locale and instantiator list, a list of such
+     conses, or nearly any other reasonable form.  More specifically,
+     VALUE can be anything accepted by `canonicalize-spec-list'.
+
+     HOW-TO-ADD is the same as in `add-spec-to-specifier'.
+
+     Note that `set-specifier' is exactly complementary to
+     `specifier-specs' except in the case where SPECIFIER has no specs
+     at all in it but `nil' is a valid instantiator (in that case,
+     `specifier-specs' will return `nil' (meaning no specs) and
+     `set-specifier' will interpret the `nil' as meaning "I'm adding a
+     global instantiator and its value is `nil'"), or in strange cases
+     where there is an ambiguity between a spec-list and an inst-list,
+     etc. (The built-in specifier types are designed in such a way as
+     to avoid any such ambiguities.)
+
+     If you want to work with spec-lists, you should probably not use
+     these functions, but should use the lower-level functions
+     `specifier-spec-list' and `add-spec-list-to-specifier'.  These
+     functions always work with fully-qualified spec-lists; thus, there
+     is no ambiguity.
+
+ - Function: canonicalize-inst-pair inst-pair specifier-type &optional
+          noerror
+     This function canonicalizes the given INST-PAIR.
+
+     SPECIFIER-TYPE specifies the type of specifier that this SPEC-LIST
+     will be used for.
+
+     Canonicalizing means converting to the full form for an inst-pair,
+     i.e.  `(TAG-SET . INSTANTIATOR)'.  A single, untagged instantiator
+     is given a tag set of `nil' (the empty set), and a single tag is
+     converted into a tag set consisting only of that tag.
+
+     If NOERROR is non-`nil', signal an error if the inst-pair is
+     invalid; otherwise return `t'.
+
+ - Function: canonicalize-inst-list inst-list specifier-type &optional
+          noerror
+     This function canonicalizes the given INST-LIST (a list of
+     inst-pairs).
+
+     SPECIFIER-TYPE specifies the type of specifier that this INST-LIST
+     will be used for.
+
+     Canonicalizing means converting to the full form for an inst-list,
+     i.e.  `((TAG-SET . INSTANTIATOR) ...)'.  This function accepts a
+     single inst-pair or any abbreviation thereof or a list of
+     (possibly abbreviated) inst-pairs. (See `canonicalize-inst-pair'.)
+
+     If NOERROR is non-`nil', signal an error if the inst-list is
+     invalid; otherwise return `t'.
+
+ - Function: canonicalize-spec spec specifier-type &optional noerror
+     This function canonicalizes the given SPEC (a specification).
+
+     SPECIFIER-TYPE specifies the type of specifier that this SPEC-LIST
+     will be used for.
+
+     Canonicalizing means converting to the full form for a spec, i.e.
+     `(LOCALE (TAG-SET . INSTANTIATOR) ...)'.  This function accepts a
+     possibly abbreviated inst-list or a cons of a locale and a
+     possibly abbreviated inst-list. (See `canonicalize-inst-list'.)
+
+     If NOERROR is `nil', signal an error if the specification is
+     invalid; otherwise return `t'.
+
+ - Function: canonicalize-spec-list spec-list specifier-type &optional
+          noerror
+     This function canonicalizes the given SPEC-LIST (a list of
+     specifications).
+
+     SPECIFIER-TYPE specifies the type of specifier that this SPEC-LIST
+     will be used for.
+
+     Canonicalizing means converting to the full form for a spec-list,
+     i.e.  `((LOCALE (TAG-SET . INSTANTIATOR) ...) ...)'.  This
+     function accepts a possibly abbreviated specification or a list of
+     such things. (See `canonicalize-spec'.) This is the function used
+     to convert spec-lists accepted by `set-specifier' and such into a
+     form suitable for `add-spec-list-to-specifier'.
+
+     This function tries extremely hard to resolve any ambiguities, and
+     the built-in specifier types (font, image, toolbar, etc.) are
+     designed so that there won't be any ambiguities.
+
+     If NOERROR is `nil', signal an error if the spec-list is invalid;
+     otherwise return `t'.
+

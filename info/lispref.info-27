@@ -1,0 +1,1243 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Resizing Windows,  Next: Window Configurations,  Prev: Position of Window,  Up: Windows
+
+Changing the Size of a Window
+=============================
+
+   The window size functions fall into two classes: high-level commands
+that change the size of windows and low-level functions that access
+window size.  XEmacs does not permit overlapping windows or gaps between
+windows, so resizing one window affects other windows.
+
+ - Command: enlarge-window size &optional horizontal window
+     This function makes the selected window SIZE lines taller,
+     stealing lines from neighboring windows.  It takes the lines from
+     one window at a time until that window is used up, then takes from
+     another.  If a window from which lines are stolen shrinks below
+     `window-min-height' lines, that window disappears.
+
+     If HORIZONTAL is non-`nil', this function makes WINDOW wider by
+     SIZE columns, stealing columns instead of lines.  If a window from
+     which columns are stolen shrinks below `window-min-width' columns,
+     that window disappears.
+
+     If the requested size would exceed that of the window's frame,
+     then the function makes the window occupy the entire height (or
+     width) of the frame.
+
+     If SIZE is negative, this function shrinks the window by -SIZE
+     lines or columns.  If that makes the window smaller than the
+     minimum size (`window-min-height' and `window-min-width'),
+     `enlarge-window' deletes the window.
+
+     If WINDOW is non-`nil', it specifies a window to change instead of
+     the selected window.
+
+     `enlarge-window' returns `nil'.
+
+ - Command: enlarge-window-horizontally columns
+     This function makes the selected window COLUMNS wider.  It could
+     be defined as follows:
+
+          (defun enlarge-window-horizontally (columns)
+            (enlarge-window columns t))
+
+ - Command: enlarge-window-pixels count &optional side window
+     This function makes the selected window COUNT pixels larger.  When
+     called from Lisp, optional second argument SIDE non-`nil' means to
+     grow sideways COUNT pixels, and optional third argument WINDOW
+     specifies the window to change instead of the selected window.
+
+ - Command: shrink-window size &optional horizontal window
+     This function is like `enlarge-window' but negates the argument
+     SIZE, making the selected window smaller by giving lines (or
+     columns) to the other windows.  If the window shrinks below
+     `window-min-height' or `window-min-width', then it disappears.
+
+     If SIZE is negative, the window is enlarged by -SIZE lines or
+     columns.
+
+     If WINDOW is non-`nil', it specifies a window to change instead of
+     the selected window.
+
+ - Command: shrink-window-horizontally columns
+     This function makes the selected window COLUMNS narrower.  It
+     could be defined as follows:
+
+          (defun shrink-window-horizontally (columns)
+            (shrink-window columns t))
+
+ - Command: shrink-window-pixels count &optional side window
+     This function makes the selected window COUNT pixels smaller.
+     When called from Lisp, optional second argument SIDE non-`nil'
+     means to shrink sideways COUNT pixels, and optional third argument
+     WINDOW specifies the window to change instead of the selected
+     window.
+
+   The following two variables constrain the window-size-changing
+functions to a minimum height and width.
+
+ - User Option: window-min-height
+     The value of this variable determines how short a window may become
+     before it is automatically deleted.  Making a window smaller than
+     `window-min-height' automatically deletes it, and no window may be
+     created shorter than this.  The absolute minimum height is two
+     (allowing one line for the mode line, and one line for the buffer
+     display).  Actions that change window sizes reset this variable to
+     two if it is less than two.  The default value is 4.
+
+ - User Option: window-min-width
+     The value of this variable determines how narrow a window may
+     become before it automatically deleted.  Making a window smaller
+     than `window-min-width' automatically deletes it, and no window
+     may be created narrower than this.  The absolute minimum width is
+     one; any value below that is ignored.  The default value is 10.
+
+ - Variable: window-size-change-functions
+     This variable holds a list of functions to be called if the size
+     of any window changes for any reason.  The functions are called
+     just once per redisplay, and just once for each frame on which
+     size changes have occurred.
+
+     Each function receives the frame as its sole argument.  There is no
+     direct way to find out which windows changed size, or precisely
+     how; however, if your size-change function keeps track, after each
+     change, of the windows that interest you, you can figure out what
+     has changed by comparing the old size data with the new.
+
+     Creating or deleting windows counts as a size change, and therefore
+     causes these functions to be called.  Changing the frame size also
+     counts, because it changes the sizes of the existing windows.
+
+     It is not a good idea to use `save-window-excursion' in these
+     functions, because that always counts as a size change, and it
+     would cause these functions to be called over and over.  In most
+     cases, `save-selected-window' is what you need here.
+
+
+File: lispref.info,  Node: Window Configurations,  Prev: Resizing Windows,  Up: Windows
+
+Window Configurations
+=====================
+
+   A "window configuration" records the entire layout of a frame--all
+windows, their sizes, which buffers they contain, what part of each
+buffer is displayed, and the values of point and the mark.  You can
+bring back an entire previous layout by restoring a window
+configuration previously saved.
+
+   If you want to record all frames instead of just one, use a frame
+configuration instead of a window configuration.  *Note Frame
+Configurations::.
+
+ - Function: current-window-configuration
+     This function returns a new object representing XEmacs's current
+     window configuration, namely the number of windows, their sizes
+     and current buffers, which window is the selected window, and for
+     each window the displayed buffer, the display-start position, and
+     the positions of point and the mark.  An exception is made for
+     point in the current buffer, whose value is not saved.
+
+ - Function: set-window-configuration configuration
+     This function restores the configuration of XEmacs's windows and
+     buffers to the state specified by CONFIGURATION.  The argument
+     CONFIGURATION must be a value that was previously returned by
+     `current-window-configuration'.
+
+     This function always counts as a window size change and triggers
+     execution of the `window-size-change-functions'.  (It doesn't know
+     how to tell whether the new configuration actually differs from
+     the old one.)
+
+     Here is a way of using this function to get the same effect as
+     `save-window-excursion':
+
+          (let ((config (current-window-configuration)))
+            (unwind-protect
+                (progn (split-window-vertically nil)
+                       ...)
+              (set-window-configuration config)))
+
+ - Special Form: save-window-excursion forms...
+     This special form records the window configuration, executes FORMS
+     in sequence, then restores the earlier window configuration.  The
+     window configuration includes the value of point and the portion
+     of the buffer that is visible.  It also includes the choice of
+     selected window.  However, it does not include the value of point
+     in the current buffer; use `save-excursion' if you wish to
+     preserve that.
+
+     Don't use this construct when `save-selected-window' is all you
+     need.
+
+     Exit from `save-window-excursion' always triggers execution of the
+     `window-size-change-functions'.  (It doesn't know how to tell
+     whether the restored configuration actually differs from the one in
+     effect at the end of the FORMS.)
+
+     The return value is the value of the final form in FORMS.  For
+     example:
+
+          (split-window)
+               => #<window 25 on control.texi>
+          (setq w (selected-window))
+               => #<window 19 on control.texi>
+          (save-window-excursion
+            (delete-other-windows w)
+            (switch-to-buffer "foo")
+            'do-something)
+               => do-something
+               ;; The frame is now split again.
+
+ - Function: window-configuration-p object
+     This function returns `t' if OBJECT is a window configuration.
+
+   Primitives to look inside of window configurations would make sense,
+but none are implemented.  It is not clear they are useful enough to be
+worth implementing.
+
+
+File: lispref.info,  Node: Frames,  Next: Consoles and Devices,  Prev: Windows,  Up: Top
+
+Frames
+******
+
+   A FRAME is a rectangle on the screen that contains one or more
+XEmacs windows (*note Windows::).  A frame initially contains a single
+main window (plus perhaps an echo area), which you can subdivide
+vertically or horizontally into smaller windows.  Each window is
+associated with a modeline (*note Modeline Format::), and optionally two
+scrollbars (*note Scrollbars::).  By default the vertical scrollbar is
+on, the horizontal scrollbar is off.
+
+   The frame may also contain menubars (*note Menubar::), toolbars
+(*note Toolbar Intro::), and gutters (*note Gutter Intro::).  By default
+there is one of each at the top of the frame, with menubar topmost,
+toolbar next, and gutter lowest, immediately above the windows.
+(Warning: the gutter is a new, experimental, and unstable feature of
+XEmacs version 21.2.)
+
+   When XEmacs runs on a text-only terminal, it starts with one "TTY
+frame".  If you create additional ones, XEmacs displays one and only
+one at any given time--on the terminal screen, of course.
+
+   When XEmacs communicates directly with an X server, it does not have
+a TTY frame; instead, it starts with a single "X window frame".  It can
+display multiple X window frames at the same time, each in its own X
+window.
+
+ - Function: framep object
+     This predicate returns `t' if OBJECT is a frame, and `nil'
+     otherwise.
+
+* Menu:
+
+* Creating Frames::		Creating additional frames.
+* Frame Properties::		Controlling frame size, position, font, etc.
+* Frame Titles::                Automatic updating of frame titles.
+* Deleting Frames::		Frames last until explicitly deleted.
+* Finding All Frames::		How to examine all existing frames.
+* Frames and Windows::		A frame contains windows;
+				  display of text always works through windows.
+* Minibuffers and Frames::	How a frame finds the minibuffer to use.
+* Input Focus::			Specifying the selected frame.
+* Visibility of Frames::	Frames may be visible or invisible, or icons.
+* Raising and Lowering::	Raising a frame makes it hide other X windows;
+				  lowering it makes the others hide them.
+* Frame Configurations::	Saving the state of all frames.
+* Frame Hooks::                 Hooks for customizing frame behavior.
+
+   *Note Display::, for related information.
+
+
+File: lispref.info,  Node: Creating Frames,  Next: Frame Properties,  Up: Frames
+
+Creating Frames
+===============
+
+   To create a new frame, call the function `make-frame'.
+
+ - Function: make-frame &optional props device
+     This function creates a new frame on DEVICE, if DEVICE permits
+     creation of frames.  (An X server does; an ordinary terminal does
+     not (yet).)  DEVICE defaults to the selected device if omitted.
+     *Note Consoles and Devices::.
+
+     The argument PROPS is a property list (a list of alternating
+     keyword-value specifications) of properties for the new frame. (An
+     alist is accepted for backward compatibility but should not be
+     passed in.) Any properties not mentioned in PROPS default
+     according to the value of the variable `default-frame-plist'.  For
+     X devices, properties not specified in `default-frame-plist'
+     default in turn from `default-x-frame-plist' and, if not specified
+     there, from the X resources.  For TTY devices,
+     `default-tty-frame-plist' is consulted as well as
+     `default-frame-plist'.
+
+     The set of possible properties depends in principle on what kind of
+     window system XEmacs uses to display its frames.  *Note X Frame
+     Properties::, for documentation of individual properties you can
+     specify when creating an X window frame.
+
+
+File: lispref.info,  Node: Frame Properties,  Next: Frame Titles,  Prev: Creating Frames,  Up: Frames
+
+Frame Properties
+================
+
+   A frame has many properties that control its appearance and behavior.
+Just what properties a frame has depends on which display mechanism it
+uses.
+
+   Frame properties exist for the sake of window systems.  A terminal
+frame has few properties, mostly for compatibility's sake; only the
+height, width and `buffer-predicate' properties really do something.
+
+* Menu:
+
+* Property Access::	How to change a frame's properties.
+* Initial Properties::	Specifying frame properties when you make a frame.
+* X Frame Properties::	List of frame properties.
+* Size and Position::	Changing the size and position of a frame.
+* Frame Name::		The name of a frame (as opposed to its title).
+
+
+File: lispref.info,  Node: Property Access,  Next: Initial Properties,  Up: Frame Properties
+
+Access to Frame Properties
+--------------------------
+
+   These functions let you read and change the properties of a frame.
+
+ - Function: frame-properties &optional frame
+     This function returns a plist listing all the properties of FRAME
+     and their values.
+
+ - Function: frame-property frame property &optional default
+     This function returns FRAME's value for the property PROPERTY.
+
+ - Function: set-frame-properties frame plist
+     This function alters the properties of frame FRAME based on the
+     elements of property list PLIST.  If you don't mention a property
+     in PLIST, its value doesn't change.
+
+ - Function: set-frame-property frame prop val
+     This function sets the property PROP of frame FRAME to the value
+     VAL.
+
+
+File: lispref.info,  Node: Initial Properties,  Next: X Frame Properties,  Prev: Property Access,  Up: Frame Properties
+
+Initial Frame Properties
+------------------------
+
+   You can specify the properties for the initial startup frame by
+setting `initial-frame-plist' in your `.emacs' file.
+
+ - Variable: initial-frame-plist
+     This variable's value is a plist of alternating property-value
+     pairs used when creating the initial X window frame.
+
+     XEmacs creates the initial frame before it reads your `~/.emacs'
+     file.  After reading that file, XEmacs checks
+     `initial-frame-plist', and applies the property settings in the
+     altered value to the already created initial frame.
+
+     If these settings affect the frame geometry and appearance, you'll
+     see the frame appear with the wrong ones and then change to the
+     specified ones.  If that bothers you, you can specify the same
+     geometry and appearance with X resources; those do take affect
+     before the frame is created.  *Note X Resources: (xemacs)Resources
+     X.
+
+     X resource settings typically apply to all frames.  If you want to
+     specify some X resources solely for the sake of the initial frame,
+     and you don't want them to apply to subsequent frames, here's how
+     to achieve this: specify properties in `default-frame-plist' to
+     override the X resources for subsequent frames; then, to prevent
+     these from affecting the initial frame, specify the same
+     properties in `initial-frame-plist' with values that match the X
+     resources.
+
+   If these properties specify a separate minibuffer-only frame via a
+`minibuffer' property of `nil', and you have not yet created one,
+XEmacs creates one for you.
+
+ - Variable: minibuffer-frame-plist
+     This variable's value is a plist of properties used when creating
+     an initial minibuffer-only frame--if such a frame is needed,
+     according to the properties for the main initial frame.
+
+ - Variable: default-frame-plist
+     This is a plist specifying default values of frame properties for
+     subsequent XEmacs frames (not the initial ones).
+
+   See also `special-display-frame-plist', in *Note Choosing Window::.
+
+   If you use options that specify window appearance when you invoke
+XEmacs, they take effect by adding elements to `default-frame-plist'.
+One exception is `-geometry', which adds the specified position to
+`initial-frame-plist' instead.  *Note Command Arguments:
+(xemacs)Command Arguments.
+
+
+File: lispref.info,  Node: X Frame Properties,  Next: Size and Position,  Prev: Initial Properties,  Up: Frame Properties
+
+X Window Frame Properties
+-------------------------
+
+   Just what properties a frame has depends on what display mechanism it
+uses.  Here is a table of the properties of an X window frame; of these,
+`name', `height', `width', and `buffer-predicate' provide meaningful
+information in non-X frames.
+
+`name'
+     The name of the frame.  Most window managers display the frame's
+     name in the frame's border, at the top of the frame.  If you don't
+     specify a name, and you have more than one frame, XEmacs sets the
+     frame name based on the buffer displayed in the frame's selected
+     window.
+
+     If you specify the frame name explicitly when you create the
+     frame, the name is also used (instead of the name of the XEmacs
+     executable) when looking up X resources for the frame.
+
+`display'
+     The display on which to open this frame.  It should be a string of
+     the form `"HOST:DPY.SCREEN"', just like the `DISPLAY' environment
+     variable.
+
+`left'
+     The screen position of the left edge, in pixels, with respect to
+     the left edge of the screen.  The value may be a positive number
+     POS, or a list of the form `(+ POS)' which permits specifying a
+     negative POS value.
+
+     A negative number -POS, or a list of the form `(- POS)', actually
+     specifies the position of the right edge of the window with
+     respect to the right edge of the screen.  A positive value of POS
+     counts toward the left.  If the property is a negative integer
+     -POS then POS is positive!
+
+`top'
+     The screen position of the top edge, in pixels, with respect to the
+     top edge of the screen.  The value may be a positive number POS,
+     or a list of the form `(+ POS)' which permits specifying a
+     negative POS value.
+
+     A negative number -POS, or a list of the form `(- POS)', actually
+     specifies the position of the bottom edge of the window with
+     respect to the bottom edge of the screen.  A positive value of POS
+     counts toward the top.  If the property is a negative integer -POS
+     then POS is positive!
+
+`icon-left'
+     The screen position of the left edge _of the frame's icon_, in
+     pixels, counting from the left edge of the screen.  This takes
+     effect if and when the frame is iconified.
+
+`icon-top'
+     The screen position of the top edge _of the frame's icon_, in
+     pixels, counting from the top edge of the screen.  This takes
+     effect if and when the frame is iconified.
+
+`user-position'
+     Non-`nil' if the screen position of the frame was explicitly
+     requested by the user (for example, with the `-geometry' option).
+     Nothing automatically makes this property non-`nil'; it is up to
+     Lisp programs that call `make-frame' to specify this property as
+     well as specifying the `left' and `top' properties.
+
+`height'
+     The height of the frame contents, in characters.  (To get the
+     height in pixels, call `frame-pixel-height'; see *Note Size and
+     Position::.)
+
+`width'
+     The width of the frame contents, in characters.  (To get the
+     height in pixels, call `frame-pixel-width'; see *Note Size and
+     Position::.)
+
+`window-id'
+     The number of the X window for the frame.
+
+`minibuffer'
+     Whether this frame has its own minibuffer.  The value `t' means
+     yes, `nil' means no, `only' means this frame is just a minibuffer.
+     If the value is a minibuffer window (in some other frame), the
+     new frame uses that minibuffer. (Minibuffer-only and
+     minibuffer-less frames are not yet implemented in XEmacs.)
+
+`buffer-predicate'
+     The buffer-predicate function for this frame.  The function
+     `other-buffer' uses this predicate (from the selected frame) to
+     decide which buffers it should consider, if the predicate is not
+     `nil'.  It calls the predicate with one arg, a buffer, once for
+     each buffer; if the predicate returns a non-`nil' value, it
+     considers that buffer.
+
+`scroll-bar-width'
+     The width of the vertical scroll bar, in pixels.
+
+`cursor-color'
+     The color for the cursor that shows point.
+
+`border-color'
+     The color for the border of the frame.
+
+`border-width'
+     The width in pixels of the window border.
+
+`internal-border-width'
+     The distance in pixels between text and border.
+
+`unsplittable'
+     If non-`nil', this frame's window is never split automatically.
+
+`inter-line-space'
+     The space in pixels between adjacent lines of text. (Not currently
+     implemented.)
+
+`modeline'
+     Whether the frame has a modeline.
+
+
+File: lispref.info,  Node: Size and Position,  Next: Frame Name,  Prev: X Frame Properties,  Up: Frame Properties
+
+Frame Size And Position
+-----------------------
+
+   You can read or change the size and position of a frame using the
+frame properties `left', `top', `height', and `width'.  Whatever
+geometry properties you don't specify are chosen by the window manager
+in its usual fashion.
+
+   Here are some special features for working with sizes and positions:
+
+ - Function: set-frame-position frame left top
+     This function sets the position of the top left corner of FRAME to
+     LEFT and TOP.  These arguments are measured in pixels, and count
+     from the top left corner of the screen.  Negative property values
+     count up or rightward from the top left corner of the screen.
+
+ - Function: frame-height &optional frame
+ - Function: frame-width &optional frame
+     These functions return the height and width of FRAME, measured in
+     lines and columns.  If you don't supply FRAME, they use the
+     selected frame.
+
+ - Function: frame-pixel-height &optional frame
+ - Function: frame-pixel-width &optional frame
+     These functions return the height and width of FRAME, measured in
+     pixels.  If you don't supply FRAME, they use the selected frame.
+
+ - Function: set-frame-size frame cols rows &optional pretend
+     This function sets the size of FRAME, measured in characters; COLS
+     and ROWS specify the new width and height.  (If PRETEND is
+     non-nil, it means that redisplay should act as if the frame's size
+     is COLS by ROWS, but the actual size of the frame should not be
+     changed.  You should not normally use this option.)
+
+   You can also use the functions `set-frame-height' and
+`set-frame-width' to set the height and width individually.  The frame
+is the first argument and the size (in rows or columns) is the second.
+(There is an optional third argument, PRETEND, which has the same
+purpose as the corresponding argument in `set-frame-size'.)
+
+
+File: lispref.info,  Node: Frame Name,  Prev: Size and Position,  Up: Frame Properties
+
+The Name of a Frame (As Opposed to Its Title)
+---------------------------------------------
+
+   Under X, every frame has a name, which is not the same as the title
+of the frame.  A frame's name is used to look up its resources and does
+not normally change over the lifetime of a frame.  It is perfectly
+allowable, and quite common, for multiple frames to have the same name.
+
+ - Function: frame-name &optional frame
+     This function returns the name of FRAME, which defaults to the
+     selected frame if not specified.  The name of a frame can also be
+     obtained from the frame's properties.  *Note Frame Properties::.
+
+ - Variable: default-frame-name
+     This variable holds the default name to assign to newly-created
+     frames.  This can be overridden by arguments to `make-frame'.  This
+     must be a string.
+
+
+File: lispref.info,  Node: Frame Titles,  Next: Deleting Frames,  Prev: Frame Properties,  Up: Frames
+
+Frame Titles
+============
+
+   Every frame has a title; most window managers display the frame
+title at the top of the frame.  You can specify an explicit title with
+the `name' frame property.  But normally you don't specify this
+explicitly, and XEmacs computes the title automatically.
+
+   XEmacs computes the frame title based on a template stored in the
+variable `frame-title-format'.
+
+ - Variable: frame-title-format
+     This variable specifies how to compute a title for a frame when
+     you have not explicitly specified one.
+
+     The variable's value is actually a modeline construct, just like
+     `modeline-format'.  *Note Modeline Data::.
+
+ - Variable: frame-icon-title-format
+     This variable specifies how to compute the title for an iconified
+     frame, when you have not explicitly specified the frame title.
+     This title appears in the icon itself.
+
+ - Function: x-set-frame-icon-pixmap frame pixmap &optional mask
+     This function sets the icon of the given frame to the given image
+     instance, which should be an image instance object (as returned by
+     `make-image-instance'), a glyph object (as returned by
+     `make-glyph'), or `nil'.  If a glyph object is given, the glyph
+     will be instantiated on the frame to produce an image instance
+     object.
+
+     If the given image instance has a mask, that will be used as the
+     icon mask; however, not all window managers support this.
+
+     The window manager is also not required to support color pixmaps,
+     only bitmaps (one plane deep).
+
+     If the image instance does not have a mask, then the optional
+     third argument may be the image instance to use as the mask (it
+     must be one plane deep).  *Note Glyphs::.
+
+
+File: lispref.info,  Node: Deleting Frames,  Next: Finding All Frames,  Prev: Frame Titles,  Up: Frames
+
+Deleting Frames
+===============
+
+   Frames remain potentially visible until you explicitly "delete"
+them.  A deleted frame cannot appear on the screen, but continues to
+exist as a Lisp object until there are no references to it.
+
+ - Command: delete-frame &optional frame
+     This function deletes the frame FRAME.  By default, FRAME is the
+     selected frame.
+
+ - Function: frame-live-p frame
+     The function `frame-live-p' returns non-`nil' if the frame FRAME
+     has not been deleted.
+
+
+File: lispref.info,  Node: Finding All Frames,  Next: Frames and Windows,  Prev: Deleting Frames,  Up: Frames
+
+Finding All Frames
+==================
+
+ - Function: frame-list
+     The function `frame-list' returns a list of all the frames that
+     have not been deleted.  It is analogous to `buffer-list' for
+     buffers.  The list that you get is newly created, so modifying the
+     list doesn't have any effect on the internals of XEmacs.
+
+ - Function: device-frame-list &optional device
+     This function returns a list of all frames on DEVICE.  If DEVICE
+     is `nil', the selected device will be used.
+
+ - Function: visible-frame-list &optional device
+     This function returns a list of just the currently visible frames.
+     If DEVICE is specified only frames on that device will be returned.
+     *Note Visibility of Frames::.  (TTY frames always count as
+     "visible", even though only the selected one is actually
+     displayed.)
+
+ - Function: next-frame &optional frame minibuf
+     The function `next-frame' lets you cycle conveniently through all
+     the frames from an arbitrary starting point.  It returns the "next"
+     frame after FRAME in the cycle.  If FRAME is omitted or `nil', it
+     defaults to the selected frame.
+
+     The second argument, MINIBUF, says which frames to consider:
+
+    `nil'
+          Exclude minibuffer-only frames.
+
+    `visible'
+          Consider all visible frames.
+
+    0
+          Consider all visible or iconified frames.
+
+    a window
+          Consider only the frames using that particular window as their
+          minibuffer.
+
+    the symbol `visible'
+          Include all visible frames.
+
+    `0'
+          Include all visible and iconified frames.
+
+    anything else
+          Consider all frames.
+
+ - Function: previous-frame &optional frame minibuf
+     Like `next-frame', but cycles through all frames in the opposite
+     direction.
+
+   See also `next-window' and `previous-window', in *Note Cyclic Window
+Ordering::.
+
+
+File: lispref.info,  Node: Frames and Windows,  Next: Minibuffers and Frames,  Prev: Finding All Frames,  Up: Frames
+
+Frames and Windows
+==================
+
+   Each window is part of one and only one frame; you can get the frame
+with `window-frame'.
+
+ - Function: frame-root-window &optional frame
+     This returns the root window of frame FRAME.  FRAME defaults to
+     the selected frame if not specified.
+
+ - Function: window-frame &optional window
+     This function returns the frame that WINDOW is on.  WINDOW
+     defaults to the selected window if omitted.
+
+   All the non-minibuffer windows in a frame are arranged in a cyclic
+order.  The order runs from the frame's top window, which is at the
+upper left corner, down and to the right, until it reaches the window at
+the lower right corner (always the minibuffer window, if the frame has
+one), and then it moves back to the top.
+
+ - Function: frame-top-window frame
+     This returns the topmost, leftmost window of frame FRAME.
+
+   At any time, exactly one window on any frame is "selected within the
+frame".  The significance of this designation is that selecting the
+frame also selects this window.  You can get the frame's current
+selected window with `frame-selected-window'.
+
+ - Function: frame-selected-window &optional frame
+     This function returns the window on FRAME that is selected within
+     FRAME.  FRAME defaults to the selected frame if not specified.
+
+   Conversely, selecting a window for XEmacs with `select-window' also
+makes that window selected within its frame.  *Note Selecting Windows::.
+
+   Another function that (usually) returns one of the windows in a
+frame is `minibuffer-window'.  *Note Minibuffer Misc::.
+
+
+File: lispref.info,  Node: Minibuffers and Frames,  Next: Input Focus,  Prev: Frames and Windows,  Up: Frames
+
+Minibuffers and Frames
+======================
+
+   Normally, each frame has its own minibuffer window at the bottom,
+which is used whenever that frame is selected.  If the frame has a
+minibuffer, you can get it with `minibuffer-window' (*note Minibuffer
+Misc::).
+
+   However, you can also create a frame with no minibuffer.  Such a
+frame must use the minibuffer window of some other frame.  When you
+create the frame, you can specify explicitly the minibuffer window to
+use (in some other frame).  If you don't, then the minibuffer is found
+in the frame which is the value of the variable
+`default-minibuffer-frame'.  Its value should be a frame which does
+have a minibuffer.
+
+ - Variable: default-minibuffer-frame
+     This variable specifies the frame to use for the minibuffer
+     window, by default.
+
+
+File: lispref.info,  Node: Input Focus,  Next: Visibility of Frames,  Prev: Minibuffers and Frames,  Up: Frames
+
+Input Focus
+===========
+
+   At any time, one frame in XEmacs is the "selected frame".  The
+selected window always resides on the selected frame.  As the focus
+moves from device to device, the selected frame on each device is
+remembered and restored when the focus moves back to that device.
+
+ - Function: selected-frame &optional device
+     This function returns the selected frame on DEVICE.  If DEVICE is
+     not specified, the selected device will be used.  If no frames
+     exist on the device, `nil' is returned.
+
+   The X server normally directs keyboard input to the X window that the
+mouse is in.  Some window managers use mouse clicks or keyboard events
+to "shift the focus" to various X windows, overriding the normal
+behavior of the server.
+
+   Lisp programs can switch frames "temporarily" by calling the
+function `select-frame'.  This does not override the window manager;
+rather, it escapes from the window manager's control until that control
+is somehow reasserted.
+
+   When using a text-only terminal, there is no window manager;
+therefore, `select-frame' is the only way to switch frames, and the
+effect lasts until overridden by a subsequent call to `select-frame'.
+Only the selected terminal frame is actually displayed on the terminal.
+Each terminal screen except for the initial one has a number, and the
+number of the selected frame appears in the mode line after the word
+`XEmacs' (*note Modeline Variables::).
+
+ - Function: select-frame frame
+     This function selects frame FRAME, temporarily disregarding the
+     focus of the X server if any.  The selection of FRAME lasts until
+     the next time the user does something to select a different frame,
+     or until the next time this function is called.
+
+     Note that `select-frame' does not actually cause the window-system
+     focus to be set to this frame, or the `select-frame-hook' or
+     `deselect-frame-hook' to be run, until the next time that XEmacs is
+     waiting for an event.
+
+     Also note that when the variable `focus-follows-mouse' is
+     non-`nil', the frame selection is temporary and is reverted when
+     the current command terminates, much like the buffer selected by
+     `set-buffer'.  In order to effect a permanent focus change use
+     `focus-frame'.
+
+ - Function: focus-frame frame
+     This function selects FRAME and gives it the window system focus.
+     The operation of `focus-frame' is not affected by the value of
+     `focus-follows-mouse'.
+
+ - Macro: save-selected-frame forms...
+     This macro records the selected frame, executes FORMS in sequence,
+     then restores the earlier selected frame.  The value returned is
+     the value of the last form.
+
+ - Macro: with-selected-frame frame forms...
+     This macro records the selected frame, then selects FRAME and
+     executes FORMS in sequence.  After the last form is finished, the
+     earlier selected frame is restored.  The value returned is the
+     value of the last form.
+
+
+File: lispref.info,  Node: Visibility of Frames,  Next: Raising and Lowering,  Prev: Input Focus,  Up: Frames
+
+Visibility of Frames
+====================
+
+   An X window frame may be "visible", "invisible", or "iconified".  If
+it is visible, you can see its contents.  If it is iconified, the
+frame's contents do not appear on the screen, but an icon does.  If the
+frame is invisible, it doesn't show on the screen, not even as an icon.
+
+   Visibility is meaningless for TTY frames, since only the selected
+one is actually displayed in any case.
+
+ - Command: make-frame-visible &optional frame
+     This function makes frame FRAME visible.  If you omit FRAME, it
+     makes the selected frame visible.
+
+ - Command: make-frame-invisible &optional frame
+     This function makes frame FRAME invisible.
+
+ - Command: iconify-frame &optional frame
+     This function iconifies frame FRAME.
+
+ - Command: deiconify-frame &optional frame
+     This function de-iconifies frame FRAME.  Under X, this is
+     equivalent to `make-frame-visible'.
+
+ - Function: frame-visible-p frame
+     This returns whether FRAME is currently "visible" (actually in use
+     for display).  A frame that is not visible is not updated, and, if
+     it works through a window system, may not show at all.
+
+ - Function: frame-iconified-p frame
+     This returns whether FRAME is iconified.  Not all window managers
+     use icons; some merely unmap the window, so this function is not
+     the inverse of `frame-visible-p'.  It is possible for a frame to
+     not be visible and not be iconified either.  However, if the frame
+     is iconified, it will not be visible.  (Under FSF Emacs, the
+     functionality of this function is obtained through
+     `frame-visible-p'.)
+
+ - Function: frame-totally-visible-p frame
+     This returns whether FRAME is not obscured by any other X windows.
+     On TTY frames, this is the same as `frame-visible-p'.
+
+
+File: lispref.info,  Node: Raising and Lowering,  Next: Frame Configurations,  Prev: Visibility of Frames,  Up: Frames
+
+Raising and Lowering Frames
+===========================
+
+   The X Window System uses a desktop metaphor.  Part of this metaphor
+is the idea that windows are stacked in a notional third dimension
+perpendicular to the screen surface, and thus ordered from "highest" to
+"lowest".  Where two windows overlap, the one higher up covers the one
+underneath.  Even a window at the bottom of the stack can be seen if no
+other window overlaps it.
+
+   A window's place in this ordering is not fixed; in fact, users tend
+to change the order frequently.  "Raising" a window means moving it
+"up", to the top of the stack.  "Lowering" a window means moving it to
+the bottom of the stack.  This motion is in the notional third
+dimension only, and does not change the position of the window on the
+screen.
+
+   You can raise and lower XEmacs's X windows with these functions:
+
+ - Command: raise-frame &optional frame
+     This function raises frame FRAME.
+
+ - Command: lower-frame &optional frame
+     This function lowers frame FRAME.
+
+   You can also specify auto-raise (raising automatically when a frame
+is selected) or auto-lower (lowering automatically when it is
+deselected).  Under X, most ICCCM-compliant window managers will have
+an option to do this for you, but the following variables are provided
+in case you're using a broken WM.  (Under FSF Emacs, the same
+functionality is provided through the `auto-raise' and `auto-lower'
+frame properties.)
+
+ - Variable: auto-raise-frame
+     This variable's value is `t' if frames will be raised to the top
+     when selected.
+
+ - Variable: auto-lower-frame
+     This variable's value is `t' if frames will be lowered to the
+     bottom when no longer selected.
+
+   Auto-raising and auto-lowering is implemented through functions
+attached to `select-frame-hook' and `deselect-frame-hook' (*note Frame
+Hooks::).  Under normal circumstances, you should not call these
+functions directly.
+
+ - Function: default-select-frame-hook
+     This hook function implements the `auto-raise-frame' variable; it
+     is for use as the value of `select-frame-hook'.
+
+ - Function: default-deselect-frame-hook
+     This hook function implements the `auto-lower-frame' variable; it
+     is for use as the value of `deselect-frame-hook'.
+
+
+File: lispref.info,  Node: Frame Configurations,  Next: Frame Hooks,  Prev: Raising and Lowering,  Up: Frames
+
+Frame Configurations
+====================
+
+   A "frame configuration" records the current arrangement of frames,
+all their properties, and the window configuration of each one.
+
+ - Function: current-frame-configuration
+     This function returns a frame configuration list that describes
+     the current arrangement of frames and their contents.
+
+ - Function: set-frame-configuration configuration
+     This function restores the state of frames described in
+     CONFIGURATION.
+
+
+File: lispref.info,  Node: Frame Hooks,  Prev: Frame Configurations,  Up: Frames
+
+Hooks for Customizing Frame Behavior
+====================================
+
+   XEmacs provides many hooks that are called at various times during a
+frame's lifetime.  *Note Hooks::.
+
+ - Variable: create-frame-hook
+     This hook is called each time a frame is created.  The functions
+     are called with one argument, the newly-created frame.
+
+ - Variable: delete-frame-hook
+     This hook is called each time a frame is deleted.  The functions
+     are called with one argument, the about-to-be-deleted frame.
+
+ - Variable: select-frame-hook
+     This is a normal hook that is run just after a frame is selected.
+     The function `default-select-frame-hook', which implements
+     auto-raising (*note Raising and Lowering::), is normally attached
+     to this hook.
+
+     Note that calling `select-frame' does not necessarily set the
+     focus: The actual window-system focus will not be changed until
+     the next time that XEmacs is waiting for an event, and even then,
+     the window manager may refuse the focus-change request.
+
+ - Variable: deselect-frame-hook
+     This is a normal hook that is run just before a frame is deselected
+     (and another frame is selected).  The function
+     `default-deselect-frame-hook', which implements auto-lowering
+     (*note Raising and Lowering::), is normally attached to this hook.
+
+ - Variable: map-frame-hook
+     This hook is called each time a frame is mapped (i.e. made
+     visible).  The functions are called with one argument, the newly
+     mapped frame.
+
+ - Variable: unmap-frame-hook
+     This hook is called each time a frame is unmapped (i.e. made
+     invisible or iconified).  The functions are called with one
+     argument, the newly unmapped frame.
+
+
+File: lispref.info,  Node: Consoles and Devices,  Next: Positions,  Prev: Frames,  Up: Top
+
+Consoles and Devices
+********************
+
+   A "console" is an object representing a single input connection to
+XEmacs, such as an X display or a TTY connection.  It is possible for
+XEmacs to have frames on multiple consoles at once (even on
+heterogeneous types--you can simultaneously have a frame on an X
+display and a TTY connection).  Normally, there is only one console in
+existence.
+
+   A "device" is an object representing a single output device, such as
+a particular screen on an X display. (Usually there is exactly one
+device per X console connection, but there may be more than one if you
+have a multi-headed X display.  For TTY connections, there is always
+exactly one device per console.)
+
+   Each device has one or more "frames" in which text can be displayed.
+For X displays and the like, a frame corresponds to the normal
+window-system concept of a window.  Frames can overlap, be displayed at
+various locations within the display, be resized, etc.  For TTY, only
+one frame can be displayed at a time, and it occupies the entire TTY
+display area.
+
+   However, you can still define multiple frames and switch between
+them.  Their contents are entirely separate from each other.  These
+sorts of frames resemble the "virtual console" capability provided
+under Linux or the multiple screens provided by the multiplexing program
+`screen' under Unix.
+
+   When you start up XEmacs, an initial console and device are created
+to receive input and display frames on.  This will either be an X
+display or a TTY connection, depending on what mode you started XEmacs
+in (this is determined by the `DISPLAY' environment variable, the
+`-nw', `-t' and `-display' command-line options, etc.).
+
+   You can connect to other X displays and TTY connections by creating
+new console objects, and to other X screens on an existing display by
+creating new device objects, as described below.  Many functions (for
+example the frame-creation functions) take an optional device argument
+specifying which device the function pertains to.  If the argument is
+omitted, it defaults to the selected device (see below).
+
+ - Function: consolep object
+     This returns non-`nil' if OBJECT is a console.
+
+ - Function: devicep object
+     This returns non-`nil' if OBJECT is a device.
+
+* Menu:
+
+* Basic Console Functions::     Functions for working with consoles.
+* Basic Device Functions::      Functions for working with devices.
+* Console Types and Device Classes::
+                                I/O and color characteristics.
+* Connecting to a Console or Device::
+* The Selected Console and Device::
+* Console and Device I/O::      Controlling input and output.
+
+
+File: lispref.info,  Node: Basic Console Functions,  Next: Basic Device Functions,  Up: Consoles and Devices
+
+Basic Console Functions
+=======================
+
+ - Function: console-list
+     This function returns a list of all existing consoles.
+
+ - Function: console-device-list &optional console
+     This function returns a list of all devices on CONSOLE.  If
+     CONSOLE is `nil', the selected console will be used.
+
+
+File: lispref.info,  Node: Basic Device Functions,  Next: Console Types and Device Classes,  Prev: Basic Console Functions,  Up: Consoles and Devices
+
+Basic Device Functions
+======================
+
+ - Function: device-list
+     This function returns a list of all existing devices.
+
+ - Function: device-or-frame-p object
+     This function returns non-`nil' if OBJECT is a device or frame.
+     This function is useful because devices and frames are similar in
+     many respects and many functions can operate on either one.
+
+ - Function: device-frame-list device
+     This function returns a list of all frames on DEVICE.
+
+ - Function: frame-device frame
+     This function returns the device that FRAME is on.
+
+
+File: lispref.info,  Node: Console Types and Device Classes,  Next: Connecting to a Console or Device,  Prev: Basic Device Functions,  Up: Consoles and Devices
+
+Console Types and Device Classes
+================================
+
+   Every device is of a particular "type", which describes how the
+connection to that device is made and how the device operates, and a
+particular "class", which describes other characteristics of the device
+(currently, the color capabilities of the device).
+
+   The currently-defined device types are
+
+`x'
+     A connection to an X display (such as `willow:0').
+
+`tty'
+     A connection to a tty (such as `/dev/ttyp3').
+
+`stream'
+     A stdio connection.  This describes a device for which input and
+     output is only possible in a stream-like fashion, such as when
+     XEmacs in running in batch mode.  The very first device created by
+     XEmacs is a terminal device and is used to print out messages of
+     various sorts (for example, the help message when you use the
+     `-help' command-line option).
+
+   The currently-defined device classes are
+`color'
+     A color device.
+
+`grayscale'
+     A grayscale device (a device that can display multiple shades of
+     gray, but no color).
+
+`mono'
+     A device that can only display two colors (e.g. black and white).
+
+ - Function: device-type device
+     This function returns the type of DEVICE.  This is a symbol whose
+     name is one of the device types mentioned above.
+
+ - Function: device-or-frame-type device-or-frame
+     This function returns the type of DEVICE-OR-FRAME.
+
+ - Function: device-class device
+     This function returns the class (color behavior) of DEVICE.  This
+     is a symbol whose name is one of the device classes mentioned
+     above.
+
+ - Function: valid-device-type-p device-type
+     This function returns whether DEVICE-TYPE (which should be a
+     symbol) specifies a valid device type.
+
+ - Function: valid-device-class-p device-class
+     This function returns whether DEVICE-CLASS (which should be a
+     symbol) specifies a valid device class.
+
+ - Variable: terminal-device
+     This variable holds the initial terminal device object, which
+     represents XEmacs's stdout.
+
+
+File: lispref.info,  Node: Connecting to a Console or Device,  Next: The Selected Console and Device,  Prev: Console Types and Device Classes,  Up: Consoles and Devices
+
+Connecting to a Console or Device
+=================================
+
+ - Function: make-device &optional type device-data
+     This function creates a new device.
+
+   The following two functions create devices of specific types and are
+written in terms of `make-device'.
+
+ - Function: make-tty-device &optional tty terminal-type
+     This function creates a new tty device on TTY.  This also creates
+     the tty's first frame.  TTY should be a string giving the name of
+     a tty device file (e.g. `/dev/ttyp3' under SunOS et al.), as
+     returned by the `tty' command issued from the Unix shell.  A value
+     of `nil' means use the stdin and stdout as passed to XEmacs from
+     the shell.  If TERMINAL-TYPE is non-`nil', it should be a string
+     specifying the type of the terminal attached to the specified tty.
+     If it is `nil', the terminal type will be inferred from the
+     `TERM' environment variable.
+
+ - Function: make-x-device &optional display argv-list
+     This function creates a new device connected to DISPLAY.  Optional
+     argument ARGV-LIST is a list of strings describing command line
+     options.
+
+ - Function: delete-device device
+     This function deletes DEVICE, permanently eliminating it from use.
+     This disconnects XEmacs's connection to the device.
+
+ - Variable: create-device-hook
+     This variable, if non-`nil', should contain a list of functions,
+     which are called when a device is created.
+
+ - Variable: delete-device-hook
+     This variable, if non-`nil', should contain a list of functions,
+     which are called when a device is deleted.
+
+ - Function: console-live-p object
+     This function returns non-`nil' if OBJECT is a console that has
+     not been deleted.
+
+ - Function: device-live-p object
+     This function returns non-`nil' if OBJECT is a device that has not
+     been deleted.
+
+ - Function: device-x-display device
+     This function returns the X display which DEVICE is connected to,
+     if DEVICE is an X device.
+
