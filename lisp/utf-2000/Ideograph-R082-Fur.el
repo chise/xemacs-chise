@@ -741,6 +741,7 @@
   '((ideographic-radical . 82)	; â½‘
     (ideographic-strokes . 7)
     (japanese-strokes	 . 8)
+    (japanese-jisx0212		. #x463E)	; ø»‹›ƒ
     (japanese-jisx0213-2	. #x6E2C)	; ø»¦Ž‘
     (ideograph-daikanwa		. 16856)	; ø¸„‡˜
     (ucs			. #x6BEE)	; æ¯®
