@@ -1,5 +1,30 @@
 2005-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R032-Earth.el (GT-06661): Unify U+FA7C into the parent
+	node.
+
+2005-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R077-Stop.el (GT-K00182): Use `=>daikanwa' instead of
+	`morohashi-daikanwa'; add `<-ideographic-component-forms' for
+	U+6B62.
+	(GT-K00439): Likewise.
+	(GT-K00440): Likewise; unify U+9FB0.
+
+	* Ideograph-R066-Rap.el (U+656C): Changed to abstract character.
+
+	* Ideograph-R064-Hand.el (U+9FB5): New character; unify BC-8B6D.
+
+	* Ideograph-R031-Enclosure.el (CB00638): Unify U+9FB1.
+	(U+5705): Use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (U+35A9): Use `->subsumptive'.
+	(JU+559D): Unify U+FA78.
+	(U+55E2): Changed to abstract character.
+	(UU+55E2): Unify U+FA7B.
+
+	* Ideograph-R024-Ten.el (U+9FBA): New character.
+
 	* Ideograph-R015-Ice.el (U+51B5): Separate CB00288.
 	(CB00288): Unify U+FA71.
 
