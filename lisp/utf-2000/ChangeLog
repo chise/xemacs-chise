@@ -1,3 +1,15 @@
+2003-06-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R142-Insect.el, Ideograph-R140-Grass.el: Add some
+	missing `=ucs@jis' features for JIS characters.
+
+	* Ideograph-R054-Long-Stride.el (U+5EF8): Separate GT-PJ-1-572F.
+	(J0-572F): Unify GT-PJ-1-572F, JU+5EF8 and GT-12061.
+
+	* Ideograph-R038-Woman.el (J0-554A): Add JU+5B16.
+
+	* Ideograph-R010-Legs.el: Reformatted.
+
 2003-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R142-Insect.el: Add missing mappings between CJK Ext B
