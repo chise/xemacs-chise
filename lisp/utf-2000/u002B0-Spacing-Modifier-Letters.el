@@ -203,7 +203,7 @@
     (=jis-x0212		. #x2230)	; ø»Š¥½
     (chinese-cns11643-1 . #x256F)	; ø»‘‰¢
     (=jis-x0213-1-2000	. #x2A31)	; ø»¢ š
-    (chinese-big5	. #xA3BE)	; ý¢€ŠŽ¾
+    (=big5		. #xA3BE)	; ý¢€ŠŽ¾
     (=jef-china3	. #x81AB)	; øºˆ†«
     (=ucs@jis		. #x02C7)	; ø»„†‰
     ))
@@ -259,7 +259,7 @@
       ))
     (chinese-gb2312	. #x2125)	; ø»„†ˆ
     (chinese-cns11643-1 . #x256D)	; ø»‘‰ 
-    (chinese-big5	. #xA3BC)	; ý¢€ŠŽ¼
+    (=big5		. #xA3BC)	; ý¢€ŠŽ¼
     ))
 (define-char
   '((name		. "MODIFIER LETTER ACUTE ACCENT")
@@ -286,7 +286,7 @@
       (=ucs		  . #x02CA)	; ËŠ
       ))
     (chinese-cns11643-1 . #x256E)	; ø»‘‰¡
-    (chinese-big5	. #xA3BD)	; ý¢€ŠŽ½
+    (=big5		. #xA3BD)	; ý¢€ŠŽ½
     ))
 (define-char
   '((name		. "MODIFIER LETTER GRAVE ACCENT")
@@ -313,7 +313,7 @@
       (=ucs		  . #x02CB)	; Ë‹
       ))
     (chinese-cns11643-1 . #x2570)	; ø»‘‰£
-    (chinese-big5	. #xA3BF)	; ý¢€ŠŽ¿
+    (=big5		. #xA3BF)	; ý¢€ŠŽ¿
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW VERTICAL LINE")
@@ -521,7 +521,7 @@
     (=jis-x0212		. #x2232)	; ø»Š¥¿
     (chinese-cns11643-1 . #x256C)	; ø»‘‰Ÿ
     (=jis-x0213-1-2000	. #x2A58)	; ø»¢¡
-    (chinese-big5	. #xA3BB)	; ý¢€ŠŽ»
+    (=big5		. #xA3BB)	; ý¢€ŠŽ»
     (=jef-china3	. #x81A9)	; øºˆ†©
     (=ucs@jis		. #x02D9)	; ø»ˆ›´
     ))

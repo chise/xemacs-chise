@@ -112,7 +112,7 @@
     (chinese-cns11643-1 . #x4439)	; ø»‘¶Ž
     (=jis-x0213-2-2000	. #x2126)	; ø»¤…
     (=gt-pj-2		. #x3056)	; ý¡€€¨
-    (chinese-big5	. #xA458)	; ý¢€Š‘˜
+    (=big5		. #xA458)	; ý¢€Š‘˜
     (ideograph-daikanwa . 00071)	; ø¸€‡
     (=gt-k		. 00359)	; ý¡„€…§
     (=gt		. 00104)	; ý¡€€¨
@@ -163,7 +163,7 @@
     (=iso-ir165		. #x5650)	; ø»¼¹
     (chinese-cns11643-1 . #x4463)	; ø»‘¶¸
     (=gt-pj-1		. #x4366)	; ý¡€€­
-    (chinese-big5	. #xA4A4)	; ý¢€Š’¤
+    (=big5		. #xA4A4)	; ý¢€Š’¤
     (ideograph-daikanwa . 00073)	; ø¸€‰
     (=gt-k		. 00464)	; ý¡„€‡
     (=gt		. 00109)	; ý¡€€­
@@ -188,7 +188,7 @@
     (chinese-cns11643-2 . #x2130)	; ø»“Œ¯
     (=jis-x0213-2-2000	. #x2127)	; ø»¤†
     (=gt-pj-2		. #x3058)	; ý¡€€¬
-    (chinese-big5	. #xC950)	; ý¢€Œ¥
+    (=big5		. #xC950)	; ý¢€Œ¥
     (ideograph-daikanwa . 00074)	; ø¸€Š
     (=gt-k		. 00744)	; ý¡„€‹¨
     (=jef-china3	. #x41AF)	; øº„†¯
@@ -236,7 +236,7 @@
     (total-strokes	 . 4)
     (hanyu-dazidian	1 28 7)
     (chinese-cns11643-1 . #x4464)	; ø»‘¶¹
-    (chinese-big5	. #xA4A5)	; ý¢€Š’¥
+    (=big5		. #xA4A5)	; ý¢€Š’¥
     (=ucs@cns		. #x4E30)	; ø»‘¶¹
     (=ucs@big5		. #x4E30)	; ø»‘¶¹
     ))
@@ -265,7 +265,7 @@
     (=jis-x0208		. #x5025)	; ø½Š»‚
     (chinese-cns11643-2 . #x2143)	; ø»“‚
     (=gt-pj-1		. #x5025)	; ý¡€€±
-    (chinese-big5	. #xC963)	; ý¢€Œ¥£
+    (=big5		. #xC963)	; ý¢€Œ¥£
     (ideograph-daikanwa . 00077)	; ø¸€
     (=gt-k		. 01122)	; ý¡„€‘¢
     (=gt		. 00113)	; ý¡€€±
@@ -331,7 +331,7 @@
     (=iso-ir165		. #x342E)	; ø»Š›
     (chinese-cns11643-1 . #x486B)	; ø»‘¼¸
     (=gt-pj-1		. #x367A)	; ý¡€€³
-    (chinese-big5	. #xA6EA)	; ý¢€Š›ª
+    (=big5		. #xA6EA)	; ý¢€Š›ª
     (ideograph-daikanwa . 00080)	; ø¸€
     (=gt-k		. 02530)	; ý¡„€§¢
     (=gt		. 00115)	; ý¡€€³
@@ -366,7 +366,7 @@
     (hanyu-dazidian	1 30 4)
     (chinese-cns11643-2 . #x2531)	; ø»“’¨
     (=gt-pj-2		. #x305E)	; ý¡€€µ
-    (chinese-big5	. #xCBB1)	; ý¢€Œ®±
+    (=big5		. #xCBB1)	; ý¢€Œ®±
     (ideograph-daikanwa . 00082)	; ø¸€’
     (=gt		. 00117)	; ý¡€€µ
     (mojikyo		. 000082)	; ý €€’

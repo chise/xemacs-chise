@@ -1215,7 +1215,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x6B63)
     (chinese-cns11643-1 . #x2221)	; ø»‘ƒº
-    (chinese-big5	. #xA1C0)	; ý¢€Š‡€
+    (=big5		. #xA1C0)	; ý¢€Š‡€
     (=ucs		. #x32A3)	; ãŠ£
     ))
 (define-char

@@ -315,7 +315,7 @@ Lisp_Object Qascii,
   Qvietnamese_viscii_upper,
   Qmap_jis_x0208,
   Qmap_jis_x0208_1990,
-  Qchinese_big5,
+  Qmap_big5,
   Qethiopic_ucs,
 #endif
   Qchinese_big5_1,
@@ -2394,7 +2394,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qmap_jis_x0208, 		"=jis-x0208");
   defsymbol (&Qmap_jis_x0208_1990, 	"=jis-x0208-1990");
-  defsymbol (&Qchinese_big5,		"chinese-big5");
+  defsymbol (&Qmap_big5,		"=big5");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
 #endif
   defsymbol (&Qchinese_big5_1,		"chinese-big5-1");
@@ -2803,7 +2803,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_chinese_big5);
   Vcharset_chinese_big5 =
-    make_charset (LEADING_BYTE_CHINESE_BIG5, Qchinese_big5, 256, 2,
+    make_charset (LEADING_BYTE_CHINESE_BIG5, Qmap_big5, 256, 2,
 		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Big5"),
 		  build_string ("Big5"),

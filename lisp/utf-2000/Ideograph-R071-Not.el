@@ -22,7 +22,7 @@
     (shinjigen-2	. 3258)
     (=jis-x0208		. #x5A5C)	; ø½‹Š¥
     (=gt-pj-1		. #x5A5C)	; æ—¡
-    (chinese-big5	. #xC95E)	; ý¢€Œ¥ž
+    (=big5		. #xC95E)	; ý¢€Œ¥ž
     (ideograph-daikanwa . 13717)	; ø¸ƒ–•
     (=gt-k		. 00533)	; ý¡„€ˆ•
     (=ucs		. #x65E1)	; æ—¡
@@ -68,7 +68,7 @@
     (=iso-ir165		. #x3C48)	; ø»–¥
     (chinese-cns11643-1 . #x514D)	; ø»’‰¨
     (=gt-pj-1		. #x347B)	; æ—¢
-    (chinese-big5	. #xAC4A)	; ý¢€Š±Š
+    (=big5		. #xAC4A)	; ý¢€Š±Š
     (ideograph-daikanwa . 13721)	; ø¸ƒ–™
     (=gt-k		. 06394)	; ý¡„£º
     (=ucs		. #x65E2)	; æ—¢

@@ -308,7 +308,7 @@
     (total-strokes	 . 19)
     (=jis-x0208		. #x7353)	; ø½‹¯Š
     (=ks-x1001		. #x5A3C)	; ø»‰®•
-    (chinese-big5	. #xC3FB)	; ý¢€Œ»
+    (=big5		. #xC3FB)	; ý¢€Œ»
     (ideograph-daikanwa . 42612)	; ø¸Š™´
     (=ucs@jis		. #x9761)	; ø½‹¯Š
     ))

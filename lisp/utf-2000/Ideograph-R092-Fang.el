@@ -13,7 +13,7 @@
     (total-strokes	 . 4)
     (chinese-gb2312	. #x5140)	; ø»…ƒ
     (=iso-ir165		. #x5140)	; ø»µ“
-    (chinese-big5	. #xA4FA)	; ý¢€Š“º
+    (=big5		. #xA4FA)	; ý¢€Š“º
     (=ucs		. #x7259)	; ç‰™
     ))
 (define-char
@@ -151,7 +151,7 @@
     (total-strokes	 . 12)
     (=iso-ir165		. #x2C37)	; ø»Œ¾´
     (chinese-cns11643-2 . #x3D6B)	; ø»“¶²
-    (chinese-big5	. #xDA67)	; ý¢€©§
+    (=big5		. #xDA67)	; ý¢€©§
     (ideograph-daikanwa . 19919)	; ø¸„·
     (=ucs		. #x725A)	; ç‰š
     ))

@@ -7,7 +7,7 @@
     (=jis-x0208		. #x222B)	; ø½‰·¤
     (=ks-x1001		. #x2167)	; ø»ˆ›’
     (chinese-cns11643-1 . #x2258)	; ø»‘„±
-    (chinese-big5	. #xA1F6)	; ý¢€Š‡¶
+    (=big5		. #xA1F6)	; ý¢€Š‡¶
     (=jef-china3	. #x7BCE)	; øº‡¯Ž
     (=ucs		. #x2190)	; â†
     ))
@@ -20,7 +20,7 @@
     (=jis-x0208		. #x222C)	; ø½‰·¥
     (=ks-x1001		. #x2168)	; ø»ˆ›“
     (chinese-cns11643-1 . #x2255)	; ø»‘„®
-    (chinese-big5	. #xA1F4)	; ý¢€Š‡´
+    (=big5		. #xA1F4)	; ý¢€Š‡´
     (=jef-china3	. #x7BCF)	; øº‡¯
     (=ucs		. #x2191)	; â†‘
     ))
@@ -33,7 +33,7 @@
     (=jis-x0208		. #x222A)	; ø½‰·£
     (=ks-x1001		. #x2166)	; ø»ˆ›‘
     (chinese-cns11643-1 . #x2257)	; ø»‘„°
-    (chinese-big5	. #xA1F7)	; ý¢€Š‡·
+    (=big5		. #xA1F7)	; ý¢€Š‡·
     (=jef-china3	. #x7BCD)	; øº‡¯
     (=ucs		. #x2192)	; â†’
     ))
@@ -46,7 +46,7 @@
     (=jis-x0208		. #x222D)	; ø½‰·¦
     (=ks-x1001		. #x2169)	; ø»ˆ›”
     (chinese-cns11643-1 . #x2256)	; ø»‘„¯
-    (chinese-big5	. #xA1F5)	; ý¢€Š‡µ
+    (=big5		. #xA1F5)	; ý¢€Š‡µ
     (=jef-china3	. #x7BD0)	; øº‡¯
     (=ucs		. #x2193)	; â†“
     ))
@@ -75,7 +75,7 @@
     (=ks-x1001		. #x2258)	; ø»ˆœ¡
     (chinese-cns11643-1 . #x2259)	; ø»‘„²
     (=jis-x0213-1-2000	. #x2327)	; ø»¢•¾
-    (chinese-big5	. #xA1F8)	; ý¢€Š‡¸
+    (=big5		. #xA1F8)	; ý¢€Š‡¸
     (=ucs		. #x2196)	; â†–
     ))
 (define-char
@@ -86,7 +86,7 @@
     (=ks-x1001		. #x2256)	; ø»ˆœŸ
     (chinese-cns11643-1 . #x225A)	; ø»‘„³
     (=jis-x0213-1-2000	. #x2325)	; ø»¢•¼
-    (chinese-big5	. #xA1F9)	; ý¢€Š‡¹
+    (=big5		. #xA1F9)	; ý¢€Š‡¹
     (=ucs		. #x2197)	; â†—
     ))
 (define-char
@@ -97,7 +97,7 @@
     (=ks-x1001		. #x2259)	; ø»ˆœ¢
     (chinese-cns11643-1 . #x225C)	; ø»‘„µ
     (=jis-x0213-1-2000	. #x2326)	; ø»¢•½
-    (chinese-big5	. #xA1FB)	; ý¢€Š‡»
+    (=big5		. #xA1FB)	; ý¢€Š‡»
     (=ucs		. #x2198)	; â†˜
     ))
 (define-char
@@ -108,7 +108,7 @@
     (=ks-x1001		. #x2257)	; ø»ˆœ 
     (chinese-cns11643-1 . #x225B)	; ø»‘„´
     (=jis-x0213-1-2000	. #x2328)	; ø»¢•¿
-    (chinese-big5	. #xA1FA)	; ý¢€Š‡º
+    (=big5		. #xA1FA)	; ý¢€Š‡º
     (=ucs		. #x2199)	; â†™
     ))
 (define-char

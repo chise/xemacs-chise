@@ -29,6 +29,7 @@
 (define-charset-alias 'japanese-jisx0208	'=jis-x0208-1983)
 (define-charset-alias 'korean-ksc5601		'=ks-x1001)
 (define-charset-alias 'japanese-jisx0212	'=jis-x0212)
+(define-charset-alias 'chinese-big5		'=big5)
 
 ;; PinYin-ZhuYin
 (make-charset 'sisheng "PinYin-ZhuYin"

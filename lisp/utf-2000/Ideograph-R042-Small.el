@@ -9,7 +9,7 @@
     (=iso-ir165		. #x5021)	; ø»³–
     (chinese-cns11643-1 . #x4451)	; ø»‘¶¦
     (=gt-pj-1		. #x3E2E)	; å°
-    (chinese-big5	. #xA470)	; ý¢€Š‘°
+    (=big5		. #xA470)	; ý¢€Š‘°
     (ideograph-daikanwa . 07473)	; ø¸´±
     (=gt-k		. 00186)	; ý¡„€‚º
     (=ucs		. #x5C0F)	; å°
@@ -18,7 +18,7 @@
   '((ideographic-radical . 42)	; â¼©
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (chinese-big5	. #xC95C)	; ý¢€Œ¥œ
+    (=big5		. #xC95C)	; ý¢€Œ¥œ
     (ideograph-daikanwa . 07474)	; ø¸´²
     (=ucs		. #x5C10)	; å°
     ))
@@ -39,7 +39,7 @@
     (=jis-x0208		. #x3E2F)	; ø½Š °
     (=ks-x1001		. #x6134)	; ø»‰¸Ÿ
     (=gt-pj-1		. #x3E2F)	; ø½Š °
-    (chinese-big5	. #xA4D6)	; ý¢€Š“–
+    (=big5		. #xA4D6)	; ý¢€Š“–
     (ideograph-daikanwa . 07475)	; ø¸´³
     (=gt-k		. 00446)	; ý¡„€†¾
     (=ucs@jis		. #x5C11)	; ø½Š °
@@ -68,7 +68,7 @@
     (total-strokes	 . 5)
     (chinese-cns11643-2 . #x2155)	; ø»“”
     (=jis-x0213-1-2000	. #x4F5B)	; ø»£—š
-    (chinese-big5	. #xC974)	; ý¢€Œ¥´
+    (=big5		. #xC974)	; ý¢€Œ¥´
     (ideograph-daikanwa . 07477)	; ø¸´µ
     (=ucs		. #x5C12)	; å°’
     ))
@@ -116,7 +116,7 @@
     (chinese-gb2312	. #x6658)	; ø»…¬‘
     (=iso-ir165		. #x6658)	; ø»Ž”¡
     (chinese-cns11643-2 . #x2234)	; ø»“Ž‘
-    (chinese-big5	. #xC9D4)	; ý¢€Œ§”
+    (=big5		. #xC9D4)	; ý¢€Œ§”
     (=jef-china3	. #x9DD2)	; øº‰·’
     (=ucs		. #x5C15)	; å°•
     ))
@@ -131,7 +131,7 @@
     (=iso-ir165		. #x3C62)	; ø»–¿
     (chinese-cns11643-1 . #x477A)	; ø»‘»©
     (=gt-pj-1		. #x406D)	; å°–
-    (chinese-big5	. #xA679)	; ý¢€Š™¹
+    (=big5		. #xA679)	; ý¢€Š™¹
     (ideograph-daikanwa . 07480)	; ø¸´¸
     (=gt-k		. 01656)	; ý¡„€™¸
     (=ucs		. #x5C16)	; å°–
@@ -277,7 +277,7 @@
     (=iso-ir165		. #x4950)	; ø»©³
     (chinese-cns11643-1 . #x4C7E)	; ø»’ƒƒ
     (=gt-pj-1		. #x3E30)	; å°š
-    (chinese-big5	. #xA97C)	; ý¢€Š¥¼
+    (=big5		. #xA97C)	; ý¢€Š¥¼
     (=gt-k		. 03743)	; ý¡„€ºŸ
     (mojikyo		. 050154)	; ý €Œª
     (=ucs		. #x5C1A)	; å°š
@@ -610,7 +610,7 @@
     (total-strokes	 . 13)
     (=jis-x0212		. #x3A6C)	; ø»‹Š‰
     (chinese-cns11643-2 . #x4251)	; ø»“½®
-    (chinese-big5	. #xDD4B)	; ý¢€µ‹
+    (=big5		. #xDD4B)	; ý¢€µ‹
     (ideograph-daikanwa . 07522)	; ø¸µ¢
     (=ucs		. #x5C1F)	; å°Ÿ
     ))
