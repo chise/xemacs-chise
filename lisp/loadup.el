@@ -65,8 +65,9 @@
 		(prog1 (buffer-substring)
 		  (kill-buffer (current-buffer)))))
 
-	(setq load-path (split-path (getenv "EMACSBOOTSTRAPLOADPATH")))
-	(setq module-load-path (split-path (getenv "EMACSBOOTSTRAPMODULEPATH")))
+	(let ((build-root (expand-file-name ".." invocation-directory)))
+	  (setq load-path (list (expand-file-name "lisp" build-root)))
+	  (setq module-load-path (list (expand-file-name "modules" build-root))))
 
 	;; message not defined yet ...
 	(external-debugging-output (format "\nUsing load-path %s" load-path))

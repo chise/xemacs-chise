@@ -126,9 +126,6 @@ void
 xaw_update_one_widget (widget_instance *instance, Widget widget,
 		       widget_value *val, Boolean deep_p)
 {
-  if (val->args && val->args->nargs)
-    XtSetValues (widget, val->args->args, val->args->nargs);
-
   if (0)
     ;
 #ifdef LWLIB_SCROLLBARS_ATHENA
@@ -193,6 +190,9 @@ xaw_update_one_widget (widget_instance *instance, Widget widget,
 #endif /* LWLIB_WIDGETS_ATHENA */
     }
 #endif /* LWLIB_DIALOGS_ATHENA */
+  /* Lastly update our global arg values. */
+  if (val->args && val->args->nargs)
+    XtSetValues (widget, val->args->args, val->args->nargs);
 }
 
 void

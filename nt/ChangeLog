@@ -1,3 +1,11 @@
+2000-02-23  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.31 is released.
+
+2000-02-22  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h (gc_checking_assert): New.
+
 2000-02-21  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.30 is released.

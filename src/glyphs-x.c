@@ -2494,7 +2494,7 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   IMAGE_INSTANCE_SUBWINDOW_ID (ii) = (void*)wid;
   IMAGE_INSTANCE_X_WIDGET_LWID (ii) = id;
-
+#if 0
   /* Resize the widget here so that the values do not get copied by
      lwlib. */
   ac = 0;
@@ -2503,6 +2503,7 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   XtSetArg (al [ac], XtNheight,
 	    (Dimension)IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii)); ac++;
   XtSetValues (IMAGE_INSTANCE_X_WIDGET_ID (ii), al, ac);
+#endif
   /* because the EmacsManager is the widgets parent we have to
      offset the redisplay of the widget by the amount the text
      widget is inside the manager. */
