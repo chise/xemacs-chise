@@ -20,6 +20,14 @@
 
 	* Ideograph-R170-Mound.el (C5-232E): Unify U-00028E16.
 
+2002-02-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u00A80-Gujarati.el, u00A00-Gurmukhi.el, u00600-Arabic.el,
+	u00400-Cyrillic.el, u00370-Greek.el,
+	u002B0-Spacing-Modifier-Letters.el, u00250-IPA-Extensions.el,
+	u00180-Latin-Extended-B.el, u00100-Latin-Extended-A.el,
+	u000A0-Latin-1-Supplement.el, u00080-C1.el: Reformatted.
+
 2002-02-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R063-Door.el: Add some mappings to CJK Ext-B code
