@@ -37,4 +37,15 @@ BUFBYTE_FIRST_BYTE_P(Bufbyte c)
   return (c <= 0x7f) || (0xc0 <= c);
 }
 
+
+/************************************************************************/
+/*                        Dealing with characters                       */
+/************************************************************************/
+
+/* Is this character represented by more than one byte in a string? */
+
+#define CHAR_MULTIBYTE_P(c) ((c) >= 0x80)
+
+#define CHAR_ASCII_P(c) (!CHAR_MULTIBYTE_P (c))
+
 #endif /* _XEMACS_MB_UTF_8_H */
