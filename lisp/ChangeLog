@@ -1,3 +1,10 @@
+1999-11-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R010-Legs.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+	* utf-2000/Ideograph-R011-Enter.el: Separate CNS.
+
 1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/Ideograph-R008-Lid.el: Merge CJK Unified Ideographs
