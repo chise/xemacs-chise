@@ -18505,6 +18505,12 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (->same-ideograph
+     ((ideograph-daikanwa . 02134)	; ø¸€¡–
+      )
+     (:char	((ideograph-daikanwa . 00768)	; ø¸€Œ€
+		 )
+      :sources	(shuowen morohashi-daikanwa)))
     (hanyu-dazidian	1 206 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
