@@ -1,3 +1,7 @@
+2003-07-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R024-Ten.el (BC-8BF8): New character.
+
 2003-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R045-Sprout.el (JX1-4F62): Unify GT-K00269; unify
