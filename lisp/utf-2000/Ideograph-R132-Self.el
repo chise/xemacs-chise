@@ -80,6 +80,7 @@
     (japanese-jisx0208-1978	. #x3D2D)	; ø»‚¥”
     (japanese-jisx0208		. #x3D2D)	; ø»†¹œ
     (japanese-jisx0208-1990	. #x3D2D)	; ø½ŠŸ
+    (mojikyo			. 050380)	; ø¸Œ“Œ
     ))
 (define-char
   '((ideographic-radical . 132)	; â¾ƒ
