@@ -1,3 +1,101 @@
+2004-05-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el: Add mappings for Big5 code points.
+
+	* Ideograph-R062-Halberd.el (U+6231): Use `->subsumptive'.
+
+	* Ideograph-R036-Evening.el (C6-243B): Separate M-05757; unify
+	U-0002F85D; use `<-denotational' for U+591A.
+	(M-05757): Separate C6-243B; unify U-21587 and H3-ADA3; add
+	`->same' for M-05756.
+	(U-00021588): Add `->same' for M-05756.
+	(U+591B): Add `<-vulgar' for M-05756.
+	(U-00022EC8): Unify H4-B9B4.
+	(U-000215CC): Use `->subsumptive'.
+	(U-00023873): Likewise.
+
+	* Ideograph-R030-Mouth.el (U-00020FC5): Use `->subsumptive'.
+	(U-0002018A): Likewise.
+	(U-00020FC6): Likewise.
+	(U+561F): Likewise.
+	(U-000203E7): Likewise.
+	(U+5655): Likewise.
+	(M-04331): Unify U-00020FA2.
+	(U-00020FA5): Use `->subsumptive'.
+	(U-000203D3): Likewise.
+	(U-00020FAF): Likewise.
+	(M-04335): Unify U-00020FA9.
+	(M-04336): Unify U-00020FA3.
+	(M-04337): Unify U-00020FAB.
+	(U-00020FB0): Use `->subsumptive'.
+	(M-04339): Unify U-00020FA4.
+	(M-04341): Map to U-00020FAE.
+	(M-04342): Unify U-00020FAC.
+	(U-00020FA6): Use `->subsumptive'.
+	(U+5656): Likewise.
+
+2004-05-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U-00021A5F): Use `->subsumptive'.
+	(U+5BD6): Likewise.
+	(U-00021A60): Likewise.
+	(U+5BD7): Likewise.
+	(U-00021A61): Likewise.
+	(U+5BD8): Likewise.
+	(U-00021A62): Likewise.
+	(U-00021A63): Likewise.
+	(U+5BD9): Likewise.
+	(U-00021A64): Likewise.
+	(U+3764): Likewise.
+	(U-00021A65): Likewise.
+	(U+3765): Likewise.
+	(U+5BDA): Likewise.
+	(U-00021A67): Likewise.
+	(U-00021A66): Likewise.
+	(U-00021A68): Likewise.
+	(U+3766): Likewise.
+	(U+3767): Likewise.
+	(U-00021A69): Likewise.
+	(U-00021A6A): Likewise.
+	(U-00021A7A): Likewise.
+	(U+5BDC): Likewise.
+	(U-00021A6C): Likewise.
+	(U+5BDD): Likewise.
+	(U-00021A6D): Likewise.
+	(U-00021A77): Likewise.
+
+	* Ideograph-R052-Short-Thread.el:
+	- Use `->subsumptive' for some character definitions.
+	- Add some mappings to Daikanwa numbers.
+	(U-000221B2): Unify M-09194.
+	(M-09199): New character.
+	(U-000221BB): New character [copied from Ideograph-R016-Table.el].
+	(M-09210): New character.
+
+	* Ideograph-R016-Table.el (M-01774): Unify U-0002064E.
+	(U-000221BB): Use `->subsumptive',
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@{ucs|cns}*sources' to integrate M-09200; add
+	`<-ancient-ideograph' for M-09208.
+
+	* Ideograph-R054-Long-Stride.el (M-09582): Map to U-000262EA.
+
+2004-05-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (U-00024186): Use `->subsumptive'.
+	(U+7071): Likewise.
+	(U+7072): Likewise.
+	(U-00024184): Likewise.
+	(U-00024185): Likewise.
+	(U+7073): Likewise.
+	(U-0002418B): Likewise.
+	(U+7074): Likewise.
+	(U+7075): Likewise.
+	(U+7076): Likewise.
+	(U+3DA3): Likewise.
+	(U+7077): Likewise.
+	(U+7078): Likewise.
+
 2004-05-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R054-Long-Stride.el: Use `->subsumptive' for some
