@@ -1195,7 +1195,7 @@ make_vector (size_t length, Lisp_Object init)
   }
 }
 
-#ifdef UTF2000
+#ifdef HAVE_GGC
 Lisp_Object
 make_older_vector (size_t length, Lisp_Object init)
 {
