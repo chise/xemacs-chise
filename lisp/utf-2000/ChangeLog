@@ -1,3 +1,20 @@
+2003-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el (M-46875): Separate U+4CD0 and C3-5746.
+	(M-46876): Separate C5-6063.
+
+	* Ideograph-R187-Horse.el (M-44833'): New character.
+
+	* Ideograph-R184-Eat.el (M-44037'): New character.
+	(M-44459'): New character.
+
+	* Ideograph-R182-Wind.el (M-43920'): New character.
+
+	* Ideograph-R179-Leek.el (M-43256'): New character.
+	(M-43256"): Unify GT-58098; separate U+4AA3.
+
+	* Ideograph-R173-Rain.el (M-42417'): New character.
+
 2003-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R170-Mound.el (M-41836): Unify GT-56167.
