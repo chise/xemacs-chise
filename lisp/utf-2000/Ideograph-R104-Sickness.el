@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x7592)	; 疒
     (ideographic-radical . 104)	; ⽧

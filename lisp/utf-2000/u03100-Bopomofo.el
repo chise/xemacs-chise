@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "BOPOMOFO LETTER B")
     (general-category	letter other) ; Informative Category

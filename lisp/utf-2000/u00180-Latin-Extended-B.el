@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "LATIN SMALL LETTER B WITH STROKE")
     (general-category	letter lowercase) ; Normative Category

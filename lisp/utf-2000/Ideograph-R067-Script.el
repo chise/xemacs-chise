@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x6587)	; 文
     (ideographic-radical . 67)	; ⽂

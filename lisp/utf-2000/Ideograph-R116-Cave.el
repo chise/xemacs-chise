@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x7A74)	; 穴
     (ideographic-radical . 116)	; ⽳

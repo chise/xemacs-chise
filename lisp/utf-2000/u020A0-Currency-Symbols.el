@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "EURO-CURRENCY SIGN")
     (general-category	symbol currency) ; Informative Category

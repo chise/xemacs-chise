@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((ideographic-radical . 130)	; â¾
     (ideographic-strokes . 0)
@@ -3479,6 +3480,41 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=cns11643-6	. #x3422)	; ø»œ«
+    ))
+(define-char
+  '((ideographic-radical . 130)	; â¾
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (->ideographic-variants
+     ((=big5-cdp	  . #x8CA9)	; ý¢€ˆ²©
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; â¿±
+      )
+     ((=ucs		  . #x5DE6)	; å·¦
+      )
+     ((=big5-cdp	  . #x8958)	; ý¢€ˆ¥˜
+      ))
+    (=gt-pj-k1		. #x355F)	; ý¡„–‚
+    (=gt-k		. 05506)	; ý¡„–‚
+    ))
+(define-char
+  '((ideographic-radical . 130)	; â¾
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (->ideographic-variants
+     ((=gt-k		  . 05506)	; ý¡„–‚
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; â¿±
+      )
+     ((=ucs		  . #x5DE6)	; å·¦
+      )
+     ((=big5-cdp	  . #x8A73)	; ý¢€ˆ©³
+      ))
+    (=big5-cdp		. #x8CA9)	; ý¢€ˆ²©
     ))
 (define-char
   '((=>ucs		. #x2669D)	; ð¦š

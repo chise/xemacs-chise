@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "BRAILLE PATTERN BLANK")
     (general-category	symbol other) ; Informative Category

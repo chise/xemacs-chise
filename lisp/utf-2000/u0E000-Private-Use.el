@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=big5-pua		. #xFA40)	; 
     (=ucs		. #xE000)	; 

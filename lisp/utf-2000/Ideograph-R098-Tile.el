@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x74E6)	; 瓦
     (ideographic-radical . 98)	; ⽡

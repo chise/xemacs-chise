@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
     (general-category	symbol other) ; Informative Category

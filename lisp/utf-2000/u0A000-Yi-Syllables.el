@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "YI SYLLABLE IT")
     (general-category	letter other) ; Informative Category

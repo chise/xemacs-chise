@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((ideographic-radical . 121)	; â½¸
     (ideographic-strokes . 0)
@@ -132,6 +133,16 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (=ucs		. #x4343)	; äƒ
+    ))
+(define-char
+  '((=>ucs		. #x4343)	; äƒ
+    (morohashi-daikanwa	28120 0 7)
+    (ideographic-radical . 121)	; â½¸
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (=gt-pj-9		. #x7230)	; ý¡€ˆ¶„
+    (=gt-k		. 06075)	; ý¡„ž»
+    (=gt		. 36228)	; ý¡€ˆ¶„
     ))
 (define-char
   '((ideographic-radical . 121)	; â½¸

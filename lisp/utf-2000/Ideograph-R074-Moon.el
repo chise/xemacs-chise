@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((ideographic-radical . 74)	; â½‰
     (ideographic-strokes . 0)
@@ -206,6 +207,25 @@
      ((=ucs		  . #x26657)	; ð¦™—
       ))
     (=cns11643-4	. #x2664)	; ø»—©
+    ))
+(define-char
+  '((ideographic-radical . 74)	; â½‰
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (->ideographic-variants
+     ((=big5-cdp	  . #x8BB5)	; ý¢€ˆ®µ
+      ))
+    (=gt-pj-k2		. #x4141)	; ý¡„ŒŒ
+    (=gt-k		. 04876)	; ý¡„ŒŒ
+    ))
+(define-char
+  '((ideographic-radical . 74)	; â½‰
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (->ideographic-variants
+     ((=gt-k		  . 04876)	; ý¡„ŒŒ
+      ))
+    (=big5-cdp		. #x8BB5)	; ý¢€ˆ®µ
     ))
 (define-char
   '((=>ucs		. #x670E)	; æœŽ

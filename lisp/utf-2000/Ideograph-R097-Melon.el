@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x74DC)	; 瓜
     (ideographic-radical . 97)	; ⽠

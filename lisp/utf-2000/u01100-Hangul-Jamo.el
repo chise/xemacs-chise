@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "HANGUL CHOSEONG KIYEOK")
     (general-category	letter other) ; Informative Category

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "OGHAM SPACE MARK")
     (general-category	separator space) ; Normative Category

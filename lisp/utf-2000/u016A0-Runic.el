@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "RUNIC LETTER FEHU FEOH FE F")
     (general-category	letter other) ; Informative Category

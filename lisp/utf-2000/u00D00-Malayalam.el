@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "MALAYALAM SIGN ANUSVARA")
     (general-category	mark spacing-combining) ; Normative Category

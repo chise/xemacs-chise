@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x8033)	; 耳
     (ideographic-radical . 128)	; ⽿

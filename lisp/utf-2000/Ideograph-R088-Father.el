@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x7236)	; 父
     (ideographic-radical . 88)	; ⽗

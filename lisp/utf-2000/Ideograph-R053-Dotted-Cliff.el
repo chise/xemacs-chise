@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x5E7F)	; 广
     (ideographic-radical . 53)	; ⼴

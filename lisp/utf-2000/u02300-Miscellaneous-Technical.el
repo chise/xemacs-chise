@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "DIAMETER SIGN")
     (general-category	symbol other) ; Informative Category

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x9AA8)	; 骨
     (ideographic-radical . 188)	; ⾻

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x9AD8)	; 高
     (ideographic-radical . 189)	; ⾼

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "SINHALA SIGN ANUSVARAYA")
     (general-category	mark spacing-combining) ; Normative Category

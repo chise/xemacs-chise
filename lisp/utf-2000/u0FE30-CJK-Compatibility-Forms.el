@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL TWO DOT LEADER")
     (general-category	punctuation other) ; Informative Category

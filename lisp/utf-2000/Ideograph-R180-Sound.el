@@ -1,10 +1,13 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x97F3)	; éŸ³
     (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 0)
     (total-strokes	 . 9)
     (shinjigen-1	. 9133)
+    (=gt-pj-8		. #x3E52)	; ø¸Š¤
     (=daikanwa		. 43265)	; ø¸Š¤
+    (=gt-k		. 05028)	; ý¡„Ž¤
     (=jef-china3	. #x6CD8)	; øº†³˜
     (mojikyo		. 055938)	; ý €ª‚
     ))

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x7CF8)	; 糸
     (ideographic-radical . 120)	; ⽷

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "SQUARE APAATO")
     (general-category	symbol other) ; Informative Category

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x6BCB)	; 毋
     (ideographic-radical . 80)	; ⽏

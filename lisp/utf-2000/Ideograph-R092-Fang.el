@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x7259)	; 牙
     (ideographic-radical . 92)	; ⽛

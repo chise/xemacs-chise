@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "MODIFIER LETTER SMALL H")
     (general-category	letter modifier) ; Informative Category

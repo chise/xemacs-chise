@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x516B)	; å…«
     (ideographic-radical . 12)	; â¼‹
@@ -398,9 +399,12 @@
       ))
     (=gb2312		. #x3958)	; ø»„ª‹
     (=jis-x0213-2-2000	. #x2328)	; ø»¤ ƒ
+    (=gt-pj-11		. #x4B39)	; ý¡€³
     (=big5-cdp		. #x8C63)	; ý¢€ˆ±£
+    (=gt-k		. 02287)	; ý¡„€£¯
     (=cbeta		. 00659)	; ø¸ Š“
     (=jef-china3	. #x90EC)	; øº‰ƒ¬
+    (=gt		. 07389)	; ý¡€³
     (mojikyo		. 051198)	; ý €ŒŸ¾
     (=ucs		. #x5173)	; å…³
     ))

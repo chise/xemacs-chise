@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x65B9)	; 方
     (ideographic-radical . 70)	; ⽅

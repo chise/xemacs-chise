@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x723B)	; 爻
     (ideographic-radical . 89)	; ⽘

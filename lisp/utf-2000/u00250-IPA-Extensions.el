@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED A")
     (general-category	letter lowercase) ; Normative Category

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x9EBB)	; 麻
     (ideographic-radical . 200)	; ⿇

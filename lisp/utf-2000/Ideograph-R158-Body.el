@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x8EAB)	; 身
     (ideographic-radical . 158)	; ⾝

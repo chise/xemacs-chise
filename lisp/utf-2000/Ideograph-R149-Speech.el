@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x8A00)	; 言
     (ideographic-radical . 149)	; ⾔

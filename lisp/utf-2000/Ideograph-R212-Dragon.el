@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x9F8D)	; 龍
     (ideographic-radical . 212)	; ⿓

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "BOX DRAWINGS LIGHT HORIZONTAL")
     (general-category	symbol other) ; Informative Category

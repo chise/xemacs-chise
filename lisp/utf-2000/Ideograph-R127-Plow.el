@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x8012)	; 耒
     (ideographic-radical . 127)	; ⽾

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "SYMBOL FOR NULL")
     (general-category	symbol other) ; Informative Category

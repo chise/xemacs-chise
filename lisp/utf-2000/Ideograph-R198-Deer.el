@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x9E7F)	; 鹿
     (ideographic-radical . 198)	; ⿅

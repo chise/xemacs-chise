@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x6B20)	; 欠
     (ideographic-radical . 76)	; ⽋

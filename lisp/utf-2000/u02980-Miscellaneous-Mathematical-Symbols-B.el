@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "CIRCLED BULLET")
     (=jis-x0213-1-2000	. #x233A)	; ø»¢–‘

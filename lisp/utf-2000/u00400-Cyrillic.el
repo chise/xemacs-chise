@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER IE WITH GRAVE")
     (general-category	letter uppercase) ; Normative Category

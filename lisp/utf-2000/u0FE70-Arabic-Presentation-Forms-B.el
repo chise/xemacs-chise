@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "ARABIC FATHATAN ISOLATED FORM")
     (general-category	letter other) ; Informative Category

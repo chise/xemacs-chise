@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 0)
@@ -2409,6 +2410,25 @@
     (=cns11643-6	. #x2D7D)	; ø»œ‡´
     ))
 (define-char
+  '((ideographic-radical . 140)	; â¾‹
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (->ideographic-variants
+     ((=big5-cdp	  . #x8BE9)	; ý¢€ˆ¯©
+      ))
+    (=gt-pj-k1		. #x322E)	; ý¡„€‘
+    (=gt-k		. 01089)	; ý¡„€‘
+    ))
+(define-char
+  '((ideographic-radical . 140)	; â¾‹
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (->ideographic-variants
+     ((=gt-k		  . 01089)	; ý¡„€‘
+      ))
+    (=big5-cdp		. #x8BE9)	; ý¢€ˆ¯©
+    ))
+(define-char
   '((=>ucs		. #x82D0)	; è‹
     (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 5)
@@ -2530,7 +2550,10 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=cns11643-1	. #x5344)	; ø»’Œ›
+    (=gt-pj-6		. #x4833)	; ý¡€‰³¢
     (=daikanwa		. 30778)	; ø¸‡ º
+    (=gt-k		. 05134)	; ý¡„Ž
+    (=gt		. 40162)	; ý¡€‰³¢
     ))
 (define-char
   '((morohashi-daikanwa	30778 0 2)
@@ -2580,7 +2603,10 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=cns11643-1	. #x5340)	; ø»’Œ—
+    (=gt-pj-6		. #x4836)	; ý¡€‰´
     (=daikanwa		. 30781)	; ø¸‡ ½
+    (=gt-k		. 05171)	; ý¡„³
+    (=gt		. 40205)	; ý¡€‰´
     ))
 (define-char
   '((morohashi-daikanwa	30781 1)
@@ -2863,7 +2889,10 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=cns11643-1	. #x533C)	; ø»’Œ“
+    (=gt-pj-6		. #x4845)	; ý¡€‰²¼
     (=daikanwa		. 30796)	; ø¸‡¡Œ
+    (=gt-k		. 05092)	; ý¡„¤
+    (=gt		. 40124)	; ý¡€‰²¼
     ))
 (define-char
   '((morohashi-daikanwa	30796 1)
@@ -2886,7 +2915,10 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=cns11643-1	. #x533A)	; ø»’Œ‘
+    (=gt-pj-6		. #x4846)	; ý¡€‰²Š
     (=daikanwa		. 30797)	; ø¸‡¡
+    (=gt-k		. 05055)	; ý¡„Ž¿
+    (=gt		. 40074)	; ý¡€‰²Š
     ))
 (define-char
   '((morohashi-daikanwa	30797 1)
@@ -3560,7 +3592,10 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=cns11643-1	. #x5336)	; ø»’Œ
+    (=gt-pj-6		. #x486B)	; ý¡€‰´…
     (=daikanwa		. 30834)	; ø¸‡¡²
+    (=gt-k		. 05283)	; ý¡„’£
+    (=gt		. 40197)	; ý¡€‰´…
     ))
 (define-char
   '((morohashi-daikanwa	30834 0 1)

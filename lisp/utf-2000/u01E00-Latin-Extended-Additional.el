@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH RING BELOW")
     (general-category	letter uppercase) ; Normative Category
