@@ -6,7 +6,7 @@
     (mirrored		. nil)
     (->decomposition	#x0041 #x0304)
     (->lowercase	#x0101)
-    (latin-iso8859-4	#x40)	; -DÀ-A
+    (latin-iso8859-4	#xC0)	; -DÀ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH MACRON")
@@ -28,7 +28,7 @@
     (->decomposition	#x0061 #x0304)
     (->uppercase	#x0100)
     (->titlecase	#x0100)
-    (latin-iso8859-4	#x60)	; -Dà-A
+    (latin-iso8859-4	#xE0)	; -Dà-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER A WITH MACRON")
@@ -52,8 +52,8 @@
     (mirrored		. nil)
     (->decomposition	#x0041 #x0306)
     (->lowercase	#x0103)
-    (latin-iso8859-2	#x43)	; -BÃ-A
-    (latin-viscii-upper #x65)	; -BÃ-A
+    (latin-iso8859-2	#xC3)	; -BÃ-A
+    (latin-viscii-upper #xE5)	; -BÃ-A
     (latin-viscii	#xC5)	; -BÃ-A
     ))
 (define-char
@@ -76,8 +76,8 @@
     (->decomposition	#x0061 #x0306)
     (->uppercase	#x0102)
     (->titlecase	#x0102)
-    (latin-iso8859-2	#x63)	; -Bã-A
-    (latin-viscii-lower #x65)	; -Bã-A
+    (latin-iso8859-2	#xE3)	; -Bã-A
+    (latin-viscii-lower #xE5)	; -Bã-A
     (latin-viscii	#xE5)	; -Bã-A
     ))
 (define-char
@@ -101,8 +101,8 @@
     (mirrored		. nil)
     (->decomposition	#x0041 #x0328)
     (->lowercase	#x0105)
-    (latin-iso8859-2	#x21)	; -B¡-A
-    (latin-iso8859-4	#x21)	; -D¡-A
+    (latin-iso8859-2	#xA1)	; -B¡-A
+    (latin-iso8859-4	#xA1)	; -D¡-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH OGONEK")
@@ -124,8 +124,8 @@
     (->decomposition	#x0061 #x0328)
     (->uppercase	#x0104)
     (->titlecase	#x0104)
-    (latin-iso8859-2	#x31)	; -B±-A
-    (latin-iso8859-4	#x31)	; -D±-A
+    (latin-iso8859-2	#xB1)	; -B±-A
+    (latin-iso8859-4	#xB1)	; -D±-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER A WITH OGONEK")
@@ -148,7 +148,7 @@
     (mirrored		. nil)
     (->decomposition	#x0043 #x0301)
     (->lowercase	#x0107)
-    (latin-iso8859-2	#x46)	; -BÆ-A
+    (latin-iso8859-2	#xC6)	; -BÆ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH ACUTE")
@@ -170,7 +170,7 @@
     (->decomposition	#x0063 #x0301)
     (->uppercase	#x0106)
     (->titlecase	#x0106)
-    (latin-iso8859-2	#x66)	; -Bæ-A
+    (latin-iso8859-2	#xE6)	; -Bæ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER C WITH ACUTE")
@@ -193,7 +193,7 @@
     (mirrored		. nil)
     (->decomposition	#x0043 #x0302)
     (->lowercase	#x0109)
-    (latin-iso8859-3	#x46)	; -CÆ-A
+    (latin-iso8859-3	#xC6)	; -CÆ-A
     ))
 (define-char
   '((name . "FULLWIDTH LATIN CAPITAL LETTER C WITH CIRCUMFLEX")
@@ -215,7 +215,7 @@
     (->decomposition	#x0063 #x0302)
     (->uppercase	#x0108)
     (->titlecase	#x0108)
-    (latin-iso8859-3	#x66)	; -Cæ-A
+    (latin-iso8859-3	#xE6)	; -Cæ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER C WITH CIRCUMFLEX")
@@ -238,7 +238,7 @@
     (mirrored		. nil)
     (->decomposition	#x0043 #x0307)
     (->lowercase	#x010B)
-    (latin-iso8859-3	#x45)	; -CÅ-A
+    (latin-iso8859-3	#xC5)	; -CÅ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH DOT ABOVE")
@@ -260,7 +260,7 @@
     (->decomposition	#x0063 #x0307)
     (->uppercase	#x010A)
     (->titlecase	#x010A)
-    (latin-iso8859-3	#x65)	; -Cå-A
+    (latin-iso8859-3	#xE5)	; -Cå-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER C WITH DOT ABOVE")
@@ -283,8 +283,8 @@
     (mirrored		. nil)
     (->decomposition	#x0043 #x030C)
     (->lowercase	#x010D)
-    (latin-iso8859-2	#x48)	; -BÈ-A
-    (latin-iso8859-4	#x48)	; -DÈ-A
+    (latin-iso8859-2	#xC8)	; -BÈ-A
+    (latin-iso8859-4	#xC8)	; -DÈ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH CARON")
@@ -306,8 +306,8 @@
     (->decomposition	#x0063 #x030C)
     (->uppercase	#x010C)
     (->titlecase	#x010C)
-    (latin-iso8859-2	#x68)	; -Bè-A
-    (latin-iso8859-4	#x68)	; -Dè-A
+    (latin-iso8859-2	#xE8)	; -Bè-A
+    (latin-iso8859-4	#xE8)	; -Dè-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER C WITH CARON")
@@ -330,7 +330,7 @@
     (mirrored		. nil)
     (->decomposition	#x0044 #x030C)
     (->lowercase	#x010F)
-    (latin-iso8859-2	#x4F)	; -BÏ-A
+    (latin-iso8859-2	#xCF)	; -BÏ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER D WITH CARON")
@@ -352,7 +352,7 @@
     (->decomposition	#x0064 #x030C)
     (->uppercase	#x010E)
     (->titlecase	#x010E)
-    (latin-iso8859-2	#x6F)	; -Bï-A
+    (latin-iso8859-2	#xEF)	; -Bï-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER D WITH CARON")
@@ -374,9 +374,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0111)
-    (latin-iso8859-2	#x50)	; -BÐ-A
-    (latin-iso8859-4	#x50)	; -DÐ-A
-    (latin-viscii-upper #x70)	; -BÐ-A
+    (latin-iso8859-2	#xD0)	; -BÐ-A
+    (latin-iso8859-4	#xD0)	; -DÐ-A
+    (latin-viscii-upper #xF0)	; -BÐ-A
     (latin-viscii	#xD0)	; -BÐ-A
     ))
 (define-char
@@ -398,9 +398,9 @@
     (mirrored		. nil)
     (->uppercase	#x0110)
     (->titlecase	#x0110)
-    (latin-iso8859-2	#x70)	; -Bð-A
-    (latin-iso8859-4	#x70)	; -Dð-A
-    (latin-viscii-lower #x70)	; -Bð-A
+    (latin-iso8859-2	#xF0)	; -Bð-A
+    (latin-iso8859-4	#xF0)	; -Dð-A
+    (latin-viscii-lower #xF0)	; -Bð-A
     (latin-viscii	#xF0)	; -Bð-A
     ))
 (define-char
@@ -424,7 +424,7 @@
     (mirrored		. nil)
     (->decomposition	#x0045 #x0304)
     (->lowercase	#x0113)
-    (latin-iso8859-4	#x2A)	; -Dª-A
+    (latin-iso8859-4	#xAA)	; -Dª-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH MACRON")
@@ -446,7 +446,7 @@
     (->decomposition	#x0065 #x0304)
     (->uppercase	#x0112)
     (->titlecase	#x0112)
-    (latin-iso8859-4	#x3A)	; -Dº-A
+    (latin-iso8859-4	#xBA)	; -Dº-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER E WITH MACRON")
@@ -489,7 +489,7 @@
     (mirrored		. nil)
     (->decomposition	#x0045 #x0307)
     (->lowercase	#x0117)
-    (latin-iso8859-4	#x4C)	; -DÌ-A
+    (latin-iso8859-4	#xCC)	; -DÌ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH DOT ABOVE")
@@ -511,7 +511,7 @@
     (->decomposition	#x0065 #x0307)
     (->uppercase	#x0116)
     (->titlecase	#x0116)
-    (latin-iso8859-4	#x6C)	; -Dì-A
+    (latin-iso8859-4	#xEC)	; -Dì-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER E WITH DOT ABOVE")
@@ -534,8 +534,8 @@
     (mirrored		. nil)
     (->decomposition	#x0045 #x0328)
     (->lowercase	#x0119)
-    (latin-iso8859-2	#x4A)	; -BÊ-A
-    (latin-iso8859-4	#x4A)	; -DÊ-A
+    (latin-iso8859-2	#xCA)	; -BÊ-A
+    (latin-iso8859-4	#xCA)	; -DÊ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH OGONEK")
@@ -557,8 +557,8 @@
     (->decomposition	#x0065 #x0328)
     (->uppercase	#x0118)
     (->titlecase	#x0118)
-    (latin-iso8859-2	#x6A)	; -Bê-A
-    (latin-iso8859-4	#x6A)	; -Dê-A
+    (latin-iso8859-2	#xEA)	; -Bê-A
+    (latin-iso8859-4	#xEA)	; -Dê-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER E WITH OGONEK")
@@ -581,7 +581,7 @@
     (mirrored		. nil)
     (->decomposition	#x0045 #x030C)
     (->lowercase	#x011B)
-    (latin-iso8859-2	#x4C)	; -BÌ-A
+    (latin-iso8859-2	#xCC)	; -BÌ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH CARON")
@@ -603,7 +603,7 @@
     (->decomposition	#x0065 #x030C)
     (->uppercase	#x011A)
     (->titlecase	#x011A)
-    (latin-iso8859-2	#x6C)	; -Bì-A
+    (latin-iso8859-2	#xEC)	; -Bì-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER E WITH CARON")
@@ -627,7 +627,7 @@
     (mirrored		. nil)
     (->decomposition	#x0047 #x0302)
     (->lowercase	#x011D)
-    (latin-iso8859-3	#x58)	; -CØ-A
+    (latin-iso8859-3	#xD8)	; -CØ-A
     ))
 (define-char
   '((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH CIRCUMFLEX")
@@ -649,7 +649,7 @@
     (->decomposition	#x0067 #x0302)
     (->uppercase	#x011C)
     (->titlecase	#x011C)
-    (latin-iso8859-3	#x78)	; -Cø-A
+    (latin-iso8859-3	#xF8)	; -Cø-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER G WITH CIRCUMFLEX")
@@ -672,8 +672,8 @@
     (mirrored		. nil)
     (->decomposition	#x0047 #x0306)
     (->lowercase	#x011F)
-    (latin-iso8859-3	#x2B)	; -C«-A
-    (latin-iso8859-9	#x50)	; -MÐ-A
+    (latin-iso8859-3	#xAB)	; -C«-A
+    (latin-iso8859-9	#xD0)	; -MÐ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH BREVE")
@@ -695,8 +695,8 @@
     (->decomposition	#x0067 #x0306)
     (->uppercase	#x011E)
     (->titlecase	#x011E)
-    (latin-iso8859-3	#x3B)	; -C»-A
-    (latin-iso8859-9	#x70)	; -Mð-A
+    (latin-iso8859-3	#xBB)	; -C»-A
+    (latin-iso8859-9	#xF0)	; -Mð-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER G WITH BREVE")
@@ -719,7 +719,7 @@
     (mirrored		. nil)
     (->decomposition	#x0047 #x0307)
     (->lowercase	#x0121)
-    (latin-iso8859-3	#x55)	; -CÕ-A
+    (latin-iso8859-3	#xD5)	; -CÕ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH DOT ABOVE")
@@ -741,7 +741,7 @@
     (->decomposition	#x0067 #x0307)
     (->uppercase	#x0120)
     (->titlecase	#x0120)
-    (latin-iso8859-3	#x75)	; -Cõ-A
+    (latin-iso8859-3	#xF5)	; -Cõ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER G WITH DOT ABOVE")
@@ -764,7 +764,7 @@
     (mirrored		. nil)
     (->decomposition	#x0047 #x0327)
     (->lowercase	#x0123)
-    (latin-iso8859-4	#x2B)	; -D«-A
+    (latin-iso8859-4	#xAB)	; -D«-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH CEDILLA")
@@ -786,7 +786,7 @@
     (->decomposition	#x0067 #x0327)
     (->uppercase	#x0122)
     (->titlecase	#x0122)
-    (latin-iso8859-4	#x3B)	; -D»-A
+    (latin-iso8859-4	#xBB)	; -D»-A
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER H WITH CIRCUMFLEX")
@@ -796,7 +796,7 @@
     (mirrored		. nil)
     (->decomposition	#x0048 #x0302)
     (->lowercase	#x0125)
-    (latin-iso8859-3	#x26)	; -C¦-A
+    (latin-iso8859-3	#xA6)	; -C¦-A
     ))
 (define-char
   '((name . "FULLWIDTH LATIN CAPITAL LETTER H WITH CIRCUMFLEX")
@@ -818,7 +818,7 @@
     (->decomposition	#x0068 #x0302)
     (->uppercase	#x0124)
     (->titlecase	#x0124)
-    (latin-iso8859-3	#x36)	; -C¶-A
+    (latin-iso8859-3	#xB6)	; -C¶-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER H WITH CIRCUMFLEX")
@@ -840,7 +840,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0127)
-    (latin-iso8859-3	#x21)	; -C¡-A
+    (latin-iso8859-3	#xA1)	; -C¡-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER H WITH STROKE")
@@ -862,7 +862,7 @@
     (mirrored		. nil)
     (->uppercase	#x0126)
     (->titlecase	#x0126)
-    (latin-iso8859-3	#x31)	; -C±-A
+    (latin-iso8859-3	#xB1)	; -C±-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER H WITH STROKE")
@@ -884,8 +884,8 @@
     (mirrored		. nil)
     (->decomposition	#x0049 #x0303)
     (->lowercase	#x0129)
-    (latin-iso8859-4	#x25)	; -D¥-A
-    (latin-viscii-upper #x6E)	; -D¥-A
+    (latin-iso8859-4	#xA5)	; -D¥-A
+    (latin-viscii-upper #xEE)	; -D¥-A
     (latin-viscii	#xCE)	; -D¥-A
     ))
 (define-char
@@ -908,8 +908,8 @@
     (->decomposition	#x0069 #x0303)
     (->uppercase	#x0128)
     (->titlecase	#x0128)
-    (latin-iso8859-4	#x35)	; -Dµ-A
-    (latin-viscii-lower #x6E)	; -Dµ-A
+    (latin-iso8859-4	#xB5)	; -Dµ-A
+    (latin-viscii-lower #xEE)	; -Dµ-A
     (latin-viscii	#xEE)	; -Dµ-A
     ))
 (define-char
@@ -933,7 +933,7 @@
     (mirrored		. nil)
     (->decomposition	#x0049 #x0304)
     (->lowercase	#x012B)
-    (latin-iso8859-4	#x4F)	; -DÏ-A
+    (latin-iso8859-4	#xCF)	; -DÏ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH MACRON")
@@ -955,7 +955,7 @@
     (->decomposition	#x0069 #x0304)
     (->uppercase	#x012A)
     (->titlecase	#x012A)
-    (latin-iso8859-4	#x6F)	; -Dï-A
+    (latin-iso8859-4	#xEF)	; -Dï-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER I WITH MACRON")
@@ -998,7 +998,7 @@
     (mirrored		. nil)
     (->decomposition	#x0049 #x0328)
     (->lowercase	#x012F)
-    (latin-iso8859-4	#x47)	; -DÇ-A
+    (latin-iso8859-4	#xC7)	; -DÇ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH OGONEK")
@@ -1020,7 +1020,7 @@
     (->decomposition	#x0069 #x0328)
     (->uppercase	#x012E)
     (->titlecase	#x012E)
-    (latin-iso8859-4	#x67)	; -Dç-A
+    (latin-iso8859-4	#xE7)	; -Dç-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER I WITH OGONEK")
@@ -1043,8 +1043,8 @@
     (mirrored		. nil)
     (->decomposition	#x0049 #x0307)
     (->lowercase	#x0069)
-    (latin-iso8859-3	#x29)	; -C©-A
-    (latin-iso8859-9	#x5D)	; -MÝ-A
+    (latin-iso8859-3	#xA9)	; -C©-A
+    (latin-iso8859-9	#xDD)	; -MÝ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH DOT ABOVE")
@@ -1065,8 +1065,8 @@
     (mirrored		. nil)
     (->uppercase	#x0049)
     (->titlecase	#x0049)
-    (latin-iso8859-3	#x39)	; -C¹-A
-    (latin-iso8859-9	#x7D)	; -Mý-A
+    (latin-iso8859-3	#xB9)	; -C¹-A
+    (latin-iso8859-9	#xFD)	; -Mý-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER DOTLESS I")
@@ -1101,6 +1101,16 @@
     (->decomposition	compat #x0069 #x006A)
     (->uppercase	#x0132)
     (->titlecase	#x0132)
+    ))
+(define-char
+  '((name		. "FULLWIDTH LATIN SMALL LIGATURE IJ")
+    (->ucs		. #x0133)
+    (general-category	letter lowercase) ; Normative Category
+    (bidi-category	. "L")
+    (mirrored		. nil)
+    (->decomposition	wide #x0133)
+    (->uppercase	#x0132)
+    (->titlecase	#x0132)
     (korean-ksc5601	#x29 #x26)	; $(C)&(B
     (japanese-jisx0212	#x29 #x46)	; $(D)F(B
     ))
@@ -1112,7 +1122,7 @@
     (mirrored		. nil)
     (->decomposition	#x004A #x0302)
     (->lowercase	#x0135)
-    (latin-iso8859-3	#x2C)	; -C¬-A
+    (latin-iso8859-3	#xAC)	; -C¬-A
     ))
 (define-char
   '((name . "FULLWIDTH LATIN CAPITAL LETTER J WITH CIRCUMFLEX")
@@ -1134,7 +1144,7 @@
     (->decomposition	#x006A #x0302)
     (->uppercase	#x0134)
     (->titlecase	#x0134)
-    (latin-iso8859-3	#x3C)	; -C¼-A
+    (latin-iso8859-3	#xBC)	; -C¼-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER J WITH CIRCUMFLEX")
@@ -1157,7 +1167,7 @@
     (mirrored		. nil)
     (->decomposition	#x004B #x0327)
     (->lowercase	#x0137)
-    (latin-iso8859-4	#x53)	; -DÓ-A
+    (latin-iso8859-4	#xD3)	; -DÓ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER K WITH CEDILLA")
@@ -1179,7 +1189,7 @@
     (->decomposition	#x006B #x0327)
     (->uppercase	#x0136)
     (->titlecase	#x0136)
-    (latin-iso8859-4	#x73)	; -Dó-A
+    (latin-iso8859-4	#xF3)	; -Dó-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER K WITH CEDILLA")
@@ -1201,7 +1211,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Greenlandic")
-    (latin-iso8859-4	#x22)	; -D¢-A
+    (latin-iso8859-4	#xA2)	; -D¢-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER KRA")
@@ -1209,8 +1219,8 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x0138)
     (iso-10646-comment	. "Greenlandic")
+    (->decomposition	wide #x0138)
     (korean-ksc5601	#x29 #x27)	; $(D)G(B
     (japanese-jisx0212	#x29 #x47)	; $(D)G(B
     ))
@@ -1222,7 +1232,7 @@
     (mirrored		. nil)
     (->decomposition	#x004C #x0301)
     (->lowercase	#x013A)
-    (latin-iso8859-2	#x45)	; -BÅ-A
+    (latin-iso8859-2	#xC5)	; -BÅ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH ACUTE")
@@ -1244,7 +1254,7 @@
     (->decomposition	#x006C #x0301)
     (->uppercase	#x0139)
     (->titlecase	#x0139)
-    (latin-iso8859-2	#x65)	; -Bå-A
+    (latin-iso8859-2	#xE5)	; -Bå-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER L WITH ACUTE")
@@ -1267,7 +1277,7 @@
     (mirrored		. nil)
     (->decomposition	#x004C #x0327)
     (->lowercase	#x013C)
-    (latin-iso8859-4	#x26)	; -D¦-A
+    (latin-iso8859-4	#xA6)	; -D¦-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH CEDILLA")
@@ -1289,7 +1299,7 @@
     (->decomposition	#x006C #x0327)
     (->uppercase	#x013B)
     (->titlecase	#x013B)
-    (latin-iso8859-4	#x36)	; -D¶-A
+    (latin-iso8859-4	#xB6)	; -D¶-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER L WITH CEDILLA")
@@ -1312,7 +1322,7 @@
     (mirrored		. nil)
     (->decomposition	#x004C #x030C)
     (->lowercase	#x013E)
-    (latin-iso8859-2	#x25)	; -B¥-A
+    (latin-iso8859-2	#xA5)	; -B¥-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH CARON")
@@ -1334,7 +1344,7 @@
     (->decomposition	#x006C #x030C)
     (->uppercase	#x013D)
     (->titlecase	#x013D)
-    (latin-iso8859-2	#x35)	; -Bµ-A
+    (latin-iso8859-2	#xB5)	; -Bµ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER L WITH CARON")
@@ -1401,7 +1411,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0142)
-    (latin-iso8859-2	#x23)	; -B£-A
+    (latin-iso8859-2	#xA3)	; -B£-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH STROKE")
@@ -1423,7 +1433,7 @@
     (mirrored		. nil)
     (->uppercase	#x0141)
     (->titlecase	#x0141)
-    (latin-iso8859-2	#x33)	; -B³-A
+    (latin-iso8859-2	#xB3)	; -B³-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER L WITH STROKE")
@@ -1447,7 +1457,7 @@
     (mirrored		. nil)
     (->decomposition	#x004E #x0301)
     (->lowercase	#x0144)
-    (latin-iso8859-2	#x51)	; -BÑ-A
+    (latin-iso8859-2	#xD1)	; -BÑ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER N WITH ACUTE")
@@ -1469,7 +1479,7 @@
     (->decomposition	#x006E #x0301)
     (->uppercase	#x0143)
     (->titlecase	#x0143)
-    (latin-iso8859-2	#x71)	; -Bñ-A
+    (latin-iso8859-2	#xF1)	; -Bñ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER N WITH ACUTE")
@@ -1492,7 +1502,7 @@
     (mirrored		. nil)
     (->decomposition	#x004E #x0327)
     (->lowercase	#x0146)
-    (latin-iso8859-4	#x51)	; -DÑ-A
+    (latin-iso8859-4	#xD1)	; -DÑ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER N WITH CEDILLA")
@@ -1514,7 +1524,7 @@
     (->decomposition	#x006E #x0327)
     (->uppercase	#x0145)
     (->titlecase	#x0145)
-    (latin-iso8859-4	#x71)	; -Dñ-A
+    (latin-iso8859-4	#xF1)	; -Dñ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER N WITH CEDILLA")
@@ -1524,9 +1534,9 @@
     (mirrored		. nil)
     (->decomposition	wide #x0146)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER N WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER N WITH CEDILLA")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER N WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER N WITH CEDILLA")))
     (japanese-jisx0212	#x2B #x4F)	; $(D+O(B
     ))
 (define-char
@@ -1537,7 +1547,7 @@
     (mirrored		. nil)
     (->decomposition	#x004E #x030C)
     (->lowercase	#x0148)
-    (latin-iso8859-2	#x52)	; -BÒ-A
+    (latin-iso8859-2	#xD2)	; -BÒ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER N WITH CARON")
@@ -1559,7 +1569,7 @@
     (->decomposition	#x006E #x030C)
     (->uppercase	#x0147)
     (->titlecase	#x0147)
-    (latin-iso8859-2	#x72)	; -Bò-A
+    (latin-iso8859-2	#xF2)	; -Bò-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER N WITH CARON")
@@ -1598,7 +1608,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Sami")
     (->lowercase	#x014B)
-    (latin-iso8859-4	#x3D)	; -D½-A
+    (latin-iso8859-4	#xBD)	; -D½-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER ENG")
@@ -1622,8 +1632,8 @@
     (iso-10646-comment	. "Sami")
     (->uppercase	#x014A)
     (->titlecase	#x014A)
-    (latin-iso8859-4	#x3F)	; -D¿-A
-    (ipa		#x55)	; -0Õ-A
+    (latin-iso8859-4	#xBF)	; -D¿-A
+    (ipa		#xD5)	; -0Õ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER ENG")
@@ -1648,7 +1658,7 @@
     (mirrored		. nil)
     (->decomposition	#x004F #x0304)
     (->lowercase	#x014D)
-    (latin-iso8859-4	#x52)	; -DÒ-A
+    (latin-iso8859-4	#xD2)	; -DÒ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER O WITH MACRON")
@@ -1670,7 +1680,7 @@
     (->decomposition	#x006F #x0304)
     (->uppercase	#x014C)
     (->titlecase	#x014C)
-    (latin-iso8859-4	#x72)	; -Dò-A
+    (latin-iso8859-4	#xF2)	; -Dò-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER O WITH MACRON")
@@ -1713,7 +1723,7 @@
     (mirrored		. nil)
     (->decomposition	#x004F #x030B)
     (->lowercase	#x0151)
-    (latin-iso8859-2	#x55)	; -BÕ-A
+    (latin-iso8859-2	#xD5)	; -BÕ-A
     ))
 (define-char
   '((name . "FULLWIDTH LATIN CAPITAL LETTER O WITH DOUBLE ACUTE")
@@ -1735,7 +1745,7 @@
     (->decomposition	#x006F #x030B)
     (->uppercase	#x0150)
     (->titlecase	#x0150)
-    (latin-iso8859-2	#x75)	; -Bõ-A
+    (latin-iso8859-2	#xF5)	; -Bõ-A
     ))
 (define-char
   '((name . "FULLWIDTH LATIN SMALL LETTER O WITH DOUBLE ACUTE")
@@ -1768,7 +1778,7 @@
     (mirrored		. nil)
     (->uppercase	#x0152)
     (->titlecase	#x0152)
-    (ipa		#x30)	; -0°-A
+    (ipa		#xB0)	; -0°-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LIGATURE OE")
@@ -1779,7 +1789,7 @@
     (->decomposition	wide #x0153)
     (->uppercase	#x0152)
     (->titlecase	#x0152)
-    (korean-ksc5601	#x29 #x2B)	; $(C)+(B
+    (korean-ksc5601	#x29 #x2B)	; $(D)M(B
     (japanese-jisx0212	#x29 #x4D)	; $(D)M(B
     ))
 (define-char
@@ -1790,7 +1800,7 @@
     (mirrored		. nil)
     (->decomposition	#x0052 #x0301)
     (->lowercase	#x0155)
-    (latin-iso8859-2	#x40)	; -BÀ-A
+    (latin-iso8859-2	#xC0)	; -BÀ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER R WITH ACUTE")
@@ -1812,7 +1822,7 @@
     (->decomposition	#x0072 #x0301)
     (->uppercase	#x0154)
     (->titlecase	#x0154)
-    (latin-iso8859-2	#x60)	; -Bà-A
+    (latin-iso8859-2	#xE0)	; -Bà-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER R WITH ACUTE")
@@ -1835,7 +1845,7 @@
     (mirrored		. nil)
     (->decomposition	#x0052 #x0327)
     (->lowercase	#x0157)
-    (latin-iso8859-4	#x23)	; -D£-A
+    (latin-iso8859-4	#xA3)	; -D£-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER R WITH CEDILLA")
@@ -1857,7 +1867,7 @@
     (->decomposition	#x0072 #x0327)
     (->uppercase	#x0156)
     (->titlecase	#x0156)
-    (latin-iso8859-4	#x33)	; -D³-A
+    (latin-iso8859-4	#xB3)	; -D³-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER R WITH CEDILLA")
@@ -1880,7 +1890,7 @@
     (mirrored		. nil)
     (->decomposition	#x0052 #x030C)
     (->lowercase	#x0159)
-    (latin-iso8859-2	#x58)	; -BØ-A
+    (latin-iso8859-2	#xD8)	; -BØ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER R WITH CARON")
@@ -1902,7 +1912,7 @@
     (->decomposition	#x0072 #x030C)
     (->uppercase	#x0158)
     (->titlecase	#x0158)
-    (latin-iso8859-2	#x78)	; -Bø-A
+    (latin-iso8859-2	#xF8)	; -Bø-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER R WITH CARON")
@@ -1925,7 +1935,7 @@
     (mirrored		. nil)
     (->decomposition	#x0053 #x0301)
     (->lowercase	#x015B)
-    (latin-iso8859-2	#x26)	; -B¦-A
+    (latin-iso8859-2	#xA6)	; -B¦-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH ACUTE")
@@ -1947,7 +1957,7 @@
     (->decomposition	#x0073 #x0301)
     (->uppercase	#x015A)
     (->titlecase	#x015A)
-    (latin-iso8859-2	#x36)	; -B¶-A
+    (latin-iso8859-2	#xB6)	; -B¶-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER S WITH ACUTE")
@@ -1970,7 +1980,7 @@
     (mirrored		. nil)
     (->decomposition	#x0053 #x0302)
     (->lowercase	#x015D)
-    (latin-iso8859-3	#x5E)	; -CÞ-A
+    (latin-iso8859-3	#xDE)	; -CÞ-A
     ))
 (define-char
   '((name . "FULLWIDTH LATIN CAPITAL LETTER S WITH CIRCUMFLEX")
@@ -1992,7 +2002,7 @@
     (->decomposition	#x0073 #x0302)
     (->uppercase	#x015C)
     (->titlecase	#x015C)
-    (latin-iso8859-3	#x7E)	; -Cþ-A
+    (latin-iso8859-3	#xFE)	; -Cþ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER S WITH CIRCUMFLEX")
@@ -2013,12 +2023,12 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (iso-10646-comment	. "*")
     (->decomposition	#x0053 #x0327)
     (->lowercase	#x015F)
-    (iso-10646-comment	. "*")
-    (latin-iso8859-2	#x2A)	; -Bª-A
-    (latin-iso8859-3	#x2A)	; -Cª-A
-    (latin-iso8859-9	#x5E)	; -MÞ-A
+    (latin-iso8859-2	#xAA)	; -Bª-A
+    (latin-iso8859-3	#xAA)	; -Cª-A
+    (latin-iso8859-9	#xDE)	; -MÞ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH CEDILLA")
@@ -2026,10 +2036,10 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (iso-10646-comment	. "*")
     (->decomposition	wide #x015E)
     (->lowercase
      ((name . "FULLWIDTH LATIN SMALL LETTER S WITH CEDILLA")))
-    (iso-10646-comment	. "*")
     (japanese-jisx0212	#x2A #x5F)	; $(D*_(B
     ))
 (define-char
@@ -2042,9 +2052,9 @@
     (->decomposition	#x0073 #x0327)
     (->uppercase	#x015E)
     (->titlecase	#x015E)
-    (latin-iso8859-2	#x3A)	; -Bº-A
-    (latin-iso8859-3	#x3A)	; -Cº-A
-    (latin-iso8859-9	#x7E)	; -Mþ-A
+    (latin-iso8859-2	#xBA)	; -Bº-A
+    (latin-iso8859-3	#xBA)	; -Cº-A
+    (latin-iso8859-9	#xFE)	; -Mþ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER S WITH CEDILLA")
@@ -2068,8 +2078,8 @@
     (mirrored		. nil)
     (->decomposition	#x0053 #x030C)
     (->lowercase	#x0161)
-    (latin-iso8859-2	#x29)	; -B©-A
-    (latin-iso8859-4	#x29)	; -D©-A
+    (latin-iso8859-2	#xA9)	; -B©-A
+    (latin-iso8859-4	#xA9)	; -D©-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH CARON")
@@ -2091,8 +2101,8 @@
     (->decomposition	#x0073 #x030C)
     (->uppercase	#x0160)
     (->titlecase	#x0160)
-    (latin-iso8859-2	#x39)	; -B¹-A
-    (latin-iso8859-4	#x39)	; -D¹-A
+    (latin-iso8859-2	#xB9)	; -B¹-A
+    (latin-iso8859-4	#xB9)	; -D¹-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER S WITH CARON")
@@ -2116,7 +2126,7 @@
     (iso-10646-comment	. "*")
     (->decomposition	#x0054 #x0327)
     (->lowercase	#x0163)
-    (latin-iso8859-2	#x5E)	; -BÞ-A
+    (latin-iso8859-2	#xDE)	; -BÞ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH CEDILLA")
@@ -2140,7 +2150,7 @@
     (->decomposition	#x0074 #x0327)
     (->uppercase	#x0162)
     (->titlecase	#x0162)
-    (latin-iso8859-2	#x7E)	; -Bþ-A
+    (latin-iso8859-2	#xFE)	; -Bþ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER T WITH CEDILLA")
@@ -2164,7 +2174,7 @@
     (mirrored		. nil)
     (->decomposition	#x0054 #x030C)
     (->lowercase	#x0165)
-    (latin-iso8859-2	#x2B)	; -B«-A
+    (latin-iso8859-2	#xAB)	; -B«-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH CARON")
@@ -2186,7 +2196,7 @@
     (->decomposition	#x0074 #x030C)
     (->uppercase	#x0164)
     (->titlecase	#x0164)
-    (latin-iso8859-2	#x3B)	; -B»-A
+    (latin-iso8859-2	#xBB)	; -B»-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER T WITH CARON")
@@ -2208,7 +2218,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0167)
-    (latin-iso8859-4	#x2C)	; -D¬-A
+    (latin-iso8859-4	#xAC)	; -D¬-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH STROKE")
@@ -2230,7 +2240,7 @@
     (mirrored		. nil)
     (->uppercase	#x0166)
     (->titlecase	#x0166)
-    (latin-iso8859-4	#x3C)	; -D¼-A
+    (latin-iso8859-4	#xBC)	; -D¼-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER T WITH STROKE")
@@ -2254,8 +2264,8 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x0303)
     (->lowercase	#x0169)
-    (latin-iso8859-4	#x5D)	; -DÝ-A
-    (latin-viscii-upper #x7B)	; -DÝ-A
+    (latin-iso8859-4	#xDD)	; -DÝ-A
+    (latin-viscii-upper #xFB)	; -DÝ-A
     (latin-viscii	#x9D)	; -DÝ-A
     ))
 (define-char
@@ -2278,8 +2288,8 @@
     (->decomposition	#x0075 #x0303)
     (->uppercase	#x0168)
     (->titlecase	#x0168)
-    (latin-iso8859-4	#x7D)	; -Dý-A
-    (latin-viscii-lower #x7B)	; -Dý-A
+    (latin-iso8859-4	#xFD)	; -Dý-A
+    (latin-viscii-lower #xFB)	; -Dý-A
     (latin-viscii	#xFB)	; -Dý-A
     ))
 (define-char
@@ -2303,7 +2313,7 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x0304)
     (->lowercase	#x016B)
-    (latin-iso8859-4	#x5E)	; -DÞ-A
+    (latin-iso8859-4	#xDE)	; -DÞ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH MACRON")
@@ -2325,7 +2335,7 @@
     (->decomposition	#x0075 #x0304)
     (->uppercase	#x016A)
     (->titlecase	#x016A)
-    (latin-iso8859-4	#x7E)	; -Dþ-A
+    (latin-iso8859-4	#xFE)	; -Dþ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER U WITH MACRON")
@@ -2349,7 +2359,7 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x0306)
     (->lowercase	#x016D)
-    (latin-iso8859-3	#x5D)	; -CÝ-A
+    (latin-iso8859-3	#xDD)	; -CÝ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH BREVE")
@@ -2371,7 +2381,7 @@
     (->decomposition	#x0075 #x0306)
     (->uppercase	#x016C)
     (->titlecase	#x016C)
-    (latin-iso8859-3	#x7D)	; -Cý-A
+    (latin-iso8859-3	#xFD)	; -Cý-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER U WITH BREVE")
@@ -2394,7 +2404,7 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x030A)
     (->lowercase	#x016F)
-    (latin-iso8859-2	#x59)	; -BÙ-A
+    (latin-iso8859-2	#xD9)	; -BÙ-A
     ))
 (define-char
   '((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH RING ABOVE")
@@ -2416,7 +2426,7 @@
     (->decomposition	#x0075 #x030A)
     (->uppercase	#x016E)
     (->titlecase	#x016E)
-    (latin-iso8859-2	#x79)	; -Bù-A
+    (latin-iso8859-2	#xF9)	; -Bù-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER U WITH RING ABOVE")
@@ -2439,7 +2449,7 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x030B)
     (->lowercase	#x0171)
-    (latin-iso8859-2	#x5B)	; -BÛ-A
+    (latin-iso8859-2	#xDB)	; -BÛ-A
     ))
 (define-char
   '((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DOUBLE ACUTE")
@@ -2461,7 +2471,7 @@
     (->decomposition	#x0075 #x030B)
     (->uppercase	#x0170)
     (->titlecase	#x0170)
-    (latin-iso8859-2	#x7B)	; -Bû-A
+    (latin-iso8859-2	#xFB)	; -Bû-A
     ))
 (define-char
   '((name . "FULLWIDTH LATIN SMALL LETTER U WITH DOUBLE ACUTE")
@@ -2484,7 +2494,7 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x0328)
     (->lowercase	#x0173)
-    (latin-iso8859-4	#x59)	; -DÙ-A
+    (latin-iso8859-4	#xD9)	; -DÙ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH OGONEK")
@@ -2506,7 +2516,7 @@
     (->decomposition	#x0075 #x0328)
     (->uppercase	#x0172)
     (->titlecase	#x0172)
-    (latin-iso8859-4	#x79)	; -Dù-A
+    (latin-iso8859-4	#xF9)	; -Dù-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER U WITH OGONEK")
@@ -2635,7 +2645,7 @@
     (mirrored		. nil)
     (->decomposition	#x005A #x0301)
     (->lowercase	#x017A)
-    (latin-iso8859-2	#x2C)	; -B¬-A
+    (latin-iso8859-2	#xAC)	; -B¬-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER Z WITH ACUTE")
@@ -2657,7 +2667,7 @@
     (->decomposition	#x007A #x0301)
     (->uppercase	#x0179)
     (->titlecase	#x0179)
-    (latin-iso8859-2	#x3C)	; -B¼-A
+    (latin-iso8859-2	#xBC)	; -B¼-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER Z WITH ACUTE")
@@ -2680,8 +2690,8 @@
     (mirrored		. nil)
     (->decomposition	#x005A #x0307)
     (->lowercase	#x017C)
-    (latin-iso8859-2	#x2F)	; -B¯-A
-    (latin-iso8859-3	#x2F)	; -C¯-A
+    (latin-iso8859-2	#xAF)	; -B¯-A
+    (latin-iso8859-3	#xAF)	; -C¯-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER Z WITH DOT ABOVE")
@@ -2703,8 +2713,8 @@
     (->decomposition	#x007A #x0307)
     (->uppercase	#x017B)
     (->titlecase	#x017B)
-    (latin-iso8859-2	#x3F)	; -B¿-A
-    (latin-iso8859-3	#x3F)	; -C¿-A
+    (latin-iso8859-2	#xBF)	; -B¿-A
+    (latin-iso8859-3	#xBF)	; -C¿-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER Z WITH DOT ABOVE")
@@ -2727,8 +2737,8 @@
     (mirrored		. nil)
     (->decomposition	#x005A #x030C)
     (->lowercase	#x017E)
-    (latin-iso8859-2	#x2E)	; -B®-A
-    (latin-iso8859-4	#x2E)	; -D®-A
+    (latin-iso8859-2	#xAE)	; -B®-A
+    (latin-iso8859-4	#xAE)	; -D®-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER Z WITH CARON")
@@ -2750,8 +2760,8 @@
     (->decomposition	#x007A #x030C)
     (->uppercase	#x017D)
     (->titlecase	#x017D)
-    (latin-iso8859-2	#x3E)	; -B¾-A
-    (latin-iso8859-4	#x3E)	; -D¾-A
+    (latin-iso8859-2	#xBE)	; -B¾-A
+    (latin-iso8859-4	#xBE)	; -D¾-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER Z WITH CARON")
