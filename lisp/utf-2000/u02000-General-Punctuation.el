@@ -129,7 +129,7 @@
     (mirrored		. nil)
     (japanese-jisx0208-1978	. #x213E)	; ø»¼
     (japanese-jisx0208		. #x213E)	; ø»†¥
-    (japanese-jisx0208-1990	. #x213E)	; â€
+    (japanese-jisx0208-1990	. #x213E)	; ø½‰¶™
     (ucs			. #x2010)	; â€
     ))
 (define-char
@@ -153,7 +153,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1		. #x2139)	; ø»‘‚´
-    (japanese-jisx0213-1	. #x237C)	; â€“
+    (japanese-jisx0213-1	. #x237C)	; ø»¢—“
     (ucs			. #x2013)	; â€“
     ))
 (define-char
@@ -164,7 +164,7 @@
     (japanese-jisx0208-1978	. #x213D)	; ø»¼œ
     (japanese-jisx0208		. #x213D)	; ø»†¤
     (chinese-cns11643-1		. #x2137)	; ø»‘‚²
-    (japanese-jisx0208-1990	. #x213D)	; â€”
+    (japanese-jisx0208-1990	. #x213D)	; ø½‰¶˜
     (ucs			. #x2014)	; â€”
     ))
 (define-char
@@ -183,7 +183,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x2015)
-    (greek-iso8859-7	. #xAF)	; Í¿
+    (greek-iso8859-7	. #xAF)	; øº’»¯
     ))
 (define-char
   '((name		. "DOUBLE VERTICAL LINE")
@@ -194,7 +194,7 @@
     (chinese-gb2312		. #x212C)	; ø»„†
     (japanese-jisx0208		. #x2142)	; ø»†©
     (chinese-cns11643-1		. #x225D)	; ø»‘„¶
-    (japanese-jisx0208-1990	. #x2142)	; â€–
+    (japanese-jisx0208-1990	. #x2142)	; ø½‰¶
     (ucs			. #x2016)	; â€–
     ))
 (define-char
@@ -203,7 +203,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x0333)
-    (hebrew-iso8859-8	. #xDF)	; ×
+    (hebrew-iso8859-8	. #xDF)	; øº’¿Ÿ
     (ucs		. #x2017)	; â€—
     ))
 (define-char
@@ -216,7 +216,7 @@
     (japanese-jisx0208		. #x2146)	; ø»†­
     (korean-ksc5601		. #x212E)	; ø»ˆš™
     (chinese-cns11643-1		. #x2164)	; ø»‘ƒŸ
-    (japanese-jisx0208-1990	. #x2146)	; â€˜
+    (japanese-jisx0208-1990	. #x2146)	; ø½‰¶¡
     (ucs			. #x2018)	; â€˜
     ))
 (define-char
@@ -229,7 +229,7 @@
     (japanese-jisx0208		. #x2147)	; ø»†®
     (korean-ksc5601		. #x212F)	; ø»ˆšš
     (chinese-cns11643-1		. #x2165)	; ø»‘ƒ 
-    (japanese-jisx0208-1990	. #x2147)	; â€™
+    (japanese-jisx0208-1990	. #x2147)	; ø½‰¶¢
     (ucs			. #x2019)	; â€™
     ))
 (define-char
@@ -256,7 +256,7 @@
     (japanese-jisx0208		. #x2148)	; ø»†¯
     (korean-ksc5601		. #x2130)	; ø»ˆš›
     (chinese-cns11643-1		. #x2166)	; ø»‘ƒ¡
-    (japanese-jisx0208-1990	. #x2148)	; â€œ
+    (japanese-jisx0208-1990	. #x2148)	; ø½‰¶£
     (ucs			. #x201C)	; â€œ
     ))
 (define-char
@@ -269,7 +269,7 @@
     (japanese-jisx0208		. #x2149)	; ø»†°
     (korean-ksc5601		. #x2131)	; ø»ˆšœ
     (chinese-cns11643-1		. #x2167)	; ø»‘ƒ¢
-    (japanese-jisx0208-1990	. #x2149)	; â€
+    (japanese-jisx0208-1990	. #x2149)	; ø½‰¶¤
     (ucs			. #x201D)	; â€
     ))
 (define-char
@@ -293,7 +293,7 @@
     (mirrored		. nil)
     (japanese-jisx0208		. #x2277)	; ø»†’¼
     (korean-ksc5601		. #x2253)	; ø»ˆœœ
-    (japanese-jisx0208-1990	. #x2277)	; â€ 
+    (japanese-jisx0208-1990	. #x2277)	; ø½‰¸°
     (ucs			. #x2020)	; â€ 
     ))
 (define-char
@@ -303,7 +303,7 @@
     (mirrored		. nil)
     (japanese-jisx0208		. #x2278)	; ø»†’½
     (korean-ksc5601		. #x2254)	; ø»ˆœ
-    (japanese-jisx0208-1990	. #x2278)	; â€¡
+    (japanese-jisx0208-1990	. #x2278)	; ø½‰¸±
     (ucs			. #x2021)	; â€¡
     ))
 (define-char
@@ -311,7 +311,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2340)	; â€¢
+    (japanese-jisx0213-1	. #x2340)	; ø»¢–—
     (ucs			. #x2022)	; â€¢
     ))
 (define-char
@@ -339,7 +339,7 @@
     (japanese-jisx0208		. #x2145)	; ø»†¬
     (korean-ksc5601		. #x2125)	; ø»ˆš
     (chinese-cns11643-1		. #x212D)	; ø»‘‚¨
-    (japanese-jisx0208-1990	. #x2145)	; â€¥
+    (japanese-jisx0208-1990	. #x2145)	; ø½‰¶ 
     (ucs			. #x2025)	; â€¥
     ))
 (define-char
@@ -353,7 +353,7 @@
     (japanese-jisx0208		. #x2144)	; ø»†«
     (korean-ksc5601		. #x2126)	; ø»ˆš‘
     (chinese-cns11643-1		. #x212C)	; ø»‘‚§
-    (japanese-jisx0208-1990	. #x2144)	; â€¦
+    (japanese-jisx0208-1990	. #x2144)	; ø½‰¶Ÿ
     (ucs			. #x2026)	; â€¦
     ))
 (define-char
@@ -429,7 +429,7 @@
     (chinese-gb2312		. #x216B)	; ø»„‡Ž
     (japanese-jisx0208		. #x2273)	; ø»†’¸
     (korean-ksc5601		. #x2236)	; ø»ˆ›¿
-    (japanese-jisx0208-1990	. #x2273)	; â€°
+    (japanese-jisx0208-1990	. #x2273)	; ø½‰¸¬
     (ucs			. #x2030)	; â€°
     ))
 (define-char
@@ -449,7 +449,7 @@
     (japanese-jisx0208		. #x216C)	; ø»†‘“
     (korean-ksc5601		. #x2147)	; ø»ˆš²
     (chinese-cns11643-1		. #x216B)	; ø»‘ƒ¦
-    (japanese-jisx0208-1990	. #x216C)	; â€²
+    (japanese-jisx0208-1990	. #x216C)	; ø½‰·‡
     (ucs			. #x2032)	; â€²
     ))
 (define-char
@@ -462,7 +462,7 @@
     (chinese-gb2312		. #x2165)	; ø»„‡ˆ
     (japanese-jisx0208		. #x216D)	; ø»†‘”
     (korean-ksc5601		. #x2148)	; ø»ˆš³
-    (japanese-jisx0208-1990	. #x216D)	; â€³
+    (japanese-jisx0208-1990	. #x216D)	; ø½‰·ˆ
     (ucs			. #x2033)	; â€³
     ))
 (define-char
@@ -528,7 +528,7 @@
     (japanese-jisx0208		. #x2228)	; ø»†‘­
     (korean-ksc5601		. #x2158)	; ø»ˆ›ƒ
     (chinese-cns11643-1		. #x216F)	; ø»‘ƒª
-    (japanese-jisx0208-1990	. #x2228)	; â€»
+    (japanese-jisx0208-1990	. #x2228)	; ø½‰·¡
     (ucs			. #x203B)	; â€»
     ))
 (define-char
@@ -537,7 +537,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0021 #x0021)
-    (japanese-jisx0213-1	. #x286B)	; â€¼
+    (japanese-jisx0213-1	. #x286B)	; ø»¢ž˜
     (ucs			. #x203C)	; â€¼
     ))
 (define-char
@@ -554,8 +554,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x0305)
     (latin-jisx0201	. #x7E)	; øº‘Œ©
-    (hebrew-iso8859-8	. #xAF)	; ÖŸ
-    (japanese-jisx0208	. #x2131)	; ø»†˜
+    (hebrew-iso8859-8	. #xAF)	; øº’¾¯
     (ucs		. #x203E)	; â€¾
     ))
 (define-char
@@ -568,7 +567,7 @@
     (japanese-jisx0208-1978	. #x2131)	; ø»¼
     (japanese-jisx0208		. #x2131)	; ø»†˜
     (chinese-cns11643-1		. #x2223)	; ø»‘ƒ¼
-    (japanese-jisx0208-1990	. #x2131)	; ø»¼
+    (japanese-jisx0208-1990	. #x2131)	; ø½‰¶Œ
     ))
 (define-char
   '((name		. "UNDERTIE")
@@ -597,7 +596,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2C7E)	; â‚
+    (japanese-jisx0213-1	. #x2C7E)	; ø»¢¤£
     (ucs			. #x2042)	; â‚
     ))
 (define-char
@@ -635,7 +634,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x003F #x0021)
-    (japanese-jisx0213-1	. #x286D)	; âˆ
+    (japanese-jisx0213-1	. #x286D)	; ø»¢žš
     (ucs			. #x2048)	; âˆ
     ))
 (define-char
@@ -644,7 +643,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0021 #x003F)
-    (japanese-jisx0213-1	. #x286E)	; â‰
+    (japanese-jisx0213-1	. #x286E)	; ø»¢ž›
     (ucs			. #x2049)	; â‰
     ))
 (define-char
