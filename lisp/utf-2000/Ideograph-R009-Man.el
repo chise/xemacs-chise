@@ -320,12 +320,15 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (ideograph=		((->ucs		. #x5167)	; å…§
-			 (ideographic-radical . 11)	; â¼Š
-			 (ideographic-strokes . 2)
-			 (total-strokes	      . 4)
-			 (ideograph-daikanwa . 01418)	; ø¸€–Š
-			 ))
+    (ideograph=
+     ((sources		  morohashi-daikanwa)
+      (char . ((->ucs		. #x5167)	; å…§
+	       (ideographic-radical . 11)	; â¼Š
+	       (ideographic-strokes . 2)
+	       (total-strokes	    . 4)
+	       (ideograph-daikanwa . 01418)	; ø¸€–Š
+	       ))
+      ))
     (chinese-cns11643-3 . #x2148)	; ø»•—‹
     ))
 (define-char
