@@ -1,5 +1,28 @@
 2001-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R174-Blue.el (M-42564): Separate C3-2A7E.
+	(M-42564'): Separate C1-4F65; unify M050568.
+	(M-49872): Separate C6-3479.
+	(M-42570'): Separate C1-675C; unify M050569.
+	(M-42574'): Separate C3-4A4C; unify M050570.
+
+	* Ideograph-R167-Gold.el (M-40340'): Unify M050548.
+	(M-40351): Fix `ideographic-strokes'.
+	(M-40418'): Unify M050549.
+	(M-40503'): Unify M050550.
+	(M-40519'): Unify M050551.
+	(C5-5935): Relate to M-40596' instead of M-45096'; unify M050552.
+	(M-40598): Delete `daikanwa-radical' property and
+	`daikanwa-strokes' property; separate J0-4945, K0-5961 and U+9328.
+	(M-40600): Delete `morohashi-daikanwa' property; fix
+	`ideographic-strokes'; separate K0-674C, JSP-6469, JX1-7D39 and
+	U+9348.
+	(U+9348): Unify K0-674C, JSP-6469, JX1-7D39 and M056422.
+	(M-40708): New character; relate to U+9396; unify K0-6170.
+	(M-40708'): Separate K0-6170; unify M050553.
+
+2001-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R179-Leek.el (M-43256'): Separate C7-5148; unify
 	M050571.
 	(M-43256"): Separate C3-5D52; unify M050572.
