@@ -1035,7 +1035,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=jis-x0213-1-2000	. #x7654)	; ø»¤¥
-    (=ucs-jis-2000	. #x6C74)	; ø»¤¥
+    (=ucs@jis-2000	. #x6C74)	; ø»¤¥
     ))
 (define-char
   '((=>ucs		. #x6C75)	; æ±µ
@@ -21301,7 +21301,7 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
     (=jis-x0213-1-2000	. #x7739)	; ø»¤‘¨
-    (=ucs-jis-2000	. #x6FF9)	; ø»¤‘¨
+    (=ucs@jis-2000	. #x6FF9)	; ø»¤‘¨
     ))
 (define-char
   '((ideographic-radical . 85)	; â½”
