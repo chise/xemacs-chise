@@ -1,3 +1,30 @@
+2003-01-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R082-Fur.el (U+6BDB): Separate C1-4553.
+
+	* Ideograph-R072-Sun.el: Reformatted.
+	(U+3AE6): Separate C4-323B; modify `ideographic-strokes' and
+	`total-strokes'; complete `ideographic-structure'.
+	(JX1-7543): Unify U+FA43 and KU+6691; separate C6-533C.
+
+	* Ideograph-R061-Heart.el (U+6094): Unify JU+FA3D.
+	(U+FA3D): New character.
+	(JC3-4ED6): Unify BC-B46E instead of B-B46E; map to U+FA3E instead
+	of U+6168; map to KU+6168.
+	(JX1-745C): Unify U+FA3E and KU+6168.
+	(U+6168): Unify B-B46E.
+	(JX1-745E): Unify U+FA3F and KU+618E; unify BC-BCA8 instead of
+	B-BCA8.
+	(U+618E): Unify B-BCA8.
+	(U-0002F8B0): Unify JU+61F2.
+	(M-11424): Separate JX1-7461; delete `ucs-jis'; unify KU+61F2; map
+	to U+FA40 instead of U+61F2.
+	(U+61F2): Map to JU+FA40.
+	(C1-7834): Map to JU+FA40; unify CU+61F2.
+
+	* Ideograph-R040-Roof.el (M-07325): Separate G0-653C, C1-6C4E and
+	U+5BEE.
+
 2003-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R038-Woman.el (U+5982): Separate C1-4771.
