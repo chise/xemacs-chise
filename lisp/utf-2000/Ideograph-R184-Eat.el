@@ -18,20 +18,7 @@
     (=daikanwa		. 44014)	; ø¸Š¯®
     ))
 (define-char
-  '((=>ucs		. #x98DF)	; é£Ÿ
-    (morohashi-daikanwa	44014 0 0)
-    (ideographic-radical . 184)	; â¾·
-    (ideographic-strokes . 0)
-    (total-strokes	 . 9)
-    (shinjigen-1	. 9233)
-    (shinjigen-2	. 9234)
-    (=jis-x0208		. #x3F29)	; ø½Š¢ˆ
-    (=gt-pj-1		. #x3F29)	; ø½Š¢ˆ
-    (=gt-k		. 05345)	; ý¡„“¡
-    (=ucs@jis		. #x98DF)	; ø½Š¢ˆ
-    ))
-(define-char
-  '((morohashi-daikanwa	44014 0 1)
+  '((morohashi-daikanwa	44014 0 0)
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 0)
     (total-strokes	 . 9)
@@ -48,8 +35,21 @@
     (=ucs		. #x98DF)	; é£Ÿ
     ))
 (define-char
+  '((=>ucs		. #x98DF)	; é£Ÿ
+    (morohashi-daikanwa	44014 0 1)
+    (ideographic-radical . 184)	; â¾·
+    (ideographic-strokes . 0)
+    (total-strokes	 . 9)
+    (shinjigen-1	. 9233)
+    (shinjigen-2	. 9234)
+    (=jis-x0208		. #x3F29)	; ø½Š¢ˆ
+    (=gt-pj-1		. #x3F29)	; ø½Š¢ˆ
+    (=gt-k		. 05345)	; ý¡„“¡
+    (=ucs@jis		. #x98DF)	; ø½Š¢ˆ
+    ))
+(define-char
   '((=>ucs		. #x98E0)	; é£ 
-    (morohashi-daikanwa	44014 0 3)
+    (morohashi-daikanwa	44014 0 2)
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
@@ -64,7 +64,7 @@
     (=big5-cdp		. #x8BB9)	; ý¢€ˆ®¹
     ))
 (define-char
-  '((morohashi-daikanwa	44014 0 4)
+  '((morohashi-daikanwa	44014 0 3)
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
@@ -81,12 +81,14 @@
     ))
 (define-char
   '((=>ucs		. #x98E0)	; é£ 
-    (morohashi-daikanwa	44014 0 5)
+    (morohashi-daikanwa	44014 0 4)
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
-    (=gt-pj-k1		. #x3471)	; ý¡„Ž„
+    (=jis-x0213-2-2000	. #x7C4B)	; ø»¦£”
+    (=gt-pj-k1		. #x3471)	; ø»¦£”
     (=gt-k		. 04996)	; ý¡„Ž„
+    (=ucs@jis		. #x98E0)	; ø»¦£”
     ))
 (define-char
   '((morohashi-daikanwa	44014 0 7)
@@ -2418,12 +2420,28 @@
     (=daikanwa		. 44156)	; ø¸Š±¼
     ))
 (define-char
-  '((morohashi-daikanwa	44156 0 1)
+  '((=>ucs		. #x4B3B)	; ä¬»
+    (morohashi-daikanwa	44156 0 1)
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 6)
     (total-strokes	 . 14)
     (=cns11643-6	. #x6440)	; ø»—©
+    ))
+(define-char
+  '((morohashi-daikanwa	44156 0 2)
+    (ideographic-radical . 184)	; â¾·
+    (ideographic-strokes . 6)
+    (total-strokes	 . 14)
     (=ucs		. #x4B3B)	; ä¬»
+    ))
+(define-char
+  '((=>ucs		. #x4B3B)	; ä¬»
+    (morohashi-daikanwa	44156 0 3)
+    (ideographic-radical . 184)	; â¾·
+    (ideographic-strokes . 6)
+    (total-strokes	 . 14)
+    (=jis-x0213-2-2000	. #x7C55)	; ø»¦£ž
+    (=ucs@jis		. #x4B3B)	; ø»¦£ž
     ))
 (define-char
   '((ideographic-radical . 184)	; â¾·
@@ -6027,31 +6045,39 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
     (=jis-x0212		. #x686E)	; ø»Œ¯
+    (=jis-x0213-2-2000	. #x7C68)	; ø»¦£±
     (=daikanwa		. 44391)	; ø¸Šµ§
     (=ucs@jis		. #x994E)	; ø»Œ¯
     ))
 (define-char
-  '((morohashi-daikanwa	44391 0 1)
+  '((=>ucs		. #x994E)	; é¥Ž
+    (morohashi-daikanwa	44391 0 1)
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 12)
     (total-strokes	 . 20)
     (=cns11643-2	. #x6A63)	; ø»”¸°
+    ))
+(define-char
+  '((morohashi-daikanwa	44391 0 2)
+    (ideographic-radical . 184)	; â¾·
+    (ideographic-strokes . 12)
+    (total-strokes	 . 20)
     (=ucs		. #x994E)	; é¥Ž
     ))
 (define-char
-  '((ideographic-radical . 184)	; â¾·
-    (ideographic-strokes . 12)
-    (total-strokes	 . 21)
-    (=daikanwa		. 44392)	; ø¸Šµ¨
-    (=ucs		. #x994F)	; é¥
-    ))
-(define-char
   '((=>ucs		. #x994F)	; é¥
-    (morohashi-daikanwa	44392 0 0)
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
     (=cns11643-3	. #x5E7E)	; ø»–±§
+    (=daikanwa		. 44392)	; ø¸Šµ¨
+    ))
+(define-char
+  '((morohashi-daikanwa	44392 0 2)
+    (ideographic-radical . 184)	; â¾·
+    (ideographic-strokes . 11)
+    (total-strokes	 . 20)
+    (=ucs		. #x994F)	; é¥
     ))
 (define-char
   '((=>ucs		. #x4B5B)	; ä­›
