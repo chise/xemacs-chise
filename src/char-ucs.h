@@ -45,24 +45,24 @@ DECLARE_LRECORD (byte_table, Lisp_Byte_Table);
    char table entries should never escape to Lisp */
 
 
-struct Lisp_Char_Code_Table
+struct Lisp_Char_ID_Table
 {
   struct lcrecord_header header;
 
   Lisp_Object table;
 };
-typedef struct Lisp_Char_Code_Table Lisp_Char_Code_Table;
+typedef struct Lisp_Char_ID_Table Lisp_Char_ID_Table;
 
-DECLARE_LRECORD (char_code_table, Lisp_Char_Code_Table);
-#define XCHAR_CODE_TABLE(x) XRECORD (x, char_code_table, Lisp_Char_Code_Table)
-#define XSETCHAR_CODE_TABLE(x, p) XSETRECORD (x, p, char_code_table)
-#define CHAR_CODE_TABLE_P(x) RECORDP (x, char_code_table)
-#define GC_CHAR_CODE_TABLE_P(x) GC_RECORDP (x, char_code_table)
-/* #define CHECK_CHAR_CODE_TABLE(x) CHECK_RECORD (x, char_code_table)
+DECLARE_LRECORD (char_id_table, Lisp_Char_ID_Table);
+#define XCHAR_ID_TABLE(x) XRECORD (x, char_id_table, Lisp_Char_ID_Table)
+#define XSETCHAR_ID_TABLE(x, p) XSETRECORD (x, p, char_id_table)
+#define CHAR_ID_TABLE_P(x) RECORDP (x, char_id_table)
+#define GC_CHAR_ID_TABLE_P(x) GC_RECORDP (x, char_id_table)
+/* #define CHECK_CHAR_ID_TABLE(x) CHECK_RECORD (x, char_id_table)
    char table entries should never escape to Lisp */
 
 
-Lisp_Object get_char_code_table (Emchar ch, Lisp_Object table);
+Lisp_Object get_char_id_table (Emchar ch, Lisp_Object table);
 
 
 extern Lisp_Object Vcharset_mojikyo;
@@ -529,7 +529,7 @@ INLINE_HEADER int charset_code_point (Lisp_Object charset, Emchar ch);
 INLINE_HEADER int
 charset_code_point (Lisp_Object charset, Emchar ch)
 {
-  Lisp_Object cdef = get_char_code_table (ch, Vcharacter_attribute_table);
+  Lisp_Object cdef = get_char_id_table (ch, Vcharacter_attribute_table);
 
   if (!NILP (cdef))
     {
@@ -548,7 +548,7 @@ INLINE_HEADER int encode_char_1 (Emchar c, Lisp_Object* charset);
 INLINE_HEADER int
 encode_char_1 (Emchar c, Lisp_Object* charset)
 {
-  Lisp_Object cdef = get_char_code_table (c, Vcharacter_attribute_table);
+  Lisp_Object cdef = get_char_id_table (c, Vcharacter_attribute_table);
 
   if (!EQ (cdef, Qnil))
     {
