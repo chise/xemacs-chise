@@ -1,3 +1,25 @@
+2002-12-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R038-Woman.el (U+599F): Unify BC-8DD2.
+
+	* Ideograph-R026-Seal.el (U+537D): Modify `ideographic-structure'.
+
+	* Ideograph-R011-Enter.el (U+5168): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R140-Grass.el (U+5179): Delete broken
+	`ideographic-structure'.
+
+	* Ideograph-R009-Man.el (U+4FA6): Delete broken
+	`ideographic-structure'.
+	(U+4FEA): Likewise.
+	(U+5079): Likewise.
+	(U+5084): Likewise.
+
+	* Ideograph-R094-Dog.el (U-000215DC): Unify BC-8CF3.
+
+	* Ideograph-R005-Second.el (U+4E5B): Unify BC-8D54.
+
 2002-12-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R030-Mouth.el (U-00020BB7): Unify BC-8BF3.
