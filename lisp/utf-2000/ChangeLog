@@ -1,3 +1,20 @@
+2001-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FE70-Arabic-Presentation-Forms-B.el,
+	u0FB50-Arabic-Presentation-Forms-A.el: Merge `arabic-1-column' and
+	`arabic-2-column'.
+
+	* u00600-Arabic.el: Merge `arabic-1-column' and `arabic-digit'.
+
+	* u000A0-Latin-1-Supplement.el, u00020-Basic-Latin.el: Merge
+	`arabic-1-column'.
+
+2001-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R014-Cover.el:
+	- Merge KS X 1001, Big5 and GB 12345 code points.
+	- Use `=>ucs' instead of `->ucs'.
+
 2001-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R012-Eight.el (M-01459): Separate JX2-2328.
