@@ -1,3 +1,74 @@
+2001-05-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el (M-47074'): Unify M050605.
+
+	* Ideograph-R195-Fish.el (M-46226'): Unify M050603.
+	(M-46525'): Unify M050604.
+
+	* Ideograph-R194-Ghost.el (M-45906'): Unify M050602.
+
+	* Ideograph-R191-Fight.el (M-45649'): Unify M050601.
+
+	* Ideograph-R190-Hair.el (M-45387'): Unify M050600.
+
+	* Ideograph-R188-Bone.el (M-45240'): Fix `total-strokes'; delete
+	`daikanwa-radical' and `daikanwa-strokes'; separate C3-5D61; unify
+	M050599.
+
+	* Ideograph-R182-Wind.el (M-43920'): Unify M050579; separate
+	C4-6231.
+
+	* Ideograph-R149-Speech.el (M-35324'): Unify M050452.
+	(M-35497'): Unify M050453.
+	(M-35502): Separate C1-6B25 and J0-4727.
+	(M-35502'): New character; unify J0-4727 and M050454.
+	(M-35546): New character; unify K0-6826 and C1-6B28.
+	(U+8AA4): Relate to M-35546 instead of M-35546'; unify M059932.
+	(M-35546'): Separate K0-6826, C1-6B28 and U+8AA4; unify M050455.
+	(M-35556'): Unify M050456.
+	(M-35580'): Unify M050457.
+	(U+8AAE): Add `total-strokes'; relate to M050036.
+	(M-35609): New character; relate to U+8ABF; unify K0-7060.
+	(M-35609'): Separate K0-7060; unify M050458.
+	(M-35640): New character; relate to U+8ACB; K0-746B.
+	(M-35640'): Separate K0-746B; M050459.
+	(M-35690'): Unify M050460.
+	(M-35691'): Unify M050461.
+	(M-35692'): Unify M050462.
+	(M050036): New character; relate to U+8AAE.
+	(M-35727'): Unify M050463; separate C1-7243.
+	(C5-583F): Relate to M-35766 instead of M-35776.
+	(M-35776): Cancel relation to C5-583F.
+	(M-35778'): New character; unify M050464.
+	(M-35779'): Unify M050465.
+	(M-35780): New character; relate to U+8B04; unify K0-5477.
+	(M-35780'): Separate K0-5477; unify M050466.
+	(M-35821'): Unify M050467.
+	(M-35850): Delete `japanese-strokes'; separate JSP-5E3F, C1-754B,
+	JX2-7864 and U+8B0A.
+	(U+8B0A): Unify JSP-5E3F, JX2-7864 and M056409.
+	(M-35850'): Fix `ideographic-strokes'; separate K0-504D, C1-773F
+	and U+8B39; unify M050468.
+	(M-35900): Unify K0-504D, C1-773F and U+8B39.
+	(M-35931'): Unify M050469.
+	(M-35991'): Unify M050470.
+	(M-36037'): Unify M050471.
+	(M-36038'): Fix strokes; separate C1-7B2C; unify M050472.
+	(M-36048): New character; relate to U+8B77.
+	(C1-7B2C): Relate to M-36048 instead of M-36038'.
+	(M-36168'): Unify M050473.
+
+	* Ideograph-R180-Sound.el (M-43318'): Fix `total-strokes'; unify
+	M050573.
+
+2001-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el (M-41721'): Unify M050558.
+	(M-41764'): Unify M050559.
+	(M-41836'): Unify M050560; separate C3-4A44.
+	(M-41858'): Unify M050561; separate C5-522F.
+	(M-41860'): Unify M050562.
+
 2001-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R174-Blue.el (M-42564): Separate C3-2A7E.
