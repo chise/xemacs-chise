@@ -8,6 +8,17 @@
 
 	* Ideograph-R075-Tree.el (GT-19861): Unify JC3-53FA.
 
+2002-11-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (insert-char-attributes): Use `ucs-{jis|cns}'
+	character in the comment for a '=>ucs-{jis|cns}' property.
+
+	* Ideograph-R127-Plow.el, Ideograph-R126-And.el,
+	Ideograph-R125-Old.el, Ideograph-R123-Sheep.el,
+	Ideograph-R122-Net.el, Ideograph-R096-Jade.el,
+	Ideograph-R086-Fire.el, Ideograph-R038-Woman.el: Add some missing
+	mappings to CHINA3-JEF code points.
+
 2002-11-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R031-Enclosure.el (J0-5421): Unify B-B0E9.
@@ -67,6 +78,9 @@
 	(C3-407E): Unify U-0002F87E.
 
 2002-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (insert-char-attributes): Add setting for
+	`=>ucs-cns'.
 
 	* Ideograph-R075-Tree.el (C1-644D): Unify J90-3335.
 
