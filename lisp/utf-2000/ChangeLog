@@ -1,3 +1,13 @@
+2002-03-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R007-Two.el (U+4E92): Use char-spec instead of
+	char-ref in the `ideographic-structure'.
+
+2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el (U-00020134): Add `->identical' for
+	C6-307C.
+
 2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R005-Second.el (BC-8871): Don't unify U-00022398.
