@@ -170,12 +170,15 @@
     (->subsumptive
      ((morohashi-daikanwa	ho 701)
       (<-vulgar@ruijumyougishou
-       ((=daikanwa	    . 27248)	; &I-M-27248;
+       ((=jis-x0212	    . #x534E)	; &M-27248;
+	(=jis-x0213-2-2000  . #x742A)	; &I-JX2-742A;
+	(=daikanwa	    . 27248)	; &I-M-27248;
 	))
       (<-vulgar@ruijumyougishou*sources
        ruijumyougishou daikanwa)
       (<-vulgar@tongwen-tongkao
-       ((=daikanwa	    . 42713)	; &I-M-42713;
+       ((=jis-x0208	    . #x7056)	; &M-42713;
+	(=daikanwa	    . 42713)	; &I-M-42713;
 	))
       (<-vulgar@tongwen-tongkao*sources
        tongwen-tongkao daikanwa)
