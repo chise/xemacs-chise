@@ -31,6 +31,10 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef UTF2000
 
+#ifdef CHISE
+#include <chise.h>
+#endif
+
 #ifdef HAVE_CHISE_CLIENT
 #include "database.h"
 #endif
@@ -170,7 +174,10 @@ struct Lisp_Char_Table
   Lisp_Object table;
   Lisp_Object default_value;
   Lisp_Object name;
-#ifndef CHISE
+#ifdef CHISE
+  CHISE_DS ds;
+  CHISE_Feature_Table *feature_table;
+#else
   Lisp_Object db;
 #endif
   unsigned char unloaded;
