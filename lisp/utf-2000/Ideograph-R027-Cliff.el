@@ -3089,7 +3089,7 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
-    (<-simplified-ideograph
+    (<-simplified
      (:sources	(morohashi-daikanwa shinjigen-1)
       :char	((ideographic-radical . 30)	; ⼝
 		 (shinjigen-1	     . 1286)

@@ -743,7 +743,7 @@
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-simplified-ideograph
+    (<-simplified
      (:sources	(sougen-irai-zokujifu morohashi-daikanwa shinjigen-1)
       :char	((shinjigen-1	     . 716)
 		 (=daikanwa	     . 02472)	; ø¸€¦¨
@@ -840,10 +840,16 @@
     (=jef-china3	. #x82B2)	; øºˆŠ²
     ))
 (define-char
-  '((ideographic-radical . 19)	; â¼’
+  '((script		JP-Jouyou Ideograph)
+    (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (comment		. "[JP-Jouyou] <simplified character> of S1-0718")
+    (<-simplified
+     ((shinjigen-1	  . 718)
+      (=daikanwa	  . 02410)	; ø¸€¥ª
+      ))
+    (<-simplified*sources
+     shinjigen-1)
     (shinjigen-1	. 717)
     (shinjigen-2	. 717)
     (=ucs		. #x52B4)	; åŠ´
@@ -2780,10 +2786,10 @@
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 02424)	; ø¸€¥¸
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (<-vulgar-ideograph
      ((shinjigen-1	  . 744)
@@ -3195,7 +3201,7 @@
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (<-simplified-ideograph
+    (<-simplified
      (:char	((shinjigen-1	     . 751)
 		 (=daikanwa	     . 02486)	; ø¸€¦¶
 		 )

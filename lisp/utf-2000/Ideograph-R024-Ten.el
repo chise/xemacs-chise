@@ -373,7 +373,7 @@
   '((ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 07833)	; ø¸º™
       ))
     (mojikyo		. 071896)	; ý €‘£˜
@@ -382,8 +382,7 @@
   '((ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (->mojikyo		. 071896)	; ý €‘£˜
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 07833)	; ø¸º™
       ))
     (=big5-cdp		. #x8B75)	; ý¢€ˆ­µ
@@ -1109,7 +1108,7 @@
     (ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (<-simplified-ideograph
+    (<-simplified
      (:char	((shinjigen-1	     . 1170)
 		 (=daikanwa	     . 03993)	; ø¸€¾™
 		 )

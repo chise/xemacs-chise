@@ -590,7 +590,7 @@
     (ideographic-radical . 28)	; â¼›
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-simplified-ideograph
+    (<-simplified
      (:sources	(morohashi-daikanwa shinjigen-1)
       :char	((shinjigen-1	     . 893)
 		 (=daikanwa	     . 03098)	; ø¸€°š

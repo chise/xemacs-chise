@@ -195,7 +195,7 @@
   '((ideographic-radical . 8)	; â¼‡
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 45313)	; ø¸‹„
       ))
     (ideographic-structure
@@ -712,7 +712,7 @@
   '((ideographic-radical . 8)	; â¼‡
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 45313)	; ø¸‹„
       ))
     (ideographic-structure

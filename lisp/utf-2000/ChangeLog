@@ -1,3 +1,38 @@
+2004-01-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el (U+52B4): Use `script', `<-simplified'
+	and `<-simplified*sources' instead of `comment'.
+
+	* char-db-util.el (insert-char-attributes): Delete formatter for
+	`simplified-ideograph-of' and `ideographic-different-form-of'.
+
+	* Ideograph-R058-Snout.el (U-00022450): Use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+5F53): Use `<-simplified' and `<-simplified*sources' instead of
+	`simplified-ideograph-of'.
+
+2004-01-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R211-Tooth.el, Ideograph-R181-Leaf.el,
+	Ideograph-R170-Mound.el, Ideograph-R165-Distinguish.el,
+	Ideograph-R167-Gold.el, Ideograph-R164-Wine.el,
+	Ideograph-R162-Walk.el, Ideograph-R138-Stopping.el,
+	Ideograph-R156-Run.el, Ideograph-R117-Stand.el,
+	Ideograph-R113-Spirit.el, Ideograph-R108-Dish.el,
+	Ideograph-R094-Dog.el, Ideograph-R086-Fire.el,
+	Ideograph-R085-Water.el, Ideograph-R075-Tree.el,
+	Ideograph-R072-Sun.el, Ideograph-R052-Short-Thread.el,
+	Ideograph-R064-Hand.el, Ideograph-R041-Inch.el,
+	Ideograph-R036-Evening.el, Ideograph-R037-Big.el,
+	Ideograph-R032-Earth.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R030-Mouth.el, Ideograph-R028-Private.el,
+	Ideograph-R027-Cliff.el, Ideograph-R024-Ten.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R019-Power.el,
+	Ideograph-R018-Knife.el, Ideograph-R008-Lid.el,
+	Ideograph-R002-Line.el: Rename `<-simplified-ideograph' to
+	`<-simplified'.
+
 2004-01-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ideograph-util.el (total-strokes-string<): Abolished.
