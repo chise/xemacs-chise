@@ -1055,15 +1055,6 @@
     (ucs		. #x20163)	; ð …£
     ))
 (define-char
-  '((ideographic-radical . 8)	; â¼‡
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 288)
-    (hanyu-dazidian-char . 5)
-    (chinese-big5-cdp	. #x8C6B)	; ý¢€ˆ±«
-    ))
-(define-char
   '((=>ucs		. #x20169)	; ð …©
     (ideographic-radical . 8)	; â¼‡
     (ideographic-strokes . 10)
