@@ -2767,9 +2767,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((=jis-x0208	  . #x4873)	; ø½Š° 
-      (=ks-x1001	  . #x5E2A)	; ø»‰³»
-      (=daikanwa	  . 42585)	; ø¸Š™™
+     ((=cns11643-1	  . #x4F66)	; ø»’‡…
       )
      ((=ks-x1001	  . #x6962)	; ø»Š„½
       (=daikanwa	  . 28614)	; ø¸†¿†
