@@ -1,5 +1,15 @@
 2001-09-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R096-Jade.el: Merge GB 12345 code points.
+
+	* Ideograph-R086-Fire.el: Merge GB 12345 code points.
+	(U+71C5): Unify M-19398 instead of M-19399.
+	(M-19399): Delete C2-5833 and U+71C5.
+
+	* Ideograph-R094-Dog.el: Merge GB 12345 code points.
+
+2001-09-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R109-Eye.el: Merge GB 12345 code points.
 
 2001-08-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
