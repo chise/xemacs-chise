@@ -75,6 +75,7 @@
   '((morohashi-daikanwa	40120 1)
     (ideographic-radical . 165)	; â¾¤
     (ideographic-strokes . 4)
+    (mojikyo		. 050545)	; ø¸Œ•±
     (ucs		. #x91C8)	; é‡ˆ
     ))
 (define-char
