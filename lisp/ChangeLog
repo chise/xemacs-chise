@@ -1,3 +1,8 @@
+1999-07-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (reset-language-environment): Don't regard
+	`ucs-4' if `utf-2000' is provided.
+
 1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* bytecomp.el (byte-compile-insert-header): Use utf-8 as
