@@ -1,3 +1,50 @@
+2001-10-08  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
+	* Ideograph-R012-Eight.el (M-01452): Delete `chinese-big5-cdp'
+	from char-ref U+53B6 in `ideographic-structure'.
+	(U+516C): Likewise.
+	(J0-4F3B): Delete `chinese-big5-cdp' from char-ref J83-5035 in
+	`ideographic-structure'.
+
+	* Ideograph-R007-Two.el (U+4E91): Delete `chinese-big5-cdp' in
+	`ideographic-structure'.
+
+	* Ideograph-R005-Second.el (U+4E69): Delete `chinese-big5-cdp'
+	from char-ref <CJK RADICAL SECOND TWO> in `ideographic-structure'.
+	(M-00190): Likewise.
+	(U+4E73): Likewise.
+	(U+4E7F): Delete `chinese-big5-cdp' in `ideographic-structure'.
+	(U+4E82): Likewise.
+	(U+4E83): Likewise.
+	(U+4E84): Likewise.
+
+	* Ideograph-R004-Slash.el (U+4E47): Delete `chinese-big5-cdp' from
+	char-ref U+4E3F in `ideographic-structure'.
+	(U+4E48): Delete `chinese-big5-cdp' in `ideographic-structure'.
+	(J0-4B33): Delete `chinese-big5-cdp' from char-ref U+4E3F in
+	`ideographic-structure'.
+	(U+4E4F): Likewise.
+	(U+4E52): Delete `chinese-big5-cdp' in `ideographic-structure'.
+	(U+4E53): Likewise.
+
+	* Ideograph-R003-Dot.el (U+4E3B): Delete `chinese-big5-cdp' in
+	`ideographic-structure'.
+	(U+4E3C): Delete `chinese-big5-cdp' in `ideographic-structure'.
+
+	* Ideograph-R002-Line.el (U+4E2E): Delete `chinese-big5-cdp' from
+	char-ref <CJK RADICAL SECOND THREE> in `ideographic-structure'.
+
+	* Ideograph-R001-One.el (C2-212E): Delete `chinese-big5-cdp' from
+	char-ref <CJK RADICAL BOX> in `ideographic-structure'.
+
+	* Ideograph-R008-Lid.el (U+4EA7): Delete `kangxi-radical',
+	`kangxi-strokes' and `non-morohashi'.
+	(M074988): New character.
+	(M-00297): Add `ideographic-structure'.
+	(U+4EA9): Delete `non-morohashi'.
+	(M-00310): Relate to U+7AD2.
+	(M071493): New character.
+
 2001-10-07  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
 
 	* Ideograph-R196-Bird.el: Add missing JIS X 0208:1990 and JIS X
