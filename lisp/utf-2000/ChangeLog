@@ -1,3 +1,8 @@
+2002-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el: Merge some mappings to CJK Ext-B code
+	points.
+
 2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R058-Snout.el: Add some mappings into CJK Ext-B code
