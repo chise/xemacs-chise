@@ -119,7 +119,7 @@
       (setq attributes (sort (char-attribute-list) #'char-attribute-name<)))
   (or ccs-attributes
       (setq ccs-attributes (sort (charset-list) #'char-attribute-name<)))
-  (let (name value cell ret has-long-ccs-name rest
+  (let (name value has-long-ccs-name rest
 	radical strokes)
     (save-restriction
       (narrow-to-region (point)(point))
@@ -140,7 +140,7 @@
     "
 			(mapconcat (function prin1-to-string)
 				   value " ")))
-	(setq attributes (del-alist 'script data))
+	(setq attributes (delq 'script attributes))
 	)
       (when (setq value (get-char-attribute char '->ucs))
 	(insert (format "(->ucs\t\t. #x%04X)\t; %c
