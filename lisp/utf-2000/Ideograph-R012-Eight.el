@@ -416,6 +416,7 @@
     (ideographic-radical . 12)	; â¼‹
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideograph-cdp	. -1178)
     (chinese-big5-cdp	. #x8BFA)	; ý¢€ˆ¯º
     ))
 (define-char
