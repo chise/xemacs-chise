@@ -55,7 +55,17 @@
 (define-char
   '((ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 3)
+    (total-strokes	 . 7)
     (shinjigen-2	. 1786)
+    (vulgar-ideograph-of
+     ((sources		  morohashi-daikanwa)
+      (char . ((ideographic-radical . 39)	; â¼¦
+	       (ideographic-strokes . 13)
+	       (total-strokes	    . 16)
+	       (shinjigen-2	   . 1783)
+	       (ideograph-daikanwa . 07033)	; ø¸­¹
+	       ))
+      ))
     (japanese-jisx0208-1990	. #x555D)	; ø½‹ƒ
     (ideograph-daikanwa		. 13453)	; ø¸ƒ’
     (ucs			. #x6588)	; æ–ˆ
