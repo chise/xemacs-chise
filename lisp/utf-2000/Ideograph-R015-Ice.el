@@ -1592,6 +1592,7 @@
       ))
     (chinese-cns11643-2 . #x2E28)	; ø»“Ÿ­
     (chinese-big5	. #xD0E5)	; ý¢€ƒ¥
+    (china3-jef		. #x9ACA)	; øº‰«Š
     (ucs		. #x51CE)	; å‡Ž
     ))
 (define-char

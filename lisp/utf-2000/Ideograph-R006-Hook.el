@@ -362,6 +362,7 @@
       ))
     (chinese-cns11643-3		. #x2741)	; ø»•Ÿ¸
     (ideograph-daikanwa		. 00240)	; ø¸€ƒ°
+    (china3-jef			. #x9DE5)	; øº‰·¥
     (ideograph-hanziku-1	. #xAF66)	; ý¢€š½¦
     (ucs			. #x3428)	; ã¨
     ))

@@ -291,6 +291,7 @@
     (japanese-jisx0213-1	. #x2E70)	; ø»¢§‘
     (chinese-big5		. #xCA72)	; ý¢€Œ©²
     (ideograph-daikanwa		. 02791)	; ø¸€«§
+    (china3-jef			. #x97D3)	; øº‰Ÿ“
     (ucs			. #x5363)	; å£
     ))
 (define-char

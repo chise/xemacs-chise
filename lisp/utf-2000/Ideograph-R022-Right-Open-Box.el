@@ -804,6 +804,7 @@
     (chinese-gb12345	. #x5850)	; åŒ­
     (chinese-big5	. #xD46F)	; ý¢€‘¯
     (ideograph-daikanwa . 02639)	; ø¸€©
+    (china3-jef		. #x97D2)	; øº‰Ÿ’
     (ucs		. #x532D)	; åŒ­
     ))
 (define-char

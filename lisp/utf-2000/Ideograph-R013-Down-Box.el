@@ -71,6 +71,7 @@
     (japanese-jisx0212	. #x3271)	; ø»Š¾ž
     (chinese-cns11643-3 . #x214D)	; ø»•—
     (ideograph-daikanwa . 01509)	; ø¸€—¥
+    (china3-jef		. #x9DE6)	; øº‰·¦
     (chinese-big5-cdp	. #x8A79)	; ý¢€ˆ©¹
     (ucs		. #x5184)	; å†„
     ))
