@@ -279,7 +279,7 @@
     (ideographic-structure
      (:cdp-combinator	5
       )
-     ((chinese-big5-cdp	  . #x8DF6)	; ïš¨
+     ((chinese-big5-cdp	  . #x8DF6)	; ý¢€ˆ·¶
       )
      ((ucs		  . #x529B)	; åŠ›
       ))
@@ -669,13 +669,12 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8BFA)	; ï•²
+     ((chinese-big5-cdp	  . #x8BFA)	; ý¢€ˆ¯º
       )
      ((ucs		  . #x529B)	; åŠ›
       ))
     (chinese-cns11643-3 . #x2761)	; ø»• ˜
-    (chinese-big5	. #x8C75)	; åŠµ
-    (chinese-big5-cdp	. #x8C75)	; åŠµ
+    (chinese-big5-cdp	. #x8C75)	; ý¢€ˆ±µ
     (ucs		. #x52B5)	; åŠµ
     ))
 (define-char
@@ -1789,7 +1788,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8A78)	; ý €‘Ž’
+     ((chinese-big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
       )
      ((ucs		  . #x52A9)	; åŠ©
       ))
@@ -1866,7 +1865,7 @@
       )
      ((ucs		  . #x77DB)	; çŸ›
       )
-     ((chinese-big5-cdp	  . #x8C64)	; ï–›
+     ((chinese-big5-cdp	  . #x8C64)	; ý¢€ˆ±¤
       ))
     (shinjigen-1	. 742)
     (shinjigen-2	. 742)
@@ -2101,7 +2100,7 @@
       )
      ((ucs		  . #x6708)	; æœˆ
       )
-     ((chinese-big5-cdp	  . #x8C75)	; åŠµ
+     ((chinese-big5-cdp	  . #x8C75)	; ý¢€ˆ±µ
       (ucs		  . #x52B5)	; åŠµ
       ))
     (shinjigen-1	. 745)
@@ -2125,7 +2124,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8BE3)	; ï•›
+     ((chinese-big5-cdp	  . #x8BE3)	; ý¢€ˆ¯£
       )
      ((ucs		  . #x529B)	; åŠ›
       ))
