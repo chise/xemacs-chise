@@ -3,7 +3,9 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (shinjigen-2	. 4018)
+    (japanese-jisx0208-1978	. #x4C53)	; ø»‚»¼
     (chinese-gb2312		. #x432B)	; ø»„¸Š
+    (japanese-jisx0208		. #x4C53)	; ø»‡„
     (chinese-isoir165		. #x432B)	; ø» š
     (chinese-cns11643-1		. #x4553)	; ø»‘¸†
     (japanese-jisx0208-1990	. #x4C53)	; ø½Šµ¸
@@ -236,6 +238,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (shinjigen-2	. 4019)
+    (japanese-jisx0208-1978	. #x5D5B)	; ø»ƒ•‚
+    (japanese-jisx0208		. #x5D5B)	; ø»‡©Š
     (japanese-jisx0208-1990	. #x5D5B)	; ø½‹Ž¾
     (ideograph-daikanwa		. 16790)	; ø¸„†–
     (ucs			. #x6BDF)	; æ¯Ÿ
@@ -704,7 +708,9 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (shinjigen-2	. 4023)
+    (japanese-jisx0208-1978	. #x5D5D)	; ø»ƒ•„
     (chinese-gb2312		. #x3A41)	; ø»„«’
+    (japanese-jisx0208		. #x5D5D)	; ø»‡©Œ
     (chinese-isoir165		. #x3A41)	; ø»“¢
     (chinese-cns11643-1		. #x5B45)	; ø»’˜Œ
     (japanese-jisx0208-1990	. #x5D5D)	; ø½‹€
@@ -716,6 +722,8 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (shinjigen-2	. 4022)
+    (japanese-jisx0208-1978	. #x5D5C)	; ø»ƒ•ƒ
+    (japanese-jisx0208		. #x5D5C)	; ø»‡©‹
     (chinese-cns11643-1		. #x5B46)	; ø»’˜
     (japanese-jisx0208-1990	. #x5D5C)	; ø½‹Ž¿
     (ideograph-daikanwa		. 16837)	; ø¸„‡…
@@ -862,7 +870,9 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (shinjigen-2	. 4025)
+    (japanese-jisx0208-1978	. #x5D5F)	; ø»ƒ•†
     (chinese-gb2312		. #x4C3A)	; ø»……§
+    (japanese-jisx0208		. #x5D5F)	; ø»‡©Ž
     (chinese-isoir165		. #x4C3A)	; ø»­·
     (chinese-cns11643-1		. #x6027)	; ø»’Ÿ„
     (japanese-jisx0208-1990	. #x5D5F)	; ø½‹‚
@@ -900,7 +910,9 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (shinjigen-2	. 4024)
+    (japanese-jisx0208-1978	. #x5D5E)	; ø»ƒ•…
     (chinese-gb2312		. #x6B25)	; ø»…²´
+    (japanese-jisx0208		. #x5D5E)	; ø»‡©
     (chinese-isoir165		. #x6B25)	; ø»Ž›„
     (chinese-cns11643-2		. #x3D2A)	; ø»“µ±
     (japanese-jisx0208-1990	. #x5D5E)	; ø½‹
