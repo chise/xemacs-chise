@@ -5516,21 +5516,18 @@
     (=daikanwa		. 39714)	; &I-M-39714;
     ))
 (define-char
-  '((=>ucs		. #x913C)	; 鄼
-    (ideographic-radical . 163)	; ⾢
-    (ideographic-strokes . 15)
-    (total-strokes	 . 18)
-    (=jis-x0212		. #x6251)	; &M-39715; [66-49]
-    (=daikanwa		. 39715)	; &I-M-39715;
-    (=ucs@jis-1990	. #x913C)	; &M-39715;
-    ))
-(define-char
-  '((morohashi-daikanwa	39715 0 0)
-    (ideographic-radical . 163)	; ⾢
+  '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
     (=ucs		. #x913C)	; 鄼
-    (=cns11643-3	. #x593C)	; &I-C3-593C; [57-28]
+    (->subsumptive
+     ((=jis-x0212	  . #x6251)	; &M-39715; [66-49]
+      (=daikanwa	  . 39715)	; &I-M-39715;
+      (=ucs@jis		  . #x913C)	; &M-39715;
+      )
+     ((=cns11643-3	  . #x593C)	; &C3-593C; [57-28]
+      (=ucs@unicode	  . #x913C)	; &C3-593C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
