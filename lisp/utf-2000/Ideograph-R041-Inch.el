@@ -480,28 +480,48 @@
     (=cns11643-6	. #x3E5D)	; &I-C6-3E5D; [30-61]
     ))
 (define-char
-  '((=>ucs		. #x5C0A)	; 尊
-    (ideographic-radical . 41)	; ⼨
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=ks-x1001		. #x706E)	; &M-07445; [80-78]
-    (=big5		. #xB44C)	; &I-B-B44C;
-    (=daikanwa		. 07445)	; &I-M-07445;
-    (=jef-china3	. #x4ACC)	; &I-JC3-4ACC;
-    (=ucs@big5		. #x5C0A)	; &M-07445;
-    ))
-(define-char
-  '((morohashi-daikanwa	7445 0 2)
-    (ideographic-radical . 41)	; ⼨
+  '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x5C0A)	; 尊
-    (=jis-x0208		. #x423A)	; &I-J90-423A; [34-26]
-    (=gb2312		. #x5770)	; &I-G0-5770; [55-80]
-    (=cns11643-1	. #x5E71)	; &I-C1-5E71; [62-81]
-    (=gt		. 09379)	; &I-GT-09379;
-    (=gt-k		. 09092)	; &I-GT-K09092;
-    (=gt-pj-1		. #x423A)	; &I-GT-09379; [34-26]
+    (=big5		. #xB44C)	; &I-B-B44C;
+    ))
+(define-char
+  '((ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (<-denotational
+     ((=ucs		  . #x5C0A)	; 尊
+      ))
+    (->subsumptive
+     ((=daikanwa	  . 07445)	; &M-07445;
+      )
+     ((=ks-x1001	  . #x706E)	; &GT-09378; [80-78]
+      (=gt		  . 09378)	; &I-GT-09378;
+      (=gt-k		  . 09091)	; &I-GT-K09091;
+      (=gt-pj-3		  . #x315D)	; &I-GT-09378; [17-61]
+      (=jef-china3	  . #x4ACC)	; &I-JC3-4ACC;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (<-denotational
+     ((=ucs		  . #x5C0A)	; 尊
+      ))
+    (->subsumptive
+     ((=cns11643-1	  . #x5E71)	; &C1-5E71; [62-81]
+      )
+     ((=jis-x0208	  . #x423A)	; &GT-09379; [34-26]
+      (=gt		  . 09379)	; &I-GT-09379;
+      (=gt-k		  . 09092)	; &I-GT-K09092;
+      (=gt-pj-1		  . #x423A)	; &I-GT-09379; [34-26]
+      (=ucs@jis		  . #x5C0A)	; &GT-09379;
+      )
+     ((=gb2312		  . #x5770)	; &G0-5770; [55-80]
+      (=ucs@unicode	  . #x5C0A)	; &G0-5770;
+      ))
     ))
 (define-char
   '((=>ucs		. #x21B33)	; 𡬳
