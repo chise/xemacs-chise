@@ -32,6 +32,9 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (->identical
+     ((=ucs		  . #xFA49)	; 爫
+      ))
     (=ucs		. #x722B)	; 爫
     ))
 (define-char
@@ -40,9 +43,6 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (->identical
-     ((=ucs		  . #x722B)	; 爫
-      ))
     (=ucs		. #xFA49)	; 爫
     (=jis-x0213-2-2000	. #x7029)	; �����
     (=ucs@gb		. #x722B)	; 爫
