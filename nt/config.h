@@ -342,6 +342,11 @@ Boston, MA 02111-1307, USA.  */
 #define bufpos_checking_assert(assertion)
 #endif
 
+#ifdef ERROR_CHECK_GC
+#define gc_checking_assert(assertion) assert (assertion)
+#else
+#define gc_checking_assert(assertion)
+#endif
 
 /* Define MEMORY_USAGE_STATS if you want extra code compiled in to
    determine where XEmacs's memory is going. */

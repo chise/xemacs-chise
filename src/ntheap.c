@@ -122,7 +122,7 @@ allocate_heap (void)
   unsigned long base = 0x01B00000;   /*  27MB */
   /* Temporary hack for the non-starting problem - use 28 (256Mb) rather than VALBITS (1Gb) */
   unsigned long end  = 1 << 28;      /* 256MB */
-  void *ptr;
+  void *ptr = NULL;
 
 #define NTHEAP_PROBE_BASE 1
 #if NTHEAP_PROBE_BASE /* This is never normally defined */
