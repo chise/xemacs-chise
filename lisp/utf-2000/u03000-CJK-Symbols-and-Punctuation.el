@@ -3,7 +3,9 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (->decomposition	wide #x0020)
+    (<-ideographic	((name		     . "SPACE")
+			 (ucs		     . #x0020)	;
+			 ))
     (japanese-jisx0208-1978	. #x2121)	; ø»¼€
     (chinese-gb2312		. #x2121)	; ø»„†„
     (japanese-jisx0208		. #x2121)	; ø»†ˆ
@@ -519,7 +521,6 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5	. #xA1CA)	; øºŸœ¨
     (ucs		. #x3030)	; ã€°
     ))
 (define-char
@@ -583,6 +584,7 @@
     (numeric-value	. 10)
     (->decomposition	compat #x5341)
     (chinese-cns11643-1 . #x243E)	; ø»‘‡“
+    (chinese-big5	. #xA2CC)	; øºŸŸ‡
     (ucs		. #x3038)	; ã€¸
     ))
 (define-char
@@ -593,6 +595,7 @@
     (numeric-value	. 20)
     (->decomposition	compat #x5344)
     (chinese-cns11643-1 . #x243F)	; ø»‘‡”
+    (chinese-big5	. #xA2CD)	; øºŸŸˆ
     (ucs		. #x3039)	; ã€¹
     ))
 (define-char
@@ -603,6 +606,7 @@
     (numeric-value	. 30)
     (->decomposition	compat #x5345)
     (chinese-cns11643-1 . #x2440)	; ø»‘‡•
+    (chinese-big5	. #xA2CE)	; øºŸŸ‰
     (ucs		. #x303A)	; ã€º
     ))
 (define-char
