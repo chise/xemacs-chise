@@ -1,3 +1,23 @@
+2000-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* bytecomp.el (byte-compile-insert-header): Use `binary' instead
+	of `raw-text'; check \uHHHH representation even if non-ascii
+	characters are not found.
+
+	* dumped-lisp.el (preloaded-file-list): Add "ccs-tcvn5712.el" in
+	UTF-2000; add "viet-ccl" in non-UTF-2000 Mule; add "vietnamese"
+	unconditionally.
+
+	* mule/viet-ccl.el: New file.
+
+	* mule/vietnamese.el (vscii-2): New coding-system in UTF-2000.
+	(tcvn-5712): New coding-system alias of `vscii-2' in UTF-2000.
+	- Separate CCL based implementations to viet-ccl.el.
+
+2000-04-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* utf-2000/ccs-jisx0208-1983.el: Remove unused file.
+
 2000-03-23  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* utf-2000/Ideograph-R085-Water.el (U+6E13): Add J{78|83|90}-374C.
