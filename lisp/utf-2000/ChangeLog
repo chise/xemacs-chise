@@ -1,5 +1,10 @@
 2004-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R072-Sun.el: Use `->subsumptive' or
+	`{<-|->}denotational' for some character definitions.
+	(U+3B0D): Map to M-14085.
+	(U+66C6): Add S1-3375.
+
 	* Ideograph-R075-Tree.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
