@@ -6794,6 +6794,15 @@
     (=daikanwa		. 10822)	; ø¸‚©†
     ))
 (define-char
+  '((=>ucs		. #x60E0)	; æƒ 
+    (morohashi-daikanwa	10822 0 1)
+    (ideographic-radical . 61)	; â¼¼
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (shinjigen-1	. 2479)
+    (=jef-china3	. #x4DD6)	; øº„·–
+    ))
+(define-char
   '((ideographic-radical . 61)	; â¼¼
     (ideographic-strokes . 8)
     (total-strokes	 . 11)

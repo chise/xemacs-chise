@@ -134,7 +134,7 @@
 				  (and (not (memq ucs-ccs '(ucs-jis
 							    =ucs-jis-1990
                                                             =ucs-jis-2000
-                                                            ;; ucs-big5
+							    ;; ucs-big5
 							    )))
 				       (get-char-attribute chr '=>ucs)))
 			      ucs)))
