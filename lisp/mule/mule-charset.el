@@ -271,6 +271,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  hiragana-jisx0208
 	  katakana-jisx0208
 	  hebrew-iso8859-8
+	  japanese-jisx0208
 	  vietnamese-viscii-lower
 	  vietnamese-viscii-upper)))
 
