@@ -125,6 +125,7 @@ Bytecount rep_bytes_by_first_byte[0xA0] =
 #endif
 
 #ifdef UTF2000
+
 static Lisp_Object
 mark_char_byte_table (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
@@ -176,14 +177,13 @@ static const struct lrecord_description char_byte_table_description[] = {
   { XD_END }
 };
 
-DEFINE_LRECORD_IMPLEMENTATION ("char-code-table", char_byte_table,
+DEFINE_LRECORD_IMPLEMENTATION ("char-byte-table", char_byte_table,
                                mark_char_byte_table,
 			       internal_object_printer,
 			       0, char_byte_table_equal,
 			       char_byte_table_hash,
 			       char_byte_table_description,
 			       struct Lisp_Char_Byte_Table);
-
 
 static Lisp_Object
 make_char_byte_table (Lisp_Object initval)
@@ -224,12 +224,79 @@ copy_char_byte_table (Lisp_Object entry)
   return obj;
 }
 
-#define make_char_code_table(initval) make_char_byte_table(initval)
+
+static Lisp_Object
+mark_char_code_table (Lisp_Object obj, void (*markobj) (Lisp_Object))
+{
+  struct Lisp_Char_Code_Table *cte = XCHAR_CODE_TABLE (obj);
+
+  return cte->table;
+}
+
+static int
+char_code_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
+{
+  struct Lisp_Char_Code_Table *cte1 = XCHAR_CODE_TABLE (obj1);
+  struct Lisp_Char_Code_Table *cte2 = XCHAR_CODE_TABLE (obj2);
+
+  return char_byte_table_equal (cte1->table, cte2->table, depth + 1);
+}
+
+static unsigned long
+char_code_table_hash (Lisp_Object obj, int depth)
+{
+  struct Lisp_Char_Code_Table *cte = XCHAR_CODE_TABLE (obj);
+
+  return char_code_table_hash (cte->table, depth + 1);
+}
+
+static const struct lrecord_description char_code_table_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Code_Table, table), 1 },
+  { XD_END }
+};
+
+DEFINE_LRECORD_IMPLEMENTATION ("char-code-table", char_code_table,
+                               mark_char_code_table,
+			       internal_object_printer,
+			       0, char_code_table_equal,
+			       char_code_table_hash,
+			       char_code_table_description,
+			       struct Lisp_Char_Code_Table);
+
+static Lisp_Object
+make_char_code_table (Lisp_Object initval)
+{
+  Lisp_Object obj;
+  struct Lisp_Char_Code_Table *cte =
+    alloc_lcrecord_type (struct Lisp_Char_Code_Table,
+			 &lrecord_char_code_table);
+
+  cte->table = make_char_byte_table (initval);
+
+  XSETCHAR_CODE_TABLE (obj, cte);
+  return obj;
+}
+
+static Lisp_Object
+copy_char_code_table (Lisp_Object entry)
+{
+  struct Lisp_Char_Code_Table *cte = XCHAR_CODE_TABLE (entry);
+  Lisp_Object obj;
+  struct Lisp_Char_Code_Table *ctenew =
+    alloc_lcrecord_type (struct Lisp_Char_Code_Table,
+			 &lrecord_char_code_table);
+
+  ctenew->table = copy_char_byte_table (cte->table);
+  XSETCHAR_CODE_TABLE (obj, ctenew);
+  return obj;
+}
+
 
 Lisp_Object
 get_char_code_table (Emchar ch, Lisp_Object table)
 {
-  struct Lisp_Char_Byte_Table* cpt = XCHAR_BYTE_TABLE (table);
+  struct Lisp_Char_Byte_Table* cpt
+    = XCHAR_BYTE_TABLE (XCHAR_CODE_TABLE (table)->table);
   Lisp_Object ret = cpt->property [ch >> 24];
 
   if (CHAR_BYTE_TABLE_P (ret))
@@ -255,7 +322,8 @@ get_char_code_table (Emchar ch, Lisp_Object table)
 void
 put_char_code_table (Emchar ch, Lisp_Object value, Lisp_Object table)
 {
-  struct Lisp_Char_Byte_Table* cpt1 = XCHAR_BYTE_TABLE (table);
+  struct Lisp_Char_Byte_Table* cpt1
+    = XCHAR_BYTE_TABLE (XCHAR_CODE_TABLE (table)->table);
   Lisp_Object ret = cpt1->property[ch >> 24];
 
   if (CHAR_BYTE_TABLE_P (ret))
@@ -2237,7 +2305,7 @@ Leading-code of private TYPE9N charset of column-width 1.
 #endif
 
 #ifdef UTF2000
-  Vutf_2000_version = build_string("0.11 (Shiki)");
+  Vutf_2000_version = build_string("0.12 (Kashiwara)");
   DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
 Version number of UTF-2000.
 */ );
