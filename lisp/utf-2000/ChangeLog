@@ -1,5 +1,44 @@
 2004-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el (U+53ED): Use `->subsumptive'.
+	(U+3563): Likewise.
+	(GT-K01062): New character.
+	(GT-K01160): New character.
+	(GT-K01881): New character.
+	(U-00020C57): Use `->subsumptive'.
+	(U+5546): Likewise.
+	(U+5547): Likewise.
+
+	* Ideograph-R012-Eight.el (U-00020509): Use `->subsumptive'.
+	(JX2-2327): Unify GT-K01768.
+	(GT-K01769): New character.
+	(U-00020512): Use `->subsumptive'.
+
+	* Ideograph-R087-Claw.el (U+3E12): Use `->subsumptive'; integrate
+	M-19664.
+	(M-19664): New character; unify H5-F7E7.
+
+	* Ideograph-R085-Water.el (GT-K02519): New character.
+	(U+6C59): Unify GT-21907 and GT-K01581.
+
+	* Ideograph-R077-Stop.el (U+6B68): Unify H4-D2ED.
+
+	* Ideograph-R075-Tree.el (GT-K02598): New character.
+
+	* Ideograph-R013-Down-Box.el (BC-8CBF): New character.
+
+	* Ideograph-R011-Enter.el (U+5168): Use `->subsumptive'.
+	(M-01424): Unify GT-01862 and GT-K01745.
+
+	* Ideograph-R129-Brush.el (BC-8BC6): New character.
+	(GT-K02451): New character.
+
+2004-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (U+707C): Use `->subsumptive'; unify
+	B-A860.
+	(J78-3C5E): Separate B-A860; unify GT-24181 and GT-K02568.
+
 	* Ideograph-R117-Stand.el (GT-K01020): New character.
 	(GT-K01019): New character.
 
