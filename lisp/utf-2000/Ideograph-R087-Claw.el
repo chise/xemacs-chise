@@ -308,8 +308,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (chinese-cns11643-4 . #x386A)	; ø»˜ƒ£
-    (chinese-big5	. #x8C7D)	; ø»˜ƒ£
-    (chinese-big5-cdp	. #x8C7D)	; ø»˜ƒ£
+    (chinese-big5-cdp	. #x8C7D)	; ý¢€ˆ±½
     (mojikyo		. 073769)	; ý €’€©
     ))
 (define-char
