@@ -3,6 +3,9 @@
 	* Ideograph-R062-Halberd.el: Use `->subsumptive' for some
 	character definitions.
 
+	* maps-conf.el: Don't add `=gt-pj-1' for
+	J90-{5379|5879|3D5D|3C21}.
+
 	* Ideograph-R082-Fur.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
