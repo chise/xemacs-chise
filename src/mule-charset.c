@@ -2296,23 +2296,15 @@ Emchar
 load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 {
 #ifdef CHISE
-  CHISE_CCS dt_ccs;
   CHISE_Char_ID char_id;
 
   if ( open_chise_data_source_maybe () )
     return -1;
 
-  dt_ccs
-    = chise_ds_get_ccs (default_chise_data_source,
-			XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(ccs))));
-  if (dt_ccs == NULL)
-    {
-      printf ("Can't open decoding-table %s\n",
-	      XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(ccs))));
-      return -1;
-    }
-
-  char_id = chise_ccs_decode (dt_ccs, code_point);
+  char_id
+    = chise_ds_decode_char (default_chise_data_source,
+			    XSTRING_DATA(Fsymbol_name (XCHARSET_NAME(ccs))),
+			    code_point);
   if (char_id >= 0)
     decoding_table_put_char (ccs, code_point, make_char (char_id));
   else
