@@ -14431,6 +14431,8 @@
     (ideographic-strokes@ucs . 21)
     (ideographic-radical@cns . 134)	; ⾅
     (ideographic-strokes@cns . 18)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 25)
     (=ucs		. #x244DF)	; 𤓟
     (->subsumptive
