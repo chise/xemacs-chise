@@ -19,7 +19,7 @@ local needs with safe removal of unnecessary code.
 * Package Terminology:: Understanding different kinds of packages.
 * Installing Packages:: How to install packages.
 * Building Packages::   Building packages from CVS sources.
-* Local.rules File::    This is an important file don't forget to create/edit it.
+* Local.rules File::    This is an important file that you must create.
 * Creating Packages::   The basics.
 * Available Packages::  A brief directory of packaged LISP.
 @end menu
@@ -102,7 +102,7 @@ the @ref{Available Packages} at the time of the XEmacs release.  Packages are
 also listed on the @code{Options} menu under:
 
 @example
-        Options -> Customize -> Emacs -> Packages
+        Options->Customize->Emacs->Packages
 @end example
 
 However, don't select any of these menu picks unless you actually want 
@@ -114,7 +114,7 @@ are installed, using the visual package browser and installer.  You can
 access it via the menus:
 
 @example
-        Options -> Manage Packages -> List & Install
+        Options->Manage Packages->List & Install
 @end example
 
 Or, you can get to it via the keyboard:
@@ -403,7 +403,7 @@ Currently, source packages are only available via anonymous CVS.  See
 
 @table @code
 @item GNU cp
-@item GNU ginstall 
+@item GNU install 
 (or a BSD compatible install program).
 @item GNU make 
 (3.75 or later preferred).
@@ -608,7 +608,7 @@ The first few @code{make} variables defined are @code{VERSION},
 @code{AUTHOR_VERSION}, @code{MAINTAINER}, @code{PACKAGE},
 @code{PKG_TYPE}, @code{REQUIRES}, and @code{CATEGORY}.  All but one were
 described in the description of @file{package-info.in}.  The last is an
-admistrative grouping.  Current categories include @code{comm},
+administrative grouping.  Current categories include @code{comm},
 @code{games}, @code{libs}, @code{mule}, @code{oa}, @code{os},
 @code{prog}, and @code{wp}.  @ref{Available Packages}, for a list of
 categories.

@@ -44,16 +44,16 @@ xemacs.info-10: 429215
 xemacs.info-11: 477039
 xemacs.info-12: 526210
 xemacs.info-13: 575703
-xemacs.info-14: 620082
-xemacs.info-15: 669514
-xemacs.info-16: 718919
-xemacs.info-17: 768596
-xemacs.info-18: 816849
-xemacs.info-19: 866480
-xemacs.info-20: 891467
-xemacs.info-21: 923121
-xemacs.info-22: 972525
-xemacs.info-23: 1015111
+xemacs.info-14: 620063
+xemacs.info-15: 669495
+xemacs.info-16: 718900
+xemacs.info-17: 768577
+xemacs.info-18: 816830
+xemacs.info-19: 866461
+xemacs.info-20: 891448
+xemacs.info-21: 923102
+xemacs.info-22: 972506
+xemacs.info-23: 1015092
 
 Tag Table:
 (Indirect)
@@ -303,137 +303,137 @@ Node: Lisp Debug587925
 Node: Lisp Interaction593352
 Node: External Lisp594707
 Node: Packages596781
-Node: Package Terminology597700
-Node: Installing Packages599310
-Node: Sumo602230
-Node: Manually603111
-Node: Automatically604481
-Node: Which Packages609044
-Node: Removing Packages609853
-Node: Building Packages610549
-Node: Local.rules File613190
-Node: Creating Packages615044
-Node: Available Packages620082
-Node: Abbrevs626797
-Node: Defining Abbrevs628996
-Node: Expanding Abbrevs631443
-Node: Editing Abbrevs634145
-Node: Saving Abbrevs636018
-Node: Dynamic Abbrevs637973
-Node: Picture639275
-Node: Basic Picture641708
-Node: Insert in Picture643993
-Node: Tabs in Picture645415
-Node: Rectangles in Picture646936
-Node: Sending Mail648844
-Node: Mail Format650555
-Node: Mail Headers651905
-Node: Mail Mode658313
-Node: Reading Mail661926
-Node: Calendar/Diary663501
-Node: Calendar Motion665175
-Node: Calendar Unit Motion666058
-Node: Move to Beginning or End668381
-Node: Specified Dates669514
-Node: Scroll Calendar670402
-Node: Mark and Region672193
-Node: General Calendar674099
-Node: LaTeX Calendar675707
-Node: Holidays677721
-Node: Sunrise/Sunset680823
-Node: Lunar Phases683862
-Node: Other Calendars685247
-Node: Calendar Systems686734
-Node: To Other Calendar689845
-Node: From Other Calendar691836
-Node: Mayan Calendar694141
-Node: Diary697336
-Node: Diary Commands699085
-Node: Format of Diary File702408
-Node: Date Formats705278
-Node: Adding to Diary707852
-Node: Special Diary Entries709483
-Node: Calendar Customization714822
-Node: Calendar Customizing715684
-Node: Holiday Customizing718919
-Node: Date Display Format725406
-Node: Time Display Format726364
-Node: Daylight Savings727502
-Node: Diary Customizing730690
-Node: Hebrew/Islamic Entries735311
-Node: Fancy Diary Display738651
-Node: Included Diary Files740567
-Node: Sexp Diary Entries741548
-Node: Appt Customizing746638
-Node: Sorting747684
-Node: Shell752490
-Node: Single Shell753783
-Node: Interactive Shell755397
-Node: Shell Mode759162
-Node: Terminal emulator761653
-Node: Term Mode763962
-Node: Paging in Term764876
-Node: Narrowing765674
-Node: Hardcopy767624
-Node: Recursive Edit768596
-Node: Dissociated Press771583
-Node: CONX774146
-Node: Amusements775170
-Node: Emulation775650
-Node: Customization777510
-Node: Minor Modes779326
-Node: Variables780958
-Node: Examining782914
-Node: Easy Customization784375
-Node: Customization Groups785389
-Node: Changing an Option788318
-Node: Face Customization794588
-Node: Specific Customization796352
-Node: Edit Options798959
-Node: Locals800543
-Node: File Variables803722
-Node: Keyboard Macros808272
-Node: Basic Kbd Macro810443
-Node: Save Kbd Macro812375
-Node: Kbd Macro Query814033
-Node: Key Bindings815975
-Node: Keymaps816849
-Node: Rebinding820699
-Node: Interactive Rebinding821398
-Node: Programmatic Rebinding823587
-Node: Key Bindings Using Strings826394
-Node: Disabling828021
-Node: Syntax829800
-Node: Syntax Entry830681
-Node: Syntax Change834765
-Node: Init File836934
-Node: Init Syntax838398
-Node: Init Examples840749
-Node: Terminal Init844939
-Node: Audible Bell846676
-Node: Faces850107
-Node: Frame Components854949
-Node: X Resources855394
-Node: Geometry Resources857053
-Node: Iconic Resources859501
-Node: Resource List859973
-Node: Face Resources866480
-Node: Widgets870157
-Node: Menubar Resources871096
-Node: Quitting872610
-Node: Lossage875588
-Node: Stuck Recursive876232
-Node: Screen Garbled876938
-Node: Text Garbled878072
-Node: Unasked-for Search878711
-Node: Emergency Escape879496
-Node: Total Frustration881275
-Node: Bugs881906
-Node: Glossary891467
-Node: Manifesto923121
-Node: Key Index946598
-Node: Command Index972525
-Node: Variable Index1015111
-Node: Concept Index1031197
+Node: Package Terminology597690
+Node: Installing Packages599300
+Node: Sumo602210
+Node: Manually603091
+Node: Automatically604461
+Node: Which Packages609024
+Node: Removing Packages609833
+Node: Building Packages610529
+Node: Local.rules File613169
+Node: Creating Packages615023
+Node: Available Packages620063
+Node: Abbrevs626778
+Node: Defining Abbrevs628977
+Node: Expanding Abbrevs631424
+Node: Editing Abbrevs634126
+Node: Saving Abbrevs635999
+Node: Dynamic Abbrevs637954
+Node: Picture639256
+Node: Basic Picture641689
+Node: Insert in Picture643974
+Node: Tabs in Picture645396
+Node: Rectangles in Picture646917
+Node: Sending Mail648825
+Node: Mail Format650536
+Node: Mail Headers651886
+Node: Mail Mode658294
+Node: Reading Mail661907
+Node: Calendar/Diary663482
+Node: Calendar Motion665156
+Node: Calendar Unit Motion666039
+Node: Move to Beginning or End668362
+Node: Specified Dates669495
+Node: Scroll Calendar670383
+Node: Mark and Region672174
+Node: General Calendar674080
+Node: LaTeX Calendar675688
+Node: Holidays677702
+Node: Sunrise/Sunset680804
+Node: Lunar Phases683843
+Node: Other Calendars685228
+Node: Calendar Systems686715
+Node: To Other Calendar689826
+Node: From Other Calendar691817
+Node: Mayan Calendar694122
+Node: Diary697317
+Node: Diary Commands699066
+Node: Format of Diary File702389
+Node: Date Formats705259
+Node: Adding to Diary707833
+Node: Special Diary Entries709464
+Node: Calendar Customization714803
+Node: Calendar Customizing715665
+Node: Holiday Customizing718900
+Node: Date Display Format725387
+Node: Time Display Format726345
+Node: Daylight Savings727483
+Node: Diary Customizing730671
+Node: Hebrew/Islamic Entries735292
+Node: Fancy Diary Display738632
+Node: Included Diary Files740548
+Node: Sexp Diary Entries741529
+Node: Appt Customizing746619
+Node: Sorting747665
+Node: Shell752471
+Node: Single Shell753764
+Node: Interactive Shell755378
+Node: Shell Mode759143
+Node: Terminal emulator761634
+Node: Term Mode763943
+Node: Paging in Term764857
+Node: Narrowing765655
+Node: Hardcopy767605
+Node: Recursive Edit768577
+Node: Dissociated Press771564
+Node: CONX774127
+Node: Amusements775151
+Node: Emulation775631
+Node: Customization777491
+Node: Minor Modes779307
+Node: Variables780939
+Node: Examining782895
+Node: Easy Customization784356
+Node: Customization Groups785370
+Node: Changing an Option788299
+Node: Face Customization794569
+Node: Specific Customization796333
+Node: Edit Options798940
+Node: Locals800524
+Node: File Variables803703
+Node: Keyboard Macros808253
+Node: Basic Kbd Macro810424
+Node: Save Kbd Macro812356
+Node: Kbd Macro Query814014
+Node: Key Bindings815956
+Node: Keymaps816830
+Node: Rebinding820680
+Node: Interactive Rebinding821379
+Node: Programmatic Rebinding823568
+Node: Key Bindings Using Strings826375
+Node: Disabling828002
+Node: Syntax829781
+Node: Syntax Entry830662
+Node: Syntax Change834746
+Node: Init File836915
+Node: Init Syntax838379
+Node: Init Examples840730
+Node: Terminal Init844920
+Node: Audible Bell846657
+Node: Faces850088
+Node: Frame Components854930
+Node: X Resources855375
+Node: Geometry Resources857034
+Node: Iconic Resources859482
+Node: Resource List859954
+Node: Face Resources866461
+Node: Widgets870138
+Node: Menubar Resources871077
+Node: Quitting872591
+Node: Lossage875569
+Node: Stuck Recursive876213
+Node: Screen Garbled876919
+Node: Text Garbled878053
+Node: Unasked-for Search878692
+Node: Emergency Escape879477
+Node: Total Frustration881256
+Node: Bugs881887
+Node: Glossary891448
+Node: Manifesto923102
+Node: Key Index946579
+Node: Command Index972506
+Node: Variable Index1015092
+Node: Concept Index1031178
 
 End Tag Table

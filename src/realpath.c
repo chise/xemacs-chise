@@ -137,7 +137,7 @@ static int
 cygwin_readlink (const char * name, char * buf, int size)
 {
   int n = readlink (name, buf, size);
-  if (n < 0)
+  if (n < 0 && errno == EINVAL)
     {
       /* The file may exist, but isn't a symlink. Try to find the
          right name. */
@@ -208,6 +208,9 @@ xrealpath (const char *path, char resolved_path [])
   if (abslen == 2 || abslen == 3)
     {
       strncpy (new_path, path, abslen);
+      /* Make sure drive letter is lowercased. */
+      if (abslen == 3)
+	*new_path = tolower (*new_path);
       new_path += abslen;
       path += abslen;
     }
@@ -299,7 +302,11 @@ xrealpath (const char *path, char resolved_path [])
       if (n < 0)
 	{
 	  /* EINVAL means the file exists but isn't a symlink. */
-	  if (errno != EINVAL)
+#ifdef CYGWIN
+	  if (errno != EINVAL && errno != ENOENT)
+#else
+	  if (errno != EINVAL) 
+#endif
 	    return NULL;
 	}
       else
@@ -345,10 +352,5 @@ xrealpath (const char *path, char resolved_path [])
   /* Make sure it's null terminated. */
   *new_path = '\0';
 
-#ifdef WIN32_NATIVE
-  if (ABS_LENGTH (resolved_path) == 3)
-    /* Lowercase drive letter. */
-    *resolved_path = tolower (*resolved_path);
-#endif
   return resolved_path;
 }

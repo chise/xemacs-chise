@@ -390,7 +390,7 @@ ${libsrc}DOC: ${EXE_TARGET} update-elc.stamp
 	$(RM) ${libsrc}DOC; \
 	${DUMPENV} ./${EXE_TARGET} -nd -batch -l ${srcdir}/../lisp/make-docfile.el -- \
 		-o ${libsrc}DOC -d ${srcdir} -i ${libsrc}../site-packages \
-		${obj_src} ${mallocdocsrc} ${rallocdocsrc}
+		${obj_src} ${mallocdocsrc} ${rallocdocsrc} ${extra_doc_files}
 
 dump_elcs: dump-elcs
 
@@ -699,6 +699,14 @@ sunplay.o: ${srcdir}/sunplay.c
 hpplay.o: ${srcdir}/hpplay.c
 	$(CC) -c -Demacs $(sound_cflags) $(cflags) ${srcdir}/hpplay.c
 #endif /* HAVE_NATIVE_SOUND */
+
+#if defined(HAVE_GLADE_GLADE_H) || defined(HAVE_GLADE_H)
+glade_files=glade.c
+#endif
+
+#ifdef HAVE_GTK
+extra_doc_files=emacs-widget-accessors.c ui-byhand.c $(glade_files)
+#endif
 
 xemacs_res.o: ${srcdir}/../nt/xemacs.rc
 	windres --include-dir ${srcdir}/../nt -i ${srcdir}/../nt/xemacs.rc -o $@

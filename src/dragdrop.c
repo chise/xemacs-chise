@@ -139,4 +139,7 @@ Each element is the feature symbol of the protocol.
 #ifdef HAVE_OFFIX_DND
   Vdragdrop_protocols = Fcons ( intern ("offix") , Vdragdrop_protocols );
 #endif
+#ifdef HAVE_GTK
+  Vdragdrop_protocols = Fcons ( Qgtk , Vdragdrop_protocols );
+#endif
 }

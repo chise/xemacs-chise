@@ -1,3 +1,52 @@
+2001-03-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.46 "Urania" is released.
+
+2001-03-19  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: default rel-alloc to off under cygwin
+
+2001-03-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* ChangeLog: Fix CVS commit breakage from GTK merge, log GTK merge.
+
+	* CHANGES-beta:
+	* configure.in:
+	Fix gratuitous whitespace changes from GTK merge.
+
+	* configure.usage: Untabify --with-{gtk,gnome}.
+
+2001-03-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/OXYMORONS: New file of 21.4 codenames.
+
+2001-03-12  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: only pick up mingw directory.
+
+2001-03-02  Ben Wing  <ben@xemacs.org>
+
+	* info\dir: Update to 21.4; clean up descriptions of manuals;
+	replace misnomer "Local Packages" with more correct "Other
+	Documentation".
+
+2001-03-02  Ben Wing  <ben@xemacs.org>
+
+	* etc\README: sample.emacs -> sample.init.el.
+
+2001-03-09  William M. Perry  <wmperry@aventail.com>
+
+	* CHANGES-beta:
+	* configure.in:
+	* configure.usage:
+	The Great GTK Merge.
+
+2001-02-23  Andy Piper  <andy@xemacs.org>
+
+	* configure.usage (--with-netinstall): add docs.
+
+	* configure.in: with_netinstall is a new option. Default to off.
+
 2001-02-23  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.45 "Thelxepeia" is released.

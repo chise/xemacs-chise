@@ -40,7 +40,8 @@ Foundation instead of in the original English.
 
 File: internals.info,  Node: Top,  Next: A History of Emacs,  Prev: (dir),  Up: (dir)
 
-   This Info file contains v1.0 of the XEmacs Internals Manual.
+   This Info file contains v1.3 of the XEmacs Internals Manual, August
+1999.
 
 * Menu:
 
@@ -270,7 +271,7 @@ language developed at MIT that underlies Emacs.)
 * XEmacs::                      The continuation of Lucid Emacs.
 
 
-File: internals.info,  Node: Through Version 18,  Next: Lucid Emacs,  Prev: A History of Emacs,  Up: A History of Emacs
+File: internals.info,  Node: Through Version 18,  Next: Lucid Emacs,  Up: A History of Emacs
 
 Through Version 18
 ==================

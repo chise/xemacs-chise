@@ -1288,7 +1288,7 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
 
       while (1)
 	{
-	  ssize_t writeret;
+	  Lstream_data_count writeret;
 
 	  chunklen = Lstream_read (lstream, chunkbuf, 512);
 	  if (chunklen <= 0)
@@ -1543,9 +1543,9 @@ unix_kill_child_process (Lisp_Object proc, int signo,
   if (EMACS_KILLPG (pgid, signo) == -1)
     {
       /* It's not an error if our victim is already dead.
-         And we can't rely on the result of killing a zombie, since
-         XPG 4.2 requires that killing a zombie fail with ESRCH,
-         while FIPS 151-2 requires that it succeeds! */
+	 And we can't rely on the result of killing a zombie, since
+	 XPG 4.2 requires that killing a zombie fail with ESRCH,
+	 while FIPS 151-2 requires that it succeeds! */
 #ifdef ESRCH
       if (errno != ESRCH)
 #endif

@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2001/01/18 13:35:02 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2001/03/08 08:19:10 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -67,7 +67,7 @@ The canonical version of the FAQ is the texinfo document
 If you do not have makeinfo installed, you may @uref{xemacs-faq.info,
 download the faq} in info format, and install it in @file{<XEmacs
 library directory>/info/}. For example in
-@file{/usr/local/lib/xemacs-20.4/info/}.
+@file{/usr/local/lib/xemacs-21.4/info/}.
 
 @end itemize
 
@@ -127,8 +127,8 @@ Internationalization:
 * Q1.3.7::      How about Cyrillic Modes?
 
 Getting Started:
-* Q1.4.1::      What is a @file{.emacs} and is there a sample one?
-* Q1.4.2::      Can I use the same @file{.emacs} with the other Emacs?
+* Q1.4.1::      What is an @file{init.el} or @file{.emacs} and is there a sample one?
+* Q1.4.2::      Can I use the same @file{init.el}/@file{.emacs} with the other Emacs?
 * Q1.4.3::      Any good XEmacs tutorials around?
 * Q1.4.4::      May I see an example of a useful XEmacs Lisp function?
 * Q1.4.5::      And how do I bind it to a key?
@@ -201,7 +201,7 @@ X Window System & Resources:
 * Q3.1.8::      @samp{-iconic} doesn't work.
 
 Textual Fonts & Colors:
-* Q3.2.1::      How can I set color options from @file{.emacs}?
+* Q3.2.1::      How can I set color options from @file{init.el}/@file{.emacs}?
 * Q3.2.2::      How do I set the text, menu and modeline fonts?
 * Q3.2.3::      How can I set the colors when highlighting a region?
 * Q3.2.4::      How can I limit color map usage?
@@ -227,7 +227,7 @@ The Keyboard:
 * Q3.5.5::      Scrolling one line at a time.
 * Q3.5.6::      How to map @kbd{Help} key alone on Sun type4 keyboard?
 * Q3.5.7::      How can you type in special characters in XEmacs?
-* Q3.5.8::      Why does @code{(global-set-key [delete-forward] 'delete-char)} complain?
+* Q3.5.8::      [This question intentionally left blank]
 * Q3.5.9::      How do I make the Delete key delete forward?
 * Q3.5.10::     Can I turn on @dfn{sticky} modifier keys?
 * Q3.5.11::     How do I map the arrow keys?
@@ -258,7 +258,7 @@ Scrollbars:
 * Q3.9.1::      How can I disable the scrollbar?
 * Q3.9.2::      How can one use resources to change scrollbar colors?
 * Q3.9.3::      Moving the scrollbar can move the point; can I disable this?
-* Q3.9.4::      How can I get automatic horizontal scrolling?
+* Q3.9.4::      How can I turn off automatic horizontal scrolling in specific modes?
 
 Text Selections:
 * Q3.10.1::     How can I turn off or change highlighted selections?
@@ -323,14 +323,14 @@ The Miscellaneous Stuff
 * Q5.0.1::      How can I do source code highlighting using font-lock?
 * Q5.0.2::      I do not like cc-mode.  How do I use the old c-mode?
 * Q5.0.3::      How do I get @samp{More} Syntax Highlighting on by default?
-* Q5.0.4::      How can I enable auto-indent?
+* Q5.0.4::      How can I enable auto-indent and/or Filladapt?
 * Q5.0.5::      How can I get XEmacs to come up in text/auto-fill mode by default?
 * Q5.0.6::      How do I start up a second shell buffer?
 * Q5.0.7::      Telnet from shell filters too much.
 * Q5.0.8::      Why does edt emulation not work?
 * Q5.0.9::      How can I emulate VI and use it as my default mode?
 * Q5.0.10::     [This question intentionally left blank]
-* Q5.0.11::     How do I turn on filladapt for all buffers?
+* Q5.0.11::     [This question intentionally left blank]
 * Q5.0.12::     How do I disable gnuserv from opening a new frame?
 * Q5.0.13::     How do I start gnuserv so that each subsequent XEmacs is a client?
 * Q5.0.14::     Strange things are happening in Shell Mode.
@@ -362,7 +362,7 @@ Sound:
 
 Miscellaneous:
 * Q5.3.1::      How do you make XEmacs indent CL if-clauses correctly?
-* Q5.3.2::      Fontifying hangs when editing a postscript file.
+* Q5.3.2::      [This question intentionally left blank]
 * Q5.3.3::      How can I print WYSIWYG a font-locked buffer?
 * Q5.3.4::      Getting @kbd{M-x lpr} to work with postscript printer.
 * Q5.3.5::      How do I specify the paths that XEmacs uses for finding files?
@@ -379,8 +379,8 @@ XEmacs on MS Windows
 General Info:
 * Q6.0.1::      What is the status of the XEmacs port to Windows?
 * Q6.0.2::      What flavors of MS Windows are supported?
-* Q6.0.3::      Are binary kits available?
-* Q6.0.4::      Does XEmacs on MS Windows require an X server to run?
+* Q6.0.3::      Are binaries available?
+* Q6.0.4::      Can I build XEmacs on MS Windows with support for X or Cygwin?
 
 Building XEmacs on MS Windows:
 * Q6.1.1::      I decided to run with X.  Where do I get an X server?
@@ -393,7 +393,7 @@ Building XEmacs on MS Windows:
 Customization and User Interface:
 * Q6.2.1::      How will the port cope with differences in the Windows user interface?
 * Q6.2.2::      How do I change fonts in XEmacs on MS Windows?
-* Q6.2.3::      Where do I put my @file{.emacs} file?
+* Q6.2.3::      Where do I put my @file{init.el}/@file{.emacs} file?
 
 Miscellaneous:
 * Q6.3.1::      Will XEmacs rename all the win32-* symbols to w32-*?
@@ -478,8 +478,8 @@ Internationalization:
 * Q1.3.7::      How about Cyrillic Modes?
 
 Getting Started:
-* Q1.4.1::      What is a @file{.emacs} and is there a sample one?
-* Q1.4.2::      Can I use the same @file{.emacs} with the other Emacs?
+* Q1.4.1::      What is an @file{init.el} or @file{.emacs} and is there a sample one?
+* Q1.4.2::      Can I use the same @file{init.el}/@file{.emacs} with the other Emacs?
 * Q1.4.3::      Any good XEmacs tutorials around?
 * Q1.4.4::      May I see an example of a useful XEmacs Lisp function?
 * Q1.4.5::      And how do I bind it to a key?
@@ -491,11 +491,17 @@ Getting Started:
 @unnumberedsubsec Q1.0.1: What is XEmacs?
 
 
-An alternative to GNU Emacs, originally based on an early alpha version
-of FSF's version 19, and has diverged quite a bit since then.  XEmacs
-was known as Lucid Emacs through version 19.10.  Almost all features of
-GNU Emacs are supported in XEmacs.  The maintainers of XEmacs actively
-track changes to GNU Emacs while also working to add new features.
+XEmacs is a highly customizable open source text editor and application
+development system.  It is protected under the GNU Public License and
+related to other versions of Emacs, in particular GNU Emacs.  Its
+emphasis is on modern graphical user interface support and an open
+software development model, similar to Linux.  XEmacs has an active
+development community numbering in the hundreds, and runs on Windows 95
+and NT, Linux and nearly every other version of Unix in
+existence.  Support for XEmacs has been supplied by Sun Microsystems,
+University of Illinois, Lucid, ETL/Electrotechnical Laboratory, Amdahl
+Corporation, BeOpen, and others, as well as the unpaid time of a great
+number of individual developers.
 
 @node Q1.0.2, Q1.0.3, Q1.0.1, Introduction
 @unnumberedsubsec Q1.0.2: What is the current version of XEmacs?
@@ -538,7 +544,7 @@ The XEmacs maintainers are generally more receptive to suggestions than
 the GNU Emacs maintainers.
 
 @item
-Many more bundled packages than GNU Emacs
+Many more bundled packages than GNU Emacs.
 
 @item
 Binaries are available for many common operating systems.
@@ -554,7 +560,7 @@ Better Motif compliance.
 
 @item
 Some internationalization support (including full MULE support, if
-compiled with it.)
+compiled with it).
 
 @item
 Variable-width fonts.
@@ -585,8 +591,6 @@ The ability to embed arbitrary graphics in a buffer.
 @item
 Completely compatible (at the C level) with the Xt-based toolkits.
 
-@item
-First production Web Browser supporting Style Sheets.
 @end itemize
 
 @node Q1.0.5, Q1.0.6, Q1.0.4, Introduction
@@ -606,7 +610,7 @@ that often result.  Mail your questions to @email{xemacs-beta@@xemacs.org} and
 @unnumberedsubsec Q1.0.6: Where can I get help?
 
 Probably the easiest way, if everything is installed, is to use Info, by
-pressing @kbd{C-h i}, or selecting @code{Manuals->Info} from the
+pressing @kbd{C-h i}, or looking for an Info item on the
 Help Menu.  @kbd{M-x apropos} can be used to look for particular commands.
 
 For items not found in the manual, try reading this FAQ
@@ -630,7 +634,7 @@ xemacs-request address.  Send a message with a subject of
 @node Q1.0.7, Q1.0.8, Q1.0.6, Introduction
 @unnumberedsubsec Q1.0.7: Where are the mailing lists archived?
 
-The archives can be found at @uref{http://www.xemacs.org/Lists/Archive}
+The archives can be found at @uref{http://list-archive.xemacs.org}
 
 @node Q1.0.8, Q1.0.9, Q1.0.7, Introduction
 @unnumberedsubsec Q1.0.8: How do you pronounce XEmacs?
@@ -649,41 +653,6 @@ Screen snapshots are available in the WWW version of the FAQ.
 @unnumberedsubsec Q1.0.10: Is there a port of XEmacs to Microsoft ('95 or NT)?
 
 Yes, @xref{MS Windows}.
-
-@comment Thanks to efforts of many people, coordinated by
-@comment @email{davidh@@wr.com.au, David Hobley} and @email{marcpa@@cam.org, Marc
-@comment Paquette}, beta versions of XEmacs now run on 32-bit Windows platforms
-@comment (NT and 95).  The current betas require having an X server to run
-@comment XEmacs; however, a native NT/95 port is in alpha, thanks to
-@comment @email{jhar@@tardis.ed.ac.uk, Jonathan Harris}.
-@comment
-@comment Although some features are still unimplemented, XEmacs 21.0 will support
-@comment MS-Windows.
-@comment
-@comment The NT development is now coordinated by a mailing list at
-@comment @email{xemacs-nt@@xemacs.org}.
-@comment
-@comment If you are willing to contribute or want to follow the progress, mail to
-@comment @iftex
-@comment @*
-@comment @end iftex
-@comment @email{xemacs-nt-request@@xemacs.org} to subscribe.
-@comment
-@comment Furthermore, Altrasoft is seeking corporate and government sponsors to
-@comment help fund a fully native port of XEmacs to Windows 95 and NT using
-@comment full-time, senior-level staff working under a professionally managed
-@comment project structure.  See @uref{http://www.altrasoft.com/, the Altrasoft
-@comment web site} for more details
-@comment or contact Altrasoft directly at 1-888-ALTSOFT.
-@comment
-@comment
-@comment The closest existing port is @dfn{Win-Emacs}, which is based on Lucid
-@comment Emacs 19.6.  Available from @uref{http://www.pearlsoft.com/}.
-@comment
-@comment There's a port of GNU Emacs (not XEmacs) at
-@comment @example
-@comment @uref{http://www.cs.washington.edu/homes/voelker/ntemacs.html}.
-@comment @end example
 
 @node Q1.0.11, Q1.0.12, Q1.0.10, Introduction
 @unnumberedsubsec Q1.0.11: Is there a port of XEmacs to the Macintosh?
@@ -786,7 +755,7 @@ always hope :)
 @unnumberedsubsec Q1.2.1: Who wrote XEmacs?
 
 XEmacs is the result of the time and effort of many people.  The
-developers responsible for the 19.16/20.x releases are:
+developers responsible for recent releases are:
 
 @itemize @bullet
 @item @email{martin@@xemacs.org, Martin Buchholz}
@@ -795,10 +764,12 @@ developers responsible for the 19.16/20.x releases are:
 @end html
 
 
-@item @email{steve@@xemacs.org, Steve Baur}
+@item @email{turnbull@@sk.tsukuba.ac.jp, Steven Turnbull}
 
+
+@item @email{ben@@xemacs.org, Ben Wing}
 @html
-<br><img src="steve.gif" alt="Portrait of Steve Baur"><br>
+<br><img src="wing.gif" alt="Portrait of Ben Wing"><br>
 @end html
 
 
@@ -810,36 +781,36 @@ developers responsible for the 19.16/20.x releases are:
 
 @end itemize
 
-The developers responsible for the 19.14 release are:
+The developers responsible for older releases were:
 
 @itemize @bullet
+@item @email{steve@@xemacs.org, Steve Baur}
+
+@html
+<br><img src="steve.gif" alt="Portrait of Steve Baur"><br>
+@end html
+
 @item @email{cthomp@@xemacs.org, Chuck Thompson}
 @html
 <br><img src="cthomp.jpeg" alt="Portrait of Chuck Thompson"><br>
 @end html
 
-Chuck was Mr. XEmacs from 19.11 through 19.14, and is responsible
-for XEmacs becoming a widely distributed program over the Internet.
-
-@item @email{ben@@xemacs.org, Ben Wing}
-@html
-<br><img src="wing.gif" alt="Portrait of Ben Wing"><br>
-@end html
-
-@end itemize
-
-
-@itemize @bullet
 @item @email{jwz@@jwz.org, Jamie Zawinski}
 @html
 <br><img src="jwz.gif" alt="Portrait of Jamie Zawinski"><br>
 @end html
 
-Jamie Zawinski was Mr. Lucid Emacs from 19.0 through 19.10, the last
-release actually named Lucid Emacs.  Richard Mlynarik was crucial to
-most of those releases.
-
 @item @email{mly@@adoc.xerox.com, Richard Mlynarik}
+
+Steve Baur was the primary maintainer for 19.15 through 21.0.
+
+Chuck Thompson and Ben Wing were the maintainers for 19.11 through 19.14
+and heavy code contributors for 19.8 through 19.10.
+
+Jamie Zawinski was the maintainer for 19.0 through 19.10 (the entire
+history of Lucid Emacs).  Richard Mlynarik was a heavy code contributor
+to 19.6 through 19.8.
+
 @end itemize
 
 Along with many other contributors, partially enumerated in the
@@ -1089,24 +1060,40 @@ XEmacs) is @uref{http://sunsite.oit.unc.edu/sergei/Software/Software.html}
 
 @node Q1.4.1, Q1.4.2, Q1.3.7, Introduction
 @unnumberedsec 1.4: Getting Started, Backing up & Recovery
-@unnumberedsubsec Q1.4.1: What is a @file{.emacs} and is there a sample one?
+@unnumberedsubsec Q1.4.1: What is an @file{init.el} or @file{.emacs} and is there a sample one?
 
-The @file{.emacs} file is used to customize XEmacs to your tastes.  No
-two are alike, nor are they expected to be alike, but that's the point.
-The XEmacs distribution contains an excellent starter example in the etc
-directory called @file{sample.emacs}.  Copy this file from there to your
-home directory and rename it @file{.emacs}.  Then edit it to suit.
+The @file{init.el} or @file{.emacs} file is used to customize XEmacs to
+your tastes.  Starting in 21.4, the preferred location for the init file
+is @file{~/.xemacs/init.el}; in previous versions, it was
+@file{~/.emacs}.  21.4 still accepts the old location, but the first
+time you run it, it will ask to migrate your file to the new location.
+If you answer yes, the file will be moved, and a "compatibility"
+@file{.emacs} file will be placed in the old location so that you can
+still run older versions of XEmacs, and versions of GNU Emacs, which
+expect the old location.  The @file{.emacs} file present is just a stub
+that loads the real file in @file{~/.xemacs/init.el}.
 
-Starting with 19.14, you may bring the @file{sample.emacs} into an
-XEmacs buffer by selecting @samp{Help->Sample .emacs} from the menubar.
-To determine the location of the @file{etc} directory type the command
+No two init files are alike, nor are they expected to be alike, but
+that's the point.  The XEmacs distribution contains an excellent starter
+example in the @file{etc/} directory called @file{sample.init.el}
+(starting in 21.4) or @file{sample.emacs} in older versions.  Copy this
+file from there to @file{~/.xemacs/init.el} (starting in 21.4) or
+@file{~/.emacs} in older versions, where @samp{~} means your home
+directory, of course.  Then edit it to suit.
+
+You may bring the @file{sample.init.el} or @file{sample.emacs} file into
+an XEmacs buffer from the menubar. (The menu entry for it is always
+under the @samp{Help} menu, but its location under that has changed in
+various versions.  Recently, look under the @samp{Samples} submenu.)  To
+determine the location of the @file{etc/} directory type the command
 @kbd{C-h v data-directory @key{RET}}.
 
 @node Q1.4.2, Q1.4.3, Q1.4.1, Introduction
-@unnumberedsubsec Q1.4.2: Can I use the same @file{.emacs} with the other Emacs?
+@unnumberedsubsec Q1.4.2: Can I use the same @file{init.el}/@file{.emacs} with the other Emacs?
 
-Yes.  The sample @file{.emacs} included in the XEmacs distribution will
-show you how to handle different versions and flavors of Emacs.
+Yes.  The sample @file{init.el}/@file{.emacs} included in the XEmacs
+distribution will show you how to handle different versions and flavors
+of Emacs.
 
 @node Q1.4.3, Q1.4.4, Q1.4.2, Introduction
 @unnumberedsubsec Q1.4.3: Any good tutorials around?
@@ -1543,7 +1530,7 @@ written on disk using a special unexec() function. This function is
 obviously heavily system dependent. And on some systems, it leads to an
 executable which, although valid, cannot be stripped without damage. If
 memory serves, this is especially the case for AIX binaries. On other
-architecture it might work OK.
+architectures it might work OK.
 
 The Right Way to strip the emacs binary is to strip temacs prior to
 dumping xemacs. This will always work, although you can do that only if
@@ -1628,8 +1615,8 @@ to edit those files, you will be informed that a more recent auto-save
 file exists.  You can use @kbd{M-x recover-file} to retrieve the
 auto-saved version of the file.
 
-Starting with 19.14, you may use the command @kbd{M-x recover-session}
-after a crash to pick up where you left off.
+You can use the command @kbd{M-x recover-session} after a crash to pick
+up where you left off.
 
 Now, XEmacs is not perfect, and there may occasionally be times, or
 particular sequences of actions, that cause it to crash.  If you can
@@ -1713,10 +1700,11 @@ Issue the command @kbd{M-x eval-current-buffer}.
 Reproduce the error.
 @end enumerate
 
-Depending on the version of XEmacs, you may either select Edit->Show
-Messages (19.13 and earlier) or Help->Recent Keystrokes/Messages (19.14
-and later) from the menubar to see the most recent messages.  This
-command is bound to @kbd{C-h l} by default.
+Depending on the version of XEmacs, you may either select View->Show
+Message Log (recent versions), Edit->Show Messages (some earlier
+versions) or Help->Recent Keystrokes/Messages (other earlier versions)
+from the menubar to see the most recent messages.  This command is bound
+to @kbd{C-h l} by default.
 
 @node Q2.1.3, Q2.1.4, Q2.1.2, Installation
 @unnumberedsubsec Q2.1.3: Translation Table Syntax messages at Startup
@@ -1864,8 +1852,8 @@ XEmacs startup, which says @samp{Color Red3} not defined.
 
 The OpenWindows 3.0 server is incredibly buggy.  Your best bet is to
 replace it with one from the generic MIT X11 release.  You might also
-try disabling parts of your @file{.emacs}, like enabling background
-pixmaps.
+try disabling parts of your @file{init.el}/@file{.emacs}, like those
+that enable background pixmaps.
 
 @node Q2.1.10, Q2.1.11, Q2.1.9, Installation
 @unnumberedsubsec Q2.1.10: Warnings from incorrect key modifiers.
@@ -2171,9 +2159,8 @@ authors, or to comp.os.linux.development.system).  Again, you'll have to
 use the narrowing-down process described above.
 
 @item
-If you compiled 19.14 with @samp{--debug} (or by default in later
-versions), you will get a Lisp backtrace output when XEmacs crashes, so
-you'll have something useful.
+You will get a Lisp backtrace output when XEmacs crashes, so you'll have
+something useful.
 
 @end enumerate
 
@@ -2244,8 +2231,8 @@ under which it is running.  The solution is to add:
 (set-time-zone-rule "MET")
 @end lisp
 
-to your @file{.emacs} or the @file{site-start.el} file if you can.
-Replace @code{MET} with your local timezone.
+to your @file{init.el}/@file{.emacs} or the @file{site-start.el} file if
+you can.  Replace @code{MET} with your local timezone.
 
 @node Q2.1.20, Q2.1.21, Q2.1.19, Installation
 @unnumberedsubsec Q2.1.20: @samp{Symbol's function definition is void: hkey-help-show.}
@@ -2347,7 +2334,7 @@ This is part 3 of the XEmacs Frequently Asked Questions list.  This
 section is devoted to Customization and screen settings.
 
 @menu
-Customization---Emacs Lisp and @file{.emacs}:
+Customization---Emacs Lisp and @file{init.el}/@file{.emacs}:
 * Q3.0.1::      What version of Emacs am I running?
 * Q3.0.2::      How do I evaluate Elisp expressions?
 * Q3.0.3::      @code{(setq tab-width 6)} behaves oddly.
@@ -2369,7 +2356,7 @@ X Window System & Resources:
 * Q3.1.8::      @samp{-iconic} doesn't work.
 
 Textual Fonts & Colors:
-* Q3.2.1::      How can I set color options from @file{.emacs}?
+* Q3.2.1::      How can I set color options from @file{init.el}/@file{.emacs}?
 * Q3.2.2::      How do I set the text, menu and modeline fonts?
 * Q3.2.3::      How can I set the colors when highlighting a region?
 * Q3.2.4::      How can I limit color map usage?
@@ -2395,7 +2382,7 @@ The Modeline:
 * Q3.5.5::      Scrolling one line at a time.
 * Q3.5.6::      How to map @kbd{Help} key alone on Sun type4 keyboard?
 * Q3.5.7::      How can you type in special characters in XEmacs?
-* Q3.5.8::      Why does @code{(global-set-key [delete-forward] 'delete-char)} complain?
+* Q3.5.8::      [This question intentionally left blank]
 * Q3.5.9::      How do I make the Delete key delete forward?
 * Q3.5.10::     Can I turn on @dfn{sticky} modifier keys?
 * Q3.5.11::     How do I map the arrow keys?
@@ -2426,7 +2413,7 @@ Scrollbars:
 * Q3.9.1::      How can I disable the scrollbar?
 * Q3.9.2::      How can one use resources to change scrollbar colors?
 * Q3.9.3::      Moving the scrollbar can move the point; can I disable this?
-* Q3.9.4::      How can I get automatic horizontal scrolling?
+* Q3.9.4::      How can I turn off automatic horizontal scrolling in specific modes?
 
 Text Selections:
 * Q3.10.1::     How can I turn off or change highlighted selections?
@@ -2437,16 +2424,17 @@ Text Selections:
 @end menu
 
 @node Q3.0.1, Q3.0.2, Customization, Customization
-@unnumberedsec 3.0: Customization -- Emacs Lisp and .emacs
+@unnumberedsec 3.0: Customization -- Emacs Lisp and @file{init.el}/@file{.emacs}
 @unnumberedsubsec Q3.0.1: What version of Emacs am I running?
 
-How can @file{.emacs} determine which of the family of Emacsen I am
-using?
+How can @file{init.el}/@file{.emacs} determine which of the family of
+Emacsen I am using?
 
 To determine if you are currently running GNU Emacs 18, GNU Emacs 19,
 XEmacs 19, XEmacs 20, or Epoch, and use appropriate code, check out the
-example given in @file{etc/sample.emacs}.  There are other nifty things
-in there as well!
+example given in @file{etc/sample.init.el} (@file{etc/sample.emacs} in
+XEmacs versions prior to 21.4).  There are other nifty things in there
+as well!
 
 For all new code, all you really need to do is:
 
@@ -2462,16 +2450,14 @@ with @kbd{C-j} after the expression.  How do I do it from another
 buffer?
 
 Press @kbd{M-:} (the default binding of @code{eval-expression}), and
-enter the expression to the minibuffer.  In XEmacs prior to 19.15
-@code{eval-expression} used to be a disabled command by default.  If
-this is the case, upgrade your XEmacs.
+enter the expression to the minibuffer.
 
 @node Q3.0.3, Q3.0.4, Q3.0.2, Customization
 @unnumberedsubsec Q3.0.3: @code{(setq tab-width 6)} behaves oddly.
 
-If you put @code{(setq tab-width 6)} in your @file{.emacs} file it does
-not work!  Is there a reason for this?  If you do it at the EVAL prompt
-it works fine!! How strange.
+If you put @code{(setq tab-width 6)} in your
+@file{init.el}/@file{.emacs} file it does not work!  Is there a reason
+for this?  If you do it at the EVAL prompt it works fine!! How strange.
 
 Use @code{setq-default} instead, since @code{tab-width} is
 all-buffer-local.
@@ -2545,8 +2531,6 @@ buffer.
 @node Q3.0.7, Q3.0.8, Q3.0.6, Customization
 @unnumberedsubsec Q3.0.7: Font selections in don't get saved after @code{Save Options}.
 
-For XEmacs 19.14 and previous:
-
 @email{mannj@@ll.mit.edu, John Mann} writes:
 
 @quotation
@@ -2556,9 +2540,7 @@ are only applied to the @emph{current} frame and do @emph{not} get saved
 when you save options.
 @end quotation
 
-For XEmacs 19.15 and later:
-
-Implement the above as well as set the following in your @file{.emacs}
+Also, set the following in your @file{init.el}/@file{.emacs}:
 
 @lisp
 (setq options-save-faces t)
@@ -2645,7 +2627,7 @@ in:
 I'd like the icon to just say @samp{XEmacs}, and not include the name of
 the current file in it.
 
-Add the following line to your @file{.emacs}:
+Add the following line to your @file{init.el}/@file{.emacs}:
 
 @lisp
 (setq frame-icon-title-format "XEmacs")
@@ -2657,7 +2639,7 @@ Add the following line to your @file{.emacs}:
 I'd like to have the window title area display the full directory/name
 of the current buffer file and not just the name.
 
-Add the following line to your @file{.emacs}:
+Add the following line to your @file{init.el}/@file{.emacs}:
 
 @lisp
 (setq frame-title-format "%S: %f")
@@ -2741,10 +2723,10 @@ bugs...
 
 @node Q3.2.1, Q3.2.2, Q3.1.8, Customization
 @unnumberedsec 3.2: Textual Fonts & Colors
-@unnumberedsubsec Q3.2.1: How can I set color options from @file{.emacs}?
+@unnumberedsubsec Q3.2.1: How can I set color options from @file{init.el}/@file{.emacs}?
 
-How can I set the most commonly used color options from my @file{.emacs}
-instead of from my @file{.Xdefaults}?
+How can I set the most commonly used color options from my
+@file{init.el}/@file{.emacs} instead of from my @file{.Xdefaults}?
 
 Like this:
 
@@ -2807,7 +2789,7 @@ Emacs.zmacs-region.attributeForeground: firebrick
 Emacs.zmacs-region.attributeBackground: lightseagreen
 @end example
 
-or in your @file{.emacs}:
+or in your @file{init.el}/@file{.emacs}:
 
 @lisp
 (set-face-background 'zmacs-region "red")
@@ -2818,21 +2800,16 @@ or in your @file{.emacs}:
 @unnumberedsubsec Q3.2.4: How can I limit color map usage?
 
 I'm using Netscape (or another color grabber like XEmacs);
-is there anyway to limit the number of available colors in the color map?
+is there any way to limit the number of available colors in the color map?
 
-XEmacs 19.13 didn't have such a mechanism (unlike netscape, or other
-color-hogs).  One solution is to start XEmacs prior to netscape, since
-this will prevent Netscape from grabbing all colors (but Netscape will
-complain).  You can use the flags for Netscape, like -mono, -ncols <#>
-or -install (for mono, limiting to <#> colors, or for using a private
-color map).  Since Netscape will take the entire colormap and never
-release it, the only reasonable way to run it is with @samp{-install}.
+Answer: No, but you can start Netscape before XEmacs, and it will use
+the closest available color if the colormap is full.  You can also limit
+the number of colors Netscape uses, using the flags -mono, -ncols <#> or
+-install (for mono, limiting to <#> colors, or for using a private color
+map).
 
 If you have the money, another solution would be to use a truecolor or
 direct color video.
-
-Starting with XEmacs 19.14, XEmacs uses the closest available color if
-the colormap is full, so it's O.K. now to start Netscape first.
 
 @node Q3.2.5, Q3.2.6, Q3.2.4, Customization
 @unnumberedsubsec Q3.2.5: My tty supports color, but XEmacs doesn't use them.
@@ -2882,15 +2859,15 @@ and so on.  You can also do this interactively via @kbd{M-x edit-faces}.
 (set-specifier has-modeline-p nil)
 @end lisp
 
-Starting with XEmacs 19.14 the modeline responds to mouse clicks, so if
-you haven't liked or used the modeline in the past, you might want to
-try the new version out.
-
+@c Starting with XEmacs 19.14 the modeline responds to mouse clicks, so if
+@c you haven't liked or used the modeline in the past, you might want to
+@c try the new version out.
+@c 
 @node Q3.3.2, Q3.3.3, Q3.3.1, Customization
 @unnumberedsubsec Q3.3.2: How do you have XEmacs display the line number in the modeline?
 
-Add the following line to your @file{.emacs} file to display the
-line number:
+Add the following line to your @file{init.el}/@file{.emacs} file to
+display the line number:
 
 @lisp
 (line-number-mode 1)
@@ -2906,20 +2883,20 @@ Or select from the @code{Options} menu
 @iftex
 @*
 @end iftex
-@code{Customize->Emacs->Editing->Basics->Line Number Mode}
+@code{Advanced (Customize)->Emacs->Editing->Basics->Line Number Mode}
 and/or
 @iftex
 @*
 @end iftex
-@code{Customize->Emacs->Editing->Basics->Column Number Mode}
+@code{Advanced (Customize)->Emacs->Editing->Basics->Column Number Mode}
 
 Or type @kbd{M-x customize @key{RET} editing-basics @key{RET}}.
 
 @node Q3.3.3, Q3.3.4, Q3.3.2, Customization
 @unnumberedsubsec Q3.3.3: How do I get XEmacs to put the time of day on the modeline?
 
-Add the following line to your @file{.emacs} file to display the
-time:
+Add the following line to your @file{init.el}/@file{.emacs} file to
+display the time:
 
 @lisp
 (display-time)
@@ -2934,28 +2911,28 @@ With AUC TeX, fast typing is hard because the current chapter, section
 etc. are given in the modeline.  How can I turn this off?
 
 It's not AUC TeX, it comes from @code{func-menu} in @file{func-menu.el}.
-Add this code to your @file{.emacs} to turn it off:
 
-@lisp
-(setq fume-display-in-modeline-p nil)
-@end lisp
-
-Or just add a hook to @code{TeX-mode-hook} to turn it off only for TeX
-mode:
-
-@lisp
-(add-hook 'TeX-mode-hook
-          '(lambda () (setq fume-display-in-modeline-p nil)))
-@end lisp
-
+@c Add this code to your @file{init.el}/@file{.emacs} to turn it off:
+@c 
+@c @lisp
+@c (setq fume-display-in-modeline-p nil)
+@c @end lisp
+@c 
+@c Or just add a hook to @code{TeX-mode-hook} to turn it off only for TeX
+@c mode:
+@c 
+@c @lisp
+@c (add-hook 'TeX-mode-hook
+@c           '(lambda () (setq fume-display-in-modeline-p nil)))
+@c @end lisp
+@c 
 @email{dhughes@@origin-at.co.uk, David Hughes} writes:
 
 @quotation
-If you have 19.14 or later, try this instead; you'll still get the
-function name displayed in the modeline, but it won't attempt to keep
-track when you modify the file. To refresh when it gets out of synch,
-you simply need click on the @samp{Rescan Buffer} option in the
-function-menu.
+Try this; you'll still get the function name displayed in the modeline,
+but it won't attempt to keep track when you modify the file. To refresh
+when it gets out of synch, you simply need click on the @samp{Rescan
+Buffer} option in the function-menu.
 
 @lisp
 (setq-default fume-auto-rescan-buffer-p nil)
@@ -2974,20 +2951,20 @@ You can use something like the following:
 @end lisp
 
 Then, when editing a Lisp file (i.e. when in Lisp mode), the modeline
-colors change from the default set in your @file{.emacs}.  The change
-will only be made in the buffer you just entered (which contains the
-Lisp file you are editing) and will not affect the modeline colors
-anywhere else.
+colors change from the default set in your @file{init.el}/@file{.emacs}.
+The change will only be made in the buffer you just entered (which
+contains the Lisp file you are editing) and will not affect the modeline
+colors anywhere else.
 
 Notes:
 
 @itemize @bullet
 
-@item
-The hook is the mode name plus @code{-hook}.  eg. c-mode-hook,
-c++-mode-hook, emacs-lisp-mode-hook (used for your @file{.emacs} or a
-@file{xx.el} file), lisp-interaction-mode-hook (the @samp{*scratch*}
-buffer), text-mode-hook, etc.
+@item The hook is the mode name plus @code{-hook}.  eg. c-mode-hook,
+c++-mode-hook, emacs-lisp-mode-hook (used for your
+@file{init.el}/@file{.emacs} or a @file{xx.el} file),
+lisp-interaction-mode-hook (the @samp{*scratch*} buffer),
+text-mode-hook, etc.
 
 @item
 Be sure to use @code{add-hook}, not @code{(setq c-mode-hook xxxx)},
@@ -3001,29 +2978,26 @@ eg. @code{(set-face-font 'modeline "*bold-r-normal*140-100-100*"
 current mode.
 @end itemize
 
-This works in 19.15 as well, but there are additional modeline faces,
-@code{modeline-buffer-id}, @code{modeline-mousable}, and
-@code{modeline-mousable-minor-mode}, which you may want to customize.
+There are additional modeline faces, @code{modeline-buffer-id},
+@code{modeline-mousable}, and @code{modeline-mousable-minor-mode}, which
+you may want to customize.
 
 @node Q3.4.1, Q3.4.2, Q3.3.5, Customization
 @unnumberedsec 3.4: Multiple Device Support
 @unnumberedsubsec Q3.4.1: How do I open a frame on another screen of my multi-headed display?
 
-The support for this was revamped for 19.14.  Use the command
-@kbd{M-x make-frame-on-display}.  This command is also on the File menu
-in the menubar.
+Use the command @kbd{M-x make-frame-on-display}.  This command is also
+on the File menu in the menubar.
 
-XEmacs 19.14 and later also have the command @code{make-frame-on-tty}
-which will establish a connection to any tty-like device.  Opening the
-TTY devices should be left to @code{gnuclient}, though.
+The command @code{make-frame-on-tty} also exists, which will establish a
+connection to any tty-like device.  Opening the TTY devices should be
+left to @code{gnuclient}, though.
 
 @node Q3.4.2, Q3.5.1, Q3.4.1, Customization
 @unnumberedsubsec Q3.4.2: Can I really connect to a running XEmacs after calling up over a modem?  How?
 
-If you're not running at least XEmacs 19.14, you can't.  Otherwise check
-out the @code{gnuattach} program supplied with XEmacs.  Starting with
-XEmacs 20.3, @code{gnuattach} and @code{gnudoit} functionality is
-provided by @code{gnuclient}.
+Yes.  Use @code{gnuclient -nw}. (Prior to 20.3, use the @code{gnuattach}
+program supplied with XEmacs instead.)
 
 Also @xref{Q5.0.12}.
 
@@ -3071,7 +3045,7 @@ question 3.5.3 (@pxref{Q3.5.3}).
 @node Q3.5.2, Q3.5.3, Q3.5.1, Customization
 @unnumberedsubsec Q3.5.2: How can I stop down-arrow from adding empty lines to the bottom of my buffers?
 
-Add the following line to your @file{.emacs} file:
+Add the following line to your @file{init.el}/@file{.emacs} file:
 
 @lisp
 (setq next-line-add-newlines nil)
@@ -3108,22 +3082,17 @@ can not bind a key to a function that you're also passing arguments to.
 I cannot manage to globally bind my @kbd{Delete} key to something other
 than the default.  How does one do this?
 
+Answer: The problem is that many modes explicitly bind @kbd{Delete}.  To
+get around this, try the following:
+
 @lisp
 (defun foo ()
   (interactive)
   (message "You hit DELETE"))
 
-(global-set-key 'delete 'foo)
+(define-key key-translation-map 'delete 'redirected-delete)
+(global-set-key 'redirected-delete 'foo)
 @end lisp
-
-However, some modes explicitly bind @kbd{Delete}, so you would need to
-add a hook that does @code{local-set-key} for them.  If what you want to
-do is make the Backspace and Delete keys work more PC/Motif-like, then
-take a look at the @file{delbs.el} package.
-
-New in XEmacs 19.14 is a variable called @code{key-translation-map}
-which makes it easier to bind @kbd{Delete}.  @file{delbs.el} is a
-good example of how to do this correctly.
 
 Also @xref{Q3.5.10}.
 
@@ -3159,7 +3128,7 @@ keys (i.e. @kbd{C-n} and @kbd{C-p}):
 
 Starting with XEmacs-20.3 you can also change this with Customize.
 Select from the @code{Options} menu
-@code{Customize->Emacs->Environment->Windows->Scroll Step...} or type
+@code{Advanced (Customize)->Emacs->Environment->Windows->Scroll Step...} or type
 @kbd{M-x customize @key{RET} windows @key{RET}}.
 
 @node Q3.5.6, Q3.5.7, Q3.5.5, Customization
@@ -3171,7 +3140,7 @@ The following works in GNU Emacs 19:
 (global-set-key [help] 'help-command);; Help
 @end lisp
 
-The following works in XEmacs 19.15 with the addition of shift:
+The following works in XEmacs with the addition of shift:
 
 @lisp
 (global-set-key [(shift help)] 'help-command);; Help
@@ -3198,9 +3167,8 @@ the null binding @code{OpenWindows.KeyboardCommand.Help:}.
 One way is to use the package @code{x-compose}.  Then you can use
 sequences like @kbd{Compose " a} to get ä, etc.
 
-Another way is to use the @code{iso-insert} package, provided in XEmacs
-19.15 and later. Then you can use sequences like @kbd{C-x 8 " a} to get
-ä, etc.
+Another way is to use the @code{iso-insert} package. Then you can use
+sequences like @kbd{C-x 8 " a} to get ä, etc.
 
 @email{glynn@@sensei.co.uk, Glynn Clements} writes:
 
@@ -3243,28 +3211,9 @@ Running @samp{xmodmap -pk} will list all of the defined keysyms.
 @end quotation
 
 @node Q3.5.8, Q3.5.9, Q3.5.7, Customization
-@unnumberedsubsec Q3.5.8: Why does @code{(global-set-key [delete-forward] 'delete-char)} complain?
+@unnumberedsubsec Q3.5.8: [This question intentionally left blank]
 
-Why does @code{(define-key global-map [ delete-forward ] 'delete-char)}
-complain of not being able to bind an unknown key?
-
-Try this instead:
-
-@lisp
-(define-key global-map [delete_forward] 'delete-char)
-@end lisp
-
-and it will work.
-
-What you are seeing above is a bug due to code that is trying to check
-for GNU Emacs syntax like:
-
-(define-key global-map [C-M-a] 'delete-char)
-
-which otherwise would cause no errors but would not result in the
-expected behavior.
-
-This bug has been fixed in 19.14.
+Obsolete question, left blank to avoid renumbering.
 
 @node Q3.5.9, Q3.5.10, Q3.5.8, Customization
 @unnumberedsubsec Q3.5.9: How do I make the Delete key delete forward?
@@ -3282,7 +3231,7 @@ set things up, and @code{delbs-disable-delete-forward} to revert to
 Starting with XEmacs-20.3 better solution is to set variable
 @code{delete-key-deletes-forward} to t.  You can also change this with
 Customize. Select from the @code{Options} menu
-@code{Customize->Emacs->Editing->Basics->Delete Key Deletes Forward} or
+@code{Advanced (Customize)->Emacs->Editing->Basics->Delete Key Deletes Forward} or
 type @kbd{M-x customize @key{RET} editing-basics @key{RET}}.
 
 Also @xref{Q3.5.4}.
@@ -3349,7 +3298,7 @@ For a 2 pixel bar cursor, use:
 
 Starting with XEmacs-20.3 you can also change these with Customize.
 Select from the @code{Options} menu
-@code{Customize->Emacs->Environment->Display->Bar Cursor...} or type
+@code{Advanced (Customize)->Emacs->Environment->Display->Bar Cursor...} or type
 @kbd{M-x customize @key{RET} display @key{RET}}.
 
 You can use a color to make it stand out better:
@@ -3365,16 +3314,15 @@ Emacs*cursorColor:      Red
 (setq bar-cursor nil)
 @end lisp
 
-Starting with XEmacs-20.3 you can also change this with Customize.
+Starting with XEmacs 20.3 you can also change this with Customize.
 Select from the @code{Options} menu
-@code{Customize->Emacs->Environment->Display->Bar Cursor...} or type
+@code{Advanced (Customize)->Emacs->Environment->Display->Bar Cursor...} or type
 @kbd{M-x customize @key{RET} display @key{RET}}.
 
 @node Q3.6.3, Q3.7.1, Q3.6.2, Customization
 @unnumberedsubsec Q3.6.3: Can I make the cursor blink?
 
-If you are running a version of XEmacs older than 19.14, no.  Otherwise
-you can do the following:
+Yes, like this:
 
 @lisp
 (blink-cursor-mode)
@@ -3456,7 +3404,7 @@ do I disable this?
 Examine the function @code{mouse-yank}, by typing @kbd{C-h f mouse-yank
 @key{RET}}.
 
-To get XEmacs to paste at the text cursor, add this your @file{.emacs}:
+To get XEmacs to paste at the text cursor, add this your @file{init.el}/@file{.emacs}:
 
 @lisp
 (setq mouse-yank-at-point t)
@@ -3464,7 +3412,7 @@ To get XEmacs to paste at the text cursor, add this your @file{.emacs}:
 
 Starting with XEmacs-20.2 you can also change this with Customize.
 Select from the @code{Options} menu
-@code{Customize->Emacs->Editing->Mouse->Yank At Point...} or type
+@code{Advanced (Customize)->Emacs->Editing->Mouse->Yank At Point...} or type
 @kbd{M-x customize @key{RET} mouse @key{RET}}.
 
 @node Q3.7.7, Q3.7.8, Q3.7.6, Customization
@@ -3487,7 +3435,7 @@ rectangular regions:
 
 Starting with XEmacs-20.2 you can also change this with Customize.
 Select from the @code{Options} menu
-@code{Customize->Emacs->Editing->Mouse->Track Rectangle...} or type
+@code{Advanced (Customize)->Emacs->Editing->Mouse->Track Rectangle...} or type
 @kbd{M-x customize @key{RET} mouse @key{RET}}.
 
 
@@ -3509,15 +3457,15 @@ delay for a second if you let it.
 @unnumberedsec 3.8: The Menubar and Toolbar
 @unnumberedsubsec Q3.8.1: How do I get rid of the menu (or menubar)?
 
-If you are running XEmacs 19.13 and earlier, add this command to your
-@file{.emacs}.
-
-@lisp
-(set-menubar nil)
-@end lisp
-
-Starting with XEmacs 19.14 the preferred method is:
-
+@c If you are running XEmacs 19.13 or earlier, add this command to your
+@c @file{init.el}/@file{.emacs}.
+@c 
+@c @lisp
+@c (set-menubar nil)
+@c @end lisp
+@c 
+@c Starting with XEmacs 19.14 the preferred method is:
+@c 
 @lisp
 (set-specifier menubar-visible-p nil)
 @end lisp
@@ -3525,7 +3473,7 @@ Starting with XEmacs 19.14 the preferred method is:
 @node Q3.8.2, Q3.8.3, Q3.8.1, Customization
 @unnumberedsubsec Q3.8.2: Can I customize the basic menubar?
 
-For an extensive menubar, add this line to your @file{.emacs}:
+For an extensive menubar, add this line to your @file{init.el}/@file{.emacs}:
 
 @lisp
 (load "big-menubar")
@@ -3539,7 +3487,7 @@ directory.
 @node Q3.8.3, Q3.8.4, Q3.8.2, Customization
 @unnumberedsubsec Q3.8.3: How do I control how many buffers are listed in the menu @code{Buffers List}?
 
-Add the following to your @file{.emacs} (suit to fit):
+Add the following to your @file{init.el}/@file{.emacs} (suit to fit):
 
 @lisp
 (setq buffers-menu-max-size 20)
@@ -3549,7 +3497,7 @@ For no limit, use an argument of @samp{nil}.
 
 Starting with XEmacs-20.3 you can also change this with Customize.
 Select from the @code{Options} menu
-@code{Customize->Emacs->Environment->Menu->Buffers Menu->Max Size...} or
+@code{Advanced (Customize)->Emacs->Environment->Menu->Buffers Menu->Max Size...} or
 type @kbd{M-x customize @key{RET} buffers-menu @key{RET}}.
 
 @node Q3.8.4, Q3.8.5, Q3.8.3, Customization
@@ -3630,12 +3578,12 @@ turn the scrollbars off only in a single buffer:
 @lisp
 (set-specifier scrollbar-width 0 (current-buffer))
 @end lisp
-
-In XEmacs versions prior to 19.14, you had to use the hairier construct:
-
-@lisp
-(set-specifier scrollbar-width (cons (selected-frame) 0))
-@end lisp
+@c 
+@c In XEmacs versions prior to 19.14, you had to use the hairier construct:
+@c 
+@c @lisp
+@c (set-specifier scrollbar-width (cons (selected-frame) 0))
+@c @end lisp
 
 @node Q3.9.2, Q3.9.3, Q3.9.1, Customization
 @unnumberedsubsec Q3.9.2: How can one use resources to change scrollbar colors?
@@ -3671,17 +3619,9 @@ hand corner.
 This cannot be changed.
 
 @node Q3.9.4, Q3.10.1, Q3.9.3, Customization
-@unnumberedsubsec Q3.9.4: How can I get automatic horizontal scrolling?
+@unnumberedsubsec Q3.9.4: How can I turn off automatic horizontal scrolling in specific modes?
 
-By the same token, how can I turn it off in specific modes?
-
-To do this, add to your @file{.emacs} file:
-
-@lisp
-(require 'auto-show)
-@end lisp
-
-Then do @code{(setq truncate-lines t)} in the mode-hooks for any modes
+Do @code{(setq truncate-lines t)} in the mode-hooks for any modes
 in which you want lines truncated.
 
 More precisely: If @code{truncate-lines} is nil, horizontal scrollbars
@@ -3696,8 +3636,6 @@ do
 then horizontal scrollbars will not appear in truncated buffers unless
 the package specifically asked for them.
 
-Automatic horizontal scrolling is now standard, starting with 19.14.
-
 @node Q3.10.1, Q3.10.2, Q3.9.4, Customization
 @unnumberedsec 3.10: Text Selections
 @unnumberedsubsec Q3.10.1: How can I turn off or change highlighted selections?
@@ -3705,14 +3643,14 @@ Automatic horizontal scrolling is now standard, starting with 19.14.
 The @code{zmacs} mode allows for what some might call gratuitous
 highlighting for selected regions (either by setting mark or by using
 the mouse).  This is the default behavior.  To turn off, add the
-following line to your @file{.emacs} file:
+following line to your @file{init.el}/@file{.emacs} file:
 
 @lisp
 (setq zmacs-regions nil)
 @end lisp
 
 Starting with XEmacs-20.2 you can also change this with Customize. Select
-from the @code{Options} menu @code{Customize->Emacs->Editing->Basics->Zmacs
+from the @code{Options} menu @code{Advanced (Customize)->Emacs->Editing->Basics->Zmacs
 Regions} or type @kbd{M-x customize @key{RET} editing-basics @key{RET}}.
 
 To change the face for selection, look at @code{Options->Customize} on
@@ -3729,7 +3667,7 @@ is what happens when you select a region (with the mouse or keyboard)
 and you press a key to replace the selected region by the key you typed.
 Usually backspace kills the selected region.
 
-To get this behavior, add the following lines to your @file{.emacs}:
+To get this behavior, add the following lines to your @file{init.el}/@file{.emacs}:
 
 @lisp
 (cond
@@ -3749,7 +3687,7 @@ more portable.
 I do not like my text highlighted while I am doing isearch as I am not
 able to see what's underneath.  How do I turn it off?
 
-Put the following in your @file{.emacs}:
+Put the following in your @file{init.el}/@file{.emacs}:
 
 @lisp
 (setq isearch-highlight nil)
@@ -4084,8 +4022,8 @@ control VM's behavior.
 
 Enter vm-vars, @code{forward-search} for toolbar, find the variables
 that control the toolbar placement, appearance, existence, copy to your
-@file{.emacs} or @file{.vm} and modify according to the detailed
-instructions.
+@file{init.el}/@file{.emacs} or @file{.vm} and modify according to the
+detailed instructions.
 
 The above also applies to all the various features of VM: search for
 some keywords, maybe the first you conjure isn't appropriate, find the
@@ -4684,14 +4622,14 @@ Major & Minor Modes:
 * Q5.0.1::      How can I do source code highlighting using font-lock?
 * Q5.0.2::      I do not like cc-mode.  How do I use the old c-mode?
 * Q5.0.3::      How do I get @samp{More} Syntax Highlighting on by default?
-* Q5.0.4::      How can I enable auto-indent?
+* Q5.0.4::      How can I enable auto-indent and/or Filladapt?
 * Q5.0.5::      How can I get XEmacs to come up in text/auto-fill mode by default?
 * Q5.0.6::      How do I start up a second shell buffer?
 * Q5.0.7::      Telnet from shell filters too much.
 * Q5.0.8::      Why does edt emulation not work?
 * Q5.0.9::      How can I emulate VI and use it as my default mode?
 * Q5.0.10::     [This question intentionally left blank]
-* Q5.0.11::     How do I turn on filladapt for all buffers?
+* Q5.0.11::     [This question intentionally left blank]
 * Q5.0.12::     How do I disable gnuserv from opening a new frame?
 * Q5.0.13::     How do I start gnuserv so that each subsequent XEmacs is a client?
 * Q5.0.14::     Strange things are happening in Shell Mode.
@@ -4723,7 +4661,7 @@ Sound:
 
 Miscellaneous:
 * Q5.3.1::      How do you make XEmacs indent CL if-clauses correctly?
-* Q5.3.2::      Fontifying hangs when editing a postscript file.
+* Q5.3.2::      [This question intentionally left blank]
 * Q5.3.3::      How can I print WYSIWYG a font-locked buffer?
 * Q5.3.4::      Getting @kbd{M-x lpr} to work with postscript printer.
 * Q5.3.5::      How do I specify the paths that XEmacs uses for finding files?
@@ -4741,16 +4679,20 @@ Miscellaneous:
 @unnumberedsubsec Q5.0.1: How can I do source code highlighting using font-lock?
 
 For most modes, font-lock is already set up and just needs to be turned
-on.  This can be done by @kbd{M-x font-lock-mode}, or by having XEmacs
-automatically start it by adding lines like:
+on.  This can be done by adding the line:
 
 @lisp
-(add-hook 'emacs-lisp-mode-hook 'turn-on-font-lock)
-(add-hook 'dired-mode-hook      'turn-on-font-lock)
+(require 'font-lock)
 @end lisp
 
-to your @file{.emacs}.  See the file @file{etc/sample.emacs} for more
-examples.
+to your @file{init.el}/@file{.emacs}. (You can turn it on for the
+current buffer and session only by @kbd{M-x font-lock-mode}.) See the
+file @file{etc/sample.init.el} (@file{etc/sample.emacs} in XEmacs
+versions prior to 21.4) for more information.
+
+@c the old way:
+@c     (add-hook 'emacs-lisp-mode-hook 'turn-on-font-lock)
+@c     (add-hook 'dired-mode-hook      'turn-on-font-lock)
 
 See also @code{Syntax Highlighting} from the @code{Options} menu.
 Remember to save options.
@@ -4763,7 +4705,7 @@ much more powerful than the old c-mode.  If you're having trouble
 getting your old offsets to work, try using @code{c-set-offset} instead.
 You might also consider using the package @code{cc-compat}.
 
-But, if you still insist, add the following lines to your @file{.emacs}:
+But, if you still insist, add the following lines to your @file{init.el}/@file{.emacs}:
 
 @lisp
 (fmakunbound 'c-mode)
@@ -4781,47 +4723,56 @@ c++-mode.
 @node Q5.0.3, Q5.0.4, Q5.0.2, Miscellaneous
 @unnumberedsubsec Q5.0.3: How do I get @samp{More} Syntax Highlighting on by default?
 
-Use the following code in your @file{.emacs}:
+Use the following code in your @file{init.el}/@file{.emacs}:
 
 @lisp
 (setq-default font-lock-maximum-decoration t)
 @end lisp
 
-In versions of XEmacs prior to 19.14, you had to use a kludgy solution
-like this:
-
-@lisp
-(setq c-font-lock-keywords c-font-lock-keywords-2
-      c++-font-lock-keywords c++-font-lock-keywords-2
-      lisp-font-lock-keywords lisp-font-lock-keywords-2)
-@end lisp
-
-It will work for C, C++ and Lisp.
-
+@c In versions of XEmacs prior to 19.14, you had to use a kludgy solution
+@c like this:
+@c 
+@c @lisp
+@c (setq c-font-lock-keywords c-font-lock-keywords-2
+@c       c++-font-lock-keywords c++-font-lock-keywords-2
+@c       lisp-font-lock-keywords lisp-font-lock-keywords-2)
+@c @end lisp
+@c 
+@c It will work for C, C++ and Lisp.
+@c 
 See also @code{Syntax Highlighting} from the @code{Options} menu.
 Remember to save options.
 
 @node Q5.0.4, Q5.0.5, Q5.0.3, Miscellaneous
-@unnumberedsubsec Q5.0.4: How can I enable auto-indent?
+@unnumberedsubsec Q5.0.4: How can I enable auto-indent and/or Filladapt?
 
-Put the following line in your @file{.emacs}:
+Put the following line in your @file{init.el}/@file{.emacs}:
 
 @lisp
 (setq indent-line-function 'indent-relative-maybe)
 @end lisp
 
 If you want to get fancy, try the @code{filladapt} package available
-standard with XEmacs.  Put this into your @file{.emacs}:
+standard with XEmacs.  Put this into your @file{init.el}/@file{.emacs}:
 
 @lisp
 (require 'filladapt)
-(add-hook 'text-mode-hook    'turn-on-filladapt-mode)
-;;; and others ...
+(setq-default filladapt-mode t)
+(add-hook 'c-mode-hook 'turn-off-filladapt-mode)
+@end lisp
+
+This will enable Filladapt for all modes except C mode, where it doesn't
+work well.  To turn Filladapt on only in particular major modes, remove
+the @code{(setq-default ...)} line and use
+@code{turn-on-filladapt-mode}, like this:
+
+@lisp
+(add-hook 'text-mode-hook 'turn-on-filladapt-mode)
 @end lisp
 
 You can customize filling and adaptive filling with Customize.
 Select from the @code{Options} menu
-@code{Customize->Emacs->->Editing->Fill->Fill...}
+@code{Advanced (Customize)->Emacs->Editing->Fill->Fill...}
 or type @kbd{M-x customize @key{RET} fill @key{RET}}.
 
 Note that well-behaving text-lookalike modes will run
@@ -4833,7 +4784,7 @@ Please note that the @code{fa-extras} package is no longer useful.
 @node Q5.0.5, Q5.0.6, Q5.0.4, Miscellaneous
 @unnumberedsubsec Q5.0.5: How can I get XEmacs to come up in text/auto-fill mode by default?
 
-Try the following lisp in your @file{.emacs}:
+Try the following lisp in your @file{init.el}/@file{.emacs}:
 
 @lisp
 (setq default-major-mode 'text-mode)
@@ -4911,7 +4862,7 @@ if you have @code{ssh} installed.
 
 We don't know, but you can use tpu-edt emulation instead, which works
 fine and is a little fancier than the standard edt emulation.  To do
-this, add the following line to your @file{.emacs}:
+this, add the following line to your @file{init.el}/@file{.emacs}:
 
 @lisp
 (tpu-edt)
@@ -4928,7 +4879,7 @@ add this as well:
 @unnumberedsubsec Q5.0.9: How can I emulate VI and use it as my default mode?
 
 Our recommended VI emulator is viper. To make viper-mode the default,
-add this to your @file{.emacs}:
+add this to your @file{init.el}/@file{.emacs}:
 
 @lisp
 (viper-mode)
@@ -4937,7 +4888,7 @@ add this to your @file{.emacs}:
 @email{kifer@@CS.SunySB.EDU, Michael Kifer} writes:
 
 @quotation
-This should be added as close to the top of @file{.emacs} as you can get
+This should be added as close to the top of @file{init.el}/@file{.emacs} as you can get
 it, otherwise some minor modes may not get viper-ized.
 @end quotation
 
@@ -4947,22 +4898,9 @@ it, otherwise some minor modes may not get viper-ized.
 Obsolete question, left blank to avoid renumbering
 
 @node Q5.0.11, Q5.0.12, Q5.0.10, Miscellaneous
-@unnumberedsubsec Q5.0.11: How do I turn on filladapt for all buffers?
+@unnumberedsubsec Q5.0.11: [This question intentionally left blank]
 
-Filladapt is a minor mode and minor modes are traditionally off by
-default.  The following added to your @file{.emacs} will turn it on for
-all buffers:
-
-@lisp
-(setq-default filladapt-mode t)
-@end lisp
-
-Use @code{turn-on-filladapt-mode} to turn Filladapt on in particular
-major modes, like this:
-
-@lisp
-(add-hook 'text-mode-hook 'turn-on-filladapt-mode)
-@end lisp
+Obsolete question, left blank to avoid renumbering
 
 @node Q5.0.12, Q5.0.13, Q5.0.11, Miscellaneous
 @unnumberedsubsec Q5.0.12: How do I disable gnuserv from opening a new frame?
@@ -4975,23 +4913,22 @@ created. For example, you could put
 (setq gnuserv-frame (selected-frame))
 @end lisp
 
-early on in your @file{.emacs}, to ensure that the first frame created
+early on in your @file{init.el}/@file{.emacs}, to ensure that the first frame created
 is the one used for your gnuserv buffers.
 
-Starting in 19.15, there is an option to set the gnuserv target to
-the current frame.  See
-@code{Options->"Other Window" Location->Make current frame gnuserv target}
+There is an option to set the gnuserv target to the current frame.  See
+@code{Options->Display->"Other Window" Location->Make Current Frame Gnuserv Target}
 
 Starting with XEmacs-20.3 you can also change this with Customize.
 Select from the @code{Options} menu
-@code{Customize->Emacs->Environment->Gnuserv->Gnuserv Frame...} or type
-@kbd{M-x customize @key{RET} gnuserv @key{RET}}.
+@code{Advanced (Customize)->Emacs->Environment->Gnuserv->Gnuserv Frame...}
+or type @kbd{M-x customize @key{RET} gnuserv @key{RET}}.
 
 
 @node Q5.0.13, Q5.0.14, Q5.0.12, Miscellaneous
 @unnumberedsubsec Q5.0.13: How do I start gnuserv so that each subsequent XEmacs is a client?
 
-Put the following in your @file{.emacs} file to start the server:
+Put the following in your @file{init.el}/@file{.emacs} file to start the server:
 
 @lisp
 (gnuserv-start)
@@ -5046,7 +4983,7 @@ This can be had from @uref{http://www.python.org/emacs/}.
 @code{auto-show-mode} controls whether or not a horizontal scrollbar
 magically appears when a line is too long to be displayed.  This is
 enabled by default.  To turn it off, put the following in your
-@file{.emacs}:
+@file{init.el}/@file{.emacs}:
 
 @lisp
 (setq auto-show-mode nil)
@@ -5056,7 +4993,8 @@ enabled by default.  To turn it off, put the following in your
 @node Q5.0.17, Q5.0.18, Q5.0.16, Miscellaneous
 @unnumberedsubsec Q5.0.17: How can I get two instances of info?
 
-You can't.  The @code{info} package does not provide for multiple info buffers.
+Before 21.4, you can't.  The @code{info} package does not provide for
+multiple info buffers.  In 21.4, this should be fixed. #### how?
 
 @node Q5.0.18, Q5.0.19, Q5.0.17, Miscellaneous
 @unnumberedsubsec Q5.0.18: [This question intentionally left blank]
@@ -5432,7 +5370,7 @@ Instead of @samp{FILE}, use the image file name
 @iftex
 @*
 @end iftex
-@file{/usr/local/lib/xemacs-20.2/etc/recycle.xpm}).
+@file{/usr/local/lib/xemacs-21.4/etc/recycle.xpm}).
 
 You can turn this to a function (that optionally prompts you for a file
 name), and inserts the glyph at @code{(point)} instead of
@@ -5474,18 +5412,18 @@ is:
 an easy way to find out where it spends time?
 @c New
 
-z@email{hniksic@@xemacs.org, Hrvoje Niksic} writes:
+@email{hniksic@@xemacs.org, Hrvoje Niksic} writes:
 @quotation
-Under XEmacs 20.4 and later  you can use @kbd{M-x profile-key-sequence}, press a key
-(say @key{RET} in the Gnus Group buffer), and get the results using
-@kbd{M-x profile-results}.  It should give you an idea of where the time
-is being spent.
+Under XEmacs 20.4 and later you can use @kbd{M-x profile-key-sequence},
+press a key (say @key{RET} in the Gnus Group buffer), and get the
+results using @kbd{M-x profile-results}.  It should give you an idea of
+where the time is being spent.
 @end quotation
 
 @node Q5.2.1, Q5.2.2, Q5.1.11, Miscellaneous
 @unnumberedsubsec Q5.2.1: How do I turn off the sound?
 
-Add the following line to your @file{.emacs}:
+Add the following line to your @file{init.el}/@file{.emacs}:
 
 @lisp
 (setq bell-volume 0)
@@ -5495,9 +5433,9 @@ Add the following line to your @file{.emacs}:
 That will make your XEmacs totally silent---even the default ding sound
 (TTY beep on TTY-s) will be gone.
 
-Starting with XEmacs-20.2 you can also change these with Customize.
+Starting with XEmacs 20.2 you can also change these with Customize.
 Select from the @code{Options} menu
-@code{Customize->Emacs->Environment->Sound->Sound...} or type
+@code{Advanced (Customize)->Emacs->Environment->Sound->Sound...} or type
 @kbd{M-x customize @key{RET} sound @key{RET}}.
 
 
@@ -5505,15 +5443,15 @@ Select from the @code{Options} menu
 @unnumberedsubsec Q5.2.2: How do I get funky sounds instead of a boring beep?
 
 Make sure your XEmacs was compiled with sound support, and then put this
-in your @file{.emacs}:
+in your @file{init.el}/@file{.emacs}:
 
 @lisp
 (load-default-sounds)
 @end lisp
 
-The sound support in XEmacs 19.14 was greatly improved over previous
-versions.
-
+@c The sound support in XEmacs 19.14 was greatly improved over previous
+@c versions.
+@c 
 @node Q5.2.3, Q5.2.4, Q5.2.2, Miscellaneous
 @unnumberedsubsec Q5.2.3: What's NAS, how do I get it?
 
@@ -5546,7 +5484,7 @@ I'd like XEmacs to indent all the clauses of a Common Lisp @code{if} the
 same amount instead of indenting the 3rd clause differently from the
 first two.
 
-One way is to add, to @file{.emacs}:
+One way is to add, to @file{init.el}/@file{.emacs}:
 
 @lisp
 (put 'if 'lisp-indent-function nil)
@@ -5576,24 +5514,9 @@ than previous versions.  This may prove useful if you need to customize
 any indent-functions.
 
 @node Q5.3.2, Q5.3.3, Q5.3.1, Miscellaneous
-@unnumberedsubsec Q5.3.2: Fontifying hang when editing a postscript file.
+@unnumberedsubsec Q5.3.2: [This question intentionally left blank]
 
-When I try to edit a postscript file it gets stuck saying:
-@samp{fontifying 'filename' (regexps....)} and it just sits there.  If I
-press @kbd{C-c} in the window where XEmacs was started, it suddenly
-becomes alive again.
-
-This was caused by a bug in the Postscript font-lock regular
-expressions.  It was fixed in 19.13.  For earlier versions of XEmacs,
-have a look at your @file{.emacs} file.  You will probably have a line
-like:
-
-@lisp
-(add-hook 'postscript-mode-hook 'turn-on-font-lock)
-@end lisp
-
-Take it out, restart XEmacs, and it won't try to fontify your postscript
-files anymore.
+Obsolete question, left blank to avoid renumbering.
 
 @node Q5.3.3, Q5.3.4, Q5.3.2, Miscellaneous
 @unnumberedsubsec Q5.3.3: How can I print WYSIWYG a font-locked buffer?
@@ -5612,7 +5535,7 @@ My printer is a Postscript printer and @code{lpr} only works for
 Postscript files, so how do I get @kbd{M-x lpr-region} and @kbd{M-x
 lpr-buffer} to work?
 
-Put something like this in your @file{.emacs}:
+Put something like this in your @file{init.el}/@file{.emacs}:
 
 @lisp
 (setq lpr-command "a2ps")
@@ -5922,7 +5845,7 @@ General Info
 * Q6.0.1::      What is the status of the XEmacs port to Windows?
 * Q6.0.2::      What flavors of MS Windows are supported?
 * Q6.0.3::      Where are the XEmacs on MS Windows binaries?
-* Q6.0.4::      Does XEmacs on MS Windows require an X server to run?
+* Q6.0.4::      Can I build XEmacs on MS Windows with support for X or Cygwin?
 
 Building XEmacs on MS Windows
 * Q6.1.1::      I decided to run with X.  Where do I get an X server?
@@ -5935,7 +5858,7 @@ Building XEmacs on MS Windows
 Customization and User Interface
 * Q6.2.1::      How will the port cope with differences in the Windows user interface?
 * Q6.2.2::      How do I change fonts in XEmacs on MS Windows?
-* Q6.2.3::      Where do I put my @file{.emacs} file?
+* Q6.2.3::      Where do I put my @file{init.el}/@file{.emacs} file?
 
 Miscellaneous
 * Q6.3.1::      Will XEmacs rename all the win32-* symbols to w32-*?
@@ -5955,70 +5878,63 @@ Is XEmacs really getting ported to MS Windows?  What is the status of the port?
 
 Yes, a group of volunteers actively works on making XEmacs code base
 cleanly compile and run on MS Windows operating systems.  The mailing
-list at @email{xemacs-nt@@xemacs.org} is dedicated to that effort (please use
-the -request address to subscribe).
+list at @email{xemacs-nt@@xemacs.org} is dedicated to that effort
+(please use the -request address to subscribe).
 
-At this time, XEmacs on MS Windows is usable, but lacks some of the
-features of XEmacs on UNIX and UNIX-like systems.  Notably,
-internationalization does not work.
+At this time, XEmacs on MS Windows is stable and full-featured.
+However, the internationalization (Mule) support does not work --
+although this is being actively worked on.
 
 @node Q6.0.2, Q6.0.3, Q6.0.1, MS Windows
 @unnumberedsubsec Q6.0.2: What flavors of MS Windows are supported?  The list name implies NT only.
 
-The list name is misleading, as XEmacs will support both Windows 95,
-Windows 98 and Windows NT.  The MS Windows-specific code is based on
-Microsoft Win32 API, and will not work on MS Windows 3.x or on MS-DOS.
+The list name is misleading, as XEmacs will support Windows 95, Windows
+98, Windows NT, Windows 2000, Windows ME, Windows XP, and all newer
+versions of Windows.  The MS Windows-specific code is based on Microsoft
+Win32 API, and will not work on MS Windows 3.x or on MS-DOS.
 
 
 @node Q6.0.3, Q6.0.4, Q6.0.2, MS Windows
-@unnumberedsubsec Q6.0.3: Are binary kits available?
+@unnumberedsubsec Q6.0.3: Are binaries available?
 
-Binary kits are available at
-@uref{ftp://ftp.xemacs.org/pub/xemacs/binary-kits/win32/} for the
-"plain" MS Windows version.
+Binaries are available at
+@uref{ftp://ftp.xemacs.org/pub/xemacs/binaries/win32/} for the native MS
+Windows version.
 
 @node Q6.0.4, Q6.1.1, Q6.0.3, MS Windows
-@unnumberedsubsec Q6.0.4: Does XEmacs on MS Windows require an X server to run?
+@unnumberedsubsec Q6.0.4: Can I build XEmacs on MS Windows with support for X or Cygwin?
 
-Short answer: No.
+Yes.  XEmacs can be built in several ways in the MS Windows environment.
 
-Long answer: XEmacs can be built in several ways in the MS Windows
-environment, some of them requiring an X server and some not.
+The standard way is what we call the "native" port.  It uses the Win32
+API and has no connection with X whatsoever -- it does not require X
+libraries to build, nor does it require an X server to run.  The native
+port is the most reliable version and provides the best graphical
+support.  Almost all development is geared towards this version, and
+there is little reason not to use it.
 
-One is what we call the "X" port---it requires X libraries to build
-and an X server to run.  Internally it uses the Xt event loop and
-makes use of X toolkits.  Its look is quite un-Windowsy, but it works
-reliably and supports all of the graphical features of Unix XEmacs.
-
-The other is what we call the "native" port.  It uses the Win32 API
-and does not require X libraries to build, nor does it require an X to
-run.  In fact, it has no connection with X whatsoever.  At this time,
-the native port obsoletes the X port, providing almost all of its
-features, including support for menus, scrollbars, toolbars, embedded
-images and background pixmaps, frame pointers, etc.  Most of the
-future work will be based on the native port.
+You can also build XEmacs "X" port---it requires X libraries to build
+and an X server to run.  Internally it uses the Xt event loop and makes
+use of X toolkits.  Its look is quite un-Windowsy, and it is not well
+maintained, but it is being kept around for the time being because it
+has a long history.
 
 There is also a third special case, the Cygwin port.  It takes
 advantage of Cygnus emulation library under Win32, which enables it to
 reuse much of the Unix XEmacs code base, such as processes and network
 support, or internal select() mechanisms.
 
-Cygwin port supports all display types---TTY, X & MS gui, and can be
-built with support for all three.  If you build with ms gui support
+Cygwin port supports all display types---TTY, X & MS GUI, and can be
+built with support for all three.  If you build with MS GUI support
 then the Cygwin version uses the majority of the msw code, which is
 mostly related to display.  If you want to build with X support you
-need X libraries.  If you want to build with tty support you need
-ncurses.  MS gui requires no additional libraries.
+need X libraries.  If you want to build with TTY support you need
+ncurses.  MS GUI requires no additional libraries.
 
-Some of the advantages of the Cygwin version are that it:
-
-@itemize @bullet
-
-@item integrates well with Cygwin environment for existing Cygwin users;
-@item uses configure so building with different features is very easy;
-@item has process support in X & tty.
-
-@end itemize
+The advantages of the Cygwin version are that it integrates well with
+Cygwin environment for existing Cygwin users; uses configure so building
+with different features is very easy; and has process support in X &
+tty.
 
 The disadvantage is that it requires several Unix utilities and the
 whole Cygwin environment, whereas the native port requires only a
@@ -6077,18 +5993,18 @@ Some problems to watch out for:
 
 @itemize @bullet
 @item
-make sure HOME is set. This controls where you @file{.emacs} file comes
-from;
+make sure HOME is set. This controls where you
+@file{init.el}/@file{.emacs} file comes from;
 
 @item
 CYGWIN needs to be set to tty for process support work. e.g. CYGWIN=tty;
 (use CYGWIN32=tty under b19 and older.)
 
 @item
-picking up some other grep or other unix like tools can kill configure;
+picking up some other grep or other UNIX-like tools can kill configure;
 
 @item
-static heap too small, adjust src/sheap-adjust.h to a more positive
+static heap too small, adjust @file{src/sheap-adjust.h} to a more positive
 number;
 
 @item
@@ -6189,10 +6105,14 @@ manually. For example:
 
 
 @node Q6.2.3, Q6.3.1, Q6.2.2, MS Windows
-@unnumberedsubsec Q6.2.3: Where do I put my @file{.emacs} file?
+@unnumberedsubsec Q6.2.3: Where do I put my @file{init.el}/@file{.emacs} file?
 
-If the HOME environment variable is set, @file{.emacs} will be looked for
-there.  Else the directory defaults to `c:\'.
+@file{init.el} is the name of the init file starting with 21.4, and is
+located in the subdirectory @file{.xemacs/} of your home directory.  In
+prior versions, the init file is called @file{.emacs} and is located in
+your home directory.  Your home directory under Windows is determined by
+the HOME environment variable.  If this is not set, it defaults to
+`C:\'.
 
 @node Q6.3.1, Q6.3.2, Q6.2.3, MS Windows
 @unnumberedsec 6.3: Miscellaneous
@@ -6212,9 +6132,12 @@ Thus all the XEmacs variables and functions directly related to Win32
 are prefixed `mswindows-'.  The user-variables shared with NT Emacs
 will be provided as compatibility aliases.
 
-Architectural note: We believe that there should be a very small
-number of window-systems-specific variables, and will try to provide
-generic interfaces whenever possible.
+Architectural note: We believe that there should be a very small number
+of window-systems-specific variables, and we provide generic interfaces
+whenever possible.  Thus, most of the equivalents of GNU Emacs `w32-*'
+functions and variables (as well as the corresponding `x-*' versions)
+are non-window-system-specific in XEmacs, and the issue of `mswindows-*'
+vs. `w32-*' does not come up much.
 
 
 @node Q6.3.2, Q6.3.3, Q6.3.1, MS Windows
@@ -6320,7 +6243,13 @@ others.
 @node Q6.3.3, Q6.4.1, Q6.3.2, MS Windows
 @unnumberedsubsec Q6.3.3: What is the porting team doing at the moment?
 
+(as of March 2001)
+
 The porting team is continuing work on the MS Windows-specific code.
+Major projects are the development of Mule (internationalization)
+support for Windows and the improvement of the widget support (better
+support for dialog boxes, buttons, edit fields, and similar UI
+elements).
 
 @node Q6.4.1, ,Q6.3.3, MS Windows
 @unnumberedsec 6.3: Troubleshooting

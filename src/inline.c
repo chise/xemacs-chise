@@ -90,6 +90,11 @@ Boston, MA 02111-1307, USA.  */
 #include "console-msw.h"
 #endif
 
+#ifdef HAVE_GTK
+#include "console-gtk.h"
+#include "ui-gtk.h"
+#endif
+
 #ifdef FILE_CODING
 #include "file-coding.h"
 #endif

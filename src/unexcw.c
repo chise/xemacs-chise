@@ -331,7 +331,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
 	 f_ohdr.dsize + f_ohdr.bsize);
   if (new_data_size < f_ohdr.dsize + f_ohdr.bsize )
     {
-      PERROR("new data size is < approx");
+      printf("warning: new data size is < approx\n");
     }
   f_ohdr.dsize=new_data_size;
   f_ohdr.bsize=BSS_PAD_SIZE;

@@ -198,7 +198,7 @@ dnl ac_compile='${CC-cc} -c $CFLAGS $CPPFLAGS conftest.$ac_ext 1>&AC_FD_CC'
 dnl ac_link='${CC-cc} -o conftest $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS 1>&AC_FD_CC'
 xe_cppflags='$CPPFLAGS $c_switch_site $c_switch_machine $c_switch_system $c_switch_x_site $X_CFLAGS'
 xe_ldflags='$LDFLAGS $ld_switch_site $ld_switch_machine $ld_switch_system $ld_switch_x_site $ld_switch_run'
-xe_libs='$ld_call_shared $xe_check_libs $X_EXTRA_LIBS $libs_x $X_PRE_LIBS $LIBS $libs_machine $libs_system $libs_standard'
+xe_libs='$ld_call_shared $xe_check_libs $X_EXTRA_LIBS $libs_x $libs_gtk $X_PRE_LIBS $LIBS $libs_machine $libs_system $libs_standard'
 ac_cpp='$CPP '"$xe_cppflags"
 ac_compile='${CC-cc} -c $CFLAGS '"$xe_cppflags"' conftest.$ac_ext 1>&AC_FD_CC'
 ac_link='${CC-cc} -o conftest $CFLAGS '"$xe_cppflags $xe_ldflags"' conftest.$ac_ext '"$xe_libs"' 1>&AC_FD_CC'
@@ -341,6 +341,7 @@ package_path=''
 etcdir='${datadir}/${instvardir}/etc'
 archlibdir='${datadir}/${instvardir}/${configuration}'
 docdir='${archlibdir}'
+with_netinstall="no"
 with_prefix='yes'
 with_site_lisp='no'
 with_site_modules='yes'
@@ -358,6 +359,10 @@ rel_alloc='default'
 with_system_malloc='default'
 with_dlmalloc='default'
 native_sound_lib=''
+dnl These should be set to the empty string when we want gtk / gnome to
+dnl be auto-detected instead of manually specified.
+with_gtk='no'
+with_gnome='no'
 dnl use_assertions should be 'yes' by default.  Too many people in this
 dnl world have core dumps turned off by default or \"cannot find where the
 dnl core file went\".  At least we should get some useful output ...
@@ -454,6 +459,8 @@ while test $# != 0; do
 	with_site_modules | \
 	with_x		| \
 	with_x11	| \
+	with_gtk	| \
+	with_gnome	| \
 	with_msw	| \
 	with_gcc	| \
 	dynamic		| \
@@ -493,6 +500,7 @@ while test $# != 0; do
 	with_hesiod	| \
 	with_dnet	| \
 	with_infodock	| \
+	with_netinstall   | \
 	external_widget | \
 	verbose		| \
 	extra_verbose	| \
@@ -751,9 +759,9 @@ The default is to autodetect all sound support."])
              infopath ) AC_DEFINE(INFOPATH_USER_DEFINED) ;;
              package_path ) AC_DEFINE(PACKAGE_PATH_USER_DEFINED) ;;
              datadir )
-		AC_DEFINE(INFODIR_USER_DEFINED)
-		AC_DEFINE(LISPDIR_USER_DEFINED)
-		AC_DEFINE(MODULEDIR_USER_DEFINED)
+	        AC_DEFINE(INFODIR_USER_DEFINED)
+	        AC_DEFINE(LISPDIR_USER_DEFINED)
+	        AC_DEFINE(MODULEDIR_USER_DEFINED)
 	        AC_DEFINE(ETCDIR_USER_DEFINED)
 	        AC_DEFINE(DOCDIR_USER_DEFINED)
                 AC_DEFINE(ARCHLIBDIR_USER_DEFINED) ;;
@@ -779,9 +787,10 @@ The default is to autodetect all sound support."])
 	    a | at | ath | athe | athen | athena )	val=athena ;;
 	    n | no | non | none )			val=no     ;;
 	    y | ye | yes )				val=yes    ;;
-	    m | ms | msw )			val=msw    ;;
+	    g | gt | gtk )				val=gtk    ;;
+	    m | ms | msw )				val=msw    ;;
 	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
-  \`lucid', \`motif', \`athena', \`yes', or \`no'."]) ;;
+  \`gtk\', \`lucid', \`motif', \`athena', \`yes', or \`no'."]) ;;
 	  esac
 	  eval "$opt=\"$val\""
 	;;
@@ -1837,12 +1846,15 @@ test "$extra_verbose" = "yes" && \
   ld lib_gcc ld_text_start_addr start_files ordinary_link
   have_terminfo mail_use_flock mail_use_lockf) && echo ""
 
-dnl Pick up mingw32 include path
+dnl Pick up mingw include path
+dnl We only cope with headers in mingw, not mingw32: no previous version of
+dnl XEmacs supported mingw and cygnus have made this incompatible change
+dnl so we just go with the flow.
 case "$opsys" in mingw* | cygwin*)
   cygwin_include=`eval "gcc -print-file-name=libc.a"` ;
   cygwin_include=`eval "dirname $cygwin_include"` ;
   cygwin_include="-I$cygwin_include/../include" ;
-  extra_includes="$cygwin_include/mingw32 $cygwin_include/mingw $cygwin_include" ;
+  extra_includes="$cygwin_include/mingw $cygwin_include" ;
   case "$opsys" in mingw*)
     XE_APPEND($extra_includes, c_switch_system) ;;
   esac
@@ -2493,6 +2505,116 @@ dnl ----------------------
 
 AC_CHECKING("for specified window system")
 
+dnl Autodetection of Gdk libraries and includes
+dnl -------------------------------------------
+dnl On some systems (FreeBSD springs to mind), they use
+dnl versions on the utility routines, so instead of gtk-config
+dnl you must use gtk12-config, etc, etc.
+
+GNOME_CONFIG=no
+GTK_CONFIG=no
+
+if test "$with_gnome" != "no"; then
+   AC_MSG_CHECKING(for GNOME configuration script)
+   for possible in gnome-config
+   do
+      possible_version=`${possible} --version 2> /dev/null`
+      if test "x${possible_version}" != "x"; then
+              GNOME_CONFIG="${possible}"
+              with_gnome=yes
+              with_gtk=yes
+              break
+      fi
+   done
+   AC_MSG_RESULT([${GNOME_CONFIG}])
+fi
+
+if test "${GNOME_CONFIG}" != "no"; then
+      GNOME_LIBS=`${GNOME_CONFIG} --libs gnomeui`
+      GNOME_CFLAGS=`${GNOME_CONFIG} --cflags gnomeui`
+      AC_DEFINE(HAVE_GNOME)
+      XE_APPEND(${GNOME_LIBS}, libs_gtk)
+      XE_APPEND(${GNOME_CFLAGS}, c_switch_gtk)
+fi
+
+if test "$with_gtk" != "no";then
+   AC_MSG_CHECKING(for GTK configuration script)
+   for possible in gtk12-config gtk14-config gtk-config
+   do
+      possible_version=`${possible} --version 2> /dev/null`
+      if test "x${possible_version}" != "x"; then
+              GTK_CONFIG="${possible}"
+      fi
+      case "${possible_version}" in
+        1.0.*) AC_MSG_WARN([GTK 1.2 is required, please upgrade your version of GTK.]); with_gtk=no;;
+        1.3.*) AC_MSG_WARN([GTK 1.3 is not supported right now]); with_gtk=no;;
+	1.2.*)
+		with_gtk=yes
+		break
+		;;
+        *)     AC_MSG_WARN([Found unsupported version of GTK: $possible_version]);;
+      esac
+   done
+   AC_MSG_RESULT([${GTK_CONFIG}])
+fi
+
+if test "${GTK_CONFIG}" != "no"; then
+      AC_MSG_CHECKING(gtk version)
+      GTK_VERSION=`${GTK_CONFIG} --version`
+      AC_MSG_RESULT(${GTK_VERSION})
+
+      AC_MSG_CHECKING(gtk libs)
+      GTK_LIBS=`${GTK_CONFIG} --libs`
+      XE_APPEND(${GTK_LIBS}, libs_gtk)
+      AC_MSG_RESULT(${GTK_LIBS})
+
+      AC_MSG_CHECKING(gtk cflags)
+      GTK_CFLAGS=`${GTK_CONFIG} --cflags`
+      XE_APPEND(${GTK_CFLAGS}, c_switch_gtk)
+      AC_MSG_RESULT(${GTK_CFLAGS})
+
+      AC_CHECK_LIB(gdk_imlib, main, XE_PREPEND(-lgdk_imlib, libs_gtk))
+      AC_CHECK_LIB(Imlib, Imlib_init, XE_APPEND(-lImlib, libs_gtk))
+      AC_CHECK_FUNCS(gdk_imlib_init)
+
+      AC_DEFINE(HAVE_XPM)
+      AC_DEFINE(HAVE_GTK)
+      AC_SUBST(GTK_CONFIG)
+
+      window_system=gtk
+      with_gtk=yes
+      with_x11=no
+
+      test "${with_scrollbars}" != "no" && with_scrollbars=gtk
+      test "${with_toolbars}" != no && with_toolbars=gtk
+      test "${with_menubars}" != "no" && with_menubars=gtk
+      test "${with_dialogs}" != "no" && with_dialogs=gtk
+      test "${with_widgets}" != "no" && with_widgets=gtk
+
+      XE_ADD_OBJS(console-gtk.o device-gtk.o event-gtk.o frame-gtk.o)
+      XE_ADD_OBJS(objects-gtk.o redisplay-gtk.o glyphs-gtk.o)
+      XE_ADD_OBJS(select-gtk.o gccache-gtk.o)
+      XE_ADD_OBJS(gtk-xemacs.o ui-gtk.o)
+
+      dnl Check for libglade support (it rocks)
+      OLD_CFLAGS="${CFLAGS}"
+      OLD_LDFLAGS="${LDFLAGS}"
+      CFLAGS="${GTK_CFLAGS} ${CFLAGS}"
+      LDFLAGS="${LDFLAGS} ${GTK_LIBS}"
+      AC_CHECK_HEADERS(glade/glade.h glade.h)
+      AC_CHECK_LIB(xml, main, XE_PREPEND(-lxml, libs_gtk))
+      AC_CHECK_LIB(glade, main, XE_PREPEND(-lglade, libs_gtk))
+      AC_CHECK_LIB(glade-gnome, main, XE_PREPEND(-lglade-gnome, libs_gtk))
+      AC_EGREP_HEADER([char \*txtdomain;], [glade/glade-xml.h],
+                      [AC_MSG_RESULT(yes)
+                       AC_DEFINE(LIBGLADE_XML_TXTDOMAIN,1)],
+                      [AC_MSG_RESULT(no)])
+      CFLAGS="${OLD_CFLAGS}"
+      LDFLAGS="${OLD_LDFLAGS}"
+fi
+
+dnl We may eventually prefer gtk/gdk over vanilla X11...
+
 if test "$with_x11" != "no"; then
   dnl User-specified --x-includes or --x-libraries implies --with-x11.
   test "$x_includes $x_libraries" != "NONE NONE" && \
@@ -2537,10 +2659,11 @@ if test "$with_x11" != "no"; then
   fi
 fi
 
-case "$with_x11" in
-  yes ) window_system=x11  HAVE_X_WINDOWS=yes ;;
-  no  ) window_system=none HAVE_X_WINDOWS=no  ;;
-esac
+dnl #### wmperry:: !x11 != NONE
+dnl case "$with_x11" in
+dnl  yes ) window_system=x11  HAVE_X_WINDOWS=yes ;;
+dnl  no  ) window_system=none HAVE_X_WINDOWS=no  ;;
+dnl esac
 
 if test "$with_x11" = "yes"; then
   AC_DEFINE(HAVE_X_WINDOWS)
@@ -2696,7 +2819,7 @@ dnl Avoid re-AC_DEFINE-ing xmkmf symbols we've already defined above.
 #include <X11/Xlib.h>
 extern Bool XRegisterIMInstantiateCallback(
    Display*, struct _XrmHashBucketRec*, char*, char*, XIMProc, XPointer*);
-], [],
+], [], 
   [AC_MSG_RESULT(yes)],
   [AC_MSG_RESULT(no)
    AC_DEFINE(XREGISTERIMINSTANTIATECALLBACK_NONSTANDARD_PROTOTYPE)])
@@ -2739,9 +2862,11 @@ if test "$with_msw" != "no"; then
     AC_DEFINE(HAVE_MS_WINDOWS)
 
     dnl The net installer only works with MS-Windows currently
-    XE_APPEND(netinstall, MAKE_SUBDIR)
-    XE_APPEND(netinstall, SRC_SUBDIR_DEPS)
-    XE_APPEND(netinstall, INSTALL_ARCH_DEP_SUBDIR)
+    if test "$with_netinstall" = "yes"; then
+      XE_APPEND(netinstall, MAKE_SUBDIR)
+      XE_APPEND(netinstall, SRC_SUBDIR_DEPS)
+      XE_APPEND(netinstall, INSTALL_ARCH_DEP_SUBDIR)
+    fi
 
     install_pp="$blddir/lib-src/installexe.sh"
     XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomdlg32 -lcomctl32 -lwinspool, libs_system)
@@ -2833,6 +2958,11 @@ bitmapdir=
 case "$window_system" in
   x11  ) HAVE_X_WINDOWS=yes; echo "  Using X11." ;;
   msw  ) HAVE_X_WINDOWS=no ; echo "  Using MS-Windows." ;;
+  gtk  )
+       HAVE_X_WINDOWS=no
+       test "$with_gnome" = "yes" && echo "  Using GNOME."
+       test "$with_gnome" = "no" && echo "  Using GTK."
+       ;;
   none ) HAVE_X_WINDOWS=no ; echo "  Using no window system." ;;
 esac
 
@@ -2856,7 +2986,7 @@ test -z "$with_xauth" && { AC_CHECK_LIB(Xau, XauGetAuthByAddr,[:],with_xauth=no)
 test -z "$with_xauth" && with_xauth=yes
 if test "$with_xauth" = "yes"; then
   AC_DEFINE(HAVE_XAUTH)
-  XE_SPACE(libs_xauth, $X_EXTRA_LIBS -lXau $libs_x $X_PRE_LIBS)
+  XE_SPACE(libs_xauth, $GTK_LIBS $X_EXTRA_LIBS -lXau $libs_x $X_PRE_LIBS)
 fi
 AC_SUBST(libs_xauth)
 
@@ -2937,6 +3067,9 @@ if test "$with_offix" = "yes"; then
   AC_DEFINE(HAVE_OFFIX_DND)
   XE_APPEND(offix.o, dnd_objs)
   XE_APPEND(OffiX, dragndrop_proto)
+fi
+if test "$with_gtk" = "yes"; then
+   XE_APPEND(GTK, dragndrop_proto)
 fi
 
 dnl Autodetect Drag'n'Drop support
@@ -3156,6 +3289,22 @@ if test "$window_system" != "none"; then
     XE_PREPEND(-ltiff, libs_x)
   fi
 fi
+
+dnl ----------------------
+dnl GTK-Specific Graphics libraries
+dnl ----------------------
+
+if test "$with_gtk" = "yes"; then
+  dnl Autodetect XFACE
+  test -z "$with_xface" && { AC_CHECK_HEADER(compface.h,          ,with_xface=no) }
+  test -z "$with_xface" && { AC_CHECK_LIB(compface, UnGenFace,[:] ,with_xface=no) }
+  test -z "$with_xface" && with_xface=yes
+  if test "$with_xface" = "yes"; then
+    AC_DEFINE(HAVE_XFACE)
+    XE_PREPEND(-lcompface, libs_gtk)
+  fi
+fi
+
 
 dnl ----------------------
 dnl X-Specific Graphics libraries
@@ -3394,6 +3543,14 @@ test "$with_menubars"   != "no"    && XE_ADD_OBJS(menubar.o)
 test "$with_scrollbars" != "no"    && XE_ADD_OBJS(scrollbar.o)
 test "$with_dialogs"    != "no"    && XE_ADD_OBJS(dialog.o)
 test "$with_toolbars"   != "no"    && XE_ADD_OBJS(toolbar.o)
+
+if test "$with_gtk" = "yes"; then
+  test "$with_menubars"   != "no"      && XE_ADD_OBJS(menubar-gtk.o)
+  test "$with_scrollbars" != "no"      && XE_ADD_OBJS(scrollbar-gtk.o)
+  test "$with_dialogs"    != "no"      && XE_ADD_OBJS(dialog-gtk.o)
+  test "$with_toolbars"   != "no"      && XE_ADD_OBJS(toolbar-gtk.o)
+  test "$all_widgets" != "no no no no no" && XE_ADD_OBJS(gui-gtk.o)
+fi
 
 if test "$with_x11" = "yes"; then
   test "$with_menubars"   != "no"  && XE_ADD_OBJS(menubar-x.o)
@@ -3753,6 +3910,10 @@ esac
 AC_MSG_RESULT($have_mmap)
 test "$have_mmap" = "yes" && AC_DEFINE(HAVE_MMAP)
 
+dnl By default we switch off rel-alloc on cygwin as it generally causes us grief
+case "$opsys" in cygwin*) 
+	test "$rel_alloc" = "default" && rel_alloc=no ;;
+esac
 dnl rel_alloc requires either GNU malloc or system malloc with mmap
 dnl We only turn rel_alloc on by default if mmap is available.
 test "$GNU_MALLOC" != "yes" -a "$have_mmap" != "yes" && rel_alloc=no
@@ -4235,13 +4396,13 @@ dnl Use XE_SPACE instead of plain assignment statements to remove extraneous bla
 XE_SPACE(CFLAGS, $CFLAGS)
 XE_SPACE(extra_objs, $extra_objs)
 XE_SPACE(c_switch_general, -DHAVE_CONFIG_H $c_switch_site $c_switch_machine $c_switch_system)
-XE_SPACE(c_switch_window_system, $c_switch_x_site $X_CFLAGS)
+XE_SPACE(c_switch_window_system, $c_switch_x_site $c_switch_gtk $X_CFLAGS)
 XE_SPACE(c_switch_all, $c_switch_general $c_switch_window_system)
 XE_SPACE(ld_switch_general, $ld_switch_site $ld_switch_machine $ld_switch_system $ld_switch_run)
 XE_SPACE(ld_switch_window_system, $ld_switch_x_site)
 XE_SPACE(ld_switch_all, $ld_switch_general $ld_switch_window_system)
 XE_SPACE(ld_libs_general, $LIBS $libs_machine $libs_system $libs_standard)
-XE_SPACE(ld_libs_window_system, $X_EXTRA_LIBS $libs_x $X_PRE_LIBS)
+XE_SPACE(ld_libs_window_system, $X_EXTRA_LIBS $libs_x $libs_gtk $X_PRE_LIBS)
 XE_SPACE(ld_libs_all, $ld_libs_window_system $ld_libs_general)
 
 dnl Compute lists of Makefiles and subdirs
@@ -4643,6 +4804,7 @@ if test "$need_athena" = "yes"; then
   echo "    - Athena library to link:                     $athena_lib"
 fi
 case "$with_menubars" in
+  gtk   ) echo "  Using GTK menubars."   ;;
   lucid ) echo "  Using Lucid menubars." ;;
   motif ) echo "  Using Motif menubars."
           echo "  *WARNING*  The Motif menubar implementation is currently buggy."
@@ -4651,12 +4813,14 @@ case "$with_menubars" in
     msw ) echo "  Using MS-Windows menubars." ;;
 esac
 case "$with_scrollbars" in
+  gtk    ) echo "  Using GTK scrollbars."        ;;
   lucid  ) echo "  Using Lucid scrollbars."      ;;
   motif  ) echo "  Using Motif scrollbars."      ;;
   athena ) echo "  Using Athena scrollbars."     ;;
      msw ) echo "  Using MS-Windows scrollbars." ;;
 esac
 case "$with_dialogs" in
+  gtk    ) echo "  Using GTK dialog boxes." ;;
   motif  ) echo "  Using Motif dialog boxes."
            if test "$unexec" = "unexaix.o"; then if test "`uname -v`" = 4 -a "`uname -r`" -ge 3; then
              echo "  *WARNING*  The Motif dialog boxes cause problems on AIX 4.3 and higher."
@@ -4668,6 +4832,7 @@ case "$with_dialogs" in
      msw ) echo "  Using MS-Windows dialog boxes." ;;
 esac
 case "$with_widgets" in
+  gtk    ) echo "  Using GTK native widgets."        ;;
   motif  ) echo "  Using Motif native widgets."      ;;
   athena ) echo "  Using Athena native widgets."     ;;
      msw ) echo "  Using MS-Windows native widgets." ;;

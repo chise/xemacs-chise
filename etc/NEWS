@@ -245,7 +245,7 @@ is now equivalent to -user-init-file ~<user>/.xemacs/init.el
 ~<user>/.emacs -user-init-directory ~<user>/.xemacs, whichever init
 file comes first.
 
-** New variable `mswindows-meta-activates-menu'.
+** New variable `mswindows-alt-by-itself-activates-menu'.
 If you set this variable to nil then pressing and releasing the Alt
 key under MS-Windows will no longer activate the menubar.  The default
 is t.  This is not to be confused with `menu-accelerator-enabled',

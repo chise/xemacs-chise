@@ -187,7 +187,7 @@
 ;; id-menus is not here.  infodock needs to figure out a clever way to
 ;; advise this stuff or we need to export a clean way for infodock or
 ;; others to control this programmatically.
-	(when-feature (and infodock (or x mswindows) menubar) "id-menus")
+	(when-feature (and infodock (or x mswindows gtk) menubar) "id-menus")
 ;; preload the X code.
 	(when-feature x "x-faces")
 	(when-feature x "x-iso8859-1")
@@ -198,6 +198,20 @@
 	(when-feature x "x-init")
 	(when-feature x "x-win-xfree86")
 	(when-feature x "x-win-sun")
+;; preload the GTK code
+ 	(when-feature gtk "gtk-ffi")
+ 	(when-feature gtk "gtk-widgets")
+ 	(when-feature gtk "gdk")
+ 	(when-feature gtk "gtk-init")
+ 	(when-feature gtk "gtk-faces")
+ 	(when-feature gtk "gtk-iso8859-1")
+ 	(when-feature (and gtk dialog) "dialog-gtk")
+ 	(when-feature gtk "gtk-select")
+ 	(when-feature gtk "gtk-mouse")
+ 	(when-feature gtk "gtk-glyphs")
+ 	(when-feature glade "glade")
+	(when-feature gtk "widgets-gtk")
+
 ;; preload the mswindows code.
 	(when-feature mswindows "msw-glyphs")
 	(when-feature mswindows "msw-faces")

@@ -40,6 +40,9 @@ INSTALLABLES=setup
 vpath %.c @srcdir@
 vpath %.cc @srcdir@
 vpath %.h @srcdir@
+vpath %.l @srcdir@
+vpath %.y @srcdir@
+vpath %.rc @srcdir@
 #else
 VPATH=@srcdir@
 #endif
@@ -173,10 +176,10 @@ version.c : $(srcdir)/ChangeLog Makefile
 	$(WINDRES) --include-dir $(srcdir) -o $@ $<
 
 %.o: %.c
-	$(CC) $(MINGW_CFLAGS) -c -o $@ ${srcdir}/$<
+	$(CC) $(MINGW_CFLAGS) -c -o $@ $<
 
 %.o: %.cc
-	$(CXX) $(MINGW_CXXFLAGS) -c -o $@ ${srcdir}/$<
+	$(CC) $(MINGW_CXXFLAGS) -c -o $@ $<
 
 iniparse.c iniparse.h : iniparse.y
 	bison -d -o iniparse.c $(srcdir)/iniparse.y

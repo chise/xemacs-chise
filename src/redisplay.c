@@ -9178,6 +9178,15 @@ init_redisplay (void)
     }
 #endif /* HAVE_X_WINDOWS */
 
+#ifdef HAVE_GTK
+  if (!strcmp (display_use, "gtk"))
+    {
+      Vwindow_system = Qgtk;
+      Vinitial_window_system = Qgtk;
+      return;
+    }
+#endif
+
 #ifdef HAVE_MS_WINDOWS
   if (!strcmp (display_use, "mswindows"))
     {

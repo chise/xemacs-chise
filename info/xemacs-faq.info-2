@@ -7,6 +7,36 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: xemacs-faq.info,  Node: Q2.0.3,  Next: Q2.0.4,  Prev: Q2.0.2,  Up: Installation
+
+Q2.0.3: Compiling XEmacs with Netaudio.
+---------------------------------------
+
+   What is the best way to compile XEmacs with the netaudio system,
+since I have got the netaudio system compiled but installed at a weird
+place, I am not root.  Also in the READMEs it does not say anything
+about compiling with the audioserver?
+
+   You should only need to add some stuff to the configure command line.
+To tell it to compile in netaudio support: `--with-sound=both', or
+`--with-sound=nas' if you don't want native sound support for some
+reason.) To tell it where to find the netaudio includes and libraries:
+
+     --site-libraries=WHATEVER
+     --site-includes=WHATEVER
+
+   Then (fingers crossed) it should compile and it will use netaudio if
+you have a server running corresponding to the X server. The netaudio
+server has to be there when XEmacs starts. If the netaudio server goes
+away and another is run, XEmacs should cope (fingers crossed, error
+handling in netaudio isn't perfect).
+
+   BTW, netaudio has been renamed as it has a name clash with something
+else, so if you see references to NAS or Network Audio System, it's the
+same thing.  It also might be found at
+`ftp://ftp.x.org/contrib/audio/nas/'.
+
+
 File: xemacs-faq.info,  Node: Q2.0.4,  Next: Q2.0.5,  Prev: Q2.0.3,  Up: Installation
 
 Q2.0.4: Problems with Linux and ncurses.
@@ -205,7 +235,7 @@ Q2.0.12: Why can't I strip XEmacs?
      obviously heavily system dependent. And on some systems, it leads
      to an executable which, although valid, cannot be stripped without
      damage. If memory serves, this is especially the case for AIX
-     binaries. On other architecture it might work OK.
+     binaries. On other architectures it might work OK.
 
      The Right Way to strip the emacs binary is to strip temacs prior to
      dumping xemacs. This will always work, although you can do that
@@ -288,8 +318,8 @@ you try to edit those files, you will be informed that a more recent
 auto-save file exists.  You can use `M-x recover-file' to retrieve the
 auto-saved version of the file.
 
-   Starting with 19.14, you may use the command `M-x recover-session'
-after a crash to pick up where you left off.
+   You can use the command `M-x recover-session' after a crash to pick
+up where you left off.
 
    Now, XEmacs is not perfect, and there may occasionally be times, or
 particular sequences of actions, that cause it to crash.  If you can
@@ -359,10 +389,11 @@ backtrace by doing the following:
 
   3. Reproduce the error.
 
-   Depending on the version of XEmacs, you may either select Edit->Show
-Messages (19.13 and earlier) or Help->Recent Keystrokes/Messages (19.14
-and later) from the menubar to see the most recent messages.  This
-command is bound to `C-h l' by default.
+   Depending on the version of XEmacs, you may either select View->Show
+Message Log (recent versions), Edit->Show Messages (some earlier
+versions) or Help->Recent Keystrokes/Messages (other earlier versions)
+from the menubar to see the most recent messages.  This command is bound
+to `C-h l' by default.
 
 
 File: xemacs-faq.info,  Node: Q2.1.3,  Next: Q2.1.4,  Prev: Q2.1.2,  Up: Installation
@@ -505,7 +536,8 @@ Q2.1.9: XEmacs causes my OpenWindows 3.0 server to crash.
 
    The OpenWindows 3.0 server is incredibly buggy.  Your best bet is to
 replace it with one from the generic MIT X11 release.  You might also
-try disabling parts of your `.emacs', like enabling background pixmaps.
+try disabling parts of your `init.el'/`.emacs', like those that enable
+background pixmaps.
 
 
 File: xemacs-faq.info,  Node: Q2.1.10,  Next: Q2.1.11,  Prev: Q2.1.9,  Up: Installation
@@ -786,9 +818,8 @@ debugger.  Here are some hints:
           authors, or to comp.os.linux.development.system).  Again,
           you'll have to use the narrowing-down process described above.
 
-       d. If you compiled 19.14 with `--debug' (or by default in later
-          versions), you will get a Lisp backtrace output when XEmacs
-          crashes, so you'll have something useful.
+       d. You will get a Lisp backtrace output when XEmacs crashes, so
+          you'll have something useful.
 
 
    * If you compile with the newer gcc variants gcc-2.8 or egcs, you
@@ -859,8 +890,8 @@ under which it is running.  The solution is to add:
 
      (set-time-zone-rule "MET")
 
-   to your `.emacs' or the `site-start.el' file if you can.  Replace
-`MET' with your local timezone.
+   to your `init.el'/`.emacs' or the `site-start.el' file if you can.
+Replace `MET' with your local timezone.
 
 
 File: xemacs-faq.info,  Node: Q2.1.20,  Next: Q2.1.21,  Prev: Q2.1.19,  Up: Installation
@@ -971,7 +1002,7 @@ section is devoted to Customization and screen settings.
 
 * Menu:
 
-Customization---Emacs Lisp and `.emacs':
+Customization---Emacs Lisp and `init.el'/`.emacs':
 * Q3.0.1::      What version of Emacs am I running?
 * Q3.0.2::      How do I evaluate Elisp expressions?
 * Q3.0.3::      `(setq tab-width 6)' behaves oddly.
@@ -993,7 +1024,7 @@ X Window System & Resources:
 * Q3.1.8::      `-iconic' doesn't work.
 
 Textual Fonts & Colors:
-* Q3.2.1::      How can I set color options from `.emacs'?
+* Q3.2.1::      How can I set color options from `init.el'/`.emacs'?
 * Q3.2.2::      How do I set the text, menu and modeline fonts?
 * Q3.2.3::      How can I set the colors when highlighting a region?
 * Q3.2.4::      How can I limit color map usage?
@@ -1019,7 +1050,7 @@ The Modeline:
 * Q3.5.5::      Scrolling one line at a time.
 * Q3.5.6::      How to map Help key alone on Sun type4 keyboard?
 * Q3.5.7::      How can you type in special characters in XEmacs?
-* Q3.5.8::      Why does `(global-set-key [delete-forward] 'delete-char)' complain?
+* Q3.5.8::      [This question intentionally left blank]
 * Q3.5.9::      How do I make the Delete key delete forward?
 * Q3.5.10::     Can I turn on "sticky" modifier keys?
 * Q3.5.11::     How do I map the arrow keys?
@@ -1050,7 +1081,7 @@ Scrollbars:
 * Q3.9.1::      How can I disable the scrollbar?
 * Q3.9.2::      How can one use resources to change scrollbar colors?
 * Q3.9.3::      Moving the scrollbar can move the point; can I disable this?
-* Q3.9.4::      How can I get automatic horizontal scrolling?
+* Q3.9.4::      How can I turn off automatic horizontal scrolling in specific modes?
 
 Text Selections:
 * Q3.10.1::     How can I turn off or change highlighted selections?
@@ -1062,18 +1093,19 @@ Text Selections:
 
 File: xemacs-faq.info,  Node: Q3.0.1,  Next: Q3.0.2,  Prev: Customization,  Up: Customization
 
-3.0: Customization - Emacs Lisp and .emacs
-==========================================
+3.0: Customization - Emacs Lisp and `init.el'/`.emacs'
+======================================================
 
 Q3.0.1: What version of Emacs am I running?
 -------------------------------------------
 
-   How can `.emacs' determine which of the family of Emacsen I am using?
+   How can `init.el'/`.emacs' determine which of the family of Emacsen
+I am using?
 
    To determine if you are currently running GNU Emacs 18, GNU Emacs 19,
 XEmacs 19, XEmacs 20, or Epoch, and use appropriate code, check out the
-example given in `etc/sample.emacs'.  There are other nifty things in
-there as well!
+example given in `etc/sample.init.el' (`etc/sample.emacs' in XEmacs
+versions prior to 21.4).  There are other nifty things in there as well!
 
    For all new code, all you really need to do is:
 
@@ -1089,9 +1121,7 @@ Q3.0.2: How can I evaluate Emacs-Lisp expressions?
 `C-j' after the expression.  How do I do it from another buffer?
 
    Press `M-:' (the default binding of `eval-expression'), and enter
-the expression to the minibuffer.  In XEmacs prior to 19.15
-`eval-expression' used to be a disabled command by default.  If this is
-the case, upgrade your XEmacs.
+the expression to the minibuffer.
 
 
 File: xemacs-faq.info,  Node: Q3.0.3,  Next: Q3.0.4,  Prev: Q3.0.2,  Up: Customization
@@ -1099,9 +1129,9 @@ File: xemacs-faq.info,  Node: Q3.0.3,  Next: Q3.0.4,  Prev: Q3.0.2,  Up: Customi
 Q3.0.3: `(setq tab-width 6)' behaves oddly.
 -------------------------------------------
 
-   If you put `(setq tab-width 6)' in your `.emacs' file it does not
-work!  Is there a reason for this?  If you do it at the EVAL prompt it
-works fine!! How strange.
+   If you put `(setq tab-width 6)' in your `init.el'/`.emacs' file it
+does not work!  Is there a reason for this?  If you do it at the EVAL
+prompt it works fine!! How strange.
 
    Use `setq-default' instead, since `tab-width' is all-buffer-local.
 
@@ -1176,8 +1206,6 @@ File: xemacs-faq.info,  Node: Q3.0.7,  Next: Q3.0.8,  Prev: Q3.0.6,  Up: Customi
 Q3.0.7: Font selections in don't get saved after `Save Options'.
 ----------------------------------------------------------------
 
-   For XEmacs 19.14 and previous:
-
    John Mann <mannj@ll.mit.edu> writes:
 
      You have to go to Options->Frame Appearance and unselect
@@ -1185,9 +1213,7 @@ Q3.0.7: Font selections in don't get saved after `Save Options'.
      are only applied to the _current_ frame and do _not_ get saved
      when you save options.
 
-   For XEmacs 19.15 and later:
-
-   Implement the above as well as set the following in your `.emacs'
+   Also, set the following in your `init.el'/`.emacs':
 
      (setq options-save-faces t)
 
@@ -1279,39 +1305,4 @@ File: xemacs-faq.info,  Node: Q3.1.4,  Next: Q3.1.5,  Prev: Q3.1.3,  Up: Customi
 
 Q3.1.4: [This question intentionally left blank]
 ------------------------------------------------
-
-
-File: xemacs-faq.info,  Node: Q3.1.5,  Next: Q3.1.6,  Prev: Q3.1.4,  Up: Customization
-
-Q3.1.5: How can I get the icon to just say `XEmacs'?
-----------------------------------------------------
-
-   I'd like the icon to just say `XEmacs', and not include the name of
-the current file in it.
-
-   Add the following line to your `.emacs':
-
-     (setq frame-icon-title-format "XEmacs")
-
-
-File: xemacs-faq.info,  Node: Q3.1.6,  Next: Q3.1.7,  Prev: Q3.1.5,  Up: Customization
-
-Q3.1.6: How can I have the window title area display the full path?
--------------------------------------------------------------------
-
-   I'd like to have the window title area display the full
-directory/name of the current buffer file and not just the name.
-
-   Add the following line to your `.emacs':
-
-     (setq frame-title-format "%S: %f")
-
-   A more sophisticated title might be:
-
-     (setq frame-title-format
-           '("%S: " (buffer-file-name "%f"
-                                      (dired-directory dired-directory "%b"))))
-
-   That is, use the file name, or the dired-directory, or the buffer
-name.
 

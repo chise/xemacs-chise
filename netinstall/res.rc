@@ -449,7 +449,7 @@ IDB_RTARROW             BITMAP  DISCARDABLE     "choose-rtarrow.bmp"
 IDB_CHECK_YES           BITMAP  DISCARDABLE     "check-yes.bmp"
 IDB_CHECK_NO            BITMAP  DISCARDABLE     "check-no.bmp"
 IDB_CHECK_NA            BITMAP  DISCARDABLE     "check-na.bmp"
-GNU                     BITMAP  DISCARDABLE     "gnu.bmp"
+GNU                 BITMAP  DISCARDABLE     "gnu.bmp"
 IDB_GNU                 BITMAP  DISCARDABLE     "gnu.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -478,7 +478,7 @@ BEGIN
     IDS_ERR_OPEN_READ       "Can't open %s for reading: %s"
     IDS_ROOT_ABSOLUTE       "The install directory must be absolute, with both a drive letter and leading slash, like C:\\Cygwin"
     IDS_DOWNLOAD_COMPLETE   "Download Complete"
-    IDS_CVSID               "\n%%% $Id: res.rc,v 1.1.2.5 2001/02/02 19:47:47 andyp Exp $\n"
+    IDS_CVSID               "\n%%% $Id: res.rc,v 1.1.2.6 2001/03/09 04:13:05 wmperry Exp $\n"
     IDS_NOLOGFILE           "Cannot open log file %s for writing"
     IDS_UNINSTALL_COMPLETE  "Uninstalls complete."
     IDS_WININET             "Unable to find or load the Internet Explorer 5 DLLs"

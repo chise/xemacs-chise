@@ -366,8 +366,9 @@ get_ntpipe_input_stream_waitable (Lstream *stream)
   return s->thread_data->hev_caller;
 }
 
-static ssize_t
-ntpipe_slurp_reader (Lstream *stream, unsigned char *data, size_t size)
+static Lstream_data_count
+ntpipe_slurp_reader (Lstream *stream, unsigned char *data,
+		     Lstream_data_count size)
 {
   /* This function must be called from the main thread only */
   struct ntpipe_slurp_stream_shared_data* s =
@@ -580,8 +581,9 @@ get_ntpipe_output_stream_param (Lstream *stream)
 }
 #endif
 
-static ssize_t
-ntpipe_shove_writer (Lstream *stream, const unsigned char *data, size_t size)
+static Lstream_data_count
+ntpipe_shove_writer (Lstream *stream, const unsigned char *data,
+		     Lstream_data_count size)
 {
   struct ntpipe_shove_stream* s = NTPIPE_SHOVE_STREAM_DATA(stream);
 
@@ -697,8 +699,8 @@ winsock_initiate_read (struct winsock_stream *str)
     str->eof_p = 1;
 }
 
-static ssize_t
-winsock_reader (Lstream *stream, unsigned char *data, size_t size)
+static Lstream_data_count
+winsock_reader (Lstream *stream, unsigned char *data, Lstream_data_count size)
 {
   struct winsock_stream *str = WINSOCK_STREAM_DATA (stream);
 
@@ -732,7 +734,7 @@ winsock_reader (Lstream *stream, unsigned char *data, size_t size)
     return -1;
 
   /* Return as much of buffer as we have */
-  size = min (size, (size_t) (str->bufsize - str->bufpos));
+  size = min (size, (Lstream_data_count) (str->bufsize - str->bufpos));
   memcpy (data, (void*)((BYTE*)str->buffer + str->bufpos), size);
   str->bufpos += size;
 
@@ -743,8 +745,9 @@ winsock_reader (Lstream *stream, unsigned char *data, size_t size)
   return size;
 }
 
-static ssize_t
-winsock_writer (Lstream *stream, const unsigned char *data, size_t size)
+static Lstream_data_count
+winsock_writer (Lstream *stream, const unsigned char *data,
+		Lstream_data_count size)
 {
   struct winsock_stream *str = WINSOCK_STREAM_DATA (stream);
 

@@ -18,6 +18,13 @@ HAVE_MS_WINDOWS=1
 HAVE_X_WINDOWS=0
 X11_DIR=
 
+# GTK support. Do NOT set this to 1; as of xemacs-21.2-b44
+# gtk-xemacs is not supported on MSWindows (mingw or msvc).
+# Yes, we know that gtk has been ported to native MSWindows
+# but XEmacs is not yet ready to use that port.
+HAVE_GTK=0
+GTK_DIR=
+
 ############################################################################
 
 # Set this to enable XPM support (virtually mandatory), and specify

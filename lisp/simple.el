@@ -525,6 +525,11 @@ With arg N, put point N/10 of the way from the beginning.
 If the buffer is narrowed, this command uses the beginning and size
 of the accessible part of the buffer.
 
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
+
 Don't use this command in Lisp programs!
 \(goto-char (point-min)) is faster and avoids clobbering the mark."
   ;; XEmacs change
@@ -547,6 +552,11 @@ With arg N, put point N/10 of the way from the end.
 
 If the buffer is narrowed, this command uses the beginning and size
 of the accessible part of the buffer.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
 
 Don't use this command in Lisp programs!
 \(goto-char (point-max)) is faster and avoids clobbering the mark."
@@ -1103,46 +1113,20 @@ Repeating \\[universal-argument] without digits or minus sign
   (skip-chars-forward " \t"))
 
 (defcustom kill-whole-line nil
-  "*Control when and whether `kill-line' removes entire lines.
-Note: This only applies when `kill-line' is called interactively;
-otherwise, it behaves \"historically\".
+  "*If non-nil, kill the whole line if point is at the beginning.
+Otherwise, `kill-line' kills only up to the end of the line, but not
+the terminating newline.  Note: This only applies when `kill-line' is
+called interactively.
 
-If `always', `kill-line' with no arg always kills the whole line,
-wherever point is in the line. (If you want to just kill to the end
-of the line, use \\[historical-kill-line].)
-
-If not `always' but non-nil, `kill-line' with no arg kills the whole
-line if point is at the beginning, and otherwise behaves historically.
-
-If nil, `kill-line' behaves historically."
-  :type '(radio (const :tag "Kill to end of line" nil)
-		(const :tag "Kill whole line" always)
-		(const
-		 :tag "Kill whole line at beginning, otherwise end of line" t))
+WARNING: This is a misnamed variable!  It should be called something
+like `kill-whole-line-when-at-beginning'.  If you simply want
+\\[kill-line] to kill the entire current line, bind it to the function
+`kill-entire-line'.  "
+  :type 'boolean
   :group 'killing)
 
-(defun historical-kill-line (&optional arg)
-  "Same as `kill-line' but ignores value of `kill-whole-line'."
-  (interactive "*P")
-  (let ((kill-whole-line nil))
-    (if (interactive-p)
-	(call-interactively 'kill-line)
-      (kill-line arg))))
-
-(defun kill-line (&optional arg)
-  "Kill the rest of the current line, or the entire line.
-If no nonblanks there, kill thru newline.
-If called interactively, may kill the entire line; see `kill-whole-line'.
-when given no argument at the beginning of a line.
-With prefix argument, kill that many lines from point.
-Negative arguments kill lines backward.
-
-When calling from a program, nil means \"no arg\",
-a number counts as a prefix arg."
-  (interactive "*P")
-  (kill-region (if (and (interactive-p)
-			(not arg)
-			(eq kill-whole-line 'always))
+(defun kill-line-1 (arg entire-line interactive-p)
+  (kill-region (if entire-line
 		   (save-excursion
 		     (beginning-of-line)
 		     (point))
@@ -1162,12 +1146,38 @@ a number counts as a prefix arg."
 		   (if (eobp)
 		       (signal 'end-of-buffer nil))
 		   (if (or (looking-at "[ \t]*$")
-			   (and (interactive-p)
-				(or (eq kill-whole-line 'always)
+			   (or entire-line
+			       (and interactive-p
 				    (and kill-whole-line (bolp)))))
 		       (forward-line 1)
 		     (end-of-line)))
 		 (point))))
+
+(defun kill-entire-line (&optional arg)
+  "Kill the entire line.
+With prefix argument, kill that many lines from point.  Negative
+arguments kill lines backward.
+
+When calling from a program, nil means \"no arg\",
+a number counts as a prefix arg."
+  (interactive "*P")
+  (kill-line-1 arg t (interactive-p)))
+
+(defun kill-line (&optional arg)
+  "Kill the rest of the current line, or the entire line.
+If no nonblanks there, kill thru newline.  If called interactively,
+may kill the entire line when given no argument at the beginning of a
+line; see `kill-whole-line'.  With prefix argument, kill that many
+lines from point.  Negative arguments kill lines backward.
+
+WARNING: This is a misnamed function!  It should be called something
+like `kill-to-end-of-line'.  If you simply want to kill the entire
+current line, use `kill-entire-line'.
+
+When calling from a program, nil means \"no arg\",
+a number counts as a prefix arg."
+  (interactive "*P")
+  (kill-line-1 arg nil (interactive-p)))
 
 ;; XEmacs
 (defun backward-kill-line nil
@@ -1726,24 +1736,24 @@ of selection using any shifted motion commands to not be recorded.
 
 The value `yank' affects all yank-like commands, as well as just `yank'."
   :type '(repeat (choice (const :tag "shifted motion commands"
-				'shifted-motion-commands)
+				shifted-motion-commands)
 			 (const :tag "functions that select text"
 				:inline t
-				'(mark-beginning-of-buffer
-				  mark-bob
-				  mark-defun
-				  mark-end-of-buffer
-				  mark-end-of-line
-				  mark-end-of-sentence
-				  mark-eob
-				  mark-marker
-				  mark-page
-				  mark-paragraph
-				  mark-sexp
-				  mark-whole-buffer
-				  mark-word))
+				(mark-beginning-of-buffer
+				 mark-bob
+				 mark-defun
+				 mark-end-of-buffer
+				 mark-end-of-line
+				 mark-end-of-sentence
+				 mark-eob
+				 mark-marker
+				 mark-page
+				 mark-paragraph
+				 mark-sexp
+				 mark-whole-buffer
+				 mark-word))
 			 (const :tag "functions that paste text"
-				'yank)
+				yank)
 			 function))
   :group 'killing)
 
@@ -1920,7 +1930,7 @@ The mark is activated unless DONT-ACTIVATE-REGION is non-nil."
 
 
 (defcustom signal-error-on-buffer-boundary t
-  "*Non-nil value causes XEmacs to beep or signal an error when certain interactive commands would move point past (point-min) or (point-max).
+  "*If Non-nil, beep or signal an error when moving past buffer boundary.
 The commands that honor this variable are
 
 forward-char-command
@@ -1942,33 +1952,122 @@ We think it is an unnecessary and unwanted side-effect."
 
 (defcustom shifted-motion-keys-select-region t
   "*If non-nil, shifted motion keys select text, like in MS Windows.
-See also `unshifted-motion-keys-deselect-region'."
+
+More specifically, if a keystroke that matches one of the key
+specifications in `motion-keys-for-shifted-motion' is pressed along
+with the Shift key, and the command invoked moves the cursor and
+preserves the active region (see `zmacs-region-stays'), the
+intervening text will be added to the active region.
+
+When the region has been enabled or augmented as a result of a shifted
+motion key, an unshifted motion key will normally deselect the region.
+However, if `unshifted-motion-keys-deselect-region' is t, the region
+will remain active, augmented by the characters moved over by this
+motion key.
+
+This functionality is specifically interpreted in terms of keys, and
+*NOT* in terms of particular commands, because that produces the most
+intuitive behavior: `forward-char' will work with shifted motion
+when invoked by `right' but not `C-f', and user-written motion commands
+bound to motion keys will automatically work with shifted motion."
   :type 'boolean
   :group 'editing-basics)
 
 (defcustom unshifted-motion-keys-deselect-region t
   "*If non-nil, unshifted motion keys deselect a shifted-motion region.
-This only occurs after a region has been selected using shifted motion keys
-(not when using the traditional set-mark-then-move method), and has no effect
-if `shifted-motion-keys-select-region' is nil."
+This only occurs after a region has been selected or augmented using
+shifted motion keys (not when using the traditional set-mark-then-move
+method), and has no effect if `shifted-motion-keys-select-region' is
+nil."
   :type 'boolean
+  :group 'editing-basics)
+
+(defcustom motion-keys-for-shifted-motion
+  '(left right up down home end prior next
+	 kp-left kp-right kp-up kp-down kp-home kp-end kp-prior kp-next)
+  "*List of keys considered motion keys for the purpose of shifted selection.
+When one of these keys is pressed along with the Shift key, and the
+command invoked moves the cursor and preserves the active region (see
+`zmacs-region-stays'), the intervening text will be added to the active
+region.  See `shifted-motion-keys-select-region' for more details.
+
+Each entry should be a keysym or a list (MODIFIERS ... KEYSYM),
+i.e. zero or more modifiers followed by a keysym.  When a keysym alone
+is given, a keystroke consisting of that keysym, with or without any
+modifiers, is considered a motion key.  When the list form is given,
+only a keystroke with exactly those modifiers and no others (with the
+exception of the Shift key) is considered a motion key.
+
+NOTE: Currently, the keysym cannot be a non-alphabetic character key
+such as the `=/+' key.  In any case, the shifted-motion paradigm does
+not make much sense with those keys.  The keysym can, however, be an
+alphabetic key without problem, and you can specify the key using
+either a character or a symbol, uppercase or lowercase."
+  :type '(repeat (choice (const :tag "normal cursor-pad (\"gray\") keys"
+				:inline t
+				(left right up down home end prior next))
+			 (const :tag "keypad motion keys"
+				:inline t
+				(kp-left kp-right kp-up kp-down
+					 kp-home kp-end kp-prior kp-next))
+			 (const :tag "alphabetic motion keys"
+				:inline t
+				((control b) (control f)
+				 (control p) (control n)
+				 (control a) (control e)
+				 (control v) (meta v)
+				 (meta b) (meta f)
+				 (meta a) (meta e)
+				 (meta m) ; back-to-indentation
+				 (meta r) ; move-to-window-line
+				 (meta control b) (meta control f)
+				 (meta control p) (meta control n)
+				 (meta control a) (meta control e)
+				 (meta control d) ;; down-list
+				 (meta control u) ;; backward-up-list
+				 ))
+			 symbol))
   :group 'editing-basics)
 
 (defun handle-pre-motion-command-current-command-is-motion ()
   (and (key-press-event-p last-input-event)
-  (memq (event-key last-input-event)
-	'(left right up down home end prior next
-	       kp-left kp-right kp-up kp-down
-	       kp-home kp-end kp-prior kp-next))))
+       (let ((key (event-key last-input-event))
+	     (mods (delq 'shift (event-modifiers last-input-event))))
+	 ;(princ (format "key: %s mods: %s\n" key mods) 'external-debugging-output)
+	 (catch 'handle-pre-motion-command-current-command-is-motion
+	   (flet ((keysyms-equal (a b)
+		    (if (characterp a)
+			(setq a (intern (char-to-string (downcase a)))))
+		    (if (characterp b)
+			(setq b (intern (char-to-string (downcase b)))))
+		    (eq a b)))
+	     (mapc #'(lambda (keysym)
+		       (when (if (listp keysym)
+				 (and (equal mods (butlast keysym))
+				      (keysyms-equal key (car (last keysym))))
+			       (keysyms-equal key keysym))
+			 (throw
+			  'handle-pre-motion-command-current-command-is-motion
+			  t)))
+		   motion-keys-for-shifted-motion)
+	     nil)))))
 
 (defun handle-pre-motion-command ()
-  (if
-      (and
+  (if (and
        (handle-pre-motion-command-current-command-is-motion)
        zmacs-regions
        shifted-motion-keys-select-region
        (not (region-active-p))
-       (memq 'shift (event-modifiers last-input-event)))
+       ;; Special-case alphabetic keysyms, because the `shift'
+       ;; modifier does not appear on them. (Unfortunately, we have no
+       ;; way of determining Shift-key status on non-alphabetic ASCII
+       ;; keysyms.  However, in this case, using Shift will invoke a
+       ;; separate command from the non-shifted version, so the
+       ;; "shifted motion" paradigm makes no sense.)
+       (or (memq 'shift (event-modifiers last-input-event))
+	   (let ((key (event-key last-input-event)))
+	     (and (characterp key)
+		  (not (eq key (downcase key)))))))
       (let ((in-shifted-motion-command t))
 	(push-mark nil nil t))))
 
@@ -1978,7 +2077,12 @@ if `shifted-motion-keys-select-region' is nil."
        (handle-pre-motion-command-current-command-is-motion)
        zmacs-regions
        (region-active-p))
-      (cond ((memq 'shift (event-modifiers last-input-event))
+      ;; Special-case alphabetic keysyms, because the `shift'
+      ;; modifier does not appear on them.  See above.
+      (cond ((or (memq 'shift (event-modifiers last-input-event))
+		 (let ((key (event-key last-input-event)))
+		   (and (characterp key)
+			(not (eq key (downcase key))))))
 	     (if shifted-motion-keys-select-region
 		 (putf this-command-properties 'shifted-motion-command t))
 	     (setq zmacs-region-stays t))
@@ -1993,7 +2097,12 @@ if `shifted-motion-keys-select-region' is nil."
 On attempt to pass end of buffer, stop and signal `end-of-buffer'.
 On attempt to pass beginning of buffer, stop and signal `beginning-of-buffer'.
 Error signaling is suppressed if `signal-error-on-buffer-boundary'
-is nil.  If BUFFER is nil, the current buffer is assumed."
+is nil.  If BUFFER is nil, the current buffer is assumed.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details."
   (interactive "_p")
   (if signal-error-on-buffer-boundary
       (forward-char arg buffer)
@@ -2007,7 +2116,12 @@ is nil.  If BUFFER is nil, the current buffer is assumed."
 On attempt to pass end of buffer, stop and signal `end-of-buffer'.
 On attempt to pass beginning of buffer, stop and signal `beginning-of-buffer'.
 Error signaling is suppressed if `signal-error-on-buffer-boundary'
-is nil.  If BUFFER is nil, the current buffer is assumed."
+is nil.  If BUFFER is nil, the current buffer is assumed.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details."
   (interactive "_p")
   (if signal-error-on-buffer-boundary
       (backward-char arg buffer)
@@ -2035,6 +2149,11 @@ When calling from a program, supply a number as argument or nil.
 On attempt to scroll past end of buffer, `end-of-buffer' is signaled.
 On attempt to scroll past beginning of buffer, `beginning-of-buffer' is
 signaled.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
 
 If `signal-error-on-buffer-boundary' is nil, attempts to scroll past buffer
 boundaries do not cause an error to be signaled."
@@ -2067,7 +2186,12 @@ On attempt to scroll past beginning of buffer, `beginning-of-buffer' is
 signaled.
 
 If `signal-error-on-buffer-boundary' is nil, attempts to scroll past buffer
-boundaries do not cause an error to be signaled."
+boundaries do not cause an error to be signaled.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details."
   (interactive "_P")
   (if signal-error-on-buffer-boundary
       (scroll-down n)
@@ -2091,6 +2215,11 @@ The command \\[set-goal-column] can be used to create
 a semipermanent goal column to which this command always moves.
 Then it does not try to move vertically.  This goal column is stored
 in `goal-column', which is nil when there is none.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
 
 If you are thinking of using this in a Lisp program, consider
 using `forward-line' instead.  It is usually easier to use
@@ -2123,6 +2252,11 @@ The command \\[set-goal-column] can be used to create
 a semipermanent goal column to which this command always moves.
 Then it does not try to move vertically.
 
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
+
 If you are thinking of using this in a Lisp program, consider using
 `forward-line' with a negative argument instead.  It is usually easier
 to use and more reliable (no dependence on goal column, etc.)."
@@ -2144,14 +2278,24 @@ to use and more reliable (no dependence on goal column, etc.)."
 (defun backward-block-of-lines ()
   "Move backward by one \"block\" of lines.
 The number of lines that make up a block is controlled by
-`block-movement-size', which defaults to 6."
+`block-movement-size', which defaults to 6.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details."
   (interactive "_")
   (forward-line (- block-movement-size)))
 
 (defun forward-block-of-lines ()
   "Move forward by one \"block\" of lines.
 The number of lines that make up a block is controlled by
-`block-movement-size', which defaults to 6."
+`block-movement-size', which defaults to 6.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details."
   (interactive "_")
   (forward-line block-movement-size))
 
@@ -2743,7 +2887,12 @@ not end the comment.  Blank lines do not get comments."
 Normally t is returned, but if an edge of the buffer is reached,
 point is left there and nil is returned.
 
-COUNT defaults to 1, and BUFFER defaults to the current buffer."
+COUNT defaults to 1, and BUFFER defaults to the current buffer.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details."
   (interactive "_p")
   (forward-word (- (or count 1)) buffer))
 

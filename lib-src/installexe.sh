@@ -1,9 +1,10 @@
-#!sh
+#!bash
 
 install_prog=$1
 shift
 
 tstr=""
+
 while [ $# -gt 0 ]
 do
   if [ -f $1.exe ]

@@ -1563,7 +1563,7 @@ boyer_moore (struct buffer *buf, Bufbyte *base_pat, Bytecount len,
      in the pattern.  Others don't matter anyway!  */
   xzero (simple_translate);
   for (i = 0; i < 0400; i++)
-    simple_translate[i] = i;
+    simple_translate[i] = (Bufbyte) i;
   i = 0;
   while (i != infinity)
     {
@@ -1648,7 +1648,7 @@ boyer_moore (struct buffer *buf, Bufbyte *base_pat, Bytecount len,
 
 	  while ((j = TRANSLATE (inverse_trt, j)) != k)
 	    {
-	      simple_translate[j] = k;
+	      simple_translate[j] = (Bufbyte) k;
 	      BM_tab[j] = dirlen - i;
 	    }
 #endif

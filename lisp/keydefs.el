@@ -238,7 +238,8 @@ Keymap for characters following C-c.")
 (define-key global-map '(control meta -) 'negative-argument)
 
 (define-key global-map "\C-k" 'kill-line)
-(define-key global-map '(control K) 'historical-kill-line)
+;will change like this in 21.5.
+;(define-key global-map "\M-k" 'kill-entire-line)
 (define-key global-map "\C-w" 'kill-region)
 (define-key global-map "\M-w" 'kill-ring-save)
 (define-key global-map "\M-\C-w" 'append-next-kill)
@@ -352,6 +353,8 @@ Keymap for characters following C-c.")
 (define-key global-map "\M-a" 'backward-sentence)
 (define-key global-map "\M-e" 'forward-sentence)
 (define-key global-map "\M-k" 'kill-sentence)
+;will change like this in 21.5.
+;(define-key global-map "\M-K" 'kill-sentence)
 ;;(define-key global-map "\C-x\177" 'backward-kill-sentence)
 
 (define-key global-map "\C-x[" 'backward-page)

@@ -4513,6 +4513,11 @@ When calling from a program, supply an integer as argument or nil.
 On attempt to scroll past end of buffer, `end-of-buffer' is signaled.
 On attempt to scroll past beginning of buffer, `beginning-of-buffer' is
 signaled.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
 */
        (count))
 {
@@ -4528,6 +4533,11 @@ When calling from a program, supply a number as argument or nil.
 On attempt to scroll past end of buffer, `end-of-buffer' is signaled.
 On attempt to scroll past beginning of buffer, `beginning-of-buffer' is
 signaled.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
 */
        (count))
 {
@@ -4600,6 +4610,11 @@ showing that buffer, popping the buffer up if necessary.
 DEFUN ("scroll-left", Fscroll_left, 0, 1, "_P", /*
 Scroll selected window display COUNT columns left.
 Default for COUNT is window width minus 2.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
 */
        (count))
 {
@@ -4615,6 +4630,11 @@ Default for COUNT is window width minus 2.
 DEFUN ("scroll-right", Fscroll_right, 0, 1, "_P", /*
 Scroll selected window display COUNT columns right.
 Default for COUNT is window width minus 2.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
 */
        (count))
 {
@@ -6311,6 +6331,9 @@ This is a specifier; use `set-specifier' to change it.
 #ifdef HAVE_TTY
     fb = Fcons (Fcons (list1 (Qtty), make_int (1)), fb);
 #endif
+#ifdef HAVE_GTK
+    fb = Fcons (Fcons (list1 (Qgtk), make_int (3)), fb);
+#endif
 #ifdef HAVE_X_WINDOWS
     fb = Fcons (Fcons (list1 (Qx), make_int (3)), fb);
 #endif
@@ -6344,6 +6367,9 @@ This is a specifier; use `set-specifier' to change it.
     /* #### 3D dividers look great on MS Windows with spacing = 0.
        Should not the same value be the fallback under X? - kkm */
     fb = Fcons (Fcons (list1 (Qx), make_int (2)), fb);
+#endif
+#ifdef HAVE_GTK
+    fb = Fcons (Fcons (list1 (Qgtk), Qzero), fb);
 #endif
 #ifdef HAVE_MS_WINDOWS
     fb = Fcons (Fcons (list1 (Qmswindows), Qzero), fb);

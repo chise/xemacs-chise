@@ -1942,6 +1942,10 @@ complex_vars_of_faces (void)
   {
     Lisp_Object fg_fb = Qnil, bg_fb = Qnil;
 
+#ifdef HAVE_GTK
+    fg_fb = acons (list1 (Qgtk), build_string ("black"), fg_fb);
+    bg_fb = acons (list1 (Qgtk), build_string ("white"), bg_fb);
+#endif
 #ifdef HAVE_X_WINDOWS
     fg_fb = acons (list1 (Qx), build_string ("black"), fg_fb);
     bg_fb = acons (list1 (Qx), build_string ("white"), bg_fb);
@@ -1964,7 +1968,15 @@ complex_vars_of_faces (void)
      support is compiled in. */
   {
     Lisp_Object inst_list = Qnil;
-#ifdef HAVE_X_WINDOWS
+
+#if defined(HAVE_X_WINDOWS) || defined(HAVE_GTK)
+    /* This is kind of ugly because stephen wanted this to be CPP
+    ** identical to the old version, at least for the initial
+    ** checkin
+    **
+    ** WMP March 9, 2001
+    */
+    
     /* The same gory list from x-faces.el.
        (#### Perhaps we should remove the stuff from x-faces.el
        and only depend on this stuff here?  That should work.)
@@ -1989,10 +2001,19 @@ complex_vars_of_faces (void)
     };
     const char **fontptr;
 
+#ifdef HAVE_X_WINDOWS
     for (fontptr = fonts + countof(fonts) - 1; fontptr >= fonts; fontptr--)
       inst_list = Fcons (Fcons (list1 (Qx), build_string (*fontptr)),
 			 inst_list);
 #endif /* HAVE_X_WINDOWS */
+
+#ifdef HAVE_GTK
+    for (fontptr = fonts + countof(fonts) - 1; fontptr >= fonts; fontptr--)
+      inst_list = Fcons (Fcons (list1 (Qgtk), build_string (*fontptr)),
+			 inst_list);
+#endif /* HAVE_GTK */
+#endif /* HAVE_X_WINDOWS || HAVE_GTK */
+
 
 #ifdef HAVE_TTY
     inst_list = Fcons (Fcons (list1 (Qtty), build_string ("normal")),
@@ -2001,16 +2022,16 @@ complex_vars_of_faces (void)
 #ifdef HAVE_MS_WINDOWS
     /* Fixedsys does not exist for printers */
     inst_list = Fcons (Fcons (list1 (Qmsprinter),
-		       build_string ("Courier:Regular:10::Western")), inst_list);
+			      build_string ("Courier:Regular:10::Western")), inst_list);
     inst_list = Fcons (Fcons (list1 (Qmsprinter),
-		       build_string ("Courier New:Regular:10::Western")), inst_list);
+			      build_string ("Courier New:Regular:10::Western")), inst_list);
 
     inst_list = Fcons (Fcons (list1 (Qmswindows),
-		       build_string ("Fixedsys:Regular:9::Western")), inst_list);
+			      build_string ("Fixedsys:Regular:9::Western")), inst_list);
     inst_list = Fcons (Fcons (list1 (Qmswindows),
-		       build_string ("Courier:Regular:10::Western")), inst_list);
+			      build_string ("Courier:Regular:10::Western")), inst_list);
     inst_list = Fcons (Fcons (list1 (Qmswindows),
-		       build_string ("Courier New:Regular:10::Western")), inst_list);
+			      build_string ("Courier New:Regular:10::Western")), inst_list);
 #endif /* HAVE_MS_WINDOWS */
     set_specifier_fallback (Fget (Vdefault_face, Qfont, Qnil), inst_list);
   }
@@ -2039,6 +2060,13 @@ complex_vars_of_faces (void)
   {
     Lisp_Object fg_fb = Qnil, bg_fb = Qnil;
 
+#ifdef HAVE_GTK
+    /* We need to put something in there, or error checking gets
+       #%!@#ed up before the styles are set, which override the
+       fallbacks. */
+    fg_fb = acons (list1 (Qgtk), build_string ("black"), fg_fb);
+    bg_fb = acons (list1 (Qgtk), build_string ("Gray80"), bg_fb);
+#endif
 #ifdef HAVE_X_WINDOWS
     fg_fb = acons (list1 (Qx), build_string ("black"), fg_fb);
     bg_fb = acons (list1 (Qx), build_string ("Gray80"), bg_fb);

@@ -641,9 +641,17 @@ main (int argc, char *argv[])
 	}
       else /* !suppress_windows_system */
 	{
-	  if (display)
+	  if (0)
+	    ;
+#ifdef HAVE_X_WINDOWS
+	  else if (display)
 	    sprintf (command, "(gnuserv-edit-files '(x %s) '(",
 		     clean_string (display));
+#endif
+#ifdef HAVE_GTK
+	  else if (display)
+	    strcpy (command, "(gnuserv-edit-files '(gtk nil) '(");
+#endif
 #ifdef HAVE_MS_WINDOWS
 	  else
 	    sprintf (command, "(gnuserv-edit-files '(mswindows nil) '(");

@@ -53,6 +53,11 @@ Boston, MA 02111-1307, USA.  */
 #ifndef WIN32_NATIVE
 /* Some configuration files' definitions for the LOAD_AVE_CVT macro
    (like sparc.h's) use macros like FSCALE, defined here. */
+#ifdef HAVE_GTK
+/* I hate GTK */
+#undef MIN
+#undef MAX
+#endif /* HAVE_GTK */
 #include <sys/param.h>
 #endif
 

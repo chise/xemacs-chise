@@ -422,10 +422,17 @@ struct magic_eval_data
 # include <X11/Xlib.h>
 #endif
 
+#ifdef HAVE_GTK
+#include <gdk/gdk.h>
+#endif
+
 union magic_data
 {
 #ifdef HAVE_TTY
   char		    underlying_tty_event;
+#endif
+#ifdef HAVE_GTK
+  GdkEvent	    underlying_gdk_event;
 #endif
 #ifdef HAVE_X_WINDOWS
   XEvent	    underlying_x_event;

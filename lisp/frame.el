@@ -451,6 +451,7 @@ tty	    A standard TTY connection or terminal.  CONNECTION should be
 	    the Unix command `tty') or nil for XEmacs' standard input
 	    and output (usually the TTY in which XEmacs started).  Only
 	    if support for TTY's was compiled into XEmacs.
+gtk	    A GTK device.
 ns	    A connection to a machine running the NeXTstep windowing
 	    system.  Not currently implemented.
 mswindows   A connection to a machine running Microsoft Windows NT or

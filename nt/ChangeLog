@@ -1,3 +1,21 @@
+2001-03-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.46 "Urania" is released.
+
+2001-03-06  Ben Wing  <ben@xemacs.org>
+
+	* xemacs.mak (DEPEND):
+	Correct line that runs perl to do correct quoting regardless of
+	whether nmake is run from bash.
+
+2001-03-02  Ben Wing  <ben@xemacs.org>
+
+	* config.h: Sadly, we need to disable another warning (C4116,
+	unnamed type definition in parentheses: A structure, union, or
+	enumerated type with no name was defined in a parenthetical
+	expression. The type definition is meaningless.), due to Martin's
+	latest definition of ALIGNOF.
+
 2001-02-23  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.45 "Thelxepeia" is released.

@@ -45,6 +45,23 @@ frame-tty.o: $(LISP_H) conslots.h console-tty.h console.h device.h events.h fram
 objects-tty.o: $(LISP_H) conslots.h console-tty.h console.h device.h insdel.h mule-charset.h objects-tty.h objects.h specifier.h syssignal.h systty.h
 redisplay-tty.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-tty.h console.h device.h events.h faces.h frame.h frameslots.h glyphs.h gui.h lstream.h mule-charset.h objects-tty.h objects.h redisplay.h scrollbar.h specifier.h sysdep.h syssignal.h systime.h systty.h toolbar.h window.h winslots.h
 #endif
+#if defined(HAVE_GTK)
+console-gtk.o: $(LISP_H) conslots.h console-gtk.h console.h process.h redisplay.h
+device-gtk.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-gtk.h console.h device.h elhash.h events.h faces.h frame.h frameslots.h gccache-gtk.h glyphs-gtk.h glyphs.h gtk-xemacs.h gui.h mule-charset.h objects-gtk.h objects.h redisplay.h scrollbar.h specifier.h sysdep.h sysfile.h systime.h toolbar.h window.h winslots.h
+dialog-gtk.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h conslots.h console-gtk.h console.h device.h events.h frame.h frameslots.h glyphs.h gui-gtk.h gui.h mule-charset.h opaque.h redisplay.h scrollbar.h specifier.h systime.h toolbar.h window.h winslots.h
+event-gtk.o: $(LISP_H) blocktype.h buffer.h bufslots.h casetab.h chartab.h commands.h conslots.h console-gtk.h console-tty.h console.h device.h dragdrop.h elhash.h events-mod.h events.h file-coding.h frame.h frameslots.h glyphs.h gtk-xemacs.h gui.h lstream.h mule-charset.h objects-gtk.h objects.h offix-types.h offix.h process.h redisplay.h scrollbar.h specifier.h sysproc.h syssignal.h systime.h systty.h toolbar.h window.h winslots.h xintrinsic.h
+frame-gtk.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-gtk.h console.h device.h dragdrop.h events.h extents.h faces.h frame.h frameslots.h glyphs-gtk.h glyphs.h gtk-xemacs.h gui.h mule-charset.h objects-gtk.h objects.h redisplay.h scrollbar-gtk.h scrollbar.h specifier.h sysdll.h systime.h toolbar.h ui-gtk.h window.h winslots.h
+gccache-gtk.o: $(LISP_H) gccache-gtk.h hash.h
+glyphs-gtk.o: $(LISP_H) bitmaps.h buffer.h bufslots.h casetab.h chartab.h conslots.h console-gtk.h console.h device.h faces.h file-coding.h frame.h frameslots.h glyphs-gtk.h glyphs.h gui-gtk.h gui.h imgproc.h insdel.h lstream.h mule-charset.h objects-gtk.h objects.h opaque.h redisplay.h scrollbar.h specifier.h sysdll.h sysfile.h toolbar.h ui-gtk.h window.h winslots.h
+gui-gtk.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-gtk.h console.h device.h frame.h frameslots.h glyphs.h gui-gtk.h gui.h mule-charset.h opaque.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
+menubar-gtk.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h conslots.h console-gtk.h console.h device.h events.h frame.h frameslots.h glyphs.h gui-gtk.h gui.h mule-charset.h opaque.h redisplay.h scrollbar.h specifier.h sysdll.h systime.h toolbar.h ui-gtk.h window.h winslots.h
+objects-gtk.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-gtk.h console.h device.h insdel.h mule-charset.h objects-gtk.h objects.h specifier.h
+redisplay-gtk.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-gtk.h console.h debug.h device.h faces.h file-coding.h frame.h frameslots.h gccache-gtk.h glyphs-gtk.h glyphs.h gui.h gutter.h mule-ccl.h mule-charset.h objects-gtk.h objects.h redisplay.h scrollbar.h specifier.h sysdep.h sysproc.h systime.h toolbar.h window.h winslots.h
+scrollbar-gtk.o: $(LISP_H) conslots.h console-gtk.h console.h device.h frame.h frameslots.h glyphs-gtk.h glyphs.h gui-gtk.h gui.h redisplay.h scrollbar-gtk.h scrollbar.h specifier.h toolbar.h window.h winslots.h
+select-gtk.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-gtk.h console.h device.h events.h frame.h frameslots.h glyphs.h gui.h mule-charset.h opaque.h redisplay.h scrollbar.h select.h specifier.h systime.h toolbar.h window.h winslots.h
+toolbar-gtk.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-gtk.h console.h device.h faces.h frame.h frameslots.h gccache-gtk.h glyphs-gtk.h glyphs.h gtk-xemacs.h gui.h mule-charset.h objects-gtk.h objects.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
+ui-gtk.o: $(LISP_H) buffer.h bufslots.h bytecode.h casetab.h chartab.h conslots.h console-gtk.h console.h device.h elhash.h emacs-marshals.c emacs-widget-accessors.c events.h faces.h glade.c glyphs-gtk.h glyphs.h gtk-glue.c gui-gtk.h gui.h hash.h mule-charset.h objects-gtk.h objects.h redisplay.h scrollbar.h specifier.h sysdll.h systime.h ui-byhand.c ui-gtk.h window.h winslots.h
+#endif
 #if defined(HAVE_DATABASE)
 database.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h database.h mule-charset.h sysfile.h
 #endif
@@ -98,6 +115,8 @@ ecrt0.o: config.h
 editfns.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h conslots.h console.h device.h events.h extents.h frame.h frameslots.h glyphs.h gui.h insdel.h line-number.h mule-charset.h redisplay.h scrollbar.h specifier.h sysdep.h sysfile.h syspwd.h systime.h toolbar.h window.h winslots.h
 eldap.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h eldap.h mule-charset.h opaque.h sysdep.h
 elhash.o: $(LISP_H) bytecode.h elhash.h
+emacs-marshals.o: hash.h
+emacs-widget-accessors.o: 
 emacs.o: $(LISP_H) backtrace.h buffer.h bufslots.h casetab.h chartab.h commands.h conslots.h console.h device.h dumper.h frame.h frameslots.h glyphs.h gui.h mule-charset.h nt.h paths.h process.h redisplay.h scrollbar.h specifier.h sysdep.h sysdll.h sysfile.h syssignal.h systime.h systty.h syswindows.h toolbar.h window.h winslots.h
 emodules.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console.h device.h emodules.h file-coding.h frame.h frameslots.h glyphs.h gui.h insdel.h lstream.h mule-charset.h redisplay.h scrollbar.h specifier.h sysdep.h sysdll.h toolbar.h window.h winslots.h
 esd.o: $(LISP_H) miscplay.h
@@ -105,7 +124,7 @@ eval.o: $(LISP_H) backtrace.h buffer.h bufslots.h bytecode.h casetab.h chartab.h
 event-Xt.o: $(LISP_H) $(LWLIB_SRCDIR)/lwlib.h Emacs.ad.h EmacsFrame.h blocktype.h buffer.h bufslots.h casetab.h chartab.h conslots.h console-tty.h console-x.h console.h device.h dragdrop.h elhash.h events-mod.h events.h file-coding.h frame.h frameslots.h glyphs.h gui.h lstream.h mule-charset.h objects-x.h objects.h offix-types.h offix.h process.h redisplay.h scrollbar.h specifier.h sysproc.h syssignal.h systime.h systty.h toolbar.h window.h winslots.h xintrinsic.h xintrinsicp.h
 event-stream.o: $(LISP_H) blocktype.h buffer.h bufslots.h casetab.h chartab.h commands.h conslots.h console.h device.h elhash.h events-mod.h events.h file-coding.h frame.h frameslots.h glyphs.h gui.h insdel.h keymap.h lstream.h macros.h menubar.h mule-charset.h process.h redisplay.h scrollbar.h specifier.h sysdep.h sysfile.h syssignal.h systime.h toolbar.h window.h winslots.h
 event-unixoid.o: $(LISP_H) conslots.h console-stream.h console-tty.h console.h device.h events.h lstream.h mule-charset.h process.h sysdep.h sysfile.h sysproc.h syssignal.h systime.h systty.h
-events.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-tty.h console-x.h console.h device.h events-mod.h events.h extents.h frame.h frameslots.h glyphs.h gui.h keymap.h mule-charset.h redisplay.h scrollbar.h specifier.h syssignal.h systime.h systty.h toolbar.h window.h winslots.h xintrinsic.h
+events.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-gtk.h console-tty.h console-x.h console.h device.h events-mod.h events.h extents.h frame.h frameslots.h glyphs.h gui.h keymap.h mule-charset.h redisplay.h scrollbar.h specifier.h syssignal.h systime.h systty.h toolbar.h window.h winslots.h xintrinsic.h
 extents.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console.h debug.h device.h elhash.h extents.h faces.h frame.h frameslots.h glyphs.h gui.h gutter.h insdel.h keymap.h mule-charset.h opaque.h process.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
 faces.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console.h device.h elhash.h extents.h faces.h frame.h frameslots.h glyphs.h gui.h mule-charset.h objects.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
 file-coding.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h elhash.h file-coding.h insdel.h lstream.h mule-ccl.h mule-charset.h opaque.h
@@ -120,11 +139,14 @@ free-hook.o: $(LISP_H) hash.h
 general.o: $(LISP_H)
 getloadavg.o: $(LISP_H) sysfile.h
 gif_io.o: config.h gifrlib.h sysfile.h
+glade.o: bytecode.h
 glyphs-eimage.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console.h device.h faces.h file-coding.h frame.h frameslots.h gifrlib.h glyphs.h gui.h lstream.h mule-charset.h objects.h opaque.h redisplay.h scrollbar.h specifier.h sysfile.h toolbar.h window.h winslots.h
 glyphs-widget.o: $(LISP_H) buffer.h bufslots.h bytecode.h casetab.h chartab.h conslots.h console.h device.h faces.h frame.h frameslots.h glyphs.h gui.h insdel.h lstream.h mule-charset.h objects.h opaque.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
 glyphs.o: $(LISP_H) blocktype.h buffer.h bufslots.h casetab.h chartab.h conslots.h console.h device.h elhash.h faces.h frame.h frameslots.h glyphs.h gui.h insdel.h mule-charset.h objects.h opaque.h rangetab.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
 gmalloc.o: config.h getpagesize.h
 gpmevent.o: $(LISP_H) commands.h conslots.h console-tty.h console.h device.h events-mod.h events.h gpmevent.h lstream.h mule-charset.h process.h sysdep.h sysproc.h syssignal.h systime.h systty.h
+gtk-glue.o: 
+gtk-xemacs.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-gtk.h console.h device.h faces.h frame.h frameslots.h glyphs.h gtk-xemacs.h gui.h mule-charset.h objects-gtk.h objects.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
 gui.o: $(LISP_H) buffer.h bufslots.h bytecode.h casetab.h chartab.h elhash.h gui.h mule-charset.h
 gutter.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console.h device.h faces.h frame.h frameslots.h glyphs.h gui.h gutter.h mule-charset.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
 hash.o: $(LISP_H) hash.h
@@ -132,7 +154,7 @@ hftctl.o: $(LISP_H)
 hpplay.o: $(LISP_H) nativesound.h
 imgproc.o: $(LISP_H) imgproc.h
 indent.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console.h device.h extents.h faces.h frame.h frameslots.h glyphs.h gui.h insdel.h mule-charset.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
-inline.o: $(LISP_H) $(LWLIB_SRCDIR)/lwlib.h buffer.h bufslots.h bytecode.h casetab.h chartab.h conslots.h console-msw.h console.h database.h device.h eldap.h elhash.h events.h extents.h faces.h file-coding.h frame.h frameslots.h glyphs-x.h glyphs.h gui-x.h gui.h keymap.h lstream.h mule-charset.h objects.h opaque.h postgresql.h process.h rangetab.h redisplay.h scrollbar.h specifier.h syntax.h syscommctrl.h systime.h syswindows.h toolbar.h tooltalk.h window.h winslots.h xintrinsic.h
+inline.o: $(LISP_H) $(LWLIB_SRCDIR)/lwlib.h buffer.h bufslots.h bytecode.h casetab.h chartab.h conslots.h console-gtk.h console-msw.h console.h database.h device.h eldap.h elhash.h events.h extents.h faces.h file-coding.h frame.h frameslots.h glyphs-x.h glyphs.h gui-x.h gui.h keymap.h lstream.h mule-charset.h objects.h opaque.h postgresql.h process.h rangetab.h redisplay.h scrollbar.h specifier.h syntax.h syscommctrl.h sysdll.h systime.h syswindows.h toolbar.h tooltalk.h ui-gtk.h window.h winslots.h xintrinsic.h
 input-method-motif.o: $(LISP_H) EmacsFrame.h conslots.h console-x.h console.h device.h frame.h frameslots.h glyphs.h gui.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h xintrinsic.h
 input-method-xlib.o: $(LISP_H) EmacsFrame.h buffer.h bufslots.h casetab.h chartab.h conslots.h console-x.h console.h device.h events.h frame.h frameslots.h glyphs.h gui.h mule-charset.h redisplay.h scrollbar.h specifier.h systime.h toolbar.h window.h winslots.h xintrinsic.h
 insdel.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console.h device.h extents.h frame.h frameslots.h glyphs.h gui.h insdel.h line-number.h lstream.h mule-charset.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
@@ -152,6 +174,7 @@ menubar.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console.
 minibuf.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h conslots.h console-stream.h console.h device.h events.h frame.h frameslots.h glyphs.h gui.h insdel.h mule-charset.h redisplay.h scrollbar.h specifier.h systime.h toolbar.h window.h winslots.h
 miscplay.o: $(LISP_H) miscplay.h sysfile.h syssignal.h
 nas.o: $(LISP_H) sysdep.h syssignal.h
+native-gtk-toolbar.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-gtk.h console.h device.h faces.h frame.h frameslots.h glyphs-gtk.h glyphs.h gui.h mule-charset.h objects-gtk.h objects.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
 nt.o: $(LISP_H) ndir.h nt.h ntheap.h sysdir.h sysfile.h sysproc.h syspwd.h syssignal.h systime.h syswindows.h
 ntheap.o: $(LISP_H) ntheap.h syswindows.h
 ntplay.o: $(LISP_H) nativesound.h nt.h sysfile.h syswindows.h
@@ -196,6 +219,7 @@ tests.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h lstream.h mule-charse
 toolbar.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console.h device.h frame.h frameslots.h glyphs.h gui.h mule-charset.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
 tooltalk.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h elhash.h mule-charset.h process.h syssignal.h tooltalk.h
 tparam.o: config.h
+ui-byhand.o: gui.h
 undo.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h extents.h mule-charset.h
 unexaix.o: $(LISP_H) getpagesize.h
 unexalpha.o: config.h

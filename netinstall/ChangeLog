@@ -1,3 +1,15 @@
+2001-03-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.46 "Urania" is released.
+
+2001-03-01  Andy Piper  <andy@xemacs.org>
+
+	* desktop.cc (find_xemacs_exe_name): support 21.1 and 21.2 series.
+
+	* iniparse.c: remove.
+
+	* inilex.c: remove
+
 2001-02-23  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.45 "Thelxepeia" is released.
@@ -198,6 +210,3 @@
 2000-11-12  Andy Piper  <andy@xemacs.org>
 
 	* all: port from cygwin setup.
-
-%%% $Id: ChangeLog,v 1.1.2.17 2001/02/08 07:20:42 martinb Exp $
-$Revision: 1.1.2.17 $
