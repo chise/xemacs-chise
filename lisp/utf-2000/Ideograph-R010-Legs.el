@@ -239,8 +239,7 @@
     (=hanziku-1		. #xDCE3)	; &I-HZK01-DCE3;
     ))
 (define-char
-  '((=>daikanwa		. 01345)	; &GT-01746;
-    (ideographic-radical . 10)	; ⼉
+  '((ideographic-radical . 10)	; ⼉
     (sound@ja/kun	"mi-t+iru" "mi-ta+s5" "a-t+eru")
     (sound@ja/kun/name	"mituru" "mitu")
     (sound@ja/on	"zyuu")
