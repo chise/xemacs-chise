@@ -547,6 +547,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (korean-ksc5601	. #x212D)	; ø»ˆš˜
+    (chinese-cns11643-1 . #x2244)	; ø»‘„
+    (chinese-big5	. #xA1E3)	; øºŸ
     (ucs		. #x223C)	; âˆ¼
     ))
 (define-char
@@ -855,7 +857,6 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5	. #xA1DD)	; øºŸœ»
     (ucs		. #x2263)	; â‰£
     ))
 (define-char
