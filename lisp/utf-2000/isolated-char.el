@@ -176,12 +176,10 @@
   (insert-file-contents "../etc/char-data/GT-RS.txt")
     (goto-char (point-min))
     (let (gt-code radical strokes plane code)
-      (while (re-search-forward "\\([0-9]+\\),\\([0-9]+\\)?,\\([0-9]+\\)?,GT\\([0-9]+\\),....,\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" nil t)
+      (while (re-search-forward "\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),GT\\([0-9]+\\),....,\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" nil t)
 	(setq gt-code (string-to-int (match-string 1))
 	      plane (string-to-int (match-string 4))
 	      code (string-to-int (match-string 5) 16))
-	(put-char-attribute (decode-builtin-char '=gt gt-code)
-			    '=gt gt-code)
 	(put-char-attribute (decode-builtin-char '=gt gt-code)
 			    (intern (format "=gt-pj-%d" plane))
 			    code)
@@ -209,30 +207,30 @@
 			   'japanese-jisx0208))
       )))
 
-;; (define-char
-;;   '((=gt-pj-4   . #x3844)
-;;     (=gt        . 19655)
-;;     ))
-;; (define-char
-;;   '((=gt-pj-4   . #x3845)
-;;     (=gt        . 19656)
-;;     ))
-;; (define-char
-;;   '((=gt-pj-9   . #x4D7B)
-;;     (=gt        . 19861)
-;;     ))
-;; (define-char
-;;   '((=gt-pj-4   . #x493C)
-;;     (=gt        . 21862)
-;;     ))
-;; (define-char
-;;   '((=gt-pj-4   . #x6D51)
-;;     (=gt        . 26606)
-;;     ))
-;; (define-char
-;;   '((=gt-pj-5   . #x4579)
-;;     (=gt        . 30254)
-;;     ))
+(define-char
+  '((=gt-pj-4	. #x3844)
+    (=gt	. 19655)
+    ))
+(define-char
+  '((=gt-pj-4	. #x3845)
+    (=gt	. 19656)
+    ))
+(define-char
+  '((=gt-pj-9	. #x4D7B)
+    (=gt	. 19861)
+    ))
+(define-char
+  '((=gt-pj-4	. #x493C)
+    (=gt	. 21862)
+    ))
+(define-char
+  '((=gt-pj-4	. #x6D51)
+    (=gt	. 26606)
+    ))
+(define-char
+  '((=gt-pj-5	. #x4579)
+    (=gt	. 30254)
+    ))
 (define-char
   '((=gt-pj-11 . #x5277)
     (=gt	. 40268)

@@ -2,8 +2,8 @@
 emacs_is_beta=
 emacs_major_version=21
 emacs_minor_version=4
-emacs_beta_version=12
-xemacs_codename="Portable Code"
+emacs_beta_version=11
+xemacs_codename="Native Windows TTY Support"
 emacs_kit_version=
 infodock_major_version=4
 infodock_minor_version=0

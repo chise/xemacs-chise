@@ -896,12 +896,10 @@ xm_update_one_widget (widget_instance* instance, Widget widget,
       xm_update_scrollbar (instance, widget, val);
     }
 #endif
-#ifdef LWLIB_WIDGETS_MOTIF
   else if (class == xmScaleWidgetClass)
     {
       xm_update_progress (instance, widget, val);
     }
-#endif
   /* Lastly update our global arg values. */
   if (val->args && val->args->nargs)
     XtSetValues (widget, val->args->args, val->args->nargs);

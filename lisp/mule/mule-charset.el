@@ -280,6 +280,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  japanese-jisx0208
 	  =jis-x0208-1990
 	  japanese-jisx0212
+	  =jis-x0213-1-2000
+	  =jis-x0213-2-2000
 	  japanese-jisx0208-1978
 	  chinese-gb2312
 	  korean-ksc5601
@@ -290,8 +292,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-cns11643-5
 	  chinese-cns11643-6
 	  chinese-cns11643-7
-	  =jis-x0213-1-2000
-	  =jis-x0213-2-2000
 	  ;; chinese-gb12345
 	  chinese-isoir165
 	  katakana-jisx0201
@@ -306,10 +306,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  arabic-digit
 	  arabic-1-column
 	  arabic-2-column
-	  =big5-cdp
-	  chinese-big5-eten-a
-	  chinese-big5-eten-b
-	  chinese-big5
 	  =gt-pj-1
 	  =gt-pj-2
 	  =gt-pj-3
@@ -325,6 +321,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =gt-pj-k2
 	  ideograph-daikanwa-2
 	  ideograph-daikanwa
+	  =big5-cdp
 	  =hanziku-1
 	  =hanziku-2
 	  =hanziku-3
@@ -338,6 +335,9 @@ DESCRIPTION (string) is the description string of the charset."
 	  =hanziku-11
 	  =hanziku-12
 	  =cbeta
+	  chinese-big5-eten-a
+	  chinese-big5-eten-b
+	  chinese-big5
 	  ucs-bmp
 	  =jef-china3
 	  arabic-iso8859-6
