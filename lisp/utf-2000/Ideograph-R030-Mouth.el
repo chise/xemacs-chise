@@ -16706,7 +16706,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x81FF)	; &UU+81FF;
+       ((=ucs@unicode	    . #x81FF)	; &B-D068;
 	))
       (=big5		  . #xD86C)	; &M-03968;
       (=daikanwa	  . 03968)	; &I-M-03968;

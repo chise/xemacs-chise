@@ -16149,7 +16149,7 @@
 	)
        ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=ucs@unicode	    . #x81FF)	; &UU+81FF;
+       ((=ucs@unicode	    . #x81FF)	; &B-D068;
 	))
       (=big5		  . #xD458)	; &M-00863;
       (=daikanwa	  . 00863)	; &I-M-00863;

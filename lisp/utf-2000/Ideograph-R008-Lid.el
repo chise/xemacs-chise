@@ -3295,7 +3295,7 @@
 	)
        ((=jis-x0208	    . #x5035)	; &GT-00376; [48-21]
 	)
-       ((=ucs@unicode	    . #x820B)	; &UU+820B;
+       ((=ucs@unicode	    . #x820B)	; &B-F4B5;
 	))
       (shinjigen-2	  . 112)
       (=jis-x0212	  . #x3042)	; &M-00342; [16-34]
@@ -3311,7 +3311,7 @@
        ((=gb2312	    . #x596F)	; &GT-00375; [57-79]
 	(=daikanwa	    . 00286)	; &I-M-00286;
 	)
-       ((=ucs@unicode	    . #x820B)	; &UU+820B;
+       ((=ucs@unicode	    . #x820B)	; &B-F4B5;
 	))
       (=cns11643-2	  . #x6D44)	; &C2-6D44; [77-36]
       (=ucs@unicode	  . #x4EB9)	; &C2-6D44;
