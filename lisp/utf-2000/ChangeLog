@@ -113,11 +113,11 @@
 2004-11-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u000A0-Latin-1-Supplement.el: In each *fullwidth* variant:
-	- Use `<-denotational' instead of `=>ucs'
-	- Omit features defined in the mother
-	- Use `=ucs@jis/fw' instead of `=ucs@jis' if the character has
-	`=jis-x0208' or `=jis-x0208@1990' feature or it is a circled
-	character.
+	- Use `<-denotational' instead of `=>ucs'.
+	- Omit features defined in the mother.
+	- Use `=ucs@jis/fw' instead of `=ucs@jis' except if the character
+	  has `=jis-x0208' or `=jis-x0208@1990' feature or it is a circled
+	  character.
 	In each ucs character:
 	- Omit `->fullwidth' for non-UCS objects.
 
