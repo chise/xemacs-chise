@@ -43,6 +43,37 @@
     (=daikanwa		. 28427)	; &I-M-28427;
     ))
 (define-char
+  '((=>ucs		. #x2EB6)	; ⺶
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x7F8A)	; 羊
+      ))
+    (=gt-k		. 01701)	; &GT-K01701;
+    (=gt-pj-k1		. #x3443)	; &GT-K01701; [20-35]
+    ))
+(define-char
+  '((=>ucs		. #x2EB6)	; ⺶
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x7F8A)	; 羊
+      ))
+    (=big5-cdp		. #x8970)	; &CDP-8970;
+    ))
+(define-char
+  '((=>ucs		. #x2EB6)	; ⺶
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x7F8A)	; 羊
+      ))
+    (=big5-cdp		. #x8CCC)	; &CDP-8CCC;
+    ))
+(define-char
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
