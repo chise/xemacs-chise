@@ -1,5 +1,17 @@
 2004-04-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R016-Table.el (U+51E1): Use `->subsumptive'.
+	(GT-K00368): Use `=>daikanwa' instead of `morohashi-daikanwa'.
+	(GT-K00369): Likewise.
+
+	* Ideograph-R009-Man.el (U+4EEE): Separate all CCS features.
+	(J0-323E): Use `<-denotational' for U+4EEE.
+	(H1-BD6F): Likewise.
+	(M-00703): Moved into U+4FDE.
+	(U+4FDE): Use `->subsumptive'.
+	(C1-4F7E): Moved into U+4FDE.
+	(B-AB5C): Likewise.
+
 	* Ideograph-R020-Wrap.el (JSP-337B): Moved into U+5300; use
 	`<-vulgar*sources' instead of char-ref in `<-vulgar'.
 	(U+5300): Use `->subsumptive'.
