@@ -346,7 +346,8 @@
   '((ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
-    (=cns11643-6	. #x454E)	; &M-38200; [37-46]
+    (=ucs		. #x282B4)	; 𨊴
+    (=cns11643-6	. #x454E)	; &I-C6-454E; [37-46]
     (=daikanwa		. 38200)	; &I-M-38200;
     ))
 (define-char
