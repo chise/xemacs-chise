@@ -1,3 +1,35 @@
+2003-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R132-Self.el (JX1-7A58): Unify U+FA5C instead of
+	U+81ED.
+
+	* Ideograph-R112-Stone.el (JX1-7927): Unify U+FA4B instead of
+	U+7891.
+
+	* Ideograph-R066-Rap.el (JX1-7528): Unify U+FA41 instead of
+	U+654F.
+
+	* Ideograph-R061-Heart.el (JX1-7450): Unify U+FA3D instead of
+	U+6094.
+
+	* Ideograph-R032-Earth.el (U+5841): Use
+	`<-simplified-ideograph*sources' instead of char-ref in
+	`<-simplified-ideograph'.
+	(JX1-2F5E): Unify U+FA3A instead of U+58A8.
+
+	* Ideograph-R024-Ten.el (JX1-2E6E): Unify U+FA35 instead of
+	U+5351.
+	(J0-485C): Use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
+	* Ideograph-R009-Man.el: (JX1-2E38); Unify U+FA30 instead of
+	U+4FAE.
+
+2003-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el (JX1-7825): Unify U+FA4A instead of
+	U+7422.
+
 2003-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R172-Short-Tailed-Bird.el (C3-5B55): Separate U+4A04.
