@@ -22,7 +22,7 @@
     (=gt-k		. 00220)	; ý¡„€ƒœ
     (=ucs@gb		. #x5C22)	; ð¯¡µ
     (=ucs@jis		. #x5C22)	; ð¯¡µ
-    (ucs-big5		. #x5C22)	; ð¯¡µ
+    (=ucs@big5		. #x5C22)	; ð¯¡µ
     (=ucs		. #x2F875)	; ð¯¡µ
     ))
 (define-char

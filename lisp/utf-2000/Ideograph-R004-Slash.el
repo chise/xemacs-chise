@@ -485,7 +485,7 @@
     (=gt-k		. 00200)	; ý¡„€ƒˆ
     (=ucs@jis		. #x4E4B)	; ø½Š®†
     (=ucs@ks		. #x4E4B)	; ø½Š®†
-    (ucs-big5		. #x4E4B)	; ø½Š®†
+    (=ucs@big5		. #x4E4B)	; ø½Š®†
     (=gt		. 00166)	; ý¡€€‚¦
     (mojikyo		. 000125)	; ý €€½
     ))
@@ -728,7 +728,7 @@
     (=gt-k		. 00491)	; ý¡„€‡«
     (=ucs@jis		. #x4E4F)	; ø½Š³º
     (=ucs@ks		. #x4E4F)	; ø½Š³º
-    (ucs-big5		. #x4E4F)	; ø½Š³º
+    (=ucs@big5		. #x4E4F)	; ø½Š³º
     (=gt		. 00175)	; ý¡€€‚¯
     ))
 (define-char

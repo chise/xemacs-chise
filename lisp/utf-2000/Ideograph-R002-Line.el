@@ -238,7 +238,7 @@
     (chinese-cns11643-1 . #x4464)	; ø»‘¶¹
     (chinese-big5	. #xA4A5)	; ý¢€Š’¥
     (=ucs@cns		. #x4E30)	; ø»‘¶¹
-    (ucs-big5		. #x4E30)	; ø»‘¶¹
+    (=ucs@big5		. #x4E30)	; ø»‘¶¹
     ))
 (define-char
   '((ideographic-radical . 2)	; â¼

@@ -577,7 +577,7 @@
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2224)	; ø»‘ƒ½
     (chinese-big5	. #xA1C3)	; ý¢€Š‡ƒ
-    (ucs-big5		. #xFFE3)	; ø»‘ƒ½
+    (=ucs@big5		. #xFFE3)	; ø»‘ƒ½
     ))
 (define-char
   '((name		. "UNDERTIE")

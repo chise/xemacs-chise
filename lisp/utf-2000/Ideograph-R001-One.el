@@ -286,7 +286,7 @@
     (ideograph-daikanwa		. 00011)	; ø¸€€‹
     (=gt-k			. 00189)	; ý¡„€‚½
     (=jef-china3		. #x41A5)	; øº„†¥
-    (ucs-big5			. #x4E08)	; ø»‚§«
+    (=ucs@big5			. #x4E08)	; ø»‚§«
     (=gt			. 00018)	; ý¡€€€’
     ))
 (define-char
@@ -544,7 +544,7 @@
      ((=gt-k		  . 00002)	; ý¡„€€‚
       ))
     (chinese-big5	. #xC94F)	; ý¢€Œ¥
-    (ucs-big5		. #x4E0E)	; ý¢€Œ¥
+    (=ucs@big5		. #x4E0E)	; ý¢€Œ¥
     ))
 (define-char
   '((=>ucs		. #x4E0E)	; ä¸Ž
@@ -612,7 +612,7 @@
     (ideograph-daikanwa . 00023)	; ø¸€€—
     (=gt-k		. 00398)	; ý¡„€†Ž
     (=ucs@jis		. #x4E11)	; ø½Šª
-    (ucs-big5		. #x4E11)	; ø½Šª
+    (=ucs@big5		. #x4E11)	; ø½Šª
     (=gt		. 00033)	; ý¡€€€¡
     (mojikyo		. 000023)	; ý €€€—
     ))
