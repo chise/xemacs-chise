@@ -1,3 +1,19 @@
+2004-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (BC-8B48): New character.
+
+	* Ideograph-R030-Mouth.el (U+53E7): Use
+	`->ideographic-variants*sources' instead of char-ref in
+	`->ideographic-variants'; unify GT-04102 and GT-K01162.
+	(U-00020BA0): Unify GT-04135 and GT-K01063.
+
+	* Ideograph-R024-Ten.el (M-02707): Unify B-A562, GT-03469 and
+	GT-K01096.
+	(GT-K01097): New character.
+	(U+534A): Separate B-A562.
+	(GT-K01380): New character.
+	(GT-K01438): New character.
+
 2004-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R001-One.el (U+4E03): Use `->unified'.
