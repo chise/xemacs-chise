@@ -84,7 +84,7 @@
 	       (goto-char (match-end 0))
 	       )
 	      ((looking-at "^JC3-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs 'china3-jef
+	       (setq ccs '=jef-china3
 		     code (string-to-int (match-string 1) 16)
 		     ucs-pat nil
 		     ucs-ccs nil)
