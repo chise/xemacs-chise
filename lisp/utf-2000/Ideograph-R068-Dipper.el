@@ -211,6 +211,7 @@
     (chinese-cns11643-2		. #x3C3F)	; ø»“´¨
     (japanese-jisx0213-1	. #x752A)	; ø»¤Ž
     (ideograph-daikanwa		. 13512)	; ø¸ƒ“ˆ
+    (china3-jef			. #x50DD)	; øº…ƒ
     (ucs			. #x659D)	; æ–
     ))
 (define-char
