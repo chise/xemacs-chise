@@ -233,25 +233,25 @@
 ;;   '((=gt-pj-5   . #x4579)
 ;;     (=gt        . 30254)
 ;;     ))
-(define-char
-  '((=gt-pj-11 . #x5277)
-    (=gt	. 40268)
-    ))
-(define-char
-  '((=gt-pj-1	. #x3F6B)
-    (=gt	. 52230)
-    ))
-(define-char
-  '((=gt-pj-7	. #x5821)
-    (=gt	. 52349)
-    ))
-(define-char
-  '((=gt-pj-9	. #x4C4B)
-    (=gt	. 56364)
-    ))
+;; (define-char
+;;   '((=gt-pj-11 . #x5277)
+;;     (=gt        . 40268)
+;;     ))
+;; (define-char
+;;   '((=gt-pj-1   . #x3F6B)
+;;     (=gt        . 52230)
+;;     ))
+;; (define-char
+;;   '((=gt-pj-7   . #x5821)
+;;     (=gt        . 52349)
+;;     ))
+;; (define-char
+;;   '((=gt-pj-9   . #x4C4B)
+;;     (=gt        . 56364)
+;;     ))
 (define-char
   '((=gt-pj-11	. #x5A40)
-    (=gt	. 60403)
+    (=gt	. 67403)
     ))
 
 ;;; isolated-char.el ends here

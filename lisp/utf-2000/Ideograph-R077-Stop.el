@@ -975,8 +975,9 @@
     (shinjigen-2	. 9882)
     (=ucs		. #x6B6F)	; æ­¯
     (=jis-x0208		. #x3B75)	; ø½Šœ
+    (=gt		. 66384)	; ý¡€
     (=gt-k		. 09061)	; ý¡„‚¥
-    (=gt-pj-1		. #x3B75)	; æ­¯
+    (=gt-pj-1		. #x3B75)	; ý¡€
     (=daikanwa		. 16323)	; ø¸ƒ¿ƒ
     ))
 (define-char
