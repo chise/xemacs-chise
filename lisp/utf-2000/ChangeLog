@@ -1,5 +1,40 @@
 2004-02-25  MORIOKA Tomohiko  <tomo@m17n.org>
 
+	* Ideograph-R136-Oppose.el (M-49571): Moved into U-000243DE.
+	(C7-317A): Likewise.
+
+	* Ideograph-R134-Mortar.el (M-30268): Moved into U-000244DF.
+	(C7-6138): Likewise.
+
+	* Ideograph-R131-Minister.el (C3-2A5C): Unify U+5367, G0-4E54,
+	JX2-2354, M-02808 and H7-EECB instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources'.
+
+	* Ideograph-R108-Dish.el (U-000250B3): Add
+	`ideographic-radical@cns*sources'.
+
+	* Ideograph-R072-Sun.el (U+65F6): Unify JC3-51BA instead of
+	JC3-81C3.
+	(JC3-81C3): Add `->identical' for U+65F6.
+	(U-00023244): Unify C5-3D55 instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}'.
+
+	* Ideograph-R002-Line.el (C5-3D55): Unify U-00023244 instead of
+	using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}'.
+
+	* Ideograph-R015-Ice.el (C7-3679): Unify U-000250B3 and H7-BD6B
+	instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources'.
+
+	* Ideograph-R025-Divination.el (JC3-82B5): Omit features except
+	`->identical'; add `->identical*sources'.
+	(U+5367): Unify C3-2A5C; use
+	`ideographic-{radical|strokes}@{ucs|cns}',
+	`total-strokes@{ucs|cns}' and `ideographic-radical@ucs*sources'.
+
 	* Ideograph-R130-Meat.el (U-00026857): Use `->subsumptive' instead
 	of `->identical' for C7-377E and `->same-ideograph' for M-11349;
 	use `ideographic-{radical|strokes}@{ucs|cns}' and
