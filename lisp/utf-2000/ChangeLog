@@ -1,5 +1,10 @@
 2001-11-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (char-db-insert-char-spec): Modify for new
+	behavior of `charset-iso-final-char'.
+
+2001-11-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* char-db-util.el (ideographic-radicals): Now
 	`charset-iso-final-char' returns nil instead of ?\x00 if a
 	coded-charset does not have a final-byte of ISO/IEC 2022.
