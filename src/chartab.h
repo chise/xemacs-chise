@@ -132,7 +132,7 @@ DECLARE_LRECORD (char_table, Lisp_Char_Table);
 #ifdef MULE
 
 Lisp_Object get_non_ascii_char_table_value (Lisp_Char_Table *ct,
-					    int leading_byte,
+					    Charset_ID leading_byte,
 					    Emchar c);
 
 INLINE_HEADER Lisp_Object
@@ -140,7 +140,7 @@ CHAR_TABLE_NON_ASCII_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch);
 INLINE_HEADER Lisp_Object
 CHAR_TABLE_NON_ASCII_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch)
 {
-  unsigned char lb = CHAR_LEADING_BYTE (ch);
+  Charset_ID lb = CHAR_LEADING_BYTE (ch);
   if (!CHAR_TABLE_ENTRYP ((ct)->level1[lb - MIN_LEADING_BYTE]))
     return (ct)->level1[lb - MIN_LEADING_BYTE];
   else
