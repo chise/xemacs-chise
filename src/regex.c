@@ -3318,8 +3318,12 @@ compile_extended_range (const char **p_ptr, const char *pend, char *translate,
      ranges entirely within the first 256 chars. */
 
   if ((range_start >= 0x100 || range_end >= 0x100)
-      && CHAR_LEADING_BYTE (range_start) !=
-      CHAR_LEADING_BYTE (range_end))
+#ifdef UTF2000
+      && CHAR_CHARSET_ID (range_start) != CHAR_CHARSET_ID (range_end)
+#else
+      && CHAR_LEADING_BYTE (range_start) != CHAR_LEADING_BYTE (range_end)
+#endif
+      )
     return REG_ERANGESPAN;
 
   /* As advertised, translations only work over the 0 - 0x7F range.
@@ -3605,11 +3609,13 @@ re_compile_fastmap (struct re_pattern_buffer *bufp)
 	      fastmap[j] = 1;
 	  for (j = 0x80; j < 0xA0; j++)
 	    {
+#ifndef UTF2000
 	      if (LEADING_BYTE_PREFIX_P(j))
 		/* too complicated to calculate this right */
 		fastmap[j] = 1;
 	      else
 		{
+#endif
 		  int multi_p;
 		  Lisp_Object cset;
 
@@ -3621,7 +3627,9 @@ re_compile_fastmap (struct re_pattern_buffer *bufp)
 			  == Sword || multi_p)
 			fastmap[j] = 1;
 		    }
+#ifndef UTF2000
 		}
+#endif
 	    }
 #else /* ! MULE */
 	  for (j = 0; j < (1 << BYTEWIDTH); j++)
@@ -3646,11 +3654,13 @@ re_compile_fastmap (struct re_pattern_buffer *bufp)
 	      fastmap[j] = 1;
 	  for (j = 0x80; j < 0xA0; j++)
 	    {
+#ifndef UTF2000
 	      if (LEADING_BYTE_PREFIX_P(j))
 		/* too complicated to calculate this right */
 		fastmap[j] = 1;
 	      else
 		{
+#endif
 		  int multi_p;
 		  Lisp_Object cset;
 
@@ -3662,7 +3672,9 @@ re_compile_fastmap (struct re_pattern_buffer *bufp)
 			  != Sword || multi_p)
 			fastmap[j] = 1;
 		    }
+#ifndef UTF2000
 		}
+#endif
 	    }
 #else /* ! MULE */
 	  for (j = 0; j < (1 << BYTEWIDTH); j++)

@@ -1,3 +1,26 @@
+1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in: Add new option `--with-text-coding'; define
+	`TEXT_CODING' if it is specified.
+
+1999-08-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in:
+	- Delete `--with-ucs4' option.
+	- Display message about UTF-2000 if "$with_utf_2000" = yes.
+
+1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in:
+	- Add new option `--with-ucs4'; define `CHAR_IS_UCS4' if it is
+	  specified.
+	- Define `CHAR_IS_UCS4' if `--with-utf-2000' is specified.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
+	if it is specified.
+
 2000-02-16  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.29 is released.
@@ -390,6 +413,10 @@
 1999-07-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* etc/HELLO (Thai): Modify for new font.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* etc/TUTORIAL.th: Change code to tis-620.
 
 1999-07-22  SL Baur  <steve@beopen.com>
 

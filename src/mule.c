@@ -114,6 +114,10 @@ vars_of_mule (void)
 
   Fprovide (intern ("mule"));
 
+#ifdef UTF2000
+  Fprovide (intern ("utf-2000"));
+#endif
+
 #ifdef HAVE_EGG
   Fprovide (intern ("egg"));
 #endif

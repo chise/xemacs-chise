@@ -410,10 +410,15 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 			     debug-paths))
       (startup-setup-paths-warning))
 
-    (if (and (not inhibit-autoloads)
-	     lisp-directory)
-	(load (expand-file-name (file-name-sans-extension autoload-file-name)
-				lisp-directory) nil t))
+    (when (and (not inhibit-autoloads)
+	       lisp-directory)
+      (load (expand-file-name (file-name-sans-extension autoload-file-name)
+			      lisp-directory) nil t)
+      (if (featurep 'utf-2000)
+	  (load (expand-file-name
+		 (file-name-sans-extension autoload-file-name)
+		 (expand-file-name "utf-2000" lisp-directory))
+		nil t)))
 
     (if (not inhibit-autoloads)
 	(progn
@@ -975,7 +980,9 @@ Copyright (C) 1985-1999 Free Software Foundation, Inc.
 Copyright (C) 1990-1994 Lucid, Inc.
 Copyright (C) 1993-1997 Sun Microsystems, Inc. All Rights Reserved.
 Copyright (C) 1994-1996 Board of Trustees, University of Illinois
-Copyright (C) 1995-1996 Ben Wing\n"))
+Copyright (C) 1995-1996 Ben Wing
+Copyright (C) 1996-2000 MORIOKA Tomohiko
+"))
 
     ((face (blue bold underline) "\nInformation, on-line help:\n\n")
      "XEmacs comes with plenty of documentation...\n\n"

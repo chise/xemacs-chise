@@ -1,3 +1,12 @@
+1999-11-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* update-elc.sh: Don't ignore lisp/utf-2000/ if utf-2000 is
+	provided.
+
+1999-10-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* update-elc.sh (ignore_dirs): Ignore lisp/utf-2000 subdirectory.
+
 2000-02-16  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.29 is released.

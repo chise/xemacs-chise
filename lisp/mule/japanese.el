@@ -258,7 +258,7 @@
 			       shift_jis iso-2022-jp-2)
 ;;	      (input-method . "japanese")
 	      (features japan-util)
-	      (sample-text . "Japanese ($BF|K\8l(B)	$B$3$s$K$A$O(B, )I∫›∆¡ ")-A
+	      (sample-text . "Japanese ($BF|K\8l(B)	$B$3$s$K$A$O(B, (I:]FAJ(B")
 	      (documentation . t)))
 
 ;;; japanese.el ends here
