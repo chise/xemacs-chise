@@ -1,3 +1,11 @@
+2002-02-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Fput_char_attribute): Use exec-directory instead of
+	data-directory to store database.
+	(Fsave_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+
 2002-02-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (Fsave_charset_mapping_table): New function.
