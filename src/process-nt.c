@@ -1027,10 +1027,18 @@ nt_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object service,
 
  connect_failed:  
   closesocket (s);
-  warn_when_safe(Qstream, Qwarning,
-		 "failure to open network stream to host \"%s\" for service \"%s\"",
-		 XSTRING_DATA (host),
-		 XSTRING_DATA (service));
+  if (INTP (service)) {
+    warn_when_safe(Qstream, Qwarning,
+		   "failure to open network stream to host \"%s\" for service \"%d\"",
+		   XSTRING_DATA (host),
+		   (unsigned short) XINT (service));
+  }
+  else {
+    warn_when_safe(Qstream, Qwarning,
+		   "failure to open network stream to host \"%s\" for service \"%s\"",
+		   XSTRING_DATA (host),
+		   XSTRING_DATA (service));
+  }
   report_file_error ("connection failed", list2 (host, name));
 }
 

@@ -1,6 +1,6 @@
 /* mswindows-specific glyph objects.
    Copyright (C) 1998, 1999 Andy Piper.
-   
+
 This file is part of XEmacs.
 
 XEmacs is free software; you can redistribute it and/or modify it
@@ -63,13 +63,13 @@ DECLARE_IMAGE_INSTANTIATOR_FORMAT (jpeg);
 #endif
 #ifdef HAVE_TIFF
 DECLARE_IMAGE_INSTANTIATOR_FORMAT (tiff);
-#endif  
+#endif
 #ifdef HAVE_PNG
 DECLARE_IMAGE_INSTANTIATOR_FORMAT (png);
-#endif  
+#endif
 #ifdef HAVE_GIF
 DECLARE_IMAGE_INSTANTIATOR_FORMAT (gif);
-#endif  
+#endif
 #ifdef HAVE_XPM
 DEFINE_DEVICE_IIFORMAT (mswindows, xpm);
 #endif
@@ -102,7 +102,7 @@ mswindows_initialize_dibitmap_image_instance (struct Lisp_Image_Instance *ii,
 					     int slices,
 					     enum image_instance_type type);
 static void
-mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image, 
+mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image,
 					  struct frame* f);
 
 COLORREF mswindows_string_to_color (CONST char *name);
@@ -137,7 +137,7 @@ static BITMAPINFO* convert_EImage_to_DIBitmap (Lisp_Object device,
        * structure - unless it has memory / color allocation implications
        * .... */
       bmp_info=xnew_and_zero (BITMAPINFO);
-      
+
       if (!bmp_info)
 	{
 	  return NULL;
@@ -145,7 +145,7 @@ static BITMAPINFO* convert_EImage_to_DIBitmap (Lisp_Object device,
 
       bmp_info->bmiHeader.biBitCount=24; /* just RGB triples for now */
       bmp_info->bmiHeader.biCompression=BI_RGB; /* just RGB triples for now */
-      bmp_info->bmiHeader.biSizeImage=width*height*3; 
+      bmp_info->bmiHeader.biSizeImage=width*height*3;
 
       /* bitmap data needs to be in blue, green, red triples - in that
 	 order, eimage is in RGB format so we need to convert */
@@ -181,7 +181,7 @@ static BITMAPINFO* convert_EImage_to_DIBitmap (Lisp_Object device,
 
       /* use our quantize table to allocate the colors */
       ncolors = qtable->num_active_colors;
-      bmp_info=(BITMAPINFO*)xmalloc_and_zero (sizeof(BITMAPINFOHEADER) + 
+      bmp_info=(BITMAPINFO*)xmalloc_and_zero (sizeof(BITMAPINFOHEADER) +
 					     sizeof(RGBQUAD) * ncolors);
       if (!bmp_info)
 	{
@@ -191,12 +191,12 @@ static BITMAPINFO* convert_EImage_to_DIBitmap (Lisp_Object device,
 
       colortbl=(RGBQUAD*)(((unsigned char*)bmp_info)+sizeof(BITMAPINFOHEADER));
 
-      bmp_info->bmiHeader.biBitCount=8; 
-      bmp_info->bmiHeader.biCompression=BI_RGB; 
+      bmp_info->bmiHeader.biBitCount=8;
+      bmp_info->bmiHeader.biCompression=BI_RGB;
       bmp_info->bmiHeader.biSizeImage=bpline*height;
-      bmp_info->bmiHeader.biClrUsed=ncolors; 
-      bmp_info->bmiHeader.biClrImportant=ncolors; 
-      
+      bmp_info->bmiHeader.biClrUsed=ncolors;
+      bmp_info->bmiHeader.biClrImportant=ncolors;
+
       *bmp_data = (unsigned char *) xmalloc_and_zero (bpline * height);
       *bit_count = bpline * height;
 
@@ -206,7 +206,7 @@ static BITMAPINFO* convert_EImage_to_DIBitmap (Lisp_Object device,
 	  xfree (bmp_info);
 	  return NULL;
 	}
-      
+
       /* build up an RGBQUAD colortable */
       for (i = 0; i < qtable->num_active_colors; i++) {
 	colortbl[i].rgbRed = (BYTE) qtable->rm[i];
@@ -228,14 +228,14 @@ static BITMAPINFO* convert_EImage_to_DIBitmap (Lisp_Object device,
 	}
       }
       xfree (qtable);
-    } 
+    }
   /* fix up the standard stuff */
   bmp_info->bmiHeader.biWidth=width;
   bmp_info->bmiHeader.biHeight=height;
   bmp_info->bmiHeader.biPlanes=1;
   bmp_info->bmiHeader.biSize=sizeof(BITMAPINFOHEADER);
   bmp_info->bmiHeader.biXPelsPerMeter=0; /* unless you know better */
-  bmp_info->bmiHeader.biYPelsPerMeter=0; 
+  bmp_info->bmiHeader.biYPelsPerMeter=0;
 
   return bmp_info;
 }
@@ -273,7 +273,7 @@ mswindows_locate_pixmap_file (Lisp_Object name)
       locate_file (temp, name, Qnil, &found, R_OK);
       UNGCPRO;
     }
-    
+
   return found;
 }
 
@@ -292,7 +292,7 @@ init_image_instance_from_dibitmap (struct Lisp_Image_Instance *ii,
 				   void *bmp_data,
 				   int bmp_bits,
 				   int slices,
-				   Lisp_Object instantiator, 
+				   Lisp_Object instantiator,
 				   int x_hot, int y_hot,
 				   int create_mask)
 {
@@ -311,20 +311,20 @@ init_image_instance_from_dibitmap (struct Lisp_Image_Instance *ii,
     signal_simple_error ("No selected frame on mswindows device", device);
 
   f = XFRAME (DEVICE_SELECTED_FRAME (d));
-  
+
   if (dest_mask & IMAGE_COLOR_PIXMAP_MASK)
     type = IMAGE_COLOR_PIXMAP;
   else if (dest_mask & IMAGE_POINTER_MASK)
     type = IMAGE_POINTER;
-  else 
+  else
     incompatible_image_types (instantiator, dest_mask,
 			      IMAGE_COLOR_PIXMAP_MASK | IMAGE_POINTER_MASK);
   hdc = FRAME_MSWINDOWS_CDC (f);
 
-  bitmap=CreateDIBSection (hdc,  
+  bitmap=CreateDIBSection (hdc,
 			  bmp_info,
 			  DIB_RGB_COLORS,
-			  &bmp_buf, 
+			  &bmp_buf,
 			  0,0);
 
   if (!bitmap || !bmp_buf)
@@ -352,7 +352,7 @@ init_image_instance_from_dibitmap (struct Lisp_Image_Instance *ii,
     {
       mswindows_initialize_image_instance_mask (ii, f);
     }
-  
+
   if (type == IMAGE_POINTER)
     {
       mswindows_initialize_image_instance_icon(ii, TRUE);
@@ -372,12 +372,12 @@ image_instance_add_dibitmap (struct Lisp_Image_Instance *ii,
   struct frame *f = XFRAME (DEVICE_SELECTED_FRAME (d));
   void* bmp_buf=0;
   HDC hdc = FRAME_MSWINDOWS_CDC (f);
-  HBITMAP bitmap = CreateDIBSection (hdc,  
+  HBITMAP bitmap = CreateDIBSection (hdc,
 				     bmp_info,
 				     DIB_RGB_COLORS,
-				     &bmp_buf, 
+				     &bmp_buf,
 				     0,0);
-  
+
   if (!bitmap || !bmp_buf)
     signal_simple_error ("Unable to create bitmap", instantiator);
 
@@ -390,7 +390,7 @@ static void
 mswindows_init_image_instance_from_eimage (struct Lisp_Image_Instance *ii,
 					   int width, int height,
 					   int slices,
-					   unsigned char *eimage, 
+					   unsigned char *eimage,
 					   int dest_mask,
 					   Lisp_Object instantiator,
 					   Lisp_Object domain)
@@ -401,19 +401,19 @@ mswindows_init_image_instance_from_eimage (struct Lisp_Image_Instance *ii,
   int			bmp_bits;
   COLORREF		bkcolor;
   int slice;
-  
+
   if (!DEVICE_MSWINDOWS_P (XDEVICE (device)))
     signal_simple_error ("Not an mswindows device", device);
 
   /* this is a hack but MaskBlt and TransparentBlt are not supported
      on most windows variants */
-  bkcolor = COLOR_INSTANCE_MSWINDOWS_COLOR 
+  bkcolor = COLOR_INSTANCE_MSWINDOWS_COLOR
     (XCOLOR_INSTANCE (FACE_BACKGROUND (Vdefault_face, domain)));
 
   for (slice = 0; slice < slices; slice++)
     {
       /* build a bitmap from the eimage */
-      if (!(bmp_info=convert_EImage_to_DIBitmap (device, width, height, 
+      if (!(bmp_info=convert_EImage_to_DIBitmap (device, width, height,
 						 eimage + (width * height * 3 * slice),
 						 &bmp_bits, &bmp_data)))
 	{
@@ -429,46 +429,46 @@ mswindows_init_image_instance_from_eimage (struct Lisp_Image_Instance *ii,
       else
 	image_instance_add_dibitmap (ii, bmp_info, bmp_data, bmp_bits, slice,
 				     instantiator);
-      
+
       xfree (bmp_info);
       xfree (bmp_data);
     }
 }
 
-static void set_mono_pixel ( unsigned char* bits, 
-			     int bpline, int height, 
-			     int x, int y, int white ) 
-{ 
+static void set_mono_pixel ( unsigned char* bits,
+			     int bpline, int height,
+			     int x, int y, int white )
+{
   int index;
-  unsigned char    bitnum;  
+  unsigned char    bitnum;
   /* Find the byte on which this scanline begins */
-  index = (height - y - 1) * bpline; 
+  index = (height - y - 1) * bpline;
   /* Find the byte containing this pixel */
-  index += (x >> 3); 
+  index += (x >> 3);
   /* Which bit is it? */
-  bitnum = (unsigned char)( 7 - (x % 8) );  
+  bitnum = (unsigned char)( 7 - (x % 8) );
   if( white )         /* Turn it on */
     bits[index] |= (1<<bitnum);
   else         /* Turn it off */
-    bits[index] &= ~(1<<bitnum); 
-} 
+    bits[index] &= ~(1<<bitnum);
+}
 
 static void
-mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image, 
+mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image,
 					  struct frame* f)
 {
   HBITMAP mask;
   HGDIOBJ old = NULL;
   HDC hcdc = FRAME_MSWINDOWS_CDC (f);
   unsigned char* dibits;
-  BITMAPINFO* bmp_info = 
+  BITMAPINFO* bmp_info =
     xmalloc_and_zero (sizeof(BITMAPINFO) + sizeof(RGBQUAD));
   int i, j;
   int height = IMAGE_INSTANCE_PIXMAP_HEIGHT (image);
-  
-  void* and_bits; 
-  int maskbpline = BPLINE (((IMAGE_INSTANCE_PIXMAP_WIDTH (image)+7)/8));
-  int bpline = BPLINE (IMAGE_INSTANCE_PIXMAP_WIDTH (image) * 3); 
+
+  void* and_bits;
+  int maskbpline = BPLINE ((IMAGE_INSTANCE_PIXMAP_WIDTH (image)+7)/8);
+  int bpline = BPLINE (IMAGE_INSTANCE_PIXMAP_WIDTH (image) * 3);
 
   if (!bmp_info)
     return;
@@ -477,11 +477,11 @@ mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image,
   bmp_info->bmiHeader.biHeight = height;
   bmp_info->bmiHeader.biPlanes=1;
   bmp_info->bmiHeader.biSize=sizeof(BITMAPINFOHEADER);
-  bmp_info->bmiHeader.biBitCount=1; 
-  bmp_info->bmiHeader.biCompression=BI_RGB; 
-  bmp_info->bmiHeader.biClrUsed = 2; 
-  bmp_info->bmiHeader.biClrImportant = 2; 
-  bmp_info->bmiHeader.biSizeImage = height * maskbpline; 
+  bmp_info->bmiHeader.biBitCount=1;
+  bmp_info->bmiHeader.biCompression=BI_RGB;
+  bmp_info->bmiHeader.biClrUsed = 2;
+  bmp_info->bmiHeader.biClrImportant = 2;
+  bmp_info->bmiHeader.biSizeImage = height * maskbpline;
   bmp_info->bmiColors[0].rgbRed = 0;
   bmp_info->bmiColors[0].rgbGreen = 0;
   bmp_info->bmiColors[0].rgbBlue = 0;
@@ -490,11 +490,11 @@ mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image,
   bmp_info->bmiColors[1].rgbGreen = 255;
   bmp_info->bmiColors[1].rgbBlue = 255;
   bmp_info->bmiColors[0].rgbReserved = 0;
-    
-  if (!(mask = CreateDIBSection (hcdc,  
+
+  if (!(mask = CreateDIBSection (hcdc,
 				 bmp_info,
 				 DIB_RGB_COLORS,
-				 &and_bits, 
+				 &and_bits,
 				 0,0)))
     {
       xfree (bmp_info);
@@ -509,10 +509,10 @@ mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image,
   bmp_info->bmiHeader.biHeight = -height;
   bmp_info->bmiHeader.biPlanes=1;
   bmp_info->bmiHeader.biSize=sizeof(BITMAPINFOHEADER);
-  bmp_info->bmiHeader.biBitCount=24; 
-  bmp_info->bmiHeader.biCompression=BI_RGB; 
-  bmp_info->bmiHeader.biClrUsed = 0; 
-  bmp_info->bmiHeader.biClrImportant = 0; 
+  bmp_info->bmiHeader.biBitCount=24;
+  bmp_info->bmiHeader.biCompression=BI_RGB;
+  bmp_info->bmiHeader.biClrUsed = 0;
+  bmp_info->bmiHeader.biClrImportant = 0;
   bmp_info->bmiHeader.biSizeImage = height * bpline;
 
   dibits = xmalloc_and_zero (bpline * height);
@@ -530,19 +530,19 @@ mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image,
 
   /* now set the colored bits in the mask and transparent ones to
      black in the original */
-  for(i=0; i<IMAGE_INSTANCE_PIXMAP_WIDTH (image); i++)     
-    { 
-      for(j=0; j<height; j++)         
-	{ 
+  for(i=0; i<IMAGE_INSTANCE_PIXMAP_WIDTH (image); i++)
+    {
+      for(j=0; j<height; j++)
+	{
 	  unsigned char* idx = &dibits[j * bpline + i * 3];
 
 	  if( RGB (idx[2], idx[1], idx[0]) == transparent_color )
-	    { 
+	    {
 	      idx[0] = idx[1] = idx[2] = 0;
 	      set_mono_pixel( and_bits, maskbpline, height, i, j, TRUE );
 	    }
-	  else             
-	    { 
+	  else
+	    {
 	      set_mono_pixel( and_bits, maskbpline, height, i, j, FALSE );
             }
 	}
@@ -558,7 +558,7 @@ mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image,
 
   xfree (bmp_info);
   xfree (dibits);
-  
+
   SelectObject(hcdc, old);
 
   IMAGE_INSTANCE_MSWINDOWS_MASK (image) = mask;
@@ -576,7 +576,7 @@ mswindows_initialize_image_instance_icon (struct Lisp_Image_Instance* image,
   x_icon.yHotspot=XINT (IMAGE_INSTANCE_PIXMAP_HOTSPOT_Y (image));
   x_icon.hbmMask=IMAGE_INSTANCE_MSWINDOWS_MASK (image);
   x_icon.hbmColor=IMAGE_INSTANCE_MSWINDOWS_BITMAP (image);
-  
+
   IMAGE_INSTANCE_MSWINDOWS_ICON (image)=
     CreateIconIndirect (&x_icon);
 }
@@ -589,18 +589,18 @@ mswindows_create_resized_bitmap (struct Lisp_Image_Instance* ii,
   HBITMAP newbmp;
   HGDIOBJ old1, old2;
   HDC hcdc = FRAME_MSWINDOWS_CDC (f);
-  HDC hdcDst = CreateCompatibleDC (hcdc);  
-  
-  old1 = SelectObject (hcdc, IMAGE_INSTANCE_MSWINDOWS_BITMAP (ii)); 
-  
+  HDC hdcDst = CreateCompatibleDC (hcdc);
+
+  old1 = SelectObject (hcdc, IMAGE_INSTANCE_MSWINDOWS_BITMAP (ii));
+
   newbmp = CreateCompatibleBitmap (hcdc, newx, newy);
 
   old2 = SelectObject (hdcDst, newbmp);
-  
+
   if (!StretchBlt (hdcDst, 0, 0, newx, newy,
-		   hcdc, 0, 0, 
-		   IMAGE_INSTANCE_PIXMAP_WIDTH (ii), 
-		   IMAGE_INSTANCE_PIXMAP_HEIGHT (ii), 
+		   hcdc, 0, 0,
+		   IMAGE_INSTANCE_PIXMAP_WIDTH (ii),
+		   IMAGE_INSTANCE_PIXMAP_HEIGHT (ii),
 		   SRCCOPY))
     {
       DeleteObject (newbmp);
@@ -625,23 +625,23 @@ mswindows_create_resized_mask (struct Lisp_Image_Instance* ii,
       HBITMAP newmask;
       HGDIOBJ old1, old2;
       HDC hcdc = FRAME_MSWINDOWS_CDC (f);
-      HDC hdcDst = CreateCompatibleDC (hcdc);  
-  
-      old1 = SelectObject (hcdc, IMAGE_INSTANCE_MSWINDOWS_MASK (ii)); 
+      HDC hdcDst = CreateCompatibleDC (hcdc);
+
+      old1 = SelectObject (hcdc, IMAGE_INSTANCE_MSWINDOWS_MASK (ii));
       newmask = CreateCompatibleBitmap(hcdc, newx, newy);
       old2 = SelectObject (hdcDst, newmask);
 
       if (!StretchBlt(hdcDst, 0, 0, newx, newy,
-		      hcdc, 0, 0, 
-		      IMAGE_INSTANCE_PIXMAP_WIDTH (ii), 
-		      IMAGE_INSTANCE_PIXMAP_HEIGHT (ii), 
+		      hcdc, 0, 0,
+		      IMAGE_INSTANCE_PIXMAP_WIDTH (ii),
+		      IMAGE_INSTANCE_PIXMAP_HEIGHT (ii),
 		      SRCCOPY))
 	{
 	  DeleteObject (newmask);
 	  DeleteDC (hdcDst);
 	  return NULL;
 	}
-      
+
       SelectObject (hdcDst, old2);
       SelectObject (hcdc, old1);
 
@@ -663,7 +663,7 @@ mswindows_resize_dibitmap_instance (struct Lisp_Image_Instance* ii,
 
   if (!newbmp)
     return FALSE;
-  
+
   if (IMAGE_INSTANCE_MSWINDOWS_BITMAP (ii))
     DeleteObject (IMAGE_INSTANCE_MSWINDOWS_BITMAP (ii));
   if (IMAGE_INSTANCE_MSWINDOWS_MASK (ii))
@@ -739,7 +739,7 @@ extract_xpm_color_names (Lisp_Object device,
   for (j=0; j<i; j++)
     {
       Lisp_Object cons = XCAR (results);
-      colortbl[j].color = 
+      colortbl[j].color =
 	COLOR_INSTANCE_MSWINDOWS_COLOR (XCOLOR_INSTANCE (XCDR (cons)));
 
       GET_C_STRING_OS_DATA_ALLOCA (XCAR (cons), colortbl[j].name);
@@ -766,7 +766,7 @@ static int xpm_to_eimage (Lisp_Object image, CONST Extbyte *buffer,
   unsigned char* dptr;
   unsigned int* sptr;
   COLORREF color; /* the american spelling virus hits again .. */
-  COLORREF* colortbl; 
+  COLORREF* colortbl;
 
   xzero (xpmimage);
   xzero (xpminfo);
@@ -796,11 +796,11 @@ static int xpm_to_eimage (Lisp_Object image, CONST Extbyte *buffer,
 				    make_int (result), image);
       }
     }
-  
+
   *width = xpmimage.width;
   *height = xpmimage.height;
-  maskbpline = BPLINE (((~7UL & (unsigned long)(*width + 7)) / 8));
-  
+  maskbpline = BPLINE ((~7UL & (unsigned long)(*width + 7)) / 8);
+
   *data = xnew_array_and_zero (unsigned char, *width * *height * 3);
 
   if (!*data)
@@ -831,7 +831,7 @@ static int xpm_to_eimage (Lisp_Object image, CONST Extbyte *buffer,
 	      !strcasecmp (xpmimage.colorTable[i].symbolic,"None"))
 	    {
 	      *transp=TRUE;
-	      colortbl[i]=transparent_color; 
+	      colortbl[i]=transparent_color;
 	      transp_idx=i;
 	      goto label_found_color;
 	    }
@@ -856,7 +856,7 @@ static int xpm_to_eimage (Lisp_Object image, CONST Extbyte *buffer,
       if (!strcasecmp (xpmimage.colorTable[i].c_color,"None"))
 	{
 	  *transp=TRUE;
-	  colortbl[i]=transparent_color; 
+	  colortbl[i]=transparent_color;
 	  transp_idx=i;
 	  goto label_found_color;
 	}
@@ -867,14 +867,14 @@ static int xpm_to_eimage (Lisp_Object image, CONST Extbyte *buffer,
 	    mswindows_string_to_color (xpmimage.colorTable[i].c_color);
 	  goto label_found_color;
 	}
-      
+
     label_no_color:
       xfree (*data);
       xfree (colortbl);
       XpmFreeXpmImage (&xpmimage);
       XpmFreeXpmInfo (&xpminfo);
       return 0;
-      
+
     label_found_color:;
     }
 
@@ -917,7 +917,7 @@ mswindows_xpm_instantiate (Lisp_Object image_instance,
   int			bmp_bits;
   int 			nsymbols=0, transp;
   struct color_symbol*	color_symbols=NULL;
-  
+
   Lisp_Object data = find_keyword_in_vector (instantiator, Q_data);
   Lisp_Object color_symbol_alist = find_keyword_in_vector (instantiator,
 							   Q_color_symbols);
@@ -937,10 +937,10 @@ mswindows_xpm_instantiate (Lisp_Object image_instance,
   if (!xpm_to_eimage (image_instance, bytes, &eimage, &width, &height,
 		      &x_hot, &y_hot, &transp, color_symbols, nsymbols))
     {
-      signal_simple_error ("XPM to EImage conversion failed", 
+      signal_simple_error ("XPM to EImage conversion failed",
 			   image_instance);
     }
-  
+
   if (color_symbols)
     {
       while (nsymbols--)
@@ -949,7 +949,7 @@ mswindows_xpm_instantiate (Lisp_Object image_instance,
 	}
       xfree(color_symbols);
     }
-  
+
   /* build a bitmap from the eimage */
   if (!(bmp_info=convert_EImage_to_DIBitmap (device, width, height, eimage,
 					     &bmp_bits, &bmp_data)))
@@ -1012,11 +1012,11 @@ bmp_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   assert (!NILP (data));
 
   GET_STRING_BINARY_DATA_ALLOCA (data, bytes, len);
-  
+
   /* Then slurp the image into memory, decoding along the way.
      The result is the image in a simple one-byte-per-pixel
      format. */
-  
+
   bmp_file_header=(BITMAPFILEHEADER*)bytes;
   bmp_info = (BITMAPINFO*)(bytes + sizeof(BITMAPFILEHEADER));
   bmp_data = (Extbyte*)bytes + bmp_file_header->bfOffBits;
@@ -1036,9 +1036,9 @@ bmp_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 static void
 mswindows_resource_validate (Lisp_Object instantiator)
 {
-  if ((NILP (find_keyword_in_vector (instantiator, Q_file)) 
+  if ((NILP (find_keyword_in_vector (instantiator, Q_file))
        &&
-       NILP (find_keyword_in_vector (instantiator, Q_resource_id))) 
+       NILP (find_keyword_in_vector (instantiator, Q_resource_id)))
       ||
       NILP (find_keyword_in_vector (instantiator, Q_resource_type)))
     signal_simple_error ("Must supply :file, :resource-id and :resource-type",
@@ -1055,7 +1055,7 @@ mswindows_resource_normalize (Lisp_Object inst, Lisp_Object console_type)
 
   GCPRO2 (file, alist);
 
-  file = potential_pixmap_file_instantiator (inst, Q_file, Q_data, 
+  file = potential_pixmap_file_instantiator (inst, Q_file, Q_data,
 					     console_type);
 
   if (CONSP (file)) /* failure locating filename */
@@ -1086,7 +1086,7 @@ mswindows_resource_possible_dest_types (void)
   return IMAGE_POINTER_MASK | IMAGE_COLOR_PIXMAP_MASK;
 }
 
-typedef struct 
+typedef struct
 {
   char *name;
   int	resource_id;
@@ -1105,7 +1105,7 @@ typedef struct
 #endif
 #endif
 
-static CONST resource_t bitmap_table[] = 
+static CONST resource_t bitmap_table[] =
 {
   /* bitmaps */
   { "close", OBM_CLOSE },
@@ -1137,7 +1137,7 @@ static CONST resource_t bitmap_table[] =
   {0}
 };
 
-static CONST resource_t cursor_table[] = 
+static CONST resource_t cursor_table[] =
 {
   /* cursors */
   { "normal", OCR_NORMAL },
@@ -1156,7 +1156,7 @@ static CONST resource_t cursor_table[] =
   { 0 }
 };
 
-static CONST resource_t icon_table[] = 
+static CONST resource_t icon_table[] =
 {
   /* icons */
   { "sample", OIC_SAMPLE },
@@ -1170,8 +1170,8 @@ static CONST resource_t icon_table[] =
 
 static int resource_name_to_resource (Lisp_Object name, int type)
 {
-  CONST resource_t* res = (type == IMAGE_CURSOR ? cursor_table 
-			   : type == IMAGE_ICON ? icon_table 
+  CONST resource_t* res = (type == IMAGE_CURSOR ? cursor_table
+			   : type == IMAGE_ICON ? icon_table
 			   : bitmap_table);
 
   if (INTP (name))
@@ -1182,7 +1182,7 @@ static int resource_name_to_resource (Lisp_Object name, int type)
     {
       signal_simple_error ("invalid resource identifier", name);
     }
-  
+
   do {
     Extbyte* nm=0;
     GET_C_STRING_OS_DATA_ALLOCA (name, nm);
@@ -1221,9 +1221,9 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
 
   Lisp_Object file = find_keyword_in_vector (instantiator, Q_file);
-  Lisp_Object resource_type = find_keyword_in_vector (instantiator, 
+  Lisp_Object resource_type = find_keyword_in_vector (instantiator,
 						      Q_resource_type);
-  Lisp_Object resource_id = find_keyword_in_vector (instantiator, 
+  Lisp_Object resource_id = find_keyword_in_vector (instantiator,
 						    Q_resource_id);
 
   xzero (iconinfo);
@@ -1237,7 +1237,7 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
     iitype = IMAGE_POINTER;
   else if (dest_mask & IMAGE_COLOR_PIXMAP_MASK)
     iitype = IMAGE_COLOR_PIXMAP;
-  else 
+  else
     incompatible_image_types (instantiator, dest_mask,
 			      IMAGE_COLOR_PIXMAP_MASK | IMAGE_POINTER_MASK);
 
@@ -1251,7 +1251,7 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
 #else
       fname = f;
 #endif
-      
+
       if (NILP (resource_id))
 	resid = (LPCTSTR)fname;
       else
@@ -1260,7 +1260,7 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
 				 LOAD_LIBRARY_AS_DATAFILE);
 	  resid = MAKEINTRESOURCE (resource_name_to_resource (resource_id,
 							   type));
-	  
+
 	  if (!resid)
 	    GET_C_STRING_OS_DATA_ALLOCA (resource_id, resid);
 	}
@@ -1268,11 +1268,11 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
   else if (!(resid = MAKEINTRESOURCE (resource_name_to_resource (resource_id,
 							       type))))
     signal_simple_error ("Invalid resource identifier", resource_id);
-  
+
   /* load the image */
   if (!(himage = LoadImage (hinst, resid, type, 0, 0,
-			    LR_CREATEDIBSECTION | LR_DEFAULTSIZE | 
-			    LR_SHARED |      
+			    LR_CREATEDIBSECTION | LR_DEFAULTSIZE |
+			    LR_SHARED |
 			    (!NILP (file) ? LR_LOADFROMFILE : 0))))
     {
       signal_simple_error ("Cannot load image", instantiator);
@@ -1284,9 +1284,9 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
   mswindows_initialize_dibitmap_image_instance (ii, 1, iitype);
 
   IMAGE_INSTANCE_PIXMAP_FILENAME (ii) = file;
-  IMAGE_INSTANCE_PIXMAP_WIDTH (ii) = 
+  IMAGE_INSTANCE_PIXMAP_WIDTH (ii) =
     GetSystemMetrics (type == IMAGE_CURSOR ? SM_CXCURSOR : SM_CXICON);
-  IMAGE_INSTANCE_PIXMAP_HEIGHT (ii) = 
+  IMAGE_INSTANCE_PIXMAP_HEIGHT (ii) =
     GetSystemMetrics (type == IMAGE_CURSOR ? SM_CYCURSOR : SM_CYICON);
   IMAGE_INSTANCE_PIXMAP_DEPTH (ii) = 1;
 
@@ -1383,7 +1383,7 @@ in this Software without prior written authorization from the X Consortium.
  *					and return data
  *
  * Note that this file and ../X/XRdBitF.c look very similar....  Keep them
- * that way (but don't use common source code so that people can have one 
+ * that way (but don't use common source code so that people can have one
  * without the other).
  */
 
@@ -1433,7 +1433,7 @@ static void initHexTable()
     hexTable[' '] = -1;	hexTable[','] = -1;
     hexTable['}'] = -1;	hexTable['\n'] = -1;
     hexTable['\t'] = -1;
-	
+
     initialized = TRUE;
 }
 
@@ -1446,7 +1446,7 @@ static int NextInt ( FILE *fstream )
     int	value = 0;
     int gotone = 0;
     int done = 0;
-    
+
     /* loop, accumulate hex value until find delimiter  */
     /* skip any initial delimiters found in read stream */
 
@@ -1527,7 +1527,7 @@ int read_bitmap_data (fstream, width, height, datap, x_hot, y_hot)
 	    }
 	    continue;
 	}
-    
+
 	if (sscanf(line, "static short %s = {", name_and_type) == 1)
 	  version10p = 1;
 	else if (sscanf(line,"static unsigned char %s = {",name_and_type) == 1)
@@ -1544,7 +1544,7 @@ int read_bitmap_data (fstream, width, height, datap, x_hot, y_hot)
 
 	if (strcmp("bits[]", type))
 	  continue;
-    
+
 	if (!ww || !hh)
 	  RETURN (BitmapFileInvalid);
 
@@ -1557,7 +1557,7 @@ int read_bitmap_data (fstream, width, height, datap, x_hot, y_hot)
 
 	size = bytes_per_line * hh;
 	data = (unsigned char *) Xmalloc ((unsigned int) size);
-	if (!data) 
+	if (!data)
 	  RETURN (BitmapNoMemory);
 
 	if (version10p) {
@@ -1576,7 +1576,7 @@ int read_bitmap_data (fstream, width, height, datap, x_hot, y_hot)
 	    int bytes;
 
 	    for (bytes=0, ptr=data; bytes<size; bytes++, ptr++) {
-		if ((value = NextInt(fstream)) < 0) 
+		if ((value = NextInt(fstream)) < 0)
 		  RETURN (BitmapFileInvalid);
 		*ptr=value;
 	    }
@@ -1599,7 +1599,7 @@ int read_bitmap_data (fstream, width, height, datap, x_hot, y_hot)
 }
 
 
-int read_bitmap_data_from_file (CONST char *filename, unsigned int *width, 
+int read_bitmap_data_from_file (CONST char *filename, unsigned int *width,
 				unsigned int *height, unsigned char **datap,
 				int *x_hot, int *y_hot)
 {
@@ -1639,21 +1639,21 @@ xbm_create_bitmap_from_data (HDC hdc, char *data,
   void *bmp_buf = 0;
   unsigned char *new_data, *new_offset;
   int i, j;
-  BITMAPINFO* bmp_info = 
+  BITMAPINFO* bmp_info =
     xmalloc_and_zero (sizeof(BITMAPINFO) + sizeof(RGBQUAD));
   HBITMAP bitmap;
 
   if (!bmp_info)
     return NULL;
-  
+
   new_data = (unsigned char *) xmalloc_and_zero (height * new_width);
-      
+
   if (!new_data)
     {
       xfree (bmp_info);
       return NULL;
     }
-  
+
   for (i=0; i<height; i++)
     {
       offset = data + i*old_width;
@@ -1681,11 +1681,11 @@ xbm_create_bitmap_from_data (HDC hdc, char *data,
   bmp_info->bmiHeader.biHeight=-(LONG)height;
   bmp_info->bmiHeader.biPlanes=1;
   bmp_info->bmiHeader.biSize=sizeof(BITMAPINFOHEADER);
-  bmp_info->bmiHeader.biBitCount=1; 
+  bmp_info->bmiHeader.biBitCount=1;
   bmp_info->bmiHeader.biCompression=BI_RGB;
-  bmp_info->bmiHeader.biClrUsed = 2; 
-  bmp_info->bmiHeader.biClrImportant = 2; 
-  bmp_info->bmiHeader.biSizeImage = height * new_width; 
+  bmp_info->bmiHeader.biClrUsed = 2;
+  bmp_info->bmiHeader.biClrImportant = 2;
+  bmp_info->bmiHeader.biSizeImage = height * new_width;
   bmp_info->bmiColors[0].rgbRed = GetRValue (fg);
   bmp_info->bmiColors[0].rgbGreen = GetGValue (fg);
   bmp_info->bmiColors[0].rgbBlue = GetBValue (fg);
@@ -1694,21 +1694,21 @@ xbm_create_bitmap_from_data (HDC hdc, char *data,
   bmp_info->bmiColors[1].rgbGreen = GetGValue (bg);
   bmp_info->bmiColors[1].rgbBlue = GetBValue (bg);
   bmp_info->bmiColors[1].rgbReserved = 0;
-  
-  bitmap = CreateDIBSection (hdc,  
+
+  bitmap = CreateDIBSection (hdc,
 			     bmp_info,
 			     DIB_RGB_COLORS,
-			     &bmp_buf, 
+			     &bmp_buf,
 			     0,0);
 
   xfree (bmp_info);
-  
+
   if (!bitmap || !bmp_buf)
     {
       xfree (new_data);
       return NULL;
     }
-  
+
   /* copy in the actual bitmap */
   memcpy (bmp_buf, new_data, height * new_width);
   xfree (new_data);
@@ -1764,7 +1764,7 @@ init_image_instance_from_xbm_inline (struct Lisp_Image_Instance *ii,
 			      | IMAGE_POINTER_MASK);
 
   mswindows_initialize_dibitmap_image_instance (ii, 1, type);
-  
+
   IMAGE_INSTANCE_PIXMAP_FILENAME (ii) =
     find_keyword_in_vector (instantiator, Q_file);
   IMAGE_INSTANCE_PIXMAP_WIDTH (ii) = width;
@@ -1773,14 +1773,14 @@ init_image_instance_from_xbm_inline (struct Lisp_Image_Instance *ii,
   XSETINT (IMAGE_INSTANCE_PIXMAP_HOTSPOT_X (ii), 0);
   XSETINT (IMAGE_INSTANCE_PIXMAP_HOTSPOT_Y (ii), 0);
   IMAGE_INSTANCE_MSWINDOWS_MASK (ii) = mask ? mask :
-    xbm_create_bitmap_from_data (hdc, (Extbyte *) bits, width, height, 
+    xbm_create_bitmap_from_data (hdc, (Extbyte *) bits, width, height,
 				 TRUE, black, white);
 
   switch (type)
     {
     case IMAGE_MONO_PIXMAP:
-      IMAGE_INSTANCE_MSWINDOWS_BITMAP (ii) = 
-	xbm_create_bitmap_from_data (hdc, (Extbyte *) bits, width, height, 
+      IMAGE_INSTANCE_MSWINDOWS_BITMAP (ii) =
+	xbm_create_bitmap_from_data (hdc, (Extbyte *) bits, width, height,
 				     FALSE, black, black);
       break;
 
@@ -1808,8 +1808,8 @@ init_image_instance_from_xbm_inline (struct Lisp_Image_Instance *ii,
 	IMAGE_INSTANCE_PIXMAP_FG (ii) = foreground;
 	IMAGE_INSTANCE_PIXMAP_BG (ii) = background;
 
-	IMAGE_INSTANCE_MSWINDOWS_BITMAP (ii) = 
-	  xbm_create_bitmap_from_data (hdc, (Extbyte *) bits, width, height, 
+	IMAGE_INSTANCE_MSWINDOWS_BITMAP (ii) =
+	  xbm_create_bitmap_from_data (hdc, (Extbyte *) bits, width, height,
 				       FALSE, fg, black);
       }
       break;
@@ -1824,9 +1824,9 @@ init_image_instance_from_xbm_inline (struct Lisp_Image_Instance *ii,
 	if (NILP (background))
 	  background = pointer_bg;
 
-	IMAGE_INSTANCE_PIXMAP_HOTSPOT_X (ii) = 
+	IMAGE_INSTANCE_PIXMAP_HOTSPOT_X (ii) =
 	  find_keyword_in_vector (instantiator, Q_hotspot_x);
-	IMAGE_INSTANCE_PIXMAP_HOTSPOT_Y (ii) = 
+	IMAGE_INSTANCE_PIXMAP_HOTSPOT_Y (ii) =
 	  find_keyword_in_vector (instantiator, Q_hotspot_y);
 	IMAGE_INSTANCE_PIXMAP_FG (ii) = foreground;
 	IMAGE_INSTANCE_PIXMAP_BG (ii) = background;
@@ -1835,8 +1835,8 @@ init_image_instance_from_xbm_inline (struct Lisp_Image_Instance *ii,
 	if (COLOR_INSTANCEP (background))
 	  bg = COLOR_INSTANCE_MSWINDOWS_COLOR (XCOLOR_INSTANCE (background));
 
-	IMAGE_INSTANCE_MSWINDOWS_BITMAP (ii) = 
-	  xbm_create_bitmap_from_data (hdc, (Extbyte *) bits, width, height, 
+	IMAGE_INSTANCE_MSWINDOWS_BITMAP (ii) =
+	  xbm_create_bitmap_from_data (hdc, (Extbyte *) bits, width, height,
 				       TRUE, fg, black);
 	mswindows_initialize_image_instance_icon (ii, TRUE);
       }
@@ -1857,7 +1857,7 @@ xbm_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
   Lisp_Object mask_data = find_keyword_in_vector (instantiator, Q_mask_data);
   Lisp_Object mask_file = find_keyword_in_vector (instantiator, Q_mask_file);
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-  struct frame* f = XFRAME (DEVICE_SELECTED_FRAME 
+  struct frame* f = XFRAME (DEVICE_SELECTED_FRAME
 			    (XDEVICE (IMAGE_INSTANCE_DEVICE (ii))));
   HDC hdc = FRAME_MSWINDOWS_CDC (f);
   HBITMAP mask = 0;
@@ -1885,7 +1885,7 @@ xbm_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
 /* Instantiate method for XBM's. */
 
 static void
-mswindows_xbm_instantiate (Lisp_Object image_instance, 
+mswindows_xbm_instantiate (Lisp_Object image_instance,
 			   Lisp_Object instantiator,
 			   Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 			   int dest_mask, Lisp_Object domain)
@@ -2007,12 +2007,12 @@ mswindows_print_image_instance (struct Lisp_Image_Instance *p,
     case IMAGE_MONO_PIXMAP:
     case IMAGE_COLOR_PIXMAP:
     case IMAGE_POINTER:
-      sprintf (buf, " (0x%lx", 
+      sprintf (buf, " (0x%lx",
 	       (unsigned long) IMAGE_INSTANCE_MSWINDOWS_BITMAP (p));
       write_c_string (buf, printcharfun);
       if (IMAGE_INSTANCE_MSWINDOWS_MASK (p))
 	{
-	  sprintf (buf, "/0x%lx", 
+	  sprintf (buf, "/0x%lx",
 		   (unsigned long) IMAGE_INSTANCE_MSWINDOWS_MASK (p));
 	  write_c_string (buf, printcharfun);
 	}
@@ -2034,7 +2034,7 @@ mswindows_finalize_image_instance (struct Lisp_Image_Instance *p)
   if (DEVICE_LIVE_P (XDEVICE (p->device)))
     {
       if (IMAGE_INSTANCE_TYPE (p) == IMAGE_WIDGET
-	  || 
+	  ||
 	  IMAGE_INSTANCE_TYPE (p) == IMAGE_SUBWINDOW)
 	{
 #ifdef DEBUG_WIDGETS
@@ -2092,8 +2092,8 @@ mswindows_unmap_subwindow (struct Lisp_Image_Instance *p)
 {
   if (IMAGE_INSTANCE_SUBWINDOW_ID (p))
     {
-      SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p), 
-		    NULL, 
+      SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
+		    NULL,
 		    0, 0, 0, 0,
 		    SWP_HIDEWINDOW | SWP_NOMOVE | SWP_NOSIZE
 		    | SWP_NOSENDCHANGING);
@@ -2108,32 +2108,32 @@ mswindows_map_subwindow (struct Lisp_Image_Instance *p, int x, int y,
 {
   /* move the window before mapping it ... */
   SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
-		NULL, 
+		NULL,
 		x, y, dga->width, dga->height,
-		SWP_NOZORDER 
+		SWP_NOZORDER
 		| SWP_NOCOPYBITS | SWP_NOSENDCHANGING);
   /* ... adjust the child ... */
   SetWindowPos (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
-		NULL, 
+		NULL,
 		-dga->xoffset, -dga->yoffset, 0, 0,
 		SWP_NOZORDER | SWP_NOSIZE
 		| SWP_NOCOPYBITS | SWP_NOSENDCHANGING);
   /* ... now map it - we are not allowed to move it at the same time. */
-  SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p), 
-		NULL, 
+  SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
+		NULL,
 		0, 0, 0, 0,
 		SWP_NOZORDER | SWP_NOSIZE | SWP_NOMOVE
-		| SWP_SHOWWINDOW | SWP_NOCOPYBITS 
+		| SWP_SHOWWINDOW | SWP_NOCOPYBITS
 		| SWP_NOSENDCHANGING);
 }
 
 /* resize the subwindow instance */
-static void 
+static void
 mswindows_resize_subwindow (struct Lisp_Image_Instance* ii, int w, int h)
 {
   /* Set the size of the control .... */
-  SetWindowPos (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii), 
-		NULL, 
+  SetWindowPos (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
+		NULL,
 		0, 0, w, h,
 		SWP_NOZORDER | SWP_NOMOVE
 		| SWP_NOCOPYBITS | SWP_NOSENDCHANGING);
@@ -2150,8 +2150,8 @@ mswindows_update_subwindow (struct Lisp_Image_Instance *p)
       if ( EQ (IMAGE_INSTANCE_WIDGET_TYPE (p), Qbutton))
 	{
 	  if (gui_item_selected_p (IMAGE_INSTANCE_WIDGET_ITEM (p)))
-	    SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p), 
-			 BM_SETCHECK, (WPARAM)BST_CHECKED, 0); 
+	    SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
+			 BM_SETCHECK, (WPARAM)BST_CHECKED, 0);
 	  else
 	    SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
 			 BM_SETCHECK, (WPARAM)BST_UNCHECKED, 0);
@@ -2159,12 +2159,12 @@ mswindows_update_subwindow (struct Lisp_Image_Instance *p)
 
       /* set the widget font from the widget face */
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
-		   WM_SETFONT, 
-		   (WPARAM)FONT_INSTANCE_MSWINDOWS_HFONT 
+		   WM_SETFONT,
+		   (WPARAM)FONT_INSTANCE_MSWINDOWS_HFONT
 		   (XFONT_INSTANCE (widget_face_font_info
-				    (IMAGE_INSTANCE_SUBWINDOW_FRAME (p), 
+				    (IMAGE_INSTANCE_SUBWINDOW_FRAME (p),
 				     IMAGE_INSTANCE_WIDGET_FACE (p),
-				     0, 0))), 
+				     0, 0))),
 		   MAKELPARAM (TRUE, 0));
     }
 }
@@ -2228,21 +2228,21 @@ mswindows_subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instant
 			NULL,       /* No menu */
 			NULL, /* must be null for this class */
 			NULL)) == NULL)
-    signal_simple_error ("window creation failed with code", 
+    signal_simple_error ("window creation failed with code",
 			 make_int (GetLastError()));
 
-  wnd = CreateWindow( "STATIC",  
+  wnd = CreateWindow( "STATIC",
 		      "",
-		      WS_CHILD,  
+		      WS_CHILD,
 		      0,         /* starting x position */
 		      0,         /* starting y position */
 		      IMAGE_INSTANCE_WIDGET_WIDTH (ii),
 		      IMAGE_INSTANCE_WIDGET_HEIGHT (ii),
 		      IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (ii),
 		      0,
-		      (HINSTANCE) 
+		      (HINSTANCE)
 		      GetWindowLong (FRAME_MSWINDOWS_HANDLE (XFRAME (frame)),
-				     GWL_HINSTANCE), 
+				     GWL_HINSTANCE),
 		      NULL);
 
   SetWindowLong (wnd, GWL_USERDATA, (LONG)LISP_TO_VOID(image_instance));
@@ -2258,11 +2258,11 @@ mswindows_image_instance_equal (struct Lisp_Image_Instance *p1,
     case IMAGE_MONO_PIXMAP:
     case IMAGE_COLOR_PIXMAP:
     case IMAGE_POINTER:
-      if (IMAGE_INSTANCE_MSWINDOWS_BITMAP (p1) 
+      if (IMAGE_INSTANCE_MSWINDOWS_BITMAP (p1)
 	  != IMAGE_INSTANCE_MSWINDOWS_BITMAP (p2))
 	return 0;
       break;
-    
+
     default:
       break;
     }
@@ -2279,7 +2279,7 @@ mswindows_image_instance_hash (struct Lisp_Image_Instance *p, int depth)
     case IMAGE_COLOR_PIXMAP:
     case IMAGE_POINTER:
       return (unsigned long) IMAGE_INSTANCE_MSWINDOWS_BITMAP (p);
-    
+
     default:
       return 0;
     }
@@ -2305,7 +2305,7 @@ mswindows_initialize_dibitmap_image_instance (struct Lisp_Image_Instance *ii,
   IMAGE_INSTANCE_PIXMAP_FG (ii) = Qnil;
   IMAGE_INSTANCE_PIXMAP_BG (ii) = Qnil;
   IMAGE_INSTANCE_PIXMAP_MAXSLICE (ii) = slices;
-  IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICES (ii) = 
+  IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICES (ii) =
     xnew_array_and_zero (HBITMAP, slices);
 }
 
@@ -2368,12 +2368,12 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 			(HMENU)id,       /* No menu */
 			NULL, /* must be null for this class */
 			NULL)) == NULL)
-    signal_simple_error ("window creation failed with code", 
+    signal_simple_error ("window creation failed with code",
 			 make_int (GetLastError()));
 
-  if ((wnd = CreateWindowEx( 
+  if ((wnd = CreateWindowEx(
 			    exflags /* | WS_EX_NOPARENTNOTIFY*/,
-			    class,  
+			    class,
 			    nm,
 			    flags | WS_CHILD | WS_VISIBLE,
 			    0,         /* starting x position */
@@ -2383,23 +2383,23 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 			    /* parent window */
 			    IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (ii),
 			    (HMENU)id,       /* No menu */
-			    (HINSTANCE) 
-			    GetWindowLong 
+			    (HINSTANCE)
+			    GetWindowLong
 			    (FRAME_MSWINDOWS_HANDLE (XFRAME (frame)),
-			     GWL_HINSTANCE), 
+			     GWL_HINSTANCE),
 			    NULL)) == NULL)
-    signal_simple_error ("window creation failed with code", 
+    signal_simple_error ("window creation failed with code",
 			 make_int (GetLastError()));
 
   IMAGE_INSTANCE_SUBWINDOW_ID (ii) = wnd;
   SetWindowLong (wnd, GWL_USERDATA, (LONG)LISP_TO_VOID(image_instance));
   /* set the widget font from the widget face */
-  SendMessage (wnd, WM_SETFONT, 
-	       (WPARAM)FONT_INSTANCE_MSWINDOWS_HFONT 
-	       (XFONT_INSTANCE (widget_face_font_info 
-				(domain, 
+  SendMessage (wnd, WM_SETFONT,
+	       (WPARAM)FONT_INSTANCE_MSWINDOWS_HFONT
+	       (XFONT_INSTANCE (widget_face_font_info
+				(domain,
 				 IMAGE_INSTANCE_WIDGET_FACE (ii),
-				 0, 0))), 
+				 0, 0))),
 	       MAKELPARAM (TRUE, 0));
 }
 
@@ -2432,7 +2432,7 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 	glyph = glyph_image_instance (glyph, domain, ERROR_ME, 1);
 
       if (IMAGE_INSTANCEP (glyph))
-	flags |= XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) ? 
+	flags |= XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) ?
 	  BS_BITMAP : BS_ICON;
     }
 
@@ -2450,20 +2450,20 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
     flags |= BS_DEFPUSHBUTTON;
 
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
-				pointer_bg, dest_mask, domain, "BUTTON", flags, 
+				pointer_bg, dest_mask, domain, "BUTTON", flags,
 				WS_EX_CONTROLPARENT);
 
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* set the checked state */
   if (gui_item_selected_p (gui))
-    SendMessage (wnd, BM_SETCHECK, (WPARAM)BST_CHECKED, 0); 
+    SendMessage (wnd, BM_SETCHECK, (WPARAM)BST_CHECKED, 0);
   else
     SendMessage (wnd, BM_SETCHECK, (WPARAM)BST_UNCHECKED, 0);
   /* add the image if one was given */
   if (!NILP (glyph) && IMAGE_INSTANCEP (glyph))
     {
-      SendMessage (wnd, BM_SETIMAGE, 
-		   (WPARAM) (XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) ? 
+      SendMessage (wnd, BM_SETIMAGE,
+		   (WPARAM) (XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) ?
 			     IMAGE_BITMAP : IMAGE_ICON),
 		   (LPARAM) (XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) ?
 			     XIMAGE_INSTANCE_MSWINDOWS_BITMAP (glyph) :
@@ -2478,7 +2478,7 @@ mswindows_edit_field_instantiate (Lisp_Object image_instance, Lisp_Object instan
 			    int dest_mask, Lisp_Object domain)
 {
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
-				pointer_bg, dest_mask, domain, "EDIT", 
+				pointer_bg, dest_mask, domain, "EDIT",
 				ES_LEFT | ES_AUTOHSCROLL | WS_TABSTOP
 				| WS_BORDER,
 				WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT);
@@ -2493,24 +2493,24 @@ mswindows_progress_gauge_instantiate (Lisp_Object image_instance, Lisp_Object in
   HWND wnd;
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
-				pointer_bg, dest_mask, domain, PROGRESS_CLASS, 
+				pointer_bg, dest_mask, domain, PROGRESS_CLASS,
 				WS_TABSTOP | WS_BORDER | PBS_SMOOTH,
 				WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT);
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* set the colors */
 #ifdef PBS_SETBKCOLOR
-  SendMessage (wnd, PBS_SETBKCOLOR, 0, 
-	       (LPARAM) (COLOR_INSTANCE_MSWINDOWS_COLOR 
-			 (XCOLOR_INSTANCE 
-			  (FACE_BACKGROUND 
+  SendMessage (wnd, PBS_SETBKCOLOR, 0,
+	       (LPARAM) (COLOR_INSTANCE_MSWINDOWS_COLOR
+			 (XCOLOR_INSTANCE
+			  (FACE_BACKGROUND
 			   (XIMAGE_INSTANCE_WIDGET_FACE (ii),
 			    XIMAGE_INSTANCE_SUBWINDOW_FRAME (ii))))));
 #endif
 #ifdef PBS_SETBARCOLOR
-  SendMessage (wnd, PBS_SETBARCOLOR, 0, 
-	       (L:PARAM) (COLOR_INSTANCE_MSWINDOWS_COLOR 
-			  (XCOLOR_INSTANCE 
-			   (FACE_FOREGROUND 
+  SendMessage (wnd, PBS_SETBARCOLOR, 0,
+	       (L:PARAM) (COLOR_INSTANCE_MSWINDOWS_COLOR
+			  (XCOLOR_INSTANCE
+			   (FACE_FOREGROUND
 			    (XIMAGE_INSTANCE_WIDGET_FACE (ii),
 			     XIMAGE_INSTANCE_SUBWINDOW_FRAME (ii))))));
 #endif
@@ -2528,12 +2528,12 @@ static HTREEITEM add_tree_item (Lisp_Object image_instance,
   tvitem.hInsertAfter = TVI_LAST;
   tvitem.item.mask = TVIF_TEXT | TVIF_CHILDREN;
   tvitem.item.cChildren = children;
-      
+
   if (GUI_ITEMP (item))
     {
       tvitem.item.lParam = mswindows_register_gui_item (item, domain);
       tvitem.item.mask |= TVIF_PARAM;
-      GET_C_STRING_OS_DATA_ALLOCA (XGUI_ITEM (item)->name, 
+      GET_C_STRING_OS_DATA_ALLOCA (XGUI_ITEM (item)->name,
 				   tvitem.item.pszText);
     }
   else
@@ -2541,7 +2541,7 @@ static HTREEITEM add_tree_item (Lisp_Object image_instance,
 
   tvitem.item.cchTextMax = strlen (tvitem.item.pszText);
 
-  if ((ret = (HTREEITEM)SendMessage (wnd, TVM_INSERTITEM, 
+  if ((ret = (HTREEITEM)SendMessage (wnd, TVM_INSERTITEM,
 				     0, (LPARAM)&tvitem)) == 0)
     signal_simple_error ("error adding tree view entry", item);
 
@@ -2576,18 +2576,18 @@ mswindows_tree_view_instantiate (Lisp_Object image_instance, Lisp_Object instant
   HTREEITEM parent;
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
-				pointer_bg, dest_mask, domain, WC_TREEVIEW, 
+				pointer_bg, dest_mask, domain, WC_TREEVIEW,
 				WS_TABSTOP | WS_BORDER | PBS_SMOOTH
 				| TVS_HASLINES | TVS_HASBUTTONS,
 				WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT);
 
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
- 
+
   /* define a root */
-  parent = add_tree_item (image_instance, wnd, NULL, 
-			  XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)), 
+  parent = add_tree_item (image_instance, wnd, NULL,
+			  XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)),
 			  TRUE, domain);
- 
+
   /* recursively add items to the tree view */
   /* add items to the tab */
   LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)))
@@ -2607,12 +2607,12 @@ static TC_ITEM* add_tab_item (Lisp_Object image_instance,
   TC_ITEM tvitem, *ret;
 
   tvitem.mask = TCIF_TEXT;
-      
+
   if (GUI_ITEMP (item))
     {
       tvitem.lParam = mswindows_register_gui_item (item, domain);
       tvitem.mask |= TCIF_PARAM;
-      GET_C_STRING_OS_DATA_ALLOCA (XGUI_ITEM (item)->name, 
+      GET_C_STRING_OS_DATA_ALLOCA (XGUI_ITEM (item)->name,
 				   tvitem.pszText);
     }
   else
@@ -2623,7 +2623,7 @@ static TC_ITEM* add_tab_item (Lisp_Object image_instance,
 
   tvitem.cchTextMax = strlen (tvitem.pszText);
 
-  if ((ret = (TC_ITEM*)SendMessage (wnd, TCM_INSERTITEM, 
+  if ((ret = (TC_ITEM*)SendMessage (wnd, TCM_INSERTITEM,
 				    index, (LPARAM)&tvitem)) < 0)
     signal_simple_error ("error adding tab entry", item);
 
@@ -2640,7 +2640,7 @@ mswindows_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object insta
   int index = 0;
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
-				pointer_bg, dest_mask, domain, WC_TABCONTROL, 
+				pointer_bg, dest_mask, domain, WC_TABCONTROL,
 				/* borders don't suit tabs so well */
 				WS_TABSTOP,
 				WS_EX_CONTROLPARENT);
@@ -2670,15 +2670,15 @@ mswindows_tab_control_set_property (Lisp_Object image_instance, Lisp_Object prop
 
       /* delete the pre-existing items */
       SendMessage (wnd, TCM_DELETEALLITEMS, 0, 0);
-  
-      IMAGE_INSTANCE_WIDGET_ITEMS (ii) = 
-	Fcons (XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)), 
+
+      IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
+	Fcons (XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)),
 	       parse_gui_item_tree_children (val));
 
       /* add items to the tab */
       LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)))
 	{
-	  add_tab_item (image_instance, wnd, XCAR (rest), 
+	  add_tab_item (image_instance, wnd, XCAR (rest),
 			IMAGE_INSTANCE_SUBWINDOW_FRAME (ii), index);
 	  index++;
 	}
@@ -2695,7 +2695,7 @@ mswindows_label_instantiate (Lisp_Object image_instance, Lisp_Object instantiato
 			     int dest_mask, Lisp_Object domain)
 {
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
-				pointer_bg, dest_mask, domain, "STATIC", 
+				pointer_bg, dest_mask, domain, "STATIC",
 				0, WS_EX_STATICEDGE);
 }
 
@@ -2706,7 +2706,7 @@ mswindows_scrollbar_instantiate (Lisp_Object image_instance, Lisp_Object instant
 				 int dest_mask, Lisp_Object domain)
 {
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
-				pointer_bg, dest_mask, domain, "SCROLLBAR", 
+				pointer_bg, dest_mask, domain, "SCROLLBAR",
 				0,
 				WS_EX_CLIENTEDGE );
 }
@@ -2735,14 +2735,14 @@ mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instant
 			pointer_bg, dest_mask, domain, len + 1, 0, 0);
 
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
-				pointer_bg, dest_mask, domain, "COMBOBOX", 
+				pointer_bg, dest_mask, domain, "COMBOBOX",
 				WS_BORDER | WS_TABSTOP | CBS_DROPDOWN
-				| CBS_AUTOHSCROLL  
+				| CBS_AUTOHSCROLL
 				| CBS_HASSTRINGS | WS_VSCROLL,
 				WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT);
   /* reset the height */
-  widget_text_to_pixel_conversion (domain, 
-				   IMAGE_INSTANCE_WIDGET_FACE (ii), 1, 0, 
+  widget_text_to_pixel_conversion (domain,
+				   IMAGE_INSTANCE_WIDGET_FACE (ii), 1, 0,
 				   &IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii), 0);
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* add items to the combo box */
@@ -2767,7 +2767,7 @@ mswindows_widget_property (Lisp_Object image_instance, Lisp_Object prop)
     {
       Extcount len = SendMessage (wnd, WM_GETTEXTLENGTH, 0, 0);
       Extbyte* buf =alloca (len+1);
-      
+
       SendMessage (wnd, WM_GETTEXT, (WPARAM)len+1, (LPARAM) buf);
       return build_ext_string (buf, FORMAT_OS);
     }
@@ -2920,13 +2920,13 @@ image_instantiator_format_create_glyphs_mswindows (void)
 #endif
 #ifdef HAVE_TIFF
   IIFORMAT_VALID_CONSOLE (mswindows, tiff);
-#endif  
+#endif
 #ifdef HAVE_PNG
   IIFORMAT_VALID_CONSOLE (mswindows, png);
-#endif  
+#endif
 #ifdef HAVE_GIF
   IIFORMAT_VALID_CONSOLE (mswindows, gif);
-#endif  
+#endif
 #ifdef HAVE_WIDGETS
   /* button widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, button);
@@ -2935,7 +2935,7 @@ image_instantiator_format_create_glyphs_mswindows (void)
 
   INITIALIZE_DEVICE_IIFORMAT (mswindows, edit_field);
   IIFORMAT_HAS_DEVMETHOD (mswindows, edit_field, instantiate);
-  
+
   INITIALIZE_DEVICE_IIFORMAT (mswindows, subwindow);
   IIFORMAT_HAS_DEVMETHOD (mswindows, subwindow, instantiate);
 
@@ -2991,7 +2991,7 @@ image_instantiator_format_create_glyphs_mswindows (void)
   IIFORMAT_HAS_METHOD (mswindows_resource, possible_dest_types);
   IIFORMAT_HAS_METHOD (mswindows_resource, instantiate);
 
-  IIFORMAT_VALID_KEYWORD (mswindows_resource, Q_resource_type, 
+  IIFORMAT_VALID_KEYWORD (mswindows_resource, Q_resource_type,
 			  check_valid_resource_symbol);
   IIFORMAT_VALID_KEYWORD (mswindows_resource, Q_resource_id, check_valid_resource_id);
   IIFORMAT_VALID_KEYWORD (mswindows_resource, Q_file, check_valid_string);

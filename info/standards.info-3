@@ -1,5 +1,5 @@
-This is ../info/standards.info, produced by makeinfo version 3.12s from
-standards.texi.
+This is Info file ../info/standards.info, produced by Makeinfo version
+1.68 from the input file standards.texi.
 
 START-INFO-DIR-ENTRY
 * Standards: (standards).        GNU coding standards.
@@ -105,7 +105,7 @@ compilation command that runs the preprocessor, and use `LDFLAGS' in
 any compilation command that does linking as well as in any direct use
 of `ld'.
 
-   If there are C compiler options that _must_ be used for proper
+   If there are C compiler options that *must* be used for proper
 compilation of certain files, do not include them in `CFLAGS'.  Users
 expect to be able to specify `CFLAGS' freely themselves.  Instead,
 arrange to pass the necessary options to the C compiler independently
@@ -118,7 +118,7 @@ by defining an implicit rule, like this:
              $(CC) -c $(CPPFLAGS) $(ALL_CFLAGS) $<
 
    Do include the `-g' option in `CFLAGS', because that is not
-_required_ for proper compilation.  You can consider it a default that
+*required* for proper compilation.  You can consider it a default that
 is only recommended.  If the package is set up so that it is compiled
 with GCC by default, then you might as well include `-O' in the default
 value of `CFLAGS' as well.
@@ -450,7 +450,7 @@ Makefiles:
      that don't have the Unix man page documentation system installed.
 
      The way to install Info files is to copy them into `$(infodir)'
-     with `$(INSTALL_DATA)' (*note Command Variables::), and then run
+     with `$(INSTALL_DATA)' (*note Command Variables::.), and then run
      the `install-info' program if it is present.  `install-info' is a
      program that edits the Info `dir' file to add or update the menu
      entry for the given Info file; it is part of the Texinfo package.
@@ -685,7 +685,7 @@ variable, plus an optional comment at the end.  There are three
 variables you can use, one for each category; the variable name
 specifies the category.  Category lines are no-ops in ordinary execution
 because these three Make variables are normally undefined (and you
-_should not_ define them in the makefile).
+*should not* define them in the makefile).
 
    Here are the three possible category lines, each with a comment that
 explains what it means:
@@ -709,7 +709,7 @@ classified as normal.
 from the Info directory.
 
    If the `install' or `uninstall' target has any dependencies which
-act as subroutines of installation, then you should start _each_
+act as subroutines of installation, then you should start *each*
 dependency's commands with a category line, and start the main target's
 commands with a category line also.  This way, you can ensure that each
 command is placed in the right category regardless of which of the

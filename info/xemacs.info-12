@@ -1,5 +1,5 @@
-This is ../info/xemacs.info, produced by makeinfo version 3.12s from
-xemacs/xemacs.texi.
+This is Info file ../info/xemacs.info, produced by Makeinfo version
+1.68 from the input file xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -323,7 +323,7 @@ usual Emacs editing commands are available; you can switch windows to
 examine the buffer that was being edited at the time of the error, and
 you can switch buffers, visit files, and perform any other editing
 operations.  However, the debugger is a recursive editing level (*note
-Recursive Edit::); it is a good idea to return to the backtrace buffer
+Recursive Edit::.); it is a good idea to return to the backtrace buffer
 and explictly exit the debugger when you don't want to use it any more.
 Exiting the debugger kills the backtrace buffer.
 
@@ -442,7 +442,7 @@ will go into the buffer, advancing point, and any "terminal input" for
 Lisp comes from text in the buffer.  To give input to Lisp, go to the
 end of the buffer and type the input, terminated by <RET>.  The
 `*lisp*' buffer is in Inferior Lisp mode, which has all the special
-characteristics of Lisp mode and Shell mode (*note Shell Mode::).
+characteristics of Lisp mode and Shell mode (*note Shell Mode::.).
 
    Use Lisp mode to run the source files of programs in external Lisps.
 You can select this mode with `M-x lisp-mode'.  It is used automatically

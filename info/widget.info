@@ -1,5 +1,5 @@
-This is ../info/widget.info, produced by makeinfo version 3.12s from
-widget.texi.
+This is Info file ../info/widget.info, produced by Makeinfo version
+1.68 from the input file widget.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -212,34 +212,34 @@ called "buttons".  The default commands for activating a button are:
    There are several different kind of buttons, all of which are
 present in the example:
 
-_The Option Field Tags._
+*The Option Field Tags.*
      When you invoke one of these buttons, you will be asked to choose
      between a number of different options.  This is how you edit an
      option field.  Option fields are created by the `menu-choice'
      widget.  In the example, `Choose' is an option field tag.
 
-_The `[INS]' and `[DEL]' buttons._
+*The `[INS]' and `[DEL]' buttons.*
      Activating these will insert or delete elements from a editable
      list.  The list is created by the `editable-list' widget.
 
-_Embedded Buttons._
+*Embedded Buttons.*
      The `_other work_' is an example of an embedded button. Embedded
      buttons are not associated with a fields, but can serve any
      purpose, such as implementing hypertext references.  They are
      usually created by the `link' widget.
 
-_The `[ ]' and `[X]' buttons._
+*The `[ ]' and `[X]' buttons.*
      Activating one of these will convert it to the other.  This is
      useful for implementing multiple-choice fields.  You can create it
      wit
 
-_The `( )' and `(*)' buttons._
+*The `( )' and `(*)' buttons.*
      Only one radio button in a `radio-button-choice' widget can be
      selected at any time.  When you invoke one of the unselected radio
      buttons, it will be selected and the previous selected radio
      button will become unselected.
 
-_The `[Apply Form]' `[Reset Form]' buttons._
+*The `[Apply Form]' `[Reset Form]' buttons.*
      These are explicit buttons made with the `push-button' widget.
      The main difference from the `link' widget is that the buttons are
      will be displayed as GUI buttons when possible.  enough.
@@ -259,11 +259,11 @@ Navigation
 buffer, plus you will have these additional commands:
 
 `<TAB>'
-      - Command: widget-forward &optional count
+      - Command: widget-forward &optional COUNT
           Move point COUNT buttons or editing fields forward.
 
 `<M-TAB>'
-      - Command: widget-backward &optional count
+      - Command: widget-backward &optional COUNT
           Move point COUNT buttons or editing fields backward.
 
 
@@ -369,14 +369,14 @@ object.  This object can be queried and manipulated by other widget
 functions, until it is deleted with `widget-delete'.  After the widgets
 have been created, `widget-setup' must be called to enable them.
 
- - Function: widget-create type [ keyword argument ]...
+ - Function: widget-create TYPE [ KEYWORD ARGUMENT ]...
      Create and return a widget of type TYPE.  The syntax for the TYPE
      argument is described in *Note Basic Types::.
 
      The keyword arguments can be used to overwrite the keyword
      arguments that are part of TYPE.
 
- - Function: widget-delete widget
+ - Function: widget-delete WIDGET
      Delete WIDGET and remove it from the buffer.
 
  - Function: widget-setup
@@ -444,12 +444,12 @@ widget specific way.
 
     `%{'
     `%}'
-          The text inside will be displayed with the face specified by
+          The text inside will be displayed in the face specified by
           `:sample-face'.
 
     `%v'
-          This will be replaces with the buffer representation of the
-          widgets value.  What this is depends on the widget type.
+          This will be replaced with the buffer representation of the
+          widget's value.  What this is depends on the widget type.
 
     `%d'
           Insert the string specified by `:doc' here.
@@ -480,13 +480,13 @@ widget specific way.
      Text around %[ %] in the format.
 
      These can be
-    _nil_
+    *nil*
           No text is inserted.
 
-    _a string_
+    *a string*
           The string is inserted literally.
 
-    _a symbol_
+    *a symbol*
           The value of the symbol is expanded according to this table.
 
 `:doc'
@@ -539,13 +539,13 @@ widget specific way.
 
 `:validate'
      A function which takes a widget as an argument, and return nil if
-     the widgets current value is valid for the widget.  Otherwise, it
+     the widget's current value is valid for the widget.  Otherwise it
      should return the widget containing the invalid data, and set that
-     widgets `:error' property to a string explaining the error.
+     widget's `:error' property to a string explaining the error.
 
      The following predefined function can be used:
 
-      - Function: widget-children-validate widget
+      - Function: widget-children-validate WIDGET
           All the `:children' of WIDGET must be valid.
 
 `:tab-order'
@@ -728,10 +728,9 @@ The `menu-choice' Widget
 
      TYPE ::= (menu-choice [KEYWORD ARGUMENT]... TYPE ... )
 
-   The TYPE arguments represents each possible choice.  The widgets
-value of will be the value of the chosen TYPE argument.  This widget
-will match any value that matches at least one of the specified TYPE
-arguments.
+   The TYPE argument represents each possible choice.  The widget's
+value will be that of the chosen TYPE argument.  This widget will match
+any value matching at least one of the specified TYPE arguments.
 
 `:void'
      Widget type used as a fallback when the value does not match any
@@ -761,10 +760,9 @@ The `radio-button-choice' Widget
 
      TYPE ::= (radio-button-choice [KEYWORD ARGUMENT]...  TYPE ... )
 
-   The TYPE arguments represents each possible choice.  The widgets
-value of will be the value of the chosen TYPE argument.  This widget
-will match any value that matches at least one of the specified TYPE
-arguments.
+   The TYPE argument represents each possible choice.  The widget's
+value will be that of the chosen TYPE argument.  This widget will match
+any value matching at least one of the specified TYPE arguments.
 
    The following extra properties are recognized.
 
@@ -800,7 +798,7 @@ arguments.
 widget after it has been created with the function
 `widget-radio-add-item'.
 
- - Function: widget-radio-add-item widget type
+ - Function: widget-radio-add-item WIDGET TYPE
      Add to `radio-button-choice' widget WIDGET a new radio button item
      of type TYPE.
 
@@ -848,8 +846,8 @@ The `toggle' Widget
 
      TYPE ::= (toggle [KEYWORD ARGUMENT]...)
 
-   The widget has two possible states, `on' and `off', which
-corresponds to a `t' or `nil' value.
+   The widget has two possible states, `on' and `off', which correspond
+to a `t' or `nil' value respectively.
 
    The following extra properties are recognized.
 
@@ -890,10 +888,10 @@ The `checklist' Widget
 
      TYPE ::= (checklist [KEYWORD ARGUMENT]...  TYPE ... )
 
-   The TYPE arguments represents each checklist item.  The widgets
-value of will be a list containing the value of each ticked TYPE
-argument.  The checklist widget will match a list whose elements all
-matches at least one of the specified TYPE arguments.
+   The TYPE arguments represents each checklist item.  The widget's
+value will be a list containing the values of all ticked TYPE
+arguments.  The checklist widget will match a list whose elements all
+match at least one of the specified TYPE arguments.
 
    The following extra properties are recognized.
 
@@ -910,11 +908,11 @@ matches at least one of the specified TYPE arguments.
           Insert a literal `%'.
 
 `:greedy'
-     Usually, a checklist will only match if the items are in the exact
+     Usually a checklist will only match if the items are in the exact
      sequence given in the specification.  By setting `:greedy' to
-     non-nil, it will allow the items to come in any sequence.
-     However, if you extract the value they will be in the sequence
-     given in the checklist. I.e. the original sequence is forgotten.
+     non-nil, it will allow the items to appear in any sequence.
+     However, if you extract the values they will be in the sequence
+     given in the checklist.  I.e. the original sequence is forgotten.
 
 `button-args'
      A list of keywords to pass to the checkboxes.  Useful for setting
@@ -1170,11 +1168,11 @@ files, you can use the following widget specification:
 t)' or `(file string string)'.
 
    This concept of inline is probably hard to understand.  It was
-certainly hard to implement so instead of confuse you more by trying to
-explain it here, I'll just suggest you meditate over it for a while.
+certainly hard to implement so instead of confusing you more by trying
+to explain it here, I'll just suggest you meditate over it for a while.
 
  - Widget: choice
-     Allows you to edit a sexp which may have one of fixed set of
+     Allows you to edit a sexp which may have one of a fixed set of
      types.  It is currently implemented with the `choice-menu' basic
      widget, and has a similar syntax.
 
@@ -1198,15 +1196,15 @@ Properties
    You can examine or set the value of a widget by using the widget
 object that was returned by `widget-create'.
 
- - Function: widget-value widget
+ - Function: widget-value WIDGET
      Return the current value contained in WIDGET.  It is an error to
      call this function on an uninitialized widget.
 
- - Function: widget-value-set widget value
+ - Function: widget-value-set WIDGET VALUE
      Set the value contained in WIDGET to VALUE.  It is an error to
      call this function with an invalid VALUE.
 
-   *Important:* You _must_ call `widget-setup' after modifying the
+   *Important:* You *must* call `widget-setup' after modifying the
 value of a widget before the user is allowed to edit the widget again.
 It is enough to call `widget-setup' once if you modify multiple
 widgets.  This is currently only necessary if the widget contains an
@@ -1217,22 +1215,22 @@ widget objects, for example a reference to the item being edited, it
 can be done with `widget-put' and `widget-get'.  The property names
 must begin with a `:'.
 
- - Function: widget-put widget property value
+ - Function: widget-put WIDGET PROPERTY VALUE
      In WIDGET set PROPERTY to VALUE.  PROPERTY should be a symbol,
      while VALUE can be anything.
 
- - Function: widget-get widget property
+ - Function: widget-get WIDGET PROPERTY
      In WIDGET return the value for PROPERTY.  PROPERTY should be a
      symbol, the value is what was last set by `widget-put' for
      PROPERTY.
 
- - Function: widget-member widget property
+ - Function: widget-member WIDGET PROPERTY
      Non-nil if WIDGET has a value (even nil) for property PROPERTY.
 
    Occasionally it can be useful to know which kind of widget you have,
 i.e. the name of the widget type you gave when the widget was created.
 
- - Function: widget-type widget
+ - Function: widget-type WIDGET
      Return the name of WIDGET, a symbol.
 
    Widgets can be in two states: active, which means they are
@@ -1251,9 +1249,9 @@ following code:
      ;; Make WIDGET active.
      (widget-apply WIDGET :activate)
 
-   A widget is inactive if itself, or any of its ancestors (found by
+   A widget is inactive if itself or any of its ancestors (found by
 following the `:parent' link) have been deactivated.  To make sure a
-widget is really active, you must therefore activate both itself, and
+widget is really active, you must therefore activate both itself and
 all its ancestors.
 
      (while widget
@@ -1261,11 +1259,11 @@ all its ancestors.
        (setq widget (widget-get widget :parent)))
 
    You can check if a widget has been made inactive by examining the
-value of `:inactive' keyword.  If this is non-nil, the widget itself has
-been deactivated.  This is different from using the `:active' keyword,
-in that the later tell you if the widget *or* any of its ancestors have
-been deactivated.   Do not attempt to set the `:inactive' keyword
-directly.  Use the `:activate' `:deactivated' keywords instead.
+value of the `:inactive' keyword.  If this is non-nil, the widget itself
+has been deactivated.  This is different from using the `:active'
+keyword, in that the latter tells you if the widget *or* any of its
+ancestors have been deactivated.  Do not attempt to set the `:inactive'
+keyword directly.  Use the `:activate' `:deactivate' keywords instead.
 
 
 File: widget.info,  Node: Defining New Widgets,  Next: Widget Browser,  Prev: Widget Properties,  Up: Top
@@ -1274,11 +1272,11 @@ Defining New Widgets
 ====================
 
    You can define specialized widgets with `define-widget'.  It allows
-you to create a shorthand for more complex widgets, including specifying
-component widgets and default new default values for the keyword
+you to create a shorthand for more complex widgets.  This includes
+specifying component widgets and new default values for the keyword
 arguments.
 
- - Function: widget-define name class doc &rest args
+ - Function: widget-define NAME CLASS DOC &rest ARGS
      Define a new widget type named NAME from `class'.
 
      NAME and class should both be symbols, `class' should be one of
@@ -1286,7 +1284,7 @@ arguments.
 
      The third argument DOC is a documentation string for the widget.
 
-     After the new widget has been defined, the following two calls will
+     After the new widget has been defined the following two calls will
      create identical widgets:
 
         *      (widget-create NAME)
@@ -1294,9 +1292,9 @@ arguments.
         *      (apply widget-create CLASS ARGS)
 
 
-   Using `widget-define' does just store the definition of the widget
-type in the `widget-type' property of NAME, which is what
-`widget-create' uses.
+   Using `widget-define' just stores the definition of the widget type
+in the `widget-type' property of NAME, which is what `widget-create'
+uses.
 
    If you just want to specify defaults for keywords with no complex
 conversions, you can use `identity' as your conversion function.
@@ -1307,20 +1305,20 @@ new widgets:
      Function to convert a widget type before creating a widget of that
      type.  It takes a widget type as an argument, and returns the
      converted widget type.  When a widget is created, this function is
-     called for the widget type and all the widgets parent types, most
+     called for the widget type and all the widget's parent types, most
      derived first.
 
      The following predefined functions can be used here:
 
-      - Function: widget-types-convert-widget widget
+      - Function: widget-types-convert-widget WIDGET
           Convert `:args' as widget types in WIDGET.
 
-      - Function: widget-value-convert-widget widget
+      - Function: widget-value-convert-widget WIDGET
           Initialize `:value' from `:args' in WIDGET.
 
 `:value-to-internal'
      Function to convert the value to the internal format.  The function
-     takes two arguments, a widget and an external value, and returns
+     takes two arguments, a widget and an external value.  It returns
      the internal value.  The function is called on the present `:value'
      when the widget is created, and on any value set later with
      `widget-value-set'.
@@ -1334,8 +1332,8 @@ new widgets:
 
 `:create'
      Function to create a widget from scratch.  The function takes one
-     argument, a widget type, and create a widget of that type, insert
-     it in the buffer, and return a widget object.
+     argument, a widget type, and creates a widget of that type,
+     inserts it in the buffer, and returns a widget object.
 
 `:delete'
      Function to delete a widget.  The function takes one argument, a
@@ -1343,18 +1341,18 @@ new widgets:
 
 `:value-create'
      Function to expand the `%v' escape in the format string.  It will
-     be called with the widget as its argument.  Should insert a
-     representation of the widgets value in the buffer.
+     be called with the widget as its argument and should insert a
+     representation of the widget's value in the buffer.
 
 `:value-delete'
-     Should remove the representation of the widgets value from the
+     Should remove the representation of the widget's value from the
      buffer.  It will be called with the widget as its argument.  It
      doesn't have to remove the text, but it should release markers and
-     delete nested widgets if such has been used.
+     delete nested widgets if such have been used.
 
      The following predefined function can be used here:
 
-      - Function: widget-children-value-delete widget
+      - Function: widget-children-value-delete WIDGET
           Delete all `:children' and `:buttons' in WIDGET.
 
 `:value-get'
@@ -1363,7 +1361,7 @@ new widgets:
 
      The following predefined function can be used here:
 
-      - Function: widget-value-value-get widget
+      - Function: widget-value-value-get WIDGET
           Return the `:value' property of WIDGET.
 
 `:format-handler'
@@ -1373,8 +1371,8 @@ new widgets:
      non-standard escapes.
 
      You should end up calling `widget-default-format-handler' to handle
-     unknown escape sequences, which will handle the `%h' and any future
-     escape sequences, as well as give an error for unknown escapes.
+     unknown escape sequences.  It will handle the `%h' and any future
+     escape sequences as well as give an error for unknown escapes.
 
 `:action'
      Function to handle user initiated events.  By default, `:notify'
@@ -1382,7 +1380,7 @@ new widgets:
 
      The following predefined function can be used here:
 
-      - Function: widget-parent-action widget &optional event
+      - Function: widget-parent-action WIDGET &optional EVENT
           Tell `:parent' of WIDGET to handle the `:action'.
           Optional EVENT is the event that triggered the action.
 
@@ -1391,9 +1389,9 @@ new widgets:
      should take four arguments, WIDGET, PROMPT, VALUE, and UNBOUND and
      should return a value for widget entered by the user.  PROMPT is
      the prompt to use.  VALUE is the default value to use, unless
-     UNBOUND is non-nil in which case there are no default value.  The
+     UNBOUND is non-nil.  In this case there is no default value.  The
      function should read the value using the method most natural for
-     this widget, and does not have to check that it matches.
+     this widget and does not have to check whether it matches.
 
    If you want to define a new widget from scratch, use the `default'
 widget as its base.
@@ -1450,12 +1448,12 @@ File: widget.info,  Node: Utilities,  Next: Widget Wishlist,  Prev: Widget Minor
 Utilities.
 ==========
 
- - Function: widget-prompt-value widget prompt [ value unbound ]
+ - Function: widget-prompt-value WIDGET PROMPT [ VALUE UNBOUND ]
      Prompt for a value matching WIDGET, using PROMPT.
      The current value is assumed to be VALUE, unless UNBOUND is
      non-nil.
 
- - Function: widget-get-sibling widget
+ - Function: widget-get-sibling WIDGET
      Get the item WIDGET is assumed to toggle.
      This is only meaningful for radio buttons or checkboxes in a list.
 
@@ -1514,40 +1512,39 @@ Wishlist
      symbol, it should pop up a menu.
 
 
-
 
 Tag Table:
-Node: Top203
-Node: Introduction583
-Node: User Interface4066
-Node: Programming Example8961
-Node: Setting Up the Buffer12278
-Node: Basic Types13995
-Node: link20040
-Node: url-link20554
-Node: info-link20866
-Node: push-button21157
-Node: editable-field21730
-Node: text23069
-Node: menu-choice23367
-Node: radio-button-choice24232
+Node: Top227
+Node: Introduction607
+Node: User Interface4090
+Node: Programming Example8985
+Node: Setting Up the Buffer12302
+Node: Basic Types14019
+Node: link20064
+Node: url-link20578
+Node: info-link20890
+Node: push-button21181
+Node: editable-field21754
+Node: text23093
+Node: menu-choice23391
+Node: radio-button-choice24244
 Node: item25811
 Node: choice-item26199
 Node: toggle26697
-Node: checkbox27422
-Node: checklist27728
-Node: editable-list29172
-Node: group30354
-Node: Sexp Types30641
-Node: constants30954
-Node: generic32033
-Node: atoms32566
-Node: composite34513
-Node: Widget Properties36979
-Node: Defining New Widgets40042
-Node: Widget Browser45342
-Node: Widget Minor Mode46200
-Node: Utilities46757
-Node: Widget Wishlist47238
+Node: checkbox27434
+Node: checklist27740
+Node: editable-list29184
+Node: group30366
+Node: Sexp Types30653
+Node: constants30966
+Node: generic32045
+Node: atoms32578
+Node: composite34525
+Node: Widget Properties36995
+Node: Defining New Widgets40060
+Node: Widget Browser45360
+Node: Widget Minor Mode46218
+Node: Utilities46775
+Node: Widget Wishlist47256
 
 End Tag Table

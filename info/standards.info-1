@@ -1,5 +1,5 @@
-This is ../info/standards.info, produced by makeinfo version 3.12s from
-standards.texi.
+This is Info file ../info/standards.info, produced by Makeinfo version
+1.68 from the input file standards.texi.
 
 START-INFO-DIR-ENTRY
 * Standards: (standards).        GNU coding standards.
@@ -124,7 +124,7 @@ Accepting Contributions
    If the program you are working on is copyrighted by the Free Software
 Foundation, then when someone else sends you a piece of code to add to
 the program, we need legal papers to use it--just as we asked you to
-sign papers initially.  _Each_ person who makes a nontrivial
+sign papers initially.  *Each* person who makes a nontrivial
 contribution to a program must sign some sort of legal papers in order
 for us to have clear title to the program; the main author alone is not
 enough.
@@ -366,14 +366,14 @@ File: standards.info,  Node: Semantics,  Next: Libraries,  Up: Program Behavior
 Writing Robust Programs
 =======================
 
-   Avoid arbitrary limits on the length or number of _any_ data
+   Avoid arbitrary limits on the length or number of *any* data
 structure, including file names, lines, files, and symbols, by
 allocating all data structures dynamically.  In most Unix utilities,
 "long lines are silently truncated".  This is not acceptable in a GNU
 utility.
 
    Utilities reading files should not drop NUL characters, or any other
-nonprinting characters _including those with codes above 0177_.  The
+nonprinting characters *including those with codes above 0177*.  The
 only sensible exceptions would be utilities specifically intended for
 interface to certain types of terminals or printers that can't handle
 those characters.  Whenever possible, try to make programs work
@@ -382,7 +382,7 @@ using encodings such as UTF-8 and others.
 
    Check every system call for an error return, unless you know you
 wish to ignore errors.  Include the system error text (from `perror' or
-equivalent) in _every_ error message resulting from a failing system
+equivalent) in *every* error message resulting from a failing system
 call, as well as the name of the file if any and the name of the
 utility.  Just "cannot open foo.c" or "stat failed" is not sufficient.
 
@@ -440,7 +440,7 @@ are easy to examine with the debugger, so there is no point moving them
 elsewhere.
 
    Do not use a count of errors as the exit status for a program.
-_That does not work_, because exit status values are limited to 8 bits
+*That does not work*, because exit status values are limited to 8 bits
 (0 through 255).  A single run of the program might have 256 errors; if
 you try to return 256 as the exit status, the parent process will see 0
 as the status, and it will appear that the program succeeded.
@@ -581,7 +581,7 @@ consistent from program to program.  For example, users should be able
 to expect the "verbose" option of any GNU program which has one, to be
 spelled precisely `--verbose'.  To achieve this uniformity, look at the
 table of common long-option names when you choose the option names for
-your program (*note Option Table::).
+your program (*note Option Table::.).
 
    It is usually a good idea for file names given as ordinary arguments
 to be input files only; any output files would be specified using
@@ -606,7 +606,7 @@ among GNU utilities, and fewer idiosyncracies for users to remember.
 
           GNU Emacs 19.30
 
-     The program's name should be a constant string; _don't_ compute it
+     The program's name should be a constant string; *don't* compute it
      from `argv[0]'.  The idea is to state the standard or canonical
      name for the program, not its file name.  There are other ways to
      find out the precise file name where a command is found in `PATH'.
@@ -1796,7 +1796,7 @@ writing GNU software.
 * Names::                       Naming Variables and Functions
 * System Portability::          Portability between different operating systems
 * CPU Portability::             Supporting the range of CPU types
-* System Functions::            Portability and ``standard'' library functions
+* System Functions::            Portability and "standard" library functions
 * Internationalization::        Techniques for internationalization
 * Mmap::                        How you can safely use `mmap'.
 

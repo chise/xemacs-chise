@@ -1,5 +1,5 @@
-This is ../info/emodules.info, produced by makeinfo version 3.12s from
-emodules.texi.
+This is Info file ../info/emodules.info, produced by Makeinfo version
+1.68 from the input file emodules.texi.
 
    This file documents the module loading technology of XEmacs.
 
@@ -47,7 +47,7 @@ support documentation.
 * Defining Variables::          Creating new Lisp variables
 * Index::                       Concept Index
 
- --- The Detailed Node Listing ---
+ -- The Detailed Node Listing --
 
 Annatomy of a Module
 
@@ -244,7 +244,7 @@ place-holder, not an actual function name.
 `syms_of_module'
      This required function is responsible for introducing to the Lisp
      reader all functions that you have defined in your module using
-     `DEFUN()'.  Note that _only_ functions are declared here, using
+     `DEFUN()'.  Note that *only* functions are declared here, using
      the `DEFSUBR()' macro.  No variables are declared.
 
 `vars_of_module'
@@ -276,7 +276,7 @@ Required Variables
    Not only does a module need to declare the initialization functions
 mentioned above, it is also required to provide certain variables which
 the module loading code searches for in order to determine the viability
-of a module.  You are _not_ required to provide these variables in your
+of a module.  You are *not* required to provide these variables in your
 source files.  They are automatically set up in the module
 initialization file by the `ellcc' compiler.  These variables are
 discussed here simply for the sake of completeness.
@@ -820,7 +820,7 @@ initialization function using special XEmacs macros such as
 how to use these macros is to look at existing source code, or read the
 internals manual.
 
-   One _very_ important difference between XEmacs variables and module
+   One *very* important difference between XEmacs variables and module
 variables is how you use pure space.  Simply put, you *never* use pure
 space in XEmacs modules.  The pure space storage is of a limited size,
 and is initialized propperly during the dumping of XEmacs.  Because
@@ -930,23 +930,23 @@ Index
 
 
 Tag Table:
-Node: Top1538
-Node: Introduction2886
-Node: Annatomy of a Module7395
-Node: Required Header File8211
-Node: Required Functions10132
-Node: Required Variables12381
-Node: Loading other Modules15068
-Node: Using ellcc17126
-Node: Compile Mode18921
-Node: Initialization Mode20289
-Node: Link Mode25321
-Node: Other ellcc options26468
-Node: Environment Variables29048
-Node: Defining Functions30739
-Node: Using DEFUN32750
-Node: Declaring Functions34461
-Node: Defining Variables35804
-Node: Index38049
+Node: Top1562
+Node: Introduction2908
+Node: Annatomy of a Module7417
+Node: Required Header File8233
+Node: Required Functions10154
+Node: Required Variables12403
+Node: Loading other Modules15090
+Node: Using ellcc17148
+Node: Compile Mode18943
+Node: Initialization Mode20311
+Node: Link Mode25343
+Node: Other ellcc options26490
+Node: Environment Variables29070
+Node: Defining Functions30761
+Node: Using DEFUN32772
+Node: Declaring Functions34483
+Node: Defining Variables35826
+Node: Index38071
 
 End Tag Table

@@ -1,5 +1,5 @@
-This is ../info/xemacs.info, produced by makeinfo version 3.12s from
-xemacs/xemacs.texi.
+This is Info file ../info/xemacs.info, produced by Makeinfo version
+1.68 from the input file xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -215,7 +215,7 @@ Source File Tag Syntax
      generate a tag.
 
    You can also generate tags based on regexp matching (*note Etags
-Regexps::) to handle other formats and languages.
+Regexps::.) to handle other formats and languages.
 
 
 File: xemacs.info,  Node: Create Tags Table,  Next: Etags Regexps,  Prev: Tag Syntax,  Up: Tags
@@ -294,7 +294,7 @@ the file names that follow it.  Specify `--language=auto' to tell
 `etags' to resume guessing the language from the file names and file
 contents.  Specify `--language=none' to turn off language-specific
 processing entirely; then `etags' recognizes tags by regexp matching
-alone (*note Etags Regexps::).
+alone (*note Etags Regexps::.).
 
    `etags --help' prints the list of the languages `etags' knows, and
 the file name rules for guessing the language. It also prints a list of
@@ -578,7 +578,7 @@ Searching and Replacing with Tags Tables
    The commands in this section visit and search all the files listed
 in the selected tags table, one by one.  For these commands, the tags
 table serves only to specify a sequence of files to search.  A related
-command is `M-x grep' (*note Compilation::).
+command is `M-x grep' (*note Compilation::.).
 
 `M-x tags-search <RET> REGEXP <RET>'
      Search for REGEXP through the files in the selected tags table.
@@ -876,7 +876,7 @@ standard Emacs comment commands and defines some new variables.
 comments start with `!' and can follow other text.  Because only some
 Fortran compilers accept this syntax, Fortran mode will not insert such
 comments unless you have specified to do so in advance by setting the
-variable `comment-start' to `"!"' (*note Variables::).
+variable `comment-start' to `"!"' (*note Variables::.).
 
 `M-;'
      Align comment or insert new comment (`fortran-comment-indent').
@@ -985,7 +985,7 @@ Fortran Keyword Abbrevs
 
    Fortran mode provides many built-in abbrevs for common keywords and
 declarations.  These are the same sort of abbrevs that you can define
-yourself.  To use them, you must turn on Abbrev mode.  *note Abbrevs::.
+yourself.  To use them, you must turn on Abbrev mode.  *note Abbrevs::..
 
    The built-in abbrevs are unusual in one way: they all start with a
 semicolon.  You cannot normally use semicolon in an abbrev, but Fortran
@@ -1090,7 +1090,7 @@ line is used again.  The first `M-x compile' provides `make -k' as the
 default.  The default is taken from the variable `compile-command'; if
 the appropriate compilation command for a file is something other than
 `make -k', it can be useful to have the file specify a local value for
-`compile-command' (*note File Variables::).
+`compile-command' (*note File Variables::.).
 
    When you start a compilation, the buffer `*compilation*' is
 displayed in another window but not selected.  Its mode line displays
@@ -1176,7 +1176,7 @@ Lisp mode
 Inferior Lisp mode
      The mode for an interactive session with an inferior Lisp process.
      This mode combines the special features of Lisp mode and Shell mode
-     (*note Shell Mode::).
+     (*note Shell Mode::.).
 
 Scheme mode
      Like Lisp mode but for Scheme programs.
@@ -1193,7 +1193,7 @@ Libraries of Lisp Code for Emacs
 
    Lisp code for Emacs editing commands is stored in files whose names
 conventionally end in `.el'.  This ending tells Emacs to edit them in
-Emacs-Lisp mode (*note Lisp Modes::).
+Emacs-Lisp mode (*note Lisp Modes::.).
 
 * Menu:
 

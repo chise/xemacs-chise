@@ -40,6 +40,9 @@ Boston, MA 02111-1307, USA.  */
 #endif
 #ifdef NEED_MOTIF
 #include "lwlib-Xm.h"
+#ifdef LWLIB_WIDGETS_MOTIF
+#include <Xm/Xm.h>
+#endif
 #endif
 #ifdef NEED_ATHENA
 #include "lwlib-Xaw.h"
@@ -67,8 +70,8 @@ int lw_menu_accelerate = False;
 
 
 /* Forward declarations */
-static void
-instantiate_widget_instance (widget_instance *instance);
+static void instantiate_widget_instance (widget_instance *instance);
+static void free_widget_value_args (widget_value* wv);
 
 
 /* utility functions for widget_instance and widget_info */
@@ -153,14 +156,9 @@ free_widget_value_contents (widget_value *wv)
       free_widget_value_tree (wv->contents);
       wv->contents = (widget_value *) 0xDEADBEEF;
     }
-  if (wv->args && wv->nargs)
-    {
-      if (wv->free_args)
-	free (wv->args);
-      wv->args = (ArgList) 0xDEADBEEF;
-      wv->nargs = 0;
-      wv->free_args = 0;
-    }
+
+  free_widget_value_args (wv);
+
   if (wv->next)
     {
       free_widget_value_tree (wv->next);
@@ -237,6 +235,41 @@ merge_scrollbar_values (widget_value *old, widget_value *new)
 
 #endif /* NEED_SCROLLBARS */
 
+#ifdef HAVE_WIDGETS
+/*
+ * Return true if old->args was not equivalent
+ * to new->args.
+ */
+static Boolean
+merge_widget_value_args (widget_value *old, widget_value *new)
+{
+  Boolean changed = False;
+
+  if (new->args && !old->args)
+    {
+      lw_copy_widget_value_args (new, old);
+      changed = True;
+    }
+  /* Generally we don't want to lose values that are already in the
+     widget. */
+  else if (!new->args && old->args)
+    {
+      lw_copy_widget_value_args (old, new);
+      changed = True;
+    }
+  else if (new->args && old->args)
+    {
+      /* #### Do something more sensible here than just copying the
+         new values (like actually merging the values). */
+      free_widget_value_args (old);
+      lw_copy_widget_value_args (new, old);
+      changed = True;
+    }
+
+  return changed;
+}
+#endif /* HAVE_WIDGETS */
+
 /* Make a complete copy of a widget_value tree.  Store CHANGE into
    the widget_value tree's `change' field. */
 
@@ -269,13 +302,8 @@ copy_widget_value_tree (widget_value *val, change_type change)
       copy->next = copy_widget_value_tree (val->next, change);
       copy->toolkit_data = NULL;
       copy->free_toolkit_data = False;
-      if (val->nargs)
-	{
-	  copy->args = (ArgList)malloc (sizeof (Arg) * val->nargs);
-	  memcpy (copy->args, val->args, sizeof(Arg) * val->nargs);
-	  copy->nargs = val->nargs;
-	  copy->free_args = True;
-	}
+
+      lw_copy_widget_value_args (val, copy);
 #ifdef NEED_SCROLLBARS
       copy_scrollbar_values (val, copy);
 #endif
@@ -590,6 +618,14 @@ merge_widget_value (widget_value *val1, widget_value *val2, int level)
       change = max (change, INVISIBLE_CHANGE);
       val1->call_data = val2->call_data;
     }
+#ifdef HAVE_WIDGETS
+  if (merge_widget_value_args (val1, val2))
+    {
+      EXPLAIN (val1->name, change, VISIBLE_CHANGE, "widget change", 0, 0);
+      change = max (change, VISIBLE_CHANGE);
+    }
+#endif
+
 #ifdef NEED_SCROLLBARS
   if (merge_scrollbar_values (val1, val2))
     {
@@ -1317,13 +1353,67 @@ lw_show_busy (Widget w, Boolean busy)
 void lw_add_value_args_to_args (widget_value* wv, ArgList addto, int* offset)
 {
   int i;
-  if (wv->nargs && wv->args)
+  if (wv->args && wv->args->nargs)
     {
-      for (i = 0; i<wv->nargs; i++)
+      for (i = 0; i<wv->args->nargs; i++)
 	{
-	  addto[i + *offset] = wv->args[i];
+	  addto[i + *offset] = wv->args->args[i];
 	}
-      *offset += wv->nargs;
+      *offset += wv->args->nargs;
+    }
+}
+
+void lw_add_widget_value_arg (widget_value* wv, String name, XtArgVal value)
+{
+  if (!wv->args)
+    {
+      wv->args = (widget_args *) malloc (sizeof (widget_args));
+      memset (wv->args, 0, sizeof (widget_args));
+      wv->args->ref_count = 1;
+      wv->args->nargs = 0;
+      wv->args->args = (ArgList) malloc (sizeof (Arg) * 10);
+      memset (wv->args->args, 0, sizeof (Arg) * 10);
+    }
+  
+  if (wv->args->nargs > 10)
+    return;
+
+  XtSetArg (wv->args->args [wv->args->nargs], name, value);   wv->args->nargs++;
+}
+
+static void free_widget_value_args (widget_value* wv)
+{
+  if (wv->args)
+    {
+      if (--wv->args->ref_count <= 0)
+	{
+#ifdef LWLIB_WIDGETS_MOTIF
+	  int i;
+	  for (i = 0; i < wv->args->nargs; i++)
+	    {
+	      if (!strcmp (wv->args->args[i].name, XmNfontList))
+		XmFontListFree ((XmFontList)wv->args->args[i].value);
+	    }
+#endif
+	  free (wv->args->args);
+	  free (wv->args);
+	  wv->args = (widget_args*)0xDEADBEEF;
+	}
+    }
+}
+
+void lw_copy_widget_value_args (widget_value* val, widget_value* copy)
+{
+  if (!val->args)
+    {
+      if (copy->args)
+	free_widget_value_args (copy);
+      copy->args = 0;
+    }
+  else
+    {
+      copy->args = val->args;
+      copy->args->ref_count++;
     }
 }
 

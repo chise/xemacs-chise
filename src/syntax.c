@@ -385,12 +385,12 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 	    if (code != Sword
 #ifdef MULE
 		|| WORD_BOUNDARY_P (ch0, ch1)
-#endif		
+#endif
 		)
 	      break;
 #ifdef MULE
 	  ch0 = ch1;
-#endif	  
+#endif
 	  from++;
 	}
       count--;
@@ -1027,7 +1027,7 @@ scan_lists (struct buffer *buf, Bufpos from, int count, int depth,
 	  if (SYNTAX_PREFIX_UNSAFE (mirrortab, c))
 	    continue;
 
-	  switch (((quoted) ? Sword : code))
+	  switch (quoted ? Sword : code)
 	    {
 	    case Sword:
 	    case Ssymbol:
@@ -1681,11 +1681,12 @@ vars_of_syntax (void)
   DEFVAR_BOOL ("parse-sexp-ignore-comments", &parse_sexp_ignore_comments /*
 Non-nil means `forward-sexp', etc., should treat comments as whitespace.
 */ );
+  parse_sexp_ignore_comments = 0;
 
-  words_include_escapes = 0;
   DEFVAR_BOOL ("words-include-escapes", &words_include_escapes /*
 Non-nil means `forward-word', etc., should treat escape chars part of words.
 */ );
+  words_include_escapes = 0;
 
   no_quit_in_re_search = 0;
 }

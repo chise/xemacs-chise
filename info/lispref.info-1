@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -151,7 +151,7 @@ Appendices
 * Index::                   Index including concepts, functions, variables,
                               and other terms.
 
-      --- The Detailed Node Listing ---
+      -- The Detailed Node Listing --
 
 Here are other nodes that are inferiors of those already listed,
 mentioned here so you can get to them in one step:
@@ -303,7 +303,7 @@ Kinds of Forms
 * Classifying Lists::       How to distinguish various sorts of list forms.
 * Function Forms::          Forms that call functions.
 * Macro Forms::             Forms that call macros.
-* Special Forms::           ``Special forms'' are idiosyncratic primitives,
+* Special Forms::           "Special forms" are idiosyncratic primitives,
                               most of them extremely important.
 * Autoloading::             Functions set up to load files
                               containing their real definitions.
@@ -466,7 +466,7 @@ Command Loop
 * Events::		What input looks like when you read it.
 * Reading Input::       How to read input events from the keyboard or mouse.
 * Waiting::             Waiting for user input or elapsed time.
-* Quitting::            How C-g works.  How to catch or defer quitting.
+* Quitting::            How `C-g' works.  How to catch or defer quitting.
 * Prefix Command Arguments::    How the commands to set prefix args work.
 * Recursive Editing::   Entering a recursive edit,
                           and why you usually shouldn't.
@@ -651,7 +651,7 @@ Buffers
                               is visited.
 * Buffer Modification::     A buffer is "modified" if it needs to be saved.
 * Modification Time::       Determining whether the visited file was changed
-                              ``behind XEmacs's back''.
+                              "behind XEmacs's back".
 * Read Only Buffers::       Modifying text is not allowed in a
                               read-only buffer.
 * The Buffer List::         How to look at all the existing buffers.
@@ -720,8 +720,8 @@ Markers
 * Information from Markers::  Finding the marker's buffer or character
                                 position.
 * Changing Markers::        Moving the marker to a new buffer or position.
-* The Mark::                How ``the mark'' is implemented with a marker.
-* The Region::              How to access ``the region''.
+* The Mark::                How "the mark" is implemented with a marker.
+* The Region::              How to access "the region".
 
 Text
 
@@ -828,10 +828,10 @@ Specifiers
 				(under user control) in a wide variety
 				of contexts.
 * Specifiers In-Depth::		Gory details about specifier innards.
-* Specifier Instancing::	Instancing means obtaining the ``value'' of
+* Specifier Instancing::	Instancing means obtaining the "value" of
 				a specifier in a particular context.
 * Specifier Types::		Specifiers come in different flavors.
-* Adding Specifications::	Specifications control a specifier's ``value''
+* Adding Specifications::	Specifications control a specifier's "value"
 				by giving conditions under which a
 				particular value is valid.
 * Retrieving Specifications::	Querying a specifier's specifications.

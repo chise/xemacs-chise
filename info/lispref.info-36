@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -56,22 +56,22 @@ Image Specifiers
 ----------------
 
    An image specifier is used to describe the actual image of a glyph.
-It works like other specifiers (*note Specifiers::), in that it contains
-a number of specifications describing how the image should appear in a
-variety of circumstances.  These specifications are called "image
-instantiators".  When XEmacs wants to display the image, it instantiates
-the image into an "image instance".  Image instances are their own
-primitive object type (similar to font instances and color instances),
-describing how the image appears in a particular domain. (On the other
-hand, image instantiators, which are just descriptions of how the image
-should appear, are represented using strings or vectors.)
+It works like other specifiers (*note Specifiers::.), in that it
+contains a number of specifications describing how the image should
+appear in a variety of circumstances.  These specifications are called
+"image instantiators".  When XEmacs wants to display the image, it
+instantiates the image into an "image instance".  Image instances are
+their own primitive object type (similar to font instances and color
+instances), describing how the image appears in a particular domain.
+(On the other hand, image instantiators, which are just descriptions of
+how the image should appear, are represented using strings or vectors.)
 
- - Function: image-specifier-p object
+ - Function: image-specifier-p OBJECT
      This function returns non-`nil' if OBJECT is an image specifier.
      Usually, an image specifier results from calling `glyph-image' on
      a glyph.
 
- - Function: make-image-specifier spec-list
+ - Function: make-image-specifier SPEC-LIST
      This function creates a new image specifier object and initializes
      it according to SPEC-LIST.  It is unlikely that you will ever want
      to do this, but this function is provided for completeness and for
@@ -262,7 +262,7 @@ implies that the file must exist when the instantiator is added to the
 image, but does not need to exist at any other time (e.g. it may safely
 be a temporary file).
 
- - Function: valid-image-instantiator-format-p format
+ - Function: valid-image-instantiator-format-p FORMAT
      This function returns non-`nil' if FORMAT is a valid image
      instantiator format.  Note that the return value for many formats
      listed above depends on whether XEmacs was compiled with support
@@ -277,7 +277,7 @@ be a temporary file).
      `(COLOR-NAME FORM-TO-EVALUATE)'.  The COLOR-NAME should be a
      string, which is the name of the color to define; the
      FORM-TO-EVALUATE should evaluate to a color specifier object, or a
-     string to be passed to `make-color-instance' (*note Colors::).  If
+     string to be passed to `make-color-instance' (*note Colors::.).  If
      a loaded XPM file references a symbolic color called COLOR-NAME,
      it will display as the computed color instead.
 
@@ -298,7 +298,7 @@ File: lispref.info,  Node: Image Instantiator Conversion,  Next: Image Instances
 Image Instantiator Conversion
 -----------------------------
 
- - Function: set-console-type-image-conversion-list console-type list
+ - Function: set-console-type-image-conversion-list CONSOLE-TYPE LIST
      This function sets the image-conversion-list for consoles of the
      given CONSOLE-TYPE.  The image-conversion-list specifies how image
      instantiators that are strings should be interpreted.  Each
@@ -315,7 +315,7 @@ Image Instantiator Conversion
      affects newly-added instantiators.  Existing instantiators in
      glyphs and image specifiers will not be affected.
 
- - Function: console-type-image-conversion-list console-type
+ - Function: console-type-image-conversion-list CONSOLE-TYPE
      This function returns the image-conversion-list for consoles of
      the given CONSOLE-TYPE.
 
@@ -333,7 +333,7 @@ instances; use a glyph instead.  However, it may occasionally be useful
 to explicitly create image instances, if you want more control over the
 instantiation process.
 
- - Function: image-instance-p object
+ - Function: image-instance-p OBJECT
      This function returns non-`nil' if OBJECT is an image instance.
 
 * Menu:
@@ -381,39 +381,39 @@ string, a mono pixmap, a color pixmap, etc.
      another program to be responsible for drawing into the window.
      Not currently implemented.
 
- - Function: valid-image-instance-type-p type
+ - Function: valid-image-instance-type-p TYPE
      This function returns non-`nil' if TYPE is a valid image instance
      type.
 
  - Function: image-instance-type-list
      This function returns a list of the valid image instance types.
 
- - Function: image-instance-type image-instance
+ - Function: image-instance-type IMAGE-INSTANCE
      This function returns the type of the given image instance.  The
      return value will be one of `nothing', `text', `mono-pixmap',
      `color-pixmap', `pointer', or `subwindow'.
 
- - Function: text-image-instance-p object
+ - Function: text-image-instance-p OBJECT
      This function returns non-`nil' if OBJECT is an image instance of
      type `text'.
 
- - Function: mono-pixmap-image-instance-p object
+ - Function: mono-pixmap-image-instance-p OBJECT
      This function returns non-`nil' if OBJECT is an image instance of
      type `mono-pixmap'.
 
- - Function: color-pixmap-image-instance-p object
+ - Function: color-pixmap-image-instance-p OBJECT
      This function returns non-`nil' if OBJECT is an image instance of
      type `color-pixmap'.
 
- - Function: pointer-image-instance-p object
+ - Function: pointer-image-instance-p OBJECT
      This function returns non-`nil' if OBJECT is an image instance of
      type `pointer'.
 
- - Function: subwindow-image-instance-p object
+ - Function: subwindow-image-instance-p OBJECT
      This function returns non-`nil' if OBJECT is an image instance of
      type `subwindow'.
 
- - Function: nothing-image-instance-p object
+ - Function: nothing-image-instance-p OBJECT
      This function returns non-`nil' if OBJECT is an image instance of
      type `nothing'.
 
@@ -423,12 +423,12 @@ File: lispref.info,  Node: Image Instance Functions,  Prev: Image Instance Types
 Image Instance Functions
 ........................
 
- - Function: make-image-instance data &optional device dest-types
-          no-error
+ - Function: make-image-instance DATA &optional DEVICE DEST-TYPES
+          NO-ERROR
      This function creates a new image-instance object.
 
      DATA is an image instantiator, which describes the image (*note
-     Image Specifiers::).
+     Image Specifiers::.).
 
      DEST-TYPES should be a list of allowed image instance types that
      can be generated.  The DEST-TYPES list is unordered.  If multiple
@@ -454,8 +454,8 @@ Image Instance Functions
      generated and this function returns NIL.  If anything else, a
      warning message is generated and this function returns NIL.
 
- - Function: colorize-image-instance image-instance foreground
-          background
+ - Function: colorize-image-instance IMAGE-INSTANCE FOREGROUND
+          BACKGROUND
      This function makes the image instance be displayed in the given
      colors.  Image instances come in two varieties: bitmaps, which are
      1 bit deep which are rendered in the prevailing foreground and
@@ -465,32 +465,32 @@ Image Instance Functions
      instance was a pixmap already, nothing is done (and `nil' is
      returned).  Otherwise `t' is returned.
 
- - Function: image-instance-name image-instance
+ - Function: image-instance-name IMAGE-INSTANCE
      This function returns the name of the given image instance.
 
- - Function: image-instance-string image-instance
+ - Function: image-instance-string IMAGE-INSTANCE
      This function returns the string of the given image instance.
      This will only be non-`nil' for text image instances.
 
- - Function: image-instance-file-name image-instance
+ - Function: image-instance-file-name IMAGE-INSTANCE
      This function returns the file name from which IMAGE-INSTANCE was
      read, if known.
 
- - Function: image-instance-mask-file-name image-instance
+ - Function: image-instance-mask-file-name IMAGE-INSTANCE
      This function returns the file name from which IMAGE-INSTANCE's
      mask was read, if known.
 
- - Function: image-instance-depth image-instance
+ - Function: image-instance-depth IMAGE-INSTANCE
      This function returns the depth of the image instance.  This is 0
      for a mono pixmap, or a positive integer for a color pixmap.
 
- - Function: image-instance-height image-instance
+ - Function: image-instance-height IMAGE-INSTANCE
      This function returns the height of the image instance, in pixels.
 
- - Function: image-instance-width image-instance
+ - Function: image-instance-width IMAGE-INSTANCE
      This function returns the width of the image instance, in pixels.
 
- - Function: image-instance-hotspot-x image-instance
+ - Function: image-instance-hotspot-x IMAGE-INSTANCE
      This function returns the X coordinate of the image instance's
      hotspot, if known.  This is a point relative to the origin of the
      pixmap.  When an image is used as a mouse pointer, the hotspot is
@@ -500,16 +500,16 @@ Image Instance Functions
 
      This will always be `nil' for a non-pointer image instance.
 
- - Function: image-instance-hotspot-y image-instance
+ - Function: image-instance-hotspot-y IMAGE-INSTANCE
      This function returns the Y coordinate of the image instance's
      hotspot, if known.
 
- - Function: image-instance-foreground image-instance
+ - Function: image-instance-foreground IMAGE-INSTANCE
      This function returns the foreground color of IMAGE-INSTANCE, if
      applicable.  This will be a color instance or `nil'. (It will only
      be non-`nil' for colorized mono pixmaps and for pointers.)
 
- - Function: image-instance-background image-instance
+ - Function: image-instance-background IMAGE-INSTANCE
      This function returns the background color of IMAGE-INSTANCE, if
      applicable.  This will be a color instance or `nil'. (It will only
      be non-`nil' for colorized mono pixmaps and for pointers.)
@@ -540,25 +540,25 @@ glyph's type.
      iconified.  Their image can be instantiated as `mono-pixmap' and
      `color-pixmap'.
 
- - Function: glyph-type glyph
+ - Function: glyph-type GLYPH
      This function returns the type of the given glyph.  The return
      value will be a symbol, one of `buffer', `pointer', or `icon'.
 
- - Function: valid-glyph-type-p glyph-type
+ - Function: valid-glyph-type-p GLYPH-TYPE
      Given a GLYPH-TYPE, this function returns non-`nil' if it is valid.
 
  - Function: glyph-type-list
      This function returns a list of valid glyph types.
 
- - Function: buffer-glyph-p object
+ - Function: buffer-glyph-p OBJECT
      This function returns non-`nil' if OBJECT is a glyph of type
      `buffer'.
 
- - Function: icon-glyph-p object
+ - Function: icon-glyph-p OBJECT
      This function returns non-`nil' if OBJECT is a glyph of type
      `icon'.
 
- - Function: pointer-glyph-p object
+ - Function: pointer-glyph-p OBJECT
      This function returns non-`nil' if OBJECT is a glyph of type
      `pointer'.
 
@@ -574,7 +574,7 @@ a glyph is a specifier, it can be controlled on a per-buffer,
 per-frame, per-window, or per-device basis.
 
    You should use `set-glyph-image' to set the following variables,
-_not_ `setq'.
+*not* `setq'.
 
  - Glyph: text-pointer-glyph
      This variable specifies the shape of the mouse pointer when over
@@ -629,7 +629,7 @@ _not_ `setq'.
 mouse moves.  That function calls `set-frame-pointer', which sets the
 current mouse pointer for a frame.
 
- - Function: set-frame-pointer frame image-instance
+ - Function: set-frame-pointer FRAME IMAGE-INSTANCE
      This function sets the mouse pointer of FRAME to the given pointer
      image instance.  You should not call this function directly.  (If
      you do, the pointer will change again the next time the mouse
@@ -676,7 +676,7 @@ Subwindows
 
    Subwindows are not currently implemented.
 
- - Function: subwindowp object
+ - Function: subwindowp OBJECT
      This function returns non-`nil' if OBJECT is a subwindow.
 
 
@@ -690,7 +690,7 @@ text but is displayed next to a particular location in a buffer.
 Annotations can be displayed intermixed with text, in any whitespace at
 the beginning or end of a line, or in a special area at the left or
 right side of the frame called a "margin", whose size is controllable.
-Annotations are implemented using extents (*note Extents::); but you
+Annotations are implemented using extents (*note Extents::.); but you
 can work with annotations without knowing how extents work.
 
 * Menu:
@@ -802,8 +802,8 @@ File: lispref.info,  Node: Annotation Primitives,  Next: Annotation Properties, 
 Annotation Primitives
 =====================
 
- - Function: make-annotation glyph &optional position layout buffer
-          with-event d-glyph rightp
+ - Function: make-annotation GLYPH &optional POSITION LAYOUT BUFFER
+          WITH-EVENT D-GLYPH RIGHTP
      This function creates a marginal annotation at position POS in
      BUFFER.  The annotation is displayed using GLYPH, which should be
      a glyph object or a string, and is positioned using layout policy
@@ -820,11 +820,11 @@ Annotation Primitives
 
      The newly created annotation is returned.
 
- - Function: delete-annotation annotation
+ - Function: delete-annotation ANNOTATION
      This function removes ANNOTATION from its buffer.  This does not
      modify the buffer text.
 
- - Function: annotationp annotation
+ - Function: annotationp ANNOTATION
      This function returns `t' if ANNOTATION is an annotation, `nil'
      otherwise.
 
@@ -834,74 +834,74 @@ File: lispref.info,  Node: Annotation Properties,  Next: Margin Primitives,  Pre
 Annotation Properties
 =====================
 
- - Function: annotation-glyph annotation
+ - Function: annotation-glyph ANNOTATION
      This function returns the glyph object used to display ANNOTATION.
 
- - Function: set-annotation-glyph annotation glyph &optional layout side
+ - Function: set-annotation-glyph ANNOTATION GLYPH &optional LAYOUT SIDE
      This function sets the glyph of ANNOTATION to GLYPH, which should
      be a glyph object.  If LAYOUT is non-`nil', set the layout policy
      of ANNOTATION to LAYOUT.  If SIDE is `left' or `right', change the
      side of the buffer at which the annotation is displayed to the
      given side.  The new value of `annotation-glyph' is returned.
 
- - Function: annotation-down-glyph annotation
+ - Function: annotation-down-glyph ANNOTATION
      This function returns the glyph used to display ANNOTATION when
      the left mouse button is depressed on the annotation.
 
- - Function: set-annotation-down-glyph annotation glyph
+ - Function: set-annotation-down-glyph ANNOTATION GLYPH
      This function returns the glyph used to display ANNOTATION when
      the left mouse button is depressed on the annotation to GLYPH,
      which should be a glyph object.
 
- - Function: annotation-face annotation
+ - Function: annotation-face ANNOTATION
      This function returns the face associated with ANNOTATION.
 
- - Function: set-annotation-face annotation face
+ - Function: set-annotation-face ANNOTATION FACE
      This function sets the face associated with ANNOTATION to FACE.
 
- - Function: annotation-layout annotation
+ - Function: annotation-layout ANNOTATION
      This function returns the layout policy of ANNOTATION.
 
- - Function: set-annotation-layout annotation layout
+ - Function: set-annotation-layout ANNOTATION LAYOUT
      This function sets the layout policy of ANNOTATION to LAYOUT.
 
- - Function: annotation-side annotation
+ - Function: annotation-side ANNOTATION
      This function returns the side of the buffer that ANNOTATION is
      displayed on.  Return value is a symbol, either `left' or `right'.
 
- - Function: annotation-data annotation
+ - Function: annotation-data ANNOTATION
      This function returns the data associated with ANNOTATION.
 
- - Function: set-annotation-data annotation data
+ - Function: set-annotation-data ANNOTATION DATA
      This function sets the data field of ANNOTATION to DATA.  DATA is
      returned.
 
- - Function: annotation-action annotation
+ - Function: annotation-action ANNOTATION
      This function returns the action associated with ANNOTATION.
 
- - Function: set-annotation-action annotation action
+ - Function: set-annotation-action ANNOTATION ACTION
      This function sets the action field of ANNOTATION to ACTION.
      ACTION is returned..
 
- - Function: annotation-menu annotation
+ - Function: annotation-menu ANNOTATION
      This function returns the menu associated with ANNOTATION.
 
- - Function: set-annotation-menu annotation menu
+ - Function: set-annotation-menu ANNOTATION MENU
      This function sets the menu associated with ANNOTATION to MENU.
      This menu will be displayed when the right mouse button is pressed
      over the annotation.
 
- - Function: annotation-visible annotation
+ - Function: annotation-visible ANNOTATION
      This function returns `t' if there is enough available space to
      display ANNOTATION, `nil' otherwise.
 
- - Function: annotation-width annotation
+ - Function: annotation-width ANNOTATION
      This function returns the width of ANNOTATION in pixels.
 
- - Function: hide-annotation annotation
+ - Function: hide-annotation ANNOTATION
      This function removes ANNOTATION's glyph, making it invisible.
 
- - Function: reveal-annotation annotation
+ - Function: reveal-annotation ANNOTATION
      This function restores ANNOTATION's glyph, making it visible.
 
 
@@ -910,16 +910,16 @@ File: lispref.info,  Node: Locating Annotations,  Next: Annotation Hooks,  Prev:
 Locating Annotations
 ====================
 
- - Function: annotations-in-region start end buffer
+ - Function: annotations-in-region START END BUFFER
      This function returns a list of all annotations in BUFFER which
      are between START and END inclusively.
 
- - Function: annotations-at &optional position buffer
+ - Function: annotations-at &optional POSITION BUFFER
      This function returns a list of all annotations at POSITION in
      BUFFER.  If POSITION is `nil' point is used.  If BUFFER is `nil'
      the current buffer is used.
 
- - Function: annotation-list &optional buffer
+ - Function: annotation-list &optional BUFFER
      This function returns a list of all annotations in BUFFER.  If
      BUFFER is `nil', the current buffer is used.
 
@@ -959,12 +959,12 @@ of specifiers.  *Note Specifiers::.
      to `nil'.  This is a specifier variable; use `set-specifier' to
      change its value.
 
- - Function: window-left-margin-pixel-width &optional window
+ - Function: window-left-margin-pixel-width &optional WINDOW
      This function returns the width in pixels of the left outside
      margin of WINDOW.  If WINDOW is `nil', the selected window is
      assumed.
 
- - Function: window-right-margin-pixel-width &optional window
+ - Function: window-right-margin-pixel-width &optional WINDOW
      This function returns the width in pixels of the right outside
      margin of WINDOW.  If WINDOW is `nil', the selected window is
      assumed.
@@ -1028,12 +1028,12 @@ Refreshing the Screen
    The function `redraw-frame' redisplays the entire contents of a
 given frame.  *Note Frames::.
 
- - Function: redraw-frame frame
+ - Function: redraw-frame FRAME
      This function clears and redisplays frame FRAME.
 
    Even more powerful is `redraw-display':
 
- - Command: redraw-display &optional device
+ - Command: redraw-display &optional DEVICE
      This function redraws all frames on DEVICE marked as having their
      image garbled.  DEVICE defaults to the selected device.  If DEVICE
      is `t', all devices will have their frames checked.
@@ -1108,12 +1108,12 @@ Filling::.
  - User Option: truncate-partial-width-windows
      This variable controls display of lines that extend beyond the
      right edge of the window, in side-by-side windows (*note Splitting
-     Windows::).  If it is non-`nil', these lines are truncated;
+     Windows::.).  If it is non-`nil', these lines are truncated;
      otherwise, `truncate-lines' says what to do with them.
 
    The backslash and curved arrow used to indicate truncated or
 continued lines are only defaults, and can be changed.  These images
-are actually glyphs (*note Glyphs::).  XEmacs provides a great deal of
+are actually glyphs (*note Glyphs::.).  XEmacs provides a great deal of
 flexibility in how glyphs can be controlled. (This differs from FSF
 Emacs, which uses display tables to control these images.)
 

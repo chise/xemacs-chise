@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -100,13 +100,10 @@ Index
 * <:                                     Comparison of Numbers.
 * <=:                                    Comparison of Numbers.
 * <ESC>:                                 Functions for Key Lookup.
-* <SPC> in minibuffer:                   Text from Minibuffer.
-* <TAB> in minibuffer:                   Text from Minibuffer.
 * =:                                     Comparison of Numbers.
 * >:                                     Comparison of Numbers.
 * >=:                                    Comparison of Numbers.
 * ? in character constant:               Character Type.
-* ? in minibuffer:                       Text from Minibuffer.
 * ? in regexp:                           Syntax of Regexps.
 * @ in interactive:                      Using Interactive.
 * [ in regexp:                           Syntax of Regexps.
@@ -539,6 +536,7 @@ Index
 * changing window size:                  Resizing Windows.
 * char table type:                       Char Table Type.
 * char-after:                            Near Point.
+* char-before:                           Near Point.
 * char-charset:                          MULE Characters.
 * char-equal:                            Text Comparison.
 * char-int:                              Character Codes.
@@ -590,18 +588,18 @@ Index
 * check-valid-spec-list:                 Specifier Validation Functions.
 * child process:                         Processes.
 * children, of extent:                   Extent Parents.
-* CL note--allocate more storage:        Garbage Collection.
-* CL note--case of letters:              Symbol Type.
-* CL note--default optional arg:         Argument List.
-* CL note--integers vrs eq:              Comparison of Numbers.
-* CL note--lack union, set:              Sets And Lists.
-* CL note--no continuable errors:        Signaling Errors.
-* CL note--only throw in Emacs:          Catch and Throw.
-* CL note--rplaca vrs setcar:            Modifying Lists.
-* CL note--set local:                    Setting Variables.
-* CL note--special forms compared:       Special Forms.
-* CL note--special variables:            Variable Scoping.
-* CL note--symbol in obarrays:           Creating Symbols.
+* CL note---allocate more storage:       Garbage Collection.
+* CL note---case of letters:             Symbol Type.
+* CL note---default optional arg:        Argument List.
+* CL note---integers vrs eq:             Comparison of Numbers.
+* CL note---lack union, set:             Sets And Lists.
+* CL note---no continuable errors:       Signaling Errors.
+* CL note---only throw in Emacs:         Catch and Throw.
+* CL note---rplaca vrs setcar:           Modifying Lists.
+* CL note---set local:                   Setting Variables.
+* CL note---special forms compared:      Special Forms.
+* CL note---special variables:           Variable Scoping.
+* CL note---symbol in obarrays:          Creating Symbols.
 * cl-read:                               Reading in Edebug.
 * cl-specs.el:                           Instrumenting.
 * cl.el (Edebug):                        Instrumenting.
@@ -2120,7 +2118,6 @@ Index
 * minibuffer-local-map:                  Text from Minibuffer.
 * minibuffer-local-must-match-map <1>:   Standard Keymaps.
 * minibuffer-local-must-match-map:       Completion Commands.
-* minibuffer-local-ns-map:               Text from Minibuffer.
 * minibuffer-prompt:                     Minibuffer Misc.
 * minibuffer-prompt-width:               Minibuffer Misc.
 * minibuffer-scroll-window:              Minibuffer Misc.
@@ -2299,6 +2296,9 @@ Index
 * parse-sexp-ignore-comments:            Parsing Expressions.
 * parsing:                               Syntax Tables.
 * partial files:                         Partial Files.
+* passwd-echo:                           Reading a Password.
+* passwd-invert-frame-when-keyboard-grabbed: Reading a Password.
+* passwords, reading:                    Reading a Password.
 * PATH environment variable:             Subprocess Creation.
 * path-separator:                        System Environment.
 * pausing:                               Waiting.
@@ -2519,9 +2519,9 @@ Index
 * read-from-string:                      Input Functions.
 * read-key-sequence:                     Key Sequence Input.
 * read-minibuffer:                       Object from Minibuffer.
-* read-no-blanks-input:                  Text from Minibuffer.
 * read-only buffer:                      Read Only Buffers.
 * read-only buffers in interactive:      Using Interactive.
+* read-passwd:                           Reading a Password.
 * read-quoted-char:                      Quoted Character Input.
 * read-quoted-char quitting:             Quitting.
 * read-shell-command-map:                Standard Keymaps.

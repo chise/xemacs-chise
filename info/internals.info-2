@@ -1,5 +1,5 @@
-This is ../info/internals.info, produced by makeinfo version 3.12s from
-internals/internals.texi.
+This is Info file ../info/internals.info, produced by Makeinfo version
+1.68 from the input file internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -286,7 +286,7 @@ but detached extents (extents not referring to any text, as happens to
 some extents when the text they are referring to is deleted) are
 temporary.  Note that some permanent objects, such as faces and coding
 systems, cannot be deleted.  Note also that windows are unique in that
-they can be _undeleted_ after having previously been deleted. (This
+they can be *undeleted* after having previously been deleted. (This
 happens as a result of restoring a window configuration.)
 
    Note that many types of objects have a "read syntax", i.e. a way of
@@ -493,7 +493,7 @@ advantages:
 
   1. 31 bits can be used for Lisp Integers.
 
-  2. _Any_ pointer can be represented directly, and no bit masking
+  2. *Any* pointer can be represented directly, and no bit masking
      operations are necessary.
 
    The disadvantages are:
@@ -535,7 +535,7 @@ have to be a statement rather than just used in an expression.  The
 reason for this is that standard C doesn't let you "construct" a
 structure (but GCC does).  Granted, this sometimes isn't too convenient;
 for the case of integers, at least, you can use the function
-`make_int()', which constructs and _returns_ an integer Lisp object.
+`make_int()', which constructs and *returns* an integer Lisp object.
 Note that the `XSETTYPE()' macros are also affected by
 `ERROR_CHECK_TYPECHECK' and make sure that the structure is of the
 right type in the case of record types, where the type is contained in
@@ -870,7 +870,7 @@ call the C function.
 
    Defining the C function is not enough to make a Lisp primitive
 available; you must also create the Lisp symbol for the primitive (the
-symbol is "interned"; *note Obarrays::) and store a suitable subr
+symbol is "interned"; *note Obarrays::.) and store a suitable subr
 object in its function cell. (If you don't do this, the primitive won't
 be seen by Lisp code.) The code looks like this:
 
@@ -956,7 +956,7 @@ variable gets changed.
 
    Whether or not you `DEFVAR_LISP()' a variable, you need to
 initialize it in the `vars_of_*()' function; otherwise it will end up
-as all zeroes, which is the integer 0 (_not_ `nil'), and this is
+as all zeroes, which is the integer 0 (*not* `nil'), and this is
 probably not what you want.  Also, if the variable is not
 `DEFVAR_LISP()'ed, *you must call* `staticpro()' on the C variable in
 the `vars_of_*()' function.  Otherwise, the garbage-collection

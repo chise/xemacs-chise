@@ -1,5 +1,5 @@
-This is ../info/internals.info, produced by makeinfo version 3.12s from
-internals/internals.texi.
+This is Info file ../info/internals.info, produced by Makeinfo version
+1.68 from the input file internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -73,7 +73,7 @@ File: internals.info,  Node: Top,  Next: A History of Emacs,  Prev: (dir),  Up: 
 * Index::                   Index including concepts, functions, variables,
                               and other terms.
 
-      --- The Detailed Node Listing ---
+      -- The Detailed Node Listing --
 
 Here are other nodes that are inferiors of those already listed,
 mentioned here so you can get to them in one step:
@@ -886,7 +886,7 @@ for easy upgrading of parts of a system without upgrading the rest.  It
 would be impossible to pre-determine and pre-specify the information for
 all possible configurations.
 
-   In fact, the `s/' and `m/' files are basically _evil_, since they
+   In fact, the `s/' and `m/' files are basically *evil*, since they
 contain unmaintainable platform-specific hard-coded information.
 XEmacs has been moving in the direction of having all system-specific
 information be determined dynamically by `configure'.  Perhaps someday
@@ -897,7 +897,7 @@ we can `rm -rf src/s src/m'.
 features of your system) from template files.  You then run `make',
 which compiles the auxiliary code and programs in `lib-src/' and
 `lwlib/' and the main XEmacs executable in `src/'.  The result of
-compiling and linking is an executable called `temacs', which is _not_
+compiling and linking is an executable called `temacs', which is *not*
 the final XEmacs executable.  `temacs' by itself is not intended to
 function as an editor or even display any windows on the screen, and if
 you simply run it, it will exit immediately.  The `Makefile' runs

@@ -1,5 +1,5 @@
-This is ../info/xemacs-faq.info, produced by makeinfo version 3.12s
-from xemacs-faq.texi.
+This is Info file ../info/xemacs-faq.info, produced by Makeinfo version
+1.68 from the input file xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -47,7 +47,7 @@ Trouble Shooting:
 * Q2.1.11::     Can't instantiate image error... in toolbar
 * Q2.1.12::     Regular Expression Problems on DEC OSF1.
 * Q2.1.13::     HP/UX 10.10 and `create_process' failure
-* Q2.1.14::     C-g doesn't work for me.  Is it broken?
+* Q2.1.14::     `C-g' doesn't work for me.  Is it broken?
 * Q2.1.15::     How to debug an XEmacs problem with a debugger.
 * Q2.1.16::     XEmacs crashes in `strcat' on HP/UX 10.
 * Q2.1.17::     `Marker does not point anywhere'.
@@ -57,6 +57,7 @@ Trouble Shooting:
 * Q2.1.21::     Every so often the XEmacs frame freezes.
 * Q2.1.22::     XEmacs seems to take a really long time to do some things.
 * Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
+* Q2.1.24::     XEmacs won't start without network. (NEW)
 
 
 File: xemacs-faq.info,  Node: Q2.0.1,  Next: Q2.0.2,  Prev: Installation,  Up: Installation
@@ -180,15 +181,15 @@ still stands true.
 
      These are all Emacs Lisp source code and bytecompiled object code.
      You may safely gzip everything named *.el here.  You may remove
-     any package you don't use.  _Nothing bad will happen if you delete
-     a package that you do not use_.  You must be sure you do not use
+     any package you don't use.  *Nothing bad will happen if you delete
+     a package that you do not use*.  You must be sure you do not use
      it though, so be conservative at first.
 
      Possible candidates for deletion include w3 (newer versions exist,
      or you may just use Lynx or Netscape for web browsing), games,
      hyperbole, mh-e, hm-html-menus (better packages exist), vm, viper,
-     oobr, gnus (new versions exist), etc.  Ask yourself, _Do I ever
-     want to use this package?_  If the answer is no, then it is a
+     oobr, gnus (new versions exist), etc.  Ask yourself, *Do I ever
+     want to use this package?*  If the answer is no, then it is a
      candidate for removal.
 
      First, gzip all the .el files.  Then go about package by package
@@ -358,7 +359,7 @@ ELF libraries are out of date.  You have the following options:
           perl -pi -e 's/_h_errno\0/h_errno\0\0/g' \
           /usr/local/bin/xemacs-19.14
 
-     NB: You _must_ patch `/usr/local/bin/xemacs-19.14', and not
+     NB: You *must* patch `/usr/local/bin/xemacs-19.14', and not
      `xemacs' because `xemacs' is a link to `xemacs-19.14'; the Perl
      `-i' option will cause unwanted side-effects if applied to a
      symbolic link.
@@ -409,8 +410,8 @@ PNG
 Compface
      `ftp://ftp.cs.indiana.edu/pub/faces/compface/'.  This library has
      been frozen for about 6 years, and is distributed without version
-     numbers.  _It should be compiled with the same options that X11 was
-     compiled with on your system_.  The version of this library at
+     numbers.  *It should be compiled with the same options that X11 was
+     compiled with on your system*.  The version of this library at
      XEmacs.org includes the `xbm2xface.pl' script, written by
      <stig@hackvan.com>, which may be useful when generating your own
      xface.
@@ -905,7 +906,7 @@ Q2.1.14: `C-g' doesn't work for me.  Is it broken?
 
    Morten Welinder <terra@diku.dk> writes:
 
-     On some (but _not_ all) machines a hung XEmacs can be revived by
+     On some (but *not* all) machines a hung XEmacs can be revived by
      `kill -FPE <pid>'.  This is a hack, of course, not a solution.
      This technique works on a Sun4 running 4.1.3_U1.  To see if it
      works for you, start another XEmacs and test with that first.  If
@@ -1033,7 +1034,6 @@ debugger.  Here are some hints:
      `gdbinit' files provided in the `src' directory.  Use the one
      corresponding to the configure options used when building XEmacs.
 
-
 
 File: xemacs-faq.info,  Node: Q2.1.16,  Next: Q2.1.17,  Prev: Q2.1.15,  Up: Installation
 
@@ -1101,12 +1101,12 @@ Q2.1.18: 19.14 hangs on HP/UX 10.10.
      Apparently somebody has found the reason why there is this `poll:
      interrupted...' message for each event.  For some reason, libcurses
      reimplements a `select()' system call, in a highly broken fashion.
-     The fix is to add a -lc to the link line _before_ the -lxcurses.
+     The fix is to add a -lc to the link line *before* the -lxcurses.
      XEmacs will then use the right version of `select()'.
 
    Alain Fauconnet <af@biomath.jussieu.fr> writes:
 
-     The _real_ solution is to _not_ link -lcurses in!  I just changed
+     The *real* solution is to *not* link -lcurses in!  I just changed
      -lcurses to -ltermcap in the Makefile and it fixed:
 
        1. The `poll: interrupted system call' message.
@@ -1114,7 +1114,7 @@ Q2.1.18: 19.14 hangs on HP/UX 10.10.
        2. A more serious problem I had discovered in the meantime, that
           is the fact that subprocess handling was seriously broken:
           subprocesses e.g. started by AUC TeX for TeX compilation of a
-          buffer would _hang_.  Actually they would wait forever for
+          buffer would *hang*.  Actually they would wait forever for
           emacs to read the socket which connects stdout...
 
 
@@ -1189,7 +1189,7 @@ Q2.1.22: XEmacs seems to take a really long time to do some things
      or in some other strange cases.
 
 
-File: xemacs-faq.info,  Node: Q2.1.23,  Prev: Q2.1.22,  Up: Installation
+File: xemacs-faq.info,  Node: Q2.1.23,  Next: Q2.1.24,  Prev: Q2.1.22,  Up: Installation
 
 Q2.1.23:  Movemail on Linux does not work for XEmacs 19.15 and later.
 ---------------------------------------------------------------------
@@ -1205,4 +1205,20 @@ and 20.x.  I am using Linux.
      src/s/linux.h and uncomment the line that reads:
 
           #define MAIL_USE_FLOCK
+
+
+File: xemacs-faq.info,  Node: Q2.1.24,  Prev: Q2.1.23,  Up: Installation
+
+Q2.1.24:  XEmacs won't start without network. (NEW)
+---------------------------------------------------
+
+   Q2.1.23:  Movemail on Linux does not work for XEmacs 19.15 and later.
+
+   If XEmacs starts when you're on the network, but fails when you're
+not on the network, you may be missing a "localhost" entry in your
+`/etc/hosts' file.  The file should contain an entry like:
+
+     127.0.0.1        localhost
+
+   Add that line, and XEmacs will be happy.
 

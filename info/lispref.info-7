@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -60,11 +60,11 @@ vector, or a string.  The common property that all sequences have is
 that each is an ordered collection of elements.  This section describes
 functions that accept any kind of sequence.
 
- - Function: sequencep object
+ - Function: sequencep OBJECT
      Returns `t' if OBJECT is a list, vector, bit vector, or string,
      `nil' otherwise.
 
- - Function: copy-sequence sequence
+ - Function: copy-sequence SEQUENCE
      Returns a copy of SEQUENCE.  The copy is the same type of object
      as the original sequence, and it has the same elements in the same
      order.
@@ -115,7 +115,7 @@ functions that accept any kind of sequence.
           (bit-vector 1 0 1 1 0 1 0 0)
                => #*10110100
 
- - Function: length sequence
+ - Function: length SEQUENCE
      Returns the number of elements in SEQUENCE.  If SEQUENCE is a cons
      cell that is not a list (because the final CDR is not `nil'), a
      `wrong-type-argument' error is signaled.
@@ -131,7 +131,7 @@ functions that accept any kind of sequence.
           (length #*01101)
               => 5
 
- - Function: elt sequence index
+ - Function: elt SEQUENCE INDEX
      This function returns the element of SEQUENCE indexed by INDEX.
      Legitimate values of INDEX are integers ranging from 0 up to one
      less than the length of SEQUENCE.  If SEQUENCE is a list, then
@@ -151,8 +151,8 @@ functions that accept any kind of sequence.
           (elt [1 2 3 4] -1)
                error-->Args out of range: [1 2 3 4], -1
 
-     This function generalizes `aref' (*note Array Functions::) and
-     `nth' (*note List Elements::).
+     This function generalizes `aref' (*note Array Functions::.) and
+     `nth' (*note List Elements::.).
 
 
 File: lispref.info,  Node: Arrays,  Next: Array Functions,  Prev: Sequence Functions,  Up: Sequences Arrays Vectors
@@ -188,7 +188,7 @@ Type::, *Note Vector Type::, and *Note Bit Vector Type::.
 
    * The elements of an array may be referenced or changed with the
      functions `aref' and `aset', respectively (*note Array
-     Functions::).
+     Functions::.).
 
    In principle, if you wish to have an array of text characters, you
 could use either a string or a vector.  In practice, we always choose
@@ -233,7 +233,7 @@ Functions that Operate on Arrays
    In this section, we describe the functions that accept strings,
 vectors, and bit vectors.
 
- - Function: arrayp object
+ - Function: arrayp OBJECT
      This function returns `t' if OBJECT is an array (i.e., a string,
      vector, or bit vector).
 
@@ -244,7 +244,7 @@ vectors, and bit vectors.
           (arrayp #*101)
           => t
 
- - Function: aref array index
+ - Function: aref ARRAY INDEX
      This function returns the INDEXth element of ARRAY.  The first
      element is at index zero.
 
@@ -263,7 +263,7 @@ vectors, and bit vectors.
 
      See also the function `elt', in *Note Sequence Functions::.
 
- - Function: aset array index object
+ - Function: aset ARRAY INDEX OBJECT
      This function sets the INDEXth element of ARRAY to be OBJECT.  It
      returns OBJECT.
 
@@ -291,7 +291,7 @@ vectors, and bit vectors.
      If ARRAY is a string and OBJECT is not a character, a
      `wrong-type-argument' error results.
 
- - Function: fillarray array object
+ - Function: fillarray ARRAY OBJECT
      This function fills the array ARRAY with OBJECT, so that each
      element of ARRAY is OBJECT.  It returns ARRAY.
 
@@ -364,7 +364,7 @@ Functions That Operate on Vectors
 
    Here are some functions that relate to vectors:
 
- - Function: vectorp object
+ - Function: vectorp OBJECT
      This function returns `t' if OBJECT is a vector.
 
           (vectorp [a])
@@ -372,7 +372,7 @@ Functions That Operate on Vectors
           (vectorp "asdf")
                => nil
 
- - Function: vector &rest objects
+ - Function: vector &rest OBJECTS
      This function creates and returns a vector whose elements are the
      arguments, OBJECTS.
 
@@ -381,14 +381,14 @@ Functions That Operate on Vectors
           (vector)
                => []
 
- - Function: make-vector length object
+ - Function: make-vector LENGTH OBJECT
      This function returns a new vector consisting of LENGTH elements,
      each initialized to OBJECT.
 
           (setq sleepy (make-vector 9 'Z))
                => [Z Z Z Z Z Z Z Z Z]
 
- - Function: vconcat &rest sequences
+ - Function: vconcat &rest SEQUENCES
      This function returns a new vector containing all the elements of
      the SEQUENCES.  The arguments SEQUENCES may be lists, vectors, or
      strings.  If no SEQUENCES are given, an empty vector is returned.
@@ -411,8 +411,8 @@ Functions That Operate on Vectors
      of the original integers.  *Don't use this feature; we plan to
      eliminate it.  If you already use this feature, change your
      programs now!*  The proper way to convert an integer to a decimal
-     number in this way is with `format' (*note Formatting Strings::)
-     or `number-to-string' (*note String Conversion::).
+     number in this way is with `format' (*note Formatting Strings::.)
+     or `number-to-string' (*note String Conversion::.).
 
      For other concatenation functions, see `mapconcat' in *Note
      Mapping Functions::, `concat' in *Note Creating Strings::, `append'
@@ -420,7 +420,7 @@ Functions That Operate on Vectors
      Functions::.
 
    The `append' function provides a way to convert a vector into a list
-with the same elements (*note Building Lists::):
+with the same elements (*note Building Lists::.):
 
      (setq avector [1 two (quote (three)) "four" [five]])
           => [1 two (quote (three)) "four" [five]]
@@ -458,7 +458,7 @@ Functions That Operate on Bit Vectors
 
    Here are some functions that relate to bit vectors:
 
- - Function: bit-vector-p object
+ - Function: bit-vector-p OBJECT
      This function returns `t' if OBJECT is a bit vector.
 
           (bit-vector-p #*01)
@@ -468,10 +468,10 @@ Functions That Operate on Bit Vectors
           (bit-vector-p "01")
                => nil
 
- - Function: bitp object
+ - Function: bitp OBJECT
      This function returns `t' if OBJECT is either 0 or 1.
 
- - Function: bit-vector &rest objects
+ - Function: bit-vector &rest OBJECTS
      This function creates and returns a bit vector whose elements are
      the arguments OBJECTS.  The elements must be either of the two
      integers 0 or 1.
@@ -481,14 +481,14 @@ Functions That Operate on Bit Vectors
           (bit-vector)
                => #*
 
- - Function: make-bit-vector length object
+ - Function: make-bit-vector LENGTH OBJECT
      This function creates and returns a bit vector consisting of
      LENGTH elements, each initialized to OBJECT.
 
           (setq picket-fence (make-bit-vector 9 1))
                => #*111111111
 
- - Function: bvconcat &rest sequences
+ - Function: bvconcat &rest SEQUENCES
      This function returns a new bit vector containing all the elements
      of the SEQUENCES.  The arguments SEQUENCES may be lists, vectors,
      or bit vectors, all of whose elements are the integers 0 or 1.  If
@@ -512,7 +512,7 @@ Functions That Operate on Bit Vectors
      Building Lists::.
 
    The `append' function provides a way to convert a bit vector into a
-list with the same elements (*note Building Lists::):
+list with the same elements (*note Building Lists::.):
 
      (setq bv #*00001110)
           => #*00001110
@@ -535,7 +535,7 @@ Type::.
    You can test whether an arbitrary Lisp object is a symbol with
 `symbolp':
 
- - Function: symbolp object
+ - Function: symbolp OBJECT
      This function returns `t' if OBJECT is a symbol, `nil' otherwise.
 
 * Menu:
@@ -594,15 +594,15 @@ Symbols::.)
 
    In normal usage, the function cell usually contains a function or
 macro, as that is what the Lisp interpreter expects to see there (*note
-Evaluation::).  Keyboard macros (*note Keyboard Macros::), keymaps
-(*note Keymaps::) and autoload objects (*note Autoloading::) are also
+Evaluation::.).  Keyboard macros (*note Keyboard Macros::.), keymaps
+(*note Keymaps::.) and autoload objects (*note Autoloading::.) are also
 sometimes stored in the function cell of symbols.  We often refer to
 "the function `foo'" when we really mean the function stored in the
 function cell of the symbol `foo'.  We make the distinction only when
 necessary.
 
    The property list cell normally should hold a correctly formatted
-property list (*note Property Lists::), as a number of functions expect
+property list (*note Property Lists::.), as a number of functions expect
 to see a property list there.
 
    The function cell or the value cell may be "void", which means that
@@ -635,9 +635,9 @@ file.  (29529 is the offset from the beginning of the `DOC' file to
 where that documentation string begins.)  The function cell contains
 the function for returning the name of the file.  `buffer-file-name'
 names a primitive function, which has no read syntax and prints in hash
-notation (*note Primitive Function Type::).  A symbol naming a function
-written in Lisp would have a lambda expression (or a byte-code object)
-in this cell.
+notation (*note Primitive Function Type::.).  A symbol naming a
+function written in Lisp would have a lambda expression (or a byte-code
+object) in this cell.
 
 
 File: lispref.info,  Node: Definitions,  Next: Creating Symbols,  Prev: Symbol Components,  Up: Symbols
@@ -679,7 +679,7 @@ as a variable or function.  Thus, you can make a symbol a global
 variable with `setq', whether you define it first or not.  The real
 purpose of definitions is to guide programmers and programming tools.
 They inform programmers who read the code that certain symbols are
-_intended_ to be used as variables, or as functions.  In addition,
+*intended* to be used as variables, or as functions.  In addition,
 utilities such as `etags' and `make-docfile' recognize definitions, and
 add appropriate information to tag tables and the `DOC' file. *Note
 Accessing Documentation::.
@@ -744,7 +744,7 @@ symbol in the obarray bucket.  The results would be unpredictable.
    It is possible for two different symbols to have the same name in
 different obarrays; these symbols are not `eq' or `equal'.  However,
 this normally happens only as part of the abbrev mechanism (*note
-Abbrevs::).
+Abbrevs::.).
 
      Common Lisp note: In Common Lisp, a single symbol may be interned
      in several obarrays.
@@ -753,7 +753,7 @@ Abbrevs::).
 arguments.  A `wrong-type-argument' error is signaled if the name is
 not a string, or if the obarray is not a vector.
 
- - Function: symbol-name symbol
+ - Function: symbol-name SYMBOL
      This function returns the string that is SYMBOL's name.  For
      example:
 
@@ -764,7 +764,7 @@ not a string, or if the obarray is not a vector.
      the name of the symbol, but fails to update the obarray, so don't
      do it!
 
- - Function: make-symbol name
+ - Function: make-symbol NAME
      This function returns a newly-allocated, uninterned symbol whose
      name is NAME (which must be a string).  Its value and function
      definition are void, and its property list is `nil'.  In the
@@ -776,7 +776,7 @@ not a string, or if the obarray is not a vector.
           (eq sym 'foo)
                => nil
 
- - Function: intern name &optional obarray
+ - Function: intern NAME &optional OBARRAY
      This function returns the interned symbol whose name is NAME.  If
      there is no such symbol in the obarray OBARRAY, `intern' creates a
      new one, adds it to the obarray, and returns it.  If OBARRAY is
@@ -792,7 +792,7 @@ not a string, or if the obarray is not a vector.
           (eq sym 'foo)
                => nil
 
- - Function: intern-soft name &optional obarray
+ - Function: intern-soft NAME &optional OBARRAY
      This function returns the symbol in OBARRAY whose name is NAME, or
      `nil' if OBARRAY has no symbol with that name.  Therefore, you can
      use `intern-soft' to test whether a symbol with a given name is
@@ -805,10 +805,13 @@ not a string, or if the obarray is not a vector.
                => frazzle
           (intern-soft "frazzle")        ; That one cannot be found.
                => nil
+
           (setq sym (intern "frazzle"))  ; Create an interned one.
                => frazzle
+
           (intern-soft "frazzle")        ; That one can be found!
                => frazzle
+
           (eq sym 'frazzle)              ; And it is the same one.
                => t
 
@@ -816,7 +819,7 @@ not a string, or if the obarray is not a vector.
      This variable is the standard obarray for use by `intern' and
      `read'.
 
- - Function: mapatoms function &optional obarray
+ - Function: mapatoms FUNCTION &optional OBARRAY
      This function calls FUNCTION for each symbol in the obarray
      OBARRAY.  It returns `nil'.  If OBARRAY is omitted, it defaults to
      the value of `obarray', the standard obarray for ordinary symbols.
@@ -834,7 +837,7 @@ not a string, or if the obarray is not a vector.
      See `documentation' in *Note Accessing Documentation::, for another
      example using `mapatoms'.
 
- - Function: unintern symbol &optional obarray
+ - Function: unintern SYMBOL &optional OBARRAY
      This function deletes SYMBOL from the obarray OBARRAY.  If
      `symbol' is not actually in the obarray, `unintern' does nothing.
      If OBARRAY is `nil', the current obarray is used.
@@ -888,7 +891,7 @@ File: lispref.info,  Node: Plists and Alists,  Next: Symbol Plists,  Up: Symbol 
 Property Lists and Association Lists
 ------------------------------------
 
-   Association lists (*note Association Lists::) are very similar to
+   Association lists (*note Association Lists::.) are very similar to
 property lists.  In contrast to association lists, the order of the
 pairs in the property list is not significant since the property names
 must be distinct.
@@ -921,10 +924,10 @@ File: lispref.info,  Node: Symbol Plists,  Next: Other Plists,  Prev: Plists and
 Property List Functions for Symbols
 -----------------------------------
 
- - Function: symbol-plist symbol
+ - Function: symbol-plist SYMBOL
      This function returns the property list of SYMBOL.
 
- - Function: setplist symbol plist
+ - Function: setplist SYMBOL PLIST
      This function sets SYMBOL's property list to PLIST.  Normally,
      PLIST should be a well-formed property list, but this is not
      enforced.
@@ -937,9 +940,9 @@ Property List Functions for Symbols
      For symbols in special obarrays, which are not used for ordinary
      purposes, it may make sense to use the property list cell in a
      nonstandard fashion; in fact, the abbrev mechanism does so (*note
-     Abbrevs::).
+     Abbrevs::.).
 
- - Function: get symbol property
+ - Function: get SYMBOL PROPERTY
      This function finds the value of the property named PROPERTY in
      SYMBOL's property list.  If there is no such property, `nil' is
      returned.  Thus, there is no distinction between a value of `nil'
@@ -950,7 +953,7 @@ Property List Functions for Symbols
 
      See `put' for an example.
 
- - Function: put symbol property value
+ - Function: put SYMBOL PROPERTY VALUE
      This function puts VALUE onto SYMBOL's property list under the
      property name PROPERTY, replacing any previous property value.
      The `put' function returns VALUE.
@@ -973,14 +976,14 @@ Property Lists Outside Symbols
    These functions are useful for manipulating property lists that are
 stored in places other than symbols:
 
- - Function: getf plist property &optional default
+ - Function: getf PLIST PROPERTY &optional DEFAULT
      This returns the value of the PROPERTY property stored in the
      property list PLIST.  For example,
 
           (getf '(foo 4) 'foo)
                => 4
 
- - Function: putf plist property value
+ - Function: putf PLIST PROPERTY VALUE
      This stores VALUE as the value of the PROPERTY property in the
      property list PLIST.  It may modify PLIST destructively, or it may
      construct a new list structure without altering the old.  The
@@ -994,13 +997,13 @@ stored in places other than symbols:
           (setq my-plist (putf my-plist 'quux '(a)))
                => (quux (a) bar t foo 5)
 
- - Function: plists-eq a b
+ - Function: plists-eq A B
      This function returns non-`nil' if property lists A and B are
      `eq'.  This means that the property lists have the same values for
      all the same properties, where comparison between values is done
      using `eq'.
 
- - Function: plists-equal a b
+ - Function: plists-equal A B
      This function returns non-`nil' if property lists A and B are
      `equal'.
 
@@ -1084,7 +1087,7 @@ function `car'.
 in it.  *Note Functions::.  The execution of the function may itself
 work by evaluating the function definition; or the function may be a
 Lisp primitive implemented in C, or it may be a byte-compiled function
-(*note Byte Compilation::).
+(*note Byte Compilation::.).
 
    The evaluation of forms takes place in a context called the
 "environment", which consists of the current values and bindings of all
@@ -1093,14 +1096,14 @@ creating a new binding for it, the value of the binding in the current
 environment is used.  *Note Variables::.
 
    Evaluation of a form may create new environments for recursive
-evaluation by binding variables (*note Local Variables::).  These
+evaluation by binding variables (*note Local Variables::.).  These
 environments are temporary and vanish by the time evaluation of the form
 is complete.  The form may also make changes that persist; these changes
 are called "side effects".  An example of a form that produces side
 effects is `(setq foo 1)'.
 
    The details of what evaluation means for each kind of form are
-described below (*note Forms::).
+described below (*note Forms::.).
 
    ---------- Footnotes ----------
 
@@ -1126,13 +1129,13 @@ ability to pass information to them as arguments.
 
    The functions and variables described in this section evaluate forms,
 specify limits to the evaluation process, or record recently returned
-values.  Loading a file also does evaluation (*note Loading::).
+values.  Loading a file also does evaluation (*note Loading::.).
 
- - Function: eval form
+ - Function: eval FORM
      This is the basic function for performing evaluation.  It evaluates
      FORM in the current environment and returns the result.  How the
      evaluation proceeds depends on the type of the object (*note
-     Forms::).
+     Forms::.).
 
      Since `eval' is a function, the argument expression that appears
      in a call to `eval' is evaluated twice: once as preparation before
@@ -1152,7 +1155,7 @@ values.  Loading a file also does evaluation (*note Loading::).
      The number of currently active calls to `eval' is limited to
      `max-lisp-eval-depth' (see below).
 
- - Command: eval-region start end &optional stream
+ - Command: eval-region START END &optional STREAM
      This function evaluates the forms in the current buffer in the
      region defined by the positions START and END.  It reads forms from
      the region and calls `eval' on them until the end of the region is
@@ -1167,7 +1170,7 @@ values.  Loading a file also does evaluation (*note Loading::).
 
      `eval-region' always returns `nil'.
 
- - Command: eval-buffer buffer &optional stream
+ - Command: eval-buffer BUFFER &optional STREAM
      This is like `eval-region' except that it operates on the whole
      contents of BUFFER.
 
@@ -1240,7 +1243,7 @@ starting with "all other types" which are self-evaluating forms.
 			      we find the real function via the symbol.
 * Function Forms::          Forms that call functions.
 * Macro Forms::             Forms that call macros.
-* Special Forms::           ``Special forms'' are idiosyncratic primitives,
+* Special Forms::           "Special forms" are idiosyncratic primitives,
                               most of them extremely important.
 * Autoloading::             Functions set up to load files
                               containing their real definitions.

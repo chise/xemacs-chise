@@ -680,18 +680,21 @@ This function ignores any arguments and returns @code{nil}.
 @cindex mapping functions
 
   A @dfn{mapping function} applies a given function to each element of a
-list or other collection.  XEmacs Lisp has three such functions;
+list or other collection.  XEmacs Lisp has several such functions;
 @code{mapcar} and @code{mapconcat}, which scan a list, are described
-here.  For the third mapping function, @code{mapatoms}, see
-@ref{Creating Symbols}.
+here.   @xref{Creating Symbols}, for the function @code{mapatoms} which
+maps over the symbols in an obarray.
+
+Mapping functions should never modify the sequence being mapped over.
+The results are unpredictable.
 
 @defun mapcar function sequence
 @code{mapcar} applies @var{function} to each element of @var{sequence}
 in turn, and returns a list of the results.
 
-The argument @var{sequence} may be a list, a vector, or a string.  The
-result is always a list.  The length of the result is the same as the
-length of @var{sequence}.
+The argument @var{sequence} can be any kind of sequence; that is, a
+list, a vector, a bit vector, or a string.  The result is always a list.
+The length of the result is the same as the length of @var{sequence}.
 
 @smallexample
 @group
@@ -738,7 +741,8 @@ Between each pair of result strings, @code{mapconcat} inserts the string
 other suitable punctuation.
 
 The argument @var{function} must be a function that can take one
-argument and return a string.
+argument and return a string.  The argument @var{sequence} can be any
+kind of sequence; that is, a list, a vector, a bit vector, or a string.
   
 @smallexample
 @group

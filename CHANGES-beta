@@ -1,5 +1,30 @@
-							-*- indented-text -*-
+to 21.2.26 "Millenium"
+-- Fix unpredictable results, perhaps even crashes, if using the
+   `return from debugger feature' and errors in `eval' or `funcall'.
+-- fix for Tab widgets causing X errors in XMapWindow().
+
+to 21.2.25 "Hephaestus"
+-- the LATEST.IS.* file has been renamed to LATEST-IS-*.
+-- the CVS tag to checkout the latest tarball is `r21-2-latest-beta'.
+-- 3 crashes in mapcar1 have been fixed.
+-- lwlib arg passing cleanup
+-- yet more widget and tab fixes
+-- yet another Tab sync
+-- specifier copying fix for widgets
+-- preparation for proper layouts
+-- native widgets used for some custom widgets
+-- (+ 1) is no longer incorrectly compiled
+-- char-before no longer has performance penalty
+-- xpm again works on Windows
+-- native Windows fixes from Adrian Aichner
+-- Mule fixes from Yoshiki Hayashi
+-- properly detect Athena widgets headers and libs, preventing crashes
+   from misdetection and from libraries and headers that don't match,
+   from Daniel Pittman
+
 to 21.2.24 "Hecate"
+-- Tabs fixes from Andy Piper
+-- Widget leak fixes from Andy Piper
 -- (coding-system-list) deals properly with coding system aliases, Shenghuo ZHU
 -- configure support for ESD sound rewritte, Martin Buchholz
 -- directory separator fix from Mike Alexander

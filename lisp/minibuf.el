@@ -415,7 +415,8 @@ See also the variable completion-highlight-first-word-only for control over
 	 ;; `M-x doctor' makes history a local variable, and thus
 	 ;; our binding above is buffer-local and doesn't apply
 	 ;; once we switch buffers!!!!  We demand better scope!
-	 (_history_ history))
+	 (_history_ history)
+	 (minibuffer-default default))
     (unwind-protect
          (progn
            (set-buffer (reset-buffer buffer))
@@ -1445,7 +1446,9 @@ only existing buffer names are allowed."
     (while (progn
              (setq result (completing-read prompt alist nil require-match
 					   nil 'buffer-history 
-					   (if default (buffer-name default))))
+					   (if (bufferp default)
+					       (buffer-name default)
+					     default)))
              (cond ((not (equal result ""))
                     nil)
                    ((not require-match)
@@ -1548,8 +1551,9 @@ only existing buffer names are allowed."
 				      read-file-name-map
 				    read-file-name-must-match-map)
 				  nil
-				  history))
-	      ))
+				  history
+				  nil
+				  default))))
 ;;;     ;; Kludge!  Put "/foo/bar" on history rather than "/default//foo/bar"
 ;;;     (let ((hist (cond ((not history) 'minibuffer-history)
 ;;;                       ((consp history) (car history))

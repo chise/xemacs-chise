@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -61,18 +61,18 @@ Finding All Frames
      buffers.  The list that you get is newly created, so modifying the
      list doesn't have any effect on the internals of XEmacs.
 
- - Function: device-frame-list &optional device
+ - Function: device-frame-list &optional DEVICE
      This function returns a list of all frames on DEVICE.  If DEVICE
      is `nil', the selected device will be used.
 
- - Function: visible-frame-list &optional device
+ - Function: visible-frame-list &optional DEVICE
      This function returns a list of just the currently visible frames.
      If DEVICE is specified only frames on that device will be returned.
      *Note Visibility of Frames::.  (TTY frames always count as
      "visible", even though only the selected one is actually
      displayed.)
 
- - Function: next-frame &optional frame minibuf
+ - Function: next-frame &optional FRAME MINIBUF
      The function `next-frame' lets you cycle conveniently through all
      the frames from an arbitrary starting point.  It returns the "next"
      frame after FRAME in the cycle.  If FRAME is omitted or `nil', it
@@ -102,7 +102,7 @@ Finding All Frames
     anything else
           Consider all frames.
 
- - Function: previous-frame &optional frame minibuf
+ - Function: previous-frame &optional FRAME MINIBUF
      Like `next-frame', but cycles through all frames in the opposite
      direction.
 
@@ -118,11 +118,11 @@ Frames and Windows
    Each window is part of one and only one frame; you can get the frame
 with `window-frame'.
 
- - Function: frame-root-window &optional frame
+ - Function: frame-root-window &optional FRAME
      This returns the root window of frame FRAME.  FRAME defaults to
      the selected frame if not specified.
 
- - Function: window-frame &optional window
+ - Function: window-frame &optional WINDOW
      This function returns the frame that WINDOW is on.  WINDOW
      defaults to the selected window if omitted.
 
@@ -132,7 +132,7 @@ upper left corner, down and to the right, until it reaches the window at
 the lower right corner (always the minibuffer window, if the frame has
 one), and then it moves back to the top.
 
- - Function: frame-top-window frame
+ - Function: frame-top-window FRAME
      This returns the topmost, leftmost window of frame FRAME.
 
    At any time, exactly one window on any frame is "selected within the
@@ -140,7 +140,7 @@ frame".  The significance of this designation is that selecting the
 frame also selects this window.  You can get the frame's current
 selected window with `frame-selected-window'.
 
- - Function: frame-selected-window &optional frame
+ - Function: frame-selected-window &optional FRAME
      This function returns the window on FRAME that is selected within
      FRAME.  FRAME defaults to the selected frame if not specified.
 
@@ -159,7 +159,7 @@ Minibuffers and Frames
    Normally, each frame has its own minibuffer window at the bottom,
 which is used whenever that frame is selected.  If the frame has a
 minibuffer, you can get it with `minibuffer-window' (*note Minibuffer
-Misc::).
+Misc::.).
 
    However, you can also create a frame with no minibuffer.  Such a
 frame must use the minibuffer window of some other frame.  When you
@@ -184,7 +184,7 @@ selected window always resides on the selected frame.  As the focus
 moves from device to device, the selected frame on each device is
 remembered and restored when the focus moves back to that device.
 
- - Function: selected-frame &optional device
+ - Function: selected-frame &optional DEVICE
      This function returns the selected frame on DEVICE.  If DEVICE is
      not specified, the selected device will be used.  If no frames
      exist on the device, `nil' is returned.
@@ -205,9 +205,9 @@ effect lasts until overridden by a subsequent call to `select-frame'.
 Only the selected terminal frame is actually displayed on the terminal.
 Each terminal screen except for the initial one has a number, and the
 number of the selected frame appears in the mode line after the word
-`XEmacs' (*note Modeline Variables::).
+`XEmacs' (*note Modeline Variables::.).
 
- - Function: select-frame frame
+ - Function: select-frame FRAME
      This function selects frame FRAME, temporarily disregarding the
      focus of the X server if any.  The selection of FRAME lasts until
      the next time the user does something to select a different frame,
@@ -224,17 +224,17 @@ number of the selected frame appears in the mode line after the word
      `set-buffer'.  In order to effect a permanent focus change use
      `focus-frame'.
 
- - Function: focus-frame frame
+ - Function: focus-frame FRAME
      This function selects FRAME and gives it the window system focus.
      The operation of `focus-frame' is not affected by the value of
      `focus-follows-mouse'.
 
- - Macro: save-selected-frame forms...
+ - Macro: save-selected-frame FORMS...
      This macro records the selected frame, executes FORMS in sequence,
      then restores the earlier selected frame.  The value returned is
      the value of the last form.
 
- - Macro: with-selected-frame frame forms...
+ - Macro: with-selected-frame FRAME FORMS...
      This macro records the selected frame, then selects FRAME and
      executes FORMS in sequence.  After the last form is finished, the
      earlier selected frame is restored.  The value returned is the
@@ -254,26 +254,26 @@ frame is invisible, it doesn't show on the screen, not even as an icon.
    Visibility is meaningless for TTY frames, since only the selected
 one is actually displayed in any case.
 
- - Command: make-frame-visible &optional frame
+ - Command: make-frame-visible &optional FRAME
      This function makes frame FRAME visible.  If you omit FRAME, it
      makes the selected frame visible.
 
- - Command: make-frame-invisible &optional frame
+ - Command: make-frame-invisible &optional FRAME
      This function makes frame FRAME invisible.
 
- - Command: iconify-frame &optional frame
+ - Command: iconify-frame &optional FRAME
      This function iconifies frame FRAME.
 
- - Command: deiconify-frame &optional frame
+ - Command: deiconify-frame &optional FRAME
      This function de-iconifies frame FRAME.  Under X, this is
      equivalent to `make-frame-visible'.
 
- - Function: frame-visible-p frame
+ - Function: frame-visible-p FRAME
      This returns whether FRAME is currently "visible" (actually in use
      for display).  A frame that is not visible is not updated, and, if
      it works through a window system, may not show at all.
 
- - Function: frame-iconified-p frame
+ - Function: frame-iconified-p FRAME
      This returns whether FRAME is iconified.  Not all window managers
      use icons; some merely unmap the window, so this function is not
      the inverse of `frame-visible-p'.  It is possible for a frame to
@@ -282,7 +282,7 @@ one is actually displayed in any case.
      functionality of this function is obtained through
      `frame-visible-p'.)
 
- - Function: frame-totally-visible-p frame
+ - Function: frame-totally-visible-p FRAME
      This returns whether FRAME is not obscured by any other X windows.
      On TTY frames, this is the same as `frame-visible-p'.
 
@@ -308,10 +308,10 @@ screen.
 
    You can raise and lower XEmacs's X windows with these functions:
 
- - Command: raise-frame &optional frame
+ - Command: raise-frame &optional FRAME
      This function raises frame FRAME.
 
- - Command: lower-frame &optional frame
+ - Command: lower-frame &optional FRAME
      This function lowers frame FRAME.
 
    You can also specify auto-raise (raising automatically when a frame
@@ -332,7 +332,7 @@ frame properties.)
 
    Auto-raising and auto-lowering is implemented through functions
 attached to `select-frame-hook' and `deselect-frame-hook' (*note Frame
-Hooks::).  Under normal circumstances, you should not call these
+Hooks::.).  Under normal circumstances, you should not call these
 functions directly.
 
  - Function: default-select-frame-hook
@@ -356,7 +356,7 @@ all their properties, and the window configuration of each one.
      This function returns a frame configuration list that describes
      the current arrangement of frames and their contents.
 
- - Function: set-frame-configuration configuration
+ - Function: set-frame-configuration CONFIGURATION
      This function restores the state of frames described in
      CONFIGURATION.
 
@@ -380,7 +380,7 @@ frame's lifetime.  *Note Hooks::.
  - Variable: select-frame-hook
      This is a normal hook that is run just after a frame is selected.
      The function `default-select-frame-hook', which implements
-     auto-raising (*note Raising and Lowering::), is normally attached
+     auto-raising (*note Raising and Lowering::.), is normally attached
      to this hook.
 
      Note that calling `select-frame' does not necessarily set the
@@ -392,7 +392,7 @@ frame's lifetime.  *Note Hooks::.
      This is a normal hook that is run just before a frame is deselected
      (and another frame is selected).  The function
      `default-deselect-frame-hook', which implements auto-lowering
-     (*note Raising and Lowering::), is normally attached to this hook.
+     (*note Raising and Lowering::.), is normally attached to this hook.
 
  - Variable: map-frame-hook
      This hook is called each time a frame is mapped (i.e. made
@@ -449,10 +449,10 @@ example the frame-creation functions) take an optional device argument
 specifying which device the function pertains to.  If the argument is
 omitted, it defaults to the selected device (see below).
 
- - Function: consolep object
+ - Function: consolep OBJECT
      This returns non-`nil' if OBJECT is a console.
 
- - Function: devicep object
+ - Function: devicep OBJECT
      This returns non-`nil' if OBJECT is a device.
 
 * Menu:
@@ -474,7 +474,7 @@ Basic Console Functions
  - Function: console-list
      This function returns a list of all existing consoles.
 
- - Function: console-device-list &optional console
+ - Function: console-device-list &optional CONSOLE
      This function returns a list of all devices on CONSOLE.  If
      CONSOLE is `nil', the selected console will be used.
 
@@ -487,15 +487,15 @@ Basic Device Functions
  - Function: device-list
      This function returns a list of all existing devices.
 
- - Function: device-or-frame-p object
+ - Function: device-or-frame-p OBJECT
      This function returns non-`nil' if OBJECT is a device or frame.
      This function is useful because devices and frames are similar in
      many respects and many functions can operate on either one.
 
- - Function: device-frame-list device
+ - Function: device-frame-list DEVICE
      This function returns a list of all frames on DEVICE.
 
- - Function: frame-device frame
+ - Function: frame-device FRAME
      This function returns the device that FRAME is on.
 
 
@@ -536,23 +536,23 @@ particular "class", which describes other characteristics of the device
 `mono'
      A device that can only display two colors (e.g. black and white).
 
- - Function: device-type device
+ - Function: device-type DEVICE
      This function returns the type of DEVICE.  This is a symbol whose
      name is one of the device types mentioned above.
 
- - Function: device-or-frame-type device-or-frame
+ - Function: device-or-frame-type DEVICE-OR-FRAME
      This function returns the type of DEVICE-OR-FRAME.
 
- - Function: device-class device
+ - Function: device-class DEVICE
      This function returns the class (color behavior) of DEVICE.  This
      is a symbol whose name is one of the device classes mentioned
      above.
 
- - Function: valid-device-type-p device-type
+ - Function: valid-device-type-p DEVICE-TYPE
      This function returns whether DEVICE-TYPE (which should be a
      symbol) species a valid device type.
 
- - Function: valid-device-class-p device-class
+ - Function: valid-device-class-p DEVICE-CLASS
      This function returns whether DEVICE-CLASS (which should be a
      symbol) species a valid device class.
 
@@ -566,13 +566,13 @@ File: lispref.info,  Node: Connecting to a Console or Device,  Next: The Selecte
 Connecting to a Console or Device
 =================================
 
- - Function: make-device &optional type device-data
+ - Function: make-device &optional TYPE DEVICE-DATA
      This function creates a new device.
 
    The following two functions create devices of specific types and are
 written in terms of `make-device'.
 
- - Function: make-tty-device &optional tty terminal-type
+ - Function: make-tty-device &optional TTY TERMINAL-TYPE
      This function creates a new tty device on TTY.  This also creates
      the tty's first frame.  TTY should be a string giving the name of
      a tty device file (e.g. `/dev/ttyp3' under SunOS et al.), as
@@ -583,12 +583,12 @@ written in terms of `make-device'.
      If it is `nil', the terminal type will be inferred from the
      `TERM' environment variable.
 
- - Function: make-x-device &optional display argv-list
+ - Function: make-x-device &optional DISPLAY ARGV-LIST
      This function creates a new device connected to DISPLAY.  Optional
      argument ARGV-LIST is a list of strings describing command line
      options.
 
- - Function: delete-device device
+ - Function: delete-device DEVICE
      This function deletes DEVICE, permanently eliminating it from use.
      This disconnects XEmacs's connection to the device.
 
@@ -600,15 +600,15 @@ written in terms of `make-device'.
      This variable, if non-`nil', should contain a list of functions,
      which are called when a device is deleted.
 
- - Function: console-live-p object
+ - Function: console-live-p OBJECT
      This function returns non-`nil' if OBJECT is a console that has
      not been deleted.
 
- - Function: device-live-p object
+ - Function: device-live-p OBJECT
      This function returns non-`nil' if OBJECT is a device that has not
      been deleted.
 
- - Function: device-x-display device
+ - Function: device-x-display DEVICE
      This function returns the X display which DEVICE is connected to,
      if DEVICE is an X device.
 
@@ -618,7 +618,7 @@ File: lispref.info,  Node: The Selected Console and Device,  Next: Console and D
 The Selected Console and Device
 ===============================
 
- - Function: select-console console
+ - Function: select-console CONSOLE
      This function selects the console CONSOLE.  Subsequent editing
      commands apply to its selected device, selected frame, and selected
      window.  The selection of CONSOLE lasts until the next time the
@@ -628,10 +628,10 @@ The Selected Console and Device
  - Function: selected-console
      This function returns the console which is currently active.
 
- - Function: select-device device
+ - Function: select-device DEVICE
      This function selects the device DEVICE.
 
- - Function: selected-device &optional console
+ - Function: selected-device &optional CONSOLE
      This function returns the device which is currently active.  If
      optional CONSOLE is non-`nil', this function returns the device
      that would be currently active if CONSOLE were the selected
@@ -643,20 +643,20 @@ File: lispref.info,  Node: Console and Device I/O,  Prev: The Selected Console a
 Console and Device I/O
 ======================
 
- - Function: console-disable-input console
+ - Function: console-disable-input CONSOLE
      This function disables input on console CONSOLE.
 
- - Function: console-enable-input console
+ - Function: console-enable-input CONSOLE
      This function enables input on console CONSOLE.
 
    Each device has a "baud rate" value associated with it.  On most
 systems, changing this value will affect the amount of padding and
 other strategic decisions made during redisplay.
 
- - Function: device-baud-rate &optional device
+ - Function: device-baud-rate &optional DEVICE
      This function returns the output baud rate of DEVICE.
 
- - Function: set-device-baud-rate device rate
+ - Function: set-device-baud-rate DEVICE RATE
      This function sets the output baud rate of DEVICE to RATE.
 
 
@@ -702,9 +702,9 @@ the character that immediately follows point; point is actually before
 the character on which the cursor sits.
 
    The value of point is a number between 1 and the buffer size plus 1.
-If narrowing is in effect (*note Narrowing::), then point is constrained
-to fall within the accessible portion of the buffer (possibly at one end
-of it).
+If narrowing is in effect (*note Narrowing::.), then point is
+constrained to fall within the accessible portion of the buffer
+(possibly at one end of it).
 
    Each buffer has its own value of point, which is independent of the
 value of point in other buffers.  Each window also has a value of point,
@@ -715,35 +715,35 @@ the buffer's point and the window's point normally have the same value,
 so the distinction is rarely important.  *Note Window Point::, for more
 details.
 
- - Function: point &optional buffer
+ - Function: point &optional BUFFER
      This function returns the value of point in BUFFER, as an integer.
      BUFFER defaults to the current buffer if omitted.
 
           (point)
                => 175
 
- - Function: point-min &optional buffer
+ - Function: point-min &optional BUFFER
      This function returns the minimum accessible value of point in
      BUFFER.  This is normally 1, but if narrowing is in effect, it is
      the position of the start of the region that you narrowed to.
      (*Note Narrowing::.) BUFFER defaults to the current buffer if
      omitted.
 
- - Function: point-max &optional buffer
+ - Function: point-max &optional BUFFER
      This function returns the maximum accessible value of point in
      BUFFER.  This is `(1+ (buffer-size buffer))', unless narrowing is
      in effect, in which case it is the position of the end of the
-     region that you narrowed to. (*note Narrowing::).  BUFFER defaults
-     to the current buffer if omitted.
+     region that you narrowed to. (*note Narrowing::.).  BUFFER
+     defaults to the current buffer if omitted.
 
- - Function: buffer-end flag &optional buffer
+ - Function: buffer-end FLAG &optional BUFFER
      This function returns `(point-min buffer)' if FLAG is less than 1,
      `(point-max buffer)' otherwise.  The argument FLAG must be a
      number.  BUFFER defaults to the current buffer if omitted.
 
- - Function: buffer-size &optional buffer
+ - Function: buffer-size &optional BUFFER
      This function returns the total number of characters in BUFFER.
-     In the absence of any narrowing (*note Narrowing::), `point-max'
+     In the absence of any narrowing (*note Narrowing::.), `point-max'
      returns a value one larger than this.  BUFFER defaults to the
      current buffer if omitted.
 
@@ -786,7 +786,7 @@ Motion by Characters
    These functions move point based on a count of characters.
 `goto-char' is the fundamental primitive; the other functions use that.
 
- - Command: goto-char position &optional buffer
+ - Command: goto-char POSITION &optional BUFFER
      This function sets point in `buffer' to the value POSITION.  If
      POSITION is less than 1, it moves point to the beginning of the
      buffer.  If POSITION is greater than the length of the buffer, it
@@ -804,7 +804,7 @@ Motion by Characters
 
      `goto-char' returns POSITION.
 
- - Command: forward-char &optional count buffer
+ - Command: forward-char &optional COUNT BUFFER
      This function moves point COUNT characters forward, towards the
      end of the buffer (or backward, towards the beginning of the
      buffer, if COUNT is negative).  If the function attempts to move
@@ -815,7 +815,7 @@ Motion by Characters
 
      In an interactive call, COUNT is the numeric prefix argument.
 
- - Command: backward-char &optional count buffer
+ - Command: backward-char &optional COUNT BUFFER
      This function moves point COUNT characters backward, towards the
      beginning of the buffer (or forward, towards the end of the
      buffer, if COUNT is negative).  If the function attempts to move
@@ -835,7 +835,7 @@ Motion by Words
    These functions for parsing words use the syntax table to decide
 whether a given character is part of a word.  *Note Syntax Tables::.
 
- - Command: forward-word count &optional buffer
+ - Command: forward-word COUNT &optional BUFFER
      This function moves point forward COUNT words (or backward if
      COUNT is negative).  Normally it returns `t'.  If this motion
      encounters the beginning or end of the buffer, or the limits of the
@@ -846,7 +846,7 @@ whether a given character is part of a word.  *Note Syntax Tables::.
      In an interactive call, COUNT is set to the numeric prefix
      argument.
 
- - Command: backward-word count &optional buffer
+ - Command: backward-word COUNT &optional BUFFER
      This function is just like `forward-word', except that it moves
      backward until encountering the front of a word, rather than
      forward.  BUFFER defaults to the current buffer if omitted.
@@ -881,7 +881,7 @@ Likewise, to move to the end of the buffer, use:
 documented here to warn you not to use them in Lisp programs, because
 they set the mark and display messages in the echo area.
 
- - Command: beginning-of-buffer &optional n
+ - Command: beginning-of-buffer &optional N
      This function moves point to the beginning of the buffer (or the
      limits of the accessible portion, when narrowing is in effect),
      setting the mark at the previous position.  If N is non-`nil',
@@ -893,7 +893,7 @@ they set the mark and display messages in the echo area.
 
      Don't use this function in Lisp programs!
 
- - Command: end-of-buffer &optional n
+ - Command: end-of-buffer &optional N
      This function moves point to the end of the buffer (or the limits
      of the accessible portion, when narrowing is in effect), setting
      the mark at the previous position.  If N is non-`nil', then it puts
@@ -918,12 +918,12 @@ newline.  The division of the buffer into text lines is not affected by
 the width of the window, by line continuation in display, or by how
 tabs and control characters are displayed.
 
- - Command: goto-line line
+ - Command: goto-line LINE
      This function moves point to the front of the LINEth line,
      counting from line 1 at beginning of the buffer.  If LINE is less
      than 1, it moves point to the beginning of the buffer.  If LINE is
      greater than the number of lines in the buffer, it moves point to
-     the end of the buffer--that is, the _end of the last line_ of the
+     the end of the buffer--that is, the *end of the last line* of the
      buffer.  This is the only case in which `goto-line' does not
      necessarily move to the beginning of a line.
 
@@ -943,7 +943,7 @@ tabs and control characters are displayed.
      In an interactive call, LINE is the numeric prefix argument if one
      has been provided.  Otherwise LINE is read in the minibuffer.
 
- - Command: beginning-of-line &optional count buffer
+ - Command: beginning-of-line &optional COUNT BUFFER
      This function moves point to the beginning of the current line.
      With an argument COUNT not `nil' or 1, it moves forward COUNT-1
      lines and then to the beginning of the line.  BUFFER defaults to
@@ -953,7 +953,7 @@ tabs and control characters are displayed.
      accessible portion, if narrowing is in effect), it positions point
      there.  No error is signaled.
 
- - Command: end-of-line &optional count buffer
+ - Command: end-of-line &optional COUNT BUFFER
      This function moves point to the end of the current line.  With an
      argument COUNT not `nil' or 1, it moves forward COUNT-1 lines and
      then to the end of the line.  BUFFER defaults to the current
@@ -963,7 +963,7 @@ tabs and control characters are displayed.
      accessible portion, if narrowing is in effect), it positions point
      there.  No error is signaled.
 
- - Command: forward-line &optional count buffer
+ - Command: forward-line &optional COUNT BUFFER
      This function moves point forward COUNT lines, to the beginning of
      the line.  If COUNT is negative, it moves point -COUNT lines
      backward, to the beginning of a line.  If COUNT is zero, it moves
@@ -981,7 +981,7 @@ tabs and control characters are displayed.
 
      In an interactive call, COUNT is the numeric prefix argument.
 
- - Function: count-lines start end
+ - Function: count-lines START END
      This function returns the number of lines between the positions
      START and END in the current buffer.  If START and END are equal,
      then it returns 0.  Otherwise it returns at least 1, even if START
@@ -1031,7 +1031,7 @@ thus take time proportional to the distance scanned.  If you intend to
 use them heavily, Emacs provides caches which may improve the
 performance of your code.  *Note cache-long-line-scans: Text Lines.
 
- - Function: vertical-motion count &optional window pixels
+ - Function: vertical-motion COUNT &optional WINDOW PIXELS
      This function moves point to the start of the frame line COUNT
      frame lines down from the frame line containing point.  If COUNT
      is negative, it moves up instead.  The optional second argument
@@ -1050,7 +1050,7 @@ performance of your code.  *Note cache-long-line-scans: Text Lines.
      WINDOW's point. (This differs from FSF Emacs, which buggily always
      sets current buffer's point, regardless of WINDOW.)
 
- - Function: vertical-motion-pixels count &optional window how
+ - Function: vertical-motion-pixels COUNT &optional WINDOW HOW
      This function moves point to the start of the frame line PIXELS
      vertical pixels down from the frame line containing point, or up if
      PIXELS is negative.  The optional second argument WINDOW is the
@@ -1061,7 +1061,7 @@ performance of your code.  *Note cache-long-line-scans: Text Lines.
      least PIXELS.  Any other value indicates that the motion should be
      as close as possible to PIXELS.
 
- - Command: move-to-window-line count &optional window
+ - Command: move-to-window-line COUNT &optional WINDOW
      This function moves point with respect to the text currently
      displayed in WINDOW, which defaults to the selected window.  It
      moves point to the beginning of the screen line COUNT screen lines
@@ -1095,29 +1095,29 @@ Expressions::, for lower-level primitives for scanning sexps or parts of
 sexps.  For user-level commands, see *Note Lists and Sexps:
 (emacs)Lists and Sexps.
 
- - Command: forward-list &optional arg
+ - Command: forward-list &optional ARG
      This function moves forward across ARG balanced groups of
      parentheses. (Other syntactic entities such as words or paired
      string quotes are ignored.) ARG defaults to 1 if omitted.  If ARG
      is negative, move backward across that many groups of parentheses.
 
- - Command: backward-list &optional arg
+ - Command: backward-list &optional ARG
      This function moves backward across ARG balanced groups of
      parentheses. (Other syntactic entities such as words or paired
      string quotes are ignored.) ARG defaults to 1 if omitted.  If ARG
      is negative, move forward across that many groups of parentheses.
 
- - Command: up-list arg
+ - Command: up-list ARG
      This function moves forward out of ARG levels of parentheses.  A
      negative argument means move backward but still to a less deep
      spot.
 
- - Command: down-list arg
+ - Command: down-list ARG
      This function moves forward into ARG levels of parentheses.  A
      negative argument means move backward but still go deeper in
      parentheses (-ARG levels).
 
- - Command: forward-sexp &optional arg
+ - Command: forward-sexp &optional ARG
      This function moves forward across ARG balanced expressions.
      Balanced expressions include both those delimited by parentheses
      and other kinds, such as words and string constants.  ARG defaults
@@ -1135,18 +1135,18 @@ sexps.  For user-level commands, see *Note Lists and Sexps:
           (concat "foo " (car x) y-!- z)
           ---------- Buffer: foo ----------
 
- - Command: backward-sexp &optional arg
+ - Command: backward-sexp &optional ARG
      This function moves backward across ARG balanced expressions.  ARG
      defaults to 1 if omitted.  If ARG is negative, move forward across
      that many balanced expressions.
 
- - Command: beginning-of-defun &optional arg
+ - Command: beginning-of-defun &optional ARG
      This function moves back to the ARGth beginning of a defun.  If
      ARG is negative, this actually moves forward, but it still moves
      to the beginning of a defun, not to the end of one.  ARG defaults
      to 1 if omitted.
 
- - Command: end-of-defun &optional arg
+ - Command: end-of-defun &optional ARG
      This function moves forward to the ARGth end of a defun.  If ARG
      is negative, this actually moves backward, but it still moves to
      the end of a defun, not to the beginning of one.  ARG defaults to
@@ -1169,7 +1169,7 @@ Skipping Characters
 characters.  For example, they are often used to skip whitespace.  For
 related functions, see *Note Motion and Syntax::.
 
- - Function: skip-chars-forward character-set &optional limit buffer
+ - Function: skip-chars-forward CHARACTER-SET &optional LIMIT BUFFER
      This function moves point in BUFFER forward, skipping over a given
      set of characters.  It examines the character following point,
      then advances point if the character matches CHARACTER-SET.  This
@@ -1206,7 +1206,7 @@ related functions, see *Note Motion and Syntax::.
           comes back" twice.
           ---------- Buffer: foo ----------
 
- - Function: skip-chars-backward character-set &optional limit buffer
+ - Function: skip-chars-backward CHARACTER-SET &optional LIMIT BUFFER
      This function moves point backward, skipping characters that match
      CHARACTER-SET, until LIMIT.  It just like `skip-chars-forward'
      except for the direction of motion.

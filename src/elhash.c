@@ -70,13 +70,13 @@ typedef struct Lisp_Hash_Table Lisp_Hash_Table;
 #define HASH_TABLE_DEFAULT_REHASH_SIZE 1.3
 #define HASH_TABLE_MIN_SIZE 10
 
-#define HASH_CODE(key, ht)							\
-  (((((ht)->hash_function ? (ht)->hash_function (key) : LISP_HASH (key))	\
-     * (ht)->golden_ratio)								\
-    % (ht)->size))
+#define HASH_CODE(key, ht)						\
+((((ht)->hash_function ? (ht)->hash_function (key) : LISP_HASH (key))	\
+  * (ht)->golden_ratio)							\
+ % (ht)->size)
 
 #define KEYS_EQUAL_P(key1, key2, testfun) \
-  (EQ ((key1), (key2)) || ((testfun) && (testfun) ((key1), (key2))))
+  (EQ (key1, key2) || ((testfun) && (testfun) (key1, key2)))
 
 #define LINEAR_PROBING_LOOP(probe, entries, size)		\
   for (;							\

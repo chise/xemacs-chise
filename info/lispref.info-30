@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -57,11 +57,11 @@ Sorting Text
 
    The sorting functions described in this section all rearrange text in
 a buffer.  This is in contrast to the function `sort', which rearranges
-the order of the elements of a list (*note Rearrangement::).  The
+the order of the elements of a list (*note Rearrangement::.).  The
 values returned by these functions are not meaningful.
 
- - Function: sort-subr reverse nextrecfun endrecfun &optional
-          startkeyfun endkeyfun
+ - Function: sort-subr REVERSE NEXTRECFUN ENDRECFUN &optional
+          STARTKEYFUN ENDKEYFUN
      This function is the general text-sorting routine that divides a
      buffer into records and sorts them.  Most of the commands in this
      section use this function.
@@ -143,8 +143,8 @@ values returned by these functions are not meaningful.
                         (skip-chars-forward "\n \t\f")))
                      'forward-paragraph)
 
- - Command: sort-regexp-fields reverse record-regexp key-regexp start
-          end
+ - Command: sort-regexp-fields REVERSE RECORD-REGEXP KEY-REGEXP START
+          END
      This command sorts the region between START and END alphabetically
      as specified by RECORD-REGEXP and KEY-REGEXP.  If REVERSE is a
      negative integer, then sorting is in reverse order.
@@ -206,29 +206,29 @@ values returned by these functions are not meaningful.
      If you call `sort-regexp-fields' interactively, it prompts for
      RECORD-REGEXP and KEY-REGEXP in the minibuffer.
 
- - Command: sort-lines reverse start end
+ - Command: sort-lines REVERSE START END
      This command alphabetically sorts lines in the region between
      START and END.  If REVERSE is non-`nil', the sort is in reverse
      order.
 
- - Command: sort-paragraphs reverse start end
+ - Command: sort-paragraphs REVERSE START END
      This command alphabetically sorts paragraphs in the region between
      START and END.  If REVERSE is non-`nil', the sort is in reverse
      order.
 
- - Command: sort-pages reverse start end
+ - Command: sort-pages REVERSE START END
      This command alphabetically sorts pages in the region between
      START and END.  If REVERSE is non-`nil', the sort is in reverse
      order.
 
- - Command: sort-fields field start end
+ - Command: sort-fields FIELD START END
      This command sorts lines in the region between START and END,
      comparing them alphabetically by the FIELDth field of each line.
      Fields are separated by whitespace and numbered starting from 1.
      If FIELD is negative, sorting is by the -FIELDth field from the
      end of the line.  This command is useful for sorting tables.
 
- - Command: sort-numeric-fields field start end
+ - Command: sort-numeric-fields FIELD START END
      This command sorts lines in the region between START and END,
      comparing them numerically by the FIELDth field of each line.  The
      specified field must contain a number in each line of the region.
@@ -236,7 +236,7 @@ values returned by these functions are not meaningful.
      If FIELD is negative, sorting is by the -FIELDth field from the
      end of the line.  This command is useful for sorting tables.
 
- - Command: sort-columns reverse &optional beg end
+ - Command: sort-columns REVERSE &optional BEG END
      This command sorts the lines in the region between BEG and END,
      comparing them alphabetically by a certain range of columns.  The
      column positions of BEG and END bound the range of columns to sort
@@ -281,7 +281,7 @@ arbitrarily high.  The first (or leftmost) column is numbered 0.
      For an example of using `current-column', see the description of
      `count-lines' in *Note Text Lines::.
 
- - Function: move-to-column column &optional force
+ - Function: move-to-column COLUMN &optional FORCE
      This function moves point to COLUMN in the current line.  The
      calculation of COLUMN takes into account the widths of the
      displayed representations of the characters between the start of
@@ -343,7 +343,7 @@ primitives.
      contents are entirely blank, then this is the horizontal position
      of the end of the line.
 
- - Command: indent-to column &optional minimum
+ - Command: indent-to COLUMN &optional MINIMUM
      This function indents from point with tabs and spaces until COLUMN
      is reached.  If MINIMUM is specified and non-`nil', then at least
      that many spaces are inserted even if this requires going beyond
@@ -421,7 +421,7 @@ Indenting an Entire Region
    This section describes commands that indent all the lines in the
 region.  They return unpredictable values.
 
- - Command: indent-region start end to-column
+ - Command: indent-region START END TO-COLUMN
      This command indents each nonblank line starting between START
      (inclusive) and END (exclusive).  If TO-COLUMN is `nil',
      `indent-region' indents each nonblank line by calling the current
@@ -455,7 +455,7 @@ region.  They return unpredictable values.
      `indent-region' with a non-`nil' argument TO-COLUMN has a
      different meaning and does not use this variable.
 
- - Command: indent-rigidly start end count
+ - Command: indent-rigidly START END COUNT
      This command indents all lines starting between START (inclusive)
      and END (exclusive) sideways by COUNT columns.  This "preserves
      the shape" of the affected region, moving it as a rigid unit.
@@ -470,8 +470,8 @@ region.  They return unpredictable values.
      `indent-rigidly' to indent the text copied from the message being
      replied to.
 
- - Function: indent-code-rigidly start end columns &optional
-          nochange-regexp
+ - Function: indent-code-rigidly START END COLUMNS &optional
+          NOCHANGE-REGEXP
      This is like `indent-rigidly', except that it doesn't alter lines
      that start within strings or comments.
 
@@ -487,7 +487,7 @@ Indentation Relative to Previous Lines
    This section describes two commands that indent the current line
 based on the contents of previous lines.
 
- - Command: indent-relative &optional unindented-ok
+ - Command: indent-relative &optional UNINDENTED-OK
      This command inserts whitespace at point, extending to the same
      column as the next "indent point" of the previous nonblank line.
      An indent point is a non-whitespace character following
@@ -548,7 +548,7 @@ because the feature is similar to that of the tab stops on a
 typewriter.  The feature works by inserting an appropriate number of
 spaces and tab characters to reach the next tab stop column; it does not
 affect the display of tab characters in the buffer (*note Usual
-Display::).  Note that the <TAB> character as input uses this tab stop
+Display::.).  Note that the <TAB> character as input uses this tab stop
 feature only in a few major modes, such as Text mode.
 
  - Command: tab-to-tab-stop
@@ -580,11 +580,11 @@ indentation in the text.
      the current line (which is the line in which point is located).
      It returns `nil'.
 
- - Command: backward-to-indentation arg
+ - Command: backward-to-indentation ARG
      This command moves point backward ARG lines and then to the first
      nonblank character on that line.  It returns `nil'.
 
- - Command: forward-to-indentation arg
+ - Command: forward-to-indentation ARG
      This command moves point forward ARG lines and then to the first
      nonblank character on that line.  It returns `nil'.
 
@@ -599,7 +599,7 @@ buffer.  *Note Character Case::, for case conversion commands that work
 on strings and characters.  *Note Case Tables::, for how to customize
 which characters are upper or lower case and how to convert them.
 
- - Command: capitalize-region start end
+ - Command: capitalize-region START END
      This function capitalizes all words in the region defined by START
      and END.  To capitalize means to convert each word's first
      character to upper case and convert the rest of each word to lower
@@ -622,21 +622,21 @@ which characters are upper or lower case and how to convert them.
           This Is The Contents Of The 5th Foo.
           ---------- Buffer: foo ----------
 
- - Command: downcase-region start end
+ - Command: downcase-region START END
      This function converts all of the letters in the region defined by
      START and END to lower case.  The function returns `nil'.
 
      When `downcase-region' is called interactively, START and END are
      point and the mark, with the smallest first.
 
- - Command: upcase-region start end
+ - Command: upcase-region START END
      This function converts all of the letters in the region defined by
      START and END to upper case.  The function returns `nil'.
 
      When `upcase-region' is called interactively, START and END are
      point and the mark, with the smallest first.
 
- - Command: capitalize-word count
+ - Command: capitalize-word COUNT
      This function capitalizes COUNT words after point, moving point
      over as it does.  To capitalize means to convert each word's first
      character to upper case and convert the rest of each word to lower
@@ -650,7 +650,7 @@ which characters are upper or lower case and how to convert them.
      When `capitalize-word' is called interactively, COUNT is set to
      the numeric prefix argument.
 
- - Command: downcase-word count
+ - Command: downcase-word COUNT
      This function converts the COUNT words after point to all lower
      case, moving point over as it does.  If COUNT is negative, it
      converts the -COUNT previous words but does not move point.  The
@@ -659,7 +659,7 @@ which characters are upper or lower case and how to convert them.
      When `downcase-word' is called interactively, COUNT is set to the
      numeric prefix argument.
 
- - Command: upcase-word count
+ - Command: upcase-word COUNT
      This function converts the COUNT words after point to all upper
      case, moving point over as it does.  If COUNT is negative, it
      converts the -COUNT previous words but does not move point.  The
@@ -675,14 +675,14 @@ Text Properties
 ===============
 
    Text properties are an alternative interface to extents (*note
-Extents::), and are built on top of them.  They are useful when you
+Extents::.), and are built on top of them.  They are useful when you
 want to view textual properties as being attached to the characters
 themselves rather than to intervals of characters.  The text property
 interface is compatible with FSF Emacs.
 
    Each character position in a buffer or a string can have a "text
 property list", much like the property list of a symbol (*note Property
-Lists::).  The properties belong to a particular character at a
+Lists::.).  The properties belong to a particular character at a
 particular place, such as, the letter `T' at the beginning of this
 sentence or the first `o' in `foo'--if the same character occurs in two
 different places, the two occurrences generally have different
@@ -724,17 +724,17 @@ to examine the properties of a number of characters at once.
 positions in a string start from 0, whereas positions in a buffer start
 from 1.)
 
- - Function: get-text-property pos prop &optional object
+ - Function: get-text-property POS PROP &optional OBJECT
      This function returns the value of the PROP property of the
      character after position POS in OBJECT (a buffer or string).  The
      argument OBJECT is optional and defaults to the current buffer.
 
- - Function: get-char-property pos prop &optional object
+ - Function: get-char-property POS PROP &optional OBJECT
      This function is like `get-text-property', except that it checks
      all extents, not just text-property extents.
 
 
- - Function: text-properties-at position &optional object
+ - Function: text-properties-at POSITION &optional OBJECT
      This function returns the entire property list of the character at
      POSITION in the string or buffer OBJECT.  If OBJECT is `nil', it
      defaults to the current buffer.
@@ -767,20 +767,20 @@ name.
    Since text properties are considered part of the buffer's contents,
 and can affect how the buffer looks on the screen, any change in the
 text properties is considered a buffer modification.  Buffer text
-property changes are undoable (*note Undo::).
+property changes are undoable (*note Undo::.).
 
- - Function: put-text-property start end prop value &optional object
+ - Function: put-text-property START END PROP VALUE &optional OBJECT
      This function sets the PROP property to VALUE for the text between
      START and END in the string or buffer OBJECT.  If OBJECT is `nil',
      it defaults to the current buffer.
 
- - Function: add-text-properties start end props &optional object
+ - Function: add-text-properties START END PROPS &optional OBJECT
      This function modifies the text properties for the text between
      START and END in the string or buffer OBJECT.  If OBJECT is `nil',
      it defaults to the current buffer.
 
      The argument PROPS specifies which properties to change.  It
-     should have the form of a property list (*note Property Lists::):
+     should have the form of a property list (*note Property Lists::.):
      a list whose elements include the property names followed
      alternately by the corresponding values.
 
@@ -794,13 +794,13 @@ property changes are undoable (*note Undo::).
           (add-text-properties START END
                                '(comment t face highlight))
 
- - Function: remove-text-properties start end props &optional object
+ - Function: remove-text-properties START END PROPS &optional OBJECT
      This function deletes specified text properties from the text
      between START and END in the string or buffer OBJECT.  If OBJECT
      is `nil', it defaults to the current buffer.
 
      The argument PROPS specifies which properties to delete.  It
-     should have the form of a property list (*note Property Lists::):
+     should have the form of a property list (*note Property Lists::.):
      a list whose elements are property names alternating with
      corresponding values.  But only the names matter--the values that
      accompany them are ignored.  For example, here's how to remove the
@@ -812,7 +812,7 @@ property changes are undoable (*note Undo::).
      property's value; `nil' otherwise (if PROPS is `nil' or if no
      character in the specified text had any of those properties).
 
- - Function: set-text-properties start end props &optional object
+ - Function: set-text-properties START END PROPS &optional OBJECT
      This function completely replaces the text property list for the
      text between START and END in the string or buffer OBJECT.  If
      OBJECT is `nil', it defaults to the current buffer.
@@ -830,7 +830,7 @@ property changes are undoable (*note Undo::).
           (set-text-properties START END nil)
 
    See also the function `buffer-substring-without-properties' (*note
-Buffer Contents::) which copies text from the buffer but does not copy
+Buffer Contents::.) which copies text from the buffer but does not copy
 its properties.
 
 
@@ -857,7 +857,7 @@ the buffer, if the property you are interested in does not change.
 position returned by these functions is between two characters with
 different properties.
 
- - Function: next-property-change pos &optional object limit
+ - Function: next-property-change POS &optional OBJECT LIMIT
      The function scans the text forward from position POS in the
      string or buffer OBJECT till it finds a change in some text
      property, then returns the position of the change.  In other
@@ -885,7 +885,7 @@ different properties.
               Process text from point to NEXT-CHANGE...
               (goto-char next-change)))
 
- - Function: next-single-property-change pos prop &optional object limit
+ - Function: next-single-property-change POS PROP &optional OBJECT LIMIT
      The function scans the text forward from position POS in the
      string or buffer OBJECT till it finds a change in the PROP
      property, then returns the position of the change.  In other
@@ -902,19 +902,19 @@ different properties.
      it is a position greater than or equal to POS; it equals POS only
      if LIMIT equals POS.
 
- - Function: previous-property-change pos &optional object limit
+ - Function: previous-property-change POS &optional OBJECT LIMIT
      This is like `next-property-change', but scans back from POS
      instead of forward.  If the value is non-`nil', it is a position
      less than or equal to POS; it equals POS only if LIMIT equals POS.
 
- - Function: previous-single-property-change pos prop &optional object
-          limit
+ - Function: previous-single-property-change POS PROP &optional OBJECT
+          LIMIT
      This is like `next-single-property-change', but scans back from
      POS instead of forward.  If the value is non-`nil', it is a
      position less than or equal to POS; it equals POS only if LIMIT
      equals POS.
 
- - Function: text-property-any start end prop value &optional object
+ - Function: text-property-any START END PROP VALUE &optional OBJECT
      This function returns non-`nil' if at least one character between
      START and END has a property PROP whose value is VALUE.  More
      precisely, it returns the position of the first such character.
@@ -924,7 +924,7 @@ different properties.
      buffer to scan.  Positions are relative to OBJECT.  The default
      for OBJECT is the current buffer.
 
- - Function: text-property-not-all start end prop value &optional object
+ - Function: text-property-not-all START END PROP VALUE &optional OBJECT
      This function returns non-`nil' if at least one character between
      START and END has a property PROP whose value differs from VALUE.
      More precisely, it returns the position of the first such
@@ -1019,8 +1019,8 @@ Substituting for a Character Code
    The following functions replace characters within a specified region
 based on their character codes.
 
- - Function: subst-char-in-region start end old-char new-char &optional
-          noundo
+ - Function: subst-char-in-region START END OLD-CHAR NEW-CHAR &optional
+          NOUNDO
      This function replaces all occurrences of the character OLD-CHAR
      with the character NEW-CHAR in the region of the current buffer
      defined by START and END.
@@ -1028,7 +1028,7 @@ based on their character codes.
      If NOUNDO is non-`nil', then `subst-char-in-region' does not
      record the change for undo and does not mark the buffer as
      modified.  This feature is used for controlling selective display
-     (*note Selective Display::).
+     (*note Selective Display::.).
 
      `subst-char-in-region' does not move point and returns `nil'.
 
@@ -1043,7 +1043,7 @@ based on their character codes.
           ThXs Xs the contents of the buffer before.
           ---------- Buffer: foo ----------
 
- - Function: translate-region start end table
+ - Function: translate-region START END TABLE
      This function applies a translation table to the characters in the
      buffer between positions START and END.  The translation table
      TABLE can be either a string, a vector, or a char-table.
@@ -1121,19 +1121,19 @@ otherwise stated.
      represents a rectangle; its elements are strings, one per line of
      the rectangle.
 
- - Function: get-register reg
+ - Function: get-register REG
      This function returns the contents of the register REG, or `nil'
      if it has no contents.
 
- - Function: set-register reg value
+ - Function: set-register REG VALUE
      This function sets the contents of register REG to VALUE.  A
      register can be set to any value, but the other register functions
      expect only certain data types.  The return value is VALUE.
 
- - Command: view-register reg
+ - Command: view-register REG
      This command displays what is contained in register REG.
 
- - Command: insert-register reg &optional beforep
+ - Command: insert-register REG &optional BEFOREP
      This command inserts contents of register REG into the current
      buffer.
 
@@ -1160,8 +1160,8 @@ Transposition of Text
 
    This subroutine is used by the transposition commands.
 
- - Function: transpose-regions start1 end1 start2 end2 &optional
-          leave-markers
+ - Function: transpose-regions START1 END1 START2 END2 &optional
+          LEAVE-MARKERS
      This function exchanges two nonoverlapping portions of the buffer.
      Arguments START1 and END1 specify the bounds of one portion and
      arguments START2 and END2 specify the bounds of the other portion.

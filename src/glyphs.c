@@ -1724,14 +1724,14 @@ string_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		    Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		    int dest_mask, Lisp_Object domain)
 {
-  Lisp_Object data = find_keyword_in_vector (instantiator, Q_data);
+  Lisp_Object string = find_keyword_in_vector (instantiator, Q_data);
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
-  assert (!NILP (data));
+  assert (!NILP (string));
   if (dest_mask & IMAGE_TEXT_MASK)
     {
       IMAGE_INSTANCE_TYPE (ii) = IMAGE_TEXT;
-      IMAGE_INSTANCE_TEXT_STRING (ii) = data;
+      IMAGE_INSTANCE_TEXT_STRING (ii) = string;
     }
   else
     incompatible_image_types (instantiator, dest_mask, IMAGE_TEXT_MASK);
@@ -2536,10 +2536,12 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	     round it. */
 	  if (UNBOUNDP (instance)
 	      &&
-	      dest_mask & (IMAGE_SUBWINDOW_MASK | IMAGE_WIDGET_MASK))
+	      dest_mask & (IMAGE_SUBWINDOW_MASK 
+			   | IMAGE_WIDGET_MASK
+			   | IMAGE_TEXT_MASK))
 	    {
 	      if (!WINDOWP (domain))
-		signal_simple_error ("Can't instantiate subwindow outside a window",
+		signal_simple_error ("Can't instantiate text or subwindow outside a window",
 				     instantiator);
 	      instance = Fgethash (instantiator, 
 				   XWINDOW (domain)->subwindow_instance_cache, 
@@ -2731,6 +2733,76 @@ image_going_to_add (Lisp_Object specifier, Lisp_Object locale,
   UNGCPRO;
 
   return retlist;
+}
+
+/* Copy an image instantiator. We can't use Fcopy_tree since widgets
+   may contain circular references which would send Fcopy_tree into
+   infloop death. */
+static Lisp_Object
+image_copy_vector_instantiator (Lisp_Object instantiator)
+{
+  int i;
+  struct image_instantiator_methods *meths;
+  Lisp_Object *elt;
+  int instantiator_len;
+
+  CHECK_VECTOR (instantiator);
+
+  instantiator = Fcopy_sequence (instantiator);
+  elt = XVECTOR_DATA (instantiator);
+  instantiator_len = XVECTOR_LENGTH (instantiator);
+  
+  meths = decode_image_instantiator_format (elt[0], ERROR_ME);
+
+  for (i = 1; i < instantiator_len; i += 2)
+    {
+      int j;
+      Lisp_Object keyword = elt[i];
+      Lisp_Object value = elt[i+1];
+
+      /* Find the keyword entry. */
+      for (j = 0; j < Dynarr_length (meths->keywords); j++)
+	{
+	  if (EQ (keyword, Dynarr_at (meths->keywords, j).keyword))
+	    break;
+	}
+
+      /* Only copy keyword values that should be copied. */
+      if (Dynarr_at (meths->keywords, j).copy_p
+	  &&
+	  (CONSP (value) || VECTORP (value)))
+	{
+	  elt [i+1] = Fcopy_tree (value, Qt);
+	}
+    }
+
+  return instantiator;
+}
+
+static Lisp_Object
+image_copy_instantiator (Lisp_Object arg)
+{
+  if (CONSP (arg))
+    {
+      Lisp_Object rest;
+      rest = arg = Fcopy_sequence (arg);
+      while (CONSP (rest))
+	{
+	  Lisp_Object elt = XCAR (rest);
+	  if (CONSP (elt))
+	    XCAR (rest) = Fcopy_tree (elt, Qt);
+	  else if (VECTORP (elt))
+	    XCAR (rest) = image_copy_vector_instantiator (elt);
+	  if (VECTORP (XCDR (rest))) /* hack for (a b . [c d]) */
+	    XCDR (rest) = Fcopy_tree (XCDR (rest), Qt);
+	  rest = XCDR (rest);
+	}
+    }
+  else if (VECTORP (arg))
+    {
+      arg = image_copy_vector_instantiator (arg);
+    }
+  return arg;
 }
 
 DEFUN ("image-specifier-p", Fimage_specifier_p, 1, 1, 0, /*
@@ -4473,6 +4545,7 @@ specifier_type_create_image (void)
   SPECIFIER_HAS_METHOD (image, validate);
   SPECIFIER_HAS_METHOD (image, after_change);
   SPECIFIER_HAS_METHOD (image, going_to_add);
+  SPECIFIER_HAS_METHOD (image, copy_instantiator);
 }
 
 void

@@ -1666,6 +1666,243 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+1999-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.26 is released.
+
+1999-12-31  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_widget_instantiate): Avoid X errors calling
+	XMapWindow() on a NULL pointer X window.
+
+1999-12-31  Martin Buchholz  <martin@xemacs.org>
+
+	* data.c (indirect_function): Use signal_void_function_error().
+
+	* lisp.h: Modify prototypes for signal_*().  Add SUBR_FUNCTION macro.
+
+	* eval.c (PRIMITIVE_FUNCALL): Optimize.
+	(signal_void_function_error): return result of Fsignal().
+	(signal_invalid_function_error): return result of Fsignal().
+	(signal_wrong_number_of_arguments_error): return result of Fsignal().
+	(signal_malformed_list_error): Add DOESNT_RETURN.
+	(signal_malformed_property_list_error): Add DOESNT_RETURN.
+	(signal_circular_list_error): Add DOESNT_RETURN.
+	(signal_circular_property_list_error): Add DOESNT_RETURN.
+	(Feval): Use returned results of signal_*().  Avoids a crash!
+	(Ffuncall): Use returned results of signal_*(). Avoids the crash:
+	  (setq debug-on-error t) (funcall 'foo) kbd{r42} kbd{RET}
+	- Only check for fun_nargs < subr_min_args if fun_nargs != max_args.
+	(function_argcount): Use signal_invalid_function_error().
+	(funcall_lambda): Use signal_wrong_number_of_arguments_error().
+	Use signal_invalid_function_error().
+
+1999-12-28  Andy Piper  <andy@xemacs.org>
+
+	* debug.c: rename debug_loop elements to X_ to avoid name clashes.
+
+	* menubar-x.c (menu_item_descriptor_to_widget_value_1): strdup
+	string_chars.
+	(menu_item_descriptor_to_widget_value_1): strdup name.
+	(pre_activate_callback): strdup name.
+
+	* scrollbar-x.c (scrollbar_instance_to_widget_value): strdup name.
+	(x_update_scrollbar_instance_status): use free_widget_value_tree.
+
+	* dialog-x.c (maybe_run_dbox_text_callback): strdup name.  use
+	free_widget_value_tree.
+	(dbox_descriptor_to_widget_value): ditto.
+
+	* gui-x.c (widget_value_unwind): use free_widget_value_tree.
+	(gui_items_to_widget_values_1): ditto.
+	(gui_items_to_widget_values): ditto.
+	(free_popup_widget_value_tree): free name.
+
+1999-12-27  Andy Piper  <andy@xemacs.org>
+
+	* nt.c (fstat): use get_osfhandle rather than the handle
+	directly. From Fabrice Popineau.
+
+	* process-nt.c (nt_open_network_stream): take types into account
+	when warning. From Fabrice Popineau.
+
+1999-12-24  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.25 is released.
+
+1999-12-22  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* syntax.c (vars_of_syntax): Initialize parse-sexp_ignore_comments.
+
+1999-12-21  Martin Buchholz  <martin@xemacs.org>
+
+	* editfns.c (Fpoint_min): 
+	(Fpoint_min_marker): 
+	(Fpoint_max): 
+	(Fpoint_max_marker): 
+	(Fchar_after): 
+	(Fchar_before): 
+	Docstring fixes.  What's a `buffer pointer' anyways?
+
+	* editfns.c (char=): Remove unused and undocumented optional
+	third BUFFER argument.
+
+	* toolbar.h (DEVICE_SUPPORTS_TOOLBARS_P): 
+	* fns.c (plists_differ): 
+	* elhash.c (HASH_CODE): 
+	* elhash.c (KEYS_EQUAL_P): 
+	* redisplay-output.c (redisplay_move_cursor): 
+	* redisplay.c (create_text_block): 
+	* floatfns.c (Flogb): 
+	* glyphs-msw.c (mswindows_initialize_image_instance_mask): 
+	* glyphs-msw.c (xpm_to_eimage): 
+	* buffer.h (POINT_MARKER_P): 
+	* syntax.c (scan_lists): 
+	* cmdloop.c (Fcommand_loop_1): 
+	* widget.c (Fwidget_apply): 
+	* regex.c (STREQ): 
+	Remove extra parens, esp. of the form ((expr))
+
+	* floatfns.c (Flogb): Make 64-bit clean.
+
+1999-12-12  Daniel Pittman  <daniel@danann.net>
+
+	* configure.in:
+	* configure.usage:
+        Clean up Athena widget support:
+	- Add `with-athena' to select a variant.
+	- Remove all `athena3d' options.
+	- Robust detection of Athena libraries and headers.
+        - Refuse to build with mismatched library and headers.
+        - Only build a 3d Athena if the user asks for it.
+
+1999-12-21  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.c (redisplay_frame): check for faces changed when
+	reseting subwindow caches.
+
+	* glyphs.h (struct ii_keyword_entry): add copy_p.
+	(struct image_instantiator_methods): add query_geometry_method and
+	layout_children_method.
+	(IIFORMAT_VALID_GENERIC_KEYWORD): new macro to take into account
+	copying characteristics of keywords.
+	(IIFORMAT_VALID_NONCOPY_KEYWORD): new macro for defining keywords
+	whose arguments should not be copied by the specifier code.
+	(image_instance_geometry): new enum for layouts.
+	(struct Lisp_Image_Instance): re-jig for layouts and update
+	macros.
+
+	* glyphs.c (string_instantiate): rename variables.
+	(image_instantiate): add strings to those widgets that are
+	instantiated per-window.
+	(image_copy_vector_instantiator): new function for copying glyph
+	specifier instantiators.
+	(image_copy_instantiator): ditto.
+
+	* glyphs-x.c (x_update_subwindow): use new face update functions.
+	(update_widget_face): update to use new lwlib arg functions.
+	(update_tab_widget_face): new function for updating tab control
+	label faces.
+	(x_widget_instantiate): use new face update functions and new
+	lwlib arg functions.
+	(x_tab_control_instantiate): ditto.
+	(x_tab_control_set_property): ditto.
+
+	* glyphs-widget.c (VALID_GUI_KEYWORDS): use NONCOPY keyword for
+	callbacks and other things that could recurse.
+	(VALID_GUI_KEYWORDS): 
+
+	* event-msw.c: fix cpp stuff for cygwin < b20.
+
+	* config.h.in: move uid_t and friends to before the s&m files so
+	that they can be used there.
+
+	* Makefile.in.in (debug-temacs): new target that adds emacs
+	environment before invoking gdb.
+
+	* lwlib.h (_widget_args): new structure for holding widget
+	args. It is reference counted so that we don't have to copy Xt
+	args.
+	(_widget_value): remove widget args. Add reference to widget_args.
+
+	* lwlib.c (free_widget_value_contents): free widget args using
+	free_widget_value_args.
+
+	* lwlib-Xaw.c (xaw_update_one_widget): use new arg packet.
+	(xaw_update_one_widget): use XtIsSubclass for determining labels.
+
+	* lwlib.c (lw_add_value_args_to_args): modify to use our reference
+	counted arg packet.
+	(lw_add_widget_value_arg): new function. Add an arg to the arg
+	packet.
+	(free_widget_value_args): new function. Remove a reference counted
+	arg packet.
+	(lw_copy_widget_value_args): new function. Copy reference counted
+	arg packet.
+	(merge_widget_value_args): new function. Do a merge of widget
+	args.
+	(merge_widget_value): use it.
+	(copy_widget_value_tree): copy widget args using reference
+	counting, since we can't easily copy the args we have been given.
+
+	* specifier.h (struct specifier_methods): add copy_instantiator_method.
+
+	* specifier.c (build_up_processed_list): use
+	copy_instantiator_method if defined.
+
+1999-12-19  Martin Buchholz  <martin@xemacs.org>
+
+	* fns.c (Ffillarray): Use O(N), not O(N^2) algorithm for strings.
+
+1999-12-19  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* profile.c (sigprof_handler): FUN retrieved from the backtrace
+	can also be a cons representing anonymous interpreted function.
+
+1999-12-18  Martin Buchholz  <martin@xemacs.org>
+
+	* fns.c (mapcar1): 
+	(Fmapconcat): 
+	(Fmapcar): 
+	(Fmapvector): 
+	Docstring fixes.  Make them consistent with the lispref and ANSI Lisp.
+
+1999-12-17  Martin Buchholz  <martin@xemacs.org>
+
+	* print.c (print_internal): print ?+ instead of ?\+, etc...
+	Make printing a little more efficient.
+	Prevent buffer overflow if sizeof EMACS_INT > 8.
+	My first 128-bit fix!
+
+1999-12-14  Karl M. Hegbloom  <karlheg@inetarena.com>
+
+	* filelock.c (unlock_all_files): GC_CONSP should be CONSP
+
+1999-12-17  Martin Buchholz  <martin@xemacs.org>
+
+	* database.c:
+	* window.c:
+	* event-stream.c:
+	Remove last vestigial uses of GC_*
+	
+	* fns.c (mapcar1): Fix ***THREE*** obscure crashes in one function!
+	- Two of those involve evil mapping functions that destructively
+	  modify a list being mapped over.
+	- Any garbage collection when mapping over a string could cause a
+	  crash (typically in mapconcat).
+
+1999-12-08  Adrian Aichner  <adrian@xemacs.org>
+
+	* s\windowsnt.h (DIRECTORY_SEP): Initialize from
+	`Vdirectory_sep_char'.
+
+	* lisp.h: Add declaration for `Vdirectory_sep_char' to allow
+	customization of `DIRECTORY_SEP' under native Windows NT.
+
+1999-12-14  Katsumi Yamaoka   <yamaoka@jpl.org>
+
+	* buffer.c (Fbury_buffer): Add directions to the docstring.
+
 1999-12-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.24 is released.
@@ -1695,7 +1932,7 @@
 	* fileio.c (vars_of_fileio): directory separator fix from Mike Alexander.
 	* windowsnt.h (ditto):
 
-1999-11-27  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-11-27  Adrian Aichner  <adrian@xemacs.org>
 
 	* sysfile.h: Encapsulate `fstat' for Windows NT just like stat to
 	get consistent file modification times.
@@ -2214,7 +2451,7 @@
 
 	* esd.c: New file
 
-1999-10-24  Adrian Aichner <aichner@ecf.teradyne.com>
+1999-10-24  Adrian Aichner <adrian@xemacs.org>
 
 	* lisp.h (Dynarr_declare): Fix boo-boo.
 
@@ -5871,7 +6108,7 @@
 	(image_instantiator_format_create): xface declarations moved from
  	glyphs-x.c.
 
-1999-01-14  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-01-14  Adrian Aichner  <adrian@xemacs.org>
 
 	* event-stream.c (vars_of_event_stream): Fixing documentation.
 
@@ -8366,7 +8603,7 @@
 	  substitute-in-file-name because we don't know that the
 	  filename refers to a local file.
 
-1998-06-24  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-06-24  Adrian Aichner  <adrian@xemacs.org>
 
 	* process-nt.c (nt_create_process): Try appending the standard
 	  executable file extensions to the filename if none supplied.

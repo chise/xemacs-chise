@@ -1,5 +1,5 @@
-This is ../info/xemacs.info, produced by makeinfo version 3.12s from
-xemacs/xemacs.texi.
+This is Info file ../info/xemacs.info, produced by Makeinfo version
+1.68 from the input file xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -517,7 +517,7 @@ Registers
 for later use.  Text saved in a register can be copied into the buffer
 once or many times; a position saved in a register is used by moving
 point to that position.  Rectangles can also be copied into and out of
-registers (*note Rectangles::).
+registers (*note Rectangles::.).
 
    Each register has a name, which is a single character.  A register
 can store either a piece of text, a position, or a rectangle, but only
@@ -772,7 +772,7 @@ Horizontal Scrolling
 that each line of text is shifted sideways in the window, and one or
 more characters at the beginning of each line are not displayed at all.
 When a window has been scrolled horizontally in this way, text lines
-are truncated rather than continued (*note Continuation Lines::), with
+are truncated rather than continued (*note Continuation Lines::.), with
 a `$' appearing in the first column when there is text truncated to the
 left, and in the last column when there is text truncated to the right.
 

@@ -1,5 +1,5 @@
-This is ../info/texinfo.info, produced by makeinfo version 3.12s from
-texinfo.texi.
+This is Info file ../info/texinfo.info, produced by Makeinfo version
+1.68 from the input file texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
@@ -179,16 +179,16 @@ your source file as necessary.
 
 produces:
 
-Key         Command                          Description
-C-x 2       `split-window-vertically'        Split the selected window
-                                             into two windows, with one
-                                             above the other.
-C-x 3       `split-window-horizontally'      Split the selected window
-                                             into two windows positioned
-                                             side by side.
-C-Mouse-2                                    In the mode line or scroll
-                                             bar of a window, split that
-                                             window.
+Key         Command                          Description                   
+C-x 2       `split-window-vertically'        Split the selected window     
+                                             into two windows, with one    
+                                             above the other.              
+C-x 3       `split-window-horizontally'      Split the selected window     
+                                             into two windows positioned   
+                                             side by side.                 
+C-Mouse-2                                    In the mode line or scroll    
+                                             bar of a window, split that   
+                                             window.                       
 
 
 File: texinfo.info,  Node: Indices,  Next: Insertions,  Prev: Lists and Tables,  Up: Top
@@ -224,8 +224,8 @@ Making Index Entries
 ====================
 
   When you are making index entries, it is good practice to think of the
-different ways people may look for something.  Different people _do
-not_ think of the same words when they look something up.  A helpful
+different ways people may look for something.  Different people *do
+not* think of the same words when they look something up.  A helpful
 index will have items indexed under all the different words that people
 may use.  For example, one reader may think it obvious that the
 two-letter names for indices should be listed under "Indices,
@@ -322,7 +322,7 @@ case-sensitive, so use upper and lower case as required for them.
 font and entries for the other indices are printed in a small `@code'
 font.  You may change the way part of an entry is printed with the
 usual Texinfo commands, such as `@file' for file names and `@emph' for
-emphasis (*note Marking Text::).
+emphasis (*note Marking Text::.).
 
   The six indexing commands for predefined indices are:
 
@@ -525,7 +525,7 @@ roman font.  Thus, it parallels the `@findex' command rather than the
 
   You should define new indices within or right after the end-of-header
 line of a Texinfo file, before any `@synindex' or `@syncodeindex'
-commands (*note Header::).
+commands (*note Header::.).
 
 
 File: texinfo.info,  Node: Insertions,  Next: Breaks,  Prev: Indices,  Up: Top
@@ -704,7 +704,7 @@ produces
      Spacey    example.
 
   Other possible uses of `@SPACE' have been subsumed by `@multitable'
-(*note Multi-column Tables::).
+(*note Multi-column Tables::.).
 
   Do not follow any of these commands with braces.
 
@@ -734,7 +734,7 @@ produces
   Not everyone uses this style.  Some people prefer `8.27 in.@:' or
 `8.27 inches' to `8.27@dmn{in}' in the Texinfo file.  In these cases,
 however, the formatters may insert a line break between the number and
-the dimension, so use `@w' (*note w::).  Also, if you write a period
+the dimension, so use `@w' (*note w::.).  Also, if you write a period
 after an abbreviation within a sentence, you should write `@:' after
 the period to prevent TeX from inserting extra whitespace, as shown
 here.  *Note Inserting Space::.
@@ -748,40 +748,40 @@ Inserting Accents
   Here is a table with the commands Texinfo provides for inserting
 floating accents.  The commands with non-alphabetic names do not take
 braces around their argument (which is taken to be the next character).
-(Exception: `@,' _does_ take braces around its argument.)  This is so
+(Exception: `@,' *does* take braces around its argument.)  This is so
 as to make the source as convenient to type and read as possible, since
 accented characters are very common in some languages.
 
-Command           Output   What
-@"o               o"       umlaut accent
-@'o               o'       acute accent
-@,{c}             c,       cedilla accent
-@=o               o=       macron/overbar accent
-@^o               o^       circumflex accent
-@`o               o`       grave accent
-@~o               o~       tilde accent
-@dotaccent{o}     o.       overdot accent
-@H{o}             o''      long Hungarian umlaut
-@ringaccent{o}    o*       ring accent
-@tieaccent{oo}    oo[      tie-after accent
-@u{o}             o(       breve accent
-@ubaraccent{o}    o_       underbar accent
-@udotaccent{o}    .o       underdot accent
-@v{o}             o<       hacek or check accent
+Command             Output  What                   
+@"o                 "o      umlaut accent          
+@'o                 'o      acute accent           
+@,{c}               c,      cedilla accent         
+@=o                 =o      macron/overbar accent  
+@^o                 ^o      circumflex accent      
+@`o                 `o      grave accent           
+@~o                 ~o      tilde accent           
+@dotaccent{o}       .o      overdot accent         
+@H{o}               ''o     long Hungarian umlaut  
+@ringaccent{o}      *o      ring accent            
+@tieaccent{oo}      [oo     tie-after accent       
+@u{o}               (o      breve accent           
+@ubaraccent{o}      o_      underbar accent        
+@udotaccent{o}      o-.     underdot accent        
+@v{o}               <o      hacek or check accent  
 
   This table lists the Texinfo commands for inserting other characters
 commonly used in languages other than English.
 
-@exclamdown{}     !       upside-down !
-@questiondown{}   ?       upside-down ?
-@aa{},@AA{}       aa,AA   A,a with circle
-@ae{},@AE{}       ae,AE   ae,AE ligatures
-@dotless{i}       i       dotless i
-@dotless{j}       j       dotless j
-@l{},@L{}         /l,/L   suppressed-L,l
-@o{},@O{}         /o,/O   O,o with slash
-@oe{},@OE{}       oe,OE   OE,oe ligatures
-@ss{}             ss      es-zet or sharp S
+@exclamdown{}       !      upside-down !      
+@questiondown{}     ?      upside-down ?      
+@aa{},@AA{}         aa,AA  A,a with circle    
+@ae{},@AE{}         ae,AE  ae,AE ligatures    
+@dotless{i}         i      dotless i          
+@dotless{j}         j      dotless j          
+@l{},@L{}           l/,L/  suppressed-L,l     
+@o{},@O{}           o/,O/  O,o with slash     
+@oe{},@OE{}         oe,OE  OE,oe ligatures    
+@ss{}               ss     es-zet or sharp S  
 
 
 File: texinfo.info,  Node: Dots Bullets,  Next: TeX and copyright,  Prev: Inserting Accents,  Up: Insertions
@@ -923,7 +923,7 @@ This produces the following in Info:
   Thus, the `@math' command has no effect on the Info output.
 
   For complex mathematical expressions, you can also use TeX directly
-(*note Raw Formatter Commands::).  When you use TeX directly, remember
+(*note Raw Formatter Commands::.).  When you use TeX directly, remember
 to write the mathematical expression between one or two `$'
 (dollar-signs) as appropriate.
 
@@ -1141,7 +1141,7 @@ name.
 
   You can use the `@point{}' command to show the location of point in
 the text in the buffer.  (The symbol for point, of course, is not part
-of the text in the buffer; it indicates the place _between_ two
+of the text in the buffer; it indicates the place *between* two
 characters where point is located.)
 
   The `@point{}' command is displayed as `-!-' in Info and as a small
@@ -1219,7 +1219,7 @@ mm
      millimeter (10mm = 1cm)
 
 dd
-     dido^t point (1157dd = 1238pt)
+     did^ot point (1157dd = 1238pt)
 
 cc
      cicero (1cc = 12dd)
@@ -1358,8 +1358,8 @@ wish to help TeX out.  Texinfo supports two commands for this:
      Insert a discretionary hyphen, i.e., a place where TeX can (but
      does not have to) hyphenate.  This is especially useful when you
      notice an overfull hbox is due to TeX missing a hyphenation (*note
-     Overfull hboxes::).  TeX will not insert any hyphenation points in
-     a word containing `@-'.
+     Overfull hboxes::.).  TeX will not insert any hyphenation points
+     in a word containing `@-'.
 
 `@hyphenation{HY-PHEN-A-TED WORDS}'
      Tell TeX how to hyphenate HY-PHEN-A-TED WORDS.  As shown, you put

@@ -660,7 +660,7 @@ indirect_function (Lisp_Object object, int errorp)
     }
 
   if (errorp && UNBOUNDP (hare))
-    signal_void_function_error (object);
+    return signal_void_function_error (object);
 
   return hare;
 }

@@ -1,5 +1,5 @@
-This is ../info/xemacs.info, produced by makeinfo version 3.12s from
-xemacs/xemacs.texi.
+This is Info file ../info/xemacs.info, produced by Makeinfo version
+1.68 from the input file xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -358,7 +358,7 @@ Replacement occurs only after point: if you want to cover the whole
 buffer you must go to the beginning first.  By default, all occurrences
 up to the end of the buffer are replaced.  To limit replacement to part
 of the buffer, narrow to that part of the buffer before doing the
-replacement (*note Narrowing::).
+replacement (*note Narrowing::.).
 
    When `replace-string' exits, point is left at the last occurrence
 replaced.  The value of point when the `replace-string' command was
@@ -457,7 +457,8 @@ or a match for REGEXP are:
      At this point, you can type `C-r' (see below) to alter the
      replaced text.  To undo the replacement, you can type `C-x u'.
      This exits the `query-replace'.  If you want to do further
-     replacement you must use `C-x ESC' to restart (*note Repetition::).
+     replacement you must use `C-x ESC' to restart (*note
+     Repetition::.).
 
 `<ESC>'
      to exit without doing any more replacements.
@@ -623,7 +624,7 @@ characters between the words do not move.  For example, `FOO, BAR'
 transposes into `BAR, FOO' rather than `BAR FOO,'.
 
    `C-M-t' (`transpose-sexps') is a similar command for transposing two
-expressions (*note Lists::), and `C-x C-t' (`transpose-lines')
+expressions (*note Lists::.), and `C-x C-t' (`transpose-lines')
 exchanges lines.  It works like `M-t' but in determines the division of
 the text into syntactic units differently.
 
@@ -729,7 +730,7 @@ rename, and append to files, and operate on file directories.
 * Version Control::  Version control systems (RCS and SCCS).
 * ListDir::          Listing the contents of a file directory.
 * Comparing Files::  Finding where two files differ.
-* Dired::            ``Editing'' a directory to delete, rename, etc.
+* Dired::            "Editing" a directory to delete, rename, etc.
                      the files in it.
 * Misc File Ops::    Other things you can do on files.
 
@@ -742,7 +743,7 @@ File Names
    Most Emacs commands that operate on a file require you to specify the
 file name.  (Saving and reverting are exceptions; the buffer knows which
 file name to use for them.)  File names are specified in the minibuffer
-(*note Minibuffer::).  "Completion" is available, to make it easier to
+(*note Minibuffer::.).  "Completion" is available, to make it easier to
 specify long file names.  *Note Completion::.
 
    There is always a "default file name" which is used if you enter an
@@ -866,9 +867,10 @@ the command with the name of the file you wish to visit, terminated by a
 <RET>.  If you are using XEmacs under X, you can also use the Open...
 command from the File menu bar item.
 
-   The file name is read using the minibuffer (*note Minibuffer::), with
-defaulting and completion in the standard manner (*note File Names::).
-While in the minibuffer, you can abort `C-x C-f' by typing `C-g'.
+   The file name is read using the minibuffer (*note Minibuffer::.),
+with defaulting and completion in the standard manner (*note File
+Names::.).  While in the minibuffer, you can abort `C-x C-f' by typing
+`C-g'.
 
    `C-x C-f' has completed successfully when text appears on the screen
 and a new buffer name appears in the mode line.  If the specified file
@@ -917,7 +919,7 @@ modified).  `C-x C-v' is allowed even if the current buffer is not
 visiting a file.
 
    If the file you specify is actually a directory, Dired is called on
-that directory (*note Dired::).  To inhibit this, set the variable
+that directory (*note Dired::.).  To inhibit this, set the variable
 `find-file-run-dired' to `nil'; then it is an error to try to visit a
 directory.
 

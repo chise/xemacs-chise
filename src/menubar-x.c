@@ -120,7 +120,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	}
       else
 	{
-	  wv->name = string_chars;
+	  wv->name = xstrdup (string_chars);
 	  wv->enabled = 1;
 	  /* dverna Dec. 98: command_builder_operate_menu_accelerator will
 	     manipulate the accel as a Lisp_Object if the widget has a name.
@@ -157,6 +157,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	  wv->type = CASCADE_TYPE;
 	  wv->enabled = 1;
 	  wv->name = (char *) XSTRING_DATA (LISP_GETTEXT (XCAR (desc)));
+	  wv->name = xstrdup (wv->name);
 
 	  accel = gui_name_accelerator (LISP_GETTEXT (XCAR (desc)));
 	  wv->accel = LISP_TO_VOID (accel);
@@ -226,6 +227,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 		  incr_wv->type = INCREMENTAL_TYPE;
 		  incr_wv->enabled = 1;
 		  incr_wv->name = wv->name;
+		  incr_wv->name = xstrdup (wv->name);
 		  /* This is automatically GC protected through
 		     the call to lw_map_widget_values(); no need
 		     to worry. */
@@ -242,7 +244,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	      widget_value *title_wv = xmalloc_widget_value ();
 	      widget_value *sep_wv = xmalloc_widget_value ();
 	      title_wv->type = TEXT_TYPE;
-	      title_wv->name = wv->name;
+	      title_wv->name = xstrdup (wv->name);
 	      title_wv->enabled = 1;
 	      title_wv->next = sep_wv;
 	      sep_wv->type = SEPARATOR_TYPE;
@@ -258,7 +260,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	      widget_value *dummy;
 	      /* Add a fake entry so the menus show up */
 	      wv->contents = dummy = xmalloc_widget_value ();
-	      dummy->name = "(inactive)";
+	      dummy->name = xstrdup ("(inactive)");
 	      dummy->accel = LISP_TO_VOID (Qnil);
 	      dummy->enabled = 0;
 	      dummy->selected = 0;
@@ -273,7 +275,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	}
       else if (menubar_root_p)
 	{
-	  wv->name = (char *) "menubar";
+	  wv->name = xstrdup ("menubar");
 	  wv->type = CASCADE_TYPE; /* Well, nothing else seems to fit and
 				      this is ignored anyway...  */
 	}
@@ -469,7 +471,7 @@ pre_activate_callback (Widget widget, LWLIB_ID id, XtPointer client_data)
 	  wv->accel = LISP_TO_VOID (Qnil);
 	  wv->contents = xmalloc_widget_value ();
 	  wv->contents->type = TEXT_TYPE;
-	  wv->contents->name = (char *) "No menu";
+	  wv->contents->name = xstrdup ("No menu");
 	  wv->contents->next = NULL;
 	  wv->contents->accel = LISP_TO_VOID (Qnil);
 	}

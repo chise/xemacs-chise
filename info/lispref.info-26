@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -80,7 +80,7 @@ to have multiple windows showing one buffer.
 when the user switches to another buffer, the cursor jumps to the
 position of point in that buffer.
 
- - Function: window-point window
+ - Function: window-point WINDOW
      This function returns the current position of point in WINDOW.
      For a nonselected window, this is the value point would have (in
      that window's buffer) if that window were selected.
@@ -93,7 +93,7 @@ position of point in that buffer.
      "top-level" value of point, outside of any `save-excursion' forms.
      But that value is hard to find.
 
- - Function: set-window-point window position
+ - Function: set-window-point WINDOW POSITION
      This function positions point in WINDOW at position POSITION in
      WINDOW's buffer.
 
@@ -110,7 +110,7 @@ is called the "display-start" position of the window (or just the
 the upper left corner of the window.  It is usually, but not
 inevitably, at the beginning of a text line.
 
- - Function: window-start &optional window
+ - Function: window-start &optional WINDOW
      This function returns the display-start position of window WINDOW.
      If WINDOW is `nil', the selected window is used.  For example,
 
@@ -124,7 +124,7 @@ inevitably, at the beginning of a text line.
      For a realistic example, see the description of `count-lines' in
      *Note Text Lines::.
 
- - Function: window-end &optional window
+ - Function: window-end &optional WINDOW
      This function returns the position of the end of the display in
      window WINDOW.  If WINDOW is `nil', the selected window is used.
 
@@ -138,7 +138,7 @@ inevitably, at the beginning of a text line.
      correct.  In a future version, `window-end' will return `nil' in
      that case.
 
- - Function: set-window-start window position &optional noforce
+ - Function: set-window-start WINDOW POSITION &optional NOFORCE
      This function sets the display-start position of WINDOW to
      POSITION in WINDOW's buffer.  It returns POSITION.
 
@@ -189,7 +189,7 @@ inevitably, at the beginning of a text line.
      at the next redisplay, then redisplay computes a new window-start
      position that works well with point, and thus POSITION is not used.
 
- - Function: pos-visible-in-window-p &optional position window
+ - Function: pos-visible-in-window-p &optional POSITION WINDOW
      This function returns `t' if POSITION is within the range of text
      currently visible on the screen in WINDOW.  It returns `nil' if
      POSITION is scrolled vertically out of view.  The argument
@@ -236,7 +236,7 @@ names that fit the user's point of view.
 unpredictable results if the current buffer is different from the buffer
 that is displayed in the selected window.  *Note Current Buffer::.
 
- - Command: scroll-up &optional count
+ - Command: scroll-up &optional COUNT
      This function scrolls the text in the selected window upward COUNT
      lines.  If COUNT is negative, scrolling is actually downward.
 
@@ -246,7 +246,7 @@ that is displayed in the selected window.  *Note Current Buffer::.
 
      `scroll-up' returns `nil'.
 
- - Command: scroll-down &optional count
+ - Command: scroll-down &optional COUNT
      This function scrolls the text in the selected window downward
      COUNT lines.  If COUNT is negative, scrolling is actually upward.
 
@@ -256,7 +256,7 @@ that is displayed in the selected window.  *Note Current Buffer::.
 
      `scroll-down' returns `nil'.
 
- - Command: scroll-other-window &optional count
+ - Command: scroll-other-window &optional COUNT
      This function scrolls the text in another window upward COUNT
      lines.  Negative values of COUNT, or `nil', are handled as in
      `scroll-up'.
@@ -302,7 +302,7 @@ that is displayed in the selected window.  *Note Current Buffer::.
      bottom of the window appear instead at the top.  The default value
      is `2'.
 
- - Command: recenter &optional count
+ - Command: recenter &optional COUNT
      This function scrolls the selected window to put the text where
      point is located at a specified vertical position within the
      window.
@@ -361,14 +361,14 @@ far as to reduce the net horizontal scroll to zero.  There is no limit
 to how far left you can scroll, but eventually all the text will
 disappear off the left edge.
 
- - Command: scroll-left count
+ - Command: scroll-left COUNT
      This function scrolls the selected window COUNT columns to the
      left (or to the right if COUNT is negative).  The return value is
      the total amount of leftward horizontal scrolling in effect after
      the change--just like the value returned by `window-hscroll'
      (below).
 
- - Command: scroll-right count
+ - Command: scroll-right COUNT
      This function scrolls the selected window COUNT columns to the
      right (or to the left if COUNT is negative).  The return value is
      the total amount of leftward horizontal scrolling in effect after
@@ -379,7 +379,7 @@ disappear off the left edge.
      normal position where the total leftward scrolling is zero,
      attempts to scroll any farther right have no effect.
 
- - Function: window-hscroll &optional window
+ - Function: window-hscroll &optional WINDOW
      This function returns the total leftward horizontal scrolling of
      WINDOW--the number of columns by which the text in WINDOW is
      scrolled left past the left margin.
@@ -396,7 +396,7 @@ disappear off the left edge.
           (window-hscroll)
                => 5
 
- - Function: set-window-hscroll window columns
+ - Function: set-window-hscroll WINDOW COLUMNS
      This function sets the number of columns from the left margin that
      WINDOW is scrolled to the value of COLUMNS.  The argument COLUMNS
      should be zero or positive; if not, it is taken as zero.
@@ -439,7 +439,7 @@ or various different fonts in the window.
 
    The following functions return size information about a window:
 
- - Function: window-height &optional window
+ - Function: window-height &optional WINDOW
      This function returns the number of lines in WINDOW, including its
      modeline but not including the horizontal scrollbar, if any (this
      is different from `window-pixel-height').  If WINDOW is `nil', the
@@ -452,7 +452,7 @@ or various different fonts in the window.
           (window-height)
                => 20
 
- - Function: window-width &optional window
+ - Function: window-width &optional WINDOW
      This function returns the number of columns in WINDOW, not
      including any left margin, right margin, or vertical scrollbar
      (this is different from `window-pixel-width').  If WINDOW is
@@ -477,7 +477,7 @@ they wrap.  This is usually the case for horizontally split windows but
 not for full-frame windows.  You can change this using the variables
 `truncate-lines' and `truncate-partial-width-windows'.)
 
- - Function: window-pixel-height &optional window
+ - Function: window-pixel-height &optional WINDOW
      This function returns the height of WINDOW in pixels, including
      its modeline and horizontal scrollbar, if any.  If WINDOW is
      `nil', the function uses the selected window.
@@ -489,7 +489,7 @@ not for full-frame windows.  You can change this using the variables
           (window-pixel-height)
                => 300
 
- - Function: window-pixel-width &optional window
+ - Function: window-pixel-width &optional WINDOW
      This function returns the width of WINDOW in pixels, including any
      left margin, right margin, or vertical scrollbar that may be
      displayed alongside it.  If WINDOW is `nil', the function uses the
@@ -506,20 +506,20 @@ not for full-frame windows.  You can change this using the variables
           (window-pixel-height)
                => 600
 
- - Function: window-text-area-pixel-height &optional window
+ - Function: window-text-area-pixel-height &optional WINDOW
      This function returns the height in pixels of the text displaying
      portion of WINDOW, which defaults to the selected window.  Unlike
      `window-pixel-height', the space occupied by the modeline and
      horizontal scrollbar, if any, is not counted.
 
- - Function: window-text-area-pixel-width &optional window
+ - Function: window-text-area-pixel-width &optional WINDOW
      This function returns the width in pixels of the text displaying
      portion of WINDOW, which defaults to the selected window.  Unlike
      `window-pixel-width', the space occupied by the vertical scrollbar
      and divider, if any, is not counted.
 
- - Function: window-displayed-text-pixel-height &optional window
-          noclipped
+ - Function: window-displayed-text-pixel-height &optional WINDOW
+          NOCLIPPED
      This function returns the height in pixels of the text displayed in
      WINDOW, which defaults to the selected window.  Unlike
      `window-text-area-pixel-height', any blank space below the end of
@@ -537,7 +537,7 @@ The Position of a Window
 windows within a frame, and the relative location of a window in
 comparison to other windows in the same frame.
 
- - Function: window-pixel-edges &optional window
+ - Function: window-pixel-edges &optional WINDOW
      This function returns a list of the pixel edge coordinates of
      WINDOW.  If WINDOW is `nil', the selected window is used.
 
@@ -561,15 +561,15 @@ comparison to other windows in the same frame.
 make sense in a world with variable-width and variable-height lines, as
 are allowed in XEmacs.
 
- - Function: window-highest-p window
+ - Function: window-highest-p WINDOW
      This function returns non-`nil' if WINDOW is along the top of its
      frame.
 
- - Function: window-lowest-p window
+ - Function: window-lowest-p WINDOW
      This function returns non-`nil' if WINDOW is along the bottom of
      its frame.
 
- - Function: window-text-area-pixel-edges &optional window
+ - Function: window-text-area-pixel-edges &optional WINDOW
      This function allows one to determine the location of the
      text-displaying portion of WINDOW, which defaults to the selected
      window, with respect to the top left corner of the window.  It
@@ -588,7 +588,7 @@ that change the size of windows and low-level functions that access
 window size.  XEmacs does not permit overlapping windows or gaps between
 windows, so resizing one window affects other windows.
 
- - Command: enlarge-window size &optional horizontal window
+ - Command: enlarge-window SIZE &optional HORIZONTAL WINDOW
      This function makes the selected window SIZE lines taller,
      stealing lines from neighboring windows.  It takes the lines from
      one window at a time until that window is used up, then takes from
@@ -614,20 +614,20 @@ windows, so resizing one window affects other windows.
 
      `enlarge-window' returns `nil'.
 
- - Command: enlarge-window-horizontally columns
+ - Command: enlarge-window-horizontally COLUMNS
      This function makes the selected window COLUMNS wider.  It could
      be defined as follows:
 
           (defun enlarge-window-horizontally (columns)
             (enlarge-window columns t))
 
- - Command: enlarge-window-pixels count &optional side window
+ - Command: enlarge-window-pixels COUNT &optional SIDE WINDOW
      This function makes the selected window COUNT pixels larger.  When
      called from Lisp, optional second argument SIDE non-`nil' means to
      grow sideways COUNT pixels, and optional third argument WINDOW
      specifies the window to change instead of the selected window.
 
- - Command: shrink-window size &optional horizontal window
+ - Command: shrink-window SIZE &optional HORIZONTAL WINDOW
      This function is like `enlarge-window' but negates the argument
      SIZE, making the selected window smaller by giving lines (or
      columns) to the other windows.  If the window shrinks below
@@ -639,14 +639,14 @@ windows, so resizing one window affects other windows.
      If WINDOW is non-`nil', it specifies a window to change instead of
      the selected window.
 
- - Command: shrink-window-horizontally columns
+ - Command: shrink-window-horizontally COLUMNS
      This function makes the selected window COLUMNS narrower.  It
      could be defined as follows:
 
           (defun shrink-window-horizontally (columns)
             (shrink-window columns t))
 
- - Command: shrink-window-pixels count &optional side window
+ - Command: shrink-window-pixels COUNT &optional SIDE WINDOW
      This function makes the selected window COUNT pixels smaller.
      When called from Lisp, optional second argument SIDE non-`nil'
      means to shrink sideways COUNT pixels, and optional third argument
@@ -717,7 +717,7 @@ Configurations::.
      the positions of point and the mark.  An exception is made for
      point in the current buffer, whose value is not saved.
 
- - Function: set-window-configuration configuration
+ - Function: set-window-configuration CONFIGURATION
      This function restores the configuration of XEmacs's windows and
      buffers to the state specified by CONFIGURATION.  The argument
      CONFIGURATION must be a value that was previously returned by
@@ -737,7 +737,7 @@ Configurations::.
                        ...)
               (set-window-configuration config)))
 
- - Special Form: save-window-excursion forms...
+ - Special Form: save-window-excursion FORMS...
      This special form records the window configuration, executes FORMS
      in sequence, then restores the earlier window configuration.  The
      window configuration includes the value of point and the portion
@@ -768,7 +768,7 @@ Configurations::.
                => do-something
                ;; The frame is now split again.
 
- - Function: window-configuration-p object
+ - Function: window-configuration-p OBJECT
      This function returns `t' if OBJECT is a window configuration.
 
    Primitives to look inside of window configurations would make sense,
@@ -795,7 +795,7 @@ a TTY frame; instead, it starts with a single "X window frame".  It can
 display multiple X window frames at the same time, each in its own X
 window.
 
- - Function: framep object
+ - Function: framep OBJECT
      This predicate returns `t' if OBJECT is a frame, and `nil'
      otherwise.
 
@@ -826,7 +826,7 @@ Creating Frames
 
    To create a new frame, call the function `make-frame'.
 
- - Function: make-frame &optional props device
+ - Function: make-frame &optional PROPS DEVICE
      This function creates a new frame on DEVICE, if DEVICE permits
      creation of frames.  (An X server does; an ordinary terminal does
      not (yet).)  DEVICE defaults to the selected device if omitted.
@@ -878,19 +878,19 @@ Access to Frame Properties
 
    These functions let you read and change the properties of a frame.
 
- - Function: frame-properties &optional frame
+ - Function: frame-properties &optional FRAME
      This function returns a plist listing all the properties of FRAME
      and their values.
 
- - Function: frame-property frame property &optional default
+ - Function: frame-property FRAME PROPERTY &optional DEFAULT
      This function returns FRAME's value for the property PROPERTY.
 
- - Function: set-frame-properties frame plist
+ - Function: set-frame-properties FRAME PLIST
      This function alters the properties of frame FRAME based on the
      elements of property list PLIST.  If you don't mention a property
      in PLIST, its value doesn't change.
 
- - Function: set-frame-property frame prop val
+ - Function: set-frame-property FRAME PROP VAL
      This function sets the property PROP of frame FRAME to the value
      VAL.
 
@@ -1001,12 +1001,12 @@ information in non-X frames.
      then POS is positive!
 
 `icon-left'
-     The screen position of the left edge _of the frame's icon_, in
+     The screen position of the left edge *of the frame's icon*, in
      pixels, counting from the left edge of the screen.  This takes
      effect if and when the frame is iconified.
 
 `icon-top'
-     The screen position of the top edge _of the frame's icon_, in
+     The screen position of the top edge *of the frame's icon*, in
      pixels, counting from the top edge of the screen.  This takes
      effect if and when the frame is iconified.
 
@@ -1083,24 +1083,24 @@ in its usual fashion.
 
    Here are some special features for working with sizes and positions:
 
- - Function: set-frame-position frame left top
+ - Function: set-frame-position FRAME LEFT TOP
      This function sets the position of the top left corner of FRAME to
      LEFT and TOP.  These arguments are measured in pixels, and count
      from the top left corner of the screen.  Negative property values
      count up or rightward from the top left corner of the screen.
 
- - Function: frame-height &optional frame
- - Function: frame-width &optional frame
+ - Function: frame-height &optional FRAME
+ - Function: frame-width &optional FRAME
      These functions return the height and width of FRAME, measured in
      lines and columns.  If you don't supply FRAME, they use the
      selected frame.
 
- - Function: frame-pixel-height &optional frame
- - Function: frame-pixel-width &optional frame
+ - Function: frame-pixel-height &optional FRAME
+ - Function: frame-pixel-width &optional FRAME
      These functions return the height and width of FRAME, measured in
      pixels.  If you don't supply FRAME, they use the selected frame.
 
- - Function: set-frame-size frame cols rows &optional pretend
+ - Function: set-frame-size FRAME COLS ROWS &optional PRETEND
      This function sets the size of FRAME, measured in characters; COLS
      and ROWS specify the new width and height.  (If PRETEND is
      non-nil, it means that redisplay should act as if the frame's size
@@ -1124,7 +1124,7 @@ of the frame.  A frame's name is used to look up its resources and does
 not normally change over the lifetime of a frame.  It is perfectly
 allowable, and quite common, for multiple frames to have the same name.
 
- - Function: frame-name &optional frame
+ - Function: frame-name &optional FRAME
      This function returns the name of FRAME, which defaults to the
      selected frame if not specified.  The name of a frame can also be
      obtained from the frame's properties.  *Note Frame Properties::.
@@ -1160,7 +1160,7 @@ variable `frame-title-format'.
      frame, when you have not explicitly specified the frame title.
      This title appears in the icon itself.
 
- - Function: x-set-frame-icon-pixmap frame pixmap &optional mask
+ - Function: x-set-frame-icon-pixmap FRAME PIXMAP &optional MASK
      This function sets the icon of the given frame to the given image
      instance, which should be an image instance object (as returned by
      `make-image-instance'), a glyph object (as returned by
@@ -1188,11 +1188,11 @@ Deleting Frames
 them.  A deleted frame cannot appear on the screen, but continues to
 exist as a Lisp object until there are no references to it.
 
- - Command: delete-frame &optional frame
+ - Command: delete-frame &optional FRAME
      This function deletes the frame FRAME.  By default, FRAME is the
      selected frame.
 
- - Function: frame-live-p frame
+ - Function: frame-live-p FRAME
      The function `frame-live-p' returns non-`nil' if the frame FRAME
      has not been deleted.
 

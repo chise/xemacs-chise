@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -150,7 +150,7 @@ and then step through the function, or you can do this to a function
 called shortly before the problem, step quickly over the call to that
 function, and then step through its caller.
 
- - Command: debug-on-entry function-name
+ - Command: debug-on-entry FUNCTION-NAME
      This function requests FUNCTION-NAME to invoke the debugger each
      time it is called.  It works by inserting the form `(debug
      'debug)' into the function definition as the first form.
@@ -197,7 +197,7 @@ function, and then step through its caller.
                     (debug (quote debug))
                     (if (zerop n) 1 (* n (fact (1- n)))))
 
- - Command: cancel-debug-on-entry function-name
+ - Command: cancel-debug-on-entry FUNCTION-NAME
      This function undoes the effect of `debug-on-entry' on
      FUNCTION-NAME.  When called interactively, it prompts for
      FUNCTION-NAME in the minibuffer.  If FUNCTION-NAME is `nil' or the
@@ -223,7 +223,7 @@ file!
 additional form can be evaluated and its value ignored.  (If the value
 of `(debug)' isn't ignored, it will alter the execution of the
 program!)  The most common suitable places are inside a `progn' or an
-implicit `progn' (*note Sequencing::).
+implicit `progn' (*note Sequencing::.).
 
 
 File: lispref.info,  Node: Using Debugger,  Next: Debugger Commands,  Prev: Explicit Debug,  Up: Debugger
@@ -245,7 +245,7 @@ usual XEmacs editing commands are available; thus, you can switch
 windows to examine the buffer that was being edited at the time of the
 error, switch buffers, visit files, or do any other sort of editing.
 However, the debugger is a recursive editing level (*note Recursive
-Editing::) and it is wise to go back to the backtrace buffer and exit
+Editing::.)  and it is wise to go back to the backtrace buffer and exit
 the debugger (with the `q' command) when you are finished with it.
 Exiting the debugger gets out of the recursive edit and kills the
 backtrace buffer.
@@ -366,7 +366,7 @@ Invoking the Debugger
 
    Here we describe fully the function used to invoke the debugger.
 
- - Function: debug &rest debugger-args
+ - Function: debug &rest DEBUGGER-ARGS
      This function enters the debugger.  It switches buffers to a buffer
      named `*Backtrace*' (or `*Backtrace*<2>' if it is the second
      recursive entry to the debugger, etc.), and fills it with
@@ -468,7 +468,7 @@ debugger.
      was called.  The convention for arguments is detailed in the
      description of `debug'.
 
- - Command: backtrace &optional stream detailed
+ - Command: backtrace &optional STREAM DETAILED
      This function prints a trace of Lisp function calls currently
      active.  This is the function used by `debug' to fill up the
      `*Backtrace*' buffer.  It is written in C, since it must have
@@ -497,7 +497,7 @@ debugger.
                                    (list 'testing (backtrace))))))))
           
                => nil
-          
+
           ----------- Buffer: backtrace-output ------------
             backtrace()
             (list ...computing arguments...)
@@ -523,7 +523,7 @@ debugger.
 
      The `d' command in the debugger works by setting this variable.
 
- - Function: backtrace-debug level flag
+ - Function: backtrace-debug LEVEL FLAG
      This function sets the debug-on-exit flag of the stack frame LEVEL
      levels down the stack, giving it the value FLAG.  If FLAG is
      non-`nil', this will cause the debugger to be entered when that
@@ -543,7 +543,7 @@ debugger.
      another global variable is that the data will never carry over to a
      subsequent command invocation.
 
- - Function: backtrace-frame frame-number
+ - Function: backtrace-frame FRAME-NUMBER
      The function `backtrace-frame' is intended for use in Lisp
      debuggers.  It returns information about what computation is
      happening in the stack frame FRAME-NUMBER levels down.
@@ -676,7 +676,7 @@ in `M-x list-buffers'.)  This buffer contains the program being
 compiled, and point shows how far the byte compiler was able to read.
 
    If the error was due to invalid Lisp syntax, point shows exactly
-where the invalid syntax was _detected_.  The cause of the error is not
+where the invalid syntax was *detected*.  The cause of the error is not
 necessarily near by!  Use the techniques in the previous section to find
 the error.
 
@@ -720,7 +720,6 @@ provides the following features:
 
    * Provide rudimentary coverage testing and display of frequency
      counts.
-
 
    The first three sections should tell you enough about Edebug to
 enable you to use it.
@@ -829,14 +828,14 @@ redefined so that when invoked with a prefix argument on a definition,
 it instruments the definition before evaluating it.  (The source code
 itself is not modified.)  If the variable `edebug-all-defs' is
 non-`nil', that inverts the meaning of the prefix argument: then
-`C-M-x' instruments the definition _unless_ it has a prefix argument.
+`C-M-x' instruments the definition *unless* it has a prefix argument.
 The default value of `edebug-all-defs' is `nil'.  The command `M-x
 edebug-all-defs' toggles the value of the variable `edebug-all-defs'.
 
    If `edebug-all-defs' is non-`nil', then the commands `eval-region',
 `eval-current-buffer', and `eval-buffer' also instrument any
 definitions they evaluate.  Similarly, `edebug-all-forms' controls
-whether `eval-region' should instrument _any_ form, even non-defining
+whether `eval-region' should instrument *any* form, even non-defining
 forms.  This doesn't apply to loading or evaluations in the minibuffer.
 The command `M-x edebug-all-forms' toggles this option.
 

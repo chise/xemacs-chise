@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -65,10 +65,10 @@ The Minibuffer: (emacs)Minibuffer.).  Error messages appear in the echo
 area; see *Note Errors::.
 
    You can write output in the echo area by using the Lisp printing
-functions with `t' as the stream (*note Output Functions::), or as
+functions with `t' as the stream (*note Output Functions::.), or as
 follows:
 
- - Function: message string &rest arguments
+ - Function: message STRING &rest ARGUMENTS
      This function displays a one-line message in the echo area.  The
      argument STRING is similar to a C language `printf' control
      string.  See `format' in *Note String Conversion::, for the details
@@ -115,7 +115,7 @@ standard labels are:
 programs may access these messages, or remove them as appropriate, via
 the message stack.
 
- - Function: display-message label message &optional frame stdout-p
+ - Function: display-message LABEL MESSAGE &optional FRAME STDOUT-P
      This function displays MESSAGE (a string) labeled as LABEL, as
      described above.
 
@@ -125,7 +125,7 @@ the message stack.
 
           (display-message 'command "Mark set")
 
- - Function: lmessage label string &rest arguments
+ - Function: lmessage LABEL STRING &rest ARGUMENTS
      This function displays a message STRING with label LABEL.  It is
      similar to `message' in that it accepts a `printf'-like strings
      and any number of arguments.
@@ -139,7 +139,7 @@ the message stack.
           ;; Display a message that should not be logged.
           (lmessage 'no-log "Done")
 
- - Function: clear-message &optional label frame stdout-p no-restore
+ - Function: clear-message &optional LABEL FRAME STDOUT-P NO-RESTORE
      This function remove any message with the given LABEL from the
      message-stack, erasing it from the echo area if it's currently
      displayed there.
@@ -166,7 +166,7 @@ the message stack.
      Unless you need the return value or you need to specify a label,
      you should just use `(message nil)'.
 
- - Function: current-message &optional frame
+ - Function: current-message &optional FRAME
      This function returns the current message in the echo area, or
      `nil'.  The FRAME argument is currently unused.
 
@@ -245,7 +245,7 @@ The recognized warning levels, in increased order of priority, are:
 `debug', `info', `notice', `warning', `error', `critical', `alert' and
 `emergency'.
 
- - Function: display-warning class message &optional level
+ - Function: display-warning CLASS MESSAGE &optional LEVEL
      This function displays a warning message MESSAGE (a string).
      CLASS should be a warning class symbol, as described above, or a
      list of such symbols.  LEVEL describes the warning priority level.
@@ -270,7 +270,7 @@ The recognized warning levels, in increased order of priority, are:
           you use the specifier and/or `set-face-*' functions.
           ---------- Warning buffer ----------
 
- - Function: lwarn class level message &rest args
+ - Function: lwarn CLASS LEVEL MESSAGE &rest ARGS
      This function displays a formatted labeled warning message.  As
      above, CLASS should be the warning class symbol, or a list of such
      symbols, and LEVEL should specify the warning priority level
@@ -325,7 +325,7 @@ property or a property of an overlay.
 character invisible.  This is the default case--if you don't alter the
 default value of `buffer-invisibility-spec', this is how the
 `invisibility' property works.  This feature is much like selective
-display (*note Selective Display::), but more general and cleaner.
+display (*note Selective Display::.), but more general and cleaner.
 
    More generally, you can use the variable `buffer-invisibility-spec'
 to control which values of the `invisible' property make text
@@ -383,7 +383,8 @@ the screen.
 a Lisp program.  The program controls which lines are hidden by altering
 the text.  Outline mode has traditionally used this variant.  It has
 been partially replaced by the invisible text feature (*note Invisible
-Text::); there is a new version of Outline mode which uses that instead.
+Text::.); there is a new version of Outline mode which uses that
+instead.
 
    In the second variant, the choice of lines to hide is made
 automatically based on indentation.  This variant is designed to be a
@@ -427,9 +428,9 @@ effect is seen only within XEmacs.
      not skip the invisible portion, and it is possible (if tricky) to
      insert or delete text in an invisible portion.
 
-     In the examples below, we show the _display appearance_ of the
+     In the examples below, we show the *display appearance* of the
      buffer `foo', which changes with the value of `selective-display'.
-     The _contents_ of the buffer do not change.
+     The *contents* of the buffer do not change.
 
           (setq selective-display nil)
                => nil
@@ -486,7 +487,7 @@ about to be executed.
      This variable holds the string to display to call attention to a
      particular line, or `nil' if the arrow feature is not in use.
      Despite its name, the value of this variable can be either a string
-     or a glyph (*note Glyphs::).
+     or a glyph (*note Glyphs::.).
 
  - Variable: overlay-arrow-position
      This variable holds a marker that indicates where to display the
@@ -513,7 +514,7 @@ Temporary Displays
 and then present it to the user for perusal rather than for editing.
 Many of the help commands use this feature.
 
- - Special Form: with-output-to-temp-buffer buffer-name forms...
+ - Special Form: with-output-to-temp-buffer BUFFER-NAME FORMS...
      This function executes FORMS while arranging to insert any output
      they print into the buffer named BUFFER-NAME.  The buffer is then
      shown in some window for viewing, displayed but not selected.
@@ -556,8 +557,8 @@ Many of the help commands use this feature.
      In Emacs versions 18 and earlier, this variable was called
      `temp-buffer-show-hook'.
 
- - Function: momentary-string-display string position &optional char
-          message
+ - Function: momentary-string-display STRING POSITION &optional CHAR
+          MESSAGE
      This function momentarily displays STRING in the current buffer at
      POSITION.  It has no effect on the undo list or on the buffer's
      modification status.
@@ -653,7 +654,8 @@ open parenthesis when the user inserts a close parenthesis.
           (defun interactive-blink-matching-open ()
             "Indicate momentarily the start of sexp before point."
             (interactive)
-            (let ((blink-matching-paren-distance
+
+          (let ((blink-matching-paren-distance
                    (buffer-size))
                   (blink-matching-paren t))
               (blink-matching-open)))
@@ -666,7 +668,7 @@ Usual Display Conventions
 
    The usual display conventions define how to display each character
 code.  You can override these conventions by setting up a display table
-(*note Display Tables::).  Here are the usual display conventions:
+(*note Display Tables::.).  Here are the usual display conventions:
 
    * Character codes 32 through 126 map to glyph codes 32 through 126.
      Normally this means they display as themselves.
@@ -756,9 +758,9 @@ used.  *Note Truncation::.)
    The 256 elements correspond to character codes; the Nth element says
 how to display the character code N.  The value should be `nil', a
 string, a glyph, or a vector of strings and glyphs (*note Character
-Descriptors::).  If an element is `nil', it says to display that
+Descriptors::.).  If an element is `nil', it says to display that
 character according to the usual display conventions (*note Usual
-Display::).
+Display::.).
 
    If you use the display table to change the display of newline
 characters, the whole buffer will be displayed as one long "line."
@@ -824,7 +826,7 @@ a vector
 
 `nil'
      Display according to the standard interpretation (*note Usual
-     Display::).
+     Display::.).
 
 
 File: lispref.info,  Node: Beeping,  Prev: Display Tables,  Up: Display
@@ -837,7 +839,7 @@ attract the user's attention.  Be conservative about how often you do
 this; frequent bells can become irritating.  Also be careful not to use
 beeping alone when signaling an error is appropriate.  (*Note Errors::.)
 
- - Function: ding &optional dont-terminate sound device
+ - Function: ding &optional DONT-TERMINATE SOUND DEVICE
      This function beeps, or flashes the screen (see `visible-bell'
      below).  It also terminates any keyboard macro currently executing
      unless DONT-TERMINATE is non-`nil'.  If SOUND is specified, it
@@ -849,7 +851,7 @@ beeping alone when signaling an error is appropriate.  (*Note Errors::.)
      specifies what device to make the sound on, and defaults to the
      selected device.
 
- - Function: beep &optional dont-terminate sound device
+ - Function: beep &optional DONT-TERMINATE SOUND DEVICE
      This is a synonym for `ding'.
 
  - User Option: visible-bell
@@ -934,21 +936,21 @@ beeping alone when signaling an error is appropriate.  (*Note Errors::.)
  - Command: load-default-sounds
      This function loads and installs some sound files as beep-types.
 
- - Command: load-sound-file filename sound-name &optional volume
+ - Command: load-sound-file FILENAME SOUND-NAME &optional VOLUME
      This function reads in an audio file and adds it to `sound-alist'.
      The sound file must be in the Sun/NeXT U-LAW format.  SOUND-NAME
      should be a symbol, specifying the name of the sound.  If VOLUME
      is specified, the sound will be played at that volume; otherwise,
      the value of BELL-VOLUME will be used.
 
- - Function: play-sound sound &optional volume device
+ - Function: play-sound SOUND &optional VOLUME DEVICE
      This function plays sound SOUND, which should be a symbol
      mentioned in `sound-alist'.  If VOLUME is specified, it overrides
      the value (if any) specified in `sound-alist'.  DEVICE specifies
      the device to play the sound on, and defaults to the selected
      device.
 
- - Command: play-sound-file file &optional volume device
+ - Command: play-sound-file FILE &optional VOLUME DEVICE
      This function plays the named sound file at volume VOLUME, which
      defaults to `bell-volume'.  DEVICE specifies the device to play
      the sound on, and defaults to the selected device.
@@ -959,7 +961,7 @@ File: lispref.info,  Node: Hash Tables,  Next: Range Tables,  Prev: Display,  Up
 Hash Tables
 ***********
 
- - Function: hash-table-p object
+ - Function: hash-table-p OBJECT
      This function returns `t' if OBJECT is a hash table, else `nil'.
 
 * Menu:
@@ -982,7 +984,7 @@ arbitrary Lisp objects called "keys" to other arbitrary Lisp objects
 called "values".  A key/value pair is sometimes called an "entry" in
 the hash table.  There are many ways other than hash tables of
 implementing the same sort of mapping, e.g.  association lists (*note
-Association Lists::) and property lists (*note Property Lists::), but
+Association Lists::.) and property lists (*note Property Lists::.), but
 hash tables provide much faster lookup when there are many entries in
 the mapping.  Hash tables are an implementation of the abstract data
 type "dictionary", also known as "associative array".
@@ -1065,33 +1067,33 @@ which specifies the initial hash table contents.
      remain in the hash table if the value is pointed to by something
      other than a weak hash table, even if the key is not.
 
- - Function: copy-hash-table hash-table
+ - Function: copy-hash-table HASH-TABLE
      This function returns a new hash table which contains the same
      keys and values as HASH-TABLE.  The keys and values will not
      themselves be copied.
 
- - Function: hash-table-count hash-table
+ - Function: hash-table-count HASH-TABLE
      This function returns the number of entries in HASH-TABLE.
 
- - Function: hash-table-test hash-table
+ - Function: hash-table-test HASH-TABLE
      This function returns the test function of HASH-TABLE.  This can
      be one of `eq', `eql' or `equal'.
 
- - Function: hash-table-size hash-table
+ - Function: hash-table-size HASH-TABLE
      This function returns the current number of slots in HASH-TABLE,
      whether occupied or not.
 
- - Function: hash-table-rehash-size hash-table
+ - Function: hash-table-rehash-size HASH-TABLE
      This function returns the current rehash size of HASH-TABLE.  This
      is a float greater than 1.0; the factor by which HASH-TABLE is
      enlarged when the rehash threshold is exceeded.
 
- - Function: hash-table-rehash-threshold hash-table
+ - Function: hash-table-rehash-threshold HASH-TABLE
      This function returns the current rehash threshold of HASH-TABLE.
      This is a float between 0.0 and 1.0; the maximum "load factor" of
      HASH-TABLE, beyond which the HASH-TABLE is enlarged by rehashing.
 
- - Function: hash-table-weakness hash-table
+ - Function: hash-table-weakness HASH-TABLE
      This function returns the weakness of HASH-TABLE.  This can be one
      of `nil', `t', `key' or `value'.
 
@@ -1101,23 +1103,23 @@ File: lispref.info,  Node: Working With Hash Tables,  Next: Weak Hash Tables,  P
 Working With Hash Tables
 ========================
 
- - Function: puthash key value hash-table
+ - Function: puthash KEY VALUE HASH-TABLE
      This function hashes KEY to VALUE in HASH-TABLE.
 
- - Function: gethash key hash-table &optional default
+ - Function: gethash KEY HASH-TABLE &optional DEFAULT
      This function finds the hash value for KEY in HASH-TABLE.  If
      there is no entry for KEY in HASH-TABLE, DEFAULT is returned
      (which in turn defaults to `nil').
 
- - Function: remhash key hash-table
+ - Function: remhash KEY HASH-TABLE
      This function removes the entry for KEY from HASH-TABLE.  Does
      nothing if there is no entry for KEY in HASH-TABLE.
 
- - Function: clrhash hash-table
+ - Function: clrhash HASH-TABLE
      This function removes all entries from HASH-TABLE, leaving it
      empty.
 
- - Function: maphash function hash-table
+ - Function: maphash FUNCTION HASH-TABLE
      This function maps FUNCTION over entries in HASH-TABLE, calling it
      with two args, each key and value in the hash table.
 
@@ -1185,7 +1187,7 @@ ranges of integers.
    This maps integers in the range (-3, 2) to `foo' and integers in the
 range (5, 20) to `bar'.
 
- - Function: range-table-p object
+ - Function: range-table-p OBJECT
      Return non-`nil' if OBJECT is a range table.
 
 * Menu:
@@ -1203,7 +1205,7 @@ Introduction to Range Tables
  - Function: make-range-table
      Make a new, empty range table.
 
- - Function: copy-range-table old-table
+ - Function: copy-range-table OLD-TABLE
      Make a new range table which contains the same values for the same
      ranges as the given table.  The values will not themselves be
      copied.
@@ -1214,21 +1216,21 @@ File: lispref.info,  Node: Working With Range Tables,  Prev: Introduction to Ran
 Working With Range Tables
 =========================
 
- - Function: get-range-table pos table &optional default
+ - Function: get-range-table POS TABLE &optional DEFAULT
      This function finds value for position POS in TABLE.  If there is
      no corresponding value, return DEFAULT (defaults to `nil').
 
- - Function: put-range-table start end val table
+ - Function: put-range-table START END VAL TABLE
      This function sets the value for range (START, END) to be VAL in
      TABLE.
 
- - Function: remove-range-table start end table
+ - Function: remove-range-table START END TABLE
      This function removes the value for range (START, END) in TABLE.
 
- - Function: clear-range-table table
+ - Function: clear-range-table TABLE
      This function flushes TABLE.
 
- - Function: map-range-table function table
+ - Function: map-range-table FUNCTION TABLE
      This function maps FUNCTION over entries in TABLE, calling it with
      three args, the beginning and end of the range and the
      corresponding value.
@@ -1239,7 +1241,7 @@ File: lispref.info,  Node: Databases,  Next: Processes,  Prev: Range Tables,  Up
 Databases
 *********
 
- - Function: databasep object
+ - Function: databasep OBJECT
      This function returns non-`nil' if OBJECT is a database.
 
 * Menu:
@@ -1254,7 +1256,7 @@ File: lispref.info,  Node: Connecting to a Database,  Next: Working With a Datab
 Connecting to a Database
 ========================
 
- - Function: open-database file &optional type subtype access mode
+ - Function: open-database FILE &optional TYPE SUBTYPE ACCESS MODE
      This function opens database FILE, using database method TYPE and
      SUBTYPE, with access rights ACCESS and permissions MODE.  ACCESS
      can be any combination of `r' `w' and `+', for read, write, and
@@ -1271,10 +1273,10 @@ Connecting to a Database
      available:  `'hash', `'btree', and `'recno'.  See the manpages for
      the Berkeley DB functions to more information about these types.
 
- - Function: close-database obj
+ - Function: close-database OBJ
      This function closes database OBJ.
 
- - Function: database-live-p obj
+ - Function: database-live-p OBJ
      This function returns `t' iff OBJ is an active database, else
      `nil'.
 

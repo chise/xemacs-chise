@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -445,10 +445,10 @@ with references to further information.
    The most general way to check the type of an object is to call the
 function `type-of'.  Recall that each object belongs to one and only
 one primitive type; `type-of' tells you which one (*note Lisp Data
-Types::).  But `type-of' knows nothing about non-primitive types.  In
+Types::.).  But `type-of' knows nothing about non-primitive types.  In
 most cases, it is more convenient to use type predicates than `type-of'.
 
- - Function: type-of object
+ - Function: type-of OBJECT
      This function returns a symbol naming the primitive type of
      OBJECT.  The value is one of `bit-vector', `buffer', `char-table',
      `character', `charset', `coding-system', `cons', `color-instance',
@@ -480,7 +480,7 @@ objects.  Other functions test equality between objects of specific
 types, e.g., strings.  For these predicates, see the appropriate chapter
 describing the data type.
 
- - Function: eq object1 object2
+ - Function: eq OBJECT1 OBJECT2
      This function returns `t' if OBJECT1 and OBJECT2 are the same
      object, `nil' otherwise.  The "same object" means that a change in
      one will be reflected by the same change in the other.
@@ -530,12 +530,12 @@ describing the data type.
                => nil
 
 
- - Function: old-eq obj1 obj2
+ - Function: old-eq OBJ1 OBJ2
      This function exists under XEmacs 20 and is exactly like `eq'
      except that it suffers from the char-int confoundance disease.  In
      other words, it returns `t' if given a character and the
      equivalent integer, even though the objects are of different types!
-     You should _not_ ever call this function explicitly in your code.
+     You should *not* ever call this function explicitly in your code.
      However, be aware that all calls to `eq' in byte code compiled
      under version 19 map to `old-eq' in XEmacs 20.  (Likewise for
      `old-equal', `old-memq', `old-member', `old-assq' and
@@ -551,7 +551,7 @@ describing the data type.
           (eq ?A 65)
                => nil             ; We are still healthy.
 
- - Function: equal object1 object2
+ - Function: equal OBJECT1 OBJECT2
      This function returns `t' if OBJECT1 and OBJECT2 have equal
      components, `nil' otherwise.  Whereas `eq' tests if its arguments
      are the same object, `equal' looks inside nonidentical arguments
@@ -655,7 +655,7 @@ optional initial sign and optional final period.
      -0               ; The integer 0.
 
    To understand how various functions work on integers, especially the
-bitwise operators (*note Bitwise Operations::), it is often helpful to
+bitwise operators (*note Bitwise Operations::.), it is often helpful to
 view the numbers in their binary form.
 
    In 28-bit binary, the decimal integer 5 looks like this:
@@ -727,7 +727,7 @@ NaNs or infinities; perhaps we should create a syntax in the future.
    You can use `logb' to extract the binary exponent of a floating
 point number (or estimate the logarithm of an integer):
 
- - Function: logb number
+ - Function: logb NUMBER
      This function returns the binary exponent of NUMBER.  More
      precisely, the value is the logarithm of NUMBER base 2, rounded
      down to an integer.
@@ -746,27 +746,27 @@ predicate requires a number as its argument.  See also
 `integer-or-marker-p', `integer-char-or-marker-p', `number-or-marker-p'
 and `number-char-or-marker-p', in *Note Predicates on Markers::.
 
- - Function: floatp object
+ - Function: floatp OBJECT
      This predicate tests whether its argument is a floating point
      number and returns `t' if so, `nil' otherwise.
 
      `floatp' does not exist in Emacs versions 18 and earlier.
 
- - Function: integerp object
+ - Function: integerp OBJECT
      This predicate tests whether its argument is an integer, and
      returns `t' if so, `nil' otherwise.
 
- - Function: numberp object
+ - Function: numberp OBJECT
      This predicate tests whether its argument is a number (either
      integer or floating point), and returns `t' if so, `nil' otherwise.
 
- - Function: natnump object
+ - Function: natnump OBJECT
      The `natnump' predicate (whose name comes from the phrase
      "natural-number-p") tests to see whether its argument is a
      nonnegative integer, and returns `t' if so, `nil' otherwise.  0 is
      considered non-negative.
 
- - Function: zerop number
+ - Function: zerop NUMBER
      This predicate tests whether its argument is zero, and returns `t'
      if so, `nil' otherwise.  The argument must be a number.
 
@@ -781,7 +781,7 @@ Comparison of Numbers
    To test numbers for numerical equality, you should normally use `=',
 not `eq'.  There can be many distinct floating point number objects
 with the same numeric value.  If you use `eq' to compare them, then you
-test whether two values are the same _object_.  By contrast, `='
+test whether two values are the same *object*.  By contrast, `='
 compares only the numeric values of the objects.
 
    At present, each integer value has a unique Lisp object in XEmacs
@@ -816,7 +816,7 @@ Here's a function to do this:
 characters and markers as arguments, and treat them as their number
 equivalents.
 
- - Function: = number &rest more-numbers
+ - Function: = NUMBER &rest MORE-NUMBERS
      This function returns `t' if all of its arguments are numerically
      equal, `nil' otherwise.
 
@@ -829,7 +829,7 @@ equivalents.
           (= 5 5 6)
                => nil
 
- - Function: /= number &rest more-numbers
+ - Function: /= NUMBER &rest MORE-NUMBERS
      This function returns `t' if no two arguments are numerically
      equal, `nil' otherwise.
 
@@ -840,7 +840,7 @@ equivalents.
           (/= 5 6 1)
                => t
 
- - Function: < number &rest more-numbers
+ - Function: < NUMBER &rest MORE-NUMBERS
      This function returns `t' if the sequence of its arguments is
      monotonically increasing, `nil' otherwise.
 
@@ -851,7 +851,7 @@ equivalents.
           (< 5 6 7)
                => t
 
- - Function: <= number &rest more-numbers
+ - Function: <= NUMBER &rest MORE-NUMBERS
      This function returns `t' if the sequence of its arguments is
      monotonically nondecreasing, `nil' otherwise.
 
@@ -862,15 +862,15 @@ equivalents.
           (<= 5 6 5)
                => nil
 
- - Function: > number &rest more-numbers
+ - Function: > NUMBER &rest MORE-NUMBERS
      This function returns `t' if the sequence of its arguments is
      monotonically decreasing, `nil' otherwise.
 
- - Function: >= number &rest more-numbers
+ - Function: >= NUMBER &rest MORE-NUMBERS
      This function returns `t' if the sequence of its arguments is
      monotonically nonincreasing, `nil' otherwise.
 
- - Function: max number &rest more-numbers
+ - Function: max NUMBER &rest MORE-NUMBERS
      This function returns the largest of its arguments.
 
           (max 20)
@@ -880,7 +880,7 @@ equivalents.
           (max 1 3 2.5)
                => 3
 
- - Function: min number &rest more-numbers
+ - Function: min NUMBER &rest MORE-NUMBERS
      This function returns the smallest of its arguments.
 
           (min -4 1)
@@ -894,7 +894,7 @@ Numeric Conversions
 
    To convert an integer to floating point, use the function `float'.
 
- - Function: float number
+ - Function: float NUMBER
      This returns NUMBER converted to floating point.  If NUMBER is
      already a floating point number, `float' returns it unchanged.
 
@@ -902,11 +902,11 @@ Numeric Conversions
 integers; they differ in how they round.  These functions accept
 integer arguments also, and return such arguments unchanged.
 
- - Function: truncate number
+ - Function: truncate NUMBER
      This returns NUMBER, converted to an integer by rounding towards
      zero.
 
- - Function: floor number &optional divisor
+ - Function: floor NUMBER &optional DIVISOR
      This returns NUMBER, converted to an integer by rounding downward
      (towards negative infinity).
 
@@ -914,11 +914,11 @@ integer arguments also, and return such arguments unchanged.
      floor is taken; this is the division operation that corresponds to
      `mod'.  An `arith-error' results if DIVISOR is 0.
 
- - Function: ceiling number
+ - Function: ceiling NUMBER
      This returns NUMBER, converted to an integer by rounding upward
      (towards positive infinity).
 
- - Function: round number
+ - Function: round NUMBER
      This returns NUMBER, converted to an integer by rounding towards
      the nearest integer.  Rounding a value equidistant between two
      integers may choose the integer closer to zero, or it may prefer
@@ -943,7 +943,7 @@ any argument is floating.
 not check for overflow.  Thus `(1+ 134217727)' may evaluate to
 -134217728, depending on your hardware.
 
- - Function: 1+ number-or-marker
+ - Function: 1+ NUMBER-OR-MARKER
      This function returns NUMBER-OR-MARKER plus 1.  For example,
 
           (setq foo 4)
@@ -968,13 +968,13 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
      more convenient and natural way to increment a variable is
      `(incf foo)'.
 
- - Function: 1- number-or-marker
+ - Function: 1- NUMBER-OR-MARKER
      This function returns NUMBER-OR-MARKER minus 1.
 
- - Function: abs number
+ - Function: abs NUMBER
      This returns the absolute value of NUMBER.
 
- - Function: + &rest numbers-or-markers
+ - Function: + &rest NUMBERS-OR-MARKERS
      This function adds its arguments together.  When given no
      arguments, `+' returns 0.
 
@@ -985,7 +985,7 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
           (+ 1 2 3 4)
                => 10
 
- - Function: - &optional number-or-marker &rest other-numbers-or-markers
+ - Function: - &optional NUMBER-OR-MARKER &rest OTHER-NUMBERS-OR-MARKERS
      The `-' function serves two purposes: negation and subtraction.
      When `-' has a single argument, the value is the negative of the
      argument.  When there are multiple arguments, `-' subtracts each of
@@ -999,7 +999,7 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
           (-)
                => 0
 
- - Function: * &rest numbers-or-markers
+ - Function: * &rest NUMBERS-OR-MARKERS
      This function multiplies its arguments together, and returns the
      product.  When given no arguments, `*' returns 1.
 
@@ -1010,7 +1010,7 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
           (* 1 2 3 4)
                => 24
 
- - Function: / dividend divisor &rest divisors
+ - Function: / DIVIDEND DIVISOR &rest DIVISORS
      This function divides DIVIDEND by DIVISOR and returns the
      quotient.  If there are additional arguments DIVISORS, then it
      divides DIVIDEND by each divisor in turn.  Each argument may be a
@@ -1039,7 +1039,7 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
      The result of `(/ -17 6)' could in principle be -3 on some
      machines.
 
- - Function: % dividend divisor
+ - Function: % DIVIDEND DIVISOR
      This function returns the integer remainder after division of
      DIVIDEND by DIVISOR.  The arguments must be integers or markers.
 
@@ -1065,7 +1065,7 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
 
      always equals DIVIDEND.
 
- - Function: mod dividend divisor
+ - Function: mod DIVIDEND DIVISOR
      This function returns the value of DIVIDEND modulo DIVISOR; in
      other words, the remainder after division of DIVIDEND by DIVISOR,
      but with the same sign as DIVISOR.  The arguments must be numbers
@@ -1110,19 +1110,19 @@ is a nearby integer.  `ffloor' returns the nearest integer below;
 `fceiling', the nearest integer above; `ftruncate', the nearest integer
 in the direction towards zero; `fround', the nearest integer.
 
- - Function: ffloor float
+ - Function: ffloor FLOAT
      This function rounds FLOAT to the next lower integral value, and
      returns that value as a floating point number.
 
- - Function: fceiling float
+ - Function: fceiling FLOAT
      This function rounds FLOAT to the next higher integral value, and
      returns that value as a floating point number.
 
- - Function: ftruncate float
+ - Function: ftruncate FLOAT
      This function rounds FLOAT towards zero to an integral value, and
      returns that value as a floating point number.
 
- - Function: fround float
+ - Function: fround FLOAT
      This function rounds FLOAT to the nearest integral value, and
      returns that value as a floating point number.
 
@@ -1140,7 +1140,7 @@ reproducing the same pattern "moved over".
 
    The bitwise operations in XEmacs Lisp apply only to integers.
 
- - Function: lsh integer1 count
+ - Function: lsh INTEGER1 COUNT
      `lsh', which is an abbreviation for "logical shift", shifts the
      bits in INTEGER1 to the left COUNT places, or to the right if
      COUNT is negative, bringing zeros into the vacated bits.  If COUNT
@@ -1208,7 +1208,7 @@ reproducing the same pattern "moved over".
           ;; Decimal -2
           1111  1111 1111  1111 1111  1111 1110
 
- - Function: ash integer1 count
+ - Function: ash INTEGER1 COUNT
      `ash' ("arithmetic shift") shifts the bits in INTEGER1 to the left
      COUNT places, or to the right if COUNT is negative.
 
@@ -1237,26 +1237,31 @@ reproducing the same pattern "moved over".
 
      Here are other examples:
 
-                             ;               28-bit binary values
+          ;               28-bit binary values
           
           (lsh 5 2)          ;   5  =  0000  0000 0000  0000 0000  0000 0101
                => 20         ;      =  0000  0000 0000  0000 0000  0001 0100
+
           (ash 5 2)
                => 20
           (lsh -5 2)         ;  -5  =  1111  1111 1111  1111 1111  1111 1011
                => -20        ;      =  1111  1111 1111  1111 1111  1110 1100
           (ash -5 2)
                => -20
+
           (lsh 5 -2)         ;   5  =  0000  0000 0000  0000 0000  0000 0101
                => 1          ;      =  0000  0000 0000  0000 0000  0000 0001
+
           (ash 5 -2)
                => 1
+
           (lsh -5 -2)        ;  -5  =  1111  1111 1111  1111 1111  1111 1011
                => 4194302    ;      =  0011  1111 1111  1111 1111  1111 1110
+
           (ash -5 -2)        ;  -5  =  1111  1111 1111  1111 1111  1111 1011
                => -2         ;      =  1111  1111 1111  1111 1111  1111 1110
 
- - Function: logand &rest ints-or-markers
+ - Function: logand &rest INTS-OR-MARKERS
      This function returns the "logical and" of the arguments: the Nth
      bit is set in the result if, and only if, the Nth bit is set in
      all the arguments.  ("Set" means that the value of the bit is 1
@@ -1280,57 +1285,57 @@ reproducing the same pattern "moved over".
      representation consists entirely of ones.  If `logand' is passed
      just one argument, it returns that argument.
 
-                             ;                28-bit binary values
+          ;                28-bit binary values
           
           (logand 14 13)     ; 14  =  0000  0000 0000  0000 0000  0000 1110
                              ; 13  =  0000  0000 0000  0000 0000  0000 1101
                => 12         ; 12  =  0000  0000 0000  0000 0000  0000 1100
-          
+
           (logand 14 13 4)   ; 14  =  0000  0000 0000  0000 0000  0000 1110
                              ; 13  =  0000  0000 0000  0000 0000  0000 1101
                              ;  4  =  0000  0000 0000  0000 0000  0000 0100
                => 4          ;  4  =  0000  0000 0000  0000 0000  0000 0100
-          
+
           (logand)
                => -1         ; -1  =  1111  1111 1111  1111 1111  1111 1111
 
- - Function: logior &rest ints-or-markers
+ - Function: logior &rest INTS-OR-MARKERS
      This function returns the "inclusive or" of its arguments: the Nth
      bit is set in the result if, and only if, the Nth bit is set in at
      least one of the arguments.  If there are no arguments, the result
      is zero, which is an identity element for this operation.  If
      `logior' is passed just one argument, it returns that argument.
 
-                             ;               28-bit binary values
+          ;               28-bit binary values
           
           (logior 12 5)      ; 12  =  0000  0000 0000  0000 0000  0000 1100
                              ;  5  =  0000  0000 0000  0000 0000  0000 0101
                => 13         ; 13  =  0000  0000 0000  0000 0000  0000 1101
-          
+
           (logior 12 5 7)    ; 12  =  0000  0000 0000  0000 0000  0000 1100
                              ;  5  =  0000  0000 0000  0000 0000  0000 0101
                              ;  7  =  0000  0000 0000  0000 0000  0000 0111
                => 15         ; 15  =  0000  0000 0000  0000 0000  0000 1111
 
- - Function: logxor &rest ints-or-markers
+ - Function: logxor &rest INTS-OR-MARKERS
      This function returns the "exclusive or" of its arguments: the Nth
      bit is set in the result if, and only if, the Nth bit is set in an
      odd number of the arguments.  If there are no arguments, the
      result is 0, which is an identity element for this operation.  If
      `logxor' is passed just one argument, it returns that argument.
 
-                             ;               28-bit binary values
+          ;               28-bit binary values
           
           (logxor 12 5)      ; 12  =  0000  0000 0000  0000 0000  0000 1100
                              ;  5  =  0000  0000 0000  0000 0000  0000 0101
                => 9          ;  9  =  0000  0000 0000  0000 0000  0000 1001
-          
+
           (logxor 12 5 7)    ; 12  =  0000  0000 0000  0000 0000  0000 1100
                              ;  5  =  0000  0000 0000  0000 0000  0000 0101
                              ;  7  =  0000  0000 0000  0000 0000  0000 0111
                => 14         ; 14  =  0000  0000 0000  0000 0000  0000 1110
 
- - Function: lognot integer
+ - Function: lognot INTEGER
      This function returns the logical complement of its argument: the
      Nth bit is one in the result if, and only if, the Nth bit is zero
      in INTEGER, and vice-versa.
@@ -1351,61 +1356,61 @@ Standard Mathematical Functions
 supported (which is the normal state of affairs).  They allow integers
 as well as floating point numbers as arguments.
 
- - Function: sin arg
- - Function: cos arg
- - Function: tan arg
+ - Function: sin ARG
+ - Function: cos ARG
+ - Function: tan ARG
      These are the ordinary trigonometric functions, with argument
      measured in radians.
 
- - Function: asin arg
+ - Function: asin ARG
      The value of `(asin ARG)' is a number between -pi/2 and pi/2
      (inclusive) whose sine is ARG; if, however, ARG is out of range
      (outside [-1, 1]), then the result is a NaN.
 
- - Function: acos arg
+ - Function: acos ARG
      The value of `(acos ARG)' is a number between 0 and pi (inclusive)
      whose cosine is ARG; if, however, ARG is out of range (outside
      [-1, 1]), then the result is a NaN.
 
- - Function: atan arg
+ - Function: atan ARG
      The value of `(atan ARG)' is a number between -pi/2 and pi/2
      (exclusive) whose tangent is ARG.
 
- - Function: sinh arg
- - Function: cosh arg
- - Function: tanh arg
+ - Function: sinh ARG
+ - Function: cosh ARG
+ - Function: tanh ARG
      These are the ordinary hyperbolic trigonometric functions.
 
- - Function: asinh arg
- - Function: acosh arg
- - Function: atanh arg
+ - Function: asinh ARG
+ - Function: acosh ARG
+ - Function: atanh ARG
      These are the inverse hyperbolic trigonometric functions.
 
- - Function: exp arg
+ - Function: exp ARG
      This is the exponential function; it returns e to the power ARG.
      e is a fundamental mathematical constant also called the base of
      natural logarithms.
 
- - Function: log arg &optional base
+ - Function: log ARG &optional BASE
      This function returns the logarithm of ARG, with base BASE.  If
      you don't specify BASE, the base E is used.  If ARG is negative,
      the result is a NaN.
 
- - Function: log10 arg
+ - Function: log10 ARG
      This function returns the logarithm of ARG, with base 10.  If ARG
      is negative, the result is a NaN.  `(log10 X)' == `(log X 10)', at
      least approximately.
 
- - Function: expt x y
+ - Function: expt X Y
      This function returns X raised to power Y.  If both arguments are
      integers and Y is positive, the result is an integer; in this
      case, it is truncated to fit the range of possible integer values.
 
- - Function: sqrt arg
+ - Function: sqrt ARG
      This returns the square root of ARG.  If ARG is negative, the
      value is a NaN.
 
- - Function: cube-root arg
+ - Function: cube-root ARG
      This returns the cube root of ARG.
 
 
@@ -1434,7 +1439,7 @@ debugging.
 t)'.  This chooses a new seed based on the current time of day and on
 XEmacs's process ID number.
 
- - Function: random &optional limit
+ - Function: random &optional LIMIT
      This function returns a pseudo-random integer.  Repeated calls
      return a series of pseudo-random integers.
 

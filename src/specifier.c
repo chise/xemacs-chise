@@ -1648,9 +1648,15 @@ build_up_processed_list (Lisp_Object specifier, Lisp_Object locale,
   LIST_LOOP (rest, inst_list)
     {
       Lisp_Object tag_set = XCAR (XCAR (rest));
-      Lisp_Object instantiator = Fcopy_tree (XCDR (XCAR (rest)), Qt);
       Lisp_Object sub_inst_list = Qnil;
+      Lisp_Object instantiator;
       struct gcpro ngcpro1, ngcpro2;
+
+      if (HAS_SPECMETH_P (sp, copy_instantiator))
+	instantiator = SPECMETH (sp, copy_instantiator,
+				 (XCDR (XCAR (rest))));
+      else
+	instantiator = Fcopy_tree (XCDR (XCAR (rest)), Qt);
 
       NGCPRO2 (instantiator, sub_inst_list);
       /* call the will-add method; it may GC */
@@ -2539,7 +2545,7 @@ specifier_instance (Lisp_Object specifier, Lisp_Object matchspec,
       goto do_fallback;
     }
 
-retry:
+ retry:
   /* First see if we can generate one from the window specifiers. */
   if (!NILP (window))
     CHECK_INSTANCE_ENTRY (window, matchspec, LOCALE_WINDOW);
@@ -2558,7 +2564,7 @@ retry:
   /* Last and least try the global specifiers. */
   CHECK_INSTANCE_ENTRY (Qglobal, matchspec, LOCALE_GLOBAL);
 
-do_fallback:
+ do_fallback:
   /* We're out of specifiers and we still haven't generated an
      instance.  At least try the fallback ...  If this fails,
      then we just return Qunbound. */

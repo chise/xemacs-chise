@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -60,9 +60,9 @@ reference the former variable, the current value of the latter is
 returned.  Any time you change the value of the former variable, the
 value of the latter is actually changed.  This is useful in cases where
 you want to rename a variable but still make old code work (*note
-Obsoleteness::).
+Obsoleteness::.).
 
- - Function: defvaralias variable alias
+ - Function: defvaralias VARIABLE ALIAS
      This function defines VARIABLE as an alias for ALIAS.
      Thenceforth, any operations performed on VARIABLE will actually be
      performed on ALIAS.  Both VARIABLE and ALIAS should be symbols.
@@ -74,12 +74,12 @@ Obsoleteness::).
      variable, a variable that has a buffer-local value in any buffer,
      or the symbols `nil' or `t'.
 
- - Function: variable-alias variable
+ - Function: variable-alias VARIABLE
      If VARIABLE is aliased to another variable, this function returns
      that variable.  VARIABLE should be a symbol.  If VARIABLE is not
      aliased, this function returns `nil'.
 
- - Function: indirect-variable object
+ - Function: indirect-variable OBJECT
      This function returns the variable at the end of OBJECT's
      variable-alias chain.  If OBJECT is a symbol, follow all variable
      aliases and return the final (non-aliased) symbol.  If OBJECT is
@@ -169,7 +169,7 @@ function-like objects.
      A "command" is an object that `command-execute' can invoke; it is
      a possible definition for a key sequence.  Some functions are
      commands; a function written in Lisp is a command if it contains an
-     interactive declaration (*note Defining Commands::).  Such a
+     interactive declaration (*note Defining Commands::.).  Such a
      function can be called from Lisp expressions like other functions;
      in this case, the fact that the function is a command makes no
      difference.
@@ -191,7 +191,7 @@ function-like objects.
      A "compiled function" is a function that has been compiled by the
      byte compiler.  *Note Compiled-Function Type::.
 
- - Function: subrp object
+ - Function: subrp OBJECT
      This function returns `t' if OBJECT is a built-in function (i.e.,
      a Lisp primitive).
 
@@ -200,7 +200,7 @@ function-like objects.
           (subrp (symbol-function 'message))
                => t
 
- - Function: compiled-function-p object
+ - Function: compiled-function-p OBJECT
      This function returns `t' if OBJECT is a compiled function.  For
      example:
 
@@ -310,10 +310,10 @@ right.  Then it applies the lambda expression to the argument values 1,
    It is not often useful to write a lambda expression as the CAR of a
 form in this way.  You can get the same result, of making local
 variables and giving them values, using the special form `let' (*note
-Local Variables::).  And `let' is clearer and easier to use.  In
+Local Variables::.).  And `let' is clearer and easier to use.  In
 practice, lambda expressions are either stored as the function
 definitions of symbols, to produce named functions, or passed as
-arguments to other functions (*note Anonymous Functions::).
+arguments to other functions (*note Anonymous Functions::.).
 
    However, calls to explicit lambda expressions were very useful in the
 old days of Lisp, before the special form `let' was invented.  At that
@@ -427,7 +427,7 @@ one or two complete sentences that summarize the function's purpose.
 source file, but since these spaces come before the starting
 double-quote, they are not part of the string.  Some people make a
 practice of indenting any additional lines of the string so that the
-text lines up in the program source.  _This is a mistake._  The
+text lines up in the program source.  *This is a mistake.*  The
 indentation of the following lines is inside the string; what looks
 nice in the source code will look ugly when displayed by the help
 commands.
@@ -453,7 +453,7 @@ strictest sense has no name.  It is simply a list whose first element is
 
    However, a symbol can serve as the name of a function.  This happens
 when you put the function in the symbol's "function cell" (*note Symbol
-Components::).  Then the symbol itself becomes a valid, callable
+Components::.).  Then the symbol itself becomes a valid, callable
 function, equivalent to the list or subr-object that its function cell
 refers to.  The contents of the function cell are also called the
 symbol's "function definition".  The procedure of using a symbol's
@@ -483,7 +483,7 @@ function definition.  For most purposes, there is no need to
 distinguish.
 
    Even so, keep in mind that a function need not have a unique name.
-While a given function object _usually_ appears in the function cell of
+While a given function object *usually* appears in the function cell of
 only one symbol, this is just a matter of convenience.  It is easy to
 store it in several symbols using `fset'; then each of the symbols is
 equally well a name for the same function.
@@ -501,7 +501,7 @@ Defining Functions
 is called "defining a function", and it is done with the `defun'
 special form.
 
- - Special Form: defun name argument-list body-forms
+ - Special Form: defun NAME ARGUMENT-LIST BODY-FORMS
      `defun' is the usual way to define new Lisp functions.  It defines
      the symbol NAME as a function that looks like this:
 
@@ -510,7 +510,7 @@ special form.
      `defun' stores this lambda expression in the function cell of
      NAME.  It returns the value NAME, but usually we ignore this value.
 
-     As described previously (*note Lambda Expressions::),
+     As described previously (*note Lambda Expressions::.),
      ARGUMENT-LIST is a list of argument names and may include the
      keywords `&optional' and `&rest'.  Also, the first two forms in
      BODY-FORMS may be a documentation string and an interactive
@@ -553,8 +553,8 @@ special form.
      distinguish deliberate redefinition from unintentional
      redefinition.
 
- - Function: define-function name definition
- - Function: defalias name definition
+ - Function: define-function NAME DEFINITION
+ - Function: defalias NAME DEFINITION
      These equivalent special forms define the symbol NAME as a
      function, with definition DEFINITION (which can be any valid Lisp
      function).
@@ -563,7 +563,7 @@ special form.
      specific function name is being defined--especially where that
      name appears explicitly in the source file being loaded.  This is
      because `define-function' and `defalias' record which file defined
-     the function, just like `defun'.  (*note Unloading::).
+     the function, just like `defun'.  (*note Unloading::.).
 
      By contrast, in programs that manipulate function definitions for
      other purposes, it is better to use `fset', which does not keep
@@ -594,7 +594,7 @@ Usually that's just what you want.  Occasionally you need to decide at
 run time which function to call.  To do that, use the functions
 `funcall' and `apply'.
 
- - Function: funcall function &rest arguments
+ - Function: funcall FUNCTION &rest ARGUMENTS
      `funcall' calls FUNCTION with ARGUMENTS, and returns whatever
      FUNCTION returns.
 
@@ -603,7 +603,7 @@ run time which function to call.  To do that, use the functions
      that you can use any expression to obtain the function to be
      called.  It also means that `funcall' does not see the expressions
      you write for the ARGUMENTS, only their values.  These values are
-     _not_ evaluated a second time in the act of calling FUNCTION;
+     *not* evaluated a second time in the act of calling FUNCTION;
      `funcall' enters the normal procedure for calling a function at the
      place where the arguments have already been evaluated.
 
@@ -624,7 +624,7 @@ run time which function to call.  To do that, use the functions
 
      Compare these example with the examples of `apply'.
 
- - Function: apply function &rest arguments
+ - Function: apply FUNCTION &rest ARGUMENTS
      `apply' calls FUNCTION with ARGUMENTS, just like `funcall' but
      with one difference: the last of ARGUMENTS is a list of arguments
      to give to FUNCTION, rather than a single argument.  We also say
@@ -659,10 +659,10 @@ function arguments are often called "functionals".
 function as the argument.  Here are two different kinds of no-op
 function:
 
- - Function: identity arg
+ - Function: identity ARG
      This function returns ARG and has no side effects.
 
- - Function: ignore &rest args
+ - Function: ignore &rest ARGS
      This function ignores any arguments and returns `nil'.
 
 
@@ -672,17 +672,22 @@ Mapping Functions
 =================
 
    A "mapping function" applies a given function to each element of a
-list or other collection.  XEmacs Lisp has three such functions;
-`mapcar' and `mapconcat', which scan a list, are described here.  For
-the third mapping function, `mapatoms', see *Note Creating Symbols::.
+list or other collection.  XEmacs Lisp has several such functions;
+`mapcar' and `mapconcat', which scan a list, are described here.
+*Note Creating Symbols::, for the function `mapatoms' which maps over
+the symbols in an obarray.
 
- - Function: mapcar function sequence
+   Mapping functions should never modify the sequence being mapped over.
+The results are unpredictable.
+
+ - Function: mapcar FUNCTION SEQUENCE
      `mapcar' applies FUNCTION to each element of SEQUENCE in turn, and
      returns a list of the results.
 
-     The argument SEQUENCE may be a list, a vector, or a string.  The
-     result is always a list.  The length of the result is the same as
-     the length of SEQUENCE.
+     The argument SEQUENCE can be any kind of sequence; that is, a
+     list, a vector, a bit vector, or a string.  The result is always a
+     list.  The length of the result is the same as the length of
+     SEQUENCE.
 
      For example:
 
@@ -692,10 +697,10 @@ the third mapping function, `mapatoms', see *Note Creating Symbols::.
                => (2 3 4)
           (mapcar 'char-to-string "abc")
                => ("a" "b" "c")
-          
+
           ;; Call each function in `my-hooks'.
           (mapcar 'funcall my-hooks)
-          
+
           (defun mapcar* (f &rest args)
             "Apply FUNCTION to successive cars of all ARGS.
           Return the list of results."
@@ -706,11 +711,11 @@ the third mapping function, `mapatoms', see *Note Creating Symbols::.
                       (apply 'mapcar* f
                              ;; Recurse for rest of elements.
                              (mapcar 'cdr args)))))
-          
+
           (mapcar* 'cons '(a b c) '(1 2 3 4))
                => ((a . 1) (b . 2) (c . 3))
 
- - Function: mapconcat function sequence separator
+ - Function: mapconcat FUNCTION SEQUENCE SEPARATOR
      `mapconcat' applies FUNCTION to each element of SEQUENCE: the
      results, which must be strings, are concatenated.  Between each
      pair of result strings, `mapconcat' inserts the string SEPARATOR.
@@ -718,13 +723,15 @@ the third mapping function, `mapatoms', see *Note Creating Symbols::.
      punctuation.
 
      The argument FUNCTION must be a function that can take one
-     argument and return a string.
+     argument and return a string.  The argument SEQUENCE can be any
+     kind of sequence; that is, a list, a vector, a bit vector, or a
+     string.
 
           (mapconcat 'symbol-name
                      '(The cat in the hat)
                      " ")
                => "The cat in the hat"
-          
+
           (mapconcat (function (lambda (x) (format "%c" (1+ x))))
                      "HAL-8000"
                      "")
@@ -750,15 +757,15 @@ this:
      => (lambda (x) (+ 12 x))
 
 This computes a list that looks like `(lambda (x) (+ 12 x))' and makes
-it the value (_not_ the function definition!) of `silly'.
+it the value (*not* the function definition!) of `silly'.
 
    Here is how we might call this function:
 
      (funcall silly 1)
      => 13
 
-(It does _not_ work to write `(silly 1)', because this function is not
-the _function definition_ of `silly'.  We have not given `silly' any
+(It does *not* work to write `(silly 1)', because this function is not
+the *function definition* of `silly'.  We have not given `silly' any
 function definition, just a value as a variable.)
 
    Most of the time, anonymous functions are constants that appear in
@@ -776,7 +783,7 @@ a number by two:
 In such cases, we usually use the special form `function' instead of
 simple quotation to quote the anonymous function.
 
- - Special Form: function function-object
+ - Special Form: function FUNCTION-OBJECT
      This special form returns FUNCTION-OBJECT without evaluating it.
      In this, it is equivalent to `quote'.  However, it serves as a
      note to the XEmacs Lisp compiler that FUNCTION-OBJECT is intended
@@ -826,7 +833,7 @@ and set the function cell of symbols.
    See also the function `indirect-function' in *Note Function
 Indirection::.
 
- - Function: symbol-function symbol
+ - Function: symbol-function SYMBOL
      This returns the object in the function cell of SYMBOL.  If the
      symbol's function cell is void, a `void-function' error is
      signaled.
@@ -858,12 +865,12 @@ cell contains no object whatsoever.
 `fboundp'.  After you have given a symbol a function definition, you
 can make it void once more using `fmakunbound'.
 
- - Function: fboundp symbol
+ - Function: fboundp SYMBOL
      This function returns `t' if the symbol has an object in its
      function cell, `nil' otherwise.  It does not check that the object
      is a legitimate function.
 
- - Function: fmakunbound symbol
+ - Function: fmakunbound SYMBOL
      This function makes SYMBOL's function cell void, so that a
      subsequent attempt to access this cell will cause a `void-function'
      error.  (See also `makunbound', in *Note Local Variables::.)
@@ -877,7 +884,7 @@ can make it void once more using `fmakunbound'.
           (foo 1)
           error--> Symbol's function definition is void: foo
 
- - Function: fset symbol object
+ - Function: fset SYMBOL OBJECT
      This function stores OBJECT in the function cell of SYMBOL.  The
      result is OBJECT.  Normally OBJECT should be a function or the
      name of a function, but this is not checked.
@@ -1078,7 +1085,7 @@ macro definition that does the job:
         (list 'setq var (list '1+ var)))
 
    When this is called with `(inc x)', the argument `var' has the value
-`x'--_not_ the _value_ of `x'.  The body of the macro uses this to
+`x'--*not* the *value* of `x'.  The body of the macro uses this to
 construct the expansion, which is `(setq x (1+ x))'.  Once the macro
 definition returns this expansion, Lisp proceeds to evaluate it, thus
 incrementing `x'.
@@ -1119,7 +1126,7 @@ this is unusual.
    You can see the expansion of a given macro call by calling
 `macroexpand'.
 
- - Function: macroexpand form &optional environment
+ - Function: macroexpand FORM &optional ENVIRONMENT
      This function expands FORM, if it is a macro call.  If the result
      is another macro call, it is expanded in turn, until something
      which is not a macro call results.  That is the value returned by
@@ -1142,14 +1149,14 @@ this is unusual.
           (defmacro inc (var)
               (list 'setq var (list '1+ var)))
                => inc
-          
+
           (macroexpand '(inc r))
                => (setq r (1+ r))
-          
+
           (defmacro inc2 (var1 var2)
               (list 'progn (list 'inc var1) (list 'inc var2)))
                => inc2
-          
+
           (macroexpand '(inc2 r s))
                => (progn (inc r) (inc s))  ; `inc' not expanded here.
 
@@ -1184,10 +1191,10 @@ macro in the same file where it is used and before its first use.
 the file.  This is in case the file needs the required packages for
 proper compilation.  One way to ensure that necessary macro definitions
 are available during compilation is to require the files that define
-them (*note Named Features::).  To avoid loading the macro definition
-files when someone _runs_ the compiled program, write
+them (*note Named Features::.).  To avoid loading the macro definition
+files when someone *runs* the compiled program, write
 `eval-when-compile' around the `require' calls (*note Eval During
-Compile::).
+Compile::.).
 
 
 File: lispref.info,  Node: Defining Macros,  Next: Backquote,  Prev: Compiling Macros,  Up: Macros
@@ -1206,7 +1213,7 @@ an anonymous macro to functionals such as `mapcar'.  In practice, all
 Lisp macros have names, and they are usually defined with the special
 form `defmacro'.
 
- - Special Form: defmacro name argument-list body-forms...
+ - Special Form: defmacro NAME ARGUMENT-LIST BODY-FORMS...
      `defmacro' defines the symbol NAME as a macro that looks like this:
 
           (macro lambda ARGUMENT-LIST . BODY-FORMS)
@@ -1217,7 +1224,7 @@ form `defmacro'.
 
      The shape and meaning of ARGUMENT-LIST is the same as in a
      function, and the keywords `&rest' and `&optional' may be used
-     (*note Argument List::).  Macros may have a documentation string,
+     (*note Argument List::.).  Macros may have a documentation string,
      but any `interactive' declaration is ignored since macros cannot be
      called interactively.
 

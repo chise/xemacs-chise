@@ -1,5 +1,5 @@
-This is ../info/xemacs-faq.info, produced by makeinfo version 3.12s
-from xemacs-faq.texi.
+This is Info file ../info/xemacs-faq.info, produced by Makeinfo version
+1.68 from the input file xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -386,7 +386,7 @@ Q4.0.12: Customization of VM not covered in the manual, or here.
      directory of the lisp library.
 
      `vm-vars.el' contains, initializes and carefully describes, with
-     examples of usage, the plethora of user options that _fully_
+     examples of usage, the plethora of user options that *fully*
      control VM's behavior.
 
      Enter vm-vars, `forward-search' for toolbar, find the variables
@@ -441,7 +441,7 @@ Q4.2.1: GNUS, (ding) Gnus, Gnus 5, September Gnus, Red Gnus, Quassia Gnus, argh!
 --------------------------------------------------------------------------------
 
    The Gnus numbering issues are not meant for mere mortals to know
-them.  If you feel you _must_ enter the muddy waters of Gnus, visit the
+them.  If you feel you *must* enter the muddy waters of Gnus, visit the
 excellent FAQ, maintained by Justin Sheehy, at:
 
      `http://www.ccs.neu.edu/software/contrib/gnus/'
@@ -956,15 +956,8 @@ File: xemacs-faq.info,  Node: Q4.7.6,  Prev: Q4.7.5,  Up: Subsystems
 Q4.7.5: Is there a MatLab mode?
 -------------------------------
 
-   Is there any way I can get syntax highlighting for MatLab .m files?
-Can I "teach" emacs what words are MatLab commands, comments, etc. ?
-
-   Ulrich Elsner <elsner@mathematik.tu-chemnitz.de> writes:
-     One way to do this (and much more) is by using the matlab mode.
-     (If someone knows where this can be found, please contact the
-     XEmacs FAQ maintainer <faq@xemacs.org>.
-
-     Instructions on how to install this mode are included in this file.
+   Yes, a matlab mode and other items are available at the
+MathWorks' emacs_add_ons ftp directory (ftp://ftp.mathworks.com/pub/contrib/emacs_add_ons).
 
 
 File: xemacs-faq.info,  Node: Miscellaneous,  Next: MS Windows,  Prev: Subsystems,  Up: Top
@@ -1023,7 +1016,7 @@ Miscellaneous:
 * Q5.3.1::      How do you make XEmacs indent CL if-clauses correctly?
 * Q5.3.2::      Fontifying hangs when editing a postscript file.
 * Q5.3.3::      How can I print WYSIWYG a font-locked buffer?
-* Q5.3.4::      Getting M-x lpr to work with postscript printer.
+* Q5.3.4::      Getting `M-x lpr' to work with postscript printer.
 * Q5.3.5::      How do I specify the paths that XEmacs uses for finding files?
 * Q5.3.6::      [This question intentionally left blank]
 * Q5.3.7::      Can I have the end of the buffer delimited in some way?
@@ -1119,7 +1112,7 @@ standard with XEmacs.  Put this into your `.emacs':
 
    You can customize filling and adaptive filling with Customize.
 Select from the `Options' menu
-`Customize->Emacs->->Editing->Fill->Fill...' or type `M-x customize
+`Customize->Emacs->->Editing->Fill->Fill...'  or type `M-x customize
 <RET> fill <RET>'.
 
    Note that well-behaving text-lookalike modes will run

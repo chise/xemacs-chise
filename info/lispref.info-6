@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -55,7 +55,7 @@ File: lispref.info,  Node: List Elements,  Next: Building Lists,  Prev: List-rel
 Accessing Elements of Lists
 ===========================
 
- - Function: car cons-cell
+ - Function: car CONS-CELL
      This function returns the value pointed to by the first pointer of
      the cons cell CONS-CELL.  Expressed another way, this function
      returns the CAR of CONS-CELL.
@@ -69,7 +69,7 @@ Accessing Elements of Lists
           (car '())
                => nil
 
- - Function: cdr cons-cell
+ - Function: cdr CONS-CELL
      This function returns the value pointed to by the second pointer of
      the cons cell CONS-CELL.  Expressed another way, this function
      returns the CDR of CONS-CELL.
@@ -83,7 +83,7 @@ Accessing Elements of Lists
           (cdr '())
                => nil
 
- - Function: car-safe object
+ - Function: car-safe OBJECT
      This function lets you take the CAR of a cons cell while avoiding
      errors for other data types.  It returns the CAR of OBJECT if
      OBJECT is a cons cell, `nil' otherwise.  This is in contrast to
@@ -96,7 +96,7 @@ Accessing Elements of Lists
                 (car x)
               nil))
 
- - Function: cdr-safe object
+ - Function: cdr-safe OBJECT
      This function lets you take the CDR of a cons cell while avoiding
      errors for other data types.  It returns the CDR of OBJECT if
      OBJECT is a cons cell, `nil' otherwise.  This is in contrast to
@@ -109,7 +109,7 @@ Accessing Elements of Lists
                 (cdr x)
               nil))
 
- - Function: nth n list
+ - Function: nth N LIST
      This function returns the Nth element of LIST.  Elements are
      numbered starting with zero, so the CAR of LIST is element number
      zero.  If the length of LIST is N or less, the value is `nil'.
@@ -125,7 +125,7 @@ Accessing Elements of Lists
           
           (nth n x) == (car (nthcdr n x))
 
- - Function: nthcdr n list
+ - Function: nthcdr N LIST
      This function returns the Nth CDR of LIST.  In other words, it
      removes the first N links of LIST and returns what follows.
 
@@ -143,34 +143,34 @@ Accessing Elements of Lists
 access particular elements in a nested list.  All of these can be
 rewritten in terms of the functions just described.
 
- - Function: caar cons-cell
- - Function: cadr cons-cell
- - Function: cdar cons-cell
- - Function: cddr cons-cell
- - Function: caaar cons-cell
- - Function: caadr cons-cell
- - Function: cadar cons-cell
- - Function: caddr cons-cell
- - Function: cdaar cons-cell
- - Function: cdadr cons-cell
- - Function: cddar cons-cell
- - Function: cdddr cons-cell
- - Function: caaaar cons-cell
- - Function: caaadr cons-cell
- - Function: caadar cons-cell
- - Function: caaddr cons-cell
- - Function: cadaar cons-cell
- - Function: cadadr cons-cell
- - Function: caddar cons-cell
- - Function: cadddr cons-cell
- - Function: cdaaar cons-cell
- - Function: cdaadr cons-cell
- - Function: cdadar cons-cell
- - Function: cdaddr cons-cell
- - Function: cddaar cons-cell
- - Function: cddadr cons-cell
- - Function: cdddar cons-cell
- - Function: cddddr cons-cell
+ - Function: caar CONS-CELL
+ - Function: cadr CONS-CELL
+ - Function: cdar CONS-CELL
+ - Function: cddr CONS-CELL
+ - Function: caaar CONS-CELL
+ - Function: caadr CONS-CELL
+ - Function: cadar CONS-CELL
+ - Function: caddr CONS-CELL
+ - Function: cdaar CONS-CELL
+ - Function: cdadr CONS-CELL
+ - Function: cddar CONS-CELL
+ - Function: cdddr CONS-CELL
+ - Function: caaaar CONS-CELL
+ - Function: caaadr CONS-CELL
+ - Function: caadar CONS-CELL
+ - Function: caaddr CONS-CELL
+ - Function: cadaar CONS-CELL
+ - Function: cadadr CONS-CELL
+ - Function: caddar CONS-CELL
+ - Function: cadddr CONS-CELL
+ - Function: cdaaar CONS-CELL
+ - Function: cdaadr CONS-CELL
+ - Function: cdadar CONS-CELL
+ - Function: cdaddr CONS-CELL
+ - Function: cddaar CONS-CELL
+ - Function: cddadr CONS-CELL
+ - Function: cdddar CONS-CELL
+ - Function: cddddr CONS-CELL
      Each of these functions is equivalent to one or more applications
      of `car' and/or `cdr'.  For example,
 
@@ -191,22 +191,22 @@ rewritten in terms of the functions just described.
      That is to say, read the a's and d's from right to left and apply
      a `car' or `cdr' for each a or d found, respectively.
 
- - Function: first list
+ - Function: first LIST
      This is equivalent to `(nth 0 LIST)', i.e. the first element of
      LIST. (Note that this is also equivalent to `car'.)
 
- - Function: second list
+ - Function: second LIST
      This is equivalent to `(nth 1 LIST)', i.e. the second element of
      LIST.
 
- - Function: third list
- - Function: fourth list
- - Function: fifth list
- - Function: sixth list
- - Function: seventh list
- - Function: eighth list
- - Function: ninth list
- - Function: tenth list
+ - Function: third LIST
+ - Function: fourth LIST
+ - Function: fifth LIST
+ - Function: sixth LIST
+ - Function: seventh LIST
+ - Function: eighth LIST
+ - Function: ninth LIST
+ - Function: tenth LIST
      These are equivalent to `(nth 2 LIST)' through `(nth 9 LIST)'
      respectively, i.e. the third through tenth elements of LIST.
 
@@ -221,7 +221,7 @@ Lisp.  `cons' is the fundamental list-building function; however, it is
 interesting to note that `list' is used more times in the source code
 for Emacs than `cons'.
 
- - Function: cons object1 object2
+ - Function: cons OBJECT1 OBJECT2
      This function is the fundamental function used to build new list
      structure.  It creates a new cons cell, making OBJECT1 the CAR,
      and OBJECT2 the CDR.  It then returns the new cons cell.  The
@@ -245,7 +245,7 @@ for Emacs than `cons'.
      used in this example and the function named `list' described below;
      any symbol can serve both purposes.
 
- - Function: list &rest objects
+ - Function: list &rest OBJECTS
      This function creates a list with OBJECTS as its elements.  The
      resulting list is always `nil'-terminated.  If no OBJECTS are
      given, the empty list is returned.
@@ -257,17 +257,17 @@ for Emacs than `cons'.
           (list)
                => nil
 
- - Function: make-list length object
+ - Function: make-list LENGTH OBJECT
      This function creates a list of length LENGTH, in which all the
      elements have the identical value OBJECT.  Compare `make-list'
-     with `make-string' (*note Creating Strings::).
+     with `make-string' (*note Creating Strings::.).
 
           (make-list 3 'pigs)
                => (pigs pigs pigs)
           (make-list 0 'pigs)
                => nil
 
- - Function: append &rest sequences
+ - Function: append &rest SEQUENCES
      This function returns a list containing all the elements of
      SEQUENCES.  The SEQUENCES may be lists, vectors, or strings, but
      the last one should be a list.  All arguments except the last one
@@ -357,12 +357,12 @@ for Emacs than `cons'.
      of the original integers.  *Don't use this feature; we plan to
      eliminate it.  If you already use this feature, change your
      programs now!*  The proper way to convert an integer to a decimal
-     number in this way is with `format' (*note Formatting Strings::)
-     or `number-to-string' (*note String Conversion::).
+     number in this way is with `format' (*note Formatting Strings::.)
+     or `number-to-string' (*note String Conversion::.).
 
- - Function: reverse list
+ - Function: reverse LIST
      This function creates a new list whose elements are the elements of
-     LIST, but in reverse order.  The original argument LIST is _not_
+     LIST, but in reverse order.  The original argument LIST is *not*
      altered.
 
           (setq x '(1 2 3 4))
@@ -403,7 +403,7 @@ Altering List Elements with `setcar'
 a list, `setcar' replaces one element of a list with a different
 element.
 
- - Function: setcar cons object
+ - Function: setcar CONS OBJECT
      This function stores OBJECT as the new CAR of CONS, replacing its
      previous CAR.  It returns the value OBJECT.  For example:
 
@@ -481,7 +481,7 @@ Altering the CDR of a List
 
    The lowest-level primitive for modifying a CDR is `setcdr':
 
- - Function: setcdr cons object
+ - Function: setcdr CONS OBJECT
      This function stores OBJECT as the new CDR of CONS, replacing its
      previous CDR.  It returns the value OBJECT.
 
@@ -535,7 +535,7 @@ list.
 
    Here is this result in box notation:
 
-      --------------        -------------       -------------
+     --------------        -------------       -------------
      | car  | cdr   |      | car  | cdr  |     | car  | cdr  |
      |   a  |   o   |   -->|   b  |   o------->|   c  |  nil |
      |      |   |   |  |   |      |      |     |      |      |
@@ -563,9 +563,9 @@ to them as arguments, to produce a new list that is the returned value.
    See `delq', in *Note Sets And Lists::, for another function that
 modifies cons cells.
 
- - Function: nconc &rest lists
+ - Function: nconc &rest LISTS
      This function returns a list containing all the elements of LISTS.
-     Unlike `append' (*note Building Lists::), the LISTS are _not_
+     Unlike `append' (*note Building Lists::.), the LISTS are *not*
      copied.  Instead, the last CDR of each of the LISTS is changed to
      refer to the following list.  The last of the LISTS is not
      altered.  For example:
@@ -595,21 +595,23 @@ modifies cons cells.
 
           (defun add-foo (x)            ; We want this function to add
             (nconc '(foo) x))           ;   `foo' to the front of its arg.
-          
+
           (symbol-function 'add-foo)
                => (lambda (x) (nconc (quote (foo)) x))
-          
+
           (setq xx (add-foo '(1 2)))    ; It seems to work.
                => (foo 1 2)
+
           (setq xy (add-foo '(3 4)))    ; What happened?
                => (foo 1 2 3 4)
+
           (eq xx xy)
                => t
-          
+
           (symbol-function 'add-foo)
                => (lambda (x) (nconc (quote (foo 1 2 3 4) x)))
 
- - Function: nreverse list
+ - Function: nreverse LIST
      This function reverses the order of the elements of LIST.  Unlike
      `reverse', `nreverse' alters its argument by reversing the CDRs in
      the cons cells forming the list.  The cons cell that used to be
@@ -644,7 +646,7 @@ modifies cons cells.
                             |             |      |            |
                              -------------        ------------
 
- - Function: sort list predicate
+ - Function: sort LIST PREDICATE
      This function sorts LIST stably, though destructively, and returns
      the sorted list.  It compares elements using PREDICATE.  A stable
      sort is one in which elements with equal sort keys maintain their
@@ -708,7 +710,7 @@ versions, `member' and `delete'.
      XEmacs Lisp does not have them.  You can write them in Lisp if you
      wish.
 
- - Function: memq object list
+ - Function: memq OBJECT LIST
      This function tests to see whether OBJECT is a member of LIST.  If
      it is, `memq' returns a list starting with the first occurrence of
      OBJECT.  Otherwise, it returns `nil'.  The letter `q' in `memq'
@@ -720,7 +722,7 @@ versions, `member' and `delete'.
           (memq '(2) '((1) (2)))    ; `(2)' and `(2)' are not `eq'.
                => nil
 
- - Function: delq object list
+ - Function: delq OBJECT LIST
      This function destructively removes all elements `eq' to OBJECT
      from LIST.  The letter `q' in `delq' says that it uses `eq' to
      compare OBJECT against the elements of the list, like `memq'.
@@ -732,7 +734,7 @@ after those elements:
      (delq 'a '(a b c)) == (cdr '(a b c))
 
    When an element to be deleted appears in the middle of the list,
-removing it involves changing the CDRs (*note Setcdr::).
+removing it involves changing the CDRs (*note Setcdr::.).
 
      (setq sample-list '(a b c (4)))
           => (a b c (4))
@@ -764,7 +766,7 @@ and the `(4)' in the `sample-list' are not `eq':
    The following two functions are like `memq' and `delq' but use
 `equal' rather than `eq' to compare elements.  They are new in Emacs 19.
 
- - Function: member object list
+ - Function: member OBJECT LIST
      The function `member' tests to see whether OBJECT is a member of
      LIST, comparing members with OBJECT using `equal'.  If OBJECT is a
      member, `member' returns a list starting with its first occurrence
@@ -780,7 +782,7 @@ and the `(4)' in the `sample-list' are not `eq':
           (member "foo" '("foo" "bar"))
                => ("foo" "bar")
 
- - Function: delete object list
+ - Function: delete OBJECT LIST
      This function destructively removes all elements `equal' to OBJECT
      from LIST.  It is to `delq' as `member' is to `memq': it uses
      `equal' to compare elements with OBJECT, like `member'; when it
@@ -818,7 +820,7 @@ key `maple' is associated with `seeds'.
    The associated values in an alist may be any Lisp objects; so may the
 keys.  For example, in the following alist, the symbol `a' is
 associated with the number `1', and the string `"b"' is associated with
-the _list_ `(2 3)', which is the CDR of the alist element:
+the *list* `(2 3)', which is the CDR of the alist element:
 
      ((a . 1) ("b" 2 3))
 
@@ -845,7 +847,7 @@ the front of the list.  When searching an association list for an
 association with a given key, the first one found is returned, if there
 is more than one.
 
-   In XEmacs Lisp, it is _not_ an error if an element of an association
+   In XEmacs Lisp, it is *not* an error if an element of an association
 list is not a cons cell.  The alist search functions simply ignore such
 elements.  Many other versions of Lisp signal errors in such cases.
 
@@ -854,10 +856,10 @@ respects.  A property list behaves like an association list in which
 each key can occur only once.  *Note Property Lists::, for a comparison
 of property lists and association lists.
 
- - Function: assoc key alist
+ - Function: assoc KEY ALIST
      This function returns the first association for KEY in ALIST.  It
      compares KEY against the alist elements using `equal' (*note
-     Equality Predicates::).  It returns `nil' if no association in
+     Equality Predicates::.).  It returns `nil' if no association in
      ALIST has a CAR `equal' to KEY.  For example:
 
           (setq trees '((pine . cones) (oak . acorns) (maple . seeds)))
@@ -882,7 +884,7 @@ of property lists and association lists.
           (cdr (assoc 2 needles-per-cluster))
                => ("Austrian Pine" "Red Pine")
 
- - Function: rassoc value alist
+ - Function: rassoc VALUE ALIST
      This function returns the first association with value VALUE in
      ALIST.  It returns `nil' if no association in ALIST has a CDR
      `equal' to VALUE.
@@ -891,7 +893,7 @@ of property lists and association lists.
      ALIST association instead of the CAR.  You can think of this as
      "reverse `assoc'", finding the key for a given value.
 
- - Function: assq key alist
+ - Function: assq KEY ALIST
      This function is like `assoc' in that it returns the first
      association for KEY in ALIST, but it makes the comparison using
      `eq' instead of `equal'.  `assq' returns `nil' if no association
@@ -916,7 +918,7 @@ of property lists and association lists.
           (assoc "simple leaves" leaves)
                => ("simple leaves" . oak)
 
- - Function: rassq value alist
+ - Function: rassq VALUE ALIST
      This function returns the first association with value VALUE in
      ALIST.  It returns `nil' if no association in ALIST has a CDR `eq'
      to VALUE.
@@ -948,7 +950,7 @@ of property lists and association lists.
 
           (lily white) == (lily . (white))
 
- - Function: remassoc key alist
+ - Function: remassoc KEY ALIST
      This function deletes by side effect any associations with key KEY
      in ALIST - i.e. it removes any elements from ALIST whose `car' is
      `equal' to KEY.  The modified ALIST is returned.
@@ -958,7 +960,7 @@ of property lists and association lists.
      `(setq foo (remassoc key foo))' to be sure of changing the value
      of `foo'.
 
- - Function: remassq key alist
+ - Function: remassq KEY ALIST
      This function deletes by side effect any associations with key KEY
      in ALIST - i.e. it removes any elements from ALIST whose `car' is
      `eq' to KEY.  The modified ALIST is returned.
@@ -966,7 +968,7 @@ of property lists and association lists.
      This function is exactly like `remassoc', but comparisons between
      KEY and keys in ALIST are done using `eq' instead of `equal'.
 
- - Function: remrassoc value alist
+ - Function: remrassoc VALUE ALIST
      This function deletes by side effect any associations with value
      VALUE in ALIST - i.e. it removes any elements from ALIST whose
      `cdr' is `equal' to VALUE.  The modified ALIST is returned.
@@ -981,7 +983,7 @@ of property lists and association lists.
      as "reverse `remassoc'", removing an association based on its
      value instead of its key.
 
- - Function: remrassq value alist
+ - Function: remrassq VALUE ALIST
      This function deletes by side effect any associations with value
      VALUE in ALIST - i.e. it removes any elements from ALIST whose
      `cdr' is `eq' to VALUE.  The modified ALIST is returned.
@@ -989,7 +991,7 @@ of property lists and association lists.
      This function is exactly like `remrassoc', but comparisons between
      VALUE and values in ALIST are done using `eq' instead of `equal'.
 
- - Function: copy-alist alist
+ - Function: copy-alist ALIST
      This function returns a two-level deep copy of ALIST: it creates a
      new copy of each association, so that you can alter the
      associations of the new alist without changing the old one.
@@ -1060,13 +1062,13 @@ association lists generally are not.
 compared with `eq', and "lax" plists, whose keys are compared with
 `equal',
 
- - Function: valid-plist-p plist
+ - Function: valid-plist-p PLIST
      Given a plist, this function returns non-`nil' if its format is
      correct.  If it returns `nil', `check-valid-plist' will signal an
      error when given the plist; that means it's a malformed or circular
      plist or has non-symbols as keywords.
 
- - Function: check-valid-plist plist
+ - Function: check-valid-plist PLIST
      Given a plist, this function signals an error if there is anything
      wrong with it.  This means that it's a malformed or circular plist.
 
@@ -1082,25 +1084,25 @@ File: lispref.info,  Node: Working With Normal Plists,  Next: Working With Lax P
 Working With Normal Plists
 --------------------------
 
- - Function: plist-get plist prop &optional default
+ - Function: plist-get PLIST PROP &optional DEFAULT
      This function extracts a value from a property list.  The function
      returns the value corresponding to the given PROP, or DEFAULT if
      PROP is not one of the properties on the list.
 
- - Function: plist-put plist prop val
+ - Function: plist-put PLIST PROP VAL
      This function changes the value in PLIST of PROP to VAL.  If PROP
      is already a property on the list, its value is set to VAL,
      otherwise the new PROP VAL pair is added.  The new plist is
      returned; use `(setq x (plist-put x prop val))' to be sure to use
      the new value.  The PLIST is modified by side effects.
 
- - Function: plist-remprop plist prop
+ - Function: plist-remprop PLIST PROP
      This function removes from PLIST the property PROP and its value.
      The new plist is returned; use `(setq x (plist-remprop x prop
      val))' to be sure to use the new value.  The PLIST is modified by
      side effects.
 
- - Function: plist-member plist prop
+ - Function: plist-member PLIST PROP
      This function returns `t' if PROP has a value specified in PLIST.
 
    In the following functions, if optional arg NIL-MEANS-NOT-PRESENT is
@@ -1109,16 +1111,16 @@ This feature is a virus that has infected old Lisp implementations (and
 thus E-Lisp, due to RMS's enamorment with old Lisps), but should not be
 used except for backward compatibility.
 
- - Function: plists-eq a b &optional nil-means-not-present
+ - Function: plists-eq A B &optional NIL-MEANS-NOT-PRESENT
      This function returns non-`nil' if property lists A and B are `eq'
      (i.e. their values are `eq').
 
- - Function: plists-equal a b &optional nil-means-not-present
+ - Function: plists-equal A B &optional NIL-MEANS-NOT-PRESENT
      This function returns non-`nil' if property lists A and B are
      `equal' (i.e. their values are `equal'; their keys are still
      compared using `eq').
 
- - Function: canonicalize-plist plist &optional nil-means-not-present
+ - Function: canonicalize-plist PLIST &optional NIL-MEANS-NOT-PRESENT
      This function destructively removes any duplicate entries from a
      plist.  In such cases, the first entry applies.
 
@@ -1135,21 +1137,21 @@ Working With Lax Plists
    Recall that a "lax plist" is a property list whose keys are compared
 using `equal' instead of `eq'.
 
- - Function: lax-plist-get lax-plist prop &optional default
+ - Function: lax-plist-get LAX-PLIST PROP &optional DEFAULT
      This function extracts a value from a lax property list.  The
      function returns the value corresponding to the given PROP, or
      DEFAULT if PROP is not one of the properties on the list.
 
- - Function: lax-plist-put lax-plist prop val
+ - Function: lax-plist-put LAX-PLIST PROP VAL
      This function changes the value in LAX-PLIST of PROP to VAL.
 
- - Function: lax-plist-remprop lax-plist prop
+ - Function: lax-plist-remprop LAX-PLIST PROP
      This function removes from LAX-PLIST the property PROP and its
      value.  The new plist is returned; use `(setq x (lax-plist-remprop
      x prop val))' to be sure to use the new value.  The LAX-PLIST is
      modified by side effects.
 
- - Function: lax-plist-member lax-plist prop
+ - Function: lax-plist-member LAX-PLIST PROP
      This function returns `t' if PROP has a value specified in
      LAX-PLIST.
 
@@ -1159,17 +1161,17 @@ This feature is a virus that has infected old Lisp implementations (and
 thus E-Lisp, due to RMS's enamorment with old Lisps), but should not be
 used except for backward compatibility.
 
- - Function: lax-plists-eq a b &optional nil-means-not-present
+ - Function: lax-plists-eq A B &optional NIL-MEANS-NOT-PRESENT
      This function returns non-`nil' if lax property lists A and B are
      `eq' (i.e. their values are `eq'; their keys are still compared
      using `equal').
 
- - Function: lax-plists-equal a b &optional nil-means-not-present
+ - Function: lax-plists-equal A B &optional NIL-MEANS-NOT-PRESENT
      This function returns non-`nil' if lax property lists A and B are
      `equal' (i.e. their values are `equal').
 
- - Function: canonicalize-lax-plist lax-plist &optional
-          nil-means-not-present
+ - Function: canonicalize-lax-plist LAX-PLIST &optional
+          NIL-MEANS-NOT-PRESENT
      This function destructively removes any duplicate entries from a
      lax plist.  In such cases, the first entry applies.
 
@@ -1183,7 +1185,7 @@ File: lispref.info,  Node: Converting Plists To/From Alists,  Prev: Working With
 Converting Plists To/From Alists
 --------------------------------
 
- - Function: alist-to-plist alist
+ - Function: alist-to-plist ALIST
      This function converts association list ALIST into the equivalent
      property-list form.  The plist is returned.  This converts from
 
@@ -1195,7 +1197,7 @@ Converting Plists To/From Alists
 
      The original alist is not modified.
 
- - Function: plist-to-alist plist
+ - Function: plist-to-alist PLIST
      This function converts property list PLIST into the equivalent
      association-list form.  The alist is returned.  This converts from
 
@@ -1212,11 +1214,11 @@ except that they destructively modify their arguments, using cons cells
 from the original list to form the new list rather than allocating new
 cons cells.
 
- - Function: destructive-alist-to-plist alist
+ - Function: destructive-alist-to-plist ALIST
      This function destructively converts association list ALIST into
      the equivalent property-list form.  The plist is returned.
 
- - Function: destructive-plist-to-alist plist
+ - Function: destructive-plist-to-alist PLIST
      This function destructively converts property list PLIST into the
      equivalent association-list form.  The alist is returned.
 
@@ -1241,9 +1243,9 @@ parent will still be reclaimed, and will automatically be removed from
 its parent's list of children.
 
    Weak lists are similar to weak hash tables (*note Weak Hash
-Tables::).
+Tables::.).
 
- - Function: weak-list-p object
+ - Function: weak-list-p OBJECT
      This function returns non-`nil' if OBJECT is a weak list.
 
    Weak lists come in one of four types:
@@ -1264,18 +1266,18 @@ Tables::).
      Objects in the list disappear if they are conses and the cdr is not
      referenced outside of the list.
 
- - Function: make-weak-list &optional type
+ - Function: make-weak-list &optional TYPE
      This function creates a new weak list of type TYPE.  TYPE is a
      symbol (one of `simple', `assoc', `key-assoc', or `value-assoc',
      as described above) and defaults to `simple'.
 
- - Function: weak-list-type weak
+ - Function: weak-list-type WEAK
      This function returns the type of the given weak-list object.
 
- - Function: weak-list-list weak
+ - Function: weak-list-list WEAK
      This function returns the list contained in a weak-list object.
 
- - Function: set-weak-list-list weak new-list
+ - Function: set-weak-list-list WEAK NEW-LIST
      This function changes the list contained in a weak-list object.
 
 

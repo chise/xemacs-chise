@@ -1,5 +1,5 @@
-This is ../info/xemacs.info, produced by makeinfo version 3.12s from
-xemacs/xemacs.texi.
+This is Info file ../info/xemacs.info, produced by Makeinfo version
+1.68 from the input file xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -135,7 +135,7 @@ manual for information on manipulating X windows.
 
    When you are working under X, each X window (that is, each XEmacs
 frame) has a menu bar for mouse-controlled operations (*note Pull-down
-Menus::).
+Menus::.).
 
    XEmacs under X is also a multi-frame XEmacs.  You can use the New
 Frame menu item from the File menu to create a new XEmacs frame in a
@@ -826,7 +826,7 @@ Clear menu items.  When you select a menu item, Emacs executes the
 equivalent command.  Most commands on the Edit menu work on a block of
 text, the X selection.  They appear faded until you select a block of
 text (activate a region) with the mouse.  *Note Using X Selections::,
-*note Killing::, and *note Yanking:: for more information.
+*note Killing::., and *note Yanking::. for more information.
 
 Undo
      Undoes the previous command.  Undo is equivalent to the Emacs

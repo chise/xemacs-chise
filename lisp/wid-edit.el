@@ -1898,9 +1898,6 @@ If END is omitted, it defaults to the length of LIST."
   :group 'widgets
   :type 'boolean)
 
-;; Cache already created GUI objects.
-(defvar widget-push-button-cache nil)
-
 (defcustom widget-push-button-prefix "["
   "String used as prefix for buttons."
   :type 'string
@@ -1925,7 +1922,7 @@ If END is omitted, it defaults to the length of LIST."
 	 (tag-glyph (widget-get widget :tag-glyph))
 	 (text (concat widget-push-button-prefix
 		       tag widget-push-button-suffix))
-	 (gui-glyphs (lax-plist-get widget-push-button-cache tag)))
+	 gui)
     (cond (tag-glyph
 	   (widget-glyph-insert widget text tag-glyph))
 	  ;; We must check for console-on-window-system-p here,
@@ -1933,13 +1930,10 @@ If END is omitted, it defaults to the length of LIST."
 	  ;; components for colors, and they are not known on TTYs).
 	  ((and widget-push-button-gui
 		(console-on-window-system-p))
-	   (unless gui-glyphs
-	     (let* ((gui-button-shadow-thickness 1)
-		    (gui (make-glyph 
-			  (make-gui-button tag 'widget-gui-action widget))))
-	       (setq gui-glyphs gui)
-	       (laxputf widget-push-button-cache tag gui-glyphs)))
-	   (widget-glyph-insert-glyph widget gui-glyphs))
+	   (let* ((gui-button-shadow-thickness 1))
+	     (setq gui (make-glyph 
+			(make-gui-button tag 'widget-gui-action widget))))
+	   (widget-glyph-insert-glyph widget gui))
 	  (t
 	   (insert text)))))
 

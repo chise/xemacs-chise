@@ -640,6 +640,23 @@ The default is to autodetect all sound support."])
 	  done
         ;;
 
+        dnl Has the user specified a prefered Athena widget set?
+        dnl This bit expands any alias names out for us...
+        "with_athena" )
+	  case "$val" in
+            xa | xaw )			  val=xaw    ;;
+            3 | 3d | xaw3d )              val=3d     ;;
+            dnl No `n' for next, someone may try `no'
+            ne | nex | next | naxtaw)     val=next   ;;
+            dnl Have not tested the next two...
+            9 | 95 | xaw95 )              val=95     ;;
+            xp | xpm | xawxpm )           val=xpm    ;;
+	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
+  \`xaw', \`3d', \`next', \`95', or \`xpm'."]) ;;
+	  esac
+          eval "$opt=\"$val\""
+        ;;
+
         dnl Has the user requested XIM support?
 	"with_xim" )
 	  case "$val" in
@@ -774,11 +791,10 @@ The default is to autodetect all sound support."])
 	  case "$val" in
 	    l | lu | luc | luci | lucid )		val=lucid  ;;
 	    m | mo | mot | moti | motif )		val=motif  ;;
-	    athena3d | athena-3d )			val=athena3d ;;
 	    a | at | ath | athe | athen | athena )	val=athena ;;
 	    n | no | non | none )			val=no ;;
 	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
-  \`lucid', \`motif', \`athena', \`athena3d', or \`no'."]) ;;
+  \`lucid', \`motif', \`athena', or \`no'."]) ;;
 	  esac
 	  eval "$opt=\"$val\""
 	;;
@@ -2570,7 +2586,7 @@ if test "$with_x11" != "yes"; then
   dnl if test "$with_tty" = "no" ; then
   dnl   AC_MSG_ERROR([No window system support and no TTY support - Unable to proceed.])
   dnl fi
-  for feature in tooltalk cde offix wmcommand xim xmu xpm nas_sound
+  for feature in tooltalk cde offix wmcommand xim xmu nas_sound
   do
     if eval "test -n \"\$with_${feature}\" -a \"\$with_${feature}\" != no" ; then
        AC_MSG_WARN([--with-$feature ignored:  Not valid without X support])
@@ -2881,16 +2897,84 @@ if test "$with_x11" = "yes"; then
 
   AC_CHECKING(for X11 graphics libraries)
 
-  dnl Autodetect -lXaw
-  AC_CHECK_LIB(Xaw, XawScrollbarSetThumb, have_xaw=yes, have_xaw=no)
-  dnl if test "$have_xaw" = "yes"; then
-    dnl AC_CHECK_HEADER(X11/Xaw/Reports.h, [
-      dnl XE_APPEND(pkg-src/tree-x, MAKE_SUBDIR)
-      dnl XE_APPEND(pkg-src/tree-x, INSTALL_ARCH_DEP_SUBDIR)])
-  dnl fi
+  AC_CHECKING(for the Athena widgets)
 
-  dnl Autodetect -lXaw3d
-  AC_CHECK_LIB(Xaw3d, XawScrollbarSetThumb, have_xaw3d=yes, have_xaw3d=no)
+  dnl What in heck did the user actually want?
+  case "$with_athena" in
+    dnl This is the default, old fashioned flat Athena. 
+    "xaw" | "")	athena_variant=Xaw	athena_3d=no  ;;
+    "3d")	athena_variant=Xaw3d	athena_3d=yes ;;
+    "next")	athena_variant=neXtaw	athena_3d=yes ;;
+    "95")	athena_variant=Xaw95	athena_3d=yes ;;
+    "xpm")	athena_variant=XawXpm	athena_3d=yes ;;
+    *)		XE_DIE("Unknown Athena widget set \`$with_athena'. This should not happen.") ;;
+  esac
+
+  dnl Search for the Athena library...
+  if test "$athena_3d" = "no"; then
+    AC_CHECK_LIB($athena_variant, XawScrollbarSetThumb, 
+      [
+        dnl Must not be a 3d library...
+        AC_CHECK_LIB($athena_variant, threeDClassRec, 
+          AC_MSG_WARN("Could not find a non-3d Athena widget library."),
+          athena_lib=$athena_variant)
+      ], 
+      AC_MSG_WARN("Could not find an Athena widget library."))
+  else
+    dnl The real configuration, need 3d library
+    AC_CHECK_LIB($athena_variant, threeDClassRec, athena_lib=$athena_variant,
+      dnl OK, couldn't find it with a proper name, try the standard Athena lib
+      dnl If that is 3d, presume the user asked for what they have installed.
+      AC_CHECK_LIB(Xaw, threeDClassRec, 
+        [
+          athena_lib=Xaw; 
+          AC_MSG_WARN("Assuming that libXaw is actually $athena_variant.");
+        ],
+        AC_MSG_WARN("Could not find a 3d Athena widget library that looked like $athena_variant.")))
+  fi
+
+  dnl Now we locate the Athena headers that we need.
+  if test "$athena_3d" = "no"; then
+    AC_CHECK_HEADER(X11/Xaw/ThreeD.h,
+      AC_MSG_WARN("Could not find a non-3d Athena header set."),
+      AC_CHECK_HEADER(X11/Xaw/XawInit.h,
+        athena_h_path=X11/Xaw,
+        AC_MSG_WARN("Could not find a non-3d Athena header set.")))
+  else
+    dnl The three-d Athena headers are so much more slippery.
+    dnl Curse this `Lets replace standard libraries' thing that they did. :/
+    AC_CHECK_HEADER(X11/$athena_variant/XawInit.h,
+      AC_CHECK_HEADER(X11/$athena_variant/ThreeD.h,
+        athena_h_path=X11/$athena_variant,))
+
+    dnl If we couldn't find the specific variant, try the generic Athena 3d headers
+    if test -z "$athena_h_path" -a "$athena_variant" != "Xaw3d"; then
+      AC_CHECK_HEADER(X11/Xaw3d/XawInit.h,
+        AC_CHECK_HEADER(X11/Xaw3d/ThreeD.h,
+          [
+            AC_MSG_WARN("Assuming that X11/Xaw3d headers are suitable for $athena_variant.")
+            athena_h_path=X11/Xaw3d
+          ],))
+    fi
+
+    dnl If nothing yet found, see if Xaw is a 3d header set...
+    dnl We AC_MSG_WARN if we fail because I am all out of ideas...
+    if test -z "$athena_h_path"; then
+      AC_CHECK_HEADER(X11/Xaw/ThreeD.h,
+        [
+          AC_MSG_WARN("Assuming that X11/Xaw headers are suitable for $athena_variant.")
+          athena_h_path=X11/Xaw
+        ],
+        AC_MSG_WARN("Could not find a suitable 3d Athena header set."))
+    fi
+  fi
+
+  dnl Do we actually have a usable Athena widget set? Please?
+  if test -n "$athena_lib" -a -n "$athena_h_path"; then
+    have_xaw=yes
+  else
+    have_xaw=no
+  fi
 
   dnl autodetect Motif - but only add to libs_x later (if necessary)
   AC_CHECK_HEADER(Xm/Xm.h,
@@ -2915,13 +2999,12 @@ dnl Finish ensuring that we have values for the various toolkit items.
 dnl Not all toolkits support all widgets
 dnl if Motif is available we use it for the dialog boxes.
 
-case "$with_menubars" in "" | "yes" | "athena" | "athena3d" )
+case "$with_menubars" in "" | "yes" | "athena" )
   with_menubars="lucid" ;;
 esac
 case "$with_dialogs" in "" | "yes" | "lucid" )
-  if   test "$have_motif" = "yes"; then with_dialogs="motif"
-  elif test "$have_xaw3d" = "yes"; then with_dialogs="athena3d"
-  elif test "$have_xaw"   = "yes"; then with_dialogs="athena"
+  if   test "$have_motif"     = "yes"; then with_dialogs="motif"
+  elif test "$have_xaw"       = "yes"; then with_dialogs="athena"
   else with_dialogs=no
   fi ;;
 esac
@@ -2930,7 +3013,6 @@ case "$with_scrollbars" in "" | "yes" )
 esac
 case "$with_widgets" in "" | "yes" | "lucid")
   if   test "$have_motif" = "yes"; then with_widgets="motif"
-  elif test "$have_xaw3d" = "yes"; then with_widgets="athena3d"
   elif test "$have_xaw"   = "yes"; then with_widgets="athena"
   else with_widgets=no
   fi ;;
@@ -2939,20 +3021,28 @@ esac
 all_widgets="$with_menubars $with_scrollbars $with_dialogs $with_toolbars $with_widgets"
 
 case "$all_widgets" in
- *athena*3d )
-  AC_DEFINE(LWLIB_USES_ATHENA)
-  AC_DEFINE(NEED_ATHENA)
-  XE_APPEND(lwlib-Xaw.o, lwlib_objs)
-  if test "$have_xaw3d"; then
-    XE_PREPEND(-lXaw3d, libs_x)
-  else
-    XE_PREPEND(-lXaw, libs_x)
-  fi ;;
- *athena* )
-  AC_DEFINE(LWLIB_USES_ATHENA)
-  AC_DEFINE(NEED_ATHENA)
-  XE_APPEND(lwlib-Xaw.o, lwlib_objs)
-  XE_PREPEND(-lXaw, libs_x) ;;
+  *athena* )
+    if test "$have_xaw" != "yes"; then
+      XE_DIE("Could not find a suitable Athena library to build with.")
+    fi
+
+    dnl Add the Lucid widget Athena code
+    XE_APPEND(lwlib-Xaw.o, lwlib_objs)
+
+    dnl Add the Athena widget library we located earlier
+    XE_PREPEND(-l$athena_lib, libs_x)
+
+    dnl Export the path for lwlib, used to build and include the headers
+    dnl from the right place later on.
+    AC_DEFINE_UNQUOTED(ATHENA_H_PATH, $athena_h_path)
+
+    AC_DEFINE(LWLIB_USES_ATHENA)
+    AC_DEFINE(NEED_ATHENA)
+
+    if test "$athena_3d" = "yes"; then
+      AC_DEFINE(HAVE_ATHENA_3D)
+    fi
+  ;;
 esac
 
 case "$all_widgets" in *motif* )
@@ -2977,10 +3067,14 @@ esac
 
 AC_SUBST(lwlib_objs)
 
-case "$with_scrollbars" in athena* ) AC_DEFINE(LWLIB_SCROLLBARS_ATHENA);; esac
-case "$with_dialogs"    in athena* ) AC_DEFINE(LWLIB_DIALOGS_ATHENA)   ;; esac
-test "$with_scrollbars" = "athena3d" && AC_DEFINE(LWLIB_SCROLLBARS_ATHENA3D)
-test "$with_dialogs"    = "athena3d" && AC_DEFINE(LWLIB_DIALOGS_ATHENA3D)
+test "$with_scrollbars" = "athena" && AC_DEFINE(LWLIB_SCROLLBARS_ATHENA)
+test "$with_dialogs"    = "athena" && AC_DEFINE(LWLIB_DIALOGS_ATHENA)
+
+if test "$athena_3d" = "yes"; then
+  test "$with_scrollbars" = "athena" && AC_DEFINE(LWLIB_SCROLLBARS_ATHENA3D)
+  test "$with_dialogs"    = "athena" && AC_DEFINE(LWLIB_DIALOGS_ATHENA3D)
+fi
+
 case "$with_widgets" in athena* ) AC_DEFINE(LWLIB_WIDGETS_ATHENA);; esac
 test "$with_widgets" != "no" && test "$with_widgets" != "msw" && \
 	AC_DEFINE(LWLIB_TABS_LUCID)

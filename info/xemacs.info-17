@@ -1,5 +1,5 @@
-This is ../info/xemacs.info, produced by makeinfo version 3.12s from
-xemacs/xemacs.texi.
+This is Info file ../info/xemacs.info, produced by Makeinfo version
+1.68 from the input file xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -39,8 +39,8 @@ The Init File, .emacs
 home directory.  This file, if it exists, should contain Lisp code.  It
 is called your initialization file or "init file".  Use the command
 line switch `-q' to tell Emacs whether to load an init file (*note
-Entering Emacs::).  Use the command line switch `-user-init-file'
-(*note Command Switches::) to tell Emacs to load a different file
+Entering Emacs::.).  Use the command line switch `-user-init-file'
+(*note Command Switches::.) to tell Emacs to load a different file
 instead of `~/.emacs'.
 
    When the `.emacs' file is read, the variable `user-init-file' says
@@ -56,7 +56,7 @@ loaded.
 
    If you have a large amount of code in your `.emacs' file, you should
 move it into another file named `SOMETHING.el', byte-compile it (*note
-Lisp Libraries::), and load that file from your `.emacs' file using
+Lisp Libraries::.), and load that file from your `.emacs' file using
 `load'.
 
 * Menu:
@@ -75,7 +75,7 @@ Init File Syntax
 expressions.  Each consists of a function name followed by arguments,
 all surrounded by parentheses.  For example, `(setq fill-column 60)'
 represents a call to the function `setq' which is used to set the
-variable `fill-column' (*note Filling::) to 60.
+variable `fill-column' (*note Filling::.) to 60.
 
    The second argument to `setq' is an expression for the new value of
 the variable.  This can be a constant, a variable, or a function call
@@ -191,7 +191,7 @@ Lisp expressions:
 
      When the argument to `load' is a relative pathname, not starting
      with `/' or `~', `load' searches the directories in `load-path'
-     (*note Loading::).
+     (*note Loading::.).
 
    * Load the compiled Lisp file `foo.elc' from your home directory.
 
@@ -693,7 +693,7 @@ Resource List
 `topToolBarShadowColor' (class `TopToolBarShadowColor'): color-name
 `bottomToolBarShadowColor' (class `BottomToolBarShadowColor'): color-name
      Color of the top and bottom shadows for the toolbars.  NOTE: These
-     resources do _not_ have anything to do with the top and bottom
+     resources do *not* have anything to do with the top and bottom
      toolbars (i.e. the toolbars at the top and bottom of the frame)!
      Rather, they affect the top and bottom shadows around the edges of
      all four kinds of toolbars.
@@ -702,7 +702,7 @@ Resource List
 `bottomToolBarShadowPixmap' (class `BottomToolBarShadowPixmap'): pixmap-name
      Pixmap of the top and bottom shadows for the toolbars.  If set,
      these resources override the corresponding color resources. NOTE:
-     These resources do _not_ have anything to do with the top and
+     These resources do *not* have anything to do with the top and
      bottom toolbars (i.e. the toolbars at the top and bottom of the
      frame)!  Rather, they affect the top and bottom shadows around the
      edges of all four kinds of toolbars.
@@ -968,9 +968,9 @@ editing level and cancel the command which invoked it.  Quitting with
 `C-g' does not do this, and could not do this because it is used to
 cancel a partially typed command within the recursive editing level.
 Both operations are useful.  For example, if you are in the Emacs
-debugger (*note Lisp Debug::) and have typed `C-u 8' to enter a numeric
-argument, you can cancel that argument with `C-g' and remain in the
-debugger.
+debugger (*note Lisp Debug::.) and have typed `C-u 8' to enter a
+numeric argument, you can cancel that argument with `C-g' and remain in
+the debugger.
 
    The command `M-x top-level' is equivalent to "enough" `C-]' commands
 to get you out of all the levels of recursive edits that you are in.
@@ -1000,7 +1000,7 @@ work, and how to recognize them and correct them.
 * Screen Garbled::     Garbage on the screen.
 * Text Garbled::       Garbage in the text.
 * Unasked-for Search:: Spontaneous entry to incremental search.
-* Emergency Escape::   Emergency escape---
+* Emergency Escape::   Emergency escape--
                         What to do if Emacs stops responding.
 * Total Frustration::  When you are at your wits' end.
 

@@ -1,5 +1,5 @@
-This is ../info/texinfo.info, produced by makeinfo version 3.12s from
-texinfo.texi.
+This is Info file ../info/texinfo.info, produced by Makeinfo version
+1.68 from the input file texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
@@ -73,7 +73,7 @@ is "Chapter 1", and the name of the `Up' node is "Top".
      may be at a lower level--a section-level node may follow a
      chapter-level node, and a subsection-level node may follow a
      section-level node.  `Next' and `Previous' refer to nodes at the
-     _same_ hierarchical level.  (The `Top' node contains the exception
+     *same* hierarchical level.  (The `Top' node contains the exception
      to this rule.  Since the `Top' node is the only node at that
      level, `Next' refers to the first following node, which is almost
      always a chapter or chapter-level node.)
@@ -316,9 +316,9 @@ The First Node
 --------------
 
   The first node of a Texinfo file is the "Top" node, except in an
-included file (*note Include Files::).  The Top node contains the main
+included file (*note Include Files::.).  The Top node contains the main
 or master menu for the document, and a short summary of the document
-(*note Top Node Summary::).
+(*note Top Node Summary::.).
 
   The Top node (which must be named `top' or `Top') should have as its
 `Up' node the name of a node in another file, where there is a menu
@@ -433,13 +433,13 @@ Menus
 *****
 
   "Menus" contain pointers to subordinate nodes.(1) (*note
-Menus-Footnote-1::) In Info, you use menus to go to such nodes.  Menus
+Menus-Footnotes::) In Info, you use menus to go to such nodes.  Menus
 have no effect in printed manuals and do not appear in them.
 
   By convention, a menu is put at the end of a node since a reader who
 uses the menu may not see text that follows it.
 
-  A node that has a menu should _not_ contain much text.  If you have a
+  A node that has a menu should *not* contain much text.  If you have a
 lot of text and a menu, move most of the text into a new subnode--all
 but a few lines.
 
@@ -902,7 +902,7 @@ differently.  *Note `@pxref': pxref.)
      file and in the printed manual.
 
   `@xref' must refer to an Info node by name.  Use `@node' to define
-the node (*note Writing a Node::).
+the node (*note Writing a Node::.).
 
   `@xref' is followed by several arguments inside braces, separated by
 commas.  Whitespace before and after these commas is ignored.
@@ -1215,7 +1215,7 @@ in a printed document, and the following in Info:
 
      Sea surges are described in *Note Hurricanes::.
 
-     *Caution:* You _must_ write a period or comma immediately after an
+     *Caution:* You *must* write a period or comma immediately after an
      `@ref' command with two or more arguments.  Otherwise, Info will
      not find the end of the cross reference entry and its attempt to
      follow the cross reference will fail.  As a general rule, you
@@ -1229,7 +1229,7 @@ File: texinfo.info,  Node: pxref,  Next: inforef,  Prev: ref,  Up: Cross Referen
 ========
 
   The parenthetical reference command, `@pxref', is nearly the same as
-`@xref', but you use it _only_ inside parentheses and you do _not_ type
+`@xref', but you use it *only* inside parentheses and you do *not* type
 a comma or period after the command's closing brace.  The command
 differs from `@xref' in two ways:
 
@@ -1240,7 +1240,7 @@ differs from `@xref' in two ways:
      closing colon or period.
 
   Because one type of formatting automatically inserts closing
-punctuation and the other does not, you should use `@pxref' _only_
+punctuation and the other does not, you should use `@pxref' *only*
 inside parentheses as part of another sentence.  Also, you yourself
 should not insert punctuation after the reference, as you do with
 `@xref'.

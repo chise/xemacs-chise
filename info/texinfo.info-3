@@ -1,5 +1,5 @@
-This is ../info/texinfo.info, produced by makeinfo version 3.12s from
-texinfo.texi.
+This is Info file ../info/texinfo.info, produced by Makeinfo version
+1.68 from the input file texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
@@ -181,8 +181,8 @@ and be put on a line by itself.
 appendix to this manual; see *Note `ifinfo' Copying Permissions: ifinfo
 Permissions, for the complete text.
 
-  The permissions text appears in an Info file _before_ the first node.
-This mean that a reader does _not_ see this text when reading the file
+  The permissions text appears in an Info file *before* the first node.
+This mean that a reader does *not* see this text when reading the file
 using Info, except when using the advanced Info command `g *'.
 
 
@@ -245,7 +245,7 @@ command, but that would have been rather long!)
 version of the program to which the manual applies on the title page.
 If the manual changes more frequently than the program or is
 independent of it, you should also include an edition number(1) (*note
-titlepage-Footnote-1::) for the manual.  This helps readers keep track
+titlepage-Footnotes::) for the manual.  This helps readers keep track
 of which manual is for which version of the program.  (The `Top' node
 should also contain this information; see *Note `@top': makeinfo top.)
 
@@ -727,16 +727,16 @@ those just cause the raw data for the index to be accumulated.  To
 generate an index, you must include the `@printindex' command at the
 place in the document where you want the index to appear.  Also, as
 part of the process of creating a printed manual, you must run a
-program called `texindex' (*note Format/Print Hardcopy::) to sort the
+program called `texindex' (*note Format/Print Hardcopy::.) to sort the
 raw data to produce a sorted index file.  The sorted index file is what
 is actually used to print the index.
 
   Texinfo offers six different types of predefined index: the concept
 index, the function index, the variables index, the keystroke index, the
-program index, and the data type index (*note Predefined Indices::).
+program index, and the data type index (*note Predefined Indices::.).
 Each index type has a two-letter name: `cp', `fn', `vr', `ky', `pg',
 and `tp'.  You may merge indices, or put them into separate sections
-(*note Combining Indices::); or you may define your own indices (*note
+(*note Combining Indices::.); or you may define your own indices (*note
 Defining New Indices: New Indices.).
 
   The `@printindex' command takes a two-letter index name, reads the
@@ -756,13 +756,13 @@ Precede the `@unnumbered' command with an `@node' line.
      @unnumbered Variable Index
      
      @printindex vr
-     
+
      @node     Concept Index,     , Variable Index, Top
      @comment      node-name, next,       previous, up
      @unnumbered Concept Index
      
      @printindex cp
-     
+
      @summarycontents
      @contents
      @bye
@@ -799,7 +799,7 @@ actual table to appear in the manual.  To do this, you must use the
      table of contents in addition to the full table of contents.
 
      Write the `@shortcontents' command on a line by itself right
-     _before_ the `@contents' command.
+     *before* the `@contents' command.
 
   The table of contents commands automatically generate a chapter-like
 heading at the top of the first table of contents page.  Write the table
@@ -857,7 +857,7 @@ Contents.).
 
   The chapter structuring commands do not create an Info node structure,
 so normally you should put an `@node' command immediately before each
-chapter structuring command (*note Nodes::).  The only time you are
+chapter structuring command (*note Nodes::.).  The only time you are
 likely to use the chapter structuring commands without using the node
 structuring commands is if you are writing a document that contains no
 cross references and will never be transformed into Info format.
@@ -958,7 +958,6 @@ that are listed in the table of contents of a printed book or manual.
      pages in the printed manual; the `@heading' commands do not.
 
   Here are the four groups of chapter structuring commands:
-
 
                                                             No new pages
      Numbered       Unnumbered       Lettered and numbered  Unnumbered

@@ -106,6 +106,17 @@ typedef struct _scrollbar_values
   int scrollbar_x, scrollbar_y;
 } scrollbar_values;
 
+typedef struct _widget_args
+{
+  /* some things are only possible at creation time. args are applied
+     to widgets at creation time.  */
+  ArgList args;
+  int	nargs;
+  /* Copying args is impossible so we make the caller give us heap allocated
+     args and free them when on-one wants them any more. */
+  int	ref_count;
+} widget_args;
+
 typedef struct _widget_value
 {
   /* This slot is only partially utilized right now. */
@@ -147,15 +158,12 @@ typedef struct _widget_value
   /* data defining a scrollbar; only valid if type == "scrollbar" */
   scrollbar_values *scrollbar_data;
 
+  /* A reference counted arg structure. */
+  struct _widget_args *args;
   /* we resource the widget_value structures; this points to the next
      one on the free list if this one has been deallocated.  */
   struct _widget_value *free_list;
 
-  /* some things are only possible at creation time. args are applied
-     to widgets at creation time.  */
-  ArgList args;
-  int	nargs;
-  Boolean	free_args;
 } widget_value;
 
 
@@ -211,6 +219,8 @@ Boolean lw_get_some_values (LWLIB_ID id, widget_value* val);
 void lw_pop_up_all_widgets (LWLIB_ID id);
 void lw_pop_down_all_widgets (LWLIB_ID id);
 void lw_add_value_args_to_args (widget_value* wv, ArgList addto, int* offset);
+void lw_add_widget_value_arg (widget_value* wv, String name, XtArgVal value);
+void lw_copy_widget_value_args (widget_value* copy, widget_value* val);
 
 widget_value *malloc_widget_value (void);
 void free_widget_value (widget_value *);

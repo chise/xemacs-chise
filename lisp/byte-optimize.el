@@ -699,31 +699,27 @@
   (setq form (byte-optimize-delay-constants-math form 1 '+))
   (if (memq 0 form) (setq form (delq 0 (copy-sequence form))))
   ;;(setq form (byte-optimize-associative-two-args-math form))
-  (cond ((null (cdr form))
-	 (condition-case ()
-	     (eval form)
-	   (error form)))
+  (case (length (cdr form))
+    ((0)
+     (condition-case ()
+	 (eval form)
+       (error form)))
 
-	;; `add1' and `sub1' are a marginally fewer instructions
-	;; than `plus' and `minus', so use them when possible.
-	((and (null (nthcdr 3 form))
-	      (eq (nth 2 form) 1))
-	 (list '1+ (nth 1 form)))	; (+ x 1)  -->  (1+ x)
-	((and (null (nthcdr 3 form))
-	      (eq (nth 1 form) 1))
-	 (list '1+ (nth 2 form)))	; (+ 1 x)  -->  (1+ x)
-	((and (null (nthcdr 3 form))
-	      (eq (nth 2 form) -1))
-	 (list '1- (nth 1 form)))	; (+ x -1)  -->  (1- x)
-	((and (null (nthcdr 3 form))
-	      (eq (nth 1 form) -1))
-	 (list '1- (nth 2 form)))	; (+ -1 x)  -->  (1- x)
+    ;; `add1' and `sub1' are a marginally fewer instructions
+    ;; than `plus' and `minus', so use them when possible.
+    ((2)
+     (cond
+      ((eq (nth 1 form)  1) `(1+ ,(nth 2 form))) ; (+ 1 x)   -->  (1+ x)
+      ((eq (nth 2 form)  1) `(1+ ,(nth 1 form))) ; (+ x 1)   -->  (1+ x)
+      ((eq (nth 1 form) -1) `(1- ,(nth 2 form))) ; (+ -1 x)  -->  (1- x)
+      ((eq (nth 2 form) -1) `(1- ,(nth 1 form))) ; (+ x -1)  -->  (1- x)
+      (t form)))
 
-;;; It is not safe to delete the function entirely
-;;; (actually, it would be safe if we know the sole arg
-;;; is not a marker).
-;;	((null (cdr (cdr form))) (nth 1 form))
-	(t form)))
+    ;; It is not safe to delete the function entirely
+    ;; (actually, it would be safe if we know the sole arg
+    ;; is not a marker).
+    ;;	((null (cdr (cdr form))) (nth 1 form))
+    (t form)))
 
 (defun byte-optimize-minus (form)
   ;; Put constants at the end, except the last constant.
@@ -784,9 +780,6 @@
 		    (setcar form (list '+ (car form) (car form)))))
 		 (form))))))
 
-(defsubst byte-compile-butlast (form)
-  (nreverse (cdr (reverse form))))
-
 (defun byte-optimize-divide (form)
   (setq form (byte-optimize-delay-constants-math form 2 '*))
   (let ((last (car (reverse (cdr (cdr form))))))
@@ -799,11 +792,11 @@
 			  (error nil)))
 		   (setq form (list 'progn (/ (nth 1 form) last)))))
 	      ((= last 1)
-	       (setq form (byte-compile-butlast form)))
+	       (setq form (butlast form)))
 	      ((numberp (nth 1 form))
 	       (setq form (cons (car form)
 				(cons (/ (nth 1 form) last)
-				      (byte-compile-butlast (cdr (cdr form)))))
+				      (butlast (cdr (cdr form)))))
 		     last nil))))
     (cond 
 ;;;	  ((null (cdr (cdr form)))
@@ -812,7 +805,7 @@
 	   (append '(progn) (cdr (cdr form)) '(0)))
 	  ((eq last -1)
 	   (list '- (if (nthcdr 3 form)
-			(byte-compile-butlast form)
+			(butlast form)
 		      (nth 1 form))))
 	  (form))))
 
@@ -1032,6 +1025,12 @@
 (put 'cond  'byte-optimizer 'byte-optimize-cond)
 (put 'if    'byte-optimizer 'byte-optimize-if)
 (put 'while 'byte-optimizer 'byte-optimize-while)
+
+;; Remove any reason for avoiding `char-before'.
+(defun byte-optimize-char-before (form)
+  `(char-after (1- ,(or (nth 1 form) '(point))) ,@(cdr (cdr form))))
+     
+(put 'char-before 'byte-optimizer 'byte-optimize-char-before)
 
 ;; byte-compile-negation-optimizer lives in bytecomp.el
 ;(put '/= 'byte-optimizer 'byte-compile-negation-optimizer)

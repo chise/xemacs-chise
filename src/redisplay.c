@@ -156,7 +156,7 @@ typedef struct position_redisplay_data_type
   Bytind bi_start_col_enabled;
   int start_col_xoffset;	/* Number of pixels that still need to
 			   be skipped.  This is used for
-			   horizontal scrolling of glyphs, where we want 
+			   horizontal scrolling of glyphs, where we want
 			   to be able to scroll over part of the glyph. */
 
   int hscroll_glyph_width_adjust;  /* how much the width of the hscroll
@@ -1815,7 +1815,7 @@ create_text_block (struct window *w, struct display_line *dl,
      after a ^M is invisible. */
   int selective = (INTP (b->selective_display)
 		   ? XINT (b->selective_display)
-		   : ((!NILP (b->selective_display) ? -1 : 0)));
+		   : (!NILP (b->selective_display) ? -1 : 0));
 
   /* The variable ctl-arrow allows the user to specify what characters
      can actually be displayed and which octal should be used for.
@@ -2288,7 +2288,7 @@ create_text_block (struct window *w, struct display_line *dl,
 	      int prop_width = 0;
 
 	      if (data.start_col > 1)
-		tab_start_pixpos -= (space_width (w) * (data.start_col - 1)) 
+		tab_start_pixpos -= (space_width (w) * (data.start_col - 1))
 		  + data.start_col_xoffset;
 
 	      next_tab_start =
@@ -4341,9 +4341,9 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
     }
   else
     {
-      dl->left_margin_findex = 
+      dl->left_margin_findex =
 	get_builtin_face_cache_index (w, Vleft_margin_face);
-      dl->right_margin_findex = 
+      dl->right_margin_findex =
 	get_builtin_face_cache_index (w, Vright_margin_face);
     }
 
@@ -4380,7 +4380,7 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
 
   data.start_col = 0;
   /* I don't think we want this, string areas should not scroll with
-     the window 
+     the window
   data.start_col = w->hscroll;
   data.bi_start_col_enabled = (w->hscroll ? bi_start_pos : 0);
   */
@@ -4849,7 +4849,7 @@ done:
   else
     dl->end_bufpos = buffer_or_string_bytind_to_bufpos (disp_string, data.bi_bufpos) - 1;
   if (truncate_win)
-    data.dl->num_chars = 
+    data.dl->num_chars =
       string_column_at_point (s, dl->end_bufpos, b ? XINT (b->tab_width) : 8);
   else
     /* This doesn't correctly take into account tabs and control
@@ -4889,8 +4889,8 @@ done:
    representation of the buffer contents starting from the given
    position when displayed in the given window.  The display line ends
    when the contents of the line reach the right boundary of the given
-   window. 
-   
+   window.
+
    This is very similar to generate_display_line but with the same
    limitations as create_string_text_block. I have taken the liberty
    of fixing the bytind stuff though.*/
@@ -4905,7 +4905,7 @@ generate_string_display_line (struct window *w, Lisp_Object disp_string,
   Bufpos ret_bufpos;
 
   /* you must set bounds before calling this. */
-  
+
   /* Reset what this line is using. */
   if (dl->display_blocks)
     Dynarr_reset (dl->display_blocks);
@@ -5151,7 +5151,7 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
 
       /* See if we've been asked to start midway through a line, for
          partial display line scrolling. */
-      if (yclip)		
+      if (yclip)
 	{
 	  dlp->top_clip = yclip;
 	  yclip = 0;
@@ -6311,6 +6311,7 @@ redisplay_frame (struct frame *f, int preemption_check)
      process.*/
   if (!Dynarr_length (f->subwindow_cachels)
       || f->subwindows_changed
+      || f->faces_changed
       || f->frame_changed)
     {
       reset_subwindow_cachels (f);
@@ -7136,7 +7137,7 @@ update_internal_cache_list (struct window *w, int type)
       else
 	{
 	  struct line_start_cache lsc;
-	  
+
 	  lsc.start = dl->bufpos;
 	  lsc.end = dl->end_bufpos;
 	  lsc.height = dl->ascent + dl->descent;
@@ -7657,7 +7658,7 @@ start_with_line_at_pixpos (struct window *w, Bufpos point, int pixpos)
 	  assert (cur_elt >= -1);
 	  /* This used to be cur_elt>=0 under the assumption that if
 	     point is in the top line and not at BUF_BEGV, then
-	     setting the window_start to a newline before the start of 
+	     setting the window_start to a newline before the start of
 	     the first line will always cause scrolling.
 
 	     However in my (jv) opinion this is wrong.  That new line
@@ -7667,7 +7668,7 @@ start_with_line_at_pixpos (struct window *w, Bufpos point, int pixpos)
 	     on that assert.  So we have no option but to continue the
 	     search if we found point at the top of the line_start_cache
 	     again. */
-	  cur_pos = Dynarr_atp (w->line_start_cache,0)->start;	     
+	  cur_pos = Dynarr_atp (w->line_start_cache,0)->start;
 	}
       prev_pos = cur_pos;
     }

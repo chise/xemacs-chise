@@ -25,8 +25,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include "specifier.h"
 
-#define DEVICE_SUPPORTS_GUTTERS_P(d)		\
-  (HAS_DEVMETH_P ((d), output_frame_gutters))
+#define DEVICE_SUPPORTS_GUTTERS_P(d) HAS_DEVMETH_P (d, output_frame_gutters)
 
 DECLARE_SPECIFIER_TYPE (gutter);
 #define XGUTTER_SPECIFIER(x) XSPECIFIER_TYPE (x, gutter)

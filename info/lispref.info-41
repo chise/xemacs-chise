@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -55,17 +55,17 @@ File: lispref.info,  Node: Level 3 Primitives,  Next: Dynamic Messaging,  Prev: 
 Level 3 Primitives
 ------------------
 
- - Function: gettext string
+ - Function: gettext STRING
      This function looks up STRING in the default message domain and
      returns its translation.  If `I18N3' was not enabled when XEmacs
      was compiled, it just returns STRING.
 
- - Function: dgettext domain string
+ - Function: dgettext DOMAIN STRING
      This function looks up STRING in the specified message domain and
      returns its translation.  If `I18N3' was not enabled when XEmacs
      was compiled, it just returns STRING.
 
- - Function: bind-text-domain domain pathname
+ - Function: bind-text-domain DOMAIN PATHNAME
      This function associates a pathname with a message domain.  Here's
      how the path to message file is constructed under SunOS 5.x:
 
@@ -74,7 +74,7 @@ Level 3 Primitives
      If `I18N3' was not enabled when XEmacs was compiled, this function
      does nothing.
 
- - Special Form: domain string
+ - Special Form: domain STRING
      This function specifies the text domain used for translating
      documentation strings and interactive prompts of a function.  For
      example, write:
@@ -85,7 +85,7 @@ Level 3 Primitives
      The "call" to `domain' is actually a declaration rather than a
      function; when actually called, `domain' just returns `nil'.
 
- - Function: domain-of function
+ - Function: domain-of FUNCTION
      This function returns the text domain of FUNCTION; it returns
      `nil' if it is the default domain.  If `I18N3' was not enabled
      when XEmacs was compiled, it always returns `nil'.
@@ -133,11 +133,11 @@ function body, before the `interactive' form.
    For variables and constants which have documentation strings,
 specify the domain after the documentation.
 
- - Special Form: defvar symbol [value [doc-string [domain]]]
+ - Special Form: defvar SYMBOL [VALUE [DOC-STRING [DOMAIN]]]
      Example:
           (defvar weight 250 "Weight of gorilla, in pounds." "emacs-gorilla")
 
- - Special Form: defconst symbol [value [doc-string [domain]]]
+ - Special Form: defconst SYMBOL [VALUE [DOC-STRING [DOMAIN]]]
      Example:
           (defconst limbs 4 "Number of limbs" "emacs-gorilla")
 
@@ -146,8 +146,8 @@ to have a domain specification, because their documentation strings are
 extracted into the main message base.  However, for autoloaded functions
 which are specified in a separate package, use following syntax:
 
- - Function: autoload symbol filename &optional docstring interactive
-          macro domain
+ - Function: autoload SYMBOL FILENAME &optional DOCSTRING INTERACTIVE
+          MACRO DOMAIN
      Example:
           (autoload 'explore "jungle" "Explore the jungle." nil nil "emacs-gorilla")
 
@@ -269,7 +269,7 @@ printing characters are considered).  JISX0208, i.e.  Japanese Kanji,
 has thousands of characters, and is of dimension two - every character
 is indexed by two position codes, each in the range 33 through 126.
 (Note that the choice of the range here is somewhat arbitrary.
-Although a character set such as JISX0208 defines an _ordering_ of all
+Although a character set such as JISX0208 defines an *ordering* of all
 its characters, it does not define the actual mapping between numbers
 and characters.  You could just as easily index the characters in
 JISX0208 using numbers in the range 0 through 93, 1 through 94, 2
@@ -359,7 +359,7 @@ Charsets
 character set as well as an ordering of those characters.  Charsets are
 permanent objects and are named using symbols, like faces.
 
- - Function: charsetp object
+ - Function: charsetp OBJECT
      This function returns non-`nil' if OBJECT is a charset.
 
 * Menu:
@@ -474,14 +474,14 @@ File: lispref.info,  Node: Basic Charset Functions,  Next: Charset Property Func
 Basic Charset Functions
 -----------------------
 
- - Function: find-charset charset-or-name
+ - Function: find-charset CHARSET-OR-NAME
      This function retrieves the charset of the given name.  If
      CHARSET-OR-NAME is a charset object, it is simply returned.
      Otherwise, CHARSET-OR-NAME should be a symbol.  If there is no
      such charset, `nil' is returned.  Otherwise the associated charset
      object is returned.
 
- - Function: get-charset name
+ - Function: get-charset NAME
      This function retrieves the charset of the given name.  Same as
      `find-charset' except an error is signalled if there is no such
      charset instead of returning `nil'.
@@ -489,7 +489,7 @@ Basic Charset Functions
  - Function: charset-list
      This function returns a list of the names of all defined charsets.
 
- - Function: make-charset name doc-string props
+ - Function: make-charset NAME DOC-STRING PROPS
      This function defines a new character set.  This function is for
      use with Mule support.  NAME is a symbol, the name by which the
      character set is normally referred.  DOC-STRING is a string
@@ -499,19 +499,19 @@ Basic Charset Functions
      `chars', `final', `graphic', `direction', and `ccl-program', as
      previously described.
 
- - Function: make-reverse-direction-charset charset new-name
+ - Function: make-reverse-direction-charset CHARSET NEW-NAME
      This function makes a charset equivalent to CHARSET but which goes
      in the opposite direction.  NEW-NAME is the name of the new
      charset.  The new charset is returned.
 
- - Function: charset-from-attributes dimension chars final &optional
-          direction
+ - Function: charset-from-attributes DIMENSION CHARS FINAL &optional
+          DIRECTION
      This function returns a charset with the given DIMENSION, CHARS,
      FINAL, and DIRECTION.  If DIRECTION is omitted, both directions
      will be checked (left-to-right will be returned if character sets
      exist for both directions).
 
- - Function: charset-reverse-direction-charset charset
+ - Function: charset-reverse-direction-charset CHARSET
      This function returns the charset (if any) with the same dimension,
      number of characters, and final byte as CHARSET, but which is
      displayed in the opposite direction.
@@ -525,54 +525,54 @@ Charset Property Functions
    All of these functions accept either a charset name or charset
 object.
 
- - Function: charset-property charset prop
+ - Function: charset-property CHARSET PROP
      This function returns property PROP of CHARSET.  *Note Charset
      Properties::.
 
    Convenience functions are also provided for retrieving individual
 properties of a charset.
 
- - Function: charset-name charset
+ - Function: charset-name CHARSET
      This function returns the name of CHARSET.  This will be a symbol.
 
- - Function: charset-doc-string charset
+ - Function: charset-doc-string CHARSET
      This function returns the doc string of CHARSET.
 
- - Function: charset-registry charset
+ - Function: charset-registry CHARSET
      This function returns the registry of CHARSET.
 
- - Function: charset-dimension charset
+ - Function: charset-dimension CHARSET
      This function returns the dimension of CHARSET.
 
- - Function: charset-chars charset
+ - Function: charset-chars CHARSET
      This function returns the number of characters per dimension of
      CHARSET.
 
- - Function: charset-columns charset
+ - Function: charset-columns CHARSET
      This function returns the number of display columns per character
      (in TTY mode) of CHARSET.
 
- - Function: charset-direction charset
+ - Function: charset-direction CHARSET
      This function returns the display direction of CHARSET - either
      `l2r' or `r2l'.
 
- - Function: charset-final charset
+ - Function: charset-final CHARSET
      This function returns the final byte of the ISO 2022 escape
      sequence designating CHARSET.
 
- - Function: charset-graphic charset
+ - Function: charset-graphic CHARSET
      This function returns either 0 or 1, depending on whether the
      position codes of characters in CHARSET map to the left or right
      half of their font, respectively.
 
- - Function: charset-ccl-program charset
+ - Function: charset-ccl-program CHARSET
      This function returns the CCL program, if any, for converting
      position codes of characters in CHARSET into font indices.
 
    The only property of a charset that can currently be set after the
 charset has been created is the CCL program.
 
- - Function: set-charset-ccl-program charset ccl-program
+ - Function: set-charset-ccl-program CHARSET CCL-PROGRAM
      This function sets the `ccl-program' property of CHARSET to
      CCL-PROGRAM.
 
@@ -643,22 +643,22 @@ File: lispref.info,  Node: MULE Characters,  Next: Composite Characters,  Prev: 
 MULE Characters
 ===============
 
- - Function: make-char charset arg1 &optional arg2
+ - Function: make-char CHARSET ARG1 &optional ARG2
      This function makes a multi-byte character from CHARSET and octets
      ARG1 and ARG2.
 
- - Function: char-charset ch
+ - Function: char-charset CH
      This function returns the character set of char CH.
 
- - Function: char-octet ch &optional n
+ - Function: char-octet CH &optional N
      This function returns the octet (i.e. position code) numbered N
      (should be 0 or 1) of char CH.  N defaults to 0 if omitted.
 
- - Function: find-charset-region start end &optional buffer
+ - Function: find-charset-region START END &optional BUFFER
      This function returns a list of the charsets in the region between
      START and END.  BUFFER defaults to the current buffer if omitted.
 
- - Function: find-charset-string string
+ - Function: find-charset-string STRING
      This function returns a list of the charsets in STRING.
 
 
@@ -669,22 +669,22 @@ Composite Characters
 
    Composite characters are not yet completely implemented.
 
- - Function: make-composite-char string
+ - Function: make-composite-char STRING
      This function converts a string into a single composite character.
      The character is the result of overstriking all the characters in
      the string.
 
- - Function: composite-char-string ch
+ - Function: composite-char-string CH
      This function returns a string of the characters comprising a
      composite character.
 
- - Function: compose-region start end &optional buffer
+ - Function: compose-region START END &optional BUFFER
      This function composes the characters in the region from START to
      END in BUFFER into one composite character.  The composite
      character replaces the composed characters.  BUFFER defaults to
      the current buffer if omitted.
 
- - Function: decompose-region start end &optional buffer
+ - Function: decompose-region START END &optional BUFFER
      This function decomposes any composite characters in the region
      from START to END in BUFFER.  This converts each composite
      character into one or more characters, the individual characters
@@ -898,7 +898,7 @@ symbol is accepted in place of the actual coding system object whenever
 a coding system is called for. (This is similar to how faces and
 charsets work.)
 
- - Function: coding-system-p object
+ - Function: coding-system-p OBJECT
      This function returns non-`nil' if OBJECT is a coding system.
 
 * Menu:
@@ -1107,7 +1107,7 @@ File: lispref.info,  Node: Basic Coding System Functions,  Next: Coding System P
 Basic Coding System Functions
 -----------------------------
 
- - Function: find-coding-system coding-system-or-name
+ - Function: find-coding-system CODING-SYSTEM-OR-NAME
      This function retrieves the coding system of the given name.
 
      If CODING-SYSTEM-OR-NAME is a coding-system object, it is simply
@@ -1115,7 +1115,7 @@ Basic Coding System Functions
      If there is no such coding system, `nil' is returned.  Otherwise
      the associated coding system object is returned.
 
- - Function: get-coding-system name
+ - Function: get-coding-system NAME
      This function retrieves the coding system of the given name.  Same
      as `find-coding-system' except an error is signalled if there is no
      such coding system instead of returning `nil'.
@@ -1124,10 +1124,10 @@ Basic Coding System Functions
      This function returns a list of the names of all defined coding
      systems.
 
- - Function: coding-system-name coding-system
+ - Function: coding-system-name CODING-SYSTEM
      This function returns the name of the given coding system.
 
- - Function: make-coding-system name type &optional doc-string props
+ - Function: make-coding-system NAME TYPE &optional DOC-STRING PROPS
      This function registers symbol NAME as a coding system.
 
      TYPE describes the conversion method used and should be one of the
@@ -1139,11 +1139,11 @@ Basic Coding System Functions
      character set.  Recognized properties are as in *Note Coding
      System Properties::.
 
- - Function: copy-coding-system old-coding-system new-name
+ - Function: copy-coding-system OLD-CODING-SYSTEM NEW-NAME
      This function copies OLD-CODING-SYSTEM to NEW-NAME.  If NEW-NAME
      does not name an existing coding system, a new one will be created.
 
- - Function: subsidiary-coding-system coding-system eol-type
+ - Function: subsidiary-coding-system CODING-SYSTEM EOL-TYPE
      This function returns the subsidiary coding system of
      CODING-SYSTEM with eol type EOL-TYPE.
 
@@ -1153,13 +1153,13 @@ File: lispref.info,  Node: Coding System Property Functions,  Next: Encoding and
 Coding System Property Functions
 --------------------------------
 
- - Function: coding-system-doc-string coding-system
+ - Function: coding-system-doc-string CODING-SYSTEM
      This function returns the doc string for CODING-SYSTEM.
 
- - Function: coding-system-type coding-system
+ - Function: coding-system-type CODING-SYSTEM
      This function returns the type of CODING-SYSTEM.
 
- - Function: coding-system-property coding-system prop
+ - Function: coding-system-property CODING-SYSTEM PROP
      This function returns the PROP property of CODING-SYSTEM.
 
 
@@ -1168,8 +1168,8 @@ File: lispref.info,  Node: Encoding and Decoding Text,  Next: Detection of Textu
 Encoding and Decoding Text
 --------------------------
 
- - Function: decode-coding-region start end coding-system &optional
-          buffer
+ - Function: decode-coding-region START END CODING-SYSTEM &optional
+          BUFFER
      This function decodes the text between START and END which is
      encoded in CODING-SYSTEM.  This is useful if you've read in
      encoded text from a file without decoding it (e.g. you read in a
@@ -1178,8 +1178,8 @@ Encoding and Decoding Text
      encoded text is returned.  BUFFER defaults to the current buffer
      if unspecified.
 
- - Function: encode-coding-region start end coding-system &optional
-          buffer
+ - Function: encode-coding-region START END CODING-SYSTEM &optional
+          BUFFER
      This function encodes the text between START and END using
      CODING-SYSTEM.  This will, for example, convert Japanese
      characters into stuff such as `^[$B!<!+^[(B' if you use the JIS
@@ -1195,7 +1195,7 @@ Detection of Textual Encoding
  - Function: coding-category-list
      This function returns a list of all recognized coding categories.
 
- - Function: set-coding-priority-list list
+ - Function: set-coding-priority-list LIST
      This function changes the priority order of the coding categories.
      LIST should be a list of coding categories, in descending order of
      priority.  Unspecified coding categories will be lower in priority
@@ -1206,15 +1206,15 @@ Detection of Textual Encoding
      This function returns a list of coding categories in descending
      order of priority.
 
- - Function: set-coding-category-system coding-category coding-system
+ - Function: set-coding-category-system CODING-CATEGORY CODING-SYSTEM
      This function changes the coding system associated with a coding
      category.
 
- - Function: coding-category-system coding-category
+ - Function: coding-category-system CODING-CATEGORY
      This function returns the coding system associated with a coding
      category.
 
- - Function: detect-coding-region start end &optional buffer
+ - Function: detect-coding-region START END &optional BUFFER
      This function detects coding system of the text in the region
      between START and END.  Returned value is a list of possible coding
      systems ordered by priority.  If only ASCII characters are found,

@@ -462,11 +462,11 @@ String to suffix buttons.
 
 @item %@{
 @itemx %@}
-The text inside will be displayed with the face specified by
-@code{:sample-face}. 
+The text inside will be displayed in the face specified by
+@code{:sample-face}.
 
 @item %v
-This will be replaces with the buffer representation of the widgets
+This will be replaced with the buffer representation of the widget's
 value.  What this is depends on the widget type.
 
 @item %d
@@ -560,8 +560,8 @@ and returning non-nil if the widget can represent the specified value.
 
 @item :validate
 A function which takes a widget as an argument, and return nil if the
-widgets current value is valid for the widget.  Otherwise, it should
-return the widget containing the invalid data, and set that widgets
+widget's current value is valid for the widget.  Otherwise it should
+return the widget containing the invalid data, and set that widget's
 @code{:error} property to a string explaining the error.
 
 The following predefined function can be used:
@@ -764,10 +764,10 @@ Syntax:
 TYPE ::= (menu-choice [KEYWORD ARGUMENT]... TYPE ... )
 @end example
 
-The @var{type} arguments represents each possible choice.  The widgets
-value of will be the value of the chosen @var{type} argument.  This
-widget will match any value that matches at least one of the specified
-@var{type} arguments.
+The @var{type} argument represents each possible choice.  The widget's
+value will be that of the chosen @var{type} argument.  This widget will
+match any value matching at least one of the specified @var{type}
+arguments.
 
 @table @code
 @item :void 
@@ -799,10 +799,10 @@ Syntax:
 TYPE ::= (radio-button-choice [KEYWORD ARGUMENT]...  TYPE ... )
 @end example
 
-The @var{type} arguments represents each possible choice.  The widgets
-value of will be the value of the chosen @var{type} argument.  This
-widget will match any value that matches at least one of the specified
-@var{type} arguments.
+The @var{type} argument represents each possible choice.  The widget's
+value will be that of the chosen @var{type} argument.  This widget will
+match any value matching at least one of the specified @var{type}
+arguments.
 
 The following extra properties are recognized.
 
@@ -889,8 +889,8 @@ Syntax:
 TYPE ::= (toggle [KEYWORD ARGUMENT]...)
 @end example
 
-The widget has two possible states, `on' and `off', which corresponds to
-a @code{t} or @code{nil} value.
+The widget has two possible states, `on' and `off', which correspond to
+a @code{t} or @code{nil} value respectively.
 
 The following extra properties are recognized.
 
@@ -930,10 +930,10 @@ Syntax:
 TYPE ::= (checklist [KEYWORD ARGUMENT]...  TYPE ... )
 @end example
 
-The @var{type} arguments represents each checklist item.  The widgets
-value of will be a list containing the value of each ticked @var{type}
-argument.  The checklist widget will match a list whose elements all
-matches at least one of the specified @var{type} arguments.
+The @var{type} arguments represents each checklist item.  The widget's
+value will be a list containing the values of all ticked @var{type}
+arguments.  The checklist widget will match a list whose elements all
+match at least one of the specified @var{type} arguments.
 
 The following extra properties are recognized.
 
@@ -951,11 +951,11 @@ Insert a literal @samp{%}.
 @end table
 
 @item :greedy
-Usually, a checklist will only match if the items are in the exact
+Usually a checklist will only match if the items are in the exact
 sequence given in the specification.  By setting @code{:greedy} to
-non-nil, it will allow the items to come in any sequence.  However, if
-you extract the value they will be in the sequence given in the
-checklist. I.e. the original sequence is forgotten.
+non-nil, it will allow the items to appear in any sequence.  However, if
+you extract the values they will be in the sequence given in the
+checklist.  I.e. the original sequence is forgotten.
 
 @item button-args
 A list of keywords to pass to the checkboxes.  Useful for setting
@@ -1236,13 +1236,13 @@ The value of a widget of this type will either have the form
 @samp{(file t)} or @code{(file string string)}.
 
 This concept of inline is probably hard to understand.  It was certainly
-hard to implement so instead of confuse you more by trying to explain it
-here, I'll just suggest you meditate over it for a while.
+hard to implement so instead of confusing you more by trying to explain
+it here, I'll just suggest you meditate over it for a while.
 
 @deffn Widget choice
-Allows you to edit a sexp which may have one of fixed set of types.  It
-is currently implemented with the @code{choice-menu} basic widget, and
-has a similar syntax.
+Allows you to edit a sexp which may have one of a fixed set of types.
+It is currently implemented with the @code{choice-menu} basic widget,
+and has a similar syntax.
 @end deffn
 
 @deffn Widget set
@@ -1326,9 +1326,9 @@ You can query or set the state with the following code:
 (widget-apply @var{widget} :activate)
 @end lisp
 
-A widget is inactive if itself, or any of its ancestors (found by
+A widget is inactive if itself or any of its ancestors (found by
 following the @code{:parent} link) have been deactivated.  To make sure
-a widget is really active, you must therefore activate both itself, and
+a widget is really active, you must therefore activate both itself and
 all its ancestors.
 
 @lisp
@@ -1338,12 +1338,12 @@ all its ancestors.
 @end lisp
 
 You can check if a widget has been made inactive by examining the value
-of @code{:inactive} keyword.  If this is non-nil, the widget itself has
-been deactivated.  This is different from using the @code{:active}
-keyword, in that the later tell you if the widget @strong{or} any of its
-ancestors have been deactivated.   Do not attempt to set the
+of the @code{:inactive} keyword.  If this is non-nil, the widget itself
+has been deactivated.  This is different from using the @code{:active}
+keyword, in that the latter tells you if the widget @strong{or} any of
+its ancestors have been deactivated.  Do not attempt to set the
 @code{:inactive} keyword directly.  Use the @code{:activate}
-@code{:deactivated} keywords instead.
+@code{:deactivate} keywords instead.
 
 
 @node Defining New Widgets, Widget Browser, Widget Properties, Top
@@ -1351,9 +1351,9 @@ ancestors have been deactivated.   Do not attempt to set the
 @section Defining New Widgets
 
 You can define specialized widgets with @code{define-widget}.  It allows
-you to create a shorthand for more complex widgets, including specifying
-component widgets and default new default values for the keyword
-arguments. 
+you to create a shorthand for more complex widgets.  This includes
+specifying component widgets and new default values for the keyword
+arguments.
 
 @defun widget-define name class doc &rest args
 Define a new widget type named @var{name} from @code{class}.
@@ -1363,7 +1363,7 @@ of the existing widget types.
 
 The third argument @var{DOC} is a documentation string for the widget.
 
-After the new widget has been defined, the following two calls will
+After the new widget has been defined the following two calls will
 create identical widgets:
 
 @itemize @bullet
@@ -1380,8 +1380,8 @@ create identical widgets:
 
 @end defun
 
-Using @code{widget-define} does just store the definition of the widget
-type in the @code{widget-type} property of @var{name}, which is what
+Using @code{widget-define} just stores the definition of the widget type
+in the @code{widget-type} property of @var{name}, which is what
 @code{widget-create} uses.
 
 If you just want to specify defaults for keywords with no complex
@@ -1394,7 +1394,7 @@ widgets:
 Function to convert a widget type before creating a widget of that
 type.  It takes a widget type as an argument, and returns the converted
 widget type.  When a widget is created, this function is called for the
-widget type and all the widgets parent types, most derived first. 
+widget type and all the widget's parent types, most derived first. 
 
 The following predefined functions can be used here:
 
@@ -1408,7 +1408,7 @@ Initialize @code{:value} from @code{:args} in @var{widget}.
 
 @item :value-to-internal
 Function to convert the value to the internal format.  The function
-takes two arguments, a widget and an external value, and returns the
+takes two arguments, a widget and an external value.  It returns the
 internal value.  The function is called on the present @code{:value}
 when the widget is created, and on any value set later with
 @code{widget-value-set}.
@@ -1422,8 +1422,8 @@ when the widget is created, and on any value set later with
 
 @item :create
 Function to create a widget from scratch.  The function takes one
-argument, a widget type, and create a widget of that type, insert it in
-the buffer, and return a widget object.
+argument, a widget type, and creates a widget of that type, inserts it
+in the buffer, and returns a widget object.
 
 @item :delete
 Function to delete a widget.  The function takes one argument, a widget,
@@ -1431,14 +1431,14 @@ and should remove all traces of the widget from the buffer.
 
 @item :value-create
 Function to expand the @samp{%v} escape in the format string.  It will
-be called with the widget as its argument.  Should
-insert a representation of the widgets value in the buffer.
+be called with the widget as its argument and should insert a
+representation of the widget's value in the buffer.
 
 @item :value-delete
-Should remove the representation of the widgets value from the buffer.
+Should remove the representation of the widget's value from the buffer.
 It will be called with the widget as its argument.  It doesn't have to
 remove the text, but it should release markers and delete nested widgets
-if such has been used.
+if such have been used.
 
 The following predefined function can be used here:
 
@@ -1462,8 +1462,8 @@ will be called with the widget and the escape character as arguments.
 You can set this to allow your widget to handle non-standard escapes.
 
 You should end up calling @code{widget-default-format-handler} to handle
-unknown escape sequences, which will handle the @samp{%h} and any future
-escape sequences, as well as give an error for unknown escapes.
+unknown escape sequences.  It will handle the @samp{%h} and any future
+escape sequences as well as give an error for unknown escapes.
 
 @item :action
 Function to handle user initiated events.  By default, @code{:notify}
@@ -1481,9 +1481,9 @@ Function to prompt for a value in the minibuffer.  The function should
 take four arguments, @var{widget}, @var{prompt}, @var{value}, and
 @var{unbound} and should return a value for widget entered by the user.
 @var{prompt} is the prompt to use.  @var{value} is the default value to
-use, unless @var{unbound} is non-nil in which case there are no default
+use, unless @var{unbound} is non-nil.  In this case there is no default
 value.  The function should read the value using the method most natural
-for this widget, and does not have to check that it matches.
+for this widget and does not have to check whether it matches.
 @end table
 
 If you want to define a new widget from scratch, use the @code{default}

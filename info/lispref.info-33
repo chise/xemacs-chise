@@ -1,5 +1,5 @@
-This is ../info/lispref.info, produced by makeinfo version 3.12s from
-lispref/lispref.texi.
+This is Info file ../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -61,7 +61,7 @@ other properties such as being read-only.  Extents can overlap each
 other.  XEmacs efficiently handles buffers with large numbers of
 extents in them.
 
- - Function: extentp object
+ - Function: extentp OBJECT
      This returns `t' if OBJECT is an extent.
 
 * Menu:
@@ -92,7 +92,7 @@ Extents can freely overlap each other in a buffer or string.  Extents
 are invisible to functions that merely examine the text of a buffer or
 string.
 
-   _Please note:_ An alternative way to add properties to a buffer or
+   *Please note:* An alternative way to add properties to a buffer or
 string is to use text properties.  *Note Text Properties::.
 
    An extent is logically a Lisp object consisting of a start position,
@@ -158,30 +158,30 @@ File: lispref.info,  Node: Creating and Modifying Extents,  Next: Extent Endpoin
 Creating and Modifying Extents
 ==============================
 
- - Function: make-extent from to &optional object
+ - Function: make-extent FROM TO &optional OBJECT
      This function makes an extent for the range [FROM, TO) in OBJECT
      (a buffer or string).  OBJECT defaults to the current buffer.
      Insertions at point TO will be outside of the extent; insertions
      at FROM will be inside the extent, causing the extent to grow
-     (*note Extent Endpoints::).  This is the same way that markers
+     (*note Extent Endpoints::.).  This is the same way that markers
      behave.  The extent is initially detached if both FROM and TO are
      `nil', and in this case OBJECT defaults to `nil', meaning the
-     extent is in no buffer or string (*note Detached Extents::).
+     extent is in no buffer or string (*note Detached Extents::.).
 
- - Function: delete-extent extent
+ - Function: delete-extent EXTENT
      This function removes EXTENT from its buffer and destroys it.
      This does not modify the buffer's text, only its display
      properties.  The extent cannot be used thereafter.  To remove an
      extent in such a way that it can be re-inserted later, use
      `detach-extent'.  *Note Detached Extents::.
 
- - Function: extent-object extent
+ - Function: extent-object EXTENT
      This function returns the buffer or string that EXTENT is in.  If
      the return value is `nil', this means that the extent is detached;
      however, a detached extent will not necessarily return a value of
      `nil'.
 
- - Function: extent-live-p extent
+ - Function: extent-live-p EXTENT
      This function returns `nil' if EXTENT is deleted, and `t'
      otherwise.
 
@@ -210,10 +210,10 @@ equivalent to `start-open' and `end-open' with the opposite sense.
 
    Both endpoints can be equal, in which case the extent includes no
 characters but still exists in the buffer or string.  Zero-length
-extents are used to represent annotations (*note Annotations::) and can
+extents are used to represent annotations (*note Annotations::.) and can
 be used as a more powerful form of a marker.  Deletion of all the
 characters in an extent may or may not result in a zero-length extent;
-this depends on the `detachable' property (*note Detached Extents::).
+this depends on the `detachable' property (*note Detached Extents::.).
 Insertion at the position of a zero-length extent expands the extent if
 both endpoints are closed; goes before the extent if it has the
 `start-open' property; and goes after the extent if it has the
@@ -228,20 +228,20 @@ open, the extent remains in the buffer, moving as necessary.
 position, and then by decreasing end position (this is called the
 "display order").
 
- - Function: extent-start-position extent
+ - Function: extent-start-position EXTENT
      This function returns the start position of EXTENT.
 
- - Function: extent-end-position extent
+ - Function: extent-end-position EXTENT
      This function returns the end position of EXTENT.
 
- - Function: extent-length extent
+ - Function: extent-length EXTENT
      This function returns the length of EXTENT in characters.  If the
      extent is detached, this returns `0'.  If the extent is not
      detached, this is equivalent to
           (- (extent-end-position EXTENT) (extent-start-position EXTENT))
 
- - Function: set-extent-endpoints extent start end &optional
-          buffer-or-string
+ - Function: set-extent-endpoints EXTENT START END &optional
+          BUFFER-OR-STRING
      This function sets the start and end position of EXTENT to START
      and END.  If both are `nil', this is equivalent to `detach-extent'.
 
@@ -262,11 +262,11 @@ Finding Extents
    The following functions provide a simple way of determining the
 extents in a buffer or string.  A number of more sophisticated
 primitives for mapping over the extents in a range of a buffer or string
-are also provided (*note Mapping Over Extents::).  When reading through
+are also provided (*note Mapping Over Extents::.).  When reading through
 this section, keep in mind the way that extents are ordered (*note
-Extent Endpoints::).
+Extent Endpoints::.).
 
- - Function: extent-list &optional buffer-or-string from to flags
+ - Function: extent-list &optional BUFFER-OR-STRING FROM TO FLAGS
      This function returns a list of the extents in BUFFER-OR-STRING.
      BUFFER-OR-STRING defaults to the current buffer if omitted.  FROM
      and TO can be used to limit the range over which extents are
@@ -287,7 +287,7 @@ functions.  To deal with this, functions typically mark their own
 extents by setting a particular property on them.  The following
 function makes it easier to locate those extents.
 
- - Function: extent-at pos &optional object property before at-flag
+ - Function: extent-at POS &optional OBJECT PROPERTY BEFORE AT-FLAG
      This function finds the "smallest" extent (i.e., the last one in
      the display order) at (i.e., overlapping) POS in OBJECT (a buffer
      or string) having PROPERTY set.  OBJECT defaults to the current
@@ -325,12 +325,12 @@ operation, you should probably use `mapcar-extents' or `map-extents',
 or loop using the BEFORE argument to `extent-at', rather than creating
 a loop using `next-extent'.
 
- - Function: next-extent extent
+ - Function: next-extent EXTENT
      Given an extent EXTENT, this function returns the next extent in
      the buffer or string's display order.  If EXTENT is a buffer or
      string, this returns the first extent in the buffer or string.
 
- - Function: previous-extent extent
+ - Function: previous-extent EXTENT
      Given an extent EXTENT, this function returns the previous extent
      in the buffer or string's display order.  If EXTENT is a buffer or
      string, this returns the last extent in the buffer or string.
@@ -346,10 +346,10 @@ called `map-extents'.  You should read through the definition of this
 function to familiarize yourself with the concepts and optional
 arguments involved.  However, in practice you may find it more
 convenient to use the function `mapcar-extents' or to create a loop
-using the `before' argument to `extent-at' (*note Finding Extents::).
+using the `before' argument to `extent-at' (*note Finding Extents::.).
 
- - Function: map-extents function &optional object from to maparg flags
-          property value
+ - Function: map-extents FUNCTION &optional OBJECT FROM TO MAPARG FLAGS
+          PROPERTY VALUE
      This function maps FUNCTION over the extents which overlap a
      region in OBJECT.  OBJECT is normally a buffer or string but could
      be an extent (see below).  The region is normally bounded by
@@ -426,7 +426,7 @@ using the `before' argument to `extent-at' (*note Finding Extents::).
           region.
 
     `negate-in-region'
-          The condition specified by a `*-in-region' flag must _not_
+          The condition specified by a `*-in-region' flag must *not*
           hold for the extent to be considered.
 
      At most one of `all-extents-closed', `all-extents-open',
@@ -445,8 +445,8 @@ using the `before' argument to `extent-at' (*note Finding Extents::).
    If you want to map over extents and accumulate a list of results,
 the following function may be more convenient than `map-extents'.
 
- - Function: mapcar-extents function &optional predicate
-          buffer-or-string from to flags property value
+ - Function: mapcar-extents FUNCTION &optional PREDICATE
+          BUFFER-OR-STRING FROM TO FLAGS PROPERTY VALUE
      This function applies FUNCTION to all extents which overlap a
      region in BUFFER-OR-STRING.  The region is delimited by FROM and
      TO.  FUNCTION is called with one argument, the extent.  A list of
@@ -456,8 +456,8 @@ the following function may be more convenient than `map-extents'.
      VALUE may also be used to control the extents passed to PREDICATE
      or FUNCTION, and have the same meaning as in `map-extents'.
 
- - Function: map-extent-children function &optional object from to
-          maparg flags property value
+ - Function: map-extent-children FUNCTION &optional OBJECT FROM TO
+          MAPARG FLAGS PROPERTY VALUE
      This function is similar to `map-extents', but differs in that:
 
         * It only visits extents which start in the given region.
@@ -470,7 +470,7 @@ the following function may be more convenient than `map-extents'.
           (defun walk-extents (buffer &optional ignore)
             (map-extent-children 'walk-extents buffer))
 
- - Function: extent-in-region-p extent &optional from to flags
+ - Function: extent-in-region-p EXTENT &optional FROM TO FLAGS
      This function returns T if `map-extents' would visit EXTENT if
      called with the given arguments.
 
@@ -497,21 +497,21 @@ from that parent (or from the root ancestor if the parent in turn has a
 parent), and setting a property of the extent actually sets that
 property on the parent.  *Note Extent Parents::.
 
- - Function: extent-property extent property
+ - Function: extent-property EXTENT PROPERTY
      This function returns the value of PROPERTY in EXTENT.  If
      PROPERTY is undefined, `nil' is returned.
 
- - Function: extent-properties extent
+ - Function: extent-properties EXTENT
      This function returns a list of all of EXTENT's properties that do
      not have the value of `nil' (or the default value, for properties
      with predefined meanings).
 
- - Function: set-extent-property extent property value
+ - Function: set-extent-property EXTENT PROPERTY VALUE
      This function sets PROPERTY to VALUE in EXTENT. (If PROPERTY has a
      predefined meaning, only certain values are allowed, and some
      values may be converted to others before being stored.)
 
- - Function: set-extent-properties extent plist
+ - Function: set-extent-properties EXTENT PLIST
      Change some properties of EXTENT.  PLIST is a property list.  This
      is useful to change many extent properties at once.
 
@@ -638,7 +638,7 @@ along with their allowable values.
    The following convenience functions are provided for accessing
 particular properties of an extent.
 
- - Function: extent-face extent
+ - Function: extent-face EXTENT
      This function returns the `face' property of EXTENT.  This might
      also return a list of face names.  Do not modify this list
      directly!  Instead, use `set-extent-face'.
@@ -649,7 +649,7 @@ particular properties of an extent.
      the return value of `extent-face' on the two extents will return
      the identical list.
 
- - Function: extent-mouse-face extent
+ - Function: extent-mouse-face EXTENT
      This function returns the `mouse-face' property of EXTENT.  This
      might also return a list of face names.  Do not modify this list
      directly!  Instead, use `set-extent-mouse-face'.
@@ -657,26 +657,26 @@ particular properties of an extent.
      Note that you can use `eq' to compare lists of faces as returned
      by `extent-mouse-face', just like for `extent-face'.
 
- - Function: extent-priority extent
+ - Function: extent-priority EXTENT
      This function returns the `priority' property of EXTENT.
 
- - Function: extent-keymap extent
+ - Function: extent-keymap EXTENT
      This function returns the `keymap' property of EXTENT.
 
- - Function: extent-begin-glyph-layout extent
+ - Function: extent-begin-glyph-layout EXTENT
      This function returns the `begin-glyph-layout' property of EXTENT,
      i.e. the layout policy associated with the EXTENT's begin glyph.
 
- - Function: extent-end-glyph-layout extent
+ - Function: extent-end-glyph-layout EXTENT
      This function returns the `end-glyph-layout' property of EXTENT,
      i.e. the layout policy associated with the EXTENT's end glyph.
 
- - Function: extent-begin-glyph extent
+ - Function: extent-begin-glyph EXTENT
      This function returns the `begin-glyph' property of EXTENT, i.e.
      the glyph object displayed at the beginning of EXTENT.  If there
      is none, `nil' is returned.
 
- - Function: extent-end-glyph extent
+ - Function: extent-end-glyph EXTENT
      This function returns the `end-glyph' property of EXTENT, i.e. the
      glyph object displayed at the end of EXTENT.  If there is none,
      `nil' is returned.
@@ -684,38 +684,38 @@ particular properties of an extent.
    The following convenience functions are provided for setting
 particular properties of an extent.
 
- - Function: set-extent-priority extent pri
+ - Function: set-extent-priority EXTENT PRI
      This function sets the `priority' property of EXTENT to PRI.
 
- - Function: set-extent-face extent face
+ - Function: set-extent-face EXTENT FACE
      This function sets the `face' property of EXTENT to FACE.
 
- - Function: set-extent-mouse-face extent face
+ - Function: set-extent-mouse-face EXTENT FACE
      This function sets the `mouse-face' property of EXTENT to FACE.
 
- - Function: set-extent-keymap extent keymap
+ - Function: set-extent-keymap EXTENT KEYMAP
      This function sets the `keymap' property of EXTENT to KEYMAP.
      KEYMAP must be either a keymap object, or `nil'.
 
- - Function: set-extent-begin-glyph-layout extent layout
+ - Function: set-extent-begin-glyph-layout EXTENT LAYOUT
      This function sets the `begin-glyph-layout' property of EXTENT to
      LAYOUT.
 
- - Function: set-extent-end-glyph-layout extent layout
+ - Function: set-extent-end-glyph-layout EXTENT LAYOUT
      This function sets the `end-glyph-layout' property of EXTENT to
      LAYOUT.
 
- - Function: set-extent-begin-glyph extent begin-glyph &optional layout
+ - Function: set-extent-begin-glyph EXTENT BEGIN-GLYPH &optional LAYOUT
      This function sets the `begin-glyph' and `glyph-layout' properties
      of EXTENT to BEGIN-GLYPH and LAYOUT, respectively. (LAYOUT
      defaults to `text' if not specified.)
 
- - Function: set-extent-end-glyph extent end-glyph &optional layout
+ - Function: set-extent-end-glyph EXTENT END-GLYPH &optional LAYOUT
      This function sets the `end-glyph' and `glyph-layout' properties
      of EXTENT to END-GLYPH and LAYOUT, respectively. (LAYOUT defaults
      to `text' if not specified.)
 
- - Function: set-extent-initial-redisplay-function extent function
+ - Function: set-extent-initial-redisplay-function EXTENT FUNCTION
      This function sets the `initial-redisplay-function' property of the
      extent to FUNCTION.
 
@@ -734,21 +734,21 @@ this property is not set, the extent becomes a zero-length extent.
 (Zero-length extents with the `detachable' property set behave
 specially.  *Note zero-length extents: Extent Endpoints.)
 
- - Function: detach-extent extent
+ - Function: detach-extent EXTENT
      This function detaches EXTENT from its buffer or string.  If
      EXTENT has the `duplicable' property, its detachment is tracked by
      the undo mechanism.  *Note Duplicable Extents::.
 
- - Function: extent-detached-p extent
+ - Function: extent-detached-p EXTENT
      This function returns `nil' if EXTENT is detached, and `t'
      otherwise.
 
- - Function: copy-extent extent &optional object
+ - Function: copy-extent EXTENT &optional OBJECT
      This function makes a copy of EXTENT.  It is initially detached.
      Optional argument OBJECT defaults to EXTENT's object (normally a
      buffer or string, but could be `nil').
 
- - Function: insert-extent extent &optional start end no-hooks object
+ - Function: insert-extent EXTENT &optional START END NO-HOOKS OBJECT
      This function inserts EXTENT from START to END in OBJECT (a buffer
      or string).  If EXTENT is detached from a different buffer or
      string, or in most cases when EXTENT is already attached, the
@@ -779,20 +779,20 @@ you cannot create an inheritance loop - this is explicitly disallowed.
 
    Parent extents are used to implement the extents over the modeline.
 
- - Function: set-extent-parent extent parent
+ - Function: set-extent-parent EXTENT PARENT
      This function sets the parent of EXTENT to PARENT.  If PARENT is
      `nil', the extent is set to have no parent.
 
- - Function: extent-parent extent
+ - Function: extent-parent EXTENT
      This function return the parents (if any) of EXTENT, or `nil'.
 
- - Function: extent-children extent
+ - Function: extent-children EXTENT
      This function returns a list of the children (if any) of EXTENT.
      The children of an extent are all those extents whose parent is
      that extent.  This function does not recursively trace children of
      children.
 
- - Function: extent-descendants extent
+ - Function: extent-descendants EXTENT
      This function returns a list of all descendants of EXTENT,
      including EXTENT.  This recursively applies `extent-children' to
      any children of EXTENT, until no more children can be found.
@@ -811,12 +811,12 @@ strings, so that kill, yank, and undo commands will restore or copy it.
    * When a string is created using `buffer-substring' or
      `buffer-string', any duplicable extents in the region corresponding
      to the string will be copied into the string (*note Buffer
-     Contents::).  When the string in inserted into a buffer using
+     Contents::.).  When the string in inserted into a buffer using
      `insert', `insert-before-markers', `insert-buffer' or
      `insert-buffer-substring', the extents in the string will be copied
-     back into the buffer (*note Insertion::).  The extents in a string
-     can, of course, be retrieved explicitly using the standard extent
-     primitives over the string.
+     back into the buffer (*note Insertion::.).  The extents in a
+     string can, of course, be retrieved explicitly using the standard
+     extent primitives over the string.
 
    * Similarly, when text is copied or cut into the kill ring, any
      duplicable extents will be remembered and reinserted later when
@@ -874,7 +874,7 @@ highlighted when the mouse passes over it.  Highlighting is accomplished
 by merging the extent's face with the face or faces specified by the
 `mouse-face' property.  The effect is as if a pseudo-extent with the
 `mouse-face' face were inserted after the extent in the display order
-(*note Extent Endpoints::, display order).
+(*note Extent Endpoints::., display order).
 
  - Variable: mouse-highlight-priority
      This variable holds the priority to use when merging in the
@@ -887,13 +887,13 @@ by merging the extent's face with the face or faces specified by the
 extent at a time can be highlighted in this fashion, and any other
 highlighted extent will be de-highlighted.
 
- - Function: highlight-extent extent &optional highlight-p
+ - Function: highlight-extent EXTENT &optional HIGHLIGHT-P
      This function highlights (if HIGHLIGHT-P is non-`nil') or
      de-highlights (if HIGHLIGHT-P is `nil') EXTENT, if EXTENT has the
      `mouse-face' property. (Nothing happens if EXTENT does not have
      the `mouse-face' property.)
 
- - Function: force-highlight-extent extent &optional highlight-p
+ - Function: force-highlight-extent EXTENT &optional HIGHLIGHT-P
      This function is similar to `highlight-extent' but highlights or
      de-highlights the extent regardless of whether it has the
      `mouse-face' property.
@@ -931,7 +931,7 @@ and `top-toolbar-height', is actually a specifier object.  The
 specifier object, in turn, is "instanced" in a particular situation to
 yield the real value of the property in that situation.
 
- - Function: specifierp object
+ - Function: specifierp OBJECT
      This function returns non-`nil' if OBJECT is a specifier.
 
 * Menu:
@@ -941,10 +941,10 @@ yield the real value of the property in that situation.
 				(under user control) in a wide variety
 				of contexts.
 * Specifiers In-Depth::		Gory details about specifier innards.
-* Specifier Instancing::	Instancing means obtaining the ``value'' of
+* Specifier Instancing::	Instancing means obtaining the "value" of
 				a specifier in a particular context.
 * Specifier Types::		Specifiers come in different flavors.
-* Adding Specifications::	Specifications control a specifier's ``value''
+* Adding Specifications::	Specifications control a specifier's "value"
 				by giving conditions under which a
 				particular value is valid.
 * Retrieving Specifications::	Querying a specifier's specifications.
@@ -1058,10 +1058,10 @@ instantiable over that device.  (A null tag set is perfectly valid.)
    The valid device types (normally `x', `tty', and `stream') and
 device classes (normally `color', `grayscale', and `mono') can always
 be used as tags, and match devices of the associated type or class
-(*note Consoles and Devices::).  User-defined tags may be defined, with
-an optional predicate specified.  An application can create its own
-tag, use it to mark all its instantiators, and be fairly confident that
-it will not interfere with other applications that modify the same
+(*note Consoles and Devices::.).  User-defined tags may be defined,
+with an optional predicate specified.  An application can create its
+own tag, use it to mark all its instantiators, and be fairly confident
+that it will not interfere with other applications that modify the same
 specifier - Functions that add a specification to a specifier usually
 only overwrite existing inst-pairs with the same tag set as was given,
 and a particular tag or tag set can be specified when removing
