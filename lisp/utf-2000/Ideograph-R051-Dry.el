@@ -208,6 +208,7 @@
     (korean-ksc5601		. #x4A4F)	; ø»‰—ˆ
     (chinese-cns11643-1		. #x636C)	; ø»’¤£
     (japanese-jisx0208-1990	. #x3434)	; ø½Š’‰
+    (chinese-gb12345		. #x3849)	; å¹¹
     (ideograph-daikanwa		. 09183)	; ø¸‚Ÿ
     (ucs			. #x5E79)	; å¹¹
     ))
