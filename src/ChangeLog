@@ -1,5 +1,20 @@
 2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (Vcharacter_morohashi_daikanwa_table): New
+	variable.
+	(Qmorohashi_daikanwa): New variable.
+	(Fchar_attribute_alist): Use `Vcharacter_morohashi_daikanwa_table'
+	for `morohashi-daikanwa' attribute.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise.
+	(Fdefine_char): Don't setup `morohashi-daikanwa' attribute if it
+	has the same value of `ideograph-daikanwa'.
+	(syms_of_mule_charset): Add new symbol `morohashi-daikanwa'.
+	(vars_of_mule_charset): Setup
+	`Vcharacter_morohashi_daikanwa_table'.
+
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (Fchar_attribute_alist): Add coded-charset
 	attributes.
 	(add_charset_to_list_mapper): Add `key' instead of
