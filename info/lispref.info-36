@@ -1,0 +1,822 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Font Instance Characteristics,  Next: Font Convenience Functions,  Prev: Font Instance Size,  Up: Fonts
+
+Font Instance Characteristics
+-----------------------------
+
+ - Function: font-instance-properties font
+     This function returns the properties (an alist or `nil') of
+     FONT-INSTANCE.
+
+ - Function: x-make-font-bold font &optional device
+     Given an X font specification, this attempts to make a "bold" font.
+     If it fails, it returns `nil'.
+
+ - Function: x-make-font-unbold font &optional device
+     Given an X font specification, this attempts to make a non-bold
+     font.  If it fails, it returns `nil'.
+
+ - Function: x-make-font-italic font &optional device
+     Given an X font specification, this attempts to make an "italic"
+     font.  If it fails, it returns `nil'.
+
+ - Function: x-make-font-unitalic font &optional device
+     Given an X font specification, this attempts to make a non-italic
+     font.  If it fails, it returns `nil'.
+
+ - Function: x-make-font-bold-italic font &optional device
+     Given an X font specification, this attempts to make a
+     "bold-italic" font.  If it fails, it returns `nil'.
+
+
+File: lispref.info,  Node: Font Convenience Functions,  Prev: Font Instance Characteristics,  Up: Fonts
+
+Font Convenience Functions
+--------------------------
+
+ - Function: font-name font &optional domain
+     This function returns the name of the FONT in the specified
+     DOMAIN, if any.  FONT should be a font specifier object and DOMAIN
+     is normally a window and defaults to the selected window if
+     omitted.  This is equivalent to using `specifier-instance' and
+     applying `font-instance-name' to the result.
+
+ - Function: font-truename font &optional domain
+     This function returns the truename of the FONT in the specified
+     DOMAIN, if any.  FONT should be a font specifier object and DOMAIN
+     is normally a window and defaults to the selected window if
+     omitted.  This is equivalent to using `specifier-instance' and
+     applying `font-instance-truename' to the result.
+
+ - Function: font-properties font &optional domain
+     This function returns the properties of the FONT in the specified
+     DOMAIN, if any.  FONT should be a font specifier object and DOMAIN
+     is normally a window and defaults to the selected window if
+     omitted.  This is equivalent to using `specifier-instance' and
+     applying `font-instance-properties' to the result.
+
+
+File: lispref.info,  Node: Colors,  Prev: Fonts,  Up: Faces and Window-System Objects
+
+Colors
+======
+
+* Menu:
+
+* Color Specifiers::		Specifying how a color will appear.
+* Color Instances::		What a color specifier gets instanced as.
+* Color Instance Properties::	Properties of color instances.
+* Color Convenience Functions::	Convenience functions that automatically
+				  instance and retrieve the properties
+				  of a color specifier.
+
+
+File: lispref.info,  Node: Color Specifiers,  Next: Color Instances,  Up: Colors
+
+Color Specifiers
+----------------
+
+ - Function: color-specifier-p object
+     This function returns non-`nil' if OBJECT is a color specifier.
+
+ - Function: make-color-specifier spec-list
+     Return a new `color' specifier object with the given specification
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     a detailed description of how specifiers work.
+
+     Valid instantiators for color specifiers are:
+
+        * A string naming a color (e.g. under X this might be
+          "lightseagreen2" or "#F534B2").
+
+        * A color instance (use that instance directly if the device
+          matches, or use the string that generated it).
+
+        * A vector of no elements (only on TTY's; this means to set no
+          color at all, thus using the "natural" color of the
+          terminal's text).
+
+        * A vector of one or two elements: a face to inherit from, and
+          optionally a symbol naming which property of that face to
+          inherit, either `foreground' or `background' (if omitted,
+          defaults to the same property that this color specifier is
+          used for; if this specifier is not part of a face, the
+          instantiator would not be valid).
+
+ - Function: make-face-boolean-specifier spec-list
+     Return a new `face-boolean' specifier object with the given spec
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     a detailed description of how specifiers work.
+
+     Valid instantiators for face-boolean specifiers are
+
+        * t or nil.
+
+        * A vector of two or three elements: a face to inherit from,
+          optionally a symbol naming the property of that face to
+          inherit from (if omitted, defaults to the same property that
+          this face-boolean specifier is used for; if this specifier is
+          not part of a face, the instantiator would not be valid), and
+          optionally a value which, if non-nil, means to invert the
+          sense of the inherited property.
+
+
+
+File: lispref.info,  Node: Color Instances,  Next: Color Instance Properties,  Prev: Color Specifiers,  Up: Colors
+
+Color Instances
+---------------
+
+   A "color-instance object" is an object describing the way a color
+specifier is instanced in a particular domain.  Functions such as
+`face-background-instance' return a color-instance object.  For example,
+
+     (face-background-instance 'default (next-window))
+         => #<color-instance moccasin 47=(FFFF,E4E4,B5B5) 0x678d>
+
+   The color-instance object returned describes the way the background
+color of the `default' face is displayed in the next window after the
+selected one.
+
+ - Function: color-instance-p object
+     This function returns non-`nil' if OBJECT is a color-instance.
+
+
+File: lispref.info,  Node: Color Instance Properties,  Next: Color Convenience Functions,  Prev: Color Instances,  Up: Colors
+
+Color Instance Properties
+-------------------------
+
+ - Function: color-instance-name color-instance
+     This function returns the name used to allocate COLOR-INSTANCE.
+
+ - Function: color-instance-rgb-components color-instance
+     This function returns a three element list containing the red,
+     green, and blue color components of COLOR-INSTANCE.
+
+          (color-instance-rgb-components
+            (face-background-instance 'default (next-window)))
+              => (65535 58596 46517)
+
+
+File: lispref.info,  Node: Color Convenience Functions,  Prev: Color Instance Properties,  Up: Colors
+
+Color Convenience Functions
+---------------------------
+
+ - Function: color-name color &optional domain
+     This function returns the name of the COLOR in the specified
+     DOMAIN, if any.  COLOR should be a color specifier object and
+     DOMAIN is normally a window and defaults to the selected window if
+     omitted.  This is equivalent to using `specifier-instance' and
+     applying `color-instance-name' to the result.
+
+ - Function: color-rgb-components color &optional domain
+     This function returns the RGB components of the COLOR in the
+     specified DOMAIN, if any.  COLOR should be a color specifier
+     object and DOMAIN is normally a window and defaults to the
+     selected window if omitted.  This is equivalent to using
+     `specifier-instance' and applying `color-instance-rgb-components'
+     to the result.
+
+          (color-rgb-components (face-background 'default (next-window)))
+              => (65535 58596 46517)
+
+
+File: lispref.info,  Node: Glyphs,  Next: Annotations,  Prev: Faces and Window-System Objects,  Up: Top
+
+Glyphs
+******
+
+   A "glyph" is an object that is used for pixmaps, widgets and images
+of all sorts, as well as for things that "act" like pixmaps, such as
+non-textual strings ("annotations") displayed in a buffer or in the
+margins.  It is used in begin-glyphs and end-glyphs attached to
+extents, marginal and textual annotations, overlay arrows
+(`overlay-arrow-*' variables), toolbar buttons, mouse pointers, frame
+icons, truncation and continuation markers, and the like. (Basically,
+any place there is an image or something that acts like an image, there
+will be a glyph object representing it.)
+
+   The actual image that is displayed (as opposed to its position or
+clipping) is defined by an "image specifier" object contained within
+the glyph.  The separation between an image specifier object and a
+glyph object is made because the glyph includes other properties than
+just the actual image: e.g. the face it is displayed in (for text
+images), the alignment of the image (when it is in a buffer), etc.
+
+ - Function: glyphp object
+     This function returns `t' if OBJECT is a glyph.
+
+* Menu:
+
+* Glyph Functions::	Functions for working with glyphs.
+* Images::		Graphical images displayed in a frame.
+* Glyph Types::         Each glyph has a particular type.
+* Mouse Pointer::	Controlling the mouse pointer.
+* Redisplay Glyphs::    Glyphs controlling various redisplay functions.
+* Subwindows::          Inserting an externally-controlled subwindow
+                          into a buffer.
+
+
+File: lispref.info,  Node: Glyph Functions,  Next: Images,  Up: Glyphs
+
+Glyph Functions
+===============
+
+* Menu:
+
+* Creating Glyphs::	Creating new glyphs.
+* Glyph Properties::	Accessing and modifying a glyph's properties.
+* Glyph Convenience Functions::
+			Convenience functions for accessing particular
+			  properties of a glyph.
+* Glyph Dimensions::    Determining the height, width, etc. of a glyph.
+
+
+File: lispref.info,  Node: Creating Glyphs,  Next: Glyph Properties,  Up: Glyph Functions
+
+Creating Glyphs
+---------------
+
+ - Function: make-glyph &optional spec-list type
+     This function creates a new glyph object of type TYPE.
+
+     SPEC-LIST is used to initialize the glyph's image.  It is
+     typically an image instantiator (a string or a vector; *Note Image
+     Specifiers::), but can also be a list of such instantiators (each
+     one in turn is tried until an image is successfully produced), a
+     cons of a locale (frame, buffer, etc.) and an instantiator, a list
+     of such conses, or any other form accepted by
+     `canonicalize-spec-list'.  *Note Specifiers::, for more
+     information about specifiers.
+
+     TYPE specifies the type of the glyph, which specifies in which
+     contexts the glyph can be used, and controls the allowable image
+     types into which the glyph's image can be instantiated.  TYPE
+     should be one of `buffer' (used for glyphs in an extent, the
+     modeline, the toolbar, or elsewhere in a buffer), `pointer' (used
+     for the mouse-pointer), or `icon' (used for a frame's icon), and
+     defaults to `buffer'.  *Note Glyph Types::.
+
+     A glyph in XEmacs does *NOT* refer to a single unit of textual
+     display (the XEmacs term for this is "rune"), but rather is an
+     object encapsulating a graphical element, such as an image or
+     widget (an element such as a button or text field; "widget" is the
+     term for this under X Windows, and it's called a "control" under
+     MS Windows).  This graphical element could appear in a buffer, a
+     margin, a gutter, or a toolbar, or as a mouse pointer or an icon,
+     for example.
+
+     Creating a glyph using `make-glyph' does not specify _where_ the
+     glyph will be used, but it does specify _what_ the glyph will look
+     like.  In particular, SPEC-LIST is used to specify this, and it's
+     used to initialize the glyph's `image' property, which is an image
+     specifier. (Note that "image" as used in the context of a glyph's
+     `image' property or in the terms "image specifier", "image
+     instantiator", or "image instance" does not refer to what people
+     normally think of as an image (which in XEmacs is called a
+     "pixmap"), but to any graphical element--a pixmap, a widget, or
+     even a block of text, when used in the places that call for a
+     glyph.)  The format of the SPEC-LIST is typically an image
+     instantiator (a string or a vector; *Note Image Specifiers::), but
+     can also be a list of such instantiators (each one in turn is
+     tried until an image is successfully produced), a cons of a locale
+     (frame, buffer, etc.)  and an instantiator, a list of such conses,
+     or any other form accepted by `canonicalize-spec-list'. *Note
+     Specifiers::, for more information about specifiers.
+
+     If you're not familiar with specifiers, you should be in order to
+     understand how glyphs work.  The clearest introduction to
+     specifiers is in the Lispref manual, available under Info. (Choose
+     Help->Info->Info Contents on the menubar or type C-h i.) You can
+     also see `make-specifier' for a capsule summary.  What's important
+     to keep in mind is that a specifier lets you set a different value
+     for any particular buffer, window, frame, device, or console.
+     This allows for a great deal of flexibility; in particular, only
+     one global glyph needs to exist for a particular purpose (e.g. the
+     icon used to represent an iconified frame, the mouse pointer used
+     over particular areas of a frame, etc.), and in these cases you do
+     not create your own glyph, but rather modify the existing one.
+
+     As well as using SPEC-LIST to initialize the glyph, you can set
+     specifications using `set-glyph-image'.  Note that, due to a
+     possibly questionable historical design decision, a glyph itself
+     is not actually a specifier, but rather is an object containing an
+     image specifier (as well as other, seldom-used properties).
+     Therefore, you cannot set or access specifications for the glyph's
+     image by directly using `set-specifier', `specifier-instance' or
+     the like on the glyph; instead use them on `(glyph-image GLYPH)'
+     or use the convenience functions `set-glyph-image',
+     `glyph-image-instance', and `glyph-image'.
+
+     Once you have created a glyph, you specify where it will be used as
+     follows:
+
+        * To insert a glyph into a buffer, create an extent in the
+          buffer and then use `set-extent-begin-glyph' or
+          `set-extent-end-glyph' to set a glyph to be displayed at the
+          corresponding edge of the extent. (It is common to create
+          zero-width extents for this purpose.)
+
+        * To insert a glyph into the left or right margin of a buffer,
+          first make sure the margin is visible by setting a value for
+          the specifiers `left-margin-width' or `right-margin-width'.
+          (Not strictly necessary when using margin glyphs with layout
+          policy `whitespace'.) Then follow the same procedure above
+          for inserting a glyph in a buffer, and then set a non-default
+          layout policy for the glyph using
+          `set-extent-begin-glyph-layout' or
+          `set-extent-end-glyph-layout'.  Alternatively, use the
+          high-level annotations API (see `make-annotation'). (In point
+          of fact, you can also use the annotations API for glyphs in a
+          buffer, by setting a layout policy of `text'.)
+
+        * To insert a glyph into the modeline, just put the glyph
+          directly as one of the modeline elements. (Unfortunately you
+          can't currently put a begin glyph or end glyph on one of the
+          modeline extents--they're ignored.)
+
+        * To insert a glyph into a toolbar, specify it as part of a
+          toolbar instantiator (typically set on the specifier
+          `default-toolbar').  See `default-toolbar' for more
+          information. (Note that it is standard practice to use a
+          symbol in place of the glyph list in the toolbar
+          instantiator; the symbol is evalled to get the glyph list.
+          This facilitates both creating the toolbar instantiator and
+          modifying individual glyphs in a toolbar later on.  For
+          example, you can change the way that the Mail toolbar button
+          looks by modifying the value of the variable
+          `toolbar-mail-icon' (in general, `toolbar-*-icon') and then
+          calling `(set-specifier-dirty-flag default-toolbar)'.  (####
+          Unfortunately this doesn't quite work the way it should; the
+          change will appear in new frames, but not existing ones.
+
+        * To insert a glyph into a gutter, create or modify a gutter
+          instantiator (typically set on the specifier
+          `default-gutter').  Gutter instantiators consist of strings
+          or lists of strings, so to insert a glyph, create an extent
+          over the string, and use `set-extent-begin-glyph' or
+          `set-extent-end-glyph' to set a glyph to be displayed at the
+          corresponding edge of the extent, just like for glyphs in a
+          buffer.
+
+        * To use a glyph as the icon for a frame, you do not actually
+          create a new glyph; rather, you change the specifications for
+          the existing glyph `frame-icon-glyph'. (Remember that,
+          because of the specifier nature of glyphs, you can set
+          different values for any particular buffer or frame.)
+
+        * To use a glyph as the mouse pointer, in general you do not
+          create a new glyph, but rather you change the specifications
+          of various existing glyphs, such as `text-pointer-glyph' for
+          the pointer used over text, `modeline-pointer-glyph' for the
+          pointer used over the modeline, etc.  Do an apropos over
+          `*-pointer-glyph' to find all of them. (Note also that you
+          can temporarily set the mouse pointer to some specific shape
+          by using `set-frame-pointer', which takes an image instace,
+          as obtained from calling `glyph-image-instance' on a glyph of
+          type `pointer' - either one of the above-mentioned variables
+          or one you created yourself.  (See below for what it means to
+          create a glyph of type `pointer'.)  This pointer will last
+          only until the next mouse motion event is processed or
+          certain other things happen, such as creating or deleting a
+          window. (In fact, the above-mentioned pointer glyph variables
+          are implemented as part of the default handler for mouse
+          motion events.  If you want to customize this behavior, take a
+          look at `mode-motion-hook', or `mouse-motion-handler' if you
+          really want to get low-level.)
+
+        * To use a glyph to control the shape of miscellaneous
+          redisplay effects such as the truncation and continuation
+          markers, set the appropriate existing glyph variables, as for
+          icons and pointers above.  See `continuation-glyph',
+          `control-arrow-glyph', `hscroll-glyph',
+          `invisible-text-glyph', `octal-escape-glyph', and
+          `truncation-glyph'.  See also `overlay-arrow-string', an odd
+          redisplay leftover which can be set to a glyph you created,
+          and will cause the glyph to be displayed on top of the text
+          position specified in the marker stored in
+          `overlay-arrow-position'.
+
+        * To use a glyph in a display table (i.e. to control the
+          appearance of any individual character), create the
+          appropriate character glyphs and then set a specification for
+          the specifier `current-display-table', which controls the
+          appearance of characters.  You can also set an overriding
+          display table for use with text displayed in a particular
+          face; see `set-face-display-table' and `make-display-table'.
+          #### Note: Display tables do not currently support general
+          Mule characters.  They will be overhauled at some point to
+          support this and to provide other features required under
+          Mule.
+
+        * To use a glyph as the background pixmap of a face: Note that
+          the background pixmap of a face is actually an image
+          specifier - probably the only place in XEmacs where an image
+          specifier occurs outside of a glyph.  Similarly to how the
+          glyph's image specifier works, you don't create your own
+          image specifier, but rather add specifications to the
+          existing one (using `set-face-background-pixmap').  Note that
+          the image instance that is generated in order to actually
+          display the background pixmap is of type `mono-pixmap',
+          meaning that it's a two-color image and the foreground and
+          background of the image get filled in with the corresponding
+          colors from the face.
+
+     It is extremely rare that you will ever have to specify a value for
+     TYPE, which should be one of `buffer' (used for glyphs in an
+     extent, the modeline, the toolbar, or elsewhere in a buffer),
+     `pointer' (used for the mouse-pointer), or `icon' (used for a
+     frame's icon), and defaults to `buffer'.  The only cases where it
+     needs to be specified is when creating icon or pointer glyphs, and
+     in both cases the necessary glyphs have already been created at
+     startup and are accessed through the appropriate variables, e.g.
+     `text-pointer-glyph' (or in general, `*-pointer-glyph') and
+     `frame-icon-glyph'.  *Note Glyph Types::.
+
+ - Function: make-glyph-internal &optional type
+     This function creates a new, uninitialized glyph of type TYPE.
+
+ - Function: make-pointer-glyph &optional spec-list
+     Return a new `pointer-glyph' object with the specification list
+     SPEC-LIST.  This function is equivalent to calling `make-glyph'
+     with a TYPE of `pointer'.
+
+     It is extremely unlikely that you will ever need to create a
+     pointer glyph.  Instead, you probably want to be calling
+     `set-glyph-image' on an existing glyph, e.g. `text-pointer-glyph'.
+
+ - Function: make-icon-glyph &optional spec-list
+     Return a new `pointer-glyph' object with the specification list
+     SPEC-LIST.  This function is equivalent to calling `make-glyph'
+     with a TYPE of `icon'.
+
+     It is extremely unlikely that you will ever need to create a
+     pointer glyph.  Instead, you probably want to be calling
+     `set-glyph-image' on an existing glyph, e.g. `text-pointer-glyph'.
+
+
+File: lispref.info,  Node: Glyph Properties,  Next: Glyph Convenience Functions,  Prev: Creating Glyphs,  Up: Glyph Functions
+
+Glyph Properties
+----------------
+
+   Each glyph has a list of properties, which control all of the
+aspects of the glyph's appearance.  The following symbols have
+predefined meanings:
+
+`image'
+     The image used to display the glyph.
+
+`baseline'
+     Percent above baseline that glyph is to be displayed.  Only for
+     glyphs displayed inside of a buffer.
+
+`contrib-p'
+     Whether the glyph contributes to the height of the line it's on.
+     Only for glyphs displayed inside of a buffer.
+
+`face'
+     Face of this glyph (_not_ a specifier).
+
+ - Function: set-glyph-property glyph property value &optional locale
+          tag-set how-to-add
+     This function changes a property of a GLYPH.
+
+     For built-in properties, the actual value of the property is a
+     specifier and you cannot change this; but you can change the
+     specifications within the specifier, and that is what this
+     function will do.  For user-defined properties, you can use this
+     function to either change the actual value of the property or, if
+     this value is a specifier, change the specifications within it.
+
+     If PROPERTY is a built-in property, the specifications to be added
+     to this property can be supplied in many different ways:
+
+        * If VALUE is a simple instantiator (e.g. a string naming a
+          pixmap filename) or a list of instantiators, then the
+          instantiator(s) will be added as a specification of the
+          property for the given LOCALE (which defaults to `global' if
+          omitted).
+
+        * If VALUE is a list of specifications (each of which is a cons
+          of a locale and a list of instantiators), then LOCALE must be
+          `nil' (it does not make sense to explicitly specify a locale
+          in this case), and specifications will be added as given.
+
+        * If VALUE is a specifier (as would be returned by
+          `glyph-property' if no LOCALE argument is given), then some
+          or all of the specifications in the specifier will be added
+          to the property.  In this case, the function is really
+          equivalent to `copy-specifier' and LOCALE has the same
+          semantics (if it is a particular locale, the specification
+          for the locale will be copied; if a locale type,
+          specifications for all locales of that type will be copied;
+          if `nil' or `all', then all specifications will be copied).
+
+     HOW-TO-ADD should be either `nil' or one of the symbols `prepend',
+     `append', `remove-tag-set-prepend', `remove-tag-set-append',
+     `remove-locale', `remove-locale-type', or `remove-all'.  See
+     `copy-specifier' and `add-spec-to-specifier' for a description of
+     what each of these means.  Most of the time, you do not need to
+     worry about this argument; the default behavior usually is fine.
+
+     In general, it is OK to pass an instance object (e.g. as returned
+     by `glyph-property-instance') as an instantiator in place of an
+     actual instantiator.  In such a case, the instantiator used to
+     create that instance object will be used (for example, if you set
+     a font-instance object as the value of the `font' property, then
+     the font name used to create that object will be used instead).
+     If some cases, however, doing this conversion does not make sense,
+     and this will be noted in the documentation for particular types
+     of instance objects.
+
+     If PROPERTY is not a built-in property, then this function will
+     simply set its value if LOCALE is `nil'.  However, if LOCALE is
+     given, then this function will attempt to add VALUE as the
+     instantiator for the given LOCALE, using `add-spec-to-specifier'.
+     If the value of the property is not a specifier, it will
+     automatically be converted into a `generic' specifier.
+
+ - Function: glyph-property glyph property &optional locale
+     This function returns GLYPH's value of the given PROPERTY.
+
+     If LOCALE is omitted, the GLYPH's actual value for PROPERTY will
+     be returned.  For built-in properties, this will be a specifier
+     object of a type appropriate to the property (e.g. a font or color
+     specifier).  For other properties, this could be anything.
+
+     If LOCALE is supplied, then instead of returning the actual value,
+     the specification(s) for the given locale or locale type will be
+     returned.  This will only work if the actual value of PROPERTY is
+     a specifier (this will always be the case for built-in properties,
+     but may or may not apply to user-defined properties).  If the
+     actual value of PROPERTY is not a specifier, this value will
+     simply be returned regardless of LOCALE.
+
+     The return value will be a list of instantiators (e.g. vectors
+     specifying pixmap data), or a list of specifications, each of
+     which is a cons of a locale and a list of instantiators.
+     Specifically, if LOCALE is a particular locale (a buffer, window,
+     frame, device, or `global'), a list of instantiators for that
+     locale will be returned.  Otherwise, if LOCALE is a locale type
+     (one of the symbols `buffer', `window', `frame', or `device'), the
+     specifications for all locales of that type will be returned.
+     Finally, if LOCALE is `all', the specifications for all locales of
+     all types will be returned.
+
+     The specifications in a specifier determine what the value of
+     PROPERTY will be in a particular "domain" or set of circumstances,
+     which is typically a particular Emacs window along with the buffer
+     it contains and the frame and device it lies within.  The value is
+     derived from the instantiator associated with the most specific
+     locale (in the order buffer, window, frame, device, and `global')
+     that matches the domain in question.  In other words, given a
+     domain (i.e. an Emacs window, usually), the specifier for PROPERTY
+     will first be searched for a specification whose locale is the
+     buffer contained within that window; then for a specification
+     whose locale is the window itself; then for a specification whose
+     locale is the frame that the window is contained within; etc.  The
+     first instantiator that is valid for the domain (usually this
+     means that the instantiator is recognized by the device [i.e. the
+     X server or TTY device] that the domain is on).  The function
+     `glyph-property-instance' actually does all this, and is used to
+     determine how to display the glyph.
+
+ - Function: glyph-property-instance glyph property &optional domain
+          default no-fallback
+     This function returns the instance of GLYPH's PROPERTY in the
+     specified DOMAIN.
+
+     Under most circumstances, DOMAIN will be a particular window, and
+     the returned instance describes how the specified property
+     actually is displayed for that window and the particular buffer in
+     it.  Note that this may not be the same as how the property
+     appears when the buffer is displayed in a different window or
+     frame, or how the property appears in the same window if you
+     switch to another buffer in that window; and in those cases, the
+     returned instance would be different.
+
+     The returned instance is an image-instance object, and you can
+     query it using the appropriate image instance functions.  For
+     example, you could use `image-instance-depth' to find out the
+     depth (number of color planes) of a pixmap displayed in a
+     particular window.  The results might be different from the
+     results you would get for another window (perhaps the user
+     specified a different image for the frame that window is on; or
+     perhaps the same image was specified but the window is on a
+     different X server, and that X server has different color
+     capabilities from this one).
+
+     DOMAIN defaults to the selected window if omitted.
+
+     DOMAIN can be a frame or device, instead of a window.  The value
+     returned for such a domain is used in special circumstances when a
+     more specific domain does not apply; for example, a frame value
+     might be used for coloring a toolbar, which is conceptually
+     attached to a frame rather than a particular window.  The value is
+     also useful in determining what the value would be for a
+     particular window within the frame or device, if it is not
+     overridden by a more specific specification.
+
+     If PROPERTY does not name a built-in property, its value will
+     simply be returned unless it is a specifier object, in which case
+     it will be instanced using `specifier-instance'.
+
+     Optional arguments DEFAULT and NO-FALLBACK are the same as in
+     `specifier-instance'.  *Note Specifiers::.
+
+ - Function: remove-glyph-property glyph property &optional locale
+          tag-set exact-p
+     This function removes a property from a glyph.  For built-in
+     properties, this is analogous to `remove-specifier'.  *Note
+     remove-specifier-p: Specifiers, for the meaning of the LOCALE,
+     TAG-SET, and EXACT-P arguments.
+
+
+File: lispref.info,  Node: Glyph Convenience Functions,  Next: Glyph Dimensions,  Prev: Glyph Properties,  Up: Glyph Functions
+
+Glyph Convenience Functions
+---------------------------
+
+   The following functions are provided for working with specific
+properties of a glyph.  Note that these are exactly like calling the
+general functions described above and passing in the appropriate value
+for PROPERTY.
+
+   Remember that if you want to determine the "value" of a specific
+glyph property, you probably want to use the `*-instance' functions.
+For example, to determine whether a glyph contributes to its line
+height, use `glyph-contrib-p-instance', not `glyph-contrib-p'. (The
+latter will return a boolean specifier or a list of specifications, and
+you probably aren't concerned with these.)
+
+ - Function: glyph-image glyph &optional locale
+     This function is equivalent to calling `glyph-property' with a
+     property of `image'.  The return value will be an image specifier
+     if LOCALE is `nil' or omitted; otherwise, it will be a
+     specification or list of specifications.
+
+ - Function: set-glyph-image glyph spec &optional locale tag-set
+          how-to-add
+     This function is equivalent to calling `set-glyph-property' with a
+     property of `image'.
+
+ - Function: glyph-image-instance glyph &optional domain default
+          no-fallback
+     This function returns the instance of GLYPH's image in the given
+     DOMAIN, and is equivalent to calling `glyph-property-instance'
+     with a property of `image'.  The return value will be an image
+     instance.
+
+     Normally DOMAIN will be a window or `nil' (meaning the selected
+     window), and an instance object describing how the image appears
+     in that particular window and buffer will be returned.
+
+ - Function: glyph-contrib-p glyph &optional locale
+     This function is equivalent to calling `glyph-property' with a
+     property of `contrib-p'.  The return value will be a boolean
+     specifier if LOCALE is `nil' or omitted; otherwise, it will be a
+     specification or list of specifications.
+
+ - Function: set-glyph-contrib-p glyph spec &optional locale tag-set
+          how-to-add
+     This function is equivalent to calling `set-glyph-property' with a
+     property of `contrib-p'.
+
+ - Function: glyph-contrib-p-instance glyph &optional domain default
+          no-fallback
+     This function returns whether the glyph contributes to its line
+     height in the given DOMAIN, and is equivalent to calling
+     `glyph-property-instance' with a property of `contrib-p'.  The
+     return value will be either `nil' or `t'. (Normally DOMAIN will be
+     a window or `nil', meaning the selected window.)
+
+ - Function: glyph-baseline glyph &optional locale
+     This function is equivalent to calling `glyph-property' with a
+     property of `baseline'.  The return value will be a specifier if
+     LOCALE is `nil' or omitted; otherwise, it will be a specification
+     or list of specifications.
+
+ - Function: set-glyph-baseline glyph spec &optional locale tag-set
+          how-to-add
+     This function is equivalent to calling `set-glyph-property' with a
+     property of `baseline'.
+
+ - Function: glyph-baseline-instance glyph &optional domain default
+          no-fallback
+     This function returns the instance of GLYPH's baseline value in
+     the given DOMAIN, and is equivalent to calling
+     `glyph-property-instance' with a property of `baseline'.  The
+     return value will be an integer or `nil'.
+
+     Normally DOMAIN will be a window or `nil' (meaning the selected
+     window), and an instance object describing the baseline value
+     appears in that particular window and buffer will be returned.
+
+ - Function: glyph-face glyph
+     This function returns the face of GLYPH. (Remember, this is not a
+     specifier, but a simple property.)
+
+ - Function: set-glyph-face glyph face
+     This function changes the face of GLYPH to FACE.
+
+
+File: lispref.info,  Node: Glyph Dimensions,  Prev: Glyph Convenience Functions,  Up: Glyph Functions
+
+Glyph Dimensions
+----------------
+
+ - Function: glyph-width glyph &optional window
+     This function returns the width of GLYPH on WINDOW.  This may not
+     be exact as it does not take into account all of the context that
+     redisplay will.
+
+ - Function: glyph-ascent glyph &optional window
+     This function returns the ascent value of GLYPH on WINDOW.  This
+     may not be exact as it does not take into account all of the
+     context that redisplay will.
+
+ - Function: glyph-descent glyph &optional window
+     This function returns the descent value of GLYPH on WINDOW.  This
+     may not be exact as it does not take into account all of the
+     context that redisplay will.
+
+ - Function: glyph-height glyph &optional window
+     This function returns the height of GLYPH on WINDOW.  (This is
+     equivalent to the sum of the ascent and descent values.)  This may
+     not be exact as it does not take into account all of the context
+     that redisplay will.
+
+
+File: lispref.info,  Node: Images,  Next: Glyph Types,  Prev: Glyph Functions,  Up: Glyphs
+
+Images
+======
+
+* Menu:
+
+* Image Specifiers::		Specifying how an image will appear.
+* Image Instantiator Conversion::
+				Conversion is applied to image instantiators
+				  at the time they are added to an
+				  image specifier or at the time they
+				  are passed to `make-image-instance'.
+* Image Instances::		What an image specifier gets instanced as.
+

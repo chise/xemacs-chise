@@ -1,0 +1,1231 @@
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* XEmacs: (xemacs).		XEmacs Editor.
+END-INFO-DIR-ENTRY
+
+   This file documents the XEmacs editor.
+
+   Copyright (C) 1985, 1986, 1988 Richard M. Stallman.  Copyright (C)
+1991, 1992, 1993, 1994 Lucid, Inc.  Copyright (C) 1993, 1994 Sun
+Microsystems, Inc.  Copyright (C) 1995 Amdahl Corporation.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the sections entitled "The GNU Manifesto", "Distribution" and "GNU
+General Public License" are included exactly as in the original, and
+provided that the entire resulting derived work is distributed under the
+terms of a permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the sections entitled "The GNU Manifesto",
+"Distribution" and "GNU General Public License" may be included in a
+translation approved by the author instead of in the original English.
+
+
+File: xemacs.info,  Node: Using Packages,  Next: Building Packages,  Prev: Package Terminology,  Up: Packages
+
+Getting Started
+---------------
+
+   When you first download XEmacs 21, you will usually first grab the
+"core distribution", a file called `xemacs-21.0.tar.gz'. (Replace the
+21.0 by the current version number.)  The core distribution contains
+the sources of XEmacs and a minimal set of Emacs Lisp files, which are
+in the subdirectory named `lisp'.  This subdirectory used to contain
+all Emacs Lisp files distributed with XEmacs.  Now, to conserve disk
+space, most non-essential packages were made optional.
+
+Choosing the Packages You Need
+------------------------------
+
+   The available packages can currently be found in the same ftp
+directory where you grabbed the core distribution from, and are located
+in the subdirectory `packages/binary-packages'.  Package file names
+follow the naming convention `<package-name>-<version>-pkg.tar.gz'.
+
+   If you have EFS *Note (EFS)::, packages can be installed over the
+network.  Alternatively, if you have copies of the packages locally,
+you can install packages from a local disk or CDROM.
+
+   The file `etc/PACKAGES' in the core distribution contains a list of
+the packages available at the time of the XEmacs release.  Packages are
+also listed on the `Options' menu under:
+
+             Options->Customize->Emacs->Packages
+
+   However, don't select any of these menu picks unless you actually
+want to install the given package (and have properly configured your
+system to do so).
+
+   You can also get a list of available packages, and whether or not
+they are installed, using the visual package browser and installer.
+You can access it via the menus:
+
+             Options->Manage Packages->List & Install
+
+   Or, you can get to it via the keyboard:
+
+     M-x pui-list-packages
+
+   Hint to system administrators of multi-user systems: it might be a
+good idea to install all packages and not interfere with the wishes of
+your users.
+
+   If you can't find which package provides the feature you require, try
+using the `package-get-package-provider' function. Eg., if you know
+that you need `thingatpt', type:
+
+     M-x package-get-package-provider RET thingatpt
+
+   which will return something like (fsf-compat "1.06"). You can the use
+one of the methods above for installing the package you want.
+
+XEmacs and Installing Packages
+------------------------------
+
+   Normally, packages are installed over the network, using EFS *Note
+(EFS)::.  However, you may not have network access, or you may already
+have some or all of the packages on a local disk, such as a CDROM.  If
+you want to install from a local disk, you must first tell XEmacs where
+to find the package binaries.  This is done by adding a line like the
+following to your `.emacs' file:
+
+     (setq package-get-remote (cons (list nil "/my/path/to/package/binaries")
+                                    package-get-remote))
+
+   Here, you'd change `/my/path/to/package/binaries' to be the path to
+your local package binaries.  Next, restart XEmacs, and you're ready to
+go (advanced users can just re-evaluate the sexp).
+
+   If you are installing from a temporary, one-time directory, you can
+also add these directory names to `package-get-remote' using:
+
+             M-x pui-add-install-directory
+
+   Note, however, that any directories added using this function are not
+saved; this information will be lost when you quit XEmacs.
+
+   If you're going to install over the network, you only have to insure
+that EFS *Note (EFS):: works, and that it can get outside a firewall, if
+you happen to be behind one.  You shouldn't have to do anything else;
+XEmacs already knows where to go. However you can add your own mirrors
+to this list. See `package-get-remote'.
+
+   The easiest way to install a package is to use the visual package
+browser and installer, using the menu pick:
+
+             Options->Manage Packages->List & Install
+   or
+             Options->Manage Packages->Using Custom->Select-> ...
+
+   You can also access it using the keyboard:
+
+     M-x pui-list-packages
+
+   The visual package browser will then display a list of all packages.
+Help information will be displayed at the very bottom of the buffer; you
+may have to scroll down to see it.  You can also press `?' to get the
+same help.  From this buffer, you can tell the package status by the
+character in the first column:
+
+`-'
+     The package has not been installed.
+
+`*'
+     The package has been installed, but a newer version is available.
+     The current version is out-of-date.
+
+`+'
+     The package has been marked for installation/update.
+
+   If there is no character in the first column, the package has been
+installed and is up-to-date.
+
+   From here, you can select or unselect packages for installation using
+the <RET> key, the `Mouse-2' button or selecting "Select" from the
+(Popup) Menu.  Once you've finished selecting the packages, you can
+press the `x' key (or use the menu) to actually install the packages.
+Note that you will have to restart XEmacs for XEmacs to recognize any
+new packages.
+
+   Key summary:
+
+`?'
+     Display simple help.
+
+`<RET>'
+`<Mouse-2>'
+     Toggle between selecting and unselecting a package for
+     installation.
+
+`x'
+     Install selected packages.
+
+`<SPC>'
+     View, in the minibuffer, additional information about the package,
+     such as the package date (not the build date) and the package
+     author.  Moving the mouse over a package name will also do the
+     same thing.
+
+`v'
+     Toggle between verbose and non-verbose package display.
+
+`g'
+     Refresh the package display.
+
+`q'
+     Kill the package buffer.
+
+   Moving the mouse over a package will also cause additional
+information about the package to be displayed in the minibuffer.
+
+Other package installation interfaces
+-------------------------------------
+
+   For an alternative package interface, you can select packages from
+the customize menus, under:
+
+             Options->Customize->Emacs->Packages-> ...
+   or
+             Options->Manage Packages->Using Custom->Select-> ...
+
+   Set their state to on, and then do:
+
+             Options->Manage Packages->Using Custom->Update Packages
+
+   This will automatically retrieve the packages you have selected from
+the XEmacs ftp site or your local disk, and install them into XEmacs.
+Additionally it will update any packages you already have installed to
+the newest version.  Note that if a package is newly installed you will
+have to restart XEmacs for the change to take effect.
+
+   You can also install packages using a semi-manual interface:
+
+     M-x package-get-all <return>
+
+   Enter the name of the package (e.g., `prog-modes'), and XEmacs will
+search for the latest version (as listed in the lisp file
+`lisp/package-get-base.el'), and install it and any packages that it
+depends upon.
+
+Manual Binary Package Installation
+----------------------------------
+
+   Pre-compiled, binary packages can be installed in either a system
+package directory (this is determined when XEmacs is compiled), or in
+one of the following subdirectories of your `$HOME' directory:
+
+     ~/.xemacs/mule-packages
+     ~/.xemacs/xemacs-packages
+
+   Packages in the former directory will only be found by a Mule-enabled
+XEmacs.
+
+   XEmacs does not have to be running to install binary packages,
+although XEmacs will not know about any newly-installed packages until
+you restart XEmacs.  Note, however, that installing a newer version of a
+package while XEmacs is running could cause strange errors in XEmacs;
+it's best to exit XEmacs before upgrading an existing package.
+
+   To install binary packages manually:
+
+  1. Download the package(s) that you want to install.  Each binary
+     package will typically be a gzip'd tarball.
+
+  2. Decide where to install the packages: in the system package
+     directory, or in `~/.xemacs/mule-packages' or
+     `~/.xemacs/xemacs-packages', respectively.  If you want to install
+     the packages in the system package directory, make sure you can
+     write into that directory.  If you want to install in your `$HOME'
+     directory, create the directory, `~/.xemacs/mule-packages' or
+     `~/.xemacs/xemacs-packages', respectively.
+
+  3. Next, `cd' to the directory under which you want to install the
+     package(s).
+
+  4. From this directory, uncompress and extract each of the gzip'd
+     tarballs that you downloaded in step 1.  Unix and Cygnus cygwin
+     users will typically do this using the commands:
+
+                  gunzip < package.tar.gz | tar xvf -
+
+     Above, replace `package.tar.gz' with the filename of the package
+     that you downloaded in step 1.
+
+     Of course, if you use GNU `tar', you could also use:
+
+                  tar xvzf package.tar.gz
+
+  5. That's it.  Quit and restart XEmacs to get it to recognize any new
+     or changed packages.
+
+
+
+File: xemacs.info,  Node: Building Packages,  Prev: Using Packages,  Up: Packages
+
+   Source packages are available from the `packages/source-packages'
+subdirectory of your favorite XEmacs distribution site.  Alternatively,
+they are available via CVS from `cvs.xemacs.org'.  Look at
+`http://cvs.xemacs.org' for instructions.
+
+Prerequisites for Building Source Packages
+------------------------------------------
+
+   You must have GNU `cp', GNU `install' (or a BSD compatible `install'
+program) GNU `make' (3.75 or later preferred), `makeinfo' (1.68 from
+`texinfo-3.11' or later required), GNU `tar' and XEmacs 21.0.  The
+source packages will untar into a correct directory structure.  At the
+top level you must have `XEmacs.rules' and `package-compile.el'.  These
+files are available from the XEmacs FTP site from the same place you
+obtained your source package distributions.
+
+What You Can Do With Source Packages
+------------------------------------
+
+   NB:  A global build operation doesn't exist yet as of 13 January
+1998.
+
+   Source packages are most useful for creating XEmacs package tarballs
+for installation into your own XEmacs installations or for distributing
+to others.
+
+   Supported operations from `make' are:
+
+`clean'
+     Remove all built files except `auto-autoloads.el' and
+     `custom-load.el'.
+
+`distclean'
+     Remove XEmacs backups as well as the files deleted by `make clean'.
+
+`all'
+     Bytecompile all files, build and bytecompile byproduct files like
+     `auto-autoloads.el' and `custom-load.el'.  Create info version of
+     TeXinfo documentation if present.
+
+`srckit'
+     Usually aliased to `make srckit-std'.  This does a `make
+     distclean' and creates a package source tarball in the staging
+     directory.  This is generally only of use for package maintainers.
+
+`binkit'
+     May be aliased to `binkit-sourceonly', `binkit-sourceinfo',
+     `binkit-sourcedata', or `binkit-sourcedatainfo'. `sourceonly'
+     indicates there is nothing to install in a data directory or info
+     directory.  `sourceinfo' indicates that source and info files are
+     to be installed.  `sourcedata' indicates that source and etc
+     (data) files are to be installed.  `sourcedatainfo' indicates
+     source, etc (data), and info files are to be installed.  A few
+     packages have needs beyond the basic templates so this is not yet
+     complete.
+
+`dist'
+     Runs the rules `srckit' followed by `binkit'.  This is primarily
+     of use by XEmacs maintainers producing files for distribution.
+
+
+File: xemacs.info,  Node: Abbrevs,  Next: Picture,  Prev: Packages,  Up: Top
+
+Abbrevs
+*******
+
+   An "abbrev" is a word which "expands" into some different text.
+Abbrevs are defined by the user to expand in specific ways.  For
+example, you might define `foo' as an abbrev expanding to `find outer
+otter'.  With this abbrev defined, you would be able to get `find outer
+otter ' into the buffer by typing `f o o <SPC>'.
+
+   Abbrevs expand only when Abbrev mode (a minor mode) is enabled.
+Disabling Abbrev mode does not cause abbrev definitions to be discarded,
+but they do not expand until Abbrev mode is enabled again.  The command
+`M-x abbrev-mode' toggles Abbrev mode; with a numeric argument, it
+turns Abbrev mode on if the argument is positive, off otherwise.  *Note
+Minor Modes::.  `abbrev-mode' is also a variable; Abbrev mode is on
+when the variable is non-`nil'.  The variable `abbrev-mode'
+automatically becomes local to the current buffer when it is set.
+
+   Abbrev definitions can be "mode-specific"--active only in one major
+mode.  Abbrevs can also have "global" definitions that are active in
+all major modes.  The same abbrev can have a global definition and
+various mode-specific definitions for different major modes.  A
+mode-specific definition for the current major mode overrides a global
+definition.
+
+   You can define Abbrevs interactively during an editing session.  You
+can also save lists of abbrev definitions in files and reload them in
+later sessions.  Some users keep extensive lists of abbrevs that they
+load in every session.
+
+   A second kind of abbreviation facility is called the "dynamic
+expansion".  Dynamic abbrev expansion happens only when you give an
+explicit command and the result of the expansion depends only on the
+current contents of the buffer.  *Note Dynamic Abbrevs::.
+
+* Menu:
+
+* Defining Abbrevs::  Defining an abbrev, so it will expand when typed.
+* Expanding Abbrevs:: Controlling expansion: prefixes, canceling expansion.
+* Editing Abbrevs::   Viewing or editing the entire list of defined abbrevs.
+* Saving Abbrevs::    Saving the entire list of abbrevs for another session.
+* Dynamic Abbrevs::   Abbreviations for words already in the buffer.
+
+
+File: xemacs.info,  Node: Defining Abbrevs,  Next: Expanding Abbrevs,  Prev: Abbrevs,  Up: Abbrevs
+
+Defining Abbrevs
+================
+
+`C-x a g'
+     Define an abbrev to expand into some text before point
+     (`add-global-abbrev').
+
+`C-x a l'
+     Similar, but define an abbrev available only in the current major
+     mode (`add-mode-abbrev').
+
+`C-x a i g'
+     Define a word in the buffer as an abbrev
+     (`inverse-add-global-abbrev').
+
+`C-x a i l'
+     Define a word in the buffer as a mode-specific abbrev
+     (`inverse-add-mode-abbrev').
+
+`M-x kill-all-abbrevs'
+     After this command, no abbrev definitions remain in effect.
+
+   The usual way to define an abbrev is to enter the text you want the
+abbrev to expand to, position point after it, and type `C-x a g'
+(`add-global-abbrev').  This reads the abbrev itself using the
+minibuffer, and then defines it as an abbrev for one or more words
+before point.  Use a numeric argument to say how many words before point
+should be taken as the expansion.  For example, to define the abbrev
+`foo' as in the example above, insert the text `find outer otter', then
+type
+`C-u 3 C-x a g f o o <RET>'.
+
+   An argument of zero to `C-x a g' means to use the contents of the
+region as the expansion of the abbrev being defined.
+
+   The command `C-x a l' (`add-mode-abbrev') is similar, but defines a
+mode-specific abbrev.  Mode-specific abbrevs are active only in a
+particular major mode.  `C-x a l' defines an abbrev for the major mode
+in effect at the time `C-x a l' is typed.  The arguments work the same
+way they do for `C-x a g'.
+
+   If the text of an abbrev you want is already in the buffer instead of
+the expansion, use command `C-x a i g' (`inverse-add-global-abbrev')
+instead of `C-x a g', or use `C-x a i l' (`inverse-add-mode-abbrev')
+instead of `C-x a l'.  These commands are called "inverse" because they
+invert the meaning of the argument found in the buffer and the argument
+read using the minibuffer.
+
+   To change the definition of an abbrev, just add the new definition.
+You will be asked to confirm if the abbrev has a prior definition.  To
+remove an abbrev definition, give a negative argument to `C-x a g' or
+`C-x a l'.  You must choose the command to specify whether to kill a
+global definition or a mode-specific definition for the current mode,
+since those two definitions are independent for one abbrev.
+
+   `M-x kill-all-abbrevs' removes all existing abbrev definitions.
+
+
+File: xemacs.info,  Node: Expanding Abbrevs,  Next: Editing Abbrevs,  Prev: Defining Abbrevs,  Up: Abbrevs
+
+Controlling Abbrev Expansion
+============================
+
+   An abbrev expands whenever it is in a buffer just before point and
+you type a self-inserting punctuation character (<SPC>, comma, etc.).
+Most often an abbrev is used by inserting the abbrev followed by
+punctuation.
+
+   Abbrev expansion preserves case; thus, `foo' expands into `find
+outer otter', `Foo' into `Find outer otter', and `FOO' into `FIND OUTER
+OTTER' or `Find Outer Otter' according to the variable
+`abbrev-all-caps' (a non-`nil' value chooses the first of the two
+expansions).
+
+   Two commands are available to control abbrev expansion:
+
+`M-''
+     Separate a prefix from a following abbrev to be expanded
+     (`abbrev-prefix-mark').
+
+`C-x a e'
+     Expand the abbrev before point (`expand-abbrev').  This is
+     effective even when Abbrev mode is not enabled.
+
+`M-x unexpand-abbrev'
+     Undo last abbrev expansion.
+
+`M-x expand-region-abbrevs'
+     Expand some or all abbrevs found in the region.
+
+   You may wish to expand an abbrev with a prefix attached.  For
+example, if `cnst' expands into `construction', you may want to use it
+to enter `reconstruction'.  It does not work to type `recnst', because
+that is not necessarily a defined abbrev.  Instead, you can use the
+command `M-'' (`abbrev-prefix-mark') between the prefix `re' and the
+abbrev `cnst'.  First, insert `re'.  Then type `M-''; this inserts a
+minus sign in the buffer to indicate that it has done its work.  Then
+insert the abbrev `cnst'.  The buffer now contains `re-cnst'.  Now
+insert a punctuation character to expand the abbrev `cnst' into
+`construction'.  The minus sign is deleted at this point by `M-''.  The
+resulting text is the desired `reconstruction'.
+
+   If you actually want the text of the abbrev in the buffer, rather
+than its expansion, insert the following punctuation with `C-q'.  Thus,
+`foo C-q -' leaves `foo-' in the buffer.
+
+   If you expand an abbrev by mistake, you can undo the expansion
+(replace the expansion by the original abbrev text) with `M-x
+unexpand-abbrev'.  You can also use `C-_' (`undo') to undo the
+expansion; but that will first undo the insertion of the punctuation
+character.
+
+   `M-x expand-region-abbrevs' searches through the region for defined
+abbrevs, and  offers to replace each one it finds with its expansion.
+This command is useful if you have typed text using abbrevs but forgot
+to turn on Abbrev mode first.  It may also be useful together with a
+special set of abbrev definitions for making several global
+replacements at once.  The command is effective even if Abbrev mode is
+not enabled.
+
+
+File: xemacs.info,  Node: Editing Abbrevs,  Next: Saving Abbrevs,  Prev: Expanding Abbrevs,  Up: Abbrevs
+
+Examining and Editing Abbrevs
+=============================
+
+`M-x list-abbrevs'
+     Print a list of all abbrev definitions.
+
+`M-x edit-abbrevs'
+     Edit a list of abbrevs; you can add, alter, or remove definitions.
+
+   The output from `M-x list-abbrevs' looks like this:
+
+     (lisp-mode-abbrev-table)
+     "dk"           0    "define-key"
+     (global-abbrev-table)
+     "dfn"          0    "definition"
+
+(Some blank lines of no semantic significance, and some other abbrev
+tables, have been omitted.)
+
+   A line containing a name in parentheses is the header for abbrevs in
+a particular abbrev table; `global-abbrev-table' contains all the global
+abbrevs, and the other abbrev tables that are named after major modes
+contain the mode-specific abbrevs.
+
+   Within each abbrev table, each non-blank line defines one abbrev.
+The word at the beginning is the abbrev.  The number that appears is
+the number of times the abbrev has been expanded.  Emacs keeps track of
+this to help you see which abbrevs you actually use, in case you want
+to eliminate those that you don't use often.  The string at the end of
+the line is the expansion.
+
+   `M-x edit-abbrevs' allows you to add, change or kill abbrev
+definitions by editing a list of them in an Emacs buffer.  The list has
+the format described above.  The buffer of abbrevs is called
+`*Abbrevs*', and is in Edit-Abbrevs mode.  This mode redefines the key
+`C-c C-c' to install the abbrev definitions as specified in the buffer.
+The  `edit-abbrevs-redefine' command does this.  Any abbrevs not
+described in the buffer are eliminated when this is done.
+
+   `edit-abbrevs' is actually the same as `list-abbrevs', except that
+it selects the buffer `*Abbrevs*' whereas `list-abbrevs' merely
+displays it in another window.
+
+
+File: xemacs.info,  Node: Saving Abbrevs,  Next: Dynamic Abbrevs,  Prev: Editing Abbrevs,  Up: Abbrevs
+
+Saving Abbrevs
+==============
+
+   These commands allow you to keep abbrev definitions between editing
+sessions.
+
+`M-x write-abbrev-file'
+     Write a file describing all defined abbrevs.
+
+`M-x read-abbrev-file'
+     Read such an abbrev file and define abbrevs as specified there.
+
+`M-x quietly-read-abbrev-file'
+     Similar, but do not display a message about what is going on.
+
+`M-x define-abbrevs'
+     Define abbrevs from buffer.
+
+`M-x insert-abbrevs'
+     Insert all abbrevs and their expansions into the buffer.
+
+   Use `M-x write-abbrev-file' to save abbrev definitions for use in a
+later session.  The command reads a file name using the minibuffer and
+writes a description of all current abbrev definitions into the
+specified file.  The text stored in the file looks like the output of
+`M-x list-abbrevs'.
+
+   `M-x read-abbrev-file' prompts for a file name using the minibuffer
+and reads the specified file, defining abbrevs according to its
+contents.  `M-x quietly-read-abbrev-file' is the same but does not
+display a message in the echo area; it is actually useful primarily in
+the `.emacs' file.  If you give an empty argument to either of these
+functions, the file name Emacs uses is the value of the variable
+`abbrev-file-name', which is by default `"~/.abbrev_defs"'.
+
+   Emacs offers to save abbrevs automatically if you have changed any of
+them, whenever it offers to save all files (for `C-x s' or `C-x C-c').
+Set the variable `save-abbrevs' to `nil' to inhibit this feature.
+
+   The commands `M-x insert-abbrevs' and `M-x define-abbrevs' are
+similar to the previous commands but work on text in an Emacs buffer.
+`M-x insert-abbrevs' inserts text into the current buffer before point,
+describing all current abbrev definitions; `M-x define-abbrevs' parses
+the entire current buffer and defines abbrevs accordingly.
+
+
+File: xemacs.info,  Node: Dynamic Abbrevs,  Prev: Saving Abbrevs,  Up: Abbrevs
+
+Dynamic Abbrev Expansion
+========================
+
+   The abbrev facility described above operates automatically as you
+insert text, but all abbrevs must be defined explicitly.  By contrast,
+"dynamic abbrevs" allow the meanings of abbrevs to be determined
+automatically from the contents of the buffer, but dynamic abbrev
+expansion happens only when you request it explicitly.
+
+`M-/'
+     Expand the word in the buffer before point as a "dynamic abbrev",
+     by searching in the buffer for words starting with that
+     abbreviation (`dabbrev-expand').
+
+   For example, if the buffer contains `does this follow ' and you type
+`f o M-/', the effect is to insert `follow' because that is the last
+word in the buffer that starts with `fo'.  A numeric argument to `M-/'
+says to take the second, third, etc. distinct expansion found looking
+backward from point.  Repeating `M-/' searches for an alternative
+expansion by looking farther back.  After the entire buffer before
+point has been considered, the buffer after point is searched.
+
+   Dynamic abbrev expansion is completely independent of Abbrev mode;
+the expansion of a word with `M-/' is completely independent of whether
+it has a definition as an ordinary abbrev.
+
+
+File: xemacs.info,  Node: Picture,  Next: Sending Mail,  Prev: Abbrevs,  Up: Top
+
+Editing Pictures
+****************
+
+   If you want to create a picture made out of text characters (for
+example, a picture of the division of a register into fields, as a
+comment in a program), use the command `edit-picture' to enter Picture
+mode.
+
+   In Picture mode, editing is based on the "quarter-plane" model of
+text.  In this model, the text characters lie studded on an area that
+stretches infinitely far to the right and downward.  The concept of the
+end of a line does not exist in this model; the most you can say is
+where the last non-blank character on the line is found.
+
+   Of course, Emacs really always considers text as a sequence of
+characters, and lines really do have ends.  But in Picture mode most
+frequently-used keys are rebound to commands that simulate the
+quarter-plane model of text.  They do this by inserting spaces or by
+converting tabs to spaces.
+
+   Most of the basic editing commands of Emacs are redefined by Picture
+mode to do essentially the same thing but in a quarter-plane way.  In
+addition, Picture mode defines various keys starting with the `C-c'
+prefix to run special picture editing commands.
+
+   One of these keys, `C-c C-c', is pretty important.  Often a picture
+is part of a larger file that is usually edited in some other major
+mode.  `M-x edit-picture' records the name of the previous major mode.
+You can then use the `C-c C-c' command (`picture-mode-exit') to restore
+that mode.  `C-c C-c' also deletes spaces from the ends of lines,
+unless you give it a numeric argument.
+
+   The commands used in Picture mode all work in other modes (provided
+the `picture' library is loaded), but are only  bound to keys in
+Picture mode.  Note that the descriptions below talk of moving "one
+column" and so on, but all the picture mode commands handle numeric
+arguments as their normal equivalents do.
+
+   Turning on Picture mode calls the value of the variable
+`picture-mode-hook' as a function, with no arguments, if that value
+exists and is non-`nil'.
+
+* Menu:
+
+* Basic Picture::         Basic concepts and simple commands of Picture Mode.
+* Insert in Picture::     Controlling direction of cursor motion
+                           after "self-inserting" characters.
+* Tabs in Picture::       Various features for tab stops and indentation.
+* Rectangles in Picture:: Clearing and superimposing rectangles.
+
+
+File: xemacs.info,  Node: Basic Picture,  Next: Insert in Picture,  Prev: Picture,  Up: Picture
+
+Basic Editing in Picture Mode
+=============================
+
+   Most keys do the same thing in Picture mode that they usually do,
+but do it in a quarter-plane style.  For example, `C-f' is rebound to
+run `picture-forward-column', which moves point one column to the
+right, by inserting a space if necessary, so that the actual end of the
+line makes no difference.  `C-b' is rebound to run
+`picture-backward-column', which always moves point left one column,
+converting a tab to multiple spaces if necessary.  `C-n' and `C-p' are
+rebound to run `picture-move-down' and `picture-move-up', which can
+either insert spaces or convert tabs as necessary to make sure that
+point stays in exactly the same column.  `C-e' runs
+`picture-end-of-line', which moves to after the last non-blank
+character on the line.  There was no need to change `C-a', as the choice
+of screen model does not affect beginnings of lines.
+
+   Insertion of text is adapted to the quarter-plane screen model
+through the use of Overwrite mode (*note Minor Modes::).
+Self-inserting characters replace existing text, column by column,
+rather than pushing existing text to the right.  <RET> runs
+`picture-newline', which just moves to the beginning of the following
+line so that new text will replace that line.
+
+   Text is erased instead of deleted and killed.  <DEL>
+(`picture-backward-clear-column') replaces the preceding character with
+a space rather than removing it.  `C-d' (`picture-clear-column') does
+the same in a forward direction.  `C-k' (`picture-clear-line') really
+kills the contents of lines, but never removes the newlines from a
+buffer.
+
+   To do actual insertion, you must use special commands.  `C-o'
+(`picture-open-line') creates a blank line, but does so after the
+current line; it never splits a line.  `C-M-o', `split-line', makes
+sense in Picture mode, so it remains unchanged.  <LFD>
+(`picture-duplicate-line') inserts another line with the same contents
+below the current line.
+
+   To actually delete parts of the picture, use `C-w', or with `C-c
+C-d' (which is defined as `delete-char', as `C-d' is in other modes),
+or with one of the picture rectangle commands (*note Rectangles in
+Picture::).
+
+
+File: xemacs.info,  Node: Insert in Picture,  Next: Tabs in Picture,  Prev: Basic Picture,  Up: Picture
+
+Controlling Motion After Insert
+===============================
+
+   Since "self-inserting" characters just overwrite and move point in
+Picture mode, there is no essential restriction on how point should be
+moved.  Normally point moves right, but you can specify any of the eight
+orthogonal or diagonal directions for motion after a "self-inserting"
+character.  This is useful for drawing lines in the buffer.
+
+`C-c <'
+     Move left after insertion (`picture-movement-left').
+
+`C-c >'
+     Move right after insertion (`picture-movement-right').
+
+`C-c ^'
+     Move up after insertion (`picture-movement-up').
+
+`C-c .'
+     Move down after insertion (`picture-movement-down').
+
+`C-c `'
+     Move up and left ("northwest") after insertion
+     (`picture-movement-nw').
+
+`C-c ''
+     Move up and right ("northeast") after insertion
+     (`picture-movement-ne').
+
+`C-c /'
+     Move down and left ("southwest") after insertion
+     (`picture-movement-sw').
+
+`C-c \'
+     Move down and right ("southeast") after insertion
+     (`picture-movement-se').
+
+   Two motion commands move based on the current Picture insertion
+direction.  The command `C-c C-f' (`picture-motion') moves in the same
+direction as motion after "insertion" currently does, while `C-c C-b'
+(`picture-motion-reverse') moves in the opposite direction.
+
+
+File: xemacs.info,  Node: Tabs in Picture,  Next: Rectangles in Picture,  Prev: Insert in Picture,  Up: Picture
+
+Picture Mode Tabs
+=================
+
+   Two kinds of tab-like action are provided in Picture mode.
+Context-based tabbing is done with `M-<TAB>' (`picture-tab-search').
+With no argument, it moves to a point underneath the next "interesting"
+character that follows whitespace in the previous non-blank line.
+"Next" here means "appearing at a horizontal position greater than the
+one point starts out at".  With an argument, as in `C-u M-<TAB>', the
+command moves to the next such interesting character in the current
+line.  `M-<TAB>' does not change the text; it only moves point.
+"Interesting" characters are defined by the variable
+`picture-tab-chars', which contains a string of characters considered
+interesting.  Its default value is `"!-~"'.
+
+   <TAB> itself runs `picture-tab', which operates based on the current
+tab stop settings; it is the Picture mode equivalent of
+`tab-to-tab-stop'.  Without arguments it just moves point, but with a
+numeric argument it clears the text that it moves over.
+
+   The context-based and tab-stop-based forms of tabbing are brought
+together by the command `C-c <TAB>' (`picture-set-tab-stops'.)  This
+command sets the tab stops to the positions which `M-<TAB>' would
+consider significant in the current line.  If you use this command with
+<TAB>, you can get the effect of context-based tabbing.  But `M-<TAB>'
+is more convenient in the cases where it is sufficient.
+
+
+File: xemacs.info,  Node: Rectangles in Picture,  Prev: Tabs in Picture,  Up: Picture
+
+Picture Mode Rectangle Commands
+===============================
+
+   Picture mode defines commands for working on rectangular pieces of
+the text in ways that fit with the quarter-plane model.  The standard
+rectangle commands may also be useful (*note Rectangles::).
+
+`C-c C-k'
+     Clear out the region-rectangle (`picture-clear-rectangle').  With
+     argument, kill it.
+
+`C-c C-w R'
+     Similar but save rectangle contents in register R first
+     (`picture-clear-rectangle-to-register').
+
+`C-c C-y'
+     Copy last killed rectangle into the buffer by overwriting, with
+     upper left corner at point (`picture-yank-rectangle').  With
+     argument, insert instead.
+
+`C-c C-x R'
+     Similar, but use the rectangle in register R
+     (`picture-yank-rectangle-from-register').
+
+   The picture rectangle commands `C-c C-k' (`picture-clear-rectangle')
+and `C-c C-w' (`picture-clear-rectangle-to-register') differ from the
+standard rectangle commands in that they normally clear the rectangle
+instead of deleting it; this is analogous with the way `C-d' is changed
+in Picture mode.
+
+   However, deletion of rectangles can be useful in Picture mode, so
+these commands delete the rectangle if given a numeric argument.
+
+   The Picture mode commands for yanking rectangles differ from the
+standard ones in overwriting instead of inserting.  This is the same
+way that Picture mode insertion of other text is different from other
+modes.  `C-c C-y' (`picture-yank-rectangle') inserts (by overwriting)
+the rectangle that was most recently killed, while `C-c C-x'
+(`picture-yank-rectangle-from-register') does for the rectangle found
+in a specified register.
+
+   Since most region commands in Picture mode operate on rectangles,
+when you select a region of text with the mouse in Picture mode, it is
+highlighted as a rectangle.
+
+
+File: xemacs.info,  Node: Sending Mail,  Next: Reading Mail,  Prev: Picture,  Up: Top
+
+Sending Mail
+************
+
+   To send a message in Emacs, start by typing the command (`C-x m') to
+select and initialize the `*mail*' buffer.  You can then edit the text
+and headers of the message in the mail buffer, and type the command
+(`C-c C-c') to send the message.
+
+`C-x m'
+     Begin composing a message to send (`mail').
+
+`C-x 4 m'
+     Likewise, but display the message in another window
+     (`mail-other-window').
+
+`C-c C-c'
+     In Mail mode, send the message and switch to another buffer
+     (`mail-send-and-exit').
+
+   The command `C-x m' (`mail') selects a buffer named `*mail*' and
+initializes it with the skeleton of an outgoing message.  `C-x 4 m'
+(`mail-other-window') selects the `*mail*' buffer in a different
+window, leaving the previous current buffer visible.
+
+   Because the buffer for mail composition is an ordinary Emacs buffer,
+you can switch to other buffers while in the middle of composing mail,
+and switch back later (or never).  If you use the `C-x m' command again
+when you have been composing another message but have not sent it, a
+new mail buffer will be created; in this way, you can compose multiple
+messages at once.  You can switch back to and complete an unsent
+message by using the normal buffer selection mechanisms.
+
+   `C-u C-x m' is another way to switch back to a message in progress:
+it will search for an existing, unsent mail message buffer and select
+it.
+
+* Menu:
+
+* Format: Mail Format.    Format of the mail being composed.
+* Headers: Mail Headers.  Details of allowed mail header fields.
+* Mode: Mail Mode.        Special commands for editing mail being composed.
+
+
+File: xemacs.info,  Node: Mail Format,  Next: Mail Headers,  Prev: Sending Mail,  Up: Sending Mail
+
+The Format of the Mail Buffer
+=============================
+
+   In addition to the "text" or contents, a message has "header
+fields", which say who sent it, when, to whom, why, and so on.  Some
+header fields, such as the date and sender, are created automatically
+after the message is sent.  Others, such as the recipient names, must
+be specified by you in order to send the message properly.
+
+   Mail mode provides a few commands to help you edit some header
+fields, and some are preinitialized in the buffer automatically at
+times.  You can insert or edit any header fields using ordinary editing
+commands.
+
+   The line in the buffer that says:
+
+     --text follows this line--
+
+is a special delimiter that separates the headers you have specified
+from the text.  Whatever follows this line is the text of the message;
+the headers precede it.  The delimiter line itself does not appear in
+the message actually sent.  The text used for the delimiter line is
+controlled by the variable `mail-header-separator'.
+
+   Here is an example of what the headers and text in the `*mail*'
+buffer might look like.
+
+     To: rms@mc
+     CC: mly@mc, rg@oz
+     Subject: The XEmacs User's Manual
+     --Text follows this line--
+     Please ignore this message.
+
+
+File: xemacs.info,  Node: Mail Headers,  Next: Mail Mode,  Prev: Mail Format,  Up: Sending Mail
+
+Mail Header Fields
+==================
+
+   There are several header fields you can use in the `*mail*' buffer.
+Each header field starts with a field name at the beginning of a line,
+terminated by a colon.  It does not matter whether you use upper or
+lower case in the field name.  After the colon and optional whitespace
+comes the contents of the field.
+
+`To'
+     This field contains the mailing addresses of the message.
+
+`Subject'
+     The contents of the `Subject' field should be a piece of text that
+     says what the message is about.  Subject fields are useful because
+     most mail-reading programs can provide a summary of messages,
+     listing the subject of each message but not its text.
+
+`CC'
+     This field contains additional mailing addresses to send the
+     message to, but whose readers should not regard the message as
+     addressed to them.
+
+`BCC'
+     This field contains additional mailing addresses to send the
+     message to, but which should not appear in the header of the
+     message actually sent.
+
+`FCC'
+     This field contains the name of one file (in Unix mail file
+     format) to which a copy of the message should be appended when the
+     message is sent.
+
+`From'
+     Use the `From' field to say who you are, when the account you are
+     using to send the mail is not your own.  The contents of the
+     `From' field should be a valid mailing address, since replies will
+     normally go there.
+
+`Reply-To'
+     Use the `Reply-To' field to direct replies to a different address,
+     not your own. `From' and `Reply-To' have the same effect on where
+     replies go, but they convey a different meaning to the person who
+     reads the message.
+
+`In-Reply-To'
+     This field contains a piece of text describing a message you are
+     replying to.  Some mail systems can use the information to
+     correlate related pieces of mail.  This field is normally filled
+     in by your mail handling package when you are replying to a
+     message and you never need to think about it.
+
+The `To', `CC', `BCC' and `FCC' fields can appear any number of times,
+to specify many places to send the message.
+
+The `To', `CC', and `BCC', fields can have continuation lines.  All the
+lines starting with whitespace, following the line on which the field
+starts, are considered part of the field.  For example,
+
+     To: foo@here, this@there,
+       me@gnu.cambridge.mass.usa.earth.spiral3281
+
+If you have a `~/.mailrc' file, Emacs scans it for mail aliases the
+first time you try to send mail in an Emacs session.  Emacs expands
+aliases found in the `To', `CC', and `BCC' fields where appropriate.
+You can set the variable `mail-abbrev-mailrc-file' to the name of the
+file with mail aliases.  If `nil', `~/.mailrc' is used.
+
+   Your `.mailrc' file ensures that word-abbrevs are defined for each
+of your mail aliases when point is in a `To', `CC', `BCC', or `From'
+field.  The aliases are defined in your `.mailrc' file or in a file
+specified by the MAILRC environment variable if it exists.  Your mail
+aliases expand any time you type a word-delimiter at the end of an
+abbreviation.
+
+   In this version of Emacs, what you see is what you get: in contrast
+to some other versions, no abbreviations are expanded after you have
+sent the mail.  This means you don't suffer the annoyance of having the
+system do things behind your back--if the system rewrites an address
+you typed, you know it immediately, instead of after the mail has been
+sent and it's too late to do anything about it.  For example, you will
+never again be in trouble because you forgot to delete an old alias
+from your `.mailrc' and a new local user is given a userid which
+conflicts with one of your aliases.
+
+   Your mail alias abbrevs are in effect only when point is in an
+appropriate header field. The mail aliases will not expand in the body
+of the message, or in other header fields.  The default mode-specific
+abbrev table `mail-mode-abbrev-table' is used instead if defined.  That
+means if you have been using mail-mode specific abbrevs, this code will
+not adversely affect you.  You can control which header fields the
+abbrevs are used in by changing the variable `mail-abbrev-mode-regexp'.
+
+   If auto-fill mode is on, abbrevs wrap at commas instead of at word
+boundaries, and header continuation lines will be properly indented.
+
+   You can also insert a mail alias with
+`mail-interactive-insert-alias'.  This function, which is bound to `C-c
+C-a', prompts you for an alias (with completion) and inserts its
+expansion at point.
+
+   In this version of Emacs, it is possible to have lines like the
+following in your `.mailrc' file:
+
+          alias someone "John Doe <doe@quux.com>"
+
+   That is, if you want an address to have embedded spaces, simply
+surround it with double-quotes.  The quotes are necessary because the
+format of the `.mailrc' file uses spaces as address delimiters.
+
+   Aliases in the `.mailrc' file may be nested. For example, assume you
+define aliases like:
+          alias group1 fred ethel
+          alias group2 larry curly moe
+          alias everybody group1 group2
+
+   When you now type `everybody' on the `To' line, it will expand to:
+          fred, ethyl, larry, curly, moe
+
+   Aliases may contain forward references; the alias of `everybody' in
+the example above can precede the aliases of `group1' and `group2'.
+
+   In this version of Emacs, you can use the `source' `.mailrc' command
+for reading aliases from some other file as well.
+
+   Aliases may contain hyphens, as in `"alias foo-bar foo@bar"', even
+though word-abbrevs normally cannot contain hyphens.
+
+   To read in the contents of another `.mailrc'-type file from Emacs,
+use the command `M-x merge-mail-aliases'.  The `rebuild-mail-aliases'
+command is similar, but deletes existing aliases first.
+
+   If you want multiple addresses separated by a string other than `,'
+(a comma), then set the variable `mail-alias-seperator-string' to it.
+This has to be a comma bracketed by whitespace if you want any kind  of
+reasonable behavior.
+
+   If the variable `mail-archive-file-name' is non-`nil', it should be
+a string naming a file.  Each time you start to edit a message to send,
+an `FCC' field is entered for that file.  Unless you remove the `FCC'
+field, every message is written into that file when it is sent.
+
+
+File: xemacs.info,  Node: Mail Mode,  Prev: Mail Headers,  Up: Sending Mail
+
+Mail Mode
+=========
+
+   The major mode used in the `*mail*' buffer is Mail mode.  Mail mode
+is similar to Text mode, but several commands are provided on the `C-c'
+prefix.  These commands all deal specifically with editing or sending
+the message.
+
+`C-c C-s'
+     Send the message, and leave the `*mail*' buffer selected
+     (`mail-send').
+
+`C-c C-c'
+     Send the message, and select some other buffer
+     (`mail-send-and-exit').
+
+`C-c C-f C-t'
+     Move to the `To' header field, creating one if there is none
+     (`mail-to').
+
+`C-c C-f C-s'
+     Move to the `Subject' header field, creating one if there is none
+     (`mail-subject').
+
+`C-c C-f C-c'
+     Move to the `CC' header field, creating one if there is none
+     (`mail-cc').
+
+`C-c C-w'
+     Insert the file `~/.signature' at the end of the message text
+     (`mail-signature').
+
+`C-c C-y'
+     Yank the selected message (`mail-yank-original').
+
+`C-c C-q'
+     Fill all paragraphs of yanked old messages, each individually
+     (`mail-fill-yanked-message').
+
+`<button3>'
+     Pops up a menu of useful mail-mode commands.
+
+   There are two ways to send a message.  `C-c C-c'
+(`mail-send-and-exit') is the usual way to send the message.  It sends
+the message and then deletes the window (if there is another window) or
+switches to another buffer.  It puts the `*mail*' buffer at the lowest
+priority for automatic reselection, since you are finished with using
+it.  `C-c C-s' (`mail-send') sends the message and marks the `*mail*'
+buffer unmodified, but leaves that buffer selected so that you can
+modify the message (perhaps with new recipients) and send it again.
+
+   Mail mode provides some other special commands that are useful for
+editing the headers and text of the message before you send it.  There
+are three commands defined to move point to particular header fields,
+all based on the prefix `C-c C-f' (`C-f' is for "field").  They are
+`C-c C-f C-t' (`mail-to') to move to the `To' field, `C-c C-f C-s'
+(`mail-subject') for the `Subject' field, and `C-c C-f C-c' (`mail-cc')
+for the `CC' field.  These fields have special motion commands because
+they are edited most frequently.
+
+   `C-c C-w' (`mail-signature') adds a standard piece of text at the
+end of the message to say more about who you are.  The text comes from
+the file `.signature' in your home directory.
+
+   When you use an Rmail command to send mail from the Rmail mail
+reader, you can use `C-c C-y' `mail-yank-original' inside the `*mail*'
+buffer to insert the text of the message you are replying to.  Normally
+Rmail indents each line of that message four spaces and eliminates most
+header fields.  A numeric argument specifies the number of spaces to
+indent.  An argument of just `C-u' says not to indent at all and not to
+eliminate anything.  `C-c C-y' always uses the current message from the
+`RMAIL' buffer, so you can insert several old messages by selecting one
+in `RMAIL', switching to `*mail*' and yanking it, then switching back
+to `RMAIL' to select another.
+
+   After using `C-c C-y', you can use the command `C-c C-q'
+(`mail-fill-yanked-message') to fill the paragraphs of the yanked old
+message or messages.  One use of `C-c C-q' fills all such paragraphs,
+each one separately.
+
+   Clicking the right mouse button in a mail buffer pops up a menu of
+the above commands, for easy access.
+
+   Turning on Mail mode (which `C-x m' does automatically) calls the
+value of `text-mode-hook', if it is not void or `nil', and then calls
+the value of `mail-mode-hook' if that is not void or `nil'.
+
+
+File: xemacs.info,  Node: Reading Mail,  Next: Calendar/Diary,  Prev: Sending Mail,  Up: Top
+
+Reading Mail
+************
+
+   XEmacs provides three separate mail-reading packages.  Each one
+comes with its own manual, which is included standard with the XEmacs
+distribution.
+
+   The recommended mail-reading package for new users is VM.  VM works
+with standard Unix-mail-format folders and was designed as a replacement
+for the older Rmail.
+
+   XEmacs also provides a sophisticated and comfortable front-end to the
+MH mail-processing system, called `mh-e'.  Unlike in other mail
+programs, folders in MH are stored as file-system directories, with
+each message occupying one (numbered) file.  This facilitates working
+with mail using shell commands, and many other features of MH are also
+designed to integrate well with the shell and with shell scripts.  Keep
+in mind, however, that in order to use mh-e you must have the MH
+mail-processing system installed on your computer.
+
+   Finally, XEmacs provides the Rmail package.  Rmail is (currently) the
+only mail reading package distributed with FSF GNU Emacs, and is
+powerful in its own right.  However, it stores mail folders in a special
+format called `Babyl', that is incompatible with all other
+frequently-used mail programs.  A utility program is provided for
+converting Babyl folders to standard Unix-mail format; however, unless
+you already have mail in Babyl-format folders, you should consider
+using VM or mh-e instead. (If at times you have to use FSF Emacs, it is
+not hard to obtain and install VM for that editor.)
+
+
+File: xemacs.info,  Node: Calendar/Diary,  Next: Sorting,  Prev: Reading Mail,  Up: Top
+
+Calendar Mode and the Diary
+===========================
+
+   Emacs provides the functions of a desk calendar, with a diary of
+planned or past events.  To enter the calendar, type `M-x calendar';
+this displays a three-month calendar centered on the current month, with
+point on the current date.  With a numeric argument, as in `C-u M-x
+calendar', it prompts you for the month and year to be the center of the
+three-month calendar.  The calendar uses its own buffer, whose major
+mode is Calendar mode.
+
+   `Button2' in the calendar brings up a menu of operations on a
+particular date; `Buttons3' brings up a menu of commonly used calendar
+features that are independent of any particular date.  To exit the
+calendar, type `q'.  *Note Customizing the Calendar and Diary:
+(elisp)Calendar, for customization information about the calendar and
+diary.
+
+* Menu:
+
+* Calendar Motion::        Moving through the calendar; selecting a date.
+* Scroll Calendar::        Bringing earlier or later months onto the screen.
+* Mark and Region::        Remembering dates, the mark ring.
+* General Calendar::       Exiting or recomputing the calendar.
+* LaTeX Calendar::         Print a calendar using LaTeX.
+* Holidays::               Displaying dates of holidays.
+* Sunrise/Sunset::         Displaying local times of sunrise and sunset.
+* Lunar Phases::           Displaying phases of the moon.
+* Other Calendars::        Converting dates to other calendar systems.
+* Diary::                  Displaying events from your diary.
+* Calendar Customization:: Altering the behavior of the features above.
+
