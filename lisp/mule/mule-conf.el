@@ -101,11 +101,18 @@
 (make-charset
  'japanese-jisx0213-1
  "JIS X 0213:2000 Plain 1"
- '(registry "jisx0213\\(\\.2000\\)-1"
-   dimension 2
-   chars 94
-   final ?O
-   graphic 0))
+ (if (featurep 'utf-2000)
+     '(registry "jisx0213\\(\\.2000\\)-1"
+       dimension 2
+       chars 94
+       mother japanese-jisx0208-1990
+       final ?O
+       graphic 0)
+   '(registry "jisx0213\\(\\.2000\\)-1"
+     dimension 2
+     chars 94
+     final ?O
+     graphic 0)))
 
 (make-charset
  'japanese-jisx0213-2
