@@ -1,12 +1,21 @@
 1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* char-ucs.h (breakup_char_1): Use
+	`Vdefault_coded_charset_priority_list' for cyrillic-iso8859-5
+	area.
+
+	* text-coding.c (reset_encoding_stream): Fixed.
+	(char_encode_ucs4): Delete `& 255'.
+
+	* char-ucs.h (breakup_char_1): Use
+	`Vdefault_coded_charset_priority_list' for greek-iso8859-7 area.
+
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* file-coding.c (Fmake_coding_system): Don't set up
 	`codesys->fixed.size'.
 	(encode_coding_no_conversion): Don't refer
 	`str->codesys->fixed.size'.
-
-	* char-ucs.h (breakup_char_1): Concatenate code for (c < 0x17F)
-	and (c < MIN_CHAR_GREEK).
 
 1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
