@@ -1421,7 +1421,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JISX0208.1978 (Japanese)"),
 		  build_string
 		  ("JISX0208.1978 Japanese Kanji (so called \"old JIS\")"),
-		  build_string ("\\(jisx0208\\|jisc6226\\).19"));
+		  build_string ("\\(jisx0208\\|jisc6226\\)\\.1978"));
   Vcharset_chinese_gb2312 =
     make_charset (LEADING_BYTE_CHINESE_GB2312, Qchinese_gb2312, 3,
 		  CHARSET_TYPE_94X94, 2, 0, 'A',
