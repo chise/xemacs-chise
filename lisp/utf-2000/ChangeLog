@@ -1,3 +1,7 @@
+2003-02-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el (M-27295): Unify JC3-5EF3.
+
 2003-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* read-maps.el (mapping-table-read-file): Use `=jef-china3'
