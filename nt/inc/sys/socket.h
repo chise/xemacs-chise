@@ -22,7 +22,7 @@
 #endif /* 0 */
 
 /* avoid duplicate definition of timeval */
-#ifdef HAVE_TIMEVAL
+#if defined(HAVE_TIMEVAL) && !defined(__MINGW32__)
 #define timeval ws_timeval
 #endif
 
