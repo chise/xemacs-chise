@@ -10,6 +10,8 @@
     (korean-ksc5601		. #x605F)	; ø»‰·¬
     (chinese-isoir165		. #x4960)	; ø»ªƒ
     (japanese-jisx0208-1990	. #x4065)	; ø½Š¤¢
+    (chinese-big5		. #x88EF)	; èˆŒ
+    (chinese-big5-cdp		. #x88EF)	; èˆŒ
     (ideograph-daikanwa		. 30277)	; ø¸‡™…
     (mojikyo			. 030277)	; ý €‡™…
     (ucs			. #x820C)	; èˆŒ
@@ -20,10 +22,10 @@
     (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (original-ideograph-of
-     ((sources		  shinjigen-1)
-      (char . ((mojikyo		   . 030277)	; ý €‡™…
-	       ))
+    (<-original-ideograph
+     (:sources	(shinjigen-1)
+      :char	((mojikyo	     . 030277)	; ý €‡™…
+		 )
       ))
     (shinjigen-1	. 6629)
     (chinese-cns11643-1 . #x485F)	; ø»‘¼¬
