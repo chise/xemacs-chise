@@ -1,3 +1,25 @@
+2002-11-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* JX2-to-UCS.txt (JX2-6E4F): Add mapping for U-0002F8FE.
+	(JX2-6E65): Add mapping for U-0002F907.
+	(JX2-777A): Add mapping for U-0002F9C1.
+
+	* JX1-to-UCS.txt (JX1-2E50): Map to U-0002F80E instead of U+514D.
+	(JX1-7574): Add mapping for U-0002F8E8.
+
+	* JSP-to-UCS.txt: Add some mappings for CJK Compatibility
+	Ideographs Supplement.
+
+	* JC3-to-UCS.txt: Add and fix some mappings.
+
+	* J90-to-UCS.txt: Add some mappings for CJK Compatibility
+	Ideographs Supplement.
+
+2002-11-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* C3-to-UCS.txt: Fix some mappings for CJK Compatibility
+	Ideographs Supplement.
+
 2002-11-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* C3-to-UCS.txt (C3-2429): Map to U-0002F835 instead of U+7070.
