@@ -1,5 +1,50 @@
 2003-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3D3F.
+
+	* Ideograph-R182-Wind.el (U+98A8): Add S1-9211.
+
+	* Ideograph-R140-Grass.el (GT-K01089): New character.
+	(BC-8BE9): New character.
+	(C1-5344): Unify GT-40162 and GT-K05134.
+	(C1-5340): Unify GT-40205 and GT-K05171.
+	(C1-533C): Unify GT-40124 and GT-K05092.
+	(C1-533A): Unify GT-40074 and GT-K05055.
+	(C1-5336): Unify GT-40197 and GT-K05283.
+
+	* Ideograph-R124-Feather.el (GT-K11272): New character.
+	(GT-K11273): New character.
+
+	* Ideograph-R121-Jar.el (GT-36228): New character.
+
+	* Ideograph-R105-Dotted-Tent.el (BC-8B6E): New character.
+
+	* Ideograph-R100-Life.el (GT-K00587): New character.
+	(BC-8B77): Unify GT-K00586; add `<-ideographic-component-forms'
+	for U+751F.
+
+	* Ideograph-R075-Tree.el (GT-K01050): New character.
+
+	* Ideograph-R074-Moon.el (GT-K04876): New character.
+	(BC-8BB5): New character.
+
+	* Ideograph-R029-Again.el (GT-K02778): New character.
+	(BC-8D4C): New character.
+
+	* Ideograph-R018-Knife.el (M-01889): Unify GT-K01773 and GT-02444.
+	(GT-02447): New character.
+
+	* Ideograph-R012-Eight.el (U+5173): Unify GT-K02287 and GT-07389.
+
+	* Ideograph-R010-Legs.el (GT-K05208): New character.
+
+	* Ideograph-R008-Lid.el (JX2-2132): Separate C4-2337 and U+342C;
+	delete `hanyu-dazidian-{vol|page|char}'.
+
+	* Ideograph-R003-Dot.el (GT-K04581): New character.
+
+2003-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R044-Corpse.el (C4-3135): Unify BC-8DA4.
 
 	* Ideograph-R050-Turban.el (U+5E1A): Unify GT-11134 and GT-K03871.
