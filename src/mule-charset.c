@@ -62,9 +62,8 @@ Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
+Lisp_Object Vcharset_ideograph_daikanwa;
 Lisp_Object Vcharset_ethiopic_ucs;
-Lisp_Object Vcharset_hiragana_jisx0208;
-Lisp_Object Vcharset_katakana_jisx0208;
 #endif
 Lisp_Object Vcharset_chinese_big5_1;
 Lisp_Object Vcharset_chinese_big5_2;
@@ -816,9 +815,8 @@ Lisp_Object Qascii,
   Qlatin_viscii_upper,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
+  Qideograph_daikanwa,
   Qethiopic_ucs,
-  Qhiragana_jisx0208,
-  Qkatakana_jisx0208,
 #endif
   Qchinese_big5_1,
   Qchinese_big5_2,
@@ -1545,6 +1543,12 @@ split_builtin_char (Emchar c)
 		     CHARSET_LEFT_TO_RIGHT),
 		    make_int ((((c - MIN_CHAR_OBS_94x94) / 94) % 94) + 33),
 		    make_int (((c - MIN_CHAR_OBS_94x94) % 94) + 33));
+    }
+  else if (c <= MAX_CHAR_DAIKANWA)
+    {
+      return list3 (Vcharset_ideograph_daikanwa,
+		    make_int ((c - MIN_CHAR_DAIKANWA) >> 8),
+		    make_int ((c - MIN_CHAR_DAIKANWA) & 255));
     }
   else if (c <= MAX_CHAR_94)
     {
@@ -2334,6 +2338,18 @@ Return list of charset and one or two position-codes of CHAR.
 */
        (character))
 {
+#ifdef UTF2000
+  Lisp_Object ret;
+  Lisp_Object charset;
+
+  CHECK_CHAR_COERCE_INT (character);
+  ret = SPLIT_CHAR (XCHAR (character));
+  charset = Fcar (ret);
+  if (CHARSETP (charset))
+    return Fcons (XCHARSET_NAME (charset), Fcopy_list (Fcdr (ret)));
+  else
+    return ret;
+#else
   /* This function can GC */
   struct gcpro gcpro1, gcpro2;
   Lisp_Object charset = Qnil;
@@ -2354,8 +2370,8 @@ Return list of charset and one or two position-codes of CHAR.
       rc = list2 (XCHARSET_NAME (charset), make_int (c1));
     }
   UNGCPRO;
-
   return rc;
+#endif
 }
 
 
@@ -2533,9 +2549,8 @@ syms_of_mule_charset (void)
   defsymbol (&Qlatin_viscii_upper,	"latin-viscii-upper");
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
+  defsymbol (&Qideograph_daikanwa,	"ideograph-daikanwa");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
-  defsymbol (&Qhiragana_jisx0208, 	"hiragana-jisx0208");
-  defsymbol (&Qkatakana_jisx0208, 	"katakana-jisx0208");
 #endif
   defsymbol (&Qchinese_big5_1,		"chinese-big5-1");
   defsymbol (&Qchinese_big5_2,		"chinese-big5-2");
@@ -2862,6 +2877,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("VISCII 1.1 (Vietnamese)"),
 		  build_string ("VISCII1\\.1"),
 		  Qnil, 0, 0, 0, 0);
+  Vcharset_ideograph_daikanwa =
+    make_charset (LEADING_BYTE_DAIKANWA, Qideograph_daikanwa,
+		  CHARSET_TYPE_256X256, 2, 2, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Daikanwa"),
+		  build_string ("Morohashi's Daikanwa"),
+		  build_string ("Daikanwa dictionary by MOROHASHI Tetsuji"),
+		  build_string ("Daikanwa"),
+		  Qnil, MIN_CHAR_DAIKANWA, MAX_CHAR_DAIKANWA, 0, 0);
   Vcharset_ethiopic_ucs =
     make_charset (LEADING_BYTE_ETHIOPIC_UCS, Qethiopic_ucs,
 		  CHARSET_TYPE_256X256, 2, 2, 0,
@@ -2871,26 +2895,6 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Ethiopic of UCS"),
 		  build_string ("Ethiopic-Unicode"),
 		  Qnil, 0x1200, 0x137F, 0x1200, 0);
-  Vcharset_hiragana_jisx0208 =
-    make_charset (LEADING_BYTE_HIRAGANA_JISX0208, Qhiragana_jisx0208,
-		  CHARSET_TYPE_94X94, 2, 0, 'B',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Hiragana"),
-		  build_string ("Hiragana of JIS X0208"),
-		  build_string ("Japanese Hiragana of JIS X0208"),
-		  build_string ("jisx0208\\.19\\(78\\|83\\|90\\)"),
-		  Qnil, MIN_CHAR_HIRAGANA, MAX_CHAR_HIRAGANA,
-		  (0x24 - 33) * 94 + (0x21 - 33), 33);
-  Vcharset_katakana_jisx0208 =
-    make_charset (LEADING_BYTE_KATAKANA_JISX0208, Qkatakana_jisx0208,
-		  CHARSET_TYPE_94X94, 2, 0, 'B',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Katakana"),
-		  build_string ("Katakana of JIS X0208"),
-		  build_string ("Japanese Katakana of JIS X0208"),
-		  build_string ("jisx0208\\.19\\(78\\|83\\|90\\)"),
-		  Qnil, MIN_CHAR_KATAKANA, MAX_CHAR_KATAKANA,
-		  (0x25 - 33) * 94 + (0x21 - 33), 33);
 #endif
   Vcharset_chinese_big5_1 =
     make_charset (LEADING_BYTE_CHINESE_BIG5_1, Qchinese_big5_1,
