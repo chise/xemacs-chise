@@ -229,7 +229,7 @@
       (setq alist (cdr alist))))
   (insert ")"))
 
-(defun char-db-insert-char-map (plist &optional readable column)
+(defun char-db-insert-char-reference (plist &optional readable column)
   (unless column
     (setq column (current-column)))
   (let ((line-breaking
@@ -601,7 +601,7 @@
 			      (insert lbs))
 			  (if (consp (car cell))
 			      (char-db-insert-char-spec cell readable)
-			    (char-db-insert-char-map cell readable))
+			    (char-db-insert-char-reference cell readable))
 			  (setq separator lbs))
 			 (t
 			  (if separator
