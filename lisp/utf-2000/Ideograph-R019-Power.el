@@ -803,14 +803,18 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (<-vulgar
+     ((=ucs		  . #x52DE)	; 勞
+      (=daikanwa	  . 02410)	; &I-M-02410;
+      ))
+    (<-vulgar*sources
+     songyuan-yilai-suzipu daikanwa)
     (hanyu-dazidian	1 368 1)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8957)	; &CDP-8957;
-      )
-     ((=ucs		  . #x5196)	; 冖
+     ((=gt-k		  . 01418)	; &GT-K01418;
       )
      ((=ucs		  . #x529B)	; 力
       ))
