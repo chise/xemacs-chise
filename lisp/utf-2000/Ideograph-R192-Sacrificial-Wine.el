@@ -159,7 +159,7 @@
     (ideographic-radical . 192)	; â¾¿
     (ideographic-strokes . 18)
     (total-strokes	 . 28)
-    (chinese-cns11643-5 . #x7B50)	; ø»›¯§
+    (=cns11643-5	. #x7B50)	; ø»›¯§
     ))
 (define-char
   '((ideographic-radical . 192)	; â¾¿

@@ -27,7 +27,7 @@
     (ideographic-radical . 17)	; â¼
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (chinese-cns11643-5 . #x2129)	; ø»™ª´
+    (=cns11643-5	. #x2129)	; ø»™ª´
     ))
 (define-char
   '((ideographic-radical . 17)	; â¼
@@ -86,7 +86,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 307 1)
-    (chinese-cns11643-5 . #x2139)	; ø»™«„
+    (=cns11643-5	. #x2139)	; ø»™«„
     (ideograph-daikanwa . 01804)	; ø¸€œŒ
     (=hanziku-1		. #xE55B)	; ý¢€ž•›
     (=ucs		. #x20676)	; ð ™¶
@@ -242,7 +242,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 308 2)
-    (chinese-cns11643-5 . #x2154)	; ø»™«Ÿ
+    (=cns11643-5	. #x2154)	; ø»™«Ÿ
     (ideograph-daikanwa . 01812)	; ø¸€œ”
     (=hanziku-1		. #xE57C)	; ý¢€ž•¼
     (=ucs		. #x2067A)	; ð ™º
@@ -341,7 +341,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 29 6)
-    (chinese-cns11643-5 . #x222A)	; ø»™¬“
+    (=cns11643-5	. #x222A)	; ø»™¬“
     (ideograph-daikanwa . 01818)	; ø¸€œš
     (=big5-cdp		. #x8869)	; ý¢€ˆ¡©
     (=ucs		. #x20686)	; ð š†
@@ -613,7 +613,7 @@
     (ideographic-radical . 17)	; â¼
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (chinese-cns11643-5 . #x365D)	; ø»šŠž
+    (=cns11643-5	. #x365D)	; ø»šŠž
     (=ucs		. #x20698)	; ð š˜
     ))
 (define-char
@@ -686,7 +686,7 @@
     (ideographic-radical . 17)	; â¼
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
-    (chinese-cns11643-5 . #x5A76)	; ø»š¿¯
+    (=cns11643-5	. #x5A76)	; ø»š¿¯
     (=ucs		. #x2069E)	; ð šž
     ))
 (define-char
@@ -694,7 +694,7 @@
     (ideographic-radical . 17)	; â¼
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
-    (chinese-cns11643-5 . #x5A75)	; ø»š¿®
+    (=cns11643-5	. #x5A75)	; ø»š¿®
     (ideograph-daikanwa . 01841)	; ø¸€œ±
     ))
 (define-char
@@ -708,7 +708,7 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
     (hanyu-dazidian	1 310 7)
-    (chinese-cns11643-5 . #x6754)	; ø»›’“
+    (=cns11643-5	. #x6754)	; ø»›’“
     (ideograph-daikanwa . 01843)	; ø¸€œ³
     (=hanziku-1		. #xE5E3)	; ý¢€ž—£
     (=ucs		. #x2069F)	; ð šŸ

@@ -114,7 +114,7 @@
   '((ideographic-radical . 175)	; â¾®
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
-    (chinese-cns11643-5 . #x3D42)	; ø»š”•
+    (=cns11643-5	. #x3D42)	; ø»š”•
     (ideograph-daikanwa . 42595)	; ø¸Š™£
     ))
 (define-char

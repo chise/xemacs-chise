@@ -96,7 +96,7 @@
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 4)
     (total-strokes	 . 17)
-    (chinese-cns11643-5 . #x6124)	; ø»›ˆ¯
+    (=cns11643-5	. #x6124)	; ø»›ˆ¯
     (ideograph-daikanwa . 48262)	; ø¸‹²†
     ))
 (define-char
@@ -165,7 +165,7 @@
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 5)
     (total-strokes	 . 18)
-    (chinese-cns11643-5 . #x6742)	; ø»›’
+    (=cns11643-5	. #x6742)	; ø»›’
     (ideograph-daikanwa . 48268)	; ø¸‹²Œ
     ))
 (define-char
@@ -349,7 +349,7 @@
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 8)
     (total-strokes	 . 21)
-    (chinese-cns11643-5 . #x727D)	; ø»›£†
+    (=cns11643-5	. #x727D)	; ø»›£†
     (ideograph-daikanwa . 48287)	; ø¸‹²Ÿ
     ))
 (define-char
@@ -454,7 +454,7 @@
     (ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 10)
     (total-strokes	 . 23)
-    (chinese-cns11643-5 . #x774A)	; ø»›©©
+    (=cns11643-5	. #x774A)	; ø»›©©
     ))
 (define-char
   '((ideographic-radical . 205)	; â¿Œ
@@ -486,7 +486,7 @@
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 11)
     (total-strokes	 . 24)
-    (chinese-cns11643-5 . #x7878)	; ø»›«µ
+    (=cns11643-5	. #x7878)	; ø»›«µ
     (ideograph-daikanwa . 48303)	; ø¸‹²¯
     ))
 (define-char
@@ -553,7 +553,7 @@
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 12)
     (total-strokes	 . 25)
-    (chinese-cns11643-5 . #x797B)	; ø»›­–
+    (=cns11643-5	. #x797B)	; ø»›­–
     (ideograph-daikanwa . 48307)	; ø¸‹²³
     ))
 (define-char
@@ -575,7 +575,7 @@
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 13)
     (total-strokes	 . 26)
-    (chinese-cns11643-5 . #x7A5D)	; ø»›®–
+    (=cns11643-5	. #x7A5D)	; ø»›®–
     (ideograph-daikanwa . 48309)	; ø¸‹²µ
     ))
 (define-char
@@ -597,7 +597,7 @@
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 14)
     (total-strokes	 . 27)
-    (chinese-cns11643-5 . #x7B34)	; ø»›¯‹
+    (=cns11643-5	. #x7B34)	; ø»›¯‹
     (ideograph-daikanwa . 48312)	; ø¸‹²¸
     ))
 (define-char

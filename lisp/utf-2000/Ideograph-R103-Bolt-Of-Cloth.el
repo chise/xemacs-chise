@@ -56,7 +56,7 @@
     (ideographic-radical . 103)	; â½¦
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (chinese-cns11643-5 . #x2A50)	; ø»™¸©
+    (=cns11643-5	. #x2A50)	; ø»™¸©
     ))
 (define-char
   '((ideographic-radical . 103)	; â½¦
@@ -166,7 +166,7 @@
     (->identical
      ((=ucs		  . #x24CA3)	; ð¤²£
       ))
-    (chinese-cns11643-5 . #x4057)	; ø»š™„
+    (=cns11643-5	. #x4057)	; ø»š™„
     (ideograph-daikanwa . 49345)	; ø¸Œƒ
     ))
 (define-char

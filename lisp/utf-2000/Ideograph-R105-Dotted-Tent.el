@@ -188,7 +188,7 @@
   '((ideographic-radical . 105)	; â½¨
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (chinese-cns11643-5 . #x3A41)	; ø»šº
+    (=cns11643-5	. #x3A41)	; ø»šº
     (ideograph-daikanwa . 22671)	; ø¸…¢
     (=ucs		. #x24F31)	; ð¤¼±
     ))

@@ -227,7 +227,7 @@
   '((ideographic-radical . 125)	; â½¼
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (chinese-cns11643-5 . #x2B2C)	; ø»™¹£
+    (=cns11643-5	. #x2B2C)	; ø»™¹£
     (ideograph-daikanwa . 28855)	; ø¸‡‚·
     (=ucs		. #x264BB)	; ð¦’»
     ))
