@@ -549,6 +549,47 @@ Return variants of CHARACTER.
 }
 
 
+/* We store the char-attributes in hash tables with the names as the
+   key and the actual char-id-table object as the value.  Occasionally
+   we need to use them in a list format.  These routines provide us
+   with that. */
+struct char_attribute_list_closure
+{
+  Lisp_Object *char_attribute_list;
+};
+
+static int
+add_char_attribute_to_list_mapper (Lisp_Object key, Lisp_Object value,
+				   void *char_attribute_list_closure)
+{
+  /* This function can GC */
+  struct char_attribute_list_closure *calcl
+    = (struct char_attribute_list_closure*) char_attribute_list_closure;
+  Lisp_Object *char_attribute_list = calcl->char_attribute_list;
+
+  *char_attribute_list = Fcons (key, *char_attribute_list);
+  return 0;
+}
+
+DEFUN ("char-attribute-list", Fchar_attribute_list, 0, 0, 0, /*
+Return the list of all existing character attributes except coded-charsets.
+*/
+       ())
+{
+  Lisp_Object char_attribute_list = Qnil;
+  struct gcpro gcpro1;
+  struct char_attribute_list_closure char_attribute_list_closure;
+  
+  GCPRO1 (char_attribute_list);
+  char_attribute_list_closure.char_attribute_list = &char_attribute_list;
+  elisp_maphash (add_char_attribute_to_list_mapper,
+		 Vchar_attribute_hash_table,
+		 &char_attribute_list_closure);
+  UNGCPRO;
+  return char_attribute_list;
+}
+
+
 /* We store the char-id-tables in hash tables with the attributes as
    the key and the actual char-id-table object as the value.  Each
    char-id-table stores values of an attribute corresponding with
@@ -2689,6 +2730,8 @@ Set mapping-table of CHARSET to TABLE.
 
   if (NILP (table))
     {
+      if (VECTORP (CHARSET_DECODING_TABLE(cs)))
+	make_vector_newer (CHARSET_DECODING_TABLE(cs));
       CHARSET_DECODING_TABLE(cs) = Qnil;
       return table;
     }
@@ -2777,6 +2820,77 @@ Make a character from CHARSET and code-point CODE.
   if (XCHARSET_GRAPHIC (charset) == 1)
     c &= 0x7F7F7F7F;
   return make_char (DECODE_CHAR (charset, c));
+}
+
+DEFUN ("decode-builtin-char", Fdecode_builtin_char, 2, 2, 0, /*
+Make a builtin character from CHARSET and code-point CODE.
+*/
+       (charset, code))
+{
+  int c;
+  int final;
+
+  charset = Fget_charset (charset);
+  CHECK_INT (code);
+  c = XINT (code);
+
+  if ((final = XCHARSET_FINAL (charset)) >= '0')
+    {
+      if (XCHARSET_DIMENSION (charset) == 1)
+	{
+	  switch (XCHARSET_CHARS (charset))
+	    {
+	    case 94:
+	      return
+		make_char (MIN_CHAR_94 + (final - '0') * 94
+			   + ((c & 0x7F) - 33));
+	    case 96:
+	      return
+		make_char (MIN_CHAR_96 + (final - '0') * 96
+			   + ((c & 0x7F) - 32));
+	    default:
+	      return Fdecode_char (charset, code);
+	    }
+	}
+      else
+	{
+	  switch (XCHARSET_CHARS (charset))
+	    {
+	    case 94:
+	      return
+		make_char (MIN_CHAR_94x94
+			   + (final - '0') * 94 * 94
+			   + (((c >> 8) & 0x7F) - 33) * 94
+			   + ((c & 0x7F) - 33));
+	    case 96:
+	      return
+		make_char (MIN_CHAR_96x96
+			   + (final - '0') * 96 * 96
+			   + (((c >> 8) & 0x7F) - 32) * 96
+			   + ((c & 0x7F) - 32));
+	    default:
+	      return Fdecode_char (charset, code);
+	    }
+	}
+    }
+  else if (XCHARSET_UCS_MAX (charset))
+    {
+      Emchar cid
+	= (XCHARSET_DIMENSION (charset) == 1
+	   ?
+	   c - XCHARSET_BYTE_OFFSET (charset)
+	   :
+	   ((c >> 8) - XCHARSET_BYTE_OFFSET (charset))
+	   * XCHARSET_CHARS (charset)
+	   + (c & 0xFF) - XCHARSET_BYTE_OFFSET (charset))
+	- XCHARSET_CODE_OFFSET (charset) + XCHARSET_UCS_MIN (charset);
+      if ((cid < XCHARSET_UCS_MIN (charset))
+	  || (XCHARSET_UCS_MAX (charset) < cid))
+	return Fdecode_char (charset, code);
+      return make_char (cid);
+    }
+  else
+    return Fdecode_char (charset, code);
 }
 #endif
 
@@ -3024,6 +3138,7 @@ syms_of_mule_charset (void)
   DEFSUBR (Fset_charset_ccl_program);
   DEFSUBR (Fset_charset_registry);
 #ifdef UTF2000
+  DEFSUBR (Fchar_attribute_list);
   DEFSUBR (Fchar_attribute_alist);
   DEFSUBR (Fget_char_attribute);
   DEFSUBR (Fput_char_attribute);
@@ -3037,6 +3152,7 @@ syms_of_mule_charset (void)
 
 #ifdef UTF2000
   DEFSUBR (Fdecode_char);
+  DEFSUBR (Fdecode_builtin_char);
 #endif
   DEFSUBR (Fmake_char);
   DEFSUBR (Fchar_charset);
