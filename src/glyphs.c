@@ -3346,7 +3346,11 @@ image_after_change (Lisp_Object specifier, Lisp_Object locale)
   Lisp_Object property =
     IMAGE_SPECIFIER_ATTACHEE_PROPERTY (XIMAGE_SPECIFIER (specifier));
   if (FACEP (attachee))
-    face_property_was_changed (attachee, property, locale);
+    {
+      face_property_was_changed (attachee, property, locale);
+      if (BUFFERP (locale))
+	XBUFFER (locale)->buffer_local_face_property = 1;
+    }
   else if (GLYPHP (attachee))
     glyph_property_was_changed (attachee, property, locale);
 }

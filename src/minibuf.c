@@ -618,7 +618,12 @@ or the symbol from the obarray.
 
       if (STRINGP (eltstring)
           && (slength <= XSTRING_CHAR_LENGTH (eltstring))
-          && (0 > scmp (XSTRING_DATA (eltstring),
+          /* Reject alternatives that start with space
+	     unless the input starts with space.  */
+	  && ((XSTRING_CHAR_LENGTH (string) > 0 &&
+	       string_char (XSTRING (string), 0) == ' ')
+	      || string_char (XSTRING (eltstring), 0) != ' ')
+	  && (0 > scmp (XSTRING_DATA (eltstring),
                         XSTRING_DATA (string),
                         slength)))
 	{

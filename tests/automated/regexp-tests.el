@@ -204,3 +204,12 @@
 	  (setq i (1+ i))))))
 
 ;; (test-regex-charset-mule-paranoid)
+
+;; Test replace-match
+(with-temp-buffer
+  (insert "This is a test buffer.")
+  (goto-char (point-min))
+  (search-forward "this is a test ")
+  (looking-at "Unmatchable text")
+  (replace-match "")
+  (Assert (looking-at "^buffer.$")))

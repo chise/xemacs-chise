@@ -46,17 +46,17 @@ Lisp_Object Vcoding_system_for_write;
 Lisp_Object Vfile_name_coding_system;
 
 /* Table of symbols identifying each coding category. */
-Lisp_Object coding_category_symbol[CODING_CATEGORY_LAST + 1];
+Lisp_Object coding_category_symbol[CODING_CATEGORY_LAST];
 
 
 
 struct file_coding_dump {
   /* Coding system currently associated with each coding category. */
-  Lisp_Object coding_category_system[CODING_CATEGORY_LAST + 1];
+  Lisp_Object coding_category_system[CODING_CATEGORY_LAST];
 
   /* Table of all coding categories in decreasing order of priority.
      This describes a permutation of the possible coding categories. */
-  int coding_category_by_priority[CODING_CATEGORY_LAST + 1];
+  int coding_category_by_priority[CODING_CATEGORY_LAST];
 
 #ifdef MULE
   Lisp_Object ucs_to_mule_table[65536];
@@ -64,7 +64,7 @@ struct file_coding_dump {
 } *fcd;
 
 static const struct lrecord_description fcd_description_1[] = {
-  { XD_LISP_OBJECT_ARRAY, offsetof (struct file_coding_dump, coding_category_system), CODING_CATEGORY_LAST + 1 },
+  { XD_LISP_OBJECT_ARRAY, offsetof (struct file_coding_dump, coding_category_system), CODING_CATEGORY_LAST },
 #ifdef MULE
   { XD_LISP_OBJECT_ARRAY, offsetof (struct file_coding_dump, ucs_to_mule_table), countof (fcd->ucs_to_mule_table) },
 #endif
@@ -1433,7 +1433,7 @@ decode_coding_category (Lisp_Object symbol)
   int i;
 
   CHECK_SYMBOL (symbol);
-  for (i = 0; i <= CODING_CATEGORY_LAST; i++)
+  for (i = 0; i < CODING_CATEGORY_LAST; i++)
     if (EQ (coding_category_symbol[i], symbol))
       return i;
 
@@ -1449,7 +1449,7 @@ Return a list of all recognized coding categories.
   int i;
   Lisp_Object list = Qnil;
 
-  for (i = CODING_CATEGORY_LAST; i >= 0; i--)
+  for (i = CODING_CATEGORY_LAST - 1; i >= 0; i--)
     list = Fcons (coding_category_symbol[i], list);
   return list;
 }
@@ -1463,13 +1463,13 @@ previously.
 */
        (list))
 {
-  int category_to_priority[CODING_CATEGORY_LAST + 1];
+  int category_to_priority[CODING_CATEGORY_LAST];
   int i, j;
   Lisp_Object rest;
 
   /* First generate a list that maps coding categories to priorities. */
 
-  for (i = 0; i <= CODING_CATEGORY_LAST; i++)
+  for (i = 0; i < CODING_CATEGORY_LAST; i++)
     category_to_priority[i] = -1;
 
   /* Highest priority comes from the specified list. */
@@ -1486,7 +1486,7 @@ previously.
   /* Now go through the existing categories by priority to retrieve
      the categories not yet specified and preserve their priority
      order. */
-  for (j = 0; j <= CODING_CATEGORY_LAST; j++)
+  for (j = 0; j < CODING_CATEGORY_LAST; j++)
     {
       int cat = fcd->coding_category_by_priority[j];
       if (category_to_priority[cat] < 0)
@@ -1496,7 +1496,7 @@ previously.
   /* Now we need to construct the inverse of the mapping we just
      constructed. */
 
-  for (i = 0; i <= CODING_CATEGORY_LAST; i++)
+  for (i = 0; i < CODING_CATEGORY_LAST; i++)
     fcd->coding_category_by_priority[category_to_priority[i]] = i;
 
   /* Phew!  That was confusing. */
@@ -1511,7 +1511,7 @@ Return a list of coding categories in descending order of priority.
   int i;
   Lisp_Object list = Qnil;
 
-  for (i = CODING_CATEGORY_LAST; i >= 0; i--)
+  for (i = CODING_CATEGORY_LAST - 1; i >= 0; i--)
     list = Fcons (coding_category_symbol[fcd->coding_category_by_priority[i]],
 		  list);
   return list;
@@ -1761,7 +1761,7 @@ coding_system_from_mask (int mask)
 #endif
       /* Look through the coding categories by priority and find
 	 the first one that is allowed. */
-      for (i = 0; i <= CODING_CATEGORY_LAST; i++)
+      for (i = 0; i < CODING_CATEGORY_LAST; i++)
 	{
 	  cat = fcd->coding_category_by_priority[i];
 	  if ((mask & (1 << cat)) &&
@@ -1959,7 +1959,7 @@ type.  Optional arg BUFFER defaults to the current buffer.
 #ifdef MULE
       decst.mask = postprocess_iso2022_mask (decst.mask);
 #endif
-      for (i = CODING_CATEGORY_LAST; i >= 0; i--)
+      for (i = CODING_CATEGORY_LAST - 1; i >= 0; i--)
 	{
 	  int sys = fcd->coding_category_by_priority[i];
 	  if (decst.mask & (1 << sys))
@@ -4282,7 +4282,48 @@ fit_to_be_escape_quoted (unsigned char c)
 
    If CHECK_INVALID_CHARSETS is non-zero, check for designation
    or invocation of an invalid character set and treat that as
-   an unrecognized escape sequence. */
+   an unrecognized escape sequence.
+
+   ********************************************************************
+
+   #### Strategies for error annotation and coding orthogonalization
+
+   We really want to separate out a number of things.  Conceptually,
+   there is a nested syntax.
+
+   At the top level is the ISO 2022 extension syntax, including charset
+   designation and invocation, and certain auxiliary controls such as the
+   ISO 6429 direction specification.  These are octet-oriented, with the
+   single exception (AFAIK) of the "exit Unicode" sequence which uses the
+   UTF's natural width (1 byte for UTF-7 and UTF-8, 2 bytes for UCS-2 and
+   UTF-16, and 4 bytes for UCS-4 and UTF-32).  This will be treated as a
+   (deprecated) special case in Unicode processing.
+
+   The middle layer is ISO 2022 character interpretation.  This will depend
+   on the current state of the ISO 2022 registers, and assembles octets
+   into the character's internal representation.
+
+   The lowest level is translating system control conventions.  At present
+   this is restricted to newline translation, but one could imagine doing
+   tab conversion or line wrapping here.  "Escape from Unicode" processing
+   would be done at this level.
+
+   At each level the parser will verify the syntax.  In the case of a
+   syntax error or warning (such as a redundant escape sequence that affects
+   no characters), the parser will take some action, typically inserting the
+   erroneous octets directly into the output and creating an annotation
+   which can be used by higher level I/O to mark the affected region.
+
+   This should make it possible to do something sensible about separating
+   newline convention processing from character construction, and about
+   preventing ISO 2022 escape sequences from being recognized
+   inappropriately.
+
+   The basic strategy will be to have octet classification tables, and
+   switch processing according to the table entry.
+
+   It's possible that, by doing the processing with tables of functions or
+   the like, the parser can be used for both detection and translation. */
 
 static int
 parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
@@ -5700,7 +5741,7 @@ vars_of_file_coding (void)
   dumpstruct (&fcd, &fcd_description);
 
   /* Initialize to something reasonable ... */
-  for (i = 0; i <= CODING_CATEGORY_LAST; i++)
+  for (i = 0; i < CODING_CATEGORY_LAST; i++)
     {
       fcd->coding_category_system[i] = Qnil;
       fcd->coding_category_by_priority[i] = i;

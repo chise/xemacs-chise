@@ -998,6 +998,10 @@
 (Assert (string= (format "%e" 100) "1.000000e+02"))
 (Assert (string= (format "%E" 100) "1.000000E+02"))
 (Assert (string= (format "%f" 100) "100.000000"))
+(Assert (string= (format "%7.3f" 12.12345) " 12.123"))
+(Assert (string= (format "%07.3f" 12.12345) "012.123"))
+(Assert (string= (format "%-7.3f" 12.12345) "12.123 "))
+(Assert (string= (format "%-07.3f" 12.12345) "12.123 "))
 (Assert (string= (format "%g" 100.0) "100"))
 (Assert (string= (format "%g" 0.000001) "1e-06"))
 (Assert (string= (format "%g" 0.0001) "0.0001"))
@@ -1039,7 +1043,7 @@
 (Assert (string= (format "%.1d" 10) "10"))
 (Assert (string= (format "%.4d" 10) "0010"))
 ;; Combination of `-', `+', ` ', `0', `#', `.', `*'
-(Assert (string= (format "%-04d" 10) "0010"))
+(Assert (string= (format "%-04d" 10) "10  "))
 (Assert (string= (format "%-*d" 4 10) "10  "))
 ;; #### Correctness of this behavior is questionable.
 ;; It might be better to signal error.
@@ -1052,10 +1056,15 @@
 ;; (format "%-.1d" 10)
 
 (Assert (string= (format "%01.1d" 10) "10"))
-(Assert (string= (format "%03.1d" 10) "010"))
-(Assert (string= (format "%01.3d" 10) "10"))
-(Assert (string= (format "%1.3d" 10) "10"))
+(Assert (string= (format "%03.1d" 10) " 10"))
+(Assert (string= (format "%01.3d" 10) "010"))
+(Assert (string= (format "%1.3d" 10) "010"))
 (Assert (string= (format "%3.1d" 10) " 10"))
+
+;;; The following two tests used to use 1000 instead of 100,
+;;; but that merely found buffer overflow bugs in Solaris sprintf().
+(Assert (= 102 (length (format "%.100f" 3.14))))
+(Assert (= 100 (length (format "%100f" 3.14))))
 
 ;;; Check for 64-bit cleanness on LP64 platforms.
 (Assert (= (read (format "%d"  most-positive-fixnum)) most-positive-fixnum))
@@ -1071,3 +1080,7 @@
 ;;; The printed value might be useful to a human, if not to Emacs Lisp.
 (Check-Error invalid-read-syntax (read (format "%u" most-negative-fixnum)))
 (Check-Error invalid-read-syntax (read (format "%u" -1)))
+
+;; Check all-completions ignore element start with space.
+(Assert (not (all-completions "" '((" hidden" . "object")))))
+(Assert (all-completions " " '((" hidden" . "object"))))

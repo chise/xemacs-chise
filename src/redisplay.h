@@ -776,6 +776,7 @@ int redisplay_normalize_glyph_area (struct display_box* dest,
 void redisplay_clear_to_window_end (struct window *w, int ypos1, int ypos2);
 void redisplay_clear_region (Lisp_Object window, face_index findex, int x,
 			     int y, int width, int height);
+void redisplay_clear_top_of_window (struct window *w);
 void redisplay_clear_bottom_of_window (struct window *w,
 				       display_line_dynarr *ddla,
 				       int min_start, int max_end);

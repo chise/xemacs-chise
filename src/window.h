@@ -300,6 +300,13 @@ DECLARE_LRECORD (window, struct window);
     windows_changed = 1;				\
 } while (0)
 
+/* #### This should be fixed not to call MARK_FRAME_CHANGED because
+   faces are cached per window.  Also, other code which changes window's
+   face should use this macro.
+*/
+#define MARK_WINDOW_FACES_CHANGED(w)	\
+  MARK_FRAME_FACES_CHANGED (XFRAME ((w)->frame))
+
 #define WINDOW_TTY_P(w) FRAME_TTY_P (XFRAME ((w)->frame))
 #define WINDOW_X_P(w)   FRAME_X_P   (XFRAME ((w)->frame))
 #define WINDOW_NS_P(w)  FRAME_NS_P  (XFRAME ((w)->frame))

@@ -23,11 +23,13 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 /* This is a complete rewrite, some code snarfed from unexnt.c and
    unexec.c, Andy Piper (andy@xemacs.org) 13-1-98 */
 
+#include <config.h>
+#include "lisp.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <config.h>
 #include <string.h>
 
 #define DONT_ENCAPSULATE /* filenames are external in unex*.c */
@@ -53,7 +55,7 @@ unexec (char *, char *, void *, void *,	void *)
 ((((unsigned long)addr) + ALLOC_UNIT) & ALLOC_MASK)
 /* Note that all sections must be aligned on a 0x1000 boundary so
    this is the minimum size that our dummy bss can be. */
-#ifdef BROKEN_GDB
+#ifndef NO_DEBUG
 #define BSS_PAD_SIZE	0x1000
 #else
 #define BSS_PAD_SIZE	0
@@ -92,12 +94,10 @@ if (lseek(a_out, 0, SEEK_CUR) != a) \
   exit(-1); \
 }
 
-void
-unexec (char *out_name, char *in_name, void *start_data, 
-	void * d1, void * d2);
 /* Dump out .data and .bss sections into a new executable.  */
-void unexec (char *out_name, char *in_name, void *start_data, 
-	     void * d1,	void * d2)
+int
+unexec (char *out_name, char *in_name, uintptr_t start_data, 
+	uintptr_t d1, uintptr_t d2)
 {
   /* ugly nt hack - should be in lisp */
   int a_new, a_out = -1;
@@ -137,12 +137,13 @@ void unexec (char *out_name, char *in_name, void *start_data,
 
   close(a_out);
   close(a_new);
+  return 0;
 }
 
 /* Flip through the executable and cache the info necessary for dumping.  */
 static void get_section_info (int a_out, char* a_name)
 {
-  extern int my_ebss;
+  extern char my_ebss[];
   /* From lastfile.c  */
   extern char my_edata[];
 
@@ -291,6 +292,11 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
       data_padding = (f_bss.s_vaddr - f_data.s_vaddr) - f_data.s_size;
     }
 
+  if ((new_bss_size - bss_size) < BSS_PAD_SIZE)
+    { 
+      PERROR (".bss free space too small");
+    }
+
   file_sz_change=(new_bss_size + data_padding) - BSS_PAD_SIZE;
   new_data_size=f_ohdr.dsize + file_sz_change;
 
@@ -310,7 +316,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
   lseek (a_new, 0, SEEK_SET);
   /* write file header */
   f_hdr.f_symptr += file_sz_change;
-#ifndef BROKEN_GDB
+#ifdef NO_DEBUG
   f_hdr.f_nscns--;
 #endif
 
@@ -340,7 +346,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
     {
       PERROR("failed to write text header");
     }
-#ifdef BROKEN_GDB
+#ifndef NO_DEBUG
   /* Write small bss section. */
   if (!sections_reversed)
     {
@@ -360,7 +366,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
     {
       PERROR("failed to write data header");
     }
-#ifdef BROKEN_GDB
+#ifndef NO_DEBUG
   /* Write small bss section. */
   if (sections_reversed)
     {
@@ -399,7 +405,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
 	  PERROR("failed to write data header");
 	}
     }
-#ifndef BROKEN_GDB
+#ifdef NO_DEBUG
   /* dump bss to maintain offsets */
   memset(&f_bss, 0, sizeof(f_bss));
   if (write(a_new, &f_bss, sizeof(f_bss)) != sizeof(f_bss))

@@ -2132,7 +2132,7 @@ minibuffer does not count, only windows from WINDOW's frame count.
 By default, only the windows in the selected frame are considered.
 The optional argument WHICH-FRAMES changes this behavior:
 WHICH-FRAMES = `visible' means search windows on all visible frames.
-WHICH-FRAMES = 0 means search  windows on all visible and iconified frames.
+WHICH-FRAMES = 0 means search windows on all visible and iconified frames.
 WHICH-FRAMES = t means search windows on all frames including invisible frames.
 WHICH-FRAMES = a frame means search only windows on that frame.
 Anything else means restrict to the selected frame.
@@ -2278,7 +2278,7 @@ the minibuffer does not count, only windows from WINDOW's frame count.
 By default, only the windows in the selected frame are considered.
 The optional argument WHICH-FRAMES changes this behavior:
 WHICH-FRAMES = `visible' means search windows on all visible frames.
-WHICH-FRAMES = 0 means search  windows on all visible and iconified frames.
+WHICH-FRAMES = 0 means search windows on all visible and iconified frames.
 WHICH-FRAMES = t means search windows on all frames including invisible frames.
 WHICH-FRAMES = a frame means search only windows on that frame.
 Anything else means restrict to the selected frame.
@@ -2481,7 +2481,7 @@ A negative COUNT moves in the opposite order.
 By default, only the windows in the selected frame are considered.
 The optional argument WHICH-FRAMES changes this behavior:
 WHICH-FRAMES = `visible' means search windows on all visible frames.
-WHICH-FRAMES = 0 means search  windows on all visible and iconified frames.
+WHICH-FRAMES = 0 means search windows on all visible and iconified frames.
 WHICH-FRAMES = t means search windows on all frames including invisible frames.
 WHICH-FRAMES = a frame means search only windows on that frame.
 Anything else means restrict to the selected frame.
@@ -2536,7 +2536,6 @@ enum window_loop
   DELETE_OTHER_WINDOWS,		/* Arg is window not to delete */
   DELETE_BUFFER_WINDOWS,	/* Arg is buffer */
   GET_LARGEST_WINDOW,
-  UNSHOW_BUFFER,		/* Arg is buffer */
   GET_BUFFER_WINDOW_COUNT,	/* Arg is buffer */
   GET_BUFFER_MRU_WINDOW		/* Arg is buffer */
 };
@@ -2549,7 +2548,7 @@ window_loop (enum window_loop type,
 	     int dedicated_too,
 	     Lisp_Object which_devices)
 {
-  /* This function can GC if type == DELETE_BUFFER_WINDOWS or UNSHOW_BUFFER */
+  /* This function can GC if type == DELETE_BUFFER_WINDOWS */
   Lisp_Object w;
   Lisp_Object best_window = Qnil;
   Lisp_Object next_window;
@@ -2621,7 +2620,6 @@ window_loop (enum window_loop type,
       for (;;)
 	{
 	  struct window *p = XWINDOW (w);
-	  struct frame *w_frame = XFRAME (WINDOW_FRAME (p));
 
 	  /* Pick the next window now, since some operations will delete
 	     the current window.  */
@@ -2768,57 +2766,6 @@ window_loop (enum window_loop type,
 			    > (WINDOW_HEIGHT (b) * WINDOW_WIDTH (b))))
 		      best_window = w;
 		  }
-		  break;
-		}
-
-	      case UNSHOW_BUFFER:
-		{
-		  if (EQ (p->buffer, obj))
-		    {
-		      /* Find another buffer to show in this window.  */
-		      Lisp_Object another_buffer =
-			Fother_buffer (obj, Qnil, Qnil);
-		      if (NILP (another_buffer))
-			another_buffer
-			  = Fget_buffer_create (QSscratch);
-		      /* If this window is dedicated, and in a frame
-			 of its own, kill the frame.  */
-		      if (EQ (w, FRAME_ROOT_WINDOW (w_frame))
-			  && !NILP (p->dedicated)
-			  && other_visible_frames (w_frame))
-			{
-			  /* Skip the other windows on this frame.
-			     There might be one, the minibuffer!  */
-			  if (! EQ (w, last_window))
-			    while (w_frame == XFRAME (WINDOW_FRAME
-						      (XWINDOW (next_window))))
-			      {
-				/* As we go, check for the end of the
-				   loop.  We mustn't start going
-				   around a second time.  */
-				if (EQ (next_window, last_window))
-				  {
-				    last_window = w;
-				    break;
-				  }
-				next_window = Fnext_window (next_window,
-							    mini ? Qt : Qnil,
-							    frame_arg, Qt);
-			      }
-			  /* Now we can safely delete the frame.  */
-			  delete_frame_internal (XFRAME (WINDOW_FRAME (p)),
-						 0, 0, 0);
-			}
-		      else
-			{
-			  /* Otherwise show a different buffer in the
-                             window.  */
-			  p->dedicated = Qnil;
-			  Fset_window_buffer (w, another_buffer, Qnil);
-			  if (EQ (w, Fselected_window (Qnil)))
-			    Fset_buffer (p->buffer);
-			}
-		    }
 		  break;
 		}
 
@@ -3099,6 +3046,63 @@ Any other non-nil value means search all devices.
   return Qnil;
 }
 
+static Lisp_Object
+list_windows (struct window *w, Lisp_Object value)
+{
+  for (;;)
+    {
+      if (!NILP (w->hchild))
+	value = list_windows (XWINDOW (w->hchild), value);
+      else if (!NILP (w->vchild))
+	value = list_windows (XWINDOW (w->vchild), value);
+      else
+	{
+	  Lisp_Object window;
+	  XSETWINDOW (window, w);
+	  value = Fcons (window, value);
+	}
+      if (NILP (w->next))
+	break;
+      w = XWINDOW (w->next);
+    }
+  return value;
+}
+
+static Lisp_Object
+list_all_windows (Lisp_Object frame_spec, Lisp_Object device_spec)
+{
+  Lisp_Object devcons, concons;
+  Lisp_Object retval = Qnil;
+
+  DEVICE_LOOP_NO_BREAK (devcons, concons)
+    {
+      Lisp_Object frame_list, the_window;
+      Lisp_Object device, tail;
+
+      device = XCAR (devcons);
+      frame_list = DEVICE_FRAME_LIST (XDEVICE (device));
+
+      LIST_LOOP (tail, frame_list)
+	{
+	  if ((NILP (frame_spec)
+	       && !EQ (XCAR (tail), DEVICE_SELECTED_FRAME (XDEVICE (device))))
+	      || (EQ (frame_spec, Qvisible)
+		  && !FRAME_VISIBLE_P (XFRAME (XCAR (tail))))
+	      || (FRAMEP (frame_spec)
+		  && !EQ (frame_spec, XCAR (tail)))
+	      || (!NILP (frame_spec)
+		   && !device_matches_device_spec (device,
+						   NILP (device_spec) ?
+						   Vselected_console :
+						   device_spec)))
+	    continue;
+	  the_window = FRAME_ROOT_WINDOW (XFRAME (XCAR (tail)));
+	  retval = list_windows (XWINDOW (the_window), retval);
+	}
+    }
+  return Fnreverse (retval);
+}
+
 DEFUN ("replace-buffer-in-windows", Freplace_buffer_in_windows, 1, 3,
        "bReplace buffer in windows: ", /*
 Replace BUFFER with some other buffer in all windows showing it.
@@ -3124,18 +3128,46 @@ Any other non-nil value means search all devices.
        (buffer, which_frames, which_devices))
 {
   /* This function can GC */
-  buffer = Fget_buffer (buffer);
-  CHECK_BUFFER (buffer);
+  Lisp_Object window_list;
+  Lisp_Object tail;
+  struct gcpro gcpro1, gcpro2;
 
-  /* WHICH-FRAMES values t and nil mean the opposite of what
-     window_loop expects. */
   if (EQ (which_frames, Qnil))
     which_frames = Qt;
   else if (EQ (which_frames, Qt))
     which_frames = Qnil;
+  window_list = list_all_windows (which_frames, which_devices);
 
-  /* Ignore dedicated windows. */
-  window_loop (UNSHOW_BUFFER, buffer, 0, which_frames, 0, which_devices);
+  buffer = Fget_buffer (buffer);
+  CHECK_BUFFER (buffer);
+
+  GCPRO2 (window_list, buffer);
+  LIST_LOOP (tail, window_list)
+    {
+      Lisp_Object window = XCAR (tail);
+      if (!MINI_WINDOW_P (XWINDOW (window))
+	  && EQ (XWINDOW (window)->buffer, buffer))
+	{
+	  Lisp_Object another_buffer = Fother_buffer (buffer, Qnil, Qnil);
+	  Lisp_Object frame = WINDOW_FRAME (XWINDOW (window));
+	  if (NILP (another_buffer))
+	    another_buffer = Fget_buffer_create (QSscratch);
+	  if (!NILP (XWINDOW (window)->dedicated)
+	      && EQ (window,
+		     FRAME_ROOT_WINDOW (XFRAME (frame)))
+	      && other_visible_frames (XFRAME (frame)))
+	    {
+	      delete_frame_internal (XFRAME (frame), 0, 0, 0); /* GC */
+	    }
+	  else
+	    {
+	      Fset_window_buffer (window, another_buffer, Qnil);
+	      if (EQ (window, Fselected_window (Qnil)))
+		Fset_buffer (XWINDOW (window)->buffer);
+	    }
+	}
+    }
+  UNGCPRO;
   return Qnil;
 }
 
@@ -3352,6 +3384,7 @@ global or per-frame buffer ordering.
 {
   Lisp_Object tem;
   struct window *w = decode_window (window);
+  int old_buffer_local_face_property = 0;
 
   buffer = Fget_buffer (buffer);
   CHECK_BUFFER (buffer);
@@ -3383,6 +3416,8 @@ global or per-frame buffer ordering.
 	error ("Window is dedicated to buffer %s",
 	       XSTRING_DATA (XBUFFER (tem)->name));
 
+      old_buffer_local_face_property =
+	XBUFFER (w->buffer)->buffer_local_face_property;
       unshow_buffer (w);
     }
 
@@ -3404,6 +3439,14 @@ global or per-frame buffer ordering.
   SET_LAST_MODIFIED (w, 1);
   SET_LAST_FACECHANGE (w);
   MARK_WINDOWS_CHANGED (w);
+  {
+    int new_buffer_local_face_property =
+      XBUFFER (w->buffer)->buffer_local_face_property;
+
+    if (new_buffer_local_face_property
+	|| new_buffer_local_face_property != old_buffer_local_face_property)
+      MARK_WINDOW_FACES_CHANGED (w);
+  }
   recompute_all_cached_specifiers_in_window (w);
   if (EQ (window, Fselected_window (Qnil)))
     {
@@ -3649,7 +3692,12 @@ and put SIZE columns in the first of the pair.
 	  || NILP (XWINDOW (o->parent)->vchild))
 	{
 	  make_dummy_parent (window);
+#if 0
+	  /* #### I can't understand why you have to reset face
+	     cachels here.  This can cause crash so let's disable it
+	     and see the difference.  See redisplay-tests.el  --yh */
 	  reset_face_cachels (XWINDOW (window));
+#endif
 	  new = o->parent;
 	  XWINDOW (new)->vchild = window;
 	  XFRAME (o->frame)->mirror_dirty = 1;
@@ -3666,7 +3714,10 @@ and put SIZE columns in the first of the pair.
 	  || NILP (XWINDOW (o->parent)->hchild))
 	{
 	  make_dummy_parent (window);
+#if 0
+	  /* #### See above. */
 	  reset_face_cachels (XWINDOW (window));
+#endif
 	  new = o->parent;
 	  XWINDOW (new)->hchild = window;
 	  XFRAME (o->frame)->mirror_dirty = 1;

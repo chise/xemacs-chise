@@ -616,7 +616,11 @@ color_after_change (Lisp_Object specifier, Lisp_Object locale)
   Lisp_Object property =
     COLOR_SPECIFIER_FACE_PROPERTY (XCOLOR_SPECIFIER (specifier));
   if (!NILP (face))
-    face_property_was_changed (face, property, locale);
+    {
+      face_property_was_changed (face, property, locale);
+      if (BUFFERP (locale))
+	XBUFFER (locale)->buffer_local_face_property = 1;
+    }
 }
 
 void
@@ -814,7 +818,11 @@ font_after_change (Lisp_Object specifier, Lisp_Object locale)
   Lisp_Object property =
     FONT_SPECIFIER_FACE_PROPERTY (XFONT_SPECIFIER (specifier));
   if (!NILP (face))
-    face_property_was_changed (face, property, locale);
+    {
+      face_property_was_changed (face, property, locale);
+      if (BUFFERP (locale))
+	XBUFFER (locale)->buffer_local_face_property = 1;
+    }
 }
 
 void
@@ -949,7 +957,11 @@ face_boolean_after_change (Lisp_Object specifier, Lisp_Object locale)
   Lisp_Object property =
     FACE_BOOLEAN_SPECIFIER_FACE_PROPERTY (XFACE_BOOLEAN_SPECIFIER (specifier));
   if (!NILP (face))
-    face_property_was_changed (face, property, locale);
+    {
+      face_property_was_changed (face, property, locale);
+      if (BUFFERP (locale))
+	XBUFFER (locale)->buffer_local_face_property = 1;
+    }
 }
 
 void

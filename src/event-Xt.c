@@ -1763,6 +1763,41 @@ handle_client_message (struct frame *f, XEvent *event)
     }
 }
 
+/* #### I'm struggling to understand how the X event loop really works. 
+   Here is the problem:
+   
+   When widgets get mapped / changed etc the actual display updates
+   are done asynchronously via X events being processed - this
+   normally happens when XtAppProcessEvent() gets called. However, if
+   we are executing lisp code or even doing redisplay we won't
+   necessarily process X events for a very long time. This has the
+   effect of widgets only getting updated when XEmacs only goes into
+   idle, or some other event causes processing of the X event queue.
+
+   XtAppProcessEvent can get called from the following places:
+
+     emacs_Xt_next_event () - this is normal event processing, almost
+     any non-X event will take precedence and this means that we
+     cannot rely on it to do the right thing at the right time for
+     widget display.
+
+     drain_X_queue () - this happens when SIGIO gets tripped,
+     processing the event queue allows C-g to be checked for. It gets
+     called from emacs_Xt_event_pending_p ().
+
+   In order to solve this I have tried introducing a list primitive -
+   dispatch-non-command-events - which forces processing of X events
+   related to display. Unfortunately this has a number of problems,
+   one is that it is possible for event_stream_event_pending_p to
+   block for ever if there isn't actually an event. I guess this can
+   happen if we drop the synthetic event for reason. It also relies on
+   SIGIO processing which makes things rather fragile.
+
+   People have seen behaviour whereby XEmacs blocks until you move the
+   mouse. This seems to indicate that dispatch-non-command-events is
+   blocking. It may be that in a SIGIO world forcing SIGIO processing
+   does the wrong thing.
+*/
 static void
 emacs_Xt_force_event_pending (struct frame* f)
 {
@@ -1778,8 +1813,8 @@ emacs_Xt_force_event_pending (struct frame* f)
   /* Send the drop message */
   XSendEvent(dpy, XtWindow (FRAME_X_SHELL_WIDGET (f)),
 	     True, NoEventMask, &event);
-  /* Force event pending to check the X queue. */
-  quit_check_signal_tick_count++;
+  /* We rely on SIGIO and friends to realise we have generated an
+     event. */
 }
 
 static void
@@ -2949,7 +2984,11 @@ emacs_Xt_event_pending_p (int user_p)
   /* quit_check_signal_tick_count is volatile so try to avoid race conditions
      by using a temporary variable */
   tick_count_val = quit_check_signal_tick_count;
-  if (last_quit_check_signal_tick_count != tick_count_val)
+  if (last_quit_check_signal_tick_count != tick_count_val
+#if !defined (SIGIO) || defined (CYGWIN)
+      || (XtIMXEvent & XtAppPending (Xt_app_con))
+#endif 
+      )
     {
       last_quit_check_signal_tick_count = tick_count_val;
 

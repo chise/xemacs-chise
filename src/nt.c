@@ -1378,37 +1378,92 @@ generate_inode_val (const char * name)
    a compatibility test. --kkm */
 
 /* Since stat is encapsulated on Windows NT, we need to encapsulate
-   the equally broken fstat as well. */
+   the equally broken fstat as well. FSFmacs also provides its own
+   utime. Is that necessary here too? */
 int
-mswindows_fstat (int handle, struct stat *buffer)
+mswindows_fstat (int desc, struct stat * buf)
 {
-  int ret;
-  BY_HANDLE_FILE_INFORMATION lpFileInfo;
-  /* Initialize values */
-  buffer->st_mode = 0;
-  buffer->st_size = 0;
-  buffer->st_dev = 0;
-  buffer->st_rdev = 0;
-  buffer->st_atime = 0;
-  buffer->st_ctime = 0;
-  buffer->st_mtime = 0;
-  buffer->st_nlink = 0;
-  ret = GetFileInformationByHandle((HANDLE) _get_osfhandle(handle), &lpFileInfo);
-  if (!ret)
+  HANDLE fh = (HANDLE) _get_osfhandle (desc);
+  BY_HANDLE_FILE_INFORMATION info;
+  DWORD fake_inode;
+  int permission;
+
+  switch (GetFileType (fh) & ~FILE_TYPE_REMOTE)
     {
-      return -1;
+    case FILE_TYPE_DISK:
+      buf->st_mode = _S_IFREG;
+      if (!GetFileInformationByHandle (fh, &info))
+	{
+	  errno = EACCES;
+	  return -1;
+	}
+      break;
+    case FILE_TYPE_PIPE:
+      buf->st_mode = _S_IFIFO;
+      goto non_disk;
+    case FILE_TYPE_CHAR:
+    case FILE_TYPE_UNKNOWN:
+    default:
+      buf->st_mode = _S_IFCHR;
+    non_disk:
+      memset (&info, 0, sizeof (info));
+      info.dwFileAttributes = 0;
+      info.ftCreationTime = utc_base_ft;
+      info.ftLastAccessTime = utc_base_ft;
+      info.ftLastWriteTime = utc_base_ft;
+    }
+
+  if (info.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+    {
+      buf->st_mode = _S_IFDIR;
+      buf->st_nlink = 2;	/* doesn't really matter */
+      fake_inode = 0;		/* this doesn't either I think */
     }
   else
     {
-      buffer->st_mtime = convert_time (lpFileInfo.ftLastWriteTime);
-      buffer->st_atime = convert_time (lpFileInfo.ftLastAccessTime);
-      if (buffer->st_atime == 0) buffer->st_atime = buffer->st_mtime;
-      buffer->st_ctime = convert_time (lpFileInfo.ftCreationTime);
-      if (buffer->st_ctime == 0) buffer->st_ctime = buffer->st_mtime;
-      buffer->st_size = lpFileInfo.nFileSizeLow;
-      buffer->st_nlink = (short) lpFileInfo.nNumberOfLinks;
-      return 0;
+      buf->st_nlink = info.nNumberOfLinks;
+      /* Might as well use file index to fake inode values, but this
+	 is not guaranteed to be unique unless we keep a handle open
+	 all the time (even then there are situations where it is
+	 not unique).  Reputedly, there are at most 48 bits of info
+      (on NTFS, presumably less on FAT). */
+      fake_inode = info.nFileIndexLow ^ info.nFileIndexHigh;
     }
+
+  /* MSVC defines _ino_t to be short; other libc's might not.  */
+  if (sizeof (buf->st_ino) == 2)
+    buf->st_ino = fake_inode ^ (fake_inode >> 16);
+  else
+    buf->st_ino = fake_inode;
+
+  /* consider files to belong to current user */
+  buf->st_uid = 0;
+  buf->st_gid = 0;
+
+  buf->st_dev = info.dwVolumeSerialNumber;
+  buf->st_rdev = info.dwVolumeSerialNumber;
+
+  buf->st_size = info.nFileSizeLow;
+
+  /* Convert timestamps to Unix format. */
+  buf->st_mtime = convert_time (info.ftLastWriteTime);
+  buf->st_atime = convert_time (info.ftLastAccessTime);
+  if (buf->st_atime == 0) buf->st_atime = buf->st_mtime;
+  buf->st_ctime = convert_time (info.ftCreationTime);
+  if (buf->st_ctime == 0) buf->st_ctime = buf->st_mtime;
+
+  /* determine rwx permissions */
+  if (info.dwFileAttributes & FILE_ATTRIBUTE_READONLY)
+    permission = _S_IREAD;
+  else
+    permission = _S_IREAD | _S_IWRITE;
+  
+  if (info.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+    permission |= _S_IEXEC;
+
+  buf->st_mode |= permission | (permission >> 3) | (permission >> 6);
+
+  return 0;
 }
 
 /* MSVC stat function can't cope with UNC names and has other bugs, so

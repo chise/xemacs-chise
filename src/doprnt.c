@@ -87,11 +87,13 @@ typedef struct
   Dynarr_declare (union printf_arg);
 } printf_arg_dynarr;
 
-/* Append STRING (of length LEN) to STREAM.  MINLEN is the minimum field
-   width.  If MINUS_FLAG is set, left-justify the string in its field;
-   otherwise, right-justify.  If ZERO_FLAG is set, pad with 0's; otherwise
-   pad with spaces.  If MAXLEN is non-negative, the string is first
-   truncated to that many character.
+/* Append STRING (of length LEN bytes) to STREAM.
+   MINLEN is the minimum field width.
+   If MINUS_FLAG is set, left-justify the string in its field;
+    otherwise, right-justify.
+   If ZERO_FLAG is set, pad with 0's; otherwise pad with spaces.
+   If MAXLEN is non-negative, the string is first truncated on the
+    right to that many characters.
 
    Note that MINLEN and MAXLEN are Charcounts but LEN is a Bytecount. */
 
@@ -99,42 +101,23 @@ static void
 doprnt_1 (Lisp_Object stream, const Bufbyte *string, Bytecount len,
 	  Charcount minlen, Charcount maxlen, int minus_flag, int zero_flag)
 {
-  Charcount cclen;
-  Bufbyte pad;
   Lstream *lstr = XLSTREAM (stream);
-
-  cclen = bytecount_to_charcount (string, len);
-
-  if (zero_flag)
-    pad = '0';
-  else
-    pad = ' ';
+  Charcount cclen = bytecount_to_charcount (string, len);
+  int to_add = minlen - cclen;
 
   /* Padding at beginning to right-justify ... */
-  if (minlen > cclen && !minus_flag)
-    {
-      int to_add = minlen - cclen;
-      while (to_add > 0)
-	{
-	  Lstream_putc (lstr, pad);
-	  to_add--;
-	}
-    }
+  if (!minus_flag)
+    while (to_add-- > 0)
+      Lstream_putc (lstr, zero_flag ? '0' : ' ');
 
-  if (maxlen >= 0)
-    len = charcount_to_bytecount (string, min (maxlen, cclen));
+  if (0 <= maxlen && maxlen < cclen)
+    len = charcount_to_bytecount (string, maxlen);
   Lstream_write (lstr, string, len);
 
   /* Padding at end to left-justify ... */
-  if (minlen > cclen && minus_flag)
-    {
-      int to_add = minlen - cclen;
-      while (to_add > 0)
-	{
-	  Lstream_putc (lstr, pad);
-	  to_add--;
-	}
-    }
+  if (minus_flag)
+    while (to_add-- > 0)
+      Lstream_putc (lstr, zero_flag ? '0' : ' ');
 }
 
 static const Bufbyte *
@@ -610,34 +593,34 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 	    }
 	  else
 	    {
-	      char text_to_print[500];
+	      /* ASCII Decimal representation uses 2.4 times as many
+		 bits as machine binary.  */
+	      char *text_to_print =
+		alloca_array (char, 32 +
+			      max (spec->minwidth,
+				   max (sizeof (double), sizeof (long)) * 3 +
+				   max (spec->precision, 0)));
 	      char constructed_spec[100];
 	      char *p = constructed_spec;
 
-	      /* Partially reconstruct the spec and use sprintf() to
+	      /* Mostly reconstruct the spec and use sprintf() to
 		 format the string. */
-
-	      /* Make sure nothing stupid happens */
-	      /* DO NOT REMOVE THE (int) CAST!  Incorrect results will
-		 follow! */
-	      spec->precision = min (spec->precision,
-				     (int) (sizeof (text_to_print) - 50));
 
 	      *p++ = '%';
 	      if (spec->plus_flag)   *p++ = '+';
 	      if (spec->space_flag)  *p++ = ' ';
 	      if (spec->number_flag) *p++ = '#';
+	      if (spec->minus_flag)  *p++ = '-';
+	      if (spec->zero_flag)   *p++ = '0';
 
-	      if (spec->precision >= 0 && !spec->minwidth)
+	      if (spec->minwidth >= 0)
+		p = long_to_string (p, spec->minwidth);
+	      if (spec->precision >= 0)
 		{
 		  *p++ = '.';
 		  p = long_to_string (p, spec->precision);
 		}
-
-	      /* sprintf the mofo */
-	      /* we have to use separate calls to sprintf(), rather than
-		 a single big conditional, because of the different types
-		 of the arguments */
+	      
 	      if (strchr (double_converters, ch))
 		{
 		  *p++ = ch;
@@ -646,10 +629,9 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		}
 	      else
 		{
-		  if (spec->zero_flag && spec->minwidth)
-		    sprintf (p, "0%dl%c", spec->minwidth, ch);
-		  else
-		    sprintf (p, "l%c", ch);
+		  *p++ = 'l';	/* Always use longs with sprintf() */
+		  *p++ = ch;
+		  *p++ = '\0';
 
 		  if (strchr (unsigned_int_converters, ch))
 		    sprintf (text_to_print, constructed_spec, arg.ul);
@@ -658,8 +640,7 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		}
 
 	      doprnt_1 (stream, (Bufbyte *) text_to_print,
-			strlen (text_to_print),
-			spec->minwidth, -1, spec->minus_flag, spec->zero_flag);
+			strlen (text_to_print), 0, -1, 0, 0);
 	    }
 	}
     }

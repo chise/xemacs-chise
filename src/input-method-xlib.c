@@ -80,8 +80,8 @@ Boston, MA 02111-1307, USA.  */
 #include "EmacsFrame.h"
 #include "events.h"
 
-#ifndef XIM_XLIB
-#error  XIM_XLIB is not defined??
+#if !defined (XIM_XLIB) && !defined (USE_XFONTSET)
+#error  neither XIM_XLIB nor USE_XFONTSET is defined??
 #endif
 
 Lisp_Object Qxim_xlib;
@@ -89,6 +89,7 @@ Lisp_Object Qxim_xlib;
 #define xim_warn1(fmt, str) warn_when_safe (Qxim_xlib, Qwarning, fmt, str);
 #define xim_info(str) warn_when_safe (Qxim_xlib, Qinfo, str);
 
+#ifdef XIM_XLIB /* XIM_XLIB specific */
 /* Get/Set IC values for just one attribute */
 #ifdef DEBUG_XEMACS
 #define XIC_Value(Get_Set, xic, name, attr, value)			\
@@ -120,6 +121,7 @@ static char DefaultXIMStyles[] =
 "XIMPreeditNone|XIMStatusNone";
 
 static XIMStyle best_style (XIMStyles *user, XIMStyles *xim);
+#endif /* XIM_XLIB only */
 
 /* This function is documented, but no prototype in the header files */
 EXTERN_C char * XSetIMValues(XIM, ...);
@@ -174,6 +176,8 @@ Initialize_Locale (void)
 		"Check the value of the XMODIFIERS environment variable.\n");
     }
 }
+
+#ifdef XIM_XLIB /* starting XIM specific codes */
 
 /* Callbacks for IM are supported from X11R6 or later. */
 #ifdef HAVE_XREGISTERIMINSTANTIATECALLBACK
@@ -1113,6 +1117,7 @@ Unit_Test (struct frame *f, char * s)
     }
 }
 #endif
+#endif /* XIM_XLIB only */
 
 #if 0
 /* Get a fontset for IM to use */
