@@ -1,0 +1,128 @@
+2000-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.39 is released.
+
+2000-12-28  Andy Piper  <andy@xemacs.org>
+
+	* desktop.cc (FROB): add more app paths.
+
+2000-12-24  Fabrice Popineau  <Fabrice.Popineau@supelec.fr>
+
+	* choose.cc (create_listview): CreateWindowEx() does not take this kind of
+	parameter.
+
+	* choose.cc (package_sort):
+	* hash.cc (rev_len):
+	* site.cc (site_sort): must be __cdecl to be called by qsort().
+
+	* download.cc:
+	* install.cc:
+	* nio-file.cc:
+	* tar.cc: because of the redefinition of stat to _stat, the
+	inclusion of win32 headers has to be delayed.
+	
+	* win32.h: added some declarations, such as CDECL if
+	not defined, #define for functions that are not standard in msvc
+	libc (strdup, stat ...)
+
+	* concat.h, concat.cc (concat): must be declared CDECL
+
+	* desktop.cc: <io.h> is needed.
+
+	* dialog.h (NEXT): cast needed, the first parameter of EndDialog() must
+	be a HWND.
+
+	* diskfull.cc: syntax when declaring GDFS.
+
+	* ini.cc: Various `extern "C"' declarations: yylineno, yyerror()
+	and fprintf(). Various CDECL declarations: yyerror(), fprintf().
+	
+	* inilex.l: <stdlib.h> required.
+	
+	* iniparse.y: use strdup(), require "win32.h" and <string.h>
+	
+	* install.cc (dialog): syntax when declaring. CreateDialog()
+	returns a HWND.
+	
+	* postinstall.cc: <io.h> and <stdio.h> are needed.
+	
+	* regedit.cc (find_cygwin_mount): WIN32_NATIVE does not know
+	anything about Cygwin stuff.
+	
+	* setup.mak: new makefile for WIN32_NATIVE.
+	
+	* splash.cc (load_dialog): GetDlgItem() returns a HWND.
+	
+	* tar.cc: msvc knows about __int64, but not `long long'.
+
+	* win32.h: <winreg.h> is missing for regedit.cc. Also, I ended up
+	in including <windows.h> because the files listed there are not
+	enough for <wininet.h>.
+	
+	* desktop.cc:
+	* fromcwd.cc:
+	* install.cc: 
+	* postinstall.cc: <unistd.h> does not exist for WIN32_NATIVE
+
+	* choose.cc (do_choose):
+	* ini.cc (do_ini):
+	* nio-ftp.cc (ftp_line): the construct (x ?: y) is not standard.
+
+2000-12-24  Andy Piper  <andy@xemacs.org>
+
+	* choose.cc (read_installed_db): grok package versions correctly.
+
+	* Makefile.in.in: add MINGW define.
+
+2000-12-18  Andy Piper  <andy@xemacs.org>
+
+	* res.rc: better look and feel.
+
+2000-12-18  Andy Piper  <andy@xemacs.org>
+
+	* desktop.cc (do_desktop_setup): more app path fiddling.
+
+2000-12-13  Andy Piper  <andy@xemacs.org>
+
+	* root.cc (dialog_cmd): create the root in the registry if we are successful.
+
+	* desktop.cc (find_xemacs_exe_path): new function. Split out from
+	find_xemacs_exe ().
+	(find_xemacs_exe_name): ditto.
+	(do_desktop_setup): setup app paths if we are installing xemacs
+	itself.
+	(do_desktop): use new functions.
+
+	* regedit.cc (create_xemacs_root): fix key name.
+	(find_xemacs_root): set isnative whatever the key value.
+	(set_app_path): new function. Set path for an app.
+
+2000-12-12  Andy Piper  <andy@xemacs.org>
+
+	* package-net.el (package-net-convert-index-to-ini): use sensible defaults.
+
+2000-12-12  Andy Piper  <andy@xemacs.org>
+
+	* reginfo.h: new macros.
+
+	* iniparse.y: define xemacs_package.
+
+	* ini.h: declare xemacs_package.
+
+	* fromcwd.cc (found_file): guess core type from name.
+
+	* concat.cc: kill warnings.
+	* net.cc: ditto.
+
+	* choose.cc (do_choose): pick up core package type chosen.
+
+	* Makefile.in.in: make sure we can pick up a mingw zlib.
+
+	* desktop.cc: fix desktop icon creation.
+
+2000-11-12  Andy Piper  <andy@xemacs.org>
+
+	* all: port from cygwin setup.
+
+%%% $Id: ChangeLog,v 1.1.2.4 2000/12/30 10:01:41 andyp Exp $
+$Revision: 1.1.2.4 $
