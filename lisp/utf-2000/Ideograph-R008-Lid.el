@@ -212,12 +212,20 @@
     (ideograph-daikanwa		#x01 #x2B)	; ø¹„«
     ))
 (define-char
-  '((morohashi-daikanwa	300)
+  '((->ucs		. #x342D)
+    (morohashi-daikanwa	300)
     (ideographic-radical . 8)	; â¼‡
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (chinese-cns11643-4 #x25 #x34)	; ø»—¦³
     (ideograph-daikanwa #x01 #x2C)	; ø¹„¬
+    ))
+(define-char
+  '((ucs		. #x342D)
+    (morohashi-daikanwa	300 0 0)
+    (ideographic-radical . 8)	; â¼‡
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (chinese-cns11643-4 #x25 #x34)	; ã­
     ))
 (define-char
   '((morohashi-daikanwa	301)
