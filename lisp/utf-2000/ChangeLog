@@ -1,3 +1,45 @@
+2003-07-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el (JX2-7575): Unify U+FA5E instead of <CJK
+	RADICAL GRASS TWO>; add `->ideographic-component-forms' for <CJK
+	RADICAL GRASS TWO>.
+	(U+FA5D): New character.
+	(JSP-576D): Unify JX2-762E.
+	(M-31008): Separate G0-5D31, J0-6838, GT-06636 and U+837C.
+	(M-31009): Separate all.
+	(JSP-5821): Unify JX2-7A75.
+	(M-31010): Separate all.
+	(M-31011): Likewise.
+	(U+837F): Unify JX2-7633.
+	(JSP-5849): Unify JX2-7642.
+	(M-31309): Unify H8-F5B2 and U-00026C73.
+	(JX2-7644): New character.
+	(C3-3E57): Delete `kangxi-radical'.
+	(JSP-5854): Unify JX2-7648.
+	(M-31399): Separate all.
+	(JSP-585A): Unify JX2-764C.
+	(JSP-586E): Unify JX2-7657.
+	(U+450D): Separate C3-4940; unify JX2-7654; add `total-strokes'.
+	(JSP-5921): Unify JX2-7655.
+	(U+8553): Unify JX2-7671.
+	(JSP-5952): Unify JX2-766C.
+	(U+4543): Separate C4-5331; unify JX2-766E.
+
+2003-07-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R195-Fish.el (U+9BF3): Separate JSP-6A7C.
+	(JSP-6A7C): Unify JX2-7D51.
+	(JSP-6B22): Unify JX2-7D5A.
+	(JX2-6B33): Unify JX2-7D64.
+	(U+9C27): Separate C4-683E.
+	(JSP-6B50): Unify JX2-7D6C.
+
+	* Ideograph-R145-Clothes.el (M-34581): Separate all.
+	(JSP-5C6F): Unify JX2-7841.
+
+	* Ideograph-R142-Insect.el (U+87A7): Unify JX2-7766.
+	(U+87F5): Unify JX2-7771; add `total-strokes'.
+
 2003-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL GRASS TWO): Don't
