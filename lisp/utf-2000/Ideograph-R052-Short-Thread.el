@@ -15,6 +15,16 @@
     ))
 (define-char
   '((ideographic-radical . 52)	; â¼³
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (<-simplified-ideograph
+     ((ideograph-daikanwa . 09189)	; ø¸‚¥
+      ))
+    (chinese-big5-cdp	. #x895C)	; ý¢€ˆ¥œ
+    (mojikyo		. 072135)	; ý €‘§‡
+    ))
+(define-char
+  '((ideographic-radical . 52)	; â¼³
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (shinjigen-2	. 2161)
