@@ -1,3 +1,15 @@
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/char-db-util.el (char-attribute-name<) Use
+	`charset-iso-final-char' instead of `charset-final'; fixed.
+	(insert-char-data): Delete unused local variable `name'; use
+	`charset-iso-graphic-plane' instead of `charset-graphic'.
+	(char-db-update-comment): Use `charset-iso-graphic-plane' instead
+	of `charset-graphic'.
+	(insert-char-range-data): Delete unused local variable `variants'.
+	(what-character-original-window-configuration): Define to avoid
+	compiler warning.
+
 1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* utf-2000/char-db-util.el (ideographic-radicals): New constant.
