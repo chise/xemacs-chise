@@ -4,7 +4,7 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
-;; Copyright (C) 1997,1999,2002,2003,2004 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2002,2003,2004,2005 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -124,12 +124,20 @@
 (make-coding-system
  'iso-2022-jp-2 'iso2022
  "ISO-2022 coding system using SS2 for 96-charset in 7-bit code."
- '(charset-g0 ascii
-   charset-g2 t ;; unspecified but can be used later.
-   seven t
-   short t
-   mnemonic "ISO7/SS"
-   eol-type nil))
+ (let ((conf
+	'(charset-g0 ascii
+          charset-g2 t ;; unspecified but can be used later.
+	  seven t
+	  short t
+	  mnemonic "ISO7/SS"
+	  eol-type nil)))
+   (if (featurep 'utf-2000)
+       (list* 'ccs-priority-list
+	      '(ascii
+		=jis-x0208@1983 =jis-x0208@1978
+		latin-jisx0201)
+	      conf)
+     conf)))
 
 (make-coding-system
  'iso-2022-7bit 'iso2022
