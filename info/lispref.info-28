@@ -916,27 +916,25 @@ Motion by Words
    These functions for parsing words use the syntax table to decide
 whether a given character is part of a word.  *Note Syntax Tables::.
 
- - Command: forward-word count &optional buffer
+ - Command: forward-word &optional count buffer
      This function moves point forward COUNT words (or backward if
      COUNT is negative).  Normally it returns `t'.  If this motion
      encounters the beginning or end of the buffer, or the limits of the
      accessible portion when narrowing is in effect, point stops there
-     and the value is `nil'.  BUFFER defaults to the current buffer if
-     omitted.
+     and the value is `nil'.
+
+     COUNT defaults to `1' and BUFFER defaults to the current buffer.
 
      In an interactive call, COUNT is set to the numeric prefix
      argument.
 
- - Command: backward-word count &optional buffer
+ - Command: backward-word &optional count buffer
      This function is just like `forward-word', except that it moves
      backward until encountering the front of a word, rather than
      forward.  BUFFER defaults to the current buffer if omitted.
 
      In an interactive call, COUNT is set to the numeric prefix
      argument.
-
-     This function is rarely used in programs, as it is more efficient
-     to call `forward-word' with a negative argument.
 
  - Variable: words-include-escapes
      This variable affects the behavior of `forward-word' and everything
@@ -1169,4 +1167,83 @@ performance of your code.  *Note cache-long-line-scans: Text Lines.
 
      The value returned is the window line number point has moved to,
      with the top line in the window numbered 0.
+
+
+File: lispref.info,  Node: List Motion,  Next: Skipping Characters,  Prev: Screen Lines,  Up: Motion
+
+Moving over Balanced Expressions
+--------------------------------
+
+   Here are several functions concerned with balanced-parenthesis
+expressions (also called "sexps" in connection with moving across them
+in XEmacs).  The syntax table controls how these functions interpret
+various characters; see *Note Syntax Tables::.  *Note Parsing
+Expressions::, for lower-level primitives for scanning sexps or parts of
+sexps.  For user-level commands, see *Note Lists and Sexps:
+(xemacs)Lists and Sexps.
+
+ - Command: forward-list &optional arg
+     This function moves forward across ARG balanced groups of
+     parentheses. (Other syntactic entities such as words or paired
+     string quotes are ignored.) ARG defaults to 1 if omitted.  If ARG
+     is negative, move backward across that many groups of parentheses.
+
+ - Command: backward-list &optional count
+     This function moves backward across COUNT balanced groups of
+     parentheses. (Other syntactic entities such as words or paired
+     string quotes are ignored.) COUNT defaults to 1 if omitted.  If
+     COUNT is negative, move forward across that many groups of
+     parentheses.
+
+ - Command: up-list &optional count
+     This function moves forward out of COUNT levels of parentheses.  A
+     negative argument means move backward but still to a less deep
+     spot.
+
+ - Command: down-list &optional count
+     This function moves forward into COUNT levels of parentheses.  A
+     negative argument means move backward but still go deeper in
+     parentheses (-COUNT levels).
+
+ - Command: forward-sexp &optional count
+     This function moves forward across COUNT balanced expressions.
+     Balanced expressions include both those delimited by parentheses
+     and other kinds, such as words and string constants.  COUNT
+     defaults to 1 if omitted.  If COUNT is negative, move backward
+     across that many balanced expressions.  For example,
+
+          ---------- Buffer: foo ----------
+          (concat-!- "foo " (car x) y z)
+          ---------- Buffer: foo ----------
+          
+          (forward-sexp 3)
+               => nil
+          
+          ---------- Buffer: foo ----------
+          (concat "foo " (car x) y-!- z)
+          ---------- Buffer: foo ----------
+
+ - Command: backward-sexp &optional count
+     This function moves backward across COUNT balanced expressions.
+     COUNT defaults to 1 if omitted.  If COUNT is negative, move
+     forward across that many balanced expressions.
+
+ - Command: beginning-of-defun &optional count
+     This function moves back to the COUNTth beginning of a defun.  If
+     COUNT is negative, this actually moves forward, but it still moves
+     to the beginning of a defun, not to the end of one.  COUNT
+     defaults to 1 if omitted.
+
+ - Command: end-of-defun &optional count
+     This function moves forward to the COUNTth end of a defun.  If
+     COUNT is negative, this actually moves backward, but it still
+     moves to the end of a defun, not to the beginning of one.  COUNT
+     defaults to 1 if omitted.
+
+ - User Option: defun-prompt-regexp
+     If non-`nil', this variable holds a regular expression that
+     specifies what text can appear before the open-parenthesis that
+     starts a defun.  That is to say, a defun begins on a line that
+     starts with a match for this regular expression, followed by a
+     character with open-parenthesis syntax.
 

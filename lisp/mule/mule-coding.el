@@ -174,12 +174,30 @@
 ;; initialize the coding categories to something semi-reasonable
 ;; so that the remaining Lisp files can contain extended characters.
 ;; (They will be in ISO-7 format)
+;; #### This list needs to be synched with the ones in mule-cmds.el.
 
 (if (featurep 'utf-2000)
-    (set-coding-priority-list '(iso-8-2 iso-8-designate iso-8-1
-				iso-7 iso-lock-shift utf-8 no-conversion))
-  (set-coding-priority-list '(iso-8-2 iso-8-designate iso-8-1
-			      iso-7 iso-lock-shift no-conversion)))
+    (set-coding-priority-list '(iso-7
+				no-conversion
+				utf-8
+				iso-8-1
+				iso-8-2
+				iso-8-designate
+				iso-lock-shift
+				shift-jis
+				big5
+				ucs-4))
+  (set-coding-priority-list '(iso-7
+			      no-conversion
+			      ;; utf-8
+			      iso-8-1
+			      iso-8-2
+			      iso-8-designate
+			      iso-lock-shift
+			      shift-jis
+			      big5
+			      ;; ucs-4
+			      )))
 
 (set-coding-category-system 'iso-7 'iso-2022-7)
 (set-coding-category-system 'iso-8-designate 'ctext)

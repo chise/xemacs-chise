@@ -689,6 +689,7 @@ in byte compilation.
 * Eval During Compile::  	Code to be evaluated when you compile.
 * Compiled-Function Objects::	The data type used for byte-compiled functions.
 * Disassembly::                 Disassembling byte-code; how to read byte-code.
+* Different Behavior::          When compiled code gives different results.
 
 
 File: lispref.info,  Node: Speed of Byte-Code,  Next: Compilation Functions,  Up: Byte Compilation

@@ -1,4 +1,4 @@
-This is ../info/internals.info, produced by makeinfo version 4.0 from
+This is ../info/internals.info, produced by makeinfo version 4.0b from
 internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -39,151 +39,158 @@ Foundation instead of in the original English.
 
 
 Indirect:
-internals.info-1: 1776
-internals.info-2: 46627
-internals.info-3: 94463
-internals.info-4: 144160
-internals.info-5: 194051
-internals.info-6: 243655
-internals.info-7: 287722
-internals.info-8: 336589
+internals.info-1: 1777
+internals.info-2: 46638
+internals.info-3: 94563
+internals.info-4: 144260
+internals.info-5: 194151
+internals.info-6: 243752
+internals.info-7: 287819
+internals.info-8: 336686
 
 Tag Table:
 (Indirect)
-Node: Top1776
-Node: A History of Emacs7030
-Node: Through Version 188555
-Node: Lucid Emacs12003
-Node: GNU Emacs 1915021
-Node: GNU Emacs 2017204
-Node: XEmacs17631
-Node: XEmacs From the Outside20810
-Node: The Lisp Language22577
-Node: XEmacs From the Perspective of Building32120
-Node: XEmacs From the Inside38245
-Node: The XEmacs Object System (Abstractly Speaking)46627
-Node: How Lisp Objects Are Represented in C60713
-Node: Rules When Writing New C Code65390
-Node: General Coding Rules66194
-Node: Writing Lisp Primitives71915
-Node: Adding Global Lisp Variables83084
-Node: Coding for Mule86722
-Node: Character-Related Data Types87701
-Node: Working With Character and Byte Positions90698
-Node: Conversion to and from External Data94463
-Node: General Guidelines for Writing Mule-Aware Code100604
-Node: An Example of Mule-Aware Code103292
-Node: Techniques for XEmacs Developers105273
-Node: A Summary of the Various XEmacs Modules113220
-Node: Low-Level Modules114040
-Node: Basic Lisp Modules121501
-Node: Modules for Standard Editing Operations128095
-Node: Editor-Level Control Flow Modules133983
-Node: Modules for the Basic Displayable Lisp Objects137494
-Node: Modules for other Display-Related Lisp Objects140447
-Node: Modules for the Redisplay Mechanism141788
-Node: Modules for Interfacing with the File System144160
-Node: Modules for Other Aspects of the Lisp Interpreter and Object System147858
-Node: Modules for Interfacing with the Operating System153311
-Node: Modules for Interfacing with X Windows160867
-Node: Modules for Internationalization164350
-Node: Allocation of Objects in XEmacs Lisp166987
-Node: Introduction to Allocation167508
-Node: Garbage Collection171194
-Node: GCPROing172350
-Node: Garbage Collection - Step by Step179354
-Node: Invocation179746
-Node: garbage_collect_1182759
-Node: mark_object192239
-Node: gc_sweep194051
-Node: sweep_lcrecords_1199114
-Node: compact_string_chars200109
-Node: sweep_strings202289
-Node: sweep_bit_vectors_1203254
-Node: Integers and Characters203930
-Node: Allocation from Frob Blocks204682
-Node: lrecords206286
-Node: Low-level allocation218512
-Node: Cons222619
-Node: Vector223345
-Node: Bit Vector223922
-Node: Symbol224415
-Node: Marker224769
-Node: String225324
-Node: Compiled Function228937
-Node: Dumping229106
-Node: Overview231327
-Node: Data descriptions231897
-Node: Dumping phase233902
-Node: Object inventory234305
-Node: Address allocation237159
-Node: The header238546
-Node: Data dumping239054
-Node: Pointers dumping239715
-Node: Reloading phase240933
-Node: Remaining issues242694
-Node: Events and the Event Loop243655
-Node: Introduction to Events244105
-Node: Main Loop246054
-Node: Specifics of the Event Gathering Mechanism249629
-Node: Specifics About the Emacs Event262082
-Node: The Event Stream Callback Routines262337
-Node: Other Event Loop Functions262582
-Node: Converting Events263722
-Node: Dispatching Events; The Command Builder264331
-Node: Evaluation; Stack Frames; Bindings264566
-Node: Evaluation264908
-Node: Dynamic Binding; The specbinding Stack; Unwind-Protects271463
-Node: Simple Special Forms273847
-Node: Catch and Throw274630
-Node: Symbols and Variables277205
-Node: Introduction to Symbols277469
-Node: Obarrays278537
-Node: Symbol Values282070
-Node: Buffers and Textual Representation284358
-Node: Introduction to Buffers285016
-Node: The Text in a Buffer287722
-Node: Buffer Lists294872
-Node: Markers and Extents296823
-Node: Bufbytes and Emchars299088
-Node: The Buffer Object299303
-Node: MULE Character Sets and Encodings302783
-Node: Character Sets303845
-Node: Encodings307330
-Node: Japanese EUC (Extended Unix Code)308397
-Node: JIS7309229
-Node: Internal Mule Encodings310579
-Node: Internal String Encoding312409
-Node: Internal Character Encoding314554
-Node: CCL316278
-Node: The Lisp Reader and Compiler323031
-Node: Lstreams323244
-Node: Creating an Lstream324275
-Node: Lstream Types325502
-Node: Lstream Functions325754
-Node: Lstream Methods329320
-Node: Consoles; Devices; Frames; Windows332462
-Node: Introduction to Consoles; Devices; Frames; Windows332777
-Node: Point335310
-Node: Window Hierarchy336589
-Node: The Window Object341041
-Node: The Redisplay Mechanism344478
-Node: Critical Redisplay Sections345270
-Node: Line Start Cache346257
-Node: Redisplay Piece by Piece349493
-Node: Extents351530
-Node: Introduction to Extents352064
-Node: Extent Ordering353206
-Node: Format of the Extent Info354447
-Node: Zero-Length Extents356334
-Node: Mathematics of Extent Ordering357734
-Node: Extent Fragments362491
-Node: Faces363577
-Node: Glyphs363693
-Node: Specifiers366712
-Node: Menus366841
-Node: Subprocesses369099
-Node: Interface to X Windows371075
-Node: Index371246
+Node: Top1777
+Node: A History of Emacs7041
+Node: Through Version 188566
+Node: Lucid Emacs12014
+Node: GNU Emacs 1915032
+Node: GNU Emacs 2017215
+Node: XEmacs17642
+Node: XEmacs From the Outside20821
+Node: The Lisp Language22588
+Node: XEmacs From the Perspective of Building32131
+Node: XEmacs From the Inside38256
+Node: The XEmacs Object System (Abstractly Speaking)46638
+Node: How Lisp Objects Are Represented in C60724
+Node: Rules When Writing New C Code65401
+Node: General Coding Rules66205
+Node: Writing Lisp Primitives72015
+Node: Adding Global Lisp Variables83184
+Node: Coding for Mule86822
+Node: Character-Related Data Types87801
+Node: Working With Character and Byte Positions90798
+Node: Conversion to and from External Data94563
+Node: General Guidelines for Writing Mule-Aware Code100704
+Node: An Example of Mule-Aware Code103392
+Node: Techniques for XEmacs Developers105373
+Node: A Summary of the Various XEmacs Modules113320
+Node: Low-Level Modules114140
+Node: Basic Lisp Modules121601
+Node: Modules for Standard Editing Operations128195
+Node: Editor-Level Control Flow Modules134083
+Node: Modules for the Basic Displayable Lisp Objects137594
+Node: Modules for other Display-Related Lisp Objects140547
+Node: Modules for the Redisplay Mechanism141888
+Node: Modules for Interfacing with the File System144260
+Node: Modules for Other Aspects of the Lisp Interpreter and Object System147958
+Node: Modules for Interfacing with the Operating System153411
+Node: Modules for Interfacing with X Windows160967
+Node: Modules for Internationalization164450
+Node: Allocation of Objects in XEmacs Lisp167087
+Node: Introduction to Allocation167608
+Node: Garbage Collection171294
+Node: GCPROing172450
+Node: Garbage Collection - Step by Step179454
+Node: Invocation179846
+Node: garbage_collect_1182859
+Node: mark_object192339
+Node: gc_sweep194151
+Node: sweep_lcrecords_1199214
+Node: compact_string_chars200209
+Node: sweep_strings202389
+Node: sweep_bit_vectors_1203354
+Node: Integers and Characters204030
+Node: Allocation from Frob Blocks204782
+Node: lrecords206386
+Node: Low-level allocation218612
+Node: Cons222719
+Node: Vector223445
+Node: Bit Vector224022
+Node: Symbol224515
+Node: Marker224869
+Node: String225424
+Node: Compiled Function229037
+Node: Dumping229206
+Node: Overview231427
+Node: Data descriptions231997
+Node: Dumping phase234002
+Node: Object inventory234405
+Node: Address allocation237258
+Node: The header238647
+Node: Data dumping239154
+Node: Pointers dumping239815
+Node: Reloading phase241030
+Node: Remaining issues242791
+Node: Events and the Event Loop243752
+Node: Introduction to Events244202
+Node: Main Loop246151
+Node: Specifics of the Event Gathering Mechanism249726
+Node: Specifics About the Emacs Event262179
+Node: The Event Stream Callback Routines262434
+Node: Other Event Loop Functions262679
+Node: Converting Events263819
+Node: Dispatching Events; The Command Builder264428
+Node: Evaluation; Stack Frames; Bindings264663
+Node: Evaluation265005
+Node: Dynamic Binding; The specbinding Stack; Unwind-Protects271560
+Node: Simple Special Forms273944
+Node: Catch and Throw274727
+Node: Symbols and Variables277302
+Node: Introduction to Symbols277566
+Node: Obarrays278634
+Node: Symbol Values282167
+Node: Buffers and Textual Representation284455
+Node: Introduction to Buffers285113
+Node: The Text in a Buffer287819
+Node: Buffer Lists294969
+Node: Markers and Extents296920
+Node: Bufbytes and Emchars299185
+Node: The Buffer Object299400
+Node: MULE Character Sets and Encodings302880
+Node: Character Sets303942
+Node: Encodings307427
+Node: Japanese EUC (Extended Unix Code)308494
+Node: JIS7309326
+Node: Internal Mule Encodings310676
+Node: Internal String Encoding312506
+Node: Internal Character Encoding314651
+Node: CCL316375
+Node: The Lisp Reader and Compiler323128
+Node: Lstreams323341
+Node: Creating an Lstream324372
+Node: Lstream Types325599
+Node: Lstream Functions325851
+Node: Lstream Methods329417
+Node: Consoles; Devices; Frames; Windows332559
+Node: Introduction to Consoles; Devices; Frames; Windows332874
+Node: Point335407
+Node: Window Hierarchy336686
+Node: The Window Object341138
+Node: The Redisplay Mechanism344575
+Node: Critical Redisplay Sections345367
+Node: Line Start Cache346354
+Node: Redisplay Piece by Piece349590
+Node: Extents351627
+Node: Introduction to Extents352161
+Node: Extent Ordering353303
+Node: Format of the Extent Info354544
+Node: Zero-Length Extents356431
+Node: Mathematics of Extent Ordering357831
+Node: Extent Fragments362588
+Node: Faces363674
+Node: Glyphs363790
+Node: Specifiers365977
+Node: Menus366106
+Node: Subprocesses368364
+Node: Interface to the X Window System370350
+Node: Lucid Widget Library370631
+Node: Generic Widget Interface371922
+Node: Scrollbars375481
+Node: Menubars375624
+Node: Checkboxes and Radio Buttons375767
+Node: Progress Bars375953
+Node: Tab Controls376113
+Node: Index376234
 
 End Tag Table

@@ -37,6 +37,7 @@ Boston, MA 02111-1307, USA.  */
 #define SYSTEM_TYPE "SCO 3.2v5"
 
 /* SCO has ptys, but with weird names */
+#define HAVE_PTYS
 #define PTY_ITERATION \
    for (i = 0; ; i++)
 #define PTY_NAME_SPRINTF \

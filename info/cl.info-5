@@ -369,28 +369,27 @@ idea for them to include side-effects.
 
           (assert (> x 10) t "x is too small: %d")
 
-     This usage of SHOW-ARGS is an extension to Common Lisp.  In true
+     This usage of SHOW-ARGS is a change to Common Lisp.  In true
      Common Lisp, the second argument gives a list of PLACES which can
-     be `setf''d by the user before continuing from the error.  Since
-     Emacs Lisp does not support continuable errors, it makes no sense
-     to specify PLACES.
+     be `setf''d by the user before continuing from the error.
 
- - Special Form: check-type form type [string]
-     This form verifies that FORM evaluates to a value of type TYPE.
+ - Special Form: check-type place type &optional string
+     This form verifies that PLACE evaluates to a value of type TYPE.
      If so, it returns `nil'.  If not, `check-type' signals a
-     `wrong-type-argument' error.  The default error message lists the
-     erroneous value along with TYPE and FORM themselves.  If STRING is
-     specified, it is included in the error message in place of TYPE.
-     For example:
+     continuable `wrong-type-argument' error.  The default error
+     message lists the erroneous value along with TYPE and PLACE
+     themselves.  If STRING is specified, it is included in the error
+     message in place of TYPE.  For example:
 
           (check-type x (integer 1 *) "a positive integer")
 
      *Note Type Predicates::, for a description of the type specifiers
      that may be used for TYPE.
 
-     Note that in Common Lisp, the first argument to `check-type' must
-     be a PLACE suitable for use by `setf', because `check-type'
-     signals a continuable error that allows the user to modify PLACE.
+     Note that as in Common Lisp, the first argument to `check-type'
+     should be a PLACE suitable for use by `setf', because `check-type'
+     signals a continuable error that allows the user to modify PLACE,
+     most simply by returning a value from the debugger.
 
    The following error-related macro is also defined:
 

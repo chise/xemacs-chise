@@ -50,7 +50,7 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
-File: lispref.info,  Node: Disassembly,  Prev: Compiled-Function Objects,  Up: Byte Compilation
+File: lispref.info,  Node: Disassembly,  Next: Different Behavior,  Prev: Compiled-Function Objects,  Up: Byte Compilation
 
 Disassembled Byte-Code
 ======================
@@ -222,6 +222,36 @@ source; these do not appear in the output of `disassemble'.
      16  return                  ; Return the top element of the stack.
      
           => nil
+
+
+File: lispref.info,  Node: Different Behavior,  Prev: Disassembly,  Up: Byte Compilation
+
+Different Behavior
+==================
+
+   The intent is that compiled byte-code and the corresponding code
+executed by the Lisp interpreter produce identical results.  However,
+there are some circumstances where the results will differ.
+
+   * Arithmetic operations may be rearranged for efficiency or
+     compile-time evaluation.  When floating point numbers are
+     involved, this may produce different values or an overflow.
+
+   * Some arithmetic operations may be optimized away.  For example, the
+     expression `(+ x)' may be optimized to simply `x'.  If the value
+     of `x' is a marker, then the value will be a marker instead of an
+     integer.  If the value of `x' is a cons cell, then the interpreter
+     will issue an error, while the bytecode will not.
+
+     If you're trying to use `(+ OBJECT 0)' to convert OBJECT to
+     integer, consider using an explicit conversion function, which is
+     clearer and guaranteed to work.  Instead of `(+ MARKER 0)', use
+     `(marker-position MARKER)'.  Instead of `(+ CHAR 0)', use
+     `(char-int CHAR)'.
+
+   For maximal equivalence between interpreted and compiled code, the
+variables `byte-compile-delete-errors' and `byte-compile-optimize' can
+be set to `nil', but this is not recommended.
 
 
 File: lispref.info,  Node: Debugging,  Next: Read and Print,  Prev: Byte Compilation,  Up: Top
@@ -1116,85 +1146,4 @@ with one of the non-instrumenting commands, or reload the file.
 
    See *Note Edebug Eval:: for other evaluation functions available
 inside of Edebug.
-
-
-File: lispref.info,  Node: Edebug Execution Modes,  Next: Jumping,  Prev: Instrumenting,  Up: Edebug
-
-Edebug Execution Modes
-----------------------
-
-   Edebug supports several execution modes for running the program you
-are debugging.  We call these alternatives "Edebug execution modes"; do
-not confuse them with major or minor modes.  The current Edebug
-execution mode determines how Edebug displays the progress of the
-evaluation, whether it stops at each stop point, or continues to the
-next breakpoint, for example.
-
-   Normally, you specify the Edebug execution mode by typing a command
-to continue the program in a certain mode.  Here is a table of these
-commands.  All except for `S' resume execution of the program, at least
-for a certain distance.
-
-`S'
-     Stop: don't execute any more of the program for now, just wait for
-     more Edebug commands (`edebug-stop').
-
-`<SPC>'
-     Step: stop at the next stop point encountered (`edebug-step-mode').
-
-`n'
-     Next: stop at the next stop point encountered after an expression
-     (`edebug-next-mode').  Also see `edebug-forward-sexp' in *Note
-     Edebug Misc::.
-
-`t'
-     Trace: pause one second at each Edebug stop point
-     (`edebug-trace-mode').
-
-`T'
-     Rapid trace: update at each stop point, but don't actually pause
-     (`edebug-Trace-fast-mode').
-
-`g'
-     Go: run until the next breakpoint (`edebug-go-mode').  *Note
-     Breakpoints::.
-
-`c'
-     Continue: pause for one second at each breakpoint, but don't stop
-     (`edebug-continue-mode').
-
-`C'
-     Rapid continue: update at each breakpoint, but don't actually pause
-     (`edebug-Continue-fast-mode').
-
-`G'
-     Go non-stop: ignore breakpoints (`edebug-Go-nonstop-mode').  You
-     can still stop the program by hitting any key.
-
-   In general, the execution modes earlier in the above list run the
-program more slowly or stop sooner.
-
-   When you enter a new Edebug level, the initial execution mode comes
-from the value of the variable `edebug-initial-mode'.  By default, this
-specifies `step' mode.  Note that you may reenter the same Edebug level
-several times if, for example, an instrumented function is called
-several times from one command.
-
-   While executing or tracing, you can interrupt the execution by typing
-any Edebug command.  Edebug stops the program at the next stop point and
-then executes the command that you typed.  For example, typing `t'
-during execution switches to trace mode at the next stop point.  You can
-use `S' to stop execution without doing anything else.
-
-   If your function happens to read input, a character you hit
-intending to interrupt execution may be read by the function instead.
-You can avoid such unintended results by paying attention to when your
-program wants input.
-
-   Keyboard macros containing Edebug commands do not work; when you exit
-from Edebug, to resume the program, whether you are defining or
-executing a keyboard macro is forgotten.  Also, defining or executing a
-keyboard macro outside of Edebug does not affect the command loop inside
-Edebug.  This is usually an advantage.  But see
-`edebug-continue-kbd-macro'.
 

@@ -140,6 +140,9 @@ struct buffer
   int face_change;	/* This is set when a change in how the text should
 			   be displayed (e.g., font, color) is made. */
 
+  /* Whether buffer specific face is specified. */
+  int buffer_local_face_property;
+
   /* change data indicating what portion of the text has changed
      since the last time this was reset.  Used by redisplay.
      Logically we should keep this with the text structure, but

@@ -419,31 +419,49 @@ enum iso_esc_flag
 #define ISO_CODE_CSI	0x9B		/* control-sequence-introduce */
 #endif /* MULE */
 
-/* For detecting the encoding of text */
+/* Distinguishable categories of encodings.
+
+   This list determines the initial priority of the categories.
+
+   For better or worse, currently Mule files are encoded in 7-bit ISO 2022.
+   For this reason, under Mule ISO_7 gets highest priority.
+
+   Putting NO_CONVERSION second prevents "binary corruption" in the
+   default case in all but the (presumably) extremely rare case of a
+   binary file which contains redundant escape sequences but no 8-bit
+   characters.
+
+   The remaining priorities are based on perceived "internationalization
+   political correctness."  An exception is UCS-4 at the bottom, since
+   basically everything is compatible with UCS-4, but it is likely to
+   be very rare as an external encoding. */
+
 enum coding_category_type
 {
+  /* must be a contiguous range of values 0 -- CODING_CATEGORY_LAST - 1 */
 #ifdef MULE
-  CODING_CATEGORY_SHIFT_JIS,
   CODING_CATEGORY_ISO_7, /* ISO2022 system using only seven-bit bytes,
 			    no locking shift */
-  CODING_CATEGORY_ISO_8_DESIGNATE, /* ISO2022 system using eight-bit bytes,
-				      no locking shift, no single shift,
-				      using designation to switch charsets */
+  CODING_CATEGORY_NO_CONVERSION,
+  CODING_CATEGORY_UTF8,
   CODING_CATEGORY_ISO_8_1, /* ISO2022 system using eight-bit bytes,
 			      no locking shift, no designation sequences,
 			      one-dimension characters in the upper half. */
   CODING_CATEGORY_ISO_8_2, /* ISO2022 system using eight-bit bytes,
 			      no locking shift, no designation sequences,
 			      two-dimension characters in the upper half. */
+  CODING_CATEGORY_ISO_8_DESIGNATE, /* ISO2022 system using eight-bit bytes,
+				      no locking shift, no single shift,
+				      using designation to switch charsets */
   CODING_CATEGORY_ISO_LOCK_SHIFT, /* ISO2022 system using locking shift */
+  CODING_CATEGORY_SHIFT_JIS,
   CODING_CATEGORY_BIG5,
   CODING_CATEGORY_UCS4,
-  CODING_CATEGORY_UTF8,
+#else /* not MULE */
+  CODING_CATEGORY_NO_CONVERSION,
 #endif /* MULE */
-  CODING_CATEGORY_NO_CONVERSION
+  CODING_CATEGORY_LAST		/* not a real coding category */
 };
-
-#define CODING_CATEGORY_LAST CODING_CATEGORY_NO_CONVERSION
 
 #ifdef MULE
 #define CODING_CATEGORY_SHIFT_JIS_MASK	\

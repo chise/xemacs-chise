@@ -115,6 +115,9 @@ menubar_visible_p_changed (Lisp_Object specifier, struct window *w,
 			   Lisp_Object oldval)
 {
   MARK_MENUBAR_CHANGED;
+  /* This is to force subwindow offsets to be recalculated - see
+     x_redisplay_widget (). */
+  MARK_FRAME_CHANGED (WINDOW_XFRAME (w));
 }
 
 static void

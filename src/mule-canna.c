@@ -22,9 +22,11 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Mule 2.3.  Not in FSF. */
 
-/* #### The comments in this file are mostly in EUC-formatted Japanese.
-   It would be ***soooo*** much nicer if someone could translate
-   them ... */
+/* Japanese comments were translated 2000-12-06 by Stephen Turnbull
+   <stephen@xemacs.org>.  I haven't verified that the Japanese comments
+   were correct.  YMMV, NO WARRANTY, not even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  (^^;;; as the
+   Japanese say. */
 
 /*
 
@@ -165,8 +167,9 @@ Boston, MA 02111-1307, USA.  */
 #endif /* !CANNA2 */
 extern char *jrKanjiError;
 
+/* #### is this global really necessary? */
 #define KEYTOSTRSIZE 2048
-static unsigned char buf[KEYTOSTRSIZE];
+static unsigned char key_buffer[KEYTOSTRSIZE];
 static char **warning;
 
 static int canna_empty_info, canna_through_info;
@@ -214,8 +217,8 @@ variables.
   int len;
 
   CHECK_CHAR_COERCE_INT (ch);
-  len = jrKanjiString (0, XCHAR (ch), buf, KEYTOSTRSIZE, &ks);
-  return storeResults (buf, len, &ks);
+  len = jrKanjiString (0, XCHAR (ch), key_buffer, KEYTOSTRSIZE, &ks);
+  return storeResults (key_buffer, len, &ks);
 }
 
 static Lisp_Object
@@ -229,10 +232,11 @@ storeResults (unsigned char *buf, int len, jrKanjiStatus *ks)
     }
   else
     {
-      /* 確定した文字列 */
+      /* 確定した文字列 (the confirmed string) */
       Vcanna_kakutei_string = make_string (buf, len);
       val = make_int (len);
-      /* 確定した文字列の読みの情報... */
+      /* 確定した文字列の読みの情報...
+	 (info about the reading of the confirmed string) */
       Vcanna_kakutei_yomi = Vcanna_kakutei_romaji = Qnil;
       if (ks->info & KanjiYomiInfo)
 	{
@@ -243,18 +247,21 @@ storeResults (unsigned char *buf, int len, jrKanjiStatus *ks)
 	    {
 	      int yomilen2;
 
-	      Vcanna_kakutei_yomi = make_string (p, yomilen); /* 読み */
+	      Vcanna_kakutei_yomi = make_string (p, yomilen); /* 読み
+								 (reading) */
 	      p += yomilen + 1;
 	      yomilen2 = strlen (p);
 	      if (len + yomilen + yomilen2 + 2 < KEYTOSTRSIZE)
 		{
-		  Vcanna_kakutei_romaji = make_string (p, yomilen2); /* ローマ字 */
+		  Vcanna_kakutei_romaji = make_string (p, yomilen2);
+				/* ローマ字 (romanization) */
 		}
 	    }
 	}
 
 
-      /* 候補表示の文字列です。*/
+      /* 候補表示の文字列です。
+	 (string for displaying candidate translations) */
       Vcanna_henkan_string = Qnil;
       if (ks->length >= 0)
 	{
@@ -268,7 +275,8 @@ storeResults (unsigned char *buf, int len, jrKanjiStatus *ks)
 	    {
 	      canna_henkan_length = mule_strlen (ks->echoStr,ks->length);
 	      canna_henkan_revPos = mule_strlen (ks->echoStr,ks->revPos);
-	      canna_henkan_revLen = mule_strlen (ks->echoStr+ks->revPos,ks->revLen);
+	      canna_henkan_revLen = mule_strlen (ks->echoStr+ks->revPos,
+						 ks->revLen);
 	    }
 	  else
 	    {
@@ -279,30 +287,32 @@ storeResults (unsigned char *buf, int len, jrKanjiStatus *ks)
 #endif /* CANNA_MULE */
 	}
 
-      /* 一覧の情報 */
+      /* 一覧の情報 (information about the echo area menu) */
       Vcanna_ichiran_string = Qnil;
       if (ks->info & KanjiGLineInfo && ks->gline.length >= 0)
 	{
-	  Vcanna_ichiran_string = make_string (ks->gline.line, ks->gline.length);
+	  Vcanna_ichiran_string = make_string (ks->gline.line,
+					       ks->gline.length);
 #ifndef CANNA_MULE
 	  canna_ichiran_length = ks->gline.length;
 	  canna_ichiran_revPos = ks->gline.revPos;
 	  canna_ichiran_revLen = ks->gline.revLen;
 #else /* CANNA_MULE */
 	  count_char (ks->gline.line, ks->gline.length,
-		      ks->gline.revPos, ks->gline.revLen, &canna_ichiran_length,
+		      ks->gline.revPos, ks->gline.revLen,
+		      &canna_ichiran_length,
 		      &canna_ichiran_revPos, &canna_ichiran_revLen);
 #endif /* CANNA_MULE */
 	}
 
-      /* モードの情報 */
+      /* モードの情報 (mode information) */
       Vcanna_mode_string = Qnil;
       if (ks->info & KanjiModeInfo)
 	{
 	  Vcanna_mode_string = make_string (ks->mode, strlen (ks->mode));
 	}
 
-      /* その他の情報 */
+      /* その他の情報 (other information) */
       canna_empty_info = (ks->info & KanjiEmptyInfo) ? 1 : 0;
       canna_through_info = (ks->info & KanjiThroughInfo) ? 1 : 0;
     }
@@ -317,7 +327,7 @@ No separator will be used otherwise.
 */
        (num))
 {
-  int kugiri; /* 文節区切りをするか？ */
+  int kugiri; /* 文節区切りをするか？ (display clause separator?) */
 
   kugiri = NILP (num) ? 0 : 1;
 
@@ -348,7 +358,7 @@ If nil is specified for each arg, the default value will be used.
   int res;
   unsigned char **p, **q;
 
-  int kugiri; /* 文節区切りをするか？ */
+  int kugiri; /* 文節区切りをするか？ (display clause separator?) */
 
   IRCP_context = -1;
 
@@ -416,7 +426,7 @@ If nil is specified for each arg, the default value will be used.
     {
       val = Fcons (make_string ((unsigned char*) jrKanjiError,
 				strlen (jrKanjiError)), val);
-      /* イニシャライズで失敗した場合。 */
+      /* イニシャライズで失敗した場合。 (on initialization failure) */
       return Fcons (Qnil, val);
     }
   else
@@ -438,11 +448,14 @@ If nil is specified for each arg, the default value will be used.
 #ifndef CANNA_MULE
       jrKanjiControl (0, KC_INHIBITHANKAKUKANA, (char *) 1);
 #else
-      /* mule だったら半角カタカナも使える */
+      /* mule だったら半角カタカナも使える
+	 (Mule can use half-width katakana) */
       if (canna_inhibit_hankakukana)
 	jrKanjiControl (0, KC_INHIBITHANKAKUKANA, (char *) 1);
 #endif
-      jrKanjiControl (0, KC_YOMIINFO, (char *) 2); /* ※２: ローマ字まで返す */
+      jrKanjiControl (0, KC_YOMIINFO, (char *) 2); /* ※２: ローマ字まで返す
+						      (*2: return to
+						      romanized form) */
       val = Fcons (Qnil, val);
       return Fcons (CANNA_mode_keys (), val);
     }
@@ -486,7 +499,7 @@ Register Kanji words into kana-to-kanji conversion dictionary.
 #endif
 
   CHECK_STRING (str);
-  ksv.buffer = (unsigned char *) buf;
+  ksv.buffer = (unsigned char *) key_buffer;
   ksv.bytes_buffer = KEYTOSTRSIZE;
 #ifndef CANNA_MULE
   ks.echoStr = XSTRING_DATA (str);
@@ -498,7 +511,7 @@ Register Kanji words into kana-to-kanji conversion dictionary.
 #endif /* CANNA_MULE */
   ksv.ks = &ks;
   len = jrKanjiControl (0, KC_DEFINEKANJI, (char *)&ksv);
-  val = storeResults (buf, ksv.val, ksv.ks);
+  val = storeResults (key_buffer, ksv.val, ksv.ks);
   return val;
 }
 
@@ -525,12 +538,12 @@ Change Japanese pre-edit mode.
 
   CHECK_INT (num);
 
-  ksv.buffer = (unsigned char *) buf;
+  ksv.buffer = (unsigned char *) key_buffer;
   ksv.bytes_buffer = KEYTOSTRSIZE;
   ksv.ks = &ks;
   ksv.val = XINT (num);
   jrKanjiControl (0, KC_CHANGEMODE,  (char *)&ksv);
-  val = storeResults (buf, ksv.val, ksv.ks);
+  val = storeResults (key_buffer, ksv.val, ksv.ks);
   return val;
 }
 
@@ -563,12 +576,12 @@ Store yomi characters as a YOMI of kana-to-kanji conversion.
 
   CHECK_STRING (yomi);
 #ifndef CANNA_MULE
-  strncpy (buf, XSTRING_DATA (yomi), XSTRING_LENGTH (yomi));
+  strncpy (key_buffer, XSTRING_DATA (yomi), XSTRING_LENGTH (yomi));
   ks.length = XSTRING_LENGTH (yomi);
-  buf[ks.length] = '\0';
+  key_buffer[ks.length] = '\0';
 #else /* CANNA_MULE */
-  m2c (XSTRING_DATA (yomi), XSTRING_LENGTH (yomi), buf);
-  ks.length = strlen (buf);
+  m2c (XSTRING_DATA (yomi), XSTRING_LENGTH (yomi), key_buffer);
+  ks.length = strlen (key_buffer);
 #endif /* CANNA_MULE */
 
   if (NILP (roma))
@@ -580,24 +593,24 @@ Store yomi characters as a YOMI of kana-to-kanji conversion.
       CHECK_STRING (roma);
 
 #ifndef CANNA_MULE
-      strncpy (buf + XSTRING_LENGTH (yomi) + 1, XSTRING_DATA (roma),
+      strncpy (key_buffer + XSTRING_LENGTH (yomi) + 1, XSTRING_DATA (roma),
 	       XSTRING_LENGTH (roma));
-      buf[XSTRING_LENGTH (yomi) + 1 + XSTRING_LENGTH (roma)] = '\0';
-      ks.mode = (unsigned char *)(buf + XSTRING_LENGTH (yomi) + 1);
+      key_buffer[XSTRING_LENGTH (yomi) + 1 + XSTRING_LENGTH (roma)] = '\0';
+      ks.mode = (unsigned char *)(key_buffer + XSTRING_LENGTH (yomi) + 1);
 #else /* CANNA_MULE */
-      ks.mode = (unsigned char *)(buf + ks.length + 1);
+      ks.mode = (unsigned char *)(key_buffer + ks.length + 1);
       m2c (XSTRING_DATA (roma), XSTRING_LENGTH (roma), ks.mode);
 #endif /* CANNA_MULE */
     }
 
-  ks.echoStr = (unsigned char *) buf;
-  ksv.buffer = (unsigned char *) buf; /* 返値用 */
+  ks.echoStr = (unsigned char *) key_buffer;
+  ksv.buffer = (unsigned char *) key_buffer; /* 返値用 (return value) */
   ksv.bytes_buffer = KEYTOSTRSIZE;
   ksv.ks = &ks;
 
   jrKanjiControl (0, KC_STOREYOMI, (char *)&ksv);
 
-  return storeResults (buf, ksv.val, ksv.ks);
+  return storeResults (key_buffer, ksv.val, ksv.ks);
 }
 
 DEFUN ("canna-do-function", Fcanna_do_function, 1, 2, 0, /*
@@ -613,20 +626,20 @@ Do specified function at current mode.
 
   if (NILP (ch))
     {
-      *buf = '@';
+      *key_buffer = '@';
     }
   else
     {
       CHECK_CHAR (ch);
-      *buf = XCHAR (ch);
+      *key_buffer = XCHAR (ch);
     }
 
-  ksv.buffer = (unsigned char *) buf;
+  ksv.buffer = (unsigned char *) key_buffer;
   ksv.bytes_buffer = KEYTOSTRSIZE;
   ksv.ks = &ks;
   ksv.val = XINT (num);
   jrKanjiControl (0, KC_DO, (char *) &ksv);
-  val = storeResults (buf, ksv.val, ksv.ks);
+  val = storeResults (key_buffer, ksv.val, ksv.ks);
   return val;
 }
 
@@ -642,12 +655,12 @@ Parse customize string.
   CHECK_STRING (str);
 
 #ifndef CANNA_MULE
-  strncpy (buf, XSTRING_DATA (str), XSTRING_LENGTH (str));
-  buf[XSTRING_LENGTH (str)] = '\0';
+  strncpy (key_buffer, XSTRING_DATA (str), XSTRING_LENGTH (str));
+  key_buffer[XSTRING_LENGTH (str)] = '\0';
 #else /* CANNA_MULE */
-  m2c (XSTRING_DATA (str), XSTRING_LENGTH (str), buf);
+  m2c (XSTRING_DATA (str), XSTRING_LENGTH (str), key_buffer);
 #endif /* CANNA_MULE */
-  p = (unsigned char**) buf;
+  p = (unsigned char**) key_buffer;
   n = jrKanjiControl (0, KC_PARSE,  (char *) &p);
   val = Qnil;
   while (n > 0)
@@ -853,7 +866,9 @@ End conversion.
     {
       return Qnil;
     }
-  RkEndBun (IRCP_context, 1); /* 学習はいつでも行って良いものなのか？ */
+  RkEndBun (IRCP_context, 1); /* 学習はいつでも行って良いものなのか？
+				 (is it OK to invoke learning function
+				 at arbitrary times?) */
   return Qt;
 }
 

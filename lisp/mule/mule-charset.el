@@ -276,6 +276,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  cyrillic-iso8859-5
 	  greek-iso8859-7
 	  thai-tis620
+	  chinese-big5-cdp
 	  japanese-jisx0208
 	  japanese-jisx0208-1990
 	  japanese-jisx0212
@@ -291,7 +292,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-cns11643-5
 	  chinese-cns11643-6
 	  chinese-cns11643-7
-	  chinese-big5-cdp
 	  chinese-big5
 	  chinese-isoir165
 	  katakana-jisx0201

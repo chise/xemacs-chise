@@ -628,17 +628,17 @@ the symbol `buffer-file-name':
 
 Because this symbol is the variable which holds the name of the file
 being visited in the current buffer, the value cell contents we see are
-the name of the source file of this chapter of the XEmacs Lisp Manual.
-The property list cell contains the list `(variable-documentation
-29529)' which tells the documentation functions where to find the
-documentation string for the variable `buffer-file-name' in the `DOC'
-file.  (29529 is the offset from the beginning of the `DOC' file to
-where that documentation string begins.)  The function cell contains
-the function for returning the name of the file.  `buffer-file-name'
-names a primitive function, which has no read syntax and prints in hash
-notation (*note Primitive Function Type::).  A symbol naming a function
-written in Lisp would have a lambda expression (or a byte-code object)
-in this cell.
+the name of the source file of this chapter of the XEmacs Lisp Reference
+Manual.  The property list cell contains the list
+`(variable-documentation 29529)' which tells the documentation
+functions where to find the documentation string for the variable
+`buffer-file-name' in the `DOC' file.  (29529 is the offset from the
+beginning of the `DOC' file to where that documentation string begins.)
+The function cell contains the function for returning the name of the
+file.  `buffer-file-name' names a primitive function, which has no read
+syntax and prints in hash notation (*note Primitive Function Type::).  A
+symbol naming a function written in Lisp would have a lambda expression
+(or a byte-code object) in this cell.
 
 
 File: lispref.info,  Node: Definitions,  Next: Creating Symbols,  Prev: Symbol Components,  Up: Symbols

@@ -632,8 +632,8 @@ Q1.0.13: Is there a port of XEmacs to OS/2?
 
 File: xemacs-faq.info,  Node: Q1.0.14,  Next: Q1.1.1,  Prev: Q1.0.13,  Up: Introduction
 
-Q1.0.14: Where can I obtain a printed copy of the XEmacs users manual?
-----------------------------------------------------------------------
+Q1.0.14: Where can I obtain a printed copy of the XEmacs User's Manual?
+-----------------------------------------------------------------------
 
    Pre-printed manuals are not available.  If you are familiar with
 TeX, you can generate your own manual from the XEmacs sources.

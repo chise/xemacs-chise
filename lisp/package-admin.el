@@ -165,13 +165,13 @@ or return a location appropriate for the package otherwise."
 	         (featurep package-feature)
 		 (setq autoload-dir (feature-file package-feature))
 		 (setq autoload-dir (file-name-directory autoload-dir))
-		 (member autoload-dir late-package-load-path))
+		 (member autoload-dir (append early-package-load-path late-package-load-path)))
 	;; Find the corresponding entry in late-package
 	(setq pkg-dir
 	      (car-safe (member-if (lambda (h)
 			   (string-match (concat "^" (regexp-quote h))
 					 autoload-dir))
-			 late-packages))))
+			 (append (cdr early-packages) late-packages)))))
       (if pkg-dir
 	  pkg-dir
 	;; Ok we need to guess

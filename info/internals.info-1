@@ -1,4 +1,4 @@
-This is ../info/internals.info, produced by makeinfo version 4.0 from
+This is ../info/internals.info, produced by makeinfo version 4.0b from
 internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -70,7 +70,7 @@ File: internals.info,  Node: Top,  Next: A History of Emacs,  Prev: (dir),  Up: 
 * Specifiers::
 * Menus::
 * Subprocesses::
-* Interface to X Windows::
+* Interface to the X Window System::
 * Index::
 
 

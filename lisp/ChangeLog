@@ -519,6 +519,53 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2000-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.39 is released.
+
+2000-12-27  Martin Buchholz  <martin@xemacs.org>
+
+	* byte-optimize.el (byte-optimize-cond):
+	(byte-optimize-cond-1): New.
+	Rewrite `cond' in terms of `if' and `or', which are easier to optimize.
+	Optimizes (cond (x nil)) ==> nil.
+	Provide better diagnostic on malformed expr like (cond foo).
+
+2000-12-20  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* mule/mule-coding.el:
+	mule/mule-cmds.el (reset-language-environment,
+	set-language-environment-coding-systems):
+	Safer default coding-priority-list, corresponding to src/file-coding.h.
+
+2000-12-03  Jorma Laaksonen <jorma.laaksonen@hut.fi>
+
+	* package-admin.el: Allow package removal from
+	early-package-load-path.
+
+2000-12-15  Andreas Jaeger  <aj@suse.de>
+
+	* about.el (about-maintainer-info): Update my entry.
+
+2000-12-11  Matt Tucker  <tuck@whistlingfish.net>
+
+	* packages.el (locate-library): Add support for bzip2
+	compressed .el files.
+
+2000-12-12  Andy Piper  <andy@xemacs.org>
+
+	* package-net.el: new file.
+
+2000-12-01  Enrico Scholz  <enrico.scholz@informatik.tu-chemnitz.de>
+
+	* font-lock.el: Add missing C++ keywords.
+
+2000-12-08  Adrian Aichner  <adrian@xemacs.org>
+
+	* simple.el (indent-for-comment): Preserve indentation of comments
+	starting in column 0, as documented in (Info-goto-node
+	"(xemacs)Comments").  Update docstring accordingly.
+
 2000-12-05  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.38 is released.

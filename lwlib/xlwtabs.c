@@ -66,6 +66,8 @@
 #include	<X11/Xlib.h>
 #include	<X11/IntrinsicP.h>
 #include	<X11/StringDefs.h>
+
+#include	"lwlib-internal.h"
 #include	"../src/xmu.h"
 #include	"xlwtabsP.h"
 #include	"xlwgcs.h"
@@ -267,7 +269,7 @@ static	void	DrawHighlight( TabsWidget tw, Widget child, Bool undraw) ;
 static	void	UndrawTab( TabsWidget tw, Widget child) ;
 
 static	void	TabWidth( Widget w) ;
-static	int	TabLayout( TabsWidget, int wid, int hgt, Dimension *r_hgt,
+static	int	TabLayout( TabsWidget, Dimension wid, Dimension hgt, Dimension *r_hgt,
 			Bool query_only) ;
 static	void	GetPreferredSizes(TabsWidget) ;
 static	void	MaxChild(TabsWidget, Widget except, Dimension, Dimension) ;
@@ -275,9 +277,9 @@ static	void	TabsShuffleRows( TabsWidget tw) ;
 static	int	PreferredSize( TabsWidget,
 			Dimension *reply_width, Dimension *reply_height,
 			Dimension *reply_cw, Dimension *reply_ch) ;
-static	int	PreferredSize2( TabsWidget, int cw, int ch,
+static	int	PreferredSize2( TabsWidget, Dimension cw, Dimension ch,
 			Dimension *rw, Dimension *rh) ;
-static	int	PreferredSize3( TabsWidget, int wid, int hgt,
+static	int	PreferredSize3( TabsWidget, Dimension wid, Dimension hgt,
 			Dimension *rw, Dimension *rh) ;
 static	void	MakeSizeRequest(TabsWidget) ;
 
@@ -391,20 +393,6 @@ TabsClassRec tabsClassRec = {
 };
 
 WidgetClass tabsWidgetClass = (WidgetClass)&tabsClassRec;
-
-
-
-#ifdef	DEBUG
-#ifdef	__STDC__
-#define	assert(e) \
-	  if(!(e)) fprintf(stderr,"yak! %s at %s:%d\n",#e,__FILE__,__LINE__)
-#else
-#define	assert(e) \
-	  if(!(e)) fprintf(stderr,"yak! e at %s:%d\n",__FILE__,__LINE__)
-#endif
-#else
-#define	assert(e)
-#endif
 
 #define TabsNumChildren(tw) (((TabsWidget)tw)->composite.num_children)
 #define TabVisible(tab) \
@@ -570,18 +558,20 @@ TabsResize(Widget w)
 
 	  tw->tabs.child_width = cw = tw->core.width - 2 * SHADWID ;
 	  tw->tabs.child_height = ch =
-			tw->core.height - tw->tabs.tab_total - 2 * SHADWID ;
-
+	    tw->core.height < (tw->tabs.tab_total + 2 * SHADWID) ? 0 :
+	    tw->core.height - tw->tabs.tab_total - 2 * SHADWID ;
 
 	  for(i=0, childP=tw->composite.children;
 		i < num_children;
 		++i, ++childP)
-	    if( TabVisible(*childP) )
+	    if( XtIsManaged(*childP) )
 	    {
 	      tab = (TabsConstraints) (*childP)->core.constraints ;
 	      bw = (*childP)->core.border_width ;
-	      XtConfigureWidget(*childP, SHADWID,tw->tabs.tab_total+SHADWID,
-			  cw-bw*2,ch-bw*2, bw) ;
+	      /* Don't do anything if we can't see any of the child. */
+	      if (ch >= bw*2 && ch > 0 && cw >= bw*2 && cw > 0)
+		XtConfigureWidget(*childP, SHADWID,tw->tabs.tab_total+SHADWID,
+				  cw-bw*2,ch-bw*2, bw) ;
 	    }
 	  if( XtIsRealized(w) ) {
 	    XClearWindow(XtDisplay((Widget)tw), XtWindow((Widget)tw)) ;
@@ -873,7 +863,8 @@ TabsGeometryManager(Widget w, XtWidgetGeometry *req, XtWidgetGeometry *reply)
 	    myrequest.width = wid ;
 	    myrequest.height = hgt ;
 	    myrequest.request_mode = CWWidth | CWHeight ;
-
+	    
+	    assert (wid > 0 && hgt > 0);
 	    /* If child is only querying, or if we're going to have to
 	     * offer the child a compromise, then make this a query only.
 	     */
@@ -1505,8 +1496,26 @@ DrawFrame(TabsWidget tw)
 	GC		botgc = tw->tabs.botGC ;
 	Dimension	s = SHADWID ;
 	Dimension	ch = tw->tabs.child_height ;
-	Draw3dBox((Widget)tw, 0,tw->tabs.tab_total,
-		tw->core.width, ch+2*s, s, topgc, botgc) ;
+	if (ch > 0)
+	  Draw3dBox((Widget)tw, 0,tw->tabs.tab_total,
+		    tw->core.width, ch+2*s, s, topgc, botgc) ;
+	else
+	  {
+	    Widget		w = tw->tabs.topWidget ;
+	    if (w != NULL)
+	      {
+		TabsConstraints	tab = (TabsConstraints) w->core.constraints ;
+		Draw3dBox((Widget)tw, 0,tw->core.height - 2*s,
+			  tab->tabs.x, 2*s, s, topgc, botgc);
+		Draw3dBox((Widget)tw, tab->tabs.x + tab->tabs.width, 
+			  tw->core.height - 2*s,
+			  tw->core.width - tab->tabs.x - tab->tabs.width, 2*s, s, 
+			  topgc, botgc);
+	      }
+	    else
+	      Draw3dBox((Widget)tw, 0,tw->core.height - 2*s,
+			tw->core.width, 2*s, s, topgc, botgc) ;
+	  }
 }
 
 
@@ -1712,7 +1721,10 @@ TabWidth(Widget w)
 	 */
 
 static	int
-TabLayout(TabsWidget tw, int wid, int hgt, Dimension *reply_height, Bool query_only)
+TabLayout(TabsWidget tw, 
+	  Dimension wid, 
+	  Dimension hgt, 
+	  Dimension *reply_height, Bool query_only)
 {
 	int		i, row, done = 0, display_rows = 0 ;
 	int		num_children = tw->composite.num_children ;
@@ -1817,7 +1829,7 @@ MaxChild(TabsWidget tw, Widget except, Dimension cw, Dimension ch)
 	XtWidgetGeometry	preferred ;
 
 	for(i=tw->composite.num_children; --i >=0; ++childP)
-	  if( XtIsManaged(*childP)  &&  *childP != except )
+	  if( TabVisible (*childP) /*XtIsManaged(*childP)*/  &&  *childP != except )
 	  {
 	    (void) XtQueryGeometry(*childP, NULL, &preferred) ;
 	    cw = Max(cw, preferred.width + preferred.border_width * 2 ) ;
@@ -1859,7 +1871,7 @@ TabsShuffleRows(TabsWidget tw)
 	{
 	  display_rows = tw->tabs.numRows ;
 	  real_rows = tw->tabs.realRows ;
-	  assert( display_rows >= real_rows ) ;
+	  assert( display_rows <= real_rows ) ;
 
 	  if( real_rows > 1 )
 	  {
@@ -1959,18 +1971,22 @@ PreferredSize(
 static	int
 PreferredSize2(
 	TabsWidget	tw,
-	int		cw,		/* child width, height */
-	int		ch,
+	Dimension	cw,		/* child width, height */
+	Dimension	ch,
 	Dimension	*reply_width,	/* total widget size */
 	Dimension	*reply_height)
 {
 	Dimension	s = SHADWID ;
+	int ret;
 
 	/* make room for shadow frame */
 	cw += s*2 ;
 	ch += s*2 ;
 
-	return PreferredSize3(tw, cw, ch, reply_width, reply_height) ;
+	ret = PreferredSize3(tw, cw, ch, reply_width, reply_height) ;
+
+	assert (*reply_width > 0 && *reply_height > 0);
+	return ret;
 }
 
 
@@ -1979,8 +1995,8 @@ PreferredSize2(
 static	int
 PreferredSize3(
 	TabsWidget	tw,
-	int		wid,		/* child width, height */
-	int		hgt,
+	Dimension	wid,		/* child width, height */
+	Dimension	hgt,
 	Dimension	*reply_width,	/* total widget size */
 	Dimension	*reply_height)
 {

@@ -1,4 +1,4 @@
-This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+This is ../info/xemacs.info, produced by makeinfo version 4.0b from
 xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -599,7 +599,6 @@ authors' reputations.
 modification follow.
 
                          TERMS AND CONDITIONS
-
   1. This License Agreement applies to any program or other work which
      contains a notice placed by the copyright holder saying it may be
      distributed under the terms of this General Public License.  The
@@ -945,18 +944,16 @@ Window
      menu bar at the top of the frame makes shortcuts to several of the
      commands available (*note Pull-down Menus::).
 
-   * If you are running XEmacs under a graphical windowing system, a
-     toolbar at the top of the frame, just under the menu bar if it
-     exists, provides "one-touch" shortcuts to several commands.  (Not
-     yet documented.)
+   * Under a graphical windowing system, a toolbar at the top of the
+     frame, just under the menu bar if it exists, provides "one-touch"
+     shortcuts to several commands.  (Not yet documented.)
 
-   * If you are running XEmacs under a graphical windowing system, a
-     gutter at the top (under the toolbar) and/or bottom of the frame
-     provides advanced GUI facilities like tab controls for rapid
-     switching among related windows and progress bars for
-     time-consuming operations like downloads across the Internet.
-     Gutters are an experimental feature introduced in XEmacs version
-     21.2.  (Not yet documented.)
+   * Under a graphical windowing system, a gutter at the top (under the
+     toolbar) and/or bottom of the frame provides advanced GUI
+     facilities like tab controls for rapid switching among related
+     windows and progress bars for time-consuming operations like
+     downloads across the Internet.  Gutters are an experimental feature
+     introduced in XEmacs version 21.2.  (Not yet documented.)
 
    You can subdivide the XEmacs frame into multiple text windows, and
 use each window for a different file (*note Windows::).  Multiple XEmacs
@@ -981,8 +978,11 @@ visible in all XEmacs windows containing that buffer.
 * Point::	        The place in the text where editing commands operate.
 * Echo Area::           Short messages appear at the bottom of the frame.
 * Mode Line::	        Interpreting the mode line.
+* GUI Components::      Menubar, toolbars, gutters.
 * XEmacs under X::      Some information on using XEmacs under the X
                         Window System.
+* XEmacs under MS Windows:: Some information on using XEmacs under
+                        Microsoft Windows.
 
 
 File: xemacs.info,  Node: Point,  Next: Echo Area,  Prev: Frame,  Up: Frame

@@ -1259,7 +1259,9 @@ with `delete-process'.
     /* #### This is a problem if this buffer is in a dedicated window.
        Need to undedicate any windows of this buffer first (and delete them?)
        */
-    Freplace_buffer_in_windows (buf, Qnil, Qnil);
+    GCPRO1 (buf);
+    Freplace_buffer_in_windows (buf, Qnil, Qall);
+    UNGCPRO;
 
     font_lock_buffer_was_killed (b);
 
@@ -2445,6 +2447,7 @@ common_init_complex_vars_of_buffer (void)
   defs->auto_save_modified = 0;
   defs->auto_save_failure_time = -1;
   defs->invisibility_spec = Qt;
+  defs->buffer_local_face_property = 0;
 
   defs->indirect_children = Qnil;
   syms->indirect_children = Qnil;

@@ -65,7 +65,7 @@ struct file_coding_dump {
 } *fcd;
 
 static const struct lrecord_description fcd_description_1[] = {
-  { XD_LISP_OBJECT_ARRAY, offsetof (struct file_coding_dump, coding_category_system), CODING_CATEGORY_LAST + 1 },
+  { XD_LISP_OBJECT_ARRAY, offsetof (struct file_coding_dump, coding_category_system), CODING_CATEGORY_LAST },
 #if defined(MULE) && !defined(UTF2000)
   { XD_LISP_OBJECT_ARRAY, offsetof (struct file_coding_dump, ucs_to_mule_table), countof (fcd->ucs_to_mule_table) },
 #endif

@@ -147,7 +147,11 @@ win32_objs=win32.o xemacs_res.o
 
 cppflags = $(CPPFLAGS) -Demacs -I. $(c_switch_all)
 cflags   = $(CFLAGS) $(cppflags)
+#if defined (WIN32_NATIVE) || defined (CYGWIN)
+ldflags  = $(LDFLAGS) -mwindows $(ld_switch_all) $(ld_dynamic_link_flags)
+#else
 ldflags  = $(LDFLAGS) $(ld_switch_all) $(ld_dynamic_link_flags)
+#endif
 
 #ifdef SOLARIS2
 %.o : %.c
@@ -741,7 +745,7 @@ install: ${PROGNAME}
 	cd ${srcdir}; hdrdir2=`pwd`; cd $$hdir; \
 	test "$$hdrdir2" != "$$hdir" && hdir="$$hdir $$hdrdir2"; \
 	(for thisdir in $$hdir; do \
-		cd $$hdir && \
+		cd $$thisdir && \
 		(hdrtars=; \
 		for hdrfile in *.h; do \
 			hdrtars="$$hdrtars $$hdrfile"; \

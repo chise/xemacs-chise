@@ -170,7 +170,7 @@ Boston, MA 02111-1307, USA.  */
    In that case, use ordinary stat instead.  */
 
 #ifndef S_IFLNK
-#define lstat stat
+#define lstat xemacs_stat
 #endif
 
 #if !S_IRUSR

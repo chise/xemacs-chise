@@ -50,6 +50,87 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Edebug Execution Modes,  Next: Jumping,  Prev: Instrumenting,  Up: Edebug
+
+Edebug Execution Modes
+----------------------
+
+   Edebug supports several execution modes for running the program you
+are debugging.  We call these alternatives "Edebug execution modes"; do
+not confuse them with major or minor modes.  The current Edebug
+execution mode determines how Edebug displays the progress of the
+evaluation, whether it stops at each stop point, or continues to the
+next breakpoint, for example.
+
+   Normally, you specify the Edebug execution mode by typing a command
+to continue the program in a certain mode.  Here is a table of these
+commands.  All except for `S' resume execution of the program, at least
+for a certain distance.
+
+`S'
+     Stop: don't execute any more of the program for now, just wait for
+     more Edebug commands (`edebug-stop').
+
+`<SPC>'
+     Step: stop at the next stop point encountered (`edebug-step-mode').
+
+`n'
+     Next: stop at the next stop point encountered after an expression
+     (`edebug-next-mode').  Also see `edebug-forward-sexp' in *Note
+     Edebug Misc::.
+
+`t'
+     Trace: pause one second at each Edebug stop point
+     (`edebug-trace-mode').
+
+`T'
+     Rapid trace: update at each stop point, but don't actually pause
+     (`edebug-Trace-fast-mode').
+
+`g'
+     Go: run until the next breakpoint (`edebug-go-mode').  *Note
+     Breakpoints::.
+
+`c'
+     Continue: pause for one second at each breakpoint, but don't stop
+     (`edebug-continue-mode').
+
+`C'
+     Rapid continue: update at each breakpoint, but don't actually pause
+     (`edebug-Continue-fast-mode').
+
+`G'
+     Go non-stop: ignore breakpoints (`edebug-Go-nonstop-mode').  You
+     can still stop the program by hitting any key.
+
+   In general, the execution modes earlier in the above list run the
+program more slowly or stop sooner.
+
+   When you enter a new Edebug level, the initial execution mode comes
+from the value of the variable `edebug-initial-mode'.  By default, this
+specifies `step' mode.  Note that you may reenter the same Edebug level
+several times if, for example, an instrumented function is called
+several times from one command.
+
+   While executing or tracing, you can interrupt the execution by typing
+any Edebug command.  Edebug stops the program at the next stop point and
+then executes the command that you typed.  For example, typing `t'
+during execution switches to trace mode at the next stop point.  You can
+use `S' to stop execution without doing anything else.
+
+   If your function happens to read input, a character you hit
+intending to interrupt execution may be read by the function instead.
+You can avoid such unintended results by paying attention to when your
+program wants input.
+
+   Keyboard macros containing Edebug commands do not work; when you exit
+from Edebug, to resume the program, whether you are defining or
+executing a keyboard macro is forgotten.  Also, defining or executing a
+keyboard macro outside of Edebug does not affect the command loop inside
+Edebug.  This is usually an advantage.  But see
+`edebug-continue-kbd-macro'.
+
+
 File: lispref.info,  Node: Jumping,  Next: Edebug Misc,  Prev: Edebug Execution Modes,  Up: Edebug
 
 Jumping
@@ -1150,58 +1231,4 @@ difficult to see the expression inside the instrumentation.  So you may
 want to set the option `edebug-unwrap-results' to a non-`nil' value
 while debugging such expressions, but it would slow Edebug down to
 always do this.
-
-
-File: lispref.info,  Node: Specification Examples,  Prev: Debugging Backquote,  Up: Instrumenting Macro Calls
-
-Specification Examples
-......................
-
-   Here we provide several examples of Edebug specifications to show
-many of its capabilities.
-
-   A `let' special form has a sequence of bindings and a body.  Each of
-the bindings is either a symbol or a sublist with a symbol and optional
-value.  In the specification below, notice the `gate' inside of the
-sublist to prevent backtracking.
-
-     (def-edebug-spec let
-       ((&rest
-         &or symbolp (gate symbolp &optional form))
-        body))
-
-   Edebug uses the following specifications for `defun' and `defmacro'
-and the associated argument list and `interactive' specifications.  It
-is necessary to handle the expression argument of an interactive form
-specially since it is actually evaluated outside of the function body.
-
-     (def-edebug-spec defmacro defun)      ; Indirect ref to `defun' spec
-     (def-edebug-spec defun
-       (&define name lambda-list
-                [&optional stringp]        ; Match the doc string, if present.
-                [&optional ("interactive" interactive)]
-                def-body))
-     
-     (def-edebug-spec lambda-list
-       (([&rest arg]
-         [&optional ["&optional" arg &rest arg]]
-         &optional ["&rest" arg]
-         )))
-     
-     (def-edebug-spec interactive
-       (&optional &or stringp def-form))    ; Notice: `def-form'
-
-   The specification for backquote below illustrates how to match
-dotted lists and use `nil' to terminate recursion.  It also illustrates
-how components of a vector may be matched.  (The actual specification
-provided by Edebug does not support dotted lists because doing so
-causes very deep recursion that could fail.)
-
-     (def-edebug-spec ` (backquote-form))  ;; alias just for clarity
-     
-     (def-edebug-spec backquote-form
-       (&or ([&or "," ",@"] &or ("quote" backquote-form) form)
-            (backquote-form . [&or nil backquote-form])
-            (vector &rest backquote-form)
-            sexp))
 

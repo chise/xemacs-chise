@@ -59,6 +59,9 @@ typedef uint64_t u_int64_t;
 #endif /* DB_VERSION_MAJOR */
 Lisp_Object Qberkeley_db;
 Lisp_Object Qhash, Qbtree, Qrecno, Qunknown;
+#if DB_VERSION_MAJOR > 2
+Lisp_Object Qqueue;
+#endif 
 #endif /* HAVE_BERKELEY_DB */
 
 #ifdef HAVE_DBM
@@ -369,6 +372,9 @@ berkdb_subtype (Lisp_Database *db)
     case DB_BTREE: return Qbtree;
     case DB_HASH:  return Qhash;
     case DB_RECNO: return Qrecno;
+#if DB_VERSION_MAJOR > 2
+    case DB_QUEUE: return Qqueue;
+#endif
     default:       return Qunknown;
     }
 }
@@ -644,6 +650,10 @@ and defaults to 0755.
 	real_subtype = DB_BTREE;
       else if (EQ (subtype, Qrecno))
 	real_subtype = DB_RECNO;
+#if DB_VERSION_MAJOR > 2
+      else if (EQ (subtype, Qqueue))
+	real_subtype = DB_QUEUE;
+#endif
       else
 	signal_simple_error ("Unsupported subtype", subtype);
 
@@ -669,10 +679,25 @@ and defaults to 0755.
 	  if (strchr (acc, 'r') && !strchr (acc, 'w'))
 	    accessmask |= DB_RDONLY;
 	}
+#if DB_VERSION_MAJOR == 2
       status = db_open (filename, real_subtype, accessmask,
 			modemask, NULL , NULL, &dbase);
       if (status)
 	return Qnil;
+#else
+      status = db_create (&dbase, NULL, 0);
+      if (status)
+        return Qnil;
+      status = dbase->open (dbase, filename, NULL,
+                            real_subtype, accessmask, modemask);
+      if (status)
+        {
+          dbase->close (dbase, 0);
+          return Qnil;
+        }
+#endif /* DB_VERSION_MAJOR > 2 */
+      /* Normalize into system specific file modes. Only for printing */
+      accessmask = accessmask & DB_RDONLY ? O_RDONLY : O_RDWR;
 #endif /* DB_VERSION_MAJOR */
 
       db = allocate_database ();
@@ -771,6 +796,9 @@ syms_of_database (void)
   defsymbol (&Qhash, "hash");
   defsymbol (&Qbtree, "btree");
   defsymbol (&Qrecno, "recno");
+#if DB_VERSION_MAJOR > 2
+  defsymbol (&Qqueue, "queue");
+#endif
   defsymbol (&Qunknown, "unknown");
 #endif
 

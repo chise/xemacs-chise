@@ -1716,6 +1716,7 @@ x_redraw_exposed_window (struct window *w, int x, int y, int width, int height)
       f->windows_structure_changed = 1;
     }
 
+  redisplay_clear_top_of_window (w);
   if (window_needs_vertical_divider (w))
     {
       x_output_vertical_divider (w, 0);

@@ -182,7 +182,7 @@ sync_display_line_structs (struct window *w, int line, int do_blocks,
 /*****************************************************************************
  compare_runes
 
- Compare to runes to see if each of their fields is equal.  If so,
+ Compare two runes to see if each of their fields is equal.  If so,
  return true otherwise return false.
  ****************************************************************************/
 static int
@@ -1162,8 +1162,9 @@ redisplay_output_display_block (struct window *w, struct display_line *dl, int b
  Remove subwindows from the area in the box defined by the given
  parameters.
  ****************************************************************************/
-static void redisplay_unmap_subwindows (struct frame* f, int x, int y, int width, int height,
-					Lisp_Object ignored_window)
+static void
+redisplay_unmap_subwindows (struct frame* f, int x, int y, int width, int height,
+			    Lisp_Object ignored_window)
 {
   Lisp_Object rest;
 
@@ -1758,7 +1759,17 @@ redisplay_normalize_glyph_area (struct display_box* dest,
       ||
       -glyphsrc->xoffset >= glyphsrc->width
       ||
-      -glyphsrc->yoffset >= glyphsrc->height)
+      -glyphsrc->yoffset >= glyphsrc->height
+      ||
+      /* #### Not sure why this wasn't coped with before but normalizing
+	 to zero width or height is definitely wrong. */
+      (dest->xpos + glyphsrc->xoffset + glyphsrc->width > dest->xpos + dest->width
+       &&
+       dest->width - glyphsrc->xoffset <= 0)
+      ||
+      (dest->ypos + glyphsrc->yoffset + glyphsrc->height > dest->ypos + dest->height
+       &&
+       dest->height - glyphsrc->yoffset <= 0))
     {
       /* It's all clipped out */
       return 0;
@@ -1905,7 +1916,7 @@ redisplay_calculate_display_boxes (struct display_line *dl, int xpos,
 
  If window is topmost, clear the internal border above it.
  ****************************************************************************/
-static void
+void
 redisplay_clear_top_of_window (struct window *w)
 {
   Lisp_Object window;
@@ -2270,7 +2281,7 @@ redisplay_output_window (struct window *w)
 
   /* If the window's structure has changed clear the internal border
      above it if it is topmost (the function will check). */
-  if (f->windows_structure_changed)
+  if (f->windows_structure_changed || f->faces_changed)
     redisplay_clear_top_of_window (w);
 
   /* Output each line. */

@@ -1,4 +1,4 @@
-This is ../info/internals.info, produced by makeinfo version 4.0 from
+This is ../info/internals.info, produced by makeinfo version 4.0b from
 internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -880,7 +880,7 @@ and can be enumerated thru either:
 differences though:
 
   1. We do not use the mark bit (which does not exist for C structures
-     anyway), we use a big hash table instead.
+     anyway); we use a big hash table instead.
 
   2. We do not use the mark function of lrecords but instead rely on the
      external descriptions.  This happens essentially because we need to
@@ -895,7 +895,7 @@ both delegate the description management to pdump_register_sub.
 allows us to look up a pdump_entry_list_elmt with the object it points
 to).  Entries are added with `pdump_add_entry()' and looked up with
 `pdump_get_entry()'.  There is no need for entry removal.  The hash
-value is computed quite basically from the object pointer by
+value is computed quite simply from the object pointer by
 `pdump_make_hash()'.
 
    The roots for the marking are:
@@ -904,7 +904,7 @@ value is computed quite basically from the object pointer by
      `staticpro_nodump()' call for protected variables we do not want
      to dump).
 
-  2. the `pdump_wire''d variables (`staticpro' is equivalent to
+  2. the `pdump_wire''d variables (`staticpro()' is equivalent to
      `staticpro_nodump()' + `pdump_wire()').
 
   3. the `dumpstruct''ed variables, which points to C structures.
@@ -934,7 +934,7 @@ is called indirectly by `pdump_scan_by_alignment()'.
 
   2. the C compiler is required to adjust the size of a struct so that
      you can have an array of them next to each other.  This means you
-     can have a upper bound of the alignment requirements of a given
+     can have an upper bound of the alignment requirements of a given
      structure by looking at which power of two its size is a multiple.
 
   3. the non-variant part of variable size lrecords has an alignment
@@ -949,7 +949,7 @@ first.  This ensures the best packing.
    The maximum alignment requirement we take into account is 2^8.
 
    `pdump_allocate_offset()' only has to do a linear allocation,
-starting at offset 256 (this leaves room for the header and keep the
+starting at offset 256 (this leaves room for the header and keeps the
 alignments happy).
 
 
@@ -959,7 +959,7 @@ The header
 ----------
 
    The next step creates the file and writes a header with a signature
-and some random informations in it (number of staticpro, number of
+and some random information in it (number of staticpro, number of
 assigned lrecord types, etc...).  The reloc_address field, which
 indicates at which address the file should be loaded if we want to
 avoid post-reload relocation, is set to 0.  It then seeks to offset 256
@@ -998,14 +998,14 @@ then written.  They are:
   4. a vector of all the offsets to the objects in the file that
      include a description (for faster relocation at reload time)
 
-  5. the pdump_wired and pdump_wired_list arrays
+  5. the pdump_wire and pdump_wire_list arrays
 
    For each of the arrays we write both the pointer to the variables and
 the relocated offset of the object they point to.  Since these variables
 are global, the pointers are still valid when restarting the program and
 are used to regenerate the global pointers.
 
-   The `pdump_wired_list' array is a special case.  The variables it
+   The `pdump_wire_list' array is a special case.  The variables it
 points to are the head of weak linked lists of lisp objects of the same
 type.  Not all objects of this list are dumped so the relocated pointer
 we associate with them points to the first dumped object of the list, or

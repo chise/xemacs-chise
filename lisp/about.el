@@ -990,9 +990,6 @@ looking for a job involving lisp programming, French and Russian.")
      (widget-insert ".\n"))
     (aj
      (widget-insert "\
-In the XEmacs team I'm responsible for the packages which means mainly
-applying patches and packaging the packages.
-
 I'm a software developer working for the SuSE Labs of the Linux
 distributor SuSE.  My main task is to improve the GNU C library.")
      (widget-insert ".\n"))
@@ -1207,7 +1204,7 @@ Beta tester and last hacker of calendar.\n")
     (about-show-linked-info 'chr "\
 Maintainer of the XEmacs FAQ and proud author of `zap-up-to-char'.\n")
     (about-show-linked-info 'aj "\
-`Package Patch Tender', beta tester and GNU libc developer.\n")
+Former `Package Patch Tender', beta tester and GNU libc developer.\n")
 
     (flet ((print-short (name addr &optional shortinfo)
 	     (concat (about-with-face name 'italic)

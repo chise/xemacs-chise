@@ -38,6 +38,16 @@ Boston, MA 02111-1307, USA.  */
  coming from libraries.
 */
 
+#include <config.h>
+
 char my_edata[] = "End of Emacs initialized data";
 
-int my_ebss;
+/* Ensure there is enough slack in the .bss to pad with. */
+#ifdef HEAP_IN_DATA
+#define BSS_PADDING 0x1000
+#else
+#define BSS_PADDING 1
+#endif
+
+char my_ebss [BSS_PADDING];
+

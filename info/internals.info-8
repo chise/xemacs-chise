@@ -1,4 +1,4 @@
-This is ../info/internals.info, produced by makeinfo version 4.0 from
+This is ../info/internals.info, produced by makeinfo version 4.0b from
 internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -694,12 +694,13 @@ Glyphs
 
    Glyphs are graphical elements that can be displayed in XEmacs
 buffers or gutters. We use the term graphical element here in the
-broadest possible sense since glyphs can be as mundane as text to as
+broadest possible sense since glyphs can be as mundane as text or as
 arcane as a native tab widget.
 
    In XEmacs, glyphs represent the uninstantiated state of graphical
 elements, i.e. they hold all the information necessary to produce an
-image on-screen but the image does not exist at this stage.
+image on-screen but the image need not exist at this stage, and multiple
+screen images can be instantiated from a single glyph.
 
    Glyphs are lazily instantiated by calling one of the glyph
 functions. This usually occurs within redisplay when `Fglyph_height' is
@@ -717,7 +718,7 @@ usage - and this would be extremely memory and cpu intensive.
    Widget-glyphs (a.k.a native widgets) are not cached in this way.
 This is because widget-glyph image-instances on screen are toolkit
 windows, and thus cannot be reused in multiple XEmacs domains. Thus
-widget-glyphs are cached on a window basis.
+widget-glyphs are cached on an XEmacs window basis.
 
    Any action on a glyph first consults the cache before actually
 instantiating a widget.
@@ -730,28 +731,11 @@ Widget-Glyphs in the MS-Windows Environment
 Widget-Glyphs in the X Environment
 ==================================
 
-   Widget-glyphs under X make heavy use of lwlib for manipulating the
-native toolkit objects. This is primarily so that different toolkits can
-be supported for widget-glyphs, just as they are supported for features
-such as menubars etc.
-
-   Lwlib is extremely poorly documented and quite hairy so here is my
-understanding of what goes on.
-
-   Lwlib maintains a set of widget_instances which mirror the
-hierarchical state of Xt widgets. I think this is so that widgets can
-be updated and manipulated generically by the lwlib library. For
-instance update_one_widget_instance can cope with multiple types of
-widget and multiple types of toolkit. Each element in the widget
-hierarchy is updated from its corresponding widget_instance by walking
-the widget_instance tree recursively.
-
-   This has desirable properties such as lw_modify_all_widgets which is
-called from `glyphs-x.c' and updates all the properties of a widget
-without having to know what the widget is or what toolkit it is from.
-Unfortunately this also has hairy properties such as making the lwlib
-code quite complex. And of course lwlib has to know at some level what
-the widget is and how to set its properties.
+   Widget-glyphs under X make heavy use of lwlib (*note Lucid Widget
+Library::) for manipulating the native toolkit objects. This is
+primarily so that different toolkits can be supported for
+widget-glyphs, just as they are supported for features such as menubars
+etc.
 
 
 File: internals.info,  Node: Specifiers,  Next: Menus,  Prev: Glyphs,  Up: Top
@@ -813,7 +797,7 @@ argument, which is the callback function or form given in the menu's
 description.
 
 
-File: internals.info,  Node: Subprocesses,  Next: Interface to X Windows,  Prev: Menus,  Up: Top
+File: internals.info,  Node: Subprocesses,  Next: Interface to the X Window System,  Prev: Menus,  Up: Top
 
 Subprocesses
 ************
@@ -887,15 +871,160 @@ Subprocesses
      it is using pipes.
 
 
-File: internals.info,  Node: Interface to X Windows,  Next: Index,  Prev: Subprocesses,  Up: Top
+File: internals.info,  Node: Interface to the X Window System,  Next: Index,  Prev: Subprocesses,  Up: Top
 
-Interface to X Windows
-**********************
+Interface to the X Window System
+********************************
 
-   Not yet documented.
+   Mostly undocumented.
+
+* Menu:
+
+* Lucid Widget Library::        An interface to various widget sets.
 
 
-File: internals.info,  Node: Index,  Prev: Interface to X Windows,  Up: Top
+File: internals.info,  Node: Lucid Widget Library,  Up: Interface to the X Window System
+
+Lucid Widget Library
+====================
+
+   Lwlib is extremely poorly documented and quite hairy.  The author(s)
+blame that on X, Xt, and Motif, with some justice, but also sufficient
+hypocrisy to avoid drawing the obvious conclusion about their own work.
+
+   The Lucid Widget Library is composed of two more or less independent
+pieces.  The first, as the name suggests, is a set of widgets.  These
+widgets are intended to resemble and improve on widgets provided in the
+Motif toolkit but not in the Athena widgets, including menubars and
+scrollbars.  Recent additions by Andy Piper integrate some "modern"
+widgets by Edward Falk, including checkboxes, radio buttons, progress
+gauges, and index tab controls (aka notebooks).
+
+   The second piece of the Lucid widget library is a generic interface
+to several toolkits for X (including Xt, the Athena widget set, and
+Motif, as well as the Lucid widgets themselves) so that core XEmacs
+code need not know which widget set has been used to build the
+graphical user interface.
+
+* Menu:
+
+* Generic Widget Interface::    The lwlib generic widget interface.
+* Scrollbars::
+* Menubars::
+* Checkboxes and Radio Buttons::
+* Progress Bars::
+* Tab Controls::
+
+
+File: internals.info,  Node: Generic Widget Interface,  Next: Scrollbars,  Up: Lucid Widget Library
+
+Generic Widget Interface
+------------------------
+
+   In general in any toolkit a widget may be a composite object.  In Xt,
+all widgets have an X window that they manage, but typically a complex
+widget will have widget children, each of which manages a subwindow of
+the parent widget's X window.  These children may themselves be
+composite widgets.  Thus a widget is actually a tree or hierarchy of
+widgets.
+
+   For each toolkit widget, lwlib maintains a tree of `widget_values'
+which mirror the hierarchical state of Xt widgets (including Motif,
+Athena, 3D Athena, and Falk's widget sets).  Each `widget_value' has
+`contents' member, which points to the head of a linked list of its
+children.  The linked list of siblings is chained through the `next'
+member of `widget_value'.
+
+                +-----------+
+                | composite |
+                +-----------+
+                      |
+                      | contents
+                      V
+                  +-------+ next +-------+ next +-------+
+                  | child |----->| child |----->| child |
+                  +-------+      +-------+      +-------+
+                                     |
+                                     | contents
+                                     V
+                              +-------------+ next +-------------+
+                              | grand child |----->| grand child |
+                              +-------------+      +-------------+
+     
+     The `widget_value' hierarchy of a composite widget with two simple
+     children and one composite child.
+
+   The `widget_instance' structure maintains the inverse view of the
+tree.  As for the `widget_value', siblings are chained through the
+`next' member.  However, rather than naming children, the
+`widget_instance' tree links to parents.
+
+                +-----------+
+                | composite |
+                +-----------+
+                      A
+                      | parent
+                      |
+                  +-------+ next +-------+ next +-------+
+                  | child |----->| child |----->| child |
+                  +-------+      +-------+      +-------+
+                                     A
+                                     | parent
+                                     |
+                              +-------------+ next +-------------+
+                              | grand child |----->| grand child |
+                              +-------------+      +-------------+
+     
+     The `widget_value' hierarchy of a composite widget with two simple
+     children and one composite child.
+
+   This permits widgets derived from different toolkits to be updated
+and manipulated generically by the lwlib library. For instance
+`update_one_widget_instance' can cope with multiple types of widget and
+multiple types of toolkit. Each element in the widget hierarchy is
+updated from its corresponding `widget_value' by walking the
+`widget_value' tree.  This has desirable properties.  For example,
+`lw_modify_all_widgets' is called from `glyphs-x.c' and updates all the
+properties of a widget without having to know what the widget is or
+what toolkit it is from.  Unfortunately this also has its hairy
+properties; the lwlib code quite complex. And of course lwlib has to
+know at some level what the widget is and how to set its properties.
+
+   The `widget_instance' structure also contains a pointer to the root
+of its tree.  Widget instances are further confi
+
+
+File: internals.info,  Node: Scrollbars,  Next: Menubars,  Prev: Generic Widget Interface,  Up: Lucid Widget Library
+
+Scrollbars
+----------
+
+
+File: internals.info,  Node: Menubars,  Next: Checkboxes and Radio Buttons,  Prev: Scrollbars,  Up: Lucid Widget Library
+
+Menubars
+--------
+
+
+File: internals.info,  Node: Checkboxes and Radio Buttons,  Next: Progress Bars,  Prev: Menubars,  Up: Lucid Widget Library
+
+Checkboxes and Radio Buttons
+----------------------------
+
+
+File: internals.info,  Node: Progress Bars,  Next: Tab Controls,  Prev: Checkboxes and Radio Buttons,  Up: Lucid Widget Library
+
+Progress Bars
+-------------
+
+
+File: internals.info,  Node: Tab Controls,  Prev: Progress Bars,  Up: Lucid Widget Library
+
+Tab Controls
+------------
+
+
+File: internals.info,  Node: Index,  Prev: Interface to the X Window System,  Up: Top
 
 Index
 *****

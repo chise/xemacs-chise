@@ -9373,7 +9373,7 @@ Non-nil means put cursor in minibuffer, at end of any message there.
      maybe a caret cursor, etc. */
 
   DEFVAR_LISP ("bar-cursor", &Vbar_cursor /*
-Use vertical bar cursor if non-nil.  If t width is 1 pixel, otherwise 2.
+*Use vertical bar cursor if non-nil.  If t width is 1 pixel, otherwise 2.
 */ );
   Vbar_cursor = Qnil;
 

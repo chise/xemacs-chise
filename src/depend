@@ -134,11 +134,11 @@ imgproc.o: $(LISP_H) imgproc.h
 indent.o: $(LISP_H) buffer.h bufslots.h casetab.h char-1byte.h char-lb.h char-ucs.h character.h chartab.h conslots.h console.h device.h extents.h faces.h frame.h frameslots.h glyphs.h gui.h insdel.h mb-1byte.h mb-lb.h mb-multibyte.h mb-utf-8.h mule-charset.h multibyte.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
 inline.o: $(LISP_H) $(LWLIB_SRCDIR)/lwlib.h buffer.h bufslots.h bytecode.h casetab.h char-1byte.h char-lb.h char-ucs.h character.h chartab.h conslots.h console-msw.h console.h database.h device.h eldap.h elhash.h events.h extents.h faces.h file-coding.h frame.h frameslots.h glyphs-x.h glyphs.h gui-x.h gui.h keymap.h lstream.h mb-1byte.h mb-lb.h mb-multibyte.h mb-utf-8.h mule-charset.h multibyte.h objects.h opaque.h postgresql.h process.h rangetab.h redisplay.h scrollbar.h specifier.h syntax.h syscommctrl.h systime.h syswindows.h toolbar.h tooltalk.h window.h winslots.h xintrinsic.h
 input-method-motif.o: $(LISP_H) EmacsFrame.h char-1byte.h char-lb.h char-ucs.h character.h conslots.h console-x.h console.h device.h frame.h frameslots.h glyphs.h gui.h mule-charset.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h xintrinsic.h
-input-method-xfs.o: $(LISP_H) EmacsFrame.h buffer.h bufslots.h casetab.h char-1byte.h char-lb.h char-ucs.h character.h chartab.h conslots.h console-x.h console.h device.h events.h frame.h frameslots.h glyphs.h gui.h mb-1byte.h mb-lb.h mb-multibyte.h mb-utf-8.h mule-charset.h multibyte.h redisplay.h scrollbar.h specifier.h systime.h toolbar.h window.h winslots.h xintrinsic.h
 input-method-xlib.o: $(LISP_H) EmacsFrame.h buffer.h bufslots.h casetab.h char-1byte.h char-lb.h char-ucs.h character.h chartab.h conslots.h console-x.h console.h device.h events.h frame.h frameslots.h glyphs.h gui.h mb-1byte.h mb-lb.h mb-multibyte.h mb-utf-8.h mule-charset.h multibyte.h redisplay.h scrollbar.h specifier.h systime.h toolbar.h window.h winslots.h xintrinsic.h
 insdel.o: $(LISP_H) buffer.h bufslots.h casetab.h char-1byte.h char-lb.h char-ucs.h character.h chartab.h conslots.h console.h device.h extents.h frame.h frameslots.h glyphs.h gui.h insdel.h line-number.h lstream.h mb-1byte.h mb-lb.h mb-multibyte.h mb-utf-8.h mule-charset.h multibyte.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
 intl.o: $(LISP_H) bytecode.h char-1byte.h char-lb.h char-ucs.h character.h conslots.h console.h device.h mule-charset.h
 keymap.o: $(LISP_H) buffer.h bufslots.h bytecode.h casetab.h char-1byte.h char-lb.h char-ucs.h character.h chartab.h conslots.h console.h device.h elhash.h events-mod.h events.h frame.h frameslots.h glyphs.h gui.h insdel.h keymap.h mb-1byte.h mb-lb.h mb-multibyte.h mb-utf-8.h mule-charset.h multibyte.h redisplay.h scrollbar.h specifier.h systime.h toolbar.h window.h winslots.h
+lastfile.o: config.h
 libsst.o: $(LISP_H) libsst.h
 line-number.o: $(LISP_H) buffer.h bufslots.h casetab.h char-1byte.h char-lb.h char-ucs.h character.h chartab.h line-number.h mb-1byte.h mb-lb.h mb-multibyte.h mb-utf-8.h mule-charset.h multibyte.h
 linuxplay.o: $(LISP_H) miscplay.h nativesound.h sysfile.h syssignal.h
@@ -202,7 +202,7 @@ unexaix.o: $(LISP_H) getpagesize.h
 unexalpha.o: config.h
 unexapollo.o: config.h
 unexconvex.o: config.h getpagesize.h
-unexcw.o: config.h sysfile.h
+unexcw.o: $(LISP_H) sysfile.h
 unexec.o: $(LISP_H) getpagesize.h
 unexelf.o: config.h
 unexelfsgi.o: config.h

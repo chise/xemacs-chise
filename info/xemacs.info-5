@@ -1,4 +1,4 @@
-This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+This is ../info/xemacs.info, produced by makeinfo version 4.0b from
 xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -28,6 +28,325 @@ manual into another language, under the above conditions for modified
 versions, except that the sections entitled "The GNU Manifesto",
 "Distribution" and "GNU General Public License" may be included in a
 translation approved by the author instead of in the original English.
+
+
+File: xemacs.info,  Node: Library Keywords,  Next: Help Mode,  Prev: Apropos,  Up: Help
+
+Keyword Search for Lisp Libraries
+=================================
+
+   The `C-h p' command lets you search the standard Emacs Lisp
+libraries by topic keywords.  Here is a partial list of keywords you can
+use:
+
+     abbrev        abbreviation handling, typing shortcuts, macros
+     bib           code related to the `bib' bibliography processor
+     c             C, C++, and Objective-C language support
+     calendar      calendar and time management support
+     comm          communications, networking, remote access to files
+     data          support for editing files of data
+     docs          support for Emacs documentation
+     dumped        files preloaded into Emacs
+     emulations    emulations of other editors
+     extensions    Emacs Lisp language extensions
+     faces         support for multiple fonts
+     frames        support for Emacs frames and window systems
+     games         games, jokes and amusements
+     hardware      support for interfacing with exotic hardware
+     help          support for on-line help systems
+     hypermedia    support for links between text or other media types
+     i18n          internationalization and alternate character-set support
+     internal      code for Emacs internals, build process, defaults
+     languages     specialized modes for editing programming languages
+     lisp          Lisp support, including Emacs Lisp
+     local         code local to your site
+     maint         maintenance aids for the Emacs development group
+     mail          modes for electronic-mail handling
+     matching      various sorts of searching and matching
+     mouse         mouse support
+     mule          multi-language extensions
+     news          support for netnews reading and posting
+     oop           support for object-oriented programming
+     outlines      support for hierarchical outlining
+     processes     process, subshell, compilation, and job control support
+     terminals     support for terminal types
+     tex           code related to the TeX formatter
+     tools         programming tools
+     unix          front-ends/assistants for, or emulators of, UNIX features
+     vms           support code for vms
+     wp            word processing
+
+
+File: xemacs.info,  Node: Help Mode,  Next: Misc Help,  Prev: Library Keywords,  Up: Help
+
+Help Mode Commands
+==================
+
+   Help buffers provide the commands of View mode (*note Misc File
+Ops::), plus a few special commands of their own.
+
+`<SPC>'
+     Scroll forward.
+
+`<DEL>'
+`<BS>'
+     Scroll backward.
+
+   When a command name (*note Running Commands by Name: M-x.) or
+variable name (*note Variables::) appears in the documentation, it
+normally appears inside paired single-quotes.
+
+
+File: xemacs.info,  Node: Misc Help,  Prev: Help Mode,  Up: Help
+
+Other Help Commands
+===================
+
+   `C-h i' (`info') runs the Info program, which is used for browsing
+through structured documentation files.  The entire XEmacs manual is
+available within Info.  Eventually all the documentation of the GNU
+system will be available.  Type `h' after entering Info to run a
+tutorial on using Info.
+
+   If you specify a numeric argument, `C-h i' prompts for the name of a
+documentation file.  This way, you can browse a file which doesn't have
+an entry in the top-level Info menu.  It is also handy when you need to
+get to the documentation quickly, and you know the exact name of the
+file.
+
+   There are two special help commands for accessing XEmacs
+documentation through Info.  `C-h C-f FUNCTION <RET>' enters Info and
+goes straight to the documentation of the XEmacs function FUNCTION.
+`C-h C-k KEY' enters Info and goes straight to the documentation of the
+key KEY.  These two keys run the commands `Info-elisp-ref' and
+`Info-goto-emacs-key-command-node'.
+
+   If something surprising happens, and you are not sure what commands
+you typed, use `C-h l' (`view-lossage').  `C-h l' prints the last 100
+command characters you typed in.  If you see commands that you don't
+know, you can use `C-h c' to find out what they do.
+
+   XEmacs has several major modes.  Each mode redefines a few keys and
+makes a few other changes in how editing works.  `C-h m'
+(`describe-mode') prints documentation on the current major mode, which
+normally describes all the commands that are changed in this mode.
+
+   `C-h b' (`describe-bindings') and `C-h s' (`describe-syntax')
+present information about the current XEmacs mode that is not covered
+by `C-h m'.  `C-h b' displays a list of all the key bindings currently
+in effect, with the local bindings of the current major mode first,
+followed by the global bindings (*note Key Bindings::).  `C-h s'
+displays the contents of the syntax table with explanations of each
+character's syntax (*note Syntax::).
+
+   You can get a similar list for a particular prefix key by typing
+`C-h' after the prefix key.  (There are a few prefix keys for which
+this does not work--those that provide their own bindings for `C-h'.
+One of these is <ESC>, because `<ESC> C-h' is actually `C-M-h', which
+marks a defun.)
+
+   The other `C-h' options display various files of useful information.
+`C-h C-w' (`describe-no-warranty') displays the full details on the
+complete absence of warranty for XEmacs.  `C-h n' (`view-emacs-news')
+displays the file `xemacs/etc/NEWS', which contains documentation on
+XEmacs changes arranged chronologically.  `C-h F' (`xemacs-local-faq')
+displays local version of the XEmacs
+frequently-answered-questions-list.  `C-h t' (`help-with-tutorial')
+displays the learn-by-doing XEmacs tutorial. `C-h C-c'
+(`describe-copying') displays the file `xemacs/etc/COPYING', which
+tells you the conditions you must obey in distributing copies of
+XEmacs.  `C-h C-d' (`describe-distribution') displays another file named
+`xemacs/etc/DISTRIB', which tells you how you can order a copy of the
+latest version of XEmacs.
+
+
+File: xemacs.info,  Node: Mark,  Next: Mouse Selection,  Prev: Help,  Up: Top
+
+Selecting Text
+**************
+
+   Many Emacs commands operate on an arbitrary contiguous part of the
+current buffer. You can select text in two ways:
+
+   * You use special keys to select text by defining a region between
+     point and the mark.
+
+   * If you are running XEmacs under X, you can also select text with
+     the mouse.
+
+The Mark and the Region
+=======================
+
+   To specify the text for a command to operate on, set "the mark" at
+one end of it, and move point to the other end.  The text between point
+and the mark is called "the region".  You can move point or the mark to
+adjust the boundaries of the region.  It doesn't matter which one is
+set first chronologically, or which one comes earlier in the text.
+
+   Once the mark has been set, it remains until it is set again at
+another place.  The mark remains fixed with respect to the preceding
+character if text is inserted or deleted in a buffer.  Each Emacs
+buffer has its own mark; when you return to a buffer that had been
+selected previously, it has the same mark it had before.
+
+   Many commands that insert text, such as `C-y' (`yank') and `M-x
+insert-buffer', position the mark at one end of the inserted text--the
+opposite end from where point is positioned, so that the region
+contains the text just inserted.
+
+   Aside from delimiting the region, the mark is useful for marking a
+spot that you may want to go back to.  To make this feature more useful,
+Emacs remembers 16 previous locations of the mark in the `mark ring'.
+
+* Menu:
+
+* Setting Mark::	Commands to set the mark.
+* Using Region::	Summary of ways to operate on contents of the region.
+* Marking Objects::	Commands to put region around textual units.
+* Mark Ring::   	Previous mark positions saved so you can go back there.
+
+
+File: xemacs.info,  Node: Setting Mark,  Next: Using Region,  Prev: Mark,  Up: Mark
+
+Setting the Mark
+----------------
+
+   Here are some commands for setting the mark:
+
+`C-<SPC>'
+     Set the mark where point is (`set-mark-command').
+
+`C-@'
+     The same.
+
+`C-x C-x'
+     Interchange mark and point (`exchange-point-and-mark').
+
+`C-<'
+     Pushes a mark at the beginning of the buffer.
+
+`C->'
+     Pushes a mark at the end of the buffer.
+
+   For example, to convert part of the buffer to all upper-case, you
+can use the `C-x C-u' (`upcase-region') command, which operates on the
+text in the region.  First go to the beginning of the text you want to
+capitalize and type `C-<SPC>' to put the mark there, then move to the
+end, and then type `C-x C-u' to capitalize the selected region.  You
+can also set the mark at the end of the text, move to the beginning,
+and then type `C-x C-u'.  Most commands that operate on the text in the
+region have the word `region' in their names.
+
+   The most common way to set the mark is with the `C-<SPC>' command
+(`set-mark-command').  This command sets the mark where point is. You
+can then move point away, leaving the mark behind.  It is actually
+incorrect to speak of the character `C-<SPC>'; there is no such
+character.  When you type <SPC> while holding down <CTRL>, you get the
+character `C-@' on most terminals. This character is actually bound to
+`set-mark-command'.  But unless you are unlucky enough to have a
+terminal where typing `C-<SPC>' does not produce `C-@', you should
+think of this character as `C-<SPC>'.
+
+   Since terminals have only one cursor, Emacs cannot show you where the
+mark is located. Most people use the mark soon after they set it, before
+they forget where it is. But you can see where the mark is with the
+command `C-x C-x' (`exchange-point-and-mark') which puts the mark where
+point was and point where the mark was.  The extent of the region is
+unchanged, but the cursor and point are now at the previous location of
+the mark.
+
+   Another way to set the mark is to push the mark to the beginning of a
+buffer while leaving point at its original location. If you supply an
+argument to `C-<' (`mark-beginning-of-buffer'), the mark is pushed N/10
+of the way from the true beginning of the buffer. You can also set the
+mark at the end of a buffer with `C->' (`mark-end-of-buffer'). It
+pushes the mark to the end of the buffer, leaving point alone.
+Supplying an argument to the command pushes the mark N/10 of the way
+from the true end of the buffer.
+
+   If you are using XEmacs under the X window system, you can set the
+variable `zmacs-regions' to `t'. This makes the current region (defined
+by point and mark) highlight and makes it available as the X clipboard
+selection, which means you can use the menu bar items on it.  *Note
+Active Regions::, for more information.
+
+   `C-x C-x' is also useful when you are satisfied with the location of
+point but want to move the mark; do `C-x C-x' to put point there and
+then you can move it.  A second use of `C-x C-x', if necessary, puts
+the mark at the new location with point back at its original location.
+
+
+File: xemacs.info,  Node: Using Region,  Next: Marking Objects,  Prev: Setting Mark,  Up: Mark
+
+Operating on the Region
+-----------------------
+
+   Once you have created an active region, you can do many things to
+the text in it:
+   * Kill it with `C-w' (*note Killing::).
+
+   * Save it in a register with `C-x r s' (*note Registers::).
+
+   * Save it in a buffer or a file (*note Accumulating Text::).
+
+   * Convert case with `C-x C-l' or `C-x C-u'
+     (*note Case::).
+
+   * Evaluate it as Lisp code with `M-x eval-region' (*note Lisp
+     Eval::).
+
+   * Fill it as text with `M-q' (*note Filling::).
+
+   * Print hardcopy with `M-x print-region' (*note Hardcopy::).
+
+   * Indent it with `C-x <TAB>' or `C-M-\' (*note Indentation::).
+
+
+File: xemacs.info,  Node: Marking Objects,  Next: Mark Ring,  Prev: Using Region,  Up: Mark
+
+Commands to Mark Textual Objects
+--------------------------------
+
+   There are commands for placing point and the mark around a textual
+object such as a word, list, paragraph or page.
+
+`M-@'
+     Set mark after end of next word (`mark-word').  This command and
+     the following one do not move point.
+
+`C-M-@'
+     Set mark after end of next Lisp expression (`mark-sexp').
+
+`M-h'
+     Put region around current paragraph (`mark-paragraph').
+
+`C-M-h'
+     Put region around current Lisp defun (`mark-defun').
+
+`C-x h'
+     Put region around entire buffer (`mark-whole-buffer').
+
+`C-x C-p'
+     Put region around current page (`mark-page').
+
+   `M-@' (`mark-word') puts the mark at the end of the next word, while
+`C-M-@' (`mark-sexp') puts it at the end of the next Lisp expression.
+These characters sometimes save you some typing.
+
+   A number of commands are available that set both point and mark and
+thus delimit an object in the buffer.  `M-h' (`mark-paragraph') moves
+point to the beginning of the paragraph that surrounds or follows
+point, and puts the mark at the end of that paragraph (*note
+Paragraphs::).  You can then indent, case-convert, or kill the whole
+paragraph.  In the same fashion, `C-M-h' (`mark-defun') puts point
+before and the mark after the current or following defun (*note
+Defuns::).  `C-x C-p' (`mark-page') puts point before the current page
+(or the next or previous, depending on the argument), and mark at the
+end (*note Pages::).  The mark goes after the terminating page
+delimiter (to include it), while point goes after the preceding page
+delimiter (to exclude it).  Finally, `C-x h' (`mark-whole-buffer') sets
+up the entire buffer as the region by putting point at the beginning
+and the mark at the end.
 
 
 File: xemacs.info,  Node: Mark Ring,  Prev: Marking Objects,  Up: Mark
@@ -832,407 +1151,4 @@ command is normally used with files that are not being visited in
 Emacs.  Using it on a file that Emacs is visiting can produce confusing
 results, because the file's text inside Emacs does not change while the
 file itself changes.
-
-
-File: xemacs.info,  Node: Rectangles,  Next: Registers,  Prev: Accumulating Text,  Up: Top
-
-Rectangles
-==========
-
-   The rectangle commands affect rectangular areas of text: all
-characters between a certain pair of columns, in a certain range of
-lines.  Commands are provided to kill rectangles, yank killed
-rectangles, clear them out, or delete them.  Rectangle commands are
-useful with text in multicolumnar formats, like code with comments at
-the right, or for changing text into or out of such formats.
-
-   To specify the rectangle a command should work on, put the mark at
-one corner and point at the opposite corner.  The specified rectangle is
-called the "region-rectangle" because it is controlled about the same
-way the region is controlled.  Remember that a given combination of
-point and mark values can be interpreted either as specifying a region
-or as specifying a rectangle; it is up to the command that uses them to
-choose the interpretation.
-
-`M-x delete-rectangle'
-     Delete the text of the region-rectangle, moving any following text
-     on each line leftward to the left edge of the region-rectangle.
-
-`M-x kill-rectangle'
-     Similar, but also save the contents of the region-rectangle as the
-     "last killed rectangle".
-
-`M-x yank-rectangle'
-     Yank the last killed rectangle with its upper left corner at point.
-
-`M-x open-rectangle'
-     Insert blank space to fill the space of the region-rectangle.  The
-     previous contents of the region-rectangle are pushed rightward.
-
-`M-x clear-rectangle'
-     Clear the region-rectangle by replacing its contents with spaces.
-
-   The rectangle operations fall into two classes: commands deleting and
-moving rectangles, and commands for blank rectangles.
-
-   There are two ways to get rid of the text in a rectangle: you can
-discard the text (delete it) or save it as the "last killed" rectangle.
-The commands for these two ways are `M-x delete-rectangle' and `M-x
-kill-rectangle'.  In either case, the portion of each line that falls
-inside the rectangle's boundaries is deleted, causing following text
-(if any) on the line to move left.
-
-   Note that "killing" a rectangle is not killing in the usual sense;
-the rectangle is not stored in the kill ring, but in a special place
-that only records the most recently killed rectangle (that is, does not
-append to a killed rectangle).  Different yank commands have to be used
-and only one rectangle is stored, because yanking a rectangle is quite
-different from yanking linear text and yank-popping commands are
-difficult to make sense of.
-
-   Inserting a rectangle is the opposite of deleting one.  You specify
-where to put the upper left corner by putting point there.  The
-rectangle's first line is inserted at point, the rectangle's second line
-is inserted at a point one line vertically down, and so on.  The number
-of lines affected is determined by the height of the saved rectangle.
-
-   To insert the last killed rectangle, type `M-x yank-rectangle'.
-This can be used to convert single-column lists into double-column
-lists; kill the second half of the list as a rectangle and then yank it
-beside the first line of the list.
-
-   There are two commands for working with blank rectangles: `M-x
-clear-rectangle' erases existing text, and `M-x open-rectangle' inserts
-a blank rectangle.  Clearing a rectangle is equivalent to deleting it
-and then inserting a blank rectangle of the same size.
-
-   Rectangles can also be copied into and out of registers.  *Note
-Rectangle Registers: RegRect.
-
-
-File: xemacs.info,  Node: Registers,  Next: Display,  Prev: Rectangles,  Up: Top
-
-Registers
-*********
-
-   XEmacs "registers" are places in which you can save text or
-positions for later use.  Once you save text or a rectangle in a
-register, you can copy it into the buffer once or many times; a position
-saved in a register is used by moving point to that position.
-Rectangles can also be copied into and out of registers (*note
-Rectangles::).
-
-   Each register has a name which is a single character.  A register can
-store a piece of text, a rectangle, a position, a window configuration,
-or a file name, but only one thing at any given time.  Whatever you
-store in a register remains there until you store something else in that
-register.  To see what a register R contains, use `M-x view-register'.
-
-`M-x view-register <RET> R'
-     Display a description of what register R contains.
-
-   `M-x view-register' reads a register name as an argument and then
-displays the contents of the specified register.
-
-* Menu:
-
-* Position: RegPos.           Saving positions in registers.
-* Text: RegText.              Saving text in registers.
-* Rectangle: RegRect.         Saving rectangles in registers.
-* Configurations: RegConfig.  Saving window configurations in registers.
-* Files: RegFiles.            File names in registers.
-* Numbers: RegNumbers.        Numbers in registers.
-* Bookmarks::                 Bookmarks are like registers, but persistent.
-
-
-File: xemacs.info,  Node: RegPos,  Next: RegText,  Prev: Registers,  Up: Registers
-
-Saving Positions in Registers
-=============================
-
-   Saving a position records a place in a buffer so that you can move
-back there later.  Moving to a saved position switches to that buffer
-and moves point to that place in it.
-
-`C-x r <SPC> R'
-     Save position of point in register R (`point-to-register').
-
-`C-x r j R'
-     Jump to the position saved in register R (`jump-to-register').
-
-   To save the current position of point in a register, choose a name R
-and type `C-x r <SPC> R'.  The register R retains the position thus
-saved until you store something else in that register.
-
-   The command `C-x r j R' moves point to the position recorded in
-register R.  The register is not affected; it continues to record the
-same location.  You can jump to the same position using the same
-register as often as you want.
-
-   If you use `C-x r j' to go to a saved position, but the buffer it
-was saved from has been killed, `C-x r j' tries to create the buffer
-again by visiting the same file.  Of course, this works only for buffers
-that were visiting files.
-
-
-File: xemacs.info,  Node: RegText,  Next: RegRect,  Prev: RegPos,  Up: Registers
-
-Saving Text in Registers
-========================
-
-   When you want to insert a copy of the same piece of text many times,
-it can be impractical to use the kill ring, since each subsequent kill
-moves the piece of text further down on the ring.  It becomes hard to
-keep track of the argument needed to retrieve the same text with `C-y'.
-An alternative is to store the text in a register with `C-x r s'
-(`copy-to-register') and then retrieve it with `C-x r i'
-(`insert-register').
-
-`C-x r s R'
-     Copy region into register R (`copy-to-register').
-
-`C-x r g R'
-`C-x r i R'
-     Insert text contents of register R (`insert-register').
-
-   `C-x r s R' stores a copy of the text of the region into the
-register named R.  Given a numeric argument, `C-x r s R' deletes the
-text from the buffer as well.
-
-   `C-x r i R' inserts the text from register R in the buffer.  By
-default it leaves point before the text and places the mark after it.
-With a numeric argument (`C-u'), it puts point after the text and the
-mark before it.
-
-
-File: xemacs.info,  Node: RegRect,  Next: RegConfig,  Prev: RegText,  Up: Registers
-
-Saving Rectangles in Registers
-==============================
-
-   A register can contain a rectangle instead of lines of text.  The
-rectangle is represented as a list of strings.  *Note Rectangles::, for
-basic information on rectangles and how to specify rectangles in a
-buffer.
-
-`C-x r r R'
-     Copy the region-rectangle into register R
-     (`copy-rectangle-to-register').  With a numeric argument, delete it
-     as well.
-
-`C-x r g R'
-`C-x r i R'
-     Insert the rectangle stored in register R (if it contains a
-     rectangle) (`insert-register').
-
-   The `C-x r i R' command inserts linear text if the register
-contains that, or inserts a rectangle if the register contains one.
-
-   See also the command `sort-columns', which you can think of as
-sorting a rectangle.  *Note Sorting::.
-
-
-File: xemacs.info,  Node: RegConfig,  Next: RegNumbers,  Prev: RegRect,  Up: Registers
-
-Saving Window Configurations in Registers
-=========================================
-
-   You can save the window configuration of the selected frame in a
-register, or even the configuration of all windows in all frames, and
-restore the configuration later.
-
-`C-x r w R'
-     Save the state of the selected frame's windows in register R
-     (`window-configuration-to-register').
-
-`M-x frame-configuration-to-register <RET> R'
-     Save the state of all frames, including all their windows, in
-     register R (`frame-configuration-to-register').
-
-   Use `C-x r j R' to restore a window or frame configuration.  This is
-the same command used to restore a cursor position.  When you restore a
-frame configuration, any existing frames not included in the
-configuration become invisible.  If you wish to delete these frames
-instead, use `C-u C-x r j R'.
-
-
-File: xemacs.info,  Node: RegNumbers,  Next: RegFiles,  Prev: RegConfig,  Up: Registers
-
-Keeping Numbers in Registers
-============================
-
-   There are commands to store a number in a register, to insert the
-number in the buffer in decimal, and to increment it.  These commands
-can be useful in keyboard macros (*note Keyboard Macros::).
-
-`C-u NUMBER C-x r n REG'
-     Store NUMBER into register REG (`number-to-register').
-
-`C-u NUMBER C-x r + REG'
-     Increment the number in register REG by NUMBER
-     (`increment-register').
-
-`C-x r g REG'
-     Insert the number from register REG into the buffer.
-
-   `C-x r g' is the same command used to insert any other sort of
-register contents into the buffer.
-
-
-File: xemacs.info,  Node: RegFiles,  Next: Bookmarks,  Prev: RegNumbers,  Up: Registers
-
-Keeping File Names in Registers
-===============================
-
-   If you visit certain file names frequently, you can visit them more
-conveniently if you put their names in registers.  Here's the Lisp code
-used to put a file name in a register:
-
-     (set-register ?R '(file . NAME))
-
-For example,
-
-     (set-register ?z '(file . "/usr/src/xemacs/src/ChangeLog"))
-
-puts the file name shown in register `z'.
-
-   To visit the file whose name is in register R, type `C-x r j R'.
-(This is the same command used to jump to a position or restore a frame
-configuration.)
-
-
-File: xemacs.info,  Node: Bookmarks,  Prev: RegFiles,  Up: Registers
-
-Bookmarks
-=========
-
-   "Bookmarks" are somewhat like registers in that they record
-positions you can jump to.  Unlike registers, they have long names, and
-they persist automatically from one Emacs session to the next.  The
-prototypical use of bookmarks is to record "where you were reading" in
-various files.
-
-   Note: bookmark.el is distributed in edit-utils package.  You need to
-install that to use bookmark facility (*note Packages::).
-
-`C-x r m <RET>'
-     Set the bookmark for the visited file, at point.
-
-`C-x r m BOOKMARK <RET>'
-     Set the bookmark named BOOKMARK at point (`bookmark-set').
-
-`C-x r b BOOKMARK <RET>'
-     Jump to the bookmark named BOOKMARK (`bookmark-jump').
-
-`C-x r l'
-     List all bookmarks (`list-bookmarks').
-
-`M-x bookmark-save'
-     Save all the current bookmark values in the default bookmark file.
-
-   The prototypical use for bookmarks is to record one current position
-in each of several files.  So the command `C-x r m', which sets a
-bookmark, uses the visited file name as the default for the bookmark
-name.  If you name each bookmark after the file it points to, then you
-can conveniently revisit any of those files with `C-x r b', and move to
-the position of the bookmark at the same time.
-
-   To display a list of all your bookmarks in a separate buffer, type
-`C-x r l' (`list-bookmarks').  If you switch to that buffer, you can
-use it to edit your bookmark definitions or annotate the bookmarks.
-Type `C-h m' in that buffer for more information about its special
-editing commands.
-
-   When you kill XEmacs, XEmacs offers to save your bookmark values in
-your default bookmark file, `~/.emacs.bmk', if you have changed any
-bookmark values.  You can also save the bookmarks at any time with the
-`M-x bookmark-save' command.  The bookmark commands load your default
-bookmark file automatically.  This saving and loading is how bookmarks
-persist from one XEmacs session to the next.
-
-   If you set the variable `bookmark-save-flag' to 1, then each command
-that sets a bookmark will also save your bookmarks; this way, you don't
-lose any bookmark values even if XEmacs crashes.  (The value, if a
-number, says how many bookmark modifications should go by between
-saving.)
-
-   Bookmark position values are saved with surrounding context, so that
-`bookmark-jump' can find the proper position even if the file is
-modified slightly.  The variable `bookmark-search-size' says how many
-characters of context to record, on each side of the bookmark's
-position.
-
-   Here are some additional commands for working with bookmarks:
-
-`M-x bookmark-load <RET> FILENAME <RET>'
-     Load a file named FILENAME that contains a list of bookmark
-     values.  You can use this command, as well as `bookmark-write', to
-     work with other files of bookmark values in addition to your
-     default bookmark file.
-
-`M-x bookmark-write <RET> FILENAME <RET>'
-     Save all the current bookmark values in the file FILENAME.
-
-`M-x bookmark-delete <RET> BOOKMARK <RET>'
-     Delete the bookmark named BOOKMARK.
-
-`M-x bookmark-insert-location <RET> BOOKMARK <RET>'
-     Insert in the buffer the name of the file that bookmark BOOKMARK
-     points to.
-
-`M-x bookmark-insert <RET> BOOKMARK <RET>'
-     Insert in the buffer the _contents_ of the file that bookmark
-     BOOKMARK points to.
-
-
-File: xemacs.info,  Node: Display,  Next: Search,  Prev: Registers,  Up: Top
-
-Controlling the Display
-***********************
-
-   Since only part of a large buffer fits in the window, XEmacs tries
-to show the part that is likely to be interesting.  The display control
-commands allow you to specify which part of the text you want to see.
-
-`C-l'
-     Clear frame and redisplay, scrolling the selected window to center
-     point vertically within it (`recenter').
-
-`C-v'
-`pgdn'
-`next'
-     Scroll forward (a windowful or a specified number of lines)
-     (`scroll-up').  On most X keyboards, you can get this
-     functionality using the key labelled `Page Down', which generates
-     either `next' or `pgdn'.
-
-`M-v'
-`pgup'
-`prior'
-     Scroll backward (`scroll-down').  On most X keyboards, you can get
-     this functionality using the key labelled `Page Up', which
-     generates either `prior' or `pgup'.
-
-`ARG C-l'
-     Scroll so point is on line ARG (`recenter').
-
-`C-x <'
-`C-pgdn'
-`C-next'
-     Scroll text in current window to the left (`scroll-left').
-
-`C-x >'
-`C-pgup'
-`C-prior'
-     Scroll to the right (`scroll-right').
-
-`C-x $'
-     Make deeply indented lines invisible (`set-selective-display').
-
-* Menu:
-
-* Scrolling::	           Moving text up and down in a window.
-* Horizontal Scrolling::   Moving text left and right in a window.
-* Selective Display::      Hiding lines with lots of indentation.
-* Display Vars::           Information on variables for customizing display.
 

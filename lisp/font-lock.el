@@ -2099,22 +2099,38 @@ START should be at the beginning of a line."
       (c++-keywords
 ;      ("break" "continue" "do" "else" "for" "if" "return" "switch" "while"
 ;	"asm" "catch" "delete" "new" "operator" "sizeof" "this" "throw" "try"
-;       "protected" "private" "public")
-       (concat "asm\\|break\\|c\\(atch\\|ontinue\\)\\|d\\(elete\\|o\\)\\|"
-	       "else\\|for\\|if\\|new\\|"
-	       "p\\(r\\(ivate\\|otected\\)\\|ublic\\)\\|return\\|"
-	       "s\\(izeof\\|witch\\)\\|t\\(h\\(is\\|row\\)\\|ry\\)\\|while"))
+;       "protected" "private" "public" "const_cast" "dynamic_cast" "reinterpret_cast"
+;       "static_cast" "and" "bitor" "or" "xor" "compl" "bitand" "and_eq"
+;	"or_eq" "xor_eq" "not" "not_eq" "typeid" "false" "true")
+       (concat "a\\(nd\\(\\|_eq\\)\\|sm\\)\\|"
+	       "b\\(it\\(or\\|and\\)\\|reak\\)\\|"
+	       "c\\(atch\\|o\\(mpl\\|n\\(tinue\\|st_cast\\)\\)\\)\\|"
+	       "d\\(elete\\|o\\|ynamic_cast\\)\\|"
+	       "else\\|"
+	       "f\\(alse\\|or\\)\\|if\\|"
+	       "n\\(ew\\|ot\\(\\|_eq\\)\\)\\|"
+	       "p\\(r\\(ivate\\|otected\\)\\|ublic\\)\\|"
+	       "or\\(\\|_eq\\)\\|"
+	       "re\\(interpret_cast\\|turn\\)\\|"
+	       "s\\(izeof\\|tatic_cast\\|witch\\)\\|"
+	       "t\\(h\\(is\\|row\\)\\|r\\(ue\\|y\\)\\|ypeid\\)\\|"
+	       "xor\\(\\|_eq\\)\\|while"))
       (c++-type-types
 ;      ("auto" "extern" "register" "static" "typedef" "struct" "union" "enum"
 ;	"signed" "unsigned" "short" "long" "int" "char" "float" "double"
 ;	"void" "volatile" "const" "class" "inline" "friend" "bool"
-;	"virtual" "complex" "template")
+;	"virtual" "complex" "template" "explicit" "mutable" "export" "namespace"
+;       "using" "typename" "wchar_t")
        (concat "auto\\|bool\\|c\\(har\\|lass\\|o\\(mplex\\|nst\\)\\)\\|"
-	       "double\\|e\\(num\\|xtern\\)\\|f\\(loat\\|riend\\)\\|"
-	       "in\\(line\\|t\\)\\|long\\|register\\|"
+	       "double\\|"
+	       "e\\(num\\|x\\(p\\(licit\\|ort\\)\\|tern\\)\\)\\|"
+	       "f\\(loat\\|riend\\)\\|"
+	       "in\\(line\\|t\\)\\|long\\|mutable\\|namespace\\|register\\|"
 	       "s\\(hort\\|igned\\|t\\(atic\\|ruct\\)\\)\\|"
-	       "t\\(emplate\\|ypedef\\)\\|un\\(ion\\|signed\\)\\|"
-	       "v\\(irtual\\|o\\(id\\|latile\\)\\)"))		; 11 ()s deep.
+	       "t\\(emplate\\|ype\\(def\\|name\\)\\)\\|"
+	       "u\\(\\(n\\(ion\\|signed\\)\\|sing\\)\\)\\|"
+	       "v\\(irtual\\|o\\(id\\|latile\\)\\)\\|"
+	       "wchar_t"))		; 11 ()s deep.
       (ctoken "\\(\\sw\\|\\s_\\|[:~*&]\\)+")
       )
  (setq c-font-lock-keywords-1

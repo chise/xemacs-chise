@@ -2858,11 +2858,158 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2000-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.39 is released.
+
+2000-12-29  Andy Piper  <andy@xemacs.org>
+
+	* menubar.c (menubar_visible_p_changed): signal the frame changed.
+
+	* glyphs-x.c (x_redisplay_widget): Re-calculate widget offsets if
+	the frame has changed so that we pick up geometry changes such as
+	menubar visibility.
+
+2000-12-28  Andy Piper  <andy@xemacs.org>
+
+	* lastfile.c (my_ebss): make a char array so we can pad the
+	bss. Fixes cygwin unexec.
+
+	* unexcw.c: invert BROKEN_GDB to NO_DEBUG.
+
+2000-12-26  Andy Piper  <andy@xemacs.org>
+
+	* event-Xt.c (emacs_Xt_force_event_pending): add some verbose
+	comments and try and be more precise about a non-/SIGIO world.
+	(emacs_Xt_event_pending_p): use XtAppPending under cygwin and non
+	SIGIO.
+
+	* redisplay-output.c (redisplay_normalize_glyph_area): make sure
+	we don't normalize to zero width or height.
+
+2000-12-24  Andy Piper  <andy@xemacs.org>
+
+	* Makefile.in.in (ldflags): add -mwindows when appropriate.
+
+2000-08-18  Golubev I. N.  <gin@mo.msk.ru>
+
+	* s/sco5.h: SCO 5 has pty support.
+
+2000-07-20  Kazuyuki IENAGA <ienaga@xemacs.org>
+
+	* input-method-xlib.c: supports both XIM_XLIB and USE_XFONTSET.
+	input-method-xlib.c contains whole contents of input-method-xfs.c,
+	so we can use input-method-xlib.c's code for USE_XFONTSET
+	using #ifdefs.
+	* input-method-xfs.c: removed.
+
+2000-12-20  Stephen Turnbull  <stephen@xemacs.org>
+
+	* file-coding.h (enum coding_category_type): reorder enumerators to
+	make autodetection safer.  Make CODING_CATEGORY_LAST an enumerator
+	(now one greater than largest real coding_category_type enumerator).
+	* file-coding.c (coding_category_symbol, coding_category_by_priority,
+	coding_category_system, fcd_descriptihon_1, decode_coding_category,
+	Fcoding_category_list, Fset_coding_priority_list,
+	Fcoding_priority_list, coding_system_from_mask, Fdetect_coding_region,
+	vars_of_file_coding): adjust for change in CODING_CATEGORY_LAST.
+
+2000-12-18  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* redisplay-output.c (redisplay_clear_top_of_window): Remove static.
+	* redisplay-output.c (redisplay_output_window): Clear top of window
+	when face is changed.
+	* redisplay-x.c (x_redraw_exposed_window): Call
+	redisplay_clear_top_of_window.
+	* redisplay.h: Publish redisplay_clear_top_of_window.
+
+2000-12-18  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* buffer.c (Fkill_buffer): Map over all devices.
+	* window.c (window_loop): Remove UNSHOW_BUFFER code.
+	(list_windows): New function.
+	(list_all_windows): Ditto.
+	(Freplace_buffer_in_windows): Use them.
+
+2000-02-02   Daiki Ueno	<ueno@ueda.info.waseda.ac.jp>
+
+	* database.c (berkdb_subtype): Recognize new subtype `queue'.
+	(Fopen_database): Use `db_create' instead of `db_open'.
+	(syms_of_database): Initialize Qqueue.
+
+2000-12-13  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* buffer.c (common_init_complex_vars_of_buffer): Initialize
+	buffer_local_face_property.
+	* buffer.h (struct buffer): New member buffer_local_face_property.
+	* window.c (Fset_window_buffer):  Mark window's face as changed
+	when buffer has buffer local face.
+	* window.h (MARK_WINDOW_FACES_CHANGED): New macro.
+	* objects.c (color_after_change): Set buffer_local_face_property
+	when locale of face specifier is buffer.
+	* objects.c (font_after_change): Ditto.
+	* objects.c (face_boolean_after_change): Ditto.
+	* glyphs.c (image_after_change): Ditto.
+
+2000-12-09  Dan Holmsand  <dan@eyebee.com>
+
+	* nt.c (mswindows_fstat): Report file permissions, volume serial
+	number, etc. Code adapted from FSF Emacs 20.7.
+
+2000-12-09  Dan Holmsand  <dan@eyebee.com>
+
+	* sysfile.h (lstat): Make lstat an alias for xemacs_stat instead
+	of stat when we don't have symbolic links, to make sure
+	mswindows_stat is called on mswindows.
+
+2000-12-12  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* alloca.c: Define malloc to xmalloc only when built with XEmacs.
+
+2000-12-12  Martin Buchholz  <martin@xemacs.org>
+
+	* doprnt.c (emacs_doprnt_1): More printing fixes.
+	Make printing of numbers compatible with libc and FSF Emacs.
+	BUG was: (format "%6.3f" 1.2) ==>"1.200000"
+	Use the system printf to do most of the hard work of formatting,
+	instead of doprnt_1().
+	Calculate memory to allocate for format string.
+	Remove arbitrary limit on precision, e.g. (format "%.1000f" 3.14)
+	(doprnt_1): Cleaner code and documentation.
+
+2000-12-01  Jerry James  <james@eecs.ukans.edu>
+
+	* Makefile.in.in: Use the loop variable to install headers.
+
+2000-12-04  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* window.c (Fsplit_window): Don't invalidate face cache.
+
+2000-12-04  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* minibuf.c (Fall_completions): Undo the previous change
+	which removed checking elements start with space.
+
+2000-12-06  Stephen Turnbull  <stephen@xemacs.org>
+
+	* mule-canna.c: Didier suppression.
+
+2000-12-06  Stephen Turnbull  <stephen@xemacs.org>
+
+	* mule-canna.c: rename static unsigned char buf[] to key_buffer
+	(warning suppression).  Add English comment translations.
+
+2000-12-05  Martin Buchholz  <martin@xemacs.org>
+
+	* unexelfsgi.c (unexec): Better test for mmap failure.
+
 2000-12-05  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.38 is released.
 
 2000-12-05  Martin Buchholz  <martin@xemacs.org>
+
+	* redisplay.c (bar-cursor): Make a user variable.
 
 	* symsinit.h: Add init_postgresql_from_environment.
 

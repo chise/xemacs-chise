@@ -254,7 +254,7 @@ Auto-Saving
 called "auto-saving".  Auto-saving prevents you from losing more than a
 limited amount of work if the system crashes.  By default, auto-saves
 happen every 300 keystrokes, or after around 30 seconds of idle time.
-*Note Auto-Save: (emacs)Auto-Save, for information on auto-save for
+*Note Auto-Save: (xemacs)Auto-Save, for information on auto-save for
 users.  Here we describe the functions used to implement auto-saving
 and the variables that control them.
 
@@ -436,7 +436,7 @@ Reverting
    If you have made extensive changes to a file and then change your
 mind about them, you can get rid of them by reading in the previous
 version of the file with the `revert-buffer' command.  *Note Reverting
-a Buffer: (emacs)Reverting.
+a Buffer: (xemacs)Reverting.
 
  - Command: revert-buffer &optional check-auto-save noconfirm
           preserve-modes

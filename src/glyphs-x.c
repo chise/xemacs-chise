@@ -2140,6 +2140,7 @@ static void
 x_map_subwindow (Lisp_Image_Instance *p, int x, int y,
 		 struct display_glyph_area* dga)
 {
+  assert (dga->width > 0 && dga->height > 0);
   if (IMAGE_INSTANCE_TYPE (p) == IMAGE_SUBWINDOW)
     {
       Window subwindow = IMAGE_INSTANCE_X_SUBWINDOW_ID (p);
@@ -2257,6 +2258,16 @@ x_redisplay_widget (Lisp_Image_Instance *p)
 			       (Dimension)IMAGE_INSTANCE_WIDTH (p));
       lw_add_widget_value_arg (wv, XtNheight,
 			       (Dimension)IMAGE_INSTANCE_HEIGHT (p));
+    }
+
+  /* Adjust offsets within the frame. */
+  if (XFRAME (IMAGE_INSTANCE_FRAME (p))->frame_changed)
+    {
+      Arg al[2];
+      XtSetArg (al [0], XtNx, &IMAGE_INSTANCE_X_WIDGET_XOFFSET (p));
+      XtSetArg (al [1], XtNy, &IMAGE_INSTANCE_X_WIDGET_YOFFSET (p));
+      XtGetValues (FRAME_X_TEXT_WIDGET 
+		   (XFRAME (IMAGE_INSTANCE_FRAME (p))), al, 2);
     }
 
   /* now modify the widget */
