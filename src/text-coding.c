@@ -94,7 +94,7 @@ Lisp_Object Qpost_read_conversion;
 Lisp_Object Qpre_write_conversion;
 
 #ifdef MULE
-Lisp_Object Qucs4, Qutf8;
+Lisp_Object Qucs4, Qutf16, Qutf8;
 Lisp_Object Qbig5, Qshift_jis;
 Lisp_Object Qcharset_g0, Qcharset_g1, Qcharset_g2, Qcharset_g3;
 Lisp_Object Qforce_g0_on_output, Qforce_g1_on_output;
@@ -215,6 +215,15 @@ static void decode_coding_ucs4 (Lstream *decoding, const Extbyte *src,
 void char_encode_ucs4 (struct encoding_stream *str, Emchar c,
 		       unsigned_char_dynarr *dst, unsigned int *flags);
 void char_finish_ucs4 (struct encoding_stream *str,
+		       unsigned_char_dynarr *dst, unsigned int *flags);
+
+static int detect_coding_utf16 (struct detection_state *st,
+			       const Extbyte *src, size_t n);
+static void decode_coding_utf16 (Lstream *decoding, const Extbyte *src,
+				unsigned_char_dynarr *dst, size_t n);
+void char_encode_utf16 (struct encoding_stream *str, Emchar c,
+		       unsigned_char_dynarr *dst, unsigned int *flags);
+void char_finish_utf16 (struct encoding_stream *str,
 		       unsigned_char_dynarr *dst, unsigned int *flags);
 
 static int detect_coding_utf8 (struct detection_state *st,
@@ -949,6 +958,7 @@ if TYPE is 'ccl:
   else if (EQ (type, Qiso2022))       { ty = CODESYS_ISO2022; }
   else if (EQ (type, Qbig5))          { ty = CODESYS_BIG5; }
   else if (EQ (type, Qucs4))          { ty = CODESYS_UCS4; }
+  else if (EQ (type, Qutf16))         { ty = CODESYS_UTF16; }
   else if (EQ (type, Qutf8))          { ty = CODESYS_UTF8; }
   else if (EQ (type, Qccl))           { ty = CODESYS_CCL; }
 #endif
@@ -1371,6 +1381,7 @@ Return the type of CODING-SYSTEM.
     case CODESYS_ISO2022:	return Qiso2022;
     case CODESYS_BIG5:		return Qbig5;
     case CODESYS_UCS4:		return Qucs4;
+    case CODESYS_UTF16:		return Qutf16;
     case CODESYS_UTF8:		return Qutf8;
     case CODESYS_CCL:		return Qccl;
 #endif
@@ -1689,6 +1700,13 @@ struct detection_state
       int mask;
       int in_byte;
     }
+  utf16;
+
+  struct
+    {
+      int mask;
+      int in_byte;
+    }
   utf8;
 
   struct
@@ -1805,6 +1823,7 @@ detect_coding_type (struct detection_state *st, const Extbyte *src,
 	      st->shift_jis.mask = ~0;
 	      st->big5.mask = ~0;
 	      st->ucs4.mask = ~0;
+	      st->utf16.mask = ~0;
 	      st->utf8.mask = ~0;
 	      st->iso2022.mask = ~0;
 #endif
@@ -1824,6 +1843,8 @@ detect_coding_type (struct detection_state *st, const Extbyte *src,
     st->big5.mask = detect_coding_big5 (st, src, n);
   if (!mask_has_at_most_one_bit_p (st->utf8.mask))
     st->utf8.mask = detect_coding_utf8 (st, src, n);
+  if (!mask_has_at_most_one_bit_p (st->utf16.mask))
+    st->utf16.mask = detect_coding_utf16 (st, src, n);
   if (!mask_has_at_most_one_bit_p (st->ucs4.mask))
     st->ucs4.mask = detect_coding_ucs4 (st, src, n);
 
@@ -2597,6 +2618,9 @@ mule_decode (Lstream *decoding, const Extbyte *src,
     case CODESYS_UCS4:
       decode_coding_ucs4 (decoding, src, dst, n);
       break;
+    case CODESYS_UTF16:
+      decode_coding_utf16 (decoding, src, dst, n);
+      break;
     case CODESYS_UTF8:
       decode_coding_utf8 (decoding, src, dst, n);
       break;
@@ -2897,6 +2921,10 @@ reset_encoding_stream (struct encoding_stream *str)
     case CODESYS_UTF8:
       str->encode_char = &char_encode_utf8;
       str->finish = &char_finish_utf8;
+      break;
+    case CODESYS_UTF16:
+      str->encode_char = &char_encode_utf16;
+      str->finish = &char_finish_utf16;
       break;
     case CODESYS_UCS4:
       str->encode_char = &char_encode_ucs4;
@@ -4154,6 +4182,100 @@ char_encode_ucs4 (struct encoding_stream *str, Emchar ch,
 
 void
 char_finish_ucs4 (struct encoding_stream *str, unsigned_char_dynarr *dst,
+		  unsigned int *flags)
+{
+}
+
+
+/************************************************************************/
+/*                           UTF-16 methods                             */
+/************************************************************************/
+
+static int
+detect_coding_utf16 (struct detection_state *st, const Extbyte *src, size_t n)
+{
+  return CODING_CATEGORY_UTF16_MASK;
+}
+
+static void
+decode_coding_utf16 (Lstream *decoding, const Extbyte *src,
+		    unsigned_char_dynarr *dst, size_t n)
+{
+  struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
+  unsigned int flags = str->flags;
+  unsigned int cpos  = str->cpos;
+  unsigned char counter = str->counter;
+  eol_type_t eol_type = str->eol_type;
+
+  while (n--)
+    {
+      unsigned char c = *(unsigned char *)src++;
+      if ((counter & 1) == 0)
+	{
+	  cpos = c;
+	  counter |= 1;
+	}
+      else
+	{
+	  int code
+	    = (counter & 2) == 2
+	    ? (cpos << 8) | c
+	    : (c << 8) | cpos;
+
+	  if (code == 0xFFFE)
+	    {
+	      if ( (counter & 2) == 0 )
+		{
+		  counter = 2;
+		  code = (cpos << 8) | c;
+		}
+	      else
+		{
+		  counter = 0;
+		  code = (c << 8) | cpos;
+		}
+	    }
+	  counter &= 2;
+	  cpos = 0;
+	  if (code != 0xFEFF)
+	    {
+	      DECODE_HANDLE_EOL_TYPE (eol_type, code, flags, dst);
+	      DECODE_ADD_UCS_CHAR (code, dst);
+	    }
+	}
+    label_continue_loop:;
+    }
+  if (counter & CODING_STATE_END)
+    DECODE_OUTPUT_PARTIAL_CHAR (cpos);
+
+  str->flags	= flags;
+  str->cpos	= cpos;
+  str->counter	= counter;
+}
+
+void
+char_encode_utf16 (struct encoding_stream *str, Emchar ch,
+		  unsigned_char_dynarr *dst, unsigned int *flags)
+{
+  if (ch <= 0xFFFF)
+    {
+      Dynarr_add (dst, ch);
+      Dynarr_add (dst, ch >> 8);
+    }
+  else
+    {
+      int y = ((ch - 0x10000) / 0x400) + 0xD800;
+      int z = ((ch - 0x10000) % 0x400) + 0xD800;
+      
+      Dynarr_add (dst, y);
+      Dynarr_add (dst, y >> 8);
+      Dynarr_add (dst, z);
+      Dynarr_add (dst, z >> 8);
+    }
+}
+
+void
+char_finish_utf16 (struct encoding_stream *str, unsigned_char_dynarr *dst,
 		  unsigned int *flags)
 {
 }
@@ -6119,6 +6241,7 @@ syms_of_file_coding (void)
   defsymbol (&Qshift_jis, "shift-jis");
   defsymbol (&Qucs4, "ucs-4");
   defsymbol (&Qutf8, "utf-8");
+  defsymbol (&Qutf16, "utf-16");
   defsymbol (&Qccl, "ccl");
   defsymbol (&Qiso2022, "iso2022");
 #endif /* MULE */
@@ -6171,6 +6294,8 @@ syms_of_file_coding (void)
 	     "big5");
   defsymbol (&coding_category_symbol[CODING_CATEGORY_UCS4],
 	     "ucs-4");
+  defsymbol (&coding_category_symbol[CODING_CATEGORY_UTF16],
+	     "utf-16");
   defsymbol (&coding_category_symbol[CODING_CATEGORY_UTF8],
 	     "utf-8");
   defsymbol (&coding_category_symbol[CODING_CATEGORY_ISO_7],
