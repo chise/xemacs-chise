@@ -1,5 +1,13 @@
 2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* mule-charset.c (load_char_decoding_entry_maybe): Don't define it
+	when HAVE_CHISE_CLIENT is not defined.
+
+	* mule.c (vars_of_mule): Provide feature `chise' when
+	HAVE_CHISE_CLIENT is defined.
+
+2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* config.h.in (UTF2000): Add comment.
 	(HAVE_CHISE_CLIENT): New macro.
 
