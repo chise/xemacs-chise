@@ -151,19 +151,7 @@ separate_textual_runs (unsigned char *text_storage,
       int dimension;
       int graphic;
 
-      if (EQ (Vdefault_coded_charset_priority_list_for_font, Qnil))
-	BREAKUP_CHAR (ch, charset, byte1, byte2);
-      else
-	{
-	  Lisp_Object original_default_coded_charset_priority_list
-	    = Vdefault_coded_charset_priority_list;
-
-	  Vdefault_coded_charset_priority_list
-	    = Vdefault_coded_charset_priority_list_for_font;
-	  BREAKUP_CHAR (ch, charset, byte1, byte2);
-	  Vdefault_coded_charset_priority_list
-	    = original_default_coded_charset_priority_list;
-	}
+      BREAKUP_CHAR (ch, charset, byte1, byte2);
       dimension = XCHARSET_DIMENSION (charset);
       graphic   = XCHARSET_GRAPHIC   (charset);
 
