@@ -1,3 +1,20 @@
+2001-08-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R194-Ghost.el (J90-7233): Separate J78-7233, J83-7233
+	and C1-777D.
+
+	* Ideograph-R191-Fight.el (J83-722D): Separate J78-722D and
+	U+9B2E.
+
+	* Ideograph-R187-Horse.el (J90-3833): Unify J78-3833 and J83-3833.
+	(J83-424D): Unify J90-424D; add `total-strokes'.
+	(J83-715C): Separate J90-715C and C1-7B44.
+
+	* Ideograph-R184-Eat.el (J78-4C5F): Separate J83-4C5F, J90-4C5F
+	and U+9905.
+	(J90-713B): Unify J78-713B and J83-713B; delete `daikanwa-radical'
+	and `daikanwa-strokes'; add `total-strokes'.
+
 2001-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R181-Leaf.el (J83-7073): Separate C1-6764, J90-7073
