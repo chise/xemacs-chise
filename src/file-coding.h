@@ -1,6 +1,7 @@
 /* Header for code conversion stuff
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 1999,2000,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
