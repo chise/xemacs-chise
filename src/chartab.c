@@ -2358,7 +2358,8 @@ For internal use.  Don't use it.
 */
        (c, value))
 {
-  put_char_id_table_0 (char_attribute_table_to_put, c, value_to_put);
+  put_char_id_table_0 (char_attribute_table_to_put,
+		       XCHAR (c), value_to_put);
   return Qnil;
 }
 #endif
@@ -2394,11 +2395,21 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 	*/
 	if ( CHAR_TABLEP (encoding_table) )
 	  {
+	    Lisp_Object mother = XCHARSET_MOTHER (range->charset);
+
 	    char_attribute_table_to_put = ct;
 	    value_to_put = val;
 	    Fmap_char_attribute (Qput_char_table_map_function,
 				 XCHAR_TABLE_NAME (encoding_table),
 				 Qnil);
+	    if ( CHARSETP (mother) )
+	      {
+		struct chartab_range r;
+
+		r.type = CHARTAB_RANGE_CHARSET;
+		r.charset = mother;
+		put_char_table (ct, &r, val);
+	      }
 	  }
 #if 0
 	else
@@ -4039,16 +4050,20 @@ word_boundary_p (Emchar c1, Emchar c2)
     c2 = cmpchar_component (c2, 0, 1);
 #endif
 
+#ifndef UTF2000
   if (EQ (CHAR_CHARSET (c1), CHAR_CHARSET (c2)))
+#endif
     {
       tail = Vword_separating_categories;
       default_result = 0;
     }
+#ifndef UTF2000
   else
     {
       tail = Vword_combining_categories;
       default_result = 1;
     }
+#endif
 
   category_set1 = CATEGORY_SET (c1);
   if (NILP (category_set1))

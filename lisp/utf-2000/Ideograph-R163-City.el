@@ -2625,6 +2625,7 @@
     (=ks-x1001		. #x5434)	; ø»‰¥™
     (=jis-x0213-1-2000	. #x7C6A)	; ø»¤™¯
     (=daikanwa		. 39509)	; ø¸‰©•
+    (=jef-china3	. #x68A8)	; øº†¢¨
     (=ucs@ks		. #x90FD)	; ï¨¦
     (=ucs		. #xFA26)	; ï¨¦
     ))

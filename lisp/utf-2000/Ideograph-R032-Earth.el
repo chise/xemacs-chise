@@ -6730,6 +6730,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=cbeta		. 07009)	; ø¸¡­¡
+    (=jef-china3	. #x8DF8)	; øºˆ·¸
     ))
 (define-char
   '((ideographic-radical . 32)	; â¼Ÿ
