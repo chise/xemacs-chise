@@ -184,8 +184,7 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B41)	; 丶
-      (ucs		  . #x4E36)	; 丶
+     ((ucs		  . #x4E36)	; 丶
       )
      ((ucs		  . #x738B)	; 王
       ))
@@ -215,8 +214,7 @@
       )
      ((ucs		  . #x4E95)	; 井
       )
-     ((chinese-big5-cdp	  . #x8B41)	; 丶
-      (ucs		  . #x4E36)	; 丶
+     ((ucs		  . #x4E36)	; 丶
       ))
     (shinjigen-1	. 44)
     (shinjigen-2	. 44)
