@@ -63,6 +63,7 @@
   '((morohashi-daikanwa	17046 1)
     (ideographic-radical . 84)	; â½“
     (ideographic-strokes . 2)
+    (total-strokes	 . 6)
     (=ucs		. #x6C17)	; æ°—
     (=jis-x0208		. #x3524)	; ø½Š“—
     (=gt		. 21830)	; ý¡€…•†
@@ -140,6 +141,7 @@
   '((morohashi-daikanwa	17054 0 2)
     (ideographic-radical . 84)	; â½“
     (ideographic-strokes . 4)
+    (total-strokes	 . 8)
     (=ucs		. #x6C1D)	; æ°
     (=iso-ir165		. #x2E53)	; ø»‚Œ
     ))
@@ -311,6 +313,7 @@
   '((morohashi-daikanwa	17063 0 0)
     (ideographic-radical . 84)	; â½“
     (ideographic-strokes . 6)
+    (total-strokes	 . 10)
     (=ucs		. #x6C26)	; æ°¦
     (=gb2312		. #x3A24)	; ø»„ªµ
     (=cns11643-1	. #x5637)	; ø»’¨
@@ -452,6 +455,7 @@
   '((morohashi-daikanwa	17072 0 5)
     (ideographic-radical . 84)	; â½“
     (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (=ucs		. #x6C2F)	; æ°¯
     (=gb2312		. #x4248)	; ø»„·‰
     ))

@@ -290,6 +290,7 @@
 (define-char
   '((ideographic-radical . 78)	; â½
     (ideographic-strokes . 3)
+    (total-strokes	 . 7)
     (=ucs		. #x6B7C)	; æ­¼
     (=gb2312		. #x3C5F)	; ø»„®¬
     ))
@@ -942,6 +943,7 @@
 (define-char
   '((ideographic-radical . 78)	; â½
     (ideographic-strokes . 5)
+    (total-strokes	 . 9)
     (=ucs		. #x6B87)	; æ®‡
     (=gb2312		. #x6964)	; ø»…°·
     ))
@@ -2004,6 +2006,7 @@
 (define-char
   '((ideographic-radical . 78)	; â½
     (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (=ucs		. #x6B9A)	; æ®š
     (=gb2312		. #x6969)	; ø»…°¼
     ))
@@ -2317,6 +2320,7 @@
 (define-char
   '((ideographic-radical . 78)	; â½
     (ideographic-strokes . 10)
+    (total-strokes	 . 14)
     (=ucs		. #x6B9D)	; æ®
     (=daikanwa		. 16534)	; ø¸„‚–
     ))
