@@ -1,3 +1,8 @@
+2003-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R122-Net.el, Ideograph-R072-Sun.el,
+	Ideograph-R030-Mouth.el, Ideograph-R018-Knife.el: Reformatted.
+
 2003-02-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u02E00-CJK-Radical-Supplement.el, Ideograph-R184-Eat.el,
