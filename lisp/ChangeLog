@@ -1,3 +1,9 @@
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R004-Slash.el,
+	utf-2000/Ideograph-R003-Dot.el, utf-2000/Ideograph-R002-Line.el,
+	utf-2000/Ideograph-R001-One.el: Merge `chinese-isoir165'.
+
 1999-12-03  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/Ideograph-R030-Mouth.el: Merge `japanese-jisx0213-1'
