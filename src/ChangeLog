@@ -1,3 +1,8 @@
+2000-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.17.
+
 2000-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* file-coding.c (ucs_to_char): Don't use `CHARSET_TYPE_*'; modify
