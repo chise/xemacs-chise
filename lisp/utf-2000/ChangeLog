@@ -1015,7 +1015,7 @@
 	* Ideograph-R013-Down-Box.el (U-0002054D): Add
 	`ideographic-structure'; unify H1-AD7C.
 
-	* Ideograph-R007-Two.el ((C6-2566): Relate to U-00020122.
+	* Ideograph-R007-Two.el (C6-2566): Relate to U-00020122.
 
 	* Ideograph-R001-One.el:
 	- Add some missing `ideographic-structure' properties.
