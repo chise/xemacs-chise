@@ -176,7 +176,8 @@
 			  cell))
 	  (setq data (del-alist 'mirrored data))
 	  )
-	(when (setq cell (assq 'decimal-digit-value data))
+	(cond
+	 ((setq cell (assq 'decimal-digit-value data))
 	  (setq cell (cdr cell))
 	  (insert (format "(decimal-digit-value . %S)
     "
@@ -197,13 +198,28 @@
 	    (setq data (del-alist 'numeric-value data))
 	    )
 	  )
-	(when (setq cell (assq 'iso-10646-comment data))
+	 (t
+	  (when (setq cell (assq 'digit-value data))
 	    (setq cell (cdr cell))
-	    (insert (format "(iso-10646-comment\t. %S)
+	    (insert (format "(digit-value\t. %S)
     "
 			    cell))
-	    (setq data (del-alist 'iso-10646-comment data))
+	    (setq data (del-alist 'digit-value data))
 	    )
+	  (when (setq cell (assq 'numeric-value data))
+	    (setq cell (cdr cell))
+	    (insert (format "(numeric-value\t. %S)
+    "
+			    cell))
+	    (setq data (del-alist 'numeric-value data))
+	    )))
+	(when (setq cell (assq 'iso-10646-comment data))
+	  (setq cell (cdr cell))
+	  (insert (format "(iso-10646-comment\t. %S)
+    "
+			  cell))
+	  (setq data (del-alist 'iso-10646-comment data))
+	  )
 	(when (setq cell (assq '->decomposition data))
 	  (setq cell (cdr cell))
 	  (insert (format "(->decomposition\t%s)
