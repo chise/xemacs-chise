@@ -992,8 +992,15 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 38)
     (hanyu-dazidian-char . 8)
+    (japanese-jisx0213-2	. #x212D)	; ø»¤Œ
+    (ucs			. #x3406)	; ã†
+    ))
+(define-char
+  '((=>ucs		. #x3406)	; ã†
+    (ideographic-radical . 4)	; â¼ƒ
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
     (chinese-big5-cdp	. #x87D9)	; ý¢€ˆŸ™
-    (ucs		. #x3406)	; ã†
     ))
 (define-char
   '((ideographic-radical . 4)	; â¼ƒ
