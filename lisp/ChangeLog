@@ -1,6 +1,12 @@
 2003-02-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* mule-conf.el (=gt-pj-*): Renamed from `ideograph-gt-pj-*'.
+	* mule/mule-conf.el (ideograph-daikanwa): New coded-charsets when
+	`utf-2000' is provided [was builtin coded-charsets].
+	(ideograph-hanziku-{1..12}): Likewise.
+
+2003-02-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=gt-pj-*): Renamed from `ideograph-gt-pj-*'.
 	(ideograph-gt-pj-*): Changed to an alias for `=gt-pj-*'.
 
 2003-02-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>

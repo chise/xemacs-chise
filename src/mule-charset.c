@@ -78,20 +78,7 @@ Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_jis_x0208;
 Lisp_Object Vcharset_chinese_big5;
-Lisp_Object Vcharset_ideograph_hanziku_1;
-Lisp_Object Vcharset_ideograph_hanziku_2;
-Lisp_Object Vcharset_ideograph_hanziku_3;
-Lisp_Object Vcharset_ideograph_hanziku_4;
-Lisp_Object Vcharset_ideograph_hanziku_5;
-Lisp_Object Vcharset_ideograph_hanziku_6;
-Lisp_Object Vcharset_ideograph_hanziku_7;
-Lisp_Object Vcharset_ideograph_hanziku_8;
-Lisp_Object Vcharset_ideograph_hanziku_9;
-Lisp_Object Vcharset_ideograph_hanziku_10;
-Lisp_Object Vcharset_ideograph_hanziku_11;
-Lisp_Object Vcharset_ideograph_hanziku_12;
 Lisp_Object Vcharset_ideograph_daikanwa_2;
-Lisp_Object Vcharset_ideograph_daikanwa;
 Lisp_Object Vcharset_ethiopic_ucs;
 #endif
 Lisp_Object Vcharset_chinese_big5_1;
@@ -337,21 +324,7 @@ Lisp_Object Qascii,
   Qvietnamese_viscii_upper,
   Qjis_x0208,
   Qchinese_big5,
-  /*  Qchinese_big5_cdp, */
-  Qideograph_hanziku_1,
-  Qideograph_hanziku_2,
-  Qideograph_hanziku_3,
-  Qideograph_hanziku_4,
-  Qideograph_hanziku_5,
-  Qideograph_hanziku_6,
-  Qideograph_hanziku_7,
-  Qideograph_hanziku_8,
-  Qideograph_hanziku_9,
-  Qideograph_hanziku_10,
-  Qideograph_hanziku_11,
-  Qideograph_hanziku_12,
   Qideograph_daikanwa_2,
-  Qideograph_daikanwa,
   Qethiopic_ucs,
 #endif
   Qchinese_big5_1,
@@ -1226,16 +1199,6 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
     {
       *charset = Vcharset_ucs_sip;
       return c - MIN_CHAR_SIP;
-    }
-  else if (c < MIN_CHAR_DAIKANWA)
-    {
-      *charset = Vcharset_ucs;
-      return c;
-    }
-  else if (c <= MAX_CHAR_DAIKANWA)
-    {
-      *charset = Vcharset_ideograph_daikanwa;
-      return c - MIN_CHAR_DAIKANWA;
     }
   else if (c < MIN_CHAR_94)
     {
@@ -2434,21 +2397,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qjis_x0208, 		"=jis-x0208");
   defsymbol (&Qideograph_daikanwa_2,	"ideograph-daikanwa-2");
-  defsymbol (&Qideograph_daikanwa,	"ideograph-daikanwa");
   defsymbol (&Qchinese_big5,		"chinese-big5");
-  /*  defsymbol (&Qchinese_big5_cdp,	"chinese-big5-cdp"); */
-  defsymbol (&Qideograph_hanziku_1,	"ideograph-hanziku-1");
-  defsymbol (&Qideograph_hanziku_2,	"ideograph-hanziku-2");
-  defsymbol (&Qideograph_hanziku_3,	"ideograph-hanziku-3");
-  defsymbol (&Qideograph_hanziku_4,	"ideograph-hanziku-4");
-  defsymbol (&Qideograph_hanziku_5,	"ideograph-hanziku-5");
-  defsymbol (&Qideograph_hanziku_6,	"ideograph-hanziku-6");
-  defsymbol (&Qideograph_hanziku_7,	"ideograph-hanziku-7");
-  defsymbol (&Qideograph_hanziku_8,	"ideograph-hanziku-8");
-  defsymbol (&Qideograph_hanziku_9,	"ideograph-hanziku-9");
-  defsymbol (&Qideograph_hanziku_10,	"ideograph-hanziku-10");
-  defsymbol (&Qideograph_hanziku_11,	"ideograph-hanziku-11");
-  defsymbol (&Qideograph_hanziku_12,	"ideograph-hanziku-12");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
 #endif
   defsymbol (&Qchinese_big5_1,		"chinese-big5-1");
@@ -2903,42 +2852,6 @@ complex_vars_of_mule_charset (void)
 		  Qnil,
 		  MIN_CHAR_BIG5_CDP, MAX_CHAR_BIG5_CDP,
 		  MIN_CHAR_BIG5_CDP, 0, Qnil, CONVERSION_IDENTICAL);
-#if 0
-  staticpro (&Vcharset_chinese_big5_cdp);
-  Vcharset_chinese_big5_cdp =
-    make_charset (LEADING_BYTE_CHINESE_BIG5_CDP, Qchinese_big5_cdp, 256, 2,
-		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Big5-CDP"),
-		  build_string ("Big5 + CDP extension"),
-		  build_string ("Big5 with CDP extension"),
-		  build_string ("big5\\.cdp-0"),
-		  Qnil, MIN_CHAR_BIG5_CDP, MAX_CHAR_BIG5_CDP,
-		  MIN_CHAR_BIG5_CDP, 0, Qnil, CONVERSION_IDENTICAL);
-#endif
-#define DEF_HANZIKU(n)							\
-  staticpro (&Vcharset_ideograph_hanziku_##n);				\
-  Vcharset_ideograph_hanziku_##n =					\
-    make_charset (LEADING_BYTE_HANZIKU_##n, Qideograph_hanziku_##n, 256, 2, \
-		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,			\
-		  build_string ("HZK-"#n),			   	\
-		  build_string ("HANZIKU-"#n),	\
-		  build_string ("HANZIKU (pseudo BIG5 encoding) part "#n), \
-		  build_string						\
-		  ("hanziku-"#n"$"),					\
-		  Qnil, MIN_CHAR_HANZIKU_##n, MAX_CHAR_HANZIKU_##n, 	\
-		  MIN_CHAR_HANZIKU_##n, 0, Qnil, CONVERSION_IDENTICAL);
-  DEF_HANZIKU (1);
-  DEF_HANZIKU (2);
-  DEF_HANZIKU (3);
-  DEF_HANZIKU (4);
-  DEF_HANZIKU (5);
-  DEF_HANZIKU (6);
-  DEF_HANZIKU (7);
-  DEF_HANZIKU (8);
-  DEF_HANZIKU (9);
-  DEF_HANZIKU (10);
-  DEF_HANZIKU (11);
-  DEF_HANZIKU (12);
 
   staticpro (&Vcharset_ideograph_daikanwa_2);
   Vcharset_ideograph_daikanwa_2 =
@@ -2950,17 +2863,6 @@ complex_vars_of_mule_charset (void)
 		  ("Daikanwa dictionary (revised version)"),
 		  build_string ("Daikanwa\\(\\.[0-9]+\\)?-2"),
 		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL);
-  staticpro (&Vcharset_ideograph_daikanwa);
-  Vcharset_ideograph_daikanwa =
-    make_charset (LEADING_BYTE_DAIKANWA_3, Qideograph_daikanwa, 256, 2,
-		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Daikanwa"),
-		  build_string ("Morohashi's Daikanwa Rev.2"),
-		  build_string
-		  ("Daikanwa dictionary (second revised version)"),
-		  build_string ("Daikanwa\\(\\.[0-9]+\\)?-3"),
-		  Qnil, MIN_CHAR_DAIKANWA, MAX_CHAR_DAIKANWA,
-		  MIN_CHAR_DAIKANWA, 0, Qnil, CONVERSION_IDENTICAL);
 
   staticpro (&Vcharset_ethiopic_ucs);
   Vcharset_ethiopic_ucs =

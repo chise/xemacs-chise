@@ -1,3 +1,19 @@
+2003-02-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h (LEADING_BYTE_DAIKANWA_3): Deleted.
+	(LEADING_BYTE_HANZIKU_{1..12}): Deleted.
+	({MIN|MAX}_CHAR_HANZIKU_{1..12}): Deleted.
+
+	* mule-charset.c (Vcharset_ideograph_hanziku_{1..12}): Deleted.
+	(Vcharset_ideograph_daikanwa): Deleted.
+	(Qideograph_hanziku_{1..12}): Deleted.
+	(Qideograph_daikanwa): Deleted.
+	(encode_builtin_char_1): Don't use {MIN|MAX}_CHAR_DAIKANWA and
+	Vcharset_ideograph_daikanwa.
+	(syms_of_mule_charset): Delete `ideograph-daikanwa' and
+	`ideograph-hanziku-{1..12}'.
+	(complex_vars_of_mule_charset): Likewise.
+
 2003-02-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-ucs.h (LEADING_BYTE_GT_PJ_{1..11}): Deleted.
