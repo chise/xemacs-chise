@@ -3,6 +3,7 @@
   '((ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 0)
     (total-strokes	 . 12)
+    (shinjigen-1	. 9818)
     (=ucs		. #x9ED1)	; 黑
     (=gb2312		. #x3A5A)	; &I-G0-3A5A; [26-58]
     (=ks-x1001		. #x7D59)	; &I-K0-7D59; [93-57]
