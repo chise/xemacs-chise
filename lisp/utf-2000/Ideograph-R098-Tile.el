@@ -6,7 +6,7 @@
     (shinjigen-2	. 4979)
     (=jis-x0208		. #x3424)	; ø½Š‘¹
     (=ks-x1001		. #x683F)	; ø»Š‚¼
-    (chinese-cns11643-1 . #x466B)	; ø»‘¹¼
+    (=cns11643-1	. #x466B)	; ø»‘¹¼
     (=gt-pj-1		. #x3424)	; ø½Š‘¹
     (ideograph-daikanwa . 21438)	; ø¸…Ž¾
     (=gt-k		. 00906)	; ý¡„€ŽŠ
@@ -59,7 +59,7 @@
     (total-strokes	 . 8)
     (shinjigen-2	. 4981)
     (=jis-x0208		. #x6124)	; ø½‹“¿
-    (chinese-cns11643-1 . #x2322)	; ø»‘…™
+    (=cns11643-1	. #x2322)	; ø»‘…™
     (=big5		. #xA260)	; ý¢€Š‰ 
     (ideograph-daikanwa . 21450)	; ø¸…Š
     (=ucs		. #x74E9)	; ç“©
@@ -439,7 +439,7 @@
     (=gb2312		. #x463F)	; ø»„¼¸
     (=jis-x0208		. #x4953)	; ø½Š±ž
     (=iso-ir165		. #x463F)	; ø»¥ˆ
-    (chinese-cns11643-1 . #x5C25)	; ø»’™Š
+    (=cns11643-1	. #x5C25)	; ø»’™Š
     (=gt-pj-1		. #x4953)	; ç“¶
     (=big5		. #xB27E)	; ý¢€‹‰¾
     (ideograph-daikanwa . 21486)	; ø¸…®
@@ -489,7 +489,7 @@
     (ideographic-radical . 98)	; â½¡
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (chinese-cns11643-1 . #x5C26)	; ø»’™‹
+    (=cns11643-1	. #x5C26)	; ø»’™‹
     ))
 (define-char
   '((morohashi-daikanwa	21491 0 2)
@@ -1189,7 +1189,7 @@
     (ideographic-radical . 98)	; â½¡
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (chinese-cns11643-1 . #x6969)	; ø»’­”
+    (=cns11643-1	. #x6969)	; ø»’­”
     ))
 (define-char
   '((=>ucs		. #x7504)	; ç”„
@@ -1557,7 +1557,7 @@
     (total-strokes	 . 16)
     (shinjigen-1	. 4996)
     (shinjigen-2	. 4996)
-    (chinese-cns11643-1 . #x7148)	; ø»’¸£
+    (=cns11643-1	. #x7148)	; ø»’¸£
     (mojikyo		. 021586)	; ý €…‘’
     ))
 (define-char
@@ -1565,7 +1565,7 @@
     (ideographic-radical . 98)	; â½¡
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (chinese-cns11643-1 . #x7149)	; ø»’¸¤
+    (=cns11643-1	. #x7149)	; ø»’¸¤
     (=big5		. #xBF5F)	; ý¢€‹½Ÿ
     (ideograph-daikanwa . 21587)	; ø¸…‘“
     ))
@@ -1995,7 +1995,7 @@
     (ideographic-radical . 98)	; â½¡
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
-    (chinese-cns11643-1 . #x7668)	; ø»“€™
+    (=cns11643-1	. #x7668)	; ø»“€™
     ))
 (define-char
   '((morohashi-daikanwa	21617 0 2)

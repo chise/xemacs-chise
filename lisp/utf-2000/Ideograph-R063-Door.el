@@ -3,7 +3,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ks-x1001		. #x7B42)	; ø»Šž¹
-    (chinese-cns11643-1 . #x4542)	; ø»‘·µ
+    (=cns11643-1	. #x4542)	; ø»‘·µ
     (=big5		. #xA4E1)	; ý¢€Š“¡
     (ideograph-daikanwa . 11696)	; ø¸‚¶°
     (=jef-china3	. #x4EFA)	; øº„»º
@@ -192,7 +192,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ks-x1001		. #x5568)	; ø»‰§«
-    (chinese-cns11643-1 . #x4D53)	; ø»’ƒ¶
+    (=cns11643-1	. #x4D53)	; ø»’ƒ¶
     (=jis-x0213-1-2000	. #x7463)	; ø»¤¸
     (=big5		. #xA9D1)	; ý¢€Š§‘
     (ideograph-daikanwa . 11712)	; ø¸‚·€
@@ -224,7 +224,7 @@
     (ideographic-radical . 63)	; â¼¾
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (chinese-cns11643-1 . #x4D52)	; ø»’ƒµ
+    (=cns11643-1	. #x4D52)	; ø»’ƒµ
     ))
 (define-char
   '((=>ucs		. #x623F)	; æˆ¿
@@ -253,7 +253,7 @@
     (=gb2312		. #x4B79)	; ø»……ˆ
     (=ks-x1001		. #x6136)	; ø»‰¸¡
     (=iso-ir165		. #x4B79)	; ø»­˜
-    (chinese-cns11643-1 . #x4D54)	; ø»’ƒ·
+    (=cns11643-1	. #x4D54)	; ø»’ƒ·
     (=big5		. #xA9D2)	; ý¢€Š§’
     (ideograph-daikanwa . 11715)	; ø¸‚·ƒ
     (=jef-china3	. #x50E2)	; øº…ƒ¢
@@ -329,7 +329,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ks-x1001		. #x7837)	; ø»Šš”
-    (chinese-cns11643-1 . #x5137)	; ø»’‰’
+    (=cns11643-1	. #x5137)	; ø»’‰’
     (=big5		. #xABF3)	; ý¢€Š¯³
     (ideograph-daikanwa . 11724)	; ø¸‚·Œ
     ))
@@ -597,7 +597,7 @@
     (ideographic-radical . 63)	; â¼¾
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (chinese-cns11643-1 . #x5552)	; ø»’¥
+    (=cns11643-1	. #x5552)	; ø»’¥
     ))
 (define-char
   '((=>ucs		. #x6247)	; æ‰‡
@@ -644,7 +644,7 @@
     (total-strokes	 . 11)
     (=jis-x0208-1978	. #x6E3D)	; ø»ƒ­¢
     (=ks-x1001		. #x7B43)	; ø»Šžº
-    (chinese-cns11643-1 . #x5A53)	; ø»’–¼
+    (=cns11643-1	. #x5A53)	; ø»’–¼
     (=big5		. #xB1AF)	; ý¢€‹†¯
     (ideograph-daikanwa . 11746)	; ø¸‚·¢
     ))
@@ -693,7 +693,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ks-x1001		. #x5D6A)	; ø»‰³
-    (chinese-cns11643-1 . #x5F3D)	; ø»’¼
+    (=cns11643-1	. #x5F3D)	; ø»’¼
     ))
 (define-char
   '((=>ucs		. #x6249)	; æ‰‰

@@ -3,7 +3,7 @@
     (ideographic-radical . 92)	; â½›
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (chinese-cns11643-1 . #x455B)	; ø»‘¸Ž
+    (=cns11643-1	. #x455B)	; ø»‘¸Ž
     (ideograph-daikanwa . 19909)	; ø¸„·…
     ))
 (define-char

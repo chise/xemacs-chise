@@ -233,7 +233,7 @@
     (=gb2312		. #x483D)	; ø»„¿²
     (=jis-x0208-1983	. #x5147)	; ø»‡—Ž
     (=iso-ir165		. #x483D)	; ø»¨‚
-    (chinese-cns11643-1 . #x4574)	; ø»‘¸§
+    (=cns11643-1	. #x4574)	; ø»‘¸§
     (=jis-x0208-1990	. #x5147)	; ø½Š½‚
     (=gt-pj-1		. #x5147)	; å†‰
     (=big5		. #xA554)	; ý¢€Š•”
@@ -249,7 +249,7 @@
     (shinjigen-2	. 508)
     (=jis-x0208		. #x3A7D)	; ø½Šœ†
     (=ks-x1001		. #x737C)	; ø»Š”ƒ
-    (chinese-cns11643-1 . #x4575)	; ø»‘¸¨
+    (=cns11643-1	. #x4575)	; ø»‘¸¨
     (=gt-pj-1		. #x3A7D)	; å†Š
     (=big5		. #xA555)	; ý¢€Š••
     (ideograph-daikanwa . 01515)	; ø¸€—«
@@ -502,7 +502,7 @@
     (=jis-x0208		. #x3A46)	; ø½Š›
     (=ks-x1001		. #x6E22)	; ø»Š‹“
     (=iso-ir165		. #x5459)	; ø»º†
-    (chinese-cns11643-1 . #x4742)	; ø»‘º±
+    (=cns11643-1	. #x4742)	; ø»‘º±
     (=gt-pj-1		. #x3A46)	; å†
     (=big5		. #xA641)	; ý¢€Š™
     (ideograph-daikanwa . 48933)	; ø¸‹¼¥
@@ -737,7 +737,7 @@
     (shinjigen-1	. 519)
     (shinjigen-2	. 519)
     (=jis-x0208		. #x5149)	; ø½Š½„
-    (chinese-cns11643-1 . #x5024)	; ø»’‡¡
+    (=cns11643-1	. #x5024)	; ø»’‡¡
     (=gt-pj-1		. #x5149)	; å†‘
     (=big5		. #xAB60)	; ý¢€Š­ 
     (ideograph-daikanwa . 01537)	; ø¸€˜
@@ -762,7 +762,7 @@
     (=gb2312		. #x4330)	; ø»„¸
     (=ks-x1001		. #x5933)	; ø»‰¬®
     (=iso-ir165		. #x4330)	; ø» Ÿ
-    (chinese-cns11643-1 . #x5023)	; ø»’‡ 
+    (=cns11643-1	. #x5023)	; ø»’‡ 
     (=big5		. #xAB5F)	; ý¢€Š­Ÿ
     (ideograph-daikanwa . 01538)	; ø¸€˜‚
     (=jef-china3	. #x5BBC)	; øº…®¼
@@ -976,7 +976,7 @@
     (=jis-x0208-1983	. #x514B)	; ø»‡—’
     (=ks-x1001		. #x5874)	; ø»‰¬‘
     (=iso-ir165		. #x4361)	; ø»¡
-    (chinese-cns11643-1 . #x5928)	; ø»’”³
+    (=cns11643-1	. #x5928)	; ø»’”³
     (=jis-x0208-1990	. #x514B)	; ø½Š½†
     (=gt-pj-1		. #x514B)	; å†•
     (=big5		. #xB0C3)	; ý¢€‹ƒƒ
@@ -1128,7 +1128,7 @@
 		 )
       :sources	(seiji-tsuu morohashi-daikanwa)))
     (hanyu-dazidian	2 1516 8)
-    (chinese-cns11643-1 . #x5E32)	; ø»’œ“
+    (=cns11643-1	. #x5E32)	; ø»’œ“
     (=big5		. #xB3CC)	; ý¢€‹Œ
     (ideograph-daikanwa . 01597)	; ø¸€˜½
     ))

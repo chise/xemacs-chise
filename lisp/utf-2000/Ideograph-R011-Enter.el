@@ -22,7 +22,7 @@
     (hanyu-dazidian	1 102 1)
     (=gb2312		. #x486B)	; ø»…€ 
     (=iso-ir165		. #x486B)	; ø»¨°
-    (chinese-cns11643-1 . #x442B)	; ø»‘¶€
+    (=cns11643-1	. #x442B)	; ø»‘¶€
     (=ucs		. #x5165)	; å…¥
     ))
 (define-char
@@ -138,7 +138,7 @@
     (hanyu-dazidian	1 97 2)
     (shinjigen-1	. 482)
     (shinjigen-2	. 482)
-    (chinese-cns11643-1 . #x4479)	; ø»‘·Ž
+    (=cns11643-1	. #x4479)	; ø»‘·Ž
     (=ucs		. #x5167)	; å…§
     ))
 (define-char
@@ -340,7 +340,7 @@
       )
      ((=ucs		  . #x738B)	; çŽ‹
       ))
-    (chinese-cns11643-1 . #x4740)	; ø»‘º¯
+    (=cns11643-1	. #x4740)	; ø»‘º¯
     ))
 (define-char
   '((morohashi-daikanwa	1424 0 1)
@@ -705,7 +705,7 @@
       ))
     (shinjigen-1	. 484)
     (shinjigen-2	. 484)
-    (chinese-cns11643-1 . #x4C25)	; ø»’ª
+    (=cns11643-1	. #x4C25)	; ø»’ª
     (=gb12345		. #x413D)	; å…©
     (=ucs		. #x5169)	; å…©
     ))
@@ -1107,7 +1107,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-cns11643-1 . #x4740)	; ø»‘º¯
+     ((=cns11643-1	  . #x4740)	; ø»‘º¯
       )
      ((=ucs		  . #x4E23)	; ä¸£
       ))

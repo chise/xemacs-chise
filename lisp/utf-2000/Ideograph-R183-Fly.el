@@ -5,7 +5,7 @@
     (shinjigen-2	. 9232)
     (=jis-x0208		. #x4874)	; ø½Š°¡
     (=ks-x1001		. #x5E2B)	; ø»‰³¼
-    (chinese-cns11643-1 . #x5379)	; ø»’
+    (=cns11643-1	. #x5379)	; ø»’
     (=gb12345		. #x3749)	; é£›
     (=gt-pj-1		. #x4874)	; é£›
     (ideograph-daikanwa . 44000)	; ø¸Š¯ 

@@ -19,7 +19,7 @@
     (total-strokes	 . 10)
     (=gb2312		. #x385F)	; ø»„¨´
     (=iso-ir165		. #x385F)	; ø»‘„
-    (chinese-cns11643-1 . #x586D)	; ø»’”š
+    (=cns11643-1	. #x586D)	; ø»’”š
     (=ucs		. #x9AD8)	; é«˜
     ))
 (define-char
@@ -836,7 +836,7 @@
       )
      ((=ucs		  . #x29ACF)	; ð©«
       )
-     ((chinese-cns11643-1 . #x595F)	; ø»’•ª
+     ((=cns11643-1	  . #x595F)	; ø»’•ª
       ))
     (chinese-cns11643-7 . #x642B)	; ø»Ÿ¡˜
     ))

@@ -5,7 +5,7 @@
     (total-strokes	 . 6)
     (shinjigen-2	. 6352)
     (=jis-x0208		. #x6650)	; ø½‹œ
-    (chinese-cns11643-1 . #x4855)	; ø»‘¼¢
+    (=cns11643-1	. #x4855)	; ø»‘¼¢
     (=gt-pj-1		. #x6650)	; ø½‹œ
     (ideograph-daikanwa . 28898)	; ø¸‡ƒ¢
     (=gt-k		. 01732)	; ý¡„€›„
@@ -119,7 +119,7 @@
     (ideographic-radical . 127)	; â½¾
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (chinese-cns11643-1 . #x5755)	; ø»’’¤
+    (=cns11643-1	. #x5755)	; ø»’’¤
     (ideograph-daikanwa . 28907)	; ø¸‡ƒ«
     (mojikyo		. 028907)	; ý €‡ƒ«
     ))
@@ -171,7 +171,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (=ks-x1001		. #x5944)	; ø»‰¬¿
-    (chinese-cns11643-1 . #x5757)	; ø»’’¦
+    (=cns11643-1	. #x5757)	; ø»’’¦
     (ideograph-daikanwa . 28909)	; ø¸‡ƒ­
     (mojikyo		. 028909)	; ý €‡ƒ­
     ))
@@ -194,7 +194,7 @@
     (shinjigen-2	. 6355)
     (=jis-x0208		. #x6651)	; ø½‹œ‚
     (=ks-x1001		. #x697C)	; ø»Š…—
-    (chinese-cns11643-1 . #x5754)	; ø»’’£
+    (=cns11643-1	. #x5754)	; ø»’’£
     (=gt-pj-1		. #x6651)	; ø½‹œ‚
     (ideograph-daikanwa . 28910)	; ø¸‡ƒ®
     (=gt-k		. 06629)	; ý¡„§¥
@@ -216,7 +216,7 @@
     (total-strokes	 . 10)
     (shinjigen-2	. 6359)
     (=jis-x0208		. #x6652)	; ø½‹œƒ
-    (chinese-cns11643-1 . #x5756)	; ø»’’¥
+    (=cns11643-1	. #x5756)	; ø»’’¥
     (ideograph-daikanwa . 28911)	; ø¸‡ƒ¯
     (=ucs@jis		. #x8019)	; ø½‹œƒ
     ))
@@ -267,7 +267,7 @@
     (total-strokes	 . 11)
     (shinjigen-2	. 6364)
     (=jis-x0208		. #x6653)	; ø½‹œ„
-    (chinese-cns11643-1 . #x5C65)	; ø»’šŠ
+    (=cns11643-1	. #x5C65)	; ø»’šŠ
     (ideograph-daikanwa . 28915)	; ø¸‡ƒ³
     (=ucs@jis		. #x801C)	; ø½‹œ„
     ))
@@ -705,7 +705,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=jis-x0212		. #x5557)	; ø»‹±ž
-    (chinese-cns11643-1 . #x6E4B)	; ø»’´Œ
+    (=cns11643-1	. #x6E4B)	; ø»’´Œ
     (=jis-x0213-1-2000	. #x7A46)	; ø»¤–
     (ideograph-daikanwa . 28952)	; ø¸‡„˜
     (=jef-china3	. #x60C7)	; øº†ƒ‡
@@ -825,7 +825,7 @@
     (total-strokes	 . 16)
     (shinjigen-2	. 6369)
     (=jis-x0208		. #x6655)	; ø½‹œ†
-    (chinese-cns11643-1 . #x7176)	; ø»’¹‘
+    (=cns11643-1	. #x7176)	; ø»’¹‘
     (ideograph-daikanwa . 28961)	; ø¸‡„¡
     (=ucs@jis		. #x8028)	; ø½‹œ†
     ))

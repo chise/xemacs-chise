@@ -7,7 +7,7 @@
     (=jis-x0208		. #x3B59)	; ø½Š€
     (=ks-x1001		. #x7228)	; ø»Š‘‘
     (=iso-ir165		. #x5627)	; ø»¼
-    (chinese-cns11643-1 . #x4545)	; ø»‘·¸
+    (=cns11643-1	. #x4545)	; ø»‘·¸
     (=gt-pj-1		. #x3B59)	; æ”¯
     (=big5		. #xA4E4)	; ý¢€Š“¤
     (ideograph-daikanwa . 13061)	; ø¸ƒŒ…

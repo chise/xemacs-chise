@@ -789,7 +789,7 @@
     (ideographic-radical . 90)	; â½™
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (chinese-cns11643-1 . #x743B)	; ø»’¼°
+    (=cns11643-1	. #x743B)	; ø»’¼°
     ))
 (define-char
   '((ideographic-radical . 90)	; â½™

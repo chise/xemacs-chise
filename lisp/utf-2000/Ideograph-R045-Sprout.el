@@ -66,7 +66,7 @@
     (total-strokes	 . 4)
     (=gb2312		. #x4D4D)	; ø»…‡˜
     (=iso-ir165		. #x4D4D)	; ø»¯¨
-    (chinese-cns11643-1 . #x453A)	; ø»‘·­
+    (=cns11643-1	. #x453A)	; ø»‘·­
     (=big5		. #xA4D9)	; ý¢€Š“™
     (=ucs		. #x5C6F)	; å±¯
     ))

@@ -17,7 +17,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 0)
     (total-strokes	 . 9)
-    (chinese-cns11643-1 . #x5378)	; ø»’
+    (=cns11643-1	. #x5378)	; ø»’
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -693,7 +693,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
-    (chinese-cns11643-1 . #x6B6C)	; ø»’°“
+    (=cns11643-1	. #x6B6C)	; ø»’°“
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -785,7 +785,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
-    (chinese-cns11643-1 . #x6B6D)	; ø»’°”
+    (=cns11643-1	. #x6B6D)	; ø»’°”
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -948,7 +948,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 6)
     (total-strokes	 . 15)
-    (chinese-cns11643-1 . #x6F71)	; ø»’¶
+    (=cns11643-1	. #x6F71)	; ø»’¶
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -1581,7 +1581,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 8)
     (total-strokes	 . 17)
-    (chinese-cns11643-1 . #x7629)	; ø»’¿š
+    (=cns11643-1	. #x7629)	; ø»’¿š
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -1975,7 +1975,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
-    (chinese-cns11643-1 . #x7771)	; ø»“‚€
+    (=cns11643-1	. #x7771)	; ø»“‚€
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -2147,7 +2147,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
-    (chinese-cns11643-1 . #x794E)	; ø»“„™
+    (=cns11643-1	. #x794E)	; ø»“„™
     ))
 (define-char
   '((morohashi-daikanwa	43921 0 3)
@@ -2579,7 +2579,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
-    (chinese-cns11643-1 . #x7A51)	; ø»“…º
+    (=cns11643-1	. #x7A51)	; ø»“…º
     ))
 (define-char
   '((=>ucs		. #x29632)	; ð©˜²

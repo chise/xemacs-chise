@@ -66,7 +66,7 @@
     (=gb2312		. #x3C48)	; ø»„®•
     (=jis-x0208		. #x347B)	; ø½Š“
     (=iso-ir165		. #x3C48)	; ø»–¥
-    (chinese-cns11643-1 . #x514D)	; ø»’‰¨
+    (=cns11643-1	. #x514D)	; ø»’‰¨
     (=gt-pj-1		. #x347B)	; æ—¢
     (=big5		. #xAC4A)	; ý¢€Š±Š
     (ideograph-daikanwa . 13721)	; ø¸ƒ–™
