@@ -12752,6 +12752,7 @@
     (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
+    (=jis-x0213-1-2000	. #x7763)	; ø»¤’’
     (=cbeta		. 05307)	; ø¸¡’»
     (=jef-china3	. #x57CF)	; øº…Ÿ
     ))
