@@ -193,7 +193,7 @@ Bytecount
 non_ascii_set_charptr_emchar (Bufbyte *str, Emchar c)
 {
   Bufbyte *p;
-  Bufbyte lb;
+  Charset_ID lb;
   int c1, c2;
   Lisp_Object charset;
 
@@ -467,7 +467,7 @@ DEFINE_LRECORD_IMPLEMENTATION ("charset", charset,
 /* Make a new charset. */
 
 static Lisp_Object
-make_charset (int id, Lisp_Object name, unsigned char rep_bytes,
+make_charset (Charset_ID id, Lisp_Object name, unsigned char rep_bytes,
 	      unsigned char type, unsigned char columns, unsigned char graphic,
 	      Bufbyte final, unsigned char direction,  Lisp_Object short_name,
 	      Lisp_Object long_name, Lisp_Object doc,
@@ -522,7 +522,7 @@ make_charset (int id, Lisp_Object name, unsigned char rep_bytes,
 static int
 get_unallocated_leading_byte (int dimension)
 {
-  int lb;
+  Charset_ID lb;
 
   if (dimension == 1)
     {
