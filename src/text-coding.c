@@ -100,6 +100,9 @@ Lisp_Object Qinput_charset_conversion, Qoutput_charset_conversion;
 Lisp_Object Qctext, Qescape_quoted;
 Lisp_Object Qshort, Qno_ascii_eol, Qno_ascii_cntl, Qseven, Qlock_shift;
 #endif
+#ifdef UTF2000
+Lisp_Object Qcomposite;
+#endif
 Lisp_Object Qencode, Qdecode;
 
 Lisp_Object Vcoding_system_hash_table;
@@ -930,8 +933,14 @@ if TYPE is 'ccl:
 	  CODING_SYSTEM_EOL_TYPE (codesys) = symbol_to_eol_type (value);
 	}
 
-      else if (EQ (key, Qpost_read_conversion)) CODING_SYSTEM_POST_READ_CONVERSION (codesys) = value;
-      else if (EQ (key, Qpre_write_conversion)) CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys) = value;
+      else if (EQ (key, Qpost_read_conversion))
+	CODING_SYSTEM_POST_READ_CONVERSION (codesys) = value;
+      else if (EQ (key, Qpre_write_conversion))
+	CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys) = value;
+#ifdef UTF2000
+      else if (EQ (key, Qcomposite))
+	CODING_SYSTEM_COMPOSITE (codesys) = !NILP (value);
+#endif
 #ifdef MULE
       else if (ty == CODESYS_ISO2022)
 	{
@@ -2033,8 +2042,86 @@ struct decoding_stream
   /* counter for UTF-8 or UCS-4 */
   unsigned char counter;
 #endif
+#ifdef UTF2000
+  unsigned combined_char_count;
+  Emchar combined_chars[16];
+  Lisp_Object combining_table;
+#endif
   struct detection_state decst;
 };
+
+#ifdef UTF2000
+extern Lisp_Object Vcharacter_composition_table;
+
+INLINE void
+COMPOSE_FLUSH_CHARS (struct decoding_stream *str, unsigned_char_dynarr* dst)
+{
+  unsigned i;
+
+  for (i = 0; i < str->combined_char_count; i++)
+    DECODE_ADD_UCS_CHAR (str->combined_chars[i], dst);
+  str->combined_char_count = 0;
+  str->combining_table = Qnil;
+}
+
+void
+COMPOSE_ADD_CHAR(struct decoding_stream *str,
+		 Emchar character, unsigned_char_dynarr* dst)
+{
+  if (!CODING_SYSTEM_COMPOSITE (str->codesys))
+    DECODE_ADD_UCS_CHAR (character, dst);
+  else if (!CHAR_CODE_TABLE_P (str->combining_table))
+    {
+      Lisp_Object ret
+	= get_char_code_table (character, Vcharacter_composition_table);
+
+      if (NILP (ret))
+	DECODE_ADD_UCS_CHAR (character, dst);
+      else
+	{
+	  str->combined_chars[0] = character;
+	  str->combined_char_count = 1;
+	  str->combining_table = ret;
+	}
+    }
+  else
+    {
+      Lisp_Object ret
+	= get_char_code_table (character, str->combining_table);
+
+      if (CHARP (ret))
+	{
+	  Emchar char2 = XCHARVAL (ret);
+	  ret = get_char_code_table (char2, Vcharacter_composition_table);
+	  if (NILP (ret))
+	    {
+	      DECODE_ADD_UCS_CHAR (char2, dst);
+	      str->combined_char_count = 0;
+	      str->combining_table = Qnil;
+	    }
+	  else
+	    {
+	      str->combined_chars[0] = char2;
+	      str->combined_char_count = 1;
+	      str->combining_table = ret;
+	    }
+	}
+      else if (CHAR_CODE_TABLE_P (ret))
+	{
+	  str->combined_chars[str->combined_char_count++] = character;
+	  str->combining_table = ret;
+	}
+      else
+	{
+	  COMPOSE_FLUSH_CHARS (str, dst);
+	  DECODE_ADD_UCS_CHAR (character, dst);
+	}
+    }
+}
+#else /* not UTF2000 */
+#define COMPOSE_FLUSH_CHARS(str, dst)
+#define COMPOSE_ADD_CHAR(str, ch, dst) DECODE_ADD_UCS_CHAR (ch, dst)
+#endif /* UTF2000 */
 
 static ssize_t decoding_reader (Lstream *stream,
 				unsigned char *data, size_t size);
@@ -2169,6 +2256,10 @@ reset_decoding_stream (struct decoding_stream *str)
     }
   str->counter = 0;
 #endif /* MULE */
+#ifdef UTF2000
+  str->combined_char_count = 0;
+  str->combining_table = Qnil;
+#endif
   str->flags = str->ch = 0;
 }
 
@@ -4516,6 +4607,7 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 #endif /* ENABLE_COMPOSITE_CHARS */
 
 		case ISO_ESC_LITERAL:
+		  COMPOSE_FLUSH_CHARS (str, dst);
 		  DECODE_ADD_BINARY_CHAR (c, dst);
 		  break;
 
@@ -4536,6 +4628,7 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 	    {
 	      /* Output the (possibly invalid) sequence */
 	      int i;
+	      COMPOSE_FLUSH_CHARS (str, dst);
 	      for (i = 0; i < str->iso2022.esc_bytes_index; i++)
 		DECODE_ADD_BINARY_CHAR (str->iso2022.esc_bytes[i], dst);
 	      flags &= CODING_STATE_ISO2022_LOCK;
@@ -4546,6 +4639,7 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 		  /* No sense in reprocessing the final byte of the
 		     escape sequence; it could mess things up anyway.
 		     Just add it now. */
+		  COMPOSE_FLUSH_CHARS (str, dst);
 		  DECODE_ADD_BINARY_CHAR (c, dst);
 		}
 	    }
@@ -4558,7 +4652,12 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 
 	  /* If we were in the middle of a character, dump out the
 	     partial character. */
-	  DECODE_OUTPUT_PARTIAL_CHAR (ch);
+	  if (ch)
+	    {
+	      COMPOSE_FLUSH_CHARS (str, dst);
+	      DECODE_ADD_BINARY_CHAR (ch, dst);
+	      ch = 0;
+	    }
 
 	  /* If we just saw a single-shift character, dump it out.
 	     This may dump out the wrong sort of single-shift character,
@@ -4566,11 +4665,13 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 	     wrong. */
 	  if (flags & CODING_STATE_SS2)
 	    {
+	      COMPOSE_FLUSH_CHARS (str, dst);
 	      DECODE_ADD_BINARY_CHAR (ISO_CODE_SS2, dst);
 	      flags &= ~CODING_STATE_SS2;
 	    }
 	  if (flags & CODING_STATE_SS3)
 	    {
+	      COMPOSE_FLUSH_CHARS (str, dst);
 	      DECODE_ADD_BINARY_CHAR (ISO_CODE_SS3, dst);
 	      flags &= ~CODING_STATE_SS3;
 	    }
@@ -4578,12 +4679,35 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 	  /***** Now handle the control characters. *****/
 
 	  /* Handle CR/LF */
+#ifdef UTF2000
+	  if (c == '\r')
+	    {
+	      COMPOSE_FLUSH_CHARS (str, dst);
+	      if (eol_type == EOL_CR)
+		Dynarr_add (dst, '\n');
+	      else if (eol_type != EOL_CRLF || flags & CODING_STATE_CR)
+		Dynarr_add (dst, c);
+	      else
+		flags |= CODING_STATE_CR;
+	      goto label_continue_loop;
+	    }
+	  else if (flags & CODING_STATE_CR)
+	    {	/* eol_type == CODING_SYSTEM_EOL_CRLF */
+	      if (c != '\n')
+		Dynarr_add (dst, '\r');
+	      flags &= ~CODING_STATE_CR;
+	    }
+#else
 	  DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
+#endif
 
 	  flags &= CODING_STATE_ISO2022_LOCK;
 
 	  if (!parse_iso2022_esc (coding_system, &str->iso2022, c, &flags, 1))
-	    DECODE_ADD_BINARY_CHAR (c, dst);
+	    {
+	      COMPOSE_FLUSH_CHARS (str, dst);
+	      DECODE_ADD_BINARY_CHAR (c, dst);
+	    }
 	}
       else
 	{			/* Graphic characters */
@@ -4593,7 +4717,27 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 #endif
 	  int reg;
 
+#ifdef UTF2000
+	  if (c == '\r')
+	    {
+	      COMPOSE_FLUSH_CHARS (str, dst);
+	      if (eol_type == EOL_CR)
+		Dynarr_add (dst, '\n');
+	      else if (eol_type != EOL_CRLF || flags & CODING_STATE_CR)
+		Dynarr_add (dst, c);
+	      else
+		flags |= CODING_STATE_CR;
+	      goto label_continue_loop;
+	    }
+	  else if (flags & CODING_STATE_CR)
+	    {	/* eol_type == CODING_SYSTEM_EOL_CRLF */
+	      if (c != '\n')
+		Dynarr_add (dst, '\r');
+	      flags &= ~CODING_STATE_CR;
+	    }
+#else
 	  DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
+#endif
 
 	  /* Now determine the charset. */
 	  reg = ((flags & CODING_STATE_SS2) ? 2
@@ -4612,6 +4756,7 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 	       outside the range of the charset.  Insert that char literally
 	       to preserve it for the output. */
 	    {
+	      COMPOSE_FLUSH_CHARS (str, dst);
 	      DECODE_OUTPUT_PARTIAL_CHAR (ch);
 	      DECODE_ADD_BINARY_CHAR (c, dst);
 	    }
@@ -4636,14 +4781,20 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 #ifdef UTF2000
 	      if (XCHARSET_DIMENSION (charset) == 1)
 		{
-		  DECODE_OUTPUT_PARTIAL_CHAR (ch);
-		  DECODE_ADD_UCS_CHAR
-		    (MAKE_CHAR (charset, c & 0x7F, 0), dst);
+		  if (ch)
+		    {
+		      COMPOSE_FLUSH_CHARS (str, dst);
+		      DECODE_ADD_BINARY_CHAR (ch, dst);
+		      ch = 0;
+		    }
+		  COMPOSE_ADD_CHAR (str,
+				    MAKE_CHAR (charset, c & 0x7F, 0), dst);
 		}
 	      else if (ch)
 		{
-		  DECODE_ADD_UCS_CHAR
-		    (MAKE_CHAR (charset, ch & 0x7F, c & 0x7F), dst);
+		  COMPOSE_ADD_CHAR (str,
+				    MAKE_CHAR (charset, ch & 0x7F, c & 0x7F),
+				    dst);
 		  ch = 0;
 		}
 	      else
@@ -4708,8 +4859,10 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
     }
 
   if (flags & CODING_STATE_END)
-    DECODE_OUTPUT_PARTIAL_CHAR (ch);
-
+    {
+      COMPOSE_FLUSH_CHARS (str, dst);
+      DECODE_OUTPUT_PARTIAL_CHAR (ch);
+    }
   str->flags = flags;
   str->ch    = ch;
 }
@@ -5432,6 +5585,9 @@ syms_of_file_coding (void)
   defsymbol (&Qlock_shift, "lock-shift");
   defsymbol (&Qescape_quoted, "escape-quoted");
 #endif /* MULE */
+#ifdef UTF2000
+  defsymbol (&Qcomposite, "composite");
+#endif
   defsymbol (&Qencode, "encode");
   defsymbol (&Qdecode, "decode");
 
