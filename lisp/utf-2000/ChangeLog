@@ -1,5 +1,27 @@
 2001-11-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* char-db-util.el (what-char-definition): Use `decode-char'
+	instead of `make-char' to display comment for builtin character.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (JX2-7B6E): Unify BC-8D4B.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (M074034): New character.
+
+	* Ideograph-R100-Life.el (BC-8B77): New character.
+
+	* Ideograph-R087-Claw.el (U+722F): Unify BC-8CA8.
+
+	* Ideograph-R035-Go-Slowly.el (M-05708): Separate C3-213A and
+	U+590A.
+	(U+590A): Unify BC-8A71.
+
+	* Ideograph-R120-Silk.el (U+7CF9): Relate to M-27221; unify
+	BC-8AFB.
+
+	* Ideograph-R003-Dot.el (M-00104): Add `ideographic-structure'.
+
+2001-11-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R030-Mouth.el (U+551B): Delete invalid
 	`morohashi-daikanwa'.
 	(U+551C): Likewise; delete `kangxi-radical' and `kangxi-strokes'.
