@@ -77,7 +77,7 @@
       (=daikanwa	  . 30177)	; ø¸‡—¡
       (=ucs@jis		  . #x81FD)	; ø»‹³
       )
-     ((=ucs@unicode	  . #x81FD)	; ó°€ž
+     ((=ucs@unicode	  . #x81FD)	; ó°€
       ))
     ))
 (define-char
@@ -1444,8 +1444,12 @@
     ))
 (define-char
   '((=>daikanwa		. 30268)	; ø¸‡˜¼
+    (ideographic-radical@ucs . 86)	; â½•
+    (ideographic-strokes@ucs . 21)
     (ideographic-radical@cns . 134)	; â¾…
     (ideographic-strokes@cns . 18)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 25)
     (=ucs		. #x244DF)	; ð¤“Ÿ
     (->subsumptive
