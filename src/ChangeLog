@@ -1,3 +1,7 @@
+2003-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Canonicalise charset-aliases.
+
 2003-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (save_uint8_byte_table): Add new argument `filter'.
