@@ -360,15 +360,17 @@ put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value)
   cit->table = put_byte_table (table1, (unsigned char)(code >> 24), table2);
 }
 
+#ifdef HAVE_CHISE
+Lisp_Object load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch);
+
 #ifdef HAVE_CHISE_CLIENT
 extern Lisp_Object Qsystem_char_id;
 
 Lisp_Object
 char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
 			       int writing_mode);
-
-Lisp_Object load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch);
-#endif
+#endif /* HAVE_CHISE_CLIENT */
+#endif /* HAVE_CHISE */
 
 INLINE_HEADER Lisp_Object
 get_char_id_table_0 (Lisp_Char_Table* cit, Emchar ch);
@@ -392,13 +394,13 @@ get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
 {
   Lisp_Object val = get_char_id_table_0 (cit, ch);
 
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
   if (EQ (val, Qunloaded))
     {
       val = load_char_attribute_maybe (cit, ch);
       put_char_id_table_0 (cit, ch, val);
     }
-#endif
+#endif /* HAVE_CHISE */
   if (UNBOUNDP (val))
     return cit->default_value;
   else
