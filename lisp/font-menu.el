@@ -395,14 +395,15 @@ or if you change your font path, you can call this to re-initialize the menus."
 	(set-face-font 'default new-default-face-font
 		       (and font-menu-this-frame-only-p (selected-frame)))
       ;; OK Let Customize do it.
-      (when (and family (not (equal family from-family)))
-	(setq new-props (append (list :family family) new-props)))
-      (when (and size (not (equal size from-size)))
-	(setq new-props (append
-	   (list :size (concat (int-to-string (/ size (specifier-instance
-						       font-menu-size-scaling
-						       (selected-device)))) "pt")) new-props)))
-      (custom-set-face-update-spec 'default '((type x)) new-props)
+      (custom-set-face-update-spec 'default
+		(list (list 'type (device-type)))
+		(list :family family
+		      :size (concat
+			     (int-to-string
+			      (/ size
+				 (specifier-instance font-menu-size-scaling
+				      (selected-device))))
+			      "pt")))		 
       (message "Font %s" (face-font-name 'default)))))
 
 

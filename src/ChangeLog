@@ -1,3 +1,15 @@
+1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.16 is released
+
+1999-06-10  Andy Piper  <andy@xemacs.org>
+
+	* select-msw.c (mswindows_own_selection): only set the clipboard
+ 	if asked.
+	(mswindows_get_foreign_selection): only get the clipboard if
+ 	asked.
+	(mswindows_disown_selection): only disown the clipboard if asked.
+
 1999-06-03  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* file-coding.c (coding_system_from_mask): Use `raw-text' instead

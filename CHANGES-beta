@@ -1,4 +1,11 @@
 							-*- indented-text -*-
+to 21.2.16 "Sumida"
+-- make selection more mswindows conformant.
+-- Make customize use specifiers from Jan Vroonhof
+-- Cyrillic CCL crash fix from MORIOKA Tomohiko
+-- DEC OSF Build fix and miscellaneous Lisp fix from Steve Baur
+-- raw-text coding system synch from MORIOKA Tomohiko
+
 to 21.2.15 "Sakuragawa"
 -- new self tests from Oscar Figueiredo and Hrvoje Niksic
 -- Miscellaneous bug fixes from Yoshiki Hayashi, Jerry James, Hirokazu FUKUI,

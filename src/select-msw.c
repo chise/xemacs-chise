@@ -101,7 +101,10 @@ mswindows_own_selection (Lisp_Object selection_name, Lisp_Object selection_value
   Lisp_Object converted_value = get_local_selection (selection_name, QSTRING);
   if (!NILP (converted_value) &&
       CONSP (converted_value) &&
-      EQ (XCAR (converted_value), QSTRING))
+      EQ (XCAR (converted_value), QSTRING) &&
+      /* pure mswindows behaviour only says we can own the selection 
+	 if it is the clipboard */
+      EQ (selection_name, QCLIPBOARD))
     Fmswindows_set_clipboard (XCDR (converted_value));
 
   return Qnil;
@@ -162,7 +165,10 @@ Return the contents of the mswindows clipboard.
 static Lisp_Object
 mswindows_get_foreign_selection (Lisp_Object selection_symbol, Lisp_Object target_type)
 {
-  return Fmswindows_get_clipboard ();
+  if (EQ (selection_symbol, QCLIPBOARD))
+    return Fmswindows_get_clipboard ();
+  else
+    return Qnil;
 }
 
 DEFUN ("mswindows-selection-exists-p", Fmswindows_selection_exists_p, 0, 0, 0, /*
@@ -184,7 +190,8 @@ Remove the current MS-Windows selection from the clipboard.
 static void
 mswindows_disown_selection (Lisp_Object selection, Lisp_Object timeval)
 {
-  Fmswindows_delete_selection ();
+  if (EQ (selection, QCLIPBOARD))
+    Fmswindows_delete_selection ();
 }
 
 
