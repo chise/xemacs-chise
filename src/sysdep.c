@@ -1904,7 +1904,7 @@ reset_one_device (struct device *d)
   else
 #endif
   if (DEVICE_STREAM_P (d))
-    fflush (CONSOLE_STREAM_DATA (XCONSOLE (DEVICE_CONSOLE (d)))->outfd);
+    fflush (CONSOLE_STREAM_DATA (XCONSOLE (DEVICE_CONSOLE (d)))->out);
 #if defined(SIGIO) && !defined(BROKEN_SIGIO)
   if (!DEVICE_STREAM_P (d))
     {

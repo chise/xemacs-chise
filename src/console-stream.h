@@ -32,7 +32,9 @@ DECLARE_CONSOLE_TYPE (stream);
 
 struct stream_console
 {
-  FILE *infd, *outfd, *errfd;
+  FILE *in;
+  FILE *out;
+  FILE *err;
   int needs_newline;
 };
 

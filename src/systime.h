@@ -34,6 +34,13 @@ Boston, MA 02111-1307, USA.  */
 #endif
 #endif
 
+/* select() is supposed to be (Unix98) defined in sys/time.h,
+   but FreeBSD and Irix 5 put it in unistd.h instead.
+   If we have it, including it can't hurt. */
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+
 #if defined(WINDOWSNT) && defined(HAVE_X_WINDOWS)
 /* Provides gettimeofday etc */
 #include <X11/Xw32defs.h>

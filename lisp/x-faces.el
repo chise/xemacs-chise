@@ -602,12 +602,12 @@ Otherwise, it returns the next larger version of this font that is defined."
 (defun x-init-global-faces ()
   (or (face-font 'default 'global)
       (set-face-font 'default
-		     "-*-courier-medium-r-*-*-*-120-*-*-*-*-iso8859-*")
-      'global)
+		     "-*-courier-medium-r-*-*-*-120-*-*-*-*-iso8859-*"
+		     'global '(x default)))
   (or (face-foreground 'default 'global)
-      (set-face-foreground 'default "black" 'global 'x))
+      (set-face-foreground 'default "black" 'global '(x default)))
   (or (face-background 'default 'global)
-      (set-face-background 'default "gray80" 'global 'x)))
+      (set-face-background 'default "gray80" 'global '(x default))))
 
 ;;; x-init-device-faces is responsible for initializing default
 ;;; values for faces on a newly created device.

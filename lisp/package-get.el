@@ -112,7 +112,8 @@
   "Automatic Package Fetcher and Installer."
   :prefix "package-get"
   :group 'package-tools)
-  
+
+;;;###autoload  
 (defvar package-get-base nil
   "List of packages that are installed at this site.
 For each element in the alist,  car is the package name and the cdr is
@@ -1015,8 +1016,6 @@ lead to Emacs accessing remote sites."
   "Fetch and install the latest versions of all customized packages."
   (interactive)
   (package-get-require-base t)
-  ;; Load a fresh copy
-  (load "package-get-custom.el")
   (mapcar (lambda (pkg)
 	    (if (eval (intern (concat (symbol-name (car pkg)) "-package")))
 		(package-get (car pkg) nil))
@@ -1041,7 +1040,7 @@ lead to Emacs accessing remote sites."
          (custom-var (intern (concat (symbol-name package) "-package")))
          (description (plist-get props 'description)))
     (when (not (memq group package-get-custom-groups))
-      (setq package-get-custom-groups (cons package
+      (setq package-get-custom-groups (cons group
                                             package-get-custom-groups))
       (eval `(defgroup ,group nil
                ,(concat category " package group")

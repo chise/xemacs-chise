@@ -2623,6 +2623,8 @@ x_focus_on_frame (struct frame *f)
 static void
 x_delete_frame (struct frame *f)
 {
+  Display *dpy;
+
 #ifndef HAVE_SESSION
   if (FRAME_X_TOP_LEVEL_FRAME_P (f))
     x_wm_maybe_move_wm_command (f);
@@ -2633,6 +2635,7 @@ x_delete_frame (struct frame *f)
 #endif /* HAVE_CDE */
 
   assert (FRAME_X_SHELL_WIDGET (f) != 0);
+  dpy = XtDisplay (FRAME_X_SHELL_WIDGET (f));
 
 #ifdef EXTERNAL_WIDGET
   expect_x_error (XtDisplay (FRAME_X_SHELL_WIDGET (f)));
@@ -2647,7 +2650,7 @@ x_delete_frame (struct frame *f)
   XtDestroyWidget (FRAME_X_SHELL_WIDGET (f));
   /* make sure the windows are really gone! */
   /* ### Is this REALLY necessary? */
-  XFlush (XtDisplay (FRAME_X_SHELL_WIDGET (f)));
+  XFlush (dpy);
 #endif /* EXTERNAL_WIDGET */
 
   FRAME_X_SHELL_WIDGET (f) = 0;
