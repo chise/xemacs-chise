@@ -1,7 +1,7 @@
 /* Code conversion functions.
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -23,6 +23,7 @@ Boston, MA 02111-1307, USA.  */
 /* Synched up with: Mule 2.3.   Not in FSF. */
 
 /* Rewritten by Ben Wing <ben@xemacs.org>. */
+/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org> for XEmacs UTF-2000. */
 
 #include <config.h>
 #include "lisp.h"
@@ -4040,25 +4041,28 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
       unsigned char c = *(unsigned char *)src++;
       if (counter == 0)
 	{
-	  if ( c < 0xC0 )
+	  if ( c < ' ' )
 	    {
-	      if (!CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys))
+	      if ( er_counter > 0)
 		{
-		  DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
-		  DECODE_ADD_UCS_CHAR (c, dst);
+		  Dynarr_add_many (dst, str->er_buf, er_counter);
+		  er_counter = 0;
 		}
-	      else if (er_counter == 0)
+	      DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
+	      DECODE_ADD_UCS_CHAR (c, dst);
+	    }
+	  else if ( c < 0xC0 )
+	    {
+	      if (er_counter == 0)
 		{
-		  if (c == '&')
+		  if (CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys)
+		      && (c == '&') )
 		    {
 		      str->er_buf[0] = '&';
 		      er_counter++;
 		    }
 		  else
-		    {
-		      DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
-		      DECODE_ADD_UCS_CHAR (c, dst);
-		    }
+		    DECODE_ADD_UCS_CHAR (c, dst);
 		}
 	      else if (c == ';')
 		{
@@ -4147,7 +4151,7 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 		decoded:
 		  er_counter = 0;
 		}
-	      else if ( (er_counter >= 16) || (c <= ' ') || (c >= 0x7F) )
+	      else if ( (er_counter >= 16) || (c >= 0x7F) )
 		{
 		  Dynarr_add_many (dst, str->er_buf, er_counter);
 		  er_counter = 0;
@@ -4211,16 +4215,16 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 
   if (flags & CODING_STATE_END)
     {
+      if ( er_counter > 0)
+	{
+	  Dynarr_add_many (dst, str->er_buf, er_counter);
+	  er_counter = 0;
+	}
       if (counter > 0)
 	{
 	  decode_output_utf8_partial_char (counter, cpos, dst);
 	  cpos = 0;
 	  counter = 0;
-	}
-      else if ( er_counter > 0)
-	{
-	  Dynarr_add_many (dst, str->er_buf, er_counter);
-	  er_counter = 0;
 	}
     }
   str->flags	= flags;
