@@ -1531,15 +1531,22 @@
     (=cns11643-5	. #x2C35)	; ø»™»Š
     ))
 (define-char
-  '((ideographic-radical . 27)	; â¼š
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (->same
-     ((=daikanwa	  . 44029)	; ø¸Š¯½
-      ))
+  '((total-strokes	 . 11)
     (=ucs		. #x20A78)	; ð ©¸
-    (=cns11643-6	. #x3D60)	; ø»œž·
-    (=daikanwa		. 02979)	; ø¸€®£
+    (->subsumptive
+     ((ideographic-radical . 27)	; â¼š
+      (ideographic-strokes . 9)
+      (=daikanwa	  . 02979)	; ø¸€®£
+      )
+     ((ideographic-radical . 27)	; â¼š
+      (ideographic-strokes . 9)
+      (=cns11643-6	  . #x3D60)	; ø»œž·
+      (=ucs@iso		  . #x20A78)	; ø»œž·
+      )
+     ((ideographic-radical . 184)	; â¾·
+      (ideographic-strokes . 2)
+      (=daikanwa	  . 44029)	; ø¸Š¯½
+      ))
     ))
 (define-char
   '((=>ucs		. #x20A78)	; ð ©¸
