@@ -1,3 +1,24 @@
+1999-09-04  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mb-utf-8.h, mb-lb.h: Include mb-multibyte.h.
+
+	* multibyte.h: Include mb-1byte.h in unibyte-XEmacs.
+	(MAX_EMCHAR_LEN): Moved to mb-1byte.h.
+	(VALID_CHARPTR_P): Moved to mb-*byte.h.
+	(VALIDATE_CHARPTR_BACKWARD): Likewise.
+	(VALIDATE_CHARPTR_FORWARD): Likewise.
+	(simple_charptr_emchar): Moved to mb-multibyte.h.
+	(simple_set_charptr_emchar): Likewise.
+	(simple_charptr_copy_char): Likewise.
+	(non_ascii_charptr_emchar): Likewise.
+	(non_ascii_set_charptr_emchar): Likewise.
+	(non_ascii_charptr_copy_char): Likewise.
+	(charptr_emchar): Moved to mb-*byte.h.
+	(set_charptr_emchar): Likewise.
+	(charptr_copy_char): Likewise.
+
+	* mb-1byte.h, mb-multibyte.h: New files.
+
 1999-09-03  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mb-utf-8.h (MULTIBYTE): New macro.
