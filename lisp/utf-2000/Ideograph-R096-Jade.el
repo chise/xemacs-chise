@@ -3500,6 +3500,7 @@
     (ideographic-radical . 96)	; â½Ÿ
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (japanese-jisx0208		. #x6076)	; ø»‡­¿
     (japanese-jisx0208-1990	. #x6076)	; ø½‹“³
     (mojikyo			. 054613)	; ý €••
     ))
