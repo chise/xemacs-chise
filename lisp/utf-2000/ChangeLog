@@ -1,3 +1,7 @@
+2003-11-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-attribute-name<): Use new sorting method.
+
 2003-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u0FFF0-Specials.el, u0FF00-Halfwidth-and-Fullwidth-Forms.el,
