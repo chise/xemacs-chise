@@ -14,6 +14,9 @@
 
 2002-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R029-Again.el (M-03155): Separate C6-2A32.
+	(C6-2A32): Separate U-00020B3B.
+
 	* Ideograph-R028-Private.el (U-0002128F): Separate C6-2641.
 
 2002-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
