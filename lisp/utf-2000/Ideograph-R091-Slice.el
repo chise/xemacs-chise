@@ -6,6 +6,7 @@
     (japanese-jisx0208-1978	. #x4A52)	; ø»‚¸¿
     (chinese-gb2312		. #x462C)	; ø»„¼¥
     (japanese-jisx0208		. #x4A52)	; ø»‡‡
+    (korean-ksc5601		. #x7838)	; ø»Šš•
     (chinese-isoir165		. #x462C)	; ø»¤µ
     (japanese-jisx0208-1990	. #x4A52)	; ø½Š²»
     (ideograph-daikanwa		. 19813)	; ø¸„µ¥
@@ -66,6 +67,7 @@
     (shinjigen-2	. 4723)
     (japanese-jisx0208-1978	. #x4847)	; ø»‚µ¸
     (japanese-jisx0208		. #x4847)	; ø»‡Š€
+    (korean-ksc5601		. #x777A)	; ø»Š™¹
     (japanese-jisx0208-1990	. #x4847)	; ø½Š¯´
     (ideograph-daikanwa		. 19817)	; ø¸„µ©
     ))
@@ -539,8 +541,8 @@
     (shinjigen-2	. 4725)
     (japanese-jisx0208-1978	. #x4757)	; ø»‚´ª
     (chinese-gb2312		. #x4546)	; ø»„»¡
+    (korean-ksc5601		. #x782B)	; ø»Ššˆ
     (chinese-isoir165		. #x4546)	; ø»£±
-    (japanese-jisx0208-1990	. #x4757)	; ø½Š®¦
     (ideograph-daikanwa		. 19854)	; ø¸„¶Ž
     (ucs			. #x724C)	; ç‰Œ
     ))
@@ -787,6 +789,7 @@
     (japanese-jisx0208-1978	. #x442D)	; ø»‚¯¦
     (chinese-gb2312		. #x6B3A)	; ø»…³‰
     (japanese-jisx0208		. #x442D)	; ø»‡ƒ®
+    (korean-ksc5601		. #x7460)	; ø»Š•…
     (chinese-isoir165		. #x6B3A)	; ø»Ž›™
     (japanese-jisx0208-1990	. #x442D)	; ø½Š©¢
     (ideograph-daikanwa		. 19871)	; ø¸„¶Ÿ
@@ -1275,14 +1278,28 @@
     (ideograph-daikanwa		. 19906)	; ø¸„·‚
     ))
 (define-char
+  '((=>ucs		. #x7258)	; ç‰˜
+    (morohashi-daikanwa	19906 0 0)
+    (ideographic-radical . 91)	; â½š
+    (ideographic-strokes . 15)
+    (total-strokes	 . 19)
+    (korean-ksc5601	. #x543A)	; ø»‰¥Ÿ
+    ))
+(define-char
   '((morohashi-daikanwa	19906 0 1)
     (ideographic-radical . 91)	; â½š
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
-    (shinjigen-2	. 4729)
-    (chinese-cns11643-1 . #x7849)	; ø»“‚¶
     (chinese-gb12345	. #x6B39)	; ç‰˜
     (ucs		. #x7258)	; ç‰˜
+    ))
+(define-char
+  '((=>ucs		. #x7258)	; ç‰˜
+    (morohashi-daikanwa	19906 0 2)
+    (ideographic-radical . 91)	; â½š
+    (ideographic-strokes . 15)
+    (total-strokes	 . 19)
+    (chinese-cns11643-1 . #x7849)	; ø»“‚¶
     ))
 (define-char
   '((ideographic-radical . 91)	; â½š
