@@ -8116,7 +8116,10 @@
   '((morohashi-daikanwa	15485)
     (ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 11)
+    (total-strokes	 . 15)
     (shinjigen-2	. 3804)
+    (japanese-jisx0208-1978	. #x335F)	; ø»‚—š
+    (japanese-jisx0208		. #x335F)	; ø»†«¢
     (japanese-jisx0208-1990	. #x335F)	; æ¨«
     (ideograph-daikanwa		. 15485)	; ø¸ƒ±½
     (ucs			. #x6A2B)	; æ¨«
