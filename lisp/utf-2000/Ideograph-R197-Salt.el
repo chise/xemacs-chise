@@ -3,14 +3,12 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
     (shinjigen-2	. 9765)
-    (japanese-jisx0208-1978	. #x7343)	; ø»ƒ´¾
-    (japanese-jisx0208		. #x7343)	; ø»ˆ‰†
-    (korean-ksc5601		. #x565D)	; ø»‰¨¾
-    (chinese-cns11643-1		. #x5E25)	; ø»’œ†
-    (japanese-jisx0208-1990	. #x7343)	; ø½‹®º
-    (chinese-gb12345		. #x7852)	; é¹µ
-    (ideograph-daikanwa		. 47528)	; ø¸‹¦¨
-    (ucs			. #x9E75)	; é¹µ
+    (=jis-x0208		. #x7343)	; ø½‹®º
+    (korean-ksc5601	. #x565D)	; ø»‰¨¾
+    (chinese-cns11643-1 . #x5E25)	; ø»’œ†
+    (chinese-gb12345	. #x7852)	; é¹µ
+    (ideograph-daikanwa . 47528)	; ø¸‹¦¨
+    (ucs		. #x9E75)	; é¹µ
     ))
 (define-char
   '((ideographic-radical . 197)	; â¿„
@@ -235,14 +233,12 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 20)
     (shinjigen-2	. 9766)
-    (japanese-jisx0208-1978	. #x7344)	; ø»ƒ´¿
-    (japanese-jisx0208		. #x7344)	; ø»ˆ‰‡
-    (korean-ksc5601		. #x7969)	; ø»Šœ¤
-    (chinese-cns11643-1		. #x7A5B)	; ø»“†„
-    (japanese-jisx0208-1990	. #x7344)	; ø½‹®»
-    (chinese-gb12345		. #x7874)	; é¹¹
-    (ideograph-daikanwa		. 47553)	; ø¸‹§
-    (ucs			. #x9E79)	; é¹¹
+    (=jis-x0208		. #x7344)	; ø½‹®»
+    (korean-ksc5601	. #x7969)	; ø»Šœ¤
+    (chinese-cns11643-1 . #x7A5B)	; ø»“†„
+    (chinese-gb12345	. #x7874)	; é¹¹
+    (ideograph-daikanwa . 47553)	; ø¸‹§
+    (ucs		. #x9E79)	; é¹¹
     ))
 (define-char
   '((ideographic-radical . 197)	; â¿„
@@ -480,14 +476,12 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 24)
     (shinjigen-2	. 9770)
-    (japanese-jisx0208-1978	. #x7345)	; ø»ƒµ€
-    (japanese-jisx0208		. #x7345)	; ø»ˆ‰ˆ
-    (korean-ksc5601		. #x6724)	; ø»Šƒ
-    (chinese-cns11643-1		. #x7C7C)	; ø»“‰¡
-    (japanese-jisx0208-1990	. #x7345)	; ø½‹®¼
-    (chinese-gb12345		. #x514E)	; é¹½
-    (ideograph-daikanwa		. 47579)	; ø¸‹§›
-    (ucs			. #x9E7D)	; é¹½
+    (=jis-x0208		. #x7345)	; ø½‹®¼
+    (korean-ksc5601	. #x6724)	; ø»Šƒ
+    (chinese-cns11643-1 . #x7C7C)	; ø»“‰¡
+    (chinese-gb12345	. #x514E)	; é¹½
+    (ideograph-daikanwa . 47579)	; ø¸‹§›
+    (ucs		. #x9E7D)	; é¹½
     ))
 (define-char
   '((ideographic-radical . 197)	; â¿„

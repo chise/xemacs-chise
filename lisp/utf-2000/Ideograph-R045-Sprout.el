@@ -21,12 +21,10 @@
 		 )
       ))
     (comment		. "M-07825 is a different char.")
-    (japanese-jisx0208-1978	. #x5625)	; ø»ƒ‰º
-    (japanese-jisx0208		. #x5625)	; ø»‡ž‚
-    (chinese-cns11643-4		. #x2135)	; ø»— ¼
-    (japanese-jisx0208-1990	. #x5625)	; ø½‹ƒ¶
-    (ideograph-daikanwa		. 07826)	; ø¸º’
-    (ucs-jis			. #x5C6E)	; ø»ƒ‰º
+    (=jis-x0208		. #x5625)	; ø½‹ƒ¶
+    (chinese-cns11643-4 . #x2135)	; ø»— ¼
+    (ideograph-daikanwa . 07826)	; ø¸º’
+    (ucs-jis		. #x5C6E)	; ø½‹ƒ¶
     ))
 (define-char
   '((ideographic-radical . 45)	; â¼¬
@@ -46,12 +44,10 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (shinjigen-2	. 1953)
-    (japanese-jisx0208-1978	. #x4656)	; ø»‚³‹
-    (japanese-jisx0208		. #x4656)	; ø»‡‡“
-    (korean-ksc5601		. #x546A)	; ø»‰¦
-    (japanese-jisx0208-1990	. #x4656)	; ø½Š­‡
-    (ideograph-daikanwa		. 07828)	; ø¸º”
-    (ucs-jis			. #x5C6F)	; ø»‚³‹
+    (=jis-x0208		. #x4656)	; ø½Š­‡
+    (korean-ksc5601	. #x546A)	; ø»‰¦
+    (ideograph-daikanwa . 07828)	; ø¸º”
+    (ucs-jis		. #x5C6F)	; ø½Š­‡
     ))
 (define-char
   '((morohashi-daikanwa	7828 0 0)

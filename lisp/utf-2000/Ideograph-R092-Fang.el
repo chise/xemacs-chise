@@ -14,12 +14,10 @@
     (ideographic-radical . 92)	; â½›
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (japanese-jisx0208-1978	. #x3267)	; ø»‚–„
-    (japanese-jisx0208		. #x3267)	; ø»†ªŒ
-    (korean-ksc5601		. #x6433)	; ø»‰¼¸
-    (japanese-jisx0208-1990	. #x3267)	; ø½Š€
-    (china3-jef			. #x58C5)	; øº…£…
-    (ucs-jis			. #x7259)	; ø»‚–„
+    (=jis-x0208		. #x3267)	; ø½Š€
+    (korean-ksc5601	. #x6433)	; ø»‰¼¸
+    (china3-jef		. #x58C5)	; øº…£…
+    (ucs-jis		. #x7259)	; ø½Š€
     ))
 (define-char
   '((=>ucs		. #x3E26)	; ã¸¦
