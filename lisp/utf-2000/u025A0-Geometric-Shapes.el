@@ -3,7 +3,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2176)	; ø»„‡™
+    (=gb2312		. #x2176)	; ø»„‡™
     (=jis-x0208		. #x2223)	; ø½‰·œ
     (=ks-x1001		. #x2161)	; ø»ˆ›Œ
     (chinese-cns11643-1 . #x217C)	; ø»‘ƒ·
@@ -15,7 +15,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2175)	; ø»„‡˜
+    (=gb2312		. #x2175)	; ø»„‡˜
     (=jis-x0208		. #x2222)	; ø½‰·›
     (=ks-x1001		. #x2160)	; ø»ˆ›‹
     (chinese-cns11643-1 . #x217B)	; ø»‘ƒ¶
@@ -147,7 +147,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2178)	; ø»„‡›
+    (=gb2312		. #x2178)	; ø»„‡›
     (=jis-x0208		. #x2225)	; ø½‰·ž
     (=ks-x1001		. #x2163)	; ø»ˆ›Ž
     (chinese-cns11643-1 . #x2175)	; ø»‘ƒ°
@@ -159,7 +159,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2177)	; ø»„‡š
+    (=gb2312		. #x2177)	; ø»„‡š
     (=jis-x0208		. #x2224)	; ø½‰·
     (=ks-x1001		. #x2162)	; ø»ˆ›
     (chinese-cns11643-1 . #x2174)	; ø»‘ƒ¯
@@ -313,7 +313,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2174)	; ø»„‡—
+    (=gb2312		. #x2174)	; ø»„‡—
     (=jis-x0208		. #x2221)	; ø½‰·š
     (=ks-x1001		. #x215F)	; ø»ˆ›Š
     (chinese-cns11643-1 . #x217A)	; ø»‘ƒµ
@@ -325,7 +325,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2173)	; ø»„‡–
+    (=gb2312		. #x2173)	; ø»„‡–
     (=jis-x0208		. #x217E)	; ø½‰·™
     (=ks-x1001		. #x215E)	; ø»ˆ›‰
     (chinese-cns11643-1 . #x2179)	; ø»‘ƒ´
@@ -360,7 +360,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2170)	; ø»„‡“
+    (=gb2312		. #x2170)	; ø»„‡“
     (=jis-x0208		. #x217B)	; ø½‰·–
     (=ks-x1001		. #x215B)	; ø»ˆ›†
     (chinese-cns11643-1 . #x2172)	; ø»‘ƒ­
@@ -386,7 +386,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2172)	; ø»„‡•
+    (=gb2312		. #x2172)	; ø»„‡•
     (=jis-x0208		. #x217D)	; ø½‰·˜
     (=ks-x1001		. #x215D)	; ø»ˆ›ˆ
     (chinese-cns11643-1 . #x2176)	; ø»‘ƒ±
@@ -398,7 +398,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2171)	; ø»„‡”
+    (=gb2312		. #x2171)	; ø»„‡”
     (=jis-x0208		. #x217C)	; ø½‰·—
     (=ks-x1001		. #x215C)	; ø»ˆ›‡
     (chinese-cns11643-1 . #x2173)	; ø»‘ƒ®

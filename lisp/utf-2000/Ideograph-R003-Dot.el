@@ -3,7 +3,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (hanyu-dazidian	1 42 8)
-    (chinese-gb2312	. #x583C)	; ø»…—‘
+    (=gb2312		. #x583C)	; ø»…—‘
     (=jis-x0208		. #x5026)	; ø½Š»ƒ
     (=iso-ir165		. #x583C)	; ø»¿¡
     (chinese-cns11643-3 . #x2122)	; ø»•–¥
@@ -81,7 +81,7 @@
     (total-strokes	 . 3)
     (shinjigen-1	. 39)
     (shinjigen-2	. 39)
-    (chinese-gb2312	. #x4D68)	; ø»…‡³
+    (=gb2312		. #x4D68)	; ø»…‡³
     (=jis-x0208		. #x345D)	; ø½Š’²
     (=ks-x1001		. #x7C2F)	; ø»Š „
     (=iso-ir165		. #x4D68)	; ø»°ƒ
@@ -173,7 +173,7 @@
       ))
     (shinjigen-1	. 566)
     (shinjigen-2	. 566)
-    (chinese-gb2312	. #x3732)	; ø»„¦©
+    (=gb2312		. #x3732)	; ø»„¦©
     (=jis-x0208		. #x4B5E)	; ø½Š´¥
     (=ks-x1001		. #x5B6D)	; ø»‰°¤
     (=iso-ir165		. #x3732)	; ø»Ž¹
@@ -211,7 +211,7 @@
     (hanyu-dazidian	1 44 1)
     (shinjigen-1	. 41)
     (shinjigen-2	. 41)
-    (chinese-gb2312	. #x3524)	; ø»„£Ÿ
+    (=gb2312		. #x3524)	; ø»„£Ÿ
     (=jis-x0208		. #x4330)	; ø½Š¨‡
     (=ks-x1001		. #x5321)	; ø»‰£¨
     (=iso-ir165		. #x3524)	; ø»‹¯
@@ -237,7 +237,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 44 2)
-    (chinese-gb2312	. #x4E2A)	; ø»…ˆ“
+    (=gb2312		. #x4E2A)	; ø»…ˆ“
     (=iso-ir165		. #x4E2A)	; ø»°£
     (=big5-cdp		. #x89D0)	; ý¢€ˆ§
     (=ucs		. #x4E3A)	; ä¸º
@@ -294,7 +294,7 @@
       ))
     (shinjigen-1	. 42)
     (shinjigen-2	. 42)
-    (chinese-gb2312	. #x5677)	; ø»…•
+    (=gb2312		. #x5677)	; ø»…•
     (=jis-x0208		. #x3C67)	; ø½Šž¬
     (=ks-x1001		. #x712B)	; ø»Š¶
     (=iso-ir165		. #x5677)	; ø»½ 
@@ -490,7 +490,7 @@
 	  ))
 	))
       ))
-    (chinese-gb2312	. #x4076)	; ø»„´»
+    (=gb2312		. #x4076)	; ø»„´»
     (=iso-ir165		. #x4076)	; ø»‹
     (=hanziku-1		. #xA86E)	; ý¢€š¡®
     (=ucs		. #x4E3D)	; ä¸½
@@ -540,7 +540,7 @@
       )
      ((=big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
       ))
-    (chinese-gb2312	. #x3E59)	; ø»„±¢
+    (=gb2312		. #x3E59)	; ø»„±¢
     (=iso-ir165		. #x3E59)	; ø»™²
     (=hanziku-1		. #xADBF)	; ý¢€š¶¿
     (=ucs		. #x4E3E)	; ä¸¾

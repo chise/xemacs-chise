@@ -1,3 +1,8 @@
+2003-04-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el: `chinese-gb2312' is renamed to `=gb2312'.
+	(chinese-gb2312): New alias for `=gb2312'.
+
 2003-04-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el: `chinese-big5' is renamed to `=big5'.

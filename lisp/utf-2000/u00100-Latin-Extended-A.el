@@ -43,7 +43,9 @@
     (->decomposition	#x0061 #x0304)
     (->fullwidth
      ((name		  . "fullwidth latin small letter a with macron")
-      (chinese-gb2312	  . #x2821)	; ø»„–
+      (=gb2312		  . #x2821)	; ø»„–
+      (=jis-x0212	  . #x2B27)	; ø»Š³‚
+      (=jis-x0213-1-2000  . #x297A)	; ø»¢ …
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH MACRON")
@@ -66,7 +68,7 @@
      ((name		  . "LATIN SMALL LETTER A WITH MACRON")
       (=ucs		  . #x0101)	; Ä
       ))
-    (chinese-gb2312	. #x2821)	; ø»„–
+    (=gb2312		. #x2821)	; ø»„–
     (=jis-x0212		. #x2B27)	; ø»Š³‚
     (=jis-x0213-1-2000	. #x297A)	; ø»¢ …
     (=jef-china3	. #x87BC)	; øºˆž¼
@@ -713,7 +715,9 @@
     (->decomposition	#x0065 #x0304)
     (->fullwidth
      ((name		  . "fullwidth latin small letter e with macron")
-      (chinese-gb2312	  . #x2825)	; ø»„š
+      (=gb2312		  . #x2825)	; ø»„š
+      (=jis-x0212	  . #x2B37)	; ø»Š³’
+      (=jis-x0213-1-2000  . #x297D)	; ø»¢ ˆ
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER E WITH MACRON")
@@ -736,7 +740,7 @@
      ((name		  . "LATIN SMALL LETTER E WITH MACRON")
       (=ucs		  . #x0113)	; Ä“
       ))
-    (chinese-gb2312	. #x2825)	; ø»„š
+    (=gb2312		. #x2825)	; ø»„š
     (=jis-x0212		. #x2B37)	; ø»Š³’
     (=jis-x0213-1-2000	. #x297D)	; ø»¢ ˆ
     (=jef-china3	. #x87BF)	; øºˆž¿
@@ -959,7 +963,9 @@
     (->decomposition	#x0065 #x030C)
     (->fullwidth
      ((name		  . "fullwidth latin small letter e with caron")
-      (chinese-gb2312	  . #x2827)	; ø»„œ
+      (=gb2312		  . #x2827)	; ø»„œ
+      (=jis-x0212	  . #x2B35)	; ø»Š³
+      (=jis-x0213-1-2000  . #x2A4E)	; ø»¢ ·
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER E WITH CARON")
@@ -982,7 +988,7 @@
      ((name		  . "LATIN SMALL LETTER E WITH CARON")
       (=ucs		  . #x011B)	; Ä›
       ))
-    (chinese-gb2312	. #x2827)	; ø»„œ
+    (=gb2312		. #x2827)	; ø»„œ
     (=jis-x0212		. #x2B35)	; ø»Š³
     (=jis-x0213-1-2000	. #x2A4E)	; ø»¢ ·
     (=jef-china3	. #x88F1)	; øºˆ£±
@@ -1524,7 +1530,9 @@
     (->decomposition	#x0069 #x0304)
     (->fullwidth
      ((name		  . "fullwidth latin small letter i with macron")
-      (chinese-gb2312	  . #x2829)	; ø»„ž
+      (=gb2312		  . #x2829)	; ø»„ž
+      (=jis-x0212	  . #x2B45)	; ø»Š³ 
+      (=jis-x0213-1-2000  . #x297B)	; ø»¢ †
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER I WITH MACRON")
@@ -1547,7 +1555,7 @@
      ((name		  . "LATIN SMALL LETTER I WITH MACRON")
       (=ucs		  . #x012B)	; Ä«
       ))
-    (chinese-gb2312	. #x2829)	; ø»„ž
+    (=gb2312		. #x2829)	; ø»„ž
     (=jis-x0212		. #x2B45)	; ø»Š³ 
     (=jis-x0213-1-2000	. #x297B)	; ø»¢ †
     (=ucs@jis		. #x012B)	; ø»„ž
@@ -2681,7 +2689,9 @@
     (->decomposition	#x006F #x0304)
     (->fullwidth
      ((name		  . "fullwidth latin small letter o with macron")
-      (chinese-gb2312	  . #x282D)	; ø»„¢
+      (=gb2312		  . #x282D)	; ø»„¢
+      (=jis-x0212	  . #x2B57)	; ø»Š³²
+      (=jis-x0213-1-2000  . #x297E)	; ø»¢ ‰
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH MACRON")
@@ -2704,7 +2714,7 @@
      ((name		  . "LATIN SMALL LETTER O WITH MACRON")
       (=ucs		  . #x014D)	; Å
       ))
-    (chinese-gb2312	. #x282D)	; ø»„¢
+    (=gb2312		. #x282D)	; ø»„¢
     (=jis-x0212		. #x2B57)	; ø»Š³²
     (=jis-x0213-1-2000	. #x297E)	; ø»¢ ‰
     (=jef-china3	. #x87C7)	; øºˆŸ‡
@@ -3726,7 +3736,9 @@
     (->decomposition	#x0075 #x0304)
     (->fullwidth
      ((name		  . "fullwidth latin small letter u with macron")
-      (chinese-gb2312	  . #x2831)	; ø»„¦
+      (=gb2312		  . #x2831)	; ø»„¦
+      (=jis-x0212	  . #x2B69)	; ø»Š´„
+      (=jis-x0213-1-2000  . #x297C)	; ø»¢ ‡
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER U WITH MACRON")
@@ -3749,7 +3761,7 @@
      ((name		  . "LATIN SMALL LETTER U WITH MACRON")
       (=ucs		  . #x016B)	; Å«
       ))
-    (chinese-gb2312	. #x2831)	; ø»„¦
+    (=gb2312		. #x2831)	; ø»„¦
     (=jis-x0212		. #x2B69)	; ø»Š´„
     (=jis-x0213-1-2000	. #x297C)	; ø»¢ ‡
     (=jef-china3	. #x87CD)	; øºˆŸ

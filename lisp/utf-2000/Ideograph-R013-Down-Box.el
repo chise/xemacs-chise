@@ -3,7 +3,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 96 13)
-    (chinese-gb2312	. #x5867)	; ø»…—¼
+    (=gb2312		. #x5867)	; ø»…—¼
     (=jis-x0208		. #x5144)	; ø½Š¼¿
     (=iso-ir165		. #x5867)	; ø»Ž€Œ
     (chinese-cns11643-3 . #x2127)	; ø»•–ª
@@ -111,7 +111,7 @@
     (comment		. "<vulgar character> of R011:M01418.0")
     (shinjigen-1	. 481)
     (shinjigen-2	. 481)
-    (chinese-gb2312	. #x445A)	; ø»„º—
+    (=gb2312		. #x445A)	; ø»„º—
     (=jis-x0208		. #x4662)	; ø½Š­“
     (=iso-ir165		. #x445A)	; ø»¢§
     (chinese-cns11643-6 . #x2150)	; ø»›µŸ
@@ -165,7 +165,7 @@
       )
      ((=ucs		  . #x3405)	; ã…
       ))
-    (chinese-gb2312	. #x3854)	; ø»„¨©
+    (=gb2312		. #x3854)	; ø»„¨©
     (=iso-ir165		. #x3854)	; ø»¹
     (chinese-cns11643-4 . #x2152)	; ø»—¡™
     (ideograph-daikanwa . 28201)	; ø¸†¸©
@@ -230,7 +230,7 @@
     (hanyu-dazidian	1 99 3)
     (shinjigen-1	. 512)
     (shinjigen-2	. 512)
-    (chinese-gb2312	. #x483D)	; ø»„¿²
+    (=gb2312		. #x483D)	; ø»„¿²
     (=jis-x0208-1983	. #x5147)	; ø»‡—Ž
     (=iso-ir165		. #x483D)	; ø»¨‚
     (chinese-cns11643-1 . #x4574)	; ø»‘¸§
@@ -263,7 +263,7 @@
     (hanyu-dazidian	1 99 8)
     (shinjigen-1	. 509)
     (shinjigen-2	. 509)
-    (chinese-gb2312	. #x3261)	; ø»„ ‚
+    (=gb2312		. #x3261)	; ø»„ ‚
     (=jis-x0208		. #x5146)	; ø½Š½
     (=iso-ir165		. #x3261)	; ø»ˆ’
     (=gt-pj-1		. #x5146)	; å†Œ
@@ -498,7 +498,7 @@
       ))
     (shinjigen-1	. 517)
     (shinjigen-2	. 517)
-    (chinese-gb2312	. #x5459)	; ø»…‘¶
+    (=gb2312		. #x5459)	; ø»…‘¶
     (=jis-x0208		. #x3A46)	; ø½Š›
     (=ks-x1001		. #x6E22)	; ø»Š‹“
     (=iso-ir165		. #x5459)	; ø»º†
@@ -759,7 +759,7 @@
       ))
     (shinjigen-1	. 5287)
     (shinjigen-2	. 5287)
-    (chinese-gb2312	. #x4330)	; ø»„¸
+    (=gb2312		. #x4330)	; ø»„¸
     (=ks-x1001		. #x5933)	; ø»‰¬®
     (=iso-ir165		. #x4330)	; ø» Ÿ
     (chinese-cns11643-1 . #x5023)	; ø»’‡ 
@@ -972,7 +972,7 @@
       ))
     (shinjigen-1	. 524)
     (shinjigen-2	. 524)
-    (chinese-gb2312	. #x4361)	; ø»„¹€
+    (=gb2312		. #x4361)	; ø»„¹€
     (=jis-x0208-1983	. #x514B)	; ø»‡—’
     (=ks-x1001		. #x5874)	; ø»‰¬‘
     (=iso-ir165		. #x4361)	; ø»¡

@@ -170,7 +170,7 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x212A)	; ø»„†
+    (=gb2312		. #x212A)	; ø»„†
     (=ks-x1001		. #x212A)	; ø»ˆš•
     (=ucs		. #x2015)	; â€•
     ))
@@ -188,7 +188,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x212C)	; ø»„†
+    (=gb2312		. #x212C)	; ø»„†
     (=jis-x0208		. #x2142)	; ø½‰¶
     (chinese-cns11643-1 . #x225D)	; ø»‘„¶
     (=ucs		. #x2016)	; â€–
@@ -207,7 +207,7 @@
     (general-category	punctuation initial-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x212E)	; ø»„†‘
+    (=gb2312		. #x212E)	; ø»„†‘
     (=jis-x0208		. #x2146)	; ø½‰¶¡
     (=ks-x1001		. #x212E)	; ø»ˆš™
     (chinese-cns11643-1 . #x2164)	; ø»‘ƒŸ
@@ -219,7 +219,7 @@
     (general-category	punctuation final-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x212F)	; ø»„†’
+    (=gb2312		. #x212F)	; ø»„†’
     (=jis-x0208		. #x2147)	; ø½‰¶¢
     (=ks-x1001		. #x212F)	; ø»ˆšš
     (chinese-cns11643-1 . #x2165)	; ø»‘ƒ 
@@ -245,7 +245,7 @@
     (general-category	punctuation initial-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2130)	; ø»„†“
+    (=gb2312		. #x2130)	; ø»„†“
     (=jis-x0208		. #x2148)	; ø½‰¶£
     (=ks-x1001		. #x2130)	; ø»ˆš›
     (chinese-cns11643-1 . #x2166)	; ø»‘ƒ¡
@@ -257,7 +257,7 @@
     (general-category	punctuation final-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2131)	; ø»„†”
+    (=gb2312		. #x2131)	; ø»„†”
     (=jis-x0208		. #x2149)	; ø½‰¶¤
     (=ks-x1001		. #x2131)	; ø»ˆšœ
     (chinese-cns11643-1 . #x2167)	; ø»‘ƒ¢
@@ -339,7 +339,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x002E #x002E #x002E)
-    (chinese-gb2312	. #x212D)	; ø»„†
+    (=gb2312		. #x212D)	; ø»„†
     (=jis-x0208		. #x2144)	; ø½‰¶Ÿ
     (=ks-x1001		. #x2126)	; ø»ˆš‘
     (chinese-cns11643-1 . #x212C)	; ø»‘‚§
@@ -417,7 +417,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (chinese-gb2312	. #x216B)	; ø»„‡Ž
+    (=gb2312		. #x216B)	; ø»„‡Ž
     (=jis-x0208-1983	. #x2273)	; ø»†’¸
     (=ks-x1001		. #x2236)	; ø»ˆ›¿
     (=jis-x0208-1990	. #x2273)	; ø½‰¸¬
@@ -435,7 +435,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2164)	; ø»„‡‡
+    (=gb2312		. #x2164)	; ø»„‡‡
     (=jis-x0208		. #x216C)	; ø½‰·‡
     (=ks-x1001		. #x2147)	; ø»ˆš²
     (chinese-cns11643-1 . #x216B)	; ø»‘ƒ¦
@@ -448,7 +448,7 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	compat #x2032 #x2032)
-    (chinese-gb2312	. #x2165)	; ø»„‡ˆ
+    (=gb2312		. #x2165)	; ø»„‡ˆ
     (=jis-x0208		. #x216D)	; ø½‰·ˆ
     (=ks-x1001		. #x2148)	; ø»ˆš³
     (=ucs		. #x2033)	; â€³
@@ -512,7 +512,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2179)	; ø»„‡œ
+    (=gb2312		. #x2179)	; ø»„‡œ
     (=jis-x0208		. #x2228)	; ø½‰·¡
     (=ks-x1001		. #x2158)	; ø»ˆ›ƒ
     (chinese-cns11643-1 . #x216F)	; ø»‘ƒª
@@ -543,7 +543,6 @@
     (->decomposition	compat #x0020 #x0305)
     (->fullwidth
      ((name		  . "FULLWIDTH OVERLINE")
-      (chinese-gb2312	  . #x237E)	; ø»„Š
       (chinese-cns11643-1 . #x2223)	; ø»‘ƒ¼
       ))
     (latin-jisx0201	. #x7E)	; øº‘Œ©
@@ -561,7 +560,7 @@
      ((name		  . "OVERLINE")
       (=ucs		  . #x203E)	; â€¾
       ))
-    (chinese-gb2312	. #x237E)	; ø»„Š
+    (=gb2312		. #x237E)	; ø»„Š
     (=jis-x0208		. #x2131)	; ø½‰¶Œ
     (=ks-x1001		. #x237E)	; ø»ˆž¥
     (chinese-cns11643-1 . #x2223)	; ø»‘ƒ¼

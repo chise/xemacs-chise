@@ -2,7 +2,7 @@
   '((ideographic-radical . 171)	; â¾ª
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
-    (chinese-gb2312	. #x4125)	; ø»„µˆ
+    (=gb2312		. #x4125)	; ø»„µˆ
     (=jis-x0208		. #x7030)	; ø½‹ª
     (=iso-ir165		. #x4125)	; ø»˜
     (chinese-cns11643-3 . #x2A7D)	; ø»•¥Ž

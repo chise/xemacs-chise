@@ -20,7 +20,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 102 1)
-    (chinese-gb2312	. #x486B)	; ø»…€ 
+    (=gb2312		. #x486B)	; ø»…€ 
     (=iso-ir165		. #x486B)	; ø»¨°
     (chinese-cns11643-1 . #x442B)	; ø»‘¶€
     (=ucs		. #x5165)	; å…¥
@@ -356,7 +356,7 @@
       )
      ((=ucs		  . #x738B)	; çŽ‹
       ))
-    (chinese-gb2312	. #x482B)	; ø»„¿ 
+    (=gb2312		. #x482B)	; ø»„¿ 
     (=jis-x0208		. #x4134)	; ø½Š¥
     (=iso-ir165		. #x482B)	; ø»§°
     (=gt-pj-1		. #x4134)	; å…¨

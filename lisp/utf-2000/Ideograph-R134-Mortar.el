@@ -3,7 +3,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (shinjigen-2	. 6607)
-    (chinese-gb2312	. #x3E4A)	; ø»„±“
+    (=gb2312		. #x3E4A)	; ø»„±“
     (=jis-x0208		. #x3131)	; ø½Š¬
     (=ks-x1001		. #x4F3F)	; ø»‰žŽ
     (=iso-ir165		. #x3E4A)	; ø»™£
@@ -77,7 +77,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
     (shinjigen-2	. 6610)
-    (chinese-gb2312	. #x7427)	; ø»†€„
+    (=gb2312		. #x7427)	; ø»†€„
     (=jis-x0208		. #x674C)	; ø½‹›
     (=ks-x1001		. #x6B2C)	; ø»Š‡ƒ
     (=iso-ir165		. #x7427)	; ø»Ž¨”
@@ -208,7 +208,7 @@
       )
      ((=ucs		  . #x81FC)	; è‡¼
       ))
-    (chinese-gb2312	. #x5228)	; ø»…Ž‰
+    (=gb2312		. #x5228)	; ø»…Ž‰
     (=iso-ir165		. #x5228)	; ø»¶™
     (chinese-cns11643-1 . #x576A)	; ø»’’¹
     (=ucs		. #x8200)	; èˆ€
@@ -267,7 +267,7 @@
       )
      ((=ucs		  . #x5EFE)	; å»¾
       ))
-    (chinese-gb2312	. #x7428)	; ø»†€…
+    (=gb2312		. #x7428)	; ø»†€…
     (=jis-x0208		. #x674D)	; ø½‹œ
     (=iso-ir165		. #x7428)	; ø»Ž¨•
     (=big5		. #xD370)	; ý¢€°
@@ -366,7 +366,7 @@
      ((=ucs		  . #x81FC)	; è‡¼
       ))
     (shinjigen-2	. 6618)
-    (chinese-gb2312	. #x7429)	; ø»†€†
+    (=gb2312		. #x7429)	; ø»†€†
     (=jis-x0208		. #x674E)	; ø½‹
     (=iso-ir165		. #x7429)	; ø»Ž¨–
     (chinese-cns11643-1 . #x5C6F)	; ø»’š”
@@ -506,7 +506,7 @@
       )
      ((=big5-cdp	  . #x8C40)	; ý¢€ˆ±€
       ))
-    (chinese-gb2312	. #x742A)	; ø»†€‡
+    (=gb2312		. #x742A)	; ø»†€‡
     (=iso-ir165		. #x742A)	; ø»Ž¨—
     (chinese-cns11643-2 . #x3F3C)	; ø»“¸¿
     (=jis-x0213-2-2000	. #x755E)	; ø»¦™•
@@ -547,7 +547,7 @@
      ((=ucs		  . #x7537)	; ç”·
       ))
     (shinjigen-2	. 6624)
-    (chinese-gb2312	. #x3E4B)	; ø»„±”
+    (=gb2312		. #x3E4B)	; ø»„±”
     (=jis-x0208		. #x674F)	; ø½‹ž
     (=ks-x1001		. #x4F40)	; ø»‰ž
     (=iso-ir165		. #x3E4B)	; ø»™¤
@@ -677,7 +677,7 @@
   '((ideographic-radical . 134)	; â¾…
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
-    (chinese-gb2312	. #x535F)	; ø»…ž
+    (=gb2312		. #x535F)	; ø»…ž
     (=iso-ir165		. #x535F)	; ø»¸®
     (=ucs		. #x8206)	; èˆ†
     ))

@@ -48,7 +48,7 @@
 			 :strokes	5
 			 :sources	(cns-11643)))
     (total-strokes	 . 8)
-    (chinese-gb2312	. #x763C)	; ø»†ƒ•
+    (=gb2312		. #x763C)	; ø»†ƒ•
     (=iso-ir165		. #x763C)	; ø»Ž«¥
     (chinese-cns11643-3 . #x2772)	; ø»• ©
     (mojikyo		. 051084)	; ý €ŒžŒ
@@ -570,7 +570,7 @@
 (define-char
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 12)
-    (chinese-gb2312	. #x763E)	; ø»†ƒ—
+    (=gb2312		. #x763E)	; ø»†ƒ—
     (=iso-ir165		. #x763E)	; ø»Ž«§
     (=ucs		. #x9F0D)	; é¼
     ))

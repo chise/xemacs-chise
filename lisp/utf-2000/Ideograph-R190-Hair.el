@@ -3,7 +3,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
     (shinjigen-2	. 9452)
-    (chinese-gb2312	. #x7754)	; ø»†…‹
+    (=gb2312		. #x7754)	; ø»†…‹
     (=jis-x0208		. #x7175)	; ø½‹¬°
     (=iso-ir165		. #x7754)	; ø»Ž­›
     (chinese-cns11643-2 . #x334C)	; ø»“§§
@@ -56,7 +56,7 @@
   '((ideographic-radical . 190)	; â¾½
     (ideographic-strokes . 3)
     (total-strokes	 . 13)
-    (chinese-gb2312	. #x7755)	; ø»†…Œ
+    (=gb2312		. #x7755)	; ø»†…Œ
     (=iso-ir165		. #x7755)	; ø»Ž­œ
     (chinese-cns11643-1 . #x676C)	; ø»’ª›
     (ideograph-daikanwa . 45361)	; ø¸‹„±
@@ -215,7 +215,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 14)
     (shinjigen-2	. 9464)
-    (chinese-gb2312	. #x7756)	; ø»†…
+    (=gb2312		. #x7756)	; ø»†…
     (=jis-x0208		. #x7178)	; ø½‹¬³
     (=iso-ir165		. #x7756)	; ø»Ž­
     (chinese-cns11643-1 . #x6B75)	; ø»’°œ
@@ -357,7 +357,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 15)
     (shinjigen-2	. 9469)
-    (chinese-gb2312	. #x7758)	; ø»†…
+    (=gb2312		. #x7758)	; ø»†…
     (=jis-x0208		. #x717A)	; ø½‹¬µ
     (=iso-ir165		. #x7758)	; ø»Ž­Ÿ
     (chinese-cns11643-2 . #x557D)	; ø»”š”
@@ -414,7 +414,7 @@
   '((ideographic-radical . 190)	; â¾½
     (ideographic-strokes . 5)
     (total-strokes	 . 16)
-    (chinese-gb2312	. #x775A)	; ø»†…‘
+    (=gb2312		. #x775A)	; ø»†…‘
     (=jis-x0208		. #x4926)	; ø½Š°±
     (=iso-ir165		. #x775A)	; ø»Ž­¡
     (chinese-cns11643-1 . #x7333)	; ø»’»Š
@@ -468,7 +468,7 @@
   '((ideographic-radical . 190)	; â¾½
     (ideographic-strokes . 5)
     (total-strokes	 . 15)
-    (chinese-gb2312	. #x7757)	; ø»†…Ž
+    (=gb2312		. #x7757)	; ø»†…Ž
     (=jis-x0208		. #x7179)	; ø½‹¬´
     (=iso-ir165		. #x7757)	; ø»Ž­ž
     (chinese-cns11643-1 . #x7022)	; ø»’¶Ÿ
@@ -667,7 +667,7 @@
   '((ideographic-radical . 190)	; â¾½
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
-    (chinese-gb2312	. #x775B)	; ø»†…’
+    (=gb2312		. #x775B)	; ø»†…’
     (=jis-x0212		. #x6977)	; ø»Œ–
     (=iso-ir165		. #x775B)	; ø»Ž­¢
     (chinese-cns11643-2 . #x5B7C)	; ø»”£‡
@@ -757,7 +757,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
     (shinjigen-2	. 9475)
-    (chinese-gb2312	. #x7759)	; ø»†…
+    (=gb2312		. #x7759)	; ø»†…
     (=jis-x0208		. #x7221)	; ø½‹¬º
     (=iso-ir165		. #x7759)	; ø»Ž­ 
     (chinese-cns11643-1 . #x7332)	; ø»’»‰
@@ -1027,7 +1027,7 @@
   '((ideographic-radical . 190)	; â¾½
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
-    (chinese-gb2312	. #x5757)	; ø»…–Ž
+    (=gb2312		. #x5757)	; ø»…–Ž
     (=jis-x0212		. #x697E)	; ø»Œ
     (=iso-ir165		. #x5757)	; ø»¾ž
     (chinese-cns11643-1 . #x7779)	; ø»“‚ˆ
@@ -1258,7 +1258,7 @@
   '((ideographic-radical . 190)	; â¾½
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
-    (chinese-gb2312	. #x775C)	; ø»†…“
+    (=gb2312		. #x775C)	; ø»†…“
     (=jis-x0212		. #x6A23)	; ø»Œ 
     (=iso-ir165		. #x775C)	; ø»Ž­£
     (chinese-cns11643-2 . #x6465)	; ø»”¯¾
@@ -1591,7 +1591,7 @@
   '((ideographic-radical . 190)	; â¾½
     (ideographic-strokes . 9)
     (total-strokes	 . 19)
-    (chinese-gb2312	. #x775D)	; ø»†…”
+    (=gb2312		. #x775D)	; ø»†…”
     (=iso-ir165		. #x775D)	; ø»Ž­¤
     (chinese-cns11643-4 . #x624F)	; ø»™€´
     (=ucs		. #x9B0F)	; é¬
@@ -1825,7 +1825,7 @@
 (define-char
   '((ideographic-radical . 190)	; â¾½
     (ideographic-strokes . 10)
-    (chinese-gb2312	. #x775E)	; ø»†…•
+    (=gb2312		. #x775E)	; ø»†…•
     (=iso-ir165		. #x775E)	; ø»Ž­¥
     (=ucs		. #x9B13)	; é¬“
     ))
@@ -2339,7 +2339,7 @@
     (ideographic-radical . 190)	; â¾½
     (ideographic-strokes . 14)
     (total-strokes	 . 24)
-    (chinese-gb2312	. #x775F)	; ø»†…–
+    (=gb2312		. #x775F)	; ø»†…–
     (=iso-ir165		. #x775F)	; ø»Ž­¦
     (=ucs		. #x9B1F)	; é¬Ÿ
     ))
@@ -2513,7 +2513,7 @@
   '((ideographic-radical . 190)	; â¾½
     (ideographic-strokes . 15)
     (total-strokes	 . 25)
-    (chinese-gb2312	. #x7760)	; ø»†…—
+    (=gb2312		. #x7760)	; ø»†…—
     (=iso-ir165		. #x7760)	; ø»Ž­§
     (ideograph-daikanwa . 45613)	; ø¸‹ˆ­
     (=ucs		. #x9B23)	; é¬£

@@ -3,7 +3,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (hanyu-dazidian	1 28 2)
-    (chinese-gb2312	. #x582D)	; ø»…—‚
+    (=gb2312		. #x582D)	; ø»…—‚
     (=jis-x0212		. #x3029)	; ø»Šºš
     (=iso-ir165		. #x582D)	; ø»¿’
     (chinese-cns11643-3 . #x2121)	; ø»•–¤
@@ -86,7 +86,7 @@
       ))
     (shinjigen-1	. 33)
     (shinjigen-2	. 33)
-    (chinese-gb2312	. #x3876)	; ø»„©‹
+    (=gb2312		. #x3876)	; ø»„©‹
     (=jis-x0208		. #x5024)	; ø½Š»
     (=iso-ir165		. #x3876)	; ø»‘›
     (chinese-cns11643-3 . #x212C)	; ø»•–¯
@@ -106,7 +106,7 @@
     (hanyu-dazidian	1 28 6)
     (shinjigen-1	. 32)
     (shinjigen-2	. 32)
-    (chinese-gb2312	. #x513E)	; ø»…
+    (=gb2312		. #x513E)	; ø»…
     (=jis-x0212		. #x302A)	; ø»Šº›
     (=iso-ir165		. #x513E)	; ø»µ‘
     (chinese-cns11643-1 . #x4439)	; ø»‘¶Ž
@@ -137,7 +137,7 @@
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (chinese-gb2312	. #x635C)	; ø»…§»
+    (=gb2312		. #x635C)	; ø»…§»
     (=iso-ir165		. #x635C)	; ø»Ž‹
     (=jis-x0213-2-2000	. #x702E)	; ø»¦‘
     (=ucs		. #x4E2C)	; ä¸¬
@@ -157,7 +157,7 @@
     (hanyu-dazidian	1 28 10)
     (shinjigen-1	. 34)
     (shinjigen-2	. 34)
-    (chinese-gb2312	. #x5650)	; ø»…”©
+    (=gb2312		. #x5650)	; ø»…”©
     (=jis-x0208		. #x4366)	; ø½Š¨½
     (=ks-x1001		. #x7169)	; ø»Š´
     (=iso-ir165		. #x5650)	; ø»¼¹
@@ -217,7 +217,7 @@
     (total-strokes	 . 4)
     (shinjigen-1	. 35)
     (shinjigen-2	. 35)
-    (chinese-gb2312	. #x3761)	; ø»„§˜
+    (=gb2312		. #x3761)	; ø»„§˜
     (=jis-x0212		. #x302D)	; ø»Šºž
     (=iso-ir165		. #x3761)	; ø»¨
     (=jis-x0213-1-2000	. #x2E26)	; ø»¢¦‡
@@ -325,7 +325,7 @@
     (hanyu-dazidian	1 30 2)
     (shinjigen-1	. 38)
     (shinjigen-2	. 38)
-    (chinese-gb2312	. #x342E)	; ø»„¢‹
+    (=gb2312		. #x342E)	; ø»„¢‹
     (=jis-x0208		. #x367A)	; ø½Š–‹
     (=ks-x1001		. #x4D7A)	; ø»‰œ
     (=iso-ir165		. #x342E)	; ø»Š›
@@ -548,7 +548,7 @@
        ((=big5-cdp	    . #x8BDE)	; ý¢€ˆ¯ž
 	))
       ))
-    (chinese-gb2312	. #x4159)	; ø»„µ¼
+    (=gb2312		. #x4159)	; ø»„µ¼
     (=iso-ir165		. #x4159)	; ø»žŒ
     (=hanziku-1		. #xAA56)	; ý¢€š©–
     (=jef-china3	. #x82AF)	; øºˆŠ¯

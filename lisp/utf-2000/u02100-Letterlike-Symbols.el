@@ -28,7 +28,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0043)
-    (chinese-gb2312	. #x2166)	; ø»„‡‰
+    (=gb2312		. #x2166)	; ø»„‡‰
     (=jis-x0208		. #x216E)	; ø½‰·‰
     (=ks-x1001		. #x2149)	; ø»ˆš´
     (chinese-cns11643-1 . #x226A)	; ø»‘…ƒ
@@ -190,7 +190,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x004E #x006F)
-    (chinese-gb2312	. #x216D)	; ø»„‡
+    (=gb2312		. #x216D)	; ø»„‡
     (=ks-x1001		. #x2260)	; ø»ˆœ©
     (=jis-x0212		. #x2271)	; ø»Š¦¾
     (=jis-x0213-1-2000	. #x2D62)	; ø»¢¥¥

@@ -179,7 +179,6 @@
     (iso-10646-comment	. "Mandarin Chinese third tone")
     (->fullwidth
      ((name		  . "fullwidth caron")
-      (chinese-gb2312	  . #x2126)	; ø»„†‰
       (chinese-cns11643-1 . #x256F)	; ø»‘‰¢
       ))
     (latin-iso8859-2	. #xB7)	; øº’µ·
@@ -198,7 +197,7 @@
      ((name		  . "CARON")
       (=ucs		  . #x02C7)	; Ë‡
       ))
-    (chinese-gb2312	. #x2126)	; ø»„†‰
+    (=gb2312		. #x2126)	; ø»„†‰
     (=ks-x1001		. #x2227)	; ø»ˆ›°
     (=jis-x0212		. #x2230)	; ø»Š¥½
     (chinese-cns11643-1 . #x256F)	; ø»‘‰¢
@@ -241,7 +240,8 @@
     (iso-10646-comment	. "Mandarin Chinese first tone")
     (->fullwidth
      ((name		  . "fullwidth modifier letter macron")
-      (chinese-gb2312	  . #x2125)	; ø»„†ˆ
+      (=gb2312		  . #x2125)	; ø»„†ˆ
+      (chinese-cns11643-1 . #x256D)	; ø»‘‰ 
       ))
     (=ucs		. #x02C9)	; Ë‰
     ))
@@ -257,7 +257,7 @@
      ((name		  . "MODIFIER LETTER MACRON")
       (=ucs		  . #x02C9)	; Ë‰
       ))
-    (chinese-gb2312	. #x2125)	; ø»„†ˆ
+    (=gb2312		. #x2125)	; ø»„†ˆ
     (chinese-cns11643-1 . #x256D)	; ø»‘‰ 
     (=big5		. #xA3BC)	; ý¢€ŠŽ¼
     ))

@@ -16,7 +16,7 @@
   '((ideographic-radical . 183)	; â¾¶
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (chinese-gb2312	. #x3749)	; ø»„§€
+    (=gb2312		. #x3749)	; ø»„§€
     (=iso-ir165		. #x3749)	; ø»
     (=big5-cdp		. #x89F8)	; ý¢€ˆ§¸
     (=ucs		. #x98DE)	; é£ž

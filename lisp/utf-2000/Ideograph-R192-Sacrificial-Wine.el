@@ -3,7 +3,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
     (shinjigen-2	. 9502)
-    (chinese-gb2312	. #x5B4B)	; ø»…›º
+    (=gb2312		. #x5B4B)	; ø»…›º
     (=jis-x0208		. #x722E)	; ø½‹­‡
     (=iso-ir165		. #x5B4B)	; ø»Ž„Š
     (chinese-cns11643-2 . #x334D)	; ø»“§¨
