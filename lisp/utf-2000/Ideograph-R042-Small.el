@@ -610,7 +610,9 @@
      ((korean-ksc5601	  . #x6424)	; ø»‰¼©
       (ideograph-daikanwa . 21648)	; ø¸…’
       )
-     ((ucs		  . #x5C11)	; å°‘
+     ((=jis-x0208	  . #x3E2F)	; ø½Š °
+      (korean-ksc5601	  . #x6134)	; ø»‰¸Ÿ
+      (ideograph-daikanwa . 07475)	; ø¸´³
       ))
     (shinjigen-2	. 1906)
     (=jis-x0208		. #x5576)	; ø½‹ƒ©
