@@ -97,7 +97,7 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (greek-iso8859-7	#x22)	; -F¢-A
+    (greek-iso8859-7	#xA2)	; Í²
     ))
 (define-char
   '((name		. "MODIFIER LETTER REVERSED COMMA")
@@ -105,7 +105,7 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (greek-iso8859-7	#x21)	; -F¡-A
+    (greek-iso8859-7	#xA1)	; Í±
     ))
 (define-char
   '((name		. "MODIFIER LETTER RIGHT HALF RING")
@@ -177,8 +177,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese third tone")
-    (latin-iso8859-2	#x37)	; -B·-A
-    (latin-iso8859-4	#x37)	; -D·-A
+    (latin-iso8859-2		#xB7)	; øº’µ·
+    (latin-iso8859-4		#xB7)	; øº’¸·
+    (japanese-jisx0213-1	#x2A #x31)	; Ë‡
     ))
 (define-char
   '((name		. "FULLWIDTH CARON")
@@ -188,10 +189,10 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese third tone")
     (->decomposition	wide #x02C7)
-    (chinese-gb2312	#x21 #x26)	; $(D"0(B
-    (korean-ksc5601	#x22 #x27)	; $(C"'(B
-    (japanese-jisx0212	#x22 #x30)	; $(D"0(B
-    (chinese-cns11643-1 #x25 #x6F)	; $(G%o(B
+    (chinese-gb2312	#x21 #x26)	; ø»„†‰
+    (korean-ksc5601	#x22 #x27)	; ø»ˆ›°
+    (japanese-jisx0212	#x22 #x30)	; ø»Š¥½
+    (chinese-cns11643-1 #x25 #x6F)	; ø»‘‰¢
     ))
 (define-char
   '((name		. "MODIFIER LETTER VERTICAL LINE")
@@ -199,7 +200,8 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (ipa		#x70)	; -0ð-A
+    (ipa			#xF0)	; øº’›°
+    (japanese-jisx0213-1	#x2B #x53)	; Ëˆ
     ))
 (define-char
   '((name		. "MODIFIER LETTER MACRON")
@@ -208,7 +210,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese first tone")
-    (chinese-gb2312	#x21 #x25)	; $A!%(B
+    (chinese-gb2312	#x21 #x25)	; ø»„†ˆ
     ))
 (define-char
   '((name		. "MODIFIER LETTER ACUTE ACCENT")
@@ -217,7 +219,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese second tone")
-    (chinese-cns11643-1 #x25 #x6E)	; $(G%n(B
+    (chinese-cns11643-1 #x25 #x6E)	; ø»‘‰¡
     ))
 (define-char
   '((name		. "MODIFIER LETTER GRAVE ACCENT")
@@ -226,7 +228,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese fourth tone")
-    (chinese-cns11643-1 #x25 #x70)	; $(G%p(B
+    (chinese-cns11643-1 #x25 #x70)	; ø»‘‰£
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW VERTICAL LINE")
@@ -234,7 +236,8 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (ipa		#x71)	; -0ñ-A
+    (ipa			#xF1)	; øº’›±
+    (japanese-jisx0213-1	#x2B #x54)	; ËŒ
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW MACRON")
@@ -263,7 +266,8 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ipa		#x72)	; -0ò-A
+    (ipa			#xF2)	; øº’›²
+    (japanese-jisx0213-1	#x2B #x55)	; Ë
     ))
 (define-char
   '((name		. "FULLWIDTH MODIFIER LETTER TRIANGULAR COLON")
@@ -272,7 +276,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x02D0)
-    (korean-ksc5601	#x22 #x30)	; $(C"0(B
+    (korean-ksc5601	#x22 #x30)	; ø»ˆ›¹
     ))
 (define-char
   '((name		. "MODIFIER LETTER HALF TRIANGULAR COLON")
@@ -280,6 +284,7 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x56)	; Ë‘
     ))
 (define-char
   '((name		. "MODIFIER LETTER CENTRED RIGHT HALF RING")
@@ -330,8 +335,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x0306)
-    (latin-iso8859-2	#x22)	; -B¢-A
-    (latin-iso8859-3	#x22)	; -C¢-A
+    (latin-iso8859-2		#xA2)	; øº’µ¢
+    (latin-iso8859-3		#xA2)	; øº’·‚
+    (japanese-jisx0213-1	#x2A #x22)	; Ë˜
     ))
 (define-char
   '((name		. "FULLWIDTH BREVE")
@@ -340,8 +346,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x02D8)
-    (korean-ksc5601	#x22 #x28)	; $(D"/(B
-    (japanese-jisx0212	#x22 #x2F)	; $(D"/(B
+    (korean-ksc5601	#x22 #x28)	; ø»ˆ›±
+    (japanese-jisx0212	#x22 #x2F)	; ø»Š¥¼
     ))
 (define-char
   '((name		. "DOT ABOVE")
@@ -351,9 +357,10 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese light tone")
     (->decomposition	compat #x0020 #x0307)
-    (latin-iso8859-2	#x7F)	; -Bÿ-A
-    (latin-iso8859-3	#x7F)	; -Cÿ-A
-    (latin-iso8859-4	#x7F)	; -Dÿ-A
+    (latin-iso8859-2		#xFF)	; øº’¶¿
+    (latin-iso8859-3		#xFF)	; øº’¸Ÿ
+    (latin-iso8859-4		#xFF)	; øº’¹¿
+    (japanese-jisx0213-1	#x2A #x58)	; Ë™
     ))
 (define-char
   '((name		. "FULLWIDTH DOT ABOVE")
@@ -363,9 +370,9 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese light tone")
     (->decomposition	wide #x02D9)
-    (korean-ksc5601	#x22 #x2B)	; $(D"2(B
-    (japanese-jisx0212	#x22 #x32)	; $(D"2(B
-    (chinese-cns11643-1 #x25 #x6C)	; $(G%l(B
+    (korean-ksc5601	#x22 #x2B)	; ø»ˆ›´
+    (japanese-jisx0212	#x22 #x32)	; ø»Š¥¿
+    (chinese-cns11643-1 #x25 #x6C)	; ø»‘‰Ÿ
     ))
 (define-char
   '((name		. "RING ABOVE")
@@ -374,8 +381,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x030A)
-    (korean-ksc5601	#x22 #x2A)	; $(C"*(B
-    (japanese-jisx0212	#x22 #x36)	; $(D"6(B
+    (korean-ksc5601	#x22 #x2A)	; ø»ˆ›³
+    (japanese-jisx0212	#x22 #x36)	; ø»Š¦ƒ
     ))
 (define-char
   '((name		. "OGONEK")
@@ -384,8 +391,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x0328)
-    (latin-iso8859-2	#x32)	; -B²-A
-    (latin-iso8859-4	#x32)	; -D²-A
+    (latin-iso8859-2		#xB2)	; øº’µ²
+    (latin-iso8859-4		#xB2)	; øº’¸²
+    (japanese-jisx0213-1	#x2A #x2D)	; Ë›
     ))
 (define-char
   '((name		. "FULLWIDTH OGONEK")
@@ -393,8 +401,8 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (->decomposition	wide #x02DB)
-    (korean-ksc5601	#x22 #x2D)	; $(D"5(B
-    (japanese-jisx0212	#x22 #x35)	; $(D"5(B
+    (korean-ksc5601	#x22 #x2D)	; ø»ˆ›¶
+    (japanese-jisx0212	#x22 #x35)	; ø»Š¦‚
     ))
 (define-char
   '((name		. "SMALL TILDE")
@@ -411,7 +419,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x030B)
-    (latin-iso8859-2	#x3D)	; -B½-A
+    (latin-iso8859-2		#xBD)	; øº’µ½
+    (japanese-jisx0213-1	#x2A #x36)	; Ë
     ))
 (define-char
   '((name		. "FULLWIDTH DOUBLE ACUTE ACCENT")
@@ -420,8 +429,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x02DD)
-    (korean-ksc5601	#x22 #x29)	; $(D"3(B
-    (japanese-jisx0212	#x22 #x33)	; $(D"3(B
+    (korean-ksc5601	#x22 #x29)	; ø»ˆ›²
+    (japanese-jisx0212	#x22 #x33)	; ø»Š¦€
     ))
 (define-char
   '((name		. "MODIFIER LETTER RHOTIC HOOK")
@@ -429,6 +438,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x71)	; Ëž
     ))
 (define-char
   '((name		. "MODIFIER LETTER CROSS ACCENT")
@@ -483,6 +493,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x60)	; Ë¥
     ))
 (define-char
   '((name		. "MODIFIER LETTER HIGH TONE BAR")
@@ -490,6 +501,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x61)	; Ë¦
     ))
 (define-char
   '((name		. "MODIFIER LETTER MID TONE BAR")
@@ -497,6 +509,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x62)	; Ë§
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW TONE BAR")
@@ -504,6 +517,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x63)	; Ë¨
     ))
 (define-char
   '((name		. "MODIFIER LETTER EXTRA-LOW TONE BAR")
@@ -511,6 +525,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x64)	; Ë©
     ))
 (define-char
   '((name		. "MODIFIER LETTER YIN DEPARTING TONE MARK")

@@ -4,10 +4,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x24)	; $(A)$(B
-    (japanese-jisx0208	#x28 #x21)	; $(B(!(B
-    (korean-ksc5601	#x26 #x21)	; $(C&!(B
-    (chinese-cns11643-1 #x23 #x39)	; $(G#9(B
+    (chinese-gb2312	#x29 #x24)	; ¯ªÑë∑
+    (japanese-jisx0208	#x28 #x21)	; ¯ªÜöö
+    (korean-ksc5601	#x26 #x21)	; ¯ªà°¢
+    (chinese-cns11643-1 #x23 #x39)	; ¯ªëÖ∞
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY HORIZONTAL")
@@ -15,9 +15,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x25)	; $(A)%(B
-    (japanese-jisx0208	#x28 #x2C)	; $(B(,(B
-    (korean-ksc5601	#x26 #x2C)	; $(C&,(B
+    (chinese-gb2312	#x29 #x25)	; ¯ªÑë∏
+    (japanese-jisx0208	#x28 #x2C)	; ¯ªÜö•
+    (korean-ksc5601	#x26 #x2C)	; ¯ªà°≠
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT VERTICAL")
@@ -25,10 +25,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x26)	; $(A)&(B
-    (japanese-jisx0208	#x28 #x22)	; $(B("(B
-    (korean-ksc5601	#x26 #x22)	; $(C&"(B
-    (chinese-cns11643-1 #x23 #x3A)	; $(G#:(B
+    (chinese-gb2312	#x29 #x26)	; ¯ªÑëπ
+    (japanese-jisx0208	#x28 #x22)	; ¯ªÜöõ
+    (korean-ksc5601	#x26 #x22)	; ¯ªà°£
+    (chinese-cns11643-1 #x23 #x3A)	; ¯ªëÖ±
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY VERTICAL")
@@ -36,9 +36,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x27)	; $(A)'(B
-    (japanese-jisx0208	#x28 #x2D)	; $(B(-(B
-    (korean-ksc5601	#x26 #x2D)	; $(C&-(B
+    (chinese-gb2312	#x29 #x27)	; ¯ªÑë∫
+    (japanese-jisx0208	#x28 #x2D)	; ¯ªÜö¶
+    (korean-ksc5601	#x26 #x2D)	; ¯ªà°Æ
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT TRIPLE DASH HORIZONTAL")
@@ -46,7 +46,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x28)	; $(A)((B
+    (chinese-gb2312	#x29 #x28)	; ¯ªÑëª
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL")
@@ -54,7 +54,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x29)	; $(A))(B
+    (chinese-gb2312	#x29 #x29)	; ¯ªÑëº
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT TRIPLE DASH VERTICAL")
@@ -62,7 +62,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x2A)	; $(A)*(B
+    (chinese-gb2312	#x29 #x2A)	; ¯ªÑëΩ
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY TRIPLE DASH VERTICAL")
@@ -70,7 +70,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x2B)	; $(A)+(B
+    (chinese-gb2312	#x29 #x2B)	; ¯ªÑëæ
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT QUADRUPLE DASH HORIZONTAL")
@@ -78,7 +78,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x2C)	; $(A),(B
+    (chinese-gb2312	#x29 #x2C)	; ¯ªÑëø
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY QUADRUPLE DASH HORIZONTAL")
@@ -86,7 +86,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x2D)	; $(A)-(B
+    (chinese-gb2312	#x29 #x2D)	; ¯ªÑíÄ
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT QUADRUPLE DASH VERTICAL")
@@ -94,7 +94,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x2E)	; $(A).(B
+    (chinese-gb2312	#x29 #x2E)	; ¯ªÑíÅ
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY QUADRUPLE DASH VERTICAL")
@@ -102,7 +102,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x2F)	; $(A)/(B
+    (chinese-gb2312	#x29 #x2F)	; ¯ªÑíÇ
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT DOWN AND RIGHT")
@@ -110,10 +110,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x30)	; $(A)0(B
-    (japanese-jisx0208	#x28 #x23)	; $(B(#(B
-    (korean-ksc5601	#x26 #x23)	; $(C&#(B
-    (chinese-cns11643-1 #x23 #x3C)	; $(G#<(B
+    (chinese-gb2312	#x29 #x30)	; ¯ªÑíÉ
+    (japanese-jisx0208	#x28 #x23)	; ¯ªÜöú
+    (korean-ksc5601	#x26 #x23)	; ¯ªà°§
+    (chinese-cns11643-1 #x23 #x3C)	; ¯ªëÖ≥
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN LIGHT AND RIGHT HEAVY")
@@ -121,8 +121,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x31)	; $(A)1(B
-    (korean-ksc5601	#x26 #x48)	; $(C&H(B
+    (chinese-gb2312	#x29 #x31)	; ¯ªÑíÑ
+    (korean-ksc5601	#x26 #x48)	; ¯ªà¢â
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN HEAVY AND RIGHT LIGHT")
@@ -130,8 +130,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x32)	; $(A)2(B
-    (korean-ksc5601	#x26 #x47)	; $(C&G(B
+    (chinese-gb2312	#x29 #x32)	; ¯ªÑíÖ
+    (korean-ksc5601	#x26 #x47)	; ¯ªà¢à
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY DOWN AND RIGHT")
@@ -139,9 +139,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x33)	; $(A)3(B
-    (japanese-jisx0208	#x28 #x2E)	; $(B(.(B
-    (korean-ksc5601	#x26 #x2E)	; $(C&.(B
+    (chinese-gb2312	#x29 #x33)	; ¯ªÑíÜ
+    (japanese-jisx0208	#x28 #x2E)	; ¯ªÜöß
+    (korean-ksc5601	#x26 #x2E)	; ¯ªà°Ø
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT DOWN AND LEFT")
@@ -149,10 +149,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x34)	; $(A)4(B
-    (japanese-jisx0208	#x28 #x24)	; $(B($(B
-    (korean-ksc5601	#x26 #x24)	; $(C&$(B
-    (chinese-cns11643-1 #x23 #x3D)	; $(G#=(B
+    (chinese-gb2312	#x29 #x34)	; ¯ªÑíá
+    (japanese-jisx0208	#x28 #x24)	; ¯ªÜöù
+    (korean-ksc5601	#x26 #x24)	; ¯ªà°•
+    (chinese-cns11643-1 #x23 #x3D)	; ¯ªëÖ¥
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN LIGHT AND LEFT HEAVY")
@@ -160,8 +160,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x35)	; $(A)5(B
-    (korean-ksc5601	#x26 #x42)	; $(C&B(B
+    (chinese-gb2312	#x29 #x35)	; ¯ªÑíà
+    (korean-ksc5601	#x26 #x42)	; ¯ªà¢É
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN HEAVY AND LEFT LIGHT")
@@ -169,8 +169,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x36)	; $(A)6(B
-    (korean-ksc5601	#x26 #x41)	; $(C&A(B
+    (chinese-gb2312	#x29 #x36)	; ¯ªÑíâ
+    (korean-ksc5601	#x26 #x41)	; ¯ªà¢Ç
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY DOWN AND LEFT")
@@ -178,9 +178,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x37)	; $(A)7(B
-    (japanese-jisx0208	#x28 #x2F)	; $(B(/(B
-    (korean-ksc5601	#x26 #x2F)	; $(C&/(B
+    (chinese-gb2312	#x29 #x37)	; ¯ªÑíä
+    (japanese-jisx0208	#x28 #x2F)	; ¯ªÜö®
+    (korean-ksc5601	#x26 #x2F)	; ¯ªà°∞
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT UP AND RIGHT")
@@ -188,10 +188,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x38)	; $(A)8(B
-    (japanese-jisx0208	#x28 #x26)	; $(B(&(B
-    (korean-ksc5601	#x26 #x26)	; $(C&&(B
-    (chinese-cns11643-1 #x23 #x3E)	; $(G#>(B
+    (chinese-gb2312	#x29 #x38)	; ¯ªÑíã
+    (japanese-jisx0208	#x28 #x26)	; ¯ªÜöü
+    (korean-ksc5601	#x26 #x26)	; ¯ªà°ß
+    (chinese-cns11643-1 #x23 #x3E)	; ¯ªëÖµ
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP LIGHT AND RIGHT HEAVY")
@@ -199,8 +199,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x39)	; $(A)9(B
-    (korean-ksc5601	#x26 #x46)	; $(C&F(B
+    (chinese-gb2312	#x29 #x39)	; ¯ªÑíå
+    (korean-ksc5601	#x26 #x46)	; ¯ªà¢á
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP HEAVY AND RIGHT LIGHT")
@@ -208,8 +208,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x3A)	; $(A):(B
-    (korean-ksc5601	#x26 #x45)	; $(C&E(B
+    (chinese-gb2312	#x29 #x3A)	; ¯ªÑíç
+    (korean-ksc5601	#x26 #x45)	; ¯ªà¢Ü
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY UP AND RIGHT")
@@ -217,9 +217,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x3B)	; $(A);(B
-    (japanese-jisx0208	#x28 #x31)	; $(B(1(B
-    (korean-ksc5601	#x26 #x31)	; $(C&1(B
+    (chinese-gb2312	#x29 #x3B)	; ¯ªÑíé
+    (japanese-jisx0208	#x28 #x31)	; ¯ªÜö™
+    (korean-ksc5601	#x26 #x31)	; ¯ªà°≤
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT UP AND LEFT")
@@ -227,10 +227,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x3C)	; $(A)<(B
-    (japanese-jisx0208	#x28 #x25)	; $(B(%(B
-    (korean-ksc5601	#x26 #x25)	; $(C&%(B
-    (chinese-cns11643-1 #x23 #x3F)	; $(G#?(B
+    (chinese-gb2312	#x29 #x3C)	; ¯ªÑíè
+    (japanese-jisx0208	#x28 #x25)	; ¯ªÜöû
+    (korean-ksc5601	#x26 #x25)	; ¯ªà°¶
+    (chinese-cns11643-1 #x23 #x3F)	; ¯ªëÖ∂
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP LIGHT AND LEFT HEAVY")
@@ -238,8 +238,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x3D)	; $(A)=(B
-    (korean-ksc5601	#x26 #x44)	; $(C&D(B
+    (chinese-gb2312	#x29 #x3D)	; ¯ªÑíê
+    (korean-ksc5601	#x26 #x44)	; ¯ªà¢Ö
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP HEAVY AND LEFT LIGHT")
@@ -247,8 +247,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x3E)	; $(A)>(B
-    (korean-ksc5601	#x26 #x43)	; $(C&C(B
+    (chinese-gb2312	#x29 #x3E)	; ¯ªÑíë
+    (korean-ksc5601	#x26 #x43)	; ¯ªà¢Ñ
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY UP AND LEFT")
@@ -256,9 +256,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x3F)	; $(A)?(B
-    (japanese-jisx0208	#x28 #x30)	; $(B(0(B
-    (korean-ksc5601	#x26 #x30)	; $(C&0(B
+    (chinese-gb2312	#x29 #x3F)	; ¯ªÑíí
+    (japanese-jisx0208	#x28 #x30)	; ¯ªÜö©
+    (korean-ksc5601	#x26 #x30)	; ¯ªà°±
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT VERTICAL AND RIGHT")
@@ -266,10 +266,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x40)	; $(A)@(B
-    (japanese-jisx0208	#x28 #x27)	; $(B('(B
-    (korean-ksc5601	#x26 #x27)	; $(C&'(B
-    (chinese-cns11643-1 #x23 #x37)	; $(G#7(B
+    (chinese-gb2312	#x29 #x40)	; ¯ªÑíì
+    (japanese-jisx0208	#x28 #x27)	; ¯ªÜö†
+    (korean-ksc5601	#x26 #x27)	; ¯ªà°®
+    (chinese-cns11643-1 #x23 #x37)	; ¯ªëÖÆ
     ))
 (define-char
   '((name		. "BOX DRAWINGS VERTICAL LIGHT AND RIGHT HEAVY")
@@ -277,9 +277,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x41)	; $(A)A(B
-    (japanese-jisx0208	#x28 #x3C)	; $(B(<(B
-    (korean-ksc5601	#x26 #x3C)	; $(C&<(B
+    (chinese-gb2312	#x29 #x41)	; ¯ªÑíî
+    (japanese-jisx0208	#x28 #x3C)	; ¯ªÜöµ
+    (korean-ksc5601	#x26 #x3C)	; ¯ªà°Ω
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP HEAVY AND RIGHT DOWN LIGHT")
@@ -287,8 +287,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x42)	; $(A)B(B
-    (korean-ksc5601	#x26 #x49)	; $(C&I(B
+    (chinese-gb2312	#x29 #x42)	; ¯ªÑíï
+    (korean-ksc5601	#x26 #x49)	; ¯ªà¢ä
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN HEAVY AND RIGHT UP LIGHT")
@@ -296,8 +296,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x43)	; $(A)C(B
-    (korean-ksc5601	#x26 #x4A)	; $(C&J(B
+    (chinese-gb2312	#x29 #x43)	; ¯ªÑíñ
+    (korean-ksc5601	#x26 #x4A)	; ¯ªà¢ã
     ))
 (define-char
   '((name		. "BOX DRAWINGS VERTICAL HEAVY AND RIGHT LIGHT")
@@ -305,9 +305,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x44)	; $(A)D(B
-    (japanese-jisx0208	#x28 #x37)	; $(B(7(B
-    (korean-ksc5601	#x26 #x37)	; $(C&7(B
+    (chinese-gb2312	#x29 #x44)	; ¯ªÑíó
+    (japanese-jisx0208	#x28 #x37)	; ¯ªÜö∞
+    (korean-ksc5601	#x26 #x37)	; ¯ªà°∏
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN LIGHT AND RIGHT UP HEAVY")
@@ -315,8 +315,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x45)	; $(A)E(B
-    (korean-ksc5601	#x26 #x4B)	; $(C&K(B
+    (chinese-gb2312	#x29 #x45)	; ¯ªÑíò
+    (korean-ksc5601	#x26 #x4B)	; ¯ªà¢å
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP LIGHT AND RIGHT DOWN HEAVY")
@@ -324,8 +324,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x46)	; $(A)F(B
-    (korean-ksc5601	#x26 #x4C)	; $(C&L(B
+    (chinese-gb2312	#x29 #x46)	; ¯ªÑíô
+    (korean-ksc5601	#x26 #x4C)	; ¯ªà¢ç
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY VERTICAL AND RIGHT")
@@ -333,9 +333,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x47)	; $(A)G(B
-    (japanese-jisx0208	#x28 #x32)	; $(B(2(B
-    (korean-ksc5601	#x26 #x32)	; $(C&2(B
+    (chinese-gb2312	#x29 #x47)	; ¯ªÑíö
+    (japanese-jisx0208	#x28 #x32)	; ¯ªÜö´
+    (korean-ksc5601	#x26 #x32)	; ¯ªà°≥
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT VERTICAL AND LEFT")
@@ -343,10 +343,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x48)	; $(A)H(B
-    (japanese-jisx0208	#x28 #x29)	; $(B()(B
-    (korean-ksc5601	#x26 #x29)	; $(C&)(B
-    (chinese-cns11643-1 #x23 #x36)	; $(G#6(B
+    (chinese-gb2312	#x29 #x48)	; ¯ªÑíõ
+    (japanese-jisx0208	#x28 #x29)	; ¯ªÜö¢
+    (korean-ksc5601	#x26 #x29)	; ¯ªà°™
+    (chinese-cns11643-1 #x23 #x36)	; ¯ªëÖ≠
     ))
 (define-char
   '((name		. "BOX DRAWINGS VERTICAL LIGHT AND LEFT HEAVY")
@@ -354,9 +354,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x49)	; $(A)I(B
-    (japanese-jisx0208	#x28 #x3E)	; $(B(>(B
-    (korean-ksc5601	#x26 #x3E)	; $(C&>(B
+    (chinese-gb2312	#x29 #x49)	; ¯ªÑíú
+    (japanese-jisx0208	#x28 #x3E)	; ¯ªÜö∑
+    (korean-ksc5601	#x26 #x3E)	; ¯ªà°ø
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP HEAVY AND LEFT DOWN LIGHT")
@@ -364,8 +364,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x4A)	; $(A)J(B
-    (korean-ksc5601	#x26 #x4D)	; $(C&M(B
+    (chinese-gb2312	#x29 #x4A)	; ¯ªÑíù
+    (korean-ksc5601	#x26 #x4D)	; ¯ªà¢é
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN HEAVY AND LEFT UP LIGHT")
@@ -373,8 +373,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x4B)	; $(A)K(B
-    (korean-ksc5601	#x26 #x4E)	; $(C&N(B
+    (chinese-gb2312	#x29 #x4B)	; ¯ªÑíû
+    (korean-ksc5601	#x26 #x4E)	; ¯ªà¢è
     ))
 (define-char
   '((name		. "BOX DRAWINGS VERTICAL HEAVY AND LEFT LIGHT")
@@ -382,9 +382,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x4C)	; $(A)L(B
-    (japanese-jisx0208	#x28 #x39)	; $(B(9(B
-    (korean-ksc5601	#x26 #x39)	; $(C&9(B
+    (chinese-gb2312	#x29 #x4C)	; ¯ªÑíü
+    (japanese-jisx0208	#x28 #x39)	; ¯ªÜö≤
+    (korean-ksc5601	#x26 #x39)	; ¯ªà°∫
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN LIGHT AND LEFT UP HEAVY")
@@ -392,8 +392,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x4D)	; $(A)M(B
-    (korean-ksc5601	#x26 #x4F)	; $(C&O(B
+    (chinese-gb2312	#x29 #x4D)	; ¯ªÑí†
+    (korean-ksc5601	#x26 #x4F)	; ¯ªà¢ê
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP LIGHT AND LEFT DOWN HEAVY")
@@ -401,8 +401,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x4E)	; $(A)N(B
-    (korean-ksc5601	#x26 #x50)	; $(C&P(B
+    (chinese-gb2312	#x29 #x4E)	; ¯ªÑí°
+    (korean-ksc5601	#x26 #x50)	; ¯ªà¢ë
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY VERTICAL AND LEFT")
@@ -410,9 +410,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x4F)	; $(A)O(B
-    (japanese-jisx0208	#x28 #x34)	; $(B(4(B
-    (korean-ksc5601	#x26 #x34)	; $(C&4(B
+    (chinese-gb2312	#x29 #x4F)	; ¯ªÑí¢
+    (japanese-jisx0208	#x28 #x34)	; ¯ªÜö≠
+    (korean-ksc5601	#x26 #x34)	; ¯ªà°µ
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT DOWN AND HORIZONTAL")
@@ -420,10 +420,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x50)	; $(A)P(B
-    (japanese-jisx0208	#x28 #x28)	; $(B(((B
-    (korean-ksc5601	#x26 #x28)	; $(C&((B
-    (chinese-cns11643-1 #x23 #x35)	; $(G#5(B
+    (chinese-gb2312	#x29 #x50)	; ¯ªÑí£
+    (japanese-jisx0208	#x28 #x28)	; ¯ªÜö°
+    (korean-ksc5601	#x26 #x28)	; ¯ªà°©
+    (chinese-cns11643-1 #x23 #x35)	; ¯ªëÖ¨
     ))
 (define-char
   '((name		. "BOX DRAWINGS LEFT HEAVY AND RIGHT DOWN LIGHT")
@@ -431,8 +431,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x51)	; $(A)Q(B
-    (korean-ksc5601	#x26 #x51)	; $(C&Q(B
+    (chinese-gb2312	#x29 #x51)	; ¯ªÑí§
+    (korean-ksc5601	#x26 #x51)	; ¯ªà¢í
     ))
 (define-char
   '((name		. "BOX DRAWINGS RIGHT HEAVY AND LEFT DOWN LIGHT")
@@ -440,8 +440,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x52)	; $(A)R(B
-    (korean-ksc5601	#x26 #x52)	; $(C&R(B
+    (chinese-gb2312	#x29 #x52)	; ¯ªÑí•
+    (korean-ksc5601	#x26 #x52)	; ¯ªà¢ì
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN LIGHT AND HORIZONTAL HEAVY")
@@ -449,9 +449,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x53)	; $(A)S(B
-    (japanese-jisx0208	#x28 #x38)	; $(B(8(B
-    (korean-ksc5601	#x26 #x38)	; $(C&8(B
+    (chinese-gb2312	#x29 #x53)	; ¯ªÑí¶
+    (japanese-jisx0208	#x28 #x38)	; ¯ªÜö±
+    (korean-ksc5601	#x26 #x38)	; ¯ªà°π
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN HEAVY AND HORIZONTAL LIGHT")
@@ -459,9 +459,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x54)	; $(A)T(B
-    (japanese-jisx0208	#x28 #x3D)	; $(B(=(B
-    (korean-ksc5601	#x26 #x3D)	; $(C&=(B
+    (chinese-gb2312	#x29 #x54)	; ¯ªÑíß
+    (japanese-jisx0208	#x28 #x3D)	; ¯ªÜö∂
+    (korean-ksc5601	#x26 #x3D)	; ¯ªà°æ
     ))
 (define-char
   '((name		. "BOX DRAWINGS RIGHT LIGHT AND LEFT DOWN HEAVY")
@@ -469,8 +469,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x55)	; $(A)U(B
-    (korean-ksc5601	#x26 #x53)	; $(C&S(B
+    (chinese-gb2312	#x29 #x55)	; ¯ªÑí®
+    (korean-ksc5601	#x26 #x53)	; ¯ªà¢î
     ))
 (define-char
   '((name		. "BOX DRAWINGS LEFT LIGHT AND RIGHT DOWN HEAVY")
@@ -478,8 +478,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x56)	; $(A)V(B
-    (korean-ksc5601	#x26 #x54)	; $(C&T(B
+    (chinese-gb2312	#x29 #x56)	; ¯ªÑí©
+    (korean-ksc5601	#x26 #x54)	; ¯ªà¢ï
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY DOWN AND HORIZONTAL")
@@ -487,9 +487,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x57)	; $(A)W(B
-    (japanese-jisx0208	#x28 #x33)	; $(B(3(B
-    (korean-ksc5601	#x26 #x33)	; $(C&3(B
+    (chinese-gb2312	#x29 #x57)	; ¯ªÑí™
+    (japanese-jisx0208	#x28 #x33)	; ¯ªÜö¨
+    (korean-ksc5601	#x26 #x33)	; ¯ªà°¥
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT UP AND HORIZONTAL")
@@ -497,10 +497,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x58)	; $(A)X(B
-    (japanese-jisx0208	#x28 #x2A)	; $(B(*(B
-    (korean-ksc5601	#x26 #x2A)	; $(C&*(B
-    (chinese-cns11643-1 #x23 #x34)	; $(G#4(B
+    (chinese-gb2312	#x29 #x58)	; ¯ªÑí´
+    (japanese-jisx0208	#x28 #x2A)	; ¯ªÜö£
+    (korean-ksc5601	#x26 #x2A)	; ¯ªà°´
+    (chinese-cns11643-1 #x23 #x34)	; ¯ªëÖ´
     ))
 (define-char
   '((name		. "BOX DRAWINGS LEFT HEAVY AND RIGHT UP LIGHT")
@@ -508,8 +508,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x59)	; $(A)Y(B
-    (korean-ksc5601	#x26 #x55)	; $(C&U(B
+    (chinese-gb2312	#x29 #x59)	; ¯ªÑí¨
+    (korean-ksc5601	#x26 #x55)	; ¯ªà¢ñ
     ))
 (define-char
   '((name		. "BOX DRAWINGS RIGHT HEAVY AND LEFT UP LIGHT")
@@ -517,8 +517,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x5A)	; $(A)Z(B
-    (korean-ksc5601	#x26 #x56)	; $(C&V(B
+    (chinese-gb2312	#x29 #x5A)	; ¯ªÑí≠
+    (korean-ksc5601	#x26 #x56)	; ¯ªà¢ó
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP LIGHT AND HORIZONTAL HEAVY")
@@ -526,9 +526,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x5B)	; $(A)[(B
-    (japanese-jisx0208	#x28 #x3A)	; $(B(:(B
-    (korean-ksc5601	#x26 #x3A)	; $(C&:(B
+    (chinese-gb2312	#x29 #x5B)	; ¯ªÑíÆ
+    (japanese-jisx0208	#x28 #x3A)	; ¯ªÜö≥
+    (korean-ksc5601	#x26 #x3A)	; ¯ªà°ª
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP HEAVY AND HORIZONTAL LIGHT")
@@ -536,9 +536,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x5C)	; $(A)\(B
-    (japanese-jisx0208	#x28 #x3F)	; $(B(?(B
-    (korean-ksc5601	#x26 #x3F)	; $(C&?(B
+    (chinese-gb2312	#x29 #x5C)	; ¯ªÑíØ
+    (japanese-jisx0208	#x28 #x3F)	; ¯ªÜö∏
+    (korean-ksc5601	#x26 #x3F)	; ¯ªà¢Ä
     ))
 (define-char
   '((name		. "BOX DRAWINGS RIGHT LIGHT AND LEFT UP HEAVY")
@@ -546,8 +546,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x5D)	; $(A)](B
-    (korean-ksc5601	#x26 #x57)	; $(C&W(B
+    (chinese-gb2312	#x29 #x5D)	; ¯ªÑí∞
+    (korean-ksc5601	#x26 #x57)	; ¯ªà¢ò
     ))
 (define-char
   '((name		. "BOX DRAWINGS LEFT LIGHT AND RIGHT UP HEAVY")
@@ -555,8 +555,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x5E)	; $(A)^(B
-    (korean-ksc5601	#x26 #x58)	; $(C&X(B
+    (chinese-gb2312	#x29 #x5E)	; ¯ªÑí±
+    (korean-ksc5601	#x26 #x58)	; ¯ªà¢ô
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY UP AND HORIZONTAL")
@@ -564,9 +564,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x5F)	; $(A)_(B
-    (japanese-jisx0208	#x28 #x35)	; $(B(5(B
-    (korean-ksc5601	#x26 #x35)	; $(C&5(B
+    (chinese-gb2312	#x29 #x5F)	; ¯ªÑí≤
+    (japanese-jisx0208	#x28 #x35)	; ¯ªÜöÆ
+    (korean-ksc5601	#x26 #x35)	; ¯ªà°∂
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL")
@@ -574,10 +574,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x60)	; $(A)`(B
-    (japanese-jisx0208	#x28 #x2B)	; $(B(+(B
-    (korean-ksc5601	#x26 #x2B)	; $(C&+(B
-    (chinese-cns11643-1 #x23 #x33)	; $(G#3(B
+    (chinese-gb2312	#x29 #x60)	; ¯ªÑí≥
+    (japanese-jisx0208	#x28 #x2B)	; ¯ªÜö§
+    (korean-ksc5601	#x26 #x2B)	; ¯ªà°¨
+    (chinese-cns11643-1 #x23 #x33)	; ¯ªëÖ™
     ))
 (define-char
   '((name . "BOX DRAWINGS LEFT HEAVY AND RIGHT VERTICAL LIGHT")
@@ -585,8 +585,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x61)	; $(A)a(B
-    (korean-ksc5601	#x26 #x59)	; $(C&Y(B
+    (chinese-gb2312	#x29 #x61)	; ¯ªÑí¥
+    (korean-ksc5601	#x26 #x59)	; ¯ªà¢ö
     ))
 (define-char
   '((name . "BOX DRAWINGS RIGHT HEAVY AND LEFT VERTICAL LIGHT")
@@ -594,8 +594,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x62)	; $(A)b(B
-    (korean-ksc5601	#x26 #x5A)	; $(C&Z(B
+    (chinese-gb2312	#x29 #x62)	; ¯ªÑíµ
+    (korean-ksc5601	#x26 #x5A)	; ¯ªà¢õ
     ))
 (define-char
   '((name . "BOX DRAWINGS VERTICAL LIGHT AND HORIZONTAL HEAVY")
@@ -603,9 +603,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x63)	; $(A)c(B
-    (japanese-jisx0208	#x28 #x3B)	; $(B(;(B
-    (korean-ksc5601	#x26 #x3B)	; $(C&;(B
+    (chinese-gb2312	#x29 #x63)	; ¯ªÑí∂
+    (japanese-jisx0208	#x28 #x3B)	; ¯ªÜö¥
+    (korean-ksc5601	#x26 #x3B)	; ¯ªà°º
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP HEAVY AND DOWN HORIZONTAL LIGHT")
@@ -613,8 +613,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x64)	; $(A)d(B
-    (korean-ksc5601	#x26 #x5B)	; $(C&[(B
+    (chinese-gb2312	#x29 #x64)	; ¯ªÑí∑
+    (korean-ksc5601	#x26 #x5B)	; ¯ªà¢ú
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN HEAVY AND UP HORIZONTAL LIGHT")
@@ -622,8 +622,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x65)	; $(A)e(B
-    (korean-ksc5601	#x26 #x5C)	; $(C&\(B
+    (chinese-gb2312	#x29 #x65)	; ¯ªÑí∏
+    (korean-ksc5601	#x26 #x5C)	; ¯ªà¢ù
     ))
 (define-char
   '((name . "BOX DRAWINGS VERTICAL HEAVY AND HORIZONTAL LIGHT")
@@ -631,9 +631,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x66)	; $(A)f(B
-    (japanese-jisx0208	#x28 #x40)	; $(B(@(B
-    (korean-ksc5601	#x26 #x40)	; $(C&@(B
+    (chinese-gb2312	#x29 #x66)	; ¯ªÑíπ
+    (japanese-jisx0208	#x28 #x40)	; ¯ªÜöπ
+    (korean-ksc5601	#x26 #x40)	; ¯ªà¢Å
     ))
 (define-char
   '((name		. "BOX DRAWINGS LEFT UP HEAVY AND RIGHT DOWN LIGHT")
@@ -641,8 +641,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x67)	; $(A)g(B
-    (korean-ksc5601	#x26 #x5D)	; $(C&](B
+    (chinese-gb2312	#x29 #x67)	; ¯ªÑí∫
+    (korean-ksc5601	#x26 #x5D)	; ¯ªà¢û
     ))
 (define-char
   '((name		. "BOX DRAWINGS RIGHT UP HEAVY AND LEFT DOWN LIGHT")
@@ -650,8 +650,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x68)	; $(A)h(B
-    (korean-ksc5601	#x26 #x5E)	; $(C&^(B
+    (chinese-gb2312	#x29 #x68)	; ¯ªÑíª
+    (korean-ksc5601	#x26 #x5E)	; ¯ªà¢ü
     ))
 (define-char
   '((name		. "BOX DRAWINGS LEFT DOWN HEAVY AND RIGHT UP LIGHT")
@@ -659,8 +659,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x69)	; $(A)i(B
-    (korean-ksc5601	#x26 #x5F)	; $(C&_(B
+    (chinese-gb2312	#x29 #x69)	; ¯ªÑíº
+    (korean-ksc5601	#x26 #x5F)	; ¯ªà¢†
     ))
 (define-char
   '((name		. "BOX DRAWINGS RIGHT DOWN HEAVY AND LEFT UP LIGHT")
@@ -668,8 +668,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x6A)	; $(A)j(B
-    (korean-ksc5601	#x26 #x60)	; $(C&`(B
+    (chinese-gb2312	#x29 #x6A)	; ¯ªÑíΩ
+    (korean-ksc5601	#x26 #x60)	; ¯ªà¢°
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN LIGHT AND UP HORIZONTAL HEAVY")
@@ -677,8 +677,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x6B)	; $(A)k(B
-    (korean-ksc5601	#x26 #x61)	; $(C&a(B
+    (chinese-gb2312	#x29 #x6B)	; ¯ªÑíæ
+    (korean-ksc5601	#x26 #x61)	; ¯ªà¢¢
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP LIGHT AND DOWN HORIZONTAL HEAVY")
@@ -686,8 +686,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x6C)	; $(A)l(B
-    (korean-ksc5601	#x26 #x62)	; $(C&b(B
+    (chinese-gb2312	#x29 #x6C)	; ¯ªÑíø
+    (korean-ksc5601	#x26 #x62)	; ¯ªà¢£
     ))
 (define-char
   '((name . "BOX DRAWINGS RIGHT LIGHT AND LEFT VERTICAL HEAVY")
@@ -695,8 +695,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x6D)	; $(A)m(B
-    (korean-ksc5601	#x26 #x63)	; $(C&c(B
+    (chinese-gb2312	#x29 #x6D)	; ¯ªÑìÄ
+    (korean-ksc5601	#x26 #x63)	; ¯ªà¢§
     ))
 (define-char
   '((name . "BOX DRAWINGS LEFT LIGHT AND RIGHT VERTICAL HEAVY")
@@ -704,8 +704,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x6E)	; $(A)n(B
-    (korean-ksc5601	#x26 #x64)	; $(C&d(B
+    (chinese-gb2312	#x29 #x6E)	; ¯ªÑìÅ
+    (korean-ksc5601	#x26 #x64)	; ¯ªà¢•
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY VERTICAL AND HORIZONTAL")
@@ -713,9 +713,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x29 #x6F)	; $(A)o(B
-    (japanese-jisx0208	#x28 #x36)	; $(B(6(B
-    (korean-ksc5601	#x26 #x36)	; $(C&6(B
+    (chinese-gb2312	#x29 #x6F)	; ¯ªÑìÇ
+    (japanese-jisx0208	#x28 #x36)	; ¯ªÜöØ
+    (korean-ksc5601	#x26 #x36)	; ¯ªà°∑
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT DOUBLE DASH HORIZONTAL")
@@ -751,7 +751,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x44)	; $(G#D(B
+    (chinese-cns11643-1 #x23 #x44)	; ¯ªëÖª
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOUBLE VERTICAL")
@@ -850,7 +850,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x45)	; $(G#E(B
+    (chinese-cns11643-1 #x23 #x45)	; ¯ªëÖº
     ))
 (define-char
   '((name		. "BOX DRAWINGS VERTICAL DOUBLE AND RIGHT SINGLE")
@@ -872,7 +872,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x47)	; $(G#G(B
+    (chinese-cns11643-1 #x23 #x47)	; ¯ªëÖæ
     ))
 (define-char
   '((name		. "BOX DRAWINGS VERTICAL DOUBLE AND LEFT SINGLE")
@@ -936,7 +936,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x46)	; $(G#F(B
+    (chinese-cns11643-1 #x23 #x46)	; ¯ªëÖΩ
     ))
 (define-char
   '((name . "BOX DRAWINGS VERTICAL DOUBLE AND HORIZONTAL SINGLE")
@@ -958,7 +958,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x40)	; $(G#@(B
+    (chinese-cns11643-1 #x23 #x40)	; ¯ªëÖ∑
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT ARC DOWN AND LEFT")
@@ -966,7 +966,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x41)	; $(G#A(B
+    (chinese-cns11643-1 #x23 #x41)	; ¯ªëÖ∏
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT ARC UP AND LEFT")
@@ -974,7 +974,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x43)	; $(G#C(B
+    (chinese-cns11643-1 #x23 #x43)	; ¯ªëÖ∫
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT ARC UP AND RIGHT")
@@ -982,7 +982,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x42)	; $(G#B(B
+    (chinese-cns11643-1 #x23 #x42)	; ¯ªëÖπ
     ))
 (define-char
   '((name . "BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT")
@@ -990,7 +990,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x4C)	; $(G#L(B
+    (chinese-cns11643-1 #x23 #x4C)	; ¯ªëÜÉ
     ))
 (define-char
   '((name . "BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT")
@@ -998,7 +998,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x4D)	; $(G#M(B
+    (chinese-cns11643-1 #x23 #x4D)	; ¯ªëÜÑ
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT DIAGONAL CROSS")
@@ -1006,7 +1006,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x4E)	; $(G#N(B
+    (chinese-cns11643-1 #x23 #x4E)	; ¯ªëÜÖ
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT LEFT")

@@ -3,15 +3,717 @@
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`mojikyo-pj-[1 .. 21]' in UTF-2000.
 
-1999-11-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+2000-01-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
-	`japanese-jisx0208-1978' in UTF-2000.
+	`katakana-jisx0201' in UTF-2000.
+
+1999-12-23  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "u0A000-Yi-Syllables",
+	"u0AC00-Hangul-Syllables", "u0FB00-Alphabetic-Presentation-Forms",
+	"u0FB50-Arabic-Presentation-Forms-A",
+	"u0FE20-Combining-Half-Marks", "u0FE30-CJK-Compatibility-Forms",
+	"u0FE50-Small-Form-Variants",
+	"u0FE70-Arabic-Presentation-Forms-B",
+	"u0FF00-Halfwidth-and-Fullwidth-Forms" and "u0FFF0-Specials" in
+	UTF-2000.
+
+	* utf-2000/u0A000-Yi-Syllables.el,
+	utf-2000/u0AC00-Hangul-Syllables.el,
+	utf-2000/u0FB00-Alphabetic-Presentation-Forms.el,
+	utf-2000/u0FB50-Arabic-Presentation-Forms-A.el,
+	utf-2000/u0FE20-Combining-Half-Marks.el,
+	utf-2000/u0FE30-CJK-Compatibility-Forms.el,
+	utf-2000/u0FE50-Small-Form-Variants.el,
+	utf-2000/u0FE70-Arabic-Presentation-Forms-B.el,
+	utf-2000/u0FF00-Halfwidth-and-Fullwidth-Forms.el,
+	utf-2000/u0FFF0-Specials.el: New files.
+
+1999-12-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Delete
+	"ccs-jisx0208-1983.el"; add "Ideograph-R031-Enclosure"
+	... "Ideograph-R214-Flute" in UTF-2000.
+
+1999-12-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (insert-char-data): Change order of
+	`kangxi-strokes'.
+	(insert-char-data-with-variant): Look up variants of corresponding
+	ucs character if a character does not have variants.
+
+1999-11-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/ideograph-util.el (ideograph-char<): Fixed.
+
+	* utf-2000/u03100-Bopomofo.el (U+3128): Separate M00115.
+
+1999-12-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R213-Turtle.el,
+	utf-2000/Ideograph-R214-Flute.el: New files.
+
+	* utf-2000/Ideograph-R206-Tripod.el,
+	utf-2000/Ideograph-R207-Drum.el, utf-2000/Ideograph-R208-Rat.el,
+	utf-2000/Ideograph-R209-Nose.el, utf-2000/Ideograph-R210-Even.el,
+	utf-2000/Ideograph-R211-Tooth.el,
+	utf-2000/Ideograph-R212-Dragon.el: New files.
+
+	* utf-2000/Ideograph-R204-Embroidery.el,
+	utf-2000/Ideograph-R205-Frog.el: New files.
+
+	* utf-2000/Ideograph-R200-Hemp.el,
+	utf-2000/Ideograph-R201-Yellow.el,
+	utf-2000/Ideograph-R202-Millet.el,
+	utf-2000/Ideograph-R203-Black.el: New files.
+
+	* utf-2000/Ideograph-R194-Ghost.el,
+	utf-2000/Ideograph-R195-Fish.el, utf-2000/Ideograph-R196-Bird.el,
+	utf-2000/Ideograph-R197-Salt.el, utf-2000/Ideograph-R198-Deer.el,
+	utf-2000/Ideograph-R199-Wheat.el: New files.
+
+	* utf-2000/Ideograph-R191-Fight.el,
+	utf-2000/Ideograph-R192-Sacrificial-Wine.el,
+	utf-2000/Ideograph-R193-Cauldron.el: New files.
+
+	* utf-2000/Ideograph-R185-Head.el,
+	utf-2000/Ideograph-R186-Fragrant.el,
+	utf-2000/Ideograph-R187-Horse.el, utf-2000/Ideograph-R188-Bone.el,
+	utf-2000/Ideograph-R189-Tall.el, utf-2000/Ideograph-R190-Hair.el:
+	New files.
+
+	* utf-2000/Ideograph-R183-Fly.el, utf-2000/Ideograph-R184-Eat.el:
+	New files.
+
+	* utf-2000/Ideograph-R180-Sound.el,
+	utf-2000/Ideograph-R181-Leaf.el, utf-2000/Ideograph-R182-Wind.el:
+	New files.
+
+	* utf-2000/Ideograph-R178-Tanned-Leather.el,
+	utf-2000/Ideograph-R179-Leek.el: New files.
+
+	* utf-2000/Ideograph-R166-Village.el,
+	utf-2000/Ideograph-R167-Gold.el, utf-2000/Ideograph-R168-Long.el,
+	utf-2000/Ideograph-R169-Gate.el, utf-2000/Ideograph-R170-Mound.el,
+	utf-2000/Ideograph-R171-Slave.el,
+	utf-2000/Ideograph-R172-Short-Tailed-Bird.el,
+	utf-2000/Ideograph-R173-Rain.el, utf-2000/Ideograph-R174-Blue.el,
+	utf-2000/Ideograph-R175-Wrong.el, utf-2000/Ideograph-R176-Face.el,
+	utf-2000/Ideograph-R177-Leather.el: New files.
+
+	* utf-2000/Ideograph-R161-Morning.el,
+	utf-2000/Ideograph-R162-Walk.el, utf-2000/Ideograph-R163-City.el,
+	utf-2000/Ideograph-R164-Wine.el,
+	utf-2000/Ideograph-R165-Distinguish.el: New files.
+
+	* utf-2000/Ideograph-R156-Run.el, utf-2000/Ideograph-R157-Foot.el,
+	utf-2000/Ideograph-R158-Body.el, utf-2000/Ideograph-R159-Cart.el,
+	utf-2000/Ideograph-R160-Bitter.el: New files.
+
+	* utf-2000/Ideograph-R153-Badger.el,
+	utf-2000/Ideograph-R154-Shell.el, utf-2000/Ideograph-R155-Red.el:
+	New files.
+
+	* utf-2000/Ideograph-R151-Bean.el, utf-2000/Ideograph-R152-Pig.el:
+	New files.
+
+	* utf-2000/Ideograph-R148-Horn.el,
+	utf-2000/Ideograph-R149-Speech.el,
+	utf-2000/Ideograph-R150-Valley.el: New files.
+
+	* utf-2000/Ideograph-R139-Color.el,
+	utf-2000/Ideograph-R140-Grass.el,
+	utf-2000/Ideograph-R141-Tiger.el,
+	utf-2000/Ideograph-R142-Insect.el,
+	utf-2000/Ideograph-R143-Blood.el,
+	utf-2000/Ideograph-R144-Walk-Enclosure.el,
+	utf-2000/Ideograph-R145-Clothes.el,
+	utf-2000/Ideograph-R146-West.el, utf-2000/Ideograph-R147-See.el:
+	New files.
+
+	* utf-2000/Ideograph-R137-Boat.el,
+	utf-2000/Ideograph-R138-Stopping.el: New files.
+
+	* utf-2000/Ideograph-R135-Tongue.el,
+	utf-2000/Ideograph-R136-Oppose.el: New files.
+
+	* utf-2000/Ideograph-R132-Self.el,
+	utf-2000/Ideograph-R133-Arrive.el,
+	utf-2000/Ideograph-R134-Mortar.el: New files.
+
+	* utf-2000/Ideograph-R127-Plow.el, utf-2000/Ideograph-R128-Ear.el,
+	utf-2000/Ideograph-R129-Brush.el, utf-2000/Ideograph-R130-Meat.el,
+	utf-2000/Ideograph-R131-Minister.el: New files.
+
+	* utf-2000/Ideograph-R123-Sheep.el,
+	utf-2000/Ideograph-R124-Feather.el,
+	utf-2000/Ideograph-R125-Old.el, utf-2000/Ideograph-R126-And.el:
+	New files.
+
+	* utf-2000/Ideograph-R110-Spear.el,
+	utf-2000/Ideograph-R111-Arrow.el,
+	utf-2000/Ideograph-R112-Stone.el,
+	utf-2000/Ideograph-R113-Spirit.el,
+	utf-2000/Ideograph-R114-Track.el,
+	utf-2000/Ideograph-R115-Grain.el, utf-2000/Ideograph-R116-Cave.el,
+	utf-2000/Ideograph-R117-Stand.el,
+	utf-2000/Ideograph-R118-Bamboo.el,
+	utf-2000/Ideograph-R119-Rice.el, utf-2000/Ideograph-R120-Silk.el,
+	utf-2000/Ideograph-R121-Jar.el, utf-2000/Ideograph-R122-Net.el:
+	New files.
+
+	* utf-2000/Ideograph-R108-Dish.el, utf-2000/Ideograph-R109-Eye.el:
+	New files.
+
+	* utf-2000/Ideograph-R106-White.el,
+	utf-2000/Ideograph-R107-Skin.el: New files.
+
+	* utf-2000/Ideograph-R103-Bolt-Of-Cloth.el,
+	utf-2000/Ideograph-R104-Sickness.el,
+	utf-2000/Ideograph-R105-Dotted-Tent.el: New files.
+
+	* utf-2000/Ideograph-R099-Sweet.el,
+	utf-2000/Ideograph-R100-Life.el, utf-2000/Ideograph-R101-Use.el,
+	utf-2000/Ideograph-R102-Field.el: New files.
+
+	* utf-2000/Ideograph-R095-Profound.el,
+	utf-2000/Ideograph-R096-Jade.el, utf-2000/Ideograph-R097-Melon.el,
+	utf-2000/Ideograph-R098-Tile.el: New files.
+
+	* utf-2000/Ideograph-R092-Fang.el, utf-2000/Ideograph-R093-Cow.el,
+	utf-2000/Ideograph-R094-Dog.el: New files.
+
+	* utf-2000/Ideograph-R090-Half-Tree-Trunk.el,
+	utf-2000/Ideograph-R091-Slice.el: New files.
+
+	* utf-2000/Ideograph-R088-Father.el,
+	utf-2000/Ideograph-R089-Double-X.el: New files.
+
+	* utf-2000/Ideograph-R084-Steam.el,
+	utf-2000/Ideograph-R085-Water.el, utf-2000/Ideograph-R086-Fire.el,
+	utf-2000/Ideograph-R087-Claw.el: New files.
+
+	* utf-2000/Ideograph-R081-Compare.el,
+	utf-2000/Ideograph-R082-Fur.el, utf-2000/Ideograph-R083-Clan.el:
+	New files.
+
+	* utf-2000/Ideograph-R079-Weapon.el,
+	utf-2000/Ideograph-R080-Do-Not.el: New files.
+
+	* utf-2000/Ideograph-R073-Say.el, utf-2000/Ideograph-R074-Moon.el,
+	utf-2000/Ideograph-R075-Tree.el, utf-2000/Ideograph-R076-Lack.el,
+	utf-2000/Ideograph-R077-Stop.el, utf-2000/Ideograph-R078-Death.el:
+	New files.
+
+	* utf-2000/Ideograph-R070-Square.el,
+	utf-2000/Ideograph-R071-Not.el, utf-2000/Ideograph-R072-Sun.el:
+	New files.
+
+	* utf-2000/Ideograph-R068-Dipper.el,
+	utf-2000/Ideograph-R069-Axe.el: New files.
+
+	* utf-2000/Ideograph-R055-Two-Hands.el,
+	utf-2000/Ideograph-R056-Shoot.el, utf-2000/Ideograph-R057-Bow.el,
+	utf-2000/Ideograph-R058-Snout.el,
+	utf-2000/Ideograph-R059-Bristle.el,
+	utf-2000/Ideograph-R060-Step.el, utf-2000/Ideograph-R061-Heart.el,
+	utf-2000/Ideograph-R062-Halberd.el,
+	utf-2000/Ideograph-R063-Door.el, utf-2000/Ideograph-R064-Hand.el,
+	utf-2000/Ideograph-R065-Branch.el, utf-2000/Ideograph-R066-Rap.el,
+	utf-2000/Ideograph-R067-Script.el: New files.
+
+	* utf-2000/Ideograph-R053-Dotted-Cliff.el,
+	utf-2000/Ideograph-R054-Long-Stride.el: New files.
+
+	* utf-2000/Ideograph-R051-Dry.el,
+	utf-2000/Ideograph-R052-Short-Thread.el: New files.
+
+	* utf-2000/Ideograph-R043-Lame.el,
+	utf-2000/Ideograph-R044-Corpse.el,
+	utf-2000/Ideograph-R045-Sprout.el,
+	utf-2000/Ideograph-R046-Mountain.el,
+	utf-2000/Ideograph-R047-River.el, utf-2000/Ideograph-R048-Work.el,
+	utf-2000/Ideograph-R049-Oneself.el,
+	utf-2000/Ideograph-R050-Turban.el: New files.
+
+	* utf-2000/Ideograph-R041-Inch.el,
+	utf-2000/Ideograph-R042-Small.el: New files.
+
+	* utf-2000/Ideograph-R036-Evening.el,
+	utf-2000/Ideograph-R037-Big.el, utf-2000/Ideograph-R038-Woman.el,
+	utf-2000/Ideograph-R039-Child.el, utf-2000/Ideograph-R040-Roof.el:
+	New files.
+
+	* utf-2000/Ideograph-R034-Go.el,
+	utf-2000/Ideograph-R035-Go-Slowly.el: New files.
+
+	* utf-2000/Ideograph-R031-Enclosure.el,
+	utf-2000/Ideograph-R032-Earth.el,
+	utf-2000/Ideograph-R033-Scholar.el: New files.
+
+	* utf-2000/Ideograph-R030-Mouth.el,
+	utf-2000/Ideograph-R029-Again.el,
+	utf-2000/Ideograph-R028-Private.el: Merge CJK Unified Ideographs
+	Extension A.
+
+	* utf-2000/Ideograph-R027-Cliff.el,
+	utf-2000/Ideograph-R026-Seal.el,
+	utf-2000/Ideograph-R025-Divination.el,
+	utf-2000/Ideograph-R024-Ten.el,
+	utf-2000/Ideograph-R023-Hiding-Enclosure.el,
+	utf-2000/Ideograph-R022-Right-Open-Box.el,
+	utf-2000/Ideograph-R021-Spoon.el, utf-2000/Ideograph-R020-Wrap.el,
+	utf-2000/Ideograph-R019-Power.el,
+	utf-2000/Ideograph-R018-Knife.el,
+	utf-2000/Ideograph-R017-Open-Box.el,
+	utf-2000/Ideograph-R016-Table.el, utf-2000/Ideograph-R015-Ice.el,
+	utf-2000/Ideograph-R014-Cover.el,
+	utf-2000/Ideograph-R013-Down-Box.el,
+	utf-2000/Ideograph-R012-Eight.el,
+	utf-2000/Ideograph-R011-Enter.el, utf-2000/Ideograph-R010-Legs.el,
+	utf-2000/Ideograph-R009-Man.el, utf-2000/Ideograph-R008-Lid.el,
+	utf-2000/Ideograph-R007-Two.el, utf-2000/Ideograph-R006-Hook.el:
+	Merge `chinese-isoir165'.
+
+	* utf-2000/Ideograph-R004-Slash.el: Merge CNS chars not in
+	Morohashi's Daikanwa.
+
+	* utf-2000/Ideograph-R003-Dot.el: Merge `chinese-isoir165'.
+
+	* utf-2000/Ideograph-R001-One.el: Merge `chinese-isoir165'.
+
+1999-12-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R027-Cliff.el,
+	utf-2000/Ideograph-R026-Seal.el,
+	utf-2000/Ideograph-R025-Divination.el,
+	utf-2000/Ideograph-R024-Ten.el,
+	utf-2000/Ideograph-R023-Hiding-Enclosure.el,
+	utf-2000/Ideograph-R022-Right-Open-Box.el,
+	utf-2000/Ideograph-R021-Spoon.el: Merge CJK Unified Ideographs
+	Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R020-Wrap.el,
+	utf-2000/Ideograph-R019-Power.el,
+	utf-2000/Ideograph-R018-Knife.el: Merge CJK Unified Ideographs
+	Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R009-Man.el: Merge CJK Unified Ideographs
+	Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R017-Open-Box.el,
+	utf-2000/Ideograph-R016-Table.el: Merge CJK Unified Ideographs
+	Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R015-Ice.el,
+	utf-2000/Ideograph-R014-Cover.el,
+	utf-2000/Ideograph-R013-Down-Box.el,
+	utf-2000/Ideograph-R012-Eight.el,
+	utf-2000/Ideograph-R011-Enter.el, utf-2000/Ideograph-R010-Legs.el:
+	Merge CJK Unified Ideographs Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R008-Lid.el (M00286): Separate
+	`japanese-jisx0208-1978' and `japanese-jisx0208'.
+
+	* utf-2000/Ideograph-R005-Second.el: Merge `chinese-isoir165'.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R004-Slash.el,
+	utf-2000/Ideograph-R003-Dot.el, utf-2000/Ideograph-R002-Line.el,
+	utf-2000/Ideograph-R001-One.el: Merge `chinese-isoir165'.
+
+1999-12-03  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R030-Mouth.el: Merge `japanese-jisx0213-1'
+	and `japanese-jisx0213-2'.
+
+1999-12-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/Ideograph-R029-Again.el: Merge `japanese-jisx0213-2'.
+
+1999-12-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R028-Private.el: Merge `japanese-jisx0213-2'.
+
+1999-12-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R027-Cliff.el: Merge `japanese-jisx0213-1'
+	and `japanese-jisx0213-2'.
+
+1999-11-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R026-Seal.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-11-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R025-Divination.el: Merge
+	`japanese-jisx0213-1' and `japanese-jisx0213-2'.
+
+1999-11-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R024-Ten.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-11-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R023-Hiding-Enclosure.el: Merge
+	`japanese-jisx0213-2'.
+
+1999-11-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R022-Right-Open-Box.el: Merge
+	`japanese-jisx0213-1' and `japanese-jisx0213-2'.
+
+1999-11-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R021-Spoon.el (M02574): Separate C1-4621.
+	(M02576): Separate C6-2630.
+	(M02579): Separate C5-234A.
+	(M02581): Separate C4-284D.
+	(M02582): Separate C6-2F2F.
+	(M02588): Separate C6-3560.
+
+	* utf-2000/Ideograph-R020-Wrap.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-11-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R019-Power.el,
+	utf-2000/Ideograph-R018-Knife.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+	* utf-2000/Ideograph-R017-Open-Box.el (M01814): Separate C6-2365.
+	(M01815): Separate C6-2361.
+	(M01817): Separate C6-2363.
+	(M01822): Separate C6-2323.
+	(M01836): Separate C5-365D.
+	(M01839): Separate C7-367B.
+
+1999-11-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R016-Table.el,
+	utf-2000/Ideograph-R015-Ice.el, utf-2000/Ideograph-R014-Cover.el:
+	Merge `japanese-jisx0213-1' and `japanese-jisx0213-2'.
+
+	* utf-2000/Ideograph-R013-Down-Box.el: Merge `japanese-jisx0213-2'
+	with UCS.
+
+1999-11-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R013-Down-Box.el: Merge
+	`japanese-jisx0213-2'.
+	(J78-4B41 = J83-4B41): Moved to R109.
+	(C6-316D): Moved to R072.
+
+1999-11-24  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/Ideograph-R012-Eight.el: Merge `japanese-jisx0213-1'
+	and `japanese-jisx0213-2'.
+
+1999-11-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R009-Man.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-11-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R010-Legs.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+	* utf-2000/Ideograph-R011-Enter.el: Separate CNS.
+
+1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R008-Lid.el: Merge CJK Unified Ideographs
+	Extension A.
+
+1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/ideograph-util.el (update-ideograph-radical-table): Add
+	`japanese-jisx0213-1' and `japanese-jisx0213-2'.
+
+1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R015-Ice.el (M01612.07): Separate U+4ECC and
+	C3-214C to M00360.
+
+	* utf-2000/Ideograph-R013-Down-Box.el (M001512): Separate C3-2148
+	to M00366'.
+
+1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R009-Man.el: Delete wrong? C6-XXXX
+	code-points.
+
+	* utf-2000/Ideograph-R006-Hook.el,
+	utf-2000/Ideograph-R005-Second.el: Merge CJK Unified Ideographs
+	Extension A.
+
+	* utf-2000/Ideograph-R004-Slash.el (M00115): Merge CJK Unified
+	Ideographs Extension A; separate U+3128.
+	(M00116): Move C6-2123 to M00115.
+
+	* utf-2000/Ideograph-R001-One.el: Merge CJK Unified Ideographs
+	Extension A.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R008-Lid.el: Merge `japanese-jisx0213-2'.
+
+	* utf-2000/Ideograph-R007-Two.el: Merge `japanese-jisx0213-1'.
+
+	* utf-2000/Ideograph-R004-Slash.el: Merge `japanese-jisx0213-2'.
+
+	* utf-2000/Ideograph-R006-Hook.el (M00237): Separate C5-2330.
+
+	* utf-2000/Ideograph-R005-Second.el: Merge `japanese-jisx0213-2'.
+
+	* utf-2000/Ideograph-R002-Line.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+	* utf-2000/u03040-Hiragana.el (HIRAGANA LETTER SMALL KA): New
+	character.
+	(HIRAGANA LETTER SMALL KE): New character.
+
+	* utf-2000/u02600-Miscellaneous-Symbols.el (WHITE SHOGI PIECE):
+	New character.
+	(BLACK SHOGI PIECE): New character.
+
+	* utf-2000/Ideograph-R001-One.el: Merge `japanese-jisx0213-1'.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/u01F00-Greek-Extended.el: Merge `japanese-jisx0213-1'.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (insert-char-data): Ignore
+	`kangxi-radical' and `japanese-radical' if they have the same
+	value of `ideographic-radical'; ignore `japanese-strokes' if it
+	has the same value of `ideographic-strokes'.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-conf.el (japanese-jisx0213-1): New coded-charset.
+	(japanese-jisx0213-2): New coded-charset.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"Ideograph-R028-Private", "Ideograph-R029-Again" and
+	"Ideograph-R030-Mouth".
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (char-db-update-comment): Use
+	mapping-table for `japanese-jisx0213-*'.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/u03300-CJK-Compatibility.el: Merge
+	`japanese-jisx0213-1'.
+
+	* utf-2000/u03200-Enclosed-CJK-Letters-and-Months.el: Merge
+	`japanese-jisx0213-1'.
+
+	* utf-2000/u03130-Hangul-Compatibility-Jamo.el,
+	utf-2000/u03100-Bopomofo.el: Changed to utf-8 encoding.
+
+	* utf-2000/u030A0-Katakana.el, utf-2000/u03040-Hiragana.el,
+	utf-2000/u03000-CJK-Symbols-and-Punctuation.el: Merge
+	`japanese-jisx0213-1'.
+
+	* utf-2000/u02F00-Kangxi-Radicals.el: Changed to utf-8 encoding.
+
+	* utf-2000/u02700-Dingbats.el,
+	utf-2000/u02600-Miscellaneous-Symbols.el,
+	utf-2000/u025A0-Geometric-Shapes.el: Merge `japanese-jisx0213-1'.
+
+	* utf-2000/u02580-Block-Elements.el: Changed to utf-8 encoding.
+
+	* utf-2000/u02500-Box-Drawing.el,
+	utf-2000/u02460-Enclosed-Alphanumerics.el,
+	utf-2000/u02300-Miscellaneous-Technical.el,
+	utf-2000/u02400-Control-Pictures.el,
+	utf-2000/u02200-Mathematical-Operators.el,
+	utf-2000/u02190-Arrows.el, utf-2000/u02150-Number-Forms.el,
+	utf-2000/u02100-Letterlike-Symbols.el,
+	utf-2000/u020A0-Currency-Symbols.el: Merge `japanese-jisx0213-1'.
+
+	* utf-2000/u02080-Subscripts.el, utf-2000/u02070-Superscripts.el:
+	Changed to utf-8 encoding.
+
+	* utf-2000/u02000-General-Punctuation.el,
+	utf-2000/u01E00-Latin-Extended-Additional.el: Merge
+	`japanese-jisx0213-1'.
+
+	* utf-2000/u00600-Arabic.el, utf-2000/u00590-Hebrew.el,
+	utf-2000/u00400-Cyrillic.el: Changed to utf-8 encoding.
+
+	* utf-2000/u00370-Greek.el,
+	utf-2000/u00300-Combining-Diacritical-Marks.el,
+	utf-2000/u002B0-Spacing-Modifier-Letters.el,
+	utf-2000/u00250-IPA-Extensions.el,
+	utf-2000/u00180-Latin-Extended-B.el,
+	utf-2000/u00100-Latin-Extended-A.el,
+	utf-2000/u000A0-Latin-1-Supplement.el,
+	utf-2000/u00020-Basic-Latin.el: Merge `japanese-jisx0213-1'.
+
+	* utf-2000/Ideograph-R030-Mouth.el: New file.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R005-Second.el: Sync with CNS2Dict 0.390.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (insert-char-data): Generate comment
+	for `cns-radical'.
+
+	* utf-2000/Ideograph-R004-Slash.el (M00129): Separated from
+	U+5301.
+	(M00135): Separate C6-222F.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R003-Dot.el (M00100): Fixed.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R002-Line.el: Sync with CNS2Dict 0.390.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R001-One.el (M00032): Separate U+4E17 and
+	C4-2155.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R029-Again.el,
+	utf-2000/Ideograph-R028-Private.el: New files.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (char-db-update-comment): Don't use
+	mapping-table for `ideograph-daikanwa'.
+
+1999-11-19  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add "Ideograph-R012-Eight",
+	"Ideograph-R013-Down-Box", "Ideograph-R014-Cover",
+	"Ideograph-R015-Ice", "Ideograph-R016-Table",
+	"Ideograph-R017-Open-Box", "Ideograph-R018-Knife",
+	"Ideograph-R019-Power", "Ideograph-R020-Wrap", "Ideograph-R021-Spoon",
+	"Ideograph-R022-Right-Open-Box", "Ideograph-R023-Hiding-Enclosure",
+	"Ideograph-R024-Ten", "Ideograph-R025-Divination",
+	"Ideograph-R026-Seal" and "Ideograph-R027-Cliff" in UTF-2000.
+
+	* utf-2000/Ideograph-R012-Eight.el,
+	utf-2000/Ideograph-R013-Down-Box.el,
+	utf-2000/Ideograph-R014-Cover.el, utf-2000/Ideograph-R015-Ice.el,
+	utf-2000/Ideograph-R016-Table.el,
+	utf-2000/Ideograph-R017-Open-Box.el,
+	utf-2000/Ideograph-R018-Knife.el,
+	utf-2000/Ideograph-R019-Power.el, utf-2000/Ideograph-R020-Wrap.el,
+	utf-2000/Ideograph-R021-Spoon.el,
+	utf-2000/Ideograph-R022-Right-Open-Box.el,
+	utf-2000/Ideograph-R023-Hiding-Enclosure.el,
+	utf-2000/Ideograph-R024-Ten.el,
+	utf-2000/Ideograph-R025-Divination.el,
+	utf-2000/Ideograph-R026-Seal.el, utf-2000/Ideograph-R027-Cliff.el:
+	New files.
+
+	* utf-2000/ideograph-util.el (write-ideograph-radical-char-data):
+	Replace ` ' in `name' by `-'.
+
+1999-11-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add "Ideograph-R002-Line",
+	"Ideograph-R003-Dot", "Ideograph-R004-Slash",
+	"Ideograph-R005-Second", "Ideograph-R006-Hook",
+	"Ideograph-R007-Two", "Ideograph-R008-Lid", "Ideograph-R009-Man",
+	"Ideograph-R010-Legs" and "Ideograph-R011-Enter".
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`japanese-jisx0208-1990' and `japanese-jisx0208-1978'.
+
+	* utf-2000/Ideograph-R002-Line.el, utf-2000/Ideograph-R003-Dot.el,
+	utf-2000/Ideograph-R004-Slash.el,
+	utf-2000/Ideograph-R005-Second.el,
+	utf-2000/Ideograph-R006-Hook.el, utf-2000/Ideograph-R007-Two.el,
+	utf-2000/Ideograph-R008-Lid.el, utf-2000/Ideograph-R009-Man.el,
+	utf-2000/Ideograph-R010-Legs.el, utf-2000/Ideograph-R011-Enter.el:
+	New files.
+
+	* utf-2000/ideograph-util.el (update-ideograph-radical-table): Add
+	`japanese-jisx0208-1978' and `japanese-jisx0208-1990'; check Group
+	00 Plane 10.
+	(ideograph-char<): Prefer minor code of `morohashi-daikanwa'
+	number.
+
+	* utf-2000/Ideograph-R001-One.el: Changed to utf-8 encoding.
+
+1999-11-17  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/ideograph-util.el: New file.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "Ideograph-R001-One"
+	in UTF-2000.
+
+	* utf-2000/Ideograph-R001-One.el: New file.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-conf.el (sisheng): Moved from mule/chinese.el.
+	(chinese-isoir165): Moved from mule/chinese.el.
+	(chinese-cns11643-3): Moved from mule/chinese.el.
+	(chinese-cns11643-4): Moved from mule/chinese.el.
+	(chinese-cns11643-5): Moved from mule/chinese.el.
+	(chinese-cns11643-6): Moved from mule/chinese.el.
+	(chinese-cns11643-7): Moved from mule/chinese.el.
+
+	* mule/chinese.el: Move definition of coded-charsets to
+	mule/mule-conf.el.
+
+	* utf-2000/char-db-util.el (insert-char-data): Change order of
+	`morohashi-daikanwa'.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/char-db-util.el (char-attribute-name<) Use
+	`charset-iso-final-char' instead of `charset-final'; fixed.
+	(insert-char-data): Delete unused local variable `name'; use
+	`charset-iso-graphic-plane' instead of `charset-graphic'.
+	(char-db-update-comment): Use `charset-iso-graphic-plane' instead
+	of `charset-graphic'.
+	(insert-char-range-data): Delete unused local variable `variants'.
+	(what-character-original-window-configuration): Define to avoid
+	compiler warning.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/char-db-util.el (ideographic-radicals): New constant.
+	(insert-char-data): Change order of `ideographic-radical',
+	`ideographic-strokes' and `total-strokes'; adjust width of the
+	first element of a list.
 
 1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
-	`ideograph-daikanwa' in UTF-2000.
+	`ideograph-daikanwa'.
 
 1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 

@@ -30,7 +30,7 @@
     (digit-value	 . 1)
     (numeric-value	 . 1)
     (->decomposition	wide #x2081)
-    (korean-ksc5601	#x29 #x7B)	; $(C){(B
+    (korean-ksc5601	#x29 #x7B)	; ø»ˆ§–
     ))
 (define-char
   '((name		. "SUBSCRIPT TWO")
@@ -53,7 +53,7 @@
     (digit-value	 . 2)
     (numeric-value	 . 2)
     (->decomposition	wide #x2082)
-    (korean-ksc5601	#x29 #x7C)	; $(C)|(B
+    (korean-ksc5601	#x29 #x7C)	; ø»ˆ§—
     ))
 (define-char
   '((name		. "SUBSCRIPT THREE")
@@ -76,7 +76,7 @@
     (digit-value	 . 3)
     (numeric-value	 . 3)
     (->decomposition	wide #x2083)
-    (korean-ksc5601	#x29 #x7D)	; $(C)}(B
+    (korean-ksc5601	#x29 #x7D)	; ø»ˆ§˜
     ))
 (define-char
   '((name		. "SUBSCRIPT FOUR")
@@ -99,7 +99,7 @@
     (digit-value	 . 4)
     (numeric-value	 . 4)
     (->decomposition	wide #x2084)
-    (korean-ksc5601	#x29 #x7E)	; $(C)~(B
+    (korean-ksc5601	#x29 #x7E)	; ø»ˆ§™
     ))
 (define-char
   '((name		. "SUBSCRIPT FIVE")

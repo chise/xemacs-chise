@@ -61,6 +61,16 @@
     ("So" symbol	other)
     ))
 
+(defconst ideographic-radicals
+  (let ((v (make-vector 215 nil))
+	(i 1))
+    (while (< i 215)
+      (aset v i (int-char (+ #x2EFF i)))
+      (setq i (1+ i)))
+    (if (< (charset-iso-final-char (car (split-char (aref v 34)))) ?0)
+	(aset v 34 (make-char 'chinese-gb2312 #x62 #x3A)))
+    v))
+
 (defun char-attribute-name< (ka kb)
   (cond
    ((find-charset ka)
@@ -71,25 +81,28 @@
 	   (charset-dimension kb))
 	(cond ((= (charset-chars ka)(charset-chars kb))
 	       (cond
-		((>= (charset-final ka) ?@)
-		 (if (>= (charset-final kb) ?@)
-		     (< (charset-final ka)
-			(charset-final kb))
+		((>= (charset-iso-final-char ka) ?@)
+		 (if (>= (charset-iso-final-char kb) ?@)
+		     (< (charset-iso-final-char ka)
+			(charset-iso-final-char kb))
 		   t))
-		((>= (charset-final ka) ?0)
+		((>= (charset-iso-final-char ka) ?0)
 		 (cond
-		  ((>= (charset-final kb) ?@)
+		  ((>= (charset-iso-final-char kb) ?@)
 		   nil)
-		  ((>= (charset-final kb) ?0)
-		   (< (charset-final ka)
-		      (charset-final kb)))
+		  ((>= (charset-iso-final-char kb) ?0)
+		   (< (charset-iso-final-char ka)
+		      (charset-iso-final-char kb)))
 		  (t)))))
 	      ((<= (charset-chars ka)(charset-chars kb)))))
        (t
 	(< (charset-dimension ka)
 	   (charset-dimension kb))
 	)))
-     (t)))
+     ((symbolp kb)
+      nil)
+     (t
+      t)))
    ((find-charset kb)
     t)
    ((symbolp ka)
@@ -102,7 +115,8 @@
 
 (defun insert-char-data (char)
   (let ((data (char-attribute-alist char))
-	cell ret name has-long-ccs-name rest)
+	cell ret has-long-ccs-name rest
+	radical strokes)
     (when data
       (save-restriction
 	(narrow-to-region (point)(point))
@@ -220,6 +234,91 @@
 			  cell))
 	  (setq data (del-alist 'iso-10646-comment data))
 	  )
+	(when (setq cell (assq 'morohashi-daikanwa data))
+	  (setq cell (cdr cell))
+	  (insert (format "(morohashi-daikanwa\t%s)
+    "
+			  (mapconcat (function prin1-to-string) cell " ")))
+	  (setq data (del-alist 'morohashi-daikanwa data))
+	  )
+	(setq radical nil)
+	(when (setq cell (assq 'ideographic-radical data))
+	  (setq radical (cdr cell))
+	  (insert (format "(ideographic-radical . %S)\t; %c
+    "
+			  radical
+			  (aref ideographic-radicals radical)))
+	  (setq data (del-alist 'ideographic-radical data))
+	  )
+	(when (setq cell (assq 'kangxi-radical data))
+	  (setq cell (cdr cell))
+	  (unless (eq cell radical)
+	    (insert (format "(kangxi-radical\t . %S)\t; %c
+    "
+			    cell
+			    (aref ideographic-radicals cell)))
+	    (setq radical cell))
+	  (setq data (del-alist 'kangxi-radical data))
+	  )
+	(when (setq cell (assq 'japanese-radical data))
+	  (setq cell (cdr cell))
+	  (unless (eq cell radical)
+	    (insert (format "(japanese-radical . %S)\t; %c
+    "
+			    cell
+			    (aref ideographic-radicals cell)))
+	    (setq radical cell))
+	  (setq data (del-alist 'japanese-radical data))
+	  )
+	(when (setq cell (assq 'cns-radical data))
+	  (setq cell (cdr cell))
+	  (insert (format "(cns-radical\t . %S)\t; %c
+    "
+			  cell
+			  (aref ideographic-radicals cell)))
+	  (setq data (del-alist 'cns-radical data))
+	  )
+	(setq strokes nil)
+	(cond
+	 ((setq cell (assq 'ideographic-strokes data))
+	  (setq strokes (cdr cell))
+	  (insert (format "(ideographic-strokes . %S)
+    "
+			  strokes))
+	  (setq data (del-alist 'ideographic-strokes data))
+	  (when (setq cell (assq 'kangxi-strokes data))
+	    (setq cell (cdr cell))
+	    (unless (eq cell strokes)
+	      (insert (format "(kangxi-strokes\t . %S)
+    "
+			      cell))
+	      (setq strokes cell))
+	    (setq data (del-alist 'kangxi-strokes data))
+	    )
+	  (when (setq cell (assq 'japanese-strokes data))
+	    (setq cell (cdr cell))
+	    (unless (eq cell strokes)
+	      (insert (format "(japanese-strokes\t . %S)
+    "
+			      cell))
+	      (setq strokes cell))
+	    (setq data (del-alist 'japanese-strokes data))
+	    )
+	  (when (setq cell (assq 'total-strokes data))
+	    (setq cell (cdr cell))
+	    (insert (format "(total-strokes\t . %S)
+    "
+			    cell))
+	    (setq data (del-alist 'total-strokes data))
+	    )
+	  )
+	 ((setq cell (assq 'total-strokes data))
+	  (setq cell (cdr cell))
+	  (insert (format "(total-strokes\t. %S)
+    "
+			  cell))
+	  (setq data (del-alist 'total-strokes data))
+	  ))
 	(when (setq cell (assq '->decomposition data))
 	  (setq cell (cdr cell))
 	  (insert (format "(->decomposition\t%s)
@@ -295,20 +394,22 @@
 	(while data
 	  (setq cell (car data))
 	  (cond ((setq ret (find-charset (car cell)))
-		 (insert (format (if has-long-ccs-name
-				     "(%-26s %s)
+		 (insert
+		  (format
+		   (if has-long-ccs-name
+		       "(%-26s %s)
     "
-				   "(%-18s %s)
+		     "(%-18s %s)
     "
-				   )
-				 (charset-name ret)
-				 (mapconcat
-				  (lambda (b)
-				    (format "#x%02X"
-					    (if (= (charset-graphic ret) 1)
-						(logior b #x80)
-					      b)))
-				  (cdr cell) " "))))
+		     )
+		   (charset-name ret)
+		   (mapconcat
+		    (lambda (b)
+		      (format "#x%02X"
+			      (if (= (charset-iso-graphic-plane ret) 1)
+				  (logior b 128)
+				b)))
+		    (cdr cell) " "))))
 		((string-match "^->" (symbol-name (car cell)))
 		 (insert
 		  (format "(%-18s %s)
@@ -323,9 +424,11 @@
 					      (format "\n     %S" code))))
 				     (cdr cell) " "))))
 		((consp (cdr cell))
-		 (insert (format "%S
+		 (insert (format "(%-18s %s)
     "
-				 cell)))
+				 (car cell)
+				 (mapconcat (function prin1-to-string)
+					    (cdr cell) " "))))
 		(t
 		 (insert (format "(%-18s . %S)
     "
@@ -352,10 +455,15 @@
 	(when (find-charset (car cdef))
 	  (goto-char (match-end 0))
 	  (setq char
-		(if (or (memq (car cdef) '(ascii latin-viscii-upper
-						 latin-viscii-lower
-						 arabic-iso8859-6))
-			(= (char-int (charset-final (car cdef))) 0))
+		(if (and
+		     (not (eq (car cdef) 'ideograph-daikanwa))
+		     (or (memq (car cdef) '(ascii latin-viscii-upper
+						  latin-viscii-lower
+						  arabic-iso8859-6
+						  japanese-jisx0213-1
+						  japanese-jisx0213-2))
+			 (= (char-int (charset-iso-final-char (car cdef)))
+			    0)))
 		    (apply (function make-char) cdef)
 		  (if (setq table (charset-mapping-table (car cdef)))
 		      (set-charset-mapping-table (car cdef) nil))
@@ -372,7 +480,10 @@
 
 (defun insert-char-data-with-variant (char)
   (insert-char-data char)
-  (let ((variants (char-variants char)))
+  (let ((variants (or (char-variants char)
+		      (let ((ucs (get-char-attribute char '->ucs)))
+			(if ucs
+			    (delete char (char-variants (int-char ucs))))))))
     (while variants
       (insert-char-data (car variants))
       (setq variants (cdr variants))
@@ -380,8 +491,7 @@
 
 (defun insert-char-range-data (min max)
   (let ((code min)
-	char
-	variants)
+	char)
     (while (<= code max)
       (setq char (int-char code))
       (insert-char-data-with-variant char)
@@ -392,6 +502,8 @@
   (with-temp-buffer
     (insert-char-range-data min max)
     (write-region (point-min)(point-max) file)))
+
+(defvar what-character-original-window-configuration)
 
 ;;;###autoload
 (defun what-char-definition (char)

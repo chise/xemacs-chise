@@ -53,6 +53,7 @@ Lisp_Object Vcharset_latin_iso8859_9;
 Lisp_Object Vcharset_japanese_jisx0208_1978;
 Lisp_Object Vcharset_chinese_gb2312;
 Lisp_Object Vcharset_japanese_jisx0208;
+Lisp_Object Vcharset_japanese_jisx0208_1990;
 Lisp_Object Vcharset_korean_ksc5601;
 Lisp_Object Vcharset_japanese_jisx0212;
 Lisp_Object Vcharset_chinese_cns11643_1;
@@ -531,10 +532,12 @@ Return the value of CHARACTER's ATTRIBUTE.
 */
        (character, attribute))
 {
-  Lisp_Object ret
-    = get_char_code_table (XCHAR (character), Vcharacter_attribute_table);
+  Lisp_Object ret;
   Lisp_Object ccs;
 
+  CHECK_CHAR (character);
+  ret = get_char_code_table (XCHAR (character),
+			     Vcharacter_attribute_table);
   if (EQ (ret, Qnil))
     return Qnil;
 
@@ -574,6 +577,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 {
   Lisp_Object ccs;
 
+  CHECK_CHAR (character);
   ccs = Ffind_charset (attribute);
   if (!NILP (ccs))
     {
@@ -711,6 +715,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
 Lisp_Object Qucs;
 
+EXFUN (Fmake_char, 3);
+
 DEFUN ("define-char", Fdefine_char, 1, 1, 0, /*
 Store character's ATTRIBUTES.
 */
@@ -729,70 +735,22 @@ Store character's ATTRIBUTES.
 
 	  if (!LISTP (cell))
 	    signal_simple_error ("Invalid argument", attributes);
-	  if (!NILP (ccs = Ffind_charset (Fcar (cell)))
-	      && XCHARSET_FINAL (ccs))
+	  if (!NILP (ccs = Ffind_charset (Fcar (cell))))
 	    {
-	      Emchar code;
-
-	      if (XCHARSET_DIMENSION (ccs) == 1)
-		{
-		  Lisp_Object eb1 = Fcar (Fcdr (cell));
-		  int b1;
-
-		  if (!INTP (eb1))
-		    signal_simple_error ("Invalid argument", attributes);
-		  b1 = XINT (eb1);
-		  switch (XCHARSET_CHARS (ccs))
-		    {
-		    case 94:
-		      code = MIN_CHAR_94
-			+ (XCHARSET_FINAL (ccs) - '0') * 94 + (b1 - 33);
-		      break;
-		    case 96:
-		      code = MIN_CHAR_96
-			+ (XCHARSET_FINAL (ccs) - '0') * 96 + (b1 - 32);
-		      break;
-		    default:
-		      abort ();
-		    }
-		}
-	      else if (XCHARSET_DIMENSION (ccs) == 2)
-		{
-		  Lisp_Object eb1 = Fcar (Fcdr (cell));
-		  Lisp_Object eb2 = Fcar (Fcdr (Fcdr (cell)));
-		  int b1, b2;
-
-		  if (!INTP (eb1))
-		    signal_simple_error ("Invalid argument", attributes);
-		  b1 = XINT (eb1);
-		  if (!INTP (eb2))
-		    signal_simple_error ("Invalid argument", attributes);
-		  b2 = XINT (eb2);
-		  switch (XCHARSET_CHARS (ccs))
-		    {
-		    case 94:
-		      code = MIN_CHAR_94x94
-			+ (XCHARSET_FINAL (ccs) - '0') * 94 * 94
-			+ (b1 - 33) * 94 + (b2 - 33);
-		      break;
-		    case 96:
-		      code = MIN_CHAR_96x96
-			+ (XCHARSET_FINAL (ccs) - '0') * 96 * 96
-			+ (b1 - 32) * 96 + (b2 - 32);
-		      break;
-		    default:
-		      abort ();
-		    }
-		}
-	      else
-		{
-		  rest = Fcdr (rest);
-		  continue;
-		}
-	      character = make_char (code);
+	      cell = Fcdr (cell);
+	      character = Fmake_char (ccs, Fcar (cell),
+				      Fcar (Fcdr (cell)));
 	      goto setup_attributes;
 	    }
 	  rest = Fcdr (rest);
+	}
+      if (!NILP (code = Fcdr (Fassq (Q_ucs, attributes))))
+	{
+	  if (!INTP (code))
+	    signal_simple_error ("Invalid argument", attributes);
+	  else
+	    character = make_char (XINT (code) + 0x100000);
+	  goto setup_attributes;
 	}
       return Qnil;
     }
@@ -849,6 +807,7 @@ Lisp_Object Qascii,
   Qjapanese_jisx0208_1978,
   Qchinese_gb2312,
   Qjapanese_jisx0208,
+  Qjapanese_jisx0208_1990,
   Qkorean_ksc5601,
   Qjapanese_jisx0212,
   Qchinese_cns11643_1,
@@ -1402,7 +1361,7 @@ make_charset (Charset_ID id, Lisp_Object name,
   else
     CHARSET_REP_BYTES (cs) = CHARSET_DIMENSION (cs) + 2;
 #endif
-  
+
   if (final)
     {
       /* some charsets do not have final characters.  This includes
@@ -2398,6 +2357,18 @@ Return list of charset and one or two position-codes of CHAR.
 */
        (character))
 {
+#ifdef UTF2000
+  Lisp_Object ret;
+  Lisp_Object charset;
+
+  CHECK_CHAR_COERCE_INT (character);
+  ret = SPLIT_CHAR (XCHAR (character));
+  charset = Fcar (ret);
+  if (CHARSETP (charset))
+    return Fcons (XCHARSET_NAME (charset), Fcopy_list (Fcdr (ret)));
+  else
+    return ret;
+#else
   /* This function can GC */
   struct gcpro gcpro1, gcpro2;
   Lisp_Object charset = Qnil;
@@ -2418,8 +2389,8 @@ Return list of charset and one or two position-codes of CHAR.
       rc = list2 (XCHARSET_NAME (charset), make_int (c1));
     }
   UNGCPRO;
-
   return rc;
+#endif
 }
 
 
@@ -2573,6 +2544,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qjapanese_jisx0208_1978,	"japanese-jisx0208-1978");
   defsymbol (&Qchinese_gb2312,		"chinese-gb2312");
   defsymbol (&Qjapanese_jisx0208, 	"japanese-jisx0208");
+  defsymbol (&Qjapanese_jisx0208_1990, 	"japanese-jisx0208-1990");
   defsymbol (&Qkorean_ksc5601,		"korean-ksc5601");
   defsymbol (&Qjapanese_jisx0212,	"japanese-jisx0212");
   defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
@@ -2677,7 +2649,7 @@ Leading-code of private TYPE9N charset of column-width 1.
 #endif
 
 #ifdef UTF2000
-  Vutf_2000_version = build_string("0.12 (Kashiwara)");
+  Vutf_2000_version = build_string("0.13 (Takaida)");
   DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
 Version number of UTF-2000.
 */ );
@@ -2841,9 +2813,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JISX0201.1976 (Japanese Kana)"),
 		  build_string ("JISX0201.1976 Japanese Kana"),
 		  build_string ("jisx0201\\.1976"),
-		  Qnil,
-		  MIN_CHAR_HALFWIDTH_KATAKANA,
-		  MAX_CHAR_HALFWIDTH_KATAKANA, 0, 33);
+		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_latin_jisx0201);
   Vcharset_latin_jisx0201 =
     make_charset (LEADING_BYTE_LATIN_JISX0201, Qlatin_jisx0201,
@@ -2905,6 +2875,19 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JIS X0208:1983 Japanese Kanji"),
 		  build_string ("jisx0208\\.1983"),
 		  Qnil, 0, 0, 0, 33);
+  staticpro (&Vcharset_japanese_jisx0208_1990);
+  Vcharset_japanese_jisx0208_1990 =
+    make_charset (LEADING_BYTE_JAPANESE_JISX0208_1990,
+		  Qjapanese_jisx0208_1990,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("JISX0208-1990"),
+		  build_string ("JIS X0208:1990 (Japanese)"),
+		  build_string ("JIS X0208:1990 Japanese Kanji"),
+		  build_string ("jisx0208\\.1990"),
+		  Qnil,
+		  MIN_CHAR_JIS_X0208_1990,
+		  MAX_CHAR_JIS_X0208_1990, 0, 33);
   staticpro (&Vcharset_korean_ksc5601);
   Vcharset_korean_ksc5601 =
     make_charset (LEADING_BYTE_KOREAN_KSC5601, Qkorean_ksc5601,

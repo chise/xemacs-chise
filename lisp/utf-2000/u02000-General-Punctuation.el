@@ -29,7 +29,7 @@
     (bidi-category	. "WS")
     (mirrored		. nil)
     (->decomposition	compat #x0020)
-    (chinese-cns11643-1 #x25 #x6D)	; $(G%m(B
+    (chinese-cns11643-1 #x25 #x6D)	; ¯ªëâ†
     ))
 (define-char
   '((name		. "THREE-PER-EM SPACE")
@@ -128,8 +128,8 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x3E)	; $(@!>(B
-    (japanese-jisx0208		#x21 #x3E)	; $(B!>(B
+    (japanese-jisx0208-1978	#x21 #x3E)	; ¯ªÅºù
+    (japanese-jisx0208		#x21 #x3E)	; ¯ªÜê•
     ))
 (define-char
   '((name		. "NON-BREAKING HYPHEN")
@@ -152,7 +152,8 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x21 #x39)	; $(G!9(B
+    (chinese-cns11643-1		#x21 #x39)	; ¯ªëÇ¥
+    (japanese-jisx0213-1	#x23 #x7C)	; ‚Äì
     ))
 (define-char
   '((name		. "EM DASH")
@@ -160,9 +161,9 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x3D)	; $(@!=(B
-    (japanese-jisx0208		#x21 #x3D)	; $(B!=(B
-    (chinese-cns11643-1		#x21 #x37)	; $(G!7(B
+    (japanese-jisx0208-1978	#x21 #x3D)	; ¯ªÅºú
+    (japanese-jisx0208		#x21 #x3D)	; ¯ªÜê§
+    (chinese-cns11643-1		#x21 #x37)	; ¯ªëÇ≤
     ))
 (define-char
   '((name		. "HORIZONTAL BAR")
@@ -170,8 +171,8 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x2A)	; $(A!*(B
-    (korean-ksc5601	#x21 #x2A)	; $(C!*(B
+    (chinese-gb2312	#x21 #x2A)	; ¯ªÑÜç
+    (korean-ksc5601	#x21 #x2A)	; ¯ªàöï
     ))
 (define-char
   '((name		. "HALFWIDTH HORIZONTAL BAR")
@@ -180,7 +181,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x2015)
-    (greek-iso8859-7	#xAF)	; -FØ-A
+    (greek-iso8859-7	#xAF)	; Õø
     ))
 (define-char
   '((name		. "DOUBLE VERTICAL LINE")
@@ -188,10 +189,10 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x42)	; $(@!B(B
-    (chinese-gb2312		#x21 #x2C)	; $(A!,(B
-    (japanese-jisx0208		#x21 #x42)	; $(B!B(B
-    (chinese-cns11643-1		#x22 #x5D)	; $(G"](B
+    (japanese-jisx0208-1978	#x21 #x42)	; ¯ªÅº°
+    (chinese-gb2312		#x21 #x2C)	; ¯ªÑÜè
+    (japanese-jisx0208		#x21 #x42)	; ¯ªÜê©
+    (chinese-cns11643-1		#x22 #x5D)	; ¯ªëÑ∂
     ))
 (define-char
   '((name		. "DOUBLE LOW LINE")
@@ -200,7 +201,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x0333)
-    (hebrew-iso8859-8	#xDF)	; õ2]-Hﬂõ0]-A
+    (hebrew-iso8859-8	#xDF)	; ◊è
     ))
 (define-char
   '((name		. "LEFT SINGLE QUOTATION MARK")
@@ -208,11 +209,11 @@
     (general-category	punctuation initial-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x46)	; $(@!F(B
-    (chinese-gb2312		#x21 #x2E)	; $(A!.(B
-    (japanese-jisx0208		#x21 #x46)	; $(B!F(B
-    (korean-ksc5601		#x21 #x2E)	; $(C!.(B
-    (chinese-cns11643-1		#x21 #x64)	; $(G!d(B
+    (japanese-jisx0208-1978	#x21 #x46)	; ¯ªÅº•
+    (chinese-gb2312		#x21 #x2E)	; ¯ªÑÜë
+    (japanese-jisx0208		#x21 #x46)	; ¯ªÜê≠
+    (korean-ksc5601		#x21 #x2E)	; ¯ªàöô
+    (chinese-cns11643-1		#x21 #x64)	; ¯ªëÉü
     ))
 (define-char
   '((name		. "RIGHT SINGLE QUOTATION MARK")
@@ -220,11 +221,11 @@
     (general-category	punctuation final-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x47)	; $(@!G(B
-    (chinese-gb2312		#x21 #x2F)	; $(A!/(B
-    (japanese-jisx0208		#x21 #x47)	; $(B!G(B
-    (korean-ksc5601		#x21 #x2F)	; $(C!/(B
-    (chinese-cns11643-1		#x21 #x65)	; $(G!e(B
+    (japanese-jisx0208-1978	#x21 #x47)	; ¯ªÅº¶
+    (chinese-gb2312		#x21 #x2F)	; ¯ªÑÜí
+    (japanese-jisx0208		#x21 #x47)	; ¯ªÜêÆ
+    (korean-ksc5601		#x21 #x2F)	; ¯ªàöö
+    (chinese-cns11643-1		#x21 #x65)	; ¯ªëÉ†
     ))
 (define-char
   '((name		. "SINGLE LOW-9 QUOTATION MARK")
@@ -246,11 +247,11 @@
     (general-category	punctuation initial-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x48)	; $(@!H(B
-    (chinese-gb2312		#x21 #x30)	; $(A!0(B
-    (japanese-jisx0208		#x21 #x48)	; $(B!H(B
-    (korean-ksc5601		#x21 #x30)	; $(C!0(B
-    (chinese-cns11643-1		#x21 #x66)	; $(G!f(B
+    (japanese-jisx0208-1978	#x21 #x48)	; ¯ªÅºß
+    (chinese-gb2312		#x21 #x30)	; ¯ªÑÜì
+    (japanese-jisx0208		#x21 #x48)	; ¯ªÜêØ
+    (korean-ksc5601		#x21 #x30)	; ¯ªàöõ
+    (chinese-cns11643-1		#x21 #x66)	; ¯ªëÉ°
     ))
 (define-char
   '((name		. "RIGHT DOUBLE QUOTATION MARK")
@@ -258,11 +259,11 @@
     (general-category	punctuation final-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x49)	; $(@!I(B
-    (chinese-gb2312		#x21 #x31)	; $(A!1(B
-    (japanese-jisx0208		#x21 #x49)	; $(B!I(B
-    (korean-ksc5601		#x21 #x31)	; $(C!1(B
-    (chinese-cns11643-1		#x21 #x67)	; $(G!g(B
+    (japanese-jisx0208-1978	#x21 #x49)	; ¯ªÅº®
+    (chinese-gb2312		#x21 #x31)	; ¯ªÑÜî
+    (japanese-jisx0208		#x21 #x49)	; ¯ªÜê∞
+    (korean-ksc5601		#x21 #x31)	; ¯ªàöú
+    (chinese-cns11643-1		#x21 #x67)	; ¯ªëÉ¢
     ))
 (define-char
   '((name		. "DOUBLE LOW-9 QUOTATION MARK")
@@ -284,8 +285,8 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	#x22 #x77)	; $(B"w(B
-    (korean-ksc5601	#x22 #x53)	; $(C"S(B
+    (japanese-jisx0208	#x22 #x77)	; ¯ªÜíº
+    (korean-ksc5601	#x22 #x53)	; ¯ªàúú
     ))
 (define-char
   '((name		. "DOUBLE DAGGER")
@@ -293,8 +294,8 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	#x22 #x78)	; $(B"x(B
-    (korean-ksc5601	#x22 #x54)	; $(C"T(B
+    (japanese-jisx0208	#x22 #x78)	; ¯ªÜíΩ
+    (korean-ksc5601	#x22 #x54)	; ¯ªàúù
     ))
 (define-char
   '((name		. "BULLET")
@@ -302,6 +303,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x23 #x40)	; ‚Ä¢
     ))
 (define-char
   '((name		. "TRIANGULAR BULLET")
@@ -325,10 +327,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x002E #x002E)
-    (japanese-jisx0208-1978	#x21 #x45)	; $(@!E(B
-    (japanese-jisx0208		#x21 #x45)	; $(B!E(B
-    (korean-ksc5601		#x21 #x25)	; $(C!%(B
-    (chinese-cns11643-1		#x21 #x2D)	; $(G!-(B
+    (japanese-jisx0208-1978	#x21 #x45)	; ¯ªÅº§
+    (japanese-jisx0208		#x21 #x45)	; ¯ªÜê¨
+    (korean-ksc5601		#x21 #x25)	; ¯ªàöê
+    (chinese-cns11643-1		#x21 #x2D)	; ¯ªëÇ®
     ))
 (define-char
   '((name		. "HORIZONTAL ELLIPSIS")
@@ -337,11 +339,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x002E #x002E #x002E)
-    (japanese-jisx0208-1978	#x21 #x44)	; $(@!D(B
-    (chinese-gb2312		#x21 #x2D)	; $(A!-(B
-    (japanese-jisx0208		#x21 #x44)	; $(B!D(B
-    (korean-ksc5601		#x21 #x26)	; $(C!&(B
-    (chinese-cns11643-1		#x21 #x2C)	; $(G!,(B
+    (japanese-jisx0208-1978	#x21 #x44)	; ¯ªÅº£
+    (chinese-gb2312		#x21 #x2D)	; ¯ªÑÜê
+    (japanese-jisx0208		#x21 #x44)	; ¯ªÜê´
+    (korean-ksc5601		#x21 #x26)	; ¯ªàöë
+    (chinese-cns11643-1		#x21 #x2C)	; ¯ªëÇß
     ))
 (define-char
   '((name		. "HYPHENATION POINT")
@@ -349,7 +351,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x21 #x31)	; $(G!1(B
+    (chinese-cns11643-1 #x21 #x31)	; ¯ªëÇ¨
     ))
 (define-char
   '((name		. "LINE SEPARATOR")
@@ -414,9 +416,9 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x6B)	; $(A!k(B
-    (japanese-jisx0208	#x22 #x73)	; $(B"s(B
-    (korean-ksc5601	#x22 #x36)	; $(C"6(B
+    (chinese-gb2312	#x21 #x6B)	; ¯ªÑáé
+    (japanese-jisx0208	#x22 #x73)	; ¯ªÜí∏
+    (korean-ksc5601	#x22 #x36)	; ¯ªàõø
     ))
 (define-char
   '((name		. "PER TEN THOUSAND SIGN")
@@ -431,11 +433,11 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x6C)	; $(@!l(B
-    (chinese-gb2312		#x21 #x64)	; $(A!d(B
-    (japanese-jisx0208		#x21 #x6C)	; $(B!l(B
-    (korean-ksc5601		#x21 #x47)	; $(C!G(B
-    (chinese-cns11643-1		#x21 #x6B)	; $(G!k(B
+    (japanese-jisx0208-1978	#x21 #x6C)	; ¯ªÅΩã
+    (chinese-gb2312		#x21 #x64)	; ¯ªÑáá
+    (japanese-jisx0208		#x21 #x6C)	; ¯ªÜëì
+    (korean-ksc5601		#x21 #x47)	; ¯ªàö≤
+    (chinese-cns11643-1		#x21 #x6B)	; ¯ªëÉ¶
     ))
 (define-char
   '((name		. "DOUBLE PRIME")
@@ -444,10 +446,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	compat #x2032 #x2032)
-    (japanese-jisx0208-1978	#x21 #x6D)	; $(@!m(B
-    (chinese-gb2312		#x21 #x65)	; $(A!e(B
-    (japanese-jisx0208		#x21 #x6D)	; $(B!m(B
-    (korean-ksc5601		#x21 #x48)	; $(C!H(B
+    (japanese-jisx0208-1978	#x21 #x6D)	; ¯ªÅΩå
+    (chinese-gb2312		#x21 #x65)	; ¯ªÑáà
+    (japanese-jisx0208		#x21 #x6D)	; ¯ªÜëî
+    (korean-ksc5601		#x21 #x48)	; ¯ªàö≥
     ))
 (define-char
   '((name		. "TRIPLE PRIME")
@@ -463,7 +465,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x21 #x6A)	; $(G!j(B
+    (chinese-cns11643-1 #x21 #x6A)	; ¯ªëÉ•
     ))
 (define-char
   '((name		. "REVERSED DOUBLE PRIME")
@@ -508,11 +510,11 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x28)	; $(@"((B
-    (chinese-gb2312		#x21 #x79)	; $(A!y(B
-    (japanese-jisx0208		#x22 #x28)	; $(B"((B
-    (korean-ksc5601		#x21 #x58)	; $(C!X(B
-    (chinese-cns11643-1		#x21 #x6F)	; $(G!o(B
+    (japanese-jisx0208-1978	#x22 #x28)	; ¯ªÅΩ•
+    (chinese-gb2312		#x21 #x79)	; ¯ªÑáú
+    (japanese-jisx0208		#x22 #x28)	; ¯ªÜë≠
+    (korean-ksc5601		#x21 #x58)	; ¯ªàõÉ
+    (chinese-cns11643-1		#x21 #x6F)	; ¯ªëÉ™
     ))
 (define-char
   '((name		. "DOUBLE EXCLAMATION MARK")
@@ -521,6 +523,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0021 #x0021)
+    (japanese-jisx0213-1	#x28 #x6B)	; ‚Äº
     ))
 (define-char
   '((name		. "INTERROBANG")
@@ -536,9 +539,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x0305)
-    (latin-jisx0201	#x7E)	; (J~(B
-    (hebrew-iso8859-8	#xAF)	; õ2]-HØõ0]-A
-    (japanese-jisx0208	#x21 #x31)	; $(B!1(B
+    (latin-jisx0201	#x7E)	; ¯∫ëå©
+    (hebrew-iso8859-8	#xAF)	; ÷ü
+    (japanese-jisx0208	#x21 #x31)	; ¯ªÜêò
     ))
 (define-char
   '((name		. "FULLWIDTH OVERLINE")
@@ -547,9 +550,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x203E)
-    (japanese-jisx0208-1978	#x21 #x31)	; $(B!1(B
-    (japanese-jisx0208		#x21 #x31)	; $(B!1(B
-    (chinese-cns11643-1		#x22 #x23)	; $(G"#(B
+    (japanese-jisx0208-1978	#x21 #x31)	; ¯ªÅºê
+    (japanese-jisx0208		#x21 #x31)	; ¯ªÜêò
+    (chinese-cns11643-1		#x22 #x23)	; ¯ªëÉº
     ))
 (define-char
   '((name		. "UNDERTIE")
@@ -579,6 +582,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2C #x7E)	; ‚ÅÇ
     ))
 (define-char
   '((name		. "HYPHEN BULLET")
@@ -593,7 +597,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x22 #x5F)	; $(G"_(B
+    (chinese-cns11643-1 #x22 #x5F)	; ¯ªëÑ∏
     ))
 (define-char
   '((name		. "LEFT SQUARE BRACKET WITH QUILL")
@@ -616,6 +620,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x003F #x0021)
+    (japanese-jisx0213-1	#x28 #x6D)	; ‚Åà
     ))
 (define-char
   '((name		. "EXCLAMATION QUESTION MARK")
@@ -624,6 +629,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0021 #x003F)
+    (japanese-jisx0213-1	#x28 #x6E)	; ‚Åâ
     ))
 (define-char
   '((name		. "TIRONIAN SIGN ET")

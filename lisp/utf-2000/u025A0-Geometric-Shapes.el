@@ -4,11 +4,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x23)	; $(@"#(B
-    (chinese-gb2312		#x21 #x76)	; $(A!v(B
-    (japanese-jisx0208		#x22 #x23)	; $(B"#(B
-    (korean-ksc5601		#x21 #x61)	; $(C!a(B
-    (chinese-cns11643-1		#x21 #x7C)	; $(G!|(B
+    (japanese-jisx0208-1978	#x22 #x23)	; ø»½ 
+    (chinese-gb2312		#x21 #x76)	; ø»„‡™
+    (japanese-jisx0208		#x22 #x23)	; ø»†‘¨
+    (korean-ksc5601		#x21 #x61)	; ø»ˆ›Œ
+    (chinese-cns11643-1		#x21 #x7C)	; ø»‘ƒ·
     ))
 (define-char
   '((name		. "WHITE SQUARE")
@@ -16,11 +16,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x22)	; $(@""(B
-    (chinese-gb2312		#x21 #x75)	; $(A!u(B
-    (japanese-jisx0208		#x22 #x22)	; $(B""(B
-    (korean-ksc5601		#x21 #x60)	; $(C!`(B
-    (chinese-cns11643-1		#x21 #x7B)	; $(G!{(B
+    (japanese-jisx0208-1978	#x22 #x22)	; ø»½Ÿ
+    (chinese-gb2312		#x21 #x75)	; ø»„‡˜
+    (japanese-jisx0208		#x22 #x22)	; ø»†‘§
+    (korean-ksc5601		#x21 #x60)	; ø»ˆ›‹
+    (chinese-cns11643-1		#x21 #x7B)	; ø»‘ƒ¶
     ))
 (define-char
   '((name		. "WHITE SQUARE WITH ROUNDED CORNERS")
@@ -35,7 +35,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x43)	; $(C"C(B
+    (korean-ksc5601	#x22 #x43)	; ø»ˆœŒ
     ))
 (define-char
   '((name		. "SQUARE WITH HORIZONTAL FILL")
@@ -43,7 +43,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x47)	; $(C"G(B
+    (korean-ksc5601	#x22 #x47)	; ø»ˆœ
     ))
 (define-char
   '((name		. "SQUARE WITH VERTICAL FILL")
@@ -51,7 +51,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x48)	; $(C"H(B
+    (korean-ksc5601	#x22 #x48)	; ø»ˆœ‘
     ))
 (define-char
   '((name		. "SQUARE WITH ORTHOGONAL CROSSHATCH FILL")
@@ -59,7 +59,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x4B)	; $(C"K(B
+    (korean-ksc5601	#x22 #x4B)	; ø»ˆœ”
     ))
 (define-char
   '((name		. "SQUARE WITH UPPER LEFT TO LOWER RIGHT FILL")
@@ -67,7 +67,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x4A)	; $(C"J(B
+    (korean-ksc5601	#x22 #x4A)	; ø»ˆœ“
     ))
 (define-char
   '((name		. "SQUARE WITH UPPER RIGHT TO LOWER LEFT FILL")
@@ -75,7 +75,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x49)	; $(C"I(B
+    (korean-ksc5601	#x22 #x49)	; ø»ˆœ’
     ))
 (define-char
   '((name		. "SQUARE WITH DIAGONAL CROSSHATCH FILL")
@@ -83,7 +83,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x4C)	; $(C"L(B
+    (korean-ksc5601	#x22 #x4C)	; ø»ˆœ•
     ))
 (define-char
   '((name		. "BLACK SMALL SQUARE")
@@ -140,6 +140,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x26 #x6D)	; â–±
     ))
 (define-char
   '((name		. "BLACK UP-POINTING TRIANGLE")
@@ -147,11 +148,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x25)	; $(@"%(B
-    (chinese-gb2312		#x21 #x78)	; $(A!x(B
-    (japanese-jisx0208		#x22 #x25)	; $(B"%(B
-    (korean-ksc5601		#x21 #x63)	; $(C!c(B
-    (chinese-cns11643-1		#x21 #x75)	; $(G!u(B
+    (japanese-jisx0208-1978	#x22 #x25)	; ø»½¢
+    (chinese-gb2312		#x21 #x78)	; ø»„‡›
+    (japanese-jisx0208		#x22 #x25)	; ø»†‘ª
+    (korean-ksc5601		#x21 #x63)	; ø»ˆ›
+    (chinese-cns11643-1		#x21 #x75)	; ø»‘ƒ°
     ))
 (define-char
   '((name		. "WHITE UP-POINTING TRIANGLE")
@@ -159,11 +160,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x24)	; $(@"$(B
-    (chinese-gb2312		#x21 #x77)	; $(A!w(B
-    (japanese-jisx0208		#x22 #x24)	; $(B"$(B
-    (korean-ksc5601		#x21 #x62)	; $(C!b(B
-    (chinese-cns11643-1		#x21 #x74)	; $(G!t(B
+    (japanese-jisx0208-1978	#x22 #x24)	; ø»½¡
+    (chinese-gb2312		#x21 #x77)	; ø»„‡š
+    (japanese-jisx0208		#x22 #x24)	; ø»†‘©
+    (korean-ksc5601		#x21 #x62)	; ø»ˆ›
+    (chinese-cns11643-1		#x21 #x74)	; ø»‘ƒ¯
     ))
 (define-char
   '((name		. "BLACK UP-POINTING SMALL TRIANGLE")
@@ -185,7 +186,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x3A)	; $(C":(B
+    (korean-ksc5601		#x22 #x3A)	; ø»ˆœƒ
+    (japanese-jisx0213-1	#x23 #x22)	; â–¶
     ))
 (define-char
   '((name		. "WHITE RIGHT-POINTING TRIANGLE")
@@ -193,7 +195,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x39)	; $(C"9(B
+    (korean-ksc5601		#x22 #x39)	; ø»ˆœ‚
+    (japanese-jisx0213-1	#x23 #x21)	; â–·
     ))
 (define-char
   '((name		. "BLACK RIGHT-POINTING SMALL TRIANGLE")
@@ -229,10 +232,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x27)	; $(@"'(B
-    (japanese-jisx0208		#x22 #x27)	; $(B"'(B
-    (korean-ksc5601		#x21 #x65)	; $(C!e(B
-    (chinese-cns11643-1		#x21 #x7E)	; $(G!~(B
+    (japanese-jisx0208-1978	#x22 #x27)	; ø»½¤
+    (japanese-jisx0208		#x22 #x27)	; ø»†‘¬
+    (korean-ksc5601		#x21 #x65)	; ø»ˆ›
+    (chinese-cns11643-1		#x21 #x7E)	; ø»‘ƒ¹
     ))
 (define-char
   '((name		. "WHITE DOWN-POINTING TRIANGLE")
@@ -240,10 +243,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x26)	; $(@"&(B
-    (japanese-jisx0208		#x22 #x26)	; $(B"&(B
-    (korean-ksc5601		#x21 #x64)	; $(C!d(B
-    (chinese-cns11643-1		#x21 #x7D)	; $(G!}(B
+    (japanese-jisx0208-1978	#x22 #x26)	; ø»½£
+    (japanese-jisx0208		#x22 #x26)	; ø»†‘«
+    (korean-ksc5601		#x21 #x64)	; ø»ˆ›
+    (chinese-cns11643-1		#x21 #x7D)	; ø»‘ƒ¸
     ))
 (define-char
   '((name		. "BLACK DOWN-POINTING SMALL TRIANGLE")
@@ -265,7 +268,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x38)	; $(C"8(B
+    (korean-ksc5601		#x22 #x38)	; ø»ˆœ
+    (japanese-jisx0213-1	#x23 #x24)	; â—€
     ))
 (define-char
   '((name		. "WHITE LEFT-POINTING TRIANGLE")
@@ -273,7 +277,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x37)	; $(C"7(B
+    (korean-ksc5601		#x22 #x37)	; ø»ˆœ€
+    (japanese-jisx0213-1	#x23 #x23)	; â—
     ))
 (define-char
   '((name		. "BLACK LEFT-POINTING SMALL TRIANGLE")
@@ -309,11 +314,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x21)	; $(@"!(B
-    (chinese-gb2312		#x21 #x74)	; $(A!t(B
-    (japanese-jisx0208		#x22 #x21)	; $(B"!(B
-    (korean-ksc5601		#x21 #x5F)	; $(C!_(B
-    (chinese-cns11643-1		#x21 #x7A)	; $(G!z(B
+    (japanese-jisx0208-1978	#x22 #x21)	; ø»½
+    (chinese-gb2312		#x21 #x74)	; ø»„‡—
+    (japanese-jisx0208		#x22 #x21)	; ø»†‘¦
+    (korean-ksc5601		#x21 #x5F)	; ø»ˆ›Š
+    (chinese-cns11643-1		#x21 #x7A)	; ø»‘ƒµ
     ))
 (define-char
   '((name		. "WHITE DIAMOND")
@@ -321,11 +326,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x7E)	; $(@!~(B
-    (chinese-gb2312		#x21 #x73)	; $(A!s(B
-    (japanese-jisx0208		#x21 #x7E)	; $(B!~(B
-    (korean-ksc5601		#x21 #x5E)	; $(C!^(B
-    (chinese-cns11643-1		#x21 #x79)	; $(G!y(B
+    (japanese-jisx0208-1978	#x21 #x7E)	; ø»½
+    (chinese-gb2312		#x21 #x73)	; ø»„‡–
+    (japanese-jisx0208		#x21 #x7E)	; ø»†‘¥
+    (korean-ksc5601		#x21 #x5E)	; ø»ˆ›‰
+    (chinese-cns11643-1		#x21 #x79)	; ø»‘ƒ´
     ))
 (define-char
   '((name		. "WHITE DIAMOND CONTAINING BLACK SMALL DIAMOND")
@@ -333,7 +338,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x42)	; $(C"B(B
+    (korean-ksc5601	#x22 #x42)	; ø»ˆœ‹
     ))
 (define-char
   '((name		. "FISHEYE")
@@ -341,6 +346,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x23 #x3B)	; â—‰
     ))
 (define-char
   '((name		. "LOZENGE")
@@ -355,11 +361,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x7B)	; $(@!{(B
-    (chinese-gb2312		#x21 #x70)	; $(A!p(B
-    (japanese-jisx0208		#x21 #x7B)	; $(B!{(B
-    (korean-ksc5601		#x21 #x5B)	; $(C![(B
-    (chinese-cns11643-1		#x21 #x72)	; $(G!r(B
+    (japanese-jisx0208-1978	#x21 #x7B)	; ø»½š
+    (chinese-gb2312		#x21 #x70)	; ø»„‡“
+    (japanese-jisx0208		#x21 #x7B)	; ø»†‘¢
+    (korean-ksc5601		#x21 #x5B)	; ø»ˆ›†
+    (chinese-cns11643-1		#x21 #x72)	; ø»‘ƒ­
     ))
 (define-char
   '((name		. "DOTTED CIRCLE")
@@ -381,11 +387,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x7D)	; $(@!}(B
-    (chinese-gb2312		#x21 #x72)	; $(A!r(B
-    (japanese-jisx0208		#x21 #x7D)	; $(B!}(B
-    (korean-ksc5601		#x21 #x5D)	; $(C!](B
-    (chinese-cns11643-1		#x21 #x76)	; $(G!v(B
+    (japanese-jisx0208-1978	#x21 #x7D)	; ø»½œ
+    (chinese-gb2312		#x21 #x72)	; ø»„‡•
+    (japanese-jisx0208		#x21 #x7D)	; ø»†‘¤
+    (korean-ksc5601		#x21 #x5D)	; ø»ˆ›ˆ
+    (chinese-cns11643-1		#x21 #x76)	; ø»‘ƒ±
     ))
 (define-char
   '((name		. "BLACK CIRCLE")
@@ -393,11 +399,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x7C)	; $(@!|(B
-    (chinese-gb2312		#x21 #x71)	; $(A!q(B
-    (japanese-jisx0208		#x21 #x7C)	; $(B!|(B
-    (korean-ksc5601		#x21 #x5C)	; $(C!\(B
-    (chinese-cns11643-1		#x21 #x73)	; $(G!s(B
+    (japanese-jisx0208-1978	#x21 #x7C)	; ø»½›
+    (chinese-gb2312		#x21 #x71)	; ø»„‡”
+    (japanese-jisx0208		#x21 #x7C)	; ø»†‘£
+    (korean-ksc5601		#x21 #x5C)	; ø»ˆ›‡
+    (chinese-cns11643-1		#x21 #x73)	; ø»‘ƒ®
     ))
 (define-char
   '((name		. "CIRCLE WITH LEFT HALF BLACK")
@@ -405,7 +411,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x44)	; $(C"D(B
+    (korean-ksc5601		#x22 #x44)	; ø»ˆœ
+    (japanese-jisx0213-1	#x28 #x67)	; â—
     ))
 (define-char
   '((name		. "CIRCLE WITH RIGHT HALF BLACK")
@@ -413,7 +420,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x45)	; $(C"E(B
+    (korean-ksc5601		#x22 #x45)	; ø»ˆœ
+    (japanese-jisx0213-1	#x28 #x68)	; â—‘
     ))
 (define-char
   '((name		. "CIRCLE WITH LOWER HALF BLACK")
@@ -421,6 +429,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x28 #x69)	; â—’
     ))
 (define-char
   '((name		. "CIRCLE WITH UPPER HALF BLACK")
@@ -428,6 +437,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x28 #x6A)	; â—“
     ))
 (define-char
   '((name		. "CIRCLE WITH UPPER RIGHT QUADRANT BLACK")
@@ -533,7 +543,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x48)	; $(G#H(B
+    (chinese-cns11643-1 #x23 #x48)	; ø»‘…¿
     ))
 (define-char
   '((name		. "BLACK LOWER LEFT TRIANGLE")
@@ -541,7 +551,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x49)	; $(G#I(B
+    (chinese-cns11643-1 #x23 #x49)	; ø»‘†€
     ))
 (define-char
   '((name		. "BLACK UPPER LEFT TRIANGLE")
@@ -549,7 +559,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x4B)	; $(G#K(B
+    (chinese-cns11643-1 #x23 #x4B)	; ø»‘†‚
     ))
 (define-char
   '((name		. "BLACK UPPER RIGHT TRIANGLE")
@@ -557,7 +567,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x4A)	; $(G#J(B
+    (chinese-cns11643-1 #x23 #x4A)	; ø»‘†
     ))
 (define-char
   '((name		. "WHITE BULLET")
@@ -565,6 +575,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x23 #x3F)	; â—¦
     ))
 (define-char
   '((name		. "SQUARE WITH LEFT HALF BLACK")
@@ -628,7 +639,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	#x22 #x7E)	; $(B"~(B
+    (japanese-jisx0208	#x22 #x7E)	; ø»†“ƒ
     ))
 (define-char
   '((name		. "WHITE SQUARE WITH UPPER LEFT QUADRANT")

@@ -430,7 +430,9 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 #define MAX_CHAR_96		(MIN_CHAR_96 + 96 * 80 - 1)
 
 #define MIN_CHAR_94x94		0xE9F6C0
+#define MIN_CHAR_JIS_X0208_1990	(MIN_CHAR_94x94 + 94 * 94 * 79)
 #define MAX_CHAR_94x94		(MIN_CHAR_94x94 + 94 * 94 * 80 - 1)
+#define MAX_CHAR_JIS_X0208_1990	MAX_CHAR_94x94
 #define MIN_CHAR_96x96		0xF4C000
 #define MAX_CHAR_96x96		(MIN_CHAR_96x96 + 96 * 96 * 80 - 1)
 
@@ -461,13 +463,7 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
       else
 	return XCHAR (ch);
     }
-  if (EQ (charset, Vcharset_katakana_jisx0201))
-    if (c1 < 0x60)
-      return c1 + MIN_CHAR_HALFWIDTH_KATAKANA - 33;
-    else
-      /* return MIN_CHAR_94 + ('I' - '0') * 94 + (c1 - 33); */
-      return ' ';
-  else if (XCHARSET_UCS_MAX (charset))
+  if (XCHARSET_UCS_MAX (charset))
     {
       Emchar code
 	= (XCHARSET_DIMENSION (charset) == 1

@@ -89,6 +89,7 @@
     (general-category	symbol currency) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x29 #x21)	; €
     ))
 (define-char
   '((name		. "KIP SIGN")

@@ -4,8 +4,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	#x22 #x4F)	; $(B"O(B
-    (korean-ksc5601	#x22 #x23)	; $(C"#(B
+    (japanese-jisx0208	#x22 #x4F)	; ø»†’”
+    (korean-ksc5601	#x22 #x23)	; ø»ˆ›¬
     ))
 (define-char
   '((name		. "COMPLEMENT")
@@ -20,8 +20,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208	#x22 #x5F)	; $(B"_(B
-    (korean-ksc5601	#x21 #x53)	; $(C!S(B
+    (japanese-jisx0208	#x22 #x5F)	; ø»†’¤
+    (korean-ksc5601	#x21 #x53)	; ø»ˆš¾
     ))
 (define-char
   '((name		. "THERE EXISTS")
@@ -29,8 +29,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208	#x22 #x50)	; $(B"P(B
-    (korean-ksc5601	#x22 #x24)	; $(C"$(B
+    (japanese-jisx0208	#x22 #x50)	; ø»†’•
+    (korean-ksc5601	#x22 #x24)	; ø»ˆ›­
     ))
 (define-char
   '((name		. "THERE DOES NOT EXIST")
@@ -46,6 +46,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x22 #x47)	; âˆ…
     ))
 (define-char
   '((name		. "INCREMENT")
@@ -60,8 +61,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	#x22 #x60)	; $(B"`(B
-    (korean-ksc5601	#x21 #x54)	; $(C!T(B
+    (japanese-jisx0208	#x22 #x60)	; ø»†’¥
+    (korean-ksc5601	#x21 #x54)	; ø»ˆš¿
     ))
 (define-char
   '((name		. "ELEMENT OF")
@@ -69,9 +70,9 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x4A)	; $(A!J(B
-    (japanese-jisx0208	#x22 #x3A)	; $(B":(B
-    (korean-ksc5601	#x21 #x74)	; $(C!t(B
+    (chinese-gb2312	#x21 #x4A)	; ø»„†­
+    (japanese-jisx0208	#x22 #x3A)	; ø»†‘¿
+    (korean-ksc5601	#x21 #x74)	; ø»ˆ›Ÿ
     ))
 (define-char
   '((name		. "NOT AN ELEMENT OF")
@@ -80,6 +81,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x2208 #x0338)
+    (japanese-jisx0213-1	#x22 #x46)	; âˆ‰
     ))
 (define-char
   '((name		. "SMALL ELEMENT OF")
@@ -94,8 +96,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208	#x22 #x3B)	; $(B";(B
-    (korean-ksc5601	#x21 #x75)	; $(C!u(B
+    (japanese-jisx0208	#x22 #x3B)	; ø»†’€
+    (korean-ksc5601	#x21 #x75)	; ø»ˆ› 
     ))
 (define-char
   '((name		. "DOES NOT CONTAIN AS MEMBER")
@@ -125,8 +127,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x47)	; $(A!G(B
-    (korean-ksc5601	#x22 #x33)	; $(C"3(B
+    (chinese-gb2312	#x21 #x47)	; ø»„†ª
+    (korean-ksc5601	#x22 #x33)	; ø»ˆ›¼
     ))
 (define-char
   '((name		. "N-ARY COPRODUCT")
@@ -141,8 +143,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x46)	; $(A!F(B
-    (korean-ksc5601	#x22 #x32)	; $(C"2(B
+    (chinese-gb2312	#x21 #x46)	; ø»„†©
+    (korean-ksc5601	#x22 #x32)	; ø»ˆ›»
     ))
 (define-char
   '((name		. "MINUS SIGN")
@@ -150,8 +152,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x5D)	; $(@!](B
-    (japanese-jisx0208		#x21 #x5D)	; $(B!](B
+    (japanese-jisx0208-1978	#x21 #x5D)	; ø»¼¼
+    (japanese-jisx0208		#x21 #x5D)	; ø»†‘„
     ))
 (define-char
   '((name		. "MINUS-OR-PLUS SIGN")
@@ -159,6 +161,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x23 #x5B)	; âˆ“
     ))
 (define-char
   '((name		. "DOT PLUS")
@@ -173,7 +176,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-cns11643-1 #x22 #x61)	; $(G"a(B
+    (chinese-cns11643-1 #x22 #x61)	; ø»‘„º
     ))
 (define-char
   '((name		. "SET MINUS")
@@ -209,10 +212,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x4C)	; $(A!L(B
-    (japanese-jisx0208	#x22 #x65)	; $(B"e(B
-    (korean-ksc5601	#x21 #x6E)	; $(C!n(B
-    (chinese-cns11643-1 #x22 #x35)	; $(G"5(B
+    (chinese-gb2312	#x21 #x4C)	; ø»„†¯
+    (japanese-jisx0208	#x22 #x65)	; ø»†’ª
+    (korean-ksc5601	#x21 #x6E)	; ø»ˆ›™
+    (chinese-cns11643-1 #x22 #x35)	; ø»‘„
     ))
 (define-char
   '((name		. "CUBE ROOT")
@@ -234,9 +237,9 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x58)	; $(A!X(B
-    (japanese-jisx0208	#x22 #x67)	; $(B"g(B
-    (korean-ksc5601	#x21 #x70)	; $(C!p(B
+    (chinese-gb2312	#x21 #x58)	; ø»„†»
+    (japanese-jisx0208	#x22 #x67)	; ø»†’¬
+    (korean-ksc5601	#x21 #x70)	; ø»ˆ››
     ))
 (define-char
   '((name		. "INFINITY")
@@ -244,11 +247,11 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x67)	; $(@!g(B
-    (chinese-gb2312		#x21 #x5E)	; $(A!^(B
-    (japanese-jisx0208		#x21 #x67)	; $(B!g(B
-    (korean-ksc5601		#x21 #x44)	; $(C!D(B
-    (chinese-cns11643-1		#x22 #x3C)	; $(G"<(B
+    (japanese-jisx0208-1978	#x21 #x67)	; ø»½†
+    (chinese-gb2312		#x21 #x5E)	; ø»„‡
+    (japanese-jisx0208		#x21 #x67)	; ø»†‘
+    (korean-ksc5601		#x21 #x44)	; ø»ˆš¯
+    (chinese-cns11643-1		#x22 #x3C)	; ø»‘„•
     ))
 (define-char
   '((name		. "RIGHT ANGLE")
@@ -256,7 +259,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-cns11643-1 #x22 #x49)	; $(G"I(B
+    (chinese-cns11643-1		#x22 #x49)	; ø»‘„¢
+    (japanese-jisx0213-1	#x2D #x78)	; âˆŸ
     ))
 (define-char
   '((name		. "ANGLE")
@@ -264,10 +268,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x4F)	; $(A!O(B
-    (japanese-jisx0208	#x22 #x5C)	; $(B"\(B
-    (korean-ksc5601	#x21 #x50)	; $(C!P(B
-    (chinese-cns11643-1 #x22 #x48)	; $(G"H(B
+    (chinese-gb2312	#x21 #x4F)	; ø»„†²
+    (japanese-jisx0208	#x22 #x5C)	; ø»†’¡
+    (korean-ksc5601	#x21 #x50)	; ø»ˆš»
+    (chinese-cns11643-1 #x22 #x48)	; ø»‘„¡
     ))
 (define-char
   '((name		. "MEASURED ANGLE")
@@ -304,8 +308,9 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x4E)	; $(A!N(B
-    (korean-ksc5601	#x21 #x2B)	; $(C!+(B
+    (chinese-gb2312		#x21 #x4E)	; ø»„†±
+    (korean-ksc5601		#x21 #x2B)	; ø»ˆš–
+    (japanese-jisx0213-1	#x22 #x54)	; âˆ¥
     ))
 (define-char
   '((name		. "NOT PARALLEL TO")
@@ -314,6 +319,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x2225 #x0338)
+    (japanese-jisx0213-1	#x22 #x55)	; âˆ¦
     ))
 (define-char
   '((name		. "LOGICAL AND")
@@ -321,9 +327,9 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x44)	; $(A!D(B
-    (japanese-jisx0208	#x22 #x4A)	; $(B"J(B
-    (korean-ksc5601	#x21 #x7C)	; $(C!|(B
+    (chinese-gb2312	#x21 #x44)	; ø»„†§
+    (japanese-jisx0208	#x22 #x4A)	; ø»†’
+    (korean-ksc5601	#x21 #x7C)	; ø»ˆ›§
     ))
 (define-char
   '((name		. "LOGICAL OR")
@@ -331,9 +337,9 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x45)	; $(A!E(B
-    (japanese-jisx0208	#x22 #x4B)	; $(B"K(B
-    (korean-ksc5601	#x21 #x7D)	; $(C!}(B
+    (chinese-gb2312	#x21 #x45)	; ø»„†¨
+    (japanese-jisx0208	#x22 #x4B)	; ø»†’
+    (korean-ksc5601	#x21 #x7D)	; ø»ˆ›¨
     ))
 (define-char
   '((name		. "INTERSECTION")
@@ -341,10 +347,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x49)	; $(A!I(B
-    (japanese-jisx0208	#x22 #x41)	; $(B"A(B
-    (korean-ksc5601	#x21 #x7B)	; $(C!{(B
-    (chinese-cns11643-1 #x22 #x45)	; $(G"E(B
+    (chinese-gb2312	#x21 #x49)	; ø»„†¬
+    (japanese-jisx0208	#x22 #x41)	; ø»†’†
+    (korean-ksc5601	#x21 #x7B)	; ø»ˆ›¦
+    (chinese-cns11643-1 #x22 #x45)	; ø»‘„
     ))
 (define-char
   '((name		. "UNION")
@@ -352,10 +358,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x48)	; $(A!H(B
-    (japanese-jisx0208	#x22 #x40)	; $(B"@(B
-    (korean-ksc5601	#x21 #x7A)	; $(C!z(B
-    (chinese-cns11643-1 #x22 #x46)	; $(G"F(B
+    (chinese-gb2312	#x21 #x48)	; ø»„†«
+    (japanese-jisx0208	#x22 #x40)	; ø»†’…
+    (korean-ksc5601	#x21 #x7A)	; ø»ˆ›¥
+    (chinese-cns11643-1 #x22 #x46)	; ø»‘„Ÿ
     ))
 (define-char
   '((name		. "INTEGRAL")
@@ -363,10 +369,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x52)	; $(A!R(B
-    (japanese-jisx0208	#x22 #x69)	; $(B"i(B
-    (korean-ksc5601	#x21 #x72)	; $(C!r(B
-    (chinese-cns11643-1 #x22 #x4D)	; $(G"M(B
+    (chinese-gb2312	#x21 #x52)	; ø»„†µ
+    (japanese-jisx0208	#x22 #x69)	; ø»†’®
+    (korean-ksc5601	#x21 #x72)	; ø»ˆ›
+    (chinese-cns11643-1 #x22 #x4D)	; ø»‘„¦
     ))
 (define-char
   '((name		. "DOUBLE INTEGRAL")
@@ -375,8 +381,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	compat #x222B #x222B)
-    (japanese-jisx0208	#x22 #x6A)	; $(B"j(B
-    (korean-ksc5601	#x21 #x73)	; $(C!s(B
+    (japanese-jisx0208	#x22 #x6A)	; ø»†’¯
+    (korean-ksc5601	#x21 #x73)	; ø»ˆ›
     ))
 (define-char
   '((name		. "TRIPLE INTEGRAL")
@@ -392,9 +398,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x53)	; $(A!S(B
-    (korean-ksc5601	#x22 #x31)	; $(C"1(B
-    (chinese-cns11643-1 #x22 #x4E)	; $(G"N(B
+    (chinese-gb2312		#x21 #x53)	; ø»„†¶
+    (korean-ksc5601		#x22 #x31)	; ø»ˆ›º
+    (chinese-cns11643-1		#x22 #x4E)	; ø»‘„§
+    (japanese-jisx0213-1	#x2D #x73)	; âˆ®
     ))
 (define-char
   '((name		. "SURFACE INTEGRAL")
@@ -439,11 +446,11 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x68)	; $(@!h(B
-    (chinese-gb2312		#x21 #x60)	; $(A!`(B
-    (japanese-jisx0208		#x21 #x68)	; $(B!h(B
-    (korean-ksc5601		#x21 #x45)	; $(C!E(B
-    (chinese-cns11643-1		#x22 #x50)	; $(G"P(B
+    (japanese-jisx0208-1978	#x21 #x68)	; ø»½‡
+    (chinese-gb2312		#x21 #x60)	; ø»„‡ƒ
+    (japanese-jisx0208		#x21 #x68)	; ø»†‘
+    (korean-ksc5601		#x21 #x45)	; ø»ˆš°
+    (chinese-cns11643-1		#x22 #x50)	; ø»‘„©
     ))
 (define-char
   '((name		. "BECAUSE")
@@ -451,10 +458,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x5F)	; $(A!_(B
-    (japanese-jisx0208	#x22 #x68)	; $(B"h(B
-    (korean-ksc5601	#x21 #x71)	; $(C!q(B
-    (chinese-cns11643-1 #x22 #x4F)	; $(G"O(B
+    (chinese-gb2312	#x21 #x5F)	; ø»„‡‚
+    (japanese-jisx0208	#x22 #x68)	; ø»†’­
+    (korean-ksc5601	#x21 #x71)	; ø»ˆ›œ
+    (chinese-cns11643-1 #x22 #x4F)	; ø»‘„¨
     ))
 (define-char
   '((name		. "RATIO")
@@ -462,7 +469,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x43)	; $(A!C(B
+    (chinese-gb2312	#x21 #x43)	; ø»„†¦
     ))
 (define-char
   '((name		. "PROPORTION")
@@ -470,7 +477,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x4B)	; $(A!K(B
+    (chinese-gb2312	#x21 #x4B)	; ø»„†®
     ))
 (define-char
   '((name		. "DOT MINUS")
@@ -506,7 +513,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (korean-ksc5601	#x21 #x2D)	; $(C!-(B
+    (korean-ksc5601	#x21 #x2D)	; ø»ˆš˜
     ))
 (define-char
   '((name		. "REVERSED TILDE")
@@ -515,9 +522,9 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (iso-10646-comment	. "lazy S")
-    (chinese-gb2312	#x21 #x57)	; $(A!W(B
-    (japanese-jisx0208	#x22 #x66)	; $(B"f(B
-    (korean-ksc5601	#x21 #x6F)	; $(C!o(B
+    (chinese-gb2312	#x21 #x57)	; ø»„†º
+    (japanese-jisx0208	#x22 #x66)	; ø»†’«
+    (korean-ksc5601	#x21 #x6F)	; ø»ˆ›š
     ))
 (define-char
   '((name		. "INVERTED LAZY S")
@@ -561,6 +568,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (japanese-jisx0213-1	#x22 #x6C)	; â‰ƒ
     ))
 (define-char
   '((name		. "NOT ASYMPTOTICALLY EQUAL TO")
@@ -576,6 +584,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (japanese-jisx0213-1	#x22 #x6D)	; â‰…
     ))
 (define-char
   '((name		. "APPROXIMATELY BUT NOT ACTUALLY EQUAL TO")
@@ -598,7 +607,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x56)	; $(A!V(B
+    (chinese-gb2312		#x21 #x56)	; ø»„†¹
+    (japanese-jisx0213-1	#x22 #x6E)	; â‰ˆ
     ))
 (define-char
   '((name		. "NOT ALMOST EQUAL TO")
@@ -628,7 +638,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x55)	; $(A!U(B
+    (chinese-gb2312	#x21 #x55)	; ø»„†¸
     ))
 (define-char
   '((name		. "EQUIVALENT TO")
@@ -671,9 +681,9 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208	#x22 #x62)	; $(B"b(B
-    (korean-ksc5601	#x21 #x56)	; $(C!V(B
-    (chinese-cns11643-1 #x22 #x3D)	; $(G"=(B
+    (japanese-jisx0208	#x22 #x62)	; ø»†’§
+    (korean-ksc5601	#x21 #x56)	; ø»ˆ›
+    (chinese-cns11643-1 #x22 #x3D)	; ø»‘„–
     ))
 (define-char
   '((name		. "IMAGE OF OR APPROXIMATELY EQUAL TO")
@@ -773,11 +783,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x003D #x0338)
-    (japanese-jisx0208-1978	#x21 #x62)	; $(@!b(B
-    (chinese-gb2312		#x21 #x59)	; $(A!Y(B
-    (japanese-jisx0208		#x21 #x62)	; $(B!b(B
-    (korean-ksc5601		#x21 #x41)	; $(C!A(B
-    (chinese-cns11643-1		#x22 #x3B)	; $(G";(B
+    (japanese-jisx0208-1978	#x21 #x62)	; ø»½
+    (chinese-gb2312		#x21 #x59)	; ø»„†¼
+    (japanese-jisx0208		#x21 #x62)	; ø»†‘‰
+    (korean-ksc5601		#x21 #x41)	; ø»ˆš¬
+    (chinese-cns11643-1		#x22 #x3B)	; ø»‘„”
     ))
 (define-char
   '((name		. "IDENTICAL TO")
@@ -785,10 +795,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x54)	; $(A!T(B
-    (japanese-jisx0208	#x22 #x61)	; $(B"a(B
-    (korean-ksc5601	#x21 #x55)	; $(C!U(B
-    (chinese-cns11643-1 #x22 #x3E)	; $(G">(B
+    (chinese-gb2312	#x21 #x54)	; ø»„†·
+    (japanese-jisx0208	#x22 #x61)	; ø»†’¦
+    (korean-ksc5601	#x21 #x55)	; ø»ˆ›€
+    (chinese-cns11643-1 #x22 #x3E)	; ø»‘„—
     ))
 (define-char
   '((name		. "NOT IDENTICAL TO")
@@ -797,6 +807,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x2261 #x0338)
+    (japanese-jisx0213-1	#x22 #x6B)	; â‰¢
     ))
 (define-char
   '((name		. "STRICTLY EQUIVALENT TO")
@@ -811,8 +822,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x5C)	; $(A!\(B
-    (korean-ksc5601	#x21 #x42)	; $(C!B(B
+    (chinese-gb2312	#x21 #x5C)	; ø»„†¿
+    (korean-ksc5601	#x21 #x42)	; ø»ˆš­
     ))
 (define-char
   '((name		. "GREATER-THAN OR EQUAL TO")
@@ -820,8 +831,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x5D)	; $(A!](B
-    (korean-ksc5601	#x21 #x43)	; $(C!C(B
+    (chinese-gb2312	#x21 #x5D)	; ø»„‡€
+    (korean-ksc5601	#x21 #x43)	; ø»ˆš®
     ))
 (define-char
   '((name		. "LESS-THAN OVER EQUAL TO")
@@ -829,9 +840,9 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x65)	; $(@!e(B
-    (japanese-jisx0208		#x21 #x65)	; $(B!e(B
-    (chinese-cns11643-1		#x22 #x39)	; $(G"9(B
+    (japanese-jisx0208-1978	#x21 #x65)	; ø»½„
+    (japanese-jisx0208		#x21 #x65)	; ø»†‘Œ
+    (chinese-cns11643-1		#x22 #x39)	; ø»‘„’
     ))
 (define-char
   '((name		. "GREATER-THAN OVER EQUAL TO")
@@ -839,9 +850,9 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x66)	; $(@!f(B
-    (japanese-jisx0208		#x21 #x66)	; $(B!f(B
-    (chinese-cns11643-1		#x22 #x3A)	; $(G":(B
+    (japanese-jisx0208-1978	#x21 #x66)	; ø»½…
+    (japanese-jisx0208		#x21 #x66)	; ø»†‘
+    (chinese-cns11643-1		#x22 #x3A)	; ø»‘„“
     ))
 (define-char
   '((name		. "LESS-THAN BUT NOT EQUAL TO")
@@ -863,8 +874,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208	#x22 #x63)	; $(B"c(B
-    (korean-ksc5601	#x21 #x6C)	; $(C!l(B
+    (japanese-jisx0208	#x22 #x63)	; ø»†’¨
+    (korean-ksc5601	#x21 #x6C)	; ø»ˆ›—
     ))
 (define-char
   '((name		. "MUCH GREATER-THAN")
@@ -872,8 +883,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208	#x22 #x64)	; $(B"d(B
-    (korean-ksc5601	#x21 #x6D)	; $(C!m(B
+    (japanese-jisx0208	#x22 #x64)	; ø»†’©
+    (korean-ksc5601	#x21 #x6D)	; ø»ˆ›˜
     ))
 (define-char
   '((name		. "BETWEEN")
@@ -897,7 +908,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x003C #x0338)
-    (chinese-gb2312	#x21 #x5A)	; $(A!Z(B
+    (chinese-gb2312	#x21 #x5A)	; ø»„†½
     ))
 (define-char
   '((name		. "NOT GREATER-THAN")
@@ -906,7 +917,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x003E #x0338)
-    (chinese-gb2312	#x21 #x5B)	; $(A![(B
+    (chinese-gb2312	#x21 #x5B)	; ø»„†¾
     ))
 (define-char
   '((name		. "NEITHER LESS-THAN NOR EQUAL TO")
@@ -960,6 +971,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (japanese-jisx0213-1	#x22 #x6F)	; â‰¶
     ))
 (define-char
   '((name		. "GREATER-THAN OR LESS-THAN")
@@ -967,6 +979,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (japanese-jisx0213-1	#x22 #x70)	; â‰·
     ))
 (define-char
   '((name		. "NEITHER LESS-THAN NOR GREATER-THAN")
@@ -1048,8 +1061,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208	#x22 #x3E)	; $(B">(B
-    (korean-ksc5601	#x21 #x78)	; $(C!x(B
+    (japanese-jisx0208	#x22 #x3E)	; ø»†’ƒ
+    (korean-ksc5601	#x21 #x78)	; ø»ˆ›£
     ))
 (define-char
   '((name		. "SUPERSET OF")
@@ -1057,8 +1070,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208	#x22 #x3F)	; $(B"?(B
-    (korean-ksc5601	#x21 #x79)	; $(C!y(B
+    (japanese-jisx0208	#x22 #x3F)	; ø»†’„
+    (korean-ksc5601	#x21 #x79)	; ø»ˆ›¤
     ))
 (define-char
   '((name		. "NOT A SUBSET OF")
@@ -1067,6 +1080,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x2282 #x0338)
+    (japanese-jisx0213-1	#x22 #x42)	; âŠ„
     ))
 (define-char
   '((name		. "NOT A SUPERSET OF")
@@ -1075,6 +1089,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x2283 #x0338)
+    (japanese-jisx0213-1	#x22 #x43)	; âŠ…
     ))
 (define-char
   '((name		. "SUBSET OF OR EQUAL TO")
@@ -1082,8 +1097,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208	#x22 #x3C)	; $(B"<(B
-    (korean-ksc5601	#x21 #x76)	; $(C!v(B
+    (japanese-jisx0208	#x22 #x3C)	; ø»†’
+    (korean-ksc5601	#x21 #x76)	; ø»ˆ›¡
     ))
 (define-char
   '((name		. "SUPERSET OF OR EQUAL TO")
@@ -1091,8 +1106,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208	#x22 #x3D)	; $(B"=(B
-    (korean-ksc5601	#x21 #x77)	; $(C!w(B
+    (japanese-jisx0208	#x22 #x3D)	; ø»†’‚
+    (korean-ksc5601	#x21 #x77)	; ø»ˆ›¢
     ))
 (define-char
   '((name		. "NEITHER A SUBSET OF NOR EQUAL TO")
@@ -1116,6 +1131,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (japanese-jisx0213-1	#x22 #x44)	; âŠŠ
     ))
 (define-char
   '((name		. "SUPERSET OF WITH NOT EQUAL TO")
@@ -1123,6 +1139,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (japanese-jisx0213-1	#x22 #x45)	; âŠ‹
     ))
 (define-char
   '((name		. "MULTISET")
@@ -1193,7 +1210,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x22 #x53)	; $(G"S(B
+    (chinese-cns11643-1		#x22 #x53)	; ø»‘„¬
+    (japanese-jisx0213-1	#x22 #x51)	; âŠ•
     ))
 (define-char
   '((name		. "CIRCLED MINUS")
@@ -1201,6 +1219,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x22 #x52)	; âŠ–
     ))
 (define-char
   '((name		. "CIRCLED TIMES")
@@ -1208,6 +1227,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x22 #x53)	; âŠ—
     ))
 (define-char
   '((name		. "CIRCLED DIVISION SLASH")
@@ -1222,9 +1242,9 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x51)	; $(A!Q(B
-    (korean-ksc5601	#x22 #x41)	; $(C"A(B
-    (chinese-cns11643-1 #x22 #x54)	; $(G"T(B
+    (chinese-gb2312	#x21 #x51)	; ø»„†´
+    (korean-ksc5601	#x22 #x41)	; ø»ˆœŠ
+    (chinese-cns11643-1 #x22 #x54)	; ø»‘„­
     ))
 (define-char
   '((name		. "CIRCLED RING OPERATOR")
@@ -1309,10 +1329,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x4D)	; $(A!M(B
-    (japanese-jisx0208	#x22 #x5D)	; $(B"](B
-    (korean-ksc5601	#x21 #x51)	; $(C!Q(B
-    (chinese-cns11643-1 #x22 #x47)	; $(G"G(B
+    (chinese-gb2312	#x21 #x4D)	; ø»„†°
+    (japanese-jisx0208	#x22 #x5D)	; ø»†’¢
+    (korean-ksc5601	#x21 #x51)	; ø»ˆš¼
+    (chinese-cns11643-1 #x22 #x47)	; ø»‘„ 
     ))
 (define-char
   '((name		. "ASSERTION")
@@ -1499,7 +1519,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-cns11643-1 #x22 #x4A)	; $(G"J(B
+    (chinese-cns11643-1		#x22 #x4A)	; ø»‘„£
+    (japanese-jisx0213-1	#x2D #x79)	; âŠ¿
     ))
 (define-char
   '((name		. "N-ARY LOGICAL AND")
@@ -1689,6 +1710,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (japanese-jisx0213-1	#x27 #x76)	; â‹š
     ))
 (define-char
   '((name		. "GREATER-THAN EQUAL TO OR LESS-THAN")
@@ -1696,6 +1718,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (japanese-jisx0213-1	#x27 #x77)	; â‹›
     ))
 (define-char
   '((name		. "EQUAL TO OR LESS-THAN")

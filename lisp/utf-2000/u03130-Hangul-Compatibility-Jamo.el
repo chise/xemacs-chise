@@ -5,7 +5,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1100)
-    (korean-ksc5601	#x24 #x21)	; $(C$!(B
+    (korean-ksc5601	#x24 #x21)	; ø»ˆž¦
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGKIYEOK")
@@ -14,7 +14,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1101)
-    (korean-ksc5601	#x24 #x22)	; $(C$"(B
+    (korean-ksc5601	#x24 #x22)	; ø»ˆž§
     ))
 (define-char
   '((name		. "HANGUL LETTER KIYEOK-SIOS")
@@ -23,7 +23,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11AA)
-    (korean-ksc5601	#x24 #x23)	; $(C$#(B
+    (korean-ksc5601	#x24 #x23)	; ø»ˆž¨
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN")
@@ -32,7 +32,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1102)
-    (korean-ksc5601	#x24 #x24)	; $(C$$(B
+    (korean-ksc5601	#x24 #x24)	; ø»ˆž©
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-CIEUC")
@@ -41,7 +41,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11AC)
-    (korean-ksc5601	#x24 #x25)	; $(C$%(B
+    (korean-ksc5601	#x24 #x25)	; ø»ˆžª
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-HIEUH")
@@ -50,7 +50,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11AD)
-    (korean-ksc5601	#x24 #x26)	; $(C$&(B
+    (korean-ksc5601	#x24 #x26)	; ø»ˆž«
     ))
 (define-char
   '((name		. "HANGUL LETTER TIKEUT")
@@ -59,7 +59,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1103)
-    (korean-ksc5601	#x24 #x27)	; $(C$'(B
+    (korean-ksc5601	#x24 #x27)	; ø»ˆž¬
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGTIKEUT")
@@ -68,7 +68,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1104)
-    (korean-ksc5601	#x24 #x28)	; $(C$((B
+    (korean-ksc5601	#x24 #x28)	; ø»ˆž­
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL")
@@ -77,7 +77,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1105)
-    (korean-ksc5601	#x24 #x29)	; $(C$)(B
+    (korean-ksc5601	#x24 #x29)	; ø»ˆž®
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-KIYEOK")
@@ -86,7 +86,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B0)
-    (korean-ksc5601	#x24 #x2A)	; $(C$*(B
+    (korean-ksc5601	#x24 #x2A)	; ø»ˆž¯
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-MIEUM")
@@ -95,7 +95,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B1)
-    (korean-ksc5601	#x24 #x2B)	; $(C$+(B
+    (korean-ksc5601	#x24 #x2B)	; ø»ˆž°
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-PIEUP")
@@ -104,7 +104,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B2)
-    (korean-ksc5601	#x24 #x2C)	; $(C$,(B
+    (korean-ksc5601	#x24 #x2C)	; ø»ˆž±
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-SIOS")
@@ -113,7 +113,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B3)
-    (korean-ksc5601	#x24 #x2D)	; $(C$-(B
+    (korean-ksc5601	#x24 #x2D)	; ø»ˆž²
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-THIEUTH")
@@ -122,7 +122,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B4)
-    (korean-ksc5601	#x24 #x2E)	; $(C$.(B
+    (korean-ksc5601	#x24 #x2E)	; ø»ˆž³
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-PHIEUPH")
@@ -131,7 +131,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B5)
-    (korean-ksc5601	#x24 #x2F)	; $(C$/(B
+    (korean-ksc5601	#x24 #x2F)	; ø»ˆž´
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-HIEUH")
@@ -140,7 +140,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x111A)
-    (korean-ksc5601	#x24 #x30)	; $(C$0(B
+    (korean-ksc5601	#x24 #x30)	; ø»ˆžµ
     ))
 (define-char
   '((name		. "HANGUL LETTER MIEUM")
@@ -149,7 +149,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1106)
-    (korean-ksc5601	#x24 #x31)	; $(C$1(B
+    (korean-ksc5601	#x24 #x31)	; ø»ˆž¶
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP")
@@ -158,7 +158,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1107)
-    (korean-ksc5601	#x24 #x32)	; $(C$2(B
+    (korean-ksc5601	#x24 #x32)	; ø»ˆž·
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGPIEUP")
@@ -167,7 +167,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1108)
-    (korean-ksc5601	#x24 #x33)	; $(C$3(B
+    (korean-ksc5601	#x24 #x33)	; ø»ˆž¸
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-SIOS")
@@ -176,7 +176,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1121)
-    (korean-ksc5601	#x24 #x34)	; $(C$4(B
+    (korean-ksc5601	#x24 #x34)	; ø»ˆž¹
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS")
@@ -185,7 +185,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1109)
-    (korean-ksc5601	#x24 #x35)	; $(C$5(B
+    (korean-ksc5601	#x24 #x35)	; ø»ˆžº
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGSIOS")
@@ -194,7 +194,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110A)
-    (korean-ksc5601	#x24 #x36)	; $(C$6(B
+    (korean-ksc5601	#x24 #x36)	; ø»ˆž»
     ))
 (define-char
   '((name		. "HANGUL LETTER IEUNG")
@@ -203,7 +203,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110B)
-    (korean-ksc5601	#x24 #x37)	; $(C$7(B
+    (korean-ksc5601	#x24 #x37)	; ø»ˆž¼
     ))
 (define-char
   '((name		. "HANGUL LETTER CIEUC")
@@ -212,7 +212,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110C)
-    (korean-ksc5601	#x24 #x38)	; $(C$8(B
+    (korean-ksc5601	#x24 #x38)	; ø»ˆž½
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGCIEUC")
@@ -221,7 +221,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110D)
-    (korean-ksc5601	#x24 #x39)	; $(C$9(B
+    (korean-ksc5601	#x24 #x39)	; ø»ˆž¾
     ))
 (define-char
   '((name		. "HANGUL LETTER CHIEUCH")
@@ -230,7 +230,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110E)
-    (korean-ksc5601	#x24 #x3A)	; $(C$:(B
+    (korean-ksc5601	#x24 #x3A)	; ø»ˆž¿
     ))
 (define-char
   '((name		. "HANGUL LETTER KHIEUKH")
@@ -239,7 +239,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110F)
-    (korean-ksc5601	#x24 #x3B)	; $(C$;(B
+    (korean-ksc5601	#x24 #x3B)	; ø»ˆŸ€
     ))
 (define-char
   '((name		. "HANGUL LETTER THIEUTH")
@@ -248,7 +248,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1110)
-    (korean-ksc5601	#x24 #x3C)	; $(C$<(B
+    (korean-ksc5601	#x24 #x3C)	; ø»ˆŸ
     ))
 (define-char
   '((name		. "HANGUL LETTER PHIEUPH")
@@ -257,7 +257,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1111)
-    (korean-ksc5601	#x24 #x3D)	; $(C$=(B
+    (korean-ksc5601	#x24 #x3D)	; ø»ˆŸ‚
     ))
 (define-char
   '((name		. "HANGUL LETTER HIEUH")
@@ -266,7 +266,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1112)
-    (korean-ksc5601	#x24 #x3E)	; $(C$>(B
+    (korean-ksc5601	#x24 #x3E)	; ø»ˆŸƒ
     ))
 (define-char
   '((name		. "HANGUL LETTER A")
@@ -275,7 +275,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1161)
-    (korean-ksc5601	#x24 #x3F)	; $(C$?(B
+    (korean-ksc5601	#x24 #x3F)	; ø»ˆŸ„
     ))
 (define-char
   '((name		. "HANGUL LETTER AE")
@@ -284,7 +284,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1162)
-    (korean-ksc5601	#x24 #x40)	; $(C$@(B
+    (korean-ksc5601	#x24 #x40)	; ø»ˆŸ…
     ))
 (define-char
   '((name		. "HANGUL LETTER YA")
@@ -293,7 +293,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1163)
-    (korean-ksc5601	#x24 #x41)	; $(C$A(B
+    (korean-ksc5601	#x24 #x41)	; ø»ˆŸ†
     ))
 (define-char
   '((name		. "HANGUL LETTER YAE")
@@ -302,7 +302,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1164)
-    (korean-ksc5601	#x24 #x42)	; $(C$B(B
+    (korean-ksc5601	#x24 #x42)	; ø»ˆŸ‡
     ))
 (define-char
   '((name		. "HANGUL LETTER EO")
@@ -311,7 +311,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1165)
-    (korean-ksc5601	#x24 #x43)	; $(C$C(B
+    (korean-ksc5601	#x24 #x43)	; ø»ˆŸˆ
     ))
 (define-char
   '((name		. "HANGUL LETTER E")
@@ -320,7 +320,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1166)
-    (korean-ksc5601	#x24 #x44)	; $(C$D(B
+    (korean-ksc5601	#x24 #x44)	; ø»ˆŸ‰
     ))
 (define-char
   '((name		. "HANGUL LETTER YEO")
@@ -329,7 +329,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1167)
-    (korean-ksc5601	#x24 #x45)	; $(C$E(B
+    (korean-ksc5601	#x24 #x45)	; ø»ˆŸŠ
     ))
 (define-char
   '((name		. "HANGUL LETTER YE")
@@ -338,7 +338,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1168)
-    (korean-ksc5601	#x24 #x46)	; $(C$F(B
+    (korean-ksc5601	#x24 #x46)	; ø»ˆŸ‹
     ))
 (define-char
   '((name		. "HANGUL LETTER O")
@@ -347,7 +347,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1169)
-    (korean-ksc5601	#x24 #x47)	; $(C$G(B
+    (korean-ksc5601	#x24 #x47)	; ø»ˆŸŒ
     ))
 (define-char
   '((name		. "HANGUL LETTER WA")
@@ -356,7 +356,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116A)
-    (korean-ksc5601	#x24 #x48)	; $(C$H(B
+    (korean-ksc5601	#x24 #x48)	; ø»ˆŸ
     ))
 (define-char
   '((name		. "HANGUL LETTER WAE")
@@ -365,7 +365,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116B)
-    (korean-ksc5601	#x24 #x49)	; $(C$I(B
+    (korean-ksc5601	#x24 #x49)	; ø»ˆŸŽ
     ))
 (define-char
   '((name		. "HANGUL LETTER OE")
@@ -374,7 +374,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116C)
-    (korean-ksc5601	#x24 #x4A)	; $(C$J(B
+    (korean-ksc5601	#x24 #x4A)	; ø»ˆŸ
     ))
 (define-char
   '((name		. "HANGUL LETTER YO")
@@ -383,7 +383,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116D)
-    (korean-ksc5601	#x24 #x4B)	; $(C$K(B
+    (korean-ksc5601	#x24 #x4B)	; ø»ˆŸ
     ))
 (define-char
   '((name		. "HANGUL LETTER U")
@@ -392,7 +392,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116E)
-    (korean-ksc5601	#x24 #x4C)	; $(C$L(B
+    (korean-ksc5601	#x24 #x4C)	; ø»ˆŸ‘
     ))
 (define-char
   '((name		. "HANGUL LETTER WEO")
@@ -401,7 +401,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116F)
-    (korean-ksc5601	#x24 #x4D)	; $(C$M(B
+    (korean-ksc5601	#x24 #x4D)	; ø»ˆŸ’
     ))
 (define-char
   '((name		. "HANGUL LETTER WE")
@@ -410,7 +410,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1170)
-    (korean-ksc5601	#x24 #x4E)	; $(C$N(B
+    (korean-ksc5601	#x24 #x4E)	; ø»ˆŸ“
     ))
 (define-char
   '((name		. "HANGUL LETTER WI")
@@ -419,7 +419,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1171)
-    (korean-ksc5601	#x24 #x4F)	; $(C$O(B
+    (korean-ksc5601	#x24 #x4F)	; ø»ˆŸ”
     ))
 (define-char
   '((name		. "HANGUL LETTER YU")
@@ -428,7 +428,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1172)
-    (korean-ksc5601	#x24 #x50)	; $(C$P(B
+    (korean-ksc5601	#x24 #x50)	; ø»ˆŸ•
     ))
 (define-char
   '((name		. "HANGUL LETTER EU")
@@ -437,7 +437,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1173)
-    (korean-ksc5601	#x24 #x51)	; $(C$Q(B
+    (korean-ksc5601	#x24 #x51)	; ø»ˆŸ–
     ))
 (define-char
   '((name		. "HANGUL LETTER YI")
@@ -446,7 +446,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1174)
-    (korean-ksc5601	#x24 #x52)	; $(C$R(B
+    (korean-ksc5601	#x24 #x52)	; ø»ˆŸ—
     ))
 (define-char
   '((name		. "HANGUL LETTER I")
@@ -455,7 +455,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1175)
-    (korean-ksc5601	#x24 #x53)	; $(C$S(B
+    (korean-ksc5601	#x24 #x53)	; ø»ˆŸ˜
     ))
 (define-char
   '((name		. "HANGUL FILLER")
@@ -464,7 +464,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1160)
-    (korean-ksc5601	#x24 #x54)	; $(C$T(B
+    (korean-ksc5601	#x24 #x54)	; ø»ˆŸ™
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGNIEUN")
@@ -473,7 +473,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1114)
-    (korean-ksc5601	#x24 #x55)	; $(C$U(B
+    (korean-ksc5601	#x24 #x55)	; ø»ˆŸš
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-TIKEUT")
@@ -482,7 +482,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1115)
-    (korean-ksc5601	#x24 #x56)	; $(C$V(B
+    (korean-ksc5601	#x24 #x56)	; ø»ˆŸ›
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-SIOS")
@@ -491,7 +491,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11C7)
-    (korean-ksc5601	#x24 #x57)	; $(C$W(B
+    (korean-ksc5601	#x24 #x57)	; ø»ˆŸœ
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-PANSIOS")
@@ -500,7 +500,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11C8)
-    (korean-ksc5601	#x24 #x58)	; $(C$X(B
+    (korean-ksc5601	#x24 #x58)	; ø»ˆŸ
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-KIYEOK-SIOS")
@@ -509,7 +509,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11CC)
-    (korean-ksc5601	#x24 #x59)	; $(C$Y(B
+    (korean-ksc5601	#x24 #x59)	; ø»ˆŸž
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-TIKEUT")
@@ -518,7 +518,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11CE)
-    (korean-ksc5601	#x24 #x5A)	; $(C$Z(B
+    (korean-ksc5601	#x24 #x5A)	; ø»ˆŸŸ
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-PIEUP-SIOS")
@@ -527,7 +527,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11D3)
-    (korean-ksc5601	#x24 #x5B)	; $(C$[(B
+    (korean-ksc5601	#x24 #x5B)	; ø»ˆŸ 
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-PANSIOS")
@@ -536,7 +536,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11D7)
-    (korean-ksc5601	#x24 #x5C)	; $(C$\(B
+    (korean-ksc5601	#x24 #x5C)	; ø»ˆŸ¡
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-YEORINHIEUH")
@@ -545,7 +545,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11D9)
-    (korean-ksc5601	#x24 #x5D)	; $(C$](B
+    (korean-ksc5601	#x24 #x5D)	; ø»ˆŸ¢
     ))
 (define-char
   '((name		. "HANGUL LETTER MIEUM-PIEUP")
@@ -554,7 +554,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x111C)
-    (korean-ksc5601	#x24 #x5E)	; $(C$^(B
+    (korean-ksc5601	#x24 #x5E)	; ø»ˆŸ£
     ))
 (define-char
   '((name		. "HANGUL LETTER MIEUM-SIOS")
@@ -563,7 +563,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11DD)
-    (korean-ksc5601	#x24 #x5F)	; $(C$_(B
+    (korean-ksc5601	#x24 #x5F)	; ø»ˆŸ¤
     ))
 (define-char
   '((name		. "HANGUL LETTER MIEUM-PANSIOS")
@@ -572,7 +572,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11DF)
-    (korean-ksc5601	#x24 #x60)	; $(C$`(B
+    (korean-ksc5601	#x24 #x60)	; ø»ˆŸ¥
     ))
 (define-char
   '((name		. "HANGUL LETTER KAPYEOUNMIEUM")
@@ -581,7 +581,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x111D)
-    (korean-ksc5601	#x24 #x61)	; $(C$a(B
+    (korean-ksc5601	#x24 #x61)	; ø»ˆŸ¦
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-KIYEOK")
@@ -590,7 +590,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x111E)
-    (korean-ksc5601	#x24 #x62)	; $(C$b(B
+    (korean-ksc5601	#x24 #x62)	; ø»ˆŸ§
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-TIKEUT")
@@ -599,7 +599,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1120)
-    (korean-ksc5601	#x24 #x63)	; $(C$c(B
+    (korean-ksc5601	#x24 #x63)	; ø»ˆŸ¨
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-SIOS-KIYEOK")
@@ -608,7 +608,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1122)
-    (korean-ksc5601	#x24 #x64)	; $(C$d(B
+    (korean-ksc5601	#x24 #x64)	; ø»ˆŸ©
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-SIOS-TIKEUT")
@@ -617,7 +617,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1123)
-    (korean-ksc5601	#x24 #x65)	; $(C$e(B
+    (korean-ksc5601	#x24 #x65)	; ø»ˆŸª
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-CIEUC")
@@ -626,7 +626,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1127)
-    (korean-ksc5601	#x24 #x66)	; $(C$f(B
+    (korean-ksc5601	#x24 #x66)	; ø»ˆŸ«
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-THIEUTH")
@@ -635,7 +635,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1129)
-    (korean-ksc5601	#x24 #x67)	; $(C$g(B
+    (korean-ksc5601	#x24 #x67)	; ø»ˆŸ¬
     ))
 (define-char
   '((name		. "HANGUL LETTER KAPYEOUNPIEUP")
@@ -644,7 +644,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112B)
-    (korean-ksc5601	#x24 #x68)	; $(C$h(B
+    (korean-ksc5601	#x24 #x68)	; ø»ˆŸ­
     ))
 (define-char
   '((name		. "HANGUL LETTER KAPYEOUNSSANGPIEUP")
@@ -653,7 +653,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112C)
-    (korean-ksc5601	#x24 #x69)	; $(C$i(B
+    (korean-ksc5601	#x24 #x69)	; ø»ˆŸ®
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-KIYEOK")
@@ -662,7 +662,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112D)
-    (korean-ksc5601	#x24 #x6A)	; $(C$j(B
+    (korean-ksc5601	#x24 #x6A)	; ø»ˆŸ¯
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-NIEUN")
@@ -671,7 +671,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112E)
-    (korean-ksc5601	#x24 #x6B)	; $(C$k(B
+    (korean-ksc5601	#x24 #x6B)	; ø»ˆŸ°
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-TIKEUT")
@@ -680,7 +680,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112F)
-    (korean-ksc5601	#x24 #x6C)	; $(C$l(B
+    (korean-ksc5601	#x24 #x6C)	; ø»ˆŸ±
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-PIEUP")
@@ -689,7 +689,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1132)
-    (korean-ksc5601	#x24 #x6D)	; $(C$m(B
+    (korean-ksc5601	#x24 #x6D)	; ø»ˆŸ²
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-CIEUC")
@@ -698,7 +698,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1136)
-    (korean-ksc5601	#x24 #x6E)	; $(C$n(B
+    (korean-ksc5601	#x24 #x6E)	; ø»ˆŸ³
     ))
 (define-char
   '((name		. "HANGUL LETTER PANSIOS")
@@ -707,7 +707,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1140)
-    (korean-ksc5601	#x24 #x6F)	; $(C$o(B
+    (korean-ksc5601	#x24 #x6F)	; ø»ˆŸ´
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGIEUNG")
@@ -716,7 +716,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1147)
-    (korean-ksc5601	#x24 #x70)	; $(C$p(B
+    (korean-ksc5601	#x24 #x70)	; ø»ˆŸµ
     ))
 (define-char
   '((name		. "HANGUL LETTER YESIEUNG")
@@ -725,7 +725,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x114C)
-    (korean-ksc5601	#x24 #x71)	; $(C$q(B
+    (korean-ksc5601	#x24 #x71)	; ø»ˆŸ¶
     ))
 (define-char
   '((name		. "HANGUL LETTER YESIEUNG-SIOS")
@@ -734,7 +734,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11F1)
-    (korean-ksc5601	#x24 #x72)	; $(C$r(B
+    (korean-ksc5601	#x24 #x72)	; ø»ˆŸ·
     ))
 (define-char
   '((name		. "HANGUL LETTER YESIEUNG-PANSIOS")
@@ -743,7 +743,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11F2)
-    (korean-ksc5601	#x24 #x73)	; $(C$s(B
+    (korean-ksc5601	#x24 #x73)	; ø»ˆŸ¸
     ))
 (define-char
   '((name		. "HANGUL LETTER KAPYEOUNPHIEUPH")
@@ -752,7 +752,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1157)
-    (korean-ksc5601	#x24 #x74)	; $(C$t(B
+    (korean-ksc5601	#x24 #x74)	; ø»ˆŸ¹
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGHIEUH")
@@ -761,7 +761,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1158)
-    (korean-ksc5601	#x24 #x75)	; $(C$u(B
+    (korean-ksc5601	#x24 #x75)	; ø»ˆŸº
     ))
 (define-char
   '((name		. "HANGUL LETTER YEORINHIEUH")
@@ -770,7 +770,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1159)
-    (korean-ksc5601	#x24 #x76)	; $(C$v(B
+    (korean-ksc5601	#x24 #x76)	; ø»ˆŸ»
     ))
 (define-char
   '((name		. "HANGUL LETTER YO-YA")
@@ -779,7 +779,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1184)
-    (korean-ksc5601	#x24 #x77)	; $(C$w(B
+    (korean-ksc5601	#x24 #x77)	; ø»ˆŸ¼
     ))
 (define-char
   '((name		. "HANGUL LETTER YO-YAE")
@@ -788,7 +788,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1185)
-    (korean-ksc5601	#x24 #x78)	; $(C$x(B
+    (korean-ksc5601	#x24 #x78)	; ø»ˆŸ½
     ))
 (define-char
   '((name		. "HANGUL LETTER YO-I")
@@ -797,7 +797,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1188)
-    (korean-ksc5601	#x24 #x79)	; $(C$y(B
+    (korean-ksc5601	#x24 #x79)	; ø»ˆŸ¾
     ))
 (define-char
   '((name		. "HANGUL LETTER YU-YEO")
@@ -806,7 +806,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1191)
-    (korean-ksc5601	#x24 #x7A)	; $(C$z(B
+    (korean-ksc5601	#x24 #x7A)	; ø»ˆŸ¿
     ))
 (define-char
   '((name		. "HANGUL LETTER YU-YE")
@@ -815,7 +815,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1192)
-    (korean-ksc5601	#x24 #x7B)	; $(C${(B
+    (korean-ksc5601	#x24 #x7B)	; ø»ˆ €
     ))
 (define-char
   '((name		. "HANGUL LETTER YU-I")
@@ -824,7 +824,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1194)
-    (korean-ksc5601	#x24 #x7C)	; $(C$|(B
+    (korean-ksc5601	#x24 #x7C)	; ø»ˆ 
     ))
 (define-char
   '((name		. "HANGUL LETTER ARAEA")
@@ -833,7 +833,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x119E)
-    (korean-ksc5601	#x24 #x7D)	; $(C$}(B
+    (korean-ksc5601	#x24 #x7D)	; ø»ˆ ‚
     ))
 (define-char
   '((name		. "HANGUL LETTER ARAEAE")
@@ -842,5 +842,5 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11A1)
-    (korean-ksc5601	#x24 #x7E)	; $(C$~(B
+    (korean-ksc5601	#x24 #x7E)	; ø»ˆ ƒ
     ))

@@ -5,7 +5,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x4E00)
-    (chinese-cns11643-1 #x27 #x21)	; $(G'!(B
+    (chinese-cns11643-1 #x27 #x21)	; ø»‘‹
     ))
 (define-char
   '((name		. "KANGXI RADICAL LINE")
@@ -14,7 +14,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x4E28)
-    (chinese-cns11643-1 #x27 #x22)	; $(G'"(B
+    (chinese-cns11643-1 #x27 #x22)	; ø»‘‹‘
     ))
 (define-char
   '((name		. "KANGXI RADICAL DOT")
@@ -23,7 +23,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x4E36)
-    (chinese-cns11643-1 #x27 #x23)	; $(G'#(B
+    (chinese-cns11643-1 #x27 #x23)	; ø»‘‹’
     ))
 (define-char
   '((name		. "KANGXI RADICAL SLASH")
@@ -32,7 +32,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x4E3F)
-    (chinese-cns11643-1 #x27 #x24)	; $(G'$(B
+    (chinese-cns11643-1 #x27 #x24)	; ø»‘‹“
     ))
 (define-char
   '((name		. "KANGXI RADICAL SECOND")
@@ -41,7 +41,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x4E59)
-    (chinese-cns11643-1 #x27 #x25)	; $(G'%(B
+    (chinese-cns11643-1 #x27 #x25)	; ø»‘‹”
     ))
 (define-char
   '((name		. "KANGXI RADICAL HOOK")
@@ -50,7 +50,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x4E85)
-    (chinese-cns11643-1 #x27 #x26)	; $(G'&(B
+    (chinese-cns11643-1 #x27 #x26)	; ø»‘‹•
     ))
 (define-char
   '((name		. "KANGXI RADICAL TWO")
@@ -59,7 +59,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x4E8C)
-    (chinese-cns11643-1 #x27 #x27)	; $(G''(B
+    (chinese-cns11643-1 #x27 #x27)	; ø»‘‹–
     ))
 (define-char
   '((name		. "KANGXI RADICAL LID")
@@ -68,7 +68,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x4EA0)
-    (chinese-cns11643-1 #x27 #x28)	; $(G'((B
+    (chinese-cns11643-1 #x27 #x28)	; ø»‘‹—
     ))
 (define-char
   '((name		. "KANGXI RADICAL MAN")
@@ -77,7 +77,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x4EBA)
-    (chinese-cns11643-1 #x27 #x29)	; $(G')(B
+    (chinese-cns11643-1 #x27 #x29)	; ø»‘‹˜
     ))
 (define-char
   '((name		. "KANGXI RADICAL LEGS")
@@ -86,7 +86,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x513F)
-    (chinese-cns11643-1 #x27 #x2A)	; $(G'*(B
+    (chinese-cns11643-1 #x27 #x2A)	; ø»‘‹™
     ))
 (define-char
   '((name		. "KANGXI RADICAL ENTER")
@@ -95,7 +95,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5165)
-    (chinese-cns11643-1 #x27 #x2B)	; $(G'+(B
+    (chinese-cns11643-1 #x27 #x2B)	; ø»‘‹š
     ))
 (define-char
   '((name		. "KANGXI RADICAL EIGHT")
@@ -104,7 +104,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x516B)
-    (chinese-cns11643-1 #x27 #x2C)	; $(G',(B
+    (chinese-cns11643-1 #x27 #x2C)	; ø»‘‹›
     ))
 (define-char
   '((name		. "KANGXI RADICAL DOWN BOX")
@@ -113,7 +113,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5182)
-    (chinese-cns11643-1 #x27 #x2D)	; $(G'-(B
+    (chinese-cns11643-1 #x27 #x2D)	; ø»‘‹œ
     ))
 (define-char
   '((name		. "KANGXI RADICAL COVER")
@@ -122,7 +122,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5196)
-    (chinese-cns11643-1 #x27 #x2E)	; $(G'.(B
+    (chinese-cns11643-1 #x27 #x2E)	; ø»‘‹
     ))
 (define-char
   '((name		. "KANGXI RADICAL ICE")
@@ -131,7 +131,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x51AB)
-    (chinese-cns11643-1 #x27 #x2F)	; $(G'/(B
+    (chinese-cns11643-1 #x27 #x2F)	; ø»‘‹ž
     ))
 (define-char
   '((name		. "KANGXI RADICAL TABLE")
@@ -140,7 +140,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x51E0)
-    (chinese-cns11643-1 #x27 #x30)	; $(G'0(B
+    (chinese-cns11643-1 #x27 #x30)	; ø»‘‹Ÿ
     ))
 (define-char
   '((name		. "KANGXI RADICAL OPEN BOX")
@@ -149,7 +149,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x51F5)
-    (chinese-cns11643-1 #x27 #x31)	; $(G'1(B
+    (chinese-cns11643-1 #x27 #x31)	; ø»‘‹ 
     ))
 (define-char
   '((name		. "KANGXI RADICAL KNIFE")
@@ -158,7 +158,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5200)
-    (chinese-cns11643-1 #x27 #x32)	; $(G'2(B
+    (chinese-cns11643-1 #x27 #x32)	; ø»‘‹¡
     ))
 (define-char
   '((name		. "KANGXI RADICAL POWER")
@@ -167,7 +167,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x529B)
-    (chinese-cns11643-1 #x27 #x33)	; $(G'3(B
+    (chinese-cns11643-1 #x27 #x33)	; ø»‘‹¢
     ))
 (define-char
   '((name		. "KANGXI RADICAL WRAP")
@@ -176,7 +176,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x52F9)
-    (chinese-cns11643-1 #x27 #x34)	; $(G'4(B
+    (chinese-cns11643-1 #x27 #x34)	; ø»‘‹£
     ))
 (define-char
   '((name		. "KANGXI RADICAL SPOON")
@@ -185,7 +185,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5315)
-    (chinese-cns11643-1 #x27 #x35)	; $(G'5(B
+    (chinese-cns11643-1 #x27 #x35)	; ø»‘‹¤
     ))
 (define-char
   '((name		. "KANGXI RADICAL RIGHT OPEN BOX")
@@ -194,7 +194,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x531A)
-    (chinese-cns11643-1 #x27 #x36)	; $(G'6(B
+    (chinese-cns11643-1 #x27 #x36)	; ø»‘‹¥
     ))
 (define-char
   '((name		. "KANGXI RADICAL HIDING ENCLOSURE")
@@ -203,7 +203,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5338)
-    (chinese-cns11643-1 #x27 #x37)	; $(G'7(B
+    (chinese-cns11643-1 #x27 #x37)	; ø»‘‹¦
     ))
 (define-char
   '((name		. "KANGXI RADICAL TEN")
@@ -212,7 +212,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5341)
-    (chinese-cns11643-1 #x27 #x38)	; $(G'8(B
+    (chinese-cns11643-1 #x27 #x38)	; ø»‘‹§
     ))
 (define-char
   '((name		. "KANGXI RADICAL DIVINATION")
@@ -221,7 +221,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x535C)
-    (chinese-cns11643-1 #x27 #x39)	; $(G'9(B
+    (chinese-cns11643-1 #x27 #x39)	; ø»‘‹¨
     ))
 (define-char
   '((name		. "KANGXI RADICAL SEAL")
@@ -230,7 +230,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5369)
-    (chinese-cns11643-1 #x27 #x3A)	; $(G':(B
+    (chinese-cns11643-1 #x27 #x3A)	; ø»‘‹©
     ))
 (define-char
   '((name		. "KANGXI RADICAL CLIFF")
@@ -239,7 +239,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5382)
-    (chinese-cns11643-1 #x27 #x3B)	; $(G';(B
+    (chinese-cns11643-1 #x27 #x3B)	; ø»‘‹ª
     ))
 (define-char
   '((name		. "KANGXI RADICAL PRIVATE")
@@ -248,7 +248,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x53B6)
-    (chinese-cns11643-1 #x27 #x3C)	; $(G'<(B
+    (chinese-cns11643-1 #x27 #x3C)	; ø»‘‹«
     ))
 (define-char
   '((name		. "KANGXI RADICAL AGAIN")
@@ -257,7 +257,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x53C8)
-    (chinese-cns11643-1 #x27 #x3D)	; $(G'=(B
+    (chinese-cns11643-1 #x27 #x3D)	; ø»‘‹¬
     ))
 (define-char
   '((name		. "KANGXI RADICAL MOUTH")
@@ -266,7 +266,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x53E3)
-    (chinese-cns11643-1 #x27 #x3E)	; $(G'>(B
+    (chinese-cns11643-1 #x27 #x3E)	; ø»‘‹­
     ))
 (define-char
   '((name		. "KANGXI RADICAL ENCLOSURE")
@@ -275,7 +275,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x56D7)
-    (chinese-cns11643-1 #x27 #x3F)	; $(G'?(B
+    (chinese-cns11643-1 #x27 #x3F)	; ø»‘‹®
     ))
 (define-char
   '((name		. "KANGXI RADICAL EARTH")
@@ -284,7 +284,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x571F)
-    (chinese-cns11643-1 #x27 #x40)	; $(G'@(B
+    (chinese-cns11643-1 #x27 #x40)	; ø»‘‹¯
     ))
 (define-char
   '((name		. "KANGXI RADICAL SCHOLAR")
@@ -293,7 +293,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x58EB)
-    (chinese-cns11643-1 #x27 #x41)	; $(G'A(B
+    (chinese-cns11643-1 #x27 #x41)	; ø»‘‹°
     ))
 (define-char
   '((name		. "KANGXI RADICAL GO")
@@ -310,7 +310,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x590A)
-    (chinese-cns11643-1 #x27 #x42)	; $(G'B(B
+    (chinese-cns11643-1 #x27 #x42)	; ø»‘‹±
     ))
 (define-char
   '((name		. "KANGXI RADICAL EVENING")
@@ -319,7 +319,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5915)
-    (chinese-cns11643-1 #x27 #x43)	; $(G'C(B
+    (chinese-cns11643-1 #x27 #x43)	; ø»‘‹²
     ))
 (define-char
   '((name		. "KANGXI RADICAL BIG")
@@ -328,7 +328,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5927)
-    (chinese-cns11643-1 #x27 #x44)	; $(G'D(B
+    (chinese-cns11643-1 #x27 #x44)	; ø»‘‹³
     ))
 (define-char
   '((name		. "KANGXI RADICAL WOMAN")
@@ -337,7 +337,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5973)
-    (chinese-cns11643-1 #x27 #x45)	; $(G'E(B
+    (chinese-cns11643-1 #x27 #x45)	; ø»‘‹´
     ))
 (define-char
   '((name		. "KANGXI RADICAL CHILD")
@@ -346,7 +346,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5B50)
-    (chinese-cns11643-1 #x27 #x46)	; $(G'F(B
+    (chinese-cns11643-1 #x27 #x46)	; ø»‘‹µ
     ))
 (define-char
   '((name		. "KANGXI RADICAL ROOF")
@@ -355,7 +355,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5B80)
-    (chinese-cns11643-1 #x27 #x47)	; $(G'G(B
+    (chinese-cns11643-1 #x27 #x47)	; ø»‘‹¶
     ))
 (define-char
   '((name		. "KANGXI RADICAL INCH")
@@ -364,7 +364,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5BF8)
-    (chinese-cns11643-1 #x27 #x48)	; $(G'H(B
+    (chinese-cns11643-1 #x27 #x48)	; ø»‘‹·
     ))
 (define-char
   '((name		. "KANGXI RADICAL SMALL")
@@ -373,7 +373,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5C0F)
-    (chinese-cns11643-1 #x27 #x49)	; $(G'I(B
+    (chinese-cns11643-1 #x27 #x49)	; ø»‘‹¸
     ))
 (define-char
   '((name		. "KANGXI RADICAL LAME")
@@ -382,7 +382,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5C22)
-    (chinese-cns11643-1 #x27 #x4A)	; $(G'J(B
+    (chinese-cns11643-1 #x27 #x4A)	; ø»‘‹¹
     ))
 (define-char
   '((name		. "KANGXI RADICAL CORPSE")
@@ -391,7 +391,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5C38)
-    (chinese-cns11643-1 #x27 #x4B)	; $(G'K(B
+    (chinese-cns11643-1 #x27 #x4B)	; ø»‘‹º
     ))
 (define-char
   '((name		. "KANGXI RADICAL SPROUT")
@@ -400,7 +400,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5C6E)
-    (chinese-cns11643-1 #x27 #x4C)	; $(G'L(B
+    (chinese-cns11643-1 #x27 #x4C)	; ø»‘‹»
     ))
 (define-char
   '((name		. "KANGXI RADICAL MOUNTAIN")
@@ -409,7 +409,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5C71)
-    (chinese-cns11643-1 #x27 #x4D)	; $(G'M(B
+    (chinese-cns11643-1 #x27 #x4D)	; ø»‘‹¼
     ))
 (define-char
   '((name		. "KANGXI RADICAL RIVER")
@@ -418,7 +418,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5DDB)
-    (chinese-cns11643-1 #x27 #x4E)	; $(G'N(B
+    (chinese-cns11643-1 #x27 #x4E)	; ø»‘‹½
     ))
 (define-char
   '((name		. "KANGXI RADICAL WORK")
@@ -427,7 +427,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5DE5)
-    (chinese-cns11643-1 #x27 #x4F)	; $(G'O(B
+    (chinese-cns11643-1 #x27 #x4F)	; ø»‘‹¾
     ))
 (define-char
   '((name		. "KANGXI RADICAL ONESELF")
@@ -436,7 +436,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5DF1)
-    (chinese-cns11643-1 #x27 #x50)	; $(G'P(B
+    (chinese-cns11643-1 #x27 #x50)	; ø»‘‹¿
     ))
 (define-char
   '((name		. "KANGXI RADICAL TURBAN")
@@ -445,7 +445,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5DFE)
-    (chinese-cns11643-1 #x27 #x51)	; $(G'Q(B
+    (chinese-cns11643-1 #x27 #x51)	; ø»‘Œ€
     ))
 (define-char
   '((name		. "KANGXI RADICAL DRY")
@@ -454,7 +454,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5E72)
-    (chinese-cns11643-1 #x27 #x52)	; $(G'R(B
+    (chinese-cns11643-1 #x27 #x52)	; ø»‘Œ
     ))
 (define-char
   '((name		. "KANGXI RADICAL SHORT THREAD")
@@ -463,7 +463,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5E7A)
-    (chinese-cns11643-1 #x27 #x53)	; $(G'S(B
+    (chinese-cns11643-1 #x27 #x53)	; ø»‘Œ‚
     ))
 (define-char
   '((name		. "KANGXI RADICAL DOTTED CLIFF")
@@ -472,7 +472,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5E7F)
-    (chinese-cns11643-1 #x27 #x54)	; $(G'T(B
+    (chinese-cns11643-1 #x27 #x54)	; ø»‘Œƒ
     ))
 (define-char
   '((name		. "KANGXI RADICAL LONG STRIDE")
@@ -481,7 +481,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5EF4)
-    (chinese-cns11643-1 #x27 #x55)	; $(G'U(B
+    (chinese-cns11643-1 #x27 #x55)	; ø»‘Œ„
     ))
 (define-char
   '((name		. "KANGXI RADICAL TWO HANDS")
@@ -490,7 +490,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5EFE)
-    (chinese-cns11643-1 #x27 #x56)	; $(G'V(B
+    (chinese-cns11643-1 #x27 #x56)	; ø»‘Œ…
     ))
 (define-char
   '((name		. "KANGXI RADICAL SHOOT")
@@ -499,7 +499,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5F0B)
-    (chinese-cns11643-1 #x27 #x57)	; $(G'W(B
+    (chinese-cns11643-1 #x27 #x57)	; ø»‘Œ†
     ))
 (define-char
   '((name		. "KANGXI RADICAL BOW")
@@ -508,7 +508,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5F13)
-    (chinese-cns11643-1 #x27 #x58)	; $(G'X(B
+    (chinese-cns11643-1 #x27 #x58)	; ø»‘Œ‡
     ))
 (define-char
   '((name		. "KANGXI RADICAL SNOUT")
@@ -517,7 +517,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5F50)
-    (chinese-cns11643-1 #x27 #x59)	; $(G'Y(B
+    (chinese-cns11643-1 #x27 #x59)	; ø»‘Œˆ
     ))
 (define-char
   '((name		. "KANGXI RADICAL BRISTLE")
@@ -526,7 +526,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5F61)
-    (chinese-cns11643-1 #x27 #x5A)	; $(G'Z(B
+    (chinese-cns11643-1 #x27 #x5A)	; ø»‘Œ‰
     ))
 (define-char
   '((name		. "KANGXI RADICAL STEP")
@@ -535,7 +535,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5F73)
-    (chinese-cns11643-1 #x27 #x5B)	; $(G'[(B
+    (chinese-cns11643-1 #x27 #x5B)	; ø»‘ŒŠ
     ))
 (define-char
   '((name		. "KANGXI RADICAL HEART")
@@ -544,7 +544,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x5FC3)
-    (chinese-cns11643-1 #x27 #x5C)	; $(G'\(B
+    (chinese-cns11643-1 #x27 #x5C)	; ø»‘Œ‹
     ))
 (define-char
   '((name		. "KANGXI RADICAL HALBERD")
@@ -553,7 +553,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6208)
-    (chinese-cns11643-1 #x27 #x5D)	; $(G'](B
+    (chinese-cns11643-1 #x27 #x5D)	; ø»‘ŒŒ
     ))
 (define-char
   '((name		. "KANGXI RADICAL DOOR")
@@ -562,7 +562,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6236)
-    (chinese-cns11643-1 #x27 #x5E)	; $(G'^(B
+    (chinese-cns11643-1 #x27 #x5E)	; ø»‘Œ
     ))
 (define-char
   '((name		. "KANGXI RADICAL HAND")
@@ -571,7 +571,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x624B)
-    (chinese-cns11643-1 #x27 #x5F)	; $(G'_(B
+    (chinese-cns11643-1 #x27 #x5F)	; ø»‘ŒŽ
     ))
 (define-char
   '((name		. "KANGXI RADICAL BRANCH")
@@ -580,7 +580,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x652F)
-    (chinese-cns11643-1 #x27 #x60)	; $(G'`(B
+    (chinese-cns11643-1 #x27 #x60)	; ø»‘Œ
     ))
 (define-char
   '((name		. "KANGXI RADICAL RAP")
@@ -589,7 +589,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6534)
-    (chinese-cns11643-1 #x27 #x61)	; $(G'a(B
+    (chinese-cns11643-1 #x27 #x61)	; ø»‘Œ
     ))
 (define-char
   '((name		. "KANGXI RADICAL SCRIPT")
@@ -598,7 +598,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6587)
-    (chinese-cns11643-1 #x27 #x62)	; $(G'b(B
+    (chinese-cns11643-1 #x27 #x62)	; ø»‘Œ‘
     ))
 (define-char
   '((name		. "KANGXI RADICAL DIPPER")
@@ -607,7 +607,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6597)
-    (chinese-cns11643-1 #x27 #x63)	; $(G'c(B
+    (chinese-cns11643-1 #x27 #x63)	; ø»‘Œ’
     ))
 (define-char
   '((name		. "KANGXI RADICAL AXE")
@@ -616,7 +616,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x65A4)
-    (chinese-cns11643-1 #x27 #x64)	; $(G'd(B
+    (chinese-cns11643-1 #x27 #x64)	; ø»‘Œ“
     ))
 (define-char
   '((name		. "KANGXI RADICAL SQUARE")
@@ -625,7 +625,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x65B9)
-    (chinese-cns11643-1 #x27 #x65)	; $(G'e(B
+    (chinese-cns11643-1 #x27 #x65)	; ø»‘Œ”
     ))
 (define-char
   '((name		. "KANGXI RADICAL NOT")
@@ -634,7 +634,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x65E0)
-    (chinese-cns11643-1 #x27 #x66)	; $(G'f(B
+    (chinese-cns11643-1 #x27 #x66)	; ø»‘Œ•
     ))
 (define-char
   '((name		. "KANGXI RADICAL SUN")
@@ -643,7 +643,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x65E5)
-    (chinese-cns11643-1 #x27 #x67)	; $(G'g(B
+    (chinese-cns11643-1 #x27 #x67)	; ø»‘Œ–
     ))
 (define-char
   '((name		. "KANGXI RADICAL SAY")
@@ -652,7 +652,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x66F0)
-    (chinese-cns11643-1 #x27 #x68)	; $(G'h(B
+    (chinese-cns11643-1 #x27 #x68)	; ø»‘Œ—
     ))
 (define-char
   '((name		. "KANGXI RADICAL MOON")
@@ -661,7 +661,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6708)
-    (chinese-cns11643-1 #x27 #x69)	; $(G'i(B
+    (chinese-cns11643-1 #x27 #x69)	; ø»‘Œ˜
     ))
 (define-char
   '((name		. "KANGXI RADICAL TREE")
@@ -670,7 +670,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6728)
-    (chinese-cns11643-1 #x27 #x6A)	; $(G'j(B
+    (chinese-cns11643-1 #x27 #x6A)	; ø»‘Œ™
     ))
 (define-char
   '((name		. "KANGXI RADICAL LACK")
@@ -679,7 +679,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6B20)
-    (chinese-cns11643-1 #x27 #x6B)	; $(G'k(B
+    (chinese-cns11643-1 #x27 #x6B)	; ø»‘Œš
     ))
 (define-char
   '((name		. "KANGXI RADICAL STOP")
@@ -688,7 +688,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6B62)
-    (chinese-cns11643-1 #x27 #x6C)	; $(G'l(B
+    (chinese-cns11643-1 #x27 #x6C)	; ø»‘Œ›
     ))
 (define-char
   '((name		. "KANGXI RADICAL DEATH")
@@ -697,7 +697,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6B79)
-    (chinese-cns11643-1 #x27 #x6D)	; $(G'm(B
+    (chinese-cns11643-1 #x27 #x6D)	; ø»‘Œœ
     ))
 (define-char
   '((name		. "KANGXI RADICAL WEAPON")
@@ -706,7 +706,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6BB3)
-    (chinese-cns11643-1 #x27 #x6E)	; $(G'n(B
+    (chinese-cns11643-1 #x27 #x6E)	; ø»‘Œ
     ))
 (define-char
   '((name		. "KANGXI RADICAL DO NOT")
@@ -715,7 +715,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6BCB)
-    (chinese-cns11643-1 #x27 #x6F)	; $(G'o(B
+    (chinese-cns11643-1 #x27 #x6F)	; ø»‘Œž
     ))
 (define-char
   '((name		. "KANGXI RADICAL COMPARE")
@@ -724,7 +724,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6BD4)
-    (chinese-cns11643-1 #x27 #x70)	; $(G'p(B
+    (chinese-cns11643-1 #x27 #x70)	; ø»‘ŒŸ
     ))
 (define-char
   '((name		. "KANGXI RADICAL FUR")
@@ -733,7 +733,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6BDB)
-    (chinese-cns11643-1 #x27 #x71)	; $(G'q(B
+    (chinese-cns11643-1 #x27 #x71)	; ø»‘Œ 
     ))
 (define-char
   '((name		. "KANGXI RADICAL CLAN")
@@ -742,7 +742,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6C0F)
-    (chinese-cns11643-1 #x27 #x72)	; $(G'r(B
+    (chinese-cns11643-1 #x27 #x72)	; ø»‘Œ¡
     ))
 (define-char
   '((name		. "KANGXI RADICAL STEAM")
@@ -751,7 +751,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6C14)
-    (chinese-cns11643-1 #x27 #x73)	; $(G's(B
+    (chinese-cns11643-1 #x27 #x73)	; ø»‘Œ¢
     ))
 (define-char
   '((name		. "KANGXI RADICAL WATER")
@@ -760,7 +760,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x6C34)
-    (chinese-cns11643-1 #x27 #x74)	; $(G't(B
+    (chinese-cns11643-1 #x27 #x74)	; ø»‘Œ£
     ))
 (define-char
   '((name		. "KANGXI RADICAL FIRE")
@@ -769,7 +769,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x706B)
-    (chinese-cns11643-1 #x27 #x75)	; $(G'u(B
+    (chinese-cns11643-1 #x27 #x75)	; ø»‘Œ¤
     ))
 (define-char
   '((name		. "KANGXI RADICAL CLAW")
@@ -778,7 +778,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x722A)
-    (chinese-cns11643-1 #x27 #x76)	; $(G'v(B
+    (chinese-cns11643-1 #x27 #x76)	; ø»‘Œ¥
     ))
 (define-char
   '((name		. "KANGXI RADICAL FATHER")
@@ -787,7 +787,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7236)
-    (chinese-cns11643-1 #x27 #x77)	; $(G'w(B
+    (chinese-cns11643-1 #x27 #x77)	; ø»‘Œ¦
     ))
 (define-char
   '((name		. "KANGXI RADICAL DOUBLE X")
@@ -796,7 +796,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x723B)
-    (chinese-cns11643-1 #x27 #x78)	; $(G'x(B
+    (chinese-cns11643-1 #x27 #x78)	; ø»‘Œ§
     ))
 (define-char
   '((name		. "KANGXI RADICAL HALF TREE TRUNK")
@@ -805,7 +805,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x723F)
-    (chinese-cns11643-1 #x27 #x79)	; $(G'y(B
+    (chinese-cns11643-1 #x27 #x79)	; ø»‘Œ¨
     ))
 (define-char
   '((name		. "KANGXI RADICAL SLICE")
@@ -814,7 +814,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7247)
-    (chinese-cns11643-1 #x27 #x7A)	; $(G'z(B
+    (chinese-cns11643-1 #x27 #x7A)	; ø»‘Œ©
     ))
 (define-char
   '((name		. "KANGXI RADICAL FANG")
@@ -823,7 +823,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7259)
-    (chinese-cns11643-1 #x27 #x7B)	; $(G'{(B
+    (chinese-cns11643-1 #x27 #x7B)	; ø»‘Œª
     ))
 (define-char
   '((name		. "KANGXI RADICAL COW")
@@ -832,7 +832,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x725B)
-    (chinese-cns11643-1 #x27 #x7C)	; $(G'|(B
+    (chinese-cns11643-1 #x27 #x7C)	; ø»‘Œ«
     ))
 (define-char
   '((name		. "KANGXI RADICAL DOG")
@@ -841,7 +841,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x72AC)
-    (chinese-cns11643-1 #x27 #x7D)	; $(G'}(B
+    (chinese-cns11643-1 #x27 #x7D)	; ø»‘Œ¬
     ))
 (define-char
   '((name		. "KANGXI RADICAL PROFOUND")
@@ -850,7 +850,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7384)
-    (chinese-cns11643-1 #x27 #x7E)	; $(G'~(B
+    (chinese-cns11643-1 #x27 #x7E)	; ø»‘Œ­
     ))
 (define-char
   '((name		. "KANGXI RADICAL JADE")
@@ -859,7 +859,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7389)
-    (chinese-cns11643-1 #x28 #x21)	; $(G(!(B
+    (chinese-cns11643-1 #x28 #x21)	; ø»‘Œ®
     ))
 (define-char
   '((name		. "KANGXI RADICAL MELON")
@@ -868,7 +868,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x74DC)
-    (chinese-cns11643-1 #x28 #x22)	; $(G("(B
+    (chinese-cns11643-1 #x28 #x22)	; ø»‘Œ¯
     ))
 (define-char
   '((name		. "KANGXI RADICAL TILE")
@@ -877,7 +877,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x74E6)
-    (chinese-cns11643-1 #x28 #x23)	; $(G(#(B
+    (chinese-cns11643-1 #x28 #x23)	; ø»‘Œ°
     ))
 (define-char
   '((name		. "KANGXI RADICAL SWEET")
@@ -886,7 +886,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7518)
-    (chinese-cns11643-1 #x28 #x24)	; $(G($(B
+    (chinese-cns11643-1 #x28 #x24)	; ø»‘Œ±
     ))
 (define-char
   '((name		. "KANGXI RADICAL LIFE")
@@ -895,7 +895,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x751F)
-    (chinese-cns11643-1 #x28 #x25)	; $(G(%(B
+    (chinese-cns11643-1 #x28 #x25)	; ø»‘Œ²
     ))
 (define-char
   '((name		. "KANGXI RADICAL USE")
@@ -904,7 +904,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7528)
-    (chinese-cns11643-1 #x28 #x26)	; $(G(&(B
+    (chinese-cns11643-1 #x28 #x26)	; ø»‘Œ³
     ))
 (define-char
   '((name		. "KANGXI RADICAL FIELD")
@@ -913,7 +913,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7530)
-    (chinese-cns11643-1 #x28 #x27)	; $(G('(B
+    (chinese-cns11643-1 #x28 #x27)	; ø»‘Œ´
     ))
 (define-char
   '((name		. "KANGXI RADICAL BOLT OF CLOTH")
@@ -922,7 +922,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x758B)
-    (chinese-cns11643-1 #x28 #x28)	; $(G(((B
+    (chinese-cns11643-1 #x28 #x28)	; ø»‘Œµ
     ))
 (define-char
   '((name		. "KANGXI RADICAL SICKNESS")
@@ -931,7 +931,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7592)
-    (chinese-cns11643-1 #x28 #x29)	; $(G()(B
+    (chinese-cns11643-1 #x28 #x29)	; ø»‘Œ¶
     ))
 (define-char
   '((name		. "KANGXI RADICAL DOTTED TENT")
@@ -940,7 +940,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7676)
-    (chinese-cns11643-1 #x28 #x2A)	; $(G(*(B
+    (chinese-cns11643-1 #x28 #x2A)	; ø»‘Œ·
     ))
 (define-char
   '((name		. "KANGXI RADICAL WHITE")
@@ -949,7 +949,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x767D)
-    (chinese-cns11643-1 #x28 #x2B)	; $(G(+(B
+    (chinese-cns11643-1 #x28 #x2B)	; ø»‘Œ¸
     ))
 (define-char
   '((name		. "KANGXI RADICAL SKIN")
@@ -958,7 +958,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x76AE)
-    (chinese-cns11643-1 #x28 #x2C)	; $(G(,(B
+    (chinese-cns11643-1 #x28 #x2C)	; ø»‘Œ¹
     ))
 (define-char
   '((name		. "KANGXI RADICAL DISH")
@@ -967,7 +967,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x76BF)
-    (chinese-cns11643-1 #x28 #x2D)	; $(G(-(B
+    (chinese-cns11643-1 #x28 #x2D)	; ø»‘Œº
     ))
 (define-char
   '((name		. "KANGXI RADICAL EYE")
@@ -976,7 +976,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x76EE)
-    (chinese-cns11643-1 #x28 #x2E)	; $(G(.(B
+    (chinese-cns11643-1 #x28 #x2E)	; ø»‘Œ»
     ))
 (define-char
   '((name		. "KANGXI RADICAL SPEAR")
@@ -985,7 +985,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x77DB)
-    (chinese-cns11643-1 #x28 #x2F)	; $(G(/(B
+    (chinese-cns11643-1 #x28 #x2F)	; ø»‘Œ¼
     ))
 (define-char
   '((name		. "KANGXI RADICAL ARROW")
@@ -994,7 +994,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x77E2)
-    (chinese-cns11643-1 #x28 #x30)	; $(G(0(B
+    (chinese-cns11643-1 #x28 #x30)	; ø»‘Œ½
     ))
 (define-char
   '((name		. "KANGXI RADICAL STONE")
@@ -1003,7 +1003,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x77F3)
-    (chinese-cns11643-1 #x28 #x31)	; $(G(1(B
+    (chinese-cns11643-1 #x28 #x31)	; ø»‘Œ¾
     ))
 (define-char
   '((name		. "KANGXI RADICAL SPIRIT")
@@ -1012,7 +1012,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x793A)
-    (chinese-cns11643-1 #x28 #x32)	; $(G(2(B
+    (chinese-cns11643-1 #x28 #x32)	; ø»‘Œ¿
     ))
 (define-char
   '((name		. "KANGXI RADICAL TRACK")
@@ -1021,7 +1021,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x79B8)
-    (chinese-cns11643-1 #x28 #x33)	; $(G(3(B
+    (chinese-cns11643-1 #x28 #x33)	; ø»‘€
     ))
 (define-char
   '((name		. "KANGXI RADICAL GRAIN")
@@ -1030,7 +1030,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x79BE)
-    (chinese-cns11643-1 #x28 #x34)	; $(G(4(B
+    (chinese-cns11643-1 #x28 #x34)	; ø»‘
     ))
 (define-char
   '((name		. "KANGXI RADICAL CAVE")
@@ -1039,7 +1039,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7A74)
-    (chinese-cns11643-1 #x28 #x35)	; $(G(5(B
+    (chinese-cns11643-1 #x28 #x35)	; ø»‘‚
     ))
 (define-char
   '((name		. "KANGXI RADICAL STAND")
@@ -1048,7 +1048,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7ACB)
-    (chinese-cns11643-1 #x28 #x36)	; $(G(6(B
+    (chinese-cns11643-1 #x28 #x36)	; ø»‘ƒ
     ))
 (define-char
   '((name		. "KANGXI RADICAL BAMBOO")
@@ -1057,7 +1057,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7AF9)
-    (chinese-cns11643-1 #x28 #x37)	; $(G(7(B
+    (chinese-cns11643-1 #x28 #x37)	; ø»‘„
     ))
 (define-char
   '((name		. "KANGXI RADICAL RICE")
@@ -1066,7 +1066,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7C73)
-    (chinese-cns11643-1 #x28 #x38)	; $(G(8(B
+    (chinese-cns11643-1 #x28 #x38)	; ø»‘…
     ))
 (define-char
   '((name		. "KANGXI RADICAL SILK")
@@ -1075,7 +1075,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7CF8)
-    (chinese-cns11643-1 #x28 #x39)	; $(G(9(B
+    (chinese-cns11643-1 #x28 #x39)	; ø»‘†
     ))
 (define-char
   '((name		. "KANGXI RADICAL JAR")
@@ -1084,7 +1084,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7F36)
-    (chinese-cns11643-1 #x28 #x3A)	; $(G(:(B
+    (chinese-cns11643-1 #x28 #x3A)	; ø»‘‡
     ))
 (define-char
   '((name		. "KANGXI RADICAL NET")
@@ -1093,7 +1093,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7F51)
-    (chinese-cns11643-1 #x28 #x3B)	; $(G(;(B
+    (chinese-cns11643-1 #x28 #x3B)	; ø»‘ˆ
     ))
 (define-char
   '((name		. "KANGXI RADICAL SHEEP")
@@ -1102,7 +1102,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7F8A)
-    (chinese-cns11643-1 #x28 #x3C)	; $(G(<(B
+    (chinese-cns11643-1 #x28 #x3C)	; ø»‘‰
     ))
 (define-char
   '((name		. "KANGXI RADICAL FEATHER")
@@ -1111,7 +1111,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x7FBD)
-    (chinese-cns11643-1 #x28 #x3D)	; $(G(=(B
+    (chinese-cns11643-1 #x28 #x3D)	; ø»‘Š
     ))
 (define-char
   '((name		. "KANGXI RADICAL OLD")
@@ -1120,7 +1120,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8001)
-    (chinese-cns11643-1 #x28 #x3E)	; $(G(>(B
+    (chinese-cns11643-1 #x28 #x3E)	; ø»‘‹
     ))
 (define-char
   '((name		. "KANGXI RADICAL AND")
@@ -1129,7 +1129,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x800C)
-    (chinese-cns11643-1 #x28 #x3F)	; $(G(?(B
+    (chinese-cns11643-1 #x28 #x3F)	; ø»‘Œ
     ))
 (define-char
   '((name		. "KANGXI RADICAL PLOW")
@@ -1138,7 +1138,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8012)
-    (chinese-cns11643-1 #x28 #x40)	; $(G(@(B
+    (chinese-cns11643-1 #x28 #x40)	; ø»‘
     ))
 (define-char
   '((name		. "KANGXI RADICAL EAR")
@@ -1147,7 +1147,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8033)
-    (chinese-cns11643-1 #x28 #x41)	; $(G(A(B
+    (chinese-cns11643-1 #x28 #x41)	; ø»‘Ž
     ))
 (define-char
   '((name		. "KANGXI RADICAL BRUSH")
@@ -1156,7 +1156,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x807F)
-    (chinese-cns11643-1 #x28 #x42)	; $(G(B(B
+    (chinese-cns11643-1 #x28 #x42)	; ø»‘
     ))
 (define-char
   '((name		. "KANGXI RADICAL MEAT")
@@ -1165,7 +1165,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8089)
-    (chinese-cns11643-1 #x28 #x43)	; $(G(C(B
+    (chinese-cns11643-1 #x28 #x43)	; ø»‘
     ))
 (define-char
   '((name		. "KANGXI RADICAL MINISTER")
@@ -1174,7 +1174,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x81E3)
-    (chinese-cns11643-1 #x28 #x44)	; $(G(D(B
+    (chinese-cns11643-1 #x28 #x44)	; ø»‘‘
     ))
 (define-char
   '((name		. "KANGXI RADICAL SELF")
@@ -1183,7 +1183,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x81EA)
-    (chinese-cns11643-1 #x28 #x45)	; $(G(E(B
+    (chinese-cns11643-1 #x28 #x45)	; ø»‘’
     ))
 (define-char
   '((name		. "KANGXI RADICAL ARRIVE")
@@ -1192,7 +1192,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x81F3)
-    (chinese-cns11643-1 #x28 #x46)	; $(G(F(B
+    (chinese-cns11643-1 #x28 #x46)	; ø»‘“
     ))
 (define-char
   '((name		. "KANGXI RADICAL MORTAR")
@@ -1201,7 +1201,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x81FC)
-    (chinese-cns11643-1 #x28 #x47)	; $(G(G(B
+    (chinese-cns11643-1 #x28 #x47)	; ø»‘”
     ))
 (define-char
   '((name		. "KANGXI RADICAL TONGUE")
@@ -1210,7 +1210,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x820C)
-    (chinese-cns11643-1 #x28 #x48)	; $(G(H(B
+    (chinese-cns11643-1 #x28 #x48)	; ø»‘•
     ))
 (define-char
   '((name		. "KANGXI RADICAL OPPOSE")
@@ -1219,7 +1219,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x821B)
-    (chinese-cns11643-1 #x28 #x49)	; $(G(I(B
+    (chinese-cns11643-1 #x28 #x49)	; ø»‘–
     ))
 (define-char
   '((name		. "KANGXI RADICAL BOAT")
@@ -1228,7 +1228,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x821F)
-    (chinese-cns11643-1 #x28 #x4A)	; $(G(J(B
+    (chinese-cns11643-1 #x28 #x4A)	; ø»‘—
     ))
 (define-char
   '((name		. "KANGXI RADICAL STOPPING")
@@ -1237,7 +1237,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x826E)
-    (chinese-cns11643-1 #x28 #x4B)	; $(G(K(B
+    (chinese-cns11643-1 #x28 #x4B)	; ø»‘˜
     ))
 (define-char
   '((name		. "KANGXI RADICAL COLOR")
@@ -1246,7 +1246,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8272)
-    (chinese-cns11643-1 #x28 #x4C)	; $(G(L(B
+    (chinese-cns11643-1 #x28 #x4C)	; ø»‘™
     ))
 (define-char
   '((name		. "KANGXI RADICAL GRASS")
@@ -1255,7 +1255,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8278)
-    (chinese-cns11643-1 #x28 #x4D)	; $(G(M(B
+    (chinese-cns11643-1 #x28 #x4D)	; ø»‘š
     ))
 (define-char
   '((name		. "KANGXI RADICAL TIGER")
@@ -1264,7 +1264,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x864D)
-    (chinese-cns11643-1 #x28 #x4E)	; $(G(N(B
+    (chinese-cns11643-1 #x28 #x4E)	; ø»‘›
     ))
 (define-char
   '((name		. "KANGXI RADICAL INSECT")
@@ -1273,7 +1273,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x866B)
-    (chinese-cns11643-1 #x28 #x4F)	; $(G(O(B
+    (chinese-cns11643-1 #x28 #x4F)	; ø»‘œ
     ))
 (define-char
   '((name		. "KANGXI RADICAL BLOOD")
@@ -1282,7 +1282,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8840)
-    (chinese-cns11643-1 #x28 #x50)	; $(G(P(B
+    (chinese-cns11643-1 #x28 #x50)	; ø»‘
     ))
 (define-char
   '((name		. "KANGXI RADICAL WALK ENCLOSURE")
@@ -1291,7 +1291,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x884C)
-    (chinese-cns11643-1 #x28 #x51)	; $(G(Q(B
+    (chinese-cns11643-1 #x28 #x51)	; ø»‘ž
     ))
 (define-char
   '((name		. "KANGXI RADICAL CLOTHES")
@@ -1300,7 +1300,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8863)
-    (chinese-cns11643-1 #x28 #x52)	; $(G(R(B
+    (chinese-cns11643-1 #x28 #x52)	; ø»‘Ÿ
     ))
 (define-char
   '((name		. "KANGXI RADICAL WEST")
@@ -1309,7 +1309,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x897E)
-    (chinese-cns11643-1 #x28 #x53)	; $(G(S(B
+    (chinese-cns11643-1 #x28 #x53)	; ø»‘ 
     ))
 (define-char
   '((name		. "KANGXI RADICAL SEE")
@@ -1318,7 +1318,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x898B)
-    (chinese-cns11643-1 #x28 #x54)	; $(G(T(B
+    (chinese-cns11643-1 #x28 #x54)	; ø»‘¡
     ))
 (define-char
   '((name		. "KANGXI RADICAL HORN")
@@ -1327,7 +1327,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x89D2)
-    (chinese-cns11643-1 #x28 #x55)	; $(G(U(B
+    (chinese-cns11643-1 #x28 #x55)	; ø»‘¢
     ))
 (define-char
   '((name		. "KANGXI RADICAL SPEECH")
@@ -1336,7 +1336,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8A00)
-    (chinese-cns11643-1 #x28 #x56)	; $(G(V(B
+    (chinese-cns11643-1 #x28 #x56)	; ø»‘£
     ))
 (define-char
   '((name		. "KANGXI RADICAL VALLEY")
@@ -1345,7 +1345,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8C37)
-    (chinese-cns11643-1 #x28 #x57)	; $(G(W(B
+    (chinese-cns11643-1 #x28 #x57)	; ø»‘¤
     ))
 (define-char
   '((name		. "KANGXI RADICAL BEAN")
@@ -1354,7 +1354,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8C46)
-    (chinese-cns11643-1 #x28 #x58)	; $(G(X(B
+    (chinese-cns11643-1 #x28 #x58)	; ø»‘¥
     ))
 (define-char
   '((name		. "KANGXI RADICAL PIG")
@@ -1363,7 +1363,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8C55)
-    (chinese-cns11643-1 #x28 #x59)	; $(G(Y(B
+    (chinese-cns11643-1 #x28 #x59)	; ø»‘¦
     ))
 (define-char
   '((name		. "KANGXI RADICAL BADGER")
@@ -1372,7 +1372,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8C78)
-    (chinese-cns11643-1 #x28 #x5A)	; $(G(Z(B
+    (chinese-cns11643-1 #x28 #x5A)	; ø»‘§
     ))
 (define-char
   '((name		. "KANGXI RADICAL SHELL")
@@ -1381,7 +1381,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8C9D)
-    (chinese-cns11643-1 #x28 #x5B)	; $(G([(B
+    (chinese-cns11643-1 #x28 #x5B)	; ø»‘¨
     ))
 (define-char
   '((name		. "KANGXI RADICAL RED")
@@ -1390,7 +1390,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8D64)
-    (chinese-cns11643-1 #x28 #x5C)	; $(G(\(B
+    (chinese-cns11643-1 #x28 #x5C)	; ø»‘©
     ))
 (define-char
   '((name		. "KANGXI RADICAL RUN")
@@ -1399,7 +1399,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8D70)
-    (chinese-cns11643-1 #x28 #x5D)	; $(G(](B
+    (chinese-cns11643-1 #x28 #x5D)	; ø»‘ª
     ))
 (define-char
   '((name		. "KANGXI RADICAL FOOT")
@@ -1408,7 +1408,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8DB3)
-    (chinese-cns11643-1 #x28 #x5E)	; $(G(^(B
+    (chinese-cns11643-1 #x28 #x5E)	; ø»‘«
     ))
 (define-char
   '((name		. "KANGXI RADICAL BODY")
@@ -1417,7 +1417,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8EAB)
-    (chinese-cns11643-1 #x28 #x5F)	; $(G(_(B
+    (chinese-cns11643-1 #x28 #x5F)	; ø»‘¬
     ))
 (define-char
   '((name		. "KANGXI RADICAL CART")
@@ -1426,7 +1426,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8ECA)
-    (chinese-cns11643-1 #x28 #x60)	; $(G(`(B
+    (chinese-cns11643-1 #x28 #x60)	; ø»‘­
     ))
 (define-char
   '((name		. "KANGXI RADICAL BITTER")
@@ -1435,7 +1435,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8F9B)
-    (chinese-cns11643-1 #x28 #x61)	; $(G(a(B
+    (chinese-cns11643-1 #x28 #x61)	; ø»‘®
     ))
 (define-char
   '((name		. "KANGXI RADICAL MORNING")
@@ -1444,7 +1444,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8FB0)
-    (chinese-cns11643-1 #x28 #x62)	; $(G(b(B
+    (chinese-cns11643-1 #x28 #x62)	; ø»‘¯
     ))
 (define-char
   '((name		. "KANGXI RADICAL WALK")
@@ -1453,7 +1453,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x8FB5)
-    (chinese-cns11643-1 #x28 #x63)	; $(G(c(B
+    (chinese-cns11643-1 #x28 #x63)	; ø»‘°
     ))
 (define-char
   '((name		. "KANGXI RADICAL CITY")
@@ -1462,7 +1462,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9091)
-    (chinese-cns11643-1 #x28 #x64)	; $(G(d(B
+    (chinese-cns11643-1 #x28 #x64)	; ø»‘±
     ))
 (define-char
   '((name		. "KANGXI RADICAL WINE")
@@ -1471,7 +1471,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9149)
-    (chinese-cns11643-1 #x28 #x65)	; $(G(e(B
+    (chinese-cns11643-1 #x28 #x65)	; ø»‘²
     ))
 (define-char
   '((name		. "KANGXI RADICAL DISTINGUISH")
@@ -1480,7 +1480,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x91C6)
-    (chinese-cns11643-1 #x28 #x66)	; $(G(f(B
+    (chinese-cns11643-1 #x28 #x66)	; ø»‘³
     ))
 (define-char
   '((name		. "KANGXI RADICAL VILLAGE")
@@ -1489,7 +1489,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x91CC)
-    (chinese-cns11643-1 #x28 #x67)	; $(G(g(B
+    (chinese-cns11643-1 #x28 #x67)	; ø»‘´
     ))
 (define-char
   '((name		. "KANGXI RADICAL GOLD")
@@ -1498,7 +1498,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x91D1)
-    (chinese-cns11643-1 #x28 #x68)	; $(G(h(B
+    (chinese-cns11643-1 #x28 #x68)	; ø»‘µ
     ))
 (define-char
   '((name		. "KANGXI RADICAL LONG")
@@ -1507,7 +1507,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9577)
-    (chinese-cns11643-1 #x28 #x69)	; $(G(i(B
+    (chinese-cns11643-1 #x28 #x69)	; ø»‘¶
     ))
 (define-char
   '((name		. "KANGXI RADICAL GATE")
@@ -1516,7 +1516,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9580)
-    (chinese-cns11643-1 #x28 #x6A)	; $(G(j(B
+    (chinese-cns11643-1 #x28 #x6A)	; ø»‘·
     ))
 (define-char
   '((name		. "KANGXI RADICAL MOUND")
@@ -1525,7 +1525,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x961C)
-    (chinese-cns11643-1 #x28 #x6B)	; $(G(k(B
+    (chinese-cns11643-1 #x28 #x6B)	; ø»‘¸
     ))
 (define-char
   '((name		. "KANGXI RADICAL SLAVE")
@@ -1534,7 +1534,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x96B6)
-    (chinese-cns11643-1 #x28 #x6C)	; $(G(l(B
+    (chinese-cns11643-1 #x28 #x6C)	; ø»‘¹
     ))
 (define-char
   '((name		. "KANGXI RADICAL SHORT TAILED BIRD")
@@ -1543,7 +1543,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x96B9)
-    (chinese-cns11643-1 #x28 #x6D)	; $(G(m(B
+    (chinese-cns11643-1 #x28 #x6D)	; ø»‘º
     ))
 (define-char
   '((name		. "KANGXI RADICAL RAIN")
@@ -1552,7 +1552,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x96E8)
-    (chinese-cns11643-1 #x28 #x6E)	; $(G(n(B
+    (chinese-cns11643-1 #x28 #x6E)	; ø»‘»
     ))
 (define-char
   '((name		. "KANGXI RADICAL BLUE")
@@ -1561,7 +1561,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9751)
-    (chinese-cns11643-1 #x28 #x6F)	; $(G(o(B
+    (chinese-cns11643-1 #x28 #x6F)	; ø»‘¼
     ))
 (define-char
   '((name		. "KANGXI RADICAL WRONG")
@@ -1570,7 +1570,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x975E)
-    (chinese-cns11643-1 #x28 #x70)	; $(G(p(B
+    (chinese-cns11643-1 #x28 #x70)	; ø»‘½
     ))
 (define-char
   '((name		. "KANGXI RADICAL FACE")
@@ -1579,7 +1579,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9762)
-    (chinese-cns11643-1 #x28 #x71)	; $(G(q(B
+    (chinese-cns11643-1 #x28 #x71)	; ø»‘¾
     ))
 (define-char
   '((name		. "KANGXI RADICAL LEATHER")
@@ -1588,7 +1588,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9769)
-    (chinese-cns11643-1 #x28 #x72)	; $(G(r(B
+    (chinese-cns11643-1 #x28 #x72)	; ø»‘¿
     ))
 (define-char
   '((name		. "KANGXI RADICAL TANNED LEATHER")
@@ -1597,7 +1597,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x97CB)
-    (chinese-cns11643-1 #x28 #x73)	; $(G(s(B
+    (chinese-cns11643-1 #x28 #x73)	; ø»‘Ž€
     ))
 (define-char
   '((name		. "KANGXI RADICAL LEEK")
@@ -1606,7 +1606,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x97ED)
-    (chinese-cns11643-1 #x28 #x74)	; $(G(t(B
+    (chinese-cns11643-1 #x28 #x74)	; ø»‘Ž
     ))
 (define-char
   '((name		. "KANGXI RADICAL SOUND")
@@ -1615,7 +1615,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x97F3)
-    (chinese-cns11643-1 #x28 #x75)	; $(G(u(B
+    (chinese-cns11643-1 #x28 #x75)	; ø»‘Ž‚
     ))
 (define-char
   '((name		. "KANGXI RADICAL LEAF")
@@ -1624,7 +1624,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9801)
-    (chinese-cns11643-1 #x28 #x76)	; $(G(v(B
+    (chinese-cns11643-1 #x28 #x76)	; ø»‘Žƒ
     ))
 (define-char
   '((name		. "KANGXI RADICAL WIND")
@@ -1633,7 +1633,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x98A8)
-    (chinese-cns11643-1 #x28 #x77)	; $(G(w(B
+    (chinese-cns11643-1 #x28 #x77)	; ø»‘Ž„
     ))
 (define-char
   '((name		. "KANGXI RADICAL FLY")
@@ -1642,7 +1642,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x98DB)
-    (chinese-cns11643-1 #x28 #x78)	; $(G(x(B
+    (chinese-cns11643-1 #x28 #x78)	; ø»‘Ž…
     ))
 (define-char
   '((name		. "KANGXI RADICAL EAT")
@@ -1651,7 +1651,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x98DF)
-    (chinese-cns11643-1 #x28 #x79)	; $(G(y(B
+    (chinese-cns11643-1 #x28 #x79)	; ø»‘Ž†
     ))
 (define-char
   '((name		. "KANGXI RADICAL HEAD")
@@ -1660,7 +1660,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9996)
-    (chinese-cns11643-1 #x28 #x7A)	; $(G(z(B
+    (chinese-cns11643-1 #x28 #x7A)	; ø»‘Ž‡
     ))
 (define-char
   '((name		. "KANGXI RADICAL FRAGRANT")
@@ -1669,7 +1669,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9999)
-    (chinese-cns11643-1 #x28 #x7B)	; $(G({(B
+    (chinese-cns11643-1 #x28 #x7B)	; ø»‘Žˆ
     ))
 (define-char
   '((name		. "KANGXI RADICAL HORSE")
@@ -1678,7 +1678,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x99AC)
-    (chinese-cns11643-1 #x28 #x7C)	; $(G(|(B
+    (chinese-cns11643-1 #x28 #x7C)	; ø»‘Ž‰
     ))
 (define-char
   '((name		. "KANGXI RADICAL BONE")
@@ -1687,7 +1687,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9AA8)
-    (chinese-cns11643-1 #x28 #x7D)	; $(G(}(B
+    (chinese-cns11643-1 #x28 #x7D)	; ø»‘ŽŠ
     ))
 (define-char
   '((name		. "KANGXI RADICAL TALL")
@@ -1696,7 +1696,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9AD8)
-    (chinese-cns11643-1 #x28 #x7E)	; $(G(~(B
+    (chinese-cns11643-1 #x28 #x7E)	; ø»‘Ž‹
     ))
 (define-char
   '((name		. "KANGXI RADICAL HAIR")
@@ -1705,7 +1705,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9ADF)
-    (chinese-cns11643-1 #x29 #x21)	; $(G)!(B
+    (chinese-cns11643-1 #x29 #x21)	; ø»‘ŽŒ
     ))
 (define-char
   '((name		. "KANGXI RADICAL FIGHT")
@@ -1714,7 +1714,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9B25)
-    (chinese-cns11643-1 #x29 #x22)	; $(G)"(B
+    (chinese-cns11643-1 #x29 #x22)	; ø»‘Ž
     ))
 (define-char
   '((name		. "KANGXI RADICAL SACRIFICIAL WINE")
@@ -1723,7 +1723,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9B2F)
-    (chinese-cns11643-1 #x29 #x23)	; $(G)#(B
+    (chinese-cns11643-1 #x29 #x23)	; ø»‘ŽŽ
     ))
 (define-char
   '((name		. "KANGXI RADICAL CAULDRON")
@@ -1732,7 +1732,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9B32)
-    (chinese-cns11643-1 #x29 #x24)	; $(G)$(B
+    (chinese-cns11643-1 #x29 #x24)	; ø»‘Ž
     ))
 (define-char
   '((name		. "KANGXI RADICAL GHOST")
@@ -1741,7 +1741,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9B3C)
-    (chinese-cns11643-1 #x29 #x25)	; $(G)%(B
+    (chinese-cns11643-1 #x29 #x25)	; ø»‘Ž
     ))
 (define-char
   '((name		. "KANGXI RADICAL FISH")
@@ -1750,7 +1750,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9B5A)
-    (chinese-cns11643-1 #x29 #x26)	; $(G)&(B
+    (chinese-cns11643-1 #x29 #x26)	; ø»‘Ž‘
     ))
 (define-char
   '((name		. "KANGXI RADICAL BIRD")
@@ -1759,7 +1759,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9CE5)
-    (chinese-cns11643-1 #x29 #x27)	; $(G)'(B
+    (chinese-cns11643-1 #x29 #x27)	; ø»‘Ž’
     ))
 (define-char
   '((name		. "KANGXI RADICAL SALT")
@@ -1768,7 +1768,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9E75)
-    (chinese-cns11643-1 #x29 #x28)	; $(G)((B
+    (chinese-cns11643-1 #x29 #x28)	; ø»‘Ž“
     ))
 (define-char
   '((name		. "KANGXI RADICAL DEER")
@@ -1777,7 +1777,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9E7F)
-    (chinese-cns11643-1 #x29 #x29)	; $(G))(B
+    (chinese-cns11643-1 #x29 #x29)	; ø»‘Ž”
     ))
 (define-char
   '((name		. "KANGXI RADICAL WHEAT")
@@ -1786,7 +1786,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9EA5)
-    (chinese-cns11643-1 #x29 #x2A)	; $(G)*(B
+    (chinese-cns11643-1 #x29 #x2A)	; ø»‘Ž•
     ))
 (define-char
   '((name		. "KANGXI RADICAL HEMP")
@@ -1795,7 +1795,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9EBB)
-    (chinese-cns11643-1 #x29 #x2B)	; $(G)+(B
+    (chinese-cns11643-1 #x29 #x2B)	; ø»‘Ž–
     ))
 (define-char
   '((name		. "KANGXI RADICAL YELLOW")
@@ -1804,7 +1804,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9EC3)
-    (chinese-cns11643-1 #x29 #x2C)	; $(G),(B
+    (chinese-cns11643-1 #x29 #x2C)	; ø»‘Ž—
     ))
 (define-char
   '((name		. "KANGXI RADICAL MILLET")
@@ -1813,7 +1813,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9ECD)
-    (chinese-cns11643-1 #x29 #x2D)	; $(G)-(B
+    (chinese-cns11643-1 #x29 #x2D)	; ø»‘Ž˜
     ))
 (define-char
   '((name		. "KANGXI RADICAL BLACK")
@@ -1822,7 +1822,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9ED1)
-    (chinese-cns11643-1 #x29 #x2E)	; $(G).(B
+    (chinese-cns11643-1 #x29 #x2E)	; ø»‘Ž™
     ))
 (define-char
   '((name		. "KANGXI RADICAL EMBROIDERY")
@@ -1831,7 +1831,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9EF9)
-    (chinese-cns11643-1 #x29 #x2F)	; $(G)/(B
+    (chinese-cns11643-1 #x29 #x2F)	; ø»‘Žš
     ))
 (define-char
   '((name		. "KANGXI RADICAL FROG")
@@ -1840,7 +1840,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9EFD)
-    (chinese-cns11643-1 #x29 #x30)	; $(G)0(B
+    (chinese-cns11643-1 #x29 #x30)	; ø»‘Ž›
     ))
 (define-char
   '((name		. "KANGXI RADICAL TRIPOD")
@@ -1849,7 +1849,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9F0E)
-    (chinese-cns11643-1 #x29 #x31)	; $(G)1(B
+    (chinese-cns11643-1 #x29 #x31)	; ø»‘Žœ
     ))
 (define-char
   '((name		. "KANGXI RADICAL DRUM")
@@ -1858,7 +1858,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9F13)
-    (chinese-cns11643-1 #x29 #x32)	; $(G)2(B
+    (chinese-cns11643-1 #x29 #x32)	; ø»‘Ž
     ))
 (define-char
   '((name		. "KANGXI RADICAL RAT")
@@ -1867,7 +1867,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9F20)
-    (chinese-cns11643-1 #x29 #x33)	; $(G)3(B
+    (chinese-cns11643-1 #x29 #x33)	; ø»‘Žž
     ))
 (define-char
   '((name		. "KANGXI RADICAL NOSE")
@@ -1876,7 +1876,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9F3B)
-    (chinese-cns11643-1 #x29 #x34)	; $(G)4(B
+    (chinese-cns11643-1 #x29 #x34)	; ø»‘ŽŸ
     ))
 (define-char
   '((name		. "KANGXI RADICAL EVEN")
@@ -1885,7 +1885,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9F4A)
-    (chinese-cns11643-1 #x29 #x35)	; $(G)5(B
+    (chinese-cns11643-1 #x29 #x35)	; ø»‘Ž 
     ))
 (define-char
   '((name		. "KANGXI RADICAL TOOTH")
@@ -1894,7 +1894,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9F52)
-    (chinese-cns11643-1 #x29 #x36)	; $(G)6(B
+    (chinese-cns11643-1 #x29 #x36)	; ø»‘Ž¡
     ))
 (define-char
   '((name		. "KANGXI RADICAL DRAGON")
@@ -1903,7 +1903,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9F8D)
-    (chinese-cns11643-1 #x29 #x37)	; $(G)7(B
+    (chinese-cns11643-1 #x29 #x37)	; ø»‘Ž¢
     ))
 (define-char
   '((name		. "KANGXI RADICAL TURTLE")
@@ -1912,7 +1912,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9F9C)
-    (chinese-cns11643-1 #x29 #x38)	; $(G)8(B
+    (chinese-cns11643-1 #x29 #x38)	; ø»‘Ž£
     ))
 (define-char
   '((name		. "KANGXI RADICAL FLUTE")
@@ -1921,5 +1921,5 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x9FA0)
-    (chinese-cns11643-1 #x29 #x39)	; $(G)9(B
+    (chinese-cns11643-1 #x29 #x39)	; ø»‘Ž¤
     ))

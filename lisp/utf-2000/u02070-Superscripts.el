@@ -30,7 +30,7 @@
     (digit-value	 . 4)
     (numeric-value	 . 4)
     (->decomposition	wide #x2074)
-    (korean-ksc5601	#x29 #x79)	; $(C)y(B
+    (korean-ksc5601	#x29 #x79)	; ø»ˆ§”
     ))
 (define-char
   '((name		. "SUPERSCRIPT FIVE")
@@ -142,5 +142,5 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x207F)
-    (korean-ksc5601	#x29 #x7A)	; $(C)z(B
+    (korean-ksc5601	#x29 #x7A)	; ø»ˆ§•
     ))

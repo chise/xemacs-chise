@@ -15,7 +15,7 @@
     (mirrored		. nil)
     (->decomposition	#x0415 #x0308)
     (->lowercase	#x0451)
-    (cyrillic-iso8859-5 #x21)	; -L¡-A
+    (cyrillic-iso8859-5 #xA1)	; Ð
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER IO")
@@ -26,10 +26,10 @@
     (->decomposition	wide #x0401)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER IO")))
-    (japanese-jisx0208-1978	#x27 #x27)	; $(B''(B
-    (chinese-gb2312		#x27 #x27)	; $(A''(B
-    (japanese-jisx0208		#x27 #x27)	; $(B''(B
-    (korean-ksc5601		#x2C #x27)	; $(C,'(B
+    (japanese-jisx0208-1978	#x27 #x27)	; ø»‚„º
+    (chinese-gb2312		#x27 #x27)	; ø»„Ž¾
+    (japanese-jisx0208		#x27 #x27)	; ø»†™‚
+    (korean-ksc5601		#x2C #x27)	; ø»ˆªœ
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER DJE")
@@ -39,7 +39,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Serbocroatian")
     (->lowercase	#x0452)
-    (cyrillic-iso8859-5 #x22)	; -L¢-A
+    (cyrillic-iso8859-5 #xA2)	; Ð‚
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER DJE")
@@ -51,7 +51,7 @@
     (->decomposition	wide #x0402)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER DJE")))
-    (japanese-jisx0212	#x27 #x42)	; $(D'B(B
+    (japanese-jisx0212	#x27 #x42)	; ø»Š­¥
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER GJE")
@@ -61,7 +61,7 @@
     (mirrored		. nil)
     (->decomposition	#x0413 #x0301)
     (->lowercase	#x0453)
-    (cyrillic-iso8859-5 #x23)	; -L£-A
+    (cyrillic-iso8859-5 #xA3)	; Ðƒ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER GJE")
@@ -72,7 +72,7 @@
     (->decomposition	wide #x0403)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER GJE")))
-    (japanese-jisx0212	#x27 #x43)	; $(D'C(B
+    (japanese-jisx0212	#x27 #x43)	; ø»Š­¦
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER UKRAINIAN IE")
@@ -81,7 +81,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0454)
-    (cyrillic-iso8859-5 #x24)	; -L¤-A
+    (cyrillic-iso8859-5 #xA4)	; Ð„
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER UKRAINIAN IE")
@@ -92,7 +92,7 @@
     (->decomposition	wide #x0404)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER UKRAINIAN IE")))
-    (japanese-jisx0212	#x27 #x44)	; $(D'D(B
+    (japanese-jisx0212	#x27 #x44)	; ø»Š­§
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER DZE")
@@ -101,7 +101,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0455)
-    (cyrillic-iso8859-5 #x25)	; -L¥-A
+    (cyrillic-iso8859-5 #xA5)	; Ð…
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER DZE")
@@ -112,7 +112,7 @@
     (->decomposition	wide #x0405)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER DZE")))
-    (japanese-jisx0212	#x27 #x45)	; $(D'E(B
+    (japanese-jisx0212	#x27 #x45)	; ø»Š­¨
     ))
 (define-char
   '((name . "CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")
@@ -121,7 +121,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0456)
-    (cyrillic-iso8859-5 #x26)	; -L¦-A
+    (cyrillic-iso8859-5 #xA6)	; Ð†
     ))
 (define-char
   '((name . "FULLWIDTH CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")
@@ -132,7 +132,7 @@
     (->decomposition	wide #x0406)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")))
-    (japanese-jisx0212	#x27 #x46)	; $(D'F(B
+    (japanese-jisx0212	#x27 #x46)	; ø»Š­©
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER YI")
@@ -143,7 +143,7 @@
     (iso-10646-comment	. "Ukrainian")
     (->decomposition	#x0406 #x0308)
     (->lowercase	#x0457)
-    (cyrillic-iso8859-5 #x27)	; -L§-A
+    (cyrillic-iso8859-5 #xA7)	; Ð‡
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER YI")
@@ -155,7 +155,7 @@
     (->decomposition	wide #x0407)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER YI")))
-    (japanese-jisx0212	#x27 #x47)	; $(D'G(B
+    (japanese-jisx0212	#x27 #x47)	; ø»Š­ª
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER JE")
@@ -164,7 +164,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0458)
-    (cyrillic-iso8859-5 #x28)	; -L¨-A
+    (cyrillic-iso8859-5 #xA8)	; Ðˆ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER JE")
@@ -175,7 +175,7 @@
     (->decomposition	wide #x0408)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER JE")))
-    (japanese-jisx0212	#x27 #x48)	; $(D'H(B
+    (japanese-jisx0212	#x27 #x48)	; ø»Š­«
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER LJE")
@@ -184,7 +184,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0459)
-    (cyrillic-iso8859-5 #x29)	; -L©-A
+    (cyrillic-iso8859-5 #xA9)	; Ð‰
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER LJE")
@@ -195,7 +195,7 @@
     (->decomposition	wide #x0409)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER LJE")))
-    (japanese-jisx0212	#x27 #x49)	; $(D'I(B
+    (japanese-jisx0212	#x27 #x49)	; ø»Š­¬
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER NJE")
@@ -204,7 +204,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x045A)
-    (cyrillic-iso8859-5 #x2A)	; -Lª-A
+    (cyrillic-iso8859-5 #xAA)	; ÐŠ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER NJE")
@@ -215,7 +215,7 @@
     (->decomposition	wide #x040A)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER NJE")))
-    (japanese-jisx0212	#x27 #x4A)	; $(D'J(B
+    (japanese-jisx0212	#x27 #x4A)	; ø»Š­­
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER TSHE")
@@ -225,7 +225,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Serbocroatian")
     (->lowercase	#x045B)
-    (cyrillic-iso8859-5 #x2B)	; -L«-A
+    (cyrillic-iso8859-5 #xAB)	; Ð‹
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER TSHE")
@@ -236,7 +236,7 @@
     (iso-10646-comment	. "Serbocroatian")
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER TSHE")))
-    (japanese-jisx0212	#x27 #x4B)	; $(D'K(B
+    (japanese-jisx0212	#x27 #x4B)	; ø»Š­®
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER KJE")
@@ -246,7 +246,7 @@
     (mirrored		. nil)
     (->decomposition	#x041A #x0301)
     (->lowercase	#x045C)
-    (cyrillic-iso8859-5 #x2C)	; -L¬-A
+    (cyrillic-iso8859-5 #xAC)	; ÐŒ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER KJE")
@@ -257,7 +257,7 @@
     (->decomposition	wide #x040C)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER KJE")))
-    (japanese-jisx0212	#x27 #x4C)	; $(D'L(B
+    (japanese-jisx0212	#x27 #x4C)	; ø»Š­¯
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER I WITH GRAVE")
@@ -277,7 +277,7 @@
     (iso-10646-comment	. "Byelorussian")
     (->decomposition	#x0423 #x0306)
     (->lowercase	#x045E)
-    (cyrillic-iso8859-5 #x2E)	; -L®-A
+    (cyrillic-iso8859-5 #xAE)	; ÐŽ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER SHORT U")
@@ -289,7 +289,7 @@
     (->decomposition	wide #x040E)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER SHORT U")))
-    (japanese-jisx0212	#x27 #x4D)	; $(D'M(B
+    (japanese-jisx0212	#x27 #x4D)	; ø»Š­°
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER DZHE")
@@ -298,7 +298,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x045F)
-    (cyrillic-iso8859-5 #x2F)	; -L¯-A
+    (cyrillic-iso8859-5 #xAF)	; Ð
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER DZHE")
@@ -309,7 +309,7 @@
     (->decomposition	wide #x040F)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER DZHE")))
-    (japanese-jisx0212	#x27 #x4E)	; $(D'N(B
+    (japanese-jisx0212	#x27 #x4E)	; ø»Š­±
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER A")
@@ -318,7 +318,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0430)
-    (cyrillic-iso8859-5 #x30)	; -L°-A
+    (cyrillic-iso8859-5 #xB0)	; Ð
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER A")
@@ -329,10 +329,10 @@
     (->decomposition	wide #x0410)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER A")))
-    (japanese-jisx0208-1978	#x27 #x21)	; $(B'!(B
-    (chinese-gb2312		#x27 #x21)	; $(A'!(B
-    (japanese-jisx0208		#x27 #x21)	; $(B'!(B
-    (korean-ksc5601		#x2C #x21)	; $(C,!(B
+    (japanese-jisx0208-1978	#x27 #x21)	; ø»‚„´
+    (chinese-gb2312		#x27 #x21)	; ø»„Ž¸
+    (japanese-jisx0208		#x27 #x21)	; ø»†˜¼
+    (korean-ksc5601		#x2C #x21)	; ø»ˆª–
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER BE")
@@ -341,7 +341,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0431)
-    (cyrillic-iso8859-5 #x31)	; -L±-A
+    (cyrillic-iso8859-5 #xB1)	; Ð‘
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER BE")
@@ -352,10 +352,10 @@
     (->decomposition	wide #x0411)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER BE")))
-    (japanese-jisx0208-1978	#x27 #x22)	; $(B'"(B
-    (chinese-gb2312		#x27 #x22)	; $(A'"(B
-    (japanese-jisx0208		#x27 #x22)	; $(B'"(B
-    (korean-ksc5601		#x2C #x22)	; $(C,"(B
+    (japanese-jisx0208-1978	#x27 #x22)	; ø»‚„µ
+    (chinese-gb2312		#x27 #x22)	; ø»„Ž¹
+    (japanese-jisx0208		#x27 #x22)	; ø»†˜½
+    (korean-ksc5601		#x2C #x22)	; ø»ˆª—
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER VE")
@@ -364,7 +364,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0432)
-    (cyrillic-iso8859-5 #x32)	; -L²-A
+    (cyrillic-iso8859-5 #xB2)	; Ð’
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER VE")
@@ -375,10 +375,10 @@
     (->decomposition	wide #x0412)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER VE")))
-    (japanese-jisx0208-1978	#x27 #x23)	; $(B'#(B
-    (chinese-gb2312		#x27 #x23)	; $(A'#(B
-    (japanese-jisx0208		#x27 #x23)	; $(B'#(B
-    (korean-ksc5601		#x2C #x23)	; $(C,#(B
+    (japanese-jisx0208-1978	#x27 #x23)	; ø»‚„¶
+    (chinese-gb2312		#x27 #x23)	; ø»„Žº
+    (japanese-jisx0208		#x27 #x23)	; ø»†˜¾
+    (korean-ksc5601		#x2C #x23)	; ø»ˆª˜
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER GHE")
@@ -387,7 +387,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0433)
-    (cyrillic-iso8859-5 #x33)	; -L³-A
+    (cyrillic-iso8859-5 #xB3)	; Ð“
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER GHE")
@@ -398,10 +398,10 @@
     (->decomposition	wide #x0413)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER GHE")))
-    (japanese-jisx0208-1978	#x27 #x24)	; $(B'$(B
-    (chinese-gb2312		#x27 #x24)	; $(A'$(B
-    (japanese-jisx0208		#x27 #x24)	; $(B'$(B
-    (korean-ksc5601		#x2C #x24)	; $(C,$(B
+    (japanese-jisx0208-1978	#x27 #x24)	; ø»‚„·
+    (chinese-gb2312		#x27 #x24)	; ø»„Ž»
+    (japanese-jisx0208		#x27 #x24)	; ø»†˜¿
+    (korean-ksc5601		#x2C #x24)	; ø»ˆª™
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER DE")
@@ -410,7 +410,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0434)
-    (cyrillic-iso8859-5 #x34)	; -L´-A
+    (cyrillic-iso8859-5 #xB4)	; Ð”
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER DE")
@@ -421,10 +421,10 @@
     (->decomposition	wide #x0414)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER DE")))
-    (japanese-jisx0208-1978	#x27 #x25)	; $(B'%(B
-    (chinese-gb2312		#x27 #x25)	; $(A'%(B
-    (japanese-jisx0208		#x27 #x25)	; $(B'%(B
-    (korean-ksc5601		#x2C #x25)	; $(C,%(B
+    (japanese-jisx0208-1978	#x27 #x25)	; ø»‚„¸
+    (chinese-gb2312		#x27 #x25)	; ø»„Ž¼
+    (japanese-jisx0208		#x27 #x25)	; ø»†™€
+    (korean-ksc5601		#x2C #x25)	; ø»ˆªš
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER IE")
@@ -433,7 +433,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0435)
-    (cyrillic-iso8859-5 #x35)	; -Lµ-A
+    (cyrillic-iso8859-5 #xB5)	; Ð•
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER IE")
@@ -444,10 +444,10 @@
     (->decomposition	wide #x0415)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER IE")))
-    (japanese-jisx0208-1978	#x27 #x26)	; $(B'&(B
-    (chinese-gb2312		#x27 #x26)	; $(A'&(B
-    (japanese-jisx0208		#x27 #x26)	; $(B'&(B
-    (korean-ksc5601		#x2C #x26)	; $(C,&(B
+    (japanese-jisx0208-1978	#x27 #x26)	; ø»‚„¹
+    (chinese-gb2312		#x27 #x26)	; ø»„Ž½
+    (japanese-jisx0208		#x27 #x26)	; ø»†™
+    (korean-ksc5601		#x2C #x26)	; ø»ˆª›
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER ZHE")
@@ -456,7 +456,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0436)
-    (cyrillic-iso8859-5 #x36)	; -L¶-A
+    (cyrillic-iso8859-5 #xB6)	; Ð–
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER ZHE")
@@ -467,10 +467,10 @@
     (->decomposition	wide #x0416)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER ZHE")))
-    (japanese-jisx0208-1978	#x27 #x28)	; $(B'((B
-    (chinese-gb2312		#x27 #x28)	; $(A'((B
-    (japanese-jisx0208		#x27 #x28)	; $(B'((B
-    (korean-ksc5601		#x2C #x28)	; $(C,((B
+    (japanese-jisx0208-1978	#x27 #x28)	; ø»‚„»
+    (chinese-gb2312		#x27 #x28)	; ø»„Ž¿
+    (japanese-jisx0208		#x27 #x28)	; ø»†™ƒ
+    (korean-ksc5601		#x2C #x28)	; ø»ˆª
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER ZE")
@@ -479,7 +479,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0437)
-    (cyrillic-iso8859-5 #x37)	; -L·-A
+    (cyrillic-iso8859-5 #xB7)	; Ð—
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER ZE")
@@ -490,10 +490,10 @@
     (->decomposition	wide #x0417)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER ZE")))
-    (japanese-jisx0208-1978	#x27 #x29)	; $(B')(B
-    (chinese-gb2312		#x27 #x29)	; $(A')(B
-    (japanese-jisx0208		#x27 #x29)	; $(B')(B
-    (korean-ksc5601		#x2C #x29)	; $(C,)(B
+    (japanese-jisx0208-1978	#x27 #x29)	; ø»‚„¼
+    (chinese-gb2312		#x27 #x29)	; ø»„€
+    (japanese-jisx0208		#x27 #x29)	; ø»†™„
+    (korean-ksc5601		#x2C #x29)	; ø»ˆªž
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER I")
@@ -502,7 +502,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0438)
-    (cyrillic-iso8859-5 #x38)	; -L¸-A
+    (cyrillic-iso8859-5 #xB8)	; Ð˜
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER I")
@@ -513,10 +513,10 @@
     (->decomposition	wide #x0418)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER I")))
-    (japanese-jisx0208-1978	#x27 #x2A)	; $(B'*(B
-    (chinese-gb2312		#x27 #x2A)	; $(A'*(B
-    (japanese-jisx0208		#x27 #x2A)	; $(B'*(B
-    (korean-ksc5601		#x2C #x2A)	; $(C,*(B
+    (japanese-jisx0208-1978	#x27 #x2A)	; ø»‚„½
+    (chinese-gb2312		#x27 #x2A)	; ø»„
+    (japanese-jisx0208		#x27 #x2A)	; ø»†™…
+    (korean-ksc5601		#x2C #x2A)	; ø»ˆªŸ
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER SHORT I")
@@ -526,7 +526,7 @@
     (mirrored		. nil)
     (->decomposition	#x0418 #x0306)
     (->lowercase	#x0439)
-    (cyrillic-iso8859-5 #x39)	; -L¹-A
+    (cyrillic-iso8859-5 #xB9)	; Ð™
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER SHORT I")
@@ -537,10 +537,10 @@
     (->decomposition	wide #x0419)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER SHORT I")))
-    (japanese-jisx0208-1978	#x27 #x2B)	; $(B'+(B
-    (chinese-gb2312		#x27 #x2B)	; $(A'+(B
-    (japanese-jisx0208		#x27 #x2B)	; $(B'+(B
-    (korean-ksc5601		#x2C #x2B)	; $(C,+(B
+    (japanese-jisx0208-1978	#x27 #x2B)	; ø»‚„¾
+    (chinese-gb2312		#x27 #x2B)	; ø»„‚
+    (japanese-jisx0208		#x27 #x2B)	; ø»†™†
+    (korean-ksc5601		#x2C #x2B)	; ø»ˆª 
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER KA")
@@ -549,7 +549,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x043A)
-    (cyrillic-iso8859-5 #x3A)	; -Lº-A
+    (cyrillic-iso8859-5 #xBA)	; Ðš
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER KA")
@@ -560,10 +560,10 @@
     (->decomposition	wide #x041A)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER KA")))
-    (japanese-jisx0208-1978	#x27 #x2C)	; $(B',(B
-    (chinese-gb2312		#x27 #x2C)	; $(A',(B
-    (japanese-jisx0208		#x27 #x2C)	; $(B',(B
-    (korean-ksc5601		#x2C #x2C)	; $(C,,(B
+    (japanese-jisx0208-1978	#x27 #x2C)	; ø»‚„¿
+    (chinese-gb2312		#x27 #x2C)	; ø»„ƒ
+    (japanese-jisx0208		#x27 #x2C)	; ø»†™‡
+    (korean-ksc5601		#x2C #x2C)	; ø»ˆª¡
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER EL")
@@ -572,7 +572,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x043B)
-    (cyrillic-iso8859-5 #x3B)	; -L»-A
+    (cyrillic-iso8859-5 #xBB)	; Ð›
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER EL")
@@ -583,10 +583,10 @@
     (->decomposition	wide #x041B)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER EL")))
-    (japanese-jisx0208-1978	#x27 #x2D)	; $(B'-(B
-    (chinese-gb2312		#x27 #x2D)	; $(A'-(B
-    (japanese-jisx0208		#x27 #x2D)	; $(B'-(B
-    (korean-ksc5601		#x2C #x2D)	; $(C,-(B
+    (japanese-jisx0208-1978	#x27 #x2D)	; ø»‚…€
+    (chinese-gb2312		#x27 #x2D)	; ø»„„
+    (japanese-jisx0208		#x27 #x2D)	; ø»†™ˆ
+    (korean-ksc5601		#x2C #x2D)	; ø»ˆª¢
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER EM")
@@ -595,7 +595,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x043C)
-    (cyrillic-iso8859-5 #x3C)	; -L¼-A
+    (cyrillic-iso8859-5 #xBC)	; Ðœ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER EM")
@@ -606,10 +606,10 @@
     (->decomposition	wide #x041C)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER EM")))
-    (japanese-jisx0208-1978	#x27 #x2E)	; $(B'.(B
-    (chinese-gb2312		#x27 #x2E)	; $(A'.(B
-    (japanese-jisx0208		#x27 #x2E)	; $(B'.(B
-    (korean-ksc5601		#x2C #x2E)	; $(C,.(B
+    (japanese-jisx0208-1978	#x27 #x2E)	; ø»‚…
+    (chinese-gb2312		#x27 #x2E)	; ø»„…
+    (japanese-jisx0208		#x27 #x2E)	; ø»†™‰
+    (korean-ksc5601		#x2C #x2E)	; ø»ˆª£
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER EN")
@@ -618,7 +618,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x043D)
-    (cyrillic-iso8859-5 #x3D)	; -L½-A
+    (cyrillic-iso8859-5 #xBD)	; Ð
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER EN")
@@ -629,10 +629,10 @@
     (->decomposition	wide #x041D)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER EN")))
-    (japanese-jisx0208-1978	#x27 #x2F)	; $(B'/(B
-    (chinese-gb2312		#x27 #x2F)	; $(A'/(B
-    (japanese-jisx0208		#x27 #x2F)	; $(B'/(B
-    (korean-ksc5601		#x2C #x2F)	; $(C,/(B
+    (japanese-jisx0208-1978	#x27 #x2F)	; ø»‚…‚
+    (chinese-gb2312		#x27 #x2F)	; ø»„†
+    (japanese-jisx0208		#x27 #x2F)	; ø»†™Š
+    (korean-ksc5601		#x2C #x2F)	; ø»ˆª¤
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER O")
@@ -641,7 +641,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x043E)
-    (cyrillic-iso8859-5 #x3E)	; -L¾-A
+    (cyrillic-iso8859-5 #xBE)	; Ðž
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER O")
@@ -652,10 +652,10 @@
     (->decomposition	wide #x041E)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER O")))
-    (japanese-jisx0208-1978	#x27 #x30)	; $(B'0(B
-    (chinese-gb2312		#x27 #x30)	; $(A'0(B
-    (japanese-jisx0208		#x27 #x30)	; $(B'0(B
-    (korean-ksc5601		#x2C #x30)	; $(C,0(B
+    (japanese-jisx0208-1978	#x27 #x30)	; ø»‚…ƒ
+    (chinese-gb2312		#x27 #x30)	; ø»„‡
+    (japanese-jisx0208		#x27 #x30)	; ø»†™‹
+    (korean-ksc5601		#x2C #x30)	; ø»ˆª¥
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER PE")
@@ -664,7 +664,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x043F)
-    (cyrillic-iso8859-5 #x3F)	; -L¿-A
+    (cyrillic-iso8859-5 #xBF)	; ÐŸ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER PE")
@@ -675,10 +675,10 @@
     (->decomposition	wide #x041F)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER PE")))
-    (japanese-jisx0208-1978	#x27 #x31)	; $(B'1(B
-    (chinese-gb2312		#x27 #x31)	; $(A'1(B
-    (japanese-jisx0208		#x27 #x31)	; $(B'1(B
-    (korean-ksc5601		#x2C #x31)	; $(C,1(B
+    (japanese-jisx0208-1978	#x27 #x31)	; ø»‚…„
+    (chinese-gb2312		#x27 #x31)	; ø»„ˆ
+    (japanese-jisx0208		#x27 #x31)	; ø»†™Œ
+    (korean-ksc5601		#x2C #x31)	; ø»ˆª¦
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER ER")
@@ -687,7 +687,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0440)
-    (cyrillic-iso8859-5 #x40)	; -LÀ-A
+    (cyrillic-iso8859-5 #xC0)	; Ð 
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER ER")
@@ -698,10 +698,10 @@
     (->decomposition	wide #x0420)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER ER")))
-    (japanese-jisx0208-1978	#x27 #x32)	; $(B'2(B
-    (chinese-gb2312		#x27 #x32)	; $(A'2(B
-    (japanese-jisx0208		#x27 #x32)	; $(B'2(B
-    (korean-ksc5601		#x2C #x32)	; $(C,2(B
+    (japanese-jisx0208-1978	#x27 #x32)	; ø»‚……
+    (chinese-gb2312		#x27 #x32)	; ø»„‰
+    (japanese-jisx0208		#x27 #x32)	; ø»†™
+    (korean-ksc5601		#x2C #x32)	; ø»ˆª§
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER ES")
@@ -710,7 +710,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0441)
-    (cyrillic-iso8859-5 #x41)	; -LÁ-A
+    (cyrillic-iso8859-5 #xC1)	; Ð¡
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER ES")
@@ -721,10 +721,10 @@
     (->decomposition	wide #x0421)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER ES")))
-    (japanese-jisx0208-1978	#x27 #x33)	; $(B'3(B
-    (chinese-gb2312		#x27 #x33)	; $(A'3(B
-    (japanese-jisx0208		#x27 #x33)	; $(B'3(B
-    (korean-ksc5601		#x2C #x33)	; $(C,3(B
+    (japanese-jisx0208-1978	#x27 #x33)	; ø»‚…†
+    (chinese-gb2312		#x27 #x33)	; ø»„Š
+    (japanese-jisx0208		#x27 #x33)	; ø»†™Ž
+    (korean-ksc5601		#x2C #x33)	; ø»ˆª¨
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER TE")
@@ -733,7 +733,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0442)
-    (cyrillic-iso8859-5 #x42)	; -LÂ-A
+    (cyrillic-iso8859-5 #xC2)	; Ð¢
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER TE")
@@ -744,10 +744,10 @@
     (->decomposition	wide #x0422)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER TE")))
-    (japanese-jisx0208-1978	#x27 #x34)	; $(B'4(B
-    (chinese-gb2312		#x27 #x34)	; $(A'4(B
-    (japanese-jisx0208		#x27 #x34)	; $(B'4(B
-    (korean-ksc5601		#x2C #x34)	; $(C,4(B
+    (japanese-jisx0208-1978	#x27 #x34)	; ø»‚…‡
+    (chinese-gb2312		#x27 #x34)	; ø»„‹
+    (japanese-jisx0208		#x27 #x34)	; ø»†™
+    (korean-ksc5601		#x2C #x34)	; ø»ˆª©
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER U")
@@ -756,7 +756,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0443)
-    (cyrillic-iso8859-5 #x43)	; -LÃ-A
+    (cyrillic-iso8859-5 #xC3)	; Ð£
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER U")
@@ -767,10 +767,10 @@
     (->decomposition	wide #x0423)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER U")))
-    (japanese-jisx0208-1978	#x27 #x35)	; $(B'5(B
-    (chinese-gb2312		#x27 #x35)	; $(A'5(B
-    (japanese-jisx0208		#x27 #x35)	; $(B'5(B
-    (korean-ksc5601		#x2C #x35)	; $(C,5(B
+    (japanese-jisx0208-1978	#x27 #x35)	; ø»‚…ˆ
+    (chinese-gb2312		#x27 #x35)	; ø»„Œ
+    (japanese-jisx0208		#x27 #x35)	; ø»†™
+    (korean-ksc5601		#x2C #x35)	; ø»ˆªª
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER EF")
@@ -779,7 +779,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0444)
-    (cyrillic-iso8859-5 #x44)	; -LÄ-A
+    (cyrillic-iso8859-5 #xC4)	; Ð¤
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER EF")
@@ -790,10 +790,10 @@
     (->decomposition	wide #x0424)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER EF")))
-    (japanese-jisx0208-1978	#x27 #x36)	; $(B'6(B
-    (chinese-gb2312		#x27 #x36)	; $(A'6(B
-    (japanese-jisx0208		#x27 #x36)	; $(B'6(B
-    (korean-ksc5601		#x2C #x36)	; $(C,6(B
+    (japanese-jisx0208-1978	#x27 #x36)	; ø»‚…‰
+    (chinese-gb2312		#x27 #x36)	; ø»„
+    (japanese-jisx0208		#x27 #x36)	; ø»†™‘
+    (korean-ksc5601		#x2C #x36)	; ø»ˆª«
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER HA")
@@ -802,7 +802,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0445)
-    (cyrillic-iso8859-5 #x45)	; -LÅ-A
+    (cyrillic-iso8859-5 #xC5)	; Ð¥
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER HA")
@@ -813,10 +813,10 @@
     (->decomposition	wide #x0425)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER HA")))
-    (japanese-jisx0208-1978	#x27 #x37)	; $(B'7(B
-    (chinese-gb2312		#x27 #x37)	; $(A'7(B
-    (japanese-jisx0208		#x27 #x37)	; $(B'7(B
-    (korean-ksc5601		#x2C #x37)	; $(C,7(B
+    (japanese-jisx0208-1978	#x27 #x37)	; ø»‚…Š
+    (chinese-gb2312		#x27 #x37)	; ø»„Ž
+    (japanese-jisx0208		#x27 #x37)	; ø»†™’
+    (korean-ksc5601		#x2C #x37)	; ø»ˆª¬
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER TSE")
@@ -825,7 +825,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0446)
-    (cyrillic-iso8859-5 #x46)	; -LÆ-A
+    (cyrillic-iso8859-5 #xC6)	; Ð¦
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER TSE")
@@ -836,10 +836,10 @@
     (->decomposition	wide #x0426)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER TSE")))
-    (japanese-jisx0208-1978	#x27 #x38)	; $(B'8(B
-    (chinese-gb2312		#x27 #x38)	; $(A'8(B
-    (japanese-jisx0208		#x27 #x38)	; $(B'8(B
-    (korean-ksc5601		#x2C #x38)	; $(C,8(B
+    (japanese-jisx0208-1978	#x27 #x38)	; ø»‚…‹
+    (chinese-gb2312		#x27 #x38)	; ø»„
+    (japanese-jisx0208		#x27 #x38)	; ø»†™“
+    (korean-ksc5601		#x2C #x38)	; ø»ˆª­
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER CHE")
@@ -848,7 +848,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0447)
-    (cyrillic-iso8859-5 #x47)	; -LÇ-A
+    (cyrillic-iso8859-5 #xC7)	; Ð§
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER CHE")
@@ -859,10 +859,10 @@
     (->decomposition	wide #x0427)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER CHE")))
-    (japanese-jisx0208-1978	#x27 #x39)	; $(B'9(B
-    (chinese-gb2312		#x27 #x39)	; $(A'9(B
-    (japanese-jisx0208		#x27 #x39)	; $(B'9(B
-    (korean-ksc5601		#x2C #x39)	; $(C,9(B
+    (japanese-jisx0208-1978	#x27 #x39)	; ø»‚…Œ
+    (chinese-gb2312		#x27 #x39)	; ø»„
+    (japanese-jisx0208		#x27 #x39)	; ø»†™”
+    (korean-ksc5601		#x2C #x39)	; ø»ˆª®
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER SHA")
@@ -871,7 +871,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0448)
-    (cyrillic-iso8859-5 #x48)	; -LÈ-A
+    (cyrillic-iso8859-5 #xC8)	; Ð¨
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER SHA")
@@ -882,10 +882,10 @@
     (->decomposition	wide #x0428)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER SHA")))
-    (japanese-jisx0208-1978	#x27 #x3A)	; $(B':(B
-    (chinese-gb2312		#x27 #x3A)	; $(A':(B
-    (japanese-jisx0208		#x27 #x3A)	; $(B':(B
-    (korean-ksc5601		#x2C #x3A)	; $(C,:(B
+    (japanese-jisx0208-1978	#x27 #x3A)	; ø»‚…
+    (chinese-gb2312		#x27 #x3A)	; ø»„‘
+    (japanese-jisx0208		#x27 #x3A)	; ø»†™•
+    (korean-ksc5601		#x2C #x3A)	; ø»ˆª¯
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER SHCHA")
@@ -894,7 +894,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0449)
-    (cyrillic-iso8859-5 #x49)	; -LÉ-A
+    (cyrillic-iso8859-5 #xC9)	; Ð©
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER SHCHA")
@@ -905,10 +905,10 @@
     (->decomposition	wide #x0429)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER SHCHA")))
-    (japanese-jisx0208-1978	#x27 #x3B)	; $(B';(B
-    (chinese-gb2312		#x27 #x3B)	; $(A';(B
-    (japanese-jisx0208		#x27 #x3B)	; $(B';(B
-    (korean-ksc5601		#x2C #x3B)	; $(C,;(B
+    (japanese-jisx0208-1978	#x27 #x3B)	; ø»‚…Ž
+    (chinese-gb2312		#x27 #x3B)	; ø»„’
+    (japanese-jisx0208		#x27 #x3B)	; ø»†™–
+    (korean-ksc5601		#x2C #x3B)	; ø»ˆª°
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER HARD SIGN")
@@ -917,7 +917,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x044A)
-    (cyrillic-iso8859-5 #x4A)	; -LÊ-A
+    (cyrillic-iso8859-5 #xCA)	; Ðª
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER HARD SIGN")
@@ -928,10 +928,10 @@
     (->decomposition	wide #x042A)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER HARD SIGN")))
-    (japanese-jisx0208-1978	#x27 #x3C)	; $(B'<(B
-    (chinese-gb2312		#x27 #x3C)	; $(A'<(B
-    (japanese-jisx0208		#x27 #x3C)	; $(B'<(B
-    (korean-ksc5601		#x2C #x3C)	; $(C,<(B
+    (japanese-jisx0208-1978	#x27 #x3C)	; ø»‚…
+    (chinese-gb2312		#x27 #x3C)	; ø»„“
+    (japanese-jisx0208		#x27 #x3C)	; ø»†™—
+    (korean-ksc5601		#x2C #x3C)	; ø»ˆª±
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER YERU")
@@ -940,7 +940,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x044B)
-    (cyrillic-iso8859-5 #x4B)	; -LË-A
+    (cyrillic-iso8859-5 #xCB)	; Ð«
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER YERU")
@@ -951,10 +951,10 @@
     (->decomposition	wide #x042B)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER YERU")))
-    (japanese-jisx0208-1978	#x27 #x3D)	; $(B'=(B
-    (chinese-gb2312		#x27 #x3D)	; $(A'=(B
-    (japanese-jisx0208		#x27 #x3D)	; $(B'=(B
-    (korean-ksc5601		#x2C #x3D)	; $(C,=(B
+    (japanese-jisx0208-1978	#x27 #x3D)	; ø»‚…
+    (chinese-gb2312		#x27 #x3D)	; ø»„”
+    (japanese-jisx0208		#x27 #x3D)	; ø»†™˜
+    (korean-ksc5601		#x2C #x3D)	; ø»ˆª²
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER SOFT SIGN")
@@ -963,7 +963,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x044C)
-    (cyrillic-iso8859-5 #x4C)	; -LÌ-A
+    (cyrillic-iso8859-5 #xCC)	; Ð¬
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER SOFT SIGN")
@@ -974,10 +974,10 @@
     (->decomposition	wide #x042C)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER SOFT SIGN")))
-    (japanese-jisx0208-1978	#x27 #x3E)	; $(B'>(B
-    (chinese-gb2312		#x27 #x3E)	; $(A'>(B
-    (japanese-jisx0208		#x27 #x3E)	; $(B'>(B
-    (korean-ksc5601		#x2C #x3E)	; $(C,>(B
+    (japanese-jisx0208-1978	#x27 #x3E)	; ø»‚…‘
+    (chinese-gb2312		#x27 #x3E)	; ø»„•
+    (japanese-jisx0208		#x27 #x3E)	; ø»†™™
+    (korean-ksc5601		#x2C #x3E)	; ø»ˆª³
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER E")
@@ -986,7 +986,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x044D)
-    (cyrillic-iso8859-5 #x4D)	; -LÍ-A
+    (cyrillic-iso8859-5 #xCD)	; Ð­
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER E")
@@ -997,10 +997,10 @@
     (->decomposition	wide #x042D)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER E")))
-    (japanese-jisx0208-1978	#x27 #x3F)	; $(B'?(B
-    (chinese-gb2312		#x27 #x3F)	; $(A'?(B
-    (japanese-jisx0208		#x27 #x3F)	; $(B'?(B
-    (korean-ksc5601		#x2C #x3F)	; $(C,?(B
+    (japanese-jisx0208-1978	#x27 #x3F)	; ø»‚…’
+    (chinese-gb2312		#x27 #x3F)	; ø»„–
+    (japanese-jisx0208		#x27 #x3F)	; ø»†™š
+    (korean-ksc5601		#x2C #x3F)	; ø»ˆª´
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER YU")
@@ -1009,7 +1009,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x044E)
-    (cyrillic-iso8859-5 #x4E)	; -LÎ-A
+    (cyrillic-iso8859-5 #xCE)	; Ð®
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER YU")
@@ -1020,10 +1020,10 @@
     (->decomposition	wide #x042E)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER YU")))
-    (japanese-jisx0208-1978	#x27 #x40)	; $(B'@(B
-    (chinese-gb2312		#x27 #x40)	; $(A'@(B
-    (japanese-jisx0208		#x27 #x40)	; $(B'@(B
-    (korean-ksc5601		#x2C #x40)	; $(C,@(B
+    (japanese-jisx0208-1978	#x27 #x40)	; ø»‚…“
+    (chinese-gb2312		#x27 #x40)	; ø»„—
+    (japanese-jisx0208		#x27 #x40)	; ø»†™›
+    (korean-ksc5601		#x2C #x40)	; ø»ˆªµ
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER YA")
@@ -1032,7 +1032,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x044F)
-    (cyrillic-iso8859-5 #x4F)	; -LÏ-A
+    (cyrillic-iso8859-5 #xCF)	; Ð¯
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER YA")
@@ -1043,10 +1043,10 @@
     (->decomposition	wide #x042F)
     (->lowercase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER YA")))
-    (japanese-jisx0208-1978	#x27 #x41)	; $(B'A(B
-    (chinese-gb2312		#x27 #x41)	; $(A'A(B
-    (japanese-jisx0208		#x27 #x41)	; $(B'A(B
-    (korean-ksc5601		#x2C #x41)	; $(C,A(B
+    (japanese-jisx0208-1978	#x27 #x41)	; ø»‚…”
+    (chinese-gb2312		#x27 #x41)	; ø»„˜
+    (japanese-jisx0208		#x27 #x41)	; ø»†™œ
+    (korean-ksc5601		#x2C #x41)	; ø»ˆª¶
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER A")
@@ -1056,7 +1056,7 @@
     (mirrored		. nil)
     (->uppercase	#x0410)
     (->titlecase	#x0410)
-    (cyrillic-iso8859-5 #x50)	; -LÐ-A
+    (cyrillic-iso8859-5 #xD0)	; Ð°
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER A")
@@ -1069,10 +1069,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER A")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER A")))
-    (japanese-jisx0208-1978	#x27 #x51)	; $(B'Q(B
-    (chinese-gb2312		#x27 #x51)	; $(A'Q(B
-    (japanese-jisx0208		#x27 #x51)	; $(B'Q(B
-    (korean-ksc5601		#x2C #x51)	; $(C,Q(B
+    (japanese-jisx0208-1978	#x27 #x51)	; ø»‚…¤
+    (chinese-gb2312		#x27 #x51)	; ø»„¨
+    (japanese-jisx0208		#x27 #x51)	; ø»†™¬
+    (korean-ksc5601		#x2C #x51)	; ø»ˆ«†
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER BE")
@@ -1082,7 +1082,7 @@
     (mirrored		. nil)
     (->uppercase	#x0411)
     (->titlecase	#x0411)
-    (cyrillic-iso8859-5 #x51)	; -LÑ-A
+    (cyrillic-iso8859-5 #xD1)	; Ð±
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER BE")
@@ -1095,10 +1095,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER BE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER BE")))
-    (japanese-jisx0208-1978	#x27 #x52)	; $(B'R(B
-    (chinese-gb2312		#x27 #x52)	; $(A'R(B
-    (japanese-jisx0208		#x27 #x52)	; $(B'R(B
-    (korean-ksc5601		#x2C #x52)	; $(C,R(B
+    (japanese-jisx0208-1978	#x27 #x52)	; ø»‚…¥
+    (chinese-gb2312		#x27 #x52)	; ø»„©
+    (japanese-jisx0208		#x27 #x52)	; ø»†™­
+    (korean-ksc5601		#x2C #x52)	; ø»ˆ«‡
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER VE")
@@ -1108,7 +1108,7 @@
     (mirrored		. nil)
     (->uppercase	#x0412)
     (->titlecase	#x0412)
-    (cyrillic-iso8859-5 #x52)	; -LÒ-A
+    (cyrillic-iso8859-5 #xD2)	; Ð²
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER VE")
@@ -1121,10 +1121,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER VE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER VE")))
-    (japanese-jisx0208-1978	#x27 #x53)	; $(B'S(B
-    (chinese-gb2312		#x27 #x53)	; $(A'S(B
-    (japanese-jisx0208		#x27 #x53)	; $(B'S(B
-    (korean-ksc5601		#x2C #x53)	; $(C,S(B
+    (japanese-jisx0208-1978	#x27 #x53)	; ø»‚…¦
+    (chinese-gb2312		#x27 #x53)	; ø»„ª
+    (japanese-jisx0208		#x27 #x53)	; ø»†™®
+    (korean-ksc5601		#x2C #x53)	; ø»ˆ«ˆ
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER GHE")
@@ -1134,7 +1134,7 @@
     (mirrored		. nil)
     (->uppercase	#x0413)
     (->titlecase	#x0413)
-    (cyrillic-iso8859-5 #x53)	; -LÓ-A
+    (cyrillic-iso8859-5 #xD3)	; Ð³
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER GHE")
@@ -1147,10 +1147,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER GHE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER GHE")))
-    (japanese-jisx0208-1978	#x27 #x54)	; $(B'T(B
-    (chinese-gb2312		#x27 #x54)	; $(A'T(B
-    (japanese-jisx0208		#x27 #x54)	; $(B'T(B
-    (korean-ksc5601		#x2C #x54)	; $(C,T(B
+    (japanese-jisx0208-1978	#x27 #x54)	; ø»‚…§
+    (chinese-gb2312		#x27 #x54)	; ø»„«
+    (japanese-jisx0208		#x27 #x54)	; ø»†™¯
+    (korean-ksc5601		#x2C #x54)	; ø»ˆ«‰
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER DE")
@@ -1160,7 +1160,7 @@
     (mirrored		. nil)
     (->uppercase	#x0414)
     (->titlecase	#x0414)
-    (cyrillic-iso8859-5 #x54)	; -LÔ-A
+    (cyrillic-iso8859-5 #xD4)	; Ð´
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER DE")
@@ -1173,10 +1173,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER DE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER DE")))
-    (japanese-jisx0208-1978	#x27 #x55)	; $(B'U(B
-    (chinese-gb2312		#x27 #x55)	; $(A'U(B
-    (japanese-jisx0208		#x27 #x55)	; $(B'U(B
-    (korean-ksc5601		#x2C #x55)	; $(C,U(B
+    (japanese-jisx0208-1978	#x27 #x55)	; ø»‚…¨
+    (chinese-gb2312		#x27 #x55)	; ø»„¬
+    (japanese-jisx0208		#x27 #x55)	; ø»†™°
+    (korean-ksc5601		#x2C #x55)	; ø»ˆ«Š
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER IE")
@@ -1186,7 +1186,7 @@
     (mirrored		. nil)
     (->uppercase	#x0415)
     (->titlecase	#x0415)
-    (cyrillic-iso8859-5 #x55)	; -LÕ-A
+    (cyrillic-iso8859-5 #xD5)	; Ðµ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER IE")
@@ -1199,10 +1199,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER IE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER IE")))
-    (japanese-jisx0208-1978	#x27 #x56)	; $(B'V(B
-    (chinese-gb2312		#x27 #x56)	; $(A'V(B
-    (japanese-jisx0208		#x27 #x56)	; $(B'V(B
-    (korean-ksc5601		#x2C #x56)	; $(C,V(B
+    (japanese-jisx0208-1978	#x27 #x56)	; ø»‚…©
+    (chinese-gb2312		#x27 #x56)	; ø»„­
+    (japanese-jisx0208		#x27 #x56)	; ø»†™±
+    (korean-ksc5601		#x2C #x56)	; ø»ˆ«‹
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER ZHE")
@@ -1212,7 +1212,7 @@
     (mirrored		. nil)
     (->uppercase	#x0416)
     (->titlecase	#x0416)
-    (cyrillic-iso8859-5 #x56)	; -LÖ-A
+    (cyrillic-iso8859-5 #xD6)	; Ð¶
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER ZHE")
@@ -1225,10 +1225,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER ZHE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER ZHE")))
-    (japanese-jisx0208-1978	#x27 #x58)	; $(B'X(B
-    (chinese-gb2312		#x27 #x58)	; $(A'X(B
-    (japanese-jisx0208		#x27 #x58)	; $(B'X(B
-    (korean-ksc5601		#x2C #x58)	; $(C,X(B
+    (japanese-jisx0208-1978	#x27 #x58)	; ø»‚…«
+    (chinese-gb2312		#x27 #x58)	; ø»„¯
+    (japanese-jisx0208		#x27 #x58)	; ø»†™³
+    (korean-ksc5601		#x2C #x58)	; ø»ˆ«
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER ZE")
@@ -1238,7 +1238,7 @@
     (mirrored		. nil)
     (->uppercase	#x0417)
     (->titlecase	#x0417)
-    (cyrillic-iso8859-5 #x57)	; -L×-A
+    (cyrillic-iso8859-5 #xD7)	; Ð·
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER ZE")
@@ -1251,10 +1251,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER ZE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER ZE")))
-    (japanese-jisx0208-1978	#x27 #x59)	; $(B'Y(B
-    (chinese-gb2312		#x27 #x59)	; $(A'Y(B
-    (japanese-jisx0208		#x27 #x59)	; $(B'Y(B
-    (korean-ksc5601		#x2C #x59)	; $(C,Y(B
+    (japanese-jisx0208-1978	#x27 #x59)	; ø»‚…¬
+    (chinese-gb2312		#x27 #x59)	; ø»„°
+    (japanese-jisx0208		#x27 #x59)	; ø»†™´
+    (korean-ksc5601		#x2C #x59)	; ø»ˆ«Ž
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER I")
@@ -1264,7 +1264,7 @@
     (mirrored		. nil)
     (->uppercase	#x0418)
     (->titlecase	#x0418)
-    (cyrillic-iso8859-5 #x58)	; -LØ-A
+    (cyrillic-iso8859-5 #xD8)	; Ð¸
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER I")
@@ -1277,10 +1277,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER I")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER I")))
-    (japanese-jisx0208-1978	#x27 #x5A)	; $(B'Z(B
-    (chinese-gb2312		#x27 #x5A)	; $(A'Z(B
-    (japanese-jisx0208		#x27 #x5A)	; $(B'Z(B
-    (korean-ksc5601		#x2C #x5A)	; $(C,Z(B
+    (japanese-jisx0208-1978	#x27 #x5A)	; ø»‚…­
+    (chinese-gb2312		#x27 #x5A)	; ø»„±
+    (japanese-jisx0208		#x27 #x5A)	; ø»†™µ
+    (korean-ksc5601		#x2C #x5A)	; ø»ˆ«
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER SHORT I")
@@ -1291,7 +1291,7 @@
     (->decomposition	#x0438 #x0306)
     (->uppercase	#x0419)
     (->titlecase	#x0419)
-    (cyrillic-iso8859-5 #x59)	; -LÙ-A
+    (cyrillic-iso8859-5 #xD9)	; Ð¹
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER SHORT I")
@@ -1304,10 +1304,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SHORT I")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SHORT I")))
-    (japanese-jisx0208-1978	#x27 #x5B)	; $(B'[(B
-    (chinese-gb2312		#x27 #x5B)	; $(A'[(B
-    (japanese-jisx0208		#x27 #x5B)	; $(B'[(B
-    (korean-ksc5601		#x2C #x5B)	; $(C,[(B
+    (japanese-jisx0208-1978	#x27 #x5B)	; ø»‚…®
+    (chinese-gb2312		#x27 #x5B)	; ø»„²
+    (japanese-jisx0208		#x27 #x5B)	; ø»†™¶
+    (korean-ksc5601		#x2C #x5B)	; ø»ˆ«
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER KA")
@@ -1317,7 +1317,7 @@
     (mirrored		. nil)
     (->uppercase	#x041A)
     (->titlecase	#x041A)
-    (cyrillic-iso8859-5 #x5A)	; -LÚ-A
+    (cyrillic-iso8859-5 #xDA)	; Ðº
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER KA")
@@ -1330,10 +1330,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER KA")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER KA")))
-    (japanese-jisx0208-1978	#x27 #x5C)	; $(B'\(B
-    (chinese-gb2312		#x27 #x5C)	; $(A'\(B
-    (japanese-jisx0208		#x27 #x5C)	; $(B'\(B
-    (korean-ksc5601		#x2C #x5C)	; $(C,\(B
+    (japanese-jisx0208-1978	#x27 #x5C)	; ø»‚…¯
+    (chinese-gb2312		#x27 #x5C)	; ø»„³
+    (japanese-jisx0208		#x27 #x5C)	; ø»†™·
+    (korean-ksc5601		#x2C #x5C)	; ø»ˆ«‘
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER EL")
@@ -1343,7 +1343,7 @@
     (mirrored		. nil)
     (->uppercase	#x041B)
     (->titlecase	#x041B)
-    (cyrillic-iso8859-5 #x5B)	; -LÛ-A
+    (cyrillic-iso8859-5 #xDB)	; Ð»
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER EL")
@@ -1356,10 +1356,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER EL")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER EL")))
-    (japanese-jisx0208-1978	#x27 #x5D)	; $(B'](B
-    (chinese-gb2312		#x27 #x5D)	; $(A'](B
-    (japanese-jisx0208		#x27 #x5D)	; $(B'](B
-    (korean-ksc5601		#x2C #x5D)	; $(C,](B
+    (japanese-jisx0208-1978	#x27 #x5D)	; ø»‚…°
+    (chinese-gb2312		#x27 #x5D)	; ø»„´
+    (japanese-jisx0208		#x27 #x5D)	; ø»†™¸
+    (korean-ksc5601		#x2C #x5D)	; ø»ˆ«’
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER EM")
@@ -1369,7 +1369,7 @@
     (mirrored		. nil)
     (->uppercase	#x041C)
     (->titlecase	#x041C)
-    (cyrillic-iso8859-5 #x5C)	; -LÜ-A
+    (cyrillic-iso8859-5 #xDC)	; Ð¼
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER EM")
@@ -1382,10 +1382,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER EM")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER EM")))
-    (japanese-jisx0208-1978	#x27 #x5E)	; $(B'^(B
-    (chinese-gb2312		#x27 #x5E)	; $(A'^(B
-    (japanese-jisx0208		#x27 #x5E)	; $(B'^(B
-    (korean-ksc5601		#x2C #x5E)	; $(C,^(B
+    (japanese-jisx0208-1978	#x27 #x5E)	; ø»‚…±
+    (chinese-gb2312		#x27 #x5E)	; ø»„µ
+    (japanese-jisx0208		#x27 #x5E)	; ø»†™¹
+    (korean-ksc5601		#x2C #x5E)	; ø»ˆ«“
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER EN")
@@ -1395,7 +1395,7 @@
     (mirrored		. nil)
     (->uppercase	#x041D)
     (->titlecase	#x041D)
-    (cyrillic-iso8859-5 #x5D)	; -LÝ-A
+    (cyrillic-iso8859-5 #xDD)	; Ð½
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER EN")
@@ -1408,10 +1408,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER EN")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER EN")))
-    (japanese-jisx0208-1978	#x27 #x5F)	; $(B'_(B
-    (chinese-gb2312		#x27 #x5F)	; $(A'_(B
-    (japanese-jisx0208		#x27 #x5F)	; $(B'_(B
-    (korean-ksc5601		#x2C #x5F)	; $(C,_(B
+    (japanese-jisx0208-1978	#x27 #x5F)	; ø»‚…²
+    (chinese-gb2312		#x27 #x5F)	; ø»„¶
+    (japanese-jisx0208		#x27 #x5F)	; ø»†™º
+    (korean-ksc5601		#x2C #x5F)	; ø»ˆ«”
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER O")
@@ -1421,7 +1421,7 @@
     (mirrored		. nil)
     (->uppercase	#x041E)
     (->titlecase	#x041E)
-    (cyrillic-iso8859-5 #x5E)	; -LÞ-A
+    (cyrillic-iso8859-5 #xDE)	; Ð¾
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER O")
@@ -1434,10 +1434,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER O")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER O")))
-    (japanese-jisx0208-1978	#x27 #x60)	; $(B'`(B
-    (chinese-gb2312		#x27 #x60)	; $(A'`(B
-    (japanese-jisx0208		#x27 #x60)	; $(B'`(B
-    (korean-ksc5601		#x2C #x60)	; $(C,`(B
+    (japanese-jisx0208-1978	#x27 #x60)	; ø»‚…³
+    (chinese-gb2312		#x27 #x60)	; ø»„·
+    (japanese-jisx0208		#x27 #x60)	; ø»†™»
+    (korean-ksc5601		#x2C #x60)	; ø»ˆ«•
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER PE")
@@ -1447,7 +1447,7 @@
     (mirrored		. nil)
     (->uppercase	#x041F)
     (->titlecase	#x041F)
-    (cyrillic-iso8859-5 #x5F)	; -Lß-A
+    (cyrillic-iso8859-5 #xDF)	; Ð¿
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER PE")
@@ -1460,10 +1460,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER PE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER PE")))
-    (japanese-jisx0208-1978	#x27 #x61)	; $(B'a(B
-    (chinese-gb2312		#x27 #x61)	; $(A'a(B
-    (japanese-jisx0208		#x27 #x61)	; $(B'a(B
-    (korean-ksc5601		#x2C #x61)	; $(C,a(B
+    (japanese-jisx0208-1978	#x27 #x61)	; ø»‚…´
+    (chinese-gb2312		#x27 #x61)	; ø»„¸
+    (japanese-jisx0208		#x27 #x61)	; ø»†™¼
+    (korean-ksc5601		#x2C #x61)	; ø»ˆ«–
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER ER")
@@ -1473,7 +1473,7 @@
     (mirrored		. nil)
     (->uppercase	#x0420)
     (->titlecase	#x0420)
-    (cyrillic-iso8859-5 #x60)	; -Là-A
+    (cyrillic-iso8859-5 #xE0)	; Ñ€
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER ER")
@@ -1486,10 +1486,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER ER")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER ER")))
-    (japanese-jisx0208-1978	#x27 #x62)	; $(B'b(B
-    (chinese-gb2312		#x27 #x62)	; $(A'b(B
-    (japanese-jisx0208		#x27 #x62)	; $(B'b(B
-    (korean-ksc5601		#x2C #x62)	; $(C,b(B
+    (japanese-jisx0208-1978	#x27 #x62)	; ø»‚…µ
+    (chinese-gb2312		#x27 #x62)	; ø»„¹
+    (japanese-jisx0208		#x27 #x62)	; ø»†™½
+    (korean-ksc5601		#x2C #x62)	; ø»ˆ«—
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER ES")
@@ -1499,7 +1499,7 @@
     (mirrored		. nil)
     (->uppercase	#x0421)
     (->titlecase	#x0421)
-    (cyrillic-iso8859-5 #x61)	; -Lá-A
+    (cyrillic-iso8859-5 #xE1)	; Ñ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER ES")
@@ -1512,10 +1512,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER ES")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER ES")))
-    (japanese-jisx0208-1978	#x27 #x63)	; $(B'c(B
-    (chinese-gb2312		#x27 #x63)	; $(A'c(B
-    (japanese-jisx0208		#x27 #x63)	; $(B'c(B
-    (korean-ksc5601		#x2C #x63)	; $(C,c(B
+    (japanese-jisx0208-1978	#x27 #x63)	; ø»‚…¶
+    (chinese-gb2312		#x27 #x63)	; ø»„º
+    (japanese-jisx0208		#x27 #x63)	; ø»†™¾
+    (korean-ksc5601		#x2C #x63)	; ø»ˆ«˜
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER TE")
@@ -1525,7 +1525,7 @@
     (mirrored		. nil)
     (->uppercase	#x0422)
     (->titlecase	#x0422)
-    (cyrillic-iso8859-5 #x62)	; -Lâ-A
+    (cyrillic-iso8859-5 #xE2)	; Ñ‚
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER TE")
@@ -1538,10 +1538,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER TE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER TE")))
-    (japanese-jisx0208-1978	#x27 #x64)	; $(B'd(B
-    (chinese-gb2312		#x27 #x64)	; $(A'd(B
-    (japanese-jisx0208		#x27 #x64)	; $(B'd(B
-    (korean-ksc5601		#x2C #x64)	; $(C,d(B
+    (japanese-jisx0208-1978	#x27 #x64)	; ø»‚…·
+    (chinese-gb2312		#x27 #x64)	; ø»„»
+    (japanese-jisx0208		#x27 #x64)	; ø»†™¿
+    (korean-ksc5601		#x2C #x64)	; ø»ˆ«™
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER U")
@@ -1551,7 +1551,7 @@
     (mirrored		. nil)
     (->uppercase	#x0423)
     (->titlecase	#x0423)
-    (cyrillic-iso8859-5 #x63)	; -Lã-A
+    (cyrillic-iso8859-5 #xE3)	; Ñƒ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER U")
@@ -1564,10 +1564,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER U")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER U")))
-    (japanese-jisx0208-1978	#x27 #x65)	; $(B'e(B
-    (chinese-gb2312		#x27 #x65)	; $(A'e(B
-    (japanese-jisx0208		#x27 #x65)	; $(B'e(B
-    (korean-ksc5601		#x2C #x65)	; $(C,e(B
+    (japanese-jisx0208-1978	#x27 #x65)	; ø»‚…¸
+    (chinese-gb2312		#x27 #x65)	; ø»„¼
+    (japanese-jisx0208		#x27 #x65)	; ø»†š€
+    (korean-ksc5601		#x2C #x65)	; ø»ˆ«š
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER EF")
@@ -1577,7 +1577,7 @@
     (mirrored		. nil)
     (->uppercase	#x0424)
     (->titlecase	#x0424)
-    (cyrillic-iso8859-5 #x64)	; -Lä-A
+    (cyrillic-iso8859-5 #xE4)	; Ñ„
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER EF")
@@ -1590,10 +1590,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER EF")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER EF")))
-    (japanese-jisx0208-1978	#x27 #x66)	; $(B'f(B
-    (chinese-gb2312		#x27 #x66)	; $(A'f(B
-    (japanese-jisx0208		#x27 #x66)	; $(B'f(B
-    (korean-ksc5601		#x2C #x66)	; $(C,f(B
+    (japanese-jisx0208-1978	#x27 #x66)	; ø»‚…¹
+    (chinese-gb2312		#x27 #x66)	; ø»„½
+    (japanese-jisx0208		#x27 #x66)	; ø»†š
+    (korean-ksc5601		#x2C #x66)	; ø»ˆ«›
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER HA")
@@ -1603,7 +1603,7 @@
     (mirrored		. nil)
     (->uppercase	#x0425)
     (->titlecase	#x0425)
-    (cyrillic-iso8859-5 #x65)	; -Lå-A
+    (cyrillic-iso8859-5 #xE5)	; Ñ…
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER HA")
@@ -1616,10 +1616,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER HA")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER HA")))
-    (japanese-jisx0208-1978	#x27 #x67)	; $(B'g(B
-    (chinese-gb2312		#x27 #x67)	; $(A'g(B
-    (japanese-jisx0208		#x27 #x67)	; $(B'g(B
-    (korean-ksc5601		#x2C #x67)	; $(C,g(B
+    (japanese-jisx0208-1978	#x27 #x67)	; ø»‚…º
+    (chinese-gb2312		#x27 #x67)	; ø»„¾
+    (japanese-jisx0208		#x27 #x67)	; ø»†š‚
+    (korean-ksc5601		#x2C #x67)	; ø»ˆ«œ
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER TSE")
@@ -1629,7 +1629,7 @@
     (mirrored		. nil)
     (->uppercase	#x0426)
     (->titlecase	#x0426)
-    (cyrillic-iso8859-5 #x66)	; -Læ-A
+    (cyrillic-iso8859-5 #xE6)	; Ñ†
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER TSE")
@@ -1642,10 +1642,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER TSE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER TSE")))
-    (japanese-jisx0208-1978	#x27 #x68)	; $(B'h(B
-    (chinese-gb2312		#x27 #x68)	; $(A'h(B
-    (japanese-jisx0208		#x27 #x68)	; $(B'h(B
-    (korean-ksc5601		#x2C #x68)	; $(C,h(B
+    (japanese-jisx0208-1978	#x27 #x68)	; ø»‚…»
+    (chinese-gb2312		#x27 #x68)	; ø»„¿
+    (japanese-jisx0208		#x27 #x68)	; ø»†šƒ
+    (korean-ksc5601		#x2C #x68)	; ø»ˆ«
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER CHE")
@@ -1655,7 +1655,7 @@
     (mirrored		. nil)
     (->uppercase	#x0427)
     (->titlecase	#x0427)
-    (cyrillic-iso8859-5 #x67)	; -Lç-A
+    (cyrillic-iso8859-5 #xE7)	; Ñ‡
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER CHE")
@@ -1668,10 +1668,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER CHE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER CHE")))
-    (japanese-jisx0208-1978	#x27 #x69)	; $(B'i(B
-    (chinese-gb2312		#x27 #x69)	; $(A'i(B
-    (japanese-jisx0208		#x27 #x69)	; $(B'i(B
-    (korean-ksc5601		#x2C #x69)	; $(C,i(B
+    (japanese-jisx0208-1978	#x27 #x69)	; ø»‚…¼
+    (chinese-gb2312		#x27 #x69)	; ø»„€
+    (japanese-jisx0208		#x27 #x69)	; ø»†š„
+    (korean-ksc5601		#x2C #x69)	; ø»ˆ«ž
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER SHA")
@@ -1681,7 +1681,7 @@
     (mirrored		. nil)
     (->uppercase	#x0428)
     (->titlecase	#x0428)
-    (cyrillic-iso8859-5 #x68)	; -Lè-A
+    (cyrillic-iso8859-5 #xE8)	; Ñˆ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER SHA")
@@ -1694,10 +1694,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SHA")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SHA")))
-    (japanese-jisx0208-1978	#x27 #x6A)	; $(B'j(B
-    (chinese-gb2312		#x27 #x6A)	; $(A'j(B
-    (japanese-jisx0208		#x27 #x6A)	; $(B'j(B
-    (korean-ksc5601		#x2C #x6A)	; $(C,j(B
+    (japanese-jisx0208-1978	#x27 #x6A)	; ø»‚…½
+    (chinese-gb2312		#x27 #x6A)	; ø»„
+    (japanese-jisx0208		#x27 #x6A)	; ø»†š…
+    (korean-ksc5601		#x2C #x6A)	; ø»ˆ«Ÿ
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER SHCHA")
@@ -1707,7 +1707,7 @@
     (mirrored		. nil)
     (->uppercase	#x0429)
     (->titlecase	#x0429)
-    (cyrillic-iso8859-5 #x69)	; -Lé-A
+    (cyrillic-iso8859-5 #xE9)	; Ñ‰
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER SHCHA")
@@ -1720,10 +1720,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SHCHA")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SHCHA")))
-    (japanese-jisx0208-1978	#x27 #x6B)	; $(B'k(B
-    (chinese-gb2312		#x27 #x6B)	; $(A'k(B
-    (japanese-jisx0208		#x27 #x6B)	; $(B'k(B
-    (korean-ksc5601		#x2C #x6B)	; $(C,k(B
+    (japanese-jisx0208-1978	#x27 #x6B)	; ø»‚…¾
+    (chinese-gb2312		#x27 #x6B)	; ø»„‚
+    (japanese-jisx0208		#x27 #x6B)	; ø»†š†
+    (korean-ksc5601		#x2C #x6B)	; ø»ˆ« 
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER HARD SIGN")
@@ -1733,7 +1733,7 @@
     (mirrored		. nil)
     (->uppercase	#x042A)
     (->titlecase	#x042A)
-    (cyrillic-iso8859-5 #x6A)	; -Lê-A
+    (cyrillic-iso8859-5 #xEA)	; ÑŠ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER HARD SIGN")
@@ -1746,10 +1746,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER HARD SIGN")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER HARD SIGN")))
-    (japanese-jisx0208-1978	#x27 #x6C)	; $(B'l(B
-    (chinese-gb2312		#x27 #x6C)	; $(A'l(B
-    (japanese-jisx0208		#x27 #x6C)	; $(B'l(B
-    (korean-ksc5601		#x2C #x6C)	; $(C,l(B
+    (japanese-jisx0208-1978	#x27 #x6C)	; ø»‚…¿
+    (chinese-gb2312		#x27 #x6C)	; ø»„ƒ
+    (japanese-jisx0208		#x27 #x6C)	; ø»†š‡
+    (korean-ksc5601		#x2C #x6C)	; ø»ˆ«¡
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER YERU")
@@ -1759,7 +1759,7 @@
     (mirrored		. nil)
     (->uppercase	#x042B)
     (->titlecase	#x042B)
-    (cyrillic-iso8859-5 #x6B)	; -Lë-A
+    (cyrillic-iso8859-5 #xEB)	; Ñ‹
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER YERU")
@@ -1772,10 +1772,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER YERU")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER YERU")))
-    (japanese-jisx0208-1978	#x27 #x6D)	; $(B'm(B
-    (chinese-gb2312		#x27 #x6D)	; $(A'm(B
-    (japanese-jisx0208		#x27 #x6D)	; $(B'm(B
-    (korean-ksc5601		#x2C #x6D)	; $(C,m(B
+    (japanese-jisx0208-1978	#x27 #x6D)	; ø»‚†€
+    (chinese-gb2312		#x27 #x6D)	; ø»„„
+    (japanese-jisx0208		#x27 #x6D)	; ø»†šˆ
+    (korean-ksc5601		#x2C #x6D)	; ø»ˆ«¢
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER SOFT SIGN")
@@ -1785,7 +1785,7 @@
     (mirrored		. nil)
     (->uppercase	#x042C)
     (->titlecase	#x042C)
-    (cyrillic-iso8859-5 #x6C)	; -Lì-A
+    (cyrillic-iso8859-5 #xEC)	; ÑŒ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER SOFT SIGN")
@@ -1798,10 +1798,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SOFT SIGN")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SOFT SIGN")))
-    (japanese-jisx0208-1978	#x27 #x6E)	; $(B'n(B
-    (chinese-gb2312		#x27 #x6E)	; $(A'n(B
-    (japanese-jisx0208		#x27 #x6E)	; $(B'n(B
-    (korean-ksc5601		#x2C #x6E)	; $(C,n(B
+    (japanese-jisx0208-1978	#x27 #x6E)	; ø»‚†
+    (chinese-gb2312		#x27 #x6E)	; ø»„…
+    (japanese-jisx0208		#x27 #x6E)	; ø»†š‰
+    (korean-ksc5601		#x2C #x6E)	; ø»ˆ«£
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER E")
@@ -1811,7 +1811,7 @@
     (mirrored		. nil)
     (->uppercase	#x042D)
     (->titlecase	#x042D)
-    (cyrillic-iso8859-5 #x6D)	; -Lí-A
+    (cyrillic-iso8859-5 #xED)	; Ñ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER E")
@@ -1824,10 +1824,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER E")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER E")))
-    (japanese-jisx0208-1978	#x27 #x6F)	; $(B'o(B
-    (chinese-gb2312		#x27 #x6F)	; $(A'o(B
-    (japanese-jisx0208		#x27 #x6F)	; $(B'o(B
-    (korean-ksc5601		#x2C #x6F)	; $(C,o(B
+    (japanese-jisx0208-1978	#x27 #x6F)	; ø»‚†‚
+    (chinese-gb2312		#x27 #x6F)	; ø»„†
+    (japanese-jisx0208		#x27 #x6F)	; ø»†šŠ
+    (korean-ksc5601		#x2C #x6F)	; ø»ˆ«¤
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER YU")
@@ -1837,7 +1837,7 @@
     (mirrored		. nil)
     (->uppercase	#x042E)
     (->titlecase	#x042E)
-    (cyrillic-iso8859-5 #x6E)	; -Lî-A
+    (cyrillic-iso8859-5 #xEE)	; ÑŽ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER YU")
@@ -1850,10 +1850,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER YU")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER YU")))
-    (japanese-jisx0208-1978	#x27 #x70)	; $(B'p(B
-    (chinese-gb2312		#x27 #x70)	; $(A'p(B
-    (japanese-jisx0208		#x27 #x70)	; $(B'p(B
-    (korean-ksc5601		#x2C #x70)	; $(C,p(B
+    (japanese-jisx0208-1978	#x27 #x70)	; ø»‚†ƒ
+    (chinese-gb2312		#x27 #x70)	; ø»„‡
+    (japanese-jisx0208		#x27 #x70)	; ø»†š‹
+    (korean-ksc5601		#x2C #x70)	; ø»ˆ«¥
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER YA")
@@ -1863,7 +1863,7 @@
     (mirrored		. nil)
     (->uppercase	#x042F)
     (->titlecase	#x042F)
-    (cyrillic-iso8859-5 #x6F)	; -Lï-A
+    (cyrillic-iso8859-5 #xEF)	; Ñ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER YA")
@@ -1876,10 +1876,10 @@
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER YA")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER YA")))
-    (japanese-jisx0208-1978	#x27 #x71)	; $(B'q(B
-    (chinese-gb2312		#x27 #x71)	; $(A'q(B
-    (japanese-jisx0208		#x27 #x71)	; $(B'q(B
-    (korean-ksc5601		#x2C #x71)	; $(C,q(B
+    (japanese-jisx0208-1978	#x27 #x71)	; ø»‚†„
+    (chinese-gb2312		#x27 #x71)	; ø»„ˆ
+    (japanese-jisx0208		#x27 #x71)	; ø»†šŒ
+    (korean-ksc5601		#x2C #x71)	; ø»ˆ«¦
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER IE WITH GRAVE")
@@ -1900,7 +1900,7 @@
     (->decomposition	#x0435 #x0308)
     (->uppercase	#x0401)
     (->titlecase	#x0401)
-    (cyrillic-iso8859-5 #x71)	; -Lñ-A
+    (cyrillic-iso8859-5 #xF1)	; Ñ‘
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER IO")
@@ -1913,10 +1913,10 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER IO")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER IO")))
-    (japanese-jisx0208-1978	#x27 #x57)	; $(B'W(B
-    (chinese-gb2312		#x27 #x57)	; $(A'W(B
-    (japanese-jisx0208		#x27 #x57)	; $(B'W(B
-    (korean-ksc5601		#x2C #x57)	; $(C,W(B
+    (japanese-jisx0208-1978	#x27 #x57)	; ø»‚…ª
+    (chinese-gb2312		#x27 #x57)	; ø»„®
+    (japanese-jisx0208		#x27 #x57)	; ø»†™²
+    (korean-ksc5601		#x2C #x57)	; ø»ˆ«Œ
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER DJE")
@@ -1927,7 +1927,7 @@
     (iso-10646-comment	. "Serbocroatian")
     (->uppercase	#x0402)
     (->titlecase	#x0402)
-    (cyrillic-iso8859-5 #x72)	; -Lò-A
+    (cyrillic-iso8859-5 #xF2)	; Ñ’
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER DJE")
@@ -1941,7 +1941,7 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER DJE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER DJE")))
-    (japanese-jisx0212	#x27 #x72)	; $(D'r(B
+    (japanese-jisx0212	#x27 #x72)	; ø»Š®•
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER GJE")
@@ -1952,7 +1952,7 @@
     (->decomposition	#x0433 #x0301)
     (->uppercase	#x0403)
     (->titlecase	#x0403)
-    (cyrillic-iso8859-5 #x73)	; -Ló-A
+    (cyrillic-iso8859-5 #xF3)	; Ñ“
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER GJE")
@@ -1965,7 +1965,7 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER GJE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER GJE")))
-    (japanese-jisx0212	#x27 #x73)	; $(D's(B
+    (japanese-jisx0212	#x27 #x73)	; ø»Š®–
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER UKRAINIAN IE")
@@ -1975,7 +1975,7 @@
     (mirrored		. nil)
     (->uppercase	#x0404)
     (->titlecase	#x0404)
-    (cyrillic-iso8859-5 #x74)	; -Lô-A
+    (cyrillic-iso8859-5 #xF4)	; Ñ”
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER UKRAINIAN IE")
@@ -1988,7 +1988,7 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER UKRAINIAN IE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER UKRAINIAN IE")))
-    (japanese-jisx0212	#x27 #x74)	; $(D't(B
+    (japanese-jisx0212	#x27 #x74)	; ø»Š®—
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER DZE")
@@ -1998,7 +1998,7 @@
     (mirrored		. nil)
     (->uppercase	#x0405)
     (->titlecase	#x0405)
-    (cyrillic-iso8859-5 #x75)	; -Lõ-A
+    (cyrillic-iso8859-5 #xF5)	; Ñ•
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER DZE")
@@ -2011,7 +2011,7 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER DZE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER DZE")))
-    (japanese-jisx0212	#x27 #x75)	; $(D'u(B
+    (japanese-jisx0212	#x27 #x75)	; ø»Š®˜
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
@@ -2021,7 +2021,7 @@
     (mirrored		. nil)
     (->uppercase	#x0406)
     (->titlecase	#x0406)
-    (cyrillic-iso8859-5 #x76)	; -Lö-A
+    (cyrillic-iso8859-5 #xF6)	; Ñ–
     ))
 (define-char
   '((name . "FULLWIDTH CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
@@ -2034,7 +2034,7 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")))
-    (japanese-jisx0212	#x27 #x76)	; $(D'v(B
+    (japanese-jisx0212	#x27 #x76)	; ø»Š®™
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER YI")
@@ -2046,7 +2046,7 @@
     (->decomposition	#x0456 #x0308)
     (->uppercase	#x0407)
     (->titlecase	#x0407)
-    (cyrillic-iso8859-5 #x77)	; -L÷-A
+    (cyrillic-iso8859-5 #xF7)	; Ñ—
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER YI")
@@ -2060,7 +2060,7 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER YI")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER YI")))
-    (japanese-jisx0212	#x27 #x77)	; $(D'w(B
+    (japanese-jisx0212	#x27 #x77)	; ø»Š®š
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER JE")
@@ -2070,7 +2070,7 @@
     (mirrored		. nil)
     (->uppercase	#x0408)
     (->titlecase	#x0408)
-    (cyrillic-iso8859-5 #x78)	; -Lø-A
+    (cyrillic-iso8859-5 #xF8)	; Ñ˜
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER JE")
@@ -2083,7 +2083,7 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER JE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER JE")))
-    (japanese-jisx0212	#x27 #x78)	; $(D'x(B
+    (japanese-jisx0212	#x27 #x78)	; ø»Š®›
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER LJE")
@@ -2093,7 +2093,7 @@
     (mirrored		. nil)
     (->uppercase	#x0409)
     (->titlecase	#x0409)
-    (cyrillic-iso8859-5 #x79)	; -Lù-A
+    (cyrillic-iso8859-5 #xF9)	; Ñ™
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER LJE")
@@ -2106,7 +2106,7 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER LJE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER LJE")))
-    (japanese-jisx0212	#x27 #x79)	; $(D'y(B
+    (japanese-jisx0212	#x27 #x79)	; ø»Š®œ
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER NJE")
@@ -2116,7 +2116,7 @@
     (mirrored		. nil)
     (->uppercase	#x040A)
     (->titlecase	#x040A)
-    (cyrillic-iso8859-5 #x7A)	; -Lú-A
+    (cyrillic-iso8859-5 #xFA)	; Ñš
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER NJE")
@@ -2129,7 +2129,7 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER NJE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER NJE")))
-    (japanese-jisx0212	#x27 #x7A)	; $(D'z(B
+    (japanese-jisx0212	#x27 #x7A)	; ø»Š®
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER TSHE")
@@ -2140,7 +2140,7 @@
     (iso-10646-comment	. "Serbocroatian")
     (->uppercase	#x040B)
     (->titlecase	#x040B)
-    (cyrillic-iso8859-5 #x7B)	; -Lû-A
+    (cyrillic-iso8859-5 #xFB)	; Ñ›
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER TSHE")
@@ -2154,7 +2154,7 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER TSHE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER TSHE")))
-    (japanese-jisx0212	#x27 #x7B)	; $(D'{(B
+    (japanese-jisx0212	#x27 #x7B)	; ø»Š®ž
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER KJE")
@@ -2165,7 +2165,7 @@
     (->decomposition	#x043A #x0301)
     (->uppercase	#x040C)
     (->titlecase	#x040C)
-    (cyrillic-iso8859-5 #x7C)	; -Lü-A
+    (cyrillic-iso8859-5 #xFC)	; Ñœ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER KJE")
@@ -2178,7 +2178,7 @@
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER KJE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC SMALL LETTER KJE")))
-    (japanese-jisx0212	#x27 #x7C)	; $(D'|(B
+    (japanese-jisx0212	#x27 #x7C)	; ø»Š®Ÿ
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER I WITH GRAVE")
@@ -2200,7 +2200,7 @@
     (->decomposition	#x0443 #x0306)
     (->uppercase	#x040E)
     (->titlecase	#x040E)
-    (cyrillic-iso8859-5 #x7E)	; -Lþ-A
+    (cyrillic-iso8859-5 #xFE)	; Ñž
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER SHORT U")
@@ -2214,7 +2214,7 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SHORT U")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SHORT U")))
-    (japanese-jisx0212	#x27 #x7D)	; $(D'}(B
+    (japanese-jisx0212	#x27 #x7D)	; ø»Š® 
     ))
 (define-char
   '((name		. "CYRILLIC SMALL LETTER DZHE")
@@ -2224,7 +2224,7 @@
     (mirrored		. nil)
     (->uppercase	#x040F)
     (->titlecase	#x040F)
-    (cyrillic-iso8859-5 #x7F)	; -Lÿ-A
+    (cyrillic-iso8859-5 #xFF)	; ÑŸ
     ))
 (define-char
   '((name		. "FULLWIDTH CYRILLIC SMALL LETTER DZHE")
@@ -2237,7 +2237,7 @@
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER DZHE")))
     (->titlecase
      ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER DZHE")))
-    (japanese-jisx0212	#x27 #x7E)	; $(D'~(B
+    (japanese-jisx0212	#x27 #x7E)	; ø»Š®¡
     ))
 (define-char
   '((name		. "CYRILLIC CAPITAL LETTER OMEGA")

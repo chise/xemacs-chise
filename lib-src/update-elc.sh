@@ -112,7 +112,16 @@ else
   echo Yes
 fi
 
-ignore_dirs="$ignore_dirs utf-2000"
+# Only use UTF-2000 XEmacs to compile UTF-2000-specific elisp dirs
+echon "Checking for UTF-2000 support..."
+lisp_prog='(princ (featurep (quote utf-2000)))'
+mule_p="`$EMACS -batch -vanilla -eval \"$lisp_prog\"`"
+if test "$utf_2000_p" = nil ; then
+	echo No
+	ignore_dirs="$ignore_dirs utf-2000"
+else
+  echo Yes
+fi
 
 # first recompile the byte-compiler, so that the other compiles take place
 # with the latest version (assuming we're compiling the lisp dir of the emacs

@@ -1,7 +1,38 @@
-2000-01-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+2000-01-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
-	* mule-charset.c (split_builtin_char): Split ideograph-daikanwa
-	characters.
+	* mule-charset.c (split_builtin_char): Don't support OBS_94x94.
+
+	* char-ucs.h (MIN_CHAR_OBS_94x94): Deleted.
+	(MAX_CHAR_OBS_94x94): Deleted.
+
+2000-01-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (split_builtin_char): Use `MAX_CHAR_BMP'.
+
+	* char-ucs.h (MAX_CHAR_BMP): New macro.
+
+2000-01-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c: Sync with r21-2-24.
+
+2000-01-08  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c: Modify for UTF-2000.
+
+2000-01-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.13 (Takaida).
+
+2000-01-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (split_builtin_char): Delete builtin support for
+	`katakana-jisx0201'.
+	(complex_vars_of_mule_charset): Don't map `katakana-jisx0201' to
+	BMP area in builtin representation.
+
+	* char-ucs.h (MAKE_CHAR): Delete builtin support for
+	`Vcharset_katakana_jisx0201'.
 
 1999-12-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
@@ -28,7 +59,27 @@
 
 1999-11-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c (Vcharset_japanese_jisx0208_1990): New variable.
+	(Fdefine_char): Use Group 00 Plane 10 for non-coded variants of
+	BMP.
+	(Qjapanese_jisx0208_1990): New variable.
+	(syms_of_mule_charset): Add new symbol `Qjapanese_jisx0208_1990'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`japanese-jisx0208-1990'.
+
 	* char-ucs.h (LEADING_BYTE_JAPANESE_JISX0208_1990): New macro.
+	(MIN_CHAR_JIS_X0208_1990): New macro.
+	(MAX_CHAR_JIS_X0208_1990): New macro.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* text-coding.c (char_encode_iso2022): Output `~' if ISO 2022
+	coded-charset is not found.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fget_char_attribute): Forgot to `CHECK_CHAR'.
+	(Fdefine_char): Use `Fmake_char'.
 
 1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
@@ -38,6 +89,8 @@
 	(Qideograph_daikanwa): New variable.
 	(Qhiragana_jisx0208): Deleted.
 	(Qkatakana_jisx0208): Deleted.
+	(split_builtin_char): Split `ideograph-daikanwa'.
+	(Fsplit_char): New implementation for UTF-2000.
 	(syms_of_mule_charset): Add new symbol `ideograph-daikanwa';
 	delete symbol `hiragana-jisx0208' and `katakana-jisx0208'.
 	(complex_vars_of_mule_charset): Add new coded-charset
@@ -50,26 +103,14 @@
 	(MIN_CHAR_DAIKANWA): New macro.
 	(MAX_CHAR_DAIKANWA): New macro.
 
-2000-01-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
-	* mule-charset.c (split_builtin_char): Don't support OBS_94x94.
+	* data.c (Fstring_to_number): Don't recognize floating point if
+	base is not 10.
 
-	* char-ucs.h (MIN_CHAR_OBS_94x94): Deleted.
-	(MAX_CHAR_OBS_94x94): Deleted.
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
-2000-01-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* mule-charset.c (split_builtin_char): Use `MAX_CHAR_BMP'.
-
-	* char-ucs.h (MAX_CHAR_BMP): New macro.
-
-2000-01-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* text-coding.c: Sync with r21-2-24.
-
-2000-01-08  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* file-coding.c: Modify for UTF-2000.
+	* mule-charset.c (Fput_char_attribute): Forgot to `CHECK_CHAR'.
 
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 

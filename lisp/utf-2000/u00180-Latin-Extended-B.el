@@ -161,6 +161,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0260)
+    (japanese-jisx0213-1	#x2B #x29)	; Æ“
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER GAMMA")
@@ -267,8 +268,8 @@
     (mirrored		. nil)
     (->decomposition	#x004F #x031B)
     (->lowercase	#x01A1)
-    (latin-viscii-upper #xBD)	; -2½-A
-    (latin-viscii	#xB4)	; -2½-A
+    (latin-viscii-upper #xBD)	; Æ 
+    (latin-viscii	#xB4)	; Æ 
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN")
@@ -279,8 +280,8 @@
     (->decomposition	#x006F #x031B)
     (->uppercase	#x01A0)
     (->titlecase	#x01A0)
-    (latin-viscii-lower #xBD)	; -1½-A
-    (latin-viscii	#xBD)	; -1½-A
+    (latin-viscii-lower #xBD)	; Æ¡
+    (latin-viscii	#xBD)	; Æ¡
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER OI")
@@ -398,8 +399,8 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x031B)
     (->lowercase	#x01B0)
-    (latin-viscii-upper #xDF)	; -2ß-A
-    (latin-viscii	#xBF)	; -2ß-A
+    (latin-viscii-upper #xDF)	; Æ¯
+    (latin-viscii	#xBF)	; Æ¯
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN")
@@ -410,8 +411,8 @@
     (->decomposition	#x0075 #x031B)
     (->uppercase	#x01AF)
     (->titlecase	#x01AF)
-    (latin-viscii-lower #xDF)	; -1ß-A
-    (latin-viscii	#xDF)	; -1ß-A
+    (latin-viscii-lower #xDF)	; Æ°
+    (latin-viscii	#xDF)	; Æ°
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER UPSILON")
@@ -555,6 +556,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x24)	; Ç‚
     ))
 (define-char
   '((name		. "LATIN LETTER RETROFLEX CLICK")
@@ -661,6 +663,7 @@
     (mirrored		. nil)
     (->decomposition	#x0041 #x030C)
     (->lowercase	#x01CE)
+    (japanese-jisx0213-1	#x28 #x6F)	; Ç
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH CARON")
@@ -671,7 +674,7 @@
     (->decomposition	wide #x01CD)
     (->lowercase
      ((name . "FULLWIDTH LATIN SMALL LETTER A WITH CARON")))
-    (japanese-jisx0212	#x2A #x26)	; $(D*&(B
+    (japanese-jisx0212	#x2A #x26)	; ø»Š±£
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH CARON")
@@ -682,6 +685,7 @@
     (->decomposition	#x0061 #x030C)
     (->uppercase	#x01CD)
     (->titlecase	#x01CD)
+    (japanese-jisx0213-1	#x28 #x70)	; ÇŽ
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER A WITH CARON")
@@ -694,8 +698,8 @@
      ((name . "FULLWIDTH LATIN CAPITAL LETTER A WITH CARON")))
     (->titlecase
      ((name . "FULLWIDTH LATIN CAPITAL LETTER A WITH CARON")))
-    (chinese-gb2312	#x28 #x23)	; $(D+&(B
-    (japanese-jisx0212	#x2B #x26)	; $(D+&(B
+    (chinese-gb2312	#x28 #x23)	; ø»„˜
+    (japanese-jisx0212	#x2B #x26)	; ø»Š³
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER I WITH CARON")
@@ -715,7 +719,7 @@
     (->decomposition	wide #x01CF)
     (->lowercase
      ((name . "FULLWIDTH LATIN SMALL LETTER I WITH CARON")))
-    (japanese-jisx0212	#x2A #x43)	; $(D*C(B
+    (japanese-jisx0212	#x2A #x43)	; ø»Š²€
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I WITH CARON")
@@ -726,6 +730,7 @@
     (->decomposition	#x0069 #x030C)
     (->uppercase	#x01CF)
     (->titlecase	#x01CF)
+    (japanese-jisx0213-1	#x28 #x71)	; Ç
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER I WITH CARON")
@@ -738,8 +743,8 @@
      ((name . "FULLWIDTH LATIN SMALL LETTER I WITH CARON")))
     (->titlecase
      ((name . "FULLWIDTH LATIN SMALL LETTER I WITH CARON")))
-    (chinese-gb2312	#x28 #x2B)	; $(D+C(B
-    (japanese-jisx0212	#x2B #x43)	; $(D+C(B
+    (chinese-gb2312	#x28 #x2B)	; ø»„ 
+    (japanese-jisx0212	#x2B #x43)	; ø»Š³ž
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH CARON")
@@ -749,6 +754,7 @@
     (mirrored		. nil)
     (->decomposition	#x004F #x030C)
     (->lowercase	#x01D2)
+    (japanese-jisx0213-1	#x28 #x78)	; Ç‘
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER O WITH CARON")
@@ -759,7 +765,7 @@
     (->decomposition	wide #x01D1)
     (->lowercase
      ((name . "FULLWIDTH LATIN SMALL LETTER O WITH CARON")))
-    (japanese-jisx0212	#x2A #x55)	; $(D*U(B
+    (japanese-jisx0212	#x2A #x55)	; ø»Š²’
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH CARON")
@@ -770,6 +776,7 @@
     (->decomposition	#x006F #x030C)
     (->uppercase	#x01D1)
     (->titlecase	#x01D1)
+    (japanese-jisx0213-1	#x28 #x79)	; Ç’
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER O WITH CARON")
@@ -782,8 +789,8 @@
      ((name . "FULLWIDTH LATIN CAPITAL LETTER O WITH CARON")))
     (->titlecase
      ((name . "FULLWIDTH LATIN CAPITAL LETTER O WITH CARON")))
-    (chinese-gb2312	#x28 #x2F)	; $(D+U(B
-    (japanese-jisx0212	#x2B #x55)	; $(D+U(B
+    (chinese-gb2312	#x28 #x2F)	; ø»„¤
+    (japanese-jisx0212	#x2B #x55)	; ø»Š³°
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH CARON")
@@ -803,7 +810,7 @@
     (->decomposition	wide #x01D3)
     (->lowercase
      ((name . "FULLWIDTH LATIN SMALL LETTER U WITH CARON")))
-    (japanese-jisx0212	#x2A #x67)	; $(D*g(B
+    (japanese-jisx0212	#x2A #x67)	; ø»Š²¤
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH CARON")
@@ -814,6 +821,7 @@
     (->decomposition	#x0075 #x030C)
     (->uppercase	#x01D3)
     (->titlecase	#x01D3)
+    (japanese-jisx0213-1	#x28 #x7A)	; Ç”
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER U WITH CARON")
@@ -826,8 +834,8 @@
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH CARON")))
     (->titlecase
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH CARON")))
-    (chinese-gb2312	#x28 #x33)	; $(D+g(B
-    (japanese-jisx0212	#x2B #x67)	; $(D+g(B
+    (chinese-gb2312	#x28 #x33)	; ø»„¨
+    (japanese-jisx0212	#x2B #x67)	; ø»Š´‚
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON")
@@ -847,7 +855,7 @@
     (->decomposition	wide #x01D5)
     (->lowercase
      ((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")))
-    (japanese-jisx0212	#x2A #x70)	; $(D*p(B
+    (japanese-jisx0212	#x2A #x70)	; ø»Š²­
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
@@ -858,6 +866,7 @@
     (->decomposition	#x00FC #x0304)
     (->uppercase	#x01D5)
     (->titlecase	#x01D5)
+    (japanese-jisx0213-1	#x28 #x7B)	; Ç–
     ))
 (define-char
   '((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
@@ -870,8 +879,8 @@
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON")))
     (->titlecase
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON")))
-    (chinese-gb2312	#x28 #x35)	; $(D+p(B
-    (japanese-jisx0212	#x2B #x70)	; $(D+p(B
+    (chinese-gb2312	#x28 #x35)	; ø»„ª
+    (japanese-jisx0212	#x2B #x70)	; ø»Š´‹
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")
@@ -891,7 +900,7 @@
     (->decomposition	wide #x01D7)
     (->lowercase
      ((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")))
-    (japanese-jisx0212	#x2A #x6D)	; $(D*m(B
+    (japanese-jisx0212	#x2A #x6D)	; ø»Š²ª
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
@@ -902,6 +911,7 @@
     (->decomposition	#x00FC #x0301)
     (->uppercase	#x01D7)
     (->titlecase	#x01D7)
+    (japanese-jisx0213-1	#x28 #x7D)	; Ç˜
     ))
 (define-char
   '((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
@@ -914,8 +924,8 @@
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")))
     (->titlecase
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")))
-    (chinese-gb2312	#x28 #x36)	; $(D+m(B
-    (japanese-jisx0212	#x2B #x6D)	; $(D+m(B
+    (chinese-gb2312	#x28 #x36)	; ø»„«
+    (japanese-jisx0212	#x2B #x6D)	; ø»Š´ˆ
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")
@@ -935,7 +945,7 @@
     (->decomposition	wide #x01D9)
     (->lowercase
      ((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND CARON")))
-    (japanese-jisx0212	#x2A #x6F)	; $(D*o(B
+    (japanese-jisx0212	#x2A #x6F)	; ø»Š²¬
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
@@ -946,6 +956,7 @@
     (->decomposition	#x00FC #x030C)
     (->uppercase	#x01D9)
     (->titlecase	#x01D9)
+    (japanese-jisx0213-1	#x28 #x7E)	; Çš
     ))
 (define-char
   '((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
@@ -958,8 +969,8 @@
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")))
     (->titlecase
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")))
-    (chinese-gb2312	#x28 #x37)	; $(D+o(B
-    (japanese-jisx0212	#x2B #x6F)	; $(D+o(B
+    (chinese-gb2312	#x28 #x37)	; ø»„¬
+    (japanese-jisx0212	#x2B #x6F)	; ø»Š´Š
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")
@@ -979,7 +990,7 @@
     (->decomposition	wide #x01DB)
     (->lowercase
      ((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")))
-    (japanese-jisx0212	#x2A #x6E)	; $(D*n(B
+    (japanese-jisx0212	#x2A #x6E)	; ø»Š²«
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
@@ -990,6 +1001,7 @@
     (->decomposition	#x00FC #x0300)
     (->uppercase	#x01DB)
     (->titlecase	#x01DB)
+    (japanese-jisx0213-1	#x28 #x7C)	; Çœ
     ))
 (define-char
   '((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
@@ -1002,8 +1014,8 @@
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")))
     (->titlecase
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")))
-    (chinese-gb2312	#x28 #x38)	; $(D+n(B
-    (japanese-jisx0212	#x2B #x6E)	; $(D+n(B
+    (chinese-gb2312	#x28 #x38)	; ø»„­
+    (japanese-jisx0212	#x2B #x6E)	; ø»Š´‰
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED E")
@@ -1253,7 +1265,7 @@
      ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH ACUTE")))
     (->titlecase
      ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH ACUTE")))
-    (japanese-jisx0212	#x2B #x39)	; $(D+9(B
+    (japanese-jisx0212	#x2B #x39)	; ø»Š³”
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER HWAIR")
@@ -1279,6 +1291,7 @@
     (mirrored		. nil)
     (->decomposition	#x004E #x0300)
     (->lowercase	#x01F9)
+    (japanese-jisx0213-1	#x28 #x76)	; Ç¸
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER N WITH GRAVE")
@@ -1289,6 +1302,7 @@
     (->decomposition	#x006E #x0300)
     (->uppercase	#x01F8)
     (->titlecase	#x01F8)
+    (japanese-jisx0213-1	#x28 #x77)	; Ç¹
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH RING ABOVE AND ACUTE")
@@ -1329,6 +1343,7 @@
     (->decomposition	#x00E6 #x0301)
     (->uppercase	#x01FC)
     (->titlecase	#x01FC)
+    (japanese-jisx0213-1	#x2B #x45)	; Ç½
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH STROKE AND ACUTE")
