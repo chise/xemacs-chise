@@ -57,8 +57,12 @@
      "^C3-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
      =ucs@cns
      "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
-    (=cns11643-4     
+    (=cns11643-4
      "^C4-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@cns
+     "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=cns11643-5
+     "^C5-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
      =ucs@cns
      "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
     (=big5     
@@ -155,7 +159,7 @@ UCS-REGEXP is a regular expression to match against
 							    =ucs@jis/1990
                                                             =ucs@jis/2000
 							    =ucs@gb
-							    ;; ucs-big5
+							    =ucs@big5
 							    )))
 				       (char-feature chr '=>ucs)))
 			      ucs)))
