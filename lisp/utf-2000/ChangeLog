@@ -1,3 +1,39 @@
+2003-07-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R030-Mouth.el (M-03803): Modify
+	`ideographic-structure'.
+	(J0-3E26): Likewise.
+	(C1-5938): Add `ideographic-structure'.
+	(J0-5341): Separate G0-6034, C1-5E3D and U+557B.
+	(J0-5346): Separate G0-4C64, C1-5E40 and U+557C.
+	(J0-533D): Separate G0-3F26, C1-5E3E and U+5580.
+	(C1-6C38): Add `ideographic-structure'.
+	(U+5618): Modify `ideographic-structure'; separate C3-4633.
+	(J0-5366): Separate C1-7346, G1-5F4C and U+5680.
+	(M-04446): Separate C2-5C55 and U+5681.
+	(C2-5C53): Separate U+5682.
+
+	* Ideograph-R029-Again.el (J0-3C68): Modify
+	`ideographic-structure'.
+	(U+53D6): Likewise; delete `hanyu-dazidian-{vol|page|char}'.
+
+	* Ideograph-R019-Power.el (J0-5227): Modify
+	`ideographic-structure'.
+
+2003-07-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R124-Feather.el (J90-6647): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R015-Ice.el (M-01669): Modify `ideographic-structure'.
+	(C1-5445): Likewise.
+	(J0-4E3F): Separate G0-4168 and U+51CC; modify
+	`ideographic-structure'.
+
+2003-07-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R002-Line.el (U+4E2C): Unify BC-89B1.
+
 2003-07-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R009-Man.el (U+4F50): Unify GT-00633 instead of
