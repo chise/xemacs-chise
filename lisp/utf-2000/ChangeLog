@@ -1,5 +1,31 @@
 2001-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (insert-char-attributes): Fix format for
+	`->uppercase', `->lowercase' and `->titlecase'; don't insert alias
+	of coded-charset.
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el (FULLWIDTH CENT SIGN):
+	Unify BIG5-A246.
+	(FULLWIDTH POUND SIGN): Unify BIG5-A247.
+	(FULLWIDTH MACRON): Unify JX1-292B and BIG5-A1C2.
+	(FULLWIDTH BROKEN BAR): Unify JX1-2925.
+	(FULLWIDTH YEN SIGN): Unify BIG5-A244.
+
+	* u000A0-Latin-1-Supplement.el (U+****): Unify `latin-tcvn5712&
+	code points; separate `japanese-jisx0213-1' code points.
+	(fullwidth *): Smallize `name' property; unify
+	`japanese-jisx0213-1' and `chinese-big5' code points.
+	(fullwidth no-break space): New character; unify JX1-2922.
+	(fullwidth left-pointing double angle quotation mark): New
+	character; unify JX1-2928.
+	(fullwidth right-pointing double angle quotation mark): New
+	character; unify JX1-2932.
+
+	* Ideograph-R078-Death.el: Merge missing JIS X 0208 code points.
+	(J90-3F23): Separate C1-6025.
+
+2001-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* isolated-char.el: Add setting for latin-viscii-upper and
 	latin-viscii-lower to display them by latin-viscii font.
 
