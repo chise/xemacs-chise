@@ -4669,7 +4669,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x655D)	; &UU+655D;
+       ((=gb2312	    . #x3156)	; &G0-3156; [17-54]
 	)
        ((=ucs		    . #x5DFE)	; 巾
 	))
@@ -4684,7 +4684,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x655D)	; &UU+655D;
+       ((=gb2312	    . #x3156)	; &G0-3156; [17-54]
 	)
        ((=ucs		    . #x5DFE)	; 巾
 	))
