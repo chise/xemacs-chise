@@ -198,6 +198,7 @@
     (total-strokes	 . 11)
     (=jis-x0212		. #x5C25)	; ø»‹º¾
     (=daikanwa		. 33980)	; ø¸ˆ’¼
+    (=jef-china3	. #x63E2)	; øº†¢
     (=ucs@jis		. #x8845)	; ø»‹º¾
     ))
 (define-char
@@ -634,6 +635,7 @@
     (total-strokes	 . 21)
     (=cns11643-2	. #x6C36)	; ø»”º¿
     (=daikanwa		. 34023)	; ø¸ˆ“§
+    (=jef-china3	. #x63E3)	; øº†£
     ))
 (define-char
   '((morohashi-daikanwa	34023 0 2)
