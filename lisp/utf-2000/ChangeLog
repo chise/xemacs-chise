@@ -1,3 +1,7 @@
+2003-02-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* ad-hoc-cdp.el: Rename `chinese-big5-cdp' to `=big5-cdp'.
+
 2003-02-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u02F00-Kangxi-Radicals.el, Ideograph-R210-Even.el,
