@@ -32,7 +32,7 @@
 
 ;;; Code:
 
-(setq-default buffer-file-coding-system 'no-conversion)
+(setq-default buffer-file-coding-system 'raw-text)
 (put 'buffer-file-coding-system 'permanent-local t)
 
 (define-obsolete-variable-alias
@@ -284,7 +284,7 @@ Return t if file exists."
 	       (save-excursion
 		 (set-buffer (get-buffer-create " *load*"))
 		 (erase-buffer)
-		 (let ((coding-system-for-read 'no-conversion))
+		 (let ((coding-system-for-read 'raw-text))
 		   (insert-file-contents path nil 1 3001))
 		 (find-coding-system-magic-cookie))
 	       (if elc
@@ -381,7 +381,7 @@ The coding system used for decoding the file is determined as follows:
 3. The matching value for this filename from
    `file-coding-system-alist', if any.
 4. `buffer-file-coding-system-for-read', if non-nil.
-5. The coding system 'no-conversion.
+5. The coding system 'raw-text.
 
 If a local value for `buffer-file-coding-system' in the current buffer
 does not exist, it is set to the coding system which was actually used
@@ -410,7 +410,7 @@ and `insert-file-contents-post-hook'."
 		 ;; #4.
 		 buffer-file-coding-system-for-read
 		 ;; #5.
-		 'no-conversion))
+		 'raw-text))
 	  (if (consp coding-system)
 	      (setq return-val coding-system)
 	    (if (null (find-coding-system coding-system))
