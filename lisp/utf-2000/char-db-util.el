@@ -81,25 +81,28 @@
 	   (charset-dimension kb))
 	(cond ((= (charset-chars ka)(charset-chars kb))
 	       (cond
-		((>= (charset-final ka) ?@)
-		 (if (>= (charset-final kb) ?@)
-		     (< (charset-final ka)
-			(charset-final kb))
+		((>= (charset-iso-final-char ka) ?@)
+		 (if (>= (charset-iso-final-char kb) ?@)
+		     (< (charset-iso-final-char ka)
+			(charset-iso-final-char kb))
 		   t))
-		((>= (charset-final ka) ?0)
+		((>= (charset-iso-final-char ka) ?0)
 		 (cond
-		  ((>= (charset-final kb) ?@)
+		  ((>= (charset-iso-final-char kb) ?@)
 		   nil)
-		  ((>= (charset-final kb) ?0)
-		   (< (charset-final ka)
-		      (charset-final kb)))
+		  ((>= (charset-iso-final-char kb) ?0)
+		   (< (charset-iso-final-char ka)
+		      (charset-iso-final-char kb)))
 		  (t)))))
 	      ((<= (charset-chars ka)(charset-chars kb)))))
        (t
 	(< (charset-dimension ka)
 	   (charset-dimension kb))
 	)))
-     (t)))
+     ((symbolp kb)
+      nil)
+     (t
+      t)))
    ((find-charset kb)
     t)
    ((symbolp ka)
@@ -112,7 +115,7 @@
 
 (defun insert-char-data (char)
   (let ((data (char-attribute-alist char))
-	cell ret name has-long-ccs-name rest)
+	cell ret has-long-ccs-name rest)
     (when data
       (save-restriction
 	(narrow-to-region (point)(point))
@@ -334,20 +337,22 @@
 	(while data
 	  (setq cell (car data))
 	  (cond ((setq ret (find-charset (car cell)))
-		 (insert (format (if has-long-ccs-name
-				     "(%-26s %s)
+		 (insert
+		  (format
+		   (if has-long-ccs-name
+		       "(%-26s %s)
     "
-				   "(%-18s %s)
+		     "(%-18s %s)
     "
-				   )
-				 (charset-name ret)
-				 (mapconcat
-				  (lambda (b)
-				    (format "#x%02X"
-					    (if (= (charset-graphic ret) 1)
-						(logior b #x80)
-					      b)))
-				  (cdr cell) " "))))
+		     )
+		   (charset-name ret)
+		   (mapconcat
+		    (lambda (b)
+		      (format "#x%02X"
+			      (if (= (charset-iso-graphic-plane ret) 1)
+				  (logior b 128)
+				b)))
+		    (cdr cell) " "))))
 		((string-match "^->" (symbol-name (car cell)))
 		 (insert
 		  (format "(%-18s %s)
@@ -396,7 +401,7 @@
 		(if (or (memq (car cdef) '(ascii latin-viscii-upper
 						 latin-viscii-lower
 						 arabic-iso8859-6))
-			(= (char-int (charset-final (car cdef))) 0))
+			(= (char-int (charset-iso-final-char (car cdef))) 0))
 		    (apply (function make-char) cdef)
 		  (if (setq table (charset-mapping-table (car cdef)))
 		      (set-charset-mapping-table (car cdef) nil))
@@ -421,8 +426,7 @@
 
 (defun insert-char-range-data (min max)
   (let ((code min)
-	char
-	variants)
+	char)
     (while (<= code max)
       (setq char (int-char code))
       (insert-char-data-with-variant char)
@@ -433,6 +437,8 @@
   (with-temp-buffer
     (insert-char-range-data min max)
     (write-region (point-min)(point-max) file)))
+
+(defvar what-character-original-window-configuration)
 
 ;;;###autoload
 (defun what-char-definition (char)
