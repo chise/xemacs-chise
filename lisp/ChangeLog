@@ -1,3 +1,8 @@
+2002-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for JIS X 0213.
+
 2002-07-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/japanese.el (euc-jisx0213): New coding-system.
