@@ -4451,6 +4451,22 @@
     (chinese-cns11643-7 . #x4E63)	; ø»Ÿ¼
     ))
 (define-char
+  '((=>ucs		. #x9F9D)	; é¾
+    (ideographic-radical . 115)	; â½²
+    (ideographic-strokes . 16)
+    (total-strokes	 . 21)
+    (->same-ideograph
+     ((ideograph-daikanwa . 48869)	; ø¸‹»¥
+      ))
+    (<-ancient-ideograph
+     (:sources	(jii morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 24940)	; ø¸†…¬
+		 )
+      ))
+    (chinese-cns11643-3 . #x5E47)	; ø»–°°
+    (ideograph-daikanwa . 25381)	; ø¸†Œ¥
+    ))
+(define-char
   '((ideographic-radical . 115)	; â½²
     (ideographic-strokes . 16)
     (total-strokes	 . 21)
