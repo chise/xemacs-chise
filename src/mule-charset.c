@@ -1338,60 +1338,7 @@ character set.  Recognized properties are:
     error
       ("Character set already defined for this DIMENSION/CHARS/FINAL combo");
 
-#ifdef UTF2000
-  if (dimension == 1)
-    {
-      if (chars == 94)
-	{
-	  if (code_offset == 0)
-	    id = CHARSET_ID_OFFSET_94 + final;
-	  else
-	    id = get_unallocated_leading_byte (dimension);
-	}
-      else if (chars == 96)
-	{
-	  if (code_offset == 0)
-	    id = CHARSET_ID_OFFSET_96 + final;
-	  else
-	    id = get_unallocated_leading_byte (dimension);
-	}
-      else
-	{
-	  abort ();
-	}
-    }
-  else if (dimension == 2)
-    {
-      if (chars == 94)
-	{
-	  if (code_offset == 0)
-	    id = CHARSET_ID_OFFSET_94x94 + final;
-	  else
-	    id = get_unallocated_leading_byte (dimension);
-	}
-      else if (chars == 96)
-	{
-	  id = get_unallocated_leading_byte (dimension);
-	}
-      else
-	{
-	  abort ();
-	}
-    }
-  else
-    {
-      abort ();
-    }
-  if (final)
-    {
-      if (chars == 94)
-	byte_offset = 33;
-      else if (chars == 96)
-	byte_offset = 32;
-    }
-#else
   id = get_unallocated_leading_byte (dimension);
-#endif
 
   if (NILP (doc_string))
     doc_string = build_string ("");
