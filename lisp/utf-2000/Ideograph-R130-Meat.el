@@ -9948,7 +9948,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (->same-ideograph
-     ((mojikyo		   . 054669)	; ý €–
+     ((mojikyo		  . 054669)	; ý €–
       ))
     (mojikyo		. 055481)	; ý €¢¹
     (ucs		. #x81A4)	; è†¤
