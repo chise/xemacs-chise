@@ -1,3 +1,8 @@
+2003-08-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Use libchise when
+	`CHISE' is defined.
+
 2003-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (char_table_open_db_maybe): Defined even if `CHISE' is
