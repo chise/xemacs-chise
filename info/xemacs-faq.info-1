@@ -131,6 +131,7 @@ Trouble Shooting:
 * Q2.1.21::     Every so often the XEmacs frame freezes.
 * Q2.1.22::     XEmacs seems to take a really long time to do some things.
 * Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
+* Q2.1.24::     XEmacs won't start without network. (NEW)
 
 Customization and Options
 
@@ -375,24 +376,21 @@ wondering what to do next.  It is also useful as a reference to
 available resources.
 
    The previous maintainer of the FAQ was Anthony Rossini
-<rossini@stat.sc.edu>, who started it, after getting tired of hearing
-JWZ complain about repeatedly having to answer questions.  Ben Wing
-<ben@xemacs.org> and Chuck Thompson <cthomp@xemacs.org>, the principal
-authors of XEmacs, then took over and Ben did a massive update
-reorganizing the whole thing.  At which point Anthony took back over,
-but then had to give it up again.  Some of the other contributors to
-this FAQ are listed later in this document.
+<rossini@biostat.washington.edu>, who started it, after getting tired
+of hearing JWZ complain about repeatedly having to answer questions.
+Ben Wing <ben@xemacs.org> and Chuck Thompson <cthomp@xemacs.org>, the
+principal authors of XEmacs, then took over and Ben did a massive
+update reorganizing the whole thing.  At which point Anthony took back
+over, but then had to give it up again.  Some of the other contributors
+to this FAQ are listed later in this document.
 
    The previous version was converted to hypertext format, and edited by
 Steven L. Baur <steve@xemacs.org>.  It was converted back to texinfo by
-Hrvoje Niksic <hniksic@xemacs.org>.
-
-   The FAQ was then maintained by Andreas Kaempf <andreas@sccon.com>,
-who passed it on to Christian Nyb/o <faq@xemacs.org>, the current FAQ
-maintainer.
+Hrvoje Niksic <hniksic@xemacs.org>.  The FAQ was then maintained by
+Andreas Kaempf <andreas@sccon.com>, who passed it on to ChristianNyb/o.
 
    If you notice any errors or items which should be added or amended to
-this FAQ please send email to Christian Nyb/o <faq@xemacs.org>. Include
+this FAQ please send email to Sandra Wambold <faq@xemacs.org>.  Include
 `XEmacs FAQ' on the Subject: line.
 
 * Menu:
@@ -660,8 +658,10 @@ Q1.1.1: What is the FAQ editorial policy?
 -----------------------------------------
 
    The FAQ is actively maintained and modified regularly.  All links
-should be up to date.  All submissions are welcome.  E-mail submissions
-to XEmacs FAQ maintainers <faq@xemacs.org>.
+should be up to date.  Unfortunately, some of the information is out of
+date - a situation which the FAQ maintainer is working on.  All
+submissions are welcome, please e-mail submissions to XEmacs FAQ
+maintainers <faq@xemacs.org>.
 
    Please make sure that `XEmacs FAQ' appears on the Subject: line.  If
 you think you have a better way of answering a question, or think a

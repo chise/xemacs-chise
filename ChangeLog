@@ -1,3 +1,16 @@
+1999-12-24  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.25 is released.
+
+1999-12-17  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* README: Remove msdos part.
+
+1999-12-17  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Oops. xpm doesn't actually depend on X11.
+	I got confused by the name (like others get confused by `xemacs'?)
+
 1999-12-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.24 is released.
@@ -147,7 +160,7 @@
 
 	* Makefile.in.in: use WINDOWSNT for mingw install.
 
-1999-08-01  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-08-01  Adrian Aichner  <adrian@xemacs.org>
 
 	* etc/DISTRIB: Update IP address of ftp.xemacs.org.
 	* etc/NEWS: Fix typo
@@ -683,7 +696,7 @@
 
 	* etc/check_cygwin_setup.sh: fix a couple of buglets.
 
-1998-08-23  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-08-23  Adrian Aichner  <adrian@xemacs.org>
 
 	* etc/sample.emacs: Enable sound support on mswindows devices.
 
@@ -694,7 +707,7 @@
 	conditions for both PNG and XPM, stop screaming if png is not found and
 	no window-system is selected, and fixed a bug in the XPM checking.
 
-1998-08-06  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-08-06  Adrian Aichner  <adrian@xemacs.org>
 
 	* etc/TUTORIAL.de: Fixing typos and grammatical errors.  Fixing
 	inconsistent usage of RET, <Return>, and <return> (only using
@@ -1512,7 +1525,7 @@ Wed Jan 28 13:41:22 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* etc/aliases.ksh: Add `mak' function to create beta.err for
 	build-report.
-	From Adrian Aichner <aichner@ecf.teradyne.com>
+	From Adrian Aichner <adrian@xemacs.org>
 	Suggested by Karl M. Hegbloom <karlheg@bittersweet.inetarena.com>
 
 1998-01-27  SL Baur  <steve@altair.xemacs.org>
@@ -1926,13 +1939,13 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 	* lwlib/lwlib-Xm.c(update_one_menu_entry): Add missing variable.
 	From Skip Montanaro <skip@calendar.com>
 
-1997-11-04  Adrian Aichner  <aichner@ecf.teradyne.com>
+1997-11-04  Adrian Aichner  <adrian@xemacs.org>
 
 	* etc/TUTORIAL.de:
 	Updated copyright information. Translated most of the COPYING
 	section. Translated the <<.*>> didactic line.
 
-1997-10-22  Adrian Aichner  <aichner@ecf.teradyne.com>
+1997-10-22  Adrian Aichner  <adrian@xemacs.org>
 
 	* etc/TUTORIAL.de: Fixed two issues reported by
 	Achim Oppelt <aoppelt@theorie3.physik.uni-erlangen.de>
@@ -1945,12 +1958,12 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 	Applied patches supplied by Marc Aurel <4-tea-2@bong.saar.de>.
 	They fix yet more typos and quite a few awkward sentences.
 
-1997-10-21  Adrian Aichner  <aichner@ecf.teradyne.com>
+1997-10-21  Adrian Aichner  <adrian@xemacs.org>
 
 	* etc/TUTORIAL.de: Manually merged a few more corrections by
 	Carsten Leonhardt <leo@arioch.oche.de>
 
-1997-10-20  Adrian Aichner  <aichner@ecf.teradyne.com>
+1997-10-20  Adrian Aichner  <adrian@xemacs.org>
 
 	* etc/TUTORIAL.de:
 	Applied patches from Andreas Jaeger <aj@arthur.rhein-neckar.de> to 1.2,

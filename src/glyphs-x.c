@@ -148,7 +148,11 @@ static void cursor_font_instantiate (Lisp_Object image_instance,
 
 #ifdef HAVE_WIDGETS
 static void
-update_widget_face (struct Lisp_Image_Instance* ii, Lisp_Object domain);
+update_widget_face (widget_value* wv,
+		    struct Lisp_Image_Instance* ii, Lisp_Object domain);
+static void
+update_tab_widget_face (widget_value* wv,
+			struct Lisp_Image_Instance* ii, Lisp_Object domain);
 #endif
 
 #include "bitmaps.h"
@@ -2163,30 +2167,16 @@ x_update_subwindow (struct Lisp_Image_Instance *p)
       /* This seems ugly, but I'm not sure what else to do. */
       if (EQ (IMAGE_INSTANCE_WIDGET_TYPE (p), Qtab_control))
 	{
-	  widget_value* cur = 0;
-	  /* Give each child label the correct foreground color. */
-	  Lisp_Object pixel = FACE_FOREGROUND 
-	    (IMAGE_INSTANCE_WIDGET_FACE (p),
-	     IMAGE_INSTANCE_SUBWINDOW_FRAME (p));
-	  XColor fcolor = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (pixel));
-	  XtSetArg (al [0], XtNtabForeground, fcolor.pixel);
-      
-	  for (cur = wv->contents; cur; cur = cur->next)
-	    {
-	      if (cur->value)
-		{
-		  cur->nargs = 1;
-		  cur->args = al;
-		}
-	    }
+	  update_tab_widget_face (wv, p, 
+				  IMAGE_INSTANCE_SUBWINDOW_FRAME (p));
 	}
-
+      /* update the colors and font */
+      update_widget_face (wv, p, IMAGE_INSTANCE_SUBWINDOW_FRAME (p));
+      
       /* now modify the widget */
       lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (p), 
 			     wv, True);
       free_widget_value_tree (wv);
-      /* update the colors and font */
-      update_widget_face (p, IMAGE_INSTANCE_SUBWINDOW_FRAME (p));
       /* We have to do this otherwise Motif will unceremoniously
          resize us when the label gets set. */
       XtSetArg (al [0], XtNwidth, IMAGE_INSTANCE_WIDGET_WIDTH (p));
@@ -2314,45 +2304,59 @@ x_resize_subwindow (struct Lisp_Image_Instance* ii, int w, int h)
 /************************************************************************/
 
 static void
-update_widget_face (struct Lisp_Image_Instance* ii, Lisp_Object domain)
+update_widget_face (widget_value* wv, struct Lisp_Image_Instance *ii,
+		    Lisp_Object domain)
 {
-  Arg al[3];
 #ifdef LWLIB_WIDGETS_MOTIF
   XmFontList fontList;
 #endif
-  
+
   Lisp_Object pixel = FACE_FOREGROUND 
     (IMAGE_INSTANCE_WIDGET_FACE (ii),
-     IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
+     domain);
   XColor fcolor = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (pixel));
-  XColor bcolor;
 
-  pixel = FACE_BACKGROUND
-    (IMAGE_INSTANCE_WIDGET_FACE (ii),
-     IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
-  bcolor = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (pixel));
-
-  XtSetArg (al [0], XtNbackground, bcolor.pixel);
-  XtSetArg (al [1], XtNforeground, fcolor.pixel);
-
+  lw_add_widget_value_arg (wv, XtNforeground, fcolor.pixel);
 #ifdef LWLIB_WIDGETS_MOTIF
   fontList = XmFontListCreate
     (FONT_INSTANCE_X_FONT 
      (XFONT_INSTANCE (widget_face_font_info 
-		      (domain, IMAGE_INSTANCE_WIDGET_FACE (ii),
+		      (domain,
+		       IMAGE_INSTANCE_WIDGET_FACE (ii),
 		       0, 0))), XmSTRING_DEFAULT_CHARSET);
-  XtSetArg (al [2], XmNfontList, fontList );
-#else
-  XtSetArg (al [2], XtNfont, (void*)FONT_INSTANCE_X_FONT 
-	    (XFONT_INSTANCE (widget_face_font_info 
-			     (domain, 
-			      IMAGE_INSTANCE_WIDGET_FACE (ii),
-			      0, 0))));
+  lw_add_widget_value_arg (wv, XmNfontList, (XtArgVal)fontList);
 #endif
-  XtSetValues (IMAGE_INSTANCE_X_WIDGET_ID (ii), al, 3);
-#ifdef LWLIB_WIDGETS_MOTIF
-  XmFontListFree (fontList);
-#endif
+  lw_add_widget_value_arg 
+    (wv, XtNfont, (XtArgVal)FONT_INSTANCE_X_FONT 
+     (XFONT_INSTANCE (widget_face_font_info 
+		      (domain,
+		       IMAGE_INSTANCE_WIDGET_FACE (ii),
+		       0, 0))));
+}
+
+static void
+update_tab_widget_face (widget_value* wv, struct Lisp_Image_Instance *ii,
+			Lisp_Object domain)
+{
+  if (wv->contents)
+    {
+      widget_value* val = wv->contents, *cur;
+      
+      /* Give each child label the correct foreground color. */
+      Lisp_Object pixel = FACE_FOREGROUND 
+	(IMAGE_INSTANCE_WIDGET_FACE (ii),
+	 domain);
+      XColor fcolor = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (pixel));
+      lw_add_widget_value_arg (val, XtNtabForeground, fcolor.pixel);
+
+      for (cur = val->next; cur; cur = cur->next)
+	{
+	  if (cur->value)
+	    {
+	      lw_copy_widget_value_args (val, cur);
+	    }
+	}
+    }
 }
 
 static void
@@ -2393,15 +2397,13 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
      required. */
   clip_wv = xmalloc_widget_value ();
 
-  XtSetArg (al [ac], XtNresize, False);			ac++;
-  XtSetArg (al [ac], XtNwidth, 
-	    (Dimension)IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii)); ac++;
-  XtSetArg (al [ac], XtNheight, 
-	    (Dimension)IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii)); ac++;
-
+  lw_add_widget_value_arg (clip_wv, XtNresize, False);
+  lw_add_widget_value_arg (clip_wv, XtNwidth, 
+			   (Dimension)IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii));
+  lw_add_widget_value_arg (clip_wv, XtNheight, 
+			   (Dimension)IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii));
   clip_wv->enabled = True;
-  clip_wv->nargs = ac;
-  clip_wv->args = al;
+
   clip_wv->name = xstrdup ("clip-window");
   clip_wv->value = xstrdup ("clip-window");
 
@@ -2414,9 +2416,7 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   /* copy any args we were given */
   ac = 0;
-
-  if (wv->nargs)
-    lw_add_value_args_to_args (wv, al, &ac);
+  lw_add_value_args_to_args (wv, al, &ac);
 
   /* Fixup the colors. We have to do this *before* the widget gets
      created so that Motif will fix up the shadow colors
@@ -2432,26 +2432,22 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
      IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
   bcolor = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (pixel));
 
-  XtSetArg (al [ac], XtNbackground, bcolor.pixel);		ac++;
-  XtSetArg (al [ac], XtNforeground, fcolor.pixel);		ac++;
+  lw_add_widget_value_arg (wv, XtNbackground, bcolor.pixel);
+  lw_add_widget_value_arg (wv, XtNforeground, fcolor.pixel);
   /* we cannot allow widgets to resize themselves */
-  XtSetArg (al [ac], XtNresize, False);			ac++;
-  XtSetArg (al [ac], XtNwidth, 
-	    (Dimension)IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii)); ac++;
-  XtSetArg (al [ac], XtNheight, 
-	    (Dimension)IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii)); ac++;
-
-  wv->nargs = ac;
-  wv->args = al;
+  lw_add_widget_value_arg (wv, XtNresize, False);
+  lw_add_widget_value_arg (wv, XtNwidth, 
+			   (Dimension)IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii));
+  lw_add_widget_value_arg (wv, XtNheight, 
+			   (Dimension)IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii));
+  /* update the font. */
+  update_widget_face (wv, ii, domain);
 
   wid = lw_create_widget (type, wv->name, id, wv, IMAGE_INSTANCE_X_CLIPWIDGET (ii),
 			  False, 0, popup_selection_callback, 0);
 
   IMAGE_INSTANCE_SUBWINDOW_ID (ii) = (void*)wid;
   IMAGE_INSTANCE_X_WIDGET_LWID (ii) = id;
-
-  /* update the font. */
-  update_widget_face (ii, domain);
 
   /* Resize the widget here so that the values do not get copied by
      lwlib. */
@@ -2480,6 +2476,7 @@ x_widget_set_property (Lisp_Object image_instance, Lisp_Object prop,
 {
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
+  /* Modify the text properties of the widget */
   if (EQ (prop, Q_text))
     {
       char* str;
@@ -2490,10 +2487,13 @@ x_widget_set_property (Lisp_Object image_instance, Lisp_Object prop,
       lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (ii), wv, False);
       return Qt;
     }
-  /* Modify the face properties of the widget */
-  if (EQ (prop, Q_face))
+
+  /* Modify the text properties of the widget */
+  else if (EQ (prop, Q_face))
     {
-      update_widget_face (ii, IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
+      widget_value* wv = lw_get_all_values (IMAGE_INSTANCE_X_WIDGET_LWID (ii));
+      update_widget_face (wv, ii, IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
+      lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (ii), wv, False);
       return Qt;
     }
   return Qunbound;
@@ -2650,29 +2650,11 @@ x_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			   int dest_mask, Lisp_Object domain)
 {
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-  Arg al [1];
-  XColor fcolor;
-  Lisp_Object pixel;
-  widget_value* cur;
-
   widget_value * wv = 
     gui_items_to_widget_values (IMAGE_INSTANCE_WIDGET_ITEMS (ii));
 
-  /* Give each child label the correct foreground color. */
-  pixel = FACE_FOREGROUND 
-    (IMAGE_INSTANCE_WIDGET_FACE (ii),
-     IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
-  fcolor = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (pixel));
-  XtSetArg (al [0], XtNtabForeground, fcolor.pixel);
-
-  for (cur = wv->contents; cur; cur = cur->next)
-    {
-      if (cur->value)
-	{
-	  cur->nargs = 1;
-	  cur->args = al;
-	}
-    }
+  update_tab_widget_face (wv, ii, 
+			  IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
 
   x_widget_instantiate (image_instance, instantiator, pointer_fg,
 			pointer_bg, dest_mask, domain, "tab-control", wv);
@@ -2687,11 +2669,7 @@ x_tab_control_set_property (Lisp_Object image_instance, Lisp_Object prop,
   
   if (EQ (prop, Q_items))
     {
-      widget_value * wv = 0, *cur;
-      Arg al [1];
-      XColor fcolor;
-      Lisp_Object pixel;
-
+      widget_value * wv = 0;
       check_valid_item_list_1 (val);
 
       IMAGE_INSTANCE_WIDGET_ITEMS (ii) = 
@@ -2699,22 +2677,9 @@ x_tab_control_set_property (Lisp_Object image_instance, Lisp_Object prop,
 	       parse_gui_item_tree_children (val));
 
       wv = gui_items_to_widget_values (IMAGE_INSTANCE_WIDGET_ITEMS (ii));
-
-      /* Give each child label the correct foreground color. */
-      pixel = FACE_FOREGROUND 
-	(IMAGE_INSTANCE_WIDGET_FACE (ii),
-	 IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
-      fcolor = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (pixel));
-      XtSetArg (al [0], XtNtabForeground, fcolor.pixel);
       
-      for (cur = wv->contents; cur; cur = cur->next)
-	{
-	  if (cur->value)
-	    {
-	      cur->nargs = 1;
-	      cur->args = al;
-	    }
-	}
+      update_tab_widget_face (wv, ii, 
+			      IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
 
       lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (ii), wv, True);
 

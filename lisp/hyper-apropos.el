@@ -243,16 +243,22 @@ See also `hyper-apropos-mode'."
       (setq hyper-apropos-prev-wconfig (current-window-configuration)))
   (if (string= "" regexp)
       (if (get-buffer hyper-apropos-apropos-buf)
-	  (if toggle-apropos
-	      (hyper-apropos-toggle-programming-flag)
-	    (message "Using last search results"))
+	  (progn
+	    (setq regexp hyper-apropos-last-regexp)
+	    (if toggle-apropos
+		(hyper-apropos-toggle-programming-flag)
+	      (message "Using last search results")))
 	(error "Be more specific..."))
     (set-buffer (get-buffer-create hyper-apropos-apropos-buf))
     (setq buffer-read-only nil)
     (erase-buffer)
     (if toggle-apropos
-	(set (make-local-variable 'hyper-apropos-programming-apropos)
-	     (not (default-value 'hyper-apropos-programming-apropos))))
+	(if (local-variable-p 'hyper-apropos-programming-apropos
+			      (current-buffer))
+	    (setq hyper-apropos-programming-apropos
+		  (not hyper-apropos-programming-apropos))
+	  (set (make-local-variable 'hyper-apropos-programming-apropos)
+	       (not (default-value 'hyper-apropos-programming-apropos)))))
     (let ((flist (apropos-internal regexp
 				   (if hyper-apropos-programming-apropos
 				       #'fboundp

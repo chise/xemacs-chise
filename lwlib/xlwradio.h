@@ -42,7 +42,7 @@ Boston, MA 02111-1307, USA.  */
  *
  ***********************************************************************/
 
-#include <X11/Xaw/Toggle.h>
+#include ATHENA_INCLUDE(Toggle.h)
 
 /* Resources:
 

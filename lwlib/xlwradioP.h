@@ -32,7 +32,7 @@ Boston, MA 02111-1307, USA.  */
 #define _XawRadioP_h
 
 #include "xlwradio.h"
-#include <X11/Xaw/ToggleP.h>
+#include ATHENA_INCLUDE(ToggleP.h)
 
 /***********************************************************************
  *

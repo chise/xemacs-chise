@@ -174,11 +174,12 @@ oqOkpaanqKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX
 (defconst bt-nonbase64-chars (set-difference (mapcar #'identity bt-allchars)
 					     bt-base64-chars))
 
-(when nil
-  ;; This code crashes XEmacs!  This requires further investigation.
-  ;; I'm running Linux, and for me, XEmacs crashes in
-  ;; Fmapconcat()->mapcar1(), after a GC that thrashes the stack.
-  ;; Raymond Toy reports a similar crash under Solaris.
+(when t
+  ;; This code crashes some versions of XEmacs 21.2!  This requires
+  ;; further investigation.  I (hniksic) am running Linux, and for me,
+  ;; XEmacs used to crash in Fmapconcat()->mapcar1(), after a GC that
+  ;; thrashes the stack.  Raymond Toy reported a similar crash under
+  ;; Solaris.  I can no longer repeat the bug, so I cannot fix it now.
   (loop for (raw encoded) in bt-test-strings do
     (unless (equal raw "")
       (let* ((middlepos (/ (1+ (length encoded)) 2))

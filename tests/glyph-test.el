@@ -151,4 +151,25 @@
 (set-glyph-face layout 'gui-element)
 (set-extent-begin-glyph
  (make-extent (point) (point)) layout)
-			       
+
+(setq test-toggle-widget nil)
+	
+(defun test-toggle (widget)
+  (set-extent-begin-glyph 
+   (make-extent (point) (point))
+   (make-glyph (vector 'button
+		       :descriptor "ok"
+		       :style 'toggle
+		       :selected `(funcall test-toggle-value
+					   ,widget)
+		       :callback `(funcall test-toggle-action
+					   ,widget)))))
+
+(defun test-toggle-action (widget &optional event)
+  (if widget
+      (message "Widget is t")
+    (message "Widget is nil")))
+
+(defun test-toggle-value (widget)
+  (setq widget (not widget))
+  (not widget))

@@ -162,7 +162,7 @@ extern struct passwd *getpwuid ();
 extern unsigned short geteuid ();
 static struct passwd *my_entry;
 #define cuserid(s)				\
-(my_entry = getpwuid (((int) geteuid ())),	\
+(my_entry = getpwuid ((int) geteuid ()),	\
  my_entry->pw_name)
 #endif
 
@@ -193,7 +193,7 @@ fatal (CONST char *s1, CONST char *s2)
 static char *
 xmalloc (size_t size)
 {
-  char *result = malloc (((unsigned) size));
+  char *result = (char *) malloc (size);
   if (result == ((char *) NULL))
     fatal ("virtual memory exhausted", (char *) 0);
   return result;

@@ -18,7 +18,7 @@
  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  Boston, MA 02111-1307, USA.  */
  
- /* Synched up with: Tabs.c 1.25 */
+ /* Synched up with: Tabs.c 1.27 */
  
  /*
  * Tabs.c - Index Tabs composite widget
@@ -51,8 +51,8 @@
  * the frame.
  */
 
-/* TODO: min child height = tab height
- *
+/*
+ * TODO: min child height = tab height
  */
 
 #include	<config.h>
@@ -189,6 +189,7 @@ static	void	TabsExpose();
 static	void	TabsDestroy();
 static	void	TabsRealize();
 static	Boolean	TabsSetValues();
+static	Boolean	TabsAcceptFocus();
 static	XtGeometryResult	TabsQueryGeometry();
 static	XtGeometryResult	TabsGeometryManager();
 static	void	TabsChangeManaged();
@@ -237,6 +238,7 @@ static	void	TabsDestroy( Widget w) ;
 static	void	TabsResize( Widget w) ;
 static	void	TabsExpose( Widget w, XEvent *event, Region region) ;
 static	Boolean	TabsSetValues(Widget, Widget, Widget, ArgList, Cardinal *) ;
+static	Boolean	TabsAcceptFocus(Widget, Time *);
 static	Boolean	TabsConstraintSetValues(Widget, Widget, Widget,
 			ArgList, Cardinal *) ;
 static	XtGeometryResult TabsQueryGeometry(Widget,
@@ -263,7 +265,7 @@ static	void	TabWidth( Widget w) ;
 static	int	TabLayout( TabsWidget, int wid, int hgt, Dimension *r_hgt,
 			Bool query_only) ;
 static	void	GetPreferredSizes(TabsWidget) ;
-static	void	MaxChild(TabsWidget) ;
+static	void	MaxChild(TabsWidget, Widget except, Dimension, Dimension) ;
 static	void	TabsShuffleRows( TabsWidget tw) ;
 static	int	PreferredSize( TabsWidget,
 			Dimension *reply_width, Dimension *reply_height,
@@ -325,9 +327,13 @@ TabsClassRec tabsClassRec = {
     /* num_resources      */    XtNumber(resources),
     /* xrm_class          */    NULLQUARK,
     /* compress_motion	  */	TRUE,
-    /* compress_exposure  */	TRUE,
+#if XtSpecificationRelease < 6
+    /* compress_exposure  */	XtExposeCompressMaximal,
+#else
+    /* compress_exposure  */	XtExposeCompressMaximal|XtExposeNoRegion,
+#endif
     /* compress_enterleave*/	TRUE,
-    /* visible_interest   */    FALSE,
+    /* visible_interest   */    TRUE,
     /* destroy            */    TabsDestroy,
     /* resize             */    TabsResize,
     /* expose             */    TabsExpose,
@@ -335,7 +341,7 @@ TabsClassRec tabsClassRec = {
     /* set_values_hook    */	NULL,
     /* set_values_almost  */    XtInheritSetValuesAlmost,
     /* get_values_hook    */	NULL,
-    /* accept_focus       */    NULL,
+    /* accept_focus       */    TabsAcceptFocus,
     /* version            */	XtVersion,
     /* callback_private   */    NULL,
     /* tm_table           */    defaultTranslations,
@@ -460,7 +466,7 @@ TabsInit(Widget request, Widget new, ArgList args, Cardinal *num_args)
     newTw->tabs.grey50 = None ;
 
     newTw->tabs.needs_layout = False ;
-    
+
     newTw->tabs.hilight = NULL ;
 
 #ifdef	NEED_MOTIF
@@ -480,7 +486,6 @@ TabsConstraintInitialize(Widget request, Widget new,
 {
 	TabsConstraints tab = (TabsConstraints) new->core.constraints ;
 	tab->tabs.greyAlloc = False ;	/* defer allocation of pixel */
-	tab->tabs.queried = False ;	/* defer size query */
 
 	getBitmapInfo((TabsWidget)XtParent(new), tab) ;
 	TabWidth(new) ;
@@ -539,6 +544,8 @@ TabsResize(Widget w)
 	 * to the bottom row.
 	 */
 
+	tw->tabs.needs_layout = False ;
+
 	if( num_children > 0 && tw->composite.children != NULL )
 	{
 	  /* Loop through the tabs and assign rows & x positions */
@@ -554,28 +561,27 @@ TabsResize(Widget w)
 
 	  tw->tabs.child_width = cw = tw->core.width - 2 * SHADWID ;
 	  tw->tabs.child_height = ch =
-	  		tw->core.height - tw->tabs.tab_total - 2 * SHADWID ;
+			tw->core.height - tw->tabs.tab_total - 2 * SHADWID ;
 
 
 	  for(i=0, childP=tw->composite.children;
-	  	i < num_children;
+		i < num_children;
 		++i, ++childP)
 	    if( XtIsManaged(*childP) )
 	    {
 	      tab = (TabsConstraints) (*childP)->core.constraints ;
-	      bw = tab->tabs.bwid ;
+	      bw = (*childP)->core.border_width ;
 	      XtConfigureWidget(*childP, SHADWID,tw->tabs.tab_total+SHADWID,
 			  cw-bw*2,ch-bw*2, bw) ;
 	    }
-	  if( XtIsRealized(w) )
-	    {
-	      XClearWindow(XtDisplay((Widget)tw), XtWindow((Widget)tw)) ;
-	      tw->tabs.needs_layout = False ;
-	      XtClass(tw)->core_class.expose((Widget)tw,NULL,None) ;
-	    }
+	  if( XtIsRealized(w) ) {
+	    XClearWindow(XtDisplay((Widget)tw), XtWindow((Widget)tw)) ;
+	    /* should not be necessary to explicitly repaint after a
+	     * resize, but XEmacs folks tell me it is.
+	     */
+	    XtClass(tw)->core_class.expose((Widget)tw,NULL,None) ;
+	  }
 	}
-
-	tw->tabs.needs_layout = False ;
 } /* Resize */
 
 
@@ -731,6 +737,22 @@ TabsConstraintSetValues(Widget current, Widget request, Widget new,
 }
 
 
+static	Boolean
+TabsAcceptFocus(Widget w, Time *t)
+{
+	if( !w->core.being_destroyed && XtIsRealized(w) &&
+	    XtIsSensitive(w) && XtIsManaged(w) && w->core.visible )
+	{
+	  Widget p ;
+	  for(p = XtParent(w); !XtIsShell(p); p = XtParent(p)) ;
+	  XtSetKeyboardFocus(p,w) ;
+	  return True ;
+	}
+	else
+	  return False ;
+}
+
+
 
 /*
  * Return preferred size.  Happily accept anything >= our preferred size.
@@ -752,11 +774,9 @@ TabsQueryGeometry(Widget w,
         (!(mode & CWHeight) || intended->height == w->core.height) )
       return XtGeometryNo ;
 
-#ifdef	COMMENT
     if( (!(mode & CWWidth) || intended->width >= preferred->width)  &&
 	(!(mode & CWHeight) || intended->height >= preferred->height) )
       return XtGeometryYes;
-#endif	/* COMMENT */
 
     return XtGeometryAlmost;
 }
@@ -774,6 +794,7 @@ TabsGeometryManager(Widget w, XtWidgetGeometry *req, XtWidgetGeometry *reply)
 	Dimension		s = SHADWID ;
 	TabsConstraints		tab = (TabsConstraints)w->core.constraints;
 	XtGeometryResult	result ;
+	Dimension		rw, rh ;
 
 	/* Position request always denied */
 
@@ -795,11 +816,11 @@ TabsGeometryManager(Widget w, XtWidgetGeometry *req, XtWidgetGeometry *reply)
 	    req->border_width == w->core.border_width )
 	  return XtGeometryNo ;
 
-	/* updated cached preferred size of the child */
-	tab->tabs.bwid = req->border_width ;
-	tab->tabs.wid = req->width + req->border_width * 2 ;
-	tab->tabs.hgt = req->height + req->border_width * 2 ;
-	MaxChild(tw) ;
+	rw = req->width + 2 * req->border_width ;
+	rh = req->height + 2 * req->border_width ;
+
+	/* find out how big the children want to be now */
+	MaxChild(tw, w, rw, rh) ;
 
 
 	/* Size changes must see if the new size can be accommodated.
@@ -807,7 +828,9 @@ TabsGeometryManager(Widget w, XtWidgetGeometry *req, XtWidgetGeometry *reply)
 	 * size.  A request to shrink will be accepted only if the
 	 * new size is still big enough for all other children.  A
 	 * request to shrink that is not big enough for all children
-	 * returns an "almost" response with the new proposed size.
+	 * returns an "almost" response with the new proposed size
+	 * or a "no" response if unable to shrink at all.
+	 *
 	 * A request to grow will be accepted only if the Tabs parent can
 	 * grow to accommodate.
 	 *
@@ -819,24 +842,19 @@ TabsGeometryManager(Widget w, XtWidgetGeometry *req, XtWidgetGeometry *reply)
 
 	if (req->request_mode & (CWWidth | CWHeight | CWBorderWidth))
 	{
-	  Dimension	rw,rh ;		/* child's requested width, height */
 	  Dimension	cw,ch ;		/* children's preferred size */
 	  Dimension	aw,ah ;		/* available size we can give child */
 	  Dimension	th ;		/* space used by tabs */
 	  Dimension	wid,hgt ;	/* Tabs widget size */
 
-	  rw = cw = tab->tabs.wid ;
-	  rh = ch = tab->tabs.hgt ;
+	  cw = tw->tabs.max_cw ;
+	  ch = tw->tabs.max_ch ;
 
-	  /* find out what the resulting preferred size would be */
+	  /* find out what *my* resulting preferred size would be */
 
-#ifdef	COMMENT
-	  MaxChild(tw, &cw, &ch) ;
-#endif	/* COMMENT */
-	  PreferredSize2(tw,
-	  	cw=tw->tabs.max_cw, ch=tw->tabs.max_ch, &wid, &hgt) ;
+	  PreferredSize2(tw, cw, ch, &wid, &hgt) ;
 
-	  /* Ask to be resized to accommodate. */
+	  /* Would my size change?  If so, ask to be resized. */
 
 	  if( wid != tw->core.width || hgt != tw->core.height )
 	  {
@@ -856,7 +874,7 @@ TabsGeometryManager(Widget w, XtWidgetGeometry *req, XtWidgetGeometry *reply)
 
 	    result = XtMakeGeometryRequest((Widget)tw, &myrequest, &myreply) ;
 
-	    /* !$@# Box widget changes the core size even if QueryOnly
+	    /* !$@# Athena Box widget changes the core size even if QueryOnly
 	     * is set.  I'm convinced this is a bug.  At any rate, to work
 	     * around the bug, we need to restore the core size after every
 	     * query geometry request.  This is only partly effective,
@@ -874,6 +892,7 @@ TabsGeometryManager(Widget w, XtWidgetGeometry *req, XtWidgetGeometry *reply)
 	    switch( result ) {
 	      case XtGeometryYes:
 	      case XtGeometryDone:
+		tw->tabs.needs_layout = True ;
 		break ;
 
 	      case XtGeometryNo:
@@ -884,6 +903,8 @@ TabsGeometryManager(Widget w, XtWidgetGeometry *req, XtWidgetGeometry *reply)
 	      case XtGeometryAlmost:
 		wid = myreply.width ;
 		hgt = myreply.height ;
+		tw->tabs.needs_layout = True ;
+		break ;
 	    }
 	  }
 
@@ -995,9 +1016,6 @@ TabsChangeManaged(Widget w)
     if( tw->tabs.topWidget != NULL )
       XtVaSetValues(tw->tabs.topWidget, XmNtraversalOn, True, 0) ;
 #endif
-
-
-
 }
 
 
@@ -1224,15 +1242,15 @@ XawTabsSetTop(Widget w, Bool callCallbacks)
 
 	if( !XtIsSubclass(w->core.parent, tabsWidgetClass) )
 	{
-	  char line[1024] ;
-	  sprintf(line, "XawTabsSetTop: widget \"%s\" is not the child of a tabs widget.", XtName(w)) ;
+	  char line[256] ;
+	  sprintf(line, "XawTabsSetTop: widget \"%.64s\" is not the child of a tabs widget.", XtName(w)) ;
 	  XtAppWarning(XtWidgetToApplicationContext(w), line) ;
 	  return ;
 	}
 
 	if( callCallbacks )
 	  XtCallCallbackList(w, tw->tabs.popdownCallbacks,
-	  	(XtPointer)tw->tabs.topWidget) ;
+		(XtPointer)tw->tabs.topWidget) ;
 
 	if( !XtIsRealized(w) ) {
 	  tw->tabs.topWidget = w ;
@@ -1437,11 +1455,11 @@ DrawTab(TabsWidget tw, Widget child, Bool labels)
 	  {
 	    if( tab->tabs.lbm_depth == 1 )
 	      XCopyPlane(dpy, tab->tabs.left_bitmap, win,gc,
-	      	0,0, tab->tabs.lbm_width, tab->tabs.lbm_height,
+		0,0, tab->tabs.lbm_width, tab->tabs.lbm_height,
 		x+tab->tabs.lbm_x, y+tab->tabs.lbm_y, 1L) ;
 	    else
 	      XCopyArea(dpy, tab->tabs.left_bitmap, win,gc,
-	      	0,0, tab->tabs.lbm_width, tab->tabs.lbm_height,
+		0,0, tab->tabs.lbm_width, tab->tabs.lbm_height,
 		x+tab->tabs.lbm_x, y+tab->tabs.lbm_y) ;
 	  }
 
@@ -1600,8 +1618,27 @@ UndrawTab(TabsWidget tw, Widget child)
 
 	/* GEOMETRY UTILITIES */
 
+	/* Overview:
+	 *
+	 *  MaxChild(): ask all children (except possibly one) their
+	 *  preferred sizes, set max_cw, max_ch accordingly.
+	 *
+	 *  GetPreferredSizes(): ask all children their preferred sizes,
+	 *  set max_cw, max_ch accordingly.
+	 *
+	 *  PreferredSize(): given max_cw, max_ch, return tabs widget
+	 *  preferred size.  Iterate with other widths in order to get
+	 *  a reasonable aspect ratio.
+	 *
+	 *  PreferredSize2(): Given child dimensions, return Tabs
+	 *  widget dimensions.
+	 *
+	 *  PreferredSize3(): Same, except given child dimensions plus
+	 *  shadow.
+	 */
 
-	/* Compute the size of one child's tab.  Positions will be computed
+
+	/* Compute the width of one child's tab.  Positions will be computed
 	 * elsewhere.
 	 *
 	 *	height: font height + vertical_space*2 + shadowWid*2
@@ -1634,7 +1671,7 @@ TabWidth(Widget w)
 	{
 	  tab->tabs.width += XTextWidth( font, lbl, (int)strlen(lbl) ) + iw ;
 	  tab->tabs.l_y = (tw->tabs.tab_height +
-	 	 tw->tabs.font->max_bounds.ascent -
+		 tw->tabs.font->max_bounds.ascent -
 		 tw->tabs.font->max_bounds.descent)/2 ;
 	}
 }
@@ -1731,59 +1768,34 @@ TabLayout(TabsWidget tw, int wid, int hgt, Dimension *reply_height, Bool query_o
 
 
 	/* Find max preferred child size.  Returned sizes include child
-	 * border widths.  We only ever ask a child its preferred
-	 * size once.  After that, the preferred size is updated only
-	 * if the child makes a geometry request.
+	 * border widths.
 	 */
 
 static	void
 GetPreferredSizes(TabsWidget tw)
 {
-	int			i ;
-	Widget			*childP = tw->composite.children ;
-	XtWidgetGeometry	preferred ;
-	TabsConstraints		tab ;
-	Dimension		cw = 0, ch = 0 ;
-
-	for(i=tw->tabs.displayChildren; --i >= 0; ++childP)
-	  if( XtIsManaged(*childP) )
-	  {
-	    tab = (TabsConstraints) (*childP)->core.constraints ;
-	    if( !tab->tabs.queried ) {
-	      (void) XtQueryGeometry(*childP, NULL, &preferred) ;
-	      tab->tabs.bwid = preferred.border_width ;
-	      tab->tabs.wid = preferred.width + preferred.border_width * 2 ;
-	      tab->tabs.hgt = preferred.height + preferred.border_width * 2 ;
-	      tab->tabs.queried = True ;
-	    }
-	    cw = Max(cw, tab->tabs.wid ) ;
-	    ch = Max(ch, tab->tabs.hgt ) ;
-	  }
-	tw->tabs.max_cw = cw ;
-	tw->tabs.max_ch = ch ;
+	MaxChild(tw, NULL, 0,0) ;
 }
 
 
 
 	/* Find max preferred child size.  Returned sizes include child
-	 * border widths. */
+	 * border widths.  If except is non-null, don't ask that one.
+	 */
 
 static	void
-MaxChild(TabsWidget tw)
+MaxChild(TabsWidget tw, Widget except, Dimension cw, Dimension ch)
 {
-	Dimension	cw,ch ;	/* child width, height */
-	int		i ;
-	Widget		*childP = tw->composite.children ;
-	TabsConstraints	tab ;
-
-	cw = ch = 0 ;
+	int			i ;
+	Widget			*childP = tw->composite.children ;
+	XtWidgetGeometry	preferred ;
 
 	for(i=tw->composite.num_children; --i >=0; ++childP)
-	  if( XtIsManaged(*childP) )
+	  if( XtIsManaged(*childP)  &&  *childP != except )
 	  {
-	    tab = (TabsConstraints) (*childP)->core.constraints ;
-	    cw = Max(cw, tab->tabs.wid ) ;
-	    ch = Max(ch, tab->tabs.hgt ) ;
+	    (void) XtQueryGeometry(*childP, NULL, &preferred) ;
+	    cw = Max(cw, preferred.width + preferred.border_width * 2 ) ;
+	    ch = Max(ch, preferred.height + preferred.border_width * 2 ) ;
 	  }
 
 	tw->tabs.max_cw = cw ;
@@ -1845,10 +1857,12 @@ TabsShuffleRows(TabsWidget tw)
 }
 
 
-	/* find preferred size.  Ask children, find size of largest,
+	/* Find preferred size.  Ask children, find size of largest,
 	 * add room for tabs & return.  This can get a little involved,
 	 * as we don't want to have too many rows of tabs; we may widen
 	 * the widget to reduce # of rows.
+	 *
+	 * This function requires that max_cw, max_ch already be set.
 	 */
 
 static	int
@@ -1864,12 +1878,6 @@ PreferredSize(
 	Dimension	rwid,rhgt ;
 	int		nrow ;
 
-
-	/* find max desired child height */
-#ifdef	COMMENT
-	MaxChild(tw, &cw, &ch) ;
-#endif	/* COMMENT */
-
 	wid = cw = tw->tabs.max_cw ;
 	hgt = ch = tw->tabs.max_ch ;
 
@@ -1883,6 +1891,7 @@ PreferredSize(
 	if( nrow > 2 && rhgt > rwid )
 	{
 	  Dimension w0, w1 ;
+	  int maxloop = 20 ;
 
 	  /* step 1: start doubling size until it's too big */
 	  do {
@@ -1895,7 +1904,7 @@ PreferredSize(
 	  /* step 2: use Newton's method to find ideal size.  Stop within
 	   * 8 pixels.
 	   */
-	  while( w1 > w0 + 8 )
+	  while( --maxloop > 0 && w1 > w0 + 8 )
 	  {
 	    wid = (w0+w1)/2 ;
 	    nrow = PreferredSize2(tw, wid,hgt, &rwid,&rhgt) ;
@@ -2013,7 +2022,7 @@ getBitmapInfo(TabsWidget tw, TabsConstraints tab)
 
 	if( tab->tabs.left_bitmap == None  ||
 	    !XGetGeometry(XtDisplay(tw), tab->tabs.left_bitmap, &root, &x, &y,
-	    	&tab->tabs.lbm_width, &tab->tabs.lbm_height,
+		&tab->tabs.lbm_width, &tab->tabs.lbm_height,
 		&bw, &tab->tabs.lbm_depth) )
 	  tab->tabs.lbm_width = tab->tabs.lbm_height = 0 ;
 }

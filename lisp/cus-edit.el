@@ -1033,7 +1033,6 @@ This works by calling the function specified by
   (widget-insert "\nOperate on everything in this buffer:\n ")
   (widget-create 'push-button
 		 :tag "Set"
-		 :tag-glyph '("set-up" "set-down")
 		 :help-echo "\
 Make your editing in this buffer take effect for this session"
 		 :action (lambda (widget &optional event)
@@ -1041,7 +1040,6 @@ Make your editing in this buffer take effect for this session"
   (widget-insert " ")
   (widget-create 'push-button
 		 :tag "Save"
-		 :tag-glyph '("save-up" "save-down")
 		 :help-echo "\
 Make your editing in this buffer take effect for future Emacs sessions"
 		 :action (lambda (widget &optional event)
@@ -1077,7 +1075,6 @@ Reset all values in this buffer to their standard settings"
   (widget-insert "  ")
   (widget-create 'push-button
 		 :tag "Done"
-		 :tag-glyph '("done-up" "done-down")
 		 :help-echo "Remove the buffer"
 		 :action (lambda (widget &optional event)
 			   (Custom-buffer-done)))

@@ -38,7 +38,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <X11/IntrinsicP.h>
 #include <X11/StringDefs.h>
-#include <X11/Xaw/XawInit.h>
+#include ATHENA_INCLUDE(XawInit.h)
 #include "../src/xmu.h"
 #include "xlwcheckboxP.h"
 

@@ -34,7 +34,7 @@ Boston, MA 02111-1307, USA.  */
 #define FRAME_CURRENT_TOOLBAR_SIZE(frame, pos)	\
   ((frame)->current_toolbar_size[pos])
 #define DEVICE_SUPPORTS_TOOLBARS_P(d)		\
-  (HAS_DEVMETH_P ((d), output_frame_toolbars))
+  HAS_DEVMETH_P (d, output_frame_toolbars)
 
 struct toolbar_button
 {

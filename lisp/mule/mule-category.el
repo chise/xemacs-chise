@@ -69,8 +69,8 @@ Categories are given by their designators."
   "Return an undefined category designator, or nil if there are none."
   (let ((a 32) found)
     (while (and (< a 127) (not found))
-      (if (gethash a defined-category-hashtable)
-	  (setq found a))
+      (unless (gethash a defined-category-hashtable)
+	(setq found (make-char 'ascii a)))
       (setq a (1+ a)))
     found))
 
@@ -117,7 +117,7 @@ The categories are given by their designators."
       (let ((a 32) list)
 	(while (< a 127)
 	  (if (= 1 (aref vec (- a 32)))
-	      (setq list (cons a list)))
+	      (setq list (cons (make-char 'ascii a) list)))
 	  (setq a (1+ a)))
 	(nreverse list)))))
 
@@ -137,8 +137,9 @@ The categories are given by their designators."
   "Describe the category specifications in the category table.
 The descriptions are inserted in a buffer, which is then displayed."
   (interactive)
-  (with-output-to-temp-buffer "*Help*"
-    (describe-category-table (category-table) standard-output)))
+  (with-displaying-help-buffer
+   (lambda ()
+     (describe-category-table (category-table) standard-output))))
 
 (defun describe-category-table (table stream)
   (let (first-char
