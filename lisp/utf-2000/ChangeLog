@@ -1,3 +1,28 @@
+2001-07-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Print
+	builtin-character of `ideograph-gt' for `ideograph-gt-pj-{1..11}'.
+
+	* Ideograph-R058-Snout.el (U+5F5C): Unify J90-5734.
+
+	* Ideograph-R003-Dot.el: Merge `ideograph-gt' and
+	`ideograph-gt-pj-{1..11}'.
+
+	* Ideograph-R063-Door.el (M-11708): Add `original-ideograph-of'
+	for S1-848.
+
+	* Ideograph-R026-Seal.el (U+536B): Moved from
+	Ideograph-R001-One.el.
+
+2001-07-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R001-One.el: Merge `ideograph-gt' and
+	`ideograph-gt-pj-{1..11}'.
+	(M-00048): Delete `original-char-of-shinjigen-1' and
+	`shinjigen-1'; add `ancient-ideograph-of' for M-39763; add comment
+	about M-11708.
+	(U+4E27): Delete `non-morohashi'.
+
 2001-07-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ideograph-util.el (update-ideograph-radical-table): Scan
