@@ -1,3 +1,23 @@
+2001-01-08  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.40 is released.
+
+2000-12-26  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (Running/Linux):  Rehabilitate Mandrake; tip for color-gcc.
+
+2000-12-20  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (Linux): document Mandrake policy, how to get Meta on
+	Alt, and getaddrinfo() blocking trying to get localhost's CNAME.
+
+2000-07-20  Kazuyuki IENAGA <ienaga@xemacs.org>
+
+	* configure.in: use input-method-xlib.o for USE_XFONTSET instead
+	of input-method-xfs.o.
+
+	* configure: ditto
+
 2000-12-31  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.39 is released.

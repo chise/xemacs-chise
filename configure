@@ -9476,8 +9476,8 @@ EOF
 }
 
       if test "$with_xim" = "no" ; then
-        extra_objs="$extra_objs input-method-xfs.o" &&  if test "$extra_verbose" = "yes"; then
-   echo "    xemacs will be linked with \"input-method-xfs.o\""
+        extra_objs="$extra_objs input-method-xlib.o" &&  if test "$extra_verbose" = "yes"; then
+   echo "    xemacs will be linked with \"input-method-xlib.o\""
  fi
       fi
     fi
