@@ -169,7 +169,7 @@ column_at_point (struct buffer *buf, Bufpos init_pos, int cur_col)
 		     + displayed_glyphs->end_columns));
 #else /* XEmacs */
 #ifdef MULE
-	  col += XCHARSET_COLUMNS (CHAR_CHARSET (c));
+	  col += CHAR_COLUMNS (c);
 #else
 	  col ++;
 #endif /* MULE */
@@ -226,7 +226,7 @@ string_column_at_point (struct Lisp_String* s, Bufpos init_pos, int tab_width)
 	break;
       else
 #ifdef MULE
-	  col += XCHARSET_COLUMNS (CHAR_CHARSET (c));
+	  col += CHAR_COLUMNS (c);
 #else
 	  col ++;
 #endif /* MULE */
@@ -456,7 +456,7 @@ Returns the actual column that it moved to.
 		     + displayed_glyphs->end_columns));
 #else /* XEmacs */
 #ifdef MULE
-	  col += XCHARSET_COLUMNS (CHAR_CHARSET (c));
+	  col += CHAR_COLUMNS (c);
 #else
 	  col ++;
 #endif /* MULE */
