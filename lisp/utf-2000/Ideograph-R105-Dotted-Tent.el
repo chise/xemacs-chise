@@ -12,6 +12,14 @@
     (=ucs		. #x7676)	; ç™¶
     ))
 (define-char
+  '((=>ucs		. #x7676)	; ç™¶
+    (morohashi-daikanwa	22657 0 0)
+    (ideographic-radical . 105)	; â½¨
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x8B6E)	; ý¢€ˆ­®
+    ))
+(define-char
   '((ideographic-radical . 105)	; â½¨
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
