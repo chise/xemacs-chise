@@ -1,8 +1,11 @@
 ;;; mule-category.el --- category functions for XEmacs/Mule.
 
 ;; Copyright (C) 1992,93,94,95 Free Software Foundation, Inc.
+;; Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
+;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
+;; Copyright (C) 2003 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -17,7 +20,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -27,13 +30,13 @@
 ;; type of char table.  Some function names / arguments should be
 ;; parallel with syntax tables.
 
-;; Written by Ben Wing <wing@666.com>.  The initialization code
+;; Written by Ben Wing <ben@xemacs.org>.  The initialization code
 ;; at the end of this file comes from Mule.
 ;; Some bugfixes by Jareth Hein <jhod@po.iijnet.or.jp>
 
 ;;; Code:
 
-(defvar defined-category-hashtable (make-hashtable 50))
+(defvar defined-category-hashtable (make-hash-table :size 50))
 
 (defun define-category (designator doc-string)
   "Make a new category whose designator is DESIGNATOR.
@@ -67,8 +70,8 @@ Categories are given by their designators."
   "Return an undefined category designator, or nil if there are none."
   (let ((a 32) found)
     (while (and (< a 127) (not found))
-      (if (gethash a defined-category-hashtable)
-	  (setq found a))
+      (unless (gethash a defined-category-hashtable)
+	(setq found (make-char 'ascii a)))
       (setq a (1+ a)))
     found))
 
@@ -77,21 +80,21 @@ Categories are given by their designators."
   (check-argument-type 'defined-category-p designator)
   (gethash designator defined-category-hashtable))
 
-(defun modify-category-entry (char-range designator &optional table reset)
+(defun modify-category-entry (char-range designator &optional category-table reset)
   "Add a category to the categories associated with CHAR-RANGE.
 CHAR-RANGE is a single character or a range of characters,
  as per `put-char-table'.
 The category is given by a designator character.
-The changes are made in TABLE, which defaults to the current buffer's
- category table.
+The changes are made in CATEGORY-TABLE, which defaults to the current
+ buffer's category table.
 If optional fourth argument RESET is non-nil, previous categories associated
  with CHAR-RANGE are removed before adding the specified category."
-  (or table (setq table (category-table)))
-  (check-argument-type 'category-table-p table)
+  (or category-table (setq category-table (category-table)))
+  (check-argument-type 'category-table-p category-table)
   (check-argument-type 'defined-category-p designator)
   (if reset
       ;; clear all existing stuff.
-      (put-char-table char-range nil table))
+      (put-char-table char-range nil category-table))
   (map-char-table
    #'(lambda (key value)
        ;; make sure that this range has a bit-vector assigned to it
@@ -101,25 +104,25 @@ If optional fourth argument RESET is non-nil, previous categories associated
        ;; set the appropriate bit in that vector.
        (aset value (- designator 32) 1)
        ;; put the vector back, thus assuring we have a unique setting for this range
-       (put-char-table key value table))
-   table char-range))
+       (put-char-table key value category-table))
+   category-table char-range))
 
-(defun char-category-list (char &optional table)
-  "Return a list of the categories that CHAR is in.
-TABLE defaults to the current buffer's category table.
+(defun char-category-list (character &optional category-table)
+  "Return a list of the categories that CHARACTER is in.
+CATEGORY-TABLE defaults to the current buffer's category table.
 The categories are given by their designators."
-  (or table (setq table (category-table)))
-  (check-argument-type 'category-table-p table)
-  (let ((vec (get-char-table char table)))
+  (or category-table (setq category-table (category-table)))
+  (check-argument-type 'category-table-p category-table)
+  (let ((vec (get-char-table character category-table)))
     (if (null vec) nil
       (let ((a 32) list)
 	(while (< a 127)
 	  (if (= 1 (aref vec (- a 32)))
-	      (setq list (cons a list)))
+	      (setq list (cons (make-char 'ascii a) list)))
 	  (setq a (1+ a)))
 	(nreverse list)))))
 
-;; implimented in c, file chartab.c (97/3/14 jhod@po.iijnet.or.jp)
+;; implemented in C, file chartab.c (97/3/14 jhod@po.iijnet.or.jp)
 ;(defun char-in-category-p (char category &optional table)
 ;  "Return non-nil if CHAR is in CATEGORY.
 ;TABLE defaults to the current buffer's category table.
@@ -135,8 +138,9 @@ The categories are given by their designators."
   "Describe the category specifications in the category table.
 The descriptions are inserted in a buffer, which is then displayed."
   (interactive)
-  (with-output-to-temp-buffer "*Help*"
-    (describe-category-table (category-table) standard-output)))
+  (with-displaying-help-buffer
+   (lambda ()
+     (describe-category-table (category-table) standard-output))))
 
 (defun describe-category-table (table stream)
   (let (first-char
@@ -243,9 +247,11 @@ Each element is a list of a charset, a designator, and maybe a doc string.")
 
 (let (i l)
   (define-category ?a "ASCII character set.")
+  (define-category ?l "Latin-1 through Latin-5 character set")
   (setq i 32)
   (while (< i 127)
     (modify-category-entry i ?a)
+    (modify-category-entry i ?l)
     (setq i (1+ i)))
   (setq l predefined-category-list)
   (while l
@@ -255,8 +261,43 @@ Each element is a list of a charset, a designator, and maybe a doc string.")
     (modify-category-entry (car (car l)) (nth 1 (car l)))
     (setq l (cdr l))))
 
+;;; Setting word boundary.
+
+(unless (featurep 'utf-2000)
+(setq word-combining-categories
+      '((?l . ?l)))
+)
+
+(setq word-separating-categories	;  (2-byte character sets)
+      '((?A . ?K)			; Alpha numeric - Katakana
+	(?A . ?C)			; Alpha numeric - Chinese
+	(?H . ?A)			; Hiragana - Alpha numeric
+	(?H . ?K)			; Hiragana - Katakana
+	(?H . ?C)			; Hiragana - Chinese
+	(?K . ?A)			; Katakana - Alpha numeric
+	(?K . ?C)			; Katakana - Chinese
+	(?C . ?A)			; Chinese - Alpha numeric
+	(?C . ?K)			; Chinese - Katakana
+	))
+
+(when (featurep 'utf-2000)
+  (setq word-separating-categories
+	(list*
+	 '(?l . ?K)			; Latin - Katakana
+	 '(?l . ?C)			; Latin - Chinese
+	 '(?H . ?l)			; Hiragana - Latin
+	 '(?K . ?l)			; Katakana - Latin
+	 '(?C . ?l)			; Chinese - Latin
+	 word-separating-categories)))
+
+
 ;;; At the present, I know Japanese and Chinese text can
 ;;; break line at any point under a restriction of 'kinsoku'.
+;;; #### SJT this needs to be set by language environments and probably should
+;;; be buffer-local---strategy for dealing with this: check all $language.el
+;;; files and also mule-base/$language-utils.el files for variables set;
+;;; these should be made buffer local and some kind of a- or p-list of vars
+;;; to be set for a language environment created. 
 (defvar word-across-newline "\\(\\cj\\|\\cc\\|\\ct\\)"
   "Regular expression of such characters which can be a word across newline.")
 
