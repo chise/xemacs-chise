@@ -1,3 +1,9 @@
+2003-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (ucs-big5): New coded-charset when `utf-2000'
+	is provided; it was defined as a builtin coded-charset.
+	(ideograph-gt): Likewise.
+
 2003-02-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (=gt-k): Renamed from `ideograph-gt-k'.

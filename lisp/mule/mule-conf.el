@@ -157,6 +157,16 @@
 		  graphic	2
 		  direction	l2r
 		  mother	ucs-jis))
+  (make-charset 'ucs-big5
+		"UCS for Big5"
+		`(long-name	"ISO/IEC 10646 for Big5"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	ucs))
+
   (make-charset '=big5-pua
 		"Big5-PUA"
 		`(long-name	"Big5 with private used area"
@@ -218,6 +228,19 @@
 		  min-code	#x8140
 		  max-code	#x8DFE))
   (define-charset-alias 'chinese-big5-cdp '=big5-cdp)
+
+  (make-charset 'ideograph-gt
+		"GT"
+		`(long-name	"GT 2000"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	""
+		  min-code	,(lsh #x6100 16)
+		  max-code	,(+ (lsh #x6100 16) 67547)
+		  code-offset	,(lsh #x6100 16)))
   (make-charset '=gt-k
 		"GT parts"
 		`(long-name	"Ideographic parts of GT"
