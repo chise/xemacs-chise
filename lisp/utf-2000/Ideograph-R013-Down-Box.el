@@ -375,7 +375,7 @@
     (ucs		. #x2054B)	; ð •‹
     ))
 (define-char
-  '((=>ucs		. #x518D)	; å†
+  '((=>ucs*		. #x518D)	; å†
     (ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
@@ -389,6 +389,7 @@
       ))
     (chinese-cns11643-3 . #x227B)	; ø»•™œ
     (ideograph-daikanwa . 01524)	; ø¸€—´
+    (ucs		. #x2F815)	; ð¯ •
     ))
 (define-char
   '((=>ucs		. #x518E)	; å†Ž
