@@ -1,5 +1,34 @@
 2001-12-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R028-Private.el (U-00020AD5): Add
+	`ideographic-structure'; unify H1-AEA5.
+
+	* Ideograph-R026-Seal.el (BC-8A60): New character.
+	(U+536B): Add `ideographic-structure'; unify H1-AE61.
+
+	* Ideograph-R002-Line.el (U-0002006C): New character.
+	(BC-8D5D): Moved to Ideograph-R030-Mouth.el.
+	(U-00023244): Unify H4-E3AE.
+	(U-00020077): Add `->identical' for M-04218.
+	(U-0002011D): Unify H1-F043.
+
+	* Ideograph-R001-One.el (U-00020018): Unify H2-C1A3.
+	(U-00020922): Unify H1-DC50.
+	(U-00020048): Add `->identical' for M-04020; add
+	`->same-ideograph' for C6-472D.
+	(M-00065): Separate U-00024CCF and moved it to
+	Ideograph-R102-Field.el; add `->identical' for U-00024CCF.
+	(U-00021B4B): Unify H2-B9A5.
+	(U-0002005E): New character.
+	(U-0002005C): Likewise.
+	(U-00020050): Likewise.
+	(U-00020045): Likewise.
+	(U-0002001E): Likewise.
+
+	* Ideograph-R030-Mouth.el: Add some CJK Ext-B code points.
+
+2001-12-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R087-Claw.el (M-19655): Separate U+722B.
 
 	* Ideograph-R075-Tree.el (U+6740): Relate to M-14471; add
