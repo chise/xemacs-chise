@@ -29,6 +29,48 @@ Boston, MA 02111-1307, USA.  */
 #define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
 
+typedef struct
+{
+  unsigned char *base;
+  size_t  offset;
+  size_t  size;
+} Emchar_to_byte_table;
+
+unsigned char
+get_byte_from_character_table (Emchar ch, Emchar_to_byte_table* table);
+
+
+extern Lisp_Object Vcharset_ucs_bmp;
+
+extern Lisp_Object Vcharset_latin_jisx0201;
+extern Emchar latin_jisx0201_to_ucs[94];
+extern Emchar_to_byte_table* ucs_to_latin_jisx0201;
+
+extern Lisp_Object Vcharset_latin_iso8859_2;
+extern Emchar latin_iso8859_2_to_ucs[96];
+extern Emchar_to_byte_table* ucs_to_latin_iso8859_2;
+
+extern Lisp_Object Vcharset_latin_iso8859_3;
+extern Emchar latin_iso8859_3_to_ucs[96];
+extern Emchar_to_byte_table* ucs_to_latin_iso8859_3;
+
+extern Lisp_Object Vcharset_latin_iso8859_4;
+extern Emchar latin_iso8859_4_to_ucs[96];
+extern Emchar_to_byte_table* ucs_to_latin_iso8859_4;
+
+extern Lisp_Object Vcharset_latin_iso8859_9;
+extern Emchar latin_iso8859_9_to_ucs[96];
+extern Emchar_to_byte_table* ucs_to_latin_iso8859_9;
+
+extern Lisp_Object Vcharset_latin_viscii_lower;
+extern Emchar latin_viscii_lower_to_ucs[96];
+extern Emchar_to_byte_table* ucs_to_latin_viscii_lower;
+
+extern Lisp_Object Vcharset_latin_viscii_upper;
+extern Emchar latin_viscii_upper_to_ucs[96];
+extern Emchar_to_byte_table* ucs_to_latin_viscii_upper;
+
+
 /************************************************************************/
 /*                    Definition of leading bytes                       */
 /************************************************************************/
@@ -41,7 +83,7 @@ typedef int Charset_ID;
 #define LEADING_BYTE_CONTROL_1		0x81 /* represent normal 80-9F */
 
 
-#define CHARSET_ID_OFFSET_94		0x60
+#define CHARSET_ID_OFFSET_94		0x55
 
 #define MIN_CHARSET_ID_PRIVATE_94	(CHARSET_ID_OFFSET_94 + '0')
 #define MAX_CHARSET_ID_PRIVATE_94	(CHARSET_ID_OFFSET_94 + '?')
@@ -57,6 +99,9 @@ typedef int Charset_ID;
 
 
 #define CHARSET_ID_OFFSET_96		0x70
+
+#define LEADING_BYTE_LATIN_VISCII_LOWER	(CHARSET_ID_OFFSET_96 + '1')
+#define LEADING_BYTE_LATIN_VISCII_UPPER	(CHARSET_ID_OFFSET_96 + '2')
 
 /* Right half of ISO 8859-1 */
 #define LEADING_BYTE_LATIN_ISO8859_1	(CHARSET_ID_OFFSET_96 + 'A')
@@ -315,7 +360,6 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 #define MIN_CHAR_96x96		0xF4C000
 #define MAX_CHAR_96x96		(MIN_CHAR_96x96 + 96 * 96 * 80 - 1)
 
-extern Lisp_Object Vcharset_ucs_bmp;
 
 /* Return a character whose charset is CHARSET and position-codes
    are C1 and C2.  TYPE9N character ignores C2. */
@@ -332,12 +376,20 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
     return (c1 << 8) | c2;
   else if (EQ (charset, Vcharset_latin_iso8859_1))
     return c1 | 0x80;
-  else if (EQ (charset, Vcharset_greek_iso8859_7))
-    return c1 + MIN_CHAR_GREEK - 0x20;
+  else if (EQ (charset, Vcharset_latin_iso8859_2))
+    return latin_iso8859_2_to_ucs[c1 - 32];
+  else if (EQ (charset, Vcharset_latin_iso8859_3))
+    return latin_iso8859_3_to_ucs[c1 - 32];
+  else if (EQ (charset, Vcharset_latin_iso8859_4))
+    return latin_iso8859_4_to_ucs[c1 - 32];
   else if (EQ (charset, Vcharset_cyrillic_iso8859_5))
     return c1 + MIN_CHAR_CYRILLIC - 0x20;
+  else if (EQ (charset, Vcharset_greek_iso8859_7))
+    return c1 + MIN_CHAR_GREEK - 0x20;
   else if (EQ (charset, Vcharset_hebrew_iso8859_8))
     return c1 + MIN_CHAR_HEBREW - 0x20;
+  else if (EQ (charset, Vcharset_latin_iso8859_9))
+    return latin_iso8859_9_to_ucs[c1 - 32];
   else if (EQ (charset, Vcharset_thai_tis620))
     return c1 + MIN_CHAR_THAI - 0x20;
   else if (EQ (charset, Vcharset_katakana_jisx0201))
@@ -345,6 +397,12 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
       return c1 + MIN_CHAR_HALFWIDTH_KATAKANA - 0x20;
     else
       return 32;
+  else if (EQ (charset, Vcharset_latin_jisx0201))
+    return latin_jisx0201_to_ucs[c1 - 33];
+  else if (EQ (charset, Vcharset_latin_viscii_lower))
+    return latin_viscii_lower_to_ucs[c1 - 32];
+  else if (EQ (charset, Vcharset_latin_viscii_upper))
+    return latin_viscii_upper_to_ucs[c1 - 32];
   else if (XCHARSET_DIMENSION (charset) == 1)
     {
       switch (XCHARSET_CHARS (charset))
@@ -407,14 +465,78 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
     {
       *charset
 	= CHARSET_BY_LEADING_BYTE (latin_a_char_to_charset[c - 0x100]);
-      *c1 = latin_a_char_to_byte1[c - 0x100];
-      *c2 = latin_a_char_to_byte2[c - 0x100];
+      
+      if (EQ (*charset, Vcharset_latin_iso8859_2))
+	{
+	  *c1 = get_byte_from_character_table (c, ucs_to_latin_iso8859_2);
+	  *c2 = 0;
+	}
+      else if (EQ (*charset, Vcharset_latin_iso8859_3))
+	{
+	  *c1 = get_byte_from_character_table (c, ucs_to_latin_iso8859_3);
+	  *c2 = 0;
+	}
+      else if (EQ (*charset, Vcharset_latin_iso8859_4))
+	{
+	  *c1 = get_byte_from_character_table (c, ucs_to_latin_iso8859_4);
+	  *c2 = 0;
+	}
+      else if (EQ (*charset, Vcharset_latin_iso8859_9))
+	{
+	  *c1 = get_byte_from_character_table (c, ucs_to_latin_iso8859_9);
+	  *c2 = 0;
+	}
+      else
+	{
+	  *c1 = latin_a_char_to_byte1[c - 0x100];
+	  *c2 = latin_a_char_to_byte2[c - 0x100];
+	}
     }
   else if (c < MIN_CHAR_GREEK)
     {
-      *charset = Vcharset_ucs_bmp;
-      *c1 = c >> 8;
-      *c2 = c & 0xff;
+      if ( (*c1 = get_byte_from_character_table (c, ucs_to_latin_iso8859_2)) )
+	{
+	  *charset = Vcharset_latin_iso8859_2;
+	  *c2 = 0;
+	}
+      else if ( (*c1 =
+		 get_byte_from_character_table (c, ucs_to_latin_iso8859_3)) )
+	{
+	  *charset = Vcharset_latin_iso8859_3;
+	  *c2 = 0;
+	}
+      else if ( (*c1 =
+		 get_byte_from_character_table (c, ucs_to_latin_iso8859_4)) )
+	{
+	  *charset = Vcharset_latin_iso8859_4;
+	  *c2 = 0;
+	}
+      else if ( (*c1 =
+		 get_byte_from_character_table (c, ucs_to_latin_iso8859_9)) )
+	{
+	  *charset = Vcharset_latin_iso8859_9;
+	  *c2 = 0;
+	}
+      else if ( (*c1 =
+		 get_byte_from_character_table (c,
+						ucs_to_latin_viscii_lower)) )
+	{
+	  *charset = Vcharset_latin_viscii_lower;
+	  *c2 = 0;
+	}
+      else if ( (*c1 =
+		 get_byte_from_character_table (c,
+						ucs_to_latin_viscii_upper)) )
+	{
+	  *charset = Vcharset_latin_viscii_upper;
+	  *c2 = 0;
+	}
+      else
+	{
+	  *charset = Vcharset_ucs_bmp;
+	  *c1 = c >> 8;
+	  *c2 = c & 0xff;
+	}
     }
   else if (c <= MAX_CHAR_GREEK)
     {
@@ -460,9 +582,29 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
     }
   else if (c < MIN_CHAR_HALFWIDTH_KATAKANA)
     {
-      *charset = Vcharset_ucs_bmp;
-      *c1 = c >> 8;
-      *c2 = c & 0xff;
+      if ( (*c1 = get_byte_from_character_table (c, ucs_to_latin_jisx0201)) )
+	{
+	  *charset = Vcharset_latin_jisx0201;
+	  *c2 = 0;
+	}
+      else if ( (*c1 = get_byte_from_character_table
+		 (c, ucs_to_latin_viscii_lower)) )
+	{
+	  *charset = Vcharset_latin_viscii_lower;
+	  *c2 = 0;
+	}
+      else if ( (*c1 = get_byte_from_character_table
+		 (c, ucs_to_latin_viscii_upper)) )
+	{
+	  *charset = Vcharset_latin_viscii_upper;
+	  *c2 = 0;
+	}
+      else
+	{
+	  *charset = Vcharset_ucs_bmp;
+	  *c1 = c >> 8;
+	  *c2 = c & 0xff;
+	}
     }
   else if (c <= MAX_CHAR_HALFWIDTH_KATAKANA)
     {
