@@ -1,3 +1,7 @@
+1999-09-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-lb.h (CHAR_COLUMNS): New macro.
+
 1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* text-coding.c (char_encode_ucs4): New function.
