@@ -471,6 +471,10 @@
     (ideographic-radical . 146)	; â¾‘
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x9738)	; éœ¸
+      (=jis-x0208	  . #x5B31)	; ø½‹‹˜
+      ))
     (=ucs		. #x8987)	; è¦‡
     (=jis-x0208		. #x4746)	; ø½Š®•
     (=ks-x1001		. #x782E)	; ø»Šš‹

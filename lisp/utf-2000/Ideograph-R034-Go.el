@@ -283,8 +283,15 @@
     (morohashi-daikanwa	5703 0 0)
     (ideographic-radical . 34)	; â¼¡
     (ideographic-strokes . 6)
-    (kangxi-radical	 . 35)	; â¼¢
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; â¿±
+      )
+     ((=ucs		  . #x4EA6)	; äº¦
+      )
+     ((=ucs		  . #x590A)	; å¤Š
+      ))
     (=cns11643-3	. #x2B79)	; ø»•¦¨
     ))
 (define-char
@@ -293,6 +300,11 @@
     (ideographic-radical . 34)	; â¼¡
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x5A4E)	; ø½‹Š—
+      (=ks-x1001	  . #x5C28)	; ø»‰°½
+      (=daikanwa	  . 36117)	; ø¸ˆ´•
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±

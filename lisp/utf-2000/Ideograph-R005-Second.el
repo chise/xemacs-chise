@@ -957,6 +957,11 @@
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x502C)	; ø½Š»‰
+      (=ks-x1001	  . #x552F)	; ø»‰¦²
+      (=daikanwa	  . 00214)	; ø¸€ƒ–
+      ))
     (hanyu-dazidian	1 53 17)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

@@ -711,6 +711,10 @@
     (ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #xFA32)	; ï¨²
+      (=jis-x0213-1-2000  . #x2E50)	; ø»¢¦±
+      ))
     (shinjigen-1	. 470)
     (shinjigen-2	. 470)
     (=jis-x0208		. #x4C48)	; ø½Šµ­
@@ -866,6 +870,10 @@
   '((ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x5152)	; å…’
+      (=jis-x0208	  . #x513B)	; ø½Š¼¶
+      ))
     (hanyu-dazidian	1 270 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1458,6 +1466,10 @@
   '((ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x9EE8)	; é»¨
+      (=jis-x0208	  . #x735E)	; ø½‹¯•
+      ))
     (hanyu-dazidian	1 273 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

@@ -91,10 +91,10 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (<-simplified
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 02691)	; ø¸€ªƒ
-		 )
+     ((=daikanwa	  . 02691)	; ø¸€ªƒ
       ))
+    (<-simplified*sources
+     daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; â¿·
@@ -107,16 +107,20 @@
     (=daikanwa		. 02674)	; ø¸€©²
     ))
 (define-char
-  '((script		JP-Jouyou Ideograph)
+  '((script		JP Jouyou Ideograph)
     (morohashi-daikanwa	2674 0 1)
     (ideographic-radical . 23)	; â¼–
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (<-simplified
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 802)
-		 (=daikanwa	     . 02691)	; ø¸€ªƒ
-		 )
+     ((shinjigen-1	  . 802)
+      (=daikanwa	  . 02691)	; ø¸€ªƒ
+      ))
+    (<-simplified*sources
+     shinjigen-1)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x5340)	; å€
+      (=jis-x0208-1990	  . #x523F)	; ø½Š¾˜
       ))
     (hanyu-dazidian	1 81 5)
     (ideographic-structure
@@ -220,6 +224,11 @@
     (ideographic-radical . 23)	; â¼–
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x6E50)	; ø½‹§±
+      (=ks-x1001	  . #x6C22)	; ø»Šˆ—
+      (=daikanwa	  . 40006)	; ø¸‰±†
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; â¿·

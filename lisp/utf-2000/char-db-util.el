@@ -235,7 +235,8 @@
 	  ((consp char)
 	   char))))
     
-(defun char-db-insert-char-spec (char &optional readable column)
+(defun char-db-insert-char-spec (char &optional readable column
+				      required-features)
   (unless column
     (setq column (current-column)))
   (let (char-spec al cal key temp-char)
@@ -273,6 +274,11 @@
     (unless (or cal
 		(memq 'ideographic-structure al))
       (push 'ideographic-structure al))
+    (dolist (feature required-features)
+      (if (find-charset feature)
+	  (if (encode-char char feature 'defined-only)
+	      (setq cal (adjoin feature cal)))
+	(setq al (adjoin feature al))))
     (insert-char-attributes char
 			    readable
 			    (or al 'none) cal)
@@ -465,7 +471,8 @@
 	 (concat "\n" (make-string (1+ column) ?\ )))
 	lbs cell separator ret
 	key al cal
-	dest-ccss)
+	dest-ccss
+	sources required-features)
     (insert "(")
     (when (and (memq 'name attributes)
 	       (setq value (get-char-attribute char 'name)))
@@ -513,30 +520,45 @@
 			line-breaking))
 	(setq attributes (delq name attributes))
 	))
-    (dolist (name '(=>ucs-gb =>ucs-cns =>ucs-jis =>ucs-ks =>ucs-big5))
+    ;; (dolist (name '(=>ucs-gb =>ucs-cns =>ucs-jis =>ucs-ks =>ucs-big5))
+    ;;   (when (and (memq name attributes)
+    ;;              (setq value (get-char-attribute char name)))
+    ;;     (insert (format "(%-18s . #x%04X)\t; %c%s"
+    ;;                     (intern
+    ;;                      (concat "=>ucs@"
+    ;;                              (substring (symbol-name name) 6)))
+    ;;                     value
+    ;;                     (decode-char (intern
+    ;;                                   (concat "=ucs@"
+    ;;                                           (substring
+    ;;                                            (symbol-name name) 6)))
+    ;;                                  value)
+    ;;                     line-breaking))
+    ;;     (setq attributes (delq name attributes))))
+    ;; (when (and (memq '->ucs attributes)
+    ;;            (setq value (get-char-attribute char '->ucs)))
+    ;;   (insert (format (if char-db-convert-obsolete-format
+    ;;                       "(=>ucs\t\t. #x%04X)\t; %c%s"
+    ;;                     "(->ucs\t\t. #x%04X)\t; %c%s")
+    ;;                   value (decode-char '=ucs value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '->ucs attributes))
+    ;;   )
+    (dolist (name '(=>daikanwa))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
-	(insert (format "(%-18s . #x%04X)\t; %c%s"
-			(intern
-			 (concat "=>ucs@"
-				 (substring (symbol-name name) 6)))
-			value
-			(decode-char (intern
-				      (concat "=ucs@"
-					      (substring
-					       (symbol-name name) 6)))
-				     value)
-			line-breaking))
+	(insert
+	 (if (integerp value)
+	     (format "(%-18s . %05d)\t; %c%s"
+		     name value (decode-char '=daikanwa value)
+		     line-breaking)
+	   (format "(%-18s %s)\t; %c%s"
+		   name
+		   (mapconcat #'prin1-to-string
+			      value " ")
+		   (char-representative-of-daikanwa char)
+		   line-breaking)))
 	(setq attributes (delq name attributes))))
-    (when (and (memq '->ucs attributes)
-	       (setq value (get-char-attribute char '->ucs)))
-      (insert (format (if char-db-convert-obsolete-format
-			  "(=>ucs\t\t. #x%04X)\t; %c%s"
-			"(->ucs\t\t. #x%04X)\t; %c%s")
-		      value (decode-char '=ucs value)
-		      line-breaking))
-      (setq attributes (delq '->ucs attributes))
-      )
     (when (and (memq 'general-category attributes)
 	       (setq value (get-char-attribute char 'general-category)))
       (insert (format
@@ -891,12 +913,46 @@
 		   (setq cell (car value))
                    (if (integerp cell)
 		       (setq cell (decode-char '=ucs cell)))
-		   (cond ((characterp cell)
+		   (cond ((eq name '->unified)
+			  (if separator
+			      (insert lbs))
+			  (let ((char-db-ignored-attributes
+				 (cons '<-unified
+				       char-db-ignored-attributes)))
+			    (insert-char-attributes cell readable))
+			  (setq separator lbs))
+			 ((characterp cell)
+			  (setq sources
+				(get-char-attribute
+				 char
+				 (intern (format "%s*sources" name))))
+			  (setq required-features nil)
+			  (dolist (source sources)
+			    (setq required-features
+				  (cons
+				   (if (find-charset
+					(setq ret (intern
+						   (format "=%s" source))))
+				       ret
+				     source)
+				   required-features)))
+			  (when (string-match "@JP" (symbol-name name))
+			    (setq required-features
+				  (union required-features
+					 '(=jis-x0208
+					   =jis-x0208-1990
+					   =jis-x0213-1-2000
+					   =jis-x0213-2-2000
+					   =jis-x0212
+					   =jis-x0208-1983
+					   =jis-x0208-1978))))
 			  (if separator
 			      (insert lbs))
 			  (if readable
 			      (insert (format "%S" cell))
-			    (char-db-insert-char-spec cell readable))
+			    (char-db-insert-char-spec cell readable
+						      nil
+						      required-features))
 			  (setq separator lbs))
 			 ((consp cell)
 			  (if separator

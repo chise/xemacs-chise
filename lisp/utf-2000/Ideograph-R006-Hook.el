@@ -171,6 +171,10 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x8C6B)	; è±«
+      (=jis-x0208	  . #x502E)	; ø½Š»‹
+      ))
     (hanyu-dazidian	1 52 2)
     (shinjigen-1	. 67)
     (shinjigen-2	. 67)
@@ -276,6 +280,11 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x6027)	; ø½‹’¤
+      (=ks-x1001	  . #x6E33)	; ø»Š‹¤
+      (=daikanwa	  . 19663)	; ø¸„³
+      ))
     (hanyu-dazidian	1 324 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

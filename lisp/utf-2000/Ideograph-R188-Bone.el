@@ -1994,6 +1994,11 @@
     (ideographic-radical . 188)	; â¾»
     (ideographic-strokes . 9)
     (total-strokes	 . 19)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x7172)	; ø½‹¬­
+      (=ks-x1001	  . #x6250)	; ø»‰º™
+      (=daikanwa	  . 45289)	; ø¸‹ƒ©
+      ))
     (=jis-x0208		. #x3F71)	; ø½Š£
     (=gt		. 60862)	; ý¡€Ž¶¾
     (=gt-pj-1		. #x3F71)	; ý¡€Ž¶¾

@@ -83,6 +83,18 @@
   '((ideographic-radical . 55)	; â¼¶
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x517E)	; ø½Š½¹
+      (=daikanwa	  . 38657)	; ø¸‰œ
+      )
+     ((=jis-x0208	  . #x6122)	; ø½‹“½
+      (=ks-x1001	  . #x777B)	; ø»Š™º
+      (=daikanwa	  . 21425)	; ø¸…Ž±
+      )
+     ((=jis-x0208	  . #x6D67)	; ø½‹¦ª
+      (=ks-x1001	  . #x5C2A)	; ø»‰°¿
+      (=daikanwa	  . 38677)	; ø¸‰œ•
+      ))
     (shinjigen-2	. 2244)
     (=ucs		. #x5F01)	; å¼
     (=jis-x0208		. #x4A5B)	; ø½Š³„

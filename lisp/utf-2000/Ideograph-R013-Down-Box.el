@@ -109,37 +109,41 @@
     (=daikanwa		. 01511)	; ø¸€—§
     ))
 (define-char
-  '((ideographic-radical . 13)	; â¼Œ
+  '((=>ucs		. #x5185)	; å†…
+    (ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (comment		. "<vulgar character> of R011:M01418.0")
+    (<-vulgar-ideograph
+     ((=daikanwa	  . 01418)	; ø¸€–Š
+      ))
+    (<-vulgar-ideograph*sources
+     daikanwa)
+    (=cns11643-6	. #x2150)	; ø»›µŸ
+    (=daikanwa		. 01512)	; ø¸€—¨
+    ))
+(define-char
+  '((morohashi-daikanwa	1512 0 0)
+    (ideographic-radical . 13)	; â¼Œ
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (shinjigen-1	. 481)
     (shinjigen-2	. 481)
     (=ucs		. #x5185)	; å†…
     (=jis-x0208		. #x4662)	; ø½Š­“
     (=gb2312		. #x445A)	; ø»„º—
-    (=cns11643-6	. #x2150)	; ø»›µŸ
+    (=big5-cdp		. #x8C57)	; ý¢€ˆ±—
     (=gt		. 01983)	; ý¡€€ž¿
     (=gt-k		. 00547)	; ý¡„€ˆ£
     (=gt-pj-1		. #x4662)	; ý¡€€ž¿
-    (=daikanwa		. 01512)	; ø¸€—¨
-    ))
-(define-char
-  '((=>ucs		. #x5185)	; å†…
-    (morohashi-daikanwa	1512 0 0)
-    (ideographic-radical . 13)	; â¼Œ
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (<-radical
-     ((=ucs		  . #x5185)	; å†…
-      ))
-    (ideograph-cdp	. -434)
-    (=big5-cdp		. #x8C57)	; ý¢€ˆ±—
     ))
 (define-char
   '((ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x5713)	; åœ“
+      (=jis-x0208	  . #x5424)	; ø½‹€¹
+      ))
     (hanyu-dazidian	1 96 18)
     (shinjigen-1	. 1331)
     (shinjigen-2	. 1331)

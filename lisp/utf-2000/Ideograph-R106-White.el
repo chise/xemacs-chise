@@ -328,6 +328,13 @@
     (ideographic-radical . 106)	; â½©
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (<-vulgar-ideograph
+     ((shinjigen-1	  . 3961)
+      (=daikanwa	  . 16308)	; ø¸ƒ¾´
+      ))
+    (<-vulgar-ideograph*sources
+     shinjigen-1)
+    (shinjigen-1	. 3962)
     (shinjigen-2	. 3962)
     (=jis-x0208		. #x6227)	; ø½‹• 
     (=cns11643-1	. #x5257)	; ø»’‹

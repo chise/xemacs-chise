@@ -254,6 +254,10 @@
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x842C)	; è¬
+      (=jis-x0208	  . #x685F)	; ø½‹ŸŒ
+      ))
     (hanyu-dazidian	1 9 3)
     (shinjigen-1	. 12)
     (shinjigen-2	. 12)
@@ -544,6 +548,10 @@
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x8207)	; èˆ‡
+      (=jis-x0208	  . #x6750)	; ø½‹Ÿ
+      ))
     (shinjigen-1	. 6625)
     (shinjigen-2	. 6625)
     (=jis-x0208		. #x4D3F)	; ø½Š·‚
@@ -1407,6 +1415,11 @@
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x5140)	; ø½Š¼»
+      (=ks-x1001	  . #x5557)	; ø»‰§š
+      (=daikanwa	  . 01436)	; ø¸€–œ
+      ))
     (hanyu-dazidian	1 19 1)
     (shinjigen-1	. 483)
     (shinjigen-2	. 483)
@@ -1832,6 +1845,11 @@
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x636D)	; ø½‹˜„
+      (=ks-x1001	  . #x5C3D)	; ø»‰±’
+      (=daikanwa	  . 25752)	; ø¸†’˜
+      ))
     (hanyu-dazidian	1 246 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

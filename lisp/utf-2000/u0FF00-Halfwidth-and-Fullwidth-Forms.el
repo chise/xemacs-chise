@@ -1872,6 +1872,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x3002)
+    (<-halfwidth
+     ((name		  . "IDEOGRAPHIC FULL STOP")
+      (=ucs		  . #x3002)	; ã€‚
+      ))
     (=ucs		. #xFF61)	; ï½¡
     (katakana-jisx0201	. #xA1)	; øº‘‰®
     ))
@@ -1881,6 +1885,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x300C)
+    (<-halfwidth
+     ((name		  . "LEFT CORNER BRACKET")
+      (=ucs		  . #x300C)	; ã€Œ
+      ))
     (=ucs		. #xFF62)	; ï½¢
     (katakana-jisx0201	. #xA2)	; øº‘‰¯
     ))
@@ -1890,6 +1898,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x300D)
+    (<-halfwidth
+     ((name		  . "RIGHT CORNER BRACKET")
+      (=ucs		  . #x300D)	; ã€
+      ))
     (=ucs		. #xFF63)	; ï½£
     (katakana-jisx0201	. #xA3)	; øº‘‰°
     ))
@@ -1899,6 +1911,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x3001)
+    (<-halfwidth
+     ((name		  . "IDEOGRAPHIC COMMA")
+      (=ucs		  . #x3001)	; ã€
+      ))
     (=ucs		. #xFF64)	; ï½¤
     (katakana-jisx0201	. #xA4)	; øº‘‰±
     ))
@@ -1908,6 +1924,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x30FB)
+    (<-halfwidth
+     ((name		  . "KATAKANA MIDDLE DOT")
+      (=ucs		  . #x30FB)	; ãƒ»
+      ))
     (=ucs		. #xFF65)	; ï½¥
     (katakana-jisx0201	. #xA5)	; øº‘‰²
     ))
@@ -1917,6 +1937,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30F2)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER WO")
+      (=ucs		  . #x30F2)	; ãƒ²
+      ))
     (=ucs		. #xFF66)	; ï½¦
     (katakana-jisx0201	. #xA6)	; øº‘‰³
     ))
@@ -1926,6 +1950,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30A1)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SMALL A")
+      (=ucs		  . #x30A1)	; ã‚¡
+      ))
     (=ucs		. #xFF67)	; ï½§
     (katakana-jisx0201	. #xA7)	; øº‘‰´
     ))
@@ -1935,6 +1963,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30A3)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SMALL I")
+      (=ucs		  . #x30A3)	; ã‚£
+      ))
     (=ucs		. #xFF68)	; ï½¨
     (katakana-jisx0201	. #xA8)	; øº‘‰µ
     ))
@@ -1944,6 +1976,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30A5)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SMALL U")
+      (=ucs		  . #x30A5)	; ã‚¥
+      ))
     (=ucs		. #xFF69)	; ï½©
     (katakana-jisx0201	. #xA9)	; øº‘‰¶
     ))
@@ -1953,6 +1989,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30A7)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SMALL E")
+      (=ucs		  . #x30A7)	; ã‚§
+      ))
     (=ucs		. #xFF6A)	; ï½ª
     (katakana-jisx0201	. #xAA)	; øº‘‰·
     ))
@@ -1962,6 +2002,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30A9)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SMALL O")
+      (=ucs		  . #x30A9)	; ã‚©
+      ))
     (=ucs		. #xFF6B)	; ï½«
     (katakana-jisx0201	. #xAB)	; øº‘‰¸
     ))
@@ -1971,6 +2015,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30E3)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SMALL YA")
+      (=ucs		  . #x30E3)	; ãƒ£
+      ))
     (=ucs		. #xFF6C)	; ï½¬
     (katakana-jisx0201	. #xAC)	; øº‘‰¹
     ))
@@ -1980,6 +2028,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30E5)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SMALL YU")
+      (=ucs		  . #x30E5)	; ãƒ¥
+      ))
     (=ucs		. #xFF6D)	; ï½­
     (katakana-jisx0201	. #xAD)	; øº‘‰º
     ))
@@ -1989,6 +2041,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30E7)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SMALL YO")
+      (=ucs		  . #x30E7)	; ãƒ§
+      ))
     (=ucs		. #xFF6E)	; ï½®
     (katakana-jisx0201	. #xAE)	; øº‘‰»
     ))
@@ -1998,6 +2054,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30C3)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SMALL TU")
+      (=ucs		  . #x30C3)	; ãƒƒ
+      ))
     (=ucs		. #xFF6F)	; ï½¯
     (katakana-jisx0201	. #xAF)	; øº‘‰¼
     ))
@@ -2007,6 +2067,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30FC)
+    (<-halfwidth
+     ((name		  . "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
+      (=ucs		  . #x30FC)	; ãƒ¼
+      ))
     (=ucs		. #xFF70)	; ï½°
     (katakana-jisx0201	. #xB0)	; øº‘‰½
     ))
@@ -2016,6 +2080,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30A2)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER A")
+      (=ucs		  . #x30A2)	; ã‚¢
+      ))
     (=ucs		. #xFF71)	; ï½±
     (katakana-jisx0201	. #xB1)	; øº‘‰¾
     ))
@@ -2025,6 +2093,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30A4)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER I")
+      (=ucs		  . #x30A4)	; ã‚¤
+      ))
     (=ucs		. #xFF72)	; ï½²
     (katakana-jisx0201	. #xB2)	; øº‘‰¿
     ))
@@ -2034,6 +2106,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30A6)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER U")
+      (=ucs		  . #x30A6)	; ã‚¦
+      ))
     (=ucs		. #xFF73)	; ï½³
     (katakana-jisx0201	. #xB3)	; øº‘Š€
     ))
@@ -2043,6 +2119,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30A8)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER E")
+      (=ucs		  . #x30A8)	; ã‚¨
+      ))
     (=ucs		. #xFF74)	; ï½´
     (katakana-jisx0201	. #xB4)	; øº‘Š
     ))
@@ -2052,6 +2132,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30AA)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER O")
+      (=ucs		  . #x30AA)	; ã‚ª
+      ))
     (=ucs		. #xFF75)	; ï½µ
     (katakana-jisx0201	. #xB5)	; øº‘Š‚
     ))
@@ -2061,6 +2145,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30AB)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER KA")
+      (=ucs		  . #x30AB)	; ã‚«
+      ))
     (=ucs		. #xFF76)	; ï½¶
     (katakana-jisx0201	. #xB6)	; øº‘Šƒ
     ))
@@ -2070,6 +2158,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30AD)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER KI")
+      (=ucs		  . #x30AD)	; ã‚­
+      ))
     (=ucs		. #xFF77)	; ï½·
     (katakana-jisx0201	. #xB7)	; øº‘Š„
     ))
@@ -2079,6 +2171,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30AF)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER KU")
+      (=ucs		  . #x30AF)	; ã‚¯
+      ))
     (=ucs		. #xFF78)	; ï½¸
     (katakana-jisx0201	. #xB8)	; øº‘Š…
     ))
@@ -2088,6 +2184,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30B1)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER KE")
+      (=ucs		  . #x30B1)	; ã‚±
+      ))
     (=ucs		. #xFF79)	; ï½¹
     (katakana-jisx0201	. #xB9)	; øº‘Š†
     ))
@@ -2097,6 +2197,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30B3)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER KO")
+      (=ucs		  . #x30B3)	; ã‚³
+      ))
     (=ucs		. #xFF7A)	; ï½º
     (katakana-jisx0201	. #xBA)	; øº‘Š‡
     ))
@@ -2106,6 +2210,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30B5)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SA")
+      (=ucs		  . #x30B5)	; ã‚µ
+      ))
     (=ucs		. #xFF7B)	; ï½»
     (katakana-jisx0201	. #xBB)	; øº‘Šˆ
     ))
@@ -2115,6 +2223,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30B7)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SI")
+      (=ucs		  . #x30B7)	; ã‚·
+      ))
     (=ucs		. #xFF7C)	; ï½¼
     (katakana-jisx0201	. #xBC)	; øº‘Š‰
     ))
@@ -2124,6 +2236,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30B9)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SU")
+      (=ucs		  . #x30B9)	; ã‚¹
+      ))
     (=ucs		. #xFF7D)	; ï½½
     (katakana-jisx0201	. #xBD)	; øº‘ŠŠ
     ))
@@ -2133,6 +2249,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30BB)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SE")
+      (=ucs		  . #x30BB)	; ã‚»
+      ))
     (=ucs		. #xFF7E)	; ï½¾
     (katakana-jisx0201	. #xBE)	; øº‘Š‹
     ))
@@ -2142,6 +2262,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30BD)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER SO")
+      (=ucs		  . #x30BD)	; ã‚½
+      ))
     (=ucs		. #xFF7F)	; ï½¿
     (katakana-jisx0201	. #xBF)	; øº‘ŠŒ
     ))
@@ -2151,6 +2275,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30BF)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER TA")
+      (=ucs		  . #x30BF)	; ã‚¿
+      ))
     (=ucs		. #xFF80)	; ï¾€
     (katakana-jisx0201	. #xC0)	; øº‘Š
     ))
@@ -2160,6 +2288,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30C1)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER TI")
+      (=ucs		  . #x30C1)	; ãƒ
+      ))
     (=ucs		. #xFF81)	; ï¾
     (katakana-jisx0201	. #xC1)	; øº‘ŠŽ
     ))
@@ -2169,6 +2301,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30C4)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER TU")
+      (=ucs		  . #x30C4)	; ãƒ„
+      ))
     (=ucs		. #xFF82)	; ï¾‚
     (katakana-jisx0201	. #xC2)	; øº‘Š
     ))
@@ -2178,6 +2314,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30C6)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER TE")
+      (=ucs		  . #x30C6)	; ãƒ†
+      ))
     (=ucs		. #xFF83)	; ï¾ƒ
     (katakana-jisx0201	. #xC3)	; øº‘Š
     ))
@@ -2187,6 +2327,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30C8)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER TO")
+      (=ucs		  . #x30C8)	; ãƒˆ
+      ))
     (=ucs		. #xFF84)	; ï¾„
     (katakana-jisx0201	. #xC4)	; øº‘Š‘
     ))
@@ -2196,6 +2340,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30CA)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER NA")
+      (=ucs		  . #x30CA)	; ãƒŠ
+      ))
     (=ucs		. #xFF85)	; ï¾…
     (katakana-jisx0201	. #xC5)	; øº‘Š’
     ))
@@ -2205,6 +2353,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30CB)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER NI")
+      (=ucs		  . #x30CB)	; ãƒ‹
+      ))
     (=ucs		. #xFF86)	; ï¾†
     (katakana-jisx0201	. #xC6)	; øº‘Š“
     ))
@@ -2214,6 +2366,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30CC)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER NU")
+      (=ucs		  . #x30CC)	; ãƒŒ
+      ))
     (=ucs		. #xFF87)	; ï¾‡
     (katakana-jisx0201	. #xC7)	; øº‘Š”
     ))
@@ -2223,6 +2379,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30CD)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER NE")
+      (=ucs		  . #x30CD)	; ãƒ
+      ))
     (=ucs		. #xFF88)	; ï¾ˆ
     (katakana-jisx0201	. #xC8)	; øº‘Š•
     ))
@@ -2232,6 +2392,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30CE)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER NO")
+      (=ucs		  . #x30CE)	; ãƒŽ
+      ))
     (=ucs		. #xFF89)	; ï¾‰
     (katakana-jisx0201	. #xC9)	; øº‘Š–
     ))
@@ -2241,6 +2405,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30CF)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER HA")
+      (=ucs		  . #x30CF)	; ãƒ
+      ))
     (=ucs		. #xFF8A)	; ï¾Š
     (katakana-jisx0201	. #xCA)	; øº‘Š—
     ))
@@ -2250,6 +2418,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30D2)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER HI")
+      (=ucs		  . #x30D2)	; ãƒ’
+      ))
     (=ucs		. #xFF8B)	; ï¾‹
     (katakana-jisx0201	. #xCB)	; øº‘Š˜
     ))
@@ -2259,6 +2431,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30D5)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER HU")
+      (=ucs		  . #x30D5)	; ãƒ•
+      ))
     (=ucs		. #xFF8C)	; ï¾Œ
     (katakana-jisx0201	. #xCC)	; øº‘Š™
     ))
@@ -2268,6 +2444,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30D8)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER HE")
+      (=ucs		  . #x30D8)	; ãƒ˜
+      ))
     (=ucs		. #xFF8D)	; ï¾
     (katakana-jisx0201	. #xCD)	; øº‘Šš
     ))
@@ -2277,6 +2457,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30DB)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER HO")
+      (=ucs		  . #x30DB)	; ãƒ›
+      ))
     (=ucs		. #xFF8E)	; ï¾Ž
     (katakana-jisx0201	. #xCE)	; øº‘Š›
     ))
@@ -2286,6 +2470,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30DE)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER MA")
+      (=ucs		  . #x30DE)	; ãƒž
+      ))
     (=ucs		. #xFF8F)	; ï¾
     (katakana-jisx0201	. #xCF)	; øº‘Šœ
     ))
@@ -2295,6 +2483,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30DF)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER MI")
+      (=ucs		  . #x30DF)	; ãƒŸ
+      ))
     (=ucs		. #xFF90)	; ï¾
     (katakana-jisx0201	. #xD0)	; øº‘Š
     ))
@@ -2304,6 +2496,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30E0)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER MU")
+      (=ucs		  . #x30E0)	; ãƒ 
+      ))
     (=ucs		. #xFF91)	; ï¾‘
     (katakana-jisx0201	. #xD1)	; øº‘Šž
     ))
@@ -2313,6 +2509,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30E1)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER ME")
+      (=ucs		  . #x30E1)	; ãƒ¡
+      ))
     (=ucs		. #xFF92)	; ï¾’
     (katakana-jisx0201	. #xD2)	; øº‘ŠŸ
     ))
@@ -2322,6 +2522,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30E2)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER MO")
+      (=ucs		  . #x30E2)	; ãƒ¢
+      ))
     (=ucs		. #xFF93)	; ï¾“
     (katakana-jisx0201	. #xD3)	; øº‘Š 
     ))
@@ -2331,6 +2535,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30E4)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER YA")
+      (=ucs		  . #x30E4)	; ãƒ¤
+      ))
     (=ucs		. #xFF94)	; ï¾”
     (katakana-jisx0201	. #xD4)	; øº‘Š¡
     ))
@@ -2340,6 +2548,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30E6)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER YU")
+      (=ucs		  . #x30E6)	; ãƒ¦
+      ))
     (=ucs		. #xFF95)	; ï¾•
     (katakana-jisx0201	. #xD5)	; øº‘Š¢
     ))
@@ -2349,6 +2561,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30E8)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER YO")
+      (=ucs		  . #x30E8)	; ãƒ¨
+      ))
     (=ucs		. #xFF96)	; ï¾–
     (katakana-jisx0201	. #xD6)	; øº‘Š£
     ))
@@ -2358,6 +2574,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30E9)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER RA")
+      (=ucs		  . #x30E9)	; ãƒ©
+      ))
     (=ucs		. #xFF97)	; ï¾—
     (katakana-jisx0201	. #xD7)	; øº‘Š¤
     ))
@@ -2367,6 +2587,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30EA)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER RI")
+      (=ucs		  . #x30EA)	; ãƒª
+      ))
     (=ucs		. #xFF98)	; ï¾˜
     (katakana-jisx0201	. #xD8)	; øº‘Š¥
     ))
@@ -2376,6 +2600,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30EB)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER RU")
+      (=ucs		  . #x30EB)	; ãƒ«
+      ))
     (=ucs		. #xFF99)	; ï¾™
     (katakana-jisx0201	. #xD9)	; øº‘Š¦
     ))
@@ -2385,6 +2613,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30EC)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER RE")
+      (=ucs		  . #x30EC)	; ãƒ¬
+      ))
     (=ucs		. #xFF9A)	; ï¾š
     (katakana-jisx0201	. #xDA)	; øº‘Š§
     ))
@@ -2394,6 +2626,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30ED)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER RO")
+      (=ucs		  . #x30ED)	; ãƒ­
+      ))
     (=ucs		. #xFF9B)	; ï¾›
     (katakana-jisx0201	. #xDB)	; øº‘Š¨
     ))
@@ -2403,6 +2639,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30EF)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER WA")
+      (=ucs		  . #x30EF)	; ãƒ¯
+      ))
     (=ucs		. #xFF9C)	; ï¾œ
     (katakana-jisx0201	. #xDC)	; øº‘Š©
     ))
@@ -2412,6 +2652,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x30F3)
+    (<-halfwidth
+     ((name		  . "KATAKANA LETTER N")
+      (=ucs		  . #x30F3)	; ãƒ³
+      ))
     (=ucs		. #xFF9D)	; ï¾
     (katakana-jisx0201	. #xDD)	; øº‘Šª
     ))
@@ -2422,6 +2666,10 @@
     (mirrored		. nil)
     (iso-10646-comment	. "halfwidth katakana-hiragana voiced sound mark")
     (->decomposition	narrow #x3099)
+    (<-halfwidth
+     ((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
+      (=ucs		  . #x3099)	; ã‚™
+      ))
     (=ucs		. #xFF9E)	; ï¾ž
     (katakana-jisx0201	. #xDE)	; øº‘Š«
     ))
@@ -2432,6 +2680,10 @@
     (mirrored		. nil)
     (iso-10646-comment	. "halfwidth katakana-hiragana semi-voiced sound mark")
     (->decomposition	narrow #x309A)
+    (<-halfwidth
+     ((name . "COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK")
+      (=ucs		  . #x309A)	; ã‚š
+      ))
     (=ucs		. #xFF9F)	; ï¾Ÿ
     (katakana-jisx0201	. #xDF)	; øº‘Š¬
     ))
@@ -2441,6 +2693,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3164)
+    (<-halfwidth
+     ((name		  . "HANGUL FILLER")
+      (=ucs		  . #x3164)	; ã…¤
+      ))
     (=ucs		. #xFFA0)	; ï¾ 
     ))
 (define-char
@@ -2449,6 +2705,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3131)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER KIYEOK")
+      (=ucs		  . #x3131)	; ã„±
+      ))
     (=ucs		. #xFFA1)	; ï¾¡
     ))
 (define-char
@@ -2457,6 +2717,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3132)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER SSANGKIYEOK")
+      (=ucs		  . #x3132)	; ã„²
+      ))
     (=ucs		. #xFFA2)	; ï¾¢
     ))
 (define-char
@@ -2465,6 +2729,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3133)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER KIYEOK-SIOS")
+      (=ucs		  . #x3133)	; ã„³
+      ))
     (=ucs		. #xFFA3)	; ï¾£
     ))
 (define-char
@@ -2473,6 +2741,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3134)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER NIEUN")
+      (=ucs		  . #x3134)	; ã„´
+      ))
     (=ucs		. #xFFA4)	; ï¾¤
     ))
 (define-char
@@ -2481,6 +2753,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3135)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER NIEUN-CIEUC")
+      (=ucs		  . #x3135)	; ã„µ
+      ))
     (=ucs		. #xFFA5)	; ï¾¥
     ))
 (define-char
@@ -2489,6 +2765,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3136)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER NIEUN-HIEUH")
+      (=ucs		  . #x3136)	; ã„¶
+      ))
     (=ucs		. #xFFA6)	; ï¾¦
     ))
 (define-char
@@ -2497,6 +2777,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3137)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER TIKEUT")
+      (=ucs		  . #x3137)	; ã„·
+      ))
     (=ucs		. #xFFA7)	; ï¾§
     ))
 (define-char
@@ -2505,6 +2789,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3138)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER SSANGTIKEUT")
+      (=ucs		  . #x3138)	; ã„¸
+      ))
     (=ucs		. #xFFA8)	; ï¾¨
     ))
 (define-char
@@ -2513,6 +2801,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3139)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER RIEUL")
+      (=ucs		  . #x3139)	; ã„¹
+      ))
     (=ucs		. #xFFA9)	; ï¾©
     ))
 (define-char
@@ -2521,6 +2813,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x313A)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER RIEUL-KIYEOK")
+      (=ucs		  . #x313A)	; ã„º
+      ))
     (=ucs		. #xFFAA)	; ï¾ª
     ))
 (define-char
@@ -2529,6 +2825,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x313B)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER RIEUL-MIEUM")
+      (=ucs		  . #x313B)	; ã„»
+      ))
     (=ucs		. #xFFAB)	; ï¾«
     ))
 (define-char
@@ -2537,6 +2837,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x313C)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER RIEUL-PIEUP")
+      (=ucs		  . #x313C)	; ã„¼
+      ))
     (=ucs		. #xFFAC)	; ï¾¬
     ))
 (define-char
@@ -2545,6 +2849,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x313D)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER RIEUL-SIOS")
+      (=ucs		  . #x313D)	; ã„½
+      ))
     (=ucs		. #xFFAD)	; ï¾­
     ))
 (define-char
@@ -2553,6 +2861,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x313E)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER RIEUL-THIEUTH")
+      (=ucs		  . #x313E)	; ã„¾
+      ))
     (=ucs		. #xFFAE)	; ï¾®
     ))
 (define-char
@@ -2561,6 +2873,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x313F)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER RIEUL-PHIEUPH")
+      (=ucs		  . #x313F)	; ã„¿
+      ))
     (=ucs		. #xFFAF)	; ï¾¯
     ))
 (define-char
@@ -2569,6 +2885,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3140)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER RIEUL-HIEUH")
+      (=ucs		  . #x3140)	; ã…€
+      ))
     (=ucs		. #xFFB0)	; ï¾°
     ))
 (define-char
@@ -2577,6 +2897,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3141)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER MIEUM")
+      (=ucs		  . #x3141)	; ã…
+      ))
     (=ucs		. #xFFB1)	; ï¾±
     ))
 (define-char
@@ -2585,6 +2909,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3142)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER PIEUP")
+      (=ucs		  . #x3142)	; ã…‚
+      ))
     (=ucs		. #xFFB2)	; ï¾²
     ))
 (define-char
@@ -2593,6 +2921,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3143)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER SSANGPIEUP")
+      (=ucs		  . #x3143)	; ã…ƒ
+      ))
     (=ucs		. #xFFB3)	; ï¾³
     ))
 (define-char
@@ -2601,6 +2933,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3144)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER PIEUP-SIOS")
+      (=ucs		  . #x3144)	; ã…„
+      ))
     (=ucs		. #xFFB4)	; ï¾´
     ))
 (define-char
@@ -2609,6 +2945,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3145)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER SIOS")
+      (=ucs		  . #x3145)	; ã……
+      ))
     (=ucs		. #xFFB5)	; ï¾µ
     ))
 (define-char
@@ -2617,6 +2957,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3146)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER SSANGSIOS")
+      (=ucs		  . #x3146)	; ã…†
+      ))
     (=ucs		. #xFFB6)	; ï¾¶
     ))
 (define-char
@@ -2625,6 +2969,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3147)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER IEUNG")
+      (=ucs		  . #x3147)	; ã…‡
+      ))
     (=ucs		. #xFFB7)	; ï¾·
     ))
 (define-char
@@ -2633,6 +2981,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3148)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER CIEUC")
+      (=ucs		  . #x3148)	; ã…ˆ
+      ))
     (=ucs		. #xFFB8)	; ï¾¸
     ))
 (define-char
@@ -2641,6 +2993,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3149)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER SSANGCIEUC")
+      (=ucs		  . #x3149)	; ã…‰
+      ))
     (=ucs		. #xFFB9)	; ï¾¹
     ))
 (define-char
@@ -2649,6 +3005,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x314A)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER CHIEUCH")
+      (=ucs		  . #x314A)	; ã…Š
+      ))
     (=ucs		. #xFFBA)	; ï¾º
     ))
 (define-char
@@ -2657,6 +3017,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x314B)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER KHIEUKH")
+      (=ucs		  . #x314B)	; ã…‹
+      ))
     (=ucs		. #xFFBB)	; ï¾»
     ))
 (define-char
@@ -2665,6 +3029,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x314C)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER THIEUTH")
+      (=ucs		  . #x314C)	; ã…Œ
+      ))
     (=ucs		. #xFFBC)	; ï¾¼
     ))
 (define-char
@@ -2673,6 +3041,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x314D)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER PHIEUPH")
+      (=ucs		  . #x314D)	; ã…
+      ))
     (=ucs		. #xFFBD)	; ï¾½
     ))
 (define-char
@@ -2681,6 +3053,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x314E)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER HIEUH")
+      (=ucs		  . #x314E)	; ã…Ž
+      ))
     (=ucs		. #xFFBE)	; ï¾¾
     ))
 (define-char
@@ -2689,6 +3065,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x314F)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER A")
+      (=ucs		  . #x314F)	; ã…
+      ))
     (=ucs		. #xFFC2)	; ï¿‚
     ))
 (define-char
@@ -2697,6 +3077,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3150)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER AE")
+      (=ucs		  . #x3150)	; ã…
+      ))
     (=ucs		. #xFFC3)	; ï¿ƒ
     ))
 (define-char
@@ -2705,6 +3089,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3151)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER YA")
+      (=ucs		  . #x3151)	; ã…‘
+      ))
     (=ucs		. #xFFC4)	; ï¿„
     ))
 (define-char
@@ -2713,6 +3101,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3152)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER YAE")
+      (=ucs		  . #x3152)	; ã…’
+      ))
     (=ucs		. #xFFC5)	; ï¿…
     ))
 (define-char
@@ -2721,6 +3113,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3153)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER EO")
+      (=ucs		  . #x3153)	; ã…“
+      ))
     (=ucs		. #xFFC6)	; ï¿†
     ))
 (define-char
@@ -2729,6 +3125,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3154)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER E")
+      (=ucs		  . #x3154)	; ã…”
+      ))
     (=ucs		. #xFFC7)	; ï¿‡
     ))
 (define-char
@@ -2737,6 +3137,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3155)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER YEO")
+      (=ucs		  . #x3155)	; ã…•
+      ))
     (=ucs		. #xFFCA)	; ï¿Š
     ))
 (define-char
@@ -2745,6 +3149,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3156)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER YE")
+      (=ucs		  . #x3156)	; ã…–
+      ))
     (=ucs		. #xFFCB)	; ï¿‹
     ))
 (define-char
@@ -2753,6 +3161,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3157)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER O")
+      (=ucs		  . #x3157)	; ã…—
+      ))
     (=ucs		. #xFFCC)	; ï¿Œ
     ))
 (define-char
@@ -2761,6 +3173,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3158)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER WA")
+      (=ucs		  . #x3158)	; ã…˜
+      ))
     (=ucs		. #xFFCD)	; ï¿
     ))
 (define-char
@@ -2769,6 +3185,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3159)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER WAE")
+      (=ucs		  . #x3159)	; ã…™
+      ))
     (=ucs		. #xFFCE)	; ï¿Ž
     ))
 (define-char
@@ -2777,6 +3197,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x315A)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER OE")
+      (=ucs		  . #x315A)	; ã…š
+      ))
     (=ucs		. #xFFCF)	; ï¿
     ))
 (define-char
@@ -2785,6 +3209,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x315B)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER YO")
+      (=ucs		  . #x315B)	; ã…›
+      ))
     (=ucs		. #xFFD2)	; ï¿’
     ))
 (define-char
@@ -2793,6 +3221,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x315C)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER U")
+      (=ucs		  . #x315C)	; ã…œ
+      ))
     (=ucs		. #xFFD3)	; ï¿“
     ))
 (define-char
@@ -2801,6 +3233,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x315D)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER WEO")
+      (=ucs		  . #x315D)	; ã…
+      ))
     (=ucs		. #xFFD4)	; ï¿”
     ))
 (define-char
@@ -2809,6 +3245,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x315E)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER WE")
+      (=ucs		  . #x315E)	; ã…ž
+      ))
     (=ucs		. #xFFD5)	; ï¿•
     ))
 (define-char
@@ -2817,6 +3257,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x315F)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER WI")
+      (=ucs		  . #x315F)	; ã…Ÿ
+      ))
     (=ucs		. #xFFD6)	; ï¿–
     ))
 (define-char
@@ -2825,6 +3269,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3160)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER YU")
+      (=ucs		  . #x3160)	; ã… 
+      ))
     (=ucs		. #xFFD7)	; ï¿—
     ))
 (define-char
@@ -2833,6 +3281,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3161)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER EU")
+      (=ucs		  . #x3161)	; ã…¡
+      ))
     (=ucs		. #xFFDA)	; ï¿š
     ))
 (define-char
@@ -2841,6 +3293,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3162)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER YI")
+      (=ucs		  . #x3162)	; ã…¢
+      ))
     (=ucs		. #xFFDB)	; ï¿›
     ))
 (define-char
@@ -2849,6 +3305,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	narrow #x3163)
+    (<-halfwidth
+     ((name		  . "HANGUL LETTER I")
+      (=ucs		  . #x3163)	; ã…£
+      ))
     (=ucs		. #xFFDC)	; ï¿œ
     ))
 (define-char
@@ -2967,6 +3427,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x2502)
+    (<-halfwidth
+     ((name		  . "BOX DRAWINGS LIGHT VERTICAL")
+      (=ucs		  . #x2502)	; â”‚
+      ))
     (=ucs		. #xFFE8)	; ï¿¨
     ))
 (define-char
@@ -2975,6 +3439,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x2190)
+    (<-halfwidth
+     ((name		  . "LEFTWARDS ARROW")
+      (=ucs		  . #x2190)	; â†
+      ))
     (=ucs		. #xFFE9)	; ï¿©
     ))
 (define-char
@@ -2983,6 +3451,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x2191)
+    (<-halfwidth
+     ((name		  . "UPWARDS ARROW")
+      (=ucs		  . #x2191)	; â†‘
+      ))
     (=ucs		. #xFFEA)	; ï¿ª
     ))
 (define-char
@@ -2991,6 +3463,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x2192)
+    (<-halfwidth
+     ((name		  . "RIGHTWARDS ARROW")
+      (=ucs		  . #x2192)	; â†’
+      ))
     (=ucs		. #xFFEB)	; ï¿«
     ))
 (define-char
@@ -2999,6 +3475,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x2193)
+    (<-halfwidth
+     ((name		  . "DOWNWARDS ARROW")
+      (=ucs		  . #x2193)	; â†“
+      ))
     (=ucs		. #xFFEC)	; ï¿¬
     ))
 (define-char
@@ -3007,6 +3487,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x25A0)
+    (<-halfwidth
+     ((name		  . "BLACK SQUARE")
+      (=ucs		  . #x25A0)	; â– 
+      ))
     (=ucs		. #xFFED)	; ï¿­
     ))
 (define-char
@@ -3015,5 +3499,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x25CB)
+    (<-halfwidth
+     ((name		  . "WHITE CIRCLE")
+      (=ucs		  . #x25CB)	; â—‹
+      ))
     (=ucs		. #xFFEE)	; ï¿®
     ))

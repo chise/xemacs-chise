@@ -526,6 +526,10 @@
     (ideographic-radical . 31)	; â¼ž
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x5718)	; åœ˜
+      (=jis-x0208	  . #x5425)	; ø½‹€º
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; â¿´
@@ -962,6 +966,10 @@
   '((ideographic-radical . 31)	; â¼ž
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x570D)	; åœ
+      (=jis-x0208-1990	  . #x5423)	; ø½‹€¸
+      ))
     (hanyu-dazidian	1 714 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
@@ -1128,6 +1136,11 @@
     (ideographic-radical . 31)	; â¼ž
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x5426)	; ø½‹€»
+      (=ks-x1001	  . #x5371)	; ø»‰¤¸
+      (=daikanwa	  . 04832)	; ø¸‹ 
+      ))
     (=ucs		. #x56F3)	; å›³
     (=jis-x0208		. #x3F5E)	; ø½Š¢½
     (=cns11643-3	. #x2528)	; ø»•œ£
@@ -1570,6 +1583,10 @@
   '((ideographic-radical . 31)	; â¼ž
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x570B)	; åœ‹
+      (=jis-x0208	  . #x5422)	; ø½‹€·
+      ))
     (hanyu-dazidian	1 716 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
@@ -2762,6 +2779,11 @@
     (ideographic-radical . 31)	; â¼ž
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x5421)	; ø½‹€¶
+      (=ks-x1001	  . #x4F6A)	; ø»‰ž¹
+      (=daikanwa	  . 04789)	; ø¸Šµ
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; â¿´

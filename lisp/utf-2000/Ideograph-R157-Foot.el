@@ -1786,6 +1786,10 @@
     (ideographic-radical . 157)	; â¾œ
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x8E10)	; è¸
+      (=jis-x0208	  . #x6C78)	; ø½‹¥
+      ))
     (=jis-x0208		. #x4129)	; ø½Š¥„
     (=gt		. 50154)	; ý¡€Œª
     (=gt-pj-1		. #x4129)	; ý¡€Œª
@@ -1810,7 +1814,7 @@
     (=daikanwa		. 49748)	; ø¸Œ‰”
     ))
 (define-char
-  '((script		C-Simplified Ideograph)
+  '((script		CN Simplified Ideograph)
     (ideographic-radical . 157)	; â¾œ
     (ideographic-strokes . 6)
     (total-strokes	 . 13)

@@ -180,6 +180,10 @@
   '((ideographic-radical . 125)	; â½¼
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #xFA5B)	; ï©›
+      (=jis-x0213-1-2000  . #x7A44)	; ø»¤–
+      ))
     (shinjigen-2	. 6342)
     (=ucs		. #x8005)	; è€…
     (=jis-x0208		. #x3C54)	; ø½Šž™

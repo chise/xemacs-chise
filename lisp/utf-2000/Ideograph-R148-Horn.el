@@ -744,6 +744,12 @@
     (ideographic-radical . 148)	; â¾“
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x6B3D)	; ø½‹£„
+      (=ks-x1001	  . #x753A)	; ø»Š•½
+      (=cns11643-1	  . #x7A3D)	; ø»“…¦
+      (=daikanwa	  . 35181)	; ø¸ˆ¥­
+      ))
     (shinjigen-2	. 7519)
     (=jis-x0208		. #x3F28)	; ø½Š¢‡
     (=cns11643-2	. #x474A)	; ø»”„½

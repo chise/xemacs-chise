@@ -1517,6 +1517,10 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x4E58)	; ä¹˜
+      (=jis-x0208	  . #x502B)	; ø½Š»ˆ
+      ))
     (hanyu-dazidian	1 39 8)
     (shinjigen-1	. 54)
     (shinjigen-2	. 54)

@@ -458,6 +458,11 @@
   '((ideographic-radical . 98)	; â½¡
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
+    (<-simplified@JP/Jouyou
+     ((=ks-x1001	  . #x5C3A)	; ø»‰±
+      (=jis-x0213-1-2000  . #x7847)	; ø»¤“”
+      (=daikanwa	  . 21537)	; ø¸…¡
+      ))
     (shinjigen-2	. 4989)
     (=ucs		. #x74F6)	; ç“¶
     (=jis-x0208		. #x4953)	; ø½Š±ž

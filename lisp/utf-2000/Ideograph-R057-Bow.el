@@ -1854,6 +1854,10 @@
     (ideographic-radical . 57)	; â¼¸
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x5F48)	; å½ˆ
+      (=jis-x0208	  . #x573C)	; ø½‹…«
+      ))
     (=ucs		. #x5F3E)	; å¼¾
     (=jis-x0208		. #x4346)	; ø½Š¨
     (=cns11643-3	. #x3B44)	; ø»•½“

@@ -301,6 +301,7 @@
 (defun char-daikanwa (char)
   (or (encode-char char 'ideograph-daikanwa 'defined-only)
       (encode-char char '=daikanwa-rev2 'defined-only)
+      (get-char-attribute char '=>daikanwa)
       (get-char-attribute char 'morohashi-daikanwa)))
 
 ;;;###autoload

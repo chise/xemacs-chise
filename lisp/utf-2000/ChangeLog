@@ -1,3 +1,247 @@
+2004-01-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R211-Tooth.el, Ideograph-R203-Black.el,
+	Ideograph-R201-Yellow.el, Ideograph-R199-Wheat.el,
+	Ideograph-R191-Fight.el, Ideograph-R190-Hair.el,
+	Ideograph-R188-Bone.el, Ideograph-R187-Horse.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Delete code for
+	`=>ucs-{gb|cns|jis|ks|big5}' and `->ucs'; add code for `=>daikanwa';
+	add code for `->unified'.
+
+2004-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el, Ideograph-R174-Blue.el,
+	Ideograph-R172-Short-Tailed-Bird.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* update-cdb.el: Generate "../lisp/utf-2000/cid-conf.el" when
+	char-DB generating stage, and load it when dumping stage.
+
+	* Ideograph-R180-Sound.el, Ideograph-R173-Rain.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el, Ideograph-R169-Gate.el,
+	Ideograph-R164-Wine.el, Ideograph-R165-Distinguish.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el, Ideograph-R159-Cart.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* Ideograph-R104-Sickness.el (G1-3B3E): Unify U+7613.
+
+2004-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el, Ideograph-R160-Bitter.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el, Ideograph-R064-Hand.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el, Ideograph-R151-Bean.el,
+	Ideograph-R154-Shell.el, Ideograph-R128-Ear.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el: Add `<-halfwidth'
+	features for <HALFWIDTH> characters.
+
+2004-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R148-Horn.el, Ideograph-R147-See.el,
+	Ideograph-R146-West.el, Ideograph-R145-Clothes.el,
+	Ideograph-R141-Tiger.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R115-Grain.el: Add some `<-simplified@JP/Jouyou'
+	features.
+	(U-00025784): Unify M-25006; separate C5-2A76.
+
+	* Ideograph-R144-Walk-Enclosure.el, Ideograph-R142-Insect.el,
+	Ideograph-R140-Grass.el, Ideograph-R086-Fire.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-daikanwa): Refer `=>daikanwa'.
+
+	* Ideograph-R132-Self.el, Ideograph-R040-Roof.el,
+	Ideograph-R085-Water.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (JC3-4DA7): Unify GT-12606 and
+	GT-K07831; add `=ucs@jp'.
+
+	* Ideograph-R130-Meat.el, Ideograph-R129-Brush.el,
+	Ideograph-R125-Old.el, Ideograph-R119-Rice.el,
+	Ideograph-R094-Dog.el, Ideograph-R071-Not.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* Ideograph-R061-Heart.el: Add some `<-simplified@JP/Jouyou'
+	features.
+	(U-0002F8B0): Separate JC3-4DE8.
+	(M-11424): Unify JC3-4DE8.
+
+	* Ideograph-R009-Man.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R075-Tree.el (U+6A0B): Don't map to U+901A.
+
+	* Ideograph-R124-Feather.el, Ideograph-R122-Net.el,
+	Ideograph-R121-Jar.el, Ideograph-R120-Silk.el,
+	Ideograph-R118-Bamboo.el, Ideograph-R116-Cave.el,
+	Ideograph-R112-Stone.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R117-Stand.el, Ideograph-R109-Eye.el,
+	Ideograph-R105-Dotted-Tent.el, Ideograph-R079-Weapon.el,
+	Ideograph-R075-Tree.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R113-Spirit.el, Ideograph-R108-Dish.el,
+	Ideograph-R106-White.el, Ideograph-R078-Death.el,
+	Ideograph-R077-Stop.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el, Ideograph-R102-Field.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* Ideograph-R098-Tile.el (U+74F6): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R093-Cow.el (U+72A0): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R084-Steam.el (U+6C17): Add `<-simplified@JP/Jouyou'.
+
+2004-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-{3522|334C}.
+
+	* Ideograph-R080-Do-Not.el, Ideograph-R076-Lack.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* Ideograph-R072-Sun.el: Add some `<-simplified@JP/Jouyou'
+	features.
+	(U+663C): Add `<-simplified@JP/Jouyou'; use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+665A): Unify JC3-51D5.
+	(U+6669): Add `<-simplified@JP/Jouyou'; unify BC-B1DF; separate
+	JC3-51D5.
+	(U+FA43): Unify BC-B4BB.
+
+2004-01-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el, Ideograph-R062-Halberd.el,
+	Ideograph-R032-Earth.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R050-Turban.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el, Ideograph-R069-Axe.el,
+	Ideograph-R067-Script.el, Ideograph-R066-Rap.el,
+	Ideograph-R060-Step.el, Ideograph-R046-Mountain.el,
+	Ideograph-R058-Snout.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el, Ideograph-R041-Inch.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* Ideograph-R034-Go.el (C3-2B79): Add `ideographic-structure'.
+	(J0-4A51): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R028-Private.el, Ideograph-R027-Cliff.el,
+	Ideograph-R024-Ten.el, Ideograph-R019-Power.el,
+	Ideograph-R018-Knife.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* char-db-util.el (char-db-insert-char-spec): Add new optional
+	argument `required-features'.
+	(insert-char-attributes): For each character in relation features
+	[->FOO or <-FOO] and `ideographic-structure', specify
+	required-features pf `char-db-insert-char-spec' based on *sources.
+
+	* Ideograph-R057-Bow.el, Ideograph-R056-Shoot.el,
+	Ideograph-R055-Two-Hands.el, Ideograph-R049-Oneself.el,
+	Ideograph-R047-River.el, Ideograph-R044-Corpse.el,
+	Ideograph-R038-Woman.el, Ideograph-R037-Big.el,
+	Ideograph-R031-Enclosure.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R029-Again.el (U+53CC): Add `<-simplified@JP/Jouyou';
+	use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+53CE): Add `<-simplified@JP/Jouyou'; use `<-vulgar-ideograph'
+	and `<-vulgar-ideograph*sources' instead of `vulgar-ideograph-of'.
+	(U+53D9): Add `<-simplified@JP/Jouyou'; use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
+	* Ideograph-R026-Seal.el (U+5373): Add `<-simplified@JP/Jouyou';
+	use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
+	* Ideograph-R023-Hiding-Enclosure.el (C3-2157): Use
+	`<-simplified*sources' instead of char-ref in `<-simplified'.
+	(U+533A): Likewise; add `<-simplified@JP/Jouyou'.
+	(U+533B): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R014-Cover.el (J0-3C4C): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R013-Down-Box.el (M-01512): Use `<-vulgar-ideograph'
+	and `<-vulgar-ideograph*sources' instead of `comment'; separate
+	S-0481, U+5185, J0-4662, G0-445A, GT-01983 and GT-K00547.
+	(U+5185): Unify BC-8C57.
+	(U+5186): Add `<-simplified@JP/Jouyou'.
+
+2004-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el, Ideograph-R033-Scholar.el,
+	Ideograph-R030-Mouth.el, Ideograph-R016-Table.el,
+	Ideograph-R010-Legs.el, Ideograph-R007-Two.el,
+	Ideograph-R006-Hook.el, Ideograph-R005-Second.el,
+	Ideograph-R004-Slash.el, Ideograph-R001-One.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* read-maps.el (jp-jouyou-read-file): New function.
+
+2004-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Use `jp-jouyou-read-file' to read
+	etc/char-data/jp-jouyou.txt.
+
 2004-01-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R019-Power.el (U+52B4): Use `script', `<-simplified'
