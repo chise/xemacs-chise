@@ -1,3 +1,74 @@
+2000-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c: Include <limits.h> in UTF-2000.
+	(BT_UINT8_MIN): New macro in UTF-2000.
+	(BT_UINT8_MAX): New macro in UTF-2000.
+	(BT_UINT8_t): New macro in UTF-2000.
+	(BT_UINT8_nil): New macro in UTF-2000.
+	(BT_UINT8_unbound): New macro in UTF-2000.
+	(INT_UINT8_P): New inline function in UTF-2000.
+	(UINT8_VALUE_P): New inline function in UTF-2000.
+	(UINT8_ENCODE): New inline function in UTF-2000.
+	(UINT8_DECODE): New inline function in UTF-2000.
+	(mark_uint8_byte_table): New function in UTF-2000.
+	(print_uint8_byte_table): New function in UTF-2000.
+	(uint8_byte_table_equal): New function in UTF-2000.
+	(uint8_byte_table_hash): New function in UTF-2000.
+	(make_uint8_byte_table): New function in UTF-2000.
+	(uint8_byte_table_same_value_p): New function in UTF-2000.
+	(BT_UINT16_MIN): New macro in UTF-2000.
+	(BT_UINT16_MAX): New macro in UTF-2000.
+	(BT_UINT16_t): New macro in UTF-2000.
+	(BT_UINT16_nil): New macro in UTF-2000.
+	(BT_UINT16_unbound): New macro in UTF-2000.
+	(INT_UINT16_P): New inline function in UTF-2000.
+	(UINT16_VALUE_P): New inline function in UTF-2000.
+	(UINT16_ENCODE): New inline function in UTF-2000.
+	(UINT16_DECODE): New inline function in UTF-2000.
+	(UINT8_TO_UINT16): New inline function in UTF-2000.
+	(mark_uint16_byte_table): New function in UTF-2000.
+	(print_uint16_byte_table): New function in UTF-2000.
+	(uint16_byte_table_equal): New function in UTF-2000.
+	(uint16_byte_table_hash): New function in UTF-2000.
+	(make_uint16_byte_table): New function in UTF-2000.
+	(uint16_byte_table_same_value_p): New function in UTF-2000.
+	(print_byte_table): New function in UTF-2000.
+	(byte-table): Use `print_byte_table' as printer.
+	(make_byte_table): Delete second argument `older'.
+	(byte_table_same_value_p): New function in UTF-2000.
+	(copy_byte_table): Deleted.
+	(get_byte_table): New function in UTF-2000.
+	(put_byte_table): New function in UTF-2000.
+	(print_char_id_table): New function in UTF-2000.
+	(char-id-table): Use `print_char_id_table' as printer.
+	(make_char_id_table): Delete second argument `older'.
+	(get_char_id_table): Use `get_byte_table [new implementation].
+	(put_char_id_table): Use `get_byte_table and `put_byte_table' [new
+	implementation].
+	(Ffind_char_attribute_table): New function in UTF-2000.
+	(mark_charset): Mark `cs->encoding_table' in UTF-2000.
+	(syms_of_mule_charset): Add LRECORD_IMPLEMENTATION
+	`uint8_byte_table' and `uint16_byte_table' in UTF-2000.
+	(syms_of_mule_charset): Add new function
+	`find-char-attribute-table' in UTF-2000.
+
+	* lrecord.h (enum lrecord_type): Add
+	`lrecord_type_uint16_byte_table' and
+	`lrecord_type_uint8_byte_table'.
+
+	* char-ucs.h (struct Lisp_Uint8_Byte_Table): New structure.
+	(Lisp_Uint8_Byte_Table): New type.
+	(XUINT8_BYTE_TABLE): New macro.
+	(XSETUINT8_BYTE_TABLE): New macro.
+	(UINT8_BYTE_TABLE_P): New macro.
+	(GC_UINT8_BYTE_TABLE_P): New macro.
+	(struct Lisp_Uint16_Byte_Table): New structure.
+	(Lisp_Uint16_Byte_Table): New type.
+	(XUINT16_BYTE_TABLE): New macro.
+	(XSETUINT16_BYTE_TABLE): New macro.
+	(UINT16_BYTE_TABLE_P): New macro.
+	(GC_UINT16_BYTE_TABLE_P): New macro.
+
 2000-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharacter_ideographic_radical_table): Deleted.
