@@ -51,17 +51,6 @@
    ?.1Np ?Nq ?Nr ?Ns ?Nt ?Nu ?Nv ?Nw ?Nx ?Ny ?Nz ?N{ ?N| ?N} ?N~ ?.2Nf ]
   "Vietnamese VISCII decoding table.")
 
-(defun split-char-or-char-int (char)
-  "Return list of charset and one or two position-codes of CHAR.
-CHAR must be character or integer."
-  (if (characterp char)
-      (split-char char)
-    (let ((c (int-char char)))
-      (if c
-	  (split-char c)
-	(list 'ascii c)
-	))))
-
 (defvar viet-viscii-encode-table
   (let ((table-lower (make-vector 128 0))
 	(table-upper (make-vector 128 0))
