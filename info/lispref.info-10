@@ -672,17 +672,22 @@ Mapping Functions
 =================
 
    A "mapping function" applies a given function to each element of a
-list or other collection.  XEmacs Lisp has three such functions;
-`mapcar' and `mapconcat', which scan a list, are described here.  For
-the third mapping function, `mapatoms', see *Note Creating Symbols::.
+list or other collection.  XEmacs Lisp has several such functions;
+`mapcar' and `mapconcat', which scan a list, are described here.
+*Note Creating Symbols::, for the function `mapatoms' which maps over
+the symbols in an obarray.
+
+   Mapping functions should never modify the sequence being mapped over.
+The results are unpredictable.
 
  - Function: mapcar function sequence
      `mapcar' applies FUNCTION to each element of SEQUENCE in turn, and
      returns a list of the results.
 
-     The argument SEQUENCE may be a list, a vector, or a string.  The
-     result is always a list.  The length of the result is the same as
-     the length of SEQUENCE.
+     The argument SEQUENCE can be any kind of sequence; that is, a
+     list, a vector, a bit vector, or a string.  The result is always a
+     list.  The length of the result is the same as the length of
+     SEQUENCE.
 
      For example:
 
@@ -718,7 +723,9 @@ the third mapping function, `mapatoms', see *Note Creating Symbols::.
      punctuation.
 
      The argument FUNCTION must be a function that can take one
-     argument and return a string.
+     argument and return a string.  The argument SEQUENCE can be any
+     kind of sequence; that is, a list, a vector, a bit vector, or a
+     string.
 
           (mapconcat 'symbol-name
                      '(The cat in the hat)

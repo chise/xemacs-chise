@@ -613,6 +613,7 @@ for reading an argument.
 * Completion::                How to invoke and customize completion.
 * Yes-or-No Queries::         Asking a question with a simple answer.
 * Multiple Queries::	      Asking a series of similar questions.
+* Reading a Password::	      Reading a password from the terminal.
 * Minibuffer Misc::           Various customization hooks and variables.
 
 
@@ -627,7 +628,7 @@ in a minibuffer.  However, many operations for managing buffers do not
 apply to minibuffers.  The name of a minibuffer always has the form
 ` *Minibuf-NUMBER', and it cannot be changed.  Minibuffers are
 displayed only in special windows used only for minibuffers; these
-windows always appear at the bottom of a frame.  (Sometime frames have
+windows always appear at the bottom of a frame.  (Sometimes frames have
 no minibuffer window, and sometimes a special kind of frame contains
 nothing but a minibuffer window; see *Note Minibuffers and Frames::.)
 
@@ -654,9 +655,6 @@ completion commands (*note Completion::).
 
    * `minibuffer-local-map' is for ordinary input (no completion).
 
-   * `minibuffer-local-ns-map' is similar, except that <SPC> exits just
-     like <RET>.  This is used mainly for Mocklisp compatibility.
-
    * `minibuffer-local-completion-map' is for permissive completion.
 
    * `minibuffer-local-must-match-map' is for strict completion and for
@@ -679,7 +677,7 @@ reading the arguments for a command, in the `interactive' spec.  *Note
 Defining Commands::.
 
  - Function: read-from-minibuffer prompt-string &optional
-          initial-contents keymap read hist
+          initial-contents keymap read hist abbrev-table default
      This function is the most general way to get input through the
      minibuffer.  By default, it accepts arbitrary text and returns it
      as a string; however, if READ is non-`nil', then it uses `read' to
@@ -698,11 +696,24 @@ Defining Commands::.
      minibuffer but put point POSITION characters from the beginning,
      rather than at the end.
 
+     When the user types a command to exit the minibuffer,
+     `read-from-minibuffer' constructs the return value from the text in
+     the minibuffer.  Normally it returns a string containing that text.
+     However, if READ is non-`nil', `read-from-minibuffer' reads the
+     text and returns the resulting Lisp object, unevaluated.  (*Note
+     Input Functions::, for information about reading.)
+
+     The argument DEFAULT specifies a default value to make available
+     through the history commands.  It should be a string, or `nil'.
+
      If KEYMAP is non-`nil', that keymap is the local keymap to use in
      the minibuffer.  If KEYMAP is omitted or `nil', the value of
      `minibuffer-local-map' is used as the keymap.  Specifying a keymap
      is the most important way to customize the minibuffer for various
      applications such as completion.
+
+     The argument ABBREV-TABLE specifies `local-abbrev-table' in the
+     minibuffer (*note Standard Abbrev Tables::).
 
      The argument HIST specifies which history list variable to use for
      saving the input and for history commands used in the minibuffer.
@@ -715,13 +726,25 @@ Defining Commands::.
      reads the text and returns the resulting Lisp object, unevaluated.
      (*Note Input Functions::, for information about reading.)
 
- - Function: read-string prompt &optional initial
+     *Usage note:* The INITIAL-CONTENTS argument and the DEFAULT
+     argument are two alternative features for more or less the same
+     job.  It does not make sense to use both features in a single call
+     to `read-from-minibuffer'.  In general, we recommend using
+     DEFAULT, since this permits the user to insert the default value
+     when it is wanted, but does not burden the user with deleting it
+     from the minibuffer on other occasions.  However, if user is
+     supposed to edit default value, INITIAL-CONTENTS may be preferred.
+
+ - Function: read-string prompt &optional initial history
      This function reads a string from the minibuffer and returns it.
      The arguments PROMPT and INITIAL are used as in
      `read-from-minibuffer'.  The keymap used is `minibuffer-local-map'.
 
-     This is a simplified interface to the `read-from-minibuffer'
-     function:
+     The optional argument HISTORY, if non-nil, specifies a history
+     list and optionally the initial position in the list.
+
+     This function is a simplified interface to the
+     `read-from-minibuffer' function:
 
           (read-string PROMPT INITIAL)
           ==
@@ -731,7 +754,7 @@ Defining Commands::.
      This is the default local keymap for reading from the minibuffer.
      By default, it makes the following bindings:
 
-    <LFD>
+    `C-j'
           `exit-minibuffer'
 
     <RET>
@@ -752,37 +775,6 @@ Defining Commands::.
     `M-s'
           `previous-matching-history-element'
 
- - Function: read-no-blanks-input prompt &optional initial
-     This function reads a string from the minibuffer, but does not
-     allow whitespace characters as part of the input: instead, those
-     characters terminate the input.  The arguments PROMPT and INITIAL
-     are used as in `read-from-minibuffer'.
-
-     This is a simplified interface to the `read-from-minibuffer'
-     function, and passes the value of the `minibuffer-local-ns-map'
-     keymap as the KEYMAP argument for that function.  Since the keymap
-     `minibuffer-local-ns-map' does not rebind `C-q', it _is_ possible
-     to put a space into the string, by quoting it.
-
-          (read-no-blanks-input PROMPT INITIAL)
-          ==
-          (read-from-minibuffer PROMPT INITIAL minibuffer-local-ns-map)
-
- - Variable: minibuffer-local-ns-map
-     This built-in variable is the keymap used as the minibuffer local
-     keymap in the function `read-no-blanks-input'.  By default, it
-     makes the following bindings, in addition to those of
-     `minibuffer-local-map':
-
-    <SPC>
-          `exit-minibuffer'
-
-    <TAB>
-          `exit-minibuffer'
-
-    `?'
-          `self-insert-and-exit'
-
 
 File: lispref.info,  Node: Object from Minibuffer,  Next: Minibuffer History,  Prev: Text from Minibuffer,  Up: Minibuffers
 
@@ -793,9 +785,9 @@ Reading Lisp Objects with the Minibuffer
 minibuffer.
 
  - Function: read-minibuffer prompt &optional initial
-     This function reads a Lisp object in the minibuffer and returns it,
-     without evaluating it.  The arguments PROMPT and INITIAL are used
-     as in `read-from-minibuffer'.
+     This function reads a Lisp object using the minibuffer, and
+     returns it without evaluating it.  The arguments PROMPT and
+     INITIAL are used as in `read-from-minibuffer'.
 
      This is a simplified interface to the `read-from-minibuffer'
      function:
@@ -820,9 +812,9 @@ minibuffer.
      default, or can edit the input.
 
  - Function: eval-minibuffer prompt &optional initial
-     This function reads a Lisp expression in the minibuffer, evaluates
-     it, then returns the result.  The arguments PROMPT and INITIAL are
-     used as in `read-from-minibuffer'.
+     This function reads a Lisp expression using the minibuffer,
+     evaluates it, then returns the result.  The arguments PROMPT and
+     INITIAL are used as in `read-from-minibuffer'.
 
      This function simply evaluates the result of a call to
      `read-minibuffer':
@@ -842,10 +834,10 @@ minibuffer.
 
      The first thing `edit-and-eval-command' does is to activate the
      minibuffer with PROMPT as the prompt.  Then it inserts the printed
-     representation of FORM in the minibuffer, and lets the user edit.
-     When the user exits the minibuffer, the edited text is read with
-     `read' and then evaluated.  The resulting value becomes the value
-     of `edit-and-eval-command'.
+     representation of FORM in the minibuffer, and lets the user edit
+     it.  When the user exits the minibuffer, the edited text is read
+     with `read' and then evaluated.  The resulting value becomes the
+     value of `edit-and-eval-command'.
 
      In the following example, we offer the user an expression with
      initial text which is a valid form already:
@@ -904,6 +896,8 @@ user to reuse items on the list.  The only thing your program needs to
 do to use a history list is to initialize it and to pass its name to
 the input functions when you wish.  But it is safe to modify the list
 by hand when the minibuffer input functions are not using it.
+
+   Here are some of the standard minibuffer history list variables:
 
  - Variable: minibuffer-history
      The default history list for minibuffer history input.
@@ -1069,7 +1063,7 @@ that do use the minibuffer.
  - Function: all-completions string collection &optional predicate
           nospace
      This function returns a list of all possible completions of
-     STRING.  The parameters to this function are the same as to
+     STRING.  The arguments to this function are the same as those of
      `try-completion'.
 
      If COLLECTION is a function, it is called with three arguments:
@@ -1106,7 +1100,7 @@ Completion and the Minibuffer
 minibuffer with completion.
 
  - Function: completing-read prompt collection &optional predicate
-          require-match initial hist
+          require-match initial hist default
      This function reads a string in the minibuffer, assisting the user
      by providing completion.  It activates the minibuffer with prompt
      PROMPT, which must be a string.  If INITIAL is non-`nil',
@@ -1125,11 +1119,17 @@ minibuffer with completion.
      COLLECTION.  If REQUIRE-MATCH is `nil', the exit commands work
      regardless of the input in the minibuffer.
 
+     However, empty input is always permitted, regardless of the value
+     of REQUIRE-MATCH; in that case, `completing-read' returns DEFAULT.
+     The value of DEFAULT (if non-`nil') is also available to the user
+     through the history commands.
+
      The user can exit with null input by typing <RET> with an empty
-     minibuffer.  Then `completing-read' returns `nil'.  This is how
-     the user requests whatever default the command uses for the value
-     being read.  The user can return using <RET> in this way regardless
-     of the value of REQUIRE-MATCH.
+     minibuffer.  Then `completing-read' returns `""'.  This is how the
+     user requests whatever default the command uses for the value being
+     read.  The user can return using <RET> in this way regardless of
+     the value of REQUIRE-MATCH, and regardless of whether the empty
+     string is included in COLLECTION.
 
      The function `completing-read' works by calling `read-minibuffer'.
      It uses `minibuffer-local-completion-map' as the keymap if
@@ -1210,7 +1210,7 @@ the minibuffer to do completion.
     <TAB>
           `minibuffer-complete'
 
-    <LFD>
+    `C-j'
           `minibuffer-complete-and-exit'
 
     <RET>
@@ -1243,10 +1243,10 @@ the minibuffer to do completion.
  - Command: minibuffer-complete-and-exit
      This function completes the minibuffer contents, and exits if
      confirmation is not required, i.e., if
-     `minibuffer-completion-confirm' is non-`nil'.  If confirmation
-     _is_ required, it is given by repeating this command
-     immediately--the command is programmed to work without confirmation
-     when run twice in succession.
+     `minibuffer-completion-confirm' is `nil'.  If confirmation _is_
+     required, it is given by repeating this command immediately--the
+     command is programmed to work without confirmation when run twice
+     in succession.
 
  - Variable: minibuffer-completion-confirm
      When the value of this variable is non-`nil', XEmacs asks for
