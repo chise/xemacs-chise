@@ -1,3 +1,41 @@
+2003-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL SMALL ONE>): Add
+	`<-ideographic-component-forms' for U+5C0F.
+	(GT-K00305): Likewise.
+	(<CJK RADICAL SMALL TWO>): Likewise.
+	(<CJK RADICAL JADE>): Add `<-ideographic-component-forms' for
+	U+738B; unify GT-K00402.
+	(BC-8DC5): New character.
+
+	* Ideograph-R087-Claw.el (M-19687): Unify GT-K09318 and GT-25281;
+	don't use char-ref; use `*sources' instead.
+	(GT-25283): New character.
+	(GT-25282): New character.
+	(U-00024514): Unify GT-K09372.
+
+	* Ideograph-R086-Fire.el (U+706C): Unify GT-K00601.
+	(U+7070): Unify GT-K01577.
+
+	* Ideograph-R077-Stop.el (GT-K00182): New character.
+	(GT-K00439): New character.
+	(GT-K00440): New character.
+
+	* Ideograph-R062-Halberd.el (U+620E): Separate J0-3D3F, C1-4826
+	and B-A6A5.
+	(J0-3D3F): Unify C1-4826, B-A6A5 and GT-K01640.
+
+	* Ideograph-R058-Snout.el (JSP-3C77): Unify GT-K00268 and
+	GT-12503.
+	(U+5F50): Unify GT-K00266.
+	(GT-K00267): New character.
+
+	* Ideograph-R035-Go-Slowly.el (GT-K00218): New character.
+
+	* Ideograph-R016-Table.el (GT-K00368): New character.
+	(GT-K00369): New character.
+	(U+51EC): Add `<-ancient-ideograph' for J0-4977.
+
 2003-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-3D3F.
