@@ -133,6 +133,12 @@
 	(when-feature utf-2000 "u01800-Mongolian.el")
 	(when-feature utf-2000 "u01E00-Latin-Extended-Additional.el")
 	(when-feature utf-2000 "u01F00-Greek-Extended.el")
+	(when-feature utf-2000 "u02000-General-Punctuation.el")
+	(when-feature utf-2000 "u02070-Superscripts.el")
+	(when-feature utf-2000 "u02080-Subscripts.el")
+	(when-feature utf-2000 "u020A0-Currency-Symbols.el")
+	(when-feature utf-2000
+		      "u020D0-Combining-Diacritical-Marks-for-Symbols.el")
 	(when-feature mule "mule-charset")
 	(when-feature file-coding "coding")
 	(when-feature mule "mule-coding")
