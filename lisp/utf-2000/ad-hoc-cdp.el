@@ -3,7 +3,7 @@
       ret)
   (while (<= ucs #xF848)
     (setq chr (decode-char 'ucs ucs))
-    (when (setq big5 (get-char-attribute chr 'chinese-big5-pua))
+    (when (setq big5 (get-char-attribute chr '=big5-pua))
       (when (setq chr (decode-char 'chinese-big5-cdp big5))
 	(unless (get-char-attribute chr 'chinese-big5-cdp)
 	  (put-char-attribute chr 'chinese-big5-cdp big5))))
