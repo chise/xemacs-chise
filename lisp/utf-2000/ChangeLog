@@ -1,3 +1,47 @@
+2003-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el (U+57AC): Unify MH-0082.
+	(U+FA0F): Unify MH-0085.
+	(U-00021356): New character.
+	(U-0002134E): New character.
+	(MH-0088): New character.
+	(U-00021355): Relate to MH-0088.
+	(C6-3E29): Likewise.
+	(U-00021336): New character.
+	(U-0002138C): New character.
+	(U+3657): New character.
+	(J90-4536): Unify MH-0093 and GT-06762.
+	(U+586B): Relate to MH-0093 instead of M-05355.
+	(U-000213D9): New character.
+	(U+586F): Unify MH-0095.
+	(MH-0097): New character; unify GT-06793.
+	(U-00021414): Relate to MH-0097.
+	(U-0002140F): New character.
+	(U+58AD): Unify MH-0099.
+	(U+58A3): Unify GT-06932.
+	(MH-0101): New character.
+	(U-00021485): New character.
+	(U+58CB): Unify MH-0103.
+	(U-0002147F): New character.
+	(MH-0105): New character.
+	(U-00021480): New character.
+	(MH-0107): New character.
+	(MH-0108): New character.
+	(MH-0109): New character.
+	(U-0002150C): New character.
+	(MH-0110): New character.
+	(U-00021505): New character.
+
+2003-06-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R031-Enclosure.el (MH-0077): New character.
+	(MH-0078): New character.
+	(U-000211C5): Relate to MH-0078; add strokes.
+
+	* Ideograph-R030-Mouth.el (MH-0067): New character.
+	(H1-D4D5): Relate to MH-0067; add strokes; separate U-00020CFD.
+	(U-00020CFD): Relate to MH-0067; add strokes; separate H1-D4D5.
+
 2003-06-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R104-Sickness.el: Add some missing `=ucs@jis'
