@@ -5336,6 +5336,7 @@
     (total-strokes	 . 14)
     (<-ancient
      ((shinjigen-1	  . 928)
+      (=ucs		  . #x53E1)	; 叡
       (=jis-x0208	  . #x3143)	; &I-J90-3143; [17-35]
       (=daikanwa	  . 03214)	; &I-M-03214;
       ))
@@ -5359,15 +5360,12 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (=ucs		. #x25215)	; 𥈕
-    (=daikanwa		. 23537)	; &I-M-23537;
-    ))
-(define-char
-  '((=>ucs		. #x25215)	; 𥈕
-    (morohashi-daikanwa	23537 0 0)
-    (ideographic-radical . 109)	; ⽬
-    (ideographic-strokes . 9)
-    (total-strokes	 . 14)
-    (=cns11643-6	. #x5F4A)	; &C6-5F4A; [63-42]
+    (->subsumptive
+     ((=daikanwa	  . 23537)	; &M-23537;
+      (=ucs@iso		  . #x25215)	; &M-23537;
+      )
+     ((=cns11643-6	  . #x5F4A)	; &C6-5F4A; [63-42]
+      ))
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
