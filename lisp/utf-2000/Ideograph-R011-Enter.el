@@ -78,7 +78,7 @@
       (korean-ksc5601	  . #x6C7D)	; ø»Š‰²
       (ideograph-daikanwa . 01415)	; ø¸€–‡
       ))
-    (japanese-jisx0212	. #x326E)	; ø»Š¾›
+    (=jis-x0212		. #x326E)	; ø»Š¾›
     (ideograph-daikanwa . 01417)	; ø¸€–‰
     (=ucs@jis		. #x5166)	; ø»Š¾›
     ))

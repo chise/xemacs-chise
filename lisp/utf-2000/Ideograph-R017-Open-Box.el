@@ -152,7 +152,7 @@
       )
      ((=ucs		  . #x571F)	; åœŸ
       ))
-    (japanese-jisx0212	. #x332F)	; ø»Š¾º
+    (=jis-x0212		. #x332F)	; ø»Š¾º
     (chinese-cns11643-4 . #x2160)	; ø»—¡§
     (ideograph-daikanwa . 01807)	; ø¸€œ
     (=big5-cdp		. #x8DC7)	; ý¢€ˆ·‡

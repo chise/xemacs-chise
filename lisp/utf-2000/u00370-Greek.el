@@ -40,7 +40,8 @@
     (->decomposition	compat #x0020 #x0301)
     (->fullwidth
      ((name		  . "fullwidth greek tonos")
-      (japanese-jisx0212  . #x2238)	; ø»Š¦…
+      (=jis-x0212	  . #x2238)	; ø»Š¦…
+      (=ucs@jis		  . #x0384)	; ø»Š¦…
       ))
     (greek-iso8859-7	. #xB4)	; øº’»´
     (=ucs		. #x0384)	; Î„
@@ -56,7 +57,7 @@
      ((name		  . "GREEK TONOS")
       (=ucs		  . #x0384)	; Î„
       ))
-    (japanese-jisx0212	. #x2238)	; ø»Š¦…
+    (=jis-x0212		. #x2238)	; ø»Š¦…
     (=ucs@jis		. #x0384)	; ø»Š¦…
     ))
 (define-char
@@ -67,7 +68,8 @@
     (->decomposition	#x00A8 #x0301)
     (->fullwidth
      ((name		  . "fullwidth greek dialytika tonos")
-      (japanese-jisx0212  . #x2239)	; ø»Š¦†
+      (=jis-x0212	  . #x2239)	; ø»Š¦†
+      (=ucs@jis		  . #x0385)	; ø»Š¦†
       ))
     (greek-iso8859-7	. #xB5)	; øº’»µ
     (=ucs		. #x0385)	; Î…
@@ -83,7 +85,7 @@
      ((name		  . "GREEK DIALYTIKA TONOS")
       (=ucs		  . #x0385)	; Î…
       ))
-    (japanese-jisx0212	. #x2239)	; ø»Š¦†
+    (=jis-x0212		. #x2239)	; ø»Š¦†
     (=ucs@jis		. #x0385)	; ø»Š¦†
     ))
 (define-char
@@ -94,7 +96,8 @@
     (->decomposition	#x0391 #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter alpha with tonos")
-      (japanese-jisx0212  . #x2661)	; ø»Š¬¦
+      (=jis-x0212	  . #x2661)	; ø»Š¬¦
+      (=ucs@jis		  . #x0386)	; ø»Š¬¦
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER ALPHA WITH TONOS")
@@ -117,7 +120,7 @@
      ((name		  . "GREEK CAPITAL LETTER ALPHA WITH TONOS")
       (=ucs		  . #x0386)	; Î†
       ))
-    (japanese-jisx0212	. #x2661)	; ø»Š¬¦
+    (=jis-x0212		. #x2661)	; ø»Š¬¦
     (=ucs@jis		. #x0386)	; ø»Š¬¦
     ))
 (define-char
@@ -136,7 +139,8 @@
     (->decomposition	#x0395 #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter epsilon with tonos")
-      (japanese-jisx0212  . #x2662)	; ø»Š¬§
+      (=jis-x0212	  . #x2662)	; ø»Š¬§
+      (=ucs@jis		  . #x0388)	; ø»Š¬§
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER EPSILON WITH TONOS")
@@ -159,7 +163,7 @@
      ((name		  . "GREEK CAPITAL LETTER EPSILON WITH TONOS")
       (=ucs		  . #x0388)	; Îˆ
       ))
-    (japanese-jisx0212	. #x2662)	; ø»Š¬§
+    (=jis-x0212		. #x2662)	; ø»Š¬§
     (=ucs@jis		. #x0388)	; ø»Š¬§
     ))
 (define-char
@@ -170,7 +174,8 @@
     (->decomposition	#x0397 #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter eta with tonos")
-      (japanese-jisx0212  . #x2663)	; ø»Š¬¨
+      (=jis-x0212	  . #x2663)	; ø»Š¬¨
+      (=ucs@jis		  . #x0389)	; ø»Š¬¨
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER ETA WITH TONOS")
@@ -193,7 +198,7 @@
      ((name		  . "GREEK CAPITAL LETTER ETA WITH TONOS")
       (=ucs		  . #x0389)	; Î‰
       ))
-    (japanese-jisx0212	. #x2663)	; ø»Š¬¨
+    (=jis-x0212		. #x2663)	; ø»Š¬¨
     (=ucs@jis		. #x0389)	; ø»Š¬¨
     ))
 (define-char
@@ -204,7 +209,8 @@
     (->decomposition	#x0399 #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter iota with tonos")
-      (japanese-jisx0212  . #x2664)	; ø»Š¬©
+      (=jis-x0212	  . #x2664)	; ø»Š¬©
+      (=ucs@jis		  . #x038A)	; ø»Š¬©
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER IOTA WITH TONOS")
@@ -227,7 +233,7 @@
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH TONOS")
       (=ucs		  . #x038A)	; ÎŠ
       ))
-    (japanese-jisx0212	. #x2664)	; ø»Š¬©
+    (=jis-x0212		. #x2664)	; ø»Š¬©
     (=ucs@jis		. #x038A)	; ø»Š¬©
     ))
 (define-char
@@ -238,7 +244,8 @@
     (->decomposition	#x039F #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter omicron with tonos")
-      (japanese-jisx0212  . #x2667)	; ø»Š¬¬
+      (=jis-x0212	  . #x2667)	; ø»Š¬¬
+      (=ucs@jis		  . #x038C)	; ø»Š¬¬
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER OMICRON WITH TONOS")
@@ -261,7 +268,7 @@
      ((name		  . "GREEK CAPITAL LETTER OMICRON WITH TONOS")
       (=ucs		  . #x038C)	; ÎŒ
       ))
-    (japanese-jisx0212	. #x2667)	; ø»Š¬¬
+    (=jis-x0212		. #x2667)	; ø»Š¬¬
     (=ucs@jis		. #x038C)	; ø»Š¬¬
     ))
 (define-char
@@ -272,7 +279,8 @@
     (->decomposition	#x03A5 #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter upsilon with tonos")
-      (japanese-jisx0212  . #x2669)	; ø»Š¬®
+      (=jis-x0212	  . #x2669)	; ø»Š¬®
+      (=ucs@jis		  . #x038E)	; ø»Š¬®
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER UPSILON WITH TONOS")
@@ -295,7 +303,7 @@
      ((name		  . "GREEK CAPITAL LETTER UPSILON WITH TONOS")
       (=ucs		  . #x038E)	; ÎŽ
       ))
-    (japanese-jisx0212	. #x2669)	; ø»Š¬®
+    (=jis-x0212		. #x2669)	; ø»Š¬®
     (=ucs@jis		. #x038E)	; ø»Š¬®
     ))
 (define-char
@@ -306,7 +314,8 @@
     (->decomposition	#x03A9 #x0301)
     (->fullwidth
      ((name . "fullwidth greek capital letter omega with tonos")
-      (japanese-jisx0212  . #x266C)	; ø»Š¬±
+      (=jis-x0212	  . #x266C)	; ø»Š¬±
+      (=ucs@jis		  . #x038F)	; ø»Š¬±
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER OMEGA WITH TONOS")
@@ -329,7 +338,7 @@
      ((name		  . "GREEK CAPITAL LETTER OMEGA WITH TONOS")
       (=ucs		  . #x038F)	; Î
       ))
-    (japanese-jisx0212	. #x266C)	; ø»Š¬±
+    (=jis-x0212		. #x266C)	; ø»Š¬±
     (=ucs@jis		. #x038F)	; ø»Š¬±
     ))
 (define-char
@@ -340,7 +349,8 @@
     (->decomposition	#x03CA #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter iota with dialytika and tonos")
-      (japanese-jisx0212  . #x2676)	; ø»Š¬»
+      (=jis-x0212	  . #x2676)	; ø»Š¬»
+      (=ucs@jis		  . #x0390)	; ø»Š¬»
       ))
     (greek-iso8859-7	. #xC0)	; øº’¼€
     (=ucs		. #x0390)	; Î
@@ -356,7 +366,7 @@
      ((name . "GREEK SMALL LETTER IOTA WITH DIALYTIKA AND TONOS")
       (=ucs		  . #x0390)	; Î
       ))
-    (japanese-jisx0212	. #x2676)	; ø»Š¬»
+    (=jis-x0212		. #x2676)	; ø»Š¬»
     (=ucs@jis		. #x0390)	; ø»Š¬»
     ))
 (define-char
@@ -1303,7 +1313,8 @@
     (->decomposition	#x0399 #x0308)
     (->fullwidth
      ((name . "fullwidth greek capital letter iota with dialytika")
-      (japanese-jisx0212  . #x2665)	; ø»Š¬ª
+      (=jis-x0212	  . #x2665)	; ø»Š¬ª
+      (=ucs@jis		  . #x03AA)	; ø»Š¬ª
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER IOTA WITH DIALYTIKA")
@@ -1326,7 +1337,7 @@
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")
       (=ucs		  . #x03AA)	; Îª
       ))
-    (japanese-jisx0212	. #x2665)	; ø»Š¬ª
+    (=jis-x0212		. #x2665)	; ø»Š¬ª
     (=ucs@jis		. #x03AA)	; ø»Š¬ª
     ))
 (define-char
@@ -1337,7 +1348,8 @@
     (->decomposition	#x03A5 #x0308)
     (->fullwidth
      ((name . "fullwidth greek capital letter upsilon with dialytika")
-      (japanese-jisx0212  . #x266A)	; ø»Š¬¯
+      (=jis-x0212	  . #x266A)	; ø»Š¬¯
+      (=ucs@jis		  . #x03AB)	; ø»Š¬¯
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA")
@@ -1360,7 +1372,7 @@
      ((name . "GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
       (=ucs		  . #x03AB)	; Î«
       ))
-    (japanese-jisx0212	. #x266A)	; ø»Š¬¯
+    (=jis-x0212		. #x266A)	; ø»Š¬¯
     (=ucs@jis		. #x03AB)	; ø»Š¬¯
     ))
 (define-char
@@ -1371,7 +1383,8 @@
     (->decomposition	#x03B1 #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter alpha with tonos")
-      (japanese-jisx0212  . #x2671)	; ø»Š¬¶
+      (=jis-x0212	  . #x2671)	; ø»Š¬¶
+      (=ucs@jis		  . #x03AC)	; ø»Š¬¶
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER ALPHA WITH TONOS")
@@ -1394,7 +1407,7 @@
      ((name		  . "GREEK SMALL LETTER ALPHA WITH TONOS")
       (=ucs		  . #x03AC)	; Î¬
       ))
-    (japanese-jisx0212	. #x2671)	; ø»Š¬¶
+    (=jis-x0212		. #x2671)	; ø»Š¬¶
     (=ucs@jis		. #x03AC)	; ø»Š¬¶
     ))
 (define-char
@@ -1405,7 +1418,8 @@
     (->decomposition	#x03B5 #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter epsilon with tonos")
-      (japanese-jisx0212  . #x2672)	; ø»Š¬·
+      (=jis-x0212	  . #x2672)	; ø»Š¬·
+      (=ucs@jis		  . #x03AD)	; ø»Š¬·
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER EPSILON WITH TONOS")
@@ -1428,7 +1442,7 @@
      ((name		  . "GREEK SMALL LETTER EPSILON WITH TONOS")
       (=ucs		  . #x03AD)	; Î­
       ))
-    (japanese-jisx0212	. #x2672)	; ø»Š¬·
+    (=jis-x0212		. #x2672)	; ø»Š¬·
     (=ucs@jis		. #x03AD)	; ø»Š¬·
     ))
 (define-char
@@ -1439,7 +1453,8 @@
     (->decomposition	#x03B7 #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter eta with tonos")
-      (japanese-jisx0212  . #x2673)	; ø»Š¬¸
+      (=jis-x0212	  . #x2673)	; ø»Š¬¸
+      (=ucs@jis		  . #x03AE)	; ø»Š¬¸
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER ETA WITH TONOS")
@@ -1462,7 +1477,7 @@
      ((name		  . "GREEK SMALL LETTER ETA WITH TONOS")
       (=ucs		  . #x03AE)	; Î®
       ))
-    (japanese-jisx0212	. #x2673)	; ø»Š¬¸
+    (=jis-x0212		. #x2673)	; ø»Š¬¸
     (=ucs@jis		. #x03AE)	; ø»Š¬¸
     ))
 (define-char
@@ -1473,7 +1488,8 @@
     (->decomposition	#x03B9 #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter iota with tonos")
-      (japanese-jisx0212  . #x2674)	; ø»Š¬¹
+      (=jis-x0212	  . #x2674)	; ø»Š¬¹
+      (=ucs@jis		  . #x03AF)	; ø»Š¬¹
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH TONOS")
@@ -1496,7 +1512,7 @@
      ((name		  . "GREEK SMALL LETTER IOTA WITH TONOS")
       (=ucs		  . #x03AF)	; Î¯
       ))
-    (japanese-jisx0212	. #x2674)	; ø»Š¬¹
+    (=jis-x0212		. #x2674)	; ø»Š¬¹
     (=ucs@jis		. #x03AF)	; ø»Š¬¹
     ))
 (define-char
@@ -1507,7 +1523,8 @@
     (->decomposition	#x03CB #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter upsilon with dialytika and tonos")
-      (japanese-jisx0212  . #x267B)	; ø»Š­€
+      (=jis-x0212	  . #x267B)	; ø»Š­€
+      (=ucs@jis		  . #x03B0)	; ø»Š­€
       ))
     (greek-iso8859-7	. #xE0)	; øº’¼ 
     (=ucs		. #x03B0)	; Î°
@@ -1523,7 +1540,7 @@
      ((name . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND TONOS")
       (=ucs		  . #x03B0)	; Î°
       ))
-    (japanese-jisx0212	. #x267B)	; ø»Š­€
+    (=jis-x0212		. #x267B)	; ø»Š­€
     (=ucs@jis		. #x03B0)	; ø»Š­€
     ))
 (define-char
@@ -2198,7 +2215,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter final sigma")
-      (japanese-jisx0212  . #x2678)	; ø»Š¬½
+      (=jis-x0212	  . #x2678)	; ø»Š¬½
+      (=jis-x0213-1-2000  . #x2659)	; ø»¢›Š
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER SIGMA")
@@ -2221,7 +2239,7 @@
      ((name		  . "GREEK SMALL LETTER FINAL SIGMA")
       (=ucs		  . #x03C2)	; Ï‚
       ))
-    (japanese-jisx0212	. #x2678)	; ø»Š¬½
+    (=jis-x0212		. #x2678)	; ø»Š¬½
     (=jis-x0213-1-2000	. #x2659)	; ø»¢›Š
     (=ucs@jis		. #x03C2)	; ø»Š¬½
     ))
@@ -2506,7 +2524,8 @@
     (->decomposition	#x03B9 #x0308)
     (->fullwidth
      ((name . "fullwidth greek small letter iota with dialytika")
-      (japanese-jisx0212  . #x2675)	; ø»Š¬º
+      (=jis-x0212	  . #x2675)	; ø»Š¬º
+      (=ucs@jis		  . #x03CA)	; ø»Š¬º
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")
@@ -2529,7 +2548,7 @@
      ((name		  . "GREEK SMALL LETTER IOTA WITH DIALYTIKA")
       (=ucs		  . #x03CA)	; ÏŠ
       ))
-    (japanese-jisx0212	. #x2675)	; ø»Š¬º
+    (=jis-x0212		. #x2675)	; ø»Š¬º
     (=ucs@jis		. #x03CA)	; ø»Š¬º
     ))
 (define-char
@@ -2540,7 +2559,8 @@
     (->decomposition	#x03C5 #x0308)
     (->fullwidth
      ((name . "fullwidth greek small letter upsilon with dialytika")
-      (japanese-jisx0212  . #x267A)	; ø»Š¬¿
+      (=jis-x0212	  . #x267A)	; ø»Š¬¿
+      (=ucs@jis		  . #x03CB)	; ø»Š¬¿
       ))
     (->uppercase
      ((name . "GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
@@ -2563,7 +2583,7 @@
      ((name		  . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA")
       (=ucs		  . #x03CB)	; Ï‹
       ))
-    (japanese-jisx0212	. #x267A)	; ø»Š¬¿
+    (=jis-x0212		. #x267A)	; ø»Š¬¿
     (=ucs@jis		. #x03CB)	; ø»Š¬¿
     ))
 (define-char
@@ -2574,7 +2594,8 @@
     (->decomposition	#x03BF #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter omicron with tonos")
-      (japanese-jisx0212  . #x2677)	; ø»Š¬¼
+      (=jis-x0212	  . #x2677)	; ø»Š¬¼
+      (=ucs@jis		  . #x03CC)	; ø»Š¬¼
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER OMICRON WITH TONOS")
@@ -2597,7 +2618,7 @@
      ((name		  . "GREEK SMALL LETTER OMICRON WITH TONOS")
       (=ucs		  . #x03CC)	; ÏŒ
       ))
-    (japanese-jisx0212	. #x2677)	; ø»Š¬¼
+    (=jis-x0212		. #x2677)	; ø»Š¬¼
     (=ucs@jis		. #x03CC)	; ø»Š¬¼
     ))
 (define-char
@@ -2608,7 +2629,8 @@
     (->decomposition	#x03C5 #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter upsilon with tonos")
-      (japanese-jisx0212  . #x2679)	; ø»Š¬¾
+      (=jis-x0212	  . #x2679)	; ø»Š¬¾
+      (=ucs@jis		  . #x03CD)	; ø»Š¬¾
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER UPSILON WITH TONOS")
@@ -2631,7 +2653,7 @@
      ((name		  . "GREEK SMALL LETTER UPSILON WITH TONOS")
       (=ucs		  . #x03CD)	; Ï
       ))
-    (japanese-jisx0212	. #x2679)	; ø»Š¬¾
+    (=jis-x0212		. #x2679)	; ø»Š¬¾
     (=ucs@jis		. #x03CD)	; ø»Š¬¾
     ))
 (define-char
@@ -2642,7 +2664,8 @@
     (->decomposition	#x03C9 #x0301)
     (->fullwidth
      ((name . "fullwidth greek small letter omega with tonos")
-      (japanese-jisx0212  . #x267C)	; ø»Š­
+      (=jis-x0212	  . #x267C)	; ø»Š­
+      (=ucs@jis		  . #x03CE)	; ø»Š­
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER OMEGA WITH TONOS")
@@ -2665,7 +2688,7 @@
      ((name		  . "GREEK SMALL LETTER OMEGA WITH TONOS")
       (=ucs		  . #x03CE)	; ÏŽ
       ))
-    (japanese-jisx0212	. #x267C)	; ø»Š­
+    (=jis-x0212		. #x267C)	; ø»Š­
     (=ucs@jis		. #x03CE)	; ø»Š­
     ))
 (define-char

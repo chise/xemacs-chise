@@ -34,7 +34,7 @@
   '((ideographic-radical . 131)	; â¾‚
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
-    (japanese-jisx0212	. #x5661)	; ø»‹³†
+    (=jis-x0212		. #x5661)	; ø»‹³†
     (chinese-cns11643-4 . #x276C)	; ø»—ª§
     (=jis-x0213-2-2000	. #x7557)	; ø»¦™Ž
     (ideograph-daikanwa . 30070)	; ø¸‡•¶

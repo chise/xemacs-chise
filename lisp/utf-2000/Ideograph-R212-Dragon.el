@@ -96,7 +96,7 @@
   '((ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 3)
     (total-strokes	 . 19)
-    (japanese-jisx0212	. #x6D58)	; ø»Œ”¯
+    (=jis-x0212		. #x6D58)	; ø»Œ”¯
     (chinese-cns11643-4 . #x632D)	; ø»™°
     (ideograph-daikanwa . 48823)	; ø¸‹º·
     (=ucs		. #x9F8F)	; é¾
@@ -107,7 +107,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 19)
     (korean-ksc5601	. #x5B42)	; ø»‰¯¹
-    (japanese-jisx0212	. #x6D59)	; ø»Œ”°
+    (=jis-x0212		. #x6D59)	; ø»Œ”°
     (=jis-x0213-1-2000	. #x7E76)	; ø»¤œ·
     (ideograph-daikanwa . 48824)	; ø¸‹º¸
     (=ucs@jis		. #x9F90)	; ø»‰¯¹
@@ -147,7 +147,7 @@
   '((ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 4)
     (total-strokes	 . 20)
-    (japanese-jisx0212	. #x6D5A)	; ø»Œ”±
+    (=jis-x0212		. #x6D5A)	; ø»Œ”±
     (chinese-cns11643-2 . #x6B4D)	; ø»”¹¸
     (ideograph-daikanwa . 48827)	; ø¸‹º»
     (=ucs		. #x9F91)	; é¾‘
@@ -169,7 +169,7 @@
   '((ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 5)
     (total-strokes	 . 21)
-    (japanese-jisx0212	. #x6D5B)	; ø»Œ”²
+    (=jis-x0212		. #x6D5B)	; ø»Œ”²
     (chinese-cns11643-2 . #x6D43)	; ø»”¼ª
     (ideograph-daikanwa . 48830)	; ø¸‹º¾
     (=ucs		. #x9F92)	; é¾’
@@ -229,7 +229,7 @@
   '((ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 6)
     (total-strokes	 . 22)
-    (japanese-jisx0212	. #x6D5C)	; ø»Œ”³
+    (=jis-x0212		. #x6D5C)	; ø»Œ”³
     (=jis-x0213-1-2000	. #x7E77)	; ø»¤œ¸
     (chinese-gb12345	. #x3928)	; é¾”
     (ideograph-daikanwa . 48837)	; ø¸‹»…
@@ -300,7 +300,7 @@
   '((ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 16)
     (total-strokes	 . 32)
-    (japanese-jisx0212	. #x6D5D)	; ø»Œ”´
+    (=jis-x0212		. #x6D5D)	; ø»Œ”´
     (chinese-cns11643-4 . #x6E55)	; ø»™’¢
     (ideograph-daikanwa . 48843)	; ø¸‹»‹
     (=ucs		. #x9F96)	; é¾–
@@ -309,7 +309,7 @@
   '((ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 17)
     (total-strokes	 . 33)
-    (japanese-jisx0212	. #x6D5E)	; ø»Œ”µ
+    (=jis-x0212		. #x6D5E)	; ø»Œ”µ
     (chinese-cns11643-3 . #x6242)	; ø»–¶£
     (=jis-x0213-1-2000	. #x7E78)	; ø»¤œ¹
     (ideograph-daikanwa . 48844)	; ø¸‹»Œ

@@ -26,7 +26,7 @@
   '((ideographic-radical . 80)	; â½
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (japanese-jisx0212	. #x4637)	; ø»‹š¼
+    (=jis-x0212		. #x4637)	; ø»‹š¼
     (chinese-cns11643-2 . #x2140)	; ø»“Œ¿
     (chinese-big5	. #xC960)	; ý¢€Œ¥ 
     (ideograph-daikanwa . 16722)	; ø¸„…’

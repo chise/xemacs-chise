@@ -996,7 +996,7 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	1 285 5)
     (shinjigen-1	. 99)
-    (japanese-jisx0212	. #x3041)	; ø»Šº²
+    (=jis-x0212		. #x3041)	; ø»Šº²
     (ideograph-daikanwa . 00305)	; ø¸€„±
     (=big5-cdp		. #x8AA5)	; ý¢€ˆª¥
     (=jef-china3	. #x41D8)	; øº„‡˜
@@ -3380,7 +3380,7 @@
       ))
     (jis-x0213-strokes	. 19)
     (shinjigen-2	. 112)
-    (japanese-jisx0212	. #x3042)	; ø»Šº³
+    (=jis-x0212		. #x3042)	; ø»Šº³
     (=jis-x0213-2-2000	. #x2134)	; ø»¤“
     (chinese-big5	. #xF6D6)	; ý¢€›–
     (ideograph-daikanwa . 00342)	; ø¸€…–

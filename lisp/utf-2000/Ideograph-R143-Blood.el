@@ -51,7 +51,7 @@
     (ideographic-radical . 143)	; â¾Ž
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
-    (japanese-jisx0212	. #x5C23)	; ø»‹º¼
+    (=jis-x0212		. #x5C23)	; ø»‹º¼
     (ideograph-daikanwa . 33969)	; ø¸ˆ’±
     (=ucs@jis		. #x8841)	; ø»‹º¼
     ))
@@ -99,7 +99,7 @@
   '((ideographic-radical . 143)	; â¾Ž
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (japanese-jisx0212	. #x5C24)	; ø»‹º½
+    (=jis-x0212		. #x5C24)	; ø»‹º½
     (chinese-cns11643-2 . #x3271)	; ø»“¦®
     (ideograph-daikanwa . 33972)	; ø¸ˆ’´
     (=ucs		. #x8843)	; è¡ƒ
@@ -182,7 +182,7 @@
     (ideographic-radical . 143)	; â¾Ž
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (japanese-jisx0212	. #x5C25)	; ø»‹º¾
+    (=jis-x0212		. #x5C25)	; ø»‹º¾
     (ideograph-daikanwa . 33980)	; ø¸ˆ’¼
     (=ucs@jis		. #x8845)	; ø»‹º¾
     ))
@@ -252,7 +252,7 @@
   '((ideographic-radical . 143)	; â¾Ž
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (japanese-jisx0212	. #x5C26)	; ø»‹º¿
+    (=jis-x0212		. #x5C26)	; ø»‹º¿
     (chinese-cns11643-2 . #x4026)	; ø»“º‡
     (ideograph-daikanwa . 33984)	; ø¸ˆ“€
     (=ucs		. #x8848)	; è¡ˆ
@@ -261,7 +261,7 @@
   '((ideographic-radical . 143)	; â¾Ž
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (japanese-jisx0212	. #x5C27)	; ø»‹»€
+    (=jis-x0212		. #x5C27)	; ø»‹»€
     (chinese-cns11643-6 . #x4E4F)	; ø»œ·¤
     (ideograph-daikanwa . 33985)	; ø¸ˆ“
     (=ucs		. #x8849)	; è¡‰
@@ -602,7 +602,7 @@
     (ideographic-radical . 143)	; â¾Ž
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
-    (japanese-jisx0212	. #x5C28)	; ø»‹»
+    (=jis-x0212		. #x5C28)	; ø»‹»
     (=jis-x0213-2-2000	. #x7825)	; ø»¦œ¶
     (chinese-gb12345	. #x785A)	; è¡Š
     (=ucs		. #x884A)	; è¡Š
@@ -627,7 +627,7 @@
   '((ideographic-radical . 143)	; â¾Ž
     (ideographic-strokes . 18)
     (total-strokes	 . 24)
-    (japanese-jisx0212	. #x5C29)	; ø»‹»‚
+    (=jis-x0212		. #x5C29)	; ø»‹»‚
     (chinese-cns11643-2 . #x704E)	; ø»•
     (ideograph-daikanwa . 34026)	; ø¸ˆ“ª
     (=ucs		. #x884B)	; è¡‹

@@ -121,7 +121,7 @@
       )
      ((=ucs		  . #x3404)	; ã„
       ))
-    (japanese-jisx0212	. #x385F)	; ø»‹‡€
+    (=jis-x0212		. #x385F)	; ø»‹‡€
     (=jis-x0213-2-2000	. #x2538)	; ø»¤£
     (ideograph-daikanwa . 05695)	; ø¸˜¿
     (=jef-china3	. #x48CE)	; øº„£Ž
@@ -175,7 +175,7 @@
       )
      ((=ucs		  . #x4E30)	; ä¸°
       ))
-    (japanese-jisx0212	. #x3860)	; ø»‹‡
+    (=jis-x0212		. #x3860)	; ø»‹‡
     (=iso-ir165		. #x7B26)	; ø»Ž²¥
     (chinese-cns11643-2 . #x2350)	; ø»“‹
     (=jis-x0213-2-2000	. #x2539)	; ø»¤£

@@ -88,7 +88,7 @@
   '((ideographic-radical . 136)	; â¾‡
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (japanese-jisx0212	. #x5674)	; ø»‹³™
+    (=jis-x0212		. #x5674)	; ø»‹³™
     (chinese-cns11643-2 . #x4648)	; ø»”ƒ
     (ideograph-daikanwa . 30341)	; ø¸‡š…
     (=ucs		. #x821D)	; èˆ

@@ -129,7 +129,7 @@
     (total-strokes	 . 9)
     (chinese-gb2312	. #x3151)	; ø»„ž”
     (korean-ksc5601	. #x5D70)	; ø»‰³£
-    (japanese-jisx0212	. #x4638)	; ø»‹š½
+    (=jis-x0212		. #x4638)	; ø»‹š½
     (=iso-ir165		. #x3151)	; ø»†¤
     (=jis-x0213-1-2000	. #x764B)	; ø»¤œ
     (chinese-big5	. #xCF68)	; ý¢€Œ½¨
@@ -415,7 +415,7 @@
   '((ideographic-radical . 81)	; â½
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (japanese-jisx0212	. #x4639)	; ø»‹š¾
+    (=jis-x0212		. #x4639)	; ø»‹š¾
     (=iso-ir165		. #x7A3B)	; ø»Ž±œ
     (=jis-x0213-2-2000	. #x6E29)	; ø»¦ŽŽ
     (chinese-big5	. #xC0D5)	; ý¢€Œƒ•

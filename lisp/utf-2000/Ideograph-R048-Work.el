@@ -141,7 +141,7 @@
     (ideographic-radical . 48)	; â¼¯
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (japanese-jisx0212	. #x3C21)	; ø»‹‹º
+    (=jis-x0212		. #x3C21)	; ø»‹‹º
     (=jis-x0213-2-2000	. #x286E)	; ø»¤¨Ÿ
     (ideograph-daikanwa . 08726)	; ø¸‚ˆ–
     (=ucs@jis		. #x5DE9)	; ø»‹‹º

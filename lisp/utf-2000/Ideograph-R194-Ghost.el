@@ -70,7 +70,7 @@
   '((ideographic-radical . 194)	; â¿
     (ideographic-strokes . 3)
     (total-strokes	 . 13)
-    (japanese-jisx0212	. #x6A39)	; ø»Œ¶
+    (=jis-x0212		. #x6A39)	; ø»Œ¶
     (chinese-cns11643-3 . #x4562)	; ø»–Œ
     (=jis-x0213-2-2000	. #x7D3E)	; ø»¦¤¥
     (ideograph-daikanwa . 45764)	; ø¸‹‹„
@@ -700,7 +700,7 @@
     (ideographic-radical . 194)	; â¿
     (ideographic-strokes . 7)
     (total-strokes	 . 17)
-    (japanese-jisx0212	. #x6A3A)	; ø»Œ·
+    (=jis-x0212		. #x6A3A)	; ø»Œ·
     (ideograph-daikanwa . 45841)	; ø¸‹Œ‘
     (=ucs@jis		. #x9B48)	; ø»Œ·
     ))
@@ -897,7 +897,7 @@
     (ideographic-radical . 194)	; â¿
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
-    (japanese-jisx0212	. #x6A3B)	; ø»Œ¸
+    (=jis-x0212		. #x6A3B)	; ø»Œ¸
     (=jis-x0213-2-2000	. #x7D40)	; ø»¦¤§
     (ideograph-daikanwa . 45861)	; ø¸‹Œ¥
     (=ucs@jis		. #x9B4B)	; ø»Œ¸
@@ -921,7 +921,7 @@
   '((ideographic-radical . 194)	; â¿
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
-    (japanese-jisx0212	. #x6A3C)	; ø»Œ¹
+    (=jis-x0212		. #x6A3C)	; ø»Œ¹
     (chinese-cns11643-2 . #x646B)	; ø»”°„
     (ideograph-daikanwa . 45863)	; ø¸‹Œ§
     (=ucs		. #x9B4C)	; é­Œ
@@ -1550,7 +1550,7 @@
   '((ideographic-radical . 194)	; â¿
     (ideographic-strokes . 12)
     (total-strokes	 . 22)
-    (japanese-jisx0212	. #x6A3D)	; ø»Œº
+    (=jis-x0212		. #x6A3D)	; ø»Œº
     (chinese-cns11643-2 . #x6E56)	; ø»”¾›
     (ideograph-daikanwa . 45923)	; ø¸‹£
     (=ucs		. #x9B55)	; é­•
@@ -1581,7 +1581,7 @@
   '((ideographic-radical . 194)	; â¿
     (ideographic-strokes . 12)
     (total-strokes	 . 22)
-    (japanese-jisx0212	. #x6A3E)	; ø»Œ»
+    (=jis-x0212		. #x6A3E)	; ø»Œ»
     (chinese-cns11643-2 . #x6E55)	; ø»”¾š
     (ideograph-daikanwa . 45925)	; ø¸‹¥
     (=ucs		. #x9B56)	; é­–
@@ -1675,7 +1675,7 @@
   '((ideographic-radical . 194)	; â¿
     (ideographic-strokes . 14)
     (total-strokes	 . 24)
-    (japanese-jisx0212	. #x6A3F)	; ø»Œ¼
+    (=jis-x0212		. #x6A3F)	; ø»Œ¼
     (chinese-cns11643-3 . #x612F)	; ø»–´²
     (ideograph-daikanwa . 45937)	; ø¸‹±
     (=ucs		. #x9B57)	; é­—
