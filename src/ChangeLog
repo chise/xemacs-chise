@@ -1,3 +1,17 @@
+2000-01-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (make_builtin_char): New function.
+	(encode_builtin_char_1): Check ISO-2022-charset is defined or not.
+	(Fset_charset_mapping_table): Modify for new representation of
+	code-point.
+	(Fdecode_char): New function.
+	(syms_of_mule_charset): Add new builtin function `decode-char' in
+	UTF-2000.
+
+	* char-ucs.h (make_builtin_char): New prototype.
+	(DECODE_CHAR): New inline function.
+	(MAKE_CHAR): Use `DECODE_CHAR'.
+
 2000-01-28  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* text-coding.c (parse_charset_conversion_specs): Use
