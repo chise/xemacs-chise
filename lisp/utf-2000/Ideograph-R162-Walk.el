@@ -4567,7 +4567,6 @@
     (korean-ksc5601		. #x6C6F)	; ø»Š‰¤
     (japanese-jisx0213-1	. #x7C59)	; ø»¤™ž
     (ideograph-daikanwa		. 38951)	; ø¸‰ §
-    (ucs-jis			. #x9038)	; ø»Š‰¤
     ))
 (define-char
   '((=>ucs		. #x9038)	; é€¸
@@ -4594,7 +4593,7 @@
     (total-strokes	 . 11)
     (shinjigen-1	. 8300)
     (=jis-x0208		. #x306F)	; ø½ŠŒ
-    (ucs-jis		. #x9038)	; ø»Š‰¤
+    (ucs-jis		. #x9038)	; ø½ŠŒ
     ))
 (define-char
   '((ideographic-radical . 162)	; â¾¡
