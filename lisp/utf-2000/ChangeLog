@@ -1,5 +1,10 @@
 2004-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R168-Long.el, Ideograph-R167-Gold.el: Add missing
+	mappings between CJK Ext B and CNS 11643 plain 5.
+
+2004-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R003-Dot.el (C3-2740): Use `cns11643' instead of
 	`cns-11643' in `ideographic-radical@cns*sources'.
 
