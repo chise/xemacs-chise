@@ -60,6 +60,8 @@ typedef int Charset_ID;
 
 #define LEADING_BYTE_UCS_BMP		0x80
 #define LEADING_BYTE_CONTROL_1		0x81 /* represent normal 80-9F */
+#define LEADING_BYTE_HIRAGANA_JISX0208	0x82
+#define LEADING_BYTE_KATAKANA_JISX0208	0x83
 
 
 #define CHARSET_ID_OFFSET_94		0x55
@@ -225,8 +227,11 @@ struct Lisp_Charset
   /* Range of character code */
   Emchar ucs_min, ucs_max;
 
-  /* Offset for external representation */
+  /* Offset for external code */
   Emchar code_offset;
+
+  /* Offset for each byte */
+  Emchar byte_offset;
 };
 
 DECLARE_LRECORD (charset, struct Lisp_Charset);
@@ -270,6 +275,7 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define CHARSET_UCS_MIN(cs)	 ((cs)->ucs_min)
 #define CHARSET_UCS_MAX(cs)	 ((cs)->ucs_max)
 #define CHARSET_CODE_OFFSET(cs)	 ((cs)->code_offset)
+#define CHARSET_BYTE_OFFSET(cs)	 ((cs)->byte_offset)
 
 
 #define XCHARSET_ID(cs)		  CHARSET_ID           (XCHARSET (cs))
@@ -291,6 +297,10 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define XCHARSET_DECODING_TABLE(cs) CHARSET_DECODING_TABLE(XCHARSET(cs))
 #define XCHARSET_TO_BYTE1_TABLE(cs) CHARSET_TO_BYTE1_TABLE(XCHARSET(cs))
 #define XCHARSET_TO_BYTE2_TABLE(cs) CHARSET_TO_BYTE2_TABLE(XCHARSET(cs))
+#define XCHARSET_UCS_MIN(cs)	  CHARSET_UCS_MIN(XCHARSET(cs))
+#define XCHARSET_UCS_MAX(cs)	  CHARSET_UCS_MAX(XCHARSET(cs))
+#define XCHARSET_CODE_OFFSET(cs)  CHARSET_CODE_OFFSET(XCHARSET(cs))
+#define XCHARSET_BYTE_OFFSET(cs)  CHARSET_BYTE_OFFSET(XCHARSET(cs))
 
 /* Table of charsets indexed by (leading byte - 128). */
 extern Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
@@ -340,6 +350,12 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 #define MIN_CHAR_THAI		0x0E00
 #define MAX_CHAR_THAI		0x0E5F
 
+#define MIN_CHAR_HIRAGANA	0x3041
+#define MAX_CHAR_HIRAGANA	0x3093
+
+#define MIN_CHAR_KATAKANA	0x30A1
+#define MAX_CHAR_KATAKANA	0x30F6
+
 #define MIN_CHAR_HALFWIDTH_KATAKANA	0xFF61
 #define MAX_CHAR_HALFWIDTH_KATAKANA	0xFF9F
 
@@ -365,7 +381,7 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
   int idx;
   Lisp_Object ch;
 
-  if (!EQ(decoding_table, Qnil)
+  if (!EQ (decoding_table, Qnil)
       && (0 <= (idx = c1 - (XCHARSET_CHARS (charset) == 94 ? 33 : 32)))
       && (idx < XVECTOR_LENGTH (decoding_table))
       && !EQ (ch = XVECTOR_DATA(decoding_table)[idx], Qnil))
@@ -376,15 +392,14 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
     else
       /* return MIN_CHAR_94 + ('I' - '0') * 94 + (c1 - 33); */
       return ' ';
-  else if (CHARSET_UCS_MAX (XCHARSET (charset)))
+  else if (XCHARSET_UCS_MAX (charset))
     return (XCHARSET_DIMENSION (charset) == 1
 	    ?
-	    c1 - CHARSET_CODE_OFFSET (XCHARSET (charset))
+	    c1 - XCHARSET_BYTE_OFFSET (charset)
 	    :
-	    (c1 - CHARSET_CODE_OFFSET (XCHARSET (charset)))
-	    * XCHARSET_CHARS (charset)
-	    + c2  - CHARSET_CODE_OFFSET (XCHARSET (charset)))
-      + CHARSET_UCS_MIN (XCHARSET (charset));
+	    (c1 - XCHARSET_BYTE_OFFSET (charset)) * XCHARSET_CHARS (charset)
+	    + c2  - XCHARSET_BYTE_OFFSET (charset))
+      - XCHARSET_CODE_OFFSET (charset) + XCHARSET_UCS_MIN (charset);
   else if (XCHARSET_DIMENSION (charset) == 1)
     {
       switch (XCHARSET_CHARS (charset))
