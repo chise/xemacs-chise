@@ -760,18 +760,16 @@
     (mojikyo		. 000143)	; ý €€‚
     ))
 (define-char
-  '((ideographic-radical . 4)	; â¼ƒ
+  '((=>ucs		. #x4E22)	; ä¸¢
+    (ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 5)
-    (kangxi-radical	 . 1)	; â¼€
     (total-strokes	 . 6)
-    (chinese-gb2312	. #x362A)	; ø»„¥ƒ
-    (chinese-isoir165	. #x362A)	; ø»“
     (chinese-cns11643-3 . #x2263)	; ø»•™„
     (ideograph-gt-pj-2	. #x3132)	; ý¡€€ƒ
     (ideograph-daikanwa . 00144)	; ø¸€‚
+    (china3-jef		. #x41BA)	; øº„†º
     (ideograph-gt	. 00193)	; ý¡€€ƒ
     (mojikyo		. 000144)	; ý €€‚
-    (ucs		. #x4E22)	; ä¸¢
     ))
 (define-char
   '((ideographic-radical . 4)	; â¼ƒ
