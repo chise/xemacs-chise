@@ -609,7 +609,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+     ((name*		  . "ideographic component hood")
+      (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
       )
      ((=big5-cdp	  . #x8958)	; ý¢€ˆ¥˜
       ))
@@ -724,7 +725,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+     ((name*		  . "ideographic component hood")
+      (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
       )
      ((ucs		  . #x76EE)	; ç›®
       ))
@@ -836,7 +838,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+     ((name*		  . "ideographic component hood")
+      (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
       )
      ((ucs		  . #x5401)	; å
       ))
@@ -895,7 +898,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+     ((name*		  . "ideographic component hood")
+      (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
       )
      ((ucs		  . #x898B)	; è¦‹
       ))
@@ -929,7 +933,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+     ((name*		  . "ideographic component hood")
+      (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
       )
      ((ucs		  . #x514D)	; å…
       ))

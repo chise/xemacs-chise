@@ -2208,7 +2208,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+     ((name*		  . "ideographic component hood")
+      (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
       )
      ((ucs		  . #x52A9)	; åŠ©
       ))

@@ -1089,10 +1089,8 @@
        ((ucs		    . #x6210)	; æˆ
 	))
       )
-     ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
+     ((name*		  . "ideographic component person as roof")
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (=gt-k		  . 00057)	; ý¡„€€¹
-      (=jef-china3	  . #x71FA)	; øº‡‡º
       ))
     (chinese-cns11643-5		. #x3F46)	; ø»š—•
     (ideograph-daikanwa		. 11626)	; ø¸‚µª
