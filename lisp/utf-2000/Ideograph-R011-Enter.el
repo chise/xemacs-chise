@@ -245,42 +245,74 @@
   '((ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (=daikanwa		. 01421)	; &M-01421;
+    (=ucs		. #x204DE)	; 𠓞
+    (->subsumptive
+     ((hanyu-dazidian	  1 103 5)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=jis-x0208	    . #x467E)	; &GT-01850; [38-94]
+	(=ks-x1001	    . #x6C7D)	; &I-K0-6C7D; [76-93]
+	(=daikanwa	    . 01415)	; &I-M-01415;
+	)
+       ((=ucs		    . #x4E8C)	; 二
+	))
+      (=daikanwa	  . 01421)	; &M-01421;
+      (=hanziku-1	  . #xB943)	; &I-HZK01-B943;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=gb2312	    . #x486B)	; &C1-442B; [40-75]
+	(=cns11643-1	    . #x442B)	; &I-C1-442B; [36-11]
+	)
+       ((=ucs		    . #x4E8C)	; 二
+	))
+      (=ucs@iso		  . #x204DE)	; &UU+204DE;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x34B0)	; 㒰
-    (ideographic-radical . 11)	; ⼊
+  '((ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (hanyu-dazidian	1 111 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=jis-x0208	  . #x467E)	; &GT-01850; [38-94]
-      (=ks-x1001	  . #x6C7D)	; &I-K0-6C7D; [76-93]
-      (=daikanwa	  . 01415)	; &I-M-01415;
-      )
-     ((=ucs		  . #x5DE5)	; 工
-      ))
-    (=daikanwa		. 01422)	; &M-01422;
-    (=hanziku-1		. #xBAC6)	; &I-HZK01-BAC6;
-    ))
-(define-char
-  '((morohashi-daikanwa	1422 0 0)
-    (ideographic-radical . 11)	; ⼊
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x5165)	; 入
-      )
-     ((=ucs		  . #x5DE5)	; 工
-      ))
     (=ucs		. #x34B0)	; 㒰
-    (=cns11643-3	. #x2176)	; &I-C3-2176; [01-86]
+    (->subsumptive
+     ((<-vulgar
+       ((shinjigen-1	    . 4875)
+	(=ucs		    . #xFA72)	; 全
+	(=jis-x0208	    . #x4134)	; &I-J90-4134; [33-20]
+	))
+      (<-vulgar*sources
+       shinjigen-1)
+      (hanyu-dazidian	  1 111 3)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=jis-x0208	    . #x467E)	; &GT-01850; [38-94]
+	(=ks-x1001	    . #x6C7D)	; &I-K0-6C7D; [76-93]
+	(=daikanwa	    . 01415)	; &I-M-01415;
+	)
+       ((=ucs		    . #x5DE5)	; 工
+	))
+      (shinjigen-1	  . 4877)
+      (=daikanwa	  . 01422)	; &M-01422;
+      (=hanziku-1	  . #xBAC6)	; &I-HZK01-BAC6;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=gb2312	    . #x486B)	; &C1-442B; [40-75]
+	(=cns11643-1	    . #x442B)	; &I-C1-442B; [36-11]
+	)
+       ((=ucs		    . #x5DE5)	; 工
+	))
+      (=cns11643-3	  . #x2176)	; &C3-2176; [01-86]
+      (=ucs@unicode	  . #x34B0)	; &C3-2176;
+      ))
     ))
 (define-char
   '((ideographic-radical . 11)	; ⼊
@@ -382,6 +414,8 @@
       )
      ((=ucs		  . #x738B)	; 王
       ))
+    (shinjigen-1	. 4875)
+    (shinjigen-2	. 4875)
     (=ucs		. #xFA72)	; 全
     (=jis-x0208		. #x4134)	; &I-J90-4134; [33-20]
     (=gb2312		. #x482B)	; &I-G0-482B; [40-11]
