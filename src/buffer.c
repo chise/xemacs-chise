@@ -2,6 +2,7 @@
    Copyright (C) 1985-1989, 1992-1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 1995, 1996 Ben Wing.
+   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -29,6 +30,7 @@ Boston, MA 02111-1307, USA.  */
         list per frame.)
    Mly: a few changes for buffer-local vars, 19.8 or 19.9.
    Ben Wing: some changes and cleanups for Mule, 19.12.
+   MORIOKA Tomohiko: some changes for XEmacs UTF-2000.
  */
 
 /* This file contains functions that work with buffer objects.
@@ -1860,11 +1862,17 @@ dfc_convert_to_external_format (dfc_conversion_type source_type,
 	const Bufbyte *end;
 	for (end = ptr + len; ptr < end;)
 	  {
+#ifdef UTF2000
+	    Bufbyte c =
+	      (*ptr < 0xc0) ? *ptr :
+	      ((*ptr & 0x1f) << 6) | (*(ptr+1) & 0x3f);
+#else
 	    Bufbyte c =
 	      (BYTE_ASCII_P (*ptr))		   ? *ptr :
 	      (*ptr == LEADING_BYTE_CONTROL_1)	   ? (*(ptr+1) - 0x20) :
 	      (*ptr == LEADING_BYTE_LATIN_ISO8859_1) ? (*(ptr+1)) :
 	      '~';
+#endif
 
 	    Dynarr_add (conversion_out_dynarr, (Extbyte) c);
 	    INC_CHARPTR (ptr);
@@ -2000,6 +2008,15 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
         {
           Bufbyte c = *ptr;
 
+#ifdef UTF2000
+	  if (BYTE_ASCII_P (c))
+	    Dynarr_add (conversion_in_dynarr, c);
+	  else
+	    {
+	      Dynarr_add (conversion_in_dynarr, (c >> 6) | 0xC0);
+	      Dynarr_add (conversion_in_dynarr, (c & 0x3F) | 0x80);
+	    }
+#else
 	  if (BYTE_ASCII_P (c))
 	    Dynarr_add (conversion_in_dynarr, c);
 	  else if (BYTE_C1_P (c))
@@ -2012,6 +2029,7 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
 	      Dynarr_add (conversion_in_dynarr, LEADING_BYTE_LATIN_ISO8859_1);
 	      Dynarr_add (conversion_in_dynarr, c);
 	    }
+#endif
         }
 #else
       Dynarr_add_many (conversion_in_dynarr, source->data.ptr, source->data.len);
@@ -2417,8 +2435,10 @@ common_init_complex_vars_of_buffer (void)
   defs->category_table = Vstandard_category_table;
 #endif /* MULE */
   defs->syntax_table = Vstandard_syntax_table;
+#ifndef UTF2000
   defs->mirror_syntax_table =
     XCHAR_TABLE (Vstandard_syntax_table)->mirror_table;
+#endif
   defs->modeline_format = build_string ("%-");  /* reset in loaddefs.el */
   defs->case_fold_search = Qt;
   defs->selective_display_ellipses = Qt;
