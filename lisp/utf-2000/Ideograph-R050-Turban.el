@@ -4633,6 +4633,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (=ucs		. #x5E63)	; 幣
+    (=big5		. #xB9F4)	; &I-B-B9F4;
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
@@ -4652,7 +4653,6 @@
      ((=ucs		  . #x5DFE)	; 巾
       ))
     (=ks-x1001		. #x7847)	; &M-09088; [88-39]
-    (=big5		. #xB9F4)	; &I-B-B9F4;
     (=daikanwa		. 09088)	; &I-M-09088;
     (=jef-china3	. #x4BFE)	; &I-JC3-4BFE;
     (=ucs@big5		. #x5E63)	; &M-09088;
