@@ -415,7 +415,7 @@ int x_IO_error_handler (Display *disp);
 void x_redraw_exposed_area (struct frame *f, int x, int y,
 			    int width, int height);
 void x_output_string (struct window *w, struct display_line *dl,
-		      Emchar_dynarr *buf, int xpos, int xoffset,
+		      Charc_dynarr *buf, int xpos, int xoffset,
 		      int start_pixpos, int width, face_index findex,
 		      int cursor, int cursor_start, int cursor_width,
 		      int cursor_height);
