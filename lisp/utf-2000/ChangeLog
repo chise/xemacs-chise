@@ -1,5 +1,11 @@
 2004-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R134-Mortar.el (U+81FD): Use `->subsumptive'.
+
+	* Ideograph-R130-Meat.el (U+2EBC): Use `->subsumptive'.
+
+	* Ideograph-R045-Sprout.el (U+5C70): Unify BC-8DBD.
+
 	* Ideograph-R015-Ice.el (M-01718): Use
 	`<-vulgar-ideograph*sources' instead of char-ref in
 	`<-vulgar-ideograph'; simplify `ideographic-structure'.
@@ -8,8 +14,6 @@
 	(U+51DB): Likewise.
 
 	* Ideograph-R009-Man.el (U+4F7E): Use `->subsumptive'.
-
-	* Ideograph-R134-Mortar.el (U+81FD): Use `->subsumptive'.
 
 2004-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
