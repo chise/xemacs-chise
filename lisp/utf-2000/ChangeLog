@@ -1,3 +1,11 @@
+2003-01-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R099-Sweet.el: Reformatted.
+
+	* Ideograph-R073-Say.el (U+52D7):
+	New character; use `ideographic-' instead of `cns-radical'.
+	(M-14302): Separate C2-3C4C, JX2-2E37, B-D9A9 and U+6701.
+
 2003-01-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R008-Lid.el: Reformatted.
@@ -10,6 +18,19 @@
 	(U-00020199): Relate to M-05824.
 	(M-00341): Modify `ideographic-structure'.
 	(U-0002019D): Likewise.
+
+2003-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R051-Dry.el (M-09169): Separate C2-223B, B-C9DB and
+	U+5E75.
+
+	* Ideograph-R040-Roof.el (M-07205): Separate G0-435C, C1-596F and
+	U+5BC6.
+
+	* Ideograph-R036-Evening.el (M-05824):
+	Add mapping to U-00020199; modify `ideographic-structure'.
+	(CB00833): Likewise.
+	(U-00020199): New character; relate to M-05824.
 
 2003-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
@@ -26,6 +47,15 @@
 	(C7-4D3D): Separate U+34B9.
 	(U+34B9): Unify H1-DAA1.
 
+2003-01-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R042-Small.el: Reformatted.
+
+	* Ideograph-R037-Big.el (U+595A): Separate C1-5471.
+
+	* Ideograph-R034-Go.el: Reformatted.
+	(J0-4A51): Separate U+5909.
+
 2003-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R019-Power.el: Reformatted.
@@ -35,6 +65,14 @@
 	(U-00020660): Complete `ideographic-structure'.
 
 	* Ideograph-R009-Man.el: Reformatted.
+
+2003-01-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R061-Heart.el: Reformatted.
+	(U-00022608): Complete `ideographic-structure'.
+	(U-00022614): Likewise.
+	(U+60B3): Delete incomplete `ideographic-structure'.
+	(U+60EA): Unify C3-3B4D.
 
 2003-01-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
@@ -80,6 +118,12 @@
 
 	* Ideograph-R039-Child.el: Reformatted.
 	(M-06987): Separate G1-4B6F and U+5B6B.
+
+2003-01-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (CB01092): Delete incorrect
+	`ideographic-structure'.
+	(CB00102): Add `ideographic-structure'.
 
 2003-01-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
