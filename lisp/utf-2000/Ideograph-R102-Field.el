@@ -748,7 +748,7 @@
     (chinese-cns11643-3 . #x324D)	; ø»•°Ž
     ))
 (define-char
-  '((->ucs		. #x7556)	; ç•–
+  '((=>ucs		. #x7556)	; ç•–
     (morohashi-daikanwa	21805 0 2)
     (ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 5)
