@@ -1,5 +1,10 @@
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/english.el (setup-english-environment): Don't setup
+	`setup-function' property of English environment.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/cyrillic.el:
 	- Register `coding-priority', `input-method' and `features' keys
 	  into language-info-alist.
@@ -29,9 +34,9 @@
 
 1998-08-31  Paul Eggert  <eggert@twinsun.com>
 
-	* mule/chinese.el, mule/cyrillic.el: Add coding: local variable,
-	to avoid bootstrapping problem if you need to recompile all the
-	Lisp files using interpreted code.
+	* mule/chinese.el, mule/cyrillic.el, mule/ethiopic.el: Add coding:
+	local variable, to avoid bootstrapping problem if you need to
+	recompile all the Lisp files using interpreted code.
 
 1998-01-21  Kenichi Handa  <handa@etl.go.jp>
 
@@ -240,6 +245,9 @@
 	in language-info-alist.
 	(read-language-name): Handle the case that the arg KEY is nil.
 	(describe-language-environment): Handle input-method property.
+
+	* language/english.el (setup-english-environment): Just call
+	reset-language-environment.
 
 1998-08-08  Richard Stallman  <rms@psilocin.ai.mit.edu>
 
