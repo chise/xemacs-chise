@@ -3060,7 +3060,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((=gt-k		  . 08651)	; ý¡„‚‡‹
+     ((=gt		  . 56364)	; ý¡€°¬
       )
      ((ucs		  . #x529B)	; åŠ›
       ))

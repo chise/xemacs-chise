@@ -255,6 +255,19 @@
 		  max-code	,(+ (lsh #x6110 16) 17090)
 		  code-offset	,(lsh #x6110 16)))
   (define-charset-alias 'ideograph-gt-k '=gt-k)
+  (let ((i 1))
+    (while (<= i 11)
+      (make-charset
+       (intern (format "ideograph-gt-pj-%d" i))
+       (format "GT PJ %d" i)
+       `(long-name ,(format "GT 2000 (pseudo JIS encoding) part %d" i)
+		   chars 94
+		   dimension 2
+		   columns 2
+		   graphic 0
+		   direction l2r
+		   registry ,(format "\\(GTpj-%d\\|jisx0208\\.GT-%d\\)$" i i)))
+      (setq i (1+ i))))
   (make-charset
    'ideograph-gt-pj-k1
    "GT K1"

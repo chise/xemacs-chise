@@ -24,10 +24,10 @@
 
 ;;; Code:
 
-(unless (memq 'mojikyo default-coded-charset-priority-list)
-  (setq default-coded-charset-priority-list
-	(append default-coded-charset-priority-list
-		'(mojikyo))))
+;; (unless (memq 'mojikyo default-coded-charset-priority-list)
+;;   (setq default-coded-charset-priority-list
+;;         (append default-coded-charset-priority-list
+;;                 '(mojikyo))))
 
 (let ((i 1)
       name)

@@ -1,3 +1,12 @@
+2003-02-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h (LEADING_BYTE_GT_PJ_{1..11}): Deleted.
+
+	* mule-charset.c (Vcharset_ideograph_gt_pj_{1..11}): Deleted.
+	(Qideograph_gt_pj_{1..11}): Deleted.
+	(syms_of_mule_charset): Delete `ideograph-gt-pj-{1..11}'.
+	(complex_vars_of_mule_charset): Likewise.
+
 2003-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_ucs_big5): Deleted.
