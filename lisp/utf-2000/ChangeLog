@@ -1,6 +1,26 @@
 2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R031-Enclosure.el: Add `=ucs@big5' features.
+	* read-maps.el (mapping-table-read-file): Use `=ucs@jis-2000'
+	instead of `ucs-jis' for JX2-XXXX.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5423.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (JSP-6676): Separate
+	JX2-7B73; unify GT-56559.
+	(GT-56560): New character.
+	(JX2-7B73): Unify GT-56531.
+
+	* Ideograph-R140-Grass.el (JC3-61FA): New character.
+	(U+845B): Unify J78-336B.
+	(BC-8CB0): Unify GT-42188 and GT-K11857.
+	(JX2-7657): Unify GT-41801.
+	(M-49635): Use `ideographic-strokes@daikanwa' instead of
+	`ideographic-strokes'.
+
+	* Ideograph-R072-Sun.el: Reformatted.
+
+	* Ideograph-R040-Roof.el, Ideograph-R039-Child.el,
+	Ideograph-R031-Enclosure.el: Add `=ucs@big5' features.
 
 	* Ideograph-R030-Mouth.el (JSP-3669): Separate B-F5C6.
 
@@ -51,10 +71,21 @@
 	Ideograph-R008-Lid.el, Ideograph-R010-Legs.el: Add `=ucs@big5'
 	features.
 
+2003-12-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-ideographic-strokes-from-domains): New
+	function.
+	(char-ideographic-strokes): Add new optional argument
+	`preferred-domains'; use `char-ideographic-strokes-from-domains'.
+	(char-daikanwa-strokes): Specify '(daikanwa) as the
+	`preferred-domains' for `char-ideographic-strokes'.
+
 2003-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R018-Knife.el, Ideograph-R014-Cover.el,
 	Ideograph-R013-Down-Box.el: Add `=ucs@big5' features.
+
+	* char-db-util.el (char-db-feature-domains): Add jis-x0213.
 
 2003-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
