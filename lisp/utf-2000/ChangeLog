@@ -1,3 +1,21 @@
+2003-01-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el: Reformatted.
+	(M-30801): Separate JSP-5756, C2-2D41 and U+82EA.
+	(CDP-8D60): New character.
+	(K0-6E4A): Unify JX1-7B27, U+FA5F and KU+8457.
+	(M-31410): Map to U+FA5F instead of U+8457; unify KU+8457.
+	(U+855A): Add `<-vulgar-ideograph' for U+843C.
+	(M-32123): Separate C1-7531.
+	(M-32505): Separate U+8625; unify CU+8625.
+
+2003-01-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R130-Meat.el (M-29237): Unify <CJK RADICAL MEAT>.
+	(CDP-8A73): Add mapping for U+2EBC.
+	(CDP-8958): New character.
+	(C6-2549): Unify CDP-8B6A.
+
 2003-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R134-Mortar.el: Reformatted.
