@@ -1,0 +1,1643 @@
+2000-07-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R055-Two-Hands.el, Ideograph-R056-Shoot.el,
+	Ideograph-R057-Bow.el, Ideograph-R058-Snout.el,
+	Ideograph-R059-Bristle.el, Ideograph-R047-River.el,
+	Ideograph-R048-Work.el, Ideograph-R049-Oneself.el,
+	Ideograph-R050-Turban.el, Ideograph-R051-Dry.el,
+	Ideograph-R052-Short-Thread.el, Ideograph-R053-Dotted-Cliff.el,
+	Ideograph-R054-Long-Stride.el, Ideograph-R039-Child.el,
+	Ideograph-R040-Roof.el, Ideograph-R041-Inch.el,
+	Ideograph-R042-Small.el, Ideograph-R043-Lame.el,
+	Ideograph-R044-Corpse.el, Ideograph-R045-Sprout.el,
+	Ideograph-R046-Mountain.el, Ideograph-R033-Scholar.el,
+	Ideograph-R034-Go.el, Ideograph-R035-Go-Slowly.el,
+	Ideograph-R036-Evening.el, Ideograph-R037-Big.el,
+	Ideograph-R038-Woman.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R032-Earth.el, Ideograph-R025-Divination.el,
+	Ideograph-R026-Seal.el, Ideograph-R027-Cliff.el,
+	Ideograph-R028-Private.el, Ideograph-R029-Again.el,
+	Ideograph-R030-Mouth.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R018-Knife.el, Ideograph-R019-Power.el,
+	Ideograph-R020-Wrap.el, Ideograph-R021-Spoon.el,
+	Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R024-Ten.el,
+	Ideograph-R010-Legs.el, Ideograph-R012-Eight.el,
+	Ideograph-R013-Down-Box.el, Ideograph-R014-Cover.el,
+	Ideograph-R015-Ice.el, Ideograph-R001-One.el,
+	Ideograph-R002-Line.el, Ideograph-R004-Slash.el,
+	Ideograph-R008-Lid.el, Ideograph-R009-Man.el: Resorted; add
+	missing some Morohashi's Daikanwa characters.
+
+2000-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-ideographic-radical): Renamed from
+	`char-ideograph-radical'.
+	(ideograph-radical-strokes-vector): New variable.
+	(char-ideographic-strokes): Renamed from `char-ideograph-strokes';
+	detect `ideographic-strokes' using
+	`ideograph-radical-strokes-vector' if `total-strokes' is found.
+	(int-list<): New function.
+	(ideograph-char<): New implementation.
+
+2000-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-data): Copy `attributes' and
+	`ccs-attributes' if they are specified; regard
+	`shinjigen-1-radical' as a ideographic radical; regard `->mojikyo'
+	as a variant of Mojikyo character; modify form of `mojikyo'.
+
+2000-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R209-Nose.el, Ideograph-R210-Even.el,
+	Ideograph-R211-Tooth.el, Ideograph-R212-Dragon.el,
+	Ideograph-R213-Turtle.el, Ideograph-R214-Flute.el,
+	Ideograph-R199-Wheat.el, Ideograph-R200-Hemp.el,
+	Ideograph-R201-Yellow.el, Ideograph-R202-Millet.el,
+	Ideograph-R203-Black.el, Ideograph-R204-Embroidery.el,
+	Ideograph-R205-Frog.el, Ideograph-R206-Tripod.el,
+	Ideograph-R207-Drum.el, Ideograph-R208-Rat.el,
+	Ideograph-R197-Salt.el, Ideograph-R198-Deer.el,
+	Ideograph-R196-Bird.el, Ideograph-R194-Ghost.el,
+	Ideograph-R195-Fish.el, Ideograph-R191-Fight.el,
+	Ideograph-R192-Sacrificial-Wine.el, Ideograph-R193-Cauldron.el,
+	Ideograph-R188-Bone.el, Ideograph-R189-Tall.el,
+	Ideograph-R190-Hair.el, Ideograph-R185-Head.el,
+	Ideograph-R186-Fragrant.el, Ideograph-R187-Horse.el,
+	Ideograph-R182-Wind.el, Ideograph-R183-Fly.el,
+	Ideograph-R184-Eat.el, Ideograph-R178-Tanned-Leather.el,
+	Ideograph-R179-Leek.el, Ideograph-R180-Sound.el,
+	Ideograph-R181-Leaf.el, Ideograph-R173-Rain.el,
+	Ideograph-R174-Blue.el, Ideograph-R175-Wrong.el,
+	Ideograph-R176-Face.el, Ideograph-R177-Leather.el,
+	Ideograph-R170-Mound.el, Ideograph-R171-Slave.el,
+	Ideograph-R172-Short-Tailed-Bird.el, Ideograph-R168-Long.el,
+	Ideograph-R169-Gate.el, Ideograph-R165-Distinguish.el,
+	Ideograph-R166-Village.el, Ideograph-R167-Gold.el,
+	Ideograph-R164-Wine.el, Ideograph-R163-City.el,
+	Ideograph-R160-Bitter.el, Ideograph-R161-Morning.el,
+	Ideograph-R162-Walk.el, Ideograph-R158-Body.el,
+	Ideograph-R159-Cart.el, Ideograph-R157-Foot.el,
+	Ideograph-R155-Red.el, Ideograph-R156-Run.el,
+	Ideograph-R150-Valley.el, Ideograph-R151-Bean.el,
+	Ideograph-R152-Pig.el, Ideograph-R153-Badger.el,
+	Ideograph-R154-Shell.el, Ideograph-R146-West.el,
+	Ideograph-R147-See.el, Ideograph-R148-Horn.el,
+	Ideograph-R149-Speech.el, Ideograph-R143-Blood.el,
+	Ideograph-R144-Walk-Enclosure.el, Ideograph-R145-Clothes.el,
+	Ideograph-R141-Tiger.el, Ideograph-R142-Insect.el,
+	Ideograph-R138-Stopping.el, Ideograph-R139-Color.el,
+	Ideograph-R140-Grass.el, Ideograph-R131-Minister.el,
+	Ideograph-R132-Self.el, Ideograph-R133-Arrive.el,
+	Ideograph-R134-Mortar.el, Ideograph-R135-Tongue.el,
+	Ideograph-R136-Oppose.el, Ideograph-R137-Boat.el,
+	Ideograph-R125-Old.el, Ideograph-R126-And.el,
+	Ideograph-R127-Plow.el, Ideograph-R128-Ear.el,
+	Ideograph-R129-Brush.el, Ideograph-R130-Meat.el,
+	Ideograph-R122-Net.el, Ideograph-R123-Sheep.el,
+	Ideograph-R124-Feather.el, Ideograph-R121-Jar.el,
+	Ideograph-R120-Silk.el, Ideograph-R119-Rice.el,
+	Ideograph-R117-Stand.el, Ideograph-R118-Bamboo.el,
+	Ideograph-R116-Cave.el, Ideograph-R113-Spirit.el,
+	Ideograph-R114-Track.el, Ideograph-R115-Grain.el,
+	Ideograph-R112-Stone.el, Ideograph-R110-Spear.el,
+	Ideograph-R111-Arrow.el, Ideograph-R109-Eye.el,
+	Ideograph-R105-Dotted-Tent.el, Ideograph-R106-White.el,
+	Ideograph-R107-Skin.el, Ideograph-R108-Dish.el,
+	Ideograph-R103-Bolt-Of-Cloth.el, Ideograph-R104-Sickness.el,
+	Ideograph-R097-Melon.el, Ideograph-R098-Tile.el,
+	Ideograph-R099-Sweet.el, Ideograph-R100-Life.el,
+	Ideograph-R101-Use.el, Ideograph-R102-Field.el,
+	Ideograph-R095-Profound.el, Ideograph-R096-Jade.el,
+	Ideograph-R092-Fang.el, Ideograph-R093-Cow.el,
+	Ideograph-R094-Dog.el, Ideograph-R087-Claw.el,
+	Ideograph-R088-Father.el, Ideograph-R089-Double-X.el,
+	Ideograph-R090-Half-Tree-Trunk.el, Ideograph-R091-Slice.el,
+	Ideograph-R086-Fire.el, Ideograph-R085-Water.el,
+	Ideograph-R077-Stop.el, Ideograph-R078-Death.el,
+	Ideograph-R079-Weapon.el, Ideograph-R080-Do-Not.el,
+	Ideograph-R081-Compare.el, Ideograph-R082-Fur.el,
+	Ideograph-R083-Clan.el, Ideograph-R084-Steam.el,
+	Ideograph-R076-Lack.el, Ideograph-R074-Moon.el,
+	Ideograph-R075-Tree.el, Ideograph-R071-Not.el,
+	Ideograph-R072-Sun.el, Ideograph-R073-Say.el,
+	Ideograph-R065-Branch.el, Ideograph-R066-Rap.el,
+	Ideograph-R067-Script.el, Ideograph-R068-Dipper.el,
+	Ideograph-R069-Axe.el, Ideograph-R070-Square.el,
+	Ideograph-R062-Halberd.el, Ideograph-R063-Door.el,
+	Ideograph-R064-Hand.el, Ideograph-R052-Short-Thread.el,
+	Ideograph-R053-Dotted-Cliff.el, Ideograph-R054-Long-Stride.el,
+	Ideograph-R055-Two-Hands.el, Ideograph-R056-Shoot.el,
+	Ideograph-R057-Bow.el, Ideograph-R058-Snout.el,
+	Ideograph-R059-Bristle.el, Ideograph-R060-Step.el,
+	Ideograph-R061-Heart.el, Ideograph-R047-River.el,
+	Ideograph-R048-Work.el, Ideograph-R049-Oneself.el,
+	Ideograph-R050-Turban.el, Ideograph-R051-Dry.el,
+	Ideograph-R045-Sprout.el, Ideograph-R046-Mountain.el,
+	Ideograph-R039-Child.el, Ideograph-R040-Roof.el,
+	Ideograph-R041-Inch.el, Ideograph-R042-Small.el,
+	Ideograph-R043-Lame.el, Ideograph-R044-Corpse.el,
+	Ideograph-R033-Scholar.el, Ideograph-R034-Go.el,
+	Ideograph-R035-Go-Slowly.el, Ideograph-R036-Evening.el,
+	Ideograph-R037-Big.el, Ideograph-R038-Woman.el,
+	Ideograph-R031-Enclosure.el, Ideograph-R032-Earth.el,
+	Ideograph-R026-Seal.el, Ideograph-R027-Cliff.el,
+	Ideograph-R028-Private.el, Ideograph-R029-Again.el,
+	Ideograph-R030-Mouth.el, Ideograph-R019-Power.el,
+	Ideograph-R020-Wrap.el, Ideograph-R021-Spoon.el,
+	Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R024-Ten.el,
+	Ideograph-R025-Divination.el, Ideograph-R016-Table.el,
+	Ideograph-R017-Open-Box.el, Ideograph-R018-Knife.el,
+	Ideograph-R015-Ice.el: Reformatted.
+
+	* char-db-util.el (insert-char-range-data): Use `decode-char'
+	instead of `int-char'; check `ucs' attribute.
+
+	* u03100-Bopomofo.el (BOPOMOFO LETTER U): Add `script'.
+
+2000-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R014-Cover.el, Ideograph-R013-Down-Box.el,
+	Ideograph-R012-Eight.el: Reformatted.
+
+2000-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (M-458): Modify `ideographic-strokes'.
+
+	* Ideograph-R011-Enter.el, Ideograph-R010-Legs.el: Reformatted.
+
+2000-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (ISO-IR-165-2C7A): Fix
+	`morohashi-daikanwa'.
+
+	* Ideograph-R008-Lid.el, Ideograph-R007-Two.el,
+	Ideograph-R001-One.el, Ideograph-R006-Hook.el,
+	Ideograph-R005-Second.el, Ideograph-R004-Slash.el,
+	Ideograph-R003-Dot.el, Ideograph-R002-Line.el: Reformatted.
+
+2000-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el:
+	- Use `ideographic-strokes' if each stroke attribute has same
+	  value.
+	(U+8868): Add J78 and 83.
+	(M-34110): Separate C5-2B45.
+	(U+886B): Likewise.
+	(U+8870): Likewise.
+	(M-34130): Separate U+8872; add J78 and J83; separate C2-3276.
+	(U+8875): Add J78 and J83.
+	(U+8877): Likewise.
+	(U+887D): Likewise.
+	(U+887E): Likewise.
+	(U+8881): Likewise.
+	(U+8882): Likewise.
+	(M-34163'): Add M50441.
+	(M-34164): New character.
+	(U+888B): Add J78 and J83.
+	(U+888D): Likewise.
+	(U+8892): Likewise.
+	(U+8896): Likewise.
+	(U+8897): Likewise.
+	(U+8899): Likewise.
+	(U+889E): Likewise; separate J90-6A51; separate C1-5D35.
+	(M-34210): Add J78 and J83.
+	(U+88A4): Likewise.
+	(U+88AB): Likewise.
+	(U+88B1): Likewise.
+	(U+88B4): Likewise.
+	(U+88B5): Likewise.
+	(U+88BF): Likewise.
+	(U+88C1): Likewise.
+	(U+88C2): Likewise.
+	(U+88C3): Likewise.
+	(U+88C4): Likewise.
+	(U+88C5): Add J{78|83|90}-4175 and M050442.
+	(U+88CF): Add J78 and J83.
+	(U+88E1): Likewise.
+	(U+88D4): Likewise.
+	(U+88D5): Likewise.
+	(M-34312): Add J{78|83}-6A64; separate J90; separate GB, C1 and
+	U+88D8.
+	(U+88D9): Add J78 and J83.
+	(U+88DC): Likewise.
+	(U+88DD): Likewise.
+	(U+88DF): Likewise.
+	(U+88E8): Likewise.
+	(M-34356): Likewise.
+	(U+88F3): Likewise.
+	(M-34362): Add J{78|83}-6A6A; separate J90; separate U+88F4, GB
+	and C1.
+	(M-34367): Separate C4-4728.
+	(U+88F8): Add J78 and J83.
+	(U+88F9): Likewise.
+	(U+88FC): Likewise.
+	(U+88FD): Likewise.
+	(U+88FE): Likewise.
+	(U+8902): Likewise.
+	(U+8904): Likewise.
+	(U+8907): Likewise.
+	(M34420): Add J78-6A6F; separate J90-6A6F; separate U+890A.
+	(J90-6A6F): Add J83.
+	(U+890C): Add J78 and J83.
+	(U+8912): Likewise.
+	(U+8913): Likewise.
+	(U+891E): Likewise.
+	(U+8925): Likewise.
+	(M-34503): Add J78 and J83; separate C1-7230; separate U+892A.
+	(M-34504): Separate U+892B and GB.
+	(U+892B): Add {J78|J83}-6A75.
+	(U+8936): Add J78 and J83.
+	(U+8938): Likewise.
+	(M-34536): Separate U+893B and C1.
+	(J{78|83}-6A78): New variant of M-34536.
+	(U+8941): Add J78 and J83.
+	(U+8943): Likewise.
+	(U+8944): Likewise.
+	(U+894C): Likewise.
+	(U+894D): Likewise.
+	(U+895E): Likewise.
+	(U+8960): Likewise.
+	(U+8964): Likewise.
+	(U+8966): Likewise.
+	(M-34696): Separate J90-6B24 and U+896A.
+	(J{78|83}-6B24): New variant of M-34696 and U+896A.
+	(U+896D): Add J78 and J83.
+	(J{78|83}-6B25): New variant of M-34712 and U+896F.
+	(U+8972): Add J78 and J83.
+	(U+8974): Likewise.
+	(U+8977): Likewise.
+
+2000-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (insert-ideograph-radical-char-data): Use
+	`insert-char-data' with new optional arguments `attributes' and
+	`ccs-attributes'.
+
+	* char-db-util.el (insert-char-data): Add new optional arguments
+	`attributes' and `ccs-attributes'; don't use
+	`char-attribute-alist'.
+	(decode-builtin-char): Deleted.
+
+	* Ideograph-R009-Man.el:
+	- Use `ideographic-strokes' if each stroke attribute has same
+	  value.
+	(M-462'): Add M050101.
+
+2000-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-data): Add optional argument
+	`readable'.
+	(insert-char-data-with-variant): Likewise.
+	(what-char-definition): Use `insert-char-data-with-variant' with
+	`readable' mode.
+
+2000-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (update-ideograph-radical-table): Don't refer
+	50101 or greater code range of coded-charset `ideograph-daikanwa'.
+
+2000-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R105-Dotted-Tent.el:
+	- Add missing J78 and J83 characters.
+	- Add missing Morohashi's Daikanwa characters.
+
+2000-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (update-ideograph-radical-table): Use
+	`char-ideograph-strokes' to put `ideographic-strokes'.
+	(ideograph-char<): Refer `ideograph-daikanwa' attribute.
+
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-data): If an element of
+	`->decomposition' property is a character, print it as same as an
+	integer.
+
+2000-05-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (update-ideograph-radical-table): Ignore non
+	`Ideograph' characters.
+
+	* char-db-util.el (insert-char-data): Change order for `script'.
+	(insert-char-data-with-variant): Add optional argument `script'.
+	(insert-char-range-data): Likewise.
+	(write-char-range-data-to-file): Likewise.
+
+	* Ideograph-R001-One.el (BOPOMOFO LETTER K): Deleted.
+	(U+4E02): Add `->bopomofo-letter'.
+	(BOPOMOFO LETTER O): Deleted.
+	(M00004): Add `script', `->ucs' and `->bopomofo-letter'.
+	(M00005): Separate <BOPOMOFO LETTER E>.
+	(M00009): Separate <BOPOMOFO LETTER C>.
+
+	* u03100-Bopomofo.el (BOPOMOFO LETTER K): Add script.
+	(BOPOMOFO LETTER C): Likewise.
+	(BOPOMOFO LETTER O): Likewise.
+	(BOPOMOFO LETTER E): Likewise.
+
+2000-05-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-data): Support `insert-char-data'.
+
+	* u03100-Bopomofo.el (BOPOMOFO LETTER K): Add `->ideograph' and
+	`chinese-isoir165'; delete `ideograph-daikanwa'.
+	(BOPOMOFO LETTER C): Likewise.
+	(BOPOMOFO LETTER O): Likewise.
+	(BOPOMOFO LETTER E): Likewise.
+	(BOPOMOFO LETTER U): Add `morohashi-daikanwa',
+	`ideographic-radical', `ideographic-strokes', `total-strokes'; use
+	`->ideograph' instead of `ideograph'.
+
+2000-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R197-Salt.el: Reformatted.
+
+2000-04-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ccs-jisx0208-1983.el: Remove unused file.
+
+2000-03-23  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R085-Water.el (U+6E13): Add J{78|83|90}-374C.
+
+	* Ideograph-R066-Rap.el (M13285'): Unify U+656C; separate C1-6439.
+	(M13303): Separate U+656C.
+
+	* Ideograph-R064-Hand.el (M12239): Separate U+6385.
+	(M12311'): Add Mojikyo-50200.
+	(M12312): Separate U+63BD.
+	(M12373): Separate U+63E4.
+	(M12552): Separate U+643D.
+	(M12575): Separate U+6452.
+	(M12597): Separate U+6461.
+	(M12597): Separate U+6461.
+	(M12645): Separate U+6479.
+	(M12678): Separate U+6487.
+	(M12716): Separate U+649D.
+	(M12808): Separate U+64CE.
+	(M12876): Separate U+64ED.
+	(M12894): Separate U+64F3.
+	(M26763): Separate C5-7347.
+
+2000-03-22  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* char-db-util.el (insert-char-data): Change order of
+	`ideographic-strokes', `kangxi-strokes', `japanese-strokes' and
+	`cns-strokes'.
+
+	* mojikyo.el (M292): Remove mojikyo-pj-1.
+	(M634): Likewise.
+	(M916): Likewise.
+	(M28800): Remove mojikyo-pj-6.
+	(M48869): Remove mojikyo-pj-9.
+	(M50100): Likewise.
+
+2000-03-22  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R054-Long-Stride.el (M9574): Separate U+5EFA.
+
+	* Ideograph-R038-Woman.el (M6618): Separate U+5ACC.
+
+	* Ideograph-R116-Cave.el (M25406): Separate U+7A74.
+	(M25424): Separate U+7A81.
+	(M25439): Unify U+7A81.
+
+	* Ideograph-R170-Mound.el (M41720'): Separate U+F9DC; add
+	Mojikyo-50557.
+	(U+F9DC): Add K0-6B58.
+	(M41792): Separate J78-3764 and C1-6B61.
+	(M41813): Add J78-3764.
+
+	* Ideograph-R213-Turtle.el (M48869): Add `kangxi-radical',
+	`kangxi-strokes' and comment.
+
+2000-03-22  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R115-Grain.el (M25218): Separate J78-374E and K0-4D26.
+	(M48869): Moved to Ideograph-R213-Turtle.el.
+
+	* Ideograph-R113-Spirit.el (M24634): Separate U+7941.
+	(M24636): Separate U+7944.
+	(M24637): Separate U+7945.
+	(M24638): Separate U+7946.
+	(M24640): Move K0-5137 from U+7948.
+	(M24641): Move K0-7233 from U+7949.
+	(M24643): Separate U+794A.
+	(M24645): Separate U+794B.
+	(M24647): Separate U+794C.
+	(M24651): Separate U+794F.
+	(M24652): Move K0-695E from M24652'.
+
+2000-03-21  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R145-Clothes.el (M34166): Add J{78|83}-3736.
+
+	* Ideograph-R123-Sheep.el (M28498): Add J{78|83}-3732.
+
+	* Ideograph-R119-Rice.el (M26860): Add J{78|83}-3729.
+
+	* Ideograph-R177-Leather.el (M42729): Separate J{83|90}-3724m
+	K0-7C28 and C1-675D.
+	(M42732): Separate U+9775.
+
+	* Ideograph-R030-Mouth.el (M4015): Add J90-3674.
+	(J78-3674): New character.
+
+2000-03-20  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R158-Body.el (U+8EAF): Add J{83|90}-366D.
+
+2000-03-17  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+533A): Add J90-3668.
+
+	* Ideograph-R009-Man.el (M724): Add `jisx0208-difference'.
+	(U+4FF1): Add `jisx0208-1978/4X'.
+
+	* Ideograph-R145-Clothes.el (M34646): Add `ideographic-strokes'.
+	(M34647): Add J{78|83}-365F.
+	(M34648): Add `ideographic-strokes'.
+
+	* Ideograph-R145-Clothes.el (M34148): Add `ideographic-strokes'.
+	(M34149): Separate U+887F.
+	(M34150): Separate C2-3277.
+	(M34151): Add `ideographic-strokes'.
+
+	* Ideograph-R076-Lack.el (M16104): Unify U+6B3D.
+
+2000-03-17  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* char-db-util.el (insert-char-data): Regard charset `mojikyo' as
+	same as `ideograph-daikanwa'; support `jisx0208-1978/4X'.
+	(decode-builtin-char): Regard charset `mojikyo' as same as
+	`ideograph-daikanwa'.
+
+2000-03-16  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R076-Lack.el (M16008): Unify U+6B23.
+	(M16012): Separate U+6B24.
+	(M16017): Unify U+6B25.
+	(M16019): Unify U+6B26.
+
+	* Ideograph-R069-Axe.el (M13534): Unify U+65A4.
+
+	* Ideograph-R019-Power.el (M2415'): Add J90-3650 and
+	Mojikyo-50112.
+
+2000-03-15  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R009-Man.el (M899): Add J90-3676.
+	(J83-364F): Add J90-364F.
+
+	* Ideograph-R032-Earth.el (U+5C2D): Moved from
+	Ideograph-R043-Lame.el; add J90-3646.
+
+	* Ideograph-R043-Lame.el (U+5C2D): Moved to
+	Ideograph-R032-Earth.el.
+
+	* Ideograph-R064-Hand.el (U+631F): Add J{78|83|90}-3634.
+
+	* Ideograph-R026-Seal.el (U+537F): Add J90-362A.
+
+	* Ideograph-R044-Corpse.el (M7709): Separate U+5C51 and C1-552C.
+
+	* Ideograph-R032-Earth.el (M4916): Separate J{78|83}-3651.
+	(U+5747): Unify J{78|83}-3651.
+
+2000-03-14  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R093-Cow.el (M19922): Unify U+725B.
+	(M19923): Add total-strokes.
+
+	* Ideograph-R029-Again.el (M3118'): Add J90-355A and
+	Mojikyo-50116.
+
+	* Ideograph-R123-Sheep.el (M28504): Add J{78|83}-3541 and K0-6B79.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (M22007): Unify U+7591.
+
+	* Ideograph-R093-Cow.el (M20190'): Add J{78|83|90}-353E and
+	Mojikyo-50275.
+	(M20195): Unify U+72A1.
+
+	* Ideograph-R076-Lack.el (M16097): Unify U+6B3A.
+	(M16099): Unify U+6B3B.
+	(M16103): Unify U+6B3C.
+
+	* Ideograph-R084-Steam.el (M17046): Separate U+6C18; add C6-2529.
+	(U+6C18): Unify C2-2258.
+	(M17046'): Add J{78|83|90}-3524 and Mojikyo-50245.
+
+	* Ideograph-R009-Man.el (M927'): Add J90-3536 and Mojikyo-50104.
+
+	* Ideograph-R079-Weapon.el (M16668): Unify U+6BC4.
+	(M16673): Unify U+6BC5.
+
+2000-03-13  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R116-Cave.el (M25593): Separate U+7AAE.
+
+2000-03-09  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R113-Spirit.el (M24639): Separate U+7947.
+
+2000-03-08  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R050-Turban.el (M8930): Separate J90-3522 and C3-3067.
+
+2000-03-06  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R074-Moon.el (M14378): Add J{78|83}-347C.
+
+	* Ideograph-R071-Not.el (M13721): Unify U+65E2.
+
+	* Ideograph-R070-Square.el (M13687): Unify U+65D7.
+	(M13694): Unify U+65D8.
+	(M13698): Unify U+65DA.
+
+	* Ideograph-R026-Seal.el (U+5371): Add J90-346D.
+
+2000-03-03  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R104-Sickness.el (M22538): Unify U+764C.
+	(M22542): Unify U+7650.
+
+	* Ideograph-R170-Mound.el (M41676'): Add
+	J{78|83|90}-3459.
+
+	* Ideograph-R108-Dish.el (M23031): Unify U+76E2.
+	(M23032): Unify C1-6971.
+	(J90-3446): Add J{78|83}-3446 and K0-4A78.
+
+	* Ideograph-R099-Sweet.el (M21643): Unify U+7518.
+
+	* Ideograph-R085-Water.el (M18253): New character.
+	(U+6F97): Unify C1-6D58; add J{83|90}-3442 and K0-4A55.
+
+	* Ideograph-R076-Lack.el (M16190): Unify U+6B52.
+	(M16197): Unify U+6B53.
+
+2000-03-02  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* ideograph-util.el (ideograph-char<): Prefer `non-morohashi' to
+	`morohashi-daikanwa'.
+
+2000-03-02  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R076-Lack.el (M16107): Unify U+6B3E.
+	(M16111): Unify U+6B3F.
+	(M16125): Unify U+6B40.
+	(M16126): Unify U+6B41.
+	(M16127): Unify U+6B42.
+
+	* Ideograph-R066-Rap.el (M13260): Add J{78|83}-343A; separate
+	C1-5F56 and J90-343A.
+
+	* Ideograph-R098-Tile.el (J90-3424): Add J{78|83}-3424.
+
+	* Ideograph-R140-Grass.el (M30771): New character.
+	(U+82C5): Add J90-3423.
+	(U+85F2): Delete M15811; add C2-665A.
+
+	* Ideograph-R181-Leaf.el (M43374): Separate U+9811.
+
+2000-03-01  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R124-Feather.el (M28766): Separate U+7FEB.
+
+	* Ideograph-R046-Mountain.el (M8624'): Separate J{78|83}-3460.
+
+	* Ideograph-R154-Shell.el (M36681): Separate J{78|83}-3453 and
+	C1-5D4B.
+
+	* Ideograph-R124-Feather.el (M28780): Separate U+7FF0.
+
+	* Ideograph-R030-Mouth.el (U+565B): Add J90-337A.
+
+	* Ideograph-R116-Cave.el (U+7AC3): Add J78-635E and J{83|90}-3376.
+
+	* Ideograph-R075-Tree.el (M15065): Separate U+691B.
+	(U+691B): Add J{78|83|90}-3371.
+
+	* Ideograph-R018-Knife.el (M2112'): Add J90-3364.
+
+	* Ideograph-R075-Tree.el (M15485): Add J{78|83}-335F.
+
+2000-02-29  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R079-Weapon.el (U+6BBB): Unify C3-3665; add
+	J{78|83}-334C.
+	(J90-334C): New character.
+
+	* Ideograph-R064-Hand.el (U+64B9): Add J78-5978 and J{83|90}-3349.
+
+	* Ideograph-R142-Insect.el (U+86CE): Add J78-695A and
+	J{83|90}-3342.
+
+	* Ideograph-R075-Tree.el (M15217'): Add J78-3335; separate U+6982.
+	(U+6982): Separate J83-3335, J90-3335 and C1-644D.
+
+2000-02-28  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R106-White.el (M22699): Unify U+7686.
+
+	* Ideograph-R177-Leather.el (M42781): Separate
+	J{83|90}-3373.
+
+	* Ideograph-R140-Grass.el (M31170): Separate U+83D4.
+	(M32601): Separate C5-7940; add mapping to U+8641.
+
+	* Ideograph-R061-Heart.el (M10617'): Remove C1-554E.
+
+	* Ideograph-R140-Grass.el (M31000): New character.
+	(M31000'): Add J90-3259; move C1-5D23 to M31000.
+	(M31168): New character.
+	(M31168'): Add J90-325B; move C3-3E59 to M31168.
+
+2000-02-26  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R021-Spoon.el (J{78|83}-323D): Add J90-323D.
+
+	* Ideograph-R026-Seal.el (J{78|83}-3237): Add J90-3237.
+
+	* Ideograph-R009-Man.el (M628'): Add J90-3241.
+	(M1178): Add J90-322F.
+
+2000-02-25  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R092-Fang.el (M19909): Unify C1-455B.
+	(J90-3267): Unify J{78|83}-3267.
+
+	* Ideograph-R076-Lack.el (M16167): Unify U+6B4C.
+	(M16168): Unify U+6B4D.
+
+	* Ideograph-R093-Cow.el (M19933): Unify U+7261.
+
+	* Ideograph-R124-Feather.el (M28614): New character.
+	(M28614'): Separate K0-6962 to M28614.
+	(M28616): Separate C6-3375.
+	(M28617): Separate C6-3372.
+	(M28618): Separate C6-3376.
+	(M28619): Separate C5-2B2B.
+	(M28620): Separate C4-2B22.
+	(M28621): Separate C4-2B21.
+	(M28622): Separate C4-2B24.
+	(M28623): Separate U+7FBE.
+	(M28624): Separate C4-2B23.
+	(M28625): Separate U+7FBF.
+	(M28626): Separate C6-3374.
+	(M28627): Separate C4-2F33.
+	(M28628): Separate U+437E.
+	(M28629): Separate C5-2F61.
+	(M28631): Separate C5-2F63.
+	(M28632): Separate U+7FC0.
+	(M28633): Separate C5-2F60.
+	(M28634): Separate C4-2F31.
+	(M28800): Moved from Ideograph-R196-Bird.el.
+
+	* Ideograph-R195-Fish.el (U+9BF5): Add J90-3033.
+
+2000-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R196-Bird.el: Move M28800 and U+7FF5 to
+	Ideograph-R124-Feather.el.
+	(U+9D0E): Add J{83|90}-322A.
+
+	* Ideograph-R196-Bird.el (U+9D2C): Add J78-7274 and J{83|90}-3229.
+
+	* Ideograph-R145-Clothes.el (M34629): Separate U+8956; unify
+	J78-3228.
+
+	* Ideograph-R079-Weapon.el (M16618'): Unify U+6BB4; separate
+	C3-2959.
+
+2000-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R076-Lack.el (M16024'): Unify U+6B27; separate
+	C3-2954.
+
+	* Ideograph-R064-Hand.el (M11955): Separate U+62D0.
+
+2000-02-23  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (M41973): Separate
+	J{78|83}-326D, K0-643A and J90-326D.
+
+	* Ideograph-R140-Grass.el (M30860'): Unify C6-2E22; separate
+	J{78|83}-326A.
+
+	* Ideograph-R162-Walk.el (M38789): Separate C1-535E and U+8FE6.
+	(M38790): Separate C3-2F31 and U+8FE7.
+	(M38791): Separate C1-5365 and U+8FE8.
+	(M38792): Separate C4-2B4F.
+
+	* Ideograph-R124-Feather.el (M28635): Unify K0-683A.
+	(M28635'): Separate K0-683A; separate U+7FC1.
+
+	* Ideograph-R169-Gate.el (M41244): Add `jisx0208-difference'.
+
+	* Ideograph-R100-Life.el (M21689): Add J{78|83}-3179.
+
+2000-02-22  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R070-Square.el (M13628): Separate U+65BC.
+	(U+65BC): Unify J{78|83|90}-3177 and C1-4D75.
+
+2000-02-18  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R086-Fire.el (U+7114): Add J{83|90}-316B.
+
+	* Ideograph-R187-Horse.el (M44633'): Add J{78|83|90}-3158.
+
+	* Ideograph-R108-Dish.el (M22972'): Unify U+76CA.
+	(M22975): Unify U+76CB.
+
+2000-02-17  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R104-Sickness.el (M22069): Unify U+75AB.
+	(M22081): Unify U+75B0.
+
+	* Ideograph-R140-Grass.el (M30808'): Add J90-3151.
+
+	* Ideograph-R108-Dish.el (M22961): Add J{78|83}-314E.
+	(M22965): Unify U+76C9.
+
+	* Ideograph-R097-Melon.el (M21371): Unify C1-466A.
+	(J90-313B): Unify J{78|83}-313B; separate C1-466A.
+
+2000-02-16  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R027-Cliff.el: Reformatted.
+
+	* Ideograph-R167-Gold.el (M40310): Separate U+925B, C1-6745 and
+	J90-3174.
+
+2000-02-15  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R085-Water.el (M17260): Separate U+6CBF, J90-3168 and
+	C1-4E58.
+
+	* Ideograph-R144-Walk-Enclosure.el (M34073): Separate
+	{j78|83|90}-3152 and K0-6A5B.
+
+2000-02-14  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R184-Eat.el (M44146): Separate U+990C.
+
+	* Ideograph-R030-Mouth.el (M4286): Separate U+5642.
+
+	* Ideograph-R162-Walk.el (M38722): Separate U+8FC2.
+	(M38901): Unify K0-5C71; separate C1-5D61 and J90-3029.
+	(U+9022): Separate K0-5C71 and C1-5D61; add `jisx0208-difference'
+	property.
+
+	* Ideograph-R140-Grass.el (M30699'): Separate U+829D.
+	(J{78|83|90}-3032): Add `jisx0208-difference'.
+
+2000-02-12  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R120-Silk.el (M27682): Separate J{78|83|90}-305E.
+	(SJG-6136): Unify J90-305E.
+
+	* Ideograph-R009-Man.el (SJG-352): Unify J90-304E.
+
+2000-02-11  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R195-Fish.el (M46413): Unify J78-3073.
+	(U+9C2F): Unify J{83|90}-3073.
+
+2000-02-10  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R145-Clothes.el (M34091): Unify U+8863.
+
+	* Ideograph-R008-Lid.el (M00286): Unify J78-5035 and J83-5035.
+	(U+4EA5): Unify J90-3067.
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+533B): Add J90-3065.
+
+	* Ideograph-R162-Walk.el (M08680'1): Separate U+5DE1.
+	(M39134): Unify K0-6B36.
+	(M39134'): Unify U+907A.
+
+	* Ideograph-R047-River.el (M8680'): Moved from
+	Ideograph-R162-Walk.el.
+	(M08684): Likewise.
+
+	* Ideograph-R102-Field.el (M21854): Unify U+7570; separate
+	C6-4B56.
+	(M21854): Separate U+7570; unify C6-4B56.
+
+2000-02-09  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R145-Clothes.el (M34240): Add J78-3041.
+
+	* Ideograph-R064-Hand.el (M11835): Separate J90-3037.
+
+	* Ideograph-R085-Water.el (M17678): Separate U+6DEB.
+	(M17951): Separate U+6EA2.
+
+	* Ideograph-R100-Life.el (M21687): Unify C3-3D3E instead of
+	C3-3D3F.
+
+2000-02-08  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* char-db-util.el (insert-char-data): Don't output mojikyo-pj-*.
+
+	* Ideograph-R184-Eat.el (M44014): Unify U+98DF.
+	(M44080): Separate japanese-jisx02080-1978 and japanese-jisx0208.
+
+	* Ideograph-R100-Life.el (M21670): Unify GB, CNS and JIS.
+	(M21680): Likewise.
+	(M21684): Unify with U+7522.
+	(M21684'): Unify with U+7523.
+
+	* Ideograph-R067-Script.el (M013450): Unify GB, CNS and JIS.
+
+	* Ideograph-R009-Man.el (M00378): Add japanese-jisx0208-1990.
+
+2000-02-07  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el, u030A0-Katakana.el,
+	u03040-Hiragana.el, u02600-Miscellaneous-Symbols.el,
+	u02500-Box-Drawing.el, u02190-Arrows.el,
+	u02100-Letterlike-Symbols.el, u00400-Cyrillic.el, u00370-Greek.el,
+	u000A0-Latin-1-Supplement.el: Add japanese-jisx0208-1990.
+
+2000-02-06  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* u02000-General-Punctuation.el, u02200-Mathematical-Operators.el,
+	u02300-Miscellaneous-Technical.el, u025A0-Geometric-Shapes.el,
+	u03000-CJK-Symbols-and-Punctuation.el: Add japanese-jisx0208-1990.
+
+2000-02-02  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* char-db-util.el (decode-builtin-char): Use `charset-name'.
+	(write-char-range-data-to-file): Use utf-8.
+
+2000-02-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-db-util.el (insert-char-data): Print corresponding
+	character as comment for `->ucs' and each coded-charset.
+	(what-char-definition): Don't call `char-db-update-comment'.
+
+2000-01-19  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mojikyo.el: New file.
+
+2000-01-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-db-util.el (insert-char-data): Print code-point of
+	`ideograph-daikanwa' as a decimal value.
+	(decode-builtin-char): New function.
+
+2000-01-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-db-util.el (insert-char-data): Modify for code-point format
+	change.
+
+1999-12-23  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u0A000-Yi-Syllables.el, u0AC00-Hangul-Syllables.el,
+	u0FB00-Alphabetic-Presentation-Forms.el,
+	u0FB50-Arabic-Presentation-Forms-A.el,
+	u0FE20-Combining-Half-Marks.el, u0FE30-CJK-Compatibility-Forms.el,
+	u0FE50-Small-Form-Variants.el,
+	u0FE70-Arabic-Presentation-Forms-B.el,
+	u0FF00-Halfwidth-and-Fullwidth-Forms.el, u0FFF0-Specials.el: New
+	files.
+
+1999-12-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-db-util.el (insert-char-data): Change order of
+	`kangxi-strokes'.
+	(insert-char-data-with-variant): Look up variants of corresponding
+	ucs character if a character does not have variants.
+
+1999-11-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* ideograph-util.el (ideograph-char<): Fixed.
+
+	* u03100-Bopomofo.el (U+3128): Separate M00115.
+
+1999-12-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R213-Turtle.el, Ideograph-R214-Flute.el: New files.
+
+	* Ideograph-R206-Tripod.el, Ideograph-R207-Drum.el,
+	Ideograph-R208-Rat.el, Ideograph-R209-Nose.el,
+	Ideograph-R210-Even.el, Ideograph-R211-Tooth.el,
+	Ideograph-R212-Dragon.el: New files.
+
+	* Ideograph-R204-Embroidery.el, Ideograph-R205-Frog.el: New files.
+
+	* Ideograph-R200-Hemp.el, Ideograph-R201-Yellow.el,
+	Ideograph-R202-Millet.el, Ideograph-R203-Black.el: New files.
+
+	* Ideograph-R194-Ghost.el, Ideograph-R195-Fish.el,
+	Ideograph-R196-Bird.el, Ideograph-R197-Salt.el,
+	Ideograph-R198-Deer.el, Ideograph-R199-Wheat.el: New files.
+
+	* Ideograph-R191-Fight.el, Ideograph-R192-Sacrificial-Wine.el,
+	Ideograph-R193-Cauldron.el: New files.
+
+	* Ideograph-R185-Head.el, Ideograph-R186-Fragrant.el,
+	Ideograph-R187-Horse.el, Ideograph-R188-Bone.el,
+	Ideograph-R189-Tall.el, Ideograph-R190-Hair.el: New files.
+
+	* Ideograph-R183-Fly.el, Ideograph-R184-Eat.el: New files.
+
+	* Ideograph-R180-Sound.el, Ideograph-R181-Leaf.el,
+	Ideograph-R182-Wind.el: New files.
+
+	* Ideograph-R178-Tanned-Leather.el, Ideograph-R179-Leek.el: New
+	files.
+
+	* Ideograph-R166-Village.el, Ideograph-R167-Gold.el,
+	Ideograph-R168-Long.el, Ideograph-R169-Gate.el,
+	Ideograph-R170-Mound.el, Ideograph-R171-Slave.el,
+	Ideograph-R172-Short-Tailed-Bird.el, Ideograph-R173-Rain.el,
+	Ideograph-R174-Blue.el, Ideograph-R175-Wrong.el,
+	Ideograph-R176-Face.el, Ideograph-R177-Leather.el: New files.
+
+	* Ideograph-R161-Morning.el, Ideograph-R162-Walk.el,
+	Ideograph-R163-City.el, Ideograph-R164-Wine.el,
+	Ideograph-R165-Distinguish.el: New files.
+
+	* Ideograph-R156-Run.el, Ideograph-R157-Foot.el,
+	Ideograph-R158-Body.el, Ideograph-R159-Cart.el,
+	Ideograph-R160-Bitter.el: New files.
+
+	* Ideograph-R153-Badger.el, Ideograph-R154-Shell.el,
+	Ideograph-R155-Red.el: New files.
+
+	* Ideograph-R151-Bean.el, Ideograph-R152-Pig.el: New files.
+
+	* Ideograph-R148-Horn.el, Ideograph-R149-Speech.el,
+	Ideograph-R150-Valley.el: New files.
+
+	* Ideograph-R139-Color.el, Ideograph-R140-Grass.el,
+	Ideograph-R141-Tiger.el, Ideograph-R142-Insect.el,
+	Ideograph-R143-Blood.el, Ideograph-R144-Walk-Enclosure.el,
+	Ideograph-R145-Clothes.el, Ideograph-R146-West.el,
+	Ideograph-R147-See.el: New files.
+
+	* Ideograph-R137-Boat.el,
+	Ideograph-R138-Stopping.el: New files.
+
+	* Ideograph-R135-Tongue.el, Ideograph-R136-Oppose.el: New files.
+
+	* Ideograph-R132-Self.el, Ideograph-R133-Arrive.el,
+	Ideograph-R134-Mortar.el: New files.
+
+	* Ideograph-R127-Plow.el, Ideograph-R128-Ear.el,
+	Ideograph-R129-Brush.el, Ideograph-R130-Meat.el,
+	Ideograph-R131-Minister.el: New files.
+
+	* Ideograph-R123-Sheep.el, Ideograph-R124-Feather.el,
+	Ideograph-R125-Old.el, Ideograph-R126-And.el: New files.
+
+	* Ideograph-R110-Spear.el, Ideograph-R111-Arrow.el,
+	Ideograph-R112-Stone.el, Ideograph-R113-Spirit.el,
+	Ideograph-R114-Track.el, Ideograph-R115-Grain.el,
+	Ideograph-R116-Cave.el, Ideograph-R117-Stand.el,
+	Ideograph-R118-Bamboo.el, Ideograph-R119-Rice.el,
+	Ideograph-R120-Silk.el, Ideograph-R121-Jar.el,
+	Ideograph-R122-Net.el: New files.
+
+	* Ideograph-R108-Dish.el, Ideograph-R109-Eye.el: New files.
+
+	* Ideograph-R106-White.el, Ideograph-R107-Skin.el: New files.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el, Ideograph-R104-Sickness.el,
+	Ideograph-R105-Dotted-Tent.el: New files.
+
+	* Ideograph-R099-Sweet.el, Ideograph-R100-Life.el,
+	Ideograph-R101-Use.el, Ideograph-R102-Field.el: New files.
+
+	* Ideograph-R095-Profound.el, Ideograph-R096-Jade.el,
+	Ideograph-R097-Melon.el, Ideograph-R098-Tile.el: New files.
+
+	* Ideograph-R092-Fang.el, Ideograph-R093-Cow.el,
+	Ideograph-R094-Dog.el: New files.
+
+	* Ideograph-R090-Half-Tree-Trunk.el, Ideograph-R091-Slice.el: New
+	files.
+
+	* Ideograph-R088-Father.el, Ideograph-R089-Double-X.el: New files.
+
+	* Ideograph-R084-Steam.el, Ideograph-R085-Water.el,
+	Ideograph-R086-Fire.el, Ideograph-R087-Claw.el: New files.
+
+	* Ideograph-R081-Compare.el, Ideograph-R082-Fur.el,
+	Ideograph-R083-Clan.el: New files.
+
+	* Ideograph-R079-Weapon.el, Ideograph-R080-Do-Not.el: New files.
+
+	* Ideograph-R073-Say.el, Ideograph-R074-Moon.el,
+	Ideograph-R075-Tree.el, Ideograph-R076-Lack.el,
+	Ideograph-R077-Stop.el, Ideograph-R078-Death.el: New files.
+
+	* Ideograph-R070-Square.el, Ideograph-R071-Not.el,
+	Ideograph-R072-Sun.el: New files.
+
+	* Ideograph-R068-Dipper.el, Ideograph-R069-Axe.el: New files.
+
+	* Ideograph-R055-Two-Hands.el, Ideograph-R056-Shoot.el,
+	Ideograph-R057-Bow.el, Ideograph-R058-Snout.el,
+	Ideograph-R059-Bristle.el, Ideograph-R060-Step.el,
+	Ideograph-R061-Heart.el, Ideograph-R062-Halberd.el,
+	Ideograph-R063-Door.el, Ideograph-R064-Hand.el,
+	Ideograph-R065-Branch.el, Ideograph-R066-Rap.el,
+	Ideograph-R067-Script.el: New files.
+
+	* Ideograph-R053-Dotted-Cliff.el, Ideograph-R054-Long-Stride.el:
+	New files.
+
+	* Ideograph-R051-Dry.el, Ideograph-R052-Short-Thread.el: New
+	files.
+
+	* Ideograph-R043-Lame.el, Ideograph-R044-Corpse.el,
+	Ideograph-R045-Sprout.el, Ideograph-R046-Mountain.el,
+	Ideograph-R047-River.el, Ideograph-R048-Work.el,
+	Ideograph-R049-Oneself.el, Ideograph-R050-Turban.el: New files.
+
+	* Ideograph-R041-Inch.el, Ideograph-R042-Small.el: New files.
+
+	* Ideograph-R036-Evening.el, Ideograph-R037-Big.el,
+	Ideograph-R038-Woman.el, Ideograph-R039-Child.el,
+	Ideograph-R040-Roof.el: New files.
+
+	* Ideograph-R034-Go.el, Ideograph-R035-Go-Slowly.el: New files.
+
+	* Ideograph-R031-Enclosure.el, Ideograph-R032-Earth.el,
+	Ideograph-R033-Scholar.el: New files.
+
+	* Ideograph-R030-Mouth.el, Ideograph-R029-Again.el,
+	Ideograph-R028-Private.el: Merge CJK Unified Ideographs Extension
+	A.
+
+	* Ideograph-R027-Cliff.el, Ideograph-R026-Seal.el,
+	Ideograph-R025-Divination.el, Ideograph-R024-Ten.el,
+	Ideograph-R023-Hiding-Enclosure.el,
+	Ideograph-R022-Right-Open-Box.el, Ideograph-R021-Spoon.el,
+	Ideograph-R020-Wrap.el, Ideograph-R019-Power.el,
+	Ideograph-R018-Knife.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R016-Table.el, Ideograph-R015-Ice.el,
+	Ideograph-R014-Cover.el, Ideograph-R013-Down-Box.el,
+	Ideograph-R012-Eight.el, Ideograph-R011-Enter.el,
+	Ideograph-R010-Legs.el, Ideograph-R009-Man.el,
+	Ideograph-R008-Lid.el, Ideograph-R007-Two.el,
+	Ideograph-R006-Hook.el: Merge `chinese-isoir165'.
+
+	* Ideograph-R004-Slash.el: Merge CNS chars not in Morohashi's
+	Daikanwa.
+
+	* Ideograph-R003-Dot.el: Merge `chinese-isoir165'.
+
+	* Ideograph-R001-One.el: Merge `chinese-isoir165'.
+
+1999-12-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R027-Cliff.el, Ideograph-R026-Seal.el,
+	Ideograph-R025-Divination.el, Ideograph-R024-Ten.el,
+	Ideograph-R023-Hiding-Enclosure.el,
+	Ideograph-R022-Right-Open-Box.el, Ideograph-R021-Spoon.el: Merge
+	CJK Unified Ideographs Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R020-Wrap.el, Ideograph-R019-Power.el,
+	Ideograph-R018-Knife.el: Merge CJK Unified Ideographs Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R009-Man.el: Merge CJK Unified Ideographs Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R017-Open-Box.el, Ideograph-R016-Table.el: Merge CJK
+	Unified Ideographs Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R015-Ice.el, Ideograph-R014-Cover.el,
+	Ideograph-R013-Down-Box.el, Ideograph-R012-Eight.el,
+	Ideograph-R011-Enter.el, Ideograph-R010-Legs.el: Merge CJK Unified
+	Ideographs Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R008-Lid.el (M00286): Separate
+	`japanese-jisx0208-1978' and `japanese-jisx0208'.
+
+	* Ideograph-R005-Second.el: Merge `chinese-isoir165'.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R004-Slash.el, Ideograph-R003-Dot.el,
+	Ideograph-R002-Line.el, Ideograph-R001-One.el: Merge
+	`chinese-isoir165'.
+
+1999-12-03  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R030-Mouth.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-12-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* Ideograph-R029-Again.el: Merge `japanese-jisx0213-2'.
+
+1999-12-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R028-Private.el: Merge `japanese-jisx0213-2'.
+
+1999-12-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R027-Cliff.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-11-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R026-Seal.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-11-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R025-Divination.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-11-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R024-Ten.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-11-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el: Merge `japanese-jisx0213-2'.
+
+1999-11-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R022-Right-Open-Box.el: Merge `japanese-jisx0213-1'
+	and `japanese-jisx0213-2'.
+
+1999-11-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R021-Spoon.el (M02574): Separate C1-4621.
+	(M02576): Separate C6-2630.
+	(M02579): Separate C5-234A.
+	(M02581): Separate C4-284D.
+	(M02582): Separate C6-2F2F.
+	(M02588): Separate C6-3560.
+
+	* Ideograph-R020-Wrap.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-11-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R019-Power.el, Ideograph-R018-Knife.el: Merge
+	`japanese-jisx0213-1' and `japanese-jisx0213-2'.
+
+	* Ideograph-R017-Open-Box.el (M01814): Separate C6-2365.
+	(M01815): Separate C6-2361.
+	(M01817): Separate C6-2363.
+	(M01822): Separate C6-2323.
+	(M01836): Separate C5-365D.
+	(M01839): Separate C7-367B.
+
+1999-11-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R016-Table.el, Ideograph-R015-Ice.el,
+	Ideograph-R014-Cover.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+	* Ideograph-R013-Down-Box.el: Merge `japanese-jisx0213-2' with
+	UCS.
+
+1999-11-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R013-Down-Box.el: Merge `japanese-jisx0213-2'.
+	(J78-4B41 = J83-4B41): Moved to R109.
+	(C6-316D): Moved to R072.
+
+1999-11-24  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* Ideograph-R012-Eight.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-11-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R009-Man.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-11-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R010-Legs.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+	* Ideograph-R011-Enter.el: Separate CNS.
+
+1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R008-Lid.el: Merge CJK Unified Ideographs Extension A.
+
+1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* ideograph-util.el (update-ideograph-radical-table): Add
+	`japanese-jisx0213-1' and `japanese-jisx0213-2'.
+
+1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R015-Ice.el (M01612.07): Separate U+4ECC and C3-214C
+	to M00360.
+
+	* Ideograph-R013-Down-Box.el (M001512): Separate C3-2148 to
+	M00366'.
+
+1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R009-Man.el: Delete wrong? C6-XXXX code-points.
+
+	* Ideograph-R006-Hook.el, Ideograph-R005-Second.el: Merge CJK
+	Unified Ideographs Extension A.
+
+	* Ideograph-R004-Slash.el (M00115): Merge CJK Unified Ideographs
+	Extension A; separate U+3128.
+	(M00116): Move C6-2123 to M00115.
+
+	* Ideograph-R001-One.el: Merge CJK Unified Ideographs Extension A.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R008-Lid.el: Merge `japanese-jisx0213-2'.
+
+	* Ideograph-R007-Two.el: Merge `japanese-jisx0213-1'.
+
+	* Ideograph-R004-Slash.el: Merge `japanese-jisx0213-2'.
+
+	* Ideograph-R006-Hook.el (M00237): Separate C5-2330.
+
+	* Ideograph-R005-Second.el: Merge `japanese-jisx0213-2'.
+
+	* Ideograph-R002-Line.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+	* u03040-Hiragana.el (HIRAGANA LETTER SMALL KA): New character.
+	(HIRAGANA LETTER SMALL KE): New character.
+
+	* u02600-Miscellaneous-Symbols.el (WHITE SHOGI PIECE): New
+	character.
+	(BLACK SHOGI PIECE): New character.
+
+	* Ideograph-R001-One.el: Merge `japanese-jisx0213-1'.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* u01F00-Greek-Extended.el: Merge `japanese-jisx0213-1'.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-db-util.el (insert-char-data): Ignore `kangxi-radical' and
+	`japanese-radical' if they have the same value of
+	`ideographic-radical'; ignore `japanese-strokes' if it has the
+	same value of `ideographic-strokes'.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-db-util.el (char-db-update-comment): Use mapping-table for
+	`japanese-jisx0213-*'.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* u03300-CJK-Compatibility.el: Merge `japanese-jisx0213-1'.
+
+	* u03200-Enclosed-CJK-Letters-and-Months.el: Merge
+	`japanese-jisx0213-1'.
+
+	* u03130-Hangul-Compatibility-Jamo.el, u03100-Bopomofo.el: Changed
+	to utf-8 encoding.
+
+	* u030A0-Katakana.el, u03040-Hiragana.el,
+	u03000-CJK-Symbols-and-Punctuation.el: Merge
+	`japanese-jisx0213-1'.
+
+	* u02F00-Kangxi-Radicals.el: Changed to utf-8 encoding.
+
+	* u02700-Dingbats.el, u02600-Miscellaneous-Symbols.el,
+	u025A0-Geometric-Shapes.el: Merge `japanese-jisx0213-1'.
+
+	* u02580-Block-Elements.el: Changed to utf-8 encoding.
+
+	* u02500-Box-Drawing.el, u02460-Enclosed-Alphanumerics.el,
+	u02300-Miscellaneous-Technical.el, u02400-Control-Pictures.el,
+	u02200-Mathematical-Operators.el, u02190-Arrows.el,
+	u02150-Number-Forms.el, u02100-Letterlike-Symbols.el,
+	u020A0-Currency-Symbols.el: Merge `japanese-jisx0213-1'.
+
+	* u02080-Subscripts.el, u02070-Superscripts.el: Changed to utf-8
+	encoding.
+
+	* u02000-General-Punctuation.el,
+	u01E00-Latin-Extended-Additional.el: Merge `japanese-jisx0213-1'.
+
+	* u00600-Arabic.el, u00590-Hebrew.el, u00400-Cyrillic.el: Changed
+	to utf-8 encoding.
+
+	* u00370-Greek.el, u00300-Combining-Diacritical-Marks.el,
+	u002B0-Spacing-Modifier-Letters.el, u00250-IPA-Extensions.el,
+	u00180-Latin-Extended-B.el, u00100-Latin-Extended-A.el,
+	u000A0-Latin-1-Supplement.el, u00020-Basic-Latin.el: Merge
+	`japanese-jisx0213-1'.
+
+	* Ideograph-R030-Mouth.el: New file.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R005-Second.el: Sync with CNS2Dict 0.390.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-db-util.el (insert-char-data): Generate comment for
+	`cns-radical'.
+
+	* Ideograph-R004-Slash.el (M00129): Separated from U+5301.
+	(M00135): Separate C6-222F.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R003-Dot.el (M00100): Fixed.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R002-Line.el: Sync with CNS2Dict 0.390.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R001-One.el (M00032): Separate U+4E17 and C4-2155.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R029-Again.el, Ideograph-R028-Private.el: New files.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-db-util.el (char-db-update-comment): Don't use
+	mapping-table for `ideograph-daikanwa'.
+
+1999-11-19  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R012-Eight.el, Ideograph-R013-Down-Box.el,
+	Ideograph-R014-Cover.el, Ideograph-R015-Ice.el,
+	Ideograph-R016-Table.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R018-Knife.el, Ideograph-R019-Power.el,
+	Ideograph-R020-Wrap.el, Ideograph-R021-Spoon.el,
+	Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R024-Ten.el,
+	Ideograph-R025-Divination.el, Ideograph-R026-Seal.el,
+	Ideograph-R027-Cliff.el: New files.
+
+	* ideograph-util.el (write-ideograph-radical-char-data): Replace `
+	' in `name' by `-'.
+
+1999-11-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* Ideograph-R002-Line.el, Ideograph-R003-Dot.el,
+	Ideograph-R004-Slash.el, Ideograph-R005-Second.el,
+	Ideograph-R006-Hook.el, Ideograph-R007-Two.el,
+	Ideograph-R008-Lid.el, Ideograph-R009-Man.el,
+	Ideograph-R010-Legs.el, Ideograph-R011-Enter.el: New files.
+
+	* ideograph-util.el (update-ideograph-radical-table): Add
+	`japanese-jisx0208-1978' and `japanese-jisx0208-1990'; check Group
+	00 Plane 10.
+	(ideograph-char<): Prefer minor code of `morohashi-daikanwa'
+	number.
+
+	* Ideograph-R001-One.el: Changed to utf-8 encoding.
+
+1999-11-17  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* ideograph-util.el: New file.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* Ideograph-R001-One.el: New file.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-db-util.el (insert-char-data): Change order of
+	`morohashi-daikanwa'.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-db-util.el (char-attribute-name<) Use
+	`charset-iso-final-char' instead of `charset-final'; fixed.
+	(insert-char-data): Delete unused local variable `name'; use
+	`charset-iso-graphic-plane' instead of `charset-graphic'.
+	(char-db-update-comment): Use `charset-iso-graphic-plane' instead
+	of `charset-graphic'.
+	(insert-char-range-data): Delete unused local variable `variants'.
+	(what-character-original-window-configuration): Define to avoid
+	compiler warning.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-db-util.el (ideographic-radicals): New constant.
+	(insert-char-data): Change order of `ideographic-radical',
+	`ideographic-strokes' and `total-strokes'; adjust width of the
+	first element of a list.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* ccs-jisx0201-latin.el: Deleted.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* u031A0-Extended-Bopomofo.el: New file.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* u02E00-CJK-Radical-Supplement.el: Renamed from
+	u02E00-CJK-Radicals.el.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u03000-CJK-Symbols-and-Punctuation.el, u03040-Hiragana.el,
+	u030A0-Katakana.el, u03100-Bopomofo.el,
+	u03130-Hangul-Compatibility-Jamo.el, u03190-Kanbun.el,
+	u03200-Enclosed-CJK-Letters-and-Months.el,
+	u03300-CJK-Compatibility.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u02E00-CJK-Radicals.el, u02F00-Kangxi-Radicals.el,
+	u02FF0-Ideographic-Description-Characters.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u02600-Miscellaneous-Symbols.el, u02700-Dingbats.el,
+	u02800-Braille-Patterns.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u02500-Box-Drawing.el, u02580-Block-Elements.el,
+	u025A0-Geometric-Shapes.el: New file.
+
+	* u02500-Box-Drawing.el, u02580-Block-Elements.el,
+	u025A0-Geometric-Shapes.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u02400-Control-Pictures.el, u02440-OCR.el,
+	u02460-Enclosed-Alphanumerics.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u02200-Mathematical-Operators.el,
+	u02300-Miscellaneous-Technical.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u02100-Letterlike-Symbols.el, u02150-Number-Forms.el,
+	u02190-Arrows.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u02000-General-Punctuation.el, u02070-Superscripts.el,
+	u02080-Subscripts.el, u020A0-Currency-Symbols.el,
+	u020D0-Combining-Diacritical-Marks-for-Symbols.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u00180-Latin-Extended-B.el: Reformatted to print code-point of
+	GR-set as GR value.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-db-util.el (insert-char-data): Modify order when CHAR does
+	not have `decimal-digit-value' property.
+
+	* u00100-Latin-Extended-A.el: Reformatted to print code-point of
+	GR-set as GR value.
+	(FULLWIDTH LATIN SMALL LIGATURE IJ): Separated from <LATIN SMALL
+	LIGATURE IJ>.
+
+	* u000A0-Latin-1-Supplement.el: Reformatted to print code-point of
+	GR-set as GR value.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* ccs-viscii.el: Deleted.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u013A0-Cherokee.el, u01400-Canadian.el, u01680-Ogham.el,
+	u016A0-Runic.el, u01780-Khmer.el, u01800-Mongolian.el,
+	u01E00-Latin-Extended-Additional.el, u01F00-Greek-Extended.el: New
+	files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-db-util.el (insert-char-data): Print GR value for GR-set.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u010A0-Georgian.el, u01100-Hangul-Jamo.el, u01200-Ethiopic.el:
+	New files.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-db-util.el (char-db-update-comment): Use mapping-table for
+	`arabic-iso8859-6'.
+	(insert-char-data-with-variant): New function.
+	(insert-char-range-data): Use `insert-char-data-with-variant'.
+	(what-char-definition): Use `insert-char-data-with-variant'
+	instead of `insert-char-data'; use `char-db-update-comment'.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u00900-Devanagari.el, u00980-Bengali.el, u00A00-Gurmukhi.el,
+	u00A80-Gujarati.el, u00B00-Oriya.el, u00B80-Tamil.el,
+	u00C00-Telugu.el, u00C80-Kannada.el, u00D00-Malayalam.el,
+	u00D80-Sinhala.el, u00E00-Thai.el, u00E80-Lao.el,
+	u00F00-Tibetan.el, u01000-Myanmar.el: New files.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u00400-Cyrillic.el, u00530-Armenian.el, u00590-Hebrew.el,
+	u00600-Arabic.el, u00700-Syriac.el, u00780-Thaana.el: New files.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* u00370-Greek.el (FULLWIDTH GREEK SMALL LETTER BETA): Fix typo.
+
+	* u00300-Combining-Diacritical-Marks.el: Reformatted.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* u002B0-Spacing-Modifier-Letters.el, u00250-IPA-Extensions.el:
+	Reformatted.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-db-util.el (insert-char-data): Fix format of
+	`iso-10646-comment'; swap order of `->lowercase' and
+	`->titlecase'.
+
+	* u00180-Latin-Extended-B.el: Merge `latin-viscii' code-points.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-db-util.el (char-attribute-name<): New function.
+	(insert-char-data): Use `char-attribute-name<' to sort; change
+	order of `iso-10646-comment'.
+	(char-db-update-comment): Use mapping-table for `latin-viscii-*'.
+
+	* u00100-Latin-Extended-A.el, u000A0-Latin-1-Supplement.el: Merge
+	`latin-viscii' code-points.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-db-util.el (insert-char-data): Change order.
+	(insert-char-range-data): Insert variants.
+	(char-db-update-comment): Fix problem with ascii and
+	non-ISO-2022-sets; don't insert control-characters.
+
+	* u00020-Basic-Latin.el: Merge `latin-viscii' code-points.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* auto-autoloads.el: New file.
+
+	* char-db-util.el: New file.
+
+1999-11-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* u00020-Basic-Latin.el (SPACE): Add `(ipa #x7F)'.
+
+1999-11-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* ccs-iso8859-2.el, ccs-iso8859-3.el, ccs-iso8859-4.el,
+	ccs-iso8859-9.el: Delete.
+
+	* u00000-C0.el, u00020-Basic-Latin.el, u00080-C1.el,
+	u000A0-Latin-1-Supplement.el, u00180-Latin-Extended-B.el,
+	u00100-Latin-Extended-A.el, u00250-IPA-Extensions.el,
+	u002B0-Spacing-Modifier-Letters.el,
+	u00300-Combining-Diacritical-Marks.el, u00370-Greek.el: New files.
+
+1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* ccs-viscii.el: Add mapping-table for `latin-viscii'.
+
+1999-10-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* ccs-viscii.el: Rename `vietnamese-viscii-*' to `latin-viscii-*'.
+
+1999-10-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* ccs-iso8859-2.el, ccs-iso8859-3.el, ccs-iso8859-4.el,
+	ccs-iso8859-9.el, ccs-jisx0201-latin.el, ccs-viscii.el,
+	ccs-tcvn5712.el, ccs-jisx0208-1983.el: Moved from lisp/mule.
