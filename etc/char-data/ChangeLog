@@ -1,3 +1,13 @@
+2002-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JX1-to-UCS.txt (JX1-4F61): Add JU-XXXXXXXX.
+	(JX1-745C): Likewise.
+	(JX1-793F): Likewise.
+	(JX1-7C38): Likewise.
+	(JX1-7C59): Likewise.
+	(JX1-7D63): Likewise.
+	(JX1-7D7B): Likewise.
+
 2002-12-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JX2-to-UCS.txt (JX2-7575): Don't map to U+8279.
