@@ -1,3 +1,20 @@
+2003-02-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R181-Leaf.el (U+985E): Add JU+F9D0.
+	(U+F9D0): Use `=>ucs*' instead of `->decomposition' for U+985E.
+
+	* Ideograph-R170-Mound.el (U+9686): Add JU+F9DC.
+	(U+F9DC): Add `=>ucs*' for U+9686.
+
+2003-02-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R072-Sun.el (JSP-4175): Unify JX1-752C.
+	(JSP-423F): Unify JX1-7537.
+	(JSP-4247): Add JU1990+6677 instead of JU+6677; add KU+6677.
+	(C1-5F63): Unify JX1-7540, CU+6677, BU+6677 and JU2000+6677.
+
+	* Ideograph-R027-Cliff.el: Reformatted.
+
 2003-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R177-Leather.el (M-43089): Separate C1-7D36.
@@ -7,7 +24,16 @@
 	* Ideograph-R145-Clothes.el (U+891C): Separate JSP-5C5F.
 	(JSP-5C5F): Unify JX1-7B6E and JU+891C.
 
+	* u03200-Enclosed-CJK-Letters-and-Months.el: Add some missing
+	characters of JIS X 0213:2000.
+
+	* u02460-Enclosed-Alphanumerics.el: Add some missing characters of
+	JIS X 0213:2000.
+
 	* Ideograph-R195-Fish.el (U+9B79): Unify JX1-7E41.
+
+	* read-maps.el (mapping-table-read-file): Use `=ucs-jis-1990' for
+	JIS X 0121:1990; use `=ucs-jis-2000' for JIS X 0213:2000.
 
 2003-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
@@ -34,7 +60,37 @@
 
 2003-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u031F0-Katakana-Phonetic-Extensions.el: New file.
+
+	* u02300-Miscellaneous-Technical.el: Add some missing characters
+	of JIS X 0213:2000.
+
+	* u02980-Miscellaneous-Mathematical-Symbols-B.el,
+	u02900-Supplemental-Arrows-B.el: New files.
+
 	* Ideograph-R119-Rice.el (JSP-5344): Unify JX1-7977.
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el (FULLWIDTH LEFT WHITE
+	PARENTHESIS): New character.
+	(FULLWIDTH RIGHT WHITE PARENTHESIS): New character.
+
+	* u0FE30-CJK-Compatibility-Forms.el (SESAME DOT): New character.
+	(WHITE SESAME DOT): New character.
+
+	* u030A0-Katakana.el (KATAKANA-HIRAGANA DOUBLE HYPHEN): New
+	character.
+	(KATAKANA DIGRAPH KOTO): New character.
+
+	* u03040-Hiragana.el (HIRAGANA DIGRAPH YORI): New character.
+
+	* u03000-CJK-Symbols-and-Punctuation.el (VERTICAL IDEOGRAPHIC
+	ITERATION MARK): New character.
+	(MASU MARK): New character.
+	(PART ALTERNATION MARK): New character.
+
+	* u02000-General-Punctuation.el (DOUBLE QUESTION MARK): New
+	character.
+	(TWO ASTERISKS ALIGNED VERTICALLY): New character.
 
 	* Ideograph-R086-Fire.el: Add some missing code points of JIS X
 	0213:2000 plain 1.
