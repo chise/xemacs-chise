@@ -4916,6 +4916,14 @@
     (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((chinese-big5-cdp	  . #x8BAA)	; ý¢€ˆ®ª
+      )
+     ((ucs		  . #x5184)	; å†„
+      ))
     (ideograph-daikanwa . 03562)	; ø¸€·ª
     ))
 (define-char
@@ -4923,8 +4931,20 @@
     (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (chinese-cns11643-6 . #x2F4E)	; ø»œŠ
-    (ucs		. #x20C57)	; ð ±—
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 286)
+    (hanyu-dazidian-char . 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((chinese-big5-cdp	  . #x8BAA)	; ý¢€ˆ®ª
+      )
+     ((ucs		  . #x5184)	; å†„
+      ))
+    (chinese-cns11643-6		. #x2F4E)	; ø»œŠ
+    (ideograph-hanziku-1	. #xE0EE)	; ý¢€žƒ®
+    (ucs			. #x20C57)	; ð ±—
     ))
 (define-char
   '((ideographic-radical . 30)	; â¼
@@ -17132,15 +17152,34 @@
     (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((chinese-big5-cdp	  . #x8C4D)	; ý¢€ˆ±
+      )
+     ((ucs		  . #x4E9E)	; äºž
+      ))
     (ideograph-daikanwa . 04326)	; ø¸ƒ¦
     ))
 (define-char
-  '((morohashi-daikanwa	4326 0 0)
+  '((=>ucs		. #x2018A)	; ð †Š
+    (morohashi-daikanwa	4326 0 0)
     (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (->identical
+     ((ucs		  . #x2018A)	; ð †Š
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((chinese-big5-cdp	  . #x8C4D)	; ý¢€ˆ±
+      )
+     ((ucs		  . #x4E9E)	; äºž
+      ))
     (chinese-cns11643-7 . #x2146)	; ø»¿™
-    (ucs		. #x2018A)	; ð †Š
     ))
 (define-char
   '((=>ucs		. #x20FC6)	; ð ¿†
