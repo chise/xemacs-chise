@@ -1,5 +1,15 @@
 2003-02-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* mule/mule-charset.el (default-coded-charset-priority-list): Use
+	`=jis-x0213-{1|2}-2000' instead of `japanese-jisx0213-{1|2}'.
+
+	* mule/mule-conf.el (=jis-x0213-{1|2}-2000): Renamed from
+	`japanese-jisx0213-{1|2}' when `utf-2000' is provided.
+	(japanese-jisx0213-{1|2}): New alias for =jis-x0213-{1|2}-2000
+	when `utf-2000' is provided.
+
+2003-02-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* dumped-lisp.el (preloaded-file-list): Add
 	"u02980-Miscellaneous-Mathematical-Symbols-B",
 	"u02900-Supplemental-Arrows-B" and
