@@ -32,16 +32,6 @@
 (defun char-ideographic-radical (char &optional radical)
   (let (ret)
     (or (catch 'tag
-	  (dolist (domain char-db-feature-domains)
-	    (if (and (setq ret (get-char-attribute
-				char
-				(intern
-				 (format "%s@%s"
-					 'ideographic-radical domain))))
-		     (or (eq ret radical)
-			 (null radical)))
-		(throw 'tag ret))))
-	(catch 'tag
 	  (dolist (cell (get-char-attribute char 'ideographic-))
 	    (if (and (setq ret (plist-get cell :radical))
 		     (or (eq ret radical)
@@ -88,23 +78,6 @@
 (defun char-ideographic-strokes (char &optional radical)
   (let (ret)
     (or (catch 'tag
-	  (dolist (domain char-db-feature-domains)
-	    (if (and (setq ret (or (get-char-attribute
-				    char
-				    (intern
-				     (format "%s@%s"
-					     'ideographic-radical domain)))
-				   (get-char-attribute
-				    char 'ideographic-radical)))
-		     (or (eq ret radical)
-			 (null radical))
-		     (setq ret (get-char-attribute
-				char
-				(intern
-				 (format "%s@%s"
-					 'ideographic-strokes domain)))))
-		(throw 'tag ret))))
-	(catch 'tag
 	  (dolist (cell (get-char-attribute char 'ideographic-))
 	    (if (and (setq ret (plist-get cell :radical))
 		     (or (eq ret radical)
@@ -129,20 +102,6 @@
 (defun update-ideograph-radical-table ()
   (interactive)
   (let (ret radical script)
-    (dolist (domain char-db-feature-domains)
-      (map-char-attribute
-       (lambda (char radical)
-	 (when (and radical
-		    (or (null (setq script (get-char-attribute char 'script)))
-			(memq 'Ideograph script)))
-	   (unless (memq char
-			 (setq ret
-			       (aref ideograph-radical-chars-vector radical)))
-	     (char-ideographic-strokes char)
-	     (aset ideograph-radical-chars-vector radical
-		   (cons char ret))))
-	 nil)
-       (intern (format "%s@%s" 'ideographic-radical domain))))
     (map-char-attribute
      (lambda (char radical)
        (when (and radical
@@ -210,8 +169,7 @@
 
 ;;;###autoload
 (defun char-representative-of-daikanwa (char)
-  (if (or (encode-char char 'ideograph-daikanwa 'defined-only)
-	  (encode-char char '=daikanwa-rev2 'defined-only))
+  (if (get-char-attribute char 'ideograph-daikanwa)
       char
     (let ((m (get-char-attribute char 'morohashi-daikanwa))
 	  m-m m-s pat)
@@ -219,8 +177,7 @@
 	    (setq m-m (pop m))
 	    (setq m-s (pop m))
 	    (if (= m-s 0)
-		(or (decode-char '=daikanwa-rev2 m-m 'defined-only)
-		    (decode-char 'ideograph-daikanwa m-m))
+		(decode-char 'ideograph-daikanwa m-m)
 	      (when m
 		(setq pat (list m-m m-s))
 		(map-char-attribute (lambda (c v)
@@ -274,8 +231,7 @@
 
 ;;;###autoload
 (defun char-daikanwa (char)
-  (or (encode-char char 'ideograph-daikanwa 'defined-only)
-      (encode-char char '=daikanwa-rev2 'defined-only)
+  (or (get-char-attribute char 'ideograph-daikanwa)
       (get-char-attribute char 'morohashi-daikanwa)))
 
 ;;;###autoload
