@@ -425,58 +425,40 @@
     (=daikanwa		. 05774)	; &I-M-05774;
     ))
 (define-char
-  '((=>ucs		. #x20157)	; 𠅗
-    (ideographic-radical . 36)	; ⼣
-    (ideographic-strokes . 7)
+  '((ideographic-radical@ucs . 8)	; ⼇
+    (ideographic-strokes@ucs . 8)
+    (ideographic-radical@cns . 36)	; ⼣
+    (ideographic-strokes@cns . 7)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4E01)	; 丁
-      )
-     ((=daikanwa	  . 05763)	; &M-05763;
-      ))
-    (=daikanwa		. 05775)	; &M-05775;
-    ))
-(define-char
-  '((=>ucs		. #x20157)	; 𠅗
-    (morohashi-daikanwa	5775 0 1)
-    (ideographic-radical . 36)	; ⼣
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4E01)	; 丁
-      )
-     ((=daikanwa	  . 05763)	; &M-05763;
-      ))
-    (=cbeta		. 03754)	; &CB03754;
-    ))
-(define-char
-  '((morohashi-daikanwa	5775 0 2)
-    (ideographic-	(:radical	36 ; ⼣
-			 :strokes	7)
-			(:radical	8 ; ⼇
-			 :strokes	8))
-    (total-strokes	 . 10)
-    (->same
-     ((=daikanwa	  . 05775)	; &M-05775;
-      ))
-    (hanyu-dazidian	1 287 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4E01)	; 丁
-      )
-     ((=ucs		  . #x591C)	; 夜
-      ))
     (=ucs		. #x20157)	; 𠅗
-    (=cns11643-5	. #x2C66)	; &I-C5-2C66;
-    (=hanziku-1		. #xE153)	; &I-HZK01-E153;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4E01)	; 丁
+	)
+       ((=daikanwa	    . 05763)	; &M-05763;
+	))
+      (=daikanwa	  . 05775)	; &M-05775;
+      )
+     ((=cbeta		  . 03754)	; &CB03754;
+      )
+     ((hanyu-dazidian	  1 287 5)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4E01)	; 丁
+	)
+       ((=ucs		    . #x591C)	; 夜
+	))
+      (=cns11643-5	  . #x2C66)	; &HZK01-E153;
+      (=hanziku-1	  . #xE153)	; &I-HZK01-E153;
+      (=ucs@iso		  . #x20157)	; &HZK01-E153;
+      ))
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
