@@ -1,3 +1,10 @@
+2003-08-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-category.el (word-combining-categories): Don't setup
+	`word-combining-categories' in XEmacs CHISE.
+	(word-separating-categories): Add setting about Latin script in
+	XEmacs CHISE.
+
 2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add

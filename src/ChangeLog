@@ -1,3 +1,13 @@
+2003-08-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (put_char_table): Modify for inherited coded-charsets
+	in XEmacs CHISE.
+
+2003-08-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Fput_char_table_map_function): Fixed.
+	(word_boundary_p): Don't check charset in XEmacs CHISE.
+
 2003-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (charset_code_point): Fix problem when searching
