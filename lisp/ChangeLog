@@ -1,3 +1,9 @@
+1999-12-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Delete
+	"ccs-jisx0208-1983.el"; add "Ideograph-R031-Enclosure"
+	... "Ideograph-R214-Flute" in UTF-2000.
+
 1999-12-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/char-db-util.el (insert-char-data): Change order of
