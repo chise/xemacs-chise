@@ -115,6 +115,7 @@
     (korean-ksc5601		. #x4C69)	; ø»‰šž
     (chinese-isoir165		. #x387B)	; ø»‘ 
     (japanese-jisx0208-1990	. #x394C)	; ø½Š™·
+    (mojikyo			. 050364)	; ø¸Œ’¼
     (ucs			. #x8015)	; è€•
     ))
 (define-char
@@ -162,6 +163,7 @@
     (japanese-jisx0208		. #x4C57)	; ø»‡ˆ
     (chinese-isoir165		. #x3A44)	; ø»“¥
     (japanese-jisx0208-1990	. #x4C57)	; ø½Šµ¼
+    (mojikyo			. 050365)	; ø¸Œ’½
     (ucs			. #x8017)	; è€—
     ))
 (define-char
