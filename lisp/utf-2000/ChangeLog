@@ -1,3 +1,12 @@
+2002-03-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u03300-CJK-Compatibility.el: Reformatted.
+
+2002-03-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u02FF0-Ideographic-Description-Characters.el,
+	u02700-Dingbats.el: Reformatted.
+
 2002-03-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u025A0-Geometric-Shapes.el, u02500-Box-Drawing.el,
