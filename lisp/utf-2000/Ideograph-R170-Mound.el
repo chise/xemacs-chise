@@ -3477,6 +3477,8 @@
       ))
     (<-simplified-ideograph*sources
      songyuan-yilai-suzipu daikanwa)
+    (=gt		. 56167)	; ý¡€­§
+    (=gt-pj-7		. #x7426)	; ý¡€­§
     (=daikanwa		. 41836)	; ø¸Š¬
     (mojikyo		. 041836)	; ý €Š¬
     ))
@@ -3498,7 +3500,6 @@
     (ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (->mojikyo		. 050560)	; éš 
     (=cns11643-3	. #x4A44)	; ø»–“•
     ))
 (define-char
@@ -3746,20 +3747,31 @@
     (ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (=gt		. 56222)	; ý¡€®ž
+    (=gt-pj-8		. #x3037)	; ý¡€®ž
     (mojikyo		. 050561)	; ý €Œ–
+    ))
+(define-char
+  '((morohashi-daikanwa	41858 1 1)
+    (ideographic-radical . 170)	; â¾©
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (=gt		. 56223)	; ý¡€®Ÿ
+    (=gt-pj-10		. #x4547)	; ý¡€®Ÿ
     ))
 (define-char
   '((morohashi-daikanwa	41858 1 2)
     (ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (->mojikyo		. 050561)	; ý €Œ–
     (=cns11643-5	. #x522F)	; ø»š²¸
     ))
 (define-char
   '((ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (=gt		. 56217)	; ý¡€®™
+    (=gt-pj-8		. #x3038)	; ý¡€®™
     (=daikanwa		. 41859)	; ø¸ŠŽƒ
     ))
 (define-char
