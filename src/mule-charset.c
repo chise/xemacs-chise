@@ -1778,15 +1778,17 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
       *charset = Vcharset_ucs;
       return c;
     }
+  /*
   else if (c <= MAX_CHAR_DAIKANWA)
     {
       *charset = Vcharset_ideograph_daikanwa;
       return c - MIN_CHAR_DAIKANWA;
     }
+  */
   else if (c < MIN_CHAR_94)
     {
-      *charset = Vcharset_ucs;
-      return c;
+      *charset = Vcharset_mojikyo;
+      return c - MIN_CHAR_MOJIKYO;
     }
   else if (c <= MAX_CHAR_94)
     {
