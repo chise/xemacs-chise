@@ -3508,9 +3508,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_component) ||
 	    EQ (attribute, Q_component_of) ||
 	    !NILP (Fstring_match
-		   (build_string ("^\\(<-\\|->\\)\\(simplified"
-				  "\\|same\\|vulgar\\|wrong"
-				  "\\|original\\|ancient"
+		   (build_string ("^\\(<-\\|->\\)\\("
+				  "fullwidth\\|halfwidth"
+				  "\\|simplified\\|vulgar\\|wrong"
+				  "\\|same\\|original\\|ancient"
 				  "\\)[^*]*$"),
 		    Fsymbol_name (attribute),
 		    Qnil, Qnil)) )
