@@ -1,3 +1,21 @@
+to 21.2.44 "Thalia"
+-- Upgrade to etags 14.15 -- Francesco Potorti
+-- XEmacs now works on Unixware 7 -- Martin Buchholz
+-- Work around AIX C compiler bug causing "scroll-up has no effect" 
+   -- Martin Buchholz
+-- Fix crash in kill-emacs -- Martin Buchholz
+-- XEmacs builds with gcc 2.97 -- Martin Buchholz
+-- XEmacs builds with g++ 2.97 -- Martin Buchholz
+-- Port .gdbinit debugging support to many systems -- Martin Buchholz
+-- XEmacs builds on mips-sgi-irix6.5 with 64-bit compilers -- Martin Buchholz
+-- The C variable containing the value of a DEFVAR_INT is now
+   EMACS_INT, not int -- Martin Buchholz
+-- config.sug, config.guess upgraded to official versions -- Martin Buchholz
+-- Support mouse-6 and mouse-7 for newfangled mice -- Martin Buchholz
+-- portable dumper alignment fixes -- Martin Buchholz
+-- sound fixes -- Didier Verna
+-- Progress gauge now goes away if C-g'ed -- Andy Piper
+
 to 21.2.43 "Terspichore"
 -- Important gnuserv security fix.  Upgrade if you use gnuserv.
    -- Klaus Frank, Jan Vroonhof, Gunnar Evermann

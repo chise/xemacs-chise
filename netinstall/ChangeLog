@@ -1,3 +1,11 @@
+2001-02-08  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.44 "Thalia" is released.
+
+2001-02-02  Andy Piper  <andy@xemacs.org>
+
+	* res.rc: update mirrors.lst location.
+
 2001-01-26  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.43 "Terspichore" is released.
@@ -187,5 +195,5 @@
 
 	* all: port from cygwin setup.
 
-%%% $Id: ChangeLog,v 1.1.2.14 2001/01/24 09:22:31 andyp Exp $
-$Revision: 1.1.2.14 $
+%%% $Id: ChangeLog,v 1.1.2.16 2001/02/02 19:47:47 andyp Exp $
+$Revision: 1.1.2.16 $
