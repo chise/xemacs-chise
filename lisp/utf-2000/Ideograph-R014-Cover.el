@@ -27,7 +27,7 @@
     (ucs			. #x5197)	; 冗
     ))
 (define-char
-  '((morohashi-daikanwa	1566 5)
+  '((morohashi-daikanwa	1566 0 5)
     (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
