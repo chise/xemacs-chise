@@ -857,14 +857,8 @@
       )
      ((ucs		  . #x531A)	; åŒš
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(ucs		    . #x2FF1)	; â¿±
-	)
-       ((ucs		    . #x5927)	; å¤§
-	)
-       ((ucs		    . #x54C1)	; å“
-	))
+     ((chinese-cns11643-4 . #x3678)	; ø»˜€µ
+      (ideograph-daikanwa . 05972)	; ø¸”
       ))
     (shinjigen-1	. 798)
     (japanese-jisx0212	. #x3431)	; ø»‹€š
