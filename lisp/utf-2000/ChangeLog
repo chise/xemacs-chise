@@ -1,7 +1,7 @@
 2003-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R156-Run.el: Add some mappings between CNS 11643-5 and
-	CJK Ext-B code points.
+	* Ideograph-R158-Body.el, Ideograph-R156-Run.el: Add some mappings
+	between CNS 11643-5 and CJK Ext-B code points.
 
 	* Ideograph-R018-Knife.el (U-000206F9): Use
 	`<-ancient-ideograph*sources' instead of char-ref in
