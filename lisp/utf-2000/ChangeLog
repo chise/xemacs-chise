@@ -1,5 +1,7 @@
 2002-03-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R043-Lame.el: Merge mapping to CHINA3-JEF code points.
+
 	* Ideograph-R040-Roof.el: Merge some missing mapping to CHINA3-JEF
 	code points.
 
