@@ -1,7 +1,7 @@
 /* Random utility Lisp functions.
    Copyright (C) 1985, 86, 87, 93, 94, 95 Free Software Foundation, Inc.
    Copyright (C) 1995, 1996 Ben Wing.
-   Copyright (C) 2002, 2003 MORIOKA Tomohiko
+   Copyright (C) 2002, 2003, 2004 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -3817,13 +3817,25 @@ Lisp_Object
 simplify_char_spec (Lisp_Object char_spec)
 {
   if (CHARP (char_spec))
-    return char_spec;
+    {
+      Lisp_Object ccs;
+      int code_point = ENCODE_CHAR (XCHAR (char_spec), ccs);
+
+      if (code_point >= 0)
+	{
+	  int cid = decode_defined_char (ccs, code_point, Qnil);
+
+	  if (cid >= 0)
+	    return make_char (cid);
+	}
+      return char_spec;
+    }
   else if (INTP (char_spec))
     return Fdecode_char (Qmap_ucs, char_spec, Qnil, Qnil);
   else
     {
       Lisp_Object ret = Ffind_char (char_spec);
-      
+
       if (CHARP (ret))
 	return ret;
       else

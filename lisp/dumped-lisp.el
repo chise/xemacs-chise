@@ -121,10 +121,10 @@
 	(when-feature file-coding "code-cmds")
 	;;;;;;;;;;;;;;;;;; MULE support
 	(when-feature mule "mule-conf")
-	(when-feature mule "arabic")
-	(when-feature utf-2000 "update-cdb")
 	(when-feature mule "mule-charset")
 	(when-feature mule "mule-coding")
+	(when-feature mule "arabic")
+	(when-feature utf-2000 "update-cdb")
 	;; All files after this can have extended characters in them.
 	(when-feature mule "mule-help")
 	(when-feature mule "mule-category")

@@ -1,6 +1,6 @@
 ;;; char-db-util.el --- Character Database utility
 
-;; Copyright (C) 1998,1999,2000,2001,2002,2003 MORIOKA Tomohiko.
+;; Copyright (C) 1998,1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -70,31 +70,38 @@
     v))
 
 (defvar char-db-feature-domains
-  '(ucs daikanwa cns gt jis jis/alt jis/a jis/b misc unknown))
+  '(ucs daikanwa cns gt jis jis/alt jis/a jis/b
+	jis-x0213 misc unknown))
 
 (defvar char-db-ignored-attributes nil)
 
 (defun char-attribute-name< (ka kb)
   (cond
+   ((eq '->denotational kb)
+    t)
+   ((eq '->subsumptive kb)
+    (not (eq '->denotational ka)))
+   ((eq '->denotational ka)
+    nil)
+   ((eq '->subsumptive ka)
+    nil)
    ((find-charset ka)
-    (cond
-     ((find-charset kb)
-      (if (< (charset-id ka) 0)
-	  (if (< (charset-id kb) 0)
-	      (cond
-	       ((= (charset-dimension ka)
-		   (charset-dimension kb))
-		(< (charset-id ka)(charset-id kb)))
-	       (t
-		(> (charset-dimension ka)
-		   (charset-dimension kb))
-		))
-	    t)
-	(< (charset-id ka)(charset-id kb))))
-     ((symbolp kb)
-      nil)
-     (t
-      t)))
+    (if (find-charset kb)
+	(if (<= (charset-id ka) 0)
+	    (if (<= (charset-id kb) 0)
+		(cond
+		 ((= (charset-dimension ka)
+		     (charset-dimension kb))
+		  (> (charset-id ka)(charset-id kb)))
+		 (t
+		  (> (charset-dimension ka)
+		     (charset-dimension kb))
+		  ))
+	      t)
+	  (if (<= (charset-id kb) 0)
+	      nil
+	    (< (charset-id ka)(charset-id kb))))
+      nil))
    ((find-charset kb)
     t)
    ((symbolp ka)
@@ -139,6 +146,7 @@
     chinese-gb12345
     latin-viscii
     ethiopic-ucs
+    =big5-cdp
     =gt
     ideograph-daikanwa-2
     ideograph-daikanwa
@@ -157,7 +165,6 @@
     ideograph-hanziku-12
     =big5
     =big5-eten
-    =big5-cdp
     =gt-k
     =jef-china3))
 
@@ -190,7 +197,7 @@
 		  (dolist (ccs (delq (car ret) (charset-list)))
 		    (if (and (or (charset-iso-final-char ccs)
 				 (memq ccs
-				       '(ideograph-daikanwa
+				       '(=daikanwa
 					 =daikanwa-rev2
 					 ;; =gt-k
 					 )))
@@ -209,10 +216,11 @@
 	  ((consp char)
 	   char))))
     
-(defun char-db-insert-char-spec (char &optional readable column)
+(defun char-db-insert-char-spec (char &optional readable column
+				      required-features)
   (unless column
     (setq column (current-column)))
-  (let (char-spec ret al cal key temp-char)
+  (let (char-spec temp-char)
     (setq char-spec (char-db-make-char-spec char))
     (unless (or (characterp char) ; char
 		(condition-case nil
@@ -224,32 +232,10 @@
 					 char-spec)))
       (remove-char-attribute temp-char 'ideograph-daikanwa)
       (setq char temp-char))
-    (setq al nil
-	  cal nil)
-    (while char-spec
-      (setq key (car (car char-spec)))
-      (unless (memq key char-db-ignored-attributes)
-	(if (find-charset key)
-	    (if (encode-char char key 'defined-only)
-		(setq cal (cons key cal)))
-	  (setq al (cons key al))))
-      (setq char-spec (cdr char-spec)))
-    (unless cal
-      (setq char-spec (char-db-make-char-spec char))
-      (while char-spec
-	(setq key (car (car char-spec)))
-	(unless (memq key char-db-ignored-attributes)
-	  (if (find-charset key)
-	      (setq cal (cons key cal))
-	    (setq al (cons key al))))
-	(setq char-spec (cdr char-spec)))
-      )
-    (unless (or cal
-		(memq 'ideographic-structure al))
-      (push 'ideographic-structure al))
     (insert-char-attributes char
 			    readable
-			    (or al 'none) cal)
+                            (union (mapcar #'car char-spec)
+				   required-features))
     (when temp-char
       ;; undefine temporary character
       ;;   Current implementation is dirty.
@@ -264,7 +250,8 @@
   (let ((line-breaking
 	 (concat "\n" (make-string (1+ column) ?\ )))
 	name value
-	ret al cal key
+	ret al ; cal
+	key
 	lbs cell rest separator)
     (insert "(")
     (while alist
@@ -277,16 +264,19 @@
 			     (error nil)))
 		 (progn
 		   (setq al nil
-			 cal nil)
+			 ;; cal nil
+			 )
 		   (while value
 		     (setq key (car (car value)))
-		     (if (find-charset key)
-			 (setq cal (cons key cal))
-		       (setq al (cons key al)))
+                     ;; (if (find-charset key)
+                     ;;     (setq cal (cons key cal))
+		     (setq al (cons key al))
+		     ;; )
 		     (setq value (cdr value)))
 		   (insert-char-attributes ret
 					   readable
-					   (or al 'none) cal))
+					   (or al 'none) ; cal
+					   ))
 	       (insert (prin1-to-string value)))
 	     (insert ")")
 	     (insert line-breaking))
@@ -304,18 +294,21 @@
 		   (progn
 		     (setq rest cell
 			   al nil
-			   cal nil)
+			   ;; cal nil
+			   )
 		     (while rest
 		       (setq key (car (car rest)))
-		       (if (find-charset key)
-			   (setq cal (cons key cal))
-			 (setq al (cons key al)))
+                       ;; (if (find-charset key)
+                       ;;     (setq cal (cons key cal))
+		       (setq al (cons key al))
+		       ;; )
 		       (setq rest (cdr rest)))
 		     (if separator
 			 (insert lbs))
 		     (insert-char-attributes ret
 					     readable
-					     al cal)
+					     al ; cal
+					     )
 		     (setq separator lbs))
 		 (if separator
 		     (insert separator))
@@ -397,40 +390,7 @@
 
 (defvar char-db-convert-obsolete-format t)
 
-(defun insert-char-attributes (char &optional readable
-				    attributes ccs-attributes
-				    column)
-  (let (atr-d ccs-d)
-    (setq attributes
-	  (sort (if attributes
-		    (if (consp attributes)
-			(progn
-			  (dolist (name attributes)
-			    (unless (memq name char-db-ignored-attributes)
-			      (push name atr-d)))
-			  atr-d))
-		  (dolist (name (char-attribute-list))
-		    (unless (memq name char-db-ignored-attributes)
-		      (if (find-charset name)
-			  (push name ccs-d)
-			(push name atr-d))))
-		  atr-d)
-		#'char-attribute-name<))
-    (setq ccs-attributes
-	  (sort (if ccs-attributes
-		    (progn
-		      (setq ccs-d nil)
-		      (dolist (name ccs-attributes)
-			(unless (memq name char-db-ignored-attributes)
-			  (push name ccs-d)))
-		      ccs-d)
-		  (or ccs-d
-		      (progn
-			(dolist (name (charset-list))
-			  (unless (memq name char-db-ignored-attributes)
-			    (push name ccs-d)))
-			ccs-d)))
-		#'char-attribute-name<)))
+(defun insert-char-attributes (char &optional readable attributes column)
   (unless column
     (setq column (current-column)))
   (let (name value has-long-ccs-name rest
@@ -439,7 +399,27 @@
 	 (concat "\n" (make-string (1+ column) ?\ )))
 	lbs cell separator ret
 	key al cal
-	dest-ccss)
+	dest-ccss
+	sources required-features
+	ccss)
+    (let (atr-d)
+      (setq attributes
+	    (sort (if attributes
+		      (if (consp attributes)
+			  (progn
+			    (dolist (name attributes)
+			      (unless (memq name char-db-ignored-attributes)
+				(if (find-charset name)
+				    (push name ccss))
+				(push name atr-d)))
+			    atr-d))
+		    (dolist (name (char-attribute-list))
+		      (unless (memq name char-db-ignored-attributes)
+			(if (find-charset name)
+			    (push name ccss))
+			(push name atr-d)))
+		    atr-d)
+		  #'char-attribute-name<)))
     (insert "(")
     (when (and (memq 'name attributes)
 	       (setq value (get-char-attribute char 'name)))
@@ -487,30 +467,45 @@
 			line-breaking))
 	(setq attributes (delq name attributes))
 	))
-    (dolist (name '(=>ucs-gb =>ucs-cns =>ucs-jis =>ucs-ks =>ucs-big5))
+    ;; (dolist (name '(=>ucs-gb =>ucs-cns =>ucs-jis =>ucs-ks =>ucs-big5))
+    ;;   (when (and (memq name attributes)
+    ;;              (setq value (get-char-attribute char name)))
+    ;;     (insert (format "(%-18s . #x%04X)\t; %c%s"
+    ;;                     (intern
+    ;;                      (concat "=>ucs@"
+    ;;                              (substring (symbol-name name) 6)))
+    ;;                     value
+    ;;                     (decode-char (intern
+    ;;                                   (concat "=ucs@"
+    ;;                                           (substring
+    ;;                                            (symbol-name name) 6)))
+    ;;                                  value)
+    ;;                     line-breaking))
+    ;;     (setq attributes (delq name attributes))))
+    ;; (when (and (memq '->ucs attributes)
+    ;;            (setq value (get-char-attribute char '->ucs)))
+    ;;   (insert (format (if char-db-convert-obsolete-format
+    ;;                       "(=>ucs\t\t. #x%04X)\t; %c%s"
+    ;;                     "(->ucs\t\t. #x%04X)\t; %c%s")
+    ;;                   value (decode-char '=ucs value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '->ucs attributes))
+    ;;   )
+    (dolist (name '(=>daikanwa))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
-	(insert (format "(%-18s . #x%04X)\t; %c%s"
-			(intern
-			 (concat "=>ucs@"
-				 (substring (symbol-name name) 6)))
-			value
-			(decode-char (intern
-				      (concat "=ucs@"
-					      (substring
-					       (symbol-name name) 6)))
-				     value)
-			line-breaking))
+	(insert
+	 (if (integerp value)
+	     (format "(%-18s . %05d)\t; %c%s"
+		     name value (decode-char '=daikanwa value)
+		     line-breaking)
+	   (format "(%-18s %s)\t; %c%s"
+		   name
+		   (mapconcat (function prin1-to-string)
+			      value " ")
+		   (char-representative-of-daikanwa char)
+		   line-breaking)))
 	(setq attributes (delq name attributes))))
-    (when (and (memq '->ucs attributes)
-	       (setq value (get-char-attribute char '->ucs)))
-      (insert (format (if char-db-convert-obsolete-format
-			  "(=>ucs\t\t. #x%04X)\t; %c%s"
-			"(->ucs\t\t. #x%04X)\t; %c%s")
-		      value (decode-char '=ucs value)
-		      line-breaking))
-      (setq attributes (delq '->ucs attributes))
-      )
     (when (and (memq 'general-category attributes)
 	       (setq value (get-char-attribute char 'general-category)))
       (insert (format
@@ -832,28 +827,65 @@
       (setq attributes (delq 'hanyu-dazidian-char attributes))
       )
     (unless readable
-      (when (memq '->ucs-unified attributes)
-	(setq attributes (delq '->ucs-unified attributes))
-	)
-      (when (memq 'composition attributes)
-	(setq attributes (delq 'composition attributes))
-	))
-    (setq rest ccs-attributes)
-    (while (and rest
-		(progn
-		  (setq value (get-char-attribute char (car rest)))
-		  (if value
-		      (if (>= (length (symbol-name (car rest))) 19)
-			  (progn
-			    (setq has-long-ccs-name t)
-			    nil)
-			t)
-		    t)))
-      (setq rest (cdr rest)))
+      (dolist (ignored '(composition
+			 ->denotational <-subsumptive ->ucs-unified))
+	(setq attributes (delq ignored attributes))))
+    ;; (setq rest ccs-attributes)
+    ;; (while (and rest
+    ;;             (progn
+    ;;               (setq value (get-char-attribute char (car rest)))
+    ;;               (if value
+    ;;                   (if (>= (length (symbol-name (car rest))) 19)
+    ;;                       (progn
+    ;;                         (setq has-long-ccs-name t)
+    ;;                         nil)
+    ;;                     t)
+    ;;                 t)))
+    ;;   (setq rest (cdr rest)))
     (while attributes
       (setq name (car attributes))
       (if (setq value (get-char-attribute char name))
-	  (cond ((string-match "^=>ucs@" (symbol-name name))
+	  (cond ((setq ret (find-charset name))
+		 (setq name (charset-name ret))
+		 (if (and (not (memq name dest-ccss))
+			  (prog1
+			      (setq value (get-char-attribute char name))
+			    (setq dest-ccss (cons name dest-ccss))))
+		     (insert
+		      (format
+		       (cond ((memq name '(=daikanwa
+					   =daikanwa-rev1 =daikanwa-rev2
+					   =gt =gt-k =cbeta))
+			      (if has-long-ccs-name
+				  "(%-26s . %05d)\t; %c%s"
+				"(%-18s . %05d)\t; %c%s"))
+			     ((eq name 'mojikyo)
+			      (if has-long-ccs-name
+				  "(%-26s . %06d)\t; %c%s"
+				"(%-18s . %06d)\t; %c%s"))
+			     ((>= (charset-dimension name) 2)
+			      (if has-long-ccs-name
+				  "(%-26s . #x%04X)\t; %c%s"
+				"(%-18s . #x%04X)\t; %c%s"))
+			     (t
+			      (if has-long-ccs-name
+				  "(%-26s . #x%02X)\t; %c%s"
+				"(%-18s . #x%02X)\t; %c%s")))
+		       name
+		       (if (= (charset-iso-graphic-plane name) 1)
+			   (logior value
+				   (cond ((= (charset-dimension name) 1)
+					  #x80)
+					 ((= (charset-dimension name) 2)
+					  #x8080)
+					 ((= (charset-dimension name) 3)
+					  #x808080)
+					 (t 0)))
+			 value)
+		       (char-db-decode-isolated-char name value)
+		       line-breaking)))
+		 )
+		((string-match "^=>ucs@" (symbol-name name))
 		 (insert (format "(%-18s . #x%04X)\t; %c%s"
 				 name value (decode-char '=ucs value)
 				 line-breaking))
@@ -861,7 +893,11 @@
 		((eq name 'jisx0208-1978/4X)
 		 (insert (format "(%-18s . #x%04X)%s"
 				 name value
-				 line-breaking)))
+				 line-breaking))
+		 )
+		((and (not readable)
+		      (string-match "^->simplified" (symbol-name name)))
+		 )
 		((or (eq name 'ideographic-structure)
 		     (eq name 'ideographic-)
 		     (string-match "^\\(->\\|<-\\)" (symbol-name name)))
@@ -872,12 +908,55 @@
 		   (setq cell (car value))
                    (if (integerp cell)
 		       (setq cell (decode-char '=ucs cell)))
-		   (cond ((characterp cell)
+		   (cond ((eq name '->subsumptive)
+			  (when (or (not
+				     (some (lambda (atr)
+					     (get-char-attribute cell atr))
+					   char-db-ignored-attributes))
+				    (some (lambda (ccs)
+					    (encode-char cell ccs
+							 'defined-only))
+					  ccss))
+			    (if separator
+				(insert lbs))
+			    (let ((char-db-ignored-attributes
+				   (cons '<-subsumptive
+					 char-db-ignored-attributes)))
+			      (insert-char-attributes cell readable))
+			    (setq separator lbs))
+			  )
+			 ((characterp cell)
+			  (setq sources
+				(get-char-attribute
+				 char
+				 (intern (format "%s*sources" name))))
+			  (setq required-features nil)
+			  (dolist (source sources)
+			    (setq required-features
+				  (cons
+				   (if (find-charset
+					(setq ret (intern
+						   (format "=%s" source))))
+				       ret
+				     source)
+				   required-features)))
+			  (when (string-match "@JP" (symbol-name name))
+			    (setq required-features
+				  (union required-features
+					 '(=jis-x0208
+					   =jis-x0208-1990
+					   =jis-x0213-1-2000
+					   =jis-x0213-2-2000
+					   =jis-x0212
+					   =jis-x0208-1983
+					   =jis-x0208-1978))))
 			  (if separator
 			      (insert lbs))
 			  (if readable
 			      (insert (format "%S" cell))
-			    (char-db-insert-char-spec cell readable))
+			    (char-db-insert-char-spec cell readable
+						      nil
+						      required-features))
 			  (setq separator lbs))
 			 ((consp cell)
 			  (if separator
@@ -899,9 +978,10 @@
 			      ancient-ideograph-of
 			      vulgar-ideograph-of
 			      wrong-ideograph-of
-			      simplified-ideograph-of
+                              ;; simplified-ideograph-of
 			      ideographic-variants
-			      ideographic-different-form-of))
+                              ;; ideographic-different-form-of
+			      ))
 		 (insert (format "(%-18s%s " name line-breaking))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
 		       separator nil)
@@ -921,21 +1001,7 @@
 		   (setq value (cdr value)))
 		 (insert ")")
 		 (insert line-breaking))
-                ;; ((string-match "^->" (symbol-name name))
-                ;;  (insert
-                ;;   (format "(%-18s %s)%s"
-                ;;           name
-                ;;           (mapconcat (lambda (code)
-                ;;                        (cond ((symbolp code)
-                ;;                               (symbol-name code))
-                ;;                              ((integerp code)
-                ;;                               (format "#x%04X" code))
-                ;;                              (t
-                ;;                               (format "%s%S"
-                ;;                                       line-breaking code))))
-                ;;                      value " ")
-                ;;           line-breaking)))
-		((consp value)
+                ((consp value)
 		 (insert (format "(%-18s " name))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
 		       separator nil)
@@ -962,9 +1028,15 @@
 						 readable
 						 al cal)
 			 (setq separator lbs))
+		     (setq ret (prin1-to-string cell))
 		     (if separator
-			 (insert separator))
-		     (insert (prin1-to-string cell))
+			 (if (< (+ (current-column)
+				   (length ret)
+				   (length separator))
+				76)
+			     (insert separator)
+			   (insert lbs)))
+		     (insert ret)
 		     (setq separator " "))
 		   (setq value (cdr value)))
 		 (insert ")")
@@ -975,56 +1047,55 @@
 				 line-breaking)))
 		))
       (setq attributes (cdr attributes)))
-    (while ccs-attributes
-      (setq name (charset-name (car ccs-attributes)))
-      (if (and (not (memq name dest-ccss))
-	       (prog1
-		   (setq value (get-char-attribute char name))
-		 (setq dest-ccss (cons name dest-ccss))))
-	  (insert
-	   (format
-	    (cond ((memq name '(=daikanwa
-				=daikanwa-rev1 =daikanwa-rev2
-				=gt =gt-k =cbeta))
-		   (if has-long-ccs-name
-		       "(%-26s . %05d)\t; %c%s"
-		     "(%-18s . %05d)\t; %c%s"))
-		  ((eq name 'mojikyo)
-		   (if has-long-ccs-name
-		       "(%-26s . %06d)\t; %c%s"
-		     "(%-18s . %06d)\t; %c%s"))
-		  ((>= (charset-dimension name) 2)
-		   (if has-long-ccs-name
-		       "(%-26s . #x%04X)\t; %c%s"
-		     "(%-18s . #x%04X)\t; %c%s"))
-		  (t
-		   (if has-long-ccs-name
-		       "(%-26s . #x%02X)\t; %c%s"
-		     "(%-18s . #x%02X)\t; %c%s")))
-	    name
-	    (if (= (charset-iso-graphic-plane name) 1)
-		(logior value
-			(cond ((= (charset-dimension name) 1)
-			       #x80)
-			      ((= (charset-dimension name) 2)
-			       #x8080)
-			      ((= (charset-dimension name) 3)
-			       #x808080)
-			      (t 0)))
-	      value)
-            (char-db-decode-isolated-char name value)
-	    line-breaking)))
-      (setq ccs-attributes (cdr ccs-attributes)))
+    ;; (while ccs-attributes
+    ;;   (setq name (charset-name (car ccs-attributes)))
+    ;;   (if (and (not (memq name dest-ccss))
+    ;;            (prog1
+    ;;                (setq value (get-char-attribute char name))
+    ;;              (setq dest-ccss (cons name dest-ccss))))
+    ;;       (insert
+    ;;        (format
+    ;;         (cond ((memq name '(=daikanwa
+    ;;                             =daikanwa-rev1 =daikanwa-rev2
+    ;;                             =gt =gt-k =cbeta))
+    ;;                (if has-long-ccs-name
+    ;;                    "(%-26s . %05d)\t; %c%s"
+    ;;                  "(%-18s . %05d)\t; %c%s"))
+    ;;               ((eq name 'mojikyo)
+    ;;                (if has-long-ccs-name
+    ;;                    "(%-26s . %06d)\t; %c%s"
+    ;;                  "(%-18s . %06d)\t; %c%s"))
+    ;;               ((>= (charset-dimension name) 2)
+    ;;                (if has-long-ccs-name
+    ;;                    "(%-26s . #x%04X)\t; %c%s"
+    ;;                  "(%-18s . #x%04X)\t; %c%s"))
+    ;;               (t
+    ;;                (if has-long-ccs-name
+    ;;                    "(%-26s . #x%02X)\t; %c%s"
+    ;;                  "(%-18s . #x%02X)\t; %c%s")))
+    ;;         name
+    ;;         (if (= (charset-iso-graphic-plane name) 1)
+    ;;             (logior value
+    ;;                     (cond ((= (charset-dimension name) 1)
+    ;;                            #x80)
+    ;;                           ((= (charset-dimension name) 2)
+    ;;                            #x8080)
+    ;;                           ((= (charset-dimension name) 3)
+    ;;                            #x808080)
+    ;;                           (t 0)))
+    ;;           value)
+    ;;         (char-db-decode-isolated-char name value)
+    ;;         line-breaking)))
+    ;;   (setq ccs-attributes (cdr ccs-attributes)))
     (insert ")")))
 
 (defun insert-char-data (char &optional readable
-			      attributes ccs-attributes)
+			      attributes)
   (save-restriction
     (narrow-to-region (point)(point))
     (insert "(define-char
   '")
-    (insert-char-attributes char readable
-			    attributes ccs-attributes)
+    (insert-char-attributes char readable attributes)
     (insert ")\n")
     (goto-char (point-min))
     (while (re-search-forward "[ \t]+$" nil t)

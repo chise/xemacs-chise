@@ -1,5 +1,5 @@
 /* Header for UCS-4 character representation.
-   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -70,38 +70,38 @@ typedef short Charset_ID;
 /* ISO/IEC 10646 BMP */
 #define LEADING_BYTE_UCS_BMP		-176
 
-/* ISO/IEC 10646 SMP */
-#define LEADING_BYTE_UCS_SMP		1
-
-/* ISO/IEC 10646 SIP */
-#define LEADING_BYTE_UCS_SIP		2
-
 /* Japanese JIS X0208 Common	2/4 2/{(8),9,10,11} 4/2 (B) */
-#define LEADING_BYTE_JIS_X0208 		3
+#define LEADING_BYTE_JIS_X0208 		0
 
 /* Chinese GB 12345-1990 */
-#define LEADING_BYTE_CHINESE_GB12345	4
+#define LEADING_BYTE_CHINESE_GB12345	1
 
-#define LEADING_BYTE_CHINESE_BIG5	5
+#define LEADING_BYTE_CHINESE_BIG5	2
 
 /* Big5 Level 1			2/4 2/{(8),9,10,11} 4/0 '0' */
-#define LEADING_BYTE_CHINESE_BIG5_1	6
+#define LEADING_BYTE_CHINESE_BIG5_1	3
 
 /* Big5 Level 2			2/4 2/{(8),9,10,11} 4/0 '1' */
-#define LEADING_BYTE_CHINESE_BIG5_2	7
+#define LEADING_BYTE_CHINESE_BIG5_2	4
 
 /* VISCII 1.1 */
-#define LEADING_BYTE_LATIN_VISCII	8
+#define LEADING_BYTE_LATIN_VISCII	5
 
 /* MULE VISCII-LOWER			(CHARSET_ID_OFFSET_96 + '1') */
-#define LEADING_BYTE_LATIN_VISCII_LOWER	9
+#define LEADING_BYTE_LATIN_VISCII_LOWER	6
 
 /* MULE VISCII-UPPER			(CHARSET_ID_OFFSET_96 + '2') */
-#define LEADING_BYTE_LATIN_VISCII_UPPER	10
+#define LEADING_BYTE_LATIN_VISCII_UPPER	7
 
-#define LEADING_BYTE_ETHIOPIC_UCS	11
+#define LEADING_BYTE_ETHIOPIC_UCS	8
 
-#define MIN_LEADING_BYTE_PRIVATE	12
+/* ISO/IEC 10646 SMP */
+#define LEADING_BYTE_UCS_SMP		9
+
+/* ISO/IEC 10646 SIP */
+#define LEADING_BYTE_UCS_SIP		10
+
+#define MIN_LEADING_BYTE_PRIVATE	11
 #define MAX_LEADING_BYTE_PRIVATE	512
 
 
@@ -703,6 +703,30 @@ encode_char_1 (Emchar ch, Lisp_Object* charset)
   return encode_builtin_char_1 (ch, charset);
 }
 
+INLINE_HEADER int encode_char_2 (Emchar ch, Lisp_Object* charset);
+INLINE_HEADER int
+encode_char_2 (Emchar ch, Lisp_Object* charset)
+{
+  Lisp_Object charsets = Vdefault_coded_charset_priority_list;
+
+  while (!NILP (charsets))
+    {
+      *charset = Ffind_charset (Fcar (charsets));
+      if ( !NILP (*charset)
+	   && (XCHARSET_DIMENSION (*charset) <= 2) )
+	{
+	  int code_point = charset_code_point (*charset, ch, 0);
+
+	  if (code_point >= 0)
+	    return code_point;
+	}
+      charsets = Fcdr (charsets);	      
+    }
+  
+  /* otherwise --- maybe for bootstrap */
+  return encode_builtin_char_1 (ch, charset);
+}
+
 #define ENCODE_CHAR(ch, charset)	encode_char_1 (ch, &(charset))
 
 INLINE_HEADER void
@@ -761,7 +785,7 @@ CHAR_TO_CHARC (Emchar ch)
 {
   Charc cc;
 
-  cc.code_point = encode_char_1 (ch, &cc.charset);
+  cc.code_point = encode_char_2 (ch, &cc.charset);
   return cc;
 }
 

@@ -1,24 +1,24 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
-;; Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko.
+;; Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
-;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
+;; Keywords: CHISE, Chaon model, ISO/IEC 10646, Unicode, UCS-4, MULE.
 
-;; This file is part of XEmacs UTF-2000.
+;; This file is part of XEmacs CHISE.
 
-;; XEmacs UTF-2000 is free software; you can redistribute it and/or
+;; XEmacs CHISE is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
 ;; published by the Free Software Foundation; either version 2, or (at
 ;; your option) any later version.
 
-;; XEmacs UTF-2000 is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; XEmacs CHISE is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs UTF-2000; see the file COPYING.  If not, write to
+;; along with XEmacs CHISE; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -33,7 +33,7 @@
   (let (ret)
     (or (catch 'tag
 	  (dolist (domain char-db-feature-domains)
-	    (if (and (setq ret (get-char-attribute
+	    (if (and (setq ret (char-feature
 				char
 				(intern
 				 (format "%s@%s"
@@ -47,7 +47,7 @@
 		     (or (eq ret radical)
 			 (null radical)))
 		(throw 'tag ret))))
-	(get-char-attribute char 'ideographic-radical)
+	(char-feature char 'ideographic-radical)
 	(progn
 	  (setq ret
 		(or (get-char-attribute char 'daikanwa-radical)
@@ -85,33 +85,43 @@
    11 12 12 12 12 13 13 13 13 14
    14 15 16 16 17])
 
-(defun char-ideographic-strokes (char &optional radical)
+;;;###autoload
+(defun char-ideographic-strokes-from-domains (char domains &optional radical)
   (let (ret)
-    (or (catch 'tag
-	  (dolist (domain char-db-feature-domains)
-	    (if (and (setq ret (or (get-char-attribute
-				    char
-				    (intern
-				     (format "%s@%s"
-					     'ideographic-radical domain)))
-				   (get-char-attribute
-				    char 'ideographic-radical)))
-		     (or (eq ret radical)
-			 (null radical))
-		     (setq ret (get-char-attribute
+    (catch 'tag
+      (dolist (domain domains)
+	(if (and (setq ret (or (char-feature
 				char
 				(intern
 				 (format "%s@%s"
-					 'ideographic-strokes domain)))))
-		(throw 'tag ret))))
-	(catch 'tag
+					 'ideographic-radical domain)))
+			       (char-feature
+				char 'ideographic-radical)))
+		 (or (eq ret radical)
+		     (null radical))
+		 (setq ret (char-feature
+			    char
+			    (intern
+			     (format "%s@%s"
+				     'ideographic-strokes domain)))))
+	    (throw 'tag ret))))))
+
+;;;###autoload
+(defun char-ideographic-strokes (char &optional radical preferred-domains)
+  (let (ret)
+    (or (catch 'tag
 	  (dolist (cell (get-char-attribute char 'ideographic-))
 	    (if (and (setq ret (plist-get cell :radical))
 		     (or (eq ret radical)
 			 (null radical)))
 		(throw 'tag (plist-get cell :strokes)))))
-	(get-char-attribute char 'daikanwa-strokes)
+	(char-ideographic-strokes-from-domains
+	 char preferred-domains radical)
 	(get-char-attribute char 'ideographic-strokes)
+	(char-ideographic-strokes-from-domains
+	 char char-db-feature-domains radical)
+	(char-feature char 'ideographic-strokes)
+	(get-char-attribute char 'daikanwa-strokes)
 	(let ((strokes
 	       (or (get-char-attribute char 'kangxi-strokes)
 		   (get-char-attribute char 'japanese-strokes)
@@ -126,36 +136,52 @@
 	    strokes)))))
 
 ;;;###autoload
+(defun char-total-strokes-from-domains (char domains)
+  (let (ret)
+    (catch 'tag
+      (dolist (domain domains)
+	(if (setq ret (get-char-attribute
+		       char
+		       (intern
+			(format "%s@%s"
+				'total-strokes domain))))
+	    (throw 'tag ret))))))
+
+;;;###autoload
+(defun char-total-strokes (char &optional preferred-domains)
+  (or (char-total-strokes-from-domains char preferred-domains)
+      (get-char-attribute char 'total-strokes)
+      (char-total-strokes-from-domains char char-db-feature-domains)))
+
+;;;###autoload
 (defun update-ideograph-radical-table ()
   (interactive)
   (let (ret radical script)
-    (dolist (domain char-db-feature-domains)
+    (dolist (feature
+	     (cons 'ideographic-radical
+		   (mapcar
+		    (lambda (domain)
+		      (intern (format "%s@%s" 'ideographic-radical domain)))
+		    char-db-feature-domains)))
       (map-char-attribute
-       (lambda (char radical)
-	 (when (and radical
-		    (or (null (setq script (get-char-attribute char 'script)))
-			(memq 'Ideograph script)))
-	   (unless (memq char
-			 (setq ret
-			       (aref ideograph-radical-chars-vector radical)))
-	     (char-ideographic-strokes char)
-	     (aset ideograph-radical-chars-vector radical
-		   (cons char ret))))
+       (lambda (chr radical)
+	 (dolist (char (cons chr
+			     (get-char-attribute chr '->denotational)))
+	   (when (and radical
+		      (eq radical
+			  (char-ideographic-radical char radical))
+		      (or (null (setq script
+				      (get-char-attribute char 'script)))
+			  (memq 'Ideograph script)))
+	     (unless (memq char
+			   (setq ret
+				 (aref ideograph-radical-chars-vector
+				       radical)))
+	       (char-ideographic-strokes char)
+	       (aset ideograph-radical-chars-vector radical
+		     (cons char ret)))))
 	 nil)
-       (intern (format "%s@%s" 'ideographic-radical domain))))
-    (map-char-attribute
-     (lambda (char radical)
-       (when (and radical
-		  (or (null (setq script (get-char-attribute char 'script)))
-		      (memq 'Ideograph script)))
-	 (unless (memq char
-		       (setq ret
-			     (aref ideograph-radical-chars-vector radical)))
-	   (char-ideographic-strokes char)
-	   (aset ideograph-radical-chars-vector radical
-		 (cons char ret))))
-       nil)
-     'ideographic-radical)
+       feature))
     (map-char-attribute
      (lambda (char data)
        (dolist (cell data)
@@ -213,9 +239,13 @@
   (if (or (encode-char char 'ideograph-daikanwa 'defined-only)
 	  (encode-char char '=daikanwa-rev2 'defined-only))
       char
-    (let ((m (get-char-attribute char 'morohashi-daikanwa))
+    (let ((m (char-feature char '=>daikanwa))
 	  m-m m-s pat)
-      (or (when m
+      (or (and (integerp m)
+	       (or (decode-char '=daikanwa-rev2 m 'defined-only)
+		   (decode-char 'ideograph-daikanwa m)))
+	  (when (or m
+		    (setq m (get-char-attribute char 'morohashi-daikanwa)))
 	    (setq m-m (pop m))
 	    (setq m-s (pop m))
 	    (if (= m-s 0)
@@ -265,23 +295,27 @@
   (unless radical
     (setq radical ideographic-radical))
   (let ((drc (char-representative-of-daikanwa char)))
-    (char-ideographic-strokes
-     (if (= (char-ideographic-radical drc radical)
-	    (char-ideographic-radical char radical))
-	 drc
-       char)
-     radical)))
+    (if (= (char-ideographic-radical drc radical)
+	   (char-ideographic-radical char radical))
+	(setq char drc)))
+  (char-ideographic-strokes char radical '(daikanwa)))
 
 ;;;###autoload
 (defun char-daikanwa (char)
   (or (encode-char char 'ideograph-daikanwa 'defined-only)
       (encode-char char '=daikanwa-rev2 'defined-only)
-      (get-char-attribute char 'morohashi-daikanwa)))
+      (get-char-attribute char 'morohashi-daikanwa)
+      (let ((ret (char-feature char '=>daikanwa)))
+	(and ret
+	     (if (or (get-char-attribute char '<-subsumptive)
+		     (get-char-attribute char '<-denotational))
+		 (list ret 0)
+	       ret)))))
 
 ;;;###autoload
 (defun char-ucs (char)
   (or (encode-char char '=ucs 'defined-only)
-      (get-char-attribute char '=>ucs)))
+      (char-feature char '=>ucs)))
 
 (defun char-id (char)
   (logand (char-int char) #x3FFFFFFF))
@@ -300,23 +334,30 @@
 	 (sort (copy-list (aref ideograph-radical-chars-vector radical))
 	       (lambda (a b)
 		 (ideograph-char< a b radical))))
-	attributes ccss)
+	attributes ; ccss
+	)
     (dolist (name (char-attribute-list))
       (unless (memq name char-db-ignored-attributes)
-	(if (find-charset name)
-	    (push name ccss)
-	  (push name attributes))))
+        ;; (if (find-charset name)
+        ;;     (push name ccss)
+	(push name attributes)
+	;; )
+	))
     (setq attributes (sort attributes #'char-attribute-name<)
-	  ccss (sort ccss #'char-attribute-name<))
+	  ;; ccss (sort ccss #'char-attribute-name<)
+	  )
     (aset ideograph-radical-chars-vector radical chars)
     (dolist (char chars)
-      (when (or (not (some (lambda (atr)
-			     (get-char-attribute char atr))
-			   char-db-ignored-attributes))
-		(some (lambda (ccs)
-			(encode-char char ccs 'defined-only))
-		      ccss))
-	(insert-char-data char nil attributes ccss)))))
+      (when ;;(or
+	  (not (some (lambda (atr)
+		       (get-char-attribute char atr))
+		     char-db-ignored-attributes))
+	;; (some (lambda (ccs)
+	;;         (encode-char char ccs 'defined-only))
+	;;       ccss)
+	;;)
+	(insert-char-data char nil attributes ;ccss
+			  )))))
 
 (defun write-ideograph-radical-char-data (radical file)
   (if (file-directory-p file)
@@ -377,6 +418,40 @@
 			    (unless (or rest value)
 			      char)))
 			'ideographic-structure)))
+
+;;;###autoload
+(defun chise-string< (string1 string2 accessors)
+  (let ((len1 (length string1))
+	(len2 (length string2))
+	len
+	(i 0)
+	c1 c2
+	rest func
+	v1 v2)
+    (setq len (min len1 len2))
+    (catch 'tag
+      (while (< i len)
+	(setq c1 (aref string1 i)
+	      c2 (aref string2 i))
+	(setq rest accessors)
+	(while (and rest
+		    (setq func (car rest))
+		    (setq v1 (funcall func c1)
+			  v2 (funcall func c2))
+		    (eq v1 v2))
+	  (setq rest (cdr rest)))
+	(if v1
+	    (if v2
+		(cond ((< v1 v2)
+		       (throw 'tag t))
+		      ((> v1 v2)
+		       (throw 'tag nil)))
+	      (throw 'tag nil))
+	  (if v2
+	      (throw 'tag t)))
+	(setq i (1+ i)))
+      (< len1 len2))))
+
 
 (provide 'ideograph-util)
 

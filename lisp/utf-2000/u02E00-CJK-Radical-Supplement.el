@@ -4,6 +4,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x20120)	; ð „ 
+      ))
     (=ucs		. #x2E80)	; âº€
     ))
 (define-char
@@ -428,6 +431,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x725B)	; ç‰›
+      ))
     (=ucs		. #x2EA7)	; âº§
     (=big5-cdp		. #x8B66)	; ý¢€ˆ­¦
     ))
@@ -472,7 +478,23 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x76EE)	; ç›®
+      ))
     (=ucs		. #x2EAB)	; âº«
+    ))
+(define-char
+  '((=>ucs		. #x2EAB)	; âº«
+    (ideographic-radical . 109)	; â½¬
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x76EE)	; ç›®
+      ))
+    (=big5-cdp		. #x8B48)	; ý¢€ˆ­ˆ
+    (=gt		. 36329)	; ý¡€ˆ·©
+    (=gt-k		. 01549)	; ý¡„€˜
+    (=gt-pj-5		. #x7264)	; ý¡€ˆ·©
     ))
 (define-char
   '((name		. "CJK RADICAL SPIRIT ONE")
@@ -635,34 +657,30 @@
     ))
 (define-char
   '((name		. "CJK RADICAL MEAT")
+    (=>daikanwa		. 29237)	; ý¡€‰¡
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x8089)	; è‚‰
+      ))
     (=ucs		. #x2EBC)	; âº¼
-    (=gt		. 37857)	; ý¡€‰¡
-    (=gt-pj-6		. #x3879)	; ý¡€‰¡
-    (=daikanwa		. 29237)	; ø¸‡ˆµ
-    ))
-(define-char
-  '((=>ucs		. #x2EBC)	; âº¼
-    (morohashi-daikanwa	29237 0 1)
-    (ideographic-radical . 130)	; â¾
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=big5-cdp		. #x8958)	; ý¢€ˆ¥˜
-    (=gt-k		. 00417)	; ý¡„€†¡
-    (=gt-pj-k1		. #x377D)	; ý¢€ˆ¥˜
-    ))
-(define-char
-  '((=>ucs		. #x2EBC)	; âº¼
-    (morohashi-daikanwa	29237 0 0)
-    (ideographic-radical . 130)	; â¾
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=big5-cdp		. #x8A73)	; ý¢€ˆ©³
+    (->subsumptive
+     ((=gt		  . 37857)	; ý¡€‰¡
+      (=gt-pj-6		  . #x3879)	; ý¡€‰¡
+      (=daikanwa	  . 29237)	; ø¸‡ˆµ
+      )
+     ((=ucs@unicode	  . #x2EBC)	; ó°€€
+      )
+     ((=big5-cdp	  . #x8A73)	; ý¢€ˆ©³
+      )
+     ((=big5-cdp	  . #x8958)	; ý¢€ˆ¥˜
+      (=gt-k		  . 00417)	; ý¡„€†¡
+      (=gt-pj-k1	  . #x377D)	; ý¢€ˆ¥˜
+      ))
     ))
 (define-char
   '((name		. "CJK RADICAL MORTAR")
@@ -834,8 +852,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x2ECD)	; â»
-    (=jis-x0213-2-2000	. #x796A)	; ø»¦Ÿ™
     (=jis-x0212		. #x6134)	; ø»Œ‚£
+    (=jis-x0213-2-2000	. #x796A)	; ø»¦Ÿ™
     (=gt		. 51643)	; ý¡€Œ¦»
     (=gt-k		. 00580)	; ý¡„€‰„
     (=gt-pj-7		. #x5530)	; ý¡€Œ¦»
@@ -939,6 +957,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x96E8)	; é›¨
+      ))
     (=ucs		. #x2ED7)	; â»—
     ))
 (define-char
@@ -1006,13 +1027,32 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x98DF)	; é£Ÿ
+      ))
     (=ucs		. #x2EDE)	; â»ž
+    ))
+(define-char
+  '((=>ucs		. #x2EDE)	; â»ž
+    (morohashi-daikanwa	44014 0 6)
+    (ideographic-radical . 184)	; â¾·
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x98DF)	; é£Ÿ
+      ))
+    (=gt		. 59030)	; ý¡€Žš–
+    (=gt-k		. 06140)	; ý¡„Ÿ¼
+    (=gt-pj-9		. #x4F28)	; ý¡€Žš–
     ))
 (define-char
   '((name		. "CJK RADICAL EAT THREE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x98DF)	; é£Ÿ
+      ))
     (<-radical
      ((=ucs		  . #x98E0)	; é£ 
       ))
@@ -1023,6 +1063,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x98DF)	; é£Ÿ
+      ))
     (<-radical
      ((=ucs		  . #x9963)	; é¥£
       ))
