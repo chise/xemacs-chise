@@ -4,7 +4,7 @@
    Copyright (C) 1995, 1996 Ben Wing.
    Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
-   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -68,10 +68,11 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 #ifdef UTF2000
 
 #define BT_UINT8_MIN		0
-#define BT_UINT8_MAX	(UCHAR_MAX - 3)
-#define BT_UINT8_t	(UCHAR_MAX - 2)
-#define BT_UINT8_nil	(UCHAR_MAX - 1)
-#define BT_UINT8_unbound UCHAR_MAX
+#define BT_UINT8_MAX		(UCHAR_MAX - 4)
+#define BT_UINT8_t		(UCHAR_MAX - 3)
+#define BT_UINT8_nil		(UCHAR_MAX - 2)
+#define BT_UINT8_unbound	(UCHAR_MAX - 1)
+#define BT_UINT8_unloaded	UCHAR_MAX
 
 INLINE_HEADER int INT_UINT8_P (Lisp_Object obj);
 INLINE_HEADER int UINT8_VALUE_P (Lisp_Object obj);
@@ -95,14 +96,16 @@ INT_UINT8_P (Lisp_Object obj)
 INLINE_HEADER int
 UINT8_VALUE_P (Lisp_Object obj)
 {
-  return EQ (obj, Qunbound)
+  return EQ (obj, Qunloaded) || EQ (obj, Qunbound)
     || EQ (obj, Qnil) || EQ (obj, Qt) || INT_UINT8_P (obj);
 }
 
 INLINE_HEADER unsigned char
 UINT8_ENCODE (Lisp_Object obj)
 {
-  if (EQ (obj, Qunbound))
+  if (EQ (obj, Qunloaded))
+    return BT_UINT8_unloaded;
+  else if (EQ (obj, Qunbound))
     return BT_UINT8_unbound;
   else if (EQ (obj, Qnil))
     return BT_UINT8_nil;
@@ -115,7 +118,9 @@ UINT8_ENCODE (Lisp_Object obj)
 INLINE_HEADER Lisp_Object
 UINT8_DECODE (unsigned char n)
 {
-  if (n == BT_UINT8_unbound)
+  if (n == BT_UINT8_unloaded)
+    return Qunloaded;
+  else if (n == BT_UINT8_unbound)
     return Qunbound;
   else if (n == BT_UINT8_nil)
     return Qnil;
@@ -285,10 +290,11 @@ map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Emchar ofs, int place,
 }
 
 #define BT_UINT16_MIN		0
-#define BT_UINT16_MAX	 (USHRT_MAX - 3)
-#define BT_UINT16_t	 (USHRT_MAX - 2)
-#define BT_UINT16_nil	 (USHRT_MAX - 1)
-#define BT_UINT16_unbound USHRT_MAX
+#define BT_UINT16_MAX	 	(USHRT_MAX - 4)
+#define BT_UINT16_t	 	(USHRT_MAX - 3)
+#define BT_UINT16_nil		(USHRT_MAX - 2)
+#define BT_UINT16_unbound	(USHRT_MAX - 1)
+#define BT_UINT16_unloaded	USHRT_MAX
 
 INLINE_HEADER int INT_UINT16_P (Lisp_Object obj);
 INLINE_HEADER int UINT16_VALUE_P (Lisp_Object obj);
@@ -311,14 +317,16 @@ INT_UINT16_P (Lisp_Object obj)
 INLINE_HEADER int
 UINT16_VALUE_P (Lisp_Object obj)
 {
-  return EQ (obj, Qunbound)
+  return EQ (obj, Qunloaded) || EQ (obj, Qunbound)
     || EQ (obj, Qnil) || EQ (obj, Qt) || INT_UINT16_P (obj);
 }
 
 INLINE_HEADER unsigned short
 UINT16_ENCODE (Lisp_Object obj)
 {
-  if (EQ (obj, Qunbound))
+  if (EQ (obj, Qunloaded))
+    return BT_UINT16_unloaded;
+  else if (EQ (obj, Qunbound))
     return BT_UINT16_unbound;
   else if (EQ (obj, Qnil))
     return BT_UINT16_nil;
@@ -331,7 +339,9 @@ UINT16_ENCODE (Lisp_Object obj)
 INLINE_HEADER Lisp_Object
 UINT16_DECODE (unsigned short n)
 {
-  if (n == BT_UINT16_unbound)
+  if (n == BT_UINT16_unloaded)
+    return Qunloaded;
+  else if (n == BT_UINT16_unbound)
     return Qunbound;
   else if (n == BT_UINT16_nil)
     return Qnil;
@@ -344,7 +354,9 @@ UINT16_DECODE (unsigned short n)
 INLINE_HEADER unsigned short
 UINT8_TO_UINT16 (unsigned char n)
 {
-  if (n == BT_UINT8_unbound)
+  if (n == BT_UINT8_unloaded)
+    return BT_UINT16_unloaded;
+  else if (n == BT_UINT8_unbound)
     return BT_UINT16_unbound;
   else if (n == BT_UINT8_nil)
     return BT_UINT16_nil;
@@ -1056,6 +1068,7 @@ mark_char_table (Lisp_Object obj)
 #ifdef UTF2000
 
   mark_object (ct->table);
+  mark_object (ct->name);
 #else
   int i;
 
@@ -1384,6 +1397,7 @@ static const struct lrecord_description char_table_description[] = {
 #ifdef UTF2000
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, table) },
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, default_value) },
+  { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, name) },
 #else
   { XD_LISP_OBJECT_ARRAY, offsetof (Lisp_Char_Table, ascii), NUM_ASCII_CHARS },
 #ifdef MULE
@@ -1582,6 +1596,8 @@ and 'syntax.  See `valid-char-table-type-p'.
     }
   else
     ct->mirror_table = Qnil;
+#else
+  ct->name = Qnil;
 #endif
   ct->next_table = Qnil;
   XSETCHAR_TABLE (obj, ct);
@@ -1654,6 +1670,8 @@ as CHAR-TABLE.  The values will not themselves be copied.
   ctnew->type = ct->type;
 #ifdef UTF2000
   ctnew->default_value = ct->default_value;
+  /* [tomo:2002-01-21] Perhaps this code seems wrong */
+  ctnew->name = ct->name;
 
   if (UINT8_BYTE_TABLE_P (ct->table))
     {
@@ -2996,12 +3014,44 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 				  Vchar_attribute_hash_table,
 				  Qnil);
 
+#ifdef HAVE_DATABASE
+    {
+      Lisp_Object db;
+      Lisp_Object db_dir = Vdata_directory;
+      Lisp_Object db_file;
+
+      if (NILP (table))
+	{
+	  table = make_char_id_table (Qunbound);
+	  /* table = make_char_id_table (Qunloaded); */
+	  Fputhash (attribute, table, Vchar_attribute_hash_table);
+	  XCHAR_TABLE_NAME (table) = Fsymbol_name (attribute);
+	}
+      if (NILP (db_dir))
+	db_dir = build_string ("../etc");
+      db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
+      db_file = Fexpand_file_name (XCHAR_TABLE_NAME (table), db_dir);
+      db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
+      if (!NILP (db))
+	{
+	  Fput_database (Fchar_to_string (character),
+			 Fprin1_to_string (value, Qnil),
+			 db, Qt);
+	  /* put_char_id_table (XCHAR_TABLE(table), character, value); */
+	  put_char_id_table (XCHAR_TABLE(table), character, Qunloaded);
+	  Fclose_database (db);
+	}
+      else
+	put_char_id_table (XCHAR_TABLE(table), character, value);
+    }
+#else
     if (NILP (table))
       {
 	table = make_char_id_table (Qunbound);
 	Fputhash (attribute, table, Vchar_attribute_hash_table);
       }
     put_char_id_table (XCHAR_TABLE(table), character, value);
+#endif
     return value;
   }
 }
