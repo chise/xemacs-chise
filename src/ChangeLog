@@ -1,3 +1,12 @@
+2001-08-14  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
+	* mule-charset.c (Vcharset_ucs_jis): New variable.
+	(Qucs_jis): Likewise.
+	(syms_of_mule_charset): Add new symbol `ucs-jis'.
+	(complex_vars_of_mule_charset): Add new coded-charset `ucs-jis'.
+
+	* char-ucs.h (LEADING_BYTE_UCS_JIS): New macro.
+
 2001-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (map_over_uint8_byte_table): New function.
