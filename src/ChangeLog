@@ -1,3 +1,14 @@
+2001-08-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Change arguments; add new
+	argument `ccs'.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_id_table): Add new argument `range' like
+	`map_char_table'.
+	(Fmap_char_attribute): Add new argument `range' like
+	`Fmap_char_table'.
+
 2001-08-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (map_over_uint8_byte_table): Change interface of
