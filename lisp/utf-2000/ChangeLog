@@ -1,3 +1,12 @@
+2001-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R083-Clan.el: Merge missing JIS X 0208 code points.
+
+2001-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R082-Fur.el, Ideograph-R081-Compare.el,
+	Ideograph-R080-Do-Not.el: Merge missing JIS X 0208 code points.
+
 2001-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (insert-char-attributes): Fix format for
