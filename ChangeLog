@@ -1,3 +1,61 @@
+2002-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* etc/char-data/B-to-UCS.txt, etc/char-data/J90-to-UCS.txt,
+	etc/char-data/JSP-to-UCS.txt, etc/char-data/JX1-to-UCS.txt,
+	etc/char-data/JX2-to-UCS.txt: New files.
+
+2002-07-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* etc/char-data/GT-RS.txt: Moved from etc/GT-RS.txt.
+
+2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Makefile.in.in (COPYDIR): Add ${srcdir}/lib-src/char-db if
+	HAVE_CHISE_CLIENT is defined.
+	(COPYDESTS): Add ${archlibdir}/char-db if HAVE_CHISE_CLIENT is
+	defined.
+
+	* configure.in: Define HAVE_CHISE_CLIENT when HAVE_DATABASE and
+	UTF2000 are defined.
+
+2001-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in: Don't define `HAVE_GGC' in XEmacs UTF-2000.
+
+2001-08-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in (all-elc all-elcs): Add lisp/utf-2000 as a target
+	to byte-compile if compiling with --utf-2000.
+	(lisp/auto-autoloads.el): Add setting for lisp/utf-2000 if
+	compiling with --utf-2000.
+
+2000-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in: Define `HAVE_GGC' if with-utf-2000 is specified.
+
+1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in: Add new option `--with-text-coding'; define
+	`TEXT_CODING' if it is specified.
+
+1999-08-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in:
+	- Delete `--with-ucs4' option.
+	- Display message about UTF-2000 if "$with_utf_2000" = yes.
+
+1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in:
+	- Add new option `--with-ucs4'; define `CHAR_IS_UCS4' if it is
+	  specified.
+	- Define `CHAR_IS_UCS4' if `--with-utf-2000' is specified.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
+	if it is specified.
+
 2001-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.2 "Developer-Friendly Unix APIs" is released.
@@ -331,7 +389,7 @@
 
 	* XEmacs 21.2.38 is released.
 
-2000-11-26  Bjrn Torkelsson  <torkel@hpc2n.umu.se>
+2000-11-26  Björn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* configure.in: Only show message about DnD API if compiling with DnD
 
@@ -1168,6 +1226,10 @@
 
 	* etc/HELLO (Thai): Modify for new font.
 
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* etc/TUTORIAL.th: Change code to tis-620.
+
 1999-07-22  SL Baur  <steve@beopen.com>
 
 	* configure.in: add sco7 support
@@ -1672,7 +1734,7 @@
 
 	* config.guess: Synched with latest FSF version.
 
-1998-07-12  Bjrn Torkelsson  <torkel@hpc2n.umu.se>
+1998-07-12  Björn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* Makefile.in: added LDFLAGS.
 

@@ -1,6 +1,7 @@
 /* Random utility Lisp functions.
    Copyright (C) 1985, 86, 87, 93, 94, 95 Free Software Foundation, Inc.
    Copyright (C) 1995, 1996 Ben Wing.
+   Copyright (C) 2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -3759,6 +3760,56 @@ Characters out of the base64 alphabet are ignored.
   return result;
 }
 
+Lisp_Object Qideographic_structure;
+Lisp_Object Qkeyword_char;
+
+EXFUN (Fideographic_structure_to_ids, 1);
+
+Lisp_Object ids_format_unit (Lisp_Object ids_char);
+Lisp_Object
+ids_format_unit (Lisp_Object ids_char)
+{
+  if (CHARP (ids_char))
+    return Fchar_to_string (ids_char);
+  else if (INTP (ids_char))
+    return Fchar_to_string (Fdecode_char (Qucs, ids_char, Qnil));
+  else
+    {
+      Lisp_Object ret = Ffind_char (ids_char);
+
+      if (CHARP (ret))
+	return Fchar_to_string (ret);
+      else
+	{
+	  ret = Fassq (Qideographic_structure, ids_char);
+
+	  if (CONSP (ret))
+	    return Fideographic_structure_to_ids (XCDR (ret));
+	}
+    }
+  return Qnil;
+}
+
+DEFUN ("ideographic-structure-to-ids",
+       Fideographic_structure_to_ids, 1, 1, 0, /*
+Format ideographic-structure IDS-LIST as an IDS-string.
+*/
+       (ids_list))
+{
+  Lisp_Object dest = Qnil;
+
+  while (CONSP (ids_list))
+    {
+      Lisp_Object cell = XCAR (ids_list);
+
+      if (!NILP (Fchar_ref_p (cell)))
+	cell = Fplist_get (cell, Qkeyword_char, Qnil);
+      dest = concat2 (dest, ids_format_unit (cell));
+      ids_list = XCDR (ids_list);
+    }
+  return dest;
+}
+
 Lisp_Object Qyes_or_no_p;
 
 void
@@ -3768,6 +3819,8 @@ syms_of_fns (void)
 
   defsymbol (&Qstring_lessp, "string-lessp");
   defsymbol (&Qidentity, "identity");
+  defsymbol (&Qideographic_structure, "ideographic-structure");
+  defsymbol (&Qkeyword_char, ":char");
   defsymbol (&Qyes_or_no_p, "yes-or-no-p");
 
   DEFSUBR (Fidentity);
@@ -3854,6 +3907,7 @@ syms_of_fns (void)
   DEFSUBR (Fbase64_encode_string);
   DEFSUBR (Fbase64_decode_region);
   DEFSUBR (Fbase64_decode_string);
+  DEFSUBR (Fideographic_structure_to_ids);
 }
 
 void

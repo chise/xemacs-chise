@@ -486,6 +486,8 @@ while test $# != 0; do
 	with_xfs	| \
 	with_i18n3	| \
 	with_mule	| \
+	with_utf_2000	| \
+	with_text_coding| \
 	with_file_coding| \
 	with_canna	| \
 	with_wnn	| \
@@ -3589,11 +3591,21 @@ if test "$with_mule" = "yes" ; then
   AC_CHECKING(for Mule-related features)
   AC_DEFINE(MULE)
   AC_DEFINE(FILE_CODING)
-  XE_ADD_OBJS(mule.o mule-ccl.o mule-charset.o file-coding.o)
-
+  XE_ADD_OBJS(mule.o mule-ccl.o mule-charset.o)
+  if test "$with_utf_2000" = "yes" && test "$with_text_coding" = "yes"; then
+    AC_DEFINE(TEXT_CODING)
+    XE_ADD_OBJS(text-coding.o)
+  else
+    XE_ADD_OBJS(file-coding.o)
+  fi
   dnl Use -lintl to get internationalized strerror for Mule
   AC_CHECK_HEADERS(libintl.h)
   AC_CHECK_LIB(intl, strerror)
+
+  if test "$with_utf_2000" = "yes" ; then
+    AC_DEFINE(CHAR_IS_UCS4)
+    AC_DEFINE(UTF2000)
+  fi
 
   AC_CHECKING(for Mule input methods)
   dnl Do we have the XmIm* routines?  And if so, do we want to use them?
@@ -4296,6 +4308,9 @@ if test "$with_database_gdbm $with_database_dbm $with_database_berkdb" \
      != "no no no"; then
   AC_DEFINE(HAVE_DATABASE)
   XE_ADD_OBJS(database.o)
+  if test "$with_utf_2000" = "yes"; then
+    AC_DEFINE(HAVE_CHISE_CLIENT)
+  fi
 fi
 
 dnl Socks support
@@ -4908,6 +4923,8 @@ fi
 echo "
 Internationalization:"
 test "$with_mule" = yes && echo "  Compiling in support for Mule (multi-lingual Emacs)."
+test "$with_utf_2000" = yes && echo "  Using UTF-2000 (UTF-8) buffer/string representation."
+test "$with_text_coding" = yes && echo "  Compiling in support for text coding."
 test "$with_file_coding" = yes && echo "  Compiling in support for file coding."
 test "$with_xim" != no && echo "  Compiling in support for XIM (X11R5+ I18N input method)."
 test "$with_xim" = motif && echo "    - Using Motif to provide XIM support."
