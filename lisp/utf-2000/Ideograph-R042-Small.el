@@ -272,40 +272,69 @@
   '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (<-denotational
+     ((=big5		  . #xA97C)	; &B-A97C;
+      ))
     (=ucs		. #x5C19)	; 尙
-    (=ks-x1001		. #x5F46)	; &I-K0-5F46; [63-38]
-    (=big5-cdp		. #xA97C)	; &I-B-A97C;
-    (=daikanwa		. 07493)	; &I-M-07493;
-    (=jef-china3	. #x4AD3)	; &I-JC3-4AD3;
+    (->subsumptive
+     ((=ks-x1001	  . #x5F46)	; &M-07493; [63-38]
+      (=daikanwa	  . 07493)	; &I-M-07493;
+      (=jef-china3	  . #x4AD3)	; &I-JC3-4AD3;
+      (=ucs@unicode	  . #x5C19)	; &M-07493;
+      )
+     ((=cns11643-3	  . #x2851)	; &C3-2851; [08-49]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x5C19)	; 尙
-    (morohashi-daikanwa	7493 0 0)
-    (ideographic-radical . 42)	; ⼩
+  '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=cns11643-3	. #x2851)	; &C3-2851; [08-49]
+    (=big5		. #xA97C)	; &B-A97C;
+    (=jis-x0208@1997	. #x3E30)	; &B-A97C; [30-16]
+    (=ucs@big5		. #x5C1A)	; &B-A97C;
     ))
 (define-char
   '((morohashi-daikanwa	7493 1)
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (<-denotational
+     ((=big5		  . #xA97C)	; &B-A97C;
+      ))
     (=ucs		. #x5C1A)	; 尚
     (=jis-x0208		. #x3E30)	; &I-J90-3E30; [30-16]
     (=gb2312		. #x4950)	; &I-G0-4950; [41-48]
     (=cns11643-1	. #x4C7E)	; &I-C1-4C7E; [44-94]
-    (=big5		. #xA97C)	; &I-B-A97C;
     (=gt		. 09446)	; &I-GT-09446;
     (=gt-k		. 03743)	; &I-GT-K03743;
     (=gt-pj-1		. #x3E30)	; &I-GT-09446; [30-16]
     ))
 (define-char
-  '((=>ucs		. #x5C1A)	; 尚
-    (morohashi-daikanwa	7493 1 5)
-    (ideographic-radical . 42)	; ⼩
+  '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (<-denotational
+     ((=ucs		  . #x5C1A)	; 尚
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x5C1A)	; 尚
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL SMALL ONE")
+	(=ucs		    . #x2E8C)	; ⺌
+	)
+       ((=ucs		    . #x5196)	; 冖
+	))
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
     (=gt-k		. 05014)	; &GT-K05014;
     (=gt-pj-k1		. #x3242)	; &GT-K05014; [18-34]
     ))
