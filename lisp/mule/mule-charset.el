@@ -268,6 +268,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  cyrillic-iso8859-5
 	  greek-iso8859-7
 	  thai-tis620
+	  hiragana-jisx0208
+	  katakana-jisx0208
 	  hebrew-iso8859-8
 	  vietnamese-viscii-lower
 	  vietnamese-viscii-upper)))
