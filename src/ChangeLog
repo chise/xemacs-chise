@@ -1,3 +1,17 @@
+1999-11-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fget_char_attribute): If ATTRIBUTE is a name of
+	charset, it is regarded as a charset.
+	(put_char_attribute): New function in UTF-2000.
+	(Fput_char_attribute): If ATTRIBUTE is a charset or a name of
+	charset, mapping-table of the charset is modified.
+	(Fdefine_char): New function in UTF-2000.
+	(Fset_charset_mapping_table): Use `put_char_attribute' instead of
+	`Fput_char_attribute'.
+	(syms_of_mule_charset): Add new function `define-char' and new
+	symbol `ucs' in UTF-2000.
+	(vars_of_mule_charset): Update `utf-2000-version' to 0.11 (Shiki).
+
 1999-10-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (Fcharset_name): Define `byte_offset' in
