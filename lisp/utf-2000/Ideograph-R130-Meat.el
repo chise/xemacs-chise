@@ -10416,7 +10416,7 @@
     (->identical
      ((=cns11643-6	  . #x5D5C)	; ø»³
       ))
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 49158)	; ø¸Œ€†
       ))
     (hanyu-dazidian	3 2104 5)
@@ -10427,7 +10427,7 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 49158)	; ø¸Œ€†
       )
      ((=cns11643-6	  . #x5D5C)	; ø»³
@@ -11260,7 +11260,7 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (->same-ideograph
+    (->same
      ((=jis-x0208	  . #x6733)	; ø½‹‚
       ))
     (=ucs		. #x81A4)	; è†¤

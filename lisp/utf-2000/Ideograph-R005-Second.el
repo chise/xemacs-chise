@@ -1231,7 +1231,7 @@
 			(:radical	5 ; â¼„
 			 :strokes	7))
     (total-strokes	 . 8)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 21712)	; ø¸…“
       ))
     (hanyu-dazidian	1 55 3)

@@ -4562,7 +4562,7 @@
     (ideographic-radical . 124)	; â½»
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (->same-ideograph
+    (->same
      (:char	((=daikanwa	     . 28818)	; ø¸‡‚’
 		 )
       :sources	(morohashi-daikanwa)))

@@ -171,7 +171,7 @@
     (ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (->same-ideograph
+    (->same
      ((ideographic-radical . 9)	; â¼ˆ
       (=daikanwa	  . 00360)	; ø¸€…¨
       ))

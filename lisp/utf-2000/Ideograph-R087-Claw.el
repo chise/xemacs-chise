@@ -355,10 +355,10 @@
       ))
     (->ancient-ideograph*sources
      daikanwa)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 00214)	; ø¸€ƒ–
       ))
-    (->same-ideograph*sources
+    (->same*sources
      shuowen daikanwa)
     (=gt		. 25281)	; ý¡€†‹
     (=gt-k		. 09318)	; ý¡„‚‘¦
@@ -417,7 +417,7 @@
     (->identical
      ((=cns11643-6	  . #x4743)	; ø»œ­†
       ))
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 04811)	; ø¸‹‹
       ))
     (hanyu-dazidian	3 2033 18)

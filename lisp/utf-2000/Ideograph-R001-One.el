@@ -1890,7 +1890,7 @@
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 00104)	; ø¸€¨
       ))
     (<-ancient-ideograph
@@ -1933,7 +1933,7 @@
     (ideographic-radical@cns*sources
      cns11643)
     (total-strokes	 . 8)
-    (->same-ideograph
+    (->same
      ((ideographic-radical . 1)	; â¼€
       (=daikanwa	  . 00059)	; ø¸€€»
       ))
@@ -2324,7 +2324,7 @@
 			(:radical	1 ; â¼€
 			 :strokes	11))
     (total-strokes	 . 12)
-    (->same-ideograph
+    (->same
      ((=cns11643-6	  . #x472D)	; ø»œ¬°
       ))
     (hanyu-dazidian	1 26 11)

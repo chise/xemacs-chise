@@ -5370,7 +5370,7 @@
     (ideographic-radical . 115)	; â½²
     (ideographic-strokes . 16)
     (total-strokes	 . 21)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 48869)	; ø¸‹»¥
       ))
     (<-ancient-ideograph

@@ -113,7 +113,7 @@
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 01911)	; ø¸€·
       )
      ((=ucs		  . #x521D)	; åˆ

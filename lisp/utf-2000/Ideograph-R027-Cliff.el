@@ -1534,7 +1534,7 @@
   '((ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 44029)	; ø¸Š¯½
       ))
     (=ucs		. #x20A78)	; ð ©¸
@@ -3100,7 +3100,7 @@
     (ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
-    (->same-ideograph
+    (->same
      ((ideographic-radical . 212)	; â¿“
       (=daikanwa	  . 48819)	; ø¸‹º³
       ))

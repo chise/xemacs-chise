@@ -65,7 +65,7 @@
     (ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 00210)	; ø¸€ƒ’
       ))
     (shinjigen-1	. 9917)
@@ -241,7 +241,7 @@
     (ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 5)
     (total-strokes	 . 21)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 25381)	; ø¸†Œ¥
       ))
     (<-ancient-ideograph

@@ -1578,7 +1578,7 @@
 			(:radical	8 ; â¼‡
 			 :strokes	8))
     (total-strokes	 . 10)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 05775)	; ø¸š
       ))
     (hanyu-dazidian	1 287 5)
@@ -2147,7 +2147,7 @@
   '((ideographic-radical . 8)	; â¼‡
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 23981)	; ø¸…¶­
       ))
     (hanyu-dazidian	1 290 1)
@@ -2623,7 +2623,7 @@
 			(:radical	8 ; â¼‡
 			 :strokes	13))
     (total-strokes	 . 15)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 04326)	; ø¸ƒ¦
       ))
     (hanyu-dazidian	1 292 8)
@@ -2694,7 +2694,7 @@
 			(:radical	8 ; â¼‡
 			 :strokes	13))
     (total-strokes	 . 15)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 49510)	; ø¸Œ…¦
       ))
     (hanyu-dazidian	1 292 5)

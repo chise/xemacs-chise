@@ -176,7 +176,7 @@
     (ideographic-radical . 203)	; â¿Š
     (ideographic-strokes . 3)
     (total-strokes	 . 15)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 05469)	; ø¸•
       ))
     (=cns11643-1	. #x702E)	; ø»’¶«

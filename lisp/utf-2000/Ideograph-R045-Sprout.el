@@ -297,7 +297,7 @@
   '((ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 00157)	; ø¸€‚
       ))
     (<-original-ideograph

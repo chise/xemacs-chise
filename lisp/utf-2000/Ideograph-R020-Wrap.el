@@ -232,7 +232,7 @@
   '((ideographic-radical . 20)	; â¼“
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (->same-ideograph
+    (->same
      ((ideographic-radical . 4)	; â¼ƒ
       (=daikanwa	  . 00129)	; ø¸€‚
       ))

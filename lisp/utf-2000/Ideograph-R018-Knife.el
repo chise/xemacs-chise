@@ -5946,7 +5946,7 @@
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 00938)	; ø¸€Žª
       )
      (:char	((=daikanwa	     . 00768)	; ø¸€Œ€
@@ -7201,10 +7201,10 @@
     (ideographic-radical@cns . 118)	; â½µ
     (ideographic-strokes@cns . 8)
     (total-strokes	 . 14)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 26149)	; ø¸†˜¥
       ))
-    (->same-ideograph*sources
+    (->same*sources
      kouin kangxi daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -7899,7 +7899,7 @@
   '((ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (->same-ideograph
+    (->same
      (:char	((=daikanwa	     . 02228)	; ø¸€¢´
 		 )
       :sources	(gyokuhen morohashi-daikanwa)))

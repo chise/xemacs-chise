@@ -28,7 +28,7 @@
     (ideographic-radical . 23)	; â¼–
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 02596)	; ø¸€¨¤
       ))
     (=cns11643-6	. #x212B)	; ø»›´º
@@ -295,7 +295,7 @@
 			(:radical	23 ; â¼–
 			 :strokes	6))
     (total-strokes	 . 8)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 02683)	; ø¸€©»
       ))
     (hanyu-dazidian	1 85 14)

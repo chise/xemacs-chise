@@ -3554,10 +3554,10 @@
     (ideographic-radical@cns . 118)	; â½µ
     (ideographic-strokes@cns . 8)
     (total-strokes	 . 14)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 26149)	; ø¸†˜¥
       ))
-    (->same-ideograph*sources
+    (->same*sources
      kouin kangxi daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

@@ -565,7 +565,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (->same-ideograph
+    (->same
      ((ideographic-radical . 15)	; â¼Ž
       ))
     (<-original-ideograph
@@ -758,7 +758,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (->same-ideograph
+    (->same
      (:sources	(morohashi-daikanwa)
       :char	((=>ucs		     . #x5167)	; å…§
 		 (ideographic-radical . 11)	; â¼Š
@@ -8912,7 +8912,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 23937)	; ø¸…¶
       ))
     (<-original-ideograph
@@ -18358,7 +18358,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 02134)	; ø¸€¡–
       )
      (:char	((=daikanwa	     . 00768)	; ø¸€Œ€
@@ -20547,7 +20547,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 23328)	; ø¸…¬ 
       ))
     (=ucs		. #x2032A)	; ð Œª
@@ -22806,7 +22806,7 @@
 			 :strokes	11
 			 :sources	(ucs)))
     (total-strokes	 . 13)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 49471)	; ø¸Œ„¿
       ))
     (hanyu-dazidian	1 210 15)

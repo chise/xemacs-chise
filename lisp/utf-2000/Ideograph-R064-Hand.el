@@ -14530,7 +14530,7 @@
     (ideographic-radical . 64)	; â¼¿
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (->same-ideograph
+    (->same
      ((=ucs		  . #x2F8C5)	; ð¯£…
       ))
     (=ucs		. #x649D)	; æ’
@@ -19984,7 +19984,7 @@
   '((ideographic-radical . 64)	; â¼¿
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 26763)	; ø¸†¢‹
       ))
     (hanyu-dazidian	3 1991 1)

@@ -1512,10 +1512,10 @@
   '((ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 41704)	; ø¸Š‹¨
       ))
-    (->same-ideograph*sources
+    (->same*sources
      zhonghua-dazidian daikanwa)
     (=daikanwa		. 41676)	; ø¸Š‹Œ
     ))
@@ -4543,7 +4543,7 @@
   '((ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 23)
     (total-strokes	 . 31)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 19650)	; ø¸„³‚
       ))
     (=ucs		. #x28F75)	; ð¨½µ

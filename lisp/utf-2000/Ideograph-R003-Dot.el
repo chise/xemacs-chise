@@ -235,7 +235,7 @@
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (->same-ideograph
+    (->same
      ((=ucs		  . #x2007E)	; ð ¾
       )
      ((=daikanwa	  . 02840)	; ø¸€¬˜
@@ -384,7 +384,7 @@
     (ideographic-radical@cns*sources
      cns11643)
     (total-strokes	 . 8)
-    (->same-ideograph
+    (->same
      ((ideographic-radical . 1)	; â¼€
       (=daikanwa	  . 00059)	; ø¸€€»
       ))

@@ -2428,7 +2428,7 @@
     (ideographic-radical . 72)	; â½‡
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 14294)	; ø¸ƒŸ–
       ))
     (=cns11643-6	. #x3836)	; ø»œ–·

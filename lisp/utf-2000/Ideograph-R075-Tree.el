@@ -7671,7 +7671,7 @@
   '((ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 05784)	; ø¸š˜
       ))
     (<-vulgar-ideograph

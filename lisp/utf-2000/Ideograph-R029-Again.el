@@ -2293,7 +2293,7 @@
     (->identical
      ((=cns11643-6	  . #x537B)	; ø»œ¿¦
       ))
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 16642)	; ø¸„„‚
       ))
     (=ucs		. #x20B81)	; ð ®

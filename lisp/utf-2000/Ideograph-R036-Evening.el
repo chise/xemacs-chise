@@ -449,7 +449,7 @@
 			(:radical	8 ; â¼‡
 			 :strokes	8))
     (total-strokes	 . 10)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 05775)	; ø¸š
       ))
     (hanyu-dazidian	1 287 5)
@@ -609,7 +609,7 @@
     (ideographic-radical . 36)	; â¼£
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 14871)	; ø¸ƒ¨—
       ))
     (<-vulgar-ideograph

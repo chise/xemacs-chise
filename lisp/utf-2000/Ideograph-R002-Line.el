@@ -45,10 +45,10 @@
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 02775)	; ø¸€«—
       ))
-    (->same-ideograph*sources
+    (->same*sources
      daikanwa)
     (<-ancient-ideograph
      ((=daikanwa	  . 02774)	; ø¸€«–
@@ -276,7 +276,7 @@
 			(:radical	2 ; â¼
 			 :strokes	4))
     (total-strokes	 . 5)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 04684)	; ø¸‰Œ
       ))
     (hanyu-dazidian	1 29 3)

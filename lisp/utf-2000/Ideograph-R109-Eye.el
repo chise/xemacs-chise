@@ -3397,7 +3397,7 @@
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (->same-ideograph
+    (->same
      ((=ucs		  . #x2F949)	; 䀹
       ))
     (=ucs		. #x4039)	; 䀹

@@ -3745,7 +3745,7 @@
     (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (->same-ideograph
+    (->same
      ((=ucs		  . #x2F83E)	; ð¯ ¾
       ))
     (=ucs		. #x5448)	; å‘ˆ
@@ -11360,7 +11360,7 @@
   '((ideographic-radical . 30)	; â¼
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 21715)	; ø¸…““
       ))
     (hanyu-dazidian	1 626 2)
@@ -13216,7 +13216,7 @@
     (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (->same-ideograph
+    (->same
      ((=ucs		  . #x2F843)	; ð¯¡ƒ
       ))
     (=ucs		. #x5553)	; å•“
@@ -17672,7 +17672,7 @@
 			(:radical	1 ; â¼€
 			 :strokes	11))
     (total-strokes	 . 12)
-    (->same-ideograph
+    (->same
      ((=cns11643-6	  . #x472D)	; ø»œ¬°
       ))
     (hanyu-dazidian	1 26 11)
@@ -25151,7 +25151,7 @@
 			(:radical	8 ; â¼‡
 			 :strokes	13))
     (total-strokes	 . 15)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 04326)	; ø¸ƒ¦
       ))
     (hanyu-dazidian	1 292 8)

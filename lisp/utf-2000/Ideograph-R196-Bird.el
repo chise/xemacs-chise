@@ -4851,7 +4851,7 @@
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 9)
     (total-strokes	 . 20)
-    (->same-ideograph
+    (->same
      ((=ucs		  . #x2FA0E)	; 䳭
       ))
     (=ucs		. #x4CED)	; 䳭

@@ -4451,7 +4451,7 @@
     (->identical
      ((=cns11643-6	  . #x333E)	; ø»œ©
       ))
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 23187)	; ø¸…ª“
       ))
     (=ucs		. #x26B5D)	; ð¦­
@@ -37526,7 +37526,7 @@
     (->identical
      ((=cns11643-7	  . #x6248)	; ø»Ÿž¹
       ))
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 24881)	; ø¸†„±
       ))
     (hanyu-dazidian	5 3339 4)
