@@ -2792,6 +2792,14 @@
     (=cns11643-4	. #x5E6B)	; ø»˜»˜
     ))
 (define-char
+  '((morohashi-daikanwa	44833 1)
+    (ideographic-radical . 187)	; â¾º
+    (ideographic-strokes . 8)
+    (total-strokes	 . 18)
+    (=gt		. 60342)	; ý¡€Ž®¶
+    (=gt-pj-8		. #x4E41)	; ý¡€Ž®¶
+    ))
+(define-char
   '((morohashi-daikanwa	44833 1 1)
     (ideographic-radical . 187)	; â¾º
     (ideographic-strokes . 8)
