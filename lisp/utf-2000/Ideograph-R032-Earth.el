@@ -5505,7 +5505,7 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (<-original-ideograph
+    (<-original
      ((=daikanwa	  . 05030)	; &I-M-05030;
       ))
     (=ucs		. #x2F855)	; 型
