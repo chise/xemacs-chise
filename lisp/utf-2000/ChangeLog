@@ -1,3 +1,13 @@
+2002-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R110-Spear.el, Ideograph-R106-White.el,
+	Ideograph-R108-Dish.el, Ideograph-R109-Eye.el,
+	Ideograph-R097-Melon.el, Ideograph-R098-Tile.el,
+	Ideograph-R100-Life.el, Ideograph-R101-Use.el,
+	Ideograph-R102-Field.el, Ideograph-R104-Sickness.el,
+	Ideograph-R096-Jade.el: Add some missing mappings to CHINA3-JEF
+	code points.
+
 2002-07-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R038-Woman.el (U-000218B7): Fixed.
