@@ -34,6 +34,7 @@ Boston, MA 02111-1307, USA.  */
              loosely based on the original Mule.
    Jareth Hein: fixed a couple of bugs in the implementation, and
    	     added regex support for categories with check_category_at
+   MORIOKA Tomohiko: Rewritten for XEmacs UTF-2000
  */
 
 #include <config.h>
@@ -67,6 +68,8 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 #if defined(HAVE_DATABASE)
 EXFUN (Fload_char_attribute_table, 1);
 EXFUN (Fmap_char_attribute, 3);
+
+Lisp_Object Vchar_db_stingy_mode;
 #endif
 
 #define BT_UINT8_MIN		0
@@ -3493,7 +3496,8 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
 	  Lisp_Object db_file
 	    = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
 
-	  cit->db = Fopen_database (db_file, Qnil, Qnil, build_string ("r"), Qnil);
+	  cit->db = Fopen_database (db_file, Qnil, Qnil,
+				    build_string ("r"), Qnil);
 	}
       if (!NILP (cit->db))
 	{
@@ -3504,6 +3508,11 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
 	    val = Fread (val);
 	  else
 	    val = Qunbound;
+	  if (!NILP (Vchar_db_stingy_mode))
+	    {
+	      Fclose_database (cit->db);
+	      cit->db = Qnil;
+	    }
 	  return val;
 	}
     }
@@ -3522,7 +3531,7 @@ For internal use.  Don't use it.
 {
   Lisp_Object c = Fread (key);
   Emchar code = XCHAR (c);
-  Lisp_Object ret = get_char_id_table (char_attribute_table_to_load, code);
+  Lisp_Object ret = get_char_id_table_0 (char_attribute_table_to_load, code);
 
   if (EQ (ret, Qunloaded))
     put_char_id_table_0 (char_attribute_table_to_load, code, Fread (value));
@@ -3548,7 +3557,8 @@ Load values of ATTRIBUTE into database file.
 	  Lisp_Object db_file
 	      = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
 
-	  ct->db = Fopen_database (db_file, Qnil, Qnil, build_string ("r"), Qnil);
+	  ct->db = Fopen_database (db_file, Qnil, Qnil,
+				   build_string ("r"), Qnil);
 	}
       if (!NILP (ct->db))
 	{
@@ -4163,6 +4173,12 @@ vars_of_chartab (void)
 
   staticpro (&Vcharacter_variant_table);
   Vcharacter_variant_table = make_char_id_table (Qunbound);
+
+#ifdef HAVE_DATABASE
+  DEFVAR_LISP ("char-db-stingy-mode", &Vchar_db_stingy_mode /*
+*/ );
+  Vchar_db_stingy_mode = Qt;
+#endif /* HAVE_DATABASE */
 #endif
   /* DO NOT staticpro this.  It works just like Vweak_hash_tables. */
   Vall_syntax_tables = Qnil;
