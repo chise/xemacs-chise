@@ -1222,7 +1222,9 @@ The function takes one or two arguments.
 The first argument, TEXT, is a string containing
 the text which should be made available.
 The second, PUSH, if non-nil means this is a \"new\" kill;
-nil means appending to an \"old\" kill."
+nil means appending to an \"old\" kill.
+
+One reasonable choice is `own-clipboard' (the default)."
   :type '(radio (function-item :tag "Send to Clipboard"
 			       :format "%t\n"
 			       own-clipboard)
@@ -1230,7 +1232,7 @@ nil means appending to an \"old\" kill."
 		(function :tag "Other"))
   :group 'killing)
 
-(defcustom interprogram-paste-function 'get-clipboard
+(defcustom interprogram-paste-function 'get-clipboard-foreign
   "Function to call to get text cut from other programs.
 
 Most window systems provide some sort of facility for cutting and
@@ -1248,10 +1250,13 @@ than Emacs has provided a string for pasting; if Emacs provided the
 most recent string, the function should return nil.  If it is
 difficult to tell whether Emacs or some other program provided the
 current string, it is probably good enough to return nil if the string
-is equal (according to `string=') to the last text Emacs provided."
+is equal (according to `string=') to the last text Emacs provided.
+
+Reasonable choices include `get-clipboard-foreign' (the default), and
+functions calling `get-selection-foreign' (q.v.)."
   :type '(radio (function-item :tag "Get from Clipboard"
 			       :format "%t\n"
-			       get-clipboard)
+			       get-clipboard-foreign)
 		(const :tag "None" nil)
 		(function :tag "Other"))
   :group 'killing)

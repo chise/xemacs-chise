@@ -4364,6 +4364,32 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2002-05-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.8 "Honest Recruiter" is released.
+
+2002-05-07  Nix  <nix@esperi.demon.co.uk>
+
+	Supersedes 2002-04-17 patch.
+
+	* process.h (PROCESS_LIVE_P): Use the process status as
+	evidence of health, not the state of the input stream.
+	(PROCESS_READABLE_P): Say if the process is readable
+	from. (It may be dead nonetheless.)
+	(CHECK_READABLE_PROCESS): Test for that condition.
+
+	* process.c (create_process): Use PROCESS_READABLE_P.
+	(read_process_output, set_process_filter): Likewise.
+
+	* process.c (Fprocess_input_coding_system): Use CHECK_READABLE_PROCESS.
+	(Fset_process_input_coding_system, Fprocess_coding_system): Likewise.
+
+	This code is #if 0'd, this is not the time to add new functions:
+
+	* process.c (Fprocess_readable_p): Report readability status.
+	* process.c (Qprocess_readable_p): New, associated symbol...
+	* process.c (syms_of_process): ... initialize it.
+
 2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.7 "Economic Science" is released.
