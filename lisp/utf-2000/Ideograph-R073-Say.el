@@ -100,6 +100,7 @@
     (=big5		. #xA7F3)	; ý¢€ŠŸ³
     (=daikanwa		. 14283)	; ø¸ƒŸ‹
     (=jef-china3	. #x51FB)	; øº…‡»
+    (=ucs@big5		. #x66F4)	; ø»‚Ÿ¨
     ))
 (define-char
   '((morohashi-daikanwa	14283 0 0)
@@ -274,7 +275,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((=ucs		  . #x66F0)	; æ›°
+     ((=cns11643-1	  . #x454B)	; ø»‘·¾
       )
      ((=ucs		  . #x52A9)	; åŠ©
       ))
@@ -341,6 +342,7 @@
     (=gt-pj-1		. #x413D)	; ý¡€„š·
     (=daikanwa		. 14299)	; ø¸ƒŸ›
     (=ucs@jis		. #x66FE)	; ø½Š¥˜
+    (=ucs@big5		. #x66FE)	; ø½Š¥˜
     ))
 (define-char
   '((morohashi-daikanwa	14299 0 2)
