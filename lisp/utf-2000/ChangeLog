@@ -1,5 +1,27 @@
 2003-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R134-Mortar.el: Reformatted.
+	(GT-K01569): New character.
+
+	* Ideograph-R132-Self.el (U+81ED): Unify JU+FA5C.
+	(U+FA5C): New character.
+
+	* Ideograph-R125-Old.el (JX1-7A44): Unify U+FA5B and KU+8005; add
+	mapping for CU-0002F97A.
+	(U-0002F97A): Add mapping for JU+FA5B and KU+8005.
+
+	* Ideograph-R122-Net.el: Reformatted.
+	(M-28201): Separate JSP-5475 and U+7F53; unify G0-3854, C4-2152,
+	BE-C8A2, CDP-85BE and U+5188.
+	(U+34C1): Unify CDP-8C7E.
+	(JX1-7A3A): Unify U+FA5A and KU+7F72.
+
+	* Ideograph-R079-Weapon.el (M-16634): Separate U+6BB9.
+	(JSP-4631): Separate C4-3250.
+
+	* Ideograph-R072-Sun.el: Reformatted.
+	(M-14050): Separate C3-4156.
+
 	* Ideograph-R124-Feather.el: Reformatted.
 	(GT-K01762): New character.
 	(JC3-60A5): Add `ideographic-structure'.
