@@ -1,3 +1,41 @@
+2002-01-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (BT_UINT8_unloaded): New macro.
+	(UINT8_VALUE_P): Accept Qunloaded.
+	(UINT8_ENCODE): Likewise.
+	(UINT8_DECODE): Likewise.
+	(BT_UINT16_unloaded): New macro.
+	(UINT16_VALUE_P): Accept Qunloaded.
+	(UINT16_ENCODE): Likewise.
+	(UINT16_DECODE): Likewise.
+	(UINT8_TO_UINT16): Convert BT_UINT8_unloaded into
+	BT_UINT16_unloaded.
+	(mark_char_table): Mark `ct->name' in UTF-2000.
+	(char_table_description): Add `name' in UTF-2000.
+	(Fmake_char_table): Initialize `ct->name'.
+	(Fcopy_char_table): Copy `ct->name'.
+	(Fput_char_attribute): Store value into an external database if
+	HAVE_DATABASE is defined.
+
+	* chartab.h (struct Lisp_Char_Table): Add new member `name' in
+	UTF-2000.
+	(CHAR_TABLE_NAME): New macro in UTF-2000.
+	(XCHAR_TABLE_NAME): New macro in UTF-2000.
+	(get_char_id_table): Try to read an external database if Qunloaded
+	is stored in a table.
+
+	* symbols.c (init_symbols_once_early): Assign '#<unloaded> into
+	Qunloaded.
+
+2002-01-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* database.h: Add EXFUN definitions for Fopen_database,
+	Fput_database, Fget_database and Fclose_database.
+
+	* data.c (Qunloaded): New variable in UTF-2000.
+
+	* lisp.h (Qunloaded): New variable in UTF-2000.
+
 2002-01-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (put_char_ccs_code_point): Modify for
