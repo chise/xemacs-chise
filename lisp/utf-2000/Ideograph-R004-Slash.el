@@ -543,6 +543,20 @@
     (ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (ideographic-structure
+     (:cdp-combinator	2
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+		 (ucs		     . #x2FF1)	; â¿±
+		 )
+      )
+     ((chinese-big5-cdp	  . #x8B47)	; ä¸¿
+      (ucs		  . #x4E3F)	; ä¸¿
+      )
+     ((japanese-jisx0208-1978	  . #x4737)	; ø»‚´Š
+      (japanese-jisx0208	  . #x4737)	; ø»‡ˆ’
+      (korean-ksc5601		  . #x717D)	; ø»Š‘ˆ
+      (ideograph-daikanwa	  . 00125)	; ø¸€½
+      ))
     (shinjigen-1	. 52)
     (shinjigen-2	. 50)
     (japanese-jisx0208-1978	. #x4B33)	; ø»‚¹¾
