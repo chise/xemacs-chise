@@ -15235,9 +15235,12 @@
     (ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (korean-ksc5601	. #x4B48)	; ø»‰˜Ÿ
-    (china3-jef		. #x53FA)	; øº…º
-    (ideograph-gt	. 19861)	; ý¡€„¶•
+    (korean-ksc5601		. #x4B48)	; ø»‰˜Ÿ
+    (japanese-jisx0213-1	. #x7624)	; ø»¤µ
+    (china3-jef			. #x53FA)	; øº…º
+    (ucs-jis			. #x69EA)	; ø»‰˜Ÿ
+    (ucs-ks			. #x69EA)	; ø»‰˜Ÿ
+    (ideograph-gt		. 19861)	; ý¡€„¶•
     ))
 (define-char
   '((ideographic-radical . 75)	; â½Š
