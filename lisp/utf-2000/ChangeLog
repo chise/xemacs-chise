@@ -1,3 +1,32 @@
+2004-04-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R177-Leather.el (J90-7057): Moved into U+9771; use
+	`<-vulgar@{ruijumyougishou|tongwen-tongkao}' instead of
+	`<-vulgar'.
+	(U+9771): Use `->subsumptive'.
+	(J78-3F59): Moved into U+9771.
+
+	* Ideograph-R140-Grass.el (C1-6637): Moved into U+843C.
+	(U+843C): Use `->subsumptive'.
+	(C3-5258): Moved into U+855A.
+	(U+855A): Use `->subsumptive'.
+
+2004-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R205-Frog.el (U+9EFE): Use `=>daikanwa' instead of
+	`morohashi-daikanwa'.
+
+	* Ideograph-R189-Tall.el (M-45314): Use `<-vulgar*sources' instead
+	of char-ref in `<-vulgar'; moved into U+9AD9.
+	(U+9AD9): Use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (U+9EFE): Use `=>daikanwa' instead of
+	`morohashi-daikanwa'.
+
+	* Ideograph-R096-Jade.el (U+73CE): Use `->subsumptive'; use
+	`<-vulgar*sources' instead of char-ref in `<-vulgar'.
+	(J90-605F): Moved into U+73CE.
+
 2004-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R102-Field.el (U-000200BD): Use
