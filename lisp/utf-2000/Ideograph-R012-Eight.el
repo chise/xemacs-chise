@@ -53,8 +53,7 @@
       (korean-ksc5601		  . #x7822)	; ø»Š™¿
       (ideograph-daikanwa	  . 01450)	; ø¸€–ª
       )
-     ((chinese-big5-cdp	  . #x8AFD)	; åŽ¶
-      (ucs		  . #x53B6)	; åŽ¶
+     ((ucs		  . #x53B6)	; åŽ¶
       ))
     (shinjigen-1	. 494)
     (shinjigen-2	. 494)
@@ -76,8 +75,7 @@
       )
      ((ucs		  . #x516B)	; å…«
       )
-     ((chinese-big5-cdp	  . #x8AFD)	; åŽ¶
-      (ucs		  . #x53B6)	; åŽ¶
+     ((ucs		  . #x53B6)	; åŽ¶
       ))
     (shinjigen-1	. 493)
     (shinjigen-2	. 493)
@@ -101,7 +99,6 @@
       )
      ((japanese-jisx0208-1978	  . #x5035)	; ø»ƒ–
       (japanese-jisx0208	  . #x5035)	; ø»‡•ž
-      (chinese-big5-cdp		  . #x8B42)	; ø»ƒ–
       )
      ((ucs		  . #x516B)	; å…«
       ))
