@@ -1,3 +1,48 @@
+2001-10-07  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
+	* Ideograph-R196-Bird.el: Add missing JIS X 0208:1990 and JIS X
+	0212 code points.
+
+	* Ideograph-R170-Mound.el (MH-678): Separate U+9666; unify
+	J90-7023.
+	(U+967A): Unify J90-3831; add `total-strokes'; add
+	`<-simplified-ideograph'.
+
+	* Ideograph-R165-Distinguish.el (U+91C8): Unify J90-3C61; add
+	`<-simplified-ideograph'.
+
+	* Ideograph-R164-Wine.el (U+91A4): Unify J90-3E5F; add
+	`total-strokes'; relate to M-40011; add `<-simplified-ideograph'.
+	(U+9197): Unify J90-4830; add `total-strokes'; relate to M-40041;
+	add `<-simplified-ideograph'.
+	(U+91B8): Unify J90-3E7A; add `<-simplified-ideograph'.
+
+	* Ideograph-R012-Eight.el (U+5171): Unify M001458.
+	(U+5173): Unify M051198.
+	(JSP-326F): Add `ideographic-structure'; unify M001494.
+	(U+517E): Add `ideographic-structure'.
+	(M-01504): Likewise; unify M001504.
+	(U+34B9): Add `ideographic-structure'.
+
+	* Ideograph-R009-Man.el (U+4EBB): Unify M050927.
+	(U+4ECE): Add `ideographic-structure'.
+	(M070229): New character.
+	(M070403): Likewise.
+	(M-00470): Separate M000470; unify M059044.
+	(M050930): New character.
+	(U+4FAB): Unify M054539.
+	(JX2-2157): Add `ideographic-structure'.
+	(U+503F): Unify M059077; add `total-strokes'.
+	(J0-5077): Separate U+5056.
+	(C3-2F57): Unify M055128 and U+5056.
+	(M077428): New character.
+	(U+511B): Separate JSP-3255 and JX2-2324.
+	(JX2-2324): Unify M056006.
+
+2001-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el (U+4E98): Add `ideographic-structure'.
+
 2001-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R211-Tooth.el (M-48632'): Unify J90-4E70; add
@@ -36,6 +81,11 @@
 	(U+95E6): Unify JSP-6643; add `total-strokes'.
 
 	* Ideograph-R032-Earth.el (J83-4446): Unify J90-4446.
+
+2001-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el: Merge JIS X 0208:1990 and JIS X 0212
+	code points.
 
 2001-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
