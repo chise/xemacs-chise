@@ -3,22 +3,22 @@
 ;; Copyright (C) 2002,2003 MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
-;; Keywords: UTF-2000, UCS-4, character, CCS, multiscript, multilingual
+;; Keywords: mapping table, character, CCS, multiscript, multilingual
 
-;; This file is part of XEmacs UTF-2000.
+;; This file is part of XEmacs CHISE.
 
-;; XEmacs UTF-2000 is free software; you can redistribute it and/or
+;; XEmacs CHISE is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
 ;; published by the Free Software Foundation; either version 2, or (at
 ;; your option) any later version.
 
-;; XEmacs UTF-2000 is distributed in the hope that it will be useful,
+;; XEmacs CHISE is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs UTF-2000; see the file COPYING.  If not, write to
+;; along with XEmacs CHISE; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -60,6 +60,20 @@
 		     code (string-to-int (match-string 1) 16)
 		     ucs-pat "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
 		     ucs-ccs 'ucs-jis)
+	       (goto-char (match-end 0))
+	       )
+	      ((looking-at "^C1-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
+	       (setq ccs 'chinese-cns11643-1
+		     code (string-to-int (match-string 1) 16)
+		     ucs-pat "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
+		     ucs-ccs 'ucs-cns)
+	       (goto-char (match-end 0))
+	       )
+	      ((looking-at "^C2-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
+	       (setq ccs 'chinese-cns11643-2
+		     code (string-to-int (match-string 1) 16)
+		     ucs-pat "\tCU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
+		     ucs-ccs 'ucs-cns)
 	       (goto-char (match-end 0))
 	       )
 	      ((looking-at "^C3-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
@@ -117,7 +131,8 @@
 	    (put-char-attribute chr ucs-ccs ucs-code))
 	  (when (and ucs
 		     (not (eq (or (encode-char chr '=ucs 'defined-only)
-				  (and (not (eq ucs-ccs 'ucs-jis))
+				  (and (not (memq ucs-ccs '(ucs-jis
+							    =ucs-jis-1990)))
 				       (get-char-attribute chr '=>ucs)))
 			      ucs)))
 	    (if (or ucs-code (null ucs-ccs))
