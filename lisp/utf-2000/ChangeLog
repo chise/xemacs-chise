@@ -1,3 +1,62 @@
+2001-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (ideograph-char<): Don't use daikanwa-strokes
+	if ideographic-radical and daikanwa-radical are different.
+
+	* char-db-util.el (insert-char-attributes): New function; modify
+	to use it recursively.
+	(insert-char-data): Use `insert-char-data'.
+
+	* Ideograph-R212-Dragon.el (U+9F99): Add `total-strokes' property;
+	unify M051091.
+	(M-48819): Add `total-strokes' property.
+
+	* Ideograph-R121-Jar.el (M-28110): Fixed.
+
+	* Ideograph-R038-Woman.el (C1-704F): Relate to U+5B34; separate
+	M-06776.
+	(U+5B34): Delete `kangxi-strokes' property.
+
+	* Ideograph-R035-Go-Slowly.el (C3-2547): Separate M-47718 and
+	J90-477E; relate to U+9EA6.
+
+	* Ideograph-R030-Mouth.el (M-03251): Relate to U+53FD.
+	(U+53FD): Delete `non-morohashi' property.
+	(M-03372): Relate to U+5438.
+
+	* Ideograph-R027-Cliff.el (U+5385): Delete `non-morohashi'
+	property.
+	(U+5386): Likewise.
+	(U+539B): Unify M059160.
+	(C3-5755): Separate M-48819; relate to U+9F8E; add
+	`daikanwa-radical' property.
+
+	* Ideograph-R026-Seal.el (C4-2557): Relate to U+7F37 and M-28110;
+	delete `non-morohashi' property.
+
+	* Ideograph-R009-Man.el (M-00366'): Relate to U+5185 instead of
+	`U+5167'; use `ideograph=' property instead of comment.
+	(U+4ED1): Delete `non-morohashi' property.
+	(U+4ED2): Likewise; unify M059030.
+	(U+4ED3): Delete `non-morohashi' property.
+	(M-00473): Unify G0-5923 and U+4F32; separate C3-2448.
+	(U+4F66): Unify M059051.
+	(U+4F67): Delete `non-morohashi' property.
+	(M-00869): Separate U+5060.
+	(U+5060): Unify M059081.
+	(C2-3353): Relate to M-00869 and M059081.
+	(U+507E): Delete `non-morohashi' property.
+	(U+50A7): Likewise.
+	(U+3497): Likewise.
+	(U+510F): Unify M059111.
+	(C5-4B72): Delete `non-morohashi' property.
+
+	* Ideograph-R004-Slash.el (M-00129): Add `ideograph=' property
+	instead of comment.
+	(M-00146): Delete `daikanwa-radical' property and
+	`daikanwa-strokes' property.
+	(C6-2343): Delete `non-morohashi' property.
+
 2001-05-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R211-Tooth.el (M-48632'): Unify M050612.
