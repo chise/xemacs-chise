@@ -4164,15 +4164,17 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 	{
 	  if ( c < ' ' )
 	    {
+	      COMPOSE_FLUSH_CHARS (str, dst);
 	      decode_flush_er_chars (str, dst);
 	      DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
 	      DECODE_ADD_UCS_CHAR (c, dst);
 	    }
 	  else if ( c < 0xC0 )
-	    decode_add_er_char (str, c, dst);
+	    /* decode_add_er_char (str, c, dst); */
+	    COMPOSE_ADD_CHAR (str, c, dst);
 	  else
 	    {
-	      decode_flush_er_chars (str, dst);
+	      /* decode_flush_er_chars (str, dst); */
 	      if ( c < 0xE0 )
 		{
 		  cpos = c & 0x1f;
@@ -4205,7 +4207,8 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 	  cpos = ( cpos << 6 ) | ( c & 0x3f );
 	  if (counter == 1)
 	    {
-	      DECODE_ADD_UCS_CHAR (cpos, dst);
+	      /* DECODE_ADD_UCS_CHAR (cpos, dst); */
+	      COMPOSE_ADD_CHAR (str, cpos, dst);
 	      cpos = 0;
 	      counter = 0;
 	    }
@@ -4214,6 +4217,8 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 	}
       else
 	{
+	  COMPOSE_FLUSH_CHARS (str, dst);
+	  decode_flush_er_chars (str, dst);
 	  decode_output_utf8_partial_char (counter, cpos, dst);
 	  DECODE_ADD_BINARY_CHAR (c, dst);
 	  cpos = 0;
@@ -4224,6 +4229,7 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 
   if (flags & CODING_STATE_END)
     {
+      COMPOSE_FLUSH_CHARS (str, dst);
       decode_flush_er_chars (str, dst);
       if (counter > 0)
 	{
@@ -5200,6 +5206,7 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 
 		case ISO_ESC_LITERAL:
 		  COMPOSE_FLUSH_CHARS (str, dst);
+		  decode_flush_er_chars (str, dst);
 		  DECODE_ADD_BINARY_CHAR (c, dst);
 		  break;
 
@@ -5221,6 +5228,7 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 	      /* Output the (possibly invalid) sequence */
 	      int i;
 	      COMPOSE_FLUSH_CHARS (str, dst);
+	      decode_flush_er_chars (str, dst);
 	      for (i = 0; i < str->iso2022.esc_bytes_index; i++)
 		DECODE_ADD_BINARY_CHAR (str->iso2022.esc_bytes[i], dst);
 	      flags &= CODING_STATE_ISO2022_LOCK;
@@ -5232,6 +5240,7 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 		     escape sequence; it could mess things up anyway.
 		     Just add it now. */
 		  COMPOSE_FLUSH_CHARS (str, dst);
+		  decode_flush_er_chars (str, dst);
 		  DECODE_ADD_BINARY_CHAR (c, dst);
 		}
 	    }
@@ -5248,6 +5257,7 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 	  if (counter)
 	    {
 	      COMPOSE_FLUSH_CHARS (str, dst);
+	      decode_flush_er_chars (str, dst);
 	      while (counter > 0)
 		{
 		  counter--;
@@ -5264,12 +5274,14 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 	  if (flags & CODING_STATE_SS2)
 	    {
 	      COMPOSE_FLUSH_CHARS (str, dst);
+	      decode_flush_er_chars (str, dst);
 	      DECODE_ADD_BINARY_CHAR (ISO_CODE_SS2, dst);
 	      flags &= ~CODING_STATE_SS2;
 	    }
 	  if (flags & CODING_STATE_SS3)
 	    {
 	      COMPOSE_FLUSH_CHARS (str, dst);
+	      decode_flush_er_chars (str, dst);
 	      DECODE_ADD_BINARY_CHAR (ISO_CODE_SS3, dst);
 	      flags &= ~CODING_STATE_SS3;
 	    }
@@ -5281,6 +5293,7 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 	  if (c == '\r')
 	    {
 	      COMPOSE_FLUSH_CHARS (str, dst);
+	      decode_flush_er_chars (str, dst);
 	      if (eol_type == EOL_CR)
 		Dynarr_add (dst, '\n');
 	      else if (eol_type != EOL_CRLF || flags & CODING_STATE_CR)
@@ -5304,6 +5317,7 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 	  if (!parse_iso2022_esc (coding_system, &str->iso2022, c, &flags, 1))
 	    {
 	      COMPOSE_FLUSH_CHARS (str, dst);
+	      decode_flush_er_chars (str, dst);
 	      DECODE_ADD_BINARY_CHAR (c, dst);
 	    }
 	}
@@ -5319,6 +5333,7 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 	  if (c == '\r')
 	    {
 	      COMPOSE_FLUSH_CHARS (str, dst);
+	      decode_flush_er_chars (str, dst);
 	      if (eol_type == EOL_CR)
 		Dynarr_add (dst, '\n');
 	      else if (eol_type != EOL_CRLF || flags & CODING_STATE_CR)
@@ -5355,6 +5370,7 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 	       to preserve it for the output. */
 	    {
 	      COMPOSE_FLUSH_CHARS (str, dst);
+	      decode_flush_er_chars (str, dst);
 	      while (counter > 0)
 		{
 		  counter--;
@@ -5458,6 +5474,7 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
   if (flags & CODING_STATE_END)
     {
       COMPOSE_FLUSH_CHARS (str, dst);
+      decode_flush_er_chars (str, dst);
       DECODE_OUTPUT_PARTIAL_CHAR (cpos);
     }
   str->flags   = flags;
