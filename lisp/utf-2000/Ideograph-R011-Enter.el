@@ -150,6 +150,16 @@
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     (:cdp-combinator	2
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+		 (ucs		     . #x2FF1)	; â¿±
+		 )
+      )
+     ((ideograph-daikanwa . 01415)	; ø¸€–‡
+      )
+     ((ucs		  . #x738B)	; çŽ‹
+      ))
     (shinjigen-1	. 4876)
     (shinjigen-2	. 4876)
     (korean-ksc5601	. #x6E6F)	; ø»ŠŒ 
@@ -157,19 +167,44 @@
     (mojikyo		. 001424)	; ý €€–
     ))
 (define-char
-  '((morohashi-daikanwa	1424 0 0)
+  '((=>ucs		. #x5168)	; å…¨
+    (morohashi-daikanwa	1424 0 0)
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (shinjigen-1	. 4875)
-    (shinjigen-2	. 4875)
+    (ideographic-structure
+     (:cdp-combinator	2
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+		 (ucs		     . #x2FF1)	; â¿±
+		 )
+      )
+     ((ucs		  . #x5165)	; å…¥
+      )
+     ((ucs		  . #x738B)	; çŽ‹
+      ))
+    (chinese-cns11643-1 . #x4740)	; ø»‘º¯
+    (chinese-big5	. #xA5FE)	; øºŸ§
+    ))
+(define-char
+  '((morohashi-daikanwa	1424 0 1)
+    (ideographic-radical . 11)	; â¼Š
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     (:cdp-combinator	2
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+		 (ucs		     . #x2FF1)	; â¿±
+		 )
+      )
+     ((ucs		  . #x5165)	; å…¥
+      )
+     ((ucs		  . #x738B)	; çŽ‹
+      ))
     (japanese-jisx0208-1978	. #x4134)	; ø»‚«“
     (chinese-gb2312		. #x482B)	; ø»„¿ 
     (japanese-jisx0208		. #x4134)	; ø»†¿›
     (chinese-isoir165		. #x482B)	; ø»§°
-    (chinese-cns11643-1		. #x4740)	; ø»‘º¯
     (japanese-jisx0208-1990	. #x4134)	; ø½Š¥
-    (chinese-big5		. #xA5FE)	; øºŸ§
     (ucs			. #x5168)	; å…¨
     ))
 (define-char
@@ -330,6 +365,16 @@
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     (:cdp-combinator	2
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+		 (ucs		     . #x2FF1)	; â¿±
+		 )
+      )
+     ((ucs		  . #x4E00)	; ä¸€
+      )
+     ((chinese-big5-cdp	  . #x8C62)	; ï–™
+      ))
     (shinjigen-1	. 484)
     (shinjigen-2	. 484)
     (chinese-cns11643-1 . #x4C25)	; ø»’ª
