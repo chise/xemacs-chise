@@ -1,3 +1,8 @@
+2002-01-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fcharset_name): Modify DOC-string for UTF-2000
+	extension.
+
 2001-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (decode_builtin_char): Support mother charsets.
