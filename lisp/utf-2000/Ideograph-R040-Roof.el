@@ -3465,6 +3465,12 @@
     (=cns11643-3	. #x3A7E)	; ø»•¼¯
     ))
 (define-char
+  '((ideographic-radical . 40)	; â¼§
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=ucs		. #x21A5C)	; ð¡©œ
+    ))
+(define-char
   '((=>ucs		. #x21A5F)	; ð¡©Ÿ
     (ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 10)
