@@ -11,7 +11,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (<-radical
-     ((ucs		. #x20086)	; 𠂆
+     ((ucs		  . #x20086)	; 𠂆
       ))
     (ucs		. #x2E81)	; ⺁
     ))
