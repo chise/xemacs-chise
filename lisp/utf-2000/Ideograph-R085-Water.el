@@ -12428,6 +12428,7 @@
     (japanese-jisx0208-1978	. #x374C)	; ø»‚œ¿
     (japanese-jisx0208		. #x374C)	; ø»†±‡
     (japanese-jisx0208-1990	. #x374C)	; ø½Š–»
+    (mojikyo			. 054093)	; ý €
     (ucs			. #x6E13)	; æ¸“
     ))
 (define-char
