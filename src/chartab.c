@@ -1073,7 +1073,6 @@ Lisp_Object Qsystem_char_id;
 Lisp_Object Qcomposition;
 Lisp_Object Q_decomposition;
 Lisp_Object Qto_ucs;
-Lisp_Object Q_ucs;
 Lisp_Object Q_ucs_variants;
 Lisp_Object Qcompat;
 Lisp_Object Qisolated;
@@ -3244,7 +3243,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
     }
   else if (EQ (attribute, Q_decomposition))
     put_char_composition (character, value);
-  else if (EQ (attribute, Qto_ucs) || EQ (attribute, Q_ucs))
+  else if (EQ (attribute, Qto_ucs))
     {
       Lisp_Object ret;
       Emchar c;
@@ -3265,10 +3264,6 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  Fput_char_attribute (make_char (c), Q_ucs_variants,
 			       Fcons (character, ret));
 	}
-#if 0
-      if (EQ (attribute, Q_ucs))
-	attribute = Qto_ucs;
-#endif
     }
 #if 0
   else if (EQ (attribute, Qideographic_structure))
@@ -3679,9 +3674,7 @@ Store character's ATTRIBUTES.
 	    }
 	  rest = Fcdr (rest);
 	}
-      if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) ||
-	   (!NILP (code = Fcdr (Fassq (Q_ucs, attributes)))) )
-	
+      if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) )
 	{
 	  if (!INTP (code))
 	    signal_simple_error ("Invalid argument", attributes);
@@ -3736,8 +3729,7 @@ Retrieve the character of the given ATTRIBUTES.
 	}
       rest = Fcdr (rest);
     }
-  if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) ||
-       (!NILP (code = Fcdr (Fassq (Q_ucs, attributes)))) )
+  if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) )
     {
       if (!INTP (code))
 	signal_simple_error ("Invalid argument", attributes);
@@ -4092,7 +4084,6 @@ syms_of_chartab (void)
   defsymbol (&Qsystem_char_id,		"system-char-id");
 
   defsymbol (&Qto_ucs,			"=>ucs");
-  defsymbol (&Q_ucs,			"->ucs");
   defsymbol (&Q_ucs_variants,		"->ucs-variants");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
