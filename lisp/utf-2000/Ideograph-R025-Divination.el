@@ -103,9 +103,15 @@
 (define-char
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 3)
-    (kangxi-radical	 . 30)	; â¼
-    (kangxi-strokes	 . 2)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x53E3)	; å£
+      )
+     ((ucs		  . #x535C)	; åœ
+      ))
     (chinese-gb2312	. #x5F32)	; ø»…¡™
     (chinese-isoir165	. #x5F32)	; ø»Ž‰©
     (chinese-cns11643-3 . #x2227)	; ø»•˜ˆ
@@ -187,7 +193,15 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (non-morohashi	2781 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (ucs		  . #x2E8A)	; âºŠ
+      )
+     ((ucs		  . #x5C38)	; å°¸
+      ))
     (chinese-gb2312	. #x422C)	; ø»„¶­
     (chinese-isoir165	. #x422C)	; ø»ž½
     (ucs		. #x5362)	; å¢
@@ -328,6 +342,22 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (ucs		  . #x2E8A)	; âºŠ
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(ucs		    . #x2FF4)	; â¿´
+	)
+       ((ucs		    . #x56D7)	; å›—
+	)
+       ((chinese-big5-cdp   . #x89D5)	; ý¢€ˆ§•
+	))
+      ))
     (japanese-jisx0212	. #x343D)	; ø»‹€¦
     (chinese-cns11643-6 . #x2A21)	; ø»œ¾
     (ideograph-daikanwa . 02796)	; ø¸€«¬
@@ -466,6 +496,14 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x81E3)	; è‡£
+      )
+     ((ucs		  . #x535C)	; åœ
+      ))
     (chinese-gb2312		. #x4E54)	; ø»…ˆ½
     (chinese-isoir165		. #x4E54)	; ø»±
     (japanese-jisx0213-2	. #x2354)	; ø»¤ ¯
