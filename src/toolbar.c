@@ -1037,10 +1037,10 @@ whole, use `check-valid-instantiator' with a specifier type of 'toolbar.
   if (!CONSP (elt[0]))
     {
       /* We can't check the buffer-local here because we don't know
-         which buffer to check in.  #### I think this is a bad thing.
-         See if we can't get enough information to this function so
-         that it can check.
-
+	 which buffer to check in.  #### I think this is a bad thing.
+	 See if we can't get enough information to this function so
+	 that it can check.
+	 
 	 #### Wrong.  We shouldn't be checking the value at all here.
 	 The user might set or change the value at any time. */
       value = Fsymbol_value (elt[0]);

@@ -1139,6 +1139,14 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
   volatile Lisp_Object vol_proc = proc;
   Lisp_Process *volatile p = XPROCESS (proc);
 
+  /* #### JV: layering violation?
+
+     This function knows too much about the relation between the encodingstream
+     (DATA_OUTSTREAM) and te actual output stream p->output_stream.
+
+     If encoding streams properly forwarded all calls, we could simply
+     use DATA_OUTSTREAM everywhere. */
+  
   if (!SETJMP (send_process_frame))
     {
       /* use a reasonable-sized buffer (somewhere around the size of the
@@ -1173,6 +1181,9 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
 		 that may allow the program
 		 to finish doing output and read more.  */
 	      Faccept_process_output (Qnil, make_int (1), Qnil);
+	      /* It could have *really* finished, deleting the process */
+	      if (NILP(p->pipe_outstream))
+		return;
 	      old_sigpipe =
 		(SIGTYPE (*) (int)) signal (SIGPIPE, send_process_trap);
 	      Lstream_flush (XLSTREAM (p->pipe_outstream));

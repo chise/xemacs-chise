@@ -165,13 +165,13 @@ void xfree (void *);
 #ifndef DOESNT_RETURN
 # if defined __GNUC__
 #  if ((__GNUC__ > 2) || (__GNUC__ == 2) && (__GNUC_MINOR__ >= 5))
-#   define DOESNT_RETURN void volatile
+#   define DOESNT_RETURN void
 #   define DECLARE_DOESNT_RETURN(decl) \
-           extern void volatile decl __attribute__ ((noreturn))
+           extern void decl __attribute__ ((noreturn))
 #   define DECLARE_DOESNT_RETURN_GCC_ATTRIBUTE_SYNTAX_SUCKS(decl,str,idx) \
      /* Should be able to state multiple independent __attribute__s, but  \
         the losing syntax doesn't work that way, and screws losing cpp */ \
-           extern void volatile decl \
+           extern void decl \
                   __attribute__ ((noreturn, format (printf, str, idx)))
 #  else
 #   define DOESNT_RETURN void volatile
@@ -967,6 +967,15 @@ void set_string_char (Lisp_String *s, Charcount i, Emchar c);
 # define set_string_char(s, i, c) set_string_byte (s, i, c)
 
 #endif /* not MULE */
+
+/* Return the true size of a struct with a variable-length array field.  */
+#define FLEXIBLE_ARRAY_STRUCT_SIZEOF(flexible_array_structtype,		\
+				     flexible_array_field,		\
+				     flexible_array_length)		\
+  (offsetof (flexible_array_structtype, flexible_array_field) +		\
+   (offsetof (flexible_array_structtype, flexible_array_field[1]) -	\
+    offsetof (flexible_array_structtype, flexible_array_field[0])) *	\
+   (flexible_array_length))
 
 /*********** vector ***********/
 
@@ -2245,6 +2254,7 @@ Lisp_Object enqueue_misc_user_event_pos (Lisp_Object, Lisp_Object,
 					 Lisp_Object, int, int, int, int);
 
 /* Defined in event-Xt.c */
+void enqueue_Xt_dispatch_event (Lisp_Object event);
 void signal_special_Xt_user_event (Lisp_Object, Lisp_Object, Lisp_Object);
 
 
@@ -2720,6 +2730,7 @@ EXFUN (Fread_key_sequence, 3);
 EXFUN (Freally_free, 1);
 EXFUN (Frem, 2);
 EXFUN (Fremassq, 2);
+EXFUN (Freplace_list, 2);
 EXFUN (Fselected_frame, 1);
 EXFUN (Fset, 2);
 EXFUN (Fset_coding_category_system, 2);
@@ -2789,6 +2800,7 @@ extern Lisp_Object Qconsole, Qconsole_live_p, Qconst_specifier, Qcr, Qcritical;
 extern Lisp_Object Qcrlf, Qctext, Qcurrent_menubar, Qctext, Qcursor;
 extern Lisp_Object Qcyclic_variable_indirection, Qdata, Qdead, Qdecode;
 extern Lisp_Object Qdefault, Qdefun, Qdelete, Qdelq, Qdevice, Qdevice_live_p;
+extern Lisp_Object Qdialog;
 extern Lisp_Object Qdim, Qdimension, Qdisabled, Qdisplay, Qdisplay_table;
 extern Lisp_Object Qdoc_string, Qdomain_error, Qduplex, Qdynarr_overhead;
 extern Lisp_Object Qempty, Qencode, Qend_of_buffer, Qend_of_file, Qend_open;
@@ -2799,8 +2811,8 @@ extern Lisp_Object Qexternal_debugging_output, Qface, Qfeaturep;
 extern Lisp_Object Qfile_name, Qfile_error;
 extern Lisp_Object Qfont, Qforce_g0_on_output, Qforce_g1_on_output;
 extern Lisp_Object Qforce_g2_on_output, Qforce_g3_on_output, Qforeground;
-extern Lisp_Object Qformat, Qframe, Qframe_live_p, Qfunction, Qgap_overhead;
-extern Lisp_Object Qgeneric, Qgeometry, Qglobal, Qheight;
+extern Lisp_Object Qformat, Qframe, Qframe_live_p, Qfuncall, Qfunction;
+extern Lisp_Object Qgap_overhead, Qgeneric, Qgeometry, Qglobal, Qheight;
 extern Lisp_Object Qhighlight, Qhorizontal, Qicon;
 extern Lisp_Object Qicon_glyph_p, Qid, Qidentity, Qimage, Qinfo, Qinherit;
 extern Lisp_Object Qinhibit_quit, Qinhibit_read_only;
@@ -2809,10 +2821,12 @@ extern Lisp_Object Qinteger_char_or_marker_p, Qinteger_or_char_p;
 extern Lisp_Object Qinteger_or_marker_p, Qintegerp, Qinteractive, Qinternal;
 extern Lisp_Object Qinvalid_function, Qinvalid_read_syntax, Qio_error;
 extern Lisp_Object Qiso2022, Qkey, Qkey_assoc, Qkeyboard, Qkeymap;
-extern Lisp_Object Qlambda, Qlayout, Qlandscape, Qleft, Qleft_margin, Qlf;
+extern Lisp_Object Qlambda, Qlast_command, Qlayout, Qlandscape;
+extern Lisp_Object Qleft, Qleft_margin, Qlet, Qlf;
 extern Lisp_Object Qlist, Qlistp, Qload, Qlock_shift, Qmacro, Qmagic;
 extern Lisp_Object Qmakunbound, Qmalformed_list, Qmalformed_property_list;
 extern Lisp_Object Qmalloc_overhead, Qmark, Qmarkers;
+extern Lisp_Object Qmenubar;
 extern Lisp_Object Qmax, Qmemory, Qmessage, Qminus, Qmnemonic, Qmodifiers;
 extern Lisp_Object Qmono_pixmap_image_instance_p, Qmotion;
 extern Lisp_Object Qmouse_leave_buffer_hook, Qmsprinter, Qmswindows;
@@ -2841,8 +2855,8 @@ extern Lisp_Object Qsignal, Qsimple, Qsingularity_error, Qsize, Qspace;
 extern Lisp_Object Qspecifier, Qstandard_input, Qstandard_output, Qstart_open;
 extern Lisp_Object Qstream, Qstring, Qstring_lessp, Qsubwindow;
 extern Lisp_Object Qsubwindow_image_instance_p;
-extern Lisp_Object Qsymbol, Qsyntax, Qt, Qterminal, Qtest;
-extern Lisp_Object Qtext, Qtext_image_instance_p, Qtimeout, Qtimestamp;
+extern Lisp_Object Qsymbol, Qsyntax, Qt, Qterminal, Qtest, Qtext;
+extern Lisp_Object Qtext_image_instance_p, Qthis_command, Qtimeout, Qtimestamp;
 extern Lisp_Object Qtoolbar, Qtop, Qtop_margin, Qtop_level;
 extern Lisp_Object Qtrue_list_p, Qtty, Qtype;
 extern Lisp_Object Qunbound, Qundecided, Qundefined, Qunderflow_error;

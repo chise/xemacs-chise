@@ -233,8 +233,7 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
     return 0;
   /* Only check dirtiness if we know something has changed. */
   else if (crb->type == RUNE_DGLYPH &&
-	   ((XFRAME (w->frame)->glyphs_changed &&
-	     XGLYPH_DIRTYP (crb->object.dglyph.glyph)) || 
+	   (XGLYPH_DIRTYP (crb->object.dglyph.glyph) || 
 	    crb->findex != drb->findex))
     {
       /* We need some way of telling redisplay_output_layout () that the
@@ -262,10 +261,9 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
 	 cases they will actually be the same object. This does not
 	 mean, however, that nothing has changed. We therefore need to
 	 check the current hash of the glyph against the last recorded
-	 display hash. See update_subwindow (). */
-      if (IMAGE_INSTANCE_DISPLAY_HASH (ii) == 0 ||
-	  IMAGE_INSTANCE_DISPLAY_HASH (ii) != 
-	  internal_hash (image, IMAGE_INSTANCE_HASH_DEPTH) ||
+	 display hash and the pending display items. See
+	 update_subwindow (). */
+      if (image_instance_changed (image) ||
 	  crb->findex != drb->findex || 
 	  WINDOW_FACE_CACHEL_DIRTY (w, drb->findex))
 	{
@@ -283,7 +281,13 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
 	  return 0;
 	}
       else
-	return 1;
+	{
+#ifdef DEBUG_WIDGET_OUTPUT
+	  if (XIMAGE_INSTANCE_TYPE (image) == IMAGE_LAYOUT)
+	    printf ("glyph layout %p considered unchanged\n", ii);
+#endif
+	  return 1;
+	}
     }
   /* We now do this last so that glyph checks can do their own thing
      for face changes. Face changes quite often happen when we are
@@ -898,15 +902,7 @@ redisplay_move_cursor (struct window *w, Bufpos new_point, int no_output_end)
   else
     {
       DEVMETH (d, output_begin, (d));
-
-      /* #### This is a gross kludge.  Cursor handling is such a royal
-         pain in the ass. */
-      if (rb->type == RUNE_DGLYPH &&
-	  (EQ (rb->object.dglyph.glyph, Vtruncation_glyph) ||
-	   EQ (rb->object.dglyph.glyph, Vcontinuation_glyph)))
-	rb->cursor_type = NO_CURSOR;
-      else
-	rb->cursor_type = CURSOR_OFF;
+      rb->cursor_type = CURSOR_OFF;
       dl->cursor_elt = -1;
       output_display_line (w, 0, cla, y, rb->xpos, rb->xpos + rb->width);
     }
@@ -1301,7 +1297,9 @@ redisplay_output_layout (struct window *w,
 
   dga->height = layout_height;
   dga->width = layout_width;
-
+#ifdef DEBUG_WIDGET_OUTPUT
+  printf ("outputing layout glyph %p\n", p);
+#endif
   /* This makes the glyph area fit into the display area. */
   if (!redisplay_normalize_glyph_area (db, dga))
     return;
@@ -1406,7 +1404,7 @@ redisplay_output_layout (struct window *w,
 		continue;
 	      /* We have to invert the offset here as normalization
 		 will have made them positive which the output
-		 routines will treat as a truely +ve offset. */
+		 routines will treat as a truly +ve offset. */
 	      cdga.xoffset = -cdga.xoffset;
 	      cdga.yoffset = -cdga.yoffset;
 
@@ -1424,6 +1422,14 @@ redisplay_output_layout (struct window *w,
 			struct display_line dl;	/* this is fake */
 			Lisp_Object string =
 			  IMAGE_INSTANCE_TEXT_STRING (childii);
+			unsigned char charsets[NUM_LEADING_BYTES];
+			struct face_cachel *cachel = WINDOW_FACE_CACHEL (w, findex);
+
+			find_charsets_in_bufbyte_string (charsets,
+							 XSTRING_DATA (string),
+							 XSTRING_LENGTH (string));
+			ensure_face_cachel_complete (cachel, window, charsets);
+
 			convert_bufbyte_string_into_emchar_dynarr
 			  (XSTRING_DATA (string), XSTRING_LENGTH (string), buf);
 

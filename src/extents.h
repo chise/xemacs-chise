@@ -318,6 +318,7 @@ EXFUN (Fset_extent_endpoints, 4);
 EXFUN (Fset_extent_parent, 2);
 
 extern int inside_undo;
+extern int in_modeline_generation;
 
 struct extent_fragment *extent_fragment_new (Lisp_Object buffer_or_string,
 					     struct frame *frm);

@@ -23,6 +23,7 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include <stdio.h>
 #include "sysfile.h"
 #include "lisp.h"
+#include "nativesound.h"
 
 #if (defined (__CYGWIN32__) || defined(__MINGW32__)) && \
 	CYGWIN_VERSION_DLL_MAJOR < 21
@@ -30,7 +31,7 @@ extern BOOL WINAPI PlaySound(LPCSTR,HMODULE,DWORD);
 #else
 #include <mmsystem.h>
 #endif
-static void play_sound_data_1 (unsigned char *data, int length,
+static int play_sound_data_1 (unsigned char *data, int length,
 			       int volume, int convert);
 
 void play_sound_file (char *sound_file, int volume)
@@ -76,7 +77,7 @@ void play_sound_file (char *sound_file, int volume)
 
 /* mswindows can't cope with playing a sound from alloca space so we
    have to convert if necessary */
-static void play_sound_data_1 (unsigned char *data, int length, int volume,
+static int play_sound_data_1 (unsigned char *data, int length, int volume,
 			       int convert_to_malloc)
 {
   DWORD flags = SND_ASYNC | SND_MEMORY | SND_NODEFAULT;
@@ -98,10 +99,11 @@ static void play_sound_data_1 (unsigned char *data, int length, int volume,
 
   PlaySound(sound_data, NULL, flags);
 
-  return;
+  /* #### Error handling? */ 
+  return 1;
 }
 
-void play_sound_data (unsigned char *data, int length, int volume)
+int play_sound_data (unsigned char *data, int length, int volume)
 {
-  play_sound_data_1 (data, length, volume, TRUE);
+  return play_sound_data_1 (data, length, volume, TRUE);
 }

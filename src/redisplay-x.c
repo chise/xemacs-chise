@@ -452,25 +452,6 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 		{
 		  switch (XIMAGE_INSTANCE_TYPE (instance))
 		    {
-		    case IMAGE_TEXT:
-		      {
-			/* #### This is way losing.  See the comment in
-			   add_glyph_rune(). */
-			Lisp_Object string =
-			  XIMAGE_INSTANCE_TEXT_STRING (instance);
-			convert_bufbyte_string_into_emchar_dynarr
-			  (XSTRING_DATA (string), XSTRING_LENGTH (string), buf);
-			
-			x_output_string (w, dl, buf, xpos,
-					 rb->object.dglyph.xoffset,
-					 start_pixpos, -1, findex,
-					 (rb->cursor_type == CURSOR_ON),
-					 cursor_start, cursor_width,
-					 cursor_height);
-			Dynarr_reset (buf);
-		      }
-		      break;
-		      
 		    case IMAGE_MONO_PIXMAP:
 		    case IMAGE_COLOR_PIXMAP:
 		      redisplay_output_pixmap (w, instance, &dbox, &dga, findex,
@@ -495,6 +476,7 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 		      /* nothing is as nothing does */
 		      break;
 		      
+		    case IMAGE_TEXT:
 		    case IMAGE_POINTER:
 		    default:
 		      abort ();

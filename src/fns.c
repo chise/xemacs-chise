@@ -115,8 +115,8 @@ static size_t
 size_bit_vector (const void *lheader)
 {
   Lisp_Bit_Vector *v = (Lisp_Bit_Vector *) lheader;
-  return offsetof (Lisp_Bit_Vector,
-		   bits[BIT_VECTOR_LONG_STORAGE (bit_vector_length (v))]);
+  return FLEXIBLE_ARRAY_STRUCT_SIZEOF (Lisp_Bit_Vector, bits,
+				       BIT_VECTOR_LONG_STORAGE (bit_vector_length (v)));
 }
 
 static const struct lrecord_description bit_vector_description[] = {
@@ -3115,6 +3115,49 @@ the spiffy Common Lisp arguments.  You should normally use `mapc'.
 }
 
 
+
+
+DEFUN ("replace-list", Freplace_list, 2, 2, 0, /*
+Destructively replace the list OLD with NEW.
+This is like (copy-sequence NEW) except that it reuses the
+conses in OLD as much as possible.  If OLD and NEW are the same
+length, no consing will take place.
+*/
+       (old, new))
+{
+  Lisp_Object tail, oldtail = old, prevoldtail = Qnil;
+
+  EXTERNAL_LIST_LOOP (tail, new)
+    {
+      if (!NILP (oldtail))
+	{
+	  CHECK_CONS (oldtail);
+	  XCAR (oldtail) = XCAR (tail);
+	}
+      else if (!NILP (prevoldtail))
+	{
+	  XCDR (prevoldtail) = Fcons (XCAR (tail), Qnil);
+	  prevoldtail = XCDR (prevoldtail);
+	}
+      else
+	old = oldtail = Fcons (XCAR (tail), Qnil);
+
+      if (!NILP (oldtail))
+	{
+	  prevoldtail = oldtail;
+	  oldtail = XCDR (oldtail);
+	}
+    }
+
+  if (!NILP (prevoldtail))
+    XCDR (prevoldtail) = Qnil;
+  else
+    old = Qnil;
+
+  return old;
+}
+
+
 /* #### this function doesn't belong in this file! */
 
 DEFUN ("load-average", Fload_average, 0, 1, 0, /*
@@ -3800,6 +3843,7 @@ syms_of_fns (void)
   DEFSUBR (Fmapvector);
   DEFSUBR (Fmapc_internal);
   DEFSUBR (Fmapconcat);
+  DEFSUBR (Freplace_list);
   DEFSUBR (Fload_average);
   DEFSUBR (Ffeaturep);
   DEFSUBR (Frequire);

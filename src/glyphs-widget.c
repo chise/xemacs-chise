@@ -57,8 +57,10 @@ DEFINE_IMAGE_INSTANTIATOR_FORMAT (layout);
 Lisp_Object Qlayout;
 
 Lisp_Object Q_descriptor, Q_height, Q_width, Q_properties, Q_items;
-Lisp_Object Q_image, Q_text, Q_percent, Q_orientation, Q_justify, Q_border;
+Lisp_Object Q_image, Q_text, Q_orientation, Q_justify, Q_border;
 Lisp_Object Qetched_in, Qetched_out, Qbevel_in, Qbevel_out;
+Lisp_Object Vwidget_callback_current_channel;
+Lisp_Object Qwidget_callback_current_channel;
 
 #ifdef DEBUG_WIDGETS
 int debug_widget_instances;
@@ -356,6 +358,14 @@ update_widget (Lisp_Object widget)
 				   IMAGE_INSTANCE_WIDGET_TYPE (ii), 
 				   ERROR_ME_NOT);
   MAYBE_IIFORMAT_METH (meths, update, (widget));
+
+  /* Pick up the items we recorded earlier. */
+  if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii))
+    {
+      IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
+	IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii);
+      IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii) = Qnil;
+    }
 }
 
 /* Query for a widgets desired geometry. If no type specific method is
@@ -511,7 +521,7 @@ initialize_widget_image_instance (Lisp_Image_Instance *ii, Lisp_Object type)
   IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii) = Qnil;
   IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii) = 1;
   IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii) = 1;
-  IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) = 0;
+  IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) = LAYOUT_HORIZONTAL;
   IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) = 0;
 }
 
@@ -597,10 +607,10 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	  /* make sure we are designated as the parent. */
 	  XIMAGE_INSTANCE_PARENT (gii) = image_instance;
 	  children = Fcons (gii, children);
-	  /* Make sure elements in the layout are in the order the
-             user expected. */
-	  children = Fnreverse (children);
 	}
+      /* Make sure elements in the layout are in the order the
+	 user expected. */
+      children = Fnreverse (children);
       IMAGE_INSTANCE_LAYOUT_CHILDREN (ii) = children;
     }
   /* retrieve the gui item information. This is easy if we have been
@@ -619,7 +629,7 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   /* Pick up the orientation before we do our first layout. */
   if (EQ (orient, Qleft) || EQ (orient, Qright) || EQ (orient, Qvertical))
-    IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) = 1;
+    IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) = LAYOUT_VERTICAL;
 
   /* parse more gui items out of the properties */
   if (!NILP (props)
@@ -659,7 +669,7 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   if (!NILP (pixheight))
     {
-      if (!INTP (pixwidth))
+      if (!INTP (pixheight))
 	IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii) = pixheight;
       else
 	{
@@ -714,6 +724,33 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   debug_print (instantiator);
   stderr_out ("%d widgets instantiated\n", debug_widget_instances);
 #endif
+}
+
+/* Get the geometry of a button control. We need to adjust the size
+   depending on the type of button. */
+static void
+button_query_geometry (Lisp_Object image_instance, 
+		       unsigned int* width, unsigned int* height,
+		       enum image_instance_geometry disp, Lisp_Object domain)
+{
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  unsigned int w, h;
+  query_string_geometry (IMAGE_INSTANCE_WIDGET_TEXT (ii),
+			 IMAGE_INSTANCE_WIDGET_FACE (ii),
+			 &w, &h, 0, domain);
+  /* Adjust the size for borders. */
+  if (IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii))
+    {
+      *width = w + 2 * WIDGET_BORDER_WIDTH;
+
+      if (EQ (XGUI_ITEM (IMAGE_INSTANCE_WIDGET_ITEM (ii))->style, Qradio)
+	  ||
+	  EQ (XGUI_ITEM (IMAGE_INSTANCE_WIDGET_ITEM (ii))->style, Qtoggle))
+	/* This is an approximation to the size of the actual button bit. */
+	*width += 12;
+    }
+  if (IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii))
+    *height = h +  2 * WIDGET_BORDER_HEIGHT;
 }
 
 /* tree-view geometry - get the height right */
@@ -816,12 +853,21 @@ progress_gauge_set_property (Lisp_Object image_instance,
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
-  if (EQ (prop, Q_percent))
+  if (EQ (prop, Q_value))
     {
       CHECK_INT (val);
-      IMAGE_INSTANCE_WIDGET_PROPS (ii)
-	= Fplist_put (IMAGE_INSTANCE_WIDGET_PROPS (ii), prop, val);
-      IMAGE_INSTANCE_WIDGET_PERCENT_CHANGED (ii) = 1;
+#ifdef DEBUG_WIDGET_OUTPUT
+      printf ("progress gauge value set to %ld\n", XINT (val));
+#endif
+      IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii) =
+	copy_gui_item_tree (IMAGE_INSTANCE_WIDGET_ITEMS (ii));
+#ifdef ERROR_CHECK_GLYPHS
+      assert (GUI_ITEMP (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)));
+#endif
+      if (GUI_ITEMP (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)))
+	XGUI_ITEM (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii))->value = val;
+
+      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii) = 1;
 
       return Qt;
     }
@@ -921,55 +967,75 @@ layout_query_geometry (Lisp_Object image_instance, unsigned int* width,
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object items = IMAGE_INSTANCE_LAYOUT_CHILDREN (ii), rest;
   int maxph = 0, maxpw = 0, nitems = 0, ph_adjust = 0;
+  unsigned int gheight, gwidth;
 
+  /* First just set up what we already have. */
+  if (width)	*width = IMAGE_INSTANCE_WIDTH (ii);
+  if (height)	*height = IMAGE_INSTANCE_HEIGHT (ii);
+  
+  /* If we are not allowed to dynamically size then return. */
+  if (!IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii)
+      &&
+      !IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii))
+    return;
+
+  /* Pick up the border text if we have one. */
+  if (INTP (IMAGE_INSTANCE_LAYOUT_BORDER (ii)))
+    {
+      image_instance_query_geometry (XCAR (items), &gwidth, &gheight, disp, domain);
+      ph_adjust = gheight / 2;
+      items = XCDR (items);
+    }
+  
   /* Flip through the items to work out how much stuff we have to display */
   LIST_LOOP (rest, items)
     {
       Lisp_Object glyph = XCAR (rest);
-      unsigned int gheight, gwidth;
-      
       image_instance_query_geometry (glyph, &gwidth, &gheight, disp, domain);
 
-      /* Pick up the border text if we have one. */
-      if (INTP (IMAGE_INSTANCE_LAYOUT_BORDER (ii))
-	  && NILP (XCDR (rest)))
+      nitems ++;
+      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
+	  == LAYOUT_HORIZONTAL)
 	{
-	  ph_adjust = gheight / 2;
+	  maxph = max (maxph, gheight);
+	  maxpw += gwidth;
 	}
       else
 	{
-
-	  nitems ++;
-	  if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
-	      == LAYOUT_HORIZONTAL)
-	    {
-	      maxph = max (maxph, gheight);
-	      maxpw += gwidth;
-	    }
-	  else
-	    {
-	      maxpw = max (maxpw, gwidth);
-	      maxph += gheight;
-	    }
+	  maxpw = max (maxpw, gwidth);
+	  maxph += gheight;
 	}
     }
 
-  /* work out spacing between items and bounds of the layout.  No user
-      provided width so we just do default spacing. */
-  if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
-      == LAYOUT_HORIZONTAL)
+  /* Work out minimum space we need to fit all the items. This could
+     have been fixed by the user. */
+  if (!NILP (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii)))
+    {
+      Lisp_Object dynamic_width = 
+	Feval (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii));
+      if (INTP (dynamic_width))
+	*width = XINT (dynamic_width);
+    }
+  else if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
+	   == LAYOUT_HORIZONTAL)
     *width = maxpw + (nitems + 1) * WIDGET_BORDER_WIDTH * 2;
   else 
     *width = maxpw + 2 * WIDGET_BORDER_WIDTH * 2;
 
   /* Work out vertical spacings. */
-  if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
-      == LAYOUT_VERTICAL)
+  if (!NILP (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii)))
+    {
+      Lisp_Object dynamic_height = 
+	Feval (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii));
+      if (INTP (dynamic_height))
+	*height = XINT (dynamic_height);
+    }
+  else if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
+	   == LAYOUT_VERTICAL)
     *height = maxph + (nitems + 1) * WIDGET_BORDER_HEIGHT * 2 + ph_adjust;
-  else 
+  else
     *height = maxph + 2 * WIDGET_BORDER_HEIGHT * 2 + ph_adjust;
 }
-
 
 static void
 layout_layout (Lisp_Object image_instance, 
@@ -981,38 +1047,41 @@ layout_layout (Lisp_Object image_instance,
   int x, y, maxph = 0, maxpw = 0, nitems = 0,
     horiz_spacing, vert_spacing, ph_adjust = 0;
   unsigned int gheight, gwidth;
+  
+  /* Pick up the border text if we have one. */
+  if (INTP (IMAGE_INSTANCE_LAYOUT_BORDER (ii)))
+    {
+      Lisp_Object border = XCAR (items);
+      items = XCDR (items);
+      image_instance_query_geometry (border, &gwidth, &gheight,
+				     IMAGE_DESIRED_GEOMETRY, domain);
+      /* #### Really, what should this be? */
+      XIMAGE_INSTANCE_XOFFSET (border) = 10;
+      XIMAGE_INSTANCE_YOFFSET (border) = 0;
+      ph_adjust = gheight / 2;
+      IMAGE_INSTANCE_LAYOUT_BORDER (ii) = make_int (ph_adjust);
 
-  /* flip through the items to work out how much stuff we have to display */
+      image_instance_layout (border, gwidth, gheight, domain);
+    }
+
+  /* Flip through the items to work out how much stuff we have to display. */
   LIST_LOOP (rest, items)
     {
       Lisp_Object glyph = XCAR (rest);
       
       image_instance_query_geometry (glyph, &gwidth, &gheight, 
 				     IMAGE_DESIRED_GEOMETRY, domain);
-
-      /* Pick up the border text if we have one. */
-      if (INTP (IMAGE_INSTANCE_LAYOUT_BORDER (ii))
-	  && NILP (XCDR (rest)))
+      nitems ++;
+      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
+	  == LAYOUT_HORIZONTAL)
 	{
-	  XIMAGE_INSTANCE_XOFFSET (glyph) = 10; /* Really, what should this be? */
-	  XIMAGE_INSTANCE_YOFFSET (glyph) = 0;
-	  ph_adjust = gheight / 2;
-	  IMAGE_INSTANCE_LAYOUT_BORDER (ii) = make_int (ph_adjust);
+	  maxph = max (maxph, gheight);
+	  maxpw += gwidth;
 	}
       else
 	{
-	  nitems ++;
-	  if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
-	      == LAYOUT_HORIZONTAL)
-	    {
-	      maxph = max (maxph, gheight);
-	      maxpw += gwidth;
-	    }
-	  else
-	    {
-	      maxpw = max (maxpw, gwidth);
-	      maxph += gheight;
-	    }
+	  maxpw = max (maxpw, gwidth);
+	  maxph += gheight;
 	}
     }
 
@@ -1051,42 +1120,38 @@ layout_layout (Lisp_Object image_instance,
       image_instance_query_geometry (glyph, &gwidth, &gheight, 
 				     IMAGE_DESIRED_GEOMETRY, domain);
 
-      if (!INTP (IMAGE_INSTANCE_LAYOUT_BORDER (ii))
-	  || !NILP (XCDR (rest)))
-      {
-	if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
-	    == LAYOUT_HORIZONTAL)
-	  {
-	    if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) 
-		== LAYOUT_JUSTIFY_RIGHT)
-	      y = height - (gheight + vert_spacing);
-	    if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) 
-		== LAYOUT_JUSTIFY_CENTER)
-	      y = (height - gheight) / 2;
-	  }
-	else 
-	  {
-	    if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) 
-		== LAYOUT_JUSTIFY_RIGHT)
-	      x = width - (gwidth + horiz_spacing);
-	    if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) 
-		== LAYOUT_JUSTIFY_CENTER)
-	      x = (width - gwidth) / 2;
-	  }
+      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
+	  == LAYOUT_HORIZONTAL)
+	{
+	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) 
+	      == LAYOUT_JUSTIFY_RIGHT)
+	    y = height - (gheight + vert_spacing);
+	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) 
+	      == LAYOUT_JUSTIFY_CENTER)
+	    y = (height - gheight) / 2;
+	}
+      else 
+	{
+	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) 
+	      == LAYOUT_JUSTIFY_RIGHT)
+	    x = width - (gwidth + horiz_spacing);
+	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) 
+	      == LAYOUT_JUSTIFY_CENTER)
+	    x = (width - gwidth) / 2;
+	}
 	
-	XIMAGE_INSTANCE_XOFFSET (glyph) = x;
-	XIMAGE_INSTANCE_YOFFSET (glyph) = y;
+      XIMAGE_INSTANCE_XOFFSET (glyph) = x;
+      XIMAGE_INSTANCE_YOFFSET (glyph) = y;
 	
-	if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
-	    == LAYOUT_HORIZONTAL)
-	  {
-	    x += (gwidth + horiz_spacing);
-	  }
-	else
-	  {
-	    y += (gheight + vert_spacing);
-	  }
-      }
+      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
+	  == LAYOUT_HORIZONTAL)
+	{
+	  x += (gwidth + horiz_spacing);
+	}
+      else
+	{
+	  y += (gheight + vert_spacing);
+	}
       
       /* Now layout subwidgets if they require it. */
       image_instance_layout (glyph, gwidth, gheight, domain);
@@ -1107,7 +1172,6 @@ syms_of_glyphs_widget (void)
   defkeyword (&Q_properties, ":properties");
   defkeyword (&Q_items, ":items");
   defkeyword (&Q_image, ":image");
-  defkeyword (&Q_percent, ":percent");
   defkeyword (&Q_text, ":text");
   defkeyword (&Q_orientation, ":orientation");
   defkeyword (&Q_justify, ":justify");
@@ -1117,6 +1181,7 @@ syms_of_glyphs_widget (void)
   defsymbol (&Qetched_out, "etched-out");
   defsymbol (&Qbevel_in, "bevel-in");
   defsymbol (&Qbevel_out, "bevel-out");
+  defsymbol (&Qwidget_callback_current_channel, "widget-callback-current-channel");
 }
 
 #define VALID_GUI_KEYWORDS(type) do {							\
@@ -1132,6 +1197,7 @@ syms_of_glyphs_widget (void)
   IIFORMAT_VALID_KEYWORD (type, Q_accelerator, check_valid_string);			\
   IIFORMAT_VALID_KEYWORD (type, Q_label, check_valid_anything);				\
   IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_callback, check_valid_callback);		\
+  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_callback_ex, check_valid_callback);		\
   IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_descriptor, check_valid_string_or_vector);	\
 } while (0)
 
@@ -1160,6 +1226,7 @@ static void image_instantiator_buttons (void)
   IIFORMAT_HAS_SHARED_METHOD (button, possible_dest_types, widget);
   IIFORMAT_HAS_SHARED_METHOD (button, instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (button, normalize, widget);
+  IIFORMAT_HAS_METHOD (button, query_geometry);
   IIFORMAT_VALID_KEYWORD (button,
 			  Q_image, check_valid_glyph_or_instantiator);
   VALID_WIDGET_KEYWORDS (button);
@@ -1257,8 +1324,7 @@ static void image_instantiator_layout (void)
   IIFORMAT_HAS_METHOD (layout, normalize);
   IIFORMAT_HAS_METHOD (layout, query_geometry);
   IIFORMAT_HAS_METHOD (layout, layout);
-  IIFORMAT_VALID_KEYWORD (layout, Q_pixel_width, check_valid_int_or_function);
-  IIFORMAT_VALID_KEYWORD (layout, Q_pixel_height, check_valid_int_or_function);
+  VALID_WIDGET_KEYWORDS (layout);
   IIFORMAT_VALID_KEYWORD (layout, Q_orientation, check_valid_orientation);
   IIFORMAT_VALID_KEYWORD (layout, Q_justify, check_valid_justification);
   IIFORMAT_VALID_KEYWORD (layout, Q_border, check_valid_border);
@@ -1293,4 +1359,10 @@ void
 vars_of_glyphs_widget (void)
 {
   reinit_vars_of_glyphs_widget ();
+
+  DEFVAR_LISP ("widget-callback-current-channel", &Vwidget_callback_current_channel /*
+The domain that is current when a widget callback is invoked.
+This is invariably the frame that the widget is instantiated in.
+*/);
+  Vwidget_callback_current_channel = Qnil;
 }

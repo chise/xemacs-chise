@@ -1,3 +1,19 @@
+2000-05-01  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.33 is released.
+
+2000-04-19  Martin Buchholz  <martin@xemacs.org>
+
+	* gnuclient.c (initialize_signals): Always use full ANSI prototypes.
+
+2000-04-06  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* i.c: New file, source for the i utility.
+
+2000-03-22  Mike Alexander  <mta@arbortext.com>
+
+	* make-dump-id.c (gettimeofday): new (Windows only)
+
 2000-03-20  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.32 is released.

@@ -28,33 +28,35 @@
 
 ;; This file is dumped with XEmacs (when dialog boxes are compiled in).
 
+;; Dialog boxes are non-modal at the C level, but made modal at the
+;; Lisp level via hacks in functions such as yes-or-no-p-dialog-box
+;; below.  Perhaps there should be truly modal dialog boxes
+;; implemented at the C level for safety.  All code using dialog boxes
+;; should be careful to assume that the environment, for example the
+;; current buffer, might be completely different after returning from
+;; yes-or-no-p-dialog-box, but such code is difficult to write and test.
+
 ;;; Code:
 (defun yes-or-no-p-dialog-box (prompt)
-  "Ask user a \"y or n\" question with a popup dialog box.
-Returns t if answer is \"yes\".
+  "Ask user a yes-or-no question with a popup dialog box.
+Return t if the answer is \"yes\".
 Takes one argument, which is the string to display to ask the question."
-  (let ((echo-keystrokes 0)
-	event)	 
+  (save-selected-frame
     (popup-dialog-box
-     ;; "Non-violent language please!" says Robin.
-     (cons prompt '(["%_Yes" yes t] ["%_No" no t] nil ["%_Cancel" abort t])))
-;     (cons prompt '(["%_Yes" yes t] ["%_No" no t] nil ["A%_bort" abort t])))
-    (catch 'ynp-done
-      (while t
-	(setq event (next-command-event event))
-	(cond ((and (misc-user-event-p event) (eq (event-object event) 'yes))
-	       (throw 'ynp-done t))
-	      ((and (misc-user-event-p event) (eq (event-object event) 'no))
-	       (throw 'ynp-done nil))
-	      ((and (misc-user-event-p event)
-		    (or (eq (event-object event) 'abort)
-			(eq (event-object event) 'menu-no-selection-hook)))
-	       (signal 'quit nil))
-	      ((button-release-event-p event) ;; don't beep twice
-	       nil)
-	      (t
-	       (beep)
-	       (message "please answer the dialog box")))))))
+     (list prompt ["Yes" yes t] ["No" no t] nil ["Cancel" cancel t]))
+    (let (event)
+      (catch 'ynp-done
+	(while t
+	  (setq event (next-command-event event))
+	  (when (misc-user-event-p event)
+	    (message "%s" (event-object event))
+	    (case (event-object event)
+	      ((yes) (throw 'ynp-done t))
+	      ((no)  (throw 'ynp-done nil))
+	      ((cancel menu-no-selection-hook) (signal 'quit nil))))
+	  (unless (button-release-event-p event) ; don't beep twice
+	    (beep)
+	    (message "please answer the dialog box")))))))
 
 (defun yes-or-no-p-maybe-dialog-box (prompt)
   "Ask user a yes-or-no question.  Return t if answer is yes.
@@ -78,10 +80,9 @@ Also accepts Space to mean yes, or Delete to mean no."
       (yes-or-no-p-dialog-box prompt)
     (y-or-n-p-minibuf prompt)))
 
-(if (fboundp 'popup-dialog-box)
-    (progn
-      (fset 'yes-or-no-p 'yes-or-no-p-maybe-dialog-box)
-      (fset 'y-or-n-p 'y-or-n-p-maybe-dialog-box)))
+(when (fboundp 'popup-dialog-box)
+  (fset 'yes-or-no-p 'yes-or-no-p-maybe-dialog-box)
+  (fset 'y-or-n-p 'y-or-n-p-maybe-dialog-box))
 
 ;; this is call-compatible with the horribly-named FSF Emacs function
 ;; `x-popup-dialog'.  I refuse to use that name.
@@ -153,5 +154,64 @@ minibuffer contents show."
   (if (should-use-dialog-box-p)
       (apply 'message-box fmt args)
     (apply 'message fmt args)))
+
+(defun make-dialog-box (&optional spec props parent)
+  "Create a frame suitable for use as a general dialog box.
+The frame is made a child of PARENT (defaults to the selected frame),
+and has additional properties PROPS, as well as `dialog-frame-plist'.
+SPEC is a string or glyph to be placed in the gutter. If INVISIBLE is
+non-nil then the frame is initially unmapped.
+Normally the created frame has no modelines, menubars, scrollbars,
+minibuffer or toolbars and is entirely covered by its gutter."
+  (or parent (setq parent (selected-frame)))
+  (let* ((ftop (frame-property parent 'top))
+	 (fleft (frame-property parent 'left))
+	 (fwidth (frame-pixel-width parent))
+	 (fheight (frame-pixel-height parent))
+	 (fonth (font-height (face-font 'default)))
+	 (fontw (font-width (face-font 'default)))
+	 (props (append props dialog-frame-plist))
+	 (dfheight (plist-get props 'height))
+	 (dfwidth (plist-get props 'width))
+	 (unmapped (plist-get props 'initially-unmapped))
+	 (gutter-spec spec)
+	 (name (or (plist-get props 'name) "XEmacs"))
+	 (frame nil))
+    (plist-remprop props 'initially-unmapped)
+    ;; allow the user to just provide a glyph
+    (when (glyphp spec)
+      (setq gutter-spec (copy-sequence "\n"))
+      (set-extent-begin-glyph (make-extent 0 1 gutter-spec) spec))
+    ;; under FVWM at least, if I don't specify the initial position,
+    ;; it ends up always at (0, 0).  xwininfo doesn't tell me
+    ;; that there are any program-specified position hints, so
+    ;; it must be an FVWM bug.  So just be smashing and position
+    ;; in the center of the selected frame.
+    (setq frame (make-frame
+		 (append props
+			 `(popup ,parent initially-unmapped t
+				 menubar-visible-p nil
+				 has-modeline-p nil
+				 default-toolbar-visible-p nil
+				 top-gutter-visible-p t
+				 top-gutter-height ,(* dfheight fonth)
+				 top-gutter ,gutter-spec
+				 minibuffer none
+				 name ,name
+				 modeline-shadow-thickness 0
+				 vertical-scrollbar-visible-p nil
+				 horizontal-scrollbar-visible-p nil
+				 unsplittable t
+				 left ,(+ fleft (- (/ fwidth 2)
+						   (/ (* dfwidth fontw)
+						      2)))
+				 top ,(+ ftop (- (/ fheight 2)
+						 (/ (* dfheight fonth)
+						    2)))))))
+    (set-face-foreground 'modeline [default foreground] frame)
+    (set-face-background 'modeline [default background] frame)
+    (unless unmapped (make-frame-visible frame))
+    frame))
+
 
 ;;; dialog.el ends here

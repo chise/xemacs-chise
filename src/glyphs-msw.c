@@ -121,6 +121,42 @@ get_device_compdc (struct device *d)
     return DEVICE_MSPRINTER_HCDC (d);
 }
 
+/*
+ * Initialize image instance pixel sizes in II.  For a display bitmap,
+ * these will be same as real bitmap sizes.  For a printer bitmap,
+ * these will be scaled up so that the bitmap is proportionally enlarged
+ * when output to printer.  Redisplay code takes care of scaling, to
+ * conserve memory we do not really scale bitmaps.  Set the watermark
+ * only here.
+ * #### Add support for unscalable bitmaps.
+ */
+static void init_image_instance_geometry (Lisp_Image_Instance *ii)
+{
+  Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
+  struct device *d = XDEVICE (device);
+  
+  if (/* #### Scaleable && */ DEVICE_MSPRINTER_P (d))
+    {
+      HDC printer_dc = DEVICE_MSPRINTER_HCDC (d);
+      HDC display_dc = CreateCompatibleDC (NULL);
+      IMAGE_INSTANCE_PIXMAP_WIDTH (ii) =
+	MulDiv (IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (ii),
+		GetDeviceCaps (printer_dc, LOGPIXELSX),
+		GetDeviceCaps (display_dc, LOGPIXELSX));
+      IMAGE_INSTANCE_PIXMAP_HEIGHT (ii) =
+	MulDiv (IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT (ii),
+		GetDeviceCaps (printer_dc, LOGPIXELSY),
+		GetDeviceCaps (display_dc, LOGPIXELSY));
+    }
+  else
+    {
+      IMAGE_INSTANCE_PIXMAP_WIDTH (ii) =
+	IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (ii);
+      IMAGE_INSTANCE_PIXMAP_HEIGHT (ii) =
+	IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT (ii);
+    }      
+}
+
 #define BPLINE(width) ((int)(~3UL & (unsigned long)((width) +3)))
 
 /************************************************************************/
@@ -350,11 +386,14 @@ init_image_instance_from_dibitmap (Lisp_Image_Instance *ii,
   IMAGE_INSTANCE_MSWINDOWS_BITMAP (ii) = bitmap;
 
   IMAGE_INSTANCE_MSWINDOWS_MASK (ii) = NULL;
-  IMAGE_INSTANCE_PIXMAP_WIDTH (ii)   = bmp_info->bmiHeader.biWidth;
-  IMAGE_INSTANCE_PIXMAP_HEIGHT (ii)  = bmp_info->bmiHeader.biHeight;
+  IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (ii) =
+    bmp_info->bmiHeader.biWidth;
+  IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT (ii) =
+    bmp_info->bmiHeader.biHeight;
   IMAGE_INSTANCE_PIXMAP_DEPTH (ii)   = bmp_info->bmiHeader.biBitCount;
   XSETINT (IMAGE_INSTANCE_PIXMAP_HOTSPOT_X (ii), x_hot);
   XSETINT (IMAGE_INSTANCE_PIXMAP_HOTSPOT_Y (ii), y_hot);
+  init_image_instance_geometry (ii);
 
   if (create_mask)
     {
@@ -469,15 +508,15 @@ mswindows_initialize_image_instance_mask (Lisp_Image_Instance* image,
   BITMAPINFO *bmp_info =
     (BITMAPINFO*) xmalloc_and_zero (sizeof (BITMAPINFO) + sizeof (RGBQUAD));
   int i, j;
-  int height = IMAGE_INSTANCE_PIXMAP_HEIGHT (image);
+  int height = IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT (image);
 
-  int maskbpline = BPLINE ((IMAGE_INSTANCE_PIXMAP_WIDTH (image) + 7) / 8);
-  int bpline = BPLINE (IMAGE_INSTANCE_PIXMAP_WIDTH (image) * 3);
+  int maskbpline = BPLINE ((IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (image) + 7) / 8);
+  int bpline = BPLINE (IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (image) * 3);
 
   if (!bmp_info)
     return;
 
-  bmp_info->bmiHeader.biWidth=IMAGE_INSTANCE_PIXMAP_WIDTH (image);
+  bmp_info->bmiHeader.biWidth=IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (image);
   bmp_info->bmiHeader.biHeight = height;
   bmp_info->bmiHeader.biPlanes = 1;
   bmp_info->bmiHeader.biSize=sizeof(BITMAPINFOHEADER);
@@ -509,10 +548,10 @@ mswindows_initialize_image_instance_mask (Lisp_Image_Instance* image,
   /* build up an in-memory set of bits to mess with */
   xzero (*bmp_info);
 
-  bmp_info->bmiHeader.biWidth=IMAGE_INSTANCE_PIXMAP_WIDTH (image);
+  bmp_info->bmiHeader.biWidth = IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (image);
   bmp_info->bmiHeader.biHeight = -height;
   bmp_info->bmiHeader.biPlanes = 1;
-  bmp_info->bmiHeader.biSize=sizeof(BITMAPINFOHEADER);
+  bmp_info->bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
   bmp_info->bmiHeader.biBitCount = 24;
   bmp_info->bmiHeader.biCompression = BI_RGB;
   bmp_info->bmiHeader.biClrUsed = 0;
@@ -534,7 +573,7 @@ mswindows_initialize_image_instance_mask (Lisp_Image_Instance* image,
 
   /* now set the colored bits in the mask and transparent ones to
      black in the original */
-  for (i=0; i<IMAGE_INSTANCE_PIXMAP_WIDTH (image); i++)
+  for (i = 0; i < IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (image); i++)
     {
       for (j=0; j<height; j++)
 	{
@@ -627,8 +666,8 @@ mswindows_create_resized_bitmap (Lisp_Image_Instance* ii,
 {
   return create_resized_bitmap (IMAGE_INSTANCE_MSWINDOWS_BITMAP (ii),
 				f,
-				IMAGE_INSTANCE_PIXMAP_WIDTH (ii),
-				IMAGE_INSTANCE_PIXMAP_HEIGHT (ii),
+				IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (ii),
+				IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT (ii),
 				newx, newy);
 }
 
@@ -642,12 +681,14 @@ mswindows_create_resized_mask (Lisp_Image_Instance* ii,
 
   return create_resized_bitmap (IMAGE_INSTANCE_MSWINDOWS_MASK (ii),
 				f,
-				IMAGE_INSTANCE_PIXMAP_WIDTH (ii),
-				IMAGE_INSTANCE_PIXMAP_HEIGHT (ii),
+				IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (ii),
+				IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT (ii),
 				newx, newy);
 }
 
 #if 0 /* Currently unused */
+/* #### Warining: This function is not correct anymore with
+   resizable printer bitmaps.  If you uncomment it, clean it. --kkm */
 int
 mswindows_resize_dibitmap_instance (Lisp_Image_Instance* ii,
 				    struct frame* f,
@@ -1289,11 +1330,12 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
   mswindows_initialize_dibitmap_image_instance (ii, 1, iitype);
 
   IMAGE_INSTANCE_PIXMAP_FILENAME (ii) = file;
-  IMAGE_INSTANCE_PIXMAP_WIDTH (ii) =
+  IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (ii) =
     GetSystemMetrics (type == IMAGE_CURSOR ? SM_CXCURSOR : SM_CXICON);
-  IMAGE_INSTANCE_PIXMAP_HEIGHT (ii) =
+  IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT (ii) =
     GetSystemMetrics (type == IMAGE_CURSOR ? SM_CYCURSOR : SM_CYICON);
   IMAGE_INSTANCE_PIXMAP_DEPTH (ii) = 1;
+  init_image_instance_geometry (ii);
 
   /* hey, we've got an icon type thing so we can reverse engineer the
      bitmap and mask */
@@ -1762,11 +1804,13 @@ init_image_instance_from_xbm_inline (Lisp_Image_Instance *ii,
 
   IMAGE_INSTANCE_PIXMAP_FILENAME (ii) =
     find_keyword_in_vector (instantiator, Q_file);
-  IMAGE_INSTANCE_PIXMAP_WIDTH (ii) = width;
-  IMAGE_INSTANCE_PIXMAP_HEIGHT (ii) = height;
+  IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (ii) = width;
+  IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT (ii) = height;
   IMAGE_INSTANCE_PIXMAP_DEPTH (ii) = 1;
   XSETINT (IMAGE_INSTANCE_PIXMAP_HOTSPOT_X (ii), 0);
   XSETINT (IMAGE_INSTANCE_PIXMAP_HOTSPOT_Y (ii), 0);
+  init_image_instance_geometry (ii);
+
   IMAGE_INSTANCE_MSWINDOWS_MASK (ii) = mask ? mask :
     xbm_create_bitmap_from_data (hdc, (Extbyte *) bits, width, height,
 				 TRUE, black, white);
@@ -2166,7 +2210,11 @@ static void
 mswindows_update_widget (Lisp_Image_Instance *p)
 {
   /* Possibly update the face font and colors. */
-  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p))
+  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p)
+      ||
+      XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (p))->faces_changed
+      ||
+      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
     {
       /* set the widget font from the widget face */
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
@@ -2198,23 +2246,28 @@ mswindows_update_widget (Lisp_Image_Instance *p)
    callbacks. The hashtable is weak so deregistration is handled
    automatically */
 static int
-mswindows_register_gui_item (Lisp_Object gui, Lisp_Object domain)
+mswindows_register_gui_item (Lisp_Object image_instance,
+			     Lisp_Object gui, Lisp_Object domain)
 {
   Lisp_Object frame = FW_FRAME (domain);
   struct frame* f = XFRAME (frame);
-  int id = gui_item_id_hash (FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f),
+  int id = gui_item_id_hash (FRAME_MSWINDOWS_WIDGET_HASH_TABLE2 (f),
 			     gui,
 			     WIDGET_GLYPH_SLOT);
-  Fputhash (make_int (id),
-	    XGUI_ITEM (gui)->callback,
-	    FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f));
+  Fputhash (make_int (id), image_instance,
+	    FRAME_MSWINDOWS_WIDGET_HASH_TABLE1 (f));
+  Fputhash (make_int (id), XGUI_ITEM (gui)->callback,
+	    FRAME_MSWINDOWS_WIDGET_HASH_TABLE2 (f));
+  Fputhash (make_int (id), XGUI_ITEM (gui)->callback_ex,
+	    FRAME_MSWINDOWS_WIDGET_HASH_TABLE3 (f));
   return id;
 }
 
 static int
 mswindows_register_widget_instance (Lisp_Object instance, Lisp_Object domain)
 {
-  return mswindows_register_gui_item (XIMAGE_INSTANCE_WIDGET_ITEM (instance),
+  return mswindows_register_gui_item (instance,
+				      XIMAGE_INSTANCE_WIDGET_ITEM (instance),
 				      domain);
 }
 
@@ -2361,7 +2414,7 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 
   style = pgui->style;
 
-  if (!NILP (pgui->callback))
+  if (!NILP (pgui->callback) || !NILP (pgui->callback_ex))
     {
       id = mswindows_register_widget_instance (image_instance, domain);
     }
@@ -2567,7 +2620,8 @@ static HTREEITEM add_tree_item (Lisp_Object image_instance,
 
   if (GUI_ITEMP (item))
     {
-      tvitem.item.lParam = mswindows_register_gui_item (item, domain);
+      tvitem.item.lParam = mswindows_register_gui_item (image_instance,
+							item, domain);
       tvitem.item.mask |= TVIF_PARAM;
       TO_EXTERNAL_FORMAT (LISP_STRING, XGUI_ITEM (item)->name,
 			  C_STRING_ALLOCA, tvitem.item.pszText,
@@ -2649,7 +2703,8 @@ static TC_ITEM* add_tab_item (Lisp_Object image_instance,
 
   if (GUI_ITEMP (item))
     {
-      tvitem.lParam = mswindows_register_gui_item (item, domain);
+      tvitem.lParam = mswindows_register_gui_item (image_instance,
+						   item, domain);
       tvitem.mask |= TCIF_PARAM;
       TO_EXTERNAL_FORMAT (LISP_STRING, XGUI_ITEM (item)->name,
 			  C_STRING_ALLOCA, tvitem.pszText,
@@ -2726,13 +2781,8 @@ mswindows_tab_control_update (Lisp_Object image_instance)
       /* delete the pre-existing items */
       SendMessage (wnd, TCM_DELETEALLITEMS, 0, 0);
 
-      /* Pick up the items we recorded earlier. We do this here so
-         that the callbacks get set up with the new items. */
-      IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
-	IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii);
-      IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii) = Qnil;
       /* add items to the tab */
-      LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)))
+      LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)))
 	{
 	  add_tab_item (image_instance, wnd, XCAR (rest),
 			IMAGE_INSTANCE_SUBWINDOW_FRAME (ii), i);
@@ -2881,11 +2931,18 @@ mswindows_progress_gauge_update (Lisp_Object image_instance)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   
-  if (IMAGE_INSTANCE_WIDGET_PERCENT_CHANGED (ii))
+  if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii))
     {
-      /* #### I'm not convinced we should store this in the plist. */
-      Lisp_Object val = Fplist_get (IMAGE_INSTANCE_WIDGET_PROPS (ii),
-				    Q_percent, Qnil);
+      Lisp_Object val;
+#ifdef ERROR_CHECK_GLYPHS
+      assert (GUI_ITEMP (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)));
+#endif
+      val = XGUI_ITEM (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii))->value;
+#ifdef DEBUG_WIDGET_OUTPUT     
+      printf ("progress gauge displayed value on %p updated to %ld\n",
+	      WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
+	      XINT(val));
+#endif
       CHECK_INT (val);
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
 		   PBM_SETPOS, (WPARAM)XINT (val), 0);

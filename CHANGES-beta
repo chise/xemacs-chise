@@ -1,3 +1,23 @@
+to 21.2.33 "Melpomene"
+-- Yet more progress gauge and gutter redisplay fixes from Andy Piper
+-- glyph error checking from Andy Piper
+-- Proper implementation of string glyps makes them Mule safe (IKEYAMA Tomonori)
+-- Bug fixes from the usual suspects
+-- --with-clash-detection now defaults to `yes', at least for betas.
+-- Autoconf support for detecting how to #include header files
+   with names containing preprocessor constants, Didier Verna.
+-- LDAP documentation updated, Oscar Figueiredo.
+-- clash-detection code cleaned and audited, Yoshiki and Martin
+-- Fix hangs on DEC OSF 4.0 when (process-send-string) sends strings
+   longer than 252 bytes.
+-- Fix non-ANSI macro hacking to allow compilation by Irix native compiler.
+-- redisplay fixes, IKEYAMA Tomonori
+-- Code cleaning, Mike Alexander
+-- Pdump + Windows support, Mike Alexander
+-- Sound code cleanup, Jan Vroonhof
+-- yes-or-no-p-dialog-box no longer gives unpredictable results with
+   focus follows mouse, Martin Buchholz
+
 to 21.2.32 "Kastor & Polydeukes"
 -- Internal Postgres RDBMS support from Steve Baur
 -- Improve gutter useability
@@ -7,6 +27,8 @@ to 21.2.32 "Kastor & Polydeukes"
 -- redisplay-gutter-area fixes from Andy Piper
 -- pdump file in MS-Windows executable from Mike Alexander
 -- Miscellaneous fixes from Andy Piper
+-- Windows and menubar changes from Ben Wing
+-- dumper changes from Olivier Galibert
 
 to 21.2.31 "Iris"
 -- Make XEmacs work on Windows again.

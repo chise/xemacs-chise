@@ -41,6 +41,7 @@
 # include "lisp.h"
 # include "sysdep.h"
 # include <errno.h>
+# include "nativesound.h"
 #include "syssignal.h"
 # define perror(string) \
     message("audio: %s, %s ", string, strerror (errno))
@@ -57,12 +58,10 @@ static int audio_fd;
 
 #define audio_open()	open ("/dev/audio", (O_WRONLY | O_NONBLOCK), 0)
 
+static int initialized_device_p;
 static int reset_volume_p, reset_device_p;
 static double old_volume;
 static Audio_hdr dev_hdr;
-
-void play_sound_file (char *name, int volume);
-void play_sound_data (unsigned char *data, int length, int volume);
 
 static int
 init_device (int volume, unsigned char *data, int fd,
@@ -98,11 +97,12 @@ init_device (int volume, unsigned char *data, int fd,
 
   audio_flush_play (audio_fd);
 
-  if (0 != audio_cmp_hdr (&dev_hdr, &file_hdr))
+  if (!initialized_device_p || (0 != audio_cmp_hdr (&dev_hdr, &file_hdr)))
     {
       Audio_hdr new_hdr;
       new_hdr = file_hdr;
       reset_device_p = 1;
+      initialized_device_p = 1;
       if (AUDIO_SUCCESS != audio_set_play_config (audio_fd, &new_hdr))
 	{
 	  char buf1 [100], buf2 [100], buf3 [250];
@@ -227,15 +227,16 @@ play_sound_file (char *sound_file, int volume)
 }
 
 
-void
+int
 play_sound_data (unsigned char *data, int length, int volume)
 {
   int wrtn, start = 0;
   unsigned int ilen;
+  int result = 0;
 
   audio_fd = -1;
 
-  if (length == 0) return;
+  if (length == 0) return 0;
 
   /* this is just to get a better error message */
   if (strncmp (".snd\0", (char *) data, 4))
@@ -251,10 +252,7 @@ play_sound_data (unsigned char *data, int length, int volume)
 
   audio_fd = audio_open ();
   if (audio_fd < 0)
-    {
-      perror ("open /dev/audio");
-      return;
-    }
+      return 0;
 
   /* where to find the proto for signal()... */
   sighup_handler = (SIGTYPE (*) (int)) signal (SIGHUP, sighandler);
@@ -292,6 +290,8 @@ play_sound_data (unsigned char *data, int length, int volume)
       goto END_OF_PLAY;
     }
 
+ result = 1;
+  
  END_OF_PLAY:
 
   if (audio_fd > 0)
@@ -302,6 +302,8 @@ play_sound_data (unsigned char *data, int length, int volume)
 
   signal (SIGHUP, sighup_handler);
   signal (SIGINT, sigint_handler);
+
+  return result;
 }
 
 /* #### sigcontext doesn't exist in Solaris.  This should be updated

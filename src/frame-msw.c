@@ -140,7 +140,11 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
     make_lisp_hash_table (50, HASH_TABLE_NON_WEAK, HASH_TABLE_EQUAL);
 #endif
   /* hashtable of instantiated glyphs on the frame. */
-  FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f) = 
+  FRAME_MSWINDOWS_WIDGET_HASH_TABLE1 (f) = 
+    make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQUAL);
+  FRAME_MSWINDOWS_WIDGET_HASH_TABLE2 (f) = 
+    make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQUAL);
+  FRAME_MSWINDOWS_WIDGET_HASH_TABLE3 (f) = 
     make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQUAL);
   /* Will initialize these in WM_SIZE handler. We cannot do it now,
      because we do not know what is CW_USEDEFAULT height and width */
@@ -259,7 +263,9 @@ mswindows_mark_frame (struct frame *f)
 #ifdef HAVE_TOOLBARS
   mark_object (FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE (f));
 #endif
-  mark_object (FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f));
+  mark_object (FRAME_MSWINDOWS_WIDGET_HASH_TABLE1 (f));
+  mark_object (FRAME_MSWINDOWS_WIDGET_HASH_TABLE2 (f));
+  mark_object (FRAME_MSWINDOWS_WIDGET_HASH_TABLE3 (f));
 }
 
 static void

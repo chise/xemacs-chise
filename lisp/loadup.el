@@ -45,7 +45,14 @@
 (defvar Installation-string nil
   "Description of XEmacs installation.")
 
-(let ((gc-cons-threshold 30000))
+;(start-profiling)
+
+(let ((gc-cons-threshold
+       ;; setting it low makes loadup incredibly fucking slow.
+       ;; no need to do it when not dumping.
+       (if (and purify-flag
+		(not (memq 'quick-build internal-error-checking)))
+	   30000 3000000)))
   
 ;; This is awfully damn early to be getting an error, right?
 (call-with-condition-handler 'really-early-error-handler
@@ -110,7 +117,9 @@
 	    (if full-path
 		(prog1
 		  (load full-path)
-		  (garbage-collect))
+		  ;; but garbage collection really slows down loading.
+		  (unless (memq 'quick-build internal-error-checking)
+		    (garbage-collect)))
 	      (external-debugging-output (format "\nLoad file %s: not found\n"
 						 file))
 	      ;; Uncomment in case of trouble
@@ -156,7 +165,8 @@
 ;; is generated.  For VMS, you must edit ../../vms/makedoc.com.
 ;; For other systems, you must edit ../../src/Makefile.in.in.
 (when (load "site-load" t)
-  (garbage-collect))
+  (garbage-collect)
+)
 
 ;;FSFmacs randomness
 ;;(if (fboundp 'x-popup-menu)
@@ -192,6 +202,71 @@
 (buffer-enable-undo "*scratch*")
 
 ) ;; frequent garbage collection
+
+;(stop-profiling)
+
+;; yuck!  need to insert the function def here, and rewrite the dolist
+;; loop below.
+
+;(defun loadup-profile-results (&optional info stream)
+;  "Print profiling info INFO to STREAM in a pretty format.
+;If INFO is omitted, the current profiling info is retrieved using
+; `get-profiling-info'.
+;If STREAM is omitted, either a *Profiling Results* buffer or standard
+; output are used, depending on whether the function was called
+; interactively or not."
+;  (interactive)
+;  (setq info (if info
+;		 (copy-alist info)
+;	       (get-profiling-info)))
+;  (when (and (not stream)
+;	     (interactive-p))
+;    (pop-to-buffer (get-buffer-create "*Profiling Results*"))
+;    (erase-buffer))
+;  (let ((standard-output (or stream (if (interactive-p)
+;					(current-buffer)
+;				      standard-output)))
+;	;; Calculate the longest function
+;	(maxfunlen (apply #'max
+;			  (length "Function Name")
+;			  (mapcar
+;			   (lambda (el)
+;			     ;; Functions longer than 50 characters (usually
+;			     ;; anonymous functions) don't qualify
+;			     (let ((l (length (format "%s" (car el)))))
+;			       (if (< l 50)
+;				   l 0)))
+;			   info))))
+;    (princ (format "%-*s    Ticks    %%/Total   Call Count\n"
+;		   maxfunlen "Function Name"))
+;    (princ (make-string maxfunlen ?=))
+;    (princ "    =====    =======   ==========\n")
+;    (let ((sum (float (apply #'+ (mapcar #'cdr info)))))
+;      (let (entry
+;	    (entry-list (nreverse (sort info #'cdr-less-than-cdr))))
+;	(while entry-list
+;	  (setq entry (car entry-list))
+;	  (princ (format "%-*s    %-5d    %-6.3f    %s\n"
+;			 maxfunlen (car entry) (cdr entry)
+;			 (* 100 (/ (cdr entry) sum))
+;			 (or (gethash (car entry) call-count-profile-table)
+;			     "")))
+;	  (setq entry-list (cdr entry-list))))
+;      (princ (make-string maxfunlen ?-))
+;      (princ "---------------------------------\n")
+;      (princ (format "%-*s    %-5d    %-6.2f\n" maxfunlen "Total" sum 100.0))
+;      (princ (format "\n\nOne tick = %g ms\n"
+;		     (/ default-profiling-interval 1000.0)))
+;      (and (boundp 'internal-error-checking)
+;	   internal-error-checking
+;	   (princ "
+;WARNING: Error checking is turned on in this XEmacs.  This might make
+;         the measurements very unreliable.\n"))))
+;  (when (and (not stream)
+;	     (interactive-p))
+;    (goto-char (point-min))))
+
+;(loadup-profile-results nil 'external-debugging-output)
 
 ;; Dump into the name `xemacs' (only)
 (when (member "dump" command-line-args)

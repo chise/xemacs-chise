@@ -24,88 +24,6 @@
 ;; Boston, MA 02111-1307, USA.
 
 ;; Some of this is taken from the buffer-menu stuff in menubar-items.el
-;; and the custom specs in toolbar.el.
-
-(defgroup gutter nil
-  "Input from the gutters."
-  :group 'environment)
-
-;; Although these customizations appear bogus, they are neccessary in
-;; order to be able to save options through the options menu.
-(defcustom default-gutter-position
-  (default-gutter-position)
-  "The location of the default gutter. It can be 'top, 'bottom, 'left or
-'right. This option should be customized through the options menu.
-To set the gutter position explicitly use `set-default-gutter-position'"
-  :group 'gutter
-  :type '(choice (const :tag "top" top)
-		 (const :tag "bottom" bottom)
-		 (const :tag "left" left)
-		 (const :tag "right" right))
-  :set #'(lambda (var val)
-	   (set-default-gutter-position val)
-	   (setq default-gutter-position val)))
-
-;;; Gutter helper functions
-
-;; called by Fset_default_gutter_position()
-(defvar default-gutter-position-changed-hook nil
-  "Function or functions to be called when the gutter position is changed.
-The value of this variable may be buffer-local.")
-
-;; called by set-gutter-element-visible-p
-(defvar gutter-element-visibility-changed-hook nil
-  "Function or functions to be called when the visibility of an
-element in the gutter changes.  The value of this variable may be
-buffer-local. The gutter element symbol is passed as an argument to
-the hook, as is the visibility flag.")
-
-(defun set-gutter-element (gutter-specifier prop val &optional locale tag-set)
-  "Set GUTTER-SPECIFIER gutter element PROP to VAL in optional LOCALE.
-This is a convenience function for setting gutter elements."
-  (map-extents #'(lambda (extent arg) 
-		   (set-extent-property extent 'duplicable t)) val)
-  (modify-specifier-instances gutter-specifier #'plist-put (list prop val)
-                              'force nil locale tag-set))
-
-(defun remove-gutter-element (gutter-specifier prop &optional locale tag-set)
-  "Remove gutter element PROP from GUTTER-SPECIFIER in optional LOCALE.
-This is a convenience function for removing gutter elements."
-  (modify-specifier-instances gutter-specifier #'plist-remprop (list prop)
-                              'force nil locale tag-set))
-
-(defun set-gutter-element-visible-p (gutter-visible-specifier-p
-				     prop &optional visible-p
-				     locale tag-set)
-  "Change the visibility of gutter elements.
-Set the visibility of element PROP to VISIBLE-P for
-GUTTER-SPECIFIER-VISIBLE-P in optional LOCALE.  
-This is a convenience function for hiding and showing gutter elements."
-  (modify-specifier-instances 
-   gutter-visible-specifier-p #'(lambda (spec prop visible-p)
-				  (if (consp spec)
-				      (if visible-p 
-					  (if (memq prop spec) spec  
-					    (cons prop spec))
-					(delq prop spec))
-				    (if visible-p (list prop))))
-   (list prop visible-p)
-   'force nil locale tag-set)
-  (run-hook-with-args 'gutter-element-visibility-changed-hook prop visible-p))
-
-(defun gutter-element-visible-p (gutter-visible-specifier-p
-				 prop &optional domain)
-  "Determine whether a gutter element is visible.
-Given GUTTER-VISIBLE-SPECIFIER-P and gutter element PROP, return
-non-nil if it is visible in optional DOMAIN."
-  (let ((spec (specifier-instance gutter-visible-specifier-p domain)))
-    (or (and (listp spec) (memq 'buffers-tab spec))
- 	spec)))
-
-(defun init-gutter ()
-  "Initialize the gutter."
-  ;; do nothing as yet.
-  )
 
 ;;; The Buffers tab
 
@@ -125,7 +43,8 @@ This option should be set through the options menu."
   :group 'buffers-tab
   :type 'boolean
   :set #'(lambda (var val)
-	   (set-gutter-element-visible-p default-gutter-visible-p 'buffers-tab val)
+	   (set-gutter-element-visible-p default-gutter-visible-p 
+					 'buffers-tab val)
 	   (setq gutter-buffers-tab-visible-p val)))
 
 (defvar gutter-buffers-tab-orientation 'top
@@ -231,9 +150,17 @@ If this is 0, then the full buffer name will be shown."
 (defun buffers-tab-switch-to-buffer (buffer)
   "For use as a value for `buffers-tab-switch-to-buffer-function'."
   (unless (eq (window-buffer) buffer)
+    ;; this used to add the norecord flag to both calls below.
+    ;; this is bogus because it is a pervasive assumption in XEmacs
+    ;; that the current buffer is at the front of the buffers list.
+    ;; for example, select an item and then do M-C-l
+    ;; (switch-to-other-buffer).  Things get way confused.
+    ;;
+    ;; Andy, if you want to maintain the current look, you must
+    ;; *uncouple* the gutter order and buffers order.
     (if (> (length (windows-of-buffer buffer)) 0)
-	(select-window (car (windows-of-buffer buffer)) t)
-      (switch-to-buffer buffer t))))
+	(select-window (car (windows-of-buffer buffer)))
+      (switch-to-buffer buffer))))
 
 (defun select-buffers-tab-buffers-by-mode (buf1 buf2)
   "For use as a value of `buffers-tab-selection-function'.
@@ -345,7 +272,7 @@ items by redefining the function `format-buffers-menu-line'."
 (defun add-tab-to-gutter ()
   "Put a tab control in the gutter area to hold the most recent buffers."
   (setq gutter-buffers-tab-orientation (default-gutter-position))
-  (let ((gutter-string "\n"))
+  (let ((gutter-string (copy-sequence "\n")))
     (unless gutter-buffers-tab-extent
       (setq gutter-buffers-tab-extent (make-extent 0 1 gutter-string)))
     (set-extent-begin-glyph 
@@ -434,10 +361,10 @@ items by redefining the function `format-buffers-menu-line'."
 (add-hook 'create-frame-hook 
 	  #'(lambda (frame)
 	      (when gutter-buffers-tab (update-tab-in-gutter frame t))))
-(add-hook 'record-buffer-hook 'update-tab-in-gutter)
-(add-hook 'default-gutter-position-changed 
-	  #'(lambda (arg)
-	      (when gutter-buffers-tab (update-tab-in-gutter arg))))
+(add-hook 'buffer-list-changed-hook 'update-tab-in-gutter)
+(add-hook 'default-gutter-position-changed-hook
+	  #'(lambda ()
+	      (when gutter-buffers-tab (update-tab-in-gutter))))
 (add-hook 'gutter-element-visibility-changed-hook
 	  #'(lambda (prop visible-p)
 	      (when (and (eq prop 'buffers-tab) visible-p)
@@ -455,67 +382,83 @@ textual and displayed in the echo area."
   :type 'boolean
   :group 'gutter)
 
+(defvar progress-glyph-height 32
+  "Height of the gutter area for progress messages.")
+
+(defvar progress-display-popup-period 0.5
+  "The time that the progress gauge should remain up after completion")
+
+;; private variables
+(defvar progress-text-glyph
+  (make-glyph [string :data ""]))
+
+(defvar progress-layout-glyph nil)
+(defvar progress-gauge-glyph
+  (make-glyph
+   `[progress-gauge
+     :pixel-height (- progress-glyph-height 8)
+     :pixel-width 250
+     :descriptor "Progress"]))
+
+(defun set-progress-display-style (style)
+  "Control the appearance of the progress gauge.
+If STYLE is 'large, the default, then the progress-display text is
+displayed above the gauge itself. If STYLE is 'small then the gauge
+and text are arranged side-by-side."  
+  (cond
+   ((eq style 'small)
+    (setq progress-glyph-height 24)
+    (setq progress-layout-glyph
+	  (make-glyph
+	   `[layout
+	     :orientation horizontal
+	     :items (,progress-gauge-glyph
+		     [button
+		      :pixel-height (- progress-glyph-height 8)
+		      ;; 'quit is special and acts "asynchronously".
+		      :descriptor "Stop" :callback 'quit]
+		     ,progress-text-glyph)])))
+   (t 
+    (setq progress-glyph-height 32)
+    (setq progress-layout-glyph
+	  (make-glyph
+	   `[layout 
+	     :orientation vertical :justify left
+	     :items (,progress-text-glyph
+		     [layout 
+		      :pixel-height (eval progress-glyph-height)
+		      :orientation horizontal
+		      :items (,progress-gauge-glyph
+			      [button 
+			       :pixel-height (- progress-glyph-height 8)
+			       :descriptor " Stop "
+			       ;; 'quit is special and acts "asynchronously".
+			       :callback 'quit])])])))))
+
+(defcustom progress-display-style 'large
+  "*Control the appearance of the progress gauge.
+If 'large, the default, then the progress-display text is displayed
+above the gauge itself. If 'small then the gauge and text are arranged
+side-by-side."
+  :group 'gutter
+  :type '(choice (const :tag "large" large)
+		 (const :tag "small" small))
+  :set #'(lambda (var val)
+	   (set-progress-display-style val)))
+
 (defvar progress-stack nil
   "An alist of label/string pairs representing active progress gauges.
 The first element in the list is currently displayed in the gutter area.
 Do not modify this directly--use the `progress-display' or
 `display-progress-display'/`clear-progress-display' functions.")
 
-(defvar progress-glyph-height 32
-  "Height of the gutter area for progress messages.")
-
-(defvar progress-display-stop-callback 'progress-display-quit-function
-  "Function to call to stop the progress operation.")
-
-(defvar progress-display-popup-period 0.5
-  "The time that the progress gauge should remain up after completion")
-
-(defun progress-display-quit-function ()
-  "Default function to call for the stop button in a progress gauge.
-This just removes the progress gauge and calls quit."
-  (interactive)
-  (clear-progress-display)
-  (keyboard-quit))
-
-;; private variables
-(defvar progress-gauge-glyph
-  (make-glyph
-   (vector 'progress-gauge
-	   :pixel-height (- progress-glyph-height 8)
-	   :pixel-width 250
-	   :descriptor "Progress")))
-
-(defvar progress-text-glyph
-  (make-glyph [string :data ""]))
-
-(defvar progress-layout-glyph
-  (make-glyph
-   (vector 
-    'layout :orientation 'vertical :justify 'left
-    :items (list 
-	    progress-text-glyph
-	    (make-glyph
-	     (vector 
-	      'layout :pixel-height progress-glyph-height 
-	      :orientation 'horizontal
-	      :items (list 
-		      progress-gauge-glyph
-		      (vector 
-		       'button :pixel-height (- progress-glyph-height 8)
-		       :descriptor " Stop "
-		       :callback '(funcall progress-display-stop-callback)))))))))
-
 (defvar progress-abort-glyph
   (make-glyph
-   (vector 'layout :orientation 'vertical :justify 'left
-	   :items (list progress-text-glyph
-			(make-glyph 
-			 (vector 'layout 
-				 :pixel-height progress-glyph-height
-				 :orientation 'horizontal))))))
-
-(defvar progress-extent-text "\n")
-(defvar progress-extent nil)
+   `[layout :orientation vertical :justify left
+	    :items (,progress-text-glyph
+		    [layout
+		     :pixel-height progress-glyph-height
+		     :orientation horizontal])]))
 
 (defun progress-displayed-p (&optional return-string frame)
   "Return a non-nil value if a progress gauge is presently displayed in the
@@ -551,7 +494,7 @@ you should just use (progress nil)."
 	nil			; just preparing to put another msg up
       (if progress-stack
 	  (let ((oldmsg (cdr (car progress-stack))))
-	    (raw-append-progress-display oldmsg frame)
+	    (raw-append-progress-display oldmsg nil frame)
 	    oldmsg)
 	;; nothing to display so get rid of the gauge
 	(set-specifier bottom-gutter-border-width 0 frame)
@@ -559,11 +502,9 @@ you should just use (progress nil)."
 				      'progress nil frame)))))
 
 (defun progress-display-clear-when-idle (&optional label)
-  (add-hook 'pre-idle-hook
-	    (defun progress-display-clear-pre-idle-hook ()
-	      (clear-progress-display label)
-	      (remove-hook 'pre-idle-hook 
-			   'progress-display-clear-pre-idle-hook))))
+  (add-one-shot-hook 'pre-idle-hook
+		     `(lambda ()
+			(clear-progress-display ',label))))
 
 (defun remove-progress-display (&optional label frame)
   ;; If label is nil, we want to remove all matching progress gauges.
@@ -579,6 +520,14 @@ you should just use (progress nil)."
 	      (setcdr s (cdr (cdr s))))
 	  (setq s (cdr s)))))))
 
+(defun progress-display-dispatch-non-command-events ()
+  ;; don't allow errors to hose things
+  (condition-case t 
+      ;; (sit-for 0) is too agressive and cause more display than we
+      ;; want.
+      (dispatch-non-command-events)
+    nil))
+
 (defun append-progress-display (label message &optional value frame)
   (or frame (setq frame (selected-frame)))
   ;; Add a new entry to the message-stack, or modify an existing one
@@ -589,18 +538,17 @@ you should just use (progress nil)."
 	  (setcdr top message)
 	  (if (equal tmsg message)
 	      (set-image-instance-property 
-	       (glyph-image-instance progress-gauge-glyph)
-	       :percent value)
+	       (glyph-image-instance progress-gauge-glyph
+				     (frame-selected-window frame))
+	       :value value)
 	    (raw-append-progress-display message value frame))
 	  (redisplay-gutter-area))
       (push (cons label message) progress-stack)
       (raw-append-progress-display message value frame))
-    (dispatch-non-command-events)
+    (progress-display-dispatch-non-command-events)
     ;; either get command events or sit waiting for them
-    (if (not (eq value 100))
-	(when (input-pending-p)
-	  (dispatch-event (next-command-event)))
-      (sit-for progress-display-popup-period nil)
+    (when (eq value 100)
+;      (sit-for progress-display-popup-period nil)
       (clear-progress-display label))))
 
 (defun abort-progress-display (label message &optional frame)
@@ -617,18 +565,16 @@ you should just use (progress nil)."
 	(push (cons label message) progress-stack))
       (unless (equal message "")
 	(insert-string message (get-buffer-create " *Gutter Area*"))
-	;; Do what the device is able to cope with.
-	;; do some funky display here.
-	(unless progress-extent
-	  (setq progress-extent (make-extent 0 1 progress-extent-text)))
-	(let ((bglyph (extent-begin-glyph progress-extent)))
-	  (set-extent-begin-glyph progress-extent progress-abort-glyph)
+	(let* ((gutter-string (copy-sequence "\n"))
+	       (ext (make-extent 0 1 gutter-string)))
+	  ;; do some funky display here.
+	  (set-extent-begin-glyph ext progress-abort-glyph)
 	  ;; fixup the gutter specifiers
-	  (set-gutter-element bottom-gutter 
-			      'progress progress-extent-text frame)
+	  (set-gutter-element bottom-gutter 'progress gutter-string frame)
 	  (set-specifier bottom-gutter-border-width 2 frame)
 	  (set-image-instance-property 
-	   (glyph-image-instance progress-text-glyph) :data message)
+	   (glyph-image-instance progress-text-glyph
+				 (frame-selected-window frame)) :data message)
 	  (set-specifier bottom-gutter-height 'autodetect frame)
 	  (set-gutter-element-visible-p bottom-gutter-visible-p 
 					'progress t frame)
@@ -636,38 +582,40 @@ you should just use (progress nil)."
 	  ;; redisplay-gutter-area performs optimally.
 	  (redisplay-gutter-area)
 	  (sit-for progress-display-popup-period nil)
-	  (clear-progress-display label)
-	  (set-extent-begin-glyph progress-extent bglyph)
+	  (clear-progress-display label frame)
+	  (set-extent-begin-glyph ext progress-layout-glyph)
+	  (set-gutter-element bottom-gutter 'progress gutter-string frame)
 	  )))))
 
 (defun raw-append-progress-display (message &optional value frame)
   (unless (equal message "")
-    (let ((inhibit-read-only t)
+    (let* ((inhibit-read-only t)
 	  (zmacs-region-stays zmacs-region-stays)
-	  (val (or value 0)))
+	  (val (or value 0))
+	  (gutter-string (copy-sequence "\n"))
+	  (ext (make-extent 0 1 gutter-string)))
       (insert-string message (get-buffer-create " *Gutter Area*"))
       ;; do some funky display here.
-      (unless progress-extent
-	(setq progress-extent (make-extent 0 1 progress-extent-text))
-	(set-extent-begin-glyph progress-extent progress-layout-glyph))
+      (set-extent-begin-glyph ext progress-layout-glyph)
       ;; fixup the gutter specifiers
-      (set-gutter-element bottom-gutter 'progress progress-extent-text frame)
+      (set-gutter-element bottom-gutter 'progress gutter-string frame)
       (set-specifier bottom-gutter-border-width 2 frame)
       (set-image-instance-property 
-       (glyph-image-instance progress-gauge-glyph) :percent val)
+       (glyph-image-instance progress-gauge-glyph 
+			     (frame-selected-window frame))
+       :value val)
       (set-image-instance-property 
-       (glyph-image-instance progress-text-glyph) :data message)
+       (glyph-image-instance progress-text-glyph (frame-selected-window frame))
+       :data message)
       (if (and (eq (specifier-instance bottom-gutter-height frame)
 		   'autodetect)
 	       (gutter-element-visible-p bottom-gutter-visible-p
 					 'progress frame))
+	  ;; if the gauge is already visible then just draw the gutter
+	  ;; checking for user events
 	  (progn
-	    ;; if the gauge is already visible then just draw the gutter
-	    ;; checking for user events
 	    (redisplay-gutter-area)
-	    (dispatch-non-command-events)
-	    (when (input-pending-p)
-	      (dispatch-event (next-command-event))))
+	    (progress-display-dispatch-non-command-events))
 	;; otherwise make the gutter visible and redraw the frame
 	(set-specifier bottom-gutter-height 'autodetect frame)
 	(set-gutter-element-visible-p bottom-gutter-visible-p
@@ -675,8 +623,8 @@ you should just use (progress nil)."
 	;; we have to do this so redisplay is up-to-date and so
 	;; redisplay-gutter-area performs optimally. This may also
 	;; make sure the frame geometry looks ok.
-	(dispatch-non-command-events)
-	(redisplay-frame)
+	(progress-display-dispatch-non-command-events)
+	(redisplay-frame frame)
 	))))
 
 (defun display-progress-display (label message &optional value frame)
@@ -730,6 +678,71 @@ arguments are the same as to `format'."
       (let ((str (apply 'format fmt args)))
 	(display-progress-display label str value)
 	str))))
+
+;;
+;; Simple search dialog
+;;
+(defvar search-dialog-direction t)
+(defvar search-dialog-text 
+  (make-glyph 
+   [edit-field :width 15 :descriptor "" :active t :face default]))
+
+(defun search-dialog-callback (parent image-instance event)
+  (save-selected-frame
+    (select-frame parent)
+    (funcall (if search-dialog-direction
+		 'search-forward 'search-backward)
+	     (image-instance-property
+	      (glyph-image-instance search-dialog-text 
+				    (frame-selected-window 
+				     (event-channel event))) :text))
+    (isearch-highlight (match-beginning 0) (match-end 0))))
+  
+(defun make-search-dialog ()
+  "Popup a search dialog box."
+  (interactive)
+  (let* ((parent (selected-frame)))
+    (set-buffer-dedicated-frame 
+     (get-buffer-create "Dialog")
+     (make-dialog-box 
+      (make-glyph
+       `[layout 
+	 :orientation horizontal :justify left
+	 :height 10 :width 40
+	 :border [string :data "Search"]
+	 :items 
+	 ([layout :orientation vertical :justify left
+		  :items 
+		  ([string :data "Search for:"]
+		   [button :descriptor "Match case"
+			   :style toggle
+			   :selected (not case-fold-search)
+			   :callback (setq case-fold-search
+					   (not case-fold-search))]
+		   [button :descriptor "Forwards"
+			   :style radio
+			   :selected search-dialog-direction
+			   :callback (setq search-dialog-direction t)]
+		   [button :descriptor "Backwards"
+			   :style radio
+			   :selected (not search-dialog-direction)
+			   :callback (setq search-dialog-direction nil)]
+		   )]
+	  [layout :orientation vertical :justify left
+		  :items 
+		  (search-dialog-text
+		   [button :width 10 :descriptor "Find Next"
+			   :callback-ex
+			   (lambda (image-instance event)
+			     (search-dialog-callback ,parent
+						     image-instance event))]
+		   [button :width 10 :descriptor "Cancel"
+			   :callback-ex
+			   (lambda (image-instance event)
+			     (isearch-dehighlight)
+			     (delete-frame 
+			      (event-channel event)))])])])
+      '(height 10 width 40)))))
 
 (provide 'gutter-items)
 ;;; gutter-items.el ends here.

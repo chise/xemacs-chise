@@ -550,7 +550,6 @@ struct Lisp_Image_Instance
       /* Change flags to augment dirty. */
       unsigned int face_changed : 1;
       unsigned int items_changed : 1;
-      unsigned int percent_changed : 1;
     } subwindow;
   } u;
 
@@ -566,7 +565,7 @@ struct Lisp_Image_Instance
 #define LAYOUT_JUSTIFY_RIGHT 1
 #define LAYOUT_JUSTIFY_CENTER 2
 
-#define IMAGE_INSTANCE_HASH_DEPTH -2
+#define IMAGE_INSTANCE_HASH_DEPTH 0
 
 /* Accessor macros. */
 #define IMAGE_INSTANCE_DEVICE(i) ((i)->device)
@@ -596,8 +595,6 @@ struct Lisp_Image_Instance
   ((i)->u.subwindow.face_changed)
 #define IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED(i) \
   ((i)->u.subwindow.items_changed)
-#define IMAGE_INSTANCE_WIDGET_PERCENT_CHANGED(i) \
-  ((i)->u.subwindow.percent_changed)
 #define IMAGE_INSTANCE_LAYOUT_CHANGED(i) ((i)->layout_changed)
 #define IMAGE_INSTANCE_OPTIMIZE_OUTPUT(i) ((i)->optimize_output)
 
@@ -885,11 +882,13 @@ extern Lisp_Object Qtree_view, Qtab_control, Qprogress_gauge, Q_border;
 extern Lisp_Object Q_mask_file, Q_mask_data, Q_hotspot_x, Q_hotspot_y;
 extern Lisp_Object Q_foreground, Q_background, Q_face, Q_descriptor, Q_group;
 extern Lisp_Object Q_width, Q_height, Q_pixel_width, Q_pixel_height, Q_text;
-extern Lisp_Object Q_items, Q_properties, Q_image, Q_percent, Qimage_conversion_error;
+extern Lisp_Object Q_items, Q_properties, Q_image, Qimage_conversion_error;
 extern Lisp_Object Q_orientation, Qupdate_widget_instances;
+extern Lisp_Object Qwidget_callback_current_channel;
 extern Lisp_Object Vcontinuation_glyph, Vcontrol_arrow_glyph, Vhscroll_glyph;
 extern Lisp_Object Vinvisible_text_glyph, Voctal_escape_glyph, Vtruncation_glyph;
 extern Lisp_Object Vxemacs_logo;
+
 
 unsigned short glyph_width (Lisp_Object glyph, Lisp_Object domain);
 unsigned short glyph_ascent (Lisp_Object glyph, Lisp_Object domain);
@@ -1013,6 +1012,7 @@ int find_matching_subwindow (struct frame* f, int x, int y, int width, int heigh
 void update_widget (Lisp_Object widget);
 void update_subwindow (Lisp_Object subwindow);
 Lisp_Object image_instance_parent_glyph (struct Lisp_Image_Instance*);
+int image_instance_changed (Lisp_Object image);
 
 struct expose_ignore
 {

@@ -333,7 +333,6 @@ XIM_init_frame (struct frame *f)
 
   if (!xim)
     {
-      xim_info ("X Input Method open failed. Waiting for an XIM to be enabled.\n");
       return;
     }
 

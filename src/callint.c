@@ -56,7 +56,7 @@ Lisp_Object Vmark_even_if_inactive;
 Lisp_Object Vmouse_leave_buffer_hook, Qmouse_leave_buffer_hook;
 #endif
 
-Lisp_Object Qlet, QletX, Qsave_excursion;
+Lisp_Object QletX, Qsave_excursion;
 
 Lisp_Object Qread_from_minibuffer;
 Lisp_Object Qread_file_name;
@@ -993,7 +993,6 @@ syms_of_callint (void)
   defsymbol (&Qcommand_debug_status, "command-debug-status");
   defsymbol (&Qenable_recursive_minibuffers, "enable-recursive-minibuffers");
 
-  defsymbol (&Qlet, "let");
   defsymbol (&QletX, "let*");
   defsymbol (&Qsave_excursion, "save-excursion");
 #if 0 /* ill-conceived */

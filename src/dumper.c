@@ -30,8 +30,14 @@ Boston, MA 02111-1307, USA.  */
 #include "console-stream.h"
 #include "dumper.h"
 
+#ifdef WINDOWSNT
+#define WINDOWS_LEAN_AND_MEAN
+#include <windows.h>
+#define PATH_MAX MAXPATHLEN
+#else
 #ifdef HAVE_MMAP
 #include <sys/mman.h>
+#endif
 #endif
 
 #ifndef SEPCHAR
@@ -100,6 +106,14 @@ typedef struct
 
 char *pdump_start, *pdump_end;
 static size_t pdump_length;
+
+#ifdef WINDOWSNT
+// Handle for the dump file
+HANDLE pdump_hFile = INVALID_HANDLE_VALUE;
+// Handle for the file mapping object for the dump file
+HANDLE pdump_hMap = INVALID_HANDLE_VALUE;
+#endif
+
 void (*pdump_free) (void);
 
 static const unsigned char align_table[256] =
@@ -1097,36 +1111,38 @@ static int pdump_load_finish (void)
 }
 
 #ifdef WINDOWSNT
+/* Free the mapped file if we decide we don't want it after all */
 static void pdump_file_unmap(void)
 {
+  UnmapViewOfFile (pdump_start);
+  CloseHandle (pdump_hFile);
+  CloseHandle (pdump_hMap);
 }
 
 static int pdump_file_get(const char *path)
 {
-  HANDLE hFile;
-  HANDLE hMap;
 
-  hFile = CreateFile (path, 
-		      GENERIC_READ + GENERIC_WRITE,  /* Required for copy on write */
-		      0,		    /* Not shared */
-		      NULL,		    /* Not inheritable */
-		      OPEN_EXISTING, 
-		      FILE_ATTRIBUTE_NORMAL,
-		      NULL);		    /* No template file */
-  if (hFile == INVALID_HANDLE_VALUE)
+  pdump_hFile = CreateFile (path, 
+		            GENERIC_READ + GENERIC_WRITE,  /* Required for copy on write */
+			    0,		            /* Not shared */
+			    NULL,		    /* Not inheritable */
+			    OPEN_EXISTING, 
+			    FILE_ATTRIBUTE_NORMAL,
+			    NULL);		    /* No template file */
+  if (pdump_hFile == INVALID_HANDLE_VALUE)
     return 0;
 
-  pdump_length = GetFileSize (hFile, NULL);
-  hMap = CreateFileMapping (hFile,
-			    NULL,		    /* No security attributes */
-			    PAGE_WRITECOPY,   /* Copy on write */
-			    0,		    /* Max size, high half */
-			    0,		    /* Max size, low half */
-			    NULL);	    /* Unnamed */
-  if (hMap == INVALID_HANDLE_VALUE)
+  pdump_length = GetFileSize (pdump_hFile, NULL);
+  pdump_hMap = CreateFileMapping (pdump_hFile,
+				  NULL,		    /* No security attributes */
+				  PAGE_WRITECOPY,   /* Copy on write */
+				  0,		    /* Max size, high half */
+				  0,		    /* Max size, low half */
+				  NULL);	    /* Unnamed */
+  if (pdump_hMap == INVALID_HANDLE_VALUE)
     return 0;
 
-  pdump_start = MapViewOfFile (hMap,
+  pdump_start = MapViewOfFile (pdump_hMap,
 			       FILE_MAP_COPY,  /* Copy on write */
 			       0,	      /* Start at zero */
 			       0,
@@ -1135,7 +1151,15 @@ static int pdump_file_get(const char *path)
   return 1;
 }
 
+/* pdump_resource_free is called (via the pdump_free pointer) to release
+   any resources allocated by pdump_resource_get.  Since the Windows API
+   specs specifically state that you don't need to (and shouldn't) free the
+   resources allocated by FindResource, LoadResource, and LockResource this
+   routine does nothing.  */
 static void pdump_resource_free (void)
+{
+}
+
 static int pdump_resource_get (void)
 {
   HRSRC hRes;	      /* Handle to dump resource */
@@ -1268,10 +1292,10 @@ static int pdump_file_try(char *exe_path)
 int pdump_load(const char *argv0)
 {
   char exe_path[PATH_MAX];
-  char *w;
 #ifdef WINDOWSNT
-  GetModuleFileName (NULL, exe_name, PATH_MAX);  
+  GetModuleFileName (NULL, exe_path, PATH_MAX);  
 #else /* !WINDOWSNT */
+  char *w;
   const char *dir, *p;
 
   dir = argv0;

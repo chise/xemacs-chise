@@ -57,9 +57,6 @@ TODO (in rough order of priority):
   PQgetlineAsync (copy in/out Asynch.)
   PQputnbytes (copy in/out Asynch.)
   PQendcopy (copy in/out)
-  PQsetenvStart (Asynch. Queries)
-  PQsetenvPoll (Asynch. Queries)
-  PQsetenvHandle (Asynch. Queries)
 
   Unsupported functions:
   PQsetdbLogin -- This function is deprecated, has a subset of the
@@ -95,6 +92,7 @@ TODO (in rough order of priority):
 */
 #if (EMACS_MAJOR_VERSION == 21) && (EMACS_MINOR_VERSION < 2)
 #define RUNNING_XEMACS_21_1 1
+#define POSTGRES_INCLUDE(file) <file>
 #endif
 
 /* #define POSTGRES_LO_IMPORT_IS_VOID 1 */
@@ -103,9 +101,7 @@ TODO (in rough order of priority):
 #include "sysdep.h"
 #include "buffer.h"
 
-#include <libpq-fe.h>
-/* Undefine the following when asynchronous setenvs are fixed in libpq. */
-/* #define LIBPQ_7_0_IS_FIXED */
+#include POSTGRES_INCLUDE (libpq-fe.h)
 #include "postgresql.h"
 
 #ifdef RUNNING_XEMACS_21_1 /* handle interface changes */
@@ -395,109 +391,6 @@ DEFINE_LRECORD_IMPLEMENTATION ("pgresult", pgresult,
 			       0,
 			       Lisp_PGresult);
 #endif
-
-/****/
-#ifdef HAVE_POSTGRESQLV7
-/* PGsetenvHandle is an opaque object and we need to be able to store them in
-   Lisp code so we can make asynchronous environmental calls.
-
-   Asynchronous setenv calls were introduced in libpq-7.0.
-*/
-#ifdef LIBPQ_7_0_IS_FIXED
-
-Lisp_Object Qpgsetenvp;
-
-static Lisp_Object
-make_pgsetenv (Lisp_PGsetenvHandle *pgsetenv)
-{
-  Lisp_Object lisp_pgsetenv;
-  XSETPGSETENV (lisp_pgsetenv, pgsetenv);
-  return lisp_pgsetenv;
-}
-
-static Lisp_Object
-#ifdef RUNNING_XEMACS_21_1
-mark_pgsetenv (Lisp_Object obj, void (*markobj) (Lisp_Object))
-#else
-mark_pgsetenv (Lisp_Object obj)
-#endif
-{
-  return Qnil;
-}
-
-static void
-print_pgsetenv (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
-{
-  char *fmt = "#<PGsetenvHandle %s>";
-  char buf[1024];
-  PGsetenvHandle *h;
-
-  h = (XPGSETENV (obj))->pgsetenv;
-
-  sprintf (buf, fmt, h ? "live" : "DEAD");
-
-  /* There are no accessor functions to retrieve any fields, so we must */
-  /* treat this as being completely opaque. */
-  if (print_readably)
-    error ("printing unreadable object %s", buf);
-  else
-    write_c_string (buf, printcharfun);
-}
-
-static Lisp_PGsetenvHandle *
-allocate_pgresult (void)
-{
-#ifdef RUNNING_XEMACS_21_1
-  Lisp_PGsetenvHandle *pgsetenv =
-    alloc_lcrecord_type (Lisp_PGsetenvHandle, lrecord_pgsetenv);
-#else
-  Lisp_PGsetenvHandle *pgsetenv =
-    alloc_lcrecord_type (Lisp_PGsetenvHandle, &lrecord_pgsetenv);
-#endif
-  pgsetenv->pgsetenv = (PGsetenvState *)NULL;
-  return pgsetenv;
-}
-
-static void
-finalize_pgsetenv (void *header, int for_disksave)
-{
-  Lisp_PGsetenvHandle *pgsetenv = (Lisp_PGsetenvHandle *)header;
-
-  if (for_disksave)
-    signal_simple_error ("Can't dump an emacs containing PGsetenvHandle objects",
-                         make_pgsetenv (pgsetenv));
-
-  /* #### PGsetenvHandle's are allocated with malloc(), however in
-     libpq-7.0 the treatment of them is little short of disastrous.
-     We don't dare attempt to free it, because there are many code
-     paths which lead to the handle being freed internally.  The
-     connection routines leak setenv handles and so will we until
-     libpq gets cleaned up.
-     Actually, in 7.0b1 asynchronous setenv cannot work outside libpq, so
-     these functions are disabled in this API.
-  */
-  if (pgsetenv->pgsetenv)
-    {
-      free (pgsetenv->pgsetenv);
-      pgsetenv->pgsetenv = (PGsetenvHandle *)NULL;
-    }
-}
-
-#ifdef RUNNING_XEMACS_21_1
-DEFINE_LRECORD_IMPLEMENTATION ("pgresult", pgresult,
-			       mark_pgresult, print_pgresult, finalize_pgresult,
-			       NULL, NULL,
-			       Lisp_PGresult);
-#else
-DEFINE_LRECORD_IMPLEMENTATION ("pgresult", pgresult,
-			       mark_pgresult, print_pgresult, finalize_pgresult,
-			       NULL, NULL,
-			       0,
-			       Lisp_PGresult);
-#endif /* RUNNING_XEMACS_21_1 */
-
-#endif /* LIBPQ_7_0_IS_FIXED */
-#endif /* HAVE_POSTGRESQLV7 */
 
 /***********************/
 
@@ -1687,114 +1580,12 @@ End a copying operation.
   return PQendcopy (P) ? Qt : Qnil;
 }
 
-/* The setenv suite of functions. The author of the libpq manual doesn't
-   know a whole lot about them, and neither do I.
-*/
-#if !defined (HAVE_POSTGRESQLV7) || defined (LIBPQ_7_0_IS_FIXED)
-DEFUN ("pq-setenv", Fpq_setenv, 1, 1, 0, /*
-Set environmental parameters on the backend synchronously.
-Returns t if the operation was successful, nil otherwise.
-*/
-       (conn))
-{
-  PGconn *P;
-
-  CHECK_PGCONN (conn);
-  P = (XPGCONN (conn))->pgconn;
-  CHECK_LIVE_CONNECTION (P);
-
-  return PQsetenv (P) ? Qt : Qnil;
-}
-#endif
-
-#ifdef LIBPQ_7_0_IS_FIXED
-
-DEFUN ("pq-setenv-start", Fpq_setenv_start, 1, 1, 0, /*
-Set environmental parameters on the backend asynchronously.
-A PGsetenvHandle is returned on success, nil otherwise.
-*/
-       (conn))
-{
-  PGconn *P;
-  PGsetenvHandle *handle;
-  Lisp_setenvHandle *lseh;
-
-  CHECK_PGCONN (conn);
-  P = (XPGCONN (conn))->pgconn;
-  CHECK_LIVE_CONNECTION (P);
-
-  handle = PQsetenvStart (P);
-  if (!handle) error ("out of memory?");
-
-  lseh = allocate_pgsetenv ();
-  lseh->setenv = handle;
-
-  return make_pgsetenv (lseh);
-}
-
-DEFUN ("pq-setenv-poll", Fpq_setenv_poll, 1, 1, 0, /*
-Poll an asynchronous setenv operation for completion.
-*/
-       (conn))
-{
-  PGconn *P;
-  PostgresPollingStatusType pst;
-
-  CHECK_PGCONN (conn);
-  P = (XPGCONN (conn))->pgconn;
-  CHECK_LIVE_CONNECTION (P);
-
-  pst = PQsetenvPoll (P);
-  switch (pst)
-    {
-    case PGRES_POLLING_FAILED:
-      /* Something Bad has happened */
-      {
-	char *e = PQerrorMessage (P);
-	error ("libpq: %s", e);
-      }
-    case PGRES_POLLING_OK:
-      return Qpgres_polling_ok;
-    case PGRES_POLLING_READING:
-      return Qpgres_polling_reading;
-    case PGRES_POLLING_WRITING:
-      return Qpgres_polling_writing;
-    case PGRES_POLLING_ACTIVE:
-      return Qpgres_polling_active;
-    default:
-      /* they've added a new field we don't know about */
-      error ("Help!  Unknown status code %08x from backend!", PS);
-    }
-}
-
-DEFUN ("pq-setenv-abort", Fpq_setenv_abort, 1, 1, 0, /*
-Attempt to abort an in-progress asynchronous setenv operation.
-*/
-       (handle))
-{
-  PGsetenvHandle *h;
-
-  CHECK_PGSETENV (handle);
-  h = (XPGSETENV (handle))->pgsetenv;
-  PUKE_IF_NULL (h);
-
-  PQsetenvAbort (h);
-  /* PQsetenvAbort usually free(3)'s the handle, don't take any chances. */
-  (XSETENV (handle))->pgsetenv = (PGsetenvHandle *)NULL;
-
-  return Qt;
-}
-#endif /* LIBPQ_7_0_IS_FIXED */
-
 void
 syms_of_postgresql(void)
 {
 #ifndef RUNNING_XEMACS_21_1
   INIT_LRECORD_IMPLEMENTATION (pgconn);
   INIT_LRECORD_IMPLEMENTATION (pgresult);
-#ifdef LIBPQ_7_0_IS_FIXED
-  INIT_LRECORD_IMPLEMENTATION (pgsetenv);
-#endif
 #endif
   defsymbol (&Qpostgresql, "postgresql");
 
@@ -1907,16 +1698,6 @@ syms_of_postgresql(void)
   DEFSUBR (Fpq_get_line_async);
   DEFSUBR (Fpq_put_nbytes);
   DEFSUBR (Fpq_end_copy);
-
-  /* The value of the setenv functions is questioned in the libpq manual. */
-#if !defined (HAVE_POSTGRESQLV7) || defined (LIBPQ_7_0_IS_FIXED)
-  DEFSUBR (Fpq_setenv);
-#endif
-#ifdef LIBPQ_7_0_IS_FIXED
-  DEFSUBR (Fpq_setenv_start);
-  DEFSUBR (Fpq_setenv_poll);
-  DEFSUBR (Fpq_setenv_abort);
-#endif /* LIBPQ_7_0_IS_FIXED */
 }
 
 void

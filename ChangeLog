@@ -1,3 +1,76 @@
+2000-05-01  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.33 is released.
+
+2000-04-27  Katsumi Yamaoka  <yamaoka@jpl.org>
+
+	* configure.in: Use ORDINARY_LD instead of "\$(ORDINARY_LD)" for
+	the value of LD.
+
+2000-04-26  Ben Wing  <ben@xemacs.org>
+
+	* configure.in: add support for --quick-build.  Remove --no-doc-file,
+	subsumed.
+
+2000-04-19  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: 
+	* src/config.h.in:
+	Rewrite SMART_INCLUDE implementation to actually work.
+	Be paranoid - Avoid use of spaces in these macro definitions.
+	Leave alloca() definition at start of compilation unit, 
+	as AIX requests.
+	Rename SMART_INCLUDE_MACRO to SMART_INCLUDE_INDIRECTIONS.
+
+2000-04-13  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* configure.in: Enable clash-detection by default.
+	* configure.usage: Update documentation.
+
+2000-04-06  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: fix typo.
+
+2000-04-12  Andy Piper  <andy@xemacs.org>
+
+	* etc/Emacs.ad: give the gui-element face the same font as the
+	menubar and popups. Add translations for text widgets.
+
+2000-04-03  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* configure.in : Fix printing error check warning even if
+	it is not compiled in.
+
+2000-02-19  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* xemacs/configure.in: Do a normal link when compiling with
+	--pdump. Don't try compiling an unexec object file.
+ 
+2000-03-27  Didier Verna  <didier@xemacs.org>
+
+	* configure.in: reorganize the output by topic.
+	New configure test to define the proper SMART_INCLUDE macro.
+
+	* configure.usage: slightly rearanged some options.
+
+2000-03-25  Didier Verna  <didier@xemacs.org>
+
+	* configure.in: rename `foo_h_path' to `foo_h_file' for variables
+	representing real headers and not directories. This applies to
+	`db_h_path', `curses_h_path', `term_h_path', `tt_c_h_path' and
+	`soundcard_h_path'.
+
+2000-03-21  Didier Verna  <didier@xemacs.org>
+
+	* configure.in: try to find postgresql headers at different places
+	and define POSTGRES_H_PATH as appropriate.
+
+2000-03-22  Andy Piper  <andy@xemacs.org>
+
+	* config.h.in: add ERROR_CHECK_GLYPHS.
+
+	* configure.in: add error_check_glyphs.
+
 2000-03-20  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.32 is released.

@@ -67,7 +67,7 @@ Boston, MA 02111-1307, USA.  */
 #endif
 
 #ifdef TOOLTALK
-#include TT_C_H_PATH
+#include TT_C_H_FILE
 #endif
 
 #if defined (WINDOWSNT)
@@ -2988,6 +2988,8 @@ typecheck	- check types strictly, aborting in case of error;
 malloc		- check operation of malloc;
 gc		- check garbage collection;
 bufpos		- check buffer positions.
+
+quick-build     - user has requested the "quick-build" configure option.
 */ );
   Vinternal_error_checking = Qnil;
 #ifdef ERROR_CHECK_EXTENTS
@@ -3008,6 +3010,10 @@ bufpos		- check buffer positions.
 #endif
 #ifdef ERROR_CHECK_BUFPOS
   Vinternal_error_checking = Fcons (intern ("bufpos"),
+				    Vinternal_error_checking);
+#endif
+#ifdef QUICK_BUILD
+  Vinternal_error_checking = Fcons (intern ("quick-build"),
 				    Vinternal_error_checking);
 #endif
 

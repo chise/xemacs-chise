@@ -1036,7 +1036,7 @@ realloc (__ptr_t ptr, __malloc_size_t size)
   int type;
   __malloc_size_t block, blocks, oldlimit;
 
-  if (PURE_DATA(ptr))
+  if (PURE_DATA (ptr))
     {
       result = malloc (size);
       memcpy(result, ptr, size);

@@ -43,6 +43,7 @@ struct Lisp_Gui_Item
   struct lcrecord_header header;
   Lisp_Object name;		/* String */
   Lisp_Object callback;		/* Symbol or form */
+  Lisp_Object callback_ex;	/* Form taking context arguments */
   Lisp_Object suffix;		/* String */
   Lisp_Object active;		/* Form */
   Lisp_Object included;		/* Form */
@@ -52,6 +53,7 @@ struct Lisp_Gui_Item
   Lisp_Object selected;		/* Form */
   Lisp_Object keys;		/* String */
   Lisp_Object accelerator;	/* Char or Symbol  */
+  Lisp_Object value;		/* Anything you like */
 };
 
 DECLARE_LRECORD (gui_item, Lisp_Gui_Item);
@@ -63,7 +65,7 @@ DECLARE_LRECORD (gui_item, Lisp_Gui_Item);
 
 extern Lisp_Object Q_accelerator, Q_active, Q_config, Q_filter, Q_included;
 extern Lisp_Object Q_keys, Q_selected, Q_suffix, Qradio, Qtoggle;
-extern Lisp_Object Q_key_sequence, Q_label, Q_callback;
+extern Lisp_Object Q_key_sequence, Q_label, Q_callback, Q_callback_ex, Q_value;
 
 void gui_item_add_keyval_pair (Lisp_Object,
 			       Lisp_Object key, Lisp_Object val,
@@ -85,6 +87,7 @@ unsigned int gui_item_display_flush_right (Lisp_Object gui_item,
 Lisp_Object allocate_gui_item (void);
 void gui_item_init (Lisp_Object gui_item);
 Lisp_Object parse_gui_item_tree_children (Lisp_Object list);
+Lisp_Object copy_gui_item_tree (Lisp_Object arg);
 
 /* this is mswindows biased but reasonably safe I think */
 #define GUI_ITEM_ID_SLOTS 8

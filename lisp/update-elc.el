@@ -39,9 +39,6 @@
 ;; (the idea here is that you can bootstrap if your .ELC files
 ;; are missing or badly out-of-date)
 
-;; Currently this code gets the list of files to check passed to it from
-;; src/Makefile.  This must be fixed.  -slb
-
 ;;; Code:
 
 (defvar processed nil)
@@ -84,8 +81,13 @@
 
 ;; (print (prin1-to-string update-elc-files-to-compile))
 
-(let (preloaded-file-list site-load-packages)
+(let (preloaded-file-list site-load-packages need-to-dump dumped-exe)
   (load (expand-file-name "../lisp/dumped-lisp.el"))
+
+  (setq dumped-exe
+	(cond ((file-exists-p "../src/xemacs.exe") "../src/xemacs.exe")
+	      ((file-exists-p "../src/xemacs") "../src/xemacs")
+	      (t nil)))
 
   ;; Path setup
   (let ((package-preloaded-file-list
@@ -94,6 +96,7 @@
     (setq preloaded-file-list
  	  (append package-preloaded-file-list
  		  preloaded-file-list
+		  '("bytecomp")
  		  packages-hardcoded-lisp)))
 
   (load (concat default-directory "../site-packages") t t)
@@ -105,6 +108,22 @@
   (while preloaded-file-list
     (let ((arg (car preloaded-file-list)))
       ;; (print (prin1-to-string arg))
+
+      ;; now check if .el or .elc is newer than the dumped exe.
+      ;; if so, need to redump.
+      (let ((frob
+	     (if (string-match "\\.elc?\\'" arg)
+		 (substring arg 0 (match-beginning 0))
+	       arg)))
+	    (if (and dumped-exe
+		     (or (and (file-exists-p (concat frob ".el"))
+			      (file-newer-than-file-p (concat frob ".el")
+						      dumped-exe))
+			 (and (file-exists-p (concat frob ".elc"))
+			      (file-newer-than-file-p (concat frob ".elc")
+						      dumped-exe))))
+		(setq need-to-dump t)))
+
       (if (null (member (file-name-nondirectory arg)
 			packages-unbytecompiled-lisp))
 	  (progn
@@ -124,7 +143,14 @@
 		     (file-newer-than-file-p (concat arg ".el")
 					     (concat arg ".elc")))
 		(setq processed (cons (concat arg ".el") processed)))))
-      (setq preloaded-file-list (cdr preloaded-file-list)))))
+      (setq preloaded-file-list (cdr preloaded-file-list))))
+
+  (if need-to-dump
+      (condition-case nil
+	  (write-region-internal "foo" nil "../src/NEEDTODUMP")
+	(file-error nil)))
+
+  )
 
 (setq update-elc-files-to-compile (append update-elc-files-to-compile
 					  processed))
@@ -140,7 +166,7 @@
 		    update-elc-files-to-compile))
       (load "loadup-el.el"))
   (condition-case nil
-      (delete-file "./NOBYTECOMPILE")
+      (delete-file "../src/NOBYTECOMPILE")
     (file-error nil)))
 
 (kill-emacs)

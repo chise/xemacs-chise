@@ -4,7 +4,7 @@
 ;; Copyright (C) 1995 Tinker Systems and INS Engineering Corp.
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1995, 1996, 2000 Ben Wing.
-;; Copyright (C) 1997 MORIOKA Tomohiko
+;; Copyright (C) 1997 MORIOKA Tomohiko.
 
 ;; Maintainer: XEmacs Development Team
 ;; Keywords: frames, extensions, internal, dumped
@@ -25,6 +25,27 @@
 ;; along with Xmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
+
+;;; Authorship:
+
+;; Created c. 1991 for Lucid Emacs.  Originally called x-menubar.el.
+;;   Contained four menus -- File, Edit, Buffers, Help.
+;;   Dynamic menu changes possible only through activate-menubar-hook.
+;;   Also contained menu manipulation funs, e.g. find-menu-item, add-menu.
+;; Options menu added for 19.9 by Jamie Zawinski, late 1993.
+;; Major reorganization c. 1994 by Ben Wing; added many items and moved
+;;   some items to two new menus, Apps and Tools. (for 19.10?)
+;; Generic menubar functions moved to new file, menubar.el, by Ben Wing,
+;;   1995, for 19.12; also, creation of current buffers menu options,
+;;   and buffers menu changed from purely most-recent to sorted alphabetical,
+;;   by mode.  Also added mode-popup-menu support.
+;; New API (add-submenu, add-menu-button) and menu filter support added
+;;   late summer 1995 by Stig, for 19.13.  Also popup-menubar-menu.
+;; Renamed to menubar-items.el c. 1998, with MS Win support.
+;; Options menu rewritten to use custom c. 1999 by ? (Jan Vroonhof?).
+;; Major reorganization Mar. 2000 by Ben Wing; added many items and changed
+;;   top-level menus to File, Edit, View, Cmds, Tools, Options, Buffers.
+;; Accelerator spec functionality added Mar. 2000 by Ben Wing.
 
 ;;; Commentary:
 
@@ -126,8 +147,10 @@ which will not be used as accelerators."
       ["Save %_As..." write-file]
       ["Save So%_me Buffers" save-some-buffers]
       "-----"
-      ["%_Print Buffer" lpr-buffer
-       :active (fboundp 'lpr-buffer)
+      ["%_Print Buffer" generic-print-buffer
+       :active (or (valid-specifier-tag-p 'msprinter)
+		   (and (not (eq system-type 'windows-nt))
+			(fboundp 'lpr-buffer)))
        :suffix (if put-buffer-names-in-file-menu (buffer-name) "")]
       ["Prett%_y-Print Buffer" ps-print-buffer-with-faces
        :active (fboundp 'ps-print-buffer-with-faces)
@@ -173,13 +196,12 @@ which will not be used as accelerators."
       ["Select %_All" mark-whole-buffer]
       ["Select %_Page" mark-page]
       "----"
-      ["%_1 Search..." isearch-forward]
-      ["%_2 Search Backward..." isearch-backward]
-      ["%_3 Replace..." query-replace]
+      ["%_Search..." make-search-dialog]
+      ["%_1 Replace..." query-replace]
       "----"
-      ["%_4 Search (Regexp)..." isearch-forward-regexp]
-      ["%_5 Search Backward (Regexp)..." isearch-backward-regexp]
-      ["%_6 Replace (Regexp)..." query-replace-regexp]
+      ["%_2 Search (Regexp)..." isearch-forward-regexp]
+      ["%_3 Search Backward (Regexp)..." isearch-backward-regexp]
+      ["%_4 Replace (Regexp)..." query-replace-regexp]
 
       ,@(when (featurep 'mule)
 	 '("----"
@@ -336,8 +358,8 @@ which will not be used as accelerators."
        ["%_Open Rectangle" open-rectangle]
        ["%_Prefix Rectangle..." string-rectangle]
        ["Rectangle %_Mousing"
-	(customize-set-variable
-	 mouse-track-rectangle-p (not mouse-track-rectangle-p))
+	(customize-set-variable	'mouse-track-rectangle-p
+				(not mouse-track-rectangle-p))
 	:style toggle :selected mouse-track-rectangle-p]
        )
       ("%_Sort"
@@ -396,7 +418,6 @@ which will not be used as accelerators."
 			   (menu-truncate-list grep-history 10)))))
 	     (append menu '("---") items))))
        ["%_Grep..." grep :active (fboundp 'grep)]
-       ["%_Repeat Grep" recompile :active (fboundp 'recompile)]
        ["%_Kill Grep" kill-compilation
 	:active (and (fboundp 'kill-compilation)
 		     (fboundp 'compilation-find-buffer)
@@ -409,28 +430,71 @@ which will not be used as accelerators."
 	(progn
 	  (require 'compile)
 	  (let ((grep-command
-		 (cons (concat grep-command " *") (length grep-command))))
+		 (cons (concat grep-command " *")
+		       (length grep-command))))
 	    (call-interactively 'grep)))
 	:active (fboundp 'grep)]
-       ["Grep %_C Files in Current Directory..."
+       ["Grep %_C and C Header Files in Current Directory..."
 	(progn
 	  (require 'compile)
 	  (let ((grep-command
-		 (cons (concat grep-command " *.[ch]") (length grep-command))))
+		 (cons (concat grep-command " *.[chCH]"
+					; i wanted to also use *.cc and *.hh.
+					; see long comment below under Perl.
+			       )
+		       (length grep-command))))
+	    (call-interactively 'grep)))
+	:active (fboundp 'grep)]
+       ["Grep C Hea%_der Files in Current Directory..."
+	(progn
+	  (require 'compile)
+	  (let ((grep-command
+		 (cons (concat grep-command " *.[hH]"
+					; i wanted to also use *.hh.
+					; see long comment below under Perl.
+			       )
+		       (length grep-command))))
 	    (call-interactively 'grep)))
 	:active (fboundp 'grep)]
        ["Grep %_E-Lisp Files in Current Directory..."
 	(progn
 	  (require 'compile)
 	  (let ((grep-command
-		 (cons (concat grep-command " *.el") (length grep-command))))
+		 (cons (concat grep-command " *.el")
+		       (length grep-command))))
+	    (call-interactively 'grep)))
+	:active (fboundp 'grep)]
+       ["Grep %_Perl Files in Current Directory..."
+	(progn
+	  (require 'compile)
+	  (let ((grep-command
+		 (cons (concat grep-command " *.pl"
+					; i wanted to use this:
+					; " *.pl *.pm *.am"
+					; but grep complains if it can't
+					; match anything in a glob, and
+					; that screws other things up.
+					; perhaps we need to first scan
+					; each separate glob in the directory
+					; to see if there are any files in
+					; that glob, and if not, omit it.
+			       )
+		       (length grep-command))))
+	    (call-interactively 'grep)))
+	:active (fboundp 'grep)]
+       ["Grep %_HTML Files in Current Directory..."
+	(progn
+	  (require 'compile)
+	  (let ((grep-command
+		 (cons (concat grep-command " *.*htm*")
+		       (length grep-command))))
 	    (call-interactively 'grep)))
 	:active (fboundp 'grep)]
        "---"
        ["%_Next Match" next-error
 	:active (and (fboundp 'compilation-errors-exist-p)
 		     (compilation-errors-exist-p))]
-       ["%_Previous Match" previous-error
+       ["Pre%_vious Match" previous-error
 	:active (and (fboundp 'compilation-errors-exist-p)
 		     (compilation-errors-exist-p))]
        ["%_First Match" first-error
@@ -474,7 +538,7 @@ which will not be used as accelerators."
        ["%_Next Error" next-error
 	:active (and (fboundp 'compilation-errors-exist-p)
 		     (compilation-errors-exist-p))]
-       ["%_Previous Error" previous-error
+       ["Pre%_vious Error" previous-error
 	:active (and (fboundp 'compilation-errors-exist-p)
 		     (compilation-errors-exist-p))]
        ["%_First Error" first-error
@@ -700,6 +764,11 @@ which will not be used as accelerators."
        )
       
       ("%_Printing"
+       ["Set Printer %_Name for Generic Print Support..."
+	(customize-set-variable
+	 'printer-name
+	 (read-string "Set printer name: " printer-name))]
+       "---"
        ["Command-Line %_Switches for `lpr'/`lp'..."
 	;; better to directly open a customization buffer, since the value
 	;; must be a list of strings, which is somewhat complex to prompt for.
@@ -808,6 +877,23 @@ which will not be used as accelerators."
 	(customize-set-variable
 	 'mail-host-address
 	 (read-string "Set machine email name: " mail-host-address))]
+       ["Set %_SMTP Server..."
+	(progn
+	  (require 'smtpmail)
+	  (customize-set-variable
+	   'smtpmail-smtp-server
+	   (read-string "Set SMTP server: " smtpmail-smtp-server)))
+	:active (and (boundp 'send-mail-function)
+		     (eq send-mail-function 'smtpmail-send-it))]
+       ["SMTP %_Debug Info"
+	(progn
+	  (require 'smtpmail)
+	  (customize-set-variable 'smtpmail-debug-info
+				  (not smtpmail-debug-info)))
+	:style toggle
+	:selected (and (boundp 'smtpmail-debug-info) smtpmail-debug-info)
+	:active (and (boundp 'send-mail-function)
+		     (eq send-mail-function 'smtpmail-send-it))]
        "---"
        ("%_Open URLs With"
 	["%_Emacs-W3"
@@ -1307,69 +1393,34 @@ which will not be used as accelerators."
 
      ("%_Help"
       ["%_About XEmacs..." about-xemacs]
-      ("%_Basics"
-       ["%_Installation" describe-installation
-	:active (boundp 'Installation-string)]
-       ;; Tutorials.
-       ,(if (featurep 'mule)
-	    ;; Mule tutorials.
-	    (let ((lang language-info-alist) (n 0)
-		  submenu tut)
-	      (while lang
-	      (setq n (1+ n))
-		(and (setq tut (assq 'tutorial (car lang)))
-		     (not (string= (caar lang) "ASCII"))
-		     (setq
-		      submenu
-		      (cons
-		       `[,(concat (menu-item-generate-accelerator-spec n)
-				  (caar lang))
-			 (help-with-tutorial nil ,(cdr tut))]
-		       submenu)))
-		(setq lang (cdr lang)))
-	      (append `("%_Tutorials"
-			:filter tutorials-menu-filter
-			["%_Default" help-with-tutorial t
-			 ,(concat "(" current-language-environment ")")])
-		      submenu))
-	  ;; Non mule tutorials.
-	  (let ((lang tutorial-supported-languages)
-		(n 0)
-		submenu)
-	    (while lang
-	      (setq n (1+ n))
-	      (setq submenu
-		    (cons
-		     `[,(concat (menu-item-generate-accelerator-spec n)
-				(caar lang))
-		       (help-with-tutorial ,(format "TUTORIAL.%s"
-						    (cadr (car lang))))]
-		     submenu))
-	      (setq lang (cdr lang)))
-	    (append '("%_Tutorials"
-		      ["%_English" help-with-tutorial])
-		    submenu)))
-       ["%_News" view-emacs-news]
-       ["%_Packages" finder-by-keyword]
-       ["%_Splash" xemacs-splash-buffer])
       "-----"
+      ["XEmacs %_News" view-emacs-news]
+      ["%_Obtaining XEmacs" describe-distribution]
+      "-----"
+      ("%_Info (Online Docs)"
+       ["%_Info Contents" info]
+       ["Lookup %_Key Binding..." Info-goto-emacs-key-command-node]
+       ["Lookup %_Command..." Info-goto-emacs-command-node]
+       ["Lookup %_Function..." Info-elisp-ref]
+       ["Lookup %_Topic..." Info-query])
       ("XEmacs %_FAQ"
        ["%_FAQ (local)" xemacs-local-faq]
-       ["FAQ via %_WWW" xemacs-www-faq	(boundp 'browse-url-browser-function)]
-       ["%_Home Page" xemacs-www-page		(boundp 'browse-url-browser-function)])
+       ["FAQ via %_WWW" xemacs-www-faq
+	:active (boundp 'browse-url-browser-function)]
+       ["%_Home Page" xemacs-www-page
+	:active (boundp 'browse-url-browser-function)])
+      ("%_Tutorials"
+       :filter tutorials-menu-filter)
       ("%_Samples"
-       ["Sample .%_emacs" (find-file (locate-data-file "sample.emacs")) (locate-data-file "sample.emacs")]
-       ["Sample .%_Xdefaults" (find-file (locate-data-file "sample.Xdefaults")) (locate-data-file "sample.Xdefaults")]
-       ["Sample e%_nriched" (find-file (locate-data-file "enriched.doc")) (locate-data-file "enriched.doc")])
-      "-----"
-      ("Lookup in %_Info"
-       ["%_Key Binding..." Info-goto-emacs-key-command-node]
-       ["%_Command..." Info-goto-emacs-command-node]
-       ["%_Function..." Info-elisp-ref]
-       ["%_Topic..." Info-query])
-      ("%_Manuals"
-       ["%_Info" info]
-       ["%_Unix Manual..." manual-entry])
+       ["Sample .%_emacs"
+	(find-file (locate-data-file "sample.emacs"))
+	:active (locate-data-file "sample.emacs")]
+       ["Sample .%_Xdefaults"
+	(find-file (locate-data-file "sample.Xdefaults"))
+	:active (locate-data-file "sample.Xdefaults")]
+       ["Sample e%_nriched"
+	(find-file (locate-data-file "enriched.doc"))
+	:active (locate-data-file "enriched.doc")])
       ("%_Commands & Keys"
        ["%_Mode" describe-mode]
        ["%_Apropos..." hyper-apropos]
@@ -1386,10 +1437,14 @@ which will not be used as accelerators."
       "-----"
       ["%_Recent Messages" view-lossage]
       ("%_Misc"
+       ["%_Current Installation Info" describe-installation
+	:active (boundp 'Installation-string)]
        ["%_No Warranty" describe-no-warranty]
        ["XEmacs %_License" describe-copying]
-       ["The Latest %_Version" describe-distribution])
-      ["%_Send Bug Report..." report-emacs-bug
+       ["Find %_Packages" finder-by-keyword]
+       ["View %_Splash Screen" xemacs-splash-buffer]
+       ["%_Unix Manual..." manual-entry])
+      ["Send %_Bug Report..." report-emacs-bug
        :active (fboundp 'report-emacs-bug)]))))
 
 
@@ -1790,22 +1845,34 @@ If this is a relative filename, it is put into the same directory as your
 
 ;;; The Help menu
 
-(if (featurep 'mule)
-    (defun tutorials-menu-filter (menu-items)
-      ;; If there's a tutorial for the current language environment, make it
-      ;; appear first as the default one. Otherwise, use the english one.
-      (let* ((menu menu-items)
-	     (item (pop menu-items)))
-	(aset
-	 item 3
-	 (concat "("
-		 (if (assoc
-		      'tutorial
-		      (assoc current-language-environment language-info-alist))
-		     current-language-environment
-		   "English")
-		 ")"))
-	menu)))
+(defun tutorials-menu-filter (menu-items)
+   (append
+    (if (featurep 'mule)
+	(if (assq 'tutorial
+		  (assoc current-language-environment language-info-alist))
+	    `([,(concat "%_Default (" current-language-environment ")")
+	       help-with-tutorial]))
+      '(["%_English" help-with-tutorial]))
+    (submenu-generate-accelerator-spec
+     (if (featurep 'mule)
+	 ;; Mule tutorials.
+	 (mapcan #'(lambda (lang)
+		     (let ((tut (assq 'tutorial lang)))
+		       (and tut
+			    (not (string= (car lang) "ASCII"))
+			    ;; skip current language, since we already
+			    ;; included it first
+			    (not (string= (car lang)
+					  current-language-environment))
+			    `([,(car lang)
+			       (help-with-tutorial nil ,(cdr tut))]))))
+		 language-info-alist))
+     ;; Non mule tutorials.
+     (mapcar #'(lambda (lang)
+		 `[,(car lang)
+		   (help-with-tutorial ,(format "TUTORIAL.%s"
+						(cadr lang)))])
+	     tutorial-supported-languages))))
 
 
 (set-menubar default-menubar)
@@ -1907,8 +1974,7 @@ The menu is computed by combining `global-popup-menu' and `mode-popup-menu'."
     (popup-menu bmenu)))
 
 (defun popup-menubar-menu (event)
-  "Pop up a copy of menu that also appears in the menubar"
-  ;; by Stig@hackvan.com
+  "Pop up a copy of menu that also appears in the menubar."
   (interactive "e")
   (let ((window (and (event-over-text-area-p event) (event-window event)))
 	popup-menubar)

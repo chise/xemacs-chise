@@ -1,3 +1,354 @@
+2000-05-01  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.33 is released.
+
+2000-04-29  Martin Buchholz  <martin@xemacs.org>
+
+	* dialog.el (yes-or-no-p-dialog-box): 
+	Fix docstring.
+	Fix following horrible bug in X11 mode with focus-follows-mouse: 
+	  1. Visit two files in two different frames.
+	  2. do File->Revert Buffer in one of those frames.
+	  3. Dialog box appears.
+	  4. Arrange things so that the mouse passes over the *other*
+	     frame, then to the dialog box, and click on "Yes".
+	  5. The file contents end up in the *wrong* buffer!
+	Add TODO comment.
+	
+2000-04-28  Ben Wing  <ben@xemacs.org>
+
+	* help.el (describe-installation): correct typo introduced
+	in last patch: boundp -> fboundp.
+
+	* etags.el (buffer-tag-table-list):
+	canonicalize filenames to Unix format so that tag-table-alist
+	searching works under Windows.
+	
+	* autoload.el:
+	Bowdlerize the supposedly objectionable words
+	"who couldn't quite manage to cleanly modify batch-update-autoloads".
+	
+	* gutter-items.el (set-progress-display-style):
+	* gutter-items.el (search-dialog-callback):
+	* gutter-items.el (make-search-dialog):
+	Change to new callback-ex api.
+
+2000-04-26  Björn Torkelsson  <torkel@hpc2n.umu.se>
+
+	* help.el: (describe-installation): decode-coding-string is not
+	defined in a non MULE environment.
+
+2000-04-28  Ben Wing  <ben@xemacs.org>
+
+	* gutter-items.el (buffer-list-changed-hook):
+	use it, not record-buffer-hook.
+
+	* subr.el (record-buffer-hook): Removed.
+
+2000-04-27  Ben Wing  <ben@xemacs.org>
+
+	* gutter-items.el (buffers-tab-switch-to-buffer): do not
+	use NORECORD option.  Andy will not like this, but the existing
+	gutter behavior is just wrong, as per this comment:
+
+	;; this used to add the norecord flag to both calls below.
+        ;; this is bogus because it is a pervasive assumption in XEmacs
+        ;; that the current buffer is at the front of the buffers list.
+        ;; for example, select an item and then do M-C-l
+        ;; (switch-to-other-buffer).  Things get way confused.
+        ;;
+        ;; Andy, if you want to maintain the current look, you must
+        ;;  *uncouple* the gutter order and buffers order.
+
+	* loaddefs.el (completion-ignored-extensions): unfuckify.
+
+	* bytecomp.el (batch-byte-compile-one-file): new function, used in
+	xemacs.mak.
+
+	* autoload.el (batch-update-one-directory): new function, used in
+	xemacs.mak.
+
+	* loadup.el: set gc-cons-threshold very high unless dumping --
+	loadup during update-elc is much much much faster.  also do this
+	when quick-building.
+
+	add commented-out code for profiling loadup.
+	
+
+	* update-elc.el (preloaded-file-list): add bytecomp.el, since it
+	is required in order to build xemacs.
+
+2000-04-26  Ben Wing  <ben@xemacs.org>
+
+	* loadup.el: don't garbage collect during loadup if quick-build
+	compile-time option is set.
+
+2000-04-23  Ben Wing  <ben@xemacs.org>
+
+	* update-elc.el: compute whether any dumped .el or .elc files
+	are newer than the dumped exe, and touch the file ../src/NEEDTODUMP
+	if so.
+	
+	* update-elc.el (update-elc-files-to-compile): always change
+	NOBYTECOMPILE in the src directory rather than current dir,
+	so it will work under NT.
+
+	* autoload.el (autoload-trim-file-name): canonicalize to slashes so
+	the form of this file is identical between Unix and Windows.
+	(autoload-target-directory): Fixed to be lisp/ not lisp/prim/.
+	Added comment.
+	(update-autoloads-from-directory): updated doc string.
+	updated doc strings in a few other places.
+
+2000-04-18  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* bytecomp.el (byte-force-recompile): Fix argument to
+	byte-recompile-directory.
+
+2000-04-17  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* gutter-items.el (progress-display-clear-when-idle): Use
+	add-one-shot-hook.
+	* gutter-items.el (clear-progress-display): Adjust number of
+	arguments.
+
+2000-04-13  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* dumped-lisp.el (preloaded-file-list): Always dump select.el.
+
+2000-04-16  Ben Wing  <ben@xemacs.org>
+
+	* printer.el: New file.
+	
+	* dumped-lisp.el (preloaded-file-list): Declare printer.el.
+	
+	* help.el (describe-installation): Fix decoding for Windows.
+	
+	* menubar-items.el:
+	* menubar-items.el (default-menubar):
+	* menubar-items.el (tutorials-menu-filter): New.
+	* menubar-items.el (popup-menubar-menu):
+	Add authorship.  Redo Help menu and Tutorials filter.
+	
+	* menubar.el: Correct comment.
+	
+	* modeline.el (modeline-buffer-identification): Correct doc string.
+	
+	* simple.el:
+	* simple.el (printing): Removed.
+	* simple.el (printer-name): Removed.
+	* simple.el (generic-print-buffer): Removed.
+	* simple.el (generic-print-region): Removed.
+	Move generic print code to printer.el.
+
+2000-04-15  Ben Wing  <ben@xemacs.org>
+
+	* simple.el (generic-print-region): New.
+	make this function actually work.
+	(generic-print-buffer): call generic-print-region.
+
+2000-04-14  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (make-search-dialog): avoid unneccessary futzing
+	by using the new widget-callback-current-channel.
+	(search-dialog-callback): ditto.
+
+2000-04-12  Andy Piper  <andy@xemacs.org>
+
+	* gutter.el (default-gutter-position): moved from gutter-items.el.
+	(default-gutter-position-changed-hook): ditto.
+	(gutter-element-visibility-changed-hook): ditto.
+	(set-gutter-element): ditto.
+	(remove-gutter-element): ditto.
+	(set-gutter-element-visible-p): ditto. 
+	(gutter-element-visible-p): ditto.
+	(init-gutter): ditto.
+
+	* dialog.el (make-dialog-box): renamed and moved from
+	gutter-items.el
+
+	* gutter-items.el: move various functions elsewhere.
+
+2000-04-13  Katsumi Yamaoka  <yamaoka@jpl.org>
+
+	* menubar-items.el: Fixed place of parenthesis.
+
+2000-04-12  Ben Wing  <ben@xemacs.org>
+
+	* etags.el (find-tag-at-point): New.  Lets you do find-tag
+		without constantly being prompted for the tag.
+	* simple.el: Added a number of section headings, to clarify the
+		organization of this file.
+	* simple.el (activate-region): 
+	* simple.el (region-exists-p): 
+	* simple.el (region-active-p): 
+		Moved these three function down to the other side of
+		the case-changing functions, so they join the rest of
+		the region code.
+	* simple.el (printing): New.
+	* simple.el (printer-name): New.
+	* simple.el (generic-print-buffer): New.
+		New functions, a very simple prototype for a unified
+		printing interface.
+	
+	* process.el (call-process-internal): Real fix for null BUFFER,
+		other problems with BUFFER specs.
+	
+	* menubar-items.el:
+		Fixed up File->Print to use new printing functions.
+		Various corrections and expansions to Grep/Compile menus.
+		New options for Printing.
+		New options for SMTP Mail, the way to send mail under
+		  MS Windows. (There's also a package patch to make SMTP
+		  Mail be the default under MSWin.)
+
+2000-04-09  Jeff Miller <jmiller@cablespeed.com>
+
+	* menubar-items.el: Selecting Rectangle Mousing from menubar
+	did not work.  Needed to quote mouse-track-rectangle-p.
+
+2000-04-06  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* cl-compat.el (keywordp): Removed.
+
+2000-04-05  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (progress-layout-glyph): don't initialize here.
+	(progress-gauge-glyph): use dynamic sizing.
+	(set-progress-display-style): new function. Set progress glyphs
+	appropriately depending on the style.
+	(progress-display-style): new variable. Custom version of
+	set-progress-display-style.
+	(progress-abort-glyph): switch to dynamic sizes.
+	(search-dialog-text): make the edit field active.
+
+2000-04-04  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (make-search-dialog): need to make the search
+	dialog visible after creation.
+
+	* menubar-items.el (default-menubar): use the search dialog for
+	searching. Remove some extraneous search menu items.
+
+	* gutter-items.el (set-gutter-element): allow glyphs to be used as
+	well as strings.
+	(make-gutter-only-dialog-frame): allow the user to create the
+	frame unmapped. Allow the gutter spec to be given as a glyph.
+	(search-dialog-direction): new variable.
+	(search-dialog-text): new variable.
+	(search-dialog-callback): new function. Callback for the search
+	dialog action.
+	(make-search-dialog): new function. Create a user-friendly search
+	dialog.
+
+2000-04-04  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* faces.el (set-face-stipple): Use mswindows-bitmap-file-path
+	under Windows.
+
+2000-04-01  Andy Piper  <andy@xemacs.org>
+
+	* font-lock.el (font-lock-fontify-keywords-region): Calculate
+	progress more accurately.
+
+2000-02-02  Hirokazu FUKUI  <hfukui@sannet.ne.jp>
+
+	* finder.el (finder-compile-keywords): Process readable files only.
+	Because error in process of .#finder-inf.el when compile xemacs
+	with --with-clash-detection option.
+
+2000-03-31  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (append-progress-display): don't delay after a
+	successful font-lock.
+	(make-gutter-only-dialog-frame): new function. Allow users to
+	create gutter-only dialogs.
+
+2000-03-27  Mike Alexander  <mta@arbortext.com>
+
+	* process.el (call-process-internal): Handle a null BUFFER
+	parameter correctly.
+
+2000-03-28  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (abort-progress-display): put strings in the
+	gutter not extents.
+	(progress-layout-glyph): signal special 'quit callback.
+	(progress-display-quit-function): deleted.
+	(progress-display-stop-callback): deleted.
+	(progress-display-dispatch-command-events): deleted.
+	(append-progress-display): remove calls to
+	progress-display-dispatch-command-events.
+	(raw-append-progress-display): ditto.
+
+2000-03-23  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* faces.el (set-face-stipple): Rewrite to correctly handle PIXMAP
+	being a list.  Actually define `stipple-pixmap-p' which is used as
+	an error predicate.  Correctly handle PIXMAP being either relative
+	or absolute file name.
+
+2000-03-24  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (add-tab-to-gutter): use copy-sequence.
+	(abort-progress-display): ditto. Don't delete the created extent.
+	(raw-append-progress-display): ditto.
+	(progress-display-dispatch-non-command-events): new
+	function. Encapsulates what we want to do when no command input is
+	required.
+	(progress-display-dispatch-command-events): likewise, but disable
+	for now since it causes too many problems.
+	(append-progress-display): use them.
+	(raw-append-progress-display): ditto.
+	(default-gutter-position-changed-hook): set this rather than
+	default-gutter-position-changed.
+	(default-gutter-position-changed-hook): lambda with zero arguments
+	rather than one.
+	(raw-append-progress-display): trap errors in pending input since
+	allowing them to signal will hose the gauge well and
+	truly. Ideally we would like to delay these until we are more able
+	to cope.
+	(append-progress-display): ditto.
+
+2000-03-20  Jeff Miller <jmiller@cablespeed.com>
+	
+	* lisp/make-docfile.el: call-process-internal is now implemented
+	in process.el.
+
+2000-03-21  Ben Wing  <ben@xemacs.org>
+
+	* mule\mule-cmds.el (set-language-info-alist): 
+	Fix to correspond to new menu arrangement.
+
+2000-03-21  Ben Wing  <ben@xemacs.org>
+
+	* process.el:
+	* process.el (call-process-internal): New.
+	New implementation of call-process.  Only enabled under NT, so far.
+	stderr handling not implemented yet in CVS'd C code.
+
+2000-03-20  Ben Wing  <ben@xemacs.org>
+
+	* lisp-mode.el:
+	* lisp-mode.el (lisp-interaction-mode-menubar-menu): New.
+	* lisp-mode.el (lisp-interaction-mode):
+	Put back Lisp Interaction menubar for Jan V's sake.
+	
+	* simple.el:
+	* simple.el (mark-ring):
+	* simple.el (dont-record-current-mark): New.
+	* simple.el (in-shifted-motion-command): New.
+	* simple.el (mark-ring-unrecorded-commands): New.
+	* simple.el (mark-ring-max):
+	* simple.el (set-mark-command):
+	* simple.el (push-mark):
+	* simple.el (handle-pre-motion-command):
+	Implement scheme for not recording unimportant marks.
+	
+	* subr.el:
+	* subr.el (function-allows-args): New.
+	New function function-allows-args.
+
 2000-03-20  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.32 is released.
@@ -410,7 +761,6 @@
 
 	* minibuf.el (read-variable): Allow symbol to default argument.
 
->>>>>>> 1.156.2.301
 2000-02-27  Andy Piper  <andy@xemacs.org>
 
 	* gutter-items.el (update-tab-hook): new function to be used for

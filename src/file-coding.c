@@ -1071,6 +1071,7 @@ Return the coding-system symbol for which symbol ALIAS is an alias.
     return aliasee;
   else
     signal_simple_error ("Symbol is not a coding system alias", alias);
+  return Qnil;		/* To keep the compiler happy */
 }
 
 static Lisp_Object

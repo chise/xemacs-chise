@@ -770,7 +770,7 @@ ARRAY may be a vector, bit vector, or string.  INDEX starts at 0.
     {
       CHECK_CHAR_COERCE_INT (newval);
       if (idx >= XSTRING_CHAR_LENGTH (array)) goto range_error;
-      set_string_char (XSTRING (array), idx, XCHAR (newval));
+      set_string_char (XSTRING (array), idx, (unsigned char) XCHAR (newval));
       bump_string_modiff (array);
     }
   else

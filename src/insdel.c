@@ -3082,6 +3082,13 @@ find_charsets_in_bufbyte_string (unsigned char *charsets, const Bufbyte *str,
   const Bufbyte *strend = str + len;
   memset (charsets, 0, NUM_LEADING_BYTES);
 
+  /* #### SJT doesn't like this. */
+  if (len == 0)
+    {
+      charsets[XCHARSET_LEADING_BYTE (Vcharset_ascii) - 128] = 1;
+      return;
+    }
+
   while (str < strend)
     {
       charsets[CHAR_LEADING_BYTE (charptr_emchar (str)) - 128] = 1;
@@ -3101,6 +3108,14 @@ find_charsets_in_emchar_string (unsigned char *charsets, const Emchar *str,
   int i;
 
   memset (charsets, 0, NUM_LEADING_BYTES);
+
+  /* #### SJT doesn't like this. */
+  if (len == 0)
+    {
+      charsets[XCHARSET_LEADING_BYTE (Vcharset_ascii) - 128] = 1;
+      return;
+    }
+
   for (i = 0; i < len; i++)
     {
       charsets[CHAR_LEADING_BYTE (str[i]) - 128] = 1;

@@ -30,7 +30,7 @@ typedef
 union Lisp_Object
 {
   /* if non-valbits are at lower addresses */
-#if defined(WORDS_BIGENDIAN)
+#ifdef WORDS_BIGENDIAN
   struct
   {
     EMACS_UINT val : VALBITS;

@@ -611,7 +611,8 @@ ALIST is an alist of KEY and INFO values.  See the documentation of
 	  (eval-after-load
 	      "menubar-items.elc"
 	    `(add-menu-button
-	      '("Mule" "Describe Language Support")
+	      '("%_Edit" "%_Multilingual (\"Mule\")"
+		"%_Describe Language Support")
 	      (vector ,lang-env
 		      '(describe-language-environment ,lang-env)
 		      t))))
@@ -622,11 +623,12 @@ ALIST is an alist of KEY and INFO values.  See the documentation of
       (eval-after-load
 	  "menubar-items.elc"
 	`(add-menu-button
-	  '("Mule" "Set Language Environment")
+	  '("%_Edit" "%_Multilingual (\"Mule\")"
+	    "%_Set Language Environment")
 	  (vector ,lang-env
 		  '(set-language-environment ,lang-env)
 		  t))))
-
+    
     (while alist
       (set-language-info lang-env (car (car alist)) (cdr (car alist)))
       (setq alist (cdr alist)))))

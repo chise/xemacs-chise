@@ -96,7 +96,7 @@ struct x_subwindow_data
       Window parent_window;
       Window clip_window;
     } sub;
-    struct 
+    struct
     {
       Widget clip_window;
       Position x_offset;

@@ -21,7 +21,7 @@ Boston, MA 02111-1307, USA.  */
 /* Synched up with: FSF 19.30 (more or less). */
 
 /* No code in XEmacs #includes config.h twice, but some of the code
-   intended to work with other packages as well (like gmalloc.c) 
+   intended to work with other packages as well (like gmalloc.c)
    think they can include it as many times as they like.  */
 #ifndef _SRC_CONFIG_H_
 #define _SRC_CONFIG_H_
@@ -286,7 +286,7 @@ Boston, MA 02111-1307, USA.  */
 /* Define HAVE_BERKELEY_DB if you want to use the BerkDB libraries */
 #undef HAVE_BERKELEY_DB
 /* Full #include file path for Berkeley DB's db.h */
-#undef DB_H_PATH
+#undef DB_H_FILE
 
 #if defined (HAVE_DBM) || defined (HAVE_BERKELEY_DB)
 # define HAVE_DATABASE
@@ -295,8 +295,8 @@ Boston, MA 02111-1307, USA.  */
 /* Define HAVE_NCURSES if -lncurses is present. */
 #undef HAVE_NCURSES
 /* Full #include file paths for ncurses' curses.h and term.h. */
-#undef CURSES_H_PATH
-#undef TERM_H_PATH
+#undef CURSES_H_FILE
+#undef TERM_H_FILE
 
 #define LOWTAGS
 
@@ -486,7 +486,7 @@ Boston, MA 02111-1307, USA.  */
 #undef SUNPRO
 
 /* Sun SparcStations, SGI machines, and HP9000s700s have support for playing
-   different sound files as beeps.  If you are on a SparcStation but do not 
+   different sound files as beeps.  If you are on a SparcStation but do not
    have the sound option installed for some reason, then undefine
    HAVE_NATIVE_SOUND.  (It's usually found in /usr/demo/SOUND/ on SunOS 4
    and Solaris systems; on Solaris, you may need to install the "SUNWaudmo"
@@ -536,7 +536,7 @@ Boston, MA 02111-1307, USA.  */
    uses, mbstowcs() and wcstombs(), are unusable when programs are
    statically linked (as XEmacs must be) because the static version of
    libc.a contains the *dynamic* versions of these functions.  These
-   functions don't seem to be called when XEmacs is running, so it's 
+   functions don't seem to be called when XEmacs is running, so it's
    enough to define stubs for them.
 
    This appears to be fixed in SunOS 4.1.2.

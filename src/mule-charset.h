@@ -557,6 +557,8 @@ struct charset_lookup {
 
   /* Table of charsets indexed by type/final-byte/direction. */
   Lisp_Object charset_by_attributes[4][128][2];
+  Bufbyte next_allocated_1_byte_leading_byte;
+  Bufbyte next_allocated_2_byte_leading_byte;
 };
 
 extern struct charset_lookup *chlook;

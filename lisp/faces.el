@@ -1589,14 +1589,17 @@ you want to add code to do stuff like this, use the create-device-hook."
 			 nil 'append))
   )
 
-;; New function with 20.1, suggested by Per Abrahamsen, coded by Kyle Jones.
+;; New function with 20.1, suggested by Per Abrahamsen, coded by Kyle
+;; Jones and Hrvoje Niksic.
 (defun set-face-stipple (face pixmap &optional frame)
   "Change the stipple pixmap of FACE to PIXMAP.
 This is an Emacs compatibility function; consider using
 set-face-background-pixmap instead.
 
 PIXMAP should be a string, the name of a file of pixmap data.
-The directories listed in the `x-bitmap-file-path' variable are searched.
+The directories listed in the variables `x-bitmap-file-path' and
+`mswindows-bitmap-file-path' under X and MS Windows respectively
+are searched.
 
 Alternatively, PIXMAP may be a list of the form (WIDTH HEIGHT
 DATA) where WIDTH and HEIGHT are the size in pixels, and DATA is
@@ -1607,20 +1610,33 @@ If the optional FRAME argument is provided, change only
 in that frame; otherwise change each frame."
   (while (not (find-face face))
     (setq face (signal 'wrong-type-argument (list 'facep face))))
-  (locate-file pixmap x-bitmap-file-path '(".xbm" ""))
-  (while (cond ((stringp pixmap)
-		(unless (file-readable-p pixmap)
-		  (setq pixmap `[xbm :file ,pixmap]))
-		nil)
-	       ((and (consp pixmap) (= (length pixmap) 3))
-		(setq pixmap `[xbm :data ,pixmap])
-		nil)
-	       (t t))
-    (setq pixmap (signal 'wrong-type-argument
-			 (list 'stipple-pixmap-p pixmap))))
-  (while (and frame (not (framep frame)))
-    (setq frame (signal 'wrong-type-argument (list 'framep frame))))
-  (set-face-background-pixmap face pixmap frame))
+  (let ((bitmap-path (ecase (console-type)
+		       (x         x-bitmap-file-path)
+		       (mswindows mswindows-bitmap-file-path)))
+	instantiator)
+    (while
+	(null
+	 (setq instantiator
+	       (cond ((stringp pixmap)
+		      (let ((file (if (file-name-absolute-p pixmap)
+				      pixmap
+				    (locate-file pixmap bitmap-path
+						 '(".xbm" "")))))
+			(and file
+			     `[xbm :file ,file])))
+		     ((and (listp pixmap) (= (length pixmap) 3))
+		      `[xbm :data ,pixmap])
+		     (t nil))))
+      ;; We're signaling a continuable error; let's make sure the
+      ;; function `stipple-pixmap-p' at least exists.
+      (flet ((stipple-pixmap-p (pixmap)
+	       (or (stringp pixmap)
+		   (and (listp pixmap) (= (length pixmap) 3)))))
+	(setq pixmap (signal 'wrong-type-argument
+			     (list 'stipple-pixmap-p pixmap)))))
+    (while (and frame (not (framep frame)))
+      (setq frame (signal 'wrong-type-argument (list 'framep frame))))
+    (set-face-background-pixmap face instantiator frame)))
 
 
 ;; Create the remaining standard faces now.  This way, packages that we dump

@@ -88,6 +88,17 @@ Window-system options:
                                    unpredictable.
 --without-xmu (*)       For those unfortunates whose vendors don't ship Xmu.
 --external-widget       Compile with external widget support.
+
+
+TTY options:
+
+--without-tty           Don't support TTY-s.
+--with-ncurses (*)      Use the ncurses library for tty support.
+--with-gpm (*)          Compile in support for General Purpose Mouse.
+
+
+Image options:
+
 --with-xpm (*)          Compile with support for XPM files.
                         It is highly recommended that you obtain XPM
                         (version 3.4h or better) if you don't already
@@ -107,22 +118,8 @@ Window-system options:
                         Get if from the XEmacs FTP site.
 
 
-TTY options:
+Sound options:
 
---without-tty           Don't support TTY-s.
---with-ncurses (*)      Use the ncurses library for tty support.
---with-gpm (*)          Compile in support for General Purpose Mouse.
-
-
-Additional features:
-
---with-tooltalk (*)     Support the ToolTalk IPC protocol.
---with-workshop         Support the Sun WorkShop (formerly Sparcworks)
-                        development environment.
---with-socks            Compile with support for SOCKS (an Internet proxy).
---with-database=TYPE (*) Compile with database support.  Valid types are
-                        `no' or a comma-separated list of one or more
-                        of `berkdb' and either `dbm' or `gnudbm'.
 --with-sound=TYPE,[TYPE],... Compile with native sound support.
 			Valid types are `native', `nas' and `esd'.
 			Prefix a type with 'no' to disable.
@@ -133,17 +130,36 @@ Additional features:
 --native-sound-lib=LIB  Native sound support library.  Needed on Suns
                         with --with-sound=both because both sound libraries
                         are called libaudio.
---with-pop              support POP for mail retrieval
---with-kerberos         support Kerberos-authenticated POP
---with-hesiod           support Hesiod to get the POP server host
---with-dnet (*)         Compile with support for DECnet.
+
+
+Database options:
+
+--with-database=TYPE (*) Compile with database support.  Valid types are
+                        `no' or a comma-separated list of one or more
+                        of `berkdb' and either `dbm' or `gnudbm'.
 --with-ldap (*)         Compile with support for the LDAP protocol (requires
                         installed LDAP libraries on the system).
 --with-postgresql (*)	Compile with support for the PostgreSQL RDBMS (requires
 			installed PostreSQL libraries on the system).
+
+
+Mail options:
+
 --mail-locking=TYPE (*) Specify the locking to be used by movemail to prevent
                         concurrent updates of mail spool files. Valid types
                         are `lockf', `flock', and `dot'.
+--with-pop              support POP for mail retrieval
+--with-kerberos         support Kerberos-authenticated POP
+--with-hesiod           support Hesiod to get the POP server host
+
+
+Additional features:
+
+--with-tooltalk (*)     Support the ToolTalk IPC protocol.
+--with-workshop         Support the Sun WorkShop (formerly Sparcworks)
+                        development environment.
+--with-socks            Compile with support for SOCKS (an Internet proxy).
+--with-dnet (*)         Compile with support for DECnet.
 --with-modules		Compile in experimental support for dynamically
 			loaded libraries (Dynamic Shared Objects).
 --with-site-lisp=yes    Allow for a site-lisp directory in the XEmacs hierarchy
@@ -232,7 +248,7 @@ Other options:
 --with-system-malloc    Force use of the system malloc, rather than GNU malloc.
 --with-debug-malloc     Use the debugging malloc package.
 --with-clash-detection  Use lock files to detect multiple edits of the same
-                        file.  The default is to not do clash detection.
+                        file.  The default is to do clash detection.
 --lockdir=DIR           The directory to put clash detection files in, such as
                         `/var/lock/emacs'.
                         Defaults to `${statedir}/xemacs/lock'.

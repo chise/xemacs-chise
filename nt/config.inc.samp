@@ -12,10 +12,10 @@ PACKAGE_PREFIX=c:\Program Files\XEmacs
 HAVE_MULE=0
 
 # Native MS Windows support.
-HAVE_MSW=1
+HAVE_MS_WINDOWS=1
 
 # X Windows support.
-HAVE_X=0
+HAVE_X_WINDOWS=0
 X11_DIR=
 
 ############################################################################
@@ -58,9 +58,15 @@ MAKEINFO=f:\src\texinfo-4.0\makeinfo\makeinfo.exe
 # Set this to enable some debug code that doesn't slow things down.
 DEBUG_XEMACS=1
 
+# Set this to speed up building, for development purposes.
+QUICK_BUILD=0
+
 # Set this to see exactly which compilation commands are being run (not
 # generally recommended).
 VERBOSECC=0
+
+# Set this to get nmake to use dependency info (requires Perl to be installed)
+DEPEND=0
 
 ############################################################################
 

@@ -409,7 +409,6 @@ create_child (const char *exe, char *cmdline, char *env,
   xzero (start);
   start.cb = sizeof (start);
   
-#ifdef HAVE_NTGUI
   if (NILP (Vwin32_start_process_show_window))
   start.dwFlags = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
   else
@@ -419,7 +418,6 @@ create_child (const char *exe, char *cmdline, char *env,
   start.hStdInput = GetStdHandle (STD_INPUT_HANDLE);
   start.hStdOutput = GetStdHandle (STD_OUTPUT_HANDLE);
   start.hStdError = GetStdHandle (STD_ERROR_HANDLE);
-#endif /* HAVE_NTGUI */
 
   /* Explicitly specify no security */
   if (!InitializeSecurityDescriptor (&sec_desc, SECURITY_DESCRIPTOR_REVISION))

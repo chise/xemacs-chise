@@ -257,7 +257,7 @@ merge_widget_value_args (widget_value *old, widget_value *new)
       lw_copy_widget_value_args (old, new);
       changed = True;
     }
-  else if (new->args && old->args)
+  else if (new->args && old->args && new->args != old->args)
     {
       /* #### Do something more sensible here than just copying the
          new values (like actually merging the values). */
@@ -1048,14 +1048,14 @@ lw_destroy_all_widgets (LWLIB_ID id)
 }
 
 void
-lw_destroy_everything ()
+lw_destroy_everything (void)
 {
   while (all_widget_info)
     lw_destroy_all_widgets (all_widget_info->id);
 }
 
 void
-lw_destroy_all_pop_ups ()
+lw_destroy_all_pop_ups (void)
 {
   widget_info *info;
   widget_info *next;

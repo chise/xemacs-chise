@@ -577,8 +577,12 @@ mswindows_output_dibitmap (struct frame *f, Lisp_Image_Instance *p,
   HDC hcompdc = get_frame_compdc (f);
   HGDIOBJ old=NULL;
   COLORREF bgcolor = GetBkColor (hdc);
+  const int real_x = IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (p);
+  const int real_y = IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT (p);
+  const int surface_x = IMAGE_INSTANCE_PIXMAP_WIDTH (p);
+  const int surface_y = IMAGE_INSTANCE_PIXMAP_HEIGHT (p);
 
-  /* first blt the mask */
+  /* first blit the mask */
   if (IMAGE_INSTANCE_MSWINDOWS_MASK (p))
     {
       RGBQUAD col;
@@ -591,27 +595,33 @@ mswindows_output_dibitmap (struct frame *f, Lisp_Image_Instance *p,
       
       SetDIBColorTable (hcompdc, 1, 1, &col);
 
-      BitBlt (hdc, 
-	      db->xpos, db->ypos,
-	      dga->width, dga->height, 
-	      hcompdc,
-	      dga->xoffset, dga->yoffset, 
-	      SRCCOPY);                  
+      StretchBlt (hdc, 
+		  db->xpos, db->ypos,
+		  dga->width, dga->height, 
+		  hcompdc,
+		  MulDiv (dga->xoffset, real_x, surface_x),
+		  MulDiv (dga->yoffset, real_y, surface_y),
+		  MulDiv (dga->width, real_x, surface_x),
+		  MulDiv (dga->height, real_y, surface_y),
+		  SRCCOPY);                  
 
       SelectObject (hcompdc, old);
     }
   
-  /* Now blt the bitmap itself, or one of its slices. */
+  /* Now blit the bitmap itself, or one of its slices. */
   old = SelectObject (hcompdc,
 		      IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICE 
 		      (p, IMAGE_INSTANCE_PIXMAP_SLICE (p)));
 
-  BitBlt (hdc, 
-	  db->xpos, db->ypos,
-	  dga->width, dga->height,
-	  hcompdc,
-	  dga->xoffset, dga->yoffset, 
-	  IMAGE_INSTANCE_MSWINDOWS_MASK (p) ? SRCINVERT : SRCCOPY);
+  StretchBlt (hdc, 
+	      db->xpos, db->ypos,
+	      dga->width, dga->height,
+	      hcompdc,
+	      MulDiv (dga->xoffset, real_x, surface_x),
+	      MulDiv (dga->yoffset, real_y, surface_y),
+	      MulDiv (dga->width, real_x, surface_x),
+	      MulDiv (dga->height, real_y, surface_y),
+	      IMAGE_INSTANCE_MSWINDOWS_MASK (p) ? SRCINVERT : SRCCOPY);
 
   SelectObject (hcompdc, old);
 }
@@ -1137,27 +1147,6 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 		{
 		  switch (XIMAGE_INSTANCE_TYPE (instance))
 		    {
-		    case IMAGE_TEXT:
-		      {
-			/* #### This is way losing.  See the comment in
-			   add_glyph_rune(). */
-			Lisp_Object string =
-			  XIMAGE_INSTANCE_TEXT_STRING (instance);
-			convert_bufbyte_string_into_emchar_dynarr
-			  (XSTRING_DATA (string), XSTRING_LENGTH (string), buf);
-			
-			if (rb->cursor_type == CURSOR_ON)
-			  mswindows_output_cursor (w, dl, xpos, cursor_width,
-						   findex, Dynarr_at (buf, 0), 0);
-			else /* #### redisplay-x passes -1 as the width: why ? */
-			  mswindows_output_string (w, dl, buf, xpos,
-						   rb->object.dglyph.xoffset,
-						   start_pixpos, rb->width, findex,
-						   0, 0, 0, 0);
-			Dynarr_reset (buf);
-		      }
-		      break;
-		      
 		    case IMAGE_MONO_PIXMAP:
 		    case IMAGE_COLOR_PIXMAP:
 		      redisplay_output_pixmap (w, instance, &dbox, &dga, findex,
@@ -1167,9 +1156,6 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 			mswindows_output_cursor (w, dl, xpos, cursor_width,
 						 findex, 0, 1);
 		      break;
-		      
-		    case IMAGE_POINTER:
-		      abort ();
 		      
 		    case IMAGE_SUBWINDOW:
 		    case IMAGE_WIDGET:
@@ -1193,7 +1179,9 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 		    case IMAGE_NOTHING:
 		      /* nothing is as nothing does */
 		      break;
-		      
+
+		    case IMAGE_TEXT:
+		    case IMAGE_POINTER:
 		    default:
 		      abort ();
 		    }

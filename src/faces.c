@@ -2030,6 +2030,8 @@ complex_vars_of_faces (void)
   Vwidget_face = Fmake_face (Qwidget,
 			     build_string ("widget face"),
 			     Qnil);
+  set_specifier_fallback (Fget (Vwidget_face, Qfont, Qunbound),
+			  Fget (Vgui_element_face, Qfont, Qunbound));
   set_specifier_fallback (Fget (Vwidget_face, Qforeground, Qunbound),
 			  Fget (Vgui_element_face, Qforeground, Qunbound));
   set_specifier_fallback (Fget (Vwidget_face, Qbackground, Qunbound),

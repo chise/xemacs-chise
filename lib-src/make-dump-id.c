@@ -23,6 +23,26 @@ Boston, MA 02111-1307, USA.  */
 #include <stdlib.h>
 #include "../src/systime.h"
 
+#ifdef WINDOWSNT
+#include <sys/timeb.h>
+
+/* Emulate gettimeofday (Ulrich Leodolter, 1/11/95).  */
+void 
+gettimeofday (struct timeval *tv, struct timezone *tz)
+{
+  struct _timeb tb;
+  _ftime (&tb);
+
+  tv->tv_sec = tb.time;
+  tv->tv_usec = tb.millitm * 1000L;
+  if (tz) 
+    {
+      tz->tz_minuteswest = tb.timezone;	/* minutes west of Greenwich  */
+      tz->tz_dsttime = tb.dstflag;	/* type of dst correction  */
+    }
+}
+#endif
+
 /* Generates an (extremely) pseudo random number for the dump-id */
 static unsigned int
 generate_dump_id (void)

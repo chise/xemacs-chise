@@ -239,13 +239,13 @@ See `lprogress-display' for details.  This support has been switched
 on by default for font-lock and some web browsing functions.  If you
 do not like this behaviour set `progress-display-use-echo-area'.
 
-** Etags changes.
-
 ** The PostgreSQL Relational Database Management System is now supported.
 It is now possible to build XEmacs so that the programming interface
 to the PostgreSQL RDBMS (libpq) is available in XEmacs Lisp.
 Supported versions of PostgreSQL are 6.5.3 (earlier versions may work,
 but have not been tested) and 7.0-beta1.
+
+** Etags changes.
 
 *** In DOS, etags looks for file.cgz if it cannot find file.c.
 

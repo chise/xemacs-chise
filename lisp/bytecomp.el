@@ -1355,7 +1355,7 @@ otherwise pop it")
   "Recompile every `.el' file in DIRECTORY that already has a `.elc' file.
 Files in subdirectories of DIRECTORY are processed also."
   (interactive "DByte force recompile (directory): ")
-  (byte-recompile-directory directory nil t))
+  (byte-recompile-directory directory nil nil t))
 
 ;;;###autoload
 (defun byte-recompile-directory (directory &optional arg norecursion force)
@@ -4037,26 +4037,41 @@ For example, invoke \"xemacs -batch -f batch-byte-compile $emacs/ ~/*.el\""
       (error "`batch-byte-compile' is to be used only with -batch"))
   (let ((error nil))
     (while command-line-args-left
-      (if (file-directory-p (expand-file-name (car command-line-args-left)))
-	  (let ((files (directory-files (car command-line-args-left)))
-		source dest)
-	    (while files
-	      (if (and (string-match emacs-lisp-file-regexp (car files))
-		       (not (auto-save-file-name-p (car files)))
-		       (setq source (expand-file-name
-				     (car files)
-				     (car command-line-args-left)))
-		       (setq dest (byte-compile-dest-file source))
-		       (file-exists-p dest)
-		       (file-newer-than-file-p source dest))
-		  (if (null (batch-byte-compile-1 source))
-		      (setq error t)))
-	      (setq files (cdr files))))
-	(if (null (batch-byte-compile-1 (car command-line-args-left)))
-	    (setq error t)))
-      (setq command-line-args-left (cdr command-line-args-left)))
+      (if (null (batch-byte-compile-one-file))
+	  (setq error t)))
     (message "Done")
     (kill-emacs (if error 1 0))))
+
+;;;###autoload
+(defun batch-byte-compile-one-file ()
+  "Run `byte-compile-file' on a single file remaining on the command line.
+Use this from the command line, with `-batch';
+it won't work in an interactive Emacs."
+  ;; command-line-args-left is what is left of the command line (from
+  ;; startup.el)
+  (defvar command-line-args-left)	;Avoid 'free variable' warning
+  (if (not noninteractive)
+      (error "`batch-byte-compile-one-file' is to be used only with -batch"))
+  (let (error
+	(file-to-process (car command-line-args-left)))
+    (setq command-line-args-left (cdr command-line-args-left))
+    (if (file-directory-p (expand-file-name file-to-process))
+	(let ((files (directory-files file-to-process))
+	      source dest)
+	  (while files
+	    (if (and (string-match emacs-lisp-file-regexp (car files))
+		     (not (auto-save-file-name-p (car files)))
+		     (setq source (expand-file-name
+				   (car files)
+				   file-to-process))
+		     (setq dest (byte-compile-dest-file source))
+		     (file-exists-p dest)
+		     (file-newer-than-file-p source dest))
+		(if (null (batch-byte-compile-1 source))
+		    (setq error t)))
+	    (setq files (cdr files)))
+	  (null error))
+      (batch-byte-compile-1 file-to-process))))
 
 (defun batch-byte-compile-1 (file)
   (condition-case err

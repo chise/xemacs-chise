@@ -1,3 +1,43 @@
+2000-05-01  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.33 is released.
+
+2000-04-19  Martin Buchholz  <martin@xemacs.org>
+
+	* lwlib.c (lw_destroy_everything): Always use full ANSI prototypes.
+	* lwlib.c (lw_destroy_all_pop_ups): Always use full ANSI prototypes.
+
+2000-04-12  Andy Piper  <andy@xemacs.org>
+
+	* lwlib-Xaw.c (xaw_update_one_widget): no-op for text widgets.
+	(xaw_update_one_value): Get strings safely.
+	(xaw_create_text_field): add some extra properties.
+
+2000-04-05  Andy Piper  <andy@xemacs.org>
+
+	* lwlib-Xaw.c (lw_xaw_widget_p): include asciiTextWidgetClass as
+	an athena widget.
+
+2000-04-05  Andy Piper  <andy@xemacs.org>
+
+	* xlwradio.c (RadioSetValues): resize if position information has
+	changed.
+
+	* lwlib-Xm.c (xm_create_text_field): text fields should be enabled
+	even if there is no callback.
+	* lwlib-Xaw.c (xaw_create_text_field): ditto.
+
+2000-04-03  Andy Piper  <andy@xemacs.org>
+
+	* lwlib.c (merge_widget_value_args): only merge when the two args
+	are actually different.
+
+2000-03-21  Didier Verna  <didier@xemacs.org>
+
+	* config.h.in: move INCLUDE_GLUE_1 and INCLUDE_GLUE_2 to
+	src/config.h.in.
+	* config.h.in (ATHENA_INCLUDE): use the `SMART_INCLUDE' macro.
+
 2000-03-20  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.32 is released.

@@ -182,7 +182,7 @@ struct mswindows_frame
   unsigned int menu_checksum;
 
   /* Widget glyphs attached to this frame. See glyphs-msw.c */
-  Lisp_Object widget_hash_table;
+  Lisp_Object widget_hash_table1, widget_hash_table2, widget_hash_table3;
 
   /* Frame title hash value. See frame-msw.c */
   unsigned int title_checksum;
@@ -212,8 +212,12 @@ struct mswindows_frame
 #define FRAME_MSWINDOWS_MENU_HASH_TABLE(f) (FRAME_MSWINDOWS_DATA (f)->menu_hash_table)
 #define FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) \
  (FRAME_MSWINDOWS_DATA (f)->toolbar_hash_table)
-#define FRAME_MSWINDOWS_WIDGET_HASH_TABLE(f) \
- (FRAME_MSWINDOWS_DATA (f)->widget_hash_table)
+#define FRAME_MSWINDOWS_WIDGET_HASH_TABLE1(f) \
+ (FRAME_MSWINDOWS_DATA (f)->widget_hash_table1)
+#define FRAME_MSWINDOWS_WIDGET_HASH_TABLE2(f) \
+ (FRAME_MSWINDOWS_DATA (f)->widget_hash_table2)
+#define FRAME_MSWINDOWS_WIDGET_HASH_TABLE3(f) \
+ (FRAME_MSWINDOWS_DATA (f)->widget_hash_table3)
 #define FRAME_MSWINDOWS_TOOLBAR_CHECKSUM(f,pos) \
  (FRAME_MSWINDOWS_DATA (f)->toolbar_checksum[pos])
 #define FRAME_MSWINDOWS_MENU_CHECKSUM(f)  (FRAME_MSWINDOWS_DATA (f)->menu_checksum)
@@ -297,6 +301,7 @@ HDDEDATA CALLBACK mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 					  HDDEDATA hdata,
 					  DWORD dwData1, DWORD dwData2);
 
+void mswindows_enqueue_dispatch_event (Lisp_Object event);
 void mswindows_enqueue_misc_user_event (Lisp_Object channel,
 					Lisp_Object function,
 					Lisp_Object object);

@@ -730,7 +730,10 @@ of the key sequence that ran this command."
 	   (stringp Installation-string))
       (with-displaying-help-buffer
        (lambda ()
-	 (princ Installation-string))
+	 (princ
+	  (if (fboundp 'decode-coding-string)
+	      (decode-coding-string Installation-string 'automatic-conversion)
+	    Installation-string)))
        "Installation")
     (error "No Installation information available.")))
 

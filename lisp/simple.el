@@ -1667,9 +1667,70 @@ store it in a Lisp variable.  Example:
 ;    (set-marker (mark-marker) nil)))
 
 (defvar mark-ring nil
-  "The list of former marks of the current buffer, most recent first.")
+  "The list of former marks of the current buffer, most recent first.
+This variable is automatically buffer-local.")
 (make-variable-buffer-local 'mark-ring)
 (put 'mark-ring 'permanent-local t)
+
+(defvar dont-record-current-mark nil
+  "If set to t, the current mark value should not be recorded on the mark ring.
+This is set by commands that manipulate the mark incidentally, to avoid
+cluttering the mark ring unnecessarily.  Under most circumstances, you do
+not need to set this directly; it is automatically reset each time
+`push-mark' is called, according to `mark-ring-unrecorded-commands'.  This
+variable is automatically buffer-local.")
+(make-variable-buffer-local 'dont-record-current-mark)
+(put 'dont-record-current-mark 'permanent-local t)
+
+;; a conspiracy between push-mark and handle-pre-motion-command
+(defvar in-shifted-motion-command nil)
+
+(defcustom mark-ring-unrecorded-commands '(shifted-motion-commands
+					   yank
+					   mark-beginning-of-buffer
+					   mark-bob
+					   mark-defun
+					   mark-end-of-buffer
+					   mark-end-of-line
+					   mark-end-of-sentence
+					   mark-eob
+					   mark-marker
+					   mark-page
+					   mark-paragraph
+					   mark-sexp
+					   mark-whole-buffer
+					   mark-word)
+  "*List of commands whose marks should not be recorded on the mark stack.
+Many commands set the mark as part of their action.  Normally, all such
+marks get recorded onto the mark stack.  However, this tends to clutter up
+the mark stack unnecessarily.  You can control this by putting a command
+onto this list.  Then, any marks set by the function will not be recorded.
+
+The special value `shifted-motion-commands' causes marks set as a result
+of selection using any shifted motion commands to not be recorded.
+
+The value `yank' affects all yank-like commands, as well as just `yank'."
+  :type '(repeat (choice (const :tag "shifted motion commands"
+				'shifted-motion-commands)
+			 (const :tag "functions that select text"
+				:inline t
+				'(mark-beginning-of-buffer
+				  mark-bob
+				  mark-defun
+				  mark-end-of-buffer
+				  mark-end-of-line
+				  mark-end-of-sentence
+				  mark-eob
+				  mark-marker
+				  mark-page
+				  mark-paragraph
+				  mark-sexp
+				  mark-whole-buffer
+				  mark-word))
+			 (const :tag "functions that paste text"
+				'yank)
+			 function))
+  :group 'killing)
 
 (defcustom mark-ring-max 16
   "*Maximum size of mark ring.  Start discarding off end if gets this big."
@@ -1692,6 +1753,14 @@ ring, and push mark on global mark ring.
 With argument, jump to mark, and pop a new position for mark off the ring
 \(does not affect global mark ring\).
 
+The mark ring is a per-buffer stack of marks, most recent first.  Its
+maximum length is controlled by `mark-ring-max'.  Generally, when new
+marks are set, the current mark is pushed onto the stack.  You can pop
+marks off the stack using \\[universal-argument] \\[set-mark-command].  The term \"ring\" is used because when
+you pop a mark off the stack, the current mark value is pushed onto the
+far end of the stack.  If this is confusing, just think of the mark ring
+as a stack.
+
 Novice Emacs Lisp programmers often try to use the mark for the wrong
 purposes.  See the documentation of `set-mark' for more information."
   (interactive "P")
@@ -1699,6 +1768,7 @@ purposes.  See the documentation of `set-mark' for more information."
       (push-mark nil nil t)
     (if (null (mark t))
 	(error "No mark set in this buffer")
+      (if dont-record-current-mark (pop-mark))
       (goto-char (mark t))
       (pop-mark))))
 
@@ -1713,7 +1783,7 @@ Activate mark if optional third arg ACTIVATE-REGION non-nil.
 Novice Emacs Lisp programmers often try to use the mark for the wrong
 purposes.  See the documentation of `set-mark' for more information."
   (setq buffer (decode-buffer buffer)) ; XEmacs
-  (if (null (mark t buffer)) ; XEmacs
+  (if (or dont-record-current-mark (null (mark t buffer))) ; XEmacs
       nil
     ;; The save-excursion / set-buffer is necessary because mark-ring
     ;; is a buffer local variable
@@ -1727,8 +1797,9 @@ purposes.  See the documentation of `set-mark' for more information."
   (set-mark (or location (point buffer)) buffer)
 ; (set-marker (mark-marker) (or location (point)) (current-buffer)) ; FSF
   ;; Now push the mark on the global mark ring.
-  (if (or (null global-mark-ring)
-          (not (eq (marker-buffer (car global-mark-ring)) buffer)))
+  (if (and (not dont-record-current-mark)
+	   (or (null global-mark-ring)
+	       (not (eq (marker-buffer (car global-mark-ring)) buffer))))
       ;; The last global mark pushed wasn't in this same buffer.
       (progn
         (setq global-mark-ring (cons (copy-marker (mark-marker t buffer))
@@ -1738,7 +1809,13 @@ purposes.  See the documentation of `set-mark' for more information."
               (move-marker (car (nthcdr global-mark-ring-max global-mark-ring))
                            nil buffer)
               (setcdr (nthcdr (1- global-mark-ring-max) global-mark-ring) nil)))))
-  (or nomsg executing-kbd-macro (> (minibuffer-depth) 0)
+  (setq dont-record-current-mark
+	(not (not (or (and in-shifted-motion-command
+			   (memq 'shifted-motion-commands
+				 mark-ring-unrecorded-commands))
+		      (memq this-command mark-ring-unrecorded-commands)))))
+  (or dont-record-current-mark nomsg executing-kbd-macro
+      (> (minibuffer-depth) 0)
       (display-message 'command "Mark set"))
   (if activate-region
       (progn
@@ -1877,7 +1954,8 @@ if `shifted-motion-keys-select-region' is nil."
        shifted-motion-keys-select-region
        (not (region-active-p))
        (memq 'shift (event-modifiers last-input-event)))
-      (push-mark nil nil t)))
+      (let ((in-shifted-motion-command t))
+	(push-mark nil nil t))))
 
 (defun handle-post-motion-command ()
   (if
@@ -3276,6 +3354,10 @@ when it is off screen."
     element))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                          mail composition code                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defcustom mail-user-agent 'sendmail-user-agent
   "*Your preference for a mail composition package.
 Various Emacs Lisp packages (e.g. reporter) require you to compose an
@@ -3421,6 +3503,10 @@ Each action has the form (FUNCTION . ARGS)."
 		'switch-to-buffer-other-frame yank-action send-actions))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                             set variable                              ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defun set-variable (var val)
   "Set VARIABLE to VALUE.  VALUE is a Lisp object.
 When using this interactively, supply a Lisp expression for VALUE.
@@ -3463,31 +3549,11 @@ it were the arg to `interactive' (which see) to interactively read the value."
   (if (and (boundp var) (specifierp (symbol-value var)))
       (set-specifier (symbol-value var) val)
     (set var val)))
+
 
-;; XEmacs
-(defun activate-region ()
-  "Activate the region, if `zmacs-regions' is true.
-Setting `zmacs-regions' to true causes LISPM-style active regions to be used.
-This function has no effect if `zmacs-regions' is false."
-  (interactive)
-  (and zmacs-regions (zmacs-activate-region)))
-
-;; XEmacs
-(defsubst region-exists-p ()
-  "Return t if the region exists.
-If active regions are in use (i.e. `zmacs-regions' is true), this means that
- the region is active.  Otherwise, this means that the user has pushed
- a mark in this buffer at some point in the past.
-The functions `region-beginning' and `region-end' can be used to find the
- limits of the region."
-  (not (null (mark))))
-
-;; XEmacs
-(defun region-active-p ()
-  "Return non-nil if the region is active.
-If `zmacs-regions' is true, this is equivalent to `region-exists-p'.
-Otherwise, this function always returns false."
-  (and zmacs-regions zmacs-region-extent))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                           case changing code                          ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; A bunch of stuff was moved elsewhere:
 ;; completion-list-mode-map
@@ -3565,11 +3631,41 @@ The words not capitalized are specified in `uncapitalized-title-words'."
 	    (forward-word 1))
 	  (setq first nil))))))
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                          zmacs active region code                     ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; Most of the zmacs code is now in elisp.  The only thing left in C
 ;; are the variables zmacs-regions, zmacs-region-active-p and
 ;; zmacs-region-stays plus the function zmacs_update_region which
 ;; simply calls the lisp level zmacs-update-region.  It must remain
 ;; for convenience, since it is called by core C code.
+
+;; XEmacs
+(defun activate-region ()
+  "Activate the region, if `zmacs-regions' is true.
+Setting `zmacs-regions' to true causes LISPM-style active regions to be used.
+This function has no effect if `zmacs-regions' is false."
+  (interactive)
+  (and zmacs-regions (zmacs-activate-region)))
+
+;; XEmacs
+(defsubst region-exists-p ()
+  "Return t if the region exists.
+If active regions are in use (i.e. `zmacs-regions' is true), this means that
+ the region is active.  Otherwise, this means that the user has pushed
+ a mark in this buffer at some point in the past.
+The functions `region-beginning' and `region-end' can be used to find the
+ limits of the region."
+  (not (null (mark))))
+
+;; XEmacs
+(defun region-active-p ()
+  "Return non-nil if the region is active.
+If `zmacs-regions' is true, this is equivalent to `region-exists-p'.
+Otherwise, this function always returns false."
+  (and zmacs-regions zmacs-region-extent))
 
 (defvar zmacs-activate-region-hook nil
   "Function or functions called when the region becomes active;
@@ -3711,9 +3807,10 @@ when appropriate.  Calling this function will call the hook
 					  (mark-marker t))))
     (run-hooks 'zmacs-update-region-hook)))
 
-;;;;;;
-;;;;;; echo area stuff
-;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                           message logging code                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; #### Should this be moved to a separate file, for clarity?
 ;;; -hniksic
@@ -4034,10 +4131,10 @@ See `display-message' for a list of standard labels."
       (display-message label str)
       str)))
 
-
-;;;;;;
-;;;;;; warning stuff
-;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                              warning code                             ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defcustom log-warning-minimum-level 'info
   "Minimum level of warnings that should be logged.
@@ -4238,6 +4335,11 @@ The C code calls this periodically, right before redisplay."
           (funcall temp-buffer-show-function show-buffer))
       (set-window-start (display-buffer buffer) warning-marker))
     (set-marker warning-marker (point-max buffer) buffer)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                misc junk                              ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun emacs-name ()
   "Return the printable name of this instance of Emacs."

@@ -50,6 +50,9 @@ Lisp_Object Qgutter_size;
 Lisp_Object Qgutter_visible;
 Lisp_Object Qdefault_gutter_position_changed_hook;
 
+static void
+update_gutter_geometry (struct frame *f, enum gutter_pos pos);
+
 #define SET_GUTTER_WAS_VISIBLE_FLAG(frame, pos, flag)	\
   do {							\
     switch (pos)					\
@@ -85,6 +88,7 @@ static int gutter_was_visible (struct frame* frame, enum gutter_pos pos)
       return frame->right_gutter_was_visible;
     default:
       abort ();
+	return 0;	/* To keep the compiler happy */
     }
 }
 
@@ -256,7 +260,7 @@ output_gutter (struct frame *f, enum gutter_pos pos, int force)
   int line, border_width;
   face_index findex;
   display_line_dynarr* ddla, *cdla;
-  struct display_line *dl;
+  struct display_line *dl = 0;
   int cdla_len;
 
   if (!WINDOW_LIVE_P (w))
@@ -321,10 +325,38 @@ output_gutter (struct frame *f, enum gutter_pos pos, int force)
 	}
       
       /* grab coordinates of last line and blank after it. */
-      dl = Dynarr_atp (ddla, Dynarr_length (ddla) - 1);
-      ypos = dl->ypos + dl->descent - dl->clip;
+      if (Dynarr_length (ddla) > 0)
+	{
+	  dl = Dynarr_atp (ddla, Dynarr_length (ddla) - 1);
+	  ypos = dl->ypos + dl->descent - dl->clip;
+	}
+      else
+	ypos = y;
+
       redisplay_clear_region (window, findex, x + border_width , ypos,
 			      width - 2 * border_width, height - (ypos - y) - border_width);
+      /* If, for some reason, we have more to display than we have
+         room for, and we are allowed to resize the gutter, then make
+         sure this happens before the next time we try and
+         output. This can happen when face font sizes change. */
+      if (dl && dl->clip > 0 && EQ (w->gutter_size[pos], Qautodetect))
+	{
+	  /* #### Ideally we would just mark the specifier as dirty
+	  and everything else would "just work". Unfortunately we have
+	  two problems with this. One is that the specifier cache
+	  won't be recalculated unless the specifier code thinks the
+	  cached value has actually changed, even though we have
+	  marked the specifier as dirty. Additionally, although doing
+	  this results in a gutter size change, we never seem to get
+	  back into redisplay so that the frame size can be updated. I
+	  think this is because we are already in redisplay and later
+	  on the frame will be marked as clean. Thus we also have to
+	  force a pending recalculation of the frame size.  */
+	  w->gutter_size[pos] = Qnil;
+	  Fset_specifier_dirty_flag (Vgutter_size[pos]);
+	  update_gutter_geometry (f, pos);
+	}
+
       /* bevel the gutter area if so desired */
       if (border_width != 0)
 	{
@@ -468,6 +500,25 @@ gutter_extent_signal_changed_region_maybe (Lisp_Object obj,
 
 /* We have to change the gutter geometry separately to the gutter
    update since it needs to occur outside of redisplay proper. */
+static void
+update_gutter_geometry (struct frame *f, enum gutter_pos pos)
+{
+  /* If the gutter geometry has changed then re-layout the
+     frame. If we are in display there is almost no point in doing
+     anything else since the frame size changes will be delayed
+     until we are out of redisplay proper. */
+  if (FRAME_GUTTER_BOUNDS (f, pos) != f->current_gutter_bounds[pos])
+    {
+      int width, height;
+      pixel_to_char_size (f, FRAME_PIXWIDTH (f), FRAME_PIXHEIGHT (f),
+			  &width, &height);
+      change_frame_size (f, height, width, 0);
+    }
+
+  /* Mark sizes as up-to-date. */
+  f->current_gutter_bounds[pos] = FRAME_GUTTER_BOUNDS (f, pos);
+}
+
 void
 update_frame_gutter_geometry (struct frame *f)
 {
@@ -481,20 +532,7 @@ update_frame_gutter_geometry (struct frame *f)
          until we are out of redisplay proper. */
       GUTTER_POS_LOOP (pos)
 	{
-	  if (FRAME_GUTTER_BOUNDS (f, pos) != f->current_gutter_bounds[pos])
-	    {
-	      int width, height;
-	      pixel_to_char_size (f, FRAME_PIXWIDTH (f), FRAME_PIXHEIGHT (f),
-				  &width, &height);
-	      change_frame_size (f, height, width, 0);
-	      break;
-	    }
-	}
-
-      GUTTER_POS_LOOP (pos)
-	{
-	  /* Mark sizes as up-to-date. */
-	  f->current_gutter_bounds[pos] = FRAME_GUTTER_BOUNDS (f, pos);
+	  update_gutter_geometry (f, pos);
 	}
     }
 }
@@ -557,6 +595,10 @@ redraw_exposed_gutter (struct frame *f, enum gutter_pos pos, int x, int y,
   if (((x + width) < g_x) || (x > (g_x + g_width)))
     return;
 
+#ifdef DEBUG_WIDGETS
+  printf ("redrawing gutter after expose %d+%d, %dx%d\n",
+	  x, y, width, height);
+#endif
   /* #### optimize this - redrawing the whole gutter for every expose
      is very expensive. We reset the current display lines because if
      they're being exposed they are no longer current. */
@@ -573,11 +615,16 @@ redraw_exposed_gutters (struct frame *f, int x, int y, int width,
 			int height)
 {
   enum gutter_pos pos;
+
+  /* We have to be "in display" when we output the gutter - make it
+     so. */
+  hold_frame_size_changes ();
   GUTTER_POS_LOOP (pos)
     {
       if (FRAME_GUTTER_VISIBLE (f, pos))
 	redraw_exposed_gutter (f, pos, x, y, width, height);
     }
+  unhold_one_frame_size_changes (f);
 }
 
 void
@@ -1047,8 +1094,8 @@ syms_of_gutter (void)
 
   defsymbol (&Qgutter_size, "gutter-size");
   defsymbol (&Qgutter_visible, "gutter-visible");
-  defsymbol (&Qdefault_gutter_position_changed_hook, 
-	     "default-gutter-position-changed");
+  defsymbol (&Qdefault_gutter_position_changed_hook,
+	     "default-gutter-position-changed-hook");
 }
 
 void

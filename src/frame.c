@@ -2264,8 +2264,9 @@ The following symbols etc. have predefined meanings:
 
  minibuffer	Gives the minibuffer behavior for this frame.  Either
 		t (frame has its own minibuffer), `only' (frame is
-		a minibuffer-only frame), or a window (frame uses that
-		window, which is on another frame, as the minibuffer).
+		a minibuffer-only frame), `none' (frame has no minibuffer)
+		or a window (frame uses that window, which is on another
+		frame, as the minibuffer).
 
  unsplittable	If non-nil, frame cannot be split by `display-buffer'.
 
@@ -2279,7 +2280,13 @@ The following symbols etc. have predefined meanings:
  left-toolbar-visible-p, right-toolbar-visible-p, toolbar-buttons-captioned-p,
  top-toolbar-border-width, bottom-toolbar-border-width,
  left-toolbar-border-width, right-toolbar-border-width,
- modeline-shadow-thickness, has-modeline-p
+ modeline-shadow-thickness, has-modeline-p,
+ default-gutter, top-gutter, bottom-gutter, left-gutter, right-gutter,
+ default-gutter-height, default-gutter-width, top-gutter-height,
+ bottom-gutter-height, left-gutter-width, right-gutter-width,
+ default-gutter-visible-p, top-gutter-visible-p, bottom-gutter-visible-p,
+ left-gutter-visible-p, right-gutter-visible-p, top-gutter-border-width,
+ bottom-gutter-border-width, left-gutter-border-width, right-gutter-border-width,
 		[Giving the name of any built-in specifier variable is
 		equivalent to calling `set-specifier' on the specifier,
 		with a locale of FRAME.  Giving the name to `frame-property'
@@ -2871,9 +2878,6 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
     - FRAME_REAL_BOTTOM_TOOLBAR_HEIGHT (f)
     - 2 * FRAME_REAL_BOTTOM_TOOLBAR_BORDER_WIDTH (f);
 
-  new_pixheight -= 
-    (FRAME_TOP_GUTTER_BOUNDS (f) + FRAME_BOTTOM_GUTTER_BOUNDS (f));
-
   new_pixwidth +=
     + FRAME_THEORETICAL_LEFT_TOOLBAR_WIDTH (f)
     + 2 * FRAME_THEORETICAL_LEFT_TOOLBAR_BORDER_WIDTH (f)
@@ -2885,9 +2889,6 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
     + 2 * FRAME_THEORETICAL_RIGHT_TOOLBAR_BORDER_WIDTH (f)
     - FRAME_REAL_RIGHT_TOOLBAR_WIDTH (f)
     - 2 * FRAME_REAL_RIGHT_TOOLBAR_BORDER_WIDTH (f);
-
-  new_pixwidth -= 
-    (FRAME_LEFT_GUTTER_BOUNDS (f) + FRAME_RIGHT_GUTTER_BOUNDS (f));
 
   /* Adjust the width for the end glyph which may be a different width
      than the default character width. */
@@ -2910,6 +2911,12 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
 
   if (new_pixheight)
     {
+      /* Adjust for gutters here so that we always get set
+         properly. */
+      new_pixheight -= 
+	(FRAME_TOP_GUTTER_BOUNDS (f)
+	 + FRAME_BOTTOM_GUTTER_BOUNDS (f));
+
       XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_top 
 	= FRAME_TOP_BORDER_END (f) + FRAME_TOP_GUTTER_BOUNDS (f);
 
@@ -2955,6 +2962,12 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
 
   if (new_pixwidth)
     {
+      /* Adjust for gutters here so that we always get set
+         properly. */
+      new_pixwidth -= 
+	(FRAME_LEFT_GUTTER_BOUNDS (f)
+	 + FRAME_RIGHT_GUTTER_BOUNDS (f));
+      
       XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_left = 
 	FRAME_LEFT_BORDER_END (f) + FRAME_LEFT_GUTTER_BOUNDS (f);
       set_window_pixwidth (FRAME_ROOT_WINDOW (f), new_pixwidth, 0);

@@ -272,13 +272,13 @@ RadioResize (Widget w)
 
     switch( rw->label.justify ) {
       case XtJustifyLeft:
-	rw->label.label_x += bs(rw) + rw->label.internal_width ;
+	rw->label.label_x += (bs(rw) + rw->label.internal_width) ;
 	break ;
       case XtJustifyRight:
 	break ;
       case XtJustifyCenter:
       default:
-	rw->label.label_x += (bs(rw) + rw->label.internal_width)/2 ;
+	rw->label.label_x += (bs(rw) + rw->label.internal_width)/2;
 	break ;
     }
 }
@@ -374,7 +374,14 @@ RadioSetValues (Widget   current,
     {
       RadioSize(newrw, &newrw->core.width, &newrw->core.height) ;
     }
-
+    
+    /* The label set values routine can resize the widget. We need to 
+     * recalculate if this is true.
+     */
+    if (newrw->label.label_x != oldrw->label.label_x)
+    {
+      RadioResize (new);
+    }
     return FALSE ;
 }
 

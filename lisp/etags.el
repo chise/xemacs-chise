@@ -190,9 +190,12 @@ the current buffer."
       (when (file-readable-p parent-tag-file)
 	(push parent-tag-file result)))
     ;; tag-table-alist
-    (let ((key (or buffer-file-name
-		   (concat default-directory (buffer-name))))
-	  expression)
+    (let* ((key (or buffer-file-name
+		    (concat default-directory (buffer-name))))
+	   (key (if (eq system-type 'windows-nt)
+		    (replace-in-string key "\\\\" "/")
+		  key))
+	   expression)
       (dolist (item tag-table-alist)
 	(setq expression (car item))
 	;; If the car of the alist item is a string, apply it as a regexp
@@ -733,6 +736,16 @@ If it returns non-nil, this file needs processing by evalling
 	    (beginning-of-line)
 	    (setq startpos (point)))))
       (cons buf startpos))))
+
+;;;###autoload
+(defun find-tag-at-point (tagname &optional other-window)
+  "*Find tag whose name contains TAGNAME.
+Identical to `find-tag' but does not prompt for tag when called interactively;
+instead, uses tag around or before point."
+  (interactive (if current-prefix-arg
+		   '(nil nil)
+		 (list (find-tag-default) nil)))
+  (find-tag tagname other-window))
 
 ;;;###autoload
 (defun find-tag (tagname &optional other-window)

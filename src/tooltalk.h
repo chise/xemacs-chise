@@ -24,7 +24,7 @@ Boston, MA 02111-1307, USA.
 
 #ifndef INCLUDED_tooltalk_h_
 #define INCLUDED_tooltalk_h_
-#include TT_C_H_PATH
+#include TT_C_H_FILE
 
 typedef struct Lisp_Tooltalk_Message Lisp_Tooltalk_Message;
 DECLARE_LRECORD (tooltalk_message, Lisp_Tooltalk_Message);

@@ -67,7 +67,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include "events-mod.h"
 
-static void enqueue_Xt_dispatch_event (Lisp_Object event);
 static void handle_focus_event_1 (struct frame *f, int in_p);
 
 static struct event_stream *Xt_event_stream;
@@ -1491,7 +1490,6 @@ handle_focus_event_1 (struct frame *f, int in_p)
 #ifdef HAVE_XIM
   XIM_focus_event (f, in_p);
 #endif /* HAVE_XIM */
-
   /* On focus change, clear all memory of sticky modifiers
      to avoid non-intuitive behavior. */
   clear_sticky_modifiers (XDEVICE (FRAME_DEVICE (f)));
@@ -1847,8 +1845,8 @@ emacs_Xt_handle_magic_event (Lisp_Event *emacs_event)
       break;
 
     case CreateNotify:
-      printf ("window created\n");
       break;
+
     default:
       break;
     }
@@ -2513,7 +2511,7 @@ describe_event (XEvent *event)
 
 static Lisp_Object dispatch_event_queue, dispatch_event_queue_tail;
 
-static void
+void
 enqueue_Xt_dispatch_event (Lisp_Object event)
 {
   enqueue_event (event, &dispatch_event_queue, &dispatch_event_queue_tail);
@@ -3079,6 +3077,42 @@ static void EmacsFreePixel (
 
 
 /************************************************************************/
+/*            handle focus changes for native widgets                  */
+/************************************************************************/
+static void
+emacs_Xt_event_widget_focus_in (Widget   w,
+				XEvent   *event,
+				String   *params,
+				Cardinal *num_params)
+{
+  struct frame* f =
+    x_any_widget_or_parent_to_frame (get_device_from_display (event->xany.display), w);
+
+  XtSetKeyboardFocus (FRAME_X_SHELL_WIDGET (f), w);
+}
+
+static void
+emacs_Xt_event_widget_focus_out (Widget   w,
+				 XEvent   *event,
+				 String   *params,
+				 Cardinal *num_params)
+{
+}
+
+static XtActionsRec widgetActionsList[] =
+{
+  {"widget-focus-in",	emacs_Xt_event_widget_focus_in	},
+  {"widget-focus-out",	emacs_Xt_event_widget_focus_out	},
+};
+
+static void
+emacs_Xt_event_add_widget_actions (XtAppContext ctx)
+{
+  XtAppAddActions (ctx, widgetActionsList, 2);
+}
+
+
+/************************************************************************/
 /*                            initialization                            */
 /************************************************************************/
 
@@ -3214,6 +3248,8 @@ init_event_Xt_late (void) /* called when already initialized */
 			 NULL, 0,
 			 XtCacheByDisplay, EmacsFreeXIMStyles);
 #endif /* XIM_XLIB */
+  /* Add extra actions to native widgets to handle focus and friends. */
+  emacs_Xt_event_add_widget_actions (Xt_app_con);
 
   /* insert the visual inheritance patch/hack described above */
   orig_shell_init_proc = shellClassRec.core_class.initialize;

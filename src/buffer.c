@@ -195,7 +195,6 @@ Lisp_Object QSscratch;          /* "*scratch*" */
 Lisp_Object Qdefault_directory;
 
 Lisp_Object Qkill_buffer_hook;
-Lisp_Object Qrecord_buffer_hook;
 
 Lisp_Object Qrename_auto_save_file;
 
@@ -1027,12 +1026,6 @@ This does not change the name of the visited file (if any).
   /* The aconses in the Vbuffer_alist are shared with frame->buffer_alist,
      so this will change it in the per-frame ordering as well. */
   Fsetcar (Frassq (buf, Vbuffer_alist), newname);
-  /* If the buffer is the selected one then this is equivalent to
-     recording the buffer. */
-  if (EQ (Fwindow_buffer (Fselected_window (Qnil)), buf))
-    {
-      va_run_hook_with_args (Qrecord_buffer_hook, 1, buf);
-    }
 
   if (NILP (current_buffer->filename)
       && !NILP (current_buffer->auto_save_file_name))
@@ -1419,8 +1412,6 @@ buffer.  See `other-buffer' for more information.
     XCDR (prev) = XCDR (XCDR (prev));
   XCDR (lynk) = f->buffer_alist;
   f->buffer_alist = lynk;
-
-  va_run_hook_with_args (Qrecord_buffer_hook, 1, buffer);
 
   return Qnil;
 }
@@ -2162,7 +2153,6 @@ syms_of_buffer (void)
   defsymbol (&Qmode_class, "mode-class");
   defsymbol (&Qrename_auto_save_file, "rename-auto-save-file");
   defsymbol (&Qkill_buffer_hook, "kill-buffer-hook");
-  defsymbol (&Qrecord_buffer_hook, "record-buffer-hook");
   defsymbol (&Qpermanent_local, "permanent-local");
 
   defsymbol (&Qfirst_change_hook, "first-change-hook");

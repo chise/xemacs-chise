@@ -308,6 +308,9 @@ struct display_line
 
   char modeline;			/* t if this line is a modeline */
 
+  char line_continuation;		/* t if this line continues to
+                                           next display line. */
+
   /* Dynamic array of display blocks */
   display_block_dynarr *display_blocks;
 
