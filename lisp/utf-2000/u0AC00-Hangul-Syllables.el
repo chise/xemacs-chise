@@ -1,9491 +1,9491 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #xAC00)	; ê°€
-    (=ks-x1001		. #x3021)	; ø»ˆ°Ž
-    (=jef-china3	. #x95F2)	; øº‰—²
+    (=ks-x1001		. #x3021)	; &I-K0-3021;
+    (=jef-china3	. #x95F2)	; &I-JC3-95F2;
     ))
 (define-char
   '((=ucs		. #xAC01)	; ê°
-    (=ks-x1001		. #x3022)	; ø»ˆ°
-    (=jef-china3	. #x95F3)	; øº‰—³
+    (=ks-x1001		. #x3022)	; &I-K0-3022;
+    (=jef-china3	. #x95F3)	; &I-JC3-95F3;
     ))
 (define-char
   '((=ucs		. #xAC04)	; ê°„
-    (=ks-x1001		. #x3023)	; ø»ˆ°
-    (=jef-china3	. #x95F4)	; øº‰—´
+    (=ks-x1001		. #x3023)	; &I-K0-3023;
+    (=jef-china3	. #x95F4)	; &I-JC3-95F4;
     ))
 (define-char
   '((=ucs		. #xAC07)	; ê°‡
-    (=ks-x1001		. #x3024)	; ø»ˆ°‘
+    (=ks-x1001		. #x3024)	; &I-K0-3024;
     ))
 (define-char
   '((=ucs		. #xAC08)	; ê°ˆ
-    (=ks-x1001		. #x3025)	; ø»ˆ°’
+    (=ks-x1001		. #x3025)	; &I-K0-3025;
     ))
 (define-char
   '((=ucs		. #xAC09)	; ê°‰
-    (=ks-x1001		. #x3026)	; ø»ˆ°“
+    (=ks-x1001		. #x3026)	; &I-K0-3026;
     ))
 (define-char
   '((=ucs		. #xAC0A)	; ê°Š
-    (=ks-x1001		. #x3027)	; ø»ˆ°”
+    (=ks-x1001		. #x3027)	; &I-K0-3027;
     ))
 (define-char
   '((=ucs		. #xAC10)	; ê°
-    (=ks-x1001		. #x3028)	; ø»ˆ°•
+    (=ks-x1001		. #x3028)	; &I-K0-3028;
     ))
 (define-char
   '((=ucs		. #xAC11)	; ê°‘
-    (=ks-x1001		. #x3029)	; ø»ˆ°–
+    (=ks-x1001		. #x3029)	; &I-K0-3029;
     ))
 (define-char
   '((=ucs		. #xAC12)	; ê°’
-    (=ks-x1001		. #x302A)	; ø»ˆ°—
+    (=ks-x1001		. #x302A)	; &I-K0-302A;
     ))
 (define-char
   '((=ucs		. #xAC13)	; ê°“
-    (=ks-x1001		. #x302B)	; ø»ˆ°˜
+    (=ks-x1001		. #x302B)	; &I-K0-302B;
     ))
 (define-char
   '((=ucs		. #xAC14)	; ê°”
-    (=ks-x1001		. #x302C)	; ø»ˆ°™
+    (=ks-x1001		. #x302C)	; &I-K0-302C;
     ))
 (define-char
   '((=ucs		. #xAC15)	; ê°•
-    (=ks-x1001		. #x302D)	; ø»ˆ°š
+    (=ks-x1001		. #x302D)	; &I-K0-302D;
     ))
 (define-char
   '((=ucs		. #xAC16)	; ê°–
-    (=ks-x1001		. #x302E)	; ø»ˆ°›
+    (=ks-x1001		. #x302E)	; &I-K0-302E;
     ))
 (define-char
   '((=ucs		. #xAC17)	; ê°—
-    (=ks-x1001		. #x302F)	; ø»ˆ°œ
+    (=ks-x1001		. #x302F)	; &I-K0-302F;
     ))
 (define-char
   '((=ucs		. #xAC19)	; ê°™
-    (=ks-x1001		. #x3030)	; ø»ˆ°
+    (=ks-x1001		. #x3030)	; &I-K0-3030;
     ))
 (define-char
   '((=ucs		. #xAC1A)	; ê°š
-    (=ks-x1001		. #x3031)	; ø»ˆ°ž
+    (=ks-x1001		. #x3031)	; &I-K0-3031;
     ))
 (define-char
   '((=ucs		. #xAC1B)	; ê°›
-    (=ks-x1001		. #x3032)	; ø»ˆ°Ÿ
+    (=ks-x1001		. #x3032)	; &I-K0-3032;
     ))
 (define-char
   '((=ucs		. #xAC1C)	; ê°œ
-    (=ks-x1001		. #x3033)	; ø»ˆ° 
-    (=jef-china3	. #x95F5)	; øº‰—µ
+    (=ks-x1001		. #x3033)	; &I-K0-3033;
+    (=jef-china3	. #x95F5)	; &I-JC3-95F5;
     ))
 (define-char
   '((=ucs		. #xAC1D)	; ê°
-    (=ks-x1001		. #x3034)	; ø»ˆ°¡
+    (=ks-x1001		. #x3034)	; &I-K0-3034;
     ))
 (define-char
   '((=ucs		. #xAC20)	; ê° 
-    (=ks-x1001		. #x3035)	; ø»ˆ°¢
+    (=ks-x1001		. #x3035)	; &I-K0-3035;
     ))
 (define-char
   '((=ucs		. #xAC24)	; ê°¤
-    (=ks-x1001		. #x3036)	; ø»ˆ°£
+    (=ks-x1001		. #x3036)	; &I-K0-3036;
     ))
 (define-char
   '((=ucs		. #xAC2C)	; ê°¬
-    (=ks-x1001		. #x3037)	; ø»ˆ°¤
+    (=ks-x1001		. #x3037)	; &I-K0-3037;
     ))
 (define-char
   '((=ucs		. #xAC2D)	; ê°­
-    (=ks-x1001		. #x3038)	; ø»ˆ°¥
+    (=ks-x1001		. #x3038)	; &I-K0-3038;
     ))
 (define-char
   '((=ucs		. #xAC2F)	; ê°¯
-    (=ks-x1001		. #x3039)	; ø»ˆ°¦
+    (=ks-x1001		. #x3039)	; &I-K0-3039;
     ))
 (define-char
   '((=ucs		. #xAC30)	; ê°°
-    (=ks-x1001		. #x303A)	; ø»ˆ°§
+    (=ks-x1001		. #x303A)	; &I-K0-303A;
     ))
 (define-char
   '((=ucs		. #xAC31)	; ê°±
-    (=ks-x1001		. #x303B)	; ø»ˆ°¨
+    (=ks-x1001		. #x303B)	; &I-K0-303B;
     ))
 (define-char
   '((=ucs		. #xAC38)	; ê°¸
-    (=ks-x1001		. #x303C)	; ø»ˆ°©
+    (=ks-x1001		. #x303C)	; &I-K0-303C;
     ))
 (define-char
   '((=ucs		. #xAC39)	; ê°¹
-    (=ks-x1001		. #x303D)	; ø»ˆ°ª
+    (=ks-x1001		. #x303D)	; &I-K0-303D;
     ))
 (define-char
   '((=ucs		. #xAC3C)	; ê°¼
-    (=ks-x1001		. #x303E)	; ø»ˆ°«
+    (=ks-x1001		. #x303E)	; &I-K0-303E;
     ))
 (define-char
   '((=ucs		. #xAC40)	; ê±€
-    (=ks-x1001		. #x303F)	; ø»ˆ°¬
+    (=ks-x1001		. #x303F)	; &I-K0-303F;
     ))
 (define-char
   '((=ucs		. #xAC4B)	; ê±‹
-    (=ks-x1001		. #x3040)	; ø»ˆ°­
+    (=ks-x1001		. #x3040)	; &I-K0-3040;
     ))
 (define-char
   '((=ucs		. #xAC4D)	; ê±
-    (=ks-x1001		. #x3041)	; ø»ˆ°®
+    (=ks-x1001		. #x3041)	; &I-K0-3041;
     ))
 (define-char
   '((=ucs		. #xAC54)	; ê±”
-    (=ks-x1001		. #x3042)	; ø»ˆ°¯
+    (=ks-x1001		. #x3042)	; &I-K0-3042;
     ))
 (define-char
   '((=ucs		. #xAC58)	; ê±˜
-    (=ks-x1001		. #x3043)	; ø»ˆ°°
+    (=ks-x1001		. #x3043)	; &I-K0-3043;
     ))
 (define-char
   '((=ucs		. #xAC5C)	; ê±œ
-    (=ks-x1001		. #x3044)	; ø»ˆ°±
+    (=ks-x1001		. #x3044)	; &I-K0-3044;
     ))
 (define-char
   '((=ucs		. #xAC70)	; ê±°
-    (=ks-x1001		. #x3045)	; ø»ˆ°²
+    (=ks-x1001		. #x3045)	; &I-K0-3045;
     ))
 (define-char
   '((=ucs		. #xAC71)	; ê±±
-    (=ks-x1001		. #x3046)	; ø»ˆ°³
+    (=ks-x1001		. #x3046)	; &I-K0-3046;
     ))
 (define-char
   '((=ucs		. #xAC74)	; ê±´
-    (=ks-x1001		. #x3047)	; ø»ˆ°´
-    (=jef-china3	. #x97A2)	; øº‰ž¢
+    (=ks-x1001		. #x3047)	; &I-K0-3047;
+    (=jef-china3	. #x97A2)	; &I-JC3-97A2;
     ))
 (define-char
   '((=ucs		. #xAC77)	; ê±·
-    (=ks-x1001		. #x3048)	; ø»ˆ°µ
+    (=ks-x1001		. #x3048)	; &I-K0-3048;
     ))
 (define-char
   '((=ucs		. #xAC78)	; ê±¸
-    (=ks-x1001		. #x3049)	; ø»ˆ°¶
+    (=ks-x1001		. #x3049)	; &I-K0-3049;
     ))
 (define-char
   '((=ucs		. #xAC7A)	; ê±º
-    (=ks-x1001		. #x304A)	; ø»ˆ°·
+    (=ks-x1001		. #x304A)	; &I-K0-304A;
     ))
 (define-char
   '((=ucs		. #xAC80)	; ê²€
-    (=ks-x1001		. #x304B)	; ø»ˆ°¸
+    (=ks-x1001		. #x304B)	; &I-K0-304B;
     ))
 (define-char
   '((=ucs		. #xAC81)	; ê²
-    (=ks-x1001		. #x304C)	; ø»ˆ°¹
+    (=ks-x1001		. #x304C)	; &I-K0-304C;
     ))
 (define-char
   '((=ucs		. #xAC83)	; ê²ƒ
-    (=ks-x1001		. #x304D)	; ø»ˆ°º
-    (=jef-china3	. #x8CB7)	; øºˆ²·
+    (=ks-x1001		. #x304D)	; &I-K0-304D;
+    (=jef-china3	. #x8CB7)	; &I-JC3-8CB7;
     ))
 (define-char
   '((=ucs		. #xAC84)	; ê²„
-    (=ks-x1001		. #x304E)	; ø»ˆ°»
+    (=ks-x1001		. #x304E)	; &I-K0-304E;
     ))
 (define-char
   '((=ucs		. #xAC85)	; ê²…
-    (=ks-x1001		. #x304F)	; ø»ˆ°¼
+    (=ks-x1001		. #x304F)	; &I-K0-304F;
     ))
 (define-char
   '((=ucs		. #xAC86)	; ê²†
-    (=ks-x1001		. #x3050)	; ø»ˆ°½
+    (=ks-x1001		. #x3050)	; &I-K0-3050;
     ))
 (define-char
   '((=ucs		. #xAC89)	; ê²‰
-    (=ks-x1001		. #x3051)	; ø»ˆ°¾
+    (=ks-x1001		. #x3051)	; &I-K0-3051;
     ))
 (define-char
   '((=ucs		. #xAC8A)	; ê²Š
-    (=ks-x1001		. #x3052)	; ø»ˆ°¿
+    (=ks-x1001		. #x3052)	; &I-K0-3052;
     ))
 (define-char
   '((=ucs		. #xAC8B)	; ê²‹
-    (=ks-x1001		. #x3053)	; ø»ˆ±€
+    (=ks-x1001		. #x3053)	; &I-K0-3053;
     ))
 (define-char
   '((=ucs		. #xAC8C)	; ê²Œ
-    (=ks-x1001		. #x3054)	; ø»ˆ±
+    (=ks-x1001		. #x3054)	; &I-K0-3054;
     ))
 (define-char
   '((=ucs		. #xAC90)	; ê²
-    (=ks-x1001		. #x3055)	; ø»ˆ±‚
+    (=ks-x1001		. #x3055)	; &I-K0-3055;
     ))
 (define-char
   '((=ucs		. #xAC94)	; ê²”
-    (=ks-x1001		. #x3056)	; ø»ˆ±ƒ
+    (=ks-x1001		. #x3056)	; &I-K0-3056;
     ))
 (define-char
   '((=ucs		. #xAC9C)	; ê²œ
-    (=ks-x1001		. #x3057)	; ø»ˆ±„
+    (=ks-x1001		. #x3057)	; &I-K0-3057;
     ))
 (define-char
   '((=ucs		. #xAC9D)	; ê²
-    (=ks-x1001		. #x3058)	; ø»ˆ±…
+    (=ks-x1001		. #x3058)	; &I-K0-3058;
     ))
 (define-char
   '((=ucs		. #xAC9F)	; ê²Ÿ
-    (=ks-x1001		. #x3059)	; ø»ˆ±†
+    (=ks-x1001		. #x3059)	; &I-K0-3059;
     ))
 (define-char
   '((=ucs		. #xACA0)	; ê² 
-    (=ks-x1001		. #x305A)	; ø»ˆ±‡
-    (=jef-china3	. #x83BC)	; øºˆŽ¼
+    (=ks-x1001		. #x305A)	; &I-K0-305A;
+    (=jef-china3	. #x83BC)	; &I-JC3-83BC;
     ))
 (define-char
   '((=ucs		. #xACA1)	; ê²¡
-    (=ks-x1001		. #x305B)	; ø»ˆ±ˆ
+    (=ks-x1001		. #x305B)	; &I-K0-305B;
     ))
 (define-char
   '((=ucs		. #xACA8)	; ê²¨
-    (=ks-x1001		. #x305C)	; ø»ˆ±‰
+    (=ks-x1001		. #x305C)	; &I-K0-305C;
     ))
 (define-char
   '((=ucs		. #xACA9)	; ê²©
-    (=ks-x1001		. #x305D)	; ø»ˆ±Š
+    (=ks-x1001		. #x305D)	; &I-K0-305D;
     ))
 (define-char
   '((=ucs		. #xACAA)	; ê²ª
-    (=ks-x1001		. #x305E)	; ø»ˆ±‹
+    (=ks-x1001		. #x305E)	; &I-K0-305E;
     ))
 (define-char
   '((=ucs		. #xACAC)	; ê²¬
-    (=ks-x1001		. #x305F)	; ø»ˆ±Œ
-    (=jef-china3	. #x8CAA)	; øºˆ²ª
+    (=ks-x1001		. #x305F)	; &I-K0-305F;
+    (=jef-china3	. #x8CAA)	; &I-JC3-8CAA;
     ))
 (define-char
   '((=ucs		. #xACAF)	; ê²¯
-    (=ks-x1001		. #x3060)	; ø»ˆ±
+    (=ks-x1001		. #x3060)	; &I-K0-3060;
     ))
 (define-char
   '((=ucs		. #xACB0)	; ê²°
-    (=ks-x1001		. #x3061)	; ø»ˆ±Ž
+    (=ks-x1001		. #x3061)	; &I-K0-3061;
     ))
 (define-char
   '((=ucs		. #xACB8)	; ê²¸
-    (=ks-x1001		. #x3062)	; ø»ˆ±
+    (=ks-x1001		. #x3062)	; &I-K0-3062;
     ))
 (define-char
   '((=ucs		. #xACB9)	; ê²¹
-    (=ks-x1001		. #x3063)	; ø»ˆ±
+    (=ks-x1001		. #x3063)	; &I-K0-3063;
     ))
 (define-char
   '((=ucs		. #xACBB)	; ê²»
-    (=ks-x1001		. #x3064)	; ø»ˆ±‘
+    (=ks-x1001		. #x3064)	; &I-K0-3064;
     ))
 (define-char
   '((=ucs		. #xACBC)	; ê²¼
-    (=ks-x1001		. #x3065)	; ø»ˆ±’
+    (=ks-x1001		. #x3065)	; &I-K0-3065;
     ))
 (define-char
   '((=ucs		. #xACBD)	; ê²½
-    (=ks-x1001		. #x3066)	; ø»ˆ±“
+    (=ks-x1001		. #x3066)	; &I-K0-3066;
     ))
 (define-char
   '((=ucs		. #xACC1)	; ê³
-    (=ks-x1001		. #x3067)	; ø»ˆ±”
+    (=ks-x1001		. #x3067)	; &I-K0-3067;
     ))
 (define-char
   '((=ucs		. #xACC4)	; ê³„
-    (=ks-x1001		. #x3068)	; ø»ˆ±•
+    (=ks-x1001		. #x3068)	; &I-K0-3068;
     ))
 (define-char
   '((=ucs		. #xACC8)	; ê³ˆ
-    (=ks-x1001		. #x3069)	; ø»ˆ±–
+    (=ks-x1001		. #x3069)	; &I-K0-3069;
     ))
 (define-char
   '((=ucs		. #xACCC)	; ê³Œ
-    (=ks-x1001		. #x306A)	; ø»ˆ±—
+    (=ks-x1001		. #x306A)	; &I-K0-306A;
     ))
 (define-char
   '((=ucs		. #xACD5)	; ê³•
-    (=ks-x1001		. #x306B)	; ø»ˆ±˜
+    (=ks-x1001		. #x306B)	; &I-K0-306B;
     ))
 (define-char
   '((=ucs		. #xACD7)	; ê³—
-    (=ks-x1001		. #x306C)	; ø»ˆ±™
+    (=ks-x1001		. #x306C)	; &I-K0-306C;
     ))
 (define-char
   '((=ucs		. #xACE0)	; ê³ 
-    (=ks-x1001		. #x306D)	; ø»ˆ±š
+    (=ks-x1001		. #x306D)	; &I-K0-306D;
     ))
 (define-char
   '((=ucs		. #xACE1)	; ê³¡
-    (=ks-x1001		. #x306E)	; ø»ˆ±›
+    (=ks-x1001		. #x306E)	; &I-K0-306E;
     ))
 (define-char
   '((=ucs		. #xACE4)	; ê³¤
-    (=ks-x1001		. #x306F)	; ø»ˆ±œ
+    (=ks-x1001		. #x306F)	; &I-K0-306F;
     ))
 (define-char
   '((=ucs		. #xACE7)	; ê³§
-    (=ks-x1001		. #x3070)	; ø»ˆ±
+    (=ks-x1001		. #x3070)	; &I-K0-3070;
     ))
 (define-char
   '((=ucs		. #xACE8)	; ê³¨
-    (=ks-x1001		. #x3071)	; ø»ˆ±ž
+    (=ks-x1001		. #x3071)	; &I-K0-3071;
     ))
 (define-char
   '((=ucs		. #xACEA)	; ê³ª
-    (=ks-x1001		. #x3072)	; ø»ˆ±Ÿ
+    (=ks-x1001		. #x3072)	; &I-K0-3072;
     ))
 (define-char
   '((=ucs		. #xACEC)	; ê³¬
-    (=ks-x1001		. #x3073)	; ø»ˆ± 
+    (=ks-x1001		. #x3073)	; &I-K0-3073;
     ))
 (define-char
   '((=ucs		. #xACEF)	; ê³¯
-    (=ks-x1001		. #x3074)	; ø»ˆ±¡
+    (=ks-x1001		. #x3074)	; &I-K0-3074;
     ))
 (define-char
   '((=ucs		. #xACF0)	; ê³°
-    (=ks-x1001		. #x3075)	; ø»ˆ±¢
+    (=ks-x1001		. #x3075)	; &I-K0-3075;
     ))
 (define-char
   '((=ucs		. #xACF1)	; ê³±
-    (=ks-x1001		. #x3076)	; ø»ˆ±£
+    (=ks-x1001		. #x3076)	; &I-K0-3076;
     ))
 (define-char
   '((=ucs		. #xACF3)	; ê³³
-    (=ks-x1001		. #x3077)	; ø»ˆ±¤
+    (=ks-x1001		. #x3077)	; &I-K0-3077;
     ))
 (define-char
   '((=ucs		. #xACF5)	; ê³µ
-    (=ks-x1001		. #x3078)	; ø»ˆ±¥
+    (=ks-x1001		. #x3078)	; &I-K0-3078;
     ))
 (define-char
   '((=ucs		. #xACF6)	; ê³¶
-    (=ks-x1001		. #x3079)	; ø»ˆ±¦
+    (=ks-x1001		. #x3079)	; &I-K0-3079;
     ))
 (define-char
   '((=ucs		. #xACFC)	; ê³¼
-    (=ks-x1001		. #x307A)	; ø»ˆ±§
-    (=jef-china3	. #x93F6)	; øº‰¶
+    (=ks-x1001		. #x307A)	; &I-K0-307A;
+    (=jef-china3	. #x93F6)	; &I-JC3-93F6;
     ))
 (define-char
   '((=ucs		. #xACFD)	; ê³½
-    (=ks-x1001		. #x307B)	; ø»ˆ±¨
+    (=ks-x1001		. #x307B)	; &I-K0-307B;
     ))
 (define-char
   '((=ucs		. #xAD00)	; ê´€
-    (=ks-x1001		. #x307C)	; ø»ˆ±©
+    (=ks-x1001		. #x307C)	; &I-K0-307C;
     ))
 (define-char
   '((=ucs		. #xAD04)	; ê´„
-    (=ks-x1001		. #x307D)	; ø»ˆ±ª
+    (=ks-x1001		. #x307D)	; &I-K0-307D;
     ))
 (define-char
   '((=ucs		. #xAD06)	; ê´†
-    (=ks-x1001		. #x307E)	; ø»ˆ±«
+    (=ks-x1001		. #x307E)	; &I-K0-307E;
     ))
 (define-char
   '((=ucs		. #xAD0C)	; ê´Œ
-    (=ks-x1001		. #x3121)	; ø»ˆ±¬
+    (=ks-x1001		. #x3121)	; &I-K0-3121;
     ))
 (define-char
   '((=ucs		. #xAD0D)	; ê´
-    (=ks-x1001		. #x3122)	; ø»ˆ±­
+    (=ks-x1001		. #x3122)	; &I-K0-3122;
     ))
 (define-char
   '((=ucs		. #xAD0F)	; ê´
-    (=ks-x1001		. #x3123)	; ø»ˆ±®
+    (=ks-x1001		. #x3123)	; &I-K0-3123;
     ))
 (define-char
   '((=ucs		. #xAD11)	; ê´‘
-    (=ks-x1001		. #x3124)	; ø»ˆ±¯
+    (=ks-x1001		. #x3124)	; &I-K0-3124;
     ))
 (define-char
   '((=ucs		. #xAD18)	; ê´˜
-    (=ks-x1001		. #x3125)	; ø»ˆ±°
+    (=ks-x1001		. #x3125)	; &I-K0-3125;
     ))
 (define-char
   '((=ucs		. #xAD1C)	; ê´œ
-    (=ks-x1001		. #x3126)	; ø»ˆ±±
+    (=ks-x1001		. #x3126)	; &I-K0-3126;
     ))
 (define-char
   '((=ucs		. #xAD20)	; ê´ 
-    (=ks-x1001		. #x3127)	; ø»ˆ±²
+    (=ks-x1001		. #x3127)	; &I-K0-3127;
     ))
 (define-char
   '((=ucs		. #xAD29)	; ê´©
-    (=ks-x1001		. #x3128)	; ø»ˆ±³
+    (=ks-x1001		. #x3128)	; &I-K0-3128;
     ))
 (define-char
   '((=ucs		. #xAD2C)	; ê´¬
-    (=ks-x1001		. #x3129)	; ø»ˆ±´
+    (=ks-x1001		. #x3129)	; &I-K0-3129;
     ))
 (define-char
   '((=ucs		. #xAD2D)	; ê´­
-    (=ks-x1001		. #x312A)	; ø»ˆ±µ
+    (=ks-x1001		. #x312A)	; &I-K0-312A;
     ))
 (define-char
   '((=ucs		. #xAD34)	; ê´´
-    (=ks-x1001		. #x312B)	; ø»ˆ±¶
+    (=ks-x1001		. #x312B)	; &I-K0-312B;
     ))
 (define-char
   '((=ucs		. #xAD35)	; ê´µ
-    (=ks-x1001		. #x312C)	; ø»ˆ±·
+    (=ks-x1001		. #x312C)	; &I-K0-312C;
     ))
 (define-char
   '((=ucs		. #xAD38)	; ê´¸
-    (=ks-x1001		. #x312D)	; ø»ˆ±¸
+    (=ks-x1001		. #x312D)	; &I-K0-312D;
     ))
 (define-char
   '((=ucs		. #xAD3C)	; ê´¼
-    (=ks-x1001		. #x312E)	; ø»ˆ±¹
+    (=ks-x1001		. #x312E)	; &I-K0-312E;
     ))
 (define-char
   '((=ucs		. #xAD44)	; êµ„
-    (=ks-x1001		. #x312F)	; ø»ˆ±º
+    (=ks-x1001		. #x312F)	; &I-K0-312F;
     ))
 (define-char
   '((=ucs		. #xAD45)	; êµ…
-    (=ks-x1001		. #x3130)	; ø»ˆ±»
+    (=ks-x1001		. #x3130)	; &I-K0-3130;
     ))
 (define-char
   '((=ucs		. #xAD47)	; êµ‡
-    (=ks-x1001		. #x3131)	; ø»ˆ±¼
+    (=ks-x1001		. #x3131)	; &I-K0-3131;
     ))
 (define-char
   '((=ucs		. #xAD49)	; êµ‰
-    (=ks-x1001		. #x3132)	; ø»ˆ±½
+    (=ks-x1001		. #x3132)	; &I-K0-3132;
     ))
 (define-char
   '((=ucs		. #xAD50)	; êµ
-    (=ks-x1001		. #x3133)	; ø»ˆ±¾
+    (=ks-x1001		. #x3133)	; &I-K0-3133;
     ))
 (define-char
   '((=ucs		. #xAD54)	; êµ”
-    (=ks-x1001		. #x3134)	; ø»ˆ±¿
+    (=ks-x1001		. #x3134)	; &I-K0-3134;
     ))
 (define-char
   '((=ucs		. #xAD58)	; êµ˜
-    (=ks-x1001		. #x3135)	; ø»ˆ²€
+    (=ks-x1001		. #x3135)	; &I-K0-3135;
     ))
 (define-char
   '((=ucs		. #xAD61)	; êµ¡
-    (=ks-x1001		. #x3136)	; ø»ˆ²
+    (=ks-x1001		. #x3136)	; &I-K0-3136;
     ))
 (define-char
   '((=ucs		. #xAD63)	; êµ£
-    (=ks-x1001		. #x3137)	; ø»ˆ²‚
+    (=ks-x1001		. #x3137)	; &I-K0-3137;
     ))
 (define-char
   '((=ucs		. #xAD6C)	; êµ¬
-    (=ks-x1001		. #x3138)	; ø»ˆ²ƒ
-    (=jef-china3	. #x93F2)	; øº‰²
+    (=ks-x1001		. #x3138)	; &I-K0-3138;
+    (=jef-china3	. #x93F2)	; &I-JC3-93F2;
     ))
 (define-char
   '((=ucs		. #xAD6D)	; êµ­
-    (=ks-x1001		. #x3139)	; ø»ˆ²„
-    (=jef-china3	. #x94EA)	; øº‰“ª
+    (=ks-x1001		. #x3139)	; &I-K0-3139;
+    (=jef-china3	. #x94EA)	; &I-JC3-94EA;
     ))
 (define-char
   '((=ucs		. #xAD70)	; êµ°
-    (=ks-x1001		. #x313A)	; ø»ˆ²…
+    (=ks-x1001		. #x313A)	; &I-K0-313A;
     ))
 (define-char
   '((=ucs		. #xAD73)	; êµ³
-    (=ks-x1001		. #x313B)	; ø»ˆ²†
+    (=ks-x1001		. #x313B)	; &I-K0-313B;
     ))
 (define-char
   '((=ucs		. #xAD74)	; êµ´
-    (=ks-x1001		. #x313C)	; ø»ˆ²‡
+    (=ks-x1001		. #x313C)	; &I-K0-313C;
     ))
 (define-char
   '((=ucs		. #xAD75)	; êµµ
-    (=ks-x1001		. #x313D)	; ø»ˆ²ˆ
+    (=ks-x1001		. #x313D)	; &I-K0-313D;
     ))
 (define-char
   '((=ucs		. #xAD76)	; êµ¶
-    (=ks-x1001		. #x313E)	; ø»ˆ²‰
+    (=ks-x1001		. #x313E)	; &I-K0-313E;
     ))
 (define-char
   '((=ucs		. #xAD7B)	; êµ»
-    (=ks-x1001		. #x313F)	; ø»ˆ²Š
+    (=ks-x1001		. #x313F)	; &I-K0-313F;
     ))
 (define-char
   '((=ucs		. #xAD7C)	; êµ¼
-    (=ks-x1001		. #x3140)	; ø»ˆ²‹
+    (=ks-x1001		. #x3140)	; &I-K0-3140;
     ))
 (define-char
   '((=ucs		. #xAD7D)	; êµ½
-    (=ks-x1001		. #x3141)	; ø»ˆ²Œ
+    (=ks-x1001		. #x3141)	; &I-K0-3141;
     ))
 (define-char
   '((=ucs		. #xAD7F)	; êµ¿
-    (=ks-x1001		. #x3142)	; ø»ˆ²
+    (=ks-x1001		. #x3142)	; &I-K0-3142;
     ))
 (define-char
   '((=ucs		. #xAD81)	; ê¶
-    (=ks-x1001		. #x3143)	; ø»ˆ²Ž
+    (=ks-x1001		. #x3143)	; &I-K0-3143;
     ))
 (define-char
   '((=ucs		. #xAD82)	; ê¶‚
-    (=ks-x1001		. #x3144)	; ø»ˆ²
+    (=ks-x1001		. #x3144)	; &I-K0-3144;
     ))
 (define-char
   '((=ucs		. #xAD88)	; ê¶ˆ
-    (=ks-x1001		. #x3145)	; ø»ˆ²
+    (=ks-x1001		. #x3145)	; &I-K0-3145;
     ))
 (define-char
   '((=ucs		. #xAD89)	; ê¶‰
-    (=ks-x1001		. #x3146)	; ø»ˆ²‘
+    (=ks-x1001		. #x3146)	; &I-K0-3146;
     ))
 (define-char
   '((=ucs		. #xAD8C)	; ê¶Œ
-    (=ks-x1001		. #x3147)	; ø»ˆ²’
+    (=ks-x1001		. #x3147)	; &I-K0-3147;
     ))
 (define-char
   '((=ucs		. #xAD90)	; ê¶
-    (=ks-x1001		. #x3148)	; ø»ˆ²“
+    (=ks-x1001		. #x3148)	; &I-K0-3148;
     ))
 (define-char
   '((=ucs		. #xAD9C)	; ê¶œ
-    (=ks-x1001		. #x3149)	; ø»ˆ²”
+    (=ks-x1001		. #x3149)	; &I-K0-3149;
     ))
 (define-char
   '((=ucs		. #xAD9D)	; ê¶
-    (=ks-x1001		. #x314A)	; ø»ˆ²•
+    (=ks-x1001		. #x314A)	; &I-K0-314A;
     ))
 (define-char
   '((=ucs		. #xADA4)	; ê¶¤
-    (=ks-x1001		. #x314B)	; ø»ˆ²–
+    (=ks-x1001		. #x314B)	; &I-K0-314B;
     ))
 (define-char
   '((=ucs		. #xADB7)	; ê¶·
-    (=ks-x1001		. #x314C)	; ø»ˆ²—
+    (=ks-x1001		. #x314C)	; &I-K0-314C;
     ))
 (define-char
   '((=ucs		. #xADC0)	; ê·€
-    (=ks-x1001		. #x314D)	; ø»ˆ²˜
+    (=ks-x1001		. #x314D)	; &I-K0-314D;
     ))
 (define-char
   '((=ucs		. #xADC1)	; ê·
-    (=ks-x1001		. #x314E)	; ø»ˆ²™
+    (=ks-x1001		. #x314E)	; &I-K0-314E;
     ))
 (define-char
   '((=ucs		. #xADC4)	; ê·„
-    (=ks-x1001		. #x314F)	; ø»ˆ²š
+    (=ks-x1001		. #x314F)	; &I-K0-314F;
     ))
 (define-char
   '((=ucs		. #xADC8)	; ê·ˆ
-    (=ks-x1001		. #x3150)	; ø»ˆ²›
+    (=ks-x1001		. #x3150)	; &I-K0-3150;
     ))
 (define-char
   '((=ucs		. #xADD0)	; ê·
-    (=ks-x1001		. #x3151)	; ø»ˆ²œ
+    (=ks-x1001		. #x3151)	; &I-K0-3151;
     ))
 (define-char
   '((=ucs		. #xADD1)	; ê·‘
-    (=ks-x1001		. #x3152)	; ø»ˆ²
+    (=ks-x1001		. #x3152)	; &I-K0-3152;
     ))
 (define-char
   '((=ucs		. #xADD3)	; ê·“
-    (=ks-x1001		. #x3153)	; ø»ˆ²ž
+    (=ks-x1001		. #x3153)	; &I-K0-3153;
     ))
 (define-char
   '((=ucs		. #xADDC)	; ê·œ
-    (=ks-x1001		. #x3154)	; ø»ˆ²Ÿ
-    (=jef-china3	. #x83C2)	; øºˆ‚
+    (=ks-x1001		. #x3154)	; &I-K0-3154;
+    (=jef-china3	. #x83C2)	; &I-JC3-83C2;
     ))
 (define-char
   '((=ucs		. #xADE0)	; ê· 
-    (=ks-x1001		. #x3155)	; ø»ˆ² 
+    (=ks-x1001		. #x3155)	; &I-K0-3155;
     ))
 (define-char
   '((=ucs		. #xADE4)	; ê·¤
-    (=ks-x1001		. #x3156)	; ø»ˆ²¡
+    (=ks-x1001		. #x3156)	; &I-K0-3156;
     ))
 (define-char
   '((=ucs		. #xADF8)	; ê·¸
-    (=ks-x1001		. #x3157)	; ø»ˆ²¢
+    (=ks-x1001		. #x3157)	; &I-K0-3157;
     ))
 (define-char
   '((=ucs		. #xADF9)	; ê·¹
-    (=ks-x1001		. #x3158)	; ø»ˆ²£
+    (=ks-x1001		. #x3158)	; &I-K0-3158;
     ))
 (define-char
   '((=ucs		. #xADFC)	; ê·¼
-    (=ks-x1001		. #x3159)	; ø»ˆ²¤
+    (=ks-x1001		. #x3159)	; &I-K0-3159;
     ))
 (define-char
   '((=ucs		. #xADFF)	; ê·¿
-    (=ks-x1001		. #x315A)	; ø»ˆ²¥
+    (=ks-x1001		. #x315A)	; &I-K0-315A;
     ))
 (define-char
   '((=ucs		. #xAE00)	; ê¸€
-    (=ks-x1001		. #x315B)	; ø»ˆ²¦
+    (=ks-x1001		. #x315B)	; &I-K0-315B;
     ))
 (define-char
   '((=ucs		. #xAE01)	; ê¸
-    (=ks-x1001		. #x315C)	; ø»ˆ²§
+    (=ks-x1001		. #x315C)	; &I-K0-315C;
     ))
 (define-char
   '((=ucs		. #xAE08)	; ê¸ˆ
-    (=ks-x1001		. #x315D)	; ø»ˆ²¨
+    (=ks-x1001		. #x315D)	; &I-K0-315D;
     ))
 (define-char
   '((=ucs		. #xAE09)	; ê¸‰
-    (=ks-x1001		. #x315E)	; ø»ˆ²©
+    (=ks-x1001		. #x315E)	; &I-K0-315E;
     ))
 (define-char
   '((=ucs		. #xAE0B)	; ê¸‹
-    (=ks-x1001		. #x315F)	; ø»ˆ²ª
+    (=ks-x1001		. #x315F)	; &I-K0-315F;
     ))
 (define-char
   '((=ucs		. #xAE0D)	; ê¸
-    (=ks-x1001		. #x3160)	; ø»ˆ²«
+    (=ks-x1001		. #x3160)	; &I-K0-3160;
     ))
 (define-char
   '((=ucs		. #xAE14)	; ê¸”
-    (=ks-x1001		. #x3161)	; ø»ˆ²¬
+    (=ks-x1001		. #x3161)	; &I-K0-3161;
     ))
 (define-char
   '((=ucs		. #xAE30)	; ê¸°
-    (=ks-x1001		. #x3162)	; ø»ˆ²­
-    (=jef-china3	. #x82C6)	; øºˆ‹†
+    (=ks-x1001		. #x3162)	; &I-K0-3162;
+    (=jef-china3	. #x82C6)	; &I-JC3-82C6;
     ))
 (define-char
   '((=ucs		. #xAE31)	; ê¸±
-    (=ks-x1001		. #x3163)	; ø»ˆ²®
+    (=ks-x1001		. #x3163)	; &I-K0-3163;
     ))
 (define-char
   '((=ucs		. #xAE34)	; ê¸´
-    (=ks-x1001		. #x3164)	; ø»ˆ²¯
+    (=ks-x1001		. #x3164)	; &I-K0-3164;
     ))
 (define-char
   '((=ucs		. #xAE37)	; ê¸·
-    (=ks-x1001		. #x3165)	; ø»ˆ²°
+    (=ks-x1001		. #x3165)	; &I-K0-3165;
     ))
 (define-char
   '((=ucs		. #xAE38)	; ê¸¸
-    (=ks-x1001		. #x3166)	; ø»ˆ²±
-    (=jef-china3	. #x8CB5)	; øºˆ²µ
+    (=ks-x1001		. #x3166)	; &I-K0-3166;
+    (=jef-china3	. #x8CB5)	; &I-JC3-8CB5;
     ))
 (define-char
   '((=ucs		. #xAE3A)	; ê¸º
-    (=ks-x1001		. #x3167)	; ø»ˆ²²
+    (=ks-x1001		. #x3167)	; &I-K0-3167;
     ))
 (define-char
   '((=ucs		. #xAE40)	; ê¹€
-    (=ks-x1001		. #x3168)	; ø»ˆ²³
+    (=ks-x1001		. #x3168)	; &I-K0-3168;
     ))
 (define-char
   '((=ucs		. #xAE41)	; ê¹
-    (=ks-x1001		. #x3169)	; ø»ˆ²´
+    (=ks-x1001		. #x3169)	; &I-K0-3169;
     ))
 (define-char
   '((=ucs		. #xAE43)	; ê¹ƒ
-    (=ks-x1001		. #x316A)	; ø»ˆ²µ
+    (=ks-x1001		. #x316A)	; &I-K0-316A;
     ))
 (define-char
   '((=ucs		. #xAE45)	; ê¹…
-    (=ks-x1001		. #x316B)	; ø»ˆ²¶
+    (=ks-x1001		. #x316B)	; &I-K0-316B;
     ))
 (define-char
   '((=ucs		. #xAE46)	; ê¹†
-    (=ks-x1001		. #x316C)	; ø»ˆ²·
+    (=ks-x1001		. #x316C)	; &I-K0-316C;
     ))
 (define-char
   '((=ucs		. #xAE4A)	; ê¹Š
-    (=ks-x1001		. #x316D)	; ø»ˆ²¸
+    (=ks-x1001		. #x316D)	; &I-K0-316D;
     ))
 (define-char
   '((=ucs		. #xAE4C)	; ê¹Œ
-    (=ks-x1001		. #x316E)	; ø»ˆ²¹
+    (=ks-x1001		. #x316E)	; &I-K0-316E;
     ))
 (define-char
   '((=ucs		. #xAE4D)	; ê¹
-    (=ks-x1001		. #x316F)	; ø»ˆ²º
+    (=ks-x1001		. #x316F)	; &I-K0-316F;
     ))
 (define-char
   '((=ucs		. #xAE4E)	; ê¹Ž
-    (=ks-x1001		. #x3170)	; ø»ˆ²»
+    (=ks-x1001		. #x3170)	; &I-K0-3170;
     ))
 (define-char
   '((=ucs		. #xAE50)	; ê¹
-    (=ks-x1001		. #x3171)	; ø»ˆ²¼
+    (=ks-x1001		. #x3171)	; &I-K0-3171;
     ))
 (define-char
   '((=ucs		. #xAE54)	; ê¹”
-    (=ks-x1001		. #x3172)	; ø»ˆ²½
+    (=ks-x1001		. #x3172)	; &I-K0-3172;
     ))
 (define-char
   '((=ucs		. #xAE56)	; ê¹–
-    (=ks-x1001		. #x3173)	; ø»ˆ²¾
+    (=ks-x1001		. #x3173)	; &I-K0-3173;
     ))
 (define-char
   '((=ucs		. #xAE5C)	; ê¹œ
-    (=ks-x1001		. #x3174)	; ø»ˆ²¿
+    (=ks-x1001		. #x3174)	; &I-K0-3174;
     ))
 (define-char
   '((=ucs		. #xAE5D)	; ê¹
-    (=ks-x1001		. #x3175)	; ø»ˆ³€
+    (=ks-x1001		. #x3175)	; &I-K0-3175;
     ))
 (define-char
   '((=ucs		. #xAE5F)	; ê¹Ÿ
-    (=ks-x1001		. #x3176)	; ø»ˆ³
+    (=ks-x1001		. #x3176)	; &I-K0-3176;
     ))
 (define-char
   '((=ucs		. #xAE60)	; ê¹ 
-    (=ks-x1001		. #x3177)	; ø»ˆ³‚
+    (=ks-x1001		. #x3177)	; &I-K0-3177;
     ))
 (define-char
   '((=ucs		. #xAE61)	; ê¹¡
-    (=ks-x1001		. #x3178)	; ø»ˆ³ƒ
+    (=ks-x1001		. #x3178)	; &I-K0-3178;
     ))
 (define-char
   '((=ucs		. #xAE65)	; ê¹¥
-    (=ks-x1001		. #x3179)	; ø»ˆ³„
+    (=ks-x1001		. #x3179)	; &I-K0-3179;
     ))
 (define-char
   '((=ucs		. #xAE68)	; ê¹¨
-    (=ks-x1001		. #x317A)	; ø»ˆ³…
+    (=ks-x1001		. #x317A)	; &I-K0-317A;
     ))
 (define-char
   '((=ucs		. #xAE69)	; ê¹©
-    (=ks-x1001		. #x317B)	; ø»ˆ³†
+    (=ks-x1001		. #x317B)	; &I-K0-317B;
     ))
 (define-char
   '((=ucs		. #xAE6C)	; ê¹¬
-    (=ks-x1001		. #x317C)	; ø»ˆ³‡
+    (=ks-x1001		. #x317C)	; &I-K0-317C;
     ))
 (define-char
   '((=ucs		. #xAE70)	; ê¹°
-    (=ks-x1001		. #x317D)	; ø»ˆ³ˆ
+    (=ks-x1001		. #x317D)	; &I-K0-317D;
     ))
 (define-char
   '((=ucs		. #xAE78)	; ê¹¸
-    (=ks-x1001		. #x317E)	; ø»ˆ³‰
+    (=ks-x1001		. #x317E)	; &I-K0-317E;
     ))
 (define-char
   '((=ucs		. #xAE79)	; ê¹¹
-    (=ks-x1001		. #x3221)	; ø»ˆ³Š
+    (=ks-x1001		. #x3221)	; &I-K0-3221;
     ))
 (define-char
   '((=ucs		. #xAE7B)	; ê¹»
-    (=ks-x1001		. #x3222)	; ø»ˆ³‹
+    (=ks-x1001		. #x3222)	; &I-K0-3222;
     ))
 (define-char
   '((=ucs		. #xAE7C)	; ê¹¼
-    (=ks-x1001		. #x3223)	; ø»ˆ³Œ
+    (=ks-x1001		. #x3223)	; &I-K0-3223;
     ))
 (define-char
   '((=ucs		. #xAE7D)	; ê¹½
-    (=ks-x1001		. #x3224)	; ø»ˆ³
+    (=ks-x1001		. #x3224)	; &I-K0-3224;
     ))
 (define-char
   '((=ucs		. #xAE84)	; êº„
-    (=ks-x1001		. #x3225)	; ø»ˆ³Ž
+    (=ks-x1001		. #x3225)	; &I-K0-3225;
     ))
 (define-char
   '((=ucs		. #xAE85)	; êº…
-    (=ks-x1001		. #x3226)	; ø»ˆ³
+    (=ks-x1001		. #x3226)	; &I-K0-3226;
     ))
 (define-char
   '((=ucs		. #xAE8C)	; êºŒ
-    (=ks-x1001		. #x3227)	; ø»ˆ³
+    (=ks-x1001		. #x3227)	; &I-K0-3227;
     ))
 (define-char
   '((=ucs		. #xAEBC)	; êº¼
-    (=ks-x1001		. #x3228)	; ø»ˆ³‘
+    (=ks-x1001		. #x3228)	; &I-K0-3228;
     ))
 (define-char
   '((=ucs		. #xAEBD)	; êº½
-    (=ks-x1001		. #x3229)	; ø»ˆ³’
+    (=ks-x1001		. #x3229)	; &I-K0-3229;
     ))
 (define-char
   '((=ucs		. #xAEBE)	; êº¾
-    (=ks-x1001		. #x322A)	; ø»ˆ³“
+    (=ks-x1001		. #x322A)	; &I-K0-322A;
     ))
 (define-char
   '((=ucs		. #xAEC0)	; ê»€
-    (=ks-x1001		. #x322B)	; ø»ˆ³”
+    (=ks-x1001		. #x322B)	; &I-K0-322B;
     ))
 (define-char
   '((=ucs		. #xAEC4)	; ê»„
-    (=ks-x1001		. #x322C)	; ø»ˆ³•
+    (=ks-x1001		. #x322C)	; &I-K0-322C;
     ))
 (define-char
   '((=ucs		. #xAECC)	; ê»Œ
-    (=ks-x1001		. #x322D)	; ø»ˆ³–
+    (=ks-x1001		. #x322D)	; &I-K0-322D;
     ))
 (define-char
   '((=ucs		. #xAECD)	; ê»
-    (=ks-x1001		. #x322E)	; ø»ˆ³—
+    (=ks-x1001		. #x322E)	; &I-K0-322E;
     ))
 (define-char
   '((=ucs		. #xAECF)	; ê»
-    (=ks-x1001		. #x322F)	; ø»ˆ³˜
+    (=ks-x1001		. #x322F)	; &I-K0-322F;
     ))
 (define-char
   '((=ucs		. #xAED0)	; ê»
-    (=ks-x1001		. #x3230)	; ø»ˆ³™
+    (=ks-x1001		. #x3230)	; &I-K0-3230;
     ))
 (define-char
   '((=ucs		. #xAED1)	; ê»‘
-    (=ks-x1001		. #x3231)	; ø»ˆ³š
+    (=ks-x1001		. #x3231)	; &I-K0-3231;
     ))
 (define-char
   '((=ucs		. #xAED8)	; ê»˜
-    (=ks-x1001		. #x3232)	; ø»ˆ³›
+    (=ks-x1001		. #x3232)	; &I-K0-3232;
     ))
 (define-char
   '((=ucs		. #xAED9)	; ê»™
-    (=ks-x1001		. #x3233)	; ø»ˆ³œ
+    (=ks-x1001		. #x3233)	; &I-K0-3233;
     ))
 (define-char
   '((=ucs		. #xAEDC)	; ê»œ
-    (=ks-x1001		. #x3234)	; ø»ˆ³
+    (=ks-x1001		. #x3234)	; &I-K0-3234;
     ))
 (define-char
   '((=ucs		. #xAEE8)	; ê»¨
-    (=ks-x1001		. #x3235)	; ø»ˆ³ž
+    (=ks-x1001		. #x3235)	; &I-K0-3235;
     ))
 (define-char
   '((=ucs		. #xAEEB)	; ê»«
-    (=ks-x1001		. #x3236)	; ø»ˆ³Ÿ
+    (=ks-x1001		. #x3236)	; &I-K0-3236;
     ))
 (define-char
   '((=ucs		. #xAEED)	; ê»­
-    (=ks-x1001		. #x3237)	; ø»ˆ³ 
+    (=ks-x1001		. #x3237)	; &I-K0-3237;
     ))
 (define-char
   '((=ucs		. #xAEF4)	; ê»´
-    (=ks-x1001		. #x3238)	; ø»ˆ³¡
+    (=ks-x1001		. #x3238)	; &I-K0-3238;
     ))
 (define-char
   '((=ucs		. #xAEF8)	; ê»¸
-    (=ks-x1001		. #x3239)	; ø»ˆ³¢
+    (=ks-x1001		. #x3239)	; &I-K0-3239;
     ))
 (define-char
   '((=ucs		. #xAEFC)	; ê»¼
-    (=ks-x1001		. #x323A)	; ø»ˆ³£
+    (=ks-x1001		. #x323A)	; &I-K0-323A;
     ))
 (define-char
   '((=ucs		. #xAF07)	; ê¼‡
-    (=ks-x1001		. #x323B)	; ø»ˆ³¤
+    (=ks-x1001		. #x323B)	; &I-K0-323B;
     ))
 (define-char
   '((=ucs		. #xAF08)	; ê¼ˆ
-    (=ks-x1001		. #x323C)	; ø»ˆ³¥
+    (=ks-x1001		. #x323C)	; &I-K0-323C;
     ))
 (define-char
   '((=ucs		. #xAF0D)	; ê¼
-    (=ks-x1001		. #x323D)	; ø»ˆ³¦
+    (=ks-x1001		. #x323D)	; &I-K0-323D;
     ))
 (define-char
   '((=ucs		. #xAF10)	; ê¼
-    (=ks-x1001		. #x323E)	; ø»ˆ³§
+    (=ks-x1001		. #x323E)	; &I-K0-323E;
     ))
 (define-char
   '((=ucs		. #xAF2C)	; ê¼¬
-    (=ks-x1001		. #x323F)	; ø»ˆ³¨
+    (=ks-x1001		. #x323F)	; &I-K0-323F;
     ))
 (define-char
   '((=ucs		. #xAF2D)	; ê¼­
-    (=ks-x1001		. #x3240)	; ø»ˆ³©
+    (=ks-x1001		. #x3240)	; &I-K0-3240;
     ))
 (define-char
   '((=ucs		. #xAF30)	; ê¼°
-    (=ks-x1001		. #x3241)	; ø»ˆ³ª
+    (=ks-x1001		. #x3241)	; &I-K0-3241;
     ))
 (define-char
   '((=ucs		. #xAF32)	; ê¼²
-    (=ks-x1001		. #x3242)	; ø»ˆ³«
+    (=ks-x1001		. #x3242)	; &I-K0-3242;
     ))
 (define-char
   '((=ucs		. #xAF34)	; ê¼´
-    (=ks-x1001		. #x3243)	; ø»ˆ³¬
+    (=ks-x1001		. #x3243)	; &I-K0-3243;
     ))
 (define-char
   '((=ucs		. #xAF3C)	; ê¼¼
-    (=ks-x1001		. #x3244)	; ø»ˆ³­
+    (=ks-x1001		. #x3244)	; &I-K0-3244;
     ))
 (define-char
   '((=ucs		. #xAF3D)	; ê¼½
-    (=ks-x1001		. #x3245)	; ø»ˆ³®
+    (=ks-x1001		. #x3245)	; &I-K0-3245;
     ))
 (define-char
   '((=ucs		. #xAF3F)	; ê¼¿
-    (=ks-x1001		. #x3246)	; ø»ˆ³¯
+    (=ks-x1001		. #x3246)	; &I-K0-3246;
     ))
 (define-char
   '((=ucs		. #xAF41)	; ê½
-    (=ks-x1001		. #x3247)	; ø»ˆ³°
+    (=ks-x1001		. #x3247)	; &I-K0-3247;
     ))
 (define-char
   '((=ucs		. #xAF42)	; ê½‚
-    (=ks-x1001		. #x3248)	; ø»ˆ³±
+    (=ks-x1001		. #x3248)	; &I-K0-3248;
     ))
 (define-char
   '((=ucs		. #xAF43)	; ê½ƒ
-    (=ks-x1001		. #x3249)	; ø»ˆ³²
+    (=ks-x1001		. #x3249)	; &I-K0-3249;
     ))
 (define-char
   '((=ucs		. #xAF48)	; ê½ˆ
-    (=ks-x1001		. #x324A)	; ø»ˆ³³
+    (=ks-x1001		. #x324A)	; &I-K0-324A;
     ))
 (define-char
   '((=ucs		. #xAF49)	; ê½‰
-    (=ks-x1001		. #x324B)	; ø»ˆ³´
+    (=ks-x1001		. #x324B)	; &I-K0-324B;
     ))
 (define-char
   '((=ucs		. #xAF50)	; ê½
-    (=ks-x1001		. #x324C)	; ø»ˆ³µ
+    (=ks-x1001		. #x324C)	; &I-K0-324C;
     ))
 (define-char
   '((=ucs		. #xAF5C)	; ê½œ
-    (=ks-x1001		. #x324D)	; ø»ˆ³¶
+    (=ks-x1001		. #x324D)	; &I-K0-324D;
     ))
 (define-char
   '((=ucs		. #xAF5D)	; ê½
-    (=ks-x1001		. #x324E)	; ø»ˆ³·
+    (=ks-x1001		. #x324E)	; &I-K0-324E;
     ))
 (define-char
   '((=ucs		. #xAF64)	; ê½¤
-    (=ks-x1001		. #x324F)	; ø»ˆ³¸
+    (=ks-x1001		. #x324F)	; &I-K0-324F;
     ))
 (define-char
   '((=ucs		. #xAF65)	; ê½¥
-    (=ks-x1001		. #x3250)	; ø»ˆ³¹
+    (=ks-x1001		. #x3250)	; &I-K0-3250;
     ))
 (define-char
   '((=ucs		. #xAF79)	; ê½¹
-    (=ks-x1001		. #x3251)	; ø»ˆ³º
+    (=ks-x1001		. #x3251)	; &I-K0-3251;
     ))
 (define-char
   '((=ucs		. #xAF80)	; ê¾€
-    (=ks-x1001		. #x3252)	; ø»ˆ³»
+    (=ks-x1001		. #x3252)	; &I-K0-3252;
     ))
 (define-char
   '((=ucs		. #xAF84)	; ê¾„
-    (=ks-x1001		. #x3253)	; ø»ˆ³¼
+    (=ks-x1001		. #x3253)	; &I-K0-3253;
     ))
 (define-char
   '((=ucs		. #xAF88)	; ê¾ˆ
-    (=ks-x1001		. #x3254)	; ø»ˆ³½
+    (=ks-x1001		. #x3254)	; &I-K0-3254;
     ))
 (define-char
   '((=ucs		. #xAF90)	; ê¾
-    (=ks-x1001		. #x3255)	; ø»ˆ³¾
+    (=ks-x1001		. #x3255)	; &I-K0-3255;
     ))
 (define-char
   '((=ucs		. #xAF91)	; ê¾‘
-    (=ks-x1001		. #x3256)	; ø»ˆ³¿
+    (=ks-x1001		. #x3256)	; &I-K0-3256;
     ))
 (define-char
   '((=ucs		. #xAF95)	; ê¾•
-    (=ks-x1001		. #x3257)	; ø»ˆ´€
+    (=ks-x1001		. #x3257)	; &I-K0-3257;
     ))
 (define-char
   '((=ucs		. #xAF9C)	; ê¾œ
-    (=ks-x1001		. #x3258)	; ø»ˆ´
+    (=ks-x1001		. #x3258)	; &I-K0-3258;
     ))
 (define-char
   '((=ucs		. #xAFB8)	; ê¾¸
-    (=ks-x1001		. #x3259)	; ø»ˆ´‚
+    (=ks-x1001		. #x3259)	; &I-K0-3259;
     ))
 (define-char
   '((=ucs		. #xAFB9)	; ê¾¹
-    (=ks-x1001		. #x325A)	; ø»ˆ´ƒ
+    (=ks-x1001		. #x325A)	; &I-K0-325A;
     ))
 (define-char
   '((=ucs		. #xAFBC)	; ê¾¼
-    (=ks-x1001		. #x325B)	; ø»ˆ´„
+    (=ks-x1001		. #x325B)	; &I-K0-325B;
     ))
 (define-char
   '((=ucs		. #xAFC0)	; ê¿€
-    (=ks-x1001		. #x325C)	; ø»ˆ´…
+    (=ks-x1001		. #x325C)	; &I-K0-325C;
     ))
 (define-char
   '((=ucs		. #xAFC7)	; ê¿‡
-    (=ks-x1001		. #x325D)	; ø»ˆ´†
+    (=ks-x1001		. #x325D)	; &I-K0-325D;
     ))
 (define-char
   '((=ucs		. #xAFC8)	; ê¿ˆ
-    (=ks-x1001		. #x325E)	; ø»ˆ´‡
+    (=ks-x1001		. #x325E)	; &I-K0-325E;
     ))
 (define-char
   '((=ucs		. #xAFC9)	; ê¿‰
-    (=ks-x1001		. #x325F)	; ø»ˆ´ˆ
+    (=ks-x1001		. #x325F)	; &I-K0-325F;
     ))
 (define-char
   '((=ucs		. #xAFCB)	; ê¿‹
-    (=ks-x1001		. #x3260)	; ø»ˆ´‰
+    (=ks-x1001		. #x3260)	; &I-K0-3260;
     ))
 (define-char
   '((=ucs		. #xAFCD)	; ê¿
-    (=ks-x1001		. #x3261)	; ø»ˆ´Š
+    (=ks-x1001		. #x3261)	; &I-K0-3261;
     ))
 (define-char
   '((=ucs		. #xAFCE)	; ê¿Ž
-    (=ks-x1001		. #x3262)	; ø»ˆ´‹
+    (=ks-x1001		. #x3262)	; &I-K0-3262;
     ))
 (define-char
   '((=ucs		. #xAFD4)	; ê¿”
-    (=ks-x1001		. #x3263)	; ø»ˆ´Œ
+    (=ks-x1001		. #x3263)	; &I-K0-3263;
     ))
 (define-char
   '((=ucs		. #xAFDC)	; ê¿œ
-    (=ks-x1001		. #x3264)	; ø»ˆ´
+    (=ks-x1001		. #x3264)	; &I-K0-3264;
     ))
 (define-char
   '((=ucs		. #xAFE8)	; ê¿¨
-    (=ks-x1001		. #x3265)	; ø»ˆ´Ž
+    (=ks-x1001		. #x3265)	; &I-K0-3265;
     ))
 (define-char
   '((=ucs		. #xAFE9)	; ê¿©
-    (=ks-x1001		. #x3266)	; ø»ˆ´
+    (=ks-x1001		. #x3266)	; &I-K0-3266;
     ))
 (define-char
   '((=ucs		. #xAFF0)	; ê¿°
-    (=ks-x1001		. #x3267)	; ø»ˆ´
+    (=ks-x1001		. #x3267)	; &I-K0-3267;
     ))
 (define-char
   '((=ucs		. #xAFF1)	; ê¿±
-    (=ks-x1001		. #x3268)	; ø»ˆ´‘
+    (=ks-x1001		. #x3268)	; &I-K0-3268;
     ))
 (define-char
   '((=ucs		. #xAFF4)	; ê¿´
-    (=ks-x1001		. #x3269)	; ø»ˆ´’
+    (=ks-x1001		. #x3269)	; &I-K0-3269;
     ))
 (define-char
   '((=ucs		. #xAFF8)	; ê¿¸
-    (=ks-x1001		. #x326A)	; ø»ˆ´“
+    (=ks-x1001		. #x326A)	; &I-K0-326A;
     ))
 (define-char
   '((=ucs		. #xB000)	; ë€€
-    (=ks-x1001		. #x326B)	; ø»ˆ´”
+    (=ks-x1001		. #x326B)	; &I-K0-326B;
     ))
 (define-char
   '((=ucs		. #xB001)	; ë€
-    (=ks-x1001		. #x326C)	; ø»ˆ´•
+    (=ks-x1001		. #x326C)	; &I-K0-326C;
     ))
 (define-char
   '((=ucs		. #xB004)	; ë€„
-    (=ks-x1001		. #x326D)	; ø»ˆ´–
+    (=ks-x1001		. #x326D)	; &I-K0-326D;
     ))
 (define-char
   '((=ucs		. #xB00C)	; ë€Œ
-    (=ks-x1001		. #x326E)	; ø»ˆ´—
+    (=ks-x1001		. #x326E)	; &I-K0-326E;
     ))
 (define-char
   '((=ucs		. #xB010)	; ë€
-    (=ks-x1001		. #x326F)	; ø»ˆ´˜
+    (=ks-x1001		. #x326F)	; &I-K0-326F;
     ))
 (define-char
   '((=ucs		. #xB014)	; ë€”
-    (=ks-x1001		. #x3270)	; ø»ˆ´™
+    (=ks-x1001		. #x3270)	; &I-K0-3270;
     ))
 (define-char
   '((=ucs		. #xB01C)	; ë€œ
-    (=ks-x1001		. #x3271)	; ø»ˆ´š
+    (=ks-x1001		. #x3271)	; &I-K0-3271;
     ))
 (define-char
   '((=ucs		. #xB01D)	; ë€
-    (=ks-x1001		. #x3272)	; ø»ˆ´›
+    (=ks-x1001		. #x3272)	; &I-K0-3272;
     ))
 (define-char
   '((=ucs		. #xB028)	; ë€¨
-    (=ks-x1001		. #x3273)	; ø»ˆ´œ
+    (=ks-x1001		. #x3273)	; &I-K0-3273;
     ))
 (define-char
   '((=ucs		. #xB044)	; ë„
-    (=ks-x1001		. #x3274)	; ø»ˆ´
+    (=ks-x1001		. #x3274)	; &I-K0-3274;
     ))
 (define-char
   '((=ucs		. #xB045)	; ë…
-    (=ks-x1001		. #x3275)	; ø»ˆ´ž
+    (=ks-x1001		. #x3275)	; &I-K0-3275;
     ))
 (define-char
   '((=ucs		. #xB048)	; ëˆ
-    (=ks-x1001		. #x3276)	; ø»ˆ´Ÿ
+    (=ks-x1001		. #x3276)	; &I-K0-3276;
     ))
 (define-char
   '((=ucs		. #xB04A)	; ëŠ
-    (=ks-x1001		. #x3277)	; ø»ˆ´ 
+    (=ks-x1001		. #x3277)	; &I-K0-3277;
     ))
 (define-char
   '((=ucs		. #xB04C)	; ëŒ
-    (=ks-x1001		. #x3278)	; ø»ˆ´¡
+    (=ks-x1001		. #x3278)	; &I-K0-3278;
     ))
 (define-char
   '((=ucs		. #xB04E)	; ëŽ
-    (=ks-x1001		. #x3279)	; ø»ˆ´¢
+    (=ks-x1001		. #x3279)	; &I-K0-3279;
     ))
 (define-char
   '((=ucs		. #xB053)	; ë“
-    (=ks-x1001		. #x327A)	; ø»ˆ´£
+    (=ks-x1001		. #x327A)	; &I-K0-327A;
     ))
 (define-char
   '((=ucs		. #xB054)	; ë”
-    (=ks-x1001		. #x327B)	; ø»ˆ´¤
+    (=ks-x1001		. #x327B)	; &I-K0-327B;
     ))
 (define-char
   '((=ucs		. #xB055)	; ë•
-    (=ks-x1001		. #x327C)	; ø»ˆ´¥
+    (=ks-x1001		. #x327C)	; &I-K0-327C;
     ))
 (define-char
   '((=ucs		. #xB057)	; ë—
-    (=ks-x1001		. #x327D)	; ø»ˆ´¦
+    (=ks-x1001		. #x327D)	; &I-K0-327D;
     ))
 (define-char
   '((=ucs		. #xB059)	; ë™
-    (=ks-x1001		. #x327E)	; ø»ˆ´§
+    (=ks-x1001		. #x327E)	; &I-K0-327E;
     ))
 (define-char
   '((=ucs		. #xB05D)	; ë
-    (=ks-x1001		. #x3321)	; ø»ˆ´¨
+    (=ks-x1001		. #x3321)	; &I-K0-3321;
     ))
 (define-char
   '((=ucs		. #xB07C)	; ë¼
-    (=ks-x1001		. #x3322)	; ø»ˆ´©
+    (=ks-x1001		. #x3322)	; &I-K0-3322;
     ))
 (define-char
   '((=ucs		. #xB07D)	; ë½
-    (=ks-x1001		. #x3323)	; ø»ˆ´ª
+    (=ks-x1001		. #x3323)	; &I-K0-3323;
     ))
 (define-char
   '((=ucs		. #xB080)	; ë‚€
-    (=ks-x1001		. #x3324)	; ø»ˆ´«
+    (=ks-x1001		. #x3324)	; &I-K0-3324;
     ))
 (define-char
   '((=ucs		. #xB084)	; ë‚„
-    (=ks-x1001		. #x3325)	; ø»ˆ´¬
+    (=ks-x1001		. #x3325)	; &I-K0-3325;
     ))
 (define-char
   '((=ucs		. #xB08C)	; ë‚Œ
-    (=ks-x1001		. #x3326)	; ø»ˆ´­
+    (=ks-x1001		. #x3326)	; &I-K0-3326;
     ))
 (define-char
   '((=ucs		. #xB08D)	; ë‚
-    (=ks-x1001		. #x3327)	; ø»ˆ´®
+    (=ks-x1001		. #x3327)	; &I-K0-3327;
     ))
 (define-char
   '((=ucs		. #xB08F)	; ë‚
-    (=ks-x1001		. #x3328)	; ø»ˆ´¯
+    (=ks-x1001		. #x3328)	; &I-K0-3328;
     ))
 (define-char
   '((=ucs		. #xB091)	; ë‚‘
-    (=ks-x1001		. #x3329)	; ø»ˆ´°
+    (=ks-x1001		. #x3329)	; &I-K0-3329;
     ))
 (define-char
   '((=ucs		. #xB098)	; ë‚˜
-    (=ks-x1001		. #x332A)	; ø»ˆ´±
+    (=ks-x1001		. #x332A)	; &I-K0-332A;
     ))
 (define-char
   '((=ucs		. #xB099)	; ë‚™
-    (=ks-x1001		. #x332B)	; ø»ˆ´²
+    (=ks-x1001		. #x332B)	; &I-K0-332B;
     ))
 (define-char
   '((=ucs		. #xB09A)	; ë‚š
-    (=ks-x1001		. #x332C)	; ø»ˆ´³
+    (=ks-x1001		. #x332C)	; &I-K0-332C;
     ))
 (define-char
   '((=ucs		. #xB09C)	; ë‚œ
-    (=ks-x1001		. #x332D)	; ø»ˆ´´
+    (=ks-x1001		. #x332D)	; &I-K0-332D;
     ))
 (define-char
   '((=ucs		. #xB09F)	; ë‚Ÿ
-    (=ks-x1001		. #x332E)	; ø»ˆ´µ
+    (=ks-x1001		. #x332E)	; &I-K0-332E;
     ))
 (define-char
   '((=ucs		. #xB0A0)	; ë‚ 
-    (=ks-x1001		. #x332F)	; ø»ˆ´¶
+    (=ks-x1001		. #x332F)	; &I-K0-332F;
     ))
 (define-char
   '((=ucs		. #xB0A1)	; ë‚¡
-    (=ks-x1001		. #x3330)	; ø»ˆ´·
+    (=ks-x1001		. #x3330)	; &I-K0-3330;
     ))
 (define-char
   '((=ucs		. #xB0A2)	; ë‚¢
-    (=ks-x1001		. #x3331)	; ø»ˆ´¸
+    (=ks-x1001		. #x3331)	; &I-K0-3331;
     ))
 (define-char
   '((=ucs		. #xB0A8)	; ë‚¨
-    (=ks-x1001		. #x3332)	; ø»ˆ´¹
+    (=ks-x1001		. #x3332)	; &I-K0-3332;
     ))
 (define-char
   '((=ucs		. #xB0A9)	; ë‚©
-    (=ks-x1001		. #x3333)	; ø»ˆ´º
+    (=ks-x1001		. #x3333)	; &I-K0-3333;
     ))
 (define-char
   '((=ucs		. #xB0AB)	; ë‚«
-    (=ks-x1001		. #x3334)	; ø»ˆ´»
+    (=ks-x1001		. #x3334)	; &I-K0-3334;
     ))
 (define-char
   '((=ucs		. #xB0AC)	; ë‚¬
-    (=ks-x1001		. #x3335)	; ø»ˆ´¼
+    (=ks-x1001		. #x3335)	; &I-K0-3335;
     ))
 (define-char
   '((=ucs		. #xB0AD)	; ë‚­
-    (=ks-x1001		. #x3336)	; ø»ˆ´½
+    (=ks-x1001		. #x3336)	; &I-K0-3336;
     ))
 (define-char
   '((=ucs		. #xB0AE)	; ë‚®
-    (=ks-x1001		. #x3337)	; ø»ˆ´¾
+    (=ks-x1001		. #x3337)	; &I-K0-3337;
     ))
 (define-char
   '((=ucs		. #xB0AF)	; ë‚¯
-    (=ks-x1001		. #x3338)	; ø»ˆ´¿
+    (=ks-x1001		. #x3338)	; &I-K0-3338;
     ))
 (define-char
   '((=ucs		. #xB0B1)	; ë‚±
-    (=ks-x1001		. #x3339)	; ø»ˆµ€
+    (=ks-x1001		. #x3339)	; &I-K0-3339;
     ))
 (define-char
   '((=ucs		. #xB0B3)	; ë‚³
-    (=ks-x1001		. #x333A)	; ø»ˆµ
+    (=ks-x1001		. #x333A)	; &I-K0-333A;
     ))
 (define-char
   '((=ucs		. #xB0B4)	; ë‚´
-    (=ks-x1001		. #x333B)	; ø»ˆµ‚
+    (=ks-x1001		. #x333B)	; &I-K0-333B;
     ))
 (define-char
   '((=ucs		. #xB0B5)	; ë‚µ
-    (=ks-x1001		. #x333C)	; ø»ˆµƒ
+    (=ks-x1001		. #x333C)	; &I-K0-333C;
     ))
 (define-char
   '((=ucs		. #xB0B8)	; ë‚¸
-    (=ks-x1001		. #x333D)	; ø»ˆµ„
+    (=ks-x1001		. #x333D)	; &I-K0-333D;
     ))
 (define-char
   '((=ucs		. #xB0BC)	; ë‚¼
-    (=ks-x1001		. #x333E)	; ø»ˆµ…
+    (=ks-x1001		. #x333E)	; &I-K0-333E;
     ))
 (define-char
   '((=ucs		. #xB0C4)	; ëƒ„
-    (=ks-x1001		. #x333F)	; ø»ˆµ†
+    (=ks-x1001		. #x333F)	; &I-K0-333F;
     ))
 (define-char
   '((=ucs		. #xB0C5)	; ëƒ…
-    (=ks-x1001		. #x3340)	; ø»ˆµ‡
+    (=ks-x1001		. #x3340)	; &I-K0-3340;
     ))
 (define-char
   '((=ucs		. #xB0C7)	; ëƒ‡
-    (=ks-x1001		. #x3341)	; ø»ˆµˆ
+    (=ks-x1001		. #x3341)	; &I-K0-3341;
     ))
 (define-char
   '((=ucs		. #xB0C8)	; ëƒˆ
-    (=ks-x1001		. #x3342)	; ø»ˆµ‰
+    (=ks-x1001		. #x3342)	; &I-K0-3342;
     ))
 (define-char
   '((=ucs		. #xB0C9)	; ëƒ‰
-    (=ks-x1001		. #x3343)	; ø»ˆµŠ
+    (=ks-x1001		. #x3343)	; &I-K0-3343;
     ))
 (define-char
   '((=ucs		. #xB0D0)	; ëƒ
-    (=ks-x1001		. #x3344)	; ø»ˆµ‹
+    (=ks-x1001		. #x3344)	; &I-K0-3344;
     ))
 (define-char
   '((=ucs		. #xB0D1)	; ëƒ‘
-    (=ks-x1001		. #x3345)	; ø»ˆµŒ
+    (=ks-x1001		. #x3345)	; &I-K0-3345;
     ))
 (define-char
   '((=ucs		. #xB0D4)	; ëƒ”
-    (=ks-x1001		. #x3346)	; ø»ˆµ
+    (=ks-x1001		. #x3346)	; &I-K0-3346;
     ))
 (define-char
   '((=ucs		. #xB0D8)	; ëƒ˜
-    (=ks-x1001		. #x3347)	; ø»ˆµŽ
+    (=ks-x1001		. #x3347)	; &I-K0-3347;
     ))
 (define-char
   '((=ucs		. #xB0E0)	; ëƒ 
-    (=ks-x1001		. #x3348)	; ø»ˆµ
+    (=ks-x1001		. #x3348)	; &I-K0-3348;
     ))
 (define-char
   '((=ucs		. #xB0E5)	; ëƒ¥
-    (=ks-x1001		. #x3349)	; ø»ˆµ
+    (=ks-x1001		. #x3349)	; &I-K0-3349;
     ))
 (define-char
   '((=ucs		. #xB108)	; ë„ˆ
-    (=ks-x1001		. #x334A)	; ø»ˆµ‘
+    (=ks-x1001		. #x334A)	; &I-K0-334A;
     ))
 (define-char
   '((=ucs		. #xB109)	; ë„‰
-    (=ks-x1001		. #x334B)	; ø»ˆµ’
+    (=ks-x1001		. #x334B)	; &I-K0-334B;
     ))
 (define-char
   '((=ucs		. #xB10B)	; ë„‹
-    (=ks-x1001		. #x334C)	; ø»ˆµ“
+    (=ks-x1001		. #x334C)	; &I-K0-334C;
     ))
 (define-char
   '((=ucs		. #xB10C)	; ë„Œ
-    (=ks-x1001		. #x334D)	; ø»ˆµ”
+    (=ks-x1001		. #x334D)	; &I-K0-334D;
     ))
 (define-char
   '((=ucs		. #xB110)	; ë„
-    (=ks-x1001		. #x334E)	; ø»ˆµ•
+    (=ks-x1001		. #x334E)	; &I-K0-334E;
     ))
 (define-char
   '((=ucs		. #xB112)	; ë„’
-    (=ks-x1001		. #x334F)	; ø»ˆµ–
+    (=ks-x1001		. #x334F)	; &I-K0-334F;
     ))
 (define-char
   '((=ucs		. #xB113)	; ë„“
-    (=ks-x1001		. #x3350)	; ø»ˆµ—
+    (=ks-x1001		. #x3350)	; &I-K0-3350;
     ))
 (define-char
   '((=ucs		. #xB118)	; ë„˜
-    (=ks-x1001		. #x3351)	; ø»ˆµ˜
+    (=ks-x1001		. #x3351)	; &I-K0-3351;
     ))
 (define-char
   '((=ucs		. #xB119)	; ë„™
-    (=ks-x1001		. #x3352)	; ø»ˆµ™
+    (=ks-x1001		. #x3352)	; &I-K0-3352;
     ))
 (define-char
   '((=ucs		. #xB11B)	; ë„›
-    (=ks-x1001		. #x3353)	; ø»ˆµš
+    (=ks-x1001		. #x3353)	; &I-K0-3353;
     ))
 (define-char
   '((=ucs		. #xB11C)	; ë„œ
-    (=ks-x1001		. #x3354)	; ø»ˆµ›
+    (=ks-x1001		. #x3354)	; &I-K0-3354;
     ))
 (define-char
   '((=ucs		. #xB11D)	; ë„
-    (=ks-x1001		. #x3355)	; ø»ˆµœ
+    (=ks-x1001		. #x3355)	; &I-K0-3355;
     ))
 (define-char
   '((=ucs		. #xB123)	; ë„£
-    (=ks-x1001		. #x3356)	; ø»ˆµ
+    (=ks-x1001		. #x3356)	; &I-K0-3356;
     ))
 (define-char
   '((=ucs		. #xB124)	; ë„¤
-    (=ks-x1001		. #x3357)	; ø»ˆµž
+    (=ks-x1001		. #x3357)	; &I-K0-3357;
     ))
 (define-char
   '((=ucs		. #xB125)	; ë„¥
-    (=ks-x1001		. #x3358)	; ø»ˆµŸ
+    (=ks-x1001		. #x3358)	; &I-K0-3358;
     ))
 (define-char
   '((=ucs		. #xB128)	; ë„¨
-    (=ks-x1001		. #x3359)	; ø»ˆµ 
+    (=ks-x1001		. #x3359)	; &I-K0-3359;
     ))
 (define-char
   '((=ucs		. #xB12C)	; ë„¬
-    (=ks-x1001		. #x335A)	; ø»ˆµ¡
+    (=ks-x1001		. #x335A)	; &I-K0-335A;
     ))
 (define-char
   '((=ucs		. #xB134)	; ë„´
-    (=ks-x1001		. #x335B)	; ø»ˆµ¢
+    (=ks-x1001		. #x335B)	; &I-K0-335B;
     ))
 (define-char
   '((=ucs		. #xB135)	; ë„µ
-    (=ks-x1001		. #x335C)	; ø»ˆµ£
+    (=ks-x1001		. #x335C)	; &I-K0-335C;
     ))
 (define-char
   '((=ucs		. #xB137)	; ë„·
-    (=ks-x1001		. #x335D)	; ø»ˆµ¤
+    (=ks-x1001		. #x335D)	; &I-K0-335D;
     ))
 (define-char
   '((=ucs		. #xB138)	; ë„¸
-    (=ks-x1001		. #x335E)	; ø»ˆµ¥
+    (=ks-x1001		. #x335E)	; &I-K0-335E;
     ))
 (define-char
   '((=ucs		. #xB139)	; ë„¹
-    (=ks-x1001		. #x335F)	; ø»ˆµ¦
+    (=ks-x1001		. #x335F)	; &I-K0-335F;
     ))
 (define-char
   '((=ucs		. #xB140)	; ë…€
-    (=ks-x1001		. #x3360)	; ø»ˆµ§
+    (=ks-x1001		. #x3360)	; &I-K0-3360;
     ))
 (define-char
   '((=ucs		. #xB141)	; ë…
-    (=ks-x1001		. #x3361)	; ø»ˆµ¨
+    (=ks-x1001		. #x3361)	; &I-K0-3361;
     ))
 (define-char
   '((=ucs		. #xB144)	; ë…„
-    (=ks-x1001		. #x3362)	; ø»ˆµ©
+    (=ks-x1001		. #x3362)	; &I-K0-3362;
     ))
 (define-char
   '((=ucs		. #xB148)	; ë…ˆ
-    (=ks-x1001		. #x3363)	; ø»ˆµª
+    (=ks-x1001		. #x3363)	; &I-K0-3363;
     ))
 (define-char
   '((=ucs		. #xB150)	; ë…
-    (=ks-x1001		. #x3364)	; ø»ˆµ«
+    (=ks-x1001		. #x3364)	; &I-K0-3364;
     ))
 (define-char
   '((=ucs		. #xB151)	; ë…‘
-    (=ks-x1001		. #x3365)	; ø»ˆµ¬
+    (=ks-x1001		. #x3365)	; &I-K0-3365;
     ))
 (define-char
   '((=ucs		. #xB154)	; ë…”
-    (=ks-x1001		. #x3366)	; ø»ˆµ­
+    (=ks-x1001		. #x3366)	; &I-K0-3366;
     ))
 (define-char
   '((=ucs		. #xB155)	; ë…•
-    (=ks-x1001		. #x3367)	; ø»ˆµ®
+    (=ks-x1001		. #x3367)	; &I-K0-3367;
     ))
 (define-char
   '((=ucs		. #xB158)	; ë…˜
-    (=ks-x1001		. #x3368)	; ø»ˆµ¯
+    (=ks-x1001		. #x3368)	; &I-K0-3368;
     ))
 (define-char
   '((=ucs		. #xB15C)	; ë…œ
-    (=ks-x1001		. #x3369)	; ø»ˆµ°
+    (=ks-x1001		. #x3369)	; &I-K0-3369;
     ))
 (define-char
   '((=ucs		. #xB160)	; ë… 
-    (=ks-x1001		. #x336A)	; ø»ˆµ±
+    (=ks-x1001		. #x336A)	; &I-K0-336A;
     ))
 (define-char
   '((=ucs		. #xB178)	; ë…¸
-    (=ks-x1001		. #x336B)	; ø»ˆµ²
+    (=ks-x1001		. #x336B)	; &I-K0-336B;
     ))
 (define-char
   '((=ucs		. #xB179)	; ë…¹
-    (=ks-x1001		. #x336C)	; ø»ˆµ³
+    (=ks-x1001		. #x336C)	; &I-K0-336C;
     ))
 (define-char
   '((=ucs		. #xB17C)	; ë…¼
-    (=ks-x1001		. #x336D)	; ø»ˆµ´
-    (=jef-china3	. #x8CA6)	; øºˆ²¦
+    (=ks-x1001		. #x336D)	; &I-K0-336D;
+    (=jef-china3	. #x8CA6)	; &I-JC3-8CA6;
     ))
 (define-char
   '((=ucs		. #xB180)	; ë†€
-    (=ks-x1001		. #x336E)	; ø»ˆµµ
+    (=ks-x1001		. #x336E)	; &I-K0-336E;
     ))
 (define-char
   '((=ucs		. #xB182)	; ë†‚
-    (=ks-x1001		. #x336F)	; ø»ˆµ¶
+    (=ks-x1001		. #x336F)	; &I-K0-336F;
     ))
 (define-char
   '((=ucs		. #xB188)	; ë†ˆ
-    (=ks-x1001		. #x3370)	; ø»ˆµ·
+    (=ks-x1001		. #x3370)	; &I-K0-3370;
     ))
 (define-char
   '((=ucs		. #xB189)	; ë†‰
-    (=ks-x1001		. #x3371)	; ø»ˆµ¸
+    (=ks-x1001		. #x3371)	; &I-K0-3371;
     ))
 (define-char
   '((=ucs		. #xB18B)	; ë†‹
-    (=ks-x1001		. #x3372)	; ø»ˆµ¹
+    (=ks-x1001		. #x3372)	; &I-K0-3372;
     ))
 (define-char
   '((=ucs		. #xB18D)	; ë†
-    (=ks-x1001		. #x3373)	; ø»ˆµº
+    (=ks-x1001		. #x3373)	; &I-K0-3373;
     ))
 (define-char
   '((=ucs		. #xB192)	; ë†’
-    (=ks-x1001		. #x3374)	; ø»ˆµ»
+    (=ks-x1001		. #x3374)	; &I-K0-3374;
     ))
 (define-char
   '((=ucs		. #xB193)	; ë†“
-    (=ks-x1001		. #x3375)	; ø»ˆµ¼
+    (=ks-x1001		. #x3375)	; &I-K0-3375;
     ))
 (define-char
   '((=ucs		. #xB194)	; ë†”
-    (=ks-x1001		. #x3376)	; ø»ˆµ½
+    (=ks-x1001		. #x3376)	; &I-K0-3376;
     ))
 (define-char
   '((=ucs		. #xB198)	; ë†˜
-    (=ks-x1001		. #x3377)	; ø»ˆµ¾
+    (=ks-x1001		. #x3377)	; &I-K0-3377;
     ))
 (define-char
   '((=ucs		. #xB19C)	; ë†œ
-    (=ks-x1001		. #x3378)	; ø»ˆµ¿
+    (=ks-x1001		. #x3378)	; &I-K0-3378;
     ))
 (define-char
   '((=ucs		. #xB1A8)	; ë†¨
-    (=ks-x1001		. #x3379)	; ø»ˆ¶€
+    (=ks-x1001		. #x3379)	; &I-K0-3379;
     ))
 (define-char
   '((=ucs		. #xB1CC)	; ë‡Œ
-    (=ks-x1001		. #x337A)	; ø»ˆ¶
+    (=ks-x1001		. #x337A)	; &I-K0-337A;
     ))
 (define-char
   '((=ucs		. #xB1D0)	; ë‡
-    (=ks-x1001		. #x337B)	; ø»ˆ¶‚
+    (=ks-x1001		. #x337B)	; &I-K0-337B;
     ))
 (define-char
   '((=ucs		. #xB1D4)	; ë‡”
-    (=ks-x1001		. #x337C)	; ø»ˆ¶ƒ
+    (=ks-x1001		. #x337C)	; &I-K0-337C;
     ))
 (define-char
   '((=ucs		. #xB1DC)	; ë‡œ
-    (=ks-x1001		. #x337D)	; ø»ˆ¶„
+    (=ks-x1001		. #x337D)	; &I-K0-337D;
     ))
 (define-char
   '((=ucs		. #xB1DD)	; ë‡
-    (=ks-x1001		. #x337E)	; ø»ˆ¶…
+    (=ks-x1001		. #x337E)	; &I-K0-337E;
     ))
 (define-char
   '((=ucs		. #xB1DF)	; ë‡Ÿ
-    (=ks-x1001		. #x3421)	; ø»ˆ¶†
+    (=ks-x1001		. #x3421)	; &I-K0-3421;
     ))
 (define-char
   '((=ucs		. #xB1E8)	; ë‡¨
-    (=ks-x1001		. #x3422)	; ø»ˆ¶‡
+    (=ks-x1001		. #x3422)	; &I-K0-3422;
     ))
 (define-char
   '((=ucs		. #xB1E9)	; ë‡©
-    (=ks-x1001		. #x3423)	; ø»ˆ¶ˆ
+    (=ks-x1001		. #x3423)	; &I-K0-3423;
     ))
 (define-char
   '((=ucs		. #xB1EC)	; ë‡¬
-    (=ks-x1001		. #x3424)	; ø»ˆ¶‰
+    (=ks-x1001		. #x3424)	; &I-K0-3424;
     ))
 (define-char
   '((=ucs		. #xB1F0)	; ë‡°
-    (=ks-x1001		. #x3425)	; ø»ˆ¶Š
+    (=ks-x1001		. #x3425)	; &I-K0-3425;
     ))
 (define-char
   '((=ucs		. #xB1F9)	; ë‡¹
-    (=ks-x1001		. #x3426)	; ø»ˆ¶‹
+    (=ks-x1001		. #x3426)	; &I-K0-3426;
     ))
 (define-char
   '((=ucs		. #xB1FB)	; ë‡»
-    (=ks-x1001		. #x3427)	; ø»ˆ¶Œ
+    (=ks-x1001		. #x3427)	; &I-K0-3427;
     ))
 (define-char
   '((=ucs		. #xB1FD)	; ë‡½
-    (=ks-x1001		. #x3428)	; ø»ˆ¶
+    (=ks-x1001		. #x3428)	; &I-K0-3428;
     ))
 (define-char
   '((=ucs		. #xB204)	; ëˆ„
-    (=ks-x1001		. #x3429)	; ø»ˆ¶Ž
+    (=ks-x1001		. #x3429)	; &I-K0-3429;
     ))
 (define-char
   '((=ucs		. #xB205)	; ëˆ…
-    (=ks-x1001		. #x342A)	; ø»ˆ¶
+    (=ks-x1001		. #x342A)	; &I-K0-342A;
     ))
 (define-char
   '((=ucs		. #xB208)	; ëˆˆ
-    (=ks-x1001		. #x342B)	; ø»ˆ¶
+    (=ks-x1001		. #x342B)	; &I-K0-342B;
     ))
 (define-char
   '((=ucs		. #xB20B)	; ëˆ‹
-    (=ks-x1001		. #x342C)	; ø»ˆ¶‘
+    (=ks-x1001		. #x342C)	; &I-K0-342C;
     ))
 (define-char
   '((=ucs		. #xB20C)	; ëˆŒ
-    (=ks-x1001		. #x342D)	; ø»ˆ¶’
+    (=ks-x1001		. #x342D)	; &I-K0-342D;
     ))
 (define-char
   '((=ucs		. #xB214)	; ëˆ”
-    (=ks-x1001		. #x342E)	; ø»ˆ¶“
+    (=ks-x1001		. #x342E)	; &I-K0-342E;
     ))
 (define-char
   '((=ucs		. #xB215)	; ëˆ•
-    (=ks-x1001		. #x342F)	; ø»ˆ¶”
+    (=ks-x1001		. #x342F)	; &I-K0-342F;
     ))
 (define-char
   '((=ucs		. #xB217)	; ëˆ—
-    (=ks-x1001		. #x3430)	; ø»ˆ¶•
+    (=ks-x1001		. #x3430)	; &I-K0-3430;
     ))
 (define-char
   '((=ucs		. #xB219)	; ëˆ™
-    (=ks-x1001		. #x3431)	; ø»ˆ¶–
+    (=ks-x1001		. #x3431)	; &I-K0-3431;
     ))
 (define-char
   '((=ucs		. #xB220)	; ëˆ 
-    (=ks-x1001		. #x3432)	; ø»ˆ¶—
+    (=ks-x1001		. #x3432)	; &I-K0-3432;
     ))
 (define-char
   '((=ucs		. #xB234)	; ëˆ´
-    (=ks-x1001		. #x3433)	; ø»ˆ¶˜
+    (=ks-x1001		. #x3433)	; &I-K0-3433;
     ))
 (define-char
   '((=ucs		. #xB23C)	; ëˆ¼
-    (=ks-x1001		. #x3434)	; ø»ˆ¶™
+    (=ks-x1001		. #x3434)	; &I-K0-3434;
     ))
 (define-char
   '((=ucs		. #xB258)	; ë‰˜
-    (=ks-x1001		. #x3435)	; ø»ˆ¶š
+    (=ks-x1001		. #x3435)	; &I-K0-3435;
     ))
 (define-char
   '((=ucs		. #xB25C)	; ë‰œ
-    (=ks-x1001		. #x3436)	; ø»ˆ¶›
+    (=ks-x1001		. #x3436)	; &I-K0-3436;
     ))
 (define-char
   '((=ucs		. #xB260)	; ë‰ 
-    (=ks-x1001		. #x3437)	; ø»ˆ¶œ
+    (=ks-x1001		. #x3437)	; &I-K0-3437;
     ))
 (define-char
   '((=ucs		. #xB268)	; ë‰¨
-    (=ks-x1001		. #x3438)	; ø»ˆ¶
+    (=ks-x1001		. #x3438)	; &I-K0-3438;
     ))
 (define-char
   '((=ucs		. #xB269)	; ë‰©
-    (=ks-x1001		. #x3439)	; ø»ˆ¶ž
+    (=ks-x1001		. #x3439)	; &I-K0-3439;
     ))
 (define-char
   '((=ucs		. #xB274)	; ë‰´
-    (=ks-x1001		. #x343A)	; ø»ˆ¶Ÿ
+    (=ks-x1001		. #x343A)	; &I-K0-343A;
     ))
 (define-char
   '((=ucs		. #xB275)	; ë‰µ
-    (=ks-x1001		. #x343B)	; ø»ˆ¶ 
+    (=ks-x1001		. #x343B)	; &I-K0-343B;
     ))
 (define-char
   '((=ucs		. #xB27C)	; ë‰¼
-    (=ks-x1001		. #x343C)	; ø»ˆ¶¡
+    (=ks-x1001		. #x343C)	; &I-K0-343C;
     ))
 (define-char
   '((=ucs		. #xB284)	; ëŠ„
-    (=ks-x1001		. #x343D)	; ø»ˆ¶¢
+    (=ks-x1001		. #x343D)	; &I-K0-343D;
     ))
 (define-char
   '((=ucs		. #xB285)	; ëŠ…
-    (=ks-x1001		. #x343E)	; ø»ˆ¶£
+    (=ks-x1001		. #x343E)	; &I-K0-343E;
     ))
 (define-char
   '((=ucs		. #xB289)	; ëŠ‰
-    (=ks-x1001		. #x343F)	; ø»ˆ¶¤
+    (=ks-x1001		. #x343F)	; &I-K0-343F;
     ))
 (define-char
   '((=ucs		. #xB290)	; ëŠ
-    (=ks-x1001		. #x3440)	; ø»ˆ¶¥
+    (=ks-x1001		. #x3440)	; &I-K0-3440;
     ))
 (define-char
   '((=ucs		. #xB291)	; ëŠ‘
-    (=ks-x1001		. #x3441)	; ø»ˆ¶¦
+    (=ks-x1001		. #x3441)	; &I-K0-3441;
     ))
 (define-char
   '((=ucs		. #xB294)	; ëŠ”
-    (=ks-x1001		. #x3442)	; ø»ˆ¶§
-    (=jef-china3	. #x82CD)	; øºˆ‹
+    (=ks-x1001		. #x3442)	; &I-K0-3442;
+    (=jef-china3	. #x82CD)	; &I-JC3-82CD;
     ))
 (define-char
   '((=ucs		. #xB298)	; ëŠ˜
-    (=ks-x1001		. #x3443)	; ø»ˆ¶¨
+    (=ks-x1001		. #x3443)	; &I-K0-3443;
     ))
 (define-char
   '((=ucs		. #xB299)	; ëŠ™
-    (=ks-x1001		. #x3444)	; ø»ˆ¶©
+    (=ks-x1001		. #x3444)	; &I-K0-3444;
     ))
 (define-char
   '((=ucs		. #xB29A)	; ëŠš
-    (=ks-x1001		. #x3445)	; ø»ˆ¶ª
+    (=ks-x1001		. #x3445)	; &I-K0-3445;
     ))
 (define-char
   '((=ucs		. #xB2A0)	; ëŠ 
-    (=ks-x1001		. #x3446)	; ø»ˆ¶«
+    (=ks-x1001		. #x3446)	; &I-K0-3446;
     ))
 (define-char
   '((=ucs		. #xB2A1)	; ëŠ¡
-    (=ks-x1001		. #x3447)	; ø»ˆ¶¬
+    (=ks-x1001		. #x3447)	; &I-K0-3447;
     ))
 (define-char
   '((=ucs		. #xB2A3)	; ëŠ£
-    (=ks-x1001		. #x3448)	; ø»ˆ¶­
+    (=ks-x1001		. #x3448)	; &I-K0-3448;
     ))
 (define-char
   '((=ucs		. #xB2A5)	; ëŠ¥
-    (=ks-x1001		. #x3449)	; ø»ˆ¶®
+    (=ks-x1001		. #x3449)	; &I-K0-3449;
     ))
 (define-char
   '((=ucs		. #xB2A6)	; ëŠ¦
-    (=ks-x1001		. #x344A)	; ø»ˆ¶¯
+    (=ks-x1001		. #x344A)	; &I-K0-344A;
     ))
 (define-char
   '((=ucs		. #xB2AA)	; ëŠª
-    (=ks-x1001		. #x344B)	; ø»ˆ¶°
+    (=ks-x1001		. #x344B)	; &I-K0-344B;
     ))
 (define-char
   '((=ucs		. #xB2AC)	; ëŠ¬
-    (=ks-x1001		. #x344C)	; ø»ˆ¶±
+    (=ks-x1001		. #x344C)	; &I-K0-344C;
     ))
 (define-char
   '((=ucs		. #xB2B0)	; ëŠ°
-    (=ks-x1001		. #x344D)	; ø»ˆ¶²
+    (=ks-x1001		. #x344D)	; &I-K0-344D;
     ))
 (define-char
   '((=ucs		. #xB2B4)	; ëŠ´
-    (=ks-x1001		. #x344E)	; ø»ˆ¶³
+    (=ks-x1001		. #x344E)	; &I-K0-344E;
     ))
 (define-char
   '((=ucs		. #xB2C8)	; ë‹ˆ
-    (=ks-x1001		. #x344F)	; ø»ˆ¶´
+    (=ks-x1001		. #x344F)	; &I-K0-344F;
     ))
 (define-char
   '((=ucs		. #xB2C9)	; ë‹‰
-    (=ks-x1001		. #x3450)	; ø»ˆ¶µ
+    (=ks-x1001		. #x3450)	; &I-K0-3450;
     ))
 (define-char
   '((=ucs		. #xB2CC)	; ë‹Œ
-    (=ks-x1001		. #x3451)	; ø»ˆ¶¶
+    (=ks-x1001		. #x3451)	; &I-K0-3451;
     ))
 (define-char
   '((=ucs		. #xB2D0)	; ë‹
-    (=ks-x1001		. #x3452)	; ø»ˆ¶·
+    (=ks-x1001		. #x3452)	; &I-K0-3452;
     ))
 (define-char
   '((=ucs		. #xB2D2)	; ë‹’
-    (=ks-x1001		. #x3453)	; ø»ˆ¶¸
+    (=ks-x1001		. #x3453)	; &I-K0-3453;
     ))
 (define-char
   '((=ucs		. #xB2D8)	; ë‹˜
-    (=ks-x1001		. #x3454)	; ø»ˆ¶¹
+    (=ks-x1001		. #x3454)	; &I-K0-3454;
     ))
 (define-char
   '((=ucs		. #xB2D9)	; ë‹™
-    (=ks-x1001		. #x3455)	; ø»ˆ¶º
+    (=ks-x1001		. #x3455)	; &I-K0-3455;
     ))
 (define-char
   '((=ucs		. #xB2DB)	; ë‹›
-    (=ks-x1001		. #x3456)	; ø»ˆ¶»
+    (=ks-x1001		. #x3456)	; &I-K0-3456;
     ))
 (define-char
   '((=ucs		. #xB2DD)	; ë‹
-    (=ks-x1001		. #x3457)	; ø»ˆ¶¼
+    (=ks-x1001		. #x3457)	; &I-K0-3457;
     ))
 (define-char
   '((=ucs		. #xB2E2)	; ë‹¢
-    (=ks-x1001		. #x3458)	; ø»ˆ¶½
+    (=ks-x1001		. #x3458)	; &I-K0-3458;
     ))
 (define-char
   '((=ucs		. #xB2E4)	; ë‹¤
-    (=ks-x1001		. #x3459)	; ø»ˆ¶¾
+    (=ks-x1001		. #x3459)	; &I-K0-3459;
     ))
 (define-char
   '((=ucs		. #xB2E5)	; ë‹¥
-    (=ks-x1001		. #x345A)	; ø»ˆ¶¿
+    (=ks-x1001		. #x345A)	; &I-K0-345A;
     ))
 (define-char
   '((=ucs		. #xB2E6)	; ë‹¦
-    (=ks-x1001		. #x345B)	; ø»ˆ·€
+    (=ks-x1001		. #x345B)	; &I-K0-345B;
     ))
 (define-char
   '((=ucs		. #xB2E8)	; ë‹¨
-    (=ks-x1001		. #x345C)	; ø»ˆ·
+    (=ks-x1001		. #x345C)	; &I-K0-345C;
     ))
 (define-char
   '((=ucs		. #xB2EB)	; ë‹«
-    (=ks-x1001		. #x345D)	; ø»ˆ·‚
+    (=ks-x1001		. #x345D)	; &I-K0-345D;
     ))
 (define-char
   '((=ucs		. #xB2EC)	; ë‹¬
-    (=ks-x1001		. #x345E)	; ø»ˆ·ƒ
+    (=ks-x1001		. #x345E)	; &I-K0-345E;
     ))
 (define-char
   '((=ucs		. #xB2ED)	; ë‹­
-    (=ks-x1001		. #x345F)	; ø»ˆ·„
+    (=ks-x1001		. #x345F)	; &I-K0-345F;
     ))
 (define-char
   '((=ucs		. #xB2EE)	; ë‹®
-    (=ks-x1001		. #x3460)	; ø»ˆ·…
+    (=ks-x1001		. #x3460)	; &I-K0-3460;
     ))
 (define-char
   '((=ucs		. #xB2EF)	; ë‹¯
-    (=ks-x1001		. #x3461)	; ø»ˆ·†
+    (=ks-x1001		. #x3461)	; &I-K0-3461;
     ))
 (define-char
   '((=ucs		. #xB2F3)	; ë‹³
-    (=ks-x1001		. #x3462)	; ø»ˆ·‡
+    (=ks-x1001		. #x3462)	; &I-K0-3462;
     ))
 (define-char
   '((=ucs		. #xB2F4)	; ë‹´
-    (=ks-x1001		. #x3463)	; ø»ˆ·ˆ
+    (=ks-x1001		. #x3463)	; &I-K0-3463;
     ))
 (define-char
   '((=ucs		. #xB2F5)	; ë‹µ
-    (=ks-x1001		. #x3464)	; ø»ˆ·‰
+    (=ks-x1001		. #x3464)	; &I-K0-3464;
     ))
 (define-char
   '((=ucs		. #xB2F7)	; ë‹·
-    (=ks-x1001		. #x3465)	; ø»ˆ·Š
+    (=ks-x1001		. #x3465)	; &I-K0-3465;
     ))
 (define-char
   '((=ucs		. #xB2F8)	; ë‹¸
-    (=ks-x1001		. #x3466)	; ø»ˆ·‹
+    (=ks-x1001		. #x3466)	; &I-K0-3466;
     ))
 (define-char
   '((=ucs		. #xB2F9)	; ë‹¹
-    (=ks-x1001		. #x3467)	; ø»ˆ·Œ
+    (=ks-x1001		. #x3467)	; &I-K0-3467;
     ))
 (define-char
   '((=ucs		. #xB2FA)	; ë‹º
-    (=ks-x1001		. #x3468)	; ø»ˆ·
+    (=ks-x1001		. #x3468)	; &I-K0-3468;
     ))
 (define-char
   '((=ucs		. #xB2FB)	; ë‹»
-    (=ks-x1001		. #x3469)	; ø»ˆ·Ž
+    (=ks-x1001		. #x3469)	; &I-K0-3469;
     ))
 (define-char
   '((=ucs		. #xB2FF)	; ë‹¿
-    (=ks-x1001		. #x346A)	; ø»ˆ·
+    (=ks-x1001		. #x346A)	; &I-K0-346A;
     ))
 (define-char
   '((=ucs		. #xB300)	; ëŒ€
-    (=ks-x1001		. #x346B)	; ø»ˆ·
-    (=jef-china3	. #x93FC)	; øº‰¼
+    (=ks-x1001		. #x346B)	; &I-K0-346B;
+    (=jef-china3	. #x93FC)	; &I-JC3-93FC;
     ))
 (define-char
   '((=ucs		. #xB301)	; ëŒ
-    (=ks-x1001		. #x346C)	; ø»ˆ·‘
+    (=ks-x1001		. #x346C)	; &I-K0-346C;
     ))
 (define-char
   '((=ucs		. #xB304)	; ëŒ„
-    (=ks-x1001		. #x346D)	; ø»ˆ·’
+    (=ks-x1001		. #x346D)	; &I-K0-346D;
     ))
 (define-char
   '((=ucs		. #xB308)	; ëŒˆ
-    (=ks-x1001		. #x346E)	; ø»ˆ·“
+    (=ks-x1001		. #x346E)	; &I-K0-346E;
     ))
 (define-char
   '((=ucs		. #xB310)	; ëŒ
-    (=ks-x1001		. #x346F)	; ø»ˆ·”
+    (=ks-x1001		. #x346F)	; &I-K0-346F;
     ))
 (define-char
   '((=ucs		. #xB311)	; ëŒ‘
-    (=ks-x1001		. #x3470)	; ø»ˆ·•
+    (=ks-x1001		. #x3470)	; &I-K0-3470;
     ))
 (define-char
   '((=ucs		. #xB313)	; ëŒ“
-    (=ks-x1001		. #x3471)	; ø»ˆ·–
+    (=ks-x1001		. #x3471)	; &I-K0-3471;
     ))
 (define-char
   '((=ucs		. #xB314)	; ëŒ”
-    (=ks-x1001		. #x3472)	; ø»ˆ·—
+    (=ks-x1001		. #x3472)	; &I-K0-3472;
     ))
 (define-char
   '((=ucs		. #xB315)	; ëŒ•
-    (=ks-x1001		. #x3473)	; ø»ˆ·˜
+    (=ks-x1001		. #x3473)	; &I-K0-3473;
     ))
 (define-char
   '((=ucs		. #xB31C)	; ëŒœ
-    (=ks-x1001		. #x3474)	; ø»ˆ·™
+    (=ks-x1001		. #x3474)	; &I-K0-3474;
     ))
 (define-char
   '((=ucs		. #xB354)	; ë”
-    (=ks-x1001		. #x3475)	; ø»ˆ·š
+    (=ks-x1001		. #x3475)	; &I-K0-3475;
     ))
 (define-char
   '((=ucs		. #xB355)	; ë•
-    (=ks-x1001		. #x3476)	; ø»ˆ·›
+    (=ks-x1001		. #x3476)	; &I-K0-3476;
     ))
 (define-char
   '((=ucs		. #xB356)	; ë–
-    (=ks-x1001		. #x3477)	; ø»ˆ·œ
+    (=ks-x1001		. #x3477)	; &I-K0-3477;
     ))
 (define-char
   '((=ucs		. #xB358)	; ë˜
-    (=ks-x1001		. #x3478)	; ø»ˆ·
+    (=ks-x1001		. #x3478)	; &I-K0-3478;
     ))
 (define-char
   '((=ucs		. #xB35B)	; ë›
-    (=ks-x1001		. #x3479)	; ø»ˆ·ž
+    (=ks-x1001		. #x3479)	; &I-K0-3479;
     ))
 (define-char
   '((=ucs		. #xB35C)	; ëœ
-    (=ks-x1001		. #x347A)	; ø»ˆ·Ÿ
+    (=ks-x1001		. #x347A)	; &I-K0-347A;
     ))
 (define-char
   '((=ucs		. #xB35E)	; ëž
-    (=ks-x1001		. #x347B)	; ø»ˆ· 
+    (=ks-x1001		. #x347B)	; &I-K0-347B;
     ))
 (define-char
   '((=ucs		. #xB35F)	; ëŸ
-    (=ks-x1001		. #x347C)	; ø»ˆ·¡
+    (=ks-x1001		. #x347C)	; &I-K0-347C;
     ))
 (define-char
   '((=ucs		. #xB364)	; ë¤
-    (=ks-x1001		. #x347D)	; ø»ˆ·¢
+    (=ks-x1001		. #x347D)	; &I-K0-347D;
     ))
 (define-char
   '((=ucs		. #xB365)	; ë¥
-    (=ks-x1001		. #x347E)	; ø»ˆ·£
+    (=ks-x1001		. #x347E)	; &I-K0-347E;
     ))
 (define-char
   '((=ucs		. #xB367)	; ë§
-    (=ks-x1001		. #x3521)	; ø»ˆ·¤
+    (=ks-x1001		. #x3521)	; &I-K0-3521;
     ))
 (define-char
   '((=ucs		. #xB369)	; ë©
-    (=ks-x1001		. #x3522)	; ø»ˆ·¥
+    (=ks-x1001		. #x3522)	; &I-K0-3522;
     ))
 (define-char
   '((=ucs		. #xB36B)	; ë«
-    (=ks-x1001		. #x3523)	; ø»ˆ·¦
+    (=ks-x1001		. #x3523)	; &I-K0-3523;
     ))
 (define-char
   '((=ucs		. #xB36E)	; ë®
-    (=ks-x1001		. #x3524)	; ø»ˆ·§
+    (=ks-x1001		. #x3524)	; &I-K0-3524;
     ))
 (define-char
   '((=ucs		. #xB370)	; ë°
-    (=ks-x1001		. #x3525)	; ø»ˆ·¨
-    (=jef-china3	. #x97B0)	; øº‰ž°
+    (=ks-x1001		. #x3525)	; &I-K0-3525;
+    (=jef-china3	. #x97B0)	; &I-JC3-97B0;
     ))
 (define-char
   '((=ucs		. #xB371)	; ë±
-    (=ks-x1001		. #x3526)	; ø»ˆ·©
+    (=ks-x1001		. #x3526)	; &I-K0-3526;
     ))
 (define-char
   '((=ucs		. #xB374)	; ë´
-    (=ks-x1001		. #x3527)	; ø»ˆ·ª
+    (=ks-x1001		. #x3527)	; &I-K0-3527;
     ))
 (define-char
   '((=ucs		. #xB378)	; ë¸
-    (=ks-x1001		. #x3528)	; ø»ˆ·«
+    (=ks-x1001		. #x3528)	; &I-K0-3528;
     ))
 (define-char
   '((=ucs		. #xB380)	; ëŽ€
-    (=ks-x1001		. #x3529)	; ø»ˆ·¬
+    (=ks-x1001		. #x3529)	; &I-K0-3529;
     ))
 (define-char
   '((=ucs		. #xB381)	; ëŽ
-    (=ks-x1001		. #x352A)	; ø»ˆ·­
+    (=ks-x1001		. #x352A)	; &I-K0-352A;
     ))
 (define-char
   '((=ucs		. #xB383)	; ëŽƒ
-    (=ks-x1001		. #x352B)	; ø»ˆ·®
+    (=ks-x1001		. #x352B)	; &I-K0-352B;
     ))
 (define-char
   '((=ucs		. #xB384)	; ëŽ„
-    (=ks-x1001		. #x352C)	; ø»ˆ·¯
+    (=ks-x1001		. #x352C)	; &I-K0-352C;
     ))
 (define-char
   '((=ucs		. #xB385)	; ëŽ…
-    (=ks-x1001		. #x352D)	; ø»ˆ·°
+    (=ks-x1001		. #x352D)	; &I-K0-352D;
     ))
 (define-char
   '((=ucs		. #xB38C)	; ëŽŒ
-    (=ks-x1001		. #x352E)	; ø»ˆ·±
+    (=ks-x1001		. #x352E)	; &I-K0-352E;
     ))
 (define-char
   '((=ucs		. #xB390)	; ëŽ
-    (=ks-x1001		. #x352F)	; ø»ˆ·²
+    (=ks-x1001		. #x352F)	; &I-K0-352F;
     ))
 (define-char
   '((=ucs		. #xB394)	; ëŽ”
-    (=ks-x1001		. #x3530)	; ø»ˆ·³
+    (=ks-x1001		. #x3530)	; &I-K0-3530;
     ))
 (define-char
   '((=ucs		. #xB3A0)	; ëŽ 
-    (=ks-x1001		. #x3531)	; ø»ˆ·´
+    (=ks-x1001		. #x3531)	; &I-K0-3531;
     ))
 (define-char
   '((=ucs		. #xB3A1)	; ëŽ¡
-    (=ks-x1001		. #x3532)	; ø»ˆ·µ
+    (=ks-x1001		. #x3532)	; &I-K0-3532;
     ))
 (define-char
   '((=ucs		. #xB3A8)	; ëŽ¨
-    (=ks-x1001		. #x3533)	; ø»ˆ·¶
+    (=ks-x1001		. #x3533)	; &I-K0-3533;
     ))
 (define-char
   '((=ucs		. #xB3AC)	; ëŽ¬
-    (=ks-x1001		. #x3534)	; ø»ˆ··
+    (=ks-x1001		. #x3534)	; &I-K0-3534;
     ))
 (define-char
   '((=ucs		. #xB3C4)	; ë„
-    (=ks-x1001		. #x3535)	; ø»ˆ·¸
+    (=ks-x1001		. #x3535)	; &I-K0-3535;
     ))
 (define-char
   '((=ucs		. #xB3C5)	; ë…
-    (=ks-x1001		. #x3536)	; ø»ˆ·¹
+    (=ks-x1001		. #x3536)	; &I-K0-3536;
     ))
 (define-char
   '((=ucs		. #xB3C8)	; ëˆ
-    (=ks-x1001		. #x3537)	; ø»ˆ·º
+    (=ks-x1001		. #x3537)	; &I-K0-3537;
     ))
 (define-char
   '((=ucs		. #xB3CB)	; ë‹
-    (=ks-x1001		. #x3538)	; ø»ˆ·»
+    (=ks-x1001		. #x3538)	; &I-K0-3538;
     ))
 (define-char
   '((=ucs		. #xB3CC)	; ëŒ
-    (=ks-x1001		. #x3539)	; ø»ˆ·¼
+    (=ks-x1001		. #x3539)	; &I-K0-3539;
     ))
 (define-char
   '((=ucs		. #xB3CE)	; ëŽ
-    (=ks-x1001		. #x353A)	; ø»ˆ·½
+    (=ks-x1001		. #x353A)	; &I-K0-353A;
     ))
 (define-char
   '((=ucs		. #xB3D0)	; ë
-    (=ks-x1001		. #x353B)	; ø»ˆ·¾
+    (=ks-x1001		. #x353B)	; &I-K0-353B;
     ))
 (define-char
   '((=ucs		. #xB3D4)	; ë”
-    (=ks-x1001		. #x353C)	; ø»ˆ·¿
+    (=ks-x1001		. #x353C)	; &I-K0-353C;
     ))
 (define-char
   '((=ucs		. #xB3D5)	; ë•
-    (=ks-x1001		. #x353D)	; ø»ˆ¸€
+    (=ks-x1001		. #x353D)	; &I-K0-353D;
     ))
 (define-char
   '((=ucs		. #xB3D7)	; ë—
-    (=ks-x1001		. #x353E)	; ø»ˆ¸
+    (=ks-x1001		. #x353E)	; &I-K0-353E;
     ))
 (define-char
   '((=ucs		. #xB3D9)	; ë™
-    (=ks-x1001		. #x353F)	; ø»ˆ¸‚
+    (=ks-x1001		. #x353F)	; &I-K0-353F;
     ))
 (define-char
   '((=ucs		. #xB3DB)	; ë›
-    (=ks-x1001		. #x3540)	; ø»ˆ¸ƒ
+    (=ks-x1001		. #x3540)	; &I-K0-3540;
     ))
 (define-char
   '((=ucs		. #xB3DD)	; ë
-    (=ks-x1001		. #x3541)	; ø»ˆ¸„
+    (=ks-x1001		. #x3541)	; &I-K0-3541;
     ))
 (define-char
   '((=ucs		. #xB3E0)	; ë 
-    (=ks-x1001		. #x3542)	; ø»ˆ¸…
+    (=ks-x1001		. #x3542)	; &I-K0-3542;
     ))
 (define-char
   '((=ucs		. #xB3E4)	; ë¤
-    (=ks-x1001		. #x3543)	; ø»ˆ¸†
+    (=ks-x1001		. #x3543)	; &I-K0-3543;
     ))
 (define-char
   '((=ucs		. #xB3E8)	; ë¨
-    (=ks-x1001		. #x3544)	; ø»ˆ¸‡
+    (=ks-x1001		. #x3544)	; &I-K0-3544;
     ))
 (define-char
   '((=ucs		. #xB3FC)	; ë¼
-    (=ks-x1001		. #x3545)	; ø»ˆ¸ˆ
+    (=ks-x1001		. #x3545)	; &I-K0-3545;
     ))
 (define-char
   '((=ucs		. #xB410)	; ë
-    (=ks-x1001		. #x3546)	; ø»ˆ¸‰
+    (=ks-x1001		. #x3546)	; &I-K0-3546;
     ))
 (define-char
   '((=ucs		. #xB418)	; ë˜
-    (=ks-x1001		. #x3547)	; ø»ˆ¸Š
+    (=ks-x1001		. #x3547)	; &I-K0-3547;
     ))
 (define-char
   '((=ucs		. #xB41C)	; ëœ
-    (=ks-x1001		. #x3548)	; ø»ˆ¸‹
+    (=ks-x1001		. #x3548)	; &I-K0-3548;
     ))
 (define-char
   '((=ucs		. #xB420)	; ë 
-    (=ks-x1001		. #x3549)	; ø»ˆ¸Œ
+    (=ks-x1001		. #x3549)	; &I-K0-3549;
     ))
 (define-char
   '((=ucs		. #xB428)	; ë¨
-    (=ks-x1001		. #x354A)	; ø»ˆ¸
+    (=ks-x1001		. #x354A)	; &I-K0-354A;
     ))
 (define-char
   '((=ucs		. #xB429)	; ë©
-    (=ks-x1001		. #x354B)	; ø»ˆ¸Ž
+    (=ks-x1001		. #x354B)	; &I-K0-354B;
     ))
 (define-char
   '((=ucs		. #xB42B)	; ë«
-    (=ks-x1001		. #x354C)	; ø»ˆ¸
+    (=ks-x1001		. #x354C)	; &I-K0-354C;
     ))
 (define-char
   '((=ucs		. #xB434)	; ë´
-    (=ks-x1001		. #x354D)	; ø»ˆ¸
+    (=ks-x1001		. #x354D)	; &I-K0-354D;
     ))
 (define-char
   '((=ucs		. #xB450)	; ë‘
-    (=ks-x1001		. #x354E)	; ø»ˆ¸‘
+    (=ks-x1001		. #x354E)	; &I-K0-354E;
     ))
 (define-char
   '((=ucs		. #xB451)	; ë‘‘
-    (=ks-x1001		. #x354F)	; ø»ˆ¸’
+    (=ks-x1001		. #x354F)	; &I-K0-354F;
     ))
 (define-char
   '((=ucs		. #xB454)	; ë‘”
-    (=ks-x1001		. #x3550)	; ø»ˆ¸“
+    (=ks-x1001		. #x3550)	; &I-K0-3550;
     ))
 (define-char
   '((=ucs		. #xB458)	; ë‘˜
-    (=ks-x1001		. #x3551)	; ø»ˆ¸”
+    (=ks-x1001		. #x3551)	; &I-K0-3551;
     ))
 (define-char
   '((=ucs		. #xB460)	; ë‘ 
-    (=ks-x1001		. #x3552)	; ø»ˆ¸•
+    (=ks-x1001		. #x3552)	; &I-K0-3552;
     ))
 (define-char
   '((=ucs		. #xB461)	; ë‘¡
-    (=ks-x1001		. #x3553)	; ø»ˆ¸–
+    (=ks-x1001		. #x3553)	; &I-K0-3553;
     ))
 (define-char
   '((=ucs		. #xB463)	; ë‘£
-    (=ks-x1001		. #x3554)	; ø»ˆ¸—
+    (=ks-x1001		. #x3554)	; &I-K0-3554;
     ))
 (define-char
   '((=ucs		. #xB465)	; ë‘¥
-    (=ks-x1001		. #x3555)	; ø»ˆ¸˜
+    (=ks-x1001		. #x3555)	; &I-K0-3555;
     ))
 (define-char
   '((=ucs		. #xB46C)	; ë‘¬
-    (=ks-x1001		. #x3556)	; ø»ˆ¸™
+    (=ks-x1001		. #x3556)	; &I-K0-3556;
     ))
 (define-char
   '((=ucs		. #xB480)	; ë’€
-    (=ks-x1001		. #x3557)	; ø»ˆ¸š
+    (=ks-x1001		. #x3557)	; &I-K0-3557;
     ))
 (define-char
   '((=ucs		. #xB488)	; ë’ˆ
-    (=ks-x1001		. #x3558)	; ø»ˆ¸›
+    (=ks-x1001		. #x3558)	; &I-K0-3558;
     ))
 (define-char
   '((=ucs		. #xB49D)	; ë’
-    (=ks-x1001		. #x3559)	; ø»ˆ¸œ
+    (=ks-x1001		. #x3559)	; &I-K0-3559;
     ))
 (define-char
   '((=ucs		. #xB4A4)	; ë’¤
-    (=ks-x1001		. #x355A)	; ø»ˆ¸
+    (=ks-x1001		. #x355A)	; &I-K0-355A;
     ))
 (define-char
   '((=ucs		. #xB4A8)	; ë’¨
-    (=ks-x1001		. #x355B)	; ø»ˆ¸ž
+    (=ks-x1001		. #x355B)	; &I-K0-355B;
     ))
 (define-char
   '((=ucs		. #xB4AC)	; ë’¬
-    (=ks-x1001		. #x355C)	; ø»ˆ¸Ÿ
+    (=ks-x1001		. #x355C)	; &I-K0-355C;
     ))
 (define-char
   '((=ucs		. #xB4B5)	; ë’µ
-    (=ks-x1001		. #x355D)	; ø»ˆ¸ 
+    (=ks-x1001		. #x355D)	; &I-K0-355D;
     ))
 (define-char
   '((=ucs		. #xB4B7)	; ë’·
-    (=ks-x1001		. #x355E)	; ø»ˆ¸¡
+    (=ks-x1001		. #x355E)	; &I-K0-355E;
     ))
 (define-char
   '((=ucs		. #xB4B9)	; ë’¹
-    (=ks-x1001		. #x355F)	; ø»ˆ¸¢
+    (=ks-x1001		. #x355F)	; &I-K0-355F;
     ))
 (define-char
   '((=ucs		. #xB4C0)	; ë“€
-    (=ks-x1001		. #x3560)	; ø»ˆ¸£
+    (=ks-x1001		. #x3560)	; &I-K0-3560;
     ))
 (define-char
   '((=ucs		. #xB4C4)	; ë“„
-    (=ks-x1001		. #x3561)	; ø»ˆ¸¤
+    (=ks-x1001		. #x3561)	; &I-K0-3561;
     ))
 (define-char
   '((=ucs		. #xB4C8)	; ë“ˆ
-    (=ks-x1001		. #x3562)	; ø»ˆ¸¥
+    (=ks-x1001		. #x3562)	; &I-K0-3562;
     ))
 (define-char
   '((=ucs		. #xB4D0)	; ë“
-    (=ks-x1001		. #x3563)	; ø»ˆ¸¦
+    (=ks-x1001		. #x3563)	; &I-K0-3563;
     ))
 (define-char
   '((=ucs		. #xB4D5)	; ë“•
-    (=ks-x1001		. #x3564)	; ø»ˆ¸§
+    (=ks-x1001		. #x3564)	; &I-K0-3564;
     ))
 (define-char
   '((=ucs		. #xB4DC)	; ë“œ
-    (=ks-x1001		. #x3565)	; ø»ˆ¸¨
+    (=ks-x1001		. #x3565)	; &I-K0-3565;
     ))
 (define-char
   '((=ucs		. #xB4DD)	; ë“
-    (=ks-x1001		. #x3566)	; ø»ˆ¸©
+    (=ks-x1001		. #x3566)	; &I-K0-3566;
     ))
 (define-char
   '((=ucs		. #xB4E0)	; ë“ 
-    (=ks-x1001		. #x3567)	; ø»ˆ¸ª
+    (=ks-x1001		. #x3567)	; &I-K0-3567;
     ))
 (define-char
   '((=ucs		. #xB4E3)	; ë“£
-    (=ks-x1001		. #x3568)	; ø»ˆ¸«
+    (=ks-x1001		. #x3568)	; &I-K0-3568;
     ))
 (define-char
   '((=ucs		. #xB4E4)	; ë“¤
-    (=ks-x1001		. #x3569)	; ø»ˆ¸¬
+    (=ks-x1001		. #x3569)	; &I-K0-3569;
     ))
 (define-char
   '((=ucs		. #xB4E6)	; ë“¦
-    (=ks-x1001		. #x356A)	; ø»ˆ¸­
+    (=ks-x1001		. #x356A)	; &I-K0-356A;
     ))
 (define-char
   '((=ucs		. #xB4EC)	; ë“¬
-    (=ks-x1001		. #x356B)	; ø»ˆ¸®
+    (=ks-x1001		. #x356B)	; &I-K0-356B;
     ))
 (define-char
   '((=ucs		. #xB4ED)	; ë“­
-    (=ks-x1001		. #x356C)	; ø»ˆ¸¯
+    (=ks-x1001		. #x356C)	; &I-K0-356C;
     ))
 (define-char
   '((=ucs		. #xB4EF)	; ë“¯
-    (=ks-x1001		. #x356D)	; ø»ˆ¸°
+    (=ks-x1001		. #x356D)	; &I-K0-356D;
     ))
 (define-char
   '((=ucs		. #xB4F1)	; ë“±
-    (=ks-x1001		. #x356E)	; ø»ˆ¸±
-    (=jef-china3	. #x8CB3)	; øºˆ²³
+    (=ks-x1001		. #x356E)	; &I-K0-356E;
+    (=jef-china3	. #x8CB3)	; &I-JC3-8CB3;
     ))
 (define-char
   '((=ucs		. #xB4F8)	; ë“¸
-    (=ks-x1001		. #x356F)	; ø»ˆ¸²
+    (=ks-x1001		. #x356F)	; &I-K0-356F;
     ))
 (define-char
   '((=ucs		. #xB514)	; ë””
-    (=ks-x1001		. #x3570)	; ø»ˆ¸³
+    (=ks-x1001		. #x3570)	; &I-K0-3570;
     ))
 (define-char
   '((=ucs		. #xB515)	; ë”•
-    (=ks-x1001		. #x3571)	; ø»ˆ¸´
+    (=ks-x1001		. #x3571)	; &I-K0-3571;
     ))
 (define-char
   '((=ucs		. #xB518)	; ë”˜
-    (=ks-x1001		. #x3572)	; ø»ˆ¸µ
+    (=ks-x1001		. #x3572)	; &I-K0-3572;
     ))
 (define-char
   '((=ucs		. #xB51B)	; ë”›
-    (=ks-x1001		. #x3573)	; ø»ˆ¸¶
+    (=ks-x1001		. #x3573)	; &I-K0-3573;
     ))
 (define-char
   '((=ucs		. #xB51C)	; ë”œ
-    (=ks-x1001		. #x3574)	; ø»ˆ¸·
+    (=ks-x1001		. #x3574)	; &I-K0-3574;
     ))
 (define-char
   '((=ucs		. #xB524)	; ë”¤
-    (=ks-x1001		. #x3575)	; ø»ˆ¸¸
+    (=ks-x1001		. #x3575)	; &I-K0-3575;
     ))
 (define-char
   '((=ucs		. #xB525)	; ë”¥
-    (=ks-x1001		. #x3576)	; ø»ˆ¸¹
+    (=ks-x1001		. #x3576)	; &I-K0-3576;
     ))
 (define-char
   '((=ucs		. #xB527)	; ë”§
-    (=ks-x1001		. #x3577)	; ø»ˆ¸º
+    (=ks-x1001		. #x3577)	; &I-K0-3577;
     ))
 (define-char
   '((=ucs		. #xB528)	; ë”¨
-    (=ks-x1001		. #x3578)	; ø»ˆ¸»
+    (=ks-x1001		. #x3578)	; &I-K0-3578;
     ))
 (define-char
   '((=ucs		. #xB529)	; ë”©
-    (=ks-x1001		. #x3579)	; ø»ˆ¸¼
+    (=ks-x1001		. #x3579)	; &I-K0-3579;
     ))
 (define-char
   '((=ucs		. #xB52A)	; ë”ª
-    (=ks-x1001		. #x357A)	; ø»ˆ¸½
+    (=ks-x1001		. #x357A)	; &I-K0-357A;
     ))
 (define-char
   '((=ucs		. #xB530)	; ë”°
-    (=ks-x1001		. #x357B)	; ø»ˆ¸¾
+    (=ks-x1001		. #x357B)	; &I-K0-357B;
     ))
 (define-char
   '((=ucs		. #xB531)	; ë”±
-    (=ks-x1001		. #x357C)	; ø»ˆ¸¿
+    (=ks-x1001		. #x357C)	; &I-K0-357C;
     ))
 (define-char
   '((=ucs		. #xB534)	; ë”´
-    (=ks-x1001		. #x357D)	; ø»ˆ¹€
+    (=ks-x1001		. #x357D)	; &I-K0-357D;
     ))
 (define-char
   '((=ucs		. #xB538)	; ë”¸
-    (=ks-x1001		. #x357E)	; ø»ˆ¹
+    (=ks-x1001		. #x357E)	; &I-K0-357E;
     ))
 (define-char
   '((=ucs		. #xB540)	; ë•€
-    (=ks-x1001		. #x3621)	; ø»ˆ¹‚
+    (=ks-x1001		. #x3621)	; &I-K0-3621;
     ))
 (define-char
   '((=ucs		. #xB541)	; ë•
-    (=ks-x1001		. #x3622)	; ø»ˆ¹ƒ
+    (=ks-x1001		. #x3622)	; &I-K0-3622;
     ))
 (define-char
   '((=ucs		. #xB543)	; ë•ƒ
-    (=ks-x1001		. #x3623)	; ø»ˆ¹„
+    (=ks-x1001		. #x3623)	; &I-K0-3623;
     ))
 (define-char
   '((=ucs		. #xB544)	; ë•„
-    (=ks-x1001		. #x3624)	; ø»ˆ¹…
+    (=ks-x1001		. #x3624)	; &I-K0-3624;
     ))
 (define-char
   '((=ucs		. #xB545)	; ë•…
-    (=ks-x1001		. #x3625)	; ø»ˆ¹†
+    (=ks-x1001		. #x3625)	; &I-K0-3625;
     ))
 (define-char
   '((=ucs		. #xB54B)	; ë•‹
-    (=ks-x1001		. #x3626)	; ø»ˆ¹‡
+    (=ks-x1001		. #x3626)	; &I-K0-3626;
     ))
 (define-char
   '((=ucs		. #xB54C)	; ë•Œ
-    (=ks-x1001		. #x3627)	; ø»ˆ¹ˆ
+    (=ks-x1001		. #x3627)	; &I-K0-3627;
     ))
 (define-char
   '((=ucs		. #xB54D)	; ë•
-    (=ks-x1001		. #x3628)	; ø»ˆ¹‰
+    (=ks-x1001		. #x3628)	; &I-K0-3628;
     ))
 (define-char
   '((=ucs		. #xB550)	; ë•
-    (=ks-x1001		. #x3629)	; ø»ˆ¹Š
+    (=ks-x1001		. #x3629)	; &I-K0-3629;
     ))
 (define-char
   '((=ucs		. #xB554)	; ë•”
-    (=ks-x1001		. #x362A)	; ø»ˆ¹‹
+    (=ks-x1001		. #x362A)	; &I-K0-362A;
     ))
 (define-char
   '((=ucs		. #xB55C)	; ë•œ
-    (=ks-x1001		. #x362B)	; ø»ˆ¹Œ
+    (=ks-x1001		. #x362B)	; &I-K0-362B;
     ))
 (define-char
   '((=ucs		. #xB55D)	; ë•
-    (=ks-x1001		. #x362C)	; ø»ˆ¹
+    (=ks-x1001		. #x362C)	; &I-K0-362C;
     ))
 (define-char
   '((=ucs		. #xB55F)	; ë•Ÿ
-    (=ks-x1001		. #x362D)	; ø»ˆ¹Ž
+    (=ks-x1001		. #x362D)	; &I-K0-362D;
     ))
 (define-char
   '((=ucs		. #xB560)	; ë• 
-    (=ks-x1001		. #x362E)	; ø»ˆ¹
+    (=ks-x1001		. #x362E)	; &I-K0-362E;
     ))
 (define-char
   '((=ucs		. #xB561)	; ë•¡
-    (=ks-x1001		. #x362F)	; ø»ˆ¹
+    (=ks-x1001		. #x362F)	; &I-K0-362F;
     ))
 (define-char
   '((=ucs		. #xB5A0)	; ë– 
-    (=ks-x1001		. #x3630)	; ø»ˆ¹‘
+    (=ks-x1001		. #x3630)	; &I-K0-3630;
     ))
 (define-char
   '((=ucs		. #xB5A1)	; ë–¡
-    (=ks-x1001		. #x3631)	; ø»ˆ¹’
+    (=ks-x1001		. #x3631)	; &I-K0-3631;
     ))
 (define-char
   '((=ucs		. #xB5A4)	; ë–¤
-    (=ks-x1001		. #x3632)	; ø»ˆ¹“
+    (=ks-x1001		. #x3632)	; &I-K0-3632;
     ))
 (define-char
   '((=ucs		. #xB5A8)	; ë–¨
-    (=ks-x1001		. #x3633)	; ø»ˆ¹”
+    (=ks-x1001		. #x3633)	; &I-K0-3633;
     ))
 (define-char
   '((=ucs		. #xB5AA)	; ë–ª
-    (=ks-x1001		. #x3634)	; ø»ˆ¹•
+    (=ks-x1001		. #x3634)	; &I-K0-3634;
     ))
 (define-char
   '((=ucs		. #xB5AB)	; ë–«
-    (=ks-x1001		. #x3635)	; ø»ˆ¹–
+    (=ks-x1001		. #x3635)	; &I-K0-3635;
     ))
 (define-char
   '((=ucs		. #xB5B0)	; ë–°
-    (=ks-x1001		. #x3636)	; ø»ˆ¹—
+    (=ks-x1001		. #x3636)	; &I-K0-3636;
     ))
 (define-char
   '((=ucs		. #xB5B1)	; ë–±
-    (=ks-x1001		. #x3637)	; ø»ˆ¹˜
+    (=ks-x1001		. #x3637)	; &I-K0-3637;
     ))
 (define-char
   '((=ucs		. #xB5B3)	; ë–³
-    (=ks-x1001		. #x3638)	; ø»ˆ¹™
+    (=ks-x1001		. #x3638)	; &I-K0-3638;
     ))
 (define-char
   '((=ucs		. #xB5B4)	; ë–´
-    (=ks-x1001		. #x3639)	; ø»ˆ¹š
+    (=ks-x1001		. #x3639)	; &I-K0-3639;
     ))
 (define-char
   '((=ucs		. #xB5B5)	; ë–µ
-    (=ks-x1001		. #x363A)	; ø»ˆ¹›
+    (=ks-x1001		. #x363A)	; &I-K0-363A;
     ))
 (define-char
   '((=ucs		. #xB5BB)	; ë–»
-    (=ks-x1001		. #x363B)	; ø»ˆ¹œ
-    (=jef-china3	. #x8CA7)	; øºˆ²§
+    (=ks-x1001		. #x363B)	; &I-K0-363B;
+    (=jef-china3	. #x8CA7)	; &I-JC3-8CA7;
     ))
 (define-char
   '((=ucs		. #xB5BC)	; ë–¼
-    (=ks-x1001		. #x363C)	; ø»ˆ¹
+    (=ks-x1001		. #x363C)	; &I-K0-363C;
     ))
 (define-char
   '((=ucs		. #xB5BD)	; ë–½
-    (=ks-x1001		. #x363D)	; ø»ˆ¹ž
+    (=ks-x1001		. #x363D)	; &I-K0-363D;
     ))
 (define-char
   '((=ucs		. #xB5C0)	; ë—€
-    (=ks-x1001		. #x363E)	; ø»ˆ¹Ÿ
+    (=ks-x1001		. #x363E)	; &I-K0-363E;
     ))
 (define-char
   '((=ucs		. #xB5C4)	; ë—„
-    (=ks-x1001		. #x363F)	; ø»ˆ¹ 
+    (=ks-x1001		. #x363F)	; &I-K0-363F;
     ))
 (define-char
   '((=ucs		. #xB5CC)	; ë—Œ
-    (=ks-x1001		. #x3640)	; ø»ˆ¹¡
+    (=ks-x1001		. #x3640)	; &I-K0-3640;
     ))
 (define-char
   '((=ucs		. #xB5CD)	; ë—
-    (=ks-x1001		. #x3641)	; ø»ˆ¹¢
+    (=ks-x1001		. #x3641)	; &I-K0-3641;
     ))
 (define-char
   '((=ucs		. #xB5CF)	; ë—
-    (=ks-x1001		. #x3642)	; ø»ˆ¹£
+    (=ks-x1001		. #x3642)	; &I-K0-3642;
     ))
 (define-char
   '((=ucs		. #xB5D0)	; ë—
-    (=ks-x1001		. #x3643)	; ø»ˆ¹¤
+    (=ks-x1001		. #x3643)	; &I-K0-3643;
     ))
 (define-char
   '((=ucs		. #xB5D1)	; ë—‘
-    (=ks-x1001		. #x3644)	; ø»ˆ¹¥
+    (=ks-x1001		. #x3644)	; &I-K0-3644;
     ))
 (define-char
   '((=ucs		. #xB5D8)	; ë—˜
-    (=ks-x1001		. #x3645)	; ø»ˆ¹¦
+    (=ks-x1001		. #x3645)	; &I-K0-3645;
     ))
 (define-char
   '((=ucs		. #xB5EC)	; ë—¬
-    (=ks-x1001		. #x3646)	; ø»ˆ¹§
+    (=ks-x1001		. #x3646)	; &I-K0-3646;
     ))
 (define-char
   '((=ucs		. #xB610)	; ë˜
-    (=ks-x1001		. #x3647)	; ø»ˆ¹¨
+    (=ks-x1001		. #x3647)	; &I-K0-3647;
     ))
 (define-char
   '((=ucs		. #xB611)	; ë˜‘
-    (=ks-x1001		. #x3648)	; ø»ˆ¹©
+    (=ks-x1001		. #x3648)	; &I-K0-3648;
     ))
 (define-char
   '((=ucs		. #xB614)	; ë˜”
-    (=ks-x1001		. #x3649)	; ø»ˆ¹ª
+    (=ks-x1001		. #x3649)	; &I-K0-3649;
     ))
 (define-char
   '((=ucs		. #xB618)	; ë˜˜
-    (=ks-x1001		. #x364A)	; ø»ˆ¹«
+    (=ks-x1001		. #x364A)	; &I-K0-364A;
     ))
 (define-char
   '((=ucs		. #xB625)	; ë˜¥
-    (=ks-x1001		. #x364B)	; ø»ˆ¹¬
+    (=ks-x1001		. #x364B)	; &I-K0-364B;
     ))
 (define-char
   '((=ucs		. #xB62C)	; ë˜¬
-    (=ks-x1001		. #x364C)	; ø»ˆ¹­
+    (=ks-x1001		. #x364C)	; &I-K0-364C;
     ))
 (define-char
   '((=ucs		. #xB634)	; ë˜´
-    (=ks-x1001		. #x364D)	; ø»ˆ¹®
+    (=ks-x1001		. #x364D)	; &I-K0-364D;
     ))
 (define-char
   '((=ucs		. #xB648)	; ë™ˆ
-    (=ks-x1001		. #x364E)	; ø»ˆ¹¯
+    (=ks-x1001		. #x364E)	; &I-K0-364E;
     ))
 (define-char
   '((=ucs		. #xB664)	; ë™¤
-    (=ks-x1001		. #x364F)	; ø»ˆ¹°
+    (=ks-x1001		. #x364F)	; &I-K0-364F;
     ))
 (define-char
   '((=ucs		. #xB668)	; ë™¨
-    (=ks-x1001		. #x3650)	; ø»ˆ¹±
+    (=ks-x1001		. #x3650)	; &I-K0-3650;
     ))
 (define-char
   '((=ucs		. #xB69C)	; ëšœ
-    (=ks-x1001		. #x3651)	; ø»ˆ¹²
+    (=ks-x1001		. #x3651)	; &I-K0-3651;
     ))
 (define-char
   '((=ucs		. #xB69D)	; ëš
-    (=ks-x1001		. #x3652)	; ø»ˆ¹³
+    (=ks-x1001		. #x3652)	; &I-K0-3652;
     ))
 (define-char
   '((=ucs		. #xB6A0)	; ëš 
-    (=ks-x1001		. #x3653)	; ø»ˆ¹´
+    (=ks-x1001		. #x3653)	; &I-K0-3653;
     ))
 (define-char
   '((=ucs		. #xB6A4)	; ëš¤
-    (=ks-x1001		. #x3654)	; ø»ˆ¹µ
+    (=ks-x1001		. #x3654)	; &I-K0-3654;
     ))
 (define-char
   '((=ucs		. #xB6AB)	; ëš«
-    (=ks-x1001		. #x3655)	; ø»ˆ¹¶
+    (=ks-x1001		. #x3655)	; &I-K0-3655;
     ))
 (define-char
   '((=ucs		. #xB6AC)	; ëš¬
-    (=ks-x1001		. #x3656)	; ø»ˆ¹·
+    (=ks-x1001		. #x3656)	; &I-K0-3656;
     ))
 (define-char
   '((=ucs		. #xB6B1)	; ëš±
-    (=ks-x1001		. #x3657)	; ø»ˆ¹¸
+    (=ks-x1001		. #x3657)	; &I-K0-3657;
     ))
 (define-char
   '((=ucs		. #xB6D4)	; ë›”
-    (=ks-x1001		. #x3658)	; ø»ˆ¹¹
+    (=ks-x1001		. #x3658)	; &I-K0-3658;
     ))
 (define-char
   '((=ucs		. #xB6F0)	; ë›°
-    (=ks-x1001		. #x3659)	; ø»ˆ¹º
+    (=ks-x1001		. #x3659)	; &I-K0-3659;
     ))
 (define-char
   '((=ucs		. #xB6F4)	; ë›´
-    (=ks-x1001		. #x365A)	; ø»ˆ¹»
+    (=ks-x1001		. #x365A)	; &I-K0-365A;
     ))
 (define-char
   '((=ucs		. #xB6F8)	; ë›¸
-    (=ks-x1001		. #x365B)	; ø»ˆ¹¼
+    (=ks-x1001		. #x365B)	; &I-K0-365B;
     ))
 (define-char
   '((=ucs		. #xB700)	; ëœ€
-    (=ks-x1001		. #x365C)	; ø»ˆ¹½
+    (=ks-x1001		. #x365C)	; &I-K0-365C;
     ))
 (define-char
   '((=ucs		. #xB701)	; ëœ
-    (=ks-x1001		. #x365D)	; ø»ˆ¹¾
+    (=ks-x1001		. #x365D)	; &I-K0-365D;
     ))
 (define-char
   '((=ucs		. #xB705)	; ëœ…
-    (=ks-x1001		. #x365E)	; ø»ˆ¹¿
+    (=ks-x1001		. #x365E)	; &I-K0-365E;
     ))
 (define-char
   '((=ucs		. #xB728)	; ëœ¨
-    (=ks-x1001		. #x365F)	; ø»ˆº€
+    (=ks-x1001		. #x365F)	; &I-K0-365F;
     ))
 (define-char
   '((=ucs		. #xB729)	; ëœ©
-    (=ks-x1001		. #x3660)	; ø»ˆº
+    (=ks-x1001		. #x3660)	; &I-K0-3660;
     ))
 (define-char
   '((=ucs		. #xB72C)	; ëœ¬
-    (=ks-x1001		. #x3661)	; ø»ˆº‚
+    (=ks-x1001		. #x3661)	; &I-K0-3661;
     ))
 (define-char
   '((=ucs		. #xB72F)	; ëœ¯
-    (=ks-x1001		. #x3662)	; ø»ˆºƒ
+    (=ks-x1001		. #x3662)	; &I-K0-3662;
     ))
 (define-char
   '((=ucs		. #xB730)	; ëœ°
-    (=ks-x1001		. #x3663)	; ø»ˆº„
+    (=ks-x1001		. #x3663)	; &I-K0-3663;
     ))
 (define-char
   '((=ucs		. #xB738)	; ëœ¸
-    (=ks-x1001		. #x3664)	; ø»ˆº…
+    (=ks-x1001		. #x3664)	; &I-K0-3664;
     ))
 (define-char
   '((=ucs		. #xB739)	; ëœ¹
-    (=ks-x1001		. #x3665)	; ø»ˆº†
+    (=ks-x1001		. #x3665)	; &I-K0-3665;
     ))
 (define-char
   '((=ucs		. #xB73B)	; ëœ»
-    (=ks-x1001		. #x3666)	; ø»ˆº‡
+    (=ks-x1001		. #x3666)	; &I-K0-3666;
     ))
 (define-char
   '((=ucs		. #xB744)	; ë„
-    (=ks-x1001		. #x3667)	; ø»ˆºˆ
+    (=ks-x1001		. #x3667)	; &I-K0-3667;
     ))
 (define-char
   '((=ucs		. #xB748)	; ëˆ
-    (=ks-x1001		. #x3668)	; ø»ˆº‰
+    (=ks-x1001		. #x3668)	; &I-K0-3668;
     ))
 (define-char
   '((=ucs		. #xB74C)	; ëŒ
-    (=ks-x1001		. #x3669)	; ø»ˆºŠ
+    (=ks-x1001		. #x3669)	; &I-K0-3669;
     ))
 (define-char
   '((=ucs		. #xB754)	; ë”
-    (=ks-x1001		. #x366A)	; ø»ˆº‹
+    (=ks-x1001		. #x366A)	; &I-K0-366A;
     ))
 (define-char
   '((=ucs		. #xB755)	; ë•
-    (=ks-x1001		. #x366B)	; ø»ˆºŒ
+    (=ks-x1001		. #x366B)	; &I-K0-366B;
     ))
 (define-char
   '((=ucs		. #xB760)	; ë 
-    (=ks-x1001		. #x366C)	; ø»ˆº
+    (=ks-x1001		. #x366C)	; &I-K0-366C;
     ))
 (define-char
   '((=ucs		. #xB764)	; ë¤
-    (=ks-x1001		. #x366D)	; ø»ˆºŽ
+    (=ks-x1001		. #x366D)	; &I-K0-366D;
     ))
 (define-char
   '((=ucs		. #xB768)	; ë¨
-    (=ks-x1001		. #x366E)	; ø»ˆº
+    (=ks-x1001		. #x366E)	; &I-K0-366E;
     ))
 (define-char
   '((=ucs		. #xB770)	; ë°
-    (=ks-x1001		. #x366F)	; ø»ˆº
+    (=ks-x1001		. #x366F)	; &I-K0-366F;
     ))
 (define-char
   '((=ucs		. #xB771)	; ë±
-    (=ks-x1001		. #x3670)	; ø»ˆº‘
+    (=ks-x1001		. #x3670)	; &I-K0-3670;
     ))
 (define-char
   '((=ucs		. #xB773)	; ë³
-    (=ks-x1001		. #x3671)	; ø»ˆº’
+    (=ks-x1001		. #x3671)	; &I-K0-3671;
     ))
 (define-char
   '((=ucs		. #xB775)	; ëµ
-    (=ks-x1001		. #x3672)	; ø»ˆº“
+    (=ks-x1001		. #x3672)	; &I-K0-3672;
     ))
 (define-char
   '((=ucs		. #xB77C)	; ë¼
-    (=ks-x1001		. #x3673)	; ø»ˆº”
+    (=ks-x1001		. #x3673)	; &I-K0-3673;
     ))
 (define-char
   '((=ucs		. #xB77D)	; ë½
-    (=ks-x1001		. #x3674)	; ø»ˆº•
+    (=ks-x1001		. #x3674)	; &I-K0-3674;
     ))
 (define-char
   '((=ucs		. #xB780)	; ëž€
-    (=ks-x1001		. #x3675)	; ø»ˆº–
+    (=ks-x1001		. #x3675)	; &I-K0-3675;
     ))
 (define-char
   '((=ucs		. #xB784)	; ëž„
-    (=ks-x1001		. #x3676)	; ø»ˆº—
+    (=ks-x1001		. #x3676)	; &I-K0-3676;
     ))
 (define-char
   '((=ucs		. #xB78C)	; ëžŒ
-    (=ks-x1001		. #x3677)	; ø»ˆº˜
+    (=ks-x1001		. #x3677)	; &I-K0-3677;
     ))
 (define-char
   '((=ucs		. #xB78D)	; ëž
-    (=ks-x1001		. #x3678)	; ø»ˆº™
+    (=ks-x1001		. #x3678)	; &I-K0-3678;
     ))
 (define-char
   '((=ucs		. #xB78F)	; ëž
-    (=ks-x1001		. #x3679)	; ø»ˆºš
+    (=ks-x1001		. #x3679)	; &I-K0-3679;
     ))
 (define-char
   '((=ucs		. #xB790)	; ëž
-    (=ks-x1001		. #x367A)	; ø»ˆº›
+    (=ks-x1001		. #x367A)	; &I-K0-367A;
     ))
 (define-char
   '((=ucs		. #xB791)	; ëž‘
-    (=ks-x1001		. #x367B)	; ø»ˆºœ
+    (=ks-x1001		. #x367B)	; &I-K0-367B;
     ))
 (define-char
   '((=ucs		. #xB792)	; ëž’
-    (=ks-x1001		. #x367C)	; ø»ˆº
+    (=ks-x1001		. #x367C)	; &I-K0-367C;
     ))
 (define-char
   '((=ucs		. #xB796)	; ëž–
-    (=ks-x1001		. #x367D)	; ø»ˆºž
+    (=ks-x1001		. #x367D)	; &I-K0-367D;
     ))
 (define-char
   '((=ucs		. #xB797)	; ëž—
-    (=ks-x1001		. #x367E)	; ø»ˆºŸ
+    (=ks-x1001		. #x367E)	; &I-K0-367E;
     ))
 (define-char
   '((=ucs		. #xB798)	; ëž˜
-    (=ks-x1001		. #x3721)	; ø»ˆº 
+    (=ks-x1001		. #x3721)	; &I-K0-3721;
     ))
 (define-char
   '((=ucs		. #xB799)	; ëž™
-    (=ks-x1001		. #x3722)	; ø»ˆº¡
+    (=ks-x1001		. #x3722)	; &I-K0-3722;
     ))
 (define-char
   '((=ucs		. #xB79C)	; ëžœ
-    (=ks-x1001		. #x3723)	; ø»ˆº¢
+    (=ks-x1001		. #x3723)	; &I-K0-3723;
     ))
 (define-char
   '((=ucs		. #xB7A0)	; ëž 
-    (=ks-x1001		. #x3724)	; ø»ˆº£
+    (=ks-x1001		. #x3724)	; &I-K0-3724;
     ))
 (define-char
   '((=ucs		. #xB7A8)	; ëž¨
-    (=ks-x1001		. #x3725)	; ø»ˆº¤
+    (=ks-x1001		. #x3725)	; &I-K0-3725;
     ))
 (define-char
   '((=ucs		. #xB7A9)	; ëž©
-    (=ks-x1001		. #x3726)	; ø»ˆº¥
+    (=ks-x1001		. #x3726)	; &I-K0-3726;
     ))
 (define-char
   '((=ucs		. #xB7AB)	; ëž«
-    (=ks-x1001		. #x3727)	; ø»ˆº¦
+    (=ks-x1001		. #x3727)	; &I-K0-3727;
     ))
 (define-char
   '((=ucs		. #xB7AC)	; ëž¬
-    (=ks-x1001		. #x3728)	; ø»ˆº§
+    (=ks-x1001		. #x3728)	; &I-K0-3728;
     ))
 (define-char
   '((=ucs		. #xB7AD)	; ëž­
-    (=ks-x1001		. #x3729)	; ø»ˆº¨
+    (=ks-x1001		. #x3729)	; &I-K0-3729;
     ))
 (define-char
   '((=ucs		. #xB7B4)	; ëž´
-    (=ks-x1001		. #x372A)	; ø»ˆº©
+    (=ks-x1001		. #x372A)	; &I-K0-372A;
     ))
 (define-char
   '((=ucs		. #xB7B5)	; ëžµ
-    (=ks-x1001		. #x372B)	; ø»ˆºª
+    (=ks-x1001		. #x372B)	; &I-K0-372B;
     ))
 (define-char
   '((=ucs		. #xB7B8)	; ëž¸
-    (=ks-x1001		. #x372C)	; ø»ˆº«
+    (=ks-x1001		. #x372C)	; &I-K0-372C;
     ))
 (define-char
   '((=ucs		. #xB7C7)	; ëŸ‡
-    (=ks-x1001		. #x372D)	; ø»ˆº¬
+    (=ks-x1001		. #x372D)	; &I-K0-372D;
     ))
 (define-char
   '((=ucs		. #xB7C9)	; ëŸ‰
-    (=ks-x1001		. #x372E)	; ø»ˆº­
+    (=ks-x1001		. #x372E)	; &I-K0-372E;
     ))
 (define-char
   '((=ucs		. #xB7EC)	; ëŸ¬
-    (=ks-x1001		. #x372F)	; ø»ˆº®
+    (=ks-x1001		. #x372F)	; &I-K0-372F;
     ))
 (define-char
   '((=ucs		. #xB7ED)	; ëŸ­
-    (=ks-x1001		. #x3730)	; ø»ˆº¯
+    (=ks-x1001		. #x3730)	; &I-K0-3730;
     ))
 (define-char
   '((=ucs		. #xB7F0)	; ëŸ°
-    (=ks-x1001		. #x3731)	; ø»ˆº°
+    (=ks-x1001		. #x3731)	; &I-K0-3731;
     ))
 (define-char
   '((=ucs		. #xB7F4)	; ëŸ´
-    (=ks-x1001		. #x3732)	; ø»ˆº±
+    (=ks-x1001		. #x3732)	; &I-K0-3732;
     ))
 (define-char
   '((=ucs		. #xB7FC)	; ëŸ¼
-    (=ks-x1001		. #x3733)	; ø»ˆº²
+    (=ks-x1001		. #x3733)	; &I-K0-3733;
     ))
 (define-char
   '((=ucs		. #xB7FD)	; ëŸ½
-    (=ks-x1001		. #x3734)	; ø»ˆº³
+    (=ks-x1001		. #x3734)	; &I-K0-3734;
     ))
 (define-char
   '((=ucs		. #xB7FF)	; ëŸ¿
-    (=ks-x1001		. #x3735)	; ø»ˆº´
+    (=ks-x1001		. #x3735)	; &I-K0-3735;
     ))
 (define-char
   '((=ucs		. #xB800)	; ë €
-    (=ks-x1001		. #x3736)	; ø»ˆºµ
+    (=ks-x1001		. #x3736)	; &I-K0-3736;
     ))
 (define-char
   '((=ucs		. #xB801)	; ë 
-    (=ks-x1001		. #x3737)	; ø»ˆº¶
+    (=ks-x1001		. #x3737)	; &I-K0-3737;
     ))
 (define-char
   '((=ucs		. #xB807)	; ë ‡
-    (=ks-x1001		. #x3738)	; ø»ˆº·
+    (=ks-x1001		. #x3738)	; &I-K0-3738;
     ))
 (define-char
   '((=ucs		. #xB808)	; ë ˆ
-    (=ks-x1001		. #x3739)	; ø»ˆº¸
+    (=ks-x1001		. #x3739)	; &I-K0-3739;
     ))
 (define-char
   '((=ucs		. #xB809)	; ë ‰
-    (=ks-x1001		. #x373A)	; ø»ˆº¹
+    (=ks-x1001		. #x373A)	; &I-K0-373A;
     ))
 (define-char
   '((=ucs		. #xB80C)	; ë Œ
-    (=ks-x1001		. #x373B)	; ø»ˆºº
+    (=ks-x1001		. #x373B)	; &I-K0-373B;
     ))
 (define-char
   '((=ucs		. #xB810)	; ë 
-    (=ks-x1001		. #x373C)	; ø»ˆº»
+    (=ks-x1001		. #x373C)	; &I-K0-373C;
     ))
 (define-char
   '((=ucs		. #xB818)	; ë ˜
-    (=ks-x1001		. #x373D)	; ø»ˆº¼
+    (=ks-x1001		. #x373D)	; &I-K0-373D;
     ))
 (define-char
   '((=ucs		. #xB819)	; ë ™
-    (=ks-x1001		. #x373E)	; ø»ˆº½
+    (=ks-x1001		. #x373E)	; &I-K0-373E;
     ))
 (define-char
   '((=ucs		. #xB81B)	; ë ›
-    (=ks-x1001		. #x373F)	; ø»ˆº¾
+    (=ks-x1001		. #x373F)	; &I-K0-373F;
     ))
 (define-char
   '((=ucs		. #xB81D)	; ë 
-    (=ks-x1001		. #x3740)	; ø»ˆº¿
+    (=ks-x1001		. #x3740)	; &I-K0-3740;
     ))
 (define-char
   '((=ucs		. #xB824)	; ë ¤
-    (=ks-x1001		. #x3741)	; ø»ˆ»€
+    (=ks-x1001		. #x3741)	; &I-K0-3741;
     ))
 (define-char
   '((=ucs		. #xB825)	; ë ¥
-    (=ks-x1001		. #x3742)	; ø»ˆ»
+    (=ks-x1001		. #x3742)	; &I-K0-3742;
     ))
 (define-char
   '((=ucs		. #xB828)	; ë ¨
-    (=ks-x1001		. #x3743)	; ø»ˆ»‚
+    (=ks-x1001		. #x3743)	; &I-K0-3743;
     ))
 (define-char
   '((=ucs		. #xB82C)	; ë ¬
-    (=ks-x1001		. #x3744)	; ø»ˆ»ƒ
+    (=ks-x1001		. #x3744)	; &I-K0-3744;
     ))
 (define-char
   '((=ucs		. #xB834)	; ë ´
-    (=ks-x1001		. #x3745)	; ø»ˆ»„
+    (=ks-x1001		. #x3745)	; &I-K0-3745;
     ))
 (define-char
   '((=ucs		. #xB835)	; ë µ
-    (=ks-x1001		. #x3746)	; ø»ˆ»…
+    (=ks-x1001		. #x3746)	; &I-K0-3746;
     ))
 (define-char
   '((=ucs		. #xB837)	; ë ·
-    (=ks-x1001		. #x3747)	; ø»ˆ»†
+    (=ks-x1001		. #x3747)	; &I-K0-3747;
     ))
 (define-char
   '((=ucs		. #xB838)	; ë ¸
-    (=ks-x1001		. #x3748)	; ø»ˆ»‡
+    (=ks-x1001		. #x3748)	; &I-K0-3748;
     ))
 (define-char
   '((=ucs		. #xB839)	; ë ¹
-    (=ks-x1001		. #x3749)	; ø»ˆ»ˆ
+    (=ks-x1001		. #x3749)	; &I-K0-3749;
     ))
 (define-char
   '((=ucs		. #xB840)	; ë¡€
-    (=ks-x1001		. #x374A)	; ø»ˆ»‰
+    (=ks-x1001		. #x374A)	; &I-K0-374A;
     ))
 (define-char
   '((=ucs		. #xB844)	; ë¡„
-    (=ks-x1001		. #x374B)	; ø»ˆ»Š
+    (=ks-x1001		. #x374B)	; &I-K0-374B;
     ))
 (define-char
   '((=ucs		. #xB851)	; ë¡‘
-    (=ks-x1001		. #x374C)	; ø»ˆ»‹
+    (=ks-x1001		. #x374C)	; &I-K0-374C;
     ))
 (define-char
   '((=ucs		. #xB853)	; ë¡“
-    (=ks-x1001		. #x374D)	; ø»ˆ»Œ
+    (=ks-x1001		. #x374D)	; &I-K0-374D;
     ))
 (define-char
   '((=ucs		. #xB85C)	; ë¡œ
-    (=ks-x1001		. #x374E)	; ø»ˆ»
+    (=ks-x1001		. #x374E)	; &I-K0-374E;
     ))
 (define-char
   '((=ucs		. #xB85D)	; ë¡
-    (=ks-x1001		. #x374F)	; ø»ˆ»Ž
+    (=ks-x1001		. #x374F)	; &I-K0-374F;
     ))
 (define-char
   '((=ucs		. #xB860)	; ë¡ 
-    (=ks-x1001		. #x3750)	; ø»ˆ»
+    (=ks-x1001		. #x3750)	; &I-K0-3750;
     ))
 (define-char
   '((=ucs		. #xB864)	; ë¡¤
-    (=ks-x1001		. #x3751)	; ø»ˆ»
+    (=ks-x1001		. #x3751)	; &I-K0-3751;
     ))
 (define-char
   '((=ucs		. #xB86C)	; ë¡¬
-    (=ks-x1001		. #x3752)	; ø»ˆ»‘
+    (=ks-x1001		. #x3752)	; &I-K0-3752;
     ))
 (define-char
   '((=ucs		. #xB86D)	; ë¡­
-    (=ks-x1001		. #x3753)	; ø»ˆ»’
+    (=ks-x1001		. #x3753)	; &I-K0-3753;
     ))
 (define-char
   '((=ucs		. #xB86F)	; ë¡¯
-    (=ks-x1001		. #x3754)	; ø»ˆ»“
+    (=ks-x1001		. #x3754)	; &I-K0-3754;
     ))
 (define-char
   '((=ucs		. #xB871)	; ë¡±
-    (=ks-x1001		. #x3755)	; ø»ˆ»”
+    (=ks-x1001		. #x3755)	; &I-K0-3755;
     ))
 (define-char
   '((=ucs		. #xB878)	; ë¡¸
-    (=ks-x1001		. #x3756)	; ø»ˆ»•
+    (=ks-x1001		. #x3756)	; &I-K0-3756;
     ))
 (define-char
   '((=ucs		. #xB87C)	; ë¡¼
-    (=ks-x1001		. #x3757)	; ø»ˆ»–
+    (=ks-x1001		. #x3757)	; &I-K0-3757;
     ))
 (define-char
   '((=ucs		. #xB88D)	; ë¢
-    (=ks-x1001		. #x3758)	; ø»ˆ»—
+    (=ks-x1001		. #x3758)	; &I-K0-3758;
     ))
 (define-char
   '((=ucs		. #xB8A8)	; ë¢¨
-    (=ks-x1001		. #x3759)	; ø»ˆ»˜
+    (=ks-x1001		. #x3759)	; &I-K0-3759;
     ))
 (define-char
   '((=ucs		. #xB8B0)	; ë¢°
-    (=ks-x1001		. #x375A)	; ø»ˆ»™
+    (=ks-x1001		. #x375A)	; &I-K0-375A;
     ))
 (define-char
   '((=ucs		. #xB8B4)	; ë¢´
-    (=ks-x1001		. #x375B)	; ø»ˆ»š
+    (=ks-x1001		. #x375B)	; &I-K0-375B;
     ))
 (define-char
   '((=ucs		. #xB8B8)	; ë¢¸
-    (=ks-x1001		. #x375C)	; ø»ˆ»›
+    (=ks-x1001		. #x375C)	; &I-K0-375C;
     ))
 (define-char
   '((=ucs		. #xB8C0)	; ë£€
-    (=ks-x1001		. #x375D)	; ø»ˆ»œ
+    (=ks-x1001		. #x375D)	; &I-K0-375D;
     ))
 (define-char
   '((=ucs		. #xB8C1)	; ë£
-    (=ks-x1001		. #x375E)	; ø»ˆ»
+    (=ks-x1001		. #x375E)	; &I-K0-375E;
     ))
 (define-char
   '((=ucs		. #xB8C3)	; ë£ƒ
-    (=ks-x1001		. #x375F)	; ø»ˆ»ž
+    (=ks-x1001		. #x375F)	; &I-K0-375F;
     ))
 (define-char
   '((=ucs		. #xB8C5)	; ë£…
-    (=ks-x1001		. #x3760)	; ø»ˆ»Ÿ
+    (=ks-x1001		. #x3760)	; &I-K0-3760;
     ))
 (define-char
   '((=ucs		. #xB8CC)	; ë£Œ
-    (=ks-x1001		. #x3761)	; ø»ˆ» 
+    (=ks-x1001		. #x3761)	; &I-K0-3761;
     ))
 (define-char
   '((=ucs		. #xB8D0)	; ë£
-    (=ks-x1001		. #x3762)	; ø»ˆ»¡
+    (=ks-x1001		. #x3762)	; &I-K0-3762;
     ))
 (define-char
   '((=ucs		. #xB8D4)	; ë£”
-    (=ks-x1001		. #x3763)	; ø»ˆ»¢
+    (=ks-x1001		. #x3763)	; &I-K0-3763;
     ))
 (define-char
   '((=ucs		. #xB8DD)	; ë£
-    (=ks-x1001		. #x3764)	; ø»ˆ»£
+    (=ks-x1001		. #x3764)	; &I-K0-3764;
     ))
 (define-char
   '((=ucs		. #xB8DF)	; ë£Ÿ
-    (=ks-x1001		. #x3765)	; ø»ˆ»¤
+    (=ks-x1001		. #x3765)	; &I-K0-3765;
     ))
 (define-char
   '((=ucs		. #xB8E1)	; ë£¡
-    (=ks-x1001		. #x3766)	; ø»ˆ»¥
+    (=ks-x1001		. #x3766)	; &I-K0-3766;
     ))
 (define-char
   '((=ucs		. #xB8E8)	; ë£¨
-    (=ks-x1001		. #x3767)	; ø»ˆ»¦
+    (=ks-x1001		. #x3767)	; &I-K0-3767;
     ))
 (define-char
   '((=ucs		. #xB8E9)	; ë£©
-    (=ks-x1001		. #x3768)	; ø»ˆ»§
+    (=ks-x1001		. #x3768)	; &I-K0-3768;
     ))
 (define-char
   '((=ucs		. #xB8EC)	; ë£¬
-    (=ks-x1001		. #x3769)	; ø»ˆ»¨
+    (=ks-x1001		. #x3769)	; &I-K0-3769;
     ))
 (define-char
   '((=ucs		. #xB8F0)	; ë£°
-    (=ks-x1001		. #x376A)	; ø»ˆ»©
+    (=ks-x1001		. #x376A)	; &I-K0-376A;
     ))
 (define-char
   '((=ucs		. #xB8F8)	; ë£¸
-    (=ks-x1001		. #x376B)	; ø»ˆ»ª
+    (=ks-x1001		. #x376B)	; &I-K0-376B;
     ))
 (define-char
   '((=ucs		. #xB8F9)	; ë£¹
-    (=ks-x1001		. #x376C)	; ø»ˆ»«
+    (=ks-x1001		. #x376C)	; &I-K0-376C;
     ))
 (define-char
   '((=ucs		. #xB8FB)	; ë£»
-    (=ks-x1001		. #x376D)	; ø»ˆ»¬
+    (=ks-x1001		. #x376D)	; &I-K0-376D;
     ))
 (define-char
   '((=ucs		. #xB8FD)	; ë£½
-    (=ks-x1001		. #x376E)	; ø»ˆ»­
+    (=ks-x1001		. #x376E)	; &I-K0-376E;
     ))
 (define-char
   '((=ucs		. #xB904)	; ë¤„
-    (=ks-x1001		. #x376F)	; ø»ˆ»®
+    (=ks-x1001		. #x376F)	; &I-K0-376F;
     ))
 (define-char
   '((=ucs		. #xB918)	; ë¤˜
-    (=ks-x1001		. #x3770)	; ø»ˆ»¯
+    (=ks-x1001		. #x3770)	; &I-K0-3770;
     ))
 (define-char
   '((=ucs		. #xB920)	; ë¤ 
-    (=ks-x1001		. #x3771)	; ø»ˆ»°
+    (=ks-x1001		. #x3771)	; &I-K0-3771;
     ))
 (define-char
   '((=ucs		. #xB93C)	; ë¤¼
-    (=ks-x1001		. #x3772)	; ø»ˆ»±
+    (=ks-x1001		. #x3772)	; &I-K0-3772;
     ))
 (define-char
   '((=ucs		. #xB93D)	; ë¤½
-    (=ks-x1001		. #x3773)	; ø»ˆ»²
+    (=ks-x1001		. #x3773)	; &I-K0-3773;
     ))
 (define-char
   '((=ucs		. #xB940)	; ë¥€
-    (=ks-x1001		. #x3774)	; ø»ˆ»³
+    (=ks-x1001		. #x3774)	; &I-K0-3774;
     ))
 (define-char
   '((=ucs		. #xB944)	; ë¥„
-    (=ks-x1001		. #x3775)	; ø»ˆ»´
+    (=ks-x1001		. #x3775)	; &I-K0-3775;
     ))
 (define-char
   '((=ucs		. #xB94C)	; ë¥Œ
-    (=ks-x1001		. #x3776)	; ø»ˆ»µ
+    (=ks-x1001		. #x3776)	; &I-K0-3776;
     ))
 (define-char
   '((=ucs		. #xB94F)	; ë¥
-    (=ks-x1001		. #x3777)	; ø»ˆ»¶
+    (=ks-x1001		. #x3777)	; &I-K0-3777;
     ))
 (define-char
   '((=ucs		. #xB951)	; ë¥‘
-    (=ks-x1001		. #x3778)	; ø»ˆ»·
+    (=ks-x1001		. #x3778)	; &I-K0-3778;
     ))
 (define-char
   '((=ucs		. #xB958)	; ë¥˜
-    (=ks-x1001		. #x3779)	; ø»ˆ»¸
+    (=ks-x1001		. #x3779)	; &I-K0-3779;
     ))
 (define-char
   '((=ucs		. #xB959)	; ë¥™
-    (=ks-x1001		. #x377A)	; ø»ˆ»¹
+    (=ks-x1001		. #x377A)	; &I-K0-377A;
     ))
 (define-char
   '((=ucs		. #xB95C)	; ë¥œ
-    (=ks-x1001		. #x377B)	; ø»ˆ»º
+    (=ks-x1001		. #x377B)	; &I-K0-377B;
     ))
 (define-char
   '((=ucs		. #xB960)	; ë¥ 
-    (=ks-x1001		. #x377C)	; ø»ˆ»»
+    (=ks-x1001		. #x377C)	; &I-K0-377C;
     ))
 (define-char
   '((=ucs		. #xB968)	; ë¥¨
-    (=ks-x1001		. #x377D)	; ø»ˆ»¼
+    (=ks-x1001		. #x377D)	; &I-K0-377D;
     ))
 (define-char
   '((=ucs		. #xB969)	; ë¥©
-    (=ks-x1001		. #x377E)	; ø»ˆ»½
+    (=ks-x1001		. #x377E)	; &I-K0-377E;
     ))
 (define-char
   '((=ucs		. #xB96B)	; ë¥«
-    (=ks-x1001		. #x3821)	; ø»ˆ»¾
+    (=ks-x1001		. #x3821)	; &I-K0-3821;
     ))
 (define-char
   '((=ucs		. #xB96D)	; ë¥­
-    (=ks-x1001		. #x3822)	; ø»ˆ»¿
+    (=ks-x1001		. #x3822)	; &I-K0-3822;
     ))
 (define-char
   '((=ucs		. #xB974)	; ë¥´
-    (=ks-x1001		. #x3823)	; ø»ˆ¼€
+    (=ks-x1001		. #x3823)	; &I-K0-3823;
     ))
 (define-char
   '((=ucs		. #xB975)	; ë¥µ
-    (=ks-x1001		. #x3824)	; ø»ˆ¼
+    (=ks-x1001		. #x3824)	; &I-K0-3824;
     ))
 (define-char
   '((=ucs		. #xB978)	; ë¥¸
-    (=ks-x1001		. #x3825)	; ø»ˆ¼‚
+    (=ks-x1001		. #x3825)	; &I-K0-3825;
     ))
 (define-char
   '((=ucs		. #xB97C)	; ë¥¼
-    (=ks-x1001		. #x3826)	; ø»ˆ¼ƒ
+    (=ks-x1001		. #x3826)	; &I-K0-3826;
     ))
 (define-char
   '((=ucs		. #xB984)	; ë¦„
-    (=ks-x1001		. #x3827)	; ø»ˆ¼„
+    (=ks-x1001		. #x3827)	; &I-K0-3827;
     ))
 (define-char
   '((=ucs		. #xB985)	; ë¦…
-    (=ks-x1001		. #x3828)	; ø»ˆ¼…
+    (=ks-x1001		. #x3828)	; &I-K0-3828;
     ))
 (define-char
   '((=ucs		. #xB987)	; ë¦‡
-    (=ks-x1001		. #x3829)	; ø»ˆ¼†
+    (=ks-x1001		. #x3829)	; &I-K0-3829;
     ))
 (define-char
   '((=ucs		. #xB989)	; ë¦‰
-    (=ks-x1001		. #x382A)	; ø»ˆ¼‡
+    (=ks-x1001		. #x382A)	; &I-K0-382A;
     ))
 (define-char
   '((=ucs		. #xB98A)	; ë¦Š
-    (=ks-x1001		. #x382B)	; ø»ˆ¼ˆ
+    (=ks-x1001		. #x382B)	; &I-K0-382B;
     ))
 (define-char
   '((=ucs		. #xB98D)	; ë¦
-    (=ks-x1001		. #x382C)	; ø»ˆ¼‰
+    (=ks-x1001		. #x382C)	; &I-K0-382C;
     ))
 (define-char
   '((=ucs		. #xB98E)	; ë¦Ž
-    (=ks-x1001		. #x382D)	; ø»ˆ¼Š
+    (=ks-x1001		. #x382D)	; &I-K0-382D;
     ))
 (define-char
   '((=ucs		. #xB9AC)	; ë¦¬
-    (=ks-x1001		. #x382E)	; ø»ˆ¼‹
+    (=ks-x1001		. #x382E)	; &I-K0-382E;
     ))
 (define-char
   '((=ucs		. #xB9AD)	; ë¦­
-    (=ks-x1001		. #x382F)	; ø»ˆ¼Œ
+    (=ks-x1001		. #x382F)	; &I-K0-382F;
     ))
 (define-char
   '((=ucs		. #xB9B0)	; ë¦°
-    (=ks-x1001		. #x3830)	; ø»ˆ¼
+    (=ks-x1001		. #x3830)	; &I-K0-3830;
     ))
 (define-char
   '((=ucs		. #xB9B4)	; ë¦´
-    (=ks-x1001		. #x3831)	; ø»ˆ¼Ž
+    (=ks-x1001		. #x3831)	; &I-K0-3831;
     ))
 (define-char
   '((=ucs		. #xB9BC)	; ë¦¼
-    (=ks-x1001		. #x3832)	; ø»ˆ¼
+    (=ks-x1001		. #x3832)	; &I-K0-3832;
     ))
 (define-char
   '((=ucs		. #xB9BD)	; ë¦½
-    (=ks-x1001		. #x3833)	; ø»ˆ¼
+    (=ks-x1001		. #x3833)	; &I-K0-3833;
     ))
 (define-char
   '((=ucs		. #xB9BF)	; ë¦¿
-    (=ks-x1001		. #x3834)	; ø»ˆ¼‘
+    (=ks-x1001		. #x3834)	; &I-K0-3834;
     ))
 (define-char
   '((=ucs		. #xB9C1)	; ë§
-    (=ks-x1001		. #x3835)	; ø»ˆ¼’
+    (=ks-x1001		. #x3835)	; &I-K0-3835;
     ))
 (define-char
   '((=ucs		. #xB9C8)	; ë§ˆ
-    (=ks-x1001		. #x3836)	; ø»ˆ¼“
+    (=ks-x1001		. #x3836)	; &I-K0-3836;
     ))
 (define-char
   '((=ucs		. #xB9C9)	; ë§‰
-    (=ks-x1001		. #x3837)	; ø»ˆ¼”
+    (=ks-x1001		. #x3837)	; &I-K0-3837;
     ))
 (define-char
   '((=ucs		. #xB9CC)	; ë§Œ
-    (=ks-x1001		. #x3838)	; ø»ˆ¼•
+    (=ks-x1001		. #x3838)	; &I-K0-3838;
     ))
 (define-char
   '((=ucs		. #xB9CE)	; ë§Ž
-    (=ks-x1001		. #x3839)	; ø»ˆ¼–
+    (=ks-x1001		. #x3839)	; &I-K0-3839;
     ))
 (define-char
   '((=ucs		. #xB9CF)	; ë§
-    (=ks-x1001		. #x383A)	; ø»ˆ¼—
+    (=ks-x1001		. #x383A)	; &I-K0-383A;
     ))
 (define-char
   '((=ucs		. #xB9D0)	; ë§
-    (=ks-x1001		. #x383B)	; ø»ˆ¼˜
+    (=ks-x1001		. #x383B)	; &I-K0-383B;
     ))
 (define-char
   '((=ucs		. #xB9D1)	; ë§‘
-    (=ks-x1001		. #x383C)	; ø»ˆ¼™
+    (=ks-x1001		. #x383C)	; &I-K0-383C;
     ))
 (define-char
   '((=ucs		. #xB9D2)	; ë§’
-    (=ks-x1001		. #x383D)	; ø»ˆ¼š
+    (=ks-x1001		. #x383D)	; &I-K0-383D;
     ))
 (define-char
   '((=ucs		. #xB9D8)	; ë§˜
-    (=ks-x1001		. #x383E)	; ø»ˆ¼›
+    (=ks-x1001		. #x383E)	; &I-K0-383E;
     ))
 (define-char
   '((=ucs		. #xB9D9)	; ë§™
-    (=ks-x1001		. #x383F)	; ø»ˆ¼œ
+    (=ks-x1001		. #x383F)	; &I-K0-383F;
     ))
 (define-char
   '((=ucs		. #xB9DB)	; ë§›
-    (=ks-x1001		. #x3840)	; ø»ˆ¼
+    (=ks-x1001		. #x3840)	; &I-K0-3840;
     ))
 (define-char
   '((=ucs		. #xB9DD)	; ë§
-    (=ks-x1001		. #x3841)	; ø»ˆ¼ž
+    (=ks-x1001		. #x3841)	; &I-K0-3841;
     ))
 (define-char
   '((=ucs		. #xB9DE)	; ë§ž
-    (=ks-x1001		. #x3842)	; ø»ˆ¼Ÿ
-    (=jef-china3	. #x82F5)	; øºˆ‹µ
+    (=ks-x1001		. #x3842)	; &I-K0-3842;
+    (=jef-china3	. #x82F5)	; &I-JC3-82F5;
     ))
 (define-char
   '((=ucs		. #xB9E1)	; ë§¡
-    (=ks-x1001		. #x3843)	; ø»ˆ¼ 
+    (=ks-x1001		. #x3843)	; &I-K0-3843;
     ))
 (define-char
   '((=ucs		. #xB9E3)	; ë§£
-    (=ks-x1001		. #x3844)	; ø»ˆ¼¡
+    (=ks-x1001		. #x3844)	; &I-K0-3844;
     ))
 (define-char
   '((=ucs		. #xB9E4)	; ë§¤
-    (=ks-x1001		. #x3845)	; ø»ˆ¼¢
+    (=ks-x1001		. #x3845)	; &I-K0-3845;
     ))
 (define-char
   '((=ucs		. #xB9E5)	; ë§¥
-    (=ks-x1001		. #x3846)	; ø»ˆ¼£
+    (=ks-x1001		. #x3846)	; &I-K0-3846;
     ))
 (define-char
   '((=ucs		. #xB9E8)	; ë§¨
-    (=ks-x1001		. #x3847)	; ø»ˆ¼¤
+    (=ks-x1001		. #x3847)	; &I-K0-3847;
     ))
 (define-char
   '((=ucs		. #xB9EC)	; ë§¬
-    (=ks-x1001		. #x3848)	; ø»ˆ¼¥
+    (=ks-x1001		. #x3848)	; &I-K0-3848;
     ))
 (define-char
   '((=ucs		. #xB9F4)	; ë§´
-    (=ks-x1001		. #x3849)	; ø»ˆ¼¦
+    (=ks-x1001		. #x3849)	; &I-K0-3849;
     ))
 (define-char
   '((=ucs		. #xB9F5)	; ë§µ
-    (=ks-x1001		. #x384A)	; ø»ˆ¼§
+    (=ks-x1001		. #x384A)	; &I-K0-384A;
     ))
 (define-char
   '((=ucs		. #xB9F7)	; ë§·
-    (=ks-x1001		. #x384B)	; ø»ˆ¼¨
+    (=ks-x1001		. #x384B)	; &I-K0-384B;
     ))
 (define-char
   '((=ucs		. #xB9F8)	; ë§¸
-    (=ks-x1001		. #x384C)	; ø»ˆ¼©
+    (=ks-x1001		. #x384C)	; &I-K0-384C;
     ))
 (define-char
   '((=ucs		. #xB9F9)	; ë§¹
-    (=ks-x1001		. #x384D)	; ø»ˆ¼ª
+    (=ks-x1001		. #x384D)	; &I-K0-384D;
     ))
 (define-char
   '((=ucs		. #xB9FA)	; ë§º
-    (=ks-x1001		. #x384E)	; ø»ˆ¼«
+    (=ks-x1001		. #x384E)	; &I-K0-384E;
     ))
 (define-char
   '((=ucs		. #xBA00)	; ë¨€
-    (=ks-x1001		. #x384F)	; ø»ˆ¼¬
+    (=ks-x1001		. #x384F)	; &I-K0-384F;
     ))
 (define-char
   '((=ucs		. #xBA01)	; ë¨
-    (=ks-x1001		. #x3850)	; ø»ˆ¼­
+    (=ks-x1001		. #x3850)	; &I-K0-3850;
     ))
 (define-char
   '((=ucs		. #xBA08)	; ë¨ˆ
-    (=ks-x1001		. #x3851)	; ø»ˆ¼®
+    (=ks-x1001		. #x3851)	; &I-K0-3851;
     ))
 (define-char
   '((=ucs		. #xBA15)	; ë¨•
-    (=ks-x1001		. #x3852)	; ø»ˆ¼¯
+    (=ks-x1001		. #x3852)	; &I-K0-3852;
     ))
 (define-char
   '((=ucs		. #xBA38)	; ë¨¸
-    (=ks-x1001		. #x3853)	; ø»ˆ¼°
+    (=ks-x1001		. #x3853)	; &I-K0-3853;
     ))
 (define-char
   '((=ucs		. #xBA39)	; ë¨¹
-    (=ks-x1001		. #x3854)	; ø»ˆ¼±
+    (=ks-x1001		. #x3854)	; &I-K0-3854;
     ))
 (define-char
   '((=ucs		. #xBA3C)	; ë¨¼
-    (=ks-x1001		. #x3855)	; ø»ˆ¼²
+    (=ks-x1001		. #x3855)	; &I-K0-3855;
     ))
 (define-char
   '((=ucs		. #xBA40)	; ë©€
-    (=ks-x1001		. #x3856)	; ø»ˆ¼³
+    (=ks-x1001		. #x3856)	; &I-K0-3856;
     ))
 (define-char
   '((=ucs		. #xBA42)	; ë©‚
-    (=ks-x1001		. #x3857)	; ø»ˆ¼´
+    (=ks-x1001		. #x3857)	; &I-K0-3857;
     ))
 (define-char
   '((=ucs		. #xBA48)	; ë©ˆ
-    (=ks-x1001		. #x3858)	; ø»ˆ¼µ
+    (=ks-x1001		. #x3858)	; &I-K0-3858;
     ))
 (define-char
   '((=ucs		. #xBA49)	; ë©‰
-    (=ks-x1001		. #x3859)	; ø»ˆ¼¶
+    (=ks-x1001		. #x3859)	; &I-K0-3859;
     ))
 (define-char
   '((=ucs		. #xBA4B)	; ë©‹
-    (=ks-x1001		. #x385A)	; ø»ˆ¼·
+    (=ks-x1001		. #x385A)	; &I-K0-385A;
     ))
 (define-char
   '((=ucs		. #xBA4D)	; ë©
-    (=ks-x1001		. #x385B)	; ø»ˆ¼¸
+    (=ks-x1001		. #x385B)	; &I-K0-385B;
     ))
 (define-char
   '((=ucs		. #xBA4E)	; ë©Ž
-    (=ks-x1001		. #x385C)	; ø»ˆ¼¹
+    (=ks-x1001		. #x385C)	; &I-K0-385C;
     ))
 (define-char
   '((=ucs		. #xBA53)	; ë©“
-    (=ks-x1001		. #x385D)	; ø»ˆ¼º
+    (=ks-x1001		. #x385D)	; &I-K0-385D;
     ))
 (define-char
   '((=ucs		. #xBA54)	; ë©”
-    (=ks-x1001		. #x385E)	; ø»ˆ¼»
+    (=ks-x1001		. #x385E)	; &I-K0-385E;
     ))
 (define-char
   '((=ucs		. #xBA55)	; ë©•
-    (=ks-x1001		. #x385F)	; ø»ˆ¼¼
+    (=ks-x1001		. #x385F)	; &I-K0-385F;
     ))
 (define-char
   '((=ucs		. #xBA58)	; ë©˜
-    (=ks-x1001		. #x3860)	; ø»ˆ¼½
+    (=ks-x1001		. #x3860)	; &I-K0-3860;
     ))
 (define-char
   '((=ucs		. #xBA5C)	; ë©œ
-    (=ks-x1001		. #x3861)	; ø»ˆ¼¾
+    (=ks-x1001		. #x3861)	; &I-K0-3861;
     ))
 (define-char
   '((=ucs		. #xBA64)	; ë©¤
-    (=ks-x1001		. #x3862)	; ø»ˆ¼¿
+    (=ks-x1001		. #x3862)	; &I-K0-3862;
     ))
 (define-char
   '((=ucs		. #xBA65)	; ë©¥
-    (=ks-x1001		. #x3863)	; ø»ˆ½€
+    (=ks-x1001		. #x3863)	; &I-K0-3863;
     ))
 (define-char
   '((=ucs		. #xBA67)	; ë©§
-    (=ks-x1001		. #x3864)	; ø»ˆ½
+    (=ks-x1001		. #x3864)	; &I-K0-3864;
     ))
 (define-char
   '((=ucs		. #xBA68)	; ë©¨
-    (=ks-x1001		. #x3865)	; ø»ˆ½‚
+    (=ks-x1001		. #x3865)	; &I-K0-3865;
     ))
 (define-char
   '((=ucs		. #xBA69)	; ë©©
-    (=ks-x1001		. #x3866)	; ø»ˆ½ƒ
+    (=ks-x1001		. #x3866)	; &I-K0-3866;
     ))
 (define-char
   '((=ucs		. #xBA70)	; ë©°
-    (=ks-x1001		. #x3867)	; ø»ˆ½„
+    (=ks-x1001		. #x3867)	; &I-K0-3867;
     ))
 (define-char
   '((=ucs		. #xBA71)	; ë©±
-    (=ks-x1001		. #x3868)	; ø»ˆ½…
+    (=ks-x1001		. #x3868)	; &I-K0-3868;
     ))
 (define-char
   '((=ucs		. #xBA74)	; ë©´
-    (=ks-x1001		. #x3869)	; ø»ˆ½†
+    (=ks-x1001		. #x3869)	; &I-K0-3869;
     ))
 (define-char
   '((=ucs		. #xBA78)	; ë©¸
-    (=ks-x1001		. #x386A)	; ø»ˆ½‡
+    (=ks-x1001		. #x386A)	; &I-K0-386A;
     ))
 (define-char
   '((=ucs		. #xBA83)	; ëªƒ
-    (=ks-x1001		. #x386B)	; ø»ˆ½ˆ
+    (=ks-x1001		. #x386B)	; &I-K0-386B;
     ))
 (define-char
   '((=ucs		. #xBA84)	; ëª„
-    (=ks-x1001		. #x386C)	; ø»ˆ½‰
+    (=ks-x1001		. #x386C)	; &I-K0-386C;
     ))
 (define-char
   '((=ucs		. #xBA85)	; ëª…
-    (=ks-x1001		. #x386D)	; ø»ˆ½Š
+    (=ks-x1001		. #x386D)	; &I-K0-386D;
     ))
 (define-char
   '((=ucs		. #xBA87)	; ëª‡
-    (=ks-x1001		. #x386E)	; ø»ˆ½‹
+    (=ks-x1001		. #x386E)	; &I-K0-386E;
     ))
 (define-char
   '((=ucs		. #xBA8C)	; ëªŒ
-    (=ks-x1001		. #x386F)	; ø»ˆ½Œ
+    (=ks-x1001		. #x386F)	; &I-K0-386F;
     ))
 (define-char
   '((=ucs		. #xBAA8)	; ëª¨
-    (=ks-x1001		. #x3870)	; ø»ˆ½
+    (=ks-x1001		. #x3870)	; &I-K0-3870;
     ))
 (define-char
   '((=ucs		. #xBAA9)	; ëª©
-    (=ks-x1001		. #x3871)	; ø»ˆ½Ž
+    (=ks-x1001		. #x3871)	; &I-K0-3871;
     ))
 (define-char
   '((=ucs		. #xBAAB)	; ëª«
-    (=ks-x1001		. #x3872)	; ø»ˆ½
+    (=ks-x1001		. #x3872)	; &I-K0-3872;
     ))
 (define-char
   '((=ucs		. #xBAAC)	; ëª¬
-    (=ks-x1001		. #x3873)	; ø»ˆ½
+    (=ks-x1001		. #x3873)	; &I-K0-3873;
     ))
 (define-char
   '((=ucs		. #xBAB0)	; ëª°
-    (=ks-x1001		. #x3874)	; ø»ˆ½‘
+    (=ks-x1001		. #x3874)	; &I-K0-3874;
     ))
 (define-char
   '((=ucs		. #xBAB2)	; ëª²
-    (=ks-x1001		. #x3875)	; ø»ˆ½’
+    (=ks-x1001		. #x3875)	; &I-K0-3875;
     ))
 (define-char
   '((=ucs		. #xBAB8)	; ëª¸
-    (=ks-x1001		. #x3876)	; ø»ˆ½“
+    (=ks-x1001		. #x3876)	; &I-K0-3876;
     ))
 (define-char
   '((=ucs		. #xBAB9)	; ëª¹
-    (=ks-x1001		. #x3877)	; ø»ˆ½”
+    (=ks-x1001		. #x3877)	; &I-K0-3877;
     ))
 (define-char
   '((=ucs		. #xBABB)	; ëª»
-    (=ks-x1001		. #x3878)	; ø»ˆ½•
+    (=ks-x1001		. #x3878)	; &I-K0-3878;
     ))
 (define-char
   '((=ucs		. #xBABD)	; ëª½
-    (=ks-x1001		. #x3879)	; ø»ˆ½–
+    (=ks-x1001		. #x3879)	; &I-K0-3879;
     ))
 (define-char
   '((=ucs		. #xBAC4)	; ë«„
-    (=ks-x1001		. #x387A)	; ø»ˆ½—
+    (=ks-x1001		. #x387A)	; &I-K0-387A;
     ))
 (define-char
   '((=ucs		. #xBAC8)	; ë«ˆ
-    (=ks-x1001		. #x387B)	; ø»ˆ½˜
+    (=ks-x1001		. #x387B)	; &I-K0-387B;
     ))
 (define-char
   '((=ucs		. #xBAD8)	; ë«˜
-    (=ks-x1001		. #x387C)	; ø»ˆ½™
+    (=ks-x1001		. #x387C)	; &I-K0-387C;
     ))
 (define-char
   '((=ucs		. #xBAD9)	; ë«™
-    (=ks-x1001		. #x387D)	; ø»ˆ½š
+    (=ks-x1001		. #x387D)	; &I-K0-387D;
     ))
 (define-char
   '((=ucs		. #xBAFC)	; ë«¼
-    (=ks-x1001		. #x387E)	; ø»ˆ½›
+    (=ks-x1001		. #x387E)	; &I-K0-387E;
     ))
 (define-char
   '((=ucs		. #xBB00)	; ë¬€
-    (=ks-x1001		. #x3921)	; ø»ˆ½œ
+    (=ks-x1001		. #x3921)	; &I-K0-3921;
     ))
 (define-char
   '((=ucs		. #xBB04)	; ë¬„
-    (=ks-x1001		. #x3922)	; ø»ˆ½
+    (=ks-x1001		. #x3922)	; &I-K0-3922;
     ))
 (define-char
   '((=ucs		. #xBB0D)	; ë¬
-    (=ks-x1001		. #x3923)	; ø»ˆ½ž
+    (=ks-x1001		. #x3923)	; &I-K0-3923;
     ))
 (define-char
   '((=ucs		. #xBB0F)	; ë¬
-    (=ks-x1001		. #x3924)	; ø»ˆ½Ÿ
+    (=ks-x1001		. #x3924)	; &I-K0-3924;
     ))
 (define-char
   '((=ucs		. #xBB11)	; ë¬‘
-    (=ks-x1001		. #x3925)	; ø»ˆ½ 
+    (=ks-x1001		. #x3925)	; &I-K0-3925;
     ))
 (define-char
   '((=ucs		. #xBB18)	; ë¬˜
-    (=ks-x1001		. #x3926)	; ø»ˆ½¡
+    (=ks-x1001		. #x3926)	; &I-K0-3926;
     ))
 (define-char
   '((=ucs		. #xBB1C)	; ë¬œ
-    (=ks-x1001		. #x3927)	; ø»ˆ½¢
+    (=ks-x1001		. #x3927)	; &I-K0-3927;
     ))
 (define-char
   '((=ucs		. #xBB20)	; ë¬ 
-    (=ks-x1001		. #x3928)	; ø»ˆ½£
+    (=ks-x1001		. #x3928)	; &I-K0-3928;
     ))
 (define-char
   '((=ucs		. #xBB29)	; ë¬©
-    (=ks-x1001		. #x3929)	; ø»ˆ½¤
+    (=ks-x1001		. #x3929)	; &I-K0-3929;
     ))
 (define-char
   '((=ucs		. #xBB2B)	; ë¬«
-    (=ks-x1001		. #x392A)	; ø»ˆ½¥
+    (=ks-x1001		. #x392A)	; &I-K0-392A;
     ))
 (define-char
   '((=ucs		. #xBB34)	; ë¬´
-    (=ks-x1001		. #x392B)	; ø»ˆ½¦
+    (=ks-x1001		. #x392B)	; &I-K0-392B;
     ))
 (define-char
   '((=ucs		. #xBB35)	; ë¬µ
-    (=ks-x1001		. #x392C)	; ø»ˆ½§
+    (=ks-x1001		. #x392C)	; &I-K0-392C;
     ))
 (define-char
   '((=ucs		. #xBB36)	; ë¬¶
-    (=ks-x1001		. #x392D)	; ø»ˆ½¨
+    (=ks-x1001		. #x392D)	; &I-K0-392D;
     ))
 (define-char
   '((=ucs		. #xBB38)	; ë¬¸
-    (=ks-x1001		. #x392E)	; ø»ˆ½©
-    (=jef-china3	. #x94F5)	; øº‰“µ
+    (=ks-x1001		. #x392E)	; &I-K0-392E;
+    (=jef-china3	. #x94F5)	; &I-JC3-94F5;
     ))
 (define-char
   '((=ucs		. #xBB3B)	; ë¬»
-    (=ks-x1001		. #x392F)	; ø»ˆ½ª
+    (=ks-x1001		. #x392F)	; &I-K0-392F;
     ))
 (define-char
   '((=ucs		. #xBB3C)	; ë¬¼
-    (=ks-x1001		. #x3930)	; ø»ˆ½«
+    (=ks-x1001		. #x3930)	; &I-K0-3930;
     ))
 (define-char
   '((=ucs		. #xBB3D)	; ë¬½
-    (=ks-x1001		. #x3931)	; ø»ˆ½¬
+    (=ks-x1001		. #x3931)	; &I-K0-3931;
     ))
 (define-char
   '((=ucs		. #xBB3E)	; ë¬¾
-    (=ks-x1001		. #x3932)	; ø»ˆ½­
+    (=ks-x1001		. #x3932)	; &I-K0-3932;
     ))
 (define-char
   '((=ucs		. #xBB44)	; ë­„
-    (=ks-x1001		. #x3933)	; ø»ˆ½®
+    (=ks-x1001		. #x3933)	; &I-K0-3933;
     ))
 (define-char
   '((=ucs		. #xBB45)	; ë­…
-    (=ks-x1001		. #x3934)	; ø»ˆ½¯
+    (=ks-x1001		. #x3934)	; &I-K0-3934;
     ))
 (define-char
   '((=ucs		. #xBB47)	; ë­‡
-    (=ks-x1001		. #x3935)	; ø»ˆ½°
+    (=ks-x1001		. #x3935)	; &I-K0-3935;
     ))
 (define-char
   '((=ucs		. #xBB49)	; ë­‰
-    (=ks-x1001		. #x3936)	; ø»ˆ½±
+    (=ks-x1001		. #x3936)	; &I-K0-3936;
     ))
 (define-char
   '((=ucs		. #xBB4D)	; ë­
-    (=ks-x1001		. #x3937)	; ø»ˆ½²
+    (=ks-x1001		. #x3937)	; &I-K0-3937;
     ))
 (define-char
   '((=ucs		. #xBB4F)	; ë­
-    (=ks-x1001		. #x3938)	; ø»ˆ½³
+    (=ks-x1001		. #x3938)	; &I-K0-3938;
     ))
 (define-char
   '((=ucs		. #xBB50)	; ë­
-    (=ks-x1001		. #x3939)	; ø»ˆ½´
+    (=ks-x1001		. #x3939)	; &I-K0-3939;
     ))
 (define-char
   '((=ucs		. #xBB54)	; ë­”
-    (=ks-x1001		. #x393A)	; ø»ˆ½µ
+    (=ks-x1001		. #x393A)	; &I-K0-393A;
     ))
 (define-char
   '((=ucs		. #xBB58)	; ë­˜
-    (=ks-x1001		. #x393B)	; ø»ˆ½¶
+    (=ks-x1001		. #x393B)	; &I-K0-393B;
     ))
 (define-char
   '((=ucs		. #xBB61)	; ë­¡
-    (=ks-x1001		. #x393C)	; ø»ˆ½·
+    (=ks-x1001		. #x393C)	; &I-K0-393C;
     ))
 (define-char
   '((=ucs		. #xBB63)	; ë­£
-    (=ks-x1001		. #x393D)	; ø»ˆ½¸
+    (=ks-x1001		. #x393D)	; &I-K0-393D;
     ))
 (define-char
   '((=ucs		. #xBB6C)	; ë­¬
-    (=ks-x1001		. #x393E)	; ø»ˆ½¹
+    (=ks-x1001		. #x393E)	; &I-K0-393E;
     ))
 (define-char
   '((=ucs		. #xBB88)	; ë®ˆ
-    (=ks-x1001		. #x393F)	; ø»ˆ½º
+    (=ks-x1001		. #x393F)	; &I-K0-393F;
     ))
 (define-char
   '((=ucs		. #xBB8C)	; ë®Œ
-    (=ks-x1001		. #x3940)	; ø»ˆ½»
+    (=ks-x1001		. #x3940)	; &I-K0-3940;
     ))
 (define-char
   '((=ucs		. #xBB90)	; ë®
-    (=ks-x1001		. #x3941)	; ø»ˆ½¼
+    (=ks-x1001		. #x3941)	; &I-K0-3941;
     ))
 (define-char
   '((=ucs		. #xBBA4)	; ë®¤
-    (=ks-x1001		. #x3942)	; ø»ˆ½½
+    (=ks-x1001		. #x3942)	; &I-K0-3942;
     ))
 (define-char
   '((=ucs		. #xBBA8)	; ë®¨
-    (=ks-x1001		. #x3943)	; ø»ˆ½¾
+    (=ks-x1001		. #x3943)	; &I-K0-3943;
     ))
 (define-char
   '((=ucs		. #xBBAC)	; ë®¬
-    (=ks-x1001		. #x3944)	; ø»ˆ½¿
+    (=ks-x1001		. #x3944)	; &I-K0-3944;
     ))
 (define-char
   '((=ucs		. #xBBB4)	; ë®´
-    (=ks-x1001		. #x3945)	; ø»ˆ¾€
+    (=ks-x1001		. #x3945)	; &I-K0-3945;
     ))
 (define-char
   '((=ucs		. #xBBB7)	; ë®·
-    (=ks-x1001		. #x3946)	; ø»ˆ¾
+    (=ks-x1001		. #x3946)	; &I-K0-3946;
     ))
 (define-char
   '((=ucs		. #xBBC0)	; ë¯€
-    (=ks-x1001		. #x3947)	; ø»ˆ¾‚
+    (=ks-x1001		. #x3947)	; &I-K0-3947;
     ))
 (define-char
   '((=ucs		. #xBBC4)	; ë¯„
-    (=ks-x1001		. #x3948)	; ø»ˆ¾ƒ
+    (=ks-x1001		. #x3948)	; &I-K0-3948;
     ))
 (define-char
   '((=ucs		. #xBBC8)	; ë¯ˆ
-    (=ks-x1001		. #x3949)	; ø»ˆ¾„
+    (=ks-x1001		. #x3949)	; &I-K0-3949;
     ))
 (define-char
   '((=ucs		. #xBBD0)	; ë¯
-    (=ks-x1001		. #x394A)	; ø»ˆ¾…
+    (=ks-x1001		. #x394A)	; &I-K0-394A;
     ))
 (define-char
   '((=ucs		. #xBBD3)	; ë¯“
-    (=ks-x1001		. #x394B)	; ø»ˆ¾†
+    (=ks-x1001		. #x394B)	; &I-K0-394B;
     ))
 (define-char
   '((=ucs		. #xBBF8)	; ë¯¸
-    (=ks-x1001		. #x394C)	; ø»ˆ¾‡
-    (=jef-china3	. #x94A7)	; øº‰’§
+    (=ks-x1001		. #x394C)	; &I-K0-394C;
+    (=jef-china3	. #x94A7)	; &I-JC3-94A7;
     ))
 (define-char
   '((=ucs		. #xBBF9)	; ë¯¹
-    (=ks-x1001		. #x394D)	; ø»ˆ¾ˆ
+    (=ks-x1001		. #x394D)	; &I-K0-394D;
     ))
 (define-char
   '((=ucs		. #xBBFC)	; ë¯¼
-    (=ks-x1001		. #x394E)	; ø»ˆ¾‰
+    (=ks-x1001		. #x394E)	; &I-K0-394E;
     ))
 (define-char
   '((=ucs		. #xBBFF)	; ë¯¿
-    (=ks-x1001		. #x394F)	; ø»ˆ¾Š
+    (=ks-x1001		. #x394F)	; &I-K0-394F;
     ))
 (define-char
   '((=ucs		. #xBC00)	; ë°€
-    (=ks-x1001		. #x3950)	; ø»ˆ¾‹
-    (=jef-china3	. #x8BFE)	; øºˆ¯¾
+    (=ks-x1001		. #x3950)	; &I-K0-3950;
+    (=jef-china3	. #x8BFE)	; &I-JC3-8BFE;
     ))
 (define-char
   '((=ucs		. #xBC02)	; ë°‚
-    (=ks-x1001		. #x3951)	; ø»ˆ¾Œ
+    (=ks-x1001		. #x3951)	; &I-K0-3951;
     ))
 (define-char
   '((=ucs		. #xBC08)	; ë°ˆ
-    (=ks-x1001		. #x3952)	; ø»ˆ¾
+    (=ks-x1001		. #x3952)	; &I-K0-3952;
     ))
 (define-char
   '((=ucs		. #xBC09)	; ë°‰
-    (=ks-x1001		. #x3953)	; ø»ˆ¾Ž
+    (=ks-x1001		. #x3953)	; &I-K0-3953;
     ))
 (define-char
   '((=ucs		. #xBC0B)	; ë°‹
-    (=ks-x1001		. #x3954)	; ø»ˆ¾
+    (=ks-x1001		. #x3954)	; &I-K0-3954;
     ))
 (define-char
   '((=ucs		. #xBC0C)	; ë°Œ
-    (=ks-x1001		. #x3955)	; ø»ˆ¾
+    (=ks-x1001		. #x3955)	; &I-K0-3955;
     ))
 (define-char
   '((=ucs		. #xBC0D)	; ë°
-    (=ks-x1001		. #x3956)	; ø»ˆ¾‘
+    (=ks-x1001		. #x3956)	; &I-K0-3956;
     ))
 (define-char
   '((=ucs		. #xBC0F)	; ë°
-    (=ks-x1001		. #x3957)	; ø»ˆ¾’
+    (=ks-x1001		. #x3957)	; &I-K0-3957;
     ))
 (define-char
   '((=ucs		. #xBC11)	; ë°‘
-    (=ks-x1001		. #x3958)	; ø»ˆ¾“
+    (=ks-x1001		. #x3958)	; &I-K0-3958;
     ))
 (define-char
   '((=ucs		. #xBC14)	; ë°”
-    (=ks-x1001		. #x3959)	; ø»ˆ¾”
+    (=ks-x1001		. #x3959)	; &I-K0-3959;
     ))
 (define-char
   '((=ucs		. #xBC15)	; ë°•
-    (=ks-x1001		. #x395A)	; ø»ˆ¾•
+    (=ks-x1001		. #x395A)	; &I-K0-395A;
     ))
 (define-char
   '((=ucs		. #xBC16)	; ë°–
-    (=ks-x1001		. #x395B)	; ø»ˆ¾–
+    (=ks-x1001		. #x395B)	; &I-K0-395B;
     ))
 (define-char
   '((=ucs		. #xBC17)	; ë°—
-    (=ks-x1001		. #x395C)	; ø»ˆ¾—
+    (=ks-x1001		. #x395C)	; &I-K0-395C;
     ))
 (define-char
   '((=ucs		. #xBC18)	; ë°˜
-    (=ks-x1001		. #x395D)	; ø»ˆ¾˜
+    (=ks-x1001		. #x395D)	; &I-K0-395D;
     ))
 (define-char
   '((=ucs		. #xBC1B)	; ë°›
-    (=ks-x1001		. #x395E)	; ø»ˆ¾™
+    (=ks-x1001		. #x395E)	; &I-K0-395E;
     ))
 (define-char
   '((=ucs		. #xBC1C)	; ë°œ
-    (=ks-x1001		. #x395F)	; ø»ˆ¾š
+    (=ks-x1001		. #x395F)	; &I-K0-395F;
     ))
 (define-char
   '((=ucs		. #xBC1D)	; ë°
-    (=ks-x1001		. #x3960)	; ø»ˆ¾›
+    (=ks-x1001		. #x3960)	; &I-K0-3960;
     ))
 (define-char
   '((=ucs		. #xBC1E)	; ë°ž
-    (=ks-x1001		. #x3961)	; ø»ˆ¾œ
+    (=ks-x1001		. #x3961)	; &I-K0-3961;
     ))
 (define-char
   '((=ucs		. #xBC1F)	; ë°Ÿ
-    (=ks-x1001		. #x3962)	; ø»ˆ¾
+    (=ks-x1001		. #x3962)	; &I-K0-3962;
     ))
 (define-char
   '((=ucs		. #xBC24)	; ë°¤
-    (=ks-x1001		. #x3963)	; ø»ˆ¾ž
+    (=ks-x1001		. #x3963)	; &I-K0-3963;
     ))
 (define-char
   '((=ucs		. #xBC25)	; ë°¥
-    (=ks-x1001		. #x3964)	; ø»ˆ¾Ÿ
+    (=ks-x1001		. #x3964)	; &I-K0-3964;
     ))
 (define-char
   '((=ucs		. #xBC27)	; ë°§
-    (=ks-x1001		. #x3965)	; ø»ˆ¾ 
+    (=ks-x1001		. #x3965)	; &I-K0-3965;
     ))
 (define-char
   '((=ucs		. #xBC29)	; ë°©
-    (=ks-x1001		. #x3966)	; ø»ˆ¾¡
+    (=ks-x1001		. #x3966)	; &I-K0-3966;
     ))
 (define-char
   '((=ucs		. #xBC2D)	; ë°­
-    (=ks-x1001		. #x3967)	; ø»ˆ¾¢
+    (=ks-x1001		. #x3967)	; &I-K0-3967;
     ))
 (define-char
   '((=ucs		. #xBC30)	; ë°°
-    (=ks-x1001		. #x3968)	; ø»ˆ¾£
+    (=ks-x1001		. #x3968)	; &I-K0-3968;
     ))
 (define-char
   '((=ucs		. #xBC31)	; ë°±
-    (=ks-x1001		. #x3969)	; ø»ˆ¾¤
+    (=ks-x1001		. #x3969)	; &I-K0-3969;
     ))
 (define-char
   '((=ucs		. #xBC34)	; ë°´
-    (=ks-x1001		. #x396A)	; ø»ˆ¾¥
+    (=ks-x1001		. #x396A)	; &I-K0-396A;
     ))
 (define-char
   '((=ucs		. #xBC38)	; ë°¸
-    (=ks-x1001		. #x396B)	; ø»ˆ¾¦
+    (=ks-x1001		. #x396B)	; &I-K0-396B;
     ))
 (define-char
   '((=ucs		. #xBC40)	; ë±€
-    (=ks-x1001		. #x396C)	; ø»ˆ¾§
+    (=ks-x1001		. #x396C)	; &I-K0-396C;
     ))
 (define-char
   '((=ucs		. #xBC41)	; ë±
-    (=ks-x1001		. #x396D)	; ø»ˆ¾¨
+    (=ks-x1001		. #x396D)	; &I-K0-396D;
     ))
 (define-char
   '((=ucs		. #xBC43)	; ë±ƒ
-    (=ks-x1001		. #x396E)	; ø»ˆ¾©
+    (=ks-x1001		. #x396E)	; &I-K0-396E;
     ))
 (define-char
   '((=ucs		. #xBC44)	; ë±„
-    (=ks-x1001		. #x396F)	; ø»ˆ¾ª
+    (=ks-x1001		. #x396F)	; &I-K0-396F;
     ))
 (define-char
   '((=ucs		. #xBC45)	; ë±…
-    (=ks-x1001		. #x3970)	; ø»ˆ¾«
+    (=ks-x1001		. #x3970)	; &I-K0-3970;
     ))
 (define-char
   '((=ucs		. #xBC49)	; ë±‰
-    (=ks-x1001		. #x3971)	; ø»ˆ¾¬
+    (=ks-x1001		. #x3971)	; &I-K0-3971;
     ))
 (define-char
   '((=ucs		. #xBC4C)	; ë±Œ
-    (=ks-x1001		. #x3972)	; ø»ˆ¾­
+    (=ks-x1001		. #x3972)	; &I-K0-3972;
     ))
 (define-char
   '((=ucs		. #xBC4D)	; ë±
-    (=ks-x1001		. #x3973)	; ø»ˆ¾®
+    (=ks-x1001		. #x3973)	; &I-K0-3973;
     ))
 (define-char
   '((=ucs		. #xBC50)	; ë±
-    (=ks-x1001		. #x3974)	; ø»ˆ¾¯
+    (=ks-x1001		. #x3974)	; &I-K0-3974;
     ))
 (define-char
   '((=ucs		. #xBC5D)	; ë±
-    (=ks-x1001		. #x3975)	; ø»ˆ¾°
+    (=ks-x1001		. #x3975)	; &I-K0-3975;
     ))
 (define-char
   '((=ucs		. #xBC84)	; ë²„
-    (=ks-x1001		. #x3976)	; ø»ˆ¾±
+    (=ks-x1001		. #x3976)	; &I-K0-3976;
     ))
 (define-char
   '((=ucs		. #xBC85)	; ë²…
-    (=ks-x1001		. #x3977)	; ø»ˆ¾²
+    (=ks-x1001		. #x3977)	; &I-K0-3977;
     ))
 (define-char
   '((=ucs		. #xBC88)	; ë²ˆ
-    (=ks-x1001		. #x3978)	; ø»ˆ¾³
+    (=ks-x1001		. #x3978)	; &I-K0-3978;
     ))
 (define-char
   '((=ucs		. #xBC8B)	; ë²‹
-    (=ks-x1001		. #x3979)	; ø»ˆ¾´
+    (=ks-x1001		. #x3979)	; &I-K0-3979;
     ))
 (define-char
   '((=ucs		. #xBC8C)	; ë²Œ
-    (=ks-x1001		. #x397A)	; ø»ˆ¾µ
+    (=ks-x1001		. #x397A)	; &I-K0-397A;
     ))
 (define-char
   '((=ucs		. #xBC8E)	; ë²Ž
-    (=ks-x1001		. #x397B)	; ø»ˆ¾¶
+    (=ks-x1001		. #x397B)	; &I-K0-397B;
     ))
 (define-char
   '((=ucs		. #xBC94)	; ë²”
-    (=ks-x1001		. #x397C)	; ø»ˆ¾·
-    (=jef-china3	. #x8CA3)	; øºˆ²£
+    (=ks-x1001		. #x397C)	; &I-K0-397C;
+    (=jef-china3	. #x8CA3)	; &I-JC3-8CA3;
     ))
 (define-char
   '((=ucs		. #xBC95)	; ë²•
-    (=ks-x1001		. #x397D)	; ø»ˆ¾¸
+    (=ks-x1001		. #x397D)	; &I-K0-397D;
     ))
 (define-char
   '((=ucs		. #xBC97)	; ë²—
-    (=ks-x1001		. #x397E)	; ø»ˆ¾¹
+    (=ks-x1001		. #x397E)	; &I-K0-397E;
     ))
 (define-char
   '((=ucs		. #xBC99)	; ë²™
-    (=ks-x1001		. #x3A21)	; ø»ˆ¾º
+    (=ks-x1001		. #x3A21)	; &I-K0-3A21;
     ))
 (define-char
   '((=ucs		. #xBC9A)	; ë²š
-    (=ks-x1001		. #x3A22)	; ø»ˆ¾»
+    (=ks-x1001		. #x3A22)	; &I-K0-3A22;
     ))
 (define-char
   '((=ucs		. #xBCA0)	; ë² 
-    (=ks-x1001		. #x3A23)	; ø»ˆ¾¼
+    (=ks-x1001		. #x3A23)	; &I-K0-3A23;
     ))
 (define-char
   '((=ucs		. #xBCA1)	; ë²¡
-    (=ks-x1001		. #x3A24)	; ø»ˆ¾½
+    (=ks-x1001		. #x3A24)	; &I-K0-3A24;
     ))
 (define-char
   '((=ucs		. #xBCA4)	; ë²¤
-    (=ks-x1001		. #x3A25)	; ø»ˆ¾¾
+    (=ks-x1001		. #x3A25)	; &I-K0-3A25;
     ))
 (define-char
   '((=ucs		. #xBCA7)	; ë²§
-    (=ks-x1001		. #x3A26)	; ø»ˆ¾¿
+    (=ks-x1001		. #x3A26)	; &I-K0-3A26;
     ))
 (define-char
   '((=ucs		. #xBCA8)	; ë²¨
-    (=ks-x1001		. #x3A27)	; ø»ˆ¿€
+    (=ks-x1001		. #x3A27)	; &I-K0-3A27;
     ))
 (define-char
   '((=ucs		. #xBCB0)	; ë²°
-    (=ks-x1001		. #x3A28)	; ø»ˆ¿
+    (=ks-x1001		. #x3A28)	; &I-K0-3A28;
     ))
 (define-char
   '((=ucs		. #xBCB1)	; ë²±
-    (=ks-x1001		. #x3A29)	; ø»ˆ¿‚
+    (=ks-x1001		. #x3A29)	; &I-K0-3A29;
     ))
 (define-char
   '((=ucs		. #xBCB3)	; ë²³
-    (=ks-x1001		. #x3A2A)	; ø»ˆ¿ƒ
+    (=ks-x1001		. #x3A2A)	; &I-K0-3A2A;
     ))
 (define-char
   '((=ucs		. #xBCB4)	; ë²´
-    (=ks-x1001		. #x3A2B)	; ø»ˆ¿„
+    (=ks-x1001		. #x3A2B)	; &I-K0-3A2B;
     ))
 (define-char
   '((=ucs		. #xBCB5)	; ë²µ
-    (=ks-x1001		. #x3A2C)	; ø»ˆ¿…
+    (=ks-x1001		. #x3A2C)	; &I-K0-3A2C;
     ))
 (define-char
   '((=ucs		. #xBCBC)	; ë²¼
-    (=ks-x1001		. #x3A2D)	; ø»ˆ¿†
+    (=ks-x1001		. #x3A2D)	; &I-K0-3A2D;
     ))
 (define-char
   '((=ucs		. #xBCBD)	; ë²½
-    (=ks-x1001		. #x3A2E)	; ø»ˆ¿‡
+    (=ks-x1001		. #x3A2E)	; &I-K0-3A2E;
     ))
 (define-char
   '((=ucs		. #xBCC0)	; ë³€
-    (=ks-x1001		. #x3A2F)	; ø»ˆ¿ˆ
+    (=ks-x1001		. #x3A2F)	; &I-K0-3A2F;
     ))
 (define-char
   '((=ucs		. #xBCC4)	; ë³„
-    (=ks-x1001		. #x3A30)	; ø»ˆ¿‰
+    (=ks-x1001		. #x3A30)	; &I-K0-3A30;
     ))
 (define-char
   '((=ucs		. #xBCCD)	; ë³
-    (=ks-x1001		. #x3A31)	; ø»ˆ¿Š
+    (=ks-x1001		. #x3A31)	; &I-K0-3A31;
     ))
 (define-char
   '((=ucs		. #xBCCF)	; ë³
-    (=ks-x1001		. #x3A32)	; ø»ˆ¿‹
+    (=ks-x1001		. #x3A32)	; &I-K0-3A32;
     ))
 (define-char
   '((=ucs		. #xBCD0)	; ë³
-    (=ks-x1001		. #x3A33)	; ø»ˆ¿Œ
+    (=ks-x1001		. #x3A33)	; &I-K0-3A33;
     ))
 (define-char
   '((=ucs		. #xBCD1)	; ë³‘
-    (=ks-x1001		. #x3A34)	; ø»ˆ¿
+    (=ks-x1001		. #x3A34)	; &I-K0-3A34;
     ))
 (define-char
   '((=ucs		. #xBCD5)	; ë³•
-    (=ks-x1001		. #x3A35)	; ø»ˆ¿Ž
+    (=ks-x1001		. #x3A35)	; &I-K0-3A35;
     ))
 (define-char
   '((=ucs		. #xBCD8)	; ë³˜
-    (=ks-x1001		. #x3A36)	; ø»ˆ¿
+    (=ks-x1001		. #x3A36)	; &I-K0-3A36;
     ))
 (define-char
   '((=ucs		. #xBCDC)	; ë³œ
-    (=ks-x1001		. #x3A37)	; ø»ˆ¿
+    (=ks-x1001		. #x3A37)	; &I-K0-3A37;
     ))
 (define-char
   '((=ucs		. #xBCF4)	; ë³´
-    (=ks-x1001		. #x3A38)	; ø»ˆ¿‘
-    (=jef-china3	. #x82D3)	; øºˆ‹“
+    (=ks-x1001		. #x3A38)	; &I-K0-3A38;
+    (=jef-china3	. #x82D3)	; &I-JC3-82D3;
     ))
 (define-char
   '((=ucs		. #xBCF5)	; ë³µ
-    (=ks-x1001		. #x3A39)	; ø»ˆ¿’
+    (=ks-x1001		. #x3A39)	; &I-K0-3A39;
     ))
 (define-char
   '((=ucs		. #xBCF6)	; ë³¶
-    (=ks-x1001		. #x3A3A)	; ø»ˆ¿“
+    (=ks-x1001		. #x3A3A)	; &I-K0-3A3A;
     ))
 (define-char
   '((=ucs		. #xBCF8)	; ë³¸
-    (=ks-x1001		. #x3A3B)	; ø»ˆ¿”
+    (=ks-x1001		. #x3A3B)	; &I-K0-3A3B;
     ))
 (define-char
   '((=ucs		. #xBCFC)	; ë³¼
-    (=ks-x1001		. #x3A3C)	; ø»ˆ¿•
+    (=ks-x1001		. #x3A3C)	; &I-K0-3A3C;
     ))
 (define-char
   '((=ucs		. #xBD04)	; ë´„
-    (=ks-x1001		. #x3A3D)	; ø»ˆ¿–
+    (=ks-x1001		. #x3A3D)	; &I-K0-3A3D;
     ))
 (define-char
   '((=ucs		. #xBD05)	; ë´…
-    (=ks-x1001		. #x3A3E)	; ø»ˆ¿—
+    (=ks-x1001		. #x3A3E)	; &I-K0-3A3E;
     ))
 (define-char
   '((=ucs		. #xBD07)	; ë´‡
-    (=ks-x1001		. #x3A3F)	; ø»ˆ¿˜
+    (=ks-x1001		. #x3A3F)	; &I-K0-3A3F;
     ))
 (define-char
   '((=ucs		. #xBD09)	; ë´‰
-    (=ks-x1001		. #x3A40)	; ø»ˆ¿™
+    (=ks-x1001		. #x3A40)	; &I-K0-3A40;
     ))
 (define-char
   '((=ucs		. #xBD10)	; ë´
-    (=ks-x1001		. #x3A41)	; ø»ˆ¿š
+    (=ks-x1001		. #x3A41)	; &I-K0-3A41;
     ))
 (define-char
   '((=ucs		. #xBD14)	; ë´”
-    (=ks-x1001		. #x3A42)	; ø»ˆ¿›
+    (=ks-x1001		. #x3A42)	; &I-K0-3A42;
     ))
 (define-char
   '((=ucs		. #xBD24)	; ë´¤
-    (=ks-x1001		. #x3A43)	; ø»ˆ¿œ
+    (=ks-x1001		. #x3A43)	; &I-K0-3A43;
     ))
 (define-char
   '((=ucs		. #xBD2C)	; ë´¬
-    (=ks-x1001		. #x3A44)	; ø»ˆ¿
+    (=ks-x1001		. #x3A44)	; &I-K0-3A44;
     ))
 (define-char
   '((=ucs		. #xBD40)	; ëµ€
-    (=ks-x1001		. #x3A45)	; ø»ˆ¿ž
+    (=ks-x1001		. #x3A45)	; &I-K0-3A45;
     ))
 (define-char
   '((=ucs		. #xBD48)	; ëµˆ
-    (=ks-x1001		. #x3A46)	; ø»ˆ¿Ÿ
+    (=ks-x1001		. #x3A46)	; &I-K0-3A46;
     ))
 (define-char
   '((=ucs		. #xBD49)	; ëµ‰
-    (=ks-x1001		. #x3A47)	; ø»ˆ¿ 
+    (=ks-x1001		. #x3A47)	; &I-K0-3A47;
     ))
 (define-char
   '((=ucs		. #xBD4C)	; ëµŒ
-    (=ks-x1001		. #x3A48)	; ø»ˆ¿¡
+    (=ks-x1001		. #x3A48)	; &I-K0-3A48;
     ))
 (define-char
   '((=ucs		. #xBD50)	; ëµ
-    (=ks-x1001		. #x3A49)	; ø»ˆ¿¢
+    (=ks-x1001		. #x3A49)	; &I-K0-3A49;
     ))
 (define-char
   '((=ucs		. #xBD58)	; ëµ˜
-    (=ks-x1001		. #x3A4A)	; ø»ˆ¿£
+    (=ks-x1001		. #x3A4A)	; &I-K0-3A4A;
     ))
 (define-char
   '((=ucs		. #xBD59)	; ëµ™
-    (=ks-x1001		. #x3A4B)	; ø»ˆ¿¤
+    (=ks-x1001		. #x3A4B)	; &I-K0-3A4B;
     ))
 (define-char
   '((=ucs		. #xBD64)	; ëµ¤
-    (=ks-x1001		. #x3A4C)	; ø»ˆ¿¥
+    (=ks-x1001		. #x3A4C)	; &I-K0-3A4C;
     ))
 (define-char
   '((=ucs		. #xBD68)	; ëµ¨
-    (=ks-x1001		. #x3A4D)	; ø»ˆ¿¦
+    (=ks-x1001		. #x3A4D)	; &I-K0-3A4D;
     ))
 (define-char
   '((=ucs		. #xBD80)	; ë¶€
-    (=ks-x1001		. #x3A4E)	; ø»ˆ¿§
+    (=ks-x1001		. #x3A4E)	; &I-K0-3A4E;
     ))
 (define-char
   '((=ucs		. #xBD81)	; ë¶
-    (=ks-x1001		. #x3A4F)	; ø»ˆ¿¨
+    (=ks-x1001		. #x3A4F)	; &I-K0-3A4F;
     ))
 (define-char
   '((=ucs		. #xBD84)	; ë¶„
-    (=ks-x1001		. #x3A50)	; ø»ˆ¿©
+    (=ks-x1001		. #x3A50)	; &I-K0-3A50;
     ))
 (define-char
   '((=ucs		. #xBD87)	; ë¶‡
-    (=ks-x1001		. #x3A51)	; ø»ˆ¿ª
+    (=ks-x1001		. #x3A51)	; &I-K0-3A51;
     ))
 (define-char
   '((=ucs		. #xBD88)	; ë¶ˆ
-    (=ks-x1001		. #x3A52)	; ø»ˆ¿«
+    (=ks-x1001		. #x3A52)	; &I-K0-3A52;
     ))
 (define-char
   '((=ucs		. #xBD89)	; ë¶‰
-    (=ks-x1001		. #x3A53)	; ø»ˆ¿¬
+    (=ks-x1001		. #x3A53)	; &I-K0-3A53;
     ))
 (define-char
   '((=ucs		. #xBD8A)	; ë¶Š
-    (=ks-x1001		. #x3A54)	; ø»ˆ¿­
+    (=ks-x1001		. #x3A54)	; &I-K0-3A54;
     ))
 (define-char
   '((=ucs		. #xBD90)	; ë¶
-    (=ks-x1001		. #x3A55)	; ø»ˆ¿®
+    (=ks-x1001		. #x3A55)	; &I-K0-3A55;
     ))
 (define-char
   '((=ucs		. #xBD91)	; ë¶‘
-    (=ks-x1001		. #x3A56)	; ø»ˆ¿¯
+    (=ks-x1001		. #x3A56)	; &I-K0-3A56;
     ))
 (define-char
   '((=ucs		. #xBD93)	; ë¶“
-    (=ks-x1001		. #x3A57)	; ø»ˆ¿°
+    (=ks-x1001		. #x3A57)	; &I-K0-3A57;
     ))
 (define-char
   '((=ucs		. #xBD95)	; ë¶•
-    (=ks-x1001		. #x3A58)	; ø»ˆ¿±
+    (=ks-x1001		. #x3A58)	; &I-K0-3A58;
     ))
 (define-char
   '((=ucs		. #xBD99)	; ë¶™
-    (=ks-x1001		. #x3A59)	; ø»ˆ¿²
+    (=ks-x1001		. #x3A59)	; &I-K0-3A59;
     ))
 (define-char
   '((=ucs		. #xBD9A)	; ë¶š
-    (=ks-x1001		. #x3A5A)	; ø»ˆ¿³
+    (=ks-x1001		. #x3A5A)	; &I-K0-3A5A;
     ))
 (define-char
   '((=ucs		. #xBD9C)	; ë¶œ
-    (=ks-x1001		. #x3A5B)	; ø»ˆ¿´
+    (=ks-x1001		. #x3A5B)	; &I-K0-3A5B;
     ))
 (define-char
   '((=ucs		. #xBDA4)	; ë¶¤
-    (=ks-x1001		. #x3A5C)	; ø»ˆ¿µ
+    (=ks-x1001		. #x3A5C)	; &I-K0-3A5C;
     ))
 (define-char
   '((=ucs		. #xBDB0)	; ë¶°
-    (=ks-x1001		. #x3A5D)	; ø»ˆ¿¶
+    (=ks-x1001		. #x3A5D)	; &I-K0-3A5D;
     ))
 (define-char
   '((=ucs		. #xBDB8)	; ë¶¸
-    (=ks-x1001		. #x3A5E)	; ø»ˆ¿·
+    (=ks-x1001		. #x3A5E)	; &I-K0-3A5E;
     ))
 (define-char
   '((=ucs		. #xBDD4)	; ë·”
-    (=ks-x1001		. #x3A5F)	; ø»ˆ¿¸
+    (=ks-x1001		. #x3A5F)	; &I-K0-3A5F;
     ))
 (define-char
   '((=ucs		. #xBDD5)	; ë·•
-    (=ks-x1001		. #x3A60)	; ø»ˆ¿¹
+    (=ks-x1001		. #x3A60)	; &I-K0-3A60;
     ))
 (define-char
   '((=ucs		. #xBDD8)	; ë·˜
-    (=ks-x1001		. #x3A61)	; ø»ˆ¿º
+    (=ks-x1001		. #x3A61)	; &I-K0-3A61;
     ))
 (define-char
   '((=ucs		. #xBDDC)	; ë·œ
-    (=ks-x1001		. #x3A62)	; ø»ˆ¿»
+    (=ks-x1001		. #x3A62)	; &I-K0-3A62;
     ))
 (define-char
   '((=ucs		. #xBDE9)	; ë·©
-    (=ks-x1001		. #x3A63)	; ø»ˆ¿¼
+    (=ks-x1001		. #x3A63)	; &I-K0-3A63;
     ))
 (define-char
   '((=ucs		. #xBDF0)	; ë·°
-    (=ks-x1001		. #x3A64)	; ø»ˆ¿½
+    (=ks-x1001		. #x3A64)	; &I-K0-3A64;
     ))
 (define-char
   '((=ucs		. #xBDF4)	; ë·´
-    (=ks-x1001		. #x3A65)	; ø»ˆ¿¾
+    (=ks-x1001		. #x3A65)	; &I-K0-3A65;
     ))
 (define-char
   '((=ucs		. #xBDF8)	; ë·¸
-    (=ks-x1001		. #x3A66)	; ø»ˆ¿¿
+    (=ks-x1001		. #x3A66)	; &I-K0-3A66;
     ))
 (define-char
   '((=ucs		. #xBE00)	; ë¸€
-    (=ks-x1001		. #x3A67)	; ø»‰€€
+    (=ks-x1001		. #x3A67)	; &I-K0-3A67;
     ))
 (define-char
   '((=ucs		. #xBE03)	; ë¸ƒ
-    (=ks-x1001		. #x3A68)	; ø»‰€
+    (=ks-x1001		. #x3A68)	; &I-K0-3A68;
     ))
 (define-char
   '((=ucs		. #xBE05)	; ë¸…
-    (=ks-x1001		. #x3A69)	; ø»‰€‚
+    (=ks-x1001		. #x3A69)	; &I-K0-3A69;
     ))
 (define-char
   '((=ucs		. #xBE0C)	; ë¸Œ
-    (=ks-x1001		. #x3A6A)	; ø»‰€ƒ
+    (=ks-x1001		. #x3A6A)	; &I-K0-3A6A;
     ))
 (define-char
   '((=ucs		. #xBE0D)	; ë¸
-    (=ks-x1001		. #x3A6B)	; ø»‰€„
+    (=ks-x1001		. #x3A6B)	; &I-K0-3A6B;
     ))
 (define-char
   '((=ucs		. #xBE10)	; ë¸
-    (=ks-x1001		. #x3A6C)	; ø»‰€…
+    (=ks-x1001		. #x3A6C)	; &I-K0-3A6C;
     ))
 (define-char
   '((=ucs		. #xBE14)	; ë¸”
-    (=ks-x1001		. #x3A6D)	; ø»‰€†
+    (=ks-x1001		. #x3A6D)	; &I-K0-3A6D;
     ))
 (define-char
   '((=ucs		. #xBE1C)	; ë¸œ
-    (=ks-x1001		. #x3A6E)	; ø»‰€‡
+    (=ks-x1001		. #x3A6E)	; &I-K0-3A6E;
     ))
 (define-char
   '((=ucs		. #xBE1D)	; ë¸
-    (=ks-x1001		. #x3A6F)	; ø»‰€ˆ
+    (=ks-x1001		. #x3A6F)	; &I-K0-3A6F;
     ))
 (define-char
   '((=ucs		. #xBE1F)	; ë¸Ÿ
-    (=ks-x1001		. #x3A70)	; ø»‰€‰
+    (=ks-x1001		. #x3A70)	; &I-K0-3A70;
     ))
 (define-char
   '((=ucs		. #xBE44)	; ë¹„
-    (=ks-x1001		. #x3A71)	; ø»‰€Š
-    (=jef-china3	. #x82D5)	; øºˆ‹•
+    (=ks-x1001		. #x3A71)	; &I-K0-3A71;
+    (=jef-china3	. #x82D5)	; &I-JC3-82D5;
     ))
 (define-char
   '((=ucs		. #xBE45)	; ë¹…
-    (=ks-x1001		. #x3A72)	; ø»‰€‹
+    (=ks-x1001		. #x3A72)	; &I-K0-3A72;
     ))
 (define-char
   '((=ucs		. #xBE48)	; ë¹ˆ
-    (=ks-x1001		. #x3A73)	; ø»‰€Œ
+    (=ks-x1001		. #x3A73)	; &I-K0-3A73;
     ))
 (define-char
   '((=ucs		. #xBE4C)	; ë¹Œ
-    (=ks-x1001		. #x3A74)	; ø»‰€
+    (=ks-x1001		. #x3A74)	; &I-K0-3A74;
     ))
 (define-char
   '((=ucs		. #xBE4E)	; ë¹Ž
-    (=ks-x1001		. #x3A75)	; ø»‰€Ž
+    (=ks-x1001		. #x3A75)	; &I-K0-3A75;
     ))
 (define-char
   '((=ucs		. #xBE54)	; ë¹”
-    (=ks-x1001		. #x3A76)	; ø»‰€
+    (=ks-x1001		. #x3A76)	; &I-K0-3A76;
     ))
 (define-char
   '((=ucs		. #xBE55)	; ë¹•
-    (=ks-x1001		. #x3A77)	; ø»‰€
+    (=ks-x1001		. #x3A77)	; &I-K0-3A77;
     ))
 (define-char
   '((=ucs		. #xBE57)	; ë¹—
-    (=ks-x1001		. #x3A78)	; ø»‰€‘
+    (=ks-x1001		. #x3A78)	; &I-K0-3A78;
     ))
 (define-char
   '((=ucs		. #xBE59)	; ë¹™
-    (=ks-x1001		. #x3A79)	; ø»‰€’
+    (=ks-x1001		. #x3A79)	; &I-K0-3A79;
     ))
 (define-char
   '((=ucs		. #xBE5A)	; ë¹š
-    (=ks-x1001		. #x3A7A)	; ø»‰€“
+    (=ks-x1001		. #x3A7A)	; &I-K0-3A7A;
     ))
 (define-char
   '((=ucs		. #xBE5B)	; ë¹›
-    (=ks-x1001		. #x3A7B)	; ø»‰€”
+    (=ks-x1001		. #x3A7B)	; &I-K0-3A7B;
     ))
 (define-char
   '((=ucs		. #xBE60)	; ë¹ 
-    (=ks-x1001		. #x3A7C)	; ø»‰€•
+    (=ks-x1001		. #x3A7C)	; &I-K0-3A7C;
     ))
 (define-char
   '((=ucs		. #xBE61)	; ë¹¡
-    (=ks-x1001		. #x3A7D)	; ø»‰€–
+    (=ks-x1001		. #x3A7D)	; &I-K0-3A7D;
     ))
 (define-char
   '((=ucs		. #xBE64)	; ë¹¤
-    (=ks-x1001		. #x3A7E)	; ø»‰€—
+    (=ks-x1001		. #x3A7E)	; &I-K0-3A7E;
     ))
 (define-char
   '((=ucs		. #xBE68)	; ë¹¨
-    (=ks-x1001		. #x3B21)	; ø»‰€˜
+    (=ks-x1001		. #x3B21)	; &I-K0-3B21;
     ))
 (define-char
   '((=ucs		. #xBE6A)	; ë¹ª
-    (=ks-x1001		. #x3B22)	; ø»‰€™
+    (=ks-x1001		. #x3B22)	; &I-K0-3B22;
     ))
 (define-char
   '((=ucs		. #xBE70)	; ë¹°
-    (=ks-x1001		. #x3B23)	; ø»‰€š
+    (=ks-x1001		. #x3B23)	; &I-K0-3B23;
     ))
 (define-char
   '((=ucs		. #xBE71)	; ë¹±
-    (=ks-x1001		. #x3B24)	; ø»‰€›
+    (=ks-x1001		. #x3B24)	; &I-K0-3B24;
     ))
 (define-char
   '((=ucs		. #xBE73)	; ë¹³
-    (=ks-x1001		. #x3B25)	; ø»‰€œ
+    (=ks-x1001		. #x3B25)	; &I-K0-3B25;
     ))
 (define-char
   '((=ucs		. #xBE74)	; ë¹´
-    (=ks-x1001		. #x3B26)	; ø»‰€
+    (=ks-x1001		. #x3B26)	; &I-K0-3B26;
     ))
 (define-char
   '((=ucs		. #xBE75)	; ë¹µ
-    (=ks-x1001		. #x3B27)	; ø»‰€ž
+    (=ks-x1001		. #x3B27)	; &I-K0-3B27;
     ))
 (define-char
   '((=ucs		. #xBE7B)	; ë¹»
-    (=ks-x1001		. #x3B28)	; ø»‰€Ÿ
+    (=ks-x1001		. #x3B28)	; &I-K0-3B28;
     ))
 (define-char
   '((=ucs		. #xBE7C)	; ë¹¼
-    (=ks-x1001		. #x3B29)	; ø»‰€ 
+    (=ks-x1001		. #x3B29)	; &I-K0-3B29;
     ))
 (define-char
   '((=ucs		. #xBE7D)	; ë¹½
-    (=ks-x1001		. #x3B2A)	; ø»‰€¡
+    (=ks-x1001		. #x3B2A)	; &I-K0-3B2A;
     ))
 (define-char
   '((=ucs		. #xBE80)	; ëº€
-    (=ks-x1001		. #x3B2B)	; ø»‰€¢
+    (=ks-x1001		. #x3B2B)	; &I-K0-3B2B;
     ))
 (define-char
   '((=ucs		. #xBE84)	; ëº„
-    (=ks-x1001		. #x3B2C)	; ø»‰€£
+    (=ks-x1001		. #x3B2C)	; &I-K0-3B2C;
     ))
 (define-char
   '((=ucs		. #xBE8C)	; ëºŒ
-    (=ks-x1001		. #x3B2D)	; ø»‰€¤
+    (=ks-x1001		. #x3B2D)	; &I-K0-3B2D;
     ))
 (define-char
   '((=ucs		. #xBE8D)	; ëº
-    (=ks-x1001		. #x3B2E)	; ø»‰€¥
+    (=ks-x1001		. #x3B2E)	; &I-K0-3B2E;
     ))
 (define-char
   '((=ucs		. #xBE8F)	; ëº
-    (=ks-x1001		. #x3B2F)	; ø»‰€¦
+    (=ks-x1001		. #x3B2F)	; &I-K0-3B2F;
     ))
 (define-char
   '((=ucs		. #xBE90)	; ëº
-    (=ks-x1001		. #x3B30)	; ø»‰€§
+    (=ks-x1001		. #x3B30)	; &I-K0-3B30;
     ))
 (define-char
   '((=ucs		. #xBE91)	; ëº‘
-    (=ks-x1001		. #x3B31)	; ø»‰€¨
+    (=ks-x1001		. #x3B31)	; &I-K0-3B31;
     ))
 (define-char
   '((=ucs		. #xBE98)	; ëº˜
-    (=ks-x1001		. #x3B32)	; ø»‰€©
+    (=ks-x1001		. #x3B32)	; &I-K0-3B32;
     ))
 (define-char
   '((=ucs		. #xBE99)	; ëº™
-    (=ks-x1001		. #x3B33)	; ø»‰€ª
+    (=ks-x1001		. #x3B33)	; &I-K0-3B33;
     ))
 (define-char
   '((=ucs		. #xBEA8)	; ëº¨
-    (=ks-x1001		. #x3B34)	; ø»‰€«
+    (=ks-x1001		. #x3B34)	; &I-K0-3B34;
     ))
 (define-char
   '((=ucs		. #xBED0)	; ë»
-    (=ks-x1001		. #x3B35)	; ø»‰€¬
+    (=ks-x1001		. #x3B35)	; &I-K0-3B35;
     ))
 (define-char
   '((=ucs		. #xBED1)	; ë»‘
-    (=ks-x1001		. #x3B36)	; ø»‰€­
+    (=ks-x1001		. #x3B36)	; &I-K0-3B36;
     ))
 (define-char
   '((=ucs		. #xBED4)	; ë»”
-    (=ks-x1001		. #x3B37)	; ø»‰€®
+    (=ks-x1001		. #x3B37)	; &I-K0-3B37;
     ))
 (define-char
   '((=ucs		. #xBED7)	; ë»—
-    (=ks-x1001		. #x3B38)	; ø»‰€¯
+    (=ks-x1001		. #x3B38)	; &I-K0-3B38;
     ))
 (define-char
   '((=ucs		. #xBED8)	; ë»˜
-    (=ks-x1001		. #x3B39)	; ø»‰€°
+    (=ks-x1001		. #x3B39)	; &I-K0-3B39;
     ))
 (define-char
   '((=ucs		. #xBEE0)	; ë» 
-    (=ks-x1001		. #x3B3A)	; ø»‰€±
+    (=ks-x1001		. #x3B3A)	; &I-K0-3B3A;
     ))
 (define-char
   '((=ucs		. #xBEE3)	; ë»£
-    (=ks-x1001		. #x3B3B)	; ø»‰€²
+    (=ks-x1001		. #x3B3B)	; &I-K0-3B3B;
     ))
 (define-char
   '((=ucs		. #xBEE4)	; ë»¤
-    (=ks-x1001		. #x3B3C)	; ø»‰€³
+    (=ks-x1001		. #x3B3C)	; &I-K0-3B3C;
     ))
 (define-char
   '((=ucs		. #xBEE5)	; ë»¥
-    (=ks-x1001		. #x3B3D)	; ø»‰€´
+    (=ks-x1001		. #x3B3D)	; &I-K0-3B3D;
     ))
 (define-char
   '((=ucs		. #xBEEC)	; ë»¬
-    (=ks-x1001		. #x3B3E)	; ø»‰€µ
+    (=ks-x1001		. #x3B3E)	; &I-K0-3B3E;
     ))
 (define-char
   '((=ucs		. #xBF01)	; ë¼
-    (=ks-x1001		. #x3B3F)	; ø»‰€¶
+    (=ks-x1001		. #x3B3F)	; &I-K0-3B3F;
     ))
 (define-char
   '((=ucs		. #xBF08)	; ë¼ˆ
-    (=ks-x1001		. #x3B40)	; ø»‰€·
+    (=ks-x1001		. #x3B40)	; &I-K0-3B40;
     ))
 (define-char
   '((=ucs		. #xBF09)	; ë¼‰
-    (=ks-x1001		. #x3B41)	; ø»‰€¸
+    (=ks-x1001		. #x3B41)	; &I-K0-3B41;
     ))
 (define-char
   '((=ucs		. #xBF18)	; ë¼˜
-    (=ks-x1001		. #x3B42)	; ø»‰€¹
+    (=ks-x1001		. #x3B42)	; &I-K0-3B42;
     ))
 (define-char
   '((=ucs		. #xBF19)	; ë¼™
-    (=ks-x1001		. #x3B43)	; ø»‰€º
+    (=ks-x1001		. #x3B43)	; &I-K0-3B43;
     ))
 (define-char
   '((=ucs		. #xBF1B)	; ë¼›
-    (=ks-x1001		. #x3B44)	; ø»‰€»
+    (=ks-x1001		. #x3B44)	; &I-K0-3B44;
     ))
 (define-char
   '((=ucs		. #xBF1C)	; ë¼œ
-    (=ks-x1001		. #x3B45)	; ø»‰€¼
+    (=ks-x1001		. #x3B45)	; &I-K0-3B45;
     ))
 (define-char
   '((=ucs		. #xBF1D)	; ë¼
-    (=ks-x1001		. #x3B46)	; ø»‰€½
+    (=ks-x1001		. #x3B46)	; &I-K0-3B46;
     ))
 (define-char
   '((=ucs		. #xBF40)	; ë½€
-    (=ks-x1001		. #x3B47)	; ø»‰€¾
+    (=ks-x1001		. #x3B47)	; &I-K0-3B47;
     ))
 (define-char
   '((=ucs		. #xBF41)	; ë½
-    (=ks-x1001		. #x3B48)	; ø»‰€¿
+    (=ks-x1001		. #x3B48)	; &I-K0-3B48;
     ))
 (define-char
   '((=ucs		. #xBF44)	; ë½„
-    (=ks-x1001		. #x3B49)	; ø»‰€
+    (=ks-x1001		. #x3B49)	; &I-K0-3B49;
     ))
 (define-char
   '((=ucs		. #xBF48)	; ë½ˆ
-    (=ks-x1001		. #x3B4A)	; ø»‰
+    (=ks-x1001		. #x3B4A)	; &I-K0-3B4A;
     ))
 (define-char
   '((=ucs		. #xBF50)	; ë½
-    (=ks-x1001		. #x3B4B)	; ø»‰‚
+    (=ks-x1001		. #x3B4B)	; &I-K0-3B4B;
     ))
 (define-char
   '((=ucs		. #xBF51)	; ë½‘
-    (=ks-x1001		. #x3B4C)	; ø»‰ƒ
+    (=ks-x1001		. #x3B4C)	; &I-K0-3B4C;
     ))
 (define-char
   '((=ucs		. #xBF55)	; ë½•
-    (=ks-x1001		. #x3B4D)	; ø»‰„
+    (=ks-x1001		. #x3B4D)	; &I-K0-3B4D;
     ))
 (define-char
   '((=ucs		. #xBF94)	; ë¾”
-    (=ks-x1001		. #x3B4E)	; ø»‰…
+    (=ks-x1001		. #x3B4E)	; &I-K0-3B4E;
     ))
 (define-char
   '((=ucs		. #xBFB0)	; ë¾°
-    (=ks-x1001		. #x3B4F)	; ø»‰†
+    (=ks-x1001		. #x3B4F)	; &I-K0-3B4F;
     ))
 (define-char
   '((=ucs		. #xBFC5)	; ë¿…
-    (=ks-x1001		. #x3B50)	; ø»‰‡
+    (=ks-x1001		. #x3B50)	; &I-K0-3B50;
     ))
 (define-char
   '((=ucs		. #xBFCC)	; ë¿Œ
-    (=ks-x1001		. #x3B51)	; ø»‰ˆ
+    (=ks-x1001		. #x3B51)	; &I-K0-3B51;
     ))
 (define-char
   '((=ucs		. #xBFCD)	; ë¿
-    (=ks-x1001		. #x3B52)	; ø»‰‰
+    (=ks-x1001		. #x3B52)	; &I-K0-3B52;
     ))
 (define-char
   '((=ucs		. #xBFD0)	; ë¿
-    (=ks-x1001		. #x3B53)	; ø»‰Š
+    (=ks-x1001		. #x3B53)	; &I-K0-3B53;
     ))
 (define-char
   '((=ucs		. #xBFD4)	; ë¿”
-    (=ks-x1001		. #x3B54)	; ø»‰‹
+    (=ks-x1001		. #x3B54)	; &I-K0-3B54;
     ))
 (define-char
   '((=ucs		. #xBFDC)	; ë¿œ
-    (=ks-x1001		. #x3B55)	; ø»‰Œ
+    (=ks-x1001		. #x3B55)	; &I-K0-3B55;
     ))
 (define-char
   '((=ucs		. #xBFDF)	; ë¿Ÿ
-    (=ks-x1001		. #x3B56)	; ø»‰
+    (=ks-x1001		. #x3B56)	; &I-K0-3B56;
     ))
 (define-char
   '((=ucs		. #xBFE1)	; ë¿¡
-    (=ks-x1001		. #x3B57)	; ø»‰Ž
+    (=ks-x1001		. #x3B57)	; &I-K0-3B57;
     ))
 (define-char
   '((=ucs		. #xC03C)	; ì€¼
-    (=ks-x1001		. #x3B58)	; ø»‰
+    (=ks-x1001		. #x3B58)	; &I-K0-3B58;
     ))
 (define-char
   '((=ucs		. #xC051)	; ì‘
-    (=ks-x1001		. #x3B59)	; ø»‰
+    (=ks-x1001		. #x3B59)	; &I-K0-3B59;
     ))
 (define-char
   '((=ucs		. #xC058)	; ì˜
-    (=ks-x1001		. #x3B5A)	; ø»‰‘
-    (=jef-china3	. #x83C9)	; øºˆ‰
+    (=ks-x1001		. #x3B5A)	; &I-K0-3B5A;
+    (=jef-china3	. #x83C9)	; &I-JC3-83C9;
     ))
 (define-char
   '((=ucs		. #xC05C)	; ìœ
-    (=ks-x1001		. #x3B5B)	; ø»‰’
+    (=ks-x1001		. #x3B5B)	; &I-K0-3B5B;
     ))
 (define-char
   '((=ucs		. #xC060)	; ì 
-    (=ks-x1001		. #x3B5C)	; ø»‰“
+    (=ks-x1001		. #x3B5C)	; &I-K0-3B5C;
     ))
 (define-char
   '((=ucs		. #xC068)	; ì¨
-    (=ks-x1001		. #x3B5D)	; ø»‰”
+    (=ks-x1001		. #x3B5D)	; &I-K0-3B5D;
     ))
 (define-char
   '((=ucs		. #xC069)	; ì©
-    (=ks-x1001		. #x3B5E)	; ø»‰•
+    (=ks-x1001		. #x3B5E)	; &I-K0-3B5E;
     ))
 (define-char
   '((=ucs		. #xC090)	; ì‚
-    (=ks-x1001		. #x3B5F)	; ø»‰–
+    (=ks-x1001		. #x3B5F)	; &I-K0-3B5F;
     ))
 (define-char
   '((=ucs		. #xC091)	; ì‚‘
-    (=ks-x1001		. #x3B60)	; ø»‰—
+    (=ks-x1001		. #x3B60)	; &I-K0-3B60;
     ))
 (define-char
   '((=ucs		. #xC094)	; ì‚”
-    (=ks-x1001		. #x3B61)	; ø»‰˜
+    (=ks-x1001		. #x3B61)	; &I-K0-3B61;
     ))
 (define-char
   '((=ucs		. #xC098)	; ì‚˜
-    (=ks-x1001		. #x3B62)	; ø»‰™
+    (=ks-x1001		. #x3B62)	; &I-K0-3B62;
     ))
 (define-char
   '((=ucs		. #xC0A0)	; ì‚ 
-    (=ks-x1001		. #x3B63)	; ø»‰š
+    (=ks-x1001		. #x3B63)	; &I-K0-3B63;
     ))
 (define-char
   '((=ucs		. #xC0A1)	; ì‚¡
-    (=ks-x1001		. #x3B64)	; ø»‰›
+    (=ks-x1001		. #x3B64)	; &I-K0-3B64;
     ))
 (define-char
   '((=ucs		. #xC0A3)	; ì‚£
-    (=ks-x1001		. #x3B65)	; ø»‰œ
+    (=ks-x1001		. #x3B65)	; &I-K0-3B65;
     ))
 (define-char
   '((=ucs		. #xC0A5)	; ì‚¥
-    (=ks-x1001		. #x3B66)	; ø»‰
+    (=ks-x1001		. #x3B66)	; &I-K0-3B66;
     ))
 (define-char
   '((=ucs		. #xC0AC)	; ì‚¬
-    (=ks-x1001		. #x3B67)	; ø»‰ž
-    (=jef-china3	. #x95DC)	; øº‰—œ
+    (=ks-x1001		. #x3B67)	; &I-K0-3B67;
+    (=jef-china3	. #x95DC)	; &I-JC3-95DC;
     ))
 (define-char
   '((=ucs		. #xC0AD)	; ì‚­
-    (=ks-x1001		. #x3B68)	; ø»‰Ÿ
+    (=ks-x1001		. #x3B68)	; &I-K0-3B68;
     ))
 (define-char
   '((=ucs		. #xC0AF)	; ì‚¯
-    (=ks-x1001		. #x3B69)	; ø»‰ 
+    (=ks-x1001		. #x3B69)	; &I-K0-3B69;
     ))
 (define-char
   '((=ucs		. #xC0B0)	; ì‚°
-    (=ks-x1001		. #x3B6A)	; ø»‰¡
-    (=jef-china3	. #x82E2)	; øºˆ‹¢
+    (=ks-x1001		. #x3B6A)	; &I-K0-3B6A;
+    (=jef-china3	. #x82E2)	; &I-JC3-82E2;
     ))
 (define-char
   '((=ucs		. #xC0B3)	; ì‚³
-    (=ks-x1001		. #x3B6B)	; ø»‰¢
+    (=ks-x1001		. #x3B6B)	; &I-K0-3B6B;
     ))
 (define-char
   '((=ucs		. #xC0B4)	; ì‚´
-    (=ks-x1001		. #x3B6C)	; ø»‰£
+    (=ks-x1001		. #x3B6C)	; &I-K0-3B6C;
     ))
 (define-char
   '((=ucs		. #xC0B5)	; ì‚µ
-    (=ks-x1001		. #x3B6D)	; ø»‰¤
+    (=ks-x1001		. #x3B6D)	; &I-K0-3B6D;
     ))
 (define-char
   '((=ucs		. #xC0B6)	; ì‚¶
-    (=ks-x1001		. #x3B6E)	; ø»‰¥
+    (=ks-x1001		. #x3B6E)	; &I-K0-3B6E;
     ))
 (define-char
   '((=ucs		. #xC0BC)	; ì‚¼
-    (=ks-x1001		. #x3B6F)	; ø»‰¦
+    (=ks-x1001		. #x3B6F)	; &I-K0-3B6F;
     ))
 (define-char
   '((=ucs		. #xC0BD)	; ì‚½
-    (=ks-x1001		. #x3B70)	; ø»‰§
+    (=ks-x1001		. #x3B70)	; &I-K0-3B70;
     ))
 (define-char
   '((=ucs		. #xC0BF)	; ì‚¿
-    (=ks-x1001		. #x3B71)	; ø»‰¨
+    (=ks-x1001		. #x3B71)	; &I-K0-3B71;
     ))
 (define-char
   '((=ucs		. #xC0C0)	; ìƒ€
-    (=ks-x1001		. #x3B72)	; ø»‰©
+    (=ks-x1001		. #x3B72)	; &I-K0-3B72;
     ))
 (define-char
   '((=ucs		. #xC0C1)	; ìƒ
-    (=ks-x1001		. #x3B73)	; ø»‰ª
+    (=ks-x1001		. #x3B73)	; &I-K0-3B73;
     ))
 (define-char
   '((=ucs		. #xC0C5)	; ìƒ…
-    (=ks-x1001		. #x3B74)	; ø»‰«
+    (=ks-x1001		. #x3B74)	; &I-K0-3B74;
     ))
 (define-char
   '((=ucs		. #xC0C8)	; ìƒˆ
-    (=ks-x1001		. #x3B75)	; ø»‰¬
-    (=jef-china3	. #x82E8)	; øºˆ‹¨
+    (=ks-x1001		. #x3B75)	; &I-K0-3B75;
+    (=jef-china3	. #x82E8)	; &I-JC3-82E8;
     ))
 (define-char
   '((=ucs		. #xC0C9)	; ìƒ‰
-    (=ks-x1001		. #x3B76)	; ø»‰­
-    (=jef-china3	. #x8CAB)	; øºˆ²«
+    (=ks-x1001		. #x3B76)	; &I-K0-3B76;
+    (=jef-china3	. #x8CAB)	; &I-JC3-8CAB;
     ))
 (define-char
   '((=ucs		. #xC0CC)	; ìƒŒ
-    (=ks-x1001		. #x3B77)	; ø»‰®
+    (=ks-x1001		. #x3B77)	; &I-K0-3B77;
     ))
 (define-char
   '((=ucs		. #xC0D0)	; ìƒ
-    (=ks-x1001		. #x3B78)	; ø»‰¯
+    (=ks-x1001		. #x3B78)	; &I-K0-3B78;
     ))
 (define-char
   '((=ucs		. #xC0D8)	; ìƒ˜
-    (=ks-x1001		. #x3B79)	; ø»‰°
+    (=ks-x1001		. #x3B79)	; &I-K0-3B79;
     ))
 (define-char
   '((=ucs		. #xC0D9)	; ìƒ™
-    (=ks-x1001		. #x3B7A)	; ø»‰±
+    (=ks-x1001		. #x3B7A)	; &I-K0-3B7A;
     ))
 (define-char
   '((=ucs		. #xC0DB)	; ìƒ›
-    (=ks-x1001		. #x3B7B)	; ø»‰²
+    (=ks-x1001		. #x3B7B)	; &I-K0-3B7B;
     ))
 (define-char
   '((=ucs		. #xC0DC)	; ìƒœ
-    (=ks-x1001		. #x3B7C)	; ø»‰³
+    (=ks-x1001		. #x3B7C)	; &I-K0-3B7C;
     ))
 (define-char
   '((=ucs		. #xC0DD)	; ìƒ
-    (=ks-x1001		. #x3B7D)	; ø»‰´
+    (=ks-x1001		. #x3B7D)	; &I-K0-3B7D;
     ))
 (define-char
   '((=ucs		. #xC0E4)	; ìƒ¤
-    (=ks-x1001		. #x3B7E)	; ø»‰µ
+    (=ks-x1001		. #x3B7E)	; &I-K0-3B7E;
     ))
 (define-char
   '((=ucs		. #xC0E5)	; ìƒ¥
-    (=ks-x1001		. #x3C21)	; ø»‰¶
+    (=ks-x1001		. #x3C21)	; &I-K0-3C21;
     ))
 (define-char
   '((=ucs		. #xC0E8)	; ìƒ¨
-    (=ks-x1001		. #x3C22)	; ø»‰·
+    (=ks-x1001		. #x3C22)	; &I-K0-3C22;
     ))
 (define-char
   '((=ucs		. #xC0EC)	; ìƒ¬
-    (=ks-x1001		. #x3C23)	; ø»‰¸
+    (=ks-x1001		. #x3C23)	; &I-K0-3C23;
     ))
 (define-char
   '((=ucs		. #xC0F4)	; ìƒ´
-    (=ks-x1001		. #x3C24)	; ø»‰¹
+    (=ks-x1001		. #x3C24)	; &I-K0-3C24;
     ))
 (define-char
   '((=ucs		. #xC0F5)	; ìƒµ
-    (=ks-x1001		. #x3C25)	; ø»‰º
+    (=ks-x1001		. #x3C25)	; &I-K0-3C25;
     ))
 (define-char
   '((=ucs		. #xC0F7)	; ìƒ·
-    (=ks-x1001		. #x3C26)	; ø»‰»
+    (=ks-x1001		. #x3C26)	; &I-K0-3C26;
     ))
 (define-char
   '((=ucs		. #xC0F9)	; ìƒ¹
-    (=ks-x1001		. #x3C27)	; ø»‰¼
+    (=ks-x1001		. #x3C27)	; &I-K0-3C27;
     ))
 (define-char
   '((=ucs		. #xC100)	; ì„€
-    (=ks-x1001		. #x3C28)	; ø»‰½
+    (=ks-x1001		. #x3C28)	; &I-K0-3C28;
     ))
 (define-char
   '((=ucs		. #xC104)	; ì„„
-    (=ks-x1001		. #x3C29)	; ø»‰¾
+    (=ks-x1001		. #x3C29)	; &I-K0-3C29;
     ))
 (define-char
   '((=ucs		. #xC108)	; ì„ˆ
-    (=ks-x1001		. #x3C2A)	; ø»‰¿
+    (=ks-x1001		. #x3C2A)	; &I-K0-3C2A;
     ))
 (define-char
   '((=ucs		. #xC110)	; ì„
-    (=ks-x1001		. #x3C2B)	; ø»‰‚€
+    (=ks-x1001		. #x3C2B)	; &I-K0-3C2B;
     ))
 (define-char
   '((=ucs		. #xC115)	; ì„•
-    (=ks-x1001		. #x3C2C)	; ø»‰‚
+    (=ks-x1001		. #x3C2C)	; &I-K0-3C2C;
     ))
 (define-char
   '((=ucs		. #xC11C)	; ì„œ
-    (=ks-x1001		. #x3C2D)	; ø»‰‚‚
-    (=jef-china3	. #x94AD)	; øº‰’­
+    (=ks-x1001		. #x3C2D)	; &I-K0-3C2D;
+    (=jef-china3	. #x94AD)	; &I-JC3-94AD;
     ))
 (define-char
   '((=ucs		. #xC11D)	; ì„
-    (=ks-x1001		. #x3C2E)	; ø»‰‚ƒ
+    (=ks-x1001		. #x3C2E)	; &I-K0-3C2E;
     ))
 (define-char
   '((=ucs		. #xC11E)	; ì„ž
-    (=ks-x1001		. #x3C2F)	; ø»‰‚„
+    (=ks-x1001		. #x3C2F)	; &I-K0-3C2F;
     ))
 (define-char
   '((=ucs		. #xC11F)	; ì„Ÿ
-    (=ks-x1001		. #x3C30)	; ø»‰‚…
+    (=ks-x1001		. #x3C30)	; &I-K0-3C30;
     ))
 (define-char
   '((=ucs		. #xC120)	; ì„ 
-    (=ks-x1001		. #x3C31)	; ø»‰‚†
+    (=ks-x1001		. #x3C31)	; &I-K0-3C31;
     ))
 (define-char
   '((=ucs		. #xC123)	; ì„£
-    (=ks-x1001		. #x3C32)	; ø»‰‚‡
+    (=ks-x1001		. #x3C32)	; &I-K0-3C32;
     ))
 (define-char
   '((=ucs		. #xC124)	; ì„¤
-    (=ks-x1001		. #x3C33)	; ø»‰‚ˆ
+    (=ks-x1001		. #x3C33)	; &I-K0-3C33;
     ))
 (define-char
   '((=ucs		. #xC126)	; ì„¦
-    (=ks-x1001		. #x3C34)	; ø»‰‚‰
+    (=ks-x1001		. #x3C34)	; &I-K0-3C34;
     ))
 (define-char
   '((=ucs		. #xC127)	; ì„§
-    (=ks-x1001		. #x3C35)	; ø»‰‚Š
+    (=ks-x1001		. #x3C35)	; &I-K0-3C35;
     ))
 (define-char
   '((=ucs		. #xC12C)	; ì„¬
-    (=ks-x1001		. #x3C36)	; ø»‰‚‹
+    (=ks-x1001		. #x3C36)	; &I-K0-3C36;
     ))
 (define-char
   '((=ucs		. #xC12D)	; ì„­
-    (=ks-x1001		. #x3C37)	; ø»‰‚Œ
+    (=ks-x1001		. #x3C37)	; &I-K0-3C37;
     ))
 (define-char
   '((=ucs		. #xC12F)	; ì„¯
-    (=ks-x1001		. #x3C38)	; ø»‰‚
+    (=ks-x1001		. #x3C38)	; &I-K0-3C38;
     ))
 (define-char
   '((=ucs		. #xC130)	; ì„°
-    (=ks-x1001		. #x3C39)	; ø»‰‚Ž
+    (=ks-x1001		. #x3C39)	; &I-K0-3C39;
     ))
 (define-char
   '((=ucs		. #xC131)	; ì„±
-    (=ks-x1001		. #x3C3A)	; ø»‰‚
+    (=ks-x1001		. #x3C3A)	; &I-K0-3C3A;
     ))
 (define-char
   '((=ucs		. #xC136)	; ì„¶
-    (=ks-x1001		. #x3C3B)	; ø»‰‚
+    (=ks-x1001		. #x3C3B)	; &I-K0-3C3B;
     ))
 (define-char
   '((=ucs		. #xC138)	; ì„¸
-    (=ks-x1001		. #x3C3C)	; ø»‰‚‘
+    (=ks-x1001		. #x3C3C)	; &I-K0-3C3C;
     ))
 (define-char
   '((=ucs		. #xC139)	; ì„¹
-    (=ks-x1001		. #x3C3D)	; ø»‰‚’
+    (=ks-x1001		. #x3C3D)	; &I-K0-3C3D;
     ))
 (define-char
   '((=ucs		. #xC13C)	; ì„¼
-    (=ks-x1001		. #x3C3E)	; ø»‰‚“
+    (=ks-x1001		. #x3C3E)	; &I-K0-3C3E;
     ))
 (define-char
   '((=ucs		. #xC140)	; ì…€
-    (=ks-x1001		. #x3C3F)	; ø»‰‚”
+    (=ks-x1001		. #x3C3F)	; &I-K0-3C3F;
     ))
 (define-char
   '((=ucs		. #xC148)	; ì…ˆ
-    (=ks-x1001		. #x3C40)	; ø»‰‚•
+    (=ks-x1001		. #x3C40)	; &I-K0-3C40;
     ))
 (define-char
   '((=ucs		. #xC149)	; ì…‰
-    (=ks-x1001		. #x3C41)	; ø»‰‚–
+    (=ks-x1001		. #x3C41)	; &I-K0-3C41;
     ))
 (define-char
   '((=ucs		. #xC14B)	; ì…‹
-    (=ks-x1001		. #x3C42)	; ø»‰‚—
+    (=ks-x1001		. #x3C42)	; &I-K0-3C42;
     ))
 (define-char
   '((=ucs		. #xC14C)	; ì…Œ
-    (=ks-x1001		. #x3C43)	; ø»‰‚˜
+    (=ks-x1001		. #x3C43)	; &I-K0-3C43;
     ))
 (define-char
   '((=ucs		. #xC14D)	; ì…
-    (=ks-x1001		. #x3C44)	; ø»‰‚™
+    (=ks-x1001		. #x3C44)	; &I-K0-3C44;
     ))
 (define-char
   '((=ucs		. #xC154)	; ì…”
-    (=ks-x1001		. #x3C45)	; ø»‰‚š
+    (=ks-x1001		. #x3C45)	; &I-K0-3C45;
     ))
 (define-char
   '((=ucs		. #xC155)	; ì…•
-    (=ks-x1001		. #x3C46)	; ø»‰‚›
+    (=ks-x1001		. #x3C46)	; &I-K0-3C46;
     ))
 (define-char
   '((=ucs		. #xC158)	; ì…˜
-    (=ks-x1001		. #x3C47)	; ø»‰‚œ
+    (=ks-x1001		. #x3C47)	; &I-K0-3C47;
     ))
 (define-char
   '((=ucs		. #xC15C)	; ì…œ
-    (=ks-x1001		. #x3C48)	; ø»‰‚
+    (=ks-x1001		. #x3C48)	; &I-K0-3C48;
     ))
 (define-char
   '((=ucs		. #xC164)	; ì…¤
-    (=ks-x1001		. #x3C49)	; ø»‰‚ž
+    (=ks-x1001		. #x3C49)	; &I-K0-3C49;
     ))
 (define-char
   '((=ucs		. #xC165)	; ì…¥
-    (=ks-x1001		. #x3C4A)	; ø»‰‚Ÿ
+    (=ks-x1001		. #x3C4A)	; &I-K0-3C4A;
     ))
 (define-char
   '((=ucs		. #xC167)	; ì…§
-    (=ks-x1001		. #x3C4B)	; ø»‰‚ 
+    (=ks-x1001		. #x3C4B)	; &I-K0-3C4B;
     ))
 (define-char
   '((=ucs		. #xC168)	; ì…¨
-    (=ks-x1001		. #x3C4C)	; ø»‰‚¡
+    (=ks-x1001		. #x3C4C)	; &I-K0-3C4C;
     ))
 (define-char
   '((=ucs		. #xC169)	; ì…©
-    (=ks-x1001		. #x3C4D)	; ø»‰‚¢
+    (=ks-x1001		. #x3C4D)	; &I-K0-3C4D;
     ))
 (define-char
   '((=ucs		. #xC170)	; ì…°
-    (=ks-x1001		. #x3C4E)	; ø»‰‚£
+    (=ks-x1001		. #x3C4E)	; &I-K0-3C4E;
     ))
 (define-char
   '((=ucs		. #xC174)	; ì…´
-    (=ks-x1001		. #x3C4F)	; ø»‰‚¤
+    (=ks-x1001		. #x3C4F)	; &I-K0-3C4F;
     ))
 (define-char
   '((=ucs		. #xC178)	; ì…¸
-    (=ks-x1001		. #x3C50)	; ø»‰‚¥
+    (=ks-x1001		. #x3C50)	; &I-K0-3C50;
     ))
 (define-char
   '((=ucs		. #xC185)	; ì†…
-    (=ks-x1001		. #x3C51)	; ø»‰‚¦
+    (=ks-x1001		. #x3C51)	; &I-K0-3C51;
     ))
 (define-char
   '((=ucs		. #xC18C)	; ì†Œ
-    (=ks-x1001		. #x3C52)	; ø»‰‚§
-    (=jef-china3	. #x82CE)	; øºˆ‹Ž
+    (=ks-x1001		. #x3C52)	; &I-K0-3C52;
+    (=jef-china3	. #x82CE)	; &I-JC3-82CE;
     ))
 (define-char
   '((=ucs		. #xC18D)	; ì†
-    (=ks-x1001		. #x3C53)	; ø»‰‚¨
+    (=ks-x1001		. #x3C53)	; &I-K0-3C53;
     ))
 (define-char
   '((=ucs		. #xC18E)	; ì†Ž
-    (=ks-x1001		. #x3C54)	; ø»‰‚©
+    (=ks-x1001		. #x3C54)	; &I-K0-3C54;
     ))
 (define-char
   '((=ucs		. #xC190)	; ì†
-    (=ks-x1001		. #x3C55)	; ø»‰‚ª
+    (=ks-x1001		. #x3C55)	; &I-K0-3C55;
     ))
 (define-char
   '((=ucs		. #xC194)	; ì†”
-    (=ks-x1001		. #x3C56)	; ø»‰‚«
+    (=ks-x1001		. #x3C56)	; &I-K0-3C56;
     ))
 (define-char
   '((=ucs		. #xC196)	; ì†–
-    (=ks-x1001		. #x3C57)	; ø»‰‚¬
+    (=ks-x1001		. #x3C57)	; &I-K0-3C57;
     ))
 (define-char
   '((=ucs		. #xC19C)	; ì†œ
-    (=ks-x1001		. #x3C58)	; ø»‰‚­
+    (=ks-x1001		. #x3C58)	; &I-K0-3C58;
     ))
 (define-char
   '((=ucs		. #xC19D)	; ì†
-    (=ks-x1001		. #x3C59)	; ø»‰‚®
+    (=ks-x1001		. #x3C59)	; &I-K0-3C59;
     ))
 (define-char
   '((=ucs		. #xC19F)	; ì†Ÿ
-    (=ks-x1001		. #x3C5A)	; ø»‰‚¯
+    (=ks-x1001		. #x3C5A)	; &I-K0-3C5A;
     ))
 (define-char
   '((=ucs		. #xC1A1)	; ì†¡
-    (=ks-x1001		. #x3C5B)	; ø»‰‚°
-    (=jef-china3	. #x8CAC)	; øºˆ²¬
+    (=ks-x1001		. #x3C5B)	; &I-K0-3C5B;
+    (=jef-china3	. #x8CAC)	; &I-JC3-8CAC;
     ))
 (define-char
   '((=ucs		. #xC1A5)	; ì†¥
-    (=ks-x1001		. #x3C5C)	; ø»‰‚±
+    (=ks-x1001		. #x3C5C)	; &I-K0-3C5C;
     ))
 (define-char
   '((=ucs		. #xC1A8)	; ì†¨
-    (=ks-x1001		. #x3C5D)	; ø»‰‚²
+    (=ks-x1001		. #x3C5D)	; &I-K0-3C5D;
     ))
 (define-char
   '((=ucs		. #xC1A9)	; ì†©
-    (=ks-x1001		. #x3C5E)	; ø»‰‚³
+    (=ks-x1001		. #x3C5E)	; &I-K0-3C5E;
     ))
 (define-char
   '((=ucs		. #xC1AC)	; ì†¬
-    (=ks-x1001		. #x3C5F)	; ø»‰‚´
+    (=ks-x1001		. #x3C5F)	; &I-K0-3C5F;
     ))
 (define-char
   '((=ucs		. #xC1B0)	; ì†°
-    (=ks-x1001		. #x3C60)	; ø»‰‚µ
+    (=ks-x1001		. #x3C60)	; &I-K0-3C60;
     ))
 (define-char
   '((=ucs		. #xC1BD)	; ì†½
-    (=ks-x1001		. #x3C61)	; ø»‰‚¶
+    (=ks-x1001		. #x3C61)	; &I-K0-3C61;
     ))
 (define-char
   '((=ucs		. #xC1C4)	; ì‡„
-    (=ks-x1001		. #x3C62)	; ø»‰‚·
+    (=ks-x1001		. #x3C62)	; &I-K0-3C62;
     ))
 (define-char
   '((=ucs		. #xC1C8)	; ì‡ˆ
-    (=ks-x1001		. #x3C63)	; ø»‰‚¸
+    (=ks-x1001		. #x3C63)	; &I-K0-3C63;
     ))
 (define-char
   '((=ucs		. #xC1CC)	; ì‡Œ
-    (=ks-x1001		. #x3C64)	; ø»‰‚¹
+    (=ks-x1001		. #x3C64)	; &I-K0-3C64;
     ))
 (define-char
   '((=ucs		. #xC1D4)	; ì‡”
-    (=ks-x1001		. #x3C65)	; ø»‰‚º
+    (=ks-x1001		. #x3C65)	; &I-K0-3C65;
     ))
 (define-char
   '((=ucs		. #xC1D7)	; ì‡—
-    (=ks-x1001		. #x3C66)	; ø»‰‚»
+    (=ks-x1001		. #x3C66)	; &I-K0-3C66;
     ))
 (define-char
   '((=ucs		. #xC1D8)	; ì‡˜
-    (=ks-x1001		. #x3C67)	; ø»‰‚¼
+    (=ks-x1001		. #x3C67)	; &I-K0-3C67;
     ))
 (define-char
   '((=ucs		. #xC1E0)	; ì‡ 
-    (=ks-x1001		. #x3C68)	; ø»‰‚½
+    (=ks-x1001		. #x3C68)	; &I-K0-3C68;
     ))
 (define-char
   '((=ucs		. #xC1E4)	; ì‡¤
-    (=ks-x1001		. #x3C69)	; ø»‰‚¾
+    (=ks-x1001		. #x3C69)	; &I-K0-3C69;
     ))
 (define-char
   '((=ucs		. #xC1E8)	; ì‡¨
-    (=ks-x1001		. #x3C6A)	; ø»‰‚¿
+    (=ks-x1001		. #x3C6A)	; &I-K0-3C6A;
     ))
 (define-char
   '((=ucs		. #xC1F0)	; ì‡°
-    (=ks-x1001		. #x3C6B)	; ø»‰ƒ€
+    (=ks-x1001		. #x3C6B)	; &I-K0-3C6B;
     ))
 (define-char
   '((=ucs		. #xC1F1)	; ì‡±
-    (=ks-x1001		. #x3C6C)	; ø»‰ƒ
+    (=ks-x1001		. #x3C6C)	; &I-K0-3C6C;
     ))
 (define-char
   '((=ucs		. #xC1F3)	; ì‡³
-    (=ks-x1001		. #x3C6D)	; ø»‰ƒ‚
+    (=ks-x1001		. #x3C6D)	; &I-K0-3C6D;
     ))
 (define-char
   '((=ucs		. #xC1FC)	; ì‡¼
-    (=ks-x1001		. #x3C6E)	; ø»‰ƒƒ
+    (=ks-x1001		. #x3C6E)	; &I-K0-3C6E;
     ))
 (define-char
   '((=ucs		. #xC1FD)	; ì‡½
-    (=ks-x1001		. #x3C6F)	; ø»‰ƒ„
+    (=ks-x1001		. #x3C6F)	; &I-K0-3C6F;
     ))
 (define-char
   '((=ucs		. #xC200)	; ìˆ€
-    (=ks-x1001		. #x3C70)	; ø»‰ƒ…
+    (=ks-x1001		. #x3C70)	; &I-K0-3C70;
     ))
 (define-char
   '((=ucs		. #xC204)	; ìˆ„
-    (=ks-x1001		. #x3C71)	; ø»‰ƒ†
+    (=ks-x1001		. #x3C71)	; &I-K0-3C71;
     ))
 (define-char
   '((=ucs		. #xC20C)	; ìˆŒ
-    (=ks-x1001		. #x3C72)	; ø»‰ƒ‡
+    (=ks-x1001		. #x3C72)	; &I-K0-3C72;
     ))
 (define-char
   '((=ucs		. #xC20D)	; ìˆ
-    (=ks-x1001		. #x3C73)	; ø»‰ƒˆ
+    (=ks-x1001		. #x3C73)	; &I-K0-3C73;
     ))
 (define-char
   '((=ucs		. #xC20F)	; ìˆ
-    (=ks-x1001		. #x3C74)	; ø»‰ƒ‰
+    (=ks-x1001		. #x3C74)	; &I-K0-3C74;
     ))
 (define-char
   '((=ucs		. #xC211)	; ìˆ‘
-    (=ks-x1001		. #x3C75)	; ø»‰ƒŠ
+    (=ks-x1001		. #x3C75)	; &I-K0-3C75;
     ))
 (define-char
   '((=ucs		. #xC218)	; ìˆ˜
-    (=ks-x1001		. #x3C76)	; ø»‰ƒ‹
+    (=ks-x1001		. #x3C76)	; &I-K0-3C76;
     ))
 (define-char
   '((=ucs		. #xC219)	; ìˆ™
-    (=ks-x1001		. #x3C77)	; ø»‰ƒŒ
+    (=ks-x1001		. #x3C77)	; &I-K0-3C77;
     ))
 (define-char
   '((=ucs		. #xC21C)	; ìˆœ
-    (=ks-x1001		. #x3C78)	; ø»‰ƒ
+    (=ks-x1001		. #x3C78)	; &I-K0-3C78;
     ))
 (define-char
   '((=ucs		. #xC21F)	; ìˆŸ
-    (=ks-x1001		. #x3C79)	; ø»‰ƒŽ
+    (=ks-x1001		. #x3C79)	; &I-K0-3C79;
     ))
 (define-char
   '((=ucs		. #xC220)	; ìˆ 
-    (=ks-x1001		. #x3C7A)	; ø»‰ƒ
+    (=ks-x1001		. #x3C7A)	; &I-K0-3C7A;
     ))
 (define-char
   '((=ucs		. #xC228)	; ìˆ¨
-    (=ks-x1001		. #x3C7B)	; ø»‰ƒ
+    (=ks-x1001		. #x3C7B)	; &I-K0-3C7B;
     ))
 (define-char
   '((=ucs		. #xC229)	; ìˆ©
-    (=ks-x1001		. #x3C7C)	; ø»‰ƒ‘
+    (=ks-x1001		. #x3C7C)	; &I-K0-3C7C;
     ))
 (define-char
   '((=ucs		. #xC22B)	; ìˆ«
-    (=ks-x1001		. #x3C7D)	; ø»‰ƒ’
+    (=ks-x1001		. #x3C7D)	; &I-K0-3C7D;
     ))
 (define-char
   '((=ucs		. #xC22D)	; ìˆ­
-    (=ks-x1001		. #x3C7E)	; ø»‰ƒ“
+    (=ks-x1001		. #x3C7E)	; &I-K0-3C7E;
     ))
 (define-char
   '((=ucs		. #xC22F)	; ìˆ¯
-    (=ks-x1001		. #x3D21)	; ø»‰ƒ”
+    (=ks-x1001		. #x3D21)	; &I-K0-3D21;
     ))
 (define-char
   '((=ucs		. #xC231)	; ìˆ±
-    (=ks-x1001		. #x3D22)	; ø»‰ƒ•
+    (=ks-x1001		. #x3D22)	; &I-K0-3D22;
     ))
 (define-char
   '((=ucs		. #xC232)	; ìˆ²
-    (=ks-x1001		. #x3D23)	; ø»‰ƒ–
+    (=ks-x1001		. #x3D23)	; &I-K0-3D23;
     ))
 (define-char
   '((=ucs		. #xC234)	; ìˆ´
-    (=ks-x1001		. #x3D24)	; ø»‰ƒ—
+    (=ks-x1001		. #x3D24)	; &I-K0-3D24;
     ))
 (define-char
   '((=ucs		. #xC248)	; ì‰ˆ
-    (=ks-x1001		. #x3D25)	; ø»‰ƒ˜
+    (=ks-x1001		. #x3D25)	; &I-K0-3D25;
     ))
 (define-char
   '((=ucs		. #xC250)	; ì‰
-    (=ks-x1001		. #x3D26)	; ø»‰ƒ™
+    (=ks-x1001		. #x3D26)	; &I-K0-3D26;
     ))
 (define-char
   '((=ucs		. #xC251)	; ì‰‘
-    (=ks-x1001		. #x3D27)	; ø»‰ƒš
+    (=ks-x1001		. #x3D27)	; &I-K0-3D27;
     ))
 (define-char
   '((=ucs		. #xC254)	; ì‰”
-    (=ks-x1001		. #x3D28)	; ø»‰ƒ›
+    (=ks-x1001		. #x3D28)	; &I-K0-3D28;
     ))
 (define-char
   '((=ucs		. #xC258)	; ì‰˜
-    (=ks-x1001		. #x3D29)	; ø»‰ƒœ
+    (=ks-x1001		. #x3D29)	; &I-K0-3D29;
     ))
 (define-char
   '((=ucs		. #xC260)	; ì‰ 
-    (=ks-x1001		. #x3D2A)	; ø»‰ƒ
+    (=ks-x1001		. #x3D2A)	; &I-K0-3D2A;
     ))
 (define-char
   '((=ucs		. #xC265)	; ì‰¥
-    (=ks-x1001		. #x3D2B)	; ø»‰ƒž
+    (=ks-x1001		. #x3D2B)	; &I-K0-3D2B;
     ))
 (define-char
   '((=ucs		. #xC26C)	; ì‰¬
-    (=ks-x1001		. #x3D2C)	; ø»‰ƒŸ
+    (=ks-x1001		. #x3D2C)	; &I-K0-3D2C;
     ))
 (define-char
   '((=ucs		. #xC26D)	; ì‰­
-    (=ks-x1001		. #x3D2D)	; ø»‰ƒ 
+    (=ks-x1001		. #x3D2D)	; &I-K0-3D2D;
     ))
 (define-char
   '((=ucs		. #xC270)	; ì‰°
-    (=ks-x1001		. #x3D2E)	; ø»‰ƒ¡
+    (=ks-x1001		. #x3D2E)	; &I-K0-3D2E;
     ))
 (define-char
   '((=ucs		. #xC274)	; ì‰´
-    (=ks-x1001		. #x3D2F)	; ø»‰ƒ¢
+    (=ks-x1001		. #x3D2F)	; &I-K0-3D2F;
     ))
 (define-char
   '((=ucs		. #xC27C)	; ì‰¼
-    (=ks-x1001		. #x3D30)	; ø»‰ƒ£
+    (=ks-x1001		. #x3D30)	; &I-K0-3D30;
     ))
 (define-char
   '((=ucs		. #xC27D)	; ì‰½
-    (=ks-x1001		. #x3D31)	; ø»‰ƒ¤
+    (=ks-x1001		. #x3D31)	; &I-K0-3D31;
     ))
 (define-char
   '((=ucs		. #xC27F)	; ì‰¿
-    (=ks-x1001		. #x3D32)	; ø»‰ƒ¥
+    (=ks-x1001		. #x3D32)	; &I-K0-3D32;
     ))
 (define-char
   '((=ucs		. #xC281)	; ìŠ
-    (=ks-x1001		. #x3D33)	; ø»‰ƒ¦
+    (=ks-x1001		. #x3D33)	; &I-K0-3D33;
     ))
 (define-char
   '((=ucs		. #xC288)	; ìŠˆ
-    (=ks-x1001		. #x3D34)	; ø»‰ƒ§
+    (=ks-x1001		. #x3D34)	; &I-K0-3D34;
     ))
 (define-char
   '((=ucs		. #xC289)	; ìŠ‰
-    (=ks-x1001		. #x3D35)	; ø»‰ƒ¨
+    (=ks-x1001		. #x3D35)	; &I-K0-3D35;
     ))
 (define-char
   '((=ucs		. #xC290)	; ìŠ
-    (=ks-x1001		. #x3D36)	; ø»‰ƒ©
+    (=ks-x1001		. #x3D36)	; &I-K0-3D36;
     ))
 (define-char
   '((=ucs		. #xC298)	; ìŠ˜
-    (=ks-x1001		. #x3D37)	; ø»‰ƒª
+    (=ks-x1001		. #x3D37)	; &I-K0-3D37;
     ))
 (define-char
   '((=ucs		. #xC29B)	; ìŠ›
-    (=ks-x1001		. #x3D38)	; ø»‰ƒ«
+    (=ks-x1001		. #x3D38)	; &I-K0-3D38;
     ))
 (define-char
   '((=ucs		. #xC29D)	; ìŠ
-    (=ks-x1001		. #x3D39)	; ø»‰ƒ¬
+    (=ks-x1001		. #x3D39)	; &I-K0-3D39;
     ))
 (define-char
   '((=ucs		. #xC2A4)	; ìŠ¤
-    (=ks-x1001		. #x3D3A)	; ø»‰ƒ­
+    (=ks-x1001		. #x3D3A)	; &I-K0-3D3A;
     ))
 (define-char
   '((=ucs		. #xC2A5)	; ìŠ¥
-    (=ks-x1001		. #x3D3B)	; ø»‰ƒ®
+    (=ks-x1001		. #x3D3B)	; &I-K0-3D3B;
     ))
 (define-char
   '((=ucs		. #xC2A8)	; ìŠ¨
-    (=ks-x1001		. #x3D3C)	; ø»‰ƒ¯
+    (=ks-x1001		. #x3D3C)	; &I-K0-3D3C;
     ))
 (define-char
   '((=ucs		. #xC2AC)	; ìŠ¬
-    (=ks-x1001		. #x3D3D)	; ø»‰ƒ°
+    (=ks-x1001		. #x3D3D)	; &I-K0-3D3D;
     ))
 (define-char
   '((=ucs		. #xC2AD)	; ìŠ­
-    (=ks-x1001		. #x3D3E)	; ø»‰ƒ±
+    (=ks-x1001		. #x3D3E)	; &I-K0-3D3E;
     ))
 (define-char
   '((=ucs		. #xC2B4)	; ìŠ´
-    (=ks-x1001		. #x3D3F)	; ø»‰ƒ²
+    (=ks-x1001		. #x3D3F)	; &I-K0-3D3F;
     ))
 (define-char
   '((=ucs		. #xC2B5)	; ìŠµ
-    (=ks-x1001		. #x3D40)	; ø»‰ƒ³
+    (=ks-x1001		. #x3D40)	; &I-K0-3D40;
     ))
 (define-char
   '((=ucs		. #xC2B7)	; ìŠ·
-    (=ks-x1001		. #x3D41)	; ø»‰ƒ´
+    (=ks-x1001		. #x3D41)	; &I-K0-3D41;
     ))
 (define-char
   '((=ucs		. #xC2B9)	; ìŠ¹
-    (=ks-x1001		. #x3D42)	; ø»‰ƒµ
+    (=ks-x1001		. #x3D42)	; &I-K0-3D42;
     ))
 (define-char
   '((=ucs		. #xC2DC)	; ì‹œ
-    (=ks-x1001		. #x3D43)	; ø»‰ƒ¶
-    (=jef-china3	. #x94FA)	; øº‰“º
+    (=ks-x1001		. #x3D43)	; &I-K0-3D43;
+    (=jef-china3	. #x94FA)	; &I-JC3-94FA;
     ))
 (define-char
   '((=ucs		. #xC2DD)	; ì‹
-    (=ks-x1001		. #x3D44)	; ø»‰ƒ·
+    (=ks-x1001		. #x3D44)	; &I-K0-3D44;
     ))
 (define-char
   '((=ucs		. #xC2E0)	; ì‹ 
-    (=ks-x1001		. #x3D45)	; ø»‰ƒ¸
-    (=jef-china3	. #x95A1)	; øº‰–¡
+    (=ks-x1001		. #x3D45)	; &I-K0-3D45;
+    (=jef-china3	. #x95A1)	; &I-JC3-95A1;
     ))
 (define-char
   '((=ucs		. #xC2E3)	; ì‹£
-    (=ks-x1001		. #x3D46)	; ø»‰ƒ¹
+    (=ks-x1001		. #x3D46)	; &I-K0-3D46;
     ))
 (define-char
   '((=ucs		. #xC2E4)	; ì‹¤
-    (=ks-x1001		. #x3D47)	; ø»‰ƒº
+    (=ks-x1001		. #x3D47)	; &I-K0-3D47;
     ))
 (define-char
   '((=ucs		. #xC2EB)	; ì‹«
-    (=ks-x1001		. #x3D48)	; ø»‰ƒ»
+    (=ks-x1001		. #x3D48)	; &I-K0-3D48;
     ))
 (define-char
   '((=ucs		. #xC2EC)	; ì‹¬
-    (=ks-x1001		. #x3D49)	; ø»‰ƒ¼
+    (=ks-x1001		. #x3D49)	; &I-K0-3D49;
     ))
 (define-char
   '((=ucs		. #xC2ED)	; ì‹­
-    (=ks-x1001		. #x3D4A)	; ø»‰ƒ½
+    (=ks-x1001		. #x3D4A)	; &I-K0-3D4A;
     ))
 (define-char
   '((=ucs		. #xC2EF)	; ì‹¯
-    (=ks-x1001		. #x3D4B)	; ø»‰ƒ¾
+    (=ks-x1001		. #x3D4B)	; &I-K0-3D4B;
     ))
 (define-char
   '((=ucs		. #xC2F1)	; ì‹±
-    (=ks-x1001		. #x3D4C)	; ø»‰ƒ¿
+    (=ks-x1001		. #x3D4C)	; &I-K0-3D4C;
     ))
 (define-char
   '((=ucs		. #xC2F6)	; ì‹¶
-    (=ks-x1001		. #x3D4D)	; ø»‰„€
+    (=ks-x1001		. #x3D4D)	; &I-K0-3D4D;
     ))
 (define-char
   '((=ucs		. #xC2F8)	; ì‹¸
-    (=ks-x1001		. #x3D4E)	; ø»‰„
+    (=ks-x1001		. #x3D4E)	; &I-K0-3D4E;
     ))
 (define-char
   '((=ucs		. #xC2F9)	; ì‹¹
-    (=ks-x1001		. #x3D4F)	; ø»‰„‚
+    (=ks-x1001		. #x3D4F)	; &I-K0-3D4F;
     ))
 (define-char
   '((=ucs		. #xC2FB)	; ì‹»
-    (=ks-x1001		. #x3D50)	; ø»‰„ƒ
+    (=ks-x1001		. #x3D50)	; &I-K0-3D50;
     ))
 (define-char
   '((=ucs		. #xC2FC)	; ì‹¼
-    (=ks-x1001		. #x3D51)	; ø»‰„„
+    (=ks-x1001		. #x3D51)	; &I-K0-3D51;
     ))
 (define-char
   '((=ucs		. #xC300)	; ìŒ€
-    (=ks-x1001		. #x3D52)	; ø»‰„…
+    (=ks-x1001		. #x3D52)	; &I-K0-3D52;
     ))
 (define-char
   '((=ucs		. #xC308)	; ìŒˆ
-    (=ks-x1001		. #x3D53)	; ø»‰„†
+    (=ks-x1001		. #x3D53)	; &I-K0-3D53;
     ))
 (define-char
   '((=ucs		. #xC309)	; ìŒ‰
-    (=ks-x1001		. #x3D54)	; ø»‰„‡
+    (=ks-x1001		. #x3D54)	; &I-K0-3D54;
     ))
 (define-char
   '((=ucs		. #xC30C)	; ìŒŒ
-    (=ks-x1001		. #x3D55)	; ø»‰„ˆ
+    (=ks-x1001		. #x3D55)	; &I-K0-3D55;
     ))
 (define-char
   '((=ucs		. #xC30D)	; ìŒ
-    (=ks-x1001		. #x3D56)	; ø»‰„‰
+    (=ks-x1001		. #x3D56)	; &I-K0-3D56;
     ))
 (define-char
   '((=ucs		. #xC313)	; ìŒ“
-    (=ks-x1001		. #x3D57)	; ø»‰„Š
+    (=ks-x1001		. #x3D57)	; &I-K0-3D57;
     ))
 (define-char
   '((=ucs		. #xC314)	; ìŒ”
-    (=ks-x1001		. #x3D58)	; ø»‰„‹
+    (=ks-x1001		. #x3D58)	; &I-K0-3D58;
     ))
 (define-char
   '((=ucs		. #xC315)	; ìŒ•
-    (=ks-x1001		. #x3D59)	; ø»‰„Œ
+    (=ks-x1001		. #x3D59)	; &I-K0-3D59;
     ))
 (define-char
   '((=ucs		. #xC318)	; ìŒ˜
-    (=ks-x1001		. #x3D5A)	; ø»‰„
+    (=ks-x1001		. #x3D5A)	; &I-K0-3D5A;
     ))
 (define-char
   '((=ucs		. #xC31C)	; ìŒœ
-    (=ks-x1001		. #x3D5B)	; ø»‰„Ž
+    (=ks-x1001		. #x3D5B)	; &I-K0-3D5B;
     ))
 (define-char
   '((=ucs		. #xC324)	; ìŒ¤
-    (=ks-x1001		. #x3D5C)	; ø»‰„
+    (=ks-x1001		. #x3D5C)	; &I-K0-3D5C;
     ))
 (define-char
   '((=ucs		. #xC325)	; ìŒ¥
-    (=ks-x1001		. #x3D5D)	; ø»‰„
+    (=ks-x1001		. #x3D5D)	; &I-K0-3D5D;
     ))
 (define-char
   '((=ucs		. #xC328)	; ìŒ¨
-    (=ks-x1001		. #x3D5E)	; ø»‰„‘
+    (=ks-x1001		. #x3D5E)	; &I-K0-3D5E;
     ))
 (define-char
   '((=ucs		. #xC329)	; ìŒ©
-    (=ks-x1001		. #x3D5F)	; ø»‰„’
+    (=ks-x1001		. #x3D5F)	; &I-K0-3D5F;
     ))
 (define-char
   '((=ucs		. #xC345)	; ì…
-    (=ks-x1001		. #x3D60)	; ø»‰„“
+    (=ks-x1001		. #x3D60)	; &I-K0-3D60;
     ))
 (define-char
   '((=ucs		. #xC368)	; ì¨
-    (=ks-x1001		. #x3D61)	; ø»‰„”
+    (=ks-x1001		. #x3D61)	; &I-K0-3D61;
     ))
 (define-char
   '((=ucs		. #xC369)	; ì©
-    (=ks-x1001		. #x3D62)	; ø»‰„•
+    (=ks-x1001		. #x3D62)	; &I-K0-3D62;
     ))
 (define-char
   '((=ucs		. #xC36C)	; ì¬
-    (=ks-x1001		. #x3D63)	; ø»‰„–
+    (=ks-x1001		. #x3D63)	; &I-K0-3D63;
     ))
 (define-char
   '((=ucs		. #xC370)	; ì°
-    (=ks-x1001		. #x3D64)	; ø»‰„—
+    (=ks-x1001		. #x3D64)	; &I-K0-3D64;
     ))
 (define-char
   '((=ucs		. #xC372)	; ì²
-    (=ks-x1001		. #x3D65)	; ø»‰„˜
+    (=ks-x1001		. #x3D65)	; &I-K0-3D65;
     ))
 (define-char
   '((=ucs		. #xC378)	; ì¸
-    (=ks-x1001		. #x3D66)	; ø»‰„™
+    (=ks-x1001		. #x3D66)	; &I-K0-3D66;
     ))
 (define-char
   '((=ucs		. #xC379)	; ì¹
-    (=ks-x1001		. #x3D67)	; ø»‰„š
+    (=ks-x1001		. #x3D67)	; &I-K0-3D67;
     ))
 (define-char
   '((=ucs		. #xC37C)	; ì¼
-    (=ks-x1001		. #x3D68)	; ø»‰„›
+    (=ks-x1001		. #x3D68)	; &I-K0-3D68;
     ))
 (define-char
   '((=ucs		. #xC37D)	; ì½
-    (=ks-x1001		. #x3D69)	; ø»‰„œ
+    (=ks-x1001		. #x3D69)	; &I-K0-3D69;
     ))
 (define-char
   '((=ucs		. #xC384)	; ìŽ„
-    (=ks-x1001		. #x3D6A)	; ø»‰„
+    (=ks-x1001		. #x3D6A)	; &I-K0-3D6A;
     ))
 (define-char
   '((=ucs		. #xC388)	; ìŽˆ
-    (=ks-x1001		. #x3D6B)	; ø»‰„ž
+    (=ks-x1001		. #x3D6B)	; &I-K0-3D6B;
     ))
 (define-char
   '((=ucs		. #xC38C)	; ìŽŒ
-    (=ks-x1001		. #x3D6C)	; ø»‰„Ÿ
+    (=ks-x1001		. #x3D6C)	; &I-K0-3D6C;
     ))
 (define-char
   '((=ucs		. #xC3C0)	; ì€
-    (=ks-x1001		. #x3D6D)	; ø»‰„ 
+    (=ks-x1001		. #x3D6D)	; &I-K0-3D6D;
     ))
 (define-char
   '((=ucs		. #xC3D8)	; ì˜
-    (=ks-x1001		. #x3D6E)	; ø»‰„¡
+    (=ks-x1001		. #x3D6E)	; &I-K0-3D6E;
     ))
 (define-char
   '((=ucs		. #xC3D9)	; ì™
-    (=ks-x1001		. #x3D6F)	; ø»‰„¢
+    (=ks-x1001		. #x3D6F)	; &I-K0-3D6F;
     ))
 (define-char
   '((=ucs		. #xC3DC)	; ìœ
-    (=ks-x1001		. #x3D70)	; ø»‰„£
+    (=ks-x1001		. #x3D70)	; &I-K0-3D70;
     ))
 (define-char
   '((=ucs		. #xC3DF)	; ìŸ
-    (=ks-x1001		. #x3D71)	; ø»‰„¤
+    (=ks-x1001		. #x3D71)	; &I-K0-3D71;
     ))
 (define-char
   '((=ucs		. #xC3E0)	; ì 
-    (=ks-x1001		. #x3D72)	; ø»‰„¥
+    (=ks-x1001		. #x3D72)	; &I-K0-3D72;
     ))
 (define-char
   '((=ucs		. #xC3E2)	; ì¢
-    (=ks-x1001		. #x3D73)	; ø»‰„¦
+    (=ks-x1001		. #x3D73)	; &I-K0-3D73;
     ))
 (define-char
   '((=ucs		. #xC3E8)	; ì¨
-    (=ks-x1001		. #x3D74)	; ø»‰„§
+    (=ks-x1001		. #x3D74)	; &I-K0-3D74;
     ))
 (define-char
   '((=ucs		. #xC3E9)	; ì©
-    (=ks-x1001		. #x3D75)	; ø»‰„¨
+    (=ks-x1001		. #x3D75)	; &I-K0-3D75;
     ))
 (define-char
   '((=ucs		. #xC3ED)	; ì­
-    (=ks-x1001		. #x3D76)	; ø»‰„©
+    (=ks-x1001		. #x3D76)	; &I-K0-3D76;
     ))
 (define-char
   '((=ucs		. #xC3F4)	; ì´
-    (=ks-x1001		. #x3D77)	; ø»‰„ª
+    (=ks-x1001		. #x3D77)	; &I-K0-3D77;
     ))
 (define-char
   '((=ucs		. #xC3F5)	; ìµ
-    (=ks-x1001		. #x3D78)	; ø»‰„«
+    (=ks-x1001		. #x3D78)	; &I-K0-3D78;
     ))
 (define-char
   '((=ucs		. #xC3F8)	; ì¸
-    (=ks-x1001		. #x3D79)	; ø»‰„¬
+    (=ks-x1001		. #x3D79)	; &I-K0-3D79;
     ))
 (define-char
   '((=ucs		. #xC408)	; ìˆ
-    (=ks-x1001		. #x3D7A)	; ø»‰„­
+    (=ks-x1001		. #x3D7A)	; &I-K0-3D7A;
     ))
 (define-char
   '((=ucs		. #xC410)	; ì
-    (=ks-x1001		. #x3D7B)	; ø»‰„®
+    (=ks-x1001		. #x3D7B)	; &I-K0-3D7B;
     ))
 (define-char
   '((=ucs		. #xC424)	; ì¤
-    (=ks-x1001		. #x3D7C)	; ø»‰„¯
+    (=ks-x1001		. #x3D7C)	; &I-K0-3D7C;
     ))
 (define-char
   '((=ucs		. #xC42C)	; ì¬
-    (=ks-x1001		. #x3D7D)	; ø»‰„°
+    (=ks-x1001		. #x3D7D)	; &I-K0-3D7D;
     ))
 (define-char
   '((=ucs		. #xC430)	; ì°
-    (=ks-x1001		. #x3D7E)	; ø»‰„±
+    (=ks-x1001		. #x3D7E)	; &I-K0-3D7E;
     ))
 (define-char
   '((=ucs		. #xC434)	; ì´
-    (=ks-x1001		. #x3E21)	; ø»‰„²
+    (=ks-x1001		. #x3E21)	; &I-K0-3E21;
     ))
 (define-char
   '((=ucs		. #xC43C)	; ì¼
-    (=ks-x1001		. #x3E22)	; ø»‰„³
+    (=ks-x1001		. #x3E22)	; &I-K0-3E22;
     ))
 (define-char
   '((=ucs		. #xC43D)	; ì½
-    (=ks-x1001		. #x3E23)	; ø»‰„´
+    (=ks-x1001		. #x3E23)	; &I-K0-3E23;
     ))
 (define-char
   '((=ucs		. #xC448)	; ì‘ˆ
-    (=ks-x1001		. #x3E24)	; ø»‰„µ
+    (=ks-x1001		. #x3E24)	; &I-K0-3E24;
     ))
 (define-char
   '((=ucs		. #xC464)	; ì‘¤
-    (=ks-x1001		. #x3E25)	; ø»‰„¶
+    (=ks-x1001		. #x3E25)	; &I-K0-3E25;
     ))
 (define-char
   '((=ucs		. #xC465)	; ì‘¥
-    (=ks-x1001		. #x3E26)	; ø»‰„·
+    (=ks-x1001		. #x3E26)	; &I-K0-3E26;
     ))
 (define-char
   '((=ucs		. #xC468)	; ì‘¨
-    (=ks-x1001		. #x3E27)	; ø»‰„¸
+    (=ks-x1001		. #x3E27)	; &I-K0-3E27;
     ))
 (define-char
   '((=ucs		. #xC46C)	; ì‘¬
-    (=ks-x1001		. #x3E28)	; ø»‰„¹
+    (=ks-x1001		. #x3E28)	; &I-K0-3E28;
     ))
 (define-char
   '((=ucs		. #xC474)	; ì‘´
-    (=ks-x1001		. #x3E29)	; ø»‰„º
+    (=ks-x1001		. #x3E29)	; &I-K0-3E29;
     ))
 (define-char
   '((=ucs		. #xC475)	; ì‘µ
-    (=ks-x1001		. #x3E2A)	; ø»‰„»
+    (=ks-x1001		. #x3E2A)	; &I-K0-3E2A;
     ))
 (define-char
   '((=ucs		. #xC479)	; ì‘¹
-    (=ks-x1001		. #x3E2B)	; ø»‰„¼
+    (=ks-x1001		. #x3E2B)	; &I-K0-3E2B;
     ))
 (define-char
   '((=ucs		. #xC480)	; ì’€
-    (=ks-x1001		. #x3E2C)	; ø»‰„½
+    (=ks-x1001		. #x3E2C)	; &I-K0-3E2C;
     ))
 (define-char
   '((=ucs		. #xC494)	; ì’”
-    (=ks-x1001		. #x3E2D)	; ø»‰„¾
+    (=ks-x1001		. #x3E2D)	; &I-K0-3E2D;
     ))
 (define-char
   '((=ucs		. #xC49C)	; ì’œ
-    (=ks-x1001		. #x3E2E)	; ø»‰„¿
+    (=ks-x1001		. #x3E2E)	; &I-K0-3E2E;
     ))
 (define-char
   '((=ucs		. #xC4B8)	; ì’¸
-    (=ks-x1001		. #x3E2F)	; ø»‰…€
+    (=ks-x1001		. #x3E2F)	; &I-K0-3E2F;
     ))
 (define-char
   '((=ucs		. #xC4BC)	; ì’¼
-    (=ks-x1001		. #x3E30)	; ø»‰…
+    (=ks-x1001		. #x3E30)	; &I-K0-3E30;
     ))
 (define-char
   '((=ucs		. #xC4E9)	; ì“©
-    (=ks-x1001		. #x3E31)	; ø»‰…‚
+    (=ks-x1001		. #x3E31)	; &I-K0-3E31;
     ))
 (define-char
   '((=ucs		. #xC4F0)	; ì“°
-    (=ks-x1001		. #x3E32)	; ø»‰…ƒ
+    (=ks-x1001		. #x3E32)	; &I-K0-3E32;
     ))
 (define-char
   '((=ucs		. #xC4F1)	; ì“±
-    (=ks-x1001		. #x3E33)	; ø»‰…„
+    (=ks-x1001		. #x3E33)	; &I-K0-3E33;
     ))
 (define-char
   '((=ucs		. #xC4F4)	; ì“´
-    (=ks-x1001		. #x3E34)	; ø»‰……
+    (=ks-x1001		. #x3E34)	; &I-K0-3E34;
     ))
 (define-char
   '((=ucs		. #xC4F8)	; ì“¸
-    (=ks-x1001		. #x3E35)	; ø»‰…†
+    (=ks-x1001		. #x3E35)	; &I-K0-3E35;
     ))
 (define-char
   '((=ucs		. #xC4FA)	; ì“º
-    (=ks-x1001		. #x3E36)	; ø»‰…‡
+    (=ks-x1001		. #x3E36)	; &I-K0-3E36;
     ))
 (define-char
   '((=ucs		. #xC4FF)	; ì“¿
-    (=ks-x1001		. #x3E37)	; ø»‰…ˆ
+    (=ks-x1001		. #x3E37)	; &I-K0-3E37;
     ))
 (define-char
   '((=ucs		. #xC500)	; ì”€
-    (=ks-x1001		. #x3E38)	; ø»‰…‰
+    (=ks-x1001		. #x3E38)	; &I-K0-3E38;
     ))
 (define-char
   '((=ucs		. #xC501)	; ì”
-    (=ks-x1001		. #x3E39)	; ø»‰…Š
+    (=ks-x1001		. #x3E39)	; &I-K0-3E39;
     ))
 (define-char
   '((=ucs		. #xC50C)	; ì”Œ
-    (=ks-x1001		. #x3E3A)	; ø»‰…‹
+    (=ks-x1001		. #x3E3A)	; &I-K0-3E3A;
     ))
 (define-char
   '((=ucs		. #xC510)	; ì”
-    (=ks-x1001		. #x3E3B)	; ø»‰…Œ
+    (=ks-x1001		. #x3E3B)	; &I-K0-3E3B;
     ))
 (define-char
   '((=ucs		. #xC514)	; ì””
-    (=ks-x1001		. #x3E3C)	; ø»‰…
+    (=ks-x1001		. #x3E3C)	; &I-K0-3E3C;
     ))
 (define-char
   '((=ucs		. #xC51C)	; ì”œ
-    (=ks-x1001		. #x3E3D)	; ø»‰…Ž
+    (=ks-x1001		. #x3E3D)	; &I-K0-3E3D;
     ))
 (define-char
   '((=ucs		. #xC528)	; ì”¨
-    (=ks-x1001		. #x3E3E)	; ø»‰…
+    (=ks-x1001		. #x3E3E)	; &I-K0-3E3E;
     ))
 (define-char
   '((=ucs		. #xC529)	; ì”©
-    (=ks-x1001		. #x3E3F)	; ø»‰…
+    (=ks-x1001		. #x3E3F)	; &I-K0-3E3F;
     ))
 (define-char
   '((=ucs		. #xC52C)	; ì”¬
-    (=ks-x1001		. #x3E40)	; ø»‰…‘
+    (=ks-x1001		. #x3E40)	; &I-K0-3E40;
     ))
 (define-char
   '((=ucs		. #xC530)	; ì”°
-    (=ks-x1001		. #x3E41)	; ø»‰…’
+    (=ks-x1001		. #x3E41)	; &I-K0-3E41;
     ))
 (define-char
   '((=ucs		. #xC538)	; ì”¸
-    (=ks-x1001		. #x3E42)	; ø»‰…“
+    (=ks-x1001		. #x3E42)	; &I-K0-3E42;
     ))
 (define-char
   '((=ucs		. #xC539)	; ì”¹
-    (=ks-x1001		. #x3E43)	; ø»‰…”
+    (=ks-x1001		. #x3E43)	; &I-K0-3E43;
     ))
 (define-char
   '((=ucs		. #xC53B)	; ì”»
-    (=ks-x1001		. #x3E44)	; ø»‰…•
+    (=ks-x1001		. #x3E44)	; &I-K0-3E44;
     ))
 (define-char
   '((=ucs		. #xC53D)	; ì”½
-    (=ks-x1001		. #x3E45)	; ø»‰…–
+    (=ks-x1001		. #x3E45)	; &I-K0-3E45;
     ))
 (define-char
   '((=ucs		. #xC544)	; ì•„
-    (=ks-x1001		. #x3E46)	; ø»‰…—
-    (=jef-china3	. #x94B4)	; øº‰’´
+    (=ks-x1001		. #x3E46)	; &I-K0-3E46;
+    (=jef-china3	. #x94B4)	; &I-JC3-94B4;
     ))
 (define-char
   '((=ucs		. #xC545)	; ì•…
-    (=ks-x1001		. #x3E47)	; ø»‰…˜
+    (=ks-x1001		. #x3E47)	; &I-K0-3E47;
     ))
 (define-char
   '((=ucs		. #xC548)	; ì•ˆ
-    (=ks-x1001		. #x3E48)	; ø»‰…™
+    (=ks-x1001		. #x3E48)	; &I-K0-3E48;
     ))
 (define-char
   '((=ucs		. #xC549)	; ì•‰
-    (=ks-x1001		. #x3E49)	; ø»‰…š
+    (=ks-x1001		. #x3E49)	; &I-K0-3E49;
     ))
 (define-char
   '((=ucs		. #xC54A)	; ì•Š
-    (=ks-x1001		. #x3E4A)	; ø»‰…›
+    (=ks-x1001		. #x3E4A)	; &I-K0-3E4A;
     ))
 (define-char
   '((=ucs		. #xC54C)	; ì•Œ
-    (=ks-x1001		. #x3E4B)	; ø»‰…œ
+    (=ks-x1001		. #x3E4B)	; &I-K0-3E4B;
     ))
 (define-char
   '((=ucs		. #xC54D)	; ì•
-    (=ks-x1001		. #x3E4C)	; ø»‰…
+    (=ks-x1001		. #x3E4C)	; &I-K0-3E4C;
     ))
 (define-char
   '((=ucs		. #xC54E)	; ì•Ž
-    (=ks-x1001		. #x3E4D)	; ø»‰…ž
+    (=ks-x1001		. #x3E4D)	; &I-K0-3E4D;
     ))
 (define-char
   '((=ucs		. #xC553)	; ì•“
-    (=ks-x1001		. #x3E4E)	; ø»‰…Ÿ
+    (=ks-x1001		. #x3E4E)	; &I-K0-3E4E;
     ))
 (define-char
   '((=ucs		. #xC554)	; ì•”
-    (=ks-x1001		. #x3E4F)	; ø»‰… 
+    (=ks-x1001		. #x3E4F)	; &I-K0-3E4F;
     ))
 (define-char
   '((=ucs		. #xC555)	; ì••
-    (=ks-x1001		. #x3E50)	; ø»‰…¡
+    (=ks-x1001		. #x3E50)	; &I-K0-3E50;
     ))
 (define-char
   '((=ucs		. #xC557)	; ì•—
-    (=ks-x1001		. #x3E51)	; ø»‰…¢
+    (=ks-x1001		. #x3E51)	; &I-K0-3E51;
     ))
 (define-char
   '((=ucs		. #xC558)	; ì•˜
-    (=ks-x1001		. #x3E52)	; ø»‰…£
-    (=jef-china3	. #x8CA8)	; øºˆ²¨
+    (=ks-x1001		. #x3E52)	; &I-K0-3E52;
+    (=jef-china3	. #x8CA8)	; &I-JC3-8CA8;
     ))
 (define-char
   '((=ucs		. #xC559)	; ì•™
-    (=ks-x1001		. #x3E53)	; ø»‰…¤
+    (=ks-x1001		. #x3E53)	; &I-K0-3E53;
     ))
 (define-char
   '((=ucs		. #xC55D)	; ì•
-    (=ks-x1001		. #x3E54)	; ø»‰…¥
+    (=ks-x1001		. #x3E54)	; &I-K0-3E54;
     ))
 (define-char
   '((=ucs		. #xC55E)	; ì•ž
-    (=ks-x1001		. #x3E55)	; ø»‰…¦
+    (=ks-x1001		. #x3E55)	; &I-K0-3E55;
     ))
 (define-char
   '((=ucs		. #xC560)	; ì• 
-    (=ks-x1001		. #x3E56)	; ø»‰…§
+    (=ks-x1001		. #x3E56)	; &I-K0-3E56;
     ))
 (define-char
   '((=ucs		. #xC561)	; ì•¡
-    (=ks-x1001		. #x3E57)	; ø»‰…¨
+    (=ks-x1001		. #x3E57)	; &I-K0-3E57;
     ))
 (define-char
   '((=ucs		. #xC564)	; ì•¤
-    (=ks-x1001		. #x3E58)	; ø»‰…©
+    (=ks-x1001		. #x3E58)	; &I-K0-3E58;
     ))
 (define-char
   '((=ucs		. #xC568)	; ì•¨
-    (=ks-x1001		. #x3E59)	; ø»‰…ª
+    (=ks-x1001		. #x3E59)	; &I-K0-3E59;
     ))
 (define-char
   '((=ucs		. #xC570)	; ì•°
-    (=ks-x1001		. #x3E5A)	; ø»‰…«
+    (=ks-x1001		. #x3E5A)	; &I-K0-3E5A;
     ))
 (define-char
   '((=ucs		. #xC571)	; ì•±
-    (=ks-x1001		. #x3E5B)	; ø»‰…¬
+    (=ks-x1001		. #x3E5B)	; &I-K0-3E5B;
     ))
 (define-char
   '((=ucs		. #xC573)	; ì•³
-    (=ks-x1001		. #x3E5C)	; ø»‰…­
+    (=ks-x1001		. #x3E5C)	; &I-K0-3E5C;
     ))
 (define-char
   '((=ucs		. #xC574)	; ì•´
-    (=ks-x1001		. #x3E5D)	; ø»‰…®
+    (=ks-x1001		. #x3E5D)	; &I-K0-3E5D;
     ))
 (define-char
   '((=ucs		. #xC575)	; ì•µ
-    (=ks-x1001		. #x3E5E)	; ø»‰…¯
+    (=ks-x1001		. #x3E5E)	; &I-K0-3E5E;
     ))
 (define-char
   '((=ucs		. #xC57C)	; ì•¼
-    (=ks-x1001		. #x3E5F)	; ø»‰…°
-    (=jef-china3	. #x82C9)	; øºˆ‹‰
+    (=ks-x1001		. #x3E5F)	; &I-K0-3E5F;
+    (=jef-china3	. #x82C9)	; &I-JC3-82C9;
     ))
 (define-char
   '((=ucs		. #xC57D)	; ì•½
-    (=ks-x1001		. #x3E60)	; ø»‰…±
+    (=ks-x1001		. #x3E60)	; &I-K0-3E60;
     ))
 (define-char
   '((=ucs		. #xC580)	; ì–€
-    (=ks-x1001		. #x3E61)	; ø»‰…²
-    (=jef-china3	. #x82E9)	; øºˆ‹©
+    (=ks-x1001		. #x3E61)	; &I-K0-3E61;
+    (=jef-china3	. #x82E9)	; &I-JC3-82E9;
     ))
 (define-char
   '((=ucs		. #xC584)	; ì–„
-    (=ks-x1001		. #x3E62)	; ø»‰…³
+    (=ks-x1001		. #x3E62)	; &I-K0-3E62;
     ))
 (define-char
   '((=ucs		. #xC587)	; ì–‡
-    (=ks-x1001		. #x3E63)	; ø»‰…´
+    (=ks-x1001		. #x3E63)	; &I-K0-3E63;
     ))
 (define-char
   '((=ucs		. #xC58C)	; ì–Œ
-    (=ks-x1001		. #x3E64)	; ø»‰…µ
+    (=ks-x1001		. #x3E64)	; &I-K0-3E64;
     ))
 (define-char
   '((=ucs		. #xC58D)	; ì–
-    (=ks-x1001		. #x3E65)	; ø»‰…¶
+    (=ks-x1001		. #x3E65)	; &I-K0-3E65;
     ))
 (define-char
   '((=ucs		. #xC58F)	; ì–
-    (=ks-x1001		. #x3E66)	; ø»‰…·
+    (=ks-x1001		. #x3E66)	; &I-K0-3E66;
     ))
 (define-char
   '((=ucs		. #xC591)	; ì–‘
-    (=ks-x1001		. #x3E67)	; ø»‰…¸
+    (=ks-x1001		. #x3E67)	; &I-K0-3E67;
     ))
 (define-char
   '((=ucs		. #xC595)	; ì–•
-    (=ks-x1001		. #x3E68)	; ø»‰…¹
+    (=ks-x1001		. #x3E68)	; &I-K0-3E68;
     ))
 (define-char
   '((=ucs		. #xC597)	; ì–—
-    (=ks-x1001		. #x3E69)	; ø»‰…º
+    (=ks-x1001		. #x3E69)	; &I-K0-3E69;
     ))
 (define-char
   '((=ucs		. #xC598)	; ì–˜
-    (=ks-x1001		. #x3E6A)	; ø»‰…»
+    (=ks-x1001		. #x3E6A)	; &I-K0-3E6A;
     ))
 (define-char
   '((=ucs		. #xC59C)	; ì–œ
-    (=ks-x1001		. #x3E6B)	; ø»‰…¼
+    (=ks-x1001		. #x3E6B)	; &I-K0-3E6B;
     ))
 (define-char
   '((=ucs		. #xC5A0)	; ì– 
-    (=ks-x1001		. #x3E6C)	; ø»‰…½
+    (=ks-x1001		. #x3E6C)	; &I-K0-3E6C;
     ))
 (define-char
   '((=ucs		. #xC5A9)	; ì–©
-    (=ks-x1001		. #x3E6D)	; ø»‰…¾
+    (=ks-x1001		. #x3E6D)	; &I-K0-3E6D;
     ))
 (define-char
   '((=ucs		. #xC5B4)	; ì–´
-    (=ks-x1001		. #x3E6E)	; ø»‰…¿
+    (=ks-x1001		. #x3E6E)	; &I-K0-3E6E;
     ))
 (define-char
   '((=ucs		. #xC5B5)	; ì–µ
-    (=ks-x1001		. #x3E6F)	; ø»‰†€
+    (=ks-x1001		. #x3E6F)	; &I-K0-3E6F;
     ))
 (define-char
   '((=ucs		. #xC5B8)	; ì–¸
-    (=ks-x1001		. #x3E70)	; ø»‰†
+    (=ks-x1001		. #x3E70)	; &I-K0-3E70;
     ))
 (define-char
   '((=ucs		. #xC5B9)	; ì–¹
-    (=ks-x1001		. #x3E71)	; ø»‰†‚
+    (=ks-x1001		. #x3E71)	; &I-K0-3E71;
     ))
 (define-char
   '((=ucs		. #xC5BB)	; ì–»
-    (=ks-x1001		. #x3E72)	; ø»‰†ƒ
+    (=ks-x1001		. #x3E72)	; &I-K0-3E72;
     ))
 (define-char
   '((=ucs		. #xC5BC)	; ì–¼
-    (=ks-x1001		. #x3E73)	; ø»‰†„
+    (=ks-x1001		. #x3E73)	; &I-K0-3E73;
     ))
 (define-char
   '((=ucs		. #xC5BD)	; ì–½
-    (=ks-x1001		. #x3E74)	; ø»‰†…
+    (=ks-x1001		. #x3E74)	; &I-K0-3E74;
     ))
 (define-char
   '((=ucs		. #xC5BE)	; ì–¾
-    (=ks-x1001		. #x3E75)	; ø»‰††
+    (=ks-x1001		. #x3E75)	; &I-K0-3E75;
     ))
 (define-char
   '((=ucs		. #xC5C4)	; ì—„
-    (=ks-x1001		. #x3E76)	; ø»‰†‡
-    (=jef-china3	. #x8CAE)	; øºˆ²®
+    (=ks-x1001		. #x3E76)	; &I-K0-3E76;
+    (=jef-china3	. #x8CAE)	; &I-JC3-8CAE;
     ))
 (define-char
   '((=ucs		. #xC5C5)	; ì—…
-    (=ks-x1001		. #x3E77)	; ø»‰†ˆ
+    (=ks-x1001		. #x3E77)	; &I-K0-3E77;
     ))
 (define-char
   '((=ucs		. #xC5C6)	; ì—†
-    (=ks-x1001		. #x3E78)	; ø»‰†‰
+    (=ks-x1001		. #x3E78)	; &I-K0-3E78;
     ))
 (define-char
   '((=ucs		. #xC5C7)	; ì—‡
-    (=ks-x1001		. #x3E79)	; ø»‰†Š
-    (=jef-china3	. #x82F4)	; øºˆ‹´
+    (=ks-x1001		. #x3E79)	; &I-K0-3E79;
+    (=jef-china3	. #x82F4)	; &I-JC3-82F4;
     ))
 (define-char
   '((=ucs		. #xC5C8)	; ì—ˆ
-    (=ks-x1001		. #x3E7A)	; ø»‰†‹
+    (=ks-x1001		. #x3E7A)	; &I-K0-3E7A;
     ))
 (define-char
   '((=ucs		. #xC5C9)	; ì—‰
-    (=ks-x1001		. #x3E7B)	; ø»‰†Œ
+    (=ks-x1001		. #x3E7B)	; &I-K0-3E7B;
     ))
 (define-char
   '((=ucs		. #xC5CA)	; ì—Š
-    (=ks-x1001		. #x3E7C)	; ø»‰†
+    (=ks-x1001		. #x3E7C)	; &I-K0-3E7C;
     ))
 (define-char
   '((=ucs		. #xC5CC)	; ì—Œ
-    (=ks-x1001		. #x3E7D)	; ø»‰†Ž
+    (=ks-x1001		. #x3E7D)	; &I-K0-3E7D;
     ))
 (define-char
   '((=ucs		. #xC5CE)	; ì—Ž
-    (=ks-x1001		. #x3E7E)	; ø»‰†
+    (=ks-x1001		. #x3E7E)	; &I-K0-3E7E;
     ))
 (define-char
   '((=ucs		. #xC5D0)	; ì—
-    (=ks-x1001		. #x3F21)	; ø»‰†
+    (=ks-x1001		. #x3F21)	; &I-K0-3F21;
     ))
 (define-char
   '((=ucs		. #xC5D1)	; ì—‘
-    (=ks-x1001		. #x3F22)	; ø»‰†‘
+    (=ks-x1001		. #x3F22)	; &I-K0-3F22;
     ))
 (define-char
   '((=ucs		. #xC5D4)	; ì—”
-    (=ks-x1001		. #x3F23)	; ø»‰†’
+    (=ks-x1001		. #x3F23)	; &I-K0-3F23;
     ))
 (define-char
   '((=ucs		. #xC5D8)	; ì—˜
-    (=ks-x1001		. #x3F24)	; ø»‰†“
+    (=ks-x1001		. #x3F24)	; &I-K0-3F24;
     ))
 (define-char
   '((=ucs		. #xC5E0)	; ì— 
-    (=ks-x1001		. #x3F25)	; ø»‰†”
+    (=ks-x1001		. #x3F25)	; &I-K0-3F25;
     ))
 (define-char
   '((=ucs		. #xC5E1)	; ì—¡
-    (=ks-x1001		. #x3F26)	; ø»‰†•
+    (=ks-x1001		. #x3F26)	; &I-K0-3F26;
     ))
 (define-char
   '((=ucs		. #xC5E3)	; ì—£
-    (=ks-x1001		. #x3F27)	; ø»‰†–
+    (=ks-x1001		. #x3F27)	; &I-K0-3F27;
     ))
 (define-char
   '((=ucs		. #xC5E5)	; ì—¥
-    (=ks-x1001		. #x3F28)	; ø»‰†—
+    (=ks-x1001		. #x3F28)	; &I-K0-3F28;
     ))
 (define-char
   '((=ucs		. #xC5EC)	; ì—¬
-    (=ks-x1001		. #x3F29)	; ø»‰†˜
-    (=jef-china3	. #x94B6)	; øº‰’¶
+    (=ks-x1001		. #x3F29)	; &I-K0-3F29;
+    (=jef-china3	. #x94B6)	; &I-JC3-94B6;
     ))
 (define-char
   '((=ucs		. #xC5ED)	; ì—­
-    (=ks-x1001		. #x3F2A)	; ø»‰†™
-    (=jef-china3	. #x96CA)	; øº‰›Š
+    (=ks-x1001		. #x3F2A)	; &I-K0-3F2A;
+    (=jef-china3	. #x96CA)	; &I-JC3-96CA;
     ))
 (define-char
   '((=ucs		. #xC5EE)	; ì—®
-    (=ks-x1001		. #x3F2B)	; ø»‰†š
+    (=ks-x1001		. #x3F2B)	; &I-K0-3F2B;
     ))
 (define-char
   '((=ucs		. #xC5F0)	; ì—°
-    (=ks-x1001		. #x3F2C)	; ø»‰†›
-    (=jef-china3	. #x94BD)	; øº‰’½
+    (=ks-x1001		. #x3F2C)	; &I-K0-3F2C;
+    (=jef-china3	. #x94BD)	; &I-JC3-94BD;
     ))
 (define-char
   '((=ucs		. #xC5F4)	; ì—´
-    (=ks-x1001		. #x3F2D)	; ø»‰†œ
+    (=ks-x1001		. #x3F2D)	; &I-K0-3F2D;
     ))
 (define-char
   '((=ucs		. #xC5F6)	; ì—¶
-    (=ks-x1001		. #x3F2E)	; ø»‰†
+    (=ks-x1001		. #x3F2E)	; &I-K0-3F2E;
     ))
 (define-char
   '((=ucs		. #xC5F7)	; ì—·
-    (=ks-x1001		. #x3F2F)	; ø»‰†ž
+    (=ks-x1001		. #x3F2F)	; &I-K0-3F2F;
     ))
 (define-char
   '((=ucs		. #xC5FC)	; ì—¼
-    (=ks-x1001		. #x3F30)	; ø»‰†Ÿ
+    (=ks-x1001		. #x3F30)	; &I-K0-3F30;
     ))
 (define-char
   '((=ucs		. #xC5FD)	; ì—½
-    (=ks-x1001		. #x3F31)	; ø»‰† 
+    (=ks-x1001		. #x3F31)	; &I-K0-3F31;
     ))
 (define-char
   '((=ucs		. #xC5FE)	; ì—¾
-    (=ks-x1001		. #x3F32)	; ø»‰†¡
+    (=ks-x1001		. #x3F32)	; &I-K0-3F32;
     ))
 (define-char
   '((=ucs		. #xC5FF)	; ì—¿
-    (=ks-x1001		. #x3F33)	; ø»‰†¢
+    (=ks-x1001		. #x3F33)	; &I-K0-3F33;
     ))
 (define-char
   '((=ucs		. #xC600)	; ì˜€
-    (=ks-x1001		. #x3F34)	; ø»‰†£
+    (=ks-x1001		. #x3F34)	; &I-K0-3F34;
     ))
 (define-char
   '((=ucs		. #xC601)	; ì˜
-    (=ks-x1001		. #x3F35)	; ø»‰†¤
+    (=ks-x1001		. #x3F35)	; &I-K0-3F35;
     ))
 (define-char
   '((=ucs		. #xC605)	; ì˜…
-    (=ks-x1001		. #x3F36)	; ø»‰†¥
+    (=ks-x1001		. #x3F36)	; &I-K0-3F36;
     ))
 (define-char
   '((=ucs		. #xC606)	; ì˜†
-    (=ks-x1001		. #x3F37)	; ø»‰†¦
+    (=ks-x1001		. #x3F37)	; &I-K0-3F37;
     ))
 (define-char
   '((=ucs		. #xC607)	; ì˜‡
-    (=ks-x1001		. #x3F38)	; ø»‰†§
+    (=ks-x1001		. #x3F38)	; &I-K0-3F38;
     ))
 (define-char
   '((=ucs		. #xC608)	; ì˜ˆ
-    (=ks-x1001		. #x3F39)	; ø»‰†¨
+    (=ks-x1001		. #x3F39)	; &I-K0-3F39;
     ))
 (define-char
   '((=ucs		. #xC60C)	; ì˜Œ
-    (=ks-x1001		. #x3F3A)	; ø»‰†©
+    (=ks-x1001		. #x3F3A)	; &I-K0-3F3A;
     ))
 (define-char
   '((=ucs		. #xC610)	; ì˜
-    (=ks-x1001		. #x3F3B)	; ø»‰†ª
+    (=ks-x1001		. #x3F3B)	; &I-K0-3F3B;
     ))
 (define-char
   '((=ucs		. #xC618)	; ì˜˜
-    (=ks-x1001		. #x3F3C)	; ø»‰†«
+    (=ks-x1001		. #x3F3C)	; &I-K0-3F3C;
     ))
 (define-char
   '((=ucs		. #xC619)	; ì˜™
-    (=ks-x1001		. #x3F3D)	; ø»‰†¬
+    (=ks-x1001		. #x3F3D)	; &I-K0-3F3D;
     ))
 (define-char
   '((=ucs		. #xC61B)	; ì˜›
-    (=ks-x1001		. #x3F3E)	; ø»‰†­
+    (=ks-x1001		. #x3F3E)	; &I-K0-3F3E;
     ))
 (define-char
   '((=ucs		. #xC61C)	; ì˜œ
-    (=ks-x1001		. #x3F3F)	; ø»‰†®
+    (=ks-x1001		. #x3F3F)	; &I-K0-3F3F;
     ))
 (define-char
   '((=ucs		. #xC624)	; ì˜¤
-    (=ks-x1001		. #x3F40)	; ø»‰†¯
-    (=jef-china3	. #x96CB)	; øº‰›‹
+    (=ks-x1001		. #x3F40)	; &I-K0-3F40;
+    (=jef-china3	. #x96CB)	; &I-JC3-96CB;
     ))
 (define-char
   '((=ucs		. #xC625)	; ì˜¥
-    (=ks-x1001		. #x3F41)	; ø»‰†°
-    (=jef-china3	. #x96CD)	; øº‰›
+    (=ks-x1001		. #x3F41)	; &I-K0-3F41;
+    (=jef-china3	. #x96CD)	; &I-JC3-96CD;
     ))
 (define-char
   '((=ucs		. #xC628)	; ì˜¨
-    (=ks-x1001		. #x3F42)	; ø»‰†±
+    (=ks-x1001		. #x3F42)	; &I-K0-3F42;
     ))
 (define-char
   '((=ucs		. #xC62C)	; ì˜¬
-    (=ks-x1001		. #x3F43)	; ø»‰†²
+    (=ks-x1001		. #x3F43)	; &I-K0-3F43;
     ))
 (define-char
   '((=ucs		. #xC62D)	; ì˜­
-    (=ks-x1001		. #x3F44)	; ø»‰†³
+    (=ks-x1001		. #x3F44)	; &I-K0-3F44;
     ))
 (define-char
   '((=ucs		. #xC62E)	; ì˜®
-    (=ks-x1001		. #x3F45)	; ø»‰†´
+    (=ks-x1001		. #x3F45)	; &I-K0-3F45;
     ))
 (define-char
   '((=ucs		. #xC630)	; ì˜°
-    (=ks-x1001		. #x3F46)	; ø»‰†µ
+    (=ks-x1001		. #x3F46)	; &I-K0-3F46;
     ))
 (define-char
   '((=ucs		. #xC633)	; ì˜³
-    (=ks-x1001		. #x3F47)	; ø»‰†¶
+    (=ks-x1001		. #x3F47)	; &I-K0-3F47;
     ))
 (define-char
   '((=ucs		. #xC634)	; ì˜´
-    (=ks-x1001		. #x3F48)	; ø»‰†·
-    (=jef-china3	. #x96D0)	; øº‰›
+    (=ks-x1001		. #x3F48)	; &I-K0-3F48;
+    (=jef-china3	. #x96D0)	; &I-JC3-96D0;
     ))
 (define-char
   '((=ucs		. #xC635)	; ì˜µ
-    (=ks-x1001		. #x3F49)	; ø»‰†¸
+    (=ks-x1001		. #x3F49)	; &I-K0-3F49;
     ))
 (define-char
   '((=ucs		. #xC637)	; ì˜·
-    (=ks-x1001		. #x3F4A)	; ø»‰†¹
+    (=ks-x1001		. #x3F4A)	; &I-K0-3F4A;
     ))
 (define-char
   '((=ucs		. #xC639)	; ì˜¹
-    (=ks-x1001		. #x3F4B)	; ø»‰†º
+    (=ks-x1001		. #x3F4B)	; &I-K0-3F4B;
     ))
 (define-char
   '((=ucs		. #xC63B)	; ì˜»
-    (=ks-x1001		. #x3F4C)	; ø»‰†»
+    (=ks-x1001		. #x3F4C)	; &I-K0-3F4C;
     ))
 (define-char
   '((=ucs		. #xC640)	; ì™€
-    (=ks-x1001		. #x3F4D)	; ø»‰†¼
+    (=ks-x1001		. #x3F4D)	; &I-K0-3F4D;
     ))
 (define-char
   '((=ucs		. #xC641)	; ì™
-    (=ks-x1001		. #x3F4E)	; ø»‰†½
+    (=ks-x1001		. #x3F4E)	; &I-K0-3F4E;
     ))
 (define-char
   '((=ucs		. #xC644)	; ì™„
-    (=ks-x1001		. #x3F4F)	; ø»‰†¾
+    (=ks-x1001		. #x3F4F)	; &I-K0-3F4F;
     ))
 (define-char
   '((=ucs		. #xC648)	; ì™ˆ
-    (=ks-x1001		. #x3F50)	; ø»‰†¿
+    (=ks-x1001		. #x3F50)	; &I-K0-3F50;
     ))
 (define-char
   '((=ucs		. #xC650)	; ì™
-    (=ks-x1001		. #x3F51)	; ø»‰‡€
+    (=ks-x1001		. #x3F51)	; &I-K0-3F51;
     ))
 (define-char
   '((=ucs		. #xC651)	; ì™‘
-    (=ks-x1001		. #x3F52)	; ø»‰‡
+    (=ks-x1001		. #x3F52)	; &I-K0-3F52;
     ))
 (define-char
   '((=ucs		. #xC653)	; ì™“
-    (=ks-x1001		. #x3F53)	; ø»‰‡‚
+    (=ks-x1001		. #x3F53)	; &I-K0-3F53;
     ))
 (define-char
   '((=ucs		. #xC654)	; ì™”
-    (=ks-x1001		. #x3F54)	; ø»‰‡ƒ
-    (=jef-china3	. #x83B9)	; øºˆŽ¹
+    (=ks-x1001		. #x3F54)	; &I-K0-3F54;
+    (=jef-china3	. #x83B9)	; &I-JC3-83B9;
     ))
 (define-char
   '((=ucs		. #xC655)	; ì™•
-    (=ks-x1001		. #x3F55)	; ø»‰‡„
-    (=jef-china3	. #x8CA5)	; øºˆ²¥
+    (=ks-x1001		. #x3F55)	; &I-K0-3F55;
+    (=jef-china3	. #x8CA5)	; &I-JC3-8CA5;
     ))
 (define-char
   '((=ucs		. #xC65C)	; ì™œ
-    (=ks-x1001		. #x3F56)	; ø»‰‡…
+    (=ks-x1001		. #x3F56)	; &I-K0-3F56;
     ))
 (define-char
   '((=ucs		. #xC65D)	; ì™
-    (=ks-x1001		. #x3F57)	; ø»‰‡†
+    (=ks-x1001		. #x3F57)	; &I-K0-3F57;
     ))
 (define-char
   '((=ucs		. #xC660)	; ì™ 
-    (=ks-x1001		. #x3F58)	; ø»‰‡‡
+    (=ks-x1001		. #x3F58)	; &I-K0-3F58;
     ))
 (define-char
   '((=ucs		. #xC66C)	; ì™¬
-    (=ks-x1001		. #x3F59)	; ø»‰‡ˆ
+    (=ks-x1001		. #x3F59)	; &I-K0-3F59;
     ))
 (define-char
   '((=ucs		. #xC66F)	; ì™¯
-    (=ks-x1001		. #x3F5A)	; ø»‰‡‰
+    (=ks-x1001		. #x3F5A)	; &I-K0-3F5A;
     ))
 (define-char
   '((=ucs		. #xC671)	; ì™±
-    (=ks-x1001		. #x3F5B)	; ø»‰‡Š
+    (=ks-x1001		. #x3F5B)	; &I-K0-3F5B;
     ))
 (define-char
   '((=ucs		. #xC678)	; ì™¸
-    (=ks-x1001		. #x3F5C)	; ø»‰‡‹
-    (=jef-china3	. #x83C7)	; øºˆ‡
+    (=ks-x1001		. #x3F5C)	; &I-K0-3F5C;
+    (=jef-china3	. #x83C7)	; &I-JC3-83C7;
     ))
 (define-char
   '((=ucs		. #xC679)	; ì™¹
-    (=ks-x1001		. #x3F5D)	; ø»‰‡Œ
+    (=ks-x1001		. #x3F5D)	; &I-K0-3F5D;
     ))
 (define-char
   '((=ucs		. #xC67C)	; ì™¼
-    (=ks-x1001		. #x3F5E)	; ø»‰‡
+    (=ks-x1001		. #x3F5E)	; &I-K0-3F5E;
     ))
 (define-char
   '((=ucs		. #xC680)	; ìš€
-    (=ks-x1001		. #x3F5F)	; ø»‰‡Ž
+    (=ks-x1001		. #x3F5F)	; &I-K0-3F5F;
     ))
 (define-char
   '((=ucs		. #xC688)	; ìšˆ
-    (=ks-x1001		. #x3F60)	; ø»‰‡
+    (=ks-x1001		. #x3F60)	; &I-K0-3F60;
     ))
 (define-char
   '((=ucs		. #xC689)	; ìš‰
-    (=ks-x1001		. #x3F61)	; ø»‰‡
+    (=ks-x1001		. #x3F61)	; &I-K0-3F61;
     ))
 (define-char
   '((=ucs		. #xC68B)	; ìš‹
-    (=ks-x1001		. #x3F62)	; ø»‰‡‘
+    (=ks-x1001		. #x3F62)	; &I-K0-3F62;
     ))
 (define-char
   '((=ucs		. #xC68D)	; ìš
-    (=ks-x1001		. #x3F63)	; ø»‰‡’
+    (=ks-x1001		. #x3F63)	; &I-K0-3F63;
     ))
 (define-char
   '((=ucs		. #xC694)	; ìš”
-    (=ks-x1001		. #x3F64)	; ø»‰‡“
+    (=ks-x1001		. #x3F64)	; &I-K0-3F64;
     ))
 (define-char
   '((=ucs		. #xC695)	; ìš•
-    (=ks-x1001		. #x3F65)	; ø»‰‡”
+    (=ks-x1001		. #x3F65)	; &I-K0-3F65;
     ))
 (define-char
   '((=ucs		. #xC698)	; ìš˜
-    (=ks-x1001		. #x3F66)	; ø»‰‡•
+    (=ks-x1001		. #x3F66)	; &I-K0-3F66;
     ))
 (define-char
   '((=ucs		. #xC69C)	; ìšœ
-    (=ks-x1001		. #x3F67)	; ø»‰‡–
+    (=ks-x1001		. #x3F67)	; &I-K0-3F67;
     ))
 (define-char
   '((=ucs		. #xC6A4)	; ìš¤
-    (=ks-x1001		. #x3F68)	; ø»‰‡—
+    (=ks-x1001		. #x3F68)	; &I-K0-3F68;
     ))
 (define-char
   '((=ucs		. #xC6A5)	; ìš¥
-    (=ks-x1001		. #x3F69)	; ø»‰‡˜
+    (=ks-x1001		. #x3F69)	; &I-K0-3F69;
     ))
 (define-char
   '((=ucs		. #xC6A7)	; ìš§
-    (=ks-x1001		. #x3F6A)	; ø»‰‡™
+    (=ks-x1001		. #x3F6A)	; &I-K0-3F6A;
     ))
 (define-char
   '((=ucs		. #xC6A9)	; ìš©
-    (=ks-x1001		. #x3F6B)	; ø»‰‡š
+    (=ks-x1001		. #x3F6B)	; &I-K0-3F6B;
     ))
 (define-char
   '((=ucs		. #xC6B0)	; ìš°
-    (=ks-x1001		. #x3F6C)	; ø»‰‡›
-    (=jef-china3	. #x82CA)	; øºˆ‹Š
+    (=ks-x1001		. #x3F6C)	; &I-K0-3F6C;
+    (=jef-china3	. #x82CA)	; &I-JC3-82CA;
     ))
 (define-char
   '((=ucs		. #xC6B1)	; ìš±
-    (=ks-x1001		. #x3F6D)	; ø»‰‡œ
+    (=ks-x1001		. #x3F6D)	; &I-K0-3F6D;
     ))
 (define-char
   '((=ucs		. #xC6B4)	; ìš´
-    (=ks-x1001		. #x3F6E)	; ø»‰‡
+    (=ks-x1001		. #x3F6E)	; &I-K0-3F6E;
     ))
 (define-char
   '((=ucs		. #xC6B8)	; ìš¸
-    (=ks-x1001		. #x3F6F)	; ø»‰‡ž
-    (=jef-china3	. #x94D7)	; øº‰“—
+    (=ks-x1001		. #x3F6F)	; &I-K0-3F6F;
+    (=jef-china3	. #x94D7)	; &I-JC3-94D7;
     ))
 (define-char
   '((=>ucs		. #xC6B8)	; ìš¸
-    (=jef-china3	. #x94C0)	; øº‰“€
+    (=jef-china3	. #x94C0)	; &JC3-94C0;
     ))
 (define-char
   '((=ucs		. #xC6B9)	; ìš¹
-    (=ks-x1001		. #x3F70)	; ø»‰‡Ÿ
+    (=ks-x1001		. #x3F70)	; &I-K0-3F70;
     ))
 (define-char
   '((=ucs		. #xC6BA)	; ìšº
-    (=ks-x1001		. #x3F71)	; ø»‰‡ 
+    (=ks-x1001		. #x3F71)	; &I-K0-3F71;
     ))
 (define-char
   '((=ucs		. #xC6C0)	; ì›€
-    (=ks-x1001		. #x3F72)	; ø»‰‡¡
+    (=ks-x1001		. #x3F72)	; &I-K0-3F72;
     ))
 (define-char
   '((=ucs		. #xC6C1)	; ì›
-    (=ks-x1001		. #x3F73)	; ø»‰‡¢
+    (=ks-x1001		. #x3F73)	; &I-K0-3F73;
     ))
 (define-char
   '((=ucs		. #xC6C3)	; ì›ƒ
-    (=ks-x1001		. #x3F74)	; ø»‰‡£
+    (=ks-x1001		. #x3F74)	; &I-K0-3F74;
     ))
 (define-char
   '((=ucs		. #xC6C5)	; ì›…
-    (=ks-x1001		. #x3F75)	; ø»‰‡¤
+    (=ks-x1001		. #x3F75)	; &I-K0-3F75;
     ))
 (define-char
   '((=ucs		. #xC6CC)	; ì›Œ
-    (=ks-x1001		. #x3F76)	; ø»‰‡¥
+    (=ks-x1001		. #x3F76)	; &I-K0-3F76;
     ))
 (define-char
   '((=ucs		. #xC6CD)	; ì›
-    (=ks-x1001		. #x3F77)	; ø»‰‡¦
+    (=ks-x1001		. #x3F77)	; &I-K0-3F77;
     ))
 (define-char
   '((=ucs		. #xC6D0)	; ì›
-    (=ks-x1001		. #x3F78)	; ø»‰‡§
+    (=ks-x1001		. #x3F78)	; &I-K0-3F78;
     ))
 (define-char
   '((=ucs		. #xC6D4)	; ì›”
-    (=ks-x1001		. #x3F79)	; ø»‰‡¨
+    (=ks-x1001		. #x3F79)	; &I-K0-3F79;
     ))
 (define-char
   '((=ucs		. #xC6DC)	; ì›œ
-    (=ks-x1001		. #x3F7A)	; ø»‰‡©
+    (=ks-x1001		. #x3F7A)	; &I-K0-3F7A;
     ))
 (define-char
   '((=ucs		. #xC6DD)	; ì›
-    (=ks-x1001		. #x3F7B)	; ø»‰‡ª
+    (=ks-x1001		. #x3F7B)	; &I-K0-3F7B;
     ))
 (define-char
   '((=ucs		. #xC6E0)	; ì› 
-    (=ks-x1001		. #x3F7C)	; ø»‰‡«
+    (=ks-x1001		. #x3F7C)	; &I-K0-3F7C;
     ))
 (define-char
   '((=ucs		. #xC6E1)	; ì›¡
-    (=ks-x1001		. #x3F7D)	; ø»‰‡¬
+    (=ks-x1001		. #x3F7D)	; &I-K0-3F7D;
     ))
 (define-char
   '((=ucs		. #xC6E8)	; ì›¨
-    (=ks-x1001		. #x3F7E)	; ø»‰‡­
+    (=ks-x1001		. #x3F7E)	; &I-K0-3F7E;
     ))
 (define-char
   '((=ucs		. #xC6E9)	; ì›©
-    (=ks-x1001		. #x4021)	; ø»‰‡®
+    (=ks-x1001		. #x4021)	; &I-K0-4021;
     ))
 (define-char
   '((=ucs		. #xC6EC)	; ì›¬
-    (=ks-x1001		. #x4022)	; ø»‰‡¯
+    (=ks-x1001		. #x4022)	; &I-K0-4022;
     ))
 (define-char
   '((=ucs		. #xC6F0)	; ì›°
-    (=ks-x1001		. #x4023)	; ø»‰‡°
+    (=ks-x1001		. #x4023)	; &I-K0-4023;
     ))
 (define-char
   '((=ucs		. #xC6F8)	; ì›¸
-    (=ks-x1001		. #x4024)	; ø»‰‡±
+    (=ks-x1001		. #x4024)	; &I-K0-4024;
     ))
 (define-char
   '((=ucs		. #xC6F9)	; ì›¹
-    (=ks-x1001		. #x4025)	; ø»‰‡²
+    (=ks-x1001		. #x4025)	; &I-K0-4025;
     ))
 (define-char
   '((=ucs		. #xC6FD)	; ì›½
-    (=ks-x1001		. #x4026)	; ø»‰‡³
+    (=ks-x1001		. #x4026)	; &I-K0-4026;
     ))
 (define-char
   '((=ucs		. #xC704)	; ìœ„
-    (=ks-x1001		. #x4027)	; ø»‰‡´
+    (=ks-x1001		. #x4027)	; &I-K0-4027;
     ))
 (define-char
   '((=ucs		. #xC705)	; ìœ…
-    (=ks-x1001		. #x4028)	; ø»‰‡µ
+    (=ks-x1001		. #x4028)	; &I-K0-4028;
     ))
 (define-char
   '((=ucs		. #xC708)	; ìœˆ
-    (=ks-x1001		. #x4029)	; ø»‰‡¶
+    (=ks-x1001		. #x4029)	; &I-K0-4029;
     ))
 (define-char
   '((=ucs		. #xC70C)	; ìœŒ
-    (=ks-x1001		. #x402A)	; ø»‰‡·
+    (=ks-x1001		. #x402A)	; &I-K0-402A;
     ))
 (define-char
   '((=ucs		. #xC714)	; ìœ”
-    (=ks-x1001		. #x402B)	; ø»‰‡¸
+    (=ks-x1001		. #x402B)	; &I-K0-402B;
     ))
 (define-char
   '((=ucs		. #xC715)	; ìœ•
-    (=ks-x1001		. #x402C)	; ø»‰‡¹
+    (=ks-x1001		. #x402C)	; &I-K0-402C;
     ))
 (define-char
   '((=ucs		. #xC717)	; ìœ—
-    (=ks-x1001		. #x402D)	; ø»‰‡º
+    (=ks-x1001		. #x402D)	; &I-K0-402D;
     ))
 (define-char
   '((=ucs		. #xC719)	; ìœ™
-    (=ks-x1001		. #x402E)	; ø»‰‡»
+    (=ks-x1001		. #x402E)	; &I-K0-402E;
     ))
 (define-char
   '((=ucs		. #xC720)	; ìœ 
-    (=ks-x1001		. #x402F)	; ø»‰‡¼
+    (=ks-x1001		. #x402F)	; &I-K0-402F;
     ))
 (define-char
   '((=ucs		. #xC721)	; ìœ¡
-    (=ks-x1001		. #x4030)	; ø»‰‡½
+    (=ks-x1001		. #x4030)	; &I-K0-4030;
     ))
 (define-char
   '((=ucs		. #xC724)	; ìœ¤
-    (=ks-x1001		. #x4031)	; ø»‰‡¾
+    (=ks-x1001		. #x4031)	; &I-K0-4031;
     ))
 (define-char
   '((=ucs		. #xC728)	; ìœ¨
-    (=ks-x1001		. #x4032)	; ø»‰‡¿
+    (=ks-x1001		. #x4032)	; &I-K0-4032;
     ))
 (define-char
   '((=ucs		. #xC730)	; ìœ°
-    (=ks-x1001		. #x4033)	; ø»‰ˆ€
+    (=ks-x1001		. #x4033)	; &I-K0-4033;
     ))
 (define-char
   '((=ucs		. #xC731)	; ìœ±
-    (=ks-x1001		. #x4034)	; ø»‰ˆ
+    (=ks-x1001		. #x4034)	; &I-K0-4034;
     ))
 (define-char
   '((=ucs		. #xC733)	; ìœ³
-    (=ks-x1001		. #x4035)	; ø»‰ˆ‚
+    (=ks-x1001		. #x4035)	; &I-K0-4035;
     ))
 (define-char
   '((=ucs		. #xC735)	; ìœµ
-    (=ks-x1001		. #x4036)	; ø»‰ˆƒ
+    (=ks-x1001		. #x4036)	; &I-K0-4036;
     ))
 (define-char
   '((=ucs		. #xC737)	; ìœ·
-    (=ks-x1001		. #x4037)	; ø»‰ˆ„
+    (=ks-x1001		. #x4037)	; &I-K0-4037;
     ))
 (define-char
   '((=ucs		. #xC73C)	; ìœ¼
-    (=ks-x1001		. #x4038)	; ø»‰ˆ…
+    (=ks-x1001		. #x4038)	; &I-K0-4038;
     ))
 (define-char
   '((=ucs		. #xC73D)	; ìœ½
-    (=ks-x1001		. #x4039)	; ø»‰ˆ†
+    (=ks-x1001		. #x4039)	; &I-K0-4039;
     ))
 (define-char
   '((=ucs		. #xC740)	; ì€
-    (=ks-x1001		. #x403A)	; ø»‰ˆ‡
+    (=ks-x1001		. #x403A)	; &I-K0-403A;
     ))
 (define-char
   '((=ucs		. #xC744)	; ì„
-    (=ks-x1001		. #x403B)	; ø»‰ˆˆ
+    (=ks-x1001		. #x403B)	; &I-K0-403B;
     ))
 (define-char
   '((=ucs		. #xC74A)	; ìŠ
-    (=ks-x1001		. #x403C)	; ø»‰ˆ‰
+    (=ks-x1001		. #x403C)	; &I-K0-403C;
     ))
 (define-char
   '((=ucs		. #xC74C)	; ìŒ
-    (=ks-x1001		. #x403D)	; ø»‰ˆŠ
+    (=ks-x1001		. #x403D)	; &I-K0-403D;
     ))
 (define-char
   '((=ucs		. #xC74D)	; ì
-    (=ks-x1001		. #x403E)	; ø»‰ˆ‹
+    (=ks-x1001		. #x403E)	; &I-K0-403E;
     ))
 (define-char
   '((=ucs		. #xC74F)	; ì
-    (=ks-x1001		. #x403F)	; ø»‰ˆŒ
+    (=ks-x1001		. #x403F)	; &I-K0-403F;
     ))
 (define-char
   '((=ucs		. #xC751)	; ì‘
-    (=ks-x1001		. #x4040)	; ø»‰ˆ
+    (=ks-x1001		. #x4040)	; &I-K0-4040;
     ))
 (define-char
   '((=ucs		. #xC752)	; ì’
-    (=ks-x1001		. #x4041)	; ø»‰ˆŽ
+    (=ks-x1001		. #x4041)	; &I-K0-4041;
     ))
 (define-char
   '((=ucs		. #xC753)	; ì“
-    (=ks-x1001		. #x4042)	; ø»‰ˆ
+    (=ks-x1001		. #x4042)	; &I-K0-4042;
     ))
 (define-char
   '((=ucs		. #xC754)	; ì”
-    (=ks-x1001		. #x4043)	; ø»‰ˆ
+    (=ks-x1001		. #x4043)	; &I-K0-4043;
     ))
 (define-char
   '((=ucs		. #xC755)	; ì•
-    (=ks-x1001		. #x4044)	; ø»‰ˆ‘
+    (=ks-x1001		. #x4044)	; &I-K0-4044;
     ))
 (define-char
   '((=ucs		. #xC756)	; ì–
-    (=ks-x1001		. #x4045)	; ø»‰ˆ’
+    (=ks-x1001		. #x4045)	; &I-K0-4045;
     ))
 (define-char
   '((=ucs		. #xC757)	; ì—
-    (=ks-x1001		. #x4046)	; ø»‰ˆ“
+    (=ks-x1001		. #x4046)	; &I-K0-4046;
     ))
 (define-char
   '((=ucs		. #xC758)	; ì˜
-    (=ks-x1001		. #x4047)	; ø»‰ˆ”
+    (=ks-x1001		. #x4047)	; &I-K0-4047;
     ))
 (define-char
   '((=ucs		. #xC75C)	; ìœ
-    (=ks-x1001		. #x4048)	; ø»‰ˆ•
+    (=ks-x1001		. #x4048)	; &I-K0-4048;
     ))
 (define-char
   '((=ucs		. #xC760)	; ì 
-    (=ks-x1001		. #x4049)	; ø»‰ˆ–
+    (=ks-x1001		. #x4049)	; &I-K0-4049;
     ))
 (define-char
   '((=ucs		. #xC768)	; ì¨
-    (=ks-x1001		. #x404A)	; ø»‰ˆ—
+    (=ks-x1001		. #x404A)	; &I-K0-404A;
     ))
 (define-char
   '((=ucs		. #xC76B)	; ì«
-    (=ks-x1001		. #x404B)	; ø»‰ˆ˜
+    (=ks-x1001		. #x404B)	; &I-K0-404B;
     ))
 (define-char
   '((=ucs		. #xC774)	; ì´
-    (=ks-x1001		. #x404C)	; ø»‰ˆ™
+    (=ks-x1001		. #x404C)	; &I-K0-404C;
     ))
 (define-char
   '((=ucs		. #xC775)	; ìµ
-    (=ks-x1001		. #x404D)	; ø»‰ˆš
+    (=ks-x1001		. #x404D)	; &I-K0-404D;
     ))
 (define-char
   '((=ucs		. #xC778)	; ì¸
-    (=ks-x1001		. #x404E)	; ø»‰ˆ›
+    (=ks-x1001		. #x404E)	; &I-K0-404E;
     ))
 (define-char
   '((=ucs		. #xC77C)	; ì¼
-    (=ks-x1001		. #x404F)	; ø»‰ˆœ
+    (=ks-x1001		. #x404F)	; &I-K0-404F;
     ))
 (define-char
   '((=ucs		. #xC77D)	; ì½
-    (=ks-x1001		. #x4050)	; ø»‰ˆ
+    (=ks-x1001		. #x4050)	; &I-K0-4050;
     ))
 (define-char
   '((=ucs		. #xC77E)	; ì¾
-    (=ks-x1001		. #x4051)	; ø»‰ˆž
+    (=ks-x1001		. #x4051)	; &I-K0-4051;
     ))
 (define-char
   '((=ucs		. #xC783)	; ìžƒ
-    (=ks-x1001		. #x4052)	; ø»‰ˆŸ
+    (=ks-x1001		. #x4052)	; &I-K0-4052;
     ))
 (define-char
   '((=ucs		. #xC784)	; ìž„
-    (=ks-x1001		. #x4053)	; ø»‰ˆ 
+    (=ks-x1001		. #x4053)	; &I-K0-4053;
     ))
 (define-char
   '((=ucs		. #xC785)	; ìž…
-    (=ks-x1001		. #x4054)	; ø»‰ˆ¡
-    (=jef-china3	. #x8CB9)	; øºˆ²¹
+    (=ks-x1001		. #x4054)	; &I-K0-4054;
+    (=jef-china3	. #x8CB9)	; &I-JC3-8CB9;
     ))
 (define-char
   '((=ucs		. #xC787)	; ìž‡
-    (=ks-x1001		. #x4055)	; ø»‰ˆ¢
+    (=ks-x1001		. #x4055)	; &I-K0-4055;
     ))
 (define-char
   '((=ucs		. #xC788)	; ìžˆ
-    (=ks-x1001		. #x4056)	; ø»‰ˆ£
+    (=ks-x1001		. #x4056)	; &I-K0-4056;
     ))
 (define-char
   '((=ucs		. #xC789)	; ìž‰
-    (=ks-x1001		. #x4057)	; ø»‰ˆ¤
+    (=ks-x1001		. #x4057)	; &I-K0-4057;
     ))
 (define-char
   '((=ucs		. #xC78A)	; ìžŠ
-    (=ks-x1001		. #x4058)	; ø»‰ˆ¥
-    (=jef-china3	. #x8CB8)	; øºˆ²¸
+    (=ks-x1001		. #x4058)	; &I-K0-4058;
+    (=jef-china3	. #x8CB8)	; &I-JC3-8CB8;
     ))
 (define-char
   '((=ucs		. #xC78E)	; ìžŽ
-    (=ks-x1001		. #x4059)	; ø»‰ˆ¦
+    (=ks-x1001		. #x4059)	; &I-K0-4059;
     ))
 (define-char
   '((=ucs		. #xC790)	; ìž
-    (=ks-x1001		. #x405A)	; ø»‰ˆ§
-    (=jef-china3	. #x95E2)	; øº‰—¢
+    (=ks-x1001		. #x405A)	; &I-K0-405A;
+    (=jef-china3	. #x95E2)	; &I-JC3-95E2;
     ))
 (define-char
   '((=ucs		. #xC791)	; ìž‘
-    (=ks-x1001		. #x405B)	; ø»‰ˆ¨
+    (=ks-x1001		. #x405B)	; &I-K0-405B;
     ))
 (define-char
   '((=ucs		. #xC794)	; ìž”
-    (=ks-x1001		. #x405C)	; ø»‰ˆ©
+    (=ks-x1001		. #x405C)	; &I-K0-405C;
     ))
 (define-char
   '((=ucs		. #xC796)	; ìž–
-    (=ks-x1001		. #x405D)	; ø»‰ˆª
+    (=ks-x1001		. #x405D)	; &I-K0-405D;
     ))
 (define-char
   '((=ucs		. #xC797)	; ìž—
-    (=ks-x1001		. #x405E)	; ø»‰ˆ«
+    (=ks-x1001		. #x405E)	; &I-K0-405E;
     ))
 (define-char
   '((=ucs		. #xC798)	; ìž˜
-    (=ks-x1001		. #x405F)	; ø»‰ˆ¬
+    (=ks-x1001		. #x405F)	; &I-K0-405F;
     ))
 (define-char
   '((=ucs		. #xC79A)	; ìžš
-    (=ks-x1001		. #x4060)	; ø»‰ˆ­
+    (=ks-x1001		. #x4060)	; &I-K0-4060;
     ))
 (define-char
   '((=ucs		. #xC7A0)	; ìž 
-    (=ks-x1001		. #x4061)	; ø»‰ˆ®
+    (=ks-x1001		. #x4061)	; &I-K0-4061;
     ))
 (define-char
   '((=ucs		. #xC7A1)	; ìž¡
-    (=ks-x1001		. #x4062)	; ø»‰ˆ¯
+    (=ks-x1001		. #x4062)	; &I-K0-4062;
     ))
 (define-char
   '((=ucs		. #xC7A3)	; ìž£
-    (=ks-x1001		. #x4063)	; ø»‰ˆ°
+    (=ks-x1001		. #x4063)	; &I-K0-4063;
     ))
 (define-char
   '((=ucs		. #xC7A4)	; ìž¤
-    (=ks-x1001		. #x4064)	; ø»‰ˆ±
+    (=ks-x1001		. #x4064)	; &I-K0-4064;
     ))
 (define-char
   '((=ucs		. #xC7A5)	; ìž¥
-    (=ks-x1001		. #x4065)	; ø»‰ˆ²
+    (=ks-x1001		. #x4065)	; &I-K0-4065;
     ))
 (define-char
   '((=ucs		. #xC7A6)	; ìž¦
-    (=ks-x1001		. #x4066)	; ø»‰ˆ³
+    (=ks-x1001		. #x4066)	; &I-K0-4066;
     ))
 (define-char
   '((=ucs		. #xC7AC)	; ìž¬
-    (=ks-x1001		. #x4067)	; ø»‰ˆ´
+    (=ks-x1001		. #x4067)	; &I-K0-4067;
     ))
 (define-char
   '((=ucs		. #xC7AD)	; ìž­
-    (=ks-x1001		. #x4068)	; ø»‰ˆµ
+    (=ks-x1001		. #x4068)	; &I-K0-4068;
     ))
 (define-char
   '((=ucs		. #xC7B0)	; ìž°
-    (=ks-x1001		. #x4069)	; ø»‰ˆ¶
+    (=ks-x1001		. #x4069)	; &I-K0-4069;
     ))
 (define-char
   '((=ucs		. #xC7B4)	; ìž´
-    (=ks-x1001		. #x406A)	; ø»‰ˆ·
+    (=ks-x1001		. #x406A)	; &I-K0-406A;
     ))
 (define-char
   '((=ucs		. #xC7BC)	; ìž¼
-    (=ks-x1001		. #x406B)	; ø»‰ˆ¸
+    (=ks-x1001		. #x406B)	; &I-K0-406B;
     ))
 (define-char
   '((=ucs		. #xC7BD)	; ìž½
-    (=ks-x1001		. #x406C)	; ø»‰ˆ¹
+    (=ks-x1001		. #x406C)	; &I-K0-406C;
     ))
 (define-char
   '((=ucs		. #xC7BF)	; ìž¿
-    (=ks-x1001		. #x406D)	; ø»‰ˆº
+    (=ks-x1001		. #x406D)	; &I-K0-406D;
     ))
 (define-char
   '((=ucs		. #xC7C0)	; ìŸ€
-    (=ks-x1001		. #x406E)	; ø»‰ˆ»
+    (=ks-x1001		. #x406E)	; &I-K0-406E;
     ))
 (define-char
   '((=ucs		. #xC7C1)	; ìŸ
-    (=ks-x1001		. #x406F)	; ø»‰ˆ¼
+    (=ks-x1001		. #x406F)	; &I-K0-406F;
     ))
 (define-char
   '((=ucs		. #xC7C8)	; ìŸˆ
-    (=ks-x1001		. #x4070)	; ø»‰ˆ½
+    (=ks-x1001		. #x4070)	; &I-K0-4070;
     ))
 (define-char
   '((=ucs		. #xC7C9)	; ìŸ‰
-    (=ks-x1001		. #x4071)	; ø»‰ˆ¾
+    (=ks-x1001		. #x4071)	; &I-K0-4071;
     ))
 (define-char
   '((=ucs		. #xC7CC)	; ìŸŒ
-    (=ks-x1001		. #x4072)	; ø»‰ˆ¿
+    (=ks-x1001		. #x4072)	; &I-K0-4072;
     ))
 (define-char
   '((=ucs		. #xC7CE)	; ìŸŽ
-    (=ks-x1001		. #x4073)	; ø»‰‰€
+    (=ks-x1001		. #x4073)	; &I-K0-4073;
     ))
 (define-char
   '((=ucs		. #xC7D0)	; ìŸ
-    (=ks-x1001		. #x4074)	; ø»‰‰
+    (=ks-x1001		. #x4074)	; &I-K0-4074;
     ))
 (define-char
   '((=ucs		. #xC7D8)	; ìŸ˜
-    (=ks-x1001		. #x4075)	; ø»‰‰‚
+    (=ks-x1001		. #x4075)	; &I-K0-4075;
     ))
 (define-char
   '((=ucs		. #xC7DD)	; ìŸ
-    (=ks-x1001		. #x4076)	; ø»‰‰ƒ
+    (=ks-x1001		. #x4076)	; &I-K0-4076;
     ))
 (define-char
   '((=ucs		. #xC7E4)	; ìŸ¤
-    (=ks-x1001		. #x4077)	; ø»‰‰„
+    (=ks-x1001		. #x4077)	; &I-K0-4077;
     ))
 (define-char
   '((=ucs		. #xC7E8)	; ìŸ¨
-    (=ks-x1001		. #x4078)	; ø»‰‰…
+    (=ks-x1001		. #x4078)	; &I-K0-4078;
     ))
 (define-char
   '((=ucs		. #xC7EC)	; ìŸ¬
-    (=ks-x1001		. #x4079)	; ø»‰‰†
+    (=ks-x1001		. #x4079)	; &I-K0-4079;
     ))
 (define-char
   '((=ucs		. #xC800)	; ì €
-    (=ks-x1001		. #x407A)	; ø»‰‰‡
+    (=ks-x1001		. #x407A)	; &I-K0-407A;
     ))
 (define-char
   '((=ucs		. #xC801)	; ì 
-    (=ks-x1001		. #x407B)	; ø»‰‰ˆ
+    (=ks-x1001		. #x407B)	; &I-K0-407B;
     ))
 (define-char
   '((=ucs		. #xC804)	; ì „
-    (=ks-x1001		. #x407C)	; ø»‰‰‰
+    (=ks-x1001		. #x407C)	; &I-K0-407C;
     ))
 (define-char
   '((=ucs		. #xC808)	; ì ˆ
-    (=ks-x1001		. #x407D)	; ø»‰‰Š
+    (=ks-x1001		. #x407D)	; &I-K0-407D;
     ))
 (define-char
   '((=ucs		. #xC80A)	; ì Š
-    (=ks-x1001		. #x407E)	; ø»‰‰‹
+    (=ks-x1001		. #x407E)	; &I-K0-407E;
     ))
 (define-char
   '((=ucs		. #xC810)	; ì 
-    (=ks-x1001		. #x4121)	; ø»‰‰Œ
+    (=ks-x1001		. #x4121)	; &I-K0-4121;
     ))
 (define-char
   '((=ucs		. #xC811)	; ì ‘
-    (=ks-x1001		. #x4122)	; ø»‰‰
+    (=ks-x1001		. #x4122)	; &I-K0-4122;
     ))
 (define-char
   '((=ucs		. #xC813)	; ì “
-    (=ks-x1001		. #x4123)	; ø»‰‰Ž
+    (=ks-x1001		. #x4123)	; &I-K0-4123;
     ))
 (define-char
   '((=ucs		. #xC815)	; ì •
-    (=ks-x1001		. #x4124)	; ø»‰‰
-    (=jef-china3	. #x96D5)	; øº‰›•
+    (=ks-x1001		. #x4124)	; &I-K0-4124;
+    (=jef-china3	. #x96D5)	; &I-JC3-96D5;
     ))
 (define-char
   '((=ucs		. #xC816)	; ì –
-    (=ks-x1001		. #x4125)	; ø»‰‰
+    (=ks-x1001		. #x4125)	; &I-K0-4125;
     ))
 (define-char
   '((=ucs		. #xC81C)	; ì œ
-    (=ks-x1001		. #x4126)	; ø»‰‰‘
-    (=jef-china3	. #x82D4)	; øºˆ‹”
+    (=ks-x1001		. #x4126)	; &I-K0-4126;
+    (=jef-china3	. #x82D4)	; &I-JC3-82D4;
     ))
 (define-char
   '((=ucs		. #xC81D)	; ì 
-    (=ks-x1001		. #x4127)	; ø»‰‰’
+    (=ks-x1001		. #x4127)	; &I-K0-4127;
     ))
 (define-char
   '((=ucs		. #xC820)	; ì  
-    (=ks-x1001		. #x4128)	; ø»‰‰“
+    (=ks-x1001		. #x4128)	; &I-K0-4128;
     ))
 (define-char
   '((=ucs		. #xC824)	; ì ¤
-    (=ks-x1001		. #x4129)	; ø»‰‰”
+    (=ks-x1001		. #x4129)	; &I-K0-4129;
     ))
 (define-char
   '((=ucs		. #xC82C)	; ì ¬
-    (=ks-x1001		. #x412A)	; ø»‰‰•
+    (=ks-x1001		. #x412A)	; &I-K0-412A;
     ))
 (define-char
   '((=ucs		. #xC82D)	; ì ­
-    (=ks-x1001		. #x412B)	; ø»‰‰–
+    (=ks-x1001		. #x412B)	; &I-K0-412B;
     ))
 (define-char
   '((=ucs		. #xC82F)	; ì ¯
-    (=ks-x1001		. #x412C)	; ø»‰‰—
+    (=ks-x1001		. #x412C)	; &I-K0-412C;
     ))
 (define-char
   '((=ucs		. #xC831)	; ì ±
-    (=ks-x1001		. #x412D)	; ø»‰‰˜
+    (=ks-x1001		. #x412D)	; &I-K0-412D;
     ))
 (define-char
   '((=ucs		. #xC838)	; ì ¸
-    (=ks-x1001		. #x412E)	; ø»‰‰™
+    (=ks-x1001		. #x412E)	; &I-K0-412E;
     ))
 (define-char
   '((=ucs		. #xC83C)	; ì ¼
-    (=ks-x1001		. #x412F)	; ø»‰‰š
+    (=ks-x1001		. #x412F)	; &I-K0-412F;
     ))
 (define-char
   '((=ucs		. #xC840)	; ì¡€
-    (=ks-x1001		. #x4130)	; ø»‰‰›
+    (=ks-x1001		. #x4130)	; &I-K0-4130;
     ))
 (define-char
   '((=ucs		. #xC848)	; ì¡ˆ
-    (=ks-x1001		. #x4131)	; ø»‰‰œ
+    (=ks-x1001		. #x4131)	; &I-K0-4131;
     ))
 (define-char
   '((=ucs		. #xC849)	; ì¡‰
-    (=ks-x1001		. #x4132)	; ø»‰‰
+    (=ks-x1001		. #x4132)	; &I-K0-4132;
     ))
 (define-char
   '((=ucs		. #xC84C)	; ì¡Œ
-    (=ks-x1001		. #x4133)	; ø»‰‰ž
+    (=ks-x1001		. #x4133)	; &I-K0-4133;
     ))
 (define-char
   '((=ucs		. #xC84D)	; ì¡
-    (=ks-x1001		. #x4134)	; ø»‰‰Ÿ
+    (=ks-x1001		. #x4134)	; &I-K0-4134;
     ))
 (define-char
   '((=ucs		. #xC854)	; ì¡”
-    (=ks-x1001		. #x4135)	; ø»‰‰ 
+    (=ks-x1001		. #x4135)	; &I-K0-4135;
     ))
 (define-char
   '((=ucs		. #xC870)	; ì¡°
-    (=ks-x1001		. #x4136)	; ø»‰‰¡
+    (=ks-x1001		. #x4136)	; &I-K0-4136;
     ))
 (define-char
   '((=ucs		. #xC871)	; ì¡±
-    (=ks-x1001		. #x4137)	; ø»‰‰¢
+    (=ks-x1001		. #x4137)	; &I-K0-4137;
     ))
 (define-char
   '((=ucs		. #xC874)	; ì¡´
-    (=ks-x1001		. #x4138)	; ø»‰‰£
+    (=ks-x1001		. #x4138)	; &I-K0-4138;
     ))
 (define-char
   '((=ucs		. #xC878)	; ì¡¸
-    (=ks-x1001		. #x4139)	; ø»‰‰¤
+    (=ks-x1001		. #x4139)	; &I-K0-4139;
     ))
 (define-char
   '((=ucs		. #xC87A)	; ì¡º
-    (=ks-x1001		. #x413A)	; ø»‰‰¥
+    (=ks-x1001		. #x413A)	; &I-K0-413A;
     ))
 (define-char
   '((=ucs		. #xC880)	; ì¢€
-    (=ks-x1001		. #x413B)	; ø»‰‰¦
+    (=ks-x1001		. #x413B)	; &I-K0-413B;
     ))
 (define-char
   '((=ucs		. #xC881)	; ì¢
-    (=ks-x1001		. #x413C)	; ø»‰‰§
+    (=ks-x1001		. #x413C)	; &I-K0-413C;
     ))
 (define-char
   '((=ucs		. #xC883)	; ì¢ƒ
-    (=ks-x1001		. #x413D)	; ø»‰‰¨
+    (=ks-x1001		. #x413D)	; &I-K0-413D;
     ))
 (define-char
   '((=ucs		. #xC885)	; ì¢…
-    (=ks-x1001		. #x413E)	; ø»‰‰©
+    (=ks-x1001		. #x413E)	; &I-K0-413E;
     ))
 (define-char
   '((=ucs		. #xC886)	; ì¢†
-    (=ks-x1001		. #x413F)	; ø»‰‰ª
+    (=ks-x1001		. #x413F)	; &I-K0-413F;
     ))
 (define-char
   '((=ucs		. #xC887)	; ì¢‡
-    (=ks-x1001		. #x4140)	; ø»‰‰«
+    (=ks-x1001		. #x4140)	; &I-K0-4140;
     ))
 (define-char
   '((=ucs		. #xC88B)	; ì¢‹
-    (=ks-x1001		. #x4141)	; ø»‰‰¬
+    (=ks-x1001		. #x4141)	; &I-K0-4141;
     ))
 (define-char
   '((=ucs		. #xC88C)	; ì¢Œ
-    (=ks-x1001		. #x4142)	; ø»‰‰­
+    (=ks-x1001		. #x4142)	; &I-K0-4142;
     ))
 (define-char
   '((=ucs		. #xC88D)	; ì¢
-    (=ks-x1001		. #x4143)	; ø»‰‰®
+    (=ks-x1001		. #x4143)	; &I-K0-4143;
     ))
 (define-char
   '((=ucs		. #xC894)	; ì¢”
-    (=ks-x1001		. #x4144)	; ø»‰‰¯
+    (=ks-x1001		. #x4144)	; &I-K0-4144;
     ))
 (define-char
   '((=ucs		. #xC89D)	; ì¢
-    (=ks-x1001		. #x4145)	; ø»‰‰°
+    (=ks-x1001		. #x4145)	; &I-K0-4145;
     ))
 (define-char
   '((=ucs		. #xC89F)	; ì¢Ÿ
-    (=ks-x1001		. #x4146)	; ø»‰‰±
+    (=ks-x1001		. #x4146)	; &I-K0-4146;
     ))
 (define-char
   '((=ucs		. #xC8A1)	; ì¢¡
-    (=ks-x1001		. #x4147)	; ø»‰‰²
+    (=ks-x1001		. #x4147)	; &I-K0-4147;
     ))
 (define-char
   '((=ucs		. #xC8A8)	; ì¢¨
-    (=ks-x1001		. #x4148)	; ø»‰‰³
+    (=ks-x1001		. #x4148)	; &I-K0-4148;
     ))
 (define-char
   '((=ucs		. #xC8BC)	; ì¢¼
-    (=ks-x1001		. #x4149)	; ø»‰‰´
+    (=ks-x1001		. #x4149)	; &I-K0-4149;
     ))
 (define-char
   '((=ucs		. #xC8BD)	; ì¢½
-    (=ks-x1001		. #x414A)	; ø»‰‰µ
+    (=ks-x1001		. #x414A)	; &I-K0-414A;
     ))
 (define-char
   '((=ucs		. #xC8C4)	; ì£„
-    (=ks-x1001		. #x414B)	; ø»‰‰¶
+    (=ks-x1001		. #x414B)	; &I-K0-414B;
     ))
 (define-char
   '((=ucs		. #xC8C8)	; ì£ˆ
-    (=ks-x1001		. #x414C)	; ø»‰‰·
+    (=ks-x1001		. #x414C)	; &I-K0-414C;
     ))
 (define-char
   '((=ucs		. #xC8CC)	; ì£Œ
-    (=ks-x1001		. #x414D)	; ø»‰‰¸
+    (=ks-x1001		. #x414D)	; &I-K0-414D;
     ))
 (define-char
   '((=ucs		. #xC8D4)	; ì£”
-    (=ks-x1001		. #x414E)	; ø»‰‰¹
+    (=ks-x1001		. #x414E)	; &I-K0-414E;
     ))
 (define-char
   '((=ucs		. #xC8D5)	; ì£•
-    (=ks-x1001		. #x414F)	; ø»‰‰º
+    (=ks-x1001		. #x414F)	; &I-K0-414F;
     ))
 (define-char
   '((=ucs		. #xC8D7)	; ì£—
-    (=ks-x1001		. #x4150)	; ø»‰‰»
+    (=ks-x1001		. #x4150)	; &I-K0-4150;
     ))
 (define-char
   '((=ucs		. #xC8D9)	; ì£™
-    (=ks-x1001		. #x4151)	; ø»‰‰¼
+    (=ks-x1001		. #x4151)	; &I-K0-4151;
     ))
 (define-char
   '((=ucs		. #xC8E0)	; ì£ 
-    (=ks-x1001		. #x4152)	; ø»‰‰½
+    (=ks-x1001		. #x4152)	; &I-K0-4152;
     ))
 (define-char
   '((=ucs		. #xC8E1)	; ì£¡
-    (=ks-x1001		. #x4153)	; ø»‰‰¾
+    (=ks-x1001		. #x4153)	; &I-K0-4153;
     ))
 (define-char
   '((=ucs		. #xC8E4)	; ì£¤
-    (=ks-x1001		. #x4154)	; ø»‰‰¿
+    (=ks-x1001		. #x4154)	; &I-K0-4154;
     ))
 (define-char
   '((=ucs		. #xC8F5)	; ì£µ
-    (=ks-x1001		. #x4155)	; ø»‰Š€
+    (=ks-x1001		. #x4155)	; &I-K0-4155;
     ))
 (define-char
   '((=ucs		. #xC8FC)	; ì£¼
-    (=ks-x1001		. #x4156)	; ø»‰Š
+    (=ks-x1001		. #x4156)	; &I-K0-4156;
     ))
 (define-char
   '((=ucs		. #xC8FD)	; ì£½
-    (=ks-x1001		. #x4157)	; ø»‰Š‚
+    (=ks-x1001		. #x4157)	; &I-K0-4157;
     ))
 (define-char
   '((=ucs		. #xC900)	; ì¤€
-    (=ks-x1001		. #x4158)	; ø»‰Šƒ
+    (=ks-x1001		. #x4158)	; &I-K0-4158;
     ))
 (define-char
   '((=ucs		. #xC904)	; ì¤„
-    (=ks-x1001		. #x4159)	; ø»‰Š„
+    (=ks-x1001		. #x4159)	; &I-K0-4159;
     ))
 (define-char
   '((=ucs		. #xC905)	; ì¤…
-    (=ks-x1001		. #x415A)	; ø»‰Š…
+    (=ks-x1001		. #x415A)	; &I-K0-415A;
     ))
 (define-char
   '((=ucs		. #xC906)	; ì¤†
-    (=ks-x1001		. #x415B)	; ø»‰Š†
+    (=ks-x1001		. #x415B)	; &I-K0-415B;
     ))
 (define-char
   '((=ucs		. #xC90C)	; ì¤Œ
-    (=ks-x1001		. #x415C)	; ø»‰Š‡
+    (=ks-x1001		. #x415C)	; &I-K0-415C;
     ))
 (define-char
   '((=ucs		. #xC90D)	; ì¤
-    (=ks-x1001		. #x415D)	; ø»‰Šˆ
+    (=ks-x1001		. #x415D)	; &I-K0-415D;
     ))
 (define-char
   '((=ucs		. #xC90F)	; ì¤
-    (=ks-x1001		. #x415E)	; ø»‰Š‰
+    (=ks-x1001		. #x415E)	; &I-K0-415E;
     ))
 (define-char
   '((=ucs		. #xC911)	; ì¤‘
-    (=ks-x1001		. #x415F)	; ø»‰ŠŠ
+    (=ks-x1001		. #x415F)	; &I-K0-415F;
     ))
 (define-char
   '((=ucs		. #xC918)	; ì¤˜
-    (=ks-x1001		. #x4160)	; ø»‰Š‹
+    (=ks-x1001		. #x4160)	; &I-K0-4160;
     ))
 (define-char
   '((=ucs		. #xC92C)	; ì¤¬
-    (=ks-x1001		. #x4161)	; ø»‰ŠŒ
+    (=ks-x1001		. #x4161)	; &I-K0-4161;
     ))
 (define-char
   '((=ucs		. #xC934)	; ì¤´
-    (=ks-x1001		. #x4162)	; ø»‰Š
+    (=ks-x1001		. #x4162)	; &I-K0-4162;
     ))
 (define-char
   '((=ucs		. #xC950)	; ì¥
-    (=ks-x1001		. #x4163)	; ø»‰ŠŽ
+    (=ks-x1001		. #x4163)	; &I-K0-4163;
     ))
 (define-char
   '((=ucs		. #xC951)	; ì¥‘
-    (=ks-x1001		. #x4164)	; ø»‰Š
+    (=ks-x1001		. #x4164)	; &I-K0-4164;
     ))
 (define-char
   '((=ucs		. #xC954)	; ì¥”
-    (=ks-x1001		. #x4165)	; ø»‰Š
+    (=ks-x1001		. #x4165)	; &I-K0-4165;
     ))
 (define-char
   '((=ucs		. #xC958)	; ì¥˜
-    (=ks-x1001		. #x4166)	; ø»‰Š‘
+    (=ks-x1001		. #x4166)	; &I-K0-4166;
     ))
 (define-char
   '((=ucs		. #xC960)	; ì¥ 
-    (=ks-x1001		. #x4167)	; ø»‰Š’
+    (=ks-x1001		. #x4167)	; &I-K0-4167;
     ))
 (define-char
   '((=ucs		. #xC961)	; ì¥¡
-    (=ks-x1001		. #x4168)	; ø»‰Š“
+    (=ks-x1001		. #x4168)	; &I-K0-4168;
     ))
 (define-char
   '((=ucs		. #xC963)	; ì¥£
-    (=ks-x1001		. #x4169)	; ø»‰Š”
+    (=ks-x1001		. #x4169)	; &I-K0-4169;
     ))
 (define-char
   '((=ucs		. #xC96C)	; ì¥¬
-    (=ks-x1001		. #x416A)	; ø»‰Š•
+    (=ks-x1001		. #x416A)	; &I-K0-416A;
     ))
 (define-char
   '((=ucs		. #xC970)	; ì¥°
-    (=ks-x1001		. #x416B)	; ø»‰Š–
+    (=ks-x1001		. #x416B)	; &I-K0-416B;
     ))
 (define-char
   '((=ucs		. #xC974)	; ì¥´
-    (=ks-x1001		. #x416C)	; ø»‰Š—
+    (=ks-x1001		. #x416C)	; &I-K0-416C;
     ))
 (define-char
   '((=ucs		. #xC97C)	; ì¥¼
-    (=ks-x1001		. #x416D)	; ø»‰Š˜
+    (=ks-x1001		. #x416D)	; &I-K0-416D;
     ))
 (define-char
   '((=ucs		. #xC988)	; ì¦ˆ
-    (=ks-x1001		. #x416E)	; ø»‰Š™
+    (=ks-x1001		. #x416E)	; &I-K0-416E;
     ))
 (define-char
   '((=ucs		. #xC989)	; ì¦‰
-    (=ks-x1001		. #x416F)	; ø»‰Šš
+    (=ks-x1001		. #x416F)	; &I-K0-416F;
     ))
 (define-char
   '((=ucs		. #xC98C)	; ì¦Œ
-    (=ks-x1001		. #x4170)	; ø»‰Š›
+    (=ks-x1001		. #x4170)	; &I-K0-4170;
     ))
 (define-char
   '((=ucs		. #xC990)	; ì¦
-    (=ks-x1001		. #x4171)	; ø»‰Šœ
+    (=ks-x1001		. #x4171)	; &I-K0-4171;
     ))
 (define-char
   '((=ucs		. #xC998)	; ì¦˜
-    (=ks-x1001		. #x4172)	; ø»‰Š
+    (=ks-x1001		. #x4172)	; &I-K0-4172;
     ))
 (define-char
   '((=ucs		. #xC999)	; ì¦™
-    (=ks-x1001		. #x4173)	; ø»‰Šž
+    (=ks-x1001		. #x4173)	; &I-K0-4173;
     ))
 (define-char
   '((=ucs		. #xC99B)	; ì¦›
-    (=ks-x1001		. #x4174)	; ø»‰ŠŸ
+    (=ks-x1001		. #x4174)	; &I-K0-4174;
     ))
 (define-char
   '((=ucs		. #xC99D)	; ì¦
-    (=ks-x1001		. #x4175)	; ø»‰Š 
+    (=ks-x1001		. #x4175)	; &I-K0-4175;
     ))
 (define-char
   '((=ucs		. #xC9C0)	; ì§€
-    (=ks-x1001		. #x4176)	; ø»‰Š¡
-    (=jef-china3	. #x94C5)	; øº‰“…
+    (=ks-x1001		. #x4176)	; &I-K0-4176;
+    (=jef-china3	. #x94C5)	; &I-JC3-94C5;
     ))
 (define-char
   '((=ucs		. #xC9C1)	; ì§
-    (=ks-x1001		. #x4177)	; ø»‰Š¢
-    (=jef-china3	. #x8CA4)	; øºˆ²¤
+    (=ks-x1001		. #x4177)	; &I-K0-4177;
+    (=jef-china3	. #x8CA4)	; &I-JC3-8CA4;
     ))
 (define-char
   '((=ucs		. #xC9C4)	; ì§„
-    (=ks-x1001		. #x4178)	; ø»‰Š£
+    (=ks-x1001		. #x4178)	; &I-K0-4178;
     ))
 (define-char
   '((=ucs		. #xC9C7)	; ì§‡
-    (=ks-x1001		. #x4179)	; ø»‰Š¤
+    (=ks-x1001		. #x4179)	; &I-K0-4179;
     ))
 (define-char
   '((=ucs		. #xC9C8)	; ì§ˆ
-    (=ks-x1001		. #x417A)	; ø»‰Š¥
+    (=ks-x1001		. #x417A)	; &I-K0-417A;
     ))
 (define-char
   '((=ucs		. #xC9CA)	; ì§Š
-    (=ks-x1001		. #x417B)	; ø»‰Š¦
+    (=ks-x1001		. #x417B)	; &I-K0-417B;
     ))
 (define-char
   '((=ucs		. #xC9D0)	; ì§
-    (=ks-x1001		. #x417C)	; ø»‰Š§
+    (=ks-x1001		. #x417C)	; &I-K0-417C;
     ))
 (define-char
   '((=ucs		. #xC9D1)	; ì§‘
-    (=ks-x1001		. #x417D)	; ø»‰Š¨
-    (=jef-china3	. #x82D0)	; øºˆ‹
+    (=ks-x1001		. #x417D)	; &I-K0-417D;
+    (=jef-china3	. #x82D0)	; &I-JC3-82D0;
     ))
 (define-char
   '((=ucs		. #xC9D3)	; ì§“
-    (=ks-x1001		. #x417E)	; ø»‰Š©
+    (=ks-x1001		. #x417E)	; &I-K0-417E;
     ))
 (define-char
   '((=ucs		. #xC9D5)	; ì§•
-    (=ks-x1001		. #x4221)	; ø»‰Šª
+    (=ks-x1001		. #x4221)	; &I-K0-4221;
     ))
 (define-char
   '((=ucs		. #xC9D6)	; ì§–
-    (=ks-x1001		. #x4222)	; ø»‰Š«
+    (=ks-x1001		. #x4222)	; &I-K0-4222;
     ))
 (define-char
   '((=ucs		. #xC9D9)	; ì§™
-    (=ks-x1001		. #x4223)	; ø»‰Š¬
+    (=ks-x1001		. #x4223)	; &I-K0-4223;
     ))
 (define-char
   '((=ucs		. #xC9DA)	; ì§š
-    (=ks-x1001		. #x4224)	; ø»‰Š­
+    (=ks-x1001		. #x4224)	; &I-K0-4224;
     ))
 (define-char
   '((=ucs		. #xC9DC)	; ì§œ
-    (=ks-x1001		. #x4225)	; ø»‰Š®
+    (=ks-x1001		. #x4225)	; &I-K0-4225;
     ))
 (define-char
   '((=ucs		. #xC9DD)	; ì§
-    (=ks-x1001		. #x4226)	; ø»‰Š¯
+    (=ks-x1001		. #x4226)	; &I-K0-4226;
     ))
 (define-char
   '((=ucs		. #xC9E0)	; ì§ 
-    (=ks-x1001		. #x4227)	; ø»‰Š°
+    (=ks-x1001		. #x4227)	; &I-K0-4227;
     ))
 (define-char
   '((=ucs		. #xC9E2)	; ì§¢
-    (=ks-x1001		. #x4228)	; ø»‰Š±
+    (=ks-x1001		. #x4228)	; &I-K0-4228;
     ))
 (define-char
   '((=ucs		. #xC9E4)	; ì§¤
-    (=ks-x1001		. #x4229)	; ø»‰Š²
+    (=ks-x1001		. #x4229)	; &I-K0-4229;
     ))
 (define-char
   '((=ucs		. #xC9E7)	; ì§§
-    (=ks-x1001		. #x422A)	; ø»‰Š³
+    (=ks-x1001		. #x422A)	; &I-K0-422A;
     ))
 (define-char
   '((=ucs		. #xC9EC)	; ì§¬
-    (=ks-x1001		. #x422B)	; ø»‰Š´
+    (=ks-x1001		. #x422B)	; &I-K0-422B;
     ))
 (define-char
   '((=ucs		. #xC9ED)	; ì§­
-    (=ks-x1001		. #x422C)	; ø»‰Šµ
+    (=ks-x1001		. #x422C)	; &I-K0-422C;
     ))
 (define-char
   '((=ucs		. #xC9EF)	; ì§¯
-    (=ks-x1001		. #x422D)	; ø»‰Š¶
+    (=ks-x1001		. #x422D)	; &I-K0-422D;
     ))
 (define-char
   '((=ucs		. #xC9F0)	; ì§°
-    (=ks-x1001		. #x422E)	; ø»‰Š·
+    (=ks-x1001		. #x422E)	; &I-K0-422E;
     ))
 (define-char
   '((=ucs		. #xC9F1)	; ì§±
-    (=ks-x1001		. #x422F)	; ø»‰Š¸
+    (=ks-x1001		. #x422F)	; &I-K0-422F;
     ))
 (define-char
   '((=ucs		. #xC9F8)	; ì§¸
-    (=ks-x1001		. #x4230)	; ø»‰Š¹
+    (=ks-x1001		. #x4230)	; &I-K0-4230;
     ))
 (define-char
   '((=ucs		. #xC9F9)	; ì§¹
-    (=ks-x1001		. #x4231)	; ø»‰Šº
+    (=ks-x1001		. #x4231)	; &I-K0-4231;
     ))
 (define-char
   '((=ucs		. #xC9FC)	; ì§¼
-    (=ks-x1001		. #x4232)	; ø»‰Š»
+    (=ks-x1001		. #x4232)	; &I-K0-4232;
     ))
 (define-char
   '((=ucs		. #xCA00)	; ì¨€
-    (=ks-x1001		. #x4233)	; ø»‰Š¼
+    (=ks-x1001		. #x4233)	; &I-K0-4233;
     ))
 (define-char
   '((=ucs		. #xCA08)	; ì¨ˆ
-    (=ks-x1001		. #x4234)	; ø»‰Š½
+    (=ks-x1001		. #x4234)	; &I-K0-4234;
     ))
 (define-char
   '((=ucs		. #xCA09)	; ì¨‰
-    (=ks-x1001		. #x4235)	; ø»‰Š¾
+    (=ks-x1001		. #x4235)	; &I-K0-4235;
     ))
 (define-char
   '((=ucs		. #xCA0B)	; ì¨‹
-    (=ks-x1001		. #x4236)	; ø»‰Š¿
+    (=ks-x1001		. #x4236)	; &I-K0-4236;
     ))
 (define-char
   '((=ucs		. #xCA0C)	; ì¨Œ
-    (=ks-x1001		. #x4237)	; ø»‰‹€
+    (=ks-x1001		. #x4237)	; &I-K0-4237;
     ))
 (define-char
   '((=ucs		. #xCA0D)	; ì¨
-    (=ks-x1001		. #x4238)	; ø»‰‹
+    (=ks-x1001		. #x4238)	; &I-K0-4238;
     ))
 (define-char
   '((=ucs		. #xCA14)	; ì¨”
-    (=ks-x1001		. #x4239)	; ø»‰‹‚
+    (=ks-x1001		. #x4239)	; &I-K0-4239;
     ))
 (define-char
   '((=ucs		. #xCA18)	; ì¨˜
-    (=ks-x1001		. #x423A)	; ø»‰‹ƒ
+    (=ks-x1001		. #x423A)	; &I-K0-423A;
     ))
 (define-char
   '((=ucs		. #xCA29)	; ì¨©
-    (=ks-x1001		. #x423B)	; ø»‰‹„
+    (=ks-x1001		. #x423B)	; &I-K0-423B;
     ))
 (define-char
   '((=ucs		. #xCA4C)	; ì©Œ
-    (=ks-x1001		. #x423C)	; ø»‰‹…
+    (=ks-x1001		. #x423C)	; &I-K0-423C;
     ))
 (define-char
   '((=ucs		. #xCA4D)	; ì©
-    (=ks-x1001		. #x423D)	; ø»‰‹†
+    (=ks-x1001		. #x423D)	; &I-K0-423D;
     ))
 (define-char
   '((=ucs		. #xCA50)	; ì©
-    (=ks-x1001		. #x423E)	; ø»‰‹‡
+    (=ks-x1001		. #x423E)	; &I-K0-423E;
     ))
 (define-char
   '((=ucs		. #xCA54)	; ì©”
-    (=ks-x1001		. #x423F)	; ø»‰‹ˆ
+    (=ks-x1001		. #x423F)	; &I-K0-423F;
     ))
 (define-char
   '((=ucs		. #xCA5C)	; ì©œ
-    (=ks-x1001		. #x4240)	; ø»‰‹‰
+    (=ks-x1001		. #x4240)	; &I-K0-4240;
     ))
 (define-char
   '((=ucs		. #xCA5D)	; ì©
-    (=ks-x1001		. #x4241)	; ø»‰‹Š
+    (=ks-x1001		. #x4241)	; &I-K0-4241;
     ))
 (define-char
   '((=ucs		. #xCA5F)	; ì©Ÿ
-    (=ks-x1001		. #x4242)	; ø»‰‹‹
+    (=ks-x1001		. #x4242)	; &I-K0-4242;
     ))
 (define-char
   '((=ucs		. #xCA60)	; ì© 
-    (=ks-x1001		. #x4243)	; ø»‰‹Œ
+    (=ks-x1001		. #x4243)	; &I-K0-4243;
     ))
 (define-char
   '((=ucs		. #xCA61)	; ì©¡
-    (=ks-x1001		. #x4244)	; ø»‰‹
+    (=ks-x1001		. #x4244)	; &I-K0-4244;
     ))
 (define-char
   '((=ucs		. #xCA68)	; ì©¨
-    (=ks-x1001		. #x4245)	; ø»‰‹Ž
+    (=ks-x1001		. #x4245)	; &I-K0-4245;
     ))
 (define-char
   '((=ucs		. #xCA7D)	; ì©½
-    (=ks-x1001		. #x4246)	; ø»‰‹
+    (=ks-x1001		. #x4246)	; &I-K0-4246;
     ))
 (define-char
   '((=ucs		. #xCA84)	; ìª„
-    (=ks-x1001		. #x4247)	; ø»‰‹
+    (=ks-x1001		. #x4247)	; &I-K0-4247;
     ))
 (define-char
   '((=ucs		. #xCA98)	; ìª˜
-    (=ks-x1001		. #x4248)	; ø»‰‹‘
+    (=ks-x1001		. #x4248)	; &I-K0-4248;
     ))
 (define-char
   '((=ucs		. #xCABC)	; ìª¼
-    (=ks-x1001		. #x4249)	; ø»‰‹’
+    (=ks-x1001		. #x4249)	; &I-K0-4249;
     ))
 (define-char
   '((=ucs		. #xCABD)	; ìª½
-    (=ks-x1001		. #x424A)	; ø»‰‹“
+    (=ks-x1001		. #x424A)	; &I-K0-424A;
     ))
 (define-char
   '((=ucs		. #xCAC0)	; ì«€
-    (=ks-x1001		. #x424B)	; ø»‰‹”
+    (=ks-x1001		. #x424B)	; &I-K0-424B;
     ))
 (define-char
   '((=ucs		. #xCAC4)	; ì«„
-    (=ks-x1001		. #x424C)	; ø»‰‹•
+    (=ks-x1001		. #x424C)	; &I-K0-424C;
     ))
 (define-char
   '((=ucs		. #xCACC)	; ì«Œ
-    (=ks-x1001		. #x424D)	; ø»‰‹–
+    (=ks-x1001		. #x424D)	; &I-K0-424D;
     ))
 (define-char
   '((=ucs		. #xCACD)	; ì«
-    (=ks-x1001		. #x424E)	; ø»‰‹—
+    (=ks-x1001		. #x424E)	; &I-K0-424E;
     ))
 (define-char
   '((=ucs		. #xCACF)	; ì«
-    (=ks-x1001		. #x424F)	; ø»‰‹˜
+    (=ks-x1001		. #x424F)	; &I-K0-424F;
     ))
 (define-char
   '((=ucs		. #xCAD1)	; ì«‘
-    (=ks-x1001		. #x4250)	; ø»‰‹™
+    (=ks-x1001		. #x4250)	; &I-K0-4250;
     ))
 (define-char
   '((=ucs		. #xCAD3)	; ì«“
-    (=ks-x1001		. #x4251)	; ø»‰‹š
+    (=ks-x1001		. #x4251)	; &I-K0-4251;
     ))
 (define-char
   '((=ucs		. #xCAD8)	; ì«˜
-    (=ks-x1001		. #x4252)	; ø»‰‹›
+    (=ks-x1001		. #x4252)	; &I-K0-4252;
     ))
 (define-char
   '((=ucs		. #xCAD9)	; ì«™
-    (=ks-x1001		. #x4253)	; ø»‰‹œ
+    (=ks-x1001		. #x4253)	; &I-K0-4253;
     ))
 (define-char
   '((=ucs		. #xCAE0)	; ì« 
-    (=ks-x1001		. #x4254)	; ø»‰‹
+    (=ks-x1001		. #x4254)	; &I-K0-4254;
     ))
 (define-char
   '((=ucs		. #xCAEC)	; ì«¬
-    (=ks-x1001		. #x4255)	; ø»‰‹ž
+    (=ks-x1001		. #x4255)	; &I-K0-4255;
     ))
 (define-char
   '((=ucs		. #xCAF4)	; ì«´
-    (=ks-x1001		. #x4256)	; ø»‰‹Ÿ
+    (=ks-x1001		. #x4256)	; &I-K0-4256;
     ))
 (define-char
   '((=ucs		. #xCB08)	; ì¬ˆ
-    (=ks-x1001		. #x4257)	; ø»‰‹ 
+    (=ks-x1001		. #x4257)	; &I-K0-4257;
     ))
 (define-char
   '((=ucs		. #xCB10)	; ì¬
-    (=ks-x1001		. #x4258)	; ø»‰‹¡
+    (=ks-x1001		. #x4258)	; &I-K0-4258;
     ))
 (define-char
   '((=ucs		. #xCB14)	; ì¬”
-    (=ks-x1001		. #x4259)	; ø»‰‹¢
+    (=ks-x1001		. #x4259)	; &I-K0-4259;
     ))
 (define-char
   '((=ucs		. #xCB18)	; ì¬˜
-    (=ks-x1001		. #x425A)	; ø»‰‹£
+    (=ks-x1001		. #x425A)	; &I-K0-425A;
     ))
 (define-char
   '((=ucs		. #xCB20)	; ì¬ 
-    (=ks-x1001		. #x425B)	; ø»‰‹¤
+    (=ks-x1001		. #x425B)	; &I-K0-425B;
     ))
 (define-char
   '((=ucs		. #xCB21)	; ì¬¡
-    (=ks-x1001		. #x425C)	; ø»‰‹¥
+    (=ks-x1001		. #x425C)	; &I-K0-425C;
     ))
 (define-char
   '((=ucs		. #xCB41)	; ì­
-    (=ks-x1001		. #x425D)	; ø»‰‹¦
+    (=ks-x1001		. #x425D)	; &I-K0-425D;
     ))
 (define-char
   '((=ucs		. #xCB48)	; ì­ˆ
-    (=ks-x1001		. #x425E)	; ø»‰‹§
+    (=ks-x1001		. #x425E)	; &I-K0-425E;
     ))
 (define-char
   '((=ucs		. #xCB49)	; ì­‰
-    (=ks-x1001		. #x425F)	; ø»‰‹¨
+    (=ks-x1001		. #x425F)	; &I-K0-425F;
     ))
 (define-char
   '((=ucs		. #xCB4C)	; ì­Œ
-    (=ks-x1001		. #x4260)	; ø»‰‹©
+    (=ks-x1001		. #x4260)	; &I-K0-4260;
     ))
 (define-char
   '((=ucs		. #xCB50)	; ì­
-    (=ks-x1001		. #x4261)	; ø»‰‹ª
+    (=ks-x1001		. #x4261)	; &I-K0-4261;
     ))
 (define-char
   '((=ucs		. #xCB58)	; ì­˜
-    (=ks-x1001		. #x4262)	; ø»‰‹«
+    (=ks-x1001		. #x4262)	; &I-K0-4262;
     ))
 (define-char
   '((=ucs		. #xCB59)	; ì­™
-    (=ks-x1001		. #x4263)	; ø»‰‹¬
+    (=ks-x1001		. #x4263)	; &I-K0-4263;
     ))
 (define-char
   '((=ucs		. #xCB5D)	; ì­
-    (=ks-x1001		. #x4264)	; ø»‰‹­
+    (=ks-x1001		. #x4264)	; &I-K0-4264;
     ))
 (define-char
   '((=ucs		. #xCB64)	; ì­¤
-    (=ks-x1001		. #x4265)	; ø»‰‹®
+    (=ks-x1001		. #x4265)	; &I-K0-4265;
     ))
 (define-char
   '((=ucs		. #xCB78)	; ì­¸
-    (=ks-x1001		. #x4266)	; ø»‰‹¯
+    (=ks-x1001		. #x4266)	; &I-K0-4266;
     ))
 (define-char
   '((=ucs		. #xCB79)	; ì­¹
-    (=ks-x1001		. #x4267)	; ø»‰‹°
+    (=ks-x1001		. #x4267)	; &I-K0-4267;
     ))
 (define-char
   '((=ucs		. #xCB9C)	; ì®œ
-    (=ks-x1001		. #x4268)	; ø»‰‹±
+    (=ks-x1001		. #x4268)	; &I-K0-4268;
     ))
 (define-char
   '((=ucs		. #xCBB8)	; ì®¸
-    (=ks-x1001		. #x4269)	; ø»‰‹²
+    (=ks-x1001		. #x4269)	; &I-K0-4269;
     ))
 (define-char
   '((=ucs		. #xCBD4)	; ì¯”
-    (=ks-x1001		. #x426A)	; ø»‰‹³
+    (=ks-x1001		. #x426A)	; &I-K0-426A;
     ))
 (define-char
   '((=ucs		. #xCBE4)	; ì¯¤
-    (=ks-x1001		. #x426B)	; ø»‰‹´
+    (=ks-x1001		. #x426B)	; &I-K0-426B;
     ))
 (define-char
   '((=ucs		. #xCBE7)	; ì¯§
-    (=ks-x1001		. #x426C)	; ø»‰‹µ
+    (=ks-x1001		. #x426C)	; &I-K0-426C;
     ))
 (define-char
   '((=ucs		. #xCBE9)	; ì¯©
-    (=ks-x1001		. #x426D)	; ø»‰‹¶
+    (=ks-x1001		. #x426D)	; &I-K0-426D;
     ))
 (define-char
   '((=ucs		. #xCC0C)	; ì°Œ
-    (=ks-x1001		. #x426E)	; ø»‰‹·
+    (=ks-x1001		. #x426E)	; &I-K0-426E;
     ))
 (define-char
   '((=ucs		. #xCC0D)	; ì°
-    (=ks-x1001		. #x426F)	; ø»‰‹¸
+    (=ks-x1001		. #x426F)	; &I-K0-426F;
     ))
 (define-char
   '((=ucs		. #xCC10)	; ì°
-    (=ks-x1001		. #x4270)	; ø»‰‹¹
+    (=ks-x1001		. #x4270)	; &I-K0-4270;
     ))
 (define-char
   '((=ucs		. #xCC14)	; ì°”
-    (=ks-x1001		. #x4271)	; ø»‰‹º
+    (=ks-x1001		. #x4271)	; &I-K0-4271;
     ))
 (define-char
   '((=ucs		. #xCC1C)	; ì°œ
-    (=ks-x1001		. #x4272)	; ø»‰‹»
+    (=ks-x1001		. #x4272)	; &I-K0-4272;
     ))
 (define-char
   '((=ucs		. #xCC1D)	; ì°
-    (=ks-x1001		. #x4273)	; ø»‰‹¼
+    (=ks-x1001		. #x4273)	; &I-K0-4273;
     ))
 (define-char
   '((=ucs		. #xCC21)	; ì°¡
-    (=ks-x1001		. #x4274)	; ø»‰‹½
+    (=ks-x1001		. #x4274)	; &I-K0-4274;
     ))
 (define-char
   '((=ucs		. #xCC22)	; ì°¢
-    (=ks-x1001		. #x4275)	; ø»‰‹¾
+    (=ks-x1001		. #x4275)	; &I-K0-4275;
     ))
 (define-char
   '((=ucs		. #xCC27)	; ì°§
-    (=ks-x1001		. #x4276)	; ø»‰‹¿
+    (=ks-x1001		. #x4276)	; &I-K0-4276;
     ))
 (define-char
   '((=ucs		. #xCC28)	; ì°¨
-    (=ks-x1001		. #x4277)	; ø»‰Œ€
+    (=ks-x1001		. #x4277)	; &I-K0-4277;
     ))
 (define-char
   '((=ucs		. #xCC29)	; ì°©
-    (=ks-x1001		. #x4278)	; ø»‰Œ
+    (=ks-x1001		. #x4278)	; &I-K0-4278;
     ))
 (define-char
   '((=ucs		. #xCC2C)	; ì°¬
-    (=ks-x1001		. #x4279)	; ø»‰Œ‚
+    (=ks-x1001		. #x4279)	; &I-K0-4279;
     ))
 (define-char
   '((=ucs		. #xCC2E)	; ì°®
-    (=ks-x1001		. #x427A)	; ø»‰Œƒ
+    (=ks-x1001		. #x427A)	; &I-K0-427A;
     ))
 (define-char
   '((=ucs		. #xCC30)	; ì°°
-    (=ks-x1001		. #x427B)	; ø»‰Œ„
+    (=ks-x1001		. #x427B)	; &I-K0-427B;
     ))
 (define-char
   '((=ucs		. #xCC38)	; ì°¸
-    (=ks-x1001		. #x427C)	; ø»‰Œ…
+    (=ks-x1001		. #x427C)	; &I-K0-427C;
     ))
 (define-char
   '((=ucs		. #xCC39)	; ì°¹
-    (=ks-x1001		. #x427D)	; ø»‰Œ†
+    (=ks-x1001		. #x427D)	; &I-K0-427D;
     ))
 (define-char
   '((=ucs		. #xCC3B)	; ì°»
-    (=ks-x1001		. #x427E)	; ø»‰Œ‡
+    (=ks-x1001		. #x427E)	; &I-K0-427E;
     ))
 (define-char
   '((=ucs		. #xCC3C)	; ì°¼
-    (=ks-x1001		. #x4321)	; ø»‰Œˆ
+    (=ks-x1001		. #x4321)	; &I-K0-4321;
     ))
 (define-char
   '((=ucs		. #xCC3D)	; ì°½
-    (=ks-x1001		. #x4322)	; ø»‰Œ‰
+    (=ks-x1001		. #x4322)	; &I-K0-4322;
     ))
 (define-char
   '((=ucs		. #xCC3E)	; ì°¾
-    (=ks-x1001		. #x4323)	; ø»‰ŒŠ
+    (=ks-x1001		. #x4323)	; &I-K0-4323;
     ))
 (define-char
   '((=ucs		. #xCC44)	; ì±„
-    (=ks-x1001		. #x4324)	; ø»‰Œ‹
+    (=ks-x1001		. #x4324)	; &I-K0-4324;
     ))
 (define-char
   '((=ucs		. #xCC45)	; ì±…
-    (=ks-x1001		. #x4325)	; ø»‰ŒŒ
+    (=ks-x1001		. #x4325)	; &I-K0-4325;
     ))
 (define-char
   '((=ucs		. #xCC48)	; ì±ˆ
-    (=ks-x1001		. #x4326)	; ø»‰Œ
+    (=ks-x1001		. #x4326)	; &I-K0-4326;
     ))
 (define-char
   '((=ucs		. #xCC4C)	; ì±Œ
-    (=ks-x1001		. #x4327)	; ø»‰ŒŽ
+    (=ks-x1001		. #x4327)	; &I-K0-4327;
     ))
 (define-char
   '((=ucs		. #xCC54)	; ì±”
-    (=ks-x1001		. #x4328)	; ø»‰Œ
+    (=ks-x1001		. #x4328)	; &I-K0-4328;
     ))
 (define-char
   '((=ucs		. #xCC55)	; ì±•
-    (=ks-x1001		. #x4329)	; ø»‰Œ
+    (=ks-x1001		. #x4329)	; &I-K0-4329;
     ))
 (define-char
   '((=ucs		. #xCC57)	; ì±—
-    (=ks-x1001		. #x432A)	; ø»‰Œ‘
+    (=ks-x1001		. #x432A)	; &I-K0-432A;
     ))
 (define-char
   '((=ucs		. #xCC58)	; ì±˜
-    (=ks-x1001		. #x432B)	; ø»‰Œ’
+    (=ks-x1001		. #x432B)	; &I-K0-432B;
     ))
 (define-char
   '((=ucs		. #xCC59)	; ì±™
-    (=ks-x1001		. #x432C)	; ø»‰Œ“
+    (=ks-x1001		. #x432C)	; &I-K0-432C;
     ))
 (define-char
   '((=ucs		. #xCC60)	; ì± 
-    (=ks-x1001		. #x432D)	; ø»‰Œ”
+    (=ks-x1001		. #x432D)	; &I-K0-432D;
     ))
 (define-char
   '((=ucs		. #xCC64)	; ì±¤
-    (=ks-x1001		. #x432E)	; ø»‰Œ•
+    (=ks-x1001		. #x432E)	; &I-K0-432E;
     ))
 (define-char
   '((=ucs		. #xCC66)	; ì±¦
-    (=ks-x1001		. #x432F)	; ø»‰Œ–
+    (=ks-x1001		. #x432F)	; &I-K0-432F;
     ))
 (define-char
   '((=ucs		. #xCC68)	; ì±¨
-    (=ks-x1001		. #x4330)	; ø»‰Œ—
+    (=ks-x1001		. #x4330)	; &I-K0-4330;
     ))
 (define-char
   '((=ucs		. #xCC70)	; ì±°
-    (=ks-x1001		. #x4331)	; ø»‰Œ˜
+    (=ks-x1001		. #x4331)	; &I-K0-4331;
     ))
 (define-char
   '((=ucs		. #xCC75)	; ì±µ
-    (=ks-x1001		. #x4332)	; ø»‰Œ™
+    (=ks-x1001		. #x4332)	; &I-K0-4332;
     ))
 (define-char
   '((=ucs		. #xCC98)	; ì²˜
-    (=ks-x1001		. #x4333)	; ø»‰Œš
+    (=ks-x1001		. #x4333)	; &I-K0-4333;
     ))
 (define-char
   '((=ucs		. #xCC99)	; ì²™
-    (=ks-x1001		. #x4334)	; ø»‰Œ›
+    (=ks-x1001		. #x4334)	; &I-K0-4334;
     ))
 (define-char
   '((=ucs		. #xCC9C)	; ì²œ
-    (=ks-x1001		. #x4335)	; ø»‰Œœ
+    (=ks-x1001		. #x4335)	; &I-K0-4335;
     ))
 (define-char
   '((=ucs		. #xCCA0)	; ì² 
-    (=ks-x1001		. #x4336)	; ø»‰Œ
+    (=ks-x1001		. #x4336)	; &I-K0-4336;
     ))
 (define-char
   '((=ucs		. #xCCA8)	; ì²¨
-    (=ks-x1001		. #x4337)	; ø»‰Œž
+    (=ks-x1001		. #x4337)	; &I-K0-4337;
     ))
 (define-char
   '((=ucs		. #xCCA9)	; ì²©
-    (=ks-x1001		. #x4338)	; ø»‰ŒŸ
+    (=ks-x1001		. #x4338)	; &I-K0-4338;
     ))
 (define-char
   '((=ucs		. #xCCAB)	; ì²«
-    (=ks-x1001		. #x4339)	; ø»‰Œ 
+    (=ks-x1001		. #x4339)	; &I-K0-4339;
     ))
 (define-char
   '((=ucs		. #xCCAC)	; ì²¬
-    (=ks-x1001		. #x433A)	; ø»‰Œ¡
+    (=ks-x1001		. #x433A)	; &I-K0-433A;
     ))
 (define-char
   '((=ucs		. #xCCAD)	; ì²­
-    (=ks-x1001		. #x433B)	; ø»‰Œ¢
+    (=ks-x1001		. #x433B)	; &I-K0-433B;
     ))
 (define-char
   '((=ucs		. #xCCB4)	; ì²´
-    (=ks-x1001		. #x433C)	; ø»‰Œ£
+    (=ks-x1001		. #x433C)	; &I-K0-433C;
     ))
 (define-char
   '((=ucs		. #xCCB5)	; ì²µ
-    (=ks-x1001		. #x433D)	; ø»‰Œ¤
+    (=ks-x1001		. #x433D)	; &I-K0-433D;
     ))
 (define-char
   '((=ucs		. #xCCB8)	; ì²¸
-    (=ks-x1001		. #x433E)	; ø»‰Œ¥
+    (=ks-x1001		. #x433E)	; &I-K0-433E;
     ))
 (define-char
   '((=ucs		. #xCCBC)	; ì²¼
-    (=ks-x1001		. #x433F)	; ø»‰Œ¦
+    (=ks-x1001		. #x433F)	; &I-K0-433F;
     ))
 (define-char
   '((=ucs		. #xCCC4)	; ì³„
-    (=ks-x1001		. #x4340)	; ø»‰Œ§
+    (=ks-x1001		. #x4340)	; &I-K0-4340;
     ))
 (define-char
   '((=ucs		. #xCCC5)	; ì³…
-    (=ks-x1001		. #x4341)	; ø»‰Œ¨
+    (=ks-x1001		. #x4341)	; &I-K0-4341;
     ))
 (define-char
   '((=ucs		. #xCCC7)	; ì³‡
-    (=ks-x1001		. #x4342)	; ø»‰Œ©
+    (=ks-x1001		. #x4342)	; &I-K0-4342;
     ))
 (define-char
   '((=ucs		. #xCCC9)	; ì³‰
-    (=ks-x1001		. #x4343)	; ø»‰Œª
+    (=ks-x1001		. #x4343)	; &I-K0-4343;
     ))
 (define-char
   '((=ucs		. #xCCD0)	; ì³
-    (=ks-x1001		. #x4344)	; ø»‰Œ«
+    (=ks-x1001		. #x4344)	; &I-K0-4344;
     ))
 (define-char
   '((=ucs		. #xCCD4)	; ì³”
-    (=ks-x1001		. #x4345)	; ø»‰Œ¬
+    (=ks-x1001		. #x4345)	; &I-K0-4345;
     ))
 (define-char
   '((=ucs		. #xCCE4)	; ì³¤
-    (=ks-x1001		. #x4346)	; ø»‰Œ­
+    (=ks-x1001		. #x4346)	; &I-K0-4346;
     ))
 (define-char
   '((=ucs		. #xCCEC)	; ì³¬
-    (=ks-x1001		. #x4347)	; ø»‰Œ®
+    (=ks-x1001		. #x4347)	; &I-K0-4347;
     ))
 (define-char
   '((=ucs		. #xCCF0)	; ì³°
-    (=ks-x1001		. #x4348)	; ø»‰Œ¯
+    (=ks-x1001		. #x4348)	; &I-K0-4348;
     ))
 (define-char
   '((=ucs		. #xCD01)	; ì´
-    (=ks-x1001		. #x4349)	; ø»‰Œ°
+    (=ks-x1001		. #x4349)	; &I-K0-4349;
     ))
 (define-char
   '((=ucs		. #xCD08)	; ì´ˆ
-    (=ks-x1001		. #x434A)	; ø»‰Œ±
+    (=ks-x1001		. #x434A)	; &I-K0-434A;
     ))
 (define-char
   '((=ucs		. #xCD09)	; ì´‰
-    (=ks-x1001		. #x434B)	; ø»‰Œ²
+    (=ks-x1001		. #x434B)	; &I-K0-434B;
     ))
 (define-char
   '((=ucs		. #xCD0C)	; ì´Œ
-    (=ks-x1001		. #x434C)	; ø»‰Œ³
-    (=jef-china3	. #x8CB4)	; øºˆ²´
+    (=ks-x1001		. #x434C)	; &I-K0-434C;
+    (=jef-china3	. #x8CB4)	; &I-JC3-8CB4;
     ))
 (define-char
   '((=ucs		. #xCD10)	; ì´
-    (=ks-x1001		. #x434D)	; ø»‰Œ´
+    (=ks-x1001		. #x434D)	; &I-K0-434D;
     ))
 (define-char
   '((=ucs		. #xCD18)	; ì´˜
-    (=ks-x1001		. #x434E)	; ø»‰Œµ
+    (=ks-x1001		. #x434E)	; &I-K0-434E;
     ))
 (define-char
   '((=ucs		. #xCD19)	; ì´™
-    (=ks-x1001		. #x434F)	; ø»‰Œ¶
+    (=ks-x1001		. #x434F)	; &I-K0-434F;
     ))
 (define-char
   '((=ucs		. #xCD1B)	; ì´›
-    (=ks-x1001		. #x4350)	; ø»‰Œ·
+    (=ks-x1001		. #x4350)	; &I-K0-4350;
     ))
 (define-char
   '((=ucs		. #xCD1D)	; ì´
-    (=ks-x1001		. #x4351)	; ø»‰Œ¸
+    (=ks-x1001		. #x4351)	; &I-K0-4351;
     ))
 (define-char
   '((=ucs		. #xCD24)	; ì´¤
-    (=ks-x1001		. #x4352)	; ø»‰Œ¹
+    (=ks-x1001		. #x4352)	; &I-K0-4352;
     ))
 (define-char
   '((=ucs		. #xCD28)	; ì´¨
-    (=ks-x1001		. #x4353)	; ø»‰Œº
+    (=ks-x1001		. #x4353)	; &I-K0-4353;
     ))
 (define-char
   '((=ucs		. #xCD2C)	; ì´¬
-    (=ks-x1001		. #x4354)	; ø»‰Œ»
+    (=ks-x1001		. #x4354)	; &I-K0-4354;
     ))
 (define-char
   '((=ucs		. #xCD39)	; ì´¹
-    (=ks-x1001		. #x4355)	; ø»‰Œ¼
+    (=ks-x1001		. #x4355)	; &I-K0-4355;
     ))
 (define-char
   '((=ucs		. #xCD5C)	; ìµœ
-    (=ks-x1001		. #x4356)	; ø»‰Œ½
+    (=ks-x1001		. #x4356)	; &I-K0-4356;
     ))
 (define-char
   '((=ucs		. #xCD60)	; ìµ 
-    (=ks-x1001		. #x4357)	; ø»‰Œ¾
+    (=ks-x1001		. #x4357)	; &I-K0-4357;
     ))
 (define-char
   '((=ucs		. #xCD64)	; ìµ¤
-    (=ks-x1001		. #x4358)	; ø»‰Œ¿
+    (=ks-x1001		. #x4358)	; &I-K0-4358;
     ))
 (define-char
   '((=ucs		. #xCD6C)	; ìµ¬
-    (=ks-x1001		. #x4359)	; ø»‰€
+    (=ks-x1001		. #x4359)	; &I-K0-4359;
     ))
 (define-char
   '((=ucs		. #xCD6D)	; ìµ­
-    (=ks-x1001		. #x435A)	; ø»‰
+    (=ks-x1001		. #x435A)	; &I-K0-435A;
     ))
 (define-char
   '((=ucs		. #xCD6F)	; ìµ¯
-    (=ks-x1001		. #x435B)	; ø»‰‚
+    (=ks-x1001		. #x435B)	; &I-K0-435B;
     ))
 (define-char
   '((=ucs		. #xCD71)	; ìµ±
-    (=ks-x1001		. #x435C)	; ø»‰ƒ
+    (=ks-x1001		. #x435C)	; &I-K0-435C;
     ))
 (define-char
   '((=ucs		. #xCD78)	; ìµ¸
-    (=ks-x1001		. #x435D)	; ø»‰„
+    (=ks-x1001		. #x435D)	; &I-K0-435D;
     ))
 (define-char
   '((=ucs		. #xCD88)	; ì¶ˆ
-    (=ks-x1001		. #x435E)	; ø»‰…
+    (=ks-x1001		. #x435E)	; &I-K0-435E;
     ))
 (define-char
   '((=ucs		. #xCD94)	; ì¶”
-    (=ks-x1001		. #x435F)	; ø»‰†
+    (=ks-x1001		. #x435F)	; &I-K0-435F;
     ))
 (define-char
   '((=ucs		. #xCD95)	; ì¶•
-    (=ks-x1001		. #x4360)	; ø»‰‡
-    (=jef-china3	. #x8DA9)	; øºˆ¶©
+    (=ks-x1001		. #x4360)	; &I-K0-4360;
+    (=jef-china3	. #x8DA9)	; &I-JC3-8DA9;
     ))
 (define-char
   '((=ucs		. #xCD98)	; ì¶˜
-    (=ks-x1001		. #x4361)	; ø»‰ˆ
+    (=ks-x1001		. #x4361)	; &I-K0-4361;
     ))
 (define-char
   '((=ucs		. #xCD9C)	; ì¶œ
-    (=ks-x1001		. #x4362)	; ø»‰‰
+    (=ks-x1001		. #x4362)	; &I-K0-4362;
     ))
 (define-char
   '((=ucs		. #xCDA4)	; ì¶¤
-    (=ks-x1001		. #x4363)	; ø»‰Š
+    (=ks-x1001		. #x4363)	; &I-K0-4363;
     ))
 (define-char
   '((=ucs		. #xCDA5)	; ì¶¥
-    (=ks-x1001		. #x4364)	; ø»‰‹
+    (=ks-x1001		. #x4364)	; &I-K0-4364;
     ))
 (define-char
   '((=ucs		. #xCDA7)	; ì¶§
-    (=ks-x1001		. #x4365)	; ø»‰Œ
+    (=ks-x1001		. #x4365)	; &I-K0-4365;
     ))
 (define-char
   '((=ucs		. #xCDA9)	; ì¶©
-    (=ks-x1001		. #x4366)	; ø»‰
+    (=ks-x1001		. #x4366)	; &I-K0-4366;
     ))
 (define-char
   '((=ucs		. #xCDB0)	; ì¶°
-    (=ks-x1001		. #x4367)	; ø»‰Ž
+    (=ks-x1001		. #x4367)	; &I-K0-4367;
     ))
 (define-char
   '((=ucs		. #xCDC4)	; ì·„
-    (=ks-x1001		. #x4368)	; ø»‰
+    (=ks-x1001		. #x4368)	; &I-K0-4368;
     ))
 (define-char
   '((=ucs		. #xCDCC)	; ì·Œ
-    (=ks-x1001		. #x4369)	; ø»‰
+    (=ks-x1001		. #x4369)	; &I-K0-4369;
     ))
 (define-char
   '((=ucs		. #xCDD0)	; ì·
-    (=ks-x1001		. #x436A)	; ø»‰‘
+    (=ks-x1001		. #x436A)	; &I-K0-436A;
     ))
 (define-char
   '((=ucs		. #xCDE8)	; ì·¨
-    (=ks-x1001		. #x436B)	; ø»‰’
+    (=ks-x1001		. #x436B)	; &I-K0-436B;
     ))
 (define-char
   '((=ucs		. #xCDEC)	; ì·¬
-    (=ks-x1001		. #x436C)	; ø»‰“
+    (=ks-x1001		. #x436C)	; &I-K0-436C;
     ))
 (define-char
   '((=ucs		. #xCDF0)	; ì·°
-    (=ks-x1001		. #x436D)	; ø»‰”
+    (=ks-x1001		. #x436D)	; &I-K0-436D;
     ))
 (define-char
   '((=ucs		. #xCDF8)	; ì·¸
-    (=ks-x1001		. #x436E)	; ø»‰•
+    (=ks-x1001		. #x436E)	; &I-K0-436E;
     ))
 (define-char
   '((=ucs		. #xCDF9)	; ì·¹
-    (=ks-x1001		. #x436F)	; ø»‰–
+    (=ks-x1001		. #x436F)	; &I-K0-436F;
     ))
 (define-char
   '((=ucs		. #xCDFB)	; ì·»
-    (=ks-x1001		. #x4370)	; ø»‰—
+    (=ks-x1001		. #x4370)	; &I-K0-4370;
     ))
 (define-char
   '((=ucs		. #xCDFD)	; ì·½
-    (=ks-x1001		. #x4371)	; ø»‰˜
+    (=ks-x1001		. #x4371)	; &I-K0-4371;
     ))
 (define-char
   '((=ucs		. #xCE04)	; ì¸„
-    (=ks-x1001		. #x4372)	; ø»‰™
+    (=ks-x1001		. #x4372)	; &I-K0-4372;
     ))
 (define-char
   '((=ucs		. #xCE08)	; ì¸ˆ
-    (=ks-x1001		. #x4373)	; ø»‰š
+    (=ks-x1001		. #x4373)	; &I-K0-4373;
     ))
 (define-char
   '((=ucs		. #xCE0C)	; ì¸Œ
-    (=ks-x1001		. #x4374)	; ø»‰›
+    (=ks-x1001		. #x4374)	; &I-K0-4374;
     ))
 (define-char
   '((=ucs		. #xCE14)	; ì¸”
-    (=ks-x1001		. #x4375)	; ø»‰œ
+    (=ks-x1001		. #x4375)	; &I-K0-4375;
     ))
 (define-char
   '((=ucs		. #xCE19)	; ì¸™
-    (=ks-x1001		. #x4376)	; ø»‰
+    (=ks-x1001		. #x4376)	; &I-K0-4376;
     ))
 (define-char
   '((=ucs		. #xCE20)	; ì¸ 
-    (=ks-x1001		. #x4377)	; ø»‰ž
+    (=ks-x1001		. #x4377)	; &I-K0-4377;
     ))
 (define-char
   '((=ucs		. #xCE21)	; ì¸¡
-    (=ks-x1001		. #x4378)	; ø»‰Ÿ
+    (=ks-x1001		. #x4378)	; &I-K0-4378;
     ))
 (define-char
   '((=ucs		. #xCE24)	; ì¸¤
-    (=ks-x1001		. #x4379)	; ø»‰ 
+    (=ks-x1001		. #x4379)	; &I-K0-4379;
     ))
 (define-char
   '((=ucs		. #xCE28)	; ì¸¨
-    (=ks-x1001		. #x437A)	; ø»‰¡
+    (=ks-x1001		. #x437A)	; &I-K0-437A;
     ))
 (define-char
   '((=ucs		. #xCE30)	; ì¸°
-    (=ks-x1001		. #x437B)	; ø»‰¢
+    (=ks-x1001		. #x437B)	; &I-K0-437B;
     ))
 (define-char
   '((=ucs		. #xCE31)	; ì¸±
-    (=ks-x1001		. #x437C)	; ø»‰£
+    (=ks-x1001		. #x437C)	; &I-K0-437C;
     ))
 (define-char
   '((=ucs		. #xCE33)	; ì¸³
-    (=ks-x1001		. #x437D)	; ø»‰¤
+    (=ks-x1001		. #x437D)	; &I-K0-437D;
     ))
 (define-char
   '((=ucs		. #xCE35)	; ì¸µ
-    (=ks-x1001		. #x437E)	; ø»‰¥
+    (=ks-x1001		. #x437E)	; &I-K0-437E;
     ))
 (define-char
   '((=ucs		. #xCE58)	; ì¹˜
-    (=ks-x1001		. #x4421)	; ø»‰¦
+    (=ks-x1001		. #x4421)	; &I-K0-4421;
     ))
 (define-char
   '((=ucs		. #xCE59)	; ì¹™
-    (=ks-x1001		. #x4422)	; ø»‰§
+    (=ks-x1001		. #x4422)	; &I-K0-4422;
     ))
 (define-char
   '((=ucs		. #xCE5C)	; ì¹œ
-    (=ks-x1001		. #x4423)	; ø»‰¨
+    (=ks-x1001		. #x4423)	; &I-K0-4423;
     ))
 (define-char
   '((=ucs		. #xCE5F)	; ì¹Ÿ
-    (=ks-x1001		. #x4424)	; ø»‰©
+    (=ks-x1001		. #x4424)	; &I-K0-4424;
     ))
 (define-char
   '((=ucs		. #xCE60)	; ì¹ 
-    (=ks-x1001		. #x4425)	; ø»‰ª
+    (=ks-x1001		. #x4425)	; &I-K0-4425;
     ))
 (define-char
   '((=ucs		. #xCE61)	; ì¹¡
-    (=ks-x1001		. #x4426)	; ø»‰«
+    (=ks-x1001		. #x4426)	; &I-K0-4426;
     ))
 (define-char
   '((=ucs		. #xCE68)	; ì¹¨
-    (=ks-x1001		. #x4427)	; ø»‰¬
-    (=jef-china3	. #x8CB1)	; øºˆ²±
+    (=ks-x1001		. #x4427)	; &I-K0-4427;
+    (=jef-china3	. #x8CB1)	; &I-JC3-8CB1;
     ))
 (define-char
   '((=ucs		. #xCE69)	; ì¹©
-    (=ks-x1001		. #x4428)	; ø»‰­
+    (=ks-x1001		. #x4428)	; &I-K0-4428;
     ))
 (define-char
   '((=ucs		. #xCE6B)	; ì¹«
-    (=ks-x1001		. #x4429)	; ø»‰®
+    (=ks-x1001		. #x4429)	; &I-K0-4429;
     ))
 (define-char
   '((=ucs		. #xCE6D)	; ì¹­
-    (=ks-x1001		. #x442A)	; ø»‰¯
+    (=ks-x1001		. #x442A)	; &I-K0-442A;
     ))
 (define-char
   '((=ucs		. #xCE74)	; ì¹´
-    (=ks-x1001		. #x442B)	; ø»‰°
+    (=ks-x1001		. #x442B)	; &I-K0-442B;
     ))
 (define-char
   '((=ucs		. #xCE75)	; ì¹µ
-    (=ks-x1001		. #x442C)	; ø»‰±
+    (=ks-x1001		. #x442C)	; &I-K0-442C;
     ))
 (define-char
   '((=ucs		. #xCE78)	; ì¹¸
-    (=ks-x1001		. #x442D)	; ø»‰²
+    (=ks-x1001		. #x442D)	; &I-K0-442D;
     ))
 (define-char
   '((=ucs		. #xCE7C)	; ì¹¼
-    (=ks-x1001		. #x442E)	; ø»‰³
+    (=ks-x1001		. #x442E)	; &I-K0-442E;
     ))
 (define-char
   '((=ucs		. #xCE84)	; ìº„
-    (=ks-x1001		. #x442F)	; ø»‰´
+    (=ks-x1001		. #x442F)	; &I-K0-442F;
     ))
 (define-char
   '((=ucs		. #xCE85)	; ìº…
-    (=ks-x1001		. #x4430)	; ø»‰µ
+    (=ks-x1001		. #x4430)	; &I-K0-4430;
     ))
 (define-char
   '((=ucs		. #xCE87)	; ìº‡
-    (=ks-x1001		. #x4431)	; ø»‰¶
+    (=ks-x1001		. #x4431)	; &I-K0-4431;
     ))
 (define-char
   '((=ucs		. #xCE89)	; ìº‰
-    (=ks-x1001		. #x4432)	; ø»‰·
+    (=ks-x1001		. #x4432)	; &I-K0-4432;
     ))
 (define-char
   '((=ucs		. #xCE90)	; ìº
-    (=ks-x1001		. #x4433)	; ø»‰¸
+    (=ks-x1001		. #x4433)	; &I-K0-4433;
     ))
 (define-char
   '((=ucs		. #xCE91)	; ìº‘
-    (=ks-x1001		. #x4434)	; ø»‰¹
+    (=ks-x1001		. #x4434)	; &I-K0-4434;
     ))
 (define-char
   '((=ucs		. #xCE94)	; ìº”
-    (=ks-x1001		. #x4435)	; ø»‰º
+    (=ks-x1001		. #x4435)	; &I-K0-4435;
     ))
 (define-char
   '((=ucs		. #xCE98)	; ìº˜
-    (=ks-x1001		. #x4436)	; ø»‰»
+    (=ks-x1001		. #x4436)	; &I-K0-4436;
     ))
 (define-char
   '((=ucs		. #xCEA0)	; ìº 
-    (=ks-x1001		. #x4437)	; ø»‰¼
+    (=ks-x1001		. #x4437)	; &I-K0-4437;
     ))
 (define-char
   '((=ucs		. #xCEA1)	; ìº¡
-    (=ks-x1001		. #x4438)	; ø»‰½
+    (=ks-x1001		. #x4438)	; &I-K0-4438;
     ))
 (define-char
   '((=ucs		. #xCEA3)	; ìº£
-    (=ks-x1001		. #x4439)	; ø»‰¾
+    (=ks-x1001		. #x4439)	; &I-K0-4439;
     ))
 (define-char
   '((=ucs		. #xCEA4)	; ìº¤
-    (=ks-x1001		. #x443A)	; ø»‰¿
+    (=ks-x1001		. #x443A)	; &I-K0-443A;
     ))
 (define-char
   '((=ucs		. #xCEA5)	; ìº¥
-    (=ks-x1001		. #x443B)	; ø»‰Ž€
+    (=ks-x1001		. #x443B)	; &I-K0-443B;
     ))
 (define-char
   '((=ucs		. #xCEAC)	; ìº¬
-    (=ks-x1001		. #x443C)	; ø»‰Ž
+    (=ks-x1001		. #x443C)	; &I-K0-443C;
     ))
 (define-char
   '((=ucs		. #xCEAD)	; ìº­
-    (=ks-x1001		. #x443D)	; ø»‰Ž‚
+    (=ks-x1001		. #x443D)	; &I-K0-443D;
     ))
 (define-char
   '((=ucs		. #xCEC1)	; ì»
-    (=ks-x1001		. #x443E)	; ø»‰Žƒ
+    (=ks-x1001		. #x443E)	; &I-K0-443E;
     ))
 (define-char
   '((=ucs		. #xCEE4)	; ì»¤
-    (=ks-x1001		. #x443F)	; ø»‰Ž„
+    (=ks-x1001		. #x443F)	; &I-K0-443F;
     ))
 (define-char
   '((=ucs		. #xCEE5)	; ì»¥
-    (=ks-x1001		. #x4440)	; ø»‰Ž…
+    (=ks-x1001		. #x4440)	; &I-K0-4440;
     ))
 (define-char
   '((=ucs		. #xCEE8)	; ì»¨
-    (=ks-x1001		. #x4441)	; ø»‰Ž†
+    (=ks-x1001		. #x4441)	; &I-K0-4441;
     ))
 (define-char
   '((=ucs		. #xCEEB)	; ì»«
-    (=ks-x1001		. #x4442)	; ø»‰Ž‡
+    (=ks-x1001		. #x4442)	; &I-K0-4442;
     ))
 (define-char
   '((=ucs		. #xCEEC)	; ì»¬
-    (=ks-x1001		. #x4443)	; ø»‰Žˆ
+    (=ks-x1001		. #x4443)	; &I-K0-4443;
     ))
 (define-char
   '((=ucs		. #xCEF4)	; ì»´
-    (=ks-x1001		. #x4444)	; ø»‰Ž‰
+    (=ks-x1001		. #x4444)	; &I-K0-4444;
     ))
 (define-char
   '((=ucs		. #xCEF5)	; ì»µ
-    (=ks-x1001		. #x4445)	; ø»‰ŽŠ
+    (=ks-x1001		. #x4445)	; &I-K0-4445;
     ))
 (define-char
   '((=ucs		. #xCEF7)	; ì»·
-    (=ks-x1001		. #x4446)	; ø»‰Ž‹
+    (=ks-x1001		. #x4446)	; &I-K0-4446;
     ))
 (define-char
   '((=ucs		. #xCEF8)	; ì»¸
-    (=ks-x1001		. #x4447)	; ø»‰ŽŒ
+    (=ks-x1001		. #x4447)	; &I-K0-4447;
     ))
 (define-char
   '((=ucs		. #xCEF9)	; ì»¹
-    (=ks-x1001		. #x4448)	; ø»‰Ž
+    (=ks-x1001		. #x4448)	; &I-K0-4448;
     ))
 (define-char
   '((=ucs		. #xCF00)	; ì¼€
-    (=ks-x1001		. #x4449)	; ø»‰ŽŽ
+    (=ks-x1001		. #x4449)	; &I-K0-4449;
     ))
 (define-char
   '((=ucs		. #xCF01)	; ì¼
-    (=ks-x1001		. #x444A)	; ø»‰Ž
+    (=ks-x1001		. #x444A)	; &I-K0-444A;
     ))
 (define-char
   '((=ucs		. #xCF04)	; ì¼„
-    (=ks-x1001		. #x444B)	; ø»‰Ž
+    (=ks-x1001		. #x444B)	; &I-K0-444B;
     ))
 (define-char
   '((=ucs		. #xCF08)	; ì¼ˆ
-    (=ks-x1001		. #x444C)	; ø»‰Ž‘
+    (=ks-x1001		. #x444C)	; &I-K0-444C;
     ))
 (define-char
   '((=ucs		. #xCF10)	; ì¼
-    (=ks-x1001		. #x444D)	; ø»‰Ž’
+    (=ks-x1001		. #x444D)	; &I-K0-444D;
     ))
 (define-char
   '((=ucs		. #xCF11)	; ì¼‘
-    (=ks-x1001		. #x444E)	; ø»‰Ž“
+    (=ks-x1001		. #x444E)	; &I-K0-444E;
     ))
 (define-char
   '((=ucs		. #xCF13)	; ì¼“
-    (=ks-x1001		. #x444F)	; ø»‰Ž”
+    (=ks-x1001		. #x444F)	; &I-K0-444F;
     ))
 (define-char
   '((=ucs		. #xCF15)	; ì¼•
-    (=ks-x1001		. #x4450)	; ø»‰Ž•
+    (=ks-x1001		. #x4450)	; &I-K0-4450;
     ))
 (define-char
   '((=ucs		. #xCF1C)	; ì¼œ
-    (=ks-x1001		. #x4451)	; ø»‰Ž–
+    (=ks-x1001		. #x4451)	; &I-K0-4451;
     ))
 (define-char
   '((=ucs		. #xCF20)	; ì¼ 
-    (=ks-x1001		. #x4452)	; ø»‰Ž—
+    (=ks-x1001		. #x4452)	; &I-K0-4452;
     ))
 (define-char
   '((=ucs		. #xCF24)	; ì¼¤
-    (=ks-x1001		. #x4453)	; ø»‰Ž˜
+    (=ks-x1001		. #x4453)	; &I-K0-4453;
     ))
 (define-char
   '((=ucs		. #xCF2C)	; ì¼¬
-    (=ks-x1001		. #x4454)	; ø»‰Ž™
+    (=ks-x1001		. #x4454)	; &I-K0-4454;
     ))
 (define-char
   '((=ucs		. #xCF2D)	; ì¼­
-    (=ks-x1001		. #x4455)	; ø»‰Žš
+    (=ks-x1001		. #x4455)	; &I-K0-4455;
     ))
 (define-char
   '((=ucs		. #xCF2F)	; ì¼¯
-    (=ks-x1001		. #x4456)	; ø»‰Ž›
+    (=ks-x1001		. #x4456)	; &I-K0-4456;
     ))
 (define-char
   '((=ucs		. #xCF30)	; ì¼°
-    (=ks-x1001		. #x4457)	; ø»‰Žœ
+    (=ks-x1001		. #x4457)	; &I-K0-4457;
     ))
 (define-char
   '((=ucs		. #xCF31)	; ì¼±
-    (=ks-x1001		. #x4458)	; ø»‰Ž
+    (=ks-x1001		. #x4458)	; &I-K0-4458;
     ))
 (define-char
   '((=ucs		. #xCF38)	; ì¼¸
-    (=ks-x1001		. #x4459)	; ø»‰Žž
+    (=ks-x1001		. #x4459)	; &I-K0-4459;
     ))
 (define-char
   '((=ucs		. #xCF54)	; ì½”
-    (=ks-x1001		. #x445A)	; ø»‰ŽŸ
+    (=ks-x1001		. #x445A)	; &I-K0-445A;
     ))
 (define-char
   '((=ucs		. #xCF55)	; ì½•
-    (=ks-x1001		. #x445B)	; ø»‰Ž 
+    (=ks-x1001		. #x445B)	; &I-K0-445B;
     ))
 (define-char
   '((=ucs		. #xCF58)	; ì½˜
-    (=ks-x1001		. #x445C)	; ø»‰Ž¡
+    (=ks-x1001		. #x445C)	; &I-K0-445C;
     ))
 (define-char
   '((=ucs		. #xCF5C)	; ì½œ
-    (=ks-x1001		. #x445D)	; ø»‰Ž¢
+    (=ks-x1001		. #x445D)	; &I-K0-445D;
     ))
 (define-char
   '((=ucs		. #xCF64)	; ì½¤
-    (=ks-x1001		. #x445E)	; ø»‰Ž£
+    (=ks-x1001		. #x445E)	; &I-K0-445E;
     ))
 (define-char
   '((=ucs		. #xCF65)	; ì½¥
-    (=ks-x1001		. #x445F)	; ø»‰Ž¤
+    (=ks-x1001		. #x445F)	; &I-K0-445F;
     ))
 (define-char
   '((=ucs		. #xCF67)	; ì½§
-    (=ks-x1001		. #x4460)	; ø»‰Ž¥
+    (=ks-x1001		. #x4460)	; &I-K0-4460;
     ))
 (define-char
   '((=ucs		. #xCF69)	; ì½©
-    (=ks-x1001		. #x4461)	; ø»‰Ž¦
+    (=ks-x1001		. #x4461)	; &I-K0-4461;
     ))
 (define-char
   '((=ucs		. #xCF70)	; ì½°
-    (=ks-x1001		. #x4462)	; ø»‰Ž§
+    (=ks-x1001		. #x4462)	; &I-K0-4462;
     ))
 (define-char
   '((=ucs		. #xCF71)	; ì½±
-    (=ks-x1001		. #x4463)	; ø»‰Ž¨
+    (=ks-x1001		. #x4463)	; &I-K0-4463;
     ))
 (define-char
   '((=ucs		. #xCF74)	; ì½´
-    (=ks-x1001		. #x4464)	; ø»‰Ž©
+    (=ks-x1001		. #x4464)	; &I-K0-4464;
     ))
 (define-char
   '((=ucs		. #xCF78)	; ì½¸
-    (=ks-x1001		. #x4465)	; ø»‰Žª
+    (=ks-x1001		. #x4465)	; &I-K0-4465;
     ))
 (define-char
   '((=ucs		. #xCF80)	; ì¾€
-    (=ks-x1001		. #x4466)	; ø»‰Ž«
+    (=ks-x1001		. #x4466)	; &I-K0-4466;
     ))
 (define-char
   '((=ucs		. #xCF85)	; ì¾…
-    (=ks-x1001		. #x4467)	; ø»‰Ž¬
+    (=ks-x1001		. #x4467)	; &I-K0-4467;
     ))
 (define-char
   '((=ucs		. #xCF8C)	; ì¾Œ
-    (=ks-x1001		. #x4468)	; ø»‰Ž­
+    (=ks-x1001		. #x4468)	; &I-K0-4468;
     ))
 (define-char
   '((=ucs		. #xCFA1)	; ì¾¡
-    (=ks-x1001		. #x4469)	; ø»‰Ž®
+    (=ks-x1001		. #x4469)	; &I-K0-4469;
     ))
 (define-char
   '((=ucs		. #xCFA8)	; ì¾¨
-    (=ks-x1001		. #x446A)	; ø»‰Ž¯
+    (=ks-x1001		. #x446A)	; &I-K0-446A;
     ))
 (define-char
   '((=ucs		. #xCFB0)	; ì¾°
-    (=ks-x1001		. #x446B)	; ø»‰Ž°
+    (=ks-x1001		. #x446B)	; &I-K0-446B;
     ))
 (define-char
   '((=ucs		. #xCFC4)	; ì¿„
-    (=ks-x1001		. #x446C)	; ø»‰Ž±
+    (=ks-x1001		. #x446C)	; &I-K0-446C;
     ))
 (define-char
   '((=ucs		. #xCFE0)	; ì¿ 
-    (=ks-x1001		. #x446D)	; ø»‰Ž²
+    (=ks-x1001		. #x446D)	; &I-K0-446D;
     ))
 (define-char
   '((=ucs		. #xCFE1)	; ì¿¡
-    (=ks-x1001		. #x446E)	; ø»‰Ž³
+    (=ks-x1001		. #x446E)	; &I-K0-446E;
     ))
 (define-char
   '((=ucs		. #xCFE4)	; ì¿¤
-    (=ks-x1001		. #x446F)	; ø»‰Ž´
+    (=ks-x1001		. #x446F)	; &I-K0-446F;
     ))
 (define-char
   '((=ucs		. #xCFE8)	; ì¿¨
-    (=ks-x1001		. #x4470)	; ø»‰Žµ
+    (=ks-x1001		. #x4470)	; &I-K0-4470;
     ))
 (define-char
   '((=ucs		. #xCFF0)	; ì¿°
-    (=ks-x1001		. #x4471)	; ø»‰Ž¶
+    (=ks-x1001		. #x4471)	; &I-K0-4471;
     ))
 (define-char
   '((=ucs		. #xCFF1)	; ì¿±
-    (=ks-x1001		. #x4472)	; ø»‰Ž·
+    (=ks-x1001		. #x4472)	; &I-K0-4472;
     ))
 (define-char
   '((=ucs		. #xCFF3)	; ì¿³
-    (=ks-x1001		. #x4473)	; ø»‰Ž¸
+    (=ks-x1001		. #x4473)	; &I-K0-4473;
     ))
 (define-char
   '((=ucs		. #xCFF5)	; ì¿µ
-    (=ks-x1001		. #x4474)	; ø»‰Ž¹
+    (=ks-x1001		. #x4474)	; &I-K0-4474;
     ))
 (define-char
   '((=ucs		. #xCFFC)	; ì¿¼
-    (=ks-x1001		. #x4475)	; ø»‰Žº
+    (=ks-x1001		. #x4475)	; &I-K0-4475;
     ))
 (define-char
   '((=ucs		. #xD000)	; í€€
-    (=ks-x1001		. #x4476)	; ø»‰Ž»
+    (=ks-x1001		. #x4476)	; &I-K0-4476;
     ))
 (define-char
   '((=ucs		. #xD004)	; í€„
-    (=ks-x1001		. #x4477)	; ø»‰Ž¼
+    (=ks-x1001		. #x4477)	; &I-K0-4477;
     ))
 (define-char
   '((=ucs		. #xD011)	; í€‘
-    (=ks-x1001		. #x4478)	; ø»‰Ž½
+    (=ks-x1001		. #x4478)	; &I-K0-4478;
     ))
 (define-char
   '((=ucs		. #xD018)	; í€˜
-    (=ks-x1001		. #x4479)	; ø»‰Ž¾
+    (=ks-x1001		. #x4479)	; &I-K0-4479;
     ))
 (define-char
   '((=ucs		. #xD02D)	; í€­
-    (=ks-x1001		. #x447A)	; ø»‰Ž¿
+    (=ks-x1001		. #x447A)	; &I-K0-447A;
     ))
 (define-char
   '((=ucs		. #xD034)	; í€´
-    (=ks-x1001		. #x447B)	; ø»‰€
+    (=ks-x1001		. #x447B)	; &I-K0-447B;
     ))
 (define-char
   '((=ucs		. #xD035)	; í€µ
-    (=ks-x1001		. #x447C)	; ø»‰
+    (=ks-x1001		. #x447C)	; &I-K0-447C;
     ))
 (define-char
   '((=ucs		. #xD038)	; í€¸
-    (=ks-x1001		. #x447D)	; ø»‰‚
+    (=ks-x1001		. #x447D)	; &I-K0-447D;
     ))
 (define-char
   '((=ucs		. #xD03C)	; í€¼
-    (=ks-x1001		. #x447E)	; ø»‰ƒ
+    (=ks-x1001		. #x447E)	; &I-K0-447E;
     ))
 (define-char
   '((=ucs		. #xD044)	; í„
-    (=ks-x1001		. #x4521)	; ø»‰„
+    (=ks-x1001		. #x4521)	; &I-K0-4521;
     ))
 (define-char
   '((=ucs		. #xD045)	; í…
-    (=ks-x1001		. #x4522)	; ø»‰…
+    (=ks-x1001		. #x4522)	; &I-K0-4522;
     ))
 (define-char
   '((=ucs		. #xD047)	; í‡
-    (=ks-x1001		. #x4523)	; ø»‰†
+    (=ks-x1001		. #x4523)	; &I-K0-4523;
     ))
 (define-char
   '((=ucs		. #xD049)	; í‰
-    (=ks-x1001		. #x4524)	; ø»‰‡
+    (=ks-x1001		. #x4524)	; &I-K0-4524;
     ))
 (define-char
   '((=ucs		. #xD050)	; í
-    (=ks-x1001		. #x4525)	; ø»‰ˆ
+    (=ks-x1001		. #x4525)	; &I-K0-4525;
     ))
 (define-char
   '((=ucs		. #xD054)	; í”
-    (=ks-x1001		. #x4526)	; ø»‰‰
+    (=ks-x1001		. #x4526)	; &I-K0-4526;
     ))
 (define-char
   '((=ucs		. #xD058)	; í˜
-    (=ks-x1001		. #x4527)	; ø»‰Š
+    (=ks-x1001		. #x4527)	; &I-K0-4527;
     ))
 (define-char
   '((=ucs		. #xD060)	; í 
-    (=ks-x1001		. #x4528)	; ø»‰‹
+    (=ks-x1001		. #x4528)	; &I-K0-4528;
     ))
 (define-char
   '((=ucs		. #xD06C)	; í¬
-    (=ks-x1001		. #x4529)	; ø»‰Œ
+    (=ks-x1001		. #x4529)	; &I-K0-4529;
     ))
 (define-char
   '((=ucs		. #xD06D)	; í­
-    (=ks-x1001		. #x452A)	; ø»‰
+    (=ks-x1001		. #x452A)	; &I-K0-452A;
     ))
 (define-char
   '((=ucs		. #xD070)	; í°
-    (=ks-x1001		. #x452B)	; ø»‰Ž
+    (=ks-x1001		. #x452B)	; &I-K0-452B;
     ))
 (define-char
   '((=ucs		. #xD074)	; í´
-    (=ks-x1001		. #x452C)	; ø»‰
+    (=ks-x1001		. #x452C)	; &I-K0-452C;
     ))
 (define-char
   '((=ucs		. #xD07C)	; í¼
-    (=ks-x1001		. #x452D)	; ø»‰
+    (=ks-x1001		. #x452D)	; &I-K0-452D;
     ))
 (define-char
   '((=ucs		. #xD07D)	; í½
-    (=ks-x1001		. #x452E)	; ø»‰‘
+    (=ks-x1001		. #x452E)	; &I-K0-452E;
     ))
 (define-char
   '((=ucs		. #xD081)	; í‚
-    (=ks-x1001		. #x452F)	; ø»‰’
+    (=ks-x1001		. #x452F)	; &I-K0-452F;
     ))
 (define-char
   '((=ucs		. #xD0A4)	; í‚¤
-    (=ks-x1001		. #x4530)	; ø»‰“
+    (=ks-x1001		. #x4530)	; &I-K0-4530;
     ))
 (define-char
   '((=ucs		. #xD0A5)	; í‚¥
-    (=ks-x1001		. #x4531)	; ø»‰”
+    (=ks-x1001		. #x4531)	; &I-K0-4531;
     ))
 (define-char
   '((=ucs		. #xD0A8)	; í‚¨
-    (=ks-x1001		. #x4532)	; ø»‰•
+    (=ks-x1001		. #x4532)	; &I-K0-4532;
     ))
 (define-char
   '((=ucs		. #xD0AC)	; í‚¬
-    (=ks-x1001		. #x4533)	; ø»‰–
+    (=ks-x1001		. #x4533)	; &I-K0-4533;
     ))
 (define-char
   '((=ucs		. #xD0B4)	; í‚´
-    (=ks-x1001		. #x4534)	; ø»‰—
+    (=ks-x1001		. #x4534)	; &I-K0-4534;
     ))
 (define-char
   '((=ucs		. #xD0B5)	; í‚µ
-    (=ks-x1001		. #x4535)	; ø»‰˜
+    (=ks-x1001		. #x4535)	; &I-K0-4535;
     ))
 (define-char
   '((=ucs		. #xD0B7)	; í‚·
-    (=ks-x1001		. #x4536)	; ø»‰™
+    (=ks-x1001		. #x4536)	; &I-K0-4536;
     ))
 (define-char
   '((=ucs		. #xD0B9)	; í‚¹
-    (=ks-x1001		. #x4537)	; ø»‰š
+    (=ks-x1001		. #x4537)	; &I-K0-4537;
     ))
 (define-char
   '((=ucs		. #xD0C0)	; íƒ€
-    (=ks-x1001		. #x4538)	; ø»‰›
+    (=ks-x1001		. #x4538)	; &I-K0-4538;
     ))
 (define-char
   '((=ucs		. #xD0C1)	; íƒ
-    (=ks-x1001		. #x4539)	; ø»‰œ
+    (=ks-x1001		. #x4539)	; &I-K0-4539;
     ))
 (define-char
   '((=ucs		. #xD0C4)	; íƒ„
-    (=ks-x1001		. #x453A)	; ø»‰
+    (=ks-x1001		. #x453A)	; &I-K0-453A;
     ))
 (define-char
   '((=ucs		. #xD0C8)	; íƒˆ
-    (=ks-x1001		. #x453B)	; ø»‰ž
+    (=ks-x1001		. #x453B)	; &I-K0-453B;
     ))
 (define-char
   '((=ucs		. #xD0C9)	; íƒ‰
-    (=ks-x1001		. #x453C)	; ø»‰Ÿ
+    (=ks-x1001		. #x453C)	; &I-K0-453C;
     ))
 (define-char
   '((=ucs		. #xD0D0)	; íƒ
-    (=ks-x1001		. #x453D)	; ø»‰ 
+    (=ks-x1001		. #x453D)	; &I-K0-453D;
     ))
 (define-char
   '((=ucs		. #xD0D1)	; íƒ‘
-    (=ks-x1001		. #x453E)	; ø»‰¡
+    (=ks-x1001		. #x453E)	; &I-K0-453E;
     ))
 (define-char
   '((=ucs		. #xD0D3)	; íƒ“
-    (=ks-x1001		. #x453F)	; ø»‰¢
+    (=ks-x1001		. #x453F)	; &I-K0-453F;
     ))
 (define-char
   '((=ucs		. #xD0D4)	; íƒ”
-    (=ks-x1001		. #x4540)	; ø»‰£
+    (=ks-x1001		. #x4540)	; &I-K0-4540;
     ))
 (define-char
   '((=ucs		. #xD0D5)	; íƒ•
-    (=ks-x1001		. #x4541)	; ø»‰¤
+    (=ks-x1001		. #x4541)	; &I-K0-4541;
     ))
 (define-char
   '((=ucs		. #xD0DC)	; íƒœ
-    (=ks-x1001		. #x4542)	; ø»‰¥
+    (=ks-x1001		. #x4542)	; &I-K0-4542;
     ))
 (define-char
   '((=ucs		. #xD0DD)	; íƒ
-    (=ks-x1001		. #x4543)	; ø»‰¦
+    (=ks-x1001		. #x4543)	; &I-K0-4543;
     ))
 (define-char
   '((=ucs		. #xD0E0)	; íƒ 
-    (=ks-x1001		. #x4544)	; ø»‰§
+    (=ks-x1001		. #x4544)	; &I-K0-4544;
     ))
 (define-char
   '((=ucs		. #xD0E4)	; íƒ¤
-    (=ks-x1001		. #x4545)	; ø»‰¨
+    (=ks-x1001		. #x4545)	; &I-K0-4545;
     ))
 (define-char
   '((=ucs		. #xD0EC)	; íƒ¬
-    (=ks-x1001		. #x4546)	; ø»‰©
+    (=ks-x1001		. #x4546)	; &I-K0-4546;
     ))
 (define-char
   '((=ucs		. #xD0ED)	; íƒ­
-    (=ks-x1001		. #x4547)	; ø»‰ª
+    (=ks-x1001		. #x4547)	; &I-K0-4547;
     ))
 (define-char
   '((=ucs		. #xD0EF)	; íƒ¯
-    (=ks-x1001		. #x4548)	; ø»‰«
+    (=ks-x1001		. #x4548)	; &I-K0-4548;
     ))
 (define-char
   '((=ucs		. #xD0F0)	; íƒ°
-    (=ks-x1001		. #x4549)	; ø»‰¬
+    (=ks-x1001		. #x4549)	; &I-K0-4549;
     ))
 (define-char
   '((=ucs		. #xD0F1)	; íƒ±
-    (=ks-x1001		. #x454A)	; ø»‰­
+    (=ks-x1001		. #x454A)	; &I-K0-454A;
     ))
 (define-char
   '((=ucs		. #xD0F8)	; íƒ¸
-    (=ks-x1001		. #x454B)	; ø»‰®
+    (=ks-x1001		. #x454B)	; &I-K0-454B;
     ))
 (define-char
   '((=ucs		. #xD10D)	; í„
-    (=ks-x1001		. #x454C)	; ø»‰¯
+    (=ks-x1001		. #x454C)	; &I-K0-454C;
     ))
 (define-char
   '((=ucs		. #xD130)	; í„°
-    (=ks-x1001		. #x454D)	; ø»‰°
+    (=ks-x1001		. #x454D)	; &I-K0-454D;
     ))
 (define-char
   '((=ucs		. #xD131)	; í„±
-    (=ks-x1001		. #x454E)	; ø»‰±
+    (=ks-x1001		. #x454E)	; &I-K0-454E;
     ))
 (define-char
   '((=ucs		. #xD134)	; í„´
-    (=ks-x1001		. #x454F)	; ø»‰²
+    (=ks-x1001		. #x454F)	; &I-K0-454F;
     ))
 (define-char
   '((=ucs		. #xD138)	; í„¸
-    (=ks-x1001		. #x4550)	; ø»‰³
+    (=ks-x1001		. #x4550)	; &I-K0-4550;
     ))
 (define-char
   '((=ucs		. #xD13A)	; í„º
-    (=ks-x1001		. #x4551)	; ø»‰´
+    (=ks-x1001		. #x4551)	; &I-K0-4551;
     ))
 (define-char
   '((=ucs		. #xD140)	; í…€
-    (=ks-x1001		. #x4552)	; ø»‰µ
+    (=ks-x1001		. #x4552)	; &I-K0-4552;
     ))
 (define-char
   '((=ucs		. #xD141)	; í…
-    (=ks-x1001		. #x4553)	; ø»‰¶
+    (=ks-x1001		. #x4553)	; &I-K0-4553;
     ))
 (define-char
   '((=ucs		. #xD143)	; í…ƒ
-    (=ks-x1001		. #x4554)	; ø»‰·
+    (=ks-x1001		. #x4554)	; &I-K0-4554;
     ))
 (define-char
   '((=ucs		. #xD144)	; í…„
-    (=ks-x1001		. #x4555)	; ø»‰¸
+    (=ks-x1001		. #x4555)	; &I-K0-4555;
     ))
 (define-char
   '((=ucs		. #xD145)	; í……
-    (=ks-x1001		. #x4556)	; ø»‰¹
+    (=ks-x1001		. #x4556)	; &I-K0-4556;
     ))
 (define-char
   '((=ucs		. #xD14C)	; í…Œ
-    (=ks-x1001		. #x4557)	; ø»‰º
+    (=ks-x1001		. #x4557)	; &I-K0-4557;
     ))
 (define-char
   '((=ucs		. #xD14D)	; í…
-    (=ks-x1001		. #x4558)	; ø»‰»
+    (=ks-x1001		. #x4558)	; &I-K0-4558;
     ))
 (define-char
   '((=ucs		. #xD150)	; í…
-    (=ks-x1001		. #x4559)	; ø»‰¼
+    (=ks-x1001		. #x4559)	; &I-K0-4559;
     ))
 (define-char
   '((=ucs		. #xD154)	; í…”
-    (=ks-x1001		. #x455A)	; ø»‰½
+    (=ks-x1001		. #x455A)	; &I-K0-455A;
     ))
 (define-char
   '((=ucs		. #xD15C)	; í…œ
-    (=ks-x1001		. #x455B)	; ø»‰¾
+    (=ks-x1001		. #x455B)	; &I-K0-455B;
     ))
 (define-char
   '((=ucs		. #xD15D)	; í…
-    (=ks-x1001		. #x455C)	; ø»‰¿
+    (=ks-x1001		. #x455C)	; &I-K0-455C;
     ))
 (define-char
   '((=ucs		. #xD15F)	; í…Ÿ
-    (=ks-x1001		. #x455D)	; ø»‰€
+    (=ks-x1001		. #x455D)	; &I-K0-455D;
     ))
 (define-char
   '((=ucs		. #xD161)	; í…¡
-    (=ks-x1001		. #x455E)	; ø»‰
+    (=ks-x1001		. #x455E)	; &I-K0-455E;
     ))
 (define-char
   '((=ucs		. #xD168)	; í…¨
-    (=ks-x1001		. #x455F)	; ø»‰‚
+    (=ks-x1001		. #x455F)	; &I-K0-455F;
     ))
 (define-char
   '((=ucs		. #xD16C)	; í…¬
-    (=ks-x1001		. #x4560)	; ø»‰ƒ
+    (=ks-x1001		. #x4560)	; &I-K0-4560;
     ))
 (define-char
   '((=ucs		. #xD17C)	; í…¼
-    (=ks-x1001		. #x4561)	; ø»‰„
+    (=ks-x1001		. #x4561)	; &I-K0-4561;
     ))
 (define-char
   '((=ucs		. #xD184)	; í†„
-    (=ks-x1001		. #x4562)	; ø»‰…
+    (=ks-x1001		. #x4562)	; &I-K0-4562;
     ))
 (define-char
   '((=ucs		. #xD188)	; í†ˆ
-    (=ks-x1001		. #x4563)	; ø»‰†
+    (=ks-x1001		. #x4563)	; &I-K0-4563;
     ))
 (define-char
   '((=ucs		. #xD1A0)	; í† 
-    (=ks-x1001		. #x4564)	; ø»‰‡
+    (=ks-x1001		. #x4564)	; &I-K0-4564;
     ))
 (define-char
   '((=ucs		. #xD1A1)	; í†¡
-    (=ks-x1001		. #x4565)	; ø»‰ˆ
+    (=ks-x1001		. #x4565)	; &I-K0-4565;
     ))
 (define-char
   '((=ucs		. #xD1A4)	; í†¤
-    (=ks-x1001		. #x4566)	; ø»‰‰
+    (=ks-x1001		. #x4566)	; &I-K0-4566;
     ))
 (define-char
   '((=ucs		. #xD1A8)	; í†¨
-    (=ks-x1001		. #x4567)	; ø»‰Š
+    (=ks-x1001		. #x4567)	; &I-K0-4567;
     ))
 (define-char
   '((=ucs		. #xD1B0)	; í†°
-    (=ks-x1001		. #x4568)	; ø»‰‹
+    (=ks-x1001		. #x4568)	; &I-K0-4568;
     ))
 (define-char
   '((=ucs		. #xD1B1)	; í†±
-    (=ks-x1001		. #x4569)	; ø»‰Œ
+    (=ks-x1001		. #x4569)	; &I-K0-4569;
     ))
 (define-char
   '((=ucs		. #xD1B3)	; í†³
-    (=ks-x1001		. #x456A)	; ø»‰
+    (=ks-x1001		. #x456A)	; &I-K0-456A;
     ))
 (define-char
   '((=ucs		. #xD1B5)	; í†µ
-    (=ks-x1001		. #x456B)	; ø»‰Ž
+    (=ks-x1001		. #x456B)	; &I-K0-456B;
     ))
 (define-char
   '((=ucs		. #xD1BA)	; í†º
-    (=ks-x1001		. #x456C)	; ø»‰
+    (=ks-x1001		. #x456C)	; &I-K0-456C;
     ))
 (define-char
   '((=ucs		. #xD1BC)	; í†¼
-    (=ks-x1001		. #x456D)	; ø»‰
+    (=ks-x1001		. #x456D)	; &I-K0-456D;
     ))
 (define-char
   '((=ucs		. #xD1C0)	; í‡€
-    (=ks-x1001		. #x456E)	; ø»‰‘
+    (=ks-x1001		. #x456E)	; &I-K0-456E;
     ))
 (define-char
   '((=ucs		. #xD1D8)	; í‡˜
-    (=ks-x1001		. #x456F)	; ø»‰’
+    (=ks-x1001		. #x456F)	; &I-K0-456F;
     ))
 (define-char
   '((=ucs		. #xD1F4)	; í‡´
-    (=ks-x1001		. #x4570)	; ø»‰“
+    (=ks-x1001		. #x4570)	; &I-K0-4570;
     ))
 (define-char
   '((=ucs		. #xD1F8)	; í‡¸
-    (=ks-x1001		. #x4571)	; ø»‰”
+    (=ks-x1001		. #x4571)	; &I-K0-4571;
     ))
 (define-char
   '((=ucs		. #xD207)	; íˆ‡
-    (=ks-x1001		. #x4572)	; ø»‰•
+    (=ks-x1001		. #x4572)	; &I-K0-4572;
     ))
 (define-char
   '((=ucs		. #xD209)	; íˆ‰
-    (=ks-x1001		. #x4573)	; ø»‰–
+    (=ks-x1001		. #x4573)	; &I-K0-4573;
     ))
 (define-char
   '((=ucs		. #xD210)	; íˆ
-    (=ks-x1001		. #x4574)	; ø»‰—
+    (=ks-x1001		. #x4574)	; &I-K0-4574;
     ))
 (define-char
   '((=ucs		. #xD22C)	; íˆ¬
-    (=ks-x1001		. #x4575)	; ø»‰˜
+    (=ks-x1001		. #x4575)	; &I-K0-4575;
     ))
 (define-char
   '((=ucs		. #xD22D)	; íˆ­
-    (=ks-x1001		. #x4576)	; ø»‰™
+    (=ks-x1001		. #x4576)	; &I-K0-4576;
     ))
 (define-char
   '((=ucs		. #xD230)	; íˆ°
-    (=ks-x1001		. #x4577)	; ø»‰š
+    (=ks-x1001		. #x4577)	; &I-K0-4577;
     ))
 (define-char
   '((=ucs		. #xD234)	; íˆ´
-    (=ks-x1001		. #x4578)	; ø»‰›
+    (=ks-x1001		. #x4578)	; &I-K0-4578;
     ))
 (define-char
   '((=ucs		. #xD23C)	; íˆ¼
-    (=ks-x1001		. #x4579)	; ø»‰œ
+    (=ks-x1001		. #x4579)	; &I-K0-4579;
     ))
 (define-char
   '((=ucs		. #xD23D)	; íˆ½
-    (=ks-x1001		. #x457A)	; ø»‰
+    (=ks-x1001		. #x457A)	; &I-K0-457A;
     ))
 (define-char
   '((=ucs		. #xD23F)	; íˆ¿
-    (=ks-x1001		. #x457B)	; ø»‰ž
+    (=ks-x1001		. #x457B)	; &I-K0-457B;
     ))
 (define-char
   '((=ucs		. #xD241)	; í‰
-    (=ks-x1001		. #x457C)	; ø»‰Ÿ
+    (=ks-x1001		. #x457C)	; &I-K0-457C;
     ))
 (define-char
   '((=ucs		. #xD248)	; í‰ˆ
-    (=ks-x1001		. #x457D)	; ø»‰ 
+    (=ks-x1001		. #x457D)	; &I-K0-457D;
     ))
 (define-char
   '((=ucs		. #xD25C)	; í‰œ
-    (=ks-x1001		. #x457E)	; ø»‰¡
+    (=ks-x1001		. #x457E)	; &I-K0-457E;
     ))
 (define-char
   '((=ucs		. #xD264)	; í‰¤
-    (=ks-x1001		. #x4621)	; ø»‰¢
+    (=ks-x1001		. #x4621)	; &I-K0-4621;
     ))
 (define-char
   '((=ucs		. #xD280)	; íŠ€
-    (=ks-x1001		. #x4622)	; ø»‰£
+    (=ks-x1001		. #x4622)	; &I-K0-4622;
     ))
 (define-char
   '((=ucs		. #xD281)	; íŠ
-    (=ks-x1001		. #x4623)	; ø»‰¤
+    (=ks-x1001		. #x4623)	; &I-K0-4623;
     ))
 (define-char
   '((=ucs		. #xD284)	; íŠ„
-    (=ks-x1001		. #x4624)	; ø»‰¥
+    (=ks-x1001		. #x4624)	; &I-K0-4624;
     ))
 (define-char
   '((=ucs		. #xD288)	; íŠˆ
-    (=ks-x1001		. #x4625)	; ø»‰¦
+    (=ks-x1001		. #x4625)	; &I-K0-4625;
     ))
 (define-char
   '((=ucs		. #xD290)	; íŠ
-    (=ks-x1001		. #x4626)	; ø»‰§
+    (=ks-x1001		. #x4626)	; &I-K0-4626;
     ))
 (define-char
   '((=ucs		. #xD291)	; íŠ‘
-    (=ks-x1001		. #x4627)	; ø»‰¨
+    (=ks-x1001		. #x4627)	; &I-K0-4627;
     ))
 (define-char
   '((=ucs		. #xD295)	; íŠ•
-    (=ks-x1001		. #x4628)	; ø»‰©
+    (=ks-x1001		. #x4628)	; &I-K0-4628;
     ))
 (define-char
   '((=ucs		. #xD29C)	; íŠœ
-    (=ks-x1001		. #x4629)	; ø»‰ª
+    (=ks-x1001		. #x4629)	; &I-K0-4629;
     ))
 (define-char
   '((=ucs		. #xD2A0)	; íŠ 
-    (=ks-x1001		. #x462A)	; ø»‰«
+    (=ks-x1001		. #x462A)	; &I-K0-462A;
     ))
 (define-char
   '((=ucs		. #xD2A4)	; íŠ¤
-    (=ks-x1001		. #x462B)	; ø»‰¬
+    (=ks-x1001		. #x462B)	; &I-K0-462B;
     ))
 (define-char
   '((=ucs		. #xD2AC)	; íŠ¬
-    (=ks-x1001		. #x462C)	; ø»‰­
+    (=ks-x1001		. #x462C)	; &I-K0-462C;
     ))
 (define-char
   '((=ucs		. #xD2B1)	; íŠ±
-    (=ks-x1001		. #x462D)	; ø»‰®
+    (=ks-x1001		. #x462D)	; &I-K0-462D;
     ))
 (define-char
   '((=ucs		. #xD2B8)	; íŠ¸
-    (=ks-x1001		. #x462E)	; ø»‰¯
+    (=ks-x1001		. #x462E)	; &I-K0-462E;
     ))
 (define-char
   '((=ucs		. #xD2B9)	; íŠ¹
-    (=ks-x1001		. #x462F)	; ø»‰°
+    (=ks-x1001		. #x462F)	; &I-K0-462F;
     ))
 (define-char
   '((=ucs		. #xD2BC)	; íŠ¼
-    (=ks-x1001		. #x4630)	; ø»‰±
+    (=ks-x1001		. #x4630)	; &I-K0-4630;
     ))
 (define-char
   '((=ucs		. #xD2BF)	; íŠ¿
-    (=ks-x1001		. #x4631)	; ø»‰²
+    (=ks-x1001		. #x4631)	; &I-K0-4631;
     ))
 (define-char
   '((=ucs		. #xD2C0)	; í‹€
-    (=ks-x1001		. #x4632)	; ø»‰³
+    (=ks-x1001		. #x4632)	; &I-K0-4632;
     ))
 (define-char
   '((=ucs		. #xD2C2)	; í‹‚
-    (=ks-x1001		. #x4633)	; ø»‰´
+    (=ks-x1001		. #x4633)	; &I-K0-4633;
     ))
 (define-char
   '((=ucs		. #xD2C8)	; í‹ˆ
-    (=ks-x1001		. #x4634)	; ø»‰µ
+    (=ks-x1001		. #x4634)	; &I-K0-4634;
     ))
 (define-char
   '((=ucs		. #xD2C9)	; í‹‰
-    (=ks-x1001		. #x4635)	; ø»‰¶
+    (=ks-x1001		. #x4635)	; &I-K0-4635;
     ))
 (define-char
   '((=ucs		. #xD2CB)	; í‹‹
-    (=ks-x1001		. #x4636)	; ø»‰·
+    (=ks-x1001		. #x4636)	; &I-K0-4636;
     ))
 (define-char
   '((=ucs		. #xD2D4)	; í‹”
-    (=ks-x1001		. #x4637)	; ø»‰¸
+    (=ks-x1001		. #x4637)	; &I-K0-4637;
     ))
 (define-char
   '((=ucs		. #xD2D8)	; í‹˜
-    (=ks-x1001		. #x4638)	; ø»‰¹
+    (=ks-x1001		. #x4638)	; &I-K0-4638;
     ))
 (define-char
   '((=ucs		. #xD2DC)	; í‹œ
-    (=ks-x1001		. #x4639)	; ø»‰º
+    (=ks-x1001		. #x4639)	; &I-K0-4639;
     ))
 (define-char
   '((=ucs		. #xD2E4)	; í‹¤
-    (=ks-x1001		. #x463A)	; ø»‰»
+    (=ks-x1001		. #x463A)	; &I-K0-463A;
     ))
 (define-char
   '((=ucs		. #xD2E5)	; í‹¥
-    (=ks-x1001		. #x463B)	; ø»‰¼
+    (=ks-x1001		. #x463B)	; &I-K0-463B;
     ))
 (define-char
   '((=ucs		. #xD2F0)	; í‹°
-    (=ks-x1001		. #x463C)	; ø»‰½
+    (=ks-x1001		. #x463C)	; &I-K0-463C;
     ))
 (define-char
   '((=ucs		. #xD2F1)	; í‹±
-    (=ks-x1001		. #x463D)	; ø»‰¾
+    (=ks-x1001		. #x463D)	; &I-K0-463D;
     ))
 (define-char
   '((=ucs		. #xD2F4)	; í‹´
-    (=ks-x1001		. #x463E)	; ø»‰¿
+    (=ks-x1001		. #x463E)	; &I-K0-463E;
     ))
 (define-char
   '((=ucs		. #xD2F8)	; í‹¸
-    (=ks-x1001		. #x463F)	; ø»‰‘€
+    (=ks-x1001		. #x463F)	; &I-K0-463F;
     ))
 (define-char
   '((=ucs		. #xD300)	; íŒ€
-    (=ks-x1001		. #x4640)	; ø»‰‘
+    (=ks-x1001		. #x4640)	; &I-K0-4640;
     ))
 (define-char
   '((=ucs		. #xD301)	; íŒ
-    (=ks-x1001		. #x4641)	; ø»‰‘‚
+    (=ks-x1001		. #x4641)	; &I-K0-4641;
     ))
 (define-char
   '((=ucs		. #xD303)	; íŒƒ
-    (=ks-x1001		. #x4642)	; ø»‰‘ƒ
+    (=ks-x1001		. #x4642)	; &I-K0-4642;
     ))
 (define-char
   '((=ucs		. #xD305)	; íŒ…
-    (=ks-x1001		. #x4643)	; ø»‰‘„
+    (=ks-x1001		. #x4643)	; &I-K0-4643;
     ))
 (define-char
   '((=ucs		. #xD30C)	; íŒŒ
-    (=ks-x1001		. #x4644)	; ø»‰‘…
+    (=ks-x1001		. #x4644)	; &I-K0-4644;
     ))
 (define-char
   '((=ucs		. #xD30D)	; íŒ
-    (=ks-x1001		. #x4645)	; ø»‰‘†
+    (=ks-x1001		. #x4645)	; &I-K0-4645;
     ))
 (define-char
   '((=ucs		. #xD30E)	; íŒŽ
-    (=ks-x1001		. #x4646)	; ø»‰‘‡
+    (=ks-x1001		. #x4646)	; &I-K0-4646;
     ))
 (define-char
   '((=ucs		. #xD310)	; íŒ
-    (=ks-x1001		. #x4647)	; ø»‰‘ˆ
+    (=ks-x1001		. #x4647)	; &I-K0-4647;
     ))
 (define-char
   '((=ucs		. #xD314)	; íŒ”
-    (=ks-x1001		. #x4648)	; ø»‰‘‰
+    (=ks-x1001		. #x4648)	; &I-K0-4648;
     ))
 (define-char
   '((=ucs		. #xD316)	; íŒ–
-    (=ks-x1001		. #x4649)	; ø»‰‘Š
+    (=ks-x1001		. #x4649)	; &I-K0-4649;
     ))
 (define-char
   '((=ucs		. #xD31C)	; íŒœ
-    (=ks-x1001		. #x464A)	; ø»‰‘‹
+    (=ks-x1001		. #x464A)	; &I-K0-464A;
     ))
 (define-char
   '((=ucs		. #xD31D)	; íŒ
-    (=ks-x1001		. #x464B)	; ø»‰‘Œ
+    (=ks-x1001		. #x464B)	; &I-K0-464B;
     ))
 (define-char
   '((=ucs		. #xD31F)	; íŒŸ
-    (=ks-x1001		. #x464C)	; ø»‰‘
+    (=ks-x1001		. #x464C)	; &I-K0-464C;
     ))
 (define-char
   '((=ucs		. #xD320)	; íŒ 
-    (=ks-x1001		. #x464D)	; ø»‰‘Ž
+    (=ks-x1001		. #x464D)	; &I-K0-464D;
     ))
 (define-char
   '((=ucs		. #xD321)	; íŒ¡
-    (=ks-x1001		. #x464E)	; ø»‰‘
+    (=ks-x1001		. #x464E)	; &I-K0-464E;
     ))
 (define-char
   '((=ucs		. #xD325)	; íŒ¥
-    (=ks-x1001		. #x464F)	; ø»‰‘
+    (=ks-x1001		. #x464F)	; &I-K0-464F;
     ))
 (define-char
   '((=ucs		. #xD328)	; íŒ¨
-    (=ks-x1001		. #x4650)	; ø»‰‘‘
+    (=ks-x1001		. #x4650)	; &I-K0-4650;
     ))
 (define-char
   '((=ucs		. #xD329)	; íŒ©
-    (=ks-x1001		. #x4651)	; ø»‰‘’
+    (=ks-x1001		. #x4651)	; &I-K0-4651;
     ))
 (define-char
   '((=ucs		. #xD32C)	; íŒ¬
-    (=ks-x1001		. #x4652)	; ø»‰‘“
+    (=ks-x1001		. #x4652)	; &I-K0-4652;
     ))
 (define-char
   '((=ucs		. #xD330)	; íŒ°
-    (=ks-x1001		. #x4653)	; ø»‰‘”
+    (=ks-x1001		. #x4653)	; &I-K0-4653;
     ))
 (define-char
   '((=ucs		. #xD338)	; íŒ¸
-    (=ks-x1001		. #x4654)	; ø»‰‘•
+    (=ks-x1001		. #x4654)	; &I-K0-4654;
     ))
 (define-char
   '((=ucs		. #xD339)	; íŒ¹
-    (=ks-x1001		. #x4655)	; ø»‰‘–
+    (=ks-x1001		. #x4655)	; &I-K0-4655;
     ))
 (define-char
   '((=ucs		. #xD33B)	; íŒ»
-    (=ks-x1001		. #x4656)	; ø»‰‘—
+    (=ks-x1001		. #x4656)	; &I-K0-4656;
     ))
 (define-char
   '((=ucs		. #xD33C)	; íŒ¼
-    (=ks-x1001		. #x4657)	; ø»‰‘˜
+    (=ks-x1001		. #x4657)	; &I-K0-4657;
     ))
 (define-char
   '((=ucs		. #xD33D)	; íŒ½
-    (=ks-x1001		. #x4658)	; ø»‰‘™
+    (=ks-x1001		. #x4658)	; &I-K0-4658;
     ))
 (define-char
   '((=ucs		. #xD344)	; í„
-    (=ks-x1001		. #x4659)	; ø»‰‘š
+    (=ks-x1001		. #x4659)	; &I-K0-4659;
     ))
 (define-char
   '((=ucs		. #xD345)	; í…
-    (=ks-x1001		. #x465A)	; ø»‰‘›
+    (=ks-x1001		. #x465A)	; &I-K0-465A;
     ))
 (define-char
   '((=ucs		. #xD37C)	; í¼
-    (=ks-x1001		. #x465B)	; ø»‰‘œ
+    (=ks-x1001		. #x465B)	; &I-K0-465B;
     ))
 (define-char
   '((=ucs		. #xD37D)	; í½
-    (=ks-x1001		. #x465C)	; ø»‰‘
+    (=ks-x1001		. #x465C)	; &I-K0-465C;
     ))
 (define-char
   '((=ucs		. #xD380)	; íŽ€
-    (=ks-x1001		. #x465D)	; ø»‰‘ž
+    (=ks-x1001		. #x465D)	; &I-K0-465D;
     ))
 (define-char
   '((=ucs		. #xD384)	; íŽ„
-    (=ks-x1001		. #x465E)	; ø»‰‘Ÿ
+    (=ks-x1001		. #x465E)	; &I-K0-465E;
     ))
 (define-char
   '((=ucs		. #xD38C)	; íŽŒ
-    (=ks-x1001		. #x465F)	; ø»‰‘ 
+    (=ks-x1001		. #x465F)	; &I-K0-465F;
     ))
 (define-char
   '((=ucs		. #xD38D)	; íŽ
-    (=ks-x1001		. #x4660)	; ø»‰‘¡
+    (=ks-x1001		. #x4660)	; &I-K0-4660;
     ))
 (define-char
   '((=ucs		. #xD38F)	; íŽ
-    (=ks-x1001		. #x4661)	; ø»‰‘¢
+    (=ks-x1001		. #x4661)	; &I-K0-4661;
     ))
 (define-char
   '((=ucs		. #xD390)	; íŽ
-    (=ks-x1001		. #x4662)	; ø»‰‘£
+    (=ks-x1001		. #x4662)	; &I-K0-4662;
     ))
 (define-char
   '((=ucs		. #xD391)	; íŽ‘
-    (=ks-x1001		. #x4663)	; ø»‰‘¤
+    (=ks-x1001		. #x4663)	; &I-K0-4663;
     ))
 (define-char
   '((=ucs		. #xD398)	; íŽ˜
-    (=ks-x1001		. #x4664)	; ø»‰‘¥
+    (=ks-x1001		. #x4664)	; &I-K0-4664;
     ))
 (define-char
   '((=ucs		. #xD399)	; íŽ™
-    (=ks-x1001		. #x4665)	; ø»‰‘¦
+    (=ks-x1001		. #x4665)	; &I-K0-4665;
     ))
 (define-char
   '((=ucs		. #xD39C)	; íŽœ
-    (=ks-x1001		. #x4666)	; ø»‰‘§
+    (=ks-x1001		. #x4666)	; &I-K0-4666;
     ))
 (define-char
   '((=ucs		. #xD3A0)	; íŽ 
-    (=ks-x1001		. #x4667)	; ø»‰‘¨
+    (=ks-x1001		. #x4667)	; &I-K0-4667;
     ))
 (define-char
   '((=ucs		. #xD3A8)	; íŽ¨
-    (=ks-x1001		. #x4668)	; ø»‰‘©
+    (=ks-x1001		. #x4668)	; &I-K0-4668;
     ))
 (define-char
   '((=ucs		. #xD3A9)	; íŽ©
-    (=ks-x1001		. #x4669)	; ø»‰‘ª
+    (=ks-x1001		. #x4669)	; &I-K0-4669;
     ))
 (define-char
   '((=ucs		. #xD3AB)	; íŽ«
-    (=ks-x1001		. #x466A)	; ø»‰‘«
+    (=ks-x1001		. #x466A)	; &I-K0-466A;
     ))
 (define-char
   '((=ucs		. #xD3AD)	; íŽ­
-    (=ks-x1001		. #x466B)	; ø»‰‘¬
+    (=ks-x1001		. #x466B)	; &I-K0-466B;
     ))
 (define-char
   '((=ucs		. #xD3B4)	; íŽ´
-    (=ks-x1001		. #x466C)	; ø»‰‘­
+    (=ks-x1001		. #x466C)	; &I-K0-466C;
     ))
 (define-char
   '((=ucs		. #xD3B8)	; íŽ¸
-    (=ks-x1001		. #x466D)	; ø»‰‘®
+    (=ks-x1001		. #x466D)	; &I-K0-466D;
     ))
 (define-char
   '((=ucs		. #xD3BC)	; íŽ¼
-    (=ks-x1001		. #x466E)	; ø»‰‘¯
+    (=ks-x1001		. #x466E)	; &I-K0-466E;
     ))
 (define-char
   '((=ucs		. #xD3C4)	; í„
-    (=ks-x1001		. #x466F)	; ø»‰‘°
+    (=ks-x1001		. #x466F)	; &I-K0-466F;
     ))
 (define-char
   '((=ucs		. #xD3C5)	; í…
-    (=ks-x1001		. #x4670)	; ø»‰‘±
+    (=ks-x1001		. #x4670)	; &I-K0-4670;
     ))
 (define-char
   '((=ucs		. #xD3C8)	; íˆ
-    (=ks-x1001		. #x4671)	; ø»‰‘²
+    (=ks-x1001		. #x4671)	; &I-K0-4671;
     ))
 (define-char
   '((=ucs		. #xD3C9)	; í‰
-    (=ks-x1001		. #x4672)	; ø»‰‘³
+    (=ks-x1001		. #x4672)	; &I-K0-4672;
     ))
 (define-char
   '((=ucs		. #xD3D0)	; í
-    (=ks-x1001		. #x4673)	; ø»‰‘´
+    (=ks-x1001		. #x4673)	; &I-K0-4673;
     ))
 (define-char
   '((=ucs		. #xD3D8)	; í˜
-    (=ks-x1001		. #x4674)	; ø»‰‘µ
+    (=ks-x1001		. #x4674)	; &I-K0-4674;
     ))
 (define-char
   '((=ucs		. #xD3E1)	; í¡
-    (=ks-x1001		. #x4675)	; ø»‰‘¶
+    (=ks-x1001		. #x4675)	; &I-K0-4675;
     ))
 (define-char
   '((=ucs		. #xD3E3)	; í£
-    (=ks-x1001		. #x4676)	; ø»‰‘·
+    (=ks-x1001		. #x4676)	; &I-K0-4676;
     ))
 (define-char
   '((=ucs		. #xD3EC)	; í¬
-    (=ks-x1001		. #x4677)	; ø»‰‘¸
+    (=ks-x1001		. #x4677)	; &I-K0-4677;
     ))
 (define-char
   '((=ucs		. #xD3ED)	; í­
-    (=ks-x1001		. #x4678)	; ø»‰‘¹
+    (=ks-x1001		. #x4678)	; &I-K0-4678;
     ))
 (define-char
   '((=ucs		. #xD3F0)	; í°
-    (=ks-x1001		. #x4679)	; ø»‰‘º
+    (=ks-x1001		. #x4679)	; &I-K0-4679;
     ))
 (define-char
   '((=ucs		. #xD3F4)	; í´
-    (=ks-x1001		. #x467A)	; ø»‰‘»
+    (=ks-x1001		. #x467A)	; &I-K0-467A;
     ))
 (define-char
   '((=ucs		. #xD3FC)	; í¼
-    (=ks-x1001		. #x467B)	; ø»‰‘¼
+    (=ks-x1001		. #x467B)	; &I-K0-467B;
     ))
 (define-char
   '((=ucs		. #xD3FD)	; í½
-    (=ks-x1001		. #x467C)	; ø»‰‘½
+    (=ks-x1001		. #x467C)	; &I-K0-467C;
     ))
 (define-char
   '((=ucs		. #xD3FF)	; í¿
-    (=ks-x1001		. #x467D)	; ø»‰‘¾
+    (=ks-x1001		. #x467D)	; &I-K0-467D;
     ))
 (define-char
   '((=ucs		. #xD401)	; í
-    (=ks-x1001		. #x467E)	; ø»‰‘¿
+    (=ks-x1001		. #x467E)	; &I-K0-467E;
     ))
 (define-char
   '((=ucs		. #xD408)	; íˆ
-    (=ks-x1001		. #x4721)	; ø»‰’€
+    (=ks-x1001		. #x4721)	; &I-K0-4721;
     ))
 (define-char
   '((=ucs		. #xD41D)	; í
-    (=ks-x1001		. #x4722)	; ø»‰’
+    (=ks-x1001		. #x4722)	; &I-K0-4722;
     ))
 (define-char
   '((=ucs		. #xD440)	; í‘€
-    (=ks-x1001		. #x4723)	; ø»‰’‚
+    (=ks-x1001		. #x4723)	; &I-K0-4723;
     ))
 (define-char
   '((=ucs		. #xD444)	; í‘„
-    (=ks-x1001		. #x4724)	; ø»‰’ƒ
+    (=ks-x1001		. #x4724)	; &I-K0-4724;
     ))
 (define-char
   '((=ucs		. #xD45C)	; í‘œ
-    (=ks-x1001		. #x4725)	; ø»‰’„
+    (=ks-x1001		. #x4725)	; &I-K0-4725;
     ))
 (define-char
   '((=ucs		. #xD460)	; í‘ 
-    (=ks-x1001		. #x4726)	; ø»‰’…
+    (=ks-x1001		. #x4726)	; &I-K0-4726;
     ))
 (define-char
   '((=ucs		. #xD464)	; í‘¤
-    (=ks-x1001		. #x4727)	; ø»‰’†
+    (=ks-x1001		. #x4727)	; &I-K0-4727;
     ))
 (define-char
   '((=ucs		. #xD46D)	; í‘­
-    (=ks-x1001		. #x4728)	; ø»‰’‡
+    (=ks-x1001		. #x4728)	; &I-K0-4728;
     ))
 (define-char
   '((=ucs		. #xD46F)	; í‘¯
-    (=ks-x1001		. #x4729)	; ø»‰’ˆ
+    (=ks-x1001		. #x4729)	; &I-K0-4729;
     ))
 (define-char
   '((=ucs		. #xD478)	; í‘¸
-    (=ks-x1001		. #x472A)	; ø»‰’‰
+    (=ks-x1001		. #x472A)	; &I-K0-472A;
     ))
 (define-char
   '((=ucs		. #xD479)	; í‘¹
-    (=ks-x1001		. #x472B)	; ø»‰’Š
+    (=ks-x1001		. #x472B)	; &I-K0-472B;
     ))
 (define-char
   '((=ucs		. #xD47C)	; í‘¼
-    (=ks-x1001		. #x472C)	; ø»‰’‹
+    (=ks-x1001		. #x472C)	; &I-K0-472C;
     ))
 (define-char
   '((=ucs		. #xD47F)	; í‘¿
-    (=ks-x1001		. #x472D)	; ø»‰’Œ
+    (=ks-x1001		. #x472D)	; &I-K0-472D;
     ))
 (define-char
   '((=ucs		. #xD480)	; í’€
-    (=ks-x1001		. #x472E)	; ø»‰’
-    (=jef-china3	. #x8CAF)	; øºˆ²¯
+    (=ks-x1001		. #x472E)	; &I-K0-472E;
+    (=jef-china3	. #x8CAF)	; &I-JC3-8CAF;
     ))
 (define-char
   '((=ucs		. #xD482)	; í’‚
-    (=ks-x1001		. #x472F)	; ø»‰’Ž
+    (=ks-x1001		. #x472F)	; &I-K0-472F;
     ))
 (define-char
   '((=ucs		. #xD488)	; í’ˆ
-    (=ks-x1001		. #x4730)	; ø»‰’
+    (=ks-x1001		. #x4730)	; &I-K0-4730;
     ))
 (define-char
   '((=ucs		. #xD489)	; í’‰
-    (=ks-x1001		. #x4731)	; ø»‰’
+    (=ks-x1001		. #x4731)	; &I-K0-4731;
     ))
 (define-char
   '((=ucs		. #xD48B)	; í’‹
-    (=ks-x1001		. #x4732)	; ø»‰’‘
+    (=ks-x1001		. #x4732)	; &I-K0-4732;
     ))
 (define-char
   '((=ucs		. #xD48D)	; í’
-    (=ks-x1001		. #x4733)	; ø»‰’’
+    (=ks-x1001		. #x4733)	; &I-K0-4733;
     ))
 (define-char
   '((=ucs		. #xD494)	; í’”
-    (=ks-x1001		. #x4734)	; ø»‰’“
+    (=ks-x1001		. #x4734)	; &I-K0-4734;
     ))
 (define-char
   '((=ucs		. #xD4A9)	; í’©
-    (=ks-x1001		. #x4735)	; ø»‰’”
+    (=ks-x1001		. #x4735)	; &I-K0-4735;
     ))
 (define-char
   '((=ucs		. #xD4CC)	; í“Œ
-    (=ks-x1001		. #x4736)	; ø»‰’•
+    (=ks-x1001		. #x4736)	; &I-K0-4736;
     ))
 (define-char
   '((=ucs		. #xD4D0)	; í“
-    (=ks-x1001		. #x4737)	; ø»‰’–
+    (=ks-x1001		. #x4737)	; &I-K0-4737;
     ))
 (define-char
   '((=ucs		. #xD4D4)	; í“”
-    (=ks-x1001		. #x4738)	; ø»‰’—
+    (=ks-x1001		. #x4738)	; &I-K0-4738;
     ))
 (define-char
   '((=ucs		. #xD4DC)	; í“œ
-    (=ks-x1001		. #x4739)	; ø»‰’˜
+    (=ks-x1001		. #x4739)	; &I-K0-4739;
     ))
 (define-char
   '((=ucs		. #xD4DF)	; í“Ÿ
-    (=ks-x1001		. #x473A)	; ø»‰’™
+    (=ks-x1001		. #x473A)	; &I-K0-473A;
     ))
 (define-char
   '((=ucs		. #xD4E8)	; í“¨
-    (=ks-x1001		. #x473B)	; ø»‰’š
+    (=ks-x1001		. #x473B)	; &I-K0-473B;
     ))
 (define-char
   '((=ucs		. #xD4EC)	; í“¬
-    (=ks-x1001		. #x473C)	; ø»‰’›
+    (=ks-x1001		. #x473C)	; &I-K0-473C;
     ))
 (define-char
   '((=ucs		. #xD4F0)	; í“°
-    (=ks-x1001		. #x473D)	; ø»‰’œ
+    (=ks-x1001		. #x473D)	; &I-K0-473D;
     ))
 (define-char
   '((=ucs		. #xD4F8)	; í“¸
-    (=ks-x1001		. #x473E)	; ø»‰’
+    (=ks-x1001		. #x473E)	; &I-K0-473E;
     ))
 (define-char
   '((=ucs		. #xD4FB)	; í“»
-    (=ks-x1001		. #x473F)	; ø»‰’ž
+    (=ks-x1001		. #x473F)	; &I-K0-473F;
     ))
 (define-char
   '((=ucs		. #xD4FD)	; í“½
-    (=ks-x1001		. #x4740)	; ø»‰’Ÿ
+    (=ks-x1001		. #x4740)	; &I-K0-4740;
     ))
 (define-char
   '((=ucs		. #xD504)	; í”„
-    (=ks-x1001		. #x4741)	; ø»‰’ 
+    (=ks-x1001		. #x4741)	; &I-K0-4741;
     ))
 (define-char
   '((=ucs		. #xD508)	; í”ˆ
-    (=ks-x1001		. #x4742)	; ø»‰’¡
+    (=ks-x1001		. #x4742)	; &I-K0-4742;
     ))
 (define-char
   '((=ucs		. #xD50C)	; í”Œ
-    (=ks-x1001		. #x4743)	; ø»‰’¢
+    (=ks-x1001		. #x4743)	; &I-K0-4743;
     ))
 (define-char
   '((=ucs		. #xD514)	; í””
-    (=ks-x1001		. #x4744)	; ø»‰’£
+    (=ks-x1001		. #x4744)	; &I-K0-4744;
     ))
 (define-char
   '((=ucs		. #xD515)	; í”•
-    (=ks-x1001		. #x4745)	; ø»‰’¤
+    (=ks-x1001		. #x4745)	; &I-K0-4745;
     ))
 (define-char
   '((=ucs		. #xD517)	; í”—
-    (=ks-x1001		. #x4746)	; ø»‰’¥
+    (=ks-x1001		. #x4746)	; &I-K0-4746;
     ))
 (define-char
   '((=ucs		. #xD53C)	; í”¼
-    (=ks-x1001		. #x4747)	; ø»‰’¦
+    (=ks-x1001		. #x4747)	; &I-K0-4747;
     ))
 (define-char
   '((=ucs		. #xD53D)	; í”½
-    (=ks-x1001		. #x4748)	; ø»‰’§
+    (=ks-x1001		. #x4748)	; &I-K0-4748;
     ))
 (define-char
   '((=ucs		. #xD540)	; í•€
-    (=ks-x1001		. #x4749)	; ø»‰’¨
+    (=ks-x1001		. #x4749)	; &I-K0-4749;
     ))
 (define-char
   '((=ucs		. #xD544)	; í•„
-    (=ks-x1001		. #x474A)	; ø»‰’©
+    (=ks-x1001		. #x474A)	; &I-K0-474A;
     ))
 (define-char
   '((=ucs		. #xD54C)	; í•Œ
-    (=ks-x1001		. #x474B)	; ø»‰’ª
+    (=ks-x1001		. #x474B)	; &I-K0-474B;
     ))
 (define-char
   '((=ucs		. #xD54D)	; í•
-    (=ks-x1001		. #x474C)	; ø»‰’«
+    (=ks-x1001		. #x474C)	; &I-K0-474C;
     ))
 (define-char
   '((=ucs		. #xD54F)	; í•
-    (=ks-x1001		. #x474D)	; ø»‰’¬
+    (=ks-x1001		. #x474D)	; &I-K0-474D;
     ))
 (define-char
   '((=ucs		. #xD551)	; í•‘
-    (=ks-x1001		. #x474E)	; ø»‰’­
+    (=ks-x1001		. #x474E)	; &I-K0-474E;
     ))
 (define-char
   '((=ucs		. #xD558)	; í•˜
-    (=ks-x1001		. #x474F)	; ø»‰’®
+    (=ks-x1001		. #x474F)	; &I-K0-474F;
     ))
 (define-char
   '((=ucs		. #xD559)	; í•™
-    (=ks-x1001		. #x4750)	; ø»‰’¯
-    (=jef-china3	. #x95B1)	; øº‰–±
+    (=ks-x1001		. #x4750)	; &I-K0-4750;
+    (=jef-china3	. #x95B1)	; &I-JC3-95B1;
     ))
 (define-char
   '((=ucs		. #xD55C)	; í•œ
-    (=ks-x1001		. #x4751)	; ø»‰’°
-    (=jef-china3	. #x94D6)	; øº‰“–
+    (=ks-x1001		. #x4751)	; &I-K0-4751;
+    (=jef-china3	. #x94D6)	; &I-JC3-94D6;
     ))
 (define-char
   '((=ucs		. #xD560)	; í• 
-    (=ks-x1001		. #x4752)	; ø»‰’±
-    (=jef-china3	. #x8CB6)	; øºˆ²¶
+    (=ks-x1001		. #x4752)	; &I-K0-4752;
+    (=jef-china3	. #x8CB6)	; &I-JC3-8CB6;
     ))
 (define-char
   '((=ucs		. #xD565)	; í•¥
-    (=ks-x1001		. #x4753)	; ø»‰’²
+    (=ks-x1001		. #x4753)	; &I-K0-4753;
     ))
 (define-char
   '((=ucs		. #xD568)	; í•¨
-    (=ks-x1001		. #x4754)	; ø»‰’³
+    (=ks-x1001		. #x4754)	; &I-K0-4754;
     ))
 (define-char
   '((=ucs		. #xD569)	; í•©
-    (=ks-x1001		. #x4755)	; ø»‰’´
+    (=ks-x1001		. #x4755)	; &I-K0-4755;
     ))
 (define-char
   '((=ucs		. #xD56B)	; í•«
-    (=ks-x1001		. #x4756)	; ø»‰’µ
+    (=ks-x1001		. #x4756)	; &I-K0-4756;
     ))
 (define-char
   '((=ucs		. #xD56D)	; í•­
-    (=ks-x1001		. #x4757)	; ø»‰’¶
+    (=ks-x1001		. #x4757)	; &I-K0-4757;
     ))
 (define-char
   '((=ucs		. #xD574)	; í•´
-    (=ks-x1001		. #x4758)	; ø»‰’·
+    (=ks-x1001		. #x4758)	; &I-K0-4758;
     ))
 (define-char
   '((=ucs		. #xD575)	; í•µ
-    (=ks-x1001		. #x4759)	; ø»‰’¸
+    (=ks-x1001		. #x4759)	; &I-K0-4759;
     ))
 (define-char
   '((=ucs		. #xD578)	; í•¸
-    (=ks-x1001		. #x475A)	; ø»‰’¹
+    (=ks-x1001		. #x475A)	; &I-K0-475A;
     ))
 (define-char
   '((=ucs		. #xD57C)	; í•¼
-    (=ks-x1001		. #x475B)	; ø»‰’º
+    (=ks-x1001		. #x475B)	; &I-K0-475B;
     ))
 (define-char
   '((=ucs		. #xD584)	; í–„
-    (=ks-x1001		. #x475C)	; ø»‰’»
+    (=ks-x1001		. #x475C)	; &I-K0-475C;
     ))
 (define-char
   '((=ucs		. #xD585)	; í–…
-    (=ks-x1001		. #x475D)	; ø»‰’¼
+    (=ks-x1001		. #x475D)	; &I-K0-475D;
     ))
 (define-char
   '((=ucs		. #xD587)	; í–‡
-    (=ks-x1001		. #x475E)	; ø»‰’½
+    (=ks-x1001		. #x475E)	; &I-K0-475E;
     ))
 (define-char
   '((=ucs		. #xD588)	; í–ˆ
-    (=ks-x1001		. #x475F)	; ø»‰’¾
+    (=ks-x1001		. #x475F)	; &I-K0-475F;
     ))
 (define-char
   '((=ucs		. #xD589)	; í–‰
-    (=ks-x1001		. #x4760)	; ø»‰’¿
+    (=ks-x1001		. #x4760)	; &I-K0-4760;
     ))
 (define-char
   '((=ucs		. #xD590)	; í–
-    (=ks-x1001		. #x4761)	; ø»‰“€
+    (=ks-x1001		. #x4761)	; &I-K0-4761;
     ))
 (define-char
   '((=ucs		. #xD5A5)	; í–¥
-    (=ks-x1001		. #x4762)	; ø»‰“
+    (=ks-x1001		. #x4762)	; &I-K0-4762;
     ))
 (define-char
   '((=ucs		. #xD5C8)	; í—ˆ
-    (=ks-x1001		. #x4763)	; ø»‰“‚
+    (=ks-x1001		. #x4763)	; &I-K0-4763;
     ))
 (define-char
   '((=ucs		. #xD5C9)	; í—‰
-    (=ks-x1001		. #x4764)	; ø»‰“ƒ
+    (=ks-x1001		. #x4764)	; &I-K0-4764;
     ))
 (define-char
   '((=ucs		. #xD5CC)	; í—Œ
-    (=ks-x1001		. #x4765)	; ø»‰“„
-    (=jef-china3	. #x8CA9)	; øºˆ²©
+    (=ks-x1001		. #x4765)	; &I-K0-4765;
+    (=jef-china3	. #x8CA9)	; &I-JC3-8CA9;
     ))
 (define-char
   '((=ucs		. #xD5D0)	; í—
-    (=ks-x1001		. #x4766)	; ø»‰“…
+    (=ks-x1001		. #x4766)	; &I-K0-4766;
     ))
 (define-char
   '((=ucs		. #xD5D2)	; í—’
-    (=ks-x1001		. #x4767)	; ø»‰“†
+    (=ks-x1001		. #x4767)	; &I-K0-4767;
     ))
 (define-char
   '((=ucs		. #xD5D8)	; í—˜
-    (=ks-x1001		. #x4768)	; ø»‰“‡
+    (=ks-x1001		. #x4768)	; &I-K0-4768;
     ))
 (define-char
   '((=ucs		. #xD5D9)	; í—™
-    (=ks-x1001		. #x4769)	; ø»‰“ˆ
+    (=ks-x1001		. #x4769)	; &I-K0-4769;
     ))
 (define-char
   '((=ucs		. #xD5DB)	; í—›
-    (=ks-x1001		. #x476A)	; ø»‰“‰
+    (=ks-x1001		. #x476A)	; &I-K0-476A;
     ))
 (define-char
   '((=ucs		. #xD5DD)	; í—
-    (=ks-x1001		. #x476B)	; ø»‰“Š
+    (=ks-x1001		. #x476B)	; &I-K0-476B;
     ))
 (define-char
   '((=ucs		. #xD5E4)	; í—¤
-    (=ks-x1001		. #x476C)	; ø»‰“‹
+    (=ks-x1001		. #x476C)	; &I-K0-476C;
     ))
 (define-char
   '((=ucs		. #xD5E5)	; í—¥
-    (=ks-x1001		. #x476D)	; ø»‰“Œ
+    (=ks-x1001		. #x476D)	; &I-K0-476D;
     ))
 (define-char
   '((=ucs		. #xD5E8)	; í—¨
-    (=ks-x1001		. #x476E)	; ø»‰“
+    (=ks-x1001		. #x476E)	; &I-K0-476E;
     ))
 (define-char
   '((=ucs		. #xD5EC)	; í—¬
-    (=ks-x1001		. #x476F)	; ø»‰“Ž
+    (=ks-x1001		. #x476F)	; &I-K0-476F;
     ))
 (define-char
   '((=ucs		. #xD5F4)	; í—´
-    (=ks-x1001		. #x4770)	; ø»‰“
+    (=ks-x1001		. #x4770)	; &I-K0-4770;
     ))
 (define-char
   '((=ucs		. #xD5F5)	; í—µ
-    (=ks-x1001		. #x4771)	; ø»‰“
+    (=ks-x1001		. #x4771)	; &I-K0-4771;
     ))
 (define-char
   '((=ucs		. #xD5F7)	; í—·
-    (=ks-x1001		. #x4772)	; ø»‰“‘
+    (=ks-x1001		. #x4772)	; &I-K0-4772;
     ))
 (define-char
   '((=ucs		. #xD5F9)	; í—¹
-    (=ks-x1001		. #x4773)	; ø»‰“’
+    (=ks-x1001		. #x4773)	; &I-K0-4773;
     ))
 (define-char
   '((=ucs		. #xD600)	; í˜€
-    (=ks-x1001		. #x4774)	; ø»‰““
-    (=jef-china3	. #x8CB2)	; øºˆ²²
+    (=ks-x1001		. #x4774)	; &I-K0-4774;
+    (=jef-china3	. #x8CB2)	; &I-JC3-8CB2;
     ))
 (define-char
   '((=ucs		. #xD601)	; í˜
-    (=ks-x1001		. #x4775)	; ø»‰“”
+    (=ks-x1001		. #x4775)	; &I-K0-4775;
     ))
 (define-char
   '((=ucs		. #xD604)	; í˜„
-    (=ks-x1001		. #x4776)	; ø»‰“•
+    (=ks-x1001		. #x4776)	; &I-K0-4776;
     ))
 (define-char
   '((=ucs		. #xD608)	; í˜ˆ
-    (=ks-x1001		. #x4777)	; ø»‰“–
+    (=ks-x1001		. #x4777)	; &I-K0-4777;
     ))
 (define-char
   '((=ucs		. #xD610)	; í˜
-    (=ks-x1001		. #x4778)	; ø»‰“—
+    (=ks-x1001		. #x4778)	; &I-K0-4778;
     ))
 (define-char
   '((=ucs		. #xD611)	; í˜‘
-    (=ks-x1001		. #x4779)	; ø»‰“˜
+    (=ks-x1001		. #x4779)	; &I-K0-4779;
     ))
 (define-char
   '((=ucs		. #xD613)	; í˜“
-    (=ks-x1001		. #x477A)	; ø»‰“™
+    (=ks-x1001		. #x477A)	; &I-K0-477A;
     ))
 (define-char
   '((=ucs		. #xD614)	; í˜”
-    (=ks-x1001		. #x477B)	; ø»‰“š
+    (=ks-x1001		. #x477B)	; &I-K0-477B;
     ))
 (define-char
   '((=ucs		. #xD615)	; í˜•
-    (=ks-x1001		. #x477C)	; ø»‰“›
+    (=ks-x1001		. #x477C)	; &I-K0-477C;
     ))
 (define-char
   '((=ucs		. #xD61C)	; í˜œ
-    (=ks-x1001		. #x477D)	; ø»‰“œ
+    (=ks-x1001		. #x477D)	; &I-K0-477D;
     ))
 (define-char
   '((=ucs		. #xD620)	; í˜ 
-    (=ks-x1001		. #x477E)	; ø»‰“
+    (=ks-x1001		. #x477E)	; &I-K0-477E;
     ))
 (define-char
   '((=ucs		. #xD624)	; í˜¤
-    (=ks-x1001		. #x4821)	; ø»‰“ž
+    (=ks-x1001		. #x4821)	; &I-K0-4821;
     ))
 (define-char
   '((=ucs		. #xD62D)	; í˜­
-    (=ks-x1001		. #x4822)	; ø»‰“Ÿ
+    (=ks-x1001		. #x4822)	; &I-K0-4822;
     ))
 (define-char
   '((=ucs		. #xD638)	; í˜¸
-    (=ks-x1001		. #x4823)	; ø»‰“ 
+    (=ks-x1001		. #x4823)	; &I-K0-4823;
     ))
 (define-char
   '((=ucs		. #xD639)	; í˜¹
-    (=ks-x1001		. #x4824)	; ø»‰“¡
+    (=ks-x1001		. #x4824)	; &I-K0-4824;
     ))
 (define-char
   '((=ucs		. #xD63C)	; í˜¼
-    (=ks-x1001		. #x4825)	; ø»‰“¢
+    (=ks-x1001		. #x4825)	; &I-K0-4825;
     ))
 (define-char
   '((=ucs		. #xD640)	; í™€
-    (=ks-x1001		. #x4826)	; ø»‰“£
+    (=ks-x1001		. #x4826)	; &I-K0-4826;
     ))
 (define-char
   '((=ucs		. #xD645)	; í™…
-    (=ks-x1001		. #x4827)	; ø»‰“¤
+    (=ks-x1001		. #x4827)	; &I-K0-4827;
     ))
 (define-char
   '((=ucs		. #xD648)	; í™ˆ
-    (=ks-x1001		. #x4828)	; ø»‰“¥
+    (=ks-x1001		. #x4828)	; &I-K0-4828;
     ))
 (define-char
   '((=ucs		. #xD649)	; í™‰
-    (=ks-x1001		. #x4829)	; ø»‰“¦
+    (=ks-x1001		. #x4829)	; &I-K0-4829;
     ))
 (define-char
   '((=ucs		. #xD64B)	; í™‹
-    (=ks-x1001		. #x482A)	; ø»‰“§
+    (=ks-x1001		. #x482A)	; &I-K0-482A;
     ))
 (define-char
   '((=ucs		. #xD64D)	; í™
-    (=ks-x1001		. #x482B)	; ø»‰“¨
+    (=ks-x1001		. #x482B)	; &I-K0-482B;
     ))
 (define-char
   '((=ucs		. #xD651)	; í™‘
-    (=ks-x1001		. #x482C)	; ø»‰“©
+    (=ks-x1001		. #x482C)	; &I-K0-482C;
     ))
 (define-char
   '((=ucs		. #xD654)	; í™”
-    (=ks-x1001		. #x482D)	; ø»‰“ª
-    (=jef-china3	. #x95B0)	; øº‰–°
+    (=ks-x1001		. #x482D)	; &I-K0-482D;
+    (=jef-china3	. #x95B0)	; &I-JC3-95B0;
     ))
 (define-char
   '((=ucs		. #xD655)	; í™•
-    (=ks-x1001		. #x482E)	; ø»‰“«
-    (=jef-china3	. #x8CB0)	; øºˆ²°
+    (=ks-x1001		. #x482E)	; &I-K0-482E;
+    (=jef-china3	. #x8CB0)	; &I-JC3-8CB0;
     ))
 (define-char
   '((=ucs		. #xD658)	; í™˜
-    (=ks-x1001		. #x482F)	; ø»‰“¬
+    (=ks-x1001		. #x482F)	; &I-K0-482F;
     ))
 (define-char
   '((=ucs		. #xD65C)	; í™œ
-    (=ks-x1001		. #x4830)	; ø»‰“­
+    (=ks-x1001		. #x4830)	; &I-K0-4830;
     ))
 (define-char
   '((=ucs		. #xD667)	; í™§
-    (=ks-x1001		. #x4831)	; ø»‰“®
+    (=ks-x1001		. #x4831)	; &I-K0-4831;
     ))
 (define-char
   '((=ucs		. #xD669)	; í™©
-    (=ks-x1001		. #x4832)	; ø»‰“¯
+    (=ks-x1001		. #x4832)	; &I-K0-4832;
     ))
 (define-char
   '((=ucs		. #xD670)	; í™°
-    (=ks-x1001		. #x4833)	; ø»‰“°
+    (=ks-x1001		. #x4833)	; &I-K0-4833;
     ))
 (define-char
   '((=ucs		. #xD671)	; í™±
-    (=ks-x1001		. #x4834)	; ø»‰“±
+    (=ks-x1001		. #x4834)	; &I-K0-4834;
     ))
 (define-char
   '((=ucs		. #xD674)	; í™´
-    (=ks-x1001		. #x4835)	; ø»‰“²
+    (=ks-x1001		. #x4835)	; &I-K0-4835;
     ))
 (define-char
   '((=ucs		. #xD683)	; íšƒ
-    (=ks-x1001		. #x4836)	; ø»‰“³
+    (=ks-x1001		. #x4836)	; &I-K0-4836;
     ))
 (define-char
   '((=ucs		. #xD685)	; íš…
-    (=ks-x1001		. #x4837)	; ø»‰“´
+    (=ks-x1001		. #x4837)	; &I-K0-4837;
     ))
 (define-char
   '((=ucs		. #xD68C)	; íšŒ
-    (=ks-x1001		. #x4838)	; ø»‰“µ
-    (=jef-china3	. #x83C8)	; øºˆˆ
+    (=ks-x1001		. #x4838)	; &I-K0-4838;
+    (=jef-china3	. #x83C8)	; &I-JC3-83C8;
     ))
 (define-char
   '((=>ucs		. #xD68C)	; íšŒ
-    (=jef-china3	. #x95EB)	; øº‰—«
+    (=jef-china3	. #x95EB)	; &JC3-95EB;
     ))
 (define-char
   '((=ucs		. #xD68D)	; íš
-    (=ks-x1001		. #x4839)	; ø»‰“¶
+    (=ks-x1001		. #x4839)	; &I-K0-4839;
     ))
 (define-char
   '((=ucs		. #xD690)	; íš
-    (=ks-x1001		. #x483A)	; ø»‰“·
+    (=ks-x1001		. #x483A)	; &I-K0-483A;
     ))
 (define-char
   '((=ucs		. #xD694)	; íš”
-    (=ks-x1001		. #x483B)	; ø»‰“¸
+    (=ks-x1001		. #x483B)	; &I-K0-483B;
     ))
 (define-char
   '((=ucs		. #xD69D)	; íš
-    (=ks-x1001		. #x483C)	; ø»‰“¹
+    (=ks-x1001		. #x483C)	; &I-K0-483C;
     ))
 (define-char
   '((=ucs		. #xD69F)	; íšŸ
-    (=ks-x1001		. #x483D)	; ø»‰“º
+    (=ks-x1001		. #x483D)	; &I-K0-483D;
     ))
 (define-char
   '((=ucs		. #xD6A1)	; íš¡
-    (=ks-x1001		. #x483E)	; ø»‰“»
+    (=ks-x1001		. #x483E)	; &I-K0-483E;
     ))
 (define-char
   '((=ucs		. #xD6A8)	; íš¨
-    (=ks-x1001		. #x483F)	; ø»‰“¼
+    (=ks-x1001		. #x483F)	; &I-K0-483F;
     ))
 (define-char
   '((=ucs		. #xD6AC)	; íš¬
-    (=ks-x1001		. #x4840)	; ø»‰“½
+    (=ks-x1001		. #x4840)	; &I-K0-4840;
     ))
 (define-char
   '((=ucs		. #xD6B0)	; íš°
-    (=ks-x1001		. #x4841)	; ø»‰“¾
+    (=ks-x1001		. #x4841)	; &I-K0-4841;
     ))
 (define-char
   '((=ucs		. #xD6B9)	; íš¹
-    (=ks-x1001		. #x4842)	; ø»‰“¿
+    (=ks-x1001		. #x4842)	; &I-K0-4842;
     ))
 (define-char
   '((=ucs		. #xD6BB)	; íš»
-    (=ks-x1001		. #x4843)	; ø»‰”€
+    (=ks-x1001		. #x4843)	; &I-K0-4843;
     ))
 (define-char
   '((=ucs		. #xD6C4)	; í›„
-    (=ks-x1001		. #x4844)	; ø»‰”
-    (=jef-china3	. #x82DE)	; øºˆ‹ž
+    (=ks-x1001		. #x4844)	; &I-K0-4844;
+    (=jef-china3	. #x82DE)	; &I-JC3-82DE;
     ))
 (define-char
   '((=ucs		. #xD6C5)	; í›…
-    (=ks-x1001		. #x4845)	; ø»‰”‚
+    (=ks-x1001		. #x4845)	; &I-K0-4845;
     ))
 (define-char
   '((=ucs		. #xD6C8)	; í›ˆ
-    (=ks-x1001		. #x4846)	; ø»‰”ƒ
+    (=ks-x1001		. #x4846)	; &I-K0-4846;
     ))
 (define-char
   '((=ucs		. #xD6CC)	; í›Œ
-    (=ks-x1001		. #x4847)	; ø»‰”„
+    (=ks-x1001		. #x4847)	; &I-K0-4847;
     ))
 (define-char
   '((=ucs		. #xD6D1)	; í›‘
-    (=ks-x1001		. #x4848)	; ø»‰”…
+    (=ks-x1001		. #x4848)	; &I-K0-4848;
     ))
 (define-char
   '((=ucs		. #xD6D4)	; í›”
-    (=ks-x1001		. #x4849)	; ø»‰”†
+    (=ks-x1001		. #x4849)	; &I-K0-4849;
     ))
 (define-char
   '((=ucs		. #xD6D7)	; í›—
-    (=ks-x1001		. #x484A)	; ø»‰”‡
+    (=ks-x1001		. #x484A)	; &I-K0-484A;
     ))
 (define-char
   '((=ucs		. #xD6D9)	; í›™
-    (=ks-x1001		. #x484B)	; ø»‰”ˆ
-    (=jef-china3	. #x82CF)	; øºˆ‹
+    (=ks-x1001		. #x484B)	; &I-K0-484B;
+    (=jef-china3	. #x82CF)	; &I-JC3-82CF;
     ))
 (define-char
   '((=ucs		. #xD6E0)	; í› 
-    (=ks-x1001		. #x484C)	; ø»‰”‰
+    (=ks-x1001		. #x484C)	; &I-K0-484C;
     ))
 (define-char
   '((=ucs		. #xD6E4)	; í›¤
-    (=ks-x1001		. #x484D)	; ø»‰”Š
+    (=ks-x1001		. #x484D)	; &I-K0-484D;
     ))
 (define-char
   '((=ucs		. #xD6E8)	; í›¨
-    (=ks-x1001		. #x484E)	; ø»‰”‹
+    (=ks-x1001		. #x484E)	; &I-K0-484E;
     ))
 (define-char
   '((=ucs		. #xD6F0)	; í›°
-    (=ks-x1001		. #x484F)	; ø»‰”Œ
+    (=ks-x1001		. #x484F)	; &I-K0-484F;
     ))
 (define-char
   '((=ucs		. #xD6F5)	; í›µ
-    (=ks-x1001		. #x4850)	; ø»‰”
+    (=ks-x1001		. #x4850)	; &I-K0-4850;
     ))
 (define-char
   '((=ucs		. #xD6FC)	; í›¼
-    (=ks-x1001		. #x4851)	; ø»‰”Ž
+    (=ks-x1001		. #x4851)	; &I-K0-4851;
     ))
 (define-char
   '((=ucs		. #xD6FD)	; í›½
-    (=ks-x1001		. #x4852)	; ø»‰”
+    (=ks-x1001		. #x4852)	; &I-K0-4852;
     ))
 (define-char
   '((=ucs		. #xD700)	; íœ€
-    (=ks-x1001		. #x4853)	; ø»‰”
+    (=ks-x1001		. #x4853)	; &I-K0-4853;
     ))
 (define-char
   '((=ucs		. #xD704)	; íœ„
-    (=ks-x1001		. #x4854)	; ø»‰”‘
+    (=ks-x1001		. #x4854)	; &I-K0-4854;
     ))
 (define-char
   '((=ucs		. #xD711)	; íœ‘
-    (=ks-x1001		. #x4855)	; ø»‰”’
+    (=ks-x1001		. #x4855)	; &I-K0-4855;
     ))
 (define-char
   '((=ucs		. #xD718)	; íœ˜
-    (=ks-x1001		. #x4856)	; ø»‰”“
+    (=ks-x1001		. #x4856)	; &I-K0-4856;
     ))
 (define-char
   '((=ucs		. #xD719)	; íœ™
-    (=ks-x1001		. #x4857)	; ø»‰””
+    (=ks-x1001		. #x4857)	; &I-K0-4857;
     ))
 (define-char
   '((=ucs		. #xD71C)	; íœœ
-    (=ks-x1001		. #x4858)	; ø»‰”•
+    (=ks-x1001		. #x4858)	; &I-K0-4858;
     ))
 (define-char
   '((=ucs		. #xD720)	; íœ 
-    (=ks-x1001		. #x4859)	; ø»‰”–
+    (=ks-x1001		. #x4859)	; &I-K0-4859;
     ))
 (define-char
   '((=ucs		. #xD728)	; íœ¨
-    (=ks-x1001		. #x485A)	; ø»‰”—
+    (=ks-x1001		. #x485A)	; &I-K0-485A;
     ))
 (define-char
   '((=ucs		. #xD729)	; íœ©
-    (=ks-x1001		. #x485B)	; ø»‰”˜
+    (=ks-x1001		. #x485B)	; &I-K0-485B;
     ))
 (define-char
   '((=ucs		. #xD72B)	; íœ«
-    (=ks-x1001		. #x485C)	; ø»‰”™
+    (=ks-x1001		. #x485C)	; &I-K0-485C;
     ))
 (define-char
   '((=ucs		. #xD72D)	; íœ­
-    (=ks-x1001		. #x485D)	; ø»‰”š
+    (=ks-x1001		. #x485D)	; &I-K0-485D;
     ))
 (define-char
   '((=ucs		. #xD734)	; íœ´
-    (=ks-x1001		. #x485E)	; ø»‰”›
+    (=ks-x1001		. #x485E)	; &I-K0-485E;
     ))
 (define-char
   '((=ucs		. #xD735)	; íœµ
-    (=ks-x1001		. #x485F)	; ø»‰”œ
+    (=ks-x1001		. #x485F)	; &I-K0-485F;
     ))
 (define-char
   '((=ucs		. #xD738)	; íœ¸
-    (=ks-x1001		. #x4860)	; ø»‰”
+    (=ks-x1001		. #x4860)	; &I-K0-4860;
     ))
 (define-char
   '((=ucs		. #xD73C)	; íœ¼
-    (=ks-x1001		. #x4861)	; ø»‰”ž
+    (=ks-x1001		. #x4861)	; &I-K0-4861;
     ))
 (define-char
   '((=ucs		. #xD744)	; í„
-    (=ks-x1001		. #x4862)	; ø»‰”Ÿ
+    (=ks-x1001		. #x4862)	; &I-K0-4862;
     ))
 (define-char
   '((=ucs		. #xD747)	; í‡
-    (=ks-x1001		. #x4863)	; ø»‰” 
+    (=ks-x1001		. #x4863)	; &I-K0-4863;
     ))
 (define-char
   '((=ucs		. #xD749)	; í‰
-    (=ks-x1001		. #x4864)	; ø»‰”¡
-    (=jef-china3	. #x83BA)	; øºˆŽº
+    (=ks-x1001		. #x4864)	; &I-K0-4864;
+    (=jef-china3	. #x83BA)	; &I-JC3-83BA;
     ))
 (define-char
   '((=ucs		. #xD750)	; í
-    (=ks-x1001		. #x4865)	; ø»‰”¢
+    (=ks-x1001		. #x4865)	; &I-K0-4865;
     ))
 (define-char
   '((=ucs		. #xD751)	; í‘
-    (=ks-x1001		. #x4866)	; ø»‰”£
+    (=ks-x1001		. #x4866)	; &I-K0-4866;
     ))
 (define-char
   '((=ucs		. #xD754)	; í”
-    (=ks-x1001		. #x4867)	; ø»‰”¤
+    (=ks-x1001		. #x4867)	; &I-K0-4867;
     ))
 (define-char
   '((=ucs		. #xD756)	; í–
-    (=ks-x1001		. #x4868)	; ø»‰”¥
+    (=ks-x1001		. #x4868)	; &I-K0-4868;
     ))
 (define-char
   '((=ucs		. #xD757)	; í—
-    (=ks-x1001		. #x4869)	; ø»‰”¦
+    (=ks-x1001		. #x4869)	; &I-K0-4869;
     ))
 (define-char
   '((=ucs		. #xD758)	; í˜
-    (=ks-x1001		. #x486A)	; ø»‰”§
+    (=ks-x1001		. #x486A)	; &I-K0-486A;
     ))
 (define-char
   '((=ucs		. #xD759)	; í™
-    (=ks-x1001		. #x486B)	; ø»‰”¨
+    (=ks-x1001		. #x486B)	; &I-K0-486B;
     ))
 (define-char
   '((=ucs		. #xD760)	; í 
-    (=ks-x1001		. #x486C)	; ø»‰”©
+    (=ks-x1001		. #x486C)	; &I-K0-486C;
     ))
 (define-char
   '((=ucs		. #xD761)	; í¡
-    (=ks-x1001		. #x486D)	; ø»‰”ª
+    (=ks-x1001		. #x486D)	; &I-K0-486D;
     ))
 (define-char
   '((=ucs		. #xD763)	; í£
-    (=ks-x1001		. #x486E)	; ø»‰”«
+    (=ks-x1001		. #x486E)	; &I-K0-486E;
     ))
 (define-char
   '((=ucs		. #xD765)	; í¥
-    (=ks-x1001		. #x486F)	; ø»‰”¬
+    (=ks-x1001		. #x486F)	; &I-K0-486F;
     ))
 (define-char
   '((=ucs		. #xD769)	; í©
-    (=ks-x1001		. #x4870)	; ø»‰”­
+    (=ks-x1001		. #x4870)	; &I-K0-4870;
     ))
 (define-char
   '((=ucs		. #xD76C)	; í¬
-    (=ks-x1001		. #x4871)	; ø»‰”®
+    (=ks-x1001		. #x4871)	; &I-K0-4871;
     ))
 (define-char
   '((=ucs		. #xD770)	; í°
-    (=ks-x1001		. #x4872)	; ø»‰”¯
+    (=ks-x1001		. #x4872)	; &I-K0-4872;
     ))
 (define-char
   '((=ucs		. #xD774)	; í´
-    (=ks-x1001		. #x4873)	; ø»‰”°
+    (=ks-x1001		. #x4873)	; &I-K0-4873;
     ))
 (define-char
   '((=ucs		. #xD77C)	; í¼
-    (=ks-x1001		. #x4874)	; ø»‰”±
+    (=ks-x1001		. #x4874)	; &I-K0-4874;
     ))
 (define-char
   '((=ucs		. #xD77D)	; í½
-    (=ks-x1001		. #x4875)	; ø»‰”²
+    (=ks-x1001		. #x4875)	; &I-K0-4875;
     ))
 (define-char
   '((=ucs		. #xD781)	; íž
-    (=ks-x1001		. #x4876)	; ø»‰”³
+    (=ks-x1001		. #x4876)	; &I-K0-4876;
     ))
 (define-char
   '((=ucs		. #xD788)	; ížˆ
-    (=ks-x1001		. #x4877)	; ø»‰”´
+    (=ks-x1001		. #x4877)	; &I-K0-4877;
     ))
 (define-char
   '((=ucs		. #xD789)	; íž‰
-    (=ks-x1001		. #x4878)	; ø»‰”µ
+    (=ks-x1001		. #x4878)	; &I-K0-4878;
     ))
 (define-char
   '((=ucs		. #xD78C)	; ížŒ
-    (=ks-x1001		. #x4879)	; ø»‰”¶
+    (=ks-x1001		. #x4879)	; &I-K0-4879;
     ))
 (define-char
   '((=ucs		. #xD790)	; íž
-    (=ks-x1001		. #x487A)	; ø»‰”·
+    (=ks-x1001		. #x487A)	; &I-K0-487A;
     ))
 (define-char
   '((=ucs		. #xD798)	; íž˜
-    (=ks-x1001		. #x487B)	; ø»‰”¸
+    (=ks-x1001		. #x487B)	; &I-K0-487B;
     ))
 (define-char
   '((=ucs		. #xD799)	; íž™
-    (=ks-x1001		. #x487C)	; ø»‰”¹
+    (=ks-x1001		. #x487C)	; &I-K0-487C;
     ))
 (define-char
   '((=ucs		. #xD79B)	; íž›
-    (=ks-x1001		. #x487D)	; ø»‰”º
+    (=ks-x1001		. #x487D)	; &I-K0-487D;
     ))
 (define-char
   '((=ucs		. #xD79D)	; íž
-    (=ks-x1001		. #x487E)	; ø»‰”»
+    (=ks-x1001		. #x487E)	; &I-K0-487E;
     ))
 (define-char
   '((general-category	letter other) ; Informative Category

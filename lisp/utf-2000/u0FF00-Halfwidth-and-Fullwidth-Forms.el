@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "FULLWIDTH EXCLAMATION MARK")
     (general-category	punctuation other) ; Informative Category
@@ -10,11 +10,11 @@
       (=ucs		  . #x0021)	; !
       ))
     (=ucs		. #xFF01)	; ï¼
-    (=jis-x0208		. #x212A)	; ø½‰¶…
-    (=gb2312		. #x2321)	; ø»„‰€
-    (=ks-x1001		. #x2321)	; ø»ˆˆ
-    (=cns11643-1	. #x212A)	; ø»‘‚¥
-    (=big5		. #xA149)	; ý¢€Š…‰
+    (=jis-x0208		. #x212A)	; &I-J90-212A;
+    (=gb2312		. #x2321)	; &I-G0-2321;
+    (=ks-x1001		. #x2321)	; &I-K0-2321;
+    (=cns11643-1	. #x212A)	; &I-C1-212A;
+    (=big5		. #xA149)	; &I-B-A149;
     ))
 (define-char
   '((name		. "FULLWIDTH QUOTATION MARK")
@@ -27,10 +27,10 @@
       (=ucs		  . #x0022)	; "
       ))
     (=ucs		. #xFF02)	; ï¼‚
-    (=gb2312		. #x2322)	; ø»„‰
-    (=ks-x1001		. #x2322)	; ø»ˆ‰
-    (=jis-x0213-1-2000	. #x2230)	; ø»¢”©
-    (=big5-eten		. #xC8D0)	; ý¢€Œ£
+    (=gb2312		. #x2322)	; &I-G0-2322;
+    (=ks-x1001		. #x2322)	; &I-K0-2322;
+    (=jis-x0213-1-2000	. #x2230)	; &I-JX1-2230;
+    (=big5-eten		. #xC8D0)	; &B-C8D0;
     ))
 (define-char
   '((name		. "FULLWIDTH NUMBER SIGN")
@@ -43,11 +43,11 @@
       (=ucs		  . #x0023)	; #
       ))
     (=ucs		. #xFF03)	; ï¼ƒ
-    (=jis-x0208		. #x2174)	; ø½‰·
-    (=gb2312		. #x2323)	; ø»„‰‚
-    (=ks-x1001		. #x2323)	; ø»ˆŠ
-    (=cns11643-1	. #x216C)	; ø»‘ƒ§
-    (=big5		. #xA1AD)	; ý¢€Š†­
+    (=jis-x0208		. #x2174)	; &I-J90-2174;
+    (=gb2312		. #x2323)	; &I-G0-2323;
+    (=ks-x1001		. #x2323)	; &I-K0-2323;
+    (=cns11643-1	. #x216C)	; &I-C1-216C;
+    (=big5		. #xA1AD)	; &I-B-A1AD;
     ))
 (define-char
   '((name		. "FULLWIDTH DOLLAR SIGN")
@@ -60,11 +60,11 @@
       (=ucs		  . #x0024)	; $
       ))
     (=ucs		. #xFF04)	; ï¼„
-    (=jis-x0208		. #x2170)	; ø½‰·‹
-    (=gb2312		. #x2167)	; ø»„‡Š
-    (=ks-x1001		. #x2324)	; ø»ˆ‹
-    (=cns11643-1	. #x2263)	; ø»‘„¼
-    (=big5		. #xA243)	; ý¢€Š‰ƒ
+    (=jis-x0208		. #x2170)	; &I-J90-2170;
+    (=gb2312		. #x2167)	; &I-G0-2167;
+    (=ks-x1001		. #x2324)	; &I-K0-2324;
+    (=cns11643-1	. #x2263)	; &I-C1-2263;
+    (=big5		. #xA243)	; &I-B-A243;
     ))
 (define-char
   '((name		. "FULLWIDTH PERCENT SIGN")
@@ -77,11 +77,11 @@
       (=ucs		  . #x0025)	; %
       ))
     (=ucs		. #xFF05)	; ï¼…
-    (=jis-x0208		. #x2173)	; ø½‰·Ž
-    (=gb2312		. #x2325)	; ø»„‰„
-    (=ks-x1001		. #x2325)	; ø»ˆŒ
-    (=cns11643-1	. #x2268)	; ø»‘…
-    (=big5		. #xA248)	; ý¢€Š‰ˆ
+    (=jis-x0208		. #x2173)	; &I-J90-2173;
+    (=gb2312		. #x2325)	; &I-G0-2325;
+    (=ks-x1001		. #x2325)	; &I-K0-2325;
+    (=cns11643-1	. #x2268)	; &I-C1-2268;
+    (=big5		. #xA248)	; &I-B-A248;
     ))
 (define-char
   '((name		. "FULLWIDTH AMPERSAND")
@@ -94,11 +94,11 @@
       (=ucs		  . #x0026)	; &
       ))
     (=ucs		. #xFF06)	; ï¼†
-    (=jis-x0208		. #x2175)	; ø½‰·
-    (=gb2312		. #x2326)	; ø»„‰…
-    (=ks-x1001		. #x2326)	; ø»ˆ
-    (=cns11643-1	. #x216D)	; ø»‘ƒ¨
-    (=big5		. #xA1AE)	; ý¢€Š†®
+    (=jis-x0208		. #x2175)	; &I-J90-2175;
+    (=gb2312		. #x2326)	; &I-G0-2326;
+    (=ks-x1001		. #x2326)	; &I-K0-2326;
+    (=cns11643-1	. #x216D)	; &I-C1-216D;
+    (=big5		. #xA1AE)	; &I-B-A1AE;
     ))
 (define-char
   '((name		. "FULLWIDTH APOSTROPHE")
@@ -111,10 +111,10 @@
       (=ucs		  . #x0027)	; '
       ))
     (=ucs		. #xFF07)	; ï¼‡
-    (=gb2312		. #x2327)	; ø»„‰†
-    (=ks-x1001		. #x2327)	; ø»ˆŽ
-    (=jis-x0213-1-2000	. #x222F)	; ø»¢”¨
-    (=big5-eten		. #xC8CF)	; ý¢€Œ£
+    (=gb2312		. #x2327)	; &I-G0-2327;
+    (=ks-x1001		. #x2327)	; &I-K0-2327;
+    (=jis-x0213-1-2000	. #x222F)	; &I-JX1-222F;
+    (=big5-eten		. #xC8CF)	; &B-C8CF;
     ))
 (define-char
   '((name		. "FULLWIDTH LEFT PARENTHESIS")
@@ -127,11 +127,11 @@
       (=ucs		  . #x0028)	; (
       ))
     (=ucs		. #xFF08)	; ï¼ˆ
-    (=jis-x0208		. #x214A)	; ø½‰¶¥
-    (=gb2312		. #x2328)	; ø»„‰‡
-    (=ks-x1001		. #x2328)	; ø»ˆ
-    (=cns11643-1	. #x213E)	; ø»‘‚¹
-    (=big5		. #xA15D)	; ý¢€Š…
+    (=jis-x0208		. #x214A)	; &I-J90-214A;
+    (=gb2312		. #x2328)	; &I-G0-2328;
+    (=ks-x1001		. #x2328)	; &I-K0-2328;
+    (=cns11643-1	. #x213E)	; &I-C1-213E;
+    (=big5		. #xA15D)	; &I-B-A15D;
     ))
 (define-char
   '((name		. "FULLWIDTH RIGHT PARENTHESIS")
@@ -144,11 +144,11 @@
       (=ucs		  . #x0029)	; )
       ))
     (=ucs		. #xFF09)	; ï¼‰
-    (=jis-x0208		. #x214B)	; ø½‰¶¦
-    (=gb2312		. #x2329)	; ø»„‰ˆ
-    (=ks-x1001		. #x2329)	; ø»ˆ
-    (=cns11643-1	. #x213F)	; ø»‘‚º
-    (=big5		. #xA15E)	; ý¢€Š…ž
+    (=jis-x0208		. #x214B)	; &I-J90-214B;
+    (=gb2312		. #x2329)	; &I-G0-2329;
+    (=ks-x1001		. #x2329)	; &I-K0-2329;
+    (=cns11643-1	. #x213F)	; &I-C1-213F;
+    (=big5		. #xA15E)	; &I-B-A15E;
     ))
 (define-char
   '((name		. "FULLWIDTH ASTERISK")
@@ -161,11 +161,11 @@
       (=ucs		  . #x002A)	; *
       ))
     (=ucs		. #xFF0A)	; ï¼Š
-    (=jis-x0208		. #x2176)	; ø½‰·‘
-    (=gb2312		. #x232A)	; ø»„‰‰
-    (=ks-x1001		. #x232A)	; ø»ˆ‘
-    (=cns11643-1	. #x216E)	; ø»‘ƒ©
-    (=big5		. #xA1AF)	; ý¢€Š†¯
+    (=jis-x0208		. #x2176)	; &I-J90-2176;
+    (=gb2312		. #x232A)	; &I-G0-232A;
+    (=ks-x1001		. #x232A)	; &I-K0-232A;
+    (=cns11643-1	. #x216E)	; &I-C1-216E;
+    (=big5		. #xA1AF)	; &I-B-A1AF;
     ))
 (define-char
   '((name		. "FULLWIDTH PLUS SIGN")
@@ -178,11 +178,11 @@
       (=ucs		  . #x002B)	; +
       ))
     (=ucs		. #xFF0B)	; ï¼‹
-    (=jis-x0208		. #x215C)	; ø½‰¶·
-    (=gb2312		. #x232B)	; ø»„‰Š
-    (=ks-x1001		. #x232B)	; ø»ˆ’
-    (=cns11643-1	. #x2230)	; ø»‘„‰
-    (=big5		. #xA1CF)	; ý¢€Š‡
+    (=jis-x0208		. #x215C)	; &I-J90-215C;
+    (=gb2312		. #x232B)	; &I-G0-232B;
+    (=ks-x1001		. #x232B)	; &I-K0-232B;
+    (=cns11643-1	. #x2230)	; &I-C1-2230;
+    (=big5		. #xA1CF)	; &I-B-A1CF;
     ))
 (define-char
   '((name		. "FULLWIDTH COMMA")
@@ -195,11 +195,11 @@
       (=ucs		  . #x002C)	; ,
       ))
     (=ucs		. #xFF0C)	; ï¼Œ
-    (=jis-x0208		. #x2124)	; ø½‰µ¿
-    (=gb2312		. #x232C)	; ø»„‰‹
-    (=ks-x1001		. #x232C)	; ø»ˆ“
-    (=cns11643-1	. #x2122)	; ø»‘‚
-    (=big5		. #xA141)	; ý¢€Š…
+    (=jis-x0208		. #x2124)	; &I-J90-2124;
+    (=gb2312		. #x232C)	; &I-G0-232C;
+    (=ks-x1001		. #x232C)	; &I-K0-232C;
+    (=cns11643-1	. #x2122)	; &I-C1-2122;
+    (=big5		. #xA141)	; &I-B-A141;
     ))
 (define-char
   '((name		. "FULLWIDTH HYPHEN-MINUS")
@@ -212,11 +212,11 @@
       (=ucs		  . #x002D)	; -
       ))
     (=ucs		. #xFF0D)	; ï¼
-    (=gb2312		. #x232D)	; ø»„‰Œ
-    (=ks-x1001		. #x232D)	; ø»ˆ”
-    (=cns11643-1	. #x2231)	; ø»‘„Š
-    (=jis-x0213-1-2000	. #x2231)	; ø»¢”ª
-    (=big5		. #xA1D0)	; ý¢€Š‡
+    (=gb2312		. #x232D)	; &I-G0-232D;
+    (=ks-x1001		. #x232D)	; &I-K0-232D;
+    (=cns11643-1	. #x2231)	; &I-C1-2231;
+    (=jis-x0213-1-2000	. #x2231)	; &I-JX1-2231;
+    (=big5		. #xA1D0)	; &I-B-A1D0;
     ))
 (define-char
   '((name		. "FULLWIDTH FULL STOP")
@@ -229,11 +229,11 @@
       (=ucs		  . #x002E)	; .
       ))
     (=ucs		. #xFF0E)	; ï¼Ž
-    (=jis-x0208		. #x2125)	; ø½‰¶€
-    (=gb2312		. #x232E)	; ø»„‰
-    (=ks-x1001		. #x232E)	; ø»ˆ•
-    (=cns11643-1	. #x2125)	; ø»‘‚ 
-    (=big5		. #xA144)	; ý¢€Š…„
+    (=jis-x0208		. #x2125)	; &I-J90-2125;
+    (=gb2312		. #x232E)	; &I-G0-232E;
+    (=ks-x1001		. #x232E)	; &I-K0-232E;
+    (=cns11643-1	. #x2125)	; &I-C1-2125;
+    (=big5		. #xA144)	; &I-B-A144;
     ))
 (define-char
   '((name		. "FULLWIDTH SOLIDUS")
@@ -246,10 +246,10 @@
       (=ucs		  . #x002F)	; /
       ))
     (=ucs		. #xFF0F)	; ï¼
-    (=jis-x0208		. #x213F)	; ø½‰¶š
-    (=gb2312		. #x232F)	; ø»„‰Ž
-    (=ks-x1001		. #x232F)	; ø»ˆ–
-    (=big5		. #xA1FE)	; ý¢€Š‡¾
+    (=jis-x0208		. #x213F)	; &I-J90-213F;
+    (=gb2312		. #x232F)	; &I-G0-232F;
+    (=ks-x1001		. #x232F)	; &I-K0-232F;
+    (=big5		. #xA1FE)	; &I-B-A1FE;
     ))
 (define-char
   '((name		. "FULLWIDTH DIGIT ZERO")
@@ -265,11 +265,11 @@
       (=ucs		  . #x0030)	; 0
       ))
     (=ucs		. #xFF10)	; ï¼
-    (=jis-x0208		. #x2330)	; ø½‰¹‡
-    (=gb2312		. #x2330)	; ø»„‰
-    (=ks-x1001		. #x2330)	; ø»ˆ—
-    (=cns11643-1	. #x2421)	; ø»‘†¶
-    (=big5		. #xA2AF)	; ý¢€ŠŠ¯
+    (=jis-x0208		. #x2330)	; &I-J90-2330;
+    (=gb2312		. #x2330)	; &I-G0-2330;
+    (=ks-x1001		. #x2330)	; &I-K0-2330;
+    (=cns11643-1	. #x2421)	; &I-C1-2421;
+    (=big5		. #xA2AF)	; &I-B-A2AF;
     ))
 (define-char
   '((name		. "FULLWIDTH DIGIT ONE")
@@ -285,11 +285,11 @@
       (=ucs		  . #x0031)	; 1
       ))
     (=ucs		. #xFF11)	; ï¼‘
-    (=jis-x0208		. #x2331)	; ø½‰¹ˆ
-    (=gb2312		. #x2331)	; ø»„‰
-    (=ks-x1001		. #x2331)	; ø»ˆ˜
-    (=cns11643-1	. #x2422)	; ø»‘†·
-    (=big5		. #xA2B0)	; ý¢€ŠŠ°
+    (=jis-x0208		. #x2331)	; &I-J90-2331;
+    (=gb2312		. #x2331)	; &I-G0-2331;
+    (=ks-x1001		. #x2331)	; &I-K0-2331;
+    (=cns11643-1	. #x2422)	; &I-C1-2422;
+    (=big5		. #xA2B0)	; &I-B-A2B0;
     ))
 (define-char
   '((name		. "FULLWIDTH DIGIT TWO")
@@ -305,11 +305,11 @@
       (=ucs		  . #x0032)	; 2
       ))
     (=ucs		. #xFF12)	; ï¼’
-    (=jis-x0208		. #x2332)	; ø½‰¹‰
-    (=gb2312		. #x2332)	; ø»„‰‘
-    (=ks-x1001		. #x2332)	; ø»ˆ™
-    (=cns11643-1	. #x2423)	; ø»‘†¸
-    (=big5		. #xA2B1)	; ý¢€ŠŠ±
+    (=jis-x0208		. #x2332)	; &I-J90-2332;
+    (=gb2312		. #x2332)	; &I-G0-2332;
+    (=ks-x1001		. #x2332)	; &I-K0-2332;
+    (=cns11643-1	. #x2423)	; &I-C1-2423;
+    (=big5		. #xA2B1)	; &I-B-A2B1;
     ))
 (define-char
   '((name		. "FULLWIDTH DIGIT THREE")
@@ -325,11 +325,11 @@
       (=ucs		  . #x0033)	; 3
       ))
     (=ucs		. #xFF13)	; ï¼“
-    (=jis-x0208		. #x2333)	; ø½‰¹Š
-    (=gb2312		. #x2333)	; ø»„‰’
-    (=ks-x1001		. #x2333)	; ø»ˆš
-    (=cns11643-1	. #x2424)	; ø»‘†¹
-    (=big5		. #xA2B2)	; ý¢€ŠŠ²
+    (=jis-x0208		. #x2333)	; &I-J90-2333;
+    (=gb2312		. #x2333)	; &I-G0-2333;
+    (=ks-x1001		. #x2333)	; &I-K0-2333;
+    (=cns11643-1	. #x2424)	; &I-C1-2424;
+    (=big5		. #xA2B2)	; &I-B-A2B2;
     ))
 (define-char
   '((name		. "FULLWIDTH DIGIT FOUR")
@@ -345,11 +345,11 @@
       (=ucs		  . #x0034)	; 4
       ))
     (=ucs		. #xFF14)	; ï¼”
-    (=jis-x0208		. #x2334)	; ø½‰¹‹
-    (=gb2312		. #x2334)	; ø»„‰“
-    (=ks-x1001		. #x2334)	; ø»ˆ›
-    (=cns11643-1	. #x2425)	; ø»‘†º
-    (=big5		. #xA2B3)	; ý¢€ŠŠ³
+    (=jis-x0208		. #x2334)	; &I-J90-2334;
+    (=gb2312		. #x2334)	; &I-G0-2334;
+    (=ks-x1001		. #x2334)	; &I-K0-2334;
+    (=cns11643-1	. #x2425)	; &I-C1-2425;
+    (=big5		. #xA2B3)	; &I-B-A2B3;
     ))
 (define-char
   '((name		. "FULLWIDTH DIGIT FIVE")
@@ -365,11 +365,11 @@
       (=ucs		  . #x0035)	; 5
       ))
     (=ucs		. #xFF15)	; ï¼•
-    (=jis-x0208		. #x2335)	; ø½‰¹Œ
-    (=gb2312		. #x2335)	; ø»„‰”
-    (=ks-x1001		. #x2335)	; ø»ˆœ
-    (=cns11643-1	. #x2426)	; ø»‘†»
-    (=big5		. #xA2B4)	; ý¢€ŠŠ´
+    (=jis-x0208		. #x2335)	; &I-J90-2335;
+    (=gb2312		. #x2335)	; &I-G0-2335;
+    (=ks-x1001		. #x2335)	; &I-K0-2335;
+    (=cns11643-1	. #x2426)	; &I-C1-2426;
+    (=big5		. #xA2B4)	; &I-B-A2B4;
     ))
 (define-char
   '((name		. "FULLWIDTH DIGIT SIX")
@@ -385,11 +385,11 @@
       (=ucs		  . #x0036)	; 6
       ))
     (=ucs		. #xFF16)	; ï¼–
-    (=jis-x0208		. #x2336)	; ø½‰¹
-    (=gb2312		. #x2336)	; ø»„‰•
-    (=ks-x1001		. #x2336)	; ø»ˆ
-    (=cns11643-1	. #x2427)	; ø»‘†¼
-    (=big5		. #xA2B5)	; ý¢€ŠŠµ
+    (=jis-x0208		. #x2336)	; &I-J90-2336;
+    (=gb2312		. #x2336)	; &I-G0-2336;
+    (=ks-x1001		. #x2336)	; &I-K0-2336;
+    (=cns11643-1	. #x2427)	; &I-C1-2427;
+    (=big5		. #xA2B5)	; &I-B-A2B5;
     ))
 (define-char
   '((name		. "FULLWIDTH DIGIT SEVEN")
@@ -405,11 +405,11 @@
       (=ucs		  . #x0037)	; 7
       ))
     (=ucs		. #xFF17)	; ï¼—
-    (=jis-x0208		. #x2337)	; ø½‰¹Ž
-    (=gb2312		. #x2337)	; ø»„‰–
-    (=ks-x1001		. #x2337)	; ø»ˆž
-    (=cns11643-1	. #x2428)	; ø»‘†½
-    (=big5		. #xA2B6)	; ý¢€ŠŠ¶
+    (=jis-x0208		. #x2337)	; &I-J90-2337;
+    (=gb2312		. #x2337)	; &I-G0-2337;
+    (=ks-x1001		. #x2337)	; &I-K0-2337;
+    (=cns11643-1	. #x2428)	; &I-C1-2428;
+    (=big5		. #xA2B6)	; &I-B-A2B6;
     ))
 (define-char
   '((name		. "FULLWIDTH DIGIT EIGHT")
@@ -425,11 +425,11 @@
       (=ucs		  . #x0038)	; 8
       ))
     (=ucs		. #xFF18)	; ï¼˜
-    (=jis-x0208		. #x2338)	; ø½‰¹
-    (=gb2312		. #x2338)	; ø»„‰—
-    (=ks-x1001		. #x2338)	; ø»ˆŸ
-    (=cns11643-1	. #x2429)	; ø»‘†¾
-    (=big5		. #xA2B7)	; ý¢€ŠŠ·
+    (=jis-x0208		. #x2338)	; &I-J90-2338;
+    (=gb2312		. #x2338)	; &I-G0-2338;
+    (=ks-x1001		. #x2338)	; &I-K0-2338;
+    (=cns11643-1	. #x2429)	; &I-C1-2429;
+    (=big5		. #xA2B7)	; &I-B-A2B7;
     ))
 (define-char
   '((name		. "FULLWIDTH DIGIT NINE")
@@ -445,11 +445,11 @@
       (=ucs		  . #x0039)	; 9
       ))
     (=ucs		. #xFF19)	; ï¼™
-    (=jis-x0208		. #x2339)	; ø½‰¹
-    (=gb2312		. #x2339)	; ø»„‰˜
-    (=ks-x1001		. #x2339)	; ø»ˆ 
-    (=cns11643-1	. #x242A)	; ø»‘†¿
-    (=big5		. #xA2B8)	; ý¢€ŠŠ¸
+    (=jis-x0208		. #x2339)	; &I-J90-2339;
+    (=gb2312		. #x2339)	; &I-G0-2339;
+    (=ks-x1001		. #x2339)	; &I-K0-2339;
+    (=cns11643-1	. #x242A)	; &I-C1-242A;
+    (=big5		. #xA2B8)	; &I-B-A2B8;
     ))
 (define-char
   '((name		. "FULLWIDTH COLON")
@@ -462,11 +462,11 @@
       (=ucs		  . #x003A)	; :
       ))
     (=ucs		. #xFF1A)	; ï¼š
-    (=jis-x0208		. #x2127)	; ø½‰¶‚
-    (=gb2312		. #x233A)	; ø»„‰™
-    (=ks-x1001		. #x233A)	; ø»ˆ¡
-    (=cns11643-1	. #x2128)	; ø»‘‚£
-    (=big5		. #xA147)	; ý¢€Š…‡
+    (=jis-x0208		. #x2127)	; &I-J90-2127;
+    (=gb2312		. #x233A)	; &I-G0-233A;
+    (=ks-x1001		. #x233A)	; &I-K0-233A;
+    (=cns11643-1	. #x2128)	; &I-C1-2128;
+    (=big5		. #xA147)	; &I-B-A147;
     ))
 (define-char
   '((name		. "FULLWIDTH SEMICOLON")
@@ -479,11 +479,11 @@
       (=ucs		  . #x003B)	; ;
       ))
     (=ucs		. #xFF1B)	; ï¼›
-    (=jis-x0208		. #x2128)	; ø½‰¶ƒ
-    (=gb2312		. #x233B)	; ø»„‰š
-    (=ks-x1001		. #x233B)	; ø»ˆ¢
-    (=cns11643-1	. #x2127)	; ø»‘‚¢
-    (=big5		. #xA146)	; ý¢€Š…†
+    (=jis-x0208		. #x2128)	; &I-J90-2128;
+    (=gb2312		. #x233B)	; &I-G0-233B;
+    (=ks-x1001		. #x233B)	; &I-K0-233B;
+    (=cns11643-1	. #x2127)	; &I-C1-2127;
+    (=big5		. #xA146)	; &I-B-A146;
     ))
 (define-char
   '((name		. "FULLWIDTH LESS-THAN SIGN")
@@ -496,11 +496,11 @@
       (=ucs		  . #x003C)	; <
       ))
     (=ucs		. #xFF1C)	; ï¼œ
-    (=jis-x0208		. #x2163)	; ø½‰¶¾
-    (=gb2312		. #x233C)	; ø»„‰›
-    (=ks-x1001		. #x233C)	; ø»ˆ£
-    (=cns11643-1	. #x2236)	; ø»‘„
-    (=big5		. #xA1D5)	; ý¢€Š‡•
+    (=jis-x0208		. #x2163)	; &I-J90-2163;
+    (=gb2312		. #x233C)	; &I-G0-233C;
+    (=ks-x1001		. #x233C)	; &I-K0-233C;
+    (=cns11643-1	. #x2236)	; &I-C1-2236;
+    (=big5		. #xA1D5)	; &I-B-A1D5;
     ))
 (define-char
   '((name		. "FULLWIDTH EQUALS SIGN")
@@ -513,11 +513,11 @@
       (=ucs		  . #x003D)	; =
       ))
     (=ucs		. #xFF1D)	; ï¼
-    (=jis-x0208		. #x2161)	; ø½‰¶¼
-    (=gb2312		. #x233D)	; ø»„‰œ
-    (=ks-x1001		. #x233D)	; ø»ˆ¤
-    (=cns11643-1	. #x2238)	; ø»‘„‘
-    (=big5		. #xA1D7)	; ý¢€Š‡—
+    (=jis-x0208		. #x2161)	; &I-J90-2161;
+    (=gb2312		. #x233D)	; &I-G0-233D;
+    (=ks-x1001		. #x233D)	; &I-K0-233D;
+    (=cns11643-1	. #x2238)	; &I-C1-2238;
+    (=big5		. #xA1D7)	; &I-B-A1D7;
     ))
 (define-char
   '((name		. "FULLWIDTH GREATER-THAN SIGN")
@@ -530,11 +530,11 @@
       (=ucs		  . #x003E)	; >
       ))
     (=ucs		. #xFF1E)	; ï¼ž
-    (=jis-x0208		. #x2164)	; ø½‰¶¿
-    (=gb2312		. #x233E)	; ø»„‰
-    (=ks-x1001		. #x233E)	; ø»ˆ¥
-    (=cns11643-1	. #x2237)	; ø»‘„
-    (=big5		. #xA1D6)	; ý¢€Š‡–
+    (=jis-x0208		. #x2164)	; &I-J90-2164;
+    (=gb2312		. #x233E)	; &I-G0-233E;
+    (=ks-x1001		. #x233E)	; &I-K0-233E;
+    (=cns11643-1	. #x2237)	; &I-C1-2237;
+    (=big5		. #xA1D6)	; &I-B-A1D6;
     ))
 (define-char
   '((name		. "FULLWIDTH QUESTION MARK")
@@ -547,11 +547,11 @@
       (=ucs		  . #x003F)	; ?
       ))
     (=ucs		. #xFF1F)	; ï¼Ÿ
-    (=jis-x0208		. #x2129)	; ø½‰¶„
-    (=gb2312		. #x233F)	; ø»„‰ž
-    (=ks-x1001		. #x233F)	; ø»ˆ¦
-    (=cns11643-1	. #x2129)	; ø»‘‚¤
-    (=big5		. #xA148)	; ý¢€Š…ˆ
+    (=jis-x0208		. #x2129)	; &I-J90-2129;
+    (=gb2312		. #x233F)	; &I-G0-233F;
+    (=ks-x1001		. #x233F)	; &I-K0-233F;
+    (=cns11643-1	. #x2129)	; &I-C1-2129;
+    (=big5		. #xA148)	; &I-B-A148;
     ))
 (define-char
   '((name		. "FULLWIDTH COMMERCIAL AT")
@@ -564,11 +564,11 @@
       (=ucs		  . #x0040)	; @
       ))
     (=ucs		. #xFF20)	; ï¼ 
-    (=jis-x0208		. #x2177)	; ø½‰·’
-    (=gb2312		. #x2340)	; ø»„‰Ÿ
-    (=ks-x1001		. #x2340)	; ø»ˆ§
-    (=cns11643-1	. #x2269)	; ø»‘…‚
-    (=big5		. #xA249)	; ý¢€Š‰‰
+    (=jis-x0208		. #x2177)	; &I-J90-2177;
+    (=gb2312		. #x2340)	; &I-G0-2340;
+    (=ks-x1001		. #x2340)	; &I-K0-2340;
+    (=cns11643-1	. #x2269)	; &I-C1-2269;
+    (=big5		. #xA249)	; &I-B-A249;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER A")
@@ -585,11 +585,11 @@
       (=ucs		  . #x0041)	; A
       ))
     (=ucs		. #xFF21)	; ï¼¡
-    (=jis-x0208		. #x2341)	; ø½‰¹˜
-    (=gb2312		. #x2341)	; ø»„‰ 
-    (=ks-x1001		. #x2341)	; ø»ˆ¨
-    (=cns11643-1	. #x2441)	; ø»‘‡–
-    (=big5		. #xA2CF)	; ý¢€Š‹
+    (=jis-x0208		. #x2341)	; &I-J90-2341;
+    (=gb2312		. #x2341)	; &I-G0-2341;
+    (=ks-x1001		. #x2341)	; &I-K0-2341;
+    (=cns11643-1	. #x2441)	; &I-C1-2441;
+    (=big5		. #xA2CF)	; &I-B-A2CF;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER B")
@@ -606,11 +606,11 @@
       (=ucs		  . #x0042)	; B
       ))
     (=ucs		. #xFF22)	; ï¼¢
-    (=jis-x0208		. #x2342)	; ø½‰¹™
-    (=gb2312		. #x2342)	; ø»„‰¡
-    (=ks-x1001		. #x2342)	; ø»ˆ©
-    (=cns11643-1	. #x2442)	; ø»‘‡—
-    (=big5		. #xA2D0)	; ý¢€Š‹
+    (=jis-x0208		. #x2342)	; &I-J90-2342;
+    (=gb2312		. #x2342)	; &I-G0-2342;
+    (=ks-x1001		. #x2342)	; &I-K0-2342;
+    (=cns11643-1	. #x2442)	; &I-C1-2442;
+    (=big5		. #xA2D0)	; &I-B-A2D0;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER C")
@@ -627,11 +627,11 @@
       (=ucs		  . #x0043)	; C
       ))
     (=ucs		. #xFF23)	; ï¼£
-    (=jis-x0208		. #x2343)	; ø½‰¹š
-    (=gb2312		. #x2343)	; ø»„‰¢
-    (=ks-x1001		. #x2343)	; ø»ˆª
-    (=cns11643-1	. #x2443)	; ø»‘‡˜
-    (=big5		. #xA2D1)	; ý¢€Š‹‘
+    (=jis-x0208		. #x2343)	; &I-J90-2343;
+    (=gb2312		. #x2343)	; &I-G0-2343;
+    (=ks-x1001		. #x2343)	; &I-K0-2343;
+    (=cns11643-1	. #x2443)	; &I-C1-2443;
+    (=big5		. #xA2D1)	; &I-B-A2D1;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER D")
@@ -648,11 +648,11 @@
       (=ucs		  . #x0044)	; D
       ))
     (=ucs		. #xFF24)	; ï¼¤
-    (=jis-x0208		. #x2344)	; ø½‰¹›
-    (=gb2312		. #x2344)	; ø»„‰£
-    (=ks-x1001		. #x2344)	; ø»ˆ«
-    (=cns11643-1	. #x2444)	; ø»‘‡™
-    (=big5		. #xA2D2)	; ý¢€Š‹’
+    (=jis-x0208		. #x2344)	; &I-J90-2344;
+    (=gb2312		. #x2344)	; &I-G0-2344;
+    (=ks-x1001		. #x2344)	; &I-K0-2344;
+    (=cns11643-1	. #x2444)	; &I-C1-2444;
+    (=big5		. #xA2D2)	; &I-B-A2D2;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER E")
@@ -669,11 +669,11 @@
       (=ucs		  . #x0045)	; E
       ))
     (=ucs		. #xFF25)	; ï¼¥
-    (=jis-x0208		. #x2345)	; ø½‰¹œ
-    (=gb2312		. #x2345)	; ø»„‰¤
-    (=ks-x1001		. #x2345)	; ø»ˆ¬
-    (=cns11643-1	. #x2445)	; ø»‘‡š
-    (=big5		. #xA2D3)	; ý¢€Š‹“
+    (=jis-x0208		. #x2345)	; &I-J90-2345;
+    (=gb2312		. #x2345)	; &I-G0-2345;
+    (=ks-x1001		. #x2345)	; &I-K0-2345;
+    (=cns11643-1	. #x2445)	; &I-C1-2445;
+    (=big5		. #xA2D3)	; &I-B-A2D3;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER F")
@@ -690,11 +690,11 @@
       (=ucs		  . #x0046)	; F
       ))
     (=ucs		. #xFF26)	; ï¼¦
-    (=jis-x0208		. #x2346)	; ø½‰¹
-    (=gb2312		. #x2346)	; ø»„‰¥
-    (=ks-x1001		. #x2346)	; ø»ˆ­
-    (=cns11643-1	. #x2446)	; ø»‘‡›
-    (=big5		. #xA2D4)	; ý¢€Š‹”
+    (=jis-x0208		. #x2346)	; &I-J90-2346;
+    (=gb2312		. #x2346)	; &I-G0-2346;
+    (=ks-x1001		. #x2346)	; &I-K0-2346;
+    (=cns11643-1	. #x2446)	; &I-C1-2446;
+    (=big5		. #xA2D4)	; &I-B-A2D4;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER G")
@@ -711,11 +711,11 @@
       (=ucs		  . #x0047)	; G
       ))
     (=ucs		. #xFF27)	; ï¼§
-    (=jis-x0208		. #x2347)	; ø½‰¹ž
-    (=gb2312		. #x2347)	; ø»„‰¦
-    (=ks-x1001		. #x2347)	; ø»ˆ®
-    (=cns11643-1	. #x2447)	; ø»‘‡œ
-    (=big5		. #xA2D5)	; ý¢€Š‹•
+    (=jis-x0208		. #x2347)	; &I-J90-2347;
+    (=gb2312		. #x2347)	; &I-G0-2347;
+    (=ks-x1001		. #x2347)	; &I-K0-2347;
+    (=cns11643-1	. #x2447)	; &I-C1-2447;
+    (=big5		. #xA2D5)	; &I-B-A2D5;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER H")
@@ -732,11 +732,11 @@
       (=ucs		  . #x0048)	; H
       ))
     (=ucs		. #xFF28)	; ï¼¨
-    (=jis-x0208		. #x2348)	; ø½‰¹Ÿ
-    (=gb2312		. #x2348)	; ø»„‰§
-    (=ks-x1001		. #x2348)	; ø»ˆ¯
-    (=cns11643-1	. #x2448)	; ø»‘‡
-    (=big5		. #xA2D6)	; ý¢€Š‹–
+    (=jis-x0208		. #x2348)	; &I-J90-2348;
+    (=gb2312		. #x2348)	; &I-G0-2348;
+    (=ks-x1001		. #x2348)	; &I-K0-2348;
+    (=cns11643-1	. #x2448)	; &I-C1-2448;
+    (=big5		. #xA2D6)	; &I-B-A2D6;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER I")
@@ -753,11 +753,11 @@
       (=ucs		  . #x0049)	; I
       ))
     (=ucs		. #xFF29)	; ï¼©
-    (=jis-x0208		. #x2349)	; ø½‰¹ 
-    (=gb2312		. #x2349)	; ø»„‰¨
-    (=ks-x1001		. #x2349)	; ø»ˆ°
-    (=cns11643-1	. #x2449)	; ø»‘‡ž
-    (=big5		. #xA2D7)	; ý¢€Š‹—
+    (=jis-x0208		. #x2349)	; &I-J90-2349;
+    (=gb2312		. #x2349)	; &I-G0-2349;
+    (=ks-x1001		. #x2349)	; &I-K0-2349;
+    (=cns11643-1	. #x2449)	; &I-C1-2449;
+    (=big5		. #xA2D7)	; &I-B-A2D7;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER J")
@@ -774,11 +774,11 @@
       (=ucs		  . #x004A)	; J
       ))
     (=ucs		. #xFF2A)	; ï¼ª
-    (=jis-x0208		. #x234A)	; ø½‰¹¡
-    (=gb2312		. #x234A)	; ø»„‰©
-    (=ks-x1001		. #x234A)	; ø»ˆ±
-    (=cns11643-1	. #x244A)	; ø»‘‡Ÿ
-    (=big5		. #xA2D8)	; ý¢€Š‹˜
+    (=jis-x0208		. #x234A)	; &I-J90-234A;
+    (=gb2312		. #x234A)	; &I-G0-234A;
+    (=ks-x1001		. #x234A)	; &I-K0-234A;
+    (=cns11643-1	. #x244A)	; &I-C1-244A;
+    (=big5		. #xA2D8)	; &I-B-A2D8;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER K")
@@ -795,11 +795,11 @@
       (=ucs		  . #x004B)	; K
       ))
     (=ucs		. #xFF2B)	; ï¼«
-    (=jis-x0208		. #x234B)	; ø½‰¹¢
-    (=gb2312		. #x234B)	; ø»„‰ª
-    (=ks-x1001		. #x234B)	; ø»ˆ²
-    (=cns11643-1	. #x244B)	; ø»‘‡ 
-    (=big5		. #xA2D9)	; ý¢€Š‹™
+    (=jis-x0208		. #x234B)	; &I-J90-234B;
+    (=gb2312		. #x234B)	; &I-G0-234B;
+    (=ks-x1001		. #x234B)	; &I-K0-234B;
+    (=cns11643-1	. #x244B)	; &I-C1-244B;
+    (=big5		. #xA2D9)	; &I-B-A2D9;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER L")
@@ -816,11 +816,11 @@
       (=ucs		  . #x004C)	; L
       ))
     (=ucs		. #xFF2C)	; ï¼¬
-    (=jis-x0208		. #x234C)	; ø½‰¹£
-    (=gb2312		. #x234C)	; ø»„‰«
-    (=ks-x1001		. #x234C)	; ø»ˆ³
-    (=cns11643-1	. #x244C)	; ø»‘‡¡
-    (=big5		. #xA2DA)	; ý¢€Š‹š
+    (=jis-x0208		. #x234C)	; &I-J90-234C;
+    (=gb2312		. #x234C)	; &I-G0-234C;
+    (=ks-x1001		. #x234C)	; &I-K0-234C;
+    (=cns11643-1	. #x244C)	; &I-C1-244C;
+    (=big5		. #xA2DA)	; &I-B-A2DA;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER M")
@@ -837,11 +837,11 @@
       (=ucs		  . #x004D)	; M
       ))
     (=ucs		. #xFF2D)	; ï¼­
-    (=jis-x0208		. #x234D)	; ø½‰¹¤
-    (=gb2312		. #x234D)	; ø»„‰¬
-    (=ks-x1001		. #x234D)	; ø»ˆ´
-    (=cns11643-1	. #x244D)	; ø»‘‡¢
-    (=big5		. #xA2DB)	; ý¢€Š‹›
+    (=jis-x0208		. #x234D)	; &I-J90-234D;
+    (=gb2312		. #x234D)	; &I-G0-234D;
+    (=ks-x1001		. #x234D)	; &I-K0-234D;
+    (=cns11643-1	. #x244D)	; &I-C1-244D;
+    (=big5		. #xA2DB)	; &I-B-A2DB;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER N")
@@ -858,11 +858,11 @@
       (=ucs		  . #x004E)	; N
       ))
     (=ucs		. #xFF2E)	; ï¼®
-    (=jis-x0208		. #x234E)	; ø½‰¹¥
-    (=gb2312		. #x234E)	; ø»„‰­
-    (=ks-x1001		. #x234E)	; ø»ˆµ
-    (=cns11643-1	. #x244E)	; ø»‘‡£
-    (=big5		. #xA2DC)	; ý¢€Š‹œ
+    (=jis-x0208		. #x234E)	; &I-J90-234E;
+    (=gb2312		. #x234E)	; &I-G0-234E;
+    (=ks-x1001		. #x234E)	; &I-K0-234E;
+    (=cns11643-1	. #x244E)	; &I-C1-244E;
+    (=big5		. #xA2DC)	; &I-B-A2DC;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER O")
@@ -879,11 +879,11 @@
       (=ucs		  . #x004F)	; O
       ))
     (=ucs		. #xFF2F)	; ï¼¯
-    (=jis-x0208		. #x234F)	; ø½‰¹¦
-    (=gb2312		. #x234F)	; ø»„‰®
-    (=ks-x1001		. #x234F)	; ø»ˆ¶
-    (=cns11643-1	. #x244F)	; ø»‘‡¤
-    (=big5		. #xA2DD)	; ý¢€Š‹
+    (=jis-x0208		. #x234F)	; &I-J90-234F;
+    (=gb2312		. #x234F)	; &I-G0-234F;
+    (=ks-x1001		. #x234F)	; &I-K0-234F;
+    (=cns11643-1	. #x244F)	; &I-C1-244F;
+    (=big5		. #xA2DD)	; &I-B-A2DD;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER P")
@@ -900,11 +900,11 @@
       (=ucs		  . #x0050)	; P
       ))
     (=ucs		. #xFF30)	; ï¼°
-    (=jis-x0208		. #x2350)	; ø½‰¹§
-    (=gb2312		. #x2350)	; ø»„‰¯
-    (=ks-x1001		. #x2350)	; ø»ˆ·
-    (=cns11643-1	. #x2450)	; ø»‘‡¥
-    (=big5		. #xA2DE)	; ý¢€Š‹ž
+    (=jis-x0208		. #x2350)	; &I-J90-2350;
+    (=gb2312		. #x2350)	; &I-G0-2350;
+    (=ks-x1001		. #x2350)	; &I-K0-2350;
+    (=cns11643-1	. #x2450)	; &I-C1-2450;
+    (=big5		. #xA2DE)	; &I-B-A2DE;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER Q")
@@ -921,11 +921,11 @@
       (=ucs		  . #x0051)	; Q
       ))
     (=ucs		. #xFF31)	; ï¼±
-    (=jis-x0208		. #x2351)	; ø½‰¹¨
-    (=gb2312		. #x2351)	; ø»„‰°
-    (=ks-x1001		. #x2351)	; ø»ˆ¸
-    (=cns11643-1	. #x2451)	; ø»‘‡¦
-    (=big5		. #xA2DF)	; ý¢€Š‹Ÿ
+    (=jis-x0208		. #x2351)	; &I-J90-2351;
+    (=gb2312		. #x2351)	; &I-G0-2351;
+    (=ks-x1001		. #x2351)	; &I-K0-2351;
+    (=cns11643-1	. #x2451)	; &I-C1-2451;
+    (=big5		. #xA2DF)	; &I-B-A2DF;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER R")
@@ -942,11 +942,11 @@
       (=ucs		  . #x0052)	; R
       ))
     (=ucs		. #xFF32)	; ï¼²
-    (=jis-x0208		. #x2352)	; ø½‰¹©
-    (=gb2312		. #x2352)	; ø»„‰±
-    (=ks-x1001		. #x2352)	; ø»ˆ¹
-    (=cns11643-1	. #x2452)	; ø»‘‡§
-    (=big5		. #xA2E0)	; ý¢€Š‹ 
+    (=jis-x0208		. #x2352)	; &I-J90-2352;
+    (=gb2312		. #x2352)	; &I-G0-2352;
+    (=ks-x1001		. #x2352)	; &I-K0-2352;
+    (=cns11643-1	. #x2452)	; &I-C1-2452;
+    (=big5		. #xA2E0)	; &I-B-A2E0;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER S")
@@ -963,11 +963,11 @@
       (=ucs		  . #x0053)	; S
       ))
     (=ucs		. #xFF33)	; ï¼³
-    (=jis-x0208		. #x2353)	; ø½‰¹ª
-    (=gb2312		. #x2353)	; ø»„‰²
-    (=ks-x1001		. #x2353)	; ø»ˆº
-    (=cns11643-1	. #x2453)	; ø»‘‡¨
-    (=big5		. #xA2E1)	; ý¢€Š‹¡
+    (=jis-x0208		. #x2353)	; &I-J90-2353;
+    (=gb2312		. #x2353)	; &I-G0-2353;
+    (=ks-x1001		. #x2353)	; &I-K0-2353;
+    (=cns11643-1	. #x2453)	; &I-C1-2453;
+    (=big5		. #xA2E1)	; &I-B-A2E1;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER T")
@@ -984,11 +984,11 @@
       (=ucs		  . #x0054)	; T
       ))
     (=ucs		. #xFF34)	; ï¼´
-    (=jis-x0208		. #x2354)	; ø½‰¹«
-    (=gb2312		. #x2354)	; ø»„‰³
-    (=ks-x1001		. #x2354)	; ø»ˆ»
-    (=cns11643-1	. #x2454)	; ø»‘‡©
-    (=big5		. #xA2E2)	; ý¢€Š‹¢
+    (=jis-x0208		. #x2354)	; &I-J90-2354;
+    (=gb2312		. #x2354)	; &I-G0-2354;
+    (=ks-x1001		. #x2354)	; &I-K0-2354;
+    (=cns11643-1	. #x2454)	; &I-C1-2454;
+    (=big5		. #xA2E2)	; &I-B-A2E2;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER U")
@@ -1005,11 +1005,11 @@
       (=ucs		  . #x0055)	; U
       ))
     (=ucs		. #xFF35)	; ï¼µ
-    (=jis-x0208		. #x2355)	; ø½‰¹¬
-    (=gb2312		. #x2355)	; ø»„‰´
-    (=ks-x1001		. #x2355)	; ø»ˆ¼
-    (=cns11643-1	. #x2455)	; ø»‘‡ª
-    (=big5		. #xA2E3)	; ý¢€Š‹£
+    (=jis-x0208		. #x2355)	; &I-J90-2355;
+    (=gb2312		. #x2355)	; &I-G0-2355;
+    (=ks-x1001		. #x2355)	; &I-K0-2355;
+    (=cns11643-1	. #x2455)	; &I-C1-2455;
+    (=big5		. #xA2E3)	; &I-B-A2E3;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER V")
@@ -1026,11 +1026,11 @@
       (=ucs		  . #x0056)	; V
       ))
     (=ucs		. #xFF36)	; ï¼¶
-    (=jis-x0208		. #x2356)	; ø½‰¹­
-    (=gb2312		. #x2356)	; ø»„‰µ
-    (=ks-x1001		. #x2356)	; ø»ˆ½
-    (=cns11643-1	. #x2456)	; ø»‘‡«
-    (=big5		. #xA2E4)	; ý¢€Š‹¤
+    (=jis-x0208		. #x2356)	; &I-J90-2356;
+    (=gb2312		. #x2356)	; &I-G0-2356;
+    (=ks-x1001		. #x2356)	; &I-K0-2356;
+    (=cns11643-1	. #x2456)	; &I-C1-2456;
+    (=big5		. #xA2E4)	; &I-B-A2E4;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER W")
@@ -1047,11 +1047,11 @@
       (=ucs		  . #x0057)	; W
       ))
     (=ucs		. #xFF37)	; ï¼·
-    (=jis-x0208		. #x2357)	; ø½‰¹®
-    (=gb2312		. #x2357)	; ø»„‰¶
-    (=ks-x1001		. #x2357)	; ø»ˆ¾
-    (=cns11643-1	. #x2457)	; ø»‘‡¬
-    (=big5		. #xA2E5)	; ý¢€Š‹¥
+    (=jis-x0208		. #x2357)	; &I-J90-2357;
+    (=gb2312		. #x2357)	; &I-G0-2357;
+    (=ks-x1001		. #x2357)	; &I-K0-2357;
+    (=cns11643-1	. #x2457)	; &I-C1-2457;
+    (=big5		. #xA2E5)	; &I-B-A2E5;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER X")
@@ -1068,11 +1068,11 @@
       (=ucs		  . #x0058)	; X
       ))
     (=ucs		. #xFF38)	; ï¼¸
-    (=jis-x0208		. #x2358)	; ø½‰¹¯
-    (=gb2312		. #x2358)	; ø»„‰·
-    (=ks-x1001		. #x2358)	; ø»ˆ¿
-    (=cns11643-1	. #x2458)	; ø»‘‡­
-    (=big5		. #xA2E6)	; ý¢€Š‹¦
+    (=jis-x0208		. #x2358)	; &I-J90-2358;
+    (=gb2312		. #x2358)	; &I-G0-2358;
+    (=ks-x1001		. #x2358)	; &I-K0-2358;
+    (=cns11643-1	. #x2458)	; &I-C1-2458;
+    (=big5		. #xA2E6)	; &I-B-A2E6;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER Y")
@@ -1089,11 +1089,11 @@
       (=ucs		  . #x0059)	; Y
       ))
     (=ucs		. #xFF39)	; ï¼¹
-    (=jis-x0208		. #x2359)	; ø½‰¹°
-    (=gb2312		. #x2359)	; ø»„‰¸
-    (=ks-x1001		. #x2359)	; ø»ˆž€
-    (=cns11643-1	. #x2459)	; ø»‘‡®
-    (=big5		. #xA2E7)	; ý¢€Š‹§
+    (=jis-x0208		. #x2359)	; &I-J90-2359;
+    (=gb2312		. #x2359)	; &I-G0-2359;
+    (=ks-x1001		. #x2359)	; &I-K0-2359;
+    (=cns11643-1	. #x2459)	; &I-C1-2459;
+    (=big5		. #xA2E7)	; &I-B-A2E7;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER Z")
@@ -1110,11 +1110,11 @@
       (=ucs		  . #x005A)	; Z
       ))
     (=ucs		. #xFF3A)	; ï¼º
-    (=jis-x0208		. #x235A)	; ø½‰¹±
-    (=gb2312		. #x235A)	; ø»„‰¹
-    (=ks-x1001		. #x235A)	; ø»ˆž
-    (=cns11643-1	. #x245A)	; ø»‘‡¯
-    (=big5		. #xA2E8)	; ý¢€Š‹¨
+    (=jis-x0208		. #x235A)	; &I-J90-235A;
+    (=gb2312		. #x235A)	; &I-G0-235A;
+    (=ks-x1001		. #x235A)	; &I-K0-235A;
+    (=cns11643-1	. #x245A)	; &I-C1-245A;
+    (=big5		. #xA2E8)	; &I-B-A2E8;
     ))
 (define-char
   '((name		. "FULLWIDTH LEFT SQUARE BRACKET")
@@ -1127,10 +1127,10 @@
       (=ucs		  . #x005B)	; [
       ))
     (=ucs		. #xFF3B)	; ï¼»
-    (=jis-x0208		. #x214E)	; ø½‰¶©
-    (=gb2312		. #x235B)	; ø»„‰º
-    (=ks-x1001		. #x235B)	; ø»ˆž‚
-    (=big5-eten		. #xC6E4)	; ý¢€Œ›¤
+    (=jis-x0208		. #x214E)	; &I-J90-214E;
+    (=gb2312		. #x235B)	; &I-G0-235B;
+    (=ks-x1001		. #x235B)	; &I-K0-235B;
+    (=big5-eten		. #xC6E4)	; &B-C6E4;
     ))
 (define-char
   '((name		. "FULLWIDTH REVERSE SOLIDUS")
@@ -1143,11 +1143,11 @@
       (=ucs		  . #x005C)	; \
       ))
     (=ucs		. #xFF3C)	; ï¼¼
-    (=jis-x0208		. #x2140)	; ø½‰¶›
-    (=gb2312		. #x235C)	; ø»„‰»
-    (=ks-x1001		. #x212C)	; ø»ˆš—
-    (=cns11643-1	. #x2260)	; ø»‘„¹
-    (=big5		. #xA240)	; ý¢€Š‰€
+    (=jis-x0208		. #x2140)	; &I-J90-2140;
+    (=gb2312		. #x235C)	; &I-G0-235C;
+    (=ks-x1001		. #x212C)	; &I-K0-212C;
+    (=cns11643-1	. #x2260)	; &I-C1-2260;
+    (=big5		. #xA240)	; &I-B-A240;
     ))
 (define-char
   '((name		. "FULLWIDTH RIGHT SQUARE BRACKET")
@@ -1160,10 +1160,10 @@
       (=ucs		  . #x005D)	; ]
       ))
     (=ucs		. #xFF3D)	; ï¼½
-    (=jis-x0208		. #x214F)	; ø½‰¶ª
-    (=gb2312		. #x235D)	; ø»„‰¼
-    (=ks-x1001		. #x235D)	; ø»ˆž„
-    (=big5-eten		. #xC6E5)	; ý¢€Œ›¥
+    (=jis-x0208		. #x214F)	; &I-J90-214F;
+    (=gb2312		. #x235D)	; &I-G0-235D;
+    (=ks-x1001		. #x235D)	; &I-K0-235D;
+    (=big5-eten		. #xC6E5)	; &B-C6E5;
     ))
 (define-char
   '((name		. "FULLWIDTH CIRCUMFLEX ACCENT")
@@ -1176,10 +1176,10 @@
       (=ucs		  . #x005E)	; ^
       ))
     (=ucs		. #xFF3E)	; ï¼¾
-    (=jis-x0208		. #x2130)	; ø½‰¶‹
-    (=gb2312		. #x235E)	; ø»„‰½
-    (=ks-x1001		. #x235E)	; ø»ˆž…
-    (=jef-china3	. #x81A5)	; øºˆ†¥
+    (=jis-x0208		. #x2130)	; &I-J90-2130;
+    (=gb2312		. #x235E)	; &I-G0-235E;
+    (=ks-x1001		. #x235E)	; &I-K0-235E;
+    (=jef-china3	. #x81A5)	; &I-JC3-81A5;
     ))
 (define-char
   '((name		. "FULLWIDTH LOW LINE")
@@ -1192,11 +1192,11 @@
       (=ucs		  . #x005F)	; _
       ))
     (=ucs		. #xFF3F)	; ï¼¿
-    (=jis-x0208		. #x2132)	; ø½‰¶
-    (=gb2312		. #x235F)	; ø»„‰¾
-    (=ks-x1001		. #x235F)	; ø»ˆž†
-    (=cns11643-1	. #x2225)	; ø»‘ƒ¾
-    (=big5		. #xA1C4)	; ý¢€Š‡„
+    (=jis-x0208		. #x2132)	; &I-J90-2132;
+    (=gb2312		. #x235F)	; &I-G0-235F;
+    (=ks-x1001		. #x235F)	; &I-K0-235F;
+    (=cns11643-1	. #x2225)	; &I-C1-2225;
+    (=big5		. #xA1C4)	; &I-B-A1C4;
     ))
 (define-char
   '((name		. "heavy low line")
@@ -1204,9 +1204,9 @@
     (general-category	punctuation connector) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=cns11643-1	. #x2226)	; ø»‘ƒ¿
-    (=big5		. #xA1C5)	; ý¢€Š‡…
-    (=ucs@big5		. #x02CD)	; ø»‘ƒ¿
+    (=cns11643-1	. #x2226)	; &C1-2226;
+    (=big5		. #xA1C5)	; &I-B-A1C5;
+    (=ucs@big5		. #x02CD)	; &C1-2226;
     ))
 (define-char
   '((name		. "FULLWIDTH GRAVE ACCENT")
@@ -1219,10 +1219,10 @@
       (=ucs		  . #x0060)	; `
       ))
     (=ucs		. #xFF40)	; ï½€
-    (=jis-x0208		. #x212E)	; ø½‰¶‰
-    (=gb2312		. #x2360)	; ø»„‰¿
-    (=ks-x1001		. #x2360)	; ø»ˆž‡
-    (=jef-china3	. #x81A3)	; øºˆ†£
+    (=jis-x0208		. #x212E)	; &I-J90-212E;
+    (=gb2312		. #x2360)	; &I-G0-2360;
+    (=ks-x1001		. #x2360)	; &I-K0-2360;
+    (=jef-china3	. #x81A3)	; &I-JC3-81A3;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER A")
@@ -1239,12 +1239,12 @@
       (=ucs		  . #x0061)	; a
       ))
     (=ucs		. #xFF41)	; ï½
-    (=jis-x0208		. #x2361)	; ø½‰¹¸
-    (=gb2312		. #x2361)	; ø»„Š€
-    (=ks-x1001		. #x2361)	; ø»ˆžˆ
-    (=cns11643-1	. #x245B)	; ø»‘‡°
-    (=big5		. #xA2E9)	; ý¢€Š‹©
-    (=jef-china3	. #x83E1)	; øºˆ¡
+    (=jis-x0208		. #x2361)	; &I-J90-2361;
+    (=gb2312		. #x2361)	; &I-G0-2361;
+    (=ks-x1001		. #x2361)	; &I-K0-2361;
+    (=cns11643-1	. #x245B)	; &I-C1-245B;
+    (=big5		. #xA2E9)	; &I-B-A2E9;
+    (=jef-china3	. #x83E1)	; &I-JC3-83E1;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER B")
@@ -1261,11 +1261,11 @@
       (=ucs		  . #x0062)	; b
       ))
     (=ucs		. #xFF42)	; ï½‚
-    (=jis-x0208		. #x2362)	; ø½‰¹¹
-    (=gb2312		. #x2362)	; ø»„Š
-    (=ks-x1001		. #x2362)	; ø»ˆž‰
-    (=cns11643-1	. #x245C)	; ø»‘‡±
-    (=big5		. #xA2EA)	; ý¢€Š‹ª
+    (=jis-x0208		. #x2362)	; &I-J90-2362;
+    (=gb2312		. #x2362)	; &I-G0-2362;
+    (=ks-x1001		. #x2362)	; &I-K0-2362;
+    (=cns11643-1	. #x245C)	; &I-C1-245C;
+    (=big5		. #xA2EA)	; &I-B-A2EA;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER C")
@@ -1282,12 +1282,12 @@
       (=ucs		  . #x0063)	; c
       ))
     (=ucs		. #xFF43)	; ï½ƒ
-    (=jis-x0208		. #x2363)	; ø½‰¹º
-    (=gb2312		. #x2363)	; ø»„Š‚
-    (=ks-x1001		. #x2363)	; ø»ˆžŠ
-    (=cns11643-1	. #x245D)	; ø»‘‡²
-    (=big5		. #xA2EB)	; ý¢€Š‹«
-    (=jef-china3	. #x83E2)	; øºˆ¢
+    (=jis-x0208		. #x2363)	; &I-J90-2363;
+    (=gb2312		. #x2363)	; &I-G0-2363;
+    (=ks-x1001		. #x2363)	; &I-K0-2363;
+    (=cns11643-1	. #x245D)	; &I-C1-245D;
+    (=big5		. #xA2EB)	; &I-B-A2EB;
+    (=jef-china3	. #x83E2)	; &I-JC3-83E2;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER D")
@@ -1304,12 +1304,12 @@
       (=ucs		  . #x0064)	; d
       ))
     (=ucs		. #xFF44)	; ï½„
-    (=jis-x0208		. #x2364)	; ø½‰¹»
-    (=gb2312		. #x2364)	; ø»„Šƒ
-    (=ks-x1001		. #x2364)	; ø»ˆž‹
-    (=cns11643-1	. #x245E)	; ø»‘‡³
-    (=big5		. #xA2EC)	; ý¢€Š‹¬
-    (=jef-china3	. #x83E3)	; øºˆ£
+    (=jis-x0208		. #x2364)	; &I-J90-2364;
+    (=gb2312		. #x2364)	; &I-G0-2364;
+    (=ks-x1001		. #x2364)	; &I-K0-2364;
+    (=cns11643-1	. #x245E)	; &I-C1-245E;
+    (=big5		. #xA2EC)	; &I-B-A2EC;
+    (=jef-china3	. #x83E3)	; &I-JC3-83E3;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER E")
@@ -1326,12 +1326,12 @@
       (=ucs		  . #x0065)	; e
       ))
     (=ucs		. #xFF45)	; ï½…
-    (=jis-x0208		. #x2365)	; ø½‰¹¼
-    (=gb2312		. #x2365)	; ø»„Š„
-    (=ks-x1001		. #x2365)	; ø»ˆžŒ
-    (=cns11643-1	. #x245F)	; ø»‘‡´
-    (=big5		. #xA2ED)	; ý¢€Š‹­
-    (=jef-china3	. #x83E4)	; øºˆ¤
+    (=jis-x0208		. #x2365)	; &I-J90-2365;
+    (=gb2312		. #x2365)	; &I-G0-2365;
+    (=ks-x1001		. #x2365)	; &I-K0-2365;
+    (=cns11643-1	. #x245F)	; &I-C1-245F;
+    (=big5		. #xA2ED)	; &I-B-A2ED;
+    (=jef-china3	. #x83E4)	; &I-JC3-83E4;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER F")
@@ -1348,11 +1348,11 @@
       (=ucs		  . #x0066)	; f
       ))
     (=ucs		. #xFF46)	; ï½†
-    (=jis-x0208		. #x2366)	; ø½‰¹½
-    (=gb2312		. #x2366)	; ø»„Š…
-    (=ks-x1001		. #x2366)	; ø»ˆž
-    (=cns11643-1	. #x2460)	; ø»‘‡µ
-    (=big5		. #xA2EE)	; ý¢€Š‹®
+    (=jis-x0208		. #x2366)	; &I-J90-2366;
+    (=gb2312		. #x2366)	; &I-G0-2366;
+    (=ks-x1001		. #x2366)	; &I-K0-2366;
+    (=cns11643-1	. #x2460)	; &I-C1-2460;
+    (=big5		. #xA2EE)	; &I-B-A2EE;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER G")
@@ -1369,12 +1369,12 @@
       (=ucs		  . #x0067)	; g
       ))
     (=ucs		. #xFF47)	; ï½‡
-    (=jis-x0208		. #x2367)	; ø½‰¹¾
-    (=gb2312		. #x2367)	; ø»„Š†
-    (=ks-x1001		. #x2367)	; ø»ˆžŽ
-    (=cns11643-1	. #x2461)	; ø»‘‡¶
-    (=big5		. #xA2EF)	; ý¢€Š‹¯
-    (=jef-china3	. #x83E5)	; øºˆ¥
+    (=jis-x0208		. #x2367)	; &I-J90-2367;
+    (=gb2312		. #x2367)	; &I-G0-2367;
+    (=ks-x1001		. #x2367)	; &I-K0-2367;
+    (=cns11643-1	. #x2461)	; &I-C1-2461;
+    (=big5		. #xA2EF)	; &I-B-A2EF;
+    (=jef-china3	. #x83E5)	; &I-JC3-83E5;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER H")
@@ -1391,12 +1391,12 @@
       (=ucs		  . #x0068)	; h
       ))
     (=ucs		. #xFF48)	; ï½ˆ
-    (=jis-x0208		. #x2368)	; ø½‰¹¿
-    (=gb2312		. #x2368)	; ø»„Š‡
-    (=ks-x1001		. #x2368)	; ø»ˆž
-    (=cns11643-1	. #x2462)	; ø»‘‡·
-    (=big5		. #xA2F0)	; ý¢€Š‹°
-    (=jef-china3	. #x83E6)	; øºˆ¦
+    (=jis-x0208		. #x2368)	; &I-J90-2368;
+    (=gb2312		. #x2368)	; &I-G0-2368;
+    (=ks-x1001		. #x2368)	; &I-K0-2368;
+    (=cns11643-1	. #x2462)	; &I-C1-2462;
+    (=big5		. #xA2F0)	; &I-B-A2F0;
+    (=jef-china3	. #x83E6)	; &I-JC3-83E6;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER I")
@@ -1413,12 +1413,12 @@
       (=ucs		  . #x0069)	; i
       ))
     (=ucs		. #xFF49)	; ï½‰
-    (=jis-x0208		. #x2369)	; ø½‰º€
-    (=gb2312		. #x2369)	; ø»„Šˆ
-    (=ks-x1001		. #x2369)	; ø»ˆž
-    (=cns11643-1	. #x2463)	; ø»‘‡¸
-    (=big5		. #xA2F1)	; ý¢€Š‹±
-    (=jef-china3	. #x83E7)	; øºˆ§
+    (=jis-x0208		. #x2369)	; &I-J90-2369;
+    (=gb2312		. #x2369)	; &I-G0-2369;
+    (=ks-x1001		. #x2369)	; &I-K0-2369;
+    (=cns11643-1	. #x2463)	; &I-C1-2463;
+    (=big5		. #xA2F1)	; &I-B-A2F1;
+    (=jef-china3	. #x83E7)	; &I-JC3-83E7;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER J")
@@ -1435,12 +1435,12 @@
       (=ucs		  . #x006A)	; j
       ))
     (=ucs		. #xFF4A)	; ï½Š
-    (=jis-x0208		. #x236A)	; ø½‰º
-    (=gb2312		. #x236A)	; ø»„Š‰
-    (=ks-x1001		. #x236A)	; ø»ˆž‘
-    (=cns11643-1	. #x2464)	; ø»‘‡¹
-    (=big5		. #xA2F2)	; ý¢€Š‹²
-    (=jef-china3	. #x83E8)	; øºˆ¨
+    (=jis-x0208		. #x236A)	; &I-J90-236A;
+    (=gb2312		. #x236A)	; &I-G0-236A;
+    (=ks-x1001		. #x236A)	; &I-K0-236A;
+    (=cns11643-1	. #x2464)	; &I-C1-2464;
+    (=big5		. #xA2F2)	; &I-B-A2F2;
+    (=jef-china3	. #x83E8)	; &I-JC3-83E8;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER K")
@@ -1457,11 +1457,11 @@
       (=ucs		  . #x006B)	; k
       ))
     (=ucs		. #xFF4B)	; ï½‹
-    (=jis-x0208		. #x236B)	; ø½‰º‚
-    (=gb2312		. #x236B)	; ø»„ŠŠ
-    (=ks-x1001		. #x236B)	; ø»ˆž’
-    (=cns11643-1	. #x2465)	; ø»‘‡º
-    (=big5		. #xA2F3)	; ý¢€Š‹³
+    (=jis-x0208		. #x236B)	; &I-J90-236B;
+    (=gb2312		. #x236B)	; &I-G0-236B;
+    (=ks-x1001		. #x236B)	; &I-K0-236B;
+    (=cns11643-1	. #x2465)	; &I-C1-2465;
+    (=big5		. #xA2F3)	; &I-B-A2F3;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER L")
@@ -1478,12 +1478,12 @@
       (=ucs		  . #x006C)	; l
       ))
     (=ucs		. #xFF4C)	; ï½Œ
-    (=jis-x0208		. #x236C)	; ø½‰ºƒ
-    (=gb2312		. #x236C)	; ø»„Š‹
-    (=ks-x1001		. #x236C)	; ø»ˆž“
-    (=cns11643-1	. #x2466)	; ø»‘‡»
-    (=big5		. #xA2F4)	; ý¢€Š‹´
-    (=jef-china3	. #x83E9)	; øºˆ©
+    (=jis-x0208		. #x236C)	; &I-J90-236C;
+    (=gb2312		. #x236C)	; &I-G0-236C;
+    (=ks-x1001		. #x236C)	; &I-K0-236C;
+    (=cns11643-1	. #x2466)	; &I-C1-2466;
+    (=big5		. #xA2F4)	; &I-B-A2F4;
+    (=jef-china3	. #x83E9)	; &I-JC3-83E9;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER M")
@@ -1500,12 +1500,12 @@
       (=ucs		  . #x006D)	; m
       ))
     (=ucs		. #xFF4D)	; ï½
-    (=jis-x0208		. #x236D)	; ø½‰º„
-    (=gb2312		. #x236D)	; ø»„ŠŒ
-    (=ks-x1001		. #x236D)	; ø»ˆž”
-    (=cns11643-1	. #x2467)	; ø»‘‡¼
-    (=big5		. #xA2F5)	; ý¢€Š‹µ
-    (=jef-china3	. #x83EA)	; øºˆª
+    (=jis-x0208		. #x236D)	; &I-J90-236D;
+    (=gb2312		. #x236D)	; &I-G0-236D;
+    (=ks-x1001		. #x236D)	; &I-K0-236D;
+    (=cns11643-1	. #x2467)	; &I-C1-2467;
+    (=big5		. #xA2F5)	; &I-B-A2F5;
+    (=jef-china3	. #x83EA)	; &I-JC3-83EA;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER N")
@@ -1522,12 +1522,12 @@
       (=ucs		  . #x006E)	; n
       ))
     (=ucs		. #xFF4E)	; ï½Ž
-    (=jis-x0208		. #x236E)	; ø½‰º…
-    (=gb2312		. #x236E)	; ø»„Š
-    (=ks-x1001		. #x236E)	; ø»ˆž•
-    (=cns11643-1	. #x2468)	; ø»‘‡½
-    (=big5		. #xA2F6)	; ý¢€Š‹¶
-    (=jef-china3	. #x83EB)	; øºˆ«
+    (=jis-x0208		. #x236E)	; &I-J90-236E;
+    (=gb2312		. #x236E)	; &I-G0-236E;
+    (=ks-x1001		. #x236E)	; &I-K0-236E;
+    (=cns11643-1	. #x2468)	; &I-C1-2468;
+    (=big5		. #xA2F6)	; &I-B-A2F6;
+    (=jef-china3	. #x83EB)	; &I-JC3-83EB;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER O")
@@ -1544,12 +1544,12 @@
       (=ucs		  . #x006F)	; o
       ))
     (=ucs		. #xFF4F)	; ï½
-    (=jis-x0208		. #x236F)	; ø½‰º†
-    (=gb2312		. #x236F)	; ø»„ŠŽ
-    (=ks-x1001		. #x236F)	; ø»ˆž–
-    (=cns11643-1	. #x2469)	; ø»‘‡¾
-    (=big5		. #xA2F7)	; ý¢€Š‹·
-    (=jef-china3	. #x83EC)	; øºˆ¬
+    (=jis-x0208		. #x236F)	; &I-J90-236F;
+    (=gb2312		. #x236F)	; &I-G0-236F;
+    (=ks-x1001		. #x236F)	; &I-K0-236F;
+    (=cns11643-1	. #x2469)	; &I-C1-2469;
+    (=big5		. #xA2F7)	; &I-B-A2F7;
+    (=jef-china3	. #x83EC)	; &I-JC3-83EC;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER P")
@@ -1566,11 +1566,11 @@
       (=ucs		  . #x0070)	; p
       ))
     (=ucs		. #xFF50)	; ï½
-    (=jis-x0208		. #x2370)	; ø½‰º‡
-    (=gb2312		. #x2370)	; ø»„Š
-    (=ks-x1001		. #x2370)	; ø»ˆž—
-    (=cns11643-1	. #x246A)	; ø»‘‡¿
-    (=big5		. #xA2F8)	; ý¢€Š‹¸
+    (=jis-x0208		. #x2370)	; &I-J90-2370;
+    (=gb2312		. #x2370)	; &I-G0-2370;
+    (=ks-x1001		. #x2370)	; &I-K0-2370;
+    (=cns11643-1	. #x246A)	; &I-C1-246A;
+    (=big5		. #xA2F8)	; &I-B-A2F8;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER Q")
@@ -1587,11 +1587,11 @@
       (=ucs		  . #x0071)	; q
       ))
     (=ucs		. #xFF51)	; ï½‘
-    (=jis-x0208		. #x2371)	; ø½‰ºˆ
-    (=gb2312		. #x2371)	; ø»„Š
-    (=ks-x1001		. #x2371)	; ø»ˆž˜
-    (=cns11643-1	. #x246B)	; ø»‘ˆ€
-    (=big5		. #xA2F9)	; ý¢€Š‹¹
+    (=jis-x0208		. #x2371)	; &I-J90-2371;
+    (=gb2312		. #x2371)	; &I-G0-2371;
+    (=ks-x1001		. #x2371)	; &I-K0-2371;
+    (=cns11643-1	. #x246B)	; &I-C1-246B;
+    (=big5		. #xA2F9)	; &I-B-A2F9;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER R")
@@ -1608,12 +1608,12 @@
       (=ucs		  . #x0072)	; r
       ))
     (=ucs		. #xFF52)	; ï½’
-    (=jis-x0208		. #x2372)	; ø½‰º‰
-    (=gb2312		. #x2372)	; ø»„Š‘
-    (=ks-x1001		. #x2372)	; ø»ˆž™
-    (=cns11643-1	. #x246C)	; ø»‘ˆ
-    (=big5		. #xA2FA)	; ý¢€Š‹º
-    (=jef-china3	. #x83ED)	; øºˆ­
+    (=jis-x0208		. #x2372)	; &I-J90-2372;
+    (=gb2312		. #x2372)	; &I-G0-2372;
+    (=ks-x1001		. #x2372)	; &I-K0-2372;
+    (=cns11643-1	. #x246C)	; &I-C1-246C;
+    (=big5		. #xA2FA)	; &I-B-A2FA;
+    (=jef-china3	. #x83ED)	; &I-JC3-83ED;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER S")
@@ -1630,12 +1630,12 @@
       (=ucs		  . #x0073)	; s
       ))
     (=ucs		. #xFF53)	; ï½“
-    (=jis-x0208		. #x2373)	; ø½‰ºŠ
-    (=gb2312		. #x2373)	; ø»„Š’
-    (=ks-x1001		. #x2373)	; ø»ˆžš
-    (=cns11643-1	. #x246D)	; ø»‘ˆ‚
-    (=big5		. #xA2FB)	; ý¢€Š‹»
-    (=jef-china3	. #x83EE)	; øºˆ®
+    (=jis-x0208		. #x2373)	; &I-J90-2373;
+    (=gb2312		. #x2373)	; &I-G0-2373;
+    (=ks-x1001		. #x2373)	; &I-K0-2373;
+    (=cns11643-1	. #x246D)	; &I-C1-246D;
+    (=big5		. #xA2FB)	; &I-B-A2FB;
+    (=jef-china3	. #x83EE)	; &I-JC3-83EE;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER T")
@@ -1652,12 +1652,12 @@
       (=ucs		  . #x0074)	; t
       ))
     (=ucs		. #xFF54)	; ï½”
-    (=jis-x0208		. #x2374)	; ø½‰º‹
-    (=gb2312		. #x2374)	; ø»„Š“
-    (=ks-x1001		. #x2374)	; ø»ˆž›
-    (=cns11643-1	. #x246E)	; ø»‘ˆƒ
-    (=big5		. #xA2FC)	; ý¢€Š‹¼
-    (=jef-china3	. #x83EF)	; øºˆ¯
+    (=jis-x0208		. #x2374)	; &I-J90-2374;
+    (=gb2312		. #x2374)	; &I-G0-2374;
+    (=ks-x1001		. #x2374)	; &I-K0-2374;
+    (=cns11643-1	. #x246E)	; &I-C1-246E;
+    (=big5		. #xA2FC)	; &I-B-A2FC;
+    (=jef-china3	. #x83EF)	; &I-JC3-83EF;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER U")
@@ -1674,12 +1674,12 @@
       (=ucs		  . #x0075)	; u
       ))
     (=ucs		. #xFF55)	; ï½•
-    (=jis-x0208		. #x2375)	; ø½‰ºŒ
-    (=gb2312		. #x2375)	; ø»„Š”
-    (=ks-x1001		. #x2375)	; ø»ˆžœ
-    (=cns11643-1	. #x246F)	; ø»‘ˆ„
-    (=big5		. #xA2FD)	; ý¢€Š‹½
-    (=jef-china3	. #x83F0)	; øºˆ°
+    (=jis-x0208		. #x2375)	; &I-J90-2375;
+    (=gb2312		. #x2375)	; &I-G0-2375;
+    (=ks-x1001		. #x2375)	; &I-K0-2375;
+    (=cns11643-1	. #x246F)	; &I-C1-246F;
+    (=big5		. #xA2FD)	; &I-B-A2FD;
+    (=jef-china3	. #x83F0)	; &I-JC3-83F0;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER V")
@@ -1696,11 +1696,11 @@
       (=ucs		  . #x0076)	; v
       ))
     (=ucs		. #xFF56)	; ï½–
-    (=jis-x0208		. #x2376)	; ø½‰º
-    (=gb2312		. #x2376)	; ø»„Š•
-    (=ks-x1001		. #x2376)	; ø»ˆž
-    (=cns11643-1	. #x2470)	; ø»‘ˆ…
-    (=big5		. #xA2FE)	; ý¢€Š‹¾
+    (=jis-x0208		. #x2376)	; &I-J90-2376;
+    (=gb2312		. #x2376)	; &I-G0-2376;
+    (=ks-x1001		. #x2376)	; &I-K0-2376;
+    (=cns11643-1	. #x2470)	; &I-C1-2470;
+    (=big5		. #xA2FE)	; &I-B-A2FE;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER W")
@@ -1717,11 +1717,11 @@
       (=ucs		  . #x0077)	; w
       ))
     (=ucs		. #xFF57)	; ï½—
-    (=jis-x0208		. #x2377)	; ø½‰ºŽ
-    (=gb2312		. #x2377)	; ø»„Š–
-    (=ks-x1001		. #x2377)	; ø»ˆžž
-    (=cns11643-1	. #x2471)	; ø»‘ˆ†
-    (=big5		. #xA340)	; ý¢€Š€
+    (=jis-x0208		. #x2377)	; &I-J90-2377;
+    (=gb2312		. #x2377)	; &I-G0-2377;
+    (=ks-x1001		. #x2377)	; &I-K0-2377;
+    (=cns11643-1	. #x2471)	; &I-C1-2471;
+    (=big5		. #xA340)	; &I-B-A340;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER X")
@@ -1738,11 +1738,11 @@
       (=ucs		  . #x0078)	; x
       ))
     (=ucs		. #xFF58)	; ï½˜
-    (=jis-x0208		. #x2378)	; ø½‰º
-    (=gb2312		. #x2378)	; ø»„Š—
-    (=ks-x1001		. #x2378)	; ø»ˆžŸ
-    (=cns11643-1	. #x2472)	; ø»‘ˆ‡
-    (=big5		. #xA341)	; ý¢€Š
+    (=jis-x0208		. #x2378)	; &I-J90-2378;
+    (=gb2312		. #x2378)	; &I-G0-2378;
+    (=ks-x1001		. #x2378)	; &I-K0-2378;
+    (=cns11643-1	. #x2472)	; &I-C1-2472;
+    (=big5		. #xA341)	; &I-B-A341;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER Y")
@@ -1759,12 +1759,12 @@
       (=ucs		  . #x0079)	; y
       ))
     (=ucs		. #xFF59)	; ï½™
-    (=jis-x0208		. #x2379)	; ø½‰º
-    (=gb2312		. #x2379)	; ø»„Š˜
-    (=ks-x1001		. #x2379)	; ø»ˆž 
-    (=cns11643-1	. #x2473)	; ø»‘ˆˆ
-    (=big5		. #xA342)	; ý¢€Š‚
-    (=jef-china3	. #x83F1)	; øºˆ±
+    (=jis-x0208		. #x2379)	; &I-J90-2379;
+    (=gb2312		. #x2379)	; &I-G0-2379;
+    (=ks-x1001		. #x2379)	; &I-K0-2379;
+    (=cns11643-1	. #x2473)	; &I-C1-2473;
+    (=big5		. #xA342)	; &I-B-A342;
+    (=jef-china3	. #x83F1)	; &I-JC3-83F1;
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER Z")
@@ -1781,12 +1781,12 @@
       (=ucs		  . #x007A)	; z
       ))
     (=ucs		. #xFF5A)	; ï½š
-    (=jis-x0208		. #x237A)	; ø½‰º‘
-    (=gb2312		. #x237A)	; ø»„Š™
-    (=ks-x1001		. #x237A)	; ø»ˆž¡
-    (=cns11643-1	. #x2474)	; ø»‘ˆ‰
-    (=big5		. #xA343)	; ý¢€Šƒ
-    (=jef-china3	. #x83F2)	; øºˆ²
+    (=jis-x0208		. #x237A)	; &I-J90-237A;
+    (=gb2312		. #x237A)	; &I-G0-237A;
+    (=ks-x1001		. #x237A)	; &I-K0-237A;
+    (=cns11643-1	. #x2474)	; &I-C1-2474;
+    (=big5		. #xA343)	; &I-B-A343;
+    (=jef-china3	. #x83F2)	; &I-JC3-83F2;
     ))
 (define-char
   '((name		. "FULLWIDTH LEFT CURLY BRACKET")
@@ -1799,11 +1799,11 @@
       (=ucs		  . #x007B)	; {
       ))
     (=ucs		. #xFF5B)	; ï½›
-    (=jis-x0208		. #x2150)	; ø½‰¶«
-    (=gb2312		. #x237B)	; ø»„Šš
-    (=ks-x1001		. #x237B)	; ø»ˆž¢
-    (=cns11643-1	. #x2142)	; ø»‘‚½
-    (=big5		. #xA161)	; ý¢€Š…¡
+    (=jis-x0208		. #x2150)	; &I-J90-2150;
+    (=gb2312		. #x237B)	; &I-G0-237B;
+    (=ks-x1001		. #x237B)	; &I-K0-237B;
+    (=cns11643-1	. #x2142)	; &I-C1-2142;
+    (=big5		. #xA161)	; &I-B-A161;
     ))
 (define-char
   '((name		. "FULLWIDTH VERTICAL LINE")
@@ -1816,11 +1816,11 @@
       (=ucs		  . #x007C)	; |
       ))
     (=ucs		. #xFF5C)	; ï½œ
-    (=jis-x0208		. #x2143)	; ø½‰¶ž
-    (=gb2312		. #x237C)	; ø»„Š›
-    (=ks-x1001		. #x237C)	; ø»ˆž£
-    (=cns11643-1	. #x225E)	; ø»‘„·
-    (=big5		. #xA155)	; ý¢€Š…•
+    (=jis-x0208		. #x2143)	; &I-J90-2143;
+    (=gb2312		. #x237C)	; &I-G0-237C;
+    (=ks-x1001		. #x237C)	; &I-K0-237C;
+    (=cns11643-1	. #x225E)	; &I-C1-225E;
+    (=big5		. #xA155)	; &I-B-A155;
     ))
 (define-char
   '((name		. "FULLWIDTH RIGHT CURLY BRACKET")
@@ -1833,11 +1833,11 @@
       (=ucs		  . #x007D)	; }
       ))
     (=ucs		. #xFF5D)	; ï½
-    (=jis-x0208		. #x2151)	; ø½‰¶¬
-    (=gb2312		. #x237D)	; ø»„Šœ
-    (=ks-x1001		. #x237D)	; ø»ˆž¤
-    (=cns11643-1	. #x2143)	; ø»‘‚¾
-    (=big5		. #xA162)	; ý¢€Š…¢
+    (=jis-x0208		. #x2151)	; &I-J90-2151;
+    (=gb2312		. #x237D)	; &I-G0-237D;
+    (=ks-x1001		. #x237D)	; &I-K0-237D;
+    (=cns11643-1	. #x2143)	; &I-C1-2143;
+    (=big5		. #xA162)	; &I-B-A162;
     ))
 (define-char
   '((name		. "FULLWIDTH TILDE")
@@ -1850,21 +1850,21 @@
       (=ucs		  . #x007E)	; ~
       ))
     (=ucs		. #xFF5E)	; ï½ž
-    (=gb2312		. #x212B)	; ø»„†Ž
-    (=ks-x1001		. #x2226)	; ø»ˆ›¯
-    (=jis-x0212		. #x2237)	; ø»Š¦„
-    (=jis-x0213-1-2000	. #x2232)	; ø»¢”«
-    (=jef-china3	. #x81A6)	; øºˆ†¦
+    (=gb2312		. #x212B)	; &I-G0-212B;
+    (=ks-x1001		. #x2226)	; &I-K0-2226;
+    (=jis-x0212		. #x2237)	; &I-JSP-2237;
+    (=jis-x0213-1-2000	. #x2232)	; &I-JX1-2232;
+    (=jef-china3	. #x81A6)	; &I-JC3-81A6;
     ))
 (define-char
   '((name		. "FULLWIDTH LEFT WHITE PARENTHESIS")
     (=ucs		. #xFF5F)	; ï½Ÿ
-    (=jis-x0213-1-2000	. #x2256)	; ø»¢•
+    (=jis-x0213-1-2000	. #x2256)	; &I-JX1-2256;
     ))
 (define-char
   '((name		. "FULLWIDTH RIGHT WHITE PARENTHESIS")
     (=ucs		. #xFF60)	; ï½ 
-    (=jis-x0213-1-2000	. #x2257)	; ø»¢•
+    (=jis-x0213-1-2000	. #x2257)	; &I-JX1-2257;
     ))
 (define-char
   '((name		. "HALFWIDTH IDEOGRAPHIC FULL STOP")
@@ -1877,7 +1877,7 @@
       (=ucs		  . #x3002)	; ã€‚
       ))
     (=ucs		. #xFF61)	; ï½¡
-    (katakana-jisx0201	. #xA1)	; øº‘‰®
+    (katakana-jisx0201	. #xA1)	; &I-KATAKANA-21;
     ))
 (define-char
   '((name		. "HALFWIDTH LEFT CORNER BRACKET")
@@ -1890,7 +1890,7 @@
       (=ucs		  . #x300C)	; ã€Œ
       ))
     (=ucs		. #xFF62)	; ï½¢
-    (katakana-jisx0201	. #xA2)	; øº‘‰¯
+    (katakana-jisx0201	. #xA2)	; &I-KATAKANA-22;
     ))
 (define-char
   '((name		. "HALFWIDTH RIGHT CORNER BRACKET")
@@ -1903,7 +1903,7 @@
       (=ucs		  . #x300D)	; ã€
       ))
     (=ucs		. #xFF63)	; ï½£
-    (katakana-jisx0201	. #xA3)	; øº‘‰°
+    (katakana-jisx0201	. #xA3)	; &I-KATAKANA-23;
     ))
 (define-char
   '((name		. "HALFWIDTH IDEOGRAPHIC COMMA")
@@ -1916,7 +1916,7 @@
       (=ucs		  . #x3001)	; ã€
       ))
     (=ucs		. #xFF64)	; ï½¤
-    (katakana-jisx0201	. #xA4)	; øº‘‰±
+    (katakana-jisx0201	. #xA4)	; &I-KATAKANA-24;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA MIDDLE DOT")
@@ -1929,7 +1929,7 @@
       (=ucs		  . #x30FB)	; ãƒ»
       ))
     (=ucs		. #xFF65)	; ï½¥
-    (katakana-jisx0201	. #xA5)	; øº‘‰²
+    (katakana-jisx0201	. #xA5)	; &I-KATAKANA-25;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER WO")
@@ -1942,7 +1942,7 @@
       (=ucs		  . #x30F2)	; ãƒ²
       ))
     (=ucs		. #xFF66)	; ï½¦
-    (katakana-jisx0201	. #xA6)	; øº‘‰³
+    (katakana-jisx0201	. #xA6)	; &I-KATAKANA-26;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SMALL A")
@@ -1955,7 +1955,7 @@
       (=ucs		  . #x30A1)	; ã‚¡
       ))
     (=ucs		. #xFF67)	; ï½§
-    (katakana-jisx0201	. #xA7)	; øº‘‰´
+    (katakana-jisx0201	. #xA7)	; &I-KATAKANA-27;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SMALL I")
@@ -1968,7 +1968,7 @@
       (=ucs		  . #x30A3)	; ã‚£
       ))
     (=ucs		. #xFF68)	; ï½¨
-    (katakana-jisx0201	. #xA8)	; øº‘‰µ
+    (katakana-jisx0201	. #xA8)	; &I-KATAKANA-28;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SMALL U")
@@ -1981,7 +1981,7 @@
       (=ucs		  . #x30A5)	; ã‚¥
       ))
     (=ucs		. #xFF69)	; ï½©
-    (katakana-jisx0201	. #xA9)	; øº‘‰¶
+    (katakana-jisx0201	. #xA9)	; &I-KATAKANA-29;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SMALL E")
@@ -1994,7 +1994,7 @@
       (=ucs		  . #x30A7)	; ã‚§
       ))
     (=ucs		. #xFF6A)	; ï½ª
-    (katakana-jisx0201	. #xAA)	; øº‘‰·
+    (katakana-jisx0201	. #xAA)	; &I-KATAKANA-2A;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SMALL O")
@@ -2007,7 +2007,7 @@
       (=ucs		  . #x30A9)	; ã‚©
       ))
     (=ucs		. #xFF6B)	; ï½«
-    (katakana-jisx0201	. #xAB)	; øº‘‰¸
+    (katakana-jisx0201	. #xAB)	; &I-KATAKANA-2B;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SMALL YA")
@@ -2020,7 +2020,7 @@
       (=ucs		  . #x30E3)	; ãƒ£
       ))
     (=ucs		. #xFF6C)	; ï½¬
-    (katakana-jisx0201	. #xAC)	; øº‘‰¹
+    (katakana-jisx0201	. #xAC)	; &I-KATAKANA-2C;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SMALL YU")
@@ -2033,7 +2033,7 @@
       (=ucs		  . #x30E5)	; ãƒ¥
       ))
     (=ucs		. #xFF6D)	; ï½­
-    (katakana-jisx0201	. #xAD)	; øº‘‰º
+    (katakana-jisx0201	. #xAD)	; &I-KATAKANA-2D;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SMALL YO")
@@ -2046,7 +2046,7 @@
       (=ucs		  . #x30E7)	; ãƒ§
       ))
     (=ucs		. #xFF6E)	; ï½®
-    (katakana-jisx0201	. #xAE)	; øº‘‰»
+    (katakana-jisx0201	. #xAE)	; &I-KATAKANA-2E;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SMALL TU")
@@ -2059,7 +2059,7 @@
       (=ucs		  . #x30C3)	; ãƒƒ
       ))
     (=ucs		. #xFF6F)	; ï½¯
-    (katakana-jisx0201	. #xAF)	; øº‘‰¼
+    (katakana-jisx0201	. #xAF)	; &I-KATAKANA-2F;
     ))
 (define-char
   '((name . "HALFWIDTH KATAKANA-HIRAGANA PROLONGED SOUND MARK")
@@ -2072,7 +2072,7 @@
       (=ucs		  . #x30FC)	; ãƒ¼
       ))
     (=ucs		. #xFF70)	; ï½°
-    (katakana-jisx0201	. #xB0)	; øº‘‰½
+    (katakana-jisx0201	. #xB0)	; &I-KATAKANA-30;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER A")
@@ -2085,7 +2085,7 @@
       (=ucs		  . #x30A2)	; ã‚¢
       ))
     (=ucs		. #xFF71)	; ï½±
-    (katakana-jisx0201	. #xB1)	; øº‘‰¾
+    (katakana-jisx0201	. #xB1)	; &I-KATAKANA-31;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER I")
@@ -2098,7 +2098,7 @@
       (=ucs		  . #x30A4)	; ã‚¤
       ))
     (=ucs		. #xFF72)	; ï½²
-    (katakana-jisx0201	. #xB2)	; øº‘‰¿
+    (katakana-jisx0201	. #xB2)	; &I-KATAKANA-32;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER U")
@@ -2111,7 +2111,7 @@
       (=ucs		  . #x30A6)	; ã‚¦
       ))
     (=ucs		. #xFF73)	; ï½³
-    (katakana-jisx0201	. #xB3)	; øº‘Š€
+    (katakana-jisx0201	. #xB3)	; &I-KATAKANA-33;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER E")
@@ -2124,7 +2124,7 @@
       (=ucs		  . #x30A8)	; ã‚¨
       ))
     (=ucs		. #xFF74)	; ï½´
-    (katakana-jisx0201	. #xB4)	; øº‘Š
+    (katakana-jisx0201	. #xB4)	; &I-KATAKANA-34;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER O")
@@ -2137,7 +2137,7 @@
       (=ucs		  . #x30AA)	; ã‚ª
       ))
     (=ucs		. #xFF75)	; ï½µ
-    (katakana-jisx0201	. #xB5)	; øº‘Š‚
+    (katakana-jisx0201	. #xB5)	; &I-KATAKANA-35;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER KA")
@@ -2150,7 +2150,7 @@
       (=ucs		  . #x30AB)	; ã‚«
       ))
     (=ucs		. #xFF76)	; ï½¶
-    (katakana-jisx0201	. #xB6)	; øº‘Šƒ
+    (katakana-jisx0201	. #xB6)	; &I-KATAKANA-36;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER KI")
@@ -2163,7 +2163,7 @@
       (=ucs		  . #x30AD)	; ã‚­
       ))
     (=ucs		. #xFF77)	; ï½·
-    (katakana-jisx0201	. #xB7)	; øº‘Š„
+    (katakana-jisx0201	. #xB7)	; &I-KATAKANA-37;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER KU")
@@ -2176,7 +2176,7 @@
       (=ucs		  . #x30AF)	; ã‚¯
       ))
     (=ucs		. #xFF78)	; ï½¸
-    (katakana-jisx0201	. #xB8)	; øº‘Š…
+    (katakana-jisx0201	. #xB8)	; &I-KATAKANA-38;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER KE")
@@ -2189,7 +2189,7 @@
       (=ucs		  . #x30B1)	; ã‚±
       ))
     (=ucs		. #xFF79)	; ï½¹
-    (katakana-jisx0201	. #xB9)	; øº‘Š†
+    (katakana-jisx0201	. #xB9)	; &I-KATAKANA-39;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER KO")
@@ -2202,7 +2202,7 @@
       (=ucs		  . #x30B3)	; ã‚³
       ))
     (=ucs		. #xFF7A)	; ï½º
-    (katakana-jisx0201	. #xBA)	; øº‘Š‡
+    (katakana-jisx0201	. #xBA)	; &I-KATAKANA-3A;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SA")
@@ -2215,7 +2215,7 @@
       (=ucs		  . #x30B5)	; ã‚µ
       ))
     (=ucs		. #xFF7B)	; ï½»
-    (katakana-jisx0201	. #xBB)	; øº‘Šˆ
+    (katakana-jisx0201	. #xBB)	; &I-KATAKANA-3B;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SI")
@@ -2228,7 +2228,7 @@
       (=ucs		  . #x30B7)	; ã‚·
       ))
     (=ucs		. #xFF7C)	; ï½¼
-    (katakana-jisx0201	. #xBC)	; øº‘Š‰
+    (katakana-jisx0201	. #xBC)	; &I-KATAKANA-3C;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SU")
@@ -2241,7 +2241,7 @@
       (=ucs		  . #x30B9)	; ã‚¹
       ))
     (=ucs		. #xFF7D)	; ï½½
-    (katakana-jisx0201	. #xBD)	; øº‘ŠŠ
+    (katakana-jisx0201	. #xBD)	; &I-KATAKANA-3D;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SE")
@@ -2254,7 +2254,7 @@
       (=ucs		  . #x30BB)	; ã‚»
       ))
     (=ucs		. #xFF7E)	; ï½¾
-    (katakana-jisx0201	. #xBE)	; øº‘Š‹
+    (katakana-jisx0201	. #xBE)	; &I-KATAKANA-3E;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER SO")
@@ -2267,7 +2267,7 @@
       (=ucs		  . #x30BD)	; ã‚½
       ))
     (=ucs		. #xFF7F)	; ï½¿
-    (katakana-jisx0201	. #xBF)	; øº‘ŠŒ
+    (katakana-jisx0201	. #xBF)	; &I-KATAKANA-3F;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER TA")
@@ -2280,7 +2280,7 @@
       (=ucs		  . #x30BF)	; ã‚¿
       ))
     (=ucs		. #xFF80)	; ï¾€
-    (katakana-jisx0201	. #xC0)	; øº‘Š
+    (katakana-jisx0201	. #xC0)	; &I-KATAKANA-40;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER TI")
@@ -2293,7 +2293,7 @@
       (=ucs		  . #x30C1)	; ãƒ
       ))
     (=ucs		. #xFF81)	; ï¾
-    (katakana-jisx0201	. #xC1)	; øº‘ŠŽ
+    (katakana-jisx0201	. #xC1)	; &I-KATAKANA-41;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER TU")
@@ -2306,7 +2306,7 @@
       (=ucs		  . #x30C4)	; ãƒ„
       ))
     (=ucs		. #xFF82)	; ï¾‚
-    (katakana-jisx0201	. #xC2)	; øº‘Š
+    (katakana-jisx0201	. #xC2)	; &I-KATAKANA-42;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER TE")
@@ -2319,7 +2319,7 @@
       (=ucs		  . #x30C6)	; ãƒ†
       ))
     (=ucs		. #xFF83)	; ï¾ƒ
-    (katakana-jisx0201	. #xC3)	; øº‘Š
+    (katakana-jisx0201	. #xC3)	; &I-KATAKANA-43;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER TO")
@@ -2332,7 +2332,7 @@
       (=ucs		  . #x30C8)	; ãƒˆ
       ))
     (=ucs		. #xFF84)	; ï¾„
-    (katakana-jisx0201	. #xC4)	; øº‘Š‘
+    (katakana-jisx0201	. #xC4)	; &I-KATAKANA-44;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER NA")
@@ -2345,7 +2345,7 @@
       (=ucs		  . #x30CA)	; ãƒŠ
       ))
     (=ucs		. #xFF85)	; ï¾…
-    (katakana-jisx0201	. #xC5)	; øº‘Š’
+    (katakana-jisx0201	. #xC5)	; &I-KATAKANA-45;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER NI")
@@ -2358,7 +2358,7 @@
       (=ucs		  . #x30CB)	; ãƒ‹
       ))
     (=ucs		. #xFF86)	; ï¾†
-    (katakana-jisx0201	. #xC6)	; øº‘Š“
+    (katakana-jisx0201	. #xC6)	; &I-KATAKANA-46;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER NU")
@@ -2371,7 +2371,7 @@
       (=ucs		  . #x30CC)	; ãƒŒ
       ))
     (=ucs		. #xFF87)	; ï¾‡
-    (katakana-jisx0201	. #xC7)	; øº‘Š”
+    (katakana-jisx0201	. #xC7)	; &I-KATAKANA-47;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER NE")
@@ -2384,7 +2384,7 @@
       (=ucs		  . #x30CD)	; ãƒ
       ))
     (=ucs		. #xFF88)	; ï¾ˆ
-    (katakana-jisx0201	. #xC8)	; øº‘Š•
+    (katakana-jisx0201	. #xC8)	; &I-KATAKANA-48;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER NO")
@@ -2397,7 +2397,7 @@
       (=ucs		  . #x30CE)	; ãƒŽ
       ))
     (=ucs		. #xFF89)	; ï¾‰
-    (katakana-jisx0201	. #xC9)	; øº‘Š–
+    (katakana-jisx0201	. #xC9)	; &I-KATAKANA-49;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER HA")
@@ -2410,7 +2410,7 @@
       (=ucs		  . #x30CF)	; ãƒ
       ))
     (=ucs		. #xFF8A)	; ï¾Š
-    (katakana-jisx0201	. #xCA)	; øº‘Š—
+    (katakana-jisx0201	. #xCA)	; &I-KATAKANA-4A;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER HI")
@@ -2423,7 +2423,7 @@
       (=ucs		  . #x30D2)	; ãƒ’
       ))
     (=ucs		. #xFF8B)	; ï¾‹
-    (katakana-jisx0201	. #xCB)	; øº‘Š˜
+    (katakana-jisx0201	. #xCB)	; &I-KATAKANA-4B;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER HU")
@@ -2436,7 +2436,7 @@
       (=ucs		  . #x30D5)	; ãƒ•
       ))
     (=ucs		. #xFF8C)	; ï¾Œ
-    (katakana-jisx0201	. #xCC)	; øº‘Š™
+    (katakana-jisx0201	. #xCC)	; &I-KATAKANA-4C;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER HE")
@@ -2449,7 +2449,7 @@
       (=ucs		  . #x30D8)	; ãƒ˜
       ))
     (=ucs		. #xFF8D)	; ï¾
-    (katakana-jisx0201	. #xCD)	; øº‘Šš
+    (katakana-jisx0201	. #xCD)	; &I-KATAKANA-4D;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER HO")
@@ -2462,7 +2462,7 @@
       (=ucs		  . #x30DB)	; ãƒ›
       ))
     (=ucs		. #xFF8E)	; ï¾Ž
-    (katakana-jisx0201	. #xCE)	; øº‘Š›
+    (katakana-jisx0201	. #xCE)	; &I-KATAKANA-4E;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER MA")
@@ -2475,7 +2475,7 @@
       (=ucs		  . #x30DE)	; ãƒž
       ))
     (=ucs		. #xFF8F)	; ï¾
-    (katakana-jisx0201	. #xCF)	; øº‘Šœ
+    (katakana-jisx0201	. #xCF)	; &I-KATAKANA-4F;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER MI")
@@ -2488,7 +2488,7 @@
       (=ucs		  . #x30DF)	; ãƒŸ
       ))
     (=ucs		. #xFF90)	; ï¾
-    (katakana-jisx0201	. #xD0)	; øº‘Š
+    (katakana-jisx0201	. #xD0)	; &I-KATAKANA-50;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER MU")
@@ -2501,7 +2501,7 @@
       (=ucs		  . #x30E0)	; ãƒ 
       ))
     (=ucs		. #xFF91)	; ï¾‘
-    (katakana-jisx0201	. #xD1)	; øº‘Šž
+    (katakana-jisx0201	. #xD1)	; &I-KATAKANA-51;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER ME")
@@ -2514,7 +2514,7 @@
       (=ucs		  . #x30E1)	; ãƒ¡
       ))
     (=ucs		. #xFF92)	; ï¾’
-    (katakana-jisx0201	. #xD2)	; øº‘ŠŸ
+    (katakana-jisx0201	. #xD2)	; &I-KATAKANA-52;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER MO")
@@ -2527,7 +2527,7 @@
       (=ucs		  . #x30E2)	; ãƒ¢
       ))
     (=ucs		. #xFF93)	; ï¾“
-    (katakana-jisx0201	. #xD3)	; øº‘Š 
+    (katakana-jisx0201	. #xD3)	; &I-KATAKANA-53;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER YA")
@@ -2540,7 +2540,7 @@
       (=ucs		  . #x30E4)	; ãƒ¤
       ))
     (=ucs		. #xFF94)	; ï¾”
-    (katakana-jisx0201	. #xD4)	; øº‘Š¡
+    (katakana-jisx0201	. #xD4)	; &I-KATAKANA-54;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER YU")
@@ -2553,7 +2553,7 @@
       (=ucs		  . #x30E6)	; ãƒ¦
       ))
     (=ucs		. #xFF95)	; ï¾•
-    (katakana-jisx0201	. #xD5)	; øº‘Š¢
+    (katakana-jisx0201	. #xD5)	; &I-KATAKANA-55;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER YO")
@@ -2566,7 +2566,7 @@
       (=ucs		  . #x30E8)	; ãƒ¨
       ))
     (=ucs		. #xFF96)	; ï¾–
-    (katakana-jisx0201	. #xD6)	; øº‘Š£
+    (katakana-jisx0201	. #xD6)	; &I-KATAKANA-56;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER RA")
@@ -2579,7 +2579,7 @@
       (=ucs		  . #x30E9)	; ãƒ©
       ))
     (=ucs		. #xFF97)	; ï¾—
-    (katakana-jisx0201	. #xD7)	; øº‘Š¤
+    (katakana-jisx0201	. #xD7)	; &I-KATAKANA-57;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER RI")
@@ -2592,7 +2592,7 @@
       (=ucs		  . #x30EA)	; ãƒª
       ))
     (=ucs		. #xFF98)	; ï¾˜
-    (katakana-jisx0201	. #xD8)	; øº‘Š¥
+    (katakana-jisx0201	. #xD8)	; &I-KATAKANA-58;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER RU")
@@ -2605,7 +2605,7 @@
       (=ucs		  . #x30EB)	; ãƒ«
       ))
     (=ucs		. #xFF99)	; ï¾™
-    (katakana-jisx0201	. #xD9)	; øº‘Š¦
+    (katakana-jisx0201	. #xD9)	; &I-KATAKANA-59;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER RE")
@@ -2618,7 +2618,7 @@
       (=ucs		  . #x30EC)	; ãƒ¬
       ))
     (=ucs		. #xFF9A)	; ï¾š
-    (katakana-jisx0201	. #xDA)	; øº‘Š§
+    (katakana-jisx0201	. #xDA)	; &I-KATAKANA-5A;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER RO")
@@ -2631,7 +2631,7 @@
       (=ucs		  . #x30ED)	; ãƒ­
       ))
     (=ucs		. #xFF9B)	; ï¾›
-    (katakana-jisx0201	. #xDB)	; øº‘Š¨
+    (katakana-jisx0201	. #xDB)	; &I-KATAKANA-5B;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER WA")
@@ -2644,7 +2644,7 @@
       (=ucs		  . #x30EF)	; ãƒ¯
       ))
     (=ucs		. #xFF9C)	; ï¾œ
-    (katakana-jisx0201	. #xDC)	; øº‘Š©
+    (katakana-jisx0201	. #xDC)	; &I-KATAKANA-5C;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA LETTER N")
@@ -2657,7 +2657,7 @@
       (=ucs		  . #x30F3)	; ãƒ³
       ))
     (=ucs		. #xFF9D)	; ï¾
-    (katakana-jisx0201	. #xDD)	; øº‘Šª
+    (katakana-jisx0201	. #xDD)	; &I-KATAKANA-5D;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA VOICED SOUND MARK")
@@ -2671,7 +2671,7 @@
       (=ucs		  . #x3099)	; ã‚™
       ))
     (=ucs		. #xFF9E)	; ï¾ž
-    (katakana-jisx0201	. #xDE)	; øº‘Š«
+    (katakana-jisx0201	. #xDE)	; &I-KATAKANA-5E;
     ))
 (define-char
   '((name		. "HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK")
@@ -2685,7 +2685,7 @@
       (=ucs		  . #x309A)	; ã‚š
       ))
     (=ucs		. #xFF9F)	; ï¾Ÿ
-    (katakana-jisx0201	. #xDF)	; øº‘Š¬
+    (katakana-jisx0201	. #xDF)	; &I-KATAKANA-5F;
     ))
 (define-char
   '((name		. "HALFWIDTH HANGUL FILLER")
@@ -3322,11 +3322,11 @@
       (=ucs		  . #x00A2)	; Â¢
       ))
     (=ucs		. #xFFE0)	; ï¿ 
-    (=jis-x0208		. #x2171)	; ø½‰·Œ
-    (=gb2312		. #x2169)	; ø»„‡Œ
-    (=ks-x1001		. #x214B)	; ø»ˆš¶
-    (=cns11643-1	. #x2266)	; ø»‘„¿
-    (=big5		. #xA246)	; ý¢€Š‰†
+    (=jis-x0208		. #x2171)	; &I-J90-2171;
+    (=gb2312		. #x2169)	; &I-G0-2169;
+    (=ks-x1001		. #x214B)	; &I-K0-214B;
+    (=cns11643-1	. #x2266)	; &I-C1-2266;
+    (=big5		. #xA246)	; &I-B-A246;
     ))
 (define-char
   '((name		. "FULLWIDTH POUND SIGN")
@@ -3339,11 +3339,11 @@
       (=ucs		  . #x00A3)	; Â£
       ))
     (=ucs		. #xFFE1)	; ï¿¡
-    (=jis-x0208		. #x2172)	; ø½‰·
-    (=gb2312		. #x216A)	; ø»„‡
-    (=ks-x1001		. #x214C)	; ø»ˆš·
-    (=cns11643-1	. #x2267)	; ø»‘…€
-    (=big5		. #xA247)	; ý¢€Š‰‡
+    (=jis-x0208		. #x2172)	; &I-J90-2172;
+    (=gb2312		. #x216A)	; &I-G0-216A;
+    (=ks-x1001		. #x214C)	; &I-K0-214C;
+    (=cns11643-1	. #x2267)	; &I-C1-2267;
+    (=big5		. #xA247)	; &I-B-A247;
     ))
 (define-char
   '((name		. "FULLWIDTH NOT SIGN")
@@ -3356,10 +3356,10 @@
       (=ucs		  . #x00AC)	; Â¬
       ))
     (=ucs		. #xFFE2)	; ï¿¢
-    (=jis-x0208-1983	. #x224C)	; ø»†’‘
-    (=ks-x1001		. #x217E)	; ø»ˆ›©
-    (=jis-x0208-1990	. #x224C)	; ø½‰¸…
-    (=big5-eten		. #xC8CD)	; ý¢€Œ£
+    (=jis-x0208-1983	. #x224C)	; &I-J83-224C;
+    (=ks-x1001		. #x217E)	; &I-K0-217E;
+    (=jis-x0208-1990	. #x224C)	; &I-J90-224C;
+    (=big5-eten		. #xC8CD)	; &B-C8CD;
     ))
 (define-char
   '((name		. "FULLWIDTH MACRON")
@@ -3372,9 +3372,9 @@
       (=ucs		  . #x00AF)	; Â¯
       ))
     (=ucs		. #xFFE3)	; ï¿£
-    (=jis-x0212		. #x2234)	; ø»Š¦
-    (=jis-x0213-1-2000	. #x292B)	; ø»¢ž¶
-    (=jef-china3	. #x81A7)	; øºˆ†§
+    (=jis-x0212		. #x2234)	; &I-JSP-2234;
+    (=jis-x0213-1-2000	. #x292B)	; &I-JX1-292B;
+    (=jef-china3	. #x81A7)	; &I-JC3-81A7;
     ))
 (define-char
   '((name		. "FULLWIDTH BROKEN BAR")
@@ -3387,9 +3387,9 @@
       (=ucs		  . #x00A6)	; Â¦
       ))
     (=ucs		. #xFFE4)	; ï¿¤
-    (=jis-x0212		. #x2243)	; ø»Š¦
-    (=jis-x0213-1-2000	. #x2925)	; ø»¢ž°
-    (=big5-eten		. #xC8CE)	; ý¢€Œ£Ž
+    (=jis-x0212		. #x2243)	; &I-JSP-2243;
+    (=jis-x0213-1-2000	. #x2925)	; &I-JX1-2925;
+    (=big5-eten		. #xC8CE)	; &B-C8CE;
     ))
 (define-char
   '((name		. "FULLWIDTH YEN SIGN")
@@ -3402,11 +3402,11 @@
       (=ucs		  . #x00A5)	; Â¥
       ))
     (=ucs		. #xFFE5)	; ï¿¥
-    (=jis-x0208		. #x216F)	; ø½‰·Š
-    (=gb2312		. #x2324)	; ø»„‰ƒ
-    (=ks-x1001		. #x214D)	; ø»ˆš¸
-    (=cns11643-1	. #x2264)	; ø»‘„½
-    (=big5		. #xA244)	; ý¢€Š‰„
+    (=jis-x0208		. #x216F)	; &I-J90-216F;
+    (=gb2312		. #x2324)	; &I-G0-2324;
+    (=ks-x1001		. #x214D)	; &I-K0-214D;
+    (=cns11643-1	. #x2264)	; &I-C1-2264;
+    (=big5		. #xA244)	; &I-B-A244;
     ))
 (define-char
   '((name		. "FULLWIDTH WON SIGN")
@@ -3419,7 +3419,7 @@
       (=ucs		  . #x20A9)	; â‚©
       ))
     (=ucs		. #xFFE6)	; ï¿¦
-    (=ks-x1001		. #x235C)	; ø»ˆžƒ
+    (=ks-x1001		. #x235C)	; &I-K0-235C;
     ))
 (define-char
   '((name		. "HALFWIDTH FORMS LIGHT VERTICAL")

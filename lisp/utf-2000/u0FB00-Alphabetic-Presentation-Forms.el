@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "LATIN SMALL LIGATURE FF")
     (general-category	letter lowercase) ; Normative Category
