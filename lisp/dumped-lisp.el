@@ -90,7 +90,6 @@
 	(when-feature menubar "menubar")
 	(when-feature dialog "dialog")
 	(when-feature mule "mule-conf")
-	(when-feature utf-2000 "ccs-jisx0201-latin.el")
 	(when-feature utf-2000 "ccs-jisx0208-1983.el")
 	(when-feature utf-2000 "u00000-C0")
 	(when-feature utf-2000 "u00020-Basic-Latin")
