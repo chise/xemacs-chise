@@ -2144,7 +2144,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x7CA6)	; &M-26939;
+       ((=ucs@unicode	    . #x7CA6)	; &CDP-8CB9;
 	)
        ((=ucs		    . #x4E5A)	; 乚
 	))
