@@ -1,5 +1,22 @@
 2002-04-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R145-Clothes.el (JX2-7828): Separate G0-7142 and
+	U+8864.
+
+	* Ideograph-R142-Insect.el (J0-6950): Separate G0-723F, C1-582A
+	and U+86A9.
+
+	* Ideograph-R140-Grass.el (M-30937): Separate J0-6829, EGB-7E3E
+	and U+8345.
+	(M-31634): Separate C1-6A5D.
+	(J0-6866): Separate G0-5D6F and U+84BF.
+
+	* Ideograph-R046-Mountain.el (U+5C7A): Unify JC3-4BB7.
+	(U+37BC): Unify JC3-4BB3.
+	(U+5CA7): Unify JC3-4AF2.
+
+2002-04-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R080-Do-Not.el: Use `=>ucs' instead of `->ucs'.
 	(U+6BCF): Unify JC3-54F4.
 
@@ -95,6 +112,9 @@
 	`ideographic-structure'.
 
 2002-03-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Ignore
+	`mojikyo-pj-*'.
 
 	* Ideograph-R025-Divination.el: Add some missing
 	`ideographic-structure' properties.
