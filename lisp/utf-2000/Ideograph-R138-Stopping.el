@@ -44,7 +44,7 @@
     (<-ideographic-component-forms
      ((=daikanwa	  . 30597)	; ø¸‡ž…
       ))
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 30597)	; ø¸‡ž…
       ))
     (=big5-cdp		. #x8C42)	; ý¢€ˆ±‚

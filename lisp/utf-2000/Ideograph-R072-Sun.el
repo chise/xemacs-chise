@@ -409,7 +409,7 @@
     (ideographic-radical . 72)	; â½‡
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 30177)	; ø¸‡—¡
       ))
     (=gt-k		. 03318)	; ý¡„€³¶
@@ -420,7 +420,7 @@
     (ideographic-radical . 72)	; â½‡
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 30177)	; ø¸‡—¡
       ))
     (=gt-k		. 03616)	; ý¡„€¸ 

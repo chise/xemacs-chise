@@ -508,7 +508,7 @@
     (ideographic-radical . 211)	; â¿’
     (ideographic-strokes . 5)
     (total-strokes	 . 17)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 48632)	; ø¸‹·¸
       ))
     (=jis-x0208		. #x4E70)	; ø½Š¹‘

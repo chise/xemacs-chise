@@ -5514,10 +5514,10 @@
     (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 19188)	; ø¸„«´
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (=ucs		. #x716E)	; ç…®
     (=jis-x0208		. #x3C51)	; ø½Šž–

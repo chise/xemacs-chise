@@ -5810,12 +5810,12 @@
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (<-simplified-ideograph
+    (<-simplified
      ((shinjigen-1	  . 8337)
       (=jis-x0208	  . #x6E2F)	; ø½‹§
       (=daikanwa	  . 39113)	; ø¸‰£‰
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      jii daikanwa shinjigen-1)
     (shinjigen-1	. 8336)
     (=ucs		. #x9045)	; é…

@@ -655,7 +655,7 @@
     (ideographic-radical . 37)	; â¼¤
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 05991)	; ø¸§
       ))
     (hanyu-dazidian	1 529 9)

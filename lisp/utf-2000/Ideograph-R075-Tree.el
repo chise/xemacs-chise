@@ -12993,10 +12993,10 @@
     (ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 15364)	; ø¸ƒ°„
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (=jis-x0208-1978	. #x3335)	; ø»‚–°
     (mojikyo		. 050230)	; ý €Œ¶
