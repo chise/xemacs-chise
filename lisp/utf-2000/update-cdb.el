@@ -90,6 +90,44 @@
     (pureload file))
   ))
 
+(defun char-ref= (cr1 cr2)
+  (cond ((char-ref-p cr1)
+	 (if (char-ref-p cr2)
+	     (char-spec= (plist-get cr1 :char)
+			 (plist-get cr2 :char))
+	   (char-spec= (plist-get cr1 :char) cr2)))
+	(t
+	 (char-spec= cr1
+		     (if (char-ref-p cr2)
+			 (plist-get cr2 :char)
+		       cr2)))))
+
+(defun char-spec= (cs1 cs2)
+  (if (characterp cs1)
+      (if (characterp cs2)
+	  (eq cs1 cs2)
+	(eq cs1 (find-char cs2)))
+    (if (characterp cs2)
+	(eq (find-char cs1) cs2)
+      (eq (find-char cs1) (find-char cs2)))))
+
+(let (ret)
+  (map-char-attribute
+   (lambda (c dc)
+     (if (consp dc)
+	 (setq dc (car dc)))
+     (if (listp dc)
+	 (if (setq ret (find-char dc))
+	     (setq dc ret)))
+     (when (characterp dc)
+       (setq ret (get-char-attribute dc '->uppercase))
+       (if (if (listp ret)
+	       (member* c ret :test #'char-ref=)
+	     (char-ref= c ret))
+	   (put-case-table-pair c dc (standard-case-table))))
+     nil)
+   '->lowercase))
+
 (garbage-collect)
 
 ;;; update-cdb.el ends here
