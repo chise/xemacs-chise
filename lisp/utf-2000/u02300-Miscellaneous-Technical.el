@@ -131,7 +131,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=gb2312		. #x2150)	; ø»„†³
+    (chinese-gb2312	. #x2150)	; ø»„†³
     (=jis-x0208-1983	. #x225E)	; ø»†’£
     (=ks-x1001		. #x2152)	; ø»ˆš½
     (=jis-x0208-1990	. #x225E)	; ø½‰¸—

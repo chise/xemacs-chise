@@ -1073,7 +1073,8 @@ Lisp_Object Qsystem_char_id;
 Lisp_Object Qcomposition;
 Lisp_Object Q_decomposition;
 Lisp_Object Qto_ucs;
-Lisp_Object Q_ucs_unified;
+Lisp_Object Q_ucs;
+Lisp_Object Q_ucs_variants;
 Lisp_Object Qcompat;
 Lisp_Object Qisolated;
 Lisp_Object Qinitial;
@@ -1170,7 +1171,7 @@ Return variants of CHARACTER.
   Lisp_Object ret;
 
   CHECK_CHAR (character);
-  ret = Fget_char_attribute (character, Q_ucs_unified, Qnil);
+  ret = Fget_char_attribute (character, Q_ucs_variants, Qnil);
   if (CONSP (ret))
     return Fcopy_list (ret);
   else
@@ -3211,16 +3212,16 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	{
 	  Emchar c = XINT (v);
 	  Lisp_Object ret
-	    = Fget_char_attribute (make_char (c), Q_ucs_unified, Qnil);
+	    = Fget_char_attribute (make_char (c), Q_ucs_variants, Qnil);
 
 	  if (!CONSP (ret))
 	    {
-	      Fput_char_attribute (make_char (c), Q_ucs_unified,
+	      Fput_char_attribute (make_char (c), Q_ucs_variants,
 				   Fcons (character, Qnil));
 	    }
 	  else if (NILP (Fmemq (character, ret)))
 	    {
-	      Fput_char_attribute (make_char (c), Q_ucs_unified,
+	      Fput_char_attribute (make_char (c), Q_ucs_variants,
 				   Fcons (character, ret));
 	    }
 	}
@@ -3243,7 +3244,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
     }
   else if (EQ (attribute, Q_decomposition))
     put_char_composition (character, value);
-  else if (EQ (attribute, Qto_ucs))
+  else if (EQ (attribute, Qto_ucs) || EQ (attribute, Q_ucs))
     {
       Lisp_Object ret;
       Emchar c;
@@ -3253,17 +3254,21 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
       c = XINT (value);
 
-      ret = Fget_char_attribute (make_char (c), Q_ucs_unified, Qnil);
+      ret = Fget_char_attribute (make_char (c), Q_ucs_variants, Qnil);
       if (!CONSP (ret))
 	{
-	  Fput_char_attribute (make_char (c), Q_ucs_unified,
+	  Fput_char_attribute (make_char (c), Q_ucs_variants,
 			       Fcons (character, Qnil));
 	}
       else if (NILP (Fmemq (character, ret)))
 	{
-	  Fput_char_attribute (make_char (c), Q_ucs_unified,
+	  Fput_char_attribute (make_char (c), Q_ucs_variants,
 			       Fcons (character, ret));
 	}
+#if 0
+      if (EQ (attribute, Q_ucs))
+	attribute = Qto_ucs;
+#endif
     }
 #if 0
   else if (EQ (attribute, Qideographic_structure))
@@ -3674,7 +3679,9 @@ Store character's ATTRIBUTES.
 	    }
 	  rest = Fcdr (rest);
 	}
-      if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) )
+      if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) ||
+	   (!NILP (code = Fcdr (Fassq (Q_ucs, attributes)))) )
+	
 	{
 	  if (!INTP (code))
 	    signal_simple_error ("Invalid argument", attributes);
@@ -3729,7 +3736,8 @@ Retrieve the character of the given ATTRIBUTES.
 	}
       rest = Fcdr (rest);
     }
-  if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) )
+  if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) ||
+       (!NILP (code = Fcdr (Fassq (Q_ucs, attributes)))) )
     {
       if (!INTP (code))
 	signal_simple_error ("Invalid argument", attributes);
@@ -4084,7 +4092,8 @@ syms_of_chartab (void)
   defsymbol (&Qsystem_char_id,		"system-char-id");
 
   defsymbol (&Qto_ucs,			"=>ucs");
-  defsymbol (&Q_ucs_unified,		"->ucs-unified");
+  defsymbol (&Q_ucs,			"->ucs");
+  defsymbol (&Q_ucs_variants,		"->ucs-variants");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");

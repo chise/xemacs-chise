@@ -6,9 +6,9 @@
     (digit-value	. 1)
     (numeric-value	. 1)
     (->decomposition	circle #x0031)
-    (=gb2312		. #x2259)	; ø»„ˆš
+    (chinese-gb2312	. #x2259)	; ø»„ˆš
     (=ks-x1001		. #x2867)	; ø»ˆ¥¤
-    (=cns11643-1	. #x2621)	; ø»‘‰²
+    (chinese-cns11643-1 . #x2621)	; ø»‘‰²
     (=jis-x0213-1-2000	. #x2D21)	; ø»¢¤¤
     (=big5-eten		. #xC6A1)	; ý¢€Œš¡
     (=jef-china3	. #x77C9)	; øº‡Ÿ‰
@@ -22,9 +22,9 @@
     (digit-value	. 2)
     (numeric-value	. 2)
     (->decomposition	circle #x0032)
-    (=gb2312		. #x225A)	; ø»„ˆ›
+    (chinese-gb2312	. #x225A)	; ø»„ˆ›
     (=ks-x1001		. #x2868)	; ø»ˆ¥¥
-    (=cns11643-1	. #x2622)	; ø»‘‰³
+    (chinese-cns11643-1 . #x2622)	; ø»‘‰³
     (=jis-x0213-1-2000	. #x2D22)	; ø»¢¤¥
     (=big5-eten		. #xC6A2)	; ý¢€Œš¢
     (=jef-china3	. #x77CA)	; øº‡ŸŠ
@@ -38,9 +38,9 @@
     (digit-value	. 3)
     (numeric-value	. 3)
     (->decomposition	circle #x0033)
-    (=gb2312		. #x225B)	; ø»„ˆœ
+    (chinese-gb2312	. #x225B)	; ø»„ˆœ
     (=ks-x1001		. #x2869)	; ø»ˆ¥¦
-    (=cns11643-1	. #x2623)	; ø»‘‰´
+    (chinese-cns11643-1 . #x2623)	; ø»‘‰´
     (=jis-x0213-1-2000	. #x2D23)	; ø»¢¤¦
     (=big5-eten		. #xC6A3)	; ý¢€Œš£
     (=jef-china3	. #x77CB)	; øº‡Ÿ‹
@@ -54,9 +54,9 @@
     (digit-value	. 4)
     (numeric-value	. 4)
     (->decomposition	circle #x0034)
-    (=gb2312		. #x225C)	; ø»„ˆ
+    (chinese-gb2312	. #x225C)	; ø»„ˆ
     (=ks-x1001		. #x286A)	; ø»ˆ¥§
-    (=cns11643-1	. #x2624)	; ø»‘‰µ
+    (chinese-cns11643-1 . #x2624)	; ø»‘‰µ
     (=jis-x0213-1-2000	. #x2D24)	; ø»¢¤§
     (=big5-eten		. #xC6A4)	; ý¢€Œš¤
     (=jef-china3	. #x77CC)	; øº‡ŸŒ
@@ -70,9 +70,9 @@
     (digit-value	. 5)
     (numeric-value	. 5)
     (->decomposition	circle #x0035)
-    (=gb2312		. #x225D)	; ø»„ˆž
+    (chinese-gb2312	. #x225D)	; ø»„ˆž
     (=ks-x1001		. #x286B)	; ø»ˆ¥¨
-    (=cns11643-1	. #x2625)	; ø»‘‰¶
+    (chinese-cns11643-1 . #x2625)	; ø»‘‰¶
     (=jis-x0213-1-2000	. #x2D25)	; ø»¢¤¨
     (=big5-eten		. #xC6A5)	; ý¢€Œš¥
     (=jef-china3	. #x77CD)	; øº‡Ÿ
@@ -86,9 +86,9 @@
     (digit-value	. 6)
     (numeric-value	. 6)
     (->decomposition	circle #x0036)
-    (=gb2312		. #x225E)	; ø»„ˆŸ
+    (chinese-gb2312	. #x225E)	; ø»„ˆŸ
     (=ks-x1001		. #x286C)	; ø»ˆ¥©
-    (=cns11643-1	. #x2626)	; ø»‘‰·
+    (chinese-cns11643-1 . #x2626)	; ø»‘‰·
     (=jis-x0213-1-2000	. #x2D26)	; ø»¢¤©
     (=big5-eten		. #xC6A6)	; ý¢€Œš¦
     (=jef-china3	. #x77CE)	; øº‡ŸŽ
@@ -102,9 +102,9 @@
     (digit-value	. 7)
     (numeric-value	. 7)
     (->decomposition	circle #x0037)
-    (=gb2312		. #x225F)	; ø»„ˆ 
+    (chinese-gb2312	. #x225F)	; ø»„ˆ 
     (=ks-x1001		. #x286D)	; ø»ˆ¥ª
-    (=cns11643-1	. #x2627)	; ø»‘‰¸
+    (chinese-cns11643-1 . #x2627)	; ø»‘‰¸
     (=jis-x0213-1-2000	. #x2D27)	; ø»¢¤ª
     (=big5-eten		. #xC6A7)	; ý¢€Œš§
     (=jef-china3	. #x77CF)	; øº‡Ÿ
@@ -118,9 +118,9 @@
     (digit-value	. 8)
     (numeric-value	. 8)
     (->decomposition	circle #x0038)
-    (=gb2312		. #x2260)	; ø»„ˆ¡
+    (chinese-gb2312	. #x2260)	; ø»„ˆ¡
     (=ks-x1001		. #x286E)	; ø»ˆ¥«
-    (=cns11643-1	. #x2628)	; ø»‘‰¹
+    (chinese-cns11643-1 . #x2628)	; ø»‘‰¹
     (=jis-x0213-1-2000	. #x2D28)	; ø»¢¤«
     (=big5-eten		. #xC6A8)	; ý¢€Œš¨
     (=jef-china3	. #x77D0)	; øº‡Ÿ
@@ -134,9 +134,9 @@
     (digit-value	. 9)
     (numeric-value	. 9)
     (->decomposition	circle #x0039)
-    (=gb2312		. #x2261)	; ø»„ˆ¢
+    (chinese-gb2312	. #x2261)	; ø»„ˆ¢
     (=ks-x1001		. #x286F)	; ø»ˆ¥¬
-    (=cns11643-1	. #x2629)	; ø»‘‰º
+    (chinese-cns11643-1 . #x2629)	; ø»‘‰º
     (=jis-x0213-1-2000	. #x2D29)	; ø»¢¤¬
     (=big5-eten		. #xC6A9)	; ý¢€Œš©
     (=jef-china3	. #x77D1)	; øº‡Ÿ‘
@@ -149,9 +149,9 @@
     (mirrored		. nil)
     (numeric-value	. 10)
     (->decomposition	circle #x0031 #x0030)
-    (=gb2312		. #x2262)	; ø»„ˆ£
+    (chinese-gb2312	. #x2262)	; ø»„ˆ£
     (=ks-x1001		. #x2870)	; ø»ˆ¥­
-    (=cns11643-1	. #x262A)	; ø»‘‰»
+    (chinese-cns11643-1 . #x262A)	; ø»‘‰»
     (=jis-x0213-1-2000	. #x2D2A)	; ø»¢¤­
     (=big5-eten		. #xC6AA)	; ý¢€Œšª
     (=jef-china3	. #x77D2)	; øº‡Ÿ’
@@ -280,9 +280,9 @@
     (digit-value	. 1)
     (numeric-value	. 1)
     (->decomposition	compat #x0028 #x0031 #x0029)
-    (=gb2312		. #x2245)	; ø»„ˆ†
+    (chinese-gb2312	. #x2245)	; ø»„ˆ†
     (=ks-x1001		. #x2967)	; ø»ˆ§‚
-    (=cns11643-1	. #x262B)	; ø»‘‰¼
+    (chinese-cns11643-1 . #x262B)	; ø»‘‰¼
     (=big5-eten		. #xC6AB)	; ý¢€Œš«
     (=ucs		. #x2474)	; â‘´
     ))
@@ -294,9 +294,9 @@
     (digit-value	. 2)
     (numeric-value	. 2)
     (->decomposition	compat #x0028 #x0032 #x0029)
-    (=gb2312		. #x2246)	; ø»„ˆ‡
+    (chinese-gb2312	. #x2246)	; ø»„ˆ‡
     (=ks-x1001		. #x2968)	; ø»ˆ§ƒ
-    (=cns11643-1	. #x262C)	; ø»‘‰½
+    (chinese-cns11643-1 . #x262C)	; ø»‘‰½
     (=big5-eten		. #xC6AC)	; ý¢€Œš¬
     (=ucs		. #x2475)	; â‘µ
     ))
@@ -308,9 +308,9 @@
     (digit-value	. 3)
     (numeric-value	. 3)
     (->decomposition	compat #x0028 #x0033 #x0029)
-    (=gb2312		. #x2247)	; ø»„ˆˆ
+    (chinese-gb2312	. #x2247)	; ø»„ˆˆ
     (=ks-x1001		. #x2969)	; ø»ˆ§„
-    (=cns11643-1	. #x262D)	; ø»‘‰¾
+    (chinese-cns11643-1 . #x262D)	; ø»‘‰¾
     (=big5-eten		. #xC6AD)	; ý¢€Œš­
     (=ucs		. #x2476)	; â‘¶
     ))
@@ -322,9 +322,9 @@
     (digit-value	. 4)
     (numeric-value	. 4)
     (->decomposition	compat #x0028 #x0034 #x0029)
-    (=gb2312		. #x2248)	; ø»„ˆ‰
+    (chinese-gb2312	. #x2248)	; ø»„ˆ‰
     (=ks-x1001		. #x296A)	; ø»ˆ§…
-    (=cns11643-1	. #x262E)	; ø»‘‰¿
+    (chinese-cns11643-1 . #x262E)	; ø»‘‰¿
     (=big5-eten		. #xC6AE)	; ý¢€Œš®
     (=ucs		. #x2477)	; â‘·
     ))
@@ -336,9 +336,9 @@
     (digit-value	. 5)
     (numeric-value	. 5)
     (->decomposition	compat #x0028 #x0035 #x0029)
-    (=gb2312		. #x2249)	; ø»„ˆŠ
+    (chinese-gb2312	. #x2249)	; ø»„ˆŠ
     (=ks-x1001		. #x296B)	; ø»ˆ§†
-    (=cns11643-1	. #x262F)	; ø»‘Š€
+    (chinese-cns11643-1 . #x262F)	; ø»‘Š€
     (=big5-eten		. #xC6AF)	; ý¢€Œš¯
     (=ucs		. #x2478)	; â‘¸
     ))
@@ -350,9 +350,9 @@
     (digit-value	. 6)
     (numeric-value	. 6)
     (->decomposition	compat #x0028 #x0036 #x0029)
-    (=gb2312		. #x224A)	; ø»„ˆ‹
+    (chinese-gb2312	. #x224A)	; ø»„ˆ‹
     (=ks-x1001		. #x296C)	; ø»ˆ§‡
-    (=cns11643-1	. #x2630)	; ø»‘Š
+    (chinese-cns11643-1 . #x2630)	; ø»‘Š
     (=big5-eten		. #xC6B0)	; ý¢€Œš°
     (=ucs		. #x2479)	; â‘¹
     ))
@@ -364,9 +364,9 @@
     (digit-value	. 7)
     (numeric-value	. 7)
     (->decomposition	compat #x0028 #x0037 #x0029)
-    (=gb2312		. #x224B)	; ø»„ˆŒ
+    (chinese-gb2312	. #x224B)	; ø»„ˆŒ
     (=ks-x1001		. #x296D)	; ø»ˆ§ˆ
-    (=cns11643-1	. #x2631)	; ø»‘Š‚
+    (chinese-cns11643-1 . #x2631)	; ø»‘Š‚
     (=big5-eten		. #xC6B1)	; ý¢€Œš±
     (=ucs		. #x247A)	; â‘º
     ))
@@ -378,9 +378,9 @@
     (digit-value	. 8)
     (numeric-value	. 8)
     (->decomposition	compat #x0028 #x0038 #x0029)
-    (=gb2312		. #x224C)	; ø»„ˆ
+    (chinese-gb2312	. #x224C)	; ø»„ˆ
     (=ks-x1001		. #x296E)	; ø»ˆ§‰
-    (=cns11643-1	. #x2632)	; ø»‘Šƒ
+    (chinese-cns11643-1 . #x2632)	; ø»‘Šƒ
     (=big5-eten		. #xC6B2)	; ý¢€Œš²
     (=ucs		. #x247B)	; â‘»
     ))
@@ -392,9 +392,9 @@
     (digit-value	. 9)
     (numeric-value	. 9)
     (->decomposition	compat #x0028 #x0039 #x0029)
-    (=gb2312		. #x224D)	; ø»„ˆŽ
+    (chinese-gb2312	. #x224D)	; ø»„ˆŽ
     (=ks-x1001		. #x296F)	; ø»ˆ§Š
-    (=cns11643-1	. #x2633)	; ø»‘Š„
+    (chinese-cns11643-1 . #x2633)	; ø»‘Š„
     (=big5-eten		. #xC6B3)	; ý¢€Œš³
     (=ucs		. #x247C)	; â‘¼
     ))
@@ -405,9 +405,9 @@
     (mirrored		. nil)
     (numeric-value	. 10)
     (->decomposition	compat #x0028 #x0031 #x0030 #x0029)
-    (=gb2312		. #x224E)	; ø»„ˆ
+    (chinese-gb2312	. #x224E)	; ø»„ˆ
     (=ks-x1001		. #x2970)	; ø»ˆ§‹
-    (=cns11643-1	. #x2634)	; ø»‘Š…
+    (chinese-cns11643-1 . #x2634)	; ø»‘Š…
     (=big5-eten		. #xC6B4)	; ý¢€Œš´
     (=ucs		. #x247D)	; â‘½
     ))
@@ -418,7 +418,7 @@
     (mirrored		. nil)
     (numeric-value	. 11)
     (->decomposition	compat #x0028 #x0031 #x0031 #x0029)
-    (=gb2312		. #x224F)	; ø»„ˆ
+    (chinese-gb2312	. #x224F)	; ø»„ˆ
     (=ks-x1001		. #x2971)	; ø»ˆ§Œ
     (=ucs		. #x247E)	; â‘¾
     ))
@@ -429,7 +429,7 @@
     (mirrored		. nil)
     (numeric-value	. 12)
     (->decomposition	compat #x0028 #x0031 #x0032 #x0029)
-    (=gb2312		. #x2250)	; ø»„ˆ‘
+    (chinese-gb2312	. #x2250)	; ø»„ˆ‘
     (=ks-x1001		. #x2972)	; ø»ˆ§
     (=ucs		. #x247F)	; â‘¿
     ))
@@ -440,7 +440,7 @@
     (mirrored		. nil)
     (numeric-value	. 13)
     (->decomposition	compat #x0028 #x0031 #x0033 #x0029)
-    (=gb2312		. #x2251)	; ø»„ˆ’
+    (chinese-gb2312	. #x2251)	; ø»„ˆ’
     (=ks-x1001		. #x2973)	; ø»ˆ§Ž
     (=ucs		. #x2480)	; â’€
     ))
@@ -451,7 +451,7 @@
     (mirrored		. nil)
     (numeric-value	. 14)
     (->decomposition	compat #x0028 #x0031 #x0034 #x0029)
-    (=gb2312		. #x2252)	; ø»„ˆ“
+    (chinese-gb2312	. #x2252)	; ø»„ˆ“
     (=ks-x1001		. #x2974)	; ø»ˆ§
     (=ucs		. #x2481)	; â’
     ))
@@ -462,7 +462,7 @@
     (mirrored		. nil)
     (numeric-value	. 15)
     (->decomposition	compat #x0028 #x0031 #x0035 #x0029)
-    (=gb2312		. #x2253)	; ø»„ˆ”
+    (chinese-gb2312	. #x2253)	; ø»„ˆ”
     (=ks-x1001		. #x2975)	; ø»ˆ§
     (=ucs		. #x2482)	; â’‚
     ))
@@ -473,7 +473,7 @@
     (mirrored		. nil)
     (numeric-value	. 16)
     (->decomposition	compat #x0028 #x0031 #x0036 #x0029)
-    (=gb2312		. #x2254)	; ø»„ˆ•
+    (chinese-gb2312	. #x2254)	; ø»„ˆ•
     (=ucs		. #x2483)	; â’ƒ
     ))
 (define-char
@@ -483,7 +483,7 @@
     (mirrored		. nil)
     (numeric-value	. 17)
     (->decomposition	compat #x0028 #x0031 #x0037 #x0029)
-    (=gb2312		. #x2255)	; ø»„ˆ–
+    (chinese-gb2312	. #x2255)	; ø»„ˆ–
     (=ucs		. #x2484)	; â’„
     ))
 (define-char
@@ -493,7 +493,7 @@
     (mirrored		. nil)
     (numeric-value	. 18)
     (->decomposition	compat #x0028 #x0031 #x0038 #x0029)
-    (=gb2312		. #x2256)	; ø»„ˆ—
+    (chinese-gb2312	. #x2256)	; ø»„ˆ—
     (=ucs		. #x2485)	; â’…
     ))
 (define-char
@@ -503,7 +503,7 @@
     (mirrored		. nil)
     (numeric-value	. 19)
     (->decomposition	compat #x0028 #x0031 #x0039 #x0029)
-    (=gb2312		. #x2257)	; ø»„ˆ˜
+    (chinese-gb2312	. #x2257)	; ø»„ˆ˜
     (=ucs		. #x2486)	; â’†
     ))
 (define-char
@@ -513,7 +513,7 @@
     (mirrored		. nil)
     (numeric-value	. 20)
     (->decomposition	compat #x0028 #x0032 #x0030 #x0029)
-    (=gb2312		. #x2258)	; ø»„ˆ™
+    (chinese-gb2312	. #x2258)	; ø»„ˆ™
     (=ucs		. #x2487)	; â’‡
     ))
 (define-char
@@ -524,7 +524,7 @@
     (digit-value	. 1)
     (numeric-value	. 1)
     (->decomposition	compat #x0031 #x002E)
-    (=gb2312		. #x2231)	; ø»„‡²
+    (chinese-gb2312	. #x2231)	; ø»„‡²
     (=ucs		. #x2488)	; â’ˆ
     ))
 (define-char
@@ -535,7 +535,7 @@
     (digit-value	. 2)
     (numeric-value	. 2)
     (->decomposition	compat #x0032 #x002E)
-    (=gb2312		. #x2232)	; ø»„‡³
+    (chinese-gb2312	. #x2232)	; ø»„‡³
     (=ucs		. #x2489)	; â’‰
     ))
 (define-char
@@ -546,7 +546,7 @@
     (digit-value	. 3)
     (numeric-value	. 3)
     (->decomposition	compat #x0033 #x002E)
-    (=gb2312		. #x2233)	; ø»„‡´
+    (chinese-gb2312	. #x2233)	; ø»„‡´
     (=ucs		. #x248A)	; â’Š
     ))
 (define-char
@@ -557,7 +557,7 @@
     (digit-value	. 4)
     (numeric-value	. 4)
     (->decomposition	compat #x0034 #x002E)
-    (=gb2312		. #x2234)	; ø»„‡µ
+    (chinese-gb2312	. #x2234)	; ø»„‡µ
     (=ucs		. #x248B)	; â’‹
     ))
 (define-char
@@ -568,7 +568,7 @@
     (digit-value	. 5)
     (numeric-value	. 5)
     (->decomposition	compat #x0035 #x002E)
-    (=gb2312		. #x2235)	; ø»„‡¶
+    (chinese-gb2312	. #x2235)	; ø»„‡¶
     (=ucs		. #x248C)	; â’Œ
     ))
 (define-char
@@ -579,7 +579,7 @@
     (digit-value	. 6)
     (numeric-value	. 6)
     (->decomposition	compat #x0036 #x002E)
-    (=gb2312		. #x2236)	; ø»„‡·
+    (chinese-gb2312	. #x2236)	; ø»„‡·
     (=ucs		. #x248D)	; â’
     ))
 (define-char
@@ -590,7 +590,7 @@
     (digit-value	. 7)
     (numeric-value	. 7)
     (->decomposition	compat #x0037 #x002E)
-    (=gb2312		. #x2237)	; ø»„‡¸
+    (chinese-gb2312	. #x2237)	; ø»„‡¸
     (=ucs		. #x248E)	; â’Ž
     ))
 (define-char
@@ -601,7 +601,7 @@
     (digit-value	. 8)
     (numeric-value	. 8)
     (->decomposition	compat #x0038 #x002E)
-    (=gb2312		. #x2238)	; ø»„‡¹
+    (chinese-gb2312	. #x2238)	; ø»„‡¹
     (=ucs		. #x248F)	; â’
     ))
 (define-char
@@ -612,7 +612,7 @@
     (digit-value	. 9)
     (numeric-value	. 9)
     (->decomposition	compat #x0039 #x002E)
-    (=gb2312		. #x2239)	; ø»„‡º
+    (chinese-gb2312	. #x2239)	; ø»„‡º
     (=ucs		. #x2490)	; â’
     ))
 (define-char
@@ -622,7 +622,7 @@
     (mirrored		. nil)
     (numeric-value	. 10)
     (->decomposition	compat #x0031 #x0030 #x002E)
-    (=gb2312		. #x223A)	; ø»„‡»
+    (chinese-gb2312	. #x223A)	; ø»„‡»
     (=ucs		. #x2491)	; â’‘
     ))
 (define-char
@@ -632,7 +632,7 @@
     (mirrored		. nil)
     (numeric-value	. 11)
     (->decomposition	compat #x0031 #x0031 #x002E)
-    (=gb2312		. #x223B)	; ø»„‡¼
+    (chinese-gb2312	. #x223B)	; ø»„‡¼
     (=ucs		. #x2492)	; â’’
     ))
 (define-char
@@ -642,7 +642,7 @@
     (mirrored		. nil)
     (numeric-value	. 12)
     (->decomposition	compat #x0031 #x0032 #x002E)
-    (=gb2312		. #x223C)	; ø»„‡½
+    (chinese-gb2312	. #x223C)	; ø»„‡½
     (=ucs		. #x2493)	; â’“
     ))
 (define-char
@@ -652,7 +652,7 @@
     (mirrored		. nil)
     (numeric-value	. 13)
     (->decomposition	compat #x0031 #x0033 #x002E)
-    (=gb2312		. #x223D)	; ø»„‡¾
+    (chinese-gb2312	. #x223D)	; ø»„‡¾
     (=ucs		. #x2494)	; â’”
     ))
 (define-char
@@ -662,7 +662,7 @@
     (mirrored		. nil)
     (numeric-value	. 14)
     (->decomposition	compat #x0031 #x0034 #x002E)
-    (=gb2312		. #x223E)	; ø»„‡¿
+    (chinese-gb2312	. #x223E)	; ø»„‡¿
     (=ucs		. #x2495)	; â’•
     ))
 (define-char
@@ -672,7 +672,7 @@
     (mirrored		. nil)
     (numeric-value	. 15)
     (->decomposition	compat #x0031 #x0035 #x002E)
-    (=gb2312		. #x223F)	; ø»„ˆ€
+    (chinese-gb2312	. #x223F)	; ø»„ˆ€
     (=ucs		. #x2496)	; â’–
     ))
 (define-char
@@ -682,7 +682,7 @@
     (mirrored		. nil)
     (numeric-value	. 16)
     (->decomposition	compat #x0031 #x0036 #x002E)
-    (=gb2312		. #x2240)	; ø»„ˆ
+    (chinese-gb2312	. #x2240)	; ø»„ˆ
     (=ucs		. #x2497)	; â’—
     ))
 (define-char
@@ -692,7 +692,7 @@
     (mirrored		. nil)
     (numeric-value	. 17)
     (->decomposition	compat #x0031 #x0037 #x002E)
-    (=gb2312		. #x2241)	; ø»„ˆ‚
+    (chinese-gb2312	. #x2241)	; ø»„ˆ‚
     (=ucs		. #x2498)	; â’˜
     ))
 (define-char
@@ -702,7 +702,7 @@
     (mirrored		. nil)
     (numeric-value	. 18)
     (->decomposition	compat #x0031 #x0038 #x002E)
-    (=gb2312		. #x2242)	; ø»„ˆƒ
+    (chinese-gb2312	. #x2242)	; ø»„ˆƒ
     (=ucs		. #x2499)	; â’™
     ))
 (define-char
@@ -712,7 +712,7 @@
     (mirrored		. nil)
     (numeric-value	. 19)
     (->decomposition	compat #x0031 #x0039 #x002E)
-    (=gb2312		. #x2243)	; ø»„ˆ„
+    (chinese-gb2312	. #x2243)	; ø»„ˆ„
     (=ucs		. #x249A)	; â’š
     ))
 (define-char
@@ -722,7 +722,7 @@
     (mirrored		. nil)
     (numeric-value	. 20)
     (->decomposition	compat #x0032 #x0030 #x002E)
-    (=gb2312		. #x2244)	; ø»„ˆ…
+    (chinese-gb2312	. #x2244)	; ø»„ˆ…
     (=ucs		. #x249B)	; â’›
     ))
 (define-char
