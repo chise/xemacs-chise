@@ -1,3 +1,8 @@
+2002-07-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-ref-p): Deleted [defined as a builtin
+	function].
+
 2002-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el: Add missing mappings between JIS X 0213

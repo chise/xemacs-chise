@@ -1,7 +1,7 @@
 /* Declarations having to do with Mule char tables.
    Copyright (C) 1992 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -35,6 +35,8 @@ EXFUN (Fmake_char, 3);
 EXFUN (Fdecode_char, 3);
 
 EXFUN (Fput_char_attribute, 3);
+
+EXFUN (Ffind_char, 1);
 
 
 /************************************************************************/

@@ -2939,6 +2939,7 @@ EXFUN (Fcar, 1);
 EXFUN (Fcar_safe, 1);
 EXFUN (Fcdr, 1);
 EXFUN (Fchar_after, 2);
+EXFUN (Fchar_ref_p, 1);
 EXFUN (Fchar_to_string, 1);
 EXFUN (Fcheck_valid_plist, 1);
 EXFUN (Fvalid_plist_p, 1);
