@@ -1,3 +1,12 @@
+2001-08-15  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
+	* Ideograph-R149-Speech.el (C5-694E): Delete M-35963.
+
+	* Ideograph-R145-Clothes.el (C*-****): Add `ideographic-strokes'.
+	(G0-3A56): Delete `japanese-strokes'.
+	(G0-336C): Use `ideographic-strokes' instead of
+	`japanese-strokes'; delete `kangxi-strokes'; fix `total-strokes'.
+
 2001-08-14  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
 
 	* Ideograph-R141-Tiger.el (JX1-7B4F): Unify K0-5657 instead of
