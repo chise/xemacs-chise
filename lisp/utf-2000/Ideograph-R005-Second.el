@@ -1120,8 +1120,7 @@
     (=jef-china3	. #x41C1)	; &I-JC3-41C1;
     ))
 (define-char
-  '((=>daikanwa		. 00192)	; &M-00192;
-    (ideographic-radical . 5)	; ⼄
+  '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
     (=ucs		. #x4E75)	; 乵
@@ -1146,7 +1145,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=ucs		      . #x8F9B)	; 辛
+	 ((=gb2312	      . #x5041)	; &I-G0-5041; [48-33]
+	  (=cns11643-1	      . #x4B50)	; &I-C1-4B50; [43-48]
 	  )
 	 ((=ucs		      . #x4E5A)	; 乚
 	  ))
