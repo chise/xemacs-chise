@@ -1,6 +1,5 @@
 /* Header for leading-byte character representation.
-   Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
-   Licensed to the Free Software Foundation.
+   Copyright (C) 1999,2000 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -19,8 +18,6 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org>. */
-
 #ifndef _XEMACS_CHAR_LB_H
 #define _XEMACS_CHAR_LB_H
 
@@ -36,5 +33,46 @@ valid_char_p (Emchar ch)
 }
 
 #define CHAR_COLUMNS(c)     (XCHARSET_COLUMNS(CHAR_CHARSET(c)))
+
+
+INLINE_HEADER Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
+INLINE_HEADER Emchar
+DECODE_CHAR (Lisp_Object charset, int code_point)
+{
+  if (EQ (charset, Vcharset_ascii))
+    return code_point;
+  else if (EQ (charset, Vcharset_control_1))
+    return code_point | 0x80;
+  else if (XCHARSET_DIMENSION (charset) == 1)
+    return ((XCHARSET_LEADING_BYTE (charset) -
+	     FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7) | code_point;
+  else if (!XCHARSET_PRIVATE_P (charset))
+    return ((XCHARSET_LEADING_BYTE (charset) -
+	     FIELD1_TO_OFFICIAL_LEADING_BYTE) << 14)
+      | ((code_point >> 1) & 0x3F80) | (code_point & 0x7F);
+  else
+    return ((XCHARSET_LEADING_BYTE (charset) -
+	     FIELD1_TO_PRIVATE_LEADING_BYTE) << 14)
+      | ((code_point >> 1) & 0x3F80) | (code_point & 0x7F);
+}
+
+INLINE_HEADER int encode_char_1 (Emchar ch, Lisp_Object* charset);
+INLINE_HEADER int
+encode_char_1 (Emchar ch, Lisp_Object* charset)
+{
+  *charset = CHAR_CHARSET (ch);
+  return  XCHARSET_DIMENSION (*charset) == 1
+    ? CHAR_FIELD3 (ch)
+    : (CHAR_FIELD2 (ch) << 8) | CHAR_FIELD3 (ch);
+}
+
+#define ENCODE_CHAR(ch, charset)	encode_char_1 (ch, &(charset))
+
+
+typedef struct Charc
+{
+  Lisp_Object charset;
+  unsigned short code_point;
+} Charc;
 
 #endif /* _XEMACS_CHAR_LB_H */
