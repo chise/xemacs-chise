@@ -156,6 +156,16 @@
     (mirrored		. nil)
     ))
 (define-char
+  '((name		. "WHITE SHOGI PIECE")
+    (ucs		. #x2616)
+    (japanese-jisx0213-1	#x26 #x64)	; ☖
+    ))
+(define-char
+  '((name		. "BLACK SHOGI PIECE")
+    (ucs		. #x2617)
+    (japanese-jisx0213-1	#x26 #x65)	; ☗
+    ))
+(define-char
   '((name		. "REVERSED ROTATED FLORAL HEART BULLET")
     (ucs		. #x2619)
     (general-category	symbol other) ; Informative Category
