@@ -118,6 +118,10 @@ vars_of_mule (void)
   Fprovide (intern ("utf-2000"));
 #endif
 
+#ifdef HAVE_CHISE_CLIENT
+  Fprovide (intern ("chise"));
+#endif
+
 #ifdef HAVE_EGG
   Fprovide (intern ("egg"));
 #endif
