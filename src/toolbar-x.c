@@ -224,7 +224,7 @@ x_output_toolbar_button (struct frame *f, Lisp_Object button)
 	  struct display_line dl;
 	  Lisp_Object string = IMAGE_INSTANCE_TEXT_STRING (p);
 	  Charset_ID charsets[NUM_LEADING_BYTES];
-	  Emchar_dynarr *buf;
+	  Charc_dynarr *buf;
 	  struct font_metric_info fm;
 
 	  /* This could be true if we were called via the Expose event
@@ -236,11 +236,11 @@ x_output_toolbar_button (struct frame *f, Lisp_Object button)
 	      MARK_TOOLBAR_CHANGED;
 	      return;
 	    }
-	  buf = Dynarr_new (Emchar);
-	  convert_bufbyte_string_into_emchar_dynarr
+	  buf = Dynarr_new (Charc);
+	  convert_bufbyte_string_into_charc_dynarr
 	    (XSTRING_DATA (string), XSTRING_LENGTH (string), buf);
-	  find_charsets_in_emchar_string (charsets, Dynarr_atp (buf, 0),
-					  Dynarr_length (buf));
+	  find_charsets_in_charc_string (charsets, Dynarr_atp (buf, 0),
+					 Dynarr_length (buf));
 	  ensure_face_cachel_complete (cachel, window, charsets);
 	  face_cachel_charset_font_metric_info (cachel, charsets, &fm);
 
