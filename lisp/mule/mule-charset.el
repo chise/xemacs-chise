@@ -277,6 +277,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  latin-viscii
 	  latin-viscii-lower
 	  latin-viscii-upper
-	  ipa)))
+	  ipa
+	  ucs-bmp
+	  arabic-iso8859-6)))
 
 ;;; mule-charset.el ends here
