@@ -2,6 +2,7 @@
    Copyright (C) 1985, 1986, 1992, 1993, 1994, 1995
    Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -27,6 +28,7 @@ Boston, MA 02111-1307, USA.  */
    FSF: long ago.
    JWZ: separated out bufslots.h, early in Lemacs.
    Ben Wing: almost completely rewritten for Mule, 19.12.
+   MORIOKA Tomohiko: modified for UTF-2000.
  */
 
 #ifndef INCLUDED_buffer_h_
@@ -1408,7 +1410,8 @@ SET_TRT_TABLE_CHAR_1 (Lisp_Object table, Emchar ch1, Emchar ch2)
   if (CHAR_TABLEP (table))
     return Fput_char_table (make_char (ch1), make_char (ch2), table);
   else
-    return Fput_char_attribute (make_char (ch1), table, make_char (ch2));
+    return Fput_char_attribute (make_char (ch1), table,
+				list1 (make_char (ch2)));
 }
 #else
 #define SET_TRT_TABLE_CHAR_1(table, ch1, ch2)	\
