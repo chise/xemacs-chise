@@ -1,3 +1,32 @@
+2002-07-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (mark_char_table): Mark `ct->db_file' and `ct->db' in
+	UTF-2000.
+	(char_table_description): Add description for `db_file' and `db'
+	in UTF-2000.
+	(Fmake_char_table): Initialize `ct->db_file' and `ct->db' in
+	UTF-2000.
+	(Fcopy_char_table): Copy `ct->db_file' and `ct->db' in UTF-2000.
+	(Fsave_char_attribute_table): Use `ct->db_file' and `ct->db'.
+	(Fclose_char_attribute_table): New function.
+	(Freset_char_attribute_table): Reset `ct->db_file' and `ct->db'.
+	(load_char_attribute_maybe): Change interface; use `cit->db_file'
+	and `cit->db'.
+	(Fload_char_attribute_table): Use `ct->db_file' and `ct->db'.
+	(syms_of_chartab): Add new builtin function
+	`Fclose_char_attribute_table'.
+
+2002-06-28  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.h (struct Lisp_Char_Table): Add new member `db_file' and
+	`db' in UTF-2000.
+	(load_char_attribute_maybe): Change interface.
+	(get_char_id_table): Modify for `load_char_attribute_maybe'.
+
+2002-06-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* database.h: Add an EXFUN for `Fdatabase_live_p'.
+
 2002-04-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (decode_builtin_char): Use `decode_builtin_char'
