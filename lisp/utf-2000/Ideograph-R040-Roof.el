@@ -4664,7 +4664,7 @@
     (total-strokes	 . 15)
     (=big5		. #xD8D0)	; ý¢€£
     (=daikanwa		. 07319)	; ø¸²—
-    (=ucs@big5		. #x5BEA)	; ø¸²—
+    (=ucs@big5		. #x5BEA)	; ý¢€£
     ))
 (define-char
   '((morohashi-daikanwa	7319 0 2)
