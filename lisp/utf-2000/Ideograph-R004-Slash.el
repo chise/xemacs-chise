@@ -279,9 +279,7 @@
     (<-vulgar*sources
      shinjigen-1)
     (<-wrong
-     ((shinjigen-1	  . 47)
-      (=ucs		  . #x4E45)	; 久
-      (=jis-x0208	  . #x3557)	; &I-J90-3557;
+     ((=ucs		  . #x4E45)	; 久
       (=daikanwa	  . 00118)	; &I-M-00118;
       ))
     (<-wrong*sources
