@@ -5352,7 +5352,7 @@
     (ideograph-daikanwa . 34556)	; ø¸ˆ›¼
     (=ucs@jis		. #x8944)	; ø½‹¢ 
     (=ucs@ks		. #x8944)	; ø½‹¢ 
-    (ucs-big5		. #x8944)	; ø½‹¢ 
+    (=ucs@big5		. #x8944)	; ø½‹¢ 
     ))
 (define-char
   '((morohashi-daikanwa	34556 0 0)

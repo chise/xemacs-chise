@@ -2580,7 +2580,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (chinese-big5	. #xE8F9)	; ý¢€Ž£¹
-    (ucs-big5		. #x51DE)	; ý¢€Ž£¹
+    (=ucs@big5		. #x51DE)	; ý¢€Ž£¹
     ))
 (define-char
   '((=>ucs		. #x51DE)	; å‡ž

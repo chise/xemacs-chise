@@ -94,7 +94,7 @@
     (ideograph-daikanwa . 00095)	; ø¸€Ÿ
     (=gt-k		. 00162)	; ý¡„€‚¢
     (=ucs@cns		. #x4E38)	; ø»‘¶
-    (ucs-big5		. #x4E38)	; ø»‘¶
+    (=ucs@big5		. #x4E38)	; ø»‘¶
     (=gt		. 00132)	; ý¡€€‚„
     ))
 (define-char

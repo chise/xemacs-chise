@@ -3330,7 +3330,7 @@
     (=jef-china3	. #x51A7)	; øº…†§
     (=ucs@cns		. #x6677)	; ø»’ž¢
     (=ucs@jis-2000	. #x6677)	; ø»’ž¢
-    (ucs-big5		. #x6677)	; ø»’ž¢
+    (=ucs@big5		. #x6677)	; ø»’ž¢
     ))
 (define-char
   '((ideographic-radical . 72)	; â½‡

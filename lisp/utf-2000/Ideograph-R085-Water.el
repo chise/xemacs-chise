@@ -6372,7 +6372,7 @@
     (=gt-k		. 06556)	; ý¡„¦œ
     (=ucs@jis		. #x6D41)	; ø½Š¸
     (=ucs@ks		. #x6D41)	; ø½Š¸
-    (ucs-big5		. #x6D41)	; ø½Š¸
+    (=ucs@big5		. #x6D41)	; ø½Š¸
     ))
 (define-char
   '((morohashi-daikanwa	17572 1 0)

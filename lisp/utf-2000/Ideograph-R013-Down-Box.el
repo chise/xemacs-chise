@@ -885,7 +885,7 @@
      ((=ucs		  . #x5401)	; å
       ))
     (chinese-big5	. #xD0DF)	; ý¢€ƒŸ
-    (ucs-big5		. #x5194)	; ý¢€ƒŸ
+    (=ucs@big5		. #x5194)	; ý¢€ƒŸ
     ))
 (define-char
   '((ideographic-radical . 13)	; â¼Œ

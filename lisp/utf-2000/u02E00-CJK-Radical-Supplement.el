@@ -100,7 +100,7 @@
      ((=ucs		  . #x5202)	; åˆ‚
       ))
     (=big5-eten		. #xC87D)	; ý¢€Œ¡½
-    (ucs-big5		. #x5202)	; âº‰
+    (=ucs@big5		. #x5202)	; âº‰
     (=ucs		. #x2E89)	; âº‰
     ))
 (define-char

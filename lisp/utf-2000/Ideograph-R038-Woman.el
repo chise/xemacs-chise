@@ -8349,7 +8349,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (chinese-big5	. #xB6F9)	; ý¢€‹›¹
-    (ucs-big5		. #x5AC1)	; ý¢€‹›¹
+    (=ucs@big5		. #x5AC1)	; ý¢€‹›¹
     ))
 (define-char
   '((morohashi-daikanwa	6602 0 1)

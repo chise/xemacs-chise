@@ -718,7 +718,7 @@
       ))
     (korean-ksc5601	. #x5D63)	; ø»‰³–
     (chinese-big5	. #xADEA)	; ý¢€Š·ª
-    (ucs-big5		. #x532A)	; ø»‰³–
+    (=ucs@big5		. #x532A)	; ø»‰³–
     ))
 (define-char
   '((morohashi-daikanwa	2629 0 2)
