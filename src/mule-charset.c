@@ -363,8 +363,12 @@ Lisp_Object Ql2r, Qr2l;
 
 Lisp_Object Vcharset_hash_table;
 
+#ifdef UTF2000
+static Charset_ID next_allocated_leading_byte;
+#else
 static Charset_ID next_allocated_1_byte_leading_byte;
 static Charset_ID next_allocated_2_byte_leading_byte;
+#endif
 
 /* Composite characters are characters constructed by overstriking two
    or more regular characters.
@@ -903,6 +907,12 @@ get_unallocated_leading_byte (int dimension)
 {
   Charset_ID lb;
 
+#ifdef UTF2000
+  if (next_allocated_leading_byte > MAX_LEADING_BYTE_PRIVATE)
+    lb = 0;
+  else
+    lb = next_allocated_leading_byte++;
+#else
   if (dimension == 1)
     {
       if (next_allocated_1_byte_leading_byte > MAX_LEADING_BYTE_PRIVATE_1)
@@ -917,6 +927,7 @@ get_unallocated_leading_byte (int dimension)
       else
 	lb = next_allocated_2_byte_leading_byte++;
     }
+#endif
 
   if (!lb)
     signal_simple_error
@@ -2051,10 +2062,10 @@ vars_of_mule_charset (void)
 	charset_by_attributes[i][j][k] = Qnil;
 #endif
 
-  next_allocated_1_byte_leading_byte = MIN_LEADING_BYTE_PRIVATE_1;
 #ifdef UTF2000
-  next_allocated_2_byte_leading_byte = LEADING_BYTE_CHINESE_BIG5_2 + 1;
+  next_allocated_leading_byte = MIN_LEADING_BYTE_PRIVATE;
 #else
+  next_allocated_1_byte_leading_byte = MIN_LEADING_BYTE_PRIVATE_1;
   next_allocated_2_byte_leading_byte = MIN_LEADING_BYTE_PRIVATE_2;
 #endif
 
