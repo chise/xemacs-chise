@@ -82,6 +82,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (chinese-gb12345	. #x7D70)	; ä¹›
+    (chinese-big5-cdp	. #x8D54)	; ý¢€ˆµ”
     (ucs		. #x4E5B)	; ä¹›
     ))
 (define-char
