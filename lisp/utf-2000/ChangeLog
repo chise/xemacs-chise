@@ -1,5 +1,24 @@
 2003-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R053-Dotted-Cliff.el (M058091): New character.
+	(M-09281): Map to U-000221F8.
+	(U-000221F8): Relate to M-09281.
+	(M083552): New character.
+	(M050988): New character.
+	(M083553): New character.
+	(J0-4F2D): Unify M054433.
+	(M084146): New character.
+	(M066812): New character.
+	(M058080): New character.
+	(U-000222DC): Relate to M-33509; add
+	`ideographic-{radical|strokes}@daikanwa'; use
+	`ideographic-{radical|strokes}'@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-radical@cns*sources'.
+	(U-000222F1): Relate to M-09538.
+	(M-09558): Map to U-0002230B.
+	(U-0002230B): Relate to M-09558.
+
 	* Ideograph-R038-Woman.el (U+36A8): Separate C3-2349.
 	(C3-2349): Unify M083506.
 	(U+5986): Unify M054753.
