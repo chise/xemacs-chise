@@ -1,3 +1,25 @@
+2000-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (encode_builtin_char_1): Use `mojikyo' instead of
+	`ideograph-daikanwa'.
+
+	* char-ucs.h (Vcharset_ucs): Deleted because it is not used.
+	(Vcharset_ucs_bmp): Likewise.
+	(Vcharset_mojikyo): Add new extern variable definition.
+	(Vcharset_latin_iso8859_2): Deleted because it is not used.
+	(Vcharset_latin_iso8859_3): Likewise.
+	(Vcharset_latin_iso8859_4): Likewise.
+	(Vcharset_latin_iso8859_9): Likewise.
+	(Vcharset_latin_viscii_lower): Likewise.
+	(Vcharset_latin_viscii_upper): Likewise.
+	(DECODE_CHAR): If charset is `mojikyo-pj-N', corresponding
+	`mojikyo' code-point is used to decode.
+	(encode_char_2): New function [to convert `mojikyo' code-point to
+	Mojikyo font encoding].
+	(ENCODE_CHAR): Use `encode_char_2' instead of `encode_code_1'.
+	(breakup_char_1): Likewise.
+	(CHAR_CHARSET): Use `ENCODE_CHAR' instead of `BREAKUP_CHAR'.
+
 2000-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (Fmake_coding_system): Add document about
