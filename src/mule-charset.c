@@ -2233,16 +2233,6 @@ complex_vars_of_mule_charset (void)
 		  build_string ("VISCII upper (Vietnamese)"),
 		  build_string ("VISCII1\\.1"),
 		  Qnil, 0, 0, 0, 32);
-  /*
-  Fputhash (Qvietnamese_viscii_lower, Vcharset_latin_viscii_lower,
-	    Vcharset_hash_table);
-  Fputhash (Qvietnamese_viscii_upper, Vcharset_latin_viscii_upper,
-	    Vcharset_hash_table);
-  */
-  Fdefine_charset_alias (Qvietnamese_viscii_lower,
-			 Vcharset_latin_viscii_lower);
-  Fdefine_charset_alias (Qvietnamese_viscii_upper,
-			 Vcharset_latin_viscii_upper);
   Vcharset_hiragana_jisx0208 =
     make_charset (LEADING_BYTE_HIRAGANA_JISX0208, Qhiragana_jisx0208,
 		  CHARSET_TYPE_94X94, 2, 0, 'B',
