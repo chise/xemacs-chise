@@ -281,7 +281,7 @@ void default_face_height_and_width_1 (Lisp_Object domain,
 				      int *height, int *width);
 
 #define FACE_CACHEL_FONT(cachel, charset) \
-  (cachel->font[XCHARSET_LEADING_BYTE (charset) - 128])
+  (cachel->font[XCHARSET_LEADING_BYTE (charset) - MIN_LEADING_BYTE])
 
 #define WINDOW_FACE_CACHEL(window, index) \
   Dynarr_atp ((window)->face_cachels, index)

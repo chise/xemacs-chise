@@ -75,7 +75,7 @@ static int composite_char_col_next;
 #endif /* ENABLE_COMPOSITE_CHARS */
 
 /* Table of charsets indexed by leading byte. */
-Lisp_Object charset_by_leading_byte[128];
+Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
 
 /* Table of charsets indexed by type/final-byte/direction. */
 Lisp_Object charset_by_attributes[4][128][2];
@@ -605,8 +605,8 @@ make_charset (int id, Lisp_Object name, unsigned char rep_bytes,
       charset_by_attributes[type][final][direction] = obj;
     }
 
-  assert (NILP (charset_by_leading_byte[id - 128]));
-  charset_by_leading_byte[id - 128] = obj;
+  assert (NILP (charset_by_leading_byte[id - MIN_LEADING_BYTE]));
+  charset_by_leading_byte[id - MIN_LEADING_BYTE] = obj;
 #ifndef UTF2000
   if (id < 0xA0)
     /* official leading byte */
