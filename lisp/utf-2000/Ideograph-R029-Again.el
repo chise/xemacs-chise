@@ -101,7 +101,7 @@
     (chinese-big5	. #xA4CE)	; ý¢€Š“Ž
     (ideograph-daikanwa . 03118)	; ø¸€°®
     (=jef-china3	. #x45EF)	; øº„—¯
-    (ucs-cns		. #x53CA)	; ø»‰ 
+    (=ucs@cns		. #x53CA)	; ø»‰ 
     ))
 (define-char
   '((morohashi-daikanwa	3118 1)
@@ -1496,7 +1496,7 @@
      ((=ucs		  . #x53C8)	; åˆ
       ))
     (chinese-cns11643-3 . #x2B4E)	; ø»•¥½
-    (ucs-cns		. #x53DC)	; ø»•¥½
+    (=ucs@cns		. #x53DC)	; ø»•¥½
     ))
 (define-char
   '((=>ucs		. #x20B40)	; ð ­€

@@ -296,7 +296,7 @@
     (=ucs		. #x2FA05)	; ð¯¨…
     ))
 (define-char
-  '((=>ucs-cns		. #x2FA05)	; ð¯¨…
+  '((=>ucs@cns		. #x2FA05)	; ð¯¨…
     (morohashi-daikanwa	44552 0 0)
     (ideographic-radical . 186)	; â¾¹
     (ideographic-strokes . 9)
@@ -366,7 +366,7 @@
     (total-strokes	 . 19)
     (chinese-cns11643-2 . #x677E)	; ø»”´±
     (ideograph-daikanwa . 44556)	; ø¸Š¸Œ
-    (ucs-cns		. #x99A7)	; ø»”´±
+    (=ucs@cns		. #x99A7)	; ø»”´±
     ))
 (define-char
   '((=>ucs		. #x29855)	; ð©¡•

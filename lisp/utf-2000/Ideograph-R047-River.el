@@ -173,7 +173,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (chinese-cns11643-2 . #x223A)	; ø»“Ž—
-    (ucs-cns		. #x5DDF)	; ø»“Ž—
+    (=ucs@cns		. #x5DDF)	; ø»“Ž—
     ))
 (define-char
   '((=>ucs		. #x5DDF)	; å·Ÿ

@@ -151,7 +151,7 @@
 		  direction	l2r
 		  mother	=ucs))
   (define-charset-alias 'ucs-gb '=ucs@gb)
-  (make-charset 'ucs-cns
+  (make-charset '=ucs@cns
 		"UCS for CNS"
 		`(long-name	"ISO/IEC 10646 for CNS 11643"
 		  chars		256
@@ -160,6 +160,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs))
+  (define-charset-alias 'ucs-cns '=ucs@cns)
   (make-charset 'ucs-jis
 		"UCS for JIS"
 		`(long-name	"ISO/IEC 10646 for JIS X0208/0212/0213"

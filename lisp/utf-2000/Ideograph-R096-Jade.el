@@ -4500,7 +4500,7 @@
     ))
 (define-char
   '((=>ucs		. #x7471)	; ç‘±
-    (=>ucs-cns		. #x2F930)	; ð¯¤°
+    (=>ucs@cns		. #x2F930)	; ð¯¤°
     (ideographic-radical . 96)	; â½Ÿ
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
@@ -4537,7 +4537,7 @@
     (total-strokes	 . 14)
     (chinese-cns11643-2 . #x4B76)	; ø»”‹¡
     (chinese-big5	. #xE2D0)	; ý¢€Ž‹
-    (ucs-cns		. #x7471)	; ø»”‹¡
+    (=ucs@cns		. #x7471)	; ø»”‹¡
     ))
 (define-char
   '((=>ucs		. #x7472)	; ç‘²

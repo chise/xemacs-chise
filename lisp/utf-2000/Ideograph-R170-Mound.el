@@ -1884,7 +1884,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (chinese-cns11643-1 . #x5D72)	; ø»’›µ
-    (ucs-cns		. #x9675)	; ø»’›µ
+    (=ucs@cns		. #x9675)	; ø»’›µ
     ))
 (define-char
   '((=>ucs		. #x9675)	; é™µ

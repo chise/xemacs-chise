@@ -336,7 +336,7 @@
 (define-char
   '((=>ucs*		. #x7A81)	; çª
     (=>ucs@gb		. #x7A81)	; çª
-    (=>ucs-cns		. #x7A81)	; ø»’‹¬
+    (=>ucs@cns		. #x7A81)	; ø»’‹¬
     (ideographic-radical . 116)	; â½³
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
@@ -355,7 +355,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (chinese-cns11643-1 . #x5273)	; ø»’‹¬
-    (ucs-cns		. #x7A81)	; ø»’‹¬
+    (=ucs@cns		. #x7A81)	; ø»’‹¬
     ))
 (define-char
   '((=>ucs-jis		. #xFA55)	; ï©•

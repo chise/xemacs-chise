@@ -1,11 +1,16 @@
+2003-03-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el (=ucs@cns): Renamed from `ucs-cns'.
+	(ucs-cns): Changed to an alias for `=ucs@cns'.
+
 2003-03-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* lisp/mule-conf.el (=ucs@gb): Renamed from `ucs-gb'.
+	* mule/mule-conf.el (=ucs@gb): Renamed from `ucs-gb'.
 	(ucs-gb): Changed to an alias for `=ucs@gb'.
 
 2003-03-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* lisp/mule-conf.el (=daikanwa-rev1): Renamed from
+	* mule/mule-conf.el (=daikanwa-rev1): Renamed from
 	`ideograph-daikanwa-2'.
 	(ideograph-daikanwa-2): Changed to an alias for `=daikanwa-rev1'.
 	(=daikanwa-rev2): New coded-charset when `utf-2000' is provided.

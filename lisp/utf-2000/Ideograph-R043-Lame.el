@@ -5,7 +5,7 @@
     (total-strokes	 . 3)
     (chinese-cns11643-1 . #x4452)	; ø»‘¶§
     (ideograph-daikanwa . 07538)	; ø¸µ²
-    (ucs-cns		. #x5C22)	; ø»‘¶§
+    (=ucs@cns		. #x5C22)	; ø»‘¶§
     ))
 (define-char
   '((=>ucs*		. #x5C22)	; å°¢
@@ -26,7 +26,7 @@
     (=ucs		. #x2F875)	; ð¯¡µ
     ))
 (define-char
-  '((=>ucs-cns		. #x2F875)	; ð¯¡µ
+  '((=>ucs@cns		. #x2F875)	; ð¯¡µ
     (morohashi-daikanwa	7539 0 0)
     (ideographic-radical . 43)	; â¼ª
     (ideographic-strokes . 0)

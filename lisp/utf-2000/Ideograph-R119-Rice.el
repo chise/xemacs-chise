@@ -3361,10 +3361,10 @@
     (total-strokes	 . 17)
     (chinese-cns11643-2 . #x5E3C)	; ø»”¦¡
     (ideograph-daikanwa . 27114)	; ø¸†§ª
-    (ucs-cns		. #x7CE8)	; ø»”¦¡
+    (=ucs@cns		. #x7CE8)	; ø»”¦¡
     ))
 (define-char
-  '((=>ucs-cns		. #x2F968)	; ð¯¥¨
+  '((=>ucs@cns		. #x2F968)	; ð¯¥¨
     (morohashi-daikanwa	27114 0 4)
     (ideographic-radical . 119)	; â½¶
     (ideographic-strokes . 11)

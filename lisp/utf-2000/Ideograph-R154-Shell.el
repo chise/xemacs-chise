@@ -1801,7 +1801,7 @@
 (define-char
   '((=>ucs*		. #x8CD3)	; 賓
     (=>ucs@gb		. #x8CD3)	; 賓
-    (=>ucs-cns		. #x8CD3)	; 賓
+    (=>ucs@cns		. #x8CD3)	; 賓
     (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 7)
     (total-strokes	 . 14)

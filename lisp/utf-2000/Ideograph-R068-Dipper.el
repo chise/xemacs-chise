@@ -215,7 +215,7 @@
     (chinese-big5	. #xB1D8)	; ý¢€‹‡˜
     (ideograph-daikanwa . 13508)	; ø¸ƒ“„
     (=gt-k		. 07937)	; ý¡„¼
-    (ucs-cns		. #x659B)	; ø½‹Š˜
+    (=ucs@cns		. #x659B)	; ø½‹Š˜
     (ucs-jis		. #x659B)	; ø½‹Š˜
     ))
 (define-char

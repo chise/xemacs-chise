@@ -39,7 +39,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (chinese-cns11643-4 . #x2127)	; ø»— ®
-    (ucs-cns		. #x4E29)	; ø»— ®
+    (=ucs@cns		. #x4E29)	; ø»— ®
     ))
 (define-char
   '((ideographic-radical . 2)	; â¼
@@ -237,7 +237,7 @@
     (hanyu-dazidian	1 28 7)
     (chinese-cns11643-1 . #x4464)	; ø»‘¶¹
     (chinese-big5	. #xA4A5)	; ý¢€Š’¥
-    (ucs-cns		. #x4E30)	; ø»‘¶¹
+    (=ucs@cns		. #x4E30)	; ø»‘¶¹
     (ucs-big5		. #x4E30)	; ø»‘¶¹
     ))
 (define-char

@@ -3363,7 +3363,7 @@
     (=jis-x0213-1-2000	. #x7540)	; ø»¤Ž³
     (chinese-big5	. #xB4BE)	; ý¢€‹’¾
     (=jef-china3	. #x51A7)	; øº…†§
-    (ucs-cns		. #x6677)	; ø»’ž¢
+    (=ucs@cns		. #x6677)	; ø»’ž¢
     (=ucs-jis-2000	. #x6677)	; ø»’ž¢
     (ucs-big5		. #x6677)	; ø»’ž¢
     (mojikyo		. 014005)	; ý €ƒšµ

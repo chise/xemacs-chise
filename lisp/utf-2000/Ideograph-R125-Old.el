@@ -186,7 +186,7 @@
     ))
 (define-char
   '((=>ucs*		. #x8005)	; 者
-    (=>ucs-cns		. #x2F97A)	; 者
+    (=>ucs@cns		. #x2F97A)	; 者
     (ideographic-radical . 125)	; ⽼
     (ideographic-strokes . 5)
     (total-strokes	 . 9)

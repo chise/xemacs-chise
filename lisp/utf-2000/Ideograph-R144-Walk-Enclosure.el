@@ -590,7 +590,7 @@
     (total-strokes	 . 16)
     (->mojikyo		. 053307)	; ý €€»
     (chinese-cns11643-4 . #x534B)	; ø»˜ª®
-    (ucs-cns		. #x8860)	; ø»˜ª®
+    (=ucs@cns		. #x8860)	; ø»˜ª®
     ))
 (define-char
   '((ideographic-radical . 144)	; â¾

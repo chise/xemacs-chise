@@ -9477,7 +9477,7 @@
 (define-char
   '((=>ucs*		. #x7DF4)	; ç·´
     (=>ucs@gb		. #x7DF4)	; ç·´
-    (=>ucs-cns		. #x7DF4)	; ç·´
+    (=>ucs@cns		. #x7DF4)	; ç·´
     (ideographic-radical . 120)	; â½·
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
@@ -12931,7 +12931,7 @@
     (chinese-cns11643-1 . #x746D)	; ø»’½¢
     (=jis-x0213-1-2000	. #x7A33)	; ø»¤•¼
     (ideograph-daikanwa . 27849)	; ø¸†³‰
-    (ucs-cns		. #x7E41)	; ï©™
+    (=ucs@cns		. #x7E41)	; ï©™
     (ucs-ks		. #x7E41)	; ï©™
     (=ucs		. #xFA59)	; ï©™
     ))
