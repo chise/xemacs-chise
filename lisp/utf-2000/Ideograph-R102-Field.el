@@ -166,6 +166,8 @@
       :char	((ideograph-daikanwa . 21735)	; ø¸…“§
 		 )
       ))
+    (japanese-jisx0208-1978	. #x6136)	; ø»ƒš•
+    (japanese-jisx0208		. #x6136)	; ø»‡®
     (japanese-jisx0208-1990	. #x6136)	; ø½‹”‘
     (mojikyo			. 054615)	; ý €•—
     (ucs			. #x753C)	; ç”¼
@@ -1141,6 +1143,8 @@
   '((ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
+    (japanese-jisx0208-1978	. #x613E)	; ø»ƒš
+    (japanese-jisx0208		. #x613E)	; ø»‡®¥
     (japanese-jisx0208-1990	. #x613E)	; ø½‹”™
     (ucs			. #x7569)	; ç•©
     ))
@@ -1382,6 +1386,8 @@
     (ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
+    (japanese-jisx0208-1978	. #x3E76)	; ø»‚§»
+    (japanese-jisx0208		. #x3E76)	; ø»†¼ƒ
     (japanese-jisx0208-1990	. #x3E76)	; ø½Š¡·
     (mojikyo			. 050291)	; ý €Œ‘³
     (ucs			. #x7573)	; ç•³
@@ -1426,6 +1432,8 @@
     (ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
+    (japanese-jisx0208-1978	. #x6147)	; ø»ƒš¦
+    (japanese-jisx0208		. #x6147)	; ø»‡®®
     (japanese-jisx0208-1990	. #x6147)	; ø½‹”¢
     ))
 (define-char
