@@ -49,6 +49,9 @@
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
+    (<-vulgar
+     ((=ucs		  . #x51B0)	; 冰
+      ))
     (shinjigen-1	. 4051)
     (shinjigen-2	. 4051)
     (=ucs		. #x6C37)	; 氷
