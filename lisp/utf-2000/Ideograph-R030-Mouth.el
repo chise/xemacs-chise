@@ -7942,8 +7942,8 @@
      ((ucs		  . #x2F82C)	; ð¯ ¬
       ))
     (ideograph-daikanwa . 03598)	; ø¸€¸Ž
-    (mojikyo . 03598)	; ø¸€¸Ž
     (=cbeta		. 01216)	; ø¸ “€
+    (mojikyo		. 003598)	; ý €€¸Ž
     ))
 (define-char
   '((morohashi-daikanwa	3598 0 1)
