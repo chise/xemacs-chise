@@ -990,7 +990,7 @@
   '((ideographic-radical . 198)	; â¿…
     (ideographic-strokes . 12)
     (total-strokes	 . 23)
-    (->synonymous
+    (->synonyms
      (:sources	(setsumon-tsuukun-teisei morohashi-daikanwa)
       :char	((ideograph-daikanwa . 47643)	; ø¸‹¨›
 		 )
