@@ -359,7 +359,9 @@
      ((chinese-big5-cdp	  . #x8B40)	; å†–
       (ucs		  . #x5196)	; å†–
       )
-     ((ideograph-daikanwa . 01368)	; ø¸€•˜
+     ((japanese-jisx0208-1978	  . #x513D)	; ø»ƒ‚¼
+      (chinese-cns11643-3	  . #x2753)	; ø»• Š
+      (ideograph-daikanwa	  . 01368)	; ø¸€•˜
       ))
     (shinjigen-1	. 529)
     (shinjigen-2	. 529)
