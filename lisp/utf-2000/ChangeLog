@@ -1,3 +1,9 @@
+2005-03-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R147-See.el: Add mappings for Big5 code points.
+
+	* Ideograph-R146-West.el: Add mappings for Big5 code points.
+
 2005-03-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R123-Sheep.el (U-00026352): Unify BC-8C67.
