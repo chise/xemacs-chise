@@ -11,7 +11,9 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (shinjigen-2	. 3152)
+    (japanese-jisx0208-1978	. #x3B59)	; ø»‚£„
     (chinese-gb2312		. #x5627)	; ø»…”€
+    (japanese-jisx0208		. #x3B59)	; ø»†·Œ
     (chinese-isoir165		. #x5627)	; ø»¼
     (chinese-cns11643-1		. #x4545)	; ø»‘·¸
     (japanese-jisx0208-1990	. #x3B59)	; ø½Š€
