@@ -301,6 +301,10 @@
   '((ideographic-radical . 69)	; â½„
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x65B7)	; æ–·
+      (=jis-x0208	  . #x5A52)	; ø½‹Š›
+      ))
     (shinjigen-2	. 3228)
     (=ucs		. #x65AD)	; æ–­
     (=jis-x0208		. #x4347)	; ø½Š¨ž
