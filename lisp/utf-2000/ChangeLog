@@ -1,5 +1,36 @@
 2001-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R196-Bird.el (M-47028): Fix strokes; separate C4-6561.
+	(M-47029): Fixed.
+	(U+9D7A): Separate M-47030.
+	(M-47031): Separate C2-6858.
+	(M-47032): Separate C3-5C28.
+	(M-47033): Separate C7-4C67.
+	(C4-6270): Fix `morohashi-daikanwa' property; relate to M-47093.
+	(M-47163): Fix strokes; separate C5-6F31.
+	(C5-6F45): Fix `morohashi-daikanwa' property; relate to M-47226.
+	(M-47224): Separate C7-5725.
+	(M-47225): Fixed.
+	(M-47228): Separate C5-7262.
+	(M-47229): Separate C7-5722.
+	(M-47230): Fixed.
+	(M-47242): Separate C5-753D.
+	(C4-6A2C): Fix `morohashi-daikanwa' property; relate to M-47244.
+	(C5-7736): Delete `morohashi-daikanwa' property.
+	(M-47373): Separate C7-5E2E.
+
+	* Ideograph-R149-Speech.el (C7-334D): Fix `morohashi-daikanwa'
+	property; relate to M-35732.
+
+2001-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R211-Tooth.el (C5-7B5D): Fix `morohashi-daikanwa'
+	property; relate to M-48787.
+	(M-48788): Separate C4-6E45.
+	(C5-7C45): Fix `morohashi-daikanwa' property; relate to M-48808.
+
+2001-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R182-Wind.el (U+98B4): Delete invalid
 	`morohashi-daikanwa' property; unify M-43842; divide C5-5975.
 
