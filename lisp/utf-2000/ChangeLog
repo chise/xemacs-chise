@@ -1,5 +1,11 @@
 2003-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* README.en: Rename ``UTF-2000'' -> ``CHISE''.
+	(Character Reference): Complete Pinyin names of sources [by
+	Christian Wittern <wittern@kanji.zinbun.kyoto-u.ac.jp>]
+
+2003-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R158-Body.el: Add some GT code points.
 
 2003-07-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
