@@ -2189,6 +2189,7 @@
     (shinjigen-2	. 1330)
     (=jis-x0208		. #x5421)	; ø½‹€¶
     (korean-ksc5601	. #x4F6A)	; ø»‰ž¹
+    (chinese-big5	. #xB0E9)	; ý¢€‹ƒ©
     (ideograph-daikanwa . 04789)	; ø¸Šµ
     (ucs-jis		. #x5708)	; ø½‹€¶
     ))
@@ -2209,7 +2210,6 @@
     (chinese-gb2312	. #x4826)	; ø»„¿›
     (chinese-isoir165	. #x4826)	; ø»§«
     (chinese-cns11643-1 . #x594E)	; ø»’•™
-    (chinese-big5	. #xB0E9)	; ý¢€‹ƒ©
     (ucs		. #x5708)	; åœˆ
     ))
 (define-char
