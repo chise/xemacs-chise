@@ -1,5 +1,17 @@
 1999-09-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* character.h (CHAR_INTP): Moved from buffer.h
+	(CHAR_OR_CHAR_INTP): Likewise.
+	(XCHAR_OR_CHAR_INT): Likewise.
+	(CHECK_CHAR_COERCE_INT): Likewise.
+
+	* buffer.h (CHAR_INTP): Moved to character.h
+	(CHAR_OR_CHAR_INTP): Likewise.
+	(XCHAR_OR_CHAR_INT): Likewise.
+	(CHECK_CHAR_COERCE_INT): Likewise.
+
+1999-09-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* character.h:
 	- Move definitions about UCS-2000 (UCS-4) to char-ucs.h.
 	- Include char-1byte.h, char-lb.h or char-ucs.h.
