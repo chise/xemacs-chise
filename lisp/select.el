@@ -40,6 +40,11 @@ COMPOUND_TEXT and STRING are the most commonly used data types.
 If a list is provided, the types are tried in sequence until
 there is a successful conversion.")
 
+(defvar selection-is-clipboard-p nil 
+  "Controls the selection's relationship to the clipboard.
+When non-nil, any operation that sets the primary selection will also
+set the clipboard.")
+
 (defun copy-primary-selection ()
   "Copy the selection to the Clipboard and the kill ring."
   (interactive)
@@ -74,7 +79,17 @@ This will do nothing under anything other than X.")
   "Return the value of a Windows selection.
 The argument TYPE (default `PRIMARY') says which selection,
 and the argument DATA-TYPE (default `STRING', or `COMPOUND_TEXT' under Mule)
-says how to convert the data."
+says how to convert the data. If there is no selection an error is signalled."
+  (let ((text (get-selection-no-error type data-type)))
+    (when (not (stringp text))
+      (error "Selection is not a string: %S" text))
+    text))
+
+(defun get-selection-no-error (&optional type data-type)
+  "Return the value of a Windows selection.
+The argument TYPE (default `PRIMARY') says which selection,
+and the argument DATA-TYPE (default `STRING', or `COMPOUND_TEXT' under Mule)
+says how to convert the data. Returns NIL if there is no selection"
   (or type (setq type 'PRIMARY))
   (or data-type (setq data-type selected-text-type))
   (let ((text
@@ -88,8 +103,6 @@ says how to convert the data."
 	   (get-selection-internal type data-type))))
     (when (and (consp text) (symbolp (car text)))
       (setq text (cdr text)))
-    (when (not (stringp text))
-      (error "Selection is not a string: %S" text))
     text))
 
 ;; FSFmacs calls this `x-set-selection', and reverses the
@@ -127,9 +140,12 @@ Interactively, the text of the region is used as the selection value."
 	     valid))
       (signal 'error (list "invalid selection" data)))
   (or type (setq type 'PRIMARY))
-  (if data
-      (own-selection-internal type data)
-    (disown-selection-internal type))
+  (if (null data)
+      (disown-selection-internal type)
+    (own-selection-internal type data)
+    (when (and (eq type 'PRIMARY)
+	       selection-is-clipboard-p)
+      (own-selection-internal 'CLIPBOARD data)))
   (cond ((eq type 'PRIMARY)
 	 (setq primary-selection-extent
 	       (select-make-extent-for-selection

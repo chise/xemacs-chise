@@ -70,7 +70,7 @@ be the text between those markers)."
 		 (list (cons ;; these need not be ordered.
 			(copy-marker (point-marker))
 			(copy-marker (mark-marker))))))
-  (x-own-selection selection 'SECONDARY))
+  (own-selection selection 'SECONDARY))
 
 (defun x-notice-selection-requests (selection type successful)
   "for possible use as the value of x-sent-selection-hooks."
@@ -103,7 +103,7 @@ be the text between those markers)."
 
 (defun xselect-kill-buffer-hook-1 (selection)
   (let (value)
-    (if (and (x-selection-owner-p selection)
+    (if (and (selection-owner-p selection)
 	     (setq value (get-selection-internal selection '_EMACS_INTERNAL))
 	     ;; The _EMACS_INTERNAL selection type has a converter registered
 	     ;; for it that does no translation.  This only works if emacs is
