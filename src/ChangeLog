@@ -1,3 +1,12 @@
+2001-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ucs_ks): New variable.
+	(Qucs_ks): New variable.
+	(syms_of_mule_charset): Add new symbol `ucs-ks'.
+	(complex_vars_of_mule_charset): Add new coded-charset `ucs-ks'.
+
+	* char-ucs.h (LEADING_BYTE_UCS_KS): New macro.
+
 2001-10-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.h (Fmake_char): New EXFUN; moved from chartab.c.
