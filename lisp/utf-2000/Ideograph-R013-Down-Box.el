@@ -752,6 +752,7 @@
     (chinese-cns11643-1 . #x5023)	; ø»’‡ 
     (chinese-big5	. #xAB5F)	; øºŸ´
     (ideograph-daikanwa . 01538)	; ø¸€˜‚
+    (china3-jef		. #x5BBC)	; øº…®¼
     (ucs		. #x5192)	; å†’
     ))
 (define-char
