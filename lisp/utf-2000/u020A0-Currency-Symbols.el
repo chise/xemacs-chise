@@ -67,6 +67,10 @@
     (general-category	symbol currency) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
+    (->fullwidth
+     ((name		  . "FULLWIDTH WON SIGN")
+      (ucs		  . #xFFE6)	; ￦
+      ))
     (ucs		. #x20A9)	; ₩
     ))
 (define-char
