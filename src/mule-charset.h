@@ -565,7 +565,8 @@ INLINE Lisp_Object CHARSET_BY_LEADING_BYTE (int lb);
 INLINE Lisp_Object
 CHARSET_BY_LEADING_BYTE (int lb)
 {
-  assert (lb >= 0x80 && lb <= 0xFF);
+  assert (lb >= MIN_LEADING_BYTE &&
+	  lb < (MIN_LEADING_BYTE + NUM_LEADING_BYTES));
   return charset_by_leading_byte[lb - MIN_LEADING_BYTE];
 }
 
