@@ -1,5 +1,18 @@
 2003-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.h (struct Lisp_Char_Table): Delete member
+	`feature_table' if CHISE is defined.
+
+	* chartab.c (Fmake_char_table): Don't refer `ct->feature_table'.
+	(Fcopy_char_table): Likewise.
+	(char_table_open_db_maybe): Likewise.
+	(char_table_close_db_maybe): Likewise.
+	(char_table_get_db): Likewise.
+	(Fmount_char_attribute_table): Likewise.
+	(Fload_char_attribute_table): Likewise.
+
+2003-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (load_char_decoding_entry_maybe): Use
 	`chise_ds_decode_char' instead of `chise_ds_get_ccs' and
 	`chise_ccs_decode'.
