@@ -13664,19 +13664,17 @@
     (=cbeta		. 00064)	; &I-CB00064;
     ))
 (define-char
-  '((=>ucs		. #x35A9)	; 㖩
-    (ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=daikanwa		. 03834)	; &M-03834;
-    ))
-(define-char
-  '((morohashi-daikanwa	3834 0 0)
-    (ideographic-radical . 30)	; ⼝
+  '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x35A9)	; 㖩
-    (=cns11643-4	. #x306D)	; &I-C4-306D; [16-77]
+    (->subsumptive
+     ((=daikanwa	  . 03834)	; &M-03834;
+      )
+     ((=cns11643-4	  . #x306D)	; &C4-306D; [16-77]
+      )
+     ((=ucs@unicode	  . #x35A9)	; &UU+35A9;
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
@@ -14553,7 +14551,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=big5-cdp	    . #x8B77)	; &CDP-8B77;
+       ((=ucs		    . #x9FB6)	; 龶
 	)
        ((=ucs		    . #x8D1D)	; 贝
 	))
@@ -15926,7 +15924,10 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x90C1)	; &UU+90C1;
+       ((=jis-x0208	    . #x306A)	; &GT-52972; [16-74]
+	(=gb2312	    . #x5374)	; &I-G0-5374; [51-84]
+	(=ks-x1001	    . #x6974)	; &I-K0-6974; [73-84]
+	(=daikanwa	    . 39371)	; &I-M-39371;
 	))
       (=gb12345		  . #x7C2B)	; &M-03930; [92-11]
       (=daikanwa	  . 03930)	; &M-03930;
@@ -16548,7 +16549,8 @@
     (=ucs@big5		. #x559D)	; 喝
     ))
 (define-char
-  '((ideographic-radical . 30)	; ⼝
+  '((=>ucs*		. #x559D)	; 喝
+    (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (<-denotational
@@ -16559,13 +16561,14 @@
       (=jis-x0208@1978	  . #x3365)	; &I-J78-3365; [19-69]
       (=jis-x0213-1-2000  . #x2F2C)	; &I-JX1-2F2C; [15-12]
       ))
-    (=jis-x0208@1983	. #x3365)	; &GT-04705; [19-69]
+    (=ucs		. #xFA78)	; 喝
+    (=jis-x0208@1983	. #x3365)	; &I-J83-3365; [19-69]
     (=jis-x0208@1990	. #x3365)	; &I-J90-3365; [19-69]
     (=gt		. 04705)	; &I-GT-04705;
     (=gt-k		. 07729)	; &I-GT-K07729;
     (=gt-pj-1		. #x3365)	; &I-GT-04705; [19-69]
     (=jef-china3	. #x47B8)	; &I-JC3-47B8;
-    (=ucs@jis		. #x559D)	; &GT-04705;
+    (=ucs@jis		. #x559D)	; 喝
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
@@ -17344,7 +17347,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=cns11643-1	    . #x507D)	; &C1-507D; [48-93]
+       ((=ucs@unicode	    . #x5F65)	; &UU+5F65;
 	))
       (=cns11643-2	  . #x3A4D)	; &C2-3A4D; [26-45]
       (=ucs@cns		  . #x55AD)	; &C2-3A4D;
@@ -20271,8 +20274,38 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
+    (=ucs		. #x55E2)	; 嗢
+    (=big5		. #xDCDA)	; &I-B-DCDA;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (<-denotational
+     ((=ucs		  . #x55E2)	; 嗢
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x25055)	; 𥁕
+      ))
+    (=jis-x0212		. #x3626)	; &M-04107; [22-06]
+    (=cns11643-2	. #x4221)	; &I-C2-4221; [34-01]
+    (=jis-x0213-2-2000	. #x2439)	; &I-JX2-2439; [04-25]
+    (=daikanwa		. 04107)	; &I-M-04107;
+    (=ucs@jis		. #x55E2)	; &M-04107;
+    ))
+(define-char
+  '((=>ucs*		. #x55E2)	; 嗢
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (<-denotational
+     ((=ucs		  . #x55E2)	; 嗢
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -20281,12 +20314,8 @@
       )
      ((=ucs		  . #x6637)	; 昷
       ))
-    (=ucs		. #x55E2)	; 嗢
-    (=jis-x0212		. #x3626)	; &I-JSP-3626; [22-06]
-    (=cns11643-2	. #x4221)	; &I-C2-4221; [34-01]
-    (=jis-x0213-2-2000	. #x2439)	; &I-JX2-2439; [04-25]
-    (=big5		. #xDCDA)	; &I-B-DCDA;
-    (=daikanwa		. 04107)	; &I-M-04107;
+    (=ucs		. #xFA7B)	; 嗢
+    (=ucs@unicode	. #x55E2)	; 嗢
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
