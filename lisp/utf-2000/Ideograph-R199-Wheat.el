@@ -21,8 +21,11 @@
 (define-char
   '((ideographic-radical . 199)	; â¿†
     (ideographic-strokes . 0)
+    (total-strokes	 . 11)
     (shinjigen-2	. 9791)
+    (japanese-jisx0208-1978	. #x477E)	; ø»‚µ‘
     (chinese-gb2312		. #x4273)	; ø»„·´
+    (japanese-jisx0208		. #x477E)	; ø»‡‰™
     (chinese-isoir165		. #x4273)	; ø» „
     (japanese-jisx0208-1990	. #x477E)	; ø½Š¯
     (ideograph-daikanwa		. 47718)	; ø¸‹©¦
@@ -321,14 +324,21 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
     (japanese-jisx0208-1978	. #x7351)	; ø»ƒµŒ
-    (japanese-jisx0208		. #x7351)	; ø»ˆ‰”
-    (japanese-jisx0208-1990	. #x7351)	; ø½‹¯ˆ
     (ideograph-daikanwa		. 47742)	; ø¸‹©¾
     (ucs			. #x9EAA)	; éºª
     ))
 (define-char
+  '((=>ucs		. #x9EAA)	; éºª
+    (morohashi-daikanwa	47742 0 3)
+    (ideographic-radical . 199)	; â¿†
+    (ideographic-strokes . 4)
+    (total-strokes	 . 15)
+    (japanese-jisx0208		. #x7351)	; ø»ˆ‰”
+    (japanese-jisx0208-1990	. #x7351)	; ø½‹¯ˆ
+    ))
+(define-char
   '((->ucs		. #x9EAA)	; éºª
-    (morohashi-daikanwa	47742 0 0)
+    (morohashi-daikanwa	47742 0 4)
     (ideographic-radical . 199)	; â¿†
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
@@ -343,7 +353,7 @@
     ))
 (define-char
   '((->ucs		. #x9EAB)	; éº«
-    (morohashi-daikanwa	47743 0 0)
+    (morohashi-daikanwa	47743 0 4)
     (ideographic-radical . 199)	; â¿†
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
@@ -1272,8 +1282,10 @@
 (define-char
   '((ideographic-radical . 199)	; â¿†
     (ideographic-strokes . 8)
-    (japanese-jisx0208	. #x396D)	; ø»†´¤
-    (ucs		. #x9EB9)	; éº¹
+    (total-strokes	 . 15)
+    (japanese-jisx0208		. #x396D)	; ø»†´¤
+    (japanese-jisx0208-1990	. #x396D)	; ø½Šš˜
+    (ucs			. #x9EB9)	; éº¹
     ))
 (define-char
   '((ideographic-radical . 199)	; â¿†
@@ -1462,8 +1474,10 @@
 (define-char
   '((ideographic-radical . 199)	; â¿†
     (ideographic-strokes . 9)
-    (japanese-jisx0208	. #x4C4D)	; ø»‡¾
-    (ucs		. #x9EBA)	; éºº
+    (total-strokes	 . 16)
+    (japanese-jisx0208		. #x4C4D)	; ø»‡¾
+    (japanese-jisx0208-1990	. #x4C4D)	; ø½Šµ²
+    (ucs			. #x9EBA)	; éºº
     ))
 (define-char
   '((ideographic-radical . 199)	; â¿†
