@@ -154,20 +154,6 @@ typedef int Charset_ID;
 
 
 /************************************************************************/
-/*                     Operations on individual bytes                   */
-/*                             of any format                            */
-/************************************************************************/
-
-/* Argument `c' should be (unsigned int) or (unsigned char). */
-/* Note that SP and DEL are not included. */
-
-#define BYTE_ASCII_P(c) ((c) < 0x80)
-#define BYTE_C0_P(c) ((c) < 0x20)
-/* Do some forced casting just to make *sure* things are gotten right. */
-#define BYTE_C1_P(c) ((unsigned int) ((unsigned int) (c) - 0x80) < 0x20)
-
-
-/************************************************************************/
 /*            Information about a particular character set              */
 /************************************************************************/
 
@@ -557,14 +543,5 @@ extern Lisp_Object Vcharset_chinese_big5_1;
 extern Lisp_Object Vcharset_chinese_big5_2;
 extern Lisp_Object Vcharset_japanese_jisx0208;
 extern Lisp_Object Vcharset_japanese_jisx0212;
-
-Emchar Lstream_get_emchar_1 (Lstream *stream, int first_char);
-int Lstream_fput_emchar (Lstream *stream, Emchar ch);
-void Lstream_funget_emchar (Lstream *stream, Emchar ch);
-
-int copy_internal_to_external (CONST Bufbyte *internal, Bytecount len,
-			       unsigned char *external);
-Bytecount copy_external_to_internal (CONST unsigned char *external,
-				     int len, Bufbyte *internal);
 
 #endif /* _XEMACS_CHAR_UCS_H */
