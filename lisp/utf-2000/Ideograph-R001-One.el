@@ -134,8 +134,10 @@
     (total-strokes	 . 3)
     (shinjigen-1	. 10)
     (shinjigen-2	. 10)
-    (korean-ksc5601	. #x6D5B)	; ø»ŠŠ®
-    (ideograph-daikanwa . 00011)	; ø¸€€‹
+    (japanese-jisx0208-1978	. #x3E66)	; ø»‚§«
+    (japanese-jisx0208		. #x3E66)	; ø»†»³
+    (korean-ksc5601		. #x6D5B)	; ø»ŠŠ®
+    (ideograph-daikanwa		. 00011)	; ø¸€€‹
     ))
 (define-char
   '((morohashi-daikanwa	11 0 0)
@@ -144,9 +146,7 @@
     (total-strokes	 . 3)
     (shinjigen-1	. 9)
     (shinjigen-2	. 9)
-    (japanese-jisx0208-1978	. #x3E66)	; ø»‚§«
     (chinese-gb2312		. #x5549)	; ø»…“„
-    (japanese-jisx0208		. #x3E66)	; ø»†»³
     (chinese-isoir165		. #x5549)	; ø»»”
     (chinese-cns11643-1		. #x4437)	; ø»‘¶Œ
     (japanese-jisx0208-1990	. #x3E66)	; ø½Š¡§
