@@ -1,5 +1,14 @@
 2004-01-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R155-Red.el (U+8D6A): Add `total-strokes'.
+
+	* Ideograph-R152-Pig.el (U+8C6E): Add `total-strokes'.
+
+	* Ideograph-R146-West.el (U+8984): Add `total-strokes'.
+
+	* Ideograph-R145-Clothes.el, Ideograph-R142-Insect.el: Add some
+	`total-strokes' features.
+
 	* Ideograph-R030-Mouth.el (M-03871): Unify U-00020D72, C6-3E21 and
 	H2-D6B5.
 
