@@ -32,8 +32,16 @@
     (total-strokes	 . 4)
     (shinjigen-1	. 804)
     (shinjigen-2	. 804)
-    (chinese-cns11643-1 . #x4528)	; ø»‘·›
     (ideograph-daikanwa . 02673)	; ø¸€©±
+    ))
+(define-char
+  '((->ucs		. #x5339)	; åŒ¹
+    (morohashi-daikanwa	2673 0 0)
+    (ideographic-radical . 23)	; â¼–
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (chinese-cns11643-1 . #x4528)	; ø»‘·›
+    (mojikyo		. 002673)	; ý €€©±
     ))
 (define-char
   '((morohashi-daikanwa	2673 0 1)
@@ -46,6 +54,7 @@
     (chinese-gb2312		. #x4625)	; ø»„¼ž
     (japanese-jisx0208		. #x4924)	; ø»‡Š»
     (chinese-isoir165		. #x4625)	; ø»¤®
+    (japanese-jisx0208-1990	. #x4924)	; ø½Š°¯
     (ucs			. #x5339)	; åŒ¹
     ))
 (define-char
@@ -57,13 +66,19 @@
     (ideograph-daikanwa . 02674)	; ø¸€©²
     ))
 (define-char
-  '((morohashi-daikanwa	2674 0 1)
+  '((script		JP-Jouyou Ideograph)
+    (morohashi-daikanwa	2674 0 1)
     (ideographic-radical . 23)	; â¼–
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (comment		. "[JP-Jouyou] <simplified character> of S1-0802")
     (shinjigen-1	. 801)
     (shinjigen-2	. 801)
+    (simplified-ideograph-of
+     ((sources		  shinjigen-1)
+      (char . ((shinjigen-1	   . 802)
+	       (ideograph-daikanwa . 02691)	; ø¸€ªƒ
+	       ))
+      ))
     (japanese-jisx0208-1978	. #x3668)	; ø»‚›½
     (chinese-gb2312		. #x4778)	; ø»„¿
     (japanese-jisx0208		. #x3668)	; ø»†°…
@@ -75,8 +90,14 @@
   '((ideographic-radical . 23)	; â¼–
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (chinese-cns11643-6 . #x2159)	; ø»›µ¨
     (ideograph-daikanwa . 48948)	; ø¸‹¼´
+    ))
+(define-char
+  '((morohashi-daikanwa	48948 0 1)
+    (ideographic-radical . 23)	; â¼–
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (chinese-cns11643-6 . #x2159)	; ø»›µ¨
     ))
 (define-char
   '((ideographic-radical . 23)	; â¼–
@@ -257,6 +278,7 @@
     (shinjigen-2	. 807)
     (chinese-cns11643-1 . #x5933)	; ø»’”¾
     (ideograph-daikanwa . 02690)	; ø¸€ª‚
+    (mojikyo		. 002690)	; ý €€ª‚
     ))
 (define-char
   '((morohashi-daikanwa	2690 0 2)
@@ -270,6 +292,7 @@
     (chinese-gb2312		. #x4464)	; ø»„º¡
     (japanese-jisx0208		. #x463F)	; ø»‡†¼
     (chinese-isoir165		. #x4464)	; ø»¢±
+    (japanese-jisx0208-1990	. #x463F)	; ø½Š¬°
     (ucs			. #x533F)	; åŒ¿
     ))
 (define-char
