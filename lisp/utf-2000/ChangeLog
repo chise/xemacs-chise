@@ -1,5 +1,17 @@
 2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R055-Two-Hands.el, Ideograph-R054-Long-Stride.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R052-Short-Thread.el (J0-3476): Separate GT-11608 and
+	GT-K09021; add BU+5E7E.
+	(C1-5E7D): Unify GT-11608 and GT-K09021.
+
+	* Ideograph-R051-Dry.el, Ideograph-R048-Work.el,
+	Ideograph-R047-River.el: Add `=ucs@big5' features.
+
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-342A.
 
 	* Ideograph-R180-Sound.el (JC3-6CDC): New character.
