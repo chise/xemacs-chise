@@ -1759,8 +1759,14 @@ With argument, insert value in current buffer after the form."
 				      (char-to-string 255)))
 	  (eq (point) (point-max)))
 	(setq buffer-file-coding-system 'raw-text)
-      (insert "(require 'mule)\n;;;###coding system: escape-quoted\n")
-      (setq buffer-file-coding-system 'escape-quoted)
+      (cond ((featurep 'utf-2000)
+	     (insert "(require 'mule)\n;;;###coding system: utf-8\n")
+	     (setq buffer-file-coding-system 'utf-8)
+	     )
+	    (t
+	     (insert "(require 'mule)\n;;;###coding system: escape-quoted\n")
+	     (setq buffer-file-coding-system 'escape-quoted)
+	     ))
       ;; #### Lazy loading not yet implemented for MULE files
       ;; mrb - Fix this someday.
       (save-excursion
