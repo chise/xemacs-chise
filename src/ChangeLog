@@ -1,3 +1,12 @@
+2004-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_same): Deleted.
+	(Q_same_of): Deleted.
+	(Fput_char_attribute): Use Fstring_match to find `{<-|->}same'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}same'.
+	(syms_of_chartab): Delete builtin symbol `{<-|->}same'.
+
 2004-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Q_vulgar): Deleted.
