@@ -122,6 +122,7 @@
 	(when-feature file-coding "code-cmds")
 	;;;;;;;;;;;;;;;;;; MULE support
 	(when-feature mule "mule-conf")
+	(when-feature utf-2000 "isolated-char")
 	(when-feature utf-2000 "u00000-C0")
 	(when-feature utf-2000 "u00020-Basic-Latin")
 	(when-feature utf-2000 "u00080-C1")
