@@ -1,3 +1,8 @@
+2004-03-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R017-Open-Box.el (M-01841): Moved into U-00025390.
+	(U-00025390): Use `->subsumptive'.
+
 2004-02-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ideograph-util.el (char-representative-of-daikanwa): Fixed.
