@@ -3849,56 +3849,149 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
   while (n--)
     {
       unsigned char c = *(unsigned char *)src++;
-      switch (counter)
+      if (counter == 0)
 	{
-	case 0:
-	  if ( c >= 0xfc )
-	    {
-	      cpos = c & 0x01;
-	      counter = 5;
-	    }
-	  else if ( c >= 0xf8 )
-	    {
-	      cpos = c & 0x03;
-	      counter = 4;
-	    }
-	  else if ( c >= 0xf0 )
-	    {
-	      cpos = c & 0x07;
-	      counter = 3;
-	    }
-	  else if ( c >= 0xe0 )
-	    {
-	      cpos = c & 0x0f;
-	      counter = 2;
-	    }
-	  else if ( c >= 0xc0 )
-	    {
-	      cpos = c & 0x1f;
-	      counter = 1;
-	    }
-	  else
+	  if ( c < 0xC0 )
 	    {
 	      DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
 	      DECODE_ADD_UCS_CHAR (c, dst);
 	    }
-	  break;
-	case 1:
+	  else if ( c < 0xE0 )
+	    {
+	      cpos = c & 0x1f;
+	      counter = 1;
+	    }
+	  else if ( c < 0xF0 )
+	    {
+	      cpos = c & 0x0f;
+	      counter = 2;
+	    }
+	  else if ( c < 0xF8 )
+	    {
+	      cpos = c & 0x07;
+	      counter = 3;
+	    }
+	  else if ( c < 0xFC )
+	    {
+	      cpos = c & 0x03;
+	      counter = 4;
+	    }
+	  else
+	    {
+	      cpos = c & 0x01;
+	      counter = 5;
+	    }
+	}
+      else if ( (c & 0xC0) == 0x80 )
+	{
 	  cpos = ( cpos << 6 ) | ( c & 0x3f );
-	  DECODE_ADD_UCS_CHAR (cpos, dst);
+	  if (counter == 1)
+	    {
+	      DECODE_ADD_UCS_CHAR (cpos, dst);
+	      cpos = 0;
+	      counter = 0;
+	    }
+	  else
+	    counter--;
+	}
+      else
+	{
+	  if (counter == 5)
+	    DECODE_ADD_BINARY_CHAR ( (cpos|0xFC), dst);
+	  else if (counter == 4)
+	    {
+	      if (cpos < (1 << 6))
+		DECODE_ADD_BINARY_CHAR ( (cpos|0xF8), dst);
+	      else
+		{
+		  DECODE_ADD_BINARY_CHAR ( ((cpos >> 6)|0xFC), dst);
+		  DECODE_ADD_BINARY_CHAR ( ((cpos&0x3F)|0x80), dst);
+		}
+	    }
+	  else if (counter == 3)
+	    {
+	      if (cpos < (1 << 6))
+		DECODE_ADD_BINARY_CHAR ( (cpos|0xF0), dst);
+	      else if (cpos < (1 << 12))
+		{
+		  DECODE_ADD_BINARY_CHAR ( ((cpos >> 6)|0xF8), dst);
+		  DECODE_ADD_BINARY_CHAR ( ((cpos&0x3F)|0x80), dst);
+		}
+	      else
+		{
+		  DECODE_ADD_BINARY_CHAR ( ( (cpos >> 12)|0xFC), dst);
+		  DECODE_ADD_BINARY_CHAR ( (((cpos >>  6)&0x3F)|0x80), dst);
+		  DECODE_ADD_BINARY_CHAR ( ( (cpos       &0x3F)|0x80), dst);
+		}
+	    }
+	  else if (counter == 2)
+	    {
+	      if (cpos < (1 << 6))
+		DECODE_ADD_BINARY_CHAR ( (cpos|0xE0), dst);
+	      else if (cpos < (1 << 12))
+		{
+		  DECODE_ADD_BINARY_CHAR ( ((cpos >> 6)|0xF0), dst);
+		  DECODE_ADD_BINARY_CHAR ( ((cpos&0x3F)|0x80), dst);
+		}
+	      else if (cpos < (1 << 18))
+		{
+		  DECODE_ADD_BINARY_CHAR ( ( (cpos >> 12)|0xF8), dst);
+		  DECODE_ADD_BINARY_CHAR ( (((cpos >> 6)&0x3F)|0x80), dst);
+		  DECODE_ADD_BINARY_CHAR ( ( (cpos      &0x3F)|0x80), dst);
+		}
+	      else
+		{
+		  DECODE_ADD_BINARY_CHAR ( ( (cpos >> 18)|0xFC), dst);
+		  DECODE_ADD_BINARY_CHAR ( (((cpos >> 12)&0x3F)|0x80), dst);
+		  DECODE_ADD_BINARY_CHAR ( (((cpos >>  6)&0x3F)|0x80), dst);
+		  DECODE_ADD_BINARY_CHAR ( ( (cpos       &0x3F)|0x80), dst);
+		}
+	    }
+	  else
+	    {
+	      if (cpos < (1 << 6))
+		DECODE_ADD_BINARY_CHAR ( (cpos|0xC0), dst);
+	      else if (cpos < (1 << 12))
+		{
+		  DECODE_ADD_BINARY_CHAR ( ((cpos >> 6)|0xE0), dst);
+		  DECODE_ADD_BINARY_CHAR ( ((cpos&0x3F)|0x80), dst);
+		}
+	      else if (cpos < (1 << 18))
+		{
+		  DECODE_ADD_BINARY_CHAR ( ( (cpos >> 12)|0xF0), dst);
+		  DECODE_ADD_BINARY_CHAR ( (((cpos >>  6)&0x3F)|0x80), dst);
+		  DECODE_ADD_BINARY_CHAR ( ( (cpos       &0x3F)|0x80), dst);
+		}
+	      else if (cpos < (1 << 24))
+		{
+		  DECODE_ADD_BINARY_CHAR ( ( (cpos >> 18)|0xF8), dst);
+		  DECODE_ADD_BINARY_CHAR ( (((cpos >> 12)&0x3F)|0x80), dst);
+		  DECODE_ADD_BINARY_CHAR ( (((cpos >>  6)&0x3F)|0x80), dst);
+		  DECODE_ADD_BINARY_CHAR ( ( (cpos       &0x3F)|0x80), dst);
+		}
+	      else
+		{
+		  DECODE_ADD_BINARY_CHAR ( ( (cpos >> 24)|0xFC), dst);
+		  DECODE_ADD_BINARY_CHAR ( (((cpos >> 18)&0x3F)|0x80), dst);
+		  DECODE_ADD_BINARY_CHAR ( (((cpos >> 12)&0x3F)|0x80), dst);
+		  DECODE_ADD_BINARY_CHAR ( (((cpos >>  6)&0x3F)|0x80), dst);
+		  DECODE_ADD_BINARY_CHAR ( ( (cpos       &0x3F)|0x80), dst);
+		}
+	    }
+	  DECODE_ADD_BINARY_CHAR (c, dst);
 	  cpos = 0;
 	  counter = 0;
-	  break;
-	default:
-	  cpos = ( cpos << 6 ) | ( c & 0x3f );
-	  counter--;
 	}
     label_continue_loop:;
     }
 
   if (flags & CODING_STATE_END)
-    DECODE_OUTPUT_PARTIAL_CHAR (cpos);
-
+    if (counter > 0)
+      {
+	DECODE_ADD_BINARY_CHAR (cpos, dst);
+	cpos = 0;
+	counter = 0;
+      }
   str->flags	= flags;
   str->cpos	= cpos;
   str->counter	= counter;
