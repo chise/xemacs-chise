@@ -1,3 +1,15 @@
+2002-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R102-Field.el, Ideograph-R101-Use.el,
+	Ideograph-R099-Sweet.el, Ideograph-R098-Tile.el,
+	Ideograph-R097-Melon.el, Ideograph-R096-Jade.el,
+	Ideograph-R094-Dog.el: Add mappings for Big5 code points.
+
+2002-12-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R100-Life.el, Ideograph-R095-Profound.el: Add mappings
+	for Big5 code points.
+
 2002-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R093-Cow.el, Ideograph-R092-Fang.el: Add mappings for
