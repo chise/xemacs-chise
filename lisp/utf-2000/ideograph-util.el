@@ -236,7 +236,7 @@
 
 ;;;###autoload
 (defun char-ucs (char)
-  (or (get-char-attribute char 'ucs)
+  (or (encode-char char '=ucs 'defined-only)
       (get-char-attribute char '=>ucs)))
 
 (defun char-id (char)
