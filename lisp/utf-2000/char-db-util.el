@@ -71,6 +71,8 @@
       (aset v 34 (make-char 'chinese-gb2312 #x62 #x3A)))
     v))
 
+(defvar char-db-ignored-attributes nil)
+
 ;;;###autoload
 (defun char-ref-p (obj)
   (and (consp obj)
@@ -310,12 +312,14 @@
     (setq column (current-column)))
   (let ((line-breaking
 	 (concat "\n" (make-string (1+ column) ?\ )))
+	(separator "")
 	name value)
     (insert "(")
     (while plist
       (setq name (pop plist))
       (setq value (pop plist))
       (cond ((eq name :char)
+	     (insert separator)
 	     (insert ":char\t")
 	     (cond ((numberp value)
 		    (setq value (decode-char 'ucs value)))
@@ -324,11 +328,18 @@
                    ;;                  value)))
 		   )
 	     (char-db-insert-char-spec value readable)
-             (insert line-breaking))
-            (t
-	     (insert (format "%s\t%S%s"
+             (insert line-breaking)
+	     (setq separator ""))
+	    ((eq name :radical)
+	     (insert (format "%s%s\t%d ; %c%s"
+			     separator
 			     name value
-			     line-breaking))))
+			     (aref ideographic-radicals value)
+			     line-breaking))
+	     (setq separator ""))
+            (t
+	     (insert (format "%s%s\t%S" separator name value))
+	     (setq separator line-breaking)))
       ))
   (insert ")"))
 
@@ -361,8 +372,6 @@
 	  (t ret))))
 
 (defvar char-db-convert-obsolete-format t)
-
-(defvar char-db-ignored-attributes nil)
 
 (defun insert-char-attributes (char &optional readable
 				    attributes ccs-attributes
@@ -633,6 +642,38 @@
 	    (setq radical value)))
       (setq attributes (delq 'shinjigen-1-radical attributes))
       )
+    (when (and (memq 'ideographic- attributes)
+	       (setq value (get-char-attribute char 'ideographic-)))
+      (insert "(ideographic-       ")
+      (setq lbs (concat "\n" (make-string (current-column) ?\ ))
+	    separator nil)
+      (while (consp value)
+	(setq cell (car value))
+	(if (integerp cell)
+	    (setq cell (decode-char 'ucs cell)))
+	(cond ((characterp cell)
+	       (if separator
+		   (insert lbs))
+	       (if readable
+		   (insert (format "%S" cell))
+		 (char-db-insert-char-spec cell readable))
+	       (setq separator lbs))
+	      ((consp cell)
+	       (if separator
+		   (insert lbs))
+	       (if (consp (car cell))
+		   (char-db-insert-char-spec cell readable)
+		 (char-db-insert-char-reference cell readable))
+	       (setq separator lbs))
+	      (t
+	       (if separator
+		   (insert separator))
+	       (insert (prin1-to-string cell))
+	       (setq separator " ")))
+	(setq value (cdr value)))
+      (insert ")")
+      (insert line-breaking)
+      (setq attributes (delq 'ideographic- attributes)))
     (when (and (memq 'total-strokes attributes)
 	       (setq value (get-char-attribute char 'total-strokes)))
       (insert (format "(total-strokes       . %S)%s"
@@ -722,22 +763,9 @@
 		 (insert (format "(%-18s . #x%04X)%s"
 				 name value
 				 line-breaking)))
-		((memq name '(->lowercase
-			      ->uppercase ->titlecase
-			      ->fullwidth <-fullwidth
-			      ->identical
-			      ->vulgar-ideograph <-vulgar-ideograph
-			      ->ancient-ideograph <-ancient-ideograph
-			      ->original-ideograph <-original-ideograph
-			      ->simplified-ideograph <-simplified-ideograph
-			      ->wrong-ideograph <-wrong-ideograph
-			      ->same-ideograph
-			      ->ideographic-variants
-			      ->synonyms
-			      ->radical <-radical
-			      ->bopomofo <-bopomofo
-			      ->ideographic <-ideographic
-			      ideographic-structure))
+		((or (eq name 'ideographic-structure)
+		     (eq name 'ideographic-)
+		     (string-match "^\\(->\\|<-\\)" (symbol-name name)))
 		 (insert (format "(%-18s%s " name line-breaking))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
 		       separator nil)
@@ -748,7 +776,9 @@
 		   (cond ((characterp cell)
 			  (if separator
 			      (insert lbs))
-			  (char-db-insert-char-spec cell readable)
+			  (if readable
+			      (insert (format "%S" cell))
+			    (char-db-insert-char-spec cell readable))
 			  (setq separator lbs))
 			 ((consp cell)
 			  (if separator
@@ -792,20 +822,20 @@
 		   (setq value (cdr value)))
 		 (insert ")")
 		 (insert line-breaking))
-		((string-match "^->" (symbol-name name))
-		 (insert
-		  (format "(%-18s %s)%s"
-			  name
-			  (mapconcat (lambda (code)
-				       (cond ((symbolp code)
-					      (symbol-name code))
-					     ((integerp code)
-					      (format "#x%04X" code))
-					     (t
-					      (format "%s%S"
-						      line-breaking code))))
-				     value " ")
-			  line-breaking)))
+                ;; ((string-match "^->" (symbol-name name))
+                ;;  (insert
+                ;;   (format "(%-18s %s)%s"
+                ;;           name
+                ;;           (mapconcat (lambda (code)
+                ;;                        (cond ((symbolp code)
+                ;;                               (symbol-name code))
+                ;;                              ((integerp code)
+                ;;                               (format "#x%04X" code))
+                ;;                              (t
+                ;;                               (format "%s%S"
+                ;;                                       line-breaking code))))
+                ;;                      value " ")
+                ;;           line-breaking)))
 		((consp value)
 		 (insert (format "(%-18s " name))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
