@@ -4787,23 +4787,27 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
     {
       int reg;
 
-      BREAKUP_CHAR (ch, charset, byte1, byte2);
-      ensure_correct_direction (XCHARSET_DIRECTION (charset),
-				codesys, dst, flags, 0);
-
       /* Now determine which register to use. */
       reg = -1;
       for (i = 0; i < 4; i++)
 	{
-	  if (EQ (charset, str->iso2022.charset[i]) ||
-	      EQ (charset,
-		  CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i)))
+	  if ((CHARSETP (charset = str->iso2022.charset[i])
+	       && (byte1 = charset_get_byte1 (charset, ch))) ||
+	      (CHARSETP
+	       (charset
+		= CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i))
+	       && (byte1 = charset_get_byte1 (charset, ch))))
 	    {
 	      reg = i;
+	      byte2 = charset_get_byte2 (charset, ch);
 	      break;
 	    }
 	}
-	      
+      if (reg == -1)
+	BREAKUP_CHAR (ch, charset, byte1, byte2);
+      ensure_correct_direction (XCHARSET_DIRECTION (charset),
+				codesys, dst, flags, 0);
+      
       if (reg == -1)
 	{
 	  if (XCHARSET_GRAPHIC (charset) != 0)
