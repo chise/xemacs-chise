@@ -219,15 +219,14 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x23B09)	; 𣬉
-    (=daikanwa		. 16755)	; &I-M-16755;
-    ))
-(define-char
-  '((=>ucs		. #x23B09)	; 𣬉
-    (morohashi-daikanwa	16755 0 0)
-    (ideographic-radical . 81)	; ⽐
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (=cns11643-6	. #x386A)	; &C6-386A; [24-74]
+    (->subsumptive
+     ((=daikanwa	  . 16755)	; &M-16755;
+      (=hanziku-4	  . #xCE65)	; &I-HZK04-CE65;
+      (=cbeta		  . 08541)	; &I-CB08541;
+      (=ucs@iso		  . #x23B09)	; &M-16755;
+      )
+     ((=cns11643-6	  . #x386A)	; &C6-386A; [24-74]
+      ))
     ))
 (define-char
   '((ideographic-radical . 81)	; ⽐
