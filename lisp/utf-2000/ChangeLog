@@ -1,5 +1,9 @@
 2004-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R197-Salt.el (U+9E7E): Add `total-strokes'.
+
+	* Ideograph-R193-Cauldron.el (U+9B36): Add `total-strokes'.
+
 	* Ideograph-R195-Fish.el: Add some `total-strokes' features.
 
 	* Ideograph-R194-Ghost.el (U+9B47): Add `total-strokes'.
