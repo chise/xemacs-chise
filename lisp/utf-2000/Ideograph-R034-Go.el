@@ -6,11 +6,12 @@
     (total-strokes	 . 3)
     (=jis-x0208		. #x5469)	; ø½‹¾
     (=cns11643-3	. #x2139)	; ø»•–¼
-    (=gt-pj-1		. #x5469)	; ø½‹¾
+    (=gt-pj-1		. #x5469)	; ý¡€°¡
     (=daikanwa		. 05691)	; ø¸˜»
     (=big5-cdp		. #x8B45)	; ý¢€ˆ­…
     (=gt-k		. 00217)	; ý¡„€ƒ™
     (=ucs@jis		. #x5902)	; ø½‹¾
+    (=gt		. 07201)	; ý¡€°¡
     ))
 (define-char
   '((morohashi-daikanwa	5691 0 1)
@@ -297,8 +298,9 @@
       ))
     (shinjigen-2	. 3201)
     (=jis-x0208		. #x4A51)	; ø½Š²º
-    (=gt-pj-1		. #x4A51)	; ø½Š²º
+    (=gt-pj-1		. #x4A51)	; ý¡€°¯
     (=ucs@jis		. #x5909)	; ø½Š²º
+    (=gt		. 07215)	; ý¡€°¯
     ))
 (define-char
   '((morohashi-daikanwa	5703 0 2)

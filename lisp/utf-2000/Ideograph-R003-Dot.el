@@ -163,10 +163,11 @@
     (=ks-x1001		. #x5B6D)	; ø»‰°¤
     (=iso-ir165		. #x3732)	; ø»Ž¹
     (=cns11643-1	. #x443B)	; ø»‘¶
-    (=gt-pj-1		. #x4B5E)	; å‡¡
+    (=gt-pj-1		. #x4B5E)	; ý¡€€£®
     (=big5		. #xA45A)	; ý¢€Š‘š
     (=daikanwa		. 01739)	; ø¸€›‹
     (=gt-k		. 00203)	; ý¡„€ƒ‹
+    (=gt		. 02286)	; ý¡€€£®
     (=ucs		. #x51E1)	; å‡¡
     ))
 (define-char

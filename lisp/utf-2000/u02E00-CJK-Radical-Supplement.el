@@ -235,9 +235,10 @@
     (<-radical
      ((=ucs		  . #x5FC4)	; å¿„
       ))
-    (=gt-pj-3		. #x4D5F)	; âº–
+    (=gt-pj-3		. #x4D5F)	; ý¡€ƒ‹€
     (=big5-cdp		. #x8B51)	; ý¢€ˆ­‘
     (=gt-k		. 00302)	; ý¡„€„®
+    (=gt		. 12992)	; ý¡€ƒ‹€
     (=ucs		. #x2E96)	; âº–
     ))
 (define-char
