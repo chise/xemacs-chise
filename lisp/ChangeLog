@@ -1,5 +1,19 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* dumped-lisp.el (preloaded-file-list): Add "u013A0-Cherokee.el",
+	"u01400-Canadian.el", "u01680-Ogham.el", "u016A0-Runic.el",
+	"u01780-Khmer.el", "u01800-Mongolian.el",
+	"u01E00-Latin-Extended-Additional.el" and
+	"u01F00-Greek-Extended.el" in UTF-2000.
+
+	* utf-2000/u013A0-Cherokee.el, utf-2000/u01400-Canadian.el,
+	utf-2000/u01680-Ogham.el, utf-2000/u016A0-Runic.el,
+	utf-2000/u01780-Khmer.el, utf-2000/u01800-Mongolian.el,
+	utf-2000/u01E00-Latin-Extended-Additional.el,
+	utf-2000/u01F00-Greek-Extended.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* utf-2000/char-db-util.el (insert-char-data): Print GR value for
 	GR-set.
 
