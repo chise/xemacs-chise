@@ -1,5 +1,8 @@
 2003-07-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R072-Sun.el (GT-K03318): New character.
+	(GT-K03616): New character.
+
 	* u02E00-CJK-Radical-Supplement.el (GT-K01701): New character.
 	(BC-8958): Unify GT-K00417.
 
