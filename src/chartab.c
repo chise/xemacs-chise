@@ -42,11 +42,8 @@ Boston, MA 02111-1307, USA.  */
 #include "buffer.h"
 #include "chartab.h"
 #include "syntax.h"
-
 #ifdef UTF2000
 #include "elhash.h"
-
-Lisp_Object Vutf_2000_version;
 #endif /* UTF2000 */
 
 Lisp_Object Qchar_tablep, Qchar_table;
@@ -4097,11 +4094,6 @@ void
 vars_of_chartab (void)
 {
 #ifdef UTF2000
-  Vutf_2000_version = build_string("0.18 (Yamato-Koizumi)");
-  DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
-Version number of XEmacs UTF-2000.
-*/ );
-
   staticpro (&Vcharacter_composition_table);
   Vcharacter_composition_table = make_char_id_table (Qnil);
 
