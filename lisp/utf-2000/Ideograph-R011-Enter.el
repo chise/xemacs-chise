@@ -31,6 +31,11 @@
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (<-wrong-ideograph
+     (:sources	(seiji-tsuu morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 00345)	; ø¸€…™
+		 )
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
@@ -61,22 +66,6 @@
       ))
     (chinese-cns11643-6 . #x2136)	; ø»›µ…
     (ucs		. #x204DB)	; ð “›
-    ))
-(define-char
-  '((morohashi-daikanwa	1416 0 2)
-    (ideographic-radical . 11)	; â¼Š
-    (ideographic-strokes . 1)
-    (total-strokes	 . 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (ucs		  . #x2FF1)	; â¿±
-      )
-     ((chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      )
-     ((ucs		  . #x4E36)	; ä¸¶
-      ))
-    (chinese-gb12345	. #x7D37)	; äº½
-    (ucs		. #x4EBD)	; äº½
     ))
 (define-char
   '((=>ucs		. #x5166)	; å…¦
