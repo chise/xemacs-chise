@@ -526,8 +526,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
     (<-simplified@CN
-     ((=ucs		  . #x81E8)	; 臨
-      (=gb12345		  . #x4159)	; 臨 [33-57]
+     ((=gb12345		  . #x4159)	; &GT-38930; [33-57]
       ))
     (hanyu-dazidian	1 30 5)
     (ideographic-structure
