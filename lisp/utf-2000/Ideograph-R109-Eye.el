@@ -1278,10 +1278,10 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (<-original-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 01473)	; ø¸€—
-		 )
+     ((=daikanwa	  . 01473)	; ø¸€—
       ))
+    (<-original-ideograph*sources
+     daikanwa)
     (=ucs		. #x2F942)	; ð¯¥‚
     (=cns11643-6	. #x333D)	; ø»œ¨
     (=daikanwa		. 23210)	; ø¸…ªª
