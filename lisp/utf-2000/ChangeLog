@@ -20,6 +20,15 @@
 
 2003-08-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R148-Horn.el: Add some mappings to JEF-CHINA3 code
+	points.
+
+	* Ideograph-R146-West.el (M-34768): Unify JC3-64B7.
+	(C4-3531): Separate U+4674; unify JC3-64B8.
+	(U+8983): Unify JC3-64BA.
+	(GT-46839): Unify JC3-64B9.
+	(C3-5B2F): Unify JC3-64BB.
+
 	* Ideograph-R143-Blood.el (C2-6C36): Unify JC3-63E3.
 
 	* Ideograph-R108-Dish.el (U+76EC): Unify JC3-8DFC.
