@@ -4,6 +4,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=ucs		. #x79B8)	; 禸
+    (=big5		. #xC9A8)	; &I-B-C9A8;
     (->subsumptive
      ((=jis-x0212	  . #x5072)	; &M-24884;
       (=iso-ir165	  . #x2E22)	; &I-EGB-2E22;
@@ -13,7 +14,6 @@
       (=ucs@unicode	  . #x79B8)	; &M-24884;
       )
      ((=cns11643-2	  . #x2167)	; &C2-2167;
-      (=big5		  . #xC9A8)	; &I-B-C9A8;
       ))
     ))
 (define-char
@@ -106,6 +106,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (=ucs		. #x79BB)	; 离
+    (=big5		. #xD6C3)	; &I-B-D6C3;
     (->subsumptive
      ((->subsumptive
        ((=jis-x0212	    . #x5073)	; &M-24888;
@@ -118,7 +119,6 @@
 	))
       )
      ((=cns11643-2	  . #x3766)	; &C2-3766;
-      (=big5		  . #xD6C3)	; &I-B-D6C3;
       ))
     ))
 (define-char
