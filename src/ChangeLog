@@ -1,3 +1,10 @@
+2003-03-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule.c (Vxemacs_chise_version): Renamed from
+	`Vutf_2000_version'.
+	(vars_of_mule): Add new variable `xemacs-chise-version'; define
+	`utf-2000-version' as an alias for `xemacs-chise-version'.
+
 2003-03-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c: Include <chise.h> when `CHISE' is defined.
