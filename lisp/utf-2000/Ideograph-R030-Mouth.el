@@ -5750,9 +5750,11 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
 	)
-       ((=daikanwa	    . 05691)	; ø¸˜»
+       ((=jis-x0208	    . #x5469)	; ø½‹¾
+	(=cns11643-3	    . #x2139)	; ø»•–¼
+	(=daikanwa	    . 05691)	; ø¸˜»
 	)
-       ((=ucs		    . #x4EBA)	; äºº
+       ((=gt-k		    . 00049)	; ý¡„€€±
 	))
       )
      ((=ucs		  . #x53E3)	; å£
@@ -5778,14 +5780,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; â¿°
-	)
-       ((=daikanwa	    . 05691)	; ø¸˜»
-	)
-       ((=ucs		    . #x535C)	; åœ
-	))
+     ((=ucs		  . #x5904)	; å¤„
       )
      ((=ucs		  . #x53E3)	; å£
       ))
@@ -5806,7 +5801,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
 	)
-       ((=daikanwa	    . 05691)	; ø¸˜»
+       ((=jis-x0208	    . #x5469)	; ø½‹¾
+	(=cns11643-3	    . #x2139)	; ø»•–¼
+	(=daikanwa	    . 05691)	; ø¸˜»
 	)
        ((name		    . "CJK RADICAL DIVINATION")
 	(=ucs		    . #x2E8A)	; âºŠ
@@ -9608,7 +9605,10 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; â¿±
 	)
-       ((=daikanwa	    . 19655)	; ø¸„³‡
+       ((=jis-x0212	    . #x4A48)	; ø»‹¡…
+	(=cns11643-4	    . #x2151)	; ø»—¡˜
+	(=jis-x0213-2-2000  . #x702A)	; ø»¦‘‹
+	(=daikanwa	    . 19655)	; ø¸„³‡
 	)
        ((=ucs		    . #x5BF8)	; å¯¸
 	))
@@ -14412,7 +14412,6 @@
 	(=ucs		    . #x2FF1)	; â¿±
 	)
        ((=big5-cdp	    . #x8B77)	; ý¢€ˆ­·
-	(=jef-china3	    . #x72FD)	; øº‡‹½
 	)
        ((=ucs		    . #x8D1D)	; è´
 	))
@@ -29861,7 +29860,8 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
     (<-simplified
-     ((=daikanwa	  . 04633)	; ø¸ˆ™
+     ((=ucs		  . #x56CA)	; å›Š
+      (=daikanwa	  . 04633)	; ø¸ˆ™
       ))
     (<-simplified*sources
      daikanwa)
