@@ -223,6 +223,7 @@
     (mirrored		. nil)
     (->decomposition	small #x005C)
     (chinese-cns11643-1 . #x2262)	; ø»‘„»
+    (chinese-big5	. #xA242)	; øºŸŸ
     (ucs		. #xFE68)	; ï¹¨
     ))
 (define-char
