@@ -1,3 +1,139 @@
+2003-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el: Add mappings for Big5 code points.
+
+2003-08-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el, Ideograph-R149-Speech.el,
+	Ideograph-R150-Valley.el: Add some mappings to JEF-CHINA3 code
+	points.
+
+	* Ideograph-R037-Big.el (U+594C): Unify GT-07438.
+	(U-0002160D): Unify GT-07457.
+	(U-0002160F): Unify GT-07470.
+	(U+369A): Unify GT-07468.
+	(M-05915): Unify GT-07451.
+	(J0-5476): Unify B-ABB7.
+	(U+5950): Separate B-ABB7.
+	(M-05917): Unify B-ABB4 and GT-07464.
+	(K0-4C78): Unify JC3-48EA.
+	(C1-5056): Separate B-ABB4.
+	(J0-3740): Separate JC3-48EA.
+
+2003-08-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R050-Turban.el (U+5E38): Modify ideographic-structure.
+
+	* Ideograph-R030-Mouth.el (U+5617): Modify ideographic-structure.
+
+2003-08-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R107-Skin.el: Add mappings for Big5 code points.
+
+2003-08-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R142-Insect.el: Add some mappings to JEF-CHINA3 code
+	points.
+
+	* Ideograph-R130-Meat.el (U+80F7): Unify JC3-52AA.
+	(JX1-7A4E): Unify JC3-52C5.
+	(U+8118): Separate JC3-52C5.
+	(JSP-5636): Unify JC3-52CE.
+	(U+816D): Unify JC3-52D2.
+	(M-29705): Unify JC3-52D4.
+	(JX2-754E): Unify JC3-52D8.
+	(U+8185): Separate JC3-52D8.
+	(U+819E): Unify JC3-52DB.
+	(U+81AB): Unify JC3-52DC.
+	(U+81AE): Unify JC3-52DD.
+	(U+81C5): Unify JC3-52DE.
+	(JX1-7A56): Unify JC3-52E0.
+	(JSP-565E): Unify JC3-52AC.
+
+2003-08-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R113-Spirit.el (U+7996): Separate C2-4C43.
+
+2003-08-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R148-Horn.el: Add some mappings to JEF-CHINA3 code
+	points.
+
+	* Ideograph-R146-West.el (M-34768): Unify JC3-64B7.
+	(C4-3531): Separate U+4674; unify JC3-64B8.
+	(U+8983): Unify JC3-64BA.
+	(GT-46839): Unify JC3-64B9.
+	(C3-5B2F): Unify JC3-64BB.
+
+	* Ideograph-R143-Blood.el (C2-6C36): Unify JC3-63E3.
+
+	* Ideograph-R108-Dish.el (U+76EC): Unify JC3-8DFC.
+
+2003-08-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R147-See.el: Add some mappings to JEF-CHINA3 code
+	points.
+
+	* Ideograph-R141-Tiger.el (U+8650): Separate C1-534B; unify
+	JC3-63A6.
+	(M-32692): Separate C5-3535 and U+458E; unify JC3-63AE.
+	(U+8656): Separate C2-3921; unify JC3-63A7.
+	(U+8657): Separate C3-3863; unify JC3-63A8.
+	(U+8658): Separate C3-3860; unify JC3-63A9.
+	(M-32705): Separate C4-3478 and U-000271A8.
+	(U+865B): Unify JC3-63AA.
+	(JX1-7B4F): Unify JC3-63AB.
+	(M-32711): Separate C5-3B70 and U+4590.
+	(M-32719): Separate C5-4254 and U+4593; unify JC3-63AF.
+	(M-32720): Separate C5-4253 and U+4594.
+	(JSP-5A41): Separate C2-4D5B and U+8661.
+	(JX1-7B50): Separate C2-5367 and U+8662; unify JC3-63B0.
+	(JSP-5A43): Separate C2-5A25 and U+8663; unify JC3-63B1.
+
+	* Ideograph-R128-Ear.el (JSP-555E): Separate U+8039; unify
+	JC3-60CD.
+	(JSP-5561): Separate U+803E; unify JC3-60CE.
+	(C2-3848): Separate U+8048; unify JC3-60CF.
+	(JX2-752C): Separate U+8066; unify JC3-60D0.
+	(JX2-752E): Unify JC3-60D1.
+	(M-29213): Separate U+43CA; unify JC3-60D3.
+
+	* Ideograph-R144-Walk-Enclosure.el (U+884E): Unify JC3-99A9.
+	(U+8855): Unify JC3-63E8.
+	(U+885A): Unify JC3-63E9.
+	(U+885C): Unify JC3-63EA.
+	(U+885F): Unify JC3-63EB.
+	(JSP-5C32): Unify JC3-63EC.
+
+	* Ideograph-R143-Blood.el (JSP-5C25): Unify JC3-63E2.
+
+2003-08-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R046-Mountain.el (U+37E2): Unify JC3-4AFE.
+
+	* Ideograph-R133-Arrive.el (U+4453): Unify JC3-60EA.
+
+	* Ideograph-R106-White.el (U+769E): Unify JC3-5BA5.
+
+	* Ideograph-R032-Earth.el (CB07009): Unify JC3-8DF8.
+
+2003-08-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R029-Again.el (BC-8AC4): Unify JC3-8EC0.
+
+	* Ideograph-R148-Horn.el (U+89D4): Unify JC3-64D0.
+	(JX1-5D39): Unify JC3-64D2.
+
+2003-08-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R129-Brush.el (U+8082): Unify B-D1FB.
+
+	* Ideograph-R108-Dish.el: Add mappings for Big5 code points.
+
+	* Ideograph-R104-Sickness.el (J0-617A): Unify B-C4EE.
+
+	* Ideograph-R078-Death.el (U+8082): Unify B-D1FB.
+
 2003-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R149-Speech.el (GT-47938): New character.
