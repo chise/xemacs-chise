@@ -1,3 +1,15 @@
+2000-02-09  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R145-Clothes.el (M34240): Add J78-3041.
+
+	* utf-2000/Ideograph-R064-Hand.el (M11835): Separate J90-3037.
+
+	* utf-2000/Ideograph-R085-Water.el (M17678): Separate U+6DEB.
+	(M17951): Separate U+6EA2.
+
+	* utf-2000/Ideograph-R100-Life.el (M21687): Unify C3-3D3E instead
+	of C3-3D3F.
+
 2000-02-08  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* utf-2000/char-db-util.el (insert-char-data): Don't output
