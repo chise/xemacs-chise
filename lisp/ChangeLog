@@ -1,3 +1,8 @@
+2003-03-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-conf.el (ucs-cns): New coded-charsets when `utf-2000' is
+	provided [was builtin coded-charsets].
+
 2003-03-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (ucs-jis): New coded-charsets when `utf-2000'
