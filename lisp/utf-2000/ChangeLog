@@ -1,3 +1,38 @@
+2001-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (J0-4A55): Unify JIS X 0208:1978 and 1983
+	code points.
+	(J78-4454): Add `jisx0208-type' instead of `jisx0208-difference'.
+	(J83-4454): Fix `jisx0208-difference'.
+	(J78-4B78): Add `jisx0208-type' instead of `jisx0208-difference'.
+	(J83-4B78): Add `jisx0208-difference'.
+	(J83-4676): Fix `total-strokes'.
+	(J78-3029): Add `jisx0208-type' instead of `jisx0208-difference'.
+	(J83-3029): Fix `jisx0208-difference'.
+	(J90-4D5A): Unify JIS X 0208:1983 code point.
+
+	* Ideograph-R140-Grass.el (J0-693C): Add `jisx0208-difference'.
+
+	* Ideograph-R050-Turban.el (J0-5672): Add `jisx0208-difference'.
+
+	* Ideograph-R030-Mouth.el (J0-5350): Add `jisx0208-difference'.
+
+2001-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (J90-5D3B): Unify JIS X 0208:1978 and 1983
+	code points.
+
+	* Ideograph-R008-Lid.el (M-00297): Separate C5-2331.
+	(C5-2331): Add `ideographic-structure'.
+	(M-00316): Separate C4-2B5F; relate to U-00020158 instead of
+	U+4EAD; use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+	(C4-2B5F): Unify U-00020158.
+	(M-00317): Separate C6-3530; relate to U-00020159 instead of
+	U+4EAE; use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+	(C6-3530): Unify U-00020159.
+
 2001-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R195-Fish.el (M-46091): Unify J78-723C.
