@@ -587,7 +587,8 @@
     (ucs			. #x20025)	; 𠀥
     ))
 (define-char
-  '((ideographic-radical . 7)	; ⼆
+  '((=>ucs		. #x20122)	; 𠄢
+    (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian-vol	 . 1)
