@@ -49,3 +49,23 @@
       (when (setq chr (apply (function make-char) ret))
 	(put-char-attribute chr '=gt-k i)))
     (setq i (1+ i))))
+
+(let (gt)
+  (dolist (ccs '(=gt-pj-1
+		 =gt-pj-2
+		 =gt-pj-3
+		 =gt-pj-4
+		 =gt-pj-5
+		 =gt-pj-6
+		 =gt-pj-7
+		 =gt-pj-8
+		 =gt-pj-9
+		 =gt-pj-10
+		 =gt-pj-11))
+    (map-char-attribute
+     (lambda (c v)
+       (when (setq gt (encode-char c '=gt))
+	 (put-char-attribute c '=gt gt)
+	 (put-char-attribute (decode-char ccs v) '=gt gt))
+       nil)
+     ccs)))
