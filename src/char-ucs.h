@@ -1,5 +1,5 @@
 /* Header for UCS-4 character representation.
-   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -88,9 +88,6 @@ typedef short Charset_ID;
 /* ISO/IEC 10646 for KS */
 #define LEADING_BYTE_UCS_KS		(MIN_LEADING_BYTE + 9)
 
-/* ISO/IEC 10646 for Big5 */
-#define LEADING_BYTE_UCS_BIG5		(MIN_LEADING_BYTE + 10)
-
 /* Japanese JIS X0208 Common	2/4 2/{(8),9,10,11} 4/2 (B) */
 #define LEADING_BYTE_JIS_X0208 		(MIN_LEADING_BYTE + 11)
 
@@ -124,7 +121,6 @@ typedef short Charset_ID;
 #define LEADING_BYTE_DAIKANWA_2		(MIN_LEADING_BYTE + 30)
 #define LEADING_BYTE_DAIKANWA_3		(MIN_LEADING_BYTE + 31)
 
-#define LEADING_BYTE_GT			(MIN_LEADING_BYTE + 40)
 #define LEADING_BYTE_GT_PJ_1		(MIN_LEADING_BYTE + 41)
 #define LEADING_BYTE_GT_PJ_2		(MIN_LEADING_BYTE + 42)
 #define LEADING_BYTE_GT_PJ_3		(MIN_LEADING_BYTE + 43)
@@ -314,7 +310,6 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define XCHARSET(x) XRECORD (x, charset, Lisp_Charset)
 #define XSETCHARSET(x, p) XSETRECORD (x, p, charset)
 #define CHARSETP(x) RECORDP (x, charset)
-#define GC_CHARSETP(x) GC_RECORDP (x, charset)
 #define CHECK_CHARSET(x) CHECK_RECORD (x, charset)
 #define CONCHECK_CHARSET(x) CONCHECK_RECORD (x, charset)
 
@@ -509,8 +504,10 @@ CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
 #define MIN_CHAR_96x96		0xF4C000
 #define MAX_CHAR_96x96		(MIN_CHAR_96x96 + 96 * 96 * 80 - 1)
 
+/*
 #define MIN_CHAR_GT		0x61000000
 #define MAX_CHAR_GT		(MIN_CHAR_GT + 66773)
+*/
 #define MIN_CHAR_BIG5_CDP	0x62000000
 #define MAX_CHAR_BIG5_CDP	0x6200FFFF
 #define MIN_CHAR_HANZIKU_1	(0x62000000 + 65536 * 1)
