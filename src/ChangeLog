@@ -1,3 +1,8 @@
+2003-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (charset_code_point): Fix problem when searching
+	in mother CCS fails with `defined_only' mode.
+
 2003-06-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (Q_ucs_unified): Renamed from `Q_ucs_variants'.

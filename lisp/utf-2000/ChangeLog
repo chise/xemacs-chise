@@ -1,3 +1,8 @@
+2003-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R105-Dotted-Tent.el, Ideograph-R097-Melon.el,
+	Ideograph-R086-Fire.el: Add some GT code points.
+
 2003-06-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R087-Claw.el (J0-602A): Unify BC-ACB0.
