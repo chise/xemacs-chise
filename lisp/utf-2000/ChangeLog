@@ -1,3 +1,97 @@
+2001-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el (J90-3A7B): Unify J78-3A7B and
+	J83-3A7B.
+	(J78-6439): Separate J83-6439, C2-4C62, J90-6439 and U+7B99.
+	(J90-6434): Unify J78-6434 and J83-6434.
+	(J90-6449): Unify J78-6449 and J83-6449.
+
+	* Ideograph-R116-Cave.el (J83-635A): Separate G0-713B, C1-5C45,
+	J90-635A and U+7A95.
+
+	* Ideograph-R115-Grain.el (J78-4769): Separate G0-3353, J83-4769,
+	C1-5732, J90-4769 and U+79E4.
+	(J78-4923): Separate J83-4923 and J90-4923.
+	(J83-6346): Separate C2-455F, J90-6346 and U+7A19.
+	(J78-634A): Separate J83-634A and J90-634A.
+	(J83-3E77): Unify J78-3E77 and J83-3E77.
+
+2001-07-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R114-Track.el (J83-633C): Separate G0-582E, J90-633C
+	and U+79BA.
+
+	* Ideograph-R112-Stone.el (J83-395C): Unify J78-6268 and J90-395C.
+	(J83-3945): Separate G0-5332, C1-607D, J90-3945 and U+786C.
+	(J90-4823): Unify J78-4823 and J83-4823.
+	(J83-626D): Unify J78-626D and J90-626D.
+	(J83-6273): Unify J78-6273 and J90-6273.
+	(M-24406): Separate J78-6279, J83-6279, C2-524E and J90-6279.
+
+2001-07-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02100-Letterlike-Symbols.el: Unify BIG5 code points.
+
+	* u020A0-Currency-Symbols.el (EURO SIGN): Unify BIG5-A3E1.
+
+	* u02070-Superscripts.el (fullwidth superscript four): Renamed
+	from <FULLWIDTH SUPERSCRIPT FOUR>.
+	(fullwidth superscript latin small letter n): Renamed from
+	<FULLWIDTH SUPERSCRIPT LATIN SMALL LETTER N>.
+
+	* Ideograph-R108-Dish.el: Merge missing JIS X 0208 code points.
+
+	* Ideograph-R107-Skin.el: Merge missing JIS X 0208 code points.
+	(M-22866): Unify J0-622F.
+	(G0-7165): Separate J90-622F.
+
+	* Ideograph-R106-White.el: Merge missing JIS X 0208 code points.
+	(M-22732): Unify J78-622B.
+	(J90-622B): Unify J83-622B.
+
+	* Ideograph-R104-Sickness.el: Merge missing JIS X 0208 code
+	points.
+	(M-22545): Unify J78-4C7E.
+	(J90-4C7E): Unify J83-4C7E.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el, Ideograph-R102-Field.el: Merge
+	missing JIS X 0208 code points.
+
+	* Ideograph-R098-Tile.el: Merge missing JIS X 0208 code points.
+	(M-21557): Unify J78-612B.
+	(J90-612B): Unify J83-612B.
+	(J90-6130): Unify J83-6130.
+	(J78-6130): New character; relate to U+750D and M-21587.
+	(M-21602): Unify J78-3979.
+	(G0-6A35): Separate J90-3979.
+	(J90-3979): Unify J83-3979.
+	(J90-6131): Unify J83-6131 and S1-5002.
+	(J78-6131): New character; relate to U+7515 and M-21617.
+
+	* Ideograph-R096-Jade.el (M-20921): Separate J83-605F, C3-2D7E and
+	J90-605F; add `vulgar-ideograph-of' for M-20920.
+	(J83-6062): Separate G0-676D, K0-6C34, J90-6062, C2-306E and
+	U+73E5; unify S1-4900.
+	(J83-4849): Separate J90-4849 and C1-565D; unify S1-4903.
+	(J83-607E): Unify J90-607E.
+	(JX2-706F): Separate C2-3E28 and U+7431; delete `comment'.
+	(J83-606A): Separate EGB-7B56, C2-3E2E, J90-606A and U+7432.
+	(J83-606E): Separate S2-4935, C1-652E and J90-606E.
+
+2001-07-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R097-Melon.el (M-21419): Separate C1-7147.
+	(J90-493B): Unify J78-493B and J83-493B.
+	(M-21425): Separate C1-784F; unify J0-6122.
+
+	* Ideograph-R100-Life.el, Ideograph-R099-Sweet.el: Merge missing
+	JIS X 0208 code points.
+
+2001-07-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R095-Profound.el: Merge missing JIS X 0208 code
+	points.
+
 2001-07-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R093-Cow.el, Ideograph-R091-Slice.el,
