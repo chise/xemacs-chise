@@ -1,3 +1,8 @@
+2002-09-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* update-cdb.el: Use `reset-charset-mapping-table' when using
+	external character database.
+
 2002-09-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* ideograph-util.el (write-ideograph-radical-char-data): Don't use
