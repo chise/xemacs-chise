@@ -30,6 +30,97 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Scrolling,  Next: Horizontal Scrolling,  Prev: Display,  Up: Display
+
+Scrolling
+=========
+
+   If a buffer contains text that is too large to fit entirely within
+the window that is displaying the buffer, XEmacs shows a contiguous
+section of the text.  The section shown always contains point.
+
+   "Scrolling" means moving text up or down in the window so that
+different parts of the text are visible.  Scrolling forward means that
+text moves up, and new text appears at the bottom.  Scrolling backward
+moves text down and new text appears at the top.
+
+   Scrolling happens automatically if you move point past the bottom or
+top of the window.  You can also explicitly request scrolling with the
+commands in this section.
+
+`C-l'
+     Clear frame and redisplay, scrolling the selected window to center
+     point vertically within it (`recenter').
+
+`C-v'
+`pgdn'
+`next'
+     Scroll forward (a windowful or a specified number of lines)
+     (`scroll-up').
+
+`M-v'
+`pgup'
+`prior'
+     Scroll backward (`scroll-down').
+
+`ARG C-l'
+     Scroll so point is on line ARG (`recenter').
+
+   The most basic scrolling command is `C-l' (`recenter') with no
+argument.  It clears the entire frame and redisplays all windows.  In
+addition, it scrolls the selected window so that point is halfway down
+from the top of the window.
+
+   The scrolling commands `C-v' and `M-v' let you move all the text in
+the window up or down a few lines.  `C-v' (`scroll-up') with an
+argument shows you that many more lines at the bottom of the window,
+moving the text and point up together as `C-l' might.  `C-v' with a
+negative argument shows you more lines at the top of the window.
+`Meta-v' (`scroll-down') is like `C-v', but moves in the opposite
+direction.
+
+   To read the buffer a windowful at a time, use `C-v' with no
+argument.  `C-v' takes the last two lines at the bottom of the window
+and puts them at the top, followed by nearly a whole windowful of lines
+not previously visible.  Point moves to the new top of the window if it
+was in the text scrolled off the top.  `M-v' with no argument moves
+backward with similar overlap.  The number of lines of overlap across a
+`C-v' or `M-v' is controlled by the variable
+`next-screen-context-lines'; by default, it is two.
+
+   Another way to scroll is using `C-l' with a numeric argument.  `C-l'
+does not clear the frame when given an argument; it only scrolls the
+selected window.  With a positive argument N, `C-l' repositions text to
+put point N lines down from the top.  An argument of zero puts point on
+the very top line.  Point does not move with respect to the text;
+rather, the text and point move rigidly on the frame.  `C-l' with a
+negative argument puts point that many lines from the bottom of the
+window.  For example, `C-u - 1 C-l' puts point on the bottom line, and
+`C-u - 5 C-l' puts it five lines from the bottom.  Just `C-u' as
+argument, as in `C-u C-l', scrolls point to the center of the frame.
+
+   Scrolling happens automatically if point has moved out of the visible
+portion of the text when it is time to display.  Usually scrolling is
+done  to put point vertically centered within the window.  However, if
+the variable `scroll-step' has a non-zero value, an attempt is made to
+scroll the buffer by that many lines; if that is enough to bring point
+back into visibility, that is what happens.
+
+   Scrolling happens automatically if point has moved out of the visible
+portion of the text when it is time to display.  Usually scrolling is
+done  to put point vertically centered within the window.  However, if
+the variable `scroll-step' has a non-zero value, an attempt is made to
+scroll the buffer by that many lines; if that is enough to bring point
+back into visibility, that is what happens.
+
+   If you set `scroll-step' to a small value because you want to use
+arrow keys to scroll the screen without recentering, the redisplay
+preemption will likely make XEmacs keep recentering the screen when
+scrolling fast, regardless of `scroll-step'.  To prevent this, set
+`scroll-conservatively' to a small value, which will have the result of
+overriding the redisplay preemption.
+
+
 File: xemacs.info,  Node: Horizontal Scrolling,  Prev: Scrolling,  Up: Display
 
 Horizontal Scrolling
@@ -1116,34 +1207,4 @@ the region, not the entire buffer.
    `M-x spell-string' reads a string as an argument and checks whether
 that is a correctly spelled English word.  It prints a message giving
 the answer in the echo area.
-
-
-File: xemacs.info,  Node: Files,  Next: Buffers,  Prev: Fixit,  Up: Top
-
-File Handling
-*************
-
-   The basic unit of stored data in Unix is the "file".  To edit a file,
-you must tell Emacs to examine the file and prepare a buffer containing
-a copy of the file's text.  This is called "visiting" the file.  Editing
-commands apply directly to text in the buffer; that is, to the copy
-inside Emacs.  Your changes appear in the file itself only when you
-"save" the buffer back into the file.
-
-   In addition to visiting and saving files, Emacs can delete, copy,
-rename, and append to files, and operate on file directories.
-
-* Menu:
-
-* File Names::       How to type and edit file name arguments.
-* Visiting::         Visiting a file prepares Emacs to edit the file.
-* Saving::           Saving makes your changes permanent.
-* Reverting::        Reverting cancels all the changes not saved.
-* Auto Save::        Auto Save periodically protects against loss of data.
-* Version Control::  Version control systems (RCS and SCCS).
-* ListDir::          Listing the contents of a file directory.
-* Comparing Files::  Finding where two files differ.
-* Dired::            ``Editing'' a directory to delete, rename, etc.
-                     the files in it.
-* Misc File Ops::    Other things you can do on files.
 

@@ -30,6 +30,90 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Mark Ring,  Prev: Marking Objects,  Up: Mark
+
+The Mark Ring
+-------------
+
+   Aside from delimiting the region, the mark is also useful for marking
+a spot that you may want to go back to.  To make this feature more
+useful, Emacs remembers 16 previous locations of the mark in the "mark
+ring".  Most commands that set the mark push the old mark onto this
+ring.  To return to a marked location, use `C-u C-<SPC>' (or `C-u
+C-@'); this is the command `set-mark-command' given a numeric argument.
+The command moves point to where the mark was, and restores the mark
+from the ring of former marks. Repeated use of this command moves point
+to all the old marks on the ring, one by one.  The marks you have seen
+go to the end of the ring, so no marks are lost.
+
+   Each buffer has its own mark ring.  All editing commands use the
+current buffer's mark ring.  In particular, `C-u C-<SPC>' always stays
+in the same buffer.
+
+   Many commands that can move long distances, such as `M-<'
+(`beginning-of-buffer'), start by setting the mark and saving the old
+mark on the mark ring.  This makes it easier for you to move back
+later.  Searches set the mark, unless they do not actually move point.
+When a command sets the mark, `Mark Set' is printed in the echo area.
+
+   The variable `mark-ring-max' is the maximum number of entries to
+keep in the mark ring.  If that many entries exist and another entry is
+added, the last entry in the list is discarded.  Repeating `C-u
+C-<SPC>' circulates through the entries that are currently in the ring.
+
+   The variable `mark-ring' holds the mark ring itself, as a list of
+marker objects in the order most recent first.  This variable is local
+in every buffer.
+
+
+File: xemacs.info,  Node: Mouse Selection,  Next: Additional Mouse Operations,  Prev: Mark,  Up: Top
+
+Selecting Text with the Mouse
+=============================
+
+   If you are using XEmacs under X, you can use the mouse pointer to
+select text. (The normal mouse pointer is an I-beam, the same pointer
+that `xterm' uses.)
+
+   The glyph variable `text-pointer-glyph' controls the shape of the
+mouse pointer when over text.  You can also control the shape of the
+mouse pointer when over nontext using `nontext-pointer-glyph', and the
+shape of the mouse pointer when over the modeline using
+`modeline-pointer-glyph'. (Remember, you should use `set-glyph-image',
+not `setq', to set one of these variables.)
+
+   If you want to get fancy, you can set the foreground and background
+colors of the mouse pointer by setting the `pointer' face.
+
+   There are two ways to select a region of text with the mouse:
+
+   To select a word in text, double-click with the left mouse button
+while the mouse cursor is over the word.  The word is highlighted when
+selected. On monochrome monitors, a stippled background indicates that a
+region of text has been highlighted. On color monitors, a color
+background indicates highlighted text. You can triple-click to select
+whole lines.
+
+   To select an arbitrary region of text:
+
+  1. Move the mouse cursor over the character at the beginning of the
+     region of text you want to select.
+
+  2. Press and hold the left mouse button.
+
+  3. While holding the left mouse button down, drag the cursor to the
+     character at the end of the region of text you want to select.
+
+  4. Release the left mouse button.
+        The selected region of text is highlighted.
+
+   Once a region of text is selected, it becomes the primary X selection
+(*note Using X Selections::) as well as the Emacs selected region. You
+can paste it into other X applications and use the options from the
+Edit pull-down menu on it.  Since it is also the Emacs region, you can
+use Emacs region commands on it.
+
+
 File: xemacs.info,  Node: Additional Mouse Operations,  Next: Killing,  Prev: Mouse Selection,  Up: Top
 
 Additional Mouse Operations
@@ -1151,95 +1235,4 @@ commands allow you to specify which part of the text you want to see.
 * Horizontal Scrolling::   Moving text left and right in a window.
 * Selective Display::      Hiding lines with lots of indentation.
 * Display Vars::           Information on variables for customizing display.
-
-
-File: xemacs.info,  Node: Scrolling,  Next: Horizontal Scrolling,  Prev: Display,  Up: Display
-
-Scrolling
-=========
-
-   If a buffer contains text that is too large to fit entirely within
-the window that is displaying the buffer, XEmacs shows a contiguous
-section of the text.  The section shown always contains point.
-
-   "Scrolling" means moving text up or down in the window so that
-different parts of the text are visible.  Scrolling forward means that
-text moves up, and new text appears at the bottom.  Scrolling backward
-moves text down and new text appears at the top.
-
-   Scrolling happens automatically if you move point past the bottom or
-top of the window.  You can also explicitly request scrolling with the
-commands in this section.
-
-`C-l'
-     Clear frame and redisplay, scrolling the selected window to center
-     point vertically within it (`recenter').
-
-`C-v'
-`pgdn'
-`next'
-     Scroll forward (a windowful or a specified number of lines)
-     (`scroll-up').
-
-`M-v'
-`pgup'
-`prior'
-     Scroll backward (`scroll-down').
-
-`ARG C-l'
-     Scroll so point is on line ARG (`recenter').
-
-   The most basic scrolling command is `C-l' (`recenter') with no
-argument.  It clears the entire frame and redisplays all windows.  In
-addition, it scrolls the selected window so that point is halfway down
-from the top of the window.
-
-   The scrolling commands `C-v' and `M-v' let you move all the text in
-the window up or down a few lines.  `C-v' (`scroll-up') with an
-argument shows you that many more lines at the bottom of the window,
-moving the text and point up together as `C-l' might.  `C-v' with a
-negative argument shows you more lines at the top of the window.
-`Meta-v' (`scroll-down') is like `C-v', but moves in the opposite
-direction.
-
-   To read the buffer a windowful at a time, use `C-v' with no
-argument.  `C-v' takes the last two lines at the bottom of the window
-and puts them at the top, followed by nearly a whole windowful of lines
-not previously visible.  Point moves to the new top of the window if it
-was in the text scrolled off the top.  `M-v' with no argument moves
-backward with similar overlap.  The number of lines of overlap across a
-`C-v' or `M-v' is controlled by the variable
-`next-screen-context-lines'; by default, it is two.
-
-   Another way to scroll is using `C-l' with a numeric argument.  `C-l'
-does not clear the frame when given an argument; it only scrolls the
-selected window.  With a positive argument N, `C-l' repositions text to
-put point N lines down from the top.  An argument of zero puts point on
-the very top line.  Point does not move with respect to the text;
-rather, the text and point move rigidly on the frame.  `C-l' with a
-negative argument puts point that many lines from the bottom of the
-window.  For example, `C-u - 1 C-l' puts point on the bottom line, and
-`C-u - 5 C-l' puts it five lines from the bottom.  Just `C-u' as
-argument, as in `C-u C-l', scrolls point to the center of the frame.
-
-   Scrolling happens automatically if point has moved out of the visible
-portion of the text when it is time to display.  Usually scrolling is
-done  to put point vertically centered within the window.  However, if
-the variable `scroll-step' has a non-zero value, an attempt is made to
-scroll the buffer by that many lines; if that is enough to bring point
-back into visibility, that is what happens.
-
-   Scrolling happens automatically if point has moved out of the visible
-portion of the text when it is time to display.  Usually scrolling is
-done  to put point vertically centered within the window.  However, if
-the variable `scroll-step' has a non-zero value, an attempt is made to
-scroll the buffer by that many lines; if that is enough to bring point
-back into visibility, that is what happens.
-
-   If you set `scroll-step' to a small value because you want to use
-arrow keys to scroll the screen without recentering, the redisplay
-preemption will likely make XEmacs keep recentering the screen when
-scrolling fast, regardless of `scroll-step'.  To prevent this, set
-`scroll-conservatively' to a small value, which will have the result of
-overriding the redisplay preemption.
 

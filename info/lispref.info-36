@@ -50,6 +50,133 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Font Instance Characteristics,  Next: Font Convenience Functions,  Prev: Font Instance Size,  Up: Fonts
+
+Font Instance Characteristics
+-----------------------------
+
+ - Function: font-instance-properties font
+     This function returns the properties (an alist or `nil') of
+     FONT-INSTANCE.
+
+ - Function: x-make-font-bold font &optional device
+     Given an X font specification, this attempts to make a "bold" font.
+     If it fails, it returns `nil'.
+
+ - Function: x-make-font-unbold font &optional device
+     Given an X font specification, this attempts to make a non-bold
+     font.  If it fails, it returns `nil'.
+
+ - Function: x-make-font-italic font &optional device
+     Given an X font specification, this attempts to make an "italic"
+     font.  If it fails, it returns `nil'.
+
+ - Function: x-make-font-unitalic font &optional device
+     Given an X font specification, this attempts to make a non-italic
+     font.  If it fails, it returns `nil'.
+
+ - Function: x-make-font-bold-italic font &optional device
+     Given an X font specification, this attempts to make a
+     "bold-italic" font.  If it fails, it returns `nil'.
+
+
+File: lispref.info,  Node: Font Convenience Functions,  Prev: Font Instance Characteristics,  Up: Fonts
+
+Font Convenience Functions
+--------------------------
+
+ - Function: font-name font &optional domain
+     This function returns the name of the FONT in the specified
+     DOMAIN, if any.  FONT should be a font specifier object and DOMAIN
+     is normally a window and defaults to the selected window if
+     omitted.  This is equivalent to using `specifier-instance' and
+     applying `font-instance-name' to the result.
+
+ - Function: font-truename font &optional domain
+     This function returns the truename of the FONT in the specified
+     DOMAIN, if any.  FONT should be a font specifier object and DOMAIN
+     is normally a window and defaults to the selected window if
+     omitted.  This is equivalent to using `specifier-instance' and
+     applying `font-instance-truename' to the result.
+
+ - Function: font-properties font &optional domain
+     This function returns the properties of the FONT in the specified
+     DOMAIN, if any.  FONT should be a font specifier object and DOMAIN
+     is normally a window and defaults to the selected window if
+     omitted.  This is equivalent to using `specifier-instance' and
+     applying `font-instance-properties' to the result.
+
+
+File: lispref.info,  Node: Colors,  Prev: Fonts,  Up: Faces and Window-System Objects
+
+Colors
+======
+
+* Menu:
+
+* Color Specifiers::		Specifying how a color will appear.
+* Color Instances::		What a color specifier gets instanced as.
+* Color Instance Properties::	Properties of color instances.
+* Color Convenience Functions::	Convenience functions that automatically
+				  instance and retrieve the properties
+				  of a color specifier.
+
+
+File: lispref.info,  Node: Color Specifiers,  Next: Color Instances,  Up: Colors
+
+Color Specifiers
+----------------
+
+ - Function: color-specifier-p object
+     This function returns non-`nil' if OBJECT is a color specifier.
+
+ - Function: make-color-specifier spec-list
+     Return a new `color' specifier object with the given specification
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     a detailed description of how specifiers work.
+
+     Valid instantiators for color specifiers are:
+
+        * A string naming a color (e.g. under X this might be
+          "lightseagreen2" or "#F534B2").
+
+        * A color instance (use that instance directly if the device
+          matches, or use the string that generated it).
+
+        * A vector of no elements (only on TTY's; this means to set no
+          color at all, thus using the "natural" color of the
+          terminal's text).
+
+        * A vector of one or two elements: a face to inherit from, and
+          optionally a symbol naming which property of that face to
+          inherit, either `foreground' or `background' (if omitted,
+          defaults to the same property that this color specifier is
+          used for; if this specifier is not part of a face, the
+          instantiator would not be valid).
+
+ - Function: make-face-boolean-specifier spec-list
+     Return a new `face-boolean' specifier object with the given spec
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     a detailed description of how specifiers work.
+
+     Valid instantiators for face-boolean specifiers are
+
+        * t or nil.
+
+        * A vector of two or three elements: a face to inherit from,
+          optionally a symbol naming the property of that face to
+          inherit from (if omitted, defaults to the same property that
+          this face-boolean specifier is used for; if this specifier is
+          not part of a face, the instantiator would not be valid), and
+          optionally a value which, if non-nil, means to invert the
+          sense of the inherited property.
+
+
+
 File: lispref.info,  Node: Color Instances,  Next: Color Instance Properties,  Prev: Color Specifiers,  Up: Colors
 
 Color Instances
@@ -116,15 +243,15 @@ File: lispref.info,  Node: Glyphs,  Next: Annotations,  Prev: Faces and Window-S
 Glyphs
 ******
 
-   A "glyph" is an object that is used for pixmaps and images of all
-sorts, as well as for things that "act" like pixmaps, such as
+   A "glyph" is an object that is used for pixmaps, widgets and images
+of all sorts, as well as for things that "act" like pixmaps, such as
 non-textual strings ("annotations") displayed in a buffer or in the
-margins.  It is used in begin-glyphs and end-glyphs attached to extents,
-marginal and textual annotations, overlay arrows (`overlay-arrow-*'
-variables), toolbar buttons, mouse pointers, frame icons, truncation and
-continuation markers, and the like. (Basically, any place there is an
-image or something that acts like an image, there will be a glyph object
-representing it.)
+margins.  It is used in begin-glyphs and end-glyphs attached to
+extents, marginal and textual annotations, overlay arrows
+(`overlay-arrow-*' variables), toolbar buttons, mouse pointers, frame
+icons, truncation and continuation markers, and the like. (Basically,
+any place there is an image or something that acts like an image, there
+will be a glyph object representing it.)
 
    The actual image that is displayed (as opposed to its position or
 clipping) is defined by an "image specifier" object contained within
@@ -187,16 +314,202 @@ Creating Glyphs
      for the mouse-pointer), or `icon' (used for a frame's icon), and
      defaults to `buffer'.  *Note Glyph Types::.
 
+     A glyph in XEmacs does *NOT* refer to a single unit of textual
+     display (the XEmacs term for this is "rune"), but rather is an
+     object encapsulating a graphical element, such as an image or
+     widget (an element such as a button or text field; "widget" is the
+     term for this under X Windows, and it's called a "control" under
+     MS Windows).  This graphical element could appear in a buffer, a
+     margin, a gutter, or a toolbar, or as a mouse pointer or an icon,
+     for example.
+
+     Creating a glyph using `make-glyph' does not specify _where_ the
+     glyph will be used, but it does specify _what_ the glyph will look
+     like.  In particular, SPEC-LIST is used to specify this, and it's
+     used to initialize the glyph's `image' property, which is an image
+     specifier. (Note that "image" as used in the context of a glyph's
+     `image' property or in the terms "image specifier", "image
+     instantiator", or "image instance" does not refer to what people
+     normally think of as an image (which in XEmacs is called a
+     "pixmap"), but to any graphical element--a pixmap, a widget, or
+     even a block of text, when used in the places that call for a
+     glyph.)  The format of the SPEC-LIST is typically an image
+     instantiator (a string or a vector; *Note Image Specifiers::), but
+     can also be a list of such instantiators (each one in turn is
+     tried until an image is successfully produced), a cons of a locale
+     (frame, buffer, etc.)  and an instantiator, a list of such conses,
+     or any other form accepted by `canonicalize-spec-list'. *Note
+     Specifiers::, for more information about specifiers.
+
+     If you're not familiar with specifiers, you should be in order to
+     understand how glyphs work.  The clearest introduction to
+     specifiers is in the Lispref manual, available under Info. (Choose
+     Help->Info->Info Contents on the menubar or type C-h i.) You can
+     also see `make-specifier' for a capsule summary.  What's important
+     to keep in mind is that a specifier lets you set a different value
+     for any particular buffer, window, frame, device, or console.
+     This allows for a great deal of flexibility; in particular, only
+     one global glyph needs to exist for a particular purpose (e.g. the
+     icon used to represent an iconified frame, the mouse pointer used
+     over particular areas of a frame, etc.), and in these cases you do
+     not create your own glyph, but rather modify the existing one.
+
+     As well as using SPEC-LIST to initialize the glyph, you can set
+     specifications using `set-glyph-image'.  Note that, due to a
+     possibly questionable historical design decision, a glyph itself
+     is not actually a specifier, but rather is an object containing an
+     image specifier (as well as other, seldom-used properties).
+     Therefore, you cannot set or access specifications for the glyph's
+     image by directly using `set-specifier', `specifier-instance' or
+     the like on the glyph; instead use them on `(glyph-image GLYPH)'
+     or use the convenience functions `set-glyph-image',
+     `glyph-image-instance', and `glyph-image'.
+
+     Once you have created a glyph, you specify where it will be used as
+     follows:
+
+        * To insert a glyph into a buffer, create an extent in the
+          buffer and then use `set-extent-begin-glyph' or
+          `set-extent-end-glyph' to set a glyph to be displayed at the
+          corresponding edge of the extent. (It is common to create
+          zero-width extents for this purpose.)
+
+        * To insert a glyph into the left or right margin of a buffer,
+          first make sure the margin is visible by setting a value for
+          the specifiers `left-margin-width' or `right-margin-width'.
+          (Not strictly necessary when using margin glyphs with layout
+          policy `whitespace'.) Then follow the same procedure above
+          for inserting a glyph in a buffer, and then set a non-default
+          layout policy for the glyph using
+          `set-extent-begin-glyph-layout' or
+          `set-extent-end-glyph-layout'.  Alternatively, use the
+          high-level annotations API (see `make-annotation'). (In point
+          of fact, you can also use the annotations API for glyphs in a
+          buffer, by setting a layout policy of `text'.)
+
+        * To insert a glyph into the modeline, just put the glyph
+          directly as one of the modeline elements. (Unfortunately you
+          can't currently put a begin glyph or end glyph on one of the
+          modeline extents--they're ignored.)
+
+        * To insert a glyph into a toolbar, specify it as part of a
+          toolbar instantiator (typically set on the specifier
+          `default-toolbar').  See `default-toolbar' for more
+          information. (Note that it is standard practice to use a
+          symbol in place of the glyph list in the toolbar
+          instantiator; the symbol is evalled to get the glyph list.
+          This facilitates both creating the toolbar instantiator and
+          modifying individual glyphs in a toolbar later on.  For
+          example, you can change the way that the Mail toolbar button
+          looks by modifying the value of the variable
+          `toolbar-mail-icon' (in general, `toolbar-*-icon') and then
+          calling `(set-specifier-dirty-flag default-toolbar)'.  (####
+          Unfortunately this doesn't quite work the way it should; the
+          change will appear in new frames, but not existing ones.
+
+        * To insert a glyph into a gutter, create or modify a gutter
+          instantiator (typically set on the specifier
+          `default-gutter').  Gutter instantiators consist of strings
+          or lists of strings, so to insert a glyph, create an extent
+          over the string, and use `set-extent-begin-glyph' or
+          `set-extent-end-glyph' to set a glyph to be displayed at the
+          corresponding edge of the extent, just like for glyphs in a
+          buffer.
+
+        * To use a glyph as the icon for a frame, you do not actually
+          create a new glyph; rather, you change the specifications for
+          the existing glyph `frame-icon-glyph'. (Remember that,
+          because of the specifier nature of glyphs, you can set
+          different values for any particular buffer or frame.)
+
+        * To use a glyph as the mouse pointer, in general you do not
+          create a new glyph, but rather you change the specifications
+          of various existing glyphs, such as `text-pointer-glyph' for
+          the pointer used over text, `modeline-pointer-glyph' for the
+          pointer used over the modeline, etc.  Do an apropos over
+          `*-pointer-glyph' to find all of them. (Note also that you
+          can temporarily set the mouse pointer to some specific shape
+          by using `set-frame-pointer', which takes an image instace,
+          as obtained from calling `glyph-image-instance' on a glyph of
+          type `pointer' - either one of the above-mentioned variables
+          or one you created yourself.  (See below for what it means to
+          create a glyph of type `pointer'.)  This pointer will last
+          only until the next mouse motion event is processed or
+          certain other things happen, such as creating or deleting a
+          window. (In fact, the above-mentioned pointer glyph variables
+          are implemented as part of the default handler for mouse
+          motion events.  If you want to customize this behavior, take a
+          look at `mode-motion-hook', or `mouse-motion-handler' if you
+          really want to get low-level.)
+
+        * To use a glyph to control the shape of miscellaneous
+          redisplay effects such as the truncation and continuation
+          markers, set the appropriate existing glyph variables, as for
+          icons and pointers above.  See `continuation-glyph',
+          `control-arrow-glyph', `hscroll-glyph',
+          `invisible-text-glyph', `octal-escape-glyph', and
+          `truncation-glyph'.  See also `overlay-arrow-string', an odd
+          redisplay leftover which can be set to a glyph you created,
+          and will cause the glyph to be displayed on top of the text
+          position specified in the marker stored in
+          `overlay-arrow-position'.
+
+        * To use a glyph in a display table (i.e. to control the
+          appearance of any individual character), create the
+          appropriate character glyphs and then set a specification for
+          the specifier `current-display-table', which controls the
+          appearance of characters.  You can also set an overriding
+          display table for use with text displayed in a particular
+          face; see `set-face-display-table' and `make-display-table'.
+          #### Note: Display tables do not currently support general
+          Mule characters.  They will be overhauled at some point to
+          support this and to provide other features required under
+          Mule.
+
+        * To use a glyph as the background pixmap of a face: Note that
+          the background pixmap of a face is actually an image
+          specifier - probably the only place in XEmacs where an image
+          specifier occurs outside of a glyph.  Similarly to how the
+          glyph's image specifier works, you don't create your own
+          image specifier, but rather add specifications to the
+          existing one (using `set-face-background-pixmap').  Note that
+          the image instance that is generated in order to actually
+          display the background pixmap is of type `mono-pixmap',
+          meaning that it's a two-color image and the foreground and
+          background of the image get filled in with the corresponding
+          colors from the face.
+
+     It is extremely rare that you will ever have to specify a value for
+     TYPE, which should be one of `buffer' (used for glyphs in an
+     extent, the modeline, the toolbar, or elsewhere in a buffer),
+     `pointer' (used for the mouse-pointer), or `icon' (used for a
+     frame's icon), and defaults to `buffer'.  The only cases where it
+     needs to be specified is when creating icon or pointer glyphs, and
+     in both cases the necessary glyphs have already been created at
+     startup and are accessed through the appropriate variables, e.g.
+     `text-pointer-glyph' (or in general, `*-pointer-glyph') and
+     `frame-icon-glyph'.  *Note Glyph Types::.
+
  - Function: make-glyph-internal &optional type
      This function creates a new, uninitialized glyph of type TYPE.
 
  - Function: make-pointer-glyph &optional spec-list
-     This function is equivalent to calling `make-glyph' with a TYPE of
-     `pointer'.
+     Return a new `pointer-glyph' object with the specification list
+     SPEC-LIST.  This function is equivalent to calling `make-glyph'
+     with a TYPE of `pointer'.
+
+     It is extremely unlikely that you will ever need to create a
+     pointer glyph.  Instead, you probably want to be calling
+     `set-glyph-image' on an existing glyph, e.g. `text-pointer-glyph'.
 
  - Function: make-icon-glyph &optional spec-list
-     This function is equivalent to calling `make-glyph' with a TYPE of
-     `icon'.
+     Return a new `pointer-glyph' object with the specification list
+     SPEC-LIST.  This function is equivalent to calling `make-glyph'
+     with a TYPE of `icon'.
+
+     It is extremely unlikely that you will ever need to create a
+     pointer glyph.  Instead, you probably want to be calling
+     `set-glyph-image' on an existing glyph, e.g. `text-pointer-glyph'.
 
 
 File: lispref.info,  Node: Glyph Properties,  Next: Glyph Convenience Functions,  Prev: Creating Glyphs,  Up: Glyph Functions
@@ -506,658 +819,4 @@ Images
 				  image specifier or at the time they
 				  are passed to `make-image-instance'.
 * Image Instances::		What an image specifier gets instanced as.
-
-
-File: lispref.info,  Node: Image Specifiers,  Next: Image Instantiator Conversion,  Up: Images
-
-Image Specifiers
-----------------
-
-   An image specifier is used to describe the actual image of a glyph.
-It works like other specifiers (*note Specifiers::), in that it contains
-a number of specifications describing how the image should appear in a
-variety of circumstances.  These specifications are called "image
-instantiators".  When XEmacs wants to display the image, it instantiates
-the image into an "image instance".  Image instances are their own
-primitive object type (similar to font instances and color instances),
-describing how the image appears in a particular domain. (On the other
-hand, image instantiators, which are just descriptions of how the image
-should appear, are represented using strings or vectors.)
-
- - Function: image-specifier-p object
-     This function returns non-`nil' if OBJECT is an image specifier.
-     Usually, an image specifier results from calling `glyph-image' on
-     a glyph.
-
- - Function: make-image-specifier spec-list
-     This function creates a new image specifier object and initializes
-     it according to SPEC-LIST.  It is unlikely that you will ever want
-     to do this, but this function is provided for completeness and for
-     experimentation purposes.  *Note Specifiers::.
-
-   Image instantiators come in many formats: `xbm', `xpm', `gif',
-`jpeg', etc.  This describes the format of the data describing the
-image.  The resulting image instances also come in many
-types--`mono-pixmap', `color-pixmap', `text', `pointer', etc.  This
-refers to the behavior of the image and the sorts of places it can
-appear. (For example, a color-pixmap image has fixed colors specified
-for it, while a mono-pixmap image comes in two unspecified shades
-"foreground" and "background" that are determined from the face of the
-glyph or surrounding text; a text image appears as a string of text and
-has an unspecified foreground, background, and font; a pointer image
-behaves like a mono-pixmap image but can only be used as a mouse
-pointer [mono-pixmap images cannot be used as mouse pointers]; etc.) It
-is important to keep the distinction between image instantiator format
-and image instance type in mind.  Typically, a given image instantiator
-format can result in many different image instance types (for example,
-`xpm' can be instanced as `color-pixmap', `mono-pixmap', or `pointer';
-whereas `cursor-font' can be instanced only as `pointer'), and a
-particular image instance type can be generated by many different image
-instantiator formats (e.g.  `color-pixmap' can be generated by `xpm',
-`gif', `jpeg', etc.).
-
-   *Note Image Instances::, for a more detailed discussion of image
-instance types.
-
-   An image instantiator should be a string or a vector of the form
-
-      `[FORMAT :KEYWORD VALUE ...]'
-
-   i.e. a format symbol followed by zero or more alternating
-keyword-value pairs.  The "format" field should be a symbol, one of
-
-`nothing'
-     Don't display anything; no keywords are valid for this.  Can only
-     be instanced as `nothing'.
-
-`string'
-     Display this image as a text string.  Can only be instanced as
-     `text', although support for instancing as `mono-pixmap' should be
-     added.
-
-`formatted-string'
-     Display this image as a text string with replaceable fields,
-     similar to a modeline format string; not currently implemented.
-
-`xbm'
-     An X bitmap; only if X support was compiled into this XEmacs.  Can
-     be instanced as `mono-pixmap', `color-pixmap', or `pointer'.
-
-`xpm'
-     An XPM pixmap; only if XPM support was compiled into this XEmacs.
-     Can be instanced as `color-pixmap', `mono-pixmap', or `pointer'.
-     XPM is an add-on library for X that was designed to rectify the
-     shortcomings of the XBM format.  Most implementations of X include
-     the XPM library as a standard part.  If your vendor does not, it
-     is highly recommended that you download it and install it.  You
-     can get it from the standard XEmacs FTP site, among other places.
-
-`xface'
-     An X-Face bitmap, used to encode people's faces in e-mail messages;
-     only if X-Face support was compiled into this XEmacs.  Can be
-     instanced as `mono-pixmap', `color-pixmap', or `pointer'.
-
-`gif'
-     A GIF87 or GIF89 image; only if GIF support was compiled into this
-     XEmacs.  Can be instanced as `color-pixmap'.  Note that XEmacs
-     includes GIF decoding functions as a standard part of it, so if
-     you have X support, you will normally have GIF support, unless you
-     explicitly disable it at configure time.
-
-`jpeg'
-     A JPEG-format image; only if JPEG support was compiled into this
-     XEmacs.  Can be instanced as `color-pixmap'.  If you have the JPEG
-     libraries present on your system when XEmacs is built, XEmacs will
-     automatically detect this and use them, unless you explicitly
-     disable it at configure time.
-
-`png'
-     A PNG/GIF24 image; only if PNG support was compiled into this
-     XEmacs.  Can be instanced as `color-pixmap'.
-
-`tiff'
-     A TIFF-format image; only if TIFF support was compiled into this
-     XEmacs.
-
-`cursor-font'
-     One of the standard cursor-font names, such as `watch' or
-     `right_ptr' under X.  Under X, this is, more specifically, any of
-     the standard cursor names from appendix B of the Xlib manual [also
-     known as the file `<X11/cursorfont.h>'] minus the `XC_' prefix.  On
-     other window systems, the valid names will be specific to the type
-     of window system.  Can only be instanced as `pointer'.
-
-`font'
-     A glyph from a font; i.e. the name of a font, and glyph index into
-     it of the form `FONT fontname index [[mask-font] mask-index]'.
-     Only if X support was compiled into this XEmacs.  Currently can
-     only be instanced as `pointer', although this should probably be
-     fixed.
-
-`subwindow'
-     An embedded X window; not currently implemented.
-
-`autodetect'
-     XEmacs tries to guess what format the data is in.  If X support
-     exists, the data string will be checked to see if it names a
-     filename.  If so, and this filename contains XBM or XPM data, the
-     appropriate sort of pixmap or pointer will be created. [This
-     includes picking up any specified hotspot or associated mask
-     file.] Otherwise, if `pointer' is one of the allowable
-     image-instance types and the string names a valid cursor-font
-     name, the image will be created as a pointer.  Otherwise, the
-     image will be displayed as text.  If no X support exists, the
-     image will always be displayed as text.
-
-   The valid keywords are:
-
-`:data'
-     Inline data.  For most formats above, this should be a string.  For
-     XBM images, this should be a list of three elements: width,
-     height, and a string of bit data.  This keyword is not valid for
-     instantiator format `nothing'.
-
-`:file'
-     Data is contained in a file.  The value is the name of this file.
-     If both `:data' and `:file' are specified, the image is created
-     from what is specified in `:data' and the string in `:file'
-     becomes the value of the `image-instance-file-name' function when
-     applied to the resulting image-instance.  This keyword is not
-     valid for instantiator formats `nothing', `string',
-     `formatted-string', `cursor-font', `font', and `autodetect'.
-
-`:foreground'
-`:background'
-     For `xbm', `xface', `cursor-font', and `font'.  These keywords
-     allow you to explicitly specify foreground and background colors.
-     The argument should be anything acceptable to
-     `make-color-instance'.  This will cause what would be a
-     `mono-pixmap' to instead be colorized as a two-color color-pixmap,
-     and specifies the foreground and/or background colors for a pointer
-     instead of black and white.
-
-`:mask-data'
-     For `xbm' and `xface'.  This specifies a mask to be used with the
-     bitmap.  The format is a list of width, height, and bits, like for
-     `:data'.
-
-`:mask-file'
-     For `xbm' and `xface'.  This specifies a file containing the mask
-     data.  If neither a mask file nor inline mask data is given for an
-     XBM image, and the XBM image comes from a file, XEmacs will look
-     for a mask file with the same name as the image file but with
-     `Mask' or `msk' appended.  For example, if you specify the XBM file
-     `left_ptr' [usually located in `/usr/include/X11/bitmaps'], the
-     associated mask file `left_ptrmsk' will automatically be picked up.
-
-`:hotspot-x'
-`:hotspot-y'
-     For `xbm' and `xface'.  These keywords specify a hotspot if the
-     image is instantiated as a `pointer'.  Note that if the XBM image
-     file specifies a hotspot, it will automatically be picked up if no
-     explicit hotspot is given.
-
-`:color-symbols'
-     Only for `xpm'.  This specifies an alist that maps strings that
-     specify symbolic color names to the actual color to be used for
-     that symbolic color (in the form of a string or a color-specifier
-     object).  If this is not specified, the contents of
-     `xpm-color-symbols' are used to generate the alist.
-
-   If instead of a vector, the instantiator is a string, it will be
-converted into a vector by looking it up according to the specs in the
-`console-type-image-conversion-list' for the console type of the domain
-(usually a window; sometimes a frame or device) over which the image is
-being instantiated.
-
-   If the instantiator specifies data from a file, the data will be
-read in at the time that the instantiator is added to the image
-specifier (which may be well before the image is actually displayed),
-and the instantiator will be converted into one of the inline-data
-forms, with the filename retained using a `:file' keyword.  This
-implies that the file must exist when the instantiator is added to the
-image, but does not need to exist at any other time (e.g. it may safely
-be a temporary file).
-
- - Function: valid-image-instantiator-format-p format
-     This function returns non-`nil' if FORMAT is a valid image
-     instantiator format.  Note that the return value for many formats
-     listed above depends on whether XEmacs was compiled with support
-     for that format.
-
- - Function: image-instantiator-format-list
-     This function return a list of valid image-instantiator formats.
-
- - Variable: xpm-color-symbols
-     This variable holds definitions of logical color-names used when
-     reading XPM files.  Elements of this list should be of the form
-     `(COLOR-NAME FORM-TO-EVALUATE)'.  The COLOR-NAME should be a
-     string, which is the name of the color to define; the
-     FORM-TO-EVALUATE should evaluate to a color specifier object, or a
-     string to be passed to `make-color-instance' (*note Colors::).  If
-     a loaded XPM file references a symbolic color called COLOR-NAME,
-     it will display as the computed color instead.
-
-     The default value of this variable defines the logical color names
-     `"foreground"' and `"background"' to be the colors of the
-     `default' face.
-
- - Variable: x-bitmap-file-path
-     A list of the directories in which X bitmap files may be found.
-     If nil, this is initialized from the `"*bitmapFilePath"' resource.
-     This is used by the `make-image-instance' function (however, note
-     that if the environment variable `XBMLANGPATH' is set, it is
-     consulted first).
-
-
-File: lispref.info,  Node: Image Instantiator Conversion,  Next: Image Instances,  Prev: Image Specifiers,  Up: Images
-
-Image Instantiator Conversion
------------------------------
-
- - Function: set-console-type-image-conversion-list console-type list
-     This function sets the image-conversion-list for consoles of the
-     given CONSOLE-TYPE.  The image-conversion-list specifies how image
-     instantiators that are strings should be interpreted.  Each
-     element of the list should be a list of two elements (a regular
-     expression string and a vector) or a list of three elements (the
-     preceding two plus an integer index into the vector).  The string
-     is converted to the vector associated with the first matching
-     regular expression.  If a vector index is specified, the string
-     itself is substituted into that position in the vector.
-
-     Note: The conversion above is applied when the image instantiator
-     is added to an image specifier, not when the specifier is actually
-     instantiated.  Therefore, changing the image-conversion-list only
-     affects newly-added instantiators.  Existing instantiators in
-     glyphs and image specifiers will not be affected.
-
- - Function: console-type-image-conversion-list console-type
-     This function returns the image-conversion-list for consoles of
-     the given CONSOLE-TYPE.
-
-
-File: lispref.info,  Node: Image Instances,  Prev: Image Instantiator Conversion,  Up: Images
-
-Image Instances
----------------
-
-   Image-instance objects encapsulate the way a particular image
-(pixmap, etc.) is displayed on a particular device.
-
-   In most circumstances, you do not need to directly create image
-instances; use a glyph instead.  However, it may occasionally be useful
-to explicitly create image instances, if you want more control over the
-instantiation process.
-
- - Function: image-instance-p object
-     This function returns non-`nil' if OBJECT is an image instance.
-
-* Menu:
-
-* Image Instance Types::         Each image instances has a particular type.
-* Image Instance Functions::	 Functions for working with image instances.
-
-
-File: lispref.info,  Node: Image Instance Types,  Next: Image Instance Functions,  Up: Image Instances
-
-Image Instance Types
-....................
-
-   Image instances come in a number of different types.  The type of an
-image instance specifies the nature of the image: Whether it is a text
-string, a mono pixmap, a color pixmap, etc.
-
-   The valid image instance types are
-
-`nothing'
-     Nothing is displayed.
-
-`text'
-     Displayed as text.  The foreground and background colors and the
-     font of the text are specified independent of the pixmap.
-     Typically these attributes will come from the face of the
-     surrounding text, unless a face is specified for the glyph in
-     which the image appears.
-
-`mono-pixmap'
-     Displayed as a mono pixmap (a pixmap with only two colors where the
-     foreground and background can be specified independent of the
-     pixmap; typically the pixmap assumes the foreground and background
-     colors of the text around it, unless a face is specified for the
-     glyph in which the image appears).
-
-`color-pixmap'
-     Displayed as a color pixmap.
-
-`pointer'
-     Used as the mouse pointer for a window.
-
-`subwindow'
-     A child window that is treated as an image.  This allows (e.g.)
-     another program to be responsible for drawing into the window.
-     Not currently implemented.
-
- - Function: valid-image-instance-type-p type
-     This function returns non-`nil' if TYPE is a valid image instance
-     type.
-
- - Function: image-instance-type-list
-     This function returns a list of the valid image instance types.
-
- - Function: image-instance-type image-instance
-     This function returns the type of the given image instance.  The
-     return value will be one of `nothing', `text', `mono-pixmap',
-     `color-pixmap', `pointer', or `subwindow'.
-
- - Function: text-image-instance-p object
-     This function returns non-`nil' if OBJECT is an image instance of
-     type `text'.
-
- - Function: mono-pixmap-image-instance-p object
-     This function returns non-`nil' if OBJECT is an image instance of
-     type `mono-pixmap'.
-
- - Function: color-pixmap-image-instance-p object
-     This function returns non-`nil' if OBJECT is an image instance of
-     type `color-pixmap'.
-
- - Function: pointer-image-instance-p object
-     This function returns non-`nil' if OBJECT is an image instance of
-     type `pointer'.
-
- - Function: subwindow-image-instance-p object
-     This function returns non-`nil' if OBJECT is an image instance of
-     type `subwindow'.
-
- - Function: nothing-image-instance-p object
-     This function returns non-`nil' if OBJECT is an image instance of
-     type `nothing'.
-
-
-File: lispref.info,  Node: Image Instance Functions,  Prev: Image Instance Types,  Up: Image Instances
-
-Image Instance Functions
-........................
-
- - Function: make-image-instance data &optional device dest-types
-          no-error
-     This function creates a new image-instance object.
-
-     DATA is an image instantiator, which describes the image (*note
-     Image Specifiers::).
-
-     DEST-TYPES should be a list of allowed image instance types that
-     can be generated.  The DEST-TYPES list is unordered.  If multiple
-     destination types are possible for a given instantiator, the "most
-     natural" type for the instantiator's format is chosen. (For XBM,
-     the most natural types are `mono-pixmap', followed by
-     `color-pixmap', followed by `pointer'.  For the other normal image
-     formats, the most natural types are `color-pixmap', followed by
-     `mono-pixmap', followed by `pointer'.  For the string and
-     formatted-string formats, the most natural types are `text',
-     followed by `mono-pixmap' (not currently implemented), followed by
-     `color-pixmap' (not currently implemented).  The other formats can
-     only be instantiated as one type. (If you want to control more
-     specifically the order of the types into which an image is
-     instantiated, just call `make-image-instance' repeatedly until it
-     succeeds, passing less and less preferred destination types each
-     time.
-
-     If DEST-TYPES is omitted, all possible types are allowed.
-
-     NO-ERROR controls what happens when the image cannot be generated.
-     If NIL, an error message is generated.  If T, no messages are
-     generated and this function returns NIL.  If anything else, a
-     warning message is generated and this function returns NIL.
-
- - Function: colorize-image-instance image-instance foreground
-          background
-     This function makes the image instance be displayed in the given
-     colors.  Image instances come in two varieties: bitmaps, which are
-     1 bit deep which are rendered in the prevailing foreground and
-     background colors; and pixmaps, which are of arbitrary depth
-     (including 1) and which have the colors explicitly specified.
-     This function converts a bitmap to a pixmap.  If the image
-     instance was a pixmap already, nothing is done (and `nil' is
-     returned).  Otherwise `t' is returned.
-
- - Function: image-instance-name image-instance
-     This function returns the name of the given image instance.
-
- - Function: image-instance-string image-instance
-     This function returns the string of the given image instance.
-     This will only be non-`nil' for text image instances.
-
- - Function: image-instance-file-name image-instance
-     This function returns the file name from which IMAGE-INSTANCE was
-     read, if known.
-
- - Function: image-instance-mask-file-name image-instance
-     This function returns the file name from which IMAGE-INSTANCE's
-     mask was read, if known.
-
- - Function: image-instance-depth image-instance
-     This function returns the depth of the image instance.  This is 0
-     for a mono pixmap, or a positive integer for a color pixmap.
-
- - Function: image-instance-height image-instance
-     This function returns the height of the image instance, in pixels.
-
- - Function: image-instance-width image-instance
-     This function returns the width of the image instance, in pixels.
-
- - Function: image-instance-hotspot-x image-instance
-     This function returns the X coordinate of the image instance's
-     hotspot, if known.  This is a point relative to the origin of the
-     pixmap.  When an image is used as a mouse pointer, the hotspot is
-     the point on the image that sits over the location that the
-     pointer points to.  This is, for example, the tip of the arrow or
-     the center of the crosshairs.
-
-     This will always be `nil' for a non-pointer image instance.
-
- - Function: image-instance-hotspot-y image-instance
-     This function returns the Y coordinate of the image instance's
-     hotspot, if known.
-
- - Function: image-instance-foreground image-instance
-     This function returns the foreground color of IMAGE-INSTANCE, if
-     applicable.  This will be a color instance or `nil'. (It will only
-     be non-`nil' for colorized mono pixmaps and for pointers.)
-
- - Function: image-instance-background image-instance
-     This function returns the background color of IMAGE-INSTANCE, if
-     applicable.  This will be a color instance or `nil'. (It will only
-     be non-`nil' for colorized mono pixmaps and for pointers.)
-
-
-File: lispref.info,  Node: Glyph Types,  Next: Mouse Pointer,  Prev: Images,  Up: Glyphs
-
-Glyph Types
-===========
-
-   Each glyph has a particular type, which controls how the glyph's
-image is generated.  Each glyph type has a corresponding list of
-allowable image instance types that can be generated.  When you call
-`glyph-image-instance' to retrieve the image instance of a glyph,
-XEmacs does the equivalent of calling `make-image-instance' and passing
-in DEST-TYPES the list of allowable image instance types for the
-glyph's type.
-
-   * `buffer' glyphs can be used as the begin-glyph or end-glyph of an
-     extent, in the modeline, and in the toolbar.  Their image can be
-     instantiated as `nothing', `mono-pixmap', `color-pixmap', `text',
-     and `subwindow'.
-
-   * `pointer' glyphs can be used to specify the mouse pointer.  Their
-     image can be instantiated as `pointer'.
-
-   * `icon' glyphs can be used to specify the icon used when a frame is
-     iconified.  Their image can be instantiated as `mono-pixmap' and
-     `color-pixmap'.
-
- - Function: glyph-type glyph
-     This function returns the type of the given glyph.  The return
-     value will be a symbol, one of `buffer', `pointer', or `icon'.
-
- - Function: valid-glyph-type-p glyph-type
-     Given a GLYPH-TYPE, this function returns non-`nil' if it is valid.
-
- - Function: glyph-type-list
-     This function returns a list of valid glyph types.
-
- - Function: buffer-glyph-p object
-     This function returns non-`nil' if OBJECT is a glyph of type
-     `buffer'.
-
- - Function: icon-glyph-p object
-     This function returns non-`nil' if OBJECT is a glyph of type
-     `icon'.
-
- - Function: pointer-glyph-p object
-     This function returns non-`nil' if OBJECT is a glyph of type
-     `pointer'.
-
-
-File: lispref.info,  Node: Mouse Pointer,  Next: Redisplay Glyphs,  Prev: Glyph Types,  Up: Glyphs
-
-Mouse Pointer
-=============
-
-   The shape of the mouse pointer when over a particular section of a
-frame is controlled using various glyph variables.  Since the image of
-a glyph is a specifier, it can be controlled on a per-buffer,
-per-frame, per-window, or per-device basis.
-
-   You should use `set-glyph-image' to set the following variables,
-_not_ `setq'.
-
- - Glyph: text-pointer-glyph
-     This variable specifies the shape of the mouse pointer when over
-     text.
-
- - Glyph: nontext-pointer-glyph
-     This variable specifies the shape of the mouse pointer when over a
-     buffer, but not over text.  If unspecified in a particular domain,
-     `text-pointer-glyph' is used.
-
- - Glyph: modeline-pointer-glyph
-     This variable specifies the shape of the mouse pointer when over
-     the modeline.  If unspecified in a particular domain,
-     `nontext-pointer-glyph' is used.
-
- - Glyph: selection-pointer-glyph
-     This variable specifies the shape of the mouse pointer when over a
-     selectable text region.  If unspecified in a particular domain,
-     `text-pointer-glyph' is used.
-
- - Glyph: gc-pointer-glyph
-     This variable specifies the shape of the mouse pointer when a
-     garbage collection is in progress.  If the selected window is on a
-     window system and this glyph specifies a value (i.e. a pointer
-     image instance) in the domain of the selected window, the pointer
-     will be changed as specified during garbage collection.
-     Otherwise, a message will be printed in the echo area, as
-     controlled by `gc-message'.
-
- - Glyph: busy-pointer-glyph
-     This variable specifies the shape of the mouse pointer when XEmacs
-     is busy.  If unspecified in a particular domain, the pointer is
-     not changed when XEmacs is busy.
-
- - Glyph: menubar-pointer-glyph
-     This variable specifies the shape of the mouse pointer when over
-     the menubar.  If unspecified in a particular domain, the
-     window-system-provided default pointer is used.
-
- - Glyph: scrollbar-pointer-glyph
-     This variable specifies the shape of the mouse pointer when over a
-     scrollbar.  If unspecified in a particular domain, the
-     window-system-provided default pointer is used.
-
- - Glyph: toolbar-pointer-glyph
-     This variable specifies the shape of the mouse pointer when over a
-     toolbar.  If unspecified in a particular domain,
-     `nontext-pointer-glyph' is used.
-
-   Internally, these variables are implemented in
-`default-mouse-motion-handler', and thus only take effect when the
-mouse moves.  That function calls `set-frame-pointer', which sets the
-current mouse pointer for a frame.
-
- - Function: set-frame-pointer frame image-instance
-     This function sets the mouse pointer of FRAME to the given pointer
-     image instance.  You should not call this function directly.  (If
-     you do, the pointer will change again the next time the mouse
-     moves.)
-
-
-File: lispref.info,  Node: Redisplay Glyphs,  Next: Subwindows,  Prev: Mouse Pointer,  Up: Glyphs
-
-Redisplay Glyphs
-================
-
- - Glyph: truncation-glyph
-     This variable specifies what is displayed at the end of truncated
-     lines.
-
- - Glyph: continuation-glyph
-     This variable specifies what is displayed at the end of wrapped
-     lines.
-
- - Glyph: octal-escape-glyph
-     This variable specifies what to prefix character codes displayed
-     in octal with.
-
- - Glyph: hscroll-glyph
-     This variable specifies what to display at the beginning of
-     horizontally scrolled lines.
-
- - Glyph: invisible-text-glyph
-     This variable specifies what to use to indicate the presence of
-     invisible text.  This is the glyph that is displayed when an
-     ellipsis is called for, according to `selective-display-ellipses'
-     or `buffer-invisibility-spec').  Normally this is three dots
-     ("...").
-
- - Glyph: control-arrow-glyph
-     This variable specifies what to use as an arrow for control
-     characters.
-
-
-File: lispref.info,  Node: Subwindows,  Prev: Redisplay Glyphs,  Up: Glyphs
-
-Subwindows
-==========
-
-   Subwindows are not currently implemented.
-
- - Function: subwindowp object
-     This function returns non-`nil' if OBJECT is a subwindow.
-
-
-File: lispref.info,  Node: Annotations,  Next: Display,  Prev: Glyphs,  Up: Top
-
-Annotations
-***********
-
-   An "annotation" is a pixmap or string that is not part of a buffer's
-text but is displayed next to a particular location in a buffer.
-Annotations can be displayed intermixed with text, in any whitespace at
-the beginning or end of a line, or in a special area at the left or
-right side of the frame called a "margin", whose size is controllable.
-Annotations are implemented using extents (*note Extents::); but you
-can work with annotations without knowing how extents work.
-
-* Menu:
-
-* Annotation Basics::		Introduction to annotations.
-* Annotation Primitives::	Creating and deleting annotations.
-* Annotation Properties::	Retrieving and changing the characteristics
-				  of an annotation.
-* Margin Primitives::		Controlling the size of the margins.
-* Locating Annotations::	Looking for annotations in a buffer.
-* Annotation Hooks::		Hooks called at certain times during an
-				  annotation's lifetime.
 

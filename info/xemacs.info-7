@@ -30,6 +30,36 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Files,  Next: Buffers,  Prev: Fixit,  Up: Top
+
+File Handling
+*************
+
+   The basic unit of stored data in Unix is the "file".  To edit a file,
+you must tell Emacs to examine the file and prepare a buffer containing
+a copy of the file's text.  This is called "visiting" the file.  Editing
+commands apply directly to text in the buffer; that is, to the copy
+inside Emacs.  Your changes appear in the file itself only when you
+"save" the buffer back into the file.
+
+   In addition to visiting and saving files, Emacs can delete, copy,
+rename, and append to files, and operate on file directories.
+
+* Menu:
+
+* File Names::       How to type and edit file name arguments.
+* Visiting::         Visiting a file prepares Emacs to edit the file.
+* Saving::           Saving makes your changes permanent.
+* Reverting::        Reverting cancels all the changes not saved.
+* Auto Save::        Auto Save periodically protects against loss of data.
+* Version Control::  Version control systems (RCS and SCCS).
+* ListDir::          Listing the contents of a file directory.
+* Comparing Files::  Finding where two files differ.
+* Dired::            ``Editing'' a directory to delete, rename, etc.
+                     the files in it.
+* Misc File Ops::    Other things you can do on files.
+
+
 File: xemacs.info,  Node: File Names,  Next: Visiting,  Prev: Files,  Up: Files
 
 File Names
@@ -986,90 +1016,4 @@ minibuffer).
    Each time you check in a file, the log entry buffer is put into VC
 Log mode, which involves running two hooks: `text-mode-hook' and
 `vc-log-mode-hook'.
-
-
-File: xemacs.info,  Node: Change Logs and VC,  Next: Old Versions,  Prev: Log Entries,  Up: Version Control
-
-Change Logs and VC
-------------------
-
-   If you use RCS for a program and also maintain a change log file for
-it (*note Change Log::), you can generate change log entries
-automatically from the version control log entries:
-
-`C-x v a'
-     Visit the current directory's change log file and create new
-     entries for versions checked in since the most recent entry in the
-     change log file (`vc-update-change-log').
-
-     This command works with RCS only; it does not work with SCCS.
-
-   For example, suppose the first line of `ChangeLog' is dated 10 April
-1992, and that the only check-in since then was by Nathaniel Bowditch
-to `rcs2log' on 8 May 1992 with log text `Ignore log messages that
-start with `#'.'.  Then `C-x v a' visits `ChangeLog' and inserts text
-like this:
-
-     Fri May  8 21:45:00 1992  Nathaniel Bowditch  (nat@apn.org)
-     
-             * rcs2log: Ignore log messages that start with `#'.
-
-You can then edit the new change log entry further as you wish.
-
-   Normally, the log entry for file `foo' is displayed as `* foo: TEXT
-OF LOG ENTRY'.  The `:' after `foo' is omitted if the text of the log
-entry starts with `(FUNCTIONNAME): '.  For example, if the log entry
-for `vc.el' is `(vc-do-command): Check call-process status.', then the
-text in `ChangeLog' looks like this:
-
-     Wed May  6 10:53:00 1992  Nathaniel Bowditch  (nat@apn.org)
-     
-             * vc.el (vc-do-command): Check call-process status.
-
-   When `C-x v a' adds several change log entries at once, it groups
-related log entries together if they all are checked in by the same
-author at nearly the same time.  If the log entries for several such
-files all have the same text, it coalesces them into a single entry.
-For example, suppose the most recent checkins have the following log
-entries:
-
-For `vc.texinfo':
-     Fix expansion typos.
-For `vc.el':
-     Don't call expand-file-name.
-For `vc-hooks.el':
-     Don't call expand-file-name.
-
-   They appear like this in `ChangeLog':
-
-     Wed Apr  1 08:57:59 1992  Nathaniel Bowditch  (nat@apn.org)
-     
-             * vc.texinfo: Fix expansion typos.
-     
-             * vc.el, vc-hooks.el: Don't call expand-file-name.
-
-   Normally, `C-x v a' separates log entries by a blank line, but you
-can mark several related log entries to be clumped together (without an
-intervening blank line) by starting the text of each related log entry
-with a label of the form `{CLUMPNAME} '.  The label itself is not
-copied to `ChangeLog'.  For example, suppose the log entries are:
-
-For `vc.texinfo':
-     {expand} Fix expansion typos.
-For `vc.el':
-     {expand} Don't call expand-file-name.
-For `vc-hooks.el':
-     {expand} Don't call expand-file-name.
-
-Then the text in `ChangeLog' looks like this:
-
-     Wed Apr  1 08:57:59 1992  Nathaniel Bowditch  (nat@apn.org)
-     
-             * vc.texinfo: Fix expansion typos.
-             * vc.el, vc-hooks.el: Don't call expand-file-name.
-
-   A log entry whose text begins with `#' is not copied to `ChangeLog'.
-For example, if you merely fix some misspellings in comments, you can
-log the change with an entry beginning with `#' to avoid putting such
-trivia into `ChangeLog'.
 

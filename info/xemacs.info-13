@@ -30,6 +30,245 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Using Packages,  Next: Building Packages,  Prev: Package Terminology,  Up: Packages
+
+Getting Started
+---------------
+
+   When you first download XEmacs 21, you will usually first grab the
+"core distribution", a file called `xemacs-21.0.tar.gz'. (Replace the
+21.0 by the current version number.)  The core distribution contains
+the sources of XEmacs and a minimal set of Emacs Lisp files, which are
+in the subdirectory named `lisp'.  This subdirectory used to contain
+all Emacs Lisp files distributed with XEmacs.  Now, to conserve disk
+space, most non-essential packages were made optional.
+
+Choosing the Packages You Need
+------------------------------
+
+   The available packages can currently be found in the same ftp
+directory where you grabbed the core distribution from, and are located
+in the subdirectory `packages/binary-packages'.  Package file names
+follow the naming convention `<package-name>-<version>-pkg.tar.gz'.
+
+   If you have EFS *Note (EFS)::, packages can be installed over the
+network.  Alternatively, if you have copies of the packages locally,
+you can install packages from a local disk or CDROM.
+
+   The file `etc/PACKAGES' in the core distribution contains a list of
+the packages available at the time of the XEmacs release.  Packages are
+also listed on the `Options' menu under:
+
+             Options->Customize->Emacs->Packages
+
+   However, don't select any of these menu picks unless you actually
+want to install the given package (and have properly configured your
+system to do so).
+
+   You can also get a list of available packages, and whether or not
+they are installed, using the visual package browser and installer.
+You can access it via the menus:
+
+             Options->Manage Packages->List & Install
+
+   Or, you can get to it via the keyboard:
+
+     M-x pui-list-packages
+
+   Hint to system administrators of multi-user systems: it might be a
+good idea to install all packages and not interfere with the wishes of
+your users.
+
+   If you can't find which package provides the feature you require, try
+using the `package-get-package-provider' function. Eg., if you know
+that you need `thingatpt', type:
+
+     M-x package-get-package-provider RET thingatpt
+
+   which will return something like (fsf-compat "1.06"). You can the use
+one of the methods above for installing the package you want.
+
+XEmacs and Installing Packages
+------------------------------
+
+   Normally, packages are installed over the network, using EFS *Note
+(EFS)::.  However, you may not have network access, or you may already
+have some or all of the packages on a local disk, such as a CDROM.  If
+you want to install from a local disk, you must first tell XEmacs where
+to find the package binaries.  This is done by adding a line like the
+following to your `.emacs' file:
+
+     (setq package-get-remote (cons (list nil "/my/path/to/package/binaries")
+                                    package-get-remote))
+
+   Here, you'd change `/my/path/to/package/binaries' to be the path to
+your local package binaries.  Next, restart XEmacs, and you're ready to
+go (advanced users can just re-evaluate the sexp).
+
+   If you are installing from a temporary, one-time directory, you can
+also add these directory names to `package-get-remote' using:
+
+             M-x pui-add-install-directory
+
+   Note, however, that any directories added using this function are not
+saved; this information will be lost when you quit XEmacs.
+
+   If you're going to install over the network, you only have to insure
+that EFS *Note (EFS):: works, and that it can get outside a firewall, if
+you happen to be behind one.  You shouldn't have to do anything else;
+XEmacs already knows where to go. However you can add your own mirrors
+to this list. See `package-get-remote'.
+
+   The easiest way to install a package is to use the visual package
+browser and installer, using the menu pick:
+
+             Options->Manage Packages->List & Install
+   or
+             Options->Manage Packages->Using Custom->Select-> ...
+
+   You can also access it using the keyboard:
+
+     M-x pui-list-packages
+
+   The visual package browser will then display a list of all packages.
+Help information will be displayed at the very bottom of the buffer; you
+may have to scroll down to see it.  You can also press `?' to get the
+same help.  From this buffer, you can tell the package status by the
+character in the first column:
+
+`-'
+     The package has not been installed.
+
+`*'
+     The package has been installed, but a newer version is available.
+     The current version is out-of-date.
+
+`+'
+     The package has been marked for installation/update.
+
+   If there is no character in the first column, the package has been
+installed and is up-to-date.
+
+   From here, you can select or unselect packages for installation using
+the <RET> key, the `Mouse-2' button or selecting "Select" from the
+(Popup) Menu.  Once you've finished selecting the packages, you can
+press the `x' key (or use the menu) to actually install the packages.
+Note that you will have to restart XEmacs for XEmacs to recognize any
+new packages.
+
+   Key summary:
+
+`?'
+     Display simple help.
+
+`<RET>'
+`<Mouse-2>'
+     Toggle between selecting and unselecting a package for
+     installation.
+
+`x'
+     Install selected packages.
+
+`<SPC>'
+     View, in the minibuffer, additional information about the package,
+     such as the package date (not the build date) and the package
+     author.  Moving the mouse over a package name will also do the
+     same thing.
+
+`v'
+     Toggle between verbose and non-verbose package display.
+
+`g'
+     Refresh the package display.
+
+`q'
+     Kill the package buffer.
+
+   Moving the mouse over a package will also cause additional
+information about the package to be displayed in the minibuffer.
+
+Other package installation interfaces
+-------------------------------------
+
+   For an alternative package interface, you can select packages from
+the customize menus, under:
+
+             Options->Customize->Emacs->Packages-> ...
+   or
+             Options->Manage Packages->Using Custom->Select-> ...
+
+   Set their state to on, and then do:
+
+             Options->Manage Packages->Using Custom->Update Packages
+
+   This will automatically retrieve the packages you have selected from
+the XEmacs ftp site or your local disk, and install them into XEmacs.
+Additionally it will update any packages you already have installed to
+the newest version.  Note that if a package is newly installed you will
+have to restart XEmacs for the change to take effect.
+
+   You can also install packages using a semi-manual interface:
+
+     M-x package-get-all <return>
+
+   Enter the name of the package (e.g., `prog-modes'), and XEmacs will
+search for the latest version (as listed in the lisp file
+`lisp/package-get-base.el'), and install it and any packages that it
+depends upon.
+
+Manual Binary Package Installation
+----------------------------------
+
+   Pre-compiled, binary packages can be installed in either a system
+package directory (this is determined when XEmacs is compiled), or in
+one of the following subdirectories of your `$HOME' directory:
+
+     ~/.xemacs/mule-packages
+     ~/.xemacs/xemacs-packages
+
+   Packages in the former directory will only be found by a Mule-enabled
+XEmacs.
+
+   XEmacs does not have to be running to install binary packages,
+although XEmacs will not know about any newly-installed packages until
+you restart XEmacs.  Note, however, that installing a newer version of a
+package while XEmacs is running could cause strange errors in XEmacs;
+it's best to exit XEmacs before upgrading an existing package.
+
+   To install binary packages manually:
+
+  1. Download the package(s) that you want to install.  Each binary
+     package will typically be a gzip'd tarball.
+
+  2. Decide where to install the packages: in the system package
+     directory, or in `~/.xemacs/mule-packages' or
+     `~/.xemacs/xemacs-packages', respectively.  If you want to install
+     the packages in the system package directory, make sure you can
+     write into that directory.  If you want to install in your `$HOME'
+     directory, create the directory, `~/.xemacs/mule-packages' or
+     `~/.xemacs/xemacs-packages', respectively.
+
+  3. Next, `cd' to the directory under which you want to install the
+     package(s).
+
+  4. From this directory, uncompress and extract each of the gzip'd
+     tarballs that you downloaded in step 1.  Unix and Cygnus cygwin
+     users will typically do this using the commands:
+
+                  gunzip < package.tar.gz | tar xvf -
+
+     Above, replace `package.tar.gz' with the filename of the package
+     that you downloaded in step 1.
+
+     Of course, if you use GNU `tar', you could also use:
+
+                  tar xvzf package.tar.gz
+
+  5. That's it.  Quit and restart XEmacs to get it to recognize any new
+     or changed packages.
+
+
+
 File: xemacs.info,  Node: Building Packages,  Prev: Using Packages,  Up: Packages
 
    Source packages are available from the `packages/source-packages'
@@ -989,241 +1228,4 @@ diary.
 * Other Calendars::        Converting dates to other calendar systems.
 * Diary::                  Displaying events from your diary.
 * Calendar Customization:: Altering the behavior of the features above.
-
-
-File: xemacs.info,  Node: Calendar Motion,  Next: Scroll Calendar,  Prev: Calendar/Diary,  Up: Calendar/Diary
-
-Movement in the Calendar
-------------------------
-
-   Calendar mode lets you move through the calendar in logical units of
-time such as days, weeks, months, and years.  If you move outside the
-three months originally displayed, the calendar display "scrolls"
-automatically through time to make the selected date visible.  Moving to
-a date lets you view its holidays or diary entries, or convert it to
-other calendars; moving longer time periods is also useful simply to
-scroll the calendar.
-
-* Menu:
-
-* Calendar Unit Motion::       Moving by days, weeks, months, and years.
-* Move to Beginning or End::   Moving to start/end of weeks, months, and years.
-* Specified Dates::            Moving to the current date or another
-                               specific date.
-
-
-File: xemacs.info,  Node: Calendar Unit Motion,  Next: Move to Beginning or End,  Prev: Calendar Motion,  Up: Calendar Motion
-
-Motion by Integral Days, Weeks, Months, Years
-.............................................
-
-   The commands for movement in the calendar buffer parallel the
-commands for movement in text.  You can move forward and backward by
-days, weeks, months, and years.
-
-`C-f'
-     Move point one day forward (`calendar-forward-day').
-
-`C-b'
-     Move point one day backward (`calendar-backward-day').
-
-`C-n'
-     Move point one week forward (`calendar-forward-week').
-
-`C-p'
-     Move point one week backward (`calendar-backward-week').
-
-`M-}'
-     Move point one month forward (`calendar-forward-month').
-
-`M-{'
-     Move point one month backward (`calendar-backward-month').
-
-`C-x ]'
-     Move point one year forward (`calendar-forward-year').
-
-`C-x ['
-     Move point one year backward (`calendar-backward-year').
-
-   The day and week commands are natural analogues of the usual Emacs
-commands for moving by characters and by lines.  Just as `C-n' usually
-moves to the same column in the following line, in Calendar mode it
-moves to the same day in the following week.  And `C-p' moves to the
-same day in the previous week.
-
-   The arrow keys are equivalent to `C-f', `C-b', `C-n' and `C-p', just
-as they normally are in other modes.
-
-   The commands for motion by months and years work like those for
-weeks, but move a larger distance.  The month commands `M-}' and `M-{'
-move forward or backward by an entire month's time.  The year commands
-`C-x ]' and `C-x [' move forward or backward a whole year.
-
-   The easiest way to remember these commands is to consider months and
-years analogous to paragraphs and pages of text, respectively.  But the
-commands themselves are not quite analogous.  The ordinary Emacs
-paragraph commands move to the beginning or end of a paragraph, whereas
-these month and year commands move by an entire month or an entire
-year, which usually involves skipping across the end of a month or year.
-
-   All these commands accept a numeric argument as a repeat count.  For
-convenience, the digit keys and the minus sign specify numeric
-arguments in Calendar mode even without the Meta modifier.  For example,
-`100 C-f' moves point 100 days forward from its present location.
-
-
-File: xemacs.info,  Node: Move to Beginning or End,  Next: Specified Dates,  Prev: Calendar Unit Motion,  Up: Calendar Motion
-
-Beginning or End of Week, Month or Year
-.......................................
-
-   A week (or month, or year) is not just a quantity of days; we think
-of weeks (months, years) as starting on particular dates.  So Calendar
-mode provides commands to move to the beginning or end of a week, month
-or year:
-
-`C-a'
-     Move point to start of week (`calendar-beginning-of-week').
-
-`C-e'
-     Move point to end of week (`calendar-end-of-week').
-
-`M-a'
-     Move point to start of month (`calendar-beginning-of-month').
-
-`M-e'
-     Move point to end of month (`calendar-end-of-month').
-
-`M-<'
-     Move point to start of year (`calendar-beginning-of-year').
-
-`M->'
-     Move point to end of year (`calendar-end-of-year').
-
-   These commands also take numeric arguments as repeat counts, with the
-repeat count indicating how many weeks, months, or years to move
-backward or forward.
-
-   By default, weeks begin on Sunday.  To make them begin on Monday
-instead, set the variable `calendar-week-start-day' to 1.
-
-
-File: xemacs.info,  Node: Specified Dates,  Prev: Move to Beginning or End,  Up: Calendar Motion
-
-Particular Dates
-................
-
-   Calendar mode provides commands for moving to a particular date
-specified in various ways.
-
-`g d'
-     Move point to specified date (`calendar-goto-date').
-
-`o'
-     Center calendar around specified month (`calendar-other-month').
-
-`.'
-     Move point to today's date (`calendar-goto-today').
-
-   `g d' (`calendar-goto-date') prompts for a year, a month, and a day
-of the month, and then moves to that date.  Because the calendar
-includes all dates from the beginning of the current era, you must type
-the year in its entirety; that is, type `1990', not `90'.
-
-   `o' (`calendar-other-month') prompts for a month and year, then
-centers the three-month calendar around that month.
-
-   You can return to today's date with `.' (`calendar-goto-today').
-
-
-File: xemacs.info,  Node: Scroll Calendar,  Next: Mark and Region,  Prev: Calendar Motion,  Up: Calendar/Diary
-
-Scrolling the Calendar through Time
------------------------------------
-
-   The calendar display scrolls automatically through time when you
-move out of the visible portion.  You can also scroll it manually.
-Imagine that the calendar window contains a long strip of paper with
-the months on it.  Scrolling it means moving the strip so that new
-months become visible in the window.
-
-`C-x <'
-     Scroll calendar one month forward (`scroll-calendar-left').
-
-`C-x >'
-     Scroll calendar one month backward (`scroll-calendar-right').
-
-`C-v'
-`<NEXT>'
-     Scroll calendar three months forward
-     (`scroll-calendar-left-three-months').
-
-`M-v'
-`<PRIOR>'
-     Scroll calendar three months backward
-     (`scroll-calendar-right-three-months').
-
-   The most basic calendar scroll commands scroll by one month at a
-time.  This means that there are two months of overlap between the
-display before the command and the display after.  `C-x <' scrolls the
-calendar contents one month to the left; that is, it moves the display
-forward in time.  `C-x >' scrolls the contents to the right, which
-moves backwards in time.
-
-   The commands `C-v' and `M-v' scroll the calendar by an entire
-"screenful"--three months--in analogy with the usual meaning of these
-commands.  `C-v' makes later dates visible and `M-v' makes earlier
-dates visible.  These commands take a numeric argument as a repeat
-count; in particular, since `C-u' multiplies the next command by four,
-typing `C-u C-v' scrolls the calendar forward by a year and typing `C-u
-M-v' scrolls the calendar backward by a year.
-
-   The function keys <NEXT> and <PRIOR> are equivalent to `C-v' and
-`M-v', just as they are in other modes.
-
-
-File: xemacs.info,  Node: Mark and Region,  Next: General Calendar,  Prev: Scroll Calendar,  Up: Calendar/Diary
-
-The Mark and the Region
------------------------
-
-   The concept of the mark applies to the calendar just as to any other
-buffer, but it marks a _date_, not a _position_ in the buffer.  The
-region consists of the days between the mark and point (including the
-starting and stopping dates).
-
-`C-SPC'
-     Set the mark to today's date (`calendar-set-mark').
-
-`C-@'
-     The same.
-
-`C-x C-x'
-     Interchange mark and point (`calendar-exchange-point-and-mark').
-
-`M-='
-     Display the number of days in the current region
-     (`calendar-count-days-region').
-
-   You set the mark in the calendar, as in any other buffer, by using
-`C-@' or `C-SPC' (`calendar-set-mark').  You return to the marked date
-with the command `C-x C-x' (`calendar-exchange-point-and-mark') which
-puts the mark where point was and point where mark was.  The calendar
-is scrolled as necessary, if the marked date was not visible on the
-screen.  This does not change the extent of the region.
-
-   To determine the number of days in the region, type `M-='
-(`calendar-count-days-region').  The numbers of days printed is
-_inclusive_; that is, it includes the days specified by mark and point.
-
-   The main use of the mark in the calendar is to remember dates that
-you may want to go back to.  To make this feature more useful, the mark
-ring (*note Mark Ring::) operates exactly as in other buffers:  Emacs
-remembers 16 previous locations of the mark.  To return to a marked
-date, type `C-u C-SPC' (or `C-u C-@'); this is the command
-`calendar-set-mark' given a numeric argument.  It moves point to where
-the mark was, restores the mark from the ring of former marks, and
-stores the previous point at the end of the mark ring.  So, repeated
-use of this command moves point through all the old marks on the ring,
-one by one.
 

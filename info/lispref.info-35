@@ -138,7 +138,7 @@ and can be used to restrict the scope of that instantiator to a
 particular device class or device type and/or to mark instantiators
 added by a particular package so that they can be later removed.
 
-   A specifier tag set consists of a list of zero of more specifier
+   A specifier tag set consists of a list of zero or more specifier
 tags, each of which is a symbol that is recognized by XEmacs as a tag.
 (The valid device types and device classes are always tags, as are any
 tags defined by `define-specifier-tag'.) It is called a "tag set" (as
@@ -358,10 +358,11 @@ Creating New Specifier Objects
      `font', `image', `face-boolean', or `toolbar'.
 
      For more information on particular types of specifiers, see the
-     functions `generic-specifier-p', `integer-specifier-p',
-     `natnum-specifier-p', `boolean-specifier-p', `color-specifier-p',
-     `font-specifier-p', `image-specifier-p',
-     `face-boolean-specifier-p', and `toolbar-specifier-p'.
+     functions `make-generic-specifier', `make-integer-specifier',
+     `make-natnum-specifier', `make-boolean-specifier',
+     `make-color-specifier', `make-font-specifier',
+     `make-image-specifier', `make-face-boolean-specifier', and
+     `make-toolbar-specifier'.
 
  - Function: make-specifier-and-init type spec-list &optional
           dont-canonicalize
@@ -376,6 +377,50 @@ Creating New Specifier Objects
      DONT-CANONICALIZE is non-`nil', this conversion is not performed,
      and the SPEC-LIST must already be in full form.  See
      `canonicalize-spec-list'.
+
+ - Function: make-integer-specifier spec-list
+     Return a new `integer' specifier object with the given
+     specification list.  SPEC-LIST can be a list of specifications
+     (each of which is a cons of a locale and a list of instantiators),
+     a single instantiator, or a list of instantiators.
+
+     Valid instantiators for integer specifiers are integers.
+
+ - Function: make-boolean-specifier spec-list
+     Return a new `boolean' specifier object with the given
+     specification list.  SPEC-LIST can be a list of specifications
+     (each of which is a cons of a locale and a list of instantiators),
+     a single instantiator, or a list of instantiators.
+
+     Valid instantiators for boolean specifiers are `t' and `nil'.
+
+ - Function: make-natnum-specifier spec-list
+     Return a new `natnum' specifier object with the given specification
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.
+
+     Valid instantiators for natnum specifiers are non-negative
+     integers.
+
+ - Function: make-generic-specifier spec-list
+     Return a new `generic' specifier object with the given
+     specification list.  SPEC-LIST can be a list of specifications
+     (each of which is a cons of a locale and a list of instantiators),
+     a single instantiator, or a list of instantiators.
+
+     Valid instantiators for generic specifiers are all Lisp values.
+     They are returned back unchanged when a specifier is instantiated.
+
+ - Function: make-display-table-specifier spec-list
+     Return a new `display-table' specifier object with the given spec
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.
+
+     Valid instantiators for display-table specifiers are described in
+     detail in the doc string for `current-display-table' (*note Active
+     Display Table::).
 
 
 File: lispref.info,  Node: Specifier Validation Functions,  Next: Other Specification Functions,  Prev: Creating Specifiers,  Up: Specifiers
@@ -981,6 +1026,28 @@ Font Specifiers
      This predicate returns `t' if OBJECT is a font specifier, and
      `nil' otherwise.
 
+ - Function: make-font-specifier spec-list
+     Return a new `font' specifier object with the given specification
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     more information about specifiers.
+
+     Valid instantiators for font specifiers are:
+
+        * A string naming a font (e.g. under X this might be
+          "-*-courier-medium-r-*-*-*-140-*-*-*-*-iso8859-*" for a
+          14-point upright medium-weight Courier font).
+
+        * A font instance (use that instance directly if the device
+          matches, or use the string that generated it).
+
+        * A vector of no elements (only on TTY's; this means to set no
+          font at all, thus using the "natural" font of the terminal's
+          text).
+
+        * A vector of one element (a face to inherit from).
+
 
 File: lispref.info,  Node: Font Instances,  Next: Font Instance Names,  Prev: Font Specifiers,  Up: Fonts
 
@@ -1051,85 +1118,4 @@ Font Instance Size
      otherwise.  If scalable fonts are available, this returns a font
      which is 1 point smaller.  Otherwise, it returns the next smaller
      version of this font that is defined.
-
-
-File: lispref.info,  Node: Font Instance Characteristics,  Next: Font Convenience Functions,  Prev: Font Instance Size,  Up: Fonts
-
-Font Instance Characteristics
------------------------------
-
- - Function: font-instance-properties font
-     This function returns the properties (an alist or `nil') of
-     FONT-INSTANCE.
-
- - Function: x-make-font-bold font &optional device
-     Given an X font specification, this attempts to make a "bold" font.
-     If it fails, it returns `nil'.
-
- - Function: x-make-font-unbold font &optional device
-     Given an X font specification, this attempts to make a non-bold
-     font.  If it fails, it returns `nil'.
-
- - Function: x-make-font-italic font &optional device
-     Given an X font specification, this attempts to make an "italic"
-     font.  If it fails, it returns `nil'.
-
- - Function: x-make-font-unitalic font &optional device
-     Given an X font specification, this attempts to make a non-italic
-     font.  If it fails, it returns `nil'.
-
- - Function: x-make-font-bold-italic font &optional device
-     Given an X font specification, this attempts to make a
-     "bold-italic" font.  If it fails, it returns `nil'.
-
-
-File: lispref.info,  Node: Font Convenience Functions,  Prev: Font Instance Characteristics,  Up: Fonts
-
-Font Convenience Functions
---------------------------
-
- - Function: font-name font &optional domain
-     This function returns the name of the FONT in the specified
-     DOMAIN, if any.  FONT should be a font specifier object and DOMAIN
-     is normally a window and defaults to the selected window if
-     omitted.  This is equivalent to using `specifier-instance' and
-     applying `font-instance-name' to the result.
-
- - Function: font-truename font &optional domain
-     This function returns the truename of the FONT in the specified
-     DOMAIN, if any.  FONT should be a font specifier object and DOMAIN
-     is normally a window and defaults to the selected window if
-     omitted.  This is equivalent to using `specifier-instance' and
-     applying `font-instance-truename' to the result.
-
- - Function: font-properties font &optional domain
-     This function returns the properties of the FONT in the specified
-     DOMAIN, if any.  FONT should be a font specifier object and DOMAIN
-     is normally a window and defaults to the selected window if
-     omitted.  This is equivalent to using `specifier-instance' and
-     applying `font-instance-properties' to the result.
-
-
-File: lispref.info,  Node: Colors,  Prev: Fonts,  Up: Faces and Window-System Objects
-
-Colors
-======
-
-* Menu:
-
-* Color Specifiers::		Specifying how a color will appear.
-* Color Instances::		What a color specifier gets instanced as.
-* Color Instance Properties::	Properties of color instances.
-* Color Convenience Functions::	Convenience functions that automatically
-				  instance and retrieve the properties
-				  of a color specifier.
-
-
-File: lispref.info,  Node: Color Specifiers,  Next: Color Instances,  Up: Colors
-
-Color Specifiers
-----------------
-
- - Function: color-specifier-p object
-     This function returns non-`nil' if OBJECT is a color specifier.
 

@@ -61,7 +61,7 @@ Command and Function Index
 * auto-fill-mode:                        Auto Fill.
 * auto-save-mode:                        Auto Save Control.
 * back-to-indentation:                   Indentation Commands.
-* backward-char:                         Basic.
+* backward-char:                         Moving Point.
 * backward-delete-char-untabify:         Program Modes.
 * backward-kill-sentence <1>:            Sentences.
 * backward-kill-sentence <2>:            Kill Errors.
@@ -70,6 +70,7 @@ Command and Function Index
 * backward-kill-word <2>:                Kill Errors.
 * backward-kill-word:                    Killing.
 * backward-list:                         Lists.
+* backward-or-forward-delete-char:       Inserting Text.
 * backward-page:                         Pages.
 * backward-paragraph:                    Paragraphs.
 * backward-sentence:                     Sentences.
@@ -78,10 +79,10 @@ Command and Function Index
 * backward-up-list:                      Lists.
 * backward-word:                         Words.
 * batch-byte-compile:                    Compiling Libraries.
-* beginning-of-buffer:                   Basic.
+* beginning-of-buffer:                   Moving Point.
 * beginning-of-defun:                    Defuns.
 * beginning-of-fortran-subprogram:       Fortran Motion.
-* beginning-of-line:                     Basic.
+* beginning-of-line:                     Moving Point.
 * bookmark-delete:                       Bookmarks.
 * bookmark-insert:                       Bookmarks.
 * bookmark-insert-location:              Bookmarks.
@@ -200,8 +201,7 @@ Command and Function Index
 * define-key <1>:                        Programmatic Rebinding.
 * define-key:                            Interactive Rebinding.
 * delete-backward-char <1>:              Kill Errors.
-* delete-backward-char <2>:              Killing.
-* delete-backward-char:                  Basic.
+* delete-backward-char:                  Killing.
 * delete-blank-lines <1>:                Killing.
 * delete-blank-lines:                    Blank Lines.
 * delete-char <1>:                       Basic Picture.
@@ -289,10 +289,10 @@ Command and Function Index
 * enable-command:                        Disabling.
 * enable-menu-item:                      Menu Customization.
 * end-kbd-macro:                         Basic Kbd Macro.
-* end-of-buffer:                         Basic.
+* end-of-buffer:                         Moving Point.
 * end-of-defun:                          Defuns.
 * end-of-fortran-subprogram:             Fortran Motion.
-* end-of-line:                           Basic.
+* end-of-line:                           Moving Point.
 * enlarge-window:                        Change Window.
 * enlarge-window-horizontally:           Change Window.
 * european-calendar:                     Date Formats.
@@ -333,7 +333,7 @@ Command and Function Index
 * fortran-previous-statement:            Fortran Motion.
 * fortran-split-line:                    ForIndent Commands.
 * fortran-window-create:                 Fortran Columns.
-* forward-char:                          Basic.
+* forward-char:                          Moving Point.
 * forward-list:                          Lists.
 * forward-page:                          Pages.
 * forward-paragraph:                     Paragraphs.
@@ -344,8 +344,8 @@ Command and Function Index
 * frame-configuration-to-register:       RegConfig.
 * global-set-key <1>:                    Programmatic Rebinding.
 * global-set-key:                        Interactive Rebinding.
-* goto-char:                             Basic.
-* goto-line:                             Basic.
+* goto-char:                             Moving Point.
+* goto-line:                             Moving Point.
 * hanoi:                                 Amusements.
 * help-command:                          Help.
 * help-for-help:                         Help.
@@ -525,16 +525,16 @@ Command and Function Index
 * mouse-track-and-copy-to-cutbuffer:     Additional Mouse Operations.
 * mouse-track-delete-and-insert:         Additional Mouse Operations.
 * move-over-close-and-reindent:          Balanced Editing.
-* move-to-window-line:                   Basic.
+* move-to-window-line:                   Moving Point.
 * name-last-kbd-macro:                   Save Kbd Macro.
 * narrow-to-region:                      Narrowing.
 * negative-argument:                     Arguments.
-* newline:                               Basic.
+* newline:                               Inserting Text.
 * newline-and-indent:                    Basic Indent.
 * next-complex-command:                  Repetition.
 * next-error:                            Compilation.
 * next-history-element:                  Minibuffer History.
-* next-line:                             Basic.
+* next-line:                             Moving Point.
 * next-list-mode-item:                   Completion Commands.
 * next-matching-history-element:         Minibuffer History.
 * not-modified:                          Saving.
@@ -588,7 +588,7 @@ Command and Function Index
 * prepend-to-buffer:                     Accumulating Text.
 * previous-complex-command:              Repetition.
 * previous-history-element:              Minibuffer History.
-* previous-line:                         Basic.
+* previous-line:                         Moving Point.
 * previous-list-mode-item:               Completion Commands.
 * previous-matching-history-element:     Minibuffer History.
 * print-buffer:                          Hardcopy.
@@ -600,13 +600,13 @@ Command and Function Index
 * query-replace-regexp:                  Query Replace.
 * quietly-read-abbrev-file:              Saving Abbrevs.
 * quit-shell-subjob:                     Shell Mode.
-* quoted-insert:                         Basic.
+* quoted-insert:                         Inserting Text.
 * re-search-backward:                    Regexp Search.
 * re-search-forward:                     Regexp Search.
 * read-abbrev-file:                      Saving Abbrevs.
 * read-key-sequence:                     Representing Keystrokes.
 * recenter <1>:                          Scrolling.
-* recenter:                              Basic.
+* recenter:                              Moving Point.
 * recover-file:                          Recover.
 * redraw-calendar:                       General Calendar.
 * relabel-menu-item:                     Menu Customization.
@@ -634,7 +634,7 @@ Command and Function Index
 * search-backward:                       Non-Incremental Search.
 * search-forward:                        Non-Incremental Search.
 * select-input-method:                   Select Input Method.
-* self-insert:                           Basic.
+* self-insert:                           Inserting Text.
 * send-shell-input:                      Shell Mode.
 * set-buffer-file-coding-system:         Specify Coding.
 * set-buffer-process-coding-system:      Specify Coding.
@@ -648,7 +648,7 @@ Command and Function Index
 * set-fill-column:                       Fill Commands.
 * set-fill-prefix:                       Fill Prefix.
 * set-gnu-bindings:                      Emulation.
-* set-goal-column:                       Basic.
+* set-goal-column:                       Moving Point.
 * set-gosmacs-bindings:                  Emulation.
 * set-keyboard-coding-system:            Specify Coding.
 * set-language-environment:              Language Environments.
@@ -694,6 +694,7 @@ Command and Function Index
 * switch-to-buffer-other-frame:          XEmacs under X.
 * switch-to-buffer-other-window <1>:     Pop Up Window.
 * switch-to-buffer-other-window:         Select Buffer.
+* switch-to-completions:                 Completion Commands.
 * switch-to-other-buffer:                Select Buffer.
 * tab-to-tab-stop <1>:                   Text Mode.
 * tab-to-tab-stop:                       Tab Stops.
@@ -723,7 +724,7 @@ Command and Function Index
 * top-level <1>:                         Quitting.
 * top-level:                             Recursive Edit.
 * transpose-chars <1>:                   Transpose.
-* transpose-chars:                       Basic.
+* transpose-chars:                       Moving Point.
 * transpose-lines:                       Transpose.
 * transpose-sexps <1>:                   Lists.
 * transpose-sexps:                       Transpose.

@@ -789,6 +789,7 @@ Index
 * current-buffer:                        Current Buffer.
 * current-case-table:                    Case Tables.
 * current-column:                        Columns.
+* current-display-table:                 Active Display Table.
 * current-fill-column:                   Margins.
 * current-frame-configuration:           Frame Configurations.
 * current-global-map:                    Active Keymaps.
@@ -1639,6 +1640,7 @@ Index
 * image specifiers:                      Image Specifiers.
 * image-instance-background:             Image Instance Functions.
 * image-instance-depth:                  Image Instance Functions.
+* image-instance-domain:                 Image Instance Functions.
 * image-instance-file-name:              Image Instance Functions.
 * image-instance-foreground:             Image Instance Functions.
 * image-instance-height:                 Image Instance Functions.
@@ -2023,35 +2025,46 @@ Index
 * make-backup-file-name:                 Backup Names.
 * make-backup-files:                     Making Backups.
 * make-bit-vector:                       Bit Vector Functions.
+* make-boolean-specifier:                Creating Specifiers.
 * make-byte-code:                        Compiled-Function Objects.
 * make-char:                             MULE Characters.
 * make-char-table:                       Working With Char Tables.
 * make-charset:                          Basic Charset Functions.
 * make-coding-system:                    Basic Coding System Functions.
+* make-color-specifier:                  Color Specifiers.
 * make-composite-char:                   Composite Characters.
 * make-device:                           Connecting to a Console or Device.
 * make-directory:                        Create/Delete Dirs.
 * make-display-table:                    Display Table Format.
+* make-display-table-specifier:          Creating Specifiers.
 * make-event:                            Working With Events.
 * make-extent:                           Creating and Modifying Extents.
 * make-face:                             Basic Face Functions.
+* make-face-boolean-specifier:           Color Specifiers.
 * make-file-part:                        Creating a Partial File.
 * make-font-instance:                    Font Instances.
+* make-font-specifier:                   Font Specifiers.
 * make-frame:                            Creating Frames.
 * make-frame-invisible:                  Visibility of Frames.
 * make-frame-visible:                    Visibility of Frames.
+* make-generic-specifier:                Creating Specifiers.
 * make-glyph:                            Creating Glyphs.
 * make-glyph-internal:                   Creating Glyphs.
+* make-gutter-size-specifier:            Creating Gutter.
+* make-gutter-specifier:                 Creating Gutter.
+* make-gutter-visible-specifier:         Creating Gutter.
 * make-hash-table:                       Introduction to Hash Tables.
 * make-icon-glyph:                       Creating Glyphs.
 * make-image-instance:                   Image Instance Functions.
 * make-image-specifier:                  Image Specifiers.
 * make-indirect-buffer:                  Indirect Buffers.
+* make-integer-specifier:                Creating Specifiers.
 * make-keymap:                           Creating Keymaps.
 * make-list:                             Building Lists.
 * make-local-hook:                       Hooks.
 * make-local-variable:                   Creating Buffer-Local.
 * make-marker:                           Creating Markers.
+* make-natnum-specifier:                 Creating Specifiers.
 * make-obsolete:                         Obsoleteness.
 * make-obsolete-variable:                Obsoleteness.
 * make-pointer-glyph:                    Creating Glyphs.
@@ -2065,6 +2078,7 @@ Index
 * make-symbolic-link:                    Changing File Attributes.
 * make-syntax-table:                     Syntax Table Functions.
 * make-temp-name:                        Unique File Names.
+* make-toolbar-specifier:                Creating Toolbar.
 * make-tooltalk-message:                 Elisp Interface for Sending Messages.
 * make-tooltalk-pattern:                 Elisp Interface for Receiving Messages.
 * make-tty-device:                       Connecting to a Console or Device.
@@ -3359,6 +3373,7 @@ Index
 * whitespace character:                  Syntax Class Table.
 * widen:                                 Narrowing.
 * widening:                              Narrowing.
+* widget-image-instance-p:               Image Instance Types.
 * window:                                Basic Windows.
 * window configuration (Edebug):         Edebug Display Update.
 * window configurations:                 Window Configurations.

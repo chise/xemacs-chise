@@ -152,7 +152,6 @@ Variable Index
 * emacs-roots:                           Startup Paths.
 * EMACSDATA:                             Startup Paths.
 * EMACSLOADPATH:                         Startup Paths.
-* EMACSLOCKDIR:                          Startup Paths.
 * EMACSPATH:                             Startup Paths.
 * enable-local-variables:                File Variables.
 * enable-recursive-minibuffers:          Minibuffer Edit.
@@ -220,7 +219,6 @@ Variable Index
 * load-path <1>:                         Loading.
 * load-path:                             Startup Paths.
 * local-holidays:                        Holiday Customizing.
-* lock-directory:                        Startup Paths.
 * lpr-switches:                          Hardcopy.
 * mail-abbrev-mailrc-file:               Mail Headers.
 * mail-abbrev-mode-regexp:               Mail Headers.
@@ -245,6 +243,7 @@ Variable Index
 * mode-line-inverse-video:               Mode Line.
 * modeline-pointer-glyph:                Mouse Selection.
 * muddle-mode-hook:                      Program Modes.
+* next-line-add-newlines:                Moving Point.
 * next-screen-context-lines:             Scrolling.
 * no-redraw-on-reenter:                  Display Vars.
 * nongregorian-diary-listing-hook:       Hebrew/Islamic Entries.
@@ -281,7 +280,6 @@ Variable Index
 * shell-prompt-pattern:                  Shell Mode.
 * shell-pushd-regexp:                    Interactive Shell.
 * sound-alist:                           Audible Bell.
-* superlock-file:                        Startup Paths.
 * tab-stop-list:                         Tab Stops.
 * tab-width:                             Display Vars.
 * tag-mark-stack-max:                    Find Tag.
@@ -298,7 +296,7 @@ Variable Index
 * text-pointer-glyph:                    Mouse Selection.
 * today-invisible-calendar-hook:         Calendar Customizing.
 * today-visible-calendar-hook:           Calendar Customizing.
-* track-eol:                             Basic.
+* track-eol:                             Moving Point.
 * truncate-lines:                        Continuation Lines.
 * truncate-partial-width-windows:        Split Window.
 * vc-command-messages:                   Variables for Check-in/out.
@@ -347,6 +345,7 @@ Concept Index
 * apropos:                               Apropos.
 * architecture-specific directories:     Startup Paths.
 * arguments (from shell):                Command Switches.
+* arrow keys:                            Moving Point.
 * ASCII:                                 Intro to Keystrokes.
 * Asm mode:                              Asm Mode.
 * astronomical day numbers:              Calendar Systems.
@@ -423,8 +422,9 @@ Concept Index
 * creating files:                        Visiting.
 * current buffer:                        Buffers.
 * current stack frame:                   Lisp Debug.
-* cursor <1>:                            Basic.
+* cursor <1>:                            Inserting Text.
 * cursor:                                Point.
+* cursor motion:                         Moving Point.
 * customization <1>:                     Customization.
 * customization <2>:                     Lisp Indent.
 * customization:                         Commands.
@@ -440,9 +440,11 @@ Concept Index
 * default argument:                      Minibuffer.
 * defuns:                                Defuns.
 * Delete Frame menu item:                File Menu.
+* deleting blank lines:                  Blank Lines.
+* deleting characters and lines:         Erasing.
 * deleting menu items:                   Menu Customization.
 * deletion <1>:                          Killing.
-* deletion:                              Basic.
+* deletion:                              Inserting Text.
 * deletion (of files) <1>:               Misc File Ops.
 * deletion (of files):                   Dired.
 * diary:                                 Diary.
@@ -474,9 +476,9 @@ Concept Index
 * enabling menu items:                   Menu Customization.
 * encoding of characters:                Mule.
 * End Macro Recording menu item:         Edit Menu.
-* entering Emacs:                        Entering Emacs.
 * entering XEmacs:                       Entering Emacs.
 * environment:                           Single Shell.
+* erasing characters and lines:          Erasing.
 * error log:                             Compilation.
 * etags program:                         Create Tags Table.
 * Ethiopic calendar:                     Calendar Systems.
@@ -494,7 +496,7 @@ Concept Index
 * file protection:                       Interlocking.
 * files <1>:                             Visiting.
 * files <2>:                             Files.
-* files:                                 Basic.
+* files:                                 Basic Files.
 * fill prefix:                           Fill Prefix.
 * filling:                               Filling.
 * Font menu item:                        Options Menu.
@@ -506,9 +508,10 @@ Concept Index
 * function <1>:                          Key Bindings.
 * function:                              Commands.
 * General Public License:                License.
+* getting help with keys:                Basic Help.
 * global keymap:                         Keymaps.
 * global substitution:                   Replace.
-* graphic characters:                    Basic.
+* graphic characters:                    Inserting Text.
 * Greek:                                 Mule.
 * Gregorian calendar:                    Other Calendars.
 * grinding:                              Grinding.
@@ -526,6 +529,7 @@ Concept Index
 * holiday forms:                         Holiday Customizing.
 * holidays:                              Holidays.
 * horizontal scrolling:                  Horizontal Scrolling.
+* Icomplete mode:                        Completion Options.
 * ignoriginal:                           Dissociated Press.
 * indentation <1>:                       Comments.
 * indentation <2>:                       Grinding.
@@ -535,7 +539,8 @@ Concept Index
 * init file:                             Init File.
 * input methods:                         Input Methods.
 * Insert File... menu item:              File Menu.
-* insertion:                             Basic.
+* inserting blank lines:                 Blank Lines.
+* insertion:                             Inserting Text.
 * international scripts:                 Mule.
 * interval operator (in regexps):        Etags Regexps.
 * invisible lines:                       Outline Mode.
@@ -559,15 +564,18 @@ Concept Index
 * Kill Buffer menu item:                 File Menu.
 * kill ring:                             Yanking.
 * killing:                               Killing.
+* killing characters and lines:          Erasing.
 * killing Emacs:                         Exiting.
 * Korean:                                Mule.
 * language environments:                 Language Environments.
 * last package hierarchies:              Startup Paths.
 * late package hierarchies:              Startup Paths.
 * LaTeX:                                 TeX Mode.
+* leaving Emacs:                         Exiting.
 * libraries:                             Lisp Libraries.
 * license to copy XEmacs:                License.
 * line number:                           Position Info.
+* line wrapping:                         Continuation Lines.
 * Lisp:                                  Programs.
 * Lisp mode:                             Program Modes.
 * list:                                  Lists.
@@ -617,15 +625,18 @@ Concept Index
 * moon, phases of:                       Lunar Phases.
 * mouse operations:                      Additional Mouse Operations.
 * mouse selection:                       Mouse Selection.
+* movement:                              Moving Point.
 * moving inside the calendar:            Calendar Motion.
+* moving point:                          Moving Point.
 * moving text:                           Yanking.
+* moving the cursor:                     Moving Point.
 * MULE:                                  Mule.
 * multi-frame XEmacs:                    XEmacs under X.
 * multibyte characters:                  Mule.
 * named configurations (RCS):            Snapshot Caveats.
 * narrowing:                             Narrowing.
 * New Frame menu item:                   File Menu.
-* newline:                               Basic.
+* newline:                               Inserting Text.
 * non-incremental search:                Non-Incremental Search.
 * nroff:                                 Nroff Mode.
 * numeric arguments:                     Arguments.
@@ -659,7 +670,7 @@ Concept Index
 * Persian calendar:                      Calendar Systems.
 * phases of the moon:                    Lunar Phases.
 * pictures:                              Picture.
-* point <1>:                             Basic.
+* point <1>:                             Inserting Text.
 * point:                                 Point.
 * pointer face:                          Mouse Selection.
 * pointer shapes:                        Mouse Selection.
@@ -674,7 +685,8 @@ Concept Index
 * query replace:                         Query Replace.
 * quitting:                              Quitting.
 * quitting (in search):                  Incremental Search.
-* quoting:                               Basic.
+* quitting Emacs:                        Exiting.
+* quoting:                               Inserting Text.
 * random sentences:                      CONX.
 * RCS:                                   Concepts of VC.
 * Read Only menu item:                   Options Menu.
@@ -736,6 +748,7 @@ Concept Index
 * spelling:                              Spelling.
 * Split Frame:                           File Menu.
 * Start Macro Recording menu item:       Edit Menu.
+* starting XEmacs:                       Entering Emacs.
 * startup paths:                         Startup Paths.
 * string substitution:                   Replace.
 * subshell:                              Shell.
@@ -787,6 +800,7 @@ Concept Index
 * words <2>:                             Words.
 * words:                                 Fixing Case.
 * work file:                             Concepts of VC.
+* wrapping:                              Continuation Lines.
 * X resources:                           X Resources.
 * yahrzeits <1>:                         Sexp Diary Entries.
 * yahrzeits:                             From Other Calendar.

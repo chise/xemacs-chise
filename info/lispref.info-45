@@ -50,6 +50,202 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: CCL Expressions,  Next: Calling CCL,  Prev: CCL Statements,  Up: CCL
+
+CCL Expressions
+---------------
+
+   CCL, unlike Lisp, uses infix expressions.  The simplest CCL
+expressions consist of a single OPERAND, either a register (one of `r0',
+..., `r0') or an integer.  Complex expressions are lists of the form `(
+EXPRESSION OPERATOR OPERAND )'.  Unlike C, assignments are not
+expressions.
+
+   In the following table, X is the target resister for a "set".  In
+subexpressions, this is implicitly `r7'.  This means that `>8', `//',
+`de-sjis', and `en-sjis' cannot be used freely in subexpressions, since
+they return parts of their values in `r7'.  Y may be an expression,
+register, or integer, while Z must be a register or an integer.
+
+Name             Operator   Code   C-like Description
+CCL_PLUS         `+'        0x00   X = Y + Z
+CCL_MINUS        `-'        0x01   X = Y - Z
+CCL_MUL          `*'        0x02   X = Y * Z
+CCL_DIV          `/'        0x03   X = Y / Z
+CCL_MOD          `%'        0x04   X = Y % Z
+CCL_AND          `&'        0x05   X = Y & Z
+CCL_OR           `|'        0x06   X = Y | Z
+CCL_XOR          `^'        0x07   X = Y ^ Z
+CCL_LSH          `<<'       0x08   X = Y << Z
+CCL_RSH          `>>'       0x09   X = Y >> Z
+CCL_LSH8         `<8'       0x0A   X = (Y << 8) | Z
+CCL_RSH8         `>8'       0x0B   X = Y >> 8, r[7] = Y & 0xFF
+CCL_DIVMOD       `//'       0x0C   X = Y / Z, r[7] = Y % Z
+CCL_LS           `<'        0x10   X = (X < Y)
+CCL_GT           `>'        0x11   X = (X > Y)
+CCL_EQ           `=='       0x12   X = (X == Y)
+CCL_LE           `<='       0x13   X = (X <= Y)
+CCL_GE           `>='       0x14   X = (X >= Y)
+CCL_NE           `!='       0x15   X = (X != Y)
+CCL_ENCODE_SJIS  `en-sjis'  0x16   X = HIGHER_BYTE (SJIS (Y, Z))
+                                   r[7] = LOWER_BYTE (SJIS (Y, Z)
+CCL_DECODE_SJIS  `de-sjis'  0x17   X = HIGHER_BYTE (DE-SJIS (Y, Z))
+                                   r[7] = LOWER_BYTE (DE-SJIS (Y, Z))
+
+   The CCL operators are as in C, with the addition of CCL_LSH8,
+CCL_RSH8, CCL_DIVMOD, CCL_ENCODE_SJIS, and CCL_DECODE_SJIS.  The
+CCL_ENCODE_SJIS and CCL_DECODE_SJIS treat their first and second bytes
+as the high and low bytes of a two-byte character code.  (SJIS stands
+for Shift JIS, an encoding of Japanese characters used by Microsoft.
+CCL_ENCODE_SJIS is a complicated transformation of the Japanese
+standard JIS encoding to Shift JIS.  CCL_DECODE_SJIS is its inverse.)
+It is somewhat odd to represent the SJIS operations in infix form.
+
+
+File: lispref.info,  Node: Calling CCL,  Next: CCL Examples,  Prev: CCL Expressions,  Up: CCL
+
+Calling CCL
+-----------
+
+   CCL programs are called automatically during Emacs buffer I/O when
+the external representation has a coding system type of `shift-jis',
+`big5', or `ccl'.  The program is specified by the coding system (*note
+Coding Systems::).  You can also call CCL programs from other CCL
+programs, and from Lisp using these functions:
+
+ - Function: ccl-execute ccl-program status
+     Execute CCL-PROGRAM with registers initialized by STATUS.
+     CCL-PROGRAM is a vector of compiled CCL code created by
+     `ccl-compile'.  It is an error for the program to try to execute a
+     CCL I/O command.  STATUS must be a vector of nine values,
+     specifying the initial value for the R0, R1 .. R7 registers and
+     for the instruction counter IC.  A `nil' value for a register
+     initializer causes the register to be set to 0.  A `nil' value for
+     the IC initializer causes execution to start at the beginning of
+     the program.  When the program is done, STATUS is modified (by
+     side-effect) to contain the ending values for the corresponding
+     registers and IC.
+
+ - Function: ccl-execute-on-string ccl-program status str &optional
+          continue
+     Execute CCL-PROGRAM with initial STATUS on STRING.  CCL-PROGRAM is
+     a vector of compiled CCL code created by `ccl-compile'.  STATUS
+     must be a vector of nine values, specifying the initial value for
+     the R0, R1 .. R7 registers and for the instruction counter IC.  A
+     `nil' value for a register initializer causes the register to be
+     set to 0.  A `nil' value for the IC initializer causes execution
+     to start at the beginning of the program.  An optional fourth
+     argument CONTINUE, if non-nil, causes the IC to remain on the
+     unsatisfied read operation if the program terminates due to
+     exhaustion of the input buffer.  Otherwise the IC is set to the end
+     of the program.  When the program is done, STATUS is modified (by
+     side-effect) to contain the ending values for the corresponding
+     registers and IC.  Returns the resulting string.
+
+   To call a CCL program from another CCL program, it must first be
+registered:
+
+ - Function: register-ccl-program name ccl-program
+     Register NAME for CCL program PROGRAM in `ccl-program-table'.
+     PROGRAM should be the compiled form of a CCL program, or nil.
+     Return index number of the registered CCL program.
+
+   Information about the processor time used by the CCL interpreter can
+be obtained using these functions:
+
+ - Function: ccl-elapsed-time
+     Returns the elapsed processor time of the CCL interpreter as cons
+     of user and system time, as floating point numbers measured in
+     seconds.  If only one overall value can be determined, the return
+     value will be a cons of that value and 0.
+
+ - Function: ccl-reset-elapsed-time
+     Resets the CCL interpreter's internal elapsed time registers.
+
+
+File: lispref.info,  Node: CCL Examples,  Prev: Calling CCL,  Up: CCL
+
+CCL Examples
+------------
+
+   This section is not yet written.
+
+
+File: lispref.info,  Node: Category Tables,  Prev: CCL,  Up: MULE
+
+Category Tables
+===============
+
+   A category table is a type of char table used for keeping track of
+categories.  Categories are used for classifying characters for use in
+regexps--you can refer to a category rather than having to use a
+complicated [] expression (and category lookups are significantly
+faster).
+
+   There are 95 different categories available, one for each printable
+character (including space) in the ASCII charset.  Each category is
+designated by one such character, called a "category designator".  They
+are specified in a regexp using the syntax `\cX', where X is a category
+designator. (This is not yet implemented.)
+
+   A category table specifies, for each character, the categories that
+the character is in.  Note that a character can be in more than one
+category.  More specifically, a category table maps from a character to
+either the value `nil' (meaning the character is in no categories) or a
+95-element bit vector, specifying for each of the 95 categories whether
+the character is in that category.
+
+   Special Lisp functions are provided that abstract this, so you do not
+have to directly manipulate bit vectors.
+
+ - Function: category-table-p obj
+     This function returns `t' if ARG is a category table.
+
+ - Function: category-table &optional buffer
+     This function returns the current category table.  This is the one
+     specified by the current buffer, or by BUFFER if it is non-`nil'.
+
+ - Function: standard-category-table
+     This function returns the standard category table.  This is the
+     one used for new buffers.
+
+ - Function: copy-category-table &optional table
+     This function constructs a new category table and return it.  It
+     is a copy of the TABLE, which defaults to the standard category
+     table.
+
+ - Function: set-category-table table &optional buffer
+     This function selects a new category table for BUFFER.  One
+     argument, a category table.  BUFFER defaults to the current buffer
+     if omitted.
+
+ - Function: category-designator-p obj
+     This function returns `t' if ARG is a category designator (a char
+     in the range `' '' to `'~'').
+
+ - Function: category-table-value-p obj
+     This function returns `t' if ARG is a category table value.  Valid
+     values are `nil' or a bit vector of size 95.
+
+
+File: lispref.info,  Node: Tips,  Next: Building XEmacs and Object Allocation,  Prev: MULE,  Up: Top
+
+Tips and Standards
+******************
+
+   This chapter describes no additional features of XEmacs Lisp.
+Instead it gives advice on making effective use of the features
+described in the previous chapters.
+
+* Menu:
+
+* Style Tips::                Writing clean and robust programs.
+* Compilation Tips::          Making compiled code run fast.
+* Documentation Tips::        Writing readable documentation strings.
+* Comment Tips::	      Conventions for writing comments.
+* Library Headers::           Standard headers for library packages.
+
+
 File: lispref.info,  Node: Style Tips,  Next: Compilation Tips,  Up: Tips
 
 Writing Clean Lisp Programs
@@ -800,403 +996,4 @@ ones.
      has before and after dumping.
 
      You should not change this flag in a running XEmacs.
-
-
-File: lispref.info,  Node: Garbage Collection,  Prev: Pure Storage,  Up: Building XEmacs and Object Allocation
-
-Garbage Collection
-==================
-
-   When a program creates a list or the user defines a new function
-(such as by loading a library), that data is placed in normal storage.
-If normal storage runs low, then XEmacs asks the operating system to
-allocate more memory in blocks of 2k bytes.  Each block is used for one
-type of Lisp object, so symbols, cons cells, markers, etc., are
-segregated in distinct blocks in memory.  (Vectors, long strings,
-buffers and certain other editing types, which are fairly large, are
-allocated in individual blocks, one per object, while small strings are
-packed into blocks of 8k bytes. [More correctly, a string is allocated
-in two sections: a fixed size chunk containing the length, list of
-extents, etc.; and a chunk containing the actual characters in the
-string.  It is this latter chunk that is either allocated individually
-or packed into 8k blocks.  The fixed size chunk is packed into 2k
-blocks, as for conses, markers, etc.])
-
-   It is quite common to use some storage for a while, then release it
-by (for example) killing a buffer or deleting the last pointer to an
-object.  XEmacs provides a "garbage collector" to reclaim this
-abandoned storage.  (This name is traditional, but "garbage recycler"
-might be a more intuitive metaphor for this facility.)
-
-   The garbage collector operates by finding and marking all Lisp
-objects that are still accessible to Lisp programs.  To begin with, it
-assumes all the symbols, their values and associated function
-definitions, and any data presently on the stack, are accessible.  Any
-objects that can be reached indirectly through other accessible objects
-are also accessible.
-
-   When marking is finished, all objects still unmarked are garbage.  No
-matter what the Lisp program or the user does, it is impossible to refer
-to them, since there is no longer a way to reach them.  Their space
-might as well be reused, since no one will miss them.  The second
-("sweep") phase of the garbage collector arranges to reuse them.
-
-   The sweep phase puts unused cons cells onto a "free list" for future
-allocation; likewise for symbols, markers, extents, events, floats,
-compiled-function objects, and the fixed-size portion of strings.  It
-compacts the accessible small string-chars chunks so they occupy fewer
-8k blocks; then it frees the other 8k blocks.  Vectors, buffers,
-windows, and other large objects are individually allocated and freed
-using `malloc' and `free'.
-
-     Common Lisp note: unlike other Lisps, XEmacs Lisp does not call
-     the garbage collector when the free list is empty.  Instead, it
-     simply requests the operating system to allocate more storage, and
-     processing continues until `gc-cons-threshold' bytes have been
-     used.
-
-     This means that you can make sure that the garbage collector will
-     not run during a certain portion of a Lisp program by calling the
-     garbage collector explicitly just before it (provided that portion
-     of the program does not use so much space as to force a second
-     garbage collection).
-
- - Command: garbage-collect
-     This command runs a garbage collection, and returns information on
-     the amount of space in use.  (Garbage collection can also occur
-     spontaneously if you use more than `gc-cons-threshold' bytes of
-     Lisp data since the previous garbage collection.)
-
-     `garbage-collect' returns a list containing the following
-     information:
-
-          ((USED-CONSES . FREE-CONSES)
-           (USED-SYMS . FREE-SYMS)
-           (USED-MARKERS . FREE-MARKERS)
-           USED-STRING-CHARS
-           USED-VECTOR-SLOTS
-           (PLIST))
-          
-          => ((73362 . 8325) (13718 . 164)
-          (5089 . 5098) 949121 118677
-          (conses-used 73362 conses-free 8329 cons-storage 658168
-          symbols-used 13718 symbols-free 164 symbol-storage 335216
-          bit-vectors-used 0 bit-vectors-total-length 0
-          bit-vector-storage 0 vectors-used 7882
-          vectors-total-length 118677 vector-storage 537764
-          compiled-functions-used 1336 compiled-functions-free 37
-          compiled-function-storage 44440 short-strings-used 28829
-          long-strings-used 2 strings-free 7722
-          short-strings-total-length 916657 short-string-storage 1179648
-          long-strings-total-length 32464 string-header-storage 441504
-          floats-used 3 floats-free 43 float-storage 2044 markers-used 5089
-          markers-free 5098 marker-storage 245280 events-used 103
-          events-free 835 event-storage 110656 extents-used 10519
-          extents-free 2718 extent-storage 372736
-          extent-auxiliarys-used 111 extent-auxiliarys-freed 3
-          extent-auxiliary-storage 4440 window-configurations-used 39
-          window-configurations-on-free-list 5
-          window-configurations-freed 10 window-configuration-storage 9492
-          popup-datas-used 3 popup-data-storage 72 toolbar-buttons-used 62
-          toolbar-button-storage 4960 toolbar-datas-used 12
-          toolbar-data-storage 240 symbol-value-buffer-locals-used 182
-          symbol-value-buffer-local-storage 5824
-          symbol-value-lisp-magics-used 22
-          symbol-value-lisp-magic-storage 1496
-          symbol-value-varaliases-used 43
-          symbol-value-varalias-storage 1032 opaque-lists-used 2
-          opaque-list-storage 48 color-instances-used 12
-          color-instance-storage 288 font-instances-used 5
-          font-instance-storage 180 opaques-used 11 opaque-storage 312
-          range-tables-used 1 range-table-storage 16 faces-used 34
-          face-storage 2584 glyphs-used 124 glyph-storage 4464
-          specifiers-used 775 specifier-storage 43869 weak-lists-used 786
-          weak-list-storage 18864 char-tables-used 40
-          char-table-storage 41920 buffers-used 25 buffer-storage 7000
-          extent-infos-used 457 extent-infos-freed 73
-          extent-info-storage 9140 keymaps-used 275 keymap-storage 12100
-          consoles-used 4 console-storage 384 command-builders-used 2
-          command-builder-storage 120 devices-used 2 device-storage 344
-          frames-used 3 frame-storage 624 image-instances-used 47
-          image-instance-storage 3008 windows-used 27 windows-freed 2
-          window-storage 9180 lcrecord-lists-used 15
-          lcrecord-list-storage 360 hash-tables-used 631
-          hash-table-storage 25240 streams-used 1 streams-on-free-list 3
-          streams-freed 12 stream-storage 91))
-
-     Here is a table explaining each element:
-
-    USED-CONSES
-          The number of cons cells in use.
-
-    FREE-CONSES
-          The number of cons cells for which space has been obtained
-          from the operating system, but that are not currently being
-          used.
-
-    USED-SYMS
-          The number of symbols in use.
-
-    FREE-SYMS
-          The number of symbols for which space has been obtained from
-          the operating system, but that are not currently being used.
-
-    USED-MARKERS
-          The number of markers in use.
-
-    FREE-MARKERS
-          The number of markers for which space has been obtained from
-          the operating system, but that are not currently being used.
-
-    USED-STRING-CHARS
-          The total size of all strings, in characters.
-
-    USED-VECTOR-SLOTS
-          The total number of elements of existing vectors.
-
-    PLIST
-          A list of alternating keyword/value pairs providing more
-          detailed information. (As you can see above, quite a lot of
-          information is provided.)
-
- - User Option: gc-cons-threshold
-     The value of this variable is the number of bytes of storage that
-     must be allocated for Lisp objects after one garbage collection in
-     order to trigger another garbage collection.  A cons cell counts
-     as eight bytes, a string as one byte per character plus a few
-     bytes of overhead, and so on; space allocated to the contents of
-     buffers does not count.  Note that the subsequent garbage
-     collection does not happen immediately when the threshold is
-     exhausted, but only the next time the Lisp evaluator is called.
-
-     The initial threshold value is 500,000.  If you specify a larger
-     value, garbage collection will happen less often.  This reduces the
-     amount of time spent garbage collecting, but increases total
-     memory use.  You may want to do this when running a program that
-     creates lots of Lisp data.
-
-     You can make collections more frequent by specifying a smaller
-     value, down to 10,000.  A value less than 10,000 will remain in
-     effect only until the subsequent garbage collection, at which time
-     `garbage-collect' will set the threshold back to 10,000. (This does
-     not apply if XEmacs was configured with `--debug'.  Therefore, be
-     careful when setting `gc-cons-threshold' in that case!)
-
- - Function: memory-limit
-     This function returns the address of the last byte XEmacs has
-     allocated, divided by 1024.  We divide the value by 1024 to make
-     sure it fits in a Lisp integer.
-
-     You can use this to get a general idea of how your actions affect
-     the memory usage.
-
- - Variable: pre-gc-hook
-     This is a normal hook to be run just before each garbage
-     collection.  Interrupts, garbage collection, and errors are
-     inhibited while this hook runs, so be extremely careful in what
-     you add here.  In particular, avoid consing, and do not interact
-     with the user.
-
- - Variable: post-gc-hook
-     This is a normal hook to be run just after each garbage collection.
-     Interrupts, garbage collection, and errors are inhibited while
-     this hook runs, so be extremely careful in what you add here.  In
-     particular, avoid consing, and do not interact with the user.
-
- - Variable: gc-message
-     This is a string to print to indicate that a garbage collection is
-     in progress.  This is printed in the echo area.  If the selected
-     frame is on a window system and `gc-pointer-glyph' specifies a
-     value (i.e. a pointer image instance) in the domain of the
-     selected frame, the mouse cursor will change instead of this
-     message being printed.
-
- - Glyph: gc-pointer-glyph
-     This holds the pointer glyph used to indicate that a garbage
-     collection is in progress.  If the selected window is on a window
-     system and this glyph specifies a value (i.e. a pointer image
-     instance) in the domain of the selected window, the cursor will be
-     changed as specified during garbage collection.  Otherwise, a
-     message will be printed in the echo area, as controlled by
-     `gc-message'.  *Note Glyphs::.
-
-   If XEmacs was configured with `--debug', you can set the following
-two variables to get direct information about all the allocation that
-is happening in a segment of Lisp code.
-
- - Variable: debug-allocation
-     If non-zero, print out information to stderr about all objects
-     allocated.
-
- - Variable: debug-allocation-backtrace
-     Length (in stack frames) of short backtrace printed out by
-     `debug-allocation'.
-
-
-File: lispref.info,  Node: Standard Errors,  Next: Standard Buffer-Local Variables,  Prev: Building XEmacs and Object Allocation,  Up: Top
-
-Standard Errors
-***************
-
-   Here is the complete list of the error symbols in standard Emacs,
-grouped by concept.  The list includes each symbol's message (on the
-`error-message' property of the symbol) and a cross reference to a
-description of how the error can occur.
-
-   Each error symbol has an `error-conditions' property that is a list
-of symbols.  Normally this list includes the error symbol itself and
-the symbol `error'.  Occasionally it includes additional symbols, which
-are intermediate classifications, narrower than `error' but broader
-than a single error symbol.  For example, all the errors in accessing
-files have the condition `file-error'.
-
-   As a special exception, the error symbol `quit' does not have the
-condition `error', because quitting is not considered an error.
-
-   *Note Errors::, for an explanation of how errors are generated and
-handled.
-
-`SYMBOL'
-     STRING; REFERENCE.
-
-`error'
-     `"error"'
-     *Note Errors::.
-
-`quit'
-     `"Quit"'
-     *Note Quitting::.
-
-`args-out-of-range'
-     `"Args out of range"'
-     *Note Sequences Arrays Vectors::.
-
-`arith-error'
-     `"Arithmetic error"'
-     See `/' and `%' in *Note Numbers::.
-
-`beginning-of-buffer'
-     `"Beginning of buffer"'
-     *Note Motion::.
-
-`buffer-read-only'
-     `"Buffer is read-only"'
-     *Note Read Only Buffers::.
-
-`cyclic-function-indirection'
-     `"Symbol's chain of function indirections contains a loop"'
-     *Note Function Indirection::.
-
-`domain-error'
-     `"Arithmetic domain error"'
-`end-of-buffer'
-     `"End of buffer"'
-     *Note Motion::.
-
-`end-of-file'
-     `"End of file during parsing"'
-     This is not a `file-error'.
-     *Note Input Functions::.
-
-`file-error'
-     This error and its subcategories do not have error-strings,
-     because the error message is constructed from the data items alone
-     when the error condition `file-error' is present.
-     *Note Files::.
-
-`file-locked'
-     This is a `file-error'.
-     *Note File Locks::.
-
-`file-already-exists'
-     This is a `file-error'.
-     *Note Writing to Files::.
-
-`file-supersession'
-     This is a `file-error'.
-     *Note Modification Time::.
-
-`invalid-byte-code'
-     `"Invalid byte code"'
-     *Note Byte Compilation::.
-
-`invalid-function'
-     `"Invalid function"'
-     *Note Classifying Lists::.
-
-`invalid-read-syntax'
-     `"Invalid read syntax"'
-     *Note Input Functions::.
-
-`invalid-regexp'
-     `"Invalid regexp"'
-     *Note Regular Expressions::.
-
-`mark-inactive'
-     `"The mark is not active now"'
-`no-catch'
-     `"No catch for tag"'
-     *Note Catch and Throw::.
-
-`overflow-error'
-     `"Arithmetic overflow error"'
-`protected-field'
-     `"Attempt to modify a protected field"'
-`range-error'
-     `"Arithmetic range error"'
-`search-failed'
-     `"Search failed"'
-     *Note Searching and Matching::.
-
-`setting-constant'
-     `"Attempt to set a constant symbol"'
-     *Note Variables that Never Change: Constant Variables.
-
-`singularity-error'
-     `"Arithmetic singularity error"'
-`tooltalk-error'
-     `"ToolTalk error"'
-     *Note ToolTalk Support::.
-
-`undefined-keystroke-sequence'
-     `"Undefined keystroke sequence"'
-`void-function'
-     `"Symbol's function definition is void"'
-     *Note Function Cells::.
-
-`void-variable'
-     `"Symbol's value as variable is void"'
-     *Note Accessing Variables::.
-
-`wrong-number-of-arguments'
-     `"Wrong number of arguments"'
-     *Note Classifying Lists::.
-
-`wrong-type-argument'
-     `"Wrong type argument"'
-     *Note Type Predicates::.
-
-   These error types, which are all classified as special cases of
-`arith-error', can occur on certain systems for invalid use of
-mathematical functions.
-
-`domain-error'
-     `"Arithmetic domain error"'
-     *Note Math Functions::.
-
-`overflow-error'
-     `"Arithmetic overflow error"'
-     *Note Math Functions::.
-
-`range-error'
-     `"Arithmetic range error"'
-     *Note Math Functions::.
-
-`singularity-error'
-     `"Arithmetic singularity error"'
-     *Note Math Functions::.
-
-`underflow-error'
-     `"Arithmetic underflow error"'
-     *Note Math Functions::.
 

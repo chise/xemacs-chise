@@ -50,6 +50,106 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: %-Constructs,  Prev: Modeline Variables,  Up: Modeline Format
+
+`%'-Constructs in the ModeLine
+------------------------------
+
+   The following table lists the recognized `%'-constructs and what
+they mean.  In any construct except `%%', you can add a decimal integer
+after the `%' to specify how many characters to display.
+
+`%b'
+     The current buffer name, obtained with the `buffer-name' function.
+     *Note Buffer Names::.
+
+`%f'
+     The visited file name, obtained with the `buffer-file-name'
+     function.  *Note Buffer File Name::.
+
+`%F'
+     The name of the selected frame.
+
+`%c'
+     The current column number of point.
+
+`%l'
+     The current line number of point.
+
+`%*'
+     `%' if the buffer is read only (see `buffer-read-only');
+     `*' if the buffer is modified (see `buffer-modified-p');
+     `-' otherwise.  *Note Buffer Modification::.
+
+`%+'
+     `*' if the buffer is modified (see `buffer-modified-p');
+     `%' if the buffer is read only (see `buffer-read-only');
+     `-' otherwise.  This differs from `%*' only for a modified
+     read-only buffer.  *Note Buffer Modification::.
+
+`%&'
+     `*' if the buffer is modified, and `-' otherwise.
+
+`%s'
+     The status of the subprocess belonging to the current buffer,
+     obtained with `process-status'.  *Note Process Information::.
+
+`%l'
+     The current line number.
+
+`%S'
+     The name of the selected frame; this is only meaningful under the
+     X Window System.  *Note Frame Name::.
+
+`%t'
+     Whether the visited file is a text file or a binary file.  (This
+     is a meaningful distinction only on certain operating systems.)
+
+`%p'
+     The percentage of the buffer text above the *top* of window, or
+     `Top', `Bottom' or `All'.
+
+`%P'
+     The percentage of the buffer text that is above the *bottom* of
+     the window (which includes the text visible in the window, as well
+     as the text above the top), plus `Top' if the top of the buffer is
+     visible on screen; or `Bottom' or `All'.
+
+`%n'
+     `Narrow' when narrowing is in effect; nothing otherwise (see
+     `narrow-to-region' in *Note Narrowing::).
+
+`%C'
+     Under XEmacs/mule, the mnemonic for `buffer-file-coding-system'.
+
+`%['
+     An indication of the depth of recursive editing levels (not
+     counting minibuffer levels): one `[' for each editing level.
+     *Note Recursive Editing::.
+
+`%]'
+     One `]' for each recursive editing level (not counting minibuffer
+     levels).
+
+`%%'
+     The character `%'--this is how to include a literal `%' in a
+     string in which `%'-constructs are allowed.
+
+`%-'
+     Dashes sufficient to fill the remainder of the modeline.
+
+   The following two `%'-constructs are still supported, but they are
+obsolete, since you can get the same results with the variables
+`mode-name' and `global-mode-string'.
+
+`%m'
+     The value of `mode-name'.
+
+`%M'
+     The value of `global-mode-string'.  Currently, only `display-time'
+     modifies the value of `global-mode-string'.
+
+
 File: lispref.info,  Node: Hooks,  Prev: Modeline Format,  Up: Modes
 
 Hooks
@@ -1007,133 +1107,4 @@ call them directly.
 
      The last thing `after-find-file' does is call all the functions in
      `find-file-hooks'.
-
-
-File: lispref.info,  Node: Saving Buffers,  Next: Reading from Files,  Prev: Visiting Files,  Up: Files
-
-Saving Buffers
-==============
-
-   When you edit a file in XEmacs, you are actually working on a buffer
-that is visiting that file--that is, the contents of the file are
-copied into the buffer and the copy is what you edit.  Changes to the
-buffer do not change the file until you "save" the buffer, which means
-copying the contents of the buffer into the file.
-
- - Command: save-buffer &optional backup-option
-     This function saves the contents of the current buffer in its
-     visited file if the buffer has been modified since it was last
-     visited or saved.  Otherwise it does nothing.
-
-     `save-buffer' is responsible for making backup files.  Normally,
-     BACKUP-OPTION is `nil', and `save-buffer' makes a backup file only
-     if this is the first save since visiting the file.  Other values
-     for BACKUP-OPTION request the making of backup files in other
-     circumstances:
-
-        * With an argument of 4 or 64, reflecting 1 or 3 `C-u''s, the
-          `save-buffer' function marks this version of the file to be
-          backed up when the buffer is next saved.
-
-        * With an argument of 16 or 64, reflecting 2 or 3 `C-u''s, the
-          `save-buffer' function unconditionally backs up the previous
-          version of the file before saving it.
-
- - Command: save-some-buffers &optional save-silently-p exiting
-     This command saves some modified file-visiting buffers.  Normally
-     it asks the user about each buffer.  But if SAVE-SILENTLY-P is
-     non-`nil', it saves all the file-visiting buffers without querying
-     the user.
-
-     The optional EXITING argument, if non-`nil', requests this
-     function to offer also to save certain other buffers that are not
-     visiting files.  These are buffers that have a non-`nil' local
-     value of `buffer-offer-save'.  (A user who says yes to saving one
-     of these is asked to specify a file name to use.)  The
-     `save-buffers-kill-emacs' function passes a non-`nil' value for
-     this argument.
-
- - Variable: buffer-offer-save
-     When this variable is non-`nil' in a buffer, XEmacs offers to save
-     the buffer on exit even if the buffer is not visiting a file.  The
-     variable is automatically local in all buffers.  Normally, Mail
-     mode (used for editing outgoing mail) sets this to `t'.
-
- - Command: write-file filename
-     This function writes the current buffer into file FILENAME, makes
-     the buffer visit that file, and marks it not modified.  Then it
-     renames the buffer based on FILENAME, appending a string like `<2>'
-     if necessary to make a unique buffer name.  It does most of this
-     work by calling `set-visited-file-name' and `save-buffer'.
-
- - Variable: write-file-hooks
-     The value of this variable is a list of functions to be called
-     before writing out a buffer to its visited file.  If one of them
-     returns non-`nil', the file is considered already written and the
-     rest of the functions are not called, nor is the usual code for
-     writing the file executed.
-
-     If a function in `write-file-hooks' returns non-`nil', it is
-     responsible for making a backup file (if that is appropriate).  To
-     do so, execute the following code:
-
-          (or buffer-backed-up (backup-buffer))
-
-     You might wish to save the file modes value returned by
-     `backup-buffer' and use that to set the mode bits of the file that
-     you write.  This is what `save-buffer' normally does.
-
-     Even though this is not a normal hook, you can use `add-hook' and
-     `remove-hook' to manipulate the list.  *Note Hooks::.
-
- - Variable: local-write-file-hooks
-     This works just like `write-file-hooks', but it is intended to be
-     made local to particular buffers.  It's not a good idea to make
-     `write-file-hooks' local to a buffer--use this variable instead.
-
-     The variable is marked as a permanent local, so that changing the
-     major mode does not alter a buffer-local value.  This is
-     convenient for packages that read "file" contents in special ways,
-     and set up hooks to save the data in a corresponding way.
-
- - Variable: write-contents-hooks
-     This works just like `write-file-hooks', but it is intended for
-     hooks that pertain to the contents of the file, as opposed to
-     hooks that pertain to where the file came from.  Such hooks are
-     usually set up by major modes, as buffer-local bindings for this
-     variable.  Switching to a new major mode always resets this
-     variable.
-
- - Variable: after-save-hook
-     This normal hook runs after a buffer has been saved in its visited
-     file.
-
- - Variable: file-precious-flag
-     If this variable is non-`nil', then `save-buffer' protects against
-     I/O errors while saving by writing the new file to a temporary
-     name instead of the name it is supposed to have, and then renaming
-     it to the intended name after it is clear there are no errors.
-     This procedure prevents problems such as a lack of disk space from
-     resulting in an invalid file.
-
-     As a side effect, backups are necessarily made by copying.  *Note
-     Rename or Copy::.  Yet, at the same time, saving a precious file
-     always breaks all hard links between the file you save and other
-     file names.
-
-     Some modes set this variable non-`nil' locally in particular
-     buffers.
-
- - User Option: require-final-newline
-     This variable determines whether files may be written out that do
-     _not_ end with a newline.  If the value of the variable is `t',
-     then `save-buffer' silently adds a newline at the end of the file
-     whenever the buffer being saved does not already end in one.  If
-     the value of the variable is non-`nil', but not `t', then
-     `save-buffer' asks the user whether to add a newline each time the
-     case arises.
-
-     If the value of the variable is `nil', then `save-buffer' doesn't
-     add newlines at all.  `nil' is the default value, but a few major
-     modes set it to `t' in particular buffers.
 

@@ -30,6 +30,100 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Paging in Term,  Prev: Term Mode,  Up: Shell
+
+Paging in the terminal emulator
+-------------------------------
+
+   Term mode has a pager feature.  When the pager is enabled, term mode
+will pause at the end of each screenful.
+
+`C-c C-q'
+     Toggles the pager feature:  Disables the pager if it is enabled,
+     and vice versa.  This works in both line and char modes.  If the
+     pager enabled, the mode-line contains the word `page'.
+
+   If the pager is enabled, and Term receives more than a screenful of
+output since your last input, Term will enter More break mode.  This is
+indicated by `**MORE**' in the mode-line.  Type a `Space' to display
+the next screenful of output.  Type `?' to see your other options.  The
+interface is similar to the Unix `more' program.
+
+
+File: xemacs.info,  Node: Narrowing,  Next: Hardcopy,  Prev: Shell,  Up: Top
+
+Narrowing
+=========
+
+   "Narrowing" means focusing in on some portion of the buffer, making
+the rest temporarily invisible and inaccessible.  Cancelling the
+narrowing and making the entire buffer once again visible is called
+"widening".  The amount of narrowing in effect in a buffer at any time
+is called the buffer's "restriction".
+
+`C-x n n'
+     Narrow down to between point and mark (`narrow-to-region').
+
+`C-x n w'
+     Widen to make the entire buffer visible again (`widen').
+
+   Narrowing sometimes makes it easier to concentrate on a single
+subroutine or paragraph by eliminating clutter.  It can also be used to
+restrict the range of operation of a replace command or repeating
+keyboard macro.  The word `Narrow' appears in the mode line whenever
+narrowing is in effect.  When you have narrowed to a part of the
+buffer, that part appears to be all there is.  You can't see the rest,
+can't move into it (motion commands won't go outside the visible part),
+and can't change it in any way.  However, the invisible text is not
+gone; if you save the file, it will be saved.
+
+   The primary narrowing command is `C-x n n' (`narrow-to-region').  It
+sets the current buffer's restrictions so that the text in the current
+region remains visible but all text before the region or after the
+region is invisible.  Point and mark do not change.
+
+   Because narrowing can easily confuse users who do not understand it,
+`narrow-to-region' is normally a disabled command.  Attempting to use
+this command asks for confirmation and gives you the option of enabling
+it; once you enable the command, confirmation will no longer be
+required.  *Note Disabling::.
+
+   To undo narrowing, use `C-x n w' (`widen').  This makes all text in
+the buffer accessible again.
+
+   Use the `C-x =' command to get information on what part of the
+buffer you narrowed down.  *Note Position Info::.
+
+
+File: xemacs.info,  Node: Hardcopy,  Next: Recursive Edit,  Prev: Narrowing,  Up: Top
+
+Hardcopy Output
+===============
+
+   The XEmacs commands for making hardcopy derive their names from the
+Unix commands `print' and `lpr'.
+
+`M-x print-buffer'
+     Print hardcopy of current buffer using Unix command `print'
+     (`lpr -p').  This command adds page headings containing the file
+     name and page number.
+
+`M-x lpr-buffer'
+     Print hardcopy of current buffer using Unix command `lpr'.  This
+     command does not add page headings.
+
+`M-x print-region'
+     Like `print-buffer', but prints only the current region.
+
+`M-x lpr-region'
+     Like `lpr-buffer', but prints only the current region.
+
+   All the hardcopy commands pass extra switches to the `lpr' program
+based on the value of the variable `lpr-switches'.  Its value should be
+a list of strings, each string a switch starting with `-'.  For
+example, the value could be `("-Pfoo")' to print on printer `foo'.
+
+
 File: xemacs.info,  Node: Recursive Edit,  Next: Dissociated Press,  Prev: Hardcopy,  Up: Top
 
 Recursive Editing Levels
@@ -1082,63 +1176,4 @@ be defined each time you run Emacs.
 additional Lisp code to record the keys (if any) that you have bound to
 the keyboard macro, so that the macro is reassigned the same keys when
 you load the file.
-
-
-File: xemacs.info,  Node: Kbd Macro Query,  Prev: Save Kbd Macro,  Up: Keyboard Macros
-
-Executing Macros With Variations
---------------------------------
-
-   You can use `C-x q' (`kbd-macro-query'), to get an effect similar to
-that of `query-replace'.  The macro asks you  each time whether to make
-a change.  When you are defining the macro, type `C-x q' at the point
-where you want the query to occur.  During macro definition, the `C-x
-q' does nothing, but when you invoke the macro, `C-x q' reads a
-character from the terminal to decide whether to continue.
-
-   The special answers to a `C-x q' query are <SPC>, <DEL>, `C-d',
-`C-l', and `C-r'.  Any other character terminates execution of the
-keyboard macro and is then read as a command.  <SPC> means to continue.
-<DEL> means to skip the remainder of this repetition of the macro,
-starting again from the beginning in the next repetition.  `C-d' means
-to skip the remainder of this repetition and cancel further repetition.
-`C-l' redraws the frame and asks you again for a character to specify
-what to do.  `C-r' enters a recursive editing level, in which you can
-perform editing that is not part of the macro.  When you exit the
-recursive edit using `C-M-c', you are asked again how to continue with
-the keyboard macro.  If you type a <SPC> at this time, the rest of the
-macro definition is executed.  It is up to you to leave point and the
-text in a state such that the rest of the macro will do what you want.
-
-   `C-u C-x q', which is `C-x q' with a numeric argument, performs a
-different function.  It enters a recursive edit reading input from the
-keyboard, both when you type it during the definition of the macro and
-when it is executed from the macro.  During definition, the editing you
-do inside the recursive edit does not become part of the macro.  During
-macro execution, the recursive edit gives you a chance to do some
-particularized editing.  *Note Recursive Edit::.
-
-
-File: xemacs.info,  Node: Key Bindings,  Next: Syntax,  Prev: Keyboard Macros,  Up: Customization
-
-Customizing Key Bindings
-========================
-
-   This section deals with the "keymaps" that define the bindings
-between keys and functions, and shows how you can customize these
-bindings.
-
-   A command is a Lisp function whose definition provides for
-interactive use.  Like every Lisp function, a command has a function
-name, which is a Lisp symbol whose name usually consists of lower case
-letters and hyphens.
-
-* Menu:
-
-* Keymaps::    Definition of the keymap data structure.
-               Names of Emacs's standard keymaps.
-* Rebinding::  How to redefine one key's meaning conveniently.
-* Disabling::  Disabling a command means confirmation is required
-                before it can be executed.  This is done to protect
-                beginners from surprises.
 

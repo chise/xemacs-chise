@@ -684,10 +684,10 @@ functions in preference to the lower-level extent functions.  For more
 information, *Note Annotations::.
 
    If an extent has its `detachable' property set, it will become
-"detached" (i.e. no longer in the buffer) when all its text its
-deleted.  Otherwise, it will simply shrink down to zero-length and sit
-it the same place in the buffer.  By default, the `detachable' property
-is set on newly-created extents.  *Note Detached Extents::.
+"detached" (i.e. no longer in the buffer) when all its text is deleted.
+Otherwise, it will simply shrink down to zero-length and sit in the
+same place in the buffer.  By default, the `detachable' property is set
+on newly-created extents.  *Note Detached Extents::.
 
    If an extent has its `duplicable' property set, it will be
 remembered when a string is created from text bounded by the extent.

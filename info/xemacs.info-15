@@ -30,6 +30,103 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Calendar Customization,  Prev: Diary,  Up: Calendar/Diary
+
+Customizing the Calendar and Diary
+----------------------------------
+
+   There are many customizations that you can use to make the calendar
+and diary suit your personal tastes.
+
+* Menu:
+
+* Calendar Customizing::   Defaults you can set.
+* Holiday Customizing::    Defining your own holidays.
+* Date Display Format::    Changing the format.
+* Time Display Format::    Changing the format.
+* Daylight Savings::       Changing the default.
+* Diary Customizing::      Defaults you can set.
+* Hebrew/Islamic Entries:: How to obtain them.
+* Fancy Diary Display::    Enhancing the diary display, sorting entries.
+* Included Diary Files::   Sharing a common diary file.
+* Sexp Diary Entries::     Fancy things you can do.
+* Appt Customizing::	   Customizing appointment reminders.
+
+
+File: xemacs.info,  Node: Calendar Customizing,  Next: Holiday Customizing,  Up: Calendar Customization
+
+Customizing the Calendar
+........................
+
+   If you set the variable `view-diary-entries-initially' to `t',
+calling up the calendar automatically displays the diary entries for
+the current date as well.  The diary dates appear only if the current
+date is visible.  If you add both of the following lines to your
+`.emacs' file:
+
+     (setq view-diary-entries-initially t)
+     (calendar)
+
+this displays both the calendar and diary windows whenever you start
+Emacs.
+
+   Similarly, if you set the variable
+`view-calendar-holidays-initially' to `t', entering the calendar
+automatically displays a list of holidays for the current three-month
+period.  The holiday list appears in a separate window.
+
+   You can set the variable `mark-diary-entries-in-calendar' to `t' in
+order to mark any dates with diary entries.  This takes effect whenever
+the calendar window contents are recomputed.  There are two ways of
+marking these dates: by changing the face (*note Faces::), if the
+display supports that, or by placing a plus sign (`+') beside the date
+otherwise.
+
+   Similarly, setting the variable `mark-holidays-in-calendar' to `t'
+marks holiday dates, either with a change of face or with an asterisk
+(`*').
+
+   The variable `calendar-holiday-marker' specifies how to mark a date
+as being a holiday.  Its value may be a character to insert next to the
+date, or a face name to use for displaying the date.  Likewise, the
+variable `diary-entry-marker' specifies how to mark a date that has
+diary entries.  The calendar creates faces named `holiday-face' and
+`diary-face' for these purposes; those symbols are the default values
+of these variables, when Emacs supports multiple faces on your terminal.
+
+   The variable `calendar-load-hook' is a normal hook run when the
+calendar package is first loaded (before actually starting to display
+the calendar).
+
+   Starting the calendar runs the normal hook
+`initial-calendar-window-hook'.  Recomputation of the calendar display
+does not run this hook.  But if you leave the calendar with the `q'
+command and reenter it, the hook runs again.
+
+   The variable `today-visible-calendar-hook' is a normal hook run
+after the calendar buffer has been prepared with the calendar when the
+current date is visible in the window.  One use of this hook is to
+replace today's date with asterisks; to do that, use the hook function
+`calendar-star-date'.
+
+     (add-hook 'today-visible-calendar-hook 'calendar-star-date)
+
+Another standard hook function marks the current date, either by
+changing its face or by adding an asterisk.  Here's how to use it:
+
+     (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
+
+The variable `calendar-today-marker' specifies how to mark today's
+date.  Its value should be a character to insert next to the date or a
+face name to use for displaying the date.  A face named
+`calendar-today-face' is provided for this purpose; that symbol is the
+default for this variable when Emacs supports multiple faces on your
+terminal.
+
+A similar normal hook, `today-invisible-calendar-hook' is run if the
+current date is _not_ visible in the window.
+
+
 File: xemacs.info,  Node: Holiday Customizing,  Next: Date Display Format,  Prev: Calendar Customizing,  Up: Calendar Customization
 
 Customizing the Holidays
@@ -1106,98 +1203,4 @@ the Term escape character, normally `C-c'.
      A prefix command to conveniently access the global <C-x> commands.
      For example, `C-c C-x o' invokes the global binding of `C-x o',
      which is normally `other-window'.
-
-
-File: xemacs.info,  Node: Paging in Term,  Prev: Term Mode,  Up: Shell
-
-Paging in the terminal emulator
--------------------------------
-
-   Term mode has a pager feature.  When the pager is enabled, term mode
-will pause at the end of each screenful.
-
-`C-c C-q'
-     Toggles the pager feature:  Disables the pager if it is enabled,
-     and vice versa.  This works in both line and char modes.  If the
-     pager enabled, the mode-line contains the word `page'.
-
-   If the pager is enabled, and Term receives more than a screenful of
-output since your last input, Term will enter More break mode.  This is
-indicated by `**MORE**' in the mode-line.  Type a `Space' to display
-the next screenful of output.  Type `?' to see your other options.  The
-interface is similar to the Unix `more' program.
-
-
-File: xemacs.info,  Node: Narrowing,  Next: Hardcopy,  Prev: Shell,  Up: Top
-
-Narrowing
-=========
-
-   "Narrowing" means focusing in on some portion of the buffer, making
-the rest temporarily invisible and inaccessible.  Cancelling the
-narrowing and making the entire buffer once again visible is called
-"widening".  The amount of narrowing in effect in a buffer at any time
-is called the buffer's "restriction".
-
-`C-x n n'
-     Narrow down to between point and mark (`narrow-to-region').
-
-`C-x n w'
-     Widen to make the entire buffer visible again (`widen').
-
-   Narrowing sometimes makes it easier to concentrate on a single
-subroutine or paragraph by eliminating clutter.  It can also be used to
-restrict the range of operation of a replace command or repeating
-keyboard macro.  The word `Narrow' appears in the mode line whenever
-narrowing is in effect.  When you have narrowed to a part of the
-buffer, that part appears to be all there is.  You can't see the rest,
-can't move into it (motion commands won't go outside the visible part),
-and can't change it in any way.  However, the invisible text is not
-gone; if you save the file, it will be saved.
-
-   The primary narrowing command is `C-x n n' (`narrow-to-region').  It
-sets the current buffer's restrictions so that the text in the current
-region remains visible but all text before the region or after the
-region is invisible.  Point and mark do not change.
-
-   Because narrowing can easily confuse users who do not understand it,
-`narrow-to-region' is normally a disabled command.  Attempting to use
-this command asks for confirmation and gives you the option of enabling
-it; once you enable the command, confirmation will no longer be
-required.  *Note Disabling::.
-
-   To undo narrowing, use `C-x n w' (`widen').  This makes all text in
-the buffer accessible again.
-
-   Use the `C-x =' command to get information on what part of the
-buffer you narrowed down.  *Note Position Info::.
-
-
-File: xemacs.info,  Node: Hardcopy,  Next: Recursive Edit,  Prev: Narrowing,  Up: Top
-
-Hardcopy Output
-===============
-
-   The XEmacs commands for making hardcopy derive their names from the
-Unix commands `print' and `lpr'.
-
-`M-x print-buffer'
-     Print hardcopy of current buffer using Unix command `print'
-     (`lpr -p').  This command adds page headings containing the file
-     name and page number.
-
-`M-x lpr-buffer'
-     Print hardcopy of current buffer using Unix command `lpr'.  This
-     command does not add page headings.
-
-`M-x print-region'
-     Like `print-buffer', but prints only the current region.
-
-`M-x lpr-region'
-     Like `lpr-buffer', but prints only the current region.
-
-   All the hardcopy commands pass extra switches to the `lpr' program
-based on the value of the variable `lpr-switches'.  Its value should be
-a list of strings, each string a switch starting with `-'.  For
-example, the value could be `("-Pfoo")' to print on printer `foo'.
 

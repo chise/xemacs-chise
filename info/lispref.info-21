@@ -50,6 +50,100 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: CDE dt,  Next: MSWindows OLE,  Prev: OffiX DND,  Up: Supported Protocols
+
+CDE dt
+------
+
+   CDE stands for Common Desktop Environment. It is based on the Motif
+widget library. It's drag'n'drop protocol is also an abstraction of the
+Motif protocol (so it might be possible, that XEmacs will also support
+the Motif protocol soon).
+
+   CDE has three different types: file, buffer, and text. XEmacs only
+uses file and buffer drags. The API will disallow full URL drags, only
+file method URLs are passed through.
+
+   Buffer drags are always converted to plain text.
+
+
+File: lispref.info,  Node: MSWindows OLE,  Next: Loose ends,  Prev: CDE dt,  Up: Supported Protocols
+
+MSWindows OLE
+-------------
+
+   Only allows file drags and drops.
+
+
+File: lispref.info,  Node: Loose ends,  Prev: MSWindows OLE,  Up: Supported Protocols
+
+Loose ends
+----------
+
+   The following protocols will be supported soon: Xdnd, Motif, Xde (if
+I get some specs), KDE OffiX (if KDE can find XEmacs windows).
+
+   In particular Xdnd will be one of the protocols that can benefit from
+the XEmacs API, cause it also uses MIME types to encode dragged data.
+
+
+File: lispref.info,  Node: Drop Interface,  Next: Drag Interface,  Prev: Supported Protocols,  Up: Drag and Drop
+
+Drop Interface
+==============
+
+   For each activated low-level protocol, a internal routine will catch
+incoming drops and convert them to a dragdrop-drop type misc-user-event.
+
+   This misc-user-event has its function argument set to
+`dragdrop-drop-dispatch' and the object contains the data of the drop
+(converted to URL/MIME specific data). This function will search the
+variable `experimental-dragdrop-drop-functions' for a function that can
+handle the dropped data.
+
+   To modify the drop behavior, the user can modify the variable
+`experimental-dragdrop-drop-functions'. Each element of this list
+specifies a possible handler for dropped data. The first one that can
+handle the data will return `t' and exit. Another possibility is to set
+a extent-property with the same name. Extents are checked prior to the
+variable.
+
+   The customization group `drag-n-drop' shows all variables of user
+interest.
+
+
+File: lispref.info,  Node: Drag Interface,  Prev: Drop Interface,  Up: Drag and Drop
+
+Drag Interface
+==============
+
+   This describes the drag API (not implemented yet).
+
+
+File: lispref.info,  Node: Modes,  Next: Documentation,  Prev: Drag and Drop,  Up: Top
+
+Major and Minor Modes
+*********************
+
+   A "mode" is a set of definitions that customize XEmacs and can be
+turned on and off while you edit.  There are two varieties of modes:
+"major modes", which are mutually exclusive and used for editing
+particular kinds of text, and "minor modes", which provide features
+that users can enable individually.
+
+   This chapter describes how to write both major and minor modes, how
+to indicate them in the modeline, and how they run hooks supplied by the
+user.  For related topics such as keymaps and syntax tables, see *Note
+Keymaps::, and *Note Syntax Tables::.
+
+* Menu:
+
+* Major Modes::        Defining major modes.
+* Minor Modes::        Defining minor modes.
+* Modeline Format::    Customizing the text that appears in the modeline.
+* Hooks::              How to use hooks; how to write code that provides hooks.
+
+
 File: lispref.info,  Node: Major Modes,  Next: Minor Modes,  Up: Modes
 
 Major Modes
@@ -813,7 +907,7 @@ The Data Structure of the Modeline
 
    The modeline contents are controlled by a data structure of lists,
 strings, symbols, and numbers kept in the buffer-local variable
-`mode-line-format'.  The data structure is called a "modeline
+`modeline-format'.  The data structure is called a "modeline
 construct", and it is built in recursive fashion out of simpler modeline
 constructs.  The same data structure is used for constructing frame
 titles (*note Frame Titles::).
@@ -834,8 +928,8 @@ variables such as `mode-name' and `minor-mode-alist'.  Because of this,
 very few modes need to alter `modeline-format'.  For most purposes, it
 is sufficient to alter the variables referenced by `modeline-format'.
 
-   A modeline construct may be a list, a symbol, or a string.  If the
-value is a list, each element may be a list, a symbol, or a string.
+   A modeline construct may be a string, symbol, glyph, generic
+specifier, list or cons cell.
 
 `STRING'
      A string as a modeline construct is displayed verbatim in the mode
@@ -845,12 +939,21 @@ value is a list, each element may be a list, a symbol, or a string.
 
 `SYMBOL'
      A symbol as a modeline construct stands for its value.  The value
-     of SYMBOL is used as a modeline construct, in place of SYMBOL.
-     However, the symbols `t' and `nil' are ignored; so is any symbol
-     whose value is void.
+     of SYMBOL is processed as a modeline construct, in place of
+     SYMBOL.  However, the symbols `t' and `nil' are ignored; so is any
+     symbol whose value is void.
 
      There is one exception: if the value of SYMBOL is a string, it is
      displayed verbatim: the `%'-constructs are not recognized.
+
+`GLYPH'
+     A glyph is displayed as is.
+
+`GENERIC-SPECIFIER'
+     A GENERIC-SPECIFIER (i.e. a specifier of type `generic') stands
+     for its instance.  The instance of GENERIC-SPECIFIER is computed
+     in the current window using the equivalent of `specifier-instance'
+     and the value is processed.
 
 `(STRING REST...) or (LIST REST...)'
      A list whose first element is a string or list means to process
@@ -876,6 +979,17 @@ value is a list, each element may be a list, a symbol, or a string.
      For example, the usual way to show what percentage of a buffer is
      above the top of the window is to use a list like this: `(-3
      "%p")'.
+
+`(EXTENT REST...)'
+     A list whose car is an extent means the cdr of the list is
+     processed normally but the results are displayed using the face of
+     the extent, and mouse clicks over this section are processed using
+     the keymap of the extent. (In addition, if the extent has a
+     help-echo property, that string will be echoed when the mouse
+     moves over this section.) If extents are nested, all keymaps are
+     properly consulted when processing mouse clicks, but multiple
+     faces are not correctly merged (only the first face is used), and
+     lists of faces are not correctly handled.
 
    If you do alter `modeline-format' itself, the new value should use
 the same variables that appear in the default value (*note Modeline
@@ -1019,101 +1133,4 @@ to use them.
      buffer's visited file is maintained with version control, and, if
      so, which kind.  Its value is `nil' for no version control, or a
      string that appears in the mode line.
-
-
-File: lispref.info,  Node: %-Constructs,  Prev: Modeline Variables,  Up: Modeline Format
-
-`%'-Constructs in the ModeLine
-------------------------------
-
-   The following table lists the recognized `%'-constructs and what
-they mean.  In any construct except `%%', you can add a decimal integer
-after the `%' to specify how many characters to display.
-
-`%b'
-     The current buffer name, obtained with the `buffer-name' function.
-     *Note Buffer Names::.
-
-`%f'
-     The visited file name, obtained with the `buffer-file-name'
-     function.  *Note Buffer File Name::.
-
-`%F'
-     The name of the selected frame.
-
-`%c'
-     The current column number of point.
-
-`%l'
-     The current line number of point.
-
-`%*'
-     `%' if the buffer is read only (see `buffer-read-only');
-     `*' if the buffer is modified (see `buffer-modified-p');
-     `-' otherwise.  *Note Buffer Modification::.
-
-`%+'
-     `*' if the buffer is modified (see `buffer-modified-p');
-     `%' if the buffer is read only (see `buffer-read-only');
-     `-' otherwise.  This differs from `%*' only for a modified
-     read-only buffer.  *Note Buffer Modification::.
-
-`%&'
-     `*' if the buffer is modified, and `-' otherwise.
-
-`%s'
-     The status of the subprocess belonging to the current buffer,
-     obtained with `process-status'.  *Note Process Information::.
-
-`%l'
-     the current line number.
-
-`%S'
-     the name of the selected frame; this is only meaningful under the
-     X Window System.  *Note Frame Name::.
-
-`%t'
-     Whether the visited file is a text file or a binary file.  (This
-     is a meaningful distinction only on certain operating systems.)
-
-`%p'
-     The percentage of the buffer text above the *top* of window, or
-     `Top', `Bottom' or `All'.
-
-`%P'
-     The percentage of the buffer text that is above the *bottom* of
-     the window (which includes the text visible in the window, as well
-     as the text above the top), plus `Top' if the top of the buffer is
-     visible on screen; or `Bottom' or `All'.
-
-`%n'
-     `Narrow' when narrowing is in effect; nothing otherwise (see
-     `narrow-to-region' in *Note Narrowing::).
-
-`%['
-     An indication of the depth of recursive editing levels (not
-     counting minibuffer levels): one `[' for each editing level.
-     *Note Recursive Editing::.
-
-`%]'
-     One `]' for each recursive editing level (not counting minibuffer
-     levels).
-
-`%%'
-     The character `%'--this is how to include a literal `%' in a
-     string in which `%'-constructs are allowed.
-
-`%-'
-     Dashes sufficient to fill the remainder of the modeline.
-
-   The following two `%'-constructs are still supported, but they are
-obsolete, since you can get the same results with the variables
-`mode-name' and `global-mode-string'.
-
-`%m'
-     The value of `mode-name'.
-
-`%M'
-     The value of `global-mode-string'.  Currently, only `display-time'
-     modifies the value of `global-mode-string'.
 
