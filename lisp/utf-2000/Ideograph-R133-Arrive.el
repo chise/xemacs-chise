@@ -208,6 +208,7 @@
     (=cns11643-3	. #x4424)	; ø»–Š
     (=jis-x0213-1-2000	. #x7A59)	; ø»¤–¢
     (=daikanwa		. 30158)	; ø¸‡—Ž
+    (=jef-china3	. #x60EA)	; øº†ƒª
     (=ucs		. #x4453)	; ä‘“
     ))
 (define-char
