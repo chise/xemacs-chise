@@ -1,5 +1,16 @@
 2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.h (decode_char_table_range): New prototype in XEmacs
+	UTF-2000.
+	(put_char_id_table): New inline function in XEmacs UTF-2000.
+
+	* chartab.c (put_char_id_table): Moved to chartab.h as an inline
+	function.
+	(decode_char_table_range): Delete static declaration in XEmacs
+	UTF-2000.
+
+2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.c (put_char_id_table): Use `put_char_table'.
 
 2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
