@@ -1,3 +1,14 @@
+2002-09-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-db-update-comment): Deleted.
+
+2002-09-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* update-cdb.el (char-ref=): Add optional argument `tester'.
+	(char-spec=): Likewise.
+
+	* ideograph-util.el (char-ucs): Don't refer `->ucs'.
+
 2002-09-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u0FF00-Halfwidth-and-Fullwidth-Forms.el,
