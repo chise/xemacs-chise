@@ -19,22 +19,13 @@
     (digit-value	 . 1)
     (numeric-value	 . 1)
     (->decomposition	sub #x0031)
-    (->fullwidth
-     ((name		  . "FULLWIDTH SUBSCRIPT ONE")
-      (=ks-x1001	  . #x297B)	; &K0-297B; [09-91]
-      ))
     (=ucs		. #x2081)	; ₁
     ))
 (define-char
-  '((name		. "FULLWIDTH SUBSCRIPT ONE")
-    (=>ucs		. #x2081)	; ₁
-    (general-category	number other) ; Normative Category
-    (bidi-category	. "EN")
-    (mirrored		. nil)
-    (decimal-digit-value . 1)
-    (digit-value	 . 1)
-    (numeric-value	 . 1)
-    (->decomposition	wide #x2081)
+  '((<-denotational
+     ((name		  . "SUBSCRIPT ONE")
+      (=ucs		  . #x2081)	; ₁
+      ))
     (<-fullwidth
      ((name		  . "SUBSCRIPT ONE")
       (=ucs		  . #x2081)	; ₁
@@ -50,22 +41,13 @@
     (digit-value	 . 2)
     (numeric-value	 . 2)
     (->decomposition	sub #x0032)
-    (->fullwidth
-     ((name		  . "FULLWIDTH SUBSCRIPT TWO")
-      (=ks-x1001	  . #x297C)	; &K0-297C; [09-92]
-      ))
     (=ucs		. #x2082)	; ₂
     ))
 (define-char
-  '((name		. "FULLWIDTH SUBSCRIPT TWO")
-    (=>ucs		. #x2082)	; ₂
-    (general-category	number other) ; Normative Category
-    (bidi-category	. "EN")
-    (mirrored		. nil)
-    (decimal-digit-value . 2)
-    (digit-value	 . 2)
-    (numeric-value	 . 2)
-    (->decomposition	wide #x2082)
+  '((<-denotational
+     ((name		  . "SUBSCRIPT TWO")
+      (=ucs		  . #x2082)	; ₂
+      ))
     (<-fullwidth
      ((name		  . "SUBSCRIPT TWO")
       (=ucs		  . #x2082)	; ₂
@@ -81,22 +63,13 @@
     (digit-value	 . 3)
     (numeric-value	 . 3)
     (->decomposition	sub #x0033)
-    (->fullwidth
-     ((name		  . "FULLWIDTH SUBSCRIPT THREE")
-      (=ks-x1001	  . #x297D)	; &K0-297D; [09-93]
-      ))
     (=ucs		. #x2083)	; ₃
     ))
 (define-char
-  '((name		. "FULLWIDTH SUBSCRIPT THREE")
-    (=>ucs		. #x2083)	; ₃
-    (general-category	number other) ; Normative Category
-    (bidi-category	. "EN")
-    (mirrored		. nil)
-    (decimal-digit-value . 3)
-    (digit-value	 . 3)
-    (numeric-value	 . 3)
-    (->decomposition	wide #x2083)
+  '((<-denotational
+     ((name		  . "SUBSCRIPT THREE")
+      (=ucs		  . #x2083)	; ₃
+      ))
     (<-fullwidth
      ((name		  . "SUBSCRIPT THREE")
       (=ucs		  . #x2083)	; ₃
@@ -112,22 +85,13 @@
     (digit-value	 . 4)
     (numeric-value	 . 4)
     (->decomposition	sub #x0034)
-    (->fullwidth
-     ((name		  . "FULLWIDTH SUBSCRIPT FOUR")
-      (=ks-x1001	  . #x297E)	; &K0-297E; [09-94]
-      ))
     (=ucs		. #x2084)	; ₄
     ))
 (define-char
-  '((name		. "FULLWIDTH SUBSCRIPT FOUR")
-    (=>ucs		. #x2084)	; ₄
-    (general-category	number other) ; Normative Category
-    (bidi-category	. "EN")
-    (mirrored		. nil)
-    (decimal-digit-value . 4)
-    (digit-value	 . 4)
-    (numeric-value	 . 4)
-    (->decomposition	wide #x2084)
+  '((<-denotational
+     ((name		  . "SUBSCRIPT FOUR")
+      (=ucs		  . #x2084)	; ₄
+      ))
     (<-fullwidth
      ((name		  . "SUBSCRIPT FOUR")
       (=ucs		  . #x2084)	; ₄
