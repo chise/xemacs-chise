@@ -1,5 +1,8 @@
 2003-02-21  MORIOKA Tomohiko  <tomo@m17n.org>
 
+	* Ideograph-R019-Power.el (M-02485): Modify
+	`ideographic-structure'.
+
 	* Ideograph-R181-Leaf.el (U+4AC2): Unify CB00714.
 	(M-43447): Separate C2-555F.
 
