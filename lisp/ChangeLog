@@ -1,3 +1,8 @@
+2003-02-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el (=cbeta): Renamed from `ideograph-cbeta'.
+	(ideograph-cbeta): Changed to an alias for `=cbeta'.
+
 2003-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (=jef-china3): Renamed from `china3-jef'.
