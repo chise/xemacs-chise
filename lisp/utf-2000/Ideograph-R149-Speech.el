@@ -9411,7 +9411,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
     (shinjigen-1	. 7757)
-    (china3-jef		. #x65CA)	; øº†—Š
+    (=jef-china3	. #x65CA)	; øº†—Š
     ))
 (define-char
   '((morohashi-daikanwa	35974 0 1)

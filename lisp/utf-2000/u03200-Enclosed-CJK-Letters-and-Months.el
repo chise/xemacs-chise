@@ -413,7 +413,7 @@
     (->decomposition	compat #x0028 #x682A #x0029)
     (=jis-x0213-1-2000	. #x2D6A)	; ø»¢¥­
     (chinese-big5-eten	. #xC8D1)	; ý¢€Œ£‘
-    (china3-jef		. #x78D5)	; øº‡£•
+    (=jef-china3	. #x78D5)	; øº‡£•
     (ucs		. #x3231)	; ãˆ±
     ))
 (define-char
@@ -423,7 +423,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x6709 #x0029)
     (=jis-x0213-1-2000	. #x2D6B)	; ø»¢¥®
-    (china3-jef		. #x78CF)	; øº‡£
+    (=jef-china3	. #x78CF)	; øº‡£
     (ucs		. #x3232)	; ãˆ²
     ))
 (define-char
@@ -432,7 +432,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x793E #x0029)
-    (china3-jef		. #x78D0)	; øº‡£
+    (=jef-china3	. #x78D0)	; øº‡£
     (ucs		. #x3233)	; ãˆ³
     ))
 (define-char
@@ -441,7 +441,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x540D #x0029)
-    (china3-jef		. #x78CD)	; øº‡£
+    (=jef-china3	. #x78CD)	; øº‡£
     (ucs		. #x3234)	; ãˆ´
     ))
 (define-char
@@ -450,7 +450,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x7279 #x0029)
-    (china3-jef		. #x78D6)	; øº‡£–
+    (=jef-china3	. #x78D6)	; øº‡£–
     (ucs		. #x3235)	; ãˆµ
     ))
 (define-char
@@ -459,7 +459,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x8CA1 #x0029)
-    (china3-jef		. #x78D4)	; øº‡£”
+    (=jef-china3	. #x78D4)	; øº‡£”
     (ucs		. #x3236)	; ãˆ¶
     ))
 (define-char
@@ -485,7 +485,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4EE3 #x0029)
     (=jis-x0213-1-2000	. #x2D6C)	; ø»¢¥¯
-    (china3-jef		. #x78CB)	; øº‡£‹
+    (=jef-china3	. #x78CB)	; øº‡£‹
     (ucs		. #x3239)	; ãˆ¹
     ))
 (define-char
@@ -494,7 +494,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x547C #x0029)
-    (china3-jef		. #x78D9)	; øº‡£™
+    (=jef-china3	. #x78D9)	; øº‡£™
     (ucs		. #x323A)	; ãˆº
     ))
 (define-char
@@ -503,7 +503,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x5B66 #x0029)
-    (china3-jef		. #x78D7)	; øº‡£—
+    (=jef-china3	. #x78D7)	; øº‡£—
     (ucs		. #x323B)	; ãˆ»
     ))
 (define-char
@@ -512,7 +512,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x76E3 #x0029)
-    (china3-jef		. #x78D1)	; øº‡£‘
+    (=jef-china3	. #x78D1)	; øº‡£‘
     (ucs		. #x323C)	; ãˆ¼
     ))
 (define-char
@@ -521,7 +521,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4F01 #x0029)
-    (china3-jef		. #x78CA)	; øº‡£Š
+    (=jef-china3	. #x78CA)	; øº‡£Š
     (ucs		. #x323D)	; ãˆ½
     ))
 (define-char
@@ -530,7 +530,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x8CC7 #x0029)
-    (china3-jef		. #x78D3)	; øº‡£“
+    (=jef-china3	. #x78D3)	; øº‡£“
     (ucs		. #x323E)	; ãˆ¾
     ))
 (define-char
@@ -539,7 +539,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x5354 #x0029)
-    (china3-jef		. #x78CC)	; øº‡£Œ
+    (=jef-china3	. #x78CC)	; øº‡£Œ
     (ucs		. #x323F)	; ãˆ¿
     ))
 (define-char
@@ -548,7 +548,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x796D #x0029)
-    (china3-jef		. #x78D8)	; øº‡£˜
+    (=jef-china3	. #x78D8)	; øº‡£˜
     (ucs		. #x3240)	; ã‰€
     ))
 (define-char
@@ -565,7 +565,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x81EA #x0029)
-    (china3-jef		. #x78D2)	; øº‡£’
+    (=jef-china3	. #x78D2)	; øº‡£’
     (ucs		. #x3242)	; ã‰‚
     ))
 (define-char
@@ -574,7 +574,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x81F3 #x0029)
-    (china3-jef		. #x78C9)	; øº‡£‰
+    (=jef-china3	. #x78C9)	; øº‡£‰
     (ucs		. #x3243)	; ã‰ƒ
     ))
 (define-char
@@ -1064,7 +1064,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x682A)
-    (china3-jef		. #x78E6)	; øº‡£¦
+    (=jef-china3	. #x78E6)	; øº‡£¦
     (ucs		. #x3291)	; ãŠ‘
     ))
 (define-char
@@ -1073,7 +1073,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x6709)
-    (china3-jef		. #x78E5)	; øº‡£¥
+    (=jef-china3	. #x78E5)	; øº‡£¥
     (ucs		. #x3292)	; ãŠ’
     ))
 (define-char
@@ -1082,7 +1082,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x793E)
-    (china3-jef		. #x78E7)	; øº‡£§
+    (=jef-china3	. #x78E7)	; øº‡£§
     (ucs		. #x3293)	; ãŠ“
     ))
 (define-char
@@ -1091,7 +1091,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x540D)
-    (china3-jef		. #x78E1)	; øº‡£¡
+    (=jef-china3	. #x78E1)	; øº‡£¡
     (ucs		. #x3294)	; ãŠ”
     ))
 (define-char
@@ -1108,7 +1108,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x8CA1)
-    (china3-jef		. #x78EA)	; øº‡£ª
+    (=jef-china3	. #x78EA)	; øº‡£ª
     (ucs		. #x3296)	; ãŠ–
     ))
 (define-char
@@ -1125,7 +1125,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x52B4)
-    (china3-jef		. #x78E3)	; øº‡££
+    (=jef-china3	. #x78E3)	; øº‡££
     (ucs		. #x3298)	; ãŠ˜
     ))
 (define-char
@@ -1269,7 +1269,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x533B)
-    (china3-jef		. #x78DF)	; øº‡£Ÿ
+    (=jef-china3	. #x78DF)	; øº‡£Ÿ
     (ucs		. #x32A9)	; ãŠ©
     ))
 (define-char
@@ -1278,7 +1278,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x5B97)
-    (china3-jef		. #x78E2)	; øº‡£¢
+    (=jef-china3	. #x78E2)	; øº‡£¢
     (ucs		. #x32AA)	; ãŠª
     ))
 (define-char
@@ -1287,7 +1287,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x5B66)
-    (china3-jef		. #x78E4)	; øº‡£¤
+    (=jef-china3	. #x78E4)	; øº‡£¤
     (ucs		. #x32AB)	; ãŠ«
     ))
 (define-char
@@ -1296,7 +1296,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x76E3)
-    (china3-jef		. #x78E8)	; øº‡£¨
+    (=jef-china3	. #x78E8)	; øº‡£¨
     (ucs		. #x32AC)	; ãŠ¬
     ))
 (define-char
@@ -1305,7 +1305,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x4F01)
-    (china3-jef		. #x78DE)	; øº‡£ž
+    (=jef-china3	. #x78DE)	; øº‡£ž
     (ucs		. #x32AD)	; ãŠ­
     ))
 (define-char
@@ -1314,7 +1314,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x8CC7)
-    (china3-jef		. #x78E9)	; øº‡£©
+    (=jef-china3	. #x78E9)	; øº‡£©
     (ucs		. #x32AE)	; ãŠ®
     ))
 (define-char
@@ -1323,7 +1323,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x5354)
-    (china3-jef		. #x78E0)	; øº‡£ 
+    (=jef-china3	. #x78E0)	; øº‡£ 
     (ucs		. #x32AF)	; ãŠ¯
     ))
 (define-char
@@ -1332,7 +1332,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x591C)
-    (china3-jef		. #x78DD)	; øº‡£
+    (=jef-china3	. #x78DD)	; øº‡£
     (ucs		. #x32B0)	; ãŠ°
     ))
 (define-char

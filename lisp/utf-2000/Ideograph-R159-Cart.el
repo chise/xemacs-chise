@@ -1247,7 +1247,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (korean-ksc5601	. #x4E72)	; ø»‰£
-    (china3-jef		. #x66F0)	; øº†›°
+    (=jef-china3	. #x66F0)	; øº†›°
     ))
 (define-char
   '((ideographic-radical . 159)	; â¾ž

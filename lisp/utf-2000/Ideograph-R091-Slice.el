@@ -1089,7 +1089,7 @@
     (ideographic-radical . 91)	; â½š
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (china3-jef		. #x58C0)	; øº…£€
+    (=jef-china3	. #x58C0)	; øº…£€
     (ucs		. #x7253)	; ç‰“
     ))
 (define-char
@@ -1212,7 +1212,7 @@
     (=jis-x0213-1-2000	. #x7764)	; ø»¤’“
     (ideograph-daikanwa . 19883)	; ø¸„¶«
     (ideograph-cbeta	. 00616)	; ø¸ ‰¨
-    (china3-jef		. #x58C1)	; øº…£
+    (=jef-china3	. #x58C1)	; øº…£
     (ucs		. #x7255)	; ç‰•
     ))
 (define-char

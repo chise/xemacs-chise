@@ -8,7 +8,7 @@
     (korean-ksc5601	. #x2167)	; ø»ˆ›’
     (chinese-cns11643-1 . #x2258)	; ø»‘„±
     (chinese-big5	. #xA1F6)	; ý¢€Š‡¶
-    (china3-jef		. #x7BCE)	; øº‡¯Ž
+    (=jef-china3	. #x7BCE)	; øº‡¯Ž
     (ucs		. #x2190)	; â†
     ))
 (define-char
@@ -21,7 +21,7 @@
     (korean-ksc5601	. #x2168)	; ø»ˆ›“
     (chinese-cns11643-1 . #x2255)	; ø»‘„®
     (chinese-big5	. #xA1F4)	; ý¢€Š‡´
-    (china3-jef		. #x7BCF)	; øº‡¯
+    (=jef-china3	. #x7BCF)	; øº‡¯
     (ucs		. #x2191)	; â†‘
     ))
 (define-char
@@ -34,7 +34,7 @@
     (korean-ksc5601	. #x2166)	; ø»ˆ›‘
     (chinese-cns11643-1 . #x2257)	; ø»‘„°
     (chinese-big5	. #xA1F7)	; ý¢€Š‡·
-    (china3-jef		. #x7BCD)	; øº‡¯
+    (=jef-china3	. #x7BCD)	; øº‡¯
     (ucs		. #x2192)	; â†’
     ))
 (define-char
@@ -47,7 +47,7 @@
     (korean-ksc5601	. #x2169)	; ø»ˆ›”
     (chinese-cns11643-1 . #x2256)	; ø»‘„¯
     (chinese-big5	. #xA1F5)	; ý¢€Š‡µ
-    (china3-jef		. #x7BD0)	; øº‡¯
+    (=jef-china3	. #x7BD0)	; øº‡¯
     (ucs		. #x2193)	; â†“
     ))
 (define-char
@@ -520,7 +520,7 @@
     (japanese-jisx0208		. #x224D)	; ø»†’’
     (korean-ksc5601		. #x2221)	; ø»ˆ›ª
     (japanese-jisx0208-1990	. #x224D)	; ø½‰¸†
-    (china3-jef			. #x7FDA)	; øº‡¿š
+    (=jef-china3		. #x7FDA)	; øº‡¿š
     (ucs			. #x21D2)	; â‡’
     ))
 (define-char
@@ -538,7 +538,7 @@
     (japanese-jisx0208		. #x224E)	; ø»†’“
     (korean-ksc5601		. #x2222)	; ø»ˆ›«
     (japanese-jisx0208-1990	. #x224E)	; ø½‰¸‡
-    (china3-jef			. #x7FDB)	; øº‡¿›
+    (=jef-china3		. #x7FDB)	; øº‡¿›
     (ucs			. #x21D4)	; â‡”
     ))
 (define-char
@@ -666,7 +666,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=jis-x0213-1-2000	. #x232B)	; ø»¢–‚
-    (china3-jef		. #x76B2)	; øº‡š²
+    (=jef-china3	. #x76B2)	; øº‡š²
     (ucs		. #x21E6)	; â‡¦
     ))
 (define-char
@@ -676,7 +676,7 @@
     (mirrored		. nil)
     (=jis-x0213-1-2000	. #x232C)	; ø»¢–ƒ
     (chinese-big5-eten	. #xC876)	; ý¢€Œ¡¶
-    (china3-jef		. #x76B1)	; øº‡š±
+    (=jef-china3	. #x76B1)	; øº‡š±
     (ucs		. #x21E7)	; â‡§
     ))
 (define-char
@@ -685,7 +685,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=jis-x0213-1-2000	. #x232A)	; ø»¢–
-    (china3-jef		. #x76B3)	; øº‡š³
+    (=jef-china3	. #x76B3)	; øº‡š³
     (ucs		. #x21E8)	; â‡¨
     ))
 (define-char
@@ -694,7 +694,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=jis-x0213-1-2000	. #x232D)	; ø»¢–„
-    (china3-jef		. #x76B0)	; øº‡š°
+    (=jef-china3	. #x76B0)	; øº‡š°
     (ucs		. #x21E9)	; â‡©
     ))
 (define-char

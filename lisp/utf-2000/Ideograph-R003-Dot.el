@@ -256,7 +256,7 @@
     (ideograph-gt-pj-2	. #x306E)	; ý¡€€‚‰
     (ideograph-daikanwa . 00100)	; ø¸€¤
     (ideograph-gt-k	. 00948)	; ý¡„€Ž´
-    (china3-jef		. #x41B3)	; øº„†³
+    (=jef-china3	. #x41B3)	; øº„†³
     (ideograph-gt	. 00137)	; ý¡€€‚‰
     ))
 (define-char

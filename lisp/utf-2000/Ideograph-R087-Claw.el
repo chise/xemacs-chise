@@ -613,7 +613,7 @@
     (korean-ksc5601	. #x6D49)	; ø»ŠŠœ
     (ideograph-daikanwa . 19711)	; ø¸„³¿
     (chinese-big5-cdp	. #xC0EF)	; ý¢€Œƒ¯
-    (china3-jef		. #x58AE)	; øº…¢®
+    (=jef-china3	. #x58AE)	; øº…¢®
     (ucs-ks		. #x7235)	; ø»ŠŠœ
     ))
 (define-char

@@ -109,7 +109,7 @@
     (=jis-x0213-2-2000	. #x2355)	; ø»¤ °
     (chinese-big5	. #xC957)	; ý¢€Œ¥—
     (ideograph-daikanwa . 02841)	; ø¸€¬™
-    (china3-jef		. #x45D0)	; øº„—
+    (=jef-china3	. #x45D0)	; øº„—
     (ucs		. #x536C)	; å¬
     ))
 (define-char
@@ -161,7 +161,7 @@
     (ideograph-daikanwa		. 02845)	; ø¸€¬
     (ideograph-hanziku-1	. #xE640)	; ý¢€ž™€
     (ideograph-cbeta		. 00886)	; ø¸ ¶
-    (china3-jef			. #x45D1)	; øº„—‘
+    (=jef-china3		. #x45D1)	; øº„—‘
     (ucs			. #x536D)	; å­
     ))
 (define-char
@@ -276,7 +276,7 @@
     (shinjigen-2	. 854)
     (korean-ksc5601	. #x6A4B)	; ø»Š†„
     (ideograph-daikanwa . 02849)	; ø¸€¬¡
-    (china3-jef		. #x45CF)	; øº„—
+    (=jef-china3	. #x45CF)	; øº„—
     ))
 (define-char
   '((morohashi-daikanwa	2849 0 1)
@@ -355,7 +355,7 @@
     (chinese-cns11643-2 . #x2335)	; ø»“°
     (chinese-big5	. #xCA73)	; ý¢€Œ©³
     (ideograph-daikanwa . 02854)	; ø¸€¬¦
-    (china3-jef		. #x45D2)	; øº„—’
+    (=jef-china3	. #x45D2)	; øº„—’
     (ucs		. #x5372)	; å²
     ))
 (define-char
@@ -552,7 +552,7 @@
     (chinese-cns11643-1 . #x4C3C)	; ø»’‚
     (chinese-big5	. #xA8F9)	; ý¢€Š£¹
     (ideograph-daikanwa . 02862)	; ø¸€¬®
-    (china3-jef		. #x45D3)	; øº„—“
+    (=jef-china3	. #x45D3)	; øº„—“
     (ucs		. #x5379)	; å¹
     ))
 (define-char
@@ -593,7 +593,7 @@
     (=jis-x0213-2-2000		. #x2356)	; ø»¤ ±
     (ideograph-daikanwa		. 02864)	; ø¸€¬°
     (ideograph-hanziku-1	. #xE741)	; ý¢€ž
-    (china3-jef			. #x4BF2)	; øº„¯²
+    (=jef-china3		. #x4BF2)	; øº„¯²
     (ucs			. #x537A)	; åº
     ))
 (define-char
@@ -723,7 +723,7 @@
     (chinese-cns11643-3 . #x2B4B)	; ø»•¥º
     (=jis-x0213-1-2000	. #x2E71)	; ø»¢§’
     (ideograph-daikanwa . 02872)	; ø¸€¬¸
-    (china3-jef		. #x45D4)	; øº„—”
+    (=jef-china3	. #x45D4)	; øº„—”
     (ucs		. #x537D)	; å½
     ))
 (define-char
@@ -856,7 +856,7 @@
     (chinese-isoir165		. #x4764)	; ø»§‹
     (chinese-cns11643-1		. #x544E)	; ø»’Žƒ
     (japanese-jisx0208-1990	. #x362A)	; ø½Š”»
-    (china3-jef			. #x45D5)	; øº„—•
+    (=jef-china3		. #x45D5)	; øº„—•
     (ucs			. #x537F)	; å¿
     ))
 (define-char

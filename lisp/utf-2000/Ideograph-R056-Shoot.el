@@ -89,7 +89,7 @@
     (ideographic-radical . 56)	; â¼·
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (china3-jef		. #x41A7)	; øº„†§
+    (=jef-china3	. #x41A7)	; øº„†§
     ))
 (define-char
   '((ideographic-radical . 56)	; â¼·

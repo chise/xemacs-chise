@@ -22,7 +22,7 @@
     (=jis-x0213-1-2000	. #x764F)	; ø»¤ 
     (chinese-big5	. #xA5C2)	; ý¢€Š—‚
     (ideograph-daikanwa . 17027)	; ø¸„Šƒ
-    (china3-jef		. #x55A8)	; øº…–¨
+    (=jef-china3	. #x55A8)	; øº…–¨
     (ucs-jis		. #x6C10)	; ø»‹›Ž
     ))
 (define-char
