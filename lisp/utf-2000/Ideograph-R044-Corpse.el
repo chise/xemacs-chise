@@ -383,6 +383,7 @@
      ((=ucs@unicode	  . #x5C44)	; &UU+5C44;
       )
      ((=cns11643-2	  . #x263A)	; &C2-263A; [06-26]
+      (=ucs@cns		  . #x5C44)	; &C2-263A;
       ))
     ))
 (define-char
@@ -2122,6 +2123,7 @@
       (=ucs@unicode	  . #x5C67)	; &M-07804;
       )
      ((=cns11643-2	  . #x502A)	; &C2-502A; [48-10]
+      (=ucs@cns		  . #x5C67)	; &C2-502A;
       ))
     ))
 (define-char
