@@ -1,3 +1,13 @@
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharacter_decomposition_table): New variable.
+	(Fchar_attribute_alist): Add `name' and `->decomposition' if they
+	are found.
+	(Fget_char_attribute): Use `Vcharacter_decomposition_table' for
+	`->decomposition' attribute.
+	(Fput_char_attribute): Likewise.
+	(vars_of_mule_charset): Setup `Vcharacter_decomposition_table'.
+
 2000-06-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (decoding_table_check_elements): New function.
