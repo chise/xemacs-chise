@@ -1,11 +1,56 @@
 2001-10-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (char-db-insert-char-spec): Add
+	`ideograph-daikanwa' for non-UCS ideographs.
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL DIVINATION): Unify
+	Big5-8B78 and Big5-CDP-8B78; add `total-strokes'.
+
+	* Ideograph-R022-Right-Open-Box.el, Ideograph-R020-Wrap.el,
+	Ideograph-R019-Power.el: update.
+
+	* Ideograph-R018-Knife.el (M-01853): Add `ideographic-structure'.
+	(M-02088): Likewise.
+	(M-02112'): Likewise.
+	(M-02158): Likewise.
+	(M-02223): Likewise.
+	(M-02224): Likewise.
+	(M-02241): Likewise.
+
+	* Ideograph-R014-Cover.el (M-01587): Add `ideographic-structure'.
+
+	* Ideograph-R013-Down-Box.el (M-01540): Add `ideographic-structure'.
+
+	* Ideograph-R012-Eight.el, Ideograph-R011-Enter.el: update.
+
+	* Ideograph-R010-Legs.el (M-01358): Add `ideographic-structure'.
+
+	* Ideograph-R005-Second.el (M-00190): Add `ideographic-structure'.
+
+	* Ideograph-R004-Slash.el (M-00133): Add `ideographic-structure'.
+
+	* u0E000-Private-Use.el (U+F15A): Separate Big5-856E and
+	Big5-CDP-856E.
+	(U+F15C): Separate Big5-8570 and Big5-CDP-8570.
+
+	* Ideograph-R025-Divination.el, Ideograph-R024-Ten.el: Add
+	`ideographic-structure'.
+
+	* Ideograph-R012-Eight.el (U+5180): Separate C1-7035; use U+5317
+	instead of C1-4621 in `ideographic-structure'.
+
+2001-10-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R187-Horse.el: Merge GB 12345 code points.
 
 	* char-db-util.el (char-db-insert-char-spec): Make temporary
 	character if corresponding character is not found for char-spec.
 
 	* Ideograph-R184-Eat.el: Merge GB 12345 code points.
+
+2001-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el: Add `ideographic-structure'.
 
 2001-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
