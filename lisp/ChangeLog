@@ -1,3 +1,8 @@
+2002-02-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* utf-2000/make-cdbs.el: Use `save-charset-mapping-table' for all
+	coded-charsets.
+
 2002-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* dumped-lisp.el (preloaded-file-list): Add `make-cdbs' in
