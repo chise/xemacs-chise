@@ -1,3 +1,8 @@
+2002-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Don't specify
+	`MIN_CHAR_THAI' and `MAX_CHAR_THAI' for `thai-tis620'.
+
 2002-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_jis_x0208): New variable in UTF-2000.
