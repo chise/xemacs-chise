@@ -134,6 +134,7 @@
       (=daikanwa	  . 17054)	; &I-M-17054;
       )
      ((=cns11643-2	  . #x274E)	; &C2-274E; [07-46]
+      (=ucs@cns		  . #x6C1D)	; &C2-274E;
       )
      ((=iso-ir165	  . #x2E53)	; &EGB-2E53; [14-51]
       (=ucs@unicode	  . #x6C1D)	; &EGB-2E53;
@@ -452,6 +453,7 @@
       (=ucs@unicode	  . #x6C30)	; &G0-4768;
       )
      ((=cns11643-2	  . #x3D2B)	; &C2-3D2B; [29-11]
+      (=ucs@cns		  . #x6C30)	; &C2-3D2B;
       ))
     ))
 (define-char
@@ -459,8 +461,13 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x23C64)	; 𣱤
-    (=cns11643-5	. #x395D)	; &I-C5-395D; [25-61]
-    (=daikanwa		. 49205)	; &I-M-49205;
+    (->subsumptive
+     ((=daikanwa	  . 49205)	; &M-49205;
+      )
+     ((=ucs@iso		  . #x23C64)	; &UU+23C64;
+      )
+     ((=cns11643-5	  . #x395D)	; &C5-395D; [25-61]
+      ))
     ))
 (define-char
   '((ideographic-radical . 84)	; ⽓
