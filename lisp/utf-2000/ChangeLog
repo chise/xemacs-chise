@@ -1,5 +1,13 @@
 2003-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R039-Child.el (JX2-257B): Unify B-C570 and JC3-49F7.
+	(U+5B7F): Separate B-C570.
+
+	* Ideograph-R010-Legs.el (U+FA32): Unify M054447.
+	(U-0002F80E): Separate M054447.
+
+2003-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R015-Ice.el (M-01705): Map to U-00020601.
 	(U-00020601): Relate to M-01705; add strokes.
 	(U-00020602): Unify MH-0044 and M073555; add strokes.
