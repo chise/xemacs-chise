@@ -137,7 +137,15 @@
     (total-strokes	 . 7)
     (=ucs		. #x623B)	; 戻
     (->subsumptive
-     ((=cns11643-3	  . #x2628)	; &M-11707; [06-08]
+     ((->mistakable
+       ((=daikanwa	    . 11712)	; &I-M-11712;
+	))
+      (->mistakable*sources
+       zihui zhengzi-tong daikanwa)
+      (=cns11643-3	  . #x2628)	; &GT-14762; [06-08]
+      (=gt		  . 14762)	; &I-GT-14762;
+      (=gt-k		  . 02657)	; &I-GT-K02657;
+      (=gt-pj-3		  . #x5B34)	; &I-GT-14762; [59-20]
       (=daikanwa	  . 11707)	; &I-M-11707;
       )
      ((<-simplified@JP/Jouyou
@@ -146,6 +154,8 @@
 	(=jis-x0213-1-2000  . #x7463)	; &I-JX1-7463; [84-67]
 	(=daikanwa	    . 11712)	; &I-M-11712;
 	))
+      (shinjigen-1	  . 2795)
+      (shinjigen-2	  . 2795)
       (=jis-x0208	  . #x4C61)	; &GT-14766; [44-65]
       (=gt		  . 14766)	; &I-GT-14766;
       (=gt-k		  . 02658)	; &I-GT-K02658;
@@ -197,26 +207,24 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x623E)	; 戾
-    (ideographic-radical . 63)	; ⼾
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (=ks-x1001		. #x5568)	; &M-11712; [53-72]
-    (=cns11643-1	. #x4D53)	; &I-C1-4D53; [45-51]
-    (=jis-x0213-1-2000	. #x7463)	; &I-JX1-7463; [84-67]
-    (=big5		. #xA9D1)	; &I-B-A9D1;
-    (=daikanwa		. 11712)	; &I-M-11712;
-    (=jef-china3	. #x4EFB)	; &I-JC3-4EFB;
-    (=ucs@jis		. #x623E)	; &M-11712;
-    (=ucs@big5		. #x623E)	; &M-11712;
-    ))
-(define-char
-  '((morohashi-daikanwa	11712 0 4)
-    (ideographic-radical . 63)	; ⼾
+  '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x623E)	; 戾
-    (=gb2312		. #x6C65)	; &I-G0-6C65; [76-69]
+    (->subsumptive
+     ((shinjigen-1	  . 2796)
+      (=ks-x1001	  . #x5568)	; &M-11712; [53-72]
+      (=cns11643-1	  . #x4D53)	; &I-C1-4D53; [45-51]
+      (=jis-x0213-1-2000  . #x7463)	; &I-JX1-7463; [84-67]
+      (=big5		  . #xA9D1)	; &I-B-A9D1;
+      (=daikanwa	  . 11712)	; &I-M-11712;
+      (=jef-china3	  . #x4EFB)	; &I-JC3-4EFB;
+      (=ucs@jis		  . #x623E)	; &M-11712;
+      (=ucs@big5	  . #x623E)	; &M-11712;
+      )
+     ((=gb2312		  . #x6C65)	; &G0-6C65; [76-69]
+      (=ucs@unicode	  . #x623E)	; &G0-6C65;
+      ))
     ))
 (define-char
   '((=>ucs		. #x623F)	; 房
