@@ -1,0 +1,15 @@
+MSW_LIBS	=-luser32 -lgdi32 -lcomdlg32
+LDFLAGS		=-Wl,--subsystem,windows
+CFLAGS		=-g
+
+bindir		=/usr/local/bin
+
+INSTALL = /usr/local/src/xemacs-21.0-b42/lib-src/installexe.sh /d/cygnus/h-i386-cygwin32/bin/install -c
+INSTALL_PROGRAM = ${INSTALL}
+INSTALL_DATA = ${INSTALL} -m 644
+
+runemacs.exe:	runemacs.o
+		$(CC) $(LDFLAGS) runemacs.o $(MSW_LIBS) -o $@
+
+install:	runemacs.exe
+		$(INSTALL_PROGRAM) runemacs.exe $(bindir)

@@ -1,0 +1,1095 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Extents,  Next: Specifiers,  Prev: Abbrevs,  Up: Top
+
+Extents
+*******
+
+   An "extent" is a region of text (a start position and an end
+position) that is displayed in a particular face and can have certain
+other properties such as being read-only.  Extents can overlap each
+other.  XEmacs efficiently handles buffers with large numbers of
+extents in them.
+
+ - Function: extentp object
+     This returns `t' if OBJECT is an extent.
+
+* Menu:
+
+* Intro to Extents::	   Extents are regions over a buffer or string.
+* Creating and Modifying Extents::
+			   Basic extent functions.
+* Extent Endpoints::	   Accessing and setting the bounds of an extent.
+* Finding Extents::	   Determining which extents are in an object.
+* Mapping Over Extents::   More sophisticated functions for extent scanning.
+* Extent Properties::	   Extents have built-in and user-definable properties.
+* Detached Extents::	   Extents that are not in a buffer.
+* Extent Parents::         Inheriting properties from another extent.
+* Duplicable Extents::	   Extents can be marked to be copied into strings.
+* Extents and Events::	   Extents can interact with the keyboard and mouse.
+* Atomic Extents::	   Treating a block of text as a single entity.
+
+
+File: lispref.info,  Node: Intro to Extents,  Next: Creating and Modifying Extents,  Up: Extents
+
+Introduction to Extents
+=======================
+
+   An extent is a region of text within a buffer or string that has
+certain properties associated with it.  The properties of an extent
+primarily affect the way the text contained in the extent is displayed.
+Extents can freely overlap each other in a buffer or string.  Extents
+are invisible to functions that merely examine the text of a buffer or
+string.
+
+   _Please note:_ An alternative way to add properties to a buffer or
+string is to use text properties.  *Note Text Properties::.
+
+   An extent is logically a Lisp object consisting of a start position,
+an end position, a buffer or string to which these positions refer, and
+a property list.  As text is inserted into a buffer, the start and end
+positions of the extent are automatically adjusted as necessary to keep
+the extent referring to the same text in the buffer.  If text is
+inserted at the boundary of an extent, the extent's `start-open' and
+`end-open' properties control whether the text is included as part of
+the extent.  If the text bounded by an extent is deleted, the extent
+becomes "detached"; its start and end positions are no longer
+meaningful, but it maintains all its other properties and can later be
+reinserted into a buffer. (None of these considerations apply to
+strings, because text cannot be inserted into or deleted from a string.)
+
+   Each extent has a face or list of faces associated with it, which
+controls the way in which the text bounded by the extent is displayed.
+If an extent's face is `nil' or its properties are partially undefined,
+the corresponding properties from the default face for the frame is
+used.  If two or more extents overlap, or if a list of more than one
+face is specified for a particular extent, the corresponding faces are
+merged to determine the text's displayed properties.  Every extent has
+a "priority" that determines which face takes precedence if the faces
+conflict. (If two extents have the same priority, the one that comes
+later in the display order takes precedence.  *Note display order:
+Extent Endpoints.) Higher-numbered priority values correspond to a
+higher priority, and priority values can be negative.  Every extent is
+created with a priority of 0, but this can be changed with
+`set-extent-priority'.  Within a single extent with a list of faces,
+faces earlier in the list have a higher priority than faces later in
+the list.
+
+   Extents can be set to respond specially to key and mouse events
+within the extent.  An extent's `keymap' property controls the effect of
+key and mouse strokes within the extent's text, and the `mouse-face'
+property controls whether the extent is highlighted when the mouse moves
+over it.  *Note Extents and Events::.
+
+   An extent can optionally have a "begin-glyph" or "end-glyph"
+associated with it.  A begin-glyph or end-glyph is a pixmap or string
+that will be displayed either at the start or end of an extent or in the
+margin of the line that the start or end of the extent lies in,
+depending on the extent's layout policy.  Begin-glyphs and end-glyphs
+are used to implement annotations, and you should use the annotation API
+functions in preference to the lower-level extent functions.  For more
+information, *Note Annotations::.
+
+   If an extent has its `detachable' property set, it will become
+"detached" (i.e. no longer in the buffer) when all its text its
+deleted.  Otherwise, it will simply shrink down to zero-length and sit
+it the same place in the buffer.  By default, the `detachable' property
+is set on newly-created extents.  *Note Detached Extents::.
+
+   If an extent has its `duplicable' property set, it will be
+remembered when a string is created from text bounded by the extent.
+When the string is re-inserted into a buffer, the extent will also be
+re-inserted.  This mechanism is used in the kill, yank, and undo
+commands.  *Note Duplicable Extents::.
+
+
+File: lispref.info,  Node: Creating and Modifying Extents,  Next: Extent Endpoints,  Prev: Intro to Extents,  Up: Extents
+
+Creating and Modifying Extents
+==============================
+
+ - Function: make-extent from to &optional object
+     This function makes an extent for the range [FROM, TO) in OBJECT
+     (a buffer or string).  OBJECT defaults to the current buffer.
+     Insertions at point TO will be outside of the extent; insertions
+     at FROM will be inside the extent, causing the extent to grow
+     (*note Extent Endpoints::).  This is the same way that markers
+     behave.  The extent is initially detached if both FROM and TO are
+     `nil', and in this case OBJECT defaults to `nil', meaning the
+     extent is in no buffer or string (*note Detached Extents::).
+
+ - Function: delete-extent extent
+     This function removes EXTENT from its buffer and destroys it.
+     This does not modify the buffer's text, only its display
+     properties.  The extent cannot be used thereafter.  To remove an
+     extent in such a way that it can be re-inserted later, use
+     `detach-extent'.  *Note Detached Extents::.
+
+ - Function: extent-object extent
+     This function returns the buffer or string that EXTENT is in.  If
+     the return value is `nil', this means that the extent is detached;
+     however, a detached extent will not necessarily return a value of
+     `nil'.
+
+ - Function: extent-live-p extent
+     This function returns `nil' if EXTENT is deleted, and `t'
+     otherwise.
+
+
+File: lispref.info,  Node: Extent Endpoints,  Next: Finding Extents,  Prev: Creating and Modifying Extents,  Up: Extents
+
+Extent Endpoints
+================
+
+   Every extent has a start position and an end position, and logically
+affects the characters between those positions.  Normally the start and
+end positions must both be valid positions in the extent's buffer or
+string.  However, both endpoints can be `nil', meaning the extent is
+detached.  *Note Detached Extents::.
+
+   Whether the extent overlaps its endpoints is governed by its
+`start-open' and `end-open' properties.  Insertion of a character at a
+closed endpoint will expand the extent to include that character;
+insertion at an open endpoint will not.  Similarly, functions such as
+`extent-at' that scan over all extents overlapping a particular
+position will include extents with a closed endpoint at that position,
+but not extents with an open endpoint.
+
+   Note that the `start-closed' and `end-closed' properties are
+equivalent to `start-open' and `end-open' with the opposite sense.
+
+   Both endpoints can be equal, in which case the extent includes no
+characters but still exists in the buffer or string.  Zero-length
+extents are used to represent annotations (*note Annotations::) and can
+be used as a more powerful form of a marker.  Deletion of all the
+characters in an extent may or may not result in a zero-length extent;
+this depends on the `detachable' property (*note Detached Extents::).
+Insertion at the position of a zero-length extent expands the extent if
+both endpoints are closed; goes before the extent if it has the
+`start-open' property; and goes after the extent if it has the
+`end-open' property.  Zero-length extents with both the `start-open'
+and `end-open' properties are treated as if their starting point were
+closed.  Deletion of a character on a side of a zero-length extent
+whose corresponding endpoint is closed causes the extent to be detached
+if its `detachable' property is set; if the corresponding endpoint is
+open, the extent remains in the buffer, moving as necessary.
+
+   Extents are ordered within a buffer or string by increasing start
+position, and then by decreasing end position (this is called the
+"display order").
+
+ - Function: extent-start-position extent
+     This function returns the start position of EXTENT.
+
+ - Function: extent-end-position extent
+     This function returns the end position of EXTENT.
+
+ - Function: extent-length extent
+     This function returns the length of EXTENT in characters.  If the
+     extent is detached, this returns `0'.  If the extent is not
+     detached, this is equivalent to
+          (- (extent-end-position EXTENT) (extent-start-position EXTENT))
+
+ - Function: set-extent-endpoints extent start end &optional
+          buffer-or-string
+     This function sets the start and end position of EXTENT to START
+     and END.  If both are `nil', this is equivalent to `detach-extent'.
+
+     BUFFER-OR-STRING specifies the new buffer or string that the
+     extent should be in, and defaults to EXTENT's buffer or string.
+     (If `nil', and EXTENT is in no buffer and no string, it defaults
+     to the current buffer.)
+
+     See documentation on `detach-extent' for a discussion of undo
+     recording.
+
+
+File: lispref.info,  Node: Finding Extents,  Next: Mapping Over Extents,  Prev: Extent Endpoints,  Up: Extents
+
+Finding Extents
+===============
+
+   The following functions provide a simple way of determining the
+extents in a buffer or string.  A number of more sophisticated
+primitives for mapping over the extents in a range of a buffer or string
+are also provided (*note Mapping Over Extents::).  When reading through
+this section, keep in mind the way that extents are ordered (*note
+Extent Endpoints::).
+
+ - Function: extent-list &optional buffer-or-string from to flags
+     This function returns a list of the extents in BUFFER-OR-STRING.
+     BUFFER-OR-STRING defaults to the current buffer if omitted.  FROM
+     and TO can be used to limit the range over which extents are
+     returned; if omitted, all extents in the buffer or string are
+     returned.
+
+     More specifically, if a range is specified using FROM and TO, only
+     extents that overlap the range (i.e. begin or end inside of the
+     range) are included in the list.  FROM and TO default to the
+     beginning and end of BUFFER-OR-STRING, respectively.
+
+     FLAGS controls how end cases are treated.  For a discussion of
+     this, and exactly what "overlap" means, see `map-extents'.
+
+   Functions that create extents must be prepared for the possibility
+that there are other extents in the same area, created by other
+functions.  To deal with this, functions typically mark their own
+extents by setting a particular property on them.  The following
+function makes it easier to locate those extents.
+
+ - Function: extent-at pos &optional object property before at-flag
+     This function finds the "smallest" extent (i.e., the last one in
+     the display order) at (i.e., overlapping) POS in OBJECT (a buffer
+     or string) having PROPERTY set.  OBJECT defaults to the current
+     buffer.  PROPERTY defaults to `nil', meaning that any extent will
+     do.  Returns `nil' if there is no matching extent at POS.  If the
+     fourth argument BEFORE is not `nil', it must be an extent; any
+     returned extent will precede that extent.  This feature allows
+     `extent-at' to be used by a loop over extents.
+
+     AT-FLAG controls how end cases are handled (i.e. what "at" really
+     means), and should be one of:
+
+    `nil'
+
+    `after'
+          An extent is at POS if it covers the character after POS.
+          This is consistent with the way that text properties work.
+
+    `before'
+          An extent is at POS if it covers the character before POS.
+
+    `at'
+          An extent is at POS if it overlaps or abuts POS.  This
+          includes all zero-length extents at POS.
+
+     Note that in all cases, the start-openness and end-openness of the
+     extents considered is ignored.  If you want to pay attention to
+     those properties, you should use `map-extents', which gives you
+     more control.
+
+   The following low-level functions are provided for explicitly
+traversing the extents in a buffer according to the display order.
+These functions are mostly intended for debugging--in normal operation,
+you should probably use `mapcar-extents' or `map-extents', or loop
+using the BEFORE argument to `extent-at', rather than creating a loop
+using `next-extent'.
+
+ - Function: next-extent extent
+     Given an extent EXTENT, this function returns the next extent in
+     the buffer or string's display order.  If EXTENT is a buffer or
+     string, this returns the first extent in the buffer or string.
+
+ - Function: previous-extent extent
+     Given an extent EXTENT, this function returns the previous extent
+     in the buffer or string's display order.  If EXTENT is a buffer or
+     string, this returns the last extent in the buffer or string.
+
+
+File: lispref.info,  Node: Mapping Over Extents,  Next: Extent Properties,  Prev: Finding Extents,  Up: Extents
+
+Mapping Over Extents
+====================
+
+   The most basic and general function for mapping over extents is
+called `map-extents'.  You should read through the definition of this
+function to familiarize yourself with the concepts and optional
+arguments involved.  However, in practice you may find it more
+convenient to use the function `mapcar-extents' or to create a loop
+using the `before' argument to `extent-at' (*note Finding Extents::).
+
+ - Function: map-extents function &optional object from to maparg flags
+          property value
+     This function maps FUNCTION over the extents which overlap a
+     region in OBJECT.  OBJECT is normally a buffer or string but could
+     be an extent (see below).  The region is normally bounded by
+     [FROM, TO) (i.e. the beginning of the region is closed and the end
+     of the region is open), but this can be changed with the FLAGS
+     argument (see below for a complete discussion).
+
+     FUNCTION is called with the arguments (extent, MAPARG).  The
+     arguments OBJECT, FROM, TO, MAPARG, and FLAGS are all optional and
+     default to the current buffer, the beginning of OBJECT, the end of
+     OBJECT, NIL, and NIL, respectively.  `map-extents' returns the
+     first non-`nil' result produced by FUNCTION, and no more calls to
+     FUNCTION are made after it returns non-`nil'.
+
+     If OBJECT is an extent, FROM and TO default to the extent's
+     endpoints, and the mapping omits that extent and its predecessors.
+     This feature supports restarting a loop based on `map-extents'.
+     Note: OBJECT must be attached to a buffer or string, and the
+     mapping is done over that buffer or string.
+
+     An extent overlaps the region if there is any point in the extent
+     that is also in the region. (For the purpose of overlap,
+     zero-length extents and regions are treated as closed on both ends
+     regardless of their endpoints' specified open/closedness.) Note
+     that the endpoints of an extent or region are considered to be in
+     that extent or region if and only if the corresponding end is
+     closed.  For example, the extent [5,7] overlaps the region [2,5]
+     because 5 is in both the extent and the region.  However, (5,7]
+     does not overlap [2,5] because 5 is not in the extent, and neither
+     [5,7] nor (5,7] overlaps the region [2,5) because 5 is not in the
+     region.
+
+     The optional FLAGS can be a symbol or a list of one or more
+     symbols, modifying the behavior of `map-extents'.  Allowed symbols
+     are:
+
+    `end-closed'
+          The region's end is closed.
+
+    `start-open'
+          The region's start is open.
+
+    `all-extents-closed'
+          Treat all extents as closed on both ends for the purpose of
+          determining whether they overlap the region, irrespective of
+          their actual open- or closedness.
+
+    `all-extents-open'
+          Treat all extents as open on both ends.
+
+    `all-extents-closed-open'
+          Treat all extents as start-closed, end-open.
+
+    `all-extents-open-closed'
+          Treat all extents as start-open, end-closed.
+
+    `start-in-region'
+          In addition to the above conditions for extent overlap, the
+          extent's start position must lie within the specified region.
+          Note that, for this condition, open start positions are
+          treated as if 0.5 was added to the endpoint's value, and open
+          end positions are treated as if 0.5 was subtracted from the
+          endpoint's value.
+
+    `end-in-region'
+          The extent's end position must lie within the region.
+
+    `start-and-end-in-region'
+          Both the extent's start and end positions must lie within the
+          region.
+
+    `start-or-end-in-region'
+          Either the extent's start or end position must lie within the
+          region.
+
+    `negate-in-region'
+          The condition specified by a `*-in-region' flag must _not_
+          hold for the extent to be considered.
+
+     At most one of `all-extents-closed', `all-extents-open',
+     `all-extents-closed-open', and `all-extents-open-closed' may be
+     specified.
+
+     At most one of `start-in-region', `end-in-region',
+     `start-and-end-in-region', and `start-or-end-in-region' may be
+     specified.
+
+     If optional arg PROPERTY is non-`nil', only extents with that
+     property set on them will be visited.  If optional arg VALUE is
+     non-`nil', only extents whose value for that property is `eq' to
+     VALUE will be visited.
+
+   If you want to map over extents and accumulate a list of results,
+the following function may be more convenient than `map-extents'.
+
+ - Function: mapcar-extents function &optional predicate
+          buffer-or-string from to flags property value
+     This function applies FUNCTION to all extents which overlap a
+     region in BUFFER-OR-STRING.  The region is delimited by FROM and
+     TO.  FUNCTION is called with one argument, the extent.  A list of
+     the values returned by FUNCTION is returned.  An optional
+     PREDICATE may be used to further limit the extents over which
+     FUNCTION is mapped.  The optional arguments FLAGS, PROPERTY, and
+     VALUE may also be used to control the extents passed to PREDICATE
+     or FUNCTION, and have the same meaning as in `map-extents'.
+
+ - Function: map-extent-children function &optional object from to
+          maparg flags property value
+     This function is similar to `map-extents', but differs in that:
+
+        * It only visits extents which start in the given region.
+
+        * After visiting an extent E, it skips all other extents which
+          start inside E but end before E's end.
+
+     Thus, this function may be used to walk a tree of extents in a
+     buffer:
+          (defun walk-extents (buffer &optional ignore)
+            (map-extent-children 'walk-extents buffer))
+
+ - Function: extent-in-region-p extent &optional from to flags
+     This function returns T if `map-extents' would visit EXTENT if
+     called with the given arguments.
+
+
+File: lispref.info,  Node: Extent Properties,  Next: Detached Extents,  Prev: Mapping Over Extents,  Up: Extents
+
+Properties of Extents
+=====================
+
+   Each extent has a property list associating property names with
+values.  Some property names have predefined meanings, and can usually
+only assume particular values.  Assigning other values to such a
+property either cause the value to be converted into a legal value
+(e.g., assigning anything but `nil' to a Boolean property will cause
+the value of `t' to be assigned to the property) or will cause an
+error.  Property names without predefined meanings can be assigned any
+value.  An undefined property is equivalent to a property with a value
+of `nil', or with a particular default value in the case of properties
+with predefined meanings.  Note that, when an extent is created, the
+`end-open' and `detachable' properties are set on it.
+
+   If an extent has a parent, all of its properties actually derive
+from that parent (or from the root ancestor if the parent in turn has a
+parent), and setting a property of the extent actually sets that
+property on the parent.  *Note Extent Parents::.
+
+ - Function: extent-property extent property
+     This function returns the value of PROPERTY in EXTENT.  If
+     PROPERTY is undefined, `nil' is returned.
+
+ - Function: extent-properties extent
+     This function returns a list of all of EXTENT's properties that do
+     not have the value of `nil' (or the default value, for properties
+     with predefined meanings).
+
+ - Function: set-extent-property extent property value
+     This function sets PROPERTY to VALUE in EXTENT. (If PROPERTY has a
+     predefined meaning, only certain values are allowed, and some
+     values may be converted to others before being stored.)
+
+ - Function: set-extent-properties extent plist
+     Change some properties of EXTENT.  PLIST is a property list.  This
+     is useful to change many extent properties at once.
+
+   The following table lists the properties with predefined meanings,
+along with their allowable values.
+
+`detached'
+     (Boolean) Whether the extent is detached.   Setting this is the
+     same as calling `detach-extent'.  *Note Detached Extents::.
+
+`destroyed'
+     (Boolean) Whether the extent has been deleted.  Setting this is
+     the same as calling `delete-extent'.
+
+`priority'
+     (integer) The extent's redisplay priority.  Defaults to 0.  *Note
+     priority: Intro to Extents.  This property can also be set with
+     `set-extent-priority' and accessed with `extent-priority'.
+
+`start-open'
+     (Boolean) Whether the start position of the extent is open,
+     meaning that characters inserted at that position go outside of
+     the extent.  *Note Extent Endpoints::.
+
+`start-closed'
+     (Boolean) Same as `start-open' but with the opposite sense.
+     Setting this property clears `start-open' and vice-versa.
+
+`end-open'
+     (Boolean) Whether the end position of the extent is open, meaning
+     that characters inserted at that position go outside of the
+     extent.  This is `t' by default.  *Note Extent Endpoints::.
+
+`end-closed'
+     (Boolean) Same as `end-open' but with the opposite sense.  Setting
+     this property clears `end-open' and vice-versa.
+
+`read-only'
+     (Boolean) Whether text within this extent will be unmodifiable.
+
+`face'
+     (face, face name, list of faces or face names, or `nil') The face
+     in which to display the extent's text.  This property can also be
+     set with `set-extent-face' and accessed with `extent-face'.  Note
+     that if a list of faces is specified, the faces are merged
+     together, with faces earlier in the list having priority over
+     faces later in the list.
+
+`mouse-face'
+     (face, face name, list of faces or face names, or `nil') The face
+     used to display the extent when the mouse moves over it.  This
+     property can also be set with `set-extent-mouse-face' and accessed
+     with `extent-mouse-face'.  Note that if a list of faces is
+     specified, the faces are merged together, with faces earlier in
+     the list having priority over faces later in the list.  *Note
+     Extents and Events::.
+
+`pointer'
+     (pointer glyph)  The glyph used as the pointer when the mouse
+     moves over the extent.  This takes precedence over the
+     `text-pointer-glyph' and `nontext-pointer-glyph' variables.  If
+     for any reason this glyph is an invalid pointer, the standard
+     glyphs will be used as fallbacks.  *Note Mouse Pointer::.
+
+`detachable'
+     (Boolean) Whether this extent becomes detached when all of the
+     text it covers is deleted.  This is `t' by default.  *Note
+     Detached Extents::.
+
+`duplicable'
+     (Boolean) Whether this extent should be copied into strings, so
+     that kill, yank, and undo commands will restore or copy it.  *Note
+     Duplicable Extents::.
+
+`unique'
+     (Boolean) Meaningful only in conjunction with `duplicable'.  When
+     this is set, there may be only one instance of this extent
+     attached at a time.  *Note Duplicable Extents::.
+
+`invisible'
+     (Boolean) If `t', text under this extent will not be displayed -
+     it will look as if the text is not there at all.
+
+`keymap'
+     (keymap or `nil') This keymap is consulted for mouse clicks on this
+     extent or keypresses made while `point' is within the extent.
+     *Note Extents and Events::.
+
+`copy-function'
+     This is a hook that is run when a duplicable extent is about to be
+     copied from a buffer to a string (or the kill ring).  *Note
+     Duplicable Extents::.
+
+`paste-function'
+     This is a hook that is run when a duplicable extent is about to be
+     copied from a string (or the kill ring) into a buffer.  *Note
+     Duplicable Extents::.
+
+`begin-glyph'
+     (glyph or `nil') This extent's begin glyph.  *Note Annotations::.
+
+`end-glyph'
+     (glyph or `nil') This extent's end glyph.  *Note Annotations::.
+
+`begin-glyph-layout'
+     (`text', `whitespace', `inside-margin', or `outside-margin') The
+     layout policy for this extent's begin glyph.  Defaults to `text'.
+     *Note Annotations::.
+
+`end-glyph-layout'
+     (`text', `whitespace', `inside-margin', or `outside-margin') The
+     layout policy for this extent's end glyph.  Defaults to `text'.
+     *Note Annotations::.
+
+`initial-redisplay-function'
+     (any funcallable object) The function to be called the first time
+     (a part of) the extent is redisplayed.  It will be called with the
+     extent as its argument.
+
+     This is used by `lazy-shot' to implement lazy font-locking.  The
+     functionality is still experimental, and may change without further
+     notice.
+
+   The following convenience functions are provided for accessing
+particular properties of an extent.
+
+ - Function: extent-face extent
+     This function returns the `face' property of EXTENT.  This might
+     also return a list of face names.  Do not modify this list
+     directly!  Instead, use `set-extent-face'.
+
+     Note that you can use `eq' to compare lists of faces as returned
+     by `extent-face'.  In other words, if you set the face of two
+     different extents to two lists that are `equal' but not `eq', then
+     the return value of `extent-face' on the two extents will return
+     the identical list.
+
+ - Function: extent-mouse-face extent
+     This function returns the `mouse-face' property of EXTENT.  This
+     might also return a list of face names.  Do not modify this list
+     directly!  Instead, use `set-extent-mouse-face'.
+
+     Note that you can use `eq' to compare lists of faces as returned
+     by `extent-mouse-face', just like for `extent-face'.
+
+ - Function: extent-priority extent
+     This function returns the `priority' property of EXTENT.
+
+ - Function: extent-keymap extent
+     This function returns the `keymap' property of EXTENT.
+
+ - Function: extent-begin-glyph-layout extent
+     This function returns the `begin-glyph-layout' property of EXTENT,
+     i.e. the layout policy associated with the EXTENT's begin glyph.
+
+ - Function: extent-end-glyph-layout extent
+     This function returns the `end-glyph-layout' property of EXTENT,
+     i.e. the layout policy associated with the EXTENT's end glyph.
+
+ - Function: extent-begin-glyph extent
+     This function returns the `begin-glyph' property of EXTENT, i.e.
+     the glyph object displayed at the beginning of EXTENT.  If there
+     is none, `nil' is returned.
+
+ - Function: extent-end-glyph extent
+     This function returns the `end-glyph' property of EXTENT, i.e. the
+     glyph object displayed at the end of EXTENT.  If there is none,
+     `nil' is returned.
+
+   The following convenience functions are provided for setting
+particular properties of an extent.
+
+ - Function: set-extent-priority extent pri
+     This function sets the `priority' property of EXTENT to PRI.
+
+ - Function: set-extent-face extent face
+     This function sets the `face' property of EXTENT to FACE.
+
+ - Function: set-extent-mouse-face extent face
+     This function sets the `mouse-face' property of EXTENT to FACE.
+
+ - Function: set-extent-keymap extent keymap
+     This function sets the `keymap' property of EXTENT to KEYMAP.
+     KEYMAP must be either a keymap object, or `nil'.
+
+ - Function: set-extent-begin-glyph-layout extent layout
+     This function sets the `begin-glyph-layout' property of EXTENT to
+     LAYOUT.
+
+ - Function: set-extent-end-glyph-layout extent layout
+     This function sets the `end-glyph-layout' property of EXTENT to
+     LAYOUT.
+
+ - Function: set-extent-begin-glyph extent begin-glyph &optional layout
+     This function sets the `begin-glyph' and `glyph-layout' properties
+     of EXTENT to BEGIN-GLYPH and LAYOUT, respectively. (LAYOUT
+     defaults to `text' if not specified.)
+
+ - Function: set-extent-end-glyph extent end-glyph &optional layout
+     This function sets the `end-glyph' and `glyph-layout' properties
+     of EXTENT to END-GLYPH and LAYOUT, respectively. (LAYOUT defaults
+     to `text' if not specified.)
+
+ - Function: set-extent-initial-redisplay-function extent function
+     This function sets the `initial-redisplay-function' property of the
+     extent to FUNCTION.
+
+
+File: lispref.info,  Node: Detached Extents,  Next: Extent Parents,  Prev: Extent Properties,  Up: Extents
+
+Detached Extents
+================
+
+   A detached extent is an extent that is not attached to a buffer or
+string but can be re-inserted.  Detached extents have a start position
+and end position of `nil'.  Extents can be explicitly detached using
+`detach-extent'.  An extent is also detached when all of its characters
+are all killed by a deletion, if its `detachable' property is set; if
+this property is not set, the extent becomes a zero-length extent.
+(Zero-length extents with the `detachable' property set behave
+specially.  *Note zero-length extents: Extent Endpoints.)
+
+ - Function: detach-extent extent
+     This function detaches EXTENT from its buffer or string.  If
+     EXTENT has the `duplicable' property, its detachment is tracked by
+     the undo mechanism.  *Note Duplicable Extents::.
+
+ - Function: extent-detached-p extent
+     This function returns `nil' if EXTENT is detached, and `t'
+     otherwise.
+
+ - Function: copy-extent extent &optional object
+     This function makes a copy of EXTENT.  It is initially detached.
+     Optional argument OBJECT defaults to EXTENT's object (normally a
+     buffer or string, but could be `nil').
+
+ - Function: insert-extent extent &optional start end no-hooks object
+     This function inserts EXTENT from START to END in OBJECT (a buffer
+     or string).  If EXTENT is detached from a different buffer or
+     string, or in most cases when EXTENT is already attached, the
+     extent will first be copied as if with `copy-extent'.  This
+     function operates the same as if `insert' were called on a string
+     whose extent data calls for EXTENT to be inserted, except that if
+     NO-HOOKS is non-`nil', EXTENT's `paste-function' will not be
+     invoked.  *Note Duplicable Extents::.
+
+
+File: lispref.info,  Node: Extent Parents,  Next: Duplicable Extents,  Prev: Detached Extents,  Up: Extents
+
+Extent Parents
+==============
+
+   An extent can have a parent extent set for it.  If this is the case,
+the extent derives all its properties from that extent and has no
+properties of its own.  The only "properties" that the extent keeps are
+the buffer or string it refers to and the start and end points.  (More
+correctly, the extent's own properties are shadowed.  If you later
+change the extent to have no parent, its own properties will become
+visible again.)
+
+   It is possible for an extent's parent to itself have a parent, and
+so on.  Through this, a whole tree of extents can be created, all
+deriving their properties from one root extent.  Note, however, that
+you cannot create an inheritance loop--this is explicitly disallowed.
+
+   Parent extents are used to implement the extents over the modeline.
+
+ - Function: set-extent-parent extent parent
+     This function sets the parent of EXTENT to PARENT.  If PARENT is
+     `nil', the extent is set to have no parent.
+
+ - Function: extent-parent extent
+     This function return the parents (if any) of EXTENT, or `nil'.
+
+ - Function: extent-children extent
+     This function returns a list of the children (if any) of EXTENT.
+     The children of an extent are all those extents whose parent is
+     that extent.  This function does not recursively trace children of
+     children.
+
+ - Function: extent-descendants extent
+     This function returns a list of all descendants of EXTENT,
+     including EXTENT.  This recursively applies `extent-children' to
+     any children of EXTENT, until no more children can be found.
+
+
+File: lispref.info,  Node: Duplicable Extents,  Next: Extents and Events,  Prev: Extent Parents,  Up: Extents
+
+Duplicable Extents
+==================
+
+   If an extent has the `duplicable' property, it will be copied into
+strings, so that kill, yank, and undo commands will restore or copy it.
+
+   Specifically:
+
+   * When a string is created using `buffer-substring' or
+     `buffer-string', any duplicable extents in the region corresponding
+     to the string will be copied into the string (*note Buffer
+     Contents::).  When the string in inserted into a buffer using
+     `insert', `insert-before-markers', `insert-buffer' or
+     `insert-buffer-substring', the extents in the string will be copied
+     back into the buffer (*note Insertion::).  The extents in a string
+     can, of course, be retrieved explicitly using the standard extent
+     primitives over the string.
+
+   * Similarly, when text is copied or cut into the kill ring, any
+     duplicable extents will be remembered and reinserted later when
+     the text is pasted back into a buffer.
+
+   * When `concat' is called on strings, the extents in the strings are
+     copied into the resulting string.
+
+   * When `substring' is called on a string, the relevant extents are
+     copied into the resulting string.
+
+   * When a duplicable extent is detached by `detach-extent' or string
+     deletion, or inserted by `insert-extent' or string insertion, the
+     action is recorded by the undo mechanism so that it can be undone
+     later.  Note that if an extent gets detached and then a later undo
+     causes the extent to get reinserted, the new extent will not be
+     `eq' to the original extent.
+
+   * Extent motion, face changes, and attachment via `make-extent' are
+     not recorded by the undo mechanism.  This means that extent changes
+     which are to be undo-able must be performed by character editing,
+     or by insertion and detachment of duplicable extents.
+
+   * A duplicable extent's `copy-function' property, if non-`nil',
+     should be a function, and will be run when a duplicable extent is
+     about to be copied from a buffer to a string (or the kill ring).
+     It is called with three arguments: the extent and the buffer
+     positions within it which are being copied.  If this function
+     returns `nil', then the extent will not be copied; otherwise it
+     will.
+
+   * A duplicable extent's `paste-function' property, if non-`nil',
+     should be a function, and will be run when a duplicable extent is
+     about to be copied from a string (or the kill ring) into a buffer.
+     It is called with three arguments: the original extent and the
+     buffer positions which the copied extent will occupy. (This hook
+     is run after the corresponding text has already been inserted into
+     the buffer.) Note that the extent argument may be detached when
+     this function is run.  If this function returns `nil', no extent
+     will be inserted.  Otherwise, there will be an extent covering the
+     range in question.
+
+     Note: if the extent to be copied is already attached to the buffer
+     and overlaps the new range, the extent will simply be extended and
+     the `paste-function' will not be called.
+
+
+File: lispref.info,  Node: Extents and Events,  Next: Atomic Extents,  Prev: Duplicable Extents,  Up: Extents
+
+Interaction of Extents with Keyboard and Mouse Events
+=====================================================
+
+   If an extent has the `mouse-face' property set, it will be
+highlighted when the mouse passes over it.  Highlighting is accomplished
+by merging the extent's face with the face or faces specified by the
+`mouse-face' property.  The effect is as if a pseudo-extent with the
+`mouse-face' face were inserted after the extent in the display order
+(*note Extent Endpoints::, display order).
+
+ - Variable: mouse-highlight-priority
+     This variable holds the priority to use when merging in the
+     highlighting pseudo-extent.  The default is 1000.  This is
+     purposely set very high so that the highlighting pseudo-extent
+     shows up even if there are other extents with various priorities
+     at the same location.
+
+   You can also explicitly cause an extent to be highlighted.  Only one
+extent at a time can be highlighted in this fashion, and any other
+highlighted extent will be de-highlighted.
+
+ - Function: highlight-extent extent &optional highlight-p
+     This function highlights (if HIGHLIGHT-P is non-`nil') or
+     de-highlights (if HIGHLIGHT-P is `nil') EXTENT, if EXTENT has the
+     `mouse-face' property. (Nothing happens if EXTENT does not have
+     the `mouse-face' property.)
+
+ - Function: force-highlight-extent extent &optional highlight-p
+     This function is similar to `highlight-extent' but highlights or
+     de-highlights the extent regardless of whether it has the
+     `mouse-face' property.
+
+   If an extent has a `keymap' property, this keymap will be consulted
+for mouse clicks on the extent and keypresses made while `point' is
+within the extent.  The behavior of mouse clicks and keystrokes not
+defined in the keymap is as normal for the buffer.
+
+
+File: lispref.info,  Node: Atomic Extents,  Prev: Extents and Events,  Up: Extents
+
+Atomic Extents
+==============
+
+   If the Lisp file `atomic-extents' is loaded, then the atomic extent
+facility is available.  An "atomic extent" is an extent for which
+`point' cannot be positioned anywhere within it.  This ensures that
+when selecting text, either all or none of the extent is selected.
+
+   To make an extent atomic, set its `atomic' property.
+
+
+File: lispref.info,  Node: Specifiers,  Next: Faces and Window-System Objects,  Prev: Extents,  Up: Top
+
+Specifiers
+**********
+
+   A specifier is an object used to keep track of a property whose value
+may vary depending on the particular situation (e.g. particular buffer
+displayed in a particular window) that it is used in.  The value of many
+built-in properties, such as the font, foreground, background, and such
+properties of a face and variables such as `modeline-shadow-thickness'
+and `top-toolbar-height', is actually a specifier object.  The
+specifier object, in turn, is "instanced" in a particular situation to
+yield the real value of the property in that situation.
+
+ - Function: specifierp object
+     This function returns non-`nil' if OBJECT is a specifier.
+
+* Menu:
+
+* Introduction to Specifiers::  Specifiers provide a clean way for
+                                display and other properties to vary
+                                (under user control) in a wide variety
+                                of contexts.
+* Specifiers In-Depth::         Gory details about specifier innards.
+* Specifier Instancing::        Instancing means obtaining the ``value'' of
+                                a specifier in a particular context.
+* Specifier Types::             Specifiers come in different flavors.
+* Adding Specifications::       Specifications control a specifier's ``value''
+                                by giving conditions under which a
+                                particular value is valid.
+* Retrieving Specifications::   Querying a specifier's specifications.
+* Specifier Tag Functions::     Working with specifier tags.
+* Specifier Instancing Functions::
+                                Functions to instance a specifier.
+* Specifier Example::           Making all this stuff clearer.
+* Creating Specifiers::         Creating specifiers for your own use.
+* Specifier Validation Functions::
+                                Validating the components of a specifier.
+* Other Specification Functions::
+                                Other ways of working with specifications.
+
+
+File: lispref.info,  Node: Introduction to Specifiers,  Next: Specifiers In-Depth,  Up: Specifiers
+
+Introduction to Specifiers
+==========================
+
+   Sometimes you may want the value of a property to vary depending on
+the context the property is used in.  A simple example of this in XEmacs
+is buffer-local variables.  For example, the variable
+`modeline-format', which controls the format of the modeline, can have
+different values depending on the particular buffer being edited.  The
+variable has a default value which most modes will use, but a
+specialized package such as Calendar might change the variable so as to
+tailor the modeline to its own purposes.
+
+   Other properties (such as those that can be changed by the
+`modify-frame-parameters' function, for example the color of the text
+cursor) can have frame-local values, although it might also make sense
+for them to have buffer-local values.  In other cases, you might want
+the property to vary depending on the particular window within the
+frame that applies (e.g. the top or bottom window in a split frame), the
+device type that that frame appears on (X or tty), etc.  Perhaps you can
+envision some more complicated scenario where you want a particular
+value in a specified buffer, another value in all other buffers
+displayed on a particular frame, another value in all other buffers
+displayed in all other frames on any mono (two-color, e.g. black and
+white only) displays, and a default value in all other circumstances.
+
+   A "specifier" is a generalization of this, allowing a great deal of
+flexibility in controlling exactly what value a property has in which
+circumstances.  It is most commonly used for display properties, such as
+an image or the foreground color of a face.  As a simple example, you
+can specify that the foreground of the default face be
+
+   * blue for a particular buffer
+
+   * green for all other buffers
+
+   As a more complicated example, you could specify that the foreground
+of the default face be
+
+   * forest green for all buffers displayed in a particular Emacs
+     window, or green if the X server doesn't recognize the color
+     `forest green'
+
+   * blue for all buffers displayed in a particular frame
+
+   * red for all other buffers displayed on a color device
+
+   * white for all other buffers
+
+
+File: lispref.info,  Node: Specifiers In-Depth,  Next: Specifier Instancing,  Prev: Introduction to Specifiers,  Up: Specifiers
+
+In-Depth Overview of a Specifier
+================================
+
+   A specifier object encapsulates a set of "specifications", each of
+which says what its value should be if a particular condition applies.
+For example, one specification might be "The value should be
+darkseagreen2 on X devices" another might be "The value should be blue
+in the *Help* buffer".  In specifier terminology, these conditions are
+called "locales" and the values are called "instantiators".  Given a
+specifier, a logical question is "What is its value in a particular
+situation?" This involves looking through the specifications to see
+which ones apply to this particular situation, and perhaps preferring
+one over another if more than one applies.  In specifier terminology, a
+"particular situation" is called a "domain", and determining its value
+in a particular domain is called "instancing".  Most of the time, a
+domain is identified by a particular window.  For example, if the
+redisplay engine is drawing text in the default face in a particular
+window, it retrieves the specifier for the foreground color of the
+default face and "instances" it in the domain given by that window; in
+other words, it asks the specifier, "What is your value in this
+window?".
+
+   More specifically, a specifier contains a set of "specifications",
+each of which associates a "locale" (a window object, a buffer object,
+a frame object, a device object, or the symbol `global') with an
+"inst-list", which is a list of one or more "inst-pairs". (For each
+possible locale, there can be at most one specification containing that
+locale.) Each inst-pair is a cons of a "tag set" (an unordered list of
+zero or more symbols, or "tags") and an "instantiator" (the allowed
+form of this varies depending on the type of specifier).  In a given
+specification, there may be more than one inst-pair with the same tag
+set; this is unlike for locales.
+
+   The tag set is used to restrict the sorts of devices over which the
+instantiator is valid and to uniquely identify instantiators added by a
+particular application, so that different applications can work on the
+same specifier and not interfere with each other.  Each tag can have a
+"predicate" associated with it, which is a function of one argument (a
+device) that specifies whether the tag matches that particular device.
+(If a tag does not have a predicate, it matches all devices.)  All tags
+in a tag set must match a device for the associated inst-pair to be
+instantiable over that device.  (A null tag set is perfectly valid.)
+
+   The valid device types (normally `x', `tty', and `stream') and
+device classes (normally `color', `grayscale', and `mono') can always
+be used as tags, and match devices of the associated type or class
+(*note Consoles and Devices::).  User-defined tags may be defined, with
+an optional predicate specified.  An application can create its own
+tag, use it to mark all its instantiators, and be fairly confident that
+it will not interfere with other applications that modify the same
+specifier--Functions that add a specification to a specifier usually
+only overwrite existing inst-pairs with the same tag set as was given,
+and a particular tag or tag set can be specified when removing
+instantiators.
+
+   When a specifier is instanced in a domain, both the locale and the
+tag set can be viewed as specifying necessary conditions that must
+apply in that domain for an instantiator to be considered as a possible
+result of the instancing.  More specific locales always override more
+general locales (thus, there is no particular ordering of the
+specifications in a specifier); however, the tag sets are simply
+considered in the order that the inst-pairs occur in the
+specification's inst-list.
+
+   Note also that the actual object that results from the instancing
+(called an "instance object") may not be the same as the instantiator
+from which it was derived.  For some specifier types (such as integer
+specifiers and boolean specifiers), the instantiator will be returned
+directly as the instance object.  For other types, however, this is not
+the case.  For example, for font specifiers, the instantiator is a
+font-description string and the instance object is a font-instance
+object, which describes how the font is displayed on a particular
+device.  A font-instance object encapsulates such things as the actual
+font name used to display the font on that device (a font-description
+string under X is usually a wildcard specification that may resolve to
+different font names, with possibly different foundries, widths, etc.,
+on different devices), the extra properties of that font on that
+device, etc.  Furthermore, this conversion (called "instantiation")
+might fail--a font or color might not exist on a particular device, for
+example.
+

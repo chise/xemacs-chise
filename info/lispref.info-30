@@ -1,0 +1,1175 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Sorting,  Next: Columns,  Prev: Auto Filling,  Up: Text
+
+Sorting Text
+============
+
+   The sorting functions described in this section all rearrange text in
+a buffer.  This is in contrast to the function `sort', which rearranges
+the order of the elements of a list (*note Rearrangement::).  The
+values returned by these functions are not meaningful.
+
+ - Function: sort-subr reverse nextrecfun endrecfun &optional
+          startkeyfun endkeyfun
+     This function is the general text-sorting routine that divides a
+     buffer into records and sorts them.  Most of the commands in this
+     section use this function.
+
+     To understand how `sort-subr' works, consider the whole accessible
+     portion of the buffer as being divided into disjoint pieces called
+     "sort records".  The records may or may not be contiguous; they may
+     not overlap.  A portion of each sort record (perhaps all of it) is
+     designated as the sort key.  Sorting rearranges the records in
+     order by their sort keys.
+
+     Usually, the records are rearranged in order of ascending sort key.
+     If the first argument to the `sort-subr' function, REVERSE, is
+     non-`nil', the sort records are rearranged in order of descending
+     sort key.
+
+     The next four arguments to `sort-subr' are functions that are
+     called to move point across a sort record.  They are called many
+     times from within `sort-subr'.
+
+       1. NEXTRECFUN is called with point at the end of a record.  This
+          function moves point to the start of the next record.  The
+          first record is assumed to start at the position of point
+          when `sort-subr' is called.  Therefore, you should usually
+          move point to the beginning of the buffer before calling
+          `sort-subr'.
+
+          This function can indicate there are no more sort records by
+          leaving point at the end of the buffer.
+
+       2. ENDRECFUN is called with point within a record.  It moves
+          point to the end of the record.
+
+       3. STARTKEYFUN is called to move point from the start of a
+          record to the start of the sort key.  This argument is
+          optional; if it is omitted, the whole record is the sort key.
+          If supplied, the function should either return a non-`nil'
+          value to be used as the sort key, or return `nil' to indicate
+          that the sort key is in the buffer starting at point.  In the
+          latter case, ENDKEYFUN is called to find the end of the sort
+          key.
+
+       4. ENDKEYFUN is called to move point from the start of the sort
+          key to the end of the sort key.  This argument is optional.
+          If STARTKEYFUN returns `nil' and this argument is omitted (or
+          `nil'), then the sort key extends to the end of the record.
+          There is no need for ENDKEYFUN if STARTKEYFUN returns a
+          non-`nil' value.
+
+     As an example of `sort-subr', here is the complete function
+     definition for `sort-lines':
+
+          ;; Note that the first two lines of doc string
+          ;; are effectively one line when viewed by a user.
+          (defun sort-lines (reverse beg end)
+            "Sort lines in region alphabetically.
+          Called from a program, there are three arguments:
+          REVERSE (non-nil means reverse order),
+          and BEG and END (the region to sort)."
+            (interactive "P\nr")
+            (save-restriction
+              (narrow-to-region beg end)
+              (goto-char (point-min))
+              (sort-subr reverse
+                         'forward-line
+                         'end-of-line)))
+
+     Here `forward-line' moves point to the start of the next record,
+     and `end-of-line' moves point to the end of record.  We do not pass
+     the arguments STARTKEYFUN and ENDKEYFUN, because the entire record
+     is used as the sort key.
+
+     The `sort-paragraphs' function is very much the same, except that
+     its `sort-subr' call looks like this:
+
+          (sort-subr reverse
+                     (function
+                      (lambda ()
+                        (skip-chars-forward "\n \t\f")))
+                     'forward-paragraph)
+
+ - Command: sort-regexp-fields reverse record-regexp key-regexp start
+          end
+     This command sorts the region between START and END alphabetically
+     as specified by RECORD-REGEXP and KEY-REGEXP.  If REVERSE is a
+     negative integer, then sorting is in reverse order.
+
+     Alphabetical sorting means that two sort keys are compared by
+     comparing the first characters of each, the second characters of
+     each, and so on.  If a mismatch is found, it means that the sort
+     keys are unequal; the sort key whose character is less at the
+     point of first mismatch is the lesser sort key.  The individual
+     characters are compared according to their numerical values.
+     Since Emacs uses the ASCII character set, the ordering in that set
+     determines alphabetical order.
+
+     The value of the RECORD-REGEXP argument specifies how to divide
+     the buffer into sort records.  At the end of each record, a search
+     is done for this regular expression, and the text that matches it
+     is the next record.  For example, the regular expression `^.+$',
+     which matches lines with at least one character besides a newline,
+     would make each such line into a sort record.  *Note Regular
+     Expressions::, for a description of the syntax and meaning of
+     regular expressions.
+
+     The value of the KEY-REGEXP argument specifies what part of each
+     record is the sort key.  The KEY-REGEXP could match the whole
+     record, or only a part.  In the latter case, the rest of the
+     record has no effect on the sorted order of records, but it is
+     carried along when the record moves to its new position.
+
+     The KEY-REGEXP argument can refer to the text matched by a
+     subexpression of RECORD-REGEXP, or it can be a regular expression
+     on its own.
+
+     If KEY-REGEXP is:
+
+    `\DIGIT'
+          then the text matched by the DIGITth `\(...\)' parenthesis
+          grouping in RECORD-REGEXP is the sort key.
+
+    `\&'
+          then the whole record is the sort key.
+
+    a regular expression
+          then `sort-regexp-fields' searches for a match for the regular
+          expression within the record.  If such a match is found, it
+          is the sort key.  If there is no match for KEY-REGEXP within
+          a record then that record is ignored, which means its
+          position in the buffer is not changed.  (The other records
+          may move around it.)
+
+     For example, if you plan to sort all the lines in the region by the
+     first word on each line starting with the letter `f', you should
+     set RECORD-REGEXP to `^.*$' and set KEY-REGEXP to `\<f\w*\>'.  The
+     resulting expression looks like this:
+
+          (sort-regexp-fields nil "^.*$" "\\<f\\w*\\>"
+                              (region-beginning)
+                              (region-end))
+
+     If you call `sort-regexp-fields' interactively, it prompts for
+     RECORD-REGEXP and KEY-REGEXP in the minibuffer.
+
+ - Command: sort-lines reverse start end
+     This command alphabetically sorts lines in the region between
+     START and END.  If REVERSE is non-`nil', the sort is in reverse
+     order.
+
+ - Command: sort-paragraphs reverse start end
+     This command alphabetically sorts paragraphs in the region between
+     START and END.  If REVERSE is non-`nil', the sort is in reverse
+     order.
+
+ - Command: sort-pages reverse start end
+     This command alphabetically sorts pages in the region between
+     START and END.  If REVERSE is non-`nil', the sort is in reverse
+     order.
+
+ - Command: sort-fields field start end
+     This command sorts lines in the region between START and END,
+     comparing them alphabetically by the FIELDth field of each line.
+     Fields are separated by whitespace and numbered starting from 1.
+     If FIELD is negative, sorting is by the -FIELDth field from the
+     end of the line.  This command is useful for sorting tables.
+
+ - Command: sort-numeric-fields field start end
+     This command sorts lines in the region between START and END,
+     comparing them numerically by the FIELDth field of each line.  The
+     specified field must contain a number in each line of the region.
+     Fields are separated by whitespace and numbered starting from 1.
+     If FIELD is negative, sorting is by the -FIELDth field from the
+     end of the line.  This command is useful for sorting tables.
+
+ - Command: sort-columns reverse &optional beg end
+     This command sorts the lines in the region between BEG and END,
+     comparing them alphabetically by a certain range of columns.  The
+     column positions of BEG and END bound the range of columns to sort
+     on.
+
+     If REVERSE is non-`nil', the sort is in reverse order.
+
+     One unusual thing about this command is that the entire line
+     containing position BEG, and the entire line containing position
+     END, are included in the region sorted.
+
+     Note that `sort-columns' uses the `sort' utility program, and so
+     cannot work properly on text containing tab characters.  Use `M-x
+     `untabify'' to convert tabs to spaces before sorting.
+
+
+File: lispref.info,  Node: Columns,  Next: Indentation,  Prev: Sorting,  Up: Text
+
+Counting Columns
+================
+
+   The column functions convert between a character position (counting
+characters from the beginning of the buffer) and a column position
+(counting screen characters from the beginning of a line).
+
+   A character counts according to the number of columns it occupies on
+the screen.  This means control characters count as occupying 2 or 4
+columns, depending upon the value of `ctl-arrow', and tabs count as
+occupying a number of columns that depends on the value of `tab-width'
+and on the column where the tab begins.  *Note Usual Display::.
+
+   Column number computations ignore the width of the window and the
+amount of horizontal scrolling.  Consequently, a column value can be
+arbitrarily high.  The first (or leftmost) column is numbered 0.
+
+ - Function: current-column
+     This function returns the horizontal position of point, measured in
+     columns, counting from 0 at the left margin.  The column position
+     is the sum of the widths of all the displayed representations of
+     the characters between the start of the current line and point.
+
+     For an example of using `current-column', see the description of
+     `count-lines' in *Note Text Lines::.
+
+ - Function: move-to-column column &optional force
+     This function moves point to COLUMN in the current line.  The
+     calculation of COLUMN takes into account the widths of the
+     displayed representations of the characters between the start of
+     the line and point.
+
+     If column COLUMN is beyond the end of the line, point moves to the
+     end of the line.  If COLUMN is negative, point moves to the
+     beginning of the line.
+
+     If it is impossible to move to column COLUMN because that is in
+     the middle of a multicolumn character such as a tab, point moves
+     to the end of that character.  However, if FORCE is non-`nil', and
+     COLUMN is in the middle of a tab, then `move-to-column' converts
+     the tab into spaces so that it can move precisely to column
+     COLUMN.  Other multicolumn characters can cause anomalies despite
+     FORCE, since there is no way to split them.
+
+     The argument FORCE also has an effect if the line isn't long
+     enough to reach column COLUMN; in that case, it says to add
+     whitespace at the end of the line to reach that column.
+
+     If COLUMN is not an integer, an error is signaled.
+
+     The return value is the column number actually moved to.
+
+
+File: lispref.info,  Node: Indentation,  Next: Case Changes,  Prev: Columns,  Up: Text
+
+Indentation
+===========
+
+   The indentation functions are used to examine, move to, and change
+whitespace that is at the beginning of a line.  Some of the functions
+can also change whitespace elsewhere on a line.  Columns and indentation
+count from zero at the left margin.
+
+* Menu:
+
+* Primitive Indent::      Functions used to count and insert indentation.
+* Mode-Specific Indent::  Customize indentation for different modes.
+* Region Indent::         Indent all the lines in a region.
+* Relative Indent::       Indent the current line based on previous lines.
+* Indent Tabs::           Adjustable, typewriter-like tab stops.
+* Motion by Indent::      Move to first non-blank character.
+
+
+File: lispref.info,  Node: Primitive Indent,  Next: Mode-Specific Indent,  Up: Indentation
+
+Indentation Primitives
+----------------------
+
+   This section describes the primitive functions used to count and
+insert indentation.  The functions in the following sections use these
+primitives.
+
+ - Function: current-indentation
+     This function returns the indentation of the current line, which is
+     the horizontal position of the first nonblank character.  If the
+     contents are entirely blank, then this is the horizontal position
+     of the end of the line.
+
+ - Command: indent-to column &optional minimum
+     This function indents from point with tabs and spaces until COLUMN
+     is reached.  If MINIMUM is specified and non-`nil', then at least
+     that many spaces are inserted even if this requires going beyond
+     COLUMN.  Otherwise the function does nothing if point is already
+     beyond COLUMN.  The value is the column at which the inserted
+     indentation ends.
+
+ - User Option: indent-tabs-mode
+     If this variable is non-`nil', indentation functions can insert
+     tabs as well as spaces.  Otherwise, they insert only spaces.
+     Setting this variable automatically makes it local to the current
+     buffer.
+
+
+File: lispref.info,  Node: Mode-Specific Indent,  Next: Region Indent,  Prev: Primitive Indent,  Up: Indentation
+
+Indentation Controlled by Major Mode
+------------------------------------
+
+   An important function of each major mode is to customize the <TAB>
+key to indent properly for the language being edited.  This section
+describes the mechanism of the <TAB> key and how to control it.  The
+functions in this section return unpredictable values.
+
+ - Variable: indent-line-function
+     This variable's value is the function to be used by <TAB> (and
+     various commands) to indent the current line.  The command
+     `indent-according-to-mode' does no more than call this function.
+
+     In Lisp mode, the value is the symbol `lisp-indent-line'; in C
+     mode, `c-indent-line'; in Fortran mode, `fortran-indent-line'.  In
+     Fundamental mode, Text mode, and many other modes with no standard
+     for indentation, the value is `indent-to-left-margin' (which is the
+     default value).
+
+ - Command: indent-according-to-mode
+     This command calls the function in `indent-line-function' to
+     indent the current line in a way appropriate for the current major
+     mode.
+
+ - Command: indent-for-tab-command
+     This command calls the function in `indent-line-function' to indent
+     the current line; except that if that function is
+     `indent-to-left-margin', it calls `insert-tab' instead.  (That is
+     a trivial command that inserts a tab character.)
+
+ - Command: newline-and-indent
+     This function inserts a newline, then indents the new line (the one
+     following the newline just inserted) according to the major mode.
+
+     It does indentation by calling the current `indent-line-function'.
+     In programming language modes, this is the same thing <TAB> does,
+     but in some text modes, where <TAB> inserts a tab,
+     `newline-and-indent' indents to the column specified by
+     `left-margin'.
+
+ - Command: reindent-then-newline-and-indent
+     This command reindents the current line, inserts a newline at
+     point, and then reindents the new line (the one following the
+     newline just inserted).
+
+     This command does indentation on both lines according to the
+     current major mode, by calling the current value of
+     `indent-line-function'.  In programming language modes, this is
+     the same thing <TAB> does, but in some text modes, where <TAB>
+     inserts a tab, `reindent-then-newline-and-indent' indents to the
+     column specified by `left-margin'.
+
+
+File: lispref.info,  Node: Region Indent,  Next: Relative Indent,  Prev: Mode-Specific Indent,  Up: Indentation
+
+Indenting an Entire Region
+--------------------------
+
+   This section describes commands that indent all the lines in the
+region.  They return unpredictable values.
+
+ - Command: indent-region start end to-column
+     This command indents each nonblank line starting between START
+     (inclusive) and END (exclusive).  If TO-COLUMN is `nil',
+     `indent-region' indents each nonblank line by calling the current
+     mode's indentation function, the value of `indent-line-function'.
+
+     If TO-COLUMN is non-`nil', it should be an integer specifying the
+     number of columns of indentation; then this function gives each
+     line exactly that much indentation, by either adding or deleting
+     whitespace.
+
+     If there is a fill prefix, `indent-region' indents each line by
+     making it start with the fill prefix.
+
+ - Variable: indent-region-function
+     The value of this variable is a function that can be used by
+     `indent-region' as a short cut.  You should design the function so
+     that it will produce the same results as indenting the lines of the
+     region one by one, but presumably faster.
+
+     If the value is `nil', there is no short cut, and `indent-region'
+     actually works line by line.
+
+     A short-cut function is useful in modes such as C mode and Lisp
+     mode, where the `indent-line-function' must scan from the
+     beginning of the function definition: applying it to each line
+     would be quadratic in time.  The short cut can update the scan
+     information as it moves through the lines indenting them; this
+     takes linear time.  In a mode where indenting a line individually
+     is fast, there is no need for a short cut.
+
+     `indent-region' with a non-`nil' argument TO-COLUMN has a
+     different meaning and does not use this variable.
+
+ - Command: indent-rigidly start end count
+     This command indents all lines starting between START (inclusive)
+     and END (exclusive) sideways by COUNT columns.  This "preserves
+     the shape" of the affected region, moving it as a rigid unit.
+     Consequently, this command is useful not only for indenting
+     regions of unindented text, but also for indenting regions of
+     formatted code.
+
+     For example, if COUNT is 3, this command adds 3 columns of
+     indentation to each of the lines beginning in the region specified.
+
+     In Mail mode, `C-c C-y' (`mail-yank-original') uses
+     `indent-rigidly' to indent the text copied from the message being
+     replied to.
+
+ - Function: indent-code-rigidly start end columns &optional
+          nochange-regexp
+     This is like `indent-rigidly', except that it doesn't alter lines
+     that start within strings or comments.
+
+     In addition, it doesn't alter a line if NOCHANGE-REGEXP matches at
+     the beginning of the line (if NOCHANGE-REGEXP is non-`nil').
+
+
+File: lispref.info,  Node: Relative Indent,  Next: Indent Tabs,  Prev: Region Indent,  Up: Indentation
+
+Indentation Relative to Previous Lines
+--------------------------------------
+
+   This section describes two commands that indent the current line
+based on the contents of previous lines.
+
+ - Command: indent-relative &optional unindented-ok
+     This command inserts whitespace at point, extending to the same
+     column as the next "indent point" of the previous nonblank line.
+     An indent point is a non-whitespace character following
+     whitespace.  The next indent point is the first one at a column
+     greater than the current column of point.  For example, if point
+     is underneath and to the left of the first non-blank character of
+     a line of text, it moves to that column by inserting whitespace.
+
+     If the previous nonblank line has no next indent point (i.e., none
+     at a great enough column position), `indent-relative' either does
+     nothing (if UNINDENTED-OK is non-`nil') or calls
+     `tab-to-tab-stop'.  Thus, if point is underneath and to the right
+     of the last column of a short line of text, this command ordinarily
+     moves point to the next tab stop by inserting whitespace.
+
+     The return value of `indent-relative' is unpredictable.
+
+     In the following example, point is at the beginning of the second
+     line:
+
+                      This line is indented twelve spaces.
+          -!-The quick brown fox jumped.
+
+     Evaluation of the expression `(indent-relative nil)' produces the
+     following:
+
+                      This line is indented twelve spaces.
+                      -!-The quick brown fox jumped.
+
+     In this example, point is between the `m' and `p' of `jumped':
+
+                      This line is indented twelve spaces.
+          The quick brown fox jum-!-ped.
+
+     Evaluation of the expression `(indent-relative nil)' produces the
+     following:
+
+                      This line is indented twelve spaces.
+          The quick brown fox jum  -!-ped.
+
+ - Command: indent-relative-maybe
+     This command indents the current line like the previous nonblank
+     line.  It calls `indent-relative' with `t' as the UNINDENTED-OK
+     argument.  The return value is unpredictable.
+
+     If the previous nonblank line has no indent points beyond the
+     current column, this command does nothing.
+
+
+File: lispref.info,  Node: Indent Tabs,  Next: Motion by Indent,  Prev: Relative Indent,  Up: Indentation
+
+Adjustable "Tab Stops"
+----------------------
+
+   This section explains the mechanism for user-specified "tab stops"
+and the mechanisms that use and set them.  The name "tab stops" is used
+because the feature is similar to that of the tab stops on a
+typewriter.  The feature works by inserting an appropriate number of
+spaces and tab characters to reach the next tab stop column; it does not
+affect the display of tab characters in the buffer (*note Usual
+Display::).  Note that the <TAB> character as input uses this tab stop
+feature only in a few major modes, such as Text mode.
+
+ - Command: tab-to-tab-stop
+     This command inserts spaces or tabs up to the next tab stop column
+     defined by `tab-stop-list'.  It searches the list for an element
+     greater than the current column number, and uses that element as
+     the column to indent to.  It does nothing if no such element is
+     found.
+
+ - User Option: tab-stop-list
+     This variable is the list of tab stop columns used by
+     `tab-to-tab-stops'.  The elements should be integers in increasing
+     order.  The tab stop columns need not be evenly spaced.
+
+     Use `M-x edit-tab-stops' to edit the location of tab stops
+     interactively.
+
+
+File: lispref.info,  Node: Motion by Indent,  Prev: Indent Tabs,  Up: Indentation
+
+Indentation-Based Motion Commands
+---------------------------------
+
+   These commands, primarily for interactive use, act based on the
+indentation in the text.
+
+ - Command: back-to-indentation
+     This command moves point to the first non-whitespace character in
+     the current line (which is the line in which point is located).
+     It returns `nil'.
+
+ - Command: backward-to-indentation arg
+     This command moves point backward ARG lines and then to the first
+     nonblank character on that line.  It returns `nil'.
+
+ - Command: forward-to-indentation arg
+     This command moves point forward ARG lines and then to the first
+     nonblank character on that line.  It returns `nil'.
+
+
+File: lispref.info,  Node: Case Changes,  Next: Text Properties,  Prev: Indentation,  Up: Text
+
+Case Changes
+============
+
+   The case change commands described here work on text in the current
+buffer.  *Note Character Case::, for case conversion commands that work
+on strings and characters.  *Note Case Tables::, for how to customize
+which characters are upper or lower case and how to convert them.
+
+ - Command: capitalize-region start end
+     This function capitalizes all words in the region defined by START
+     and END.  To capitalize means to convert each word's first
+     character to upper case and convert the rest of each word to lower
+     case.  The function returns `nil'.
+
+     If one end of the region is in the middle of a word, the part of
+     the word within the region is treated as an entire word.
+
+     When `capitalize-region' is called interactively, START and END
+     are point and the mark, with the smallest first.
+
+          ---------- Buffer: foo ----------
+          This is the contents of the 5th foo.
+          ---------- Buffer: foo ----------
+          
+          (capitalize-region 1 44)
+          => nil
+          
+          ---------- Buffer: foo ----------
+          This Is The Contents Of The 5th Foo.
+          ---------- Buffer: foo ----------
+
+ - Command: downcase-region start end
+     This function converts all of the letters in the region defined by
+     START and END to lower case.  The function returns `nil'.
+
+     When `downcase-region' is called interactively, START and END are
+     point and the mark, with the smallest first.
+
+ - Command: upcase-region start end
+     This function converts all of the letters in the region defined by
+     START and END to upper case.  The function returns `nil'.
+
+     When `upcase-region' is called interactively, START and END are
+     point and the mark, with the smallest first.
+
+ - Command: capitalize-word count
+     This function capitalizes COUNT words after point, moving point
+     over as it does.  To capitalize means to convert each word's first
+     character to upper case and convert the rest of each word to lower
+     case.  If COUNT is negative, the function capitalizes the -COUNT
+     previous words but does not move point.  The value is `nil'.
+
+     If point is in the middle of a word, the part of the word before
+     point is ignored when moving forward.  The rest is treated as an
+     entire word.
+
+     When `capitalize-word' is called interactively, COUNT is set to
+     the numeric prefix argument.
+
+ - Command: downcase-word count
+     This function converts the COUNT words after point to all lower
+     case, moving point over as it does.  If COUNT is negative, it
+     converts the -COUNT previous words but does not move point.  The
+     value is `nil'.
+
+     When `downcase-word' is called interactively, COUNT is set to the
+     numeric prefix argument.
+
+ - Command: upcase-word count
+     This function converts the COUNT words after point to all upper
+     case, moving point over as it does.  If COUNT is negative, it
+     converts the -COUNT previous words but does not move point.  The
+     value is `nil'.
+
+     When `upcase-word' is called interactively, COUNT is set to the
+     numeric prefix argument.
+
+
+File: lispref.info,  Node: Text Properties,  Next: Substitution,  Prev: Case Changes,  Up: Text
+
+Text Properties
+===============
+
+   Text properties are an alternative interface to extents (*note
+Extents::), and are built on top of them.  They are useful when you
+want to view textual properties as being attached to the characters
+themselves rather than to intervals of characters.  The text property
+interface is compatible with FSF Emacs.
+
+   Each character position in a buffer or a string can have a "text
+property list", much like the property list of a symbol (*note Property
+Lists::).  The properties belong to a particular character at a
+particular place, such as, the letter `T' at the beginning of this
+sentence or the first `o' in `foo'--if the same character occurs in two
+different places, the two occurrences generally have different
+properties.
+
+   Each property has a name and a value.  Both of these can be any Lisp
+object, but the name is normally a symbol.  The usual way to access the
+property list is to specify a name and ask what value corresponds to it.
+
+   Note that FSF Emacs also looks at the `category' property to find
+defaults for text properties.  We consider this too bogus to implement.
+
+   Copying text between strings and buffers preserves the properties
+along with the characters; this includes such diverse functions as
+`substring', `insert', and `buffer-substring'.
+
+* Menu:
+
+* Examining Properties::	Looking at the properties of one character.
+* Changing Properties::		Setting the properties of a range of text.
+* Property Search::		Searching for where a property changes value.
+* Special Properties::		Particular properties with special meanings.
+* Saving Properties::           Saving text properties in files, and reading
+                                  them back.
+
+
+File: lispref.info,  Node: Examining Properties,  Next: Changing Properties,  Up: Text Properties
+
+Examining Text Properties
+-------------------------
+
+   The simplest way to examine text properties is to ask for the value
+of a particular property of a particular character.  For that, use
+`get-text-property'.  Use `text-properties-at' to get the entire
+property list of a character.  *Note Property Search::, for functions
+to examine the properties of a number of characters at once.
+
+   These functions handle both strings and buffers.  (Keep in mind that
+positions in a string start from 0, whereas positions in a buffer start
+from 1.)
+
+ - Function: get-text-property pos prop &optional object
+     This function returns the value of the PROP property of the
+     character after position POS in OBJECT (a buffer or string).  The
+     argument OBJECT is optional and defaults to the current buffer.
+
+ - Function: get-char-property pos prop &optional object
+     This function is like `get-text-property', except that it checks
+     all extents, not just text-property extents.
+
+
+ - Function: text-properties-at position &optional object
+     This function returns the entire property list of the character at
+     POSITION in the string or buffer OBJECT.  If OBJECT is `nil', it
+     defaults to the current buffer.
+
+ - Variable: default-text-properties
+     This variable holds a property list giving default values for text
+     properties.  Whenever a character does not specify a value for a
+     property, the value stored in this list is used instead.  Here is
+     an example:
+
+          (setq default-text-properties '(foo 69))
+          ;; Make sure character 1 has no properties of its own.
+          (set-text-properties 1 2 nil)
+          ;; What we get, when we ask, is the default value.
+          (get-text-property 1 'foo)
+               => 69
+
+
+File: lispref.info,  Node: Changing Properties,  Next: Property Search,  Prev: Examining Properties,  Up: Text Properties
+
+Changing Text Properties
+------------------------
+
+   The primitives for changing properties apply to a specified range of
+text.  The function `set-text-properties' (see end of section) sets the
+entire property list of the text in that range; more often, it is
+useful to add, change, or delete just certain properties specified by
+name.
+
+   Since text properties are considered part of the buffer's contents,
+and can affect how the buffer looks on the screen, any change in the
+text properties is considered a buffer modification.  Buffer text
+property changes are undoable (*note Undo::).
+
+ - Function: put-text-property start end prop value &optional object
+     This function sets the PROP property to VALUE for the text between
+     START and END in the string or buffer OBJECT.  If OBJECT is `nil',
+     it defaults to the current buffer.
+
+ - Function: add-text-properties start end props &optional object
+     This function modifies the text properties for the text between
+     START and END in the string or buffer OBJECT.  If OBJECT is `nil',
+     it defaults to the current buffer.
+
+     The argument PROPS specifies which properties to change.  It
+     should have the form of a property list (*note Property Lists::):
+     a list whose elements include the property names followed
+     alternately by the corresponding values.
+
+     The return value is `t' if the function actually changed some
+     property's value; `nil' otherwise (if PROPS is `nil' or its values
+     agree with those in the text).
+
+     For example, here is how to set the `comment' and `face'
+     properties of a range of text:
+
+          (add-text-properties START END
+                               '(comment t face highlight))
+
+ - Function: remove-text-properties start end props &optional object
+     This function deletes specified text properties from the text
+     between START and END in the string or buffer OBJECT.  If OBJECT
+     is `nil', it defaults to the current buffer.
+
+     The argument PROPS specifies which properties to delete.  It
+     should have the form of a property list (*note Property Lists::):
+     a list whose elements are property names alternating with
+     corresponding values.  But only the names matter--the values that
+     accompany them are ignored.  For example, here's how to remove the
+     `face' property.
+
+          (remove-text-properties START END '(face nil))
+
+     The return value is `t' if the function actually changed some
+     property's value; `nil' otherwise (if PROPS is `nil' or if no
+     character in the specified text had any of those properties).
+
+ - Function: set-text-properties start end props &optional object
+     This function completely replaces the text property list for the
+     text between START and END in the string or buffer OBJECT.  If
+     OBJECT is `nil', it defaults to the current buffer.
+
+     The argument PROPS is the new property list.  It should be a list
+     whose elements are property names alternating with corresponding
+     values.
+
+     After `set-text-properties' returns, all the characters in the
+     specified range have identical properties.
+
+     If PROPS is `nil', the effect is to get rid of all properties from
+     the specified range of text.  Here's an example:
+
+          (set-text-properties START END nil)
+
+   See also the function `buffer-substring-without-properties' (*note
+Buffer Contents::) which copies text from the buffer but does not copy
+its properties.
+
+
+File: lispref.info,  Node: Property Search,  Next: Special Properties,  Prev: Changing Properties,  Up: Text Properties
+
+Property Search Functions
+-------------------------
+
+   In typical use of text properties, most of the time several or many
+consecutive characters have the same value for a property.  Rather than
+writing your programs to examine characters one by one, it is much
+faster to process chunks of text that have the same property value.
+
+   Here are functions you can use to do this.  They use `eq' for
+comparing property values.  In all cases, OBJECT defaults to the
+current buffer.
+
+   For high performance, it's very important to use the LIMIT argument
+to these functions, especially the ones that search for a single
+property--otherwise, they may spend a long time scanning to the end of
+the buffer, if the property you are interested in does not change.
+
+   Remember that a position is always between two characters; the
+position returned by these functions is between two characters with
+different properties.
+
+ - Function: next-property-change pos &optional object limit
+     The function scans the text forward from position POS in the
+     string or buffer OBJECT till it finds a change in some text
+     property, then returns the position of the change.  In other
+     words, it returns the position of the first character beyond POS
+     whose properties are not identical to those of the character just
+     after POS.
+
+     If LIMIT is non-`nil', then the scan ends at position LIMIT.  If
+     there is no property change before that point,
+     `next-property-change' returns LIMIT.
+
+     The value is `nil' if the properties remain unchanged all the way
+     to the end of OBJECT and LIMIT is `nil'.  If the value is
+     non-`nil', it is a position greater than or equal to POS.  The
+     value equals POS only when LIMIT equals POS.
+
+     Here is an example of how to scan the buffer by chunks of text
+     within which all properties are constant:
+
+          (while (not (eobp))
+            (let ((plist (text-properties-at (point)))
+                  (next-change
+                   (or (next-property-change (point) (current-buffer))
+                       (point-max))))
+              Process text from point to NEXT-CHANGE...
+              (goto-char next-change)))
+
+ - Function: next-single-property-change pos prop &optional object limit
+     The function scans the text forward from position POS in the
+     string or buffer OBJECT till it finds a change in the PROP
+     property, then returns the position of the change.  In other
+     words, it returns the position of the first character beyond POS
+     whose PROP property differs from that of the character just after
+     POS.
+
+     If LIMIT is non-`nil', then the scan ends at position LIMIT.  If
+     there is no property change before that point,
+     `next-single-property-change' returns LIMIT.
+
+     The value is `nil' if the property remains unchanged all the way to
+     the end of OBJECT and LIMIT is `nil'.  If the value is non-`nil',
+     it is a position greater than or equal to POS; it equals POS only
+     if LIMIT equals POS.
+
+ - Function: previous-property-change pos &optional object limit
+     This is like `next-property-change', but scans back from POS
+     instead of forward.  If the value is non-`nil', it is a position
+     less than or equal to POS; it equals POS only if LIMIT equals POS.
+
+ - Function: previous-single-property-change pos prop &optional object
+          limit
+     This is like `next-single-property-change', but scans back from
+     POS instead of forward.  If the value is non-`nil', it is a
+     position less than or equal to POS; it equals POS only if LIMIT
+     equals POS.
+
+ - Function: text-property-any start end prop value &optional object
+     This function returns non-`nil' if at least one character between
+     START and END has a property PROP whose value is VALUE.  More
+     precisely, it returns the position of the first such character.
+     Otherwise, it returns `nil'.
+
+     The optional fifth argument, OBJECT, specifies the string or
+     buffer to scan.  Positions are relative to OBJECT.  The default
+     for OBJECT is the current buffer.
+
+ - Function: text-property-not-all start end prop value &optional object
+     This function returns non-`nil' if at least one character between
+     START and END has a property PROP whose value differs from VALUE.
+     More precisely, it returns the position of the first such
+     character.  Otherwise, it returns `nil'.
+
+     The optional fifth argument, OBJECT, specifies the string or
+     buffer to scan.  Positions are relative to OBJECT.  The default
+     for OBJECT is the current buffer.
+
+
+File: lispref.info,  Node: Special Properties,  Next: Saving Properties,  Prev: Property Search,  Up: Text Properties
+
+Properties with Special Meanings
+--------------------------------
+
+   The predefined properties are the same as those for extents.  *Note
+Extent Properties::.
+
+
+File: lispref.info,  Node: Saving Properties,  Prev: Special Properties,  Up: Text Properties
+
+Saving Text Properties in Files
+-------------------------------
+
+   You can save text properties in files, and restore text properties
+when inserting the files, using these two hooks:
+
+ - Variable: write-region-annotate-functions
+     This variable's value is a list of functions for `write-region' to
+     run to encode text properties in some fashion as annotations to
+     the text being written in the file.  *Note Writing to Files::.
+
+     Each function in the list is called with two arguments: the start
+     and end of the region to be written.  These functions should not
+     alter the contents of the buffer.  Instead, they should return
+     lists indicating annotations to write in the file in addition to
+     the text in the buffer.
+
+     Each function should return a list of elements of the form
+     `(POSITION . STRING)', where POSITION is an integer specifying the
+     relative position in the text to be written, and STRING is the
+     annotation to add there.
+
+     Each list returned by one of these functions must be already
+     sorted in increasing order by POSITION.  If there is more than one
+     function, `write-region' merges the lists destructively into one
+     sorted list.
+
+     When `write-region' actually writes the text from the buffer to the
+     file, it intermixes the specified annotations at the corresponding
+     positions.  All this takes place without modifying the buffer.
+
+ - Variable: after-insert-file-functions
+     This variable holds a list of functions for `insert-file-contents'
+     to call after inserting a file's contents.  These functions should
+     scan the inserted text for annotations, and convert them to the
+     text properties they stand for.
+
+     Each function receives one argument, the length of the inserted
+     text; point indicates the start of that text.  The function should
+     scan that text for annotations, delete them, and create the text
+     properties that the annotations specify.  The function should
+     return the updated length of the inserted text, as it stands after
+     those changes.  The value returned by one function becomes the
+     argument to the next function.
+
+     These functions should always return with point at the beginning of
+     the inserted text.
+
+     The intended use of `after-insert-file-functions' is for converting
+     some sort of textual annotations into actual text properties.  But
+     other uses may be possible.
+
+   We invite users to write Lisp programs to store and retrieve text
+properties in files, using these hooks, and thus to experiment with
+various data formats and find good ones.  Eventually we hope users will
+produce good, general extensions we can install in Emacs.
+
+   We suggest not trying to handle arbitrary Lisp objects as property
+names or property values--because a program that general is probably
+difficult to write, and slow.  Instead, choose a set of possible data
+types that are reasonably flexible, and not too hard to encode.
+
+   *Note Format Conversion::, for a related feature.
+
+
+File: lispref.info,  Node: Substitution,  Next: Registers,  Prev: Text Properties,  Up: Text
+
+Substituting for a Character Code
+=================================
+
+   The following functions replace characters within a specified region
+based on their character codes.
+
+ - Function: subst-char-in-region start end old-char new-char &optional
+          noundo
+     This function replaces all occurrences of the character OLD-CHAR
+     with the character NEW-CHAR in the region of the current buffer
+     defined by START and END.
+
+     If NOUNDO is non-`nil', then `subst-char-in-region' does not
+     record the change for undo and does not mark the buffer as
+     modified.  This feature is used for controlling selective display
+     (*note Selective Display::).
+
+     `subst-char-in-region' does not move point and returns `nil'.
+
+          ---------- Buffer: foo ----------
+          This is the contents of the buffer before.
+          ---------- Buffer: foo ----------
+          
+          (subst-char-in-region 1 20 ?i ?X)
+               => nil
+          
+          ---------- Buffer: foo ----------
+          ThXs Xs the contents of the buffer before.
+          ---------- Buffer: foo ----------
+
+ - Function: translate-region start end table
+     This function applies a translation table to the characters in the
+     buffer between positions START and END.  The translation table
+     TABLE can be either a string, a vector, or a char-table.
+
+     If TABLE is a string, its Nth element is the mapping for the
+     character with code N.
+
+     If TABLE is a vector, its Nth element is the mapping for character
+     with code N.  Legal mappings are characters, strings, or `nil'
+     (meaning don't replace.)
+
+     If TABLE is a char-table, its elements describe the mapping
+     between characters and their replacements.  The char-table should
+     be of type `char' or `generic'.
+
+     When the TABLE is a string or vector and its length is less than
+     the total number of characters (256 without Mule), any characters
+     with codes larger than the length of TABLE are not altered by the
+     translation.
+
+     The return value of `translate-region' is the number of characters
+     that were actually changed by the translation.  This does not
+     count characters that were mapped into themselves in the
+     translation table.
+
+     *NOTE*: Prior to XEmacs 21.2, the TABLE argument was allowed only
+     to be a string.  This is still the case in FSF Emacs.
+
+     The following example creates a char-table that is passed to
+     `translate-region', which translates character `a' to `the letter
+     a', removes character `b', and translates character `c' to newline.
+
+          ---------- Buffer: foo ----------
+          Here is a sentence in the buffer.
+          ---------- Buffer: foo ----------
+          
+          (let ((table (make-char-table 'generic)))
+            (put-char-table ?a "the letter a" table)
+            (put-char-table ?b "" table)
+            (put-char-table ?c ?\n table)
+            (translate-region (point-min) (point-max) table))
+               => 3
+          
+          ---------- Buffer: foo ----------
+          Here is the letter a senten
+          e in the uffer.
+          ---------- Buffer: foo ----------
+
+
+File: lispref.info,  Node: Registers,  Next: Transposition,  Prev: Substitution,  Up: Text
+
+Registers
+=========
+
+   A register is a sort of variable used in XEmacs editing that can
+hold a marker, a string, a rectangle, a window configuration (of one
+frame), or a frame configuration (of all frames).  Each register is
+named by a single character.  All characters, including control and
+meta characters (but with the exception of `C-g'), can be used to name
+registers.  Thus, there are 255 possible registers.  A register is
+designated in Emacs Lisp by a character that is its name.
+
+   The functions in this section return unpredictable values unless
+otherwise stated.
+
+ - Variable: register-alist
+     This variable is an alist of elements of the form `(NAME .
+     CONTENTS)'.  Normally, there is one element for each XEmacs
+     register that has been used.
+
+     The object NAME is a character (an integer) identifying the
+     register.  The object CONTENTS is a string, marker, or list
+     representing the register contents.  A string represents text
+     stored in the register.  A marker represents a position.  A list
+     represents a rectangle; its elements are strings, one per line of
+     the rectangle.
+
+ - Function: get-register reg
+     This function returns the contents of the register REG, or `nil'
+     if it has no contents.
+
+ - Function: set-register reg value
+     This function sets the contents of register REG to VALUE.  A
+     register can be set to any value, but the other register functions
+     expect only certain data types.  The return value is VALUE.
+
+ - Command: view-register reg
+     This command displays what is contained in register REG.
+
+ - Command: insert-register reg &optional beforep
+     This command inserts contents of register REG into the current
+     buffer.
+
+     Normally, this command puts point before the inserted text, and the
+     mark after it.  However, if the optional second argument BEFOREP
+     is non-`nil', it puts the mark before and point after.  You can
+     pass a non-`nil' second argument BEFOREP to this function
+     interactively by supplying any prefix argument.
+
+     If the register contains a rectangle, then the rectangle is
+     inserted with its upper left corner at point.  This means that
+     text is inserted in the current line and underneath it on
+     successive lines.
+
+     If the register contains something other than saved text (a
+     string) or a rectangle (a list), currently useless things happen.
+     This may be changed in the future.
+
+
+File: lispref.info,  Node: Transposition,  Next: Change Hooks,  Prev: Registers,  Up: Text
+
+Transposition of Text
+=====================
+
+   This subroutine is used by the transposition commands.
+
+ - Function: transpose-regions start1 end1 start2 end2 &optional
+          leave-markers
+     This function exchanges two nonoverlapping portions of the buffer.
+     Arguments START1 and END1 specify the bounds of one portion and
+     arguments START2 and END2 specify the bounds of the other portion.
+
+     Normally, `transpose-regions' relocates markers with the transposed
+     text; a marker previously positioned within one of the two
+     transposed portions moves along with that portion, thus remaining
+     between the same two characters in their new position.  However,
+     if LEAVE-MARKERS is non-`nil', `transpose-regions' does not do
+     this--it leaves all markers unrelocated.
+
