@@ -396,6 +396,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (chinese-big5	. #xC6E6)	; øº ·µ
     (ucs		. #x273D)	; âœ½
     ))
 (define-char
