@@ -1,3 +1,29 @@
+2003-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R040-Roof.el (M-07097): New character.
+	(U+374E): Map to M-07097.
+	(M-07354): Map to U-00021AD2.
+	(U-00021AD2): Map to M-07354.
+	(M-28841): New character.
+	(U-00021B18): Map to M-28841.
+
+	* Ideograph-R030-Mouth.el (CB03875): Unify U-00021016 and H2-E0D1.
+
+	* Ideograph-R108-Dish.el, Ideograph-R107-Skin.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R106-White.el (U+7691): Add `total-strokes'.
+
+	* Ideograph-R104-Sickness.el: Add some `total-strokes' features.
+
+	* Ideograph-R098-Tile.el (U+74E7): Add `total-strokes'.
+
+	* Ideograph-R082-Fur.el, Ideograph-R075-Tree.el,
+	Ideograph-R072-Sun.el: Add some `total-strokes' features.
+
+	* Ideograph-R035-Go-Slowly.el (U+5911): Moved from
+	Ideograph-R086-Fire.el.
+
 2003-12-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R091-Slice.el (U+724D): Add `total-strokes'.
