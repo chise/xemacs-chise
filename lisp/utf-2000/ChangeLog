@@ -1,3 +1,32 @@
+2003-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R015-Ice.el (M-01705): Map to U-00020601.
+	(U-00020601): Relate to M-01705; add strokes.
+	(U-00020602): Unify MH-0044 and M073555; add strokes.
+
+	* Ideograph-R010-Legs.el (U-0002049C): Unify MH-0033 and M085277.
+	(M085526): Unify MH-0034 and GT-01834.
+	(U-000204BF): Relate to MH-0034.
+	(U-000204D6): Unify MH-0035 and M085660.
+
+2003-05-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R014-Cover.el (U-0002057E): Unify MH-0041 and M077421;
+	add strokes.
+	(U+519D): Unify MH-0042.
+	(U+51A9): Unify MH-0043 and M054510.
+
+	* Ideograph-R013-Down-Box.el (U+5189): Unify MH-0037 and M054507.
+	(U-00020557): Unify MH-0038 and M085221.
+	(U-00020559): Unify MH-0039 and M085222.
+	(H1-B8BE): Unify MH-0040.
+	(U-0002055F): Unify MH-0040.
+	(U-00020572): Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+
+	* Ideograph-R012-Eight.el (U-0020523): Unify MH-0036 and M085318.
+	(C1-7035): Don't use char-spec format for IDC.
+
 2003-05-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R038-Woman.el (U+5A7A): Unify JC3-91C4.
