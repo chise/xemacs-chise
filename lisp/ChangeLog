@@ -1,3 +1,15 @@
+1999-07-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (set-default-coding-systems): Fix DOC-string.
+	(prefer-coding-system): Fix DOC-string.
+
+	* mule/mule-cmds.el (coding-system-change-eol-conversion): Fix
+	DOC-string too.
+
+	* mule/mule-cmds.el (mule-keymap): Change keymap name from MULE to
+	Mule.
+	(coding-system-change-eol-conversion): Fix DOC-string.
+
 1999-06-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/mule-cmds.el (mule-keymap): Use `describe-coding-system'
