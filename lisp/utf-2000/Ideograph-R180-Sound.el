@@ -3,6 +3,7 @@
     (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 0)
     (total-strokes	 . 9)
+    (shinjigen-1	. 9133)
     (ideograph-daikanwa . 43265)	; ø¸Š¤
     (china3-jef		. #x6CD8)	; øº†³˜
     ))
@@ -22,6 +23,7 @@
     (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 0)
     (total-strokes	 . 9)
+    (shinjigen-1	. 9132)
     (shinjigen-2	. 9132)
     (=jis-x0208		. #x323B)	; ø½Š”
     (korean-ksc5601	. #x6B65)	; ø»Š‡¼
