@@ -1,5 +1,10 @@
 1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/char-db-util.el (char-db-update-comment): Use
+	mapping-table for `japanese-jisx0213-*'.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/u03300-CJK-Compatibility.el: Merge
 	`japanese-jisx0213-1'.
 
