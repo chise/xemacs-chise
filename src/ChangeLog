@@ -1,3 +1,10 @@
+2004-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (Q_subsumptive): New extern.
+	(Q_denotational): Likewise.
+	(encode_char_2): Search children specified by `->subsumptive' and
+	`->denotational'.
+
 2004-11-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (complex_vars_of_mule_charset): Modify the
