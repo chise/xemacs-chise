@@ -170,11 +170,19 @@
 (if (not lisp-mode-syntax-table)
     (progn (setq lisp-mode-syntax-table
 		 (copy-syntax-table emacs-lisp-mode-syntax-table))
+	   (modify-syntax-entry ?\| "\"   " lisp-mode-syntax-table)
 	   (modify-syntax-entry ?\[ "_   " lisp-mode-syntax-table)
 	   ;; XEmacs changes
 	   (modify-syntax-entry ?\] "_   " lisp-mode-syntax-table)
-	   (modify-syntax-entry ?#  "' 58" lisp-mode-syntax-table)
-	   (modify-syntax-entry ?|  "\" 67" lisp-mode-syntax-table)))
+           ;;
+           ;; If emacs was compiled with NEW_SYNTAX, then do
+           ;;  CL's #| |# block comments.
+           (if (= 8 (length (parse-partial-sexp (point) (point))))
+               (progn
+                 (modify-syntax-entry ?#  "' 58" lisp-mode-syntax-table)
+                 (modify-syntax-entry ?|  ". 67" lisp-mode-syntax-table))
+	     ;; else, old style
+	     (modify-syntax-entry ?\| "\"   " lisp-mode-syntax-table))))
 
 (define-abbrev-table 'lisp-mode-abbrev-table ())
 
@@ -794,8 +802,6 @@ of the start of the containing expression."
 (put 'if 'lisp-indent-function 2)
 (put 'catch 'lisp-indent-function 1)
 (put 'condition-case 'lisp-indent-function 2)
-(put 'handler-case 'lisp-indent-function 1)
-(put 'handler-bind 'lisp-indent-function 1)
 (put 'call-with-condition-handler 'lisp-indent-function 2)
 (put 'unwind-protect 'lisp-indent-function 1)
 (put 'save-current-buffer 'lisp-indent-function 0)
@@ -805,16 +811,12 @@ of the start of the containing expression."
 (put 'with-temp-buffer 'lisp-indent-function 0)
 (put 'with-output-to-string 'lisp-indent-function 0)
 (put 'with-output-to-temp-buffer 'lisp-indent-function 1)
-(put 'with-slots 'lisp-indent-function 2)
-(put 'with-open-file 'lisp-indent-function 1)
-(put 'with-open-stream 'lisp-indent-function 1)
 (put 'eval-after-load 'lisp-indent-function 1)
 (put 'display-message 'lisp-indent-function 1)
 (put 'display-warning 'lisp-indent-function 1)
 (put 'lmessage 'lisp-indent-function 2)
 (put 'lwarn 'lisp-indent-function 2)
 (put 'global-set-key 'lisp-indent-function 1)
-(put 'print-unreadable-object 'lisp-indent-function 1)
 
 (defun indent-sexp (&optional endpos)
   "Indent each line of the list starting just after point.

@@ -26,6 +26,5 @@ Boston, MA 02111-1307, USA.  */
 void pdump_objects_unmark (void);
 void pdump (void);
 int pdump_load (const char *argv0);
-extern unsigned int dump_id;
 
 #endif /* INCLUDED_dumper_h */

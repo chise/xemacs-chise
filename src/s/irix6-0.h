@@ -4,5 +4,3 @@
 
 /* Irix 6.2 doesn't need -lw */
 #undef NEED_LIBW
-
-#undef memmove /* Use the standard system memmove() */

@@ -1,38 +1,3 @@
-2001-02-23  Martin Buchholz <martin@xemacs.org>
-
-	* XEmacs 21.2.45 "Thelxepeia" is released.
-
-2001-02-11  Martin Buchholz  <martin@xemacs.org>
-
-	* Makefile.in.in: Cleanup.
-	Fixes bug: all must depend on make-dump-id.
-	Don't install make-path; only used at build time.
-	Avoid duplicating file lists for maintainability.
-	(PUBLIC_INSTALLABLE_SCRIPTS): More logical naming.
-	(PUBLIC_INSTALLABLE_EXES): Likewise.
-	(PUBLIC_INSTALLABLES): Likewise.
-	(PRIVATE_INSTALLABLE_SCRIPTS): More logical naming.
-	(PRIVATE_INSTALLABLE_EXES): Likewise.
-	(PRIVATE_INSTALLABLES): Likewise.
-	(SCRIPTS): Likewise.
-	(EXES): New.
-	(PROGS): New.
-	(SOURCES): Remove.
-	(BUILD_UTILITIES): New.  Non-installed utilities.
-	(INSTALL_GNUSERV): New.
-	(unlock): Remove obsolete target.
-	(relock): Remove obsolete target.
-	(aixcc.c): Remove.  Obsolete.
-	* aixcc.lex:  Remove.  Obsolete.
-
-2001-02-12  Martin Buchholz  <martin@xemacs.org>
-
-	* make-dump-id.c (main): No longer #include dump-id.h.
-
-2001-02-08  Martin Buchholz  <martin@xemacs.org>
-
-	* gnuserv.c (permitted): Compiler warning fixes.
-
 2001-02-08  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.44 "Thalia" is released.
@@ -80,7 +45,7 @@
 	(C_entries): Don't be fooled by things like XDEFUN.
 	(consider_token): Discard asm pseudo function.
 
-2001-01-25  Francesco Potorti`  <pot@gnu.org>
+2001-01-25  Francesco Potorti`  <pot@potorti.it>
 
 	* etags.c (struct tok): Renamed from struct token.
 	(token): Renamed from tok.
@@ -104,7 +69,7 @@
 	(consider_token, C_entries): Use them.
 	(C_entries): Build proper lisp names for Emacs DEFUNs.
 
-2001-01-15  Francesco Potorti`  <pot@gnu.org>
+2001-01-15  Francesco Potorti`  <pot@pot.cnuce.cnr.it>
 
 	* etags.c (print_language_names): Print filenames in addition to
 	suffixes.
@@ -123,7 +88,7 @@
 	(Makefile_targets): New function, inspired by Assar Westerlund
 	<assar@sics.se>.
 
-2000-11-07  Francesco Potorti`  <pot@gnu.org>
+2000-11-07  Francesco Potortì  <pot@pot.cnuce.cnr.it>
 
 	* etags.c (Texinfo_nodes): Renamed from Texinfo_fuctions and made
 	it conformant to the style of the rest of the code.
@@ -135,11 +100,11 @@
 	potential signed char to int conversion problem.
 	(MSDOS): #undefine befere redefining
 
-2000-02-04  Francesco Potorti`  <pot@gnu.org>
+2000-02-04  Francesco Potorti`  <F.Potorti@cnuce.cnr.it>
 
 	* etags.c (many functions): Add prototypes.
 
-2000-01-31  Francesco Potorti`  <pot@gnu.org>
+2000-01-31  Francesco Potorti`  <F.Potorti@cnuce.cnr.it>
 
 	* etags.c [MSDOS]: Set MSDOS to 1 if #defined, 0 otherwise.
 	(get_compressor_from_suffix, process_file): Use MSDOS in if clause.

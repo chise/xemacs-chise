@@ -88,11 +88,11 @@ if test "$XEGCC" = yes; then
   wl='-Wl,'
 
   case "$xehost_os" in
-  aix[[3-9]]* | irix[[5-9]]* | osf[[3-9]])
+  aix3* | aix4* | irix5* | irix6* | osf3* | osf4*)
     # PIC is the default for these OSes.
     ;;
 
-  os2*)
+  aix3* | aix4* | os2*)
     # We can build DLLs from non-PIC.
     ;;
   amigaos*)
@@ -117,7 +117,7 @@ else
     dll_cflags='+Z'
     ;;
 
-  irix[[5-9]]*)
+  irix5* | irix6*)
     wl='-Wl,'
     # PIC (with -KPIC) is the default.
     ;;
@@ -126,13 +126,8 @@ else
     # We can build DLLs from non-PIC.
     ;;
 
-  osf[[3-9]]*)
+  osf3* | osf4*)
     # All OSF/1 code is PIC.
-    wl='-Wl,'
-    ;;
-
-  aix[[3-9]]*)
-    # All AIX code is PIC.
     wl='-Wl,'
     ;;
 
@@ -248,7 +243,7 @@ if test "$XEGCC" = yes; then
   xldf="-shared"
 else # Not using GCC
   case "$xehost_os" in
-    aix[[3-9]]*)
+    aix3* | aix4*)
       xldf="-bE:ELLSONAME.exp -H512 -T512 -bhalt:4 -bM:SRE -bnoentry -lc"
       xcldf="${wl}-bE:ELLSONAME.exp ${wl}-H512 ${wl}-T512 ${wl}-bhalt:4 ${wl}-bM:SRE ${wl}-bnoentry ${wl}-lc"
       ;;
@@ -267,7 +262,7 @@ else # Not using GCC
       xcldf="${wl}-b ${wl}+s"
       ;;
 
-    irix[[5-9]]* | osf[[3-9]]*)
+    irix5* | irix6* | osf3* | osf4*)
       xcldf="${wl}-shared"
       xldf="-shared"
       ;;
@@ -420,7 +415,7 @@ else
       dll_ldflags=$xldf
       ;;
 
-    aix[[4-9]]*)
+    aix4*)
       dll_ldflags=$xcldf
       ;;
 
@@ -450,7 +445,7 @@ else
       dll_ldflags=$xldf
       ;;
 
-    irix[[5-9]]*)
+    irix5* | irix6*)
       dll_ld=$LTLD
       dll_ldflags=$xldf
       ;;
@@ -537,7 +532,11 @@ fi
 
 if test -z "$ld_dynamic_link_flags"; then
   case "$xehost_os" in
-  aix[[3-9]]*)
+  aix3*)
+    ld_dynamic_link_flags=
+    ;;
+
+  aix4*)
     ld_dynamic_link_flags=
     ;;
 
@@ -557,7 +556,7 @@ if test -z "$ld_dynamic_link_flags"; then
     ld_dynamic_link_flags="${wl}-E"
     ;;
 
-  irix[[5-9]]*)
+  irix5* | irix6*)
     ld_dynamic_link_flags=
     ;;
 

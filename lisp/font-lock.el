@@ -313,12 +313,6 @@ megabyte for buffers in `rmail-mode', and size is irrelevant otherwise."
 				      (integer :tag "size")))))
   :group 'font-lock)
 
-;;;###autoload
-(defcustom font-lock-fontify-string-delimiters nil
-  "*If non-nil, apply font-lock-string-face to string delimiters as well as
-string text when fontifying."
-  :type 'boolean
-  :group 'font-lock)
 
 ;; Fontification variables:
 
@@ -444,45 +438,6 @@ dramatically slow things down!
 ;;;###autoload
 (make-variable-buffer-local 'font-lock-keywords)
 
-;;;###autoload
-(defvar font-lock-syntactic-keywords nil
-  "A list of the syntactic keywords to highlight.
-Can be the list or the name of a function or variable whose value is the list.
-See `font-lock-keywords' for a description of the form of this list;
-the differences are listed below.  MATCH-HIGHLIGHT should be of the form:
-
- (MATCH SYNTAX OVERRIDE LAXMATCH)
-
-where SYNTAX can be of the form (SYNTAX-CODE . MATCHING-CHAR), the name of a
-syntax table, or an expression whose value is such a form or a syntax table.
-OVERRIDE cannot be `prepend' or `append'.
-
-For example, an element of the form highlights syntactically:
-
- (\"\\\\$\\\\(#\\\\)\" 1 (1 . nil))
-
- a hash character when following a dollar character, with a SYNTAX-CODE of
- 1 (meaning punctuation syntax).  Assuming that the buffer syntax table does
- specify hash characters to have comment start syntax, the element will only
- highlight hash characters that do not follow dollar characters as comments
- syntactically.
-
- (\"\\\\('\\\\).\\\\('\\\\)\"
-  (1 (7 . ?'))
-  (2 (7 . ?')))
-
- both single quotes which surround a single character, with a SYNTAX-CODE of
- 7 (meaning string quote syntax) and a MATCHING-CHAR of a single quote (meaning
- a single quote matches a single quote).  Assuming that the buffer syntax table
- does not specify single quotes to have quote syntax, the element will only
- highlight single quotes of the form 'c' as strings syntactically.
- Other forms, such as foo'bar or 'fubar', will not be highlighted as strings.
-
-This is normally set via `font-lock-defaults'."
-)
-;;;###autoload
-(make-variable-buffer-local 'font-lock-syntactic-keywords)
-
 (defvar font-lock-defaults nil
   "The defaults font Font Lock mode for the current buffer.
 Normally, do not set this directly.  If you are writing a major mode,
@@ -556,15 +511,15 @@ If this is nil, the major mode's syntax table is used.
 This is normally set via `font-lock-defaults'.")
 (make-variable-buffer-local 'font-lock-syntax-table)
 
-;; These record the parse state at a particular position, always the start of a
-;; line.  Used to make `font-lock-fontify-syntactically-region' faster.
-;; Previously, `font-lock-cache-position' was just a buffer position.  However,
-;; under certain situations, this occasionally resulted in mis-fontification.
-;; I think the "situations" were deletion with Lazy Lock mode's deferral.  sm.
-(defvar font-lock-cache-state nil)
-(defvar font-lock-cache-position nil)
-(make-variable-buffer-local 'font-lock-cache-state)
-(make-variable-buffer-local 'font-lock-cache-position)
+;; These are used in the FSF version in syntactic font-locking.
+;; We do this all in C.
+;;; These record the parse state at a particular position, always the
+;;; start of a line.  Used to make
+;;; `font-lock-fontify-syntactically-region' faster.
+;(defvar font-lock-cache-position nil)
+;(defvar font-lock-cache-state nil)
+;(make-variable-buffer-local 'font-lock-cache-position)
+;(make-variable-buffer-local 'font-lock-cache-state)
 
 ;; If this is nil, we only use the beginning of the buffer if we can't use
 ;; `font-lock-cache-position' and `font-lock-cache-state'.
@@ -989,14 +944,7 @@ See the variable `font-lock-keywords' for customization."
 (defsubst font-lock-remove-face (start end)
   ;; Remove any syntax highlighting on the characters in the range.
   (put-nonduplicable-text-property start end 'face nil)
-  (put-nonduplicable-text-property start end 'font-lock nil)
-  (if lookup-syntax-properties
-      (put-nonduplicable-text-property start end 'syntax-table nil)))
-
-(defsubst font-lock-set-syntax (start end syntax)
-  ;; Set the face on the characters in the range.
-  (put-nonduplicable-text-property start end 'syntax-table syntax)
-  (put-nonduplicable-text-property start end 'font-lock t))
+  (put-nonduplicable-text-property start end 'font-lock nil))
 
 (defsubst font-lock-any-faces-p (start end)
   ;; Return non-nil if we've put any syntax highlighting on
@@ -1136,10 +1084,8 @@ This can take a while for large buffers."
 	  ;; Use the fontification syntax table, if any.
 	  (if font-lock-syntax-table (set-syntax-table font-lock-syntax-table))
 	  ;; Now do the fontification.
-	  (font-lock-unfontify-region beg end)
-	  (when font-lock-syntactic-keywords
-	    (font-lock-fontify-syntactic-keywords-region beg end))
-	  (unless font-lock-keywords-only
+	  (if font-lock-keywords-only
+	      (font-lock-unfontify-region beg end)
 	    (font-lock-fontify-syntactically-region beg end loudly))
 	  (font-lock-fontify-keywords-region beg end loudly))
       ;; Clean up.
@@ -1276,6 +1222,118 @@ buffer modifications are performed or a buffer is reverted.")
 
 ;; Syntactic fontification functions.
 
+;; Note: Here is the FSF version.  Our version is much faster because
+;; of the C support we provide.  This may be useful for reference,
+;; however, and perhaps there is something useful here that should
+;; be merged into our version.
+;;
+;(defun font-lock-fontify-syntactically-region (start end &optional loudly)
+;  "Put proper face on each string and comment between START and END.
+;START should be at the beginning of a line."
+;  (let ((synstart (if comment-start-skip
+;		       (concat "\\s\"\\|" comment-start-skip)
+;		     "\\s\""))
+;	 (comstart (if comment-start-skip
+;		       (concat "\\s<\\|" comment-start-skip)
+;		     "\\s<"))
+;	 state prev prevstate)
+;    (if loudly (message "Fontifying %s... (syntactically...)" (buffer-name)))
+;    (save-restriction
+;      (widen)
+;      (goto-char start)
+;      ;;
+;      ;; Find the state at the `beginning-of-line' before `start'.
+;      (if (eq start font-lock-cache-position)
+;	   ;; Use the cache for the state of `start'.
+;	   (setq state font-lock-cache-state)
+;	 ;; Find the state of `start'.
+;	 (if (null font-lock-beginning-of-syntax-function)
+;	     ;; Use the state at the previous cache position, if any, or
+;	     ;; otherwise calculate from `point-min'.
+;	     (if (or (null font-lock-cache-position)
+;		     (< start font-lock-cache-position))
+;		 (setq state (parse-partial-sexp (point-min) start))
+;	       (setq state (parse-partial-sexp font-lock-cache-position start
+;					       nil nil font-lock-cache-state)))
+;	   ;; Call the function to move outside any syntactic block.
+;	   (funcall font-lock-beginning-of-syntax-function)
+;	   (setq state (parse-partial-sexp (point) start)))
+;	 ;; Cache the state and position of `start'.
+;	 (setq font-lock-cache-state state
+;	       font-lock-cache-position start))
+;      ;;
+;      ;; If the region starts inside a string, show the extent of it.
+;      (if (nth 3 state)
+;	   (let ((beg (point)))
+;	     (while (and (re-search-forward "\\s\"" end 'move)
+;			 (nth 3 (parse-partial-sexp beg (point)
+;						    nil nil state))))
+;	     (put-text-property beg (point) 'face font-lock-string-face)
+;	     (setq state (parse-partial-sexp beg (point) nil nil state))))
+;      ;;
+;      ;; Likewise for a comment.
+;      (if (or (nth 4 state) (nth 7 state))
+;	   (let ((beg (point)))
+;	     (save-restriction
+;	       (narrow-to-region (point-min) end)
+;	       (condition-case nil
+;		   (progn
+;		     (re-search-backward comstart (point-min) 'move)
+;		     (forward-comment 1)
+;		     ;; forward-comment skips all whitespace,
+;		     ;; so go back to the real end of the comment.
+;		     (skip-chars-backward " \t"))
+;		 (error (goto-char end))))
+;	     (put-text-property beg (point) 'face font-lock-comment-face)
+;	     (setq state (parse-partial-sexp beg (point) nil nil state))))
+;      ;;
+;      ;; Find each interesting place between here and `end'.
+;      (while (and (< (point) end)
+;		   (setq prev (point) prevstate state)
+;		   (re-search-forward synstart end t)
+;		   (progn
+;		     ;; Clear out the fonts of what we skip over.
+;		     (remove-text-properties prev (point) '(face nil))
+;		     ;; Verify the state at that place
+;		     ;; so we don't get fooled by \" or \;.
+;		     (setq state (parse-partial-sexp prev (point)
+;						     nil nil state))))
+;	 (let ((here (point)))
+;	   (if (or (nth 4 state) (nth 7 state))
+;	       ;;
+;	       ;; We found a real comment start.
+;	       (let ((beg (match-beginning 0)))
+;		 (goto-char beg)
+;		 (save-restriction
+;		   (narrow-to-region (point-min) end)
+;		   (condition-case nil
+;		       (progn
+;			 (forward-comment 1)
+;			 ;; forward-comment skips all whitespace,
+;			 ;; so go back to the real end of the comment.
+;			 (skip-chars-backward " \t"))
+;		     (error (goto-char end))))
+;		 (put-text-property beg (point) 'face
+;				    font-lock-comment-face)
+;		 (setq state (parse-partial-sexp here (point) nil nil state)))
+;	     (if (nth 3 state)
+;		 ;;
+;		 ;; We found a real string start.
+;		 (let ((beg (match-beginning 0)))
+;		   (while (and (re-search-forward "\\s\"" end 'move)
+;			       (nth 3 (parse-partial-sexp here (point)
+;							  nil nil state))))
+;		   (put-text-property beg (point) 'face font-lock-string-face)
+;		   (setq state (parse-partial-sexp here (point)
+;						   nil nil state))))))
+;	 ;;
+;	 ;; Make sure `prev' is non-nil after the loop
+;	 ;; only if it was set on the very last iteration.
+;	 (setq prev nil)))
+;    ;;
+;    ;; Clean up.
+;    (and prev (remove-text-properties prev end '(face nil)))))
+
 (defun font-lock-lisp-like (mode)
   ;; Note: (or (get mode 'font-lock-lisp-like) (string-match ...)) is
   ;; not enough because the property needs to be able to specify a nil
@@ -1286,77 +1344,52 @@ buffer modifications are performed or a buffer is reverted.")
     ;; in add-log, but I think this encompasses more modes.
     (string-match "lisp\\|scheme" (symbol-name mode))))
 
-;; fontify-syntactically-region used to use syntactically-sectionize, which
-;; was supposedly much faster than the FSF version because it was written in
-;; C. However, the FSF version uses parse-partial-sexp, which is also
-;; written in C, and the benchmarking I did showed the
-;; syntactically-sectionize code to be slower overall. So here's the FSF
-;; version, modified to support font-lock-doc-string-face.
-;; -- mct 2000-12-29
 (defun font-lock-fontify-syntactically-region (start end &optional loudly)
   "Put proper face on each string and comment between START and END.
 START should be at the beginning of a line."
   (if font-lock-keywords-only
       nil
-
-    ;; #### Shouldn't this just be using 'loudly??
     (when (and font-lock-verbose
 	       (>= (- end start) font-lock-message-threshold))
       (progress-feedback-with-label 'font-lock
 				    "Fontifying %s... (syntactically)" 5
 				    (buffer-name)))
+    (font-lock-unfontify-region start end loudly)
     (goto-char start)
-
-    (let ((lisp-like (font-lock-lisp-like major-mode))
-	  (cache (marker-position font-lock-cache-position))
-	  state string beg depth)
-      ;;
-      ;; Find the state at the `beginning-of-line' before `start'.
-      (if (eq start cache)
-	  ;; Use the cache for the state of `start'.
-	  (setq state font-lock-cache-state)
-	;; Find the state of `start'.
-	(if (null font-lock-beginning-of-syntax-function)
-	    ;; Use the state at the previous cache position, if any, or
-	    ;; otherwise calculate from `point-min'.
-	    (if (or (null cache) (< start cache))
-		(setq state (parse-partial-sexp (point-min) start))
-	      (setq state (parse-partial-sexp cache start nil nil
-					      font-lock-cache-state)))
-	  ;; Call the function to move outside any syntactic block.
-	  (funcall font-lock-beginning-of-syntax-function)
-	  (setq state (parse-partial-sexp (point) start)))
-	;; Cache the state and position of `start'.
-	(setq font-lock-cache-state state)
-	(set-marker font-lock-cache-position start))
-      ;;
-      ;; If the region starts inside a string or comment, show the extent of it.
-      (when (or (nth 3 state) (nth 4 state))
-	(setq string (nth 3 state) beg (point))
-	(setq state (parse-partial-sexp (point) end nil nil state 'syntax-table))
-	(font-lock-set-face beg (point) (if string 
-					    font-lock-string-face
-					  font-lock-comment-face)))
-      ;;
-      ;; Find each interesting place between here and `end'.
-      (while (and (< (point) end)
-		  (progn
-		    (setq state (parse-partial-sexp (point) end nil nil state
-						    'syntax-table))
-		    (or (nth 3 state) (nth 4 state))))
-	(setq depth (nth 0 state) string (nth 3 state) beg (nth 8 state))
-	(setq state (parse-partial-sexp (point) end nil nil state 'syntax-table))
-	(if string
-	    ;; #### It would be nice if we handled Python and other
-	    ;; non-Lisp languages with docstrings correctly.
-	    (let ((face (if (and lisp-like (= depth 1))
-			    'font-lock-doc-string-face
-			  'font-lock-string-face)))
-	      (if font-lock-fontify-string-delimiters
-		  (font-lock-set-face beg (point) face)
-		(font-lock-set-face (+ beg 1) (- (point) 1) face)))
-	  (font-lock-set-face beg (point)
-			      font-lock-comment-face))))))
+    (if (> end (point-max)) (setq end (point-max)))
+    (let ((lisp-like (font-lock-lisp-like major-mode)))
+      (syntactically-sectionize
+       #'(lambda (s e context depth)
+	   (let (face)
+	     (cond ((eq context 'string)
+		    (setq face
+			  ;; #### It would be nice if we handled
+			  ;; Python and other non-Lisp languages with
+			  ;; docstrings correctly.
+			  (if (and lisp-like (= depth 1))
+			      ;; really we should only use this if
+			      ;;  in position 3 depth 1, but that's
+			      ;;  too expensive to compute.
+			      'font-lock-doc-string-face
+			    'font-lock-string-face)))
+		   ((or (eq context 'comment)
+			(eq context 'block-comment))
+		    (setq face 'font-lock-comment-face)
+;		 ;; Don't fontify whitespace at the beginning of lines;
+;		 ;;  otherwise comment blocks may not line up with code.
+;		 ;; (This is sometimes a good idea, sometimes not; in any
+;		 ;; event it should be in C for speed --jwz)
+;		 (save-excursion
+;		     (goto-char s)
+;		     (while (prog1 (search-forward "\n" (1- e) 'move)
+;			      (setq face 'font-lock-comment-face)
+;			      (setq e (point)))
+;		       (skip-chars-forward " \t\n")
+;		       (setq s (point)))
+		   ))
+	     (font-lock-set-face s e face)))
+       start end)
+      )))
 
 ;;; Additional text property functions.
 
@@ -1439,101 +1472,6 @@ Optional argument OBJECT is the string or buffer containing the text."
        (font-lock-unique (append (if (listp prev) prev (list prev)) val))
        object)
       (setq start next))))
-
-;;; Syntactic regexp fontification functions (taken from FSF Emacs 20.7.1)
-
-;; These syntactic keyword pass functions are identical to those keyword pass
-;; functions below, with the following exceptions; (a) they operate on
-;; `font-lock-syntactic-keywords' of course, (b) they are all `defun' as speed
-;; is less of an issue, (c) eval of property value does not occur JIT as speed
-;; is less of an issue, (d) OVERRIDE cannot be `prepend' or `append' as it
-;; makes no sense for `syntax-table' property values, (e) they do not do it
-;; LOUDLY as it is not likely to be intensive.
-
-(defun font-lock-apply-syntactic-highlight (highlight)
-  "Apply HIGHLIGHT following a match.
- HIGHLIGHT should be of the form MATCH-HIGHLIGHT,
- see `font-lock-syntactic-keywords'."
-  (let* ((match (nth 0 highlight))
- 	 (start (match-beginning match)) (end (match-end match))
- 	 (value (nth 1 highlight))
- 	 (override (nth 2 highlight)))
-    (unless (numberp (car-safe value))
-      (setq value (eval value)))
-    (cond ((not start)
- 	   ;; No match but we might not signal an error.
- 	   (or (nth 3 highlight)
- 	       (error "No match %d in highlight %S" match highlight)))
- 	  ((not override)
- 	   ;; Cannot override existing fontification.
- 	   (or (map-extents 'extent-property (current-buffer)
-			    start end 'syntax-table)
-	       (font-lock-set-syntax start end value)))
- 	  ((eq override t)
- 	   ;; Override existing fontification.
-	   (font-lock-set-syntax start end value))
- 	  ((eq override 'keep)
- 	   ;; Keep existing fontification.
- 	   (font-lock-fillin-text-property start end
-					   'syntax-table 'font-lock value)))))
-
-(defun font-lock-fontify-syntactic-anchored-keywords (keywords limit)
-  "Fontify according to KEYWORDS until LIMIT.
- KEYWORDS should be of the form MATCH-ANCHORED, see `font-lock-keywords',
- LIMIT can be modified by the value of its PRE-MATCH-FORM."
-  (let ((matcher (nth 0 keywords)) (lowdarks (nthcdr 3 keywords)) highlights
- 	;; Evaluate PRE-MATCH-FORM.
- 	(pre-match-value (eval (nth 1 keywords))))
-    ;; Set LIMIT to value of PRE-MATCH-FORM or the end of line.
-    (if (and (numberp pre-match-value) (> pre-match-value (point)))
- 	(setq limit pre-match-value)
-      (save-excursion (end-of-line) (setq limit (point))))
-    (save-match-data
-      ;; Find an occurrence of `matcher' before `limit'.
-      (while (if (stringp matcher)
- 		 (re-search-forward matcher limit t)
- 	       (funcall matcher limit))
- 	;; Apply each highlight to this instance of `matcher'.
- 	(setq highlights lowdarks)
- 	(while highlights
- 	  (font-lock-apply-syntactic-highlight (car highlights))
- 	  (setq highlights (cdr highlights)))))
-    ;; Evaluate POST-MATCH-FORM.
-    (eval (nth 2 keywords))))
-
-(defun font-lock-fontify-syntactic-keywords-region (start end)
-  "Fontify according to `font-lock-syntactic-keywords' between START and END.
-START should be at the beginning of a line."
-;;  ;; If `font-lock-syntactic-keywords' is a symbol, get the real keywords.
-  (when (symbolp font-lock-syntactic-keywords)
-    (setq font-lock-syntactic-keywords (font-lock-eval-keywords
-					font-lock-syntactic-keywords)))
-  ;; If `font-lock-syntactic-keywords' is not compiled, compile it.
-  (unless (eq (car font-lock-syntactic-keywords) t)
-    (setq font-lock-syntactic-keywords (font-lock-compile-keywords
-					font-lock-syntactic-keywords)))
-  ;; Get down to business.
-  (let ((case-fold-search font-lock-keywords-case-fold-search)
-	(keywords (cdr font-lock-syntactic-keywords))
-	keyword matcher highlights)
-    (while keywords
-      ;; Find an occurrence of `matcher' from `start' to `end'.
-      (setq keyword (car keywords) matcher (car keyword))
-      (goto-char start)
-      (while (if (stringp matcher)
-		 (re-search-forward matcher end t)
-	       (funcall matcher end))
-	;; Apply each highlight to this instance of `matcher', which may be
-	;; specific highlights or more keywords anchored to `matcher'.
-	(setq highlights (cdr keyword))
-	(while highlights
-	  (if (numberp (car (car highlights)))
-	      (font-lock-apply-syntactic-highlight (car highlights))
-	    (font-lock-fontify-syntactic-anchored-keywords (car highlights)
-							   end))
-	  (setq highlights (cdr highlights)))
-	)
-      (setq keywords (cdr keywords)))))
 
 ;;; Regexp fontification functions.
 
@@ -1698,14 +1636,6 @@ START should be at the beginning of a line."
 	(t				; Hopefully (MATCHER HIGHLIGHT ...)
 	 keyword)))
 
-(defun font-lock-eval-keywords (keywords)
-  ;; Evalulate KEYWORDS if a function (funcall) or variable (eval) name.
-  (if (listp keywords)
-      keywords
-    (font-lock-eval-keywords (if (fboundp keywords)
-				 (funcall keywords)
-			       (eval keywords)))))
-
 (defun font-lock-choose-keywords (keywords level)
   ;; Return LEVELth element of KEYWORDS.  A LEVEL of nil is equal to a
   ;; LEVEL of 0, a LEVEL of t is equal to (1- (length KEYWORDS)).
@@ -1783,7 +1713,7 @@ START should be at the beginning of a line."
 			     (font-lock-find-font-lock-defaults major-mode)))
 	       (keywords (font-lock-choose-keywords
 			  (nth 0 defaults) font-lock-maximum-decoration)))
-
+	  
 	  ;; Keywords?
 	  (setq font-lock-keywords (if (fboundp keywords)
 				       (funcall keywords)
@@ -1849,7 +1779,6 @@ START should be at the beginning of a line."
 		 (setq font-lock-beginning-of-syntax-function
 		       'beginning-of-defun)))))
 
-    (setq font-lock-cache-position (make-marker))
     (setq font-lock-defaults-computed t)))
 
 

@@ -925,7 +925,7 @@ set_frame_selected_window (struct frame *f, Lisp_Object window)
 }
 
 DEFUN ("set-frame-selected-window", Fset_frame_selected_window, 2, 2, 0, /*
-Set the selected window of FRAME to WINDOW.
+Set the selected window of frame object FRAME to WINDOW.
 If FRAME is nil, the selected frame is used.
 If FRAME is the selected frame, this makes WINDOW the selected window.
 */
@@ -1962,7 +1962,7 @@ Return non NIL if FRAME is now "visible" (actually in use for display).
 A frame that is not visible is not updated, and, if it works through a
 window system, may not show at all.
 N.B. Under X "visible" means Mapped. It the window is mapped but not
-actually visible on screen then `frame-visible-p' returns 'hidden.
+actually visible on screen then frame_visible returns 'hidden.
 */
        (frame))
 {
@@ -2001,8 +2001,8 @@ frame is iconified, it will not be visible.
 DEFUN ("visible-frame-list", Fvisible_frame_list, 0, 1, 0, /*
 Return a list of all frames now "visible" (being updated).
 If DEVICE is specified only frames on that device will be returned.
-Note that under virtual window managers not all these frames are
-necessarily really updated.
+Note that under virtual window managers not all these frame are necessarily
+really updated.
 */
        (device))
 {

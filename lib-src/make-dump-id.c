@@ -64,7 +64,10 @@ main (int argc, char *argv[])
       return EXIT_FAILURE;
     }
 
-  fprintf (f, "unsigned int dump_id = %uU;\n", generate_dump_id ());
+  fprintf (f,
+	   "#include <dump-id.h>\n"
+	   "unsigned int dump_id = %uU;\n",
+	   generate_dump_id ());
 
   if ((fclose (f)) != 0)
     {

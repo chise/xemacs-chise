@@ -46,7 +46,9 @@ Boston, MA 02111-1307, USA.  */
 #include "xlwradio.h"
 #include "xlwcheckbox.h"
 #include "xlwgauge.h"
+#ifndef NEED_MOTIF
 #include ATHENA_AsciiText_h_
+#endif
 #endif
 #include <X11/Xatom.h>
 
@@ -836,7 +838,7 @@ xaw_create_progress (widget_instance *instance)
   return scale;
 }
 
-#if defined(LWLIB_WIDGETS_ATHENA)
+#ifndef NEED_MOTIF
 #define TEXT_BUFFER_SIZE 128
 static Widget
 xaw_create_text_field (widget_instance *instance)
@@ -888,7 +890,9 @@ xaw_creation_table [] =
 #ifdef LWLIB_WIDGETS_ATHENA
   {"button",		xaw_create_button		},
   { "label", 		xaw_create_label_field		},
+#ifndef NEED_MOTIF
   {"text-field",		xaw_create_text_field		},
+#endif
   {"progress",		xaw_create_progress		},
 #endif
   {NULL, NULL}

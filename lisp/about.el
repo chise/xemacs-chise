@@ -65,9 +65,8 @@
     (dkindred "Darrell Kindred"	  "dkindred@cmu.edu")
     (dv       "Didier Verna"      "didier@xemacs.org")
     (hniksic  "Hrvoje Niksic"     "hniksic@xemacs.org")
-	(jan      "Jan Vroonhof"      "jan@xemacs.org")
     (jareth   "Jareth Hein"       "jareth@camelot.co.jp")
-    (jason    "Jason R. Mastaler" "jason@xemacs.org")
+    (jason    "Jason Mastaler"	  "jason@xemacs.org")
     (jens     "Jens Lautenbacher" "jens@lemcbed.lem.uni-karlsruhe.de")
     (jmiller  "Jeff Miller"       "jmiller@smart.net")
     (juhp     "Jens-Ulrik Holger Petersen" "petersen@kurims.kyoto-u.ac.jp")
@@ -782,27 +781,6 @@ After that (and all the remaining exams) I'm looking forward to make a
 living out of my hobbies -- computers (and graphics). But because I
 have no deadline for the exams and XEmacs betas are released at a high
 rate this may take some time...\n"))
-	(jan
-	 (widget-insert "\
-Jan Vroonhof has been using XEmacs since he needed to write .tex files
-for his work as a physics and maths student at the Univerisity of Leiden.
-His XEmacs hacking started when XEmacs kept freezing up under a his
-window manager. He submitted a fix and has been hooked every since.
-
-Apart from hunting down more redisplay bugs he has worked on such
-things as improvements to the package system, implementing lazy-shot,
-a short stint at tracking patches and currently acts as a guardian
-of the XEmacs custom subsystem and gnuserv.
-
-XEmacs has followed him first to Switserland where he did a maths
-doctorate at the ETH in Zurich, working on a conjecture by Migdal on
-the behavior of vertex corrections in Electron-Phonon theory.  Finally
-sharing a house with his loved one, he now lives in Oxford (UK)
-working on the Jeode Java Virtual Machine, which like XEmacs is
-portable, implements a language, includes a non-trivial bit of
-graphics and a garbage collector, but is multithreaded to boot!
-Unfortunately his XEmacs time is directly limited by the amount of
-traffic on the M40.\n"))
     (jareth
      (widget-insert "\
 Jareth Hein is a mountain boy who abandoned his home state of Colorado
@@ -990,12 +968,12 @@ My homepage is ")
      (widget-insert ".\n"))
     (jason
      (widget-insert "\
-Beta tester, manager of the various XEmacs mailing lists and binary
-kit manager.  Also, originator and maintainer of the gnus.org domain.
+Beta tester, manager of the various XEmacs mailing lists and
+binary kit manager.  Also, originator and maintainer of the gnus.org
+domain.
 
-Jason resides in Northern New Mexico where he works as a Systems
-Scientist(tm) in the Los Alamos National Laboratory's Advanced
-Computing Group.
+Jason resides in Albuquerque, New Mexico where he keeps himself
+busy with studies at the university and consulting work.
 
 See: ")
       (about-url-link 'jason "Visit Jason's homepage")
@@ -1125,19 +1103,13 @@ and portability fixes.  Lars is a student at the Institute of
 Informatics at the University of Oslo.  He is currently plumbing away
 at his majors work at the Institute of Physics, working on an SCI
 project connected with CASCADE and CERN and stuff.\n")
-	(about-show-linked-info 'jan "\
-Apart from hunting down redisplay bugs Jan has worked on such
-things as improvements to the package system, implementing lazy-shot,
-a short stint at tracking patches and currently acts as a guardian
-of the XEmacs custom subsystem and gnuserv. Having finished his PhD
-he is now working on Java virtual machines.\n")
     (about-show-linked-info 'jens "\
 I'm currently working at the University of Karlsruhe, Germany on
 getting my diploma thesis on Supersymmetry (uuh, that's physics) done.
 After that (and all the remaining exams) I'm looking forward to make a
 living out of my hobbies -- computers (and graphics). But because I
 have no deadline for the exams and XEmacs betas are released at a high
-rate this may take some time...\n")	
+rate this may take some time...\n")
     (about-show-linked-info 'jareth "\
 Jareth Hein is a mountain boy who abandoned his home state of Colorado
 for the perpetual state of chaos known as Tokyo in a failed attempt to
@@ -1237,8 +1209,8 @@ Author of the XEmacs Drag'n'Drop API.\n")
     (about-show-linked-info 'juhp "\
 Author of \"find-func.el\".\n")
     (about-show-linked-info 'jason "\
-Beta tester, manager of the various XEmacs mailing lists and binary
-kit manager.  Also, originator and maintainer of the gnus.org domain.\n")
+Beta tester and manager of the various XEmacs mailing lists.
+Originator and maintainer of the gnus.org domain.\n")
     (about-show-linked-info 'jmiller "\
 Beta tester and last hacker of calendar.\n")
     (about-show-linked-info 'chr "\
@@ -1535,6 +1507,7 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "UENO Fumihiro" "7m2vej@ritp.ye.IHI.CO.JP")
        (print-short "Aki Vehtari" "Aki.Vehtari@hut.fi")
        (print-short "Juan E. Villacis" "jvillaci@cs.indiana.edu")
+       (print-short "Jan Vroonhof" "vroonhof@math.ethz.ch")
        (print-short "Vladimir Vukicevic" "vladimir@intrepid.com")
        (print-short "Charles G. Waldman" "cgw@fnal.gov")
        (print-short "David Walte" "djw18@cornell.edu")

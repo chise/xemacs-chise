@@ -1276,17 +1276,6 @@ It's idempotent, so call this as often as you like!"
       (princ (format "lisp-directory:\n%S\n" lisp-directory)
 	     'external-debugging-output))
 
-  (if (featurep 'mule)
-      (progn
-	(setq mule-lisp-directory
-	      (paths-find-mule-lisp-directory roots
-					      lisp-directory))
-	(if debug-paths
-	    (princ (format "mule-lisp-directory:\n%S\n"
-			   mule-lisp-directory)
-		   'external-debugging-output)))
-    (setq mule-lisp-directory '()))
-
   (setq site-directory (and (null inhibit-site-lisp)
 			    (paths-find-site-lisp-directory roots)))
 
@@ -1299,8 +1288,7 @@ It's idempotent, so call this as often as you like!"
 					     late-package-load-path
 					     last-package-load-path
 					     lisp-directory
-					     site-directory
-					     mule-lisp-directory))
+					     site-directory))
 
   (setq Info-directory-list
 	(paths-construct-info-path roots
@@ -1367,9 +1355,6 @@ It's idempotent, so call this as often as you like!"
 	(erase-buffer)
 	(buffer-disable-undo (current-buffer))
 	(if (null lisp-directory) (push "lisp-directory" warnings))
-	(if (and (featurep 'mule)
-		 (null mule-lisp-directory))
-	    (push "mule-lisp-directory" warnings))
 	(if (null exec-directory) (push "exec-directory" warnings))
 	(if (null data-directory) (push "data-directory" warnings))
 	(if (null doc-directory)  (push "doc-directory"  warnings))

@@ -1,12 +1,3 @@
-to 21.2.45 "Thelxepeia"
--- lib-src Makefile fixes -- Martin Buchholz
--- startup path fixes -- Michael Sperber
--- Port FSF 20.7 syntax table improvements -- Matt Tucker
--- --pdump now works with HP-UX native cc -- Martin Buchholz
--- copy-file now works correctly with non-ascii filenames -- Martin Buchholz
--- More pdump improvements -- Martin Buchholz
--- Prefer more standard utime() to utimes() -- Martin Buchholz
-
 to 21.2.44 "Thalia"
 -- Upgrade to etags 14.15 -- Francesco Potorti
 -- XEmacs now works on Unixware 7 -- Martin Buchholz

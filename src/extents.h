@@ -315,10 +315,7 @@ EXFUN (Fextent_start_position, 1);
 EXFUN (Fmake_extent, 3);
 EXFUN (Fprevious_single_property_change, 4);
 EXFUN (Fset_extent_endpoints, 4);
-EXFUN (Fnext_extent_change, 2);
-EXFUN (Fprevious_extent_change, 2);
 EXFUN (Fset_extent_parent, 2);
-EXFUN (Fget_char_property, 4);
 
 extern int inside_undo;
 extern int in_modeline_generation;
