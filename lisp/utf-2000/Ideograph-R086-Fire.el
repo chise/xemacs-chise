@@ -3309,6 +3309,12 @@
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=big5-cdp		. #x8BE3)	; &CDP-8BE3;
+    ))
+(define-char
+  '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (hanyu-dazidian	3 2205 1)
