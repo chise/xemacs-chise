@@ -1,3 +1,8 @@
+2002-07-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* isolated-char.el: etc/GT-RS.txt is moved to
+	etc/char-data/GT-RS.txt.
+
 2002-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R188-Bone.el, Ideograph-R190-Hair.el,
