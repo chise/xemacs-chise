@@ -587,8 +587,10 @@
 			      ->original-ideograph <-original-ideograph
 			      ->simplified-ideograph <-simplified-ideograph
 			      ->same-ideograph
-			      ->ideographic <-ideographic
-			      ->bopomofo ->ideograph))
+			      ->ideographic-variants
+			      ->radical <-radical
+			      ->bopomofo ->ideograph
+			      ->ideographic <-ideographic))
 		 (insert (format "(%-18s%s " name line-breaking))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
 		       separator nil)
