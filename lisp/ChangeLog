@@ -1,3 +1,12 @@
+1999-09-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/chinese.el (chinese-cns11643-3): Define it even if
+	`utf-2000' is provided.
+	(chinese-cns11643-4): Likewise.
+	(chinese-cns11643-5): Likewise.
+	(chinese-cns11643-6): Likewise.
+	(chinese-cns11643-7): Likewise.
+
 1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
