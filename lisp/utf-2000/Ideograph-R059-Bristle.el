@@ -58,10 +58,7 @@
       (ucs		  . #x2FF1)	; â¿±
       )
      ((name*		  . "ideographic component person as roof")
-      (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (=jef-china3	  . #x71FA)	; øº‡‡º
-      (mojikyo		  . 050926)	; ý €Œ›®
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

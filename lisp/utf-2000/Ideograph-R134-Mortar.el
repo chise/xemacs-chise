@@ -1002,7 +1002,6 @@
      ((ucs		  . #x8207)	; èˆ‡
       )
      ((=big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
-      (mojikyo		  . 070081)	; ý €‘‡
       ))
     (shinjigen-2	. 2903)
     (=jis-x0208		. #x5A2A)	; ø½‹‰³
@@ -1025,7 +1024,6 @@
      ((chinese-cns11643-1 . #x6A58)	; ø»’®¡
       )
      ((=big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
-      (mojikyo		  . 070081)	; ý €‘‡
       ))
     (chinese-cns11643-1 . #x7528)	; ø»’½»
     (chinese-big5	. #xC17C)	; ý¢€Œ…¼

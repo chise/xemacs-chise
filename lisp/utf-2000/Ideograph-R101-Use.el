@@ -116,7 +116,6 @@
        ((ucs		    . #x4E0A)	; ä¸Š
 	)
        ((=big5-cdp	    . #x8BF1)	; ý¢€ˆ¯±
-	(mojikyo	    . 070081)	; ý €‘‡
 	))
       ))
     (ideograph-daikanwa		. 21709)	; ø¸…“
@@ -152,7 +151,6 @@
        ((ucs		    . #x571F)	; åœŸ
 	)
        ((=big5-cdp	    . #x8BF1)	; ý¢€ˆ¯±
-	(mojikyo	    . 070081)	; ý €‘‡
 	))
       ))
     (ideograph-daikanwa		. 21710)	; ø¸…“Ž

@@ -850,8 +850,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((ideograph-gt-pj-9  . #x4A2C)	; ý¡€€¯
-      (=gt		  . 00111)	; ý¡€€¯
+     ((=gt		  . 00111)	; ý¡€€¯
       )
      ((ucs		  . #x5200)	; åˆ€
       ))
@@ -3001,7 +3000,6 @@
       (ucs		  . #x2FF0)	; â¿°
       )
      ((=big5-cdp	  . #x8C42)	; ý¢€ˆ±‚
-      (mojikyo		  . 075143)	; ý €’–‡
       )
      ((ucs		  . #x5202)	; åˆ‚
       ))
@@ -3017,7 +3015,6 @@
       (ucs		  . #x2FF0)	; â¿°
       )
      ((=big5-cdp	  . #x8C42)	; ý¢€ˆ±‚
-      (mojikyo		  . 075143)	; ý €’–‡
       )
      ((ucs		  . #x5202)	; åˆ‚
       ))
@@ -4505,17 +4502,16 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (<-simplified-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 653)
+     (:char	((shinjigen-1	     . 653)
 		 (ideograph-daikanwa . 02228)	; ø¸€¢´
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (hanyu-dazidian	1 345 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((=gt-k		  . 03991)	; ý¡„€¾—
+     ((=gt-k		  . 03992)	; ý¡„€¾˜
       )
      ((ucs		  . #x5202)	; åˆ‚
       ))
@@ -7796,8 +7792,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((ideograph-gt-pj-k1 . #x3521)	; ý¡„€¾˜
-      (=gt-k		  . 03992)	; ý¡„€¾˜
+     ((=gt-k		  . 03992)	; ý¡„€¾˜
       )
      ((=jis-x0208	  . #x5163)	; ø½Š½ž
       (ideograph-daikanwa . 01849)	; ø¸€œ¹
@@ -7818,8 +7813,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((ideograph-gt-pj-k1 . #x3521)	; ý¡„€¾˜
-      (=gt-k		  . 03992)	; ý¡„€¾˜
+     ((=gt-k		  . 03992)	; ý¡„€¾˜
       )
      ((=jis-x0208	  . #x3F4F)	; ø½Š¢®
       (chinese-cns11643-6 . #x2138)	; ø»›µ‡
@@ -7839,8 +7833,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((ideograph-gt-pj-k1 . #x3521)	; ý¡„€¾˜
-      (=gt-k		  . 03992)	; ý¡„€¾˜
+     ((=gt-k		  . 03992)	; ý¡„€¾˜
       )
      ((ucs		  . #x5203)	; åˆƒ
       ))

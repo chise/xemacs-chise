@@ -883,7 +883,6 @@
       (ucs		  . #x2E87)	; âº‡
       )
      ((=big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
-      (mojikyo		  . 070081)	; ý €‘‡
       ))
     (ideograph-hanziku-1	. #xABB9)	; ý¢€š®¹
     (ucs			. #x200A1)	; ð ‚¡
@@ -1333,7 +1332,6 @@
        ((ucs		    . #x571F)	; åœŸ
 	)
        ((=big5-cdp	    . #x8BF1)	; ý¢€ˆ¯±
-	(mojikyo	    . 070081)	; ý €‘‡
 	))
       ))
     (ideograph-daikanwa		. 21710)	; ø¸…“Ž

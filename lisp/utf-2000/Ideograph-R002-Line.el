@@ -80,10 +80,7 @@
       (ucs		  . #x2FF1)	; â¿±
       )
      ((name*		  . "ideographic component person as roof")
-      (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (=jef-china3	  . #x71FA)	; øº‡‡º
-      (mojikyo		  . 050926)	; ý €Œ›®
       )
      ((ucs		  . #x4E28)	; ä¸¨
       ))
@@ -186,7 +183,6 @@
       (ucs		  . #x2E84)	; âº„
       )
      ((=big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
-      (mojikyo		  . 070081)	; ý €‘‡
       ))
     (japanese-jisx0212	. #x302B)	; ø»Šºœ
     (chinese-cns11643-2 . #x2130)	; ø»“Œ¯

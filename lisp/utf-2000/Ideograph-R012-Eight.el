@@ -256,7 +256,6 @@
      ((ucs		  . #x4E37)	; ä¸·
       )
      ((=big5-cdp	  . #x8A60)	; ý¢€ˆ© 
-      (mojikyo		  . 070838)	; ý €‘’¶
       ))
     (chinese-gb12345	. #x7D67)	; å…¯
     (ucs		. #x516F)	; å…¯

@@ -550,10 +550,7 @@
      ((ucs		  . #x53BD)	; åŽ½
       )
      ((name*		  . "ideographic component person as roof")
-      (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (=jef-china3	  . #x71FA)	; øº‡‡º
-      (mojikyo		  . 050926)	; ý €Œ›®
       ))
     (ideograph-daikanwa . 03088)	; ø¸€°
     ))

@@ -616,7 +616,6 @@
       )
      ((name*		  . "ideographic component hood")
       (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
-      (mojikyo		  . 070546)	; ý €‘Ž’
       )
      ((=big5-cdp	  . #x8958)	; ý¢€ˆ¥˜
       ))
@@ -734,7 +733,6 @@
       )
      ((name*		  . "ideographic component hood")
       (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
-      (mojikyo		  . 070546)	; ý €‘Ž’
       )
      ((ucs		  . #x76EE)	; ç›®
       ))
@@ -849,7 +847,6 @@
       )
      ((name*		  . "ideographic component hood")
       (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
-      (mojikyo		  . 070546)	; ý €‘Ž’
       )
      ((ucs		  . #x5401)	; å
       ))
@@ -911,7 +908,6 @@
       )
      ((name*		  . "ideographic component hood")
       (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
-      (mojikyo		  . 070546)	; ý €‘Ž’
       )
      ((ucs		  . #x898B)	; è¦‹
       ))
@@ -948,7 +944,6 @@
       )
      ((name*		  . "ideographic component hood")
       (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
-      (mojikyo		  . 070546)	; ý €‘Ž’
       )
      ((ucs		  . #x514D)	; å…
       ))

@@ -82,7 +82,6 @@
       (ucs		  . #x2FF1)	; â¿±
       )
      ((=big5-cdp	  . #x8A60)	; ý¢€ˆ© 
-      (mojikyo		  . 070838)	; ý €‘’¶
       )
      ((ucs		  . #x4E00)	; ä¸€
       ))

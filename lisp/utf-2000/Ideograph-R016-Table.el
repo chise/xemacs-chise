@@ -862,7 +862,7 @@
      ((name		  . "CJK RADICAL TABLE")
       (ucs		  . #x2E87)	; âº‡
       )
-     ((=gt-k		  . 06415)	; ý¡„¤
+     ((=gt		  . 01936)	; ý¡€€ž
       ))
     (japanese-jisx0212		. #x332C)	; ø»Š¾·
     (chinese-cns11643-6		. #x4665)	; ø»œ¬Š
@@ -897,10 +897,7 @@
       (ucs		  . #x2FF3)	; â¿³
       )
      ((name*		  . "ideographic component person as roof")
-      (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (=jef-china3	  . #x71FA)	; øº‡‡º
-      (mojikyo		  . 050926)	; ý €Œ›®
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

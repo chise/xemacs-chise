@@ -404,7 +404,6 @@
     (chinese-isoir165		. #x375B)	; ø»¢
     (chinese-cns11643-1		. #x573E)	; ø»’’
     (japanese-jisx0208-1990	. #x4A34)	; ø½Š²
-    (mojikyo			. 026872)	; ý €†£¸
     (ucs			. #x7C89)	; ç²‰
     ))
 (define-char

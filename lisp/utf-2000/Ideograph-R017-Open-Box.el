@@ -259,7 +259,6 @@
       (ucs		  . #x2FF1)	; â¿±
       )
      ((=big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
-      (mojikyo		  . 070081)	; ý €‘‡
       )
      ((ucs		  . #x51F5)	; å‡µ
       ))

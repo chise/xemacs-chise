@@ -352,6 +352,7 @@
      ((ucs		  . #x4E3F)	; ä¸¿
       )
      ((ideograph-daikanwa . 00114)	; ø¸€²
+      (=gt		  . 00154)	; ý¡€€‚š
       )
      ((ucs		  . #x4E5A)	; ä¹š
       ))

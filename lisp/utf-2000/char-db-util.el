@@ -164,14 +164,14 @@
     chinese-cns11643-5
     chinese-cns11643-6
     chinese-cns11643-7
-    japanese-jisx0208-1990
     =jis-x0213-1-2000
     =jis-x0213-2-2000
     korean-ksc5601
-    ;; chinese-gb12345
     chinese-isoir165
     katakana-jisx0201
     hebrew-iso8859-8
+    japanese-jisx0208-1990
+    chinese-gb12345
     latin-viscii
     ethiopic-ucs
     =gt
@@ -179,7 +179,7 @@
     =gt-k
     ideograph-daikanwa-2
     ideograph-daikanwa
-    ideograph-cbeta
+    =cbeta
     ideograph-hanziku-1
     ideograph-hanziku-2
     ideograph-hanziku-3
@@ -1010,8 +1010,15 @@
     (goto-char (point-min))
     (while (re-search-forward "[ \t]+$" nil t)
       (replace-match ""))
+    ;; from tabify.
+    (goto-char (point-min))
+    (while (re-search-forward "[ \t][ \t][ \t]*" nil t)
+      (let ((column (current-column))
+	    (indent-tabs-mode t))
+	(delete-region (match-beginning 0) (point))
+	(indent-to column)))
     (goto-char (point-max))
-    (tabify (point-min)(point-max))
+    ;; (tabify (point-min)(point-max))
     ))
 
 (defun insert-char-data-with-variant (char &optional printable

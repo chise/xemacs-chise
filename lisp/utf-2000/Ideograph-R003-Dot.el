@@ -537,7 +537,6 @@
 	))
       )
      ((=big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
-      (mojikyo		  . 070081)	; ý €‘‡
       ))
     (chinese-gb2312		. #x3E59)	; ø»„±¢
     (chinese-isoir165		. #x3E59)	; ø»™²

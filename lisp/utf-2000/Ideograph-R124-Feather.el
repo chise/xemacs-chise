@@ -403,7 +403,6 @@
       )
      ((name*		  . "ideographic component hood")
       (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
-      (mojikyo		  . 070546)	; ý €‘Ž’
       )
      ((korean-ksc5601	  . #x6962)	; ø»Š„½
       (ideograph-daikanwa . 28614)	; ø¸†¿†
@@ -422,7 +421,6 @@
       )
      ((name*		  . "ideographic component hood")
       (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
-      (mojikyo		  . 070546)	; ý €‘Ž’
       )
      ((ucs		  . #x7FBD)	; ç¾½
       ))
@@ -1291,8 +1289,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((ideograph-gt-pj-k1 . #x322B)	; ý¡„€›¢
-      (=gt-k		  . 01762)	; ý¡„€›¢
+     ((=gt-k		  . 01762)	; ý¡„€›¢
       )
      ((ucs		  . #x3431)	; ã±
       ))
@@ -1478,8 +1475,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((ideograph-gt-pj-k1 . #x322B)	; ý¡„€›¢
-      (=gt-k		  . 01762)	; ý¡„€›¢
+     ((=gt-k		  . 01762)	; ý¡„€›¢
       )
      ((ucs		  . #x767D)	; ç™½
       ))
@@ -2512,8 +2508,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((ideograph-gt-pj-k1 . #x322B)	; ý¡„€›¢
-      (=gt-k		  . 01762)	; ý¡„€›¢
+     ((=gt-k		  . 01762)	; ý¡„€›¢
       )
      ((=jis-x0208	  . #x7032)	; ø½‹ª
       (ideograph-daikanwa . 41937)	; ø¸Š‘
@@ -2634,8 +2629,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((ideograph-gt-pj-k1 . #x322B)	; ý¡„€›¢
-      (=gt-k		  . 01762)	; ý¡„€›¢
+     ((=gt-k		  . 01762)	; ý¡„€›¢
       )
      ((=jis-x0208	  . #x4234)	; ø½Š¦­
       (korean-ksc5601	  . #x706F)	; ø»Šœ
@@ -2873,8 +2867,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((ideograph-gt-pj-k1 . #x322B)	; ý¡„€›¢
-      (=gt-k		  . 01762)	; ý¡„€›¢
+     ((=gt-k		  . 01762)	; ý¡„€›¢
       )
      ((=jis-x0208	  . #x3E2A)	; ø½Š «
       (korean-ksc5601	  . #x745D)	; ø»Š•‚

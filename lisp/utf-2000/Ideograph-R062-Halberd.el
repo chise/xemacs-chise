@@ -151,6 +151,15 @@
     (ucs		. #x39AE)	; ã¦®
     ))
 (define-char
+  '((=>ucs		. #x39AE)	; ã¦®
+    (morohashi-daikanwa	11542 0 0)
+    (ideographic-radical . 62)	; â¼½
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideograph-gt-pj-k1 . #x3564)	; ý¡„€¢„
+    (=gt-k		. 02180)	; ý¡„€¢„
+    ))
+(define-char
   '((morohashi-daikanwa	11542 1)
     (ideographic-radical . 62)	; â¼½
     (ideographic-strokes . 2)
@@ -1084,10 +1093,7 @@
 	))
       )
      ((name*		  . "ideographic component person as roof")
-      (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (=jef-china3	  . #x71FA)	; øº‡‡º
-      (mojikyo		  . 050926)	; ý €Œ›®
       ))
     (chinese-cns11643-5		. #x3F46)	; ø»š—•
     (ideograph-daikanwa		. 11626)	; ø¸‚µª
