@@ -1,3 +1,17 @@
+2000-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el: Resorted; add missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
+	* Ideograph-R076-Lack.el, Ideograph-R077-Stop.el,
+	Ideograph-R078-Death.el, Ideograph-R079-Weapon.el,
+	Ideograph-R072-Sun.el, Ideograph-R073-Say.el,
+	Ideograph-R074-Moon.el, Ideograph-R075-Tree.el: Resorted; add some
+	missing Morohashi's Daikanwa characters; add missing
+	`ideographic-strokes' attributes; use `ideographic-strokes' if
+	each stroke attribute has same value.
+
 2000-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R071-Not.el: Resorted; add missing Morohashi's
