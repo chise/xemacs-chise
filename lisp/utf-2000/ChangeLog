@@ -1,3 +1,45 @@
+2001-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el (M-*****): Separate C*-****.
+	(G0-773E): Fix `total-strokes'.
+	(M-45204): Fix `total-strokes'; separate C2-5B77.
+	(C5-7237): Relate to M-45270 instead of M-45269.
+	(M-45284): Delete `japanese-strokes'; separate C1-7C28; separate
+	JSP-6968 = JX2-7D2F.
+	(C7-5D64): Delete `morohashi-daikanwa' property; cancel relation
+	to M-45286.
+
+2001-05-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R164-Wine.el (M-39974): Delete `morohashi-daikanwa'
+	property.
+	(C7-5F6D): Delete `morohashi-daikanwa' property; cancel relation
+	to M-40094.
+	(M-40104): Fix `total-strokes'; separate C2-7057.
+
+2001-05-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el (M-40988): Fix `ideographic-strokes'.
+	(C7-5965): Relate to M-40997?.
+	(C7-5D2C): Fix `morohashi-daikanwa' property; Relate to M-41022
+	instead of M-41002.
+	(M-41023): Fix `ideographic-strokes'; separate C7-5969.
+
+	* Ideograph-R140-Grass.el (M-49635): Add `daikanwa-strokes'
+	property to sort by Morohashi number.
+	(C7-493A): Fix `morohashi-daikanwa' property; relate to M-49650.
+	(M-32420): Fix strokes; cancel relation to C5-707E.
+	(M-32458): Fix `ideographic-strokes'.
+	(M-49661): New character.
+	(C7-4F63): Delete invalid `morohashi-daikanwa' property.
+	(M-32486): Fix strokes; separate C4-6935.
+	(M-32518): Fix strokes; separate C5-6D49.
+	(M-32522): Separate C7-545B.
+	(M-32532): Fix strokes; separate J0-623C.
+	(M-32537): Cancel relation to C7-5458.
+	(M-32538): Fix strokes; separate C7-5876.
+	(M-32539): Separate C7-545A.
+
 2001-05-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R118-Bamboo.el: Add some missing mappings between
