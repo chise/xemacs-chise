@@ -19200,7 +19200,7 @@
 	)
        ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=ucs@unicode	    . #x595A)	; &UU+595A;
+       ((=ucs@unicode	    . #x595A)	; &G0-5E49;
 	))
       (=iso-ir165	  . #x2E28)	; &EGB-2E28; [14-08]
       (=ucs@unicode	  . #x5092)	; &EGB-2E28;
