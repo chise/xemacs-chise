@@ -32296,20 +32296,6 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; â¼ˆ
-    (hanyu-dazidian	1 220 1)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((=ucs		  . #x4EBB)	; äº»
-      )
-     ((=ucs		  . #x53EA)	; åª
-      )
-     ((=ucs		  . #x8A00)	; è¨€
-      ))
-    (=hanziku-1		. #xD3A7)	; ý¢€Ž§
-    (=ucs		. #x279F9)	; ð§§¹
-    ))
-(define-char
-  '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 210 12)
     (ideographic-structure
      (:cdp-combinator	4)
