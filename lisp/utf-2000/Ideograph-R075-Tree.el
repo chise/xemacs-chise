@@ -14761,6 +14761,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (chinese-cns11643-4 . #x4426)	; ø»˜”‡
+    (=cbeta		. 12636)	; ø¸£…œ
     (ucs		. #x21B3E)	; ð¡¬¾
     ))
 (define-char
