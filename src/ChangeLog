@@ -1,3 +1,8 @@
+2004-02-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Convert char-refs in value of
+	`<-simplified[^*]*' to characters and put reverse links.
+
 2004-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Q_subsumptive): Renamed from Q_unified.
