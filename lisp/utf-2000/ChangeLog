@@ -1,3 +1,75 @@
+2001-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* isolated-char.el: Add setting for latin-viscii-upper and
+	latin-viscii-lower to display them by latin-viscii font.
+
+2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R079-Weapon.el: Merge missing JIS X 0208 code points.
+	(J90-3B26): Add `vulgar-ideograph-of' for M-16638.
+	(JX1-7649): Unify M-16638.
+	(U+6BBC): Unify M-16646.
+	(U+6BC0): Unify M-16654.
+	(U+6BC6): Separate C1-6D48; unify M-16674.
+	(C7-242D): Unify M-16675.
+
+	* Ideograph-R076-Lack.el: Merge missing JIS X 0208 code points.
+	(U+6B4E): Separate J90-4337.
+	(U+6B50): Separate C1-6D44.
+	(J90-5D40): Separate G0-6C28, C1-7124 and U+6B59.
+	(M-16242): Separate C1-7B63, J90-5D44 and U+6B61.
+
+	* Ideograph-R077-Stop.el: Merge missing JIS X 0208 code points.
+
+	* Ideograph-R075-Tree.el (J90-4C5D): Unify J78-4C5D and J83-4C5D.
+	(J90-5B3C): Unify J78-5B3C and J83-5B3C.
+	(J90-4F48): Unify J78-4F48 and J83-4F48.
+	(J90-5B46): Unify J78-5B46 and J83-5B46.
+	(U+67A5): Add `total-strokes'.
+	(J83-5B45): Unify J90-5B45; add `total-strokes'.
+	(J78-5B45): New character; relate to U+67A6.
+	(U+67A7): Add `total-strokes'.
+	(U+67A8): Likewise.
+	(U+67A9): Add `total-strokes'; unify J78-5B40.
+	(J90-5B40): New character; relate to U+67A9.
+	(M-14645): Unify J90-5B57.
+	(J83-5B57): Separate J90-5B57.
+	(J90-444E): Unify J78-444E and J83-444E.
+	(J90-464A): Unify J78-464A and J83-464A.
+	(J90-5B4A): Unify J83-5B4A.
+	(M-49162): Unify J78-5B4A; relate to U+67B4.
+	(J83-3B37): Unify J78-3B37 and J83-3B37.
+	(J90-5B74): Unify J83-5B74.
+	(M-14856): Separate J83-5B6B, C2-362E, J90-5B6B and U+689B.
+	(J90-546D): Unify J78-546D and J83-546D.
+	(J90-5B72): Unify J78-5B72 and J83-5B72.
+	(J90-3F7A): Unify J78-3F7A and J83-3F7A.
+	(J90-5C2F): Unify J78-5C2F and J83-5C2F.
+	(J83-5C31): Unify J78-5C31 and J90-5C31.
+	(J83-5B7A): Unify J78-5B7A and J90-5B7A.
+	(J83-5C30): Unify J78-5C30 and J90-5C30.
+	(J83-5C29): Unify J78-5C29 and J90-5C29.
+	(J83-5B7B): Unify J78-5B7B and J90-5B7B.
+	(J83-5C2D): Unify J78-5C2D and J90-5C2D.
+	(J83-5C2E): Unify J78-5C2E and J90-5C2E.
+	(M-15069): Separate J78-5C3F, G0-522C, J83-5C3F and U+6930; unify
+	S1-3734.
+	(M-15168): Separate J78-5C37, G0-692E, J83-5C37, C1-6450, J90-5C37
+	and U+696B.
+	(J90-5C39): Unify J78-5C39 and J83-5C39.
+	(J90-5C43): Unify J78-5C43 and J83-5C43.
+	(M-15258): Separate G0-693C, C2-4A6F, J90-5C52 and U+69A7.
+	(J78-3A67): Unify J90-3A67.
+	(J78-4875): Separate J78-4875, EGB-7C28, C3-4C4D, J90-4875 and
+	U+6A0B.
+	(J90-5C6D): Separate J78-5C6D, J83-5C6D, G0-694F and U+6A44; unify
+	S1-3806.
+	(J90-5C6F): Unify J78-5C6F and J83-5C6F.
+	(J90-3869): Separate C2-5D2B.
+	(J90-5C79): Separate J78-5C79, G0-695C, J83-5C79, C1-737A and
+	U+6A90; unify S1-3842.
+	(J90-5D30): Unify J78-5D30 and J83-5D30.
+
 2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R029-Again.el (C1-5937): Moved from
