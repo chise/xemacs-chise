@@ -244,6 +244,10 @@
     (=gt	. 52349)
     ))
 (define-char
+  '((ideograph-gt-pj-9	. #x4C4B)
+    (=gt	. 56364)
+    ))
+(define-char
   '((ideograph-gt-pj-11	. #x5A40)
     (=gt	. 60403)
     ))
