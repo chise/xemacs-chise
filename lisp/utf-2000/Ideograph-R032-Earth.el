@@ -8203,9 +8203,19 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 471 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x571F)	; åœŸ
+      )
+     ((ucs		  . #x539F)	; åŽŸ
+      ))
     (chinese-gb2312		. #x5C2B)	; ø»…œ¸
     (chinese-isoir165		. #x5C2B)	; ø»Ž…ˆ
     (chinese-cns11643-3		. #x4054)	; ø»–„¹
+    (china3-jef			. #x9AB8)	; øº‰ª¸
+    (ideograph-cbeta		. 04020)	; ø¸ ¾´
     (ideograph-hanziku-2	. #xB0EE)	; ý¢€«ƒ®
     (ucs			. #x586C)	; å¡¬
     ))
@@ -8256,21 +8266,6 @@
     (total-strokes	 . 13)
     (chinese-cns11643-4 . #x3C5A)	; ø»˜‰‹
     (ucs		. #x21375)	; ð¡µ
-    ))
-(define-char
-  '((ideographic-radical . 32)	; â¼Ÿ
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
-      )
-     ((ucs		  . #x571F)	; åœŸ
-      )
-     ((ucs		  . #x539F)	; åŽŸ
-      ))
-    (china3-jef		. #x9AB8)	; øº‰ª¸
-    (ideograph-cbeta	. 04020)	; ø¸ ¾´
     ))
 (define-char
   '((ideographic-radical . 32)	; â¼Ÿ

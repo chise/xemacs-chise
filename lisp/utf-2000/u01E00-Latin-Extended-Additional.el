@@ -1651,6 +1651,10 @@
     (ucs		. #x1E83)	; áºƒ
     ))
 (define-char
+  '((=>ucs		. #x1E83)	; áºƒ
+    (china3-jef		. #x85FE)	; øºˆ—¾
+    ))
+(define-char
   '((name		. "LATIN CAPITAL LETTER W WITH DIAERESIS")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
