@@ -425,6 +425,13 @@ if the list is too long, the least recently used buffers are deleted
 from the list.  By default up to 6 most recently used buffers with the
 same mode are displayed on tabs in the gutter.
 
+This behavior can be altered by customizing
+@code{buffers-tab-filter-functions}.  Setting this variable to
+@code{nil} forces display of all buffers, up to
+@code{buffers-tab-max-size} (also customizable).  More complex behavior
+may be available in 3rd party libraries.  These, and some more
+rarely customized options, are in the @code{buffers-tab} Customize group.
+
 @node Inhibiting, Customizing, Gutter Basics, GUI Components
 @comment  node-name,  next,  previous,  up
 @section Inhibiting Display of GUI Components

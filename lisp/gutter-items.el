@@ -100,11 +100,15 @@ list).  Return non-nil if BUF1 should be added to the tab control."
 
 (defcustom buffers-tab-filter-functions '(select-buffers-tab-buffers-by-mode)
   "*A list of functions specifying buffers to display in the buffers tab.
-May be empty.  Each function in the list must take arguments (BUF1 BUF2).
+
+If nil, all buffers are kept, up to `buffers-tab-max-size', in usual order.
+Otherwise, each function in the list must take arguments (BUF1 BUF2).
 BUF1 is the candidate, and BUF2 is the current buffer (first in the buffers
-list).  Return non-nil if BUF1 should be added to the buffers tab.  The
-default adds BUF1 if BUF1 and BUF2 have the same major mode, or if both
-match `buffers-tab-grouping-regexp'."
+list).  The function should return non-nil if BUF1 should be added to the
+buffers tab.  BUF1 will be omitted if any of the functions returns nil.
+
+Defaults to `select-buffers-tab-buffers-by-mode', which adds BUF1 if BUF1 and
+BUF2 have the same major mode, or both match `buffers-tab-grouping-regexp'."
   :type '(repeat function)
   :group 'buffers-tab)
 

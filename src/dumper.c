@@ -1415,13 +1415,17 @@ pdump_load (const char *argv0)
 	    }
 	  strcpy (w, name);
 
-	  /* ### #$%$#^$^@%$^#%@$ ! */
-#ifdef access
-#undef access
-#endif
+	  /* Check that exe_path is executable and not a directory */
+#undef access /* avoid !@#$%^& encapsulated access */
+#undef stat   /* avoid !@#$%^& encapsulated stat */
+	  {
+	    struct stat statbuf;
+	    if (access (exe_path, X_OK) == 0
+		&& stat (exe_path, &statbuf) == 0
+		&& ! S_ISDIR (statbuf.st_mode))
+	      break;
+	  }
 
-	  if (!access (exe_path, X_OK))
-	    break;
 	  if (!*p)
 	    {
 	      /* Oh well, let's have some kind of default */

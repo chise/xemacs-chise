@@ -1,3 +1,31 @@
+2003-05-25  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.4.13 is released
+
+2003-03-20  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs-faq.texi: Fix minor typo.
+
+2003-03-19  Vin Shelton  <acs@xemacs.org>
+
+	* widget.texi: Crib Stephen's updates and Ben's fixes en masse
+	from 21.5.
+
+2003-03-18  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs/frame.texi (Gutter Basics): Describe common options for
+	buffers tab control.
+
+2003-02-03  Steve Youngs  <youngs@xemacs.org>
+
+	* xemacs/packages.texi (Local.rules File): Update to reflect Ben's
+	recent dabble into the packages.
+
+2003-02-11  Adrian Aichner  <adrian@xemacs.org>
+
+	* lispref/backups.texi (Auto-Saving): Fix auto-save xref to user
+	manual.
+
 2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.12 "Portable Code" is released.

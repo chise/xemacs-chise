@@ -32,6 +32,31 @@ Boston, MA 02111-1307, USA.  */
 #include "EmacsFrame.h"
 
 typedef struct {
+
+#ifdef LWLIB_USES_MOTIF
+#if XmVERSION < 2
+  /* It's easy to erroneously compile with Motif 1 headers, but link
+     with Motif 2 libraries.
+
+     For example, AIX stupidly provides Motif headers in
+     /usr/dt/include, but fails to provide the corresponding libraries
+     in /usr/dt/lib.
+
+     We actually try to survive such a version mismatch, since Motif 2
+     is _almost_ binary compatible with Motif 1.  Motif 2's
+     XmPrimitivePart has some trailing data members which overlay the
+     start of this struct.  We create dummy members to make space for
+     XmPrimitivePart's added members.  These must, of course, be at
+     the beginning of this struct.
+
+     Delete this kludge when no one has Motif1 on their system anymore,
+     perhaps in 2010. */
+  XtCallbackList Motif2_dummy_convert_callback;
+  XtCallbackList Motif2_dummy_popup_handler_callback;
+  long           Motif2_dummy_layout_direction;
+#endif
+#endif
+
   struct frame*	frame;		/* the *emacs* frame object */
 
   /* Resources that can't be done from lisp.
