@@ -26178,9 +26178,7 @@
     (ucs		. #xF474)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8A78)	; 
-    (chinese-big5-cdp	. #x8A78)	; 
-    (ucs		. #xF475)	; 
+  '((ucs		. #xF475)	; 
     ))
 (define-char
   '((chinese-big5	. #x8A79)	; 
