@@ -2659,43 +2659,52 @@
     (=cns11643-4	. #x5073)	; &I-C4-5073; [48-83]
     ))
 (define-char
-  '((=>ucs		. #x6C08)	; 氈
-    (ideographic-radical . 82)	; ⽑
-    (ideographic-strokes . 13)
-    (total-strokes	 . 17)
-    (=jis-x0208-1990	. #x5D61)	; &GT-21755; [61-65]
-    (=big5		. #xC0D6)	; &I-B-C0D6;
-    (=gt		. 21755)	; &I-GT-21755;
-    (=gt-pj-1		. #x5D61)	; &I-GT-21755; [61-65]
-    (=daikanwa		. 16982)	; &I-M-16982;
-    (=ucs@jis		. #x6C08)	; &GT-21755;
-    ))
-(define-char
-  '((morohashi-daikanwa	16982 0 0)
-    (ideographic-radical . 82)	; ⽑
+  '((ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
     (=ucs		. #x6C08)	; 氈
-    (=cns11643-1	. #x7421)	; &I-C1-7421; [84-01]
-    (=gb12345		. #x5531)	; 氈 [53-17]
+    (=jis-x0208@1997	. #x5D61)	; 氈 [61-65]
     ))
 (define-char
-  '((=>ucs		. #x6C08)	; 氈
-    (morohashi-daikanwa	16982 0 1)
-    (ideographic-radical . 82)	; ⽑
+  '((ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
+    (<-denotational
+     ((=ucs		  . #x6C08)	; 氈
+      ))
+    (=big5		. #xC0D6)	; &B-C0D6;
+    (->subsumptive
+     ((=jis-x0208@1990	  . #x5D61)	; &GT-21755; [61-65]
+      (=gt		  . 21755)	; &I-GT-21755;
+      (=gt-pj-1		  . #x5D61)	; &I-GT-21755; [61-65]
+      (=daikanwa	  . 16982)	; &I-M-16982;
+      (=ucs@jis		  . #x6C08)	; &GT-21755;
+      )
+     ((=gb12345		  . #x5531)	; &UU+6C08; [53-17]
+      (=ucs@unicode	  . #x6C08)	; &UU+6C08;
+      )
+     ((=cns11643-1	  . #x7421)	; &C1-7421; [84-01]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (<-denotational
+     ((=ucs		  . #x6C08)	; 氈
+      ))
+    (=jis-x0208@1978	. #x5D61)	; &J83-5D61; [61-65]
+    (=jis-x0208@1983	. #x5D61)	; &I-J83-5D61; [61-65]
+    ))
+(define-char
+  '((ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (<-denotational
+     ((=ucs		  . #x6C08)	; 氈
+      ))
     (shinjigen-2	. 4033)
     (=ks-x1001		. #x6E7D)	; &K0-6E7D; [78-93]
-    ))
-(define-char
-  '((=>ucs		. #x6C08)	; 氈
-    (morohashi-daikanwa	16982 0 4)
-    (ideographic-radical . 82)	; ⽑
-    (ideographic-strokes . 13)
-    (total-strokes	 . 17)
-    (=jis-x0208-1978	. #x5D61)	; &J83-5D61; [61-65]
-    (=jis-x0208-1983	. #x5D61)	; &I-J83-5D61; [61-65]
     ))
 (define-char
   '((=>ucs		. #x6C0A)	; 氊
