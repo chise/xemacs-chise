@@ -1337,6 +1337,7 @@
     (japanese-jisx0212		. #x6C70)	; ø»Œ“©
     (japanese-jisx0213-1	. #x7E70)	; ø»¤œ±
     (ideograph-daikanwa		. 47827)	; ø¸‹«“
+    (mojikyo			. 047827)	; ý €‹«“
     ))
 (define-char
   '((->ucs		. #x9EB5)	; éºµ
@@ -1351,7 +1352,7 @@
     (ideographic-radical . 199)	; â¿†
     (ideographic-strokes . 9)
     (total-strokes	 . 20)
-    (mojikyo		. 053638)	; ø¸††
+    (mojikyo		. 053638)	; ý €††
     (ucs		. #x9EB5)	; éºµ
     ))
 (define-char
