@@ -35,13 +35,20 @@
     (ucs		. #x5EF5)	; å»µ
     ))
 (define-char
-  '((ideographic-radical . 54)	; â¼µ
+  '((->ucs		. #x5EF6)	; å»¶
+    (ideographic-radical . 54)	; â¼µ
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (korean-ksc5601	. #x6645)	; ø»Š€†
+    (ideograph-daikanwa . 09569)	; ø¸‚•¡
+    ))
+(define-char
+  '((morohashi-daikanwa	9569 0 0)
+    (ideographic-radical . 54)	; â¼µ
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (chinese-gb2312	. #x5153)	; ø»…–
-    (korean-ksc5601	. #x6645)	; ø»Š€†
     (chinese-isoir165	. #x5153)	; ø»µ¦
-    (ideograph-daikanwa . 09569)	; ø¸‚•¡
     (ucs		. #x5EF6)	; å»¶
     ))
 (define-char
@@ -52,6 +59,13 @@
     (total-strokes	 . 8)
     (japanese-jisx0208-1978	. #x3164)	; ø»‚”£
     (japanese-jisx0208		. #x3164)	; ø»†¨«
+    ))
+(define-char
+  '((->ucs		. #x5EF6)	; å»¶
+    (morohashi-daikanwa	9569 0 1 0)
+    (ideographic-radical . 54)	; â¼µ
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (chinese-cns11643-1		. #x4D37)	; ø»’ƒš
     (japanese-jisx0208-1990	. #x3164)	; ø½ŠŽŸ
     ))
@@ -69,17 +83,24 @@
     (chinese-cns11643-6 . #x2B2C)	; ø»œƒ§
     ))
 (define-char
-  '((ideographic-radical . 54)	; â¼µ
+  '((->ucs		. #x5EF7)	; å»·
+    (ideographic-radical . 54)	; â¼µ
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (japanese-jisx0208-1978	. #x446E)	; ø»‚°§
-    (chinese-gb2312		. #x4D22)	; ø»…†­
     (japanese-jisx0208		. #x446E)	; ø»‡„¯
     (korean-ksc5601		. #x6F55)	; ø»Š¤
+    (ideograph-daikanwa		. 09571)	; ø¸‚•£
+    ))
+(define-char
+  '((morohashi-daikanwa	9571 0 0)
+    (ideographic-radical . 54)	; â¼µ
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (chinese-gb2312		. #x4D22)	; ø»…†­
     (chinese-isoir165		. #x4D22)	; ø»®½
     (chinese-cns11643-1		. #x4A2C)	; ø»‘¾µ
     (japanese-jisx0208-1990	. #x446E)	; ø½Šª£
-    (ideograph-daikanwa		. 09571)	; ø¸‚•£
     (ucs			. #x5EF7)	; å»·
     ))
 (define-char
@@ -117,6 +138,7 @@
     (japanese-jisx0208-1978	. #x572F)	; ø»ƒ‹¢
     (japanese-jisx0208		. #x572F)	; ø»‡Ÿª
     (chinese-cns11643-3		. #x2869)	; ø»•¡¾
+    (japanese-jisx0208-1990	. #x572F)	; ø½‹…ž
     (ucs			. #x5EF8)	; å»¸
     ))
 (define-char
