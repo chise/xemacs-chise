@@ -36,7 +36,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
     (<-original
-     ((=daikanwa	  . 37034)	; &I-M-37034;
+     ((=ucs		  . #x8D70)	; 走
+      (=daikanwa	  . 37034)	; &I-M-37034;
       ))
     (<-original*sources
      kangxi daikanwa)

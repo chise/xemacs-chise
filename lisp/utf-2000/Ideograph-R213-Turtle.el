@@ -77,6 +77,9 @@
     (->subsumptive
      ((<-original
        ((shinjigen-1	    . 9918)
+	(=jis-x0208-1983    . #x737D)	; &GT-66712; [83-93]
+	(=ks-x1001	    . #x4F4F)	; &I-K0-4F4F; [47-47]
+	(=jis-x0208-1990    . #x737D)	; &I-J90-737D; [83-93]
 	(=daikanwa	    . 48847)	; &I-M-48847;
 	))
       (<-original*sources

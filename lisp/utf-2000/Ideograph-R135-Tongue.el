@@ -18,8 +18,11 @@
       (=ucs@unicode	  . #x820C)	; &GT-39171;
       )
      ((<-original
-       ((=jis-x0208	    . #x4065)	; &GT-39171; [32-69]
-	(=ucs@unicode	    . #x820C)	; &GT-39171;
+       ((shinjigen-1	    . 6628)
+	(=jis-x0208	    . #x4065)	; &GT-39171; [32-69]
+	(=gb2312	    . #x4960)	; &I-G0-4960; [41-64]
+	(=ks-x1001	    . #x605F)	; &I-K0-605F; [64-63]
+	(=daikanwa	    . 30277)	; &I-M-30277;
 	))
       (<-original*sources
        shinjigen-1)
