@@ -325,31 +325,227 @@ Return the value of CHARACTER's ATTRIBUTE.
 {
   Lisp_Object ret
     = get_char_code_table (XCHAR (character), Vcharacter_attribute_table);
+  Lisp_Object ccs;
 
   if (EQ (ret, Qnil))
     return Qnil;
-  
+
+  if (!NILP (ccs = Ffind_charset (attribute)))
+    attribute = ccs;
+
   return Fcdr (Fassq (attribute, ret));
 }
 
+Lisp_Object
+put_char_attribute (Lisp_Object character, Lisp_Object attribute,
+		    Lisp_Object value)
+{
+  Emchar char_code = XCHAR (character);
+  Lisp_Object ret
+    = get_char_code_table (char_code, Vcharacter_attribute_table);
+  Lisp_Object cell;
+
+  cell = Fassq (attribute, ret);
+
+  if (NILP (cell))
+    {
+      ret = Fcons (Fcons (attribute, value), ret);
+    }
+  else if (!EQ (Fcdr (cell), value))
+    {
+      Fsetcdr (cell, value);
+    }
+  put_char_code_table (char_code, ret, Vcharacter_attribute_table);
+  return ret;
+}
+  
 DEFUN ("put-char-attribute", Fput_char_attribute, 3, 3, 0, /*
 Store CHARACTER's ATTRIBUTE with VALUE.
 */
        (character, attribute, value))
 {
-  Emchar char_code = XCHAR (character);
-  Lisp_Object ret
-    = get_char_code_table (char_code, Vcharacter_attribute_table);
-  Lisp_Object cell = Fassq (attribute, ret);
+  Lisp_Object ccs;
 
-  if (EQ (cell, Qnil))
-    ret = Fcons (Fcons (attribute, value), ret);
-  else
-    Fsetcdr (cell, value);
-  put_char_code_table (char_code, ret, Vcharacter_attribute_table);
-  return ret;
+  ccs = Ffind_charset (attribute);
+  if (!NILP (ccs))
+    {
+      Lisp_Object rest;
+      Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
+      Lisp_Object nv;
+      int i = -1;
+      int ccs_len;
+
+      /* ad-hoc method for `ascii' */
+      if ((XCHARSET_CHARS (ccs) == 94) &&
+	  (XCHARSET_BYTE_OFFSET (ccs) != 33))
+	ccs_len = 128 - XCHARSET_BYTE_OFFSET (ccs);
+      else
+	ccs_len = XCHARSET_CHARS (ccs);
+	  
+      if (!CONSP (value))
+	signal_simple_error ("Invalid value for coded-charset",
+			     value);
+
+      attribute = ccs;
+      rest = Fget_char_attribute (character, attribute);
+      if (VECTORP (v))
+	{
+	  if (!NILP (rest))
+	    {
+	      while (!NILP (rest))
+		{
+		  Lisp_Object ei = Fcar (rest);
+		  
+		  i = XINT (ei) - XCHARSET_BYTE_OFFSET (ccs);
+		  nv = XVECTOR_DATA(v)[i];
+		  if (!VECTORP (nv))
+		    break;
+		  v = nv;
+		  rest = Fcdr (rest);
+		}
+	      if (i >= 0)
+		XVECTOR_DATA(v)[i] = Qnil;
+	      v = XCHARSET_DECODING_TABLE (ccs);
+	    }
+	}
+      else
+	{
+	  XCHARSET_DECODING_TABLE (ccs) = v = make_vector (ccs_len, Qnil);
+	}
+
+      rest = value;
+      i = -1;
+      while (CONSP (rest))
+	{
+	  Lisp_Object ei = Fcar (rest);
+	  
+	  if (!INTP (ei))
+	    signal_simple_error ("Invalid value for coded-charset",
+				 value);
+	  i = XINT (ei) - XCHARSET_BYTE_OFFSET (ccs);
+	  nv = XVECTOR_DATA(v)[i];
+	  rest = Fcdr (rest);
+	  if (CONSP (rest))
+	    {
+	      if (!VECTORP (nv))
+		{
+		  nv = (XVECTOR_DATA(v)[i] = make_vector (ccs_len, Qnil));
+		}
+	      v = nv;
+	    }
+	  else
+	    break;
+	}
+      XVECTOR_DATA(v)[i] = character;
+    }
+  return put_char_attribute (character, attribute, value);
 }
 
+Lisp_Object Qucs;
+
+DEFUN ("define-char", Fdefine_char, 1, 1, 0, /*
+Store character's ATTRIBUTES.
+*/
+       (attributes))
+{
+  Lisp_Object rest = attributes;
+  Lisp_Object code = Fcdr (Fassq (Qucs, attributes));
+  Lisp_Object character;
+
+  if (NILP (code))
+    {
+      while (CONSP (rest))
+	{
+	  Lisp_Object cell = Fcar (rest);
+	  Lisp_Object ccs;
+
+	  if (!LISTP (cell))
+	    signal_simple_error ("Invalid argument", attributes);
+	  if (!NILP (ccs = Ffind_charset (Fcar (cell)))
+	      && XCHARSET_FINAL (ccs))
+	    {
+	      Emchar code;
+
+	      if (XCHARSET_DIMENSION (ccs) == 1)
+		{
+		  Lisp_Object eb1 = Fcar (Fcdr (cell));
+		  int b1;
+
+		  if (!INTP (eb1))
+		    signal_simple_error ("Invalid argument", attributes);
+		  b1 = XINT (eb1);
+		  switch (XCHARSET_CHARS (ccs))
+		    {
+		    case 94:
+		      code = MIN_CHAR_94
+			+ (XCHARSET_FINAL (ccs) - '0') * 94 + (b1 - 33);
+		      break;
+		    case 96:
+		      code = MIN_CHAR_96
+			+ (XCHARSET_FINAL (ccs) - '0') * 96 + (b1 - 32);
+		      break;
+		    default:
+		      abort ();
+		    }
+		}
+	      else if (XCHARSET_DIMENSION (ccs) == 2)
+		{
+		  Lisp_Object eb1 = Fcar (Fcdr (cell));
+		  Lisp_Object eb2 = Fcar (Fcdr (Fcdr (cell)));
+		  int b1, b2;
+
+		  if (!INTP (eb1))
+		    signal_simple_error ("Invalid argument", attributes);
+		  b1 = XINT (eb1);
+		  if (!INTP (eb2))
+		    signal_simple_error ("Invalid argument", attributes);
+		  b2 = XINT (eb2);
+		  switch (XCHARSET_CHARS (ccs))
+		    {
+		    case 94:
+		      code = MIN_CHAR_94x94
+			+ (XCHARSET_FINAL (ccs) - '0') * 94 * 94
+			+ (b1 - 33) * 94 + (b2 - 33);
+		      break;
+		    case 96:
+		      code = MIN_CHAR_96x96
+			+ (XCHARSET_FINAL (ccs) - '0') * 96 * 96
+			+ (b1 - 32) * 96 + (b2 - 32);
+		      break;
+		    default:
+		      abort ();
+		    }
+		}
+	      else
+		{
+		  rest = Fcdr (rest);
+		  continue;
+		}
+	      character = make_char (code);
+	      break;
+	    }
+	  rest = Fcdr (rest);
+	}
+      return Qnil;
+    }
+  else if (!INTP (code))
+    signal_simple_error ("Invalid argument", attributes);
+  else
+    character = make_char (XINT (code));
+
+  rest = attributes;
+  while (CONSP (rest))
+    {
+      Lisp_Object cell = Fcar (rest);
+
+      if (!LISTP (cell))
+	signal_simple_error ("Invalid argument", attributes);
+      Fput_char_attribute (character, Fcar (cell), Fcdr (cell));
+      rest = Fcdr (rest);
+    }
+  return
+    get_char_code_table (XCHAR (character), Vcharacter_attribute_table);
+}
 
 Lisp_Object Vutf_2000_version;
 #endif
@@ -1671,7 +1867,7 @@ Set mapping-table of CHARSET to TABLE.
 	  Lisp_Object c = XVECTOR_DATA(table)[i];
 
 	  if (CHARP (c))
-	    Fput_char_attribute
+	    put_char_attribute
 	      (c, charset,
 	       list1 (make_int (i + CHARSET_BYTE_OFFSET (cs))));
 	}
@@ -1695,18 +1891,18 @@ Set mapping-table of CHARSET to TABLE.
 		  Lisp_Object c = XVECTOR_DATA(v)[j];
 
 		  if (CHARP (c))
-		    Fput_char_attribute (c, charset,
-					 list2
-					 (make_int
-					  (i + CHARSET_BYTE_OFFSET (cs)),
-					  make_int
-					  (j + CHARSET_BYTE_OFFSET (cs))));
+		    put_char_attribute (c, charset,
+					list2
+					(make_int
+					 (i + CHARSET_BYTE_OFFSET (cs)),
+					 make_int
+					 (j + CHARSET_BYTE_OFFSET (cs))));
 		}
 	    }
 	  else if (CHARP (v))
-	    Fput_char_attribute (v, charset,
-				 list1
-				 (make_int (i + CHARSET_BYTE_OFFSET (cs))));
+	    put_char_attribute (v, charset,
+				list1
+				(make_int (i + CHARSET_BYTE_OFFSET (cs))));
 	}
       break;
     }
@@ -1922,6 +2118,7 @@ syms_of_mule_charset (void)
   DEFSUBR (Fchar_attribute_alist);
   DEFSUBR (Fget_char_attribute);
   DEFSUBR (Fput_char_attribute);
+  DEFSUBR (Fdefine_char);
   DEFSUBR (Fcharset_mapping_table);
   DEFSUBR (Fset_charset_mapping_table);
 #endif
@@ -1971,6 +2168,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
   defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
 #ifdef UTF2000
+  defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
   defsymbol (&Qlatin_viscii,		"latin-viscii");
   defsymbol (&Qlatin_viscii_lower,	"latin-viscii-lower");
@@ -2027,7 +2225,7 @@ Leading-code of private TYPE9N charset of column-width 1.
 #endif
 
 #ifdef UTF2000
-  Vutf_2000_version = build_string("0.10 (Yao)");
+  Vutf_2000_version = build_string("0.11 (Shiki)");
   DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
 Version number of UTF-2000.
 */ );
