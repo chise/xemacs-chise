@@ -89,7 +89,7 @@
     (stig     "Jonathan Stigelman" "stig@hackvan.com")
     (stigb    "Stig Bjorlykke"	  "stigb@tihlde.hist.no")
     (thiessel "Marcus Thiessel"   "marcus@xemacs.org")
-    (vladimir "Vladimir Ivanovic" "vladimir@mri.com")
+    (vladimir "Vladimir Ivanovic" "vladimir@acm.com")
     (wing     "Ben Wing"          "ben@xemacs.org")
     (wmperry  "William Perry"     "wmperry@aventail.com"))
   "Alist of XEmacs hackers.")
@@ -659,8 +659,8 @@ Come visit his glorified .plan file at\n\n")
      (widget-insert "Cars are evil.  Ride a bike.\n"))
     (vladimir
      (widget-insert "\
-Former technical lead for XEmacs at Sun.  He is now with Microtec
-Research Inc., working on embedded systems development tools.\n"))
+Former technical lead for XEmacs at Sun.  He is now with a startup
+marketing embedded Java databases.\n"))
     (stig
      (widget-insert "\
 Stig is sort of a tool fetishist.  He has a hate/love relationship
@@ -1042,8 +1042,8 @@ Like most free software, XEmacs is a collaborative effort.  These are
 some of the contributors.  We have no doubt forgotten someone; we
 apologize!  You can see some of our faces under the links.\n\n")
     (about-show-linked-info 'vladimir "\
-Former technical lead for XEmacs at Sun Microsystems.  He is now with
-Microtec Research Inc., working on embedded systems development tools.\n")
+Former technical lead for XEmacs at Sun.  He is now with a startup
+marketing embedded Java databases.\n")
     (about-show-linked-info 'stig "\
 Peripatetic uninominal Emacs hacker.  Stig sometimes operates out of a
 big white van set up for nomadic living and hacking.  Implemented the

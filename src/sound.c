@@ -379,8 +379,8 @@ device).
 */
        (arg, sound, device))
 {
-  static time_t last_bell_time = (time_t) 0;
-  static struct device *last_bell_device = (struct device*) 0;
+  static time_t last_bell_time;
+  static struct device *last_bell_device;
   time_t now;
   struct device *d = decode_device (device);     
 

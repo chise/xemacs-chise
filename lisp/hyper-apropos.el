@@ -1079,6 +1079,12 @@ Deletes lines which match PATTERN."
 	       nil
 	     (forward-char 3)
 	     (read (point-marker))))
+	  ((and
+	    (eq major-mode 'hyper-apropos-help-mode)
+	    (> (point) (point-min)))
+	   (save-excursion
+	     (goto-char (point-min))
+	     (hyper-apropos-this-symbol)))
 	  (t
 	   (let* ((st (progn
 			(skip-syntax-backward "w_")
@@ -1121,11 +1127,6 @@ Deletes lines which match PATTERN."
   (interactive
    (let ((var (hyper-apropos-this-symbol)))
      (or (and var (boundp var))
-	 (and (setq var (and (eq major-mode 'hyper-apropos-help-mode)
-			     (save-excursion
-			       (goto-char (point-min))
-			       (hyper-apropos-this-symbol))))
-	      (boundp var))
 	 (setq var nil))
      (list var (hyper-apropos-read-variable-value var))))
   (and var
@@ -1175,7 +1176,10 @@ Deletes lines which match PATTERN."
 (defun hyper-apropos-customize-variable ()
   (interactive)
   (let ((var (hyper-apropos-this-symbol)))
-    (customize-variable var)))
+    (and
+     (or (and var (boundp var))
+	 (setq var nil))
+     (customize-variable var))))
 
 ;; ---------------------------------------------------------------------- ;;
 
@@ -1197,11 +1201,6 @@ window.  (See also `find-function'.)"
   (interactive
    (let ((fn (hyper-apropos-this-symbol)))
      (or (fboundp fn)
-	 (and (setq fn (and (eq major-mode 'hyper-apropos-help-mode)
-			    (save-excursion
-			      (goto-char (point-min))
-			      (hyper-apropos-this-symbol))))
-	      (fboundp fn))
 	 (setq fn nil))
      (list fn)))
   (if fn
@@ -1257,11 +1256,7 @@ window.  (See also `find-function'.)"
 (defun hyper-apropos-popup-menu (event)
   (interactive "e")
   (mouse-set-point event)
-  (let* ((sym (or (hyper-apropos-this-symbol)
-		  (and (eq major-mode 'hyper-apropos-help-mode)
-		       (save-excursion
-			 (goto-char (point-min))
-			 (hyper-apropos-this-symbol)))))
+  (let* ((sym (hyper-apropos-this-symbol))
 	 (notjunk (not (null sym)))
 	 (command-p (if (commandp sym) t))
 	 (variable-p (and sym (boundp sym)))

@@ -763,7 +763,7 @@ DEFUN ("copy-event", Fcopy_event, 1, 2, 0, /*
 Make a copy of the given event object.
 If a second argument is given, the first event is copied into the second
 and the second is returned.  If the second argument is not supplied (or
-is nil) then a new event will be made as with `allocate-event.'  See also
+is nil) then a new event will be made as with `make-event'.  See also
 the function `deallocate-event'.
 */
        (event1, event2))
@@ -771,19 +771,26 @@ the function `deallocate-event'.
   CHECK_LIVE_EVENT (event1);
   if (NILP (event2))
     event2 = Fmake_event (Qnil, Qnil);
-  else CHECK_LIVE_EVENT (event2);
-  if (EQ (event1, event2))
-    return signal_simple_continuable_error_2
-      ("copy-event called with `eq' events", event1, event2);
+  else
+    {
+      CHECK_LIVE_EVENT (event2);
+      if (EQ (event1, event2))
+	return signal_simple_continuable_error_2
+	  ("copy-event called with `eq' events", event1, event2);
+    }
 
   assert (XEVENT_TYPE (event1) <= last_event_type);
   assert (XEVENT_TYPE (event2) <= last_event_type);
 
   {
-    Lisp_Object save_next = XEVENT_NEXT (event2);
+    Lisp_Event *ev2 = XEVENT (event2);
+    Lisp_Event *ev1 = XEVENT (event1);
 
-    *XEVENT (event2) = *XEVENT (event1);
-    XSET_EVENT_NEXT (event2, save_next);
+    ev2->event_type = ev1->event_type;
+    ev2->channel    = ev1->channel;
+    ev2->timestamp  = ev1->timestamp;
+    ev2->event      = ev1->event;
+
     return event2;
   }
 }

@@ -55,9 +55,13 @@ Boston, MA 02111-1307, USA.  */
 #define THIS_FILENAME floatfns
 #include "sysfloat.h"
 
-#ifndef HAVE_RINT
+/* The code uses emacs_rint, so that it works to undefine HAVE_RINT
+   if `rint' exists but does not work right.  */
+#ifdef HAVE_RINT
+#define emacs_rint rint
+#else
 static double
-rint (double x)
+emacs_rint (double x)
 {
   double r = floor (x + 0.5);
   double diff = fabs (r - x);
@@ -831,7 +835,7 @@ Return the nearest integer to ARG.
     {
       double d;
       /* Screw the prevailing rounding mode.  */
-      IN_FLOAT ((d = rint (XFLOAT_DATA (arg))), "round", arg);
+      IN_FLOAT ((d = emacs_rint (XFLOAT_DATA (arg))), "round", arg);
       return (float_to_int (d, "round", arg, Qunbound));
     }
 #endif /* LISP_FLOAT_TYPE */
@@ -891,7 +895,7 @@ Return the nearest integer to ARG, as a float.
        (arg))
 {
   double d = extract_float (arg);
-  IN_FLOAT (d = rint (d), "fround", arg);
+  IN_FLOAT (d = emacs_rint (d), "fround", arg);
   return make_float (d);
 }
 

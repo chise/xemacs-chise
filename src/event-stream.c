@@ -259,6 +259,8 @@ Lisp_Object Qmenu_right;
 Lisp_Object Qmenu_select;
 Lisp_Object Qmenu_escape;
 
+Lisp_Object Qself_insert_defer_undo;
+
 /* this is in keymap.c */
 extern Lisp_Object Fmake_keymap (Lisp_Object name);
 
@@ -3098,20 +3100,15 @@ command_builder_find_leaf_1 (struct command_builder *builder)
 static void
 menu_move_up (void)
 {
-  widget_value *current, *prev;
-  widget_value *entries;
+  widget_value *current = lw_get_entries (False);
+  widget_value *entries = lw_get_entries (True);
+  widget_value *prev    = NULL;
 
-  current = lw_get_entries (False);
-  entries = lw_get_entries (True);
-  prev = NULL;
-  if (current != entries)
+  while (entries != current)
     {
-      while (entries != current)
-	{
-	  if (entries->name /*&& entries->enabled*/) prev = entries;
-	  entries = entries->next;
-	  assert (entries);
-	}
+      if (entries->name /*&& entries->enabled*/) prev = entries;
+      entries = entries->next;
+      assert (entries);
     }
 
   if (!prev)
@@ -3140,11 +3137,8 @@ menu_move_up (void)
 static void
 menu_move_down (void)
 {
-  widget_value *current;
-  widget_value *new;
-
-  current = lw_get_entries (False);
-  new = current;
+  widget_value *current = lw_get_entries (False);
+  widget_value *new = current;
 
   while (new->next)
     {
@@ -3177,11 +3171,9 @@ menu_move_left (void)
   int l = level;
   widget_value *current;
 
-  while (level >= 3)
-    {
-      --level;
-      lw_pop_menu ();
-    }
+  while (level-- >= 3)
+    lw_pop_menu ();
+
   menu_move_up ();
   current = lw_get_entries (False);
   if (l > 2 && current->contents)
@@ -3195,11 +3187,9 @@ menu_move_right (void)
   int l = level;
   widget_value *current;
 
-  while (level >= 3)
-    {
-      --level;
-      lw_pop_menu ();
-    }
+  while (level-- >= 3)
+    lw_pop_menu ();
+
   menu_move_down ();
   current = lw_get_entries (False);
   if (l > 2 && current->contents)
@@ -4604,15 +4594,35 @@ Magic events are handled as necessary.
 	  }
 	else /* key sequence is bound to a command */
 	  {
+	    int magic_undo = 0;
+	    int magic_undo_count = 20;
+
 	    Vthis_command = leaf;
+
 	    /* Don't push an undo boundary if the command set the prefix arg,
 	       or if we are executing a keyboard macro, or if in the
 	       minibuffer.  If the command we are about to execute is
 	       self-insert, it's tricky: up to 20 consecutive self-inserts may
 	       be done without an undo boundary.  This counter is reset as
 	       soon as a command other than self-insert-command is executed.
-	       */
-	    if (! EQ (leaf, Qself_insert_command))
+
+	       Programmers can also use the `self-insert-undo-magic'
+	       property to install that behaviour on functions other
+	       than `self-insert-command', or to change the magic
+	       number 20 to something else.  */
+
+	    if (SYMBOLP (leaf))
+	      {
+		Lisp_Object prop = Fget (leaf, Qself_insert_defer_undo, Qnil);
+		if (NATNUMP (prop))
+		  magic_undo = 1, magic_undo_count = XINT (prop);
+		else if (!NILP (prop))
+		  magic_undo = 1;
+		else if (EQ (leaf, Qself_insert_command))
+		  magic_undo = 1;
+	      }
+
+	    if (!magic_undo)
 	      command_builder->self_insert_countdown = 0;
 	    if (NILP (XCONSOLE (console)->prefix_arg)
 		&& NILP (Vexecuting_macro)
@@ -4626,10 +4636,10 @@ Magic events are handled as necessary.
 		&& command_builder->self_insert_countdown == 0)
 	      Fundo_boundary ();
 
-	    if (EQ (leaf, Qself_insert_command))
+	    if (magic_undo)
 	      {
 		if (--command_builder->self_insert_countdown < 0)
-		  command_builder->self_insert_countdown = 20;
+		  command_builder->self_insert_countdown = magic_undo_count;
 	      }
 	    execute_command_event
               (command_builder,
@@ -4815,7 +4825,7 @@ That is not right.
 
 Calling this function directs the translated event to replace
 the original event, so that only one version of the event actually
-appears in the echo area and in the value of `this-command-keys.'.
+appears in the echo area and in the value of `this-command-keys'.
 */
        ())
 {
@@ -4957,6 +4967,7 @@ syms_of_event_stream (void)
   defsymbol (&Qmenu_select, "menu-select");
   defsymbol (&Qmenu_escape, "menu-escape");
 
+  defsymbol (&Qself_insert_defer_undo, "self-insert-defer-undo");
   defsymbol (&Qcancel_mode_internal, "cancel-mode-internal");
 }
 

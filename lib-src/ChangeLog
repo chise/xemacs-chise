@@ -1,3 +1,12 @@
+1999-12-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.23 is released.
+
+1999-11-29  Andreas Jaeger  <aj@suse.de>
+
+	* Makefile.in.in (INSTALLABLE_SCRIPTS): Removed pstogif.
+	pstogif: Moved to package tm.
+
 1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.22 is released

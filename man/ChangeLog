@@ -1,3 +1,23 @@
+1999-12-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.23 is released.
+
+1999-12-06  Sandra Wambold  <wambold@pobox.com>
+
+	* xemacs-faq.texi: Added MS-Windows questions; some other changes
+
+1999-11-29  Martin Buchholz  <martin@xemacs.org>
+
+	* info.texi (Top): 
+	Remove @ifnottex, which gives old makeinfos indigestion.
+	* texinfo.texi (Top): 
+	Revert to pre-texinfo-4.0 version, plus small changes to make
+	texinfo-3.12, texinfo-3.12f, texinfo-4.0, and TeX happy.
+
+1999-11-30  Sandra Wambold  <wambold@cygnus.com>
+
+	* xemacs-faq.texi: fixed and commented out bad URL links
+
 1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.22 is released

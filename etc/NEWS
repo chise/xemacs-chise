@@ -115,15 +115,6 @@ maintained internally.
 The new primitives available for this purpose are functions named
 `user-name-completion' and `user-name-all-completions'.
 
-** Native widgets can be displayed in buffers.
-
-The glyph system has been extended to allow the display of glyphs that
-are implemented as native window-system widgets.  Thus you can embed
-buttons, scrollbars, combo boxes, edit fields and progress gauges in a
-buffer.  As a side effect subwindow support now works once again.
-
-This support is currently only available under MS-Windows.
-
 ** XEmacs can now play sound using Enlightenment Sound Daemon (ESD).
 It will try NAS first, then ESD, then playing native sound directly.
 
@@ -191,6 +182,29 @@ for PSWrap.
 * Lisp and internal changes in XEmacs 21.2
 ==========================================
 
+** A new portable dumper is available.
+
+Olivier Galibert has written a portable dumper for XEmacs, based on
+initial work by Kyle Jones.  Normally, XEmacs C sources link into an
+executable called `temacs', which loads the Lisp code and "unexecs"
+into a proper `xemacs' executable.  The unexec() process is unreliable
+and makes XEmacs hard to port to new operating systems, or even to new
+releases of old systems.
+
+A portable dumper is a different approach to dumping: instead of
+dumping full-fledged executable, it only dumps out the initialized
+data structures (both Lisp and C) into an external file.  A normally
+running XEmacs only needs to mmap() that file and relocate a bit to
+get to the initialized data.  In that scheme, there is no difference
+between `temacs' and `xemacs'.
+
+This is all very experimental, though.  Configure with `--pdump' to
+try testing it.  NOTE: it is expected that `make' will fail after
+dumping `xemacs.dmp'.  This is because Makefiles have not yet been
+modified to not expect `temacs' producing an `xemacs' executable.  You
+can try it out by simply running `src/temacs'.  If it starts without
+failure, the portable dumping worked.
+
 ** Much effort has been invested to make XEmacs Lisp faster:
 
 *** Many basic lisp operations are now faster.
@@ -227,6 +241,23 @@ Many operations do not see any improvement.  Surprisingly, running
 Speeding up your favorite slow operation is an excellent project to
 improve XEmacs.  Don't forget to profile!
 
+** Native widgets can be displayed in buffers.
+
+The glyph system has been extended to allow the display of glyphs that
+are implemented as native window-system widgets.  Thus you can embed
+buttons, scrollbars, combo boxes, edit fields and progress gauges in a
+buffer.  As a side effect subwindow support now works once again.
+
+All of this is still very experimental.  This support is currently
+only available under MS-Windows.  (#### Is this true?)
+
+** user-init-directory is now an absolute, unexpanded path.
+Previously, `user-init-directory' used to be relative to
+(concat "~" init-file-user).  This turned out to be too complicated
+for most packages (and some core Lisp files) to use correctly.
+
+Also, `init-file-user' has been obsoleted in the process.
+
 ** XEmacs finally has an automated test suite!
 Although this is not yet very sophisticated, it is already responsible
 for several important bug fixes in XEmacs.  To try it out, simply use
@@ -258,14 +289,12 @@ now results in something like this:
 An extra bonus is that checking for circularities is not just
 friendlier, but actually faster than checking for C-g.
 
-** The new form `ignore-file-errors', similar to `ignore-errors' may
-be used as a short-hand for condition-case when you wish to ignore
-file-related error.  For example:
+** Functions for decoding base64 encoding are now available; see
+`base64-encode-region', `base64-encode-string', `base64-decode-region'
+and `base64-decode-string'.
 
-    (ignore-file-errors (delete-file "foo"))
-
-** The arguments to `locate-file' are now much more "lispy".  As
-before, the usage is:
+** The arguments to `locate-file' are now more Lisp-like.  As before,
+the usage is:
 
     (locate-file FILENAME PATH-LIST &optional SUFFIXES MODE)
 
@@ -295,18 +324,11 @@ characters.  For instance:
       (put-char-table ?c ?\n table)
       (translate-region (point-min) (point-max) table))
 
-** The `keywordp' function now returns non-nil only on symbols
-interned in the global obarray.  For example:
+** The new form `ignore-file-errors', similar to `ignore-errors' may
+be used as a short-hand for condition-case when you wish to ignore
+file-related error.  For example:
 
-    (keywordp (intern ":foo" [0]))
-      => nil
-    (keywordp (intern ":foo"))       ; The same as (keywordp :foo)
-      => t
-
-This behaviour is compatible with other code which treats symbols
-beginning with colon as keywords only if they are interned in the
-global obarray.  `keywordp' used to wrongly return t in both cases
-above.
+    (ignore-file-errors (delete-file "foo"))
 
 ** The first argument to `intern-soft' may now also be a symbol, like
 with `unintern'.  If given a symbol, `intern-soft' will look for that
@@ -319,16 +341,18 @@ to check whether a specific symbol is interned in an obarray, e.g.:
     (intern-soft (make-symbol "foo"))
       => nil
 
-** Functions for decoding base64 encoding are now available; see
-`base64-encode-region', `base64-encode-string', `base64-decode-region'
-and `base64-decode-string'.
+** The `keywordp' function now returns non-nil only on symbols
+interned in the global obarray.  For example:
 
-** user-init-directory is now an absolute, unexpanded path.
-Previously, `user-init-directory' used to be relative to
-(concat "~" init-file-user).  This turned out to be too complicated
-for most packages (and some core Lisp files) to use correctly.
+    (keywordp (intern ":foo" [0]))
+      => nil
+    (keywordp (intern ":foo"))       ; The same as (keywordp :foo)
+      => t
 
-Also, `init-file-user' has been obsoleted in the process.
+This behaviour is compatible with other code which treats symbols
+beginning with colon as keywords only if they are interned in the
+global obarray.  `keywordp' used to wrongly return t in both cases
+above.
 
 
 * Changes in XEmacs 21.0

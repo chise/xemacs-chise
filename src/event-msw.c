@@ -56,6 +56,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lstream.h"
 #include "process.h"
 #include "redisplay.h"
+#include "select.h"
 #include "sysproc.h"
 #include "syswait.h"
 #include "systime.h"
@@ -1614,6 +1615,13 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
   switch (message)
   {
+  case WM_DESTROYCLIPBOARD:
+    /* We own the clipboard and someone else wants it.  Delete our
+       cached copy of the clipboard contents so we'll ask for it from
+       Windows again when someone does a paste. */
+    handle_selection_clear(QCLIPBOARD);
+    break;
+
   case WM_ERASEBKGND:
     /* Erase background only during non-dynamic sizing */
     msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));

@@ -270,8 +270,7 @@ hash_table_equal (Lisp_Object hash_table1, Lisp_Object hash_table2, int depth)
    `weakness'         (nil, t, key or value)
    `data'             (a list)
 
-   If `print-readably' is non-nil, then a simpler syntax is used; for
-   instance:
+   If `print-readably' is nil, then a simpler syntax is used, for example
 
    #<hash-table size 2/13 data (key1 value1 key2 value2) 0x874d>
 

@@ -53,6 +53,7 @@ Lisp_Object Qnt_quote_process_args;
 struct nt_process_data
 {
   HANDLE h_process;
+  int need_enable_child_signals;
 };
 
 #define NT_DATA(p) ((struct nt_process_data*)((p)->process_data))
@@ -421,7 +422,7 @@ nt_create_process (struct Lisp_Process *p,
 		   Lisp_Object *argv, int nargv,
 		   Lisp_Object program, Lisp_Object cur_dir)
 {
-  HANDLE hmyshove, hmyslurp, hprocin, hprocout;
+  HANDLE hmyshove, hmyslurp, hprocin, hprocout, hprocerr;
   LPTSTR command_line;
   BOOL do_io, windowed;
   char *proc_env;
@@ -471,6 +472,10 @@ nt_create_process (struct Lisp_Process *p,
 
       CreatePipe (&hprocin, &hmyshove, &sa, 0);
       CreatePipe (&hmyslurp, &hprocout, &sa, 0);
+
+      /* Duplicate the stdout handle for use as stderr */
+      DuplicateHandle(GetCurrentProcess(), hprocout, GetCurrentProcess(), &hprocerr,
+	0, TRUE, DUPLICATE_SAME_ACCESS);
 
       /* Stupid Win32 allows to create a pipe with *both* ends either
 	 inheritable or not. We need process ends inheritable, and local
@@ -599,7 +604,7 @@ nt_create_process (struct Lisp_Process *p,
       {
 	si.hStdInput = hprocin;
 	si.hStdOutput = hprocout;
-	si.hStdError = hprocout;
+	si.hStdError = hprocerr;
 	si.dwFlags |= STARTF_USESTDHANDLES;
       }
 
@@ -614,6 +619,7 @@ nt_create_process (struct Lisp_Process *p,
 	/* These just have been inherited; we do not need a copy */
 	CloseHandle (hprocin);
 	CloseHandle (hprocout);
+	CloseHandle (hprocerr);
       }
     
     /* Handle process creation failure */
@@ -640,11 +646,17 @@ nt_create_process (struct Lisp_Process *p,
 	CloseHandle (pi.hProcess);
       }
 
-    if (!windowed)
-      enable_child_signals (pi.hProcess);
-
     ResumeThread (pi.hThread);
     CloseHandle (pi.hThread);
+
+    /* Remember to enable child signals later if this is not a windowed
+       app.  Can't do it right now because that screws up the MKS Toolkit
+       shell. */
+    if (!windowed)
+      {
+	NT_DATA(p)->need_enable_child_signals = 10;
+	kick_status_notify ();
+      }
 
     /* Hack to support Windows 95 negative pids */
     return ((int)pi.dwProcessId < 0
@@ -664,6 +676,18 @@ static void
 nt_update_status_if_terminated (struct Lisp_Process* p)
 {
   DWORD exit_code;
+
+  if (NT_DATA(p)->need_enable_child_signals > 1)
+    {
+      NT_DATA(p)->need_enable_child_signals -= 1;
+      kick_status_notify ();
+    }
+  else if (NT_DATA(p)->need_enable_child_signals == 1)
+    {
+      enable_child_signals(NT_DATA(p)->h_process);
+      NT_DATA(p)->need_enable_child_signals = 0;
+    }
+
   if (GetExitCodeProcess (NT_DATA(p)->h_process, &exit_code)
       && exit_code != STILL_ACTIVE)
     {
@@ -764,6 +788,14 @@ nt_kill_child_process (Lisp_Object proc, int signo,
 		       int current_group, int nomsg)
 {
   struct Lisp_Process *p = XPROCESS (proc);
+
+  /* Enable child signals if necessary.  This may lose the first
+     but it's better than nothing. */
+  if (NT_DATA(p)->need_enable_child_signals > 0)
+    {
+      enable_child_signals(NT_DATA(p)->h_process);
+      NT_DATA(p)->need_enable_child_signals = 0;
+    }
 
   /* Signal error if SIGNO cannot be sent */
   validate_signal_number (signo);

@@ -47,8 +47,12 @@ Boston, MA 02111-1307, USA.  */
 #include <cygwin/version.h>
 #else
 #ifdef SIGIO
+#define CYGWIN_VERSION_DLL_MAJOR 19
+#define CYGWIN_VERSION_DLL_MINOR 0
 #define CYGWIN_B19
 #else
+#define CYGWIN_VERSION_DLL_MAJOR 18
+#define CYGWIN_VERSION_DLL_MINOR 0
 #define BROKEN_CYGWIN
 #endif
 #endif
@@ -57,7 +61,7 @@ extern void cygwin32_win32_to_posix_path_list(const char*, char*);
 extern int cygwin32_win32_to_posix_path_list_buf_size(const char*);
 extern void cygwin32_posix_to_win32_path_list(const char*, char*);
 extern int cygwin32_posix_to_win32_path_list_buf_size(const char*);
-#ifndef CYGWIN_VERSION_DLL_MAJOR
+#if CYGWIN_VERSION_DLL_MAJOR < 20
 struct timeval;
 struct timezone;
 struct itimerval;

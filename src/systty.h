@@ -358,11 +358,11 @@ Boston, MA 02111-1307, USA.  */
    emacs_tty should contain an element for each parameter struct
    that Emacs may change.
 
-   EMACS_GET_TTY (int FD, struct emacs_tty *P) stores the parameters
+   emacs_get_tty (int FD, struct emacs_tty *P) stores the parameters
    of the tty on FD in *P.  Return zero if all's well, or -1 if we ran
    into an error we couldn't deal with.
 
-   EMACS_SET_TTY (int FD, struct emacs_tty *P, int flushp)
+   emacs_set_tty (int FD, struct emacs_tty *P, int flushp)
    sets the parameters of the tty on FD according to the contents of
    *P.  If flushp is non-zero, we discard queued input to be
    written before making the change.
@@ -409,15 +409,9 @@ struct emacs_tty {
 #endif /* HAVE_TCHARS */
 #endif /* HAVE_TERMIOS */
 };
-
-/* Define EMACS_GET_TTY and EMACS_SET_TTY,
-   the macros for reading and setting parts of `struct emacs_tty'.
 
-   These got pretty unmanageable (huge macros are hard to debug), and
-   finally needed some code which couldn't be done as part of an
-   expression, so we moved them out to their own functions in sysdep.c.  */
-#define EMACS_GET_TTY(fd, p)        emacs_get_tty (fd, p)
-#define EMACS_SET_TTY(fd, p, waitp) emacs_set_tty (fd, p, waitp)
+int emacs_get_tty (int fd, struct emacs_tty *settings);
+int emacs_set_tty (int fd, struct emacs_tty *settings, int flushp);
 
 
 /* --------------------------------------------------------- */
