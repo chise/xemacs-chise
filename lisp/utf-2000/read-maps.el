@@ -1,6 +1,6 @@
 ;;; read-maps.el --- Read mapping-tables.
 
-;; Copyright (C) 2002 MORIOKA Tomohiko
+;; Copyright (C) 2002,2003 MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, UCS-4, character, CCS, multiscript, multilingual
@@ -45,14 +45,14 @@
 	       (setq ccs 'japanese-jisx0212
 		     code (string-to-int (match-string 1) 16)
 		     ucs-pat "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
-		     ucs-ccs 'ucs-jis)
+		     ucs-ccs '=ucs-jis-1990)
 	       (goto-char (match-end 0))
 	       )
 	      ((looking-at "^JX1-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
 	       (setq ccs 'japanese-jisx0213-1
 		     code (string-to-int (match-string 1) 16)
 		     ucs-pat "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
-		     ucs-ccs 'ucs-jis)
+		     ucs-ccs '=ucs-jis-2000)
 	       (goto-char (match-end 0))
 	       )
 	      ((looking-at "^JX2-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
@@ -108,25 +108,23 @@
 		  (string-to-int (match-string 1) 16)))
 	(when (setq chr (decode-char ccs code))
 	  (unless (eq (encode-char chr ccs 'defined-only)
-		      ;; (get-char-attribute chr ccs)
 		      code)
 	    (put-char-attribute chr ccs code))
 	  (when (and ucs-code
-		     (not (eq (or (get-char-attribute chr ucs-ccs)
-				  (get-char-attribute chr 'ucs)
+		     (not (eq (or (encode-char chr ucs-ccs 'defined-only)
 				  (get-char-attribute chr '=>ucs))
 			      ucs-code)))
 	    (put-char-attribute chr ucs-ccs ucs-code))
 	  (when (and ucs
 		     (not (eq (or (get-char-attribute chr 'ucs)
-				  (get-char-attribute chr '=>ucs))
+				  (and (not (eq ucs-ccs 'ucs-jis))
+				       (get-char-attribute chr '=>ucs)))
 			      ucs)))
-	    (put-char-attribute chr
-				(if ucs-code
-				    '=>ucs
-				  (or ucs-ccs
-				      '=>ucs))
-				ucs)))
+	    (if (or ucs-code (null ucs-ccs))
+		(put-char-attribute chr '=>ucs ucs)
+	      (unless (eq (encode-char chr ucs-ccs 'defined-only)
+			  ucs)
+		(put-char-attribute chr ucs-ccs ucs)))))
 	(forward-line)))))
 
 
