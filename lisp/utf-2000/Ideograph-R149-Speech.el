@@ -6749,7 +6749,7 @@
     ))
 (define-char
   '((=>ucs*		. #x8B01)	; 謁
-    (=>ucs-gb		. #x8B01)	; 謁
+    (=>ucs@gb		. #x8B01)	; 謁
     (=>ucs-cns		. #x8B01)	; 謁
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 9)
@@ -8601,7 +8601,7 @@
     ))
 (define-char
   '((=>ucs*		. #x8B39)	; 謹
-    (=>ucs-gb		. #x8B39)	; 謹
+    (=>ucs@gb		. #x8B39)	; 謹
     (=>ucs-cns		. #x8B39)	; 謹
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 11)

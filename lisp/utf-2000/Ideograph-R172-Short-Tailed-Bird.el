@@ -3188,7 +3188,7 @@
     ))
 (define-char
   '((=>ucs*		. #x96E3)	; 難
-    (=>ucs-gb		. #x96E3)	; 難
+    (=>ucs@gb		. #x96E3)	; 難
     (=>ucs-cns		. #x96E3)	; 難
     (ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 11)

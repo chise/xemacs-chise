@@ -2029,7 +2029,7 @@
     ))
 (define-char
   '((=>ucs*		. #x983B)	; 頻
-    (=>ucs-gb		. #x983B)	; 頻
+    (=>ucs@gb		. #x983B)	; 頻
     (=>ucs-cns		. #x983B)	; 頻
     (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 7)

@@ -9455,7 +9455,7 @@
     ))
 (define-char
   '((=>ucs*		. #x7DF4)	; 練
-    (=>ucs-gb		. #x7DF4)	; 練
+    (=>ucs@gb		. #x7DF4)	; 練
     (=>ucs-cns		. #x7DF4)	; 練
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 9)
@@ -12883,7 +12883,7 @@
     ))
 (define-char
   '((=>ucs*		. #x7E41)	; 繁
-    (=>ucs-gb		. #x7E41)	; 繁
+    (=>ucs@gb		. #x7E41)	; 繁
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 11)
     (total-strokes	 . 17)

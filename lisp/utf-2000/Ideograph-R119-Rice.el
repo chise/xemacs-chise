@@ -3363,7 +3363,7 @@
     ))
 (define-char
   '((=>ucs*		. #x7CE8)	; 糨
-    (=>ucs-gb		. #x7CE8)	; 糨
+    (=>ucs@gb		. #x7CE8)	; 糨
     (morohashi-daikanwa	27114 0 5)
     (ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 12)
