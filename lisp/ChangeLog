@@ -1,5 +1,16 @@
 1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/char-db-util.el (char-attribute-name<): New function.
+	(insert-char-data): Use `char-attribute-name<' to sort; change
+	order of `iso-10646-comment'.
+	(char-db-update-comment): Use mapping-table for `latin-viscii-*'.
+
+	* utf-2000/u00100-Latin-Extended-A.el,
+	utf-2000/u000A0-Latin-1-Supplement.el: Merge `latin-viscii'
+	code-points.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/char-db-util.el (insert-char-data): Change order.
 	(insert-char-range-data): Insert variants.
 	(char-db-update-comment): Fix problem with ascii and
