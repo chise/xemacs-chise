@@ -1,3 +1,24 @@
+2004-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-{723C|6A64|6B36|
+	6E43|3D36|6E44|3C60|6E45|6E46|6E48|6E4B|6E4A|6E4F|6E52|6E51|
+	4830|6E54|6E55|395A|724D|737D}.
+
+	* Ideograph-R203-Black.el, Ideograph-R198-Deer.el,
+	Ideograph-R187-Horse.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R186-Fragrant.el (U-0002FA05): Add CU-0002FA05.
+
+	* Ideograph-R170-Mound.el, Ideograph-R167-Gold.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
 2004-10-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R001-One.el (U+4E23): Modify char-spec in `<-ancient'
