@@ -7,7 +7,7 @@
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
       ))
-    (chinese-gb2312	. #x2121)	; ø»„†„
+    (=gb2312		. #x2121)	; ø»„†„
     (=jis-x0208		. #x2121)	; ø½‰µ¼
     (=ks-x1001		. #x2121)	; ø»ˆšŒ
     (chinese-cns11643-1 . #x2121)	; ø»‘‚œ
@@ -19,7 +19,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2122)	; ø»„†…
+    (=gb2312		. #x2122)	; ø»„†…
     (=jis-x0208		. #x2122)	; ø½‰µ½
     (=ks-x1001		. #x2122)	; ø»ˆš
     (chinese-cns11643-1 . #x2123)	; ø»‘‚ž
@@ -31,7 +31,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2123)	; ø»„††
+    (=gb2312		. #x2123)	; ø»„††
     (=jis-x0208		. #x2123)	; ø½‰µ¾
     (=ks-x1001		. #x2123)	; ø»ˆšŽ
     (chinese-cns11643-1 . #x2124)	; ø»‘‚Ÿ
@@ -43,7 +43,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2128)	; ø»„†‹
+    (=gb2312		. #x2128)	; ø»„†‹
     (=jis-x0208		. #x2137)	; ø½‰¶’
     (=ks-x1001		. #x2128)	; ø»ˆš“
     (chinese-cns11643-1 . #x2171)	; ø»‘ƒ¬
@@ -64,7 +64,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (morohashi-daikanwa	97)
-    (chinese-gb2312	. #x2129)	; ø»„†Œ
+    (=gb2312		. #x2129)	; ø»„†Œ
     (=jis-x0208		. #x2139)	; ø½‰¶”
     (=iso-ir165		. #x2129)	; ø»Œ®œ
     (=big5-eten		. #xC6E0)	; ý¢€Œ› 
@@ -94,7 +94,7 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2134)	; ø»„†—
+    (=gb2312		. #x2134)	; ø»„†—
     (=jis-x0208		. #x2152)	; ø½‰¶­
     (=ks-x1001		. #x2134)	; ø»ˆšŸ
     (chinese-cns11643-1 . #x2152)	; ø»‘ƒ
@@ -106,7 +106,7 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2135)	; ø»„†˜
+    (=gb2312		. #x2135)	; ø»„†˜
     (=jis-x0208		. #x2153)	; ø½‰¶®
     (=ks-x1001		. #x2135)	; ø»ˆš 
     (chinese-cns11643-1 . #x2153)	; ø»‘ƒŽ
@@ -118,7 +118,7 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2136)	; ø»„†™
+    (=gb2312		. #x2136)	; ø»„†™
     (=jis-x0208		. #x2154)	; ø½‰¶¯
     (=ks-x1001		. #x2136)	; ø»ˆš¡
     (chinese-cns11643-1 . #x214E)	; ø»‘ƒ‰
@@ -130,7 +130,7 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2137)	; ø»„†š
+    (=gb2312		. #x2137)	; ø»„†š
     (=jis-x0208		. #x2155)	; ø½‰¶°
     (=ks-x1001		. #x2137)	; ø»ˆš¢
     (chinese-cns11643-1 . #x214F)	; ø»‘ƒŠ
@@ -142,7 +142,7 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2138)	; ø»„†›
+    (=gb2312		. #x2138)	; ø»„†›
     (=jis-x0208		. #x2156)	; ø½‰¶±
     (=ks-x1001		. #x2138)	; ø»ˆš£
     (chinese-cns11643-1 . #x2156)	; ø»‘ƒ‘
@@ -154,7 +154,7 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2139)	; ø»„†œ
+    (=gb2312		. #x2139)	; ø»„†œ
     (=jis-x0208		. #x2157)	; ø½‰¶²
     (=ks-x1001		. #x2139)	; ø»ˆš¤
     (chinese-cns11643-1 . #x2157)	; ø»‘ƒ’
@@ -166,7 +166,7 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x213A)	; ø»„†
+    (=gb2312		. #x213A)	; ø»„†
     (=jis-x0208		. #x2158)	; ø½‰¶³
     (=ks-x1001		. #x213A)	; ø»ˆš¥
     (chinese-cns11643-1 . #x215A)	; ø»‘ƒ•
@@ -178,7 +178,7 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x213B)	; ø»„†ž
+    (=gb2312		. #x213B)	; ø»„†ž
     (=jis-x0208		. #x2159)	; ø½‰¶´
     (=ks-x1001		. #x213B)	; ø»ˆš¦
     (chinese-cns11643-1 . #x215B)	; ø»‘ƒ–
@@ -190,7 +190,7 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x213E)	; ø»„†¡
+    (=gb2312		. #x213E)	; ø»„†¡
     (=jis-x0208		. #x215A)	; ø½‰¶µ
     (=ks-x1001		. #x213C)	; ø»ˆš§
     (chinese-cns11643-1 . #x214A)	; ø»‘ƒ…
@@ -202,7 +202,7 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x213F)	; ø»„†¢
+    (=gb2312		. #x213F)	; ø»„†¢
     (=jis-x0208		. #x215B)	; ø½‰¶¶
     (=ks-x1001		. #x213D)	; ø»ˆš¨
     (chinese-cns11643-1 . #x214B)	; ø»‘ƒ†
@@ -224,7 +224,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x217E)	; ø»„‡¡
+    (=gb2312		. #x217E)	; ø»„‡¡
     (=jis-x0208		. #x222E)	; ø½‰·§
     (=ks-x1001		. #x216B)	; ø»ˆ›–
     (=ucs		. #x3013)	; ã€“
@@ -234,7 +234,7 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2132)	; ø»„†•
+    (=gb2312		. #x2132)	; ø»„†•
     (=jis-x0208		. #x214C)	; ø½‰¶§
     (=ks-x1001		. #x2132)	; ø»ˆš
     (chinese-cns11643-1 . #x2146)	; ø»‘ƒ
@@ -246,7 +246,7 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2133)	; ø»„†–
+    (=gb2312		. #x2133)	; ø»„†–
     (=jis-x0208		. #x214D)	; ø½‰¶¨
     (=ks-x1001		. #x2133)	; ø»ˆšž
     (chinese-cns11643-1 . #x2147)	; ø»‘ƒ‚
@@ -258,7 +258,7 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x213C)	; ø»„†Ÿ
+    (=gb2312		. #x213C)	; ø»„†Ÿ
     (=jis-x0213-1-2000	. #x225A)	; ø»¢•“
     (=ucs		. #x3016)	; ã€–
     ))
@@ -267,7 +267,7 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x213D)	; ø»„† 
+    (=gb2312		. #x213D)	; ø»„† 
     (=jis-x0213-1-2000	. #x225B)	; ø»¢•”
     (=ucs		. #x3017)	; ã€—
     ))

@@ -258,7 +258,7 @@
 (define-char
   '((ideographic-radical . 210)	; â¿‘
     (ideographic-strokes . 9)
-    (chinese-gb2312	. #x6C34)	; ø»…´¡
+    (=gb2312		. #x6C34)	; ø»…´¡
     (=iso-ir165		. #x6C34)	; ø»Žœ±
     (=ucs		. #x9F51)	; é½‘
     ))

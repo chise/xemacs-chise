@@ -5,7 +5,7 @@
     (hanyu-dazidian	1 383 9)
     (shinjigen-1	. 889)
     (shinjigen-2	. 889)
-    (chinese-gb2312	. #x5B4C)	; ø»…›»
+    (=gb2312		. #x5B4C)	; ø»…›»
     (=jis-x0208		. #x5253)	; ø½Š¾¬
     (=iso-ir165		. #x5B4C)	; ø»Ž„‹
     (chinese-cns11643-3 . #x212B)	; ø»•–®
@@ -227,7 +227,7 @@
       ))
     (shinjigen-1	. 890)
     (shinjigen-2	. 890)
-    (chinese-gb2312	. #x4825)	; ø»„¿š
+    (=gb2312		. #x4825)	; ø»„¿š
     (=jis-x0208		. #x356E)	; ø½Š”¡
     (=ks-x1001		. #x4B5B)	; ø»‰˜²
     (=iso-ir165		. #x4825)	; ø»§ª
@@ -476,7 +476,7 @@
       )
      ((=ucs		  . #x53B6)	; åŽ¶
       ))
-    (chinese-gb2312	. #x4F58)	; ø»…ŠŸ
+    (=gb2312		. #x4F58)	; ø»…ŠŸ
     (=iso-ir165		. #x4F58)	; ø»²¯
     (=hanziku-1		. #xF573)	; ý¢€Ÿ•³
     (=ucs		. #x53BF)	; åŽ¿
@@ -577,7 +577,7 @@
       )
      ((=ucs		  . #x4E09)	; ä¸‰
       ))
-    (chinese-gb2312	. #x487E)	; ø»…€³
+    (=gb2312		. #x487E)	; ø»…€³
     (=iso-ir165		. #x487E)	; ø»©ƒ
     (chinese-cns11643-3 . #x2769)	; ø»•  
     (ideograph-daikanwa . 03089)	; ø¸€°‘
@@ -613,7 +613,7 @@
       ))
     (shinjigen-1	. 892)
     (shinjigen-2	. 892)
-    (chinese-gb2312	. #x324E)	; ø»„Ÿ¯
+    (=gb2312		. #x324E)	; ø»„Ÿ¯
     (=jis-x0208		. #x3B32)	; ø½Šœ™
     (=iso-ir165		. #x324E)	; ø»‡¿
     (chinese-cns11643-3 . #x276A)	; ø»• ¡

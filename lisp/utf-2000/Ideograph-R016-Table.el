@@ -5,7 +5,7 @@
     (hanyu-dazidian	1 275 19)
     (shinjigen-1	. 565)
     (shinjigen-2	. 565)
-    (chinese-gb2312	. #x3C38)	; ø»„®…
+    (=gb2312		. #x3C38)	; ø»„®…
     (=jis-x0208		. #x515C)	; ø½Š½—
     (=iso-ir165		. #x3C38)	; ø»–•
     (chinese-cns11643-1 . #x442D)	; ø»‘¶‚
@@ -48,7 +48,7 @@
       ))
     (shinjigen-1	. 566)
     (shinjigen-2	. 566)
-    (chinese-gb2312	. #x3732)	; ø»„¦©
+    (=gb2312		. #x3732)	; ø»„¦©
     (=jis-x0208		. #x4B5E)	; ø½Š´¥
     (=ks-x1001		. #x5B6D)	; ø»‰°¤
     (=iso-ir165		. #x3732)	; ø»Ž¹
@@ -143,7 +143,7 @@
       )
      ((=ucs		  . #x53C8)	; åˆ
       ))
-    (chinese-gb2312	. #x376F)	; ø»„§¦
+    (=gb2312		. #x376F)	; ø»„§¦
     (=iso-ir165		. #x376F)	; ø»¶
     (chinese-cns11643-3 . #x2151)	; ø»•—”
     (ideograph-daikanwa . 01743)	; ø¸€›
@@ -408,7 +408,7 @@
       )
      ((=ucs		  . #x51E0)	; å‡ 
       ))
-    (chinese-gb2312	. #x596C)	; ø»…™Ÿ
+    (=gb2312		. #x596C)	; ø»…™Ÿ
     (=iso-ir165		. #x596C)	; ø»Ž¯
     (=hanziku-1		. #xDF4D)	; ý¢€½
     (=ucs		. #x51EB)	; å‡«
@@ -498,7 +498,7 @@
       ))
     (shinjigen-1	. 574)
     (shinjigen-2	. 574)
-    (chinese-gb2312	. #x463E)	; ø»„¼·
+    (=gb2312		. #x463E)	; ø»„¼·
     (=jis-x0208		. #x515F)	; ø½Š½š
     (=iso-ir165		. #x463E)	; ø»¥‡
     (=gt-pj-1		. #x515F)	; å‡­
@@ -655,7 +655,7 @@
       )
      ((=ucs		  . #x51E0)	; å‡ 
       ))
-    (chinese-gb2312	. #x3F2D)	; ø»„²”
+    (=gb2312		. #x3F2D)	; ø»„²”
     (=iso-ir165		. #x3F2D)	; ø»š¤
     (=hanziku-1		. #xDF5B)	; ý¢€½›
     (=ucs		. #x51EF)	; å‡¯
@@ -734,7 +734,7 @@
       ))
     (shinjigen-1	. 576)
     (shinjigen-2	. 576)
-    (chinese-gb2312	. #x3B4B)	; ø»„¬º
+    (=gb2312		. #x3B4B)	; ø»„¬º
     (=jis-x0208		. #x5160)	; ø½Š½›
     (=ks-x1001		. #x7C45)	; ø»Š š
     (=iso-ir165		. #x3B4B)	; ø»•Š
@@ -982,7 +982,7 @@
       )
      ((=ucs		  . #x51E0)	; å‡ 
       ))
-    (chinese-gb2312	. #x354A)	; ø»„¤…
+    (=gb2312		. #x354A)	; ø»„¤…
     (=jis-x0212		. #x332D)	; ø»Š¾¸
     (=iso-ir165		. #x354A)	; ø»Œ•
     (chinese-cns11643-1 . #x6821)	; ø»’ª®

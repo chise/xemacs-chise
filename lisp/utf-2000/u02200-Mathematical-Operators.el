@@ -77,7 +77,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x214A)	; ø»„†­
+    (=gb2312		. #x214A)	; ø»„†­
     (=jis-x0208-1983	. #x223A)	; ø»†‘¿
     (=ks-x1001		. #x2174)	; ø»ˆ›Ÿ
     (=jis-x0208-1990	. #x223A)	; ø½‰·³
@@ -138,7 +138,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2147)	; ø»„†ª
+    (=gb2312		. #x2147)	; ø»„†ª
     (=ks-x1001		. #x2233)	; ø»ˆ›¼
     (=ucs		. #x220F)	; âˆ
     ))
@@ -154,7 +154,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2146)	; ø»„†©
+    (=gb2312		. #x2146)	; ø»„†©
     (=ks-x1001		. #x2232)	; ø»ˆ›»
     (=ucs		. #x2211)	; âˆ‘
     ))
@@ -223,7 +223,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x214C)	; ø»„†¯
+    (=gb2312		. #x214C)	; ø»„†¯
     (=jis-x0208-1983	. #x2265)	; ø»†’ª
     (=ks-x1001		. #x216E)	; ø»ˆ›™
     (chinese-cns11643-1 . #x2235)	; ø»‘„Ž
@@ -250,7 +250,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2158)	; ø»„†»
+    (=gb2312		. #x2158)	; ø»„†»
     (=jis-x0208-1983	. #x2267)	; ø»†’¬
     (=ks-x1001		. #x2170)	; ø»ˆ››
     (=jis-x0208-1990	. #x2267)	; ø½‰¸ 
@@ -262,7 +262,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x215E)	; ø»„‡
+    (=gb2312		. #x215E)	; ø»„‡
     (=jis-x0208		. #x2167)	; ø½‰·‚
     (=ks-x1001		. #x2144)	; ø»ˆš¯
     (chinese-cns11643-1 . #x223C)	; ø»‘„•
@@ -284,7 +284,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x214F)	; ø»„†²
+    (=gb2312		. #x214F)	; ø»„†²
     (=jis-x0208-1983	. #x225C)	; ø»†’¡
     (=ks-x1001		. #x2150)	; ø»ˆš»
     (chinese-cns11643-1 . #x2248)	; ø»‘„¡
@@ -328,7 +328,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x214E)	; ø»„†±
+    (=gb2312		. #x214E)	; ø»„†±
     (=ks-x1001		. #x212B)	; ø»ˆš–
     (=jis-x0213-1-2000	. #x2254)	; ø»¢•
     (=big5		. #xA1FC)	; ý¢€Š‡¼
@@ -348,7 +348,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2144)	; ø»„†§
+    (=gb2312		. #x2144)	; ø»„†§
     (=jis-x0208-1983	. #x224A)	; ø»†’
     (=ks-x1001		. #x217C)	; ø»ˆ›§
     (=jis-x0208-1990	. #x224A)	; ø½‰¸ƒ
@@ -359,7 +359,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2145)	; ø»„†¨
+    (=gb2312		. #x2145)	; ø»„†¨
     (=jis-x0208-1983	. #x224B)	; ø»†’
     (=ks-x1001		. #x217D)	; ø»ˆ›¨
     (=jis-x0208-1990	. #x224B)	; ø½‰¸„
@@ -370,7 +370,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2149)	; ø»„†¬
+    (=gb2312		. #x2149)	; ø»„†¬
     (=jis-x0208-1983	. #x2241)	; ø»†’†
     (=ks-x1001		. #x217B)	; ø»ˆ›¦
     (chinese-cns11643-1 . #x2245)	; ø»‘„ž
@@ -383,7 +383,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2148)	; ø»„†«
+    (=gb2312		. #x2148)	; ø»„†«
     (=jis-x0208-1983	. #x2240)	; ø»†’…
     (=ks-x1001		. #x217A)	; ø»ˆ›¥
     (chinese-cns11643-1 . #x2246)	; ø»‘„Ÿ
@@ -396,7 +396,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2152)	; ø»„†µ
+    (=gb2312		. #x2152)	; ø»„†µ
     (=jis-x0208-1983	. #x2269)	; ø»†’®
     (=ks-x1001		. #x2172)	; ø»ˆ›
     (chinese-cns11643-1 . #x224D)	; ø»‘„¦
@@ -430,7 +430,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2153)	; ø»„†¶
+    (=gb2312		. #x2153)	; ø»„†¶
     (=ks-x1001		. #x2231)	; ø»ˆ›º
     (chinese-cns11643-1 . #x224E)	; ø»‘„§
     (=jis-x0213-1-2000	. #x2D73)	; ø»¢¥¶
@@ -479,7 +479,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2160)	; ø»„‡ƒ
+    (=gb2312		. #x2160)	; ø»„‡ƒ
     (=jis-x0208		. #x2168)	; ø½‰·ƒ
     (=ks-x1001		. #x2145)	; ø»ˆš°
     (chinese-cns11643-1 . #x2250)	; ø»‘„©
@@ -491,7 +491,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x215F)	; ø»„‡‚
+    (=gb2312		. #x215F)	; ø»„‡‚
     (=jis-x0208-1983	. #x2268)	; ø»†’­
     (=ks-x1001		. #x2171)	; ø»ˆ›œ
     (chinese-cns11643-1 . #x224F)	; ø»‘„¨
@@ -504,7 +504,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2143)	; ø»„†¦
+    (=gb2312		. #x2143)	; ø»„†¦
     (=ucs		. #x2236)	; âˆ¶
     ))
 (define-char
@@ -512,7 +512,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x214B)	; ø»„†®
+    (=gb2312		. #x214B)	; ø»„†®
     (=ucs		. #x2237)	; âˆ·
     ))
 (define-char
@@ -560,7 +560,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (iso-10646-comment	. "lazy S")
-    (chinese-gb2312	. #x2157)	; ø»„†º
+    (=gb2312		. #x2157)	; ø»„†º
     (=jis-x0208-1983	. #x2266)	; ø»†’«
     (=ks-x1001		. #x216F)	; ø»ˆ›š
     (=jis-x0208-1990	. #x2266)	; ø½‰¸Ÿ
@@ -647,7 +647,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2156)	; ø»„†¹
+    (=gb2312		. #x2156)	; ø»„†¹
     (=jis-x0213-1-2000	. #x226E)	; ø»¢•§
     (=ucs		. #x2248)	; â‰ˆ
     ))
@@ -678,7 +678,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x2155)	; ø»„†¸
+    (=gb2312		. #x2155)	; ø»„†¸
     (=ucs		. #x224C)	; â‰Œ
     ))
 (define-char
@@ -825,7 +825,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x003D #x0338)
-    (chinese-gb2312	. #x2159)	; ø»„†¼
+    (=gb2312		. #x2159)	; ø»„†¼
     (=jis-x0208		. #x2162)	; ø½‰¶½
     (=ks-x1001		. #x2141)	; ø»ˆš¬
     (chinese-cns11643-1 . #x223B)	; ø»‘„”
@@ -837,7 +837,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2154)	; ø»„†·
+    (=gb2312		. #x2154)	; ø»„†·
     (=jis-x0208-1983	. #x2261)	; ø»†’¦
     (=ks-x1001		. #x2155)	; ø»ˆ›€
     (chinese-cns11643-1 . #x223E)	; ø»‘„—
@@ -866,7 +866,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x215C)	; ø»„†¿
+    (=gb2312		. #x215C)	; ø»„†¿
     (=ks-x1001		. #x2142)	; ø»ˆš­
     (=ucs		. #x2264)	; â‰¤
     ))
@@ -875,7 +875,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	. #x215D)	; ø»„‡€
+    (=gb2312		. #x215D)	; ø»„‡€
     (=ks-x1001		. #x2143)	; ø»ˆš®
     (=ucs		. #x2265)	; â‰¥
     ))
@@ -956,7 +956,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x003C #x0338)
-    (chinese-gb2312	. #x215A)	; ø»„†½
+    (=gb2312		. #x215A)	; ø»„†½
     (=ucs		. #x226E)	; â‰®
     ))
 (define-char
@@ -965,7 +965,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x003E #x0338)
-    (chinese-gb2312	. #x215B)	; ø»„†¾
+    (=gb2312		. #x215B)	; ø»„†¾
     (=ucs		. #x226F)	; â‰¯
     ))
 (define-char
@@ -1299,7 +1299,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2151)	; ø»„†´
+    (=gb2312		. #x2151)	; ø»„†´
     (=ks-x1001		. #x2241)	; ø»ˆœŠ
     (chinese-cns11643-1 . #x2254)	; ø»‘„­
     (=big5		. #xA1F3)	; ý¢€Š‡³
@@ -1387,7 +1387,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x214D)	; ø»„†°
+    (=gb2312		. #x214D)	; ø»„†°
     (=jis-x0208-1983	. #x225D)	; ø»†’¢
     (=ks-x1001		. #x2151)	; ø»ˆš¼
     (chinese-cns11643-1 . #x2247)	; ø»‘„ 

@@ -935,7 +935,9 @@
     (->decomposition	#x0061 #x030C)
     (->fullwidth
      ((name		  . "fullwidth latin small letter a with caron")
-      (chinese-gb2312	  . #x2823)	; ø»„˜
+      (=gb2312		  . #x2823)	; ø»„˜
+      (=jis-x0212	  . #x2B26)	; ø»Š³
+      (=jis-x0213-1-2000  . #x2870)	; ø»¢ž
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH CARON")
@@ -957,7 +959,7 @@
      ((name		  . "LATIN SMALL LETTER A WITH CARON")
       (=ucs		  . #x01CE)	; ÇŽ
       ))
-    (chinese-gb2312	. #x2823)	; ø»„˜
+    (=gb2312		. #x2823)	; ø»„˜
     (=jis-x0212		. #x2B26)	; ø»Š³
     (=jis-x0213-1-2000	. #x2870)	; ø»¢ž
     (=jef-china3	. #x88EE)	; øºˆ£®
@@ -1006,7 +1008,9 @@
     (->decomposition	#x0069 #x030C)
     (->fullwidth
      ((name		  . "fullwidth latin small letter i with caron")
-      (chinese-gb2312	  . #x282B)	; ø»„ 
+      (=gb2312		  . #x282B)	; ø»„ 
+      (=jis-x0212	  . #x2B43)	; ø»Š³ž
+      (=jis-x0213-1-2000  . #x2871)	; ø»¢žž
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER I WITH CARON")
@@ -1028,7 +1032,7 @@
      ((name		  . "LATIN SMALL LETTER I WITH CARON")
       (=ucs		  . #x01D0)	; Ç
       ))
-    (chinese-gb2312	. #x282B)	; ø»„ 
+    (=gb2312		. #x282B)	; ø»„ 
     (=jis-x0212		. #x2B43)	; ø»Š³ž
     (=jis-x0213-1-2000	. #x2871)	; ø»¢žž
     (=ucs@jis		. #x01D0)	; ø»„ 
@@ -1077,7 +1081,9 @@
     (->decomposition	#x006F #x030C)
     (->fullwidth
      ((name		  . "fullwidth latin small letter o with caron")
-      (chinese-gb2312	  . #x282F)	; ø»„¤
+      (=gb2312		  . #x282F)	; ø»„¤
+      (=jis-x0212	  . #x2B55)	; ø»Š³°
+      (=jis-x0213-1-2000  . #x2877)	; ø»¢ž¤
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH CARON")
@@ -1099,7 +1105,7 @@
      ((name		  . "LATIN SMALL LETTER O WITH CARON")
       (=ucs		  . #x01D2)	; Ç’
       ))
-    (chinese-gb2312	. #x282F)	; ø»„¤
+    (=gb2312		. #x282F)	; ø»„¤
     (=jis-x0212		. #x2B55)	; ø»Š³°
     (=jis-x0213-1-2000	. #x2877)	; ø»¢ž¤
     (=jef-china3	. #x88F7)	; øºˆ£·
@@ -1148,7 +1154,9 @@
     (->decomposition	#x0075 #x030C)
     (->fullwidth
      ((name		  . "fullwidth latin small letter u with caron")
-      (chinese-gb2312	  . #x2833)	; ø»„¨
+      (=gb2312		  . #x2833)	; ø»„¨
+      (=jis-x0212	  . #x2B67)	; ø»Š´‚
+      (=jis-x0213-1-2000  . #x2878)	; ø»¢ž¥
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER U WITH CARON")
@@ -1170,7 +1178,7 @@
      ((name		  . "LATIN SMALL LETTER U WITH CARON")
       (=ucs		  . #x01D4)	; Ç”
       ))
-    (chinese-gb2312	. #x2833)	; ø»„¨
+    (=gb2312		. #x2833)	; ø»„¨
     (=jis-x0212		. #x2B67)	; ø»Š´‚
     (=jis-x0213-1-2000	. #x2878)	; ø»¢ž¥
     (=jef-china3	. #x88FB)	; øºˆ£»
@@ -1218,7 +1226,9 @@
     (->decomposition	#x00FC #x0304)
     (->fullwidth
      ((name . "fullwidth latin small letter u with diaeresis and macron")
-      (chinese-gb2312	  . #x2835)	; ø»„ª
+      (=gb2312		  . #x2835)	; ø»„ª
+      (=jis-x0212	  . #x2B70)	; ø»Š´‹
+      (=jis-x0213-1-2000  . #x2879)	; ø»¢ž¦
       ))
     (->uppercase
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON")
@@ -1240,7 +1250,7 @@
      ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
       (=ucs		  . #x01D6)	; Ç–
       ))
-    (chinese-gb2312	. #x2835)	; ø»„ª
+    (=gb2312		. #x2835)	; ø»„ª
     (=jis-x0212		. #x2B70)	; ø»Š´‹
     (=jis-x0213-1-2000	. #x2879)	; ø»¢ž¦
     (=ucs@jis		. #x01D6)	; ø»„ª
@@ -1287,7 +1297,9 @@
     (->decomposition	#x00FC #x0301)
     (->fullwidth
      ((name . "fullwidth latin small letter u with diaeresis and acute")
-      (chinese-gb2312	  . #x2836)	; ø»„«
+      (=gb2312		  . #x2836)	; ø»„«
+      (=jis-x0212	  . #x2B6D)	; ø»Š´ˆ
+      (=jis-x0213-1-2000  . #x287A)	; ø»¢ž§
       ))
     (->uppercase
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")
@@ -1309,7 +1321,7 @@
      ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
       (=ucs		  . #x01D8)	; Ç˜
       ))
-    (chinese-gb2312	. #x2836)	; ø»„«
+    (=gb2312		. #x2836)	; ø»„«
     (=jis-x0212		. #x2B6D)	; ø»Š´ˆ
     (=jis-x0213-1-2000	. #x287A)	; ø»¢ž§
     (=ucs@jis		. #x01D8)	; ø»„«
@@ -1356,7 +1368,9 @@
     (->decomposition	#x00FC #x030C)
     (->fullwidth
      ((name . "fullwidth latin small letter u with diaeresis and caron")
-      (chinese-gb2312	  . #x2837)	; ø»„¬
+      (=gb2312		  . #x2837)	; ø»„¬
+      (=jis-x0212	  . #x2B6F)	; ø»Š´Š
+      (=jis-x0213-1-2000  . #x287B)	; ø»¢ž¨
       ))
     (->uppercase
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")
@@ -1378,7 +1392,7 @@
      ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
       (=ucs		  . #x01DA)	; Çš
       ))
-    (chinese-gb2312	. #x2837)	; ø»„¬
+    (=gb2312		. #x2837)	; ø»„¬
     (=jis-x0212		. #x2B6F)	; ø»Š´Š
     (=jis-x0213-1-2000	. #x287B)	; ø»¢ž¨
     (=ucs@jis		. #x01DA)	; ø»„¬
@@ -1425,7 +1439,9 @@
     (->decomposition	#x00FC #x0300)
     (->fullwidth
      ((name . "fullwidth latin small letter u with diaeresis and grave")
-      (chinese-gb2312	  . #x2838)	; ø»„­
+      (=gb2312		  . #x2838)	; ø»„­
+      (=jis-x0212	  . #x2B6E)	; ø»Š´‰
+      (=jis-x0213-1-2000  . #x287C)	; ø»¢ž©
       ))
     (->uppercase
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")
@@ -1447,7 +1463,7 @@
      ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
       (=ucs		  . #x01DC)	; Çœ
       ))
-    (chinese-gb2312	. #x2838)	; ø»„­
+    (=gb2312		. #x2838)	; ø»„­
     (=jis-x0212		. #x2B6E)	; ø»Š´‰
     (=jis-x0213-1-2000	. #x287C)	; ø»¢ž©
     (=ucs@jis		. #x01DC)	; ø»„­

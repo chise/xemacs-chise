@@ -42,7 +42,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x216F)	; ø»„‡’
+    (=gb2312		. #x216F)	; ø»„‡’
     (=jis-x0208		. #x217A)	; ø½‰·•
     (=ks-x1001		. #x215A)	; ø»ˆ›…
     (chinese-cns11643-1 . #x2178)	; ø»‘ƒ³
@@ -54,7 +54,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x216E)	; ø»„‡‘
+    (=gb2312		. #x216E)	; ø»„‡‘
     (=jis-x0208		. #x2179)	; ø½‰·”
     (=ks-x1001		. #x2159)	; ø»ˆ›„
     (chinese-cns11643-1 . #x2177)	; ø»‘ƒ²
@@ -447,7 +447,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2162)	; ø»„‡…
+    (=gb2312		. #x2162)	; ø»„‡…
     (=jis-x0208		. #x216A)	; ø½‰·…
     (=ks-x1001		. #x214F)	; ø»ˆšº
     (chinese-cns11643-1 . #x2251)	; ø»‘„ª
@@ -466,7 +466,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	. #x2161)	; ø»„‡„
+    (=gb2312		. #x2161)	; ø»„‡„
     (=jis-x0208		. #x2169)	; ø½‰·„
     (=ks-x1001		. #x214E)	; ø»ˆš¹
     (chinese-cns11643-1 . #x2252)	; ø»‘„«

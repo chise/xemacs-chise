@@ -3,7 +3,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (shinjigen-2	. 2059)
-    (chinese-gb2312	. #x3924)	; ø»„©—
+    (=gb2312		. #x3924)	; ø»„©—
     (=jis-x0208		. #x3929)	; ø½Š™”
     (=ks-x1001		. #x4D6F)	; ø»‰œ‚
     (=iso-ir165		. #x3924)	; ø»‘§
@@ -58,7 +58,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (shinjigen-2	. 2063)
-    (chinese-gb2312	. #x5773)	; ø»…–ª
+    (=gb2312		. #x5773)	; ø»…–ª
     (=jis-x0208		. #x3A38)	; ø½Š›
     (=ks-x1001		. #x7127)	; ø»Š²
     (=iso-ir165		. #x5773)	; ø»¾º
@@ -74,7 +74,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (shinjigen-2	. 2062)
-    (chinese-gb2312	. #x4749)	; ø»„¾ 
+    (=gb2312		. #x4749)	; ø»„¾ 
     (=jis-x0208		. #x392A)	; ø½Š™•
     (=ks-x1001		. #x4E65)	; ø»‰–
     (=iso-ir165		. #x4749)	; ø»¦°
@@ -97,7 +97,7 @@
     (ideographic-radical . 48)	; â¼¯
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (chinese-gb2312	. #x3E5E)	; ø»„±§
+    (=gb2312		. #x3E5E)	; ø»„±§
     (=jis-x0208		. #x3570)	; ø½Š”£
     (=ks-x1001		. #x4B5D)	; ø»‰˜´
     (=iso-ir165		. #x3E5E)	; ø»™·
@@ -160,7 +160,7 @@
     (ideographic-radical . 48)	; â¼¯
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (chinese-gb2312	. #x392E)	; ø»„©¡
+    (=gb2312		. #x392E)	; ø»„©¡
     (=iso-ir165		. #x392E)	; ø»‘±
     (=ucs		. #x5DE9)	; å·©
     ))
@@ -184,7 +184,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (shinjigen-2	. 2066)
-    (chinese-gb2312	. #x4E57)	; ø»…‰€
+    (=gb2312		. #x4E57)	; ø»…‰€
     (=jis-x0208		. #x5660)	; ø½‹„±
     (=ks-x1001		. #x5963)	; ø»‰­ž
     (=iso-ir165		. #x4E57)	; ø»±
@@ -258,7 +258,7 @@
     (ideographic-radical . 48)	; â¼¯
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (chinese-gb2312	. #x326E)	; ø»„ 
+    (=gb2312		. #x326E)	; ø»„ 
     (=iso-ir165		. #x326E)	; ø»ˆŸ
     (=ucs		. #x5DEE)	; å·®
     ))
@@ -298,7 +298,7 @@
     (ideographic-radical . 48)	; â¼¯
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (chinese-gb2312	. #x5B4F)	; ø»…›¾
+    (=gb2312		. #x5B4F)	; ø»…›¾
     (=iso-ir165		. #x5B4F)	; ø»Ž„Ž
     (=ucs		. #x5DEF)	; å·¯
     ))
