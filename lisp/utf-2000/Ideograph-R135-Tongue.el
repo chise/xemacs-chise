@@ -325,7 +325,7 @@
     (total-strokes	 . 11)
     (=jis-x0213-1-2000	. #x7A5A)	; ø»¤–£
     (ideograph-daikanwa . 30296)	; ø¸‡™˜
-    (china3-jef		. #x60F4)	; øº†ƒ´
+    (=jef-china3	. #x60F4)	; øº†ƒ´
     (ucs-jis		. #x445B)	; ø»¤–£
     ))
 (define-char

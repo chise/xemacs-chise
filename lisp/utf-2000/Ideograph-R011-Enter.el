@@ -127,7 +127,7 @@
     (shinjigen-2	. 482)
     (chinese-big5	. #xA4BA)	; ý¢€Š’º
     (ideograph-daikanwa . 01418)	; ø¸€–Š
-    (china3-jef		. #x43DE)	; øº„ž
+    (=jef-china3	. #x43DE)	; øº„ž
     (mojikyo		. 001418)	; ý €€–Š
     ))
 (define-char
@@ -322,7 +322,7 @@
     (korean-ksc5601	. #x6E6F)	; ø»ŠŒ 
     (chinese-big5	. #xA5FE)	; ý¢€Š—¾
     (ideograph-daikanwa . 01424)	; ø¸€–
-    (china3-jef		. #x43DF)	; øº„Ÿ
+    (=jef-china3	. #x43DF)	; øº„Ÿ
     (mojikyo		. 001424)	; ý €€–
     ))
 (define-char

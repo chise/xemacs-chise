@@ -43,7 +43,7 @@
       ))
     (chinese-cns11643-3		. #x297B)	; ø»•£®
     (ideograph-hanziku-1	. #xABFA)	; ý¢€š¯º
-    (china3-jef			. #x92AB)	; øº‰Š«
+    (=jef-china3		. #x92AB)	; øº‰Š«
     (mojikyo			. 019738)	; ý €„´š
     (ucs			. #x3E1A)	; ã¸š
     ))
@@ -178,7 +178,7 @@
     (ideographic-radical . 89)	; â½˜
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (china3-jef		. #x41A4)	; øº„†¤
+    (=jef-china3	. #x41A4)	; øº„†¤
     ))
 (define-char
   '((=>ucs		. #x2039B)	; ð Ž›

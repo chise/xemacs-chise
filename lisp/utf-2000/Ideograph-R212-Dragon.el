@@ -34,7 +34,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
     (shinjigen-1	. 9914)
-    (china3-jef		. #x70A4)	; øº‡‚¤
+    (=jef-china3	. #x70A4)	; øº‡‚¤
     ))
 (define-char
   '((ideographic-radical . 212)	; â¿“

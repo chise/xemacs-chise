@@ -588,7 +588,7 @@
     ))
 (define-char
   '((=>ucs		. #x1E30)	; á¸°
-    (china3-jef		. #x85DC)	; øºˆ—œ
+    (=jef-china3	. #x85DC)	; øºˆ—œ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER K WITH ACUTE")
@@ -604,7 +604,7 @@
     ))
 (define-char
   '((=>ucs		. #x1E31)	; á¸±
-    (china3-jef		. #x85F2)	; øºˆ—²
+    (=jef-china3	. #x85F2)	; øºˆ—²
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER K WITH DOT BELOW")
@@ -768,7 +768,7 @@
     ))
 (define-char
   '((=>ucs		. #x1E3E)	; á¸¾
-    (china3-jef		. #x85DE)	; øºˆ—ž
+    (=jef-china3	. #x85DE)	; øºˆ—ž
     ))
 (define-char
   '((name		. "fullwidth latin capital letter m with acute")
@@ -805,7 +805,7 @@
     ))
 (define-char
   '((=>ucs		. #x1E3F)	; á¸¿
-    (china3-jef		. #x85F4)	; øºˆ—´
+    (=jef-china3	. #x85F4)	; øºˆ—´
     ))
 (define-char
   '((name		. "fullwidth latin small letter m with acute")
@@ -1078,7 +1078,7 @@
     ))
 (define-char
   '((=>ucs		. #x1E54)	; á¹”
-    (china3-jef		. #x85E1)	; øºˆ—¡
+    (=jef-china3	. #x85E1)	; øºˆ—¡
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER P WITH ACUTE")
@@ -1094,7 +1094,7 @@
     ))
 (define-char
   '((=>ucs		. #x1E55)	; á¹•
-    (china3-jef		. #x85F7)	; øºˆ—·
+    (=jef-china3	. #x85F7)	; øºˆ—·
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER P WITH DOT ABOVE")
@@ -1638,7 +1638,7 @@
     ))
 (define-char
   '((=>ucs		. #x1E82)	; áº‚
-    (china3-jef		. #x85E8)	; øºˆ—¨
+    (=jef-china3	. #x85E8)	; øºˆ—¨
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER W WITH ACUTE")
@@ -1654,7 +1654,7 @@
     ))
 (define-char
   '((=>ucs		. #x1E83)	; áºƒ
-    (china3-jef		. #x85FE)	; øºˆ—¾
+    (=jef-china3	. #x85FE)	; øºˆ—¾
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER W WITH DIAERESIS")
@@ -1999,7 +1999,7 @@
     ))
 (define-char
   '((=>ucs		. #x1EA4)	; áº¤
-    (china3-jef		. #x86A7)	; øºˆš§
+    (=jef-china3	. #x86A7)	; øºˆš§
     ))
 (define-char
   '((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND ACUTE")
@@ -2018,7 +2018,7 @@
     ))
 (define-char
   '((=>ucs		. #x1EA5)	; áº¥
-    (china3-jef		. #x86AA)	; øºˆšª
+    (=jef-china3	. #x86AA)	; øºˆšª
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND GRAVE")
@@ -2037,7 +2037,7 @@
     ))
 (define-char
   '((=>ucs		. #x1EA6)	; áº¦
-    (china3-jef		. #x85B1)	; øºˆ–±
+    (=jef-china3	. #x85B1)	; øºˆ–±
     ))
 (define-char
   '((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND GRAVE")
@@ -2056,7 +2056,7 @@
     ))
 (define-char
   '((=>ucs		. #x1EA7)	; áº§
-    (china3-jef		. #x85B4)	; øºˆ–´
+    (=jef-china3	. #x85B4)	; øºˆ–´
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -2400,7 +2400,7 @@
     ))
 (define-char
   '((=>ucs		. #x1EBE)	; áº¾
-    (china3-jef		. #x86A8)	; øºˆš¨
+    (=jef-china3	. #x86A8)	; øºˆš¨
     ))
 (define-char
   '((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND ACUTE")
@@ -2419,7 +2419,7 @@
     ))
 (define-char
   '((=>ucs		. #x1EBF)	; áº¿
-    (china3-jef		. #x86AB)	; øºˆš«
+    (=jef-china3	. #x86AB)	; øºˆš«
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND GRAVE")
@@ -2438,7 +2438,7 @@
     ))
 (define-char
   '((=>ucs		. #x1EC0)	; á»€
-    (china3-jef		. #x85B2)	; øºˆ–²
+    (=jef-china3	. #x85B2)	; øºˆ–²
     ))
 (define-char
   '((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND GRAVE")
@@ -2457,7 +2457,7 @@
     ))
 (define-char
   '((=>ucs		. #x1EC1)	; á»
-    (china3-jef		. #x85B5)	; øºˆ–µ
+    (=jef-china3	. #x85B5)	; øºˆ–µ
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -2681,7 +2681,7 @@
     ))
 (define-char
   '((=>ucs		. #x1ED0)	; á»
-    (china3-jef		. #x86A9)	; øºˆš©
+    (=jef-china3	. #x86A9)	; øºˆš©
     ))
 (define-char
   '((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND ACUTE")
@@ -2700,7 +2700,7 @@
     ))
 (define-char
   '((=>ucs		. #x1ED1)	; á»‘
-    (china3-jef		. #x86AC)	; øºˆš¬
+    (=jef-china3	. #x86AC)	; øºˆš¬
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND GRAVE")
@@ -2719,7 +2719,7 @@
     ))
 (define-char
   '((=>ucs		. #x1ED2)	; á»’
-    (china3-jef		. #x85B3)	; øºˆ–³
+    (=jef-china3	. #x85B3)	; øºˆ–³
     ))
 (define-char
   '((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND GRAVE")
@@ -2738,7 +2738,7 @@
     ))
 (define-char
   '((=>ucs		. #x1ED3)	; á»“
-    (china3-jef		. #x85B6)	; øºˆ–¶
+    (=jef-china3	. #x85B6)	; øºˆ–¶
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -3193,7 +3193,7 @@
     ))
 (define-char
   '((=>ucs		. #x1EF2)	; á»²
-    (china3-jef		. #x85C0)	; øºˆ—€
+    (=jef-china3	. #x85C0)	; øºˆ—€
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y WITH GRAVE")

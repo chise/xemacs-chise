@@ -2479,7 +2479,7 @@
     (ideographic-radical . 128)	; â½¿
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
-    (china3-jef		. #x60D2)	; øº†ƒ’
+    (=jef-china3	. #x60D2)	; øº†ƒ’
     (mojikyo		. 055041)	; ý €œ
     ))
 (define-char

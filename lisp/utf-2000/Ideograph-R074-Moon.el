@@ -9,7 +9,7 @@
     (chinese-cns11643-1 . #x454C)	; ø»‘·¿
     (chinese-big5	. #xA4EB)	; ý¢€Š“«
     (ideograph-daikanwa . 14330)	; ø¸ƒŸº
-    (china3-jef		. #x52A4)	; øº…Š¤
+    (=jef-china3	. #x52A4)	; øº…Š¤
     (ucs		. #x6708)	; æœˆ
     ))
 (define-char
@@ -30,7 +30,7 @@
     (chinese-isoir165	. #x5350)	; ø»¸Ÿ
     (chinese-big5	. #xA6B3)	; ý¢€Šš³
     (ideograph-daikanwa . 14332)	; ø¸ƒŸ¼
-    (china3-jef		. #x52A7)	; øº…Š§
+    (=jef-china3	. #x52A7)	; øº…Š§
     (ucs		. #x6709)	; æœ‰
     ))
 (define-char
@@ -100,7 +100,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (ideograph-daikanwa . 14340)	; ø¸ƒ „
-    (china3-jef		. #x52A5)	; øº…Š¥
+    (=jef-china3	. #x52A5)	; øº…Š¥
     (mojikyo		. 014340)	; ý €ƒ „
     ))
 (define-char
@@ -166,7 +166,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (ideograph-daikanwa . 14345)	; ø¸ƒ ‰
-    (china3-jef		. #x52B4)	; øº…Š´
+    (=jef-china3	. #x52B4)	; øº…Š´
     (mojikyo		. 014345)	; ý €ƒ ‰
     ))
 (define-char
@@ -207,7 +207,7 @@
     (total-strokes	 . 9)
     (japanese-jisx0212	. #x4270)	; ø»‹•½
     (ideograph-daikanwa . 14348)	; ø¸ƒ Œ
-    (china3-jef		. #x52BC)	; øº…Š¼
+    (=jef-china3	. #x52BC)	; øº…Š¼
     (ucs-jis		. #x670E)	; ø»‹•½
     ))
 (define-char
@@ -255,7 +255,7 @@
     (chinese-cns11643-2 . #x2A7B)	; ø»“›ˆ
     (chinese-big5	. #xCEFA)	; ý¢€Œ»º
     (ideograph-daikanwa . 14353)	; ø¸ƒ ‘
-    (china3-jef		. #x97FB)	; øº‰Ÿ»
+    (=jef-china3	. #x97FB)	; øº‰Ÿ»
     (ucs		. #x6710)	; æœ
     ))
 (define-char
@@ -299,7 +299,7 @@
     (=jis-x0213-1-2000	. #x754D)	; ø»¤€
     (chinese-big5	. #xD1D8)	; ý¢€‡˜
     (ideograph-daikanwa . 14358)	; ø¸ƒ –
-    (china3-jef		. #x52C0)	; øº…‹€
+    (=jef-china3	. #x52C0)	; øº…‹€
     (ucs		. #x6713)	; æœ“
     ))
 (define-char
@@ -322,7 +322,7 @@
     (total-strokes	 . 10)
     (korean-ksc5601	. #x7279)	; ø»Š’¢
     (ideograph-daikanwa . 14361)	; ø¸ƒ ™
-    (china3-jef		. #x52C2)	; øº…‹‚
+    (=jef-china3	. #x52C2)	; øº…‹‚
     ))
 (define-char
   '((=>ucs		. #x6715)	; æœ•
@@ -440,7 +440,7 @@
     (korean-ksc5601	. #x5547)	; ø»‰§Š
     (=jis-x0213-1-2000	. #x754E)	; ø»¤
     (ideograph-daikanwa . 14364)	; ø¸ƒ œ
-    (china3-jef		. #x52AD)	; øº…Š­
+    (=jef-china3	. #x52AD)	; øº…Š­
     (ucs-jis		. #xF929)	; ø»‰§Š
     (ucs-ks		. #x6717)	; ø»‰§Š
     ))
@@ -495,7 +495,7 @@
     (chinese-cns11643-3 . #x3647)	; ø»•¶€
     (=jis-x0213-2-2000	. #x2E3B)	; ø»¤° 
     (ideograph-daikanwa . 14366)	; ø¸ƒ ž
-    (china3-jef		. #x52AE)	; øº…Š®
+    (=jef-china3	. #x52AE)	; øº…Š®
     (ucs		. #x6719)	; æœ™
     ))
 (define-char
@@ -568,7 +568,7 @@
     (total-strokes	 . 11)
     (chinese-big5	. #xB1E6)	; ý¢€‹‡¦
     (ideograph-daikanwa . 14368)	; ø¸ƒ  
-    (china3-jef		. #x52A6)	; øº…Š¦
+    (=jef-china3	. #x52A6)	; øº…Š¦
     ))
 (define-char
   '((=>ucs		. #x671B)	; æœ›
@@ -696,7 +696,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (ideograph-daikanwa . 14374)	; ø¸ƒ ¦
-    (china3-jef		. #x52AF)	; øº…Š¯
+    (=jef-china3	. #x52AF)	; øº…Š¯
     (mojikyo		. 014374)	; ý €ƒ ¦
     ))
 (define-char
@@ -761,7 +761,7 @@
     (korean-ksc5601	. #x5121)	; ø»‰ ¬
     (chinese-cns11643-3 . #x3C29)	; ø»•¾–
     (ideograph-daikanwa . 14377)	; ø¸ƒ ©
-    (china3-jef		. #x52CD)	; øº…‹
+    (=jef-china3	. #x52CD)	; øº…‹
     (ucs-jis		. #x671E)	; ø½‹‹•
     ))
 (define-char
@@ -783,7 +783,7 @@
     (chinese-cns11643-1 . #x5F66)	; ø»’ž¥
     (chinese-big5	. #xB4C1)	; ý¢€‹“
     (ideograph-daikanwa . 14378)	; ø¸ƒ ª
-    (china3-jef		. #x52B0)	; øº…Š°
+    (=jef-china3	. #x52B0)	; øº…Š°
     (ucs		. #x671F)	; æœŸ
     ))
 (define-char
@@ -822,7 +822,7 @@
     (total-strokes	 . 12)
     (japanese-jisx0212	. #x4274)	; ø»‹–
     (chinese-big5	. #xDDC8)	; ý¢€·ˆ
-    (china3-jef		. #x52D6)	; øº…‹–
+    (=jef-china3	. #x52D6)	; øº…‹–
     (ucs		. #x6720)	; æœ 
     ))
 (define-char
@@ -1035,7 +1035,7 @@
     (ideographic-radical . 74)	; â½‰
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (china3-jef		. #x52AB)	; øº…Š«
+    (=jef-china3	. #x52AB)	; øº…Š«
     (ucs		. #x3B3C)	; ã¬¼
     ))
 (define-char

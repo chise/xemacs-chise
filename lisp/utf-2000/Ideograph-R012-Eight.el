@@ -11,7 +11,7 @@
     (chinese-big5	. #xA44B)	; ý¢€Š‘‹
     (ideograph-daikanwa . 01450)	; ø¸€–ª
     (ideograph-gt-k	. 00056)	; ý¡„€€¸
-    (china3-jef		. #x43E4)	; øº„¤
+    (=jef-china3	. #x43E4)	; øº„¤
     (ucs-jis		. #x516B)	; ø½Š¯™
     ))
 (define-char
@@ -82,7 +82,7 @@
     (korean-ksc5601		. #x4D6B)	; ø»‰›¾
     (chinese-big5		. #xA4BD)	; ý¢€Š’½
     (ideograph-daikanwa		. 01452)	; ø¸€–¬
-    (china3-jef			. #x43E5)	; øº„¥
+    (=jef-china3		. #x43E5)	; øº„¥
     ))
 (define-char
   '((morohashi-daikanwa	1452 0 1)
@@ -291,7 +291,7 @@
     (chinese-gb2312		. #x403C)	; ø»„´
     (chinese-isoir165		. #x403C)	; ø»œ‘
     (ideograph-hanziku-1	. #xD7F4)	; ý¢€Ÿ´
-    (china3-jef			. #x82AB)	; øºˆŠ«
+    (=jef-china3		. #x82AB)	; øºˆŠ«
     (ucs			. #x5170)	; å…°
     ))
 (define-char
@@ -387,7 +387,7 @@
     (=jis-x0213-2-2000	. #x2328)	; ø»¤ ƒ
     (chinese-big5-cdp	. #x8C63)	; ý¢€ˆ±£
     (ideograph-cbeta	. 00659)	; ø¸ Š“
-    (china3-jef		. #x90EC)	; øº‰ƒ¬
+    (=jef-china3	. #x90EC)	; øº‰ƒ¬
     (mojikyo		. 051198)	; ý €ŒŸ¾
     (ucs		. #x5173)	; å…³
     ))
@@ -705,7 +705,7 @@
     (chinese-isoir165	. #x3E5F)	; ø»™¸
     (chinese-cns11643-1 . #x4C26)	; ø»’«
     (chinese-big5	. #xA8E3)	; ý¢€Š££
-    (china3-jef		. #x43E8)	; øº„¨
+    (=jef-china3	. #x43E8)	; øº„¨
     (mojikyo		. 050941)	; ý €Œ›½
     (ucs		. #x5177)	; å…·
     ))
@@ -879,7 +879,7 @@
     (chinese-gb2312		. #x5178)	; ø»…»
     (chinese-isoir165		. #x5178)	; ø»¶‹
     (ideograph-hanziku-1	. #xD97C)	; ý¢€¥¼
-    (china3-jef			. #x82AA)	; øºˆŠª
+    (=jef-china3		. #x82AA)	; øºˆŠª
     (ucs			. #x517B)	; å…»
     ))
 (define-char
@@ -910,7 +910,7 @@
     (korean-ksc5601	. #x4C42)	; ø»‰™·
     (chinese-big5	. #xADDD)	; ý¢€Š·
     (ideograph-daikanwa . 01483)	; ø¸€—‹
-    (china3-jef		. #x43E6)	; øº„¦
+    (=jef-china3	. #x43E6)	; øº„¦
     (mojikyo		. 058241)	; ý €ŽŽ
     ))
 (define-char
@@ -1169,7 +1169,7 @@
     (japanese-jisx0212	. #x326F)	; ø»Š¾œ
     (ideograph-daikanwa . 01494)	; ø¸€—–
     (ideograph-cbeta	. 00042)	; ø¸ €ª
-    (china3-jef		. #x43E7)	; øº„§
+    (=jef-china3	. #x43E7)	; øº„§
     (ucs-jis		. #x517E)	; ø»Š¾œ
     (mojikyo		. 001494)	; ý €€—–
     ))

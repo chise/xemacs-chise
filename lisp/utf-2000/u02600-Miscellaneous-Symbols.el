@@ -132,7 +132,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (china3-jef		. #x76B4)	; øº‡š´
+    (=jef-china3	. #x76B4)	; øº‡š´
     (ucs		. #x2610)	; â˜
     ))
 (define-char
@@ -692,7 +692,7 @@
     (mirrored		. nil)
     (korean-ksc5601	. #x223D)	; ø»ˆœ†
     (=jis-x0213-1-2000	. #x263D)	; ø»¢š®
-    (china3-jef		. #x76B6)	; øº‡š¶
+    (=jef-china3	. #x76B6)	; øº‡š¶
     (ucs		. #x2661)	; â™¡
     ))
 (define-char
@@ -701,7 +701,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=jis-x0213-1-2000	. #x263B)	; ø»¢š¬
-    (china3-jef		. #x76B8)	; øº‡š¸
+    (=jef-china3	. #x76B8)	; øº‡š¸
     (ucs		. #x2662)	; â™¢
     ))
 (define-char
@@ -720,7 +720,7 @@
     (mirrored		. nil)
     (korean-ksc5601	. #x223B)	; ø»ˆœ„
     (=jis-x0213-1-2000	. #x2639)	; ø»¢šª
-    (china3-jef		. #x76B7)	; øº‡š·
+    (=jef-china3	. #x76B7)	; øº‡š·
     (ucs		. #x2664)	; â™¤
     ))
 (define-char
@@ -747,7 +747,7 @@
     (mirrored		. nil)
     (korean-ksc5601	. #x223F)	; ø»ˆœˆ
     (=jis-x0213-1-2000	. #x263F)	; ø»¢š°
-    (china3-jef		. #x76B5)	; øº‡šµ
+    (=jef-china3	. #x76B5)	; øº‡šµ
     (ucs		. #x2667)	; â™§
     ))
 (define-char

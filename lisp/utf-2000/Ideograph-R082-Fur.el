@@ -503,7 +503,7 @@
     (chinese-isoir165	. #x5531)	; ø»º¼
     (chinese-cns11643-3 . #x2D42)	; ø»•¨­
     (ideograph-daikanwa . 16801)	; ø¸„†¡
-    (china3-jef		. #x55A2)	; øº…–¢
+    (=jef-china3	. #x55A2)	; øº…–¢
     (ucs		. #x6BE1)	; æ¯¡
     ))
 (define-char
@@ -1318,7 +1318,7 @@
     (=jis-x0213-2-2000	. #x6E2D)	; ø»¦Ž’
     (ideograph-daikanwa . 16865)	; ø¸„‡¡
     (ideograph-cbeta	. 00545)	; ø¸ ˆ¡
-    (china3-jef		. #x55A3)	; øº…–£
+    (=jef-china3	. #x55A3)	; øº…–£
     (ucs		. #x6BF1)	; æ¯±
     ))
 (define-char
@@ -1584,7 +1584,7 @@
     (total-strokes	 . 13)
     (chinese-gb2312	. #x6B28)	; ø»…²·
     (chinese-isoir165	. #x6B28)	; ø»Ž›‡
-    (china3-jef		. #x80C6)	; øºˆƒ†
+    (=jef-china3	. #x80C6)	; øºˆƒ†
     (ucs		. #x6BF9)	; æ¯¹
     ))
 (define-char
@@ -1602,7 +1602,7 @@
     (total-strokes	 . 13)
     (ideograph-daikanwa . 16897)	; ø¸„ˆ
     (ideograph-cbeta	. 00544)	; ø¸ ˆ 
-    (china3-jef		. #x55A4)	; øº…–¤
+    (=jef-china3	. #x55A4)	; øº…–¤
     ))
 (define-char
   '((=>ucs		. #x6BFA)	; æ¯º
@@ -2212,7 +2212,7 @@
     (chinese-gb12345	. #x6B27)	; æ¯¿
     (chinese-big5	. #xE5F7)	; ý¢€Ž—·
     (ideograph-daikanwa . 16942)	; ø¸„ˆ®
-    (china3-jef		. #x54FE)	; øº…“¾
+    (=jef-china3	. #x54FE)	; øº…“¾
     (ucs		. #x6BFF)	; æ¯¿
     ))
 (define-char
@@ -2286,7 +2286,7 @@
     (=jis-x0213-2-2000	. #x6E2E)	; ø»¦Ž“
     (chinese-big5	. #xE5F8)	; ý¢€Ž—¸
     (ideograph-daikanwa . 16952)	; ø¸„ˆ¸
-    (china3-jef		. #x54FD)	; øº…“½
+    (=jef-china3	. #x54FD)	; øº…“½
     (ucs		. #x6C02)	; æ°‚
     ))
 (define-char
@@ -3005,7 +3005,7 @@
     (japanese-jisx0212	. #x4647)	; ø»‹›Œ
     (chinese-big5	. #xF6E7)	; ý¢€›§
     (ideograph-daikanwa . 17020)	; ø¸„‰¼
-    (china3-jef		. #x80C5)	; øºˆƒ…
+    (=jef-china3	. #x80C5)	; øºˆƒ…
     (ucs-jis		. #x6C0D)	; ø»‹›Œ
     ))
 (define-char
@@ -3083,7 +3083,7 @@
     (japanese-jisx0212	. #x4648)	; ø»‹›
     (=jis-x0213-2-2000	. #x6E30)	; ø»¦Ž•
     (ideograph-daikanwa . 17023)	; ø¸„‰¿
-    (china3-jef		. #x55A1)	; øº…–¡
+    (=jef-china3	. #x55A1)	; øº…–¡
     (ucs		. #x6C0E)	; æ°Ž
     ))
 (define-char

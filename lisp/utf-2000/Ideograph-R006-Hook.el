@@ -370,7 +370,7 @@
     (chinese-cns11643-3		. #x2741)	; ø»•Ÿ¸
     (ideograph-daikanwa		. 00240)	; ø¸€ƒ°
     (ideograph-hanziku-1	. #xAF66)	; ý¢€š½¦
-    (china3-jef			. #x9DE5)	; øº‰·¥
+    (=jef-china3		. #x9DE5)	; øº‰·¥
     (mojikyo			. 000240)	; ý €€ƒ°
     (ucs			. #x3428)	; ã¨
     ))

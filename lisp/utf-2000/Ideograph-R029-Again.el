@@ -10,7 +10,7 @@
     (chinese-big5	. #xA453)	; ý¢€Š‘“
     (ideograph-daikanwa . 03115)	; ø¸€°«
     (ideograph-gt-k	. 00065)	; ý¡„€
-    (china3-jef		. #x45ED)	; øº„—­
+    (=jef-china3	. #x45ED)	; øº„—­
     ))
 (define-char
   '((morohashi-daikanwa	3115 0 0)
@@ -98,7 +98,7 @@
     (chinese-cns11643-1 . #x452F)	; ø»‘·¢
     (chinese-big5	. #xA4CE)	; ý¢€Š“Ž
     (ideograph-daikanwa . 03118)	; ø¸€°®
-    (china3-jef		. #x45EF)	; øº„—¯
+    (=jef-china3	. #x45EF)	; øº„—¯
     (ucs-cns		. #x53CA)	; ø»‰ 
     ))
 (define-char
@@ -163,7 +163,7 @@
     (hanyu-dazidian	1 393 8)
     (chinese-cns11643-3		. #x215F)	; ø»•—¢
     (ideograph-hanziku-1	. #xF6D7)	; ý¢€Ÿ›—
-    (china3-jef			. #x45EE)	; øº„—®
+    (=jef-china3		. #x45EE)	; øº„—®
     (ucs			. #x355B)	; ã•›
     ))
 (define-char
@@ -1083,7 +1083,7 @@
     (=jis-x0213-2-2000		. #x235F)	; ø»¤ º
     (ideograph-daikanwa		. 03157)	; ø¸€±•
     (ideograph-hanziku-1	. #xF7B6)	; ý¢€Ÿž¶
-    (china3-jef			. #x80CA)	; øºˆƒŠ
+    (=jef-china3		. #x80CA)	; øºˆƒŠ
     (ucs			. #x53D5)	; å•
     ))
 (define-char
@@ -1300,7 +1300,7 @@
     (ideograph-daikanwa . 03165)	; ø¸€±
     (chinese-big5-cdp	. #x8C77)	; ý¢€ˆ±·
     (ideograph-cbeta	. 00556)	; ø¸ ˆ¬
-    (china3-jef		. #x45F1)	; øº„—±
+    (=jef-china3	. #x45F1)	; øº„—±
     (ucs		. #x53DA)	; åš
     ))
 (define-char
@@ -1361,7 +1361,7 @@
       (ideograph-daikanwa . 03127)	; ø¸€°·
       ))
     (=jis-x0208		. #x4840)	; ø½Š¯­
-    (china3-jef		. #x45EC)	; øº„—¬
+    (=jef-china3	. #x45EC)	; øº„—¬
     (ucs-jis		. #x53DB)	; ø½Š¯­
     (mojikyo		. 054307)	; ý €£
     ))
@@ -1541,7 +1541,7 @@
     (chinese-cns11643-3		. #x2B4D)	; ø»•¥¼
     (ideograph-daikanwa		. 03170)	; ø¸€±¢
     (ideograph-hanziku-1	. #xF7BA)	; ý¢€Ÿžº
-    (china3-jef			. #x45F3)	; øº„—³
+    (=jef-china3		. #x45F3)	; øº„—³
     (ucs			. #x53DD)	; å
     ))
 (define-char
@@ -1619,7 +1619,7 @@
       ))
     (japanese-jisx0212		. #x345F)	; ø»‹ˆ
     (ideograph-hanziku-1	. #xF7F5)	; ý¢€ŸŸµ
-    (china3-jef			. #x45F0)	; øº„—°
+    (=jef-china3		. #x45F0)	; øº„—°
     (ucs			. #x53DE)	; åž
     ))
 (define-char

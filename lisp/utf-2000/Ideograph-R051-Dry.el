@@ -34,7 +34,7 @@
     (korean-ksc5601	. #x7841)	; ø»Ššž
     (chinese-big5	. #xA5AD)	; ý¢€Š–­
     (ideograph-daikanwa . 09167)	; ø¸‚
-    (china3-jef		. #x4CB0)	; øº„²°
+    (=jef-china3	. #x4CB0)	; øº„²°
     ))
 (define-char
   '((morohashi-daikanwa	9167 0 2)
@@ -181,7 +181,7 @@
     (korean-ksc5601	. #x5C34)	; ø»‰±‰
     (ideograph-daikanwa . 09175)	; ø¸‚—
     (chinese-big5-cdp	. #x88EB)	; ý¢€ˆ£«
-    (china3-jef		. #x4CB2)	; øº„²²
+    (=jef-china3	. #x4CB2)	; øº„²²
     ))
 (define-char
   '((=>ucs		. #x5E77)	; å¹·

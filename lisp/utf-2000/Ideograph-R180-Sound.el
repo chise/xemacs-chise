@@ -5,7 +5,7 @@
     (total-strokes	 . 9)
     (shinjigen-1	. 9133)
     (ideograph-daikanwa . 43265)	; ø¸Š¤
-    (china3-jef		. #x6CD8)	; øº†³˜
+    (=jef-china3	. #x6CD8)	; øº†³˜
     (mojikyo		. 055938)	; ý €ª‚
     ))
 (define-char

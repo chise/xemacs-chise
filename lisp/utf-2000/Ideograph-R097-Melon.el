@@ -176,7 +176,7 @@
     (japanese-jisx0212	. #x4C72)	; ø»‹¤«
     (=jis-x0213-2-2000	. #x712B)	; ø»¦’ª
     (ideograph-daikanwa . 21380)	; ø¸…Ž„
-    (china3-jef		. #x5AB0)	; øº…ª°
+    (=jef-china3	. #x5AB0)	; øº…ª°
     (ucs-jis		. #x74DE)	; ø»‹¤«
     ))
 (define-char
@@ -228,7 +228,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 21385)	; ø¸…Ž‰
-    (china3-jef		. #x5AAF)	; øº…ª¯
+    (=jef-china3	. #x5AAF)	; øº…ª¯
     ))
 (define-char
   '((morohashi-daikanwa	21385 0 0)

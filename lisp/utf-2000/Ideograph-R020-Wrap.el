@@ -31,7 +31,7 @@
     (chinese-cns11643-4 . #x212F)	; ø»— ¶
     (ideograph-daikanwa . 02494)	; ø¸€¦¾
     (chinese-big5-cdp	. #xA463)	; ý¢€Š‘£
-    (china3-jef		. #x45A1)	; øº„–¡
+    (=jef-china3	. #x45A1)	; øº„–¡
     (ucs-ks		. #x52FA)	; ð¯ ¨
     (ucs		. #x2F828)	; ð¯ ¨
     ))
@@ -78,7 +78,7 @@
     (=jis-x0213-1-2000	. #x2E6A)	; ø»¢§‹
     (chinese-big5	. #xA4C3)	; ý¢€Š“ƒ
     (ideograph-daikanwa . 02496)	; ø¸€§€
-    (china3-jef		. #x45A2)	; øº„–¢
+    (=jef-china3	. #x45A2)	; øº„–¢
     (ucs		. #x52FB)	; å‹»
     ))
 (define-char
@@ -97,7 +97,7 @@
     (japanese-jisx0212	. #x337B)	; ø»‹€†
     (=jis-x0213-1-2000	. #x2E6B)	; ø»¢§Œ
     (ideograph-daikanwa . 02497)	; ø¸€§
-    (china3-jef		. #x45A3)	; øº„–£
+    (=jef-china3	. #x45A3)	; øº„–£
     (ucs-jis		. #x5300)	; ø»‹€†
     ))
 (define-char
@@ -276,7 +276,7 @@
     (ideograph-daikanwa . 02504)	; ø¸€§ˆ
     (chinese-big5-cdp	. #x8CA2)	; ý¢€ˆ²¢
     (ideograph-cbeta	. 00456)	; ø¸ ‡ˆ
-    (china3-jef		. #x45A4)	; øº„–¤
+    (=jef-china3	. #x45A4)	; øº„–¤
     (ucs		. #x5303)	; åŒƒ
     ))
 (define-char
@@ -348,7 +348,7 @@
     (chinese-cns11643-1 . #x457D)	; ø»‘¸°
     (chinese-big5	. #xA55D)	; ý¢€Š•
     (ideograph-daikanwa . 02506)	; ø¸€§Š
-    (china3-jef		. #x45A5)	; øº„–¥
+    (=jef-china3	. #x45A5)	; øº„–¥
     (ucs		. #x5305)	; åŒ…
     ))
 (define-char
@@ -506,7 +506,7 @@
      ((ucs		  . #x5915)	; å¤•
       ))
     (chinese-cns11643-3 . #x2224)	; ø»•˜…
-    (china3-jef		. #x45A8)	; øº„–¨
+    (=jef-china3	. #x45A8)	; øº„–¨
     (mojikyo		. 054897)	; ý €™±
     (ucs		. #x5307)	; åŒ‡
     ))
@@ -677,7 +677,7 @@
     (=jis-x0213-2-2000	. #x234C)	; ø»¤ §
     (chinese-big5	. #xCBD6)	; ý¢€Œ¯–
     (ideograph-daikanwa . 02523)	; ø¸€§›
-    (china3-jef		. #x45A6)	; øº„–¦
+    (=jef-china3	. #x45A6)	; øº„–¦
     (ucs		. #x530A)	; åŒŠ
     ))
 (define-char
@@ -716,7 +716,7 @@
     (=jis-x0213-2-2000	. #x234D)	; ø»¤ ¨
     (chinese-big5	. #xCBD7)	; ý¢€Œ¯—
     (ideograph-daikanwa . 02524)	; ø¸€§œ
-    (china3-jef		. #x5FE5)	; øº…¿¥
+    (=jef-china3	. #x5FE5)	; øº…¿¥
     (ucs		. #x530B)	; åŒ‹
     ))
 (define-char
@@ -737,7 +737,7 @@
     (ideograph-daikanwa		. 02525)	; ø¸€§
     (ideograph-hanziku-1	. #xDB6B)	; ý¢€­«
     (ideograph-cbeta		. 05245)	; ø¸¡‘½
-    (china3-jef			. #x45A7)	; øº„–§
+    (=jef-china3		. #x45A7)	; øº„–§
     (ucs			. #x530C)	; åŒŒ
     ))
 (define-char

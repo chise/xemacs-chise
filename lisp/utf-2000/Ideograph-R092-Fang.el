@@ -24,7 +24,7 @@
     (total-strokes	 . 5)
     (=jis-x0208		. #x3267)	; ø½Š€
     (korean-ksc5601	. #x6433)	; ø»‰¼¸
-    (china3-jef		. #x58C5)	; øº…£…
+    (=jef-china3	. #x58C5)	; øº…£…
     (ucs-jis		. #x7259)	; ø½Š€
     ))
 (define-char

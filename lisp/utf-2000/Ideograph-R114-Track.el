@@ -6,7 +6,7 @@
     (chinese-isoir165	. #x2E22)	; ø»›
     (=jis-x0213-1-2000	. #x7944)	; ø»¤”¯
     (ideograph-daikanwa . 24884)	; ø¸†„´
-    (china3-jef		. #x5CEE)	; øº…³®
+    (=jef-china3	. #x5CEE)	; øº…³®
     (ucs		. #x79B8)	; ç¦¸
     ))
 (define-char

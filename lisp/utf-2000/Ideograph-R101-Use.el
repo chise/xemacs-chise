@@ -288,7 +288,7 @@
     (=jis-x0213-1-2000	. #x7849)	; ø»¤“–
     (chinese-big5	. #xDAAC)	; ý¢€ª¬
     (ideograph-daikanwa . 21717)	; ø¸…“•
-    (china3-jef		. #x4ABD)	; øº„ª½
+    (=jef-china3	. #x4ABD)	; øº„ª½
     (ucs-jis		. #x752F)	; ø»‹¥
     ))
 (define-char

@@ -194,7 +194,7 @@
     (korean-ksc5601	. #x625E)	; ø»‰º§
     (chinese-big5	. #xA8B5)	; ý¢€Š¢µ
     (ideograph-daikanwa . 08684)	; ø¸‚‡¬
-    (china3-jef		. #x67AA)	; øº†žª
+    (=jef-china3	. #x67AA)	; øº†žª
     ))
 (define-char
   '((ideographic-radical . 47)	; â¼®
@@ -325,7 +325,7 @@
     (=jis-x0213-1-2000	. #x7428)	; ø»¤Œ½
     (chinese-big5	. #xB15F)	; ý¢€‹…Ÿ
     (ideograph-daikanwa . 08696)	; ø¸‚‡¸
-    (china3-jef		. #x52F1)	; øº…‹±
+    (=jef-china3	. #x52F1)	; øº…‹±
     (ucs		. #x5DE2)	; å·¢
     ))
 (define-char

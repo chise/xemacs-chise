@@ -9,7 +9,7 @@
     (chinese-isoir165	. #x4E5E)	; ø»±—
     (chinese-cns11643-3 . #x2169)	; ø»•—¬
     (ideograph-daikanwa . 13716)	; ø¸ƒ–”
-    (china3-jef		. #x82A3)	; øºˆŠ£
+    (=jef-china3	. #x82A3)	; øºˆŠ£
     (ucs		. #x65E0)	; æ— 
     ))
 (define-char
@@ -121,7 +121,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 13725)	; ø¸ƒ–
-    (china3-jef		. #x50F4)	; øº…ƒ´
+    (=jef-china3	. #x50F4)	; øº…ƒ´
     ))
 (define-char
   '((=>ucs*		. #x65E2)	; æ—¢

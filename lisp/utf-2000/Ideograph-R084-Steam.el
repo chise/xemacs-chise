@@ -116,7 +116,7 @@
     (total-strokes	 . 8)
     (chinese-cns11643-3 . #x295D)	; ø»•£
     (ideograph-daikanwa . 17049)	; ø¸„Š™
-    (china3-jef		. #x55AC)	; øº…–¬
+    (=jef-china3	. #x55AC)	; øº…–¬
     (ucs		. #x6C1C)	; æ°œ
     ))
 (define-char
@@ -560,7 +560,7 @@
     (=jis-x0213-1-2000	. #x7650)	; ø»¤¡
     (chinese-big5	. #xBA72)	; ý¢€‹©²
     (ideograph-daikanwa . 17075)	; ø¸„Š³
-    (china3-jef		. #x55AD)	; øº…–­
+    (=jef-china3	. #x55AD)	; øº…–­
     (ucs		. #x6C33)	; æ°³
     ))
 (define-char
