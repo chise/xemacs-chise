@@ -792,10 +792,22 @@ mswindows_handle_print_dialog_box (struct frame *f, Lisp_Object keys)
   return print_dialog_worker (!UNBOUNDP (device) ? device : settings, 1);
 }
 
+int
+mswindows_get_default_margin (Lisp_Object prop)
+{
+  if (EQ (prop, Qleft_margin)) return 1440;
+  if (EQ (prop, Qright_margin)) return 1440;
+  if (EQ (prop, Qtop_margin)) return 720;
+  if (EQ (prop, Qbottom_margin)) return 720;
+  abort ();
+  return 0;
+}
+
 static int
 plist_get_margin (Lisp_Object plist, Lisp_Object prop)
 {
-  Lisp_Object val = Fplist_get (plist, prop, make_int (1440));
+  Lisp_Object val =
+    Fplist_get (plist, prop, make_int (mswindows_get_default_margin (prop)));
   if (!INTP (val))
     invalid_argument ("Margin value must be an integer", val);
 

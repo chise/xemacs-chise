@@ -86,7 +86,6 @@ consulted for a more detailed list of changes.
   -- New locations for early package hierarchies.
   -- The `auto-save' library has been greatly improved.
   -- New variable `mswindows-alt-by-itself-activates-menu'.
-  -- The variable `kill-whole-line' now only takes effect interactively.
   -- Other init-file-related changes.
     - Init file in your home directory may be called `.emacs.el'.
     - New command-line switches -user-init-file and -user-init-directory.
@@ -521,14 +520,6 @@ key under MS Windows will no longer activate the menubar.  The default
 is t.  This is not to be confused with `menu-accelerator-enabled',
 which enables the use of Alt+<Letter> accelerators to invoke the
 menus.
-
-** The variable `kill-whole-line' now only takes effect interactively.
-
-(This variable controls the behavior of `kill-line'.) Although this
-is a departure from a previous behavior in the case of setting this
-variable `kill-whole-line' to t, it is almost certainly what has
-always been intended, and most likely the old way of doing things
-introduced bugs.
 
 ** Other init-file-related changes.
 

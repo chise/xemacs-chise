@@ -58,7 +58,7 @@ COMPFACE_DIR=
 
 # Set this to specify the location of makeinfo. (If not set, XEmacs will
 # attempt to use its built-in texinfo support when building info files.)
-MAKEINFO=f:\src\texinfo-4.0\makeinfo\makeinfo.exe
+MAKEINFO=c:\src\texinfo-4.0\makeinfo\makeinfo.exe
 
 ############################################################################
 

@@ -141,15 +141,18 @@ which will not be used as accelerators."
       ["Save %_As..." write-file]
       ["Save So%_me Buffers" save-some-buffers]
       "-----"
+      ,@(if (eq system-type 'windows-nt)
+	  '(["Page Set%_up..." generic-page-setup]))
       ["%_Print" generic-print-buffer
        :active (or (valid-specifier-tag-p 'msprinter)
 		   (and (not (eq system-type 'windows-nt))
-			(fboundp 'lpr-buffer)))
+			(fboundp 'lpr-region)))
        :suffix (if put-buffer-names-in-file-menu (concat (buffer-name) "...")
 		 "...")]
-      ["Prett%_y-Print" ps-print-buffer-with-faces
-       :active (fboundp 'ps-print-buffer-with-faces)
-       :suffix (if put-buffer-names-in-file-menu (buffer-name) "")]
+      ,@(unless (eq system-type 'windows-nt)
+	  '(["Prett%_y-Print" ps-print-buffer-with-faces
+	     :active (fboundp 'ps-print-buffer-with-faces)
+	     :suffix (if put-buffer-names-in-file-menu (buffer-name) "")]))
       "-----"
       ["%_Revert Buffer" revert-buffer
        :active (or buffer-file-name revert-buffer-function)

@@ -24,12 +24,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include <string.h>
 
-/* Define these variables that serve as global parameters to termcap,
-   so that we do not need to conditionalize the places in Emacs
-   that set them.  */
-
-char *UP, *BC, PC;
-
 /* Every little bit of this God-damned file has caused all manner
    of headaches due to inconsistent and incorrect header files
    on one system or other, and we don't currently need anything here,

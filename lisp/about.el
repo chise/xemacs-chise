@@ -150,7 +150,7 @@
     (rose     "John Rose"         "rose@xemacs.org")
     (rossini  "Anthony Rossini"   "rossini@xemacs.org")
     (slb      "Steve Baur"        "steve@xemacs.org")
-    (sperber  "Michael Sperber"   "sperber@xemacs.org")
+    (sperber  "Michael Sperber"   "mike@xemacs.org")
     (stig     "Jonathan Stigelman" "stig@xemacs.org")
     (stigb    "Stig Bjorlykke"    "stigb@xemacs.org")
     (thiessel "Marcus Thiessel"   "marcus@xemacs.org")
@@ -188,6 +188,7 @@
     ;; to sort the stuff below, use M-x sort-regexp-fields RET
     ;; ^.*$ RET (\([a-z]*\) RET
   '((ajc        . "http://www-personal.monash.edu.au/~ajc/")
+    (alastair   . "http://website.lineone.net/~ajhoughton/")
     (baw        . "http://barry.wooz.org/")
     (ben        . "http://www.666.com/ben/")
     (ben-xemacs . "http://www.xemacs.org/Architecting-XEmacs/index.html")
@@ -214,8 +215,7 @@
     (stigb      . "http://www.tihlde.hist.no/~stigb/")
     (vin        . "http://www.upa.org/")
     (vladimir   . "http://www.leonora.org/~vladimir/")
-    (wget       . "http://www.wget.org/")
-    (wget-ftp   . "ftp://gnjilux.cc.fer.hr/pub/unix/util/wget/")
+    (wget       . "http://sunsite.dk/wget/")
     (xemacs     . "http://www.xemacs.org/")
     (youngs     . "http://eicq.sourceforge.net/"))
   "Some of the more important URLs.")
@@ -292,19 +292,33 @@
 	 nil)))
 
 ;; Set up the stuff needed by widget.  Allowed types are `bury' and
-;; `kill'.
+;; `kill'.  The reason why we offer both types is performance: when a
+;; large buffer is merely buried, `about' will find it again when the
+;; user requests it, instead of recreating it.  Small buffers can be
+;; killed because it is cheap to generate their contents.
+
 (defun about-finish-buffer (&optional type)
   (or type (setq type 'bury))
   (widget-insert "\n")
   (if (eq type 'bury)
-      (widget-create 'link :help-echo "Bury buffer"
-		     :action (lambda (&rest ignore)
-			       (bury-buffer))
-		     "Remove")
-    (widget-create 'link :help-echo "Kill buffer"
-		   :action (lambda (&rest ignore)
-			     (kill-buffer (current-buffer)))
-		   "Kill"))
+      (widget-create 'link
+		     :help-echo "Bury this buffer"
+		     :action (lambda (widget event)
+			       (if event
+				   ;; For some reason,
+				   ;; (bury-buffer (event-buffer event))
+				   ;; doesn't work.
+				   (with-selected-window (event-window event)
+				     (bury-buffer))
+				 (bury-buffer)))
+		     :tag "Bury")
+    (widget-create 'link
+		   :help-echo "Kill this buffer"
+		   :action (lambda (widget event)
+			     (if event
+				 (kill-buffer (event-buffer event))
+			       (kill-buffer (current-buffer))))
+		   :tag "Kill"))
   (widget-insert " this buffer and return to previous.\n")
   (use-local-map (make-sparse-keymap))
   (set-keymap-parent (current-local-map) widget-keymap)
@@ -740,7 +754,15 @@ hair various colours (see ")
     (alastair
      (widget-insert
       "\
-Sorry, no personal information available about me yet.\n"))
+Alastair, apart from being an all-round hacker, occasional contributor
+to free software projects and general good egg(!), currently works for
+Telsis, a manufacturer of telephony equipment on the south coast of
+England.  He'd quite like to have his own company one day, but has yet
+to think of that killer product...
+
+See also ")
+        (about-url-link 'alastair nil "Visit Alastair's home page")
+        (widget-insert ".\n"))
     (baw
      (widget-insert "\
 As of November 2000, I am a software engineer with the Pythonlabs at
@@ -840,21 +862,12 @@ looking for a job involving lisp programming, French and Russian.\n"))
 Sorry, no personal information available about me yet.\n"))
     (cthomp
      (widget-insert "\
-Chuck, through being in the wrong place at the right time, got stuck
-with being Jamie's replacement as the primary maintainer of XEmacs.
-This caused his hair to begin falling out and quadrupled his daily
-coffee dosage.  Though he works at and for the University of Illinois
-his funding for XEmacs work actually came from Sun Microsystems.
-
-He has worked on XEmacs since November 1992, which fact occasionally
-gives him nightmares.  As of October 1995, he no longer works
-full-time on XEmacs, though he does continue as an active maintainer.
-His main contributions have been the greatly enhanced redisplay
-engine, scrollbar support, the toolbars, configure support and
-numerous other features and fixes.
-
-Rumors that Chuck is aka Black Francis aka Frank Black are completely
-unfounded.\n"))
+Chuck is a senior system and network administrator for the Computer
+Science department at the Unversity of Illinois.  In one previous life
+he spent every waking hour working on XEmacs.  In another he dabbled
+as a project manager for a streaming video startup (RIP).  His current
+reason for not having time to contribute to XEmacs is the Thompson
+Twins.\n"))
     (daiki
      (about-url-link 'daiki nil "Visit Daiki's page"))
     (dan
@@ -957,16 +970,39 @@ Sorry, no personal information available about me yet.\n"))
 Sorry, no personal information available about me yet.\n"))
     (hniksic
      (widget-insert "\
-Hrvoje is a student at the Faculty of Electrical Engineering and
-Computing in Zagreb, Croatia, working part-time at system administration
-at SRCE.  His hobby is hacking free software, particularly XEmacs and
-GNU Wget, the latter being his very own creation.
+Hrvoje thinks he works in the server-side web business.  In reality,
+he cranks out huge quantities of HTML, Tcl, and Java for the German
+branch of ")
+     (about-url-link "http://www.arsdigita.com/"
+		     "ArsDigita, Inc." "www.arsdigita.com")
+     ;; Avoid literal I18N characters in strings.  *Displaying* a
+     ;; Latin 1 character should always be safe, though, with or
+     ;; without Mule.
+     (let ((muenchen (format "M%cnchen" (make-char 'latin-iso8859-1 252))))
+       (widget-insert (format "\
+  He joined the ranks of Gastarbeiters only
+recently; he is trying to learn German and get attuned to %s
+and Bav^H^H^HGermany.\n" muenchen)))
 
-For info on Wget, see ")
-     (about-url-link 'wget nil "Visit the Wget web page")
-     (widget-insert " or\n")
-     (about-url-link 'wget-ftp nil "Visit the Wget ftp page")
-     (widget-insert ".\n"))
+     (widget-insert "\
+
+Before ArsDigita, he worked as a programmer at ")
+     (about-url-link "http://www.iskon.hr/" "Iskon," "www.iskon.hr")
+     (widget-insert " a fast-growing
+Croatian ISP.  Even before that, he worked part-time for academic
+institutions like ")
+     (about-url-link "http://www.srce.hr/" "SRCE" "www.srce.hr")
+     (widget-insert " and ")
+     (about-url-link "http://www.carnet.hr/" "CARNet," "www.carnet.hr")
+     (widget-insert " and tried to attend university.
+
+He takes perverse pleasure in building and maintaining free software
+in his free time.  Apart from XEmacs, his major contribution is ")
+     (about-url-link 'wget "Wget," "Wget home page")
+     (widget-insert "
+his very own creation, now jointly maintained by a happy crew.
+
+He dreams of having a home page.\n"))
     (hobley
      (widget-insert "\
 I used to do real work, but now I am a Project Manager for one of the
@@ -1010,12 +1046,13 @@ See: ")
       (widget-insert ".\n"))
     (jens
      (widget-insert "\
-I'm currently working at the University of Karlsruhe, Germany on
-getting my diploma thesis on Supersymmetry (uuh, that's physics) done.
-After that (and all the remaining exams) I'm looking forward to make a
-living out of my hobbies -- computers (and graphics). But because I
-have no deadline for the exams and XEmacs betas are released at a high
-rate this may take some time...\n"))
+I'm currently working for 1&1 Internet AG, a large Domain and Webspace
+Provider in Germany and Europe.  I do mostly Java/XML/OO/Component
+stuff today.  I'm interested EJB, Corba and other middleware or
+distributed Systems.  Besides work, I occasionally hack on The Gimp
+and other gtk/gnome related projects.  Maybe the advent of XEmacs/Gtk
+will get me back to spend some time again hacking on XEmacs in the
+near future.\n"))
     (jmiller
      (widget-insert "\
 Jeff grew up in Indiana and is a country boy at heart.  He currently
@@ -1175,9 +1212,11 @@ To see some of these have a look at ")
       "\
 Sorry, no personal information available about me yet.\n"))
     (oscar
-     (widget-insert
-      "\
-Sorry, no personal information available about me yet.\n"))
+     (widget-insert "\
+Oscar heads the Computer Science department at CPE Lyon, a french
+engineering school in France. Besides his administrative tasks he
+teaches networking basics, Internet technologies (you know, all these
+xxML and hairy script languages !)  and the Scheme language.\n"))
     (pelegri
      (widget-insert
       "\
@@ -1209,11 +1248,11 @@ MS Windows operating systems.\n"))
 Sorry, no personal information available about me yet.\n"))
     (rickc
      (widget-insert "\
-The hacker formerly known as Rick Busdiecker develops and maintains
-libraries for financial applications at Lehman Brothers during
-daylight hours.  In the evenings he maintains three children, and
-when he ought to be sleeping he co-maintains ILISP, builds XEmacs
-betas, and tinkers with various personal hacking projects.\n"))
+The hacker formerly known as Rick Busdiecker is a developer and
+technical manager at Deutsche Bank in New York during daylight hours.
+In the evenings he maintains three children, and when he ought to be
+sleeping he builds XEmacs betas, and tinkers with various personal
+hacking projects.\n"))
     (rose
      (widget-insert
       "\
@@ -1308,7 +1347,8 @@ See ")
      (widget-insert ".\n"))
     (wmperry
      (widget-insert "\
-Currently working at Aventail, Corp. on SOCKS v5 servers.\n"))
+Happily living in Indiana telecommuting for a company based in Seattle
+\(who I now prefer not to name), wishing I was in Ireland instead.\n"))
     (yoshiki
      (widget-insert
       "\
@@ -1416,8 +1456,9 @@ Sorry, no information about my XEmacs contributions yet.\n"))
      (widget-insert
       "\
 Maintainer of XEmacs from mid-1994 through 1996.  Author of the
-redisplay engine and some of the device-abstraction, TTY and glyph
-code.  Creator of the xemacs.org domain.\n"))
+redisplay engine, the original toolbar and scrollbars and some of the
+device-abstraction, TTY and glyph code.  Creator of the xemacs.org
+domain and comp.emacs.xemacs.\n"))
     (daiki
      (widget-insert
       "\
@@ -1498,9 +1539,27 @@ early client of the external Emacs widget.\n"))
     (hniksic
      (widget-insert
       "\
-Hrvoje's contribution to XEmacs consists of a multitude of hours spent
-adding new features and bugs, and fixing old ones.  He dreams of
-writing a home page.\n"))
+Hrvoje's contribution to XEmacs consists of many hours spent working
+on code and taking part in public discussions.
+
+He wrote `savehist' and `htmlize' packages, the latter having a pretty
+large gathering of users.  He worked to improve many parts of XEmacs
+Lisp code, including isearch (FSF synch and new features), cl, edmacro
+\(FSF synch and an almost complete rewrite), profile, gnuserv,
+hyper-apropos, etags, about, and custom.
+
+He has worked on improving and optimizing the C core.  He ported many
+FSF core features such as indirect buffers, tty-erase-char,
+save-current-buffer and friends, debug-ignored-errors, etc.  He also
+wrote line numbering optimizations for large buffers, initial support
+for TTY frames, abbrev improvements, Lisp printer and reader
+improvements, support for extent modification functions, and lots of
+minor bugfixes, optimizations, and Muleifications.
+
+He contributed to Lispref and Internals documentation, including a
+section on writing Mule-compliant C code.  Maintains NEWS.  He
+participated on xemacs-beta since 1996 and on the Patch Review Board
+since its inception in 1998.\n"))
     (hobley
      (widget-insert
       "\
@@ -1521,7 +1580,9 @@ Beta tester, manager of the various XEmacs mailing lists and binary
 kit manager.  Also, originator and maintainer of the gnus.org domain.\n"))
     (jens
      (widget-insert "\
-Jens did the artwork for graphics added to XEmacs 20.2 and 19.15.\n"))
+Jens did the artwork for graphics added to XEmacs 20.2 and 19.15. He's
+also the author of \"XEmacs Mine\", a game similar to Minesweeper, but
+running in XEmacs\n"))
     (jmiller
      (widget-insert "\
 Beta tester and last hacker of calendar.\n"))
@@ -1601,9 +1662,10 @@ Author of the XEmacs Drag'n'Drop API.\n"))
       "\
 Author of the portable dumper.\n"))
     (oscar
-     (widget-insert
-      "\
-Author of the LDAP support in XEmacs.\n"))
+     (widget-insert "\
+Oscar's major contributions to XEmacs are the internal LDAP support
+and the EUDC package, an interface to query various directory services
+in a uniform manner (when composing mail for instance).\n"))
     (pelegri
      (widget-insert "\
 Author of EOS, a package included in the standard XEmacs distribution

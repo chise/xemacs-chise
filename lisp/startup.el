@@ -1129,11 +1129,11 @@ XEmacs, by either running the command `xemacs-mule', or by using the X resource
       ": how to get the latest version\n")
      "\n--\n"
      (face italic "\
-Copyright (C) 1985-1999 Free Software Foundation, Inc.
+Copyright (C) 1985-2001 Free Software Foundation, Inc.
 Copyright (C) 1990-1994 Lucid, Inc.
 Copyright (C) 1993-1997 Sun Microsystems, Inc. All Rights Reserved.
 Copyright (C) 1994-1996 Board of Trustees, University of Illinois
-Copyright (C) 1995-1996 Ben Wing
+Copyright (C) 1995-2001 Ben Wing
 Copyright (C) 1996-2002 MORIOKA Tomohiko
 "))
 

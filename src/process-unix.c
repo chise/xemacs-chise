@@ -1764,6 +1764,7 @@ unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object servic
 
 	    failed_connect = 1;
 	    close (s);
+	    s = -1;
 
 	    speed_up_interrupts ();
 

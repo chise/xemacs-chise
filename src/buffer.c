@@ -1626,7 +1626,6 @@ BUFFER defaults to the current buffer if omitted.
      implies that the future text is not really related to the past text.  */
   b->saved_size = Qzero;
 
-  zmacs_region_stays = 0;
   return Qnil;
 }
 

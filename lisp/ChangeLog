@@ -707,6 +707,121 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2001-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.2 "Developer-Friendly Unix APIs" is released.
+
+2001-05-04  Ben Wing  <ben@xemacs.org>
+
+	* printer.el (generic-print-buffer):
+	* printer.el (generic-print-region):
+	Enable dialog boxes.  Apply workaround recommended by Kirill.
+	fix (fboundp 'lpr-buffer) -> (fboundp 'lpr-region).
+	
+	* simple.el (kill-whole-line):
+	* simple.el (kill-line-1):
+	* simple.el (kill-entire-line):
+	* simple.el (kill-line):
+	* simple.el (backward-kill-line):
+	Take out interactive dependence of kill-whole-line.
+
+2001-04-22  Ben Wing  <ben@xemacs.org>
+
+	* dialog.el (make-dialog-box):
+	Put dialog titles back in -- this time correctly.  Fix various
+	other problems with leaks and such.
+
+	* simple.el (region-exists-p):
+	* simple.el (region-active-p):
+	Add comment about which one is correct to use in menu specs.
+
+2001-05-05  Ben Wing  <ben@xemacs.org>
+
+	* dialog.el (make-dialog-box): fix doc string.
+	* menubar-items.el (default-menubar): Add Page Setup for Windows,
+	take out Pretty Print.
+	* printer.el:
+	* printer.el (printer-current-device): New.
+	* printer.el (Printer-get-device): New.
+	* printer.el (Printer-clear-device): New.
+	* printer.el (generic-page-setup): New.
+	* printer.el (generic-print-buffer):
+	* printer.el (generic-print-region):
+	Implement Page Setup.  Handle errors properly.
+
+2001-05-05  Ben Wing  <ben@xemacs.org>
+
+	* subr.el (error): Complete list of errors in doc string.
+	
+2001-04-22  Ben Wing  <ben@xemacs.org>
+
+	* bytecomp-runtime.el (byte-compiler-options): Correct doc string.
+	
+2001-05-03  Adrian Aichner  <adrian@xemacs.org>
+
+	* build-report.el: Remove CVS keywords since this file has been in
+	core lisp for a while now.
+	* build-report.el (build-report-make-output-files): Fix typo.
+
+2001-04-24  Hrvoje Niksic  <hniksic@arsdigita.com>
+
+	* about.el (about-finish-buffer): Make sure the last change works
+	even if EVENT is nil.
+
+2001-04-24  Hrvoje Niksic  <hniksic@arsdigita.com>
+
+	* about.el (about-finish-buffer): Kill/bury the buffer where the user
+	clicked, not the one that happens to be the current buffer at the
+	time.
+
+2001-03-19  Karl M. Hegbloom  <karlheg@microsharp.com>
+
+	* cus-edit.el (custom-display): Support the GTK Window System also.
+
+2001-04-30  Ben Wing  <ben@xemacs.org>
+
+	* printer.el:
+	* printer.el (printer-page-header):
+	* printer.el (Print-context): New.
+	* printer.el (printer-page-footer):
+	* printer.el (generate-header-element): New.
+	* printer.el (generate-header-line): New.
+	* printer.el (print-context-property):
+	* printer.el (generic-print-buffer):
+	* printer.el (generic-print-region):
+	Implement headers and footers.  Implement calling Print dialog box
+	(#### but it doesn't quite work yet).
+
+2001-04-25  Ben Wing  <ben@xemacs.org>
+
+	* about.el (xemacs-hackers):
+	* about.el (about-url-alist):
+	* about.el (about-personal-info):
+	* about.el (about-hacker-contribution):
+	More contributions.
+	
+	* simple.el (handle-post-motion-command):
+	Fix spurious setting of zmacs-region-stays to t after a non-shift
+	motion command.
+
+2001-04-24  Hrvoje Niksic  <hniksic@arsdigita.com>
+
+	* about.el (about-personal-info): Update my bio.
+	(about-hacker-contribution): Ditto.
+
+2001-04-23  Stephen J. Turnbull  <turnbull@sk.tsukuba.ac.jp>
+
+	* startup.el (splash-frame-body): Update copyright notices: Ben, FSF.
+
+2001-04-19  Andy Piper  <andy@xemacs.org>
+
+	* package-net.el (package-net-cygwin32-binary-size): new size.
+	(package-net-win32-binary-size): new size.
+	(package-net-convert-index-to-ini): Use new arch.
+	(package-net-batch-convert-index-to-ini): Removed.
+	(package-net-generate-bin-ini): New.
+	(package-net-batch-generate-bin-ini): New.
+
 2001-04-19  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.1 "Copyleft" is released.

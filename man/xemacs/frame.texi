@@ -507,14 +507,18 @@ The function @code{switch-to-buffer-other-frame} is just like
 in first.  This is normally bound to @kbd{C-x 5 b}.
 
 @vindex default-frame-alist
+@vindex default-frame-plist
 You can specify a different default frame size other than the one provided.
-Use the variable @code{default-frame-alist}, which is an alist of default
+Use the variable @code{default-frame-plist}, which is a plist of default
 values for frame creation other than the first one.  These may be set in
 your init file, like this:
 
 @example
-  (setq default-frame-alist '((width . 80) (height . 55)))
+  (setq default-frame-plist '(width 80 height 55))
 @end example
+
+This variable has replaced @code{default-frame-alist}, which is
+considered obsolete.
 
 @vindex x-frame-defaults
 For values specific to the first XEmacs frame, you must use X resources.

@@ -53,8 +53,7 @@
 ;; hidden from the user and there is a consistent set of options to
 ;; control how to print, which works across all implementations.
 ;;
-;; The code here is just a start and needs a huge amount of work.  Probably
-;; the interfaces below will change and the functions renamed.
+;; The code here currently only really supports Windows.
 
 (defgroup printing nil
   "Generic printing support."
@@ -68,10 +67,19 @@ printers."
   :type 'string
   :group 'printing)
 
-(defcustom printer-page-header '(date buffer-name)
-"*Controls printed page header.
+(defstruct Print-context pageno window start-time printer-name)
 
-#### not yet implemented.
+(defvar printer-current-device nil)
+
+(defun Printer-get-device ()
+  (or printer-current-device (setq printer-current-device
+				   (make-device 'msprinter printer-name))))
+
+(defun Printer-clear-device ()
+  (setq printer-current-device nil))
+
+(defcustom printer-page-header '((face bold date) nil (face bold buffer-name))
+"*Controls printed page header.
 
 This can be:
 - nil.  Header is not printed.
@@ -79,12 +87,13 @@ This can be:
    one parameter, a print-context object, every time the headers need
    to be set up.  It can use the function `print-context-property' to
    query the properties of this object.  The return value is treated as
-     if it was literally specified: i.e. it will be reprocessed.
+   if it was literally specified: i.e. it will be reprocessed.
 - A list of up to three elements, for left, center and right portions
    of the header.  Each of these can be
    - nil, not to print the portion
    - A string, which will be printed literally.
    - A predefined symbol, on of the following:
+     printer-name     Name of printer being printed to
      short-file-name  File name only, no path
      long-file-name   File name with its path
      buffer-name      Buffer name
@@ -93,6 +102,8 @@ This can be:
      page             Current printout page number, 1-based
      user-id          User logon id
      user-name        User full name
+   - A list of three elements: (face FACE-NAME EXPR).  EXPR is any of the
+     items given here.  The item will be displayed in the given face.
    - A cons of an extent and any of the items given here.  The item will
      be displayed using the extent's face, begin-glyph and end-glyph
      properties.
@@ -105,64 +116,196 @@ This can be:
   :type 'sexp
   :group 'printing)
 
-(defcustom printer-page-footer '(nil page)
+(defcustom printer-page-footer '(nil (face bold ("Page " page)))
 "*Controls printed page footer.
-
-#### not yet implemented.
 
 Format is the same as `printer-page-header'."
   :type 'sexp
   :group 'printing)
+
+(defun generate-header-element (element context)
+    (cond ((null element) nil)
+	  ((stringp element) (insert element))
+	  ((memq element '(printer-name
+			   short-file-name long-file-name buffer-name
+			   date time page user-id user-name))
+	   (insert (print-context-property context element)))
+	  ((and (consp element) (eq 'face (car element)))
+	   (let ((p (point)))
+	     (generate-header-element (third element) context)
+	     (let ((x (make-extent p (point))))
+	       (set-extent-face x (second element)))))
+	  ((and (consp element) (extentp (car element)))
+	   (let ((p (point)))
+	     (generate-header-element (cdr element) context)
+	     (let ((x (make-extent p (point))))
+	       (set-extent-face x (extent-face (car element)))
+	       (set-extent-begin-glyph x (extent-begin-glyph (car element)))
+	       (set-extent-end-glyph x (extent-end-glyph (car element))))))
+	  ((listp element)
+	   (mapcar #'(lambda (el) (generate-header-element el context))
+		   element))
+	  ((functionp element)
+	   (generate-header-element (funcall element context) context))
+	  (t (error 'invalid-argument "Unknown header element" element))))
+
+(defun generate-header-line (spec context)
+  (let* ((left (first spec))
+	 (middle (second spec))
+	 (right (third spec))
+	 (left-start (point))
+	 (middle-start (progn (generate-header-element left context)
+			      (point)))
+	 (right-start (progn (generate-header-element middle context)
+			     (point)))
+	 (right-end (progn (generate-header-element right context)
+			   (point)))
+	 (left-width (- middle-start left-start))
+	 (middle-width (- right-start middle-start))
+	 (right-width (- right-end right-start))
+	 (winwidth (- (window-width (Print-context-window context)) 1))
+	 (spaces1 (max (- (/ (- winwidth middle-width) 2) left-width) 0))
+	 (spaces2 (max (- (- winwidth right-width)
+			  (+ left-width spaces1 middle-width))
+		       0)))
+    (goto-char right-start)
+    (insert-char ?\  spaces2)
+    (goto-char middle-start)
+    (insert-char ?\  spaces1)))
 
 (defun print-context-property (print-context prop)
   "Return property PROP of PRINT-CONTEXT.
 
 Valid properties are
 
-print-buffer     Buffer being printed.
-print-window     Window on printer device containing print buffer.
-print-frame      Frame on printer device corresponding to current page.
-print-device     Device referring to printer.
-printer-name     Name of printer being printed to.
+print-buffer     Buffer being printed
+print-window     Window on printer device containing print buffer
+print-frame      Frame on printer device corresponding to current page
+print-device     Device referring to printer
+print-start-time Time current when printing started (`current-time' format)
+print-page       Current printout page number, 1-based
+printer-name     Name of printer being printed to
 short-file-name  File name only, no path
 long-file-name   File name with its path
 buffer-name      Buffer name
-date             Date current when printing started
-time             Time current when printing started
-page             Current printout page number, 1-based
-user-id          User logon id
+date             Date current when printing started (as a string)
+time             Time current when printing started (as a string)
+page             Current printout page number, 1-based (as a string)
+user-id          User logon id (as a string)
 user-name        User full name"
-  (error "not yet implemented"))
+  (let* ((window (Print-context-window print-context))
+	 (pageno (Print-context-pageno print-context))
+	 (start-time (Print-context-start-time print-context))
+	 (printer-name (Print-context-printer-name print-context))
+	 (buffer (window-buffer window)))
+    (case prop
+      (print-buffer buffer)
+      (print-window window)
+      (print-frame (window-frame window))
+      (print-device (frame-device (window-frame window)))
+      (print-start-time start-time)
+      (print-page pageno)
+      (printer-name printer-name)
+      (short-file-name (let ((name (buffer-file-name buffer)))
+			 (if name (file-name-nondirectory name) "")))
+      (long-file-name (let ((name (buffer-file-name buffer)))
+			(or name "")))
+      (buffer-name (buffer-name buffer))
+      (date (format-time-string "%x" start-time))
+      (time (format-time-string "%X" start-time))
+      (page (format "%d" pageno))
+      (user-id (format "%d" (user-uid)))
+      (user-name (format "%d" (user-login-name)))
+      (t (error 'invalid-argument "Unrecognized print-context property"
+		prop)))))
 
-(defun generic-print-buffer (&optional buffer)
+(defun generic-page-setup ()
+  "Display the Page Setup dialog box.
+Changes made are recorded internally."
+  (interactive)
+  (let* ((d (Printer-get-device))
+	 (props
+	  (condition-case err
+	      (make-dialog-box 'page-setup :device d
+			       :properties default-msprinter-frame-plist)
+	    (error
+	     (Printer-clear-device)
+	     (signal (car err) (cdr err))))))
+    (while props
+      (setq default-msprinter-frame-plist
+	    (plist-put default-msprinter-frame-plist (car props) (cadr props)))
+      (setq props (cddr props)))))
+
+(defun generic-print-buffer (&optional buffer display-print-dialog)
   "Print buffer BUFFER using a printing method appropriate to the O.S. being run.
 Under Unix, `lpr' is normally used to spool out a no-frills version of the
 buffer, or the `ps-print' package is used to pretty-print the buffer to a
 PostScript printer.  Under MS Windows, the built-in printing support is used.
 
-If BUFFER is nil or omitted, the current buffer is used."
-  (interactive)
-  (generic-print-region (point-min buffer) (point-max buffer) buffer))
+If DISPLAY-PRINT-DIALOG is t, the print dialog will first be
+displayed, allowing the user to select various printing settings
+\(e.g. which printer to print to, the range of pages, number of copies,
+modes such landscape/portrait/2-up/4-up [2 or 4 (small!) logical pages
+per physical page], etc.).  At this point the user can cancel the printing
+operation using the dialog box, and `generic-print-buffer' will not print
+anything.  When called interactively, use a prefix arg to suppress the
+display of the print dialog box.
 
-(defun generic-print-region (start end &optional buffer)
+If BUFFER is nil or omitted, the current buffer is used."
+  (interactive (list nil (not current-prefix-arg)))
+  (if (or (not (valid-specifier-tag-p 'msprinter))
+	  (not display-print-dialog))
+      (generic-print-region (point-min buffer) (point-max buffer) buffer)
+    (let* ((d (Printer-get-device))
+	   (props (condition-case err
+		      (make-dialog-box 'print :device d)
+		    (error
+		     (Printer-clear-device)
+		     (signal (car err) (cdr err))))))
+      (and props (generic-print-region (point-min buffer)
+				       (point-max buffer) buffer
+				       d props)))))
+
+(defun generic-print-region (start end &optional buffer print-device props)
   "Print region using a printing method appropriate to the O.S. being run.
 The region between START and END of BUFFER (defaults to the current
 buffer) is printed.
 
 Under Unix, `lpr' is normally used to spool out a no-frills version of the
 buffer, or the `ps-print' package is used to pretty-print the buffer to a
-PostScript printer.  Under MS Windows, the built-in printing support is used."
+PostScript printer.  Under MS Windows, the built-in printing support is used.
+
+Optional PRINT-DEVICE is a device, already created, to use to do the
+printing.  This is typically used when this function was invoked from
+`generic-print-buffer' and it displayed a dialog box.  That function created
+the device, and then the dialog box stuffed it with the user's selections
+of how the buffer should be printed.
+
+PROPS, if given, is typically the plist returned from the call to
+`make-dialog-box' that displayed the Print box.  It contains properties
+relevant to us when we print.  
+
+Recognized properties are the same as those in `make-dialog-box':
+
+  name       Printer device name.  If omitted, the current system-selected
+             printer will be used.
+  from-page  First page to print, 1-based. If omitted, printing starts from
+             the beginning.
+  to-page    Last page to print, inclusive, If omitted, printing ends at
+             the end.
+  copies     Number of copies to print.  If omitted, one copy is printed."
   (cond ((valid-specifier-tag-p 'msprinter)
-	 (let (d f)
+	 (let (d f header-buffer footer-buffer)
 	   (setq buffer (decode-buffer buffer))
 	   (unwind-protect
 	       (progn
-		 (setq d (make-device 'msprinter printer-name))
+		 (setq d (or print-device (Printer-get-device)))
 		 (setq f (make-frame
-			  (list* 'name (concat (substitute ?_ ?.
-							   (buffer-name buffer))
-					       " - XEmacs")
-				 '(menubar-visible-p nil
+			  (list* 'name (concat
+					(substitute ?_ ?. (buffer-name buffer))
+					" - XEmacs")
+				 '(menubar-visible-p
+				   nil
 				   has-modeline-p nil
 				   default-toolbar-visible-p nil
 				   default-gutter-visible-p nil
@@ -174,39 +317,110 @@ PostScript printer.  Under MS Windows, the built-in printing support is used."
 		 (let* ((w (frame-root-window f))
 			(vertdpi (cdr (device-system-metric d 'device-dpi)))
 			(pixel-vertical-clip-threshold (/ vertdpi 2))
-			(last-end 0)
-			done)
-		   (set-window-buffer w (or buffer (current-buffer)))
-		   (set-window-start w start)
-		   (while (not done)
-		     (redisplay-frame f)
-		     (print-job-eject-page f)
-		     (let ((this-end (window-end w))
-			   (pixvis (window-last-line-visible-height w)))
-		       ;; in case we get stuck somewhere, bow out
-		       ;; rather than printing an infinite number of
-		       ;; pages.  #### this will fail with an image
-		       ;; bigger than an entire page.  but we really
-		       ;; need this check here.  we should be more
-		       ;; clever in our check, to deal with this case.
-		       (if (or (= this-end last-end)
-			       ;; #### fuckme!  window-end returns a value
-			       ;; outside of the valid range of buffer
-			       ;; positions!!!
-			       (>= this-end end))
-			   (setq done t)
-			 (setq last-end this-end)
-			 (set-window-start w this-end)
-			 (if pixvis
-			     (save-selected-window
-			       (select-window w)
-			       ;; #### scroll-down should take a window arg.
-			       (let ((window-pixel-scroll-increment pixvis))
-				 (scroll-down 1)))))))))
+			(from-page (plist-get props 'from-page 1))
+			(to-page (plist-get props 'to-page))
+			(copies (plist-get props 'copies 1))
+			(context (make-Print-context
+				  :start-time (current-time)
+				  ;; #### bogus! we need accessors for
+				  ;; print-settings objects.
+				  :printer-name
+				  (or (plist-get props 'name)
+				      printer-name
+				      (mswindows-get-default-printer))))
+			header-window
+			footer-window)
+
+		   (when printer-page-header
+		     (let ((window-min-height 2))
+		       (setq header-window w)
+		       (setq w (split-window w 2)))
+		     (setq header-buffer (generate-new-buffer " *header*"))
+		     (set-window-buffer header-window header-buffer))
+
+		   (when printer-page-footer
+		     (let ((window-min-height 2))
+		       (setq footer-window
+			     (split-window w (- (window-height w) 2))))
+		     (setq footer-buffer (generate-new-buffer " *footer*"))
+		     (set-window-buffer footer-window footer-buffer))
+
+		   (setf (Print-context-window context) w)
+
+		   ;; loop, printing one copy of document per loop
+		   (while (> copies 0)
+		     (let ((last-end 0) ; bufpos at end of previous page
+			   reached-end  ; t if we've reached the end of the
+					; text we're printing
+			   (pageno 1))
+		       (set-window-buffer w buffer)
+		       (set-window-start w start)
+
+		       ;; loop, printing one page per loop
+		       (while (and (not reached-end)
+				   ;; stop at end of region of text or
+				   ;; outside of ranges of pages given
+				   (or (not to-page) (<= pageno to-page)))
+
+			 (setf (Print-context-pageno context) pageno)
+
+			 ;; only actually print the page if it's in the
+			 ;; range.
+			 (when (>= pageno from-page)
+			   (when printer-page-header
+			     (with-current-buffer header-buffer
+			       (erase-buffer)
+			       (generate-header-line printer-page-header
+						     context)
+			       (goto-char (point-min))
+			       (set-window-start header-window (point-min))))
+
+			   (when printer-page-footer
+			     (with-current-buffer footer-buffer
+			       (erase-buffer)
+			       (insert "\n")
+			       (generate-header-line printer-page-footer
+						     context)
+			       (goto-char (point-min))
+			       (set-window-start footer-window (point-min))))
+
+			   (redisplay-frame f t)
+			   (print-job-eject-page f)
+			   )
+			 ;; but use the GUARANTEE argument to `window-end'
+			 ;; so that we get the right value even if we
+			 ;; didn't do a redisplay.
+			 (let ((this-end (window-end w t))
+			       (pixvis (window-last-line-visible-height w)))
+			   ;; in case we get stuck somewhere, bow out
+			   ;; rather than printing an infinite number of
+			   ;; pages.  #### this will fail with an image
+			   ;; bigger than an entire page.  but we really
+			   ;; need this check here.  we should be more
+			   ;; clever in our check, to deal with this case.
+			   (if (or (= this-end last-end)
+				   ;; #### fuckme!  window-end returns a value
+				   ;; outside of the valid range of buffer
+				   ;; positions!!!
+				   (>= this-end end))
+			       (setq reached-end t)
+			     (setq last-end this-end)
+			     (set-window-start w this-end)
+			     (if pixvis
+				 (save-selected-window
+				   (select-window w)
+				   ;; #### scroll-down should take a
+				   ;; window arg.
+				   (let ((window-pixel-scroll-increment
+					  pixvis))
+				     (scroll-down 1))))))
+			 (setq pageno (1+ pageno))))
+		     (setq copies (1- copies)))))
 	     (and f (delete-frame f))
-	     (and d (delete-device d))
+	     (and header-buffer (kill-buffer header-buffer))
+	     (and footer-buffer (kill-buffer footer-buffer))
 	     )))
 	((and (not (eq system-type 'windows-nt))
-	      (fboundp 'lpr-buffer))
+	      (fboundp 'lpr-region))
 	 (lpr-region buffer))
 	(t (error "No print support available"))))

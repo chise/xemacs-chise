@@ -69,10 +69,13 @@ PROGRAM_DEFINES=-DINFODOCK 					\
 	-DINFODOCK_MINOR_VERSION=$(infodock_minor_version)	\
 	-DINFODOCK_BUILD_VERSION=$(infodock_build_version)
 !else
-!if "$(emacs_beta_version)" != ""
-XEMACS_VERSION_STRING=$(emacs_major_version).$(emacs_minor_version)-b$(emacs_beta_version)
-!else
 XEMACS_VERSION_STRING=$(emacs_major_version).$(emacs_minor_version)
+!if "$(emacs_beta_version)" != ""
+!if "$(emacs_is_beta)" != ""
+XEMACS_VERSION_STRING=$(XEMACS_VERSION_STRING)-b$(emacs_beta_version)
+!else
+XEMACS_VERSION_STRING=$(XEMACS_VERSION_STRING).$(emacs_beta_version)
+!endif
 !endif
 PROGRAM_DEFINES=						\
 	-DPATH_VERSION=\"$(XEMACS_VERSION_STRING)\"		\
@@ -128,6 +131,9 @@ HAVE_XFACE=0
 !endif
 !if !defined(HAVE_GIF)
 HAVE_GIF=1
+!endif
+!if !defined(HAVE_GTK)
+HAVE_GTK=0
 !endif
 !if !defined(HAVE_TOOLBARS)
 HAVE_TOOLBARS=$(HAVE_XPM)
@@ -230,6 +236,10 @@ CONFIG_ERROR=1
 !message Specified X11 directory does not contain "$(X11_DIR)\LIB\X11.LIB"
 CONFIG_ERROR=1
 !endif
+!if $(HAVE_MS_WINDOWS) && $(HAVE_GTK) && !defined(GTK_DIR)
+!message Please specify root directory for your GTK installation: GTK_DIR=path
+CONFIG_ERROR=1
+!endif
 !if $(HAVE_MS_WINDOWS) && $(HAVE_XPM) && !defined(XPM_DIR)
 !message Please specify root directory for your XPM installation: XPM_DIR=path
 CONFIG_ERROR=1
@@ -315,13 +325,13 @@ DEPEND=0
 ! if defined(_)
 !  if [perl -p -e "s/^\\x23if defined(.+)/!if defined$$1/; s/^\\x23e/!e/;" \
 	-e "s/([\\s=^])([\\w\\d\\.\\-^]+\\.[ch^])/$$1$(SRC:\=\\\\)\\\\$$2/g;" \
-	-e "s/^(.+)\\.o:(.+)/$(OUTDIR:\=\\\\)\\\\$$1.obj:$$2 $(NT:\=\\\\)\\\\config.inc/;" \
+	-e "s/^(.+)\\.o:(.+)/$(OUTDIR:\=\\\\)\\\\$$1.obj:$$2/;" \
 	< $(SRC)\depend > $(OUTDIR)\depend.tmp]
 !  endif
 ! else
 !  if [perl -p -e "s/^\x23if defined(.+)/!if defined$$1/; s/^\x23e/!e/;" \
 	-e "s/([\s=^])([\w\d\.\-^]+\.[ch^])/$$1$(SRC:\=\\)\\$$2/g;" \
-	-e "s/^(.+)\.o:(.+)/$(OUTDIR:\=\\)\\$$1.obj:$$2 $(NT:\=\\)\\config.inc/;" \
+	-e "s/^(.+)\.o:(.+)/$(OUTDIR:\=\\)\\$$1.obj:$$2/;" \
 	< $(SRC)\depend > $(OUTDIR)\depend.tmp]
 !  endif
 ! endif
@@ -543,8 +553,9 @@ $(LIB_SRC)/movemail.exe: $(LIB_SRC)/movemail.c $(LIB_SRC)/pop.c $(ETAGS_DEPS)
 	cd $(LIB_SRC)
 	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) $(CFLAGS) -Fe$@ $** wsock32.lib -link -incremental:no
 	cd $(NT)
-$(LIB_SRC)/minitar.exe : $(NT)/minitar.mak $(NT)/minitar.c
-	nmake -nologo -f minitar.mak ZLIB="$(ZLIB_DIR)" NT="$(NT)" LIB_SRC="$(LIB_SRC)"
+
+$(LIB_SRC)/minitar.exe : $(NT)/minitar.c
+	$(CCV) $(CFLAGS) -I$(ZLIB_DIR) -Fe$@ $** $(ZLIB_DIR)\zlib.lib -link -incremental:no
 
 LIB_SRC_TOOLS = \
 	$(LIB_SRC)/etags.exe		\
@@ -822,8 +833,12 @@ DOC_SRC11=\
 
 # This may not exist
 !if "$(emacs_beta_version)" != ""
+!if "$(emacs_is_beta)" != ""
 EMACS_BETA_VERSION=-DEMACS_BETA_VERSION=$(emacs_beta_version)
-!ENDIF
+!else
+EMACS_PATCH_LEVEL=-DEMACS_PATCH_LEVEL=$(emacs_beta_version)
+!endif
+!endif
 
 !if !$(USE_PORTABLE_DUMPER)
 TEMACS_ENTRYPOINT=-entry:_start
@@ -1057,7 +1072,7 @@ $(TEMACS): $(TEMACS_INCLUDES) $(TEMACS_OBJS) $(OUTDIR)\xemacs.res
 !if $(DEBUG_XEMACS)
 	@dir /b/s $(OUTDIR)\*.sbr > bscmake.tmp
 	bscmake -nologo -o$(TEMACS_BROWSE) @bscmake.tmp
-	@$(DEL) bscmake.tmp
+	$(DEL) bscmake.tmp
 !endif
 !if $(USE_PORTABLE_DUMPER)
 	@if exist $(SRC)\dump-id.c del $(SRC)\dump-id.c
@@ -1377,7 +1392,7 @@ $(PROGNAME) : $(TEMACS) $(TEMACS_DIR)\NEEDTODUMP
 # Make the resource section read/write since almost all of it is the dump
 # data which needs to be writable.  This avoids having to copy it.
 	editbin -nologo -section:.rsrc,rw xemacs.exe
-	del $(TEMACS_DIR)\xemacs.dmp
+	$(DEL) $(TEMACS_DIR)\xemacs.dmp
 !endif
 	cd $(NT)
 	@if not exist $(TEMACS_DIR)\SATISFIED nmake -nologo -f xemacs.mak $@
@@ -1397,7 +1412,7 @@ install:	all
 	@echo PlaceHolder > PlaceHolder
 	@xcopy /q PROBLEMS "$(INSTALL_DIR)\"
 	@xcopy /q PlaceHolder "$(INSTALL_DIR)\lock\"
-	@$(DEL) "$(INSTALL_DIR)\lock\PlaceHolder"
+	$(DEL) "$(INSTALL_DIR)\lock\PlaceHolder"
 	@xcopy /q $(LIB_SRC)\*.exe "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)\"
 	@copy $(LIB_SRC)\DOC "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
 	@copy $(CONFIG_VALUES) "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
@@ -1407,12 +1422,12 @@ install:	all
 	@xcopy /e /q $(XEMACS)\lisp "$(INSTALL_DIR)\lisp\"
 	@echo Making skeleton package tree in $(PACKAGE_PREFIX) ...
 	@xcopy /q PlaceHolder "$(PACKAGE_PREFIX)\site-packages\"
-	@$(DEL) "$(PACKAGE_PREFIX)\site-packages\PlaceHolder"
+	$(DEL) "$(PACKAGE_PREFIX)\site-packages\PlaceHolder"
 	@xcopy /q PlaceHolder "$(PACKAGE_PREFIX)\mule-packages\"
-	@$(DEL) "$(PACKAGE_PREFIX)\mule-packages\PlaceHolder"
+	$(DEL) "$(PACKAGE_PREFIX)\mule-packages\PlaceHolder"
 	@xcopy /q PlaceHolder "$(PACKAGE_PREFIX)\xemacs-packages\"
-	@$(DEL) "$(PACKAGE_PREFIX)\xemacs-packages\PlaceHolder"
-	@$(DEL) PlaceHolder
+	$(DEL) "$(PACKAGE_PREFIX)\xemacs-packages\PlaceHolder"
+	$(DEL) PlaceHolder
 
 mostlyclean:
 	$(DEL) $(XEMACS)\Installation
@@ -1483,6 +1498,14 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 !endif
 !if $(HAVE_MULE)
   Compiling in MULE.
+!endif
+!if $(HAVE_GTK)
+  --------------------------------------------------------------------
+  WARNING: You specified HAVE_GTK=1, but we are compiling WITHOUT GTK support.
+  WARNING: gtk-xemacs is not currently supported on MSWindows (mingw or msvc).
+  WARNING: Yes, we know that gtk has been ported to native MSWindows, but
+  WARNING: XEmacs is not yet ready to use that port.
+  --------------------------------------------------------------------
 !endif
 !if $(HAVE_XPM)
   Compiling in support for XPM images.
@@ -1581,8 +1604,8 @@ update-elc-2:
 update-auto-and-custom:
 #       Combine into one invocation to avoid repeated startup penalty.
 	$(XEMACS_BATCH) -l autoload -f batch-update-one-directory $(LISP) -f batch-byte-compile-one-file $(LISP)\auto-autoloads.el -l cus-dep -f Custom-make-one-dependency $(LISP) -f batch-byte-compile-one-file $(LISP)\custom-load.el
-	@$(DEL) $(LISP)\auto-autoloads.el~
-	@$(DEL) $(LISP)\custom-load.el~
+	$(DEL) $(LISP)\auto-autoloads.el~
+	$(DEL) $(LISP)\custom-load.el~
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 

@@ -2010,6 +2010,7 @@ static void push_this_command_keys (Lisp_Object event);
 static void push_recent_keys (Lisp_Object event);
 static void dribble_out_event (Lisp_Object event);
 static void execute_internal_event (Lisp_Object event);
+static int is_scrollbar_event (Lisp_Object event);
 
 DEFUN ("next-event", Fnext_event, 0, 2, 0, /*
 Return the next available event.
@@ -2270,7 +2271,9 @@ The returned event will be one of the following types:
      */
   if (store_this_key)
     {
-      push_this_command_keys (event);
+      if (!is_scrollbar_event (event)) /* #### not quite right, see
+					  comment in execute_command_event */
+	push_this_command_keys (event);
       if (!inhibit_input_event_recording)
 	push_recent_keys (event);
       dribble_out_event (event);
@@ -3757,6 +3760,31 @@ lookup_command_event (struct command_builder *command_builder,
   }
 }
 
+static int
+is_scrollbar_event (Lisp_Object event)
+{
+  Lisp_Object fun;
+
+  if (XEVENT (event)->event_type != misc_user_event)
+    return 0;
+  fun = XEVENT (event)->event.misc.function;
+
+  return (EQ (fun, Qscrollbar_line_up) ||
+	  EQ (fun, Qscrollbar_line_down) ||
+	  EQ (fun, Qscrollbar_page_up) ||
+	  EQ (fun, Qscrollbar_page_down) ||
+	  EQ (fun, Qscrollbar_to_top) ||
+	  EQ (fun, Qscrollbar_to_bottom) ||
+	  EQ (fun, Qscrollbar_vertical_drag) ||
+	  EQ (fun, Qscrollbar_char_left) ||
+	  EQ (fun, Qscrollbar_char_right) ||
+	  EQ (fun, Qscrollbar_page_left) ||
+	  EQ (fun, Qscrollbar_page_right) ||
+	  EQ (fun, Qscrollbar_to_left) ||
+	  EQ (fun, Qscrollbar_to_right) ||
+	  EQ (fun, Qscrollbar_horizontal_drag));
+}
+
 static void
 execute_command_event (struct command_builder *command_builder,
                        Lisp_Object event)
@@ -3767,8 +3795,57 @@ execute_command_event (struct command_builder *command_builder,
 
   GCPRO1 (event); /* event may be freshly created */
 
-  /* To fix C-x @ h <scrollbar-drag> x crash. */
-  if (XEVENT (event)->event_type != misc_user_event)
+  /* #### This call to is_scrollbar_event() isn't quite right, but
+     fixing properly it requires more work than can go into 21.4.
+     (We really need to split out menu, scrollbar, dialog, and other
+     types of events from misc-user, and put the remaining ones in a
+     new `user-eval' type that behaves like an eval event but is a
+     user event and thus has all of its semantics -- e.g. being
+     delayed during `accept-process-output' and similar wait states.)
+
+     The real issue here is that "user events" and "command events"
+     are not the same thing, but are very much confused in
+     event-stream.c.  User events are, essentially, any event that
+     should be delayed by accept-process-output, should terminate a
+     sit-for, etc. -- basically, any event that needs to be processed
+     synchronously with key and mouse events.  Command events are
+     those that participate in command building; scrollbar events
+     clearly don't belong because they should be transparent in a
+     sequence like C-x @ h <scrollbar-drag> x, which used to cause a
+     crash before checks similar to the is_scrollbar_event() call were
+     added.  Do other events belong with scrollbar events?  I'm not
+     sure; we need to categorize all misc-user events and see what
+     their semantics are.
+
+     (You might ask, why do scrollbar events need to be user events?
+     That's a good question.  The answer seems to be that they can
+     change point, and having this happen asynchronously would be a
+     very bad idea.  According to the "proper" functioning of
+     scrollbars, this should not happen, but XEmacs does not allow
+     point to go outside of the window.)
+
+     Scrollbar events and similar non-command events should obviously
+     not be recorded in this-command-keys, so we need to check for
+     this in next-event.
+
+     #### We call reset_current_events() twice in this function --
+     #### here, and later as a result of reset_this_command_keys().
+     #### This is almost certainly wrong; need to figure out what's
+     #### correct.
+
+     #### We need to figure out what's really correct w.r.t. scrollbar
+     #### events.  With these new fixes in, it actually works to do
+     #### C-x <scrollbar-drag> 5 2, but the key echo gets messed up
+     #### (starts over at 5).  We really need to be special-casing
+     #### scrollbar events at a lower level, and not really passing
+     #### them through the command builder at all.  (e.g. do scrollbar
+     #### events belong in macros???  doubtful; probably only the
+     #### point movement, if any, belongs, special-cased as a
+     #### pseudo-issued M-x goto-char command).  #### Need more work
+     #### here.  Do this when separating out scrollbar events.
+  */
+
+  if (!is_scrollbar_event (event))
     reset_current_events (command_builder);
 
   switch (XEVENT (event)->event_type)
@@ -3863,7 +3940,8 @@ execute_command_event (struct command_builder *command_builder,
 
 	/* Emacs 18 doesn't unconditionally clear the echoed keystrokes,
 	   so we don't either */
-	if (XEVENT (event)->event_type != misc_user_event)
+
+	if (!is_scrollbar_event (event))
 	  reset_this_command_keys (make_console (con), 0);
       }
   }

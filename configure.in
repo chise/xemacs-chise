@@ -1536,9 +1536,11 @@ case "$canonical" in
 
 esac
 
-dnl Initialize machine and opsys from $canonical if not in our database above.
+dnl Initialize machine from $canonical if not in our database above.
 test -z "$machine" && machine=`echo $canonical | sed 's/-.*$//'`
-test -z "$opsys"   && opsys=`echo $canonical | sed 's/^[^-]*-[^-]*-//'`
+
+dnl Initialize opsys from `uname -s` if not in our database above.
+test -z "$opsys"   && opsys=`uname -s | tr ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz`
 
 dnl Use configure-time autodetection if s&m not available
 if test -r "${srcdir}/src/m/${machine}.h"; then
