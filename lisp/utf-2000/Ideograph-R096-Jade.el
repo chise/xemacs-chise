@@ -1659,8 +1659,7 @@
     (ucs			. #x73E9)	; 珩
     ))
 (define-char
-  '((=>ucs		. #x73E9)	; 珩
-    (morohashi-daikanwa	20971 0 9)
+  '((morohashi-daikanwa	20971 0 9)
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
