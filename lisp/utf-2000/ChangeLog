@@ -1,3 +1,24 @@
+2004-10-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R001-One.el (U+4E23): Modify char-spec in `<-ancient'
+	to separate M-39763 from U+9149.
+
+2004-10-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+2004-10-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el, Ideograph-R154-Shell.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
 2004-10-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R147-See.el:
