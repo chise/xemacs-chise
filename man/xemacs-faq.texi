@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2002/10/31 15:06:37 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2002/12/12 06:21:19 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -41,7 +41,7 @@ If you have a Web browser, the official hypertext version is at
 @iftex
 @*
 @end iftex
-@uref{http://www.xemacs.org/faq/xemacs-faq.html}
+@uref{http://www.xemacs.org/FAQ/xemacs-faq.html}
 
 @ifset CANONICAL
 @html

@@ -2009,12 +2009,14 @@ static int timeout_id_tick;
 /* Xt interval id's might not fit into an int (they're pointers, as it
    happens), so we need to provide a conversion list. */
 
+/* pending_timeouts is a set (unordered), implemented as a stack.
+   completed_timeouts* is a queue. */
 static struct Xt_timeout
 {
   int id;
   XtIntervalId interval_id;
   struct Xt_timeout *next;
-} *pending_timeouts, *completed_timeouts;
+} *pending_timeouts, *completed_timeouts_head, *completed_timeouts_tail;
 
 static struct Xt_timeout_blocktype
 {
@@ -2027,7 +2029,7 @@ Xt_timeout_callback (XtPointer closure, XtIntervalId *id)
 {
   struct Xt_timeout *timeout = (struct Xt_timeout *) closure;
   struct Xt_timeout *t2 = pending_timeouts;
-  /* Remove this one from the list of pending timeouts */
+  /* Remove this one from the set of pending timeouts */
   if (t2 == timeout)
     pending_timeouts = pending_timeouts->next;
   else
@@ -2036,9 +2038,13 @@ Xt_timeout_callback (XtPointer closure, XtIntervalId *id)
       assert (t2->next);
       t2->next = t2->next->next;
     }
-  /* Add this one to the list of completed timeouts */
-  timeout->next = completed_timeouts;
-  completed_timeouts = timeout;
+  /* Add this one to the queue of completed timeouts */
+  timeout->next = NULL;
+  if (completed_timeouts_head)
+    completed_timeouts_tail->next = timeout;
+  else
+    completed_timeouts_head = timeout;
+  completed_timeouts_tail = timeout;
 }
 
 static int
@@ -2093,24 +2099,27 @@ emacs_Xt_remove_timeout (int id)
 	XtRemoveTimeOut (timeout->interval_id);
     }
 
-  /* It could be that the Xt call back was already called but we didn't convert
-     into an Emacs event yet */
-  if (!timeout && completed_timeouts)
+  /* It could be that Xt_timeout_callback was already called but we didn't
+     convert into an Emacs event yet */
+  if (!timeout && completed_timeouts_head)
     {
-      /* Code duplication! */
-      if (id == completed_timeouts->id)
+      /* Thank God for code duplication! */
+      if (id == completed_timeouts_head->id)
 	{
-	  timeout = completed_timeouts;
-	  completed_timeouts = completed_timeouts->next;
+	  timeout = completed_timeouts_head;
+	  completed_timeouts_head = completed_timeouts_head->next;
+	  /* this may not be necessary? */
+	  if (!completed_timeouts_head) completed_timeouts_tail = NULL;
 	}
       else
 	{
-	  t2 = completed_timeouts;
+	  t2 = completed_timeouts_head;
 	  while (t2->next && t2->next->id != id) t2 = t2->next;
-	  if ( t2->next)   /*found it */
+	  if (t2->next)   /* found it */
 	    {
 	      timeout = t2->next;
 	      t2->next = t2->next->next;
+	      if (!t2->next) completed_timeouts_tail = t2;
 	    }
 	}
     }
@@ -2125,9 +2134,11 @@ emacs_Xt_remove_timeout (int id)
 static void
 Xt_timeout_to_emacs_event (Lisp_Event *emacs_event)
 {
-  struct Xt_timeout *timeout = completed_timeouts;
+  struct Xt_timeout *timeout = completed_timeouts_head;
   assert (timeout);
-  completed_timeouts = completed_timeouts->next;
+  completed_timeouts_head = completed_timeouts_head->next;
+  /* probably unnecessary */
+  if (!completed_timeouts_head) completed_timeouts_tail = NULL;
   emacs_event->event_type = timeout_event;
   /* timeout events have nil as channel */
   emacs_event->timestamp  = 0; /* #### wrong!! */
@@ -2699,7 +2710,7 @@ emacs_Xt_next_event (Lisp_Event *emacs_event)
  we_didnt_get_an_event:
 
   while (NILP (dispatch_event_queue) &&
-	 !completed_timeouts         &&
+	 !completed_timeouts_head    &&
 	 !fake_event_occurred        &&
 	 !process_events_occurred    &&
 	 !tty_events_occurred)
@@ -2753,7 +2764,7 @@ emacs_Xt_next_event (Lisp_Event *emacs_event)
       if (!Xt_tty_to_emacs_event (emacs_event))
 	goto we_didnt_get_an_event;
     }
-  else if (completed_timeouts)
+  else if (completed_timeouts_head)
     Xt_timeout_to_emacs_event (emacs_event);
   else if (fake_event_occurred)
     {
@@ -3411,8 +3422,9 @@ void
 init_event_Xt_late (void) /* called when already initialized */
 {
   timeout_id_tick = 1;
-  pending_timeouts = 0;
-  completed_timeouts = 0;
+  pending_timeouts = NULL;
+  completed_timeouts_head = NULL; /* queue is empty */
+  completed_timeouts_tail = NULL; /* just to be picky */
 
   event_stream = Xt_event_stream;
 

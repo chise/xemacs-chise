@@ -252,7 +252,9 @@ Debugging options:
                         `byte-code', `extents', `gc', `glyphs', `malloc', and
                         `typecheck'.  The default value is `none'.
 --use-union-type        (Bool) Define Lisp_Object as a union, not an int.
-                        Provides stricter type-checking.  System-dependent.
+                        Use for strict _static_ type-checking.  Implicated in
+                        system-dependent, hard-to-debug crashes.  See PROBLEMS.
+                        Do NOT use in production builds.
 --no-doc-file           (Bool) Don't rebuild the DOC file unless it's missing.
                         Only use during development.
 --quick-build           (Bool) Don't GC when dumping.  Implies `--no-doc-file'.

@@ -185,7 +185,12 @@ Emacs*toolBarShadowThickness:		2
 ! some other font to use for it here:
 ! 
 ! Emacs.italic.attributeFont:  -*-courier-medium-o-*-*-*-120-*-*-*-*-iso8859-*
-!
+! 
+! If you choose a font which does not have a bold-italic version,
+! you can specify some other font to use for it here:
+! 
+! Emacs.bold-italic.attributeFont:  -*-courier-bold-o-*-*-*-120-*-*-*-*-iso8859-*
+! 
 ! And here is how you would set the background color of the `highlight' face,
 ! but only on the screen named `debugger':
 ! 

@@ -447,7 +447,7 @@ valid_specifier_type_p (Lisp_Object type)
 
 DEFUN ("valid-specifier-type-p", Fvalid_specifier_type_p, 1, 1, 0, /*
 Given a SPECIFIER-TYPE, return non-nil if it is valid.
-Valid types are 'generic, 'integer, boolean, 'color, 'font, 'image,
+Valid types are 'generic, 'integer, 'boolean, 'color, 'font, 'image,
 'face-boolean, and 'toolbar.
 */
        (specifier_type))

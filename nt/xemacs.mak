@@ -301,7 +301,7 @@ CONFIG_ERROR=1
 !if !defined(DEPEND)
 DEPEND=0
 !endif
-!if $(DEPEND)
+!if $(DEPEND) && exist("$(SRC)\depend")
 ! if [if not exist $(OUTDIR)\nul mkdir "$(OUTDIR)"]
 ! endif
 # generate an nmake-readable version of depend
@@ -363,7 +363,8 @@ C_LIBFLAG=-ML
 LIBC_LIB=libc.lib
 !endif
 
-CFLAGS=-nologo -W3 $(OPT) $(C_LIBFLAG)
+CFLAGS_NO_LIB=-nologo -W3 $(OPT)
+CFLAGS=$(CFLAGS_NO_LIB) $(C_LIBFLAG)
 
 !if $(HAVE_X_WINDOWS)
 X_DEFINES=-DHAVE_X_WINDOWS
@@ -547,7 +548,7 @@ $(LIB_SRC)/winclient.exe: $(LIB_SRC)/winclient.c
 	cd $(NT)
 
 $(LIB_SRC)/minitar.exe : $(NT)/minitar.c
-	$(CCV) $(CFLAGS) -I$(ZLIB_DIR) -Fe$@ $** $(ZLIB_DIR)\zlib.lib -link -incremental:no
+	$(CCV) $(CFLAGS_NO_LIB) -I"$(ZLIB_DIR)" $(LIB_SRC_DEFINES) -Fe$@ $** $(ZLIB_DIR)\zlib.lib -link -incremental:no
 
 LIB_SRC_TOOLS = \
 	$(LIB_SRC)/etags.exe		\
