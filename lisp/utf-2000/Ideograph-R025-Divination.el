@@ -2,6 +2,9 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 91)
+    (hanyu-dazidian-char . 11)
     (shinjigen-1	. 834)
     (shinjigen-2	. 834)
     (japanese-jisx0208-1978	. #x4B4E)	; ø»‚º™
@@ -60,6 +63,7 @@
     (chinese-cns11643-3 . #x215A)	; ø»•—
     (ideograph-daikanwa . 02777)	; ø¸€«™
     (ideograph-cbeta	. 01453)	; ø¸ –­
+    (chinese-big5-cdp	. #x8BF9)	; ý¢€ˆ¯¹
     (ucs		. #x535D)	; å
     ))
 (define-char
@@ -88,12 +92,14 @@
     (ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 92)
+    (hanyu-dazidian-char . 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8B41)	; ý¢€ˆ­
-      (ucs		  . #x4E36)	; ä¸¶
+     ((ucs		  . #x4E36)	; ä¸¶
       )
      ((ucs		  . #x4E0B)	; ä¸‹
       ))
@@ -119,14 +125,14 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 92)
+    (hanyu-dazidian-char . 5)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((name		  . "CJK RADICAL DIVINATION")
-      (chinese-big5-cdp	  . #x8B78)	; ý¢€ˆ­¸
       (ucs		  . #x2E8A)	; âºŠ
       )
      ((ucs		  . #x53E3)	; å£
@@ -148,11 +154,12 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 92)
+    (hanyu-dazidian-char . 4)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((ucs		  . #x4E0A)	; ä¸Š
       )
@@ -262,17 +269,17 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 93)
+    (hanyu-dazidian-char . 15)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((name		  . "CJK RADICAL DIVINATION")
-      (chinese-big5-cdp	  . #x8B78)	; ý¢€ˆ­¸
       (ucs		  . #x2E8A)	; âºŠ
       )
-     ((chinese-big5-cdp	  . #x8DE5)	; ý¢€ˆ·¥
+     ((ucs		  . #x56D9)	; å›™
       ))
     (shinjigen-1	. 839)
     (shinjigen-2	. 839)
@@ -316,6 +323,7 @@
     (chinese-isoir165	. #x4231)	; ø»Ÿ‚
     (chinese-cns11643-4 . #x234D)	; ø»—¤
     (ideograph-daikanwa . 02794)	; ø¸€«ª
+    (chinese-big5-cdp	. #x8A56)	; ý¢€ˆ©–
     (ucs		. #x5364)	; å¤
     ))
 (define-char
@@ -345,11 +353,12 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 94)
+    (hanyu-dazidian-char . 5)
     (ideographic-structure
-     (:cdp-combinator	1
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-		 (ucs		     . #x2FF0)	; â¿°
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
       )
      ((ucs		  . #x572D)	; åœ­
       )
@@ -487,13 +496,16 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (<-ancient-ideograph
-     (:sources (shinjigen-1)
-	       :char ((shinjigen-1 . 839)
-		      (ideograph-daikanwa		. 02791)	; ø¸€«§
-		      )))
+     (:sources	(shinjigen-1)
+      :char	((shinjigen-1	     . 839)
+		 (ideograph-daikanwa . 02791)	; ø¸€«§
+		 )
+      :denied	(setsumon-tsuukun-teisei morohashi-daikanwa)
+      ))
     (shinjigen-1	. 840)
     (chinese-cns11643-4 . #x2851)	; ø»—«ª
     (ideograph-daikanwa . 02810)	; ø¸€«º
+    (chinese-big5-cdp	. #x8AA6)	; ý¢€ˆª¦
     (ucs		. #x209EA)	; ð §ª
     ))
 (define-char
