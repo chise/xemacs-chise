@@ -354,8 +354,8 @@
 
 (set-language-info-alist
  "Thai-XTIS"
- '((setup-function . setup-thai-xtis-environment)
-   (exit-function . exit-thai-xtis-environment)
+ '(;; (setup-function . setup-thai-xtis-environment)
+   ;; (exit-function . exit-thai-xtis-environment)
    (charset thai-xtis)
    (coding-system tis-620 iso-2022-7bit)
    (tutorial . "TUTORIAL.th")
