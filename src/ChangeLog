@@ -1,3 +1,26 @@
+2002-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Qutf16): New variable in MULE.
+	(Fmake_coding_system): Accept `utf-16' as `type' in MULE.
+	(Fcoding_system_type): Add `utf-16' in MULE.
+	(struct detection_state): Add a structure for utf16 in MULE.
+	(detect_coding_type): Setup st->utf16.mask in MULE.
+	(mule_decode): Use `decode_coding_utf16' for `CODESYS_UTF16' in
+	MULE.
+	(reset_encoding_stream): Use `char_encode_utf16' and
+	`char_finish_utf16' for `CODESYS_UTF16' in MULE.
+	(detect_coding_utf16): New function [incomplete].
+	(decode_coding_utf16): New function [support only UCS-2].
+	(char_encode_utf16): New function.
+	(char_finish_utf16): New function.
+	(syms_of_file_coding): Add new symbol `utf-16'; setup
+	`coding_category_symbol[CODING_CATEGORY_UTF16]'.
+
+	* file-coding.h (enum coding_system_type): Add `CODESYS_UTF16' in
+	UTF-2000.
+	(enum coding_category_type): Add `CODING_CATEGORY_UTF16' in MULE.
+	(CODING_CATEGORY_UTF16_MASK): New macro in MULE.
+
 2002-10-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (put_char_table): When a charset is specified as a
