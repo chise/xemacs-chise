@@ -7,6 +7,7 @@
     (japanese-jisx0208-1978	. #x4B4E)	; ø»‚º™
     (chinese-gb2312		. #x3237)	; ø»„Ÿ˜
     (japanese-jisx0208		. #x4B4E)	; ø»‡Ž¡
+    (korean-ksc5601		. #x5C54)	; ø»‰±©
     (chinese-isoir165		. #x3237)	; ø»‡¨
     (chinese-cns11643-1		. #x4433)	; ø»‘¶ˆ
     (japanese-jisx0208-1990	. #x4B4E)	; ø½Š´•
@@ -44,6 +45,7 @@
     (shinjigen-2	. 835)
     (japanese-jisx0208-1978	. #x5246)	; ø»ƒ„£
     (japanese-jisx0208		. #x5246)	; ø»‡˜«
+    (korean-ksc5601		. #x5C26)	; ø»‰°»
     (japanese-jisx0208-1990	. #x5246)	; ø½Š¾Ÿ
     (ideograph-daikanwa		. 02778)	; ø¸€«š
     ))
@@ -79,6 +81,7 @@
     (japanese-jisx0208-1978	. #x406A)	; ø»‚ª«
     (chinese-gb2312		. #x553C)	; ø»…’·
     (japanese-jisx0208		. #x406A)	; ø»†¾³
+    (korean-ksc5601		. #x6F3F)	; ø»ŠŽ
     (chinese-isoir165		. #x553C)	; ø»»‡
     (chinese-cns11643-1		. #x4627)	; ø»‘¸¸
     (japanese-jisx0208-1990	. #x406A)	; ø½Š¤§
@@ -258,6 +261,7 @@
     (japanese-jisx0208-1978	. #x3735)	; ø»‚œ¨
     (chinese-gb2312		. #x5854)	; ø»…—©
     (japanese-jisx0208		. #x3735)	; ø»†°°
+    (korean-ksc5601		. #x4E4F)	; ø»‰€
     (chinese-isoir165		. #x5854)	; ø»¿¹
     (chinese-cns11643-1		. #x4C39)	; ø»’¾
     (japanese-jisx0208-1990	. #x3735)	; ø½Š–¤
@@ -440,11 +444,19 @@
     (ideograph-daikanwa . 48951)	; ø¸‹¼·
     ))
 (define-char
-  '((ideographic-radical . 25)	; â¼˜
+  '((=>ucs		. #x5368)	; å¨
+    (ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (korean-ksc5601	. #x6059)	; ø»‰·¦
     (chinese-cns11643-4 . #x3064)	; ø»—·­
     (ideograph-daikanwa . 02820)	; ø¸€¬„
+    ))
+(define-char
+  '((morohashi-daikanwa	2820 0 3)
+    (ideographic-radical . 25)	; â¼˜
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (ucs		. #x5368)	; å¨
     ))
 (define-char
@@ -454,7 +466,7 @@
     (ideograph-daikanwa . 02821)	; ø¸€¬…
     ))
 (define-char
-  '((morohashi-daikanwa	2821 0 0)
+  '((morohashi-daikanwa	2821 0 1)
     (ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
