@@ -1,3 +1,83 @@
+2001-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (M-44023): Unify M044023.
+	(M-44037'): Add `ideograph=' for M-44433.
+	(M-44038): Unify C1-627D and JX1-7E29; separate G0-6238 and
+	U+98E7.
+	(U+98E7): Unify G0-6238 and M044038.
+	(M-44063): Unify M044063.
+	(M044064): New character; relate to U+98EF and M-44064.
+	(M-44107): Unify M044107.
+	(M-44109): Unify M044109.
+	(M-44111): Unify M044111.
+
+	* Ideograph-R179-Leek.el (M-43238): Separate C3-454E and U+4A9E.
+	(U+4A9E): Unify C3-454E and M043238.
+	(M043245): New character; relate to M-43245.
+	(M-43247): Separate C7-3D62.
+	(M043247): New character; relate to M-43247.
+
+	* Ideograph-R182-Wind.el (M-43769): Add `total-strokes'; unify
+	M043769.
+
+	* Ideograph-R181-Leaf.el (M-43591): Unify M043591.
+	(M-43689): Unify M043689.
+
+	* Ideograph-R180-Sound.el (M-43268): Unify M043268.
+
+	* Ideograph-R174-Blue.el (M-42564): Unify M042564.
+	(M-42570): Unify M042570.
+
+	* Ideograph-R173-Rain.el (M-42216): Unify M042216.
+
+	* Ideograph-R170-Mound.el (M-41676): Add `ideograph=' for M-41704;
+	unify M041676; separate C6-3C6C.
+	(U+9666): Unify MH-678 and M054713.
+	(U+9667): Add `total-strokes'.
+	(M-41836): Add `simplified-ideograph-of' for M-41891; unify
+	M041836.
+
+2001-06-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R169-Gate.el (U+9596): Add `total-strokes'; unify
+	M050554.
+	(U+9597): Add `total-strokes'; unify M059991.
+	(U+95F0): Add `script'; add `total-strokes'; unify M051330.
+	(U+95F1): Add `total-strokes'.
+	(M-41341): Separate C1-6F65 and U+95B1.
+	(U+95B1): Unify C1-6F65 and M041341.
+
+	* Ideograph-R167-Gold.el (U+94D2): Add `total-strokes'.
+	(U+94D3): Fix `ideographic-strokes'; add `total-strokes'; add
+	`script'; unify M052145.
+	(U+94D5): Add `total-strokes'.
+	(M-40418): Separate U+92B3 and C1-6F5E.
+	(U+92B3): Unify C1-6F5E and M040418.
+	(M-40464): Unify M040464.
+	(M-49811): Separate C7-2A42; unify M049811.
+	(M-40596): Separate U+933A; add `total-strokes'; unify M040596.
+	(U+933A): Unify M055836.
+	(M-40597): Add `total-strokes'; unify M040597.
+	(M-40600): Unify M040600.
+	(M-40708): Unify M040708.
+	(M-40709): Unify M040709.
+	(M-40710): Separate C1-775B and U+9398; unify M040710.
+	(U+9556): Add `total-strokes'.
+	(M-40847): Unify M040847.
+	(U+9454): Separate C3-5F6B; unify MH-665 and M057484.
+	(C3-5F6B): Relate to U+9454, MH-665 and M057484.
+
+	* Ideograph-R166-Village.el (M-40132): Unify M040132.
+	(M-40136): Unify M040136.
+
+	* Ideograph-R165-Distinguish.el (M-40120): Unify M040120.
+	(M-40120'): Add `total-strokes'.
+
+	* Ideograph-R164-Wine.el (M-39870): Unify M039870.
+	(M-40062): Separate C7-5067.
+	(M040062): New character; relate to M-40062.
+	(M-40064'): Add `total-strokes'.
+
 2001-06-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R163-City.el (U+909C): Add `total-strokes'; unify
