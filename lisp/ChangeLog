@@ -1,5 +1,10 @@
 1999-07-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* code-files.el (insert-file-contents): Regard
+	coding-system-magic-cookie if `coding-system-for-read' is nil.
+
+1999-07-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/thai-xtis.el: Add coding: local variable, to avoid
 	bootstrapping problem with C locale.
 
