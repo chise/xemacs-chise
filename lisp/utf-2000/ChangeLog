@@ -1,3 +1,76 @@
+2004-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R141-Tiger.el (U+4595): Use `->subsumptive'.
+	(U-000271BC): Likewise.
+	(U+4596): Likewise.
+	(U+865F): Likewise.
+
+	* Ideograph-R117-Stand.el (U+7AD1): Use `->subsumptive'.
+	(U+7AD2): Likewise.
+	(U+41C6): Likewise.
+	(U+7AD3): Likewise.
+	(U+7AD4): Likewise.
+	(U+7AD5): Likewise.
+
+	* Ideograph-R113-Spirit.el (U-00025608): Use `->subsumptive'.
+	(U-0002560A): Likewise.
+	(U-0002560B): Likewise.
+	(U+40FE): Likewise.
+	(U+4104): Likewise.
+	(U+4105): Likewise.
+	(U+7966): Likewise.
+
+	* Ideograph-R075-Tree.el (U+681E): Use `->subsumptive'.
+	(U+6820): Likewise.
+	(U+6823): Likewise.
+	(U+6821): Likewise.
+
+	* Ideograph-R165-Distinguish.el (U-00028910): Use `->subsumptive'.
+	(U-00028911): Likewise.
+	(U+91C9): Likewise.
+
+	* Ideograph-R009-Man.el (U-000203E7): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@{ucs|cns}*sources' instead of `ideographic-';
+	integrate M-04329.
+
+	* Ideograph-R140-Grass.el (U+8649): Use `->subsumptive'.
+	(M-32636): Map to U-0002716F and use `->subsumptive'.
+	(C7-6255): Likewise.
+	(U-0002716F): Use `->subsumptive'; integrate M-32636 and C7-6255.
+	(U-00027170): Use `->subsumptive'.
+	(C7-6253): Map to U-00027171 and use `->subsumptive'.
+	(U-00027171): Use `->subsumptive'.
+	(C7-613C): Map to U-00027174 and use `->subsumptive'.
+	(U-00027174): New character.
+	(U-00027186): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources'.
+	(U+457F): Use `->subsumptive'.
+	(U-0002717A): Likewise.
+
+2004-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R050-Turban.el: Add some mappings to Daikanwa numbers.
+	(M-08865): Unify GT-11193.
+
+	* Ideograph-R036-Evening.el (M-05775): Moved into U-00020157.
+	(CB03754): Likewise.
+	(U-00020157): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'.
+	(IU-00020157): Unify C5-2C66 and H1-E153.
+
+	* Ideograph-R008-Lid.el: Use `->subsumptive' for some character
+	definitions.
+
+2004-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R017-Open-Box.el (U+342B): Use `->subsumptive';
+	integrate BC-8C5E [copied from Ideograph-R008-Lid.el].
+
+	* Ideograph-R113-Spirit.el: Add mappings for Big5 code points.
+
 2004-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R115-Grain.el, Ideograph-R114-Track.el: Add mappings
