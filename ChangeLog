@@ -1,3 +1,14 @@
+2002-09-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* etc/char-data/JC3-to-UCS.txt (JC3-76CD): Fix typo.
+	(JC3-76E8): Likewise.
+	(JC3-7DC6): New mapping.
+	(JC3-7DCA): Fix typo.
+	(JC3-7FE6): Likewise.
+	(JC3-83A2): New mapping.
+	(JC3-83AD): Fix typo.
+	(JC3-9AA9): Likewise.
+
 2002-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* etc/char-data/JC3-to-UCS.txt: New file.
