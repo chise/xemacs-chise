@@ -1854,6 +1854,7 @@
       ))
     (=jis-x0213-1-2000	. #x2874)	; ø»¢ž¡
     (=jef-china3	. #x85BC)	; øºˆ–¼
+    (=ucs@jis		. #x01F8)	; ø»¢ž¡
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER N WITH GRAVE")
