@@ -63,8 +63,6 @@ Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_ethiopic_ucs;
-Lisp_Object Vcharset_hiragana_jisx0208;
-Lisp_Object Vcharset_katakana_jisx0208;
 #endif
 Lisp_Object Vcharset_chinese_big5_1;
 Lisp_Object Vcharset_chinese_big5_2;
@@ -823,8 +821,6 @@ Lisp_Object Qascii,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
   Qethiopic_ucs,
-  Qhiragana_jisx0208,
-  Qkatakana_jisx0208,
 #endif
   Qchinese_big5_1,
   Qchinese_big5_2,
@@ -2537,8 +2533,6 @@ syms_of_mule_charset (void)
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
-  defsymbol (&Qhiragana_jisx0208, 	"hiragana-jisx0208");
-  defsymbol (&Qkatakana_jisx0208, 	"katakana-jisx0208");
 #endif
   defsymbol (&Qchinese_big5_1,		"chinese-big5-1");
   defsymbol (&Qchinese_big5_2,		"chinese-big5-2");
@@ -2903,28 +2897,6 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Ethiopic of UCS"),
 		  build_string ("Ethiopic-Unicode"),
 		  Qnil, 0x1200, 0x137F, 0x1200, 0);
-  staticpro (&Vcharset_hiragana_jisx0208);
-  Vcharset_hiragana_jisx0208 =
-    make_charset (LEADING_BYTE_HIRAGANA_JISX0208, Qhiragana_jisx0208,
-		  CHARSET_TYPE_94X94, 2, 0, 'B',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Hiragana"),
-		  build_string ("Hiragana of JIS X0208"),
-		  build_string ("Japanese Hiragana of JIS X0208"),
-		  build_string ("jisx0208\\.19\\(78\\|83\\|90\\)"),
-		  Qnil, MIN_CHAR_HIRAGANA, MAX_CHAR_HIRAGANA,
-		  (0x24 - 33) * 94 + (0x21 - 33), 33);
-  staticpro (&Vcharset_katakana_jisx0201);
-  Vcharset_katakana_jisx0208 =
-    make_charset (LEADING_BYTE_KATAKANA_JISX0208, Qkatakana_jisx0208,
-		  CHARSET_TYPE_94X94, 2, 0, 'B',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("Katakana"),
-		  build_string ("Katakana of JIS X0208"),
-		  build_string ("Japanese Katakana of JIS X0208"),
-		  build_string ("jisx0208\\.19\\(78\\|83\\|90\\)"),
-		  Qnil, MIN_CHAR_KATAKANA, MAX_CHAR_KATAKANA,
-		  (0x25 - 33) * 94 + (0x21 - 33), 33);
 #endif
   staticpro (&Vcharset_chinese_big5_1);
   Vcharset_chinese_big5_1 =
