@@ -3472,7 +3472,7 @@
      ((sources		  bos=A015412-00003)
       (=ruimoku-v6	  . #xE009)	; øº€‰
       )
-     ((=ucs@iso		  . #x21A5C)	; ó°€’
+     ((=ucs@iso		  . #x21A5C)	; ó°€“
       ))
     (=ucs		. #x21A5C)	; ð¡©œ
     ))

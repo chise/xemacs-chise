@@ -3149,7 +3149,7 @@
 	)
        ((=ucs		    . #x5185)	; 内
 	))
-      (=ucs@unicode	  . #x343B)	; 󰀁
+      (=ucs@unicode	  . #x343B)	; 󰀂
       ))
     (=ucs		. #x343B)	; 㐻
     ))
@@ -23920,7 +23920,7 @@
 	)
        ((=ucs		    . #x6562)	; 敢
 	))
-      (=ucs@unicode	  . #x3488)	; 󰀅
+      (=ucs@unicode	  . #x3488)	; 󰀆
       ))
     (=ucs		. #x3488)	; 㒈
     ))
@@ -25014,7 +25014,7 @@
 	 ((=ucs		      . #x975E)	; 非
 	  ))
 	))
-      (=ucs@unicode	  . #x348E)	; 󰀇
+      (=ucs@unicode	  . #x348E)	; 󰀈
       ))
     (=ucs		. #x348E)	; 㒎
     ))
@@ -26842,7 +26842,7 @@
 	)
        ((=ucs		    . #x842C)	; 萬
 	))
-      (=ucs@unicode	  . #x3496)	; 󰀈
+      (=ucs@unicode	  . #x3496)	; 󰀉
       ))
     (=ucs		. #x3496)	; 㒖
     ))
@@ -27325,7 +27325,7 @@
       (=cns11643-4	  . #x4F5D)	; �����
       (=ucs@cns		  . #x349A)	; �����
       )
-     ((=ucs@unicode	  . #x349A)	; 󰀉
+     ((=ucs@unicode	  . #x349A)	; 󰀊
       ))
     (=ucs		. #x349A)	; 㒚
     ))
@@ -27413,7 +27413,7 @@
 	)
        ((=ucs		    . #x7FDF)	; 翟
 	))
-      (=ucs@unicode	  . #x349B)	; 󰀊
+      (=ucs@unicode	  . #x349B)	; 󰀋
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -30045,7 +30045,7 @@
 	)
        ((=ucs		    . #x7E47)	; 繇
 	))
-      (=ucs@unicode	  . #x34A1)	; 󰀌
+      (=ucs@unicode	  . #x34A1)	; 󰀍
       ))
     (=ucs		. #x34A1)	; 㒡
     ))
