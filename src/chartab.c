@@ -43,6 +43,9 @@ Boston, MA 02111-1307, USA.  */
 #include "buffer.h"
 #include "chartab.h"
 #include "syntax.h"
+#ifdef CHISE
+#include <chise.h>
+#endif
 #ifdef UTF2000
 #include "elhash.h"
 #endif /* UTF2000 */
@@ -3503,6 +3506,65 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
 
   if (!NILP (attribute))
     {
+#ifdef CHISE
+      Lisp_Object db_dir = Vexec_directory;
+      CHISE_DS ds;
+      CHISE_Feature_Table *ft_feature;
+      int modemask;
+      int accessmask = 0;
+      DBTYPE real_subtype;
+      int status;
+      CHISE_Value value;
+      Lisp_Object val;
+
+      if (!NILP (cit->db) && NILP (Fdatabase_live_p (cit->db)))
+	{
+	  Fclose_database (cit->db);
+	  cit->db = Qnil;
+	}
+
+      if (NILP (db_dir))
+	db_dir = build_string ("../lib-src");
+      db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+
+      status = chise_open_data_source (&ds, CHISE_DS_Berkeley_DB,
+				       XSTRING_DATA (db_dir));
+      if (status)
+	{
+	  chise_close_data_source (&ds);
+	  return -1;
+	}
+
+      modemask = 0755;		/* rwxr-xr-x */
+      real_subtype = DB_HASH;
+      accessmask = DB_RDONLY;
+
+      status
+	= chise_open_feature_table (&ft_feature, &ds,
+				    XSTRING_DATA (Fsymbol_name (attribute)),
+				    real_subtype, accessmask, modemask);
+      if (status)
+	{
+	  chise_close_feature_table (ft_feature);
+	  chise_close_data_source (&ds);
+	  return -1;
+	}
+
+      status = chise_ft_get_value (ft_feature, ch, &value);
+
+      if (!status)
+	{
+	  val = Fread (make_string (chise_value_data (&value),
+				    chise_value_size (&value) ));
+	}
+      else
+	val = Qunbound;
+
+      chise_close_feature_table (ft_feature);
+      chise_close_data_source (&ds);
+
+      return val;
+#else
       if (NILP (Fdatabase_live_p (cit->db)))
 	{
 	  Lisp_Object db_file
@@ -3527,6 +3589,7 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
 	    }
 	  return val;
 	}
+#endif
     }
   return Qunbound;
 }
