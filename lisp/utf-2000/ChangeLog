@@ -1,3 +1,14 @@
+2003-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R114-Track.el (U-00020398): Use
+	ideographic-{radical|strokes}@{ucs|cns} and
+	`ideographic-radical@{ucs|cns}*sources' instead of `ideographic-'.
+
+	* Ideograph-R009-Man.el: Add some missing mappings to Daikanwa's
+	HO numbers.
+	(U-00020398): Use ideographic-{radical|strokes}@{ucs|cns} and
+	`ideographic-radical@{ucs|cns}*sources' instead of `ideographic-'.
+
 2003-05-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R070-Square.el (M-13627): New character.
