@@ -1,5 +1,8 @@
 2002-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R001-One.el (U-00023944): Moved to
+	Ideograph-R077-Stop.el.
+
 	* Ideograph-R077-Stop.el (C6-232E): Don't unify U-00028E16; unify
 	H1-A6EA and U-00023944; add `ideographic-structure'.
 
