@@ -2164,6 +2164,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (japanese-jisx0208-1990	. #x3139)	; ø½Š´
+    (china3-jef			. #x45E4)	; øº„—¤
     (ucs-jis			. #x53A9)	; ø½Š´
     ))
 (define-char
@@ -2173,7 +2174,6 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (japanese-jisx0208	. #x3139)	; ø»†¨€
-    (china3-jef		. #x45E4)	; øº„—¤
     ))
 (define-char
   '((ideographic-radical . 27)	; â¼š
