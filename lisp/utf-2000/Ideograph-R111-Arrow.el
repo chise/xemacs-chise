@@ -980,6 +980,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 19)
     (=jis-x0212		. #x4F4A)	; ø»‹¨
+    (=ucs@jis		. #x77F1)	; ø»‹¨
     ))
 (define-char
   '((morohashi-daikanwa	24020 0 3)
