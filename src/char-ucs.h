@@ -488,8 +488,9 @@ SPLIT_CHAR (Emchar c)
 
 	  if (!EQ (charset, Qnil))
 	    {
-	      if (!EQ (field = Fcdr (Fassq (charset, cdef)), Qnil) ||
-		  !EQ (field = range_charset_code_point (charset, c), Qnil))
+	      if (!NILP (field = Fassq (charset, cdef)))
+		return field;
+	      else if (!NILP (field = range_charset_code_point (charset, c)))
 		return Fcons (charset, field);
 	    }
 	  charsets = Fcdr (charsets);	      
