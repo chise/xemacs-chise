@@ -164,6 +164,16 @@
     (ideograph-daikanwa . 48055)	; ø¸‹®·
     ))
 (define-char
+  '((=>ucs		. #x58A8)	; å¢¨
+    (ideographic-radical . 203)	; â¿Š
+    (ideographic-strokes . 3)
+    (total-strokes	 . 15)
+    (->same-ideograph
+     ((ideograph-daikanwa . 05469)	; ø¸•
+      ))
+    (chinese-cns11643-1 . #x702E)	; ø»’¶«
+    ))
+(define-char
   '((->ucs		. #x9ED4)	; é»”
     (ideographic-radical . 203)	; â¿Š
     (ideographic-strokes . 4)
