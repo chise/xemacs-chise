@@ -1,3 +1,16 @@
+2001-04-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R179-Leek.el: Resorted; add missing
+	`ideographic-strokes' attributes; use `ideographic-strokes' if
+	each stroke attribute has same value.
+
+2001-04-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R177-Leather.el: Resorted; add some missing
+	Morohashi's Daikanwa characters; add missing `ideographic-strokes'
+	attributes; use `ideographic-strokes' if each stroke attribute has
+	same value.
+
 2001-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R178-Tanned-Leather.el: Resorted; add missing
