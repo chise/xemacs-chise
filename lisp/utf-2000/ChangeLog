@@ -1,3 +1,39 @@
+2001-10-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R154-Shell.el (JX2-792F): Unify U-00027DA0; delete
+	`->ucs'.
+
+	* Ideograph-R115-Grain.el (J90-634E): Unify JIS X 0208:1978 and
+	1983 code points.
+
+	* Ideograph-R109-Eye.el (J90-3829): Unify JIS X 0208:1978 and 1983
+	code points.
+
+	* Ideograph-R107-Skin.el (J90-6231): Unify JIS X 0208:1978 and
+	1983 code points.
+
+	* Ideograph-R102-Field.el (J90-6136): Unify JIS X 0208:1978 and
+	1983 code points.
+	(J90-613E): Likewise.
+	(J90-3E76): Likewise.
+	(J90-6147): Likewise.
+
+	* Ideograph-R096-Jade.el (J90-6076): Unify JIS X 0208:1983 code
+	point.
+
+	* Ideograph-R094-Dog.el (J90-4E44): Unify JIS X 0208:1978 and 1983
+	code points.
+	(J90-3D43): Likewise.
+
+	* Ideograph-R086-Fire.el (J90-3E46): Unify JIS X 0208:1978 and
+	1983 code points.
+
+	* Ideograph-R072-Sun.el (J90-5B26): Unify JIS X 0208:1978 and 1983
+	code points.
+
+	* Ideograph-R070-Square.el (J90-5A5A): Unify JIS X 0208:1978 and
+	1983 code points.
+
 2001-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R184-Eat.el (U+98EE): Unify J90-5D3B.
