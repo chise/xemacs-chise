@@ -1652,7 +1652,7 @@
     (shinjigen-1	. 1285)
     (shinjigen-2	. 1285)
     (simplified-ideograph-of
-     ((sources		  shinjigen-1)
+     ((sources		  morohashi-daikanwa shinjigen-1)
       (char . ((ideographic-radical . 30)	; â¼
 	       (shinjigen-1	   . 1286)
 	       (ideograph-daikanwa . 04589)	; ø¸‡­
@@ -1661,6 +1661,7 @@
     (japanese-jisx0208-1978	. #x3837)	; ø»‚žˆ
     (japanese-jisx0208		. #x3837)	; ø»†²
     (chinese-cns11643-3		. #x5445)	; ø»–¢‚
+    (japanese-jisx0208-1990	. #x3837)	; ø½Š˜„
     (mojikyo			. 050115)	; ý €Œƒ
     (ucs			. #x53B3)	; åŽ³
     ))
