@@ -257,11 +257,14 @@
     (ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (ideograph=		((ideographic-radical . 20)	; â¼“
-			 (ideographic-strokes . 2)
-			 (total-strokes	      . 4)
-			 (ideograph-daikanwa . 02502)	; ø¸€§†
-			 ))
+    (ideograph=
+     ((sources		  morohashi-daikanwa)
+      (char . ((ideographic-radical . 20)	; â¼“
+	       (ideographic-strokes . 2)
+	       (total-strokes	    . 4)
+	       (ideograph-daikanwa . 02502)	; ø¸€§†
+	       ))
+      ))
     (japanese-jisx0208-1978	. #x4C68)	; ø»‚¼‘
     (japanese-jisx0208		. #x4C68)	; ø»‡™
     (japanese-jisx0208-1990	. #x4C68)	; ø½Š¶
