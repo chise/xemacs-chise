@@ -24,6 +24,8 @@
     (=jis-x0208		. #x4B74)	; ø½Š´»
     (chinese-isoir165	. #x5356)	; ø»¸¥
     (chinese-cns11643-1 . #x4434)	; ø»‘¶‰
+    (ideograph-gt-pj-1	. #x4B74)	; åˆ
+    (ideograph-gt-k	. 00063)	; ý¡„€€¿
     (ucs		. #x53C8)	; åˆ
     ))
 (define-char
