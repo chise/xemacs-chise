@@ -1,4410 +1,4410 @@
 (define-char
   '((name		. "CANADIAN SYLLABICS E")
-    (ucs		. #x1401)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1401)	; ᐁ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS AAI")
-    (ucs		. #x1402)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1402)	; ᐂ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS I")
-    (ucs		. #x1403)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1403)	; ᐃ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS II")
-    (ucs		. #x1404)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1404)	; ᐄ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS O")
-    (ucs		. #x1405)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1405)	; ᐅ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS OO")
-    (ucs		. #x1406)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1406)	; ᐆ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y-CREE OO")
-    (ucs		. #x1407)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1407)	; ᐇ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER EE")
-    (ucs		. #x1408)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1408)	; ᐈ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER I")
-    (ucs		. #x1409)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1409)	; ᐉ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS A")
-    (ucs		. #x140A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x140A)	; ᐊ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS AA")
-    (ucs		. #x140B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x140B)	; ᐋ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WE")
-    (ucs		. #x140C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x140C)	; ᐌ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE WE")
-    (ucs		. #x140D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x140D)	; ᐍ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WI")
-    (ucs		. #x140E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x140E)	; ᐎ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE WI")
-    (ucs		. #x140F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x140F)	; ᐏ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WII")
-    (ucs		. #x1410)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1410)	; ᐐ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE WII")
-    (ucs		. #x1411)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1411)	; ᐑ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WO")
-    (ucs		. #x1412)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1412)	; ᐒ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE WO")
-    (ucs		. #x1413)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1413)	; ᐓ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WOO")
-    (ucs		. #x1414)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1414)	; ᐔ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE WOO")
-    (ucs		. #x1415)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1415)	; ᐕ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI WOO")
-    (ucs		. #x1416)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1416)	; ᐖ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WA")
-    (ucs		. #x1417)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1417)	; ᐗ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE WA")
-    (ucs		. #x1418)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1418)	; ᐘ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WAA")
-    (ucs		. #x1419)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1419)	; ᐙ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE WAA")
-    (ucs		. #x141A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x141A)	; ᐚ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI WAA")
-    (ucs		. #x141B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x141B)	; ᐛ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS AI")
-    (ucs		. #x141C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x141C)	; ᐜ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y-CREE W")
-    (ucs		. #x141D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x141D)	; ᐝ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS GLOTTAL STOP")
-    (ucs		. #x141E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x141E)	; ᐞ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FINAL ACUTE")
-    (ucs		. #x141F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x141F)	; ᐟ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FINAL GRAVE")
-    (ucs		. #x1420)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1420)	; ᐠ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FINAL BOTTOM HALF RING")
-    (ucs		. #x1421)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1421)	; ᐡ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FINAL TOP HALF RING")
-    (ucs		. #x1422)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1422)	; ᐢ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FINAL RIGHT HALF RING")
-    (ucs		. #x1423)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1423)	; ᐣ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FINAL RING")
-    (ucs		. #x1424)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1424)	; ᐤ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FINAL DOUBLE ACUTE")
-    (ucs		. #x1425)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1425)	; ᐥ
     ))
 (define-char
   '((name . "CANADIAN SYLLABICS FINAL DOUBLE SHORT VERTICAL STROKES")
-    (ucs  . #x1426)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1426)	; ᐦ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FINAL MIDDLE DOT")
-    (ucs		. #x1427)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1427)	; ᐧ
     ))
 (define-char
   '((name . "CANADIAN SYLLABICS FINAL SHORT HORIZONTAL STROKE")
-    (ucs  . #x1428)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1428)	; ᐨ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FINAL PLUS")
-    (ucs		. #x1429)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1429)	; ᐩ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FINAL DOWN TACK")
-    (ucs		. #x142A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x142A)	; ᐪ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS EN")
-    (ucs		. #x142B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x142B)	; ᐫ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS IN")
-    (ucs		. #x142C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x142C)	; ᐬ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS ON")
-    (ucs		. #x142D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x142D)	; ᐭ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS AN")
-    (ucs		. #x142E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x142E)	; ᐮ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PE")
-    (ucs		. #x142F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x142F)	; ᐯ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PAAI")
-    (ucs		. #x1430)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1430)	; ᐰ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PI")
-    (ucs		. #x1431)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1431)	; ᐱ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PII")
-    (ucs		. #x1432)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1432)	; ᐲ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PO")
-    (ucs		. #x1433)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1433)	; ᐳ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS POO")
-    (ucs		. #x1434)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1434)	; ᐴ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y-CREE POO")
-    (ucs		. #x1435)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1435)	; ᐵ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER HEE")
-    (ucs		. #x1436)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1436)	; ᐶ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER HI")
-    (ucs		. #x1437)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1437)	; ᐷ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PA")
-    (ucs		. #x1438)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1438)	; ᐸ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PAA")
-    (ucs		. #x1439)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1439)	; ᐹ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PWE")
-    (ucs		. #x143A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x143A)	; ᐺ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE PWE")
-    (ucs		. #x143B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x143B)	; ᐻ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PWI")
-    (ucs		. #x143C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x143C)	; ᐼ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE PWI")
-    (ucs		. #x143D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x143D)	; ᐽ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PWII")
-    (ucs		. #x143E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x143E)	; ᐾ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE PWII")
-    (ucs		. #x143F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x143F)	; ᐿ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PWO")
-    (ucs		. #x1440)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1440)	; ᑀ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE PWO")
-    (ucs		. #x1441)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1441)	; ᑁ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PWOO")
-    (ucs		. #x1442)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1442)	; ᑂ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE PWOO")
-    (ucs		. #x1443)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1443)	; ᑃ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PWA")
-    (ucs		. #x1444)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1444)	; ᑄ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE PWA")
-    (ucs		. #x1445)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1445)	; ᑅ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS PWAA")
-    (ucs		. #x1446)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1446)	; ᑆ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE PWAA")
-    (ucs		. #x1447)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1447)	; ᑇ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y-CREE PWAA")
-    (ucs		. #x1448)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1448)	; ᑈ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS P")
-    (ucs		. #x1449)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1449)	; ᑉ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE P")
-    (ucs		. #x144A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x144A)	; ᑊ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER H")
-    (ucs		. #x144B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x144B)	; ᑋ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TE")
-    (ucs		. #x144C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x144C)	; ᑌ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TAAI")
-    (ucs		. #x144D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x144D)	; ᑍ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TI")
-    (ucs		. #x144E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x144E)	; ᑎ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TII")
-    (ucs		. #x144F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x144F)	; ᑏ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TO")
-    (ucs		. #x1450)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1450)	; ᑐ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TOO")
-    (ucs		. #x1451)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1451)	; ᑑ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y-CREE TOO")
-    (ucs		. #x1452)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1452)	; ᑒ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DEE")
-    (ucs		. #x1453)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1453)	; ᑓ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DI")
-    (ucs		. #x1454)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1454)	; ᑔ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TA")
-    (ucs		. #x1455)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1455)	; ᑕ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TAA")
-    (ucs		. #x1456)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1456)	; ᑖ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TWE")
-    (ucs		. #x1457)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1457)	; ᑗ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE TWE")
-    (ucs		. #x1458)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1458)	; ᑘ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TWI")
-    (ucs		. #x1459)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1459)	; ᑙ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE TWI")
-    (ucs		. #x145A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x145A)	; ᑚ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TWII")
-    (ucs		. #x145B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x145B)	; ᑛ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE TWII")
-    (ucs		. #x145C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x145C)	; ᑜ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TWO")
-    (ucs		. #x145D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x145D)	; ᑝ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE TWO")
-    (ucs		. #x145E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x145E)	; ᑞ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TWOO")
-    (ucs		. #x145F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x145F)	; ᑟ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE TWOO")
-    (ucs		. #x1460)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1460)	; ᑠ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TWA")
-    (ucs		. #x1461)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1461)	; ᑡ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE TWA")
-    (ucs		. #x1462)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1462)	; ᑢ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TWAA")
-    (ucs		. #x1463)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1463)	; ᑣ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE TWAA")
-    (ucs		. #x1464)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1464)	; ᑤ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI TWAA")
-    (ucs		. #x1465)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1465)	; ᑥ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS T")
-    (ucs		. #x1466)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1466)	; ᑦ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TTE")
-    (ucs		. #x1467)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1467)	; ᑧ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TTI")
-    (ucs		. #x1468)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1468)	; ᑨ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TTO")
-    (ucs		. #x1469)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1469)	; ᑩ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TTA")
-    (ucs		. #x146A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x146A)	; ᑪ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KE")
-    (ucs		. #x146B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x146B)	; ᑫ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KAAI")
-    (ucs		. #x146C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x146C)	; ᑬ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KI")
-    (ucs		. #x146D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x146D)	; ᑭ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KII")
-    (ucs		. #x146E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x146E)	; ᑮ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KO")
-    (ucs		. #x146F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x146F)	; ᑯ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KOO")
-    (ucs		. #x1470)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1470)	; ᑰ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y-CREE KOO")
-    (ucs		. #x1471)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1471)	; ᑱ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KA")
-    (ucs		. #x1472)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1472)	; ᑲ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KAA")
-    (ucs		. #x1473)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1473)	; ᑳ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KWE")
-    (ucs		. #x1474)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1474)	; ᑴ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE KWE")
-    (ucs		. #x1475)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1475)	; ᑵ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KWI")
-    (ucs		. #x1476)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1476)	; ᑶ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE KWI")
-    (ucs		. #x1477)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1477)	; ᑷ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KWII")
-    (ucs		. #x1478)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1478)	; ᑸ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE KWII")
-    (ucs		. #x1479)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1479)	; ᑹ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KWO")
-    (ucs		. #x147A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x147A)	; ᑺ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE KWO")
-    (ucs		. #x147B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x147B)	; ᑻ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KWOO")
-    (ucs		. #x147C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x147C)	; ᑼ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE KWOO")
-    (ucs		. #x147D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x147D)	; ᑽ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KWA")
-    (ucs		. #x147E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x147E)	; ᑾ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE KWA")
-    (ucs		. #x147F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x147F)	; ᑿ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KWAA")
-    (ucs		. #x1480)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1480)	; ᒀ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE KWAA")
-    (ucs		. #x1481)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1481)	; ᒁ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI KWAA")
-    (ucs		. #x1482)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1482)	; ᒂ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS K")
-    (ucs		. #x1483)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1483)	; ᒃ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS KW")
-    (ucs		. #x1484)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1484)	; ᒄ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SOUTH-SLAVEY KEH")
-    (ucs		. #x1485)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1485)	; ᒅ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SOUTH-SLAVEY KIH")
-    (ucs		. #x1486)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1486)	; ᒆ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SOUTH-SLAVEY KOH")
-    (ucs		. #x1487)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1487)	; ᒇ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SOUTH-SLAVEY KAH")
-    (ucs		. #x1488)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1488)	; ᒈ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CE")
-    (ucs		. #x1489)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1489)	; ᒉ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CAAI")
-    (ucs		. #x148A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x148A)	; ᒊ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CI")
-    (ucs		. #x148B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x148B)	; ᒋ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CII")
-    (ucs		. #x148C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x148C)	; ᒌ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CO")
-    (ucs		. #x148D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x148D)	; ᒍ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS COO")
-    (ucs		. #x148E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x148E)	; ᒎ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y-CREE COO")
-    (ucs		. #x148F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x148F)	; ᒏ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CA")
-    (ucs		. #x1490)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1490)	; ᒐ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CAA")
-    (ucs		. #x1491)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1491)	; ᒑ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CWE")
-    (ucs		. #x1492)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1492)	; ᒒ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE CWE")
-    (ucs		. #x1493)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1493)	; ᒓ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CWI")
-    (ucs		. #x1494)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1494)	; ᒔ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE CWI")
-    (ucs		. #x1495)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1495)	; ᒕ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CWII")
-    (ucs		. #x1496)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1496)	; ᒖ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE CWII")
-    (ucs		. #x1497)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1497)	; ᒗ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CWO")
-    (ucs		. #x1498)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1498)	; ᒘ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE CWO")
-    (ucs		. #x1499)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1499)	; ᒙ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CWOO")
-    (ucs		. #x149A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x149A)	; ᒚ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE CWOO")
-    (ucs		. #x149B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x149B)	; ᒛ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CWA")
-    (ucs		. #x149C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x149C)	; ᒜ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE CWA")
-    (ucs		. #x149D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x149D)	; ᒝ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CWAA")
-    (ucs		. #x149E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x149E)	; ᒞ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE CWAA")
-    (ucs		. #x149F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x149F)	; ᒟ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI CWAA")
-    (ucs		. #x14A0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14A0)	; ᒠ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS C")
-    (ucs		. #x14A1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14A1)	; ᒡ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI TH")
-    (ucs		. #x14A2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14A2)	; ᒢ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS ME")
-    (ucs		. #x14A3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14A3)	; ᒣ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MAAI")
-    (ucs		. #x14A4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14A4)	; ᒤ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MI")
-    (ucs		. #x14A5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14A5)	; ᒥ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MII")
-    (ucs		. #x14A6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14A6)	; ᒦ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MO")
-    (ucs		. #x14A7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14A7)	; ᒧ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MOO")
-    (ucs		. #x14A8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14A8)	; ᒨ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y-CREE MOO")
-    (ucs		. #x14A9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14A9)	; ᒩ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MA")
-    (ucs		. #x14AA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14AA)	; ᒪ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MAA")
-    (ucs		. #x14AB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14AB)	; ᒫ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MWE")
-    (ucs		. #x14AC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14AC)	; ᒬ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE MWE")
-    (ucs		. #x14AD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14AD)	; ᒭ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MWI")
-    (ucs		. #x14AE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14AE)	; ᒮ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE MWI")
-    (ucs		. #x14AF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14AF)	; ᒯ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MWII")
-    (ucs		. #x14B0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14B0)	; ᒰ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE MWII")
-    (ucs		. #x14B1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14B1)	; ᒱ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MWO")
-    (ucs		. #x14B2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14B2)	; ᒲ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE MWO")
-    (ucs		. #x14B3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14B3)	; ᒳ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MWOO")
-    (ucs		. #x14B4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14B4)	; ᒴ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE MWOO")
-    (ucs		. #x14B5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14B5)	; ᒵ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MWA")
-    (ucs		. #x14B6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14B6)	; ᒶ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE MWA")
-    (ucs		. #x14B7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14B7)	; ᒷ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MWAA")
-    (ucs		. #x14B8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14B8)	; ᒸ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE MWAA")
-    (ucs		. #x14B9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14B9)	; ᒹ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI MWAA")
-    (ucs		. #x14BA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14BA)	; ᒺ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS M")
-    (ucs		. #x14BB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14BB)	; ᒻ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE M")
-    (ucs		. #x14BC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14BC)	; ᒼ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MH")
-    (ucs		. #x14BD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14BD)	; ᒽ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS ATHAPASCAN M")
-    (ucs		. #x14BE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14BE)	; ᒾ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI M")
-    (ucs		. #x14BF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14BF)	; ᒿ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NE")
-    (ucs		. #x14C0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14C0)	; ᓀ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NAAI")
-    (ucs		. #x14C1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14C1)	; ᓁ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NI")
-    (ucs		. #x14C2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14C2)	; ᓂ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NII")
-    (ucs		. #x14C3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14C3)	; ᓃ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NO")
-    (ucs		. #x14C4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14C4)	; ᓄ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NOO")
-    (ucs		. #x14C5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14C5)	; ᓅ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y-CREE NOO")
-    (ucs		. #x14C6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14C6)	; ᓆ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NA")
-    (ucs		. #x14C7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14C7)	; ᓇ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NAA")
-    (ucs		. #x14C8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14C8)	; ᓈ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NWE")
-    (ucs		. #x14C9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14C9)	; ᓉ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE NWE")
-    (ucs		. #x14CA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14CA)	; ᓊ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NWA")
-    (ucs		. #x14CB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14CB)	; ᓋ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE NWA")
-    (ucs		. #x14CC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14CC)	; ᓌ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NWAA")
-    (ucs		. #x14CD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14CD)	; ᓍ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE NWAA")
-    (ucs		. #x14CE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14CE)	; ᓎ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI NWAA")
-    (ucs		. #x14CF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14CF)	; ᓏ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS N")
-    (ucs		. #x14D0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14D0)	; ᓐ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER NG")
-    (ucs		. #x14D1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14D1)	; ᓑ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NH")
-    (ucs		. #x14D2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14D2)	; ᓒ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LE")
-    (ucs		. #x14D3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14D3)	; ᓓ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LAAI")
-    (ucs		. #x14D4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14D4)	; ᓔ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LI")
-    (ucs		. #x14D5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14D5)	; ᓕ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LII")
-    (ucs		. #x14D6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14D6)	; ᓖ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LO")
-    (ucs		. #x14D7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14D7)	; ᓗ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LOO")
-    (ucs		. #x14D8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14D8)	; ᓘ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y-CREE LOO")
-    (ucs		. #x14D9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14D9)	; ᓙ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LA")
-    (ucs		. #x14DA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14DA)	; ᓚ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LAA")
-    (ucs		. #x14DB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14DB)	; ᓛ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LWE")
-    (ucs		. #x14DC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14DC)	; ᓜ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE LWE")
-    (ucs		. #x14DD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14DD)	; ᓝ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LWI")
-    (ucs		. #x14DE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14DE)	; ᓞ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE LWI")
-    (ucs		. #x14DF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14DF)	; ᓟ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LWII")
-    (ucs		. #x14E0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14E0)	; ᓠ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE LWII")
-    (ucs		. #x14E1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14E1)	; ᓡ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LWO")
-    (ucs		. #x14E2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14E2)	; ᓢ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE LWO")
-    (ucs		. #x14E3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14E3)	; ᓣ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LWOO")
-    (ucs		. #x14E4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14E4)	; ᓤ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE LWOO")
-    (ucs		. #x14E5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14E5)	; ᓥ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LWA")
-    (ucs		. #x14E6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14E6)	; ᓦ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE LWA")
-    (ucs		. #x14E7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14E7)	; ᓧ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LWAA")
-    (ucs		. #x14E8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14E8)	; ᓨ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE LWAA")
-    (ucs		. #x14E9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14E9)	; ᓩ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS L")
-    (ucs		. #x14EA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14EA)	; ᓪ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE L")
-    (ucs		. #x14EB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14EB)	; ᓫ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MEDIAL L")
-    (ucs		. #x14EC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14EC)	; ᓬ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SE")
-    (ucs		. #x14ED)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14ED)	; ᓭ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAAI")
-    (ucs		. #x14EE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14EE)	; ᓮ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SI")
-    (ucs		. #x14EF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14EF)	; ᓯ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SII")
-    (ucs		. #x14F0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14F0)	; ᓰ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SO")
-    (ucs		. #x14F1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14F1)	; ᓱ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SOO")
-    (ucs		. #x14F2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14F2)	; ᓲ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y-CREE SOO")
-    (ucs		. #x14F3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14F3)	; ᓳ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SA")
-    (ucs		. #x14F4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14F4)	; ᓴ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAA")
-    (ucs		. #x14F5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14F5)	; ᓵ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SWE")
-    (ucs		. #x14F6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14F6)	; ᓶ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SWE")
-    (ucs		. #x14F7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14F7)	; ᓷ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SWI")
-    (ucs		. #x14F8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14F8)	; ᓸ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SWI")
-    (ucs		. #x14F9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14F9)	; ᓹ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SWII")
-    (ucs		. #x14FA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14FA)	; ᓺ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SWII")
-    (ucs		. #x14FB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14FB)	; ᓻ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SWO")
-    (ucs		. #x14FC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14FC)	; ᓼ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SWO")
-    (ucs		. #x14FD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14FD)	; ᓽ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SWOO")
-    (ucs		. #x14FE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14FE)	; ᓾ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SWOO")
-    (ucs		. #x14FF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x14FF)	; ᓿ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SWA")
-    (ucs		. #x1500)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1500)	; ᔀ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SWA")
-    (ucs		. #x1501)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1501)	; ᔁ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SWAA")
-    (ucs		. #x1502)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1502)	; ᔂ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SWAA")
-    (ucs		. #x1503)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1503)	; ᔃ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI SWAA")
-    (ucs		. #x1504)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1504)	; ᔄ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS S")
-    (ucs		. #x1505)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1505)	; ᔅ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS ATHAPASCAN S")
-    (ucs		. #x1506)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1506)	; ᔆ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SW")
-    (ucs		. #x1507)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1507)	; ᔇ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT S")
-    (ucs		. #x1508)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1508)	; ᔈ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MOOSE-CREE SK")
-    (ucs		. #x1509)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1509)	; ᔉ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI SKW")
-    (ucs		. #x150A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x150A)	; ᔊ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI S-W")
-    (ucs		. #x150B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x150B)	; ᔋ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI SPWA")
-    (ucs		. #x150C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x150C)	; ᔌ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI STWA")
-    (ucs		. #x150D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x150D)	; ᔍ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI SKWA")
-    (ucs		. #x150E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x150E)	; ᔎ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI SCWA")
-    (ucs		. #x150F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x150F)	; ᔏ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHE")
-    (ucs		. #x1510)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1510)	; ᔐ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHI")
-    (ucs		. #x1511)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1511)	; ᔑ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHII")
-    (ucs		. #x1512)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1512)	; ᔒ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHO")
-    (ucs		. #x1513)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1513)	; ᔓ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHOO")
-    (ucs		. #x1514)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1514)	; ᔔ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHA")
-    (ucs		. #x1515)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1515)	; ᔕ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHAA")
-    (ucs		. #x1516)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1516)	; ᔖ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHWE")
-    (ucs		. #x1517)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1517)	; ᔗ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SHWE")
-    (ucs		. #x1518)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1518)	; ᔘ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHWI")
-    (ucs		. #x1519)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1519)	; ᔙ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SHWI")
-    (ucs		. #x151A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x151A)	; ᔚ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHWII")
-    (ucs		. #x151B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x151B)	; ᔛ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SHWII")
-    (ucs		. #x151C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x151C)	; ᔜ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHWO")
-    (ucs		. #x151D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x151D)	; ᔝ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SHWO")
-    (ucs		. #x151E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x151E)	; ᔞ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHWOO")
-    (ucs		. #x151F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x151F)	; ᔟ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SHWOO")
-    (ucs		. #x1520)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1520)	; ᔠ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHWA")
-    (ucs		. #x1521)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1521)	; ᔡ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SHWA")
-    (ucs		. #x1522)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1522)	; ᔢ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SHWAA")
-    (ucs		. #x1523)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1523)	; ᔣ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE SHWAA")
-    (ucs		. #x1524)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1524)	; ᔤ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SH")
-    (ucs		. #x1525)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1525)	; ᔥ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YE")
-    (ucs		. #x1526)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1526)	; ᔦ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YAAI")
-    (ucs		. #x1527)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1527)	; ᔧ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YI")
-    (ucs		. #x1528)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1528)	; ᔨ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YII")
-    (ucs		. #x1529)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1529)	; ᔩ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YO")
-    (ucs		. #x152A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x152A)	; ᔪ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YOO")
-    (ucs		. #x152B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x152B)	; ᔫ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y-CREE YOO")
-    (ucs		. #x152C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x152C)	; ᔬ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YA")
-    (ucs		. #x152D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x152D)	; ᔭ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YAA")
-    (ucs		. #x152E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x152E)	; ᔮ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YWE")
-    (ucs		. #x152F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x152F)	; ᔯ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE YWE")
-    (ucs		. #x1530)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1530)	; ᔰ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YWI")
-    (ucs		. #x1531)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1531)	; ᔱ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE YWI")
-    (ucs		. #x1532)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1532)	; ᔲ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YWII")
-    (ucs		. #x1533)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1533)	; ᔳ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE YWII")
-    (ucs		. #x1534)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1534)	; ᔴ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YWO")
-    (ucs		. #x1535)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1535)	; ᔵ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE YWO")
-    (ucs		. #x1536)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1536)	; ᔶ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YWOO")
-    (ucs		. #x1537)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1537)	; ᔷ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE YWOO")
-    (ucs		. #x1538)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1538)	; ᔸ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YWA")
-    (ucs		. #x1539)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1539)	; ᔹ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE YWA")
-    (ucs		. #x153A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x153A)	; ᔺ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS YWAA")
-    (ucs		. #x153B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x153B)	; ᔻ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE YWAA")
-    (ucs		. #x153C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x153C)	; ᔼ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NASKAPI YWAA")
-    (ucs		. #x153D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x153D)	; ᔽ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Y")
-    (ucs		. #x153E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x153E)	; ᔾ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BIBLE-CREE Y")
-    (ucs		. #x153F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x153F)	; ᔿ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE Y")
-    (ucs		. #x1540)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1540)	; ᕀ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI YI")
-    (ucs		. #x1541)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1541)	; ᕁ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS RE")
-    (ucs		. #x1542)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1542)	; ᕂ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS R-CREE RE")
-    (ucs		. #x1543)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1543)	; ᕃ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE LE")
-    (ucs		. #x1544)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1544)	; ᕄ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS RAAI")
-    (ucs		. #x1545)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1545)	; ᕅ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS RI")
-    (ucs		. #x1546)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1546)	; ᕆ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS RII")
-    (ucs		. #x1547)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1547)	; ᕇ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS RO")
-    (ucs		. #x1548)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1548)	; ᕈ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS ROO")
-    (ucs		. #x1549)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1549)	; ᕉ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE LO")
-    (ucs		. #x154A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x154A)	; ᕊ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS RA")
-    (ucs		. #x154B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x154B)	; ᕋ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS RAA")
-    (ucs		. #x154C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x154C)	; ᕌ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE LA")
-    (ucs		. #x154D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x154D)	; ᕍ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS RWAA")
-    (ucs		. #x154E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x154E)	; ᕎ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE RWAA")
-    (ucs		. #x154F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x154F)	; ᕏ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS R")
-    (ucs		. #x1550)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1550)	; ᕐ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE R")
-    (ucs		. #x1551)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1551)	; ᕑ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS MEDIAL R")
-    (ucs		. #x1552)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1552)	; ᕒ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FE")
-    (ucs		. #x1553)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1553)	; ᕓ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FAAI")
-    (ucs		. #x1554)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1554)	; ᕔ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FI")
-    (ucs		. #x1555)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1555)	; ᕕ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FII")
-    (ucs		. #x1556)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1556)	; ᕖ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FO")
-    (ucs		. #x1557)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1557)	; ᕗ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FOO")
-    (ucs		. #x1558)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1558)	; ᕘ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FA")
-    (ucs		. #x1559)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1559)	; ᕙ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FAA")
-    (ucs		. #x155A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x155A)	; ᕚ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FWAA")
-    (ucs		. #x155B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x155B)	; ᕛ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE FWAA")
-    (ucs		. #x155C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x155C)	; ᕜ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS F")
-    (ucs		. #x155D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x155D)	; ᕝ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS THE")
-    (ucs		. #x155E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x155E)	; ᕞ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS N-CREE THE")
-    (ucs		. #x155F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x155F)	; ᕟ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS THI")
-    (ucs		. #x1560)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1560)	; ᕠ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS N-CREE THI")
-    (ucs		. #x1561)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1561)	; ᕡ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS THII")
-    (ucs		. #x1562)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1562)	; ᕢ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS N-CREE THII")
-    (ucs		. #x1563)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1563)	; ᕣ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS THO")
-    (ucs		. #x1564)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1564)	; ᕤ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS THOO")
-    (ucs		. #x1565)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1565)	; ᕥ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS THA")
-    (ucs		. #x1566)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1566)	; ᕦ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS THAA")
-    (ucs		. #x1567)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1567)	; ᕧ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS THWAA")
-    (ucs		. #x1568)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1568)	; ᕨ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE THWAA")
-    (ucs		. #x1569)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1569)	; ᕩ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TH")
-    (ucs		. #x156A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x156A)	; ᕪ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TTHE")
-    (ucs		. #x156B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x156B)	; ᕫ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TTHI")
-    (ucs		. #x156C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x156C)	; ᕬ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TTHO")
-    (ucs		. #x156D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x156D)	; ᕭ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TTHA")
-    (ucs		. #x156E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x156E)	; ᕮ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TTH")
-    (ucs		. #x156F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x156F)	; ᕯ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TYE")
-    (ucs		. #x1570)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1570)	; ᕰ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TYI")
-    (ucs		. #x1571)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1571)	; ᕱ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TYO")
-    (ucs		. #x1572)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1572)	; ᕲ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TYA")
-    (ucs		. #x1573)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1573)	; ᕳ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NUNAVIK HE")
-    (ucs		. #x1574)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1574)	; ᕴ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NUNAVIK HI")
-    (ucs		. #x1575)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1575)	; ᕵ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NUNAVIK HII")
-    (ucs		. #x1576)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1576)	; ᕶ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NUNAVIK HO")
-    (ucs		. #x1577)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1577)	; ᕷ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NUNAVIK HOO")
-    (ucs		. #x1578)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1578)	; ᕸ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NUNAVIK HA")
-    (ucs		. #x1579)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1579)	; ᕹ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NUNAVIK HAA")
-    (ucs		. #x157A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x157A)	; ᕺ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NUNAVIK H")
-    (ucs		. #x157B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x157B)	; ᕻ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NUNAVUT H")
-    (ucs		. #x157C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x157C)	; ᕼ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS HK")
-    (ucs		. #x157D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x157D)	; ᕽ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS QAAI")
-    (ucs		. #x157E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x157E)	; ᕾ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS QI")
-    (ucs		. #x157F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x157F)	; ᕿ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS QII")
-    (ucs		. #x1580)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1580)	; ᖀ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS QO")
-    (ucs		. #x1581)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1581)	; ᖁ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS QOO")
-    (ucs		. #x1582)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1582)	; ᖂ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS QA")
-    (ucs		. #x1583)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1583)	; ᖃ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS QAA")
-    (ucs		. #x1584)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1584)	; ᖄ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS Q")
-    (ucs		. #x1585)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1585)	; ᖅ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TLHE")
-    (ucs		. #x1586)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1586)	; ᖆ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TLHI")
-    (ucs		. #x1587)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1587)	; ᖇ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TLHO")
-    (ucs		. #x1588)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1588)	; ᖈ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TLHA")
-    (ucs		. #x1589)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1589)	; ᖉ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE RE")
-    (ucs		. #x158A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x158A)	; ᖊ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE RI")
-    (ucs		. #x158B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x158B)	; ᖋ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE RO")
-    (ucs		. #x158C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x158C)	; ᖌ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WEST-CREE RA")
-    (ucs		. #x158D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x158D)	; ᖍ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NGAAI")
-    (ucs		. #x158E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x158E)	; ᖎ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NGI")
-    (ucs		. #x158F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x158F)	; ᖏ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NGII")
-    (ucs		. #x1590)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1590)	; ᖐ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NGO")
-    (ucs		. #x1591)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1591)	; ᖑ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NGOO")
-    (ucs		. #x1592)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1592)	; ᖒ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NGA")
-    (ucs		. #x1593)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1593)	; ᖓ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NGAA")
-    (ucs		. #x1594)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1594)	; ᖔ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NG")
-    (ucs		. #x1595)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1595)	; ᖕ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NNG")
-    (ucs		. #x1596)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1596)	; ᖖ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI SHE")
-    (ucs		. #x1597)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1597)	; ᖗ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI SHI")
-    (ucs		. #x1598)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1598)	; ᖘ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI SHO")
-    (ucs		. #x1599)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1599)	; ᖙ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI SHA")
-    (ucs		. #x159A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x159A)	; ᖚ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WOODS-CREE THE")
-    (ucs		. #x159B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x159B)	; ᖛ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WOODS-CREE THI")
-    (ucs		. #x159C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x159C)	; ᖜ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WOODS-CREE THO")
-    (ucs		. #x159D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x159D)	; ᖝ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WOODS-CREE THA")
-    (ucs		. #x159E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x159E)	; ᖞ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS WOODS-CREE TH")
-    (ucs		. #x159F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x159F)	; ᖟ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LHI")
-    (ucs		. #x15A0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15A0)	; ᖠ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LHII")
-    (ucs		. #x15A1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15A1)	; ᖡ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LHO")
-    (ucs		. #x15A2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15A2)	; ᖢ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LHOO")
-    (ucs		. #x15A3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15A3)	; ᖣ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LHA")
-    (ucs		. #x15A4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15A4)	; ᖤ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LHAA")
-    (ucs		. #x15A5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15A5)	; ᖥ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS LH")
-    (ucs		. #x15A6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15A6)	; ᖦ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TH-CREE THE")
-    (ucs		. #x15A7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15A7)	; ᖧ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TH-CREE THI")
-    (ucs		. #x15A8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15A8)	; ᖨ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TH-CREE THII")
-    (ucs		. #x15A9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15A9)	; ᖩ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TH-CREE THO")
-    (ucs		. #x15AA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15AA)	; ᖪ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TH-CREE THOO")
-    (ucs		. #x15AB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15AB)	; ᖫ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TH-CREE THA")
-    (ucs		. #x15AC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15AC)	; ᖬ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TH-CREE THAA")
-    (ucs		. #x15AD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15AD)	; ᖭ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS TH-CREE TH")
-    (ucs		. #x15AE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15AE)	; ᖮ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS AIVILIK B")
-    (ucs		. #x15AF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15AF)	; ᖯ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT E")
-    (ucs		. #x15B0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15B0)	; ᖰ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT I")
-    (ucs		. #x15B1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15B1)	; ᖱ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT O")
-    (ucs		. #x15B2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15B2)	; ᖲ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT A")
-    (ucs		. #x15B3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15B3)	; ᖳ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT WE")
-    (ucs		. #x15B4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15B4)	; ᖴ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT WI")
-    (ucs		. #x15B5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15B5)	; ᖵ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT WO")
-    (ucs		. #x15B6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15B6)	; ᖶ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT WA")
-    (ucs		. #x15B7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15B7)	; ᖷ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT NE")
-    (ucs		. #x15B8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15B8)	; ᖸ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT NI")
-    (ucs		. #x15B9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15B9)	; ᖹ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT NO")
-    (ucs		. #x15BA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15BA)	; ᖺ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT NA")
-    (ucs		. #x15BB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15BB)	; ᖻ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT KE")
-    (ucs		. #x15BC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15BC)	; ᖼ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT KI")
-    (ucs		. #x15BD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15BD)	; ᖽ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT KO")
-    (ucs		. #x15BE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15BE)	; ᖾ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS BLACKFOOT KA")
-    (ucs		. #x15BF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15BF)	; ᖿ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI HE")
-    (ucs		. #x15C0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15C0)	; ᗀ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI HI")
-    (ucs		. #x15C1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15C1)	; ᗁ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI HO")
-    (ucs		. #x15C2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15C2)	; ᗂ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI HA")
-    (ucs		. #x15C3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15C3)	; ᗃ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER GHU")
-    (ucs		. #x15C4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15C4)	; ᗄ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER GHO")
-    (ucs		. #x15C5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15C5)	; ᗅ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER GHE")
-    (ucs		. #x15C6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15C6)	; ᗆ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER GHEE")
-    (ucs		. #x15C7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15C7)	; ᗇ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER GHI")
-    (ucs		. #x15C8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15C8)	; ᗈ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER GHA")
-    (ucs		. #x15C9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15C9)	; ᗉ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER RU")
-    (ucs		. #x15CA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15CA)	; ᗊ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER RO")
-    (ucs		. #x15CB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15CB)	; ᗋ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER RE")
-    (ucs		. #x15CC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15CC)	; ᗌ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER REE")
-    (ucs		. #x15CD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15CD)	; ᗍ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER RI")
-    (ucs		. #x15CE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15CE)	; ᗎ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER RA")
-    (ucs		. #x15CF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15CF)	; ᗏ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER WU")
-    (ucs		. #x15D0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15D0)	; ᗐ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER WO")
-    (ucs		. #x15D1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15D1)	; ᗑ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER WE")
-    (ucs		. #x15D2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15D2)	; ᗒ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER WEE")
-    (ucs		. #x15D3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15D3)	; ᗓ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER WI")
-    (ucs		. #x15D4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15D4)	; ᗔ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER WA")
-    (ucs		. #x15D5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15D5)	; ᗕ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER HWU")
-    (ucs		. #x15D6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15D6)	; ᗖ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER HWO")
-    (ucs		. #x15D7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15D7)	; ᗗ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER HWE")
-    (ucs		. #x15D8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15D8)	; ᗘ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER HWEE")
-    (ucs		. #x15D9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15D9)	; ᗙ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER HWI")
-    (ucs		. #x15DA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15DA)	; ᗚ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER HWA")
-    (ucs		. #x15DB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15DB)	; ᗛ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER THU")
-    (ucs		. #x15DC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15DC)	; ᗜ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER THO")
-    (ucs		. #x15DD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15DD)	; ᗝ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER THE")
-    (ucs		. #x15DE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15DE)	; ᗞ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER THEE")
-    (ucs		. #x15DF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15DF)	; ᗟ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER THI")
-    (ucs		. #x15E0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15E0)	; ᗠ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER THA")
-    (ucs		. #x15E1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15E1)	; ᗡ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TTU")
-    (ucs		. #x15E2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15E2)	; ᗢ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TTO")
-    (ucs		. #x15E3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15E3)	; ᗣ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TTE")
-    (ucs		. #x15E4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15E4)	; ᗤ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TTEE")
-    (ucs		. #x15E5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15E5)	; ᗥ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TTI")
-    (ucs		. #x15E6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15E6)	; ᗦ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TTA")
-    (ucs		. #x15E7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15E7)	; ᗧ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER PU")
-    (ucs		. #x15E8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15E8)	; ᗨ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER PO")
-    (ucs		. #x15E9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15E9)	; ᗩ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER PE")
-    (ucs		. #x15EA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15EA)	; ᗪ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER PEE")
-    (ucs		. #x15EB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15EB)	; ᗫ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER PI")
-    (ucs		. #x15EC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15EC)	; ᗬ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER PA")
-    (ucs		. #x15ED)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15ED)	; ᗭ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER P")
-    (ucs		. #x15EE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15EE)	; ᗮ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER GU")
-    (ucs		. #x15EF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15EF)	; ᗯ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER GO")
-    (ucs		. #x15F0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15F0)	; ᗰ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER GE")
-    (ucs		. #x15F1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15F1)	; ᗱ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER GEE")
-    (ucs		. #x15F2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15F2)	; ᗲ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER GI")
-    (ucs		. #x15F3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15F3)	; ᗳ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER GA")
-    (ucs		. #x15F4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15F4)	; ᗴ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KHU")
-    (ucs		. #x15F5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15F5)	; ᗵ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KHO")
-    (ucs		. #x15F6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15F6)	; ᗶ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KHE")
-    (ucs		. #x15F7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15F7)	; ᗷ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KHEE")
-    (ucs		. #x15F8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15F8)	; ᗸ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KHI")
-    (ucs		. #x15F9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15F9)	; ᗹ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KHA")
-    (ucs		. #x15FA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15FA)	; ᗺ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KKU")
-    (ucs		. #x15FB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15FB)	; ᗻ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KKO")
-    (ucs		. #x15FC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15FC)	; ᗼ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KKE")
-    (ucs		. #x15FD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15FD)	; ᗽ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KKEE")
-    (ucs		. #x15FE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15FE)	; ᗾ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KKI")
-    (ucs		. #x15FF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x15FF)	; ᗿ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KKA")
-    (ucs		. #x1600)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1600)	; ᘀ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER KK")
-    (ucs		. #x1601)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1601)	; ᘁ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER NU")
-    (ucs		. #x1602)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1602)	; ᘂ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER NO")
-    (ucs		. #x1603)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1603)	; ᘃ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER NE")
-    (ucs		. #x1604)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1604)	; ᘄ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER NEE")
-    (ucs		. #x1605)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1605)	; ᘅ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER NI")
-    (ucs		. #x1606)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1606)	; ᘆ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER NA")
-    (ucs		. #x1607)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1607)	; ᘇ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER MU")
-    (ucs		. #x1608)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1608)	; ᘈ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER MO")
-    (ucs		. #x1609)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1609)	; ᘉ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER ME")
-    (ucs		. #x160A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x160A)	; ᘊ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER MEE")
-    (ucs		. #x160B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x160B)	; ᘋ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER MI")
-    (ucs		. #x160C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x160C)	; ᘌ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER MA")
-    (ucs		. #x160D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x160D)	; ᘍ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER YU")
-    (ucs		. #x160E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x160E)	; ᘎ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER YO")
-    (ucs		. #x160F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x160F)	; ᘏ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER YE")
-    (ucs		. #x1610)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1610)	; ᘐ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER YEE")
-    (ucs		. #x1611)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1611)	; ᘑ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER YI")
-    (ucs		. #x1612)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1612)	; ᘒ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER YA")
-    (ucs		. #x1613)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1613)	; ᘓ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER JU")
-    (ucs		. #x1614)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1614)	; ᘔ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI JU")
-    (ucs		. #x1615)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1615)	; ᘕ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER JO")
-    (ucs		. #x1616)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1616)	; ᘖ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER JE")
-    (ucs		. #x1617)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1617)	; ᘗ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER JEE")
-    (ucs		. #x1618)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1618)	; ᘘ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER JI")
-    (ucs		. #x1619)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1619)	; ᘙ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS SAYISI JI")
-    (ucs		. #x161A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x161A)	; ᘚ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER JA")
-    (ucs		. #x161B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x161B)	; ᘛ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER JJU")
-    (ucs		. #x161C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x161C)	; ᘜ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER JJO")
-    (ucs		. #x161D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x161D)	; ᘝ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER JJE")
-    (ucs		. #x161E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x161E)	; ᘞ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER JJEE")
-    (ucs		. #x161F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x161F)	; ᘟ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER JJI")
-    (ucs		. #x1620)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1620)	; ᘠ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER JJA")
-    (ucs		. #x1621)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1621)	; ᘡ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER LU")
-    (ucs		. #x1622)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1622)	; ᘢ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER LO")
-    (ucs		. #x1623)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1623)	; ᘣ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER LE")
-    (ucs		. #x1624)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1624)	; ᘤ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER LEE")
-    (ucs		. #x1625)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1625)	; ᘥ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER LI")
-    (ucs		. #x1626)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1626)	; ᘦ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER LA")
-    (ucs		. #x1627)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1627)	; ᘧ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DLU")
-    (ucs		. #x1628)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1628)	; ᘨ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DLO")
-    (ucs		. #x1629)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1629)	; ᘩ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DLE")
-    (ucs		. #x162A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x162A)	; ᘪ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DLEE")
-    (ucs		. #x162B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x162B)	; ᘫ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DLI")
-    (ucs		. #x162C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x162C)	; ᘬ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DLA")
-    (ucs		. #x162D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x162D)	; ᘭ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER LHU")
-    (ucs		. #x162E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x162E)	; ᘮ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER LHO")
-    (ucs		. #x162F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x162F)	; ᘯ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER LHE")
-    (ucs		. #x1630)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1630)	; ᘰ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER LHEE")
-    (ucs		. #x1631)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1631)	; ᘱ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER LHI")
-    (ucs		. #x1632)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1632)	; ᘲ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER LHA")
-    (ucs		. #x1633)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1633)	; ᘳ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TLHU")
-    (ucs		. #x1634)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1634)	; ᘴ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TLHO")
-    (ucs		. #x1635)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1635)	; ᘵ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TLHE")
-    (ucs		. #x1636)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1636)	; ᘶ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TLHEE")
-    (ucs		. #x1637)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1637)	; ᘷ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TLHI")
-    (ucs		. #x1638)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1638)	; ᘸ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TLHA")
-    (ucs		. #x1639)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1639)	; ᘹ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TLU")
-    (ucs		. #x163A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x163A)	; ᘺ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TLO")
-    (ucs		. #x163B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x163B)	; ᘻ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TLE")
-    (ucs		. #x163C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x163C)	; ᘼ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TLEE")
-    (ucs		. #x163D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x163D)	; ᘽ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TLI")
-    (ucs		. #x163E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x163E)	; ᘾ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TLA")
-    (ucs		. #x163F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x163F)	; ᘿ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER ZU")
-    (ucs		. #x1640)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1640)	; ᙀ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER ZO")
-    (ucs		. #x1641)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1641)	; ᙁ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER ZE")
-    (ucs		. #x1642)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1642)	; ᙂ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER ZEE")
-    (ucs		. #x1643)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1643)	; ᙃ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER ZI")
-    (ucs		. #x1644)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1644)	; ᙄ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER ZA")
-    (ucs		. #x1645)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1645)	; ᙅ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER Z")
-    (ucs		. #x1646)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1646)	; ᙆ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER INITIAL Z")
-    (ucs		. #x1647)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1647)	; ᙇ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DZU")
-    (ucs		. #x1648)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1648)	; ᙈ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DZO")
-    (ucs		. #x1649)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1649)	; ᙉ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DZE")
-    (ucs		. #x164A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x164A)	; ᙊ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DZEE")
-    (ucs		. #x164B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x164B)	; ᙋ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DZI")
-    (ucs		. #x164C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x164C)	; ᙌ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER DZA")
-    (ucs		. #x164D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x164D)	; ᙍ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SU")
-    (ucs		. #x164E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x164E)	; ᙎ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SO")
-    (ucs		. #x164F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x164F)	; ᙏ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SE")
-    (ucs		. #x1650)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1650)	; ᙐ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SEE")
-    (ucs		. #x1651)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1651)	; ᙑ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SI")
-    (ucs		. #x1652)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1652)	; ᙒ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SA")
-    (ucs		. #x1653)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1653)	; ᙓ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SHU")
-    (ucs		. #x1654)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1654)	; ᙔ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SHO")
-    (ucs		. #x1655)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1655)	; ᙕ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SHE")
-    (ucs		. #x1656)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1656)	; ᙖ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SHEE")
-    (ucs		. #x1657)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1657)	; ᙗ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SHI")
-    (ucs		. #x1658)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1658)	; ᙘ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SHA")
-    (ucs		. #x1659)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1659)	; ᙙ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER SH")
-    (ucs		. #x165A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x165A)	; ᙚ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TSU")
-    (ucs		. #x165B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x165B)	; ᙛ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TSO")
-    (ucs		. #x165C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x165C)	; ᙜ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TSE")
-    (ucs		. #x165D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x165D)	; ᙝ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TSEE")
-    (ucs		. #x165E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x165E)	; ᙞ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TSI")
-    (ucs		. #x165F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x165F)	; ᙟ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TSA")
-    (ucs		. #x1660)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1660)	; ᙠ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER CHU")
-    (ucs		. #x1661)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1661)	; ᙡ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER CHO")
-    (ucs		. #x1662)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1662)	; ᙢ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER CHE")
-    (ucs		. #x1663)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1663)	; ᙣ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER CHEE")
-    (ucs		. #x1664)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1664)	; ᙤ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER CHI")
-    (ucs		. #x1665)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1665)	; ᙥ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER CHA")
-    (ucs		. #x1666)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1666)	; ᙦ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TTSU")
-    (ucs		. #x1667)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1667)	; ᙧ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TTSO")
-    (ucs		. #x1668)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1668)	; ᙨ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TTSE")
-    (ucs		. #x1669)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1669)	; ᙩ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TTSEE")
-    (ucs		. #x166A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x166A)	; ᙪ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TTSI")
-    (ucs		. #x166B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x166B)	; ᙫ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CARRIER TTSA")
-    (ucs		. #x166C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x166C)	; ᙬ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS CHI SIGN")
-    (ucs		. #x166D)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x166D)	; ᙭
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS FULL STOP")
-    (ucs		. #x166E)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x166E)	; ᙮
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS QAI")
-    (ucs		. #x166F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x166F)	; ᙯ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NGAI")
-    (ucs		. #x1670)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1670)	; ᙰ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NNGI")
-    (ucs		. #x1671)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1671)	; ᙱ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NNGII")
-    (ucs		. #x1672)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1672)	; ᙲ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NNGO")
-    (ucs		. #x1673)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1673)	; ᙳ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NNGOO")
-    (ucs		. #x1674)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1674)	; ᙴ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NNGA")
-    (ucs		. #x1675)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1675)	; ᙵ
     ))
 (define-char
   '((name		. "CANADIAN SYLLABICS NNGAA")
-    (ucs		. #x1676)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x1676)	; ᙶ
     ))
