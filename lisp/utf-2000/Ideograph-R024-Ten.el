@@ -384,7 +384,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (<-simplified
-     ((=daikanwa	  . 07833)	; ø¸º™
+     ((=ucs		  . #x5C70)	; å±°
       ))
     (=gt-k		. 01380)	; ý¡„€•¤
     (=gt-pj-k2		. #x4769)	; ý¡„€•¤
@@ -394,7 +394,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (<-simplified
-     ((=daikanwa	  . 07833)	; ø¸º™
+     ((=ucs		  . #x5C70)	; å±°
       ))
     (=gt-k		. 01438)	; ý¡„€–ž
     (=gt-pj-k1		. #x3648)	; ý¡„€–ž
@@ -1482,11 +1482,17 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
 	(=ucs		    . #x2FF2)	; â¿²
 	)
-       ((=daikanwa	    . 27221)	; ø¸†©•
+       ((=jis-x0208	    . #x3B65)	; ø½ŠŒ
+	(=cns11643-1	    . #x484E)	; ø»‘¼›
+	(=daikanwa	    . 27221)	; ø¸†©•
 	)
-       ((=daikanwa	    . 35205)	; ø¸ˆ¦…
+       ((=jis-x0208	    . #x3840)	; ø½Š˜
+	(=ks-x1001	    . #x656B)	; ø»‰¿Ž
+	(=daikanwa	    . 35205)	; ø¸ˆ¦…
 	)
-       ((=daikanwa	    . 27221)	; ø¸†©•
+       ((=jis-x0208	    . #x3B65)	; ø½ŠŒ
+	(=cns11643-1	    . #x484E)	; ø»‘¼›
+	(=daikanwa	    . 27221)	; ø¸†©•
 	))
       )
      ((=ucs		  . #x5341)	; å
