@@ -1,3 +1,13 @@
+2004-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* read-maps.el (jp-jouyou-read-file): Check `<-simplified' and
+	`<-simplified*sources'.
+
+	* char-db-util.el (insert-char-attributes): Add some CCSs
+	corresponding with JP, JP/Jouyou and CN specified in
+	{<-|->}FOO*sources into required-features; add special code for
+	{<-|->}FOO@CN to add Chinese CCSs into required-features.
+
 2004-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ruimoku6.el: Use utf-8-mcs-er instead of utf-8-mcs.
