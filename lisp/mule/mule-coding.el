@@ -218,15 +218,17 @@
    'utf-8-gb 'utf-8
    "Coding-system of UTF-8 using GB mapping."
    '(mnemonic "UTF8G"
-	      charset-g0 ucs
-	      charset-g1 =>ucs))
+	      charset-g0 ucs-gb
+	      charset-g1 =>ucs-gb
+	      charset-g2 =>ucs))
 
   (make-coding-system
    'utf-8-gb-er 'utf-8
    "Coding-system of UTF-8 using GB mapping with entity-reference."
    '(mnemonic "UTF8Gr"
-	      charset-g0 ucs
-	      charset-g1 =>ucs
+	      charset-g0 ucs-gb
+	      charset-g1 =>ucs-gb
+	      charset-g2 =>ucs
 	      use-entity-reference t))
 
   (make-coding-system
