@@ -1,4 +1,26 @@
+2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el, Ideograph-R120-Silk.el (H12-EFEB): Use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
+	`ideographic-'.
+	(U-000261E5): Likewise.
+
+	* Ideograph-R113-Spirit.el (M-24692): Fix strokes.
+	(U+7966): Separate C3-3D5E.
+
+	* Ideograph-R112-Stone.el (M-24408): Use
+	`ideographic-strokes@daikanwa' instead of `daikanwa-strokes'.
+
 2003-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el: Add `=ucs@big5' features.
+
+	* Ideograph-R036-Evening.el, Ideograph-R035-Go-Slowly.el,
+	Ideograph-R033-Scholar.el, Ideograph-R032-Earth.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R138-Stopping.el (BC-8C42): Add
+	`<-ideographic-component-forms'.
 
 	* u000A0-Latin-1-Supplement.el (JX1-2965): Unify JC3-88D6.
 
