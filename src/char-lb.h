@@ -28,8 +28,8 @@ Boston, MA 02111-1307, USA.  */
 
 int non_ascii_valid_char_p (Emchar ch);
 
-INLINE int valid_char_p (Emchar ch);
-INLINE int
+INLINE_HEADER int valid_char_p (Emchar ch);
+INLINE_HEADER int
 valid_char_p (Emchar ch)
 {
   return ((unsigned int) (ch) <= 0xff) || non_ascii_valid_char_p (ch);

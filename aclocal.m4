@@ -92,7 +92,7 @@ if test "$XEGCC" = yes; then
     # PIC is the default for these OSes.
     ;;
 
-  os2*)
+  aix3* | aix4* | os2*)
     # We can build DLLs from non-PIC.
     ;;
   amigaos*)
@@ -386,6 +386,7 @@ if test "$cc_produces_so" = "yes"; then
   dll_ld=$CC
   dll_ldflags=$xcldf
   can_build_shared=yes
+  ld_shlibs=yes
 else
   # OK - only NOW do we futz about with ld.
   # See if the linker supports building shared libraries.

@@ -24,11 +24,6 @@ Boston, MA 02111-1307, USA.  */
    operating system this machine is likely to run.
    USUAL-OPSYS="bsd4-2"  */
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-#define WORD_MACHINE
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically.  */
 
@@ -39,14 +34,6 @@ Boston, MA 02111-1307, USA.  */
 #ifndef romp
 #define romp /* unfortunately old include files are hanging around.  */
 #endif
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend
-   the bit field into an int.  In other words, if bit fields
-   are always unsigned.
-
-   If you use NO_UNION_TYPE, this flag does not matter.  */
-
-#define EXPLICIT_SIGN_EXTEND
 
 /* Data type of load average, as read out of kmem.  */
 
@@ -80,11 +67,6 @@ Boston, MA 02111-1307, USA.  */
 
 #define HAVE_ALLOCA
 
-/* The data segment in this machine starts at a fixed address.
-   An address of data cannot be stored correctly in a Lisp object;
-   we always lose the high bits.  We must tell XPNTR to add them back.  */
-
-#define DATA_SEG_BITS 0x10000000
 #define DATA_START    0x10000000
 
 /* The text segment always starts at a fixed address.

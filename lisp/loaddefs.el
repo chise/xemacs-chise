@@ -86,10 +86,23 @@
 ;; making it more likely you will get a unique match.
 (setq completion-ignored-extensions
       (mapcar 'purecopy
-	      '(".o" ".elc" "~" ".bin" ".lbin" ".fasl"
-		".dvi" ".toc" ".log" ".aux" ".a" ".ln"
-		".lof" ".blg" ".bbl" ".glo" ".idx" ".lot" ".fmt"
-		".diff" ".oi" ".class")))
+	      ;; this is way way way bogus.
+	      ;; completely wtf?
+	      ;; the only things that should be here are those that are
+	      ;; (a) universally recognizable, and
+	      ;; (b) obvious backup files, or
+	      ;; (c) obvious binary files that are generated on a
+	      ;;     PER-SOURCE-FILE basis, so that they will actually
+	      ;;     cause annoyance.  This includes .exe files, e.g.
+;	      '(".o" ".elc" "~" ".bin" ".lbin" ".fasl"
+;		".dvi" ".toc" ;".log"
+;		".aux" ".a" ".ln"
+;		".lof" ".blg" ".bbl" ".glo" ".idx" ".lot" ".fmt"
+;		".diff" ".oi" ".class")))
+	      '(".o" ".obj" ".elc" "~"
+		".bin" ".lbin" ;; #### these are doubtful, esp. the latter.
+		".dvi";; possibly doubtful, too.
+		".class")))
 
 
 ;; This needs to be redone better. -slb

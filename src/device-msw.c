@@ -34,12 +34,22 @@ Boston, MA 02111-1307, USA.  */
 
 #include "console-msw.h"
 #include "console-stream.h"
+#include "objects-msw.h"
 #include "events.h"
 #include "faces.h"
 #include "frame.h"
 #include "sysdep.h"
 
+#if (defined (__CYGWIN32__) || defined(__MINGW32__)) && \
+	CYGWIN_VERSION_DLL_MAJOR < 21
+extern BOOL WINAPI DdeFreeStringHandle(DWORD,HSZ);
+#else
 #include <winspool.h>
+#endif
+
+#if !(defined (__CYGWIN32__) || defined(__MINGW32__))
+# include <objbase.h>	/* For CoInitialize */
+#endif
 
 /* win32 DDE management library globals */
 #ifdef HAVE_DRAGNDROP
@@ -68,18 +78,7 @@ Lisp_Object Qinit_pre_mswindows_win, Qinit_post_mswindows_win;
 static Lisp_Object
 build_syscolor_string (int idx)
 {
-  DWORD clr;
-  char buf[16];
-
-  if (idx < 0)
-    return Qnil;
-
-  clr = GetSysColor (idx);
-  sprintf (buf, "#%02X%02X%02X",
-	   GetRValue (clr),
-	   GetGValue (clr),
-	   GetBValue (clr));
-  return build_string (buf);
+  return (idx < 0 ? Qnil : mswindows_color_to_string (GetSysColor (idx)));
 }
 
 static Lisp_Object
@@ -139,8 +138,8 @@ mswindows_init_device (struct device *d, Lisp_Object props)
   DEVICE_MSWINDOWS_VERTSIZE(d) = GetDeviceCaps(hdc, VERTSIZE);
   DEVICE_MSWINDOWS_BITSPIXEL(d) = GetDeviceCaps(hdc, BITSPIXEL);
   DEVICE_MSWINDOWS_FONTLIST (d) = mswindows_enumerate_fonts (hdc);
-
-  DeleteDC (hdc);
+  
+  DEVICE_MSWINDOWS_HCDC(d) = hdc;
 
   /* Register the main window class */
   wc.cbSize = sizeof (WNDCLASSEX);
@@ -159,7 +158,7 @@ mswindows_init_device (struct device *d, Lisp_Object props)
   wc.lpszMenuName = NULL;
 
   wc.lpszClassName = XEMACS_CLASS;
-  wc.hIconSm = LoadImage (GetModuleHandle (NULL), XEMACS_CLASS,
+  wc.hIconSm = (HICON) LoadImage (GetModuleHandle (NULL), XEMACS_CLASS,
 			  IMAGE_ICON, 16, 16, 0);
   RegisterClassEx (&wc);
 
@@ -184,13 +183,20 @@ mswindows_finish_init_device (struct device *d, Lisp_Object props)
   /* Initialize DDE management library and our related globals. We execute a
    * dde Open("file") by simulating a drop, so this depends on dnd support. */
 #ifdef HAVE_DRAGNDROP
+# if !(defined(__CYGWIN32__) || defined(__MINGW32__))
+  CoInitialize (NULL);
+# endif
+
   mswindows_dde_mlid = 0;
   DdeInitialize (&mswindows_dde_mlid, (PFNCALLBACK)mswindows_dde_callback,
 		 APPCMD_FILTERINITS|CBF_FAIL_SELFCONNECTIONS|CBF_FAIL_ADVISES|
-		 CBF_FAIL_POKES|CBF_FAIL_REQUESTS|CBF_SKIP_ALLNOTIFICATIONS, 0);
+		 CBF_FAIL_POKES|CBF_FAIL_REQUESTS|CBF_SKIP_ALLNOTIFICATIONS,
+		 0);
   
-  mswindows_dde_service = DdeCreateStringHandle (mswindows_dde_mlid, XEMACS_CLASS, 0);
-  mswindows_dde_topic_system = DdeCreateStringHandle (mswindows_dde_mlid, SZDDESYS_TOPIC, 0);
+  mswindows_dde_service = DdeCreateStringHandle (mswindows_dde_mlid,
+						 XEMACS_CLASS, 0);
+  mswindows_dde_topic_system = DdeCreateStringHandle (mswindows_dde_mlid,
+						      SZDDESYS_TOPIC, 0);
   mswindows_dde_item_open = DdeCreateStringHandle (mswindows_dde_mlid,
 						   TEXT(MSWINDOWS_DDE_ITEM_OPEN), 0);
   DdeNameService (mswindows_dde_mlid, mswindows_dde_service, 0L, DNS_REGISTER);
@@ -201,11 +207,25 @@ static void
 mswindows_delete_device (struct device *d)
 {
 #ifdef HAVE_DRAGNDROP
-  DdeNameService (mswindows_dde_mlid, 0L, 0L, DNS_REGISTER);
+  DdeNameService (mswindows_dde_mlid, 0L, 0L, DNS_UNREGISTER);
+  DdeFreeStringHandle (mswindows_dde_mlid, mswindows_dde_item_open);
+  DdeFreeStringHandle (mswindows_dde_mlid, mswindows_dde_topic_system);
+  DdeFreeStringHandle (mswindows_dde_mlid, mswindows_dde_service);
   DdeUninitialize (mswindows_dde_mlid);
+
+# if !(defined(__CYGWIN32__) || defined(__MINGW32__))
+  CoUninitialize ();
+# endif
 #endif
 
+  DeleteDC (DEVICE_MSWINDOWS_HCDC(d));
   free (d->device_data);
+}
+
+void
+msw_get_workspace_coords (RECT *rc)
+{
+  SystemParametersInfo (SPI_GETWORKAREA, 0, rc, 0);
 }
 
 static void
@@ -243,22 +263,22 @@ mswindows_device_system_metrics (struct device *d,
       break;
 
       /*** Colors ***/
-#define FROB(met, index1, index2)			\
+#define FROB(met, fore, back)				\
     case DM_##met:					\
-      return build_syscolor_cons (index1, index2);
+      return build_syscolor_cons (fore, back);
       
-      FROB (color_default, COLOR_WINDOW, COLOR_WINDOWTEXT);
-      FROB (color_select, COLOR_HIGHLIGHT, COLOR_HIGHLIGHTTEXT);
-      FROB (color_balloon, COLOR_INFOBK, COLOR_INFOTEXT);
-      FROB (color_3d_face, COLOR_3DFACE, COLOR_BTNTEXT);
-      FROB (color_3d_light, COLOR_3DLIGHT, COLOR_3DHILIGHT);
-      FROB (color_3d_dark, COLOR_3DSHADOW, COLOR_3DDKSHADOW);
-      FROB (color_menu, COLOR_MENU, COLOR_MENUTEXT);
-      FROB (color_menu_highlight, COLOR_HIGHLIGHT, COLOR_HIGHLIGHTTEXT);
-      FROB (color_menu_button, COLOR_MENU, COLOR_MENUTEXT);
-      FROB (color_menu_disabled, COLOR_MENU, COLOR_GRAYTEXT);
-      FROB (color_toolbar, COLOR_BTNFACE, COLOR_BTNTEXT);
-      FROB (color_scrollbar, COLOR_SCROLLBAR, COLOR_CAPTIONTEXT);
+      FROB (color_default, COLOR_WINDOWTEXT, COLOR_WINDOW);
+      FROB (color_select, COLOR_HIGHLIGHTTEXT, COLOR_HIGHLIGHT);
+      FROB (color_balloon, COLOR_INFOTEXT, COLOR_INFOBK);
+      FROB (color_3d_face, COLOR_BTNTEXT, COLOR_BTNFACE);
+      FROB (color_3d_light, COLOR_3DHILIGHT, COLOR_3DLIGHT);
+      FROB (color_3d_dark, COLOR_3DDKSHADOW, COLOR_3DSHADOW);
+      FROB (color_menu, COLOR_MENUTEXT, COLOR_MENU);
+      FROB (color_menu_highlight, COLOR_HIGHLIGHTTEXT, COLOR_HIGHLIGHT);
+      FROB (color_menu_button, COLOR_MENUTEXT, COLOR_MENU);
+      FROB (color_menu_disabled, COLOR_GRAYTEXT, COLOR_MENU);
+      FROB (color_toolbar, COLOR_BTNTEXT, COLOR_BTNFACE);
+      FROB (color_scrollbar, COLOR_CAPTIONTEXT, COLOR_SCROLLBAR);
       FROB (color_desktop, -1, COLOR_DESKTOP);
       FROB (color_workspace, -1, COLOR_APPWORKSPACE);
 #undef FROB
@@ -278,10 +298,18 @@ mswindows_device_system_metrics (struct device *d,
     case DM_size_workspace:
       {
 	RECT rc;
-	SystemParametersInfo (SPI_GETWORKAREA, 0, &rc, 0);
+	msw_get_workspace_coords (&rc);
 	return Fcons (make_int (rc.right - rc.left),
 		      make_int (rc.bottom - rc.top));
       }
+
+    case DM_offset_workspace:
+      {
+	RECT rc;
+	msw_get_workspace_coords (&rc);
+	return Fcons (make_int (rc.left), make_int (rc.top));
+      }
+
       /*
 	case DM_size_toolbar:
 	case DM_size_toolbar_button:
@@ -351,14 +379,18 @@ msprinter_init_device (struct device *d, Lisp_Object props)
   if (DEVICE_MSPRINTER_HDC (d) == NULL)
     signal_open_printer_error (d);
 
+  DEVICE_MSPRINTER_HCDC(d) =
+    CreateCompatibleDC (DEVICE_MSPRINTER_HDC (d));
+
   /* Determinie DEVMODE size and store the default DEVMODE */
-  DEVICE_MSPRINTER_DEVMODE_SIZE(d) = 
+  DEVICE_MSPRINTER_DEVMODE_SIZE(d) =
     DocumentProperties (NULL, DEVICE_MSPRINTER_HPRINTER(d),
 			printer_name, NULL, NULL, 0);
   if (DEVICE_MSPRINTER_DEVMODE_SIZE(d) <= 0)
     signal_open_printer_error (d);
 
-  DEVICE_MSPRINTER_DEVMODE(d) = xmalloc (DEVICE_MSPRINTER_DEVMODE_SIZE(d));
+  DEVICE_MSPRINTER_DEVMODE(d) =
+    (DEVMODE*) xmalloc (DEVICE_MSPRINTER_DEVMODE_SIZE(d));
   DocumentProperties (NULL, DEVICE_MSPRINTER_HPRINTER(d),
 		      printer_name, DEVICE_MSPRINTER_DEVMODE(d),
 		      NULL, DM_OUT_BUFFER);
@@ -417,6 +449,8 @@ msprinter_delete_device (struct device *d)
 	ClosePrinter (DEVICE_MSPRINTER_HPRINTER (d));
       if (DEVICE_MSPRINTER_HDC (d))
 	DeleteDC (DEVICE_MSPRINTER_HDC (d));
+      if (DEVICE_MSPRINTER_HCDC (d))
+	DeleteDC (DEVICE_MSPRINTER_HCDC (d));
       if (DEVICE_MSPRINTER_NAME (d))
 	free (DEVICE_MSPRINTER_NAME (d));
       if (DEVICE_MSPRINTER_DEVMODE (d))
@@ -459,7 +493,7 @@ msprinter_get_devmode_copy (struct device *d)
 
   if (DEVICE_MSPRINTER_DEVMODE_MIRROR(d) == NULL)
     DEVICE_MSPRINTER_DEVMODE_MIRROR(d) = 
-      xmalloc (DEVICE_MSPRINTER_DEVMODE_SIZE(d));
+      (DEVMODE*) xmalloc (DEVICE_MSPRINTER_DEVMODE_SIZE(d));
 
   memcpy (DEVICE_MSPRINTER_DEVMODE_MIRROR(d),
 	  DEVICE_MSPRINTER_DEVMODE(d),
@@ -487,7 +521,15 @@ msprinter_apply_devmode (struct device *d, DEVMODE *devmode)
 		      devmode, devmode,
 		      DM_IN_BUFFER | DM_OUT_BUFFER);
 
-  ResetDC (DEVICE_MSPRINTER_HDC (d), devmode);
+  /* #### ResetDC fails sometimes, Bill only know s why.
+     The solution below looks more like a workaround to me,
+     although it might be fine. --kkm */
+  if (ResetDC (DEVICE_MSPRINTER_HDC (d), devmode) == NULL)
+    {
+      DeleteDC (DEVICE_MSPRINTER_HDC (d));
+      DEVICE_MSPRINTER_HDC (d) =
+	CreateDC ("WINSPOOL", DEVICE_MSPRINTER_NAME(d), NULL, devmode);
+    }
 }
 
 

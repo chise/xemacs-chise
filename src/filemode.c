@@ -79,9 +79,9 @@ static void
 mode_string (unsigned short mode, char *str)
 {
   str[0] = ftypelet (mode);
-  rwx ((mode & 0700) << 0, &str[1]);
-  rwx ((mode & 0070) << 3, &str[4]);
-  rwx ((mode & 0007) << 6, &str[7]);
+  rwx ((unsigned short) ((mode & 0700) << 0), &str[1]);
+  rwx ((unsigned short) ((mode & 0070) << 3), &str[4]);
+  rwx ((unsigned short) ((mode & 0007) << 6), &str[7]);
   setst (mode, str);
 }
 

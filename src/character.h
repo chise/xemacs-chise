@@ -77,8 +77,8 @@ Functions/macros when MULE is defined:
 
 #ifdef ERROR_CHECK_TYPECHECK
 
-INLINE Emchar XCHAR_OR_CHAR_INT (Lisp_Object obj);
-INLINE Emchar
+INLINE_HEADER Emchar XCHAR_OR_CHAR_INT (Lisp_Object obj);
+INLINE_HEADER Emchar
 XCHAR_OR_CHAR_INT (Lisp_Object obj)
 {
   assert (CHAR_OR_CHAR_INTP (obj));

@@ -140,10 +140,10 @@ This function is the process handler for the GPM connection.
 	/* Whow, wouldn't named defines be NICE!?!?! */
 	modifiers = 0;
 
-	if (ev.modifiers & 1)   modifiers |= MOD_SHIFT;
-	if (ev.modifiers & 2)   modifiers |= MOD_META;
-	if (ev.modifiers & 4)   modifiers |= MOD_CONTROL;
-	if (ev.modifiers & 8)   modifiers |= MOD_META;
+	if (ev.modifiers & 1)   modifiers |= XEMACS_MOD_SHIFT;
+	if (ev.modifiers & 2)   modifiers |= XEMACS_MOD_META;
+	if (ev.modifiers & 4)   modifiers |= XEMACS_MOD_CONTROL;
+	if (ev.modifiers & 8)   modifiers |= XEMACS_MOD_META;
 
 	if (ev.buttons & GPM_B_LEFT)
 	{

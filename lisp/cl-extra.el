@@ -638,12 +638,7 @@ argument VECP, this copies vectors as well as conses."
 
 ;; XEmacs: our `get' groks DEFAULT.
 (defalias 'get* 'get)
-
-(defun getf (plist property &optional default)
-  "Search PLIST for property PROPERTY; return its value or DEFAULT.
-PLIST is a list of the sort returned by `symbol-plist'."
-  (setplist '--cl-getf-symbol-- plist)
-  (get '--cl-getf-symbol-- property default))
+(defalias 'getf 'plist-get)
 
 (defun cl-set-getf (plist tag val)
   (let ((p plist))
@@ -654,17 +649,6 @@ PLIST is a list of the sort returned by `symbol-plist'."
   (let ((p (cdr plist)))
     (while (and (cdr p) (not (eq (car (cdr p)) tag))) (setq p (cdr (cdr p))))
     (and (cdr p) (progn (setcdr p (cdr (cdr (cdr p)))) t))))
-
-(defun cl-remprop (sym tag)
-  "Remove from SYMBOL's plist the property PROP and its value."
-  (let ((plist (symbol-plist sym)))
-    (if (and plist (eq tag (car plist)))
-	(progn (setplist sym (cdr (cdr plist))) t)
-      (cl-do-remf plist tag))))
-(or (and (fboundp 'remprop) (subrp (symbol-function 'remprop)))
-    (defalias 'remprop 'cl-remprop))
-
-
 
 ;;; Hash tables.
 

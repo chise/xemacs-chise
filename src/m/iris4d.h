@@ -20,11 +20,6 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.31. */
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-#undef WORD_MACHINE
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically:
    Ones defined so far include vax, m68000, ns16000, pyramid,
@@ -37,14 +32,6 @@ Boston, MA 02111-1307, USA.  */
 #ifndef IRIS_4D
 #define IRIS_4D
 #endif
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend
-   the bit field into an int.  In other words, if bit fields
-   are always unsigned.
-
-   If you use NO_UNION_TYPE, this flag does not matter.  */
-
-#define EXPLICIT_SIGN_EXTEND
 
 /* jg@genmagic.genmagic.com (John Giannandrea) says this is unnecessary.  */
 #if 0
@@ -105,15 +92,7 @@ Boston, MA 02111-1307, USA.  */
 #endif
 
 #define TEXT_START 0x400000
-
-/*
- * DATA_SEG_BITS forces extra bits to be or'd in with any pointers which
- * were stored in a Lisp_Object (as Emacs uses fewer than 32 bits for
- * the value field of a LISP_OBJECT).
- */
-
 #define DATA_START 0x10000000
-#define DATA_SEG_BITS	0x10000000
 
 #undef LIBS_MACHINE
 /* -lsun in case using Yellow Pages for passwords.  */

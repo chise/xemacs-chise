@@ -420,19 +420,16 @@ interrupt_signal (int sig)
       stdout_out ("you can continue or abort.\n");
 #endif /* not SIGTSTP */
       stdout_out ("Auto-save? (y or n) ");
-      fflush (stdout);
       if (((c = getc (stdin)) & ~040) == 'Y')
 	Fdo_auto_save (Qnil, Qnil);
       while (c != '\n')
         c = getc (stdin);
       stdout_out ("Abort (and dump core)? (y or n) ");
-      fflush (stdout);
       if (((c = getc (stdin)) & ~040) == 'Y')
 	abort ();
       while (c != '\n')
         c = getc (stdin);
       stdout_out ("Continuing...\n");
-      fflush (stdout);
       reinit_initial_console ();
       MARK_FRAME_CHANGED (XFRAME (DEVICE_SELECTED_FRAME
 				  (XDEVICE (CONSOLE_SELECTED_DEVICE

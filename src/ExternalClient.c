@@ -46,7 +46,7 @@ ERROR!  This ought not be getting compiled if EXTERNAL_WIDGET is undefined
 #include "extw-Xt.h"
 
 #ifdef TOOLTALK
-#include TT_C_H_PATH
+#include TT_C_H_FILE
 #endif
 
 /* This is the client widget, used to communicate with an ExternalShell

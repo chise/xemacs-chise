@@ -26,15 +26,6 @@ Boston, MA 02111-1307, USA.  */
 #define NeXT
 #endif
 
-/* Define how to take a char and sign-extend into an int.
-   On machines where char is signed, this is a no-op.  */
-
-#define SIGN_EXTEND_CHAR(c) (c)
-
-/* XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 /* Say that the text segment of a.out includes the header;
    the header actually occupies the first few bytes of the text segment
    and is counted in hdr.a_text.  */

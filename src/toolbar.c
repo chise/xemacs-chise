@@ -722,10 +722,10 @@ set_frame_toolbar (struct frame *f, enum toolbar_pos pos)
 static void
 compute_frame_toolbars_data (struct frame *f)
 {
-  set_frame_toolbar (f, TOP_TOOLBAR);			 
-  set_frame_toolbar (f, BOTTOM_TOOLBAR);			 
-  set_frame_toolbar (f, LEFT_TOOLBAR);			 
-  set_frame_toolbar (f, RIGHT_TOOLBAR);			 
+  set_frame_toolbar (f, TOP_TOOLBAR);
+  set_frame_toolbar (f, BOTTOM_TOOLBAR);
+  set_frame_toolbar (f, LEFT_TOOLBAR);
+  set_frame_toolbar (f, RIGHT_TOOLBAR);
 }
 
 void
@@ -737,7 +737,7 @@ update_frame_toolbars (struct frame *f)
       && (f->toolbar_changed || f->frame_changed || f->clear))
     {
       int pos;
-      
+
       /* We're not officially "in redisplay", so we still have a
 	 chance to re-layout toolbars and windows. This is done here,
 	 because toolbar is the only thing which currently might
@@ -1037,10 +1037,10 @@ whole, use `check-valid-instantiator' with a specifier type of 'toolbar.
   if (!CONSP (elt[0]))
     {
       /* We can't check the buffer-local here because we don't know
-         which buffer to check in.  #### I think this is a bad thing.
-         See if we can't get enough information to this function so
-         that it can check.
-
+	 which buffer to check in.  #### I think this is a bad thing.
+	 See if we can't get enough information to this function so
+	 that it can check.
+	 
 	 #### Wrong.  We shouldn't be checking the value at all here.
 	 The user might set or change the value at any time. */
       value = Fsymbol_value (elt[0]);
@@ -1272,6 +1272,8 @@ toolbar_buttons_captioned_p_changed (Lisp_Object specifier, struct window *w,
 void
 syms_of_toolbar (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (toolbar_button);
+
   defsymbol (&Qtoolbar_buttonp, "toolbar-button-p");
   defsymbol (&Q2D, "2D");
   defsymbol (&Q3D, "3D");
@@ -1633,7 +1635,7 @@ See `default-toolbar-height' for more information.
   fb = Fcons (Fcons (list1 (Qx), make_int (DEFAULT_TOOLBAR_HEIGHT)), fb);
 #endif
 #ifdef HAVE_MS_WINDOWS
-  fb = Fcons (Fcons (list1 (Qmswindows), 
+  fb = Fcons (Fcons (list1 (Qmswindows),
 		     make_int (MSWINDOWS_DEFAULT_TOOLBAR_HEIGHT)), fb);
 #endif
   if (!NILP (fb))
@@ -1647,7 +1649,7 @@ See `default-toolbar-height' for more information.
   fb = Fcons (Fcons (list1 (Qx), make_int (DEFAULT_TOOLBAR_WIDTH)), fb);
 #endif
 #ifdef HAVE_MS_WINDOWS
-  fb = Fcons (Fcons (list1 (Qmswindows), 
+  fb = Fcons (Fcons (list1 (Qmswindows),
 		     make_int (MSWINDOWS_DEFAULT_TOOLBAR_WIDTH)), fb);
 #endif
   if (!NILP (fb))

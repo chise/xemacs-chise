@@ -414,11 +414,11 @@ Q3.2.6: Can I have pixmap backgrounds in XEmacs?
      edit-faces'.
 
 
-3.3: The Modeline
-=================
-
 
 File: xemacs-faq.info,  Node: Q3.3.1,  Next: Q3.3.2,  Prev: Q3.2.6,  Up: Customization
+
+3.3: The Modeline
+=================
 
 Q3.3.1: How can I make the modeline go away?
 --------------------------------------------

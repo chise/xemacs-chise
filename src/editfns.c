@@ -764,7 +764,7 @@ value of `user-full-name' is returned.
   user_name = (STRINGP (user) ? user : Fuser_login_name (user));
   if (!NILP (user_name))	/* nil when nonexistent UID passed as arg */
     {
-      CONST char *user_name_ext;
+      const char *user_name_ext;
 
       /* Fuck me.  getpwnam() can call select() and (under IRIX at least)
 	 things get wedged if a SIGIO arrives during this time. */
@@ -779,10 +779,10 @@ value of `user-full-name' is returned.
   /* #### - Stig sez: this should return nil instead of "unknown" when pw==0 */
   /* Ben sez: bad idea because it's likely to break something */
 #ifndef AMPERSAND_FULL_NAME
-  p = ((pw) ? USER_FULL_NAME : "unknown"); /* don't gettext */
+  p = pw ? USER_FULL_NAME : "unknown"; /* don't gettext */
   q = strchr (p, ',');
 #else
-  p = ((pw) ? USER_FULL_NAME : "unknown"); /* don't gettext */
+  p = pw ? USER_FULL_NAME : "unknown"; /* don't gettext */
   q = strchr (p, ',');
 #endif
   tem = ((!NILP (user) && !pw)
@@ -822,10 +822,18 @@ uncache_home_directory (void)
 				   of a few bytes */
 }
 
+/* !!#### not Mule correct. */
+
 /* Returns the home directory, in external format */
 Extbyte *
 get_home_directory (void)
 {
+  /* !!#### this is hopelessly bogus.  Rule #1: Do not make any assumptions
+     about what format an external string is in.  Could be Unicode, for all
+     we know, and then all the operations below are totally bogus.
+     Instead, convert all data to internal format *right* at the juncture
+     between XEmacs and the outside world, the very moment we first get
+     the data.  --ben */
   int output_home_warning = 0;
 
   if (cached_home_directory == NULL)
@@ -847,7 +855,9 @@ get_home_directory (void)
 	    }
 	  else
 	    {
-# if 1
+# if 0 /* changed by ben.  This behavior absolutely stinks, and the
+	  possibility being addressed here occurs quite commonly.
+	  Using the current directory makes absolutely no sense. */
 	      /*
 	       * Use the current directory.
 	       * This preserves the existing XEmacs behavior, but is different
@@ -855,12 +865,12 @@ get_home_directory (void)
 	       */
 	      if (initial_directory[0] != '\0')
 		{
-		  cached_home_directory = initial_directory;
+		  cached_home_directory = (Extbyte*) initial_directory;
 		}
 	      else
 		{
 		  /* This will probably give the wrong value */
-		  cached_home_directory = getcwd (NULL, 0);
+		  cached_home_directory = (Extbyte*) getcwd (NULL, 0);
 		}
 # else
 	      /*
@@ -1004,9 +1014,9 @@ time_to_lisp (time_t the_time)
   return Fcons (make_int (item >> 16), make_int (item & 0xffff));
 }
 
-size_t emacs_strftime (char *string, size_t max, CONST char *format,
-		       CONST struct tm *tm);
-static long difftm (CONST struct tm *a, CONST struct tm *b);
+size_t emacs_strftime (char *string, size_t max, const char *format,
+		       const struct tm *tm);
+static long difftm (const struct tm *a, const struct tm *b);
 
 
 DEFUN ("format-time-string", Fformat_time_string, 1, 2, 0, /*
@@ -1073,7 +1083,7 @@ characters appearing in the day and month names may be incorrect.
       char *buf = (char *) alloca (size);
       *buf = 1;
       if (emacs_strftime (buf, size,
-			  (CONST char *) XSTRING_DATA (format_string),
+			  (const char *) XSTRING_DATA (format_string),
 			  localtime (&value))
 	  || !*buf)
 	return build_ext_string (buf, Qbinary);
@@ -1237,7 +1247,7 @@ and from `file-attributes'.
 
 /* Yield A - B, measured in seconds.  */
 static long
-difftm (CONST struct tm *a, CONST struct tm *b)
+difftm (const struct tm *a, const struct tm *b)
 {
   int ay = a->tm_year + (TM_YEAR_ORIGIN - 1);
   int by = b->tm_year + (TM_YEAR_ORIGIN - 1);

@@ -84,6 +84,9 @@ Boston, MA 02111-1307, USA.  */
   /* frame property list */
   MARKED_SLOT (plist);
 
+  /* buffer_alist at last redisplay. */
+  MARKED_SLOT (old_buffer_alist);
+
   /* A copy of the global Vbuffer_list, to maintain a per-frame buffer
      ordering.  The Vbuffer_list variable and the buffer_list slot of each
      frame contain exactly the same data, just in different orders.  */

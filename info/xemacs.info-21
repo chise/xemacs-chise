@@ -30,762 +30,765 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
-File: xemacs.info,  Node: Variable Index,  Next: Concept Index,  Prev: Command Index,  Up: Top
+File: xemacs.info,  Node: Command Index,  Next: Variable Index,  Prev: Key Index,  Up: Top
 
-Variable Index
-**************
+Command and Function Index
+**************************
 
 * Menu:
 
-* abbrev-all-caps:                       Expanding Abbrevs.
-* abbrev-file-name:                      Saving Abbrevs.
+* abbrev-mode <1>:                       Minor Modes.
 * abbrev-mode:                           Abbrevs.
-* after-load-alist:                      Loading.
-* after-save-hook:                       Saving.
-* all-christian-calendar-holidays:       Holiday Customizing.
-* all-hebrew-calendar-holidays:          Holiday Customizing.
-* all-islamic-calendar-holidays:         Holiday Customizing.
-* appt-audible:                          Appt Customizing.
-* appt-display-duration:                 Appt Customizing.
-* appt-display-mode-line:                Appt Customizing.
-* appt-message-warning-time:             Appt Customizing.
-* appt-msg-window:                       Appt Customizing.
-* appt-visible:                          Appt Customizing.
-* auto-fill-inhibit-regexp:              Fill Commands.
-* auto-lower-frame:                      XEmacs under X.
-* auto-mode-alist:                       Choosing Modes.
-* auto-raise-frame:                      XEmacs under X.
-* auto-save-default:                     Auto Save Control.
-* auto-save-interval:                    Auto Save Control.
-* auto-save-timeout:                     Auto Save Control.
-* auto-save-visited-file-name:           Auto Save Files.
-* backup-by-copying:                     Backup Copying.
-* backup-by-copying-when-linked:         Backup Copying.
-* backup-by-copying-when-mismatch:       Backup Copying.
-* bell-volume:                           Audible Bell.
-* blink-matching-paren:                  Matching.
-* blink-matching-paren-distance:         Matching.
-* bookmark-save-flag:                    Bookmarks.
-* bookmark-search-size:                  Bookmarks.
-* buffer-file-coding-system:             Recognize Coding.
-* buffer-file-name:                      Visiting.
-* buffer-file-truename:                  Visiting.
-* buffer-read-only:                      Misc Buffer.
-* buffer-tag-table:                      Find Tag.
-* c-argdecl-indent:                      C Indent.
-* c-auto-newline:                        C Indent.
-* c-brace-imaginary-offset:              C Indent.
-* c-brace-offset:                        C Indent.
-* c-continued-statement-offset:          C Indent.
-* c-indent-level:                        C Indent.
-* c-label-offset:                        C Indent.
-* c-mode-hook:                           Program Modes.
-* c-mode-map:                            Keymaps.
-* c-tab-always-indent:                   C Indent.
-* calendar-date-display-form:            Date Display Format.
-* calendar-daylight-savings-ends:        Daylight Savings.
-* calendar-daylight-savings-ends-time:   Daylight Savings.
-* calendar-daylight-savings-starts:      Daylight Savings.
-* calendar-daylight-time-offset:         Daylight Savings.
-* calendar-daylight-time-zone-name:      Sunrise/Sunset.
-* calendar-holiday-marker:               Calendar Customizing.
-* calendar-holidays:                     Holiday Customizing.
-* calendar-latitude:                     Sunrise/Sunset.
-* calendar-load-hook:                    Calendar Customizing.
-* calendar-location-name:                Sunrise/Sunset.
-* calendar-longitude:                    Sunrise/Sunset.
-* calendar-standard-time-zone-name:      Sunrise/Sunset.
-* calendar-time-display-form:            Time Display Format.
-* calendar-time-zone:                    Sunrise/Sunset.
-* calendar-today-marker:                 Calendar Customizing.
-* calendar-week-start-day:               Move to Beginning or End.
-* case-fold-search <1>:                  Replacement and Case.
-* case-fold-search:                      Search Case.
-* case-replace:                          Replacement and Case.
-* christian-holidays:                    Holiday Customizing.
-* coding:                                Recognize Coding.
-* command-history:                       Repetition.
-* command-line-args:                     Command Switches.
-* comment-column:                        Comments.
-* comment-end:                           Comments.
-* comment-indent-hook:                   Comments.
-* comment-line-start:                    Fortran Comments.
-* comment-line-start-skip:               Fortran Comments.
-* comment-multi-line:                    Comments.
-* comment-start:                         Comments.
-* comment-start-skip:                    Comments.
-* compare-ignore-case:                   Comparing Files.
-* compile-command:                       Compilation.
-* completion-auto-help:                  Completion Options.
-* completion-ignored-extensions:         Completion Options.
-* create-frame-hook:                     XEmacs under X.
-* ctl-arrow:                             Display Vars.
-* ctl-x-map:                             Keymaps.
-* current-input-method:                  Select Input Method.
-* data-directory:                        Startup Paths.
-* data-directory-list:                   Startup Paths.
-* debug-on-error:                        Lisp Debug.
-* debug-on-quit:                         Lisp Debug.
-* default-buffer-file-coding-system:     Specify Coding.
-* default-directory:                     File Names.
-* default-directory-alist:               File Names.
-* default-frame-alist:                   XEmacs under X.
-* default-input-method:                  Select Input Method.
-* default-major-mode:                    Choosing Modes.
-* delete-auto-save-files:                Auto Save Files.
-* describe-function-show-arglist:        Help.
-* diary-date-forms:                      Diary Customizing.
-* diary-display-hook:                    Fancy Diary Display.
-* diary-entry-marker:                    Calendar Customizing.
-* diary-file:                            Format of Diary File.
-* diary-list-include-blanks:             Fancy Diary Display.
-* diary-mail-days:                       Diary Commands.
-* diff-switches:                         Comparing Files.
-* dired-kept-versions:                   Dired Deletion.
-* dired-listing-switches:                Dired Enter.
-* display-buffer-function:               Pop Up Window.
-* doc-directory:                         Startup Paths.
-* echo-keystrokes:                       Display Vars.
-* emacs-lisp-mode-hook:                  Program Modes.
-* emacs-roots:                           Startup Paths.
-* EMACSDATA:                             Startup Paths.
-* EMACSLOADPATH:                         Startup Paths.
-* EMACSLOCKDIR:                          Startup Paths.
-* EMACSPATH:                             Startup Paths.
-* enable-local-variables:                File Variables.
-* enable-recursive-minibuffers:          Minibuffer Edit.
-* esc-map:                               Keymaps.
-* european-calendar-style:               Date Formats.
-* exec-directory:                        Startup Paths.
-* exec-path:                             Startup Paths.
-* explicit-shell-file-name:              Interactive Shell.
-* file-coding-system-alist:              Recognize Coding.
-* file-name-coding-system:               Specify Coding.
-* fill-column:                           Fill Commands.
-* fill-prefix:                           Fill Prefix.
-* find-file-compare-truenames:           Visiting.
-* find-file-hooks:                       Visiting.
-* find-file-not-found-hooks:             Visiting.
-* find-file-run-dired:                   Visiting.
-* find-file-use-truenames:               Visiting.
-* fortran-check-all-num-for-matching-do: ForIndent Vars.
-* fortran-comment-indent-char:           Fortran Comments.
-* fortran-comment-indent-style:          Fortran Comments.
-* fortran-comment-line-column:           Fortran Comments.
-* fortran-comment-region:                Fortran Comments.
-* fortran-continuation-char:             ForIndent Conv.
-* fortran-continuation-indent:           ForIndent Vars.
-* fortran-do-indent:                     ForIndent Vars.
-* fortran-electric-line-number:          ForIndent Num.
-* fortran-if-indent:                     ForIndent Vars.
-* fortran-line-number-indent:            ForIndent Num.
-* fortran-minimum-statement-indent:      ForIndent Vars.
-* frame-icon-title-format <1>:           Command Switches.
-* frame-icon-title-format:               XEmacs under X.
-* frame-title-format <1>:                Command Switches.
-* frame-title-format:                    XEmacs under X.
-* general-holidays:                      Holiday Customizing.
-* global-map:                            Keymaps.
-* hebrew-holidays:                       Holiday Customizing.
-* help-map:                              Keymaps.
-* holidays-in-diary-buffer:              Diary Customizing.
-* indent-tabs-mode:                      Just Spaces.
-* Info-directory-list:                   Startup Paths.
-* INFOPATH:                              Startup Paths.
-* initial-calendar-window-hook:          Calendar Customizing.
-* initial-major-mode:                    Entering Emacs.
-* input-method-highlight-flag:           Input Methods.
-* input-method-verbose-flag:             Input Methods.
-* input-ring-size:                       Interactive Shell.
-* insert-default-directory <1>:          File Names.
-* insert-default-directory:              Minibuffer File.
-* isearch-mode-map:                      Keymaps.
-* islamic-holidays:                      Holiday Customizing.
-* kept-new-versions:                     Backup Deletion.
-* kept-old-versions:                     Backup Deletion.
-* keyboard-translate-table:              Intro to Keystrokes.
-* kill-ring-max:                         Earlier Kills.
-* LaTeX-mode-hook:                       TeX Print.
-* lisp-body-indention:                   Lisp Indent.
-* lisp-directory:                        Startup Paths.
-* lisp-indent-offset:                    Lisp Indent.
-* lisp-interaction-mode-hook:            Program Modes.
-* lisp-mode-hook:                        Program Modes.
-* lisp-mode-map:                         Keymaps.
-* list-diary-entries-hook:               Included Diary Files.
-* list-directory-brief-switches:         ListDir.
-* list-directory-verbose-switches:       ListDir.
-* load-path <1>:                         Loading.
-* load-path:                             Startup Paths.
-* local-holidays:                        Holiday Customizing.
-* lock-directory:                        Startup Paths.
-* lpr-switches:                          Hardcopy.
-* mail-abbrev-mailrc-file:               Mail Headers.
-* mail-abbrev-mode-regexp:               Mail Headers.
-* mail-alias-seperator-string:           Mail Headers.
-* mail-archive-file-name:                Mail Headers.
-* mail-header-separator:                 Mail Format.
-* mail-mode-hook:                        Mail Mode.
-* make-backup-files:                     Backup.
-* make-tags-files-invisible:             Find Tag.
-* mark-diary-entries-hook:               Included Diary Files.
-* mark-diary-entries-in-calendar:        Calendar Customizing.
-* mark-holidays-in-calendar:             Calendar Customizing.
-* mark-ring:                             Mark Ring.
-* mark-ring-max:                         Mark Ring.
-* meta-flag:                             Meta Key.
-* minibuffer-confirm-incomplete <1>:     Completion Options.
-* minibuffer-confirm-incomplete:         Minibuffer Edit.
-* minibuffer-local-completion-map:       Keymaps.
-* minibuffer-local-map:                  Keymaps.
-* minibuffer-local-must-match-map:       Keymaps.
-* minibuffer-local-ns-map:               Keymaps.
-* mode-line-inverse-video:               Mode Line.
-* modeline-pointer-glyph:                Mouse Selection.
-* muddle-mode-hook:                      Program Modes.
-* next-screen-context-lines:             Scrolling.
-* no-redraw-on-reenter:                  Display Vars.
-* nongregorian-diary-listing-hook:       Hebrew/Islamic Entries.
-* nongregorian-diary-marking-hook:       Hebrew/Islamic Entries.
-* nontext-pointer-glyph:                 Mouse Selection.
-* nroff-mode-hook:                       Nroff Mode.
-* number-of-diary-entries:               Diary Customizing.
-* other-holidays:                        Holiday Customizing.
-* outline-mode-hook:                     Outline Mode.
-* outline-regexp:                        Outline Format.
-* page-delimiter:                        Pages.
-* paragraph-separate:                    Paragraphs.
-* paragraph-start:                       Paragraphs.
-* parse-sexp-ignore-comments:            Syntax Entry.
-* PATH:                                  Startup Paths.
-* picture-mode-hook:                     Picture.
-* picture-tab-chars:                     Tabs in Picture.
-* plain-TeX-mode-hook:                   TeX Print.
-* print-diary-entries-hook:              Diary Customizing.
-* repeat-complex-command-map:            Keymaps.
-* require-final-newline:                 Saving.
-* save-abbrevs:                          Saving Abbrevs.
-* scheme-mode-hook:                      Program Modes.
-* scroll-conservatively:                 Scrolling.
-* scroll-step:                           Scrolling.
-* search-slow-speed:                     Incremental Search.
-* search-slow-window-lines:              Incremental Search.
-* selective-display-ellipses <1>:        Outline Visibility.
-* selective-display-ellipses:            Display Vars.
-* sentence-end:                          Sentences.
-* shell-cd-regexp:                       Interactive Shell.
-* shell-file-name:                       Single Shell.
-* shell-popd-regexp:                     Interactive Shell.
-* shell-prompt-pattern:                  Shell Mode.
-* shell-pushd-regexp:                    Interactive Shell.
-* sound-alist:                           Audible Bell.
-* superlock-file:                        Startup Paths.
-* tab-stop-list:                         Tab Stops.
-* tab-width:                             Display Vars.
-* tag-mark-stack-max:                    Find Tag.
-* tag-table-alist <1>:                   Find Tag.
-* tag-table-alist:                       Select Tags Table.
-* tags-always-build-completion-table:    Select Tags Table.
-* tags-build-completion-table:           Find Tag.
-* tags-file-name <1>:                    Find Tag.
-* tags-file-name:                        Select Tags Table.
-* term-file-prefix:                      Terminal Init.
-* term-setup-hook:                       Terminal Init.
-* TeX-mode-hook:                         TeX Print.
-* text-mode-hook:                        Text Mode.
-* text-pointer-glyph:                    Mouse Selection.
-* today-invisible-calendar-hook:         Calendar Customizing.
-* today-visible-calendar-hook:           Calendar Customizing.
-* track-eol:                             Basic.
-* trim-versions-without-asking:          Backup Deletion.
-* truncate-lines:                        Continuation Lines.
-* truncate-partial-width-windows:        Split Window.
-* vc-command-messages:                   Variables for Check-in/out.
-* vc-comment-alist:                      Version Headers.
-* vc-default-back-end:                   Editing with VC.
-* vc-header-alist:                       Version Headers.
-* vc-initial-comment:                    Editing with VC.
-* vc-keep-workfiles:                     Editing with VC.
-* vc-log-mode-hook:                      Log Entries.
-* vc-make-backup-files:                  Editing with VC.
-* vc-mistrust-permissions:               Variables for Check-in/out.
-* vc-path:                               Variables for Check-in/out.
-* vc-static-header-alist:                Version Headers.
-* vc-suppress-confirm:                   Variables for Check-in/out.
-* version-control:                       Backup Names.
-* view-calendar-holidays-initially:      Calendar Customizing.
-* view-diary-entries-initially:          Calendar Customizing.
-* window-min-height:                     Change Window.
-* window-min-width:                      Change Window.
-* write-file-hooks:                      Saving.
-* x-frame-defaults:                      XEmacs under X.
-* zmacs-region-stays:                    Active Regions.
-* zmacs-regions:                         Active Regions.
-
-
-File: xemacs.info,  Node: Concept Index,  Next: Frame,  Prev: Variable Index,  Up: Top
-
-Concept Index
-*************
-
-* Menu:
-
-* .mailrc file:                          Mail Headers.
-* // in file name:                       Minibuffer File.
-* Abbrev mode:                           Minor Modes.
-* abbrevs:                               Abbrevs.
-* aborting:                              Quitting.
-* accumulating text:                     Accumulating Text.
-* active fields (customization buffer):  Customization Groups.
-* active regions:                        Active Regions.
-* adding menu items:                     Menu Customization.
-* adding menus:                          Menu Customization.
-* againformation:                        Dissociated Press.
-* Apps menu <1>:                         Apps Menu.
-* Apps menu:                             Pull-down Menus.
-* apropos:                               Help.
-* architecture-specific directories:     Startup Paths.
-* arguments (from shell):                Command Switches.
-* ASCII:                                 Intro to Keystrokes.
-* Asm mode:                              Asm Mode.
-* astronomical day numbers:              Calendar Systems.
-* audible bell, changing:                Audible Bell.
-* Auto Delete Selection menu item:       Options Menu.
-* Auto Fill mode <1>:                    Minor Modes.
-* Auto Fill mode <2>:                    Comments.
-* Auto Fill mode:                        Auto Fill.
-* Auto-Save mode:                        Auto Save.
-* autoload:                              Loading.
-* backup file:                           Backup.
-* batch mode:                            Command Switches.
-* bell, changing:                        Audible Bell.
-* binary packages:                       Package Terminology.
-* binding:                               Commands.
-* blank lines <1>:                       Comments.
-* blank lines:                           Blank Lines.
-* body lines (Outline mode):             Outline Format.
-* bold font:                             Face Customization.
-* bookmarks:                             Bookmarks.
-* boredom:                               Amusements.
-* buffer:                                Frame.
-* buffer menu:                           Several Buffers.
-* buffers:                               Buffers.
-* Buffers menu <1>:                      Buffers Menu.
-* Buffers menu:                          Pull-down Menus.
-* Buffers Menu Length... menu item:      Options Menu.
-* Buffers Sub-Menus menu item:           Options Menu.
-* buggestion:                            Dissociated Press.
-* bugs:                                  Bugs.
-* byte code:                             Compiling Libraries.
-* C:                                     Programs.
-* C mode:                                Program Modes.
+* abbrev-prefix-mark:                    Expanding Abbrevs.
+* abort-recursive-edit <1>:              Quitting.
+* abort-recursive-edit:                  Recursive Edit.
+* add-change-log-entry:                  Change Log.
+* add-global-abbrev:                     Defining Abbrevs.
+* add-menu:                              Menu Customization.
+* add-menu-item:                         Menu Customization.
+* add-mode-abbrev:                       Defining Abbrevs.
+* add-name-to-file:                      Misc File Ops.
+* american-calendar:                     Date Formats.
+* append-next-kill:                      Appending Kills.
+* append-to-buffer:                      Accumulating Text.
+* append-to-file <1>:                    Misc File Ops.
+* append-to-file:                        Accumulating Text.
+* apropos:                               Apropos.
+* apropos-documentation:                 Apropos.
+* apropos-value:                         Apropos.
+* ask-user-about-lock:                   Interlocking.
+* auto-fill-mode <1>:                    Minor Modes.
+* auto-fill-mode:                        Auto Fill.
+* auto-save-mode:                        Auto Save Control.
+* back-to-indentation:                   Indentation Commands.
+* backward-char:                         Basic.
+* backward-delete-char-untabify:         Program Modes.
+* backward-kill-sentence <1>:            Sentences.
+* backward-kill-sentence <2>:            Kill Errors.
+* backward-kill-sentence:                Killing.
+* backward-kill-word <1>:                Words.
+* backward-kill-word <2>:                Kill Errors.
+* backward-kill-word:                    Killing.
+* backward-list:                         Lists.
+* backward-page:                         Pages.
+* backward-paragraph:                    Paragraphs.
+* backward-sentence:                     Sentences.
+* backward-sexp:                         Lists.
+* backward-text-line:                    Nroff Mode.
+* backward-up-list:                      Lists.
+* backward-word:                         Words.
+* batch-byte-compile:                    Compiling Libraries.
+* beginning-of-buffer:                   Basic.
+* beginning-of-defun:                    Defuns.
+* beginning-of-fortran-subprogram:       Fortran Motion.
+* beginning-of-line:                     Basic.
+* bookmark-delete:                       Bookmarks.
+* bookmark-insert:                       Bookmarks.
+* bookmark-insert-location:              Bookmarks.
+* bookmark-jump:                         Bookmarks.
+* bookmark-load:                         Bookmarks.
+* bookmark-save:                         Bookmarks.
+* bookmark-set:                          Bookmarks.
+* bookmark-write:                        Bookmarks.
+* buffer-menu:                           Several Buffers.
+* byte-compile-and-load-file:            Compiling Libraries.
+* byte-compile-buffer:                   Compiling Libraries.
+* byte-compile-file:                     Compiling Libraries.
+* byte-recompile-directory:              Compiling Libraries.
+* c-indent-line:                         Basic Indent.
 * calendar:                              Calendar/Diary.
-* calendar and LaTeX:                    LaTeX Calendar.
-* calendar, first day of week:           Move to Beginning or End.
-* candle lighting times:                 Sexp Diary Entries.
-* case conversion <1>:                   Case.
-* case conversion:                       Fixing Case.
-* Case Sensitive Search menu item:       Options Menu.
-* centering:                             Fill Commands.
-* change log:                            Change Log.
-* changing buffers:                      Select Buffer.
-* changing menu items:                   Menu Customization.
-* character set:                         Intro to Keystrokes.
-* checking in files:                     Concepts of VC.
-* checking out files:                    Concepts of VC.
-* Chinese:                               Mule.
-* Chinese calendar:                      Calendar Systems.
-* Clear menu item:                       Edit Menu.
-* clipboard selections:                  X Clipboard Selection.
-* coding systems:                        Coding Systems.
-* command <1>:                           Key Bindings.
-* command:                               Commands.
-* command history:                       Repetition.
-* command line arguments:                Command Switches.
-* command name:                          Key Bindings.
-* comments:                              Comments.
-* comparing files:                       Comparing Files.
-* compilation errors:                    Compilation.
-* compiling files:                       Compilation.
-* completion:                            Completion.
-* completion (symbol names):             Lisp Completion.
-* continuation line:                     Continuation Lines.
-* Control-Meta:                          Lists.
-* Coptic calendar:                       Calendar Systems.
-* Copy menu item:                        Edit Menu.
-* copying files:                         Misc File Ops.
-* copying text <1>:                      Accumulating Text.
-* copying text:                          Yanking.
-* core distribution:                     Using Packages.
-* crashes:                               Auto Save.
-* creating directories:                  File Names.
-* creating files:                        Visiting.
-* current buffer:                        Buffers.
-* current stack frame:                   Lisp Debug.
-* cursor <1>:                            Basic.
-* cursor:                                Point.
-* customization <1>:                     Customization.
-* customization <2>:                     Lisp Indent.
-* customization:                         Commands.
-* customization buffer:                  Easy Customization.
-* customization groups:                  Customization Groups.
-* customizing faces:                     Face Customization.
-* cut buffers:                           X Selection Commands.
-* Cut menu item:                         Edit Menu.
-* cutting:                               Killing.
-* day of year:                           General Calendar.
-* daylight savings time:                 Daylight Savings.
-* debugger:                              Lisp Debug.
-* default argument:                      Minibuffer.
-* defuns:                                Defuns.
-* Delete Frame menu item:                File Menu.
-* deleting menu items:                   Menu Customization.
-* deletion <1>:                          Killing.
-* deletion:                              Basic.
-* deletion (of files) <1>:               Misc File Ops.
-* deletion (of files):                   Dired.
-* diary:                                 Diary.
-* diary buffer:                          Fancy Diary Display.
-* diary file:                            Format of Diary File.
-* ding:                                  Audible Bell.
-* directories:                           Startup Paths.
-* directory hierarchies:                 Startup Paths.
-* directory listing:                     ListDir.
-* Dired:                                 Dired.
-* disabled command:                      Disabling.
-* disabling menu items:                  Menu Customization.
-* Distribution:                          License.
+* calendar-backward-day:                 Calendar Unit Motion.
+* calendar-backward-month:               Calendar Unit Motion.
+* calendar-backward-week:                Calendar Unit Motion.
+* calendar-beginning-of-month:           Move to Beginning or End.
+* calendar-beginning-of-week:            Move to Beginning or End.
+* calendar-beginning-of-year:            Move to Beginning or End.
+* calendar-count-days-region:            Mark and Region.
+* calendar-cursor-holidays:              Holidays.
+* calendar-end-of-month:                 Move to Beginning or End.
+* calendar-end-of-week:                  Move to Beginning or End.
+* calendar-end-of-year:                  Move to Beginning or End.
+* calendar-exchange-point-and-mark:      Mark and Region.
+* calendar-forward-day:                  Calendar Unit Motion.
+* calendar-forward-month:                Calendar Unit Motion.
+* calendar-forward-week:                 Calendar Unit Motion.
+* calendar-forward-year:                 Calendar Unit Motion.
+* calendar-goto-astro-day-number:        From Other Calendar.
+* calendar-goto-chinese-date:            From Other Calendar.
+* calendar-goto-coptic-date:             From Other Calendar.
+* calendar-goto-date:                    Specified Dates.
+* calendar-goto-ethiopic-date:           From Other Calendar.
+* calendar-goto-french-date:             From Other Calendar.
+* calendar-goto-hebrew-date:             From Other Calendar.
+* calendar-goto-islamic-date:            From Other Calendar.
+* calendar-goto-iso-date:                From Other Calendar.
+* calendar-goto-julian-date:             From Other Calendar.
+* calendar-goto-mayan-long-count-date:   Mayan Calendar.
+* calendar-goto-persian-date:            From Other Calendar.
+* calendar-goto-today:                   Specified Dates.
+* calendar-mark-today:                   Calendar Customizing.
+* calendar-next-calendar-round-date:     Mayan Calendar.
+* calendar-next-haab-date:               Mayan Calendar.
+* calendar-next-tzolkin-date:            Mayan Calendar.
+* calendar-other-month:                  Specified Dates.
+* calendar-phases-of-moon:               Lunar Phases.
+* calendar-previous-haab-date:           Mayan Calendar.
+* calendar-previous-tzolkin-date:        Mayan Calendar.
+* calendar-print-astro-day-number:       To Other Calendar.
+* calendar-print-chinese-date:           To Other Calendar.
+* calendar-print-coptic-date:            To Other Calendar.
+* calendar-print-day-of-year:            General Calendar.
+* calendar-print-ethiopic-date:          To Other Calendar.
+* calendar-print-french-date:            To Other Calendar.
+* calendar-print-hebrew-date:            To Other Calendar.
+* calendar-print-islamic-date:           To Other Calendar.
+* calendar-print-iso-date:               To Other Calendar.
+* calendar-print-julian-date:            To Other Calendar.
+* calendar-print-mayan-date:             To Other Calendar.
+* calendar-print-persian-date:           To Other Calendar.
+* calendar-set-mark:                     Mark and Region.
+* calendar-star-date:                    Calendar Customizing.
+* calendar-sunrise-sunset:               Sunrise/Sunset.
+* calendar-unmark <1>:                   Diary Commands.
+* calendar-unmark:                       Holidays.
+* call-last-kbd-macro:                   Basic Kbd Macro.
+* cancel-debug-on-entry:                 Lisp Debug.
+* capitalize-word <1>:                   Case.
+* capitalize-word:                       Fixing Case.
+* center-line:                           Fill Commands.
+* choose-completion:                     Completion Commands.
+* clear-rectangle:                       Rectangles.
+* comint-delchar-or-maybe-eof:           Shell Mode.
+* comint-dynamic-complete:               Shell Mode.
+* comint-next-input:                     Shell Mode.
+* comint-previous-input:                 Shell Mode.
+* command-apropos:                       Apropos.
+* compare-windows <1>:                   Other Window.
+* compare-windows:                       Comparing Files.
+* compile:                               Compilation.
+* compile-defun:                         Defuns.
+* convert-mocklisp-buffer:               Mocklisp.
+* conx:                                  CONX.
+* conx-buffer:                           CONX.
+* conx-init:                             CONX.
+* conx-load:                             CONX.
+* conx-region:                           CONX.
+* conx-save:                             CONX.
+* copy-file:                             Misc File Ops.
+* copy-last-shell-input:                 Shell Mode.
+* copy-rectangle-to-register:            RegRect.
+* copy-region-as-kill:                   Kill Ring.
+* copy-to-buffer:                        Accumulating Text.
+* copy-to-register:                      RegText.
+* count-lines-page:                      Pages.
+* count-lines-region:                    Position Info.
+* count-matches:                         Other Repeating Search.
+* count-text-lines:                      Nroff Mode.
+* customize:                             Easy Customization.
+* customize-apropos:                     Specific Customization.
+* customize-browse:                      Customization Groups.
+* customize-customized:                  Specific Customization.
+* customize-face:                        Specific Customization.
+* customize-group:                       Specific Customization.
+* customize-option:                      Specific Customization.
+* customize-saved:                       Specific Customization.
+* dabbrev-expand:                        Dynamic Abbrevs.
+* debug:                                 Lisp Debug.
+* debug-on-entry:                        Lisp Debug.
+* default-value:                         Locals.
+* define-abbrevs:                        Saving Abbrevs.
+* define-key <1>:                        Programmatic Rebinding.
+* define-key:                            Interactive Rebinding.
+* delete-backward-char <1>:              Kill Errors.
+* delete-backward-char <2>:              Killing.
+* delete-backward-char:                  Basic.
+* delete-blank-lines <1>:                Killing.
+* delete-blank-lines:                    Blank Lines.
+* delete-char <1>:                       Basic Picture.
+* delete-char:                           Killing.
+* delete-file:                           Misc File Ops.
+* delete-horizontal-space <1>:           Indentation Commands.
+* delete-horizontal-space:               Killing.
+* delete-indentation <1>:                Indentation Commands.
+* delete-indentation:                    Killing.
+* delete-matching-lines:                 Other Repeating Search.
+* delete-menu-item:                      Menu Customization.
+* delete-non-matching-lines:             Other Repeating Search.
+* delete-other-windows:                  Change Window.
+* delete-rectangle:                      Rectangles.
+* delete-window:                         Change Window.
+* describe-bindings:                     Misc Help.
+* describe-calendar-mode:                General Calendar.
+* describe-coding-system:                Coding Systems.
+* describe-copying:                      Misc Help.
+* describe-distribution:                 Misc Help.
+* describe-function <1>:                 Documentation.
+* describe-function:                     Name Help.
+* describe-input-method:                 Select Input Method.
+* describe-key:                          Key Help.
+* describe-key-briefly:                  Key Help.
+* describe-language-environment:         Language Environments.
+* describe-mode:                         Misc Help.
+* describe-no-warranty:                  Misc Help.
+* describe-syntax:                       Syntax Change.
+* describe-variable <1>:                 Examining.
+* describe-variable <2>:                 Documentation.
+* describe-variable:                     Name Help.
+* diary:                                 Diary Commands.
+* diary-anniversary <1>:                 Sexp Diary Entries.
+* diary-anniversary:                     Special Diary Entries.
+* diary-astro-day-number:                Sexp Diary Entries.
+* diary-block:                           Special Diary Entries.
+* diary-cyclic <1>:                      Sexp Diary Entries.
+* diary-cyclic:                          Special Diary Entries.
+* diary-day-of-year:                     Sexp Diary Entries.
+* diary-float:                           Special Diary Entries.
+* diary-french-date:                     Sexp Diary Entries.
+* diary-hebrew-date:                     Sexp Diary Entries.
+* diary-islamic-date:                    Sexp Diary Entries.
+* diary-iso-date:                        Sexp Diary Entries.
+* diary-julian-date:                     Sexp Diary Entries.
+* diary-mail-entries:                    Diary Commands.
+* diary-mayan-date:                      Sexp Diary Entries.
+* diary-omer:                            Sexp Diary Entries.
+* diary-parasha:                         Sexp Diary Entries.
+* diary-phases-of-moon:                  Sexp Diary Entries.
+* diary-rosh-hodesh:                     Sexp Diary Entries.
+* diary-sabbath-candles:                 Sexp Diary Entries.
+* diary-sunrise-sunset:                  Sexp Diary Entries.
+* diary-yahrzeit:                        Sexp Diary Entries.
+* diff:                                  Comparing Files.
+* diff-backup:                           Comparing Files.
+* digit-argument:                        Arguments.
+* dired:                                 Dired Enter.
+* dired-other-window <1>:                Pop Up Window.
+* dired-other-window:                    Dired Enter.
+* disable-command:                       Disabling.
+* disable-menu-item:                     Menu Customization.
+* disassemble:                           Compiling Libraries.
+* display-time:                          Mode Line.
+* dissociated-press:                     Dissociated Press.
+* do-auto-save:                          Auto Save Control.
 * doctor:                                Total Frustration.
-* double slash in file name:             Minibuffer File.
-* drastic changes:                       Reverting.
-* dribble file:                          Bugs.
-* early package hierarchies:             Startup Paths.
-* echo area:                             Echo Area.
-* Edit menu <1>:                         Edit Menu.
-* Edit menu:                             Pull-down Menus.
-* editable fields (customization buffer): Customization Groups.
-* editing level, recursive <1>:          Quitting.
-* editing level, recursive:              Recursive Edit.
-* EDT:                                   Emulation.
-* Eliza:                                 Total Frustration.
-* Emacs initialization file:             Init File.
-* Emacs-Lisp mode:                       Lisp Eval.
-* enabling menu items:                   Menu Customization.
-* encoding of characters:                Mule.
-* End Macro Recording menu item:         Edit Menu.
-* entering Emacs:                        Entering Emacs.
-* entering XEmacs:                       Entering Emacs.
-* environment:                           Single Shell.
-* error log:                             Compilation.
-* etags program:                         Create Tags Table.
-* Ethiopic calendar:                     Calendar Systems.
-* Execute Last Macro menu item:          Edit Menu.
-* Exit Emacs menu item:                  File Menu.
-* exiting <1>:                           Recursive Edit.
-* exiting:                               Exiting.
-* expansion (of abbrevs):                Abbrevs.
-* expression:                            Lists.
-* file dates:                            Interlocking.
-* file directory:                        ListDir.
-* File menu <1>:                         File Menu.
-* File menu:                             Pull-down Menus.
-* file names:                            File Names.
-* file protection:                       Interlocking.
-* files <1>:                             Visiting.
-* files <2>:                             Files.
-* files:                                 Basic.
-* fill prefix:                           Fill Prefix.
-* filling:                               Filling.
-* Font menu item:                        Options Menu.
-* fonts and faces:                       Face Customization.
-* formfeed:                              Pages.
-* Fortran mode:                          Fortran.
-* frame:                                 Frame.
-* French Revolutionary calendar:         Calendar Systems.
-* function <1>:                          Key Bindings.
-* function:                              Commands.
-* General Public License:                License.
-* global keymap:                         Keymaps.
-* global substitution:                   Replace.
-* graphic characters:                    Basic.
-* Greek:                                 Mule.
-* Gregorian calendar:                    Other Calendars.
-* grinding:                              Grinding.
-* hardcopy:                              Hardcopy.
-* header (TeX mode):                     TeX Print.
-* headers (of mail message):             Mail Headers.
-* heading lines (Outline mode):          Outline Format.
-* Hebrew calendar:                       Calendar Systems.
-* help:                                  Help.
-* Help menu <1>:                         Help Menu.
-* Help menu:                             Pull-down Menus.
-* hierarchies:                           Startup Paths.
-* history of commands:                   Repetition.
-* history of minibuffer input:           Minibuffer History.
-* holiday forms:                         Holiday Customizing.
+* down-list:                             Lists.
+* downcase-region:                       Case.
+* downcase-word <1>:                     Case.
+* downcase-word:                         Fixing Case.
+* edit-abbrevs:                          Editing Abbrevs.
+* edit-abbrevs-redefine:                 Editing Abbrevs.
+* edit-options:                          Edit Options.
+* edit-picture:                          Picture.
+* edit-tab-stops <1>:                    Text Mode.
+* edit-tab-stops:                        Tab Stops.
+* edit-tab-stops-note-changes:           Tab Stops.
+* edt-emulation-off:                     Emulation.
+* edt-emulation-on:                      Emulation.
+* electric-nroff-mode:                   Nroff Mode.
+* emacs-lisp-mode:                       Lisp Eval.
+* emacs-version:                         Bugs.
+* enable-command:                        Disabling.
+* enable-menu-item:                      Menu Customization.
+* end-kbd-macro:                         Basic Kbd Macro.
+* end-of-buffer:                         Basic.
+* end-of-defun:                          Defuns.
+* end-of-fortran-subprogram:             Fortran Motion.
+* end-of-line:                           Basic.
+* enlarge-window:                        Change Window.
+* enlarge-window-horizontally:           Change Window.
+* european-calendar:                     Date Formats.
+* eval-current-buffer:                   Lisp Eval.
+* eval-defun:                            Lisp Eval.
+* eval-expression:                       Lisp Eval.
+* eval-last-sexp:                        Lisp Eval.
+* eval-region:                           Lisp Eval.
+* exchange-point-and-mark:               Setting Mark.
+* execute-extended-command:              M-x.
+* exit-calendar:                         General Calendar.
+* exit-recursive-edit:                   Recursive Edit.
+* expand-abbrev:                         Expanding Abbrevs.
+* expand-region-abbrevs:                 Expanding Abbrevs.
+* fancy-diary-display:                   Fancy Diary Display.
+* fill-individual-paragraphs:            Fill Prefix.
+* fill-paragraph:                        Fill Commands.
+* fill-region:                           Fill Commands.
+* fill-region-as-paragraph:              Fill Commands.
+* find-alternate-file:                   Visiting.
+* find-file:                             Visiting.
+* find-file-other-frame <1>:             Visiting.
+* find-file-other-frame:                 XEmacs under X.
+* find-file-other-window <1>:            Pop Up Window.
+* find-file-other-window:                Visiting.
+* find-tag:                              Find Tag.
+* find-tag-other-window <1>:             Find Tag.
+* find-tag-other-window:                 Pop Up Window.
+* find-this-file:                        Visiting.
+* find-this-file-other-window:           Visiting.
+* finder-by-keyword:                     Library Keywords.
+* fortran-column-ruler:                  Fortran Columns.
+* fortran-comment-region:                Fortran Comments.
+* fortran-indent-line:                   ForIndent Commands.
+* fortran-indent-subprogram:             ForIndent Commands.
+* fortran-mode:                          Fortran.
+* fortran-next-statement:                Fortran Motion.
+* fortran-previous-statement:            Fortran Motion.
+* fortran-split-line:                    ForIndent Commands.
+* fortran-window-create:                 Fortran Columns.
+* forward-char:                          Basic.
+* forward-list:                          Lists.
+* forward-page:                          Pages.
+* forward-paragraph:                     Paragraphs.
+* forward-sentence:                      Sentences.
+* forward-sexp:                          Lists.
+* forward-text-line:                     Nroff Mode.
+* forward-word:                          Words.
+* frame-configuration-to-register:       RegConfig.
+* global-set-key <1>:                    Programmatic Rebinding.
+* global-set-key:                        Interactive Rebinding.
+* goto-char:                             Basic.
+* goto-line:                             Basic.
+* hanoi:                                 Amusements.
+* help-command:                          Help.
+* help-for-help:                         Help.
+* help-with-tutorial <1>:                Misc Help.
+* help-with-tutorial:                    Basic.
+* hide-body:                             Outline Visibility.
+* hide-entry:                            Outline Visibility.
+* hide-leaves:                           Outline Visibility.
+* hide-subtree:                          Outline Visibility.
 * holidays:                              Holidays.
-* horizontal scrolling:                  Horizontal Scrolling.
-* ignoriginal:                           Dissociated Press.
-* indentation <1>:                       Comments.
-* indentation <2>:                       Grinding.
-* indentation:                           Indentation.
-* inferior process:                      Compilation.
-* init file:                             Init File.
-* input methods:                         Input Methods.
-* Insert File... menu item:              File Menu.
-* insertion:                             Basic.
-* international scripts:                 Mule.
-* interval operator (in regexps):        Etags Regexps.
-* invisible lines:                       Outline Mode.
-* IPA:                                   Mule.
-* Islamic calendar:                      Calendar Systems.
-* ISO commercial calendar:               Calendar Systems.
-* italic font:                           Face Customization.
-* Japanese:                              Mule.
-* Julian calendar:                       Calendar Systems.
-* Julian day numbers:                    Calendar Systems.
-* justification:                         Fill Commands.
-* key rebinding, permanent:              Init File.
-* key rebinding, this session:           Rebinding.
-* keyboard macros:                       Keyboard Macros.
-* keycode:                               Super and Hyper Keys.
-* keymap <1>:                            Keymaps.
-* keymap:                                Commands.
-* keystroke:                             Intro to Keystrokes.
-* keysym:                                Intro to Keystrokes.
-* keysyms:                               Super and Hyper Keys.
-* Kill Buffer menu item:                 File Menu.
-* kill ring:                             Yanking.
-* killing:                               Killing.
-* killing Emacs:                         Exiting.
-* Korean:                                Mule.
-* language environments:                 Language Environments.
-* last package hierarchies:              Startup Paths.
-* late package hierarchies:              Startup Paths.
-* LaTeX:                                 TeX Mode.
-* libraries:                             Lisp Libraries.
-* license to copy XEmacs:                License.
-* line number:                           Position Info.
-* Lisp:                                  Programs.
-* Lisp mode:                             Program Modes.
-* list:                                  Lists.
-* loading libraries:                     Loading.
-* loading Lisp code:                     Lisp Libraries.
-* local keymap:                          Keymaps.
-* local variables:                       Locals.
-* local variables in files:              File Variables.
-* locking and version control:           Concepts of VC.
-* log entry:                             Editing with VC.
-* mail <1>:                              Reading Mail.
+* include-other-diary-files:             Included Diary Files.
+* increment-register:                    RegNumbers.
+* indent-c-exp:                          Multi-line Indent.
+* indent-for-comment:                    Comments.
+* indent-new-comment-line:               Comments.
+* indent-region <1>:                     Multi-line Indent.
+* indent-region:                         Indentation Commands.
+* indent-relative:                       Indentation Commands.
+* indent-rigidly:                        Indentation Commands.
+* indent-sexp:                           Multi-line Indent.
+* indented-text-mode:                    Text Mode.
+* info:                                  Misc Help.
+* Info-elisp-ref:                        Misc Help.
+* Info-goto-emacs-command-node:          Misc Help.
+* insert-abbrevs:                        Saving Abbrevs.
+* insert-anniversary-diary-entry:        Special Diary Entries.
+* insert-block-diary-entry:              Special Diary Entries.
+* insert-cyclic-diary-entry:             Special Diary Entries.
+* insert-diary-entry:                    Adding to Diary.
+* insert-file:                           Misc File Ops.
+* insert-hebrew-diary-entry:             Hebrew/Islamic Entries.
+* insert-islamic-diary-entry:            Hebrew/Islamic Entries.
+* insert-kbd-macro:                      Save Kbd Macro.
+* insert-monthly-diary-entry:            Adding to Diary.
+* insert-monthly-hebrew-diary-entry:     Hebrew/Islamic Entries.
+* insert-monthly-islamic-diary-entry:    Hebrew/Islamic Entries.
+* insert-parentheses:                    Balanced Editing.
+* insert-register:                       RegText.
+* insert-weekly-diary-entry:             Adding to Diary.
+* insert-yearly-diary-entry:             Adding to Diary.
+* insert-yearly-hebrew-diary-entry:      Hebrew/Islamic Entries.
+* insert-yearly-islamic-diary-entry:     Hebrew/Islamic Entries.
+* interactive:                           M-x.
+* interrupt-shell-subjob:                Shell Mode.
+* inverse-add-global-abbrev:             Defining Abbrevs.
+* inverse-add-mode-abbrev:               Defining Abbrevs.
+* invert-face:                           Faces.
+* isearch-abort:                         Incremental Search.
+* isearch-backward:                      Incremental Search.
+* isearch-backward-regexp:               Regexp Search.
+* isearch-complete:                      Incremental Search.
+* isearch-delete-char:                   Incremental Search.
+* isearch-exit:                          Incremental Search.
+* isearch-forward:                       Incremental Search.
+* isearch-forward-regexp:                Regexp Search.
+* isearch-quote-char:                    Incremental Search.
+* isearch-repeat-backward:               Incremental Search.
+* isearch-repeat-forward:                Incremental Search.
+* isearch-ring-advance:                  Incremental Search.
+* isearch-ring-retreat:                  Incremental Search.
+* isearch-yank-line:                     Incremental Search.
+* isearch-yank-word:                     Incremental Search.
+* jump-to-register <1>:                  Split Window.
+* jump-to-register:                      RegPos.
+* just-one-space:                        Killing.
+* kbd-macro-query:                       Kbd Macro Query.
+* kill-all-abbrevs:                      Defining Abbrevs.
+* kill-buffer:                           Kill Buffer.
+* kill-comment:                          Comments.
+* kill-compilation:                      Compilation.
+* kill-line:                             Killing.
+* kill-local-variable:                   Locals.
+* kill-output-from-shell:                Shell Mode.
+* kill-rectangle:                        Rectangles.
+* kill-region:                           Killing.
+* kill-sentence <1>:                     Sentences.
+* kill-sentence:                         Killing.
+* kill-sexp <1>:                         Lists.
+* kill-sexp:                             Killing.
+* kill-some-buffers:                     Kill Buffer.
+* kill-word <1>:                         Words.
+* kill-word:                             Killing.
+* latex-mode:                            TeX Mode.
+* LaTeX-mode:                            TeX Mode.
+* lisp-complete-symbol:                  Lisp Completion.
+* lisp-indent-line:                      Basic Indent.
+* lisp-interaction-mode:                 Lisp Interaction.
+* lisp-mode:                             External Lisp.
+* lisp-send-defun:                       External Lisp.
+* list-abbrevs:                          Editing Abbrevs.
+* list-bookmarks:                        Bookmarks.
+* list-buffers:                          List Buffers.
+* list-calendar-holidays:                Holidays.
+* list-coding-systems:                   Coding Systems.
+* list-command-history:                  Repetition.
+* list-directory:                        ListDir.
+* list-hebrew-diary-entries:             Hebrew/Islamic Entries.
+* list-holidays:                         Holidays.
+* list-input-methods:                    Select Input Method.
+* list-islamic-diary-entries:            Hebrew/Islamic Entries.
+* list-matching-lines:                   Other Repeating Search.
+* list-options:                          Edit Options.
+* list-tags:                             List Tags.
+* list-yahrzeit-dates:                   From Other Calendar.
+* load:                                  Loading.
+* load-default-sounds:                   Audible Bell.
+* load-file:                             Loading.
+* load-library <1>:                      Loading.
+* load-library:                          Startup Paths.
+* load-sound-file:                       Audible Bell.
+* local-set-key:                         Interactive Rebinding.
+* local-unset-key:                       Interactive Rebinding.
+* locate-library:                        Loading.
+* lpr-buffer:                            Hardcopy.
+* lpr-region:                            Hardcopy.
 * mail:                                  Sending Mail.
-* major modes:                           Major Modes.
-* make:                                  Compilation.
-* mark:                                  Mark.
-* mark ring <1>:                         Mark and Region.
-* mark ring:                             Mark Ring.
-* Markov chain:                          Dissociated Press.
-* master file:                           Concepts of VC.
-* matching parentheses:                  Matching.
-* Mayan calendar:                        Calendar Systems.
-* Mayan calendar round:                  Mayan Calendar.
-* Mayan haab calendar:                   Mayan Calendar.
-* Mayan long count:                      Mayan Calendar.
-* Mayan tzolkin calendar:                Mayan Calendar.
-* menus <1>:                             Change Window.
-* menus:                                 Pull-down Menus.
-* message <1>:                           Reading Mail.
-* message:                               Sending Mail.
-* Meta:                                  Words.
-* minibuffer <1>:                        Keymaps.
-* minibuffer <2>:                        M-x.
-* minibuffer:                            Minibuffer.
-* minibuffer history:                    Minibuffer History.
-* minor modes:                           Minor Modes.
-* mistakes, correcting <1>:              Fixit.
-* mistakes, correcting:                  Undo.
-* mocklisp:                              Mocklisp.
-* mode hook:                             Program Modes.
-* mode line <1>:                         Minor Modes.
-* mode line:                             Mode Line.
-* mode, Term:                            Term Mode.
-* modified (buffer):                     Visiting.
-* modifier key:                          Intro to Keystrokes.
-* modifier mapping:                      Super and Hyper Keys.
-* moon, phases of:                       Lunar Phases.
-* mouse operations:                      Additional Mouse Operations.
-* mouse selection:                       Mouse Selection.
-* moving inside the calendar:            Calendar Motion.
-* moving text:                           Yanking.
-* MULE:                                  Mule.
-* multi-frame XEmacs:                    XEmacs under X.
-* multibyte characters:                  Mule.
-* named configurations (RCS):            Snapshot Caveats.
-* narrowing:                             Narrowing.
-* New Frame menu item:                   File Menu.
+* mail-cc:                               Mail Mode.
+* mail-fill-yanked-message:              Mail Mode.
+* mail-interactive-insert-alias:         Mail Headers.
+* mail-other-window <1>:                 Sending Mail.
+* mail-other-window:                     Pop Up Window.
+* mail-send:                             Mail Mode.
+* mail-send-and-exit:                    Mail Mode.
+* mail-signature:                        Mail Mode.
+* mail-subject:                          Mail Mode.
+* mail-to:                               Mail Mode.
+* mail-yank-original:                    Mail Mode.
+* make-directory:                        File Names.
+* make-face-bold:                        Faces.
+* make-face-bold-italic:                 Faces.
+* make-face-italic:                      Faces.
+* make-face-larger:                      Faces.
+* make-face-smaller:                     Faces.
+* make-face-unbold:                      Faces.
+* make-face-unitalic:                    Faces.
+* make-frame:                            XEmacs under X.
+* make-local-variable:                   Locals.
+* make-obsolete:                         Compiling Libraries.
+* make-symbolic-link:                    Misc File Ops.
+* make-variable-buffer-local:            Locals.
+* manual-entry:                          Documentation.
+* mark-beginning-of-buffer:              Setting Mark.
+* mark-calendar-holidays:                Holidays.
+* mark-defun <1>:                        Defuns.
+* mark-defun:                            Marking Objects.
+* mark-diary-entries:                    Diary Commands.
+* mark-end-of-buffer:                    Setting Mark.
+* mark-fortran-subprogram:               Fortran Motion.
+* mark-hebrew-diary-entries:             Hebrew/Islamic Entries.
+* mark-included-diary-files:             Included Diary Files.
+* mark-islamic-diary-entries:            Hebrew/Islamic Entries.
+* mark-page <1>:                         Pages.
+* mark-page:                             Marking Objects.
+* mark-paragraph <1>:                    Paragraphs.
+* mark-paragraph:                        Marking Objects.
+* mark-sexp <1>:                         Lists.
+* mark-sexp:                             Marking Objects.
+* mark-whole-buffer:                     Marking Objects.
+* mark-word <1>:                         Words.
+* mark-word:                             Marking Objects.
+* minibuffer-complete:                   Completion Example.
+* minibuffer-complete-word:              Completion Commands.
+* modify-syntax-entry:                   Syntax Change.
+* mouse-choose-completion:               Completion Commands.
+* mouse-del-char:                        Additional Mouse Operations.
+* mouse-delete-window:                   Additional Mouse Operations.
+* mouse-keep-one-window:                 Additional Mouse Operations.
+* mouse-kill-line:                       Additional Mouse Operations.
+* mouse-line-length:                     Additional Mouse Operations.
+* mouse-scroll:                          Additional Mouse Operations.
+* mouse-select:                          Additional Mouse Operations.
+* mouse-select-and-split:                Additional Mouse Operations.
+* mouse-set-mark:                        Additional Mouse Operations.
+* mouse-set-point:                       Additional Mouse Operations.
+* mouse-track:                           Additional Mouse Operations.
+* mouse-track-adjust:                    Additional Mouse Operations.
+* mouse-track-and-copy-to-cutbuffer:     Additional Mouse Operations.
+* mouse-track-delete-and-insert:         Additional Mouse Operations.
+* move-over-close-and-reindent:          Balanced Editing.
+* move-to-window-line:                   Basic.
+* name-last-kbd-macro:                   Save Kbd Macro.
+* narrow-to-region:                      Narrowing.
+* negative-argument:                     Arguments.
 * newline:                               Basic.
-* non-incremental search:                Non-Incremental Search.
-* nroff:                                 Nroff Mode.
-* numeric arguments:                     Arguments.
-* omer count:                            Sexp Diary Entries.
-* Open File, New Frame... menu item:     File Menu.
-* Open File... menu item:                File Menu.
-* option <1>:                            Examining.
-* option:                                Variables.
-* Options menu <1>:                      Options Menu.
-* Options menu:                          Pull-down Menus.
-* other editors:                         Emulation.
-* outlines:                              Outline Mode.
-* outragedy:                             Dissociated Press.
-* Overstrike menu item:                  Options Menu.
-* Overwrite mode:                        Minor Modes.
-* package hierarchies:                   Startup Paths.
-* package path:                          Startup Paths.
-* packages:                              Packages.
-* page number:                           Position Info.
-* pages:                                 Pages.
-* paragraphs:                            Paragraphs.
-* parasha, weekly:                       Sexp Diary Entries.
-* Paren Highlighting menu item:          Options Menu.
-* parentheses:                           Matching.
-* Paste menu item:                       Edit Menu.
-* pasting:                               Yanking.
-* path:                                  Startup Paths.
-* paths:                                 Startup Paths.
-* per-buffer variables:                  Locals.
-* Persian calendar:                      Calendar Systems.
-* phases of the moon:                    Lunar Phases.
-* pictures:                              Picture.
-* point <1>:                             Basic.
-* point:                                 Point.
-* pointer face:                          Mouse Selection.
-* pointer shapes:                        Mouse Selection.
-* prefix key sequence:                   Key Sequences.
-* presidentagon:                         Dissociated Press.
-* primary selections:                    X Selection Commands.
-* Print Buffer menu item:                File Menu.
-* prompt:                                Minibuffer.
-* properbose:                            Dissociated Press.
-* Pull-down Menus <1>:                   Change Window.
-* Pull-down Menus:                       Pull-down Menus.
-* query replace:                         Query Replace.
-* quitting:                              Quitting.
-* quitting (in search):                  Incremental Search.
-* quoting:                               Basic.
-* random sentences:                      CONX.
-* RCS:                                   Concepts of VC.
-* Read Only menu item:                   Options Menu.
-* read-only buffer:                      Misc Buffer.
-* rebinding keys, permanently:           Init File.
-* rebinding keys, this session:          Rebinding.
-* rectangle <1>:                         Rectangles in Picture.
-* rectangle:                             RegRect.
-* rectangles:                            Rectangles.
-* recursive editing level <1>:           Quitting.
-* recursive editing level:               Recursive Edit.
-* redefining keys:                       Key Bindings Using Strings.
-* regexp:                                Regexp Search.
-* region <1>:                            Case.
-* region:                                Mark.
-* registered file:                       Concepts of VC.
-* registers:                             Registers.
-* regular expression:                    Regexp Search.
-* regular packages:                      Package Terminology.
-* removing directories:                  File Names.
-* replacement:                           Replace.
-* restriction:                           Narrowing.
-* Revert Buffer menu item:               File Menu.
-* root of a hierarchy:                   Startup Paths.
-* rosh hodesh:                           Sexp Diary Entries.
-* Russian:                               Mule.
-* Save Buffer As ... menu item:          File Menu.
-* Save Buffer menu item:                 File Menu.
-* Save Options:                          Options Menu.
-* saving:                                Visiting.
-* saving option value:                   Changing an Option.
-* SCCS:                                  Concepts of VC.
-* Scheme mode:                           Program Modes.
-* scrolling:                             Scrolling.
-* scrolling in the calendar:             Scroll Calendar.
-* searching:                             Search.
-* selected buffer:                       Buffers.
-* selected window:                       Basic Window.
-* selective display:                     Outline Mode.
-* self-documentation:                    Help.
-* sentences:                             Sentences.
-* setting option value:                  Changing an Option.
-* setting variables:                     Examining.
-* sexp:                                  Lists.
-* sexp diary entries:                    Sexp Diary Entries.
-* shell commands:                        Shell.
-* Shell mode:                            Shell Mode.
-* shift modifer:                         Representing Keystrokes.
-* shrinking XEmacs frame:                Exiting.
-* simultaneous editing:                  Interlocking.
-* single-file packages:                  Package Terminology.
-* site-specific directories:             Startup Paths.
-* Size menu item:                        Options Menu.
-* slashes repeated in file name:         Minibuffer File.
-* snapshots and version control:         Snapshots.
-* sorting:                               Sorting.
-* sorting diary entries:                 Fancy Diary Display.
-* source packages:                       Package Terminology.
-* spelling:                              Spelling.
-* Split Frame:                           File Menu.
-* Start Macro Recording menu item:       Edit Menu.
-* startup paths:                         Startup Paths.
-* string substitution:                   Replace.
-* subshell:                              Shell.
-* subtree (Outline mode):                Outline Visibility.
-* sunrise and sunset:                    Sunrise/Sunset.
-* suspending:                            Exiting.
-* switching buffers:                     Select Buffer.
-* Syntax Highlighting menu item:         Options Menu.
-* syntax table <1>:                      Syntax.
-* syntax table:                          Words.
-* tags table:                            Tags.
-* Teach Extended Commands menu item:     Options Menu.
-* techniquitous:                         Dissociated Press.
-* television:                            Appending Kills.
-* Term mode:                             Term Mode.
-* termscript file:                       Bugs.
-* TeX:                                   TeX Mode.
-* text:                                  Text.
-* Text mode:                             Text Mode.
-* Tools menu <1>:                        Tools Menu.
-* Tools menu:                            Pull-down Menus.
-* top level:                             Mode Line.
-* transposition <1>:                     Lists.
-* transposition <2>:                     Words.
-* transposition:                         Transpose.
-* truncation:                            Continuation Lines.
-* typos:                                 Fixit.
-* Un-split (Keep Others):                File Menu.
-* Un-split (Keep This):                  File Menu.
+* newline-and-indent:                    Basic Indent.
+* next-complex-command:                  Repetition.
+* next-error:                            Compilation.
+* next-history-element:                  Minibuffer History.
+* next-line:                             Basic.
+* next-list-mode-item:                   Completion Commands.
+* next-matching-history-element:         Minibuffer History.
+* not-modified:                          Saving.
+* nroff-mode:                            Nroff Mode.
+* number-to-register:                    RegNumbers.
+* occur:                                 Other Repeating Search.
+* open-dribble-file:                     Bugs.
+* open-line:                             Blank Lines.
+* open-rectangle:                        Rectangles.
+* open-termscript:                       Bugs.
+* other-window:                          Other Window.
+* other-window-any-frame:                Other Window.
+* outline-backward-same-level:           Outline Motion.
+* outline-forward-same-level:            Outline Motion.
+* outline-next-visible-heading:          Outline Motion.
+* outline-previous-visible-heading:      Outline Motion.
+* outline-up-heading:                    Outline Motion.
+* overwrite-mode:                        Minor Modes.
+* phases-of-moon:                        Lunar Phases.
+* picture-backward-clear-column:         Basic Picture.
+* picture-backward-column:               Basic Picture.
+* picture-clear-column:                  Basic Picture.
+* picture-clear-line:                    Basic Picture.
+* picture-clear-rectangle:               Rectangles in Picture.
+* picture-clear-rectangle-to-register:   Rectangles in Picture.
+* picture-forward-column:                Basic Picture.
+* picture-motion:                        Insert in Picture.
+* picture-motion-reverse:                Insert in Picture.
+* picture-move-down:                     Basic Picture.
+* picture-move-up:                       Basic Picture.
+* picture-movement-down:                 Insert in Picture.
+* picture-movement-left:                 Insert in Picture.
+* picture-movement-ne:                   Insert in Picture.
+* picture-movement-nw:                   Insert in Picture.
+* picture-movement-right:                Insert in Picture.
+* picture-movement-se:                   Insert in Picture.
+* picture-movement-sw:                   Insert in Picture.
+* picture-movement-up:                   Insert in Picture.
+* picture-newline:                       Basic Picture.
+* picture-open-line:                     Basic Picture.
+* picture-set-tab-stops:                 Tabs in Picture.
+* picture-tab:                           Tabs in Picture.
+* picture-tab-search:                    Tabs in Picture.
+* picture-yank-rectangle:                Rectangles in Picture.
+* picture-yank-rectangle-from-register:  Rectangles in Picture.
+* plain-TeX-mode:                        TeX Mode.
+* plain-tex-mode:                        TeX Mode.
+* play-sound:                            Audible Bell.
+* point-to-register:                     RegPos.
+* prefer-coding-system:                  Recognize Coding.
+* prepend-to-buffer:                     Accumulating Text.
+* previous-complex-command:              Repetition.
+* previous-history-element:              Minibuffer History.
+* previous-line:                         Basic.
+* previous-list-mode-item:               Completion Commands.
+* previous-matching-history-element:     Minibuffer History.
+* print-buffer:                          Hardcopy.
+* print-diary-entries <1>:               Diary Customizing.
+* print-diary-entries:                   Diary Commands.
+* print-region:                          Hardcopy.
+* quail-set-keyboard-layout:             Select Input Method.
+* query-replace:                         Query Replace.
+* query-replace-regexp:                  Query Replace.
+* quietly-read-abbrev-file:              Saving Abbrevs.
+* quit-shell-subjob:                     Shell Mode.
+* quoted-insert:                         Basic.
+* re-search-backward:                    Regexp Search.
+* re-search-forward:                     Regexp Search.
+* read-abbrev-file:                      Saving Abbrevs.
+* read-key-sequence:                     Representing Keystrokes.
+* recenter <1>:                          Scrolling.
+* recenter:                              Basic.
+* recover-file:                          Recover.
+* redraw-calendar:                       General Calendar.
+* relabel-menu-item:                     Menu Customization.
+* remove-directory:                      File Names.
+* rename-buffer:                         Misc Buffer.
+* rename-file:                           Misc File Ops.
+* repeat-complex-command:                Repetition.
+* replace-regexp:                        Unconditional Replace.
+* replace-string:                        Unconditional Replace.
+* revert-buffer:                         Reverting.
+* run-lisp:                              External Lisp.
+* save-buffer:                           Saving.
+* save-buffers-kill-emacs:               Exiting.
+* save-some-buffers:                     Saving.
+* scroll-calendar-left:                  Scroll Calendar.
+* scroll-calendar-left-three-months:     Scroll Calendar.
+* scroll-calendar-right:                 Scroll Calendar.
+* scroll-calendar-right-three-months:    Scroll Calendar.
+* scroll-down:                           Scrolling.
+* scroll-left:                           Horizontal Scrolling.
+* scroll-other-window <1>:               General Calendar.
+* scroll-other-window:                   Other Window.
+* scroll-right:                          Horizontal Scrolling.
+* scroll-up:                             Scrolling.
+* search-backward:                       Non-Incremental Search.
+* search-forward:                        Non-Incremental Search.
+* select-input-method:                   Select Input Method.
+* self-insert:                           Basic.
+* send-shell-input:                      Shell Mode.
+* set-buffer-file-coding-system:         Specify Coding.
+* set-buffer-process-coding-system:      Specify Coding.
+* set-comment-column:                    Comments.
+* set-default-file-modes:                Interlocking.
+* set-face-background:                   Faces.
+* set-face-background-pixmap:            Faces.
+* set-face-font:                         Faces.
+* set-face-foreground:                   Faces.
+* set-face-underline-p:                  Faces.
+* set-fill-column:                       Fill Commands.
+* set-fill-prefix:                       Fill Prefix.
+* set-gnu-bindings:                      Emulation.
+* set-goal-column:                       Basic.
+* set-gosmacs-bindings:                  Emulation.
+* set-keyboard-coding-system:            Specify Coding.
+* set-language-environment:              Language Environments.
+* set-mark-command:                      Setting Mark.
+* set-selective-display:                 Selective Display.
+* set-terminal-coding-system:            Specify Coding.
+* set-variable:                          Examining.
+* set-visited-file-name:                 Saving.
+* setq-default:                          Locals.
+* shell:                                 Interactive Shell.
+* shell-command:                         Single Shell.
+* shell-command-on-region:               Single Shell.
+* shell-send-eof:                        Shell Mode.
+* show-all:                              Outline Visibility.
+* show-all-diary-entries:                Diary Commands.
+* show-branches:                         Outline Visibility.
+* show-children:                         Outline Visibility.
+* show-entry:                            Outline Visibility.
+* show-output-from-shell:                Shell Mode.
+* show-subtree:                          Outline Visibility.
+* simple-diary-display:                  Fancy Diary Display.
+* sort-columns:                          Sorting.
+* sort-diary-entries:                    Fancy Diary Display.
+* sort-fields:                           Sorting.
+* sort-lines:                            Sorting.
+* sort-numeric-fields:                   Sorting.
+* sort-pages:                            Sorting.
+* sort-paragraphs:                       Sorting.
+* spell-buffer:                          Spelling.
+* spell-region:                          Spelling.
+* spell-string:                          Spelling.
+* spell-word:                            Spelling.
+* split-line:                            Indentation Commands.
+* split-window-horizontally:             Split Window.
+* split-window-vertically:               Split Window.
+* start-kbd-macro:                       Basic Kbd Macro.
+* stop-shell-subjob:                     Shell Mode.
+* substitute-key-definition:             Interactive Rebinding.
+* sunrise-sunset:                        Sunrise/Sunset.
+* suspend-emacs:                         Exiting.
+* switch-to-buffer:                      Select Buffer.
+* switch-to-buffer-other-frame <1>:      Select Buffer.
+* switch-to-buffer-other-frame:          XEmacs under X.
+* switch-to-buffer-other-window <1>:     Pop Up Window.
+* switch-to-buffer-other-window:         Select Buffer.
+* switch-to-other-buffer:                Select Buffer.
+* tab-to-tab-stop <1>:                   Text Mode.
+* tab-to-tab-stop:                       Tab Stops.
+* tabify:                                Just Spaces.
+* tags-apropos:                          List Tags.
+* tags-loop-continue:                    Tags Search.
+* tags-query-replace:                    Tags Search.
+* tags-search:                           Tags Search.
+* term:                                  Terminal emulator.
+* term-line-mode:                        Term Mode.
+* term-pager-toggle:                     Paging in Term.
+* tex-buffer:                            TeX Print.
+* tex-close-latex-block:                 TeX Editing.
+* tex-insert-braces:                     TeX Editing.
+* tex-insert-quote:                      TeX Editing.
+* tex-kill-job:                          TeX Print.
+* tex-mode:                              TeX Mode.
+* TeX-mode:                              TeX Mode.
+* tex-print:                             TeX Print.
+* tex-recenter-output-buffer:            TeX Print.
+* tex-region:                            TeX Print.
+* tex-show-print-queue:                  TeX Print.
+* tex-terminate-paragraph:               TeX Editing.
+* text-mode:                             Text Mode.
+* toggle-input-method:                   Select Input Method.
+* toggle-read-only:                      Misc Buffer.
+* top-level <1>:                         Quitting.
+* top-level:                             Recursive Edit.
+* transpose-chars <1>:                   Transpose.
+* transpose-chars:                       Basic.
+* transpose-lines:                       Transpose.
+* transpose-sexps <1>:                   Lists.
+* transpose-sexps:                       Transpose.
+* transpose-words <1>:                   Words.
+* transpose-words:                       Transpose.
 * undo:                                  Undo.
-* Undo menu item:                        Edit Menu.
-* variable:                              Variables.
-* variables:                             Commands.
-* version control:                       Version Control.
-* version-specific directories:          Startup Paths.
-* vi:                                    Emulation.
-* viewing:                               Misc File Ops.
-* Viper:                                 Emulation.
-* visiting:                              Visiting.
-* visiting files:                        Visiting.
-* weeks, which day they start on:        Move to Beginning or End.
-* Weight menu item:                      Options Menu.
-* widening:                              Narrowing.
-* window:                                Frame.
-* windows:                               Windows.
-* Windows menu:                          Change Window.
-* word search:                           Word Search.
-* words <1>:                             Case.
-* words <2>:                             Words.
-* words:                                 Fixing Case.
-* work file:                             Concepts of VC.
-* X resources:                           X Resources.
-* yahrzeits <1>:                         Sexp Diary Entries.
-* yahrzeits:                             From Other Calendar.
-* yanking:                               Yanking.
-
+* unexpand-abbrev:                       Expanding Abbrevs.
+* universal-argument:                    Arguments.
+* universal-coding-system-argument:      Specify Coding.
+* untabify:                              Just Spaces.
+* up-list:                               TeX Editing.
+* upcase-region:                         Case.
+* upcase-word <1>:                       Case.
+* upcase-word:                           Fixing Case.
+* validate-tex-buffer:                   TeX Editing.
+* vc-cancel-version:                     Editing with VC.
+* vc-create-snapshot:                    Making Snapshots.
+* vc-diff:                               Old Versions.
+* vc-directory:                          VC Status.
+* vc-insert-headers:                     Version Headers.
+* vc-next-action:                        Editing with VC.
+* vc-print-log:                          VC Status.
+* vc-register:                           Editing with VC.
+* vc-rename-file:                        Renaming and VC.
+* vc-retrieve-snapshot:                  Making Snapshots.
+* vc-revert-buffer:                      Editing with VC.
+* vc-update-change-log:                  Change Logs and VC.
+* vc-version-other-window:               Old Versions.
+* view-buffer:                           Misc Buffer.
+* view-diary-entries:                    Diary Commands.
+* view-emacs-news:                       Misc Help.
+* view-file:                             Misc File Ops.
+* view-hello-file:                       Mule Intro.
+* view-lossage:                          Misc Help.
+* view-register:                         Registers.
+* visit-tags-table:                      Select Tags Table.
+* what-cursor-position:                  Position Info.
+* what-line:                             Position Info.
+* what-page:                             Position Info.
+* where-is:                              Name Help.
+* widen:                                 Narrowing.
+* widget-backward:                       Changing an Option.
+* widget-complete:                       Changing an Option.
+* widget-forward:                        Changing an Option.
+* window-configuration-to-register <1>:  Split Window.
+* window-configuration-to-register:      RegConfig.
+* word-search-backward:                  Word Search.
+* word-search-forward:                   Word Search.
+* write-abbrev-file:                     Saving Abbrevs.
+* write-file:                            Saving.
+* x-copy-primary-selection:              X Selection Commands.
+* x-create-frame:                        X Resources.
+* x-delete-primary-selection:            X Selection Commands.
+* x-insert-selection:                    X Selection Commands.
+* x-kill-primary-selection:              X Selection Commands.
+* x-mouse-kill:                          X Selection Commands.
+* x-own-secondary-selection:             X Selection Commands.
+* x-own-selection:                       X Selection Commands.
+* x-set-point-and-insert-selection:      X Selection Commands.
+* xemacs-local-faq:                      Misc Help.
+* Yank:                                  Kill Ring.
+* yank-pop:                              Earlier Kills.
+* yank-rectangle:                        Rectangles.
+* yow:                                   Amusements.
+* zap-to-char:                           Killing.
+* zmacs-activate-region:                 Active Regions.
+* zmacs-deactivate-region:               Active Regions.
 

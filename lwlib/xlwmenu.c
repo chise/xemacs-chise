@@ -457,7 +457,7 @@ string_width_u (XlwMenuWidget mw,
 }
 
 static void
-massage_resource_name (CONST char *in, char *out)
+massage_resource_name (const char *in, char *out)
 {
   /* Turn a random string into something suitable for using as a resource.
      For example:
@@ -479,16 +479,26 @@ massage_resource_name (CONST char *in, char *out)
   Boolean firstp = True;
   while (*in)
     {
-      char ch = massaged_resource_char[(unsigned char) *in++];
-      if (ch)
+      if (*in == '%' && *(in + 1) == '_')
+	in += 2;
+      else
 	{
-	  int int_ch = (int) (unsigned char) ch;
-	  *out++ = firstp ? tolower (int_ch) : toupper (int_ch);
-	  firstp = False;
-	  while ((ch = massaged_resource_char[(unsigned char) *in++]) != '\0')
-	    *out++ = ch;
-	  if (!*(in-1))		/* Overshot the NULL byte? */
-	    break;
+	  char ch;
+
+	  if (*in == '%' && *(in + 1) == '%')
+	    in++;
+	  ch = massaged_resource_char[(unsigned char) *in++];
+	  if (ch)
+	    {
+	      int int_ch = (int) (unsigned char) ch;
+	      *out++ = firstp ? tolower (int_ch) : toupper (int_ch);
+	      firstp = False;
+	      while ((ch = massaged_resource_char[(unsigned char) *in++])
+		     != '\0')
+		*out++ = ch;
+	      if (!*(in-1))		/* Overshot the NULL byte? */
+		break;
+	    }
 	}
     }
   *out = 0;
@@ -520,7 +530,7 @@ nameResource[] =
  *    not inserted if value is a zero length string.
  */
 static char*
-parameterize_string (CONST char *string, CONST char *value)
+parameterize_string (const char *string, const char *value)
 {
   char *percent;
   char *result;
@@ -1873,7 +1883,7 @@ radio_button_draw (XlwMenuWidget mw,
 
 static struct _shadow_names
 {
-  CONST char *      name;
+  const char *      name;
   shadow_type type;
 } shadow_names[] =
 {
@@ -2809,30 +2819,22 @@ make_shadow_gcs (XlwMenuWidget mw)
   xgcv.foreground = mw->menu.top_shadow_color;
   xgcv.background = mw->core.background_pixel;
 /*  xgcv.stipple = mw->menu.top_shadow_pixmap; gtb */
-#ifdef NEED_MOTIF
   if (mw->menu.top_shadow_pixmap &&
       mw->menu.top_shadow_pixmap != XmUNSPECIFIED_PIXMAP)
      xgcv.stipple = mw->menu.top_shadow_pixmap;
   else
      xgcv.stipple = 0;
-#else
-  xgcv.stipple = mw->menu.top_shadow_pixmap;
-#endif /* NEED_MOTIF */
   pm = (xgcv.stipple ? GCStipple|GCFillStyle : 0);
   mw->menu.shadow_top_gc =
     XtGetGC((Widget)mw, GCForeground|GCBackground|pm, &xgcv);
 
   xgcv.foreground = mw->menu.bottom_shadow_color;
 /*  xgcv.stipple = mw->menu.bottom_shadow_pixmap; gtb */
-#ifdef NEED_MOTIF
   if (mw->menu.bottom_shadow_pixmap &&
       mw->menu.bottom_shadow_pixmap != XmUNSPECIFIED_PIXMAP)
      xgcv.stipple = mw->menu.bottom_shadow_pixmap;
   else
      xgcv.stipple = 0;
-#else
-  xgcv.stipple = mw->menu.bottom_shadow_pixmap;
-#endif /* NEED_MOTIF */
   pm = (xgcv.stipple ? GCStipple|GCFillStyle : 0);
   mw->menu.shadow_bottom_gc =
     XtGetGC ((Widget)mw, GCForeground|GCBackground|pm, &xgcv);

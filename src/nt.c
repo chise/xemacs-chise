@@ -48,20 +48,7 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include <stdio.h>
 
 #include <windows.h>
-#ifndef __MINGW32__
 #include <mmsystem.h>
-#else
-typedef void (CALLBACK TIMECALLBACK)(UINT uTimerID, UINT uMsg, DWORD dwUser, DWORD dw1, DWORD dw2);
-
-typedef TIMECALLBACK FAR *LPTIMECALLBACK;
-DWORD WINAPI timeGetTime(void);
-MMRESULT WINAPI timeSetEvent(UINT uDelay, UINT uResolution,
-    LPTIMECALLBACK fptc, DWORD dwUser, UINT fuEvent);
-MMRESULT WINAPI timeKillEvent(UINT uTimerID);
-MMRESULT WINAPI timeGetDevCaps(TIMECAPS* ptc, UINT cbtc);
-MMRESULT WINAPI timeBeginPeriod(UINT uPeriod);
-MMRESULT WINAPI timeEndPeriod(UINT uPeriod);
-#endif
 
 #include "nt.h"
 #include <sys/dir.h>
@@ -132,25 +119,25 @@ static struct passwd the_passwd =
 };
 
 uid_t
-getuid () 
+getuid (void) 
 {
   return nt_fake_unix_uid;
 }
 
 uid_t 
-geteuid () 
+geteuid (void) 
 { 
   return nt_fake_unix_uid;
 }
 
 gid_t
-getgid () 
+getgid (void) 
 { 
   return the_passwd.pw_gid;
 }
 
 gid_t
-getegid () 
+getegid (void) 
 { 
   return getgid ();
 }
@@ -183,7 +170,7 @@ getpwnam (const char *name)
 }
 
 void
-init_user_info ()
+init_user_info (void)
 {
   /* This code is pretty much of ad hoc nature. There is no unix-like
      UIDs under Windows NT. There is no concept of root user, because
@@ -290,7 +277,7 @@ init_user_info ()
     putenv ((GetVersion () & 0x80000000) ? "SHELL=command" : "SHELL=cmd");
 
   /* Set dir and shell from environment variables. */
-  strcpy (the_passwd.pw_dir, get_home_directory());
+  strcpy (the_passwd.pw_dir, (char *)get_home_directory());
   strcpy (the_passwd.pw_shell, getenv ("SHELL"));
 }
 
@@ -299,9 +286,7 @@ init_user_info ()
    case path name components to lower case.  */
 
 static void
-normalize_filename (fp, path_sep)
-     REGISTER char *fp;
-     char path_sep;
+normalize_filename (char *fp, char path_sep)
 {
   char sep;
   char *elem;
@@ -357,16 +342,14 @@ normalize_filename (fp, path_sep)
 
 /* Destructively turn backslashes into slashes.  */
 void
-dostounix_filename (p)
-     REGISTER char *p;
+dostounix_filename (char *p)
 {
   normalize_filename (p, '/');
 }
 
 /* Destructively turn slashes into backslashes.  */
 void
-unixtodos_filename (p)
-     REGISTER char *p;
+unixtodos_filename (char *p)
 {
   normalize_filename (p, '\\');
 }
@@ -375,10 +358,7 @@ unixtodos_filename (p)
    (From msdos.c...probably should figure out a way to share it,
    although this code isn't going to ever change.)  */
 int
-crlf_to_lf (n, buf, lf_count)
-     REGISTER int n;
-     REGISTER unsigned char *buf;
-     REGISTER unsigned *lf_count;
+crlf_to_lf (int n, unsigned char *buf, unsigned *lf_count)
 {
   unsigned char *np = buf;
   unsigned char *startp = buf;
@@ -555,9 +535,7 @@ request_sigio (void)
 #define REG_ROOT "SOFTWARE\\GNU\\XEmacs"
 
 LPBYTE 
-nt_get_resource (key, lpdwtype)
-    char *key;
-    LPDWORD lpdwtype;
+nt_get_resource (char *key, LPDWORD lpdwtype)
 {
   LPBYTE lpvalue;
   HKEY hrootkey = NULL;
@@ -602,7 +580,7 @@ nt_get_resource (key, lpdwtype)
 }
 
 void
-init_environment ()
+init_environment (void)
 {
   /* Check for environment variables and use registry if they don't exist */
   {
@@ -624,7 +602,7 @@ init_environment ()
       "EMACSLOCKDIR",
       "INFOPATH"
     };
-#ifdef HEAP_IN_DATA
+#if defined (HEAP_IN_DATA) && !defined(PDUMP)
     cache_system_info ();
 #endif
     for (i = 0; i < countof (env_vars); i++) 
@@ -1259,6 +1237,11 @@ convert_time (FILETIME ft)
 }
 #else
 
+#if defined(__MINGW32__) && CYGWIN_VERSION_DLL_MAJOR <= 21
+#define LowPart u.LowPart
+#define HighPart u.HighPart
+#endif
+
 static LARGE_INTEGER utc_base_li;
 
 time_t
@@ -1327,6 +1310,10 @@ convert_time (FILETIME uft)
 
   return ret;
 }
+#endif
+#if defined(__MINGW32__) && CYGWIN_VERSION_DLL_MAJOR <= 21
+#undef LowPart
+#undef HighPart
 #endif
 
 #if 0
@@ -1409,6 +1396,12 @@ generate_inode_val (const char * name)
    Oh, and do not encapsulater stat for non-MS compilers, too */
 /* #### popineau@ese-metz.fr says they still might be broken.
    Oh well... Let's add that `1 ||' condition.... --kkm */
+/* #### aichner@ecf.teradyne.com reported that with the library
+   provided stat/fstat, (file-exist "d:\\tmp\\") =>> nil,
+   (file-exist "d:\\tmp") =>> t, when d:\tmp exists. Whenever
+   we opt to use non-encapsulated stat(), this should serve as
+   a compatibility test. --kkm */
+
 #if 1 || defined(_MSC_VER) && _MSC_VER < 1100
 
 /* Since stat is encapsulated on Windows NT, we need to encapsulate
@@ -1479,7 +1472,7 @@ stat (const char * path, struct stat * buf)
   len = strlen (name);
   rootdir = (path >= name + len - 1
 	     && (IS_DIRECTORY_SEP (*path) || *path == 0));
-  name = strcpy (alloca (len + 2), name);
+  name = strcpy ((char *)alloca (len + 2), name);
 
   if (rootdir)
     {
@@ -1676,7 +1669,7 @@ term_ntproc (int unused)
 }
 
 void
-init_ntproc ()
+init_ntproc (void)
 {
   /* Initial preparation for subprocess support: replace our standard
      handles with non-inheritable versions. */
@@ -2012,7 +2005,7 @@ int setitimer (int kind, const struct itimerval* itnew,
 }
 
 int
-open_input_file (file_data *p_file, CONST char *filename)
+open_input_file (file_data *p_file, const char *filename)
 {
   HANDLE file;
   HANDLE file_mapping;
@@ -2034,11 +2027,11 @@ open_input_file (file_data *p_file, CONST char *filename)
   if (file_base == 0) 
     return FALSE;
 
-  p_file->name = (char*)filename;
+  p_file->name = (char *)filename;
   p_file->size = size;
   p_file->file = file;
   p_file->file_mapping = file_mapping;
-  p_file->file_base = file_base;
+  p_file->file_base = (char *)file_base;
 
   return TRUE;
 }

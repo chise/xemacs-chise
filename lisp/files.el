@@ -1031,7 +1031,8 @@ If RAWFILE is non-nil, the file is read literally."
 		  (setq buf (current-buffer))))
 	    (t
 	     (kill-buffer buf)
-	     (signal (car data) (cdr data))))))
+	     (signal (car data) (cdr data))))
+	))
       buf)))
 
 ;; FSF has `insert-file-literally' and `find-file-literally' here.
@@ -1196,7 +1197,9 @@ run `normal-mode' explicitly."
     ("\\.lex\\'" . c-mode)
     ("\\.m\\'" . objc-mode)
     ("\\.oak\\'" . scheme-mode)
-    ("\\.s?html?\\'" . html-mode)
+    ("\\.[sj]?html?\\'" . html-mode)
+    ("\\.jsp\\'" . html-mode)
+    ("\\.xml\\'" . xml-mode)
     ("\\.htm?l?3\\'" . html3-mode)
     ("\\.\\(?:sgml?\\|dtd\\)\\'" . sgml-mode)
     ("\\.c?ps\\'" . postscript-mode)
@@ -1834,7 +1837,7 @@ with a prefix argument, you will be prompted for the coding system."
 					  (buffer-local-variables)))
 			       nil nil (buffer-name)))
 	 t
-	 (if (and current-prefix-arg (featurep 'mule))
+	 (if (and current-prefix-arg (featurep 'file-coding))
 	     (read-coding-system "Coding system: "))))
   (and (eq (current-buffer) mouse-grabbed-buffer)
        (error "Can't write minibuffer window"))
@@ -2462,7 +2465,7 @@ Optional second argument EXITING means ask about certain non-file buffers
 			       (recursive-edit)
 			       ;; Return nil to ask about BUF again.
 			       nil)
-		       "display the current buffer"))))
+		       "%_Display Buffer"))))
 	 (abbrevs-done
 	  (and save-abbrevs abbrevs-changed
 	       (progn

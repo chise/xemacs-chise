@@ -466,7 +466,7 @@ register Window	win = XtWindow(w) ;
 	if( gw->gauge.nlabels > 1 )
 	{
 	  char	label[20], *s = label ;
-	  int	len, w,h =0 ;
+	  int	xlen, wd,h =0 ;
 
 	  if( gw->gauge.orientation == XtorientHorizontal )
 	    y = gw->gauge.lmargin + gw->label.font->max_bounds.ascent - 1 ;
@@ -483,13 +483,13 @@ register Window	win = XtWindow(w) ;
 	      s = gw->gauge.labels[i] ;
 	    if( s != NULL ) {
 	      x = e0 + i*(e1-e0-1)/(gw->gauge.nlabels-1) ;
-	      len = strlen(s) ;
+	      xlen = strlen(s) ;
 	      if( gw->gauge.orientation == XtorientHorizontal ) {
-		w = XTextWidth(gw->label.font, s, len) ;
-		XDrawString(dpy,win,gc, x-w/2,y, s,len) ;
+		wd = XTextWidth(gw->label.font, s, xlen) ;
+		XDrawString(dpy,win,gc, x-wd/2,y, s,xlen) ;
 	      }
 	      else {
-		XDrawString(dpy,win,gc, y,x+h, s,len) ;
+		XDrawString(dpy,win,gc, y,x+h, s,xlen) ;
 	      }
 	    }
 	  }

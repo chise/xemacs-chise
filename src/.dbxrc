@@ -64,16 +64,13 @@ function ldp {
   call debug_print ($1);
 }
 
+Lisp_Type_Int=-2
+
 # A bug in dbx prevents string variables from having values beginning with `-'!!
 function XEmacsInit {
   function ToInt { eval "$1=\$[(int) \`alloc.c\`$1]"; }
   ToInt dbg_USE_UNION_TYPE
-  ToInt Lisp_Type_Int
   ToInt Lisp_Type_Char
-  ToInt Lisp_Type_Cons
-  ToInt Lisp_Type_String
-  ToInt Lisp_Type_Vector
-  ToInt Lisp_Type_Symbol
   ToInt Lisp_Type_Record
   ToInt dbg_valbits
   ToInt dbg_gctypebits
@@ -122,9 +119,12 @@ function decode_object {
   fi
 
   if test $type = $Lisp_Type_Record; then
-    typeset lheader="((struct lrecord_header *) $val)"
+    lheader="((struct lrecord_header *) $val)"
+    lrecord_type=$[(enum lrecord_type) $lheader->type]
     imp=$[(void*)(`alloc.c`lrecord_implementations_table[$lheader->type])]
   else
+    lheader="((struct lrecord_header *) -1)"
+    lrecord_type=-1
     imp="0xdeadbeef"
   fi
   # printvar obj val type imp
@@ -144,10 +144,6 @@ function xtype {
   decode_object "$*"
   if   test $type = $Lisp_Type_Int;    then echo "int"
   elif test $type = $Lisp_Type_Char;   then echo "char"
-  elif test $type = $Lisp_Type_Symbol; then echo "symbol"
-  elif test $type = $Lisp_Type_String; then echo "string"
-  elif test $type = $Lisp_Type_Vector; then echo "vector"
-  elif test $type = $Lisp_Type_Cons;   then echo "cons"
   elif test $type = null_pointer;      then echo "null_pointer"
   else
     echo "record type with name: $[((struct lrecord_implementation *)$imp)->name]"
@@ -220,14 +216,11 @@ function dump-temacs {
   run -batch -l ../lisp/loadup.el dump
 }
 
-function pstruct {
-  xstruct="((struct $1 *) $val)"
-  print $xstruct
-  print *$xstruct
-}
-
-function lrecord_type_p {
-  if eval test -z \"\$lrecord_$1\" && test $imp = $[(void*)(&lrecord_$1)]; then return 0; else return 1; fi
+function pstruct { # pstruct foo.c struct-name
+  module "$1" > /dev/null
+  type_ptr="((struct $2 *) $val)"
+  print $type_ptr
+  print *$type_ptr
 }
 
 document pobj << 'end'
@@ -245,104 +238,110 @@ function pobj {
     else
       print -f"Char: %d" $val
     fi
-  elif test $type = $Lisp_Type_String || lrecord_type_p string; then
-    pstruct Lisp_String
-  elif test $type = $Lisp_Type_Cons   || lrecord_type_p cons; then
-    pstruct Lisp_Cons
-  elif test $type = $Lisp_Type_Symbol || lrecord_type_p symbol; then
-    pstruct Lisp_Symbol
-    echo "Symbol name: $[(char *)($xstruct->name->data)]"
-  elif test $type = $Lisp_Type_Vector || lrecord_type_p vector; then
-    pstruct Lisp_Vector
-    echo "Vector of length $[$xstruct->size]"
-  elif lrecord_type_p bit_vector; then
-    pstruct Lisp_Bit_Vector
-  elif lrecord_type_p buffer; then
-    pstruct buffer
-  elif lrecord_type_p char_table; then
-    pstruct Lisp_Char_Table
-  elif lrecord_type_p char_table_entry; then
-    pstruct Lisp_Char_Table_Entry
-  elif lrecord_type_p charset; then
-    pstruct Lisp_Charset
-  elif lrecord_type_p coding_system; then
-    pstruct Lisp_Coding_System
-  elif lrecord_type_p color_instance; then
-    pstruct Lisp_Color_Instance
-  elif lrecord_type_p command_builder; then
-    pstruct command_builder
-  elif lrecord_type_p compiled_function; then
-    pstruct Lisp_Compiled_Function
-  elif lrecord_type_p console; then
-    pstruct console
-  elif lrecord_type_p database; then
-    pstruct Lisp_Database
-  elif lrecord_type_p device; then
-    pstruct device
-  elif lrecord_type_p event; then
-    pstruct Lisp_Event
-  elif lrecord_type_p extent; then
-    pstruct extent
-  elif lrecord_type_p extent_auxiliary; then
-    pstruct extent_auxiliary
-  elif lrecord_type_p extent_info; then
-    pstruct extent_info
-  elif lrecord_type_p face; then
-    pstruct Lisp_Face
-  elif lrecord_type_p float; then
-    pstruct Lisp_Float
-  elif lrecord_type_p font_instance; then
-    pstruct Lisp_Font_Instance
-  elif lrecord_type_p frame; then
-    pstruct frame
-  elif lrecord_type_p glyph; then
-    pstruct Lisp_Glyph
-  elif lrecord_type_p hash_table; then
-    pstruct Lisp_Hash_Table
-  elif lrecord_type_p image_instance; then
-    pstruct Lisp_Image_Instance
-  elif lrecord_type_p keymap; then
-    pstruct Lisp_Keymap
-  elif lrecord_type_p lcrecord_list; then
-    pstruct lcrecord_list
-  elif lrecord_type_p lstream; then
-    pstruct lstream
-  elif lrecord_type_p marker; then
-    pstruct Lisp_Marker
-  elif lrecord_type_p opaque; then
-    pstruct Lisp_Opaque
-  elif lrecord_type_p opaque_ptr; then
-    pstruct Lisp_Opaque_Ptr
-  elif lrecord_type_p popup_data; then
-    pstruct popup_data
-  elif lrecord_type_p process; then
-    pstruct Lisp_Process
-  elif lrecord_type_p range_table; then
-    pstruct Lisp_Range_Table
-  elif lrecord_type_p specifier; then
-    pstruct Lisp_Specifier
-  elif lrecord_type_p subr; then
-    pstruct Lisp_Subr
-  elif lrecord_type_p symbol_value_buffer_local; then
-    pstruct symbol_value_buffer_local
-  elif lrecord_type_p symbol_value_forward; then
-    pstruct symbol_value_forward
-  elif lrecord_type_p symbol_value_lisp_magic; then
-    pstruct symbol_value_lisp_magic
-  elif lrecord_type_p symbol_value_varalias; then
-    pstruct symbol_value_varalias
-  elif lrecord_type_p toolbar_button; then
-    pstruct toolbar_button
-  elif lrecord_type_p tooltalk_message; then
-    pstruct Lisp_Tooltalk_Message
-  elif lrecord_type_p tooltalk_pattern; then
-    pstruct Lisp_Tooltalk_Pattern
-  elif lrecord_type_p weak_list; then
-    pstruct weak_list
-  elif lrecord_type_p window; then
-    pstruct window
-  elif lrecord_type_p window_configuration; then
-    pstruct window_config
+  elif test $lrecord_type = lrecord_type_string; then
+    pstruct alloc.c Lisp_String
+  elif test $lrecord_type = lrecord_type_cons; then
+    pstruct alloc.c Lisp_Cons
+  elif test $lrecord_type = lrecord_type_symbol; then
+    pstruct symbols.c Lisp_Symbol
+    echo "Symbol name: $[(char *)($type_ptr->name->data)]"
+  elif test $lrecord_type = lrecord_type_vector; then
+    pstruct alloc.c Lisp_Vector
+    echo "Vector of length $[$type_ptr->size]"
+  elif test $lrecord_type = lrecord_type_bit_vector; then
+    pstruct fns.c Lisp_Bit_Vector
+  elif test $lrecord_type = lrecord_type_buffer; then
+    pstruct buffer.c buffer
+  elif test $lrecord_type = lrecord_type_char_table; then
+    pstruct chartab.c Lisp_Char_Table
+  elif test $lrecord_type = lrecord_type_char_table_entry; then
+    pstruct chartab.c Lisp_Char_Table_Entry
+  elif test $lrecord_type = lrecord_type_charset; then
+    pstruct mule-charset.c Lisp_Charset
+  elif test $lrecord_type = lrecord_type_coding_system; then
+    pstruct file-coding.c Lisp_Coding_System
+  elif test $lrecord_type = lrecord_type_color_instance; then
+    pstruct objects.c Lisp_Color_Instance
+  elif test $lrecord_type = lrecord_type_command_builder; then
+    pstruct event-stream.c command_builder
+  elif test $lrecord_type = lrecord_type_compiled_function; then
+    pstruct bytecode.c Lisp_Compiled_Function
+  elif test $lrecord_type = lrecord_type_console; then
+    pstruct console.c console
+  elif test $lrecord_type = lrecord_type_database; then
+    pstruct database.c Lisp_Database
+  elif test $lrecord_type = lrecord_type_device; then
+    pstruct device.c device
+  elif test $lrecord_type = lrecord_type_event; then
+    pstruct events.c Lisp_Event
+  elif test $lrecord_type = lrecord_type_extent; then
+    pstruct extents.c extent
+  elif test $lrecord_type = lrecord_type_extent_auxiliary; then
+    pstruct extents.c extent_auxiliary
+  elif test $lrecord_type = lrecord_type_extent_info; then
+    pstruct extents.c extent_info
+  elif test $lrecord_type = lrecord_type_face; then
+    pstruct faces.c Lisp_Face
+  elif test $lrecord_type = lrecord_type_float; then
+    pstruct floatfns.c Lisp_Float
+  elif test $lrecord_type = lrecord_type_font_instance; then
+    pstruct objects.c Lisp_Font_Instance
+  elif test $lrecord_type = lrecord_type_frame; then
+    pstruct frame.c frame
+  elif test $lrecord_type = lrecord_type_glyph; then
+    pstruct glyph.c Lisp_Glyph
+  elif test $lrecord_type = lrecord_type_gui_item; then
+    pstruct gui.c Lisp_Gui_Item
+  elif test $lrecord_type = lrecord_type_hash_table; then
+    pstruct elhash.c Lisp_Hash_Table
+  elif test $lrecord_type = lrecord_type_image_instance; then
+    pstruct glyphs.c Lisp_Image_Instance
+  elif test $lrecord_type = lrecord_type_keymap; then
+    pstruct keymap.c Lisp_Keymap
+  elif test $lrecord_type = lrecord_type_lcrecord_list; then
+    pstruct alloc.c lcrecord_list
+  elif test $lrecord_type = lrecord_type_ldap; then
+    pstruct ldap.c Lisp_LDAP
+  elif test $lrecord_type = lrecord_type_lstream; then
+    pstruct lstream.c lstream
+  elif test $lrecord_type = lrecord_type_marker; then
+    pstruct marker.c Lisp_Marker
+  elif test $lrecord_type = lrecord_type_opaque; then
+    pstruct opaque.c Lisp_Opaque
+  elif test $lrecord_type = lrecord_type_opaque_ptr; then
+    pstruct opaque.c Lisp_Opaque_Ptr
+  elif test $lrecord_type = lrecord_type_popup_data; then
+    pstruct gui-x.c popup_data
+  elif test $lrecord_type = lrecord_type_process; then
+    pstruct process.c Lisp_Process
+  elif test $lrecord_type = lrecord_type_range_table; then
+    pstruct rangetab.c Lisp_Range_Table
+  elif test $lrecord_type = lrecord_type_specifier; then
+    pstruct specifier.c Lisp_Specifier
+  elif test $lrecord_type = lrecord_type_subr; then
+    pstruct eval.c Lisp_Subr
+  elif test $lrecord_type = lrecord_type_symbol_value_buffer_local; then
+    pstruct symbols.c symbol_value_buffer_local
+  elif test $lrecord_type = lrecord_type_symbol_value_forward; then
+    pstruct symbols.c symbol_value_forward
+  elif test $lrecord_type = lrecord_type_symbol_value_lisp_magic; then
+    pstruct symbols.c symbol_value_lisp_magic
+  elif test $lrecord_type = lrecord_type_symbol_value_varalias; then
+    pstruct symbols.c symbol_value_varalias
+  elif test $lrecord_type = lrecord_type_timeout; then
+    pstruct event-stream.c Lisp_Timeout
+  elif test $lrecord_type = lrecord_type_toolbar_button; then
+    pstruct toolbar.c toolbar_button
+  elif test $lrecord_type = lrecord_type_tooltalk_message; then
+    pstruct tooltalk.c Lisp_Tooltalk_Message
+  elif test $lrecord_type = lrecord_type_tooltalk_pattern; then
+    pstruct tooltalk.c Lisp_Tooltalk_Pattern
+  elif test $lrecord_type = lrecord_type_weak_list; then
+    pstruct data.c weak_list
+  elif test $lrecord_type = lrecord_type_window; then
+    pstruct window.c window
+  elif test $lrecord_type = lrecord_type_window_configuration; then
+    pstruct window.c window_config
   elif test "$type" = "null_pointer"; then
     echo "Lisp Object is a null pointer!!"
   else
@@ -351,14 +350,8 @@ function pobj {
   fi
 }
 
-function pproc {
-  print *(`process.c`struct Lisp_Process*)$1 ;
-  ldp "(`process.c`struct Lisp_Process*)$1->name" ;
-  ldp "(`process.c`struct Lisp_Process*)$1->command" ;
-}
-
 dbxenv suppress_startup_message 4.0
-dbxenv mt_watchpoints on
+# dbxenv mt_watchpoints on
 
 function dp_core {
   print ((struct x_frame *)(((struct frame*)(Fselected_frame(Qnil)&0x00FFFFFF))->frame_data))->widget->core

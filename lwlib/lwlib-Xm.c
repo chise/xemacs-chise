@@ -791,8 +791,6 @@ xm_update_one_widget (widget_instance* instance, Widget widget,
   /* Common to all widget types */
   XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
   XtSetArg (al [ac], XmNuserData,  val->call_data);	ac++;
-  lw_add_value_args_to_args (val, al, &ac);
-
   XtSetValues (widget, al, ac);
 
 #if defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_MENUBARS_MOTIF) || defined (LWLIB_WIDGETS_MOTIF)
@@ -856,6 +854,9 @@ xm_update_one_widget (widget_instance* instance, Widget widget,
       xm_update_scrollbar (instance, widget, val);
     }
 #endif
+  /* Lastly update our global arg values. */
+  if (val->args && val->args->nargs)
+    XtSetValues (widget, val->args->args, val->args->nargs);
 }
 
 /* getting the value back */
@@ -1038,7 +1039,7 @@ static char disable_dnd_trans[] = "<Btn2Down>: ";
 
 static Widget
 make_dialog (char* name, Widget parent, Boolean pop_up_p,
-	     CONST char* shell_title, CONST char* icon_name,
+	     const char* shell_title, const char* icon_name,
 	     Boolean text_input_slot, Boolean radio_box, Boolean list,
 	     int left_buttons, int right_buttons)
 {
@@ -1438,8 +1439,8 @@ xm_create_dialog (widget_instance* instance)
   Widget 	parent = instance->parent;
   Widget	widget;
   Boolean 	pop_up_p = instance->pop_up_p;
-  CONST char*	shell_name = 0;
-  CONST char* 	icon_name = 0;
+  const char*	shell_name = 0;
+  const char* 	icon_name = 0;
   Boolean	text_input_slot = False;
   Boolean	radio_box = False;
   Boolean	list = False;
@@ -1646,7 +1647,7 @@ xm_create_progress (widget_instance *instance)
   int ac = 0;
   Widget scale = 0;
   widget_value* val = instance->info->val;
-
+#if 0		/* This looks too awful, although more correct. */
   if (!val->call_data)
     {
       XtSetArg (al [ac], XmNsensitive, False);		ac++;
@@ -1655,6 +1656,9 @@ xm_create_progress (widget_instance *instance)
     {
       XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
     }
+#else
+  XtSetArg (al [ac], XmNsensitive, True);		ac++;
+#endif
   XtSetArg (al [ac], XmNalignment, XmALIGNMENT_BEGINNING);	ac++;
   XtSetArg (al [ac], XmNuserData, val->call_data);		ac++;
   XtSetArg (al [ac], XmNmappedWhenManaged, FALSE);	ac++;
@@ -1684,7 +1688,7 @@ xm_create_text_field (widget_instance *instance)
   Widget text = 0;
   widget_value* val = instance->info->val;
 
-  XtSetArg (al [ac], XmNsensitive, val->enabled && val->call_data);		ac++;
+  XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
   XtSetArg (al [ac], XmNalignment, XmALIGNMENT_BEGINNING);	ac++;
   XtSetArg (al [ac], XmNuserData, val->call_data);		ac++;
   XtSetArg (al [ac], XmNmappedWhenManaged, FALSE);	ac++;

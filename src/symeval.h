@@ -72,12 +72,12 @@ enum symbol_value_type
 struct symbol_value_magic
 {
   struct lcrecord_header lcheader;
+  void *value;
   enum symbol_value_type type;
 };
-#define SYMBOL_VALUE_MAGIC_P(x)				\
-  (LRECORDP (x)						\
-   && (XRECORD_LHEADER_IMPLEMENTATION (x)->printer	\
-       == print_symbol_value_magic))
+#define SYMBOL_VALUE_MAGIC_P(x)						\
+(LRECORDP (x) &&							\
+ XRECORD_LHEADER (x)->type <= lrecord_type_max_symbol_value_magic)
 #define XSYMBOL_VALUE_MAGIC_TYPE(v) \
 	(((struct symbol_value_magic *) XPNTR (v))->type)
 #define XSETSYMBOL_VALUE_MAGIC(s, p) XSETOBJ (s, Lisp_Type_Record, p)
@@ -138,7 +138,7 @@ struct symbol_value_forward
 DECLARE_LRECORD (symbol_value_forward, struct symbol_value_forward);
 #define XSYMBOL_VALUE_FORWARD(x) \
 	XRECORD (x, symbol_value_forward, struct symbol_value_forward)
-#define symbol_value_forward_forward(m) ((void *)((m)->magic.lcheader.next))
+#define symbol_value_forward_forward(m) ((void *)((m)->magic.value))
 #define symbol_value_forward_magicfun(m) ((m)->magicfun)
 
 /* 2. symbol-value-buffer-local */
@@ -281,27 +281,45 @@ void defsubr (Lisp_Subr *);
 void defsubr_macro (Lisp_Subr *);
 #define DEFSUBR_MACRO(Fname) defsubr_macro (&S##Fname)
 
-void defsymbol (Lisp_Object *location, CONST char *name);
-void defsymbol_nodump (Lisp_Object *location, CONST char *name);
+void defsymbol (Lisp_Object *location, const char *name);
+void defsymbol_nodump (Lisp_Object *location, const char *name);
 
-void defkeyword (Lisp_Object *location, CONST char *name);
+void defkeyword (Lisp_Object *location, const char *name);
 
-void deferror (Lisp_Object *symbol, CONST char *name,
-	       CONST char *message, Lisp_Object inherits_from);
+void deferror (Lisp_Object *symbol, const char *name,
+	       const char *message, Lisp_Object inherits_from);
 
 /* Macros we use to define forwarded Lisp variables.
    These are used in the syms_of_FILENAME functions.  */
 
-void defvar_magic (CONST char *symbol_name, CONST struct symbol_value_forward *magic);
-
-#define symbol_value_forward_lheader_initializer { 1, 0, 0, 0 }
+void defvar_magic (const char *symbol_name, const struct symbol_value_forward *magic);
 
 #define DEFVAR_SYMVAL_FWD(lname, c_location, forward_type, magicfun) do {	\
-  static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-   = { { { symbol_value_forward_lheader_initializer,				\
-	   (struct lcrecord_header *) (c_location), 69 },			\
-         forward_type }, magicfun };						\
+  static const struct symbol_value_forward I_hate_C =				\
+  { /* struct symbol_value_forward */						\
+    { /* struct symbol_value_magic */						\
+      { /* struct lcrecord_header */						\
+	{ /* struct lrecord_header */						\
+	  lrecord_type_symbol_value_forward, /* lrecord_type_index */		\
+	  1, /* mark bit */							\
+	  1, /* c_readonly bit */						\
+	  1  /* lisp_readonly bit */						\
+	},									\
+	0, /* next */								\
+	0, /* uid  */								\
+	0  /* free */								\
+      },									\
+      c_location,								\
+      forward_type								\
+    },										\
+    magicfun									\
+  };										\
   defvar_magic ((lname), &I_hate_C);						\
+} while (0)
+
+#define DEFVAR_SYMVAL_FWD_INT(lname, c_location, forward_type, magicfun) do{	\
+  DEFVAR_SYMVAL_FWD (lname, c_location, forward_type, magicfun);		\
+  dumpopaque (c_location, sizeof(int));						\
 } while (0)
 
 #define DEFVAR_SYMVAL_FWD_OBJECT(lname, c_location, forward_type, magicfun) do{ \
@@ -317,18 +335,18 @@ void defvar_magic (CONST char *symbol_name, CONST struct symbol_value_forward *m
 #define DEFVAR_SPECIFIER(lname, c_location) \
 	DEFVAR_SYMVAL_FWD_OBJECT (lname, c_location, SYMVAL_CONST_SPECIFIER_FORWARD, 0)
 #define DEFVAR_INT(lname, c_location) \
-	DEFVAR_SYMVAL_FWD (lname, c_location, SYMVAL_FIXNUM_FORWARD, 0)
+	DEFVAR_SYMVAL_FWD_INT (lname, c_location, SYMVAL_FIXNUM_FORWARD, 0)
 #define DEFVAR_CONST_INT(lname, c_location) \
-	DEFVAR_SYMVAL_FWD (lname, c_location, SYMVAL_CONST_FIXNUM_FORWARD, 0)
+	DEFVAR_SYMVAL_FWD_INT (lname, c_location, SYMVAL_CONST_FIXNUM_FORWARD, 0)
 #define DEFVAR_BOOL(lname, c_location) \
-	DEFVAR_SYMVAL_FWD (lname, c_location, SYMVAL_BOOLEAN_FORWARD, 0)
+	DEFVAR_SYMVAL_FWD_INT (lname, c_location, SYMVAL_BOOLEAN_FORWARD, 0)
 #define DEFVAR_CONST_BOOL(lname, c_location) \
-	DEFVAR_SYMVAL_FWD (lname, c_location, SYMVAL_CONST_BOOLEAN_FORWARD, 0)
+	DEFVAR_SYMVAL_FWD_INT (lname, c_location, SYMVAL_CONST_BOOLEAN_FORWARD, 0)
 #define DEFVAR_LISP_MAGIC(lname, c_location, magicfun) \
 	DEFVAR_SYMVAL_FWD_OBJECT (lname, c_location, SYMVAL_OBJECT_FORWARD, magicfun)
 #define DEFVAR_INT_MAGIC(lname, c_location, magicfun) \
-	DEFVAR_SYMVAL_FWD (lname, c_location, SYMVAL_FIXNUM_FORWARD, magicfun)
+	DEFVAR_SYMVAL_FWD_INT (lname, c_location, SYMVAL_FIXNUM_FORWARD, magicfun)
 #define DEFVAR_BOOL_MAGIC(lname, c_location, magicfun) \
-	DEFVAR_SYMVAL_FWD (lname, c_location, SYMVAL_BOOLEAN_FORWARD, magicfun)
+	DEFVAR_SYMVAL_FWD_INT (lname, c_location, SYMVAL_BOOLEAN_FORWARD, magicfun)
 
 #endif /* INCLUDED_symeval_h_ */

@@ -52,11 +52,11 @@ for my $file (keys %exists) {
   s/[ \t]+//g;
   # Find include dependencies
   for (/^\#include([^\n]+)/gm) {
-    if (m@^\"([A-Za-z0-9_-]+\.h)\"@) {
+    if (m@^\"([A-Za-z0-9._-]+\.h)\"@) {
       $uses{$file}{$1} = 1 if exists $exists{$1};
-    } elsif (m@<([A-Za-z0-9_-]+\.h)>@) {
+    } elsif (m@<([A-Za-z0-9._-]+\.h)>@) {
       $uses{$file}{$1} = 1 if exists $generated_header{$1};
-    } elsif (m@\"../lwlib/([A-Za-z0-9_-]+\.h)\"@) {
+    } elsif (m@\"../lwlib/([A-Za-z0-9._-]+\.h)\"@) {
       $uses{$file}{"\$(LWLIB_SRCDIR)/lwlib.h"} = 1;
     }
   }

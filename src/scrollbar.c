@@ -460,14 +460,10 @@ update_scrollbar_instance (struct window *w, int vertical,
 	if (!NILP (w->scrollbar_on_left_p))
 	  {
 	    x_offset = WINDOW_LEFT (w);
-	    if (window_is_leftmost (w))
-	      x_offset += FRAME_LEFT_GUTTER_BOUNDS (f);
 	  }
 	else 
 	  {
 	    x_offset = WINDOW_RIGHT (w) - scrollbar_width;
-	    if (window_is_rightmost (w))
-	      x_offset -= FRAME_RIGHT_GUTTER_BOUNDS (f);
 	    if (window_needs_vertical_divider (w))
 	      x_offset -= window_divider_width (w);
 	  }
@@ -481,8 +477,6 @@ update_scrollbar_instance (struct window *w, int vertical,
 	if (!NILP (w->scrollbar_on_top_p))
 	  {
 	    y_offset += WINDOW_TOP (w);
-	    if (window_is_highest (w))
-	      y_offset += FRAME_TOP_GUTTER_BOUNDS (f);
 	  }
 	else
 	  {

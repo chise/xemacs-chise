@@ -238,9 +238,9 @@ DECLARE_LRECORD (device, struct device);
 #define DEVICE_TYPE_P(d, type)	EQ (DEVICE_TYPE (d), Q##type)
 
 #ifdef ERROR_CHECK_TYPECHECK
-INLINE struct device *
+INLINE_HEADER struct device *
 error_check_device_type (struct device *d, Lisp_Object sym);
-INLINE struct device *
+INLINE_HEADER struct device *
 error_check_device_type (struct device *d, Lisp_Object sym)
 {
   assert (EQ (DEVICE_TYPE (d), sym));
@@ -268,6 +268,47 @@ error_check_device_type (struct device *d, Lisp_Object sym)
 					 type)))	\
       x = wrong_type_argument				\
 	(type##_console_methods->predicate_symbol, x);	\
+  } while (0)
+
+#define DEVICE_DISPLAY_P(dev)				\
+  (DEVICE_LIVE_P (dev) &&				\
+   (MAYBE_INT_DEVMETH (dev,				\
+		       device_implementation_flags, ())	\
+    & XDEVIMPF_IS_A_PRINTER) ? 0 : 1)
+
+#define CHECK_DISPLAY_DEVICE(dev)			\
+  do {							\
+    CHECK_DEVICE (dev);					\
+    if (!(DEVICEP (dev)					\
+          && DEVICE_DISPLAY_P (XDEVICE (dev))))		\
+      dead_wrong_type_argument (Qdisplay, dev);		\
+  } while (0)
+
+#define CONCHECK_DISPLAY_DEVICE(dev)			\
+  do {							\
+    CONCHECK_DEVICE (dev);				\
+    if (!(DEVICEP (dev)					\
+          && DEVICE_DISPLAY_P (XDEVICE (dev))))		\
+      wrong_type_argument (Qdisplay, dev);		\
+  } while (0)
+
+#define DEVICE_PRINTER_P(dev)				\
+  (DEVICE_LIVE_P (dev) && !DEVICE_DISPLAY_P (dev))
+
+#define CHECK_PRINTER_DEVICE(dev)			\
+  do {							\
+    CHECK_DEVICE (dev);					\
+    if (!(DEVICEP (dev)					\
+          && DEVICE_PRINTER_P (XDEVICE (dev))))		\
+      dead_wrong_type_argument (Qprinter, dev);		\
+  } while (0)
+
+#define CONCHECK_PRINTER_DEVICE(dev)			\
+  do {							\
+    CONCHECK_DEVICE (dev);				\
+    if (!(DEVICEP (dev)					\
+          && DEVICE_PRINTER_P (XDEVICE (dev))))		\
+      wrong_type_argument (Qprinter, dev);		\
   } while (0)
 
 /* #### These should be in the device-*.h files but there are

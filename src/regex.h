@@ -413,7 +413,7 @@ reg_syntax_t re_set_syntax (reg_syntax_t syntax);
 /* Compile the regular expression PATTERN, with length LENGTH
    and syntax given by the global `re_syntax_options', into the buffer
    BUFFER.  Return NULL if successful, and an error string if not.  */
-CONST char *re_compile_pattern (CONST char *pattern, int length,
+const char *re_compile_pattern (const char *pattern, int length,
 				struct re_pattern_buffer *buffer);
 
 
@@ -428,27 +428,27 @@ int re_compile_fastmap (struct re_pattern_buffer *buffer);
    characters.  Return the starting position of the match, -1 for no
    match, or -2 for an internal error.  Also return register
    information in REGS (if REGS and BUFFER->no_sub are nonzero).  */
-int re_search (struct re_pattern_buffer *buffer, CONST char *string,
+int re_search (struct re_pattern_buffer *buffer, const char *string,
 	       int length, int start, int range,
 	       struct re_registers *regs);
 
 
 /* Like `re_search', but search in the concatenation of STRING1 and
    STRING2.  Also, stop searching at index START + STOP.  */
-int re_search_2 (struct re_pattern_buffer *buffer, CONST char *string1,
-		 int length1, CONST char *string2, int length2, int start,
+int re_search_2 (struct re_pattern_buffer *buffer, const char *string1,
+		 int length1, const char *string2, int length2, int start,
 		 int range, struct re_registers *regs, int stop);
 
 
 /* Like `re_search', but return how many characters in STRING the regexp
    in BUFFER matched, starting at position START.  */
-int re_match (struct re_pattern_buffer *buffer, CONST char *string,
+int re_match (struct re_pattern_buffer *buffer, const char *string,
 	      int length, int start, struct re_registers *regs);
 
 
 /* Relates to `re_match' as `re_search_2' relates to `re_search'.  */
-int re_match_2 (struct re_pattern_buffer *buffer, CONST char *string1,
-		int length1, CONST char *string2, int length2,
+int re_match_2 (struct re_pattern_buffer *buffer, const char *string1,
+		int length1, const char *string2, int length2,
 		int start, struct re_registers *regs, int stop);
 
 
@@ -470,15 +470,15 @@ void re_set_registers (struct re_pattern_buffer *buffer,
 
 #ifdef _REGEX_RE_COMP
 /* 4.2 bsd compatibility.  */
-char *re_comp (CONST char *);
-int re_exec (CONST char *);
+char *re_comp (const char *);
+int re_exec (const char *);
 #endif
 
 /* POSIX compatibility.  */
-int regcomp (regex_t *preg, CONST char *pattern, int cflags);
-int regexec (CONST regex_t *preg, CONST char *string, size_t nmatch,
+int regcomp (regex_t *preg, const char *pattern, int cflags);
+int regexec (const regex_t *preg, const char *string, size_t nmatch,
 	     regmatch_t pmatch[], int eflags);
-size_t regerror (int errcode, CONST regex_t *preg, char *errbuf,
+size_t regerror (int errcode, const regex_t *preg, char *errbuf,
 		 size_t errbuf_size);
 void regfree (regex_t *preg);
 

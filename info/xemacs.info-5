@@ -30,6 +30,118 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Additional Mouse Operations,  Next: Killing,  Prev: Mouse Selection,  Up: Top
+
+Additional Mouse Operations
+===========================
+
+   XEmacs also provides the following mouse functions.  Most of these
+are not bound to mouse gestures by default, but they are provided for
+your customization pleasure.  For example, if you wanted `shift-left'
+(that is, holding down the <Shift> key and clicking the left mouse
+button) to delete the character at which you are pointing, then you
+could do this:
+
+     (global-set-key '(shift button1) 'mouse-del-char)
+
+`mouse-del-char'
+     Delete the character pointed to by the mouse.
+
+`mouse-delete-window'
+     Delete the Emacs window that the mouse is on.
+
+`mouse-keep-one-window'
+     Select the Emacs window that the mouse is on, then delete all other
+     windows on this frame.
+
+`mouse-kill-line'
+     Kill the line pointed to by the mouse.
+
+`mouse-line-length'
+     Print the length of the line indicated by the pointer.
+
+`mouse-scroll'
+     Scroll point to the mouse position.
+
+`mouse-select'
+     Select the Emacs window the mouse is on.
+
+`mouse-select-and-split'
+     Select the Emacs window mouse is on, then split it vertically in
+     half.
+
+`mouse-set-mark'
+     Select the Emacs window the mouse is on and set the mark at the
+     mouse position.  Display the cursor at that position for a second.
+
+`mouse-set-point'
+     Select the Emacs window that the mouse is on and move point to the
+     mouse position.
+
+`mouse-track'
+     Make a selection with the mouse.   This is the default binding of
+     the left mouse button (<button1>).
+
+`mouse-track-adjust'
+     Extend the existing selection.  This is the default binding of
+     <Shift-button1>.
+
+`mouse-track-and-copy-to-cutbuffer'
+     Make a selection like `mouse-track', but also copy it to the cut
+     buffer.
+
+`mouse-track-delete-and-insert'
+     Make a selection with the mouse and insert it at point.  This is
+     the default binding of <control-shift-button1>.
+
+`mouse-track-insert'
+     Make a selection with the mouse and insert it at point.  This is
+     the default binding of <control-button1>.
+
+`mouse-window-to-region'
+     Narrow a window to the region between the cursor and the mouse
+     pointer.
+
+   The `M-x mouse-track' command should be bound to a mouse button.  If
+you click-and-drag, the selection is set to the region between the
+point of the initial click and the point at which you release the
+button.  These positions do not need to be ordered.
+
+   If you click-and-release without moving the mouse, the point is
+moved, and the selection is disowned (there will be no selection
+owner.)  The mark will be set to the previous position of point.
+
+   If you double-click, the selection will extend by symbols instead of
+by characters.  If you triple-click, the selection will extend by lines.
+
+   If you drag the mouse off the top or bottom of the window, you can
+select pieces of text that are larger than the visible part of the
+buffer; the buffer will scroll as necessary.
+
+   The selected text becomes the current X selection, and is also
+copied to the top of the kill ring.  Point will be left at the position
+at which you released the button and the mark will be left at the
+initial click position.  Bind a mouse click to
+`mouse-track-and-copy-to-cutbuffer' to copy selections to the cut
+buffer.  (See also the `mouse-track-adjust' command, on
+`Shift-button1'.)
+
+   The `M-x mouse-track-adjust' command should be bound to a mouse
+button.  The selection will be enlarged or shrunk so that the point of
+the mouse click is one of its endpoints.  This is only meaningful after
+the `mouse-track' command (<button1>) has been executed.
+
+   The `M-x mouse-track-delete-and-insert' command is exactly the same
+as the `mouse-track' command on <button1>, except that point is not
+moved; the selected text is immediately inserted after being selected;
+and the text of the selection is deleted.
+
+   The `M-x mouse-track-insert' command is exactly the same as the
+`mouse-track' command on <button1>, except that point is not moved; the
+selected text is immediately inserted after being selected; and the
+selection is immediately disowned afterwards.
+
+
 File: xemacs.info,  Node: Killing,  Next: Yanking,  Prev: Additional Mouse Operations,  Up: Top
 
 Deletion and Killing
@@ -1130,61 +1242,4 @@ preemption will likely make XEmacs keep recentering the screen when
 scrolling fast, regardless of `scroll-step'.  To prevent this, set
 `scroll-conservatively' to a small value, which will have the result of
 overriding the redisplay preemption.
-
-
-File: xemacs.info,  Node: Horizontal Scrolling,  Prev: Scrolling,  Up: Display
-
-Horizontal Scrolling
-====================
-
-`C-x <'
-     Scroll text in current window to the left (`scroll-left').
-
-`C-x >'
-     Scroll to the right (`scroll-right').
-
-   The text in a window can also be scrolled horizontally.  This means
-that each line of text is shifted sideways in the window, and one or
-more characters at the beginning of each line are not displayed at all.
-When a window has been scrolled horizontally in this way, text lines
-are truncated rather than continued (*note Continuation Lines::), with
-a `$' appearing in the first column when there is text truncated to the
-left, and in the last column when there is text truncated to the right.
-
-   The command `C-x <' (`scroll-left') scrolls the selected window to
-the left by N columns with argument N.  With no argument, it scrolls by
-almost the full width of the window (two columns less, to be precise).
-`C-x >' (`scroll-right') scrolls similarly to the right.  The window
-cannot be scrolled any farther to the right once it is displaying
-normally (with each line starting at the window's left margin);
-attempting to do so has no effect.
-
-
-File: xemacs.info,  Node: Selective Display,  Next: Display Vars,  Prev: Display,  Up: Display
-
-Selective Display
-=================
-
-   XEmacs can hide lines indented more than a certain number of columns
-(you specify how many columns).  This allows you  to get an overview of
-a part of a program.
-
-   To hide lines, type `C-x $' (`set-selective-display') with a numeric
-argument N.  (*Note Arguments::, for information on giving the
-argument.)  Lines with at least N columns of indentation disappear from
-the screen.  The only indication of their presence are three dots
-(`...'), which appear at the end of each visible line that is followed
-by one or more invisible ones.
-
-   The invisible lines are still present in the buffer, and most editing
-commands see them as usual, so it is very easy to put point in the
-middle of invisible text.  When this happens, the cursor appears at the
-end of the previous line, after the three dots.  If point is at the end
-of the visible line, before the newline that ends it, the cursor
-appears before the three dots.
-
-   The commands `C-n' and `C-p' move across the invisible lines as if
-they were not there.
-
-   To make everything visible again, type `C-x $' with no argument.
 

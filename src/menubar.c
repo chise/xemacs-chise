@@ -21,8 +21,13 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-/* #### There ain't much here because menubars have not been
-   properly abstracted yet. */
+/* Authorship:
+
+   Created by Ben Wing as part of device-abstraction work for 19.12.
+   Menu filters and many other keywords added by Stig for 19.12.
+   Menu accelerators c. 1997? by ??.  Moved here from event-stream.c.
+   Much other work post-1996 by ??.
+*/
 
 #include <config.h>
 #include "lisp.h"
@@ -31,6 +36,7 @@ Boston, MA 02111-1307, USA.  */
 #include "device.h"
 #include "frame.h"
 #include "gui.h"
+#include "keymap.h"
 #include "menubar.h"
 #include "redisplay.h"
 #include "window.h"
@@ -53,6 +59,30 @@ Lisp_Object Vblank_menubar;
 int popup_menu_titles;
 
 Lisp_Object Vmenubar_pointer_glyph;
+
+/* prefix key(s) that must match in order to activate menu.
+   This is ugly.  fix me.
+   */
+Lisp_Object Vmenu_accelerator_prefix;
+
+/* list of modifier keys to match accelerator for top level menus */
+Lisp_Object Vmenu_accelerator_modifiers;
+
+/* whether menu accelerators are enabled */
+Lisp_Object Vmenu_accelerator_enabled;
+
+/* keymap for auxiliary menu accelerator functions */
+Lisp_Object Vmenu_accelerator_map;
+
+Lisp_Object Qmenu_force;
+Lisp_Object Qmenu_fallback;
+Lisp_Object Qmenu_quit;
+Lisp_Object Qmenu_up;
+Lisp_Object Qmenu_down;
+Lisp_Object Qmenu_left;
+Lisp_Object Qmenu_right;
+Lisp_Object Qmenu_select;
+Lisp_Object Qmenu_escape;
 
 static int
 menubar_variable_changed (Lisp_Object sym, Lisp_Object *val,
@@ -95,7 +125,7 @@ menubar_visible_p_changed_in_frame (Lisp_Object specifier, struct frame *f,
 }
 
 Lisp_Object
-current_frame_menubar (CONST struct frame* f)
+current_frame_menubar (const struct frame* f)
 {
   struct window *w = XWINDOW (FRAME_LAST_NONMINIBUF_WINDOW (f));
   return symbol_value_in_buffer (Qcurrent_menubar, w->buffer);
@@ -104,7 +134,7 @@ current_frame_menubar (CONST struct frame* f)
 Lisp_Object
 menu_parse_submenu_keywords (Lisp_Object desc, Lisp_Object gui_item)
 {
-  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item *pgui_item = XGUI_ITEM (gui_item);
 
   /* Menu descriptor should be a list */
   CHECK_CONS (desc);
@@ -153,11 +183,11 @@ See also 'find-menu-item'.
        (desc, path))
 {
   Lisp_Object path_entry, submenu_desc, submenu;
-  struct gcpro gcpro1;
+  struct gcpro gcpro1, gcpro2;
   Lisp_Object gui_item = allocate_gui_item ();
   Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
 
-  GCPRO1 (gui_item);
+  GCPRO2 (gui_item, desc);
 
   EXTERNAL_LIST_LOOP (path_entry, path)
     {
@@ -292,6 +322,7 @@ See menubar.el for many more examples.
 DEFUN ("normalize-menu-item-name", Fnormalize_menu_item_name, 1, 2, 0, /*
 Convert a menu item name string into normal form, and return the new string.
 Menu item names should be converted to normal form before being compared.
+This removes %_'s (accelerator indications) and converts %% to %.
 */
        (name, buffer))
 {
@@ -347,6 +378,18 @@ void
 syms_of_menubar (void)
 {
   defsymbol (&Qcurrent_menubar, "current-menubar");
+
+  defsymbol (&Qmenu_force, "menu-force");
+  defsymbol (&Qmenu_fallback, "menu-fallback");
+
+  defsymbol (&Qmenu_quit, "menu-quit");
+  defsymbol (&Qmenu_up, "menu-up");
+  defsymbol (&Qmenu_down, "menu-down");
+  defsymbol (&Qmenu_left, "menu-left");
+  defsymbol (&Qmenu_right, "menu-right");
+  defsymbol (&Qmenu_select, "menu-select");
+  defsymbol (&Qmenu_escape, "menu-escape");
+
   DEFSUBR (Fpopup_menu);
   DEFSUBR (Fnormalize_menu_item_name);
   DEFSUBR (Fmenu_find_real_submenu);
@@ -397,14 +440,47 @@ This is the string that will be displayed in the parent menu, if any.  For
 toplevel menus, it is ignored.  This string is not displayed in the menu
 itself.
 
-Immediately following the name string of the menu, any of three
-optional keyword-value pairs is permitted.
+Menu accelerators can be indicated in the string by putting the
+sequence "%_" before the character corresponding to the key that will
+invoke the menu or menu item.  Uppercase and lowercase accelerators
+are equivalent.  The sequence "%%" is also special, and is translated
+into a single %.
+
+If no menu accelerator is present in the string, XEmacs will act as if
+the first character has been tagged as an accelerator.
+
+Immediately following the name string of the menu, various optional
+keyword-value pairs are permitted: currently, :filter, :active, :included,
+and :config. (See below.)
 
 If an element of a menu (or menubar) is a string, then that string will be
 presented as unselectable text.
 
 If an element of a menu is a string consisting solely of hyphens, then that
 item will be presented as a solid horizontal line.
+
+If an element of a menu is a string beginning with "--:", it will be
+presented as a line whose appearance is controlled by the rest of the
+text in the string.  The allowed line specs are system-dependent, and
+currently work only under X Windows (with Lucid and Motif menubars);
+otherwise, a solid horizontal line is presented, as if the string were
+all hyphens.
+
+The possibilities are:
+
+  "--:singleLine"
+  "--:doubleLine"
+  "--:singleDashedLine"
+  "--:doubleDashedLine"
+  "--:noLine"
+  "--:shadowEtchedIn"
+  "--:shadowEtchedOut"
+  "--:shadowEtchedInDash"
+  "--:shadowEtchedOutDash"
+  "--:shadowDoubleEtchedIn" (Lucid menubars only)
+  "--:shadowDoubleEtchedOut" (Lucid menubars only)
+  "--:shadowDoubleEtchedInDash" (Lucid menubars only)
+  "--:shadowDoubleEtchedOutDash" (Lucid menubars only)
 
 If an element of a menu is a list, it is treated as a submenu.  The name of
 that submenu (the first element in the list) will be used as the name of the
@@ -415,33 +491,39 @@ division between the set of menubar-items which are flushleft and those
 which are flushright.
 
 Otherwise, the element must be a vector, which describes a menu item.
-A menu item can have any of the following forms:
+A menu item is of the following form:
+
+ [ "name" callback :<keyword> <value> :<keyword> <value> ... ]
+
+The following forms are also accepted for compatibility, but deprecated:
 
  [ "name" callback <active-p> ]
  [ "name" callback <active-p> <suffix> ]
- [ "name" callback :<keyword> <value>  :<keyword> <value> ... ]
 
 The name is the string to display on the menu; it is filtered through the
 resource database, so it is possible for resources to override what string
-is actually displayed.
+is actually displayed.  Menu accelerator indicators (the sequence `%_') are
+also processed; see above.  If the name is not a string, it will be
+evaluated with `eval', and the result should be a string.
 
 If the `callback' of a menu item is a symbol, then it must name a command.
 It will be invoked with `call-interactively'.  If it is a list, then it is
 evaluated with `eval'.
 
-The possible keywords are this:
+In the deprecated forms, <active-p> is equivalent to using the :active
+keyword, and <suffix> is equivalent to using the :suffix keyword.
 
- :active   <form>    Same as <active-p> in the first two forms: the
-                     expression is evaluated just before the menu is
+The possible keywords are:
+
+ :active   <form>    The expression is evaluated just before the menu is
                      displayed, and the menu will be selectable only if
                      the result is non-nil.
 
- :suffix   <form>    Same as <suffix> in the second form: the expression
-                     is evaluated just before the menu is displayed and
-		     resulting string is appended to the displayed name,
-		     providing a convenient way of adding the name of a
-		     command's ``argument'' to the menu, like
-		     ``Kill Buffer NAME''.
+ :suffix   <form>    The expression is evaluated just before the menu is
+                     displayed and the resulting string is appended to
+                     the displayed name, providing a convenient way of
+                     adding the name of a command's ``argument'' to the
+                     menu, like ``Kill Buffer NAME''.
 
  :keys     "string"  Normally, the keyboard equivalents of commands in
                      menus are displayed when the `callback' is a symbol.
@@ -478,47 +560,42 @@ The possible keywords are this:
 	             See the variable `menubar-configuration'.
 
  :filter <function>  A menu filter can only be used in a menu item list.
-		     (i.e.:  not in a menu item itself).  It is used to
-		     sensitize or incrementally create a submenu only when
-		     it is selected by the user and not every time the
-		     menubar is activated.  The filter function is passed
-		     the list of menu items in the submenu and must return a
-		     list of menu items to be used for the menu.  It is
-		     called only when the menu is about to be displayed, so
-		     other menus may already be displayed.  Vile and
-		     terrible things will happen if a menu filter function
-		     changes the current buffer, window, or frame.  It
-		     also should not raise, lower, or iconify any frames.
-		     Basically, the filter function should have no
-		     side-effects.
+		     (i.e. not in a menu item itself).  It is used to
+		     incrementally create a submenu only when it is selected
+                     by the user and not every time the menubar is activated.
+                     The filter function is passed the list of menu items in
+                     the submenu and must return a list of menu items to be
+                     used for the menu.  It must not destructively modify
+                     the list of menu items passed to it.  It is called only
+		     when the menu is about to be displayed, so other menus
+		     may already be displayed.  Vile and terrible things will
+		     happen if a menu filter function changes the current
+		     buffer, window, or frame.  It also should not raise,
+		     lower, or iconify any frames.  Basically, the filter
+		     function should have no side-effects.
 
  :key-sequence keys  Used in FSF Emacs as an hint to an equivalent keybinding.
-                     Ignored by XEnacs for easymenu.el compatibility.
-
- :label <form>       (unimplemented!) Like :suffix, but replaces label
-                     completely.
-                     (might be added in 21.2).
+                     Ignored by XEmacs for easymenu.el compatibility.
 
 For example:
 
- ("File"
+ ("%_File"
   :filter file-menu-filter	; file-menu-filter is a function that takes
 				; one argument (a list of menu items) and
 				; returns a list of menu items
-  [ "Save As..."    write-file  t ]
-  [ "Revert Buffer" revert-buffer (buffer-modified-p) ]
-  [ "Read Only"     toggle-read-only :style toggle
+  [ "Save %_As..."    write-file  t ]
+  [ "%_Revert Buffer" revert-buffer (buffer-modified-p) ]
+  [ "R%_ead Only"     toggle-read-only :style toggle
 		      :selected buffer-read-only ]
   )
 
-See x-menubar.el for many more examples.
+See menubar-items.el for many more examples.
 
 After the menubar is clicked upon, but before any menus are popped up,
 the functions on the `activate-menubar-hook' are invoked to make top-level
 changes to the menus and menubar.  Note, however, that the use of menu
 filters (using the :filter keyword) is usually a more efficient way to
-dynamically alter or sensitize menus.
-*/, menubar_variable_changed);
+dynamically alter or sensitize menus.  */, menubar_variable_changed);
 
   Vcurrent_menubar = Qnil;
 
@@ -564,6 +641,80 @@ If unspecified in a particular domain, the window-system-provided
 default pointer is used.
 */ );
 
+  DEFVAR_LISP ("menu-accelerator-prefix", &Vmenu_accelerator_prefix /*
+Prefix key(s) that must be typed before menu accelerators will be activated.
+Set this to a value acceptable by define-key.
+
+NOTE: This currently only has any effect under X Windows.
+*/ );
+  Vmenu_accelerator_prefix = Qnil;
+
+  DEFVAR_LISP ("menu-accelerator-modifiers", &Vmenu_accelerator_modifiers /*
+Modifier keys which must be pressed to get to the top level menu accelerators.
+This is a list of modifier key symbols.  All modifier keys must be held down
+while a valid menu accelerator key is pressed in order for the top level
+menu to become active.
+
+NOTE: This currently only has any effect under X Windows.
+
+See also menu-accelerator-enabled and menu-accelerator-prefix.
+*/ );
+  Vmenu_accelerator_modifiers = list1 (Qmeta);
+
+  DEFVAR_LISP ("menu-accelerator-enabled", &Vmenu_accelerator_enabled /*
+Whether menu accelerator keys can cause the menubar to become active.
+If 'menu-force or 'menu-fallback, then menu accelerator keys can
+be used to activate the top level menu.  Once the menubar becomes active, the
+accelerator keys can be used regardless of the value of this variable.
+
+menu-force is used to indicate that the menu accelerator key takes
+precedence over bindings in the current keymap(s).  menu-fallback means
+that bindings in the current keymap take precedence over menu accelerator keys.
+Thus a top level menu with an accelerator of "T" would be activated on a
+keypress of Meta-t if menu-accelerator-enabled is menu-force.
+However, if menu-accelerator-enabled is menu-fallback, then
+Meta-t will not activate the menubar and will instead run the function
+transpose-words, to which it is normally bound.
+
+See also menu-accelerator-modifiers and menu-accelerator-prefix.
+*/ );
+  Vmenu_accelerator_enabled = Qnil;
+
+  DEFVAR_LISP ("menu-accelerator-map", &Vmenu_accelerator_map /*
+Keymap for use when the menubar is active.
+The actions menu-quit, menu-up, menu-down, menu-left, menu-right,
+menu-select and menu-escape can be mapped to keys in this map.
+NOTE: This currently only has any effect under X Windows.
+
+menu-quit    Immediately deactivate the menubar and any open submenus without
+             selecting an item.
+menu-up      Move the menu cursor up one row in the current menu.  If the
+             move extends past the top of the menu, wrap around to the bottom.
+menu-down    Move the menu cursor down one row in the current menu.  If the
+             move extends past the bottom of the menu, wrap around to the top.
+             If executed while the cursor is in the top level menu, move down
+             into the selected menu.
+menu-left    Move the cursor from a submenu into the parent menu.  If executed
+             while the cursor is in the top level menu, move the cursor to the
+             left.  If the move extends past the left edge of the menu, wrap
+             around to the right edge.
+menu-right   Move the cursor into a submenu.  If the cursor is located in the
+             top level menu or is not currently on a submenu heading, then move
+             the cursor to the next top level menu entry.  If the move extends
+             past the right edge of the menu, wrap around to the left edge.
+menu-select  Activate the item under the cursor.  If the cursor is located on
+             a submenu heading, then move the cursor into the submenu.
+menu-escape  Pop up to the next level of menus.  Moves from a submenu into its
+             parent menu.  From the top level menu, this deactivates the
+             menubar.
+
+This keymap can also contain normal key-command bindings, in which case the
+menubar is deactivated and the corresponding command is executed.
+
+The action bindings used by the menu accelerator code are designed to mimic
+the actions of menu traversal keys in a commonly used PC operating system.
+*/ );
+
   Fprovide (intern ("menubar"));
 }
 
@@ -588,4 +739,6 @@ void
 complex_vars_of_menubar (void)
 {
   Vmenubar_pointer_glyph = Fmake_glyph_internal (Qpointer);
+
+  Vmenu_accelerator_map = Fmake_keymap (Qnil);
 }

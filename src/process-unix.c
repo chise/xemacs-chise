@@ -127,7 +127,7 @@ close_descriptor_pair (int in, int out)
    to get rid of irrelevant descriptors.  */
 
 static int
-close_process_descs_mapfun (CONST void* key, void* contents, void* arg)
+close_process_descs_mapfun (const void* key, void* contents, void* arg)
 {
   Lisp_Object proc;
   CVOID_TO_LISP (proc, contents);
@@ -372,7 +372,7 @@ get_internet_address (Lisp_Object host, struct sockaddr_in *address,
 #endif /*  !(HAVE_GETADDRINFO && HAVE_GETNAMEINFO) */
 
 static void
-set_socket_nonblocking_maybe (int fd, int port, CONST char* proto)
+set_socket_nonblocking_maybe (int fd, int port, const char* proto)
 {
 #ifdef PROCESS_IO_BLOCKING
   Lisp_Object tail;
@@ -1139,6 +1139,14 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
   volatile Lisp_Object vol_proc = proc;
   Lisp_Process *volatile p = XPROCESS (proc);
 
+  /* #### JV: layering violation?
+
+     This function knows too much about the relation between the encodingstream
+     (DATA_OUTSTREAM) and te actual output stream p->output_stream.
+
+     If encoding streams properly forwarded all calls, we could simply
+     use DATA_OUTSTREAM everywhere. */
+  
   if (!SETJMP (send_process_frame))
     {
       /* use a reasonable-sized buffer (somewhere around the size of the
@@ -1173,6 +1181,9 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
 		 that may allow the program
 		 to finish doing output and read more.  */
 	      Faccept_process_output (Qnil, make_int (1), Qnil);
+	      /* It could have *really* finished, deleting the process */
+	      if (NILP(p->pipe_outstream))
+		return;
 	      old_sigpipe =
 		(SIGTYPE (*) (int)) signal (SIGPIPE, send_process_trap);
 	      Lstream_flush (XLSTREAM (p->pipe_outstream));
@@ -1223,7 +1234,7 @@ unix_process_send_eof (Lisp_Object proc)
   Bufbyte eof_char = get_eof_char (XPROCESS (proc));
   send_process (proc, Qnil, &eof_char, 0, 1);
 #else
-  send_process (proc, Qnil, (CONST Bufbyte *) "\004", 0, 1);
+  send_process (proc, Qnil, (const Bufbyte *) "\004", 0, 1);
 #endif
   return 1;
 }
@@ -1765,7 +1776,7 @@ unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object servic
 
 #ifdef HAVE_MULTICAST
 
-/* Didier Verna <verna@inf.enst.fr> Nov. 28 1997.
+/* Didier Verna <didier@xemacs.org> Nov. 28 1997.
 
    This function is similar to open-network-stream-internal, but provides a
    mean to open an UDP multicast connection instead of a TCP one. Like in the

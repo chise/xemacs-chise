@@ -1,3 +1,40 @@
+2000-05-01  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.33 is released.
+
+2000-03-20  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.32 is released.
+
+2000-03-10  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/mule-tests.el: Check that (make-temp-name) returns
+	unique values.
+
+2000-03-06  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* gutter-test.el: Fix name of specifier.
+
+2000-02-23  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.31 is released.
+
+2000-02-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.30 is released.
+
+2000-02-17  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/mule-tests.el: Added some fileio tests.
+
+2000-02-16  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.29 is released.
+
+2000-02-13  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/lisp-tests.el: Add subseq tests.
+
 2000-02-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.28 is released.

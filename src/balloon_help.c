@@ -83,7 +83,7 @@ static Pixmap b_mask;
 static int    b_maskWidth, b_maskHeight;
 static GC     b_maskGC;
 
-static CONST char* b_text;
+static const char* b_text;
 static int b_width, b_height;
 
 static XtIntervalId b_timer;
@@ -214,7 +214,7 @@ grow_pixmap_mask (int width, int height)
 ============================================================================*/
 
 static void
-text_extent (XFontStruct* fontStruct, CONST char* text, int len,
+text_extent (XFontStruct* fontStruct, const char* text, int len,
 	     int* width, int* height)
 {
   XCharStruct extent;
@@ -227,13 +227,13 @@ text_extent (XFontStruct* fontStruct, CONST char* text, int len,
 }
 
 static void
-get_text_size (Display* dpy, XFontStruct* fontStruct, CONST char* text,
+get_text_size (Display* dpy, XFontStruct* fontStruct, const char* text,
 	       int* max_width, int* max_height)
 {
   int width;
   int height;
-  CONST char* start;
-  CONST char* end;
+  const char* start;
+  const char* end;
 
   *max_width = *max_height = 0;
 
@@ -257,10 +257,10 @@ get_text_size (Display* dpy, XFontStruct* fontStruct, CONST char* text,
 
 static void
 draw_text (Display* dpy, Window win, GC gc, XFontStruct* fontStruct,
-	   int x, int y, CONST char* text)
+	   int x, int y, const char* text)
 {
-  CONST char* start;
-  CONST char* end;
+  const char* start;
+  const char* end;
   int font_height;
 
   y += fontStruct->ascent;
@@ -538,7 +538,7 @@ balloon_help_set_delay (unsigned long milliseconds)
 }
 
 void
-balloon_help_show (CONST char* text)
+balloon_help_show (const char* text)
 {
   assert (b_dpy != NULL);
 

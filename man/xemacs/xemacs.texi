@@ -271,9 +271,13 @@ Using X Selections
 
 Registers
 
-* RegPos::    Saving positions in registers.
-* RegText::   Saving text in registers.
-* RegRect::   Saving rectangles in registers.
+* Position: RegPos.           Saving positions in registers.
+* Text: RegText.              Saving text in registers.
+* Rectangle: RegRect.         Saving rectangles in registers.
+* Configurations: RegConfig.  Saving window configurations in registers.
+* Files: RegFiles.            File names in registers.
+* Numbers: RegNumbers.        Numbers in registers.
+* Bookmarks::                 Bookmarks are like registers, but persistent.
 
 Controlling the Display
 

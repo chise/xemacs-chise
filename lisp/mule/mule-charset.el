@@ -3,8 +3,7 @@
 ;; Copyright (C) 1992 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
-;; Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
-;; Licensed to the Free Software Foundation.
+;; Copyright (C) 1999,2000 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -250,6 +249,15 @@ DESCRIPTION (string) is the description string of the charset."
 (defalias 'put-charset-property 'put)
 (defalias 'charset-plist 'object-plist)
 (defalias 'set-charset-plist 'setplist)
+
+;; Setup auto-fill-chars for charsets that should invoke auto-filling.
+;; SPACE and NEWLIE are already set.
+(let ((l '(katakana-jisx0201
+	   japanese-jisx0208 japanese-jisx0212
+	   chinese-gb2312 chinese-big5-1 chinese-big5-2)))
+  (while l
+    (put-char-table (car l) t auto-fill-chars)
+    (setq l (cdr l))))
 
 
 ;;; @ Coded character set

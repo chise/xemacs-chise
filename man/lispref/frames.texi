@@ -9,9 +9,19 @@
 @cindex frame
 
   A @var{frame} is a rectangle on the screen that contains one or more
-XEmacs windows.  A frame initially contains a single main window (plus
-perhaps a minibuffer window), which you can subdivide vertically or
-horizontally into smaller windows.
+XEmacs windows (@pxref{Windows}).  A frame initially contains a single
+main window (plus perhaps an echo area), which you can subdivide
+vertically or horizontally into smaller windows.  Each window is
+associated with a modeline (@pxref{Modeline Format}), and optionally two
+scrollbars (@pxref{Scrollbars}).  By default the vertical scrollbar is
+on, the horizontal scrollbar is off.
+
+  The frame may also contain menubars (@pxref{Menubar}), toolbars
+(@pxref{Toolbar Intro}), and gutters (@pxref{Gutter Intro}).  By default
+there is one of each at the top of the frame, with menubar topmost,
+toolbar next, and gutter lowest, immediately above the windows.
+(Warning: the gutter is a new, experimental, and unstable feature of
+XEmacs version 21.2.)
 
 @cindex terminal frame
 @cindex X window frame

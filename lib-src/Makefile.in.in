@@ -375,6 +375,9 @@ make-msgfile: ${srcdir}/make-msgfile.c
 make-po: ${srcdir}/make-po.c
 	$(CC) $(cflags) ${srcdir}/make-po.c $(ldflags) -o $@
 
+make-dump-id: ${srcdir}/make-dump-id.c
+	$(CC) $(cflags) ${srcdir}/make-dump-id.c $(ldflags) -o $@
+
 cflags_gnuserv  = $(CFLAGS) $(cppflags) $(c_switch_all)
 ldflags_gnuserv = $(LDFLAGS) $(ld_switch_all) @libs_xauth@ $(ld_libs_general)
 gnuslib.o: ${srcdir}/gnuslib.c ${srcdir}/gnuserv.h ../src/config.h

@@ -405,24 +405,16 @@ representation stuffs a pointer together with a tag, as follows:
       [ 3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 ]
       [ 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 ]
      
-        <---> ^ <------------------------------------------------------>
-         tag  |       a pointer to a structure, or an integer
-              |
-            mark bit
+        <---------------------------------------------------------> <->
+                 a pointer to a structure, or an integer            tag
 
-   The tag describes the type of the Lisp object.  For integers and
-chars, the lower 28 bits contain the value of the integer or char; for
-all others, the lower 28 bits contain a pointer.  The mark bit is used
-during garbage-collection, and is always 0 when garbage collection is
-not happening. (The way that garbage collection works, basically, is
-that it loops over all places where Lisp objects could exist--this
-includes all global variables in C that contain Lisp objects [including
-`Vobarray', the C equivalent of `obarray'; through this, all Lisp
-variables will get marked], plus various other places--and recursively
-scans through the Lisp objects, marking each object it finds by setting
-the mark bit.  Then it goes through the lists of all objects allocated,
-freeing the ones that are not marked and turning off the mark bit of
-the ones that are marked.)
+   A tag of 00 is used for all pointer object types, a tag of 10 is used
+for characters, and the other two tags 01 and 11 are joined together to
+form the integer object type.  This representation gives us 31 bit
+integers and 30 bit characters, while pointers are represented directly
+without any bit masking or shifting.  This representation, though,
+assumes that pointers to structs are always aligned to multiples of 4,
+so the lower 2 bits are always zero.
 
    Lisp objects use the typedef `Lisp_Object', but the actual C type
 used for the Lisp object can vary.  It can be either a simple type
@@ -433,95 +425,23 @@ because it ensures that the compiler will actually use a machine word
 to represent the object (some compilers will use more general and less
 efficient code for unions and structs even if they can fit in a machine
 word).  The union type, however, has the advantage of stricter type
-checking (if you accidentally pass an integer where a Lisp object is
-desired, you get a compile error), and it makes it easier to decode
-Lisp objects when debugging.  The choice of which type to use is
+checking.  If you accidentally pass an integer where a Lisp object is
+desired, you get a compile error.  The choice of which type to use is
 determined by the preprocessor constant `USE_UNION_TYPE' which is
 defined via the `--use-union-type' option to `configure'.
 
-   Note that there are only eight types that the tag can represent, but
-many more actual types than this.  This is handled by having one of the
-tag types specify a meta-type called a "record"; for all such objects,
-the first four bytes of the pointed-to structure indicate what the
-actual type is.
+   Various macros are used to convert between Lisp_Objects and the
+corresponding C type.  Macros of the form `XINT()', `XCHAR()',
+`XSTRING()', `XSYMBOL()', do any required bit shifting and/or masking
+and cast it to the appropriate type.  `XINT()' needs to be a bit tricky
+so that negative numbers are properly sign-extended.  Since integers
+are stored left-shifted, if the right-shift operator does an arithmetic
+shift (i.e. it leaves the most-significant bit as-is rather than
+shifting in a zero, so that it mimics a divide-by-two even for negative
+numbers) the shift to remove the tag bit is enough.  This is the case
+on all the systems we support.
 
-   Note also that having 28 bits for pointers and integers restricts a
-lot of things to 256 megabytes of memory. (Basically, enough pointers
-and indices and whatnot get stuffed into Lisp objects that the total
-amount of memory used by XEmacs can't grow above 256 megabytes.  In
-older versions of XEmacs and GNU Emacs, the tag was 5 bits wide,
-allowing for 32 types, which was more than the actual number of types
-that existed at the time, and no "record" type was necessary.  However,
-this limited the editor to 64 megabytes total, which some users who
-edited large files might conceivably exceed.)
-
-   Also, note that there is an implicit assumption here that all
-pointers are low enough that the top bits are all zero and can just be
-chopped off.  On standard machines that allocate memory from the bottom
-up (and give each process its own address space), this works fine.  Some
-machines, however, put the data space somewhere else in memory (e.g.
-beginning at 0x80000000).  Those machines cope by defining
-`DATA_SEG_BITS' in the corresponding `m/' or `s/' file to the proper
-mask.  Then, pointers retrieved from Lisp objects are automatically
-OR'ed with this value prior to being used.
-
-   A corollary of the previous paragraph is that *(pointers to)
-stack-allocated structures cannot be put into Lisp objects*.  The stack
-is generally located near the top of memory; if you put such a pointer
-into a Lisp object, it will get its top bits chopped off, and you will
-lose.
-
-   Actually, there's an alternative representation of a `Lisp_Object',
-invented by Kyle Jones, that is used when the `--use-minimal-tagbits'
-option to `configure' is used.  In this case the 2 lower bits are used
-for the tag bits.  This representation assumes that pointers to structs
-are always aligned to multiples of 4, so the lower 2 bits are always
-zero.
-
-      [ 3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 ]
-      [ 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 ]
-     
-        <---------------------------------------------------------> <->
-                 a pointer to a structure, or an integer            tag
-
-   A tag of 00 is used for all pointer object types, a tag of 10 is used
-for characters, and the other two tags 01 and 11 are joined together to
-form the integer object type.  The markbit is moved to part of the
-structure being pointed at (integers and chars do not need to be marked,
-since no memory is allocated).  This representation has these
-advantages:
-
-  1. 31 bits can be used for Lisp Integers.
-
-  2. _Any_ pointer can be represented directly, and no bit masking
-     operations are necessary.
-
-   The disadvantages are:
-
-  1. An extra level of indirection is needed when accessing the object
-     types that were not record types.  So checking whether a Lisp
-     object is a cons cell becomes a slower operation.
-
-  2. Mark bits can no longer be stored directly in Lisp objects, so
-     another place for them must be found.  This means that a cons cell
-     requires more memory than merely room for 2 lisp objects, leading
-     to extra memory use.
-
-   Various macros are used to construct Lisp objects and extract the
-components.  Macros of the form `XINT()', `XCHAR()', `XSTRING()',
-`XSYMBOL()', etc. mask out the pointer/integer field and cast it to the
-appropriate type.  All of the macros that construct pointers will `OR'
-with `DATA_SEG_BITS' if necessary.  `XINT()' needs to be a bit tricky
-so that negative numbers are properly sign-extended: Usually it does
-this by shifting the number four bits to the left and then four bits to
-the right.  This assumes that the right-shift operator does an
-arithmetic shift (i.e. it leaves the most-significant bit as-is rather
-than shifting in a zero, so that it mimics a divide-by-two even for
-negative numbers).  Not all machines/compilers do this, and on the ones
-that don't, a more complicated definition is selected by defining
-`EXPLICIT_SIGN_EXTEND'.
-
-   Note that when `ERROR_CHECK_TYPECHECK' is defined, the extractor
+   Note that when `ERROR_CHECK_TYPECHECK' is defined, the converter
 macros become more complicated--they check the tag bits and/or the type
 field in the first four bytes of a record type to ensure that the
 object is really of the correct type.  This is great for catching places
@@ -533,22 +453,24 @@ unpredictable (and sometimes not easily traceable) results.
 These macros are of the form `XSETTYPE (LVALUE, RESULT)', i.e. they
 have to be a statement rather than just used in an expression.  The
 reason for this is that standard C doesn't let you "construct" a
-structure (but GCC does).  Granted, this sometimes isn't too convenient;
-for the case of integers, at least, you can use the function
-`make_int()', which constructs and _returns_ an integer Lisp object.
-Note that the `XSETTYPE()' macros are also affected by
+structure (but GCC does).  Granted, this sometimes isn't too
+convenient; for the case of integers, at least, you can use the
+function `make_int()', which constructs and _returns_ an integer Lisp
+object.  Note that the `XSETTYPE()' macros are also affected by
 `ERROR_CHECK_TYPECHECK' and make sure that the structure is of the
 right type in the case of record types, where the type is contained in
 the structure.
 
    The C programmer is responsible for *guaranteeing* that a
-Lisp_Object is is the correct type before using the `XTYPE' macros.
-This is especially important in the case of lists.  Use `XCAR' and
-`XCDR' if a Lisp_Object is certainly a cons cell, else use `Fcar()' and
-`Fcdr()'.  Trust other C code, but not Lisp code.  On the other hand,
-if XEmacs has an internal logic error, it's better to crash
-immediately, so sprinkle "unreachable" `abort()'s liberally about the
-source code.
+Lisp_Object is the correct type before using the `XTYPE' macros.  This
+is especially important in the case of lists.  Use `XCAR' and `XCDR' if
+a Lisp_Object is certainly a cons cell, else use `Fcar()' and `Fcdr()'.
+Trust other C code, but not Lisp code.  On the other hand, if XEmacs
+has an internal logic error, it's better to crash immediately, so
+sprinkle `assert()'s and "unreachable" `abort()'s liberally about the
+source code.  Where performance is an issue, use `type_checking_assert',
+`bufpos_checking_assert', and `gc_checking_assert', which do nothing
+unless the corresponding configure error checking flag was specified.
 
 
 File: internals.info,  Node: Rules When Writing New C Code,  Next: A Summary of the Various XEmacs Modules,  Prev: How Lisp Objects Are Represented in C,  Up: Top
@@ -572,7 +494,7 @@ situations, often in code far away from where the actual breakage is.
 * Techniques for XEmacs Developers::
 
 
-File: internals.info,  Node: General Coding Rules,  Next: Writing Lisp Primitives,  Up: Rules When Writing New C Code
+File: internals.info,  Node: General Coding Rules,  Next: Writing Lisp Primitives,  Prev: Rules When Writing New C Code,  Up: Rules When Writing New C Code
 
 General Coding Rules
 ====================
@@ -608,13 +530,13 @@ to ensure that certain tricks played by various `s/' and `m/' files
 work out correctly.
 
    When including header files, always use angle brackets, not double
-quotes, except when the file to be included is in the same directory as
-the including file.  If either file is a generated file, then that is
-not likely to be the case.  In order to understand why we have this
-rule, imagine what happens when you do a build in the source directory
-using `./configure' and another build in another directory using
-`../work/configure'.  There will be two different `config.h' files.
-Which one will be used if you `#include "config.h"'?
+quotes, except when the file to be included is always in the same
+directory as the including file.  If either file is a generated file,
+then that is not likely to be the case.  In order to understand why we
+have this rule, imagine what happens when you do a build in the source
+directory using `./configure' and another build in another directory
+using `../work/configure'.  There will be two different `config.h'
+files.  Which one will be used if you `#include "config.h"'?
 
    *All global and static variables that are to be modifiable must be
 declared uninitialized.*  This means that you may not use the "declare
@@ -624,8 +546,7 @@ dumping process: If possible, the initialized data segment is re-mapped
 so that it becomes part of the (unmodifiable) code segment in the
 dumped executable.  This allows this memory to be shared among multiple
 running XEmacs processes.  XEmacs is careful to place as much constant
-data as possible into initialized variables (in particular, into what's
-called the "pure space"--see below) during the `temacs' phase.
+data as possible into initialized variables during the `temacs' phase.
 
    *Please note:* This kludge only works on a few systems nowadays, and
 is rapidly becoming irrelevant because most modern operating systems
@@ -654,7 +575,7 @@ them.  This awful kludge has been removed in XEmacs because
    The C source code makes heavy use of C preprocessor macros.  One
 popular macro style is:
 
-     #define FOO(var, value) do {           \
+     #define FOO(var, value) do {            \
        Lisp_Object FOO_value = (value);      \
        ... /* compute using FOO_value */     \
        (var) = bar;                          \
@@ -1000,7 +921,7 @@ of code generalization for future I18N work.
 * An Example of Mule-Aware Code::
 
 
-File: internals.info,  Node: Character-Related Data Types,  Next: Working With Character and Byte Positions,  Up: Coding for Mule
+File: internals.info,  Node: Character-Related Data Types,  Next: Working With Character and Byte Positions,  Prev: Coding for Mule,  Up: Coding for Mule
 
 Character-Related Data Types
 ----------------------------
@@ -1026,27 +947,32 @@ glance at the declaration can tell the intended use of the variable.
      The data representing the text in a buffer or string is logically
      a set of `Bufbyte's.
 
-     XEmacs does not work with character formats all the time; when
-     reading characters from the outside, it decodes them to an
+     XEmacs does not work with the same character formats all the time;
+     when reading characters from the outside, it decodes them to an
      internal format, and likewise encodes them when writing.
      `Bufbyte' (in fact `unsigned char') is the basic unit of XEmacs
-     internal buffers and strings format.
+     internal buffers and strings format.  A `Bufbyte *' is the type
+     that points at text encoded in the variable-width internal
+     encoding.
 
      One character can correspond to one or more `Bufbyte's.  In the
-     current implementation, an ASCII character is represented by the
-     same `Bufbyte', and extended characters are represented by a
-     sequence of `Bufbyte's.
+     current Mule implementation, an ASCII character is represented by
+     the same `Bufbyte', and other characters are represented by a
+     sequence of two or more `Bufbyte's.
 
-     Without Mule support, a `Bufbyte' is equivalent to an `Emchar'.
+     Without Mule support, there are exactly 256 characters, implicitly
+     Latin-1, and each character is represented using one `Bufbyte', and
+     there is a one-to-one correspondence between `Bufbyte's and
+     `Emchar's.
 
 `Bufpos'
 `Charcount'
      A `Bufpos' represents a character position in a buffer or string.
      A `Charcount' represents a number (count) of characters.
      Logically, subtracting two `Bufpos' values yields a `Charcount'
-     value.  Although all of these are `typedef'ed to `int', we use
-     them in preference to `int' to make it clear what sort of position
-     is being used.
+     value.  Although all of these are `typedef'ed to `EMACS_INT', we
+     use them in preference to `EMACS_INT' to make it clear what sort
+     of position is being used.
 
      `Bufpos' and `Charcount' values are the only ones that are ever
      visible to Lisp.
@@ -1054,9 +980,9 @@ glance at the declaration can tell the intended use of the variable.
 `Bytind'
 `Bytecount'
      A `Bytind' represents a byte position in a buffer or string.  A
-     `Bytecount' represents the distance between two positions in bytes.
-     The relationship between `Bytind' and `Bytecount' is the same as
-     the relationship between `Bufpos' and `Charcount'.
+     `Bytecount' represents the distance between two positions, in
+     bytes.  The relationship between `Bytind' and `Bytecount' is the
+     same as the relationship between `Bufpos' and `Charcount'.
 
 `Extbyte'
 `Extcount'
@@ -1064,4 +990,103 @@ glance at the declaration can tell the intended use of the variable.
      which are equivalent to `unsigned char'.  Obviously, an `Extcount'
      is the distance between two `Extbyte's.  Extbytes and Extcounts
      are not all that frequent in XEmacs code.
+
+
+File: internals.info,  Node: Working With Character and Byte Positions,  Next: Conversion to and from External Data,  Prev: Character-Related Data Types,  Up: Coding for Mule
+
+Working With Character and Byte Positions
+-----------------------------------------
+
+   Now that we have defined the basic character-related types, we can
+look at the macros and functions designed for work with them and for
+conversion between them.  Most of these macros are defined in
+`buffer.h', and we don't discuss all of them here, but only the most
+important ones.  Examining the existing code is the best way to learn
+about them.
+
+`MAX_EMCHAR_LEN'
+     This preprocessor constant is the maximum number of buffer bytes to
+     represent an Emacs character in the variable width internal
+     encoding.  It is useful when allocating temporary strings to keep
+     a known number of characters.  For instance:
+
+          {
+            Charcount cclen;
+            ...
+            {
+              /* Allocate place for CCLEN characters. */
+              Bufbyte *buf = (Bufbyte *)alloca (cclen * MAX_EMCHAR_LEN);
+          ...
+
+     If you followed the previous section, you can guess that,
+     logically, multiplying a `Charcount' value with `MAX_EMCHAR_LEN'
+     produces a `Bytecount' value.
+
+     In the current Mule implementation, `MAX_EMCHAR_LEN' equals 4.
+     Without Mule, it is 1.
+
+`charptr_emchar'
+`set_charptr_emchar'
+     The `charptr_emchar' macro takes a `Bufbyte' pointer and returns
+     the `Emchar' stored at that position.  If it were a function, its
+     prototype would be:
+
+          Emchar charptr_emchar (Bufbyte *p);
+
+     `set_charptr_emchar' stores an `Emchar' to the specified byte
+     position.  It returns the number of bytes stored:
+
+          Bytecount set_charptr_emchar (Bufbyte *p, Emchar c);
+
+     It is important to note that `set_charptr_emchar' is safe only for
+     appending a character at the end of a buffer, not for overwriting a
+     character in the middle.  This is because the width of characters
+     varies, and `set_charptr_emchar' cannot resize the string if it
+     writes, say, a two-byte character where a single-byte character
+     used to reside.
+
+     A typical use of `set_charptr_emchar' can be demonstrated by this
+     example, which copies characters from buffer BUF to a temporary
+     string of Bufbytes.
+
+          {
+            Bufpos pos;
+            for (pos = beg; pos < end; pos++)
+              {
+                Emchar c = BUF_FETCH_CHAR (buf, pos);
+                p += set_charptr_emchar (buf, c);
+              }
+          }
+
+     Note how `set_charptr_emchar' is used to store the `Emchar' and
+     increment the counter, at the same time.
+
+`INC_CHARPTR'
+`DEC_CHARPTR'
+     These two macros increment and decrement a `Bufbyte' pointer,
+     respectively.  They will adjust the pointer by the appropriate
+     number of bytes according to the byte length of the character
+     stored there.  Both macros assume that the memory address is
+     located at the beginning of a valid character.
+
+     Without Mule support, `INC_CHARPTR (p)' and `DEC_CHARPTR (p)'
+     simply expand to `p++' and `p--', respectively.
+
+`bytecount_to_charcount'
+     Given a pointer to a text string and a length in bytes, return the
+     equivalent length in characters.
+
+          Charcount bytecount_to_charcount (Bufbyte *p, Bytecount bc);
+
+`charcount_to_bytecount'
+     Given a pointer to a text string and a length in characters,
+     return the equivalent length in bytes.
+
+          Bytecount charcount_to_bytecount (Bufbyte *p, Charcount cc);
+
+`charptr_n_addr'
+     Return a pointer to the beginning of the character offset CC (in
+     characters) from P.
+
+          Bufbyte *charptr_n_addr (Bufbyte *p, Charcount cc);
 

@@ -83,14 +83,14 @@ set the clipboard.")
 This will do nothing under anything other than X.")
 
 (defun get-selection-no-error (&optional type data-type)
-  "Return the value of a Windows selection.
+  "Return the value of a window-system selection.
 The argument TYPE (default `PRIMARY') says which selection,
 and the argument DATA-TYPE (default `STRING', or `COMPOUND_TEXT' under Mule)
 says how to convert the data. Returns NIL if there is no selection"
   (condition-case err (get-selection type data-type) (t nil)))
 
 (defun get-selection (&optional type data-type)
-  "Return the value of a Windows selection.
+  "Return the value of a window-system selection.
 The argument TYPE (default `PRIMARY') says which selection,
 and the argument DATA-TYPE (default `STRING', or `COMPOUND_TEXT' under Mule)
 says how to convert the data. If there is no selection an error is signalled."
@@ -112,12 +112,13 @@ says how to convert the data. If there is no selection an error is signalled."
     text))
 
 ;; FSFmacs calls this `x-set-selection', and reverses the
-;; arguments (duh ...).  This order is more logical.
-(defun own-selection (data &optional type)
-  "Make an Windows selection of type TYPE and value DATA.
+;; first two arguments (duh ...).  This order is more logical.
+(defun own-selection (data &optional type append)
+  "Make a window-system selection of type TYPE and value DATA.
 The argument TYPE (default `PRIMARY') says which selection,
 and DATA specifies the contents.  DATA may be a string,
 a symbol, an integer (or a cons of two integers or list of two integers).
+If APPEND is non-nil, append the data to the existing selection data.
 
 The selection may also be a cons of two markers pointing to the same buffer,
 or an overlay.  In these cases, the selection is considered to be the text
@@ -131,36 +132,51 @@ Interactively, the text of the region is used as the selection value."
   (interactive (if (not current-prefix-arg)
 		   (list (read-string "Store text for pasting: "))
 		 (list (substring (region-beginning) (region-end)))))
-  ;FSFmacs huh??  It says:
-  ;; "This is for temporary compatibility with pre-release Emacs 19."
-  ;(if (stringp type)
-  ;    (setq type (intern type)))
-  (or (valid-simple-selection-p data)
-      (and (vectorp data)
-	   (let ((valid t)
-		 (i (1- (length data))))
-	     (while (>= i 0)
-	       (or (valid-simple-selection-p (aref data i))
-		   (setq valid nil))
-	       (setq i (1- i)))
-	     valid))
-      (signal 'error (list "invalid selection" data)))
-  (or type (setq type 'PRIMARY))
-  (if (null data)
-      (disown-selection-internal type)
-    (own-selection-internal type data)
-    (when (and (eq type 'PRIMARY)
-	       selection-sets-clipboard)
-      (own-selection-internal 'CLIPBOARD data)))
-  (cond ((eq type 'PRIMARY)
-	 (setq primary-selection-extent
-	       (select-make-extent-for-selection
-		data primary-selection-extent)))
-	((eq type 'SECONDARY)
-	 (setq secondary-selection-extent
-	       (select-make-extent-for-selection
-		data secondary-selection-extent))))
-  (setq zmacs-region-stays t)
+  ;; calling own-selection-internal will mess this up, so preserve it.
+  (let ((zmacs-region-stays zmacs-region-stays))
+					;FSFmacs huh??  It says:
+    ;; "This is for temporary compatibility with pre-release Emacs 19."
+					;(if (stringp type)
+					;    (setq type (intern type)))
+    (or (valid-simple-selection-p data)
+	(and (vectorp data)
+	     (let ((valid t)
+		   (i (1- (length data))))
+	       (while (>= i 0)
+		 (or (valid-simple-selection-p (aref data i))
+		     (setq valid nil))
+		 (setq i (1- i)))
+	       valid))
+	(signal 'error (list "invalid selection" data)))
+    (or type (setq type 'PRIMARY))
+    (flet ((own-selection-1
+	    (type data append)
+	    (when append
+	      (unless (stringp data)
+		;; kludge!
+		(setq data (select-convert-to-text type 'STRING data))
+		(if (stringp data)
+		    (setq data (concat (get-selection type) data)))))
+	    (own-selection-internal type data)))
+      (if (null data)
+	  (disown-selection-internal type)
+	(own-selection-1 type data append)
+	(when (and (eq type 'PRIMARY)
+		   selection-sets-clipboard)
+	  (own-selection-internal 'CLIPBOARD data append))))
+    (cond ((eq type 'PRIMARY)
+	   (setq primary-selection-extent
+		 (select-make-extent-for-selection
+		  data primary-selection-extent)))
+	  ((eq type 'SECONDARY)
+	   (setq secondary-selection-extent
+		 (select-make-extent-for-selection
+		  data secondary-selection-extent)))))
+  ;; zmacs-region-stays is for commands, not low-level functions.
+  ;; when behaving as the latter, we better not set it, or we will
+  ;; cause unwanted sticky-region behavior in kill-region and friends.
+  (if (interactive-p)
+      (setq zmacs-region-stays t))
   data)
 
 (defun dehilight-selection (selection)
@@ -184,8 +200,9 @@ Interactively, the text of the region is used as the selection value."
 
 (setq lost-selection-hooks 'dehilight-selection)
 
-(defun own-clipboard (string)
-  "Paste the given string to the window system Clipboard."
+(defun own-clipboard (string &optional append)
+  "Paste the given string to the window system Clipboard.
+If APPEND is non-nil, append the string to the existing contents."
   (own-selection string 'CLIPBOARD))
 
 (defun disown-selection (&optional secondary-p)

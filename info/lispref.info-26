@@ -50,6 +50,523 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Selecting Windows,  Next: Cyclic Window Ordering,  Prev: Deleting Windows,  Up: Windows
+
+Selecting Windows
+=================
+
+   When a window is selected, the buffer in the window becomes the
+current buffer, and the cursor will appear in it.
+
+ - Function: selected-window &optional device
+     This function returns the selected window.  This is the window in
+     which the cursor appears and to which many commands apply.  Each
+     separate device can have its own selected window, which is
+     remembered as focus changes from device to device.  Optional
+     argument DEVICE specifies which device to return the selected
+     window for, and defaults to the selected device.
+
+ - Function: select-window window &optional norecord
+     This function makes WINDOW the selected window.  The cursor then
+     appears in WINDOW (on redisplay).  The buffer being displayed in
+     WINDOW is immediately designated the current buffer.
+
+     If optional argument NORECORD is non-`nil' then the global and
+     per-frame buffer orderings are not modified, as by the function
+     `record-buffer'.
+
+     The return value is WINDOW.
+
+          (setq w (next-window))
+          (select-window w)
+               => #<window 65 on windows.texi>
+
+ - Macro: save-selected-window forms...
+     This macro records the selected window, executes FORMS in
+     sequence, then restores the earlier selected window.  It does not
+     save or restore anything about the sizes, arrangement or contents
+     of windows; therefore, if the FORMS change them, the changes are
+     permanent.
+
+   The following functions choose one of the windows on the screen,
+offering various criteria for the choice.
+
+ - Function: get-lru-window &optional frame
+     This function returns the window least recently "used" (that is,
+     selected).  The selected window is always the most recently used
+     window.
+
+     The selected window can be the least recently used window if it is
+     the only window.  A newly created window becomes the least
+     recently used window until it is selected.  A minibuffer window is
+     never a candidate.
+
+     The argument FRAME controls which windows are considered.
+
+        * If it is `nil', consider windows on the selected frame.
+
+        * If it is `t', consider windows on all frames.
+
+        * If it is `visible', consider windows on all visible frames.
+
+        * If it is 0, consider windows on all visible or iconified
+          frames.
+
+        * If it is a frame, consider windows on that frame.
+
+ - Function: get-largest-window &optional frame
+     This function returns the window with the largest area (height
+     times width).  If there are no side-by-side windows, then this is
+     the window with the most lines.  A minibuffer window is never a
+     candidate.
+
+     If there are two windows of the same size, then the function
+     returns the window that is first in the cyclic ordering of windows
+     (see following section), starting from the selected window.
+
+     The argument FRAME controls which set of windows are considered.
+     See `get-lru-window', above.
+
+
+File: lispref.info,  Node: Cyclic Window Ordering,  Next: Buffers and Windows,  Prev: Selecting Windows,  Up: Windows
+
+Cyclic Ordering of Windows
+==========================
+
+   When you use the command `C-x o' (`other-window') to select the next
+window, it moves through all the windows on the screen in a specific
+cyclic order.  For any given configuration of windows, this order never
+varies.  It is called the "cyclic ordering of windows".
+
+   This ordering generally goes from top to bottom, and from left to
+right.  But it may go down first or go right first, depending on the
+order in which the windows were split.
+
+   If the first split was vertical (into windows one above each other),
+and then the subwindows were split horizontally, then the ordering is
+left to right in the top of the frame, and then left to right in the
+next lower part of the frame, and so on.  If the first split was
+horizontal, the ordering is top to bottom in the left part, and so on.
+In general, within each set of siblings at any level in the window tree,
+the order is left to right, or top to bottom.
+
+ - Function: next-window &optional window minibuf all-frames
+     This function returns the window following WINDOW in the cyclic
+     ordering of windows.  This is the window that `C-x o' would select
+     if typed when WINDOW is selected.  If WINDOW is the only window
+     visible, then this function returns WINDOW.  If omitted, WINDOW
+     defaults to the selected window.
+
+     The value of the argument MINIBUF determines whether the
+     minibuffer is included in the window order.  Normally, when
+     MINIBUF is `nil', the minibuffer is included if it is currently
+     active; this is the behavior of `C-x o'.  (The minibuffer window
+     is active while the minibuffer is in use.  *Note Minibuffers::.)
+
+     If MINIBUF is `t', then the cyclic ordering includes the
+     minibuffer window even if it is not active.
+
+     If MINIBUF is neither `t' nor `nil', then the minibuffer window is
+     not included even if it is active.
+
+     The argument ALL-FRAMES specifies which frames to consider.  Here
+     are the possible values and their meanings:
+
+    `nil'
+          Consider all the windows in WINDOW's frame, plus the
+          minibuffer used by that frame even if it lies in some other
+          frame.
+
+    `t'
+          Consider all windows in all existing frames.
+
+    `visible'
+          Consider all windows in all visible frames.  (To get useful
+          results, you must ensure WINDOW is in a visible frame.)
+
+    0
+          Consider all windows in all visible or iconified frames.
+
+    anything else
+          Consider precisely the windows in WINDOW's frame, and no
+          others.
+
+     This example assumes there are two windows, both displaying the
+     buffer `windows.texi':
+
+          (selected-window)
+               => #<window 56 on windows.texi>
+          (next-window (selected-window))
+               => #<window 52 on windows.texi>
+          (next-window (next-window (selected-window)))
+               => #<window 56 on windows.texi>
+
+ - Function: previous-window &optional window minibuf all-frames
+     This function returns the window preceding WINDOW in the cyclic
+     ordering of windows.  The other arguments specify which windows to
+     include in the cycle, as in `next-window'.
+
+ - Command: other-window count &optional frame
+     This function selects the COUNTth following window in the cyclic
+     order.  If count is negative, then it selects the -COUNTth
+     preceding window.  It returns `nil'.
+
+     In an interactive call, COUNT is the numeric prefix argument.
+
+     The argument FRAME controls which set of windows are considered.
+        * If it is `nil' or omitted, then windows on the selected frame
+          are considered.
+
+        * If it is a frame, then windows on that frame are considered.
+
+        * If it is `t', then windows on all frames that currently exist
+          (including invisible and iconified frames) are considered.
+
+        * If it is the symbol `visible', then windows on all visible
+          frames are considered.
+
+        * If it is the number 0, then windows on all visible and
+          iconified frames are considered.
+
+        * If it is any other value, then the behavior is undefined.
+
+ - Function: walk-windows proc &optional minibuf all-frames
+     This function cycles through all windows, calling `proc' once for
+     each window with the window as its sole argument.
+
+     The optional arguments MINIBUF and ALL-FRAMES specify the set of
+     windows to include in the scan.  See `next-window', above, for
+     details.
+
+
+File: lispref.info,  Node: Buffers and Windows,  Next: Displaying Buffers,  Prev: Cyclic Window Ordering,  Up: Windows
+
+Buffers and Windows
+===================
+
+   This section describes low-level functions to examine windows or to
+display buffers in windows in a precisely controlled fashion.  *Note
+Displaying Buffers::, for related functions that find a window to use
+and specify a buffer for it.  The functions described there are easier
+to use than these, but they employ heuristics in choosing or creating a
+window; use these functions when you need complete control.
+
+ - Function: set-window-buffer window buffer-or-name
+     This function makes WINDOW display BUFFER-OR-NAME as its contents.
+     It returns `nil'.
+
+          (set-window-buffer (selected-window) "foo")
+               => nil
+
+ - Function: window-buffer &optional window
+     This function returns the buffer that WINDOW is displaying.  If
+     WINDOW is omitted, this function returns the buffer for the
+     selected window.
+
+          (window-buffer)
+               => #<buffer windows.texi>
+
+ - Function: get-buffer-window buffer-or-name &optional frame
+     This function returns a window currently displaying
+     BUFFER-OR-NAME, or `nil' if there is none.  If there are several
+     such windows, then the function returns the first one in the
+     cyclic ordering of windows, starting from the selected window.
+     *Note Cyclic Window Ordering::.
+
+     The argument ALL-FRAMES controls which windows to consider.
+
+        * If it is `nil', consider windows on the selected frame.
+
+        * If it is `t', consider windows on all frames.
+
+        * If it is `visible', consider windows on all visible frames.
+
+        * If it is 0, consider windows on all visible or iconified
+          frames.
+
+        * If it is a frame, consider windows on that frame.
+
+
+File: lispref.info,  Node: Displaying Buffers,  Next: Choosing Window,  Prev: Buffers and Windows,  Up: Windows
+
+Displaying Buffers in Windows
+=============================
+
+   In this section we describe convenient functions that choose a window
+automatically and use it to display a specified buffer.  These functions
+can also split an existing window in certain circumstances.  We also
+describe variables that parameterize the heuristics used for choosing a
+window.  *Note Buffers and Windows::, for low-level functions that give
+you more precise control.
+
+   Do not use the functions in this section in order to make a buffer
+current so that a Lisp program can access or modify it; they are too
+drastic for that purpose, since they change the display of buffers in
+windows, which is gratuitous and will surprise the user.  Instead, use
+`set-buffer' (*note Current Buffer::) and `save-excursion' (*note
+Excursions::), which designate buffers as current for programmed access
+without affecting the display of buffers in windows.
+
+ - Command: switch-to-buffer buffer-or-name &optional norecord
+     This function makes BUFFER-OR-NAME the current buffer, and also
+     displays the buffer in the selected window.  This means that a
+     human can see the buffer and subsequent keyboard commands will
+     apply to it.  Contrast this with `set-buffer', which makes
+     BUFFER-OR-NAME the current buffer but does not display it in the
+     selected window.  *Note Current Buffer::.
+
+     If BUFFER-OR-NAME does not identify an existing buffer, then a new
+     buffer by that name is created.  The major mode for the new buffer
+     is set according to the variable `default-major-mode'.  *Note Auto
+     Major Mode::.
+
+     Normally the specified buffer is put at the front of the buffer
+     list.  This affects the operation of `other-buffer'.  However, if
+     NORECORD is non-`nil', this is not done.  *Note The Buffer List::.
+
+     The `switch-to-buffer' function is often used interactively, as
+     the binding of `C-x b'.  It is also used frequently in programs.
+     It always returns `nil'.
+
+ - Command: switch-to-buffer-other-window buffer-or-name
+     This function makes BUFFER-OR-NAME the current buffer and displays
+     it in a window not currently selected.  It then selects that
+     window.  The handling of the buffer is the same as in
+     `switch-to-buffer'.
+
+     The currently selected window is absolutely never used to do the
+     job.  If it is the only window, then it is split to make a
+     distinct window for this purpose.  If the selected window is
+     already displaying the buffer, then it continues to do so, but
+     another window is nonetheless found to display it in as well.
+
+ - Function: pop-to-buffer buffer-or-name &optional other-window
+          on-frame
+     This function makes BUFFER-OR-NAME the current buffer and switches
+     to it in some window, preferably not the window previously
+     selected.  The "popped-to" window becomes the selected window
+     within its frame.
+
+     If the variable `pop-up-frames' is non-`nil', `pop-to-buffer'
+     looks for a window in any visible frame already displaying the
+     buffer; if there is one, it returns that window and makes it be
+     selected within its frame.  If there is none, it creates a new
+     frame and displays the buffer in it.
+
+     If `pop-up-frames' is `nil', then `pop-to-buffer' operates
+     entirely within the selected frame.  (If the selected frame has
+     just a minibuffer, `pop-to-buffer' operates within the most
+     recently selected frame that was not just a minibuffer.)
+
+     If the variable `pop-up-windows' is non-`nil', windows may be
+     split to create a new window that is different from the original
+     window.  For details, see *Note Choosing Window::.
+
+     If OTHER-WINDOW is non-`nil', `pop-to-buffer' finds or creates
+     another window even if BUFFER-OR-NAME is already visible in the
+     selected window.  Thus BUFFER-OR-NAME could end up displayed in
+     two windows.  On the other hand, if BUFFER-OR-NAME is already
+     displayed in the selected window and OTHER-WINDOW is `nil', then
+     the selected window is considered sufficient display for
+     BUFFER-OR-NAME, so that nothing needs to be done.
+
+     All the variables that affect `display-buffer' affect
+     `pop-to-buffer' as well.  *Note Choosing Window::.
+
+     If BUFFER-OR-NAME is a string that does not name an existing
+     buffer, a buffer by that name is created.  The major mode for the
+     new buffer is set according to the variable `default-major-mode'.
+     *Note Auto Major Mode::.
+
+     If ON-FRAME is non-`nil', it is the frame to pop to this buffer on.
+
+     An example use of this function is found at the end of *Note
+     Filter Functions::.
+
+ - Command: replace-buffer-in-windows buffer
+     This function replaces BUFFER with some other buffer in all
+     windows displaying it.  The other buffer used is chosen with
+     `other-buffer'.  In the usual applications of this function, you
+     don't care which other buffer is used; you just want to make sure
+     that BUFFER is no longer displayed.
+
+     This function returns `nil'.
+
+
+File: lispref.info,  Node: Choosing Window,  Next: Window Point,  Prev: Displaying Buffers,  Up: Windows
+
+Choosing a Window for Display
+=============================
+
+   This section describes the basic facility that chooses a window to
+display a buffer in--`display-buffer'.  All the higher-level functions
+and commands use this subroutine.  Here we describe how to use
+`display-buffer' and how to customize it.
+
+ - Command: display-buffer buffer-or-name &optional not-this-window
+     This command makes BUFFER-OR-NAME appear in some window, like
+     `pop-to-buffer', but it does not select that window and does not
+     make the buffer current.  The identity of the selected window is
+     unaltered by this function.
+
+     If NOT-THIS-WINDOW is non-`nil', it means to display the specified
+     buffer in a window other than the selected one, even if it is
+     already on display in the selected window.  This can cause the
+     buffer to appear in two windows at once.  Otherwise, if
+     BUFFER-OR-NAME is already being displayed in any window, that is
+     good enough, so this function does nothing.
+
+     `display-buffer' returns the window chosen to display
+     BUFFER-OR-NAME.
+
+     Precisely how `display-buffer' finds or creates a window depends on
+     the variables described below.
+
+   A window can be marked as "dedicated" to a particular buffer.  Then
+XEmacs will not automatically change which buffer appears in the
+window, such as `display-buffer' might normally do.
+
+ - Function: window-dedicated-p window
+     This function returns WINDOW's dedicated object, usually `t' or
+     `nil'.
+
+ - Function: set-window-buffer-dedicated window buffer
+     This function makes WINDOW display BUFFER and be dedicated to that
+     buffer.  Then XEmacs will not automatically change which buffer
+     appears in WINDOW.  If BUFFER is `nil', this function makes WINDOW
+     not be dedicated (but doesn't change which buffer appears in it
+     currently).
+
+ - User Option: pop-up-windows
+     This variable controls whether `display-buffer' makes new windows.
+     If it is non-`nil' and there is only one window, then that window
+     is split.  If it is `nil', then `display-buffer' does not split
+     the single window, but uses it whole.
+
+ - User Option: split-height-threshold
+     This variable determines when `display-buffer' may split a window,
+     if there are multiple windows.  `display-buffer' always splits the
+     largest window if it has at least this many lines.  If the largest
+     window is not this tall, it is split only if it is the sole window
+     and `pop-up-windows' is non-`nil'.
+
+ - User Option: pop-up-frames
+     This variable controls whether `display-buffer' makes new frames.
+     If it is non-`nil', `display-buffer' looks for an existing window
+     already displaying the desired buffer, on any visible frame.  If
+     it finds one, it returns that window.  Otherwise it makes a new
+     frame.  The variables `pop-up-windows' and
+     `split-height-threshold' do not matter if `pop-up-frames' is
+     non-`nil'.
+
+     If `pop-up-frames' is `nil', then `display-buffer' either splits a
+     window or reuses one.
+
+     *Note Frames::, for more information.
+
+ - Variable: pop-up-frame-function
+     This variable specifies how to make a new frame if `pop-up-frames'
+     is non-`nil'.
+
+     Its value should be a function of no arguments.  When
+     `display-buffer' makes a new frame, it does so by calling that
+     function, which should return a frame.  The default value of the
+     variable is a function that creates a frame using properties from
+     `pop-up-frame-plist'.
+
+ - Variable: pop-up-frame-plist
+     This variable holds a plist specifying frame properties used when
+     `display-buffer' makes a new frame.  *Note Frame Properties::, for
+     more information about frame properties.
+
+ - Variable: special-display-buffer-names
+     A list of buffer names for buffers that should be displayed
+     specially.  If the buffer's name is in this list, `display-buffer'
+     handles the buffer specially.
+
+     By default, special display means to give the buffer a dedicated
+     frame.
+
+     If an element is a list, instead of a string, then the CAR of the
+     list is the buffer name, and the rest of the list says how to
+     create the frame.  There are two possibilities for the rest of the
+     list.  It can be a plist, specifying frame properties, or it can
+     contain a function and arguments to give to it.  (The function's
+     first argument is always the buffer to be displayed; the arguments
+     from the list come after that.)
+
+ - Variable: special-display-regexps
+     A list of regular expressions that specify buffers that should be
+     displayed specially.  If the buffer's name matches any of the
+     regular expressions in this list, `display-buffer' handles the
+     buffer specially.
+
+     By default, special display means to give the buffer a dedicated
+     frame.
+
+     If an element is a list, instead of a string, then the CAR of the
+     list is the regular expression, and the rest of the list says how
+     to create the frame.  See above, under
+     `special-display-buffer-names'.
+
+ - Variable: special-display-function
+     This variable holds the function to call to display a buffer
+     specially.  It receives the buffer as an argument, and should
+     return the window in which it is displayed.
+
+     The default value of this variable is
+     `special-display-popup-frame'.
+
+ - Function: special-display-popup-frame buffer
+     This function makes BUFFER visible in a frame of its own.  If
+     BUFFER is already displayed in a window in some frame, it makes
+     the frame visible and raises it, to use that window.  Otherwise, it
+     creates a frame that will be dedicated to BUFFER.
+
+     This function uses an existing window displaying BUFFER whether or
+     not it is in a frame of its own; but if you set up the above
+     variables in your init file, before BUFFER was created, then
+     presumably the window was previously made by this function.
+
+ - User Option: special-display-frame-plist
+     This variable holds frame properties for
+     `special-display-popup-frame' to use when it creates a frame.
+
+ - Variable: same-window-buffer-names
+     A list of buffer names for buffers that should be displayed in the
+     selected window.  If the buffer's name is in this list,
+     `display-buffer' handles the buffer by switching to it in the
+     selected window.
+
+ - Variable: same-window-regexps
+     A list of regular expressions that specify buffers that should be
+     displayed in the selected window.  If the buffer's name matches
+     any of the regular expressions in this list, `display-buffer'
+     handles the buffer by switching to it in the selected window.
+
+ - Variable: display-buffer-function
+     This variable is the most flexible way to customize the behavior of
+     `display-buffer'.  If it is non-`nil', it should be a function
+     that `display-buffer' calls to do the work.  The function should
+     accept two arguments, the same two arguments that `display-buffer'
+     received.  It should choose or create a window, display the
+     specified buffer, and then return the window.
+
+     This hook takes precedence over all the other options and hooks
+     described above.
+
+   A window can be marked as "dedicated" to its buffer.  Then
+`display-buffer' does not try to use that window.
+
+ - Function: window-dedicated-p window
+     This function returns `t' if WINDOW is marked as dedicated;
+     otherwise `nil'.
+
+ - Function: set-window-dedicated-p window flag
+     This function marks WINDOW as dedicated if FLAG is non-`nil', and
+     nondedicated otherwise.
+
+
 File: lispref.info,  Node: Window Point,  Next: Window Start,  Prev: Choosing Window,  Up: Windows
 
 Windows and Point
@@ -576,623 +1093,4 @@ are allowed in XEmacs.
      returns a list of integer pixel positions `(left top right
      bottom)', all relative to `(0,0)' at the top left corner of the
      window.
-
-
-File: lispref.info,  Node: Resizing Windows,  Next: Window Configurations,  Prev: Position of Window,  Up: Windows
-
-Changing the Size of a Window
-=============================
-
-   The window size functions fall into two classes: high-level commands
-that change the size of windows and low-level functions that access
-window size.  XEmacs does not permit overlapping windows or gaps between
-windows, so resizing one window affects other windows.
-
- - Command: enlarge-window size &optional horizontal window
-     This function makes the selected window SIZE lines taller,
-     stealing lines from neighboring windows.  It takes the lines from
-     one window at a time until that window is used up, then takes from
-     another.  If a window from which lines are stolen shrinks below
-     `window-min-height' lines, that window disappears.
-
-     If HORIZONTAL is non-`nil', this function makes WINDOW wider by
-     SIZE columns, stealing columns instead of lines.  If a window from
-     which columns are stolen shrinks below `window-min-width' columns,
-     that window disappears.
-
-     If the requested size would exceed that of the window's frame,
-     then the function makes the window occupy the entire height (or
-     width) of the frame.
-
-     If SIZE is negative, this function shrinks the window by -SIZE
-     lines or columns.  If that makes the window smaller than the
-     minimum size (`window-min-height' and `window-min-width'),
-     `enlarge-window' deletes the window.
-
-     If WINDOW is non-`nil', it specifies a window to change instead of
-     the selected window.
-
-     `enlarge-window' returns `nil'.
-
- - Command: enlarge-window-horizontally columns
-     This function makes the selected window COLUMNS wider.  It could
-     be defined as follows:
-
-          (defun enlarge-window-horizontally (columns)
-            (enlarge-window columns t))
-
- - Command: enlarge-window-pixels count &optional side window
-     This function makes the selected window COUNT pixels larger.  When
-     called from Lisp, optional second argument SIDE non-`nil' means to
-     grow sideways COUNT pixels, and optional third argument WINDOW
-     specifies the window to change instead of the selected window.
-
- - Command: shrink-window size &optional horizontal window
-     This function is like `enlarge-window' but negates the argument
-     SIZE, making the selected window smaller by giving lines (or
-     columns) to the other windows.  If the window shrinks below
-     `window-min-height' or `window-min-width', then it disappears.
-
-     If SIZE is negative, the window is enlarged by -SIZE lines or
-     columns.
-
-     If WINDOW is non-`nil', it specifies a window to change instead of
-     the selected window.
-
- - Command: shrink-window-horizontally columns
-     This function makes the selected window COLUMNS narrower.  It
-     could be defined as follows:
-
-          (defun shrink-window-horizontally (columns)
-            (shrink-window columns t))
-
- - Command: shrink-window-pixels count &optional side window
-     This function makes the selected window COUNT pixels smaller.
-     When called from Lisp, optional second argument SIDE non-`nil'
-     means to shrink sideways COUNT pixels, and optional third argument
-     WINDOW specifies the window to change instead of the selected
-     window.
-
-   The following two variables constrain the window-size-changing
-functions to a minimum height and width.
-
- - User Option: window-min-height
-     The value of this variable determines how short a window may become
-     before it is automatically deleted.  Making a window smaller than
-     `window-min-height' automatically deletes it, and no window may be
-     created shorter than this.  The absolute minimum height is two
-     (allowing one line for the mode line, and one line for the buffer
-     display).  Actions that change window sizes reset this variable to
-     two if it is less than two.  The default value is 4.
-
- - User Option: window-min-width
-     The value of this variable determines how narrow a window may
-     become before it automatically deleted.  Making a window smaller
-     than `window-min-width' automatically deletes it, and no window
-     may be created narrower than this.  The absolute minimum width is
-     one; any value below that is ignored.  The default value is 10.
-
- - Variable: window-size-change-functions
-     This variable holds a list of functions to be called if the size
-     of any window changes for any reason.  The functions are called
-     just once per redisplay, and just once for each frame on which
-     size changes have occurred.
-
-     Each function receives the frame as its sole argument.  There is no
-     direct way to find out which windows changed size, or precisely
-     how; however, if your size-change function keeps track, after each
-     change, of the windows that interest you, you can figure out what
-     has changed by comparing the old size data with the new.
-
-     Creating or deleting windows counts as a size change, and therefore
-     causes these functions to be called.  Changing the frame size also
-     counts, because it changes the sizes of the existing windows.
-
-     It is not a good idea to use `save-window-excursion' in these
-     functions, because that always counts as a size change, and it
-     would cause these functions to be called over and over.  In most
-     cases, `save-selected-window' is what you need here.
-
-
-File: lispref.info,  Node: Window Configurations,  Prev: Resizing Windows,  Up: Windows
-
-Window Configurations
-=====================
-
-   A "window configuration" records the entire layout of a frame--all
-windows, their sizes, which buffers they contain, what part of each
-buffer is displayed, and the values of point and the mark.  You can
-bring back an entire previous layout by restoring a window
-configuration previously saved.
-
-   If you want to record all frames instead of just one, use a frame
-configuration instead of a window configuration.  *Note Frame
-Configurations::.
-
- - Function: current-window-configuration
-     This function returns a new object representing XEmacs's current
-     window configuration, namely the number of windows, their sizes
-     and current buffers, which window is the selected window, and for
-     each window the displayed buffer, the display-start position, and
-     the positions of point and the mark.  An exception is made for
-     point in the current buffer, whose value is not saved.
-
- - Function: set-window-configuration configuration
-     This function restores the configuration of XEmacs's windows and
-     buffers to the state specified by CONFIGURATION.  The argument
-     CONFIGURATION must be a value that was previously returned by
-     `current-window-configuration'.
-
-     This function always counts as a window size change and triggers
-     execution of the `window-size-change-functions'.  (It doesn't know
-     how to tell whether the new configuration actually differs from
-     the old one.)
-
-     Here is a way of using this function to get the same effect as
-     `save-window-excursion':
-
-          (let ((config (current-window-configuration)))
-            (unwind-protect
-                (progn (split-window-vertically nil)
-                       ...)
-              (set-window-configuration config)))
-
- - Special Form: save-window-excursion forms...
-     This special form records the window configuration, executes FORMS
-     in sequence, then restores the earlier window configuration.  The
-     window configuration includes the value of point and the portion
-     of the buffer that is visible.  It also includes the choice of
-     selected window.  However, it does not include the value of point
-     in the current buffer; use `save-excursion' if you wish to
-     preserve that.
-
-     Don't use this construct when `save-selected-window' is all you
-     need.
-
-     Exit from `save-window-excursion' always triggers execution of the
-     `window-size-change-functions'.  (It doesn't know how to tell
-     whether the restored configuration actually differs from the one in
-     effect at the end of the FORMS.)
-
-     The return value is the value of the final form in FORMS.  For
-     example:
-
-          (split-window)
-               => #<window 25 on control.texi>
-          (setq w (selected-window))
-               => #<window 19 on control.texi>
-          (save-window-excursion
-            (delete-other-windows w)
-            (switch-to-buffer "foo")
-            'do-something)
-               => do-something
-               ;; The frame is now split again.
-
- - Function: window-configuration-p object
-     This function returns `t' if OBJECT is a window configuration.
-
-   Primitives to look inside of window configurations would make sense,
-but none are implemented.  It is not clear they are useful enough to be
-worth implementing.
-
-
-File: lispref.info,  Node: Frames,  Next: Consoles and Devices,  Prev: Windows,  Up: Top
-
-Frames
-******
-
-   A FRAME is a rectangle on the screen that contains one or more
-XEmacs windows.  A frame initially contains a single main window (plus
-perhaps a minibuffer window), which you can subdivide vertically or
-horizontally into smaller windows.
-
-   When XEmacs runs on a text-only terminal, it starts with one "TTY
-frame".  If you create additional ones, XEmacs displays one and only
-one at any given time--on the terminal screen, of course.
-
-   When XEmacs communicates directly with an X server, it does not have
-a TTY frame; instead, it starts with a single "X window frame".  It can
-display multiple X window frames at the same time, each in its own X
-window.
-
- - Function: framep object
-     This predicate returns `t' if OBJECT is a frame, and `nil'
-     otherwise.
-
-* Menu:
-
-* Creating Frames::		Creating additional frames.
-* Frame Properties::		Controlling frame size, position, font, etc.
-* Frame Titles::                Automatic updating of frame titles.
-* Deleting Frames::		Frames last until explicitly deleted.
-* Finding All Frames::		How to examine all existing frames.
-* Frames and Windows::		A frame contains windows;
-				  display of text always works through windows.
-* Minibuffers and Frames::	How a frame finds the minibuffer to use.
-* Input Focus::			Specifying the selected frame.
-* Visibility of Frames::	Frames may be visible or invisible, or icons.
-* Raising and Lowering::	Raising a frame makes it hide other X windows;
-				  lowering it makes the others hide them.
-* Frame Configurations::	Saving the state of all frames.
-* Frame Hooks::                 Hooks for customizing frame behavior.
-
-   *Note Display::, for related information.
-
-
-File: lispref.info,  Node: Creating Frames,  Next: Frame Properties,  Up: Frames
-
-Creating Frames
-===============
-
-   To create a new frame, call the function `make-frame'.
-
- - Function: make-frame &optional props device
-     This function creates a new frame on DEVICE, if DEVICE permits
-     creation of frames.  (An X server does; an ordinary terminal does
-     not (yet).)  DEVICE defaults to the selected device if omitted.
-     *Note Consoles and Devices::.
-
-     The argument PROPS is a property list (a list of alternating
-     keyword-value specifications) of properties for the new frame. (An
-     alist is accepted for backward compatibility but should not be
-     passed in.) Any properties not mentioned in PROPS default
-     according to the value of the variable `default-frame-plist'.  For
-     X devices, properties not specified in `default-frame-plist'
-     default in turn from `default-x-frame-plist' and, if not specified
-     there, from the X resources.  For TTY devices,
-     `default-tty-frame-plist' is consulted as well as
-     `default-frame-plist'.
-
-     The set of possible properties depends in principle on what kind of
-     window system XEmacs uses to display its frames.  *Note X Frame
-     Properties::, for documentation of individual properties you can
-     specify when creating an X window frame.
-
-
-File: lispref.info,  Node: Frame Properties,  Next: Frame Titles,  Prev: Creating Frames,  Up: Frames
-
-Frame Properties
-================
-
-   A frame has many properties that control its appearance and behavior.
-Just what properties a frame has depends on which display mechanism it
-uses.
-
-   Frame properties exist for the sake of window systems.  A terminal
-frame has few properties, mostly for compatibility's sake; only the
-height, width and `buffer-predicate' properties really do something.
-
-* Menu:
-
-* Property Access::	How to change a frame's properties.
-* Initial Properties::	Specifying frame properties when you make a frame.
-* X Frame Properties::	List of frame properties.
-* Size and Position::	Changing the size and position of a frame.
-* Frame Name::		The name of a frame (as opposed to its title).
-
-
-File: lispref.info,  Node: Property Access,  Next: Initial Properties,  Up: Frame Properties
-
-Access to Frame Properties
---------------------------
-
-   These functions let you read and change the properties of a frame.
-
- - Function: frame-properties &optional frame
-     This function returns a plist listing all the properties of FRAME
-     and their values.
-
- - Function: frame-property frame property &optional default
-     This function returns FRAME's value for the property PROPERTY.
-
- - Function: set-frame-properties frame plist
-     This function alters the properties of frame FRAME based on the
-     elements of property list PLIST.  If you don't mention a property
-     in PLIST, its value doesn't change.
-
- - Function: set-frame-property frame prop val
-     This function sets the property PROP of frame FRAME to the value
-     VAL.
-
-
-File: lispref.info,  Node: Initial Properties,  Next: X Frame Properties,  Prev: Property Access,  Up: Frame Properties
-
-Initial Frame Properties
-------------------------
-
-   You can specify the properties for the initial startup frame by
-setting `initial-frame-plist' in your `.emacs' file.
-
- - Variable: initial-frame-plist
-     This variable's value is a plist of alternating property-value
-     pairs used when creating the initial X window frame.
-
-     XEmacs creates the initial frame before it reads your `~/.emacs'
-     file.  After reading that file, XEmacs checks
-     `initial-frame-plist', and applies the property settings in the
-     altered value to the already created initial frame.
-
-     If these settings affect the frame geometry and appearance, you'll
-     see the frame appear with the wrong ones and then change to the
-     specified ones.  If that bothers you, you can specify the same
-     geometry and appearance with X resources; those do take affect
-     before the frame is created.  *Note X Resources: (xemacs)Resources
-     X.
-
-     X resource settings typically apply to all frames.  If you want to
-     specify some X resources solely for the sake of the initial frame,
-     and you don't want them to apply to subsequent frames, here's how
-     to achieve this: specify properties in `default-frame-plist' to
-     override the X resources for subsequent frames; then, to prevent
-     these from affecting the initial frame, specify the same
-     properties in `initial-frame-plist' with values that match the X
-     resources.
-
-   If these properties specify a separate minibuffer-only frame via a
-`minibuffer' property of `nil', and you have not yet created one,
-XEmacs creates one for you.
-
- - Variable: minibuffer-frame-plist
-     This variable's value is a plist of properties used when creating
-     an initial minibuffer-only frame--if such a frame is needed,
-     according to the properties for the main initial frame.
-
- - Variable: default-frame-plist
-     This is a plist specifying default values of frame properties for
-     subsequent XEmacs frames (not the initial ones).
-
-   See also `special-display-frame-plist', in *Note Choosing Window::.
-
-   If you use options that specify window appearance when you invoke
-XEmacs, they take effect by adding elements to `default-frame-plist'.
-One exception is `-geometry', which adds the specified position to
-`initial-frame-plist' instead.  *Note Command Arguments:
-(xemacs)Command Arguments.
-
-
-File: lispref.info,  Node: X Frame Properties,  Next: Size and Position,  Prev: Initial Properties,  Up: Frame Properties
-
-X Window Frame Properties
--------------------------
-
-   Just what properties a frame has depends on what display mechanism it
-uses.  Here is a table of the properties of an X window frame; of these,
-`name', `height', `width', and `buffer-predicate' provide meaningful
-information in non-X frames.
-
-`name'
-     The name of the frame.  Most window managers display the frame's
-     name in the frame's border, at the top of the frame.  If you don't
-     specify a name, and you have more than one frame, XEmacs sets the
-     frame name based on the buffer displayed in the frame's selected
-     window.
-
-     If you specify the frame name explicitly when you create the
-     frame, the name is also used (instead of the name of the XEmacs
-     executable) when looking up X resources for the frame.
-
-`display'
-     The display on which to open this frame.  It should be a string of
-     the form `"HOST:DPY.SCREEN"', just like the `DISPLAY' environment
-     variable.
-
-`left'
-     The screen position of the left edge, in pixels, with respect to
-     the left edge of the screen.  The value may be a positive number
-     POS, or a list of the form `(+ POS)' which permits specifying a
-     negative POS value.
-
-     A negative number -POS, or a list of the form `(- POS)', actually
-     specifies the position of the right edge of the window with
-     respect to the right edge of the screen.  A positive value of POS
-     counts toward the left.  If the property is a negative integer
-     -POS then POS is positive!
-
-`top'
-     The screen position of the top edge, in pixels, with respect to the
-     top edge of the screen.  The value may be a positive number POS,
-     or a list of the form `(+ POS)' which permits specifying a
-     negative POS value.
-
-     A negative number -POS, or a list of the form `(- POS)', actually
-     specifies the position of the bottom edge of the window with
-     respect to the bottom edge of the screen.  A positive value of POS
-     counts toward the top.  If the property is a negative integer -POS
-     then POS is positive!
-
-`icon-left'
-     The screen position of the left edge _of the frame's icon_, in
-     pixels, counting from the left edge of the screen.  This takes
-     effect if and when the frame is iconified.
-
-`icon-top'
-     The screen position of the top edge _of the frame's icon_, in
-     pixels, counting from the top edge of the screen.  This takes
-     effect if and when the frame is iconified.
-
-`user-position'
-     Non-`nil' if the screen position of the frame was explicitly
-     requested by the user (for example, with the `-geometry' option).
-     Nothing automatically makes this property non-`nil'; it is up to
-     Lisp programs that call `make-frame' to specify this property as
-     well as specifying the `left' and `top' properties.
-
-`height'
-     The height of the frame contents, in characters.  (To get the
-     height in pixels, call `frame-pixel-height'; see *Note Size and
-     Position::.)
-
-`width'
-     The width of the frame contents, in characters.  (To get the
-     height in pixels, call `frame-pixel-width'; see *Note Size and
-     Position::.)
-
-`window-id'
-     The number of the X window for the frame.
-
-`minibuffer'
-     Whether this frame has its own minibuffer.  The value `t' means
-     yes, `nil' means no, `only' means this frame is just a minibuffer.
-     If the value is a minibuffer window (in some other frame), the
-     new frame uses that minibuffer. (Minibuffer-only and
-     minibuffer-less frames are not yet implemented in XEmacs.)
-
-`buffer-predicate'
-     The buffer-predicate function for this frame.  The function
-     `other-buffer' uses this predicate (from the selected frame) to
-     decide which buffers it should consider, if the predicate is not
-     `nil'.  It calls the predicate with one arg, a buffer, once for
-     each buffer; if the predicate returns a non-`nil' value, it
-     considers that buffer.
-
-`scroll-bar-width'
-     The width of the vertical scroll bar, in pixels.
-
-`cursor-color'
-     The color for the cursor that shows point.
-
-`border-color'
-     The color for the border of the frame.
-
-`border-width'
-     The width in pixels of the window border.
-
-`internal-border-width'
-     The distance in pixels between text and border.
-
-`unsplittable'
-     If non-`nil', this frame's window is never split automatically.
-
-`inter-line-space'
-     The space in pixels between adjacent lines of text. (Not currently
-     implemented.)
-
-`modeline'
-     Whether the frame has a modeline.
-
-
-File: lispref.info,  Node: Size and Position,  Next: Frame Name,  Prev: X Frame Properties,  Up: Frame Properties
-
-Frame Size And Position
------------------------
-
-   You can read or change the size and position of a frame using the
-frame properties `left', `top', `height', and `width'.  Whatever
-geometry properties you don't specify are chosen by the window manager
-in its usual fashion.
-
-   Here are some special features for working with sizes and positions:
-
- - Function: set-frame-position frame left top
-     This function sets the position of the top left corner of FRAME to
-     LEFT and TOP.  These arguments are measured in pixels, and count
-     from the top left corner of the screen.  Negative property values
-     count up or rightward from the top left corner of the screen.
-
- - Function: frame-height &optional frame
- - Function: frame-width &optional frame
-     These functions return the height and width of FRAME, measured in
-     lines and columns.  If you don't supply FRAME, they use the
-     selected frame.
-
- - Function: frame-pixel-height &optional frame
- - Function: frame-pixel-width &optional frame
-     These functions return the height and width of FRAME, measured in
-     pixels.  If you don't supply FRAME, they use the selected frame.
-
- - Function: set-frame-size frame cols rows &optional pretend
-     This function sets the size of FRAME, measured in characters; COLS
-     and ROWS specify the new width and height.  (If PRETEND is
-     non-nil, it means that redisplay should act as if the frame's size
-     is COLS by ROWS, but the actual size of the frame should not be
-     changed.  You should not normally use this option.)
-
-   You can also use the functions `set-frame-height' and
-`set-frame-width' to set the height and width individually.  The frame
-is the first argument and the size (in rows or columns) is the second.
-(There is an optional third argument, PRETEND, which has the same
-purpose as the corresponding argument in `set-frame-size'.)
-
-
-File: lispref.info,  Node: Frame Name,  Prev: Size and Position,  Up: Frame Properties
-
-The Name of a Frame (As Opposed to Its Title)
----------------------------------------------
-
-   Under X, every frame has a name, which is not the same as the title
-of the frame.  A frame's name is used to look up its resources and does
-not normally change over the lifetime of a frame.  It is perfectly
-allowable, and quite common, for multiple frames to have the same name.
-
- - Function: frame-name &optional frame
-     This function returns the name of FRAME, which defaults to the
-     selected frame if not specified.  The name of a frame can also be
-     obtained from the frame's properties.  *Note Frame Properties::.
-
- - Variable: default-frame-name
-     This variable holds the default name to assign to newly-created
-     frames.  This can be overridden by arguments to `make-frame'.  This
-     must be a string.
-
-
-File: lispref.info,  Node: Frame Titles,  Next: Deleting Frames,  Prev: Frame Properties,  Up: Frames
-
-Frame Titles
-============
-
-   Every frame has a title; most window managers display the frame
-title at the top of the frame.  You can specify an explicit title with
-the `name' frame property.  But normally you don't specify this
-explicitly, and XEmacs computes the title automatically.
-
-   XEmacs computes the frame title based on a template stored in the
-variable `frame-title-format'.
-
- - Variable: frame-title-format
-     This variable specifies how to compute a title for a frame when
-     you have not explicitly specified one.
-
-     The variable's value is actually a modeline construct, just like
-     `modeline-format'.  *Note Modeline Data::.
-
- - Variable: frame-icon-title-format
-     This variable specifies how to compute the title for an iconified
-     frame, when you have not explicitly specified the frame title.
-     This title appears in the icon itself.
-
- - Function: x-set-frame-icon-pixmap frame pixmap &optional mask
-     This function sets the icon of the given frame to the given image
-     instance, which should be an image instance object (as returned by
-     `make-image-instance'), a glyph object (as returned by
-     `make-glyph'), or `nil'.  If a glyph object is given, the glyph
-     will be instantiated on the frame to produce an image instance
-     object.
-
-     If the given image instance has a mask, that will be used as the
-     icon mask; however, not all window managers support this.
-
-     The window manager is also not required to support color pixmaps,
-     only bitmaps (one plane deep).
-
-     If the image instance does not have a mask, then the optional
-     third argument may be the image instance to use as the mask (it
-     must be one plane deep).  *Note Glyphs::.
-
-
-File: lispref.info,  Node: Deleting Frames,  Next: Finding All Frames,  Prev: Frame Titles,  Up: Frames
-
-Deleting Frames
-===============
-
-   Frames remain potentially visible until you explicitly "delete"
-them.  A deleted frame cannot appear on the screen, but continues to
-exist as a Lisp object until there are no references to it.
-
- - Command: delete-frame &optional frame
-     This function deletes the frame FRAME.  By default, FRAME is the
-     selected frame.
-
- - Function: frame-live-p frame
-     The function `frame-live-p' returns non-`nil' if the frame FRAME
-     has not been deleted.
 

@@ -352,6 +352,9 @@ Miscellaneous:
 * Q6.3.2::      What are the differences between the various MS Windows emacsen?
 * Q6.3.3::      What is the porting team doing at the moment?
 
+Troubleshooting:
+* Q6.4.1::      XEmacs won't start on Windows. (NEW)
+
 Current Events:
 
 * Q7.0.1::      What is new in 20.2?
@@ -608,9 +611,8 @@ Q1.0.11: Is there a port of XEmacs to the Macintosh?
 ----------------------------------------------------
 
    Yes, there is a port of XEmacs 19.14, tested on MacOS 7.6.1 and MacOS
-8.5.1 by Pitts Jarvis (pjarvis@ispchannel.com).  It's available at
-http://my.ispchannel.com/~pjarvis/xemacs.html
-(http://my.ispchannel.com/~pjarvis/xemacs.html).
+8.5.1 by Pitts Jarvis <pjarvis@ispchannel.com>.  It's available at
+`http://my.ispchannel.com/~pjarvis/xemacs.html'.
 
 
 File: xemacs-faq.info,  Node: Q1.0.12,  Next: Q1.0.13,  Prev: Q1.0.11,  Up: Introduction

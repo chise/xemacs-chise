@@ -1,7 +1,7 @@
 /* The  mswindows event_stream interface.
    Copyright (C) 1991, 1992, 1993, 1994, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1996 Ben Wing.
+   Copyright (C) 1996, 2000 Ben Wing.
    Copyright (C) 1997 Jonathan Harris.
 
 This file is part of XEmacs.
@@ -41,6 +41,7 @@ Boston, MA 02111-1307, USA.  */
 #endif
 
 #ifdef HAVE_MENUBARS
+# include "menubar.h"
 # include "menubar-msw.h"
 #endif
 
@@ -72,6 +73,10 @@ typedef unsigned int SOCKET;
 #endif
 #include <io.h>
 #include <errno.h>
+
+#if !(defined(__CYGWIN32__) || defined(__MINGW32__))
+# include <shlobj.h>	/* For IShellLink */
+#endif
 
 #if defined (__CYGWIN32__) && (CYGWIN_VERSION_DLL_MAJOR < 20)
 typedef NMHDR *LPNMHDR;
@@ -128,6 +133,7 @@ static HANDLE mswindows_waitable_handles[MAX_WAITABLE];
 /* Number of wait handles */
 static int mswindows_waitable_count=0;
 #endif /* HAVE_MSG_SELECT */
+
 /* Brush for painting widgets */
 static HBRUSH widget_brush = 0;
 static LONG	last_widget_brushed = 0;
@@ -139,7 +145,7 @@ int mswindows_quit_chars_count = 0;
 
 /* These are Lisp integers; see DEFVARS in this file for description. */
 int mswindows_dynamic_frame_resize;
-int mswindows_meta_activates_menu;
+int mswindows_alt_by_itself_activates_menu;
 int mswindows_num_mouse_buttons;
 int mswindows_mouse_button_max_skew_x;
 int mswindows_mouse_button_max_skew_y;
@@ -178,11 +184,11 @@ static int mswindows_pending_timers_count;
 struct ntpipe_slurp_stream_shared_data
 {
   HANDLE hev_thread;	/* Our thread blocks on this, signaled by caller */
-			/* This is a manual-reset object. 		 */
+  /* This is a manual-reset object. 		 */
   HANDLE hev_caller;	/* Caller blocks on this, and we signal it	 */
-			/* This is a manual-reset object. 		 */
+  /* This is a manual-reset object. 		 */
   HANDLE hev_unsleep;	/* Pipe read delay is canceled if this is set	 */
-			/* This is a manual-reset object. 		 */
+  /* This is a manual-reset object. 		 */
   HANDLE hpipe;		/* Pipe read end handle.			 */
   LONG   die_p;		/* Thread must exit ASAP if non-zero		 */
   BOOL   eof_p   : 1;	/* Set when thread saw EOF			 */
@@ -221,7 +227,7 @@ slurper_free_shared_data_maybe (struct ntpipe_slurp_stream_shared_data* s)
 }
 
 static struct ntpipe_slurp_stream_shared_data*
-slurper_allocate_shared_data()
+slurper_allocate_shared_data (void)
 {
   int i=0;
   for (i=0; i<MAX_SLURP_STREAMS; i++)
@@ -468,7 +474,7 @@ struct ntpipe_shove_stream
 {
   LPARAM user_data;	/* Any user data stored in the stream object	 */
   HANDLE hev_thread;	/* Our thread blocks on this, signaled by caller */
-			/* This is an auto-reset object. 		 */
+  /* This is an auto-reset object. 		 */
   HANDLE hpipe;		/* Pipe write end handle.			 */
   HANDLE hthread;	/* Reader thread handle.			 */
   char	 buffer[MAX_SHOVE_BUFFER_SIZE];	/* Buffer being written		 */
@@ -632,8 +638,8 @@ struct winsock_stream
   SOCKET s;			/* Socket handle (which is a Win32 handle)   */
   OVERLAPPED ov;		/* Overlapped I/O structure		     */
   void* buffer;			/* Buffer. Allocated for input stream only   */
-  unsigned int bufsize;		/* Number of bytes last read		     */
-  unsigned int bufpos;		/* Position in buffer for next fetch	     */
+  unsigned long bufsize;	/* Number of bytes last read		     */
+  unsigned long bufpos;		/* Position in buffer for next fetch	     */
   unsigned int error_p :1;	/* I/O Error seen			     */
   unsigned int eof_p :1;	/* EOF Error seen			     */
   unsigned int pending_p :1;	/* There is a pending I/O operation	     */
@@ -712,7 +718,7 @@ winsock_reader (Lstream *stream, unsigned char *data, size_t size)
 }
 
 static ssize_t
-winsock_writer (Lstream *stream, CONST unsigned char *data, size_t size)
+winsock_writer (Lstream *stream, const unsigned char *data, size_t size)
 {
   struct winsock_stream *str = WINSOCK_STREAM_DATA (stream);
 
@@ -785,7 +791,7 @@ winsock_was_blocked_p (Lstream *stream)
 }
 
 static Lisp_Object
-make_winsock_stream_1 (SOCKET s, LPARAM param, CONST char *mode)
+make_winsock_stream_1 (SOCKET s, LPARAM param, const char *mode)
 {
   Lisp_Object obj;
   Lstream *lstr = Lstream_new (lstream_winsock, mode);
@@ -864,15 +870,15 @@ mswindows_user_event_p (Lisp_Event* sevt)
 /*
  * Add an emacs event to the proper dispatch queue
  */
-static void
+void
 mswindows_enqueue_dispatch_event (Lisp_Object event)
 {
   int user_p = mswindows_user_event_p (XEVENT(event));
   enqueue_event (event,
 		 user_p ? &mswindows_u_dispatch_event_queue :
-		 	&mswindows_s_dispatch_event_queue,
+		 &mswindows_s_dispatch_event_queue,
 		 user_p ? &mswindows_u_dispatch_event_queue_tail :
-		 	&mswindows_s_dispatch_event_queue_tail);
+		 &mswindows_s_dispatch_event_queue_tail);
 
   /* Avoid blocking on WaitMessage */
   PostMessage (NULL, XM_BUMPQUEUE, 0, 0);
@@ -990,7 +996,7 @@ mswindows_enqueue_keypress_event (HWND hwnd, Lisp_Object keysym, int mods)
  * Give a preference to user events over non-user ones.
  */
 static Lisp_Object
-mswindows_dequeue_dispatch_event ()
+mswindows_dequeue_dispatch_event (void)
 {
   Lisp_Object event;
   Lisp_Event* sevt;
@@ -999,10 +1005,10 @@ mswindows_dequeue_dispatch_event ()
 	  !NILP(mswindows_s_dispatch_event_queue));
 
   event = dequeue_event (
-		 NILP(mswindows_u_dispatch_event_queue) ?
+			 NILP(mswindows_u_dispatch_event_queue) ?
 			 &mswindows_s_dispatch_event_queue :
 			 &mswindows_u_dispatch_event_queue,
-		 NILP(mswindows_u_dispatch_event_queue) ?
+			 NILP(mswindows_u_dispatch_event_queue) ?
 			 &mswindows_s_dispatch_event_queue_tail :
 			 &mswindows_u_dispatch_event_queue_tail);
 
@@ -1033,9 +1039,9 @@ mswindows_cancel_dispatch_event (Lisp_Event *match)
   Lisp_Object previous_event = Qnil;
   int user_p = mswindows_user_event_p (match);
   Lisp_Object* head = user_p ? &mswindows_u_dispatch_event_queue :
-    			       &mswindows_s_dispatch_event_queue;
+    &mswindows_s_dispatch_event_queue;
   Lisp_Object* tail = user_p ? &mswindows_u_dispatch_event_queue_tail :
-    			       &mswindows_s_dispatch_event_queue_tail;
+    &mswindows_s_dispatch_event_queue_tail;
 
   assert (match->event_type == timeout_event
 	  || match->event_type == key_press_event);
@@ -1220,7 +1226,7 @@ mswindows_pump_outstanding_events (void)
   GCPRO1 (result);
 
   if (NILP(mswindows_error_caught_in_modal_loop))
-      result = mswindows_protect_modal_loop (mswindows_unsafe_pump_events, Qnil);
+    result = mswindows_protect_modal_loop (mswindows_unsafe_pump_events, Qnil);
   UNGCPRO;
   return result;
 }
@@ -1230,26 +1236,44 @@ mswindows_pump_outstanding_events (void)
  * QUITP, and are interesting in keyboard messages only.
  */
 static void
-mswindows_drain_windows_queue (int keyboard_only_till_quit_char_p)
+mswindows_drain_windows_queue (void)
 {
   MSG msg;
 
-  /* Minimize the hassle of misordered events by not fetching
-     past quit char if called from QUITP; */
-  while (!(keyboard_only_till_quit_char_p &&
-	   mswindows_quit_chars_count > 0) &&
-	 PeekMessage (&msg, NULL,
-		      keyboard_only_till_quit_char_p ? WM_KEYFIRST : 0,
-		      keyboard_only_till_quit_char_p ? WM_KEYLAST : 0,
-		      PM_REMOVE))
+  /* should call mswindows_need_event_in_modal_loop() if in modal loop */
+  assert (!mswindows_in_modal_loop);
+
+  while (PeekMessage (&msg, NULL, 0, 0, PM_REMOVE))
     {
       /* We have to translate messages that are not sent to the main
          window. This is so that key presses work ok in things like
          edit fields. However, we *musn't* translate message for the
-         main window as this is handled in the wnd proc. */
-      if (GetWindowLong (msg.hwnd, GWL_STYLE) & WS_CHILD)
+         main window as this is handled in the wnd proc.
+         We also have to avoid generating paint magic events for windows
+	 that aren't XEmacs frames */
+      if (GetWindowLong (msg.hwnd, GWL_STYLE) & (WS_CHILD|WS_POPUP))
 	{
 	  TranslateMessage (&msg);
+	}
+      else if (msg.message == WM_PAINT)
+	{
+	  struct mswindows_frame* msframe;
+	  
+	  /* hdc will be NULL unless this is a subwindow - in which case we
+	     shouldn't have received a paint message for it here. */
+	  assert (msg.wParam == 0);
+
+	  /* Queue a magic event for handling when safe */
+	  msframe = FRAME_MSWINDOWS_DATA (
+					  XFRAME (mswindows_find_frame (msg.hwnd)));
+	  if (!msframe->paint_pending)
+	    {
+	      msframe->paint_pending = 1;
+	      mswindows_enqueue_magic_event (msg.hwnd, WM_PAINT);
+	    }
+	  /* Don't dispatch. WM_PAINT is always the last message in the
+	     queue so it's OK to just return. */
+	  return;
 	}
       DispatchMessage (&msg);
       mswindows_unmodalize_signal_maybe ();
@@ -1314,14 +1338,6 @@ mswindows_need_event (int badly_p)
       return;
     }
 
-#if 0
-  /* Have to drain Windows message queue first, otherwise, we may miss
-     quit char when called from quit_p */
-  /* #### This is, ehm, not quite true -- this function is not
-     called from quit_p. --kkm */
-  mswindows_drain_windows_queue ();
-#endif
-
   while (NILP (mswindows_u_dispatch_event_queue)
 	 && NILP (mswindows_s_dispatch_event_queue))
     {
@@ -1351,50 +1367,53 @@ mswindows_need_event (int badly_p)
 	{
 	  if (FD_ISSET (windows_fd, &temp_mask))
 	    {
-	      mswindows_drain_windows_queue (0);
+	      mswindows_drain_windows_queue ();
 	    }
-#ifdef HAVE_TTY
-	  /* Look for a TTY event */
-	  for (i = 0; i < MAXDESC-1; i++)
+	  else 
 	    {
-	      /* To avoid race conditions (among other things, an infinite
-		 loop when called from Fdiscard_input()), we must return
-		 user events ahead of process events. */
-	      if (FD_ISSET (i, &temp_mask) && FD_ISSET (i, &tty_only_mask))
+#ifdef HAVE_TTY
+	      /* Look for a TTY event */
+	      for (i = 0; i < MAXDESC-1; i++)
 		{
-		  struct console *c = tty_find_console_from_fd (i);
-		  Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
-		  Lisp_Event* event = XEVENT (emacs_event);
-
-		  assert (c);
-		  if (read_event_from_tty_or_stream_desc (event, c, i))
+		  /* To avoid race conditions (among other things, an infinite
+		     loop when called from Fdiscard_input()), we must return
+		     user events ahead of process events. */
+		  if (FD_ISSET (i, &temp_mask) && FD_ISSET (i, &tty_only_mask))
 		    {
-		      mswindows_enqueue_dispatch_event (emacs_event);
-		      return;
+		      struct console *c = tty_find_console_from_fd (i);
+		      Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
+		      Lisp_Event* event = XEVENT (emacs_event);
+		      
+		      assert (c);
+		      if (read_event_from_tty_or_stream_desc (event, c, i))
+			{
+			  mswindows_enqueue_dispatch_event (emacs_event);
+			  return;
+			}
 		    }
 		}
-	    }
 #endif
-	  /* Look for a process event */
-	  for (i = 0; i < MAXDESC-1; i++)
-	    {
-	      if (FD_ISSET (i, &temp_mask))
+	      /* Look for a process event */
+	      for (i = 0; i < MAXDESC-1; i++)
 		{
-		  if (FD_ISSET (i, &process_only_mask))
+		  if (FD_ISSET (i, &temp_mask))
 		    {
-		      Lisp_Process *p =
-			get_process_from_usid (FD_TO_USID(i));
-
-		      mswindows_enqueue_process_event (p);
-		    }
-		  else
-		    {
-		      /* We might get here when a fake event came
-                         through a signal. Return a dummy event, so
-                         that a cycle of the command loop will
-                         occur. */
-		      drain_signal_event_pipe ();
-		      mswindows_enqueue_magic_event (NULL, XM_BUMPQUEUE);
+		      if (FD_ISSET (i, &process_only_mask))
+			{
+			  Lisp_Process *p =
+			    get_process_from_usid (FD_TO_USID(i));
+			  
+			  mswindows_enqueue_process_event (p);
+			}
+		      else
+			{
+			  /* We might get here when a fake event came
+			     through a signal. Return a dummy event, so
+			     that a cycle of the command loop will
+			     occur. */
+			  drain_signal_event_pipe ();
+			  mswindows_enqueue_magic_event (NULL, XM_BUMPQUEUE);
+			}
 		    }
 		}
 	    }
@@ -1413,53 +1432,65 @@ mswindows_need_event (int badly_p)
 	}
 #else
       /* Now try getting a message or process event */
-    active = MsgWaitForMultipleObjects (mswindows_waitable_count,
-					mswindows_waitable_handles,
-					FALSE, badly_p ? INFINITE : 0,
-					QS_ALLINPUT);
+      active = MsgWaitForMultipleObjects (mswindows_waitable_count,
+					  mswindows_waitable_handles,
+					  FALSE, badly_p ? INFINITE : 0,
+					  QS_ALLINPUT);
 
-    /* This will assert if handle being waited for becomes abandoned.
-       Not the case currently tho */
-    assert ((!badly_p && active == WAIT_TIMEOUT) ||
-	    (active >= WAIT_OBJECT_0 &&
-	     active <= WAIT_OBJECT_0 + mswindows_waitable_count));
+      /* This will assert if handle being waited for becomes abandoned.
+	 Not the case currently tho */
+      assert ((!badly_p && active == WAIT_TIMEOUT) ||
+	      (active >= WAIT_OBJECT_0 &&
+	       active <= WAIT_OBJECT_0 + mswindows_waitable_count));
 
-    if (active == WAIT_TIMEOUT)
-      {
-	/* No luck trying - just return what we've already got */
-	return;
-      }
-    else if (active == WAIT_OBJECT_0 + mswindows_waitable_count)
-      {
-	/* Got your message, thanks */
-	mswindows_drain_windows_queue (0);
-      }
-    else
-      {
-	int ix = active - WAIT_OBJECT_0;
-	/* First, try to find which process' output has signaled */
-	Lisp_Process *p =
-	  get_process_from_usid (HANDLE_TO_USID (mswindows_waitable_handles[ix]));
-	if (p != NULL)
-	  {
-	    /* Found a signaled process input handle */
-	    mswindows_enqueue_process_event (p);
-	  }
-	else
-	  {
-	    /* None. This means that the process handle itself has signaled.
-	       Remove the handle from the wait vector, and make status_notify
-	       note the exited process */
-	    mswindows_waitable_handles [ix] =
-	      mswindows_waitable_handles [--mswindows_waitable_count];
-	    kick_status_notify ();
-	    /* Have to return something: there may be no accompanying
-	       process event */
-	    mswindows_enqueue_magic_event (NULL, XM_BUMPQUEUE);
-	  }
-      }
+      if (active == WAIT_TIMEOUT)
+	{
+	  /* No luck trying - just return what we've already got */
+	  return;
+	}
+      else if (active == WAIT_OBJECT_0 + mswindows_waitable_count)
+	{
+	  /* Got your message, thanks */
+	  mswindows_drain_windows_queue ();
+	}
+      else
+	{
+	  int ix = active - WAIT_OBJECT_0;
+	  /* First, try to find which process' output has signaled */
+	  Lisp_Process *p =
+	    get_process_from_usid (HANDLE_TO_USID (mswindows_waitable_handles[ix]));
+	  if (p != NULL)
+	    {
+	      /* Found a signaled process input handle */
+	      mswindows_enqueue_process_event (p);
+	    }
+	  else
+	    {
+	      /* None. This means that the process handle itself has signaled.
+		 Remove the handle from the wait vector, and make status_notify
+		 note the exited process */
+	      mswindows_waitable_handles [ix] =
+		mswindows_waitable_handles [--mswindows_waitable_count];
+	      kick_status_notify ();
+	      /* We need to return a process event here so that
+		 (1) accept-process-output will return when called on this
+		 process, and (2) status notifications will happen in
+		 accept-process-output, sleep-for, and sit-for. */
+	      /* #### horrible kludge till my real process fixes go in.
+	       */
+	      if (!NILP (Vprocess_list))
+		{
+		  Lisp_Object vaffanculo = XCAR (Vprocess_list);
+		  mswindows_enqueue_process_event (XPROCESS (vaffanculo));
+		}
+	      else /* trash me soon. */
+		/* Have to return something: there may be no accompanying
+		   process event */
+		mswindows_enqueue_magic_event (NULL, XM_BUMPQUEUE);
+	    }
+	}
 #endif
-  } /* while */
+    } /* while */
 }
 
 /************************************************************************/
@@ -1514,7 +1545,7 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 	  { mswindows_dde_service, mswindows_dde_topic_system }, { 0, 0 } };
 
 	if (!(hszItem  || DdeCmpStringHandles (hszItem, mswindows_dde_service)) &&
-	    !(hszTopic || DdeCmpStringHandles (hszTopic, mswindows_dde_topic_system)));
+	    !(hszTopic || DdeCmpStringHandles (hszTopic, mswindows_dde_topic_system)))
 	  return (DdeCreateDataHandle (mswindows_dde_mlid, (LPBYTE)pairs,
 				       sizeof (pairs), 0L, 0, uFmt, 0));
       }
@@ -1524,7 +1555,7 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
       if (!DdeCmpStringHandles (hszTopic, mswindows_dde_topic_system))
 	{
 	  DWORD len = DdeGetData (hdata, NULL, 0, 0);
-	  char *cmd = alloca (len+1);
+	  LPBYTE cmd = (LPBYTE) alloca (len+1);
 	  char *end;
 	  char *filename;
 	  struct gcpro gcpro1, gcpro2;
@@ -1609,13 +1640,48 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 #endif
 
 /*
+ * Helper to do repainting - repaints can happen both from the windows
+ * procedure and from magic events
+ */
+static void
+mswindows_handle_paint (struct frame *frame)
+{
+  HWND hwnd = FRAME_MSWINDOWS_HANDLE (frame);
+
+  /* According to the docs we need to check GetUpdateRect() before
+     actually doing a WM_PAINT */
+  if (GetUpdateRect (hwnd, NULL, FALSE))
+    {
+      PAINTSTRUCT paintStruct;
+      int x, y, width, height;
+
+      BeginPaint (hwnd, &paintStruct);
+      x = paintStruct.rcPaint.left;
+      y = paintStruct.rcPaint.top;
+      width = paintStruct.rcPaint.right - paintStruct.rcPaint.left;
+      height = paintStruct.rcPaint.bottom - paintStruct.rcPaint.top;
+      /* Normally we want to ignore expose events when child
+	 windows are unmapped, however once we are in the guts of
+	 WM_PAINT we need to make sure that we don't register
+	 unmaps then because they will not actually occur. */
+      if (!check_for_ignored_expose (frame, x, y, width, height))
+	{
+	  hold_ignored_expose_registration = 1;
+	  mswindows_redraw_exposed_area (frame, x, y, width, height);
+	  hold_ignored_expose_registration = 0;
+	}
+      EndPaint (hwnd, &paintStruct);
+    }
+}
+
+/*
  * Returns 1 if a key is a real modifier or special key, which 
  * is better handled by DefWindowProc
  */
 static int
 key_needs_default_processing_p (UINT vkey)
 {
-  if (mswindows_meta_activates_menu && vkey == VK_MENU)
+  if (mswindows_alt_by_itself_activates_menu && vkey == VK_MENU)
     return 1;
 
   return 0;
@@ -1636,765 +1702,821 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
   struct frame *frame;
   struct mswindows_frame* msframe;
 
+  assert (!GetWindowLong (hwnd, GWL_USERDATA));
   switch (message)
-  {
-  case WM_DESTROYCLIPBOARD:
-    /* We own the clipboard and someone else wants it.  Delete our
-       cached copy of the clipboard contents so we'll ask for it from
-       Windows again when someone does a paste. */
-    handle_selection_clear(QCLIPBOARD);
-    break;
-
-  case WM_ERASEBKGND:
-    /* Erase background only during non-dynamic sizing */
-    msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
-    if (msframe->sizing && !mswindows_dynamic_frame_resize)
-      goto defproc;
-    return 1;
-
-  case WM_CLOSE:
-    fobj = mswindows_find_frame (hwnd);
-    mswindows_enqueue_misc_user_event (fobj, Qeval, list3 (Qdelete_frame, fobj, Qt));
-    break;
-
-  case WM_KEYUP:
-  case WM_SYSKEYUP:
-    /* See Win95 comment under WM_KEYDOWN */
     {
-      BYTE keymap[256];
-
-      if (wParam == VK_CONTROL)
-        {
-	  GetKeyboardState (keymap);
-	  keymap [(lParam & 0x1000000) ? VK_RCONTROL : VK_LCONTROL] &= ~0x80;
-	  SetKeyboardState (keymap);
-	}
-      else if (wParam == VK_MENU)
-	{
-	  GetKeyboardState (keymap);
-	  keymap [(lParam & 0x1000000) ? VK_RMENU : VK_LMENU] &= ~0x80;
-	  SetKeyboardState (keymap);
-	}
-    };
-    if (key_needs_default_processing_p (wParam))
-      goto defproc;
-    else
+    case WM_DESTROYCLIPBOARD:
+      /* We own the clipboard and someone else wants it.  Delete our
+	 cached copy of the clipboard contents so we'll ask for it from
+	 Windows again when someone does a paste. */
+      handle_selection_clear(QCLIPBOARD);
       break;
 
-  case WM_KEYDOWN:
-  case WM_SYSKEYDOWN:
-    /* In some locales the right-hand Alt key is labelled AltGr. This key
-     * should produce alternative charcaters when combined with another key.
-     * eg on a German keyboard pressing AltGr+q should produce '@'.
-     * AltGr generates exactly the same keystrokes as LCtrl+RAlt. But if
-     * TranslateMessage() is called with *any* combination of Ctrl+Alt down,
-     * it translates as if AltGr were down.
-     * We get round this by removing all modifiers from the keymap before
-     * calling TranslateMessage() unless AltGr is *really* down. */
-    {
-      BYTE keymap[256];
-      int has_AltGr = mswindows_current_layout_has_AltGr ();
-      int mods;
-      int extendedp = lParam & 0x1000000;
-      Lisp_Object keysym;
+    case WM_ERASEBKGND:
+      /* Erase background only during non-dynamic sizing */
+      msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
+      if (msframe->sizing && !mswindows_dynamic_frame_resize)
+	goto defproc;
+      return 1;
 
-      GetKeyboardState (keymap);
-      mods = mswindows_modifier_state (keymap, has_AltGr);
+    case WM_CLOSE:
+      fobj = mswindows_find_frame (hwnd);
+      mswindows_enqueue_misc_user_event (fobj, Qeval, list3 (Qdelete_frame, fobj, Qt));
+      break;
 
-      /* Handle non-printables */
-      if (!NILP (keysym = mswindows_key_to_emacs_keysym (wParam, mods,
-							 extendedp)))
-	mswindows_enqueue_keypress_event (hwnd, keysym, mods);
-      else	/* Normal keys & modifiers */
+    case WM_KEYUP:
+    case WM_SYSKEYUP:
+      /* See Win95 comment under WM_KEYDOWN */
+      {
+	BYTE keymap[256];
+	int should_set_keymap = 0;
+
+	if (wParam == VK_CONTROL)
+	  {
+	    GetKeyboardState (keymap);
+	    keymap [(lParam & 0x1000000) ? VK_RCONTROL : VK_LCONTROL] &= ~0x80;
+	    should_set_keymap = 1;
+	  }
+	else if (wParam == VK_MENU)
+	  {
+	    GetKeyboardState (keymap);
+	    keymap [(lParam & 0x1000000) ? VK_RMENU : VK_LMENU] &= ~0x80;
+	    should_set_keymap = 1;
+	  }
+
+	if (should_set_keymap
+	    && (message != WM_SYSKEYUP
+		|| NILP (Vmenu_accelerator_enabled)))
+	  SetKeyboardState (keymap);
+
+      }
+      if (key_needs_default_processing_p (wParam))
+	goto defproc;
+      else
+	break;
+
+    case WM_KEYDOWN:
+    case WM_SYSKEYDOWN:
+      /* In some locales the right-hand Alt key is labelled AltGr. This key
+       * should produce alternative charcaters when combined with another key.
+       * eg on a German keyboard pressing AltGr+q should produce '@'.
+       * AltGr generates exactly the same keystrokes as LCtrl+RAlt. But if
+       * TranslateMessage() is called with *any* combination of Ctrl+Alt down,
+       * it translates as if AltGr were down.
+       * We get round this by removing all modifiers from the keymap before
+       * calling TranslateMessage() unless AltGr is *really* down. */
+      {
+	BYTE keymap[256];
+	int has_AltGr = mswindows_current_layout_has_AltGr ();
+	int mods;
+	int extendedp = lParam & 0x1000000;
+	Lisp_Object keysym;
+
+	frame = XFRAME (mswindows_find_frame (hwnd));
+	GetKeyboardState (keymap);
+	mods = mswindows_modifier_state (keymap, has_AltGr);
+
+	/* Handle non-printables */
+	if (!NILP (keysym = mswindows_key_to_emacs_keysym (wParam, mods,
+							   extendedp)))
+	  mswindows_enqueue_keypress_event (hwnd, keysym, mods);
+	else	/* Normal keys & modifiers */
+	  {
+	    Emchar quit_ch = CONSOLE_QUIT_CHAR (XCONSOLE (mswindows_find_console (hwnd)));
+	    BYTE keymap_orig[256];
+	    POINT pnt = { LOWORD (GetMessagePos()), HIWORD (GetMessagePos()) };
+	    MSG msg, tranmsg;
+	    int potential_accelerator = 0;
+	    int got_accelerator = 0;
+	  
+	    msg.hwnd = hwnd;
+	    msg.message = message;
+	    msg.wParam = wParam;
+	    msg.lParam = lParam;
+	    msg.time = GetMessageTime();
+	    msg.pt = pnt;
+
+	    /* GetKeyboardState() does not work as documented on Win95. We have
+	     * to loosely track Left and Right modifiers on behalf of the OS,
+	     * without screwing up Windows NT which tracks them properly. */
+	    if (wParam == VK_CONTROL)
+	      keymap [extendedp ? VK_RCONTROL : VK_LCONTROL] |= 0x80;
+	    else if (wParam == VK_MENU)
+	      keymap [extendedp ? VK_RMENU : VK_LMENU] |= 0x80;
+
+	    memcpy (keymap_orig, keymap, 256);
+
+	    if (!NILP (Vmenu_accelerator_enabled) &&
+		!(mods & XEMACS_MOD_SHIFT) && message == WM_SYSKEYDOWN)
+	      potential_accelerator = 1;
+
+	    /* Remove shift modifier from an ascii character */
+	    mods &= ~XEMACS_MOD_SHIFT;
+
+	    /* Clear control and alt modifiers unless AltGr is pressed */
+	    keymap [VK_RCONTROL] = 0;
+	    keymap [VK_LMENU] = 0;
+	    if (!has_AltGr || !(keymap [VK_LCONTROL] & 0x80)
+		|| !(keymap [VK_RMENU] & 0x80))
+	      {
+		keymap [VK_LCONTROL] = 0;
+		keymap [VK_CONTROL] = 0;
+		keymap [VK_RMENU] = 0;
+		keymap [VK_MENU] = 0;
+	      }
+	    SetKeyboardState (keymap);
+
+	    /* Maybe generate some WM_[SYS]CHARs in the queue */
+	    TranslateMessage (&msg);
+
+	    while (PeekMessage (&tranmsg, hwnd, WM_CHAR, WM_CHAR, PM_REMOVE)
+		   || PeekMessage (&tranmsg, hwnd, WM_SYSCHAR, WM_SYSCHAR, PM_REMOVE))
+	      {
+		int mods1 = mods;
+		WPARAM ch = tranmsg.wParam;
+
+		/* If a quit char with no modifiers other than control and
+		   shift, then mark it with a fake modifier, which is removed
+		   upon dequeueing the event */
+		/* #### This might also not withstand localization, if
+		   quit character is not a latin-1 symbol */
+		if (((quit_ch < ' ' && (mods & XEMACS_MOD_CONTROL) && quit_ch + 'a' - 1 == ch)
+		     || (quit_ch >= ' ' && !(mods & XEMACS_MOD_CONTROL) && quit_ch == ch))
+		    && ((mods  & ~(XEMACS_MOD_CONTROL | XEMACS_MOD_SHIFT)) == 0))
+		  {
+		    mods1 |= FAKE_MOD_QUIT;
+		    ++mswindows_quit_chars_count;
+		  }
+		else if (potential_accelerator && !got_accelerator &&
+			 msw_char_is_accelerator (frame, ch))
+		  {
+		    got_accelerator = 1;
+		    break;
+		  }
+		mswindows_enqueue_keypress_event (hwnd, make_char (ch), mods1);
+	      } /* while */
+	    SetKeyboardState (keymap_orig);
+	    /* This generates WM_SYSCHAR messages, which are interpreted
+	       by DefWindowProc as the menu selections. */
+	    if (got_accelerator)
+	      { 
+		TranslateMessage (&msg);
+		goto defproc;
+	      }
+	  } /* else */
+      }
+      if (key_needs_default_processing_p (wParam))
+	goto defproc;
+      else
+	break;
+
+    case WM_MBUTTONDOWN:
+    case WM_MBUTTONUP:
+      /* Real middle mouse button has nothing to do with emulated one:
+	 if one wants to exercise fingers playing chords on the mouse,
+	 he is allowed to do that! */
+      mswindows_enqueue_mouse_button_event (hwnd, message,
+					    MAKEPOINTS (lParam), GetMessageTime());
+      break;
+
+    case WM_LBUTTONUP:
+      msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
+      msframe->last_click_time =  GetMessageTime();
+
+      KillTimer (hwnd, BUTTON_2_TIMER_ID);
+      msframe->button2_need_lbutton = 0;
+      if (msframe->ignore_next_lbutton_up)
 	{
-	  int quit_ch = CONSOLE_QUIT_CHAR (XCONSOLE (mswindows_find_console (hwnd)));
-	  BYTE keymap_orig[256];
-	  POINT pnt = { LOWORD (GetMessagePos()), HIWORD (GetMessagePos()) };
-	  MSG msg;
-
-	  msg.hwnd = hwnd;
-	  msg.message = message;
-	  msg.wParam = wParam;
-	  msg.lParam = lParam;
-	  msg.time = GetMessageTime();
-	  msg.pt = pnt;
-
-	  /* GetKeyboardState() does not work as documented on Win95. We have
-	   * to loosely track Left and Right modifiers on behalf of the OS,
-	   * without screwing up Windows NT which tracks them properly. */
-	  if (wParam == VK_CONTROL)
-	    keymap [extendedp ? VK_RCONTROL : VK_LCONTROL] |= 0x80;
-	  else if (wParam == VK_MENU)
-	    keymap [extendedp ? VK_RMENU : VK_LMENU] |= 0x80;
-
-	  memcpy (keymap_orig, keymap, 256);
-
-	  /* Remove shift modifier from an ascii character */
-	  mods &= ~MOD_SHIFT;
-
-	  /* Clear control and alt modifiers unless AltGr is pressed */
-	  keymap [VK_RCONTROL] = 0;
-	  keymap [VK_LMENU] = 0;
-	  if (!has_AltGr || !(keymap [VK_LCONTROL] & 0x80)
-	      || !(keymap [VK_RMENU] & 0x80))
+	  msframe->ignore_next_lbutton_up = 0;
+	}
+      else if (msframe->button2_is_down)
+	{
+	  msframe->button2_is_down = 0;
+	  msframe->ignore_next_rbutton_up = 1;
+	  mswindows_enqueue_mouse_button_event (hwnd, WM_MBUTTONUP,
+						MAKEPOINTS (lParam), GetMessageTime());
+	}
+      else
+	{
+	  if (msframe->button2_need_rbutton)
 	    {
-	      keymap [VK_LCONTROL] = 0;
-	      keymap [VK_CONTROL] = 0;
-	      keymap [VK_RMENU] = 0;
-	      keymap [VK_MENU] = 0;
+	      msframe->button2_need_rbutton = 0;
+	      mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONDOWN,
+						    MAKEPOINTS (lParam), GetMessageTime());
 	    }
-	  SetKeyboardState (keymap);
-
-	  /* Maybe generate some WM_[SYS]CHARs in the queue */
-	  TranslateMessage (&msg);
-
-	  while (PeekMessage (&msg, hwnd, WM_CHAR, WM_CHAR, PM_REMOVE)
-		 || PeekMessage (&msg, hwnd, WM_SYSCHAR, WM_SYSCHAR, PM_REMOVE))
-	    {
-	      int mods1 = mods;
-	      WPARAM ch = msg.wParam;
-
-	      /* If a quit char with no modifiers other than control and
-		 shift, then mark it with a fake modifier, which is removed
-		 upon dequeueing the event */
-	      /* #### This might also not withstand localization, if
-		 quit character is not a latin-1 symbol */
-	      if (((quit_ch < ' ' && (mods & MOD_CONTROL) && quit_ch + 'a' - 1 == ch)
-		   || (quit_ch >= ' ' && !(mods & MOD_CONTROL) && quit_ch == ch))
-		  && ((mods  & ~(MOD_CONTROL | MOD_SHIFT)) == 0))
-		{
-		  mods1 |= FAKE_MOD_QUIT;
-		  ++mswindows_quit_chars_count;
-		}
-
-	      mswindows_enqueue_keypress_event (hwnd, make_char(ch), mods1);
-	    } /* while */
-	  SetKeyboardState (keymap_orig);
-	} /* else */
-    }
-    if (key_needs_default_processing_p (wParam))
-      goto defproc;
-    else
+	  mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONUP,
+						MAKEPOINTS (lParam), GetMessageTime());
+	}
       break;
 
-  case WM_MBUTTONDOWN:
-  case WM_MBUTTONUP:
-    /* Real middle mouse button has nothing to do with emulated one:
-       if one wants to exercise fingers playing chords on the mouse,
-       he is allowed to do that! */
-    mswindows_enqueue_mouse_button_event (hwnd, message,
-					  MAKEPOINTS (lParam), GetMessageTime());
-    break;
+    case WM_RBUTTONUP:
+      msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
+      msframe->last_click_time =  GetMessageTime();
 
-  case WM_LBUTTONUP:
-    msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
-    msframe->last_click_time =  GetMessageTime();
+      KillTimer (hwnd, BUTTON_2_TIMER_ID);
+      msframe->button2_need_rbutton = 0;
+      if (msframe->ignore_next_rbutton_up)
+	{
+	  msframe->ignore_next_rbutton_up = 0;
+	}
+      else if (msframe->button2_is_down)
+	{
+	  msframe->button2_is_down = 0;
+	  msframe->ignore_next_lbutton_up = 1;
+	  mswindows_enqueue_mouse_button_event (hwnd, WM_MBUTTONUP,
+						MAKEPOINTS (lParam), GetMessageTime());
+	}
+      else
+	{
+	  if (msframe->button2_need_lbutton)
+	    {
+	      msframe->button2_need_lbutton = 0;
+	      mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONDOWN,
+						    MAKEPOINTS (lParam), GetMessageTime());
+	    }
+	  mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONUP,
+						MAKEPOINTS (lParam), GetMessageTime());
+	}
+      break;
 
-    KillTimer (hwnd, BUTTON_2_TIMER_ID);
-    msframe->button2_need_lbutton = 0;
-    if (msframe->ignore_next_lbutton_up)
-      {
-	msframe->ignore_next_lbutton_up = 0;
-      }
-    else if (msframe->button2_is_down)
-      {
-	msframe->button2_is_down = 0;
-	msframe->ignore_next_rbutton_up = 1;
-	mswindows_enqueue_mouse_button_event (hwnd, WM_MBUTTONUP,
-					      MAKEPOINTS (lParam), GetMessageTime());
-      }
-    else
-      {
-	if (msframe->button2_need_rbutton)
-	  {
-	    msframe->button2_need_rbutton = 0;
-	    mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONDOWN,
-						  MAKEPOINTS (lParam), GetMessageTime());
-	  }
-	mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONUP,
-					      MAKEPOINTS (lParam), GetMessageTime());
-      }
-    break;
+    case WM_LBUTTONDOWN:
+      msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
 
-  case WM_RBUTTONUP:
-    msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
-    msframe->last_click_time =  GetMessageTime();
-
-    KillTimer (hwnd, BUTTON_2_TIMER_ID);
-    msframe->button2_need_rbutton = 0;
-    if (msframe->ignore_next_rbutton_up)
-      {
-	msframe->ignore_next_rbutton_up = 0;
-      }
-    else if (msframe->button2_is_down)
-      {
-	msframe->button2_is_down = 0;
-	msframe->ignore_next_lbutton_up = 1;
-	mswindows_enqueue_mouse_button_event (hwnd, WM_MBUTTONUP,
-					      MAKEPOINTS (lParam), GetMessageTime());
-      }
-    else
-      {
-	if (msframe->button2_need_lbutton)
-	  {
-	    msframe->button2_need_lbutton = 0;
-	    mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONDOWN,
-						  MAKEPOINTS (lParam), GetMessageTime());
-	  }
-	mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONUP,
-					      MAKEPOINTS (lParam), GetMessageTime());
-      }
-    break;
-
-  case WM_LBUTTONDOWN:
-    msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
-
-    if (msframe->button2_need_lbutton)
-      {
-	KillTimer (hwnd, BUTTON_2_TIMER_ID);
-	msframe->button2_need_lbutton = 0;
-	msframe->button2_need_rbutton = 0;
-	if (mswindows_button2_near_enough (msframe->last_click_point, MAKEPOINTS (lParam)))
-	  {
-	    mswindows_enqueue_mouse_button_event (hwnd, WM_MBUTTONDOWN,
-						  MAKEPOINTS (lParam), GetMessageTime());
-	    msframe->button2_is_down = 1;
-	  }
-	else
-	  {
-	    mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONDOWN,
-			msframe->last_click_point, msframe->last_click_time);
-	    mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONDOWN,
-						  MAKEPOINTS (lParam), GetMessageTime());
-	  }
-      }
-    else
-      {
-	mswindows_set_chord_timer (hwnd);
-	msframe->button2_need_rbutton = 1;
-	msframe->last_click_point = MAKEPOINTS (lParam);
-      }
-    msframe->last_click_time =  GetMessageTime();
-    break;
-
-  case WM_RBUTTONDOWN:
-    msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
-
-    if (msframe->button2_need_rbutton)
-      {
-	KillTimer (hwnd, BUTTON_2_TIMER_ID);
-	msframe->button2_need_lbutton = 0;
-	msframe->button2_need_rbutton = 0;
-	if (mswindows_button2_near_enough (msframe->last_click_point, MAKEPOINTS (lParam)))
-	  {
-	    mswindows_enqueue_mouse_button_event (hwnd, WM_MBUTTONDOWN,
-						  MAKEPOINTS (lParam), GetMessageTime());
-	    msframe->button2_is_down = 1;
-	  }
-	else
-	  {
-	    mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONDOWN,
-				msframe->last_click_point, msframe->last_click_time);
-	    mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONDOWN,
-						  MAKEPOINTS (lParam), GetMessageTime());
-	  }
-      }
-    else
-      {
-	mswindows_set_chord_timer (hwnd);
-	msframe->button2_need_lbutton = 1;
-	msframe->last_click_point = MAKEPOINTS (lParam);
-      }
-    msframe->last_click_time =  GetMessageTime();
-    break;
-
-  case WM_TIMER:
-    if (wParam == BUTTON_2_TIMER_ID)
-      {
-	msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
-	KillTimer (hwnd, BUTTON_2_TIMER_ID);
-
-	if (msframe->button2_need_lbutton)
-	  {
-	    msframe->button2_need_lbutton = 0;
-	    mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONDOWN,
-				msframe->last_click_point, msframe->last_click_time);
-	  }
-	else if (msframe->button2_need_rbutton)
-	  {
-	    msframe->button2_need_rbutton = 0;
-	    mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONDOWN,
-				msframe->last_click_point, msframe->last_click_time);
-	  }
-      }
-    else
-      assert ("Spurious timer fired" == 0);
-    break;
-
-  case WM_MOUSEMOVE:
-    /* Optimization: don't report mouse movement while size is changing */
-    msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
-    if (!msframe->sizing)
-    {
-      /* When waiting for the second mouse button to finish
-	 button2 emulation, and have moved too far, just pretend
-	 as if timer has expired. This improves drag-select feedback */
-      if ((msframe->button2_need_lbutton || msframe->button2_need_rbutton)
-	  && !mswindows_button2_near_enough (msframe->last_click_point,
-					     MAKEPOINTS (lParam)))
+      if (msframe->button2_need_lbutton)
 	{
 	  KillTimer (hwnd, BUTTON_2_TIMER_ID);
-	  SendMessage (hwnd, WM_TIMER, BUTTON_2_TIMER_ID, 0);
-	}
-
-      emacs_event = Fmake_event (Qnil, Qnil);
-      event = XEVENT(emacs_event);
-
-      event->channel = mswindows_find_frame(hwnd);
-      event->timestamp = GetMessageTime();
-      event->event_type = pointer_motion_event;
-      event->event.motion.x = MAKEPOINTS(lParam).x;
-      event->event.motion.y = MAKEPOINTS(lParam).y;
-      event->event.motion.modifiers = mswindows_modifier_state (NULL, 0);
-
-      mswindows_enqueue_dispatch_event (emacs_event);
-    }
-    break;
-
-  case WM_CANCELMODE:
-    ReleaseCapture ();
-    /* Queue a `cancel-mode-internal' misc user event, so mouse
-       selection would be canceled if any */
-    mswindows_enqueue_misc_user_event (mswindows_find_frame (hwnd),
-				       Qcancel_mode_internal, Qnil);
-    break;
-
-  case WM_NOTIFY:
-    {
-      LPNMHDR nmhdr = (LPNMHDR)lParam;
-
-      if (nmhdr->code ==  TTN_NEEDTEXT)
-	{
-#ifdef HAVE_TOOLBARS
-	  LPTOOLTIPTEXT tttext = (LPTOOLTIPTEXT)lParam;
-	  Lisp_Object btext;
-
-	  /* find out which toolbar */
-	  frame = XFRAME (mswindows_find_frame (hwnd));
-	  btext = mswindows_get_toolbar_button_text ( frame,
-						      nmhdr->idFrom );
-
-	  tttext->lpszText = NULL;
-	  tttext->hinst = NULL;
-
-	  if (!NILP(btext))
+	  msframe->button2_need_lbutton = 0;
+	  msframe->button2_need_rbutton = 0;
+	  if (mswindows_button2_near_enough (msframe->last_click_point, MAKEPOINTS (lParam)))
 	    {
-	      /* I think this is safe since the text will only go away
-                 when the toolbar does...*/
-	      TO_EXTERNAL_FORMAT (LISP_STRING, btext,
-				  C_STRING_ALLOCA, tttext->lpszText,
-				  Qnative);
-	    }
-#endif
-	}
-      /* handle tree view callbacks */
-      else if (nmhdr->code == TVN_SELCHANGED)
-	{
-	  NM_TREEVIEW* ptree = (NM_TREEVIEW*)lParam;
-	  frame = XFRAME (mswindows_find_frame (hwnd));
-	  mswindows_handle_gui_wm_command (frame, 0, ptree->itemNew.lParam);
-	}
-      /* handle tab control callbacks */
-      else if (nmhdr->code == TCN_SELCHANGE)
-	{
-	  TC_ITEM item;
-	  int idx = SendMessage (nmhdr->hwndFrom, TCM_GETCURSEL, 0, 0);
-	  frame = XFRAME (mswindows_find_frame (hwnd));
-
-	  item.mask = TCIF_PARAM;
-	  SendMessage (nmhdr->hwndFrom, TCM_GETITEM, (WPARAM)idx,
-		       (LPARAM)&item);
-
-	  mswindows_handle_gui_wm_command (frame, 0, item.lParam);
-	}
-    }
-    break;
-
-  case WM_PAINT:
-    {
-      /* According to the docs we need to check GetUpdateRect() before
-         actually doing a WM_PAINT */
-      if (GetUpdateRect (hwnd, NULL, FALSE))
-	{
-	  PAINTSTRUCT paintStruct;
-	  int x, y, width, height;
-
-	  frame = XFRAME (mswindows_find_frame (hwnd));
-
-	  BeginPaint (hwnd, &paintStruct);
-	  x = paintStruct.rcPaint.left;
-	  y = paintStruct.rcPaint.top;
-	  width = paintStruct.rcPaint.right - paintStruct.rcPaint.left;
-	  height = paintStruct.rcPaint.bottom - paintStruct.rcPaint.top;
-	  /* Normally we want to ignore expose events when child
-	     windows are unmapped, however once we are in the guts of
-	     WM_PAINT we need to make sure that we don't register
-	     unmaps then because they will not actually occur. */
-	  if (!check_for_ignored_expose (frame, x, y, width, height))
-	    {
-	      hold_ignored_expose_registration = 1;
-	      mswindows_redraw_exposed_area (frame, x, y, width, height);
-	      hold_ignored_expose_registration = 0;
-	    }
-
-	  EndPaint (hwnd, &paintStruct);
-	}
-      else
-	goto defproc;
-    }
-    break;
-
-  case WM_SIZE:
-    /* We only care about this message if our size has really changed */
-    if (wParam==SIZE_RESTORED || wParam==SIZE_MAXIMIZED || wParam==SIZE_MINIMIZED)
-    {
-      RECT rect;
-      int columns, rows;
-
-      fobj = mswindows_find_frame (hwnd);
-      frame = XFRAME (fobj);
-      msframe  = FRAME_MSWINDOWS_DATA (frame);
-
-      /* We cannot handle frame map and unmap hooks right in
-	 this routine, because these may throw. We queue
-	 magic events to run these hooks instead - kkm */
-
-      if (wParam==SIZE_MINIMIZED)
-	{
-	  /* Iconified */
-	  FRAME_VISIBLE_P (frame) = 0;
-	  mswindows_enqueue_magic_event (hwnd, XM_UNMAPFRAME);
-	}
-      else
-	{
-	  GetClientRect(hwnd, &rect);
-	  FRAME_PIXWIDTH(frame) = rect.right;
-	  FRAME_PIXHEIGHT(frame) = rect.bottom;
-
-	  pixel_to_real_char_size (frame, rect.right, rect.bottom,
-				   &FRAME_MSWINDOWS_CHARWIDTH (frame),
-				   &FRAME_MSWINDOWS_CHARHEIGHT (frame));
-
-	  pixel_to_char_size (frame, rect.right, rect.bottom, &columns, &rows);
-	  change_frame_size (frame, rows, columns, 1);
-
-	  /* If we are inside frame creation, we have to apply geometric
-	     properties now. */
-	  if (FRAME_MSWINDOWS_TARGET_RECT (frame))
-	    {
-	      /* Yes, we have to size again */
-	      mswindows_size_frame_internal ( frame,
-					      FRAME_MSWINDOWS_TARGET_RECT
-					      (frame));
-	      /* Reset so we do not get here again. The SetWindowPos call in
-	       * mswindows_size_frame_internal can cause recursion here. */
-	      if (FRAME_MSWINDOWS_TARGET_RECT (frame))
-		{
-		  xfree (FRAME_MSWINDOWS_TARGET_RECT (frame));
-		  FRAME_MSWINDOWS_TARGET_RECT (frame) = 0;
-		}
+	      mswindows_enqueue_mouse_button_event (hwnd, WM_MBUTTONDOWN,
+						    MAKEPOINTS (lParam), GetMessageTime());
+	      msframe->button2_is_down = 1;
 	    }
 	  else
 	    {
-	      if (!msframe->sizing && !FRAME_VISIBLE_P (frame))
-		mswindows_enqueue_magic_event (hwnd, XM_MAPFRAME);
-	      FRAME_VISIBLE_P (frame) = 1;
-
-	      if (!msframe->sizing || mswindows_dynamic_frame_resize)
-		redisplay ();
+	      mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONDOWN,
+						    msframe->last_click_point, msframe->last_click_time);
+	      mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONDOWN,
+						    MAKEPOINTS (lParam), GetMessageTime());
 	    }
 	}
-    }
-    break;
-
-  /* Misc magic events which only require that the frame be identified */
-  case WM_SETFOCUS:
-  case WM_KILLFOCUS:
-    mswindows_enqueue_magic_event (hwnd, message);
-    break;
-
-  case WM_WINDOWPOSCHANGING:
-    {
-      WINDOWPOS *wp = (LPWINDOWPOS) lParam;
-      WINDOWPLACEMENT wpl = { sizeof(WINDOWPLACEMENT) };
-      GetWindowPlacement(hwnd, &wpl);
-
-      /* Only interested if size is changing and we're not being iconified */
-      if (wpl.showCmd != SW_SHOWMINIMIZED
-	  && wpl.showCmd != SW_SHOWMAXIMIZED
-	  && !(wp->flags & SWP_NOSIZE))
-      {
-	RECT ncsize = { 0, 0, 0, 0 };
-	int pixwidth, pixheight;
- 	AdjustWindowRectEx (&ncsize, GetWindowLong (hwnd, GWL_STYLE),
- 			    GetMenu(hwnd) != NULL,
-			    GetWindowLong (hwnd, GWL_EXSTYLE));
-
-	round_size_to_real_char (XFRAME (mswindows_find_frame (hwnd)),
-				 wp->cx - (ncsize.right - ncsize.left),
-				 wp->cy - (ncsize.bottom - ncsize.top),
-				 &pixwidth, &pixheight);
-
-	/* Convert client sizes to window sizes */
-	pixwidth += (ncsize.right - ncsize.left);
-	pixheight += (ncsize.bottom - ncsize.top);
-
-	if (wpl.showCmd != SW_SHOWMAXIMIZED)
-	  {
-	    /* Adjust so that the bottom or right doesn't move if it's
-	     * the top or left that's being changed */
-	    RECT rect;
-	    GetWindowRect (hwnd, &rect);
-
-	    if (rect.left != wp->x)
-	      wp->x += wp->cx - pixwidth;
-	    if (rect.top != wp->y)
-	      wp->y += wp->cy - pixheight;
-	  }
-
-	wp->cx = pixwidth;
-	wp->cy = pixheight;
-      }
-      /* DefWindowProc sends useful WM_GETMINMAXINFO message, and adjusts
-	 window position if the user tries to track window too small */
-    }
-    goto defproc;
-
-  case WM_ENTERSIZEMOVE:
-    msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
-    msframe->sizing = 1;
-    return 0;
-
-  case WM_EXITSIZEMOVE:
-    msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
-    msframe->sizing = 0;
-    /* Queue noop event */
-    mswindows_enqueue_magic_event (NULL, XM_BUMPQUEUE);
-    return 0;
-
-#ifdef HAVE_SCROLLBARS
-  case WM_VSCROLL:
-  case WM_HSCROLL:
-    {
-      /* Direction of scroll is determined by scrollbar instance. */
-      int code = (int) LOWORD(wParam);
-      int pos = (short int) HIWORD(wParam);
-      HWND hwndScrollBar = (HWND) lParam;
-      struct gcpro gcpro1, gcpro2;
-
-      mswindows_handle_scrollbar_event (hwndScrollBar, code,  pos);
-      GCPRO2 (emacs_event, fobj);
-      if (UNBOUNDP(mswindows_pump_outstanding_events()))	/* Can GC */
+      else
 	{
-	  /* Error during event pumping - cancel scroll */
-	  SendMessage (hwndScrollBar, WM_CANCELMODE, 0, 0);
+	  mswindows_set_chord_timer (hwnd);
+	  msframe->button2_need_rbutton = 1;
+	  msframe->last_click_point = MAKEPOINTS (lParam);
 	}
-      UNGCPRO;
+      msframe->last_click_time =  GetMessageTime();
       break;
-    }
 
-  case WM_MOUSEWHEEL:
-    {
-      int keys = LOWORD (wParam); /* Modifier key flags */
-      int delta = (short) HIWORD (wParam); /* Wheel rotation amount */
-      struct gcpro gcpro1, gcpro2;
+    case WM_RBUTTONDOWN:
+      msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
 
-      if (mswindows_handle_mousewheel_event (mswindows_find_frame (hwnd), keys,  delta))
+      if (msframe->button2_need_rbutton)
 	{
-	  GCPRO2 (emacs_event, fobj);
-	  mswindows_pump_outstanding_events ();	/* Can GC */
-	  UNGCPRO;
+	  KillTimer (hwnd, BUTTON_2_TIMER_ID);
+	  msframe->button2_need_lbutton = 0;
+	  msframe->button2_need_rbutton = 0;
+	  if (mswindows_button2_near_enough (msframe->last_click_point, MAKEPOINTS (lParam)))
+	    {
+	      mswindows_enqueue_mouse_button_event (hwnd, WM_MBUTTONDOWN,
+						    MAKEPOINTS (lParam), GetMessageTime());
+	      msframe->button2_is_down = 1;
+	    }
+	  else
+	    {
+	      mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONDOWN,
+						    msframe->last_click_point, msframe->last_click_time);
+	      mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONDOWN,
+						    MAKEPOINTS (lParam), GetMessageTime());
+	    }
 	}
       else
-	goto defproc;
+	{
+	  mswindows_set_chord_timer (hwnd);
+	  msframe->button2_need_lbutton = 1;
+	  msframe->last_click_point = MAKEPOINTS (lParam);
+	}
+      msframe->last_click_time =  GetMessageTime();
       break;
-    }
+
+    case WM_TIMER:
+      if (wParam == BUTTON_2_TIMER_ID)
+	{
+	  msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
+	  KillTimer (hwnd, BUTTON_2_TIMER_ID);
+
+	  if (msframe->button2_need_lbutton)
+	    {
+	      msframe->button2_need_lbutton = 0;
+	      mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONDOWN,
+						    msframe->last_click_point, msframe->last_click_time);
+	    }
+	  else if (msframe->button2_need_rbutton)
+	    {
+	      msframe->button2_need_rbutton = 0;
+	      mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONDOWN,
+						    msframe->last_click_point, msframe->last_click_time);
+	    }
+	}
+      else
+	assert ("Spurious timer fired" == 0);
+      break;
+
+    case WM_MOUSEMOVE:
+      /* Optimization: don't report mouse movement while size is changing */
+      msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
+      if (!msframe->sizing)
+	{
+	  /* When waiting for the second mouse button to finish
+	     button2 emulation, and have moved too far, just pretend
+	     as if timer has expired. This improves drag-select feedback */
+	  if ((msframe->button2_need_lbutton || msframe->button2_need_rbutton)
+	      && !mswindows_button2_near_enough (msframe->last_click_point,
+						 MAKEPOINTS (lParam)))
+	    {
+	      KillTimer (hwnd, BUTTON_2_TIMER_ID);
+	      SendMessage (hwnd, WM_TIMER, BUTTON_2_TIMER_ID, 0);
+	    }
+
+	  emacs_event = Fmake_event (Qnil, Qnil);
+	  event = XEVENT(emacs_event);
+
+	  event->channel = mswindows_find_frame(hwnd);
+	  event->timestamp = GetMessageTime();
+	  event->event_type = pointer_motion_event;
+	  event->event.motion.x = MAKEPOINTS(lParam).x;
+	  event->event.motion.y = MAKEPOINTS(lParam).y;
+	  event->event.motion.modifiers = mswindows_modifier_state (NULL, 0);
+
+	  mswindows_enqueue_dispatch_event (emacs_event);
+	}
+      break;
+
+    case WM_CANCELMODE:
+      ReleaseCapture ();
+      /* Queue a `cancel-mode-internal' misc user event, so mouse
+	 selection would be canceled if any */
+      mswindows_enqueue_misc_user_event (mswindows_find_frame (hwnd),
+					 Qcancel_mode_internal, Qnil);
+      break;
+
+    case WM_NOTIFY:
+      {
+	LPNMHDR nmhdr = (LPNMHDR)lParam;
+
+	if (nmhdr->code ==  TTN_NEEDTEXT)
+	  {
+#ifdef HAVE_TOOLBARS
+	    LPTOOLTIPTEXT tttext = (LPTOOLTIPTEXT)lParam;
+	    Lisp_Object btext;
+
+	    /* find out which toolbar */
+	    frame = XFRAME (mswindows_find_frame (hwnd));
+	    btext = mswindows_get_toolbar_button_text ( frame,
+							nmhdr->idFrom );
+
+	    tttext->lpszText = NULL;
+	    tttext->hinst = NULL;
+
+	    if (!NILP(btext))
+	      {
+		/* I think this is safe since the text will only go away
+		   when the toolbar does...*/
+		TO_EXTERNAL_FORMAT (LISP_STRING, btext,
+				    C_STRING_ALLOCA, tttext->lpszText,
+				    Qnative);
+	      }
+#endif
+	  }
+	/* handle tree view callbacks */
+	else if (nmhdr->code == TVN_SELCHANGED)
+	  {
+	    NM_TREEVIEW* ptree = (NM_TREEVIEW*)lParam;
+	    frame = XFRAME (mswindows_find_frame (hwnd));
+	    mswindows_handle_gui_wm_command (frame, 0, ptree->itemNew.lParam);
+	  }
+	/* handle tab control callbacks */
+	else if (nmhdr->code == TCN_SELCHANGE)
+	  {
+	    TC_ITEM item;
+	    int idx = SendMessage (nmhdr->hwndFrom, TCM_GETCURSEL, 0, 0);
+	    frame = XFRAME (mswindows_find_frame (hwnd));
+
+	    item.mask = TCIF_PARAM;
+	    SendMessage (nmhdr->hwndFrom, TCM_GETITEM, (WPARAM)idx,
+			 (LPARAM)&item);
+
+	    mswindows_handle_gui_wm_command (frame, 0, item.lParam);
+	  }
+      }
+      break;
+
+    case WM_PAINT:
+      /* hdc will be NULL unless this is a subwindow - in which case we
+	 shouldn't have received a paint message for it here. */
+      assert (wParam == 0);
+
+      /* Can't queue a magic event because windows goes modal and sends paint 
+	 messages directly to the windows procedure when doing solid drags
+	 and the message queue doesn't get processed. */
+      mswindows_handle_paint (XFRAME (mswindows_find_frame (hwnd)));
+      break;
+
+    case WM_SIZE:
+      /* We only care about this message if our size has really changed */
+      if (wParam==SIZE_RESTORED || wParam==SIZE_MAXIMIZED || wParam==SIZE_MINIMIZED)
+	{
+	  RECT rect;
+	  int columns, rows;
+
+	  fobj = mswindows_find_frame (hwnd);
+	  frame = XFRAME (fobj);
+	  msframe  = FRAME_MSWINDOWS_DATA (frame);
+
+	  /* We cannot handle frame map and unmap hooks right in
+	     this routine, because these may throw. We queue
+	     magic events to run these hooks instead - kkm */
+
+	  if (wParam==SIZE_MINIMIZED)
+	    {
+	      /* Iconified */
+	      FRAME_VISIBLE_P (frame) = 0;
+	      mswindows_enqueue_magic_event (hwnd, XM_UNMAPFRAME);
+	    }
+	  else
+	    {
+	      GetClientRect(hwnd, &rect);
+	      FRAME_PIXWIDTH(frame) = rect.right;
+	      FRAME_PIXHEIGHT(frame) = rect.bottom;
+
+	      pixel_to_real_char_size (frame, rect.right, rect.bottom,
+				       &FRAME_MSWINDOWS_CHARWIDTH (frame),
+				       &FRAME_MSWINDOWS_CHARHEIGHT (frame));
+
+	      pixel_to_char_size (frame, rect.right, rect.bottom, &columns, &rows);
+	      change_frame_size (frame, rows, columns, 1);
+
+	      /* If we are inside frame creation, we have to apply geometric
+		 properties now. */
+	      if (FRAME_MSWINDOWS_TARGET_RECT (frame))
+		{
+		  /* Yes, we have to size again */
+		  mswindows_size_frame_internal ( frame,
+						  FRAME_MSWINDOWS_TARGET_RECT
+						  (frame));
+		  /* Reset so we do not get here again. The SetWindowPos call in
+		   * mswindows_size_frame_internal can cause recursion here. */
+		  if (FRAME_MSWINDOWS_TARGET_RECT (frame))
+		    {
+		      xfree (FRAME_MSWINDOWS_TARGET_RECT (frame));
+		      FRAME_MSWINDOWS_TARGET_RECT (frame) = 0;
+		    }
+		}
+	      else
+		{
+		  if (!msframe->sizing && !FRAME_VISIBLE_P (frame))
+		    mswindows_enqueue_magic_event (hwnd, XM_MAPFRAME);
+		  FRAME_VISIBLE_P (frame) = 1;
+
+		  if (!msframe->sizing || mswindows_dynamic_frame_resize)
+		    redisplay ();
+		}
+	    }
+	}
+      break;
+
+    case WM_DISPLAYCHANGE:
+      {
+	struct device *d;
+
+	fobj = mswindows_find_frame (hwnd);
+	frame = XFRAME (fobj);
+	d = XDEVICE (FRAME_DEVICE (frame));
+
+	DEVICE_MSWINDOWS_HORZRES(d) = LOWORD (lParam);
+	DEVICE_MSWINDOWS_VERTRES(d) = HIWORD (lParam);
+	DEVICE_MSWINDOWS_BITSPIXEL(d) = wParam;
+	break;
+      }
+
+      /* Misc magic events which only require that the frame be identified */
+    case WM_SETFOCUS:
+    case WM_KILLFOCUS:
+      mswindows_enqueue_magic_event (hwnd, message);
+      break;
+
+    case WM_WINDOWPOSCHANGING:
+      {
+	WINDOWPOS *wp = (LPWINDOWPOS) lParam;
+	WINDOWPLACEMENT wpl = { sizeof(WINDOWPLACEMENT) };
+	GetWindowPlacement(hwnd, &wpl);
+
+	/* Only interested if size is changing and we're not being iconified */
+	if (wpl.showCmd != SW_SHOWMINIMIZED
+	    && wpl.showCmd != SW_SHOWMAXIMIZED
+	    && !(wp->flags & SWP_NOSIZE))
+	  {
+	    RECT ncsize = { 0, 0, 0, 0 };
+	    int pixwidth, pixheight;
+	    AdjustWindowRectEx (&ncsize, GetWindowLong (hwnd, GWL_STYLE),
+				GetMenu(hwnd) != NULL,
+				GetWindowLong (hwnd, GWL_EXSTYLE));
+
+	    round_size_to_real_char (XFRAME (mswindows_find_frame (hwnd)),
+				     wp->cx - (ncsize.right - ncsize.left),
+				     wp->cy - (ncsize.bottom - ncsize.top),
+				     &pixwidth, &pixheight);
+
+	    /* Convert client sizes to window sizes */
+	    pixwidth += (ncsize.right - ncsize.left);
+	    pixheight += (ncsize.bottom - ncsize.top);
+
+	    if (wpl.showCmd != SW_SHOWMAXIMIZED)
+	      {
+		/* Adjust so that the bottom or right doesn't move if it's
+		 * the top or left that's being changed */
+		RECT rect;
+		GetWindowRect (hwnd, &rect);
+
+		if (rect.left != wp->x)
+		  wp->x += wp->cx - pixwidth;
+		if (rect.top != wp->y)
+		  wp->y += wp->cy - pixheight;
+	      }
+
+	    wp->cx = pixwidth;
+	    wp->cy = pixheight;
+	  }
+	/* DefWindowProc sends useful WM_GETMINMAXINFO message, and adjusts
+	   window position if the user tries to track window too small */
+      }
+      goto defproc;
+
+    case WM_ENTERSIZEMOVE:
+      msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
+      msframe->sizing = 1;
+      return 0;
+
+    case WM_EXITSIZEMOVE:
+      msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
+      msframe->sizing = 0;
+      /* Queue noop event */
+      mswindows_enqueue_magic_event (NULL, XM_BUMPQUEUE);
+      return 0;
+
+#ifdef HAVE_SCROLLBARS
+    case WM_VSCROLL:
+    case WM_HSCROLL:
+      {
+	/* Direction of scroll is determined by scrollbar instance. */
+	int code = (int) LOWORD(wParam);
+	int pos = (short int) HIWORD(wParam);
+	HWND hwndScrollBar = (HWND) lParam;
+	struct gcpro gcpro1, gcpro2;
+
+	mswindows_handle_scrollbar_event (hwndScrollBar, code,  pos);
+	GCPRO2 (emacs_event, fobj);
+	if (UNBOUNDP(mswindows_pump_outstanding_events()))	/* Can GC */
+	  {
+	    /* Error during event pumping - cancel scroll */
+	    SendMessage (hwndScrollBar, WM_CANCELMODE, 0, 0);
+	  }
+	UNGCPRO;
+	break;
+      }
+
+    case WM_MOUSEWHEEL:
+      {
+	int keys = LOWORD (wParam); /* Modifier key flags */
+	int delta = (short) HIWORD (wParam); /* Wheel rotation amount */
+	struct gcpro gcpro1, gcpro2;
+
+	if (mswindows_handle_mousewheel_event (mswindows_find_frame (hwnd), keys,  delta))
+	  {
+	    GCPRO2 (emacs_event, fobj);
+	    mswindows_pump_outstanding_events ();	/* Can GC */
+	    UNGCPRO;
+	  }
+	else
+	  goto defproc;
+	break;
+      }
 #endif
 
 #ifdef HAVE_MENUBARS
-  case WM_INITMENU:
-    if (UNBOUNDP (mswindows_handle_wm_initmenu (
-			(HMENU) wParam,
-			XFRAME (mswindows_find_frame (hwnd)))))
-      SendMessage (hwnd, WM_CANCELMODE, 0, 0);
-    break;
+    case WM_INITMENU:
+      if (UNBOUNDP (mswindows_handle_wm_initmenu (
+						  (HMENU) wParam,
+						  XFRAME (mswindows_find_frame (hwnd)))))
+	SendMessage (hwnd, WM_CANCELMODE, 0, 0);
+      break;
 
-  case WM_INITMENUPOPUP:
-    if (!HIWORD(lParam))
-      {
-	if (UNBOUNDP (mswindows_handle_wm_initmenupopup (
-			(HMENU) wParam,
-			 XFRAME (mswindows_find_frame (hwnd)))))
-	  SendMessage (hwnd, WM_CANCELMODE, 0, 0);
-      }
-    break;
+    case WM_INITMENUPOPUP:
+      if (!HIWORD(lParam))
+	{
+	  if (UNBOUNDP (mswindows_handle_wm_initmenupopup (
+							   (HMENU) wParam,
+							   XFRAME (mswindows_find_frame (hwnd)))))
+	    SendMessage (hwnd, WM_CANCELMODE, 0, 0);
+	}
+      break;
 
 #endif /* HAVE_MENUBARS */
 
-  case WM_COMMAND:
-    {
-      WORD id = LOWORD (wParam);
-      WORD nid = HIWORD (wParam);
-      HWND cid = (HWND)lParam;
-      frame = XFRAME (mswindows_find_frame (hwnd));
+    case WM_COMMAND:
+      {
+	WORD id = LOWORD (wParam);
+	WORD nid = HIWORD (wParam);
+	HWND cid = (HWND)lParam;
+	frame = XFRAME (mswindows_find_frame (hwnd));
 
 #ifdef HAVE_TOOLBARS
-      if (!NILP (mswindows_handle_toolbar_wm_command (frame, cid, id)))
-	break;
+	if (!NILP (mswindows_handle_toolbar_wm_command (frame, cid, id)))
+	  break;
 #endif
-      /* widgets in a buffer only eval a callback for suitable events.*/
-      switch (nid)
-	{
-	case BN_CLICKED:
-	case EN_CHANGE:
-	case CBN_EDITCHANGE:
-	case CBN_SELCHANGE:
-	  if (!NILP (mswindows_handle_gui_wm_command (frame, cid, id)))
-	    return 0;
-	}
-      /* menubars always must come last since the hashtables do not
-         always exist*/
+	/* widgets in a buffer only eval a callback for suitable events.*/
+	switch (nid)
+	  {
+	  case BN_CLICKED:
+	  case EN_CHANGE:
+	  case CBN_EDITCHANGE:
+	  case CBN_SELCHANGE:
+	    if (!NILP (mswindows_handle_gui_wm_command (frame, cid, id)))
+	      return 0;
+	  }
+	/* menubars always must come last since the hashtables do not
+	   always exist*/
 #ifdef HAVE_MENUBARS
-      if (!NILP (mswindows_handle_wm_command (frame, id)))
-	break;
+	if (!NILP (mswindows_handle_wm_command (frame, id)))
+	  break;
 #endif
 
-      return DefWindowProc (hwnd, message, wParam, lParam);
-      /* Bite me - a spurious command. This used to not be able to
-         happen but with the introduction of widgets its now
-         possible. */
-    }
-  break;
+	return DefWindowProc (hwnd, message, wParam, lParam);
+	/* Bite me - a spurious command. This used to not be able to
+	   happen but with the introduction of widgets its now
+	   possible. */
+      }
+      break;
 
-  case WM_CTLCOLORBTN:
-  case WM_CTLCOLORLISTBOX:
-  case WM_CTLCOLOREDIT:
-  case WM_CTLCOLORSTATIC:
-  case WM_CTLCOLORSCROLLBAR:
-    {
-      /* if we get an opportunity to paint a widget then do so if
-         there is an appropriate face */
-      HWND crtlwnd = (HWND)lParam;
-      LONG ii = GetWindowLong (crtlwnd, GWL_USERDATA);
-      if (ii)
-	{
-	  Lisp_Object image_instance;
-	  VOID_TO_LISP (image_instance, ii);
-	  if (IMAGE_INSTANCEP (image_instance)
-	      &&
-	      IMAGE_INSTANCE_TYPE_P (image_instance, IMAGE_WIDGET))
-	    {
-	      /* set colors for the buttons */
-	      HDC hdc = (HDC)wParam;
-	      if (last_widget_brushed != ii)
-		{
-		  if (widget_brush)
-		    DeleteObject (widget_brush);
-		  widget_brush = CreateSolidBrush
-		    (COLOR_INSTANCE_MSWINDOWS_COLOR
-		     (XCOLOR_INSTANCE
-		      (FACE_BACKGROUND
-		       (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
-			XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
-		}
-	      last_widget_brushed = ii;
-	      SetTextColor
-		(hdc,
-		 COLOR_INSTANCE_MSWINDOWS_COLOR
-		 (XCOLOR_INSTANCE
-		  (FACE_FOREGROUND
-		   (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
-		    XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
-	      SetBkMode (hdc, OPAQUE);
-	      SetBkColor
-		(hdc,
-		 COLOR_INSTANCE_MSWINDOWS_COLOR
-		 (XCOLOR_INSTANCE
-		  (FACE_BACKGROUND
-		   (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
-		    XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
-	      return (LRESULT)widget_brush;
-	    }
-	}
-    }
-    goto defproc;
+    case WM_CTLCOLORBTN:
+    case WM_CTLCOLORLISTBOX:
+    case WM_CTLCOLOREDIT:
+    case WM_CTLCOLORSTATIC:
+    case WM_CTLCOLORSCROLLBAR:
+      {
+	/* if we get an opportunity to paint a widget then do so if
+	   there is an appropriate face */
+	HWND crtlwnd = (HWND)lParam;
+	LONG ii = GetWindowLong (crtlwnd, GWL_USERDATA);
+	if (ii)
+	  {
+	    Lisp_Object image_instance;
+	    VOID_TO_LISP (image_instance, ii);
+	    if (IMAGE_INSTANCEP (image_instance)
+		&&
+		IMAGE_INSTANCE_TYPE_P (image_instance, IMAGE_WIDGET))
+	      {
+		/* set colors for the buttons */
+		HDC hdc = (HDC)wParam;
+		if (last_widget_brushed != ii)
+		  {
+		    if (widget_brush)
+		      DeleteObject (widget_brush);
+		    widget_brush = CreateSolidBrush
+		      (COLOR_INSTANCE_MSWINDOWS_COLOR
+		       (XCOLOR_INSTANCE
+			(FACE_BACKGROUND
+			 (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
+			  XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
+		  }
+		last_widget_brushed = ii;
+		SetTextColor
+		  (hdc,
+		   COLOR_INSTANCE_MSWINDOWS_COLOR
+		   (XCOLOR_INSTANCE
+		    (FACE_FOREGROUND
+		     (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
+		      XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
+		SetBkMode (hdc, OPAQUE);
+		SetBkColor
+		  (hdc,
+		   COLOR_INSTANCE_MSWINDOWS_COLOR
+		   (XCOLOR_INSTANCE
+		    (FACE_BACKGROUND
+		     (XIMAGE_INSTANCE_WIDGET_FACE (image_instance),
+		      XIMAGE_INSTANCE_SUBWINDOW_FRAME (image_instance)))));
+		return (LRESULT)widget_brush;
+	      }
+	  }
+      }
+      goto defproc;
 
 #ifdef HAVE_DRAGNDROP
-  case WM_DROPFILES:	/* implementation ripped-off from event-Xt.c */
-    {
-      UINT filecount, i, len;
-      POINT point;
-      char* filename;
-#ifdef __CYGWIN32__
-      char* fname;
+    case WM_DROPFILES:	/* implementation ripped-off from event-Xt.c */
+      {
+	UINT filecount, i, len;
+	POINT point;
+	char* filename;
+	char* fname;
+
+	Lisp_Object l_dndlist = Qnil, l_item = Qnil;
+	struct gcpro gcpro1, gcpro2, gcpro3;
+
+	emacs_event = Fmake_event (Qnil, Qnil);
+	event = XEVENT(emacs_event);
+
+	GCPRO3 (emacs_event, l_dndlist, l_item);
+
+	if (!DragQueryPoint ((HDROP) wParam, &point))
+	  point.x = point.y = -1;		/* outside client area */
+
+	event->event_type = misc_user_event;
+	event->channel = mswindows_find_frame(hwnd);
+	event->timestamp = GetMessageTime();
+	event->event.misc.button = 1;		/* #### Should try harder */
+	event->event.misc.modifiers = mswindows_modifier_state (NULL, 0);
+	event->event.misc.x = point.x;
+	event->event.misc.y = point.y;
+	event->event.misc.function = Qdragdrop_drop_dispatch;
+
+	filecount = DragQueryFile ((HDROP) wParam, 0xffffffff, NULL, 0);
+	for (i=0; i<filecount; i++)
+	  {
+	    len = DragQueryFile ((HDROP) wParam, i, NULL, 0);
+	    /* The URLs that we make here aren't correct according to section
+	     * 3.10 of rfc1738 because they're missing the //<host>/ part and
+	     * because they may contain reserved characters. But that's OK -
+	     * they just need to be good enough to keep dragdrop.el happy. */
+	    fname = (char *)xmalloc (len+1);
+	    DragQueryFile ((HANDLE) wParam, i, fname, len+1);
+
+	    /* May be a shell link aka "shortcut" - replace fname if so */
+#if !(defined(__CYGWIN32__) || defined(__MINGW32__))
+	    /* cygwin doesn't define this COM stuff */
+	    if (!stricmp (fname + strlen (fname) - 4, ".LNK"))
+	      {
+		IShellLink* psl;
+
+		if (CoCreateInstance (&CLSID_ShellLink, NULL,
+				      CLSCTX_INPROC_SERVER, &IID_IShellLink, &psl) == S_OK)
+		  { 
+		    IPersistFile* ppf;
+
+		    if (psl->lpVtbl->QueryInterface (psl, &IID_IPersistFile,
+						     &ppf) == S_OK)
+		      {
+			WORD wsz[MAX_PATH];
+			WIN32_FIND_DATA wfd;
+			LPSTR resolved = (char *) xmalloc (MAX_PATH+1);
+
+			MultiByteToWideChar (CP_ACP,0, fname, -1, wsz, MAX_PATH);
+
+			if ((ppf->lpVtbl->Load (ppf, wsz, STGM_READ) == S_OK) &&
+			    (psl->lpVtbl->GetPath (psl, resolved, MAX_PATH,
+						   &wfd, 0)==S_OK))
+			  {
+			    xfree (fname);
+			    fname = resolved;
+			    len = strlen (fname);
+			  }
+
+			ppf->lpVtbl->Release (ppf);
+		      }
+
+		    psl->lpVtbl->Release (psl);
+		  }
+	      }
 #endif
-      Lisp_Object l_dndlist = Qnil, l_item = Qnil;
-      struct gcpro gcpro1, gcpro2, gcpro3;
 
-      emacs_event = Fmake_event (Qnil, Qnil);
-      event = XEVENT(emacs_event);
-
-      GCPRO3 (emacs_event, l_dndlist, l_item);
-
-      if (!DragQueryPoint ((HANDLE) wParam, &point))
-	point.x = point.y = -1;		/* outside client area */
-
-      event->event_type = misc_user_event;
-      event->channel = mswindows_find_frame(hwnd);
-      event->timestamp = GetMessageTime();
-      event->event.misc.button = 1;		/* #### Should try harder */
-      event->event.misc.modifiers = mswindows_modifier_state (NULL, 0);
-      event->event.misc.x = point.x;
-      event->event.misc.y = point.y;
-      event->event.misc.function = Qdragdrop_drop_dispatch;
-
-      filecount = DragQueryFile ((HANDLE) wParam, 0xffffffff, NULL, 0);
-      for (i=0; i<filecount; i++)
-	{
-	  len = DragQueryFile ((HANDLE) wParam, i, NULL, 0);
-	  /* The URLs that we make here aren't correct according to section
-	   * 3.10 of rfc1738 because they're missing the //<host>/ part and
-	   * because they may contain reserved characters. But that's OK. */
 #ifdef __CYGWIN32__
-	  fname = (char *)xmalloc (len+1);
-	  DragQueryFile ((HANDLE) wParam, i, fname, len+1);
-	  filename = xmalloc (cygwin32_win32_to_posix_path_list_buf_size (fname) + 5);
-	  strcpy (filename, "file:");
-	  cygwin32_win32_to_posix_path_list (fname, filename+5);
-	  xfree (fname);
+	    filename = xmalloc (cygwin32_win32_to_posix_path_list_buf_size (fname) + 5);
+	    strcpy (filename, "file:");
+	    cygwin32_win32_to_posix_path_list (fname, filename+5);
 #else
-	  filename = (char *)xmalloc (len+6);
-	  strcpy (filename, "file:");
-	  DragQueryFile ((HANDLE) wParam, i, filename+5, len+1);
-	  dostounix_filename (filename+5);
+	    filename = (char *)xmalloc (len+6);
+	    strcat (strcpy (filename, "file:"), fname);
+	    dostounix_filename (filename+5);
 #endif
-	  l_item = make_string (filename, strlen (filename));
-	  l_dndlist = Fcons (l_item, l_dndlist);
-	  xfree (filename);
-	}
-      DragFinish ((HANDLE) wParam);
+	    xfree (fname);
+	    l_item = make_string (filename, strlen (filename));
+	    l_dndlist = Fcons (l_item, l_dndlist);
+	    xfree (filename);
+	  }
+	DragFinish ((HDROP) wParam);
 
-      event->event.misc.object = Fcons (Qdragdrop_URL, l_dndlist);
-      mswindows_enqueue_dispatch_event (emacs_event);
-      UNGCPRO;
+	event->event.misc.object = Fcons (Qdragdrop_URL, l_dndlist);
+	mswindows_enqueue_dispatch_event (emacs_event);
+	UNGCPRO;
+      }
+      break;
+#endif
+
+    defproc:
+    default:
+      return DefWindowProc (hwnd, message, wParam, lParam);
     }
-  break;
-#endif
-
-  defproc:
-  default:
-    return DefWindowProc (hwnd, message, wParam, lParam);
-  }
   return (0);
 }
 
@@ -2473,16 +2595,16 @@ int mswindows_modifier_state (BYTE* keymap, int has_AltGr)
 
   if (has_AltGr && (keymap [VK_LCONTROL] & 0x80) && (keymap [VK_RMENU] & 0x80))
     {
-      mods |= (keymap [VK_LMENU] & 0x80) ? MOD_META : 0;
-      mods |= (keymap [VK_RCONTROL] & 0x80) ? MOD_CONTROL : 0;
+      mods |= (keymap [VK_LMENU] & 0x80) ? XEMACS_MOD_META : 0;
+      mods |= (keymap [VK_RCONTROL] & 0x80) ? XEMACS_MOD_CONTROL : 0;
     }
   else
     {
-      mods |= (keymap [VK_MENU] & 0x80) ? MOD_META : 0;
-      mods |= (keymap [VK_CONTROL] & 0x80) ? MOD_CONTROL : 0;
+      mods |= (keymap [VK_MENU] & 0x80) ? XEMACS_MOD_META : 0;
+      mods |= (keymap [VK_CONTROL] & 0x80) ? XEMACS_MOD_CONTROL : 0;
     }
 
-  mods |= (keymap [VK_SHIFT] & 0x80) ? MOD_SHIFT : 0;
+  mods |= (keymap [VK_SHIFT] & 0x80) ? XEMACS_MOD_SHIFT : 0;
 
   return mods;
 }
@@ -2540,8 +2662,8 @@ Lisp_Object mswindows_key_to_emacs_keysym (int mswindows_key, int mods,
 	case VK_DELETE:		return KEYSYM ("kp-delete");
 	case VK_HELP:		return KEYSYM ("help");
 #if 0	/* FSF Emacs allows these to return configurable syms/mods */
-	case VK_LWIN		return KEYSYM ("");
-	case VK_RWIN		return KEYSYM ("");
+	  case VK_LWIN		return KEYSYM ("");
+	  case VK_RWIN		return KEYSYM ("");
 #endif
 	case VK_APPS:		return KEYSYM ("menu");
 	case VK_NUMPAD0:	return KEYSYM ("kp-0");
@@ -2702,6 +2824,14 @@ emacs_mswindows_handle_magic_event (Lisp_Event *emacs_event)
     case XM_BUMPQUEUE:
       break;
 
+    case WM_PAINT:
+      {
+	struct frame *f = XFRAME (EVENT_CHANNEL (emacs_event));
+	mswindows_handle_paint (f);
+	(FRAME_MSWINDOWS_DATA (f))->paint_pending = 0;
+      }
+      break;
+
     case WM_SETFOCUS:
     case WM_KILLFOCUS:
       {
@@ -2760,7 +2890,7 @@ get_process_input_waitable (Lisp_Process *process)
 	  ? get_winsock_stream_waitable (XLSTREAM (instr))
 	  : get_ntpipe_input_stream_waitable (XLSTREAM (instr)));
 #else
-    return get_ntpipe_input_stream_waitable (XLSTREAM (instr));
+  return get_ntpipe_input_stream_waitable (XLSTREAM (instr));
 #endif
 }
 
@@ -2831,7 +2961,7 @@ emacs_mswindows_quit_p (void)
 
   /* Drain windows queue. This sets up number of quit characters in
      the queue */
-  mswindows_drain_windows_queue (1);
+  mswindows_drain_windows_queue ();
 
   if (mswindows_quit_chars_count > 0)
     {
@@ -2848,7 +2978,7 @@ emacs_mswindows_quit_p (void)
 	  emacs_event = mswindows_cancel_dispatch_event (&match_against);
 	  assert (!NILP (emacs_event));
 	  
-	  if (XEVENT(emacs_event)->event.key.modifiers & MOD_SHIFT)
+	  if (XEVENT(emacs_event)->event.key.modifiers & XEMACS_MOD_SHIFT)
 	    critical_p = 1;
 
 	  Fdeallocate_event(emacs_event);
@@ -2932,7 +3062,7 @@ emacs_mswindows_create_stream_pair (void* inhandle, void* outhandle,
 
 USID
 emacs_mswindows_delete_stream_pair (Lisp_Object instream,
-					 Lisp_Object outstream)
+				    Lisp_Object outstream)
 {
   /* Oh nothing special here for Win32 at all */
 #if defined (HAVE_UNIX_PROCESSES)
@@ -2994,6 +3124,7 @@ reinit_vars_of_event_mswindows (void)
   mswindows_event_stream = xnew (struct event_stream);
 
   mswindows_event_stream->event_pending_p 	= emacs_mswindows_event_pending_p;
+  mswindows_event_stream->force_event_pending = 0;
   mswindows_event_stream->next_event_cb		= emacs_mswindows_next_event;
   mswindows_event_stream->handle_magic_event_cb = emacs_mswindows_handle_magic_event;
   mswindows_event_stream->add_timeout_cb 	= emacs_mswindows_add_timeout;
@@ -3034,13 +3165,16 @@ vars_of_event_mswindows (void)
   mswindows_error_caught_in_modal_loop = Qnil;
   staticpro (&mswindows_error_caught_in_modal_loop);
 
-  DEFVAR_BOOL ("mswindows-meta-activates-menu", &mswindows_meta_activates_menu /*
-*Controls whether pressing and releasing the Meta (Alt) key should
-activate the menubar.
+  DEFVAR_BOOL ("mswindows-alt-by-itself-activates-menu",
+	       &mswindows_alt_by_itself_activates_menu /*
+*Controls whether pressing and releasing the Alt key activates the menubar.
+This applies only if no intervening key was pressed.  See also
+`menu-accelerator-enabled', which is probably the behavior you actually want.
 Default is t.
 */ );
 
-  DEFVAR_BOOL ("mswindows-dynamic-frame-resize", &mswindows_dynamic_frame_resize /*
+  DEFVAR_BOOL ("mswindows-dynamic-frame-resize",
+	       &mswindows_dynamic_frame_resize /*
 *Controls redrawing frame contents during mouse-drag or keyboard resize
 operation. When non-nil, the frame is redrawn while being resized. When
 nil, frame is not redrawn, and exposed areas are filled with default
@@ -3050,8 +3184,8 @@ settings.
 Default is t on fast machines, nil on slow.
 */ );
 
-/* The description copied verbatim from nt-emacs. (C) Geoff Voelker */
-  DEFVAR_INT ("mswindows-mouse-button-tolerance", &mswindows_mouse_button_tolerance /*
+  DEFVAR_INT ("mswindows-mouse-button-tolerance",
+	      &mswindows_mouse_button_tolerance /*
 *Analogue of double click interval for faking middle mouse events.
 The value is the minimum time in milliseconds that must elapse between
 left/right button down events before they are considered distinct events.
@@ -3060,12 +3194,12 @@ button down event is generated instead.
 If negative or zero, currently set system default is used instead.
 */ );
 
-/* The description copied verbatim from nt-emacs. (C) Geoff Voelker */
   DEFVAR_INT ("mswindows-num-mouse-buttons", &mswindows_num_mouse_buttons /*
 Number of physical mouse buttons.
 */ );
 
-  DEFVAR_INT ("mswindows-mouse-button-max-skew-x", &mswindows_mouse_button_max_skew_x /*
+  DEFVAR_INT ("mswindows-mouse-button-max-skew-x",
+	      &mswindows_mouse_button_max_skew_x /*
 *Maximum horizontal distance in pixels between points in which left and
 right button clicks occurred for them to be translated into single
 middle button event. Clicks must occur in time not longer than defined
@@ -3073,7 +3207,8 @@ by the variable `mswindows-mouse-button-tolerance'.
 If negative or zero, currently set system default is used instead.
 */ );
 
-  DEFVAR_INT ("mswindows-mouse-button-max-skew-y", &mswindows_mouse_button_max_skew_y /*
+  DEFVAR_INT ("mswindows-mouse-button-max-skew-y",
+	      &mswindows_mouse_button_max_skew_y /*
 *Maximum vertical distance in pixels between points in which left and
 right button clicks occurred for them to be translated into single
 middle button event. Clicks must occur in time not longer than defined
@@ -3084,7 +3219,7 @@ If negative or zero, currently set system default is used instead.
   mswindows_mouse_button_max_skew_x = 0;
   mswindows_mouse_button_max_skew_y = 0;
   mswindows_mouse_button_tolerance = 0;
-  mswindows_meta_activates_menu = 1;
+  mswindows_alt_by_itself_activates_menu = 1;
 }
 
 void

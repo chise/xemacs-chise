@@ -24,11 +24,6 @@ Boston, MA 02111-1307, USA.  */
    operating system this machine is likely to run.
    USUAL-OPSYS="bsd4-3"  */
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-#undef WORD_MACHINE
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically.  */
 

@@ -38,6 +38,199 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: internals.info,  Node: Window Hierarchy,  Next: The Window Object,  Prev: Point,  Up: Consoles; Devices; Frames; Windows
+
+Window Hierarchy
+================
+
+   If a frame contains multiple windows (panes), they are always created
+by splitting an existing window along the horizontal or vertical axis.
+Terminology is a bit confusing here: to "split a window horizontally"
+means to create two side-by-side windows, i.e. to make a _vertical_ cut
+in a window.  Likewise, to "split a window vertically" means to create
+two windows, one above the other, by making a _horizontal_ cut.
+
+   If you split a window and then split again along the same axis, you
+will end up with a number of panes all arranged along the same axis.
+The precise way in which the splits were made should not be important,
+and this is reflected internally.  Internally, all windows are arranged
+in a tree, consisting of two types of windows, "combination" windows
+(which have children, and are covered completely by those children) and
+"leaf" windows, which have no children and are visible.  Every
+combination window has two or more children, all arranged along the same
+axis.  There are (logically) two subtypes of windows, depending on
+whether their children are horizontally or vertically arrayed.  There is
+always one root window, which is either a leaf window (if the frame
+contains only one window) or a combination window (if the frame contains
+more than one window).  In the latter case, the root window will have
+two or more children, either horizontally or vertically arrayed, and
+each of those children will be either a leaf window or another
+combination window.
+
+   Here are some rules:
+
+  1. Horizontal combination windows can never have children that are
+     horizontal combination windows; same for vertical.
+
+  2. Only leaf windows can be split (obviously) and this splitting does
+     one of two things: (a) turns the leaf window into a combination
+     window and creates two new leaf children, or (b) turns the leaf
+     window into one of the two new leaves and creates the other leaf.
+     Rule (1) dictates which of these two outcomes happens.
+
+  3. Every combination window must have at least two children.
+
+  4. Leaf windows can never become combination windows.  They can be
+     deleted, however.  If this results in a violation of (3), the
+     parent combination window also gets deleted.
+
+  5. All functions that accept windows must be prepared to accept
+     combination windows, and do something sane (e.g. signal an error
+     if so).  Combination windows _do_ escape to the Lisp level.
+
+  6. All windows have three fields governing their contents: these are
+     "hchild" (a list of horizontally-arrayed children), "vchild" (a
+     list of vertically-arrayed children), and "buffer" (the buffer
+     contained in a leaf window).  Exactly one of these will be
+     non-nil.  Remember that "horizontally-arrayed" means
+     "side-by-side" and "vertically-arrayed" means "one above the
+     other".
+
+  7. Leaf windows also have markers in their `start' (the first buffer
+     position displayed in the window) and `pointm' (the window's
+     stashed value of `point'--see above) fields, while combination
+     windows have nil in these fields.
+
+  8. The list of children for a window is threaded through the `next'
+     and `prev' fields of each child window.
+
+  9. *Deleted windows can be undeleted*.  This happens as a result of
+     restoring a window configuration, and is unlike frames, displays,
+     and consoles, which, once deleted, can never be restored.
+     Deleting a window does nothing except set a special `dead' bit to
+     1 and clear out the `next', `prev', `hchild', and `vchild' fields,
+     for GC purposes.
+
+ 10. Most frames actually have two top-level windows--one for the
+     minibuffer and one (the "root") for everything else.  The modeline
+     (if present) separates these two.  The `next' field of the root
+     points to the minibuffer, and the `prev' field of the minibuffer
+     points to the root.  The other `next' and `prev' fields are `nil',
+     and the frame points to both of these windows.  Minibuffer-less
+     frames have no minibuffer window, and the `next' and `prev' of the
+     root window are `nil'.  Minibuffer-only frames have no root
+     window, and the `next' of the minibuffer window is `nil' but the
+     `prev' points to itself. (#### This is an artifact that should be
+     fixed.)
+
+
+File: internals.info,  Node: The Window Object,  Prev: Window Hierarchy,  Up: Consoles; Devices; Frames; Windows
+
+The Window Object
+=================
+
+   Windows have the following accessible fields:
+
+`frame'
+     The frame that this window is on.
+
+`mini_p'
+     Non-`nil' if this window is a minibuffer window.
+
+`buffer'
+     The buffer that the window is displaying.  This may change often
+     during the life of the window.
+
+`dedicated'
+     Non-`nil' if this window is dedicated to its buffer.
+
+`pointm'
+     This is the value of point in the current buffer when this window
+     is selected; when it is not selected, it retains its previous
+     value.
+
+`start'
+     The position in the buffer that is the first character to be
+     displayed in the window.
+
+`force_start'
+     If this flag is non-`nil', it says that the window has been
+     scrolled explicitly by the Lisp program.  This affects what the
+     next redisplay does if point is off the screen: instead of
+     scrolling the window to show the text around point, it moves point
+     to a location that is on the screen.
+
+`last_modified'
+     The `modified' field of the window's buffer, as of the last time a
+     redisplay completed in this window.
+
+`last_point'
+     The buffer's value of point, as of the last time a redisplay
+     completed in this window.
+
+`left'
+     This is the left-hand edge of the window, measured in columns.
+     (The leftmost column on the screen is column 0.)
+
+`top'
+     This is the top edge of the window, measured in lines.  (The top
+     line on the screen is line 0.)
+
+`height'
+     The height of the window, measured in lines.
+
+`width'
+     The width of the window, measured in columns.
+
+`next'
+     This is the window that is the next in the chain of siblings.  It
+     is `nil' in a window that is the rightmost or bottommost of a
+     group of siblings.
+
+`prev'
+     This is the window that is the previous in the chain of siblings.
+     It is `nil' in a window that is the leftmost or topmost of a group
+     of siblings.
+
+`parent'
+     Internally, XEmacs arranges windows in a tree; each group of
+     siblings has a parent window whose area includes all the siblings.
+     This field points to a window's parent.
+
+     Parent windows do not display buffers, and play little role in
+     display except to shape their child windows.  Emacs Lisp programs
+     usually have no access to the parent windows; they operate on the
+     windows at the leaves of the tree, which actually display buffers.
+
+`hscroll'
+     This is the number of columns that the display in the window is
+     scrolled horizontally to the left.  Normally, this is 0.
+
+`use_time'
+     This is the last time that the window was selected.  The function
+     `get-lru-window' uses this field.
+
+`display_table'
+     The window's display table, or `nil' if none is specified for it.
+
+`update_mode_line'
+     Non-`nil' means this window's mode line needs to be updated.
+
+`base_line_number'
+     The line number of a certain position in the buffer, or `nil'.
+     This is used for displaying the line number of point in the mode
+     line.
+
+`base_line_pos'
+     The position in the buffer for which the line number is known, or
+     `nil' meaning none is known.
+
+`region_showing'
+     If the region (or part of it) is highlighted in this window, this
+     field holds the mark position that made one end of that region.
+     Otherwise, this field is `nil'.
+
+
 File: internals.info,  Node: The Redisplay Mechanism,  Next: Extents,  Prev: Consoles; Devices; Frames; Windows,  Up: Top
 
 The Redisplay Mechanism
@@ -65,7 +258,7 @@ of Redisplay:
 * Redisplay Piece by Piece::
 
 
-File: internals.info,  Node: Critical Redisplay Sections,  Next: Line Start Cache,  Up: The Redisplay Mechanism
+File: internals.info,  Node: Critical Redisplay Sections,  Next: Line Start Cache,  Prev: The Redisplay Mechanism,  Up: The Redisplay Mechanism
 
 Critical Redisplay Sections
 ===========================
@@ -177,7 +370,7 @@ on the workings of redisplay.
   3. Output changes Implemented by `redisplay-output.c',
      `redisplay-x.c', `redisplay-msw.c' and `redisplay-tty.c'
 
-   Steps 1 and 2 are device-independant and relatively complex.  Step 3
+   Steps 1 and 2 are device-independent and relatively complex.  Step 3
 is mostly device-dependent.
 
    Determining the desired display
@@ -188,7 +381,7 @@ is mostly device-dependent.
 `display_line''s are held by each window representing the current
 display and the desired display.
 
-   The `display_line' structures are tighly tied to buffers which
+   The `display_line' structures are tightly tied to buffers which
 presents a problem for redisplay as this connection is bogus for the
 modeline. Hence the `display_line' generation routines are duplicated
 for generating the modeline. This means that the modeline display code
@@ -218,11 +411,11 @@ Extents
 * Extent Ordering::             How extents are ordered internally.
 * Format of the Extent Info::   The extent information in a buffer or string.
 * Zero-Length Extents::         A weird special case.
-* Mathematics of Extent Ordering::      A rigorous foundation.
+* Mathematics of Extent Ordering::  A rigorous foundation.
 * Extent Fragments::            Cached information useful for redisplay.
 
 
-File: internals.info,  Node: Introduction to Extents,  Next: Extent Ordering,  Up: Extents
+File: internals.info,  Node: Introduction to Extents,  Next: Extent Ordering,  Prev: Extents,  Up: Extents
 
 Introduction to Extents
 =======================
@@ -518,7 +711,7 @@ possible to display an image-instance in multiple domains. For instance
 if we create a Pixmap, we can actually display this on multiple windows
 - even though we only need a single Pixmap instance to do this. If
 caching wasn't done then it would be necessary to create
-image-instances for every displayable occurrance of a glyph - and every
+image-instances for every displayable occurrence of a glyph - and every
 usage - and this would be extremely memory and cpu intensive.
 
    Widget-glyphs (a.k.a native widgets) are not cached in this way.
@@ -556,7 +749,7 @@ the widget_instance tree recursively.
    This has desirable properties such as lw_modify_all_widgets which is
 called from glyphs-x.c and updates all the properties of a widget
 without having to know what the widget is or what toolkit it is from.
-Unfortunately this also has hairy properrties such as making the lwlib
+Unfortunately this also has hairy properties such as making the lwlib
 code quite complex. And of course lwlib has to know at some level what
 the widget is and how to set its properties.
 
@@ -755,7 +948,6 @@ Index
 * external widget:                       Modules for Interfacing with X Windows.
 * flusher:                               Lstream Methods.
 * Free Software Foundation:              A History of Emacs.
-* frob block:                            Introduction to Allocation.
 * FSF:                                   A History of Emacs.
 * FSF Emacs <1>:                         GNU Emacs 20.
 * FSF Emacs:                             GNU Emacs 19.
@@ -825,11 +1017,9 @@ Index
 * permanent objects:                     The XEmacs Object System (Abstractly Speaking).
 * pi, calculating:                       XEmacs From the Outside.
 * pseudo_closer:                         Lstream Methods.
-* pure space:                            Basic Lisp Modules.
 * read syntax:                           The XEmacs Object System (Abstractly Speaking).
 * read-eval-print:                       XEmacs From the Outside.
 * reader:                                Lstream Methods.
-* record type:                           How Lisp Objects Are Represented in C.
 * Redisplay Piece by Piece:              Redisplay Piece by Piece.
 * relocating allocator:                  Low-Level Modules.
 * rename to XEmacs:                      XEmacs.

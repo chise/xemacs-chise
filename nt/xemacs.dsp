@@ -36,8 +36,8 @@ CFG=xemacs - Win32 Debug
 # PROP BASE Bsc_Name "xemacs.bsc"
 # PROP BASE Target_Dir ""
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Release"
-# PROP Intermediate_Dir "Release"
+# PROP Output_Dir "..\src"
+# PROP Intermediate_Dir "obj"
 # PROP Cmd_Line "NMAKE /f xemacs.mak"
 # PROP Rebuild_Opt "/a"
 # PROP Target_File "xemacs.exe"
@@ -55,8 +55,8 @@ CFG=xemacs - Win32 Debug
 # PROP BASE Bsc_Name "xemacs.bsc"
 # PROP BASE Target_Dir ""
 # PROP Use_Debug_Libraries 1
-# PROP Output_Dir "Debug"
-# PROP Intermediate_Dir "Debug"
+# PROP Output_Dir "..\src"
+# PROP Intermediate_Dir "obj"
 # PROP Cmd_Line "NMAKE /f xemacs.mak"
 # PROP Rebuild_Opt "/a"
 # PROP Target_File "..\src\xemacs.exe"

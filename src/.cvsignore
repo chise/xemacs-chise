@@ -8,6 +8,8 @@ puresize-adjust.h
 sheap-adjust.h
 temacs
 xemacs
+xemacs.dmp
 SATISFIED
 update-elc.stamp
 *.so.*
+gmon.out

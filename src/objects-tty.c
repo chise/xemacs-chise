@@ -220,7 +220,7 @@ tty_initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
   Bufbyte *str = XSTRING_DATA (name);
   Lisp_Object charset = Qnil;
 
-  if (strncmp ((CONST char *) str, "normal", 6))
+  if (strncmp ((const char *) str, "normal", 6))
     return 0;
   str += 6;
   if (*str)
@@ -229,7 +229,7 @@ tty_initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
       if (*str != '/')
 	return 0;
       str++;
-      charset = Ffind_charset (intern ((CONST char *) str));
+      charset = Ffind_charset (intern ((const char *) str));
       if (NILP (charset))
 	return 0;
 #else
@@ -284,10 +284,10 @@ tty_list_fonts (Lisp_Object pattern, Lisp_Object device)
 
 static int
 tty_font_spec_matches_charset (struct device *d, Lisp_Object charset,
-			       CONST Bufbyte *nonreloc, Lisp_Object reloc,
+			       const Bufbyte *nonreloc, Lisp_Object reloc,
 			       Bytecount offset, Bytecount length)
 {
-  CONST Bufbyte *the_nonreloc = nonreloc;
+  const Bufbyte *the_nonreloc = nonreloc;
 
   if (!the_nonreloc)
     the_nonreloc = XSTRING_DATA (reloc);
@@ -296,14 +296,14 @@ tty_font_spec_matches_charset (struct device *d, Lisp_Object charset,
 
   if (UNBOUNDP (charset))
     return !memchr (the_nonreloc, '/', length);
-  the_nonreloc = (CONST Bufbyte *) memchr (the_nonreloc, '/', length);
+  the_nonreloc = (const Bufbyte *) memchr (the_nonreloc, '/', length);
   if (!the_nonreloc)
     return 0;
   the_nonreloc++;
   {
     Lisp_String *s = symbol_name (XSYMBOL (XCHARSET_NAME (charset)));
-    return !strcmp ((CONST char *) the_nonreloc,
-		    (CONST char *) string_data (s));
+    return !strcmp ((const char *) the_nonreloc,
+		    (const char *) string_data (s));
   }
 }
 
@@ -315,7 +315,7 @@ tty_find_charset_font (Lisp_Object device, Lisp_Object font,
 {
   Bufbyte *fontname = XSTRING_DATA (font);
 
-  if (strchr ((CONST char *) fontname, '/'))
+  if (strchr ((const char *) fontname, '/'))
     {
       if (tty_font_spec_matches_charset (XDEVICE (device), charset, 0,
 					 font, 0, -1))

@@ -96,7 +96,7 @@ struct x_subwindow_data
       Window parent_window;
       Window clip_window;
     } sub;
-    struct 
+    struct
     {
       Widget clip_window;
       Position x_offset;
@@ -137,9 +137,9 @@ struct x_subwindow_data
 #define XIMAGE_INSTANCE_X_CLIPWINDOW(i) \
   IMAGE_INSTANCE_X_CLIPWINDOW (XIMAGE_INSTANCE (i))
 #define IMAGE_INSTANCE_X_SUBWINDOW_ID(i) \
-  ((Window) IMAGE_INSTANCE_SUBWINDOW_ID (i))
+  (* (Window *) & IMAGE_INSTANCE_SUBWINDOW_ID (i))
 #define IMAGE_INSTANCE_X_WIDGET_ID(i) \
-  ((Widget) IMAGE_INSTANCE_SUBWINDOW_ID (i))
+  (* (Widget *) & IMAGE_INSTANCE_SUBWINDOW_ID (i))
 
 #endif /* HAVE_X_WINDOWS */
 #endif /* INCLUDED_glyphs_x_h_ */

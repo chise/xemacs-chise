@@ -28,8 +28,6 @@ Boston, MA 02111-1307, USA.  */
 #define DOS_NT 	/* MSDOS or WINDOWSNT */
 #endif
 
-#define PBS_SMOOTH              0x01
-
 #ifdef HAVE_MS_WINDOWS
 #define HAVE_NTGUI
 #define HAVE_FACES
@@ -51,7 +49,6 @@ Boston, MA 02111-1307, USA.  */
 #define TIME_ONESHOT 0
 #define TIME_PERIODIC 1
 #define LOCALE_USE_CP_ACP 0x40000000
-#define SHGFI_EXETYPE 0x2000
 #define NSIG 23
 
 #ifndef SPI_GETWHEELSCROLLLINES
@@ -63,8 +60,33 @@ Boston, MA 02111-1307, USA.  */
 #ifndef WHEEL_DELTA
 #define WHEEL_DELTA 120
 #endif
+
+/* this is necessary to get the TCS_* definitions in <commctrl.h> */
+#define _WIN32_IE 0x0400
+
 #ifndef WM_MOUSEWHEEL
 #define WM_MOUSEWHEEL 0x20A
+#endif
+#ifndef TCS_BOTTOM
+#define TCS_BOTTOM 0x0002
+#endif
+#ifndef TCS_VERTICAL
+#define TCS_VERTICAL 0x0080
+#endif
+#ifndef PHYSICALWIDTH
+#define PHYSICALWIDTH 110
+#endif
+#ifndef PHYSICALHEIGHT
+#define PHYSICALHEIGHT 111
+#endif
+#ifndef PHYSICALOFFSETX
+#define PHYSICALOFFSETX 112
+#endif
+#ifndef PHYSICALOFFSETY
+#define PHYSICALOFFSETY 113
+#endif
+#ifndef PBS_SMOOTH
+#define PBS_SMOOTH              0x01
 #endif
 
 /* translate NT world unexec stuff to our a.out definitions */
@@ -85,18 +107,6 @@ Boston, MA 02111-1307, USA.  */
 
 #define NO_ARG_ARRAY
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-#define WORD_MACHINE
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend
-   the 24-bit bit field into an int.  In other words, if bit fields
-   are always unsigned.
-
-   If you use NO_UNION_TYPE, this flag does not matter.  */
-
-#define EXPLICIT_SIGN_EXTEND
 /* System calls that are encapsulated */
 #define ENCAPSULATE_RENAME
 #define ENCAPSULATE_OPEN
@@ -120,10 +130,6 @@ Boston, MA 02111-1307, USA.  */
 
 /* Text does precede data space, but this is never a safe assumption.  */
 #define VIRT_ADDR_VARIES
-
-/* set this if you have a new version of cygwin
-#define DATA_SEG_BITS 0x10000000
-*/
 
 /* If you are compiling with a non-C calling convention but need to
    declare vararg routines differently, put it here */
@@ -185,12 +191,6 @@ Boston, MA 02111-1307, USA.  */
 #include <cygwin/version.h>
 #endif
 
-typedef unsigned int MMRESULT;
-typedef struct timecaps_tag {		
-  unsigned int    wPeriodMin;
-  unsigned int    wPeriodMax;
-} TIMECAPS;
-
 /* IO calls that are emulated or shadowed */
 #define pipe    sys_pipe
 int sys_pipe (int * phandles);
@@ -202,8 +202,8 @@ void sleep (int seconds);
 
 /* subprocess calls that are emulated */
 #define spawnve sys_spawnve
-int spawnve (int mode, CONST char *cmdname, 
-	     CONST char * CONST *argv, CONST char *CONST *envp);
+int spawnve (int mode, const char *cmdname, 
+	     const char * const *argv, const char *const *envp);
 
 #define wait    sys_wait
 int wait (int *status);
@@ -214,11 +214,6 @@ int kill (int pid, int sig);
 /* map to MSVC names */
 #define popen     _popen
 #define pclose    _pclose
-
-typedef int uid_t;
-typedef int gid_t;
-typedef int pid_t;
-typedef int ssize_t;
 
 /* Encapsulation of system calls */
 #ifndef DONT_ENCAPSULATE
@@ -246,13 +241,23 @@ uid_t getuid (void);
 uid_t geteuid (void);
 gid_t getgid (void);
 gid_t getegid (void);
+
+#if CYGWIN_VERSION_DLL_MAJOR <= 21
+#define _ftime ftime
 #define _timeb timeb
+#endif
 
 /* Stuff that gets set wrongly or otherwise */
 #define HAVE_SETITIMER
 #define HAVE_GETTIMEOFDAY
 #define HAVE_SELECT
 /*#define HAVE_STRUCT_UTIMBUF*/
+#ifndef HAVE_H_ERRNO
+#define HAVE_H_ERRNO
+#endif
+#ifndef HAVE_TZNAME
+#define HAVE_TZNAME
+#endif
 
 #undef GETTIMEOFDAY_ONE_ARGUMENT
 #undef HAVE_SYS_WAIT_H

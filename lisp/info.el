@@ -22,7 +22,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -308,7 +308,7 @@
 ;; contain none or when it has become older than info files in the same
 ;; directory.
 
-;; Modified 1998-09-23 by Didier Verna <verna@inf.enst.fr>
+;; Modified 1998-09-23 by Didier Verna <didier@xemacs.org>
 ;;
 ;; Use the new macro `with-search-caps-disable-folding'
 
@@ -402,10 +402,10 @@ nil or `never' never auto-generate a directory listing,
 `always' auto-generate a directory listing ignoring existing
   `dir' and `localdir' files
 `if-missing', the default, auto-generates a directory listing
-  if no `dir' or `localdir' file is present.  Otherwise the 
+  if no `dir' or `localdir' file is present.  Otherwise the
   contents of any of these files is used instead.
 `if-outdated' auto-generates a directory listing if the `dir'
-  and `localdir' are either inexistent or outdated (touched 
+  and `localdir' are either inexistent or outdated (touched
   less recently than an info file in the same directory)."
   :type '(choice (const :tag "never" never)
 		 (const :tag "always" always)
@@ -413,15 +413,15 @@ nil or `never' never auto-generate a directory listing,
 		 (const :tag "if-outdated" if-outdated))
   :group 'info)
 
-(defcustom Info-save-auto-generated-dir nil
+(defcustom Info-save-auto-generated-dir 'never
   "*Whether an auto-generated info directory listing should be saved.
 Possible values are:
-nil or `never', the default, auto-generated info directory 
+nil or `never', the default, auto-generated info directory
   information will never be saved.
 `always', auto-generated info directory information will be saved to
   a `dir' file in the same directory overwriting it if it exists
 `conservative', auto-generated info directory information will be saved
-  to a `dir' file in the same directory but the user is asked before 
+  to a `dir' file in the same directory but the user is asked before
   overwriting any existing file."
   :type '(choice (const :tag "never" never)
 		 (const :tag "always" always)
@@ -463,7 +463,7 @@ heading."
   :group 'info-faces)
 
 ;; Is this right for NT?  .zip, with -c for to stdout, right?
-(defvar Info-suffix-list '( ("" . nil) 
+(defvar Info-suffix-list '( ("" . nil)
 			    (".info" . nil)
 			    (".info.bz2" . "bzip2 -dc %s")
 			    (".info.gz" . "gzip -dc %s")
@@ -537,7 +537,7 @@ Info hierarchy.  The first time you invoke Info you start off
 looking at that node, which is (dir)Top.
 
 File: dir	Node: Top	This is the top of the INFO tree
-  This (the Directory node) gives a menu of major topics. 
+  This (the Directory node) gives a menu of major topics.
 
 * Menu: The list of major topics begins on the next line.
 
@@ -607,7 +607,7 @@ further (recursive) error recovery.  TRYFILE is ??"
     (Info-find-file-node nil nodename no-going-back tryfile line))
    ;; Convert filename to lower case if not found as specified.
    ;; Expand it, look harder...
-   ((let (temp temp-downcase found 
+   ((let (temp temp-downcase found
 	       (fname (substitute-in-file-name filename)))
       (let ((dirs (cond
 		   ((string-match "^\\./" fname) ; If specified name starts with `./'
@@ -628,7 +628,7 @@ further (recursive) error recovery.  TRYFILE is ??"
 	  ;; Try downcasing, appending a suffix, or both.
 	  (setq found (Info-suffixed-file temp temp-downcase))
 	  (setq dirs (cdr dirs)))
-	(if found 
+	(if found
 	    (progn (setq filename (expand-file-name found))
 		   t))))
     (Info-find-file-node filename nodename no-going-back tryfile line))
@@ -870,7 +870,7 @@ actually get any text from."
 				       (if (string-match "localdir" file)
 					   "localdir"
 					 "info dir"))))
-		      (if (not buf) 
+		      (if (not buf)
 			  (insert-file-contents file))
 		      (if (string-match "localdir" (buffer-name))
 			  (setq lbuffers (cons (current-buffer) lbuffers))
@@ -881,13 +881,13 @@ actually get any text from."
 				      Info-dir-file-attributes)))))))
 	  (or (cdr dirs) (setq Info-dir-contents-directory (car dirs)))
 	  (setq dirs (cdr dirs))))
-      
+
       ;; ensure that the localdir files are inserted last, and reverse
       ;; the list of them so that when they get pushed in, they appear
       ;; in the same order they got specified in the path, from top to
       ;; bottom.
       (nconc buffers (reverse lbuffers))
-      
+
       (or buffers
 	  (error "Can't find the Info directory node"))
       ;; Distinguish the dir file that comes with Emacs from all the
@@ -956,7 +956,7 @@ actually get any text from."
 		  (setq end (point))
 		  (setq nodes (cons (list nodename other beg end) nodes))))))
 	  (setq others (cdr others))))
-      
+
       ;; Add to the main menu a menu item for each other node.
       (re-search-forward "^\\* Menu:" nil t)
       (forward-line 1)
@@ -1016,7 +1016,7 @@ actually get any text from."
     (if (not (find-buffer-visiting file))
 	(if (not (file-exists-p file))
 	    (if (or (eq Info-auto-generate-directory 'always)
-		    (eq Info-auto-generate-directory 'if-missing))	      
+		    (eq Info-auto-generate-directory 'if-missing))
 		(Info-build-dir-anew (file-name-directory file)))
 	  (if (or (eq Info-auto-generate-directory 'always)
 		  (and (eq Info-auto-generate-directory 'if-outdated)
@@ -1034,7 +1034,7 @@ directory has been modified more recently."
 	f-mod-time
 	newer)
     (setq Info-dir-newer-info-files nil)
-    (mapcar 
+    (mapcar
      #'(lambda (f)
 	 (prog2
 	     (setq f-mod-time (nth 5 (file-attributes f)))
@@ -1043,7 +1043,7 @@ directory has been modified more recently."
 				  (> (car (cdr f-mod-time)) (car (cdr dir-mod-time))))))
 	   (if (and (file-readable-p f)
 		    newer)
-	       (setq Info-dir-newer-info-files 
+	       (setq Info-dir-newer-info-files
 		     (cons f Info-dir-newer-info-files)))))
      (directory-files (file-name-directory file)
 		      'fullname
@@ -1082,12 +1082,12 @@ and `END-INFO-DIR-ENTRY'"
 			    (match-string 1)
 			    (downcase (or (match-string 3)
 					  (match-string 1)))))
-	  (setq entry 
-		(cons (nreverse 
-		       (cdr 
-			(nreverse 
-			 (split-string 
-			  (buffer-substring 
+	  (setq entry
+		(cons (nreverse
+		       (cdr
+			(nreverse
+			 (split-string
+			  (buffer-substring
 			   (re-search-forward "[ \t]*" nil t)
 			   (or (and (re-search-forward "^[^ \t]" nil t)
 				    (goto-char (match-beginning 0)))
@@ -1108,7 +1108,7 @@ and `END-INFO-DIR-ENTRY'"
 		(if (> len description-col)
 		    (setq description-col len)))
 	    entries)
-    (setq description-col (+ 5 description-col)) 
+    (setq description-col (+ 5 description-col))
     (mapcar #'(lambda (e)
 		(setq e (cdr e))	; Drop filename
 		(insert "* " (car e) ":" (car (cdr e)))
@@ -1123,7 +1123,7 @@ and `END-INFO-DIR-ENTRY'"
 
 (defun Info-build-dir-anew (directory)
   "Build info directory information for DIRECTORY.
-The generated directory listing may be saved to a `dir' according 
+The generated directory listing may be saved to a `dir' according
 to the value of `Info-save-auto-generated-dir'"
   (save-excursion
     (let* ((dirfile (expand-file-name "dir" directory))
@@ -1131,7 +1131,7 @@ to the value of `Info-save-auto-generated-dir'"
 			(eq Info-save-auto-generated-dir 'never)
 			(and (not (file-writable-p dirfile))
 			     (message "File not writable %s. Using temporary." dirfile))))
-	   (info-files 
+	   (info-files
 	    (directory-files directory
 			     'fullname
 			     ".*\\.info\\(.gz\\|.Z\\|-z\\|.zip\\)?$"
@@ -1145,13 +1145,13 @@ to the value of `Info-save-auto-generated-dir'"
       (erase-buffer)
       (insert Info-dir-prologue
 	      "Info files in " directory ":\n\n")
-      (Info-dump-dir-entries 
-       (mapcar 
+      (Info-dump-dir-entries
+       (mapcar
 	#'(lambda (f)
 	    (or (Info-extract-dir-entry-from f)
 		(list 'dummy
-		      (progn 
-			(string-match "\\(.*\\)\\.info\\(.gz\\|.Z\\|-z\\|.zip\\)?$" 
+		      (progn
+			(string-match "\\(.*\\)\\.info\\(.gz\\|.Z\\|-z\\|.zip\\)?$"
 				      (file-name-nondirectory f))
 			(capitalize (match-string 1 (file-name-nondirectory f))))
 		      ":"
@@ -1167,10 +1167,10 @@ to the value of `Info-save-auto-generated-dir'"
 
 (defun Info-rebuild-dir (file)
   "Build info directory information in the directory of dir FILE.
-Description of info files are merged from the info files in the 
+Description of info files are merged from the info files in the
 directory and the contents of FILE with the description in info files
-taking precedence over descriptions in FILE.  
-The generated directory listing may be saved to a `dir' according to 
+taking precedence over descriptions in FILE.
+The generated directory listing may be saved to a `dir' according to
 the value of `Info-save-auto-generated-dir' "
   (save-excursion
     (save-restriction
@@ -1179,7 +1179,7 @@ the value of `Info-save-auto-generated-dir' "
 	    file-dir-entry
 	    mark next-section
 	    not-first-section
-	    (to-temp 
+	    (to-temp
 	     (or (null Info-save-auto-generated-dir)
 		 (eq Info-save-auto-generated-dir 'never)
 		 (and (eq Info-save-auto-generated-dir 'always)
@@ -1188,8 +1188,8 @@ the value of `Info-save-auto-generated-dir' "
 		 (and (eq Info-save-auto-generated-dir 'conservative)
 		      (or (and (not (file-writable-p file))
 			       (message "File not writable %s. Using temporary." file))
-			  (not (y-or-n-p 
-				(message "%s is outdated. Overwrite ? " 
+			  (not (y-or-n-p
+				(message "%s is outdated. Overwrite ? "
 					 file))))))))
 	(set-buffer (find-file-noselect file t))
 	(setq buffer-read-only nil)
@@ -1232,12 +1232,12 @@ the value of `Info-save-auto-generated-dir' "
 		     (if file-dir-entry
 			 (setq dir-section-contents (cons file-dir-entry
 							  dir-section-contents))
-		       (setq dir-section-contents 
+		       (setq dir-section-contents
 			     (cons (list 'dummy
 					 (capitalize (file-name-sans-extension
 						      (file-name-nondirectory file)))
 					 ":"
-					 (list Info-no-description-string)) 
+					 (list Info-no-description-string))
 				   dir-section-contents))))))
 	     Info-dir-newer-info-files)
 	    (delete-region (point-min) (point-max))
@@ -1259,7 +1259,7 @@ the value of `Info-save-auto-generated-dir' "
 	  (save-buffer)
 	  (message "Rebuilding %s...done" file))))))
 
-;;;###autoload      
+;;;###autoload
 (defun Info-batch-rebuild-dir ()
   "(Re)build info `dir' files in the directories remaining on the command line.
 Use this from the command line, with `-batch';
@@ -1279,7 +1279,7 @@ For example, invoke \"xemacs -batch -f Info-batch-rebuild-dir /usr/local/info\""
 		   (car command-line-args-left))
 	(setq dir (expand-file-name "dir" (car command-line-args-left)))
 	(setq localdir (expand-file-name "localdir" (car command-line-args-left)))
-	(cond 
+	(cond
 	 ((file-exists-p dir)
 	  (Info-rebuild-dir dir))
 	 ((file-exists-p localdir)
@@ -1587,7 +1587,7 @@ annotation for any node of any file.  (See `a' and `x' commands.)"
 		  (forward-line 1)
 		  (if (re-search-backward "Node: *\\([^,\n]*\\) *[,\n\t]"
 					  beg t)
-		      (setq compl 
+		      (setq compl
 			    (cons (list (buffer-substring (match-beginning 1)
 							  (match-end 1)))
 				  compl))))))))
@@ -1667,7 +1667,7 @@ annotation for any node of any file.  (See `a' and `x' commands.)"
           (Info-history-add ofile onode opoint)))))
 
 ;; Extract the value of the node-pointer named NAME.
-;; If there is none, use ERRORNAME in the error message; 
+;; If there is none, use ERRORNAME in the error message;
 ;; if ERRORNAME is nil, just return nil.
 (defun Info-extract-pointer (name &optional errorname)
   (save-excursion
@@ -1943,7 +1943,7 @@ Completion is allowed, and the menu item point is on is the default."
   ;; there is a problem here in that if several menu items have the same
   ;; name you can only go to the node of the first with this command.
   (Info-goto-node (Info-extract-menu-item menu-item) nil t))
-  
+
 (defun Info-extract-menu-item (menu-item &optional noerror)
   (save-excursion
     (goto-char (point-min))
@@ -2292,7 +2292,7 @@ This command is designed to be used whether you are already in Info or not."
   "Look up an Emacs Lisp function in the Elisp manual in the Info system.
 This command is designed to be used whether you are already in Info or not."
   (interactive (let ((fn (function-at-point))
-		     (enable-recursive-minibuffers t)	     
+		     (enable-recursive-minibuffers t)
 		     val)
 		 (setq val (completing-read
 			    (format "Look up Emacs Lisp function%s: "
@@ -2999,7 +2999,7 @@ Adds an entry for the node at EVENT, or under point if EVENT is omitted.
 Used to construct the menubar submenu and popup menu."
   (or event (setq event (point)))
   (let ((case-fold-search t)
-	(xref-regexp (concat "\\*" 
+	(xref-regexp (concat "\\*"
 			     (regexp-quote Info-footnote-tag)
 			     "[ \n\t]*\\([^:]*\\):"))
 	up-p prev-p next-p menu xrefs subnodes in)

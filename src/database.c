@@ -53,7 +53,7 @@ typedef uint64_t u_int64_t;
 #endif /* WE_DONT_NEED_QUADS */
 #endif /* HAVE_INTTYPES_H */
 #endif /* !(defined __GLIBC__ && __GLIBC_MINOR__ >= 1) */
-#include DB_H_PATH              /* Berkeley db's header file */
+#include DB_H_FILE              /* Berkeley db's header file */
 #ifndef DB_VERSION_MAJOR
 # define DB_VERSION_MAJOR 1
 #endif /* DB_VERSION_MAJOR */
@@ -759,6 +759,8 @@ each key and value in the database.
 void
 syms_of_database (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (database);
+
   defsymbol (&Qdatabasep, "databasep");
 #ifdef HAVE_DBM
   defsymbol (&Qdbm, "dbm");

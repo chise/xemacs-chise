@@ -42,10 +42,6 @@ NOTE-END  */
 # endif
 #endif
 
-/* XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 /* Mask for address bits within a memory segment */
 
 #define SEGMENT_MASK (SEGSIZ - 1)

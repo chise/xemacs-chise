@@ -37,17 +37,6 @@ Boston, MA 02111-1307, USA.  */
 #include "keymap.h" /* for key_desc_list_to_event() */
 #include "redisplay.h"
 #include "window.h"
-
-#ifdef WINDOWSNT
-/* Hmm, under unix we want X modifiers, under NT we want X modifiers if
-   we are running X and Windows modifiers otherwise.
-   gak. This is a kludge until we support multiple native GUIs!
-*/
-#undef MOD_ALT
-#undef MOD_CONTROL
-#undef MOD_SHIFT
-#endif
-
 #include "events-mod.h"
 
 /* Where old events go when they are explicitly deallocated.
@@ -87,7 +76,7 @@ deinitialize_event (Lisp_Object ev)
     ((int *) event) [i] = 0xdeadbeef;
   event->event_type = dead_event;
   event->channel = Qnil;
-  set_lheader_implementation (&(event->lheader), &lrecord_event);
+  set_lheader_implementation (&event->lheader, &lrecord_event);
   XSET_EVENT_NEXT (ev, Qnil);
 }
 
@@ -96,7 +85,7 @@ void
 zero_event (Lisp_Event *e)
 {
   xzero (*e);
-  set_lheader_implementation (&(e->lheader), &lrecord_event);
+  set_lheader_implementation (&e->lheader, &lrecord_event);
   e->event_type = empty_event;
   e->next = Qnil;
   e->channel = Qnil;
@@ -142,7 +131,7 @@ mark_event (Lisp_Object obj)
 }
 
 static void
-print_event_1 (CONST char *str, Lisp_Object obj, Lisp_Object printcharfun)
+print_event_1 (const char *str, Lisp_Object obj, Lisp_Object printcharfun)
 {
   char buf[255];
   write_c_string (str, printcharfun);
@@ -551,13 +540,13 @@ WARNING: the event object returned may be a reused one; see the function
 
 	  EXTERNAL_LIST_LOOP_2 (sym, value)
 	    {
-	      if      (EQ (sym, Qcontrol)) modifiers |= MOD_CONTROL;
-	      else if (EQ (sym, Qmeta))    modifiers |= MOD_META;
-	      else if (EQ (sym, Qsuper))   modifiers |= MOD_SUPER;
-	      else if (EQ (sym, Qhyper))   modifiers |= MOD_HYPER;
-	      else if (EQ (sym, Qalt))     modifiers |= MOD_ALT;
-	      else if (EQ (sym, Qsymbol))  modifiers |= MOD_ALT;
-	      else if (EQ (sym, Qshift))   modifiers |= MOD_SHIFT;
+	      if      (EQ (sym, Qcontrol)) modifiers |= XEMACS_MOD_CONTROL;
+	      else if (EQ (sym, Qmeta))    modifiers |= XEMACS_MOD_META;
+	      else if (EQ (sym, Qsuper))   modifiers |= XEMACS_MOD_SUPER;
+	      else if (EQ (sym, Qhyper))   modifiers |= XEMACS_MOD_HYPER;
+	      else if (EQ (sym, Qalt))     modifiers |= XEMACS_MOD_ALT;
+	      else if (EQ (sym, Qsymbol))  modifiers |= XEMACS_MOD_ALT;
+	      else if (EQ (sym, Qshift))   modifiers |= XEMACS_MOD_SHIFT;
 	      else
 		signal_simple_error ("Invalid key modifier", sym);
 	    }
@@ -977,7 +966,7 @@ character_to_event (Emchar c, Lisp_Event *event, struct console *con,
 		    int use_console_meta_flag, int do_backspace_mapping)
 {
   Lisp_Object k = Qnil;
-  unsigned int m = 0;
+  int m = 0;
   if (event->event_type == dead_event)
     error ("character-to-event called with a deallocated event!");
 
@@ -996,21 +985,21 @@ character_to_event (Emchar c, Lisp_Event *event, struct console *con,
 	  break;
 	case 1: /* top bit is meta */
 	  c -= 128;
-	  m = MOD_META;
+	  m = XEMACS_MOD_META;
 	  break;
 	default: /* this is a real character */
 	  break;
 	}
     }
-  if (c < ' ') c += '@', m |= MOD_CONTROL;
-  if (m & MOD_CONTROL)
+  if (c < ' ') c += '@', m |= XEMACS_MOD_CONTROL;
+  if (m & XEMACS_MOD_CONTROL)
     {
       switch (c)
 	{
-	case 'I': k = QKtab;	  m &= ~MOD_CONTROL; break;
-	case 'J': k = QKlinefeed; m &= ~MOD_CONTROL; break;
-	case 'M': k = QKreturn;	  m &= ~MOD_CONTROL; break;
-	case '[': k = QKescape;	  m &= ~MOD_CONTROL; break;
+	case 'I': k = QKtab;	  m &= ~XEMACS_MOD_CONTROL; break;
+	case 'J': k = QKlinefeed; m &= ~XEMACS_MOD_CONTROL; break;
+	case 'M': k = QKreturn;	  m &= ~XEMACS_MOD_CONTROL; break;
+	case '[': k = QKescape;	  m &= ~XEMACS_MOD_CONTROL; break;
 	default:
 #if defined(HAVE_TTY)
 	  if (do_backspace_mapping &&
@@ -1018,7 +1007,7 @@ character_to_event (Emchar c, Lisp_Event *event, struct console *con,
 	      c - '@' == XCHAR (con->tty_erase_char))
 	    {
 	      k = QKbackspace;
-	      m &= ~MOD_CONTROL;
+	      m &= ~XEMACS_MOD_CONTROL;
 	    }
 #endif /* defined(HAVE_TTY) && !defined(__CYGWIN32__) */
 	  break;
@@ -1067,7 +1056,7 @@ event_to_character (Lisp_Event *event,
       return -1;
     }
   if (!allow_extra_modifiers &&
-      event->event.key.modifiers & (MOD_SUPER|MOD_HYPER|MOD_ALT))
+      event->event.key.modifiers & (XEMACS_MOD_SUPER|XEMACS_MOD_HYPER|XEMACS_MOD_ALT))
     return -1;
   if (CHAR_OR_CHAR_INTP (event->event.key.keysym))
     c = XCHAR_OR_CHAR_INT (event->event.key.keysym);
@@ -1086,7 +1075,7 @@ event_to_character (Lisp_Event *event,
   else
     return -1;
 
-  if (event->event.key.modifiers & MOD_CONTROL)
+  if (event->event.key.modifiers & XEMACS_MOD_CONTROL)
     {
       if (c >= 'a' && c <= 'z')
 	c -= ('a' - 'A');
@@ -1104,7 +1093,7 @@ event_to_character (Lisp_Event *event,
 	if (! allow_extra_modifiers) return -1;
     }
 
-  if (event->event.key.modifiers & MOD_META)
+  if (event->event.key.modifiers & XEMACS_MOD_META)
     {
       if (! allow_meta) return -1;
       if (c & 0200) return -1;		/* don't allow M-oslash (overlap) */
@@ -1244,13 +1233,13 @@ format_event_object (char *buf, Lisp_Event *event, int brief)
         key = event->event.key.keysym;
         /* Hack. */
         if (! brief && CHARP (key) &&
-            mod & (MOD_CONTROL | MOD_META | MOD_SUPER | MOD_HYPER))
+            mod & (XEMACS_MOD_CONTROL | XEMACS_MOD_META | XEMACS_MOD_SUPER | XEMACS_MOD_HYPER))
 	{
 	  int k = XCHAR (key);
 	  if (k >= 'a' && k <= 'z')
 	    key = make_char (k - ('a' - 'A'));
 	  else if (k >= 'A' && k <= 'Z')
-	    mod |= MOD_SHIFT;
+	    mod |= XEMACS_MOD_SHIFT;
 	}
         break;
       }
@@ -1266,7 +1255,7 @@ format_event_object (char *buf, Lisp_Event *event, int brief)
       }
     case magic_event:
       {
-        CONST char *name = NULL;
+        const char *name = NULL;
 
 #ifdef HAVE_X_WINDOWS
 	{
@@ -1292,12 +1281,12 @@ format_event_object (char *buf, Lisp_Event *event, int brief)
     }
 #define modprint1(x)  do { strcpy (buf, (x)); buf += sizeof (x)-1; } while (0)
 #define modprint(x,y) do { if (brief) modprint1 (y); else modprint1 (x); } while (0)
-  if (mod & MOD_CONTROL) modprint ("control-", "C-");
-  if (mod & MOD_META)    modprint ("meta-",    "M-");
-  if (mod & MOD_SUPER)   modprint ("super-",   "S-");
-  if (mod & MOD_HYPER)   modprint ("hyper-",   "H-");
-  if (mod & MOD_ALT)	 modprint ("alt-",     "A-");
-  if (mod & MOD_SHIFT)   modprint ("shift-",   "Sh-");
+  if (mod & XEMACS_MOD_CONTROL) modprint ("control-", "C-");
+  if (mod & XEMACS_MOD_META)    modprint ("meta-",    "M-");
+  if (mod & XEMACS_MOD_SUPER)   modprint ("super-",   "S-");
+  if (mod & XEMACS_MOD_HYPER)   modprint ("hyper-",   "H-");
+  if (mod & XEMACS_MOD_ALT)	modprint ("alt-",     "A-");
+  if (mod & XEMACS_MOD_SHIFT)   modprint ("shift-",   "Sh-");
   if (mouse_p)
     {
       modprint1 ("button");
@@ -1314,7 +1303,7 @@ format_event_object (char *buf, Lisp_Event *event, int brief)
     }
   else if (SYMBOLP (key))
     {
-      CONST char *str = 0;
+      const char *str = 0;
       if (brief)
 	{
 	  if      (EQ (key, QKlinefeed))  str = "LFD";
@@ -1554,12 +1543,12 @@ See also the function event-modifier-bits.
 {
   int mod = XINT (Fevent_modifier_bits (event));
   Lisp_Object result = Qnil;
-  if (mod & MOD_SHIFT)   result = Fcons (Qshift, result);
-  if (mod & MOD_ALT)	 result = Fcons (Qalt, result);
-  if (mod & MOD_HYPER)   result = Fcons (Qhyper, result);
-  if (mod & MOD_SUPER)   result = Fcons (Qsuper, result);
-  if (mod & MOD_META)    result = Fcons (Qmeta, result);
-  if (mod & MOD_CONTROL) result = Fcons (Qcontrol, result);
+  if (mod & XEMACS_MOD_SHIFT)   result = Fcons (Qshift, result);
+  if (mod & XEMACS_MOD_ALT)	result = Fcons (Qalt, result);
+  if (mod & XEMACS_MOD_HYPER)   result = Fcons (Qhyper, result);
+  if (mod & XEMACS_MOD_SUPER)   result = Fcons (Qsuper, result);
+  if (mod & XEMACS_MOD_META)    result = Fcons (Qmeta, result);
+  if (mod & XEMACS_MOD_CONTROL) result = Fcons (Qcontrol, result);
   return result;
 }
 
@@ -2188,6 +2177,8 @@ This is in the form of a property list (alternating keyword/value pairs).
 void
 syms_of_events (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (event);
+
   DEFSUBR (Fcharacter_to_event);
   DEFSUBR (Fevent_to_character);
 

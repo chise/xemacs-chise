@@ -24,10 +24,6 @@ Boston, MA 02111-1307, USA.  */
    operating system this machine is likely to run.
    USUAL-OPSYS="bsd4-2"  */
 
-/* XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 /* Say this machine is a 68000 */
 
 #define m68000

@@ -32,7 +32,6 @@
 #define UNUSED(x) ((void)(x))
 #else
 #define UNUSED(x)
-#define __inline__
 #endif
 
 /* Maintain global variable for keeping parser state information; this struct
@@ -114,7 +113,7 @@ static size_t parsevoc(void **data,size_t *sz,void **outbuf)
    this might require re-partioning of the data segments if headers cross the
    boundaries between two read operations. This is done in a two-step way:
    first we request a certain amount of bytes... */
-static __inline__ int waverequire(void **data,size_t *sz,size_t rq)
+static inline int waverequire(void **data,size_t *sz,size_t rq)
 {
   int rc = 1;
 
@@ -135,7 +134,7 @@ static __inline__ int waverequire(void **data,size_t *sz,size_t rq)
 }
 
 /* ...and next we remove this many bytes from the buffer */
-static __inline__ void waveremove(size_t rq)
+static inline void waveremove(size_t rq)
 {
   if (parsestate.wave.left <= rq)
     parsestate.wave.left = 0;
@@ -431,7 +430,7 @@ size_t sndcnv2unsigned(void **data,size_t *sz,void **outbuf)
 
 /* Convert a number in the range -32768..32767 to an 8 bit ulaw encoded
    number --- I hope, I got this conversion right :-) */
-static __inline__ signed char int2ulaw(int i)
+static inline signed char int2ulaw(int i)
 {
     /* Lookup table for fast calculation of number of bits that need shifting*/
     static short int t_bits[128] = {

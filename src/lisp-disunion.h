@@ -103,7 +103,7 @@ typedef EMACS_INT Lisp_Object;
 #define VOID_TO_LISP(larg,varg) ((void) ((larg) = ((Lisp_Object) (varg))))
 #define CVOID_TO_LISP VOID_TO_LISP
 #define LISP_TO_VOID(larg) ((void *) (larg))
-#define LISP_TO_CVOID(varg) ((CONST void *) (larg))
+#define LISP_TO_CVOID(varg) ((const void *) (larg))
 
 /* Convert a Lisp_Object into something that can't be used as an
    lvalue.  Useful for type-checking. */

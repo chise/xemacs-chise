@@ -67,7 +67,7 @@ Lisp_Object Vprocess_environment;
 volatile int synch_process_alive;
 
 /* Nonzero => this is a string explaining death of synchronous subprocess.  */
-CONST char *synch_process_death;
+const char *synch_process_death;
 
 /* If synch_process_death is zero,
    this is exit code of synchronous subprocess.  */
@@ -152,7 +152,7 @@ report_fork_error (char *string, Lisp_Object data)
 }
 #endif /* unused */
 
-DEFUN ("call-process-internal", Fcall_process_internal, 1, MANY, 0, /*
+DEFUN ("old-call-process-internal", Fold_call_process_internal, 1, MANY, 0, /*
 Call PROGRAM synchronously in separate process, with coding-system specified.
 Arguments are
  (PROGRAM &optional INFILE BUFFER DISPLAY &rest ARGS).
@@ -348,7 +348,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
       fd_error = open (NULL_DEVICE, O_WRONLY | OPEN_BINARY);
     else if (STRINGP (error_file))
       {
-	fd_error = open ((CONST char *) XSTRING_DATA (error_file),
+	fd_error = open ((const char *) XSTRING_DATA (error_file),
 #ifdef DOS_NT
 			 O_WRONLY | O_TRUNC | O_CREAT | O_TEXT,
 			 S_IREAD | S_IWRITE
@@ -608,7 +608,7 @@ int
 void
 #endif
 child_setup (int in, int out, int err, char **new_argv,
-	     CONST char *current_dir)
+	     const char *current_dir)
 {
   char **env;
   char *pwd;
@@ -763,8 +763,8 @@ child_setup (int in, int out, int err, char **new_argv,
 
 #ifdef WINDOWSNT
   /* Spawn the child.  (See ntproc.c:Spawnve).  */
-  cpid = spawnve (_P_NOWAIT, new_argv[0], (CONST char* CONST*)new_argv,
-		  (CONST char* CONST*)env);
+  cpid = spawnve (_P_NOWAIT, new_argv[0], (const char* const*)new_argv,
+		  (const char* const*)env);
   if (cpid == -1)
     /* An error occurred while trying to spawn the process.  */
     report_file_error ("Spawning child process", Qnil);
@@ -783,7 +783,7 @@ child_setup (int in, int out, int err, char **new_argv,
 }
 
 static int
-getenv_internal (CONST Bufbyte *var,
+getenv_internal (const Bufbyte *var,
 		 Bytecount varlen,
 		 Bufbyte **value,
 		 Bytecount *valuelen)
@@ -846,12 +846,12 @@ When invoked interactively, prints the value in the echo area.
 /* A version of getenv that consults process_environment, easily
    callable from C.  */
 char *
-egetenv (CONST char *var)
+egetenv (const char *var)
 {
   Bufbyte *value;
   Bytecount valuelen;
 
-  if (getenv_internal ((CONST Bufbyte *) var, strlen (var), &value, &valuelen))
+  if (getenv_internal ((const Bufbyte *) var, strlen (var), &value, &valuelen))
     return (char *) value;
   else
     return 0;
@@ -876,10 +876,10 @@ init_callproc (void)
   {
     /* Initialize shell-file-name from environment variables or best guess. */
 #ifdef WINDOWSNT
-    CONST char *shell = egetenv ("COMSPEC");
+    const char *shell = egetenv ("COMSPEC");
     if (!shell) shell = "\\WINNT\\system32\\cmd.exe";
 #else /* not WINDOWSNT */
-    CONST char *shell = egetenv ("SHELL");
+    const char *shell = egetenv ("SHELL");
     if (!shell) shell = "/bin/sh";
 #endif
 
@@ -906,7 +906,7 @@ set_process_environment (void)
 void
 syms_of_callproc (void)
 {
-  DEFSUBR (Fcall_process_internal);
+  DEFSUBR (Fold_call_process_internal);
   DEFSUBR (Fgetenv);
 }
 

@@ -30,7 +30,7 @@ typedef
 union Lisp_Object
 {
   /* if non-valbits are at lower addresses */
-#if defined(WORDS_BIGENDIAN)
+#ifdef WORDS_BIGENDIAN
   struct
   {
     EMACS_UINT val : VALBITS;
@@ -76,7 +76,7 @@ union Lisp_Object
      GCC to accept any (yes, any) pointer as the argument of
      a function declared to accept a Lisp_Object. */
   struct nosuchstruct *v;
-  CONST struct nosuchstruct *cv;
+  const struct nosuchstruct *cv;
 }
 Lisp_Object;
 
@@ -100,8 +100,8 @@ Lisp_Object;
 } while (0)
 # define XPNTRVAL(x) ((x).ui)
 
-INLINE Lisp_Object make_int (EMACS_INT val);
-INLINE Lisp_Object
+INLINE_HEADER Lisp_Object make_int (EMACS_INT val);
+INLINE_HEADER Lisp_Object
 make_int (EMACS_INT val)
 {
   Lisp_Object obj;
@@ -109,8 +109,8 @@ make_int (EMACS_INT val)
   return obj;
 }
 
-INLINE Lisp_Object make_char (Emchar val);
-INLINE Lisp_Object
+INLINE_HEADER Lisp_Object make_char (Emchar val);
+INLINE_HEADER Lisp_Object
 make_char (Emchar val)
 {
   Lisp_Object obj;
@@ -136,9 +136,9 @@ extern Lisp_Object Qnull_pointer, Qzero;
 #define VOID_TO_LISP(larg,varg) \
      ((void) ((larg).v = (struct nosuchstruct *) (varg)))
 #define CVOID_TO_LISP(larg,varg) \
-     ((void) ((larg).cv = (CONST struct nosuchstruct *) (varg)))
+     ((void) ((larg).cv = (const struct nosuchstruct *) (varg)))
 #define LISP_TO_VOID(larg) ((void *) ((larg).v))
-#define LISP_TO_CVOID(larg) ((CONST void *) ((larg).cv))
+#define LISP_TO_CVOID(larg) ((const void *) ((larg).cv))
 
 /* Convert a Lisp_Object into something that can't be used as an
    lvalue.  Useful for type-checking. */

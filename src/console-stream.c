@@ -171,7 +171,7 @@ stream_init_frame_1 (struct frame *f, Lisp_Object props)
 
 static int
 stream_text_width (struct frame *f, struct face_cachel *cachel,
-		   CONST Emchar *str, Charcount len)
+		   const Emchar *str, Charcount len)
 {
   return len;
 }
@@ -328,7 +328,7 @@ The initial frame-object, which represents XEmacs' stdout.
 
 #ifndef PDUMP
 void
-init_console_stream (void)
+init_console_stream (int reinit)
 {
   /* This function can GC */
   if (!initialized)
@@ -350,13 +350,16 @@ init_console_stream (void)
 #else
 
 void
-init_console_stream (void)
+init_console_stream (int reinit)
 {
   /* This function can GC */
-  Vterminal_device = Fmake_device (Qstream, Qnil, Qnil);
-  Vterminal_console = Fdevice_console (Vterminal_device);
-  Vterminal_frame = Fmake_frame (Qnil, Vterminal_device);
-  minibuf_window = XFRAME (Vterminal_frame)->minibuffer_window;
+  if (!reinit)
+    {
+      Vterminal_device = Fmake_device (Qstream, Qnil, Qnil);
+      Vterminal_console = Fdevice_console (Vterminal_device);
+      Vterminal_frame = Fmake_frame (Qnil, Vterminal_device);
+      minibuf_window = XFRAME (Vterminal_frame)->minibuffer_window;
+    }
   if (initialized)
     {
       stream_init_console (XCONSOLE (Vterminal_console), Qnil);

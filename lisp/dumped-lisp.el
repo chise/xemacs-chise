@@ -86,6 +86,7 @@
 	"itimer"		; for vars auto-save-timeout and
 				; auto-gc-threshold
 	"itimer-autosave"
+	"printer"
 	(when-feature toolbar "toolbar")
 	(when-feature scrollbar "scrollbar")
 	(when-feature menubar "menubar")
@@ -458,16 +459,17 @@
 ;; Moved to sunpro-load.el - the default only for Sun.
 ;;(pureload "mime-setup")
 ;;; mule-load.el ends here
+	(when-feature (and gutter window-system) "gutter")
 	(when-feature window-system "gui")
 	(when-feature window-system "mode-motion")
 	(when-feature window-system "mouse")
-	(when-feature window-system "select")
+	"select"
 	(when-feature dragdrop-api "dragdrop")
 ;; preload the X code, for faster startup.
 	(when-feature (and (not infodock)
 			   (or x mswindows) menubar) "menubar-items")
 	(when-feature (and infodock (or x mswindows) menubar) "id-menus")
-	(when-feature (and gutter menubar window-system) "gutter-items")
+	(when-feature (and gutter window-system) "gutter-items")
 	(when-feature x "x-faces")
 	(when-feature x "x-iso8859-1")
 	(when-feature x "x-mouse")

@@ -50,6 +50,625 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Extent Properties,  Next: Detached Extents,  Prev: Mapping Over Extents,  Up: Extents
+
+Properties of Extents
+=====================
+
+   Each extent has a property list associating property names with
+values.  Some property names have predefined meanings, and can usually
+only assume particular values.  Assigning other values to such a
+property either cause the value to be converted into a legal value
+(e.g., assigning anything but `nil' to a Boolean property will cause
+the value of `t' to be assigned to the property) or will cause an
+error.  Property names without predefined meanings can be assigned any
+value.  An undefined property is equivalent to a property with a value
+of `nil', or with a particular default value in the case of properties
+with predefined meanings.  Note that, when an extent is created, the
+`end-open' and `detachable' properties are set on it.
+
+   If an extent has a parent, all of its properties actually derive
+from that parent (or from the root ancestor if the parent in turn has a
+parent), and setting a property of the extent actually sets that
+property on the parent.  *Note Extent Parents::.
+
+ - Function: extent-property extent property
+     This function returns the value of PROPERTY in EXTENT.  If
+     PROPERTY is undefined, `nil' is returned.
+
+ - Function: extent-properties extent
+     This function returns a list of all of EXTENT's properties that do
+     not have the value of `nil' (or the default value, for properties
+     with predefined meanings).
+
+ - Function: set-extent-property extent property value
+     This function sets PROPERTY to VALUE in EXTENT. (If PROPERTY has a
+     predefined meaning, only certain values are allowed, and some
+     values may be converted to others before being stored.)
+
+ - Function: set-extent-properties extent plist
+     Change some properties of EXTENT.  PLIST is a property list.  This
+     is useful to change many extent properties at once.
+
+   The following table lists the properties with predefined meanings,
+along with their allowable values.
+
+`detached'
+     (Boolean) Whether the extent is detached.   Setting this is the
+     same as calling `detach-extent'.  *Note Detached Extents::.
+
+`destroyed'
+     (Boolean) Whether the extent has been deleted.  Setting this is
+     the same as calling `delete-extent'.
+
+`priority'
+     (integer) The extent's redisplay priority.  Defaults to 0.  *Note
+     priority: Intro to Extents.  This property can also be set with
+     `set-extent-priority' and accessed with `extent-priority'.
+
+`start-open'
+     (Boolean) Whether the start position of the extent is open,
+     meaning that characters inserted at that position go outside of
+     the extent.  *Note Extent Endpoints::.
+
+`start-closed'
+     (Boolean) Same as `start-open' but with the opposite sense.
+     Setting this property clears `start-open' and vice-versa.
+
+`end-open'
+     (Boolean) Whether the end position of the extent is open, meaning
+     that characters inserted at that position go outside of the
+     extent.  This is `t' by default.  *Note Extent Endpoints::.
+
+`end-closed'
+     (Boolean) Same as `end-open' but with the opposite sense.  Setting
+     this property clears `end-open' and vice-versa.
+
+`read-only'
+     (Boolean) Whether text within this extent will be unmodifiable.
+
+`face'
+     (face, face name, list of faces or face names, or `nil') The face
+     in which to display the extent's text.  This property can also be
+     set with `set-extent-face' and accessed with `extent-face'.  Note
+     that if a list of faces is specified, the faces are merged
+     together, with faces earlier in the list having priority over
+     faces later in the list.
+
+`mouse-face'
+     (face, face name, list of faces or face names, or `nil') The face
+     used to display the extent when the mouse moves over it.  This
+     property can also be set with `set-extent-mouse-face' and accessed
+     with `extent-mouse-face'.  Note that if a list of faces is
+     specified, the faces are merged together, with faces earlier in
+     the list having priority over faces later in the list.  *Note
+     Extents and Events::.
+
+`pointer'
+     (pointer glyph)  The glyph used as the pointer when the mouse
+     moves over the extent.  This takes precedence over the
+     `text-pointer-glyph' and `nontext-pointer-glyph' variables.  If
+     for any reason this glyph is an invalid pointer, the standard
+     glyphs will be used as fallbacks.  *Note Mouse Pointer::.
+
+`detachable'
+     (Boolean) Whether this extent becomes detached when all of the
+     text it covers is deleted.  This is `t' by default.  *Note
+     Detached Extents::.
+
+`duplicable'
+     (Boolean) Whether this extent should be copied into strings, so
+     that kill, yank, and undo commands will restore or copy it.  *Note
+     Duplicable Extents::.
+
+`unique'
+     (Boolean) Meaningful only in conjunction with `duplicable'.  When
+     this is set, there may be only one instance of this extent
+     attached at a time.  *Note Duplicable Extents::.
+
+`invisible'
+     (Boolean) If `t', text under this extent will not be displayed -
+     it will look as if the text is not there at all.
+
+`keymap'
+     (keymap or `nil') This keymap is consulted for mouse clicks on this
+     extent or keypresses made while `point' is within the extent.
+     *Note Extents and Events::.
+
+`copy-function'
+     This is a hook that is run when a duplicable extent is about to be
+     copied from a buffer to a string (or the kill ring).  *Note
+     Duplicable Extents::.
+
+`paste-function'
+     This is a hook that is run when a duplicable extent is about to be
+     copied from a string (or the kill ring) into a buffer.  *Note
+     Duplicable Extents::.
+
+`begin-glyph'
+     (glyph or `nil') This extent's begin glyph.  *Note Annotations::.
+
+`end-glyph'
+     (glyph or `nil') This extent's end glyph.  *Note Annotations::.
+
+`begin-glyph-layout'
+     (`text', `whitespace', `inside-margin', or `outside-margin') The
+     layout policy for this extent's begin glyph.  Defaults to `text'.
+     *Note Annotations::.
+
+`end-glyph-layout'
+     (`text', `whitespace', `inside-margin', or `outside-margin') The
+     layout policy for this extent's end glyph.  Defaults to `text'.
+     *Note Annotations::.
+
+`initial-redisplay-function'
+     (any funcallable object) The function to be called the first time
+     (a part of) the extent is redisplayed.  It will be called with the
+     extent as its argument.
+
+     This is used by `lazy-shot' to implement lazy font-locking.  The
+     functionality is still experimental, and may change without further
+     notice.
+
+   The following convenience functions are provided for accessing
+particular properties of an extent.
+
+ - Function: extent-face extent
+     This function returns the `face' property of EXTENT.  This might
+     also return a list of face names.  Do not modify this list
+     directly!  Instead, use `set-extent-face'.
+
+     Note that you can use `eq' to compare lists of faces as returned
+     by `extent-face'.  In other words, if you set the face of two
+     different extents to two lists that are `equal' but not `eq', then
+     the return value of `extent-face' on the two extents will return
+     the identical list.
+
+ - Function: extent-mouse-face extent
+     This function returns the `mouse-face' property of EXTENT.  This
+     might also return a list of face names.  Do not modify this list
+     directly!  Instead, use `set-extent-mouse-face'.
+
+     Note that you can use `eq' to compare lists of faces as returned
+     by `extent-mouse-face', just like for `extent-face'.
+
+ - Function: extent-priority extent
+     This function returns the `priority' property of EXTENT.
+
+ - Function: extent-keymap extent
+     This function returns the `keymap' property of EXTENT.
+
+ - Function: extent-begin-glyph-layout extent
+     This function returns the `begin-glyph-layout' property of EXTENT,
+     i.e. the layout policy associated with the EXTENT's begin glyph.
+
+ - Function: extent-end-glyph-layout extent
+     This function returns the `end-glyph-layout' property of EXTENT,
+     i.e. the layout policy associated with the EXTENT's end glyph.
+
+ - Function: extent-begin-glyph extent
+     This function returns the `begin-glyph' property of EXTENT, i.e.
+     the glyph object displayed at the beginning of EXTENT.  If there
+     is none, `nil' is returned.
+
+ - Function: extent-end-glyph extent
+     This function returns the `end-glyph' property of EXTENT, i.e. the
+     glyph object displayed at the end of EXTENT.  If there is none,
+     `nil' is returned.
+
+   The following convenience functions are provided for setting
+particular properties of an extent.
+
+ - Function: set-extent-priority extent pri
+     This function sets the `priority' property of EXTENT to PRI.
+
+ - Function: set-extent-face extent face
+     This function sets the `face' property of EXTENT to FACE.
+
+ - Function: set-extent-mouse-face extent face
+     This function sets the `mouse-face' property of EXTENT to FACE.
+
+ - Function: set-extent-keymap extent keymap
+     This function sets the `keymap' property of EXTENT to KEYMAP.
+     KEYMAP must be either a keymap object, or `nil'.
+
+ - Function: set-extent-begin-glyph-layout extent layout
+     This function sets the `begin-glyph-layout' property of EXTENT to
+     LAYOUT.
+
+ - Function: set-extent-end-glyph-layout extent layout
+     This function sets the `end-glyph-layout' property of EXTENT to
+     LAYOUT.
+
+ - Function: set-extent-begin-glyph extent begin-glyph &optional layout
+     This function sets the `begin-glyph' and `glyph-layout' properties
+     of EXTENT to BEGIN-GLYPH and LAYOUT, respectively. (LAYOUT
+     defaults to `text' if not specified.)
+
+ - Function: set-extent-end-glyph extent end-glyph &optional layout
+     This function sets the `end-glyph' and `glyph-layout' properties
+     of EXTENT to END-GLYPH and LAYOUT, respectively. (LAYOUT defaults
+     to `text' if not specified.)
+
+ - Function: set-extent-initial-redisplay-function extent function
+     This function sets the `initial-redisplay-function' property of the
+     extent to FUNCTION.
+
+
+File: lispref.info,  Node: Detached Extents,  Next: Extent Parents,  Prev: Extent Properties,  Up: Extents
+
+Detached Extents
+================
+
+   A detached extent is an extent that is not attached to a buffer or
+string but can be re-inserted.  Detached extents have a start position
+and end position of `nil'.  Extents can be explicitly detached using
+`detach-extent'.  An extent is also detached when all of its characters
+are all killed by a deletion, if its `detachable' property is set; if
+this property is not set, the extent becomes a zero-length extent.
+(Zero-length extents with the `detachable' property set behave
+specially.  *Note zero-length extents: Extent Endpoints.)
+
+ - Function: detach-extent extent
+     This function detaches EXTENT from its buffer or string.  If
+     EXTENT has the `duplicable' property, its detachment is tracked by
+     the undo mechanism.  *Note Duplicable Extents::.
+
+ - Function: extent-detached-p extent
+     This function returns `nil' if EXTENT is detached, and `t'
+     otherwise.
+
+ - Function: copy-extent extent &optional object
+     This function makes a copy of EXTENT.  It is initially detached.
+     Optional argument OBJECT defaults to EXTENT's object (normally a
+     buffer or string, but could be `nil').
+
+ - Function: insert-extent extent &optional start end no-hooks object
+     This function inserts EXTENT from START to END in OBJECT (a buffer
+     or string).  If EXTENT is detached from a different buffer or
+     string, or in most cases when EXTENT is already attached, the
+     extent will first be copied as if with `copy-extent'.  This
+     function operates the same as if `insert' were called on a string
+     whose extent data calls for EXTENT to be inserted, except that if
+     NO-HOOKS is non-`nil', EXTENT's `paste-function' will not be
+     invoked.  *Note Duplicable Extents::.
+
+
+File: lispref.info,  Node: Extent Parents,  Next: Duplicable Extents,  Prev: Detached Extents,  Up: Extents
+
+Extent Parents
+==============
+
+   An extent can have a parent extent set for it.  If this is the case,
+the extent derives all its properties from that extent and has no
+properties of its own.  The only "properties" that the extent keeps are
+the buffer or string it refers to and the start and end points.  (More
+correctly, the extent's own properties are shadowed.  If you later
+change the extent to have no parent, its own properties will become
+visible again.)
+
+   It is possible for an extent's parent to itself have a parent, and
+so on.  Through this, a whole tree of extents can be created, all
+deriving their properties from one root extent.  Note, however, that
+you cannot create an inheritance loop--this is explicitly disallowed.
+
+   Parent extents are used to implement the extents over the modeline.
+
+ - Function: set-extent-parent extent parent
+     This function sets the parent of EXTENT to PARENT.  If PARENT is
+     `nil', the extent is set to have no parent.
+
+ - Function: extent-parent extent
+     This function return the parents (if any) of EXTENT, or `nil'.
+
+ - Function: extent-children extent
+     This function returns a list of the children (if any) of EXTENT.
+     The children of an extent are all those extents whose parent is
+     that extent.  This function does not recursively trace children of
+     children.
+
+ - Function: extent-descendants extent
+     This function returns a list of all descendants of EXTENT,
+     including EXTENT.  This recursively applies `extent-children' to
+     any children of EXTENT, until no more children can be found.
+
+
+File: lispref.info,  Node: Duplicable Extents,  Next: Extents and Events,  Prev: Extent Parents,  Up: Extents
+
+Duplicable Extents
+==================
+
+   If an extent has the `duplicable' property, it will be copied into
+strings, so that kill, yank, and undo commands will restore or copy it.
+
+   Specifically:
+
+   * When a string is created using `buffer-substring' or
+     `buffer-string', any duplicable extents in the region corresponding
+     to the string will be copied into the string (*note Buffer
+     Contents::).  When the string in inserted into a buffer using
+     `insert', `insert-before-markers', `insert-buffer' or
+     `insert-buffer-substring', the extents in the string will be copied
+     back into the buffer (*note Insertion::).  The extents in a string
+     can, of course, be retrieved explicitly using the standard extent
+     primitives over the string.
+
+   * Similarly, when text is copied or cut into the kill ring, any
+     duplicable extents will be remembered and reinserted later when
+     the text is pasted back into a buffer.
+
+   * When `concat' is called on strings, the extents in the strings are
+     copied into the resulting string.
+
+   * When `substring' is called on a string, the relevant extents are
+     copied into the resulting string.
+
+   * When a duplicable extent is detached by `detach-extent' or string
+     deletion, or inserted by `insert-extent' or string insertion, the
+     action is recorded by the undo mechanism so that it can be undone
+     later.  Note that if an extent gets detached and then a later undo
+     causes the extent to get reinserted, the new extent will not be
+     `eq' to the original extent.
+
+   * Extent motion, face changes, and attachment via `make-extent' are
+     not recorded by the undo mechanism.  This means that extent changes
+     which are to be undo-able must be performed by character editing,
+     or by insertion and detachment of duplicable extents.
+
+   * A duplicable extent's `copy-function' property, if non-`nil',
+     should be a function, and will be run when a duplicable extent is
+     about to be copied from a buffer to a string (or the kill ring).
+     It is called with three arguments: the extent and the buffer
+     positions within it which are being copied.  If this function
+     returns `nil', then the extent will not be copied; otherwise it
+     will.
+
+   * A duplicable extent's `paste-function' property, if non-`nil',
+     should be a function, and will be run when a duplicable extent is
+     about to be copied from a string (or the kill ring) into a buffer.
+     It is called with three arguments: the original extent and the
+     buffer positions which the copied extent will occupy. (This hook
+     is run after the corresponding text has already been inserted into
+     the buffer.) Note that the extent argument may be detached when
+     this function is run.  If this function returns `nil', no extent
+     will be inserted.  Otherwise, there will be an extent covering the
+     range in question.
+
+     Note: if the extent to be copied is already attached to the buffer
+     and overlaps the new range, the extent will simply be extended and
+     the `paste-function' will not be called.
+
+
+File: lispref.info,  Node: Extents and Events,  Next: Atomic Extents,  Prev: Duplicable Extents,  Up: Extents
+
+Interaction of Extents with Keyboard and Mouse Events
+=====================================================
+
+   If an extent has the `mouse-face' property set, it will be
+highlighted when the mouse passes over it.  Highlighting is accomplished
+by merging the extent's face with the face or faces specified by the
+`mouse-face' property.  The effect is as if a pseudo-extent with the
+`mouse-face' face were inserted after the extent in the display order
+(*note Extent Endpoints::, display order).
+
+ - Variable: mouse-highlight-priority
+     This variable holds the priority to use when merging in the
+     highlighting pseudo-extent.  The default is 1000.  This is
+     purposely set very high so that the highlighting pseudo-extent
+     shows up even if there are other extents with various priorities
+     at the same location.
+
+   You can also explicitly cause an extent to be highlighted.  Only one
+extent at a time can be highlighted in this fashion, and any other
+highlighted extent will be de-highlighted.
+
+ - Function: highlight-extent extent &optional highlight-p
+     This function highlights (if HIGHLIGHT-P is non-`nil') or
+     de-highlights (if HIGHLIGHT-P is `nil') EXTENT, if EXTENT has the
+     `mouse-face' property. (Nothing happens if EXTENT does not have
+     the `mouse-face' property.)
+
+ - Function: force-highlight-extent extent &optional highlight-p
+     This function is similar to `highlight-extent' but highlights or
+     de-highlights the extent regardless of whether it has the
+     `mouse-face' property.
+
+   If an extent has a `keymap' property, this keymap will be consulted
+for mouse clicks on the extent and keypresses made while `point' is
+within the extent.  The behavior of mouse clicks and keystrokes not
+defined in the keymap is as normal for the buffer.
+
+
+File: lispref.info,  Node: Atomic Extents,  Prev: Extents and Events,  Up: Extents
+
+Atomic Extents
+==============
+
+   If the Lisp file `atomic-extents' is loaded, then the atomic extent
+facility is available.  An "atomic extent" is an extent for which
+`point' cannot be positioned anywhere within it.  This ensures that
+when selecting text, either all or none of the extent is selected.
+
+   To make an extent atomic, set its `atomic' property.
+
+
+File: lispref.info,  Node: Specifiers,  Next: Faces and Window-System Objects,  Prev: Extents,  Up: Top
+
+Specifiers
+**********
+
+   A specifier is an object used to keep track of a property whose value
+may vary depending on the particular situation (e.g. particular buffer
+displayed in a particular window) that it is used in.  The value of many
+built-in properties, such as the font, foreground, background, and such
+properties of a face and variables such as `modeline-shadow-thickness'
+and `top-toolbar-height', is actually a specifier object.  The
+specifier object, in turn, is "instanced" in a particular situation to
+yield the real value of the property in that situation.
+
+ - Function: specifierp object
+     This function returns non-`nil' if OBJECT is a specifier.
+
+* Menu:
+
+* Introduction to Specifiers::  Specifiers provide a clean way for
+                                display and other properties to vary
+                                (under user control) in a wide variety
+                                of contexts.
+* Specifiers In-Depth::         Gory details about specifier innards.
+* Specifier Instancing::        Instancing means obtaining the ``value'' of
+                                a specifier in a particular context.
+* Specifier Types::             Specifiers come in different flavors.
+* Adding Specifications::       Specifications control a specifier's ``value''
+                                by giving conditions under which a
+                                particular value is valid.
+* Retrieving Specifications::   Querying a specifier's specifications.
+* Specifier Tag Functions::     Working with specifier tags.
+* Specifier Instancing Functions::
+                                Functions to instance a specifier.
+* Specifier Example::           Making all this stuff clearer.
+* Creating Specifiers::         Creating specifiers for your own use.
+* Specifier Validation Functions::
+                                Validating the components of a specifier.
+* Other Specification Functions::
+                                Other ways of working with specifications.
+
+
+File: lispref.info,  Node: Introduction to Specifiers,  Next: Specifiers In-Depth,  Up: Specifiers
+
+Introduction to Specifiers
+==========================
+
+   Sometimes you may want the value of a property to vary depending on
+the context the property is used in.  A simple example of this in XEmacs
+is buffer-local variables.  For example, the variable
+`modeline-format', which controls the format of the modeline, can have
+different values depending on the particular buffer being edited.  The
+variable has a default value which most modes will use, but a
+specialized package such as Calendar might change the variable so as to
+tailor the modeline to its own purposes.
+
+   Other properties (such as those that can be changed by the
+`modify-frame-parameters' function, for example the color of the text
+cursor) can have frame-local values, although it might also make sense
+for them to have buffer-local values.  In other cases, you might want
+the property to vary depending on the particular window within the
+frame that applies (e.g. the top or bottom window in a split frame), the
+device type that that frame appears on (X or tty), etc.  Perhaps you can
+envision some more complicated scenario where you want a particular
+value in a specified buffer, another value in all other buffers
+displayed on a particular frame, another value in all other buffers
+displayed in all other frames on any mono (two-color, e.g. black and
+white only) displays, and a default value in all other circumstances.
+
+   A "specifier" is a generalization of this, allowing a great deal of
+flexibility in controlling exactly what value a property has in which
+circumstances.  It is most commonly used for display properties, such as
+an image or the foreground color of a face.  As a simple example, you
+can specify that the foreground of the default face be
+
+   * blue for a particular buffer
+
+   * green for all other buffers
+
+   As a more complicated example, you could specify that the foreground
+of the default face be
+
+   * forest green for all buffers displayed in a particular Emacs
+     window, or green if the X server doesn't recognize the color
+     `forest green'
+
+   * blue for all buffers displayed in a particular frame
+
+   * red for all other buffers displayed on a color device
+
+   * white for all other buffers
+
+
+File: lispref.info,  Node: Specifiers In-Depth,  Next: Specifier Instancing,  Prev: Introduction to Specifiers,  Up: Specifiers
+
+In-Depth Overview of a Specifier
+================================
+
+   A specifier object encapsulates a set of "specifications", each of
+which says what its value should be if a particular condition applies.
+For example, one specification might be "The value should be
+darkseagreen2 on X devices" another might be "The value should be blue
+in the *Help* buffer".  In specifier terminology, these conditions are
+called "locales" and the values are called "instantiators".  Given a
+specifier, a logical question is "What is its value in a particular
+situation?" This involves looking through the specifications to see
+which ones apply to this particular situation, and perhaps preferring
+one over another if more than one applies.  In specifier terminology, a
+"particular situation" is called a "domain", and determining its value
+in a particular domain is called "instancing".  Most of the time, a
+domain is identified by a particular window.  For example, if the
+redisplay engine is drawing text in the default face in a particular
+window, it retrieves the specifier for the foreground color of the
+default face and "instances" it in the domain given by that window; in
+other words, it asks the specifier, "What is your value in this
+window?".
+
+   More specifically, a specifier contains a set of "specifications",
+each of which associates a "locale" (a window object, a buffer object,
+a frame object, a device object, or the symbol `global') with an
+"inst-list", which is a list of one or more "inst-pairs". (For each
+possible locale, there can be at most one specification containing that
+locale.) Each inst-pair is a cons of a "tag set" (an unordered list of
+zero or more symbols, or "tags") and an "instantiator" (the allowed
+form of this varies depending on the type of specifier).  In a given
+specification, there may be more than one inst-pair with the same tag
+set; this is unlike for locales.
+
+   The tag set is used to restrict the sorts of devices over which the
+instantiator is valid and to uniquely identify instantiators added by a
+particular application, so that different applications can work on the
+same specifier and not interfere with each other.  Each tag can have a
+"predicate" associated with it, which is a function of one argument (a
+device) that specifies whether the tag matches that particular device.
+(If a tag does not have a predicate, it matches all devices.)  All tags
+in a tag set must match a device for the associated inst-pair to be
+instantiable over that device.  (A null tag set is perfectly valid.)
+
+   The valid device types (normally `x', `tty', and `stream') and
+device classes (normally `color', `grayscale', and `mono') can always
+be used as tags, and match devices of the associated type or class
+(*note Consoles and Devices::).  User-defined tags may be defined, with
+an optional predicate specified.  An application can create its own
+tag, use it to mark all its instantiators, and be fairly confident that
+it will not interfere with other applications that modify the same
+specifier--Functions that add a specification to a specifier usually
+only overwrite existing inst-pairs with the same tag set as was given,
+and a particular tag or tag set can be specified when removing
+instantiators.
+
+   When a specifier is instanced in a domain, both the locale and the
+tag set can be viewed as specifying necessary conditions that must
+apply in that domain for an instantiator to be considered as a possible
+result of the instancing.  More specific locales always override more
+general locales (thus, there is no particular ordering of the
+specifications in a specifier); however, the tag sets are simply
+considered in the order that the inst-pairs occur in the
+specification's inst-list.
+
+   Note also that the actual object that results from the instancing
+(called an "instance object") may not be the same as the instantiator
+from which it was derived.  For some specifier types (such as integer
+specifiers and boolean specifiers), the instantiator will be returned
+directly as the instance object.  For other types, however, this is not
+the case.  For example, for font specifiers, the instantiator is a
+font-description string and the instance object is a font-instance
+object, which describes how the font is displayed on a particular
+device.  A font-instance object encapsulates such things as the actual
+font name used to display the font on that device (a font-description
+string under X is usually a wildcard specification that may resolve to
+different font names, with possibly different foundries, widths, etc.,
+on different devices), the extra properties of that font on that
+device, etc.  Furthermore, this conversion (called "instantiation")
+might fail--a font or color might not exist on a particular device, for
+example.
+
+
 File: lispref.info,  Node: Specifier Instancing,  Next: Specifier Types,  Prev: Specifiers In-Depth,  Up: Specifiers
 
 How a Specifier Is Instanced
@@ -448,601 +1067,4 @@ Adding specifications to a Specifier
 
      If NOERROR is `nil', signal an error if the spec-list is invalid;
      otherwise return `t'.
-
-
-File: lispref.info,  Node: Retrieving Specifications,  Next: Specifier Tag Functions,  Prev: Adding Specifications,  Up: Specifiers
-
-Retrieving the Specifications from a Specifier
-==============================================
-
- - Function: specifier-spec-list specifier &optional locale tag-set
-          exact-p
-     This function returns the spec-list of specifications for
-     SPECIFIER in LOCALE.
-
-     If LOCALE is a particular locale (a window, buffer, frame, device,
-     or the symbol `global'), a spec-list consisting of the
-     specification for that locale will be returned.
-
-     If LOCALE is a locale type (i.e. a symbol `window', `buffer',
-     `frame', or `device'), a spec-list of the specifications for all
-     locales of that type will be returned.
-
-     If LOCALE is `nil' or the symbol `all', a spec-list of all
-     specifications in SPECIFIER will be returned.
-
-     LOCALE can also be a list of locales, locale types, and/or `all';
-     the result is as if `specifier-spec-list' were called on each
-     element of the list and the results concatenated together.
-
-     Only instantiators where TAG-SET (a list of zero or more tags) is
-     a subset of (or possibly equal to) the instantiator's tag set are
-     returned.  (The default value of` nil' is a subset of all tag sets,
-     so in this case no instantiators will be screened out.) If EXACT-P
-     is non-`nil', however, TAG-SET must be equal to an instantiator's
-     tag set for the instantiator to be returned.
-
- - Function: specifier-specs specifier &optional locale tag-set exact-p
-     This function returns the specification(s) for SPECIFIER in LOCALE.
-
-     If LOCALE is a single locale or is a list of one element
-     containing a single locale, then a "short form" of the
-     instantiators for that locale will be returned.  Otherwise, this
-     function is identical to `specifier-spec-list'.
-
-     The "short form" is designed for readability and not for ease of
-     use in Lisp programs, and is as follows:
-
-       1. If there is only one instantiator, then an inst-pair (i.e.
-          cons of tag and instantiator) will be returned; otherwise a
-          list of inst-pairs will be returned.
-
-       2. For each inst-pair returned, if the instantiator's tag is
-          `any', the tag will be removed and the instantiator itself
-          will be returned instead of the inst-pair.
-
-       3. If there is only one instantiator, its value is `nil', and
-          its tag is `any', a one-element list containing `nil' will be
-          returned rather than just `nil', to distinguish this case
-          from there being no instantiators at all.
-
-
- - Function: specifier-fallback specifier
-     This function returns the fallback value for SPECIFIER.  Fallback
-     values are provided by the C code for certain built-in specifiers
-     to make sure that instancing won't fail even if all specs are
-     removed from the specifier, or to implement simple inheritance
-     behavior (e.g. this method is used to ensure that faces other than
-     `default' inherit their attributes from `default').  By design,
-     you cannot change the fallback value, and specifiers created with
-     `make-specifier' will never have a fallback (although a similar,
-     Lisp-accessible capability may be provided in the future to allow
-     for inheritance).
-
-     The fallback value will be an inst-list that is instanced like any
-     other inst-list, a specifier of the same type as SPECIFIER
-     (results in inheritance), or `nil' for no fallback.
-
-     When you instance a specifier, you can explicitly request that the
-     fallback not be consulted. (The C code does this, for example, when
-     merging faces.) See `specifier-instance'.
-
-
-File: lispref.info,  Node: Specifier Tag Functions,  Next: Specifier Instancing Functions,  Prev: Retrieving Specifications,  Up: Specifiers
-
-Working With Specifier Tags
-===========================
-
-   A specifier tag set is an entity that is attached to an instantiator
-and can be used to restrict the scope of that instantiator to a
-particular device class or device type and/or to mark instantiators
-added by a particular package so that they can be later removed.
-
-   A specifier tag set consists of a list of zero of more specifier
-tags, each of which is a symbol that is recognized by XEmacs as a tag.
-(The valid device types and device classes are always tags, as are any
-tags defined by `define-specifier-tag'.) It is called a "tag set" (as
-opposed to a list) because the order of the tags or the number of times
-a particular tag occurs does not matter.
-
-   Each tag has a predicate associated with it, which specifies whether
-that tag applies to a particular device.  The tags which are device
-types and classes match devices of that type or class.  User-defined
-tags can have any predicate, or none (meaning that all devices match).
-When attempting to instance a specifier, a particular instantiator is
-only considered if the device of the domain being instanced over matches
-all tags in the tag set attached to that instantiator.
-
-   Most of the time, a tag set is not specified, and the instantiator
-gets a null tag set, which matches all devices.
-
- - Function: valid-specifier-tag-p tag
-     This function returns non-`nil' if TAG is a valid specifier tag.
-
- - Function: valid-specifier-tag-set-p tag-set
-     This function returns non-`nil' if TAG-SET is a valid specifier
-     tag set.
-
- - Function: canonicalize-tag-set tag-set
-     This function canonicalizes the given tag set.  Two canonicalized
-     tag sets can be compared with `equal' to see if they represent the
-     same tag set. (Specifically, canonicalizing involves sorting by
-     symbol name and removing duplicates.)
-
- - Function: device-matches-specifier-tag-set-p device tag-set
-     This function returns non-`nil' if DEVICE matches specifier tag
-     set TAG-SET.  This means that DEVICE matches each tag in the tag
-     set.
-
- - Function: define-specifier-tag tag &optional predicate
-     This function defines a new specifier tag.  If PREDICATE is
-     specified, it should be a function of one argument (a device) that
-     specifies whether the tag matches that particular device.  If
-     PREDICATE is omitted, the tag matches all devices.
-
-     You can redefine an existing user-defined specifier tag.  However,
-     you cannot redefine the built-in specifier tags (the device types
-     and classes) or the symbols `nil', `t', `all', or `global'.
-
- - Function: device-matching-specifier-tag-list &optional device
-     This function returns a list of all specifier tags matching
-     DEVICE.  DEVICE defaults to the selected device if omitted.
-
- - Function: specifier-tag-list
-     This function returns a list of all currently-defined specifier
-     tags.  This includes the built-in ones (the device types and
-     classes).
-
- - Function: specifier-tag-predicate tag
-     This function returns the predicate for the given specifier tag.
-
-
-File: lispref.info,  Node: Specifier Instancing Functions,  Next: Specifier Example,  Prev: Specifier Tag Functions,  Up: Specifiers
-
-Functions for Instancing a Specifier
-====================================
-
- - Function: specifier-instance specifier &optional domain default
-          no-fallback
-     This function instantiates SPECIFIER (return its value) in DOMAIN.
-     If no instance can be generated for this domain, return DEFAULT.
-
-     DOMAIN should be a window, frame, or device.  Other values that
-     are legal as a locale (e.g. a buffer) are not valid as a domain
-     because they do not provide enough information to identify a
-     particular device (see `valid-specifier-domain-p').  DOMAIN
-     defaults to the selected window if omitted.
-
-     "Instantiating" a specifier in a particular domain means
-     determining the specifier's "value" in that domain.  This is
-     accomplished by searching through the specifications in the
-     specifier that correspond to all locales that can be derived from
-     the given domain, from specific to general.  In most cases, the
-     domain is an Emacs window.  In that case specifications are
-     searched for as follows:
-
-       1. A specification whose locale is the window itself;
-
-       2. A specification whose locale is the window's buffer;
-
-       3. A specification whose locale is the window's frame;
-
-       4. A specification whose locale is the window's frame's device;
-
-       5. A specification whose locale is the symbol `global'.
-
-     If all of those fail, then the C-code-provided fallback value for
-     this specifier is consulted (see `specifier-fallback').  If it is
-     an inst-list, then this function attempts to instantiate that list
-     just as when a specification is located in the first five steps
-     above.  If the fallback is a specifier, `specifier-instance' is
-     called recursively on this specifier and the return value used.
-     Note, however, that if the optional argument NO-FALLBACK is
-     non-`nil', the fallback value will not be consulted.
-
-     Note that there may be more than one specification matching a
-     particular locale; all such specifications are considered before
-     looking for any specifications for more general locales.  Any
-     particular specification that is found may be rejected because it
-     is tagged to a particular device class (e.g. `color') or device
-     type (e.g. `x') or both and the device for the given domain does
-     not match this, or because the specification is not valid for the
-     device of the given domain (e.g.  the font or color name does not
-     exist for this particular X server).
-
-     The returned value is dependent on the type of specifier.  For
-     example, for a font specifier (as returned by the `face-font'
-     function), the returned value will be a font-instance object.  For
-     images, the returned value will be a string, pixmap, or subwindow.
-
- - Function: specifier-instance-from-inst-list specifier domain
-          inst-list &optional default
-     This function attempts to convert a particular inst-list into an
-     instance.  This attempts to instantiate INST-LIST in the given
-     DOMAIN, as if INST-LIST existed in a specification in SPECIFIER.
-     If the instantiation fails, DEFAULT is returned.  In most
-     circumstances, you should not use this function; use
-     `specifier-instance' instead.
-
-
-File: lispref.info,  Node: Specifier Example,  Next: Creating Specifiers,  Prev: Specifier Instancing Functions,  Up: Specifiers
-
-Example of Specifier Usage
-==========================
-
-   Now let us present an example to clarify the theoretical discussions
-we have been through.  In this example, we will use the general
-specifier functions for clarity.  Keep in mind that many types of
-specifiers, and some other types of objects that are associated with
-specifiers (e.g. faces), provide convenience functions making it easier
-to work with objects of that type.
-
-   Let us consider the background color of the default face.  A
-specifier is used to specify how that color will appear in different
-domains.  First, let's retrieve the specifier:
-
-     (setq sp (face-property 'default 'background))
-         =>   #<color-specifier 0x3da>
-
-     (specifier-specs sp)
-         =>   ((#<buffer "device.c"> (nil . "forest green"))
-                      (#<window on "Makefile" 0x8a2b> (nil . "hot pink"))
-                      (#<x-frame "emacs" 0x4ac> (nil . "puke orange")
-                                                (nil . "moccasin"))
-                      (#<x-frame "VM" 0x4ac> (nil . "magenta"))
-                      (global ((tty) . "cyan") (nil . "white"))
-                     )
-
-   Then, say we want to determine what the background color of the
-default face is for the window currently displaying the buffer
-`*scratch*'.  We call
-
-     (get-buffer-window "*scratch*")
-         => #<window on "*scratch*" 0x4ad>
-     (window-frame (get-buffer-window "*scratch*"))
-         => #<x-frame "emacs" 0x4ac>
-     (specifier-instance sp (get-buffer-window "*scratch*"))
-         => #<color-instance moccasin 47=(FFFF,E4E4,B5B5) 0x6309>
-
-   Note that we passed a window to `specifier-instance', not a buffer.
-We cannot pass a buffer because a buffer by itself does not provide
-enough information.  The buffer might not be displayed anywhere at all,
-or could be displayed in many different frames on different devices.
-
-   The result is arrived at like this:
-
-  1. First, we look for a specification matching the buffer displayed
-     in the window, i.e. `*scratch*'.  There are none, so we proceed.
-
-  2. Then, we look for a specification matching the window itself.
-     Again, there are none.
-
-  3. Then, we look for a specification matching the window's frame.  The
-     specification `(#<x-frame "emacs" 0x4ac> . "puke orange")' is
-     found.  We call the instantiation method for colors, passing it the
-     locale we were searching over (i.e. the window, in this case) and
-     the instantiator (`"puke orange"').  However, the particular device
-     which this window is on (let's say it's an X connection) doesn't
-     recognize the color `"puke orange"', so the specification is
-     rejected.
-
-  4. So we continue looking for a specification matching the window's
-     frame.  We find `(#<x-frame "emacs" 0x4ac> . "moccasin")'.  Again,
-     we call the instantiation method for colors.  This time, the X
-     server our window is on recognizes the color `moccasin', and so the
-     instantiation method succeeds and returns a color instance.
-
-
-File: lispref.info,  Node: Creating Specifiers,  Next: Specifier Validation Functions,  Prev: Specifier Example,  Up: Specifiers
-
-Creating New Specifier Objects
-==============================
-
- - Function: make-specifier type
-     This function creates a new specifier.
-
-     A specifier is an object that can be used to keep track of a
-     property whose value can be per-buffer, per-window, per-frame, or
-     per-device, and can further be restricted to a particular
-     device-type or device-class.  Specifiers are used, for example,
-     for the various built-in properties of a face; this allows a face
-     to have different values in different frames, buffers, etc.  For
-     more information, see `specifier-instance', `specifier-specs', and
-     `add-spec-to-specifier'; or, for a detailed description of
-     specifiers, including how they are instantiated over a particular
-     domain (i.e. how their value in that domain is determined), see
-     the chapter on specifiers in the XEmacs Lisp Reference Manual.
-
-     TYPE specifies the particular type of specifier, and should be one
-     of the symbols `generic', `integer', `natnum', `boolean', `color',
-     `font', `image', `face-boolean', or `toolbar'.
-
-     For more information on particular types of specifiers, see the
-     functions `generic-specifier-p', `integer-specifier-p',
-     `natnum-specifier-p', `boolean-specifier-p', `color-specifier-p',
-     `font-specifier-p', `image-specifier-p',
-     `face-boolean-specifier-p', and `toolbar-specifier-p'.
-
- - Function: make-specifier-and-init type spec-list &optional
-          dont-canonicalize
-     This function creates and initialize a new specifier.
-
-     This is a front-end onto `make-specifier' that allows you to create
-     a specifier and add specs to it at the same time.  TYPE specifies
-     the specifier type.  SPEC-LIST supplies the specification(s) to be
-     added to the specifier. Normally, almost any reasonable
-     abbreviation of the full spec-list form is accepted, and is
-     converted to the full form; however, if optional argument
-     DONT-CANONICALIZE is non-`nil', this conversion is not performed,
-     and the SPEC-LIST must already be in full form.  See
-     `canonicalize-spec-list'.
-
-
-File: lispref.info,  Node: Specifier Validation Functions,  Next: Other Specification Functions,  Prev: Creating Specifiers,  Up: Specifiers
-
-Functions for Checking the Validity of Specifier Components
-===========================================================
-
- - Function: valid-specifier-domain-p domain
-     This function returns non-`nil' if DOMAIN is a valid specifier
-     domain.  A domain is used to instance a specifier (i.e. determine
-     the specifier's value in that domain).  Valid domains are a
-     window, frame, or device.  (`nil' is not valid.)
-
- - Function: valid-specifier-locale-p locale
-     This function returns non-`nil' if LOCALE is a valid specifier
-     locale.  Valid locales are a device, a frame, a window, a buffer,
-     and `global'.  (`nil' is not valid.)
-
- - Function: valid-specifier-locale-type-p locale-type
-     Given a specifier LOCALE-TYPE, this function returns non-nil if it
-     is valid.  Valid locale types are the symbols `global', `device',
-     `frame', `window', and `buffer'. (Note, however, that in functions
-     that accept either a locale or a locale type, `global' is
-     considered an individual locale.)
-
- - Function: valid-specifier-type-p specifier-type
-     Given a SPECIFIER-TYPE, this function returns non-`nil' if it is
-     valid.  Valid types are `generic', `integer', `boolean', `color',
-     `font', `image', `face-boolean', and `toolbar'.
-
- - Function: valid-specifier-tag-p tag
-     This function returns non-`nil' if TAG is a valid specifier tag.
-
- - Function: valid-instantiator-p instantiator specifier-type
-     This function returns non-`nil' if INSTANTIATOR is valid for
-     SPECIFIER-TYPE.
-
- - Function: valid-inst-list-p inst-list type
-     This function returns non-`nil' if INST-LIST is valid for
-     specifier type TYPE.
-
- - Function: valid-spec-list-p spec-list type
-     This function returns non-`nil' if SPEC-LIST is valid for
-     specifier type TYPE.
-
- - Function: check-valid-instantiator instantiator specifier-type
-     This function signals an error if INSTANTIATOR is invalid for
-     SPECIFIER-TYPE.
-
- - Function: check-valid-inst-list inst-list type
-     This function signals an error if INST-LIST is invalid for
-     specifier type TYPE.
-
- - Function: check-valid-spec-list spec-list type
-     This function signals an error if SPEC-LIST is invalid for
-     specifier type TYPE.
-
-
-File: lispref.info,  Node: Other Specification Functions,  Prev: Specifier Validation Functions,  Up: Specifiers
-
-Other Functions for Working with Specifications in a Specifier
-==============================================================
-
- - Function: copy-specifier specifier &optional dest locale tag-set
-          exact-p how-to-add
-     This function copies SPECIFIER to DEST, or creates a new one if
-     DEST is `nil'.
-
-     If DEST is `nil' or omitted, a new specifier will be created and
-     the specifications copied into it.  Otherwise, the specifications
-     will be copied into the existing specifier in DEST.
-
-     If LOCALE is `nil' or the symbol `all', all specifications will be
-     copied.  If LOCALE is a particular locale, the specification for
-     that particular locale will be copied.  If LOCALE is a locale
-     type, the specifications for all locales of that type will be
-     copied.  LOCALE can also be a list of locales, locale types,
-     and/or `all'; this is equivalent to calling `copy-specifier' for
-     each of the elements of the list.  See `specifier-spec-list' for
-     more information about LOCALE.
-
-     Only instantiators where TAG-SET (a list of zero or more tags) is
-     a subset of (or possibly equal to) the instantiator's tag set are
-     copied.  (The default value of `nil' is a subset of all tag sets,
-     so in this case no instantiators will be screened out.) If EXACT-P
-     is non-`nil', however, TAG-SET must be equal to an instantiator's
-     tag set for the instantiator to be copied.
-
-     Optional argument HOW-TO-ADD specifies what to do with existing
-     specifications in DEST.  If nil, then whichever locales or locale
-     types are copied will first be completely erased in DEST.
-     Otherwise, it is the same as in `add-spec-to-specifier'.
-
- - Function: remove-specifier specifier &optional locale tag-set exact-p
-     This function removes specification(s) for SPECIFIER.
-
-     If LOCALE is a particular locale (a buffer, window, frame, device,
-     or the symbol `global'), the specification for that locale will be
-     removed.
-
-     If instead, LOCALE is a locale type (i.e. a symbol `buffer',
-     `window', `frame', or `device'), the specifications for all
-     locales of that type will be removed.
-
-     If LOCALE is `nil' or the symbol `all', all specifications will be
-     removed.
-
-     LOCALE can also be a list of locales, locale types, and/or `all';
-     this is equivalent to calling `remove-specifier' for each of the
-     elements in the list.
-
-     Only instantiators where TAG-SET (a list of zero or more tags) is
-     a subset of (or possibly equal to) the instantiator's tag set are
-     removed.  (The default value of `nil' is a subset of all tag sets,
-     so in this case no instantiators will be screened out.) If EXACT-P
-     is non-`nil', however, TAG-SET must be equal to an instantiator's
-     tag set for the instantiator to be removed.
-
- - Function: map-specifier specifier func &optional locale maparg
-     This function applies FUNC to the specification(s) for LOCALE in
-     SPECIFIER.
-
-     If LOCALE is a locale, FUNC will be called for that locale.  If
-     LOCALE is a locale type, FUNC will be mapped over all locales of
-     that type.  If LOCALE is `nil' or the symbol `all', FUNC will be
-     mapped over all locales in SPECIFIER.
-
-     FUNC is called with four arguments: the SPECIFIER, the locale
-     being mapped over, the inst-list for that locale, and the optional
-     MAPARG.  If any invocation of FUNC returns non-`nil', the mapping
-     will stop and the returned value becomes the value returned from
-     `map-specifier'.  Otherwise, `map-specifier' returns `nil'.
-
- - Function: specifier-locale-type-from-locale locale
-     Given a specifier LOCALE, this function returns its type.
-
-
-File: lispref.info,  Node: Faces and Window-System Objects,  Next: Glyphs,  Prev: Specifiers,  Up: Top
-
-Faces and Window-System Objects
-*******************************
-
-* Menu:
-
-* Faces::		Controlling the way text looks.
-* Fonts::		Controlling the typeface of text.
-* Colors::		Controlling the color of text and pixmaps.
-
-
-File: lispref.info,  Node: Faces,  Next: Fonts,  Up: Faces and Window-System Objects
-
-Faces
-=====
-
-   A "face" is a named collection of graphical properties: font,
-foreground color, background color, background pixmap, optional
-underlining, and (on TTY devices) whether the text is to be highlighted,
-dimmed, blinking, or displayed in reverse video.  Faces control the
-display of text on the screen.  Every face has a name, which is a symbol
-such as `default' or `modeline'.
-
-   Each built-in property of a face is controlled using a specifier,
-which allows it to have separate values in particular buffers, frames,
-windows, and devices and to further vary according to device type (X or
-TTY) and device class (color, mono, or grayscale).  *Note Specifiers::,
-for more information.
-
-   The face named `default' is used for ordinary text.  The face named
-`modeline' is used for displaying the modeline.  The face named
-`highlight' is used for highlighted extents (*note Extents::).  The
-faces named `left-margin' and `right-margin' are used for the left and
-right margin areas, respectively (*note Annotations::).  The face named
-`zmacs-region' is used for the highlighted region between point and
-mark.
-
-* Menu:
-
-* Merging Faces::		How XEmacs decides which face to use
-				  for a character.
-* Basic Face Functions::	How to define and examine faces.
-* Face Properties::		How to access and modify a face's properties.
-* Face Convenience Functions::	Convenience functions for accessing
-				  particular properties of a face.
-* Other Face Display Functions:: Other functions pertaining to how a
-				  a face appears.
-
-
-File: lispref.info,  Node: Merging Faces,  Next: Basic Face Functions,  Up: Faces
-
-Merging Faces for Display
--------------------------
-
-   Here are all the ways to specify which face to use for display of
-text:
-
-   * With defaults.  Each frame has a "default face", which is used for
-     all text that doesn't somehow specify another face.  The face named
-     `default' applies to the text area, while the faces `left-margin'
-     and `right-margin' apply to the left and right margin areas.
-
-   * With text properties.  A character may have a `face' property; if
-     so, it's displayed with that face. (Text properties are actually
-     implemented in terms of extents.) *Note Text Properties::.
-
-   * With extents.  An extent may have a `face' property, which applies
-     to all the text covered by the extent; in addition, if the
-     `highlight' property is set, the `highlight' property applies when
-     the mouse moves over the extent or if the extent is explicitly
-     highlighted.  *Note Extents::.
-
-   * With annotations.  Annotations that are inserted into a buffer can
-     specify their own face. (Annotations are actually implemented in
-     terms of extents.)  *Note Annotations::.
-
-   If these various sources together specify more than one face for a
-particular character, XEmacs merges the properties of the various faces
-specified.  Extents, text properties, and annotations all use the same
-underlying representation (as extents).  When multiple extents cover one
-character, an extent with higher priority overrides those with lower
-priority.  *Note Extents::.  If no extent covers a particular character,
-the `default' face is used.
-
-   If a background pixmap is specified, it determines what will be
-displayed in the background of text characters.  If the background
-pixmap is actually a pixmap, with its colors specified, those colors are
-used; if it is a bitmap, the face's foreground and background colors are
-used to color it.
-
-
-File: lispref.info,  Node: Basic Face Functions,  Next: Face Properties,  Prev: Merging Faces,  Up: Faces
-
-Basic Functions for Working with Faces
---------------------------------------
-
-   The properties a face can specify include the font, the foreground
-color, the background color, the background pixmap, the underlining,
-the display table, and (for TTY devices) whether the text is to be
-highlighted, dimmed, blinking, or displayed in reverse video.  The face
-can also leave these unspecified, causing them to assume the value of
-the corresponding property of the `default' face.
-
-   Here are the basic primitives for working with faces.
-
- - Function: make-face name &optional doc-string temporary
-     This function defines and returns a new face named NAME, initially
-     with all properties unspecified.  It does nothing if there is
-     already a face named NAME.  Optional argument DOC-STRING specifies
-     an explanatory string used for descriptive purposes.  If optional
-     argument TEMPORARY is non-`nil', the face will automatically
-     disappear when there are no more references to it anywhere in text
-     or Lisp code (otherwise, the face will continue to exist
-     indefinitely even if it is not used).
-
- - Function: face-list &optional temporary
-     This function returns a list of the names of all defined faces.  If
-     TEMPORARY is `nil', only the permanent faces are included.  If it
-     is `t', only the temporary faces are included.  If it is any other
-     non-`nil' value both permanent and temporary are included.
-
- - Function: facep object
-     This function returns whether the given object is a face.
-
- - Function: copy-face old-face new-name &optional locale how-to-add
-     This function defines a new face named NEW-NAME which is a copy of
-     the existing face named OLD-FACE.  If there is already a face
-     named NEW-NAME, then it alters the face to have the same
-     properties as OLD-FACE.  LOCALE and HOW-TO-ADD let you copy just
-     parts of the old face rather than the whole face, and are as in
-     `copy-specifier' (*note Specifiers::).
 

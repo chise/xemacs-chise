@@ -186,7 +186,6 @@ Function Index
 * remove-duplicates:                     Sequence Functions.
 * remove-if:                             Sequence Functions.
 * remove-if-not:                         Sequence Functions.
-* remprop:                               Property Lists.
 * remq:                                  Sequence Functions.
 * replace:                               Sequence Functions.
 * rest:                                  List Functions.

@@ -354,13 +354,13 @@ specifier_hash (Lisp_Object obj, int depth)
 }
 
 static size_t
-sizeof_specifier (CONST void *header)
+sizeof_specifier (const void *header)
 {
   if (GHOST_SPECIFIER_P ((Lisp_Specifier *) header))
     return offsetof (Lisp_Specifier, data);
   else
     {
-      CONST Lisp_Specifier *p = (CONST Lisp_Specifier *) header;
+      const Lisp_Specifier *p = (const Lisp_Specifier *) header;
       return offsetof (Lisp_Specifier, data) + p->methods->extra_data_size;
     }
 }
@@ -543,12 +543,14 @@ see the chapter on specifiers in the XEmacs Lisp Reference Manual.
 
 TYPE specifies the particular type of specifier, and should be one of
 the symbols 'generic, 'integer, 'boolean, 'color, 'font, 'image,
-'face-boolean, or 'toolbar.
+'face-boolean, 'gutter, 'gutter-size, 'gutter-visible or 'toolbar.
 
-For more information on particular types of specifiers, see the functions
-`generic-specifier-p', `integer-specifier-p', `boolean-specifier-p',
-`color-specifier-p', `font-specifier-p', `image-specifier-p',
-`face-boolean-specifier-p', and `toolbar-specifier-p'.
+For more information on particular types of specifiers, see the
+functions `generic-specifier-p', `integer-specifier-p',
+`boolean-specifier-p', `color-specifier-p', `font-specifier-p',
+`image-specifier-p', `face-boolean-specifier-p', `gutter-specifier-p,
+`gutter-size-specifier-p, `gutter-visible-specifier-p and
+`toolbar-specifier-p'.
 */
        (type))
 {
@@ -2816,6 +2818,13 @@ recompute_one_cached_specifier_in_window (Lisp_Object specifier,
      method. */
   location = (Lisp_Object *)
     ((char *) w + XSPECIFIER (specifier)->caching->offset_into_struct_window);
+  /* #### What's the point of this check, other than to optimize image
+     instance instantiation? Unless you specify a caching instantiate
+     method the instantiation that specifier_instance will do will
+     always create a new copy. Thus EQ will always fail. Unfortunately
+     calling equal is no good either as this doesn't take into account
+     things attached to the specifier - for instance strings on
+     extents. --andyp */
   if (!EQ (newval, *location))
     {
       Lisp_Object oldval = *location;
@@ -3114,6 +3123,8 @@ Return non-nil if OBJECT is a display-table specifier.
 void
 syms_of_specifier (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (specifier);
+
   defsymbol (&Qspecifierp, "specifierp");
 
   defsymbol (&Qconsole_type, "console-type");

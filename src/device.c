@@ -1,4 +1,4 @@
- /* Generic device functions.
+/* Generic device functions.
    Copyright (C) 1994, 1995 Board of Trustees, University of Illinois.
    Copyright (C) 1994, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995, 1996 Ben Wing
@@ -891,6 +891,7 @@ behavior cannot necessarily be determined automatically.
 	  MARK_FRAME_GLYPHS_CHANGED (f);
 	  MARK_FRAME_SUBWINDOWS_CHANGED (f);
 	  MARK_FRAME_TOOLBARS_CHANGED (f);
+	  MARK_FRAME_GUTTERS_CHANGED (f);
 	  f->menubar_changed = 1;
 	}
     }
@@ -925,9 +926,7 @@ to selected device if omitted, and must be live if specified.
 */
        (device))
 {
-  return (MAYBE_INT_DEVMETH (decode_device (device),
-			     device_implementation_flags, ())
-	  & XDEVIMPF_IS_A_PRINTER) ? Qt : Qnil;
+  return DEVICE_PRINTER_P (decode_device (device)) ? Qt : Qnil;
 }
 
 DEFUN ("device-system-metric", Fdevice_system_metric, 1, 3, 0, /*
@@ -988,11 +987,11 @@ size-icon-small       Small icon dimensions.
 size-device           Device screen or paper size in pixels.
 size-workspace        Workspace size in pixels. This can be less than or
                       equal to the above. For diplays, this is the area
-                      available to applications less window manager 
+                      available to applications less window manager
                       decorations. For printers, this is the size of
                       printable area.
 offset-workspace      Offset of workspace area from the top left corner
-                      of screen or paper.
+                      of screen or paper, in pixels.
 size-device-mm        Device screen size in millimeters.
 device-dpi            Device resolution, in dots per inch.
 num-bit-planes        Integer, number of device bit planes.
@@ -1246,6 +1245,8 @@ call_critical_lisp_code (struct device *d, Lisp_Object function,
 void
 syms_of_device (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (device);
+
   DEFSUBR (Fvalid_device_class_p);
   DEFSUBR (Fdevice_class_list);
 

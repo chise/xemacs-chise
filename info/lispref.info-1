@@ -89,6 +89,7 @@ Reference Manual, corresponding to XEmacs version 21.0.
 * Menus::                   Defining pull-down and pop-up menus.
 * Dialog Boxes::	    Creating dialog boxes.
 * Toolbar::		    Controlling the toolbar.
+* Gutter::		    Controlling the gutter.
 * Scrollbars::		    Controlling the scrollbars.
 * Drag and Drop::	    Generic API to inter-application communication
                               via specific protocols.
@@ -134,6 +135,7 @@ Reference Manual, corresponding to XEmacs version 21.0.
 * ToolTalk Support::        Interfacing with the ToolTalk message service.
 * LDAP Support::            Interfacing with the Lightweight Directory
                               Access Protocol.
+* PostgreSQL Support::      Interfacing to the PostgreSQL libpq library.
 * Internationalization::    How Emacs supports different languages and
                               cultural conventions.
 * MULE::                    Specifics of the Asian-language support.
@@ -552,6 +554,8 @@ Toolbar
 * Toolbar Descriptor Format::	How to create a toolbar.
 * Specifying the Toolbar::	Setting a toolbar.
 * Other Toolbar Variables::	Controlling the size of toolbars.
+
+Gutter
 
 Scrollbars
 
@@ -1025,12 +1029,18 @@ XEmacs LDAP API
 * LDAP Variables::              Lisp variables related to LDAP
 * The High-Level LDAP API::     High-level LDAP lisp functions
 * The Low-Level LDAP API::      Low-level LDAP lisp primitives
+* LDAP Internationalization::   I18n variables and functions
 
 The Low-Level LDAP API
 
 * The LDAP Lisp Object::
 * Opening and Closing a LDAP Connection::
-* Searching on a LDAP Server (Low-level)::
+* Low-level Operations on a LDAP Server::
+
+LDAP Internationalization
+
+* LDAP Internationalization Variables::
+* Encoder/Decoder Functions::
 
 Internationalization
 

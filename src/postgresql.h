@@ -57,31 +57,4 @@ DECLARE_LRECORD (pgresult, Lisp_PGresult);
 #define CHECK_PGRESULT(x) CHECK_RECORD (x, pgresult)
 #define CONCHECK_PGRESULT(x) CONCHECK_RECORD (x, pgresult)
 
-/****/
-#ifdef HAVE_POSTGRESQLV7
-
-#ifdef LIBPQ_7_0_IS_FIXED /* this is broken in released 7.0b1 */
-
-/* PGsetenvHandle is an opaque object and we need to be able to store
-   them in Lisp code in order to make asynchronous environment calls.
-*/
-struct Lisp_PGsetenvHandle
-{
-  struct lcrecord_header header;
-  PGsetenvHandle *pgsetenv;
-};
-typedef struct Lisp_PGsetenvHandle Lisp_PGsetenvHandle;
-
-DECLARE_LRECORD (pgsetenv, Lisp_PGsetenvHandle);
-
-#define XPGSETENV(x) XRECORD (x, pgsetenv, Lisp_PGsetenvHandle)
-#define XSETPGSETENV(x, p) XSETRECORD (x, p, pgsetenv)
-#define PGSETENVP(x) RECORDP (x, pgsetenv)
-#define CHECK_PGSETENV(x) CHECK_RECORD (x, pgsetenv)
-#define CONCHECK_PGSETENV(x) CONCHECK_RECORD (x, pgsetenv)
-
-#endif /* LIBPQ_7_0_IS_FIXED */
-
-#endif /* HAVE_POSTGRESQLV7 */
-
 #endif /* XEMACS_POSTGRESQL_H__ */

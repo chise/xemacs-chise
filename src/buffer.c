@@ -195,7 +195,6 @@ Lisp_Object QSscratch;          /* "*scratch*" */
 Lisp_Object Qdefault_directory;
 
 Lisp_Object Qkill_buffer_hook;
-Lisp_Object Qrecord_buffer_hook;
 
 Lisp_Object Qrename_auto_save_file;
 
@@ -567,7 +566,7 @@ finish_init_buffer (struct buffer *b, Lisp_Object name)
      local_var_alist is set to Qnil at the same point, in
      nuke_all_buffer_slots(). */
   reset_buffer_local_variables (b, 1);
-  b->directory = ((current_buffer) ? current_buffer->directory : Qnil);
+  b->directory = current_buffer ? current_buffer->directory : Qnil;
 
   b->last_window_start = 1;
 
@@ -1027,6 +1026,7 @@ This does not change the name of the visited file (if any).
   /* The aconses in the Vbuffer_alist are shared with frame->buffer_alist,
      so this will change it in the per-frame ordering as well. */
   Fsetcar (Frassq (buf, Vbuffer_alist), newname);
+
   if (NILP (current_buffer->filename)
       && !NILP (current_buffer->auto_save_file_name))
     call0 (Qrename_auto_save_file);
@@ -1186,7 +1186,7 @@ with `delete-process'.
       killp = call1
 	(Qyes_or_no_p,
 	 (emacs_doprnt_string_c
-	  ((CONST Bufbyte *) GETTEXT ("Buffer %s modified; kill anyway? "),
+	  ((const Bufbyte *) GETTEXT ("Buffer %s modified; kill anyway? "),
 	   Qnil, -1, XSTRING_DATA (b->name))));
       UNGCPRO;
       if (NILP (killp))
@@ -1304,12 +1304,12 @@ with `delete-process'.
 
     kill_buffer_processes (buf);
 
+    delete_from_buffer_alist (buf);
+
     /* #### This is a problem if this buffer is in a dedicated window.
        Need to undedicate any windows of this buffer first (and delete them?)
        */
     Freplace_buffer_in_windows (buf);
-
-    delete_from_buffer_alist (buf);
 
     font_lock_buffer_was_killed (b);
 
@@ -1412,8 +1412,6 @@ buffer.  See `other-buffer' for more information.
     XCDR (prev) = XCDR (XCDR (prev));
   XCDR (lynk) = f->buffer_alist;
   f->buffer_alist = lynk;
-
-  va_run_hook_with_args (Qrecord_buffer_hook, 1, buffer);
 
   return Qnil;
 }
@@ -2164,12 +2162,13 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
 void
 syms_of_buffer (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (buffer);
+
   defsymbol (&Qbuffer_live_p, "buffer-live-p");
   defsymbol (&Qbuffer_or_string_p, "buffer-or-string-p");
   defsymbol (&Qmode_class, "mode-class");
   defsymbol (&Qrename_auto_save_file, "rename-auto-save-file");
   defsymbol (&Qkill_buffer_hook, "kill-buffer-hook");
-  defsymbol (&Qrecord_buffer_hook, "record-buffer-hook");
   defsymbol (&Qpermanent_local, "permanent-local");
 
   defsymbol (&Qfirst_change_hook, "first-change-hook");
@@ -2389,15 +2388,27 @@ List of functions called with no args to query before killing a buffer.
 
 /* Renamed from DEFVAR_PER_BUFFER because FSFmacs D_P_B takes
    a bogus extra arg, which confuses an otherwise identical make-docfile.c */
-
-/* Declaring this stuff as const produces 'Cannot reinitialize' messages
-   from SunPro C's fix-and-continue feature (a way neato feature that
-   makes debugging unbelievably more bearable) */
 #define DEFVAR_BUFFER_LOCAL_1(lname, field_name, forward_type, magicfun) do {	\
-  static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-    = { { { symbol_value_forward_lheader_initializer,				\
-	    (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-	  forward_type }, magicfun };						\
+  static const struct symbol_value_forward I_hate_C =				\
+  { /* struct symbol_value_forward */						\
+    { /* struct symbol_value_magic */						\
+      { /* struct lcrecord_header */						\
+	{ /* struct lrecord_header */						\
+	  lrecord_type_symbol_value_forward, /* lrecord_type_index */		\
+	  1, /* mark bit */							\
+	  1, /* c_readonly bit */						\
+	  1  /* lisp_readonly bit */						\
+	},									\
+	0, /* next */								\
+	0, /* uid  */								\
+	0  /* free */								\
+      },									\
+      &(buffer_local_flags.field_name),						\
+      forward_type								\
+    },										\
+    magicfun									\
+  };										\
+										\
   {										\
     int offset = ((char *)symbol_value_forward_forward (&I_hate_C) -		\
 		  (char *)&buffer_local_flags);					\

@@ -208,11 +208,11 @@ get_process_streams (Lisp_Process *p, Lisp_Object *instr, Lisp_Object *outstr)
 Lisp_Process *
 get_process_from_usid (USID usid)
 {
-  CONST void *vval;
+  const void *vval;
 
   assert (usid != USID_ERROR && usid != USID_DONTHASH);
 
-  if (gethash ((CONST void*)usid, usid_to_process, &vval))
+  if (gethash ((const void*)usid, usid_to_process, &vval))
     {
       Lisp_Object proc;
       CVOID_TO_LISP (proc, vval);
@@ -483,7 +483,7 @@ init_process_io_handles (Lisp_Process *p, void* in, void* out, int flags)
     {
       Lisp_Object proc = Qnil;
       XSETPROCESS (proc, p);
-      puthash ((CONST void*)usid, LISP_TO_VOID (proc), usid_to_process);
+      puthash ((const void*)usid, LISP_TO_VOID (proc), usid_to_process);
     }
 
   MAYBE_PROCMETH (init_process_io_handles, (p, in, out, flags));
@@ -964,7 +964,7 @@ read_process_output (Lisp_Object proc)
 
 void
 send_process (Lisp_Object proc,
-              Lisp_Object relocatable, CONST Bufbyte *nonrelocatable,
+              Lisp_Object relocatable, const Bufbyte *nonrelocatable,
               int start, int len)
 {
   /* This function can GC */
@@ -1266,13 +1266,13 @@ See `set-process-sentinel' for more info on sentinels.
 }
 
 
-CONST char *
+const char *
 signal_name (int signum)
 {
   if (signum >= 0 && signum < NSIG)
-    return (CONST char *) sys_siglist[signum];
+    return (const char *) sys_siglist[signum];
 
-  return (CONST char *) GETTEXT ("unknown signal");
+  return (const char *) GETTEXT ("unknown signal");
 }
 
 void
@@ -1643,7 +1643,7 @@ SIGCODE may be an integer, or a symbol whose name is a signal name.
       name = string_data (XSYMBOL (sigcode)->name);
 
 #define handle_signal(signal)				\
-  else if (!strcmp ((CONST char *) name, #signal))	\
+  else if (!strcmp ((const char *) name, #signal))	\
     XSETINT (sigcode, signal)
 
       if (0)
@@ -1859,7 +1859,7 @@ deactivate_process (Lisp_Object proc)
 					    p->pipe_outstream);
 
   if (usid != USID_DONTHASH)
-    remhash ((CONST void*)usid, usid_to_process);
+    remhash ((const void*)usid, usid_to_process);
 
   p->pipe_instream = Qnil;
   p->pipe_outstream = Qnil;
@@ -1990,6 +1990,8 @@ t or pty (pty) or stream (socket connection).
 void
 syms_of_process (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (process);
+
   defsymbol (&Qprocessp, "processp");
   defsymbol (&Qprocess_live_p, "process-live-p");
   defsymbol (&Qrun, "run");

@@ -290,6 +290,11 @@ allocate_window (void)
   INIT_DISP_VARIABLE (window_end_pos, 0);
   p->redisplay_end_trigger = Qnil;
 
+  p->gutter_extent_modiff[0] = 0;
+  p->gutter_extent_modiff[1] = 0;
+  p->gutter_extent_modiff[2] = 0;
+  p->gutter_extent_modiff[3] = 0;
+
 #define WINDOW_SLOT(slot, compare) p->slot = Qnil
 #include "winslots.h"
 
@@ -733,7 +738,7 @@ window_truncation_on (struct window *w)
 }
 
 DEFUN ("window-truncated-p", Fwindow_truncated_p, 0, 1, 0, /*
-Returns Non-Nil iff the window is truncated.
+Returns non-nil if text in the window is truncated.
 */
        (window))
 {
@@ -1010,31 +1015,35 @@ window_right_margin_width (struct window *w)
  relative to the frame, not the window.
  ****************************************************************************/
 
-int
-window_top_gutter_height (struct window *w)
+static int
+window_top_window_gutter_height (struct window *w)
 {
-  int gutter = WINDOW_REAL_TOP_GUTTER_BOUNDS (w);
-
   if (!NILP (w->hchild) || !NILP (w->vchild))
     return 0;
-
+  
 #ifdef HAVE_SCROLLBARS
   if (!NILP (w->scrollbar_on_top_p))
-    return window_scrollbar_height (w) + gutter;
+    return window_scrollbar_height (w);
   else
 #endif
-    return gutter;
+    return 0;
 }
 
 int
-window_bottom_gutter_height (struct window *w)
+window_top_gutter_height (struct window *w)
 {
-  int gutter = WINDOW_REAL_BOTTOM_GUTTER_BOUNDS (w);
+  return window_top_window_gutter_height (w);
+}
+
+static int
+window_bottom_window_gutter_height (struct window *w)
+{
+  int gutter;
 
   if (!NILP (w->hchild) || !NILP (w->vchild))
     return 0;
 
-  gutter += window_modeline_height (w);
+  gutter = window_modeline_height (w);
 
 #ifdef HAVE_SCROLLBARS
   if (NILP (w->scrollbar_on_top_p))
@@ -1045,25 +1054,35 @@ window_bottom_gutter_height (struct window *w)
 }
 
 int
-window_left_gutter_width (struct window *w, int modeline)
+window_bottom_gutter_height (struct window *w)
 {
-  int gutter = WINDOW_REAL_LEFT_GUTTER_BOUNDS (w);
+  return window_bottom_window_gutter_height (w);
+}
 
+static int
+window_left_window_gutter_width (struct window *w, int modeline)
+{
   if (!NILP (w->hchild) || !NILP (w->vchild))
     return 0;
 
 #ifdef HAVE_SCROLLBARS
   if (!modeline && !NILP (w->scrollbar_on_left_p))
-    gutter += window_scrollbar_width (w);
+    return window_scrollbar_width (w);
 #endif
 
-  return gutter;
+  return 0;
 }
 
 int
-window_right_gutter_width (struct window *w, int modeline)
+window_left_gutter_width (struct window *w, int modeline)
 {
-  int gutter = WINDOW_REAL_RIGHT_GUTTER_BOUNDS (w);
+  return window_left_window_gutter_width (w, modeline);
+}
+
+static int
+window_right_window_gutter_width (struct window *w, int modeline)
+{
+  int gutter = 0;
 
   if (!NILP (w->hchild) || !NILP (w->vchild))
     return 0;
@@ -1077,6 +1096,18 @@ window_right_gutter_width (struct window *w, int modeline)
     gutter += window_divider_width (w);
 
   return gutter;
+}
+
+int
+window_right_gutter_width (struct window *w, int modeline)
+{
+  return window_right_window_gutter_width (w, modeline);
+}
+
+static int
+window_pixel_height (struct window* w)
+{
+  return WINDOW_HEIGHT (w);
 }
 
 
@@ -1294,6 +1325,22 @@ be different.
 Use `window-height' to get consistent results in geometry calculations.
 Use `window-displayed-height' to get the actual number of lines
 currently displayed in a window.
+
+The names are somewhat confusing; here's a table to help out:
+
+                    width                         height               
+-------------------------------------------------------------------------
+w/o gutters
+  (rows/columns)    window-width                  window-text-area-height
+  (pixels)          window-text-area-pixel-width  window-text-area-pixel-height
+
+with gutters
+  (rows/columns)    window-full-width             window-height
+  (pixels)          window-pixel-width            window-pixel-height
+
+actually displayed
+  (rows/columns)    ----                          window-displayed-height
+  (pixels)          ----                     window-displayed-text-pixel-height
 */
        (window))
 {
@@ -1320,7 +1367,20 @@ This includes the window's modeline and horizontal scrollbar (if any).
 */
        (window))
 {
-  return make_int (decode_window (window)->pixel_height);
+  return make_int (window_pixel_height (decode_window (window)));
+}
+
+DEFUN ("window-text-area-height", Fwindow_text_area_height, 0, 1, 0, /*
+Return the number of default lines in the text area of WINDOW.
+This actually works by dividing the window's text area pixel height (i.e.
+excluding the modeline and horizontal scrollbar, if any) by the height of the
+default font; therefore, the number of displayed lines will probably
+be different.
+See also `window-height' and `window-displayed-height'.
+*/
+       (window))
+{
+  return make_int (window_char_height (decode_window (window), 0));
 }
 
 DEFUN ("window-text-area-pixel-height",
@@ -1401,11 +1461,23 @@ is non-nil, do not include space occupied by clipped lines.
 
 DEFUN ("window-width", Fwindow_width, 0, 1, 0, /*
 Return the number of display columns in WINDOW.
-This is the width that is usable columns available for text in WINDOW.
+This is the width that is usable columns available for text in WINDOW,
+and does not include vertical scrollbars, dividers, or the like.  See also
+`window-full-width' and `window-height'.
 */
        (window))
 {
   return make_int (window_char_width (decode_window (window), 0));
+}
+
+DEFUN ("window-full-width", Fwindow_full_width, 0, 1, 0, /*
+Return the total number of columns in WINDOW.
+This is like `window-width' but includes vertical scrollbars, dividers,
+etc.
+*/
+       (window))
+{
+  return make_int (window_char_width (decode_window (window), 1));
 }
 
 DEFUN ("window-pixel-width", Fwindow_pixel_width, 0, 1, 0, /*
@@ -1526,15 +1598,14 @@ Afterwards the end-trigger value is reset to nil.
 DEFUN ("window-pixel-edges", Fwindow_pixel_edges, 0, 1, 0, /*
 Return a list of the pixel edge coordinates of WINDOW.
 \(LEFT TOP RIGHT BOTTOM), all relative to 0, 0 at top left corner of frame.
-The frame toolbars and menubars are considered to be outside of this area.
+The frame toolbars, menubars and gutters are considered to be outside of this area.
 */
        (window))
 {
   struct window *w = decode_window (window);
-  struct frame *f = XFRAME (w->frame);
 
-  int left = w->pixel_left - FRAME_LEFT_BORDER_END (f);
-  int top  = w->pixel_top  - FRAME_TOP_BORDER_END  (f);
+  int left = w->pixel_left;
+  int top  = w->pixel_top;
 
   return list4 (make_int (left),
 		make_int (top),
@@ -1621,6 +1692,28 @@ slower with this flag set.
       Bufpos startp = marker_position (w->start[CURRENT_DISP]);
       return make_int (end_of_last_line (w, startp));
     }
+}
+
+DEFUN ("window-last-line-visible-height", Fwindow_last_line_visible_height, 0, 1, 0, /*
+Return pixel height of visible part of last window line if it is clipped.
+If the last line is not clipped, return nil.
+*/
+       (window))
+{
+  struct window *w = decode_window (window);
+  display_line_dynarr *dla = window_display_lines (w, CURRENT_DISP);
+  int num_lines = Dynarr_length (dla);
+  struct display_line *dl;
+
+  /* No lines - no clipped lines */
+  if (num_lines == 0 || (num_lines == 1 && Dynarr_atp (dla, 0)->modeline))
+    return Qnil;
+
+  dl = Dynarr_atp (dla, num_lines - 1);
+  if (dl->clip == 0)
+    return Qnil;
+
+  return make_int (dl->ascent + dl->descent - dl->clip);
 }
 
 DEFUN ("set-window-point", Fset_window_point, 2, 2, 0, /*
@@ -3255,8 +3348,9 @@ global or per-frame buffer ordering.
   /* we have already caught dead-window errors */
   if (!NILP (w->hchild) || !NILP (w->vchild))
     error ("Trying to select non-leaf window");
-
+  
   w->use_time = make_int (++window_select_count);
+
   if (EQ (window, old_selected_window))
     return window;
 
@@ -3380,6 +3474,10 @@ make_dummy_parent (Lisp_Object window)
   p->line_start_cache = Dynarr_new (line_start_cache);
   p->face_cachels     = Dynarr_new (face_cachel);
   p->glyph_cachels    = Dynarr_new (glyph_cachel);
+  p->subwindow_instance_cache = 
+    make_lisp_hash_table (10,
+			  HASH_TABLE_KEY_WEAK,
+			  HASH_TABLE_EQ);
 
   /* Put new into window structure in place of window */
   replace_window (window, new);
@@ -3595,12 +3693,6 @@ selected window.
 }
 
 static int
-window_pixel_height (Lisp_Object window)
-{
-  return WINDOW_HEIGHT (XWINDOW (window));
-}
-
-static int
 window_pixel_height_to_char_height (struct window *w, int pixel_height,
 				    int include_gutters_p)
 {
@@ -3613,8 +3705,8 @@ window_pixel_height_to_char_height (struct window *w, int pixel_height,
 
   avail_height = (pixel_height -
 		  (include_gutters_p ? 0 :
-		   window_top_gutter_height (w) +
-		   window_bottom_gutter_height (w)));
+		   window_top_window_gutter_height (w) +
+		   window_bottom_window_gutter_height (w)));
 
   default_face_height_and_width (window, &defheight, &defwidth);
 
@@ -3645,8 +3737,8 @@ window_char_height_to_pixel_height (struct window *w, int char_height,
   avail_height = char_height * defheight;
   pixel_height = (avail_height +
 		  (include_gutters_p ? 0 :
-		   window_top_gutter_height (w) +
-		   window_bottom_gutter_height (w)));
+		   window_top_window_gutter_height (w) +
+		   window_bottom_window_gutter_height (w)));
 
   /* It's the calling function's responsibility to check these values
      and make sure they're not out of range.
@@ -3659,11 +3751,12 @@ window_char_height_to_pixel_height (struct window *w, int char_height,
 /* Return number of default lines of text can fit in the window W.
    If INCLUDE_GUTTERS_P is 1, include "gutter" space (modeline plus
    horizontal scrollbar) in the space that is used for the calculation.
+   This doesn't include space used by the frame gutters.
    */
 int
 window_char_height (struct window *w, int include_gutters_p)
 {
-  return window_pixel_height_to_char_height (w, WINDOW_HEIGHT (w),
+  return window_pixel_height_to_char_height (w, window_pixel_height (w),
 					     include_gutters_p);
 }
 
@@ -3743,6 +3836,8 @@ window_pixel_width (Lisp_Object window)
   return WINDOW_WIDTH (XWINDOW (window));
 }
 
+/* Calculate the pixel of a window, optionally including margin space
+   but no vertical gutters. */
 static int
 window_pixel_width_to_char_width (struct window *w, int pixel_width,
 				  int include_margins_p)
@@ -3787,8 +3882,8 @@ window_char_width_to_pixel_width (struct window *w, int char_width,
 
   avail_width = char_width * defwidth;
   pixel_width = (avail_width +
-		 window_left_gutter_width (w, 0) +
-		 window_right_gutter_width (w, 0) +
+		 window_left_window_gutter_width (w, 0) +
+		 window_right_window_gutter_width (w, 0) +
 		 (include_margins_p ? 0 : window_left_margin_width (w)) +
 		 (include_margins_p ? 0 : window_right_margin_width (w)));
 
@@ -3827,6 +3922,12 @@ window_char_width (struct window *w, int include_margins_p)
   (widthflag ? window_min_width : MINI_WINDOW_P (XWINDOW (window)) \
    ? 1 : window_min_height)
 
+static int
+window_pixheight (Lisp_Object w)
+{
+  return window_pixel_height (XWINDOW (w));
+}
+
 /* Unlike set_window_pixheight, this function
    also changes the heights of the siblings so as to
    keep everything consistent. */
@@ -3842,7 +3943,7 @@ change_window_height (struct window *win, int delta, int widthflag,
   int *sizep;
   int (*sizefun) (Lisp_Object) = (widthflag
 				  ? window_pixel_width
-				  : window_pixel_height);
+				  : window_pixheight);
   void (*setsizefun) (Lisp_Object, int, int) = (widthflag
 						? set_window_pixwidth
 						: set_window_pixheight);
@@ -4826,9 +4927,9 @@ sizeof_window_config_for_n_windows (int n)
 }
 
 static size_t
-sizeof_window_config (CONST void *h)
+sizeof_window_config (const void *h)
 {
-  CONST struct window_config *c = (CONST struct window_config *) h;
+  const struct window_config *c = (const struct window_config *) h;
   return sizeof_window_config_for_n_windows (c->saved_windows_count);
 }
 
@@ -5080,7 +5181,7 @@ by `current-window-configuration' (which see).
 	 frame "sizes" maybe equal but the windows still should be
 	 resized. This is tickled alot by the new "character size
 	 stays constant" policy in 21.0. It leads to very wierd
-	 glitches (and possibly craches when asserts are tickled).
+	 glitches (and possibly crashes when asserts are tickled).
 
 	 Just changing the units doens't help because changing the
 	 toolbar configuration can also change the pixel positions.
@@ -5153,6 +5254,10 @@ by `current-window-configuration' (which see).
 	    w->glyph_cachels = Dynarr_new (glyph_cachel);
 	  if (!w->line_start_cache)
 	    w->line_start_cache = Dynarr_new (line_start_cache);
+	  w->gutter_extent_modiff[0] = 0;
+	  w->gutter_extent_modiff[1] = 0;
+	  w->gutter_extent_modiff[2] = 0;
+	  w->gutter_extent_modiff[3] = 0;
 	  w->dead = 0;
 
 	  if (p->parent_index >= 0)
@@ -5352,6 +5457,7 @@ by `current-window-configuration' (which see).
 	 the restored current_window. */
       if (f == selected_frame ())
 	{
+#if 0
 	  /* When using `pop-window-configuration', often the minibuffer
 	     ends up as the selected window even though it's not active ...
 	     I really don't know the cause of this, but it should never
@@ -5360,15 +5466,25 @@ by `current-window-configuration' (which see).
 	     #### Find out why this is really going wrong. */
 	  if (!minibuf_level &&
 	      MINI_WINDOW_P (XWINDOW (config->current_window)))
-	    Fselect_window (Fnext_window (config->current_window,
-					  Qnil, Qnil, Qnil),
-                            Qnil);
+	    window_to_select = Fnext_window (config->current_window,
+					     Qnil, Qnil, Qnil);
 	  else
-	    Fselect_window (config->current_window, Qnil);
+	    window_to_select = config->current_window;
+#endif
+	  /* Do this last so that buffer stacking is calculated
+	     correctly. */
+	  Fselect_window (config->current_window, Qnil);
+
 	  if (!NILP (new_current_buffer))
-	    Fset_buffer (new_current_buffer);
+	    {
+	      Fset_buffer (new_current_buffer);
+	      Frecord_buffer (new_current_buffer);
+	    }
 	  else
-	    Fset_buffer (XWINDOW (Fselected_window (Qnil))->buffer);
+	    {
+	      Fset_buffer (XWINDOW (config->current_window)->buffer);
+	      Frecord_buffer (XWINDOW (config->current_window)->buffer);
+	    }
 	}
       else
 	set_frame_selected_window (f, config->current_window);
@@ -5577,7 +5693,14 @@ its value is -not- saved.
   /*
   config->frame_width = FRAME_WIDTH (f);
   config->frame_height = FRAME_HEIGHT (f); */
-  config->current_window = FRAME_SELECTED_WINDOW (f);
+  /* When using `push-window-configuration', often the minibuffer ends
+     up as the selected window because functions run as the result of
+     user interaction e.g. hyper-apropros. It seems to me the sensible
+     thing to do is not record the minibuffer here. */
+  if (FRAME_MINIBUF_ONLY_P (f) || minibuf_level)
+    config->current_window = FRAME_SELECTED_WINDOW (f);
+  else
+    config->current_window = FRAME_LAST_NONMINIBUF_WINDOW (f);
   XSETBUFFER (config->current_buffer, current_buffer);
   config->minibuffer_scroll_window = Vminibuffer_scroll_window;
   config->root_window = FRAME_ROOT_WINDOW (f);
@@ -5717,15 +5840,15 @@ debug_print_window (Lisp_Object window, int level)
     child = Fwindow_first_hchild (window);
 
   for (i = level; i > 0; i--)
-    putc ('\t', stderr);
+    stderr_out ("\t");
 
-  fputs ("#<window", stderr);
+  stderr_out ("#<window");
   {
     Lisp_Object buffer = XWINDOW (window)->buffer;
     if (!NILP (buffer) && BUFFERP (buffer))
-      fprintf (stderr, " on %s", XSTRING_DATA (XBUFFER (buffer)->name));
+      stderr_out (" on %s", XSTRING_DATA (XBUFFER (buffer)->name));
   }
-  fprintf (stderr, " 0x%x>", XWINDOW (window)->header.uid);
+  stderr_out (" 0x%x>", XWINDOW (window)->header.uid);
 
   while (!NILP (child))
     {
@@ -5751,6 +5874,9 @@ debug_print_windows (struct frame *f)
 void
 syms_of_window (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (window);
+  INIT_LRECORD_IMPLEMENTATION (window_configuration);
+
   defsymbol (&Qwindowp, "windowp");
   defsymbol (&Qwindow_live_p, "window-live-p");
   defsymbol (&Qwindow_configurationp, "window-configuration-p");
@@ -5790,8 +5916,10 @@ syms_of_window (void)
   DEFSUBR (Fwindow_height);
   DEFSUBR (Fwindow_displayed_height);
   DEFSUBR (Fwindow_width);
+  DEFSUBR (Fwindow_full_width);
   DEFSUBR (Fwindow_pixel_height);
   DEFSUBR (Fwindow_pixel_width);
+  DEFSUBR (Fwindow_text_area_height);
   DEFSUBR (Fwindow_text_area_pixel_height);
   DEFSUBR (Fwindow_displayed_text_pixel_height);
   DEFSUBR (Fwindow_text_area_pixel_width);
@@ -5808,6 +5936,7 @@ syms_of_window (void)
   DEFSUBR (Fwindow_point);
   DEFSUBR (Fwindow_start);
   DEFSUBR (Fwindow_end);
+  DEFSUBR (Fwindow_last_line_visible_height);
   DEFSUBR (Fset_window_point);
   DEFSUBR (Fset_window_start);
   DEFSUBR (Fwindow_dedicated_p);

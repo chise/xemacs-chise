@@ -225,7 +225,7 @@ poll_fds_for_input (SELECT_TYPE mask)
 	{
 	  /* Something went seriously wrong; don't abort since maybe
 	     the TTY just died at the wrong time. */
-	  fprintf (stderr, "xemacs: select failed: errno = %d\n", errno);
+	  stderr_out ("xemacs: select failed: errno = %d\n", errno);
 	  return 0;
 	}
       /* else, we got interrupted by a signal, so try again. */

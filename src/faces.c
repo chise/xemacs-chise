@@ -496,7 +496,7 @@ update_inheritance_mapper_internal (Lisp_Object cur_face,
 }
 
 static int
-update_face_inheritance_mapper (CONST void *hash_key, void *hash_contents,
+update_face_inheritance_mapper (const void *hash_key, void *hash_contents,
 				void *face_inheritance_closure)
 {
   Lisp_Object key, contents;
@@ -1752,6 +1752,8 @@ LOCALE, TAG-SET, EXACT-P, and HOW-TO-ADD are as in `copy-specifier'.
 void
 syms_of_faces (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (face);
+
   /* Qdefault, Qwidget, Qleft_margin, Qright_margin defined in general.c */
   defsymbol (&Qmodeline, "modeline");
   defsymbol (&Qgui_element, "gui-element");
@@ -1894,7 +1896,7 @@ complex_vars_of_faces (void)
        (#### Perhaps we should remove the stuff from x-faces.el
        and only depend on this stuff here?  That should work.)
      */
-    CONST char *fonts[] =
+    const char *fonts[] =
     {
       "-*-courier-medium-r-*-*-*-120-*-*-*-*-iso8859-*",
       "-*-courier-medium-r-*-*-*-120-*-*-*-*-iso8859-*",
@@ -1912,7 +1914,7 @@ complex_vars_of_faces (void)
       "-*-*-*-*-*-*-*-120-*-*-*-*-*-*",
       "*"
     };
-    CONST char **fontptr;
+    const char **fontptr;
 
     for (fontptr = fonts + countof(fonts) - 1; fontptr >= fonts; fontptr--)
       inst_list = Fcons (Fcons (list1 (Qx), build_string (*fontptr)),
@@ -2028,13 +2030,13 @@ complex_vars_of_faces (void)
   Vwidget_face = Fmake_face (Qwidget,
 			     build_string ("widget face"),
 			     Qnil);
+  set_specifier_fallback (Fget (Vwidget_face, Qfont, Qunbound),
+			  Fget (Vgui_element_face, Qfont, Qunbound));
   set_specifier_fallback (Fget (Vwidget_face, Qforeground, Qunbound),
 			  Fget (Vgui_element_face, Qforeground, Qunbound));
   set_specifier_fallback (Fget (Vwidget_face, Qbackground, Qunbound),
 			  Fget (Vgui_element_face, Qbackground, Qunbound));
-  set_specifier_fallback (Fget (Vwidget_face, Qbackground_pixmap, Qnil),
-			  Fget (Vgui_element_face, Qbackground_pixmap,
-				Qunbound));
+  /* We don't want widgets to have a default background pixmap. */
 
   Vleft_margin_face = Fmake_face (Qleft_margin,
 				  build_string ("left margin face"),

@@ -83,7 +83,9 @@ the Assert macro checks for correctness."
 ;;-----------------------------------------------------------------
 
 (when (featurep 'mule)
+  ;;---------------------------------------------------------------
   ;; Test fillarray
+  ;;---------------------------------------------------------------
   (macrolet
       ((fillarray-test
 	(charset1 charset2)
@@ -104,7 +106,9 @@ the Assert macro checks for correctness."
     (aset string 0 (make-char 'latin-iso8859-2 42))
     (Assert (eq (aref string 1) (make-char 'latin-iso8859-2 69))))
 
+  ;;---------------------------------------------------------------
   ;; Test coding system functions
+  ;;---------------------------------------------------------------
 
   ;; Create alias for coding system without subsidiaries
   (Assert (coding-system-p (find-coding-system 'binary)))
@@ -225,7 +229,9 @@ the Assert macro checks for correctness."
   (Assert (not (coding-system-alias-p 'nested-mule-tests-alias)))
   (Assert (not (coding-system-alias-p 'nested-mule-tests-alias-dos)))
 
+  ;;---------------------------------------------------------------
   ;; Test strings waxing and waning across the 8k BIG_STRING limit (see alloc.c)
+  ;;---------------------------------------------------------------
   (defun charset-char-string (charset)
     (let (lo hi string n)
       (if (= (charset-chars charset) 94)
@@ -281,5 +287,30 @@ the Assert macro checks for correctness."
       (aset string j (aref ascii-string (mod j 94))))
     (loop for k in '(0 1 58 59) do
       (Assert (equal (substring string (* 94 k) (* 94 (1+ k))) ascii-string))))
+
+  ;;---------------------------------------------------------------
+  ;; Test file-system character conversion (and, en passant, file ops)
+  ;;---------------------------------------------------------------
+  (let* ((scaron (make-char 'latin-iso8859-2 57))
+	 (latin2-string (make-string 4 scaron))
+	 (prefix (concat (file-name-as-directory (temp-directory)) latin2-string))
+	 (name1 (make-temp-name prefix))
+	 (name2 (make-temp-name prefix))
+	 (file-name-coding-system 'iso-8859-2))
+    ;; This is how you suppress output from `message', called by `write-region'
+    (flet ((append-message (&rest args) ()))
+      (Assert (not (equal name1 name2)))
+      (Assert (not (file-exists-p name1)))
+      (write-region (point-min) (point-max) name1)
+      (Assert (file-exists-p name1))
+      (when (fboundp 'make-symbolic-link)
+	(make-symbolic-link name1 name2)
+	(Assert (file-exists-p name2))
+	(Assert (equal (file-truename name2) name1))
+	(Assert (equal (file-truename name1) name1)))
+
+      (ignore-file-errors (delete-file name1) (delete-file name2))))
+
+  ;; Add many more file operation tests here...
 
   )

@@ -39,7 +39,6 @@ unexec (char *, char *, void *, void *,	void *)
 }
 #else
 
-#undef CONST
 #ifndef MAX_PATH
 #define MAX_PATH 260
 #endif

@@ -50,6 +50,457 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Current Buffer,  Next: Buffer Names,  Prev: Buffer Basics,  Up: Buffers
+
+The Current Buffer
+==================
+
+   There are, in general, many buffers in an Emacs session.  At any
+time, one of them is designated as the "current buffer".  This is the
+buffer in which most editing takes place, because most of the primitives
+for examining or changing text in a buffer operate implicitly on the
+current buffer (*note Text::).  Normally the buffer that is displayed on
+the screen in the selected window is the current buffer, but this is not
+always so: a Lisp program can designate any buffer as current
+temporarily in order to operate on its contents, without changing what
+is displayed on the screen.
+
+   The way to designate a current buffer in a Lisp program is by calling
+`set-buffer'.  The specified buffer remains current until a new one is
+designated.
+
+   When an editing command returns to the editor command loop, the
+command loop designates the buffer displayed in the selected window as
+current, to prevent confusion: the buffer that the cursor is in when
+Emacs reads a command is the buffer that the command will apply to.
+(*Note Command Loop::.)  Therefore, `set-buffer' is not the way to
+switch visibly to a different buffer so that the user can edit it.  For
+this, you must use the functions described in *Note Displaying
+Buffers::.
+
+   However, Lisp functions that change to a different current buffer
+should not depend on the command loop to set it back afterwards.
+Editing commands written in XEmacs Lisp can be called from other
+programs as well as from the command loop.  It is convenient for the
+caller if the subroutine does not change which buffer is current
+(unless, of course, that is the subroutine's purpose).  Therefore, you
+should normally use `set-buffer' within a `save-excursion' that will
+restore the current buffer when your function is done (*note
+Excursions::).  Here is an example, the code for the command
+`append-to-buffer' (with the documentation string abridged):
+
+     (defun append-to-buffer (buffer start end)
+       "Append to specified buffer the text of the region.
+     ..."
+       (interactive "BAppend to buffer: \nr")
+       (let ((oldbuf (current-buffer)))
+         (save-excursion
+           (set-buffer (get-buffer-create buffer))
+           (insert-buffer-substring oldbuf start end))))
+
+This function binds a local variable to the current buffer, and then
+`save-excursion' records the values of point, the mark, and the
+original buffer.  Next, `set-buffer' makes another buffer current.
+Finally, `insert-buffer-substring' copies the string from the original
+current buffer to the new current buffer.
+
+   If the buffer appended to happens to be displayed in some window,
+the next redisplay will show how its text has changed.  Otherwise, you
+will not see the change immediately on the screen.  The buffer becomes
+current temporarily during the execution of the command, but this does
+not cause it to be displayed.
+
+   If you make local bindings (with `let' or function arguments) for a
+variable that may also have buffer-local bindings, make sure that the
+same buffer is current at the beginning and at the end of the local
+binding's scope.  Otherwise you might bind it in one buffer and unbind
+it in another!  There are two ways to do this.  In simple cases, you may
+see that nothing ever changes the current buffer within the scope of the
+binding.  Otherwise, use `save-excursion' to make sure that the buffer
+current at the beginning is current again whenever the variable is
+unbound.
+
+   It is not reliable to change the current buffer back with
+`set-buffer', because that won't do the job if a quit happens while the
+wrong buffer is current.  Here is what _not_ to do:
+
+     (let (buffer-read-only
+           (obuf (current-buffer)))
+       (set-buffer ...)
+       ...
+       (set-buffer obuf))
+
+Using `save-excursion', as shown below, handles quitting, errors, and
+`throw', as well as ordinary evaluation.
+
+     (let (buffer-read-only)
+       (save-excursion
+         (set-buffer ...)
+         ...))
+
+ - Function: current-buffer
+     This function returns the current buffer.
+
+          (current-buffer)
+               => #<buffer buffers.texi>
+
+ - Function: set-buffer buffer-or-name
+     This function makes BUFFER-OR-NAME the current buffer.  It does
+     not display the buffer in the currently selected window or in any
+     other window, so the user cannot necessarily see the buffer.  But
+     Lisp programs can in any case work on it.
+
+     This function returns the buffer identified by BUFFER-OR-NAME.  An
+     error is signaled if BUFFER-OR-NAME does not identify an existing
+     buffer.
+
+
+File: lispref.info,  Node: Buffer Names,  Next: Buffer File Name,  Prev: Current Buffer,  Up: Buffers
+
+Buffer Names
+============
+
+   Each buffer has a unique name, which is a string.  Many of the
+functions that work on buffers accept either a buffer or a buffer name
+as an argument.  Any argument called BUFFER-OR-NAME is of this sort,
+and an error is signaled if it is neither a string nor a buffer.  Any
+argument called BUFFER must be an actual buffer object, not a name.
+
+   Buffers that are ephemeral and generally uninteresting to the user
+have names starting with a space, so that the `list-buffers' and
+`buffer-menu' commands don't mention them.  A name starting with space
+also initially disables recording undo information; see *Note Undo::.
+
+ - Function: buffer-name &optional buffer
+     This function returns the name of BUFFER as a string.  If BUFFER
+     is not supplied, it defaults to the current buffer.
+
+     If `buffer-name' returns `nil', it means that BUFFER has been
+     killed.  *Note Killing Buffers::.
+
+          (buffer-name)
+               => "buffers.texi"
+          
+          (setq foo (get-buffer "temp"))
+               => #<buffer temp>
+          (kill-buffer foo)
+               => nil
+          (buffer-name foo)
+               => nil
+          foo
+               => #<killed buffer>
+
+ - Command: rename-buffer newname &optional unique
+     This function renames the current buffer to NEWNAME.  An error is
+     signaled if NEWNAME is not a string, or if there is already a
+     buffer with that name.  The function returns `nil'.
+
+     Ordinarily, `rename-buffer' signals an error if NEWNAME is already
+     in use.  However, if UNIQUE is non-`nil', it modifies NEWNAME to
+     make a name that is not in use.  Interactively, you can make
+     UNIQUE non-`nil' with a numeric prefix argument.
+
+     One application of this command is to rename the `*shell*' buffer
+     to some other name, thus making it possible to create a second
+     shell buffer under the name `*shell*'.
+
+ - Function: get-buffer buffer-or-name
+     This function returns the buffer specified by BUFFER-OR-NAME.  If
+     BUFFER-OR-NAME is a string and there is no buffer with that name,
+     the value is `nil'.  If BUFFER-OR-NAME is a buffer, it is returned
+     as given.  (That is not very useful, so the argument is usually a
+     name.)  For example:
+
+          (setq b (get-buffer "lewis"))
+               => #<buffer lewis>
+          (get-buffer b)
+               => #<buffer lewis>
+          (get-buffer "Frazzle-nots")
+               => nil
+
+     See also the function `get-buffer-create' in *Note Creating
+     Buffers::.
+
+ - Function: generate-new-buffer-name starting-name &optional ignore
+     This function returns a name that would be unique for a new
+     buffer--but does not create the buffer.  It starts with
+     STARTING-NAME, and produces a name not currently in use for any
+     buffer by appending a number inside of `<...>'.
+
+     If IGNORE is given, it specifies a name that is okay to use (if it
+     is in the sequence to be tried), even if a buffer with that name
+     exists.
+
+     See the related function `generate-new-buffer' in *Note Creating
+     Buffers::.
+
+
+File: lispref.info,  Node: Buffer File Name,  Next: Buffer Modification,  Prev: Buffer Names,  Up: Buffers
+
+Buffer File Name
+================
+
+   The "buffer file name" is the name of the file that is visited in
+that buffer.  When a buffer is not visiting a file, its buffer file name
+is `nil'.  Most of the time, the buffer name is the same as the
+nondirectory part of the buffer file name, but the buffer file name and
+the buffer name are distinct and can be set independently.  *Note
+Visiting Files::.
+
+ - Function: buffer-file-name &optional buffer
+     This function returns the absolute file name of the file that
+     BUFFER is visiting.  If BUFFER is not visiting any file,
+     `buffer-file-name' returns `nil'.  If BUFFER is not supplied, it
+     defaults to the current buffer.
+
+          (buffer-file-name (other-buffer))
+               => "/usr/user/lewis/manual/files.texi"
+
+ - Variable: buffer-file-name
+     This buffer-local variable contains the name of the file being
+     visited in the current buffer, or `nil' if it is not visiting a
+     file.  It is a permanent local, unaffected by
+     `kill-local-variables'.
+
+          buffer-file-name
+               => "/usr/user/lewis/manual/buffers.texi"
+
+     It is risky to change this variable's value without doing various
+     other things.  See the definition of `set-visited-file-name' in
+     `files.el'; some of the things done there, such as changing the
+     buffer name, are not strictly necessary, but others are essential
+     to avoid confusing XEmacs.
+
+ - Variable: buffer-file-truename
+     This buffer-local variable holds the truename of the file visited
+     in the current buffer, or `nil' if no file is visited.  It is a
+     permanent local, unaffected by `kill-local-variables'.  *Note
+     Truenames::.
+
+ - Variable: buffer-file-number
+     This buffer-local variable holds the file number and directory
+     device number of the file visited in the current buffer, or `nil'
+     if no file or a nonexistent file is visited.  It is a permanent
+     local, unaffected by `kill-local-variables'.  *Note Truenames::.
+
+     The value is normally a list of the form `(FILENUM DEVNUM)'.  This
+     pair of numbers uniquely identifies the file among all files
+     accessible on the system.  See the function `file-attributes', in
+     *Note File Attributes::, for more information about them.
+
+ - Function: get-file-buffer filename
+     This function returns the buffer visiting file FILENAME.  If there
+     is no such buffer, it returns `nil'.  The argument FILENAME, which
+     must be a string, is expanded (*note File Name Expansion::), then
+     compared against the visited file names of all live buffers.
+
+          (get-file-buffer "buffers.texi")
+              => #<buffer buffers.texi>
+
+     In unusual circumstances, there can be more than one buffer
+     visiting the same file name.  In such cases, this function returns
+     the first such buffer in the buffer list.
+
+ - Command: set-visited-file-name filename
+     If FILENAME is a non-empty string, this function changes the name
+     of the file visited in current buffer to FILENAME.  (If the buffer
+     had no visited file, this gives it one.)  The _next time_ the
+     buffer is saved it will go in the newly-specified file.  This
+     command marks the buffer as modified, since it does not (as far as
+     XEmacs knows) match the contents of FILENAME, even if it matched
+     the former visited file.
+
+     If FILENAME is `nil' or the empty string, that stands for "no
+     visited file".  In this case, `set-visited-file-name' marks the
+     buffer as having no visited file.
+
+     When the function `set-visited-file-name' is called interactively,
+     it prompts for FILENAME in the minibuffer.
+
+     See also `clear-visited-file-modtime' and
+     `verify-visited-file-modtime' in *Note Buffer Modification::.
+
+ - Variable: list-buffers-directory
+     This buffer-local variable records a string to display in a buffer
+     listing in place of the visited file name, for buffers that don't
+     have a visited file name.  Dired buffers use this variable.
+
+
+File: lispref.info,  Node: Buffer Modification,  Next: Modification Time,  Prev: Buffer File Name,  Up: Buffers
+
+Buffer Modification
+===================
+
+   XEmacs keeps a flag called the "modified flag" for each buffer, to
+record whether you have changed the text of the buffer.  This flag is
+set to `t' whenever you alter the contents of the buffer, and cleared
+to `nil' when you save it.  Thus, the flag shows whether there are
+unsaved changes.  The flag value is normally shown in the modeline
+(*note Modeline Variables::), and controls saving (*note Saving
+Buffers::) and auto-saving (*note Auto-Saving::).
+
+   Some Lisp programs set the flag explicitly.  For example, the
+function `set-visited-file-name' sets the flag to `t', because the text
+does not match the newly-visited file, even if it is unchanged from the
+file formerly visited.
+
+   The functions that modify the contents of buffers are described in
+*Note Text::.
+
+ - Function: buffer-modified-p &optional buffer
+     This function returns `t' if the buffer BUFFER has been modified
+     since it was last read in from a file or saved, or `nil'
+     otherwise.  If BUFFER is not supplied, the current buffer is
+     tested.
+
+ - Function: set-buffer-modified-p flag
+     This function marks the current buffer as modified if FLAG is
+     non-`nil', or as unmodified if the flag is `nil'.
+
+     Another effect of calling this function is to cause unconditional
+     redisplay of the modeline for the current buffer.  In fact, the
+     function `redraw-modeline' works by doing this:
+
+          (set-buffer-modified-p (buffer-modified-p))
+
+ - Command: not-modified &optional arg
+     This command marks the current buffer as unmodified, and not
+     needing to be saved. (If ARG is non-`nil', the buffer is instead
+     marked as modified.) Don't use this function in programs, since it
+     prints a message in the echo area; use `set-buffer-modified-p'
+     (above) instead.
+
+ - Function: buffer-modified-tick &optional buffer
+     This function returns BUFFER`s modification-count.  This is a
+     counter that increments every time the buffer is modified.  If
+     BUFFER is `nil' (or omitted), the current buffer is used.
+
+
+File: lispref.info,  Node: Modification Time,  Next: Read Only Buffers,  Prev: Buffer Modification,  Up: Buffers
+
+Comparison of Modification Time
+===============================
+
+   Suppose that you visit a file and make changes in its buffer, and
+meanwhile the file itself is changed on disk.  At this point, saving the
+buffer would overwrite the changes in the file.  Occasionally this may
+be what you want, but usually it would lose valuable information.
+XEmacs therefore checks the file's modification time using the functions
+described below before saving the file.
+
+ - Function: verify-visited-file-modtime buffer
+     This function compares what BUFFER has recorded for the
+     modification time of its visited file against the actual
+     modification time of the file as recorded by the operating system.
+     The two should be the same unless some other process has written
+     the file since XEmacs visited or saved it.
+
+     The function returns `t' if the last actual modification time and
+     XEmacs's recorded modification time are the same, `nil' otherwise.
+
+ - Function: clear-visited-file-modtime
+     This function clears out the record of the last modification time
+     of the file being visited by the current buffer.  As a result, the
+     next attempt to save this buffer will not complain of a
+     discrepancy in file modification times.
+
+     This function is called in `set-visited-file-name' and other
+     exceptional places where the usual test to avoid overwriting a
+     changed file should not be done.
+
+ - Function: visited-file-modtime
+     This function returns the buffer's recorded last file modification
+     time, as a list of the form `(HIGH . LOW)'.  (This is the same
+     format that `file-attributes' uses to return time values; see
+     *Note File Attributes::.)
+
+ - Function: set-visited-file-modtime &optional time
+     This function updates the buffer's record of the last modification
+     time of the visited file, to the value specified by TIME if TIME
+     is not `nil', and otherwise to the last modification time of the
+     visited file.
+
+     If TIME is not `nil', it should have the form `(HIGH . LOW)' or
+     `(HIGH LOW)', in either case containing two integers, each of
+     which holds 16 bits of the time.
+
+     This function is useful if the buffer was not read from the file
+     normally, or if the file itself has been changed for some known
+     benign reason.
+
+ - Function: ask-user-about-supersession-threat filename
+     This function is used to ask a user how to proceed after an
+     attempt to modify an obsolete buffer visiting file FILENAME.  An
+     "obsolete buffer" is an unmodified buffer for which the associated
+     file on disk is newer than the last save-time of the buffer.  This
+     means some other program has probably altered the file.
+
+     Depending on the user's answer, the function may return normally,
+     in which case the modification of the buffer proceeds, or it may
+     signal a `file-supersession' error with data `(FILENAME)', in which
+     case the proposed buffer modification is not allowed.
+
+     This function is called automatically by XEmacs on the proper
+     occasions.  It exists so you can customize XEmacs by redefining it.
+     See the file `userlock.el' for the standard definition.
+
+     See also the file locking mechanism in *Note File Locks::.
+
+
+File: lispref.info,  Node: Read Only Buffers,  Next: The Buffer List,  Prev: Modification Time,  Up: Buffers
+
+Read-Only Buffers
+=================
+
+   If a buffer is "read-only", then you cannot change its contents,
+although you may change your view of the contents by scrolling and
+narrowing.
+
+   Read-only buffers are used in two kinds of situations:
+
+   * A buffer visiting a write-protected file is normally read-only.
+
+     Here, the purpose is to show the user that editing the buffer with
+     the aim of saving it in the file may be futile or undesirable.
+     The user who wants to change the buffer text despite this can do
+     so after clearing the read-only flag with `C-x C-q'.
+
+   * Modes such as Dired and Rmail make buffers read-only when altering
+     the contents with the usual editing commands is probably a mistake.
+
+     The special commands of these modes bind `buffer-read-only' to
+     `nil' (with `let') or bind `inhibit-read-only' to `t' around the
+     places where they change the text.
+
+ - Variable: buffer-read-only
+     This buffer-local variable specifies whether the buffer is
+     read-only.  The buffer is read-only if this variable is non-`nil'.
+
+ - Variable: inhibit-read-only
+     If this variable is non-`nil', then read-only buffers and read-only
+     characters may be modified.  Read-only characters in a buffer are
+     those that have non-`nil' `read-only' properties (either text
+     properties or extent properties).  *Note Extent Properties::, for
+     more information about text properties and extent properties.
+
+     If `inhibit-read-only' is `t', all `read-only' character
+     properties have no effect.  If `inhibit-read-only' is a list, then
+     `read-only' character properties have no effect if they are members
+     of the list (comparison is done with `eq').
+
+ - Command: toggle-read-only
+     This command changes whether the current buffer is read-only.  It
+     is intended for interactive use; don't use it in programs.  At any
+     given point in a program, you should know whether you want the
+     read-only flag on or off; so you can set `buffer-read-only'
+     explicitly to the proper value, `t' or `nil'.
+
+ - Function: barf-if-buffer-read-only
+     This function signals a `buffer-read-only' error if the current
+     buffer is read-only.  *Note Interactive Call::, for another way to
+     signal an error if the current buffer is read-only.
+
+
 File: lispref.info,  Node: The Buffer List,  Next: Creating Buffers,  Prev: Read Only Buffers,  Up: Buffers
 
 The Buffer List
@@ -694,521 +1145,4 @@ among all the siblings.)
         * If it is a frame, operate on that frame.
 
      This function always returns `nil'.
-
-
-File: lispref.info,  Node: Selecting Windows,  Next: Cyclic Window Ordering,  Prev: Deleting Windows,  Up: Windows
-
-Selecting Windows
-=================
-
-   When a window is selected, the buffer in the window becomes the
-current buffer, and the cursor will appear in it.
-
- - Function: selected-window &optional device
-     This function returns the selected window.  This is the window in
-     which the cursor appears and to which many commands apply.  Each
-     separate device can have its own selected window, which is
-     remembered as focus changes from device to device.  Optional
-     argument DEVICE specifies which device to return the selected
-     window for, and defaults to the selected device.
-
- - Function: select-window window &optional norecord
-     This function makes WINDOW the selected window.  The cursor then
-     appears in WINDOW (on redisplay).  The buffer being displayed in
-     WINDOW is immediately designated the current buffer.
-
-     If optional argument NORECORD is non-`nil' then the global and
-     per-frame buffer orderings are not modified, as by the function
-     `record-buffer'.
-
-     The return value is WINDOW.
-
-          (setq w (next-window))
-          (select-window w)
-               => #<window 65 on windows.texi>
-
- - Macro: save-selected-window forms...
-     This macro records the selected window, executes FORMS in
-     sequence, then restores the earlier selected window.  It does not
-     save or restore anything about the sizes, arrangement or contents
-     of windows; therefore, if the FORMS change them, the changes are
-     permanent.
-
-   The following functions choose one of the windows on the screen,
-offering various criteria for the choice.
-
- - Function: get-lru-window &optional frame
-     This function returns the window least recently "used" (that is,
-     selected).  The selected window is always the most recently used
-     window.
-
-     The selected window can be the least recently used window if it is
-     the only window.  A newly created window becomes the least
-     recently used window until it is selected.  A minibuffer window is
-     never a candidate.
-
-     The argument FRAME controls which windows are considered.
-
-        * If it is `nil', consider windows on the selected frame.
-
-        * If it is `t', consider windows on all frames.
-
-        * If it is `visible', consider windows on all visible frames.
-
-        * If it is 0, consider windows on all visible or iconified
-          frames.
-
-        * If it is a frame, consider windows on that frame.
-
- - Function: get-largest-window &optional frame
-     This function returns the window with the largest area (height
-     times width).  If there are no side-by-side windows, then this is
-     the window with the most lines.  A minibuffer window is never a
-     candidate.
-
-     If there are two windows of the same size, then the function
-     returns the window that is first in the cyclic ordering of windows
-     (see following section), starting from the selected window.
-
-     The argument FRAME controls which set of windows are considered.
-     See `get-lru-window', above.
-
-
-File: lispref.info,  Node: Cyclic Window Ordering,  Next: Buffers and Windows,  Prev: Selecting Windows,  Up: Windows
-
-Cyclic Ordering of Windows
-==========================
-
-   When you use the command `C-x o' (`other-window') to select the next
-window, it moves through all the windows on the screen in a specific
-cyclic order.  For any given configuration of windows, this order never
-varies.  It is called the "cyclic ordering of windows".
-
-   This ordering generally goes from top to bottom, and from left to
-right.  But it may go down first or go right first, depending on the
-order in which the windows were split.
-
-   If the first split was vertical (into windows one above each other),
-and then the subwindows were split horizontally, then the ordering is
-left to right in the top of the frame, and then left to right in the
-next lower part of the frame, and so on.  If the first split was
-horizontal, the ordering is top to bottom in the left part, and so on.
-In general, within each set of siblings at any level in the window tree,
-the order is left to right, or top to bottom.
-
- - Function: next-window &optional window minibuf all-frames
-     This function returns the window following WINDOW in the cyclic
-     ordering of windows.  This is the window that `C-x o' would select
-     if typed when WINDOW is selected.  If WINDOW is the only window
-     visible, then this function returns WINDOW.  If omitted, WINDOW
-     defaults to the selected window.
-
-     The value of the argument MINIBUF determines whether the
-     minibuffer is included in the window order.  Normally, when
-     MINIBUF is `nil', the minibuffer is included if it is currently
-     active; this is the behavior of `C-x o'.  (The minibuffer window
-     is active while the minibuffer is in use.  *Note Minibuffers::.)
-
-     If MINIBUF is `t', then the cyclic ordering includes the
-     minibuffer window even if it is not active.
-
-     If MINIBUF is neither `t' nor `nil', then the minibuffer window is
-     not included even if it is active.
-
-     The argument ALL-FRAMES specifies which frames to consider.  Here
-     are the possible values and their meanings:
-
-    `nil'
-          Consider all the windows in WINDOW's frame, plus the
-          minibuffer used by that frame even if it lies in some other
-          frame.
-
-    `t'
-          Consider all windows in all existing frames.
-
-    `visible'
-          Consider all windows in all visible frames.  (To get useful
-          results, you must ensure WINDOW is in a visible frame.)
-
-    0
-          Consider all windows in all visible or iconified frames.
-
-    anything else
-          Consider precisely the windows in WINDOW's frame, and no
-          others.
-
-     This example assumes there are two windows, both displaying the
-     buffer `windows.texi':
-
-          (selected-window)
-               => #<window 56 on windows.texi>
-          (next-window (selected-window))
-               => #<window 52 on windows.texi>
-          (next-window (next-window (selected-window)))
-               => #<window 56 on windows.texi>
-
- - Function: previous-window &optional window minibuf all-frames
-     This function returns the window preceding WINDOW in the cyclic
-     ordering of windows.  The other arguments specify which windows to
-     include in the cycle, as in `next-window'.
-
- - Command: other-window count &optional frame
-     This function selects the COUNTth following window in the cyclic
-     order.  If count is negative, then it selects the -COUNTth
-     preceding window.  It returns `nil'.
-
-     In an interactive call, COUNT is the numeric prefix argument.
-
-     The argument FRAME controls which set of windows are considered.
-        * If it is `nil' or omitted, then windows on the selected frame
-          are considered.
-
-        * If it is a frame, then windows on that frame are considered.
-
-        * If it is `t', then windows on all frames that currently exist
-          (including invisible and iconified frames) are considered.
-
-        * If it is the symbol `visible', then windows on all visible
-          frames are considered.
-
-        * If it is the number 0, then windows on all visible and
-          iconified frames are considered.
-
-        * If it is any other value, then the behavior is undefined.
-
- - Function: walk-windows proc &optional minibuf all-frames
-     This function cycles through all windows, calling `proc' once for
-     each window with the window as its sole argument.
-
-     The optional arguments MINIBUF and ALL-FRAMES specify the set of
-     windows to include in the scan.  See `next-window', above, for
-     details.
-
-
-File: lispref.info,  Node: Buffers and Windows,  Next: Displaying Buffers,  Prev: Cyclic Window Ordering,  Up: Windows
-
-Buffers and Windows
-===================
-
-   This section describes low-level functions to examine windows or to
-display buffers in windows in a precisely controlled fashion.  *Note
-Displaying Buffers::, for related functions that find a window to use
-and specify a buffer for it.  The functions described there are easier
-to use than these, but they employ heuristics in choosing or creating a
-window; use these functions when you need complete control.
-
- - Function: set-window-buffer window buffer-or-name
-     This function makes WINDOW display BUFFER-OR-NAME as its contents.
-     It returns `nil'.
-
-          (set-window-buffer (selected-window) "foo")
-               => nil
-
- - Function: window-buffer &optional window
-     This function returns the buffer that WINDOW is displaying.  If
-     WINDOW is omitted, this function returns the buffer for the
-     selected window.
-
-          (window-buffer)
-               => #<buffer windows.texi>
-
- - Function: get-buffer-window buffer-or-name &optional frame
-     This function returns a window currently displaying
-     BUFFER-OR-NAME, or `nil' if there is none.  If there are several
-     such windows, then the function returns the first one in the
-     cyclic ordering of windows, starting from the selected window.
-     *Note Cyclic Window Ordering::.
-
-     The argument ALL-FRAMES controls which windows to consider.
-
-        * If it is `nil', consider windows on the selected frame.
-
-        * If it is `t', consider windows on all frames.
-
-        * If it is `visible', consider windows on all visible frames.
-
-        * If it is 0, consider windows on all visible or iconified
-          frames.
-
-        * If it is a frame, consider windows on that frame.
-
-
-File: lispref.info,  Node: Displaying Buffers,  Next: Choosing Window,  Prev: Buffers and Windows,  Up: Windows
-
-Displaying Buffers in Windows
-=============================
-
-   In this section we describe convenient functions that choose a window
-automatically and use it to display a specified buffer.  These functions
-can also split an existing window in certain circumstances.  We also
-describe variables that parameterize the heuristics used for choosing a
-window.  *Note Buffers and Windows::, for low-level functions that give
-you more precise control.
-
-   Do not use the functions in this section in order to make a buffer
-current so that a Lisp program can access or modify it; they are too
-drastic for that purpose, since they change the display of buffers in
-windows, which is gratuitous and will surprise the user.  Instead, use
-`set-buffer' (*note Current Buffer::) and `save-excursion' (*note
-Excursions::), which designate buffers as current for programmed access
-without affecting the display of buffers in windows.
-
- - Command: switch-to-buffer buffer-or-name &optional norecord
-     This function makes BUFFER-OR-NAME the current buffer, and also
-     displays the buffer in the selected window.  This means that a
-     human can see the buffer and subsequent keyboard commands will
-     apply to it.  Contrast this with `set-buffer', which makes
-     BUFFER-OR-NAME the current buffer but does not display it in the
-     selected window.  *Note Current Buffer::.
-
-     If BUFFER-OR-NAME does not identify an existing buffer, then a new
-     buffer by that name is created.  The major mode for the new buffer
-     is set according to the variable `default-major-mode'.  *Note Auto
-     Major Mode::.
-
-     Normally the specified buffer is put at the front of the buffer
-     list.  This affects the operation of `other-buffer'.  However, if
-     NORECORD is non-`nil', this is not done.  *Note The Buffer List::.
-
-     The `switch-to-buffer' function is often used interactively, as
-     the binding of `C-x b'.  It is also used frequently in programs.
-     It always returns `nil'.
-
- - Command: switch-to-buffer-other-window buffer-or-name
-     This function makes BUFFER-OR-NAME the current buffer and displays
-     it in a window not currently selected.  It then selects that
-     window.  The handling of the buffer is the same as in
-     `switch-to-buffer'.
-
-     The currently selected window is absolutely never used to do the
-     job.  If it is the only window, then it is split to make a
-     distinct window for this purpose.  If the selected window is
-     already displaying the buffer, then it continues to do so, but
-     another window is nonetheless found to display it in as well.
-
- - Function: pop-to-buffer buffer-or-name &optional other-window
-          on-frame
-     This function makes BUFFER-OR-NAME the current buffer and switches
-     to it in some window, preferably not the window previously
-     selected.  The "popped-to" window becomes the selected window
-     within its frame.
-
-     If the variable `pop-up-frames' is non-`nil', `pop-to-buffer'
-     looks for a window in any visible frame already displaying the
-     buffer; if there is one, it returns that window and makes it be
-     selected within its frame.  If there is none, it creates a new
-     frame and displays the buffer in it.
-
-     If `pop-up-frames' is `nil', then `pop-to-buffer' operates
-     entirely within the selected frame.  (If the selected frame has
-     just a minibuffer, `pop-to-buffer' operates within the most
-     recently selected frame that was not just a minibuffer.)
-
-     If the variable `pop-up-windows' is non-`nil', windows may be
-     split to create a new window that is different from the original
-     window.  For details, see *Note Choosing Window::.
-
-     If OTHER-WINDOW is non-`nil', `pop-to-buffer' finds or creates
-     another window even if BUFFER-OR-NAME is already visible in the
-     selected window.  Thus BUFFER-OR-NAME could end up displayed in
-     two windows.  On the other hand, if BUFFER-OR-NAME is already
-     displayed in the selected window and OTHER-WINDOW is `nil', then
-     the selected window is considered sufficient display for
-     BUFFER-OR-NAME, so that nothing needs to be done.
-
-     All the variables that affect `display-buffer' affect
-     `pop-to-buffer' as well.  *Note Choosing Window::.
-
-     If BUFFER-OR-NAME is a string that does not name an existing
-     buffer, a buffer by that name is created.  The major mode for the
-     new buffer is set according to the variable `default-major-mode'.
-     *Note Auto Major Mode::.
-
-     If ON-FRAME is non-`nil', it is the frame to pop to this buffer on.
-
-     An example use of this function is found at the end of *Note
-     Filter Functions::.
-
- - Command: replace-buffer-in-windows buffer
-     This function replaces BUFFER with some other buffer in all
-     windows displaying it.  The other buffer used is chosen with
-     `other-buffer'.  In the usual applications of this function, you
-     don't care which other buffer is used; you just want to make sure
-     that BUFFER is no longer displayed.
-
-     This function returns `nil'.
-
-
-File: lispref.info,  Node: Choosing Window,  Next: Window Point,  Prev: Displaying Buffers,  Up: Windows
-
-Choosing a Window for Display
-=============================
-
-   This section describes the basic facility that chooses a window to
-display a buffer in--`display-buffer'.  All the higher-level functions
-and commands use this subroutine.  Here we describe how to use
-`display-buffer' and how to customize it.
-
- - Command: display-buffer buffer-or-name &optional not-this-window
-     This command makes BUFFER-OR-NAME appear in some window, like
-     `pop-to-buffer', but it does not select that window and does not
-     make the buffer current.  The identity of the selected window is
-     unaltered by this function.
-
-     If NOT-THIS-WINDOW is non-`nil', it means to display the specified
-     buffer in a window other than the selected one, even if it is
-     already on display in the selected window.  This can cause the
-     buffer to appear in two windows at once.  Otherwise, if
-     BUFFER-OR-NAME is already being displayed in any window, that is
-     good enough, so this function does nothing.
-
-     `display-buffer' returns the window chosen to display
-     BUFFER-OR-NAME.
-
-     Precisely how `display-buffer' finds or creates a window depends on
-     the variables described below.
-
-   A window can be marked as "dedicated" to a particular buffer.  Then
-XEmacs will not automatically change which buffer appears in the
-window, such as `display-buffer' might normally do.
-
- - Function: window-dedicated-p window
-     This function returns WINDOW's dedicated object, usually `t' or
-     `nil'.
-
- - Function: set-window-buffer-dedicated window buffer
-     This function makes WINDOW display BUFFER and be dedicated to that
-     buffer.  Then XEmacs will not automatically change which buffer
-     appears in WINDOW.  If BUFFER is `nil', this function makes WINDOW
-     not be dedicated (but doesn't change which buffer appears in it
-     currently).
-
- - User Option: pop-up-windows
-     This variable controls whether `display-buffer' makes new windows.
-     If it is non-`nil' and there is only one window, then that window
-     is split.  If it is `nil', then `display-buffer' does not split
-     the single window, but uses it whole.
-
- - User Option: split-height-threshold
-     This variable determines when `display-buffer' may split a window,
-     if there are multiple windows.  `display-buffer' always splits the
-     largest window if it has at least this many lines.  If the largest
-     window is not this tall, it is split only if it is the sole window
-     and `pop-up-windows' is non-`nil'.
-
- - User Option: pop-up-frames
-     This variable controls whether `display-buffer' makes new frames.
-     If it is non-`nil', `display-buffer' looks for an existing window
-     already displaying the desired buffer, on any visible frame.  If
-     it finds one, it returns that window.  Otherwise it makes a new
-     frame.  The variables `pop-up-windows' and
-     `split-height-threshold' do not matter if `pop-up-frames' is
-     non-`nil'.
-
-     If `pop-up-frames' is `nil', then `display-buffer' either splits a
-     window or reuses one.
-
-     *Note Frames::, for more information.
-
- - Variable: pop-up-frame-function
-     This variable specifies how to make a new frame if `pop-up-frames'
-     is non-`nil'.
-
-     Its value should be a function of no arguments.  When
-     `display-buffer' makes a new frame, it does so by calling that
-     function, which should return a frame.  The default value of the
-     variable is a function that creates a frame using properties from
-     `pop-up-frame-plist'.
-
- - Variable: pop-up-frame-plist
-     This variable holds a plist specifying frame properties used when
-     `display-buffer' makes a new frame.  *Note Frame Properties::, for
-     more information about frame properties.
-
- - Variable: special-display-buffer-names
-     A list of buffer names for buffers that should be displayed
-     specially.  If the buffer's name is in this list, `display-buffer'
-     handles the buffer specially.
-
-     By default, special display means to give the buffer a dedicated
-     frame.
-
-     If an element is a list, instead of a string, then the CAR of the
-     list is the buffer name, and the rest of the list says how to
-     create the frame.  There are two possibilities for the rest of the
-     list.  It can be a plist, specifying frame properties, or it can
-     contain a function and arguments to give to it.  (The function's
-     first argument is always the buffer to be displayed; the arguments
-     from the list come after that.)
-
- - Variable: special-display-regexps
-     A list of regular expressions that specify buffers that should be
-     displayed specially.  If the buffer's name matches any of the
-     regular expressions in this list, `display-buffer' handles the
-     buffer specially.
-
-     By default, special display means to give the buffer a dedicated
-     frame.
-
-     If an element is a list, instead of a string, then the CAR of the
-     list is the regular expression, and the rest of the list says how
-     to create the frame.  See above, under
-     `special-display-buffer-names'.
-
- - Variable: special-display-function
-     This variable holds the function to call to display a buffer
-     specially.  It receives the buffer as an argument, and should
-     return the window in which it is displayed.
-
-     The default value of this variable is
-     `special-display-popup-frame'.
-
- - Function: special-display-popup-frame buffer
-     This function makes BUFFER visible in a frame of its own.  If
-     BUFFER is already displayed in a window in some frame, it makes
-     the frame visible and raises it, to use that window.  Otherwise, it
-     creates a frame that will be dedicated to BUFFER.
-
-     This function uses an existing window displaying BUFFER whether or
-     not it is in a frame of its own; but if you set up the above
-     variables in your init file, before BUFFER was created, then
-     presumably the window was previously made by this function.
-
- - User Option: special-display-frame-plist
-     This variable holds frame properties for
-     `special-display-popup-frame' to use when it creates a frame.
-
- - Variable: same-window-buffer-names
-     A list of buffer names for buffers that should be displayed in the
-     selected window.  If the buffer's name is in this list,
-     `display-buffer' handles the buffer by switching to it in the
-     selected window.
-
- - Variable: same-window-regexps
-     A list of regular expressions that specify buffers that should be
-     displayed in the selected window.  If the buffer's name matches
-     any of the regular expressions in this list, `display-buffer'
-     handles the buffer by switching to it in the selected window.
-
- - Variable: display-buffer-function
-     This variable is the most flexible way to customize the behavior of
-     `display-buffer'.  If it is non-`nil', it should be a function
-     that `display-buffer' calls to do the work.  The function should
-     accept two arguments, the same two arguments that `display-buffer'
-     received.  It should choose or create a window, display the
-     specified buffer, and then return the window.
-
-     This hook takes precedence over all the other options and hooks
-     described above.
-
-   A window can be marked as "dedicated" to its buffer.  Then
-`display-buffer' does not try to use that window.
-
- - Function: window-dedicated-p window
-     This function returns `t' if WINDOW is marked as dedicated;
-     otherwise `nil'.
-
- - Function: set-window-dedicated-p window flag
-     This function marks WINDOW as dedicated if FLAG is non-`nil', and
-     nondedicated otherwise.
 

@@ -29,6 +29,10 @@ Boston, MA 02111-1307, USA.  */
 extern char **environ;
 #endif
 
+#ifdef PDUMP
+int pdump_read_file (char **pdump_start_pos, size_t *pdump_length);
+#endif
+
 int eight_bit_tty (struct device *d);
 
 void stuff_char (struct console *con, int c);
@@ -81,7 +85,7 @@ void reset_poll_for_quit (void);
 extern JMP_BUF break_system_call_jump;
 extern volatile int can_break_system_calls;
 
-ssize_t sys_write_1 (int fildes, CONST void *buf, size_t nbyte,
+ssize_t sys_write_1 (int fildes, const void *buf, size_t nbyte,
 		     int allow_quit);
 ssize_t sys_read_1 (int fildes, void *buf, size_t nbyte,
 		    int allow_quit);
@@ -145,11 +149,11 @@ char *end_of_data (void);
 void init_system_name (void);
 
 #ifndef HAVE_GETCWD
-char *getcwd (char *pathname, int size);
+char *getcwd (char *pathname, size_t size);
 #endif
 
 #ifndef HAVE_RENAME
-int rename (CONST char *from, CONST char *to);
+int rename (const char *from, const char *to);
 #endif
 
 #ifndef HAVE_DUP2
@@ -161,7 +165,7 @@ int dup2 (int oldd, int newd);
 # ifdef strerror
 # undef strerror
 # endif
-CONST char *strerror (int);
+const char *strerror (int);
 #endif
 
 #ifdef WINDOWSNT
@@ -169,7 +173,7 @@ void mswindows_set_errno (unsigned long win32_error);
 void mswindows_set_last_errno (void);
 #endif
 
-int interruptible_open (CONST char *path, int oflag, int mode);
+int interruptible_open (const char *path, int oflag, int mode);
 
 #ifndef HAVE_H_ERRNO
 extern int h_errno;
@@ -178,7 +182,7 @@ extern int h_errno;
 #ifdef HAVE_REALPATH
 #define xrealpath realpath
 #else
-char *xrealpath(CONST char *path, char resolved_path []);
+char *xrealpath(const char *path, char resolved_path []);
 #endif
 
 #endif /* INCLUDED_sysdep_h_ */

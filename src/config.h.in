@@ -26,6 +26,7 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _SRC_CONFIG_H_
 #define _SRC_CONFIG_H_
 
+
 /* alloca twiddling belongs in one place, not the s&m headers
    AIX requires this to be the first thing in the file.  */
 #undef HAVE_ALLOCA_H
@@ -38,14 +39,43 @@ Boston, MA 02111-1307, USA.  */
 #elif defined(_AIX)
 #pragma alloca
 #elif ! defined (alloca)
-char *alloca();
+char *alloca ();
 #endif
 #endif /* C code */
+
+
+/* Use SMART_INCLUDE to generate #include statements with variable paths.
+
+   #### WARNING: NEVER EVER PUT A SPACE BETWEEN THE ARGUMENTS OF THE
+   `SMART_INCLUDE' MACRO: when the simple (direct version) is defined, you
+   would end up with a space in your header filename.
+
+   Since the effect of macro expansion in #include statements is underspecified
+   in the C standard, and rarely used in source code, different compilers need
+   different implementations of SMART_INCLUDE (e.g. gcc 2.5.8 and AIX xlc).
+*/
+#undef SMART_INCLUDE_INDIRECTIONS
+
+#if SMART_INCLUDE_INDIRECTIONS == 0
+# define SMART_INCLUDE(path,file) <path/file>
+#elif SMART_INCLUDE_INDIRECTIONS == 1
+# define GLUE_INCLUDE(path,file) <##path##/##file##>
+# define SMART_INCLUDE(path,file) GLUE_INCLUDE(path,file)
+#elif SMART_INCLUDE_INDIRECTIONS == 2
+# define GLUE_INCLUDE_2(path,file) <##path##/##file##>
+# define GLUE_INCLUDE_1(path,file) GLUE_INCLUDE_2(path,file)
+# define SMART_INCLUDE(path,file) GLUE_INCLUDE_1(path,file)
+#else
+# error SMART_INCLUDE_INDIRECTIONS was not properly defined by configure
+#endif
 
 
 /* Use this to add code in a structured way to FSF-maintained source
    files so as to make it obvious where XEmacs changes are. */
 #define XEMACS 1
+
+/* Program name */
+#undef EMACS_PROGNAME
 
 /* Allow s&m files to differentiate OS versions without having
    multiple files to maintain. */
@@ -70,11 +100,23 @@ char *alloca();
 #undef INFODOCK_MINOR_VERSION
 #undef INFODOCK_BUILD_VERSION
 
+/* Make all functions from all IEEE Stds 1003.[123] available. */
+#undef _POSIX_C_SOURCE
+
+/* Make all functions from Unix98 available. */
+#undef _XOPEN_SOURCE
+
+/* Make extensions from Unix98 available. */
+#undef _XOPEN_SOURCE_EXTENDED
+
 /* Make all functions available on AIX.  See AC_AIX. */
 #undef _ALL_SOURCE
 
 /* Make all functions available on GNU libc systems.  See features.h. */
 #undef _GNU_SOURCE
+
+/* Make all functions available on Solaris 2 systems. */
+#undef __EXTENSIONS__
 
 /* Used to identify the XEmacs version in stack traces. */
 #undef STACK_TRACE_EYE_CATCHER
@@ -164,6 +206,8 @@ char *alloca();
 #undef THIS_IS_X11R5
 #undef THIS_IS_X11R6
 
+#undef HAVE_XCONVERTCASE
+
 /* Where do we find bitmaps? */
 #undef BITMAPDIR
 
@@ -184,30 +228,31 @@ char *alloca();
 /* Some things figured out by the configure script, grouped as they are in
    configure.in. */
 #undef HAVE_MCHECK_H
-#undef HAVE_MACH_MACH_H
-#undef HAVE_SYS_STROPTS_H
-#undef HAVE_SYS_TIMEB_H
-#undef HAVE_SYS_TIME_H
-#undef HAVE_UNISTD_H
-#undef HAVE_UTIME_H
-#undef HAVE_SYS_WAIT_H
-#undef HAVE_LIBINTL_H
+#undef HAVE_A_OUT_H
+#undef HAVE_CYGWIN_VERSION_H
+#undef HAVE_FCNTL_H
+#undef HAVE_INTTYPES_H
 #undef HAVE_LIBGEN_H
 #undef HAVE_LOCALE_H
-#undef HAVE_FCNTL_H
-#undef HAVE_ULIMIT_H
-#undef HAVE_X11_XLOCALE_H
-#undef HAVE_LINUX_VERSION_H
-#undef HAVE_CYGWIN_VERSION_H
-#undef HAVE_INTTYPES_H
+#undef HAVE_MACH_MACH_H
+#undef HAVE_SYS_PARAM_H
+#undef HAVE_SYS_PSTAT_H
+#undef HAVE_SYS_STROPTS_H
+#undef HAVE_SYS_TIME_H
+#undef HAVE_SYS_TIMEB_H
 #undef HAVE_SYS_UN_H
-#undef HAVE_A_OUT_H
+#undef HAVE_ULIMIT_H
+#undef HAVE_UNISTD_H
+#undef HAVE_UTIME_H
+
+#undef HAVE_SYS_WAIT_H
+#undef HAVE_LIBINTL_H
+#undef HAVE_X11_XLOCALE_H
 #undef STDC_HEADERS
 #undef TIME_WITH_SYS_TIME
 #undef WORDS_BIGENDIAN
 #undef HAVE_VFORK_H
 #undef HAVE_KSTAT_H
-#undef HAVE_SYS_PSTAT_H
 #undef vfork
 
 #undef HAVE_LONG_FILE_NAMES
@@ -359,7 +404,7 @@ char *alloca();
 /* Compile in support for Berkeley DB style databases?  May require libdb. */
 #undef HAVE_BERKELEY_DB
 /* Full #include file path for Berkeley DB's db.h */
-#undef DB_H_PATH
+#undef DB_H_FILE
 
 /* Do we have either DBM or Berkeley DB database support? */
 #undef HAVE_DATABASE
@@ -375,6 +420,17 @@ char *alloca();
 /* Does the library define ldap_parse_result () ? */
 #undef HAVE_LDAP_PARSE_RESULT
 
+/* Do we wish to link against the PostgreSQL RDBMS run-time library?
+ */
+#undef HAVE_POSTGRESQL
+#undef HAVE_POSTGRESQLV7
+#undef POSTGRES_H_PATH
+#if defined POSTGRES_H_PATH
+# define POSTGRES_INCLUDE(file) SMART_INCLUDE (POSTGRES_H_PATH,file)
+#else
+# define POSTGRES_INCLUDE(file) <file>
+#endif
+
 /* Do you have the Xauth library present?  This will add some extra
    functionality to gnuserv. */
 #undef HAVE_XAUTH
@@ -385,8 +441,8 @@ char *alloca();
 /* Compile in support for ncurses?  */
 #undef HAVE_NCURSES
 /* Full #include file paths for ncurses' curses.h and term.h. */
-#undef CURSES_H_PATH
-#undef TERM_H_PATH
+#undef CURSES_H_FILE
+#undef TERM_H_FILE
 
 /* Define USE_ASSERTIONS if you want the abort() to be changed to assert().
    If the assertion fails, assert_failed() will be called.  This is
@@ -424,6 +480,11 @@ char *alloca();
 
 /* Attempt to catch bugs related to garbage collection (e.g. not GCPRO'ing). */
 #undef ERROR_CHECK_GC
+#ifdef ERROR_CHECK_GC
+#define gc_checking_assert(assertion) assert (assertion)
+#else
+#define gc_checking_assert(assertion)
+#endif
 
 /* Attempt to catch freeing of a non-malloc()ed block, heap corruption, etc. */
 #undef ERROR_CHECK_MALLOC
@@ -431,6 +492,10 @@ char *alloca();
 /* Minor sanity checking of the bytecode interpreter.  Useful for
    debugging the byte compiler.  */
 #undef ERROR_CHECK_BYTE_CODE
+
+/* Minor sanity checking of glyphs, especially subwindows and
+   widgets. */
+#undef ERROR_CHECK_GLYPHS
 
 /* Define DEBUG_XEMACS if you want extra debugging code compiled in.
    This is mainly intended for use by developers. */
@@ -515,15 +580,17 @@ char *alloca();
 /* Enable special GNU Make features in the Makefiles. */
 #undef USE_GNU_MAKE
 
-/* Debugging option: Don't automatically rebuild the DOC file.
-   This saves a lot of time when you're repeatedly
-   compiling-running-crashing. */
-#undef NO_DOC_FILE
+/* Debugging development option: Remove inessential but time consuming
+   actions from happening during build.  This saves a lot of time when
+   you're repeatedly compiling-running-crashing.  This (1) doesn't
+   garbage-collect after loading each file during dumping, and (2)
+   doesn't automatically rebuild the DOC file. (Remove it by hand to
+   get it rebuilt.)
+ */
+#undef QUICK_BUILD
 
 /* Defined by AC_C_CONST in configure.in */
 #undef const
-
-#define CONST const
 
 /* Allow the source to use standard types. Include these before the
  s&m files so that they can use them. */
@@ -599,7 +666,7 @@ extern "C" {
    "SUNWaudmo" package.) */
 #undef HAVE_NATIVE_SOUND
 /* Native sound may be provided via soundcard.h, in various directories */
-#undef SOUNDCARD_H_PATH
+#undef SOUNDCARD_H_FILE
 
 /* Compile in support for NAS (Network Audio System)?
    NAS_NO_ERROR_JUMP means that the NAS libraries don't include some
@@ -616,7 +683,7 @@ extern "C" {
 /* Compile in support for Tooltalk? */
 #undef TOOLTALK
 /* tt_c.h might be in "Tt" or "desktop" subdirectories */
-#undef TT_C_H_PATH
+#undef TT_C_H_FILE
 
 /* Toolkits used by lwlib for various widgets... */
 #undef LWLIB_USES_MOTIF
@@ -761,30 +828,20 @@ on various systems. */
 #define LONG_LONG_BITS (SIZEOF_LONG_LONG * BITS_PER_CHAR)
 #define VOID_P_BITS (SIZEOF_VOID_P * BITS_PER_CHAR)
 
-#ifndef NOT_C_CODE
-#ifdef __cplusplus
-#define HAVE_INLINE 1
-#define INLINE inline
-#else /* not C++ */
+/* Use `INLINE_HEADER' to define inline functions in .h files.
+   Use `inline static' to define inline functions in .c files.
+   See the Internals manual for examples and more information. */
+
 /* Does the keyword `inline' exist?  */
-#undef HAVE_INLINE
 #undef inline
 
-# ifdef HAVE_INLINE
-#  ifdef __GNUC__
-#   ifdef DONT_EXTERN_INLINE_FUNCTIONS
-#    define INLINE inline
-#   else
-#    define INLINE extern inline
-#   endif
-#  else
-#   define INLINE static inline
-#  endif /* __GNUC__ */
-# else
-#  define INLINE static
-# endif /* HAVE_INLINE */
-#endif /* not C++ */
-#endif /* C code */
+#if defined (__cplusplus) || ! defined (__GNUC__)
+# define INLINE_HEADER inline static
+#elif defined (DONT_EXTERN_INLINE_HEADER_FUNCTIONS)
+# define INLINE_HEADER inline
+#else
+# define INLINE_HEADER inline extern
+#endif
 
 #if defined (__cplusplus) && !defined (NOT_C_CODE)
 /* Avoid C++ keywords used as ordinary C identifiers */

@@ -51,10 +51,14 @@ maybe_run_dbox_text_callback (LWLIB_ID id)
       Lisp_Object text_field_callback;
       char *text_field_value = wv->value;
       VOID_TO_LISP (text_field_callback, wv->call_data);
+      text_field_callback = XCAR (XCDR (text_field_callback));
       if (text_field_value)
 	{
-	  void *tmp = LISP_TO_VOID (list2 (text_field_callback,
-                                           build_string (text_field_value)));
+	  void *tmp =
+	    LISP_TO_VOID (cons3 (Qnil,
+				 list2 (text_field_callback,
+					build_string (text_field_value)),
+				 Qnil));
 	  popup_selection_callback (0, id, (XtPointer) tmp);
 	}
     }
@@ -102,7 +106,7 @@ dbox_selection_callback (Widget widget, LWLIB_ID id, XtPointer client_data)
     lw_set_keyboard_focus (FRAME_X_SHELL_WIDGET (f), FRAME_X_TEXT_WIDGET (f));
 }
 
-static CONST char * CONST button_names [] = {
+static const char * const button_names [] = {
   "button1", "button2", "button3", "button4", "button5",
   "button6", "button7", "button8", "button9", "button10" };
 
@@ -166,7 +170,8 @@ dbox_descriptor_to_widget_value (Lisp_Object desc)
       wv = xmalloc_widget_value ();
 
       gui_item = gui_parse_item_keywords (button);
-      if (!button_item_to_widget_value (gui_item, wv, allow_text_p, 1))
+      if (!button_item_to_widget_value (Qdialog,
+					gui_item, wv, allow_text_p, 1, 0))
 	{
 	  free_widget_value_tree (wv);
 	  continue;

@@ -54,6 +54,7 @@ File: internals.info,  Node: Top,  Next: A History of Emacs,  Prev: (dir),  Up: 
 * Rules When Writing New C Code::
 * A Summary of the Various XEmacs Modules::
 * Allocation of Objects in XEmacs Lisp::
+* Dumping::
 * Events and the Event Loop::
 * Evaluation; Stack Frames; Bindings::
 * Symbols and Variables::
@@ -70,19 +71,17 @@ File: internals.info,  Node: Top,  Next: A History of Emacs,  Prev: (dir),  Up: 
 * Menus::
 * Subprocesses::
 * Interface to X Windows::
-* Index::                   Index including concepts, functions, variables,
-                              and other terms.
+* Index::
 
-      --- The Detailed Node Listing ---
 
-Here are other nodes that are inferiors of those already listed,
-mentioned here so you can get to them in one step:
+--- The Detailed Node Listing ---
 
 A History of Emacs
 
 * Through Version 18::          Unification prevails.
 * Lucid Emacs::                 One version 19 Emacs.
 * GNU Emacs 19::                The other version 19 Emacs.
+* GNU Emacs 20::                The other version 20 Emacs.
 * XEmacs::                      The continuation of Lucid Emacs.
 
 Rules When Writing New C Code
@@ -90,7 +89,16 @@ Rules When Writing New C Code
 * General Coding Rules::
 * Writing Lisp Primitives::
 * Adding Global Lisp Variables::
+* Coding for Mule::
 * Techniques for XEmacs Developers::
+
+Coding for Mule
+
+* Character-Related Data Types::
+* Working With Character and Byte Positions::
+* Conversion to and from External Data::
+* General Guidelines for Writing Mule-Aware Code::
+* An Example of Mule-Aware Code::
 
 A Summary of the Various XEmacs Modules
 
@@ -117,7 +125,6 @@ Allocation of Objects in XEmacs Lisp
 * Allocation from Frob Blocks::
 * lrecords::
 * Low-level allocation::
-* Pure Space::
 * Cons::
 * Vector::
 * Bit Vector::
@@ -125,6 +132,32 @@ Allocation of Objects in XEmacs Lisp
 * Marker::
 * String::
 * Compiled Function::
+
+Garbage Collection - Step by Step
+
+* Invocation::
+* garbage_collect_1::
+* mark_object::
+* gc_sweep::
+* sweep_lcrecords_1::
+* compact_string_chars::
+* sweep_strings::
+* sweep_bit_vectors_1::
+
+Dumping
+
+* Overview::
+* Data descriptions::
+* Dumping phase::
+* Reloading phase::
+
+Dumping phase
+
+* Object inventory::
+* Address allocation::
+* The header::
+* Data dumping::
+* Pointers dumping::
 
 Events and the Event Loop
 
@@ -164,6 +197,7 @@ MULE Character Sets and Encodings
 * Character Sets::
 * Encodings::
 * Internal Mule Encodings::
+* CCL::
 
 Encodings
 
@@ -175,20 +209,25 @@ Internal Mule Encodings
 * Internal String Encoding::
 * Internal Character Encoding::
 
-The Lisp Reader and Compiler
-
 Lstreams
+
+* Creating an Lstream::         Creating an lstream object.
+* Lstream Types::               Different sorts of things that are streamed.
+* Lstream Functions::           Functions for working with lstreams.
+* Lstream Methods::             Creating new lstream types.
 
 Consoles; Devices; Frames; Windows
 
 * Introduction to Consoles; Devices; Frames; Windows::
 * Point::
 * Window Hierarchy::
+* The Window Object::
 
 The Redisplay Mechanism
 
 * Critical Redisplay Sections::
 * Line Start Cache::
+* Redisplay Piece by Piece::
 
 Extents
 
@@ -196,20 +235,8 @@ Extents
 * Extent Ordering::             How extents are ordered internally.
 * Format of the Extent Info::   The extent information in a buffer or string.
 * Zero-Length Extents::         A weird special case.
-* Mathematics of Extent Ordering::      A rigorous foundation.
+* Mathematics of Extent Ordering::  A rigorous foundation.
 * Extent Fragments::            Cached information useful for redisplay.
-
-Faces
-
-Glyphs
-
-Specifiers
-
-Menus
-
-Subprocesses
-
-Interface to X Windows
 
 
 File: internals.info,  Node: A History of Emacs,  Next: XEmacs From the Outside,  Prev: Top,  Up: Top
@@ -243,7 +270,7 @@ language developed at MIT that underlies Emacs.)
 * XEmacs::                      The continuation of Lucid Emacs.
 
 
-File: internals.info,  Node: Through Version 18,  Next: Lucid Emacs,  Up: A History of Emacs
+File: internals.info,  Node: Through Version 18,  Next: Lucid Emacs,  Prev: A History of Emacs,  Up: A History of Emacs
 
 Through Version 18
 ==================
@@ -796,13 +823,13 @@ different from C):
 
    Unfortunately, there is no perfect language.  Static typing allows a
 compiler to catch programmer errors and produce more efficient code, but
-makes programming more tedious and less fun.  For the forseeable future,
-an Ideal Editing and Programming Environment (and that is what XEmacs
-aspires to) will be programmable in multiple languages: high level ones
-like Lisp for user customization and prototyping, and lower level ones
-for infrastructure and industrial strength applications.  If I had my
-way, XEmacs would be friendly towards the Python, Scheme, C++, ML,
-etc... communities.  But there are serious technical difficulties to
+makes programming more tedious and less fun.  For the foreseeable
+future, an Ideal Editing and Programming Environment (and that is what
+XEmacs aspires to) will be programmable in multiple languages: high
+level ones like Lisp for user customization and prototyping, and lower
+level ones for infrastructure and industrial strength applications.  If
+I had my way, XEmacs would be friendly towards the Python, Scheme, C++,
+ML, etc... communities.  But there are serious technical difficulties to
 achieving that goal.
 
    The word "application" in the previous paragraph was used

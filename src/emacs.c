@@ -44,6 +44,15 @@ Boston, MA 02111-1307, USA.  */
 #include "sysfile.h"
 #include "systime.h"
 
+#ifdef PDUMP
+#include "dump-id.h"
+#include "dumper.h"
+#endif
+
+#ifndef SEPCHAR
+#define SEPCHAR ':'
+#endif
+
 #ifdef QUANTIFY
 #include <quantify.h>
 #endif
@@ -58,7 +67,7 @@ Boston, MA 02111-1307, USA.  */
 #endif
 
 #ifdef TOOLTALK
-#include TT_C_H_PATH
+#include TT_C_H_FILE
 #endif
 
 #if defined (WINDOWSNT)
@@ -68,7 +77,7 @@ Boston, MA 02111-1307, USA.  */
 /* For PATH_EXEC */
 #include <paths.h>
 
-#ifdef HEAP_IN_DATA
+#if defined (HEAP_IN_DATA) && !defined(PDUMP)
 void report_sheap_usage (int die_if_pure_storage_exceeded);
 #endif
 
@@ -171,7 +180,7 @@ int display_arg;
 /* Type of display specified.  We cannot use a Lisp symbol here because
    Lisp symbols may not initialized at the time that we set this
    variable. */
-CONST char *display_use;
+const char *display_use;
 
 /* If non-zero, then the early error handler will only print the error
    message and exit. */
@@ -213,6 +222,10 @@ int inhibit_early_packages;
 /* Nonzero means don't load package autoloads at startup */
 int inhibit_autoloads;
 
+/* Nonzero means don't load the dump file (ignored if not PDUMP)  */
+
+int nodumpfile;
+
 /* Nonzero means print debug information about path searching */
 int debug_paths;
 
@@ -233,6 +246,14 @@ static int fatal_error_code;
 
 /* Nonzero if handling a fatal error already */
 static int fatal_error_in_progress;
+
+static JMP_BUF run_temacs_catch;
+
+static int run_temacs_argc;
+static char **run_temacs_argv;
+static char *run_temacs_args;
+static size_t run_temacs_argv_size;
+static size_t run_temacs_args_size;
 
 static void shut_down_emacs (int sig, Lisp_Object stuff);
 
@@ -256,7 +277,7 @@ fatal_error_signal (int sig)
 # if 0	/* This is evil, rarely useful, and causes grief in some cases. */
       /* Check for Sun-style stack printing via /proc */
       {
-        CONST char *pstack = "/usr/proc/bin/pstack";
+        const char *pstack = "/usr/proc/bin/pstack";
         if (access (pstack, X_OK) == 0)
           {
             char buf[100];
@@ -273,61 +294,6 @@ fatal_error_signal (int sig)
   SIGRETURN;
 }
 
-
-DOESNT_RETURN
-fatal (CONST char *fmt, ...)
-{
-  va_list args;
-  va_start (args, fmt);
-
-  fprintf (stderr, "\nXEmacs: ");
-  vfprintf (stderr, GETTEXT (fmt), args);
-  fprintf (stderr, "\n");
-
-  va_end (args);
-  fflush (stderr);
-  exit (1);
-}
-
-/* #### The following two functions should be replaced with
-   calls to emacs_doprnt_*() functions, with STREAM set to send out
-   to stdout or stderr.  This is the only way to ensure that
-   I18N3 works properly (many implementations of the *printf()
-   functions, including the ones included in glibc, do not implement
-   the %###$ argument-positioning syntax). */
-
-/* exactly equivalent to fprintf (stderr, fmt, ...) except that it calls
-   GETTEXT on the format string. */
-
-int
-stderr_out (CONST char *fmt, ...)
-{
-  int retval;
-  va_list args;
-  va_start (args, fmt);
-
-  retval = vfprintf (stderr, GETTEXT (fmt), args);
-
-  va_end (args);
-  /* fflush (stderr); */
-  return retval;
-}
-
-/* exactly equivalent to fprintf (stdout, fmt, ...) except that it calls
-   GETTEXT on the format string. */
-
-int
-stdout_out (CONST char *fmt, ...)
-{
-  int retval;
-  va_list args;
-  va_start (args, fmt);
-
-  retval = vfprintf (stdout, GETTEXT (fmt), args);
-
-  va_end (args);
-  return retval;
-}
 
 #ifdef SIGDANGER
 
@@ -398,7 +364,7 @@ make_argc_argv (Lisp_Object argv_list, int *argc, char ***argv)
 
   for (i = 0, next = argv_list; i < n; i++, next = XCDR (next))
     {
-      CONST char *temp;
+      const char *temp;
       CHECK_STRING (XCAR (next));
 
       TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (next),
@@ -569,7 +535,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
    * But hey, it solves all NS related memory problems, so who's
    * complaining? */
   if (initialized && malloc_jumpstart (malloc_cookie) != 0)
-    fprintf (stderr, "malloc jumpstart failed!\n");
+    stderr_out ("malloc jumpstart failed!\n");
 #endif /* NeXT */
 
   /*
@@ -586,22 +552,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #endif
 
   sort_args (argc, argv);
-
-  /* Map in shared memory, if we are using that.  */
-#ifdef HAVE_SHM
-  if (argmatch (argv, argc, "-nl", "--no-shared-memory", 6, NULL, &skip_args))
-    {
-      map_in_data (0);
-      /* The shared memory was just restored, which clobbered this.  */
-      skip_args = 1;
-    }
-  else
-    {
-      map_in_data (1);
-      /* The shared memory was just restored, which clobbered this.  */
-      skip_args = 0;
-    }
-#endif /* HAVE_SHM */
 
 #if (defined (MSDOS) && defined (EMX)) || defined (WIN32) || defined (_SCO_DS)
   environ = envp;
@@ -661,6 +611,17 @@ main_1 (int argc, char **argv, char **envp, int restart)
   inhibit_window_system = 1;
 #endif
 
+  /* Handle the -sd/--show-dump-id switch, which means show the hex dump_id and quit */
+  if (argmatch (argv, argc, "-sd", "--show-dump-id", 9, NULL, &skip_args))
+    {
+#ifdef PDUMP
+      printf ("%08x\n", dump_id);
+#else
+      printf ("*ERROR**\n");
+#endif
+      exit (0);
+    }
+
   /* Handle the -t switch, which specifies filename to use as terminal */
   {
     char *term;
@@ -681,6 +642,12 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	inhibit_window_system = 1;	/* -t => -nw */
       }
   }
+
+  /* Handle the --no-dump-file/-nd switch, which means don't load the dump file (ignored when not using pdump) */
+  if (argmatch (argv, argc, "-nd", "--no-dump-file", 7, NULL, &skip_args))
+    {
+      nodumpfile = 1;
+    }
 
   /* Handle -nw switch */
   if (argmatch (argv, argc, "-nw", "--no-windows", 6, NULL, &skip_args))
@@ -853,9 +820,15 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef PDUMP
   if (restart)
     initialized = 1;
-  else {
-    initialized = pdump_load ();
-    purify_flag = !initialized;
+  else if (nodumpfile) {
+    initialized = 0;
+    purify_flag = 1;
+  } else {
+    initialized = pdump_load (argv[0]);
+    if (initialized)
+      run_temacs_argc = -1;
+    else
+      purify_flag = 1;
   }
 #else
   if (!initialized)
@@ -873,7 +846,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
       /* Initialize Qnil, Qt, Qunbound, and the
 	 obarray.  After this, symbols can be
-	 interned.  This depends on init_alloc_once(). */
+	 interned.  This depends on init_alloc_once_early(). */
       init_symbols_once_early ();
 
       /* Declare the basic symbols pertaining to errors,
@@ -888,6 +861,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	 The *only* thing that the syms_of_*() functions are allowed to do
 	 is call one of the following three functions:
 
+	 INIT_LRECORD_IMPLEMENTATION()
 	 defsymbol()
 	 defsubr() (i.e. DEFSUBR)
 	 deferror()
@@ -945,9 +919,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_glyphs ();
       syms_of_glyphs_eimage ();
       syms_of_glyphs_widget ();
-#if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       syms_of_gui ();
-#endif
       syms_of_gutter ();
       syms_of_indent ();
       syms_of_intl ();
@@ -1097,6 +1069,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_GPM
 	  syms_of_gpmevent ();
+#endif
+
+#ifdef HAVE_POSTGRESQL
+      syms_of_postgresql ();
 #endif
 
       /* Now create the subtypes for the types that have them.
@@ -1279,7 +1255,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	 using a global variable that has been initialized
 	   earlier on in the same function
 
-	 Any of the object-creating functions on alloc.c: e.g.
+	 Any of the object-creating functions in alloc.c: e.g.
 
 	 make_pure_*()
 	 make_string()
@@ -1352,9 +1328,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_glyphs ();
       vars_of_glyphs_eimage ();
       vars_of_glyphs_widget ();
-#if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       vars_of_gui ();
-#endif
       vars_of_gutter ();
       vars_of_indent ();
       vars_of_insdel ();
@@ -1492,6 +1466,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_LDAP
       vars_of_eldap ();
+#endif
+
+#ifdef HAVE_POSTGRESQL
+      vars_of_postgresql();
 #endif
 
 #ifdef HAVE_GPM
@@ -1695,6 +1673,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       reinit_vars_of_event_stream ();
       reinit_vars_of_events ();
       reinit_vars_of_extents ();
+      reinit_vars_of_fileio ();
       reinit_vars_of_font_lock ();
       reinit_vars_of_glyphs ();
       reinit_vars_of_glyphs_widget ();
@@ -1809,7 +1788,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_TTY
   init_device_tty ();
 #endif
-  init_console_stream (); /* Create the first console */
+  init_console_stream (restart); /* Create the first console */
 
   /* try to get the actual pathname of the exec file we are running */
   if (!restart)
@@ -1903,17 +1882,18 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 struct standard_args
 {
-  CONST char * CONST name;
-  CONST char * CONST longname;
+  const char *name;
+  const char *longname;
   int priority;
   int nargs;
 };
 
-static struct standard_args standard_args[] =
+static const struct standard_args standard_args[] =
 {
   /* Handled by main_1 above: */
-  { "-nl", "--no-shared-memory", 100, 0 },
-  { "-t", "--terminal", 95, 1 },
+  { "-sd", "--show-dump-id", 105, 0 },
+  { "-t", "--terminal", 100, 1 },
+  { "-nd", "--no-dump-file", 95, 0 },
   { "-nw", "--no-windows", 90, 0 },
   { "-batch", "--batch", 85, 0 },
   { "-debug-paths", "--debug-paths", 82, 0 },
@@ -2108,14 +2088,6 @@ sort_args (int argc, char **argv)
   xfree (priority);
 }
 
-static JMP_BUF run_temacs_catch;
-
-static int run_temacs_argc;
-static char **run_temacs_argv;
-static char *run_temacs_args;
-static size_t run_temacs_argv_size;
-static size_t run_temacs_args_size;
-
 DEFUN ("running-temacs-p", Frunning_temacs_p, 0, 0, 0, /*
 True if running temacs.  This means we are in the dumping stage.
 This is false during normal execution of the `xemacs' program, and
@@ -2143,11 +2115,11 @@ Do not call this.  It will reinitialize your XEmacs.  You'll be sorry.
      (int nargs, Lisp_Object *args))
 {
   int ac;
-  CONST Extbyte *wampum;
+  const Extbyte *wampum;
   int namesize;
   int total_len;
   Lisp_Object orig_invoc_name = Fcar (Vcommand_line_args);
-  CONST Extbyte **wampum_all = alloca_array (CONST Extbyte *, nargs);
+  const Extbyte **wampum_all = alloca_array (const Extbyte *, nargs);
   int *wampum_all_len  = alloca_array (int, nargs);
 
   assert (!gc_in_progress);
@@ -2190,7 +2162,7 @@ Do not call this.  It will reinitialize your XEmacs.  You'll be sorry.
   unbind_to (0, Qnil); /* this closes loadup.el */
   purify_flag = 0;
   run_temacs_argc = nargs + 1;
-#ifdef HEAP_IN_DATA
+#if defined (HEAP_IN_DATA) && !defined(PDUMP)
   report_sheap_usage (0);
 #endif
   LONGJMP (run_temacs_catch, 1);
@@ -2296,7 +2268,7 @@ main (int argc, char **argv, char **envp)
       int rc = malloc_set_state (malloc_state_ptr);
       if (rc != 0)
 	{
-	  fprintf (stderr, "malloc_set_state failed, rc = %d\n", rc);
+	  stderr_out ("malloc_set_state failed, rc = %d\n", rc);
 	  abort ();
 	}
 #if 0
@@ -2482,7 +2454,7 @@ shut_down_emacs (int sig, Lisp_Object stuff)
 	 "\n"
 	 "  gdb ");
       {
-	CONST char *name;
+	const char *name;
 	char *dir = 0;
 
 	/* Now try to determine the actual path to the executable,
@@ -2534,45 +2506,6 @@ shut_down_emacs (int sig, Lisp_Object stuff)
 extern char my_edata[];
 #endif
 
-#ifdef HAVE_SHM
-
-DEFUN ("dump-emacs-data", Fdump_emacs_data, 1, 1, 0, /*
-Dump current state of XEmacs into data file FILENAME.
-This function exists on systems that use HAVE_SHM.
-*/
-       (intoname))
-{
-  /* This function can GC */
-  int opurify;
-  struct gcpro gcpro1;
-  GCPRO1 (intoname);
-
-  CHECK_STRING (intoname);
-  intoname = Fexpand_file_name (intoname, Qnil);
-
-  opurify = purify_flag;
-  purify_flag = 0;
-
-  fflush (stderr);
-  fflush (stdout);
-
-  disksave_object_finalization ();
-  release_breathing_space ();
-
-  /* Tell malloc where start of impure now is */
-  /* Also arrange for warnings when nearly out of space.  */
-#ifndef SYSTEM_MALLOC
-  memory_warnings (my_edata, malloc_warning);
-#endif
-  UNGCPRO;
-  map_out_data (XSTRING_DATA (intoname));
-
-  purify_flag = opurify;
-
-  return Qnil;
-}
-
-#else /* not HAVE_SHM */
 extern void disable_free_hook (void);
 
 DEFUN ("dump-emacs", Fdump_emacs, 2, 2, 0, /*
@@ -2613,7 +2546,7 @@ and announce itself normally when it is run.
   opurify = purify_flag;
   purify_flag = 0;
 
-#ifdef HEAP_IN_DATA
+#if defined (HEAP_IN_DATA) && !defined(PDUMP)
   report_sheap_usage (1);
 #endif
 
@@ -2688,26 +2621,21 @@ and announce itself normally when it is run.
   return Qnil;
 }
 
-#endif /* not HAVE_SHM */
-
 #endif /* not CANNOT_DUMP */
 
-#ifndef SEPCHAR
-#define SEPCHAR ':'
-#endif
 
 /* Split STRING into a list of substrings.  The substrings are the
    parts of original STRING separated by SEPCHAR.  */
 static Lisp_Object
-split_string_by_emchar_1 (CONST Bufbyte *string, Bytecount size,
+split_string_by_emchar_1 (const Bufbyte *string, Bytecount size,
 			  Emchar sepchar)
 {
   Lisp_Object result = Qnil;
-  CONST Bufbyte *end = string + size;
+  const Bufbyte *end = string + size;
 
   while (1)
     {
-      CONST Bufbyte *p = string;
+      const Bufbyte *p = string;
       while (p < end)
 	{
 	  if (charptr_emchar (p) == sepchar)
@@ -2730,7 +2658,7 @@ split_string_by_emchar_1 (CONST Bufbyte *string, Bytecount size,
    converted using Qfile_name), and sepchar is hardcoded to SEPCHAR
    (':' or whatever).  */
 Lisp_Object
-decode_path (CONST char *path)
+decode_path (const char *path)
 {
   Bytecount newlen;
   Bufbyte *newpath;
@@ -2750,9 +2678,9 @@ decode_path (CONST char *path)
 }
 
 Lisp_Object
-decode_env_path (CONST char *evarname, CONST char *default_)
+decode_env_path (const char *evarname, const char *default_)
 {
-  CONST char *path = 0;
+  const char *path = 0;
   if (evarname)
     path = egetenv (evarname);
   if (!path)
@@ -2815,7 +2743,7 @@ Non-nil return value means XEmacs is running without interactive terminal.
 /* This highly dubious kludge ... shut up Jamie, I'm tired of your slagging. */
 
 DOESNT_RETURN
-assert_failed (CONST char *file, int line, CONST char *expr)
+assert_failed (const char *file, int line, const char *expr)
 {
   stderr_out ("Fatal error: assertion failed, file %s, line %d, %s\n",
 	      file, line, expr);
@@ -2863,11 +2791,7 @@ void
 syms_of_emacs (void)
 {
 #ifndef CANNOT_DUMP
-#ifdef HAVE_SHM
-  DEFSUBR (Fdump_emacs_data);
-#else
   DEFSUBR (Fdump_emacs);
-#endif
 #endif /* !CANNOT_DUMP */
 
   DEFSUBR (Frun_emacs_from_temacs);
@@ -3064,6 +2988,8 @@ typecheck	- check types strictly, aborting in case of error;
 malloc		- check operation of malloc;
 gc		- check garbage collection;
 bufpos		- check buffer positions.
+
+quick-build     - user has requested the "quick-build" configure option.
 */ );
   Vinternal_error_checking = Qnil;
 #ifdef ERROR_CHECK_EXTENTS
@@ -3084,6 +3010,10 @@ bufpos		- check buffer positions.
 #endif
 #ifdef ERROR_CHECK_BUFPOS
   Vinternal_error_checking = Fcons (intern ("bufpos"),
+				    Vinternal_error_checking);
+#endif
+#ifdef QUICK_BUILD
+  Vinternal_error_checking = Fcons (intern ("quick-build"),
 				    Vinternal_error_checking);
 #endif
 
@@ -3108,7 +3038,7 @@ following: dot, lockf, flock, locking, mmdf.
     Vmail_lock_methods = Fcons (intern ("locking"), Vmail_lock_methods);
 #endif
   }
-  
+
   DEFVAR_CONST_LISP ("configure-mail-lock-method", &Vconfigure_mail_lock_method /*
 Mail spool locking method suggested by configure.  This is one
 of the symbols in MAIL-LOCK-METHODS.
@@ -3224,7 +3154,8 @@ configure's idea of what the package path will be.
 *Directory of architecture-independent files that come with XEmacs,
 intended for XEmacs to use.
 Use of this variable in new code is almost never correct.  See the
-function `locate-data-directory' and the variable `data-directory-list'.
+functions `locate-data-file' and `locate-data-directory' and the variable
+`data-directory-list'.
 */ );
   Vdata_directory = Qnil;
 

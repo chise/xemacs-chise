@@ -58,7 +58,7 @@ Boston, MA 02111-1307, USA.  */
 #define POPUP_WIDTH 30
 #define POPUP_HEIGHT 10
 
-/* Default popup size, in characters */
+/* Default regular frame size, in characters */
 #define DEFAULT_FRAME_WIDTH 80
 #define DEFAULT_FRAME_HEIGHT 35
 
@@ -133,13 +133,18 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
   FRAME_MSWINDOWS_DATA(f)->ignore_next_lbutton_up = 0;
   FRAME_MSWINDOWS_DATA(f)->ignore_next_rbutton_up = 0;
   FRAME_MSWINDOWS_DATA(f)->sizing = 0;
+  FRAME_MSWINDOWS_DATA(f)->paint_pending = 0;
   FRAME_MSWINDOWS_MENU_HASH_TABLE(f) = Qnil;
 #ifdef HAVE_TOOLBARS
   FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) = 
     make_lisp_hash_table (50, HASH_TABLE_NON_WEAK, HASH_TABLE_EQUAL);
 #endif
   /* hashtable of instantiated glyphs on the frame. */
-  FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f) = 
+  FRAME_MSWINDOWS_WIDGET_HASH_TABLE1 (f) = 
+    make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQUAL);
+  FRAME_MSWINDOWS_WIDGET_HASH_TABLE2 (f) = 
+    make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQUAL);
+  FRAME_MSWINDOWS_WIDGET_HASH_TABLE3 (f) = 
     make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQUAL);
   /* Will initialize these in WM_SIZE handler. We cannot do it now,
      because we do not know what is CW_USEDEFAULT height and width */
@@ -187,8 +192,8 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
 			 XEMACS_CLASS,
 			 STRINGP(f->name) ? XSTRING_DATA(f->name) :
 			 (STRINGP(name) ? 
-			  (CONST Extbyte*)XSTRING_DATA(name) : 
-			  (CONST Extbyte*)XEMACS_CLASS),
+			  (const Extbyte*)XSTRING_DATA(name) : 
+			  (const Extbyte*)XEMACS_CLASS),
 			 style,
 			 rect_default.left, rect_default.top,
 			 rect_default.width, rect_default.height,
@@ -203,7 +208,6 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
 
   SetWindowLong (hwnd, XWL_FRAMEOBJ, (LONG)LISP_TO_VOID(frame_obj));
   FRAME_MSWINDOWS_DC(f) = GetDC (hwnd);
-  FRAME_MSWINDOWS_CDC(f) = CreateCompatibleDC (FRAME_MSWINDOWS_CDC(f));
   SetTextAlign (FRAME_MSWINDOWS_DC(f), TA_BASELINE | TA_LEFT | TA_NOUPDATECP);
 }
 
@@ -259,7 +263,9 @@ mswindows_mark_frame (struct frame *f)
 #ifdef HAVE_TOOLBARS
   mark_object (FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE (f));
 #endif
-  mark_object (FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f));
+  mark_object (FRAME_MSWINDOWS_WIDGET_HASH_TABLE1 (f));
+  mark_object (FRAME_MSWINDOWS_WIDGET_HASH_TABLE2 (f));
+  mark_object (FRAME_MSWINDOWS_WIDGET_HASH_TABLE3 (f));
 }
 
 static void
@@ -273,7 +279,6 @@ mswindows_delete_frame (struct frame *f)
 {
   if (f->frame_data)
     {
-      DeleteDC(FRAME_MSWINDOWS_CDC(f));
       ReleaseDC(FRAME_MSWINDOWS_HANDLE(f), FRAME_MSWINDOWS_DC(f));
       DestroyWindow(FRAME_MSWINDOWS_HANDLE(f));
       xfree (f->frame_data);
@@ -610,11 +615,10 @@ mswindows_set_frame_properties (struct frame *f, Lisp_Object plist)
 
 void mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest)
 {
-  RECT rect;
+  RECT rect, ws_rect;
   int pixel_width, pixel_height;
   int size_p = (dest->width >=0 || dest->height >=0);
   int move_p = (dest->top >=0 || dest->left >=0);
-  struct device* d = XDEVICE (FRAME_DEVICE (f));
   char_to_real_pixel_size (f, dest->width, dest->height, &pixel_width, &pixel_height);
   
   if (dest->width < 0)
@@ -637,32 +641,44 @@ void mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest)
 		      GetMenu (FRAME_MSWINDOWS_HANDLE(f)) != NULL,
 		      GetWindowLong (FRAME_MSWINDOWS_HANDLE(f), GWL_EXSTYLE));
 
-  /* resize and move the window so that it fits on the screen. This is
+  /* resize and move the window so that it fits in the workspace. This is
   not restrictive since this will happen later anyway in WM_SIZE.  We
   have to do this after adjusting the rect to account for menubar
   etc. */
+  msw_get_workspace_coords (&ws_rect);
   pixel_width = rect.right - rect.left;
   pixel_height = rect.bottom - rect.top;
-  if (pixel_width > DEVICE_MSWINDOWS_HORZRES(d))
+  if (pixel_width > ws_rect.right - ws_rect.left)
     {
-      pixel_width = DEVICE_MSWINDOWS_HORZRES(d);
+      pixel_width = ws_rect.right - ws_rect.left;
       size_p=1;
     }
-  if (pixel_height > DEVICE_MSWINDOWS_VERTRES(d))
+  if (pixel_height > ws_rect.bottom - ws_rect.top)
     {
-      pixel_height = DEVICE_MSWINDOWS_VERTRES(d);
+      pixel_height = ws_rect.bottom - ws_rect.top;
       size_p=1;
     }
 
-  /* adjust position so window is on screen */
-  if (dest->left + pixel_width > DEVICE_MSWINDOWS_HORZRES(d))
+  /* adjust position so window is in workspace */
+  if (dest->left + pixel_width > ws_rect.right)
     {
-      dest->left = DEVICE_MSWINDOWS_HORZRES(d) - pixel_width;
+      dest->left = ws_rect.right - pixel_width;
       move_p=1;
     }
-  if (dest->top + pixel_height > DEVICE_MSWINDOWS_VERTRES(d))
+  if (dest->left < ws_rect.left)
     {
-      dest->top = DEVICE_MSWINDOWS_VERTRES(d) - pixel_height;
+      dest->left = ws_rect.left;
+      move_p=1;
+    }
+
+  if (dest->top + pixel_height > ws_rect.bottom)
+    {
+      dest->top = ws_rect.bottom - pixel_height;
+      move_p=1;
+    }
+  if (dest->top < ws_rect.top)
+    {
+      dest->top = ws_rect.top;
       move_p=1;
     }
 
@@ -709,7 +725,15 @@ mswindows_frame_size_fixed_p (struct frame *f)
 /*-----                    PRINTER FRAME                          -----*/
 /*---------------------------------------------------------------------*/
 
-EXFUN (Fset_frame_properties, 2);
+void
+msprinter_start_page (struct frame *f)
+{
+  if (!FRAME_MSPRINTER_PAGE_STARTED (f))
+    {
+      FRAME_MSPRINTER_PAGE_STARTED (f) = 1;
+      StartPage (DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f))));
+    }
+}
 
 static void
 error_frame_unsizable (struct frame *f)
@@ -730,9 +754,6 @@ maybe_error_if_job_active (struct frame *f)
 static void
 msprinter_init_frame_1 (struct frame *f, Lisp_Object props)
 {
-  HDC hdc = DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f)));
-  Lisp_Object frame_obj = Qnil;
-
   /* Make sure this is the only frame on device. Windows printer can
      handle only one job at a time. */
   if (!NILP (DEVICE_FRAME_LIST (XDEVICE (FRAME_DEVICE (f)))))
@@ -761,7 +782,7 @@ msprinter_init_frame_3 (struct frame *f)
 {
   DOCINFO di;
   struct device *device = XDEVICE (FRAME_DEVICE (f));
-  HDC hdc = DEVICE_MSPRINTER_HDC (device);
+  HDC hdc;
   int frame_left, frame_top, frame_width, frame_height;
 
   /* Change printer parameters */
@@ -793,8 +814,13 @@ msprinter_init_frame_3 (struct frame *f)
 	  abort();
       }
 
+    assert (!FRAME_MSPRINTER_PAGE_STARTED (f));
     msprinter_apply_devmode (device, devmode);
   }
+
+  /* DC might be recreated in msprinter_apply_devmode,
+     so do not initialize until now */
+  hdc = DEVICE_MSPRINTER_HDC (device);
 
   /* Compute geometry properties */
   frame_left = (MulDiv (GetDeviceCaps (hdc, LOGPIXELSX),
@@ -873,7 +899,6 @@ msprinter_init_frame_3 (struct frame *f)
     error ("Cannot start print job");
 
   /* Finish frame setup */
-  FRAME_MSPRINTER_CDC(f) = CreateCompatibleDC (hdc);
   FRAME_MSPRINTER_JOB_STARTED (f) = 1;
   FRAME_VISIBLE_P(f) = 0;
 }
@@ -894,10 +919,11 @@ msprinter_delete_frame (struct frame *f)
 {
   if (f->frame_data)
     {
+      HDC hdc = DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f)));
+      if (FRAME_MSPRINTER_PAGE_STARTED (f))
+	EndPage (hdc);
       if (FRAME_MSPRINTER_JOB_STARTED (f))
-	EndDoc (DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f))));
-      if (FRAME_MSPRINTER_CDC(f))
-	DeleteDC(FRAME_MSPRINTER_CDC(f));
+	EndDoc (hdc);
       xfree (f->frame_data);
     }
 
@@ -951,7 +977,6 @@ msprinter_frame_properties (struct frame *f)
 static void
 msprinter_set_frame_properties (struct frame *f, Lisp_Object plist)
 {
-  BOOL size_changed_p = FALSE;
   Lisp_Object tail;
 
   /* Extract the properties from plist */
@@ -1038,6 +1063,18 @@ msprinter_set_frame_size (struct frame *f, int width, int height)
   error_frame_unsizable (f);
 }
 
+static void
+msprinter_eject_page (struct frame *f)
+{
+  /* #### Should we eject empty pages? */
+  if (FRAME_MSPRINTER_PAGE_STARTED (f))
+    {
+      FRAME_MSPRINTER_PAGE_STARTED (f) = 0;
+      EndPage (DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f))));
+    }
+}
+
+
 void
 console_type_create_frame_mswindows (void)
 {
@@ -1083,6 +1120,7 @@ console_type_create_frame_mswindows (void)
   CONSOLE_HAS_METHOD (msprinter, frame_properties);
   CONSOLE_HAS_METHOD (msprinter, set_frame_properties);
   CONSOLE_HAS_METHOD (msprinter, set_frame_size);
+  CONSOLE_HAS_METHOD (msprinter, eject_page);
 }
 
 void

@@ -80,7 +80,7 @@ get_data_end (void)
   return data_region_end;
 }
 
-static char *
+static unsigned char *
 allocate_heap (void)
 {
   /* The base address for our GNU malloc heap is chosen in conjunction
@@ -144,7 +144,7 @@ allocate_heap (void)
 		      PAGE_NOACCESS);
 #endif
 
-  return ptr;
+  return (unsigned char*) ptr;
 }
 
 
@@ -227,7 +227,7 @@ sbrk (unsigned long increment)
 void
 recreate_heap (char *executable_path)
 {
-  unsigned char *tmp;
+  void *tmp;
 
   /* First reserve the upper part of our heap.  (We reserve first
      because there have been problems in the past where doing the

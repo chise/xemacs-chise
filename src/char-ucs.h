@@ -28,31 +28,22 @@ Boston, MA 02111-1307, USA.  */
 #define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
 
-DECLARE_LRECORD (char_byte_table, struct Lisp_Char_Byte_Table);
-#define XCHAR_BYTE_TABLE(x) \
-  XRECORD (x, char_byte_table, struct Lisp_Char_Byte_Table)
-#define XSETCHAR_BYTE_TABLE(x, p) XSETRECORD (x, p, char_byte_table)
-#define CHAR_BYTE_TABLE_P(x) RECORDP (x, char_byte_table)
-#define GC_CHAR_BYTE_TABLE_P(x) GC_RECORDP (x, char_byte_table)
-/* #define CHECK_CHAR_BYTE_TABLE(x) CHECK_RECORD (x, char_byte_table)
-   char table entries should never escape to Lisp */
-
 struct Lisp_Char_Byte_Table
 {
   struct lcrecord_header header;
 
   Lisp_Object property[256];
 };
+typedef struct Lisp_Char_Byte_Table Lisp_Char_Byte_Table;
 
-
-DECLARE_LRECORD (char_code_table, struct Lisp_Char_Code_Table);
-#define XCHAR_CODE_TABLE(x) \
-  XRECORD (x, char_code_table, struct Lisp_Char_Code_Table)
-#define XSETCHAR_CODE_TABLE(x, p) XSETRECORD (x, p, char_code_table)
-#define CHAR_CODE_TABLE_P(x) RECORDP (x, char_code_table)
-#define GC_CHAR_CODE_TABLE_P(x) GC_RECORDP (x, char_code_table)
-/* #define CHECK_CHAR_CODE_TABLE(x) CHECK_RECORD (x, char_code_table)
+DECLARE_LRECORD (char_byte_table, Lisp_Char_Byte_Table);
+#define XCHAR_BYTE_TABLE(x) XRECORD (x, char_byte_table, Lisp_Char_Byte_Table)
+#define XSETCHAR_BYTE_TABLE(x, p) XSETRECORD (x, p, char_byte_table)
+#define CHAR_BYTE_TABLE_P(x) RECORDP (x, char_byte_table)
+#define GC_CHAR_BYTE_TABLE_P(x) GC_RECORDP (x, char_byte_table)
+/* #define CHECK_CHAR_BYTE_TABLE(x) CHECK_RECORD (x, char_byte_table)
    char table entries should never escape to Lisp */
+
 
 struct Lisp_Char_Code_Table
 {
@@ -60,6 +51,16 @@ struct Lisp_Char_Code_Table
 
   Lisp_Object table;
 };
+typedef struct Lisp_Char_Code_Table Lisp_Char_Code_Table;
+
+DECLARE_LRECORD (char_code_table, Lisp_Char_Code_Table);
+#define XCHAR_CODE_TABLE(x) XRECORD (x, char_code_table, Lisp_Char_Code_Table)
+#define XSETCHAR_CODE_TABLE(x, p) XSETRECORD (x, p, char_code_table)
+#define CHAR_CODE_TABLE_P(x) RECORDP (x, char_code_table)
+#define GC_CHAR_CODE_TABLE_P(x) GC_RECORDP (x, char_code_table)
+/* #define CHECK_CHAR_CODE_TABLE(x) CHECK_RECORD (x, char_code_table)
+   char table entries should never escape to Lisp */
+
 
 Lisp_Object get_char_code_table (Emchar ch, Lisp_Object table);
 
@@ -361,6 +362,8 @@ struct charset_lookup {
   
   /* Table of charsets indexed by type/final-byte/direction. */
   Lisp_Object charset_by_attributes[4][128];
+
+  Charset_ID next_allocated_leading_byte;
 };
 
 extern struct charset_lookup *chlook;
@@ -369,8 +372,8 @@ extern struct charset_lookup *chlook;
 /* int not Bufbyte even though that is the actual type of a leading byte.
    This way, out-ot-range values will get caught rather than automatically
    truncated. */
-INLINE Lisp_Object CHARSET_BY_LEADING_BYTE (Charset_ID lb);
-INLINE Lisp_Object
+INLINE_HEADER Lisp_Object CHARSET_BY_LEADING_BYTE (Charset_ID lb);
+INLINE_HEADER Lisp_Object
 CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 {
   assert (lb >= MIN_LEADING_BYTE &&
@@ -443,8 +446,8 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 
 Emchar make_builtin_char (Lisp_Object charset, int c1, int c2);
 
-INLINE Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
-INLINE Emchar
+INLINE_HEADER Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
+INLINE_HEADER Emchar
 DECODE_CHAR (Lisp_Object charset, int code_point)
 {
   int dim = XCHARSET_DIMENSION (charset);
@@ -507,8 +510,8 @@ DECODE_CHAR (Lisp_Object charset, int code_point)
 /* Return a character whose charset is CHARSET and position-codes
    are C1 and C2.  TYPE9N character ignores C2. */
 
-INLINE Emchar MAKE_CHAR (Lisp_Object charset, int c1, int c2);
-INLINE Emchar
+INLINE_HEADER Emchar MAKE_CHAR (Lisp_Object charset, int c1, int c2);
+INLINE_HEADER Emchar
 MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 {
   if (XCHARSET_DIMENSION (charset) == 1)
@@ -522,8 +525,8 @@ extern Lisp_Object Vcharacter_attribute_table;
 int encode_builtin_char_1 (Emchar c, Lisp_Object* charset);
 int range_charset_code_point (Lisp_Object charset, Emchar ch);
 
-INLINE int charset_code_point (Lisp_Object charset, Emchar ch);
-INLINE int
+INLINE_HEADER int charset_code_point (Lisp_Object charset, Emchar ch);
+INLINE_HEADER int
 charset_code_point (Lisp_Object charset, Emchar ch)
 {
   Lisp_Object cdef = get_char_code_table (ch, Vcharacter_attribute_table);
@@ -541,8 +544,8 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 extern Lisp_Object Vdefault_coded_charset_priority_list;
 EXFUN (Ffind_charset, 1);
 
-INLINE int encode_char_1 (Emchar c, Lisp_Object* charset);
-INLINE int
+INLINE_HEADER int encode_char_1 (Emchar c, Lisp_Object* charset);
+INLINE_HEADER int
 encode_char_1 (Emchar c, Lisp_Object* charset)
 {
   Lisp_Object cdef = get_char_code_table (c, Vcharacter_attribute_table);
@@ -573,8 +576,8 @@ encode_char_1 (Emchar c, Lisp_Object* charset)
   return encode_builtin_char_1 (c, charset);
 }
 
-INLINE int encode_char_2 (Emchar ch, Lisp_Object* charset);
-INLINE int
+INLINE_HEADER int encode_char_2 (Emchar ch, Lisp_Object* charset);
+INLINE_HEADER int
 encode_char_2 (Emchar ch, Lisp_Object* charset)
 {
   int code_point = encode_char_1 (ch, charset);
@@ -601,8 +604,9 @@ encode_char_2 (Emchar ch, Lisp_Object* charset)
 
 #define ENCODE_CHAR(ch, charset)	encode_char_2 (ch, &(charset))
 
-INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
-INLINE void
+INLINE_HEADER void
+breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
+INLINE_HEADER void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
   int code_point = encode_char_2 (c, charset);
@@ -630,8 +634,8 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 #define BREAKUP_CHAR(ch, charset, b1, b2) \
   breakup_char_1 (ch, &(charset), &(b1), &(b2))
 
-INLINE Lisp_Object CHAR_CHARSET (Emchar ch);
-INLINE Lisp_Object
+INLINE_HEADER Lisp_Object CHAR_CHARSET (Emchar ch);
+INLINE_HEADER Lisp_Object
 CHAR_CHARSET (Emchar ch)
 {
   Lisp_Object charset;

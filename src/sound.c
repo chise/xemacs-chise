@@ -43,6 +43,7 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef HAVE_NATIVE_SOUND
 # include <netdb.h>
+# include "nativesound.h"
 #endif
 
 #ifdef HAVE_ESD_SOUND
@@ -58,11 +59,6 @@ Lisp_Object Vsynchronous_sounds;
 Lisp_Object Vnative_sound_only_on_console;
 Lisp_Object Q_volume, Q_pitch, Q_duration, Q_sound;
 
-/* These are defined in the appropriate file (sunplay.c, sgiplay.c,
-   or hpplay.c). */
-
-extern void play_sound_file (char *name, int volume);
-extern void play_sound_data (unsigned char *data, int length, int volume);
 
 #ifdef HAVE_NAS_SOUND
 extern int nas_play_sound_file (char *name, int volume);
@@ -139,11 +135,17 @@ Windows the sound file must be in WAV format.
   if (DEVICE_CONNECTED_TO_ESD_P (d))
     {
       char *fileext;
+      int result;
 
       TO_EXTERNAL_FORMAT (LISP_STRING, file,
 			  C_STRING_ALLOCA, fileext,
 			  Qfile_name);
-      if (esd_play_sound_file (fileext, vol))
+
+      /* #### ESD uses alarm(). But why should we also stop SIGIO? */
+      stop_interrupts ();
+      result = esd_play_sound_file (fileext, vol);
+      start_interrupts ();
+      if (result)
        return Qnil;
     }
 #endif /* HAVE_ESD_SOUND */
@@ -151,7 +153,7 @@ Windows the sound file must be in WAV format.
 #ifdef HAVE_NATIVE_SOUND
   if (NILP (Vnative_sound_only_on_console) || DEVICE_ON_CONSOLE_P (d))
     {
-      CONST char *fileext;
+      const char *fileext;
 
       TO_EXTERNAL_FORMAT (LISP_STRING, file,
 			  C_STRING_ALLOCA, fileext,
@@ -277,7 +279,7 @@ See the variable `sound-alist'.
   /* variable `sound' is anything that can be a cdr in sound-alist */
   Lisp_Object new_volume, pitch, duration, data;
   int loop_count = 0;
-  int vol, pit, dur;
+  int vol, pit, dur, succes;
   struct device *d = decode_device (device);
 
   /* NOTE!  You'd better not signal an error in here. */
@@ -317,7 +319,7 @@ See the variable `sound-alist'.
 #ifdef HAVE_NAS_SOUND
   if (DEVICE_CONNECTED_TO_NAS_P (d) && STRINGP (sound))
     {
-      CONST Extbyte *soundext;
+      const Extbyte *soundext;
       Extcount soundextlen;
 
       TO_EXTERNAL_FORMAT (LISP_STRING, sound,
@@ -336,8 +338,14 @@ See the variable `sound-alist'.
 
       TO_EXTERNAL_FORMAT (LISP_STRING, sound, ALLOCA, (soundext, soundextlen),
 			  Qbinary);
-      if (esd_play_sound_data (soundext, soundextlen, vol))
-       return Qnil;
+      
+      /* #### ESD uses alarm(). But why should we also stop SIGIO? */
+      stop_interrupts ();
+      succes = esd_play_sound_data (soundext, soundextlen, vol);
+      start_interrupts ();
+      QUIT;
+      if(succes)
+        return Qnil;
     }
 #endif /* HAVE_ESD_SOUND */
 
@@ -345,7 +353,7 @@ See the variable `sound-alist'.
   if ((NILP (Vnative_sound_only_on_console) || DEVICE_ON_CONSOLE_P (d))
       && STRINGP (sound))
     {
-      CONST Extbyte *soundext;
+      const Extbyte *soundext;
       Extcount soundextlen;
 
       TO_EXTERNAL_FORMAT (LISP_STRING, sound,
@@ -353,10 +361,11 @@ See the variable `sound-alist'.
 			  Qbinary);
       /* The sound code doesn't like getting SIGIO interrupts. Unix sucks! */
       stop_interrupts ();
-      play_sound_data ((unsigned char*)soundext, soundextlen, vol);
+      succes = play_sound_data ((unsigned char*)soundext, soundextlen, vol);
       start_interrupts ();
       QUIT;
-      return Qnil;
+      if (succes)
+        return Qnil;
     }
 #endif  /* HAVE_NATIVE_SOUND */
 
@@ -404,7 +413,7 @@ device).
   
   if (d == last_bell_device && now-last_bell_time < bell_inhibit_time)
     return Qnil;
-  else if (visible_bell && DEVMETH (d, flash, (d)))
+  else if (!NILP (Vvisible_bell) && DEVMETH (d, flash, (d)))
     ;
   else
     Fplay_sound (sound, Qnil, device);
@@ -447,13 +456,11 @@ Return t if connected to NAS server for sounds on DEVICE.
 static void
 init_nas_sound (struct device *d)
 {
-  char *error;
-
 #ifdef HAVE_X_WINDOWS
   if (DEVICE_X_P (d))
     {
-      error = nas_init_play (DEVICE_X_DISPLAY (d));
-      DEVICE_CONNECTED_TO_NAS_P (d) = !error;
+      char *err_message = nas_init_play (DEVICE_X_DISPLAY (d));
+      DEVICE_CONNECTED_TO_NAS_P (d) = !err_message;
       /* Print out the message? */
     }
 #endif /* HAVE_X_WINDOWS */

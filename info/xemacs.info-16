@@ -30,6 +30,251 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Recursive Edit,  Next: Dissociated Press,  Prev: Hardcopy,  Up: Top
+
+Recursive Editing Levels
+========================
+
+   A "recursive edit" is a situation in which you are using XEmacs
+commands to perform arbitrary editing while in the middle of another
+XEmacs command.  For example, when you type `C-r' inside a
+`query-replace', you enter a recursive edit in which you can change the
+current buffer.  When you exit from the recursive edit, you go back to
+the `query-replace'.
+
+   "Exiting" a recursive edit means returning to the unfinished
+command, which continues execution.  For example, exiting the recursive
+edit requested by `C-r' in `query-replace' causes query replacing to
+resume.  Exiting is done with `C-M-c' (`exit-recursive-edit').
+
+   You can also "abort" a recursive edit.  This is like exiting, but
+also quits the unfinished command immediately.  Use the command `C-]'
+(`abort-recursive-edit') for this.  *Note Quitting::.
+
+   The mode line shows you when you are in a recursive edit by
+displaying square brackets around the parentheses that always surround
+the major and minor mode names.  Every window's mode line shows the
+square brackets, since XEmacs as a whole, rather than any particular
+buffer, is in a recursive edit.
+
+   It is possible to be in recursive edits within recursive edits.  For
+example, after typing `C-r' in a `query-replace', you might type a
+command that entered the debugger.  In such a case, two or more sets of
+square brackets appear in the mode line(s).  Exiting the inner
+recursive edit (here with the debugger `c' command) resumes the
+query-replace command where it called the debugger.  After the end of
+the query-replace command, you would be able to exit the first
+recursive edit.  Aborting exits only one level of recursive edit; it
+returns to the command level of the previous recursive edit.  You can
+then abort that one as well.
+
+   The command `M-x top-level' aborts all levels of recursive edits,
+returning immediately to the top level command reader.
+
+   The text you edit inside the recursive edit need not be the same text
+that you were editing at top level.  If the command that invokes the
+recursive edit selects a different buffer first, that is the buffer you
+will edit recursively.  You can switch buffers within the recursive edit
+in the normal manner (as long as the buffer-switching keys have not been
+rebound).  While you could theoretically do the rest of your editing
+inside the recursive edit, including visiting files, this could have
+surprising effects (such as stack overflow) from time to time.  It is
+best if you always exit or abort a recursive edit when you no longer
+need it.
+
+   In general, XEmacs tries to avoid using recursive edits.  It is
+usually preferable to allow users to switch among the possible editing
+modes in any order they like.  With recursive edits, the only way to get
+to another state is to go "back" to the state that the recursive edit
+was invoked from.
+
+
+File: xemacs.info,  Node: Dissociated Press,  Next: CONX,  Prev: Recursive Edit,  Up: Top
+
+Dissociated Press
+=================
+
+   `M-x dissociated-press' is a command for scrambling a file of text
+either word by word or character by character.  Starting from a buffer
+of straight English, it produces extremely amusing output.  The input
+comes from the current XEmacs buffer.  Dissociated Press writes its
+output in a buffer named `*Dissociation*', and redisplays that buffer
+after every couple of lines (approximately) to facilitate reading it.
+
+   `dissociated-press' asks every so often whether to continue
+operating.  Answer `n' to stop it.  You can also stop at any time by
+typing `C-g'.  The dissociation output remains in the `*Dissociation*'
+buffer for you to copy elsewhere if you wish.
+
+   Dissociated Press operates by jumping at random from one point in the
+buffer to another.  In order to produce plausible output rather than
+gibberish, it insists on a certain amount of overlap between the end of
+one run of consecutive words or characters and the start of the next.
+That is, if it has just printed out `president' and then decides to
+jump to a different point in the file, it might spot the `ent' in
+`pentagon' and continue from there, producing `presidentagon'.  Long
+sample texts produce the best results.
+
+   A positive argument to `M-x dissociated-press' tells it to operate
+character by character, and specifies the number of overlap characters.
+A negative argument tells it to operate word by word and specifies the
+number of overlap words.  In this mode, whole words are treated as the
+elements to be permuted, rather than characters.  No argument is
+equivalent to an argument of two.  For your againformation, the output
+goes only into the buffer `*Dissociation*'.  The buffer you start with
+is not changed.
+
+   Dissociated Press produces nearly the same results as a Markov chain
+based on a frequency table constructed from the sample text.  It is,
+however, an independent, ignoriginal invention.  Dissociated Press
+techniquitously copies several consecutive characters from the sample
+between random choices, whereas a Markov chain would choose randomly for
+each word or character.  This makes for more plausible sounding results
+and runs faster.
+
+   It is a mustatement that too much use of Dissociated Press can be a
+developediment to your real work.  Sometimes to the point of outragedy.
+And keep dissociwords out of your documentation, if you want it to be
+well userenced and properbose.  Have fun.  Your buggestions are welcome.
+
+
+File: xemacs.info,  Node: CONX,  Next: Amusements,  Prev: Dissociated Press,  Up: Top
+
+CONX
+====
+
+   Besides producing a file of scrambled text with Dissociated Press,
+you can generate random sentences by using CONX.
+
+`M-x conx'
+     Generate random sentences in the `*conx*' buffer.
+
+`M-x conx-buffer'
+     Absorb the text in the current buffer into the `conx' database.
+
+`M-x conx-init'
+     Forget the current word-frequency tree.
+
+`M-x conx-load'
+     Load a `conx' database that has been previously saved with `M-x
+     conx-save'.
+
+`M-x conx-region'
+     Absorb the text in the current buffer into the `conx' database.
+
+`M-x conx-save'
+     Save the current `conx' database to a file for future retrieval.
+
+   Copy text from a buffer using `M-x conx-buffer' or `M-x conx-region'
+and then type `M-x conx'.  Output is continuously generated until you
+type <^G>. You can save the `conx' database to a file with `M-x
+conx-save', which you can retrieve with `M-x conx-load'.  To clear the
+database, use `M-x conx-init'.
+
+
+File: xemacs.info,  Node: Amusements,  Next: Emulation,  Prev: CONX,  Up: Top
+
+Other Amusements
+================
+
+   If you are a little bit bored, you can try `M-x hanoi'.  If you are
+considerably bored, give it a numeric argument.  If you are very, very
+bored, try an argument of 9.  Sit back and watch.
+
+   When you are frustrated, try the famous Eliza program.  Just do `M-x
+doctor'.  End each input by typing `RET' twice.
+
+   When you are feeling strange, type `M-x yow'.
+
+
+File: xemacs.info,  Node: Emulation,  Next: Customization,  Prev: Amusements,  Up: Top
+
+Emulation
+=========
+
+   XEmacs can be programmed to emulate (more or less) most other
+editors.  Standard facilities can emulate these:
+
+Viper (a vi emulator)
+     In XEmacs, Viper is the preferred emulation of vi within XEmacs.
+     Viper is designed to allow you to take advantage of the best
+     features of XEmacs while still doing your basic editing in a
+     familiar, vi-like fashion.  Viper provides various different
+     levels of vi emulation, from a quite complete emulation that
+     allows almost no access to native XEmacs commands, to an "expert"
+     mode that combines the most useful vi commands with the most
+     useful XEmacs commands.
+
+     To start Viper, put the command
+
+          (viper-mode)
+
+     in your `.emacs' file.
+
+     Viper comes with a separate manual that is provided standard with
+     the XEmacs distribution.
+
+EDT (DEC VMS editor)
+     Turn on EDT emulation with `M-x edt-emulation-on'.  `M-x
+     edt-emulation-off' restores normal Emacs command bindings.
+
+     Most of the EDT emulation commands are keypad keys, and most
+     standard Emacs key bindings are still available.  The EDT
+     emulation rebindings are done in the global keymap, so there is no
+     problem switching buffers or major modes while in EDT emulation.
+
+Gosling Emacs
+     Turn on emulation of Gosling Emacs (aka Unipress Emacs) with `M-x
+     set-gosmacs-bindings'.  This redefines many keys, mostly on the
+     `C-x' and `ESC' prefixes, to work as they do in Gosmacs.  `M-x
+     set-gnu-bindings' returns to normal XEmacs by rebinding the same
+     keys to the definitions they had at the time `M-x
+     set-gosmacs-bindings' was done.
+
+     It is also possible to run Mocklisp code written for Gosling Emacs.
+     *Note Mocklisp::.
+
+
+File: xemacs.info,  Node: Customization,  Next: Quitting,  Prev: Emulation,  Up: Top
+
+Customization
+*************
+
+   This chapter talks about various topics relevant to adapting the
+behavior of Emacs in minor ways.
+
+   All kinds of customization affect only the particular Emacs job that
+you do them in.  They are completely lost when you kill the Emacs job,
+and have no effect on other Emacs jobs you may run at the same time or
+later.  The only way an Emacs job can affect anything outside of it is
+by writing a file; in particular, the only way to make a customization
+`permanent' is to put something in your `.emacs' file or other
+appropriate file to do the customization in each session.  *Note Init
+File::.
+
+* Menu:
+
+* Minor Modes::     Each minor mode is one feature you can turn on
+                     independently of any others.
+* Variables::       Many Emacs commands examine Emacs variables
+                     to decide what to do; by setting variables,
+                     you can control their functioning.
+* Keyboard Macros:: A keyboard macro records a sequence of keystrokes
+                     to be replayed with a single command.
+* Key Bindings::    The keymaps say what command each key runs.
+                     By changing them, you can "redefine keys".
+* Syntax::          The syntax table controls how words and expressions
+                     are parsed.
+* Init File::       How to write common customizations in the `.emacs'
+                     file.
+* Audible Bell::    Changing how Emacs sounds the bell.
+* Faces::           Changing the fonts and colors of a region of text.
+* Frame Components::  Controlling the presence and positions of the
+                     menubar, toolbars, and gutters.
+* X Resources::     X resources controlling various aspects of the
+                     behavior of XEmacs.
+
+
 File: xemacs.info,  Node: Minor Modes,  Next: Variables,  Up: Customization
 
 Minor Modes
@@ -896,286 +1141,4 @@ letters and hyphens.
 * Disabling::  Disabling a command means confirmation is required
                 before it can be executed.  This is done to protect
                 beginners from surprises.
-
-
-File: xemacs.info,  Node: Keymaps,  Next: Rebinding,  Up: Key Bindings
-
-Keymaps
--------
-
-   The bindings between characters and command functions are recorded in
-data structures called "keymaps".  Emacs has many of these.  One, the
-"global" keymap, defines the meanings of the single-character keys that
-are defined regardless of major mode.  It is the value of the variable
-`global-map'.
-
-   Each major mode has another keymap, its "local keymap", which
-contains overriding definitions for the single-character keys that are
-redefined in that mode.  Each buffer records which local keymap is
-installed for it at any time, and the current buffer's local keymap is
-the only one that directly affects command execution.  The local keymaps
-for Lisp mode, C mode, and many other major modes always exist even when
-not in use.  They are the values of the variables `lisp-mode-map',
-`c-mode-map', and so on.  For less frequently used major modes, the
-local keymap is sometimes constructed only when the mode is used for the
-first time in a session, to save space.
-
-   There are local keymaps for the minibuffer, too; they contain various
-completion and exit commands.
-
-   * `minibuffer-local-map' is used for ordinary input (no completion).
-
-   * `minibuffer-local-ns-map' is similar, except that <SPC> exits just
-     like <RET>.  This is used mainly for Mocklisp compatibility.
-
-   * `minibuffer-local-completion-map' is for permissive completion.
-
-   * `minibuffer-local-must-match-map' is for strict completion and for
-     cautious completion.
-
-   * `repeat-complex-command-map' is for use in `C-x <ESC>'.
-
-   * `isearch-mode-map' contains the bindings of the special keys which
-     are bound in the pseudo-mode entered with `C-s' and `C-r'.
-
-   Finally, each prefix key has a keymap which defines the key sequences
-that start with it.  For example, `ctl-x-map' is the keymap used for
-characters following a `C-x'.
-
-   * `ctl-x-map' is the variable name for the map used for characters
-     that follow `C-x'.
-
-   * `help-map' is used for characters that follow `C-h'.
-
-   * `esc-map' is for characters that follow <ESC>. All Meta characters
-     are actually defined by this map.
-
-   * `ctl-x-4-map' is for characters that follow `C-x 4'.
-
-   * `mode-specific-map' is for characters that follow `C-c'.
-
-   The definition of a prefix key is the keymap to use for looking up
-the following character.  Sometimes the definition is actually a Lisp
-symbol whose function definition is the following character keymap.  The
-effect is the same, but it provides a command name for the prefix key
-that you can use as a description of what the prefix key is for.  Thus
-the binding of `C-x' is the symbol `Ctl-X-Prefix', whose function
-definition is the keymap for `C-x' commands, the value of `ctl-x-map'.
-
-   Prefix key definitions can appear in either the global map or a
-local map.  The definitions of `C-c', `C-x', `C-h', and <ESC> as prefix
-keys appear in the global map, so these prefix keys are always
-available.  Major modes can locally redefine a key as a prefix by
-putting a prefix key definition for it in the local map.
-
-   A mode can also put a prefix definition of a global prefix character
-such as `C-x' into its local map.  This is how major modes override the
-definitions of certain keys that start with `C-x'.  This case is
-special, because the local definition does not entirely replace the
-global one.  When both the global and local definitions of a key are
-other keymaps, the next character is looked up in both keymaps, with
-the local definition overriding the global one.  The character after the
-`C-x' is looked up in both the major mode's own keymap for redefined
-`C-x' commands and in `ctl-x-map'.  If the major mode's own keymap for
-`C-x' commands contains `nil', the definition from the global keymap
-for `C-x' commands is used.
-
-
-File: xemacs.info,  Node: Rebinding,  Next: Disabling,  Prev: Keymaps,  Up: Key Bindings
-
-Changing Key Bindings
----------------------
-
-   You can redefine an Emacs key by changing its entry in a keymap.
-You can change the global keymap, in which case the change is effective
-in all major modes except those that have their own overriding local
-definitions for the same key.  Or you can change the current buffer's
-local map, which affects all buffers using the same major mode.
-
-* Menu:
-
-* Interactive Rebinding::      Changing Key Bindings Interactively
-* Programmatic Rebinding::     Changing Key Bindings Programmatically
-* Key Bindings Using Strings:: Using Strings for Changing Key Bindings
-
-
-File: xemacs.info,  Node: Interactive Rebinding,  Next: Programmatic Rebinding,  Up: Rebinding
-
-Changing Key Bindings Interactively
-...................................
-
-`M-x global-set-key <RET> KEY CMD <RET>'
-     Defines KEY globally to run CMD.
-
-`M-x local-set-key <RET> KEYS CMD <RET>'
-     Defines KEY locally (in the major mode now in effect) to run CMD.
-
-`M-x local-unset-key <RET> KEYS <RET>'
-     Removes the local binding of KEY.
-
-   CMD is a symbol naming an interactively-callable function.
-
-   When called interactively, KEY is the next complete key sequence
-that you type.  When called as a function, KEY is a string, a vector of
-events, or a vector of key-description lists as described in the
-`define-key' function description.  The binding goes in the current
-buffer's local map, which is shared with other buffers in the same
-major mode.
-
-   The following example:
-
-     M-x global-set-key <RET> C-f next-line <RET>
-
-redefines `C-f' to move down a line.  The fact that CMD is read second
-makes it serve as a kind of confirmation for KEY.
-
-   These functions offer no way to specify a particular prefix keymap as
-the one to redefine in, but that is not necessary, as you can include
-prefixes in KEY.  KEY is read by reading characters one by one until
-they amount to a complete key (that is, not a prefix key).  Thus, if
-you type `C-f' for KEY, Emacs enters the minibuffer immediately to read
-CMD.  But if you type `C-x', another character is read; if that
-character is `4', another character is read, and so on.  For example,
-
-     M-x global-set-key <RET> C-x 4 $ spell-other-window <RET>
-
-redefines `C-x 4 $' to run the (fictitious) command
-`spell-other-window'.
-
-   The most general way to modify a keymap is the function
-`define-key', used in Lisp code (such as your `.emacs' file).
-`define-key' takes three arguments: the keymap, the key to modify in
-it, and the new definition.  *Note Init File::, for an example.
-`substitute-key-definition' is used similarly; it takes three
-arguments, an old definition, a new definition, and a keymap, and
-redefines in that keymap all keys that were previously defined with the
-old definition to have the new definition instead.
-
-
-File: xemacs.info,  Node: Programmatic Rebinding,  Next: Key Bindings Using Strings,  Prev: Interactive Rebinding,  Up: Rebinding
-
-Changing Key Bindings Programmatically
-......................................
-
-   You can use the functions `global-set-key' and `define-key' to
-rebind keys under program control.
-
-``(global-set-key KEYS CMD)''
-     Defines KEYS globally to run CMD.
-
-``(define-key KEYMAP KEYS DEF)''
-     Defines KEYS to run DEF in the keymap KEYMAP.
-
-   KEYMAP is a keymap object.
-
-   KEYS is the sequence of keystrokes to bind.
-
-   DEF is anything that can be a key's definition:
-
-   * `nil', meaning key is undefined in this keymap
-
-   * A command, that is, a Lisp function suitable for interactive
-     calling
-
-   * A string or key sequence vector, which is treated as a keyboard
-     macro
-
-   * A keymap to define a prefix key
-
-   * A symbol so that when the key is looked up, the symbol stands for
-     its function definition, which should at that time be one of the
-     above, or another symbol whose function definition is used, and so
-     on
-
-   * A cons, `(string . defn)', meaning that DEFN is the definition
-     (DEFN should be a valid definition in its own right)
-
-   * A cons, `(keymap . char)', meaning use the definition of CHAR in
-     map KEYMAP
-
-   For backward compatibility, XEmacs allows you to specify key
-sequences as strings.  However, the preferred method is to use the
-representations of key sequences as vectors of keystrokes.  *Note
-Keystrokes::, for more information about the rules for constructing key
-sequences.
-
-   Emacs allows you to abbreviate representations for key sequences in
-most places where there is no ambiguity.  Here are some rules for
-abbreviation:
-
-   * The keysym by itself is equivalent to a list of just that keysym,
-     i.e., `f1' is equivalent to `(f1)'.
-
-   * A keystroke by itself is equivalent to a vector containing just
-     that keystroke, i.e.,  `(control a)' is equivalent to `[(control
-     a)]'.
-
-   * You can use ASCII codes for keysyms that have them. i.e., `65' is
-     equivalent to `A'. (This is not so much an abbreviation as an
-     alternate representation.)
-
-   Here are some examples of programmatically binding keys:
-
-
-     ;;;  Bind `my-command' to <f1>
-     (global-set-key 'f1 'my-command)
-     
-     ;;;  Bind `my-command' to Shift-f1
-     (global-set-key '(shift f1) 'my-command)
-     
-     ;;; Bind `my-command' to C-c Shift-f1
-     (global-set-key '[(control c) (shift f1)] 'my-command)
-     
-     ;;; Bind `my-command' to the middle mouse button.
-     (global-set-key 'button2 'my-command)
-     
-     ;;; Bind `my-command' to <META> <CTL> <Right Mouse Button>
-     ;;; in the keymap that is in force when you are running `dired'.
-     (define-key dired-mode-map '(meta control button3) 'my-command)
-
-
-File: xemacs.info,  Node: Key Bindings Using Strings,  Prev: Programmatic Rebinding,  Up: Rebinding
-
-Using Strings for Changing Key Bindings
-.......................................
-
-   For backward compatibility, you can still use strings to represent
-key sequences.  Thus you can use commands like the following:
-
-     ;;; Bind `end-of-line' to C-f
-     (global-set-key "\C-f" 'end-of-line)
-
-   Note, however, that in some cases you may be binding more than one
-key sequence by using a single command.  This situation can arise
-because in ASCII, `C-i' and <TAB> have the same representation.
-Therefore, when Emacs sees:
-
-     (global-set-key "\C-i" 'end-of-line)
-
-   it is unclear whether the user intended to bind `C-i' or <TAB>.  The
-solution XEmacs adopts is to bind both of these key sequences.
-
-   After binding a command to two key sequences with a form like:
-
-             (define-key global-map "\^X\^I" 'command-1)
-
-   it is possible to redefine only one of those sequences like so:
-
-             (define-key global-map [(control x) (control i)] 'command-2)
-             (define-key global-map [(control x) tab] 'command-3)
-
-   This applies only when running under a window system.  If you are
-talking to Emacs through an ASCII-only channel, you do not get any of
-these features.
-
-   Here is a table of pairs of key sequences that behave in a similar
-fashion:
-
-             control h      backspace
-             control l      clear
-             control i      tab
-             control m      return
-             control j      linefeed
-             control [      escape
-             control @      control space
 

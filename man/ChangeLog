@@ -1,3 +1,135 @@
+2000-05-01  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.33 is released.
+
+2000-04-11  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* xemacs-faq.texi (Q2.1.24): Removed wrong header.
+
+2000-04-01  Oscar Figueiredo  <oscar@xemacs.org>
+
+	* lispref/ldap.texi: Documentation of the add/modify/delete and
+	  internationalization APIs
+
+	* lispref/lispref.texi: Updated LDAP-related menus
+
+2000-03-20  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.32 is released.
+
+2000-03-15  SL Baur  <steve@musashimaru.m17n.org>
+
+	* lispref/postgresql.texi (Unimplemented libpq Functions): Update
+	documentation to reflect the latest code.
+
+2000-03-07  SL Baur  <steve@musashimaru.m17n.org>
+
+	* lispref/postgresql.texi (PostgreSQL Support): New File.
+
+	* lispref/ldap.texi: Insert PostgreSQL/libpq chapter.
+	* lispref/lispref.texi (Top): Ditto.
+	* lispref/internationalization.texi: Ditto.
+
+2000-03-07  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* lispref/glyphs.texi (Image Specifiers): Remove parenthesis.
+
+2000-03-06  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* xemacs-faq.texi: Put node before section.
+
+2000-03-05  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs-faq.texi (Macintosh port): Made texinfmt-friendly.
+
+2000-03-01  Sandra Wambold  <wambold@xemacs.org>
+
+	* xemacs-faq.texi: Added 6.4.1. XEmacs won't start on Windows
+
+2000-01-25  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* xemacs/xemacs.texi: Detailed menu update.
+
+2000-01-28  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* xemacs/help.texi: Synch with FSF 20.5. Update.
+
+2000-02-21  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* lispref/minibuf.texi: Add default argument documentation.
+
+2000-02-27  Martin Buchholz  <martin@xemacs.org>
+
+	* internals/internals.texi (lrecords): Update docs for new lisp
+	object representation.
+
+2000-02-25  Martin Buchholz  <martin@xemacs.org>
+
+	* internals/internals.texi (Techniques for XEmacs Developers):
+	Document INLINE_HEADER and how to create macros and inline functions.
+	Cleanup entire section.
+
+2000-02-17  Stephen J. Turnbull  <turnbull@sk.tsukuba.ac.jp>
+
+	* man/lispref/gutter.texi: New file describing gutter API.
+
+	* man/lispref/lispref.texi, man/lispref/scrollbars.texi,
+
+	* man/lispref/toolbar.texi: Fixup links to new node Gutter.
+
+2000-02-17  Stephen J. Turnbull  <turnbull@sk.tsukuba.ac.jp>
+
+	* man/lispref/frames.texi, man/xemacs/custom.texi,
+	man/xemacs/frame.texi, man/xemacs/glossary.texi: Mention menubars,
+	toolbars, and gutters as optional components of frames, with
+	pointers to descriptions.
+
+2000-02-17  Stephen J. Turnbull  <turnbull@sk.tsukuba.ac.jp>
+
+	* man/lispref/mule.texi:  Substantial reorganization and
+	revision for style of descriptions of character sets,
+	encodings, and coding systems.  Addition of a complete table
+	of coding systems as of XEmacs 21.2.19.
+
+2000-02-23  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.31 is released.
+
+2000-02-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.30 is released.
+
+2000-02-21  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* internals/internals.texi: Made texinfmt-friendly.
+
+2000-01-20  Mark Thomas  <mthomas@jprc.com>
+
+	* lispref/backups.texi (Numbered Backups):
+	* xemacs/files.texi (Backup Deletion):
+	Change trim-versions-without-asking to delete-old-versions.
+
+2000-02-19  Martin Buchholz  <martin@xemacs.org>
+
+	* internals/internals.texi (Conversion to and from External Data):
+	Document TO_EXTERNAL_FORMAT and friends.
+	Doc bug fixes.
+
+2000-02-16  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.29 is released.
+
+2000-02-16  Martin Buchholz  <martin@xemacs.org>
+
+	* internals/internals.texi: Integrate Olivier's portable dumping docs.
+
+2000-02-09  Martin Buchholz  <martin@xemacs.org>
+
+	* lispref/symbols.texi (Object Plists):
+	Document `object-plist'.
+	Document `remprop'.
+	Rework all plist frobbing docs for accuracy.
+
 2000-02-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.28 is released.
@@ -51,7 +183,7 @@
 2000-01-25  Yoshiki Hayashi  <yoshiki@xemacs.org>
 
 	* xemacs-faq.texi: Untabify.
-	
+
 2000-01-22  Martin Buchholz  <martin@xemacs.org>
 
 	* internals/internals.texi (General Coding Rules): Document why we
@@ -60,7 +192,7 @@
 2000-01-21  Yoshiki Hayashi  <yoshiki@xemacs.org>
 
 	* xemacs-faq.texi: Change ' -- ' to '---'.
-	
+
 2000-01-19  Yoshiki Hayashi  <yoshiki@xemacs.org>
 
 	* lispref/faces.texi (Face Properties): Document
@@ -164,7 +296,7 @@
 
 1999-12-18  Martin Buchholz  <martin@xemacs.org>
 
-	* lispref/functions.texi (Mapping Functions): 
+	* lispref/functions.texi (Mapping Functions):
 	Warn about mapping functions modifying their sequences.
 
 1999-12-15  Sandra Wambold  <wambold@xemacs.org>
@@ -178,7 +310,7 @@
 1999-12-07  Gunnar Evermann  <ge204@eng.cam.ac.uk>
 
 	* xemacs/startup.texi (Startup Paths): fix typo: EMACSPACKAGEPATH
-	instead of PACKAGEPATH 
+	instead of PACKAGEPATH
 	From Marcus Harnisch <harnisch@mikrom.de>
 
 1999-12-07  Martin Buchholz <martin@xemacs.org>
@@ -191,9 +323,9 @@
 
 1999-11-29  Martin Buchholz  <martin@xemacs.org>
 
-	* info.texi (Top): 
+	* info.texi (Top):
 	Remove @ifnottex, which gives old makeinfos indigestion.
-	* texinfo.texi (Top): 
+	* texinfo.texi (Top):
 	Revert to pre-texinfo-4.0 version, plus small changes to make
 	texinfo-3.12, texinfo-3.12f, texinfo-4.0, and TeX happy.
 
@@ -223,7 +355,7 @@
 1999-11-15  Martin Buchholz  <martin@xemacs.org>
 
 	* xemacs/programs.texi: Upgrade to etags Version 13.32
-	
+
 	* Makefile:
 	- Make sure the default target is `info' instead of cl.info.
 	- Use $(INFODIR) consistently where appropriate.
@@ -330,7 +462,7 @@
 	* packages.texi: Reword a sentence, fixing @item Decide where to
  	install ...
 
-1999-07-19  Didier Verna  <verna@inf.enst.fr>
+1999-07-19  Didier Verna  <didier@xemacs.org>
 
 	* custom.texi (Wishlist): removed the Custom Comments wishlist
 	entry. They are implemented.

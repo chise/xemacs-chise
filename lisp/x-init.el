@@ -305,8 +305,8 @@
         (init-x-toolbar))
     (if (and (featurep 'infodock) (featurep 'toolbar))
 	(require 'id-x-toolbar))
-    (if (featurep 'mule)
-        (init-mule-x-win))
+    (if (featurep 'gutter) (init-gutter))
+    (if (featurep 'mule) (init-mule-x-win))
     ;; these are only ever called if zmacs-regions is true.
     (add-hook 'zmacs-deactivate-region-hook
 	      (lambda ()

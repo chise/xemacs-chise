@@ -357,7 +357,7 @@ If non-nil, the return value will be a list whose first element is
 */
        (subr))
 {
-  CONST char *prompt;
+  const char *prompt;
   CHECK_SUBR (subr);
   prompt = XSUBR (subr)->prompt;
   return prompt ? list2 (Qinteractive, build_string (prompt)) : Qnil;
@@ -770,7 +770,7 @@ ARRAY may be a vector, bit vector, or string.  INDEX starts at 0.
     {
       CHECK_CHAR_COERCE_INT (newval);
       if (idx >= XSTRING_CHAR_LENGTH (array)) goto range_error;
-      set_string_char (XSTRING (array), idx, XCHAR (newval));
+      set_string_char (XSTRING (array), idx, (unsigned char) XCHAR (newval));
       bump_string_modiff (array);
     }
   else
@@ -2076,6 +2076,8 @@ init_errors_once_early (void)
 void
 syms_of_data (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (weak_list);
+
   defsymbol (&Qquote, "quote");
   defsymbol (&Qlambda, "lambda");
   defsymbol (&Qlistp, "listp");

@@ -1,25 +1,25 @@
 ;;; multicast.el --- lisp frontend for multicast connections in XEmacs
 
-;; Copyright (C) 1997-1998 Didier Verna.
+;; Copyright (C) 1997-2000 Didier Verna.
 
-;; Author:          Didier Verna <verna@inf.enst.fr>
-;; Maintainer:      Didier Verna <verna@inf.enst.fr>
-;; Created:         Thu Dec  4 16:37:39 1997 
+;; Author:          Didier Verna <didier@xemacs.org>
+;; Maintainer:      Didier Verna <didier@xemacs.org>
+;; Created:         Thu Dec  4 16:37:39 1997
 ;; Last Revision:   Mon Jan 19 19:10:50 1998
 ;; Current Version: 0.4
 ;; Keywords:        dumped comm processes
 
-;; This file is part of XEmacs.				 
+;; This file is part of XEmacs.
 
 ;; XEmacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2 of the License, or
-;; (at your option) any later version.			 
+;; (at your option) any later version.
 
 ;; XEmacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.		 
+;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program; if not, write to the Free Software
@@ -60,7 +60,7 @@ ADDRESS specifies a standard multicast address \"dest/port/ttl\":
  ttl is the time-to-live (15 for site, 63 for region and 127 for world).
 
 WARNING: it is *strongly* recommended to avoid using groups beginning with
-         224 or 239. Such groups are considered 'admin' groups, and may 
+         224 or 239. Such groups are considered 'admin' groups, and may
          behave in a surprising way ..."
   (let (dest port ttl)
     ;; We check only the general form of the multicast address.
@@ -77,5 +77,5 @@ WARNING: it is *strongly* recommended to avoid using groups beginning with
 	 (error "invalid ttl specification."))
     (open-multicast-group-internal name buffer dest port ttl)
     ))
-    
+
 ;;; multicast.el ends here

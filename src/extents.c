@@ -227,6 +227,7 @@ Boston, MA 02111-1307, USA.  */
 #include "opaque.h"
 #include "process.h"
 #include "redisplay.h"
+#include "gutter.h"
 
 /* ------------------------------- */
 /*            gap array            */
@@ -461,9 +462,12 @@ Lisp_Object Vextent_face_reusable_list;
 /* FSFmacs bogosity */
 Lisp_Object Vdefault_text_properties;
 
-
 EXFUN (Fextent_properties, 1);
 EXFUN (Fset_extent_property, 3);
+
+/* if true, we don't want to set any redisplay flags on modeline extent
+   changes */
+int in_modeline_generation;
 
 
 /************************************************************************/
@@ -1537,8 +1541,7 @@ extent_endpoint_bytind (EXTENT extent, int endp)
   assert (EXTENT_LIVE_P (extent));
   assert (!extent_detached_p (extent));
   {
-    Memind i = (endp) ? (extent_end (extent)) :
-      (extent_start (extent));
+    Memind i = endp ? extent_end (extent) : extent_start (extent);
     Lisp_Object obj = extent_object (extent);
     return buffer_or_string_memind_to_bytind (obj, i);
   }
@@ -1550,8 +1553,7 @@ extent_endpoint_bufpos (EXTENT extent, int endp)
   assert (EXTENT_LIVE_P (extent));
   assert (!extent_detached_p (extent));
   {
-    Memind i = (endp) ? (extent_end (extent)) :
-      (extent_start (extent));
+    Memind i = endp ? extent_end (extent) : extent_start (extent);
     Lisp_Object obj = extent_object (extent);
     return buffer_or_string_memind_to_bufpos (obj, i);
   }
@@ -1591,33 +1593,47 @@ extent_changed_for_redisplay (EXTENT extent, int descendants_too,
 
   object = extent_object (extent);
 
-  if (!BUFFERP (object) || extent_detached_p (extent))
-    /* #### Can changes to string extents affect redisplay?
-       I will have to think about this.  What about string glyphs?
-       Things in the modeline? etc. */
-    /* #### changes to string extents can certainly affect redisplay
-       if the extent is in some generated-modeline-string: when
-       we change an extent in generated-modeline-string, this changes
-       its parent, which is in `modeline-format', so we should
-       force the modeline to be updated.  But how to determine whether
-       a string is a `generated-modeline-string'?  Looping through
-       all buffers is not very efficient.  Should we add all
-       `generated-modeline-string' strings to a hash table?
-       Maybe efficiency is not the greatest concern here and there's
-       no big loss in looping over the buffers. */
+  if (extent_detached_p (extent))
     return;
 
-  {
-    struct buffer *b;
-    b = XBUFFER (object);
-    BUF_FACECHANGE (b)++;
-    MARK_EXTENTS_CHANGED;
-    if (invisibility_change)
-      MARK_CLIP_CHANGED;
-    buffer_extent_signal_changed_region (b,
-					 extent_endpoint_bufpos (extent, 0),
-					 extent_endpoint_bufpos (extent, 1));
-  }
+  else if (STRINGP (object))
+    {
+    /* #### Changes to string extents can affect redisplay if they are
+       in the modeline or in the gutters. 
+       
+       If the extent is in some generated-modeline-string: when we
+       change an extent in generated-modeline-string, this changes its
+       parent, which is in `modeline-format', so we should force the
+       modeline to be updated.  But how to determine whether a string
+       is a `generated-modeline-string'?  Looping through all buffers
+       is not very efficient.  Should we add all
+       `generated-modeline-string' strings to a hash table?  Maybe
+       efficiency is not the greatest concern here and there's no big
+       loss in looping over the buffers. 
+
+       If the extent is in a gutter we mark the gutter as
+       changed. This means (a) we can update extents in the gutters
+       when we need it. (b) we don't have to update the gutters when
+       only extents attached to buffers have changed. */
+
+      if (!in_modeline_generation)
+	MARK_EXTENTS_CHANGED;
+      gutter_extent_signal_changed_region_maybe (object,
+						 extent_endpoint_bufpos (extent, 0),
+						 extent_endpoint_bufpos (extent, 1));
+    }
+  else if (BUFFERP (object))
+    {
+      struct buffer *b;
+      b = XBUFFER (object);
+      BUF_FACECHANGE (b)++;
+      MARK_EXTENTS_CHANGED;
+      if (invisibility_change)
+	MARK_CLIP_CHANGED;
+      buffer_extent_signal_changed_region (b,
+					   extent_endpoint_bufpos (extent, 0),
+					   extent_endpoint_bufpos (extent, 1));
+    }
 }
 
 /* A change to an extent occurred that might affect redisplay.
@@ -2599,12 +2615,11 @@ extent_fragment_delete (struct extent_fragment *ef)
   xfree (ef);
 }
 
-/* Note:  CONST is losing, but `const' is part of the interface of qsort() */
 static int
 extent_priority_sort_function (const void *humpty, const void *dumpty)
 {
-  CONST EXTENT foo = * (CONST EXTENT *) humpty;
-  CONST EXTENT bar = * (CONST EXTENT *) dumpty;
+  const EXTENT foo = * (const EXTENT *) humpty;
+  const EXTENT bar = * (const EXTENT *) dumpty;
   if (extent_priority (foo) < extent_priority (bar))
     return -1;
   return extent_priority (foo) > extent_priority (bar);
@@ -2910,38 +2925,6 @@ extent_fragment_update (struct window *w, struct extent_fragment *ef,
    extent objects.  They are similar to the functions for other
    lrecord objects.  allocate_extent() is in alloc.c, not here. */
 
-static Lisp_Object mark_extent (Lisp_Object);
-static int extent_equal (Lisp_Object, Lisp_Object, int depth);
-static unsigned long extent_hash (Lisp_Object obj, int depth);
-static void print_extent (Lisp_Object obj, Lisp_Object printcharfun,
-			  int escapeflag);
-static Lisp_Object extent_getprop (Lisp_Object obj, Lisp_Object prop);
-static int extent_putprop (Lisp_Object obj, Lisp_Object prop,
-			   Lisp_Object value);
-static int extent_remprop (Lisp_Object obj, Lisp_Object prop);
-static Lisp_Object extent_plist (Lisp_Object obj);
-
-static const struct lrecord_description extent_description[] = {
-  { XD_LISP_OBJECT, offsetof (struct extent, object) },
-  { XD_LISP_OBJECT, offsetof (struct extent, flags.face) },
-  { XD_LISP_OBJECT, offsetof (struct extent, plist) },
-  { XD_END }
-};
-
-DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS ("extent", extent,
-						mark_extent,
-						print_extent,
-						/* NOTE: If you declare a
-						   finalization method here,
-						   it will NOT be called.
-						   Shaft city. */
-						0,
-						extent_equal, extent_hash,
-						extent_description,
-						extent_getprop, extent_putprop,
-						extent_remprop, extent_plist,
-						struct extent);
-
 static Lisp_Object
 mark_extent (Lisp_Object obj)
 {
@@ -3007,9 +2990,9 @@ print_extent (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
   if (escapeflag)
     {
-      CONST char *title = "";
-      CONST char *name = "";
-      CONST char *posttitle = "";
+      const char *title = "";
+      const char *name = "";
+      const char *posttitle = "";
       Lisp_Object obj2 = Qnil;
 
       /* Destroyed extents have 't' in the object field, causing
@@ -3131,6 +3114,13 @@ extent_hash (Lisp_Object obj, int depth)
 		internal_hash (extent_object (e), depth + 1));
 }
 
+static const struct lrecord_description extent_description[] = {
+  { XD_LISP_OBJECT, offsetof (struct extent, object) },
+  { XD_LISP_OBJECT, offsetof (struct extent, flags.face) },
+  { XD_LISP_OBJECT, offsetof (struct extent, plist) },
+  { XD_END }
+};
+
 static Lisp_Object
 extent_getprop (Lisp_Object obj, Lisp_Object prop)
 {
@@ -3188,6 +3178,20 @@ extent_plist (Lisp_Object obj)
 {
   return Fextent_properties (obj);
 }
+
+DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS ("extent", extent,
+						mark_extent,
+						print_extent,
+						/* NOTE: If you declare a
+						   finalization method here,
+						   it will NOT be called.
+						   Shaft city. */
+						0,
+						extent_equal, extent_hash,
+						extent_description,
+						extent_getprop, extent_putprop,
+						extent_remprop, extent_plist,
+						struct extent);
 
 
 /************************************************************************/
@@ -5003,7 +5007,7 @@ static Lisp_Object
 set_extent_glyph_1 (Lisp_Object extent_obj, Lisp_Object glyph, int endp,
 		    Lisp_Object layout_obj)
 {
-  EXTENT extent = decode_extent (extent_obj, DE_MUST_HAVE_BUFFER);
+  EXTENT extent = decode_extent (extent_obj, 0);
   glyph_layout layout = symbol_to_glyph_layout (layout_obj);
 
   /* Make sure we've actually been given a valid glyph or it's nil
@@ -6673,6 +6677,10 @@ compute_buffer_extent_usage (struct buffer *b, struct overhead_stats *ovstats)
 void
 syms_of_extents (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (extent);
+  INIT_LRECORD_IMPLEMENTATION (extent_info);
+  INIT_LRECORD_IMPLEMENTATION (extent_auxiliary);
+
   defsymbol (&Qextentp, "extentp");
   defsymbol (&Qextent_live_p, "extent-live-p");
 

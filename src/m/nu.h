@@ -24,10 +24,6 @@ Boston, MA 02111-1307, USA.  */
    operating system this machine is likely to run.
    USUAL-OPSYS="usg5-2"  */
 
-/* XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically:
    vax, m68000, ns16000 are the ones defined so far.  */

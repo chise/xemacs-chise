@@ -1,3 +1,72 @@
+to 21.2.33 "Melpomene"
+-- Yet more progress gauge and gutter redisplay fixes from Andy Piper
+-- glyph error checking from Andy Piper
+-- Proper implementation of string glyps makes them Mule safe (IKEYAMA Tomonori)
+-- Bug fixes from the usual suspects
+-- --with-clash-detection now defaults to `yes', at least for betas.
+-- Autoconf support for detecting how to #include header files
+   with names containing preprocessor constants, Didier Verna.
+-- LDAP documentation updated, Oscar Figueiredo.
+-- clash-detection code cleaned and audited, Yoshiki and Martin
+-- Fix hangs on DEC OSF 4.0 when (process-send-string) sends strings
+   longer than 252 bytes.
+-- Fix non-ANSI macro hacking to allow compilation by Irix native compiler.
+-- redisplay fixes, IKEYAMA Tomonori
+-- Code cleaning, Mike Alexander
+-- Pdump + Windows support, Mike Alexander
+-- Sound code cleanup, Jan Vroonhof
+-- yes-or-no-p-dialog-box no longer gives unpredictable results with
+   focus follows mouse, Martin Buchholz
+
+to 21.2.32 "Kastor & Polydeukes"
+-- Internal Postgres RDBMS support from Steve Baur
+-- Improve gutter useability
+-- Fix window geometry with gutters
+-- Fix async updates so that they only occur when neccessary
+-- Gutter documentation from Stephen Turnbull
+-- redisplay-gutter-area fixes from Andy Piper
+-- pdump file in MS-Windows executable from Mike Alexander
+-- Miscellaneous fixes from Andy Piper
+-- Windows and menubar changes from Ben Wing
+-- dumper changes from Olivier Galibert
+
+to 21.2.31 "Iris"
+-- Make XEmacs work on Windows again.
+
+to 21.2.30 "Hygeia"
+-- Make (find-tag-other-window) always use other window, 
+   even if tag is found in buffer of current window, Samuel Mikes
+-- Make configure complain about broken compiler versions (Jan Vroonhof, Yoshiki Hayashi, Bill Perry)
+-- `write-region' now deals properly with non-ASCII file names, Martin Buchholz
+-- `file-truename' now respects file-name-coding-system, Martin Buchholz
+-- arm configure support fixed.
+-- non-ASCII string handling performance boost, Martin Buchholz
+-- Garbage collector performance boost, Martin Buchholz
+-- Lisp engine performance boost, Martin Buchholz
+-- New ldap API (Oscar Figueiredo)
+-- (- 0) is now optimized to 0, not (-), Martin Buchholz
+-- More gutter tabs fixes, Andy Piper
+
+to 21.2.29 "Hestia"
+-- Fix compile errors on pre-X11R6 systems, introduced in 21.2.28.
+-- Fix autodetection of Berkeley DB on Linux Glibc 2 systems.  
+   (but more work needed)
+-- Allow non-symbols (anything compared with `eq') in object plists.
+-- Cleanup of property frobbing code.
+-- Various AIX 4 fixes, including port of PDUMP.
+-- Unconditionally define _POSIX_C_SOURCE, _XOPEN_SOURCE, _XOPEN_SOURCE_EXTENDED.
+-- MS-Windows redisplay and font fixes from Jonathan Harris.
+-- various fixes from Craig Lanning, Daiki Ueno.
+-- Asynchronous widget updates from Andy Piper.
+-- More widget fixes from Andy Piper.
+-- Don't use rel_alloc on glibc systems, including Linux
+-- Upgrade etags.c to version 13.44, Francesco Potorti
+-- etags does a better job of finding the exact match first, Kyle Jones
+-- Portable dumper now described in Internals manual, Olivier and Martin
+-- Object Plist documentation in lispref updated, Martin Buchholz
+-- Just use standard `const' everywhere, instead of CONST
+-- More pdump changes, Olivier Galibert
+
 to 21.2.28 "Hermes"
 -- Add configure support for NetWinders, Sean MacLennan
 -- Make the "Load .emacs" menu item work again, Kirill Katsnelson
@@ -32,6 +101,8 @@ to 21.2.28 "Hermes"
 
 to 21.2.27 "Hera"
 -- Dynamic layout for widgets from Andy Piper
+-- Vertical tab widgets for MS-Windows from Andy Piper
+-- pdump fixes for MS-Windows from Big K
 -- config.sub, config.guess major upgrade, Marcus Thiessel
 -- gdbinit renamed to .gdbinit
 -- dbxrc renamed to .dbxrc
@@ -102,6 +173,7 @@ to 21.2.22 "Mercedes"
 -- 10% faster redisplay from Jan Vroonhof
 -- Fixes from Jeff Miller, Alexandre Oliva and Yoshiki Hayashi
 -- "If you've got problems, read PROBLEMS!" from Robert Pluim
+-- Completely revamped GPM support from William Perry
 -- Lstream code now uses size_t, ssize_t consistently, Martin Buchholz
 -- Fix `make install' if prefix != exec_prefix, Martin Buchholz
 -- Fix compile warnings and C++ compilation, Martin Buchholz

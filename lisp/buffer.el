@@ -60,11 +60,7 @@ the window-buffer correspondences."
 	    (set-buffer-major-mode buf))))
     (push-window-configuration)
     (set-buffer buf)
-    (or norecord (record-buffer buf))
-    (set-window-buffer (if (eq (selected-window) (minibuffer-window))
-			   (next-window (minibuffer-window))
-			 (selected-window))
-		       buf)
+    (set-window-buffer (last-nonminibuf-window) buf norecord)
     buf))
 
 (defun pop-to-buffer (bufname &optional not-this-window-p on-frame)

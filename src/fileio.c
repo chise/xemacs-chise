@@ -135,7 +135,7 @@ EXFUN (Frunning_temacs_p, 0);
 /* signal a file error when errno contains a meaningful value. */
 
 DOESNT_RETURN
-report_file_error (CONST char *string, Lisp_Object data)
+report_file_error (const char *string, Lisp_Object data)
 {
   /* #### dmoore - This uses current_buffer, better make sure no one
      has GC'd the current buffer.  File handlers are giving me a headache
@@ -148,7 +148,7 @@ report_file_error (CONST char *string, Lisp_Object data)
 }
 
 void
-maybe_report_file_error (CONST char *string, Lisp_Object data,
+maybe_report_file_error (const char *string, Lisp_Object data,
 			 Lisp_Object class, Error_behavior errb)
 {
   /* Optimization: */
@@ -164,14 +164,14 @@ maybe_report_file_error (CONST char *string, Lisp_Object data,
 /* signal a file error when errno does not contain a meaningful value. */
 
 DOESNT_RETURN
-signal_file_error (CONST char *string, Lisp_Object data)
+signal_file_error (const char *string, Lisp_Object data)
 {
   signal_error (Qfile_error,
                 list2 (build_translated_string (string), data));
 }
 
 void
-maybe_signal_file_error (CONST char *string, Lisp_Object data,
+maybe_signal_file_error (const char *string, Lisp_Object data,
 			 Lisp_Object class, Error_behavior errb)
 {
   /* Optimization: */
@@ -183,7 +183,7 @@ maybe_signal_file_error (CONST char *string, Lisp_Object data,
 }
 
 DOESNT_RETURN
-signal_double_file_error (CONST char *string1, CONST char *string2,
+signal_double_file_error (const char *string1, const char *string2,
 			  Lisp_Object data)
 {
   signal_error (Qfile_error,
@@ -193,7 +193,7 @@ signal_double_file_error (CONST char *string1, CONST char *string2,
 }
 
 void
-maybe_signal_double_file_error (CONST char *string1, CONST char *string2,
+maybe_signal_double_file_error (const char *string1, const char *string2,
 				Lisp_Object data, Lisp_Object class,
 				Error_behavior errb)
 {
@@ -208,7 +208,7 @@ maybe_signal_double_file_error (CONST char *string1, CONST char *string2,
 }
 
 DOESNT_RETURN
-signal_double_file_error_2 (CONST char *string1, CONST char *string2,
+signal_double_file_error_2 (const char *string1, const char *string2,
 			    Lisp_Object data1, Lisp_Object data2)
 {
   signal_error (Qfile_error,
@@ -218,7 +218,7 @@ signal_double_file_error_2 (CONST char *string1, CONST char *string2,
 }
 
 void
-maybe_signal_double_file_error_2 (CONST char *string1, CONST char *string2,
+maybe_signal_double_file_error_2 (const char *string1, const char *string2,
 				  Lisp_Object data1, Lisp_Object data2,
 				  Lisp_Object class, Error_behavior errb)
 {
@@ -289,7 +289,7 @@ read_allowing_quit (int fildes, void *buf, size_t size)
 }
 
 ssize_t
-write_allowing_quit (int fildes, CONST void *buf, size_t size)
+write_allowing_quit (int fildes, const void *buf, size_t size)
 {
   QUIT;
   return sys_write_1 (fildes, buf, size, 1);
@@ -446,8 +446,8 @@ Given a Unix syntax file name, returns a string ending in slash.
   if (p == beg + 2 && beg[1] == ':')
     {
       /* MAXPATHLEN+1 is guaranteed to be enough space for getdefdir.  */
-      Bufbyte *res = alloca (MAXPATHLEN + 1);
-      if (getdefdir (toupper (*beg) - 'A' + 1, res))
+      Bufbyte *res = (Bufbyte*) alloca (MAXPATHLEN + 1);
+      if (getdefdir (toupper (*beg) - 'A' + 1, (char *)res))
 	{
 	  char *c=((char *) res) + strlen ((char *) res);
 	  if (!IS_DIRECTORY_SEP (*c))
@@ -581,7 +581,7 @@ except for (file-name-as-directory \"\") => \"./\".
  */
 
 static int
-directory_file_name (CONST char *src, char *dst)
+directory_file_name (const char *src, char *dst)
 {
   long slen = strlen (src);
   /* Process as Unix format: just remove any final slash.
@@ -635,8 +635,10 @@ In Unix-syntax, this function just removes the final slash.
    This implementation is better than what one usually finds in libc.
    --hniksic */
 
+static unsigned int temp_name_rand;
+
 DEFUN ("make-temp-name", Fmake_temp_name, 1, 1, 0, /*
-Generate temporary file name starting with PREFIX.
+Generate a temporary file name starting with PREFIX.
 The Emacs process number forms part of the result, so there is no
 danger of generating a name being used by another process.
 
@@ -646,7 +648,8 @@ be an absolute file name.
 */
        (prefix))
 {
-  static char tbl[64] = {
+  static const char tbl[64] =
+  {
     'A','B','C','D','E','F','G','H',
     'I','J','K','L','M','N','O','P',
     'Q','R','S','T','U','V','W','X',
@@ -654,13 +657,12 @@ be an absolute file name.
     'g','h','i','j','k','l','m','n',
     'o','p','q','r','s','t','u','v',
     'w','x','y','z','0','1','2','3',
-    '4','5','6','7','8','9','-','_' };
-  static unsigned count, count_initialized_p;
+    '4','5','6','7','8','9','-','_'
+  };
 
   Lisp_Object val;
   Bytecount len;
   Bufbyte *p, *data;
-  unsigned pid;
 
   CHECK_STRING (prefix);
 
@@ -686,44 +688,37 @@ be an absolute file name.
 
   /* VAL is created by adding 6 characters to PREFIX.  The first three
      are the PID of this process, in base 64, and the second three are
-     incremented if the file already exists.  This ensures 262144
-     unique file names per PID per PREFIX.  */
+     a pseudo-random number seeded from process startup time.  This
+     ensures 262144 unique file names per PID per PREFIX per machine.  */
 
-  pid = (unsigned)getpid ();
-  *p++ = tbl[pid & 63], pid >>= 6;
-  *p++ = tbl[pid & 63], pid >>= 6;
-  *p++ = tbl[pid & 63], pid >>= 6;
+  {
+    unsigned int pid = (unsigned int) getpid ();
+    *p++ = tbl[(pid >>  0) & 63];
+    *p++ = tbl[(pid >>  6) & 63];
+    *p++ = tbl[(pid >> 12) & 63];
+  }
 
   /* Here we try to minimize useless stat'ing when this function is
      invoked many times successively with the same PREFIX.  We achieve
-     this by initializing count to a random value, and incrementing it
-     afterwards.  */
-  if (!count_initialized_p)
-    {
-      count = (unsigned)time (NULL);
-      /* Dumping temacs with a non-zero count_initialized_p wouldn't
-         make much sense.  */
-      if (NILP (Frunning_temacs_p ()))
-	count_initialized_p = 1;
-    }
+     this by using a very pseudo-random number generator to generate
+     file names unique to this process, with a very long cycle. */
 
   while (1)
     {
       struct stat ignored;
-      unsigned num = count;
 
-      p[0] = tbl[num & 63], num >>= 6;
-      p[1] = tbl[num & 63], num >>= 6;
-      p[2] = tbl[num & 63], num >>= 6;
+      p[0] = tbl[(temp_name_rand >>  0) & 63];
+      p[1] = tbl[(temp_name_rand >>  6) & 63];
+      p[2] = tbl[(temp_name_rand >> 12) & 63];
 
       /* Poor man's congruential RN generator.  Replace with ++count
          for debugging.  */
-      count += 25229;
-      count %= 225307;
+      temp_name_rand += 25229;
+      temp_name_rand %= 225307;
 
       QUIT;
 
-      if (stat ((CONST char *) data, &ignored) < 0)
+      if (stat ((const char *) data, &ignored) < 0)
 	{
 	  /* We want to return only if errno is ENOENT.  */
 	  if (errno == ENOENT)
@@ -845,12 +840,12 @@ See also the function `substitute-in-file-name'.
 #ifdef WINDOWSNT
   /* We will force directory separators to be either all \ or /, so make
      a local copy to modify, even if there ends up being no change. */
-  nm = strcpy (alloca (strlen (nm) + 1), nm);
+  nm = strcpy ((char *)alloca (strlen ((char *)nm) + 1), (char *)nm);
 
   /* Find and remove drive specifier if present; this makes nm absolute
      even if the rest of the name appears to be relative. */
   {
-    Bufbyte *colon = strrchr (nm, ':');
+    Bufbyte *colon = (Bufbyte *) strrchr ((char *)nm, ':');
 
     if (colon)
       /* Only recognize colon as part of drive specifier if there is a
@@ -1256,10 +1251,6 @@ See also the function `substitute-in-file-name'.
   return make_string (target, o - target);
 }
 
-#if 0 /* FSFmacs */
-/* another older version of expand-file-name; */
-#endif
-
 DEFUN ("file-truename", Ffile_truename, 1, 2, 0, /*
 Return the canonical name of the given FILE.
 Second arg DEFAULT is directory to start with if FILE is relative
@@ -1270,24 +1261,27 @@ No component of the resulting pathname will be a symbolic link, as
 */
        (filename, default_))
 {
-  /* This function can GC.  GC checked 1997.04.06. */
+  /* This function can GC. */
   Lisp_Object expanded_name;
-  Lisp_Object handler;
   struct gcpro gcpro1;
 
   CHECK_STRING (filename);
 
   expanded_name = Fexpand_file_name (filename, default_);
 
+  GCPRO1 (expanded_name);
+
   if (!STRINGP (expanded_name))
     return Qnil;
 
-  GCPRO1 (expanded_name);
-  handler = Ffind_file_name_handler (expanded_name, Qfile_truename);
-  UNGCPRO;
+  {
+    Lisp_Object handler =
+      Ffind_file_name_handler (expanded_name, Qfile_truename);
 
-  if (!NILP (handler))
-    return call2_check_string (handler, Qfile_truename, expanded_name);
+    if (!NILP (handler))
+      RETURN_UNGCPRO
+	(call2_check_string (handler, Qfile_truename, expanded_name));
+  }
 
   {
     char resolved_path[MAXPATHLEN];
@@ -1301,7 +1295,7 @@ No component of the resulting pathname will be a symbolic link, as
     p = path;
     if (elen > MAXPATHLEN)
       goto toolong;
-    
+
     /* Try doing it all at once. */
     /* !! Does realpath() Mule-encapsulate?
        Answer: Nope! So we do it above */
@@ -1312,14 +1306,25 @@ No component of the resulting pathname will be a symbolic link, as
 	   It claims to return a useful value in the "error" case, but since
 	   there is no indication provided of how far along the pathname
 	   the function went before erring, there is no way to use the
-	   partial result returned.  What a piece of junk. */
+	   partial result returned.  What a piece of junk.
+
+	   The above comment refers to historical versions of
+	   realpath().  The Unix98 specs state:
+
+	   "On successful completion, realpath() returns a
+	   pointer to the resolved name. Otherwise, realpath()
+	   returns a null pointer and sets errno to indicate the
+	   error, and the contents of the buffer pointed to by
+	   resolved_name are undefined."
+
+	   Since we depend on undocumented semantics of various system realpath()s,
+	   we just use our own version in realpath.c. */
 	for (;;)
 	  {
 	    p = (Extbyte *) memchr (p + 1, '/', elen - (p + 1 - path));
 	    if (p)
 	      *p = 0;
 
-	    /* memset (resolved_path, 0, sizeof (resolved_path)); */
 	    if (xrealpath ((char *) path, resolved_path))
 	      {
 		if (p)
@@ -1337,7 +1342,8 @@ No component of the resulting pathname will be a symbolic link, as
 		/* "On failure, it returns NULL, sets errno to indicate
 		   the error, and places in resolved_path the absolute pathname
 		   of the path component which could not be resolved." */
-		if (p)
+
+ 		if (p)
 		  {
 		    int plen = elen - (p - path);
 
@@ -1358,17 +1364,20 @@ No component of the resulting pathname will be a symbolic link, as
       }
 
     {
+      Lisp_Object resolved_name;
       int rlen = strlen (resolved_path);
       if (elen > 0 && XSTRING_BYTE (expanded_name, elen - 1) == '/'
           && !(rlen > 0 && resolved_path[rlen - 1] == '/'))
 	{
 	  if (rlen + 1 > countof (resolved_path))
 	    goto toolong;
-	  resolved_path[rlen] = '/';
-	  resolved_path[rlen + 1] = 0;
-	  rlen = rlen + 1;
+	  resolved_path[rlen++] = '/';
+	  resolved_path[rlen] = '\0';
 	}
-      return make_ext_string ((Bufbyte *) resolved_path, rlen, Qbinary);
+      TO_INTERNAL_FORMAT (DATA, (resolved_path, rlen),
+			  LISP_STRING, resolved_name,
+			  Qfile_name);
+      RETURN_UNGCPRO (resolved_name);
     }
 
   toolong:
@@ -1377,7 +1386,7 @@ No component of the resulting pathname will be a symbolic link, as
   lose:
     report_file_error ("Finding truename", list1 (expanded_name));
   }
-  return Qnil;	/* suppress compiler warning */
+  RETURN_UNGCPRO (Qnil);
 }
 
 
@@ -1611,7 +1620,7 @@ expand_and_dir_to_file (Lisp_Object filename, Lisp_Object defdir)
    If the file does not exist, STATPTR->st_mode is set to 0.  */
 
 static void
-barf_or_query_if_file_exists (Lisp_Object absname, CONST char *querystring,
+barf_or_query_if_file_exists (Lisp_Object absname, const char *querystring,
 			      int interactive, struct stat *statptr)
 {
   /* This function can GC.  GC checked 1997.04.06. */
@@ -1629,7 +1638,7 @@ barf_or_query_if_file_exists (Lisp_Object absname, CONST char *querystring,
 	  struct gcpro gcpro1;
 
 	  prompt = emacs_doprnt_string_c
-	    ((CONST Bufbyte *) GETTEXT ("File %s already exists; %s anyway? "),
+	    ((const Bufbyte *) GETTEXT ("File %s already exists; %s anyway? "),
 	     Qnil, -1, XSTRING_DATA (absname),
 	     GETTEXT (querystring));
 
@@ -1721,7 +1730,7 @@ A prefix arg makes KEEP-TIME non-nil.
       || INTP (ok_if_already_exists))
     barf_or_query_if_file_exists (newname, "copy to it",
 				  INTP (ok_if_already_exists), &out_st);
-  else if (stat ((CONST char *) XSTRING_DATA (newname), &out_st) < 0)
+  else if (stat ((const char *) XSTRING_DATA (newname), &out_st) < 0)
     out_st.st_mode = 0;
 
   ifd = interruptible_open ((char *) XSTRING_DATA (filename), O_RDONLY | OPEN_BINARY, 0);
@@ -1794,7 +1803,7 @@ A prefix arg makes KEEP-TIME non-nil.
 			    mtime))
 	  report_file_error ("I/O error", list1 (newname));
       }
-      chmod ((CONST char *) XSTRING_DATA (newname),
+      chmod ((const char *) XSTRING_DATA (newname),
 	     st.st_mode & 07777);
     }
 
@@ -1832,7 +1841,7 @@ Create a directory.  One argument, a file name string.
     {
       return Fsignal (Qfile_error,
 		      list3 (build_translated_string ("Creating directory"),
-			     build_translated_string ("pathame too long"),
+			     build_translated_string ("pathname too long"),
 			     dirname_));
     }
   strncpy (dir, (char *) XSTRING_DATA (dirname_),
@@ -1874,8 +1883,8 @@ Delete a directory.  One argument, a file name or directory name string.
 }
 
 DEFUN ("delete-file", Fdelete_file, 1, 1, "fDelete file: ", /*
-Delete specified file.  One argument, a file name string.
-If file has multiple names, it continues to exist with the other names.
+Delete the file named FILENAME (a string).
+If FILENAME has multiple names, it continues to exist with the other names.
 */
        (filename))
 {
@@ -2061,7 +2070,6 @@ This is what happens in interactive use with M-x.
   return Qnil;
 }
 
-#ifdef S_IFLNK
 DEFUN ("make-symbolic-link", Fmake_symbolic_link, 2, 3,
        "FMake symbolic link to file: \nFMake symbolic link to file %s: \np", /*
 Make a symbolic link to FILENAME, named LINKNAME.  Both args strings.
@@ -2073,6 +2081,7 @@ This happens for interactive use with M-x.
        (filename, linkname, ok_if_already_exists))
 {
   /* This function can GC.  GC checked 1997.06.04. */
+  /* XEmacs change: run handlers even if local machine doesn't have symlinks */
   Lisp_Object handler;
   struct gcpro gcpro1, gcpro2;
 
@@ -2100,6 +2109,7 @@ This happens for interactive use with M-x.
     RETURN_UNGCPRO (call4 (handler, Qmake_symbolic_link, filename,
 			   linkname, ok_if_already_exists));
 
+#ifdef S_IFLNK
   if (NILP (ok_if_already_exists)
       || INTP (ok_if_already_exists))
     barf_or_query_if_file_exists (linkname, "make it a link",
@@ -2112,10 +2122,11 @@ This happens for interactive use with M-x.
       report_file_error ("Making symbolic link",
 			 list2 (filename, linkname));
     }
+#endif /* S_IFLNK */
+
   UNGCPRO;
   return Qnil;
 }
-#endif /* S_IFLNK */
 
 #ifdef HPUX_NET
 
@@ -2186,7 +2197,7 @@ check_executable (char *filename)
 /* Return nonzero if file FILENAME exists and can be written.  */
 
 static int
-check_writable (CONST char *filename)
+check_writable (const char *filename)
 {
 #ifdef HAVE_EACCESS
   return (eaccess (filename, 2) >= 0);
@@ -2337,11 +2348,13 @@ Otherwise returns nil.
        (filename))
 {
   /* This function can GC.  GC checked 1997.04.10. */
+  /* XEmacs change: run handlers even if local machine doesn't have symlinks */
 #ifdef S_IFLNK
   char *buf;
   int bufsize;
   int valsize;
   Lisp_Object val;
+#endif
   Lisp_Object handler;
   struct gcpro gcpro1;
 
@@ -2356,6 +2369,7 @@ Otherwise returns nil.
   if (!NILP (handler))
     return call2 (handler, Qfile_symlink_p, filename);
 
+#ifdef S_IFLNK
   bufsize = 100;
   while (1)
     {
@@ -3221,8 +3235,8 @@ to the value of CODESYS.  If this is nil, no code conversion occurs.
   if (desc < 0)
     {
       desc = open ((char *) XSTRING_DATA (fn),
-                   (O_WRONLY | O_TRUNC | O_CREAT | OPEN_BINARY),
-		   ((auto_saving) ? auto_save_mode_bits : CREAT_MODE));
+                   O_WRONLY | O_TRUNC | O_CREAT | OPEN_BINARY,
+		   auto_saving ? auto_save_mode_bits : CREAT_MODE);
     }
 
   if (desc < 0)
@@ -3954,10 +3968,10 @@ Non-nil second argument means save only current buffer.
 	      set_buffer_internal (b);
 	      if (!auto_saved && NILP (no_message))
 		{
-		  static CONST unsigned char *msg
-		    = (CONST unsigned char *) "Auto-saving...";
+		  static const unsigned char *msg
+		    = (const unsigned char *) "Auto-saving...";
 		  echo_area_message (selected_frame (), msg, Qnil,
-				     0, strlen ((CONST char *) msg),
+				     0, strlen ((const char *) msg),
 				     Qauto_saving);
 		}
 
@@ -3983,7 +3997,7 @@ Non-nil second argument means save only current buffer.
 		 auto save name.  */
 	      if (listdesc >= 0)
 		{
-		  CONST Extbyte *auto_save_file_name_ext;
+		  const Extbyte *auto_save_file_name_ext;
 		  Extcount auto_save_file_name_ext_len;
 
 		  TO_EXTERNAL_FORMAT (LISP_STRING, b->auto_save_file_name,
@@ -3992,7 +4006,7 @@ Non-nil second argument means save only current buffer.
 				      Qfile_name);
 		  if (!NILP (b->filename))
 		    {
-		      CONST Extbyte *filename_ext;
+		      const Extbyte *filename_ext;
 		      Extcount filename_ext_len;
 
 		      TO_EXTERNAL_FORMAT (LISP_STRING, b->filename,
@@ -4061,10 +4075,10 @@ Non-nil second argument means save only current buffer.
   if (auto_saved && NILP (no_message)
       && NILP (clear_echo_area (selected_frame (), Qauto_saving, 0)))
     {
-      static CONST unsigned char *msg
-        = (CONST unsigned char *)"Auto-saving...done";
+      static const unsigned char *msg
+        = (const unsigned char *)"Auto-saving...done";
       echo_area_message (selected_frame (), msg, Qnil, 0,
-			 strlen ((CONST char *) msg), Qauto_saving);
+			 strlen ((const char *) msg), Qauto_saving);
     }
 
   Vquit_flag = oquit;
@@ -4171,9 +4185,7 @@ syms_of_fileio (void)
   DEFSUBR (Fdelete_file);
   DEFSUBR (Frename_file);
   DEFSUBR (Fadd_name_to_file);
-#ifdef S_IFLNK
   DEFSUBR (Fmake_symbolic_link);
-#endif /* S_IFLNK */
 #ifdef HPUX_NET
   DEFSUBR (Fsysnetunam);
 #endif /* HPUX_NET */
@@ -4302,6 +4314,28 @@ what the normal separator is.
 #ifdef WINDOWSNT
   Vdirectory_sep_char = make_char ('\\');
 #else
-   Vdirectory_sep_char = make_char ('/');
+  Vdirectory_sep_char = make_char ('/');
 #endif
+
+  reinit_vars_of_fileio ();
+}
+
+void
+reinit_vars_of_fileio (void)
+{
+  /* We want temp_name_rand to be initialized to a value likely to be
+     unique to the process, not to the executable.  The danger is that
+     two different XEmacs processes using the same binary on different
+     machines creating temp files in the same directory will be
+     unlucky enough to have the same pid.  If we randomize using
+     process startup time, then in practice they will be unlikely to
+     collide. We use the microseconds field so that scripts that start
+     simultaneous XEmacs processes on multiple machines will have less
+     chance of collision.  */
+  {
+    EMACS_TIME thyme;
+
+    EMACS_GET_TIME (thyme);
+    temp_name_rand = (unsigned int) (EMACS_SECS (thyme) ^ EMACS_USECS (thyme));
+  }
 }

@@ -22,7 +22,18 @@
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
-;;; Code:
+
+;;;###autoload
+(defun vassoc (key valist)
+  "Search VALIST for a vector whose first element is equal to KEY.
+See also `assoc'."
+  ;; by Stig@hackvan.com
+  (let (el)
+    (catch 'done
+      (while (setq el (pop valist))
+	(and (equal key (aref el 0))
+	     (throw 'done el))))))
+
 
 ;;;###autoload
 (defun put-alist (item value alist)

@@ -101,7 +101,7 @@ sync_rune_structs (struct window *w, rune_dynarr *cra, rune_dynarr *dra)
  For the given LINE in window W, make the current display line equal
  the desired display line.
  ****************************************************************************/
-static void
+void
 sync_display_line_structs (struct window *w, int line, int do_blocks,
 			   display_line_dynarr *cdla,
 			   display_line_dynarr *ddla)
@@ -211,10 +211,7 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
      #### It would really be worth it to arrange for this function to
      be (almost) a single call to memcmp. */
 
-  if ((crb->findex != drb->findex) ||
-      (WINDOW_FACE_CACHEL_DIRTY (w, drb->findex)))
-    return 0;
-  else if (crb->xpos != drb->xpos)
+  if (crb->xpos != drb->xpos)
     return 0;
   else if (crb->width != drb->width)
     return 0;
@@ -236,17 +233,71 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
     return 0;
   /* Only check dirtiness if we know something has changed. */
   else if (crb->type == RUNE_DGLYPH &&
-	   XFRAME (w->frame)->glyphs_changed)
+	   (XGLYPH_DIRTYP (crb->object.dglyph.glyph) || 
+	    crb->findex != drb->findex))
     {
-      glyph_index gindex = get_glyph_cachel_index (w, drb->object.dglyph.glyph);
-      /* Although doing the cachel lookup for every comparison is
-	 very expensive.we have to do it to make sure the cache is
-	 up-to-date. */
-      if (GLYPH_CACHEL_DIRTYP (w, gindex))
+      /* We need some way of telling redisplay_output_layout () that the
+         only reason we are outputting it is because something has
+         changed internally. That way we can optimize whether we need
+         to clear the layout first and also only output the components
+         that have changed. The image_instance dirty flag and
+         display_hash are no good to us because these will invariably
+         have been set anyway if the layout has changed. So it looks
+         like we need yet another change flag that we can set here and
+         then clear in redisplay_output_layout (). */
+      Lisp_Object window, image;
+      Lisp_Image_Instance* ii;
+      XSETWINDOW (window, w);
+      image = glyph_image_instance (crb->object.dglyph.glyph,
+				    window, ERROR_ME_NOT, 1);
+      ii = XIMAGE_INSTANCE (image);
+
+      if (TEXT_IMAGE_INSTANCEP (image) && 
+	  (crb->findex != drb->findex || 
+	   WINDOW_FACE_CACHEL_DIRTY (w, drb->findex)))
 	return 0;
+
+      /* It is quite common of the two glyphs to be EQ since in many
+	 cases they will actually be the same object. This does not
+	 mean, however, that nothing has changed. We therefore need to
+	 check the current hash of the glyph against the last recorded
+	 display hash and the pending display items. See
+	 update_subwindow (). */
+      if (image_instance_changed (image) ||
+	  crb->findex != drb->findex || 
+	  WINDOW_FACE_CACHEL_DIRTY (w, drb->findex))
+	{
+	  /* We now now we are going to re-output the glyph, but since
+	     this is for some internal reason not related to geometry
+	     changes, send a hint to the output routines that they can
+	     take some short cuts. This is most useful for
+	     layouts. This flag should get reset by the output
+	     routines. 
+
+	     #### It is possible for us to get here when the
+	     face_cachel is dirty. I do not know what the implications
+	     of this are.*/
+	  IMAGE_INSTANCE_OPTIMIZE_OUTPUT (ii) = 1;
+	  return 0;
+	}
       else
-	return 1;
+	{
+#ifdef DEBUG_WIDGET_OUTPUT
+	  if (XIMAGE_INSTANCE_TYPE (image) == IMAGE_LAYOUT)
+	    printf ("glyph layout %p considered unchanged\n", ii);
+#endif
+	  return 1;
+	}
     }
+  /* We now do this last so that glyph checks can do their own thing
+     for face changes. Face changes quite often happen when we are
+     trying to output something in the gutter, this would normally
+     lead to a lot of flashing. The indices can quite often be
+     different and yet the faces are the same, we do not want to
+     re-output in this instance. */
+  else  if (crb->findex != drb->findex ||
+	    WINDOW_FACE_CACHEL_DIRTY (w, drb->findex))
+    return 0;
   else
     return 1;
 }
@@ -851,15 +902,7 @@ redisplay_move_cursor (struct window *w, Bufpos new_point, int no_output_end)
   else
     {
       DEVMETH (d, output_begin, (d));
-
-      /* #### This is a gross kludge.  Cursor handling is such a royal
-         pain in the ass. */
-      if (rb->type == RUNE_DGLYPH &&
-	  (EQ (rb->object.dglyph.glyph, Vtruncation_glyph) ||
-	   EQ (rb->object.dglyph.glyph, Vcontinuation_glyph)))
-	rb->cursor_type = NO_CURSOR;
-      else
-	rb->cursor_type = CURSOR_OFF;
+      rb->cursor_type = CURSOR_OFF;
       dl->cursor_elt = -1;
       output_display_line (w, 0, cla, y, rb->xpos, rb->xpos + rb->width);
     }
@@ -1067,6 +1110,8 @@ redisplay_output_display_block (struct window *w, struct display_line *dl, int b
 {
   struct frame *f = XFRAME (w->frame);
   struct device *d = XDEVICE (f->device);
+  /* Temporarily disabled until generalization is done. */
+#if 0
   struct display_block *db = Dynarr_atp (dl->display_blocks, block);
   rune_dynarr *rba = db->runes;
   struct rune *rb;
@@ -1084,6 +1129,7 @@ redisplay_output_display_block (struct window *w, struct display_line *dl, int b
 
   rb  = Dynarr_atp (rba, end - 1);
   width = rb->xpos + rb->width - xpos;
+#endif
   /* now actually output the block. */
   DEVMETH (d, output_display_block, (w, dl, block, start,
 				     end, start_pixpos,
@@ -1161,8 +1207,13 @@ redisplay_output_subwindow (struct window *w,
   Lisp_Object window;
   struct display_glyph_area sdga;
 
-  dga->height = IMAGE_INSTANCE_SUBWINDOW_HEIGHT (p);
-  dga->width = IMAGE_INSTANCE_SUBWINDOW_WIDTH (p);
+  dga->height = IMAGE_INSTANCE_HEIGHT (p);
+  dga->width = IMAGE_INSTANCE_WIDTH (p);
+
+  /* The first thing we are going to do is update the display
+     characteristics of the subwindow. This also clears the dirty
+     flags as a side effect. */
+  update_subwindow (image_instance);
 
   /* This makes the glyph area fit into the display area. */
   if (!redisplay_normalize_glyph_area (db, dga))
@@ -1187,8 +1238,8 @@ redisplay_output_subwindow (struct window *w,
      cases.*/
   sdga.xoffset = -dga->xoffset;
   sdga.yoffset = -dga->yoffset;
-  sdga.height = IMAGE_INSTANCE_SUBWINDOW_HEIGHT (p);
-  sdga.width = IMAGE_INSTANCE_SUBWINDOW_WIDTH (p);
+  sdga.height = IMAGE_INSTANCE_HEIGHT (p);
+  sdga.width = IMAGE_INSTANCE_WIDTH (p);
 
   if (redisplay_display_boxes_in_window_p (w, db, &sdga) < 0)
     {
@@ -1206,6 +1257,24 @@ redisplay_output_subwindow (struct window *w,
  redisplay_output_layout
 
  Output a widget hierarchy. This can safely call itself recursively.
+
+ The complexity of outputting layouts is deciding whether to do it or
+ not. Consider a layout enclosing some text, the text changes and is
+ marked as dirty, but the enclosing layout has not been marked as
+ dirty so no updates occur and the text will potentially be truncated.
+ Alternatively we hold a back pointer in the image instance to the
+ parent and mark the parent as dirty. But the layout code assumes that
+ if the layout is dirty then the whole layout should be redisplayed,
+ so we then get lots of flashing even though only the text has changed
+ size. Of course if the text shrinks in size then we do actually need
+ to redisplay the layout to repaint the exposed area. So what happens
+ if we make a non-structural change like changing color? Either we
+ redisplay everything, or we redisplay nothing. These are exactly the
+ issues lwlib has to grapple with. We really need to know what has
+ actually changed and make a layout decision based on that. We also
+ really need to know what has changed so that we can only make the
+ neccessary changes in update_subwindow.  This has all now been
+ implemented, Viva la revolution!
  ****************************************************************************/
 void
 redisplay_output_layout (struct window *w,
@@ -1220,17 +1289,6 @@ redisplay_output_layout (struct window *w,
   struct frame *f = XFRAME (w->frame);
   struct device *d = XDEVICE (f->device);
   int layout_height, layout_width;
-  /* We bogusly don't take f->extents_changed and f->glyphs_changed
-     into account. This is because if we do we always redisplay the
-     entire layout. So far I have seen no ill effects so we'll see. */
-  int frame_really_changed = (f->buffers_changed ||
-			      f->clip_changed ||
-			      f->faces_changed    ||
-			      f->frame_changed    ||
-			      f->modeline_changed ||
-			      f->subwindows_changed ||
-			      f->windows_changed ||
-			      f->windows_structure_changed);
 
   XSETWINDOW (window, w);
 
@@ -1239,14 +1297,20 @@ redisplay_output_layout (struct window *w,
 
   dga->height = layout_height;
   dga->width = layout_width;
-
+#ifdef DEBUG_WIDGET_OUTPUT
+  printf ("outputing layout glyph %p\n", p);
+#endif
   /* This makes the glyph area fit into the display area. */
   if (!redisplay_normalize_glyph_area (db, dga))
     return;
 
   /* Highly dodgy optimization. We want to only output the whole
      layout if we really have to. */
-  if (frame_really_changed || IMAGE_INSTANCE_DIRTYP (p))
+  if (!IMAGE_INSTANCE_OPTIMIZE_OUTPUT (p)
+      || IMAGE_INSTANCE_LAYOUT_CHANGED (p)
+      || IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p)
+      || IMAGE_INSTANCE_SIZE_CHANGED (p)
+      || IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
     {
       /* First clear the area we are drawing into. This is the easiest
 	 thing to do since we have many gaps that we have to make sure are
@@ -1315,12 +1379,16 @@ redisplay_output_layout (struct window *w,
       if (IMAGE_INSTANCEP (child))
 	{
 	  Lisp_Image_Instance* childii = XIMAGE_INSTANCE (child);
+
 	  /* The enclosing layout offsets are +ve at this point */
 	  struct display_glyph_area cdga;
 	  cdga.xoffset  = IMAGE_INSTANCE_XOFFSET (childii) - dga->xoffset;
 	  cdga.yoffset = IMAGE_INSTANCE_YOFFSET (childii) - dga->yoffset;
 	  cdga.width = glyph_width (child, window);
 	  cdga.height = glyph_height (child, window);
+
+	  IMAGE_INSTANCE_OPTIMIZE_OUTPUT (childii) = 
+	    IMAGE_INSTANCE_OPTIMIZE_OUTPUT (p);
 
 	  /* Although normalization is done by the output routines
 	     we have to do it here so that they don't try and
@@ -1336,7 +1404,7 @@ redisplay_output_layout (struct window *w,
 		continue;
 	      /* We have to invert the offset here as normalization
 		 will have made them positive which the output
-		 routines will treat as a truely +ve offset. */
+		 routines will treat as a truly +ve offset. */
 	      cdga.xoffset = -cdga.xoffset;
 	      cdga.yoffset = -cdga.yoffset;
 
@@ -1348,11 +1416,20 @@ redisplay_output_layout (struct window *w,
 		       generalisation.*/
 		    if (redisplay_normalize_glyph_area (&cdb, &cdga)
 			&&
-			(frame_really_changed || IMAGE_INSTANCE_DIRTYP (childii)))
+			(!IMAGE_INSTANCE_OPTIMIZE_OUTPUT (childii) ||
+			 IMAGE_INSTANCE_DIRTYP (childii)))
 		      {
 			struct display_line dl;	/* this is fake */
 			Lisp_Object string =
 			  IMAGE_INSTANCE_TEXT_STRING (childii);
+			unsigned char charsets[NUM_LEADING_BYTES];
+			struct face_cachel *cachel = WINDOW_FACE_CACHEL (w, findex);
+
+			find_charsets_in_bufbyte_string (charsets,
+							 XSTRING_DATA (string),
+							 XSTRING_LENGTH (string));
+			ensure_face_cachel_complete (cachel, window, charsets);
+
 			convert_bufbyte_string_into_emchar_dynarr
 			  (XSTRING_DATA (string), XSTRING_LENGTH (string), buf);
 
@@ -1382,14 +1459,16 @@ redisplay_output_layout (struct window *w,
 
 		case IMAGE_MONO_PIXMAP:
 		case IMAGE_COLOR_PIXMAP:
-		  if (frame_really_changed || IMAGE_INSTANCE_DIRTYP (childii))
+		  if (!IMAGE_INSTANCE_OPTIMIZE_OUTPUT (childii)
+		      || IMAGE_INSTANCE_DIRTYP (childii))
 		    redisplay_output_pixmap (w, child, &cdb, &cdga, findex,
 					     0, 0, 0, 0);
 		  break;
 
 		case IMAGE_WIDGET:
 		case IMAGE_SUBWINDOW:
-		  if (frame_really_changed || IMAGE_INSTANCE_DIRTYP (childii))
+		  if (!IMAGE_INSTANCE_OPTIMIZE_OUTPUT (childii) ||
+		      IMAGE_INSTANCE_DIRTYP (childii))
 		    redisplay_output_subwindow (w, child, &cdb, &cdga, findex,
 						0, 0, 0);
 		  break;
@@ -1408,8 +1487,14 @@ redisplay_output_layout (struct window *w,
 		  abort ();
 		}
 	    }
+	  IMAGE_INSTANCE_OPTIMIZE_OUTPUT (childii) = 0;
 	}
     }
+  
+  /* Update any display properties. I'm not sure whether this actually
+     does anything for layouts except clear the changed flags. */
+  update_subwindow (image_instance);
+
   Dynarr_free (buf);
 }
 

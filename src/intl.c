@@ -45,7 +45,7 @@ Atom wc_atom;
 /* init_input -- Set things up for i18n level 4 input.
 */
 void
-init_input (CONST char *res_name, CONST char *res_class, Display *display)
+init_input (const char *res_name, const char *res_class, Display *display)
 {
   XIMStyles *styles;
   unsigned short i;

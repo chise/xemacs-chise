@@ -22,9 +22,11 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
-#include "gui.h"
 #include "redisplay.h"
+#include "gui.h"
+#include "glyphs.h"
 #include "frame.h"
+#include "events.h"
 #include "elhash.h"
 #include "console-msw.h"
 #include "buffer.h"
@@ -36,26 +38,61 @@ Boston, MA 02111-1307, USA.  */
  * command if we return nil
  */
 Lisp_Object
-mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, DWORD id)
+mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, LPARAM id)
 {
   /* Try to map the command id through the proper hash table */
-  Lisp_Object data, fn, arg, frame;
+  Lisp_Object callback, callback_ex, image_instance, frame, event;
+
+  XSETFRAME (frame, f);
 
   /* #### make_int should assert that --kkm */
   assert (XINT (make_int (id)) == id);
 
-  data = Fgethash (make_int (id), 
-		   FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f), Qnil);
-  
-  if (NILP (data) || UNBOUNDP (data))
+  image_instance = Fgethash (make_int (id), 
+			     FRAME_MSWINDOWS_WIDGET_HASH_TABLE1 (f), Qnil);
+  callback = Fgethash (make_int (id), 
+		       FRAME_MSWINDOWS_WIDGET_HASH_TABLE2 (f), Qnil);
+  callback_ex = Fgethash (make_int (id), 
+			  FRAME_MSWINDOWS_WIDGET_HASH_TABLE3 (f), Qnil);
+
+  if (!NILP (callback_ex) && !UNBOUNDP (callback_ex))
+    {
+      event = Fmake_event (Qnil, Qnil);
+
+      XEVENT (event)->event_type = misc_user_event;
+      XEVENT (event)->channel = frame;
+      XEVENT (event)->timestamp = GetTickCount ();
+      XEVENT (event)->event.eval.function = Qeval;
+      XEVENT (event)->event.eval.object =
+	list4 (Qfuncall, callback_ex, image_instance, event);
+    }
+  else if (NILP (callback) || UNBOUNDP (callback))
     return Qnil;
+  else
+    {
+      Lisp_Object fn, arg;
 
-  MARK_SUBWINDOWS_STATE_CHANGED;
-  /* Ok, this is our one. Enqueue it. */
-  get_gui_callback (data, &fn, &arg);
-  XSETFRAME (frame, f);
-  mswindows_enqueue_misc_user_event (frame, fn, arg);
+      event = Fmake_event (Qnil, Qnil);
 
+      get_gui_callback (callback, &fn, &arg);
+      XEVENT (event)->event_type = misc_user_event;
+      XEVENT (event)->channel = frame;
+      XEVENT (event)->timestamp = GetTickCount ();
+      XEVENT (event)->event.eval.function = fn;
+      XEVENT (event)->event.eval.object = arg;
+    }
+
+  mswindows_enqueue_dispatch_event (event);
+  /* The result of this evaluation could cause other instances to change so 
+     enqueue an update callback to check this. We also have to make sure that
+     the function does not appear in the command history.
+     #### I'm sure someone can tell me how to optimize this. */
+  mswindows_enqueue_misc_user_event
+    (frame, Qeval, 
+     list3 (Qlet,
+	    list2 (Qthis_command,
+		   Qlast_command),
+	    list2 (Qupdate_widget_instances, frame)));
   return Qt;
 }
 
@@ -82,25 +119,70 @@ otherwise it is an integer representing a ShowWindow flag:
 */
        (operation, document, parameters, show_flag))
 {
-  Lisp_Object current_dir;
+  /* Encode filename and current directory.  */
+  Lisp_Object current_dir = Ffile_name_directory (document);
+  char* path = NULL;
+  char* doc = NULL;
+  Extbyte* f=0;
+  int ret;
+  struct gcpro gcpro1, gcpro2;
 
   CHECK_STRING (document);
 
-  /* Encode filename and current directory.  */
-  current_dir = current_buffer->directory;
-  if ((int) ShellExecute (NULL,
-			  (STRINGP (operation) ?
-			   XSTRING (operation)->data : NULL),
-			  XSTRING (document)->data,
-			  (STRINGP (parameters) ?
-			   XSTRING (parameters)->data : NULL),
-			  XSTRING (current_dir)->data,
-			  (INTP (show_flag) ?
-			   XINT (show_flag) : SW_SHOWDEFAULT))
-      > 32)
-    return Qt;
+  if (NILP (current_dir))
+    current_dir = current_buffer->directory;
 
-  error ("ShellExecute failed");
+  GCPRO2 (current_dir, document);
+
+  /* Use mule and cygwin-safe APIs top get at file data. */
+  if (STRINGP (current_dir))
+    {
+      TO_EXTERNAL_FORMAT (LISP_STRING, current_dir,
+			  C_STRING_ALLOCA, f,
+			  Qfile_name);
+#ifdef __CYGWIN32__
+      CYGWIN_WIN32_PATH (f, path);
+#else
+      path = f;
+#endif
+    }
+
+  if (STRINGP (document))
+    {
+      TO_EXTERNAL_FORMAT (LISP_STRING, document,
+			  C_STRING_ALLOCA, f,
+			  Qfile_name);
+#ifdef __CYGWIN32__
+      CYGWIN_WIN32_PATH (f, doc);
+#else
+      doc = f;
+#endif
+    }
+
+  UNGCPRO;
+
+  ret = (int) ShellExecute (NULL,
+			    (STRINGP (operation) ?
+			     XSTRING_DATA (operation) : NULL),
+			    doc, 
+			    (STRINGP (parameters) ?
+			     XSTRING_DATA (parameters) : NULL),
+			    path,
+			    (INTP (show_flag) ?
+			     XINT (show_flag) : SW_SHOWDEFAULT));
+
+  if (ret > 32)
+    return Qt;
+  
+  if (ret == ERROR_FILE_NOT_FOUND)
+    signal_simple_error ("file not found", document);
+  else if (ret == ERROR_PATH_NOT_FOUND)
+    signal_simple_error ("path not found", current_dir);
+  else if (ret == ERROR_BAD_FORMAT)
+    signal_simple_error ("bad executable format", document);
+  else
+    error ("internal error");
+
   return Qnil;
 }
 

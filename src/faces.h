@@ -125,7 +125,7 @@ struct face_cachel
      corresponding single-face cachels.
 
      Formerly we didn't bother to keep track of the faces used for
-     merging.  We do know because we need to do so because there is no
+     merging.  We do now because we need to do so because there is no
      other way to properly handle multiple charsets for Mule in the
      presence of display tables short of always computing the values
      for all charsets, which is very expensive.  Instead, we use a

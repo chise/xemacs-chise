@@ -106,31 +106,6 @@
   (run-hooks 'cl-hack-bytecomp-hook))
 
 
-;;; Symbols.
-
-(defvar *gensym-counter*)
-
-;;;###autoload
-(defun gensym (&optional arg)
-  "Generate a new uninterned symbol.
-The name is made by appending a number to PREFIX, default \"G\"."
-  (let ((prefix (if (stringp arg) arg "G"))
-	(num (if (integerp arg) arg
-	       (prog1 *gensym-counter*
-		 (setq *gensym-counter* (1+ *gensym-counter*))))))
-    (make-symbol (format "%s%d" prefix num))))
-
-;;;###autoload
-(defun gentemp (&optional arg)
-  "Generate a new interned symbol with a unique name.
-The name is made by appending a number to PREFIX, default \"G\"."
-  (let ((prefix (if (stringp arg) arg "G"))
-	name)
-    (while (intern-soft (setq name (format "%s%d" prefix *gensym-counter*)))
-      (setq *gensym-counter* (1+ *gensym-counter*)))
-    (intern name)))
-
-
 ;;; Program structure.
 
 ;;;###autoload
@@ -2746,6 +2721,9 @@ surrounded by (block NAME ...)."
 
 (define-compiler-macro get* (sym prop &optional default)
   (list 'get sym prop default))
+
+(define-compiler-macro getf (sym prop &optional default)
+  (list 'plist-get sym prop default))
 
 (define-compiler-macro typep (&whole form val type)
   (if (cl-const-expr-p type)

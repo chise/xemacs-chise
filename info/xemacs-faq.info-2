@@ -1095,8 +1095,6 @@ File: xemacs-faq.info,  Node: Q2.1.24,  Prev: Q2.1.23,  Up: Installation
 Q2.1.24:  XEmacs won't start without network. (NEW)
 ---------------------------------------------------
 
-   Q2.1.23:  Movemail on Linux does not work for XEmacs 19.15 and later.
-
    If XEmacs starts when you're on the network, but fails when you're
 not on the network, you may be missing a "localhost" entry in your
 `/etc/hosts' file.  The file should contain an entry like:

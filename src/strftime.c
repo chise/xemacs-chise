@@ -112,12 +112,12 @@ enum padding
   none, blank, zero
 };
 
-static char CONST* CONST days[] =
+static char const* const days[] =
 {
   "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 };
 
-static char CONST * CONST months[] =
+static char const * const months[] =
 {
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -174,7 +174,7 @@ add_num3 (char *string, int num, int max, enum padding pad)
 /* Like strncpy except return the number of characters copied. */
 
 static int
-add_str (char *to, CONST char *from, int max)
+add_str (char *to, const char *from, int max)
 {
   int i;
 
@@ -203,7 +203,7 @@ add_num_time_t (char *string, int max, time_t num)
    starting on Sundays. */
 
 static int
-sun_week (CONST struct tm *tm)
+sun_week (const struct tm *tm)
 {
   int dl;
 
@@ -220,7 +220,7 @@ sun_week (CONST struct tm *tm)
    starting on Mondays. */
 
 static int
-mon_week (CONST struct tm *tm)
+mon_week (const struct tm *tm)
 {
   int dl, wday;
 
@@ -234,7 +234,7 @@ mon_week (CONST struct tm *tm)
 
 #if !defined(HAVE_TM_ZONE) && !defined(HAVE_TZNAME)
 char *
-zone_name (CONST struct tm *tp)
+zone_name (const struct tm *tp)
 {
   char *timezone ();
   struct timeval tv;
@@ -251,11 +251,11 @@ zone_name (CONST struct tm *tp)
    that were put into STRING, or 0 if the length would have
    exceeded MAX. */
 
-size_t strftime (char *string, size_t max, CONST char *format,
-		 CONST struct tm *tm);
+size_t strftime (char *string, size_t max, const char *format,
+		 const struct tm *tm);
 
 size_t
-strftime (char *string, size_t max, CONST char *format, CONST struct tm *tm)
+strftime (char *string, size_t max, const char *format, const struct tm *tm)
 {
   enum padding pad;		/* Type of padding to apply. */
   size_t length = 0;		/* Characters put in STRING so far. */

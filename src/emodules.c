@@ -49,7 +49,7 @@ static dll_handle dlhandle;
 static emodules_list *modules;
 static int modnum;
 
-static int find_make_module (CONST char *mod, CONST char *name, CONST char *ver, int make_or_find);
+static int find_make_module (const char *mod, const char *name, const char *ver, int make_or_find);
 static Lisp_Object module_load_unwind (Lisp_Object);
 static void attempt_module_delete (int mod);
 
@@ -184,7 +184,7 @@ is a bug, and you are encouraged to report it.
 }
 
 static int
-find_make_module (CONST char *mod, CONST char *name, CONST char *ver, int mof)
+find_make_module (const char *mod, const char *name, const char *ver, int mof)
 {
   int i, fs = -1;
 
@@ -304,14 +304,14 @@ module_load_unwind (Lisp_Object upto)
  * the cleaning up.
  */
 void
-emodules_load(CONST char *module, CONST char *modname, CONST char *modver)
+emodules_load(const char *module, const char *modname, const char *modver)
 {
   Lisp_Object filename;
   Lisp_Object foundname;
   int fd, x, mpx;
   char *soname, *tmod;
-  CONST char **f;
-  CONST long *ellcc_rev;
+  const char **f;
+  const long *ellcc_rev;
   char *mver, *mname, *mtitle, *symname;
   void (*modload)(void) = 0;
   void (*modsyms)(void) = 0;
@@ -326,7 +326,7 @@ emodules_load(CONST char *module, CONST char *modname, CONST char *modver)
   emodules_depth++;
   dlhandle = 0;
 
-  if ((module == (CONST char *)0) || (module[0] == '\0'))
+  if ((module == (const char *)0) || (module[0] == '\0'))
     error ("Empty module name");
 
   /* This is to get around the fact that build_string() is not declared
@@ -350,15 +350,15 @@ emodules_load(CONST char *module, CONST char *modname, CONST char *modver)
   if (dlhandle == (dll_handle)0)
     error ("Opening dynamic module: %s", dll_error (dlhandle));
 
-  ellcc_rev = (CONST long *)dll_variable (dlhandle, "emodule_compiler");
-  if ((ellcc_rev == (CONST long *)0) || (*ellcc_rev <= 0))
+  ellcc_rev = (const long *)dll_variable (dlhandle, "emodule_compiler");
+  if ((ellcc_rev == (const long *)0) || (*ellcc_rev <= 0))
     error ("Missing symbol `emodule_compiler': Invalid dynamic module");
   if (*ellcc_rev > EMODULES_REVISION)
     error ("Unsupported version `%ld(%ld)': Invalid dynamic module",
            *ellcc_rev, EMODULES_REVISION);
 
-  f = (CONST char **)dll_variable (dlhandle, "emodule_name");
-  if ((f == (CONST char **)0) || (*f == (CONST char *)0))
+  f = (const char **)dll_variable (dlhandle, "emodule_name");
+  if ((f == (const char **)0) || (*f == (const char *)0))
     error ("Missing symbol `emodule_name': Invalid dynamic module");
 
   mname = (char *)alloca (strlen (*f) + 1);
@@ -366,15 +366,15 @@ emodules_load(CONST char *module, CONST char *modname, CONST char *modver)
   if (mname[0] == '\0')
     error ("Empty value for `emodule_name': Invalid dynamic module");
 
-  f = (CONST char **)dll_variable (dlhandle, "emodule_version");
-  if ((f == (CONST char **)0) || (*f == (CONST char *)0))
+  f = (const char **)dll_variable (dlhandle, "emodule_version");
+  if ((f == (const char **)0) || (*f == (const char *)0))
     error ("Missing symbol `emodule_version': Invalid dynamic module");
 
   mver = (char *)alloca (strlen (*f) + 1);
   strcpy (mver, *f);
 
-  f = (CONST char **)dll_variable (dlhandle, "emodule_title");
-  if ((f == (CONST char **)0) || (*f == (CONST char *)0))
+  f = (const char **)dll_variable (dlhandle, "emodule_title");
+  if ((f == (const char **)0) || (*f == (const char *)0))
     error ("Missing symbol `emodule_title': Invalid dynamic module");
 
   mtitle = (char *)alloca (strlen (*f) + 1);
@@ -478,10 +478,10 @@ emodules_load(CONST char *module, CONST char *modname, CONST char *modver)
 }
 
 void
-emodules_doc_subr(CONST char *symname, CONST char *doc)
+emodules_doc_subr(const char *symname, const char *doc)
 {
   Bytecount len = strlen (symname);
-  Lisp_Object sym = oblookup (Vobarray, (CONST Bufbyte *)symname, len);
+  Lisp_Object sym = oblookup (Vobarray, (const Bufbyte *)symname, len);
   Lisp_Subr *subr;
 
   if (SYMBOLP(sym))
@@ -498,10 +498,10 @@ emodules_doc_subr(CONST char *symname, CONST char *doc)
 }
 
 void
-emodules_doc_sym (CONST char *symname, CONST char *doc)
+emodules_doc_sym (const char *symname, const char *doc)
 {
   Bytecount len = strlen (symname);
-  Lisp_Object sym = oblookup (Vobarray, (CONST Bufbyte *)symname, len);
+  Lisp_Object sym = oblookup (Vobarray, (const Bufbyte *)symname, len);
   Lisp_Object docstr;
   struct gcpro gcpro1;
 

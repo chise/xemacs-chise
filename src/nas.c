@@ -108,7 +108,6 @@
 
 #else /* !emacs */
 #    define warn(str) fprintf (stderr, "%s\n", (str))
-#    define CONST const
 #endif /* emacs */
 
 #ifdef XTOOLKIT
@@ -624,7 +623,7 @@ CatchErrorAndJump (AuServer *old_aud,
 /* Create a name from the sound. */
 
 static char *
-NameFromData (CONST char *buf,
+NameFromData (const char *buf,
 	      int len)
 
 {
@@ -668,7 +667,7 @@ NameFromData (CONST char *buf,
  */
 
 static SndInfo *
-SndOpenDataForReading (CONST char *data,
+SndOpenDataForReading (const char *data,
 		       int length)
 
 {
@@ -744,11 +743,11 @@ static size_t file_posn;
 /* The length of the "file" */
 static size_t file_len;
 /* The actual "file" data. */
-static CONST void* file_data;
+static const void* file_data;
 
 /* Like fopen, but for a buffer in memory */
 static void
-dopen (CONST void* data, size_t length)
+dopen (const void* data, size_t length)
 {
    file_data = data;
    file_len = length;
@@ -845,7 +844,7 @@ readChunk (RiffChunk *c)
    read the wave data from a buffer in memory. */
 
 static WaveInfo *
-WaveOpenDataForReading (CONST char *data,
+WaveOpenDataForReading (const char *data,
 			int length)
 {
     RiffChunk       ck;

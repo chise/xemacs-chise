@@ -38,6 +38,45 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: internals.info,  Node: Introduction to Events,  Next: Main Loop,  Prev: Events and the Event Loop,  Up: Events and the Event Loop
+
+Introduction to Events
+======================
+
+   An event is an object that encapsulates information about an
+interesting occurrence in the operating system.  Events are generated
+either by user action, direct (e.g. typing on the keyboard or moving
+the mouse) or indirect (moving another window, thereby generating an
+expose event on an Emacs frame), or as a result of some other typically
+asynchronous action happening, such as output from a subprocess being
+ready or a timer expiring.  Events come into the system in an
+asynchronous fashion (typically through a callback being called) and
+are converted into a synchronous event queue (first-in, first-out) in a
+process that we will call "collection".
+
+   Note that each application has its own event queue. (It is
+immaterial whether the collection process directly puts the events in
+the proper application's queue, or puts them into a single system
+queue, which is later split up.)
+
+   The most basic level of event collection is done by the operating
+system or window system.  Typically, XEmacs does its own event
+collection as well.  Often there are multiple layers of collection in
+XEmacs, with events from various sources being collected into a queue,
+which is then combined with other sources to go into another queue
+(i.e. a second level of collection), with perhaps another level on top
+of this, etc.
+
+   XEmacs has its own types of events (called "Emacs events"), which
+provides an abstract layer on top of the system-dependent nature of the
+most basic events that are received.  Part of the complex nature of the
+XEmacs event collection process involves converting from the
+operating-system events into the proper Emacs events--there may not be
+a one-to-one correspondence.
+
+   Emacs events are documented in `events.h'; I'll discuss them later.
+
+
 File: internals.info,  Node: Main Loop,  Next: Specifics of the Event Gathering Mechanism,  Prev: Introduction to Events,  Up: Events and the Event Loop
 
 Main Loop
@@ -412,7 +451,7 @@ Evaluation; Stack Frames; Bindings
 * Catch and Throw::
 
 
-File: internals.info,  Node: Evaluation,  Next: Dynamic Binding; The specbinding Stack; Unwind-Protects,  Up: Evaluation; Stack Frames; Bindings
+File: internals.info,  Node: Evaluation,  Next: Dynamic Binding; The specbinding Stack; Unwind-Protects,  Prev: Evaluation; Stack Frames; Bindings,  Up: Evaluation; Stack Frames; Bindings
 
 Evaluation
 ==========
@@ -482,14 +521,13 @@ lambda list.
 converted into an internal form for faster execution.
 
    When a compiled function is executed for the first time by
-`funcall_compiled_function()', or when it is `Fpurecopy()'ed during the
-dump phase of building XEmacs, the byte-code instructions are converted
-from a `Lisp_String' (which is inefficient to access, especially in the
-presence of MULE) into a `Lisp_Opaque' object containing an array of
-unsigned char, which can be directly executed by the byte-code
-interpreter.  At this time the byte code is also analyzed for validity
-and transformed into a more optimized form, so that
-`execute_optimized_program()' can really fly.
+`funcall_compiled_function()', or during the dump phase of building
+XEmacs, the byte-code instructions are converted from a `Lisp_String'
+(which is inefficient to access, especially in the presence of MULE)
+into a `Lisp_Opaque' object containing an array of unsigned char, which
+can be directly executed by the byte-code interpreter.  At this time
+the byte code is also analyzed for validity and transformed into a more
+optimized form, so that `execute_optimized_program()' can really fly.
 
    Here are some of the optimizations performed by the internal
 byte-code transformer:
@@ -501,7 +539,7 @@ byte-code transformer:
      `nil', or `keywordp') symbols, so that the byte interpreter
      doesn't have to.
 
-  3. The maxiumum number of variable bindings in the byte-code is
+  3. The maximum number of variable bindings in the byte-code is
      pre-computed, so that space on the `specpdl' stack can be
      pre-reserved once for the whole function execution.
 
@@ -604,7 +642,7 @@ or `Fprogn()' as necessary and (in the case of `let' and `let*') using
 `specbind()' to create bindings and `unbind_to()' to undo the bindings
 when finished.
 
-   Note that, with the exeption of `Fprogn', these functions are
+   Note that, with the exception of `Fprogn', these functions are
 typically called in real life only in interpreted code, since the byte
 compiler knows how to convert calls to these functions directly into
 byte code.
@@ -679,7 +717,7 @@ Symbols and Variables
 * Symbol Values::
 
 
-File: internals.info,  Node: Introduction to Symbols,  Next: Obarrays,  Up: Symbols and Variables
+File: internals.info,  Node: Introduction to Symbols,  Next: Obarrays,  Prev: Symbols and Variables,  Up: Symbols and Variables
 
 Introduction to Symbols
 =======================
@@ -827,7 +865,7 @@ Buffers and Textual Representation
 * The Buffer Object::           The Lisp object corresponding to a buffer.
 
 
-File: internals.info,  Node: Introduction to Buffers,  Next: The Text in a Buffer,  Up: Buffers and Textual Representation
+File: internals.info,  Node: Introduction to Buffers,  Next: The Text in a Buffer,  Prev: Buffers and Textual Representation,  Up: Buffers and Textual Representation
 
 Introduction to Buffers
 =======================
@@ -878,142 +916,4 @@ and "buffer of the selected window", and the distinction between
 "point" of the current buffer and "window-point" of the selected
 window. (This latter distinction is explained in detail in the section
 on windows.)
-
-
-File: internals.info,  Node: The Text in a Buffer,  Next: Buffer Lists,  Prev: Introduction to Buffers,  Up: Buffers and Textual Representation
-
-The Text in a Buffer
-====================
-
-   The text in a buffer consists of a sequence of zero or more
-characters.  A "character" is an integer that logically represents a
-letter, number, space, or other unit of text.  Most of the characters
-that you will typically encounter belong to the ASCII set of characters,
-but there are also characters for various sorts of accented letters,
-special symbols, Chinese and Japanese ideograms (i.e. Kanji, Katakana,
-etc.), Cyrillic and Greek letters, etc.  The actual number of possible
-characters is quite large.
-
-   For now, we can view a character as some non-negative integer that
-has some shape that defines how it typically appears (e.g. as an
-uppercase A). (The exact way in which a character appears depends on the
-font used to display the character.) The internal type of characters in
-the C code is an `Emchar'; this is just an `int', but using a symbolic
-type makes the code clearer.
-
-   Between every character in a buffer is a "buffer position" or
-"character position".  We can speak of the character before or after a
-particular buffer position, and when you insert a character at a
-particular position, all characters after that position end up at new
-positions.  When we speak of the character "at" a position, we really
-mean the character after the position.  (This schizophrenia between a
-buffer position being "between" a character and "on" a character is
-rampant in Emacs.)
-
-   Buffer positions are numbered starting at 1.  This means that
-position 1 is before the first character, and position 0 is not valid.
-If there are N characters in a buffer, then buffer position N+1 is
-after the last one, and position N+2 is not valid.
-
-   The internal makeup of the Emchar integer varies depending on whether
-we have compiled with MULE support.  If not, the Emchar integer is an
-8-bit integer with possible values from 0 - 255.  0 - 127 are the
-standard ASCII characters, while 128 - 255 are the characters from the
-ISO-8859-1 character set.  If we have compiled with MULE support, an
-Emchar is a 19-bit integer, with the various bits having meanings
-according to a complex scheme that will be detailed later.  The
-characters numbered 0 - 255 still have the same meanings as for the
-non-MULE case, though.
-
-   Internally, the text in a buffer is represented in a fairly simple
-fashion: as a contiguous array of bytes, with a "gap" of some size in
-the middle.  Although the gap is of some substantial size in bytes,
-there is no text contained within it: From the perspective of the text
-in the buffer, it does not exist.  The gap logically sits at some buffer
-position, between two characters (or possibly at the beginning or end of
-the buffer).  Insertion of text in a buffer at a particular position is
-always accomplished by first moving the gap to that position (i.e.
-through some block moving of text), then writing the text into the
-beginning of the gap, thereby shrinking the gap.  If the gap shrinks
-down to nothing, a new gap is created. (What actually happens is that a
-new gap is "created" at the end of the buffer's text, which requires
-nothing more than changing a couple of indices; then the gap is "moved"
-to the position where the insertion needs to take place by moving up in
-memory all the text after that position.)  Similarly, deletion occurs
-by moving the gap to the place where the text is to be deleted, and
-then simply expanding the gap to include the deleted text.
-("Expanding" and "shrinking" the gap as just described means just that
-the internal indices that keep track of where the gap is located are
-changed.)
-
-   Note that the total amount of memory allocated for a buffer text
-never decreases while the buffer is live.  Therefore, if you load up a
-20-megabyte file and then delete all but one character, there will be a
-20-megabyte gap, which won't get any smaller (except by inserting
-characters back again).  Once the buffer is killed, the memory allocated
-for the buffer text will be freed, but it will still be sitting on the
-heap, taking up virtual memory, and will not be released back to the
-operating system. (However, if you have compiled XEmacs with rel-alloc,
-the situation is different.  In this case, the space _will_ be released
-back to the operating system.  However, this tends to result in a
-noticeable speed penalty.)
-
-   Astute readers may notice that the text in a buffer is represented as
-an array of _bytes_, while (at least in the MULE case) an Emchar is a
-19-bit integer, which clearly cannot fit in a byte.  This means (of
-course) that the text in a buffer uses a different representation from
-an Emchar: specifically, the 19-bit Emchar becomes a series of one to
-four bytes.  The conversion between these two representations is complex
-and will be described later.
-
-   In the non-MULE case, everything is very simple: An Emchar is an
-8-bit value, which fits neatly into one byte.
-
-   If we are given a buffer position and want to retrieve the character
-at that position, we need to follow these steps:
-
-  1. Pretend there's no gap, and convert the buffer position into a
-     "byte index" that indexes to the appropriate byte in the buffer's
-     stream of textual bytes.  By convention, byte indices begin at 1,
-     just like buffer positions.  In the non-MULE case, byte indices
-     and buffer positions are identical, since one character equals one
-     byte.
-
-  2. Convert the byte index into a "memory index", which takes the gap
-     into account.  The memory index is a direct index into the block of
-     memory that stores the text of a buffer.  This basically just
-     involves checking to see if the byte index is past the gap, and if
-     so, adding the size of the gap to it.  By convention, memory
-     indices begin at 1, just like buffer positions and byte indices,
-     and when referring to the position that is "at" the gap, we always
-     use the memory position at the _beginning_, not at the end, of the
-     gap.
-
-  3. Fetch the appropriate bytes at the determined memory position.
-
-  4. Convert these bytes into an Emchar.
-
-   In the non-Mule case, (3) and (4) boil down to a simple one-byte
-memory access.
-
-   Note that we have defined three types of positions in a buffer:
-
-  1. "buffer positions" or "character positions", typedef `Bufpos'
-
-  2. "byte indices", typedef `Bytind'
-
-  3. "memory indices", typedef `Memind'
-
-   All three typedefs are just `int's, but defining them this way makes
-things a lot clearer.
-
-   Most code works with buffer positions.  In particular, all Lisp code
-that refers to text in a buffer uses buffer positions.  Lisp code does
-not know that byte indices or memory indices exist.
-
-   Finally, we have a typedef for the bytes in a buffer.  This is a
-`Bufbyte', which is an unsigned char.  Referring to them as Bufbytes
-underscores the fact that we are working with a string of bytes in the
-internal Emacs buffer representation rather than in one of a number of
-possible alternative representations (e.g. EUC-encoded text, etc.).
 

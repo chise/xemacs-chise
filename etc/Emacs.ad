@@ -191,6 +191,10 @@
 *menubar*Font: 			-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*
 *popup*Font:			-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*
 
+! Gui elements share this font
+!
+Emacs.gui-element.attributeFont:  -*-helvetica-medium-r-*-*-*-120-*-*-*-*-iso8859-*
+
 ! Font in the Motif dialog boxes.
 ! (Motif uses `fontList' while most other things use `font' - if you don't
 ! know why you probably don't want to.)
@@ -259,6 +263,11 @@ Ctrl<KeyPress>m: ArmAndActivate()\n
     ~Shift ~Meta ~Alt <Key>Return:	ArmAndActivate()\n\
     <EnterWindow>:      Enter()\n\
     <LeaveWindow>:      Leave()\n
+
+! Native Widget translations
+! ======================= 
+Emacs*Text*translations: #override\n\
+	<Btn1Down>:	widget-focus-in()\n
 
 ! XIM input method style 
 ! ======================= 

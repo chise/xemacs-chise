@@ -1319,7 +1319,7 @@ r_alloc_check (void)
 #include <stdio.h>
 
 typedef void *VM_ADDR;		/* VM addresses */
-static CONST VM_ADDR VM_FAILURE_ADDR = (VM_ADDR) -1; /* mmap returns this when it fails. */
+static const VM_ADDR VM_FAILURE_ADDR = (VM_ADDR) -1; /* mmap returns this when it fails. */
 
 /* Configuration for relocating allocator. */
 
@@ -1726,7 +1726,7 @@ Addr_Block_initialize (void)
   addr_chain = (ADDRESS_CHAIN) UNDERLYING_MALLOC( sizeof( ADDRESS_BLOCK ));
   addr_chain->next = 0;		/* Last block in chain */
   addr_chain->sz = 0x0c000000;	/* Size */
-  addr_chain->addr = (POINTER) (0x04000000 | DATA_SEG_BITS);
+  addr_chain->addr = (POINTER) (0x04000000);
   addr_chain->flag = empty;
 }
 

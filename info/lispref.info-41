@@ -50,1160 +50,904 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
-File: lispref.info,  Node: Level 3 Basics,  Next: Level 3 Primitives,  Up: I18N Level 3
+File: lispref.info,  Node: Elisp Interface for Sending Messages,  Prev: Example of Sending Messages,  Up: Sending Messages
 
-Level 3 Basics
---------------
+Elisp Interface for Sending Messages
+------------------------------------
 
-   XEmacs now provides alpha-level functionality for I18N Level 3.
-This means that everything necessary for full messaging is available,
-but not every file has been converted.
+ - Function: make-tooltalk-message attributes
+     Create a ToolTalk message and initialize its attributes.  The
+     value of ATTRIBUTES must be a list of alternating keyword/values,
+     where keywords are symbols that name valid message attributes.
+     For example:
 
-   The two message files which have been created are `src/emacs.po' and
-`lisp/packages/mh-e.po'.  Both files need to be converted using
-`msgfmt', and the resulting `.mo' files placed in some locale's
-`LC_MESSAGES' directory.  The test "translations" in these files are
-the original messages prefixed by `TRNSLT_'.
+            (make-tooltalk-message
+              '(class TT_NOTICE
+                scope TT_SESSION
+                address TT_PROCEDURE
+                op "do-something"
+                args ("arg1" 12345 (TT_INOUT "arg3" "string"))))
 
-   The domain for a variable is stored on the variable's property list
-under the property name VARIABLE-DOMAIN.  The function
-`documentation-property' uses this information when translating a
-variable's documentation.
+     Values must always be strings, integers, or symbols that represent
+     ToolTalk constants.  Attribute names are the same as those
+     supported by `set-tooltalk-message-attribute', plus `args'.
 
-
-File: lispref.info,  Node: Level 3 Primitives,  Next: Dynamic Messaging,  Prev: Level 3 Basics,  Up: I18N Level 3
+     The value of `args' should be a list of message arguments where
+     each message argument has the following form:
 
-Level 3 Primitives
-------------------
+             `(mode [value [type]])' or just `value'
 
- - Function: gettext string
-     This function looks up STRING in the default message domain and
-     returns its translation.  If `I18N3' was not enabled when XEmacs
-     was compiled, it just returns STRING.
+     Where MODE is one of `TT_IN', `TT_OUT', or `TT_INOUT' and TYPE is
+     a string.  If TYPE isn't specified then `int' is used if VALUE is
+     a number; otherwise `string' is used.  If TYPE is `string' then
+     VALUE is converted to a string (if it isn't a string already) with
+     `prin1-to-string'.  If only a value is specified then MODE
+     defaults to `TT_IN'.  If MODE is `TT_OUT' then VALUE and TYPE
+     don't need to be specified.  You can find out more about the
+     semantics and uses of ToolTalk message arguments in chapter 4 of
+     the `ToolTalk Programmer's Guide'.
 
- - Function: dgettext domain string
-     This function looks up STRING in the specified message domain and
-     returns its translation.  If `I18N3' was not enabled when XEmacs
-     was compiled, it just returns STRING.
 
- - Function: bind-text-domain domain pathname
-     This function associates a pathname with a message domain.  Here's
-     how the path to message file is constructed under SunOS 5.x:
+ - Function: send-tooltalk-message msg
+     Send the message on its way.  Once the message has been sent it's
+     almost always a good idea to get rid of it with
+     `destroy-tooltalk-message'.
 
-          `{pathname}/{LANG}/LC_MESSAGES/{domain}.mo'
 
-     If `I18N3' was not enabled when XEmacs was compiled, this function
-     does nothing.
+ - Function: return-tooltalk-message msg &optional mode
+     Send a reply to this message.  The second argument can be `reply',
+     `reject' or `fail'; the default is `reply'.  Before sending a
+     reply, all message arguments whose mode is `TT_INOUT' or `TT_OUT'
+     should have been filled in--see `set-tooltalk-message-attribute'.
 
- - Special Form: domain string
-     This function specifies the text domain used for translating
-     documentation strings and interactive prompts of a function.  For
-     example, write:
 
-          (defun foo (arg) "Doc string" (domain "emacs-foo") ...)
+ - Function: get-tooltalk-message-attribute msg attribute &optional argn
+     Returns the indicated ToolTalk message attribute.  Attributes are
+     identified by symbols with the same name (underscores and all) as
+     the suffix of the ToolTalk `tt_message_<attribute>' function that
+     extracts the value.  String attribute values are copied and
+     enumerated type values (except disposition) are converted to
+     symbols; e.g. `TT_HANDLER' is `'TT_HANDLER', `uid' and `gid' are
+     represented by fixnums (small integers), `opnum' is converted to a
+     string, and `disposition' is converted to a fixnum.  We convert
+     `opnum' (a C int) to a string (e.g. `123' => `"123"') because
+     there's no guarantee that opnums will fit within the range of
+     XEmacs Lisp integers.
 
-     to specify `emacs-foo' as the text domain of the function `foo'.
-     The "call" to `domain' is actually a declaration rather than a
-     function; when actually called, `domain' just returns `nil'.
+     [TBD] Use the `plist' attribute instead of C API `user' attribute
+     for user-defined message data.  To retrieve the value of a message
+     property, specify the indicator for ARGN.  For example, to get the
+     value of a property called `rflag', use
 
- - Function: domain-of function
-     This function returns the text domain of FUNCTION; it returns
-     `nil' if it is the default domain.  If `I18N3' was not enabled
-     when XEmacs was compiled, it always returns `nil'.
+             (get-tooltalk-message-attribute msg 'plist 'rflag)
 
-
-File: lispref.info,  Node: Dynamic Messaging,  Next: Domain Specification,  Prev: Level 3 Primitives,  Up: I18N Level 3
+     To get the value of a message argument use one of the `arg_val'
+     (strings), `arg_ival' (integers), or `arg_bval' (strings with
+     embedded nulls), attributes.  For example, to get the integer
+     value of the third argument:
 
-Dynamic Messaging
------------------
+             (get-tooltalk-message-attribute msg 'arg_ival 2)
 
-   The `format' function has been extended to permit you to change the
-order of parameter insertion.  For example, the conversion format
-`%1$s' inserts parameter one as a string, while `%2$s' inserts
-parameter two.  This is useful when creating translations which require
-you to change the word order.
+     As you can see, argument numbers are zero-based.  The type of each
+     arguments can be retrieved with the `arg_type' attribute; however
+     ToolTalk doesn't define any semantics for the string value of
+     `arg_type'.  Conventionally `string' is used for strings and `int'
+     for 32 bit integers.  Note that XEmacs Lisp stores the lengths of
+     strings explicitly (unlike C) so treating the value returned by
+     `arg_bval' like a string is fine.
 
-
-File: lispref.info,  Node: Domain Specification,  Next: Documentation String Extraction,  Prev: Dynamic Messaging,  Up: I18N Level 3
 
-Domain Specification
---------------------
+ - Function: set-tooltalk-message-attribute value msg attribute
+          &optional argn
+     Initialize one ToolTalk message attribute.
 
-   The default message domain of XEmacs is `emacs'.  For add-on
-packages, it is best to use a different domain.  For example, let us
-say we want to convert the "gorilla" package to use the domain
-`emacs-gorilla'.  To translate the message "What gorilla?", use
-`dgettext' as follows:
+     Attribute names and values are the same as for
+     `get-tooltalk-message-attribute'.  A property list is provided for
+     user data (instead of the `user' message attribute); see
+     `get-tooltalk-message-attribute'.
 
-     (dgettext "emacs-gorilla" "What gorilla?")
+     Callbacks are handled slightly differently than in the C ToolTalk
+     API.  The value of CALLBACK should be the name of a function of one
+     argument.  It will be called each time the state of the message
+     changes.  This is usually used to notice when the message's state
+     has changed to `TT_HANDLED' (or `TT_FAILED'), so that reply
+     argument values can be used.
 
-   A function (or macro) which has a documentation string or an
-interactive prompt needs to be associated with the domain in order for
-the documentation or prompt to be translated.  This is done with the
-`domain' special form as follows:
+     If one of the argument attributes is specified as `arg_val',
+     `arg_ival', or `arg_bval', then ARGN must be the number of an
+     already created argument.  Arguments can be added to a message
+     with `add-tooltalk-message-arg'.
 
-     (defun scratch (location)
-       "Scratch the specified location."
-       (domain "emacs-gorilla")
-       (interactive "sScratch: ")
-       ... )
 
-   It is most efficient to specify the domain in the first line of the
-function body, before the `interactive' form.
+ - Function: add-tooltalk-message-arg msg mode type &optional value
+     Append one new argument to the message.  MODE must be one of
+     `TT_IN', `TT_INOUT', or `TT_OUT', TYPE must be a string, and VALUE
+     can be a string or an integer.  ToolTalk doesn't define any
+     semantics for TYPE, so only the participants in the protocol
+     you're using need to agree what types mean (if anything).
+     Conventionally `string' is used for strings and `int' for 32 bit
+     integers.  Arguments can initialized by providing a value or with
+     `set-tooltalk-message-attribute'; the latter is necessary if you
+     want to initialize the argument with a string that can contain
+     embedded nulls (use `arg_bval').
 
-   For variables and constants which have documentation strings,
-specify the domain after the documentation.
 
- - Special Form: defvar symbol [value [doc-string [domain]]]
-     Example:
-          (defvar weight 250 "Weight of gorilla, in pounds." "emacs-gorilla")
+ - Function: create-tooltalk-message
+     Create a new ToolTalk message.  The message's session attribute is
+     initialized to the default session.  Other attributes can be
+     initialized with `set-tooltalk-message-attribute'.
+     `make-tooltalk-message' is the preferred way to create and
+     initialize a message.
 
- - Special Form: defconst symbol [value [doc-string [domain]]]
-     Example:
-          (defconst limbs 4 "Number of limbs" "emacs-gorilla")
 
-   Autoloaded functions which are specified in `loaddefs.el' do not need
-to have a domain specification, because their documentation strings are
-extracted into the main message base.  However, for autoloaded functions
-which are specified in a separate package, use following syntax:
-
- - Function: autoload symbol filename &optional docstring interactive
-          macro domain
-     Example:
-          (autoload 'explore "jungle" "Explore the jungle." nil nil "emacs-gorilla")
-
-
-File: lispref.info,  Node: Documentation String Extraction,  Prev: Domain Specification,  Up: I18N Level 3
-
-Documentation String Extraction
--------------------------------
-
-   The utility `etc/make-po' scans the file `DOC' to extract
-documentation strings and creates a message file `doc.po'.  This file
-may then be inserted within `emacs.po'.
-
-   Currently, `make-po' is hard-coded to read from `DOC' and write to
-`doc.po'.  In order to extract documentation strings from an add-on
-package, first run `make-docfile' on the package to produce the `DOC'
-file.  Then run `make-po -p' with the `-p' argument to indicate that we
-are extracting documentation for an add-on package.
-
-   (The `-p' argument is a kludge to make up for a subtle difference
-between pre-loaded documentation and add-on documentation:  For add-on
-packages, the final carriage returns in the strings produced by
-`make-docfile' must be ignored.)
+ - Function: destroy-tooltalk-message msg
+     Apply `tt_message_destroy' to the message.  It's not necessary to
+     destroy messages after they've been processed by a message or
+     pattern callback, the Lisp/ToolTalk callback machinery does this
+     for you.
 
 
-File: lispref.info,  Node: I18N Level 4,  Prev: I18N Level 3,  Up: Internationalization
+File: lispref.info,  Node: Receiving Messages,  Prev: Sending Messages,  Up: ToolTalk Support
 
-I18N Level 4
-============
-
-   The Asian-language support in XEmacs is called "MULE".  *Note MULE::.
-
-
-File: lispref.info,  Node: MULE,  Next: Tips,  Prev: Internationalization,  Up: Top
-
-MULE
-****
-
-   "MULE" is the name originally given to the version of GNU Emacs
-extended for multi-lingual (and in particular Asian-language) support.
-"MULE" is short for "MUlti-Lingual Emacs".  It was originally called
-Nemacs ("Nihon Emacs" where "Nihon" is the Japanese word for "Japan"),
-when it only provided support for Japanese.  XEmacs refers to its
-multi-lingual support as "MULE support" since it is based on "MULE".
+Receiving Messages
+==================
 
 * Menu:
 
-* Internationalization Terminology::
-                        Definition of various internationalization terms.
-* Charsets::            Sets of related characters.
-* MULE Characters::     Working with characters in XEmacs/MULE.
-* Composite Characters:: Making new characters by overstriking other ones.
-* ISO 2022::            An international standard for charsets and encodings.
-* Coding Systems::      Ways of representing a string of chars using integers.
-* CCL::                 A special language for writing fast converters.
-* Category Tables::     Subdividing charsets into groups.
+* Example of Receiving Messages::
+* Elisp Interface for Receiving Messages::
 
 
-File: lispref.info,  Node: Internationalization Terminology,  Next: Charsets,  Up: MULE
+File: lispref.info,  Node: Example of Receiving Messages,  Next: Elisp Interface for Receiving Messages,  Up: Receiving Messages
 
-Internationalization Terminology
-================================
-
-   In internationalization terminology, a string of text is divided up
-into "characters", which are the printable units that make up the text.
-A single character is (for example) a capital `A', the number `2', a
-Katakana character, a Kanji ideograph (an "ideograph" is a "picture"
-character, such as is used in Japanese Kanji, Chinese Hanzi, and Korean
-Hangul; typically there are thousands of such ideographs in each
-language), etc.  The basic property of a character is its shape.  Note
-that the same character may be drawn by two different people (or in two
-different fonts) in slightly different ways, although the basic shape
-will be the same.
-
-   In some cases, the differences will be significant enough that it is
-actually possible to identify two or more distinct shapes that both
-represent the same character.  For example, the lowercase letters `a'
-and `g' each have two distinct possible shapes--the `a' can optionally
-have a curved tail projecting off the top, and the `g' can be formed
-either of two loops, or of one loop and a tail hanging off the bottom.
-Such distinct possible shapes of a character are called "glyphs".  The
-important characteristic of two glyphs making up the same character is
-that the choice between one or the other is purely stylistic and has no
-linguistic effect on a word (this is the reason why a capital `A' and
-lowercase `a' are different characters rather than different
-glyphs--e.g.  `Aspen' is a city while `aspen' is a kind of tree).
-
-   Note that "character" and "glyph" are used differently here than
-elsewhere in XEmacs.
-
-   A "character set" is simply a set of related characters.  ASCII, for
-example, is a set of 94 characters (or 128, if you count non-printing
-characters).  Other character sets are ISO8859-1 (ASCII plus various
-accented characters and other international symbols), JISX0201 (ASCII,
-more or less, plus half-width Katakana), JISX0208 (Japanese Kanji),
-JISX0212 (a second set of less-used Japanese Kanji), GB2312 (Mainland
-Chinese Hanzi), etc.
-
-   Every character set has one or more "orderings", which can be viewed
-as a way of assigning a number (or set of numbers) to each character in
-the set.  For most character sets, there is a standard ordering, and in
-fact all of the character sets mentioned above define a particular
-ordering.  ASCII, for example, places letters in their "natural" order,
-puts uppercase letters before lowercase letters, numbers before
-letters, etc.  Note that for many of the Asian character sets, there is
-no natural ordering of the characters.  The actual orderings are based
-on one or more salient characteristic, of which there are many to
-choose from--e.g. number of strokes, common radicals, phonetic
-ordering, etc.
-
-   The set of numbers assigned to any particular character are called
-the character's "position codes".  The number of position codes
-required to index a particular character in a character set is called
-the "dimension" of the character set.  ASCII, being a relatively small
-character set, is of dimension one, and each character in the set is
-indexed using a single position code, in the range 0 through 127 (if
-non-printing characters are included) or 33 through 126 (if only the
-printing characters are considered).  JISX0208, i.e.  Japanese Kanji,
-has thousands of characters, and is of dimension two - every character
-is indexed by two position codes, each in the range 33 through 126.
-(Note that the choice of the range here is somewhat arbitrary.
-Although a character set such as JISX0208 defines an _ordering_ of all
-its characters, it does not define the actual mapping between numbers
-and characters.  You could just as easily index the characters in
-JISX0208 using numbers in the range 0 through 93, 1 through 94, 2
-through 95, etc.  The reason for the actual range chosen is so that the
-position codes match up with the actual values used in the common
-encodings.)
-
-   An "encoding" is a way of numerically representing characters from
-one or more character sets into a stream of like-sized numerical values
-called "words"; typically these are 8-bit, 16-bit, or 32-bit
-quantities.  If an encoding encompasses only one character set, then the
-position codes for the characters in that character set could be used
-directly. (This is the case with ASCII, and as a result, most people do
-not understand the difference between a character set and an encoding.)
-This is not possible, however, if more than one character set is to be
-used in the encoding.  For example, printed Japanese text typically
-requires characters from multiple character sets--ASCII, JISX0208, and
-JISX0212, to be specific.  Each of these is indexed using one or more
-position codes in the range 33 through 126, so the position codes could
-not be used directly or there would be no way to tell which character
-was meant.  Different Japanese encodings handle this differently--JIS
-uses special escape characters to denote different character sets; EUC
-sets the high bit of the position codes for JISX0208 and JISX0212, and
-puts a special extra byte before each JISX0212 character; etc. (JIS,
-EUC, and most of the other encodings you will encounter are 7-bit or
-8-bit encodings.  There is one common 16-bit encoding, which is Unicode;
-this strives to represent all the world's characters in a single large
-character set.  32-bit encodings are generally used internally in
-programs to simplify the code that manipulates them; however, they are
-not much used externally because they are not very space-efficient.)
-
-   Encodings are classified as either "modal" or "non-modal".  In a
-"modal encoding", there are multiple states that the encoding can be in,
-and the interpretation of the values in the stream depends on the
-current global state of the encoding.  Special values in the encoding,
-called "escape sequences", are used to change the global state.  JIS,
-for example, is a modal encoding.  The bytes `ESC $ B' indicate that,
-from then on, bytes are to be interpreted as position codes for
-JISX0208, rather than as ASCII.  This effect is cancelled using the
-bytes `ESC ( B', which mean "switch from whatever the current state is
-to ASCII".  To switch to JISX0212, the escape sequence `ESC $ ( D'.
-(Note that here, as is common, the escape sequences do in fact begin
-with `ESC'.  This is not necessarily the case, however.)
-
-   A "non-modal encoding" has no global state that extends past the
-character currently being interpreted.  EUC, for example, is a
-non-modal encoding.  Characters in JISX0208 are encoded by setting the
-high bit of the position codes, and characters in JISX0212 are encoded
-by doing the same but also prefixing the character with the byte 0x8F.
-
-   The advantage of a modal encoding is that it is generally more
-space-efficient, and is easily extendable because there are essentially
-an arbitrary number of escape sequences that can be created.  The
-disadvantage, however, is that it is much more difficult to work with
-if it is not being processed in a sequential manner.  In the non-modal
-EUC encoding, for example, the byte 0x41 always refers to the letter
-`A'; whereas in JIS, it could either be the letter `A', or one of the
-two position codes in a JISX0208 character, or one of the two position
-codes in a JISX0212 character.  Determining exactly which one is meant
-could be difficult and time-consuming if the previous bytes in the
-string have not already been processed.
-
-   Non-modal encodings are further divided into "fixed-width" and
-"variable-width" formats.  A fixed-width encoding always uses the same
-number of words per character, whereas a variable-width encoding does
-not.  EUC is a good example of a variable-width encoding: one to three
-bytes are used per character, depending on the character set.  16-bit
-and 32-bit encodings are nearly always fixed-width, and this is in fact
-one of the main reasons for using an encoding with a larger word size.
-The advantages of fixed-width encodings should be obvious.  The
-advantages of variable-width encodings are that they are generally more
-space-efficient and allow for compatibility with existing 8-bit
-encodings such as ASCII.
-
-   Note that the bytes in an 8-bit encoding are often referred to as
-"octets" rather than simply as bytes.  This terminology dates back to
-the days before 8-bit bytes were universal, when some computers had
-9-bit bytes, others had 10-bit bytes, etc.
-
-
-File: lispref.info,  Node: Charsets,  Next: MULE Characters,  Prev: Internationalization Terminology,  Up: MULE
-
-Charsets
-========
-
-   A "charset" in MULE is an object that encapsulates a particular
-character set as well as an ordering of those characters.  Charsets are
-permanent objects and are named using symbols, like faces.
-
- - Function: charsetp object
-     This function returns non-`nil' if OBJECT is a charset.
-
-* Menu:
-
-* Charset Properties::          Properties of a charset.
-* Basic Charset Functions::     Functions for working with charsets.
-* Charset Property Functions::  Functions for accessing charset properties.
-* Predefined Charsets::         Predefined charset objects.
-
-
-File: lispref.info,  Node: Charset Properties,  Next: Basic Charset Functions,  Up: Charsets
-
-Charset Properties
-------------------
-
-   Charsets have the following properties:
-
-`name'
-     A symbol naming the charset.  Every charset must have a different
-     name; this allows a charset to be referred to using its name
-     rather than the actual charset object.
-
-`doc-string'
-     A documentation string describing the charset.
-
-`registry'
-     A regular expression matching the font registry field for this
-     character set.  For example, both the `ascii' and `latin-iso8859-1'
-     charsets use the registry `"ISO8859-1"'.  This field is used to
-     choose an appropriate font when the user gives a general font
-     specification such as `-*-courier-medium-r-*-140-*', i.e. a
-     14-point upright medium-weight Courier font.
-
-`dimension'
-     Number of position codes used to index a character in the
-     character set.  XEmacs/MULE can only handle character sets of
-     dimension 1 or 2.  This property defaults to 1.
-
-`chars'
-     Number of characters in each dimension.  In XEmacs/MULE, the only
-     allowed values are 94 or 96. (There are a couple of pre-defined
-     character sets, such as ASCII, that do not follow this, but you
-     cannot define new ones like this.) Defaults to 94.  Note that if
-     the dimension is 2, the character set thus described is 94x94 or
-     96x96.
-
-`columns'
-     Number of columns used to display a character in this charset.
-     Only used in TTY mode. (Under X, the actual width of a character
-     can be derived from the font used to display the characters.)  If
-     unspecified, defaults to the dimension. (This is almost always the
-     correct value, because character sets with dimension 2 are usually
-     ideograph character sets, which need two columns to display the
-     intricate ideographs.)
-
-`direction'
-     A symbol, either `l2r' (left-to-right) or `r2l' (right-to-left).
-     Defaults to `l2r'.  This specifies the direction that the text
-     should be displayed in, and will be left-to-right for most
-     charsets but right-to-left for Hebrew and Arabic. (Right-to-left
-     display is not currently implemented.)
-
-`final'
-     Final byte of the standard ISO 2022 escape sequence designating
-     this charset.  Must be supplied.  Each combination of (DIMENSION,
-     CHARS) defines a separate namespace for final bytes, and each
-     charset within a particular namespace must have a different final
-     byte.  Note that ISO 2022 restricts the final byte to the range
-     0x30 - 0x7E if dimension == 1, and 0x30 - 0x5F if dimension == 2.
-     Note also that final bytes in the range 0x30 - 0x3F are reserved
-     for user-defined (not official) character sets.  For more
-     information on ISO 2022, see *Note Coding Systems::.
-
-`graphic'
-     0 (use left half of font on output) or 1 (use right half of font on
-     output).  Defaults to 0.  This specifies how to convert the
-     position codes that index a character in a character set into an
-     index into the font used to display the character set.  With
-     `graphic' set to 0, position codes 33 through 126 map to font
-     indices 33 through 126; with it set to 1, position codes 33
-     through 126 map to font indices 161 through 254 (i.e. the same
-     number but with the high bit set).  For example, for a font whose
-     registry is ISO8859-1, the left half of the font (octets 0x20 -
-     0x7F) is the `ascii' charset, while the right half (octets 0xA0 -
-     0xFF) is the `latin-iso8859-1' charset.
-
-`ccl-program'
-     A compiled CCL program used to convert a character in this charset
-     into an index into the font.  This is in addition to the `graphic'
-     property.  If a CCL program is defined, the position codes of a
-     character will first be processed according to `graphic' and then
-     passed through the CCL program, with the resulting values used to
-     index the font.
-
-     This is used, for example, in the Big5 character set (used in
-     Taiwan).  This character set is not ISO-2022-compliant, and its
-     size (94x157) does not fit within the maximum 96x96 size of
-     ISO-2022-compliant character sets.  As a result, XEmacs/MULE
-     splits it (in a rather complex fashion, so as to group the most
-     commonly used characters together) into two charset objects
-     (`big5-1' and `big5-2'), each of size 94x94, and each charset
-     object uses a CCL program to convert the modified position codes
-     back into standard Big5 indices to retrieve a character from a
-     Big5 font.
-
-   Most of the above properties can only be changed when the charset is
-created.  *Note Charset Property Functions::.
-
-
-File: lispref.info,  Node: Basic Charset Functions,  Next: Charset Property Functions,  Prev: Charset Properties,  Up: Charsets
-
-Basic Charset Functions
------------------------
-
- - Function: find-charset charset-or-name
-     This function retrieves the charset of the given name.  If
-     CHARSET-OR-NAME is a charset object, it is simply returned.
-     Otherwise, CHARSET-OR-NAME should be a symbol.  If there is no
-     such charset, `nil' is returned.  Otherwise the associated charset
-     object is returned.
-
- - Function: get-charset name
-     This function retrieves the charset of the given name.  Same as
-     `find-charset' except an error is signalled if there is no such
-     charset instead of returning `nil'.
-
- - Function: charset-list
-     This function returns a list of the names of all defined charsets.
-
- - Function: make-charset name doc-string props
-     This function defines a new character set.  This function is for
-     use with Mule support.  NAME is a symbol, the name by which the
-     character set is normally referred.  DOC-STRING is a string
-     describing the character set.  PROPS is a property list,
-     describing the specific nature of the character set.  The
-     recognized properties are `registry', `dimension', `columns',
-     `chars', `final', `graphic', `direction', and `ccl-program', as
-     previously described.
-
- - Function: make-reverse-direction-charset charset new-name
-     This function makes a charset equivalent to CHARSET but which goes
-     in the opposite direction.  NEW-NAME is the name of the new
-     charset.  The new charset is returned.
-
- - Function: charset-from-attributes dimension chars final &optional
-          direction
-     This function returns a charset with the given DIMENSION, CHARS,
-     FINAL, and DIRECTION.  If DIRECTION is omitted, both directions
-     will be checked (left-to-right will be returned if character sets
-     exist for both directions).
-
- - Function: charset-reverse-direction-charset charset
-     This function returns the charset (if any) with the same dimension,
-     number of characters, and final byte as CHARSET, but which is
-     displayed in the opposite direction.
-
-
-File: lispref.info,  Node: Charset Property Functions,  Next: Predefined Charsets,  Prev: Basic Charset Functions,  Up: Charsets
-
-Charset Property Functions
---------------------------
-
-   All of these functions accept either a charset name or charset
-object.
-
- - Function: charset-property charset prop
-     This function returns property PROP of CHARSET.  *Note Charset
-     Properties::.
-
-   Convenience functions are also provided for retrieving individual
-properties of a charset.
-
- - Function: charset-name charset
-     This function returns the name of CHARSET.  This will be a symbol.
-
- - Function: charset-doc-string charset
-     This function returns the doc string of CHARSET.
-
- - Function: charset-registry charset
-     This function returns the registry of CHARSET.
-
- - Function: charset-dimension charset
-     This function returns the dimension of CHARSET.
-
- - Function: charset-chars charset
-     This function returns the number of characters per dimension of
-     CHARSET.
-
- - Function: charset-columns charset
-     This function returns the number of display columns per character
-     (in TTY mode) of CHARSET.
-
- - Function: charset-direction charset
-     This function returns the display direction of CHARSET--either
-     `l2r' or `r2l'.
-
- - Function: charset-final charset
-     This function returns the final byte of the ISO 2022 escape
-     sequence designating CHARSET.
-
- - Function: charset-graphic charset
-     This function returns either 0 or 1, depending on whether the
-     position codes of characters in CHARSET map to the left or right
-     half of their font, respectively.
-
- - Function: charset-ccl-program charset
-     This function returns the CCL program, if any, for converting
-     position codes of characters in CHARSET into font indices.
-
-   The only property of a charset that can currently be set after the
-charset has been created is the CCL program.
-
- - Function: set-charset-ccl-program charset ccl-program
-     This function sets the `ccl-program' property of CHARSET to
-     CCL-PROGRAM.
-
-
-File: lispref.info,  Node: Predefined Charsets,  Prev: Charset Property Functions,  Up: Charsets
-
-Predefined Charsets
--------------------
-
-   The following charsets are predefined in the C code.
-
-     Name                    Type  Fi Gr Dir Registry
-     --------------------------------------------------------------
-     ascii                    94    B  0  l2r ISO8859-1
-     control-1                94       0  l2r ---
-     latin-iso8859-1          94    A  1  l2r ISO8859-1
-     latin-iso8859-2          96    B  1  l2r ISO8859-2
-     latin-iso8859-3          96    C  1  l2r ISO8859-3
-     latin-iso8859-4          96    D  1  l2r ISO8859-4
-     cyrillic-iso8859-5       96    L  1  l2r ISO8859-5
-     arabic-iso8859-6         96    G  1  r2l ISO8859-6
-     greek-iso8859-7          96    F  1  l2r ISO8859-7
-     hebrew-iso8859-8         96    H  1  r2l ISO8859-8
-     latin-iso8859-9          96    M  1  l2r ISO8859-9
-     thai-tis620              96    T  1  l2r TIS620
-     katakana-jisx0201        94    I  1  l2r JISX0201.1976
-     latin-jisx0201           94    J  0  l2r JISX0201.1976
-     japanese-jisx0208-1978   94x94 @  0  l2r JISX0208.1978
-     japanese-jisx0208        94x94 B  0  l2r JISX0208.19(83|90)
-     japanese-jisx0212        94x94 D  0  l2r JISX0212
-     chinese-gb2312           94x94 A  0  l2r GB2312
-     chinese-cns11643-1       94x94 G  0  l2r CNS11643.1
-     chinese-cns11643-2       94x94 H  0  l2r CNS11643.2
-     chinese-big5-1           94x94 0  0  l2r Big5
-     chinese-big5-2           94x94 1  0  l2r Big5
-     korean-ksc5601           94x94 C  0  l2r KSC5601
-     composite                96x96    0  l2r ---
-
-   The following charsets are predefined in the Lisp code.
-
-     Name                     Type  Fi Gr Dir Registry
-     --------------------------------------------------------------
-     arabic-digit             94    2  0  l2r MuleArabic-0
-     arabic-1-column          94    3  0  r2l MuleArabic-1
-     arabic-2-column          94    4  0  r2l MuleArabic-2
-     sisheng                  94    0  0  l2r sisheng_cwnn\|OMRON_UDC_ZH
-     chinese-cns11643-3       94x94 I  0  l2r CNS11643.1
-     chinese-cns11643-4       94x94 J  0  l2r CNS11643.1
-     chinese-cns11643-5       94x94 K  0  l2r CNS11643.1
-     chinese-cns11643-6       94x94 L  0  l2r CNS11643.1
-     chinese-cns11643-7       94x94 M  0  l2r CNS11643.1
-     ethiopic                 94x94 2  0  l2r Ethio
-     ascii-r2l                94    B  0  r2l ISO8859-1
-     ipa                      96    0  1  l2r MuleIPA
-     vietnamese-lower         96    1  1  l2r VISCII1.1
-     vietnamese-upper         96    2  1  l2r VISCII1.1
-
-   For all of the above charsets, the dimension and number of columns
-are the same.
-
-   Note that ASCII, Control-1, and Composite are handled specially.
-This is why some of the fields are blank; and some of the filled-in
-fields (e.g. the type) are not really accurate.
-
-
-File: lispref.info,  Node: MULE Characters,  Next: Composite Characters,  Prev: Charsets,  Up: MULE
-
-MULE Characters
-===============
-
- - Function: make-char charset arg1 &optional arg2
-     This function makes a multi-byte character from CHARSET and octets
-     ARG1 and ARG2.
-
- - Function: char-charset ch
-     This function returns the character set of char CH.
-
- - Function: char-octet ch &optional n
-     This function returns the octet (i.e. position code) numbered N
-     (should be 0 or 1) of char CH.  N defaults to 0 if omitted.
-
- - Function: find-charset-region start end &optional buffer
-     This function returns a list of the charsets in the region between
-     START and END.  BUFFER defaults to the current buffer if omitted.
-
- - Function: find-charset-string string
-     This function returns a list of the charsets in STRING.
-
-
-File: lispref.info,  Node: Composite Characters,  Next: ISO 2022,  Prev: MULE Characters,  Up: MULE
-
-Composite Characters
-====================
-
-   Composite characters are not yet completely implemented.
-
- - Function: make-composite-char string
-     This function converts a string into a single composite character.
-     The character is the result of overstriking all the characters in
-     the string.
-
- - Function: composite-char-string ch
-     This function returns a string of the characters comprising a
-     composite character.
-
- - Function: compose-region start end &optional buffer
-     This function composes the characters in the region from START to
-     END in BUFFER into one composite character.  The composite
-     character replaces the composed characters.  BUFFER defaults to
-     the current buffer if omitted.
-
- - Function: decompose-region start end &optional buffer
-     This function decomposes any composite characters in the region
-     from START to END in BUFFER.  This converts each composite
-     character into one or more characters, the individual characters
-     out of which the composite character was formed.  Non-composite
-     characters are left as-is.  BUFFER defaults to the current buffer
-     if omitted.
-
-
-File: lispref.info,  Node: ISO 2022,  Next: Coding Systems,  Prev: Composite Characters,  Up: MULE
-
-ISO 2022
-========
-
-   This section briefly describes the ISO 2022 encoding standard.  For
-more thorough understanding, please refer to the original document of
-ISO 2022.
-
-   Character sets ("charsets") are classified into the following four
-categories, according to the number of characters of charset:
-94-charset, 96-charset, 94x94-charset, and 96x96-charset.
-
-94-charset
-     ASCII(B), left(J) and right(I) half of JISX0201, ...
-
-96-charset
-     Latin-1(A), Latin-2(B), Latin-3(C), ...
-
-94x94-charset
-     GB2312(A), JISX0208(B), KSC5601(C), ...
-
-96x96-charset
-     none for the moment
-
-   The character in parentheses after the name of each charset is the
-"final character" F, which can be regarded as the identifier of the
-charset.  ECMA allocates F to each charset.  F is in the range of
-0x30..0x7F, but 0x30..0x3F are only for private use.
-
-   Note: "ECMA" = European Computer Manufacturers Association
-
-   There are four "registers of charsets", called G0 thru G3.  You can
-designate (or assign) any charset to one of these registers.
-
-   The code space contained within one octet (of size 256) is divided
-into 4 areas: C0, GL, C1, and GR.  GL and GR are the areas into which a
-register of charset can be invoked into.
-
-             C0: 0x00 - 0x1F
-             GL: 0x20 - 0x7F
-             C1: 0x80 - 0x9F
-             GR: 0xA0 - 0xFF
-
-   Usually, in the initial state, G0 is invoked into GL, and G1 is
-invoked into GR.
-
-   ISO 2022 distinguishes 7-bit environments and 8-bit environments.  In
-7-bit environments, only C0 and GL are used.
-
-   Charset designation is done by escape sequences of the form:
-
-             ESC [I] I F
-
-   where I is an intermediate character in the range 0x20 - 0x2F, and F
-is the final character identifying this charset.
-
-   The meaning of intermediate characters are:
-
-             $ [0x24]: indicate charset of dimension 2 (94x94 or 96x96).
-             ( [0x28]: designate to G0 a 94-charset whose final byte is F.
-             ) [0x29]: designate to G1 a 94-charset whose final byte is F.
-             * [0x2A]: designate to G2 a 94-charset whose final byte is F.
-             + [0x2B]: designate to G3 a 94-charset whose final byte is F.
-             - [0x2D]: designate to G1 a 96-charset whose final byte is F.
-             . [0x2E]: designate to G2 a 96-charset whose final byte is F.
-             / [0x2F]: designate to G3 a 96-charset whose final byte is F.
-
-   The following rule is not allowed in ISO 2022 but can be used in
-Mule.
-
-             , [0x2C]: designate to G0 a 96-charset whose final byte is F.
-
-   Here are examples of designations:
-
-             ESC ( B :              designate to G0 ASCII
-             ESC - A :              designate to G1 Latin-1
-             ESC $ ( A or ESC $ A : designate to G0 GB2312
-             ESC $ ( B or ESC $ B : designate to G0 JISX0208
-             ESC $ ) C :            designate to G1 KSC5601
-
-   To use a charset designated to G2 or G3, and to use a charset
-designated to G1 in a 7-bit environment, you must explicitly invoke G1,
-G2, or G3 into GL.  There are two types of invocation, Locking Shift
-(forever) and Single Shift (one character only).
-
-   Locking Shift is done as follows:
-
-             LS0 or SI (0x0F): invoke G0 into GL
-             LS1 or SO (0x0E): invoke G1 into GL
-             LS2:  invoke G2 into GL
-             LS3:  invoke G3 into GL
-             LS1R: invoke G1 into GR
-             LS2R: invoke G2 into GR
-             LS3R: invoke G3 into GR
-
-   Single Shift is done as follows:
-
-             SS2 or ESC N: invoke G2 into GL
-             SS3 or ESC O: invoke G3 into GL
-
-   (#### Ben says: I think the above is slightly incorrect.  It appears
-that SS2 invokes G2 into GR and SS3 invokes G3 into GR, whereas ESC N
-and ESC O behave as indicated.  The above definitions will not parse
-EUC-encoded text correctly, and it looks like the code in mule-coding.c
-has similar problems.)
-
-   You may realize that there are a lot of ISO-2022-compliant ways of
-encoding multilingual text.  Now, in the world, there exist many coding
-systems such as X11's Compound Text, Japanese JUNET code, and so-called
-EUC (Extended UNIX Code); all of these are variants of ISO 2022.
-
-   In Mule, we characterize ISO 2022 by the following attributes:
-
-  1. Initial designation to G0 thru G3.
-
-  2. Allow designation of short form for Japanese and Chinese.
-
-  3. Should we designate ASCII to G0 before control characters?
-
-  4. Should we designate ASCII to G0 at the end of line?
-
-  5. 7-bit environment or 8-bit environment.
-
-  6. Use Locking Shift or not.
-
-  7. Use ASCII or JIS0201-1976-Roman.
-
-  8. Use JISX0208-1983 or JISX0208-1976.
-
-   (The last two are only for Japanese.)
-
-   By specifying these attributes, you can create any variant of ISO
-2022.
-
-   Here are several examples:
-
-     junet -- Coding system used in JUNET.
-             1. G0 <- ASCII, G1..3 <- never used
-             2. Yes.
-             3. Yes.
-             4. Yes.
-             5. 7-bit environment
-             6. No.
-             7. Use ASCII
-             8. Use JISX0208-1983
-     
-     ctext -- Compound Text
-             1. G0 <- ASCII, G1 <- Latin-1, G2,3 <- never used
-             2. No.
-             3. No.
-             4. Yes.
-             5. 8-bit environment
-             6. No.
-             7. Use ASCII
-             8. Use JISX0208-1983
-     
-     euc-china -- Chinese EUC.  Although many people call this
-     as "GB encoding", the name may cause misunderstanding.
-             1. G0 <- ASCII, G1 <- GB2312, G2,3 <- never used
-             2. No.
-             3. Yes.
-             4. Yes.
-             5. 8-bit environment
-             6. No.
-             7. Use ASCII
-             8. Use JISX0208-1983
-     
-     korean-mail -- Coding system used in Korean network.
-             1. G0 <- ASCII, G1 <- KSC5601, G2,3 <- never used
-             2. No.
-             3. Yes.
-             4. Yes.
-             5. 7-bit environment
-             6. Yes.
-             7. No.
-             8. No.
-
-   Mule creates all these coding systems by default.
-
-
-File: lispref.info,  Node: Coding Systems,  Next: CCL,  Prev: ISO 2022,  Up: MULE
-
-Coding Systems
-==============
-
-   A coding system is an object that defines how text containing
-multiple character sets is encoded into a stream of (typically 8-bit)
-bytes.  The coding system is used to decode the stream into a series of
-characters (which may be from multiple charsets) when the text is read
-from a file or process, and is used to encode the text back into the
-same format when it is written out to a file or process.
-
-   For example, many ISO-2022-compliant coding systems (such as Compound
-Text, which is used for inter-client data under the X Window System) use
-escape sequences to switch between different charsets--Japanese Kanji,
-for example, is invoked with `ESC $ ( B'; ASCII is invoked with `ESC (
-B'; and Cyrillic is invoked with `ESC - L'.  See `make-coding-system'
-for more information.
-
-   Coding systems are normally identified using a symbol, and the
-symbol is accepted in place of the actual coding system object whenever
-a coding system is called for. (This is similar to how faces and
-charsets work.)
-
- - Function: coding-system-p object
-     This function returns non-`nil' if OBJECT is a coding system.
-
-* Menu:
-
-* Coding System Types::               Classifying coding systems.
-* EOL Conversion::                    Dealing with different ways of denoting
-                                        the end of a line.
-* Coding System Properties::          Properties of a coding system.
-* Basic Coding System Functions::     Working with coding systems.
-* Coding System Property Functions::  Retrieving a coding system's properties.
-* Encoding and Decoding Text::        Encoding and decoding text.
-* Detection of Textual Encoding::     Determining how text is encoded.
-* Big5 and Shift-JIS Functions::      Special functions for these non-standard
-                                        encodings.
-
-
-File: lispref.info,  Node: Coding System Types,  Next: EOL Conversion,  Up: Coding Systems
-
-Coding System Types
--------------------
-
-`nil'
-`autodetect'
-     Automatic conversion.  XEmacs attempts to detect the coding system
-     used in the file.
-
-`no-conversion'
-     No conversion.  Use this for binary files and such.  On output,
-     graphic characters that are not in ASCII or Latin-1 will be
-     replaced by a `?'. (For a no-conversion-encoded buffer, these
-     characters will only be present if you explicitly insert them.)
-
-`shift-jis'
-     Shift-JIS (a Japanese encoding commonly used in PC operating
-     systems).
-
-`iso2022'
-     Any ISO-2022-compliant encoding.  Among other things, this
-     includes JIS (the Japanese encoding commonly used for e-mail),
-     national variants of EUC (the standard Unix encoding for Japanese
-     and other languages), and Compound Text (an encoding used in X11).
-     You can specify more specific information about the conversion
-     with the FLAGS argument.
-
-`big5'
-     Big5 (the encoding commonly used for Taiwanese).
-
-`ccl'
-     The conversion is performed using a user-written pseudo-code
-     program.  CCL (Code Conversion Language) is the name of this
-     pseudo-code.
-
-`internal'
-     Write out or read in the raw contents of the memory representing
-     the buffer's text.  This is primarily useful for debugging
-     purposes, and is only enabled when XEmacs has been compiled with
-     `DEBUG_XEMACS' set (the `--debug' configure option).  *Warning*:
-     Reading in a file using `internal' conversion can result in an
-     internal inconsistency in the memory representing a buffer's text,
-     which will produce unpredictable results and may cause XEmacs to
-     crash.  Under normal circumstances you should never use `internal'
-     conversion.
-
-
-File: lispref.info,  Node: EOL Conversion,  Next: Coding System Properties,  Prev: Coding System Types,  Up: Coding Systems
-
-EOL Conversion
---------------
-
-`nil'
-     Automatically detect the end-of-line type (LF, CRLF, or CR).  Also
-     generate subsidiary coding systems named `NAME-unix', `NAME-dos',
-     and `NAME-mac', that are identical to this coding system but have
-     an EOL-TYPE value of `lf', `crlf', and `cr', respectively.
-
-`lf'
-     The end of a line is marked externally using ASCII LF.  Since this
-     is also the way that XEmacs represents an end-of-line internally,
-     specifying this option results in no end-of-line conversion.  This
-     is the standard format for Unix text files.
-
-`crlf'
-     The end of a line is marked externally using ASCII CRLF.  This is
-     the standard format for MS-DOS text files.
-
-`cr'
-     The end of a line is marked externally using ASCII CR.  This is the
-     standard format for Macintosh text files.
-
-`t'
-     Automatically detect the end-of-line type but do not generate
-     subsidiary coding systems.  (This value is converted to `nil' when
-     stored internally, and `coding-system-property' will return `nil'.)
-
-
-File: lispref.info,  Node: Coding System Properties,  Next: Basic Coding System Functions,  Prev: EOL Conversion,  Up: Coding Systems
-
-Coding System Properties
-------------------------
-
-`mnemonic'
-     String to be displayed in the modeline when this coding system is
-     active.
-
-`eol-type'
-     End-of-line conversion to be used.  It should be one of the types
-     listed in *Note EOL Conversion::.
-
-`post-read-conversion'
-     Function called after a file has been read in, to perform the
-     decoding.  Called with two arguments, BEG and END, denoting a
-     region of the current buffer to be decoded.
-
-`pre-write-conversion'
-     Function called before a file is written out, to perform the
-     encoding.  Called with two arguments, BEG and END, denoting a
-     region of the current buffer to be encoded.
-
-   The following additional properties are recognized if TYPE is
-`iso2022':
-
-`charset-g0'
-`charset-g1'
-`charset-g2'
-`charset-g3'
-     The character set initially designated to the G0 - G3 registers.
-     The value should be one of
-
-        * A charset object (designate that character set)
-
-        * `nil' (do not ever use this register)
-
-        * `t' (no character set is initially designated to the
-          register, but may be later on; this automatically sets the
-          corresponding `force-g*-on-output' property)
-
-`force-g0-on-output'
-`force-g1-on-output'
-`force-g2-on-output'
-`force-g3-on-output'
-     If non-`nil', send an explicit designation sequence on output
-     before using the specified register.
-
-`short'
-     If non-`nil', use the short forms `ESC $ @', `ESC $ A', and `ESC $
-     B' on output in place of the full designation sequences `ESC $ (
-     @', `ESC $ ( A', and `ESC $ ( B'.
-
-`no-ascii-eol'
-     If non-`nil', don't designate ASCII to G0 at each end of line on
-     output.  Setting this to non-`nil' also suppresses other
-     state-resetting that normally happens at the end of a line.
-
-`no-ascii-cntl'
-     If non-`nil', don't designate ASCII to G0 before control chars on
-     output.
-
-`seven'
-     If non-`nil', use 7-bit environment on output.  Otherwise, use
-     8-bit environment.
-
-`lock-shift'
-     If non-`nil', use locking-shift (SO/SI) instead of single-shift or
-     designation by escape sequence.
-
-`no-iso6429'
-     If non-`nil', don't use ISO6429's direction specification.
-
-`escape-quoted'
-     If non-nil, literal control characters that are the same as the
-     beginning of a recognized ISO 2022 or ISO 6429 escape sequence (in
-     particular, ESC (0x1B), SO (0x0E), SI (0x0F), SS2 (0x8E), SS3
-     (0x8F), and CSI (0x9B)) are "quoted" with an escape character so
-     that they can be properly distinguished from an escape sequence.
-     (Note that doing this results in a non-portable encoding.) This
-     encoding flag is used for byte-compiled files.  Note that ESC is a
-     good choice for a quoting character because there are no escape
-     sequences whose second byte is a character from the Control-0 or
-     Control-1 character sets; this is explicitly disallowed by the ISO
-     2022 standard.
-
-`input-charset-conversion'
-     A list of conversion specifications, specifying conversion of
-     characters in one charset to another when decoding is performed.
-     Each specification is a list of two elements: the source charset,
-     and the destination charset.
-
-`output-charset-conversion'
-     A list of conversion specifications, specifying conversion of
-     characters in one charset to another when encoding is performed.
-     The form of each specification is the same as for
-     `input-charset-conversion'.
-
-   The following additional properties are recognized (and required) if
-TYPE is `ccl':
-
-`decode'
-     CCL program used for decoding (converting to internal format).
-
-`encode'
-     CCL program used for encoding (converting to external format).
-
-
-File: lispref.info,  Node: Basic Coding System Functions,  Next: Coding System Property Functions,  Prev: Coding System Properties,  Up: Coding Systems
-
-Basic Coding System Functions
+Example of Receiving Messages
 -----------------------------
 
- - Function: find-coding-system coding-system-or-name
-     This function retrieves the coding system of the given name.
+   Here's a simple example of a handler for a message that tells XEmacs
+to display a string in the mini-buffer area.  The message operation is
+called `emacs-display-string'.  Its first (0th) argument is the string
+to display.
 
-     If CODING-SYSTEM-OR-NAME is a coding-system object, it is simply
-     returned.  Otherwise, CODING-SYSTEM-OR-NAME should be a symbol.
-     If there is no such coding system, `nil' is returned.  Otherwise
-     the associated coding system object is returned.
-
- - Function: get-coding-system name
-     This function retrieves the coding system of the given name.  Same
-     as `find-coding-system' except an error is signalled if there is no
-     such coding system instead of returning `nil'.
-
- - Function: coding-system-list
-     This function returns a list of the names of all defined coding
-     systems.
-
- - Function: coding-system-name coding-system
-     This function returns the name of the given coding system.
-
- - Function: make-coding-system name type &optional doc-string props
-     This function registers symbol NAME as a coding system.
-
-     TYPE describes the conversion method used and should be one of the
-     types listed in *Note Coding System Types::.
-
-     DOC-STRING is a string describing the coding system.
-
-     PROPS is a property list, describing the specific nature of the
-     character set.  Recognized properties are as in *Note Coding
-     System Properties::.
-
- - Function: copy-coding-system old-coding-system new-name
-     This function copies OLD-CODING-SYSTEM to NEW-NAME.  If NEW-NAME
-     does not name an existing coding system, a new one will be created.
-
- - Function: subsidiary-coding-system coding-system eol-type
-     This function returns the subsidiary coding system of
-     CODING-SYSTEM with eol type EOL-TYPE.
+     (defun tooltalk-display-string-handler (msg)
+       (message (get-tooltalk-message-attribute msg 'arg_val 0)))
+     
+     (defvar display-string-pattern
+       '(category TT_HANDLE
+            scope TT_SESSION
+               op "emacs-display-string"
+         callback tooltalk-display-string-handler))
+     
+     (let ((p (make-tooltalk-pattern display-string-pattern)))
+       (register-tooltalk-pattern p))
 
 
-File: lispref.info,  Node: Coding System Property Functions,  Next: Encoding and Decoding Text,  Prev: Basic Coding System Functions,  Up: Coding Systems
+File: lispref.info,  Node: Elisp Interface for Receiving Messages,  Prev: Example of Receiving Messages,  Up: Receiving Messages
 
-Coding System Property Functions
---------------------------------
+Elisp Interface for Receiving Messages
+--------------------------------------
 
- - Function: coding-system-doc-string coding-system
-     This function returns the doc string for CODING-SYSTEM.
+ - Function: make-tooltalk-pattern attributes
+     Create a ToolTalk pattern and initialize its attributes.  The
+     value of attributes must be a list of alternating keyword/values,
+     where keywords are symbols that name valid pattern attributes or
+     lists of valid attributes.  For example:
 
- - Function: coding-system-type coding-system
-     This function returns the type of CODING-SYSTEM.
+            (make-tooltalk-pattern
+              '(category TT_OBSERVE
+                   scope TT_SESSION
+                      op ("operation1" "operation2")
+                    args ("arg1" 12345 (TT_INOUT "arg3" "string"))))
 
- - Function: coding-system-property coding-system prop
-     This function returns the PROP property of CODING-SYSTEM.
+     Attribute names are the same as those supported by
+     `add-tooltalk-pattern-attribute', plus `'args'.
+
+     Values must always be strings, integers, or symbols that represent
+     ToolTalk constants or lists of same.  When a list of values is
+     provided all of the list elements are added to the attribute.  In
+     the example above, messages whose `op' attribute is `"operation1"'
+     or `"operation2"' would match the pattern.
+
+     The value of ARGS should be a list of pattern arguments where each
+     pattern argument has the following form:
+
+             `(mode [value [type]])' or just `value'
+
+     Where MODE is one of `TT_IN', `TT_OUT', or `TT_INOUT' and TYPE is
+     a string.  If TYPE isn't specified then `int' is used if VALUE is
+     a number; otherwise `string' is used.  If TYPE is `string' then
+     VALUE is converted to a string (if it isn't a string already) with
+     `prin1-to-string'.  If only a value is specified then MODE
+     defaults to `TT_IN'.  If MODE is `TT_OUT' then VALUE and TYPE
+     don't need to be specified.  You can find out more about the
+     semantics and uses of ToolTalk pattern arguments in chapter 3 of
+     the `ToolTalk Programmer's Guide'.
+
+
+ - Function: register-tooltalk-pattern pat
+     XEmacs will begin receiving messages that match this pattern.
+
+ - Function: unregister-tooltalk-pattern pat
+     XEmacs will stop receiving messages that match this pattern.
+
+ - Function: add-tooltalk-pattern-attribute value pat indicator
+     Add one value to the indicated pattern attribute. The names of
+     attributes are the same as the ToolTalk accessors used to set them
+     less the `tooltalk_pattern_' prefix and the `_add' suffix.  For
+     example, the name of the attribute for the
+     `tt_pattern_disposition_add' attribute is `disposition'.  The
+     `category' attribute is handled specially, since a pattern can only
+     be a member of one category (`TT_OBSERVE' or `TT_HANDLE').
+
+     Callbacks are handled slightly differently than in the C ToolTalk
+     API.  The value of CALLBACK should be the name of a function of one
+     argument.  It will be called each time the pattern matches an
+     incoming message.
+
+ - Function: add-tooltalk-pattern-arg pat mode type value
+     Add one fully-specified argument to a ToolTalk pattern.  MODE must
+     be one of `TT_IN', `TT_INOUT', or `TT_OUT'.  TYPE must be a
+     string.  VALUE can be an integer, string or `nil'.  If VALUE is an
+     integer then an integer argument (`tt_pattern_iarg_add') is added;
+     otherwise a string argument is added.  At present there's no way
+     to add a binary data argument.
+
+
+ - Function: create-tooltalk-pattern
+     Create a new ToolTalk pattern and initialize its session attribute
+     to be the default session.
+
+ - Function: destroy-tooltalk-pattern pat
+     Apply `tt_pattern_destroy' to the pattern.  This effectively
+     unregisters the pattern.
+
+ - Function: describe-tooltalk-message msg &optional stream
+     Print the message's attributes and arguments to STREAM.  This is
+     often useful for debugging.
 
 
-File: lispref.info,  Node: Encoding and Decoding Text,  Next: Detection of Textual Encoding,  Prev: Coding System Property Functions,  Up: Coding Systems
+File: lispref.info,  Node: LDAP Support,  Next: PostgreSQL Support,  Prev: ToolTalk Support,  Up: Top
 
-Encoding and Decoding Text
---------------------------
+LDAP Support
+************
 
- - Function: decode-coding-region start end coding-system &optional
-          buffer
-     This function decodes the text between START and END which is
-     encoded in CODING-SYSTEM.  This is useful if you've read in
-     encoded text from a file without decoding it (e.g. you read in a
-     JIS-formatted file but used the `binary' or `no-conversion' coding
-     system, so that it shows up as `^[$B!<!+^[(B').  The length of the
-     encoded text is returned.  BUFFER defaults to the current buffer
-     if unspecified.
+   XEmacs can be linked with a LDAP client library to provide Elisp
+primitives to access directory servers using the Lightweight Directory
+Access Protocol.
 
- - Function: encode-coding-region start end coding-system &optional
-          buffer
-     This function encodes the text between START and END using
-     CODING-SYSTEM.  This will, for example, convert Japanese
-     characters into stuff such as `^[$B!<!+^[(B' if you use the JIS
-     encoding.  The length of the encoded text is returned.  BUFFER
-     defaults to the current buffer if unspecified.
+* Menu:
+
+* Building XEmacs with LDAP support::  How to add LDAP support to XEmacs
+* XEmacs LDAP API::             Lisp access to LDAP functions
+* Syntax of Search Filters::    A brief summary of RFC 1558
+
+
+File: lispref.info,  Node: Building XEmacs with LDAP support,  Next: XEmacs LDAP API,  Prev: LDAP Support,  Up: LDAP Support
+
+Building XEmacs with LDAP support
+=================================
+
+   LDAP support must be added to XEmacs at build time since it requires
+linking to an external LDAP client library.  As of 21.2, XEmacs has been
+successfully built and tested with
+
+   * OpenLDAP 1.2 (<http://www.openldap.org/>)
+
+   * University of Michigan's LDAP 3.3
+     (<http://www.umich.edu/~dirsvcs/ldap/>)
+
+   * LDAP SDK 1.0 from Netscape Corp. (<http://developer.netscape.com/>)
+
+   Other libraries conforming to RFC 1823 will probably work also but
+may require some minor tweaking at C level.
+
+   The standard XEmacs configure script auto-detects an installed LDAP
+library provided the library itself and the corresponding header files
+can be found in the library and include paths.  A successful detection
+will be signalled in the final output of the configure script.
+
+
+File: lispref.info,  Node: XEmacs LDAP API,  Next: Syntax of Search Filters,  Prev: Building XEmacs with LDAP support,  Up: LDAP Support
+
+XEmacs LDAP API
+===============
+
+   XEmacs LDAP API consists of two layers:  a low-level layer which
+tries to stay as close as possible to the C API (where practical) and a
+higher-level layer which provides more convenient primitives to
+effectively use LDAP.
+
+   The low-level API should be used directly for very specific purposes
+(such as multiple operations on a connection) only.  The higher-level
+functions provide a more convenient way to access LDAP directories
+hiding the subtleties of handling the connection, translating arguments
+and ensuring compliance with LDAP internationalization rules and formats
+(currently partly implemented only).
+
+* Menu:
+
+* LDAP Variables::              Lisp variables related to LDAP
+* The High-Level LDAP API::     High-level LDAP lisp functions
+* The Low-Level LDAP API::      Low-level LDAP lisp primitives
+* LDAP Internationalization::   I18n variables and functions
+
+
+File: lispref.info,  Node: LDAP Variables,  Next: The High-Level LDAP API,  Prev: XEmacs LDAP API,  Up: XEmacs LDAP API
+
+LDAP Variables
+--------------
+
+ - Variable: ldap-default-host
+     The default LDAP server hostname.  A TCP port number can be
+     appended to that name using a colon as a separator.
+
+ - Variable: ldap-default-port
+     Default TCP port for LDAP connections.  Initialized from the LDAP
+     library. Default value is 389.
+
+ - Variable: ldap-default-base
+     Default base for LDAP searches.  This is a string using the syntax
+     of RFC 1779.  For instance, "o=ACME, c=US" limits the search to the
+     Acme organization in the United States.
+
+ - Variable: ldap-host-parameters-alist
+     An alist of per host options for LDAP transactions.  The list
+     elements look like `(HOST PROP1 VAL1 PROP2 VAL2 ...)' HOST is the
+     name of an LDAP server. A TCP port number can be appended to that
+     name using a colon as a separator.  PROPN and VALN are
+     property/value pairs describing parameters for the server.  Valid
+     properties:
+    `binddn'
+          The distinguished name of the user to bind as.  This may look
+          like `cn=Babs Jensen,o=ACME,c=US', see RFC 1779 for details.
+
+    `passwd'
+          The password to use for authentication.
+
+    `auth'
+          The authentication method to use, possible values depend on
+          the LDAP library XEmacs was compiled with, they may include
+          `simple', `krbv41' and `krbv42'.
+
+    `base'
+          The base for the search. This may look like `cÿ, o¬me', see
+          RFC 1779 for syntax details.
+
+    `scope'
+          One of the symbols `base', `onelevel' or `subtree' indicating
+          the scope of the search limited to a base object, to a single
+          level or to the whole subtree.
+
+    `deref'
+          The dereference policy is one of the symbols `never',
+          `always', `search' or `find' and defines how aliases are
+          dereferenced.
+         `never'
+               Aliases are never dereferenced
+
+         `always'
+               Aliases are always dereferenced
+
+         `search'
+               Aliases are dereferenced when searching
+
+         `find'
+               Aliases are dereferenced when locating the base object
+               for the search
+
+    `timelimit'
+          The timeout limit for the connection in seconds.
+
+    `sizelimit'
+          The maximum number of matches to return for searches
+          performed on this connection.
+
+ - Variable: ldap-verbose
+     If non-`nil', LDAP operations will echo progress messages.
+     Defaults to `nil'.
+
+
+File: lispref.info,  Node: The High-Level LDAP API,  Next: The Low-Level LDAP API,  Prev: LDAP Variables,  Up: XEmacs LDAP API
+
+The High-Level LDAP API
+-----------------------
+
+   The following functions provide the most convenient interface to
+perform LDAP operations.  All of them open a connection to a host,
+perform an operation (add/search/modify/delete) on one or several
+entries and cleanly close the connection thus insulating the user from
+all the details of the low-level interface such as LDAP Lisp objects
+*note The Low-Level LDAP API::.
+
+   Note that `ldap-search' which used to be the name of the high-level
+search function in XEmacs 21.1 is now obsolete.  For consistency  in the
+naming as well as backward compatibility, that function now acts as a
+wrapper that calls either `ldap-search-basic' (low-level search
+function) or `ldap-search-entries' (high-level search function)
+according to the actual parameters.  A direct call to one of these two
+functions is preferred since it is faster and unambiguous.
+
+ - Function: ldap-search-entries filter &optional host attributes
+          attrsonly withdn
+     Perform an LDAP search.  FILTER is the search filter *note Syntax
+     of Search Filters:: HOST is the LDAP host on which to perform the
+     search.  ATTRIBUTES is the specific attributes to retrieve, `nil'
+     means retrieve all.  ATTRSONLY if non-`nil' retrieves the
+     attributes only without their associated values.  If WITHDN is
+     non-`nil' each entry in the result will be prepended with its
+     distinguished name DN.  Additional search parameters can be
+     specified through `ldap-host-parameters-alist'.  The function
+     returns a list of matching entries.  Each entry is itself an alist
+     of attribute/value pairs optionally preceded by the DN of the
+     entry according to the value of WITHDN.
+
+ - Function: ldap-add-entries entries &optional host binddn passwd
+     Add entries to an LDAP directory.  ENTRIES is a list of entry
+     specifications of the form `(DN (ATTR . VALUE) (ATTR . VALUE) ...)'
+     where DN the distinguished name of an entry to add, the following
+     are cons cells containing attribute/value string pairs.  HOST is
+     the LDAP host, defaulting to `ldap-default-host' BINDDN is the DN
+     to bind as to the server PASSWD is the corresponding password.
+
+ - Function: ldap-modify-entries entry-mods &optional host binddn passwd
+     Modify entries of an LDAP directory.  ENTRY_MODS is a list of
+     entry modifications of the form `(DN MOD-SPEC1 MOD-SPEC2 ...)'
+     where DN is the distinguished name of the entry to modify, the
+     following are modification specifications.  A modification
+     specification is itself a list of the form `(MOD-OP ATTR VALUE1
+     VALUE2 ...)' MOD-OP and ATTR are mandatory, VALUES are optional
+     depending on MOD-OP.  MOD-OP is the type of modification, one of
+     the symbols `add', `delete' or `replace'. ATTR is the LDAP
+     attribute type to modify.  HOST is the LDAP host, defaulting to
+     `ldap-default-host' BINDDN is the DN to bind as to the server
+     PASSWD is the corresponding password"
+
+ - Function: ldap-delete-entries dn &optional host binddn passwd
+     Delete an entry from an LDAP directory.  DN is the distinguished
+     name of an entry to delete or a list of those.  HOST is the LDAP
+     host, defaulting to `ldap-default-host' BINDDN is the DN to bind
+     as to the server PASSWD is the corresponding password.
+
+
+File: lispref.info,  Node: The Low-Level LDAP API,  Next: LDAP Internationalization,  Prev: The High-Level LDAP API,  Up: XEmacs LDAP API
+
+The Low-Level LDAP API
+----------------------
+
+   The low-level API should be used directly for very specific purposes
+(such as multiple operations on a connection) only.  The higher-level
+functions provide a more convenient way to access LDAP directories
+hiding the subtleties of handling the connection, translating arguments
+and ensuring compliance with LDAP internationalization rules and formats
+(currently partly implemented only). See *note The High-Level LDAP API::
+
+   Note that the former functions `ldap-*-internal' functions have been
+renamed in XEmacs 21.2
+
+* Menu:
+
+* The LDAP Lisp Object::
+* Opening and Closing a LDAP Connection::
+* Low-level Operations on a LDAP Server::
+
+
+File: lispref.info,  Node: The LDAP Lisp Object,  Next: Opening and Closing a LDAP Connection,  Prev: The Low-Level LDAP API,  Up: The Low-Level LDAP API
+
+The LDAP Lisp Object
+....................
+
+   An internal built-in `ldap' lisp object represents a LDAP connection.
+
+ - Function: ldapp object
+     This function returns non-`nil' if OBJECT is a `ldap' object.
+
+ - Function: ldap-host ldap
+     Return the server host of the connection represented by LDAP
+
+ - Function: ldap-live-p ldap
+     Return non-`nil' if LDAP is an active LDAP connection
+
+
+File: lispref.info,  Node: Opening and Closing a LDAP Connection,  Next: Low-level Operations on a LDAP Server,  Prev: The LDAP Lisp Object,  Up: The Low-Level LDAP API
+
+Opening and Closing a LDAP Connection
+.....................................
+
+ - Function: ldap-open host &optional plist
+     Open a LDAP connection to HOST.  PLIST is a property list
+     containing additional parameters for the connection.  Valid keys
+     in that list are:
+    `port'
+          The TCP port to use for the connection if different from
+          `ldap-default-port' or the library builtin value
+
+    `auth'
+          The authentication method to use, possible values depend on
+          the LDAP library XEmacs was compiled with, they may include
+          `simple', `krbv41' and `krbv42'.
+
+    `binddn'
+          The distinguished name of the user to bind as.  This may look
+          like `c=com, o=Acme, cn=Babs Jensen', see RFC 1779 for
+          details.
+
+    `passwd'
+          The password to use for authentication.
+
+    `deref'
+          The dereference policy is one of the symbols `never',
+          `always', `search' or `find' and defines how aliases are
+          dereferenced.
+         `never'
+               Aliases are never dereferenced
+
+         `always'
+               Aliases are always dereferenced
+
+         `search'
+               Aliases are dereferenced when searching
+
+         `find'
+               Aliases are dereferenced when locating the base object
+               for the search The default is `never'.
+
+    `timelimit'
+          The timeout limit for the connection in seconds.
+
+    `sizelimit'
+          The maximum number of matches to return for searches
+          performed on this connection.
+
+ - Function: ldap-close ldap
+     Close the connection represented by LDAP
+
+
+File: lispref.info,  Node: Low-level Operations on a LDAP Server,  Prev: Opening and Closing a LDAP Connection,  Up: The Low-Level LDAP API
+
+Low-level Operations on a LDAP Server
+.....................................
+
+   `ldap-search-basic' is the low-level primitive to perform a search
+on a LDAP server.  It works directly on an open LDAP connection thus
+requiring a preliminary call to `ldap-open'.  Multiple searches can be
+made on the same connection, then the session must be closed with
+`ldap-close'.
+
+ - Function: ldap-search-basic ldap filter base scope attrs attrsonly
+     Perform a search on an open connection LDAP created with
+     `ldap-open'.  FILTER is a filter string for the search *note
+     Syntax of Search Filters:: BASE is the distinguished name at which
+     to start the search.  SCOPE is one of the symbols `base',
+     `onelevel' or `subtree' indicating the scope of the search limited
+     to a base object, to a single level or to the whole subtree.  The
+     default is `subtree'.  `attrs' is a list of strings indicating
+     which attributes to retrieve for each matching entry. If `nil' all
+     available attributes are returned.  If `attrsonly' is non-`nil'
+     then only the attributes are retrieved, not their associated values
+     If `withdn' is non-`nil' then each entry in the result is
+     prepended with its distinguished name DN If `verbose' is non-`nil'
+     then progress messages are echoed The function returns a list of
+     matching entries.  Each entry  is itself an alist of
+     attribute/value pairs optionally preceded by the DN of the entry
+     according to the value of `withdn'.
+
+ - Function: ldap-add ldap dn entry
+     Add ENTRY to a LDAP directory which a connection LDAP has been
+     opened to with `ldap-open'.  DN is the distinguished name of the
+     entry to add.  ENTRY is an entry specification, i.e., a list of
+     cons cells containing attribute/value string pairs.
+
+ - Function: ldap-modify ldap dn mods
+     Modify an entry in an LDAP directory.  LDAP is an LDAP connection
+     object created with `ldap-open'.  DN is the distinguished name of
+     the entry to modify.  MODS is a list of modifications to apply.  A
+     modification is a list of the form `(MOD-OP ATTR VALUE1 VALUE2
+     ...)'  MOD-OP and ATTR are mandatory, VALUES are optional
+     depending on MOD-OP.  MOD-OP is the type of modification, one of
+     the symbols `add', `delete' or `replace'. ATTR is the LDAP
+     attribute type to modify
+
+ - Function: ldap-delete ldap dn
+     Delete an entry to an LDAP directory.  LDAP is an LDAP connection
+     object created with `ldap-open'.  DN is the distinguished name of
+     the entry to delete
+
+
+File: lispref.info,  Node: LDAP Internationalization,  Prev: The Low-Level LDAP API,  Up: XEmacs LDAP API
+
+LDAP Internationalization
+-------------------------
+
+   The XEmacs LDAP API provides basic internationalization features
+based on the LDAP v3 specification (essentially RFC2252 on "LDAP v3
+Attribute Syntax Definitions").  Unfortunately since there is currently
+no free LDAP v3 server software, this part has not received much
+testing and should be considered experimental.  The framework is in
+place though.
+
+ - Function: ldap-decode-attribute attr
+     Decode the attribute/value pair ATTR according to LDAP rules.  The
+     attribute name is looked up in `ldap-attribute-syntaxes-alist' and
+     the corresponding decoder is then retrieved from
+     `ldap-attribute-syntax-decoders'' and applied on the value(s).
+
+* Menu:
+
+* LDAP Internationalization Variables::
+* Encoder/Decoder Functions::
+
+
+File: lispref.info,  Node: LDAP Internationalization Variables,  Next: Encoder/Decoder Functions,  Prev: LDAP Internationalization,  Up: LDAP Internationalization
+
+LDAP Internationalization Variables
+...................................
+
+ - Variable: ldap-ignore-attribute-codings
+     If non-`nil', no encoding/decoding will be performed LDAP
+     attribute values
+
+ - Variable: ldap-coding-system
+     Coding system of LDAP string values.  LDAP v3 specifies the coding
+     system of strings to be UTF-8.  You need an XEmacs with Mule
+     support for this.
+
+ - Variable: ldap-default-attribute-decoder
+     Decoder function to use for attributes whose syntax is unknown.
+     Such a function receives an encoded attribute value as a string
+     and should return the decoded value as a string
+
+ - Variable: ldap-attribute-syntax-encoders
+     A vector of functions used to encode LDAP attribute values.  The
+     sequence of functions corresponds to the sequence of LDAP
+     attribute syntax object identifiers of the form
+     1.3.6.1.4.1.1466.1115.121.1.* as defined in RFC2252 section 4.3.2.
+     As of this writing, only a few encoder functions are available.
+
+ - Variable: ldap-attribute-syntax-decoders
+     A vector of functions used to decode LDAP attribute values.  The
+     sequence of functions corresponds to the sequence of LDAP
+     attribute syntax object identifiers of the form
+     1.3.6.1.4.1.1466.1115.121.1.* as defined in RFC2252 section 4.3.2.
+     As of this writing, only a few decoder functions are available.
+
+ - Variable: ldap-attribute-syntaxes-alist
+     A map of LDAP attribute names to their type object id minor number.
+     This table is built from RFC2252 Section 5 and RFC2256 Section 5
+
+
+File: lispref.info,  Node: Encoder/Decoder Functions,  Prev: LDAP Internationalization Variables,  Up: LDAP Internationalization
+
+Encoder/Decoder Functions
+.........................
+
+ - Function: ldap-encode-boolean bool
+     A function that encodes an elisp boolean BOOL into a LDAP boolean
+     string representation
+
+ - Function: ldap-decode-boolean str
+     A function that decodes a LDAP boolean string representation STR
+     into an elisp boolean
+
+ - Function: ldap-decode-string str
+     Decode a string STR according to `ldap-coding-system'
+
+ - Function: ldap-encode-string str
+     Encode a string STR according to `ldap-coding-system'
+
+ - Function: ldap-decode-address str
+     Decode an address STR according to `ldap-coding-system' and
+     replacing $ signs with newlines as specified by LDAP encoding
+     rules for addresses
+
+ - Function: ldap-encode-address str
+     Encode an address STR according to `ldap-coding-system' and
+     replacing newlines with $ signs as specified by LDAP encoding
+     rules for addresses
+
+
+File: lispref.info,  Node: Syntax of Search Filters,  Prev: XEmacs LDAP API,  Up: LDAP Support
+
+Syntax of Search Filters
+========================
+
+   LDAP search functions use RFC1558 syntax to describe the search
+filter.  In that syntax simple filters have the form:
+
+     (<attr> <filtertype> <value>)
+
+   `<attr>' is an attribute name such as `cn' for Common Name, `o' for
+Organization, etc...
+
+   `<value>' is the corresponding value.  This is generally an exact
+string but may also contain `*' characters as wildcards
+
+   `filtertype' is one `=' `~=', `<=', `>=' which respectively describe
+equality, approximate equality, inferiority and superiority.
+
+   Thus `(cn=John Smith)' matches all records having a canonical name
+equal to John Smith.
+
+   A special case is the presence filter `(<attr>=*' which matches
+records containing a particular attribute.  For instance `(mail=*)'
+matches all records containing a `mail' attribute.
+
+   Simple filters can be connected together with the logical operators
+`&', `|' and `!' which stand for the usual and, or and not operators.
+
+   `(&(objectClass=Person)(mail=*)(|(sn=Smith)(givenname=John)))'
+matches records of class `Person' containing a `mail' attribute and
+corresponding to people whose last name is `Smith' or whose first name
+is `John'.
+
+
+File: lispref.info,  Node: PostgreSQL Support,  Next: Internationalization,  Prev: LDAP Support,  Up: Top
+
+PostgreSQL Support
+******************
+
+   XEmacs can be linked with PostgreSQL libpq run-time support to
+provide relational database access from Emacs Lisp code.
+
+* Menu:
+
+* Building XEmacs with PostgreSQL support::
+* XEmacs PostgreSQL libpq API::
+* XEmacs PostgreSQL libpq Examples::
+
+
+File: lispref.info,  Node: Building XEmacs with PostgreSQL support,  Next: XEmacs PostgreSQL libpq API,  Up: PostgreSQL Support
+
+Building XEmacs with PostgreSQL support
+=======================================
+
+   XEmacs PostgreSQL support requires linking to the PostgreSQL libpq.so
+library.  Describing how to build and install PostgreSQL is beyond the
+scope of this document, see the PostgreSQL manual for details.
+
+   If you have installed XEmacs from one of the binary kits on
+(<ftp://ftp.xemacs.org/>), or are using an XEmacs binary from a CD ROM,
+you should have XEmacs PostgreSQL support by default.  If you are
+building XEmacs from source on a Linux system with PostgreSQL installed
+into the default location, it should be autodetected when you run
+configure.  If you have installed PostgreSQL into its non-Linux default
+location, `/usr/local/pgsql', you must specify
+`--site-prefixes=/usr/local/pgsql' when you run configure.  If you
+installed PostgreSQL into another location, use that instead of
+`/usr/local/pgsql' when specifying `--site-prefixes'.
+
+   As of XEmacs 21.2, PostgreSQL versions 6.5.3 and 7.0 are supported.
+XEmacs Lisp support for V7.0 is somewhat more extensive than support for
+V6.5.  In particular, asynchronous queries are supported.
+
+
+File: lispref.info,  Node: XEmacs PostgreSQL libpq API,  Next: XEmacs PostgreSQL libpq Examples,  Prev: Building XEmacs with PostgreSQL support,  Up: PostgreSQL Support
+
+XEmacs PostgreSQL libpq API
+===========================
+
+   XEmacs PostgreSQL API is intended to be a policy-free, low-level
+binding to libpq.  The intent is to provide all the basic functionality
+and then let high level Lisp code decide its own policies.
+
+   This documentation assumes that the reader has knowledge of SQL, but
+requires no prior knowledge of libpq.
+
+   There are many examples in this manual and some setup will be
+required.  In order to run most of the following examples, the
+following code needs to be executed.  In addition to the data is in
+this table, nearly all of the examples will assume that the free
+variable `P' refers to this database connection.  The examples in the
+original edition of this manual were run against Postgres 7.0beta1.
+
+     (progn
+       (setq P (pq-connectdb ""))
+       ;; id is the primary key, shikona is a Japanese word that
+       ;; means `the professional name of a Sumo wrestler', and
+       ;; rank is the Sumo rank name.
+       (pq-exec P (concat "CREATE TABLE xemacs_test"
+                          " (id int, shikona text, rank text);"))
+       (pq-exec P "COPY xemacs_test FROM stdin;")
+       (pq-put-line P "1\tMusashimaru\tYokuzuna\n")
+       (pq-put-line P "2\tDejima\tOozeki\n")
+       (pq-put-line P "3\tMusoyama\tSekiwake\n")
+       (pq-put-line P "4\tMiyabiyama\tSekiwake\n")
+       (pq-put-line P "5\tWakanoyama\tMaegashira\n")
+       (pq-put-line P "\\.\n")
+       (pq-end-copy P))
+          => nil
+
+* Menu:
+
+* libpq Lisp Variables::
+* libpq Lisp Symbols and DataTypes::
+* Synchronous Interface Functions::
+* Asynchronous Interface Functions::
+* Large Object Support::
+* Other libpq Functions::
+* Unimplemented libpq Functions::
+
+
+File: lispref.info,  Node: libpq Lisp Variables,  Next: libpq Lisp Symbols and DataTypes,  Prev: XEmacs PostgreSQL libpq API,  Up: XEmacs PostgreSQL libpq API
+
+libpq Lisp Variables
+--------------------
+
+   Various Unix environment variables are used by libpq to provide
+defaults to the many different parameters.  In the XEmacs Lisp API,
+these environment variables are bound to Lisp variables to provide more
+convenient access to Lisp Code.  These variables are passed to the
+backend database server during the establishment of a database
+connection and when the `pq-setenv' call is made.
+
+ - Variable: pg:host
+     Initialized from the PGHOST environment variable.  The default
+     host to connect to.
+
+ - Variable: pg:user
+     Initialized from the PGUSER environment variable.  The default
+     database user name.
+
+ - Variable: pg:options
+     Initialized from the PGOPTIONS environment variable.  Default
+     additional server options.
+
+ - Variable: pg:port
+     Initialized from the PGPORT environment variable.  The default TCP
+     port to connect to.
+
+ - Variable: pg:tty
+     Initialized from the PGTTY environment variable.  The default
+     debugging TTY.
+
+     Compatibility note:  Debugging TTYs are turned off in the XEmacs
+     Lisp binding.
+
+ - Variable: pg:database
+     Initialized from the PGDATABASE environment variable.  The default
+     database to connect to.
+
+ - Variable: pg:realm
+     Initialized from the PGREALM environment variable.  The default
+     Kerberos realm.
+
+ - Variable: pg:client-encoding
+     Initialized from the PGCLIENTENCODING environment variable.  The
+     default client encoding.
+
+     Compatibility note:  This variable is not present in non-Mule
+     XEmacsen.  This variable is not present in versions of libpq prior
+     to 7.0.  In the current implementation, client encoding is
+     equivalent to the `file-name-coding-system' format.
+
+ - Variable: pg:authtype
+     Initialized from the PGAUTHTYPE environment variable.  The default
+     authentication scheme used.
+
+     Compatibility note:  This variable is unused in versions of libpq
+     after 6.5.  It is not implemented at all in the XEmacs Lisp
+     binding.
+
+ - Variable: pg:geqo
+     Initialized from the PGGEQO environment variable.  Genetic
+     optimizer options.
+
+ - Variable: pg:cost-index
+     Initialized from the PGCOSTINDEX environment variable.  Cost index
+     options.
+
+ - Variable: pg:cost-heap
+     Initialized from the PGCOSTHEAP environment variable.  Cost heap
+     options.
+
+ - Variable: pg:tz
+     Initialized from the PGTZ environment variable.  Default timezone.
+
+ - Variable: pg:date-style
+     Initialized from the PGDATESTYLE environment variable.  Default
+     date style in returned date objects.
+
+ - Variable: pg-coding-system
+     This is a variable controlling which coding system is used to
+     encode non-ASCII strings sent to the database.
+
+     Compatibility Note: This variable is not present in InfoDock.
 

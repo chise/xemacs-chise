@@ -122,7 +122,7 @@ hash_table_size (size_t requested_size)
   /* Return some prime near, but greater than or equal to, SIZE.
      Decades from the time of writing, someone will have a system large
      enough that the list below will be too short... */
-  static CONST size_t primes [] =
+  static const size_t primes [] =
   {
     19, 29, 41, 59, 79, 107, 149, 197, 263, 347, 457, 599, 787, 1031,
     1361, 1777, 2333, 3037, 3967, 5167, 6719, 8737, 11369, 14783,
@@ -252,6 +252,16 @@ hash_table_equal (Lisp_Object hash_table1, Lisp_Object hash_table2, int depth)
 
   return 1;
 }
+
+/* This is not a great hash function, but it _is_ correct and fast.
+   Examining all entries is too expensive, and examining a random
+   subset does not yield a correct hash function. */
+static hashcode_t
+hash_table_hash (Lisp_Object hash_table, int depth)
+{
+  return XHASH_TABLE (hash_table)->count;
+}
+
 
 /* Printing hash tables.
 
@@ -393,8 +403,7 @@ const struct lrecord_description hash_table_description[] = {
 DEFINE_LRECORD_IMPLEMENTATION ("hash-table", hash_table,
                                mark_hash_table, print_hash_table,
 			       finalize_hash_table,
-			       /* #### Implement hash_table_hash()! */
-			       hash_table_equal, 0,
+			       hash_table_equal, hash_table_hash,
 			       hash_table_description,
 			       Lisp_Hash_Table);
 
@@ -861,7 +870,7 @@ The keys and values will not themselves be copied.
 */
        (hash_table))
 {
-  CONST Lisp_Hash_Table *ht_old = xhash_table (hash_table);
+  const Lisp_Hash_Table *ht_old = xhash_table (hash_table);
   Lisp_Hash_Table *ht = alloc_lcrecord_type (Lisp_Hash_Table, &lrecord_hash_table);
 
   copy_lcrecord (ht, ht_old);
@@ -915,7 +924,7 @@ resize_hash_table (Lisp_Hash_Table *ht, size_t new_size)
 void
 pdump_reorganize_hash_table (Lisp_Object hash_table)
 {
-  CONST Lisp_Hash_Table *ht = xhash_table (hash_table);
+  const Lisp_Hash_Table *ht = xhash_table (hash_table);
   hentry *new_entries = xnew_array_and_zero (hentry, ht->size + 1);
   hentry *e, *sentinel;
 
@@ -942,7 +951,7 @@ enlarge_hash_table (Lisp_Hash_Table *ht)
 }
 
 static hentry *
-find_hentry (Lisp_Object key, CONST Lisp_Hash_Table *ht)
+find_hentry (Lisp_Object key, const Lisp_Hash_Table *ht)
 {
   hash_table_test_function_t test_function = ht->test_function;
   hentry *entries = ht->hentries;
@@ -961,7 +970,7 @@ If there is no corresponding value, return DEFAULT (which defaults to nil).
 */
        (key, hash_table, default_))
 {
-  CONST Lisp_Hash_Table *ht = xhash_table (hash_table);
+  const Lisp_Hash_Table *ht = xhash_table (hash_table);
   hentry *e = find_hentry (key, ht);
 
   return HENTRY_CLEAR_P (e) ? default_ : e->value;
@@ -1141,8 +1150,8 @@ may remhash or puthash the entry currently being processed by FUNCTION.
 */
        (function, hash_table))
 {
-  CONST Lisp_Hash_Table *ht = xhash_table (hash_table);
-  CONST hentry *e, *sentinel;
+  const Lisp_Hash_Table *ht = xhash_table (hash_table);
+  const hentry *e, *sentinel;
 
   for (e = ht->hentries, sentinel = e + ht->size; e < sentinel; e++)
     if (!HENTRY_CLEAR_P (e))
@@ -1167,8 +1176,8 @@ void
 elisp_maphash (maphash_function_t function,
 	       Lisp_Object hash_table, void *extra_arg)
 {
-  CONST Lisp_Hash_Table *ht = XHASH_TABLE (hash_table);
-  CONST hentry *e, *sentinel;
+  const Lisp_Hash_Table *ht = XHASH_TABLE (hash_table);
+  const hentry *e, *sentinel;
 
   for (e = ht->hentries, sentinel = e + ht->size; e < sentinel; e++)
     if (!HENTRY_CLEAR_P (e))
@@ -1209,6 +1218,15 @@ elisp_map_remhash (maphash_function_t predicate,
 /************************************************************************/
 /*		   garbage collecting weak hash tables			*/
 /************************************************************************/
+#define MARK_OBJ(obj) do {		\
+  Lisp_Object mo_obj = (obj);		\
+  if (!marked_p (mo_obj))		\
+    {					\
+      mark_object (mo_obj);		\
+      did_mark = 1;			\
+    }					\
+} while (0)
+
 
 /* Complete the marking for semi-weak hash tables. */
 int
@@ -1221,9 +1239,9 @@ finish_marking_weak_hash_tables (void)
        !NILP (hash_table);
        hash_table = XHASH_TABLE (hash_table)->next_weak)
     {
-      CONST Lisp_Hash_Table *ht = XHASH_TABLE (hash_table);
-      CONST hentry *e = ht->hentries;
-      CONST hentry *sentinel = e + ht->size;
+      const Lisp_Hash_Table *ht = XHASH_TABLE (hash_table);
+      const hentry *e = ht->hentries;
+      const hentry *sentinel = e + ht->size;
 
       if (! marked_p (hash_table))
 	/* The hash table is probably garbage.  Ignore it. */
@@ -1232,9 +1250,6 @@ finish_marking_weak_hash_tables (void)
       /* Now, scan over all the pairs.  For all pairs that are
 	 half-marked, we may need to mark the other half if we're
 	 keeping this pair. */
-#define MARK_OBJ(obj) \
-do { if (!marked_p (obj)) mark_object (obj), did_mark = 1; } while (0)
-
       switch (ht->weakness)
 	{
 	case HASH_TABLE_KEY_WEAK:
@@ -1328,12 +1343,13 @@ hashcode_t
 internal_array_hash (Lisp_Object *arr, int size, int depth)
 {
   int i;
-  unsigned long hash = 0;
+  hashcode_t hash = 0;
+  depth++;
 
   if (size <= 5)
     {
       for (i = 0; i < size; i++)
-	hash = HASH2 (hash, internal_hash (arr[i], depth + 1));
+	hash = HASH2 (hash, internal_hash (arr[i], depth));
       return hash;
     }
 
@@ -1341,7 +1357,7 @@ internal_array_hash (Lisp_Object *arr, int size, int depth)
      A slightly better approach would be to offset by some
      noise factor from the points chosen below. */
   for (i = 0; i < 5; i++)
-    hash = HASH2 (hash, internal_hash (arr[i*size/5], depth + 1));
+    hash = HASH2 (hash, internal_hash (arr[i*size/5], depth));
 
   return hash;
 }
@@ -1374,16 +1390,9 @@ internal_hash (Lisp_Object obj, int depth)
     {
       return hash_string (XSTRING_DATA (obj), XSTRING_LENGTH (obj));
     }
-  if (VECTORP (obj))
-    {
-      return HASH2 (XVECTOR_LENGTH (obj),
-		    internal_array_hash (XVECTOR_DATA (obj),
-					 XVECTOR_LENGTH (obj),
-					 depth + 1));
-    }
   if (LRECORDP (obj))
     {
-      CONST struct lrecord_implementation
+      const struct lrecord_implementation
 	*imp = XRECORD_LHEADER_IMPLEMENTATION (obj);
       if (imp->hash)
 	return imp->hash (obj, depth);
@@ -1409,7 +1418,7 @@ The value is returned as (HIGH . LOW).
        (object))
 {
   /* This function is pretty 32bit-centric. */
-  unsigned long hash = internal_hash (object, 0);
+  hashcode_t hash = internal_hash (object, 0);
   return Fcons (hash >> 16, hash & 0xffff);
 }
 #endif
@@ -1422,6 +1431,8 @@ The value is returned as (HIGH . LOW).
 void
 syms_of_elhash (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (hash_table);
+
   DEFSUBR (Fhash_table_p);
   DEFSUBR (Fmake_hash_table);
   DEFSUBR (Fcopy_hash_table);

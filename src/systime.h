@@ -147,37 +147,23 @@ do {						\
 #define EMACS_SET_USECS(time, microseconds) ((time).tv_usec = (microseconds))
 
 #if !defined (HAVE_GETTIMEOFDAY)
-struct timezone;
-int gettimeofday (struct timeval *, struct timezone *);
+int gettimeofday (struct timeval *, void *);
 #endif
 
 /* On SVR4, the compiler may complain if given this extra BSD arg.  */
 #ifdef GETTIMEOFDAY_ONE_ARGUMENT
-# ifdef SOLARIS2
-/* Solaris (at least) omits this prototype.  IRIX5 has it and chokes if we
-   declare it here. */
-int gettimeofday (struct timeval *);
-# endif
+#define EMACS_GETTIMEOFDAY(time) gettimeofday(time)
+#else
+#define EMACS_GETTIMEOFDAY(time) gettimeofday(time,0)
+#endif
+
 /* According to the Xt sources, some NTP daemons on some systems may
    return non-normalized values. */
 #define EMACS_GET_TIME(time)					\
 do {								\
-  gettimeofday (&(time));					\
+  EMACS_GETTIMEOFDAY (&(time));					\
   EMACS_NORMALIZE_TIME (time);					\
 } while (0)
-#else /* not GETTIMEOFDAY_ONE_ARGUMENT */
-# ifdef SOLARIS2
-/* Solaris doesn't provide any prototype of this unless a bunch of
-   crap we don't define are defined. */
-int gettimeofday (struct timeval *, void *dummy);
-# endif
-#define EMACS_GET_TIME(time)					\
-do {								\
-  struct timezone dummy;					\
-  gettimeofday (&(time), &dummy);				\
-  EMACS_NORMALIZE_TIME (time);					\
-} while (0)
-#endif /* not GETTIMEOFDAY_ONE_ARGUMENT */
 
 #define EMACS_NORMALIZE_TIME(time)				\
 do {								\

@@ -24,18 +24,28 @@
 # Synched up with: Not in FSF.
 #
 
+default: all
+
 XEMACS=..
 LISP=$(XEMACS)\lisp
+LIB_SRC=$(XEMACS)\lib-src
 MODULES=$(XEMACS)\modules
 NT=$(XEMACS)\nt
 OUTDIR=$(NT)\obj
+SRC=$(XEMACS)\src
+LWLIB_SRCDIR=$(XEMACS)\lwlib
+MAKEDIRSTRING=$(MAKEDIR:\=\\)
+XEMACSDIRSTRING=$(MAKEDIRSTRING:\\nt=)
+
 
 # Define a variable for the 'del' command to use
 DEL=-del
 
 # Program name and version
 
-!include "..\version.sh"
+!include "$(XEMACS)\version.sh"
+
+!include "config.inc"
 
 !if !defined(INFODOCK)
 INFODOCK=0
@@ -46,6 +56,8 @@ INFODOCK_VERSION_STRING=$(infodock_major_version).$(infodock_minor_version).$(in
 PROGRAM_DEFINES=-DINFODOCK 					\
 	-DPATH_VERSION=\"$(INFODOCK_VERSION_STRING)\"		\
 	-DPATH_PROGNAME=\"infodock\" 				\
+	-DEMACS_PROGNAME=\"infodock\"				\
+	-DEMACS_VERSION=\"$(INFODOCK_VERSION_STRING)\"		\
 	-DINFODOCK_MAJOR_VERSION=$(infodock_major_version)	\
 	-DINFODOCK_MINOR_VERSION=$(infodock_minor_version)	\
 	-DINFODOCK_BUILD_VERSION=$(infodock_build_version)
@@ -57,7 +69,9 @@ XEMACS_VERSION_STRING=$(emacs_major_version).$(emacs_minor_version)
 !endif
 PROGRAM_DEFINES=						\
 	-DPATH_VERSION=\"$(XEMACS_VERSION_STRING)\"		\
-	-DPATH_PROGNAME=\"xemacs\"
+	-DPATH_PROGNAME=\"xemacs\"				\
+	-DEMACS_VERSION=\"$(XEMACS_VERSION_STRING)\"		\
+	-DEMACS_PROGNAME=\"xemacs\"
 !endif
 
 #
@@ -84,11 +98,11 @@ PACKAGE_PATH=~\.xemacs;;$(PACKAGE_PREFIX)\site-packages;$(PACKAGE_PREFIX)\xemacs
 ! endif
 !endif
 PATH_PACKAGEPATH="$(PACKAGE_PATH:\=\\)"
-!if !defined(HAVE_MSW)
-HAVE_MSW=1
+!if !defined(HAVE_MS_WINDOWS)
+HAVE_MS_WINDOWS=1
 !endif
-!if !defined(HAVE_X)
-HAVE_X=0
+!if !defined(HAVE_X_WINDOWS)
+HAVE_X_WINDOWS=0
 !endif
 !if !defined(HAVE_XPM)
 HAVE_XPM=0
@@ -125,6 +139,9 @@ HAVE_WIDGETS=1
 !endif
 !if !defined(DEBUG_XEMACS)
 DEBUG_XEMACS=0
+!endif
+!if !defined(QUICK_BUILD)
+QUICK_BUILD=0
 !endif
 !if !defined(USE_UNION_TYPE)
 USE_UNION_TYPE=0
@@ -194,67 +211,67 @@ CONFIG_ERROR=1
 !message [[[Developer note: If you want to fix it, read Q112297 first]]]  ####
 CONFIG_ERROR=1
 !endif
-!if !$(HAVE_MSW) && !$(HAVE_X)
-!message Please specify at least one HAVE_MSW=1 and/or HAVE_X=1
+!if !$(HAVE_MS_WINDOWS) && !$(HAVE_X_WINDOWS)
+!message Please specify at least one HAVE_MS_WINDOWS=1 and/or HAVE_X_WINDOWS=1
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_X) && !defined(X11_DIR)
+!if $(HAVE_X_WINDOWS) && !defined(X11_DIR)
 !message Please specify root directory for your X11 installation: X11_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_X) && defined(X11_DIR) && !exist("$(X11_DIR)\LIB\X11.LIB")
+!if $(HAVE_X_WINDOWS) && defined(X11_DIR) && !exist("$(X11_DIR)\LIB\X11.LIB")
 !message Specified X11 directory does not contain "$(X11_DIR)\LIB\X11.LIB"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_XPM) && !defined(XPM_DIR)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_XPM) && !defined(XPM_DIR)
 !message Please specify root directory for your XPM installation: XPM_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_XPM) && defined(XPM_DIR) && !exist("$(XPM_DIR)\lib\Xpm.lib")
+!if $(HAVE_MS_WINDOWS) && $(HAVE_XPM) && defined(XPM_DIR) && !exist("$(XPM_DIR)\lib\Xpm.lib")
 !message Specified XPM directory does not contain "$(XPM_DIR)\lib\Xpm.lib"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_PNG) && !defined(PNG_DIR)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_PNG) && !defined(PNG_DIR)
 !message Please specify root directory for your PNG installation: PNG_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_PNG) && defined(PNG_DIR) && !exist("$(PNG_DIR)\libpng.lib")
+!if $(HAVE_MS_WINDOWS) && $(HAVE_PNG) && defined(PNG_DIR) && !exist("$(PNG_DIR)\libpng.lib")
 !message Specified PNG directory does not contain "$(PNG_DIR)\libpng.lib"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_PNG) && !defined(ZLIB_DIR)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_PNG) && !defined(ZLIB_DIR)
 !message Please specify root directory for your ZLIB installation: ZLIB_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_PNG) && defined(ZLIB_DIR) && !exist("$(ZLIB_DIR)\zlib.lib")
+!if $(HAVE_MS_WINDOWS) && $(HAVE_PNG) && defined(ZLIB_DIR) && !exist("$(ZLIB_DIR)\zlib.lib")
 !message Specified ZLIB directory does not contain "$(ZLIB_DIR)\zlib.lib"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_TIFF) && !defined(TIFF_DIR)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_TIFF) && !defined(TIFF_DIR)
 !message Please specify root directory for your TIFF installation: TIFF_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_TIFF) && !exist("$(TIFF_DIR)\libtiff\libtiff.lib")
+!if $(HAVE_MS_WINDOWS) && $(HAVE_TIFF) && !exist("$(TIFF_DIR)\libtiff\libtiff.lib")
 !message Specified TIFF directory does not contain "$(TIFF_DIR)\libtiff\libtiff.lib"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_JPEG) && !defined(JPEG_DIR)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_JPEG) && !defined(JPEG_DIR)
 !message Please specify root directory for your JPEG installation: JPEG_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_JPEG) && !exist("$(JPEG_DIR)\libjpeg.lib")
+!if $(HAVE_MS_WINDOWS) && $(HAVE_JPEG) && !exist("$(JPEG_DIR)\libjpeg.lib")
 !message Specified JPEG directory does not contain "$(JPEG_DIR)\libjpeg.lib"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_XFACE) && !defined(COMPFACE_DIR)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_XFACE) && !defined(COMPFACE_DIR)
 !message Please specify root directory for your COMPFACE installation: COMPFACE_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_XFACE) && !exist("$(COMPFACE_DIR)\libcompface.lib")
+!if $(HAVE_MS_WINDOWS) && $(HAVE_XFACE) && !exist("$(COMPFACE_DIR)\libcompface.lib")
 !message Specified COMPFACE directory does not contain "$(COMPFACE_DIR)\libcompface.lib"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_TOOLBARS) && !$(HAVE_XPM)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_TOOLBARS) && !$(HAVE_XPM)
 !message Toolbars require XPM support
 CONFIG_ERROR=1
 !endif
@@ -268,6 +285,27 @@ CONFIG_ERROR=1
 !if defined(GUNG_HO)
 USE_MINIMAL_TAGBITS=$(GUNG_HO)
 USE_INDEXED_LRECORD_IMPLEMENTATION=$(GUNG_HO)
+!endif
+
+#
+# Whether to use dependency information generated by make-src-depend
+#
+!if !defined(DEPEND)
+DEPEND=0
+!endif
+!if $(DEPEND)
+! if [if not exist $(OUTDIR)\nul mkdir "$(OUTDIR)"]
+! endif
+# generate an nmake-readable version of depend
+! if [perl -p -e "s/^\x23ifdef (.+)/!if defined($$1)/; s/^\x23e/!e/;" \
+	-e "s/([\s=^])([\w\d\.\-^]+\.[ch^])/$$1$(SRC:\=\\)\\$$2/g;" \
+	-e "s/^(.+)\.o:(.+)/$(OUTDIR:\=\\)\\$$1.obj:$$2 $(NT:\=\\)\\config.inc/;" \
+	< $(SRC)\depend > $(OUTDIR)\depend.tmp]
+! endif
+! include "$(OUTDIR)\depend.tmp"
+!else
+! if [echo   WARNING: Compiling without dependency information.]
+! endif
 !endif
 
 #
@@ -303,19 +341,19 @@ LIBC_LIB=libc.lib
 
 CFLAGS=-nologo -W3 $(OPT) $(C_LIBFLAG)
 
-!if $(HAVE_X)
+!if $(HAVE_X_WINDOWS)
 X_DEFINES=-DHAVE_X_WINDOWS
 X_INCLUDES=-I$(X11_DIR)\include
 X_LIBS=-libpath:$(X11_DIR)\lib Xaw.lib Xmu.lib Xt.lib SM.lib ICE.lib Xext.lib X11.lib
 !endif
 
-!if $(HAVE_MSW)
+!if $(HAVE_MS_WINDOWS)
 MSW_DEFINES=-DHAVE_MS_WINDOWS -DHAVE_SCROLLBARS -DHAVE_MENUBARS
 MSW_INCLUDES=
 MSW_LIBS=
 !if $(HAVE_MSW_C_DIRED)
 MSW_DEFINES=$(MSW_DEFINES) -DHAVE_MSW_C_DIRED
-MSW_C_DIRED_SRC=$(XEMACS)\src\dired-msw.c
+MSW_C_DIRED_SRC=$(SRC)\dired-msw.c
 MSW_C_DIRED_OBJ=$(OUTDIR)\dired-msw.obj
 !endif
 !if $(HAVE_XPM)
@@ -325,7 +363,7 @@ MSW_LIBS=$(MSW_LIBS) "$(XPM_DIR)\lib\Xpm.lib"
 !endif
 !if $(HAVE_GIF)
 MSW_DEFINES=$(MSW_DEFINES) -DHAVE_GIF
-MSW_GIF_SRC=$(XEMACS)\src\dgif_lib.c $(XEMACS)\src\gif_io.c
+MSW_GIF_SRC=$(SRC)\dgif_lib.c $(SRC)\gif_io.c
 MSW_GIF_OBJ=$(OUTDIR)\dgif_lib.obj $(OUTDIR)\gif_io.obj
 !endif
 !if $(HAVE_PNG)
@@ -350,13 +388,13 @@ MSW_LIBS=$(MSW_LIBS) "$(COMPFACE_DIR)\libcompface.lib"
 !endif
 !if $(HAVE_TOOLBARS)
 MSW_DEFINES=$(MSW_DEFINES) -DHAVE_TOOLBARS
-MSW_TOOLBAR_SRC=$(XEMACS)\src\toolbar.c $(XEMACS)\src\toolbar-msw.c
+MSW_TOOLBAR_SRC=$(SRC)\toolbar.c $(SRC)\toolbar-msw.c
 MSW_TOOLBAR_OBJ=$(OUTDIR)\toolbar.obj $(OUTDIR)\toolbar-msw.obj
 MSW_LIBS=$(MSW_LIBS) comctl32.lib
 !endif
 !if $(HAVE_DIALOGS)
 MSW_DEFINES=$(MSW_DEFINES) -DHAVE_DIALOGS
-MSW_DIALOG_SRC=$(XEMACS)\src\dialog.c $(XEMACS)\src\dialog-msw.c
+MSW_DIALOG_SRC=$(SRC)\dialog.c $(SRC)\dialog-msw.c
 MSW_DIALOG_OBJ=$(OUTDIR)\dialog.obj $(OUTDIR)\dialog-msw.obj
 !endif
 !if $(HAVE_WIDGETS)
@@ -374,6 +412,10 @@ MULE_DEFINES=-DMULE
 !if $(DEBUG_XEMACS)
 DEBUG_DEFINES=-DDEBUG_XEMACS -D_DEBUG 
 DEBUG_FLAGS=-debug:full
+!endif
+
+!if $(QUICK_BUILD)
+QUICK_DEFINES=-DQUICK_BUILD
 !endif
 
 !if $(USE_MINIMAL_TAGBITS)
@@ -408,40 +450,37 @@ PATH_DEFINES=-DPATH_PREFIX=\"$(PATH_PREFIX)\"
 
 # Generic variables
 
-INCLUDES=$(X_INCLUDES) $(MSW_INCLUDES) -I$(XEMACS)\nt\inc -I$(XEMACS)\src -I$(XEMACS)\lwlib
+INCLUDES=$(X_INCLUDES) $(MSW_INCLUDES) -I$(NT)\inc -I$(SRC) -I$(LWLIB_SRCDIR)
 
 DEFINES=$(X_DEFINES) $(MSW_DEFINES) $(MULE_DEFINES) \
 	$(TAGBITS_DEFINES) $(LRECORD_DEFINES) $(UNION_DEFINES) \
-	$(DUMPER_DEFINES) $(MALLOC_DEFINES) \
+	$(DUMPER_DEFINES) $(MALLOC_DEFINES) $(QUICK_DEFINES) \
 	-DWIN32 -D_WIN32 -DWIN32_LEAN_AND_MEAN -DWINDOWSNT -Demacs \
 	-DHAVE_CONFIG_H $(PROGRAM_DEFINES) $(PATH_DEFINES)
 
 #------------------------------------------------------------------------------
 
-default: $(OUTDIR)\nul all 
-
 $(OUTDIR)\nul:
 	-@mkdir $(OUTDIR)
 
 XEMACS_INCLUDES=\
- $(XEMACS)\src\config.h \
- $(XEMACS)\src\Emacs.ad.h \
- $(XEMACS)\src\paths.h
+ $(SRC)\config.h \
+ $(SRC)\Emacs.ad.h \
+ $(SRC)\paths.h
 
-$(XEMACS)\src\config.h:	config.h
-	copy config.h $(XEMACS)\src
+$(SRC)\config.h:	config.h
+	copy config.h $(SRC)
 
-$(XEMACS)\src\Emacs.ad.h:	Emacs.ad.h
-	copy Emacs.ad.h $(XEMACS)\src
+$(SRC)\Emacs.ad.h:	Emacs.ad.h
+	copy Emacs.ad.h $(SRC)
 
-$(XEMACS)\src\paths.h:	paths.h
-	copy paths.h $(XEMACS)\src
+$(SRC)\paths.h:	paths.h
+	copy paths.h $(SRC)
 
 #------------------------------------------------------------------------------
 
 # lib-src programs
 
-LIB_SRC = $(XEMACS)\lib-src
 LIB_SRC_DEFINES = -DHAVE_CONFIG_H -DWIN32 -DWINDOWSNT
 
 #
@@ -471,7 +510,7 @@ CONFIG_VALUES = $(LIB_SRC)\config.values
 # Inferred rule
 {$(LIB_SRC)}.c{$(LIB_SRC)}.exe :
 	cd $(LIB_SRC)
-	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) $(CFLAGS) -Fe$@ $** -link -incremental:no
+	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) $(CFLAGS) -Fe$@ $** -link -incremental:no setargv.obj
 	cd $(NT)
 
 # Individual dependencies
@@ -485,17 +524,24 @@ $(LIB_SRC)/minitar.exe : $(NT)/minitar.mak $(NT)/minitar.c
 	nmake -nologo -f minitar.mak ZLIB="$(ZLIB_DIR)" NT="$(NT)" LIB_SRC="$(LIB_SRC)"
 
 LIB_SRC_TOOLS = \
-	$(LIB_SRC)/make-docfile.exe	\
+	$(LIB_SRC)/etags.exe		\
 	$(LIB_SRC)/hexl.exe		\
-	$(LIB_SRC)/movemail.exe		\
+	$(LIB_SRC)/i.exe		\
+	$(LIB_SRC)/make-docfile.exe	\
 	$(LIB_SRC)/mmencode.exe		\
+	$(LIB_SRC)/movemail.exe		\
 	$(LIB_SRC)/sorted-doc.exe	\
-	$(LIB_SRC)/wakeup.exe		\
-	$(LIB_SRC)/etags.exe		
+	$(LIB_SRC)/wakeup.exe
 !if $(USE_MINITAR)
 LIB_SRC_TOOLS = \
 	$(LIB_SRC_TOOLS) \
 	$(LIB_SRC)/minitar.exe
+!endif
+!if $(USE_PORTABLE_DUMPER)
+LIB_SRC_TOOLS = \
+	$(XEMACS_INCLUDES) \
+	$(LIB_SRC)/make-dump-id.exe \
+	$(LIB_SRC_TOOLS)
 !endif
 
 # Shorthand target
@@ -505,7 +551,7 @@ minitar: $(LIB_SRC)/minitar.exe
 
 # runxemacs proglet
 
-RUNEMACS = $(XEMACS)\src\runxemacs.exe
+RUNEMACS = $(SRC)\runxemacs.exe
 
 $(RUNEMACS): $(LIB_SRC)\run.c $(LIB_SRC)\run.res
 	$(CCV) -I$(LIB_SRC) $(CFLAGS) -Fe$@ -Fo$(LIB_SRC) -Fd$(LIB_SRC)\ $** kernel32.lib user32.lib -link -incremental:no
@@ -515,12 +561,21 @@ $(LIB_SRC)\run.res: $(LIB_SRC)\run.rc
 
 #------------------------------------------------------------------------------
 
+# dump-id.c file that contains the dump id
+
+$(SRC)\dump-id.c : $(LIB_SRC)/make-dump-id.exe 
+	cd $(SRC)
+	$(LIB_SRC)\make-dump-id.exe 
+	cd $(NT)
+
+#------------------------------------------------------------------------------
+
 # LASTFILE Library
 
 !if !$(USE_SYSTEM_MALLOC) || !$(USE_PORTABLE_DUMPER)
 
 LASTFILE=$(OUTDIR)\lastfile.lib
-LASTFILE_SRC=$(XEMACS)\src
+LASTFILE_SRC=$(SRC)
 LASTFILE_FLAGS=$(CFLAGS) $(INCLUDES) -Fo$@ -Fd$* -c
 LASTFILE_OBJS= \
 	$(OUTDIR)\lastfile.obj
@@ -535,12 +590,11 @@ $(OUTDIR)\lastfile.obj:	$(LASTFILE_SRC)\lastfile.c
 
 #------------------------------------------------------------------------------
 
-!if $(HAVE_X)
+!if $(HAVE_X_WINDOWS)
 
 # LWLIB Library
 
 LWLIB=$(OUTDIR)\lwlib.lib
-LWLIB_SRC=$(XEMACS)\lwlib
 LWLIB_FLAGS=$(CFLAGS) $(INCLUDES) $(DEFINES) \
  -DNEED_ATHENA -DNEED_LUCID \
  -D_WINDOWS -DMENUBARS_LUCID -DSCROLLBARS_LUCID -DDIALOGS_ATHENA \
@@ -557,25 +611,25 @@ LWLIB_OBJS= \
 $(LWLIB): $(LWLIB_OBJS)
 	link.exe -lib -nologo -out:$@ $(LWLIB_OBJS)
 
-$(OUTDIR)\lwlib-config.obj:	$(LWLIB_SRC)\lwlib-config.c
+$(OUTDIR)\lwlib-config.obj:	$(LWLIB_SRCDIR)\lwlib-config.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
-$(OUTDIR)\lwlib-utils.obj:	$(LWLIB_SRC)\lwlib-utils.c
+$(OUTDIR)\lwlib-utils.obj:	$(LWLIB_SRCDIR)\lwlib-utils.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
-$(OUTDIR)\lwlib-Xaw.obj:	$(LWLIB_SRC)\lwlib-Xaw.c
+$(OUTDIR)\lwlib-Xaw.obj:	$(LWLIB_SRCDIR)\lwlib-Xaw.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
-$(OUTDIR)\lwlib-Xlw.obj:	$(LWLIB_SRC)\lwlib-Xlw.c
+$(OUTDIR)\lwlib-Xlw.obj:	$(LWLIB_SRCDIR)\lwlib-Xlw.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
-$(OUTDIR)\lwlib.obj:		$(LWLIB_SRC)\lwlib.c
+$(OUTDIR)\lwlib.obj:		$(LWLIB_SRCDIR)\lwlib.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
-$(OUTDIR)\xlwmenu.obj:		$(LWLIB_SRC)\xlwmenu.c
+$(OUTDIR)\xlwmenu.obj:		$(LWLIB_SRCDIR)\xlwmenu.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
-$(OUTDIR)\xlwscrollbar.obj:	$(LWLIB_SRC)\xlwscrollbar.c
+$(OUTDIR)\xlwscrollbar.obj:	$(LWLIB_SRCDIR)\xlwscrollbar.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
 !endif
@@ -583,135 +637,135 @@ $(OUTDIR)\xlwscrollbar.obj:	$(LWLIB_SRC)\xlwscrollbar.c
 
 DOC=$(LIB_SRC)\DOC
 DOC_SRC1=\
- $(XEMACS)\src\abbrev.c \
- $(XEMACS)\src\alloc.c \
- $(XEMACS)\src\alloca.c \
- $(XEMACS)\src\blocktype.c \
- $(XEMACS)\src\buffer.c \
- $(XEMACS)\src\bytecode.c \
- $(XEMACS)\src\callint.c \
- $(XEMACS)\src\callproc.c \
- $(XEMACS)\src\casefiddle.c \
- $(XEMACS)\src\casetab.c \
- $(XEMACS)\src\chartab.c \
- $(XEMACS)\src\cmdloop.c \
- $(XEMACS)\src\cmds.c \
- $(XEMACS)\src\console-stream.c \
- $(XEMACS)\src\console.c \
- $(XEMACS)\src\data.c \
- $(XEMACS)\src\device.c
+ $(SRC)\abbrev.c \
+ $(SRC)\alloc.c \
+ $(SRC)\alloca.c \
+ $(SRC)\blocktype.c \
+ $(SRC)\buffer.c \
+ $(SRC)\bytecode.c \
+ $(SRC)\callint.c \
+ $(SRC)\callproc.c \
+ $(SRC)\casefiddle.c \
+ $(SRC)\casetab.c \
+ $(SRC)\chartab.c \
+ $(SRC)\cmdloop.c \
+ $(SRC)\cmds.c \
+ $(SRC)\console-stream.c \
+ $(SRC)\console.c \
+ $(SRC)\data.c \
+ $(SRC)\device.c
 DOC_SRC2=\
- $(XEMACS)\src\dired.c \
- $(XEMACS)\src\doc.c \
- $(XEMACS)\src\doprnt.c \
- $(XEMACS)\src\dragdrop.c \
- $(XEMACS)\src\dynarr.c \
- $(XEMACS)\src\editfns.c \
- $(XEMACS)\src\elhash.c \
- $(XEMACS)\src\emacs.c \
- $(XEMACS)\src\eval.c \
- $(XEMACS)\src\event-stream.c \
- $(XEMACS)\src\events.c \
- $(XEMACS)\src\extents.c \
- $(XEMACS)\src\faces.c \
- $(XEMACS)\src\file-coding.c \
- $(XEMACS)\src\fileio.c \
- $(XEMACS)\src\filemode.c \
- $(XEMACS)\src\floatfns.c \
- $(XEMACS)\src\fns.c 
+ $(SRC)\dired.c \
+ $(SRC)\doc.c \
+ $(SRC)\doprnt.c \
+ $(SRC)\dragdrop.c \
+ $(SRC)\dynarr.c \
+ $(SRC)\editfns.c \
+ $(SRC)\elhash.c \
+ $(SRC)\emacs.c \
+ $(SRC)\eval.c \
+ $(SRC)\event-stream.c \
+ $(SRC)\events.c \
+ $(SRC)\extents.c \
+ $(SRC)\faces.c \
+ $(SRC)\file-coding.c \
+ $(SRC)\fileio.c \
+ $(SRC)\filemode.c \
+ $(SRC)\floatfns.c \
+ $(SRC)\fns.c 
 DOC_SRC3=\
- $(XEMACS)\src\font-lock.c \
- $(XEMACS)\src\frame.c \
- $(XEMACS)\src\general.c \
- $(XEMACS)\src\glyphs.c \
- $(XEMACS)\src\glyphs-eimage.c \
- $(XEMACS)\src\glyphs-widget.c \
- $(XEMACS)\src\gui.c  \
- $(XEMACS)\src\gutter.c \
- $(XEMACS)\src\hash.c \
- $(XEMACS)\src\imgproc.c \
- $(XEMACS)\src\indent.c \
- $(XEMACS)\src\insdel.c \
- $(XEMACS)\src\intl.c \
- $(XEMACS)\src\keymap.c \
- $(XEMACS)\src\line-number.c \
- $(XEMACS)\src\lread.c \
- $(XEMACS)\src\lstream.c \
- $(XEMACS)\src\macros.c \
- $(XEMACS)\src\marker.c
+ $(SRC)\font-lock.c \
+ $(SRC)\frame.c \
+ $(SRC)\general.c \
+ $(SRC)\glyphs.c \
+ $(SRC)\glyphs-eimage.c \
+ $(SRC)\glyphs-widget.c \
+ $(SRC)\gui.c  \
+ $(SRC)\gutter.c \
+ $(SRC)\hash.c \
+ $(SRC)\imgproc.c \
+ $(SRC)\indent.c \
+ $(SRC)\insdel.c \
+ $(SRC)\intl.c \
+ $(SRC)\keymap.c \
+ $(SRC)\line-number.c \
+ $(SRC)\lread.c \
+ $(SRC)\lstream.c \
+ $(SRC)\macros.c \
+ $(SRC)\marker.c
 DOC_SRC4=\
- $(XEMACS)\src\md5.c \
- $(XEMACS)\src\menubar.c \
- $(XEMACS)\src\minibuf.c \
- $(XEMACS)\src\nt.c \
- $(XEMACS)\src\ntplay.c \
- $(XEMACS)\src\ntproc.c \
- $(XEMACS)\src\objects.c \
- $(XEMACS)\src\opaque.c \
- $(XEMACS)\src\print.c \
- $(XEMACS)\src\process.c \
- $(XEMACS)\src\process-nt.c \
- $(XEMACS)\src\profile.c \
- $(XEMACS)\src\rangetab.c \
- $(XEMACS)\src\realpath.c \
- $(XEMACS)\src\redisplay-output.c \
- $(XEMACS)\src\redisplay.c \
- $(XEMACS)\src\regex.c \
- $(XEMACS)\src\scrollbar.c \
- $(XEMACS)\src\search.c \
- $(XEMACS)\src\select.c \
- $(XEMACS)\src\signal.c \
- $(XEMACS)\src\sound.c 
+ $(SRC)\md5.c \
+ $(SRC)\menubar.c \
+ $(SRC)\minibuf.c \
+ $(SRC)\nt.c \
+ $(SRC)\ntplay.c \
+ $(SRC)\ntproc.c \
+ $(SRC)\objects.c \
+ $(SRC)\opaque.c \
+ $(SRC)\print.c \
+ $(SRC)\process.c \
+ $(SRC)\process-nt.c \
+ $(SRC)\profile.c \
+ $(SRC)\rangetab.c \
+ $(SRC)\realpath.c \
+ $(SRC)\redisplay-output.c \
+ $(SRC)\redisplay.c \
+ $(SRC)\regex.c \
+ $(SRC)\scrollbar.c \
+ $(SRC)\search.c \
+ $(SRC)\select.c \
+ $(SRC)\signal.c \
+ $(SRC)\sound.c 
 DOC_SRC5=\
- $(XEMACS)\src\specifier.c \
- $(XEMACS)\src\strftime.c \
- $(XEMACS)\src\symbols.c \
- $(XEMACS)\src\syntax.c \
- $(XEMACS)\src\sysdep.c \
- $(XEMACS)\src\termcap.c  \
- $(XEMACS)\src\tparam.c \
- $(XEMACS)\src\undo.c \
- $(XEMACS)\src\window.c \
- $(XEMACS)\src\widget.c
+ $(SRC)\specifier.c \
+ $(SRC)\strftime.c \
+ $(SRC)\symbols.c \
+ $(SRC)\syntax.c \
+ $(SRC)\sysdep.c \
+ $(SRC)\termcap.c  \
+ $(SRC)\tparam.c \
+ $(SRC)\undo.c \
+ $(SRC)\window.c \
+ $(SRC)\widget.c
 
-!if $(HAVE_X)
+!if $(HAVE_X_WINDOWS)
 DOC_SRC6=\
- $(XEMACS)\src\balloon_help.c \
- $(XEMACS)\src\console-x.c \
- $(XEMACS)\src\device-x.c  \
- $(XEMACS)\src\dialog-x.c \
- $(XEMACS)\src\EmacsFrame.c \
- $(XEMACS)\src\EmacsManager.c \
- $(XEMACS)\src\EmacsShell-sub.c\
- $(XEMACS)\src\EmacsShell.c \
- $(XEMACS)\src\event-Xt.c  \
- $(XEMACS)\src\frame-x.c \
- $(XEMACS)\src\glyphs-x.c \
- $(XEMACS)\src\gui-x.c \
- $(XEMACS)\src\menubar.c \
- $(XEMACS)\src\menubar-x.c \
- $(XEMACS)\src\objects-x.c \
- $(XEMACS)\src\redisplay-x.c \
- $(XEMACS)\src\scrollbar-x.c \
- $(XEMACS)\src\balloon-x.c \
- $(XEMACS)\src\xgccache.c \
- $(XEMACS)\src\xmu.c \
- $(XEMACS)\src\select-x.c 
+ $(SRC)\balloon_help.c \
+ $(SRC)\console-x.c \
+ $(SRC)\device-x.c  \
+ $(SRC)\dialog-x.c \
+ $(SRC)\EmacsFrame.c \
+ $(SRC)\EmacsManager.c \
+ $(SRC)\EmacsShell-sub.c\
+ $(SRC)\EmacsShell.c \
+ $(SRC)\event-Xt.c  \
+ $(SRC)\frame-x.c \
+ $(SRC)\glyphs-x.c \
+ $(SRC)\gui-x.c \
+ $(SRC)\menubar.c \
+ $(SRC)\menubar-x.c \
+ $(SRC)\objects-x.c \
+ $(SRC)\redisplay-x.c \
+ $(SRC)\scrollbar-x.c \
+ $(SRC)\balloon-x.c \
+ $(SRC)\xgccache.c \
+ $(SRC)\xmu.c \
+ $(SRC)\select-x.c 
 !endif
 
-!if $(HAVE_MSW)
+!if $(HAVE_MS_WINDOWS)
 DOC_SRC7=\
- $(XEMACS)\src\console-msw.c \
- $(XEMACS)\src\device-msw.c  \
- $(XEMACS)\src\event-msw.c  \
- $(XEMACS)\src\frame-msw.c \
- $(XEMACS)\src\glyphs-msw.c \
- $(XEMACS)\src\gui-msw.c \
- $(XEMACS)\src\menubar-msw.c \
- $(XEMACS)\src\objects-msw.c \
- $(XEMACS)\src\redisplay-msw.c \
- $(XEMACS)\src\scrollbar-msw.c \
- $(XEMACS)\src\select-msw.c \
+ $(SRC)\console-msw.c \
+ $(SRC)\device-msw.c  \
+ $(SRC)\event-msw.c  \
+ $(SRC)\frame-msw.c \
+ $(SRC)\glyphs-msw.c \
+ $(SRC)\gui-msw.c \
+ $(SRC)\menubar-msw.c \
+ $(SRC)\objects-msw.c \
+ $(SRC)\redisplay-msw.c \
+ $(SRC)\scrollbar-msw.c \
+ $(SRC)\select-msw.c \
  $(MSW_C_DIRED_SRC) \
  $(MSW_TOOLBAR_SRC) \
  $(MSW_DIALOG_SRC) \
@@ -720,31 +774,34 @@ DOC_SRC7=\
 
 !if $(HAVE_MULE)
 DOC_SRC8=\
- $(XEMACS)\src\mule.c \
- $(XEMACS)\src\mule-charset.c \
- $(XEMACS)\src\mule-ccl.c
-! if $(HAVE_X)
- DOC_SRC8=$(DOC_SRC8) $(XEMACS)\src\input-method-xlib.c
+ $(SRC)\mule.c \
+ $(SRC)\mule-charset.c \
+ $(SRC)\mule-ccl.c
+! if $(HAVE_X_WINDOWS)
+ DOC_SRC8=$(DOC_SRC8) $(SRC)\input-method-xlib.c
 ! endif
 !endif
 
 !if $(DEBUG_XEMACS)
 DOC_SRC9=\
- $(XEMACS)\src\debug.c \
- $(XEMACS)\src\tests.c
+ $(SRC)\debug.c \
+ $(SRC)\tests.c
 !endif
 
 !if !$(USE_SYSTEM_MALLOC)
 DOC_SRC10=\
- $(XEMACS)\src\free-hook.c \
- $(XEMACS)\src\gmalloc.c \
- $(XEMACS)\src\ntheap.c \
- $(XEMACS)\src\vm-limit.c
+ $(SRC)\free-hook.c \
+ $(SRC)\gmalloc.c \
+ $(SRC)\ntheap.c \
+ $(SRC)\vm-limit.c
 !endif
 
 !if !$(USE_PORTABLE_DUMPER)
 DOC_SRC11=\
- $(XEMACS)\src\unexnt.c
+ $(SRC)\unexnt.c
+!else
+DOC_SRC11=\
+ $(SRC)\dumper.c
 !endif
 
 #------------------------------------------------------------------------------
@@ -757,30 +814,32 @@ EMACS_BETA_VERSION=-DEMACS_BETA_VERSION=$(emacs_beta_version)
 !ENDIF
 
 !if !$(USE_PORTABLE_DUMPER)
-TEMACS_ENTRYPOINT=-entry:_start 
+TEMACS_ENTRYPOINT=-entry:_start
+!else
+TEMACS_ENTRYPOINT=-entry:mainCRTStartup
 !endif
 
-TEMACS_DIR=$(XEMACS)\src
+TEMACS_DIR=$(SRC)
 TEMACS=$(TEMACS_DIR)\temacs.exe
 TEMACS_BROWSE=$(TEMACS_DIR)\temacs.bsc
-TEMACS_SRC=$(XEMACS)\src
+TEMACS_SRC=$(SRC)
 TEMACS_LIBS=$(LASTFILE) $(LWLIB) $(X_LIBS) $(MSW_LIBS) \
  oldnames.lib kernel32.lib user32.lib gdi32.lib advapi32.lib \
- shell32.lib wsock32.lib winmm.lib winspool.lib $(LIBC_LIB)
+ shell32.lib wsock32.lib winmm.lib winspool.lib ole32.lib uuid.lib $(LIBC_LIB)
 TEMACS_LFLAGS=-nologo $(LIBRARIES) $(DEBUG_FLAGS) -base:0x1000000\
- -stack:0x800000 $(TEMACS_ENTRYPOINT) -subsystem:console\
+ -stack:0x800000 $(TEMACS_ENTRYPOINT) -subsystem:windows\
  -pdb:$(TEMACS_DIR)\temacs.pdb -map:$(TEMACS_DIR)\temacs.map \
- -heap:0x00100000 -out:$@ -nodefaultlib
+ -heap:0x00100000 -nodefaultlib -incremental:no
 TEMACS_CPP_FLAGS=-c \
  $(CFLAGS) $(INCLUDES) $(DEFINES) $(DEBUG_DEFINES) \
  -DEMACS_MAJOR_VERSION=$(emacs_major_version) \
  -DEMACS_MINOR_VERSION=$(emacs_minor_version) \
  $(EMACS_BETA_VERSION) \
- -DXEMACS_CODENAME=\"$(xemacs_codename)\" \
+ -DXEMACS_CODENAME=\"$(xemacs_codename:&=and)\" \
  -DEMACS_CONFIGURATION=\"$(EMACS_CONFIGURATION)\" \
  -DPATH_PACKAGEPATH=\"$(PATH_PACKAGEPATH)\"
 
-!if $(HAVE_X)
+!if $(HAVE_X_WINDOWS)
 TEMACS_X_OBJS=\
 	$(OUTDIR)\balloon-x.obj \
 	$(OUTDIR)\balloon_help.obj \
@@ -805,7 +864,7 @@ TEMACS_X_OBJS=\
 	$(OUTDIR)\select-x.obj
 !endif
 
-!if $(HAVE_MSW)
+!if $(HAVE_MS_WINDOWS)
 TEMACS_MSW_OBJS=\
 	$(OUTDIR)\console-msw.obj \
 	$(OUTDIR)\device-msw.obj \
@@ -829,7 +888,7 @@ TEMACS_MULE_OBJS=\
 	$(OUTDIR)\mule.obj \
 	$(OUTDIR)\mule-charset.obj \
 	$(OUTDIR)\mule-ccl.obj
-! if $(HAVE_X)
+! if $(HAVE_X_WINDOWS)
 TEMACS_MULE_OBJS=\
 	$(TEMACS_MULE_OBJS) $(OUTDIR)\input-method-xlib.obj
 ! endif
@@ -852,6 +911,9 @@ TEMACS_ALLOC_OBJS=\
 !if !$(USE_PORTABLE_DUMPER)
 TEMACS_DUMP_OBJS=\
 	$(OUTDIR)\unexnt.obj
+!else
+TEMACS_DUMP_OBJS=\
+	$(OUTDIR)\dumper.obj
 !endif
 
 TEMACS_OBJS= \
@@ -946,8 +1008,7 @@ TEMACS_OBJS= \
 	$(OUTDIR)\tparam.obj \
 	$(OUTDIR)\undo.obj \
 	$(OUTDIR)\widget.obj \
-	$(OUTDIR)\window.obj \
-	$(OUTDIR)\xemacs.res
+	$(OUTDIR)\window.obj
 
 # Rules
 
@@ -963,6 +1024,8 @@ TEMACS_OBJS= \
 	$(CCV) $(TEMACS_CPP_FLAGS) $< -Fo$@
 !endif
 
+$(OUTDIR)\emacs.obj:	$(XEMACS)\version.sh
+
 $(OUTDIR)\TopLevelEmacsShell.obj:	$(TEMACS_SRC)\EmacsShell-sub.c
 	$(CCV) $(TEMACS_CPP_FLAGS) -DDEFINE_TOP_LEVEL_EMACS_SHELL $** -Fo$@
 
@@ -977,28 +1040,38 @@ $(OUTDIR)\alloc.obj: $(TEMACS_SRC)\alloc.c
 #$(TEMACS_SRC)\paths.h: $(TEMACS_SRC)\paths.h.in
 #	!"cd $(TEMACS_SRC); cp paths.h.in paths.h"
 
-$(TEMACS): $(TEMACS_INCLUDES) $(TEMACS_OBJS)
+$(TEMACS): $(TEMACS_INCLUDES) $(TEMACS_OBJS) $(OUTDIR)\xemacs.res
 !if $(DEBUG_XEMACS)
 	@dir /b/s $(OUTDIR)\*.sbr > bscmake.tmp
 	bscmake -nologo -o$(TEMACS_BROWSE) @bscmake.tmp
 	@$(DEL) bscmake.tmp
 !endif
 !if $(USE_PORTABLE_DUMPER)
-	@if exist $(TEMACS_DIR)\xemacs.dmp del $(TEMACS_DIR)\xemacs.dmp
-!endif
+	@if exist $(SRC)\dump-id.c del $(SRC)\dump-id.c
+# make a new dump id file.  There is probably a better way to do this, but this works
+	@if exist $(OUTDIR)\dump-id.obj del $(OUTDIR)\dump-id.obj
+	nmake -nologo -f xemacs.mak OUTDIR=$(OUTDIR) $(OUTDIR)\dump-id.obj
 	link.exe @<<
-  $(TEMACS_LFLAGS) $(TEMACS_OBJS) $(TEMACS_LIBS)
+  $(TEMACS_LFLAGS) -out:$@ $(TEMACS_OBJS) $(TEMACS_LIBS) $(OUTDIR)\dump-id.obj
 <<
+!else
+	link.exe @<<
+  $(TEMACS_LFLAGS) -out:$@ $(TEMACS_OBJS) $(OUTDIR)\xemacs.res $(TEMACS_LIBS)
+<<
+!endif
 
 $(OUTDIR)\xemacs.res: xemacs.rc
 	rc -Fo$@ xemacs.rc
 
+
+PROGNAME=$(SRC)\xemacs.exe
+TEMACS_BATCH="$(LIB_SRC)\i" "$(TEMACS)" -batch
+XEMACS_BATCH="$(LIB_SRC)\i" "$(PROGNAME)" -vanilla -batch
+
 # Section handling automated tests starts here
 
-SRCDIR=$(MAKEDIR)\..\src
-PROGNAME=$(SRCDIR)\xemacs.exe
 blddir=$(MAKEDIR:\=\\)\\..
-temacs_loadup=$(TEMACS) -batch -l $(SRCDIR)/../lisp/loadup.el
+temacs_loadup=$(TEMACS_BATCH) -l $(LISP)/loadup.el
 dump_temacs   = $(temacs_loadup) dump
 run_temacs    = $(temacs_loadup) run-temacs
 ## We have automated tests!!
@@ -1008,21 +1081,40 @@ batch_test_emacs=-batch -l $(testdir)/test-harness.el -f batch-test-emacs $(test
 # .PHONY: check check-temacs
 
 check:
-	cd $(SRCDIR)
+	cd $(SRC)
 	$(PROGNAME) $(batch_test_emacs)
 
 check-temacs:
-	cd $(SRCDIR)
+	cd $(SRC)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP)
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
 	$(run_temacs) $(batch_test_emacs)
 
 # Section handling automated tests ends here
 
+# Section handling tags starts here
+
+tagslisp=lisp
+
+tags:
+	@echo If you don't have a copy of etags around, then do 'make lib-src' first.
+	@echo To make use of the tags file, put the following in your .emacs:
+	@echo	(setq tag-table-alist
+	@echo	  '(("$(XEMACSDIRSTRING)\\" . "$(XEMACSDIRSTRING)\\")))
+	cd $(XEMACS)
+	$(DEL) TAGS
+	set PATH=lib-src;%PATH%
+# argh!!! we need two ^^'s to get one ^, but only before a backslash.
+# i have no idea why.  probably some obscure nmake quoting convention.
+	etags -a -r "/[ 	]*DEF\(VAR\|INE\)_[A-Z_]+[ 	]*([ 	]*\"\([^^\"]+\)\"/\2/" src\*.c src\*.h lwlib\*.c lwlib\*.h lib-src\*.c lib-src\*.h
+	etags -a -l none -r "/^(def\(var\|un\|alias\|const\|macro\|subst\|struct\|face\|group\|custom\|ine-\(function\|compiler-macro\|[a-z-]+alias\)\)[ 	]+'?\([^ 	]+\)/\3/" $(tagslisp)\*.el
+
+# Section handling tags ends here
+
 # Section handling info starts here
 
 !if !defined(MAKEINFO)
-MAKEINFO=$(PROGNAME) -vanilla -batch -l texinfmt -f batch-texinfo-format
+MAKEINFO=$(XEMACS_BATCH) -l texinfmt -f batch-texinfo-format
 !endif
 
 MANDIR = $(XEMACS)\man
@@ -1203,7 +1295,7 @@ makeinfo-test:
 	@<<makeinfo_test.bat
 @echo off
 if exist "$(MAKEINFO)" goto test_done
-@"$(PROGNAME)" -batch -vanilla -eval "(condition-case nil (require (quote texinfo)) (t (kill-emacs 1)))"
+@$(XEMACS_BATCH) -eval "(condition-case nil (require (quote texinfo)) (t (kill-emacs 1)))"
 @if not errorlevel 1 goto suggest_makeinfo
 @echo XEmacs `info' cannot be built!
 @echo Install XEmacs package `texinfo' (see README.packages).
@@ -1227,11 +1319,11 @@ docfile ::
 	if exist $(DOC) del $(DOC)
 docfile :: $(DOC)
 
-$(DOC): $(LIB_SRC)\make-docfile.exe
+$(DOC): $(LIB_SRC)\make-docfile.exe $(DOC_SRC1) $(DOC_SRC2) $(DOC_SRC3) $(DOC_SRC4) $(DOC_SRC5) $(DOC_SRC6) $(DOC_SRC7) $(DOC_SRC8) $(DOC_SRC9) $(DOC_SRC10) $(DOC_SRC11)
 	if exist $(DOC) del $(DOC)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
-	$(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\make-docfile.el -- -o $(DOC) -i $(XEMACS)\site-packages
+	$(TEMACS_BATCH) -l $(TEMACS_DIR)\..\lisp\make-docfile.el -- -o $(DOC) -i $(XEMACS)\site-packages
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC1)
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC2)
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC3)
@@ -1247,27 +1339,39 @@ $(DOC): $(LIB_SRC)\make-docfile.exe
 update-elc:
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
-	$(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\update-elc.el
+	$(TEMACS_BATCH) -l $(TEMACS_DIR)\..\lisp\update-elc.el
+
+# This file is touched by update-elc.el when redumping is necessary.
+$(TEMACS_DIR)\NEEDTODUMP :
+	@echo >$(TEMACS_DIR)\NEEDTODUMP
 
 # This rule dumps xemacs and then possibly spawns sub-make if PURESPACE
 # requirements have changed.
-dump-xemacs: temacs
+
+$(PROGNAME) : $(TEMACS) $(TEMACS_DIR)\NEEDTODUMP
 	@echo >$(TEMACS_DIR)\SATISFIED
 	cd $(TEMACS_DIR)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
-	-1 $(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\loadup.el dump
+	-1 $(TEMACS_BATCH) -l $(TEMACS_DIR)\..\lisp\loadup.el dump
 !if $(USE_PORTABLE_DUMPER)
-	copy temacs.exe xemacs.exe
+	rc -d INCLUDE_DUMP -Fo $(OUTDIR)\xemacs.res $(NT)\xemacs.rc
+	link.exe @<<
+  $(TEMACS_LFLAGS) -out:xemacs.exe $(TEMACS_OBJS) $(OUTDIR)\xemacs.res $(TEMACS_LIBS) $(OUTDIR)\dump-id.obj
+<<
+# Make the resource section read/write since almost all of it is the dump
+# data which needs to be writable.  This avoids having to copy it.
+	editbin -nologo -section:.rsrc,rw xemacs.exe
+	del $(TEMACS_DIR)\xemacs.dmp
 !endif
 	cd $(NT)
 	@if not exist $(TEMACS_DIR)\SATISFIED nmake -nologo -f xemacs.mak $@
 #------------------------------------------------------------------------------
 
 # use this rule to build the complete system
-all:	$(XEMACS)\Installation $(OUTDIR)\nul $(LASTFILE) $(LWLIB) \
-	$(LIB_SRC_TOOLS) $(RUNEMACS) $(TEMACS) update-elc $(DOC) dump-xemacs \
-	$(LISP)/auto-autoloads.el $(LISP)/custom-load.el info
+all:	installation $(OUTDIR)\nul $(LASTFILE) $(LWLIB) \
+	$(LIB_SRC_TOOLS) $(RUNEMACS) $(TEMACS) update-elc $(DOC) $(PROGNAME) \
+	update-auto-and-custom info
 
 temacs: $(LASTFILE) $(TEMACS)
 
@@ -1282,7 +1386,7 @@ install:	all
 	@xcopy /q $(LIB_SRC)\*.exe "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)\"
 	@copy $(LIB_SRC)\DOC "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
 	@copy $(CONFIG_VALUES) "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
-	@copy $(XEMACS)\src\xemacs.exe "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
+	@copy $(SRC)\xemacs.exe "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
 	@copy $(RUNEMACS) "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
 	@xcopy /e /q $(XEMACS)\etc  "$(INSTALL_DIR)\etc\"
 	@xcopy /e /q $(XEMACS)\info "$(INSTALL_DIR)\info\"
@@ -1335,16 +1439,13 @@ distclean:
 	$(DEL) *.info*
 
 depend:
-	cd $(SRCDIR)
+	cd $(SRC)
 	perl ./make-src-depend > depend.tmp
 	perl -MFile::Compare -e "compare('depend.tmp', 'depend') && rename('depend.tmp', 'depend') or unlink('depend.tmp')"
 
+$(XEMACS)\Installation::	installation
+
 installation::
-	@if exist $(XEMACS)\Installation del $(XEMACS)\Installation
-
-installation:: $(XEMACS)\Installation
-
-$(XEMACS)\Installation:
 	@type > $(XEMACS)\Installation <<
 !if defined(OS)
 OS: $(OS)
@@ -1361,10 +1462,10 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 !if $(INFODOCK)
   Building InfoDock.
 !endif
-!if $(HAVE_MSW)
+!if $(HAVE_MS_WINDOWS)
   Compiling in support for Microsoft Windows native GUI.
 !endif
-!if $(HAVE_X)
+!if $(HAVE_X_WINDOWS)
   Compiling in support for X-Windows.
 !endif
 !if $(HAVE_MULE)
@@ -1444,6 +1545,9 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 !if $(DEBUG_XEMACS)
   Compiling in extra debug checks. XEmacs will be slow!
 !endif
+!if $(QUICK_BUILD)
+  Disabling non-essential build actions.  Use with care!
+!endif
 <<NOKEEP
 	@echo --------------------------------------------------------------------
 	@type $(XEMACS)\Installation
@@ -1451,19 +1555,14 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 
 # Update auto-autoloads.el and custom-load.el similar to what
 # XEmacs.rules does for xemacs-packages.
-VANILLA=-vanilla
-FORCE:
-$(LISP)\auto-autoloads.el:	FORCE
-	@$(DEL) $(LISP)\auto-autoloads.el
-	$(PROGNAME) $(VANILLA) -batch \
-		-l autoload -f batch-update-directory $(LISP)
-	$(PROGNAME) $(VANILLA) -batch \
-		-f batch-byte-compile $@
+update-auto-and-custom:
+#       Don't delete this, because it forces rebuilding from scratch,
+#       which is time-consuming; and the autoload code is specifically
+#       written to do in-place updating.
+#	@$(DEL) $(LISP)\auto-autoloads.el
+#       Combine into one invocation to avoid repeated startup penalty.
+	$(XEMACS_BATCH) -l autoload -f batch-update-one-directory $(LISP) -f batch-byte-compile-one-file $(LISP)\auto-autoloads.el -l cus-dep -f Custom-make-dependencies $(LISP)
 	@$(DEL) $(LISP)\auto-autoloads.el~
-
-$(LISP)\custom-load.el:	FORCE
-	$(PROGNAME) $(VANILLA) -batch -l cus-dep \
-		-f Custom-make-dependencies $(LISP)
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 

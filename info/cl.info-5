@@ -765,8 +765,8 @@ Lisp code into Emacs.
      function.  In Emacs Lisp, it works just as well to use a regular
      quote:
 
-          (loop for x in y by #'cddr collect (mapcar #'plusp x))  ; Common Lisp
-          (loop for x in y by 'cddr collect (mapcar 'plusp x))    ; Emacs Lisp
+          (loop for x in y by #'cddr collect (mapcar #'plusp x)) ; Common Lisp
+          (loop for x in y by 'cddr collect (mapcar 'plusp x))   ; Emacs Lisp
 
      When `#'' introduces a `lambda' form, it is best to write out
      `(function ...)' longhand in Emacs Lisp.  You can use a regular

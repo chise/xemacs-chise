@@ -26,8 +26,9 @@ Boston, MA 02111-1307, USA.  */
 
    Chuck Thompson
    Lots of work done by Ben Wing for Mule
-   Partially rewritten for mswindows by Jonathan Harris, November 1997 for 21.0.
- */
+
+   Partially rewritten for mswindows by Jonathan Harris, November 1997
+   for 21.0.  */
 
 #include <config.h>
 #include "lisp.h"
@@ -91,7 +92,7 @@ typedef struct textual_run
 static int
 separate_textual_runs (unsigned char *text_storage,
 		       textual_run *run_storage,
-		       CONST Emchar *str, Charcount len)
+		       const Emchar *str, Charcount len)
 {
   Lisp_Object prev_charset = Qunbound; /* not Qnil because that is a
 					  possible valid charset when
@@ -201,15 +202,20 @@ mswindows_text_width_single_run (HDC hdc, struct face_cachel *cachel,
 
 /*
  * Given F, retrieve device context. F can be a display frame, or
- * a print job.
+ * a print job. For a print job, page is also started when printer's
+ * device context is first time requested. 
  */
 static HDC
-get_frame_dc (struct frame *f)
+get_frame_dc (struct frame *f, int start_page_p)
 {
   if (FRAME_MSWINDOWS_P (f))
     return FRAME_MSWINDOWS_DC (f);
   else
-    return DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f)));
+    {
+      if (start_page_p && !FRAME_MSPRINTER_PAGE_STARTED (f))
+	msprinter_start_page (f);
+      return DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f)));
+    }
 }
 
 /*
@@ -219,10 +225,11 @@ get_frame_dc (struct frame *f)
 static HDC
 get_frame_compdc (struct frame *f)
 {
-  if (FRAME_MSWINDOWS_P (f))
-    return FRAME_MSWINDOWS_CDC (f);
+  struct device *d = XDEVICE (FRAME_DEVICE (f));
+  if (DEVICE_MSWINDOWS_P (d))
+    return DEVICE_MSWINDOWS_HCDC (d);
   else
-    return FRAME_MSPRINTER_CDC (f);
+    return DEVICE_MSPRINTER_HCDC (d);
 }
 
 /*****************************************************************************
@@ -280,7 +287,7 @@ mswindows_output_blank (struct window *w, struct display_line *dl,
 			struct rune *rb, int start_pixpos)
 {
   struct frame *f = XFRAME (w->frame);
-  HDC hdc = get_frame_dc (f);
+  HDC hdc = get_frame_dc (f, 1);
   RECT rect = { rb->xpos, DISPLAY_LINE_YPOS (dl),
 		rb->xpos+rb->width, 
 		DISPLAY_LINE_YEND (dl) };
@@ -333,7 +340,7 @@ mswindows_output_cursor (struct window *w, struct display_line *dl, int xpos,
   struct face_cachel *cachel=0;
   Lisp_Object font = Qnil;
   int focus = EQ (w->frame, DEVICE_FRAME_WITH_FOCUS_REAL (d));
-  HDC hdc = get_frame_dc (f);
+  HDC hdc = get_frame_dc (f, 1);
   unsigned int local_face_index=0;
   char *p_char = NULL;
   int n_char = 0;
@@ -453,7 +460,7 @@ mswindows_output_string (struct window *w, struct display_line *dl,
   struct frame *f = XFRAME (w->frame);
   /* struct device *d = XDEVICE (f->device);*/
   Lisp_Object window;
-  HDC hdc = get_frame_dc (f);
+  HDC hdc = get_frame_dc (f, 1);
   int clip_end;
   Lisp_Object bg_pmap;
   int len = Dynarr_length (buf);
@@ -566,12 +573,16 @@ mswindows_output_dibitmap (struct frame *f, Lisp_Image_Instance *p,
 			   struct display_box* db,
 			   struct display_glyph_area* dga)
 {
-  HDC hdc = get_frame_dc (f);
+  HDC hdc = get_frame_dc (f, 1);
   HDC hcompdc = get_frame_compdc (f);
   HGDIOBJ old=NULL;
   COLORREF bgcolor = GetBkColor (hdc);
+  const int real_x = IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (p);
+  const int real_y = IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT (p);
+  const int surface_x = IMAGE_INSTANCE_PIXMAP_WIDTH (p);
+  const int surface_y = IMAGE_INSTANCE_PIXMAP_HEIGHT (p);
 
-  /* first blt the mask */
+  /* first blit the mask */
   if (IMAGE_INSTANCE_MSWINDOWS_MASK (p))
     {
       RGBQUAD col;
@@ -584,27 +595,33 @@ mswindows_output_dibitmap (struct frame *f, Lisp_Image_Instance *p,
       
       SetDIBColorTable (hcompdc, 1, 1, &col);
 
-      BitBlt (hdc, 
-	      db->xpos, db->ypos,
-	      dga->width, dga->height, 
-	      hcompdc,
-	      dga->xoffset, dga->yoffset, 
-	      SRCCOPY);                  
+      StretchBlt (hdc, 
+		  db->xpos, db->ypos,
+		  dga->width, dga->height, 
+		  hcompdc,
+		  MulDiv (dga->xoffset, real_x, surface_x),
+		  MulDiv (dga->yoffset, real_y, surface_y),
+		  MulDiv (dga->width, real_x, surface_x),
+		  MulDiv (dga->height, real_y, surface_y),
+		  SRCCOPY);                  
 
       SelectObject (hcompdc, old);
     }
   
-  /* Now blt the bitmap itself, or one of its slices. */
+  /* Now blit the bitmap itself, or one of its slices. */
   old = SelectObject (hcompdc,
 		      IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICE 
 		      (p, IMAGE_INSTANCE_PIXMAP_SLICE (p)));
 
-  BitBlt (hdc, 
-	  db->xpos, db->ypos,
-	  dga->width, dga->height,
-	  hcompdc,
-	  dga->xoffset, dga->yoffset, 
-	  IMAGE_INSTANCE_MSWINDOWS_MASK (p) ? SRCINVERT : SRCCOPY);
+  StretchBlt (hdc, 
+	      db->xpos, db->ypos,
+	      dga->width, dga->height,
+	      hcompdc,
+	      MulDiv (dga->xoffset, real_x, surface_x),
+	      MulDiv (dga->yoffset, real_y, surface_y),
+	      MulDiv (dga->width, real_x, surface_x),
+	      MulDiv (dga->height, real_y, surface_y),
+	      IMAGE_INSTANCE_MSWINDOWS_MASK (p) ? SRCINVERT : SRCCOPY);
 
   SelectObject (hcompdc, old);
 }
@@ -675,7 +692,7 @@ mswindows_output_pixmap (struct window *w, Lisp_Object image_instance,
 			 int cursor_height, int bg_pixmap)
 {
   struct frame *f = XFRAME (w->frame);
-  HDC hdc = get_frame_dc (f);
+  HDC hdc = get_frame_dc (f, 1);
 
   Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
   Lisp_Object window;
@@ -703,7 +720,7 @@ mswindows_output_pixmap (struct window *w, Lisp_Object image_instance,
  * to by PRC, and paints only the intersection
  */
 static void
-mswindows_redisplay_deadbox_maybe (struct window *w, CONST RECT* prc)
+mswindows_redisplay_deadbox_maybe (struct window *w, const RECT* prc)
 {
   int sbh = window_scrollbar_height (w);
   int sbw = window_scrollbar_width (w);
@@ -726,7 +743,7 @@ mswindows_redisplay_deadbox_maybe (struct window *w, CONST RECT* prc)
   if (IntersectRect (&rect_paint, &rect_dead, prc))
     {
       struct frame *f = XFRAME (WINDOW_FRAME (w));
-      FillRect (get_frame_dc (f), &rect_paint,
+      FillRect (get_frame_dc (f, 1), &rect_paint,
 		(HBRUSH) (COLOR_BTNFACE+1));
     }
 }
@@ -905,7 +922,7 @@ mswindows_bevel_area (struct window *w, face_index findex, int x, int y,
   {
     RECT rect = { x, y, x + width, y + height };
     Lisp_Object color = WINDOW_FACE_CACHEL_BACKGROUND (w, findex);
-    HDC hdc = get_frame_dc (f);
+    HDC hdc = get_frame_dc (f, 1);
 
     mswindows_update_dc (hdc, Qnil, color, Qnil);
     DrawEdge (hdc, &rect, edge, border);
@@ -964,7 +981,7 @@ static int
 mswindows_flash (struct device *d)
 {
   struct frame *f = device_selected_frame (d);
-  HDC hdc = get_frame_dc (f);
+  HDC hdc = get_frame_dc (f, 1);
   RECT rc;
 
   GetClientRect (FRAME_MSWINDOWS_HANDLE (f), &rc);
@@ -1116,6 +1133,7 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 	      Lisp_Object instance;
 	      struct display_box dbox;
 	      struct display_glyph_area dga;
+
 	      redisplay_calculate_display_boxes (dl, rb->xpos, rb->object.dglyph.xoffset,
 						 start_pixpos, rb->width,
 						 &dbox, &dga);
@@ -1126,69 +1144,50 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 	      findex = rb->findex;
 
 	      if (IMAGE_INSTANCEP (instance))
-		switch (XIMAGE_INSTANCE_TYPE (instance))
-		  {
-		  case IMAGE_TEXT:
+		{
+		  switch (XIMAGE_INSTANCE_TYPE (instance))
 		    {
-		      /* #### This is way losing.  See the comment in
-			 add_glyph_rune(). */
-		      Lisp_Object string =
-			XIMAGE_INSTANCE_TEXT_STRING (instance);
-		      convert_bufbyte_string_into_emchar_dynarr
-			(XSTRING_DATA (string), XSTRING_LENGTH (string), buf);
-
+		    case IMAGE_MONO_PIXMAP:
+		    case IMAGE_COLOR_PIXMAP:
+		      redisplay_output_pixmap (w, instance, &dbox, &dga, findex,
+					       cursor_start, cursor_width,
+					       cursor_height, 0);
 		      if (rb->cursor_type == CURSOR_ON)
 			mswindows_output_cursor (w, dl, xpos, cursor_width,
-						 findex, Dynarr_at (buf, 0), 0);
-		      else /* #### redisplay-x passes -1 as the width: why ? */
-			mswindows_output_string (w, dl, buf, xpos,
-					   rb->object.dglyph.xoffset,
-					   start_pixpos, rb->width, findex,
-						 0, 0, 0, 0);
-		      Dynarr_reset (buf);
+						 findex, 0, 1);
+		      break;
+		      
+		    case IMAGE_SUBWINDOW:
+		    case IMAGE_WIDGET:
+		      redisplay_output_subwindow (w, instance, &dbox, &dga, findex,
+						  cursor_start, cursor_width,
+						  cursor_height);
+		      if (rb->cursor_type == CURSOR_ON)
+			mswindows_output_cursor (w, dl, xpos, cursor_width,
+						 findex, 0, 1);
+		      break;
+		      
+		    case IMAGE_LAYOUT:
+		      redisplay_output_layout (w, instance, &dbox, &dga, findex,
+					       cursor_start, cursor_width,
+					       cursor_height);
+		      if (rb->cursor_type == CURSOR_ON)
+			mswindows_output_cursor (w, dl, xpos, cursor_width,
+						 findex, 0, 1);
+		      break;
+		      
+		    case IMAGE_NOTHING:
+		      /* nothing is as nothing does */
+		      break;
+
+		    case IMAGE_TEXT:
+		    case IMAGE_POINTER:
+		    default:
+		      abort ();
 		    }
-		    break;
-
-		  case IMAGE_MONO_PIXMAP:
-		  case IMAGE_COLOR_PIXMAP:
-		    redisplay_output_pixmap (w, instance, &dbox, &dga, findex,
-					     cursor_start, cursor_width,
-					     cursor_height, 0);
-		    if (rb->cursor_type == CURSOR_ON)
-		      mswindows_output_cursor (w, dl, xpos, cursor_width,
-					       findex, 0, 1);
-		    break;
-
-		  case IMAGE_POINTER:
-		    abort ();
-
-		  case IMAGE_SUBWINDOW:
-		  case IMAGE_WIDGET:
-		    redisplay_output_subwindow (w, instance, &dbox, &dga, findex,
-						cursor_start, cursor_width,
-						cursor_height);
-		    if (rb->cursor_type == CURSOR_ON)
-		      mswindows_output_cursor (w, dl, xpos, cursor_width,
-					       findex, 0, 1);
-		    break;
-
-		  case IMAGE_LAYOUT:
-		    redisplay_output_layout (w, instance, &dbox, &dga, findex,
-					     cursor_start, cursor_width,
-					     cursor_height);
-		    if (rb->cursor_type == CURSOR_ON)
-		      mswindows_output_cursor (w, dl, xpos, cursor_width,
-					       findex, 0, 1);
-		    break;
-
-		  case IMAGE_NOTHING:
-		    /* nothing is as nothing does */
-		    break;
-
-		  default:
-		    abort ();
-		  }
-
+		  IMAGE_INSTANCE_OPTIMIZE_OUTPUT 
+		    (XIMAGE_INSTANCE (instance)) = 0;
+		}
 	      xpos += rb->width;
 	      elt++;
 	    }
@@ -1221,15 +1220,15 @@ static void
 mswindows_output_vertical_divider (struct window *w, int clear_unused)
 {
   struct frame *f = XFRAME (w->frame);
-  HDC hdc = get_frame_dc (f);
+  HDC hdc = get_frame_dc (f, 1);
   RECT rect;
   int spacing = XINT (w->vertical_divider_spacing);
   int shadow = XINT (w->vertical_divider_shadow_thickness);
   int abs_shadow = abs (shadow);
   int line_width = XINT (w->vertical_divider_line_width);
   int div_left = WINDOW_RIGHT (w) - window_divider_width (w);
-  int y1 = WINDOW_TOP (w) + FRAME_TOP_GUTTER_BOUNDS (f);
-  int y2 = WINDOW_BOTTOM (w) + FRAME_BOTTOM_GUTTER_BOUNDS (f);
+  int y1 = WINDOW_TOP (w);
+  int y2 = WINDOW_BOTTOM (w);
 
   /* Clear left and right spacing areas */
   if (spacing)
@@ -1280,9 +1279,9 @@ mswindows_output_vertical_divider (struct window *w, int clear_unused)
  ****************************************************************************/
 static int
 mswindows_text_width (struct frame *f, struct face_cachel *cachel,
-		      CONST Emchar *str, Charcount len)
+		      const Emchar *str, Charcount len)
 {
-  HDC hdc = get_frame_dc (f);
+  HDC hdc = get_frame_dc (f, 0);
   int width_so_far = 0;
   unsigned char *text_storage = (unsigned char *) alloca (2 * len);
   textual_run *runs = alloca_array (textual_run, len);
@@ -1312,7 +1311,7 @@ mswindows_clear_region (Lisp_Object locale, struct device* d, struct frame* f,
 			Lisp_Object background_pixmap)
 {
   RECT rect = { x, y, x+width, y+height };
-  HDC hdc = get_frame_dc (f);
+  HDC hdc = get_frame_dc (f, 1);
 
   if (!NILP (background_pixmap))
     {

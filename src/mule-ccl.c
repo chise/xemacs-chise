@@ -181,18 +181,18 @@ Lisp_Object Vccl_program_table;
 
 #define CCL_WriteConstJump	0x08 /* Write constant and jump:
 					1:A--D--D--R--E--S--S-000XXXXX
-					2:CONST
+					2:const
 					------------------------------
-					write (CONST);
+					write (const);
 					IC += ADDRESS;
 					*/
 
 #define CCL_WriteConstReadJump	0x09 /* Write constant, read, and jump:
 					1:A--D--D--R--E--S--S-rrrXXXXX
-					2:CONST
+					2:const
 					3:A--D--D--R--E--S--S-rrrYYYYY
 					-----------------------------
-					write (CONST);
+					write (const);
 					IC += 2;
 					read (reg[rrr]);
 					IC += ADDRESS;
@@ -756,7 +756,7 @@ struct ccl_prog_stack
 static struct ccl_prog_stack ccl_prog_stack_struct[256];
 
 int
-ccl_driver (struct ccl_program *ccl, CONST unsigned char *source,
+ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 	    unsigned_char_dynarr *destination, int src_bytes,
 	    int *consumed, int conversion_mode)
 {
@@ -765,7 +765,7 @@ ccl_driver (struct ccl_program *ccl, CONST unsigned char *source,
   int code = -1; /* init to illegal value,  */
   int field1, field2;
   Lisp_Object *ccl_prog = ccl->prog;
-  CONST unsigned char *src = source, *src_end = src + src_bytes;
+  const unsigned char *src = source, *src_end = src + src_bytes;
   int jump_address = 0; /* shut up the compiler */
   int i, j, op;
   int stack_idx = ccl->stack_idx;
@@ -1772,7 +1772,7 @@ As side effect, each element of REGISTER holds the value of
 		  ? XINT (XVECTOR_DATA (reg)[i])
 		  : 0);
 
-  ccl_driver (&ccl, (CONST unsigned char *)0, (unsigned_char_dynarr *)0,
+  ccl_driver (&ccl, (const unsigned char *)0, (unsigned_char_dynarr *)0,
 	      0, (int *)0, CCL_MODE_ENCODING);
   QUIT;
   if (ccl.status != CCL_STAT_SUCCESS)

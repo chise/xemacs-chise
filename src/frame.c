@@ -121,8 +121,6 @@ static struct display_line title_string_display_line;
    the dynamic allocation time adds up. */
 static Emchar_dynarr *title_string_emchar_dynarr;
 
-EXFUN (Fset_frame_properties, 2);
-
 
 static Lisp_Object
 mark_frame (Lisp_Object obj)
@@ -215,6 +213,8 @@ allocate_frame_core (Lisp_Object device)
   /* associated exposure ignore list */
   f->subwindow_exposures = 0;
   f->subwindow_exposures_tail = 0;
+
+  FRAME_SET_PAGENUMBER (f, 1);
 
   /* Choose a buffer for the frame's root window.  */
   XWINDOW (root_window)->buffer = Qt;
@@ -380,7 +380,7 @@ See `set-frame-properties', `default-x-frame-plist', and
   else
     name = build_string ("emacs");
 
-  if (!NILP (Fstring_match (make_string ((CONST Bufbyte *) "\\.", 2), name,
+  if (!NILP (Fstring_match (make_string ((const Bufbyte *) "\\.", 2), name,
 			    Qnil, Qnil)))
     signal_simple_error (". not allowed in frame names", name);
 
@@ -467,18 +467,13 @@ See `set-frame-properties', `default-x-frame-plist', and
       reset_face_cachels (XWINDOW (FRAME_SELECTED_WINDOW (f)));
       reset_glyph_cachels (XWINDOW (FRAME_SELECTED_WINDOW (f)));
       reset_subwindow_cachels (f);
-      change_frame_size (f, f->height, f->width, 0);
 
+      change_frame_size (f, f->height, f->width, 0);
     }
 
   MAYBE_FRAMEMETH (f, init_frame_2, (f, props));
   Fset_frame_properties (frame, props);
   MAYBE_FRAMEMETH (f, init_frame_3, (f));
-
-  /* now initialise the gutters, this won't change the frame size
-     so is ok here. */
-  if (!DEVICE_STREAM_P (d))
-    init_frame_gutters (f);
 
   /* Hallelujah, praise the lord. */
   f->init_finished = 1;
@@ -504,6 +499,18 @@ See `set-frame-properties', `default-x-frame-plist', and
      to strange console-type-specific things that need to be done. */
   MAYBE_FRAMEMETH (f, after_init_frame, (f, first_frame_on_device,
 					 first_frame_on_console));
+
+  if (!DEVICE_STREAM_P (d))
+    {
+      /* Now initialise the gutters. This won't change the frame size,
+         but is needed as input to the layout that change_frame_size
+         will eventually do. Unfortunately gutter sizing code relies
+         on the frame in question being visible so we can't do this
+         earlier. */
+      init_frame_gutters (f);
+
+      change_frame_size (f, f->height, f->width, 0);
+    }
 
   if (first_frame_on_device)
     {
@@ -905,13 +912,13 @@ set_frame_selected_window (struct frame *f, Lisp_Object window)
   f->selected_window = window;
   if (!MINI_WINDOW_P (XWINDOW (window)) || FRAME_MINIBUF_ONLY_P (f))
     {
-#ifdef HAVE_TOOLBARS
       if (!EQ (f->last_nonminibuf_window, window))
 	{
+#ifdef HAVE_TOOLBARS
 	  MARK_TOOLBAR_CHANGED;
+#endif
 	  MARK_GUTTER_CHANGED;
 	}
-#endif
       f->last_nonminibuf_window = window;
     }
 }
@@ -2089,6 +2096,31 @@ doesn't support multiple overlapping frames, this function does nothing.
 
 /* Ben thinks there is no need for `redirect-frame-focus' or `frame-focus',
    crockish FSFmacs functions.  See summary on focus in event-stream.c. */
+
+DEFUN ("print-job-page-number", Fprint_job_page_number, 1, 1, 0, /*
+Return current page number for the print job FRAME.
+*/
+       (frame))
+{
+  CHECK_PRINTER_FRAME (frame);
+  return make_int (FRAME_PAGENUMBER (XFRAME (frame)));
+}
+
+DEFUN ("print-job-eject-page", Fprint_job_eject_page, 1, 1, 0, /*
+Eject page in the print job FRAME.
+*/
+       (frame))
+{
+  struct frame *f;
+
+  CHECK_PRINTER_FRAME (frame);
+  f = XFRAME (frame);
+  FRAMEMETH (f, eject_page, (f));
+  FRAME_SET_PAGENUMBER (f, 1 + FRAME_PAGENUMBER (f));
+  f->clear = 1;
+
+  return Qnil;
+}
 
 
 /***************************************************************************/
@@ -2232,8 +2264,9 @@ The following symbols etc. have predefined meanings:
 
  minibuffer	Gives the minibuffer behavior for this frame.  Either
 		t (frame has its own minibuffer), `only' (frame is
-		a minibuffer-only frame), or a window (frame uses that
-		window, which is on another frame, as the minibuffer).
+		a minibuffer-only frame), `none' (frame has no minibuffer)
+		or a window (frame uses that window, which is on another
+		frame, as the minibuffer).
 
  unsplittable	If non-nil, frame cannot be split by `display-buffer'.
 
@@ -2247,7 +2280,13 @@ The following symbols etc. have predefined meanings:
  left-toolbar-visible-p, right-toolbar-visible-p, toolbar-buttons-captioned-p,
  top-toolbar-border-width, bottom-toolbar-border-width,
  left-toolbar-border-width, right-toolbar-border-width,
- modeline-shadow-thickness, has-modeline-p
+ modeline-shadow-thickness, has-modeline-p,
+ default-gutter, top-gutter, bottom-gutter, left-gutter, right-gutter,
+ default-gutter-height, default-gutter-width, top-gutter-height,
+ bottom-gutter-height, left-gutter-width, right-gutter-width,
+ default-gutter-visible-p, top-gutter-visible-p, bottom-gutter-visible-p,
+ left-gutter-visible-p, right-gutter-visible-p, top-gutter-border-width,
+ bottom-gutter-border-width, left-gutter-border-width, right-gutter-border-width,
 		[Giving the name of any built-in specifier variable is
 		equivalent to calling `set-specifier' on the specifier,
 		with a locale of FRAME.  Giving the name to `frame-property'
@@ -2851,8 +2890,6 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
     - FRAME_REAL_RIGHT_TOOLBAR_WIDTH (f)
     - 2 * FRAME_REAL_RIGHT_TOOLBAR_BORDER_WIDTH (f);
 
-  new_pixwidth += 2 * f->internal_border_width;
-
   /* Adjust the width for the end glyph which may be a different width
      than the default character width. */
   {
@@ -2874,7 +2911,14 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
 
   if (new_pixheight)
     {
-      XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_top = FRAME_TOP_BORDER_END (f);
+      /* Adjust for gutters here so that we always get set
+         properly. */
+      new_pixheight -= 
+	(FRAME_TOP_GUTTER_BOUNDS (f)
+	 + FRAME_BOTTOM_GUTTER_BOUNDS (f));
+
+      XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_top 
+	= FRAME_TOP_BORDER_END (f) + FRAME_TOP_GUTTER_BOUNDS (f);
 
       if (FRAME_HAS_MINIBUF_P (f)
 	  && ! FRAME_MINIBUF_ONLY_P (f))
@@ -2900,7 +2944,10 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
 				new_pixheight - minibuf_height, 0);
 
 	  XWINDOW (FRAME_MINIBUF_WINDOW (f))->pixel_top =
-	    new_pixheight - minibuf_height + FRAME_TOP_BORDER_END (f);
+	    FRAME_TOP_BORDER_END (f) +
+	    FRAME_TOP_GUTTER_BOUNDS (f) + 
+	    FRAME_BOTTOM_GUTTER_BOUNDS (f) +
+	    new_pixheight - minibuf_height;
 
 	  set_window_pixheight (FRAME_MINIBUF_WINDOW (f), minibuf_height, 0);
 	}
@@ -2915,13 +2962,20 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
 
   if (new_pixwidth)
     {
-      XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_left = FRAME_LEFT_BORDER_END (f);
+      /* Adjust for gutters here so that we always get set
+         properly. */
+      new_pixwidth -= 
+	(FRAME_LEFT_GUTTER_BOUNDS (f)
+	 + FRAME_RIGHT_GUTTER_BOUNDS (f));
+      
+      XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_left = 
+	FRAME_LEFT_BORDER_END (f) + FRAME_LEFT_GUTTER_BOUNDS (f);
       set_window_pixwidth (FRAME_ROOT_WINDOW (f), new_pixwidth, 0);
 
       if (FRAME_HAS_MINIBUF_P (f))
 	{
 	  XWINDOW (FRAME_MINIBUF_WINDOW (f))->pixel_left =
-	    FRAME_LEFT_BORDER_END (f);
+	    FRAME_LEFT_BORDER_END (f) + FRAME_LEFT_GUTTER_BOUNDS (f);
 	  set_window_pixwidth (FRAME_MINIBUF_WINDOW (f), new_pixwidth, 0);
 	}
 
@@ -2940,6 +2994,7 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
     }
 
   MARK_FRAME_TOOLBARS_CHANGED (f);
+  MARK_FRAME_GUTTERS_CHANGED (f);
   MARK_FRAME_CHANGED (f);
   f->echo_area_garbaged = 1;
 }
@@ -3122,6 +3177,8 @@ init_frame (void)
 void
 syms_of_frame (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (frame);
+
   defsymbol (&Qdelete_frame_hook, "delete-frame-hook");
   defsymbol (&Qselect_frame_hook, "select-frame-hook");
   defsymbol (&Qdeselect_frame_hook, "deselect-frame-hook");
@@ -3232,6 +3289,8 @@ syms_of_frame (void)
   DEFSUBR (Fset_frame_size);
   DEFSUBR (Fset_frame_position);
   DEFSUBR (Fset_frame_pointer);
+  DEFSUBR (Fprint_job_page_number);
+  DEFSUBR (Fprint_job_eject_page);
 }
 
 void
@@ -3345,11 +3404,17 @@ visible frames.
   Vsynchronize_minibuffers = Qnil;
 
   DEFVAR_LISP ("frame-title-format", &Vframe_title_format /*
-Controls the title of the X window corresponding to the selected frame.
+Controls the title of the window-system window of the selected frame.
 This is the same format as `modeline-format' with the exception that
 %- is ignored.
 */ );
+/* #### I would change this unilaterally but for the wrath of the Kyles
+of the world. */
+#ifdef WINDOWSNT
+  Vframe_title_format = build_string ("%b - XEmacs");
+#else
   Vframe_title_format = build_string ("%S: %b");
+#endif
 
   DEFVAR_LISP ("frame-icon-title-format", &Vframe_icon_title_format /*
 Controls the title of the icon corresponding to the selected frame.
@@ -3359,8 +3424,9 @@ See also the variable `frame-title-format'.
 
   DEFVAR_LISP ("default-frame-name", &Vdefault_frame_name /*
 The default name to assign to newly-created frames.
-This can be overridden by arguments to `make-frame'.
-This must be a string.
+This can be overridden by arguments to `make-frame'.  This must be a string.
+This is used primarily for picking up X resources, and is *not* the title
+of the frame. (See `frame-title-format'.)
 */ );
 #ifndef INFODOCK
   Vdefault_frame_name = build_string ("emacs");

@@ -704,6 +704,8 @@ unified_range_table_get_range (void *unrangetab, int offset,
 void
 syms_of_rangetab (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (range_table);
+
   defsymbol (&Qrange_tablep, "range-table-p");
   defsymbol (&Qrange_table, "range-table");
 

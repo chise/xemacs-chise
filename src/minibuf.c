@@ -205,7 +205,7 @@ Lowest-level interface to minibuffers.  Don't call this.
    if IGNORE_CASE is true. */
 
 Charcount
-scmp_1 (CONST Bufbyte *s1, CONST Bufbyte *s2, Charcount len,
+scmp_1 (const Bufbyte *s1, const Bufbyte *s2, Charcount len,
 	int ignore_case)
 {
   Charcount l = len;
@@ -244,7 +244,7 @@ scmp_1 (CONST Bufbyte *s1, CONST Bufbyte *s2, Charcount len,
 
 
 int
-regexp_ignore_completion_p (CONST Bufbyte *nonreloc,
+regexp_ignore_completion_p (const Bufbyte *nonreloc,
 			    Lisp_Object reloc, Bytecount offset,
 			    Bytecount length)
 {
@@ -681,8 +681,8 @@ clear_echo_area_internal (struct frame *f, Lisp_Object label, int from_print,
     }
   else
     {
-      write_string_to_stdio_stream (stderr, 0, (CONST Bufbyte *) "\n", 0, 1,
-				    Qterminal);
+      write_string_to_stdio_stream (stderr, 0, (const Bufbyte *) "\n", 0, 1,
+				    Qterminal, 0);
       return Qnil;
     }
 }
@@ -702,7 +702,7 @@ clear_echo_area_from_print (struct frame *f, Lisp_Object label, int no_restore)
 }
 
 void
-echo_area_append (struct frame *f, CONST Bufbyte *nonreloc, Lisp_Object reloc,
+echo_area_append (struct frame *f, const Bufbyte *nonreloc, Lisp_Object reloc,
 		  Bytecount offset, Bytecount length,
 		  Lisp_Object label)
 {
@@ -751,12 +751,12 @@ echo_area_append (struct frame *f, CONST Bufbyte *nonreloc, Lisp_Object reloc,
       if (STRINGP (reloc))
 	nonreloc = XSTRING_DATA (reloc);
       write_string_to_stdio_stream (stderr, 0, nonreloc, offset, length,
-				    Qterminal);
+				    Qterminal, 0);
     }
 }
 
 void
-echo_area_message (struct frame *f, CONST Bufbyte *nonreloc,
+echo_area_message (struct frame *f, const Bufbyte *nonreloc,
 		   Lisp_Object reloc, Bytecount offset, Bytecount length,
 		   Lisp_Object label)
 {
@@ -801,7 +801,7 @@ echo_area_contents (struct frame *f)
 /* Dump an informative message to the echo area.  This function takes a
    string in internal format. */
 void
-message_internal (CONST Bufbyte *nonreloc, Lisp_Object reloc,
+message_internal (const Bufbyte *nonreloc, Lisp_Object reloc,
 		  Bytecount offset, Bytecount length)
 {
   /* This function can call lisp  */
@@ -811,7 +811,7 @@ message_internal (CONST Bufbyte *nonreloc, Lisp_Object reloc,
 }
 
 void
-message_append_internal (CONST Bufbyte *nonreloc, Lisp_Object reloc,
+message_append_internal (const Bufbyte *nonreloc, Lisp_Object reloc,
 			 Bytecount offset, Bytecount length)
 {
   /* This function can call lisp  */
@@ -825,7 +825,7 @@ message_append_internal (CONST Bufbyte *nonreloc, Lisp_Object reloc,
    on the format string; message_no_translate() does not. */
 
 static void
-message_1 (CONST char *fmt, va_list args)
+message_1 (const char *fmt, va_list args)
 {
   /* This function can call lisp */
   if (fmt)
@@ -833,7 +833,7 @@ message_1 (CONST char *fmt, va_list args)
       struct gcpro gcpro1;
       /* message_internal() might GC, e.g. if there are after-change-hooks
 	 on the echo area buffer */
-      Lisp_Object obj = emacs_doprnt_string_va ((CONST Bufbyte *) fmt, Qnil,
+      Lisp_Object obj = emacs_doprnt_string_va ((const Bufbyte *) fmt, Qnil,
 						-1, args);
       GCPRO1 (obj);
       message_internal (0, obj, 0, -1);
@@ -844,7 +844,7 @@ message_1 (CONST char *fmt, va_list args)
 }
 
 static void
-message_append_1 (CONST char *fmt, va_list args)
+message_append_1 (const char *fmt, va_list args)
 {
   /* This function can call lisp */
   if (fmt)
@@ -852,7 +852,7 @@ message_append_1 (CONST char *fmt, va_list args)
       struct gcpro gcpro1;
       /* message_internal() might GC, e.g. if there are after-change-hooks
 	 on the echo area buffer */
-      Lisp_Object obj = emacs_doprnt_string_va ((CONST Bufbyte *) fmt, Qnil,
+      Lisp_Object obj = emacs_doprnt_string_va ((const Bufbyte *) fmt, Qnil,
 						-1, args);
       GCPRO1 (obj);
       message_append_internal (0, obj, 0, -1);
@@ -870,7 +870,7 @@ clear_message (void)
 }
 
 void
-message (CONST char *fmt, ...)
+message (const char *fmt, ...)
 {
   /* This function can call lisp */
   /* I think it's OK to pass the data of Lisp strings as arguments to
@@ -886,7 +886,7 @@ message (CONST char *fmt, ...)
 }
 
 void
-message_append (CONST char *fmt, ...)
+message_append (const char *fmt, ...)
 {
   /* This function can call lisp */
   va_list args;
@@ -899,7 +899,7 @@ message_append (CONST char *fmt, ...)
 }
 
 void
-message_no_translate (CONST char *fmt, ...)
+message_no_translate (const char *fmt, ...)
 {
   /* This function can call lisp */
   /* I think it's OK to pass the data of Lisp strings as arguments to

@@ -36,6 +36,7 @@ struct mswindows_image_instance_data
 {
   HBITMAP* bitmaps;
   HICON icon;
+  int real_width, real_height;
 };
 
 #define MSWINDOWS_IMAGE_INSTANCE_DATA(i) \
@@ -48,9 +49,13 @@ struct mswindows_image_instance_data
 #define IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICES(i) \
      (MSWINDOWS_IMAGE_INSTANCE_DATA (i)->bitmaps)
 #define IMAGE_INSTANCE_MSWINDOWS_MASK(i) \
-     (HBITMAP)(IMAGE_INSTANCE_PIXMAP_MASK (i))
+     (*(HBITMAP*)&(IMAGE_INSTANCE_PIXMAP_MASK (i)))		/* Make it lvalue */
 #define IMAGE_INSTANCE_MSWINDOWS_ICON(i) \
      (MSWINDOWS_IMAGE_INSTANCE_DATA (i)->icon)
+#define IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH(i) \
+     (MSWINDOWS_IMAGE_INSTANCE_DATA (i)->real_width)
+#define IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT(i) \
+     (MSWINDOWS_IMAGE_INSTANCE_DATA (i)->real_height)
 
 #define XIMAGE_INSTANCE_MSWINDOWS_BITMAP(i) \
   IMAGE_INSTANCE_MSWINDOWS_BITMAP (XIMAGE_INSTANCE (i))

@@ -50,6 +50,605 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: The Mark,  Next: The Region,  Prev: Changing Markers,  Up: Markers
+
+The Mark
+========
+
+   One special marker in each buffer is designated "the mark".  It
+records a position for the user for the sake of commands such as `C-w'
+and `C-x <TAB>'.  Lisp programs should set the mark only to values that
+have a potential use to the user, and never for their own internal
+purposes.  For example, the `replace-regexp' command sets the mark to
+the value of point before doing any replacements, because this enables
+the user to move back there conveniently after the replace is finished.
+
+   Once the mark "exists" in a buffer, it normally never ceases to
+exist.  However, it may become "inactive", and usually does so after
+each command (other than simple motion commands and some commands that
+explicitly activate the mark).  When the mark is active, the region
+between point and the mark is called the "active region" and is
+highlighted specially.
+
+   Many commands are designed so that when called interactively they
+operate on the text between point and the mark.  Such commands work
+only when an active region exists, i.e. when the mark is active.  (The
+reason for this is to prevent you from accidentally deleting or
+changing large chunks of your text.) If you are writing such a command,
+don't examine the mark directly; instead, use `interactive' with the
+`r' specification.  This provides the values of point and the mark as
+arguments to the command in an interactive call, but permits other Lisp
+programs to specify arguments explicitly, and automatically signals an
+error if the command is called interactively when no active region
+exists.  *Note Interactive Codes::.
+
+   Each buffer has its own value of the mark that is independent of the
+value of the mark in other buffers. (When a buffer is created, the mark
+exists but does not point anywhere.  We consider this state as "the
+absence of a mark in that buffer.") However, only one active region can
+exist at a time.  Activating the mark in one buffer automatically
+deactivates an active mark in any other buffer.  Note that the user can
+explicitly activate a mark at any time by using the command
+`activate-region' (normally bound to `M-C-z') or by using the command
+`exchange-point-and-mark' (normally bound to `C-x C-x'), which has the
+side effect of activating the mark.
+
+   Some people do not like active regions, so they disable this behavior
+by setting the variable `zmacs-regions' to `nil'.  This makes the mark
+always active (except when a buffer is just created and the mark points
+nowhere), and turns off the highlighting of the region between point
+and the mark.  Commands that explicitly retrieve the value of the mark
+should make sure that they behave correctly and consistently
+irrespective of the setting of `zmacs-regions'; some primitives are
+provided to ensure this behavior.
+
+   In addition to the mark, each buffer has a "mark ring" which is a
+list of markers containing previous values of the mark.  When editing
+commands change the mark, they should normally save the old value of the
+mark on the mark ring.  The variable `mark-ring-max' specifies the
+maximum number of entries in the mark ring; once the list becomes this
+long, adding a new element deletes the last element.
+
+ - Function: mark &optional force buffer
+     This function returns BUFFER's mark position as an integer.
+     BUFFER defaults to the current buffer if omitted.
+
+     If the mark is inactive, `mark' normally returns `nil'.  However,
+     if FORCE is non-`nil', then `mark' returns the mark position
+     anyway--or `nil', if the mark is not yet set for the buffer.
+
+     (Remember that if ZMACS-REGIONS is `nil', the mark is always
+     active as long as it exists, and the FORCE argument will have no
+     effect.)
+
+     If you are using this in an editing command, you are most likely
+     making a mistake; see the documentation of `set-mark' below.
+
+ - Function: mark-marker inactive-p buffer
+     This function returns BUFFER's mark.  BUFFER defaults to the
+     current buffer if omitted.  This is the very marker that records
+     the mark location inside XEmacs, not a copy.  Therefore, changing
+     this marker's position will directly affect the position of the
+     mark.  Don't do it unless that is the effect you want.
+
+     If the mark is inactive, `mark-marker' normally returns `nil'.
+     However, if FORCE is non-`nil', then `mark-marker' returns the
+     mark anyway.
+          (setq m (mark-marker))
+               => #<marker at 3420 in markers.texi>
+          (set-marker m 100)
+               => #<marker at 100 in markers.texi>
+          (mark-marker)
+               => #<marker at 100 in markers.texi>
+
+     Like any marker, this marker can be set to point at any buffer you
+     like.  We don't recommend that you make it point at any buffer
+     other than the one of which it is the mark.  If you do, it will
+     yield perfectly consistent, but rather odd, results.
+
+ - Function: set-mark position &optional buffer
+     This function sets `buffer''s mark to POSITION, and activates the
+     mark.  BUFFER defaults to the current buffer if omitted.  The old
+     value of the mark is _not_ pushed onto the mark ring.
+
+     *Please note:* Use this function only if you want the user to see
+     that the mark has moved, and you want the previous mark position to
+     be lost.  Normally, when a new mark is set, the old one should go
+     on the `mark-ring'.  For this reason, most applications should use
+     `push-mark' and `pop-mark', not `set-mark'.
+
+     Novice XEmacs Lisp programmers often try to use the mark for the
+     wrong purposes.  The mark saves a location for the user's
+     convenience.  An editing command should not alter the mark unless
+     altering the mark is part of the user-level functionality of the
+     command.  (And, in that case, this effect should be documented.)
+     To remember a location for internal use in the Lisp program, store
+     it in a Lisp variable.  For example:
+
+          (let ((beg (point)))
+            (forward-line 1)
+            (delete-region beg (point))).
+
+ - Command: exchange-point-and-mark &optional dont-activate-region
+     This function exchanges the positions of point and the mark.  It
+     is intended for interactive use.  The mark is also activated
+     unless DONT-ACTIVATE-REGION is non-`nil'.
+
+ - Function: push-mark &optional position nomsg activate buffer
+     This function sets BUFFER's mark to POSITION, and pushes a copy of
+     the previous mark onto `mark-ring'.  BUFFER defaults to the
+     current buffer if omitted.  If POSITION is `nil', then the value
+     of point is used.  `push-mark' returns `nil'.
+
+     If the last global mark pushed was not in BUFFER, also push
+     POSITION on the global mark ring (see below).
+
+     The function `push-mark' normally _does not_ activate the mark.
+     To do that, specify `t' for the argument ACTIVATE.
+
+     A `Mark set' message is displayed unless NOMSG is non-`nil'.
+
+ - Function: pop-mark
+     This function pops off the top element of `mark-ring' and makes
+     that mark become the buffer's actual mark.  This does not move
+     point in the buffer, and it does nothing if `mark-ring' is empty.
+     It deactivates the mark.
+
+     The return value is not meaningful.
+
+ - Variable: mark-ring
+     The value of this buffer-local variable is the list of saved former
+     marks of the current buffer, most recent first.
+
+          mark-ring
+          => (#<marker at 11050 in markers.texi>
+              #<marker at 10832 in markers.texi>
+              ...)
+
+ - User Option: mark-ring-max
+     The value of this variable is the maximum size of `mark-ring'.  If
+     more marks than this are pushed onto the `mark-ring', `push-mark'
+     discards an old mark when it adds a new one.
+
+   In additional to a per-buffer mark ring, there is a "global mark
+ring".  Marks are pushed onto the global mark ring the first time you
+set a mark after switching buffers.
+
+ - Variable: global-mark-ring
+     The value of this variable is the list of saved former global
+     marks, most recent first.
+
+ - User Option: mark-ring-max
+     The value of this variable is the maximum size of
+     `global-mark-ring'.  If more marks than this are pushed onto the
+     `global-mark-ring', `push-mark' discards an old mark when it adds
+     a new one.
+
+ - Command: pop-global-mark
+     This function pops a mark off the global mark ring and jumps to
+     that location.
+
+
+File: lispref.info,  Node: The Region,  Prev: The Mark,  Up: Markers
+
+The Region
+==========
+
+   The text between point and the mark is known as "the region".
+Various functions operate on text delimited by point and the mark, but
+only those functions specifically related to the region itself are
+described here.
+
+   When `zmacs-regions' is non-`nil' (this is the default), the concept
+of an "active region" exists.  The region is active when the
+corresponding mark is active.  Note that only one active region at a
+time can exist--i.e. only one buffer's region is active at a time.
+*Note The Mark::, for more information about active regions.
+
+ - User Option: zmacs-regions
+     If non-`nil' (the default), active regions are used.  *Note The
+     Mark::, for a detailed explanation of what this means.
+
+   A number of functions are provided for explicitly determining the
+bounds of the region and whether it is active.  Few programs need to use
+these functions, however.  A command designed to operate on a region
+should normally use `interactive' with the `r' specification to find
+the beginning and end of the region.  This lets other Lisp programs
+specify the bounds explicitly as arguments and automatically respects
+the user's setting for ZMACS-REGIONS.  (*Note Interactive Codes::.)
+
+ - Function: region-beginning &optional buffer
+     This function returns the position of the beginning of BUFFER's
+     region (as an integer).  This is the position of either point or
+     the mark, whichever is smaller.  BUFFER defaults to the current
+     buffer if omitted.
+
+     If the mark does not point anywhere, an error is signaled.  Note
+     that this function ignores whether the region is active.
+
+ - Function: region-end &optional buffer
+     This function returns the position of the end of BUFFER's region
+     (as an integer).  This is the position of either point or the mark,
+     whichever is larger.  BUFFER defaults to the current buffer if
+     omitted.
+
+     If the mark does not point anywhere, an error is signaled.  Note
+     that this function ignores whether the region is active.
+
+ - Function: region-exists-p
+     This function is non-`nil' if the region exists.  If active regions
+     are in use (i.e. `zmacs-regions' is true), this means that the
+     region is active.  Otherwise, this means that the user has pushed
+     a mark in this buffer at some point in the past.  If this function
+     returns `nil', a function that uses the `r' interactive
+     specification will cause an error when called interactively.
+
+ - Function: region-active-p
+     If `zmacs-regions' is true, this is equivalent to
+     `region-exists-p'.  Otherwise, this function always returns false.
+     This function is used by commands such as
+     `fill-paragraph-or-region' and `capitalize-region-or-word', which
+     operate either on the active region or on something else (e.g. the
+     word or paragraph at point).
+
+ - Variable: zmacs-region-stays
+     If a command sets this variable to true, the currently active
+     region will remain activated when the command finishes. (Normally
+     the region is deactivated when each command terminates.) If
+     ZMACS-REGIONS is false, however, this has no effect.  Under normal
+     circumstances, you do not need to set this; use the interactive
+     specification `_' instead, if you want the region to remain active.
+
+ - Function: zmacs-activate-region
+     This function activates the region in the current buffer (this is
+     equivalent to activating the current buffer's mark).  This will
+     normally also highlight the text in the active region and set
+     ZMACS-REGION-STAYS to `t'. (If ZMACS-REGIONS is false, however,
+     this function has no effect.)
+
+ - Function: zmacs-deactivate-region
+     This function deactivates the region in the current buffer (this is
+     equivalent to deactivating the current buffer's mark).  This will
+     normally also unhighlight the text in the active region and set
+     ZMACS-REGION-STAYS to `nil'. (If ZMACS-REGIONS is false, however,
+     this function has no effect.)
+
+ - Function: zmacs-update-region
+     This function updates the active region, if it's currently active.
+     (If there is no active region, this function does nothing.) This
+     has the effect of updating the highlighting on the text in the
+     region; but you should never need to call this except under rather
+     strange circumstances.  The command loop automatically calls it
+     when appropriate.  Calling this function will call the hook
+     `zmacs-update-region-hook', if the region is active.
+
+ - Variable: zmacs-activate-region-hook
+     This normal hook is called when a region becomes active. (Usually
+     this happens as a result of a command that activates the region,
+     such as `set-mark-command', `activate-region', or
+     `exchange-point-and-mark'.) Note that calling
+     `zmacs-activate-region' will call this hook, even if the region is
+     already active.  If ZMACS-REGIONS is false, however, this hook
+     will never get called under any circumstances.
+
+ - Variable: zmacs-deactivate-region-hook
+     This normal hook is called when an active region becomes inactive.
+     (Calling `zmacs-deactivate-region' when the region is inactive will
+     _not_ cause this hook to be called.)  If ZMACS-REGIONS is false,
+     this hook will never get called.
+
+ - Variable: zmacs-update-region-hook
+     This normal hook is called when an active region is "updated" by
+     `zmacs-update-region'.  This normally gets called at the end of
+     each command that sets ZMACS-REGION-STAYS to `t', indicating that
+     the region should remain activated.  The motion commands do this.
+
+
+File: lispref.info,  Node: Text,  Next: Searching and Matching,  Prev: Markers,  Up: Top
+
+Text
+****
+
+   This chapter describes the functions that deal with the text in a
+buffer.  Most examine, insert, or delete text in the current buffer,
+often in the vicinity of point.  Many are interactive.  All the
+functions that change the text provide for undoing the changes (*note
+Undo::).
+
+   Many text-related functions operate on a region of text defined by
+two buffer positions passed in arguments named START and END.  These
+arguments should be either markers (*note Markers::) or numeric
+character positions (*note Positions::).  The order of these arguments
+does not matter; it is all right for START to be the end of the region
+and END the beginning.  For example, `(delete-region 1 10)' and
+`(delete-region 10 1)' are equivalent.  An `args-out-of-range' error is
+signaled if either START or END is outside the accessible portion of
+the buffer.  In an interactive call, point and the mark are used for
+these arguments.
+
+   Throughout this chapter, "text" refers to the characters in the
+buffer, together with their properties (when relevant).
+
+* Menu:
+
+* Near Point::       Examining text in the vicinity of point.
+* Buffer Contents::  Examining text in a general fashion.
+* Comparing Text::   Comparing substrings of buffers.
+* Insertion::        Adding new text to a buffer.
+* Commands for Insertion::  User-level commands to insert text.
+* Deletion::         Removing text from a buffer.
+* User-Level Deletion::     User-level commands to delete text.
+* The Kill Ring::    Where removed text sometimes is saved for later use.
+* Undo::             Undoing changes to the text of a buffer.
+* Maintaining Undo:: How to enable and disable undo information.
+			How to control how much information is kept.
+* Filling::          Functions for explicit filling.
+* Margins::          How to specify margins for filling commands.
+* Auto Filling::     How auto-fill mode is implemented to break lines.
+* Sorting::          Functions for sorting parts of the buffer.
+* Columns::          Computing horizontal positions, and using them.
+* Indentation::      Functions to insert or adjust indentation.
+* Case Changes::     Case conversion of parts of the buffer.
+* Text Properties::  Assigning Lisp property lists to text characters.
+* Substitution::     Replacing a given character wherever it appears.
+* Registers::        How registers are implemented.  Accessing the text or
+                       position stored in a register.
+* Transposition::    Swapping two portions of a buffer.
+* Change Hooks::     Supplying functions to be run when text is changed.
+* Transformations::  MD5 and base64 support.
+
+
+File: lispref.info,  Node: Near Point,  Next: Buffer Contents,  Up: Text
+
+Examining Text Near Point
+=========================
+
+   Many functions are provided to look at the characters around point.
+Several simple functions are described here.  See also `looking-at' in
+*Note Regexp Search::.
+
+   Many of these functions take an optional BUFFER argument.  In all
+such cases, the current buffer will be used if this argument is
+omitted. (In FSF Emacs, and earlier versions of XEmacs, these functions
+usually did not have these optional BUFFER arguments and always
+operated on the current buffer.)
+
+ - Function: char-after &optional position buffer
+     This function returns the character in the buffer at (i.e.,
+     immediately after) position POSITION.  If POSITION is out of range
+     for this purpose, either before the beginning of the buffer, or at
+     or beyond the end, then the value is `nil'.  The default for
+     POSITION is point.  If optional argument BUFFER is `nil', the
+     current buffer is assumed.
+
+     In the following example, assume that the first character in the
+     buffer is `@':
+
+          (char-to-string (char-after 1))
+               => "@"
+
+ - Function: char-before &optional position buffer
+     This function returns the character in the current buffer
+     immediately before position POSITION.  If POSITION is out of range
+     for this purpose, either at or before the beginning of the buffer,
+     or beyond the end, then the value is `nil'.  The default for
+     POSITION is point.  If optional argument BUFFER is `nil', the
+     current buffer is assumed.
+
+ - Function: following-char &optional buffer
+     This function returns the character following point in the buffer.
+     This is similar to `(char-after (point))'.  However, if point is at
+     the end of the buffer, then the result of `following-char' is 0.
+     If optional argument BUFFER is `nil', the current buffer is
+     assumed.
+
+     Remember that point is always between characters, and the terminal
+     cursor normally appears over the character following point.
+     Therefore, the character returned by `following-char' is the
+     character the cursor is over.
+
+     In this example, point is between the `a' and the `c'.
+
+          ---------- Buffer: foo ----------
+          Gentlemen may cry ``Pea-!-ce! Peace!,''
+          but there is no peace.
+          ---------- Buffer: foo ----------
+          
+          (char-to-string (preceding-char))
+               => "a"
+          (char-to-string (following-char))
+               => "c"
+
+ - Function: preceding-char &optional buffer
+     This function returns the character preceding point in the buffer.
+     See above, under `following-char', for an example.  If point is at
+     the beginning of the buffer, `preceding-char' returns 0.  If
+     optional argument BUFFER is `nil', the current buffer is assumed.
+
+ - Function: bobp &optional buffer
+     This function returns `t' if point is at the beginning of the
+     buffer.  If narrowing is in effect, this means the beginning of the
+     accessible portion of the text.  If optional argument BUFFER is
+     `nil', the current buffer is assumed.  See also `point-min' in
+     *Note Point::.
+
+ - Function: eobp &optional buffer
+     This function returns `t' if point is at the end of the buffer.
+     If narrowing is in effect, this means the end of accessible
+     portion of the text.  If optional argument BUFFER is `nil', the
+     current buffer is assumed.  See also `point-max' in *Note Point::.
+
+ - Function: bolp &optional buffer
+     This function returns `t' if point is at the beginning of a line.
+     If optional argument BUFFER is `nil', the current buffer is
+     assumed.  *Note Text Lines::.  The beginning of the buffer (or its
+     accessible portion) always counts as the beginning of a line.
+
+ - Function: eolp &optional buffer
+     This function returns `t' if point is at the end of a line.  The
+     end of the buffer is always considered the end of a line.  If
+     optional argument BUFFER is `nil', the current buffer is assumed.
+     The end of the buffer (or of its accessible portion) is always
+     considered the end of a line.
+
+
+File: lispref.info,  Node: Buffer Contents,  Next: Comparing Text,  Prev: Near Point,  Up: Text
+
+Examining Buffer Contents
+=========================
+
+   This section describes two functions that allow a Lisp program to
+convert any portion of the text in the buffer into a string.
+
+ - Function: buffer-substring start end &optional buffer
+ - Function: buffer-string start end &optional buffer
+     These functions are equivalent and return a string containing a
+     copy of the text of the region defined by positions START and END
+     in the buffer.  If the arguments are not positions in the
+     accessible portion of the buffer, `buffer-substring' signals an
+     `args-out-of-range' error.  If optional argument BUFFER is `nil',
+     the current buffer is assumed.
+
+     If the region delineated by START and END contains duplicable
+     extents, they will be remembered in the string.  *Note Duplicable
+     Extents::.
+
+     It is not necessary for START to be less than END; the arguments
+     can be given in either order.  But most often the smaller argument
+     is written first.
+
+          ---------- Buffer: foo ----------
+          This is the contents of buffer foo
+          
+          ---------- Buffer: foo ----------
+          
+          (buffer-substring 1 10)
+          => "This is t"
+          (buffer-substring (point-max) 10)
+          => "he contents of buffer foo
+          "
+
+
+File: lispref.info,  Node: Comparing Text,  Next: Insertion,  Prev: Buffer Contents,  Up: Text
+
+Comparing Text
+==============
+
+   This function lets you compare portions of the text in a buffer,
+without copying them into strings first.
+
+ - Function: compare-buffer-substrings buffer1 start1 end1 buffer2
+          start2 end2
+     This function lets you compare two substrings of the same buffer
+     or two different buffers.  The first three arguments specify one
+     substring, giving a buffer and two positions within the buffer.
+     The last three arguments specify the other substring in the same
+     way.  You can use `nil' for BUFFER1, BUFFER2, or both to stand for
+     the current buffer.
+
+     The value is negative if the first substring is less, positive if
+     the first is greater, and zero if they are equal.  The absolute
+     value of the result is one plus the index of the first differing
+     characters within the substrings.
+
+     This function ignores case when comparing characters if
+     `case-fold-search' is non-`nil'.  It always ignores text
+     properties.
+
+     Suppose the current buffer contains the text `foobarbar
+     haha!rara!'; then in this example the two substrings are `rbar '
+     and `rara!'.  The value is 2 because the first substring is greater
+     at the second character.
+
+          (compare-buffer-substring nil 6 11 nil 16 21)
+               => 2
+
+
+File: lispref.info,  Node: Insertion,  Next: Commands for Insertion,  Prev: Comparing Text,  Up: Text
+
+Inserting Text
+==============
+
+   "Insertion" means adding new text to a buffer.  The inserted text
+goes at point--between the character before point and the character
+after point.
+
+   Insertion relocates markers that point at positions after the
+insertion point, so that they stay with the surrounding text (*note
+Markers::).  When a marker points at the place of insertion, insertion
+normally doesn't relocate the marker, so that it points to the
+beginning of the inserted text; however, certain special functions such
+as `insert-before-markers' relocate such markers to point after the
+inserted text.
+
+   Some insertion functions leave point before the inserted text, while
+other functions leave it after.  We call the former insertion "after
+point" and the latter insertion "before point".
+
+   If a string with non-`nil' extent data is inserted, the remembered
+extents will also be inserted.  *Note Duplicable Extents::.
+
+   Insertion functions signal an error if the current buffer is
+read-only.
+
+   These functions copy text characters from strings and buffers along
+with their properties.  The inserted characters have exactly the same
+properties as the characters they were copied from.  By contrast,
+characters specified as separate arguments, not part of a string or
+buffer, inherit their text properties from the neighboring text.
+
+ - Function: insert &rest args
+     This function inserts the strings and/or characters ARGS into the
+     current buffer, at point, moving point forward.  In other words, it
+     inserts the text before point.  An error is signaled unless all
+     ARGS are either strings or characters.  The value is `nil'.
+
+ - Function: insert-before-markers &rest args
+     This function inserts the strings and/or characters ARGS into the
+     current buffer, at point, moving point forward.  An error is
+     signaled unless all ARGS are either strings or characters.  The
+     value is `nil'.
+
+     This function is unlike the other insertion functions in that it
+     relocates markers initially pointing at the insertion point, to
+     point after the inserted text.
+
+ - Function: insert-string string &optional buffer
+     This function inserts STRING into BUFFER before point.  BUFFER
+     defaults to the current buffer if omitted.  This function is
+     chiefly useful if you want to insert a string in a buffer other
+     than the current one (otherwise you could just use `insert').
+
+ - Function: insert-char character count &optional buffer
+     This function inserts COUNT instances of CHARACTER into BUFFER
+     before point.  COUNT must be a number, and CHARACTER must be a
+     character.  The value is `nil'.  If optional argument BUFFER is
+     `nil', the current buffer is assumed. (In FSF Emacs, the third
+     argument is called INHERIT and refers to text properties.)
+
+ - Function: insert-buffer-substring from-buffer-or-name &optional
+          start end
+     This function inserts a portion of buffer FROM-BUFFER-OR-NAME
+     (which must already exist) into the current buffer before point.
+     The text inserted is the region from START and END.  (These
+     arguments default to the beginning and end of the accessible
+     portion of that buffer.)  This function returns `nil'.
+
+     In this example, the form is executed with buffer `bar' as the
+     current buffer.  We assume that buffer `bar' is initially empty.
+
+          ---------- Buffer: foo ----------
+          We hold these truths to be self-evident, that all
+          ---------- Buffer: foo ----------
+          
+          (insert-buffer-substring "foo" 1 20)
+               => nil
+          
+          ---------- Buffer: bar ----------
+          We hold these truth-!-
+          ---------- Buffer: bar ----------
+
+
 File: lispref.info,  Node: Commands for Insertion,  Next: Deletion,  Prev: Insertion,  Up: Text
 
 User-Level Insertion Commands
@@ -527,470 +1126,4 @@ Emacs version 18.
 
      The normal use of this hook is to set the X server's primary
      selection to the newly killed text.
-
-
-File: lispref.info,  Node: Internals of Kill Ring,  Prev: Low-Level Kill Ring,  Up: The Kill Ring
-
-Internals of the Kill Ring
---------------------------
-
-   The variable `kill-ring' holds the kill ring contents, in the form
-of a list of strings.  The most recent kill is always at the front of
-the list.
-
-   The `kill-ring-yank-pointer' variable points to a link in the kill
-ring list, whose CAR is the text to yank next.  We say it identifies
-the "front" of the ring.  Moving `kill-ring-yank-pointer' to a
-different link is called "rotating the kill ring".  We call the kill
-ring a "ring" because the functions that move the yank pointer wrap
-around from the end of the list to the beginning, or vice-versa.
-Rotation of the kill ring is virtual; it does not change the value of
-`kill-ring'.
-
-   Both `kill-ring' and `kill-ring-yank-pointer' are Lisp variables
-whose values are normally lists.  The word "pointer" in the name of the
-`kill-ring-yank-pointer' indicates that the variable's purpose is to
-identify one element of the list for use by the next yank command.
-
-   The value of `kill-ring-yank-pointer' is always `eq' to one of the
-links in the kill ring list.  The element it identifies is the CAR of
-that link.  Kill commands, which change the kill ring, also set this
-variable to the value of `kill-ring'.  The effect is to rotate the ring
-so that the newly killed text is at the front.
-
-   Here is a diagram that shows the variable `kill-ring-yank-pointer'
-pointing to the second entry in the kill ring `("some text" "a
-different piece of text" "yet older text")'.
-
-     kill-ring       kill-ring-yank-pointer
-       |               |
-       |     ___ ___    --->  ___ ___      ___ ___
-        --> |___|___|------> |___|___|--> |___|___|--> nil
-              |                |            |
-              |                |            |
-              |                |             -->"yet older text"
-              |                |
-              |                 --> "a different piece of text"
-              |
-               --> "some text"
-
-This state of affairs might occur after `C-y' (`yank') immediately
-followed by `M-y' (`yank-pop').
-
- - Variable: kill-ring
-     This variable holds the list of killed text sequences, most
-     recently killed first.
-
- - Variable: kill-ring-yank-pointer
-     This variable's value indicates which element of the kill ring is
-     at the "front" of the ring for yanking.  More precisely, the value
-     is a tail of the value of `kill-ring', and its CAR is the kill
-     string that `C-y' should yank.
-
- - User Option: kill-ring-max
-     The value of this variable is the maximum length to which the kill
-     ring can grow, before elements are thrown away at the end.  The
-     default value for `kill-ring-max' is 30.
-
-
-File: lispref.info,  Node: Undo,  Next: Maintaining Undo,  Prev: The Kill Ring,  Up: Text
-
-Undo
-====
-
-   Most buffers have an "undo list", which records all changes made to
-the buffer's text so that they can be undone.  (The buffers that don't
-have one are usually special-purpose buffers for which XEmacs assumes
-that undoing is not useful.)  All the primitives that modify the text
-in the buffer automatically add elements to the front of the undo list,
-which is in the variable `buffer-undo-list'.
-
- - Variable: buffer-undo-list
-     This variable's value is the undo list of the current buffer.  A
-     value of `t' disables the recording of undo information.
-
-   Here are the kinds of elements an undo list can have:
-
-`INTEGER'
-     This kind of element records a previous value of point.  Ordinary
-     cursor motion does not get any sort of undo record, but deletion
-     commands use these entries to record where point was before the
-     command.
-
-`(BEG . END)'
-     This kind of element indicates how to delete text that was
-     inserted.  Upon insertion, the text occupied the range BEG-END in
-     the buffer.
-
-`(TEXT . POSITION)'
-     This kind of element indicates how to reinsert text that was
-     deleted.  The deleted text itself is the string TEXT.  The place to
-     reinsert it is `(abs POSITION)'.
-
-`(t HIGH . LOW)'
-     This kind of element indicates that an unmodified buffer became
-     modified.  The elements HIGH and LOW are two integers, each
-     recording 16 bits of the visited file's modification time as of
-     when it was previously visited or saved.  `primitive-undo' uses
-     those values to determine whether to mark the buffer as unmodified
-     once again; it does so only if the file's modification time
-     matches those numbers.
-
-`(nil PROPERTY VALUE BEG . END)'
-     This kind of element records a change in a text property.  Here's
-     how you might undo the change:
-
-          (put-text-property BEG END PROPERTY VALUE)
-
-`POSITION'
-     This element indicates where point was at an earlier time.
-     Undoing this element sets point to POSITION.  Deletion normally
-     creates an element of this kind as well as a reinsertion element.
-
-`nil'
-     This element is a boundary.  The elements between two boundaries
-     are called a "change group"; normally, each change group
-     corresponds to one keyboard command, and undo commands normally
-     undo an entire group as a unit.
-
- - Function: undo-boundary
-     This function places a boundary element in the undo list.  The undo
-     command stops at such a boundary, and successive undo commands undo
-     to earlier and earlier boundaries.  This function returns `nil'.
-
-     The editor command loop automatically creates an undo boundary
-     before each key sequence is executed.  Thus, each undo normally
-     undoes the effects of one command.  Self-inserting input
-     characters are an exception.  The command loop makes a boundary
-     for the first such character; the next 19 consecutive
-     self-inserting input characters do not make boundaries, and then
-     the 20th does, and so on as long as self-inserting characters
-     continue.
-
-     All buffer modifications add a boundary whenever the previous
-     undoable change was made in some other buffer.  This way, a
-     command that modifies several buffers makes a boundary in each
-     buffer it changes.
-
-     Calling this function explicitly is useful for splitting the
-     effects of a command into more than one unit.  For example,
-     `query-replace' calls `undo-boundary' after each replacement, so
-     that the user can undo individual replacements one by one.
-
- - Function: primitive-undo count list
-     This is the basic function for undoing elements of an undo list.
-     It undoes the first COUNT elements of LIST, returning the rest of
-     LIST.  You could write this function in Lisp, but it is convenient
-     to have it in C.
-
-     `primitive-undo' adds elements to the buffer's undo list when it
-     changes the buffer.  Undo commands avoid confusion by saving the
-     undo list value at the beginning of a sequence of undo operations.
-     Then the undo operations use and update the saved value.  The new
-     elements added by undoing are not part of this saved value, so
-     they don't interfere with continuing to undo.
-
-
-File: lispref.info,  Node: Maintaining Undo,  Next: Filling,  Prev: Undo,  Up: Text
-
-Maintaining Undo Lists
-======================
-
-   This section describes how to enable and disable undo information for
-a given buffer.  It also explains how the undo list is truncated
-automatically so it doesn't get too big.
-
-   Recording of undo information in a newly created buffer is normally
-enabled to start with; but if the buffer name starts with a space, the
-undo recording is initially disabled.  You can explicitly enable or
-disable undo recording with the following two functions, or by setting
-`buffer-undo-list' yourself.
-
- - Command: buffer-enable-undo &optional buffer-or-name
-     This command enables recording undo information for buffer
-     BUFFER-OR-NAME, so that subsequent changes can be undone.  If no
-     argument is supplied, then the current buffer is used.  This
-     function does nothing if undo recording is already enabled in the
-     buffer.  It returns `nil'.
-
-     In an interactive call, BUFFER-OR-NAME is the current buffer.  You
-     cannot specify any other buffer.
-
- - Function: buffer-disable-undo &optional buffer
- - Function: buffer-flush-undo &optional buffer
-     This function discards the undo list of BUFFER, and disables
-     further recording of undo information.  As a result, it is no
-     longer possible to undo either previous changes or any subsequent
-     changes.  If the undo list of BUFFER is already disabled, this
-     function has no effect.
-
-     This function returns `nil'.  It cannot be called interactively.
-
-     The name `buffer-flush-undo' is not considered obsolete, but the
-     preferred name `buffer-disable-undo' is new as of Emacs versions
-     19.
-
-   As editing continues, undo lists get longer and longer.  To prevent
-them from using up all available memory space, garbage collection trims
-them back to size limits you can set.  (For this purpose, the "size" of
-an undo list measures the cons cells that make up the list, plus the
-strings of deleted text.)  Two variables control the range of acceptable
-sizes: `undo-limit' and `undo-strong-limit'.
-
- - Variable: undo-limit
-     This is the soft limit for the acceptable size of an undo list.
-     The change group at which this size is exceeded is the last one
-     kept.
-
- - Variable: undo-strong-limit
-     This is the upper limit for the acceptable size of an undo list.
-     The change group at which this size is exceeded is discarded
-     itself (along with all older change groups).  There is one
-     exception: the very latest change group is never discarded no
-     matter how big it is.
-
-
-File: lispref.info,  Node: Filling,  Next: Margins,  Prev: Maintaining Undo,  Up: Text
-
-Filling
-=======
-
-   "Filling" means adjusting the lengths of lines (by moving the line
-breaks) so that they are nearly (but no greater than) a specified
-maximum width.  Additionally, lines can be "justified", which means
-inserting spaces to make the left and/or right margins line up
-precisely.  The width is controlled by the variable `fill-column'.  For
-ease of reading, lines should be no longer than 70 or so columns.
-
-   You can use Auto Fill mode (*note Auto Filling::) to fill text
-automatically as you insert it, but changes to existing text may leave
-it improperly filled.  Then you must fill the text explicitly.
-
-   Most of the commands in this section return values that are not
-meaningful.  All the functions that do filling take note of the current
-left margin, current right margin, and current justification style
-(*note Margins::).  If the current justification style is `none', the
-filling functions don't actually do anything.
-
-   Several of the filling functions have an argument JUSTIFY.  If it is
-non-`nil', that requests some kind of justification.  It can be `left',
-`right', `full', or `center', to request a specific style of
-justification.  If it is `t', that means to use the current
-justification style for this part of the text (see
-`current-justification', below).
-
-   When you call the filling functions interactively, using a prefix
-argument implies the value `full' for JUSTIFY.
-
- - Command: fill-paragraph justify
-     This command fills the paragraph at or after point.  If JUSTIFY is
-     non-`nil', each line is justified as well.  It uses the ordinary
-     paragraph motion commands to find paragraph boundaries.  *Note
-     Paragraphs: (xemacs)Paragraphs.
-
- - Command: fill-region start end &optional justify
-     This command fills each of the paragraphs in the region from START
-     to END.  It justifies as well if JUSTIFY is non-`nil'.
-
-     The variable `paragraph-separate' controls how to distinguish
-     paragraphs.  *Note Standard Regexps::.
-
- - Command: fill-individual-paragraphs start end &optional justify
-          mail-flag
-     This command fills each paragraph in the region according to its
-     individual fill prefix.  Thus, if the lines of a paragraph were
-     indented with spaces, the filled paragraph will remain indented in
-     the same fashion.
-
-     The first two arguments, START and END, are the beginning and end
-     of the region to be filled.  The third and fourth arguments,
-     JUSTIFY and MAIL-FLAG, are optional.  If JUSTIFY is non-`nil', the
-     paragraphs are justified as well as filled.  If MAIL-FLAG is
-     non-`nil', it means the function is operating on a mail message
-     and therefore should not fill the header lines.
-
-     Ordinarily, `fill-individual-paragraphs' regards each change in
-     indentation as starting a new paragraph.  If
-     `fill-individual-varying-indent' is non-`nil', then only separator
-     lines separate paragraphs.  That mode can handle indented
-     paragraphs with additional indentation on the first line.
-
- - User Option: fill-individual-varying-indent
-     This variable alters the action of `fill-individual-paragraphs' as
-     described above.
-
- - Command: fill-region-as-paragraph start end &optional justify
-     This command considers a region of text as a paragraph and fills
-     it.  If the region was made up of many paragraphs, the blank lines
-     between paragraphs are removed.  This function justifies as well
-     as filling when JUSTIFY is non-`nil'.
-
-     In an interactive call, any prefix argument requests justification.
-
-     In Adaptive Fill mode, which is enabled by default,
-     `fill-region-as-paragraph' on an indented paragraph when there is
-     no fill prefix uses the indentation of the second line of the
-     paragraph as the fill prefix.
-
- - Command: justify-current-line how eop nosqueeze
-     This command inserts spaces between the words of the current line
-     so that the line ends exactly at `fill-column'.  It returns `nil'.
-
-     The argument HOW, if non-`nil' specifies explicitly the style of
-     justification.  It can be `left', `right', `full', `center', or
-     `none'.  If it is `t', that means to do follow specified
-     justification style (see `current-justification', below).  `nil'
-     means to do full justification.
-
-     If EOP is non-`nil', that means do left-justification when
-     `current-justification' specifies full justification.  This is used
-     for the last line of a paragraph; even if the paragraph as a whole
-     is fully justified, the last line should not be.
-
-     If NOSQUEEZE is non-`nil', that means do not change interior
-     whitespace.
-
- - User Option: default-justification
-     This variable's value specifies the style of justification to use
-     for text that doesn't specify a style with a text property.  The
-     possible values are `left', `right', `full', `center', or `none'.
-     The default value is `left'.
-
- - Function: current-justification
-     This function returns the proper justification style to use for
-     filling the text around point.
-
- - Variable: fill-paragraph-function
-     This variable provides a way for major modes to override the
-     filling of paragraphs.  If the value is non-`nil',
-     `fill-paragraph' calls this function to do the work.  If the
-     function returns a non-`nil' value, `fill-paragraph' assumes the
-     job is done, and immediately returns that value.
-
-     The usual use of this feature is to fill comments in programming
-     language modes.  If the function needs to fill a paragraph in the
-     usual way, it can do so as follows:
-
-          (let ((fill-paragraph-function nil))
-            (fill-paragraph arg))
-
- - Variable: use-hard-newlines
-     If this variable is non-`nil', the filling functions do not delete
-     newlines that have the `hard' text property.  These "hard
-     newlines" act as paragraph separators.
-
-
-File: lispref.info,  Node: Margins,  Next: Auto Filling,  Prev: Filling,  Up: Text
-
-Margins for Filling
-===================
-
- - User Option: fill-prefix
-     This variable specifies a string of text that appears at the
-     beginning of normal text lines and should be disregarded when
-     filling them.  Any line that fails to start with the fill prefix
-     is considered the start of a paragraph; so is any line that starts
-     with the fill prefix followed by additional whitespace.  Lines
-     that start with the fill prefix but no additional whitespace are
-     ordinary text lines that can be filled together.  The resulting
-     filled lines also start with the fill prefix.
-
-     The fill prefix follows the left margin whitespace, if any.
-
- - User Option: fill-column
-     This buffer-local variable specifies the maximum width of filled
-     lines.  Its value should be an integer, which is a number of
-     columns.  All the filling, justification and centering commands
-     are affected by this variable, including Auto Fill mode (*note
-     Auto Filling::).
-
-     As a practical matter, if you are writing text for other people to
-     read, you should set `fill-column' to no more than 70.  Otherwise
-     the line will be too long for people to read comfortably, and this
-     can make the text seem clumsy.
-
- - Variable: default-fill-column
-     The value of this variable is the default value for `fill-column'
-     in buffers that do not override it.  This is the same as
-     `(default-value 'fill-column)'.
-
-     The default value for `default-fill-column' is 70.
-
- - Command: set-left-margin from to margin
-     This sets the `left-margin' property on the text from FROM to TO
-     to the value MARGIN.  If Auto Fill mode is enabled, this command
-     also refills the region to fit the new margin.
-
- - Command: set-right-margin from to margin
-     This sets the `right-margin' property on the text from FROM to TO
-     to the value MARGIN.  If Auto Fill mode is enabled, this command
-     also refills the region to fit the new margin.
-
- - Function: current-left-margin
-     This function returns the proper left margin value to use for
-     filling the text around point.  The value is the sum of the
-     `left-margin' property of the character at the start of the
-     current line (or zero if none), and the value of the variable
-     `left-margin'.
-
- - Function: current-fill-column
-     This function returns the proper fill column value to use for
-     filling the text around point.  The value is the value of the
-     `fill-column' variable, minus the value of the `right-margin'
-     property of the character after point.
-
- - Command: move-to-left-margin &optional n force
-     This function moves point to the left margin of the current line.
-     The column moved to is determined by calling the function
-     `current-left-margin'.  If the argument N is non-`nil',
-     `move-to-left-margin' moves forward N-1 lines first.
-
-     If FORCE is non-`nil', that says to fix the line's indentation if
-     that doesn't match the left margin value.
-
- - Function: delete-to-left-margin from to
-     This function removes left margin indentation from the text
-     between FROM and TO.  The amount of indentation to delete is
-     determined by calling `current-left-margin'.  In no case does this
-     function delete non-whitespace.
-
- - Function: indent-to-left-margin
-     This is the default `indent-line-function', used in Fundamental
-     mode, Text mode, etc.  Its effect is to adjust the indentation at
-     the beginning of the current line to the value specified by the
-     variable `left-margin'.  This may involve either inserting or
-     deleting whitespace.
-
- - Variable: left-margin
-     This variable specifies the base left margin column.  In
-     Fundamental mode, <LFD> indents to this column.  This variable
-     automatically becomes buffer-local when set in any fashion.
-
-
-File: lispref.info,  Node: Auto Filling,  Next: Sorting,  Prev: Margins,  Up: Text
-
-Auto Filling
-============
-
-   Auto Fill mode is a minor mode that fills lines automatically as text
-is inserted.  This section describes the hook used by Auto Fill mode.
-For a description of functions that you can call explicitly to fill and
-justify existing text, see *Note Filling::.
-
-   Auto Fill mode also enables the functions that change the margins and
-justification style to refill portions of the text.  *Note Margins::.
-
- - Variable: auto-fill-function
-     The value of this variable should be a function (of no arguments)
-     to be called after self-inserting a space or a newline.  It may be
-     `nil', in which case nothing special is done in that case.
-
-     The value of `auto-fill-function' is `do-auto-fill' when Auto-Fill
-     mode is enabled.  That is a function whose sole purpose is to
-     implement the usual strategy for breaking a line.
-
-          In older Emacs versions, this variable was named
-          `auto-fill-hook', but since it is not called with the
-          standard convention for hooks, it was renamed to
-          `auto-fill-function' in version 19.
 

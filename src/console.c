@@ -1073,6 +1073,8 @@ The elements of this list correspond to the arguments of
 void
 syms_of_console (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (console);
+
   DEFSUBR (Fvalid_console_type_p);
   DEFSUBR (Fconsole_type_list);
   DEFSUBR (Fcdfw_console);
@@ -1195,15 +1197,27 @@ One argument, the to-be-deleted console.
 }
 
 /* The docstrings for DEFVAR_* are recorded externally by make-docfile.  */
-
-/* Declaring this stuff as const produces 'Cannot reinitialize' messages
-   from SunPro C's fix-and-continue feature (a way neato feature that
-   makes debugging unbelievably more bearable) */
 #define DEFVAR_CONSOLE_LOCAL_1(lname, field_name, forward_type, magicfun) do {	\
-  static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-    = { { { symbol_value_forward_lheader_initializer,				\
-	    (struct lcrecord_header *) &(console_local_flags.field_name), 69 },	\
-	  forward_type }, magicfun };						\
+  static const struct symbol_value_forward I_hate_C =				\
+  { /* struct symbol_value_forward */						\
+    { /* struct symbol_value_magic */						\
+      { /* struct lcrecord_header */						\
+	{ /* struct lrecord_header */						\
+	  lrecord_type_symbol_value_forward, /* lrecord_type_index */		\
+	  1, /* mark bit */							\
+	  1, /* c_readonly bit */						\
+	  1  /* lisp_readonly bit */						\
+	},									\
+	0, /* next */								\
+	0, /* uid  */								\
+	0  /* free */								\
+      },									\
+      &(console_local_flags.field_name), 					\
+      forward_type								\
+    },										\
+    magicfun									\
+  };										\
+										\
   {										\
     int offset = ((char *)symbol_value_forward_forward (&I_hate_C)		\
 		  - (char *)&console_local_flags);				\
@@ -1393,14 +1407,14 @@ consoles, for example), it is set to nil.
 */ );
 #endif
 
-  /* While this should be CONST it can't be because some things
+  /* While this should be const it can't be because some things
      (i.e. edebug) do manipulate it. */
   DEFVAR_CONSOLE_LOCAL ("defining-kbd-macro", defining_kbd_macro /*
-Non-nil while a console macro is being defined.  Don't set this!
+Non-nil while a keyboard macro is being defined.  Don't set this!
 */ );
 
   DEFVAR_CONSOLE_LOCAL ("last-kbd-macro", last_kbd_macro /*
-Last kbd macro defined, as a vector of events; nil if none defined.
+Last keyboard macro defined, as a vector of events; nil if none defined.
 */ );
 
   DEFVAR_CONSOLE_LOCAL ("prefix-arg", prefix_arg /*

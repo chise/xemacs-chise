@@ -58,7 +58,7 @@ typedef int pid_t;
 #define SIZEOF_SHORT 2
 #define SIZEOF_INT 4
 #define SIZEOF_LONG 4
-#define SIZEOF_LONG_LONG 8
+#define SIZEOF_LONG_LONG 0
 #define SIZEOF_VOID_P 4
 
 /* NOMULTIPLEJOBS should be defined if your system's shell
@@ -188,8 +188,8 @@ typedef int pid_t;
 /* subprocess calls that are emulated */
 #ifndef DONT_ENCAPSULATE
 #define spawnve sys_spawnve
-int spawnve (int mode, CONST char *cmdname, 
-	     CONST char * CONST *argv, CONST char *CONST *envp);
+int spawnve (int mode, const char *cmdname, 
+	     const char * const *argv, const char *const *envp);
 #endif
 
 /* IO calls that are emulated or shadowed */
@@ -304,3 +304,11 @@ gid_t getegid (void);
   #define _WIN32_WINNT 0x0400
  #endif
 #endif
+
+/* MSVC 6.0 has a mechanism to declare functions which never return */
+#if (_MSC_VER >= 1200)
+#define DOESNT_RETURN __declspec(noreturn) void
+#define DECLARE_DOESNT_RETURN(decl) __declspec(noreturn) extern void decl
+#define DECLARE_DOESNT_RETURN_GCC_ATTRIBUTE_SYNTAX_SUCKS(decl,str,idx) \
+          __declspec(noreturn) extern void decl PRINTF_ARGS(str,idx)
+#endif /* MSVC 6.0 */

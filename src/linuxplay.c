@@ -58,10 +58,11 @@
 #endif
 
 #include "miscplay.h"
+#include "nativesound.h"
 
 #include <errno.h>
 #include <fcntl.h>
-#include SOUNDCARD_H_PATH /* Path computed by configure */
+#include SOUNDCARD_H_FILE /* Path computed by configure */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -82,8 +83,8 @@
 #define warn(str)   message("audio: %s ",GETTEXT(str))
 #endif
 
-static  void (*sighup_handler)(int);
-static  void (*sigint_handler)(int);
+static  SIGTYPE (*sighup_handler) (int);
+static  SIGTYPE (*sigint_handler) (int);
 
 static int           mix_fd;
 static int           audio_vol;
@@ -93,7 +94,8 @@ static char	     *audio_dev = "/dev/dsp";
 /* Intercept SIGINT and SIGHUP in order to close the audio and mixer
    devices before terminating sound output; this requires reliable
    signals as provided by "syssignal.h" */
-static void sighandler(int sig)
+static SIGTYPE
+sighandler (int sig)
 {
   if (mix_fd > 0) {
     if (audio_vol >= 0) {
@@ -276,8 +278,11 @@ static int audio_init(int mixx_fd, int auddio_fd, int fmt, int speed,
 }
 
 /* XEmacs requires code both for playback of pre-loaded data and for playback
-   from a soundfile; we use one function for both cases */
-static void linux_play_data_or_file(int fd,unsigned char *data,
+   from a soundfile; we use one function for both cases.
+
+   Returns 1 on succes. 0 otherwise.
+*/
+static int linux_play_data_or_file(int fd,unsigned char *data,
 				    int length,int volume)
 {
   size_t         (*parsesndfile)(void **dayta,size_t *sz,void **outbuf);
@@ -291,11 +296,11 @@ static void linux_play_data_or_file(int fd,unsigned char *data,
   /* We need to read at least the header information before we can start
      doing anything */
   if (!data || length < HEADERSZ) {
-    if (fd < 0) return;
+    if (fd < 0) return 0;
     else {
       length = read(fd,sndbuf,SNDBUFSZ);
       if (length < HEADERSZ)
-	return;
+	return 0;
       data   = sndbuf;
       length = SNDBUFSZ; }
   }
@@ -304,14 +309,16 @@ static void linux_play_data_or_file(int fd,unsigned char *data,
 
   if (ffmt != fmtRaw && ffmt != fmtSunAudio && ffmt != fmtWave) {
     warn("Unsupported file format (neither RAW, nor Sun/DECAudio, nor WAVE)");
-      return; }
+      return 0; }
 
   /* The VoxWare-SDK discourages opening /dev/audio; opening /dev/dsp and
      properly initializing it via ioctl() is preferred */
   if ((audio_fd=open(audio_dev, O_WRONLY | O_NONBLOCK, 0)) < 0) {
-    perror(audio_dev);
+    /* JV. Much too verbose. In addition this can crash. See NOTE: in
+       Fplay_sound 
+       perror(audio_dev); */
     if (mix_fd > 0 && mix_fd != audio_fd) { close(mix_fd); mix_fd = -1; }
-    return; }
+    return 0; }
 
   /* The VoxWare-SDK discourages direct manipulation of the mixer device as
      this could lead to problems, when multiple sound cards are installed */
@@ -355,7 +362,7 @@ static void linux_play_data_or_file(int fd,unsigned char *data,
 
   if (ffmt == fmtWave)
     parse_wave_complete();
- 
+
 
 END_OF_PLAY:
   /* Now cleanup all used resources */
@@ -377,12 +384,11 @@ END_OF_PLAY:
   close(audio_fd);
   audio_fd = -1;
 
-  return;
+  return 1;
 }
 
 /* Call "linux_play_data_or_file" with the appropriate parameters for
    playing a soundfile */
-void play_sound_file (char *sound_file, int volume);
 void play_sound_file (char *sound_file, int volume)
 {
   int fd;
@@ -397,9 +403,7 @@ void play_sound_file (char *sound_file, int volume)
 
 /* Call "linux_play_data_or_file" with the appropriate parameters for
    playing pre-loaded data */
-void play_sound_data (unsigned char *data, int length, int volume);
-void play_sound_data (unsigned char *data, int length, int volume)
+int play_sound_data (unsigned char *data, int length, int volume)
 {
-  linux_play_data_or_file(-1,data,length,volume);
-  return;
+  return linux_play_data_or_file(-1,data,length,volume);
 }

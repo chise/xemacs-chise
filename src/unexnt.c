@@ -63,9 +63,10 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 /* From IMAGEHLP.H which is not installed by default by MSVC < 5 */
 /* The IMAGEHLP.DLL library is not distributed by default with Windows95 */
-PIMAGE_NT_HEADERS
-(__stdcall * pfnCheckSumMappedFile) (LPVOID BaseAddress, DWORD FileLength,
-				     LPDWORD HeaderSum, LPDWORD CheckSum);
+typedef PIMAGE_NT_HEADERS
+(__stdcall * pfnCheckSumMappedFile_t) (LPVOID BaseAddress, DWORD FileLength,
+				       LPDWORD HeaderSum, LPDWORD CheckSum);
+
 
 #if 0
 extern BOOL ctrl_c_handler (unsigned long type);
@@ -190,7 +191,7 @@ unexec (char *new_name, char *old_name, void *start_data, void *start_bss,
   char out_filename[MAX_PATH], in_filename[MAX_PATH];
   unsigned long size;
   char *ptr;
-  HANDLE hImagehelp;
+  HINSTANCE hImagehelp;
   
   /* Make sure that the input and output filenames have the
      ".exe" extension...patch them up if they don't.  */
@@ -245,21 +246,29 @@ unexec (char *new_name, char *old_name, void *start_data, void *start_bss,
   {
     PIMAGE_DOS_HEADER dos_header;
     PIMAGE_NT_HEADERS nt_header;
+
     DWORD  headersum;
     DWORD  checksum;
+    pfnCheckSumMappedFile_t pfnCheckSumMappedFile;
 
     dos_header = (PIMAGE_DOS_HEADER) out_file.file_base;
     nt_header = (PIMAGE_NT_HEADERS) ((char *) dos_header + dos_header->e_lfanew);
 
     nt_header->OptionalHeader.CheckSum = 0;
-//    nt_header->FileHeader.TimeDateStamp = time (NULL);
-//    dos_header->e_cp = size / 512;
-//    nt_header->OptionalHeader.SizeOfImage = size;
+#if 0
+    nt_header->FileHeader.TimeDateStamp = time (NULL);
+    dos_header->e_cp = size / 512;
+    nt_header->OptionalHeader.SizeOfImage = size;
+#endif
 
-    pfnCheckSumMappedFile = (void *) GetProcAddress (hImagehelp, "CheckSumMappedFile");
+    pfnCheckSumMappedFile =
+      (pfnCheckSumMappedFile_t) GetProcAddress (hImagehelp,
+						"CheckSumMappedFile");
     if (pfnCheckSumMappedFile)
       {
-//	nt_header->FileHeader.TimeDateStamp = time (NULL);
+#if 0
+	nt_header->FileHeader.TimeDateStamp = time (NULL);
+#endif
 	pfnCheckSumMappedFile (out_file.file_base,
 			       out_file.size,
 			       &headersum,
@@ -278,7 +287,7 @@ unexec (char *new_name, char *old_name, void *start_data, void *start_bss,
 
 
 int
-open_output_file (file_data *p_file, CONST char *filename, unsigned long size)
+open_output_file (file_data *p_file, const char *filename, unsigned long size)
 {
   HANDLE file;
   HANDLE file_mapping;
@@ -295,14 +304,14 @@ open_output_file (file_data *p_file, CONST char *filename, unsigned long size)
     return FALSE;
   
   file_base = MapViewOfFile (file_mapping, FILE_MAP_WRITE, 0, 0, size);
-  if (file_base == 0) 
+  if (file_base == NULL) 
     return FALSE;
   
   p_file->name = filename;
   p_file->size = size;
   p_file->file = file;
   p_file->file_mapping = file_mapping;
-  p_file->file_base = file_base;
+  p_file->file_base = (char*) file_base;
 
   return TRUE;
 }
@@ -486,7 +495,7 @@ copy_executable_and_dump_data_section (file_data *p_infile,
   DUMP_MSG (("Dumping data section...\n"));
   DUMP_MSG (("\t0x%08x Address in process.\n", data_va));
   DUMP_MSG (("\t0x%08x Offset in output file.\n", 
-	     data_file - p_outfile->file_base));
+	     (char*)data_file - p_outfile->file_base));
   DUMP_MSG (("\t0x%08x Size in bytes.\n", size));
   memcpy (data_file, data_va, size);
 

@@ -50,6 +50,549 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Parsing Expressions,  Next: Standard Syntax Tables,  Prev: Motion and Syntax,  Up: Syntax Tables
+
+Parsing Balanced Expressions
+============================
+
+   Here are several functions for parsing and scanning balanced
+expressions, also known as "sexps", in which parentheses match in
+pairs.  The syntax table controls the interpretation of characters, so
+these functions can be used for Lisp expressions when in Lisp mode and
+for C expressions when in C mode.  *Note List Motion::, for convenient
+higher-level functions for moving over balanced expressions.
+
+ - Function: parse-partial-sexp start limit &optional target-depth
+          stop-before state stop-comment buffer
+     This function parses a sexp in the current buffer starting at
+     START, not scanning past LIMIT.  It stops at position LIMIT or
+     when certain criteria described below are met, and sets point to
+     the location where parsing stops.  It returns a value describing
+     the status of the parse at the point where it stops.
+
+     If STATE is `nil', START is assumed to be at the top level of
+     parenthesis structure, such as the beginning of a function
+     definition.  Alternatively, you might wish to resume parsing in the
+     middle of the structure.  To do this, you must provide a STATE
+     argument that describes the initial status of parsing.
+
+     If the third argument TARGET-DEPTH is non-`nil', parsing stops if
+     the depth in parentheses becomes equal to TARGET-DEPTH.  The depth
+     starts at 0, or at whatever is given in STATE.
+
+     If the fourth argument STOP-BEFORE is non-`nil', parsing stops
+     when it comes to any character that starts a sexp.  If
+     STOP-COMMENT is non-`nil', parsing stops when it comes to the
+     start of a comment.
+
+     The fifth argument STATE is an eight-element list of the same form
+     as the value of this function, described below.  The return value
+     of one call may be used to initialize the state of the parse on
+     another call to `parse-partial-sexp'.
+
+     The result is a list of eight elements describing the final state
+     of the parse:
+
+       0. The depth in parentheses, counting from 0.
+
+       1. The character position of the start of the innermost
+          parenthetical grouping containing the stopping point; `nil'
+          if none.
+
+       2. The character position of the start of the last complete
+          subexpression terminated; `nil' if none.
+
+       3. Non-`nil' if inside a string.  More precisely, this is the
+          character that will terminate the string.
+
+       4. `t' if inside a comment (of either style).
+
+       5. `t' if point is just after a quote character.
+
+       6. The minimum parenthesis depth encountered during this scan.
+
+       7. `t' if inside a comment of style "b".
+
+     Elements 0, 3, 4, 5 and 7 are significant in the argument STATE.
+
+     This function is most often used to compute indentation for
+     languages that have nested parentheses.
+
+ - Function: scan-lists from count depth &optional buffer noerror
+     This function scans forward COUNT balanced parenthetical groupings
+     from character number FROM.  It returns the character position
+     where the scan stops.
+
+     If DEPTH is nonzero, parenthesis depth counting begins from that
+     value.  The only candidates for stopping are places where the
+     depth in parentheses becomes zero; `scan-lists' counts COUNT such
+     places and then stops.  Thus, a positive value for DEPTH means go
+     out DEPTH levels of parenthesis.
+
+     Scanning ignores comments if `parse-sexp-ignore-comments' is
+     non-`nil'.
+
+     If the scan reaches the beginning or end of the buffer (or its
+     accessible portion), and the depth is not zero, an error is
+     signaled.  If the depth is zero but the count is not used up,
+     `nil' is returned.
+
+     If optional arg BUFFER is non-`nil', scanning occurs in that
+     buffer instead of in the current buffer.
+
+     If optional arg NOERROR is non-`nil', `scan-lists' will return
+     `nil' instead of signalling an error.
+
+ - Function: scan-sexps from count &optional buffer noerror
+     This function scans forward COUNT sexps from character position
+     FROM.  It returns the character position where the scan stops.
+
+     Scanning ignores comments if `parse-sexp-ignore-comments' is
+     non-`nil'.
+
+     If the scan reaches the beginning or end of (the accessible part
+     of) the buffer in the middle of a parenthetical grouping, an error
+     is signaled.  If it reaches the beginning or end between groupings
+     but before count is used up, `nil' is returned.
+
+     If optional arg BUFFER is non-`nil', scanning occurs in that
+     buffer instead of in the current buffer.
+
+     If optional arg NOERROR is non-`nil', `scan-sexps' will return nil
+     instead of signalling an error.
+
+ - Variable: parse-sexp-ignore-comments
+     If the value is non-`nil', then comments are treated as whitespace
+     by the functions in this section and by `forward-sexp'.
+
+     In older Emacs versions, this feature worked only when the comment
+     terminator is something like `*/', and appears only to end a
+     comment.  In languages where newlines terminate comments, it was
+     necessary make this variable `nil', since not every newline is the
+     end of a comment.  This limitation no longer exists.
+
+   You can use `forward-comment' to move forward or backward over one
+comment or several comments.
+
+ - Function: forward-comment count &optional buffer
+     This function moves point forward across COUNT comments (backward,
+     if COUNT is negative).  If it finds anything other than a comment
+     or whitespace, it stops, leaving point at the place where it
+     stopped.  It also stops after satisfying COUNT.
+
+     Optional argument BUFFER defaults to the current buffer.
+
+   To move forward over all comments and whitespace following point, use
+`(forward-comment (buffer-size))'.  `(buffer-size)' is a good argument
+to use, because the number of comments in the buffer cannot exceed that
+many.
+
+
+File: lispref.info,  Node: Standard Syntax Tables,  Next: Syntax Table Internals,  Prev: Parsing Expressions,  Up: Syntax Tables
+
+Some Standard Syntax Tables
+===========================
+
+   Most of the major modes in XEmacs have their own syntax tables.  Here
+are several of them:
+
+ - Function: standard-syntax-table
+     This function returns the standard syntax table, which is the
+     syntax table used in Fundamental mode.
+
+ - Variable: text-mode-syntax-table
+     The value of this variable is the syntax table used in Text mode.
+
+ - Variable: c-mode-syntax-table
+     The value of this variable is the syntax table for C-mode buffers.
+
+ - Variable: emacs-lisp-mode-syntax-table
+     The value of this variable is the syntax table used in Emacs Lisp
+     mode by editing commands.  (It has no effect on the Lisp `read'
+     function.)
+
+
+File: lispref.info,  Node: Syntax Table Internals,  Prev: Standard Syntax Tables,  Up: Syntax Tables
+
+Syntax Table Internals
+======================
+
+   Each element of a syntax table is an integer that encodes the syntax
+of one character: the syntax class, possible matching character, and
+flags.  Lisp programs don't usually work with the elements directly; the
+Lisp-level syntax table functions usually work with syntax descriptors
+(*note Syntax Descriptors::).
+
+   The low 8 bits of each element of a syntax table indicate the syntax
+class.
+
+Integer
+     Class
+
+0
+     whitespace
+
+1
+     punctuation
+
+2
+     word
+
+3
+     symbol
+
+4
+     open parenthesis
+
+5
+     close parenthesis
+
+6
+     expression prefix
+
+7
+     string quote
+
+8
+     paired delimiter
+
+9
+     escape
+
+10
+     character quote
+
+11
+     comment-start
+
+12
+     comment-end
+
+13
+     inherit
+
+   The next 8 bits are the matching opposite parenthesis (if the
+character has parenthesis syntax); otherwise, they are not meaningful.
+The next 6 bits are the flags.
+
+
+File: lispref.info,  Node: Abbrevs,  Next: Extents,  Prev: Syntax Tables,  Up: Top
+
+Abbrevs And Abbrev Expansion
+****************************
+
+   An abbreviation or "abbrev" is a string of characters that may be
+expanded to a longer string.  The user can insert the abbrev string and
+find it replaced automatically with the expansion of the abbrev.  This
+saves typing.
+
+   The set of abbrevs currently in effect is recorded in an "abbrev
+table".  Each buffer has a local abbrev table, but normally all buffers
+in the same major mode share one abbrev table.  There is also a global
+abbrev table.  Normally both are used.
+
+   An abbrev table is represented as an obarray containing a symbol for
+each abbreviation.  The symbol's name is the abbreviation; its value is
+the expansion; its function definition is the hook function to do the
+expansion (*note Defining Abbrevs::); its property list cell contains
+the use count, the number of times the abbreviation has been expanded.
+Because these symbols are not interned in the usual obarray, they will
+never appear as the result of reading a Lisp expression; in fact,
+normally they are never used except by the code that handles abbrevs.
+Therefore, it is safe to use them in an extremely nonstandard way.
+*Note Creating Symbols::.
+
+   For the user-level commands for abbrevs, see *Note Abbrev Mode:
+(emacs)Abbrevs.
+
+* Menu:
+
+* Abbrev Mode::                 Setting up XEmacs for abbreviation.
+* Tables: Abbrev Tables.        Creating and working with abbrev tables.
+* Defining Abbrevs::            Specifying abbreviations and their expansions.
+* Files: Abbrev Files.          Saving abbrevs in files.
+* Expansion: Abbrev Expansion.  Controlling expansion; expansion subroutines.
+* Standard Abbrev Tables::      Abbrev tables used by various major modes.
+
+
+File: lispref.info,  Node: Abbrev Mode,  Next: Abbrev Tables,  Up: Abbrevs
+
+Setting Up Abbrev Mode
+======================
+
+   Abbrev mode is a minor mode controlled by the value of the variable
+`abbrev-mode'.
+
+ - Variable: abbrev-mode
+     A non-`nil' value of this variable turns on the automatic expansion
+     of abbrevs when their abbreviations are inserted into a buffer.
+     If the value is `nil', abbrevs may be defined, but they are not
+     expanded automatically.
+
+     This variable automatically becomes local when set in any fashion.
+
+ - Variable: default-abbrev-mode
+     This is the value of `abbrev-mode' for buffers that do not
+     override it.  This is the same as `(default-value 'abbrev-mode)'.
+
+
+File: lispref.info,  Node: Abbrev Tables,  Next: Defining Abbrevs,  Prev: Abbrev Mode,  Up: Abbrevs
+
+Abbrev Tables
+=============
+
+   This section describes how to create and manipulate abbrev tables.
+
+ - Function: make-abbrev-table
+     This function creates and returns a new, empty abbrev table--an
+     obarray containing no symbols.  It is a vector filled with zeros.
+
+ - Function: clear-abbrev-table table
+     This function undefines all the abbrevs in abbrev table TABLE,
+     leaving it empty.  The function returns `nil'.
+
+ - Function: define-abbrev-table tabname definitions
+     This function defines TABNAME (a symbol) as an abbrev table name,
+     i.e., as a variable whose value is an abbrev table.  It defines
+     abbrevs in the table according to DEFINITIONS, a list of elements
+     of the form `(ABBREVNAME EXPANSION HOOK USECOUNT)'.  The value is
+     always `nil'.
+
+ - Variable: abbrev-table-name-list
+     This is a list of symbols whose values are abbrev tables.
+     `define-abbrev-table' adds the new abbrev table name to this list.
+
+ - Function: insert-abbrev-table-description name &optional human
+     This function inserts before point a description of the abbrev
+     table named NAME.  The argument NAME is a symbol whose value is an
+     abbrev table.  The value is always `nil'.
+
+     If HUMAN is non-`nil', the description is human-oriented.
+     Otherwise the description is a Lisp expression--a call to
+     `define-abbrev-table' that would define NAME exactly as it is
+     currently defined.
+
+
+File: lispref.info,  Node: Defining Abbrevs,  Next: Abbrev Files,  Prev: Abbrev Tables,  Up: Abbrevs
+
+Defining Abbrevs
+================
+
+   These functions define an abbrev in a specified abbrev table.
+`define-abbrev' is the low-level basic function, while `add-abbrev' is
+used by commands that ask for information from the user.
+
+ - Function: add-abbrev table type arg
+     This function adds an abbreviation to abbrev table TABLE based on
+     information from the user.  The argument TYPE is a string
+     describing in English the kind of abbrev this will be (typically,
+     `"global"' or `"mode-specific"'); this is used in prompting the
+     user.  The argument ARG is the number of words in the expansion.
+
+     The return value is the symbol that internally represents the new
+     abbrev, or `nil' if the user declines to confirm redefining an
+     existing abbrev.
+
+ - Function: define-abbrev table name expansion hook
+     This function defines an abbrev in TABLE named NAME, to expand to
+     EXPANSION, and call HOOK.  The return value is an uninterned
+     symbol that represents the abbrev inside XEmacs; its name is NAME.
+
+     The argument NAME should be a string.  The argument EXPANSION
+     should be a string, or `nil' to undefine the abbrev.
+
+     The argument HOOK is a function or `nil'.  If HOOK is non-`nil',
+     then it is called with no arguments after the abbrev is replaced
+     with EXPANSION; point is located at the end of EXPANSION when HOOK
+     is called.
+
+     The use count of the abbrev is initialized to zero.
+
+ - User Option: only-global-abbrevs
+     If this variable is non-`nil', it means that the user plans to use
+     global abbrevs only.  This tells the commands that define
+     mode-specific abbrevs to define global ones instead.  This
+     variable does not alter the behavior of the functions in this
+     section; it is examined by their callers.
+
+
+File: lispref.info,  Node: Abbrev Files,  Next: Abbrev Expansion,  Prev: Defining Abbrevs,  Up: Abbrevs
+
+Saving Abbrevs in Files
+=======================
+
+   A file of saved abbrev definitions is actually a file of Lisp code.
+The abbrevs are saved in the form of a Lisp program to define the same
+abbrev tables with the same contents.  Therefore, you can load the file
+with `load' (*note How Programs Do Loading::).  However, the function
+`quietly-read-abbrev-file' is provided as a more convenient interface.
+
+   User-level facilities such as `save-some-buffers' can save abbrevs
+in a file automatically, under the control of variables described here.
+
+ - User Option: abbrev-file-name
+     This is the default file name for reading and saving abbrevs.
+
+ - Function: quietly-read-abbrev-file filename
+     This function reads abbrev definitions from a file named FILENAME,
+     previously written with `write-abbrev-file'.  If FILENAME is
+     `nil', the file specified in `abbrev-file-name' is used.
+     `save-abbrevs' is set to `t' so that changes will be saved.
+
+     This function does not display any messages.  It returns `nil'.
+
+ - User Option: save-abbrevs
+     A non-`nil' value for `save-abbrev' means that XEmacs should save
+     abbrevs when files are saved.  `abbrev-file-name' specifies the
+     file to save the abbrevs in.
+
+ - Variable: abbrevs-changed
+     This variable is set non-`nil' by defining or altering any
+     abbrevs.  This serves as a flag for various XEmacs commands to
+     offer to save your abbrevs.
+
+ - Command: write-abbrev-file filename
+     Save all abbrev definitions, in all abbrev tables, in the file
+     FILENAME, in the form of a Lisp program that when loaded will
+     define the same abbrevs.  This function returns `nil'.
+
+
+File: lispref.info,  Node: Abbrev Expansion,  Next: Standard Abbrev Tables,  Prev: Abbrev Files,  Up: Abbrevs
+
+Looking Up and Expanding Abbreviations
+======================================
+
+   Abbrevs are usually expanded by commands for interactive use,
+including `self-insert-command'.  This section describes the
+subroutines used in writing such functions, as well as the variables
+they use for communication.
+
+ - Function: abbrev-symbol abbrev &optional table
+     This function returns the symbol representing the abbrev named
+     ABBREV.  The value returned is `nil' if that abbrev is not
+     defined.  The optional second argument TABLE is the abbrev table
+     to look it up in.  If TABLE is `nil', this function tries first
+     the current buffer's local abbrev table, and second the global
+     abbrev table.
+
+ - Function: abbrev-expansion abbrev &optional table
+     This function returns the string that ABBREV would expand into (as
+     defined by the abbrev tables used for the current buffer).  The
+     optional argument TABLE specifies the abbrev table to use, as in
+     `abbrev-symbol'.
+
+ - Command: expand-abbrev
+     This command expands the abbrev before point, if any.  If point
+     does not follow an abbrev, this command does nothing.  The command
+     returns `t' if it did expansion, `nil' otherwise.
+
+ - Command: abbrev-prefix-mark &optional arg
+     Mark current point as the beginning of an abbrev.  The next call to
+     `expand-abbrev' will use the text from here to point (where it is
+     then) as the abbrev to expand, rather than using the previous word
+     as usual.
+
+ - User Option: abbrev-all-caps
+     When this is set non-`nil', an abbrev entered entirely in upper
+     case is expanded using all upper case.  Otherwise, an abbrev
+     entered entirely in upper case is expanded by capitalizing each
+     word of the expansion.
+
+ - Variable: abbrev-start-location
+     This is the buffer position for `expand-abbrev' to use as the start
+     of the next abbrev to be expanded.  (`nil' means use the word
+     before point instead.)  `abbrev-start-location' is set to `nil'
+     each time `expand-abbrev' is called.  This variable is also set by
+     `abbrev-prefix-mark'.
+
+ - Variable: abbrev-start-location-buffer
+     The value of this variable is the buffer for which
+     `abbrev-start-location' has been set.  Trying to expand an abbrev
+     in any other buffer clears `abbrev-start-location'.  This variable
+     is set by `abbrev-prefix-mark'.
+
+ - Variable: last-abbrev
+     This is the `abbrev-symbol' of the last abbrev expanded.  This
+     information is left by `expand-abbrev' for the sake of the
+     `unexpand-abbrev' command.
+
+ - Variable: last-abbrev-location
+     This is the location of the last abbrev expanded.  This contains
+     information left by `expand-abbrev' for the sake of the
+     `unexpand-abbrev' command.
+
+ - Variable: last-abbrev-text
+     This is the exact expansion text of the last abbrev expanded,
+     after case conversion (if any).  Its value is `nil' if the abbrev
+     has already been unexpanded.  This contains information left by
+     `expand-abbrev' for the sake of the `unexpand-abbrev' command.
+
+ - Variable: pre-abbrev-expand-hook
+     This is a normal hook whose functions are executed, in sequence,
+     just before any expansion of an abbrev.  *Note Hooks::.  Since it
+     is a normal hook, the hook functions receive no arguments.
+     However, they can find the abbrev to be expanded by looking in the
+     buffer before point.
+
+   The following sample code shows a simple use of
+`pre-abbrev-expand-hook'.  If the user terminates an abbrev with a
+punctuation character, the hook function asks for confirmation.  Thus,
+this hook allows the user to decide whether to expand the abbrev, and
+aborts expansion if it is not confirmed.
+
+     (add-hook 'pre-abbrev-expand-hook 'query-if-not-space)
+     
+     ;; This is the function invoked by `pre-abbrev-expand-hook'.
+     
+     ;; If the user terminated the abbrev with a space, the function does
+     ;; nothing (that is, it returns so that the abbrev can expand).  If the
+     ;; user entered some other character, this function asks whether
+     ;; expansion should continue.
+     
+     ;; If the user answers the prompt with `y', the function returns
+     ;; `nil' (because of the `not' function), but that is
+     ;; acceptable; the return value has no effect on expansion.
+     
+     (defun query-if-not-space ()
+       (if (/= ?\  (preceding-char))
+           (if (not (y-or-n-p "Do you want to expand this abbrev? "))
+               (error "Not expanding this abbrev"))))
+
+
+File: lispref.info,  Node: Standard Abbrev Tables,  Prev: Abbrev Expansion,  Up: Abbrevs
+
+Standard Abbrev Tables
+======================
+
+   Here we list the variables that hold the abbrev tables for the
+preloaded major modes of XEmacs.
+
+ - Variable: global-abbrev-table
+     This is the abbrev table for mode-independent abbrevs.  The abbrevs
+     defined in it apply to all buffers.  Each buffer may also have a
+     local abbrev table, whose abbrev definitions take precedence over
+     those in the global table.
+
+ - Variable: local-abbrev-table
+     The value of this buffer-local variable is the (mode-specific)
+     abbreviation table of the current buffer.
+
+ - Variable: fundamental-mode-abbrev-table
+     This is the local abbrev table used in Fundamental mode; in other
+     words, it is the local abbrev table in all buffers in Fundamental
+     mode.
+
+ - Variable: text-mode-abbrev-table
+     This is the local abbrev table used in Text mode.
+
+ - Variable: c-mode-abbrev-table
+     This is the local abbrev table used in C mode.
+
+ - Variable: lisp-mode-abbrev-table
+     This is the local abbrev table used in Lisp mode and Emacs Lisp
+     mode.
+
+
 File: lispref.info,  Node: Extents,  Next: Specifiers,  Prev: Abbrevs,  Up: Top
 
 Extents
@@ -473,623 +1016,4 @@ the following function may be more convenient than `map-extents'.
  - Function: extent-in-region-p extent &optional from to flags
      This function returns T if `map-extents' would visit EXTENT if
      called with the given arguments.
-
-
-File: lispref.info,  Node: Extent Properties,  Next: Detached Extents,  Prev: Mapping Over Extents,  Up: Extents
-
-Properties of Extents
-=====================
-
-   Each extent has a property list associating property names with
-values.  Some property names have predefined meanings, and can usually
-only assume particular values.  Assigning other values to such a
-property either cause the value to be converted into a legal value
-(e.g., assigning anything but `nil' to a Boolean property will cause
-the value of `t' to be assigned to the property) or will cause an
-error.  Property names without predefined meanings can be assigned any
-value.  An undefined property is equivalent to a property with a value
-of `nil', or with a particular default value in the case of properties
-with predefined meanings.  Note that, when an extent is created, the
-`end-open' and `detachable' properties are set on it.
-
-   If an extent has a parent, all of its properties actually derive
-from that parent (or from the root ancestor if the parent in turn has a
-parent), and setting a property of the extent actually sets that
-property on the parent.  *Note Extent Parents::.
-
- - Function: extent-property extent property
-     This function returns the value of PROPERTY in EXTENT.  If
-     PROPERTY is undefined, `nil' is returned.
-
- - Function: extent-properties extent
-     This function returns a list of all of EXTENT's properties that do
-     not have the value of `nil' (or the default value, for properties
-     with predefined meanings).
-
- - Function: set-extent-property extent property value
-     This function sets PROPERTY to VALUE in EXTENT. (If PROPERTY has a
-     predefined meaning, only certain values are allowed, and some
-     values may be converted to others before being stored.)
-
- - Function: set-extent-properties extent plist
-     Change some properties of EXTENT.  PLIST is a property list.  This
-     is useful to change many extent properties at once.
-
-   The following table lists the properties with predefined meanings,
-along with their allowable values.
-
-`detached'
-     (Boolean) Whether the extent is detached.   Setting this is the
-     same as calling `detach-extent'.  *Note Detached Extents::.
-
-`destroyed'
-     (Boolean) Whether the extent has been deleted.  Setting this is
-     the same as calling `delete-extent'.
-
-`priority'
-     (integer) The extent's redisplay priority.  Defaults to 0.  *Note
-     priority: Intro to Extents.  This property can also be set with
-     `set-extent-priority' and accessed with `extent-priority'.
-
-`start-open'
-     (Boolean) Whether the start position of the extent is open,
-     meaning that characters inserted at that position go outside of
-     the extent.  *Note Extent Endpoints::.
-
-`start-closed'
-     (Boolean) Same as `start-open' but with the opposite sense.
-     Setting this property clears `start-open' and vice-versa.
-
-`end-open'
-     (Boolean) Whether the end position of the extent is open, meaning
-     that characters inserted at that position go outside of the
-     extent.  This is `t' by default.  *Note Extent Endpoints::.
-
-`end-closed'
-     (Boolean) Same as `end-open' but with the opposite sense.  Setting
-     this property clears `end-open' and vice-versa.
-
-`read-only'
-     (Boolean) Whether text within this extent will be unmodifiable.
-
-`face'
-     (face, face name, list of faces or face names, or `nil') The face
-     in which to display the extent's text.  This property can also be
-     set with `set-extent-face' and accessed with `extent-face'.  Note
-     that if a list of faces is specified, the faces are merged
-     together, with faces earlier in the list having priority over
-     faces later in the list.
-
-`mouse-face'
-     (face, face name, list of faces or face names, or `nil') The face
-     used to display the extent when the mouse moves over it.  This
-     property can also be set with `set-extent-mouse-face' and accessed
-     with `extent-mouse-face'.  Note that if a list of faces is
-     specified, the faces are merged together, with faces earlier in
-     the list having priority over faces later in the list.  *Note
-     Extents and Events::.
-
-`pointer'
-     (pointer glyph)  The glyph used as the pointer when the mouse
-     moves over the extent.  This takes precedence over the
-     `text-pointer-glyph' and `nontext-pointer-glyph' variables.  If
-     for any reason this glyph is an invalid pointer, the standard
-     glyphs will be used as fallbacks.  *Note Mouse Pointer::.
-
-`detachable'
-     (Boolean) Whether this extent becomes detached when all of the
-     text it covers is deleted.  This is `t' by default.  *Note
-     Detached Extents::.
-
-`duplicable'
-     (Boolean) Whether this extent should be copied into strings, so
-     that kill, yank, and undo commands will restore or copy it.  *Note
-     Duplicable Extents::.
-
-`unique'
-     (Boolean) Meaningful only in conjunction with `duplicable'.  When
-     this is set, there may be only one instance of this extent
-     attached at a time.  *Note Duplicable Extents::.
-
-`invisible'
-     (Boolean) If `t', text under this extent will not be displayed -
-     it will look as if the text is not there at all.
-
-`keymap'
-     (keymap or `nil') This keymap is consulted for mouse clicks on this
-     extent or keypresses made while `point' is within the extent.
-     *Note Extents and Events::.
-
-`copy-function'
-     This is a hook that is run when a duplicable extent is about to be
-     copied from a buffer to a string (or the kill ring).  *Note
-     Duplicable Extents::.
-
-`paste-function'
-     This is a hook that is run when a duplicable extent is about to be
-     copied from a string (or the kill ring) into a buffer.  *Note
-     Duplicable Extents::.
-
-`begin-glyph'
-     (glyph or `nil') This extent's begin glyph.  *Note Annotations::.
-
-`end-glyph'
-     (glyph or `nil') This extent's end glyph.  *Note Annotations::.
-
-`begin-glyph-layout'
-     (`text', `whitespace', `inside-margin', or `outside-margin') The
-     layout policy for this extent's begin glyph.  Defaults to `text'.
-     *Note Annotations::.
-
-`end-glyph-layout'
-     (`text', `whitespace', `inside-margin', or `outside-margin') The
-     layout policy for this extent's end glyph.  Defaults to `text'.
-     *Note Annotations::.
-
-`initial-redisplay-function'
-     (any funcallable object) The function to be called the first time
-     (a part of) the extent is redisplayed.  It will be called with the
-     extent as its argument.
-
-     This is used by `lazy-shot' to implement lazy font-locking.  The
-     functionality is still experimental, and may change without further
-     notice.
-
-   The following convenience functions are provided for accessing
-particular properties of an extent.
-
- - Function: extent-face extent
-     This function returns the `face' property of EXTENT.  This might
-     also return a list of face names.  Do not modify this list
-     directly!  Instead, use `set-extent-face'.
-
-     Note that you can use `eq' to compare lists of faces as returned
-     by `extent-face'.  In other words, if you set the face of two
-     different extents to two lists that are `equal' but not `eq', then
-     the return value of `extent-face' on the two extents will return
-     the identical list.
-
- - Function: extent-mouse-face extent
-     This function returns the `mouse-face' property of EXTENT.  This
-     might also return a list of face names.  Do not modify this list
-     directly!  Instead, use `set-extent-mouse-face'.
-
-     Note that you can use `eq' to compare lists of faces as returned
-     by `extent-mouse-face', just like for `extent-face'.
-
- - Function: extent-priority extent
-     This function returns the `priority' property of EXTENT.
-
- - Function: extent-keymap extent
-     This function returns the `keymap' property of EXTENT.
-
- - Function: extent-begin-glyph-layout extent
-     This function returns the `begin-glyph-layout' property of EXTENT,
-     i.e. the layout policy associated with the EXTENT's begin glyph.
-
- - Function: extent-end-glyph-layout extent
-     This function returns the `end-glyph-layout' property of EXTENT,
-     i.e. the layout policy associated with the EXTENT's end glyph.
-
- - Function: extent-begin-glyph extent
-     This function returns the `begin-glyph' property of EXTENT, i.e.
-     the glyph object displayed at the beginning of EXTENT.  If there
-     is none, `nil' is returned.
-
- - Function: extent-end-glyph extent
-     This function returns the `end-glyph' property of EXTENT, i.e. the
-     glyph object displayed at the end of EXTENT.  If there is none,
-     `nil' is returned.
-
-   The following convenience functions are provided for setting
-particular properties of an extent.
-
- - Function: set-extent-priority extent pri
-     This function sets the `priority' property of EXTENT to PRI.
-
- - Function: set-extent-face extent face
-     This function sets the `face' property of EXTENT to FACE.
-
- - Function: set-extent-mouse-face extent face
-     This function sets the `mouse-face' property of EXTENT to FACE.
-
- - Function: set-extent-keymap extent keymap
-     This function sets the `keymap' property of EXTENT to KEYMAP.
-     KEYMAP must be either a keymap object, or `nil'.
-
- - Function: set-extent-begin-glyph-layout extent layout
-     This function sets the `begin-glyph-layout' property of EXTENT to
-     LAYOUT.
-
- - Function: set-extent-end-glyph-layout extent layout
-     This function sets the `end-glyph-layout' property of EXTENT to
-     LAYOUT.
-
- - Function: set-extent-begin-glyph extent begin-glyph &optional layout
-     This function sets the `begin-glyph' and `glyph-layout' properties
-     of EXTENT to BEGIN-GLYPH and LAYOUT, respectively. (LAYOUT
-     defaults to `text' if not specified.)
-
- - Function: set-extent-end-glyph extent end-glyph &optional layout
-     This function sets the `end-glyph' and `glyph-layout' properties
-     of EXTENT to END-GLYPH and LAYOUT, respectively. (LAYOUT defaults
-     to `text' if not specified.)
-
- - Function: set-extent-initial-redisplay-function extent function
-     This function sets the `initial-redisplay-function' property of the
-     extent to FUNCTION.
-
-
-File: lispref.info,  Node: Detached Extents,  Next: Extent Parents,  Prev: Extent Properties,  Up: Extents
-
-Detached Extents
-================
-
-   A detached extent is an extent that is not attached to a buffer or
-string but can be re-inserted.  Detached extents have a start position
-and end position of `nil'.  Extents can be explicitly detached using
-`detach-extent'.  An extent is also detached when all of its characters
-are all killed by a deletion, if its `detachable' property is set; if
-this property is not set, the extent becomes a zero-length extent.
-(Zero-length extents with the `detachable' property set behave
-specially.  *Note zero-length extents: Extent Endpoints.)
-
- - Function: detach-extent extent
-     This function detaches EXTENT from its buffer or string.  If
-     EXTENT has the `duplicable' property, its detachment is tracked by
-     the undo mechanism.  *Note Duplicable Extents::.
-
- - Function: extent-detached-p extent
-     This function returns `nil' if EXTENT is detached, and `t'
-     otherwise.
-
- - Function: copy-extent extent &optional object
-     This function makes a copy of EXTENT.  It is initially detached.
-     Optional argument OBJECT defaults to EXTENT's object (normally a
-     buffer or string, but could be `nil').
-
- - Function: insert-extent extent &optional start end no-hooks object
-     This function inserts EXTENT from START to END in OBJECT (a buffer
-     or string).  If EXTENT is detached from a different buffer or
-     string, or in most cases when EXTENT is already attached, the
-     extent will first be copied as if with `copy-extent'.  This
-     function operates the same as if `insert' were called on a string
-     whose extent data calls for EXTENT to be inserted, except that if
-     NO-HOOKS is non-`nil', EXTENT's `paste-function' will not be
-     invoked.  *Note Duplicable Extents::.
-
-
-File: lispref.info,  Node: Extent Parents,  Next: Duplicable Extents,  Prev: Detached Extents,  Up: Extents
-
-Extent Parents
-==============
-
-   An extent can have a parent extent set for it.  If this is the case,
-the extent derives all its properties from that extent and has no
-properties of its own.  The only "properties" that the extent keeps are
-the buffer or string it refers to and the start and end points.  (More
-correctly, the extent's own properties are shadowed.  If you later
-change the extent to have no parent, its own properties will become
-visible again.)
-
-   It is possible for an extent's parent to itself have a parent, and
-so on.  Through this, a whole tree of extents can be created, all
-deriving their properties from one root extent.  Note, however, that
-you cannot create an inheritance loop--this is explicitly disallowed.
-
-   Parent extents are used to implement the extents over the modeline.
-
- - Function: set-extent-parent extent parent
-     This function sets the parent of EXTENT to PARENT.  If PARENT is
-     `nil', the extent is set to have no parent.
-
- - Function: extent-parent extent
-     This function return the parents (if any) of EXTENT, or `nil'.
-
- - Function: extent-children extent
-     This function returns a list of the children (if any) of EXTENT.
-     The children of an extent are all those extents whose parent is
-     that extent.  This function does not recursively trace children of
-     children.
-
- - Function: extent-descendants extent
-     This function returns a list of all descendants of EXTENT,
-     including EXTENT.  This recursively applies `extent-children' to
-     any children of EXTENT, until no more children can be found.
-
-
-File: lispref.info,  Node: Duplicable Extents,  Next: Extents and Events,  Prev: Extent Parents,  Up: Extents
-
-Duplicable Extents
-==================
-
-   If an extent has the `duplicable' property, it will be copied into
-strings, so that kill, yank, and undo commands will restore or copy it.
-
-   Specifically:
-
-   * When a string is created using `buffer-substring' or
-     `buffer-string', any duplicable extents in the region corresponding
-     to the string will be copied into the string (*note Buffer
-     Contents::).  When the string in inserted into a buffer using
-     `insert', `insert-before-markers', `insert-buffer' or
-     `insert-buffer-substring', the extents in the string will be copied
-     back into the buffer (*note Insertion::).  The extents in a string
-     can, of course, be retrieved explicitly using the standard extent
-     primitives over the string.
-
-   * Similarly, when text is copied or cut into the kill ring, any
-     duplicable extents will be remembered and reinserted later when
-     the text is pasted back into a buffer.
-
-   * When `concat' is called on strings, the extents in the strings are
-     copied into the resulting string.
-
-   * When `substring' is called on a string, the relevant extents are
-     copied into the resulting string.
-
-   * When a duplicable extent is detached by `detach-extent' or string
-     deletion, or inserted by `insert-extent' or string insertion, the
-     action is recorded by the undo mechanism so that it can be undone
-     later.  Note that if an extent gets detached and then a later undo
-     causes the extent to get reinserted, the new extent will not be
-     `eq' to the original extent.
-
-   * Extent motion, face changes, and attachment via `make-extent' are
-     not recorded by the undo mechanism.  This means that extent changes
-     which are to be undo-able must be performed by character editing,
-     or by insertion and detachment of duplicable extents.
-
-   * A duplicable extent's `copy-function' property, if non-`nil',
-     should be a function, and will be run when a duplicable extent is
-     about to be copied from a buffer to a string (or the kill ring).
-     It is called with three arguments: the extent and the buffer
-     positions within it which are being copied.  If this function
-     returns `nil', then the extent will not be copied; otherwise it
-     will.
-
-   * A duplicable extent's `paste-function' property, if non-`nil',
-     should be a function, and will be run when a duplicable extent is
-     about to be copied from a string (or the kill ring) into a buffer.
-     It is called with three arguments: the original extent and the
-     buffer positions which the copied extent will occupy. (This hook
-     is run after the corresponding text has already been inserted into
-     the buffer.) Note that the extent argument may be detached when
-     this function is run.  If this function returns `nil', no extent
-     will be inserted.  Otherwise, there will be an extent covering the
-     range in question.
-
-     Note: if the extent to be copied is already attached to the buffer
-     and overlaps the new range, the extent will simply be extended and
-     the `paste-function' will not be called.
-
-
-File: lispref.info,  Node: Extents and Events,  Next: Atomic Extents,  Prev: Duplicable Extents,  Up: Extents
-
-Interaction of Extents with Keyboard and Mouse Events
-=====================================================
-
-   If an extent has the `mouse-face' property set, it will be
-highlighted when the mouse passes over it.  Highlighting is accomplished
-by merging the extent's face with the face or faces specified by the
-`mouse-face' property.  The effect is as if a pseudo-extent with the
-`mouse-face' face were inserted after the extent in the display order
-(*note Extent Endpoints::, display order).
-
- - Variable: mouse-highlight-priority
-     This variable holds the priority to use when merging in the
-     highlighting pseudo-extent.  The default is 1000.  This is
-     purposely set very high so that the highlighting pseudo-extent
-     shows up even if there are other extents with various priorities
-     at the same location.
-
-   You can also explicitly cause an extent to be highlighted.  Only one
-extent at a time can be highlighted in this fashion, and any other
-highlighted extent will be de-highlighted.
-
- - Function: highlight-extent extent &optional highlight-p
-     This function highlights (if HIGHLIGHT-P is non-`nil') or
-     de-highlights (if HIGHLIGHT-P is `nil') EXTENT, if EXTENT has the
-     `mouse-face' property. (Nothing happens if EXTENT does not have
-     the `mouse-face' property.)
-
- - Function: force-highlight-extent extent &optional highlight-p
-     This function is similar to `highlight-extent' but highlights or
-     de-highlights the extent regardless of whether it has the
-     `mouse-face' property.
-
-   If an extent has a `keymap' property, this keymap will be consulted
-for mouse clicks on the extent and keypresses made while `point' is
-within the extent.  The behavior of mouse clicks and keystrokes not
-defined in the keymap is as normal for the buffer.
-
-
-File: lispref.info,  Node: Atomic Extents,  Prev: Extents and Events,  Up: Extents
-
-Atomic Extents
-==============
-
-   If the Lisp file `atomic-extents' is loaded, then the atomic extent
-facility is available.  An "atomic extent" is an extent for which
-`point' cannot be positioned anywhere within it.  This ensures that
-when selecting text, either all or none of the extent is selected.
-
-   To make an extent atomic, set its `atomic' property.
-
-
-File: lispref.info,  Node: Specifiers,  Next: Faces and Window-System Objects,  Prev: Extents,  Up: Top
-
-Specifiers
-**********
-
-   A specifier is an object used to keep track of a property whose value
-may vary depending on the particular situation (e.g. particular buffer
-displayed in a particular window) that it is used in.  The value of many
-built-in properties, such as the font, foreground, background, and such
-properties of a face and variables such as `modeline-shadow-thickness'
-and `top-toolbar-height', is actually a specifier object.  The
-specifier object, in turn, is "instanced" in a particular situation to
-yield the real value of the property in that situation.
-
- - Function: specifierp object
-     This function returns non-`nil' if OBJECT is a specifier.
-
-* Menu:
-
-* Introduction to Specifiers::  Specifiers provide a clean way for
-                                display and other properties to vary
-                                (under user control) in a wide variety
-                                of contexts.
-* Specifiers In-Depth::         Gory details about specifier innards.
-* Specifier Instancing::        Instancing means obtaining the ``value'' of
-                                a specifier in a particular context.
-* Specifier Types::             Specifiers come in different flavors.
-* Adding Specifications::       Specifications control a specifier's ``value''
-                                by giving conditions under which a
-                                particular value is valid.
-* Retrieving Specifications::   Querying a specifier's specifications.
-* Specifier Tag Functions::     Working with specifier tags.
-* Specifier Instancing Functions::
-                                Functions to instance a specifier.
-* Specifier Example::           Making all this stuff clearer.
-* Creating Specifiers::         Creating specifiers for your own use.
-* Specifier Validation Functions::
-                                Validating the components of a specifier.
-* Other Specification Functions::
-                                Other ways of working with specifications.
-
-
-File: lispref.info,  Node: Introduction to Specifiers,  Next: Specifiers In-Depth,  Up: Specifiers
-
-Introduction to Specifiers
-==========================
-
-   Sometimes you may want the value of a property to vary depending on
-the context the property is used in.  A simple example of this in XEmacs
-is buffer-local variables.  For example, the variable
-`modeline-format', which controls the format of the modeline, can have
-different values depending on the particular buffer being edited.  The
-variable has a default value which most modes will use, but a
-specialized package such as Calendar might change the variable so as to
-tailor the modeline to its own purposes.
-
-   Other properties (such as those that can be changed by the
-`modify-frame-parameters' function, for example the color of the text
-cursor) can have frame-local values, although it might also make sense
-for them to have buffer-local values.  In other cases, you might want
-the property to vary depending on the particular window within the
-frame that applies (e.g. the top or bottom window in a split frame), the
-device type that that frame appears on (X or tty), etc.  Perhaps you can
-envision some more complicated scenario where you want a particular
-value in a specified buffer, another value in all other buffers
-displayed on a particular frame, another value in all other buffers
-displayed in all other frames on any mono (two-color, e.g. black and
-white only) displays, and a default value in all other circumstances.
-
-   A "specifier" is a generalization of this, allowing a great deal of
-flexibility in controlling exactly what value a property has in which
-circumstances.  It is most commonly used for display properties, such as
-an image or the foreground color of a face.  As a simple example, you
-can specify that the foreground of the default face be
-
-   * blue for a particular buffer
-
-   * green for all other buffers
-
-   As a more complicated example, you could specify that the foreground
-of the default face be
-
-   * forest green for all buffers displayed in a particular Emacs
-     window, or green if the X server doesn't recognize the color
-     `forest green'
-
-   * blue for all buffers displayed in a particular frame
-
-   * red for all other buffers displayed on a color device
-
-   * white for all other buffers
-
-
-File: lispref.info,  Node: Specifiers In-Depth,  Next: Specifier Instancing,  Prev: Introduction to Specifiers,  Up: Specifiers
-
-In-Depth Overview of a Specifier
-================================
-
-   A specifier object encapsulates a set of "specifications", each of
-which says what its value should be if a particular condition applies.
-For example, one specification might be "The value should be
-darkseagreen2 on X devices" another might be "The value should be blue
-in the *Help* buffer".  In specifier terminology, these conditions are
-called "locales" and the values are called "instantiators".  Given a
-specifier, a logical question is "What is its value in a particular
-situation?" This involves looking through the specifications to see
-which ones apply to this particular situation, and perhaps preferring
-one over another if more than one applies.  In specifier terminology, a
-"particular situation" is called a "domain", and determining its value
-in a particular domain is called "instancing".  Most of the time, a
-domain is identified by a particular window.  For example, if the
-redisplay engine is drawing text in the default face in a particular
-window, it retrieves the specifier for the foreground color of the
-default face and "instances" it in the domain given by that window; in
-other words, it asks the specifier, "What is your value in this
-window?".
-
-   More specifically, a specifier contains a set of "specifications",
-each of which associates a "locale" (a window object, a buffer object,
-a frame object, a device object, or the symbol `global') with an
-"inst-list", which is a list of one or more "inst-pairs". (For each
-possible locale, there can be at most one specification containing that
-locale.) Each inst-pair is a cons of a "tag set" (an unordered list of
-zero or more symbols, or "tags") and an "instantiator" (the allowed
-form of this varies depending on the type of specifier).  In a given
-specification, there may be more than one inst-pair with the same tag
-set; this is unlike for locales.
-
-   The tag set is used to restrict the sorts of devices over which the
-instantiator is valid and to uniquely identify instantiators added by a
-particular application, so that different applications can work on the
-same specifier and not interfere with each other.  Each tag can have a
-"predicate" associated with it, which is a function of one argument (a
-device) that specifies whether the tag matches that particular device.
-(If a tag does not have a predicate, it matches all devices.)  All tags
-in a tag set must match a device for the associated inst-pair to be
-instantiable over that device.  (A null tag set is perfectly valid.)
-
-   The valid device types (normally `x', `tty', and `stream') and
-device classes (normally `color', `grayscale', and `mono') can always
-be used as tags, and match devices of the associated type or class
-(*note Consoles and Devices::).  User-defined tags may be defined, with
-an optional predicate specified.  An application can create its own
-tag, use it to mark all its instantiators, and be fairly confident that
-it will not interfere with other applications that modify the same
-specifier--Functions that add a specification to a specifier usually
-only overwrite existing inst-pairs with the same tag set as was given,
-and a particular tag or tag set can be specified when removing
-instantiators.
-
-   When a specifier is instanced in a domain, both the locale and the
-tag set can be viewed as specifying necessary conditions that must
-apply in that domain for an instantiator to be considered as a possible
-result of the instancing.  More specific locales always override more
-general locales (thus, there is no particular ordering of the
-specifications in a specifier); however, the tag sets are simply
-considered in the order that the inst-pairs occur in the
-specification's inst-list.
-
-   Note also that the actual object that results from the instancing
-(called an "instance object") may not be the same as the instantiator
-from which it was derived.  For some specifier types (such as integer
-specifiers and boolean specifiers), the instantiator will be returned
-directly as the instance object.  For other types, however, this is not
-the case.  For example, for font specifiers, the instantiator is a
-font-description string and the instance object is a font-instance
-object, which describes how the font is displayed on a particular
-device.  A font-instance object encapsulates such things as the actual
-font name used to display the font on that device (a font-description
-string under X is usually a wildcard specification that may resolve to
-different font names, with possibly different foundries, widths, etc.,
-on different devices), the extra properties of that font on that
-device, etc.  Furthermore, this conversion (called "instantiation")
-might fail--a font or color might not exist on a particular device, for
-example.
 

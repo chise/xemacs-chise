@@ -54,6 +54,8 @@ extern Lisp_Object Qgutter;
 extern Lisp_Object Vgutter_size[4];
 extern Lisp_Object Vgutter_border_width[4];
 void update_frame_gutters (struct frame *f);
+void update_frame_gutter_geometry (struct frame *f);
+void mark_gutters (struct frame* f);
 void init_frame_gutters (struct frame *f);
 void init_device_gutters (struct device *d);
 void init_global_gutters (struct device *d);
@@ -61,17 +63,21 @@ void free_frame_gutters (struct frame *f);
 void redraw_exposed_gutters (struct frame *f, int x, int y, int width,
 			     int height);
 void reset_gutter_display_lines (struct frame* f);
+void gutter_extent_signal_changed_region_maybe (Lisp_Object obj,
+						Bufpos start, Bufpos end);
 
 #define WINDOW_GUTTER_BORDER_WIDTH(w, pos) \
-(NILP ((w)->gutter_border_width[pos]) ? 0 : XINT ((w)->gutter_border_width[pos]))
+  (INTP ((w)->gutter_border_width[pos]) ? XINT ((w)->gutter_border_width[pos]) : 0)
 #define WINDOW_GUTTER_SIZE(w, pos) \
-(NILP ((w)->gutter_size[pos]) ? 0 : XINT ((w)->gutter_size[pos]))
+  (INTP ((w)->gutter_size[pos]) ? XINT ((w)->gutter_size[pos]) : 0)
 #define WINDOW_GUTTER_SIZE_INTERNAL(w, pos) \
-(NILP ((w)->real_gutter_size[pos]) ? 0 : XINT ((w)->real_gutter_size[pos]))
+  (INTP ((w)->real_gutter_size[pos]) ? XINT ((w)->real_gutter_size[pos]) : 0)
 #define WINDOW_GUTTER_VISIBLE(w, pos) \
-((w)->gutter_visible_p[pos])
+  ((w)->gutter_visible_p[pos])
 #define WINDOW_GUTTER(w, pos) \
-((w)->gutter[pos])
+  ((w)->real_gutter[pos])
+#define RAW_WINDOW_GUTTER(w, pos) \
+  ((w)->gutter[pos])
 
 #define WINDOW_REAL_GUTTER_SIZE(w, pos)	\
   (!NILP (WINDOW_GUTTER_VISIBLE (w, pos))		\
@@ -90,17 +96,13 @@ void reset_gutter_display_lines (struct frame* f);
 
 /* these macros predicate size on position and type of window */
 #define WINDOW_REAL_TOP_GUTTER_BOUNDS(w)	\
-   ((!MINI_WINDOW_P (w) && window_is_highest (w)) ?	\
-   WINDOW_REAL_GUTTER_BOUNDS (w,TOP_GUTTER) : 0)
+   WINDOW_REAL_GUTTER_BOUNDS (w,TOP_GUTTER)
 #define WINDOW_REAL_BOTTOM_GUTTER_BOUNDS(w)	\
-   ((!MINI_WINDOW_P (w) && window_is_lowest (w)) ?	\
-   WINDOW_REAL_GUTTER_BOUNDS (w,BOTTOM_GUTTER) : 0)
+   WINDOW_REAL_GUTTER_BOUNDS (w,BOTTOM_GUTTER)
 #define WINDOW_REAL_LEFT_GUTTER_BOUNDS(w)	\
-   ((!MINI_WINDOW_P (w) && window_is_leftmost (w)) ?	\
-   WINDOW_REAL_GUTTER_BOUNDS (w,LEFT_GUTTER) : 0)
+   WINDOW_REAL_GUTTER_BOUNDS (w,LEFT_GUTTER)
 #define WINDOW_REAL_RIGHT_GUTTER_BOUNDS(w)	\
-   ((!MINI_WINDOW_P (w) && window_is_rightmost (w)) ?	\
-   WINDOW_REAL_GUTTER_BOUNDS (w,RIGHT_GUTTER) : 0)
+   WINDOW_REAL_GUTTER_BOUNDS (w,RIGHT_GUTTER)
 
 #define FRAME_GUTTER_VISIBLE(f, pos) \
    WINDOW_REAL_GUTTER_VISIBLE (XWINDOW (FRAME_LAST_NONMINIBUF_WINDOW (f)), pos)

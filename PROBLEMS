@@ -144,9 +144,15 @@ libz.a in the X11 binary directory.
 ** AIX
 *** On AIX 4.3, you must specify --with-dialogs=athena with configure
 
-*** The libXt shipped with AIX 4.3 is broken.  This causes xemacs -nw
-    to fail in various ways.  The solution is to build against stock
-    X11R6.
+*** The libXt shipped with AIX 4.3 up to 4.3.2 is broken.  This causes
+    xemacs -nw to fail in various ways.  The official APAR is this:
+
+APAR NUMBER: <IX89470>            RESOLVED AS: PROGRAM ERROR
+
+ABSTRACT:
+<IX89470>: LIBXT.A INCORRECT HANDLING OF EXCEPTIONS IN XTAPPADDINPUT
+
+    The solution is to install X11.base.lib at version >=4.3.2.5.
 
 *** On AIX, you get this compiler error message:
 
@@ -394,21 +400,22 @@ Richard Cognot <cognot@ensg.u-nancy.fr> writes:
 
 *** On HP-UX, problems with make
 
-Marcus Thiessel <marcus_thiessel@hp.com>
+Marcus Thiessel <marcus@xemacs.org>
 
   Some releases of XEmacs (e.g. 20.4) require GNU make to build
   successfully. You don't need GNU make when building 21.x.
 
 *** On HP-UX 9.05 XEmacs won't compile or coredump during the build.
 
-Marcus Thiessel <marcus_thiessel@hp.com>
+Marcus Thiessel <marcus@xemacs.org>
 
   This might be a sed problem. For your own safety make sure to use
   GNU sed while dumping XEmacs.
 
-*** On HP-UX 11.0 XEmacs causes excessive X11 errors when running.
+*** On HP-UX 11.0 XEmacs causes excessive X11 errors when running. 
+    (also appears on AIX as reported in comp.emacs.xemacs)
 
-Marcus Thiessel <marcus_thiessel@hp.com>
+Marcus Thiessel <marcus@xemacs.org>
 
   Unfortunately, XEmacs releases prior to 21.0 don't work with
   Motif2.1. It will compile but you will get excessive X11 errors like
@@ -423,6 +430,19 @@ Marcus Thiessel <marcus_thiessel@hp.com>
  
   Make sure /usr/lib/Motif1.2_R6/libXm.sl is a link to
   /usr/lib/Motif1.2_R6/libXm.3.
+
+*** On HP-UX 11.0: Object "" does not have windowed ancestor
+
+Marcus Thiessel <marcus@xemacs.org>
+
+  XEmacs dies without core file and reports:
+
+    Error: Object "" does not have windowed ancestor.
+
+  This is a bug. Please apply the patch PHSS_19964 (check if
+  superseded). The other alternative is to link with Motif1.2_R6 (see
+  previous item).
+
 
 ** SCO OpenServer
 *** Native cc on SCO OpenServer 5 is now OK.  Icc may still throw you

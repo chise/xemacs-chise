@@ -30,11 +30,6 @@ NOTE-START
   work with certain new X window managers, and may be suboptimal.
 NOTE-END */
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-/* #define WORD_MACHINE */
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically:
    Ones defined so far include vax, m68000, ns16000, pyramid,
@@ -85,11 +80,6 @@ so disable it for them.  */
 #define DATA_START 0x00800000
 #define DATA_END 0
 
-/* The data segment in this machine always starts at address 0x00800000.
-   An address of data cannot be stored correctly in a Lisp object;
-   we always lose the high bits.  We must tell XPNTR to add them back.  */
-
-#define DATA_SEG_BITS 0x00800000
 #endif
 
 #if 0 /* I refuse to promulgate a recommendation that would make

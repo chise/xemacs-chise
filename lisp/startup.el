@@ -20,7 +20,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -654,9 +654,9 @@ If this is nil, no message will be displayed.")
 
 (defun load-user-init-file ()
   "This function actually reads the init file, .emacs."
-  (if (not user-init-file)
-      (setq user-init-file (find-user-init-file)))
-  (load user-init-file t t t)
+  (if (or user-init-file
+          (setq user-init-file (find-user-init-file)))
+      (load user-init-file t t t))
   (unless inhibit-default-init
     (let ((inhibit-startup-message nil))
       ;; Users are supposed to be told their rights.
@@ -782,7 +782,7 @@ a new format, when variables have changed, etc."
 	  (file-count 0)
 	  (line nil)
 	  (end-of-options nil)
-	  first-file-buffer file-p arg tem)
+	  file-p arg tem)
       (while command-line-args-left
 	(setq arg (pop command-line-args-left))
 	(cond
@@ -809,8 +809,8 @@ a new format, when variables have changed, etc."
 	  (incf file-count)
 	  (setq arg (expand-file-name arg dir))
 	  (cond
-	   ((= file-count 1) (setq first-file-buffer
-				   (progn (find-file arg) (current-buffer))))
+	   ((= file-count 1)
+	    (find-file arg))
 	   (noninteractive (find-file arg))
 	   (t (find-file-other-window arg)))
 	  (when line

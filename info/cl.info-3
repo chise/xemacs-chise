@@ -755,8 +755,8 @@ such as `type' and `ftype', are silently ignored.
 
           (declaim (inline foo bar))
           (eval-when (compile load eval) (proclaim '(inline foo bar)))
-          (proclaim-inline foo bar)      ; XEmacs only
-          (defsubst foo (...) ...)       ; instead of defun; Emacs 19 only
+          (proclaim-inline foo bar)   ; XEmacs only
+          (defsubst foo (...) ...)    ; instead of defun; Emacs 19 only
 
      *Please note:*  This declaration remains in effect after the
      containing source file is done.  It is correct to use it to
@@ -831,7 +831,7 @@ from Emacs Lisp.
 
 * Menu:
 
-* Property Lists::       `remprop', `getf', `remf'
+* Property Lists::       `getf', `remf'
 * Creating Symbols::     `gensym', `gentemp'
 
 
@@ -841,19 +841,9 @@ Property Lists
 ==============
 
 These functions augment the standard Emacs Lisp functions `get' and
-`put' for operating on properties attached to symbols.  There are also
+`put' for operating on properties attached to objects.  There are also
 functions for working with property lists as first-class data
-structures not attached to particular symbols.
-
- - Function: remprop symbol property
-     This function removes the entry for PROPERTY from the property
-     list of SYMBOL.  It returns a true value if the property was
-     indeed found and removed, or `nil' if there was no such property.
-     (This function was probably omitted from Emacs originally because,
-     since `get' did not allow a DEFAULT, it was very difficult to
-     distinguish between a missing property and a property whose value
-     was `nil'; thus, setting a property to `nil' was close enough to
-     `remprop' for most purposes.)
+structures not attached to particular objects.
 
  - Function: getf place property &optional default
      This function scans the list PLACE as if it were a property list,

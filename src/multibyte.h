@@ -166,8 +166,8 @@ Boston, MA 02111-1307, USA.  */
 } while (0)
 
 #define DEC_CHARPTR(ptr) do {			\
-  CONST Bufbyte *dc_ptr1 = (ptr);		\
-  CONST Bufbyte *dc_ptr2 = dc_ptr1;		\
+  const Bufbyte *dc_ptr1 = (ptr);		\
+  const Bufbyte *dc_ptr2 = dc_ptr1;		\
   REAL_DEC_CHARPTR (dc_ptr2);			\
   assert (dc_ptr1 - dc_ptr2 ==			\
 	  REP_BYTES_BY_FIRST_BYTE (*dc_ptr2));	\
@@ -185,9 +185,10 @@ Boston, MA 02111-1307, USA.  */
 /*     section of internally-formatted text 			  */
 /* -------------------------------------------------------------- */
 
-INLINE CONST Bufbyte *charptr_n_addr (CONST Bufbyte *ptr, Charcount offset);
-INLINE CONST Bufbyte *
-charptr_n_addr (CONST Bufbyte *ptr, Charcount offset)
+INLINE_HEADER const Bufbyte *
+charptr_n_addr (const Bufbyte *ptr, Charcount offset);
+INLINE_HEADER const Bufbyte *
+charptr_n_addr (const Bufbyte *ptr, Charcount offset)
 {
   return ptr + charcount_to_bytecount (ptr, offset);
 }

@@ -30,6 +30,156 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: C Indent,  Prev: Lisp Indent,  Up: Grinding
+
+Customizing C Indentation
+-------------------------
+
+   Two variables control which commands perform C indentation and when.
+
+   If `c-auto-newline' is non-`nil', newlines are inserted both before
+and after braces that you insert and after colons and semicolons.
+Correct C indentation is done on all the lines that are made this way.
+
+   If `c-tab-always-indent' is non-`nil', the <TAB> command in C mode
+does indentation only if point is at the left margin or within the
+line's indentation.  If there is non-whitespace to the left of point,
+<TAB> just inserts a tab character in the buffer.  Normally, this
+variable is `nil', and <TAB> always reindents the current line.
+
+   C does not have anything analogous to particular function names for
+which special forms of indentation are desirable.  However, it has a
+different need for customization facilities: many different styles of C
+indentation are in common use.
+
+   There are six variables you can set to control the style that Emacs C
+mode will use.
+
+`c-indent-level'
+     Indentation of C statements within surrounding block.  The
+     surrounding block's indentation is the indentation of the line on
+     which the open-brace appears.
+
+`c-continued-statement-offset'
+     Extra indentation given to a substatement, such as the then-clause
+     of an `if' or body of a `while'.
+
+`c-brace-offset'
+     Extra indentation for lines that start with an open brace.
+
+`c-brace-imaginary-offset'
+     An open brace following other text is treated as if it were this
+     far to the right of the start of its line.
+
+`c-argdecl-indent'
+     Indentation level of declarations of C function arguments.
+
+`c-label-offset'
+     Extra indentation for a line that is a label, case, or default.
+
+   The variable `c-indent-level' controls the indentation for C
+statements with respect to the surrounding block.  In the example:
+
+         {
+           foo ();
+
+the difference in indentation between the lines is `c-indent-level'.
+Its standard value is 2.
+
+   If the open-brace beginning the compound statement is not at the
+beginning of its line, the `c-indent-level' is added to the indentation
+of the line, not the column of the open-brace.  For example,
+
+     if (losing) {
+       do_this ();
+
+One popular indentation style is that which results from setting
+`c-indent-level' to 8 and putting open-braces at the end of a line in
+this way.  Another popular style prefers to put the open-brace on a
+separate line.
+
+   In fact, the value of the variable `c-brace-imaginary-offset' is
+also added to the indentation of such a statement.  Normally this
+variable is zero.  Think of this variable as the imaginary position of
+the open brace, relative to the first non-blank character on the line.
+By setting the variable to 4 and `c-indent-level' to 0, you can get
+this style:
+
+     if (x == y) {
+         do_it ();
+         }
+
+   When `c-indent-level' is zero, the statements inside most braces
+line up exactly under the open brace.  An exception are braces in column
+zero, like those surrounding a function's body.  The statements inside
+those braces are not placed at column zero.  Instead, `c-brace-offset'
+and `c-continued-statement-offset' (see below) are added to produce a
+typical offset between brace levels, and the statements are indented
+that far.
+
+   `c-continued-statement-offset' controls the extra indentation for a
+line that starts within a statement (but not within parentheses or
+brackets).  These lines are usually statements inside other statements,
+like the then-clauses of `if' statements and the bodies of `while'
+statements.  The `c-continued-statement-offset' parameter determines
+the difference in indentation between the two lines in:
+
+     if (x == y)
+       do_it ();
+
+The default value for `c-continued-statement-offset' is 2.  Some
+popular indentation styles correspond to a value of zero for
+`c-continued-statement-offset'.
+
+   `c-brace-offset' is the extra indentation given to a line that
+starts with an open-brace.  Its standard value is zero; compare:
+
+     if (x == y)
+       {
+
+with:
+
+     if (x == y)
+       do_it ();
+
+If you set `c-brace-offset' to 4, the first example becomes:
+
+     if (x == y)
+           {
+
+   `c-argdecl-indent' controls the indentation of declarations of the
+arguments of a C function.  It is absolute: argument declarations
+receive exactly `c-argdecl-indent' spaces.  The standard value is 5 and
+results in code like this:
+
+     char *
+     index (string, char)
+          char *string;
+          int char;
+
+   `c-label-offset' is the extra indentation given to a line that
+contains a label, a case statement, or a `default:' statement.  Its
+standard value is -2 and results in code like this:
+
+     switch (c)
+       {
+       case 'x':
+
+If `c-label-offset' were zero, the same code would be indented as:
+
+     switch (c)
+       {
+         case 'x':
+
+This example assumes that the other variables above also have their
+default values.
+
+   Using the indentation style produced by the default settings of the
+variables just discussed and putting open braces on separate lines
+produces clear and readable files.  For an example, look at any of the C
+source files of XEmacs.
+
+
 File: xemacs.info,  Node: Matching,  Next: Comments,  Prev: Grinding,  Up: Programs
 
 Automatic Display of Matching Parentheses
@@ -1045,139 +1195,4 @@ these rules.  As each digit is inserted, the indentation is recomputed.
 To turn off this feature, set the variable
 `fortran-electric-line-number' to `nil'.  Then inserting line numbers
 is like inserting anything else.
-
-
-File: xemacs.info,  Node: ForIndent Conv,  Next: ForIndent Vars,  Prev: ForIndent Num,  Up: Fortran Indent
-
-Syntactic Conventions
-.....................
-
-   Fortran mode assumes that you follow certain conventions that
-simplify the task of understanding a Fortran program well enough to
-indent it properly:
-
-   * Two nested `do' loops never share a `continue' statement.
-
-   * The same character appears in column 5 of all continuation lines.
-     It is the value of the variable `fortran-continuation-char'.  By
-     default, this character is `$'.
-
-If you fail to follow these conventions, the indentation commands may
-indent some lines unaesthetically.  However, a correct Fortran program
-will retain its meaning when reindented even if the conventions are not
-followed.
-
-
-File: xemacs.info,  Node: ForIndent Vars,  Prev: ForIndent Conv,  Up: Fortran Indent
-
-Variables for Fortran Indentation
-.................................
-
-   Several additional variables control how Fortran indentation works.
-
-`fortran-do-indent'
-     Extra indentation within each level of `do' statement (the default
-     is 3).
-
-`fortran-if-indent'
-     Extra indentation within each level of `if' statement (the default
-     is 3).
-
-`fortran-continuation-indent'
-     Extra indentation for bodies of continuation lines (the default is
-     5).
-
-`fortran-check-all-num-for-matching-do'
-     If this is `nil', indentation assumes that each `do' statement
-     ends on a `continue' statement.  Therefore, when computing
-     indentation for a statement other than `continue', it can save
-     time by not checking for a `do' statement ending there.  If this
-     is non-`nil', indenting any numbered statement must check for a
-     `do' that ends there.  The default is `nil'.
-
-`fortran-minimum-statement-indent'
-     Minimum indentation for Fortran statements.  For standard Fortran,
-     this is 6.  Statement bodies are always indented at least this
-     much.
-
-
-File: xemacs.info,  Node: Fortran Comments,  Next: Fortran Columns,  Prev: Fortran Indent,  Up: Fortran
-
-Comments
---------
-
-   The usual Emacs comment commands assume that a comment can follow a
-line of code.  In Fortran, the standard comment syntax requires an
-entire line to be just a comment.  Therefore, Fortran mode replaces the
-standard Emacs comment commands and defines some new variables.
-
-   Fortran mode can also handle a non-standard comment syntax where
-comments start with `!' and can follow other text.  Because only some
-Fortran compilers accept this syntax, Fortran mode will not insert such
-comments unless you have specified to do so in advance by setting the
-variable `comment-start' to `"!"' (*note Variables::).
-
-`M-;'
-     Align comment or insert new comment (`fortran-comment-indent').
-
-`C-x ;'
-     Applies to nonstandard `!' comments only.
-
-`C-c ;'
-     Turn all lines of the region into comments, or (with arg) turn
-     them back into real code (`fortran-comment-region').
-
-   `M-;' in Fortran mode is redefined as the command
-`fortran-comment-indent'.  Like the usual `M-;' command, it recognizes
-an existing comment and aligns its text appropriately.  If there is no
-existing comment, a comment is inserted and aligned.
-
-   Inserting and aligning comments is not the same in Fortran mode as in
-other modes.  When a new comment must be inserted, a full-line comment
-is inserted if the current line is blank.  On a non-blank line, a
-non-standard `!' comment is inserted if you previously specified you
-wanted to use them.  Otherwise a full-line comment is inserted on a new
-line before the current line.
-
-   Non-standard `!' comments are aligned like comments in other
-languages, but full-line comments are aligned differently.  In a
-standard full-line comment, the comment delimiter itself must always
-appear in column zero.  What can be aligned is the text within the
-comment.  You can choose from three styles of alignment by setting the
-variable `fortran-comment-indent-style' to one of these values:
-
-`fixed'
-     The text is aligned at a fixed column, which is the value of
-     `fortran-comment-line-column'.  This is the default.
-
-`relative'
-     The text is aligned as if it were a line of code, but with an
-     additional `fortran-comment-line-column' columns of indentation.
-
-`nil'
-     Text in full-line columns is not moved automatically.
-
-   You can also specify the character to be used to indent within
-full-line comments by setting the variable `fortran-comment-indent-char'
-to the character you want to use.
-
-   Fortran mode introduces two variables `comment-line-start' and
-`comment-line-start-skip', which do for full-line comments what
-`comment-start' and `comment-start-skip' do for ordinary text-following
-comments.  Normally these are set properly by Fortran mode, so you do
-not need to change them.
-
-   The normal Emacs comment command `C-x ;' has not been redefined.  It
-can therefore be used if you use `!' comments, but is useless in
-Fortran mode otherwise.
-
-   The command `C-c ;' (`fortran-comment-region') turns all the lines
-of the region into comments by inserting the string `C$$$' at the front
-of each one.  With a numeric arg, the region is turned back into live
-code by deleting `C$$$' from the front of each line.  You can control
-the string used for the comments by setting the variable
-`fortran-comment-region'.  Note that here we have an example of a
-command and a variable with the same name; the two uses of the name
-never conflict because in Lisp and in Emacs it is always clear from the
-context which one is referred to.
 

@@ -1,3 +1,107 @@
+2000-05-01  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.33 is released.
+
+2000-04-19  Martin Buchholz  <martin@xemacs.org>
+
+	* lwlib.c (lw_destroy_everything): Always use full ANSI prototypes.
+	* lwlib.c (lw_destroy_all_pop_ups): Always use full ANSI prototypes.
+
+2000-04-12  Andy Piper  <andy@xemacs.org>
+
+	* lwlib-Xaw.c (xaw_update_one_widget): no-op for text widgets.
+	(xaw_update_one_value): Get strings safely.
+	(xaw_create_text_field): add some extra properties.
+
+2000-04-05  Andy Piper  <andy@xemacs.org>
+
+	* lwlib-Xaw.c (lw_xaw_widget_p): include asciiTextWidgetClass as
+	an athena widget.
+
+2000-04-05  Andy Piper  <andy@xemacs.org>
+
+	* xlwradio.c (RadioSetValues): resize if position information has
+	changed.
+
+	* lwlib-Xm.c (xm_create_text_field): text fields should be enabled
+	even if there is no callback.
+	* lwlib-Xaw.c (xaw_create_text_field): ditto.
+
+2000-04-03  Andy Piper  <andy@xemacs.org>
+
+	* lwlib.c (merge_widget_value_args): only merge when the two args
+	are actually different.
+
+2000-03-21  Didier Verna  <didier@xemacs.org>
+
+	* config.h.in: move INCLUDE_GLUE_1 and INCLUDE_GLUE_2 to
+	src/config.h.in.
+	* config.h.in (ATHENA_INCLUDE): use the `SMART_INCLUDE' macro.
+
+2000-03-20  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.32 is released.
+
+2000-03-14  Ben Wing  <ben@xemacs.org>
+
+	* xlwmenu.c (massage_resource_name): Handle %_ and %%.
+
+2000-02-20  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* xlwscrollbar.c (get_gc): Always check for XmUNSPECIFIED_PIXMAP
+	even if we are only 'compatible' with the Motif resources.
+	(XmUNSPECIFIED_PIXMAP): Define unconditionally.
+
+2000-02-23  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.31 is released.
+
+2000-02-22  Andy Piper  <andy@xemacs.org>
+
+	* lwlib-Xm.c (xm_update_one_widget): set widget args last in case
+	anything messes with them in the meantime.
+	* lwlib-Xlw.c (xlw_update_one_widget): ditto.
+	* lwlib-Xaw.c (xaw_update_one_widget): ditto.
+
+2000-02-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.30 is released.
+
+2000-02-21  Andy Piper  <andy@xemacs.org>
+
+	* lwlib.c (merge_widget_value_args): don't delete the args before
+	copying, lw_copy_widget_value_args will do this for us if
+	necessary.
+	(lw_add_widget_value_arg): Allow existing args to be replaced.
+	(free_widget_value_args): Set args to 0 rather than 0xdeadbeef,
+	reference couting works better that way.
+	(lw_copy_widget_value_args): Do the right thing.
+
+	* lwlib-Xm.c (xm_create_progress): Make sensitive as this looks
+	much better.
+	* lwlib-Xaw.c (xaw_create_progress): ditto.
+
+2000-02-12  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* xlwmenu.h (XmUNSPECIFIED_PIXMAP): Define this if we are using Motif
+	compatible resource names.
+
+	* xlwmenu.c (make_shadow_gcs): Always check for XmUNSPECIFIED_PIXMAP
+	even if we are only 'compatible' with the Motif resources.
+
+2000-02-15  Andy Piper  <andy@xemacs.org>
+
+	* xlwgauge.c (GaugeExpose): remove shadows.
+
+2000-02-16  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.29 is released.
+
+2000-02-09  Valdis Kletnieks  <Valdis.Kletnieks@vt.edu>
+
+	* config.h.in (ATHENA_INCLUDE): Workaround bugs in both xlc and
+	old gccs.
+
 2000-02-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.28 is released.
@@ -76,7 +180,7 @@
 
 1999-12-12  Daniel Pittman  <daniel@danann.net>
 
-	* lwlib-Xaw.c: 
+	* lwlib-Xaw.c:
 	* xlwcheckbox.c:
 	* xlwgauge.h:
 	* xlwgaugeP.h:
@@ -191,11 +295,11 @@
 	Include <stdlib.h> to get prototype for atoi().
 	(GaugeSelect): Call GaugeExpose with the right number of args.
 	(GaugeLoseSel): Call GaugeExpose with the right number of args.
-	(GaugeConvert): This is a XtConvertSelectionProc, 
+	(GaugeConvert): This is a XtConvertSelectionProc,
 	so 5th parameter must be of type XtPointer, not XPointer.
-	(GaugeGetValue): This is a XtTimerCallbackProc, 
+	(GaugeGetValue): This is a XtTimerCallbackProc,
 	so 2nd parameter must be of type XtIntervalId *, not XtIntervalId.
-	
+
 
 1999-09-01  Martin Buchholz  <martin@xemacs.org>
 
@@ -231,7 +335,7 @@
 	* xlwradio.c:
 	* xlwcheckbox.c:
 	* xlwgauge.c: Fix for losing systems without Xmu.
-	
+
 1999-08-31  Andy Piper  <andy@xemacs.org>
 
 	* lwlib-Xm.c (xm_update_one_widget): fix for AIX compiler lossage.
@@ -363,7 +467,7 @@
 
 	* XEmacs 21.2.18 is released
 
-1999-07-05  Didier Verna  <verna@inf.enst.fr>
+1999-07-05  Didier Verna  <didier@xemacs.org>
 
 	* lwlib-Xm.c (xm_update_one_widget): add missing #ifdefs around
 	call to xm_update_label.

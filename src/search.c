@@ -131,7 +131,7 @@ compile_pattern_1 (struct regexp_cache *cp, Lisp_Object pattern,
 		   char *translate, struct re_registers *regp, int posix,
 		   Error_behavior errb)
 {
-  CONST char *val;
+  const char *val;
   reg_syntax_t old;
 
   cp->regexp = Qnil;
@@ -139,7 +139,7 @@ compile_pattern_1 (struct regexp_cache *cp, Lisp_Object pattern,
   cp->posix = posix;
   old = re_set_syntax (RE_SYNTAX_EMACS
 		       | (posix ? 0 : RE_NO_POSIX_BACKTRACKING));
-  val = (CONST char *)
+  val = (const char *)
     re_compile_pattern ((char *) XSTRING_DATA (pattern),
 			XSTRING_LENGTH (pattern), &cp->buf);
   re_set_syntax (old);
@@ -442,7 +442,7 @@ tables) and defaults to the current buffer.
    This does not clobber the match data. */
 
 Bytecount
-fast_string_match (Lisp_Object regexp,  CONST Bufbyte *nonreloc,
+fast_string_match (Lisp_Object regexp,  const Bufbyte *nonreloc,
 		   Lisp_Object reloc, Bytecount offset,
 		   Bytecount length, int case_fold_search,
 		   Error_behavior errb, int no_quit)

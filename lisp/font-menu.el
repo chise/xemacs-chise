@@ -168,16 +168,6 @@ the last entry in the menu."
 					      ((x) . 10))) t)
   "Scale factor used in defining font sizes.")
 
-(defun vassoc (key valist)
-  "Search VALIST for a vector whose first element is equal to KEY.
-See also `assoc'."
-  ;; by Stig@hackvan.com
-  (let (el)
-    (catch 'done
-      (while (setq el (pop valist))
-	(and (equal key (aref el 0))
-	     (throw 'done el))))))
-
 ;; only call XListFonts (and parse) once per device.
 ;; ( (device . [parsed-list-fonts family-menu size-menu weight-menu]) ...)
 (defvar device-fonts-cache nil)
@@ -207,12 +197,12 @@ or if you change your font path, you can call this to re-initialize the menus."
     (message "Getting list of fonts from server... done.")))
 
 (defun font-menu-split-long-menu (menu)
-  "Split MENU according to `font-menu-max-items'."
+  "Split MENU according to `font-menu-max-items' and add accelerator specs."
   (let ((len (length menu)))
     (if (or (null font-menu-max-items)
 	    (null (featurep 'lisp-float-type))
 	    (<= len font-menu-max-items))
-	menu
+	(submenu-generate-accelerator-spec menu)
       ;; Submenu is max 2 entries longer than menu, never shorter, number of
       ;; entries in submenus differ by at most one (with longer submenus first)
       (let* ((outer (floor (sqrt len)))
@@ -231,14 +221,20 @@ or if you change your font path, you can call this to re-initialize the menus."
 	    (setq result
 		  (cons (cons (if (stringp font-menu-submenu-name-format)
 				  (format font-menu-submenu-name-format
-					  (aref (car sub) 0) (aref to 0))
+					  (menu-item-strip-accelerator-spec
+					   (aref (car sub) 0))
+					  (menu-item-strip-accelerator-spec
+					   (aref to 0)))
 				(funcall font-menu-submenu-name-format
-					 (aref (car sub) 0) (aref to 0)))
-			      sub)
+					 (menu-item-strip-accelerator-spec
+					  (aref (car sub) 0))
+					 (menu-item-strip-accelerator-spec
+					  (aref to 0))))
+			      (submenu-generate-accelerator-spec sub))
 			result)
 		  rest  (1+ rest))
 	    (if (= rest outer) (setq inner (1+ inner)))))
-	result))))
+	(submenu-generate-accelerator-spec result)))))
 
 ;;;###autoload
 (defun font-menu-family-constructor (ignored)
@@ -261,7 +257,7 @@ or if you change your font path, you can call this to re-initialize the menus."
       (font-menu-split-long-menu
        (mapcar
 	(lambda (item)
-	  (setq f (aref item 0)
+	  (setq f (menu-item-strip-accelerator-spec (aref item 0))
 		entry (vassoc f (aref dcache 0)))
 	  (if (and (or (member weight (aref entry 1))
 		       ;; mswindows often allows any weight
@@ -309,7 +305,7 @@ or if you change your font path, you can call this to re-initialize the menus."
 	     (select-toggle-menu-item item)
 	   (deselect-toggle-menu-item item))
 	 item)
-       (aref dcache 2)))))
+       (submenu-generate-accelerator-spec (aref dcache 2))))))
 
 ;;;###autoload
 (defun font-menu-weight-constructor (ignored)
@@ -338,7 +334,7 @@ or if you change your font path, you can call this to re-initialize the menus."
 	     (select-toggle-menu-item item)
 	   (deselect-toggle-menu-item item))
 	 item)
-       (aref dcache 3)))))
+       (submenu-generate-accelerator-spec (aref dcache 3))))))
 
 
 ;;; Changing font sizes
@@ -351,11 +347,10 @@ or if you change your font path, you can call this to re-initialize the menus."
 	 (font-data (font-menu-font-data 'default dcache))
 	 (from-family (aref font-data 1))
 	 (from-size   (aref font-data 2))
-	 (from-weight (aref font-data 3))
+	   (from-weight (aref font-data 3))
 	 (from-slant  (aref font-data 4))
-	 (face-list-to-change (delq 'default (face-list)))
-	 new-default-face-font
-	 new-props)
+  	 (face-list-to-change (delq 'default (face-list)))
+	 new-default-face-font)
     (unless from-family
       (signal 'error '("couldn't parse font name for default face")))
     (when weight
@@ -396,14 +391,14 @@ or if you change your font path, you can call this to re-initialize the menus."
 		       (and font-menu-this-frame-only-p (selected-frame)))
       ;; OK Let Customize do it.
       (custom-set-face-update-spec 'default
-		(list (list 'type (device-type)))
-		(list :family family
-		      :size (concat
-			     (int-to-string
-			      (/ (or size from-size)
-				 (specifier-instance font-menu-size-scaling
-				      (selected-device))))
-			      "pt")))		 
+				   (list (list 'type (device-type)))
+				   (list :family family
+					 :size (concat
+						(int-to-string
+						 (/ (or size from-size)
+						    (specifier-instance font-menu-size-scaling
+									(selected-device))))
+						"pt")))		 
       (message "Font %s" (face-font-name 'default)))))
 
 

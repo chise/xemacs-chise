@@ -21,9 +21,6 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-/* #### There ain't nothin' here because dialog boxes have not been
-   properly abstracted yet. */
-
 #include <config.h>
 #include "lisp.h"
 #include "frame.h"
@@ -48,6 +45,11 @@ The name is the string to display on the button; it is filtered through the
 resource database, so it is possible for resources to override what string
 is actually displayed.
 
+Accelerators can be indicated in the string by putting the sequence
+"%_" before the character corresponding to the key that will invoke
+the button.  Uppercase and lowercase accelerators are equivalent.  The
+sequence "%%" is also special, and is translated into a single %.
+
 If the `callback' of a button is a symbol, then it must name a command.
 It will be invoked with `call-interactively'.  If it is a list, then it is
 evaluated with `eval'.
@@ -57,8 +59,7 @@ following buttons should be flushright instead of flushleft.
 
 Though the keyword/value syntax is supported for dialog boxes just as in
 popup menus, the only keyword which is both meaningful and fully implemented
-for dialog box buttons is `:active'.
-*/
+for dialog box buttons is `:active'.  */
      (dbox_desc))
 {
   struct frame *f = selected_frame ();
@@ -72,7 +73,8 @@ for dialog box buttons is `:active'.
   CHECK_CONS (dbox_desc);
   CHECK_STRING (XCAR (dbox_desc));
   if (!CONSP (XCDR (dbox_desc)))
-    signal_simple_error ("Dialog descriptor must supply at least one button", dbox_desc);
+    signal_simple_error ("Dialog descriptor must supply at least one button",
+			 dbox_desc);
 
   DEVMETH (d, popup_dialog_box, (f, dbox_desc));
 

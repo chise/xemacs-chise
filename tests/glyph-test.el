@@ -18,26 +18,27 @@
  (make-extent (point) (point))
  (setq radio-button1 
        (make-glyph 
-	[button :descriptor ["ok     " (setq ok-select t)
+	[button :face widget
+		:descriptor ["ok1" (setq ok-select t)
 			     :style radio :selected ok-select]])))
 ;; button in a group
 (set-extent-begin-glyph 
  (make-extent (point) (point))
  (setq radio-button2
        (make-glyph
-	[button :descriptor ["ok" (setq ok-select nil) :style radio 
+`	[button :descriptor ["ok2" (setq ok-select nil) :style radio 
 			     :selected (not ok-select)]])))
 ;; toggle button
 (set-extent-begin-glyph 
  (make-extent (point) (point))
  (setq tbutton
-       (make-glyph [button :descriptor ["ok" (setq ok-select nil) 
+       (make-glyph [button :descriptor ["ok3" (setq ok-select nil) 
 					:style toggle 
 					:selected (not ok-select)]])))
 (set-extent-begin-glyph 
  (make-extent (point) (point))
  (setq toggle-button
-       (make-glyph [button :descriptor ["ok" :style toggle 
+       (make-glyph [button :descriptor ["ok4" :style toggle 
 					:callback 
 					(setq ok-select (not ok-select))
 					:selected ok-select]])))
@@ -48,7 +49,7 @@
  (setq push-button 
        (make-glyph [button :width 10 :height 2
 			   :face modeline-mousable
-			   :descriptor "ok" :callback foo 
+			   :descriptor "ok" :callback foo
 			   :selected t])))
 ;; tree view
 (set-extent-begin-glyph 
@@ -69,9 +70,9 @@
 	    [tab-control :descriptor "My Tab"
 			 :face highlight
 			 :orientation right
-			 :properties (:items (["One" foo]
-					      ["Two" fee]
-					      ["Three" foo]))])))
+			 :properties (:items (["One" foo :selected t]
+					      ["Two" fee :selected nil]
+					      ["Three" foo :selected nil]))])))
 
 ;; progress gauge
 (set-extent-begin-glyph 
@@ -82,7 +83,7 @@
 ;; progress the progress ...
 (let ((x 0))
   (while (<= x 100)
-    (set-image-instance-property (glyph-image-instance pgauge) :percent x)
+    (set-image-instance-property (glyph-image-instance pgauge) :value x)
     (setq x (+ x 5))
     (sit-for 0.1)))
 
@@ -95,7 +96,7 @@
 ;; progress the progress ...
 (let ((x 0))
   (while (<= x 100)
-    (set-image-instance-property (glyph-image-instance pg) :percent x)
+    (set-image-instance-property (glyph-image-instance pg) :value x)
     (setq x (+ x 5))
     (sit-for 0.1)))
 

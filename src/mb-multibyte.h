@@ -78,21 +78,21 @@ Boston, MA 02111-1307, USA.  */
 #define simple_set_charptr_emchar(ptr, x)	((ptr)[0] = (Bufbyte) (x), 1)
 #define simple_charptr_copy_char(ptr, ptr2)	((ptr2)[0] = *(ptr), 1)
 
-Emchar non_ascii_charptr_emchar (CONST Bufbyte *ptr);
+Emchar non_ascii_charptr_emchar (const Bufbyte *ptr);
 Bytecount non_ascii_set_charptr_emchar (Bufbyte *ptr, Emchar c);
-Bytecount non_ascii_charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2);
+Bytecount non_ascii_charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
 
-INLINE Emchar charptr_emchar (CONST Bufbyte *ptr);
-INLINE Emchar
-charptr_emchar (CONST Bufbyte *ptr)
+INLINE_HEADER Emchar charptr_emchar (const Bufbyte *ptr);
+INLINE_HEADER Emchar
+charptr_emchar (const Bufbyte *ptr)
 {
   return BYTE_ASCII_P (*ptr) ?
     simple_charptr_emchar (ptr) :
     non_ascii_charptr_emchar (ptr);
 }
 
-INLINE Bytecount set_charptr_emchar (Bufbyte *ptr, Emchar x);
-INLINE Bytecount
+INLINE_HEADER Bytecount set_charptr_emchar (Bufbyte *ptr, Emchar x);
+INLINE_HEADER Bytecount
 set_charptr_emchar (Bufbyte *ptr, Emchar x)
 {
   return !CHAR_MULTIBYTE_P (x) ?
@@ -100,9 +100,10 @@ set_charptr_emchar (Bufbyte *ptr, Emchar x)
     non_ascii_set_charptr_emchar (ptr, x);
 }
 
-INLINE Bytecount charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2);
-INLINE Bytecount
-charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2)
+INLINE_HEADER Bytecount
+charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
+INLINE_HEADER Bytecount
+charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2)
 {
   return BYTE_ASCII_P (*ptr) ?
     simple_charptr_copy_char (ptr, ptr2) :
@@ -118,9 +119,9 @@ Emchar Lstream_get_emchar_1 (Lstream *stream, int first_char);
 int Lstream_fput_emchar (Lstream *stream, Emchar ch);
 void Lstream_funget_emchar (Lstream *stream, Emchar ch);
 
-int copy_internal_to_external (CONST Bufbyte *internal, Bytecount len,
+int copy_internal_to_external (const Bufbyte *internal, Bytecount len,
 			       unsigned char *external);
-Bytecount copy_external_to_internal (CONST unsigned char *external,
+Bytecount copy_external_to_internal (const unsigned char *external,
 				     int len, Bufbyte *internal);
 
 #endif /* _XEMACS_MB_MULTIBYTE_H */

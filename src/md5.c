@@ -29,10 +29,7 @@
 #include <sys/types.h>
 #include <string.h>
 #include <stdio.h>
-
-#if defined HAVE_LIMITS_H || _LIBC
-# include <limits.h>
-#endif
+#include <limits.h>
 
 /* The following contortions are an attempt to use the C preprocessor
    to determine an unsigned integral type that is 32 bits wide.  An
@@ -110,7 +107,7 @@ struct md5_ctx
 static const unsigned char fillbuf[64] = { 0x80, 0 /* , 0, 0, ...  */ };
 
 
-static void md5_process_block (CONST void *, size_t, struct md5_ctx *);
+static void md5_process_block (const void *, size_t, struct md5_ctx *);
 
 
 /* Initialize structure containing state of computation.
@@ -133,7 +130,7 @@ md5_init_ctx (struct md5_ctx *ctx)
    IMPORTANT: On some systems it is required that RESBUF is correctly
    aligned for a 32 bits value.  */
 static void *
-md5_read_ctx (CONST struct md5_ctx *ctx, void *resbuf)
+md5_read_ctx (const struct md5_ctx *ctx, void *resbuf)
 {
   ((md5_uint32 *) resbuf)[0] = SWAP (ctx->A);
   ((md5_uint32 *) resbuf)[1] = SWAP (ctx->B);
@@ -251,7 +248,7 @@ md5_buffer (const char *buffer, size_t len, void *resblock)
 
 
 static void
-md5_process_bytes (CONST void *buffer, size_t len, struct md5_ctx *ctx)
+md5_process_bytes (const void *buffer, size_t len, struct md5_ctx *ctx)
 {
   /* When we already have some bits in our internal buffer concatenate
      both inputs first.  */
@@ -306,7 +303,7 @@ md5_process_bytes (CONST void *buffer, size_t len, struct md5_ctx *ctx)
    It is assumed that LEN % 64 == 0.  */
 
 static void
-md5_process_block (CONST void *buffer, size_t len, struct md5_ctx *ctx)
+md5_process_block (const void *buffer, size_t len, struct md5_ctx *ctx)
 {
   md5_uint32 correct_words[16];
   const md5_uint32 *words = (const md5_uint32 *) buffer;

@@ -50,1401 +50,985 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
-File: lispref.info,  Node: Building XEmacs,  Next: Pure Storage,  Up: Building XEmacs and Object Allocation
+File: lispref.info,  Node: Internationalization Terminology,  Next: Charsets,  Up: MULE
 
-Building XEmacs
+Internationalization Terminology
+================================
+
+   In internationalization terminology, a string of text is divided up
+into "characters", which are the printable units that make up the text.
+A single character is (for example) a capital `A', the number `2', a
+Katakana character, a Hangul character, a Kanji ideograph (an
+"ideograph" is a "picture" character, such as is used in Japanese
+Kanji, Chinese Hanzi, and Korean Hanja; typically there are thousands
+of such ideographs in each language), etc.  The basic property of a
+character is that it is the smallest unit of text with semantic
+significance in text processing.
+
+   Human beings normally process text visually, so to a first
+approximation a character may be identified with its shape.  Note that
+the same character may be drawn by two different people (or in two
+different fonts) in slightly different ways, although the "basic shape"
+will be the same.  But consider the works of Scott Kim; human beings
+can recognize hugely variant shapes as the "same" character.
+Sometimes, especially where characters are extremely complicated to
+write, completely different shapes may be defined as the "same"
+character in national standards.  The Taiwanese variant of Hanzi is
+generally the most complicated; over the centuries, the Japanese,
+Koreans, and the People's Republic of China have adopted
+simplifications of the shape, but the line of descent from the original
+shape is recorded, and the meanings and pronunciation of different
+forms of the same character are considered to be identical within each
+language.  (Of course, it may take a specialist to recognize the
+related form; the point is that the relations are standardized, despite
+the differing shapes.)
+
+   In some cases, the differences will be significant enough that it is
+actually possible to identify two or more distinct shapes that both
+represent the same character.  For example, the lowercase letters `a'
+and `g' each have two distinct possible shapes--the `a' can optionally
+have a curved tail projecting off the top, and the `g' can be formed
+either of two loops, or of one loop and a tail hanging off the bottom.
+Such distinct possible shapes of a character are called "glyphs".  The
+important characteristic of two glyphs making up the same character is
+that the choice between one or the other is purely stylistic and has no
+linguistic effect on a word (this is the reason why a capital `A' and
+lowercase `a' are different characters rather than different
+glyphs--e.g.  `Aspen' is a city while `aspen' is a kind of tree).
+
+   Note that "character" and "glyph" are used differently here than
+elsewhere in XEmacs.
+
+   A "character set" is essentially a set of related characters.  ASCII,
+for example, is a set of 94 characters (or 128, if you count
+non-printing characters).  Other character sets are ISO8859-1 (ASCII
+plus various accented characters and other international symbols), JIS
+X 0201 (ASCII, more or less, plus half-width Katakana), JIS X 0208
+(Japanese Kanji), JIS X 0212 (a second set of less-used Japanese Kanji),
+GB2312 (Mainland Chinese Hanzi), etc.
+
+   The definition of a character set will implicitly or explicitly give
+it an "ordering", a way of assigning a number to each character in the
+set.  For many character sets, there is a natural ordering, for example
+the "ABC" ordering of the Roman letters.  But it is not clear whether
+digits should come before or after the letters, and in fact different
+European languages treat the ordering of accented characters
+differently.  It is useful to use the natural order where available, of
+course.  The number assigned to any particular character is called the
+character's "code point".  (Within a given character set, each
+character has a unique code point.  Thus the word "set" is ill-chosen;
+different orderings of the same characters are different character sets.
+Identifying characters is simple enough for alphabetic character sets,
+but the difference in ordering can cause great headaches when the same
+thousands of characters are used by different cultures as in the Hanzi.)
+
+   A code point may be broken into a number of "position codes".  The
+number of position codes required to index a particular character in a
+character set is called the "dimension" of the character set.  For
+practical purposes, a position code may be thought of as a byte-sized
+index.  The printing characters of ASCII, being a relatively small
+character set, is of dimension one, and each character in the set is
+indexed using a single position code, in the range 1 through 94.  Use of
+this unusual range, rather than the familiar 33 through 126, is an
+intentional abstraction; to understand the programming issues you must
+break the equation between character sets and encodings.
+
+   JIS X 0208, i.e. Japanese Kanji, has thousands of characters, and is
+of dimension two - every character is indexed by two position codes,
+each in the range 1 through 94.  (This number "94" is not a
+coincidence; we shall see that the JIS position codes were chosen so
+that JIS kanji could be encoded without using codes that in ASCII are
+associated with device control functions.)  Note that the choice of the
+range here is somewhat arbitrary.  You could just as easily index the
+printing characters in ASCII using numbers in the range 0 through 93, 2
+through 95, 3 through 96, etc.  In fact, the standardized _encoding_
+for the ASCII _character set_ uses the range 33 through 126.
+
+   An "encoding" is a way of numerically representing characters from
+one or more character sets into a stream of like-sized numerical values
+called "words"; typically these are 8-bit, 16-bit, or 32-bit
+quantities.  If an encoding encompasses only one character set, then the
+position codes for the characters in that character set could be used
+directly.  (This is the case with the trivial cipher used by children,
+assigning 1 to `A', 2 to `B', and so on.)  However, even with ASCII,
+other considerations intrude.  For example, why are the upper- and
+lowercase alphabets separated by 8 characters?  Why do the digits start
+with `0' being assigned the code 48?  In both cases because semantically
+interesting operations (case conversion and numerical value extraction)
+become convenient masking operations.  Other artificial aspects (the
+control characters being assigned to codes 0-31 and 127) are historical
+accidents.  (The use of 127 for `DEL' is an artifact of the "punch
+once" nature of paper tape, for example.)
+
+   Naive use of the position code is not possible, however, if more than
+one character set is to be used in the encoding.  For example, printed
+Japanese text typically requires characters from multiple character sets
+- ASCII, JIS X 0208, and JIS X 0212, to be specific.  Each of these is
+indexed using one or more position codes in the range 1 through 94, so
+the position codes could not be used directly or there would be no way
+to tell which character was meant.  Different Japanese encodings handle
+this differently - JIS uses special escape characters to denote
+different character sets; EUC sets the high bit of the position codes
+for JIS X 0208 and JIS X 0212, and puts a special extra byte before each
+JIS X 0212 character; etc.  (JIS, EUC, and most of the other encodings
+you will encounter in files are 7-bit or 8-bit encodings.  There is one
+common 16-bit encoding, which is Unicode; this strives to represent all
+the world's characters in a single large character set.  32-bit
+encodings are often used internally in programs, such as XEmacs with
+MULE support, to simplify the code that manipulates them; however, they
+are not used externally because they are not very space-efficient.)
+
+   A general method of handling text using multiple character sets
+(whether for multilingual text, or simply text in an extremely
+complicated single language like Japanese) is defined in the
+international standard ISO 2022.  ISO 2022 will be discussed in more
+detail later (*note ISO 2022::), but for now suffice it to say that text
+needs control functions (at least spacing), and if escape sequences are
+to be used, an escape sequence introducer.  It was decided to make all
+text streams compatible with ASCII in the sense that the codes 0-31
+(and 128-159) would always be control codes, never graphic characters,
+and where defined by the character set the `SPC' character would be
+assigned code 32, and `DEL' would be assigned 127.  Thus there are 94
+code points remaining if 7 bits are used.  This is the reason that most
+character sets are defined using position codes in the range 1 through
+94.  Then ISO 2022 compatible encodings are produced by shifting the
+position codes 1 to 94 into character codes 33 to 126, or (if 8 bit
+codes are available) into character codes 161 to 254.
+
+   Encodings are classified as either "modal" or "non-modal".  In a
+"modal encoding", there are multiple states that the encoding can be
+in, and the interpretation of the values in the stream depends on the
+current global state of the encoding.  Special values in the encoding,
+called "escape sequences", are used to change the global state.  JIS,
+for example, is a modal encoding.  The bytes `ESC $ B' indicate that,
+from then on, bytes are to be interpreted as position codes for JIS X
+0208, rather than as ASCII.  This effect is cancelled using the bytes
+`ESC ( B', which mean "switch from whatever the current state is to
+ASCII".  To switch to JIS X 0212, the escape sequence `ESC $ ( D'.
+(Note that here, as is common, the escape sequences do in fact begin
+with `ESC'.  This is not necessarily the case, however.  Some encodings
+use control characters called "locking shifts" (effect persists until
+cancelled) to switch character sets.)
+
+   A "non-modal encoding" has no global state that extends past the
+character currently being interpreted.  EUC, for example, is a
+non-modal encoding.  Characters in JIS X 0208 are encoded by setting
+the high bit of the position codes, and characters in JIS X 0212 are
+encoded by doing the same but also prefixing the character with the
+byte 0x8F.
+
+   The advantage of a modal encoding is that it is generally more
+space-efficient, and is easily extendable because there are essentially
+an arbitrary number of escape sequences that can be created.  The
+disadvantage, however, is that it is much more difficult to work with
+if it is not being processed in a sequential manner.  In the non-modal
+EUC encoding, for example, the byte 0x41 always refers to the letter
+`A'; whereas in JIS, it could either be the letter `A', or one of the
+two position codes in a JIS X 0208 character, or one of the two
+position codes in a JIS X 0212 character.  Determining exactly which
+one is meant could be difficult and time-consuming if the previous
+bytes in the string have not already been processed, or impossible if
+they are drawn from an external stream that cannot be rewound.
+
+   Non-modal encodings are further divided into "fixed-width" and
+"variable-width" formats.  A fixed-width encoding always uses the same
+number of words per character, whereas a variable-width encoding does
+not.  EUC is a good example of a variable-width encoding: one to three
+bytes are used per character, depending on the character set.  16-bit
+and 32-bit encodings are nearly always fixed-width, and this is in fact
+one of the main reasons for using an encoding with a larger word size.
+The advantages of fixed-width encodings should be obvious.  The
+advantages of variable-width encodings are that they are generally more
+space-efficient and allow for compatibility with existing 8-bit
+encodings such as ASCII.  (For example, in Unicode ASCII characters are
+simply promoted to a 16-bit representation.  That means that every
+ASCII character contains a `NUL' byte; evidently all of the standard
+string manipulation functions will lose badly in a fixed-width Unicode
+environment.)
+
+   The bytes in an 8-bit encoding are often referred to as "octets"
+rather than simply as bytes.  This terminology dates back to the days
+before 8-bit bytes were universal, when some computers had 9-bit bytes,
+others had 10-bit bytes, etc.
+
+
+File: lispref.info,  Node: Charsets,  Next: MULE Characters,  Prev: Internationalization Terminology,  Up: MULE
+
+Charsets
+========
+
+   A "charset" in MULE is an object that encapsulates a particular
+character set as well as an ordering of those characters.  Charsets are
+permanent objects and are named using symbols, like faces.
+
+ - Function: charsetp object
+     This function returns non-`nil' if OBJECT is a charset.
+
+* Menu:
+
+* Charset Properties::          Properties of a charset.
+* Basic Charset Functions::     Functions for working with charsets.
+* Charset Property Functions::  Functions for accessing charset properties.
+* Predefined Charsets::         Predefined charset objects.
+
+
+File: lispref.info,  Node: Charset Properties,  Next: Basic Charset Functions,  Up: Charsets
+
+Charset Properties
+------------------
+
+   Charsets have the following properties:
+
+`name'
+     A symbol naming the charset.  Every charset must have a different
+     name; this allows a charset to be referred to using its name
+     rather than the actual charset object.
+
+`doc-string'
+     A documentation string describing the charset.
+
+`registry'
+     A regular expression matching the font registry field for this
+     character set.  For example, both the `ascii' and `latin-iso8859-1'
+     charsets use the registry `"ISO8859-1"'.  This field is used to
+     choose an appropriate font when the user gives a general font
+     specification such as `-*-courier-medium-r-*-140-*', i.e. a
+     14-point upright medium-weight Courier font.
+
+`dimension'
+     Number of position codes used to index a character in the
+     character set.  XEmacs/MULE can only handle character sets of
+     dimension 1 or 2.  This property defaults to 1.
+
+`chars'
+     Number of characters in each dimension.  In XEmacs/MULE, the only
+     allowed values are 94 or 96. (There are a couple of pre-defined
+     character sets, such as ASCII, that do not follow this, but you
+     cannot define new ones like this.) Defaults to 94.  Note that if
+     the dimension is 2, the character set thus described is 94x94 or
+     96x96.
+
+`columns'
+     Number of columns used to display a character in this charset.
+     Only used in TTY mode. (Under X, the actual width of a character
+     can be derived from the font used to display the characters.)  If
+     unspecified, defaults to the dimension. (This is almost always the
+     correct value, because character sets with dimension 2 are usually
+     ideograph character sets, which need two columns to display the
+     intricate ideographs.)
+
+`direction'
+     A symbol, either `l2r' (left-to-right) or `r2l' (right-to-left).
+     Defaults to `l2r'.  This specifies the direction that the text
+     should be displayed in, and will be left-to-right for most
+     charsets but right-to-left for Hebrew and Arabic. (Right-to-left
+     display is not currently implemented.)
+
+`final'
+     Final byte of the standard ISO 2022 escape sequence designating
+     this charset.  Must be supplied.  Each combination of (DIMENSION,
+     CHARS) defines a separate namespace for final bytes, and each
+     charset within a particular namespace must have a different final
+     byte.  Note that ISO 2022 restricts the final byte to the range
+     0x30 - 0x7E if dimension == 1, and 0x30 - 0x5F if dimension == 2.
+     Note also that final bytes in the range 0x30 - 0x3F are reserved
+     for user-defined (not official) character sets.  For more
+     information on ISO 2022, see *Note Coding Systems::.
+
+`graphic'
+     0 (use left half of font on output) or 1 (use right half of font on
+     output).  Defaults to 0.  This specifies how to convert the
+     position codes that index a character in a character set into an
+     index into the font used to display the character set.  With
+     `graphic' set to 0, position codes 33 through 126 map to font
+     indices 33 through 126; with it set to 1, position codes 33
+     through 126 map to font indices 161 through 254 (i.e. the same
+     number but with the high bit set).  For example, for a font whose
+     registry is ISO8859-1, the left half of the font (octets 0x20 -
+     0x7F) is the `ascii' charset, while the right half (octets 0xA0 -
+     0xFF) is the `latin-iso8859-1' charset.
+
+`ccl-program'
+     A compiled CCL program used to convert a character in this charset
+     into an index into the font.  This is in addition to the `graphic'
+     property.  If a CCL program is defined, the position codes of a
+     character will first be processed according to `graphic' and then
+     passed through the CCL program, with the resulting values used to
+     index the font.
+
+     This is used, for example, in the Big5 character set (used in
+     Taiwan).  This character set is not ISO-2022-compliant, and its
+     size (94x157) does not fit within the maximum 96x96 size of
+     ISO-2022-compliant character sets.  As a result, XEmacs/MULE
+     splits it (in a rather complex fashion, so as to group the most
+     commonly used characters together) into two charset objects
+     (`big5-1' and `big5-2'), each of size 94x94, and each charset
+     object uses a CCL program to convert the modified position codes
+     back into standard Big5 indices to retrieve a character from a
+     Big5 font.
+
+   Most of the above properties can only be set when the charset is
+initialized, and cannot be changed later.  *Note Charset Property
+Functions::.
+
+
+File: lispref.info,  Node: Basic Charset Functions,  Next: Charset Property Functions,  Prev: Charset Properties,  Up: Charsets
+
+Basic Charset Functions
+-----------------------
+
+ - Function: find-charset charset-or-name
+     This function retrieves the charset of the given name.  If
+     CHARSET-OR-NAME is a charset object, it is simply returned.
+     Otherwise, CHARSET-OR-NAME should be a symbol.  If there is no
+     such charset, `nil' is returned.  Otherwise the associated charset
+     object is returned.
+
+ - Function: get-charset name
+     This function retrieves the charset of the given name.  Same as
+     `find-charset' except an error is signalled if there is no such
+     charset instead of returning `nil'.
+
+ - Function: charset-list
+     This function returns a list of the names of all defined charsets.
+
+ - Function: make-charset name doc-string props
+     This function defines a new character set.  This function is for
+     use with MULE support.  NAME is a symbol, the name by which the
+     character set is normally referred.  DOC-STRING is a string
+     describing the character set.  PROPS is a property list,
+     describing the specific nature of the character set.  The
+     recognized properties are `registry', `dimension', `columns',
+     `chars', `final', `graphic', `direction', and `ccl-program', as
+     previously described.
+
+ - Function: make-reverse-direction-charset charset new-name
+     This function makes a charset equivalent to CHARSET but which goes
+     in the opposite direction.  NEW-NAME is the name of the new
+     charset.  The new charset is returned.
+
+ - Function: charset-from-attributes dimension chars final &optional
+          direction
+     This function returns a charset with the given DIMENSION, CHARS,
+     FINAL, and DIRECTION.  If DIRECTION is omitted, both directions
+     will be checked (left-to-right will be returned if character sets
+     exist for both directions).
+
+ - Function: charset-reverse-direction-charset charset
+     This function returns the charset (if any) with the same dimension,
+     number of characters, and final byte as CHARSET, but which is
+     displayed in the opposite direction.
+
+
+File: lispref.info,  Node: Charset Property Functions,  Next: Predefined Charsets,  Prev: Basic Charset Functions,  Up: Charsets
+
+Charset Property Functions
+--------------------------
+
+   All of these functions accept either a charset name or charset
+object.
+
+ - Function: charset-property charset prop
+     This function returns property PROP of CHARSET.  *Note Charset
+     Properties::.
+
+   Convenience functions are also provided for retrieving individual
+properties of a charset.
+
+ - Function: charset-name charset
+     This function returns the name of CHARSET.  This will be a symbol.
+
+ - Function: charset-doc-string charset
+     This function returns the doc string of CHARSET.
+
+ - Function: charset-registry charset
+     This function returns the registry of CHARSET.
+
+ - Function: charset-dimension charset
+     This function returns the dimension of CHARSET.
+
+ - Function: charset-chars charset
+     This function returns the number of characters per dimension of
+     CHARSET.
+
+ - Function: charset-columns charset
+     This function returns the number of display columns per character
+     (in TTY mode) of CHARSET.
+
+ - Function: charset-direction charset
+     This function returns the display direction of CHARSET--either
+     `l2r' or `r2l'.
+
+ - Function: charset-final charset
+     This function returns the final byte of the ISO 2022 escape
+     sequence designating CHARSET.
+
+ - Function: charset-graphic charset
+     This function returns either 0 or 1, depending on whether the
+     position codes of characters in CHARSET map to the left or right
+     half of their font, respectively.
+
+ - Function: charset-ccl-program charset
+     This function returns the CCL program, if any, for converting
+     position codes of characters in CHARSET into font indices.
+
+   The only property of a charset that can currently be set after the
+charset has been created is the CCL program.
+
+ - Function: set-charset-ccl-program charset ccl-program
+     This function sets the `ccl-program' property of CHARSET to
+     CCL-PROGRAM.
+
+
+File: lispref.info,  Node: Predefined Charsets,  Prev: Charset Property Functions,  Up: Charsets
+
+Predefined Charsets
+-------------------
+
+   The following charsets are predefined in the C code.
+
+     Name                    Type  Fi Gr Dir Registry
+     --------------------------------------------------------------
+     ascii                    94    B  0  l2r ISO8859-1
+     control-1                94       0  l2r ---
+     latin-iso8859-1          94    A  1  l2r ISO8859-1
+     latin-iso8859-2          96    B  1  l2r ISO8859-2
+     latin-iso8859-3          96    C  1  l2r ISO8859-3
+     latin-iso8859-4          96    D  1  l2r ISO8859-4
+     cyrillic-iso8859-5       96    L  1  l2r ISO8859-5
+     arabic-iso8859-6         96    G  1  r2l ISO8859-6
+     greek-iso8859-7          96    F  1  l2r ISO8859-7
+     hebrew-iso8859-8         96    H  1  r2l ISO8859-8
+     latin-iso8859-9          96    M  1  l2r ISO8859-9
+     thai-tis620              96    T  1  l2r TIS620
+     katakana-jisx0201        94    I  1  l2r JISX0201.1976
+     latin-jisx0201           94    J  0  l2r JISX0201.1976
+     japanese-jisx0208-1978   94x94 @  0  l2r JISX0208.1978
+     japanese-jisx0208        94x94 B  0  l2r JISX0208.19(83|90)
+     japanese-jisx0212        94x94 D  0  l2r JISX0212
+     chinese-gb2312           94x94 A  0  l2r GB2312
+     chinese-cns11643-1       94x94 G  0  l2r CNS11643.1
+     chinese-cns11643-2       94x94 H  0  l2r CNS11643.2
+     chinese-big5-1           94x94 0  0  l2r Big5
+     chinese-big5-2           94x94 1  0  l2r Big5
+     korean-ksc5601           94x94 C  0  l2r KSC5601
+     composite                96x96    0  l2r ---
+
+   The following charsets are predefined in the Lisp code.
+
+     Name                     Type  Fi Gr Dir Registry
+     --------------------------------------------------------------
+     arabic-digit             94    2  0  l2r MuleArabic-0
+     arabic-1-column          94    3  0  r2l MuleArabic-1
+     arabic-2-column          94    4  0  r2l MuleArabic-2
+     sisheng                  94    0  0  l2r sisheng_cwnn\|OMRON_UDC_ZH
+     chinese-cns11643-3       94x94 I  0  l2r CNS11643.1
+     chinese-cns11643-4       94x94 J  0  l2r CNS11643.1
+     chinese-cns11643-5       94x94 K  0  l2r CNS11643.1
+     chinese-cns11643-6       94x94 L  0  l2r CNS11643.1
+     chinese-cns11643-7       94x94 M  0  l2r CNS11643.1
+     ethiopic                 94x94 2  0  l2r Ethio
+     ascii-r2l                94    B  0  r2l ISO8859-1
+     ipa                      96    0  1  l2r MuleIPA
+     vietnamese-lower         96    1  1  l2r VISCII1.1
+     vietnamese-upper         96    2  1  l2r VISCII1.1
+
+   For all of the above charsets, the dimension and number of columns
+are the same.
+
+   Note that ASCII, Control-1, and Composite are handled specially.
+This is why some of the fields are blank; and some of the filled-in
+fields (e.g. the type) are not really accurate.
+
+
+File: lispref.info,  Node: MULE Characters,  Next: Composite Characters,  Prev: Charsets,  Up: MULE
+
+MULE Characters
 ===============
 
-   This section explains the steps involved in building the XEmacs
-executable.  You don't have to know this material to build and install
-XEmacs, since the makefiles do all these things automatically.  This
-information is pertinent to XEmacs maintenance.
+ - Function: make-char charset arg1 &optional arg2
+     This function makes a multi-byte character from CHARSET and octets
+     ARG1 and ARG2.
 
-   The `XEmacs Internals Manual' contains more information about this.
+ - Function: char-charset ch
+     This function returns the character set of char CH.
 
-   Compilation of the C source files in the `src' directory produces an
-executable file called `temacs', also called a "bare impure XEmacs".
-It contains the XEmacs Lisp interpreter and I/O routines, but not the
-editing commands.
+ - Function: char-octet ch &optional n
+     This function returns the octet (i.e. position code) numbered N
+     (should be 0 or 1) of char CH.  N defaults to 0 if omitted.
 
-   Before XEmacs is actually usable, a number of Lisp files need to be
-loaded.  These define all the editing commands, plus most of the startup
-code and many very basic Lisp primitives.  This is accomplished by
-loading the file `loadup.el', which in turn loads all of the other
-standardly-loaded Lisp files.
+ - Function: find-charset-region start end &optional buffer
+     This function returns a list of the charsets in the region between
+     START and END.  BUFFER defaults to the current buffer if omitted.
 
-   It takes a substantial time to load the standard Lisp files.
-Luckily, you don't have to do this each time you run XEmacs; `temacs'
-can dump out an executable program called `xemacs' that has these files
-preloaded.  `xemacs' starts more quickly because it does not need to
-load the files.  This is the XEmacs executable that is normally
-installed.
-
-   To create `xemacs', use the command `temacs -batch -l loadup dump'.
-The purpose of `-batch' here is to tell `temacs' to run in
-non-interactive, command-line mode. (`temacs' can _only_ run in this
-fashion.  Part of the code required to initialize frames and faces is
-in Lisp, and must be loaded before XEmacs is able to create any frames.)
-The argument `dump' tells `loadup.el' to dump a new executable named
-`xemacs'.
-
-   The dumping process is highly system-specific, and some operating
-systems don't support dumping.  On those systems, you must start XEmacs
-with the `temacs -batch -l loadup run-temacs' command each time you use
-it.  This takes a substantial time, but since you need to start Emacs
-once a day at most--or once a week if you never log out--the extra time
-is not too severe a problem. (In older versions of Emacs, you started
-Emacs from `temacs' using `temacs -l loadup'.)
-
-   You are free to start XEmacs directly from `temacs' if you want,
-even if there is already a dumped `xemacs'.  Normally you wouldn't want
-to do that; but the Makefiles do this when you rebuild XEmacs using
-`make all-elc', which builds XEmacs and simultaneously compiles any
-out-of-date Lisp files. (You need `xemacs' in order to compile Lisp
-files.  However, you also need the compiled Lisp files in order to dump
-out `xemacs'.  If both of these are missing or corrupted, you are out
-of luck unless you're able to bootstrap `xemacs' from `temacs'.  Note
-that `make all-elc' actually loads the alternative loadup file
-`loadup-el.el', which works like `loadup.el' but disables the
-pure-copying process and forces XEmacs to ignore any compiled Lisp
-files even if they exist.)
-
-   You can specify additional files to preload by writing a library
-named `site-load.el' that loads them.  You may need to increase the
-value of `PURESIZE', in `src/puresize.h', to make room for the
-additional files.  You should _not_ modify this file directly, however;
-instead, use the `--puresize' configuration option. (If you run out of
-pure space while dumping `xemacs', you will be told how much pure space
-you actually will need.) However, the advantage of preloading
-additional files decreases as machines get faster.  On modern machines,
-it is often not advisable, especially if the Lisp code is on a file
-system local to the machine running XEmacs.
-
-   You can specify other Lisp expressions to execute just before dumping
-by putting them in a library named `site-init.el'.  However, if they
-might alter the behavior that users expect from an ordinary unmodified
-XEmacs, it is better to put them in `default.el', so that users can
-override them if they wish.  *Note Start-up Summary::.
-
-   Before `loadup.el' dumps the new executable, it finds the
-documentation strings for primitive and preloaded functions (and
-variables) in the file where they are stored, by calling
-`Snarf-documentation' (*note Accessing Documentation::).  These strings
-were moved out of the `xemacs' executable to make it smaller.  *Note
-Documentation Basics::.
-
- - Function: dump-emacs to-file from-file
-     This function dumps the current state of XEmacs into an executable
-     file TO-FILE.  It takes symbols from FROM-FILE (this is normally
-     the executable file `temacs').
-
-     If you use this function in an XEmacs that was already dumped, you
-     must set `command-line-processed' to `nil' first for good results.
-     *Note Command Line Arguments::.
-
- - Function: run-emacs-from-temacs &rest args
-     This is the function that implements the `run-temacs' command-line
-     argument.  It is called from `loadup.el' as appropriate.  You
-     should most emphatically _not_ call this yourself; it will
-     reinitialize your XEmacs process and you'll be sorry.
-
- - Command: emacs-version
-     This function returns a string describing the version of XEmacs
-     that is running.  It is useful to include this string in bug
-     reports.
-
-          (emacs-version)
-            => "XEmacs 20.1 [Lucid] (i586-unknown-linux2.0.29)
-                           of Mon Apr  7 1997 on altair.xemacs.org"
-
-     Called interactively, the function prints the same information in
-     the echo area.
-
- - Variable: emacs-build-time
-     The value of this variable is the time at which XEmacs was built
-     at the local site.
-
-          emacs-build-time "Mon Apr  7 20:28:52 1997"
-               =>
-
- - Variable: emacs-version
-     The value of this variable is the version of Emacs being run.  It
-     is a string, e.g. `"20.1 XEmacs Lucid"'.
-
-   The following two variables did not exist before FSF GNU Emacs
-version 19.23 and XEmacs version 19.10, which reduces their usefulness
-at present, but we hope they will be convenient in the future.
-
- - Variable: emacs-major-version
-     The major version number of Emacs, as an integer.  For XEmacs
-     version 20.1, the value is 20.
-
- - Variable: emacs-minor-version
-     The minor version number of Emacs, as an integer.  For XEmacs
-     version 20.1, the value is 1.
+ - Function: find-charset-string string
+     This function returns a list of the charsets in STRING.
 
 
-File: lispref.info,  Node: Pure Storage,  Next: Garbage Collection,  Prev: Building XEmacs,  Up: Building XEmacs and Object Allocation
+File: lispref.info,  Node: Composite Characters,  Next: Coding Systems,  Prev: MULE Characters,  Up: MULE
 
-Pure Storage
-============
+Composite Characters
+====================
 
-   XEmacs Lisp uses two kinds of storage for user-created Lisp objects:
-"normal storage" and "pure storage".  Normal storage is where all the
-new data created during an XEmacs session is kept; see the following
-section for information on normal storage.  Pure storage is used for
-certain data in the preloaded standard Lisp files--data that should
-never change during actual use of XEmacs.
+   Composite characters are not yet completely implemented.
 
-   Pure storage is allocated only while `temacs' is loading the
-standard preloaded Lisp libraries.  In the file `xemacs', it is marked
-as read-only (on operating systems that permit this), so that the
-memory space can be shared by all the XEmacs jobs running on the machine
-at once.  Pure storage is not expandable; a fixed amount is allocated
-when XEmacs is compiled, and if that is not sufficient for the preloaded
-libraries, `temacs' aborts with an error message.  If that happens, you
-must increase the compilation parameter `PURESIZE' using the
-`--puresize' option to `configure'.  This normally won't happen unless
-you try to preload additional libraries or add features to the standard
-ones.
+ - Function: make-composite-char string
+     This function converts a string into a single composite character.
+     The character is the result of overstriking all the characters in
+     the string.
 
- - Function: purecopy object
-     This function makes a copy of OBJECT in pure storage and returns
-     it.  It copies strings by simply making a new string with the same
-     characters in pure storage.  It recursively copies the contents of
-     vectors and cons cells.  It does not make copies of other objects
-     such as symbols, but just returns them unchanged.  It signals an
-     error if asked to copy markers.
+ - Function: composite-char-string ch
+     This function returns a string of the characters comprising a
+     composite character.
 
-     This function is a no-op except while XEmacs is being built and
-     dumped; it is usually called only in the file
-     `xemacs/lisp/prim/loaddefs.el', but a few packages call it just in
-     case you decide to preload them.
+ - Function: compose-region start end &optional buffer
+     This function composes the characters in the region from START to
+     END in BUFFER into one composite character.  The composite
+     character replaces the composed characters.  BUFFER defaults to
+     the current buffer if omitted.
 
- - Variable: pure-bytes-used
-     The value of this variable is the number of bytes of pure storage
-     allocated so far.  Typically, in a dumped XEmacs, this number is
-     very close to the total amount of pure storage available--if it
-     were not, we would preallocate less.
-
- - Variable: purify-flag
-     This variable determines whether `defun' should make a copy of the
-     function definition in pure storage.  If it is non-`nil', then the
-     function definition is copied into pure storage.
-
-     This flag is `t' while loading all of the basic functions for
-     building XEmacs initially (allowing those functions to be sharable
-     and non-collectible).  Dumping XEmacs as an executable always
-     writes `nil' in this variable, regardless of the value it actually
-     has before and after dumping.
-
-     You should not change this flag in a running XEmacs.
+ - Function: decompose-region start end &optional buffer
+     This function decomposes any composite characters in the region
+     from START to END in BUFFER.  This converts each composite
+     character into one or more characters, the individual characters
+     out of which the composite character was formed.  Non-composite
+     characters are left as-is.  BUFFER defaults to the current buffer
+     if omitted.
 
 
-File: lispref.info,  Node: Garbage Collection,  Prev: Pure Storage,  Up: Building XEmacs and Object Allocation
+File: lispref.info,  Node: Coding Systems,  Next: CCL,  Prev: Composite Characters,  Up: MULE
 
-Garbage Collection
-==================
+Coding Systems
+==============
 
-   When a program creates a list or the user defines a new function
-(such as by loading a library), that data is placed in normal storage.
-If normal storage runs low, then XEmacs asks the operating system to
-allocate more memory in blocks of 2k bytes.  Each block is used for one
-type of Lisp object, so symbols, cons cells, markers, etc., are
-segregated in distinct blocks in memory.  (Vectors, long strings,
-buffers and certain other editing types, which are fairly large, are
-allocated in individual blocks, one per object, while small strings are
-packed into blocks of 8k bytes. [More correctly, a string is allocated
-in two sections: a fixed size chunk containing the length, list of
-extents, etc.; and a chunk containing the actual characters in the
-string.  It is this latter chunk that is either allocated individually
-or packed into 8k blocks.  The fixed size chunk is packed into 2k
-blocks, as for conses, markers, etc.])
+   A coding system is an object that defines how text containing
+multiple character sets is encoded into a stream of (typically 8-bit)
+bytes.  The coding system is used to decode the stream into a series of
+characters (which may be from multiple charsets) when the text is read
+from a file or process, and is used to encode the text back into the
+same format when it is written out to a file or process.
 
-   It is quite common to use some storage for a while, then release it
-by (for example) killing a buffer or deleting the last pointer to an
-object.  XEmacs provides a "garbage collector" to reclaim this
-abandoned storage.  (This name is traditional, but "garbage recycler"
-might be a more intuitive metaphor for this facility.)
+   For example, many ISO-2022-compliant coding systems (such as Compound
+Text, which is used for inter-client data under the X Window System) use
+escape sequences to switch between different charsets - Japanese Kanji,
+for example, is invoked with `ESC $ ( B'; ASCII is invoked with `ESC (
+B'; and Cyrillic is invoked with `ESC - L'.  See `make-coding-system'
+for more information.
 
-   The garbage collector operates by finding and marking all Lisp
-objects that are still accessible to Lisp programs.  To begin with, it
-assumes all the symbols, their values and associated function
-definitions, and any data presently on the stack, are accessible.  Any
-objects that can be reached indirectly through other accessible objects
-are also accessible.
+   Coding systems are normally identified using a symbol, and the
+symbol is accepted in place of the actual coding system object whenever
+a coding system is called for. (This is similar to how faces and
+charsets work.)
 
-   When marking is finished, all objects still unmarked are garbage.  No
-matter what the Lisp program or the user does, it is impossible to refer
-to them, since there is no longer a way to reach them.  Their space
-might as well be reused, since no one will miss them.  The second
-("sweep") phase of the garbage collector arranges to reuse them.
+ - Function: coding-system-p object
+     This function returns non-`nil' if OBJECT is a coding system.
 
-   The sweep phase puts unused cons cells onto a "free list" for future
-allocation; likewise for symbols, markers, extents, events, floats,
-compiled-function objects, and the fixed-size portion of strings.  It
-compacts the accessible small string-chars chunks so they occupy fewer
-8k blocks; then it frees the other 8k blocks.  Vectors, buffers,
-windows, and other large objects are individually allocated and freed
-using `malloc' and `free'.
+* Menu:
 
-     Common Lisp note: unlike other Lisps, XEmacs Lisp does not call
-     the garbage collector when the free list is empty.  Instead, it
-     simply requests the operating system to allocate more storage, and
-     processing continues until `gc-cons-threshold' bytes have been
-     used.
-
-     This means that you can make sure that the garbage collector will
-     not run during a certain portion of a Lisp program by calling the
-     garbage collector explicitly just before it (provided that portion
-     of the program does not use so much space as to force a second
-     garbage collection).
-
- - Command: garbage-collect
-     This command runs a garbage collection, and returns information on
-     the amount of space in use.  (Garbage collection can also occur
-     spontaneously if you use more than `gc-cons-threshold' bytes of
-     Lisp data since the previous garbage collection.)
-
-     `garbage-collect' returns a list containing the following
-     information:
-
-          ((USED-CONSES . FREE-CONSES)
-           (USED-SYMS . FREE-SYMS)
-           (USED-MARKERS . FREE-MARKERS)
-           USED-STRING-CHARS
-           USED-VECTOR-SLOTS
-           (PLIST))
-          
-          => ((73362 . 8325) (13718 . 164)
-          (5089 . 5098) 949121 118677
-          (conses-used 73362 conses-free 8329 cons-storage 658168
-          symbols-used 13718 symbols-free 164 symbol-storage 335216
-          bit-vectors-used 0 bit-vectors-total-length 0
-          bit-vector-storage 0 vectors-used 7882
-          vectors-total-length 118677 vector-storage 537764
-          compiled-functions-used 1336 compiled-functions-free 37
-          compiled-function-storage 44440 short-strings-used 28829
-          long-strings-used 2 strings-free 7722
-          short-strings-total-length 916657 short-string-storage 1179648
-          long-strings-total-length 32464 string-header-storage 441504
-          floats-used 3 floats-free 43 float-storage 2044 markers-used 5089
-          markers-free 5098 marker-storage 245280 events-used 103
-          events-free 835 event-storage 110656 extents-used 10519
-          extents-free 2718 extent-storage 372736
-          extent-auxiliarys-used 111 extent-auxiliarys-freed 3
-          extent-auxiliary-storage 4440 window-configurations-used 39
-          window-configurations-on-free-list 5
-          window-configurations-freed 10 window-configuration-storage 9492
-          popup-datas-used 3 popup-data-storage 72 toolbar-buttons-used 62
-          toolbar-button-storage 4960 toolbar-datas-used 12
-          toolbar-data-storage 240 symbol-value-buffer-locals-used 182
-          symbol-value-buffer-local-storage 5824
-          symbol-value-lisp-magics-used 22
-          symbol-value-lisp-magic-storage 1496
-          symbol-value-varaliases-used 43
-          symbol-value-varalias-storage 1032 opaque-lists-used 2
-          opaque-list-storage 48 color-instances-used 12
-          color-instance-storage 288 font-instances-used 5
-          font-instance-storage 180 opaques-used 11 opaque-storage 312
-          range-tables-used 1 range-table-storage 16 faces-used 34
-          face-storage 2584 glyphs-used 124 glyph-storage 4464
-          specifiers-used 775 specifier-storage 43869 weak-lists-used 786
-          weak-list-storage 18864 char-tables-used 40
-          char-table-storage 41920 buffers-used 25 buffer-storage 7000
-          extent-infos-used 457 extent-infos-freed 73
-          extent-info-storage 9140 keymaps-used 275 keymap-storage 12100
-          consoles-used 4 console-storage 384 command-builders-used 2
-          command-builder-storage 120 devices-used 2 device-storage 344
-          frames-used 3 frame-storage 624 image-instances-used 47
-          image-instance-storage 3008 windows-used 27 windows-freed 2
-          window-storage 9180 lcrecord-lists-used 15
-          lcrecord-list-storage 360 hash-tables-used 631
-          hash-table-storage 25240 streams-used 1 streams-on-free-list 3
-          streams-freed 12 stream-storage 91))
-
-     Here is a table explaining each element:
-
-    USED-CONSES
-          The number of cons cells in use.
-
-    FREE-CONSES
-          The number of cons cells for which space has been obtained
-          from the operating system, but that are not currently being
-          used.
-
-    USED-SYMS
-          The number of symbols in use.
-
-    FREE-SYMS
-          The number of symbols for which space has been obtained from
-          the operating system, but that are not currently being used.
-
-    USED-MARKERS
-          The number of markers in use.
-
-    FREE-MARKERS
-          The number of markers for which space has been obtained from
-          the operating system, but that are not currently being used.
-
-    USED-STRING-CHARS
-          The total size of all strings, in characters.
-
-    USED-VECTOR-SLOTS
-          The total number of elements of existing vectors.
-
-    PLIST
-          A list of alternating keyword/value pairs providing more
-          detailed information. (As you can see above, quite a lot of
-          information is provided.)
-
- - User Option: gc-cons-threshold
-     The value of this variable is the number of bytes of storage that
-     must be allocated for Lisp objects after one garbage collection in
-     order to trigger another garbage collection.  A cons cell counts
-     as eight bytes, a string as one byte per character plus a few
-     bytes of overhead, and so on; space allocated to the contents of
-     buffers does not count.  Note that the subsequent garbage
-     collection does not happen immediately when the threshold is
-     exhausted, but only the next time the Lisp evaluator is called.
-
-     The initial threshold value is 500,000.  If you specify a larger
-     value, garbage collection will happen less often.  This reduces the
-     amount of time spent garbage collecting, but increases total
-     memory use.  You may want to do this when running a program that
-     creates lots of Lisp data.
-
-     You can make collections more frequent by specifying a smaller
-     value, down to 10,000.  A value less than 10,000 will remain in
-     effect only until the subsequent garbage collection, at which time
-     `garbage-collect' will set the threshold back to 10,000. (This does
-     not apply if XEmacs was configured with `--debug'.  Therefore, be
-     careful when setting `gc-cons-threshold' in that case!)
-
- - Function: memory-limit
-     This function returns the address of the last byte XEmacs has
-     allocated, divided by 1024.  We divide the value by 1024 to make
-     sure it fits in a Lisp integer.
-
-     You can use this to get a general idea of how your actions affect
-     the memory usage.
-
- - Variable: pre-gc-hook
-     This is a normal hook to be run just before each garbage
-     collection.  Interrupts, garbage collection, and errors are
-     inhibited while this hook runs, so be extremely careful in what
-     you add here.  In particular, avoid consing, and do not interact
-     with the user.
-
- - Variable: post-gc-hook
-     This is a normal hook to be run just after each garbage collection.
-     Interrupts, garbage collection, and errors are inhibited while
-     this hook runs, so be extremely careful in what you add here.  In
-     particular, avoid consing, and do not interact with the user.
-
- - Variable: gc-message
-     This is a string to print to indicate that a garbage collection is
-     in progress.  This is printed in the echo area.  If the selected
-     frame is on a window system and `gc-pointer-glyph' specifies a
-     value (i.e. a pointer image instance) in the domain of the
-     selected frame, the mouse cursor will change instead of this
-     message being printed.
-
- - Glyph: gc-pointer-glyph
-     This holds the pointer glyph used to indicate that a garbage
-     collection is in progress.  If the selected window is on a window
-     system and this glyph specifies a value (i.e. a pointer image
-     instance) in the domain of the selected window, the cursor will be
-     changed as specified during garbage collection.  Otherwise, a
-     message will be printed in the echo area, as controlled by
-     `gc-message'.  *Note Glyphs::.
-
-   If XEmacs was configured with `--debug', you can set the following
-two variables to get direct information about all the allocation that
-is happening in a segment of Lisp code.
-
- - Variable: debug-allocation
-     If non-zero, print out information to stderr about all objects
-     allocated.
-
- - Variable: debug-allocation-backtrace
-     Length (in stack frames) of short backtrace printed out by
-     `debug-allocation'.
+* Coding System Types::               Classifying coding systems.
+* ISO 2022::                          An international standard for
+                                        charsets and encodings.
+* EOL Conversion::                    Dealing with different ways of denoting
+                                        the end of a line.
+* Coding System Properties::          Properties of a coding system.
+* Basic Coding System Functions::     Working with coding systems.
+* Coding System Property Functions::  Retrieving a coding system's properties.
+* Encoding and Decoding Text::        Encoding and decoding text.
+* Detection of Textual Encoding::     Determining how text is encoded.
+* Big5 and Shift-JIS Functions::      Special functions for these non-standard
+                                        encodings.
+* Predefined Coding Systems::         Coding systems implemented by MULE.
 
 
-File: lispref.info,  Node: Standard Errors,  Next: Standard Buffer-Local Variables,  Prev: Building XEmacs and Object Allocation,  Up: Top
+File: lispref.info,  Node: Coding System Types,  Next: ISO 2022,  Up: Coding Systems
 
-Standard Errors
-***************
+Coding System Types
+-------------------
 
-   Here is the complete list of the error symbols in standard Emacs,
-grouped by concept.  The list includes each symbol's message (on the
-`error-message' property of the symbol) and a cross reference to a
-description of how the error can occur.
+   The coding system type determines the basic algorithm XEmacs will
+use to decode or encode a data stream.  Character encodings will be
+converted to the MULE encoding, escape sequences processed, and newline
+sequences converted to XEmacs's internal representation.  There are
+three basic classes of coding system type: no-conversion, ISO-2022, and
+special.
 
-   Each error symbol has an `error-conditions' property that is a list
-of symbols.  Normally this list includes the error symbol itself and
-the symbol `error'.  Occasionally it includes additional symbols, which
-are intermediate classifications, narrower than `error' but broader
-than a single error symbol.  For example, all the errors in accessing
-files have the condition `file-error'.
+   No conversion allows you to look at the file's internal
+representation.  Since XEmacs is basically a text editor, "no
+conversion" does convert newline conventions by default.  (Use the
+'binary coding-system if this is not desired.)
 
-   As a special exception, the error symbol `quit' does not have the
-condition `error', because quitting is not considered an error.
+   ISO 2022 (*note ISO 2022::) is the basic international standard
+regulating use of "coded character sets for the exchange of data", ie,
+text streams.  ISO 2022 contains functions that make it possible to
+encode text streams to comply with restrictions of the Internet mail
+system and de facto restrictions of most file systems (eg, use of the
+separator character in file names).  Coding systems which are not ISO
+2022 conformant can be difficult to handle.  Perhaps more important,
+they are not adaptable to multilingual information interchange, with
+the obvious exception of ISO 10646 (Unicode).  (Unicode is partially
+supported by XEmacs with the addition of the Lisp package ucs-conv.)
 
-   *Note Errors::, for an explanation of how errors are generated and
-handled.
+   The special class of coding systems includes automatic detection,
+CCL (a "little language" embedded as an interpreter, useful for
+translating between variants of a single character set),
+non-ISO-2022-conformant encodings like Unicode, Shift JIS, and Big5,
+and MULE internal coding.  (NB: this list is based on XEmacs 21.2.
+Terminology may vary slightly for other versions of XEmacs and for GNU
+Emacs 20.)
 
-`SYMBOL'
-     STRING; REFERENCE.
+`no-conversion'
+     No conversion, for binary files, and a few special cases of
+     non-ISO-2022 coding systems where conversion is done by hook
+     functions (usually implemented in CCL).  On output, graphic
+     characters that are not in ASCII or Latin-1 will be replaced by a
+     `?'. (For a no-conversion-encoded buffer, these characters will
+     only be present if you explicitly insert them.)
 
-`error'
-     `"error"'
-     *Note Errors::.
+`iso2022'
+     Any ISO-2022-compliant encoding.  Among others, this includes JIS
+     (the Japanese encoding commonly used for e-mail), national
+     variants of EUC (the standard Unix encoding for Japanese and other
+     languages), and Compound Text (an encoding used in X11).  You can
+     specify more specific information about the conversion with the
+     FLAGS argument.
 
-`quit'
-     `"Quit"'
-     *Note Quitting::.
+`ucs-4'
+     ISO 10646 UCS-4 encoding.  A 31-bit fixed-width superset of
+     Unicode.
 
-`args-out-of-range'
-     `"Args out of range"'
-     *Note Sequences Arrays Vectors::.
+`utf-8'
+     ISO 10646 UTF-8 encoding.  A "file system safe" transformation
+     format that can be used with both UCS-4 and Unicode.
 
-`arith-error'
-     `"Arithmetic error"'
-     See `/' and `%' in *Note Numbers::.
+`undecided'
+     Automatic conversion.  XEmacs attempts to detect the coding system
+     used in the file.
 
-`beginning-of-buffer'
-     `"Beginning of buffer"'
-     *Note Motion::.
+`shift-jis'
+     Shift-JIS (a Japanese encoding commonly used in PC operating
+     systems).
 
-`buffer-read-only'
-     `"Buffer is read-only"'
-     *Note Read Only Buffers::.
+`big5'
+     Big5 (the encoding commonly used for Taiwanese).
 
-`cyclic-function-indirection'
-     `"Symbol's chain of function indirections contains a loop"'
-     *Note Function Indirection::.
+`ccl'
+     The conversion is performed using a user-written pseudo-code
+     program.  CCL (Code Conversion Language) is the name of this
+     pseudo-code.  For example, CCL is used to map KOI8-R characters
+     (an encoding for Russian Cyrillic) to ISO8859-5 (the form used
+     internally by MULE).
 
-`domain-error'
-     `"Arithmetic domain error"'
-`end-of-buffer'
-     `"End of buffer"'
-     *Note Motion::.
-
-`end-of-file'
-     `"End of file during parsing"'
-     This is not a `file-error'.
-     *Note Input Functions::.
-
-`file-error'
-     This error and its subcategories do not have error-strings,
-     because the error message is constructed from the data items alone
-     when the error condition `file-error' is present.
-     *Note Files::.
-
-`file-locked'
-     This is a `file-error'.
-     *Note File Locks::.
-
-`file-already-exists'
-     This is a `file-error'.
-     *Note Writing to Files::.
-
-`file-supersession'
-     This is a `file-error'.
-     *Note Modification Time::.
-
-`invalid-byte-code'
-     `"Invalid byte code"'
-     *Note Byte Compilation::.
-
-`invalid-function'
-     `"Invalid function"'
-     *Note Classifying Lists::.
-
-`invalid-read-syntax'
-     `"Invalid read syntax"'
-     *Note Input Functions::.
-
-`invalid-regexp'
-     `"Invalid regexp"'
-     *Note Regular Expressions::.
-
-`mark-inactive'
-     `"The mark is not active now"'
-`no-catch'
-     `"No catch for tag"'
-     *Note Catch and Throw::.
-
-`overflow-error'
-     `"Arithmetic overflow error"'
-`protected-field'
-     `"Attempt to modify a protected field"'
-`range-error'
-     `"Arithmetic range error"'
-`search-failed'
-     `"Search failed"'
-     *Note Searching and Matching::.
-
-`setting-constant'
-     `"Attempt to set a constant symbol"'
-     *Note Variables that Never Change: Constant Variables.
-
-`singularity-error'
-     `"Arithmetic singularity error"'
-`tooltalk-error'
-     `"ToolTalk error"'
-     *Note ToolTalk Support::.
-
-`undefined-keystroke-sequence'
-     `"Undefined keystroke sequence"'
-`void-function'
-     `"Symbol's function definition is void"'
-     *Note Function Cells::.
-
-`void-variable'
-     `"Symbol's value as variable is void"'
-     *Note Accessing Variables::.
-
-`wrong-number-of-arguments'
-     `"Wrong number of arguments"'
-     *Note Classifying Lists::.
-
-`wrong-type-argument'
-     `"Wrong type argument"'
-     *Note Type Predicates::.
-
-   These error types, which are all classified as special cases of
-`arith-error', can occur on certain systems for invalid use of
-mathematical functions.
-
-`domain-error'
-     `"Arithmetic domain error"'
-     *Note Math Functions::.
-
-`overflow-error'
-     `"Arithmetic overflow error"'
-     *Note Math Functions::.
-
-`range-error'
-     `"Arithmetic range error"'
-     *Note Math Functions::.
-
-`singularity-error'
-     `"Arithmetic singularity error"'
-     *Note Math Functions::.
-
-`underflow-error'
-     `"Arithmetic underflow error"'
-     *Note Math Functions::.
+`internal'
+     Write out or read in the raw contents of the memory representing
+     the buffer's text.  This is primarily useful for debugging
+     purposes, and is only enabled when XEmacs has been compiled with
+     `DEBUG_XEMACS' set (the `--debug' configure option).  *Warning*:
+     Reading in a file using `internal' conversion can result in an
+     internal inconsistency in the memory representing a buffer's text,
+     which will produce unpredictable results and may cause XEmacs to
+     crash.  Under normal circumstances you should never use `internal'
+     conversion.
 
 
-File: lispref.info,  Node: Standard Buffer-Local Variables,  Next: Standard Keymaps,  Prev: Standard Errors,  Up: Top
+File: lispref.info,  Node: ISO 2022,  Next: EOL Conversion,  Prev: Coding System Types,  Up: Coding Systems
 
-Buffer-Local Variables
-**********************
+ISO 2022
+========
 
-   The table below lists the general-purpose Emacs variables that are
-automatically local (when set) in each buffer.  Many Lisp packages
-define such variables for their internal use; we don't list them here.
+   This section briefly describes the ISO 2022 encoding standard.  A
+more thorough treatment is available in the original document of ISO
+2022 as well as various national standards (such as JIS X 0202).
 
-`abbrev-mode'
-     *note Abbrevs::
+   Character sets ("charsets") are classified into the following four
+categories, according to the number of characters in the charset:
+94-charset, 96-charset, 94x94-charset, and 96x96-charset.  This means
+that although an ISO 2022 coding system may have variable width
+characters, each charset used is fixed-width (in contrast to the MULE
+character set and UTF-8, for example).
 
-`auto-fill-function'
-     *note Auto Filling::
+   ISO 2022 provides for switching between character sets via escape
+sequences.  This switching is somewhat complicated, because ISO 2022
+provides for both legacy applications like Internet mail that accept
+only 7 significant bits in some contexts (RFC 822 headers, for example),
+and more modern "8-bit clean" applications.  It also provides for
+compact and transparent representation of languages like Japanese which
+mix ASCII and a national script (even outside of computer programs).
 
-`buffer-auto-save-file-name'
-     *note Auto-Saving::
+   First, ISO 2022 codified prevailing practice by dividing the code
+space into "control" and "graphic" regions.  The code points 0x00-0x1F
+and 0x80-0x9F are reserved for "control characters", while "graphic
+characters" must be assigned to code points in the regions 0x20-0x7F and
+0xA0-0xFF.  The positions 0x20 and 0x7F are special, and under some
+circumstances must be assigned the graphic character "ASCII SPACE" and
+the control character "ASCII DEL" respectively.
 
-`buffer-backed-up'
-     *note Backup Files::
+   The various regions are given the name C0 (0x00-0x1F), GL
+(0x20-0x7F), C1 (0x80-0x9F), and GR (0xA0-0xFF).  GL and GR stand for
+"graphic left" and "graphic right", respectively, because of the
+standard method of displaying graphic character sets in tables with the
+high byte indexing columns and the low byte indexing rows.  I don't
+find it very intuitive, but these are called "registers".
 
-`buffer-display-table'
-     *note Display Tables::
+   An ISO 2022-conformant encoding for a graphic character set must use
+a fixed number of bytes per character, and the values must fit into a
+single register; that is, each byte must range over either 0x20-0x7F, or
+0xA0-0xFF.  It is not allowed to extend the range of the repertoire of a
+character set by using both ranges at the same.  This is why a standard
+character set such as ISO 8859-1 is actually considered by ISO 2022 to
+be an aggregation of two character sets, ASCII and LATIN-1, and why it
+is technically incorrect to refer to ISO 8859-1 as "Latin 1".  Also, a
+single character's bytes must all be drawn from the same register; this
+is why Shift JIS (for Japanese) and Big 5 (for Chinese) are not ISO
+2022-compatible encodings.
 
-`buffer-file-format'
-     *note Format Conversion::
+   The reason for this restriction becomes clear when you attempt to
+define an efficient, robust encoding for a language like Japanese.
+Like ISO 8859, Japanese encodings are aggregations of several character
+sets.  In practice, the vast majority of characters are drawn from the
+"JIS Roman" character set (a derivative of ASCII; it won't hurt to
+think of it as ASCII) and the JIS X 0208 standard "basic Japanese"
+character set including not only ideographic characters ("kanji") but
+syllabic Japanese characters ("kana"), a wide variety of symbols, and
+many alphabetic characters (Roman, Greek, and Cyrillic) as well.
+Although JIS X 0208 includes the whole Roman alphabet, as a 2-byte code
+it is not suited to programming; thus the inclusion of ASCII in the
+standard Japanese encodings.
 
-`buffer-file-name'
-     *note Buffer File Name::
+   For normal Japanese text such as in newspapers, a broad repertoire of
+approximately 3000 characters is used.  Evidently this won't fit into
+one byte; two must be used.  But much of the text processed by Japanese
+computers is computer source code, nearly all of which is ASCII.  A not
+insignificant portion of ordinary text is English (as such or as
+borrowed Japanese vocabulary) or other languages which can represented
+at least approximately in ASCII, as well.  It seems reasonable then to
+represent ASCII in one byte, and JIS X 0208 in two.  And this is exactly
+what the Extended Unix Code for Japanese (EUC-JP) does.  ASCII is
+invoked to the GL register, and JIS X 0208 is invoked to the GR
+register.  Thus, each byte can be tested for its character set by
+looking at the high bit; if set, it is Japanese, if clear, it is ASCII.
+Furthermore, since control characters like newline can never be part of
+a graphic character, even in the case of corruption in transmission the
+stream will be resynchronized at every line break, on the order of 60-80
+bytes.  This coding system requires no escape sequences or special
+control codes to represent 99.9% of all Japanese text.
 
-`buffer-file-number'
-     *note Buffer File Name::
+   Note carefully the distinction between the character sets (ASCII and
+JIS X 0208), the encoding (EUC-JP), and the coding system (ISO 2022).
+The JIS X 0208 character set is used in three different encodings for
+Japanese, but in ISO-2022-JP it is invoked into GL (so the high bit is
+always clear), in EUC-JP it is invoked into GR (setting the high bit in
+the process), and in Shift JIS the high bit may be set or reset, and the
+significant bits are shifted within the 16-bit character so that the two
+main character sets can coexist with a third (the "halfwidth katakana"
+of JIS X 0201).  As the name implies, the ISO-2022-JP encoding is also a
+version of the ISO-2022 coding system.
 
-`buffer-file-truename'
-     *note Buffer File Name::
+   In order to systematically treat subsidiary character sets (like the
+"halfwidth katakana" already mentioned, and the "supplementary kanji" of
+JIS X 0212), four further registers are defined: G0, G1, G2, and G3.
+Unlike GL and GR, they are not logically distinguished by internal
+format.  Instead, the process of "invocation" mentioned earlier is
+broken into two steps: first, a character set is "designated" to one of
+the registers G0-G3 by use of an "escape sequence" of the form:
 
-`buffer-file-type'
-     *note Files and MS-DOS::
+             ESC [I] I F
 
-`buffer-invisibility-spec'
-     *note Invisible Text::
+   where I is an intermediate character or characters in the range 0x20
+- 0x3F, and F, from the range 0x30-0x7Fm is the final character
+identifying this charset.  (Final characters in the range 0x30-0x3F are
+reserved for private use and will never have a publically registered
+meaning.)
 
-`buffer-offer-save'
-     *note Saving Buffers::
+   Then that register is "invoked" to either GL or GR, either
+automatically (designations to G0 normally involve invocation to GL as
+well), or by use of shifting (affecting only the following character in
+the data stream) or locking (effective until the next designation or
+locking) control sequences.  An encoding conformant to ISO 2022 is
+typically defined by designating the initial contents of the G0-G3
+registers, specifying an 7 or 8 bit environment, and specifying whether
+further designations will be recognized.
 
-`buffer-read-only'
-     *note Read Only Buffers::
+   Some examples of character sets and the registered final characters
+F used to designate them:
 
-`buffer-saved-size'
-     *note Point::
+94-charset
+     ASCII (B), left (J) and right (I) half of JIS X 0201, ...
 
-`buffer-undo-list'
-     *note Undo::
+96-charset
+     Latin-1 (A), Latin-2 (B), Latin-3 (C), ...
 
-`cache-long-line-scans'
-     *note Text Lines::
+94x94-charset
+     GB2312 (A), JIS X 0208 (B), KSC5601 (C), ...
 
-`case-fold-search'
-     *note Searching and Case::
+96x96-charset
+     none for the moment
 
-`ctl-arrow'
-     *note Usual Display::
+   The meanings of the various characters in these sequences, where not
+specified by the ISO 2022 standard (such as the ESC character), are
+assigned by "ECMA", the European Computer Manufacturers Association.
 
-`comment-column'
-     *note Comments: (emacs)Comments.
+   The meaning of intermediate characters are:
 
-`default-directory'
-     *note System Environment::
+             $ [0x24]: indicate charset of dimension 2 (94x94 or 96x96).
+             ( [0x28]: designate to G0 a 94-charset whose final byte is F.
+             ) [0x29]: designate to G1 a 94-charset whose final byte is F.
+             * [0x2A]: designate to G2 a 94-charset whose final byte is F.
+             + [0x2B]: designate to G3 a 94-charset whose final byte is F.
+             , [0x2C]: designate to G0 a 96-charset whose final byte is F.
+             - [0x2D]: designate to G1 a 96-charset whose final byte is F.
+             . [0x2E]: designate to G2 a 96-charset whose final byte is F.
+             / [0x2F]: designate to G3 a 96-charset whose final byte is F.
 
-`defun-prompt-regexp'
-     *note List Motion::
+   The comma may be used in files read and written only by MULE, as a
+MULE extension, but this is illegal in ISO 2022.  (The reason is that
+in ISO 2022 G0 must be a 94-member character set, with 0x20 assigned
+the value SPACE, and 0x7F assigned the value DEL.)
 
-`fill-column'
-     *note Auto Filling::
+   Here are examples of designations:
 
-`goal-column'
-     *note Moving Point: (emacs)Moving Point.
+             ESC ( B :              designate to G0 ASCII
+             ESC - A :              designate to G1 Latin-1
+             ESC $ ( A or ESC $ A : designate to G0 GB2312
+             ESC $ ( B or ESC $ B : designate to G0 JISX0208
+             ESC $ ) C :            designate to G1 KSC5601
 
-`left-margin'
-     *note Indentation::
+   (The short forms used to designate GB2312 and JIS X 0208 are for
+backwards compatibility; the long forms are preferred.)
 
-`local-abbrev-table'
-     *note Abbrevs::
+   To use a charset designated to G2 or G3, and to use a charset
+designated to G1 in a 7-bit environment, you must explicitly invoke G1,
+G2, or G3 into GL.  There are two types of invocation, Locking Shift
+(forever) and Single Shift (one character only).
 
-`local-write-file-hooks'
-     *note Saving Buffers::
+   Locking Shift is done as follows:
 
-`major-mode'
-     *note Mode Help::
+             LS0 or SI (0x0F): invoke G0 into GL
+             LS1 or SO (0x0E): invoke G1 into GL
+             LS2:  invoke G2 into GL
+             LS3:  invoke G3 into GL
+             LS1R: invoke G1 into GR
+             LS2R: invoke G2 into GR
+             LS3R: invoke G3 into GR
 
-`mark-active'
-     *note The Mark::
+   Single Shift is done as follows:
 
-`mark-ring'
-     *note The Mark::
+             SS2 or ESC N: invoke G2 into GL
+             SS3 or ESC O: invoke G3 into GL
 
-`minor-modes'
-     *note Minor Modes::
+   The shift functions (such as LS1R and SS3) are represented by control
+characters (from C1) in 8 bit environments and by escape sequences in 7
+bit environments.
 
-`modeline-format'
-     *note Modeline Data::
+   (#### Ben says: I think the above is slightly incorrect.  It appears
+that SS2 invokes G2 into GR and SS3 invokes G3 into GR, whereas ESC N
+and ESC O behave as indicated.  The above definitions will not parse
+EUC-encoded text correctly, and it looks like the code in mule-coding.c
+has similar problems.)
 
-`modeline-buffer-identification'
-     *note Modeline Variables::
+   Evidently there are a lot of ISO-2022-compliant ways of encoding
+multilingual text.  Now, in the world, there exist many coding systems
+such as X11's Compound Text, Japanese JUNET code, and so-called EUC
+(Extended UNIX Code); all of these are variants of ISO 2022.
 
-`modeline-format'
-     *note Modeline Data::
+   In MULE, we characterize a version of ISO 2022 by the following
+attributes:
 
-`modeline-modified'
-     *note Modeline Variables::
+  1. The character sets initially designated to G0 thru G3.
 
-`modeline-process'
-     *note Modeline Variables::
+  2. Whether short form designations are allowed for Japanese and
+     Chinese.
 
-`mode-name'
-     *note Modeline Variables::
+  3. Whether ASCII should be designated to G0 before control characters.
 
-`overwrite-mode'
-     *note Insertion::
+  4. Whether ASCII should be designated to G0 at the end of line.
 
-`paragraph-separate'
-     *note Standard Regexps::
+  5. 7-bit environment or 8-bit environment.
 
-`paragraph-start'
-     *note Standard Regexps::
+  6. Whether Locking Shifts are used or not.
 
-`point-before-scroll'
-     Used for communication between mouse commands and scroll-bar
-     commands.
+  7. Whether to use ASCII or the variant JIS X 0201-1976-Roman.
 
-`require-final-newline'
-     *note Insertion::
+  8. Whether to use JIS X 0208-1983 or the older version JIS X
+     0208-1976.
 
-`selective-display'
-     *note Selective Display::
+   (The last two are only for Japanese.)
 
-`selective-display-ellipses'
-     *note Selective Display::
+   By specifying these attributes, you can create any variant of ISO
+2022.
 
-`tab-width'
-     *note Usual Display::
+   Here are several examples:
 
-`truncate-lines'
-     *note Truncation::
+     ISO-2022-JP -- Coding system used in Japanese email (RFC 1463 #### check).
+             1. G0 <- ASCII, G1..3 <- never used
+             2. Yes.
+             3. Yes.
+             4. Yes.
+             5. 7-bit environment
+             6. No.
+             7. Use ASCII
+             8. Use JIS X 0208-1983
+     
+     ctext -- X11 Compound Text
+             1. G0 <- ASCII, G1 <- Latin-1, G2,3 <- never used.
+             2. No.
+             3. No.
+             4. Yes.
+             5. 8-bit environment.
+             6. No.
+             7. Use ASCII.
+             8. Use JIS X 0208-1983.
+     
+     euc-china -- Chinese EUC.  Often called the "GB encoding", but that is
+     technically incorrect.
+             1. G0 <- ASCII, G1 <- GB 2312, G2,3 <- never used.
+             2. No.
+             3. Yes.
+             4. Yes.
+             5. 8-bit environment.
+             6. No.
+             7. Use ASCII.
+             8. Use JIS X 0208-1983.
+     
+     ISO-2022-KR -- Coding system used in Korean email.
+             1. G0 <- ASCII, G1 <- KSC 5601, G2,3 <- never used.
+             2. No.
+             3. Yes.
+             4. Yes.
+             5. 7-bit environment.
+             6. Yes.
+             7. Use ASCII.
+             8. Use JIS X 0208-1983.
 
-`vc-mode'
-     *note Modeline Variables::
+   MULE creates all of these coding systems by default.
 
 
-File: lispref.info,  Node: Standard Keymaps,  Next: Standard Hooks,  Prev: Standard Buffer-Local Variables,  Up: Top
+File: lispref.info,  Node: EOL Conversion,  Next: Coding System Properties,  Prev: ISO 2022,  Up: Coding Systems
+
+EOL Conversion
+--------------
+
+`nil'
+     Automatically detect the end-of-line type (LF, CRLF, or CR).  Also
+     generate subsidiary coding systems named `NAME-unix', `NAME-dos',
+     and `NAME-mac', that are identical to this coding system but have
+     an EOL-TYPE value of `lf', `crlf', and `cr', respectively.
+
+`lf'
+     The end of a line is marked externally using ASCII LF.  Since this
+     is also the way that XEmacs represents an end-of-line internally,
+     specifying this option results in no end-of-line conversion.  This
+     is the standard format for Unix text files.
+
+`crlf'
+     The end of a line is marked externally using ASCII CRLF.  This is
+     the standard format for MS-DOS text files.
+
+`cr'
+     The end of a line is marked externally using ASCII CR.  This is the
+     standard format for Macintosh text files.
+
+`t'
+     Automatically detect the end-of-line type but do not generate
+     subsidiary coding systems.  (This value is converted to `nil' when
+     stored internally, and `coding-system-property' will return `nil'.)
 
-Standard Keymaps
-****************
-
-   The following symbols are used as the names for various keymaps.
-Some of these exist when XEmacs is first started, others are loaded
-only when their respective mode is used.  This is not an exhaustive
-list.
-
-   Almost all of these maps are used as local maps.  Indeed, of the
-modes that presently exist, only Vip mode and Terminal mode ever change
-the global keymap.
-
-`bookmark-map'
-     A keymap containing bindings to bookmark functions.
-
-`Buffer-menu-mode-map'
-     A keymap used by Buffer Menu mode.
-
-`c++-mode-map'
-     A keymap used by C++ mode.
-
-`c-mode-map'
-     A keymap used by C mode.  A sparse keymap used by C mode.
-
-`command-history-map'
-     A keymap used by Command History mode.
-
-`ctl-x-4-map'
-     A keymap for subcommands of the prefix `C-x 4'.
-
-`ctl-x-5-map'
-     A keymap for subcommands of the prefix `C-x 5'.
-
-`ctl-x-map'
-     A keymap for `C-x' commands.
-
-`debugger-mode-map'
-     A keymap used by Debugger mode.
-
-`dired-mode-map'
-     A keymap for `dired-mode' buffers.
-
-`edit-abbrevs-map'
-     A keymap used in `edit-abbrevs'.
-
-`edit-tab-stops-map'
-     A keymap used in `edit-tab-stops'.
-
-`electric-buffer-menu-mode-map'
-     A keymap used by Electric Buffer Menu mode.
-
-`electric-history-map'
-     A keymap used by Electric Command History mode.
-
-`emacs-lisp-mode-map'
-     A keymap used by Emacs Lisp mode.
-
-`help-map'
-     A keymap for characters following the Help key.
-
-`Helper-help-map'
-     A keymap used by the help utility package.
-     It has the same keymap in its value cell and in its function cell.
-
-`Info-edit-map'
-     A keymap used by the `e' command of Info.
-
-`Info-mode-map'
-     A keymap containing Info commands.
-
-`isearch-mode-map'
-     A keymap that defines the characters you can type within
-     incremental search.
-
-`itimer-edit-map'
-     A keymap used when in Itimer Edit mode.
-
-`lisp-interaction-mode-map'
-     A keymap used by Lisp mode.
-
-`lisp-mode-map'
-     A keymap used by Lisp mode.
-
-     A keymap for minibuffer input with completion.
-
-`minibuffer-local-isearch-map'
-     A keymap for editing isearch strings in the minibuffer.
-
-`minibuffer-local-map'
-     Default keymap to use when reading from the minibuffer.
-
-`minibuffer-local-must-match-map'
-     A keymap for minibuffer input with completion, for exact match.
-
-`mode-specific-map'
-     The keymap for characters following `C-c'.  Note, this is in the
-     global map.  This map is not actually mode specific: its name was
-     chosen to be informative for the user in `C-h b'
-     (`display-bindings'), where it describes the main use of the `C-c'
-     prefix key.
-
-`modeline-map'
-     The keymap consulted for mouse-clicks on the modeline of a window.
-
-`objc-mode-map'
-     A keymap used in Objective C mode as a local map.
-
-`occur-mode-map'
-     A local keymap used by Occur mode.
-
-`overriding-local-map'
-     A keymap that overrides all other local keymaps.
-
-`query-replace-map'
-     A local keymap used for responses in `query-replace' and related
-     commands; also for `y-or-n-p' and `map-y-or-n-p'.  The functions
-     that use this map do not support prefix keys; they look up one
-     event at a time.
-
-`read-expression-map'
-     The minibuffer keymap used for reading Lisp expressions.
-
-`read-shell-command-map'
-     The minibuffer keymap used by shell-command and related commands.
-
-`shared-lisp-mode-map'
-     A keymap for commands shared by all sorts of Lisp modes.
-
-`text-mode-map'
-     A keymap used by Text mode.
-
-`toolbar-map'
-     The keymap consulted for mouse-clicks over a toolbar.
-
-`view-mode-map'
-     A keymap used by View mode.
-
-
-File: lispref.info,  Node: Standard Hooks,  Next: Index,  Prev: Standard Keymaps,  Up: Top
-
-Standard Hooks
-**************
-
-   The following is a list of hook variables that let you provide
-functions to be called from within Emacs on suitable occasions.
-
-   Most of these variables have names ending with `-hook'.  They are
-"normal hooks", run by means of `run-hooks'.  The value of such a hook
-is a list of functions.  The recommended way to put a new function on
-such a hook is to call `add-hook'.  *Note Hooks::, for more information
-about using hooks.
-
-   The variables whose names end in `-function' have single functions
-as their values.  Usually there is a specific reason why the variable is
-not a normal hook, such as the need to pass arguments to the function.
-(In older Emacs versions, some of these variables had names ending in
-`-hook' even though they were not normal hooks.)
-
-   The variables whose names end in `-hooks' or `-functions' have lists
-of functions as their values, but these functions are called in a
-special way (they are passed arguments, or else their values are used).
-
-`activate-menubar-hook'
-
-`activate-popup-menu-hook'
-
-`ad-definition-hooks'
-
-`adaptive-fill-function'
-
-`add-log-current-defun-function'
-
-`after-change-functions'
-
-`after-delete-annotation-hook'
-
-`after-init-hook'
-
-`after-insert-file-functions'
-
-`after-revert-hook'
-
-`after-save-hook'
-
-`after-set-visited-file-name-hooks'
-
-`after-write-file-hooks'
-
-`auto-fill-function'
-
-`auto-save-hook'
-
-`before-change-functions'
-
-`before-delete-annotation-hook'
-
-`before-init-hook'
-
-`before-revert-hook'
-
-`blink-paren-function'
-
-`buffers-menu-switch-to-buffer-function'
-
-`c++-mode-hook'
-
-`c-delete-function'
-
-`c-mode-common-hook'
-
-`c-mode-hook'
-
-`c-special-indent-hook'
-
-`calendar-load-hook'
-
-`change-major-mode-hook'
-
-`command-history-hook'
-
-`comment-indent-function'
-
-`compilation-buffer-name-function'
-
-`compilation-exit-message-function'
-
-`compilation-finish-function'
-
-`compilation-parse-errors-function'
-
-`compilation-mode-hook'
-
-`create-console-hook'
-
-`create-device-hook'
-
-`create-frame-hook'
-
-`dabbrev-friend-buffer-function'
-
-`dabbrev-select-buffers-function'
-
-`delete-console-hook'
-
-`delete-device-hook'
-
-`delete-frame-hook'
-
-`deselect-frame-hook'
-
-`diary-display-hook'
-
-`diary-hook'
-
-`dired-after-readin-hook'
-
-`dired-before-readin-hook'
-
-`dired-load-hook'
-
-`dired-mode-hook'
-
-`disabled-command-hook'
-
-`display-buffer-function'
-
-`ediff-after-setup-control-frame-hook'
-
-`ediff-after-setup-windows-hook'
-
-`ediff-before-setup-control-frame-hook'
-
-`ediff-before-setup-windows-hook'
-
-`ediff-brief-help-message-function'
-
-`ediff-cleanup-hook'
-
-`ediff-control-frame-position-function'
-
-`ediff-display-help-hook'
-
-`ediff-focus-on-regexp-matches-function'
-
-`ediff-forward-word-function'
-
-`ediff-hide-regexp-matches-function'
-
-`ediff-keymap-setup-hook'
-
-`ediff-load-hook'
-
-`ediff-long-help-message-function'
-
-`ediff-make-wide-display-function'
-
-`ediff-merge-split-window-function'
-
-`ediff-meta-action-function'
-
-`ediff-meta-redraw-function'
-
-`ediff-mode-hook'
-
-`ediff-prepare-buffer-hook'
-
-`ediff-quit-hook'
-
-`ediff-registry-setup-hook'
-
-`ediff-select-hook'
-
-`ediff-session-action-function'
-
-`ediff-session-group-setup-hook'
-
-`ediff-setup-diff-regions-function'
-
-`ediff-show-registry-hook'
-
-`ediff-show-session-group-hook'
-
-`ediff-skip-diff-region-function'
-
-`ediff-split-window-function'
-
-`ediff-startup-hook'
-
-`ediff-suspend-hook'
-
-`ediff-toggle-read-only-function'
-
-`ediff-unselect-hook'
-
-`ediff-window-setup-function'
-
-`edit-picture-hook'
-
-`electric-buffer-menu-mode-hook'
-
-`electric-command-history-hook'
-
-`electric-help-mode-hook'
-
-`emacs-lisp-mode-hook'
-
-`fill-paragraph-function'
-
-`find-file-hooks'
-
-`find-file-not-found-hooks'
-
-`first-change-hook'
-
-`font-lock-after-fontify-buffer-hook'
-
-`font-lock-beginning-of-syntax-function'
-
-`font-lock-mode-hook'
-
-`fume-found-function-hook'
-
-`fume-list-mode-hook'
-
-`fume-rescan-buffer-hook'
-
-`fume-sort-function'
-
-`gnus-startup-hook'
-
-`hack-local-variables-hook'
-
-`highlight-headers-follow-url-function'
-
-`hyper-apropos-mode-hook'
-
-`indent-line-function'
-
-`indent-mim-hook'
-
-`indent-region-function'
-
-`initial-calendar-window-hook'
-
-`isearch-mode-end-hook'
-
-`isearch-mode-hook'
-
-`java-mode-hook'
-
-`kill-buffer-hook'
-
-`kill-buffer-query-functions'
-
-`kill-emacs-hook'
-
-`kill-emacs-query-functions'
-
-`kill-hooks'
-
-`LaTeX-mode-hook'
-
-`latex-mode-hook'
-
-`ledit-mode-hook'
-
-`lisp-indent-function'
-
-`lisp-interaction-mode-hook'
-
-`lisp-mode-hook'
-
-`list-diary-entries-hook'
-
-`load-read-function'
-
-`log-message-filter-function'
-
-`m2-mode-hook'
-
-`mail-citation-hook'
-
-`mail-mode-hook'
-
-`mail-setup-hook'
-
-`make-annotation-hook'
-
-`makefile-mode-hook'
-
-`map-frame-hook'
-
-`mark-diary-entries-hook'
-
-`medit-mode-hook'
-
-`menu-no-selection-hook'
-
-`mh-compose-letter-hook'
-
-`mh-folder-mode-hook'
-
-`mh-letter-mode-hook'
-
-`mim-mode-hook'
-
-`minibuffer-exit-hook'
-
-`minibuffer-setup-hook'
-
-`mode-motion-hook'
-
-`mouse-enter-frame-hook'
-
-`mouse-leave-frame-hook'
-
-`mouse-track-cleanup-hook'
-
-`mouse-track-click-hook'
-
-`mouse-track-down-hook'
-
-`mouse-track-drag-hook'
-
-`mouse-track-drag-up-hook'
-
-`mouse-track-up-hook'
-
-`mouse-yank-function'
-
-`news-mode-hook'
-
-`news-reply-mode-hook'
-
-`news-setup-hook'
-
-`nongregorian-diary-listing-hook'
-
-`nongregorian-diary-marking-hook'
-
-`nroff-mode-hook'
-
-`objc-mode-hook'
-
-`outline-mode-hook'
-
-`perl-mode-hook'
-
-`plain-TeX-mode-hook'
-
-`post-command-hook'
-
-`post-gc-hook'
-
-`pre-abbrev-expand-hook'
-
-`pre-command-hook'
-
-`pre-display-buffer-function'
-
-`pre-gc-hook'
-
-`pre-idle-hook'
-
-`print-diary-entries-hook'
-
-`prolog-mode-hook'
-
-`protect-innocence-hook'
-
-`remove-message-hook'
-
-`revert-buffer-function'
-
-`revert-buffer-insert-contents-function'
-
-`rmail-edit-mode-hook'
-
-`rmail-mode-hook'
-
-`rmail-retry-setup-hook'
-
-`rmail-summary-mode-hook'
-
-`scheme-indent-hook'
-
-`scheme-mode-hook'
-
-`scribe-mode-hook'
-
-`select-frame-hook'
-
-`send-mail-function'
-
-`shell-mode-hook'
-
-`shell-set-directory-error-hook'
-
-`special-display-function'
-
-`suspend-hook'
-
-`suspend-resume-hook'
-
-`temp-buffer-show-function'
-
-`term-setup-hook'
-
-`terminal-mode-hook'
-
-`terminal-mode-break-hook'
-
-`TeX-mode-hook'
-
-`tex-mode-hook'
-
-`text-mode-hook'
-
-`today-visible-calendar-hook'
-
-`today-invisible-calendar-hook'
-
-`tooltalk-message-handler-hook'
-
-`tooltalk-pattern-handler-hook'
-
-`tooltalk-unprocessed-message-hook'
-
-`unmap-frame-hook'
-
-`vc-checkin-hook'
-
-`vc-checkout-writable-buffer-hook'
-
-`vc-log-after-operation-hook'
-
-`vc-make-buffer-writable-hook'
-
-`view-hook'
-
-`vm-arrived-message-hook'
-
-`vm-arrived-messages-hook'
-
-`vm-chop-full-name-function'
-
-`vm-display-buffer-hook'
-
-`vm-edit-message-hook'
-
-`vm-forward-message-hook'
-
-`vm-iconify-frame-hook'
-
-`vm-inhibit-write-file-hook'
-
-`vm-key-functions'
-
-`vm-mail-hook'
-
-`vm-mail-mode-hook'
-
-`vm-menu-setup-hook'
-
-`vm-mode-hook'
-
-`vm-quit-hook'
-
-`vm-rename-current-buffer-function'
-
-`vm-reply-hook'
-
-`vm-resend-bounced-message-hook'
-
-`vm-resend-message-hook'
-
-`vm-retrieved-spooled-mail-hook'
-
-`vm-select-message-hook'
-
-`vm-select-new-message-hook'
-
-`vm-select-unread-message-hook'
-
-`vm-send-digest-hook'
-
-`vm-summary-mode-hook'
-
-`vm-summary-pointer-update-hook'
-
-`vm-summary-redo-hook'
-
-`vm-summary-update-hook'
-
-`vm-undisplay-buffer-hook'
-
-`vm-visit-folder-hook'
-
-`window-setup-hook'
-
-`write-contents-hooks'
-
-`write-file-data-hooks'
-
-`write-file-hooks'
-
-`write-region-annotate-functions'
-
-`x-lost-selection-hooks'
-
-`x-sent-selection-hooks'
-
-`zmacs-activate-region-hook'
-
-`zmacs-deactivate-region-hook'
-
-`zmacs-update-region-hook'

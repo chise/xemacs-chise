@@ -584,11 +584,10 @@ This is normally set via `font-lock-defaults'.")
     font-lock-preprocessor-face
     font-lock-warning-face))
 
-;; #### There should be an emulation for the old font-lock-use-*
-;; settings!
-
 (defface font-lock-comment-face
   '((((class color) (background dark)) (:foreground "gray80"))
+    ;; blue4 is hardly different from black on windows.
+    (((class color) (background light) (type mswindows)) (:foreground "blue"))
     (((class color) (background light)) (:foreground "blue4"))
     (((class grayscale) (background light))
      (:foreground "DimGray" :bold t :italic t))
@@ -620,6 +619,8 @@ on the major mode's symbol."
 
 (defface font-lock-keyword-face
   '((((class color) (background dark)) (:foreground "cyan"))
+    ;; red4 is hardly different from black on windows.
+    (((class color) (background light) (type mswindows)) (:foreground "red"))
     (((class color) (background light)) (:foreground "red4"))
     (((class grayscale) (background light)) (:foreground "LightGray" :bold t))
     (((class grayscale) (background dark)) (:foreground "DimGray" :bold t))
@@ -629,6 +630,11 @@ on the major mode's symbol."
 
 (defface font-lock-function-name-face
   '((((class color) (background dark)) (:foreground "aquamarine"))
+    ;; brown4 is hardly different from black on windows.
+    ;; I changed it to red because IMO it's pointless and ugly to
+    ;; use a million slightly different colors for niggly syntactic
+    ;; differences. --ben
+    (((class color) (background light) (type mswindows)) (:foreground "red"))
     (((class color) (background light)) (:foreground "brown4"))
     (t (:bold t :underline t)))
   "Font Lock mode face used to highlight function names."
@@ -834,8 +840,9 @@ See the variable `font-lock-keywords' for customization."
 		 ((or (null maximum-size) (<= (buffer-size) maximum-size))
 		  (font-lock-fontify-buffer))
 		 (font-lock-verbose
-		  (lmessage 'command "Fontifying %s... buffer too big."
-		    (buffer-name)))))
+		  (lprogress-display 'font-lock
+			     "Fontifying %s... buffer too big." 'abort
+			     (buffer-name)))))
 	  (font-lock-fontified
 	   (setq font-lock-fontified nil)
 	   (remove-hook 'before-revert-hook 'font-lock-revert-setup t)
@@ -996,7 +1003,7 @@ This can take a while for large buffers."
     (condition-case nil
 	(save-excursion
 	  (font-lock-fontify-region (point-min) (point-max)))
-      (quit
+      (t
        (setq aborted t)))
 
     (or was-on		; turn it off if it was off.
@@ -1004,7 +1011,7 @@ This can take a while for large buffers."
 	  (font-lock-mode 0)))
     (set (make-local-variable 'font-lock-fontified) t)
     (when (and aborted font-lock-verbose)
-	(lmessage 'command  "Fontifying %s... aborted." (buffer-name))))
+      (lprogress-display 'font-lock "Fontifying %s... aborted." 'abort (buffer-name))))
   (run-hooks 'font-lock-after-fontify-buffer-hook))
 
 (defun font-lock-default-unfontify-buffer ()
@@ -1043,7 +1050,7 @@ This can take a while for large buffers."
 (defun font-lock-default-unfontify-region (beg end &optional maybe-loudly)
   (when (and maybe-loudly font-lock-verbose
 	     (>= (- end beg) font-lock-message-threshold))
-    (lmessage 'progress "Fontifying %s..." (buffer-name)))
+    (lprogress-display 'font-lock "Fontifying %s..." 0 (buffer-name)))
   (let ((modified (buffer-modified-p))
 	(buffer-undo-list t) (inhibit-read-only t)
 	buffer-file-name buffer-file-truename)
@@ -1305,8 +1312,8 @@ START should be at the beginning of a line."
       nil
     (when (and font-lock-verbose
 	       (>= (- end start) font-lock-message-threshold))
-      (lmessage 'progress "Fontifying %s... (syntactically...)"
-	(buffer-name)))
+      (lprogress-display 'font-lock "Fontifying %s... (syntactically)" 5
+		 (buffer-name)))
     (font-lock-unfontify-region start end loudly)
     (goto-char start)
     (if (> end (point-max)) (setq end (point-max)))
@@ -1489,18 +1496,22 @@ LIMIT can be modified by the value of its PRE-MATCH-FORM."
 START should be at the beginning of a line."
   (let ((loudly (and font-lock-verbose
 		     (>= (- end start) font-lock-message-threshold))))
-    (let ((case-fold-search font-lock-keywords-case-fold-search)
-	  (keywords (cdr (if (eq (car-safe font-lock-keywords) t)
-			     font-lock-keywords
-			   (font-lock-compile-keywords))))
-	  (bufname (buffer-name)) (count 0)
-	  keyword matcher highlights)
+    (let* ((case-fold-search font-lock-keywords-case-fold-search)
+	   (keywords (cdr (if (eq (car-safe font-lock-keywords) t)
+			      font-lock-keywords
+			    (font-lock-compile-keywords))))
+	   (bufname (buffer-name)) 
+	   (progress 5) (old-progress 5)
+	   (iter 0)
+	   (nkeywords (length keywords))
+	   keyword matcher highlights)
       ;;
       ;; Fontify each item in `font-lock-keywords' from `start' to `end'.
+      ;; In order to measure progress accurately we need to know how
+      ;; many keywords we have and how big the region is. Then progress
+      ;; is ((pos - start)/ (end - start) * nkeywords 
+      ;; 	+ iteration / nkeywords) * 100
       (while keywords
-	(when loudly (lmessage 'progress "Fontifying %s... (regexps..%s)"
-		       bufname
-		       (make-string (setq count (1+ count)) ?.)))
 	;;
 	;; Find an occurrence of `matcher' from `start' to `end'.
 	(setq keyword (car keywords) matcher (car keyword))
@@ -1509,6 +1520,14 @@ START should be at the beginning of a line."
 		    (if (stringp matcher)
 			(re-search-forward matcher end t)
 		      (funcall matcher end)))
+	  ;; calculate progress
+	  (setq progress
+		(+ (/ (* (- (point) start) 95) (* (- end start) nkeywords))
+		   (/ (* iter 95) nkeywords) 5))
+	  (when (and loudly (> progress old-progress))
+	    (lprogress-display 'font-lock "Fontifying %s... (regexps)"
+			       progress bufname))
+	  (setq old-progress progress)
 	  ;; Apply each highlight to this instance of `matcher', which may be
 	  ;; specific highlights or more keywords anchored to `matcher'.
 	  (setq highlights (cdr keyword))
@@ -1522,8 +1541,9 @@ START should be at the beginning of a line."
 		  (and end (goto-char end)))
 	      (font-lock-fontify-anchored-keywords (car highlights) end))
 	    (setq highlights (cdr highlights))))
+	(setq iter (1+ iter))
 	(setq keywords (cdr keywords))))
-    (if loudly (lmessage 'progress "Fontifying %s... done." (buffer-name)))))
+    (if loudly (lprogress-display 'font-lock "Fontifying %s... " 100 (buffer-name)))))
 
 
 ;; Various functions.
@@ -1548,17 +1568,26 @@ START should be at the beginning of a line."
 	 (lazy-lock-after-fontify-buffer))))
 
 ;; If the buffer is about to be reverted, it won't be fontified afterward.
-(defun font-lock-revert-setup ()
-  (setq font-lock-fontified nil))
+;(defun font-lock-revert-setup ()
+;  (setq font-lock-fontified nil))
 
 ;; If the buffer has just been reverted, normally that turns off
 ;; Font Lock mode.  So turn the mode back on if necessary.
 ;; sb 1999-03-03 -- The above comment no longer appears to be operative as
 ;; the first call to normal-mode *will* restore the font-lock state and
 ;; this call forces a second font-locking to occur when reverting a buffer,
-;; which is wasteful at best.
-;(defalias 'font-lock-revert-cleanup 'turn-on-font-lock)
-(defun font-lock-revert-cleanup ())
+;; which is wasteful at best. 
+;;(defun font-lock-revert-cleanup ())
+
+;; <andy@xemacs.org> 12-10-99. This still does not work right, I think
+;; after change functions will still get us. The simplest thing to do
+;; is unconditionally turn-off font-lock before revert (and thus nuke
+;; all hooks) and then turn it on again afterwards. This also happens
+;; to be much faster because fontifying from scratch is better than
+;; trying to do incremental changes for the whole buffer.
+
+(defalias 'font-lock-revert-cleanup 'turn-on-font-lock)
+(defalias 'font-lock-revert-setup 'turn-off-font-lock)
 
 
 ;; Various functions.
@@ -2339,8 +2368,9 @@ The name is assumed to begin with a capital letter.")
 	 '("\\<\\(false\\|null\\|true\\)\\>" (1 font-lock-keyword-face))
 
 	 ;; Class names:
-	 (list (concat "\\<class\\>\\s *" java-font-lock-identifier-regexp)
-	       1 'font-lock-function-name-face)
+	 (list (concat "\\<\\(class\\|interface\\)\\>\\s *"
+								 java-font-lock-identifier-regexp)
+	       2 'font-lock-function-name-face)
         
 	 ;; Package declarations:
 	 (list (concat "\\<\\(package\\|import\\)\\>\\s *"
@@ -2478,7 +2508,7 @@ The name is assumed to begin with a capital letter.")
  
 	 (list
 
-	  ;; Java doc tags
+	  ;; Javadoc tags
 	  '("@\\(author\\|exception\\|throws\\|deprecated\\|param\\|return\\|see\\|since\\|version\\)\\s "
 	    0 font-lock-keyword-face t)
 
@@ -2487,34 +2517,30 @@ The name is assumed to begin with a capital letter.")
 		1 'font-lock-variable-name-face t)
 
 	  ;; Doc tag - Exception types
-	  (list (concat "@exception\\s +"
+	  (list (concat "@\\(exception\\|throws\\)\\s +"
 			java-font-lock-identifier-regexp)
-		'(1 (if (equal (char-after (match-end 0)) ?.)
+		'(2 (if (equal (char-after (match-end 0)) ?.)
 			font-lock-reference-face font-lock-type-face) t)
 		(list (concat "\\=\\." java-font-lock-identifier-regexp)
 		      '(goto-char (match-end 0)) nil
 		      '(1 (if (equal (char-after (match-end 0)) ?.)
 			      'font-lock-reference-face 'font-lock-type-face) t)))
     
-	  ;; Doc tag - Exception types
-	  (list (concat "@exception\\s +"
-			java-font-lock-identifier-regexp)
-		'(1 (if (equal (char-after (match-end 0)) ?.)
-			font-lock-reference-face font-lock-type-face) t)
-		(list (concat "\\=\\." java-font-lock-identifier-regexp)
-		      '(goto-char (match-end 0)) nil
-		      '(1 (if (equal (char-after (match-end 0)) ?.)
-			      'font-lock-reference-face 'font-lock-type-face) t)))
-
 	  ;; Doc tag - Cross-references, usually to methods 
 	  '("@see\\s +\\(\\S *[^][ \t\n\r\f(){},.;:]\\)"
 	    1 font-lock-function-name-face t)
     
-	  ;; Doc tag - Links
-	  '("{@link\\s +\\([^}]*\\)}"
+	  ;; Doc tag - docRoot (1.3)
+	  '("\\({ *@docRoot *}\\)"
+	    0 font-lock-keyword-face t)
+	  ;; Doc tag - beaninfo, unofficial but widely used, even by Sun
+	  '("\\(@beaninfo\\)"
 	    0 font-lock-keyword-face t)
 	  ;; Doc tag - Links
-	  '("{@link\\s +\\(\\S +\\s +\\S +\\)}"
+	  '("{ *@link\\s +\\([^}]+\\)}"
+	    0 font-lock-keyword-face t)
+	  ;; Doc tag - Links
+	  '("{ *@link\\s +\\(\\(\\S +\\)\\|\\(\\S +\\s +\\S +\\)\\) *}"
 	    1 font-lock-function-name-face t)
     
 	  )))

@@ -36,8 +36,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Does this byte represent the first byte of a character? */
 
-INLINE int BUFBYTE_FIRST_BYTE_P(Bufbyte c);
-INLINE int
+INLINE_HEADER int BUFBYTE_FIRST_BYTE_P(Bufbyte c);
+INLINE_HEADER int
 BUFBYTE_FIRST_BYTE_P(Bufbyte c)
 {
   return (c <= 0x7f) || (0xc0 <= c);
@@ -53,8 +53,8 @@ BUFBYTE_FIRST_BYTE_P(Bufbyte c)
 #define CHAR_MULTIBYTE_P(c) ((c) >= 0x80)
 
 
-INLINE int REP_BYTES_BY_FIRST_BYTE (int fb);
-INLINE int
+INLINE_HEADER int REP_BYTES_BY_FIRST_BYTE (int fb);
+INLINE_HEADER int
 REP_BYTES_BY_FIRST_BYTE (int fb)
 {
   if ( fb < 0xc0 )

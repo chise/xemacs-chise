@@ -21,11 +21,202 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+2000-05-01  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.33 is released.
+
+2000-04-27  Katsumi Yamaoka  <yamaoka@jpl.org>
+
+	* configure.in: Use ORDINARY_LD instead of "\$(ORDINARY_LD)" for
+	the value of LD.
+
+2000-04-26  Ben Wing  <ben@xemacs.org>
+
+	* configure.in: add support for --quick-build.  Remove --no-doc-file,
+	subsumed.
+
+2000-04-19  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: 
+	* src/config.h.in:
+	Rewrite SMART_INCLUDE implementation to actually work.
+	Be paranoid - Avoid use of spaces in these macro definitions.
+	Leave alloca() definition at start of compilation unit, 
+	as AIX requests.
+	Rename SMART_INCLUDE_MACRO to SMART_INCLUDE_INDIRECTIONS.
+
+2000-04-13  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* configure.in: Enable clash-detection by default.
+	* configure.usage: Update documentation.
+
+2000-04-06  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: fix typo.
+
+2000-04-12  Andy Piper  <andy@xemacs.org>
+
+	* etc/Emacs.ad: give the gui-element face the same font as the
+	menubar and popups. Add translations for text widgets.
+
+2000-04-03  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* configure.in : Fix printing error check warning even if
+	it is not compiled in.
+
+2000-02-19  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* xemacs/configure.in: Do a normal link when compiling with
+	--pdump. Don't try compiling an unexec object file.
+ 
+2000-03-27  Didier Verna  <didier@xemacs.org>
+
+	* configure.in: reorganize the output by topic.
+	New configure test to define the proper SMART_INCLUDE macro.
+
+	* configure.usage: slightly rearanged some options.
+
+2000-03-25  Didier Verna  <didier@xemacs.org>
+
+	* configure.in: rename `foo_h_path' to `foo_h_file' for variables
+	representing real headers and not directories. This applies to
+	`db_h_path', `curses_h_path', `term_h_path', `tt_c_h_path' and
+	`soundcard_h_path'.
+
+2000-03-21  Didier Verna  <didier@xemacs.org>
+
+	* configure.in: try to find postgresql headers at different places
+	and define POSTGRES_H_PATH as appropriate.
+
+2000-03-22  Andy Piper  <andy@xemacs.org>
+
+	* config.h.in: add ERROR_CHECK_GLYPHS.
+
+	* configure.in: add error_check_glyphs.
+
+2000-03-20  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.32 is released.
+
+2000-03-15  Olivier Galibert  <galibert@pobox.com>
+
+	* configure.in: Add dumper.o object when pdumping.
+
+2000-02-20  Olivier Galibert  <galibert@pobox.com>
+
+	* Makefile.in.in: Add pdump install support
+
+	* configure.in: Add EMACS_PROGNAME config.h variable.
+
+2000-03-10  SL Baur  <steve@musashimaru.m17n.org>
+
+	* configure.usage: document --with-postgresql flag.
+
+2000-03-06  SL Baur  <steve@musashimaru.m17n.org>
+
+	* configure.in: add autodetection of PostgreSQL runtime libraries
+
+2000-03-09  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* aclocal.m4 (XE_SHLIB_STUFF): Define ld_shlibs to yes
+	when C compiler can produce shared libraries.
+
+2000-03-01  Didier Verna  <didier@xemacs.org>
+
+	* etc/NEWS: update the rect.el entry.
+
+2000-02-26  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Unconditionally define SHELL, to allow working
+	with (unreleased) autoconf 2.14.1, found on Mandrake 7.0 systems.
+
+2000-02-23  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.31 is released.
+
+2000-02-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.30 is released.
+
+2000-02-20  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Enforce use of autoconf version >= 2.13.
+
+	* configure.in: Fix OS release test on Solaris.
+
+2000-02-19  Marcus Thiessel  <marcus@xemacs.org>
+
+	* PROBLEMS: Update email address. Describe more HP Motif errors.
+
+2000-02-19  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* configure.in: Split Solaris version test in two parts. In the
+	Bourne shell the "-a" operator does NOT short-circuit.
+
+1999-12-15 Jan Vroonhof  <jan@xemacs.org>
+
+	*  (configure.in): Autodetect broken gcc versions. Patch from WM
+	Perry with tiny tweaks by Yoshiki Hayashi and yours truly.
+
+2000-02-17  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Autodetect sys/param.h.  Reorganize
+	AC_CHECK_HEADERS call.
+	* src/config.h.in: Add HAVE_SYS_PARAM_H.
+
+2000-02-16  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Test for arm simply using arm* instead of arm-*
+
+2000-01-05  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* etc/TUTORIAL.ja: Synch with English version.
+
+2000-02-16  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.29 is released.
+
+2000-02-16  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Don't use rel_alloc if malloc() calls mmap().
+	Discover this by looking for M_MMAP_THRESHOLD.
+
+	* configure.in: Don't define POSIX_C_SOURCE on Solaris, due to
+	bugs in (at least) Solaris 2.5 headers.
+
+2000-01-29  Craig Lanning  <CraigL@DyCon.com>
+
+	* configure.in: Fix detection of XPM on systems without X11.
+
+2000-02-11  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in:
+	* src/config.h.in:
+	Define _POSIX_C_SOURCE, _XOPEN_SOURCE, _XOPEN_SOURCE_EXTENDED,
+	but only on tested Operating systems - Linux && SunOS >= 5.5.
+
+2000-02-09  Valdis Kletnieks  <Valdis.Kletnieks@vt.edu>
+
+	* aclocal.m4: Support dlls on aix[34].
+
+2000-02-09  Martin Buchholz  <martin@xemacs.org>
+
+	* .cvsignore: Ignore gmon.out
+
+2000-02-08  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Sync Berkeley db autodetection with src/database.c
+
+2000-02-07  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: check for XConvertCase.
+
 2000-02-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.28 is released.
 
 2000-01-27  URA Hiroshi <ura@hiru.aoba.yokohama.jp>
+
 	* configure.in: added getaddrinfo and getnameinfo to AC_FUNC.
 
 2000-01-26  Martin Buchholz  <martin@xemacs.org>
@@ -93,7 +284,7 @@
 
 2000-01-08  Martin Buchholz  <martin@xemacs.org>
 
-	* configure.in: 
+	* configure.in:
 	- Allow find-tag to work in the build directory.
 	- rename src/gdbinit to src/.gdbinit, so that gdb can find it.
 	- Less verbose messages when creating .sbinit, .gdbinit, TAGS.
@@ -139,7 +330,7 @@
 
 1999-12-13  Martin Buchholz  <martin@xemacs.org>
 
-	* configure.in: 
+	* configure.in:
 	* configure.usage:
 	- Autodetect NAS.  Change Docs accordingly.
 
@@ -195,7 +386,7 @@
 
 1999-11-26  Martin Buchholz  <martin@xemacs.org>
 
-	* configure.in: 
+	* configure.in:
 	Add configure support for Unix 98 type ssize_t.
 
 1999-11-27  Martin Buchholz  <martin@xemacs.org>
@@ -210,7 +401,7 @@
 	* INSTALL: Update configure option.
 
 1999-10-12  Alexandre Oliva  <oliva@lsd.ic.unicamp.br>
-	
+
 	* configure.in (native_sound_lib, *-sgi-*): Check for audio.h.
 	(LIBS): Check for libCsup.
 
@@ -228,7 +419,7 @@
 
 1999-11-17  Martin Buchholz  <martin@xemacs.org>
 
-	* Makefile.in.in (install-arch-dep): 
+	* Makefile.in.in (install-arch-dep):
 	Fix `make install' if prefix != exec_prefix.
 
 1999-11-15  Martin Buchholz  <martin@xemacs.org>
@@ -298,7 +489,7 @@
 1999-09-19  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
 
 	* configure.in (EMACS_CONFIGURATION): Use $configuration, not
-	$canonical, so that installation paths and dynamic path setup will 
+	$canonical, so that installation paths and dynamic path setup will
 	stay in synch.
 
 1999-09-20  Andy Piper  <andy@xemacs.org>
@@ -312,9 +503,9 @@
 
 1999-08-27  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
-	* modules/zlib/Makefile (distclean): 
-	* modules/ldap/Makefile (distclean): 
-	* modules/sample/Makefile (distclean): 
+	* modules/zlib/Makefile (distclean):
+	* modules/ldap/Makefile (distclean):
+	* modules/sample/Makefile (distclean):
 	* modules/base64/Makefile (distclean): new target
 
 	* Makefile.in.in (top_distclean): Add package directories
@@ -325,10 +516,10 @@
 	* configure.in: Warn, but otherwise ignore, obsolete arguments.
 
 1999-08-20  Olivier Galibert  <galibert@pobox.com>
-  
+
 	* configure.in: Add --pdump option.
 	* configure.usage:  Ditto.
-  
+
 1999-08-04  Andy Piper  <andy@xemacs.org>
 
 	* configure.in: report widget usage correctly. beef up setting.
@@ -365,10 +556,10 @@
 
 1999-07-23  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
-	* etc/custom/example-themes/example-theme.el: 
-	* etc/custom/example-themes/europe-theme.el: 
+	* etc/custom/example-themes/example-theme.el:
+	* etc/custom/example-themes/europe-theme.el:
 	* etc/custom/example-themes/ex-custom-file: Some simple examples
-	illustrating the custom theme support. 
+	illustrating the custom theme support.
 
 1999-07-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
@@ -424,7 +615,7 @@
 1999-06-25  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
 
 	* configure.in (with_prefix): Added --with-prefix, defaults to
-	yes, to control whether the value of --prefix is compiled into the 
+	yes, to control whether the value of --prefix is compiled into the
 	binary.
 
 1999-07-03  Andy Piper  <andy@xemacs.org>
@@ -503,7 +694,7 @@
 1999-05-31  SL Baur  <steve@steve1.m17n.org>
 
 	* configure.in (CPP): Don't check for include subdirectories in
-	site-prefix directories.  This check loses in valid configurations 
+	site-prefix directories.  This check loses in valid configurations
 	like /usr/jp in TurboLinux.  Conditionally add include directory to
 	site switches.
 
@@ -522,7 +713,7 @@
 
 1999-05-06  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* aclocal.m4 (ld_dynamic_link_flags): Change -Bexport to -Bdynamic 
+	* aclocal.m4 (ld_dynamic_link_flags): Change -Bexport to -Bdynamic
 	for Solaris.
 
 1999-05-03  Hrvoje Niksic  <hniksic@srce.hr>
@@ -592,7 +783,7 @@
 
 1999-01-05  Gunnar Evermann  <ge204@eng.cam.ac.uk>
 
-	* PROBLEMS: Document crashes on SPARC with gcc 2.8.1. 
+	* PROBLEMS: Document crashes on SPARC with gcc 2.8.1.
 
 1999-03-01  XEmacs Build Bot <builds@cvs.xemacs.org>
 
@@ -613,29 +804,29 @@
 
 1999-02-10  Martin Buchholz  <martin@xemacs.org>
 
-	* configure.in: 
+	* configure.in:
 	- Fixup xfs comments and redundant option checking
 
-	* configure.in: 
-	* INSTALL: 
+	* configure.in:
+	* INSTALL:
 	* lisp/paths.el:
 	- improved automounter tmp directory support.
 	- support 4 (!) empirically discovered automounter conventions
 
 1999-02-10  Martin Buchholz  <martin@xemacs.org>
 
-	* lwlib/lwlib.h: 
-	- redo CONST hacking to deal with X11 R4, which was 
+	* lwlib/lwlib.h:
+	- redo CONST hacking to deal with X11 R4, which was
 	broken in a previous patch.
 
 1999-02-10  Martin Buchholz  <martin@xemacs.org>
 
-	* configure.in: 
+	* configure.in:
 	- irix uses -rpath
 
 1999-02-10  Martin Buchholz  <martin@xemacs.org>
 
-	* configure.in: 
+	* configure.in:
 	- Check for XOpenIM before using xim=xlib
 	- only use XmIm if $have_motif = yes
 
@@ -670,10 +861,10 @@
 	* configure.in: remove -O3 prevention on cygwin - current versions
  	cope ok now.  remove dll prevention on cygwin - the new module
  	code checks correctly.
-	
+
 1999-01-10  J. Kean Johnston  <jkj@sco.com>
 
-	* configure.in: Added moduledir as the path where loadable modules 
+	* configure.in: Added moduledir as the path where loadable modules
 	are stored. Added --with-site-modules and --moduledir options.
 	- Ensure the SCO OpenServer compiles with --dynamic by default
 	- Check for dlfcn.h for dynamic loader
@@ -1388,7 +1579,7 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* XEmacs 21.0-beta33 is released.
 
-1998-03-26  Didier Verna <verna@inf.enst.fr>
+1998-03-26  Didier Verna <didier@xemacs.org>
 
 	* configure.in, Makefile.in: Removed infopath_user_defined---we
 	always want to propagate it.
@@ -1733,7 +1924,7 @@ Wed Jan 21 10:49:47 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* etc/FTP: Update address of what was formerly ftp.ibp.fr.
 
-1998-01-08  Didier Verna  <verna@inf.enst.fr>
+1998-01-08  Didier Verna  <didier@xemacs.org>
 
 	* configure.in: Get rid of INFOPATH for configure time.
 	* configure.usage (Usage): Ditto.
@@ -2049,7 +2240,7 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 	  ChangeLog, README, Todo, paths.h, config.h, inc/*, runemacs.c,
 	  xemacs.mak.
 
-1997-11-05  Didier Verna  <verna@inf.enst.fr>
+1997-11-05  Didier Verna  <didier@xemacs.org>
 
 	* configure.in: Added the --site-prefixes options for the configure
 	script. You give a colon or space separated list of prefixes, and
@@ -3970,5 +4161,3 @@ Thu Dec  5 20:42:35 1996  Steven L Baur  <steve@altair.xemacs.org>
 Thu Dec  5 11:56:05 1996  Joseph J Nuspl <nuspl@nvwls.cc.purdue.edu>
 
 	* configure.in (LIBS): Fix typo in dialog box test.
-
-

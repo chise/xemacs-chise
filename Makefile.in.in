@@ -295,11 +295,29 @@ all-elc all-elcs: lib-src lwlib dump-elcs src
 dump-elc dump-elcs: ${GENERATED_HEADERS} FRC.dump-elcs
 	cd ./src && $(RECURSIVE_MAKE) dump-elcs
 
-autoloads: src
-	MAKE='$(MAKE)' EMACS='./src/$(PROGNAME)' $(SHELL) ${srcdir}/lib-src/update-autoloads.sh
+autoloads: lisp/auto-autoloads.el lisp/custom-load.el
 
-custom-loads:
-	MAKE='$(MAKE)' EMACS='./src/$(PROGNAME)' $(SHELL) ${srcdir}/lib-src/update-custom.sh
+FRC.lisp.auto.autoloads.el:
+lisp/auto-autoloads.el:	FRC.lisp.auto.autoloads.el
+	rm -f lisp/auto-autoloads.el
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-l autoload -f batch-update-directory lisp
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-f batch-byte-compile lisp/auto-autoloads.el
+	@rm -f lisp/auto-autoloads.el~
+#ifdef MULE
+	rm -f lisp/mule/auto-autoloads.el
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-l autoload -f batch-update-directory lisp/mule
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-f batch-byte-compile lisp/mule/auto-autoloads.el
+	@rm -f lisp/mule/auto-autoloads.el~
+#endif
+
+FRC.lisp.custom.load.el:
+lisp/custom-load.el: FRC.lisp.custom.load.el
+	${blddir}/src/${PROGNAME} -batch -vanilla -l cus-dep \
+		-f Custom-make-dependencies lisp
 
 finder: src
 	@echo "Building finder database ..."
@@ -418,6 +436,9 @@ install-arch-dep: mkdir
 	   for subdir in `find ${archlibdir} -type d ! -name RCS ! -name SCCS ! -name CVS -print` ; \
 	     do (cd $${subdir} && $(RM) -r RCS CVS SCCS \#* *~) ; done ; \
 	else true; fi
+#ifdef PDUMP
+	${INSTALL_DATA} src/${PROGNAME}.dmp ${bindir}/${PROGNAME}-${version}-`src/${PROGNAME} -sd`.dmp
+#endif
 #ifdef WINDOWSNT
 	${INSTALL_PROGRAM} src/${PROGNAME} ${bindir}/${PROGNAME}
 	-chmod 0755 ${bindir}/${PROGNAME}

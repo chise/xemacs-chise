@@ -502,14 +502,14 @@ This deletes all bindings in PLIST for `top', `left', `width',
 Emacs uses this to avoid overriding explicit moves and resizings from
 the user during startup."
   (setq plist (canonicalize-lax-plist (copy-sequence plist)))
-  (mapcar #'(lambda (propname)
-	      (if (lax-plist-member plist propname)
+  (mapcar #'(lambda (property)
+	      (if (lax-plist-member plist property)
 		  (progn
 		    (setq frame-initial-geometry-arguments
-			  (cons propname
-				(cons (lax-plist-get plist propname)
+			  (cons property
+				(cons (lax-plist-get plist property)
 				      frame-initial-geometry-arguments)))
-		    (setq plist (lax-plist-remprop plist propname)))))
+		    (setq plist (lax-plist-remprop plist property)))))
 	  '(height width top left user-size user-position))
   plist)
 

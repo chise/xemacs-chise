@@ -76,7 +76,7 @@ static void free_widget_value_args (widget_value* wv);
 
 /* utility functions for widget_instance and widget_info */
 static char *
-safe_strdup (CONST char *s)
+safe_strdup (const char *s)
 {
   char *result;
   if (! s) return 0;
@@ -257,11 +257,10 @@ merge_widget_value_args (widget_value *old, widget_value *new)
       lw_copy_widget_value_args (old, new);
       changed = True;
     }
-  else if (new->args && old->args)
+  else if (new->args && old->args && new->args != old->args)
     {
       /* #### Do something more sensible here than just copying the
          new values (like actually merging the values). */
-      free_widget_value_args (old);
       lw_copy_widget_value_args (new, old);
       changed = True;
     }
@@ -330,7 +329,7 @@ replace_widget_value_tree (widget_value *node, widget_value *newtree)
 }
 
 static widget_info *
-allocate_widget_info (CONST char *type, CONST char *name,
+allocate_widget_info (const char *type, const char *name,
                       LWLIB_ID id, widget_value *val,
 		      lw_callback pre_activate_cb, lw_callback selection_cb,
 		      lw_callback post_activate_cb)
@@ -503,7 +502,7 @@ find_instance (LWLIB_ID id, Widget parent, Boolean pop_up_p)
 
 /* utility function for widget_value */
 static Boolean
-safe_strcmp (CONST char *s1, CONST char *s2)
+safe_strcmp (const char *s1, const char *s2)
 {
   if (!!s1 ^ !!s2) return True;
   return (s1 && s2) ? strcmp (s1, s2) : s1 ? False : !!s2;
@@ -690,7 +689,7 @@ merge_widget_value (widget_value *val1, widget_value *val2, int level)
 
 /* modifying the widgets */
 static Widget
-name_to_widget (widget_instance *instance, CONST char *name)
+name_to_widget (widget_instance *instance, const char *name)
 {
   Widget widget = NULL;
 
@@ -827,7 +826,7 @@ initialize_widget_instance (widget_instance *instance)
 
 
 static widget_creation_function
-find_in_table (CONST char *type, widget_creation_entry *table)
+find_in_table (const char *type, widget_creation_entry *table)
 {
   widget_creation_entry *cur;
   for (cur = table; cur->type; cur++)
@@ -837,7 +836,7 @@ find_in_table (CONST char *type, widget_creation_entry *table)
 }
 
 static Boolean
-dialog_spec_p (CONST char *name)
+dialog_spec_p (const char *name)
 {
   /* return True if name matches [EILPQeilpq][1-9][Bb] or
      [EILPQeilpq][1-9][Bb][Rr][1-9] */
@@ -921,7 +920,7 @@ instantiate_widget_instance (widget_instance *instance)
 }
 
 void
-lw_register_widget (CONST char *type, CONST char *name,
+lw_register_widget (const char *type, const char *name,
                     LWLIB_ID id, widget_value *val,
 		    lw_callback pre_activate_cb, lw_callback selection_cb,
 		    lw_callback post_activate_cb)
@@ -957,7 +956,7 @@ lw_make_widget (LWLIB_ID id, Widget parent, Boolean pop_up_p)
 }
 
 Widget
-lw_create_widget (CONST char *type, CONST char *name,
+lw_create_widget (const char *type, const char *name,
                   LWLIB_ID id, widget_value *val,
 		  Widget parent, Boolean pop_up_p, lw_callback pre_activate_cb,
 		  lw_callback selection_cb, lw_callback post_activate_cb)
@@ -1049,14 +1048,14 @@ lw_destroy_all_widgets (LWLIB_ID id)
 }
 
 void
-lw_destroy_everything ()
+lw_destroy_everything (void)
 {
   while (all_widget_info)
     lw_destroy_all_widgets (all_widget_info->id);
 }
 
 void
-lw_destroy_all_pop_ups ()
+lw_destroy_all_pop_ups (void)
 {
   widget_info *info;
   widget_info *next;
@@ -1365,6 +1364,7 @@ void lw_add_value_args_to_args (widget_value* wv, ArgList addto, int* offset)
 
 void lw_add_widget_value_arg (widget_value* wv, String name, XtArgVal value)
 {
+  int i = 0;
   if (!wv->args)
     {
       wv->args = (widget_args *) malloc (sizeof (widget_args));
@@ -1378,7 +1378,19 @@ void lw_add_widget_value_arg (widget_value* wv, String name, XtArgVal value)
   if (wv->args->nargs > 10)
     return;
 
-  XtSetArg (wv->args->args [wv->args->nargs], name, value);   wv->args->nargs++;
+  /* If the arg is already there then we must replace it. */
+  for (i = 0; i < wv->args->nargs; i++)
+    {
+      if (!strcmp (wv->args->args[i].name, name))
+	{
+	  XtSetArg (wv->args->args [i], name, value);
+	  break;
+	}
+    }
+  if (i >= wv->args->nargs)
+    {
+      XtSetArg (wv->args->args [wv->args->nargs], name, value);   wv->args->nargs++;
+    }
 }
 
 static void free_widget_value_args (widget_value* wv)
@@ -1397,20 +1409,22 @@ static void free_widget_value_args (widget_value* wv)
 #endif
 	  free (wv->args->args);
 	  free (wv->args);
-	  wv->args = (widget_args*)0xDEADBEEF;
+	  wv->args = 0;
 	}
     }
 }
 
 void lw_copy_widget_value_args (widget_value* val, widget_value* copy)
 {
-  if (!val->args)
+  if (val == copy || val->args == copy->args)
+    return;
+
+  if (copy->args)
     {
-      if (copy->args)
-	free_widget_value_args (copy);
-      copy->args = 0;
+      free_widget_value_args (copy);
     }
-  else
+
+  if (val->args)
     {
       copy->args = val->args;
       copy->args->ref_count++;

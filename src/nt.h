@@ -148,6 +148,6 @@ void set_process_dir (const char * dir);
 time_t convert_time (FILETIME ft);
 
 extern void init_ntproc ();
-extern void term_ntproc ();
+extern void term_ntproc (int unused);
 
 #endif /* INCLUDED_nt_h_ */

@@ -539,14 +539,14 @@ File: lispref.info,  Node: String Properties,  Next: Formatting Strings,  Prev: 
 String Properties
 =================
 
-   Similar to symbols, extents, faces, and glyphs, you can attach
+   Just as with symbols, extents, faces, and glyphs, you can attach
 additional information to strings in the form of "string properties".
 These differ from text properties, which are logically attached to
 particular characters in the string.
 
    To attach a property to a string, use `put'.  To retrieve a property
 from a string, use `get'.  You can also use `remprop' to remove a
-property from a string and `object-props' to retrieve a list of all the
+property from a string and `object-plist' to retrieve a list of all the
 properties in a string.
 
 

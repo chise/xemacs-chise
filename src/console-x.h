@@ -405,7 +405,7 @@ void x_wm_set_shell_iconic_p (Widget shell, int iconic_p);
 void x_wm_set_cell_size (Widget wmshell, int cw, int ch);
 void x_wm_set_variable_size (Widget wmshell, int width, int height);
 
-CONST char *x_event_name (int event_type);
+const char *x_event_name (int event_type);
 int x_error_handler (Display *disp, XErrorEvent *event);
 void expect_x_error (Display *dpy);
 int x_error_occurred_p (Display *dpy);

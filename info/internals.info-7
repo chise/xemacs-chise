@@ -38,6 +38,144 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: internals.info,  Node: The Text in a Buffer,  Next: Buffer Lists,  Prev: Introduction to Buffers,  Up: Buffers and Textual Representation
+
+The Text in a Buffer
+====================
+
+   The text in a buffer consists of a sequence of zero or more
+characters.  A "character" is an integer that logically represents a
+letter, number, space, or other unit of text.  Most of the characters
+that you will typically encounter belong to the ASCII set of characters,
+but there are also characters for various sorts of accented letters,
+special symbols, Chinese and Japanese ideograms (i.e. Kanji, Katakana,
+etc.), Cyrillic and Greek letters, etc.  The actual number of possible
+characters is quite large.
+
+   For now, we can view a character as some non-negative integer that
+has some shape that defines how it typically appears (e.g. as an
+uppercase A). (The exact way in which a character appears depends on the
+font used to display the character.) The internal type of characters in
+the C code is an `Emchar'; this is just an `int', but using a symbolic
+type makes the code clearer.
+
+   Between every character in a buffer is a "buffer position" or
+"character position".  We can speak of the character before or after a
+particular buffer position, and when you insert a character at a
+particular position, all characters after that position end up at new
+positions.  When we speak of the character "at" a position, we really
+mean the character after the position.  (This schizophrenia between a
+buffer position being "between" a character and "on" a character is
+rampant in Emacs.)
+
+   Buffer positions are numbered starting at 1.  This means that
+position 1 is before the first character, and position 0 is not valid.
+If there are N characters in a buffer, then buffer position N+1 is
+after the last one, and position N+2 is not valid.
+
+   The internal makeup of the Emchar integer varies depending on whether
+we have compiled with MULE support.  If not, the Emchar integer is an
+8-bit integer with possible values from 0 - 255.  0 - 127 are the
+standard ASCII characters, while 128 - 255 are the characters from the
+ISO-8859-1 character set.  If we have compiled with MULE support, an
+Emchar is a 19-bit integer, with the various bits having meanings
+according to a complex scheme that will be detailed later.  The
+characters numbered 0 - 255 still have the same meanings as for the
+non-MULE case, though.
+
+   Internally, the text in a buffer is represented in a fairly simple
+fashion: as a contiguous array of bytes, with a "gap" of some size in
+the middle.  Although the gap is of some substantial size in bytes,
+there is no text contained within it: From the perspective of the text
+in the buffer, it does not exist.  The gap logically sits at some buffer
+position, between two characters (or possibly at the beginning or end of
+the buffer).  Insertion of text in a buffer at a particular position is
+always accomplished by first moving the gap to that position (i.e.
+through some block moving of text), then writing the text into the
+beginning of the gap, thereby shrinking the gap.  If the gap shrinks
+down to nothing, a new gap is created. (What actually happens is that a
+new gap is "created" at the end of the buffer's text, which requires
+nothing more than changing a couple of indices; then the gap is "moved"
+to the position where the insertion needs to take place by moving up in
+memory all the text after that position.)  Similarly, deletion occurs
+by moving the gap to the place where the text is to be deleted, and
+then simply expanding the gap to include the deleted text.
+("Expanding" and "shrinking" the gap as just described means just that
+the internal indices that keep track of where the gap is located are
+changed.)
+
+   Note that the total amount of memory allocated for a buffer text
+never decreases while the buffer is live.  Therefore, if you load up a
+20-megabyte file and then delete all but one character, there will be a
+20-megabyte gap, which won't get any smaller (except by inserting
+characters back again).  Once the buffer is killed, the memory allocated
+for the buffer text will be freed, but it will still be sitting on the
+heap, taking up virtual memory, and will not be released back to the
+operating system. (However, if you have compiled XEmacs with rel-alloc,
+the situation is different.  In this case, the space _will_ be released
+back to the operating system.  However, this tends to result in a
+noticeable speed penalty.)
+
+   Astute readers may notice that the text in a buffer is represented as
+an array of _bytes_, while (at least in the MULE case) an Emchar is a
+19-bit integer, which clearly cannot fit in a byte.  This means (of
+course) that the text in a buffer uses a different representation from
+an Emchar: specifically, the 19-bit Emchar becomes a series of one to
+four bytes.  The conversion between these two representations is complex
+and will be described later.
+
+   In the non-MULE case, everything is very simple: An Emchar is an
+8-bit value, which fits neatly into one byte.
+
+   If we are given a buffer position and want to retrieve the character
+at that position, we need to follow these steps:
+
+  1. Pretend there's no gap, and convert the buffer position into a
+     "byte index" that indexes to the appropriate byte in the buffer's
+     stream of textual bytes.  By convention, byte indices begin at 1,
+     just like buffer positions.  In the non-MULE case, byte indices
+     and buffer positions are identical, since one character equals one
+     byte.
+
+  2. Convert the byte index into a "memory index", which takes the gap
+     into account.  The memory index is a direct index into the block of
+     memory that stores the text of a buffer.  This basically just
+     involves checking to see if the byte index is past the gap, and if
+     so, adding the size of the gap to it.  By convention, memory
+     indices begin at 1, just like buffer positions and byte indices,
+     and when referring to the position that is "at" the gap, we always
+     use the memory position at the _beginning_, not at the end, of the
+     gap.
+
+  3. Fetch the appropriate bytes at the determined memory position.
+
+  4. Convert these bytes into an Emchar.
+
+   In the non-Mule case, (3) and (4) boil down to a simple one-byte
+memory access.
+
+   Note that we have defined three types of positions in a buffer:
+
+  1. "buffer positions" or "character positions", typedef `Bufpos'
+
+  2. "byte indices", typedef `Bytind'
+
+  3. "memory indices", typedef `Memind'
+
+   All three typedefs are just `int's, but defining them this way makes
+things a lot clearer.
+
+   Most code works with buffer positions.  In particular, all Lisp code
+that refers to text in a buffer uses buffer positions.  Lisp code does
+not know that byte indices or memory indices exist.
+
+   Finally, we have a typedef for the bytes in a buffer.  This is a
+`Bufbyte', which is an unsigned char.  Referring to them as Bufbytes
+underscores the fact that we are working with a string of bytes in the
+internal Emacs buffer representation rather than in one of a number of
+possible alternative representations (e.g. EUC-encoded text, etc.).
+
+
 File: internals.info,  Node: Buffer Lists,  Next: Markers and Extents,  Prev: The Text in a Buffer,  Up: Buffers and Textual Representation
 
 Buffer Lists
@@ -248,7 +386,7 @@ representation is that it's compact and is compatible with ASCII.
 * CCL::
 
 
-File: internals.info,  Node: Character Sets,  Next: Encodings,  Up: MULE Character Sets and Encodings
+File: internals.info,  Node: Character Sets,  Next: Encodings,  Prev: MULE Character Sets and Encodings,  Up: MULE Character Sets and Encodings
 
 Character Sets
 ==============
@@ -355,7 +493,7 @@ common usage of "byte").
 * JIS7::
 
 
-File: internals.info,  Node: Japanese EUC (Extended Unix Code),  Next: JIS7,  Up: Encodings
+File: internals.info,  Node: Japanese EUC (Extended Unix Code),  Next: JIS7,  Prev: Encodings,  Up: Encodings
 
 Japanese EUC (Extended Unix Code)
 ---------------------------------
@@ -459,7 +597,7 @@ followed later by the exact details.)
 * Internal Character Encoding::
 
 
-File: internals.info,  Node: Internal String Encoding,  Next: Internal Character Encoding,  Up: Internal Mule Encodings
+File: internals.info,  Node: Internal String Encoding,  Next: Internal Character Encoding,  Prev: Internal Mule Encodings,  Up: Internal Mule Encodings
 
 Internal String Encoding
 ------------------------
@@ -738,7 +876,7 @@ blocking data together in order to achieve efficiency.
 * Lstream Methods::             Creating new lstream types.
 
 
-File: internals.info,  Node: Creating an Lstream,  Next: Lstream Types,  Up: Lstreams
+File: internals.info,  Node: Creating an Lstream,  Next: Lstream Types,  Prev: Lstreams,  Up: Lstreams
 
 Creating an Lstream
 ===================
@@ -803,7 +941,7 @@ File: internals.info,  Node: Lstream Functions,  Next: Lstream Methods,  Prev: L
 Lstream Functions
 =================
 
- - Function: Lstream * Lstream_new (Lstream_implementation *IMP, CONST
+ - Function: Lstream * Lstream_new (Lstream_implementation *IMP, const
           char *MODE)
      Allocate and return a new Lstream.  This function is not really
      meant to be called directly; rather, each stream type should
@@ -900,7 +1038,7 @@ Lstream Methods
 
      This function can be `NULL' if the stream is output-only.
 
- - Lstream Method: ssize_t writer (Lstream *STREAM, CONST unsigned char
+ - Lstream Method: ssize_t writer (Lstream *STREAM, const unsigned char
           *DATA, size_t SIZE)
      Send some data to the stream's end.  Data to be sent is in DATA
      and is SIZE bytes.  Return the number of bytes sent.  This
@@ -954,7 +1092,7 @@ Consoles; Devices; Frames; Windows
 * The Window Object::
 
 
-File: internals.info,  Node: Introduction to Consoles; Devices; Frames; Windows,  Next: Point,  Up: Consoles; Devices; Frames; Windows
+File: internals.info,  Node: Introduction to Consoles; Devices; Frames; Windows,  Next: Point,  Prev: Consoles; Devices; Frames; Windows,  Up: Consoles; Devices; Frames; Windows
 
 Introduction to Consoles; Devices; Frames; Windows
 ==================================================
@@ -991,9 +1129,9 @@ Furthermore, there is logically a "selected console", "selected
 display", "selected frame", and "selected window".  Each of these
 objects is distinguished in various ways, such as being the default
 object for various functions that act on objects of that type.  Note
-that every containing object rememembers the "selected" object among
-the objects that it contains: e.g. not only is there a selected window,
-but every frame remembers the last window in it that was selected, and
+that every containing object remembers the "selected" object among the
+objects that it contains: e.g. not only is there a selected window, but
+every frame remembers the last window in it that was selected, and
 changing the selected frame causes the remembered window within it to
 become the selected window.  Similar relationships apply for consoles
 to devices and devices to frames.
@@ -1021,197 +1159,4 @@ for a window, you must special-case on the selected window and retrieve
 the buffer's point instead.  This is related to why
 `save-window-excursion' does not save the selected window's value of
 `point'.
-
-
-File: internals.info,  Node: Window Hierarchy,  Next: The Window Object,  Prev: Point,  Up: Consoles; Devices; Frames; Windows
-
-Window Hierarchy
-================
-
-   If a frame contains multiple windows (panes), they are always created
-by splitting an existing window along the horizontal or vertical axis.
-Terminology is a bit confusing here: to "split a window horizontally"
-means to create two side-by-side windows, i.e. to make a _vertical_ cut
-in a window.  Likewise, to "split a window vertically" means to create
-two windows, one above the other, by making a _horizontal_ cut.
-
-   If you split a window and then split again along the same axis, you
-will end up with a number of panes all arranged along the same axis.
-The precise way in which the splits were made should not be important,
-and this is reflected internally.  Internally, all windows are arranged
-in a tree, consisting of two types of windows, "combination" windows
-(which have children, and are covered completely by those children) and
-"leaf" windows, which have no children and are visible.  Every
-combination window has two or more children, all arranged along the same
-axis.  There are (logically) two subtypes of windows, depending on
-whether their children are horizontally or vertically arrayed.  There is
-always one root window, which is either a leaf window (if the frame
-contains only one window) or a combination window (if the frame contains
-more than one window).  In the latter case, the root window will have
-two or more children, either horizontally or vertically arrayed, and
-each of those children will be either a leaf window or another
-combination window.
-
-   Here are some rules:
-
-  1. Horizontal combination windows can never have children that are
-     horizontal combination windows; same for vertical.
-
-  2. Only leaf windows can be split (obviously) and this splitting does
-     one of two things: (a) turns the leaf window into a combination
-     window and creates two new leaf children, or (b) turns the leaf
-     window into one of the two new leaves and creates the other leaf.
-     Rule (1) dictates which of these two outcomes happens.
-
-  3. Every combination window must have at least two children.
-
-  4. Leaf windows can never become combination windows.  They can be
-     deleted, however.  If this results in a violation of (3), the
-     parent combination window also gets deleted.
-
-  5. All functions that accept windows must be prepared to accept
-     combination windows, and do something sane (e.g. signal an error
-     if so).  Combination windows _do_ escape to the Lisp level.
-
-  6. All windows have three fields governing their contents: these are
-     "hchild" (a list of horizontally-arrayed children), "vchild" (a
-     list of vertically-arrayed children), and "buffer" (the buffer
-     contained in a leaf window).  Exactly one of these will be
-     non-nil.  Remember that "horizontally-arrayed" means
-     "side-by-side" and "vertically-arrayed" means "one above the
-     other".
-
-  7. Leaf windows also have markers in their `start' (the first buffer
-     position displayed in the window) and `pointm' (the window's
-     stashed value of `point'--see above) fields, while combination
-     windows have nil in these fields.
-
-  8. The list of children for a window is threaded through the `next'
-     and `prev' fields of each child window.
-
-  9. *Deleted windows can be undeleted*.  This happens as a result of
-     restoring a window configuration, and is unlike frames, displays,
-     and consoles, which, once deleted, can never be restored.
-     Deleting a window does nothing except set a special `dead' bit to
-     1 and clear out the `next', `prev', `hchild', and `vchild' fields,
-     for GC purposes.
-
- 10. Most frames actually have two top-level windows--one for the
-     minibuffer and one (the "root") for everything else.  The modeline
-     (if present) separates these two.  The `next' field of the root
-     points to the minibuffer, and the `prev' field of the minibuffer
-     points to the root.  The other `next' and `prev' fields are `nil',
-     and the frame points to both of these windows.  Minibuffer-less
-     frames have no minibuffer window, and the `next' and `prev' of the
-     root window are `nil'.  Minibuffer-only frames have no root
-     window, and the `next' of the minibuffer window is `nil' but the
-     `prev' points to itself. (#### This is an artifact that should be
-     fixed.)
-
-
-File: internals.info,  Node: The Window Object,  Prev: Window Hierarchy,  Up: Consoles; Devices; Frames; Windows
-
-The Window Object
-=================
-
-   Windows have the following accessible fields:
-
-`frame'
-     The frame that this window is on.
-
-`mini_p'
-     Non-`nil' if this window is a minibuffer window.
-
-`buffer'
-     The buffer that the window is displaying.  This may change often
-     during the life of the window.
-
-`dedicated'
-     Non-`nil' if this window is dedicated to its buffer.
-
-`pointm'
-     This is the value of point in the current buffer when this window
-     is selected; when it is not selected, it retains its previous
-     value.
-
-`start'
-     The position in the buffer that is the first character to be
-     displayed in the window.
-
-`force_start'
-     If this flag is non-`nil', it says that the window has been
-     scrolled explicitly by the Lisp program.  This affects what the
-     next redisplay does if point is off the screen: instead of
-     scrolling the window to show the text around point, it moves point
-     to a location that is on the screen.
-
-`last_modified'
-     The `modified' field of the window's buffer, as of the last time a
-     redisplay completed in this window.
-
-`last_point'
-     The buffer's value of point, as of the last time a redisplay
-     completed in this window.
-
-`left'
-     This is the left-hand edge of the window, measured in columns.
-     (The leftmost column on the screen is column 0.)
-
-`top'
-     This is the top edge of the window, measured in lines.  (The top
-     line on the screen is line 0.)
-
-`height'
-     The height of the window, measured in lines.
-
-`width'
-     The width of the window, measured in columns.
-
-`next'
-     This is the window that is the next in the chain of siblings.  It
-     is `nil' in a window that is the rightmost or bottommost of a
-     group of siblings.
-
-`prev'
-     This is the window that is the previous in the chain of siblings.
-     It is `nil' in a window that is the leftmost or topmost of a group
-     of siblings.
-
-`parent'
-     Internally, XEmacs arranges windows in a tree; each group of
-     siblings has a parent window whose area includes all the siblings.
-     This field points to a window's parent.
-
-     Parent windows do not display buffers, and play little role in
-     display except to shape their child windows.  Emacs Lisp programs
-     usually have no access to the parent windows; they operate on the
-     windows at the leaves of the tree, which actually display buffers.
-
-`hscroll'
-     This is the number of columns that the display in the window is
-     scrolled horizontally to the left.  Normally, this is 0.
-
-`use_time'
-     This is the last time that the window was selected.  The function
-     `get-lru-window' uses this field.
-
-`display_table'
-     The window's display table, or `nil' if none is specified for it.
-
-`update_mode_line'
-     Non-`nil' means this window's mode line needs to be updated.
-
-`base_line_number'
-     The line number of a certain position in the buffer, or `nil'.
-     This is used for displaying the line number of point in the mode
-     line.
-
-`base_line_pos'
-     The position in the buffer for which the line number is known, or
-     `nil' meaning none is known.
-
-`region_showing'
-     If the region (or part of it) is highlighted in this window, this
-     field holds the mark position that made one end of that region.
-     Otherwise, this field is `nil'.
 
