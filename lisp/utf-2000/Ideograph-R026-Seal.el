@@ -327,8 +327,8 @@
   '((ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (comment		. "<wrong character> of S1-0855")
     (shinjigen-1	. 857)
+    (wrong-char-of-shinjigen-1 . 855)
     (chinese-cns11643-4 . #x2556)	; ø»—§•
     (ideograph-daikanwa . 02863)	; ø¸€¬¯
     (ucs		. #x3541)	; ã•
@@ -337,9 +337,9 @@
   '((ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (comment		. "<variant> of R049:S1-2072")
     (shinjigen-1	. 2074)
     (shinjigen-2	. 2074)
+    (variant-of-shinjigen-1 . 2072)
     (chinese-gb2312		. #x5A61)	; ø»…š²
     (chinese-isoir165		. #x5A61)	; ø»Žƒ‚
     (chinese-cns11643-3		. #x2766)	; ø»• 
@@ -378,9 +378,9 @@
   '((ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (comment		. "<variant> of S1-0855")
     (shinjigen-1	. 856)
     (shinjigen-2	. 856)
+    (variant-of-shinjigen-1 . 855)
     (japanese-jisx0208-1978	. #x524A)	; ø»ƒ„§
     (japanese-jisx0208		. #x524A)	; ø»‡˜¯
     (chinese-cns11643-1		. #x5033)	; ø»’‡°
@@ -422,9 +422,9 @@
     (ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (comment		. "<variant> of S1-0859")
     (shinjigen-1	. 861)
     (shinjigen-2	. 861)
+    (variant-of-shinjigen-1 . 859)
     (chinese-cns11643-6 . #x2F3D)	; ø»œ‰°
     (ideograph-daikanwa . 02872)	; ø¸€¬¸
     ))
@@ -496,9 +496,9 @@
     (kangxi-strokes	 . 9)
     (japanese-strokes	 . 7)
     (total-strokes	 . 10)
-    (comment		. "<vulgar character> of S1-0868")
     (shinjigen-1	. 870)
     (shinjigen-2	. 870)
+    (vulgar-char-of-shinjigen-1 . 868)
     (chinese-gb2312		. #x4764)	; ø»„¾»
     (japanese-jisx0208		. #x362A)	; ø»†¯‡
     (chinese-isoir165		. #x4764)	; ø»§‹
@@ -518,9 +518,9 @@
   '((ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (comment		. "<variant> of S1-0868")
     (shinjigen-1	. 869)
     (shinjigen-2	. 869)
+    (variant-of-shinjigen-1 . 868)
     (chinese-cns11643-3 . #x3A26)	; ø»•»—
     (ideograph-daikanwa . 02879)	; ø¸€¬¿
     ))

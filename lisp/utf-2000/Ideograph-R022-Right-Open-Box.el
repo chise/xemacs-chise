@@ -611,8 +611,8 @@
   '((ideographic-radical . 22)	; â¼•
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (comment		. "<vulgar character> of S1-0796")
     (shinjigen-1	. 798)
+    (vulgar-char-of-shinjigen-1 . 796)
     (japanese-jisx0212	. #x3431)	; ø»‹€š
     (chinese-cns11643-3 . #x4623)	; ø»–Œ¼
     (ideograph-daikanwa . 02652)	; ø¸€©œ

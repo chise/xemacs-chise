@@ -353,7 +353,7 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (comment		. "<ancient character> of S1-0839")
+    (ancient-char-of-shinjigen-1 . 839)
     (shinjigen-1	. 840)
     (chinese-cns11643-4 . #x2851)	; ø»—«ª
     (ideograph-daikanwa . 02810)	; ø¸€«º
