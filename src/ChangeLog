@@ -1,3 +1,20 @@
+2001-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lrecord.h (struct lrecord_header): Delete `older'.
+	(set_lheader_implementation): Delete code for `older'.
+	(set_lheader_older_implementation): Deleted.
+	(enum lrecord_type): Delete `lrecord_type_char_id_table'.
+	(OLDER_RECORD_P): Deleted.
+	(OLDER_RECORD_HEADER_P): Deleted.
+	(alloc_older_lcrecord): Deleted.
+	(alloc_older_lcrecord_type): Deleted.
+
+	* alloc.c (all_older_lcrecords): Deleted.
+	(alloc_older_lcrecord): Deleted.
+	(disksave_object_finalization_1): Delete code for older objects.
+	(mark_object): Don't use `OLDER_RECORD_HEADER_P'.
+	(reinit_alloc_once_early): Don't initialize `all_older_lcrecords'.
+
 2001-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (decoding_table_put_char): Use `make_vector'
