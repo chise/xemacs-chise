@@ -1,0 +1,1213 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Finding All Frames,  Next: Frames and Windows,  Prev: Deleting Frames,  Up: Frames
+
+Finding All Frames
+==================
+
+ - Function: frame-list
+     The function `frame-list' returns a list of all the frames that
+     have not been deleted.  It is analogous to `buffer-list' for
+     buffers.  The list that you get is newly created, so modifying the
+     list doesn't have any effect on the internals of XEmacs.
+
+ - Function: device-frame-list &optional device
+     This function returns a list of all frames on DEVICE.  If DEVICE
+     is `nil', the selected device will be used.
+
+ - Function: visible-frame-list &optional device
+     This function returns a list of just the currently visible frames.
+     If DEVICE is specified only frames on that device will be returned.
+     *Note Visibility of Frames::.  (TTY frames always count as
+     "visible", even though only the selected one is actually
+     displayed.)
+
+ - Function: next-frame &optional frame minibuf
+     The function `next-frame' lets you cycle conveniently through all
+     the frames from an arbitrary starting point.  It returns the "next"
+     frame after FRAME in the cycle.  If FRAME is omitted or `nil', it
+     defaults to the selected frame.
+
+     The second argument, MINIBUF, says which frames to consider:
+
+    `nil'
+          Exclude minibuffer-only frames.
+
+    `visible'
+          Consider all visible frames.
+
+    0
+          Consider all visible or iconified frames.
+
+    a window
+          Consider only the frames using that particular window as their
+          minibuffer.
+
+    the symbol `visible'
+          Include all visible frames.
+
+    `0'
+          Include all visible and iconified frames.
+
+    anything else
+          Consider all frames.
+
+ - Function: previous-frame &optional frame minibuf
+     Like `next-frame', but cycles through all frames in the opposite
+     direction.
+
+   See also `next-window' and `previous-window', in *Note Cyclic Window
+Ordering::.
+
+
+File: lispref.info,  Node: Frames and Windows,  Next: Minibuffers and Frames,  Prev: Finding All Frames,  Up: Frames
+
+Frames and Windows
+==================
+
+   Each window is part of one and only one frame; you can get the frame
+with `window-frame'.
+
+ - Function: frame-root-window &optional frame
+     This returns the root window of frame FRAME.  FRAME defaults to
+     the selected frame if not specified.
+
+ - Function: window-frame &optional window
+     This function returns the frame that WINDOW is on.  WINDOW
+     defaults to the selected window if omitted.
+
+   All the non-minibuffer windows in a frame are arranged in a cyclic
+order.  The order runs from the frame's top window, which is at the
+upper left corner, down and to the right, until it reaches the window at
+the lower right corner (always the minibuffer window, if the frame has
+one), and then it moves back to the top.
+
+ - Function: frame-top-window frame
+     This returns the topmost, leftmost window of frame FRAME.
+
+   At any time, exactly one window on any frame is "selected within the
+frame".  The significance of this designation is that selecting the
+frame also selects this window.  You can get the frame's current
+selected window with `frame-selected-window'.
+
+ - Function: frame-selected-window &optional frame
+     This function returns the window on FRAME that is selected within
+     FRAME.  FRAME defaults to the selected frame if not specified.
+
+   Conversely, selecting a window for XEmacs with `select-window' also
+makes that window selected within its frame.  *Note Selecting Windows::.
+
+   Another function that (usually) returns one of the windows in a
+frame is `minibuffer-window'.  *Note Minibuffer Misc::.
+
+
+File: lispref.info,  Node: Minibuffers and Frames,  Next: Input Focus,  Prev: Frames and Windows,  Up: Frames
+
+Minibuffers and Frames
+======================
+
+   Normally, each frame has its own minibuffer window at the bottom,
+which is used whenever that frame is selected.  If the frame has a
+minibuffer, you can get it with `minibuffer-window' (*note Minibuffer
+Misc::).
+
+   However, you can also create a frame with no minibuffer.  Such a
+frame must use the minibuffer window of some other frame.  When you
+create the frame, you can specify explicitly the minibuffer window to
+use (in some other frame).  If you don't, then the minibuffer is found
+in the frame which is the value of the variable
+`default-minibuffer-frame'.  Its value should be a frame which does
+have a minibuffer.
+
+ - Variable: default-minibuffer-frame
+     This variable specifies the frame to use for the minibuffer
+     window, by default.
+
+
+File: lispref.info,  Node: Input Focus,  Next: Visibility of Frames,  Prev: Minibuffers and Frames,  Up: Frames
+
+Input Focus
+===========
+
+   At any time, one frame in XEmacs is the "selected frame".  The
+selected window always resides on the selected frame.  As the focus
+moves from device to device, the selected frame on each device is
+remembered and restored when the focus moves back to that device.
+
+ - Function: selected-frame &optional device
+     This function returns the selected frame on DEVICE.  If DEVICE is
+     not specified, the selected device will be used.  If no frames
+     exist on the device, `nil' is returned.
+
+   The X server normally directs keyboard input to the X window that the
+mouse is in.  Some window managers use mouse clicks or keyboard events
+to "shift the focus" to various X windows, overriding the normal
+behavior of the server.
+
+   Lisp programs can switch frames "temporarily" by calling the
+function `select-frame'.  This does not override the window manager;
+rather, it escapes from the window manager's control until that control
+is somehow reasserted.
+
+   When using a text-only terminal, there is no window manager;
+therefore, `select-frame' is the only way to switch frames, and the
+effect lasts until overridden by a subsequent call to `select-frame'.
+Only the selected terminal frame is actually displayed on the terminal.
+Each terminal screen except for the initial one has a number, and the
+number of the selected frame appears in the mode line after the word
+`XEmacs' (*note Modeline Variables::).
+
+ - Function: select-frame frame
+     This function selects frame FRAME, temporarily disregarding the
+     focus of the X server if any.  The selection of FRAME lasts until
+     the next time the user does something to select a different frame,
+     or until the next time this function is called.
+
+     Note that `select-frame' does not actually cause the window-system
+     focus to be set to this frame, or the `select-frame-hook' or
+     `deselect-frame-hook' to be run, until the next time that XEmacs is
+     waiting for an event.
+
+     Also note that when the variable `focus-follows-mouse' is
+     non-`nil', the frame selection is temporary and is reverted when
+     the current command terminates, much like the buffer selected by
+     `set-buffer'.  In order to effect a permanent focus change use
+     `focus-frame'.
+
+ - Function: focus-frame frame
+     This function selects FRAME and gives it the window system focus.
+     The operation of `focus-frame' is not affected by the value of
+     `focus-follows-mouse'.
+
+ - Macro: save-selected-frame forms...
+     This macro records the selected frame, executes FORMS in sequence,
+     then restores the earlier selected frame.  The value returned is
+     the value of the last form.
+
+ - Macro: with-selected-frame frame forms...
+     This macro records the selected frame, then selects FRAME and
+     executes FORMS in sequence.  After the last form is finished, the
+     earlier selected frame is restored.  The value returned is the
+     value of the last form.
+
+
+File: lispref.info,  Node: Visibility of Frames,  Next: Raising and Lowering,  Prev: Input Focus,  Up: Frames
+
+Visibility of Frames
+====================
+
+   An X window frame may be "visible", "invisible", or "iconified".  If
+it is visible, you can see its contents.  If it is iconified, the
+frame's contents do not appear on the screen, but an icon does.  If the
+frame is invisible, it doesn't show on the screen, not even as an icon.
+
+   Visibility is meaningless for TTY frames, since only the selected
+one is actually displayed in any case.
+
+ - Command: make-frame-visible &optional frame
+     This function makes frame FRAME visible.  If you omit FRAME, it
+     makes the selected frame visible.
+
+ - Command: make-frame-invisible &optional frame
+     This function makes frame FRAME invisible.
+
+ - Command: iconify-frame &optional frame
+     This function iconifies frame FRAME.
+
+ - Command: deiconify-frame &optional frame
+     This function de-iconifies frame FRAME.  Under X, this is
+     equivalent to `make-frame-visible'.
+
+ - Function: frame-visible-p frame
+     This returns whether FRAME is currently "visible" (actually in use
+     for display).  A frame that is not visible is not updated, and, if
+     it works through a window system, may not show at all.
+
+ - Function: frame-iconified-p frame
+     This returns whether FRAME is iconified.  Not all window managers
+     use icons; some merely unmap the window, so this function is not
+     the inverse of `frame-visible-p'.  It is possible for a frame to
+     not be visible and not be iconified either.  However, if the frame
+     is iconified, it will not be visible.  (Under FSF Emacs, the
+     functionality of this function is obtained through
+     `frame-visible-p'.)
+
+ - Function: frame-totally-visible-p frame
+     This returns whether FRAME is not obscured by any other X windows.
+     On TTY frames, this is the same as `frame-visible-p'.
+
+
+File: lispref.info,  Node: Raising and Lowering,  Next: Frame Configurations,  Prev: Visibility of Frames,  Up: Frames
+
+Raising and Lowering Frames
+===========================
+
+   The X Window System uses a desktop metaphor.  Part of this metaphor
+is the idea that windows are stacked in a notional third dimension
+perpendicular to the screen surface, and thus ordered from "highest" to
+"lowest".  Where two windows overlap, the one higher up covers the one
+underneath.  Even a window at the bottom of the stack can be seen if no
+other window overlaps it.
+
+   A window's place in this ordering is not fixed; in fact, users tend
+to change the order frequently.  "Raising" a window means moving it
+"up", to the top of the stack.  "Lowering" a window means moving it to
+the bottom of the stack.  This motion is in the notional third
+dimension only, and does not change the position of the window on the
+screen.
+
+   You can raise and lower XEmacs's X windows with these functions:
+
+ - Command: raise-frame &optional frame
+     This function raises frame FRAME.
+
+ - Command: lower-frame &optional frame
+     This function lowers frame FRAME.
+
+   You can also specify auto-raise (raising automatically when a frame
+is selected) or auto-lower (lowering automatically when it is
+deselected).  Under X, most ICCCM-compliant window managers will have
+an option to do this for you, but the following variables are provided
+in case you're using a broken WM.  (Under FSF Emacs, the same
+functionality is provided through the `auto-raise' and `auto-lower'
+frame properties.)
+
+ - Variable: auto-raise-frame
+     This variable's value is `t' if frames will be raised to the top
+     when selected.
+
+ - Variable: auto-lower-frame
+     This variable's value is `t' if frames will be lowered to the
+     bottom when no longer selected.
+
+   Auto-raising and auto-lowering is implemented through functions
+attached to `select-frame-hook' and `deselect-frame-hook' (*note Frame
+Hooks::).  Under normal circumstances, you should not call these
+functions directly.
+
+ - Function: default-select-frame-hook
+     This hook function implements the `auto-raise-frame' variable; it
+     is for use as the value of `select-frame-hook'.
+
+ - Function: default-deselect-frame-hook
+     This hook function implements the `auto-lower-frame' variable; it
+     is for use as the value of `deselect-frame-hook'.
+
+
+File: lispref.info,  Node: Frame Configurations,  Next: Frame Hooks,  Prev: Raising and Lowering,  Up: Frames
+
+Frame Configurations
+====================
+
+   A "frame configuration" records the current arrangement of frames,
+all their properties, and the window configuration of each one.
+
+ - Function: current-frame-configuration
+     This function returns a frame configuration list that describes
+     the current arrangement of frames and their contents.
+
+ - Function: set-frame-configuration configuration
+     This function restores the state of frames described in
+     CONFIGURATION.
+
+
+File: lispref.info,  Node: Frame Hooks,  Prev: Frame Configurations,  Up: Frames
+
+Hooks for Customizing Frame Behavior
+====================================
+
+   XEmacs provides many hooks that are called at various times during a
+frame's lifetime.  *Note Hooks::.
+
+ - Variable: create-frame-hook
+     This hook is called each time a frame is created.  The functions
+     are called with one argument, the newly-created frame.
+
+ - Variable: delete-frame-hook
+     This hook is called each time a frame is deleted.  The functions
+     are called with one argument, the about-to-be-deleted frame.
+
+ - Variable: select-frame-hook
+     This is a normal hook that is run just after a frame is selected.
+     The function `default-select-frame-hook', which implements
+     auto-raising (*note Raising and Lowering::), is normally attached
+     to this hook.
+
+     Note that calling `select-frame' does not necessarily set the
+     focus: The actual window-system focus will not be changed until
+     the next time that XEmacs is waiting for an event, and even then,
+     the window manager may refuse the focus-change request.
+
+ - Variable: deselect-frame-hook
+     This is a normal hook that is run just before a frame is deselected
+     (and another frame is selected).  The function
+     `default-deselect-frame-hook', which implements auto-lowering
+     (*note Raising and Lowering::), is normally attached to this hook.
+
+ - Variable: map-frame-hook
+     This hook is called each time a frame is mapped (i.e. made
+     visible).  The functions are called with one argument, the newly
+     mapped frame.
+
+ - Variable: unmap-frame-hook
+     This hook is called each time a frame is unmapped (i.e. made
+     invisible or iconified).  The functions are called with one
+     argument, the newly unmapped frame.
+
+
+File: lispref.info,  Node: Consoles and Devices,  Next: Positions,  Prev: Frames,  Up: Top
+
+Consoles and Devices
+********************
+
+   A "console" is an object representing a single input connection to
+XEmacs, such as an X display or a TTY connection.  It is possible for
+XEmacs to have frames on multiple consoles at once (even on
+heterogeneous types--you can simultaneously have a frame on an X
+display and a TTY connection).  Normally, there is only one console in
+existence.
+
+   A "device" is an object representing a single output device, such as
+a particular screen on an X display. (Usually there is exactly one
+device per X console connection, but there may be more than one if you
+have a multi-headed X display.  For TTY connections, there is always
+exactly one device per console.)
+
+   Each device has one or more "frames" in which text can be displayed.
+For X displays and the like, a frame corresponds to the normal
+window-system concept of a window.  Frames can overlap, be displayed at
+various locations within the display, be resized, etc.  For TTY, only
+one frame can be displayed at a time, and it occupies the entire TTY
+display area.
+
+   However, you can still define multiple frames and switch between
+them.  Their contents are entirely separate from each other.  These
+sorts of frames resemble the "virtual console" capability provided
+under Linux or the multiple screens provided by the multiplexing program
+`screen' under Unix.
+
+   When you start up XEmacs, an initial console and device are created
+to receive input and display frames on.  This will either be an X
+display or a TTY connection, depending on what mode you started XEmacs
+in (this is determined by the `DISPLAY' environment variable, the
+`-nw', `-t' and `-display' command-line options, etc.).
+
+   You can connect to other X displays and TTY connections by creating
+new console objects, and to other X screens on an existing display by
+creating new device objects, as described below.  Many functions (for
+example the frame-creation functions) take an optional device argument
+specifying which device the function pertains to.  If the argument is
+omitted, it defaults to the selected device (see below).
+
+ - Function: consolep object
+     This returns non-`nil' if OBJECT is a console.
+
+ - Function: devicep object
+     This returns non-`nil' if OBJECT is a device.
+
+* Menu:
+
+* Basic Console Functions::     Functions for working with consoles.
+* Basic Device Functions::      Functions for working with devices.
+* Console Types and Device Classes::
+                                I/O and color characteristics.
+* Connecting to a Console or Device::
+* The Selected Console and Device::
+* Console and Device I/O::      Controlling input and output.
+
+
+File: lispref.info,  Node: Basic Console Functions,  Next: Basic Device Functions,  Up: Consoles and Devices
+
+Basic Console Functions
+=======================
+
+ - Function: console-list
+     This function returns a list of all existing consoles.
+
+ - Function: console-device-list &optional console
+     This function returns a list of all devices on CONSOLE.  If
+     CONSOLE is `nil', the selected console will be used.
+
+
+File: lispref.info,  Node: Basic Device Functions,  Next: Console Types and Device Classes,  Prev: Basic Console Functions,  Up: Consoles and Devices
+
+Basic Device Functions
+======================
+
+ - Function: device-list
+     This function returns a list of all existing devices.
+
+ - Function: device-or-frame-p object
+     This function returns non-`nil' if OBJECT is a device or frame.
+     This function is useful because devices and frames are similar in
+     many respects and many functions can operate on either one.
+
+ - Function: device-frame-list device
+     This function returns a list of all frames on DEVICE.
+
+ - Function: frame-device frame
+     This function returns the device that FRAME is on.
+
+
+File: lispref.info,  Node: Console Types and Device Classes,  Next: Connecting to a Console or Device,  Prev: Basic Device Functions,  Up: Consoles and Devices
+
+Console Types and Device Classes
+================================
+
+   Every device is of a particular "type", which describes how the
+connection to that device is made and how the device operates, and a
+particular "class", which describes other characteristics of the device
+(currently, the color capabilities of the device).
+
+   The currently-defined device types are
+
+`x'
+     A connection to an X display (such as `willow:0').
+
+`tty'
+     A connection to a tty (such as `/dev/ttyp3').
+
+`stream'
+     A stdio connection.  This describes a device for which input and
+     output is only possible in a stream-like fashion, such as when
+     XEmacs in running in batch mode.  The very first device created by
+     XEmacs is a terminal device and is used to print out messages of
+     various sorts (for example, the help message when you use the
+     `-help' command-line option).
+
+   The currently-defined device classes are
+`color'
+     A color device.
+
+`grayscale'
+     A grayscale device (a device that can display multiple shades of
+     gray, but no color).
+
+`mono'
+     A device that can only display two colors (e.g. black and white).
+
+ - Function: device-type device
+     This function returns the type of DEVICE.  This is a symbol whose
+     name is one of the device types mentioned above.
+
+ - Function: device-or-frame-type device-or-frame
+     This function returns the type of DEVICE-OR-FRAME.
+
+ - Function: device-class device
+     This function returns the class (color behavior) of DEVICE.  This
+     is a symbol whose name is one of the device classes mentioned
+     above.
+
+ - Function: valid-device-type-p device-type
+     This function returns whether DEVICE-TYPE (which should be a
+     symbol) species a valid device type.
+
+ - Function: valid-device-class-p device-class
+     This function returns whether DEVICE-CLASS (which should be a
+     symbol) species a valid device class.
+
+ - Variable: terminal-device
+     This variable holds the initial terminal device object, which
+     represents XEmacs's stdout.
+
+
+File: lispref.info,  Node: Connecting to a Console or Device,  Next: The Selected Console and Device,  Prev: Console Types and Device Classes,  Up: Consoles and Devices
+
+Connecting to a Console or Device
+=================================
+
+ - Function: make-device &optional type device-data
+     This function creates a new device.
+
+   The following two functions create devices of specific types and are
+written in terms of `make-device'.
+
+ - Function: make-tty-device &optional tty terminal-type
+     This function creates a new tty device on TTY.  This also creates
+     the tty's first frame.  TTY should be a string giving the name of
+     a tty device file (e.g. `/dev/ttyp3' under SunOS et al.), as
+     returned by the `tty' command issued from the Unix shell.  A value
+     of `nil' means use the stdin and stdout as passed to XEmacs from
+     the shell.  If TERMINAL-TYPE is non-`nil', it should be a string
+     specifying the type of the terminal attached to the specified tty.
+     If it is `nil', the terminal type will be inferred from the
+     `TERM' environment variable.
+
+ - Function: make-x-device &optional display argv-list
+     This function creates a new device connected to DISPLAY.  Optional
+     argument ARGV-LIST is a list of strings describing command line
+     options.
+
+ - Function: delete-device device
+     This function deletes DEVICE, permanently eliminating it from use.
+     This disconnects XEmacs's connection to the device.
+
+ - Variable: create-device-hook
+     This variable, if non-`nil', should contain a list of functions,
+     which are called when a device is created.
+
+ - Variable: delete-device-hook
+     This variable, if non-`nil', should contain a list of functions,
+     which are called when a device is deleted.
+
+ - Function: console-live-p object
+     This function returns non-`nil' if OBJECT is a console that has
+     not been deleted.
+
+ - Function: device-live-p object
+     This function returns non-`nil' if OBJECT is a device that has not
+     been deleted.
+
+ - Function: device-x-display device
+     This function returns the X display which DEVICE is connected to,
+     if DEVICE is an X device.
+
+
+File: lispref.info,  Node: The Selected Console and Device,  Next: Console and Device I/O,  Prev: Connecting to a Console or Device,  Up: Consoles and Devices
+
+The Selected Console and Device
+===============================
+
+ - Function: select-console console
+     This function selects the console CONSOLE.  Subsequent editing
+     commands apply to its selected device, selected frame, and selected
+     window.  The selection of CONSOLE lasts until the next time the
+     user does something to select a different console, or until the
+     next time this function is called.
+
+ - Function: selected-console
+     This function returns the console which is currently active.
+
+ - Function: select-device device
+     This function selects the device DEVICE.
+
+ - Function: selected-device &optional console
+     This function returns the device which is currently active.  If
+     optional CONSOLE is non-`nil', this function returns the device
+     that would be currently active if CONSOLE were the selected
+     console.
+
+
+File: lispref.info,  Node: Console and Device I/O,  Prev: The Selected Console and Device,  Up: Consoles and Devices
+
+Console and Device I/O
+======================
+
+ - Function: console-disable-input console
+     This function disables input on console CONSOLE.
+
+ - Function: console-enable-input console
+     This function enables input on console CONSOLE.
+
+   Each device has a "baud rate" value associated with it.  On most
+systems, changing this value will affect the amount of padding and
+other strategic decisions made during redisplay.
+
+ - Function: device-baud-rate &optional device
+     This function returns the output baud rate of DEVICE.
+
+ - Function: set-device-baud-rate device rate
+     This function sets the output baud rate of DEVICE to RATE.
+
+
+File: lispref.info,  Node: Positions,  Next: Markers,  Prev: Consoles and Devices,  Up: Top
+
+Positions
+*********
+
+   A "position" is the index of a character in the text of a buffer.
+More precisely, a position identifies the place between two characters
+(or before the first character, or after the last character), so we can
+speak of the character before or after a given position.  However, we
+often speak of the character "at" a position, meaning the character
+after that position.
+
+   Positions are usually represented as integers starting from 1, but
+can also be represented as "markers"--special objects that relocate
+automatically when text is inserted or deleted so they stay with the
+surrounding characters.  *Note Markers::.
+
+* Menu:
+
+* Point::         The special position where editing takes place.
+* Motion::        Changing point.
+* Excursions::    Temporary motion and buffer changes.
+* Narrowing::     Restricting editing to a portion of the buffer.
+
+
+File: lispref.info,  Node: Point,  Next: Motion,  Up: Positions
+
+Point
+=====
+
+   "Point" is a special buffer position used by many editing commands,
+including the self-inserting typed characters and text insertion
+functions.  Other commands move point through the text to allow editing
+and insertion at different places.
+
+   Like other positions, point designates a place between two characters
+(or before the first character, or after the last character), rather
+than a particular character.  Usually terminals display the cursor over
+the character that immediately follows point; point is actually before
+the character on which the cursor sits.
+
+   The value of point is a number between 1 and the buffer size plus 1.
+If narrowing is in effect (*note Narrowing::), then point is constrained
+to fall within the accessible portion of the buffer (possibly at one end
+of it).
+
+   Each buffer has its own value of point, which is independent of the
+value of point in other buffers.  Each window also has a value of point,
+which is independent of the value of point in other windows on the same
+buffer.  This is why point can have different values in various windows
+that display the same buffer.  When a buffer appears in only one window,
+the buffer's point and the window's point normally have the same value,
+so the distinction is rarely important.  *Note Window Point::, for more
+details.
+
+ - Function: point &optional buffer
+     This function returns the value of point in BUFFER, as an integer.
+     BUFFER defaults to the current buffer if omitted.
+
+          (point)
+               => 175
+
+ - Function: point-min &optional buffer
+     This function returns the minimum accessible value of point in
+     BUFFER.  This is normally 1, but if narrowing is in effect, it is
+     the position of the start of the region that you narrowed to.
+     (*Note Narrowing::.) BUFFER defaults to the current buffer if
+     omitted.
+
+ - Function: point-max &optional buffer
+     This function returns the maximum accessible value of point in
+     BUFFER.  This is `(1+ (buffer-size buffer))', unless narrowing is
+     in effect, in which case it is the position of the end of the
+     region that you narrowed to. (*note Narrowing::).  BUFFER defaults
+     to the current buffer if omitted.
+
+ - Function: buffer-end flag &optional buffer
+     This function returns `(point-min buffer)' if FLAG is less than 1,
+     `(point-max buffer)' otherwise.  The argument FLAG must be a
+     number.  BUFFER defaults to the current buffer if omitted.
+
+ - Function: buffer-size &optional buffer
+     This function returns the total number of characters in BUFFER.
+     In the absence of any narrowing (*note Narrowing::), `point-max'
+     returns a value one larger than this.  BUFFER defaults to the
+     current buffer if omitted.
+
+          (buffer-size)
+               => 35
+          (point-max)
+               => 36
+
+ - Variable: buffer-saved-size
+     The value of this buffer-local variable is the former length of the
+     current buffer, as of the last time it was read in, saved or
+     auto-saved.
+
+
+File: lispref.info,  Node: Motion,  Next: Excursions,  Prev: Point,  Up: Positions
+
+Motion
+======
+
+   Motion functions change the value of point, either relative to the
+current value of point, relative to the beginning or end of the buffer,
+or relative to the edges of the selected window.  *Note Point::.
+
+* Menu:
+
+* Character Motion::       Moving in terms of characters.
+* Word Motion::            Moving in terms of words.
+* Buffer End Motion::      Moving to the beginning or end of the buffer.
+* Text Lines::             Moving in terms of lines of text.
+* Screen Lines::           Moving in terms of lines as displayed.
+* List Motion::            Moving by parsing lists and sexps.
+* Skipping Characters::    Skipping characters belonging to a certain set.
+
+
+File: lispref.info,  Node: Character Motion,  Next: Word Motion,  Up: Motion
+
+Motion by Characters
+--------------------
+
+   These functions move point based on a count of characters.
+`goto-char' is the fundamental primitive; the other functions use that.
+
+ - Command: goto-char position &optional buffer
+     This function sets point in `buffer' to the value POSITION.  If
+     POSITION is less than 1, it moves point to the beginning of the
+     buffer.  If POSITION is greater than the length of the buffer, it
+     moves point to the end.  BUFFER defaults to the current buffer if
+     omitted.
+
+     If narrowing is in effect, POSITION still counts from the
+     beginning of the buffer, but point cannot go outside the accessible
+     portion.  If POSITION is out of range, `goto-char' moves point to
+     the beginning or the end of the accessible portion.
+
+     When this function is called interactively, POSITION is the
+     numeric prefix argument, if provided; otherwise it is read from the
+     minibuffer.
+
+     `goto-char' returns POSITION.
+
+ - Command: forward-char &optional count buffer
+     This function moves point COUNT characters forward, towards the
+     end of the buffer (or backward, towards the beginning of the
+     buffer, if COUNT is negative).  If the function attempts to move
+     point past the beginning or end of the buffer (or the limits of
+     the accessible portion, when narrowing is in effect), an error is
+     signaled with error code `beginning-of-buffer' or `end-of-buffer'.
+     BUFFER defaults to the current buffer if omitted.
+
+     In an interactive call, COUNT is the numeric prefix argument.
+
+ - Command: backward-char &optional count buffer
+     This function moves point COUNT characters backward, towards the
+     beginning of the buffer (or forward, towards the end of the
+     buffer, if COUNT is negative).  If the function attempts to move
+     point past the beginning or end of the buffer (or the limits of
+     the accessible portion, when narrowing is in effect), an error is
+     signaled with error code `beginning-of-buffer' or `end-of-buffer'.
+     BUFFER defaults to the current buffer if omitted.
+
+     In an interactive call, COUNT is the numeric prefix argument.
+
+
+File: lispref.info,  Node: Word Motion,  Next: Buffer End Motion,  Prev: Character Motion,  Up: Motion
+
+Motion by Words
+---------------
+
+   These functions for parsing words use the syntax table to decide
+whether a given character is part of a word.  *Note Syntax Tables::.
+
+ - Command: forward-word count &optional buffer
+     This function moves point forward COUNT words (or backward if
+     COUNT is negative).  Normally it returns `t'.  If this motion
+     encounters the beginning or end of the buffer, or the limits of the
+     accessible portion when narrowing is in effect, point stops there
+     and the value is `nil'.  BUFFER defaults to the current buffer if
+     omitted.
+
+     In an interactive call, COUNT is set to the numeric prefix
+     argument.
+
+ - Command: backward-word count &optional buffer
+     This function is just like `forward-word', except that it moves
+     backward until encountering the front of a word, rather than
+     forward.  BUFFER defaults to the current buffer if omitted.
+
+     In an interactive call, COUNT is set to the numeric prefix
+     argument.
+
+     This function is rarely used in programs, as it is more efficient
+     to call `forward-word' with a negative argument.
+
+ - Variable: words-include-escapes
+     This variable affects the behavior of `forward-word' and everything
+     that uses it.  If it is non-`nil', then characters in the "escape"
+     and "character quote" syntax classes count as part of words.
+     Otherwise, they do not.
+
+
+File: lispref.info,  Node: Buffer End Motion,  Next: Text Lines,  Prev: Word Motion,  Up: Motion
+
+Motion to an End of the Buffer
+------------------------------
+
+   To move point to the beginning of the buffer, write:
+
+     (goto-char (point-min))
+
+Likewise, to move to the end of the buffer, use:
+
+     (goto-char (point-max))
+
+   Here are two commands that users use to do these things.  They are
+documented here to warn you not to use them in Lisp programs, because
+they set the mark and display messages in the echo area.
+
+ - Command: beginning-of-buffer &optional n
+     This function moves point to the beginning of the buffer (or the
+     limits of the accessible portion, when narrowing is in effect),
+     setting the mark at the previous position.  If N is non-`nil',
+     then it puts point N tenths of the way from the beginning of the
+     buffer.
+
+     In an interactive call, N is the numeric prefix argument, if
+     provided; otherwise N defaults to `nil'.
+
+     Don't use this function in Lisp programs!
+
+ - Command: end-of-buffer &optional n
+     This function moves point to the end of the buffer (or the limits
+     of the accessible portion, when narrowing is in effect), setting
+     the mark at the previous position.  If N is non-`nil', then it puts
+     point N tenths of the way from the end of the buffer.
+
+     In an interactive call, N is the numeric prefix argument, if
+     provided; otherwise N defaults to `nil'.
+
+     Don't use this function in Lisp programs!
+
+
+File: lispref.info,  Node: Text Lines,  Next: Screen Lines,  Prev: Buffer End Motion,  Up: Motion
+
+Motion by Text Lines
+--------------------
+
+   Text lines are portions of the buffer delimited by newline
+characters, which are regarded as part of the previous line.  The first
+text line begins at the beginning of the buffer, and the last text line
+ends at the end of the buffer whether or not the last character is a
+newline.  The division of the buffer into text lines is not affected by
+the width of the window, by line continuation in display, or by how
+tabs and control characters are displayed.
+
+ - Command: goto-line line
+     This function moves point to the front of the LINEth line,
+     counting from line 1 at beginning of the buffer.  If LINE is less
+     than 1, it moves point to the beginning of the buffer.  If LINE is
+     greater than the number of lines in the buffer, it moves point to
+     the end of the buffer--that is, the _end of the last line_ of the
+     buffer.  This is the only case in which `goto-line' does not
+     necessarily move to the beginning of a line.
+
+     If narrowing is in effect, then LINE still counts from the
+     beginning of the buffer, but point cannot go outside the accessible
+     portion.  So `goto-line' moves point to the beginning or end of the
+     accessible portion, if the line number specifies an inaccessible
+     position.
+
+     The return value of `goto-line' is the difference between LINE and
+     the line number of the line to which point actually was able to
+     move (in the full buffer, before taking account of narrowing).
+     Thus, the value is positive if the scan encounters the real end of
+     the buffer.  The value is zero if scan encounters the end of the
+     accessible portion but not the real end of the buffer.
+
+     In an interactive call, LINE is the numeric prefix argument if one
+     has been provided.  Otherwise LINE is read in the minibuffer.
+
+ - Command: beginning-of-line &optional count buffer
+     This function moves point to the beginning of the current line.
+     With an argument COUNT not `nil' or 1, it moves forward COUNT-1
+     lines and then to the beginning of the line.  BUFFER defaults to
+     the current buffer if omitted.
+
+     If this function reaches the end of the buffer (or of the
+     accessible portion, if narrowing is in effect), it positions point
+     there.  No error is signaled.
+
+ - Command: end-of-line &optional count buffer
+     This function moves point to the end of the current line.  With an
+     argument COUNT not `nil' or 1, it moves forward COUNT-1 lines and
+     then to the end of the line.  BUFFER defaults to the current
+     buffer if omitted.
+
+     If this function reaches the end of the buffer (or of the
+     accessible portion, if narrowing is in effect), it positions point
+     there.  No error is signaled.
+
+ - Command: forward-line &optional count buffer
+     This function moves point forward COUNT lines, to the beginning of
+     the line.  If COUNT is negative, it moves point -COUNT lines
+     backward, to the beginning of a line.  If COUNT is zero, it moves
+     point to the beginning of the current line.  BUFFER defaults to
+     the current buffer if omitted.
+
+     If `forward-line' encounters the beginning or end of the buffer (or
+     of the accessible portion) before finding that many lines, it sets
+     point there.  No error is signaled.
+
+     `forward-line' returns the difference between COUNT and the number
+     of lines actually moved.  If you attempt to move down five lines
+     from the beginning of a buffer that has only three lines, point
+     stops at the end of the last line, and the value will be 2.
+
+     In an interactive call, COUNT is the numeric prefix argument.
+
+ - Function: count-lines start end
+     This function returns the number of lines between the positions
+     START and END in the current buffer.  If START and END are equal,
+     then it returns 0.  Otherwise it returns at least 1, even if START
+     and END are on the same line.  This is because the text between
+     them, considered in isolation, must contain at least one line
+     unless it is empty.
+
+     Here is an example of using `count-lines':
+
+          (defun current-line ()
+            "Return the vertical position of point..."
+            (+ (count-lines (window-start) (point))
+               (if (= (current-column) 0) 1 0)
+               -1))
+
+   Also see the functions `bolp' and `eolp' in *Note Near Point::.
+These functions do not move point, but test whether it is already at the
+beginning or end of a line.
+
+
+File: lispref.info,  Node: Screen Lines,  Next: List Motion,  Prev: Text Lines,  Up: Motion
+
+Motion by Screen Lines
+----------------------
+
+   The line functions in the previous section count text lines,
+delimited only by newline characters.  By contrast, these functions
+count screen lines, which are defined by the way the text appears on
+the screen.  A text line is a single screen line if it is short enough
+to fit the width of the selected window, but otherwise it may occupy
+several screen lines.
+
+   In some cases, text lines are truncated on the screen rather than
+continued onto additional screen lines.  In these cases,
+`vertical-motion' moves point much like `forward-line'.  *Note
+Truncation::.
+
+   Because the width of a given string depends on the flags that control
+the appearance of certain characters, `vertical-motion' behaves
+differently, for a given piece of text, depending on the buffer it is
+in, and even on the selected window (because the width, the truncation
+flag, and display table may vary between windows).  *Note Usual
+Display::.
+
+   These functions scan text to determine where screen lines break, and
+thus take time proportional to the distance scanned.  If you intend to
+use them heavily, Emacs provides caches which may improve the
+performance of your code.  *Note cache-long-line-scans: Text Lines.
+
+ - Function: vertical-motion count &optional window pixels
+     This function moves point to the start of the frame line COUNT
+     frame lines down from the frame line containing point.  If COUNT
+     is negative, it moves up instead.  The optional second argument
+     WINDOW may be used to specify a window other than the selected
+     window in which to perform the motion.
+
+     Normally, `vertical-motion' returns the number of lines moved.  The
+     value may be less in absolute value than COUNT if the beginning or
+     end of the buffer was reached.  If the optional third argument,
+     PIXELS is non-`nil', the vertical pixel height of the motion which
+     took place is returned instead of the actual number of lines
+     moved.  A motion of zero lines returns the height of the current
+     line.
+
+     Note that `vertical-motion' sets WINDOW's buffer's point, not
+     WINDOW's point. (This differs from FSF Emacs, which buggily always
+     sets current buffer's point, regardless of WINDOW.)
+
+ - Function: vertical-motion-pixels count &optional window how
+     This function moves point to the start of the frame line PIXELS
+     vertical pixels down from the frame line containing point, or up if
+     PIXELS is negative.  The optional second argument WINDOW is the
+     window to move in, and defaults to the selected window.  The
+     optional third argument HOW specifies the stopping condition.  A
+     negative integer indicates that the motion should be no more than
+     PIXELS.  A positive value indicates that the motion should be at
+     least PIXELS.  Any other value indicates that the motion should be
+     as close as possible to PIXELS.
+
+ - Command: move-to-window-line count &optional window
+     This function moves point with respect to the text currently
+     displayed in WINDOW, which defaults to the selected window.  It
+     moves point to the beginning of the screen line COUNT screen lines
+     from the top of the window.  If COUNT is negative, that specifies a
+     position -COUNT lines from the bottom (or the last line of the
+     buffer, if the buffer ends above the specified screen position).
+
+     If COUNT is `nil', then point moves to the beginning of the line
+     in the middle of the window.  If the absolute value of COUNT is
+     greater than the size of the window, then point moves to the place
+     that would appear on that screen line if the window were tall
+     enough.  This will probably cause the next redisplay to scroll to
+     bring that location onto the screen.
+
+     In an interactive call, COUNT is the numeric prefix argument.
+
+     The value returned is the window line number point has moved to,
+     with the top line in the window numbered 0.
+
+
+File: lispref.info,  Node: List Motion,  Next: Skipping Characters,  Prev: Screen Lines,  Up: Motion
+
+Moving over Balanced Expressions
+--------------------------------
+
+   Here are several functions concerned with balanced-parenthesis
+expressions (also called "sexps" in connection with moving across them
+in XEmacs).  The syntax table controls how these functions interpret
+various characters; see *Note Syntax Tables::.  *Note Parsing
+Expressions::, for lower-level primitives for scanning sexps or parts of
+sexps.  For user-level commands, see *Note Lists and Sexps:
+(emacs)Lists and Sexps.
+
+ - Command: forward-list &optional arg
+     This function moves forward across ARG balanced groups of
+     parentheses. (Other syntactic entities such as words or paired
+     string quotes are ignored.) ARG defaults to 1 if omitted.  If ARG
+     is negative, move backward across that many groups of parentheses.
+
+ - Command: backward-list &optional arg
+     This function moves backward across ARG balanced groups of
+     parentheses. (Other syntactic entities such as words or paired
+     string quotes are ignored.) ARG defaults to 1 if omitted.  If ARG
+     is negative, move forward across that many groups of parentheses.
+
+ - Command: up-list arg
+     This function moves forward out of ARG levels of parentheses.  A
+     negative argument means move backward but still to a less deep
+     spot.
+
+ - Command: down-list arg
+     This function moves forward into ARG levels of parentheses.  A
+     negative argument means move backward but still go deeper in
+     parentheses (-ARG levels).
+
+ - Command: forward-sexp &optional arg
+     This function moves forward across ARG balanced expressions.
+     Balanced expressions include both those delimited by parentheses
+     and other kinds, such as words and string constants.  ARG defaults
+     to 1 if omitted.  If ARG is negative, move backward across that
+     many balanced expressions.  For example,
+
+          ---------- Buffer: foo ----------
+          (concat-!- "foo " (car x) y z)
+          ---------- Buffer: foo ----------
+          
+          (forward-sexp 3)
+               => nil
+          
+          ---------- Buffer: foo ----------
+          (concat "foo " (car x) y-!- z)
+          ---------- Buffer: foo ----------
+
+ - Command: backward-sexp &optional arg
+     This function moves backward across ARG balanced expressions.  ARG
+     defaults to 1 if omitted.  If ARG is negative, move forward across
+     that many balanced expressions.
+
+ - Command: beginning-of-defun &optional arg
+     This function moves back to the ARGth beginning of a defun.  If
+     ARG is negative, this actually moves forward, but it still moves
+     to the beginning of a defun, not to the end of one.  ARG defaults
+     to 1 if omitted.
+
+ - Command: end-of-defun &optional arg
+     This function moves forward to the ARGth end of a defun.  If ARG
+     is negative, this actually moves backward, but it still moves to
+     the end of a defun, not to the beginning of one.  ARG defaults to
+     1 if omitted.
+
+ - User Option: defun-prompt-regexp
+     If non-`nil', this variable holds a regular expression that
+     specifies what text can appear before the open-parenthesis that
+     starts a defun.  That is to say, a defun begins on a line that
+     starts with a match for this regular expression, followed by a
+     character with open-parenthesis syntax.
+
+
+File: lispref.info,  Node: Skipping Characters,  Prev: List Motion,  Up: Motion
+
+Skipping Characters
+-------------------
+
+   The following two functions move point over a specified set of
+characters.  For example, they are often used to skip whitespace.  For
+related functions, see *Note Motion and Syntax::.
+
+ - Function: skip-chars-forward character-set &optional limit buffer
+     This function moves point in BUFFER forward, skipping over a given
+     set of characters.  It examines the character following point,
+     then advances point if the character matches CHARACTER-SET.  This
+     continues until it reaches a character that does not match.  The
+     function returns `nil'.  BUFFER defaults to the current buffer if
+     omitted.
+
+     The argument CHARACTER-SET is like the inside of a `[...]' in a
+     regular expression except that `]' is never special and `\' quotes
+     `^', `-' or `\'.  Thus, `"a-zA-Z"' skips over all letters,
+     stopping before the first non-letter, and `"^a-zA-Z'" skips
+     non-letters stopping before the first letter.  *Note Regular
+     Expressions::.
+
+     If LIMIT is supplied (it must be a number or a marker), it
+     specifies the maximum position in the buffer that point can be
+     skipped to.  Point will stop at or before LIMIT.
+
+     In the following example, point is initially located directly
+     before the `T'.  After the form is evaluated, point is located at
+     the end of that line (between the `t' of `hat' and the newline).
+     The function skips all letters and spaces, but not newlines.
+
+          ---------- Buffer: foo ----------
+          I read "-!-The cat in the hat
+          comes back" twice.
+          ---------- Buffer: foo ----------
+          
+          (skip-chars-forward "a-zA-Z ")
+               => nil
+          
+          ---------- Buffer: foo ----------
+          I read "The cat in the hat-!-
+          comes back" twice.
+          ---------- Buffer: foo ----------
+
+ - Function: skip-chars-backward character-set &optional limit buffer
+     This function moves point backward, skipping characters that match
+     CHARACTER-SET, until LIMIT.  It just like `skip-chars-forward'
+     except for the direction of motion.
+

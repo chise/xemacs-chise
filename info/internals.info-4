@@ -1,0 +1,1060 @@
+This is ../info/internals.info, produced by makeinfo version 4.0 from
+internals/internals.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Internals: (internals).       XEmacs Internals Manual.
+END-INFO-DIR-ENTRY
+
+   Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
+Microsystems.  Copyright (C) 1994 - 1998 Free Software Foundation.
+Copyright (C) 1994, 1995 Board of Trustees, University of Illinois.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: internals.info,  Node: Modules for Other Aspects of the Lisp Interpreter and Object System,  Next: Modules for Interfacing with the Operating System,  Prev: Modules for Interfacing with the File System,  Up: A Summary of the Various XEmacs Modules
+
+Modules for Other Aspects of the Lisp Interpreter and Object System
+===================================================================
+
+     elhash.c
+     elhash.h
+     hash.c
+     hash.h
+
+   These files provide two implementations of hash tables.  Files
+`hash.c' and `hash.h' provide a generic C implementation of hash tables
+which can stand independently of XEmacs.  Files `elhash.c' and
+`elhash.h' provide a separate implementation of hash tables that can
+store only Lisp objects, and knows about Lispy things like garbage
+collection, and implement the "hash-table" Lisp object type.
+
+     specifier.c
+     specifier.h
+
+   This module implements the "specifier" Lisp object type.  This is
+primarily used for displayable properties, and allows for values that
+are specific to a particular buffer, window, frame, device, or device
+class, as well as a default value existing.  This is used, for example,
+to control the height of the horizontal scrollbar or the appearance of
+the `default', `bold', or other faces.  The specifier object consists
+of a number of specifications, each of which maps from a buffer,
+window, etc. to a value.  The function `specifier-instance' looks up a
+value given a window (from which a buffer, frame, and device can be
+derived).
+
+     chartab.c
+     chartab.h
+     casetab.c
+
+   `chartab.c' and `chartab.h' implement the "char table" Lisp object
+type, which maps from characters or certain sorts of character ranges
+to Lisp objects.  The implementation of this object type is optimized
+for the internal representation of characters.  Char tables come in
+different types, which affect the allowed object types to which a
+character can be mapped and also dictate certain other properties of
+the char table.
+
+   `casetab.c' implements one sort of char table, the "case table",
+which maps characters to other characters of possibly different case.
+These are used by XEmacs to implement case-changing primitives and to
+do case-insensitive searching.
+
+     syntax.c
+     syntax.h
+
+   This module implements "syntax tables", another sort of char table
+that maps characters into syntax classes that define the syntax of these
+characters (e.g. a parenthesis belongs to a class of `open' characters
+that have corresponding `close' characters and can be nested).  This
+module also implements the Lisp "scanner", a set of primitives for
+scanning over text based on syntax tables.  This is used, for example,
+to find the matching parenthesis in a command such as `forward-sexp',
+and by `font-lock.c' to locate quoted strings, comments, etc.
+
+     casefiddle.c
+
+   This module implements various Lisp primitives for upcasing,
+downcasing and capitalizing strings or regions of buffers.
+
+     rangetab.c
+
+   This module implements the "range table" Lisp object type, which
+provides for a mapping from ranges of integers to arbitrary Lisp
+objects.
+
+     opaque.c
+     opaque.h
+
+   This module implements the "opaque" Lisp object type, an
+internal-only Lisp object that encapsulates an arbitrary block of memory
+so that it can be managed by the Lisp allocation system.  To create an
+opaque object, you call `make_opaque()', passing a pointer to a block
+of memory.  An object is created that is big enough to hold the memory,
+which is copied into the object's storage.  The object will then stick
+around as long as you keep pointers to it, after which it will be
+automatically reclaimed.
+
+   Opaque objects can also have an arbitrary "mark method" associated
+with them, in case the block of memory contains other Lisp objects that
+need to be marked for garbage-collection purposes. (If you need other
+object methods, such as a finalize method, you should just go ahead and
+create a new Lisp object type--it's not hard.)
+
+     abbrev.c
+
+   This function provides a few primitives for doing dynamic
+abbreviation expansion.  In XEmacs, most of the code for this has been
+moved into Lisp.  Some C code remains for speed and because the
+primitive `self-insert-command' (which is executed for all
+self-inserting characters) hooks into the abbrev mechanism.
+(`self-insert-command' is itself in C only for speed.)
+
+     doc.c
+
+   This function provides primitives for retrieving the documentation
+strings of functions and variables.  These documentation strings contain
+certain special markers that get dynamically expanded (e.g. a
+reverse-lookup is performed on some named functions to retrieve their
+current key bindings).  Some documentation strings (in particular, for
+the built-in primitives and pre-loaded Lisp functions) are stored
+externally in a file `DOC' in the `lib-src/' directory and need to be
+fetched from that file. (Part of the build stage involves building this
+file, and another part involves constructing an index for this file and
+embedding it into the executable, so that the functions in `doc.c' do
+not have to search the entire `DOC' file to find the appropriate
+documentation string.)
+
+     md5.c
+
+   This function provides a Lisp primitive that implements the MD5
+secure hashing scheme, used to create a large hash value of a string of
+data such that the data cannot be derived from the hash value.  This is
+used for various security applications on the Internet.
+
+
+File: internals.info,  Node: Modules for Interfacing with the Operating System,  Next: Modules for Interfacing with X Windows,  Prev: Modules for Other Aspects of the Lisp Interpreter and Object System,  Up: A Summary of the Various XEmacs Modules
+
+Modules for Interfacing with the Operating System
+=================================================
+
+     callproc.c
+     process.c
+     process.h
+
+   These modules allow XEmacs to spawn and communicate with subprocesses
+and network connections.
+
+   `callproc.c' implements (through the `call-process' primitive) what
+are called "synchronous subprocesses".  This means that XEmacs runs a
+program, waits till it's done, and retrieves its output.  A typical
+example might be calling the `ls' program to get a directory listing.
+
+   `process.c' and `process.h' implement "asynchronous subprocesses".
+This means that XEmacs starts a program and then continues normally,
+not waiting for the process to finish.  Data can be sent to the process
+or retrieved from it as it's running.  This is used for the `shell'
+command (which provides a front end onto a shell program such as
+`csh'), the mail and news readers implemented in XEmacs, etc.  The
+result of calling `start-process' to start a subprocess is a process
+object, a particular kind of object used to communicate with the
+subprocess.  You can send data to the process by passing the process
+object and the data to `send-process', and you can specify what happens
+to data retrieved from the process by setting properties of the process
+object. (When the process sends data, XEmacs receives a process event,
+which says that there is data ready.  When `dispatch-event' is called
+on this event, it reads the data from the process and does something
+with it, as specified by the process object's properties.  Typically,
+this means inserting the data into a buffer or calling a function.)
+Another property of the process object is called the "sentinel", which
+is a function that is called when the process terminates.
+
+   Process objects are also used for network connections (connections
+to a process running on another machine).  Network connections are
+started with `open-network-stream' but otherwise work just like
+subprocesses.
+
+     sysdep.c
+     sysdep.h
+
+   These modules implement most of the low-level, messy operating-system
+interface code.  This includes various device control (ioctl) operations
+for file descriptors, TTY's, pseudo-terminals, etc. (usually this stuff
+is fairly system-dependent; thus the name of this module), and emulation
+of standard library functions and system calls on systems that don't
+provide them or have broken versions.
+
+     sysdir.h
+     sysfile.h
+     sysfloat.h
+     sysproc.h
+     syspwd.h
+     syssignal.h
+     systime.h
+     systty.h
+     syswait.h
+
+   These header files provide consistent interfaces onto
+system-dependent header files and system calls.  The idea is that,
+instead of including a standard header file like `<sys/param.h>' (which
+may or may not exist on various systems) or having to worry about
+whether all system provide a particular preprocessor constant, or
+having to deal with the four different paradigms for manipulating
+signals, you just include the appropriate `sys*.h' header file, which
+includes all the right system header files, defines and missing
+preprocessor constants, provides a uniform interface onto system calls,
+etc.
+
+   `sysdir.h' provides a uniform interface onto directory-querying
+functions. (In some cases, this is in conjunction with emulation
+functions in `sysdep.c'.)
+
+   `sysfile.h' includes all the necessary header files for standard
+system calls (e.g. `read()'), ensures that all necessary `open()' and
+`stat()' preprocessor constants are defined, and possibly (usually)
+substitutes sugared versions of `read()', `write()', etc. that
+automatically restart interrupted I/O operations.
+
+   `sysfloat.h' includes the necessary header files for floating-point
+operations.
+
+   `sysproc.h' includes the necessary header files for calling
+`select()', `fork()', `execve()', socket operations, and the like, and
+ensures that the `FD_*()' macros for descriptor-set manipulations are
+available.
+
+   `syspwd.h' includes the necessary header files for obtaining
+information from `/etc/passwd' (the functions are emulated under VMS).
+
+   `syssignal.h' includes the necessary header files for
+signal-handling and provides a uniform interface onto the different
+signal-handling and signal-blocking paradigms.
+
+   `systime.h' includes the necessary header files and provides uniform
+interfaces for retrieving the time of day, setting file
+access/modification times, getting the amount of time used by the XEmacs
+process, etc.
+
+   `systty.h' buffers against the infinitude of different ways of
+controlling TTY's.
+
+   `syswait.h' provides a uniform way of retrieving the exit status
+from a `wait()'ed-on process (some systems use a union, others use an
+int).
+
+     hpplay.c
+     libsst.c
+     libsst.h
+     libst.h
+     linuxplay.c
+     nas.c
+     sgiplay.c
+     sound.c
+     sunplay.c
+
+   These files implement the ability to play various sounds on some
+types of computers.  You have to configure your XEmacs with sound
+support in order to get this capability.
+
+   `sound.c' provides the generic interface.  It implements various
+Lisp primitives and variables that let you specify which sounds should
+be played in certain conditions. (The conditions are identified by
+symbols, which are passed to `ding' to make a sound.  Various standard
+functions call this function at certain times; if sound support does
+not exist, a simple beep results.
+
+   `sgiplay.c', `sunplay.c', `hpplay.c', and `linuxplay.c' interface to
+the machine's speaker for various different kind of machines.  This is
+called "native" sound.
+
+   `nas.c' interfaces to a computer somewhere else on the network using
+the NAS (Network Audio Server) protocol, playing sounds on that
+machine.  This allows you to run XEmacs on a remote machine, with its
+display set to your local machine, and have the sounds be made on your
+local machine, provided that you have a NAS server running on your local
+machine.
+
+   `libsst.c', `libsst.h', and `libst.h' provide some additional
+functions for playing sound on a Sun SPARC but are not currently in use.
+
+     tooltalk.c
+     tooltalk.h
+
+   These two modules implement an interface to the ToolTalk protocol,
+which is an interprocess communication protocol implemented on some
+versions of Unix.  ToolTalk is a high-level protocol that allows
+processes to register themselves as providers of particular services;
+other processes can then request a service without knowing or caring
+exactly who is providing the service.  It is similar in spirit to the
+DDE protocol provided under Microsoft Windows.  ToolTalk is a part of
+the new CDE (Common Desktop Environment) specification and is used to
+connect the parts of the SPARCWorks development environment.
+
+     getloadavg.c
+
+   This module provides the ability to retrieve the system's current
+load average. (The way to do this is highly system-specific,
+unfortunately, and requires a lot of special-case code.)
+
+     sunpro.c
+
+   This module provides a small amount of code used internally at Sun to
+keep statistics on the usage of XEmacs.
+
+     broken-sun.h
+     strcmp.c
+     strcpy.c
+     sunOS-fix.c
+
+   These files provide replacement functions and prototypes to fix
+numerous bugs in early releases of SunOS 4.1.
+
+     hftctl.c
+
+   This module provides some terminal-control code necessary on
+versions of AIX prior to 4.1.
+
+     msdos.c
+     msdos.h
+
+   These modules are used for MS-DOS support, which does not work in
+XEmacs.
+
+
+File: internals.info,  Node: Modules for Interfacing with X Windows,  Next: Modules for Internationalization,  Prev: Modules for Interfacing with the Operating System,  Up: A Summary of the Various XEmacs Modules
+
+Modules for Interfacing with X Windows
+======================================
+
+     Emacs.ad.h
+
+   A file generated from `Emacs.ad', which contains XEmacs-supplied
+fallback resources (so that XEmacs has pretty defaults).
+
+     EmacsFrame.c
+     EmacsFrame.h
+     EmacsFrameP.h
+
+   These modules implement an Xt widget class that encapsulates a frame.
+This is for ease in integrating with Xt.  The EmacsFrame widget covers
+the entire X window except for the menubar; the scrollbars are
+positioned on top of the EmacsFrame widget.
+
+   *Warning:* Abandon hope, all ye who enter here.  This code took an
+ungodly amount of time to get right, and is likely to fall apart
+mercilessly at the slightest change.  Such is life under Xt.
+
+     EmacsManager.c
+     EmacsManager.h
+     EmacsManagerP.h
+
+   These modules implement a simple Xt manager (i.e. composite) widget
+class that simply lets its children set whatever geometry they want.
+It's amazing that Xt doesn't provide this standardly, but on second
+thought, it makes sense, considering how amazingly broken Xt is.
+
+     EmacsShell-sub.c
+     EmacsShell.c
+     EmacsShell.h
+     EmacsShellP.h
+
+   These modules implement two Xt widget classes that are subclasses of
+the TopLevelShell and TransientShell classes.  This is necessary to deal
+with more brokenness that Xt has sadistically thrust onto the backs of
+developers.
+
+     xgccache.c
+     xgccache.h
+
+   These modules provide functions for maintenance and caching of GC's
+(graphics contexts) under the X Window System.  This code is junky and
+needs to be rewritten.
+
+     xselect.c
+
+   This module provides an interface to the X Window System's concept of
+"selections", the standard way for X applications to communicate with
+each other.
+
+     xintrinsic.h
+     xintrinsicp.h
+     xmmanagerp.h
+     xmprimitivep.h
+
+   These header files are similar in spirit to the `sys*.h' files and
+buffer against different implementations of Xt and Motif.
+
+   * `xintrinsic.h' should be included in place of `<Intrinsic.h>'.
+
+   * `xintrinsicp.h' should be included in place of `<IntrinsicP.h>'.
+
+   * `xmmanagerp.h' should be included in place of `<XmManagerP.h>'.
+
+   * `xmprimitivep.h' should be included in place of `<XmPrimitiveP.h>'.
+
+     xmu.c
+     xmu.h
+
+   These files provide an emulation of the Xmu library for those systems
+(i.e. HPUX) that don't provide it as a standard part of X.
+
+     ExternalClient-Xlib.c
+     ExternalClient.c
+     ExternalClient.h
+     ExternalClientP.h
+     ExternalShell.c
+     ExternalShell.h
+     ExternalShellP.h
+     extw-Xlib.c
+     extw-Xlib.h
+     extw-Xt.c
+     extw-Xt.h
+
+   These files provide the "external widget" interface, which allows an
+XEmacs frame to appear as a widget in another application.  To do this,
+you have to configure with `--external-widget'.
+
+   `ExternalShell*' provides the server (XEmacs) side of the connection.
+
+   `ExternalClient*' provides the client (other application) side of
+the connection.  These files are not compiled into XEmacs but are
+compiled into libraries that are then linked into your application.
+
+   `extw-*' is common code that is used for both the client and server.
+
+   Don't touch this code; something is liable to break if you do.
+
+
+File: internals.info,  Node: Modules for Internationalization,  Prev: Modules for Interfacing with X Windows,  Up: A Summary of the Various XEmacs Modules
+
+Modules for Internationalization
+================================
+
+     mule-canna.c
+     mule-ccl.c
+     mule-charset.c
+     mule-charset.h
+     mule-coding.c
+     mule-coding.h
+     mule-mcpath.c
+     mule-mcpath.h
+     mule-wnnfns.c
+     mule.c
+
+   These files implement the MULE (Asian-language) support.  Note that
+MULE actually provides a general interface for all sorts of languages,
+not just Asian languages (although they are generally the most
+complicated to support).  This code is still in beta.
+
+   `mule-charset.*' and `mule-coding.*' provide the heart of the XEmacs
+MULE support.  `mule-charset.*' implements the "charset" Lisp object
+type, which encapsulates a character set (an ordered one- or
+two-dimensional set of characters, such as US ASCII or JISX0208 Japanese
+Kanji).
+
+   `mule-coding.*' implements the "coding-system" Lisp object type,
+which encapsulates a method of converting between different encodings.
+An encoding is a representation of a stream of characters, possibly
+from multiple character sets, using a stream of bytes or words, and
+defines (e.g.) which escape sequences are used to specify particular
+character sets, how the indices for a character are converted into bytes
+(sometimes this involves setting the high bit; sometimes complicated
+rearranging of the values takes place, as in the Shift-JIS encoding),
+etc.
+
+   `mule-ccl.c' provides the CCL (Code Conversion Language)
+interpreter.  CCL is similar in spirit to Lisp byte code and is used to
+implement converters for custom encodings.
+
+   `mule-canna.c' and `mule-wnnfns.c' implement interfaces to external
+programs used to implement the Canna and WNN input methods,
+respectively.  This is currently in beta.
+
+   `mule-mcpath.c' provides some functions to allow for pathnames
+containing extended characters.  This code is fragmentary, obsolete, and
+completely non-working.  Instead, PATHNAME-CODING-SYSTEM is used to
+specify conversions of names of files and directories.  The standard C
+I/O functions like `open()' are wrapped so that conversion occurs
+automatically.
+
+   `mule.c' provides a few miscellaneous things that should probably be
+elsewhere.
+
+     intl.c
+
+   This provides some miscellaneous internationalization code for
+implementing message translation and interfacing to the Ximp input
+method.  None of this code is currently working.
+
+     iso-wide.h
+
+   This contains leftover code from an earlier implementation of
+Asian-language support, and is not currently used.
+
+
+File: internals.info,  Node: Allocation of Objects in XEmacs Lisp,  Next: Dumping,  Prev: A Summary of the Various XEmacs Modules,  Up: Top
+
+Allocation of Objects in XEmacs Lisp
+************************************
+
+* Menu:
+
+* Introduction to Allocation::
+* Garbage Collection::
+* GCPROing::
+* Garbage Collection - Step by Step::
+* Integers and Characters::
+* Allocation from Frob Blocks::
+* lrecords::
+* Low-level allocation::
+* Cons::
+* Vector::
+* Bit Vector::
+* Symbol::
+* Marker::
+* String::
+* Compiled Function::
+
+
+File: internals.info,  Node: Introduction to Allocation,  Next: Garbage Collection,  Prev: Allocation of Objects in XEmacs Lisp,  Up: Allocation of Objects in XEmacs Lisp
+
+Introduction to Allocation
+==========================
+
+   Emacs Lisp, like all Lisps, has garbage collection.  This means that
+the programmer never has to explicitly free (destroy) an object; it
+happens automatically when the object becomes inaccessible.  Most
+experts agree that garbage collection is a necessity in a modern,
+high-level language.  Its omission from C stems from the fact that C was
+originally designed to be a nice abstract layer on top of assembly
+language, for writing kernels and basic system utilities rather than
+large applications.
+
+   Lisp objects can be created by any of a number of Lisp primitives.
+Most object types have one or a small number of basic primitives for
+creating objects.  For conses, the basic primitive is `cons'; for
+vectors, the primitives are `make-vector' and `vector'; for symbols,
+the primitives are `make-symbol' and `intern'; etc.  Some Lisp objects,
+especially those that are primarily used internally, have no
+corresponding Lisp primitives.  Every Lisp object, though, has at least
+one C primitive for creating it.
+
+   Recall from section (VII) that a Lisp object, as stored in a 32-bit
+or 64-bit word, has a few tag bits, and a "value" that occupies the
+remainder of the bits.  We can separate the different Lisp object types
+into three broad categories:
+
+   * (a) Those for whom the value directly represents the contents of
+     the Lisp object.  Only two types are in this category: integers and
+     characters.  No special allocation or garbage collection is
+     necessary for such objects.  Lisp objects of these types do not
+     need to be `GCPRO'ed.
+
+   In the remaining two categories, the type is stored in the object
+itself.  The tag for all such objects is the generic "lrecord"
+(Lisp_Type_Record) tag.  The first bytes of the object's structure are
+an integer (actually a char) characterising the object's type and some
+flags, in particular the mark bit used for garbage collection.  A
+structure describing the type is accessible thru the
+lrecord_implementation_table indexed with said integer.  This structure
+includes the method pointers and a pointer to a string naming the type.
+
+   * (b) Those lrecords that are allocated in frob blocks (see above).
+     This includes the objects that are most common and relatively
+     small, and includes conses, strings, subrs, floats, compiled
+     functions, symbols, extents, events, and markers.  With the
+     cleanup of frob blocks done in 19.12, it's not terribly hard to
+     add more objects to this category, but it's a bit trickier than
+     adding an object type to type (c) (esp. if the object needs a
+     finalization method), and is not likely to save much space unless
+     the object is small and there are many of them. (In fact, if there
+     are very few of them, it might actually waste space.)
+
+   * (c) Those lrecords that are individually `malloc()'ed.  These are
+     called "lcrecords".  All other types are in this category.  Adding
+     a new type to this category is comparatively easy, and all types
+     added since 19.8 (when the current allocation scheme was devised,
+     by Richard Mlynarik), with the exception of the character type,
+     have been in this category.
+
+   Note that bit vectors are a bit of a special case.  They are simple
+lrecords as in category (b), but are individually `malloc()'ed like
+vectors.  You can basically view them as exactly like vectors except
+that their type is stored in lrecord fashion rather than in
+directly-tagged fashion.
+
+
+File: internals.info,  Node: Garbage Collection,  Next: GCPROing,  Prev: Introduction to Allocation,  Up: Allocation of Objects in XEmacs Lisp
+
+Garbage Collection
+==================
+
+   Garbage collection is simple in theory but tricky to implement.
+Emacs Lisp uses the oldest garbage collection method, called "mark and
+sweep".  Garbage collection begins by starting with all accessible
+locations (i.e. all variables and other slots where Lisp objects might
+occur) and recursively traversing all objects accessible from those
+slots, marking each one that is found.  We then go through all of
+memory and free each object that is not marked, and unmarking each
+object that is marked.  Note that "all of memory" means all currently
+allocated objects.  Traversing all these objects means traversing all
+frob blocks, all vectors (which are chained in one big list), and all
+lcrecords (which are likewise chained).
+
+   Garbage collection can be invoked explicitly by calling
+`garbage-collect' but is also called automatically by `eval', once a
+certain amount of memory has been allocated since the last garbage
+collection (according to `gc-cons-threshold').
+
+
+File: internals.info,  Node: GCPROing,  Next: Garbage Collection - Step by Step,  Prev: Garbage Collection,  Up: Allocation of Objects in XEmacs Lisp
+
+`GCPRO'ing
+==========
+
+   `GCPRO'ing is one of the ugliest and trickiest parts of Emacs
+internals.  The basic idea is that whenever garbage collection occurs,
+all in-use objects must be reachable somehow or other from one of the
+roots of accessibility.  The roots of accessibility are:
+
+  1. All objects that have been `staticpro()'d or
+     `staticpro_nodump()'ed.  This is used for any global C variables
+     that hold Lisp objects.  A call to `staticpro()' happens implicitly
+     as a result of any symbols declared with `defsymbol()' and any
+     variables declared with `DEFVAR_FOO()'.  You need to explicitly
+     call `staticpro()' (in the `vars_of_foo()' method of a module) for
+     other global C variables holding Lisp objects. (This typically
+     includes internal lists and such things.).  Use
+     `staticpro_nodump()' only in the rare cases when you do not want
+     the pointed variable to be saved at dump time but rather recompute
+     it at startup.
+
+     Note that `obarray' is one of the `staticpro()'d things.
+     Therefore, all functions and variables get marked through this.
+
+  2. Any shadowed bindings that are sitting on the `specpdl' stack.
+
+  3. Any objects sitting in currently active (Lisp) stack frames,
+     catches, and condition cases.
+
+  4. A couple of special-case places where active objects are located.
+
+  5. Anything currently marked with `GCPRO'.
+
+   Marking with `GCPRO' is necessary because some C functions (quite a
+lot, in fact), allocate objects during their operation.  Quite
+frequently, there will be no other pointer to the object while the
+function is running, and if a garbage collection occurs and the object
+needs to be referenced again, bad things will happen.  The solution is
+to mark those objects with `GCPRO'.  Unfortunately this is easy to
+forget, and there is basically no way around this problem.  Here are
+some rules, though:
+
+  1. For every `GCPRON', there have to be declarations of `struct gcpro
+     gcpro1, gcpro2', etc.
+
+  2. You _must_ `UNGCPRO' anything that's `GCPRO'ed, and you _must not_
+     `UNGCPRO' if you haven't `GCPRO'ed.  Getting either of these wrong
+     will lead to crashes, often in completely random places unrelated
+     to where the problem lies.
+
+  3. The way this actually works is that all currently active `GCPRO's
+     are chained through the `struct gcpro' local variables, with the
+     variable `gcprolist' pointing to the head of the list and the nth
+     local `gcpro' variable pointing to the first `gcpro' variable in
+     the next enclosing stack frame.  Each `GCPRO'ed thing is an
+     lvalue, and the `struct gcpro' local variable contains a pointer to
+     this lvalue.  This is why things will mess up badly if you don't
+     pair up the `GCPRO's and `UNGCPRO's--you will end up with
+     `gcprolist's containing pointers to `struct gcpro's or local
+     `Lisp_Object' variables in no-longer-active stack frames.
+
+  4. It is actually possible for a single `struct gcpro' to protect a
+     contiguous array of any number of values, rather than just a
+     single lvalue.  To effect this, call `GCPRON' as usual on the
+     first object in the array and then set `gcproN.nvars'.
+
+  5. *Strings are relocated.*  What this means in practice is that the
+     pointer obtained using `XSTRING_DATA()' is liable to change at any
+     time, and you should never keep it around past any function call,
+     or pass it as an argument to any function that might cause a
+     garbage collection.  This is why a number of functions accept
+     either a "non-relocatable" `char *' pointer or a relocatable Lisp
+     string, and only access the Lisp string's data at the very last
+     minute.  In some cases, you may end up having to `alloca()' some
+     space and copy the string's data into it.
+
+  6. By convention, if you have to nest `GCPRO''s, use `NGCPRON' (along
+     with `struct gcpro ngcpro1, ngcpro2', etc.), `NNGCPRON', etc.
+     This avoids compiler warnings about shadowed locals.
+
+  7. It is _always_ better to err on the side of extra `GCPRO's rather
+     than too few.  The extra cycles spent on this are almost never
+     going to make a whit of difference in the speed of anything.
+
+  8. The general rule to follow is that caller, not callee, `GCPRO's.
+     That is, you should not have to explicitly `GCPRO' any Lisp objects
+     that are passed in as parameters.
+
+     One exception from this rule is if you ever plan to change the
+     parameter value, and store a new object in it.  In that case, you
+     _must_ `GCPRO' the parameter, because otherwise the new object
+     will not be protected.
+
+     So, if you create any Lisp objects (remember, this happens in all
+     sorts of circumstances, e.g. with `Fcons()', etc.), you are
+     responsible for `GCPRO'ing them, unless you are _absolutely sure_
+     that there's no possibility that a garbage-collection can occur
+     while you need to use the object.  Even then, consider `GCPRO'ing.
+
+  9. A garbage collection can occur whenever anything calls `Feval', or
+     whenever a QUIT can occur where execution can continue past this.
+     (Remember, this is almost anywhere.)
+
+ 10. If you have the _least smidgeon of doubt_ about whether you need
+     to `GCPRO', you should `GCPRO'.
+
+ 11. Beware of `GCPRO'ing something that is uninitialized.  If you have
+     any shade of doubt about this, initialize all your variables to
+     `Qnil'.
+
+ 12. Be careful of traps, like calling `Fcons()' in the argument to
+     another function.  By the "caller protects" law, you should be
+     `GCPRO'ing the newly-created cons, but you aren't.  A certain
+     number of functions that are commonly called on freshly created
+     stuff (e.g. `nconc2()', `Fsignal()'), break the "caller protects"
+     law and go ahead and `GCPRO' their arguments so as to simplify
+     things, but make sure and check if it's OK whenever doing
+     something like this.
+
+ 13. Once again, remember to `GCPRO'!  Bugs resulting from insufficient
+     `GCPRO'ing are intermittent and extremely difficult to track down,
+     often showing up in crashes inside of `garbage-collect' or in
+     weirdly corrupted objects or even in incorrect values in a totally
+     different section of code.
+
+   Given the extremely error-prone nature of the `GCPRO' scheme, and
+the difficulties in tracking down, it should be considered a deficiency
+in the XEmacs code.  A solution to this problem would involve
+implementing so-called "conservative" garbage collection for the C
+stack.  That involves looking through all of stack memory and treating
+anything that looks like a reference to an object as a reference.  This
+will result in a few objects not getting collected when they should, but
+it obviates the need for `GCPRO'ing, and allows garbage collection to
+happen at any point at all, such as during object allocation.
+
+
+File: internals.info,  Node: Garbage Collection - Step by Step,  Next: Integers and Characters,  Prev: GCPROing,  Up: Allocation of Objects in XEmacs Lisp
+
+Garbage Collection - Step by Step
+=================================
+
+* Menu:
+
+* Invocation::
+* garbage_collect_1::
+* mark_object::
+* gc_sweep::
+* sweep_lcrecords_1::
+* compact_string_chars::
+* sweep_strings::
+* sweep_bit_vectors_1::
+
+
+File: internals.info,  Node: Invocation,  Next: garbage_collect_1,  Prev: Garbage Collection - Step by Step,  Up: Garbage Collection - Step by Step
+
+Invocation
+----------
+
+   The first thing that anyone should know about garbage collection is:
+when and how the garbage collector is invoked. One might think that this
+could happen every time new memory is allocated, e.g. new objects are
+created, but this is _not_ the case. Instead, we have the following
+situation:
+
+   The entry point of any process of garbage collection is an invocation
+of the function `garbage_collect_1' in file `alloc.c'. The invocation
+can occur _explicitly_ by calling the function `Fgarbage_collect' (in
+addition this function provides information about the freed memory), or
+can occur _implicitly_ in four different situations:
+  1. In function `main_1' in file `emacs.c'. This function is called at
+     each startup of xemacs. The garbage collection is invoked after all
+     initial creations are completed, but only if a special internal
+     error checking-constant `ERROR_CHECK_GC' is defined.
+
+  2. In function `disksave_object_finalization' in file `alloc.c'. The
+     only purpose of this function is to clear the objects from memory
+     which need not be stored with xemacs when we dump out an
+     executable. This is only done by `Fdump_emacs' or by
+     `Fdump_emacs_data' respectively (both in `emacs.c'). The actual
+     clearing is accomplished by making these objects unreachable and
+     starting a garbage collection. The function is only used while
+     building xemacs.
+
+  3. In function `Feval / eval' in file `eval.c'. Each time the well
+     known and often used function eval is called to evaluate a form,
+     one of the first things that could happen, is a potential call of
+     `garbage_collect_1'. There exist three global variables,
+     `consing_since_gc' (counts the created cons-cells since the last
+     garbage collection), `gc_cons_threshold' (a specified threshold
+     after which a garbage collection occurs) and `always_gc'. If
+     `always_gc' is set or if the threshold is exceeded, the garbage
+     collection will start.
+
+  4. In function `Ffuncall / funcall' in file `eval.c'. This function
+     evaluates calls of elisp functions and works according to `Feval'.
+
+   The upshot is that garbage collection can basically occur everywhere
+`Feval', respectively `Ffuncall', is used - either directly or through
+another function. Since calls to these two functions are hidden in
+various other functions, many calls to `garbage_collect_1' are not
+obviously foreseeable, and therefore unexpected. Instances where they
+are used that are worth remembering are various elisp commands, as for
+example `or', `and', `if', `cond', `while', `setq', etc., miscellaneous
+`gui_item_...' functions, everything related to `eval' (`Feval_buffer',
+`call0', ...) and inside `Fsignal'. The latter is used to handle
+signals, as for example the ones raised by every `QUITE'-macro
+triggered after pressing Ctrl-g.
+
+
+File: internals.info,  Node: garbage_collect_1,  Next: mark_object,  Prev: Invocation,  Up: Garbage Collection - Step by Step
+
+`garbage_collect_1'
+-------------------
+
+   We can now describe exactly what happens after the invocation takes
+place.
+  1. There are several cases in which the garbage collector is left
+     immediately: when we are already garbage collecting
+     (`gc_in_progress'), when the garbage collection is somehow
+     forbidden (`gc_currently_forbidden'), when we are currently
+     displaying something (`in_display') or when we are preparing for
+     the armageddon of the whole system (`preparing_for_armageddon').
+
+  2. Next the correct frame in which to put all the output occurring
+     during garbage collecting is determined. In order to be able to
+     restore the old display's state after displaying the message, some
+     data about the current cursor position has to be saved. The
+     variables `pre_gc_cursor' and `cursor_changed' take care of that.
+
+  3. The state of `gc_currently_forbidden' must be restored after the
+     garbage collection, no matter what happens during the process. We
+     accomplish this by `record_unwind_protect'ing the suitable function
+     `restore_gc_inhibit' together with the current value of
+     `gc_currently_forbidden'.
+
+  4. If we are concurrently running an interactive xemacs session, the
+     next step is simply to show the garbage collector's cursor/message.
+
+  5. The following steps are the intrinsic steps of the garbage
+     collector, therefore `gc_in_progress' is set.
+
+  6. For debugging purposes, it is possible to copy the current C stack
+     frame. However, this seems to be a currently unused feature.
+
+  7. Before actually starting to go over all live objects, references to
+     objects that are no longer used are pruned. We only have to do
+     this for events (`clear_event_resource') and for specifiers
+     (`cleanup_specifiers').
+
+  8. Now the mark phase begins and marks all accessible elements. In
+     order to start from all slots that serve as roots of
+     accessibility, the function `mark_object' is called for each root
+     individually to go out from there to mark all reachable objects.
+     All roots that are traversed are shown in their processed order:
+        * all constant symbols and static variables that are registered
+          via `staticpro' in the array `staticvec'.  *Note Adding
+          Global Lisp Variables::.
+
+        * all Lisp objects that are created in C functions and that
+          must be protected from freeing them. They are registered in
+          the global list `gcprolist'.  *Note GCPROing::.
+
+        * all local variables (i.e. their name fields `symbol' and old
+          values `old_values') that are bound during the evaluation by
+          the Lisp engine. They are stored in `specbinding' structs
+          pushed on a stack called `specpdl'.  *Note Dynamic Binding;
+          The specbinding Stack; Unwind-Protects::.
+
+        * all catch blocks that the Lisp engine encounters during the
+          evaluation cause the creation of structs `catchtag' inserted
+          in the list `catchlist'. Their tag (`tag') and value (`val'
+          fields are freshly created objects and therefore have to be
+          marked.  *Note Catch and Throw::.
+
+        * every function application pushes new structs `backtrace' on
+          the call stack of the Lisp engine (`backtrace_list'). The
+          unique parts that have to be marked are the fields for each
+          function (`function') and all their arguments (`args').
+          *Note Evaluation::.
+
+        * all objects that are used by the redisplay engine that must
+          not be freed are marked by a special function called
+          `mark_redisplay' (in `redisplay.c').
+
+        * all objects created for profiling purposes are allocated by C
+          functions instead of using the lisp allocation mechanisms. In
+          order to receive the right ones during the sweep phase, they
+          also have to be marked manually. That is done by the function
+          `mark_profiling_info'
+
+  9. Hash tables in XEmacs belong to a kind of special objects that
+     make use of a concept often called 'weak pointers'.  To make a
+     long story short, these kind of pointers are not followed during
+     the estimation of the live objects during garbage collection.  Any
+     object referenced only by weak pointers is collected anyway, and
+     the reference to it is cleared. In hash tables there are different
+     usage patterns of them, manifesting in different types of hash
+     tables, namely 'non-weak', 'weak', 'key-weak' and 'value-weak'
+     (internally also 'key-car-weak' and 'value-car-weak') hash tables,
+     each clearing entries depending on different conditions. More
+     information can be found in the documentation to the function
+     `make-hash-table'.
+
+     Because there are complicated dependency rules about when and what
+     to mark while processing weak hash tables, the standard `marker'
+     method is only active if it is marking non-weak hash tables. As
+     soon as a weak component is in the table, the hash table entries
+     are ignored while marking. Instead their marking is done each
+     separately by the function `finish_marking_weak_hash_tables'. This
+     function iterates over each hash table entry `hentries' for each
+     weak hash table in `Vall_weak_hash_tables'. Depending on the type
+     of a table, the appropriate action is performed.  If a table is
+     acting as `HASH_TABLE_KEY_WEAK', and a key already marked,
+     everything reachable from the `value' component is marked. If it is
+     acting as a `HASH_TABLE_VALUE_WEAK' and the value component is
+     already marked, the marking starts beginning only from the `key'
+     component.  If it is a `HASH_TABLE_KEY_CAR_WEAK' and the car of
+     the key entry is already marked, we mark both the `key' and
+     `value' components.  Finally, if the table is of the type
+     `HASH_TABLE_VALUE_CAR_WEAK' and the car of the value components is
+     already marked, again both the `key' and the `value' components
+     get marked.
+
+     Again, there are lists with comparable properties called weak
+     lists. There exist different peculiarities of their types called
+     `simple', `assoc', `key-assoc' and `value-assoc'. You can find
+     further details about them in the description to the function
+     `make-weak-list'. The scheme of their marking is similar: all weak
+     lists are listed in `Qall_weak_lists', therefore we iterate over
+     them. The marking is advanced until we hit an already marked pair.
+     Then we know that during a former run all the rest has been marked
+     completely. Again, depending on the special type of the weak list,
+     our jobs differ. If it is a `WEAK_LIST_SIMPLE' and the elem is
+     marked, we mark the `cons' part. If it is a `WEAK_LIST_ASSOC' and
+     not a pair or a pair with both marked car and cdr, we mark the
+     `cons' and the `elem'. If it is a `WEAK_LIST_KEY_ASSOC' and not a
+     pair or a pair with a marked car of the elem, we mark the `cons'
+     and the `elem'. Finally, if it is a `WEAK_LIST_VALUE_ASSOC' and
+     not a pair or a pair with a marked cdr of the elem, we mark both
+     the `cons' and the `elem'.
+
+     Since, by marking objects in reach from weak hash tables and weak
+     lists, other objects could get marked, this perhaps implies
+     further marking of other weak objects, both finishing functions
+     are redone as long as yet unmarked objects get freshly marked.
+
+ 10. After completing the special marking for the weak hash tables and
+     for the weak lists, all entries that point to objects that are
+     going to be swept in the further process are useless, and
+     therefore have to be removed from the table or the list.
+
+     The function `prune_weak_hash_tables' does the job for weak hash
+     tables. Totally unmarked hash tables are removed from the list
+     `Vall_weak_hash_tables'. The other ones are treated more carefully
+     by scanning over all entries and removing one as soon as one of
+     the components `key' and `value' is unmarked.
+
+     The same idea applies to the weak lists. It is accomplished by
+     `prune_weak_lists': An unmarked list is pruned from
+     `Vall_weak_lists' immediately. A marked list is treated more
+     carefully by going over it and removing just the unmarked pairs.
+
+ 11. The function `prune_specifiers' checks all listed specifiers held
+     in `Vall_specifiers' and removes the ones from the lists that are
+     unmarked.
+
+ 12. All syntax tables are stored in a list called
+     `Vall_syntax_tables'. The function `prune_syntax_tables' walks
+     through it and unlinks the tables that are unmarked.
+
+ 13. Next, we will attack the complete sweeping - the function
+     `gc_sweep' which holds the predominance.
+
+ 14. First, all the variables with respect to garbage collection are
+     reset. `consing_since_gc' - the counter of the created cells since
+     the last garbage collection - is set back to 0, and
+     `gc_in_progress' is not `true' anymore.
+
+ 15. In case the session is interactive, the displayed cursor and
+     message are removed again.
+
+ 16. The state of `gc_inhibit' is restored to the former value by
+     unwinding the stack.
+
+ 17. A small memory reserve is always held back that can be reached by
+     `breathing_space'. If nothing more is left, we create a new reserve
+     and exit.
+
+
+File: internals.info,  Node: mark_object,  Next: gc_sweep,  Prev: garbage_collect_1,  Up: Garbage Collection - Step by Step
+
+`mark_object'
+-------------
+
+   The first thing that is checked while marking an object is whether
+the object is a real Lisp object `Lisp_Type_Record' or just an integer
+or a character. Integers and characters are the only two types that are
+stored directly - without another level of indirection, and therefore
+they don't have to be marked and collected.  *Note How Lisp Objects Are
+Represented in C::.
+
+   The second case is the one we have to handle. It is the one when we
+are dealing with a pointer to a Lisp object. But, there exist also three
+possibilities, that prevent us from doing anything while marking: The
+object is read only which prevents it from being garbage collected,
+i.e. marked (`C_READONLY_RECORD_HEADER'). The object in question is
+already marked, and need not be marked for the second time (checked by
+`MARKED_RECORD_HEADER_P'). If it is a special, unmarkable object
+(`UNMARKABLE_RECORD_HEADER_P', apparently, these are objects that sit
+in some const space, and can therefore not be marked, see
+`this_one_is_unmarkable' in `alloc.c').
+
+   Now, the actual marking is feasible. We do so by once using the macro
+`MARK_RECORD_HEADER' to mark the object itself (actually the special
+flag in the lrecord header), and calling its special marker "method"
+`marker' if available. The marker method marks every other object that
+is in reach from our current object. Note, that these marker methods
+should not call `mark_object' recursively, but instead should return
+the next object from where further marking has to be performed.
+
+   In case another object was returned, as mentioned before, we
+reiterate the whole `mark_object' process beginning with this next
+object.
+
