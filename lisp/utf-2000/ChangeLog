@@ -1,3 +1,16 @@
+2004-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (U+9054): Changed to abstract character.
+	(K0-5339): Use `<-denotational' for U+9054.
+	(U+9039): Use `=>daikanwa' instead of `morohashi-daikanwa'; use
+	`->subsumptive'.
+	(J0-4323): Use `<-denotational' for U+9054; use `->subsumptive' to
+	integrate C1-672E.
+
+	* Ideograph-R030-Mouth.el (M-03980): Unify U-00020DD0 and H2-DA64.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6D7D.
+
 2004-08-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el: Use =ucs@{unicode|iso} components in
