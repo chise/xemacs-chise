@@ -485,7 +485,7 @@ static int
 redisplay_text_width_emchar_string (struct window *w, int findex,
 				    Emchar *str, Charcount len)
 {
-  unsigned char charsets[NUM_LEADING_BYTES];
+  Charset_ID charsets[NUM_LEADING_BYTES];
   Lisp_Object window;
 
   find_charsets_in_emchar_string (charsets, str, len);
@@ -522,7 +522,7 @@ redisplay_frame_text_width_string (struct frame *f, Lisp_Object face,
 				   Bufbyte *nonreloc, Lisp_Object reloc,
 				   Bytecount offset, Bytecount len)
 {
-  unsigned char charsets[NUM_LEADING_BYTES];
+  Charset_ID charsets[NUM_LEADING_BYTES];
   Lisp_Object frame;
   struct face_cachel cachel;
 
