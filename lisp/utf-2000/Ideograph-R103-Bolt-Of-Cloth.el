@@ -165,15 +165,20 @@
     (=daikanwa		. 22005)	; ø¸…—µ
     ))
 (define-char
-  '((=>ucs		. #x24CA3)	; ð¤²£
-    (ideographic-radical . 103)	; â½¦
+  '((=>daikanwa		. 49345)	; ø»š™„
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
-    (->identical
-     ((=ucs		  . #x24CA3)	; ð¤²£
+    (=ucs		. #x24CA3)	; ð¤²£
+    (->subsumptive
+     ((ideographic-radical . 103)	; â½¦
+      (=cns11643-5	  . #x4057)	; ø»š™„
+      (=daikanwa	  . 49345)	; ø¸Œƒ
+      )
+     ((ideographic-radical . 102)	; â½¥
+      (hanyu-dazidian	  4 2546 4)
+      (=hanziku-7	  . #xB851)	; ý¢»¡‘
+      (=ucs@iso		  . #x24CA3)	; ý¢»¡‘
       ))
-    (=cns11643-5	. #x4057)	; ø»š™„
-    (=daikanwa		. 49345)	; ø¸Œƒ
     ))
 (define-char
   '((ideographic-radical . 103)	; â½¦
