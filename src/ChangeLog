@@ -1,3 +1,9 @@
+2002-07-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c (COMPOSE_FLUSH_CHARS): Use `decode_add_er_char'
+	instead of `DECODE_ADD_UCS_CHAR'.
+	(COMPOSE_ADD_CHAR): Likewise.
+
 2002-07-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* text-coding.c (decode_flush_er_chars): New inline function.
