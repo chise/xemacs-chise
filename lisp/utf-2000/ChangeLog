@@ -1,3 +1,73 @@
+2002-11-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R076-Lack.el (U+6B2E): Unify BC-8AC8.
+
+2002-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u03200-Enclosed-CJK-Letters-and-Months.el, u030A0-Katakana.el,
+	u03040-Hiragana.el, u02190-Arrows.el,
+	u02460-Enclosed-Alphanumerics.el, u02150-Number-Forms.el,
+	u000A0-Latin-1-Supplement.el, Ideograph-R140-Grass.el,
+	Ideograph-R130-Meat.el, Ideograph-R123-Sheep.el,
+	Ideograph-R109-Eye.el, Ideograph-R089-Double-X.el,
+	Ideograph-R100-Life.el, Ideograph-R102-Field.el,
+	Ideograph-R086-Fire.el, Ideograph-R085-Water.el,
+	Ideograph-R082-Fur.el, Ideograph-R076-Lack.el,
+	Ideograph-R073-Say.el, Ideograph-R075-Tree.el,
+	Ideograph-R069-Axe.el, Ideograph-R072-Sun.el,
+	Ideograph-R066-Rap.el, Ideograph-R065-Branch.el,
+	Ideograph-R064-Hand.el, Ideograph-R061-Heart.el,
+	Ideograph-R060-Step.el, Ideograph-R051-Dry.el,
+	Ideograph-R057-Bow.el, Ideograph-R050-Turban.el,
+	Ideograph-R046-Mountain.el, Ideograph-R042-Small.el,
+	Ideograph-R043-Lame.el, Ideograph-R040-Roof.el,
+	Ideograph-R038-Woman.el, Ideograph-R037-Big.el,
+	Ideograph-R032-Earth.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R030-Mouth.el, Ideograph-R029-Again.el,
+	Ideograph-R028-Private.el, Ideograph-R027-Cliff.el,
+	Ideograph-R026-Seal.el, Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R024-Ten.el, Ideograph-R020-Wrap.el,
+	Ideograph-R021-Spoon.el, Ideograph-R019-Power.el,
+	Ideograph-R018-Knife.el, Ideograph-R016-Table.el,
+	Ideograph-R017-Open-Box.el, Ideograph-R014-Cover.el,
+	Ideograph-R015-Ice.el, Ideograph-R013-Down-Box.el,
+	Ideograph-R012-Eight.el, Ideograph-R010-Legs.el,
+	Ideograph-R009-Man.el, Ideograph-R008-Lid.el,
+	Ideograph-R006-Hook.el, Ideograph-R007-Two.el,
+	Ideograph-R005-Second.el, Ideograph-R004-Slash.el,
+	Ideograph-R002-Line.el, Ideograph-R001-One.el: Reformatted.
+
+2002-11-28  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (U+2E96): Unify BC-8B51.
+	(BC-8958): New character.
+
+	* Ideograph-R205-Frog.el (C4-2834): Unify U-0002FA18.
+	(U+9EFE): Unify C3-2772.
+
+	* Ideograph-R030-Mouth.el (C3-2772): Unify U+9EFE; use
+	`ideographic-'.
+
+	* Ideograph-R209-Nose.el, Ideograph-R196-Bird.el,
+	Ideograph-R202-Millet.el, Ideograph-R186-Fragrant.el,
+	Ideograph-R184-Eat.el, Ideograph-R181-Leaf.el: Add mappings
+	between CNS 11643-4 and CJK Compatibility Ideographs Supplement of
+	UCS.
+
+2002-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R178-Tanned-Leather.el, Ideograph-R167-Gold.el,
+	Ideograph-R163-City.el, Ideograph-R162-Walk.el,
+	Ideograph-R159-Cart.el, Ideograph-R149-Speech.el,
+	Ideograph-R144-Walk-Enclosure.el, Ideograph-R142-Insect.el: Add
+	mappings between CNS 11643-4 and CJK Compatibility Ideographs
+	Supplement of UCS.
+
+	* Ideograph-R121-Jar.el (U-00026222): Unify BC-8DD6.
+
+	* Ideograph-R120-Silk.el (U+7D4B): New character.
+	(J0-6526): New character.
+
 2002-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R141-Tiger.el, Ideograph-R140-Grass.el,
