@@ -411,6 +411,21 @@
     (ucs		. #x4EA7)	; äº§
     ))
 (define-char
+  '((=>ucs		. #x4EA7)	; äº§
+    (ideographic-radical . 8)	; â¼‡
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((chinese-big5-cdp	  . #x8BAE)	; ý¢€ˆ®®
+      )
+     ((ucs		  . #x5382)	; åŽ‚
+      ))
+    (china3-jef		. #x81C1)	; øºˆ‡
+    ))
+(define-char
   '((ideographic-radical . 8)	; â¼‡
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
