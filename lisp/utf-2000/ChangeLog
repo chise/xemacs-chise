@@ -1,3 +1,53 @@
+2005-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (U+53D2): Use `->subsumptive'.
+	(JSP-345A): Add `<-original' for M-03249.
+	(H1-F6F2): Add `<-original' for G0-4A37; add S1-945; separate
+	C3-2332 and UU+355C.
+	(U-0002F838): New character.
+	(M-48962): Separate C5-3131; map to U-0002F838; add `<-same' for
+	M-38983.
+	(C5-3131): Separate M-38983; map to U-0002F838.
+	(U-00020B63): Use `->subsumptive'.
+	(U-0002F8D4): Use `daikanwa' instead of `daikanwa=14301' in
+	`ideographic-radical@ucs*sources'.
+	(J0-3A47): Add S2-925.
+
+2005-03-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R028-Private.el (U-00020AD3): Use `->denotational'
+	instead of `->subsumptive'.
+	(M-03111): Unify U-00020532; use
+	`ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U-00020B0D): Use `->denotational'.
+	(U+3559): Use `->subsumptive'.
+	(U+366F): Likewise.
+
+	* Ideograph-R012-Eight.el (U-00020532): Unify M-03111; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	``ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@daikanwa'.
+
+	* Ideograph-R009-Man.el: Use `->subsumptive' or
+	`{<-|->}denotational' for some character definitions.
+	(J0-5524): Add S-1613.
+	(U+506A): Add S1-348.
+	(M-00985): Separate U-00020367 and C6-4657; add `<-unknown' for
+	U-00020367.
+	(U-00020367): Separate M-00985 and H1-D245; add `<-unknown' for
+	M-00985.
+	(CB03254): Unify U-000203C9.
+	(U-000203DC): Add `ideographic-strokes' and `total-strokes';
+	complete `ideographic-structure'.
+	(M-01286): Unify U-00020439 and H1-D6F2.
+	(U-00020439): Unify M-01286.
+	(M-01302): Map to U-0002044D.
+	(M-01319): Map to U-0002045A instead of U-0002044D.
+	(H1-D7D3): Use `<-denotational' for U-00020474; unify M-33957.
+	(U-000204DE): Moved to Ideograph-R011-Enter.el.
+
 2005-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R027-Cliff.el (M-03049): Map to U-00020AC3.
