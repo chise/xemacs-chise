@@ -461,9 +461,16 @@
     (when (and (memq '=>ucs-jis attributes)
 	       (setq value (get-char-attribute char '=>ucs-jis)))
       (insert (format "(=>ucs-jis\t\t. #x%04X)\t; %c%s"
-		      value (decode-char 'ucs value)
+		      value (decode-char 'ucs-jis value)
 		      line-breaking))
       (setq attributes (delq '=>ucs-jis attributes))
+      )
+    (when (and (memq '=>ucs-cns attributes)
+	       (setq value (get-char-attribute char '=>ucs-cns)))
+      (insert (format "(=>ucs-cns\t\t. #x%04X)\t; %c%s"
+		      value (decode-char 'ucs-cns value)
+		      line-breaking))
+      (setq attributes (delq '=>ucs-cns attributes))
       )
     (when (and (memq '->ucs attributes)
 	       (setq value (get-char-attribute char '->ucs)))
@@ -777,22 +784,6 @@
 		((or (eq name 'ideographic-structure)
 		     (eq name 'ideographic-)
 		     (string-match "^\\(->\\|<-\\)" (symbol-name name)))
-                 ;; (memq name '(->lowercase
-                 ;;              ->uppercase ->titlecase
-                 ;;              ->fullwidth <-fullwidth
-                 ;;              ->identical
-                 ;;              ->vulgar-ideograph <-vulgar-ideograph
-                 ;;              ->ancient-ideograph <-ancient-ideograph
-                 ;;              ->original-ideograph <-original-ideograph
-                 ;;              ->simplified-ideograph <-simplified-ideograph
-                 ;;              ->wrong-ideograph <-wrong-ideograph
-                 ;;              ->same-ideograph
-                 ;;              ->ideographic-variants
-                 ;;              ->synonyms
-                 ;;              ->radical <-radical
-                 ;;              ->bopomofo <-bopomofo
-                 ;;              ->ideographic <-ideographic
-                 ;;              ideographic-structure))
 		 (insert (format "(%-18s%s " name line-breaking))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
 		       separator nil)
