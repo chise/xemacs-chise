@@ -1,5 +1,16 @@
 2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (Vcharacter_total_strokes_table): New variable.
+	(Qtotal_strokes): New variable.
+	(Fchar_attribute_alist): Use `Vcharacter_total_strokes_table' for
+	`total-strokes' attribute.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise.
+	(syms_of_mule_charset): Add new symbol `total-strokes'.
+	(vars_of_mule_charset): Setup `Vcharacter_total_strokes_table'.
+
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (Vcharacter_decomposition_table): New variable.
 	(Fchar_attribute_alist): Add `name' and `->decomposition' if they
 	are found.
