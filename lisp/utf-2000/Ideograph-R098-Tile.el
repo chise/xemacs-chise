@@ -1366,6 +1366,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (japanese-jisx0208-1990	. #x612E)	; ø½‹”‰
+    (chinese-gb12345		. #x6A31)	; ç”Œ
     (ucs			. #x750C)	; ç”Œ
     ))
 (define-char
