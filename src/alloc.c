@@ -1208,6 +1208,59 @@ make_older_vector (size_t length, Lisp_Object init)
   all_lcrecords = orig_all_lcrecords;
   return obj;
 }
+
+void make_vector_newer_1 (Lisp_Object v);
+void
+make_vector_newer_1 (Lisp_Object v)
+{
+  struct lcrecord_header* lcrecords = all_older_lcrecords;
+
+  if (lcrecords != NULL)
+    {
+      if (lcrecords == XPNTR (v))
+	{
+	  lcrecords->lheader.older = 0;
+	  all_older_lcrecords = all_older_lcrecords->next;
+	  lcrecords->next = all_lcrecords;
+	  all_lcrecords = lcrecords;
+	  return;
+	}
+      else
+	{
+	  struct lcrecord_header* plcrecords = lcrecords;
+
+	  lcrecords = lcrecords->next;
+	  while (lcrecords != NULL)
+	    {
+	      if (lcrecords == XPNTR (v))
+		{
+		  lcrecords->lheader.older = 0;
+		  plcrecords->next = lcrecords->next;
+		  lcrecords->next = all_lcrecords;
+		  all_lcrecords = lcrecords;
+		  return;
+		}
+	      plcrecords = lcrecords;
+	      lcrecords = lcrecords->next;
+	    }
+	}
+    }
+}
+
+void
+make_vector_newer (Lisp_Object v)
+{
+  int i;
+
+  for (i = 0; i < XVECTOR_LENGTH (v); i++)
+    {
+      Lisp_Object obj = XVECTOR_DATA (v)[i];
+
+      if (VECTORP (obj) && !EQ (obj, v))
+	make_vector_newer (obj);
+    }
+  make_vector_newer_1 (v);
+}
 #endif
 
 DEFUN ("make-vector", Fmake_vector, 2, 2, 0, /*
