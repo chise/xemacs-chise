@@ -2268,7 +2268,7 @@
     (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (ideograph-gt-pj-3	. #x446E)	; ý¡€‚¹‰
+    (=gt-pj-3		. #x446E)	; ý¡€‚¹‰
     (=gt		. 11849)	; ý¡€‚¹‰
     ))
 (define-char
@@ -3207,7 +3207,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (shinjigen-1	. 2207)
-    (ideograph-gt-pj-11 . #x3B54)	; ý¡€‚¹¾
+    (=gt-pj-11		. #x3B54)	; ý¡€‚¹¾
     (=gt		. 11902)	; ý¡€‚¹¾
     (mojikyo		. 050989)	; ý €Œœ­
     ))
@@ -3253,7 +3253,7 @@
 		 )
       :sources	(shinjigen-1)))
     (shinjigen-1	. 2209)
-    (ideograph-gt-pj-9	. #x4C55)	; ý¡€‚¹½
+    (=gt-pj-9		. #x4C55)	; ý¡€‚¹½
     (=gt		. 11901)	; ý¡€‚¹½
     ))
 (define-char

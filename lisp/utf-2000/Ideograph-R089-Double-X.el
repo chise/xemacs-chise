@@ -258,7 +258,6 @@
 	  (ucs		      . #x2FF1)	; â¿±
 	  )
 	 ((name*	      . "ideographic component person as roof")
-	  (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
 	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  )
@@ -346,14 +345,12 @@
 	  (ucs		      . #x2FF3)	; â¿³
 	  )
 	 ((name*	      . "ideographic component person as roof")
-	  (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
 	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  )
 	 ((ucs		      . #x6B62)	; æ­¢
 	  )
-	 ((ideograph-gt-pj-k1 . #x324E)	; ý¡„€„±
-	  (=gt-k	      . 00305)	; ý¡„€„±
+	 ((=gt-k	      . 00305)	; ý¡„€„±
 	  ))
 	)
        ((ucs		    . #x5182)	; å†‚

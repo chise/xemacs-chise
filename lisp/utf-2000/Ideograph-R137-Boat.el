@@ -16,7 +16,7 @@
     (ideographic-radical . 137)	; â¾ˆ
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (ideograph-gt-pj-k1 . #x3973)	; ý¡„€‰ž
+    (=gt-pj-k1		. #x3973)	; ý¡„€‰ž
     (=gt-k		. 00606)	; ý¡„€‰ž
     ))
 (define-char
@@ -24,7 +24,7 @@
     (ideographic-radical . 137)	; â¾ˆ
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (ideograph-gt-pj-k1 . #x3821)	; ý¡„€‰Ÿ
+    (=gt-pj-k1		. #x3821)	; ý¡„€‰Ÿ
     (=gt-k		. 00607)	; ý¡„€‰Ÿ
     ))
 (define-char

@@ -258,7 +258,7 @@
   (let ((i 1))
     (while (<= i 11)
       (make-charset
-       (intern (format "ideograph-gt-pj-%d" i))
+       (intern (format "=gt-pj-%d" i))
        (format "GT PJ %d" i)
        `(long-name ,(format "GT 2000 (pseudo JIS encoding) part %d" i)
 		   chars 94
@@ -267,9 +267,12 @@
 		   graphic 0
 		   direction l2r
 		   registry ,(format "\\(GTpj-%d\\|jisx0208\\.GT-%d\\)$" i i)))
+      (define-charset-alias
+	(intern (format "ideograph-gt-pj-%d" i))
+	(intern (format "=gt-pj-%d" i)))
       (setq i (1+ i))))
   (make-charset
-   'ideograph-gt-pj-k1
+   '=gt-pj-k1
    "GT K1"
    `(long-name "Ideographic parts of GT (pseudo JIS encoding) part 1"
 	       chars 94
@@ -278,8 +281,9 @@
 	       graphic 0
 	       direction l2r
 	       registry "\\(GTKpj-1\\|jisx0208\\.GTK-1\\)$"))
+  (define-charset-alias 'ideograph-gt-pj-k1 '=gt-pj-k1)
   (make-charset
-   'ideograph-gt-pj-k2
+   '=gt-pj-k2
    "GT K2"
    `(long-name "Ideographic parts of GT (pseudo JIS encoding) part 2"
 	       chars 94
@@ -288,6 +292,7 @@
 	       graphic 0
 	       direction l2r
 	       registry "\\(GTKpj-2\\|jisx0208\\.GTK-2\\)$"))
+  (define-charset-alias 'ideograph-gt-pj-k2 '=gt-pj-k2)
   (make-charset '=cbeta "CBETA PUA"
 		'(long-name	"CBETA private characters"
 		  chars		256

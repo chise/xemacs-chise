@@ -467,7 +467,7 @@
     (ideographic-radical . 84)	; â½“
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (ideograph-gt-pj-4	. #x493C)	; ý¡€…•¦
+    (=gt-pj-4		. #x493C)	; ý¡€…•¦
     (chinese-big5	. #xD9E6)	; ý¢€§¦
     (=gt		. 21862)	; ý¡€…•¦
     (mojikyo		. 050246)	; ý €Œ‘†

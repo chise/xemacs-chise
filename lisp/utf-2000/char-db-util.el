@@ -400,17 +400,17 @@
     (setq ret
 	  (cond ((eq ccs 'arabic-iso8859-6)
 		 (decode-char ccs code-point))
-		((and (memq ccs '(ideograph-gt-pj-1
-				  ideograph-gt-pj-2
-				  ideograph-gt-pj-3
-				  ideograph-gt-pj-4
-				  ideograph-gt-pj-5
-				  ideograph-gt-pj-6
-				  ideograph-gt-pj-7
-				  ideograph-gt-pj-8
-				  ideograph-gt-pj-9
-				  ideograph-gt-pj-10
-				  ideograph-gt-pj-11))
+		((and (memq ccs '(=gt-pj-1
+				  =gt-pj-2
+				  =gt-pj-3
+				  =gt-pj-4
+				  =gt-pj-5
+				  =gt-pj-6
+				  =gt-pj-7
+				  =gt-pj-8
+				  =gt-pj-9
+				  =gt-pj-10
+				  =gt-pj-11))
 		      (setq ret (decode-char ccs code-point))
 		      (setq ret (get-char-attribute ret '=gt)))
 		 (decode-builtin-char '=gt ret))

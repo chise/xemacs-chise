@@ -15435,7 +15435,7 @@
     (ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (ideograph-gt-pj-4	. #x3845)	; ý¡€„³ˆ
+    (=gt-pj-4		. #x3845)	; ý¡€„³ˆ
     (=gt		. 19656)	; ý¡€„³ˆ
     (mojikyo		. 050232)	; ý €Œ¸
     ))

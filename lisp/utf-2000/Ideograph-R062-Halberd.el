@@ -156,7 +156,7 @@
     (ideographic-radical . 62)	; â¼½
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (ideograph-gt-pj-k1 . #x3564)	; ý¡„€¢„
+    (=gt-pj-k1		. #x3564)	; ý¡„€¢„
     (=gt-k		. 02180)	; ý¡„€¢„
     ))
 (define-char

@@ -174,7 +174,7 @@
     (ideographic-radical . 47)	; â¼®
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (ideograph-gt-pj-3	. #x3D7D)	; ý¡„€Ÿ”
+    (=gt-pj-3		. #x3D7D)	; ý¡„€Ÿ”
     (=gt-k		. 02004)	; ý¡„€Ÿ”
     ))
 (define-char

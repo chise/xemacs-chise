@@ -181,7 +181,7 @@
 	      plane (string-to-int (match-string 4))
 	      code (string-to-int (match-string 5) 16))
 	(put-char-attribute (decode-builtin-char '=gt gt-code)
-			    (intern (format "ideograph-gt-pj-%d" plane))
+			    (intern (format "=gt-pj-%d" plane))
 			    code)
 	)))
 
@@ -200,7 +200,7 @@
       (if (eq (aref plane 0) ?0)
 	  (setq plane (substring plane 1)))
       (put-char-attribute (decode-builtin-char '=gt-k gt-code)
-			  (intern (format "ideograph-gt-pj-%s" plane))
+			  (intern (format "=gt-pj-%s" plane))
 			  (encode-char
 			   (decode-shift-jis-char (cons (/ code 256)
 							(% code 256)))
@@ -208,47 +208,47 @@
       )))
 
 (define-char
-  '((ideograph-gt-pj-4	. #x3844)
+  '((=gt-pj-4	. #x3844)
     (=gt	. 19655)
     ))
 (define-char
-  '((ideograph-gt-pj-4	. #x3845)
+  '((=gt-pj-4	. #x3845)
     (=gt	. 19656)
     ))
 (define-char
-  '((ideograph-gt-pj-9	. #x4D7B)
+  '((=gt-pj-9	. #x4D7B)
     (=gt	. 19861)
     ))
 (define-char
-  '((ideograph-gt-pj-4	. #x493C)
+  '((=gt-pj-4	. #x493C)
     (=gt	. 21862)
     ))
 (define-char
-  '((ideograph-gt-pj-4	. #x6D51)
+  '((=gt-pj-4	. #x6D51)
     (=gt	. 26606)
     ))
 (define-char
-  '((ideograph-gt-pj-5	. #x4579)
+  '((=gt-pj-5	. #x4579)
     (=gt	. 30254)
     ))
 (define-char
-  '((ideograph-gt-pj-11 . #x5277)
+  '((=gt-pj-11 . #x5277)
     (=gt	. 40268)
     ))
 (define-char
-  '((ideograph-gt-pj-1	. #x3F6B)
+  '((=gt-pj-1	. #x3F6B)
     (=gt	. 52230)
     ))
 (define-char
-  '((ideograph-gt-pj-7	. #x5821)
+  '((=gt-pj-7	. #x5821)
     (=gt	. 52349)
     ))
 (define-char
-  '((ideograph-gt-pj-9	. #x4C4B)
+  '((=gt-pj-9	. #x4C4B)
     (=gt	. 56364)
     ))
 (define-char
-  '((ideograph-gt-pj-11	. #x5A40)
+  '((=gt-pj-11	. #x5A40)
     (=gt	. 60403)
     ))
 
