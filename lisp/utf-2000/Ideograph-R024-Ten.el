@@ -728,7 +728,8 @@
     (=cns11643-5	. #x2540)	; ø»™±ƒ
     ))
 (define-char
-  '((ideographic-radical . 24)	; â¼—
+  '((=>ucs*		. #x5351)	; å‘
+    (ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 63 1)
@@ -742,7 +743,7 @@
       ))
     (shinjigen-1	. 830)
     (shinjigen-2	. 830)
-    (=ucs		. #x5351)	; å‘
+    (=ucs		. #xFA35)	; ï¨µ
     (=gb2312		. #x3130)	; ø»„³
     (=ks-x1001		. #x5D64)	; ø»‰³—
     (=cns11643-1	. #x4C38)	; ø»’½
@@ -750,15 +751,21 @@
     (=big5		. #xA8F5)	; ý¢€Š£µ
     (=daikanwa		. 02738)	; ø¸€ª²
     (=jef-china3	. #x45C3)	; øº„—ƒ
-    (=ucs@jis		. #xFA35)	; å‘
+    (=ucs@gb		. #x5351)	; ï¨µ
+    (=ucs@cns		. #x5351)	; ï¨µ
+    (=ucs@ks		. #x5351)	; ï¨µ
+    (=ucs@big5		. #x5351)	; ï¨µ
     ))
 (define-char
-  '((=>ucs*		. #x5351)	; å‘
+  '((=>ucs@jis		. #xFA35)	; ï¨µ
     (morohashi-daikanwa	2738 0 0)
     (ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=ucs		. #xFA35)	; ï¨µ
+    (->identical
+     ((=ucs		  . #xFA35)	; ï¨µ
+      ))
+    (=ucs		. #x5351)	; å‘
     ))
 (define-char
   '((script		JP-Jouyou Ideograph)
@@ -768,10 +775,11 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (<-vulgar-ideograph
-     (:char	((shinjigen-1	     . 830)
-		 (=daikanwa	     . 02738)	; ø¸€ª²
-		 )
-      :sources	(shinjigen-1)))
+     ((shinjigen-1	  . 830)
+      (=daikanwa	  . 02738)	; ø¸€ª²
+      ))
+    (<-vulgar-ideograph*sources
+     shinjigen-1)
     (shinjigen-1	. 829)
     (shinjigen-2	. 829)
     (=jis-x0208		. #x485C)	; ø½Š°‰
@@ -786,10 +794,11 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (<-vulgar-ideograph
-     (:char	((shinjigen-1	     . 830)
-		 (=daikanwa	     . 02738)	; ø¸€ª²
-		 )
-      :sources	(seiji-tsuu morohashi-daikanwa shinjigen-1)))
+     ((shinjigen-1	  . 830)
+      (=daikanwa	  . 02738)	; ø¸€ª²
+      ))
+    (<-vulgar-ideograph*sources
+     zhengzi-tong daikanwa shinjigen-1)
     (shinjigen-1	. 831)
     (shinjigen-2	. 831)
     (=ucs		. #x24C1E)	; ð¤°ž
