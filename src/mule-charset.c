@@ -71,6 +71,7 @@ Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_ideograph_daikanwa;
 Lisp_Object Vcharset_mojikyo;
+Lisp_Object Vcharset_mojikyo_2022_1;
 Lisp_Object Vcharset_mojikyo_pj_1;
 Lisp_Object Vcharset_mojikyo_pj_2;
 Lisp_Object Vcharset_mojikyo_pj_3;
@@ -1602,6 +1603,7 @@ Lisp_Object Qascii,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
   Qmojikyo,
+  Qmojikyo_2022_1,
   Qmojikyo_pj_1,
   Qmojikyo_pj_2,
   Qmojikyo_pj_3,
@@ -2070,7 +2072,6 @@ make_charset (Charset_ID id, Lisp_Object name,
 	      Emchar ucs_min, Emchar ucs_max,
 	      Emchar code_offset, unsigned char byte_offset)
 {
-  unsigned char type = 0;
   Lisp_Object obj;
   Lisp_Charset *cs = alloc_lcrecord_type (Lisp_Charset, &lrecord_charset);
 
@@ -2101,59 +2102,6 @@ make_charset (Charset_ID id, Lisp_Object name,
   CHARSET_BYTE_OFFSET(cs) = byte_offset;
 #endif
 
-  switch (CHARSET_CHARS (cs))
-    {
-    case 94:
-      switch (CHARSET_DIMENSION (cs))
-	{
-	case 1:
-	  type = CHARSET_TYPE_94;
-	  break;
-	case 2:
-	  type = CHARSET_TYPE_94X94;
-	  break;
-	}
-      break;
-    case 96:
-      switch (CHARSET_DIMENSION (cs))
-	{
-	case 1:
-	  type = CHARSET_TYPE_96;
-	  break;
-	case 2:
-	  type = CHARSET_TYPE_96X96;
-	  break;
-	}
-      break;
-#ifdef UTF2000
-    case 128:
-      switch (CHARSET_DIMENSION (cs))
-	{
-	case 1:
-	  type = CHARSET_TYPE_128;
-	  break;
-	case 2:
-	  type = CHARSET_TYPE_128X128;
-	  break;
-	}
-      break;
-    case 256:
-      switch (CHARSET_DIMENSION (cs))
-	{
-	case 1:
-	  type = CHARSET_TYPE_256;
-	  break;
-	case 2:
-	  type = CHARSET_TYPE_256X256;
-	  break;
-	}
-      break;
-#endif
-    }
-#ifndef UTF2000
-  CHARSET_TYPE (cs) = type;
-#endif
-
 #ifndef UTF2000
   if (id == LEADING_BYTE_ASCII)
     CHARSET_REP_BYTES (cs) = 1;
@@ -2168,15 +2116,18 @@ make_charset (Charset_ID id, Lisp_Object name,
       /* some charsets do not have final characters.  This includes
 	 ASCII, Control-1, Composite, and the two faux private
 	 charsets. */
+      unsigned char iso2022_type
+	= (dimension == 1 ? 0 : 2) + (chars == 94 ? 0 : 1);
 #if UTF2000
       if (code_offset == 0)
 	{
-	  assert (NILP (chlook->charset_by_attributes[type][final]));
-	  chlook->charset_by_attributes[type][final] = obj;
+	  assert (NILP (chlook->charset_by_attributes[iso2022_type][final]));
+	  chlook->charset_by_attributes[iso2022_type][final] = obj;
 	}
 #else
-      assert (NILP (chlook->charset_by_attributes[type][final][direction]));
-      chlook->charset_by_attributes[type][final][direction] = obj;
+      assert (NILP
+	      (chlook->charset_by_attributes[iso2022_type][final][direction]));
+      chlook->charset_by_attributes[iso2022_type][final][direction] = obj;
 #endif
     }
 
@@ -2359,6 +2310,20 @@ range_charset_code_point (Lisp_Object charset, Emchar ch)
 	    return -1;
 	}
     }
+  if (EQ (charset, Vcharset_mojikyo_2022_1)
+      && (MIN_CHAR_MOJIKYO < ch) && (ch < MIN_CHAR_MOJIKYO + 94 * 60 * 94))
+    {
+      int m = ch - MIN_CHAR_MOJIKYO - 1;
+      int byte1 =  m / (94 * 60) + 33;
+      int byte2 = (m % (94 * 60)) / 94;
+      int byte3 =  m % 94 + 33;
+
+      if (byte2 < 30)
+	byte2 += 16 + 32;
+      else
+	byte2 += 18 + 32;
+      return (byte1 << 16) | (byte2 << 8) | byte3;
+    }
   return -1;
 }
 
@@ -2439,7 +2404,7 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
     }
   else if (c <= MAX_CHAR_94)
     {
-      *charset = CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94,
+      *charset = CHARSET_BY_ATTRIBUTES (94, 1,
 					((c - MIN_CHAR_94) / 94) + '0',
 					CHARSET_LEFT_TO_RIGHT);
       if (!NILP (*charset))
@@ -2452,7 +2417,7 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
     }
   else if (c <= MAX_CHAR_96)
     {
-      *charset = CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96,
+      *charset = CHARSET_BY_ATTRIBUTES (96, 1,
 					((c - MIN_CHAR_96) / 96) + '0',
 					CHARSET_LEFT_TO_RIGHT);
       if (!NILP (*charset))
@@ -2466,7 +2431,7 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
   else if (c <= MAX_CHAR_94x94)
     {
       *charset
-	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94X94,
+	= CHARSET_BY_ATTRIBUTES (94, 2,
 				 ((c - MIN_CHAR_94x94) / (94 * 94)) + '0',
 				 CHARSET_LEFT_TO_RIGHT);
       if (!NILP (*charset))
@@ -2481,7 +2446,7 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
   else if (c <= MAX_CHAR_96x96)
     {
       *charset
-	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96X96,
+	= CHARSET_BY_ATTRIBUTES (96, 2,
 				 ((c - MIN_CHAR_96x96) / (96 * 96)) + '0',
 				 CHARSET_LEFT_TO_RIGHT);
       if (!NILP (*charset))
@@ -2643,7 +2608,6 @@ character set.  Recognized properties are:
 {
   int id, dimension = 1, chars = 94, graphic = 0, final = 0, columns = -1;
   int direction = CHARSET_LEFT_TO_RIGHT;
-  int type;
   Lisp_Object registry = Qnil;
   Lisp_Object charset;
   Lisp_Object rest, keyword, value;
@@ -2750,13 +2714,10 @@ character set.  Recognized properties are:
       ("Final must be in the range 0x30 - 0x5F for dimension == 2",
        make_char (final));
 
-  if (dimension == 1)
-    type = (chars == 94) ? CHARSET_TYPE_94    : CHARSET_TYPE_96;
-  else
-    type = (chars == 94) ? CHARSET_TYPE_94X94 : CHARSET_TYPE_96X96;
-
-  if (!NILP (CHARSET_BY_ATTRIBUTES (type, final, CHARSET_LEFT_TO_RIGHT)) ||
-      !NILP (CHARSET_BY_ATTRIBUTES (type, final, CHARSET_RIGHT_TO_LEFT)))
+  if (!NILP (CHARSET_BY_ATTRIBUTES (chars, dimension, final,
+				    CHARSET_LEFT_TO_RIGHT)) ||
+      !NILP (CHARSET_BY_ATTRIBUTES (chars, dimension, final,
+				    CHARSET_RIGHT_TO_LEFT)))
     error
       ("Character set already defined for this DIMENSION/CHARS/FINAL combo");
 
@@ -2889,7 +2850,6 @@ will be returned if character sets exist for both directions).
        (dimension, chars, final, direction))
 {
   int dm, ch, fi, di = -1;
-  int type;
   Lisp_Object obj = Qnil;
 
   CHECK_INT (dimension);
@@ -2918,19 +2878,14 @@ will be returned if character sets exist for both directions).
     signal_simple_error
       ("Final must be in the range 0x30 - 0x5F for dimension == 2", final);
 
-  if (dm == 1)
-    type = (ch == 94) ? CHARSET_TYPE_94    : CHARSET_TYPE_96;
-  else
-    type = (ch == 94) ? CHARSET_TYPE_94X94 : CHARSET_TYPE_96X96;
-
-  if (di == -1)
+    if (di == -1)
     {
-      obj = CHARSET_BY_ATTRIBUTES (type, fi, CHARSET_LEFT_TO_RIGHT);
+      obj = CHARSET_BY_ATTRIBUTES (ch, dm, fi, CHARSET_LEFT_TO_RIGHT);
       if (NILP (obj))
-	obj = CHARSET_BY_ATTRIBUTES (type, fi, CHARSET_RIGHT_TO_LEFT);
+	obj = CHARSET_BY_ATTRIBUTES (ch, dm, fi, CHARSET_RIGHT_TO_LEFT);
     }
   else
-    obj = CHARSET_BY_ATTRIBUTES (type, fi, di);
+    obj = CHARSET_BY_ATTRIBUTES (ch, dm, fi, di);
 
   if (CHARSETP (obj))
     return XCHARSET_NAME (obj);
@@ -3581,6 +3536,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qideograph_daikanwa,	"ideograph-daikanwa");
   defsymbol (&Qmojikyo,			"mojikyo");
+  defsymbol (&Qmojikyo_2022_1,		"mojikyo-2022-1");
   defsymbol (&Qmojikyo_pj_1,		"mojikyo-pj-1");
   defsymbol (&Qmojikyo_pj_2,		"mojikyo-pj-2");
   defsymbol (&Qmojikyo_pj_3,		"mojikyo-pj-3");
@@ -3982,6 +3938,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Konjaku-Mojikyo"),
 		  build_string (""),
 		  Qnil, MIN_CHAR_MOJIKYO, MAX_CHAR_MOJIKYO, 0, 0);
+  staticpro (&Vcharset_mojikyo_2022_1);
+  Vcharset_mojikyo_2022_1 =
+    make_charset (LEADING_BYTE_MOJIKYO_2022_1, Qmojikyo_2022_1, 94, 3,
+		  2, 2, ':', CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-2022-1"),
+		  build_string ("Mojikyo ISO-2022 Part 1"),
+		  build_string ("Konjaku-Mojikyo for ISO/IEC 2022 Part 1"),
+		  build_string (""),
+		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_1);
   Vcharset_mojikyo_pj_1 =
     make_charset (LEADING_BYTE_MOJIKYO_PJ_1, Qmojikyo_pj_1, 94, 2,
