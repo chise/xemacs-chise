@@ -5,10 +5,10 @@
     (total-strokes	 . 4)
     (shinjigen-2	. 3259)
     (=ucs		. #x65E0)	; æ— 
-    (=cns11643-3	. #x2169)	; ø»•—¬
-    (=ks-x1001		. #x5969)	; ø»‰­¤
-    (=gb2312		. #x4E5E)	; ø»…‰‡
     (=jis-x0208		. #x5A5B)	; ø½‹Š¤
+    (=gb2312		. #x4E5E)	; ø»…‰‡
+    (=ks-x1001		. #x5969)	; ø»‰­¤
+    (=cns11643-3	. #x2169)	; ø»•—¬
     (=gt		. 17330)	; ý¡€„Ž²
     (=gt-k		. 00532)	; ý¡„€ˆ”
     (=gt-pj-1		. #x5A5B)	; ý¡€„Ž²
@@ -61,19 +61,37 @@
     (=daikanwa		. 13720)	; ø¸ƒ–˜
     ))
 (define-char
-  '((ideographic-radical . 71)	; â½†
+  '((=>ucs		. #x65E2)	; æ—¢
+    (ideographic-radical . 71)	; â½†
     (ideographic-strokes . 5)
-    (total-strokes	 . 9)
+    (total-strokes	 . 10)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #xFA42)	; ï©‚
+      (=jis-x0213-1-2000  . #x752B)	; ø»¤Žž
+      ))
+    (<-simplified@daikanwa
+     ((=ucs		  . #x65E3)	; æ—£
+      (=daikanwa	  . 13724)	; ø¸ƒ–œ
+      ))
+    (<-simplified@daikanwa*sources
+     daikanwa)
     (shinjigen-2	. 3260)
-    (=ucs		. #x65E2)	; æ—¢
-    (=cns11643-1	. #x514D)	; ø»’‰¨
-    (=gb2312		. #x3C48)	; ø»„®•
     (=jis-x0208		. #x347B)	; ø½Š“
     (=big5		. #xAC4A)	; ý¢€Š±Š
     (=gt		. 17338)	; ý¡€„Žº
     (=gt-k		. 06394)	; ý¡„£º
     (=gt-pj-1		. #x347B)	; ý¡€„Žº
     (=daikanwa		. 13721)	; ø¸ƒ–™
+    (=ucs@jis		. #x65E2)	; ø½Š“
+    ))
+(define-char
+  '((morohashi-daikanwa	13721 0 1)
+    (ideographic-radical . 71)	; â½†
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (=ucs		. #x65E2)	; æ—¢
+    (=gb2312		. #x3C48)	; ø»„®•
+    (=cns11643-1	. #x514D)	; ø»’‰¨
     ))
 (define-char
   '((ideographic-radical . 71)	; â½†
@@ -200,8 +218,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((=cns11643-2	  . #x294B)	; ø»“˜º
-      (=jis-x0208	  . #x5325)	; ø½Š¿œ
+     ((=jis-x0208	  . #x5325)	; ø½Š¿œ
+      (=cns11643-2	  . #x294B)	; ø»“˜º
       (=daikanwa	  . 03573)	; ø¸€·µ
       )
      ((=ucs		  . #x65E1)	; æ—¡
@@ -218,8 +236,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((=cns11643-2	  . #x294B)	; ø»“˜º
-      (=jis-x0208	  . #x5325)	; ø½Š¿œ
+     ((=jis-x0208	  . #x5325)	; ø½Š¿œ
+      (=cns11643-2	  . #x294B)	; ø»“˜º
       (=daikanwa	  . 03573)	; ø¸€·µ
       )
      ((=cns11643-2	  . #x213E)	; ø»“Œ½

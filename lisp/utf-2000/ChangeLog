@@ -1,3 +1,1834 @@
+2004-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (M-00882): Simplify
+	`ideographic-structure'.
+	(U-000202B4): Likewise.
+
+	* Ideograph-R037-Big.el (U+5941): Modify `<-simplified'.
+	(U+5969): Use `->subsumptive'.
+
+2004-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (U+5332): Use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
+2004-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (U+81FD): Use `->subsumptive'.
+
+	* Ideograph-R130-Meat.el (U+2EBC): Use `->subsumptive'.
+
+	* Ideograph-R045-Sprout.el (U+5C70): Unify BC-8DBD.
+
+	* Ideograph-R015-Ice.el (M-01718): Use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'; simplify `ideographic-structure'.
+	(C3-4B30): Simplify `ideographic-structure'.
+	(J90-515B): Likewise.
+	(U+51DB): Likewise.
+
+	* Ideograph-R009-Man.el (U+4F7E): Use `->subsumptive'.
+
+2004-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el (M-05334): Simplify
+	`ideographic-structure'.
+	(U-000213B0): Likewise.
+
+	* Ideograph-R189-Tall.el (U-00029ACF): Modify
+	`ideographic-structure'; use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+
+	* Ideograph-R160-Bitter.el (U-00028410): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R114-Track.el (U+79BB): Use `->subsumptive'.
+
+	* Ideograph-R071-Not.el (J0-347B): Add
+	`<-simplified@daikanwa*sources'.
+
+	* Ideograph-R050-Turban.el (M-09148): Simplify
+	`ideographic-structure'.
+
+	* Ideograph-R044-Corpse.el (U+5C56): Use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (J0-526B): Modify
+	`ideographic-structure'.
+	(U+548E): Simplify `ideographic-structure'.
+
+	* Ideograph-R012-Eight.el (U+516C): Use `->subsumptive'.
+
+	* Ideograph-R005-Second.el (H1-AFC7): Modify
+	`ideographic-structure'.
+
+2004-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Display
+	`->simplified(@...)' when running with readable mode.
+
+2004-02-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R041-Inch.el (U+5C0E): Use `<-simplified*sources'
+	instead of char-ref in `<-simplified'.
+
+2004-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R160-Bitter.el (GT-K02585): New character.
+
+	* Ideograph-R005-Second.el (U+4E75): Use `->subsumptive'.
+
+	* read-maps.el (jp-jouyou-read-file): Check inherited value of
+	`<-simplified@JP/Jouyou'.
+
+	* Ideograph-R105-Dotted-Tent.el (U+767A): Fix
+	`<-simplified@JP/Jouyou'.
+
+	* Ideograph-R029-Again.el (U+53CE): Use `->subsumptive'.
+
+2004-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R047-River.el (CB08935): New character.
+
+2004-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-daikanwa): Use `<-subsumptive' instead
+	of `<-unified'.
+
+	* char-db-util.el (insert-char-attributes): Use `<-subsumptive'
+	instead of `<-unified' and `->subsumptive' instead of `->unified'.
+
+	* ruimoku6.el, Ideograph-R193-Cauldron.el,
+	Ideograph-R062-Halberd.el, Ideograph-R040-Roof.el,
+	Ideograph-R009-Man.el, Ideograph-R006-Hook.el,
+	Ideograph-R005-Second.el, Ideograph-R003-Dot.el,
+	Ideograph-R001-One.el: Rename `->unified' to `->subsumptive'.
+
+2004-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Ignore `<-unified'.
+
+	* Ideograph-R193-Cauldron.el (U-00029C2C): Use `->unified';
+	include RUI6-E00A.
+
+2004-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (update-ideograph-radical-table): Support
+	`->denotational'.
+	(char-daikanwa): If a character has a mother character, return
+	(NUM 0) instead of NUM.
+
+	* char-db-util.el (insert-char-attributes): Ignore
+	`->denotational'.
+
+2004-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-chars.el (system-char-db-source-file-list): Add
+	"ruimoku6".
+
+	* char-db-util.el (insert-char-attributes): Fold long line in
+	non-special element of list in default feature.
+
+	* ruimoku6.el: New file.
+
+	* Ideograph-R062-Halberd.el (RUI6-E005): New character.
+
+	* Ideograph-R046-Mountain.el (RUI6-E008): New character.
+
+	* Ideograph-R040-Roof.el (U-00021A5C): Add `->unified' for
+	RUI6-E009 and IU-00021A5C.
+
+	* Ideograph-R037-Big.el (RUI6-E006): New character.
+
+	* Ideograph-R026-Seal.el (RUI6-E00F): New character.
+	(RUI6-E007): New character.
+
+	* Ideograph-R075-Tree.el (RUI6-E00C): New character.
+
+	* Ideograph-R024-Ten.el (BC-8B75): Unify RUI6-E00E.
+
+	* Ideograph-R009-Man.el: Use `->unified' for some characters.
+
+2004-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U-00021A5C): New character.
+
+	* u02E00-CJK-Radical-Supplement.el (U+2EAB): Add
+	`<-ideographic-component-forms' for U+76EE.
+	(BC-8B48): Map to U+76EE; copied from Ideograph-R109-Eye.el.
+
+2004-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (BC-8B48): New character.
+
+	* Ideograph-R030-Mouth.el (U+53E7): Use
+	`->ideographic-variants*sources' instead of char-ref in
+	`->ideographic-variants'; unify GT-04102 and GT-K01162.
+	(U-00020BA0): Unify GT-04135 and GT-K01063.
+
+	* Ideograph-R024-Ten.el (M-02707): Unify B-A562, GT-03469 and
+	GT-K01096.
+	(GT-K01097): New character.
+	(U+534A): Separate B-A562.
+	(GT-K01380): New character.
+	(GT-K01438): New character.
+
+2004-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R001-One.el (U+4E03): Use `->unified'.
+	(U-00020055): Unify M-00064; use
+	`{ideographic|total}-strokes@{daikanwa|cns}' instead of
+	`{ideographic|total}-strokes'.
+
+2004-02-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el (U+3424): Use `->unified'.
+
+2004-02-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* read-maps.el (mapping-table-read-file): Use `char-feature'
+	instead of `get-char-attribute'.
+
+	* ideograph-util.el (char-ideographic-radical): Use `char-feature'
+	instead of `get-char-attribute'.
+	(char-ideographic-strokes-from-domains): Likewise.
+	(char-ideographic-strokes): Likewise.
+	(char-representative-of-daikanwa): Refer `=>daikanwa'.
+
+2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R006-Hook.el (U-00020116): Use `->unified'.
+
+	* Ideograph-R003-Dot.el (U+4E3B): Use `->unified'.
+
+2004-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R112-Stone.el: Add some GT code points.
+	(U+784E): Separate JC3-5CA7; unify GT-30888.
+	(M-24244): Unify JC3-5CA7; add `=>ucs*' for U+784E.
+	(U-0002F94E): Add `=>ucs*' for U+784E.
+
+2004-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el: Add some GT code points.
+
+	* Ideograph-R057-Bow.el: Add some GT code points.
+	(U-00022417): New character.
+
+	* Ideograph-R156-Run.el: Add some GT code points.
+
+	* Ideograph-R152-Pig.el: Add some GT code points.
+	(U-00027C4C): New character.
+
+	* Ideograph-R087-Claw.el (M-19682): Use
+	`<-ancient-ideograph*sources' instead of char-ref in
+	`<-ancient-ideograph'.
+	(U+7232): Unify GT-25271 and GT-K09877.
+
+2004-01-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R211-Tooth.el, Ideograph-R203-Black.el,
+	Ideograph-R201-Yellow.el, Ideograph-R199-Wheat.el,
+	Ideograph-R191-Fight.el, Ideograph-R190-Hair.el,
+	Ideograph-R188-Bone.el, Ideograph-R187-Horse.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Delete code for
+	`=>ucs-{gb|cns|jis|ks|big5}' and `->ucs'; add code for `=>daikanwa';
+	add code for `->unified'.
+
+2004-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el, Ideograph-R174-Blue.el,
+	Ideograph-R172-Short-Tailed-Bird.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* update-cdb.el: Generate "../lisp/utf-2000/cid-conf.el" when
+	char-DB generating stage, and load it when dumping stage.
+
+	* Ideograph-R180-Sound.el, Ideograph-R173-Rain.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el, Ideograph-R169-Gate.el,
+	Ideograph-R164-Wine.el, Ideograph-R165-Distinguish.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el, Ideograph-R159-Cart.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* Ideograph-R104-Sickness.el (G1-3B3E): Unify U+7613.
+
+2004-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el, Ideograph-R160-Bitter.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el, Ideograph-R064-Hand.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el, Ideograph-R151-Bean.el,
+	Ideograph-R154-Shell.el, Ideograph-R128-Ear.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el: Add `<-halfwidth'
+	features for <HALFWIDTH> characters.
+
+2004-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R148-Horn.el, Ideograph-R147-See.el,
+	Ideograph-R146-West.el, Ideograph-R145-Clothes.el,
+	Ideograph-R141-Tiger.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R115-Grain.el: Add some `<-simplified@JP/Jouyou'
+	features.
+	(U-00025784): Unify M-25006; separate C5-2A76.
+
+	* Ideograph-R144-Walk-Enclosure.el, Ideograph-R142-Insect.el,
+	Ideograph-R140-Grass.el, Ideograph-R086-Fire.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-daikanwa): Refer `=>daikanwa'.
+
+	* Ideograph-R132-Self.el, Ideograph-R040-Roof.el,
+	Ideograph-R085-Water.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (JC3-4DA7): Unify GT-12606 and
+	GT-K07831; add `=ucs@jp'.
+
+	* Ideograph-R130-Meat.el, Ideograph-R129-Brush.el,
+	Ideograph-R125-Old.el, Ideograph-R119-Rice.el,
+	Ideograph-R094-Dog.el, Ideograph-R071-Not.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* Ideograph-R061-Heart.el: Add some `<-simplified@JP/Jouyou'
+	features.
+	(U-0002F8B0): Separate JC3-4DE8.
+	(M-11424): Unify JC3-4DE8.
+
+	* Ideograph-R009-Man.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R075-Tree.el (U+6A0B): Don't map to U+901A.
+
+	* Ideograph-R124-Feather.el, Ideograph-R122-Net.el,
+	Ideograph-R121-Jar.el, Ideograph-R120-Silk.el,
+	Ideograph-R118-Bamboo.el, Ideograph-R116-Cave.el,
+	Ideograph-R112-Stone.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R117-Stand.el, Ideograph-R109-Eye.el,
+	Ideograph-R105-Dotted-Tent.el, Ideograph-R079-Weapon.el,
+	Ideograph-R075-Tree.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R113-Spirit.el, Ideograph-R108-Dish.el,
+	Ideograph-R106-White.el, Ideograph-R078-Death.el,
+	Ideograph-R077-Stop.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el, Ideograph-R102-Field.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* Ideograph-R098-Tile.el (U+74F6): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R093-Cow.el (U+72A0): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R084-Steam.el (U+6C17): Add `<-simplified@JP/Jouyou'.
+
+2004-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-{3522|334C}.
+
+	* Ideograph-R080-Do-Not.el, Ideograph-R076-Lack.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* Ideograph-R072-Sun.el: Add some `<-simplified@JP/Jouyou'
+	features.
+	(U+663C): Add `<-simplified@JP/Jouyou'; use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+665A): Unify JC3-51D5.
+	(U+6669): Add `<-simplified@JP/Jouyou'; unify BC-B1DF; separate
+	JC3-51D5.
+	(U+FA43): Unify BC-B4BB.
+
+2004-01-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el, Ideograph-R062-Halberd.el,
+	Ideograph-R032-Earth.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R050-Turban.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el, Ideograph-R069-Axe.el,
+	Ideograph-R067-Script.el, Ideograph-R066-Rap.el,
+	Ideograph-R060-Step.el, Ideograph-R046-Mountain.el,
+	Ideograph-R058-Snout.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el, Ideograph-R041-Inch.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* Ideograph-R034-Go.el (C3-2B79): Add `ideographic-structure'.
+	(J0-4A51): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R028-Private.el, Ideograph-R027-Cliff.el,
+	Ideograph-R024-Ten.el, Ideograph-R019-Power.el,
+	Ideograph-R018-Knife.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* char-db-util.el (char-db-insert-char-spec): Add new optional
+	argument `required-features'.
+	(insert-char-attributes): For each character in relation features
+	[->FOO or <-FOO] and `ideographic-structure', specify
+	required-features pf `char-db-insert-char-spec' based on *sources.
+
+	* Ideograph-R057-Bow.el, Ideograph-R056-Shoot.el,
+	Ideograph-R055-Two-Hands.el, Ideograph-R049-Oneself.el,
+	Ideograph-R047-River.el, Ideograph-R044-Corpse.el,
+	Ideograph-R038-Woman.el, Ideograph-R037-Big.el,
+	Ideograph-R031-Enclosure.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R029-Again.el (U+53CC): Add `<-simplified@JP/Jouyou';
+	use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+53CE): Add `<-simplified@JP/Jouyou'; use `<-vulgar-ideograph'
+	and `<-vulgar-ideograph*sources' instead of `vulgar-ideograph-of'.
+	(U+53D9): Add `<-simplified@JP/Jouyou'; use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
+	* Ideograph-R026-Seal.el (U+5373): Add `<-simplified@JP/Jouyou';
+	use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
+	* Ideograph-R023-Hiding-Enclosure.el (C3-2157): Use
+	`<-simplified*sources' instead of char-ref in `<-simplified'.
+	(U+533A): Likewise; add `<-simplified@JP/Jouyou'.
+	(U+533B): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R014-Cover.el (J0-3C4C): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R013-Down-Box.el (M-01512): Use `<-vulgar-ideograph'
+	and `<-vulgar-ideograph*sources' instead of `comment'; separate
+	S-0481, U+5185, J0-4662, G0-445A, GT-01983 and GT-K00547.
+	(U+5185): Unify BC-8C57.
+	(U+5186): Add `<-simplified@JP/Jouyou'.
+
+2004-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el, Ideograph-R033-Scholar.el,
+	Ideograph-R030-Mouth.el, Ideograph-R016-Table.el,
+	Ideograph-R010-Legs.el, Ideograph-R007-Two.el,
+	Ideograph-R006-Hook.el, Ideograph-R005-Second.el,
+	Ideograph-R004-Slash.el, Ideograph-R001-One.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* read-maps.el (jp-jouyou-read-file): New function.
+
+2004-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Use `jp-jouyou-read-file' to read
+	etc/char-data/jp-jouyou.txt.
+
+2004-01-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el (U+52B4): Use `script', `<-simplified'
+	and `<-simplified*sources' instead of `comment'.
+
+	* char-db-util.el (insert-char-attributes): Delete formatter for
+	`simplified-ideograph-of' and `ideographic-different-form-of'.
+
+	* Ideograph-R058-Snout.el (U-00022450): Use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+5F53): Use `<-simplified' and `<-simplified*sources' instead of
+	`simplified-ideograph-of'.
+
+2004-01-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R211-Tooth.el, Ideograph-R181-Leaf.el,
+	Ideograph-R170-Mound.el, Ideograph-R165-Distinguish.el,
+	Ideograph-R167-Gold.el, Ideograph-R164-Wine.el,
+	Ideograph-R162-Walk.el, Ideograph-R138-Stopping.el,
+	Ideograph-R156-Run.el, Ideograph-R117-Stand.el,
+	Ideograph-R113-Spirit.el, Ideograph-R108-Dish.el,
+	Ideograph-R094-Dog.el, Ideograph-R086-Fire.el,
+	Ideograph-R085-Water.el, Ideograph-R075-Tree.el,
+	Ideograph-R072-Sun.el, Ideograph-R052-Short-Thread.el,
+	Ideograph-R064-Hand.el, Ideograph-R041-Inch.el,
+	Ideograph-R036-Evening.el, Ideograph-R037-Big.el,
+	Ideograph-R032-Earth.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R030-Mouth.el, Ideograph-R028-Private.el,
+	Ideograph-R027-Cliff.el, Ideograph-R024-Ten.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R019-Power.el,
+	Ideograph-R018-Knife.el, Ideograph-R008-Lid.el,
+	Ideograph-R002-Line.el: Rename `<-simplified-ideograph' to
+	`<-simplified'.
+
+2004-01-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (total-strokes-string<): Abolished.
+	(chise-string<): New function.
+
+2004-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (total-strokes-string<): New function.
+
+2004-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R205-Frog.el (U+9F0B): Moved from
+	Ideograph-R213-Turtle.el.
+
+	* Ideograph-R213-Turtle.el (U+9F9F): Add `total-strokes'.
+	(U+9F0B): Moved to Ideograph-R205-Frog.el.
+
+2004-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R211-Tooth.el, Ideograph-R201-Yellow.el,
+	Ideograph-R205-Frog.el, Ideograph-R203-Black.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R196-Bird.el: Add some `total-strokes' features.
+	(U+9E34): Fix strokes.
+	(U+9E4B): Likewise.
+	(U+9E54): Likewise.
+
+	* Ideograph-R197-Salt.el (U+9E7E): Add `total-strokes'.
+
+	* Ideograph-R193-Cauldron.el (U+9B36): Add `total-strokes'.
+
+	* Ideograph-R195-Fish.el: Add some `total-strokes' features.
+
+	* Ideograph-R194-Ghost.el (U+9B47): Add `total-strokes'.
+
+	* Ideograph-R188-Bone.el: Add some `total-strokes' features.
+
+	* Ideograph-R187-Horse.el: Add some `total-strokes' features.
+	(U+9A95): Fix strokes.
+	(U+84E6): Moved to Ideograph-R140-Grass.el.
+
+	* Ideograph-R140-Grass.el (U+84E6): Moved from
+	Ideograph-R187-Horse.el.
+
+2004-01-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R190-Hair.el (U+9B13): Add `total-strokes'.
+
+	* Ideograph-R181-Leaf.el: Add some `total-strokes' features.
+	(U+989E): Fix strokes.
+	(U+98A6): Likewise.
+
+	* Ideograph-R182-Wind.el: Add some `total-strokes' features.
+	(U+98CF): Fix strokes.
+
+	* Ideograph-R184-Eat.el: Add some `total-strokes' features.
+
+2004-01-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R178-Tanned-Leather.el, Ideograph-R177-Leather.el: Add
+	some `total-strokes' features.
+
+	* Ideograph-R176-Face.el (U+9765): Add `total-strokes'.
+
+	* Ideograph-R173-Rain.el: Add some `total-strokes' features.
+
+	* Ideograph-R169-Gate.el: Add some `total-strokes' features.
+	(U+95FF): Fix strokes.
+	(U+9607): Fix strokes.
+	(U+95E7): Fix strokes.
+
+2004-01-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R175-Wrong.el (U+8F88): Add `total-strokes'.
+
+	* Ideograph-R174-Blue.el, Ideograph-R172-Short-Tailed-Bird.el,
+	Ideograph-R170-Mound.el: Add some `total-strokes' features.
+
+	* Ideograph-R167-Gold.el: Add some `total-strokes' features.
+
+	* Ideograph-R158-Body.el, Ideograph-R141-Tiger.el: Add some
+	`total-strokes' features.
+
+2004-01-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R165-Distinguish.el (U+91CA): Add `total-strokes'.
+
+	* Ideograph-R164-Wine.el, Ideograph-R163-City.el,
+	Ideograph-R162-Walk.el, Ideograph-R159-Cart.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R149-Speech.el: Add some `total-strokes' features.
+	(U+8BEA): Fix strokes.
+
+2004-01-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R157-Foot.el, Ideograph-R156-Run.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R154-Shell.el: Add some `total-strokes' features.
+	(U+8D51): Fix strokes.
+
+	* Ideograph-R148-Horn.el, Ideograph-R147-See.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R155-Red.el (U+8D6A): Add `total-strokes'.
+
+	* Ideograph-R152-Pig.el (U+8C6E): Add `total-strokes'.
+
+	* Ideograph-R146-West.el (U+8984): Add `total-strokes'.
+
+	* Ideograph-R145-Clothes.el, Ideograph-R142-Insect.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R030-Mouth.el (M-03871): Unify U-00020D72, C6-3E21 and
+	H2-D6B5.
+
+2004-01-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R030-Mouth.el (U-00020077): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'.
+
+	* Ideograph-R140-Grass.el: Add some `total-strokes' features.
+
+	* Ideograph-R139-Color.el (U+8273): Add `total-strokes'.
+
+	* Ideograph-R137-Boat.el, Ideograph-R128-Ear.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R129-Brush.el (U+8083): Add `total-strokes'.
+
+2004-01-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R130-Meat.el, Ideograph-R127-Plow.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R121-Jar.el (U+7F3C): Add `total-strokes'.
+
+	* Ideograph-R120-Silk.el: Add some `total-strokes' features.
+
+	* Ideograph-R116-Cave.el: Add some `total-strokes' features.
+	(M-25535): New character.
+	(C3-3D6D): Map to M-25535; separate U+41A3.
+
+	* Ideograph-R115-Grain.el: Add some `total-strokes' features.
+	(U-00025785): Unify M-25007; separate C5-343C.
+	(C3-484C): Unify M-25173; separate U+4166.
+	(M-25228): Unify U-0002583F.
+	(C5-5645): Separate U-0002583F; map to M-25228.
+	(C4-5179): Unify M-25264; separate U+417A.
+	(M-25265): New character.
+	(U+417B): Map to M-25265; separate C4-5178.
+	(U-0002586D): Unify M-25270; separate C5-5C5B.
+
+	* Ideograph-R085-Water.el: Add some `total-strokes' features.
+
+	* Ideograph-R124-Feather.el (M-28841): Copied from
+	Ideograph-R040-Roof.el.
+
+	* Ideograph-R119-Rice.el, Ideograph-R118-Bamboo.el: Add some
+	`total-strokes' features.
+
+2004-01-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R096-Jade.el: Add some `total-strokes' features.
+	(M-21218): New character.
+	(C3-4D34): Separate U+3EF1; map to M-21218.
+	(U+3EF1): Likewise.
+	(U+7490): Use `ideographic-radical' and
+	`{ideographic|total}-strokes@{daikanwa|cns}' instead of
+	`ideographic-'.
+
+	* Ideograph-R002-Line.el (U-00020077): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'.
+
+	* Ideograph-R086-Fire.el: Add some `total-strokes' features.
+	(U+5911): Moved to Ideograph-R035-Go-Slowly.el.
+
+	* Ideograph-R117-Stand.el (U+7ADE): Add `total-strokes'.
+
+	* Ideograph-R113-Spirit.el: Add some `total-strokes' features.
+
+	* Ideograph-R112-Stone.el: Add some `total-strokes' features.
+	(U+7800): Fix strokes.
+
+	* Ideograph-R109-Eye.el: Add some `total-strokes' features.
+	(U+7714): Use `<-original-ideograph*sources' instead of char-ref
+	in `<-original-ideograph'.
+	(C4-2E55): Likewise.
+	(U+7786): Fix strokes.
+
+2003-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R111-Arrow.el (U+77EB): Add `total-strokes'.
+
+	* Ideograph-R082-Fur.el (U-00023B7D): Separate C6-4124; unify
+	M-16855.
+	(C6-4124): Map to M-16855.
+	(U+3C9B): Separate C5-395B; unify M-16857.
+	(C5-395B): Map to M-16857.
+	(U+3C9C): Separate C3-3C4C; unify M-16859.
+	(C3-3C4C): Map to M-16859.
+
+	* Ideograph-R094-Dog.el: Add some `total-strokes' features.
+
+	* Ideograph-R093-Cow.el: Add some `total-strokes' features.
+	(U+726C): Use `ideographic-radical',
+	`{ideographic|total}-strokes@{daikanwa|cns}' instead of
+	`ideographic-'.
+	(M-20061): New character.
+	(C4-3873): Separate U+3E43; map to M-20061.
+	(U+3E43): Likewise.
+
+2003-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* ideograph-util.el (char-ideographic-strokes-from-domains): Add
+	autoload cookie.
+	(char-ideographic-strokes): Add autoload cookie.
+	(char-total-strokes-from-domains): New function.
+	(char-total-strokes): New function.
+
+	* Ideograph-R040-Roof.el (M-07097): New character.
+	(U+374E): Map to M-07097.
+	(M-07354): Map to U-00021AD2.
+	(U-00021AD2): Map to M-07354.
+	(M-28841): New character.
+	(U-00021B18): Map to M-28841.
+
+	* Ideograph-R030-Mouth.el (CB03875): Unify U-00021016 and H2-E0D1.
+
+	* Ideograph-R108-Dish.el, Ideograph-R107-Skin.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R106-White.el (U+7691): Add `total-strokes'.
+
+	* Ideograph-R104-Sickness.el: Add some `total-strokes' features.
+
+	* Ideograph-R098-Tile.el (U+74E7): Add `total-strokes'.
+
+	* Ideograph-R082-Fur.el, Ideograph-R075-Tree.el,
+	Ideograph-R072-Sun.el: Add some `total-strokes' features.
+
+	* Ideograph-R035-Go-Slowly.el (U+5911): Moved from
+	Ideograph-R086-Fire.el.
+
+2003-12-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R091-Slice.el (U+724D): Add `total-strokes'.
+
+	* Ideograph-R087-Claw.el (U+7231): Add `total-strokes'.
+
+	* Ideograph-R084-Steam.el, Ideograph-R081-Compare.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R079-Weapon.el (U+6BC2): Add `total-strokes'.
+
+	* Ideograph-R078-Death.el: Add some `total-strokes' features.
+
+	* Ideograph-R076-Lack.el (U+6B5A): Add `total-strokes'.
+
+	* Ideograph-R073-Say.el (U+6702): Add `total-strokes'.
+
+	* Ideograph-R070-Square.el, Ideograph-R069-Axe.el,
+	Ideograph-R064-Hand.el: Add some `total-strokes' features.
+
+	* Ideograph-R046-Mountain.el (U+5D8E): Add `total-strokes'.
+
+2003-12-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R067-Script.el (U+6593): Add `total-strokes'.
+
+	* Ideograph-R062-Halberd.el: Add some `total-strokes' features.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5ECD): Add `total-strokes'.
+
+	* Ideograph-R032-Earth.el (U+580F): Add `total-strokes'.
+
+	* Ideograph-R018-Knife.el (U+528F): Add `total-strokes'.
+
+	* Ideograph-R061-Heart.el: Add some `total-strokes'.
+
+	* Ideograph-R051-Dry.el (U+9878): Add `total-strokes'.
+
+	* Ideograph-R030-Mouth.el (JX1-2F2C): Unify U+FA36 instead of
+	U+559D.
+	(JX1-2F2F): Unify U+FA37 instead of U+5606.
+	(JX1-2F36): Unify U+FA38 instead of U+5668.
+
+	* Ideograph-R085-Water.el (JX1-7669): Unify U+FA45 instead of
+	U+6D77.
+	(JX1-7725): Unify U+FA47 instead of U+6F22.
+
+2003-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (JX1-7565): Unify U+FA44 instead of
+	U+6885.
+	(JX1-763B): Unify U+F91D instead of U+6B04.
+
+	* Ideograph-R019-Power.el (JX1-2E63): Unify U+FA33 instead of
+	U+52C9; use `->same-ideograph*sources' instead of char-ref in
+	`->same-ideograph'.
+	(J0-3650): Use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(JX1-2E68): Unify U+FA34 instead of U+52E4.
+
+	* Ideograph-R132-Self.el (JX1-7A58): Unify U+FA5C instead of
+	U+81ED.
+
+	* Ideograph-R112-Stone.el (JX1-7927): Unify U+FA4B instead of
+	U+7891.
+
+	* Ideograph-R066-Rap.el (JX1-7528): Unify U+FA41 instead of
+	U+654F.
+
+	* Ideograph-R061-Heart.el (JX1-7450): Unify U+FA3D instead of
+	U+6094.
+
+	* Ideograph-R032-Earth.el (U+5841): Use
+	`<-simplified-ideograph*sources' instead of char-ref in
+	`<-simplified-ideograph'.
+	(JX1-2F5E): Unify U+FA3A instead of U+58A8.
+
+	* Ideograph-R024-Ten.el (JX1-2E6E): Unify U+FA35 instead of
+	U+5351.
+	(J0-485C): Use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
+	* Ideograph-R009-Man.el: (JX1-2E38); Unify U+FA30 instead of
+	U+4FAE.
+
+2003-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el (JX1-7825): Unify U+FA4A instead of
+	U+7422.
+
+2003-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (C3-5B55): Separate U+4A04.
+
+	* Ideograph-R162-Walk.el (C3-3F56): Separate U+9037.
+	(U+9037): Separate C3-3F56; modify `total-strokes'.
+
+	* Ideograph-R135-Tongue.el (M-30307): Use
+	`->same-ideograph*sources' instead of char-ref in
+	`->same-ideograph'.
+
+	* Ideograph-R118-Bamboo.el (U-00025C02): Separate C7-2646.
+
+	* Ideograph-R109-Eye.el (U-0002F942): Use
+	`<-original-ideograph*sources' instead of char-ref in
+	`<-original-ideograph'.
+
+	* Ideograph-R087-Claw.el (U+722B): Add `->identical' for U+FA49.
+	(U+FA49): Delete `->identical'.
+
+	* Ideograph-R086-Fire.el (U-0002F835): Use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
+	* Ideograph-R020-Wrap.el (U-0002F82A): Use
+	`->ideographic-variants*sources' instead of char-ref in
+	`->ideographic-variants'.
+
+	* Ideograph-R015-Ice.el (C4-213F): Use
+	`<-original-ideograph*sources' instead of char-ref in
+	`<-original-ideograph'.
+
+2003-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (J0-4737): Use `ideographic-radical',
+	`{ideographic|total}-strokes@{daikanwa|gt}' and
+	`ideographic-strokes@daikanwa*sources' instead of `ideographic-'.
+
+2003-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0AC00-Hangul-Syllables.el (U+C5EC): Unify JC3-94B6.
+
+2003-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R025-Divination.el (U+5361): Separate JC3-82B5; unify
+	JC3-45CB.
+
+	* Ideograph-R030-Mouth.el (U+53FE): Add `total-strokes'.
+	(U+549E): Use `->identical' instead of `->same-ideograph' for
+	U-0002F83C.
+	(U+9EFE): Use `ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'.
+	(U+35A2): Separate C5-3670; modify strokes.
+	(M-03919): Unify U+35BC.
+	(C4-3659): Separate U+35BC.
+	(U+5577): Separate B-D86A.
+	(B-DCD8): Modify strokes.
+	(C2-417B): Unify JC3-46F1.
+	(U+55D2): Separate JC3-46F1.
+	(M-04143): Modify `ideographic-structure'.
+	(C3-462E): Likewise.
+	(U+5620): Modify `strokes'.
+	(U+35FB): Modify `strokes'.
+	(U+56BA): Fix strokes.
+	(U-00021109): Unify C7-476E instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead.
+	(U+56B0): Add `total-strokes'.
+	(U+56B9): Add strokes.
+	(CB00772): Fix `ideographic-strokes'.
+	(U+56D5): Fix `total-strokes'.
+
+	* Ideograph-R205-Frog.el (U-0002FA18): Use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+9EFE): Use `ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'.
+
+	* Ideograph-R089-Double-X.el (C7-476E): Unify U-00021109 and
+	H2-E2D9 instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead.
+	(U-00020442): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'.
+
+	* Ideograph-R060-Step.el (JC3-4DB3): Use
+	`->same-ideograph*sources' instead of char-ref in `->synonyms'.
+	(U+5F94): Modify strokes.
+	(U+8854): Moved to Ideograph-R144-Walk-Enclosure.el.
+	(U+5F9A): Add `total-strokes'.
+	(J0-4530): Separate U+5FB9 and G1-3339; fix `total-strokes'.
+	(U+5FB9): Likewise.
+	(U+5FBA): Add `total-strokes'.
+
+	* Ideograph-R009-Man.el (U-00020442): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'.
+
+	* Ideograph-R001-One.el (U+4E0E): Use
+	`ideographic-strokes@{ucs|gt}', `total-strokes@{ucs|gt}' and
+	`{ideographic|total}-strokes@ucs*sources' instead of
+	`ideographic-'; use `->synonyms*sources' instead of char-ref in
+	`->synonyms'.
+
+2003-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R154-Shell.el (U+8D30): Moved from
+	Ideograph-R056-Shoot.el.
+
+	* Ideograph-R144-Walk-Enclosure.el (U+8850): Add `total-strokes'.
+	(U+8854): Moved from Ideograph-R060-Step.el.
+
+	* Ideograph-R056-Shoot.el (U+7519): Add `total-strokes'.
+	(U+8D30): Moved to Ideograph-R154-Shell.el.
+
+	* Ideograph-R042-Small.el (M-07511): Separate all.
+	(U+3779): Modify strokes.
+	(M-07512): Separate all.
+	(U-00021B7F): Modify strokes.
+	(U+8F89): Moved to Ideograph-R159-Cart.el.
+
+	* Ideograph-R040-Roof.el (U+374D): Modify strokes.
+	(M-07151): Likewise.
+	(U+5BAC): Likewise.
+	(U+8D5B): Add `total-strokes'.
+
+	* Ideograph-R036-Evening.el (U+5922): Use
+	`<-simplified-ideograph*sources' instead of char-ref in
+	`<-simplified-ideograph'.
+
+	* Ideograph-R027-Cliff.el (U+539B): Add `total-strokes'.
+	(GT-03811): Use `<-vulgar-ideograph*sources' instead of char-ref
+	in `<-vulgar-ideograph'.
+	(U+53A9): Modify strokes.
+	(C3-4048): Unify H1-B3D0.
+	(U+53AB): Separate H1-B3D0.
+	(M-03024): Unify U+3550.
+	(C5-4C31): Separate U+3550.
+
+	* Ideograph-R005-Second.el (U+4E67): Add `total-strokes'.
+	(U+4E7A): Fix strokes.
+	(U+4E7B): Likewise.
+	(U+4E7C): Likewise.
+	(U+F91B): Add `total-strokes'.
+
+	* Ideograph-R159-Cart.el (U+8F89): Moved from
+	Ideograph-R042-Small.el.
+	(U+8F8B): Add `total-strokes'.
+	(U+8F8C): Add `total-strokes'.
+	(U+8F8D): Add `total-strokes'.
+	(U+8F8E): Add `total-strokes'.
+
+	* Ideograph-R059-Bristle.el (U+987B): Add `total-strokes'.
+
+	* Ideograph-R039-Child.el (U+5B67): Add `total-strokes'.
+
+	* Ideograph-R033-Scholar.el (U+58F6): Add `total-strokes'.
+	(U+58F8): Add `total-strokes'.
+	(U+5900): Add `total-strokes'.
+
+	* Ideograph-R028-Private.el (U+517F): Add `total-strokes'.
+
+	* Ideograph-R016-Table.el (U+34D8): Modify strokes.
+
+	* Ideograph-R014-Cover.el (U+519A): Add `total-strokes'.
+	(U+51A7): Add `total-strokes'.
+
+	* Ideograph-R007-Two.el (U+4E9F): Modify strokes.
+
+2003-12-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R079-Weapon.el (U-00023A98): New character.
+	(JX2-6E23): New character.
+
+	* u0AC00-Hangul-Syllables.el (JC3-94C0): New character.
+
+2003-12-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R112-Stone.el (JSP-4F63): Add JU+7852.
+	(U+7881): Unify BE-F9D6 instead of B-F9D6.
+	(JSP-4F7D): Add JU+78B2.
+	(JSP-4F7E): Add JU+78B3.
+	(JSP-5021): Add JU+78BB.
+	(J0-4858): Add JU+78D0.
+	(J0-627E): Add JU+78EC.
+
+	* Ideograph-R111-Arrow.el (JSP-4F4A): Add JU+77F1.
+
+2003-12-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R112-Stone.el: Add mappings for Big5 code points.
+
+2003-12-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R173-Rain.el (U+9738): Unify B-C551.
+
+	* Ideograph-R111-Arrow.el, Ideograph-R110-Spear.el: Add mappings
+	for Big5 code points.
+
+	* Ideograph-R074-Moon.el (U+9738): Unify B-C551.
+
+2003-12-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (JC3-67E6): New character.
+
+	* Ideograph-R061-Heart.el (JC3-4DD6): New character.
+
+	* Ideograph-R140-Grass.el (JC3-62B3): New character.
+
+	* Ideograph-R164-Wine.el (JX2-7A45): Unify JC3-95B2.
+
+2003-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el: Add mappings for Big5 code points.
+
+2003-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+830D): Copied from
+	Ideograph-R140-Grass.el.
+
+	* Ideograph-R075-Tree.el: Add `=ucs@big5' features.
+
+2003-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el, Ideograph-R072-Sun.el: Add `=ucs@big5'
+	features.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-{5877|592D|5A61}.
+
+	* Ideograph-R073-Say.el: Add `=ucs@big5' features.
+	(U+52D7): Add `ideographic-structure'.
+
+	* Ideograph-R070-Square.el, Ideograph-R069-Axe.el,
+	Ideograph-R068-Dipper.el, Ideograph-R067-Script.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R019-Power.el (U+52D7): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R064-Hand.el, Ideograph-R061-Heart.el: Add `=ucs@big5'
+	features.
+
+	* Ideograph-R057-Bow.el (JX1-7437): Unify JC3-4CEF.
+	(U+5F36): Separate JC3-4CEF.
+
+	* Ideograph-R066-Rap.el, Ideograph-R063-Door.el,
+	Ideograph-R060-Step.el, Ideograph-R059-Bristle.el: Add `=ucs@big5'
+	features.
+
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U-00020295): Add strokes; complete
+	`ideographic-structure'; separate H1-CC70.
+	(C3-3449): Unify JC3-42E6; add `ideographic-structure'.
+	(U+3464): Separate JC3-42E6.
+	(U-000202A7): Modify `ideographic-structure'.
+	(C4-2B60): Add `ideographic-structure'.
+	(M-00827): Unify JC3-42E7.
+	(U+5040): Separate JC3-42E7.
+	(M-00902): Unify H1-CEB8; add `ideographic-structure'.
+	(U-000202B8): Complete `ideographic-structure'; separate H1-CEB8.
+
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el: Add missing mappings between CJK Ext B
+	and CNS 11643 plain 5.
+
+	* Ideograph-R062-Halberd.el, Ideograph-R057-Bow.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R050-Turban.el: Add `=ucs@big5' features.
+	(U+5E1A): Add `ideographic-structure'.
+
+	* Ideograph-R037-Big.el, Ideograph-R030-Mouth.el,
+	Ideograph-R028-Private.el, Ideograph-R018-Knife.el,
+	Ideograph-R016-Table.el, Ideograph-R011-Enter.el,
+	Ideograph-R008-Lid.el, Ideograph-R002-Line.el: Reformatted.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3476.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
+	`=big5-cdp' to `=gt'.
+
+	* Ideograph-R073-Say.el (U+52D7): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources' instead of `ideographic-'.
+
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (GT-67403): Unify BC-8BAB.
+	(B-B16B): Add BU+5F57.
+
+	* Ideograph-R056-Shoot.el, Ideograph-R053-Dotted-Cliff.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R019-Power.el (U+52D6): Separate JC3-44EC.
+	(M-02392): Use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+52D7): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources' instead of `ideographic-'.
+	(J0-342A): Separate GT-03062, GT-K07734, U+52D8 and G0-3F31.
+
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R055-Two-Hands.el, Ideograph-R054-Long-Stride.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R052-Short-Thread.el (J0-3476): Separate GT-11608 and
+	GT-K09021; add BU+5E7E.
+	(C1-5E7D): Unify GT-11608 and GT-K09021.
+
+	* Ideograph-R051-Dry.el, Ideograph-R048-Work.el,
+	Ideograph-R047-River.el: Add `=ucs@big5' features.
+
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-342A.
+
+	* Ideograph-R180-Sound.el (JC3-6CDC): New character.
+
+	* Ideograph-R162-Walk.el (K0-6B34): Unify JC3-67DB.
+	(K0-5433): Unify JC3-67DF.
+
+2003-12-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (C1-5775): Modify subcode of
+	`morohashi-daikanwa' value.
+	(GT-40140): Likewise.
+	(J0-427B): Likewise.
+	(U+8338): Likewise.
+
+	* Ideograph-R012-Eight.el (U+516B): Separate C1-442C.
+
+	* Ideograph-R009-Man.el (C2-3A43): Modify subcode of
+	`morohashi-daikanwa' value.
+	(B-D85F): Likewise.
+	(U+5087): Likewise.
+	(U+513C): Likewise.
+
+2003-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u00180-Latin-Extended-B.el (JX1-2874): Add JU+01F8.
+
+	* Ideograph-R163-City.el (JX1-7C67): Add JU+90DE.
+
+	* Ideograph-R154-Shell.el (JX1-7C3B): Add JU+8CF8 instead of
+	J90U+8CF8.
+
+	* Ideograph-R149-Speech.el (JX1-7C34): Add JU+8B69.
+	(JX1-7C35): Add JU+8B9D.
+
+	* Ideograph-R104-Sickness.el (JX1-784D): Add JU+3F72.
+
+	* Ideograph-R086-Fire.el (JX1-7763): Add JU+7215.
+
+	* read-maps.el (mapping-table-read-file): If ucs-ccs is
+	`=ucs-jis-2000', add it.
+
+2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u01E00-Latin-Extended-Additional.el (JX1-2872): Unify JC3-85DE.
+	(JC3-8AF0): New character.
+	(JC3-8AC2): New character.
+
+	* Ideograph-R180-Sound.el (M-43297): Separate C5-6627; use
+	`ideographic-strokes@daikanwa' instead of `daikanwa-strokes'.
+	(M-43299): Separate U+97F9 and C1-776B.
+	(M-43300): Separate C2-6451.
+	(U+97FA): Separate JSP-6772.
+
+	* Ideograph-R046-Mountain.el: Add `=ucs@big5' features.
+
+	* Ideograph-R040-Roof.el: Reformatted.
+
+2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R044-Corpse.el, Ideograph-R043-Lame.el,
+	Ideograph-R042-Small.el, Ideograph-R041-Inch.el,
+	Ideograph-R038-Woman.el: Add `=ucs@big5' features.
+
+	* read-maps.el (mapping-table-read-file): Use `=ucs@jis-2000'
+	instead of `ucs-jis' for JX2-XXXX.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5423.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (JSP-6676): Separate
+	JX2-7B73; unify GT-56559.
+	(GT-56560): New character.
+	(JX2-7B73): Unify GT-56531.
+
+	* Ideograph-R140-Grass.el (JC3-61FA): New character.
+	(U+845B): Unify J78-336B.
+	(BC-8CB0): Unify GT-42188 and GT-K11857.
+	(JX2-7657): Unify GT-41801.
+	(M-49635): Use `ideographic-strokes@daikanwa' instead of
+	`ideographic-strokes'.
+
+	* Ideograph-R072-Sun.el: Reformatted.
+
+	* Ideograph-R040-Roof.el, Ideograph-R039-Child.el,
+	Ideograph-R031-Enclosure.el: Add `=ucs@big5' features.
+
+	* Ideograph-R030-Mouth.el (JSP-3669): Separate B-F5C6.
+
+	* u0AC00-Hangul-Syllables.el: Add some mappings for CHINA3 PUA
+	code points.
+	(U+C815): Unify JC3-96D5 instead of JC3-82DA.
+	(JC3-95EB): New character.
+
+	* Ideograph-R034-Go.el (M-05693): Separate C2-213A and B-C95A;
+	unify GT-07202.
+
+	* Ideograph-R019-Power.el: Reformatted.
+
+	* Ideograph-R149-Speech.el, Ideograph-R120-Silk.el (H12-EFEB): Use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
+	`ideographic-'.
+	(U-000261E5): Likewise.
+
+	* Ideograph-R113-Spirit.el (M-24692): Fix strokes.
+	(U+7966): Separate C3-3D5E.
+
+	* Ideograph-R112-Stone.el (M-24408): Use
+	`ideographic-strokes@daikanwa' instead of `daikanwa-strokes'.
+
+2003-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el: Add `=ucs@big5' features.
+
+	* Ideograph-R036-Evening.el, Ideograph-R035-Go-Slowly.el,
+	Ideograph-R033-Scholar.el, Ideograph-R032-Earth.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R138-Stopping.el (BC-8C42): Add
+	`<-ideographic-component-forms'.
+
+	* u000A0-Latin-1-Supplement.el (JX1-2965): Unify JC3-88D6.
+
+	* Ideograph-R075-Tree.el (M-15500): Unify J78-432E.
+
+2003-12-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el, Ideograph-R019-Power.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R029-Again.el, Ideograph-R027-Cliff.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R026-Seal.el,
+	Ideograph-R024-Ten.el, Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R008-Lid.el, Ideograph-R010-Legs.el: Add `=ucs@big5'
+	features.
+
+2003-12-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-ideographic-strokes-from-domains): New
+	function.
+	(char-ideographic-strokes): Add new optional argument
+	`preferred-domains'; use `char-ideographic-strokes-from-domains'.
+	(char-daikanwa-strokes): Specify '(daikanwa) as the
+	`preferred-domains' for `char-ideographic-strokes'.
+
+2003-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el, Ideograph-R014-Cover.el,
+	Ideograph-R013-Down-Box.el: Add `=ucs@big5' features.
+
+	* char-db-util.el (char-db-feature-domains): Add jis-x0213.
+
+2003-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R015-Ice.el, Ideograph-R009-Man.el: Add `=ucs@big5'
+	features.
+
+	* Ideograph-R121-Jar.el (C4-2F29): Unify BC-8CDA.
+
+2003-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el, Ideograph-R011-Enter.el: Add
+	`=ucs@big5' features.
+
+2003-12-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el: Add `=ucs@big5' features.
+
+2003-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R160-Bitter.el, Ideograph-R159-Cart.el,
+	Ideograph-R157-Foot.el: Add some mappings between CNS 11643-5 and
+	CJK Ext-B code points.
+
+	* Ideograph-R119-Rice.el (JX1-7978): Unify CB00857.
+
+2003-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R158-Body.el, Ideograph-R156-Run.el: Add some mappings
+	between CNS 11643-5 and CJK Ext-B code points.
+
+	* Ideograph-R018-Knife.el (U-000206F9): Use
+	`<-ancient-ideograph*sources' instead of char-ref in
+	`<-ancient-ideograph'.
+	(U-00020702): Unify M-48938; use `->ideographic-variants*sources'
+	instead of char-ref in `->ideographic-variants'.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL COW>): Add
+	`<-ideographic-component-forms' for U+725B.
+
+	* Ideograph-R093-Cow.el (M-19923): Unify BC-8BA9; add
+	`<-ideographic-component-forms' for U+725B.
+	(U+725C): Add `<-ideographic-component-forms' for U+725B.
+
+2003-12-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R155-Red.el: Add some mappings between CNS 11643-5 and
+	CJK Ext-B code points.
+
+	* Ideograph-R173-Rain.el (U+4A0C): Unify M-42223; separate
+	C3-3F7D.
+	(M-42224): Separate U+96ED.
+	(U-000290CB): New character.
+	(U-000290D2): New character.
+	(C5-5F59): Map to U-000290D2.
+	(M-42330): Separate U+9712.
+	(U+9714): Separate C3-534D.
+	(U+9715): Separate C3-534C.
+	(U+4A2D): Separate C3-5B57.
+	(M-42428): Separate U+4A2E.
+	(M-42452): Separate U+972E.
+	(JSP-672B): Separate U+9731.
+	(M-42467): Separate U+4A31.
+	(M-42477): Separate U+9735.
+	(JX2-7B79): Separate U+9736.
+
+	* Ideograph-R154-Shell.el: Add some mappings between CNS 11643-5
+	and CJK Ext-B code points.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL REPEAT>): Add
+	`<-ideographic-component-forms' for U-00020120.
+	(<CJK RADICAL MEAT>): Add `<-ideographic-component-forms' for
+	U+8089.
+	(BC-8958): Likewise.
+	(BC-8A73): Likewise.
+	(<CJK RADICAL RAIN>): Add `<-ideographic-component-forms' for
+	U+96E8.
+
+	* Ideograph-R130-Meat.el (<CJK RADICAL MEAT>): Add
+	`<-ideographic-component-forms' for U+8089.
+	(BC-8A73): Likewise.
+	(BC-8958): Likewise.
+
+	* Ideograph-R040-Roof.el (J0-355C): Separate U+5BAE and C1-5527.
+	(J0-3A4B): Separate U+5BB0, G0-5457 and C1-5523.
+	(J0-3163): Separate U+5BB4 and G0-5167.
+
+2003-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el (M-46875): Separate U+4CD0 and C3-5746.
+	(M-46876): Separate C5-6063.
+
+	* Ideograph-R187-Horse.el (M-44833'): New character.
+
+	* Ideograph-R184-Eat.el (M-44037'): New character.
+	(M-44459'): New character.
+
+	* Ideograph-R182-Wind.el (M-43920'): New character.
+
+	* Ideograph-R179-Leek.el (M-43256'): New character.
+	(M-43256"): Unify GT-58098; separate U+4AA3.
+
+	* Ideograph-R173-Rain.el (M-42417'): New character.
+
+2003-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el (M-41836): Unify GT-56167.
+	(M-41858'): New character.
+	(GT-56223): New character.
+	(M-41859): Unify GT-56217.
+
+2003-11-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el, u030A0-Katakana.el,
+	u03040-Hiragana.el, u02600-Miscellaneous-Symbols.el,
+	u03000-CJK-Symbols-and-Punctuation.el, u025A0-Geometric-Shapes.el,
+	u02190-Arrows.el, u02200-Mathematical-Operators.el,
+	u02000-General-Punctuation.el, u02100-Letterlike-Symbols.el,
+	u00400-Cyrillic.el, u00370-Greek.el, Ideograph-R214-Flute.el,
+	u000A0-Latin-1-Supplement.el, Ideograph-R209-Nose.el,
+	Ideograph-R206-Tripod.el, Ideograph-R207-Drum.el,
+	Ideograph-R208-Rat.el, Ideograph-R202-Millet.el,
+	Ideograph-R203-Black.el, Ideograph-R201-Yellow.el,
+	Ideograph-R199-Wheat.el, Ideograph-R192-Sacrificial-Wine.el,
+	Ideograph-R190-Hair.el, Ideograph-R179-Leek.el,
+	Ideograph-R185-Head.el, Ideograph-R186-Fragrant.el,
+	Ideograph-R177-Leather.el, Ideograph-R174-Blue.el,
+	Ideograph-R176-Face.el, Ideograph-R171-Slave.el,
+	Ideograph-R173-Rain.el, Ideograph-R170-Mound.el,
+	Ideograph-R165-Distinguish.el, Ideograph-R166-Village.el,
+	Ideograph-R167-Gold.el, Ideograph-R164-Wine.el,
+	Ideograph-R163-City.el, Ideograph-R161-Morning.el,
+	Ideograph-R162-Walk.el, Ideograph-R157-Foot.el,
+	Ideograph-R155-Red.el, Ideograph-R156-Run.el,
+	Ideograph-R153-Badger.el, Ideograph-R151-Bean.el,
+	Ideograph-R152-Pig.el, Ideograph-R146-West.el,
+	Ideograph-R150-Valley.el, Ideograph-R144-Walk-Enclosure.el,
+	Ideograph-R145-Clothes.el, Ideograph-R143-Blood.el,
+	Ideograph-R142-Insect.el, Ideograph-R141-Tiger.el,
+	Ideograph-R138-Stopping.el, Ideograph-R139-Color.el,
+	Ideograph-R140-Grass.el, Ideograph-R137-Boat.el,
+	Ideograph-R135-Tongue.el, Ideograph-R136-Oppose.el,
+	Ideograph-R133-Arrive.el, Ideograph-R134-Mortar.el,
+	Ideograph-R131-Minister.el, Ideograph-R132-Self.el,
+	Ideograph-R129-Brush.el, Ideograph-R130-Meat.el,
+	Ideograph-R125-Old.el, Ideograph-R126-And.el,
+	Ideograph-R127-Plow.el, Ideograph-R124-Feather.el,
+	Ideograph-R123-Sheep.el, Ideograph-R121-Jar.el,
+	Ideograph-R122-Net.el, Ideograph-R120-Silk.el,
+	Ideograph-R119-Rice.el, Ideograph-R118-Bamboo.el,
+	Ideograph-R114-Track.el, Ideograph-R115-Grain.el,
+	Ideograph-R113-Spirit.el, Ideograph-R111-Arrow.el,
+	Ideograph-R112-Stone.el, Ideograph-R110-Spear.el,
+	Ideograph-R109-Eye.el, Ideograph-R108-Dish.el,
+	Ideograph-R107-Skin.el, Ideograph-R103-Bolt-Of-Cloth.el,
+	Ideograph-R105-Dotted-Tent.el, Ideograph-R106-White.el,
+	Ideograph-R102-Field.el, Ideograph-R100-Life.el,
+	Ideograph-R101-Use.el, Ideograph-R099-Sweet.el,
+	Ideograph-R098-Tile.el, Ideograph-R096-Jade.el,
+	Ideograph-R094-Dog.el, Ideograph-R093-Cow.el,
+	Ideograph-R089-Double-X.el, Ideograph-R090-Half-Tree-Trunk.el,
+	Ideograph-R091-Slice.el, Ideograph-R087-Claw.el,
+	Ideograph-R086-Fire.el, Ideograph-R085-Water.el,
+	Ideograph-R083-Clan.el, Ideograph-R084-Steam.el,
+	Ideograph-R082-Fur.el, Ideograph-R080-Do-Not.el,
+	Ideograph-R081-Compare.el, Ideograph-R079-Weapon.el,
+	Ideograph-R078-Death.el, Ideograph-R077-Stop.el,
+	Ideograph-R076-Lack.el, Ideograph-R075-Tree.el,
+	Ideograph-R073-Say.el, Ideograph-R074-Moon.el,
+	Ideograph-R069-Axe.el, Ideograph-R071-Not.el,
+	Ideograph-R072-Sun.el, Ideograph-R068-Dipper.el,
+	Ideograph-R065-Branch.el, Ideograph-R066-Rap.el,
+	Ideograph-R064-Hand.el, Ideograph-R062-Halberd.el,
+	Ideograph-R061-Heart.el, Ideograph-R059-Bristle.el,
+	Ideograph-R060-Step.el, Ideograph-R058-Snout.el,
+	Ideograph-R056-Shoot.el, Ideograph-R057-Bow.el,
+	Ideograph-R051-Dry.el, Ideograph-R052-Short-Thread.el,
+	Ideograph-R054-Long-Stride.el, Ideograph-R055-Two-Hands.el,
+	Ideograph-R048-Work.el, Ideograph-R049-Oneself.el,
+	Ideograph-R050-Turban.el, Ideograph-R047-River.el,
+	Ideograph-R046-Mountain.el, Ideograph-R044-Corpse.el,
+	Ideograph-R041-Inch.el, Ideograph-R042-Small.el,
+	Ideograph-R043-Lame.el, Ideograph-R040-Roof.el,
+	Ideograph-R039-Child.el, Ideograph-R038-Woman.el,
+	Ideograph-R037-Big.el, Ideograph-R035-Go-Slowly.el,
+	Ideograph-R036-Evening.el, Ideograph-R033-Scholar.el,
+	Ideograph-R032-Earth.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R030-Mouth.el, Ideograph-R028-Private.el,
+	Ideograph-R029-Again.el, Ideograph-R027-Cliff.el,
+	Ideograph-R025-Divination.el, Ideograph-R026-Seal.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R024-Ten.el,
+	Ideograph-R021-Spoon.el, Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R020-Wrap.el, Ideograph-R019-Power.el,
+	Ideograph-R017-Open-Box.el, Ideograph-R018-Knife.el,
+	Ideograph-R016-Table.el, Ideograph-R015-Ice.el,
+	Ideograph-R013-Down-Box.el, Ideograph-R014-Cover.el,
+	Ideograph-R012-Eight.el, Ideograph-R011-Enter.el,
+	Ideograph-R010-Legs.el, Ideograph-R009-Man.el,
+	Ideograph-R006-Hook.el, Ideograph-R007-Two.el,
+	Ideograph-R005-Second.el, Ideograph-R004-Slash.el,
+	Ideograph-R002-Line.el, Ideograph-R003-Dot.el,
+	Ideograph-R001-One.el: Reformatted.
+
+	* char-db-util.el (char-attribute-name<): Use only `charset-id'
+	again.
+
+2003-11-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el,
+	u03300-CJK-Compatibility.el, u030A0-Katakana.el,
+	u03100-Bopomofo.el, u03040-Hiragana.el,
+	u02E00-CJK-Radical-Supplement.el,
+	u03000-CJK-Symbols-and-Punctuation.el, u025A0-Geometric-Shapes.el,
+	u02600-Miscellaneous-Symbols.el, u02500-Box-Drawing.el,
+	u02460-Enclosed-Alphanumerics.el,
+	u02300-Miscellaneous-Technical.el,
+	u02200-Mathematical-Operators.el, u02150-Number-Forms.el,
+	u02190-Arrows.el, u02100-Letterlike-Symbols.el,
+	u02000-General-Punctuation.el, u00400-Cyrillic.el,
+	u00370-Greek.el, u002B0-Spacing-Modifier-Letters.el,
+	u00180-Latin-Extended-B.el, u00100-Latin-Extended-A.el,
+	u000A0-Latin-1-Supplement.el, Ideograph-R214-Flute.el,
+	u00020-Basic-Latin.el, Ideograph-R212-Dragon.el,
+	Ideograph-R213-Turtle.el, Ideograph-R211-Tooth.el,
+	Ideograph-R209-Nose.el, Ideograph-R210-Even.el,
+	Ideograph-R208-Rat.el, Ideograph-R204-Embroidery.el,
+	Ideograph-R205-Frog.el, Ideograph-R206-Tripod.el,
+	Ideograph-R207-Drum.el, Ideograph-R203-Black.el,
+	Ideograph-R201-Yellow.el, Ideograph-R202-Millet.el,
+	Ideograph-R200-Hemp.el, Ideograph-R199-Wheat.el,
+	Ideograph-R198-Deer.el, Ideograph-R197-Salt.el,
+	Ideograph-R196-Bird.el, Ideograph-R195-Fish.el,
+	Ideograph-R194-Ghost.el, Ideograph-R191-Fight.el,
+	Ideograph-R192-Sacrificial-Wine.el, Ideograph-R193-Cauldron.el,
+	Ideograph-R190-Hair.el, Ideograph-R189-Tall.el,
+	Ideograph-R188-Bone.el, Ideograph-R185-Head.el,
+	Ideograph-R186-Fragrant.el, Ideograph-R187-Horse.el,
+	Ideograph-R183-Fly.el, Ideograph-R184-Eat.el,
+	Ideograph-R182-Wind.el, Ideograph-R181-Leaf.el,
+	Ideograph-R179-Leek.el, Ideograph-R180-Sound.el,
+	Ideograph-R178-Tanned-Leather.el, Ideograph-R177-Leather.el,
+	Ideograph-R174-Blue.el, Ideograph-R175-Wrong.el,
+	Ideograph-R176-Face.el, Ideograph-R173-Rain.el,
+	Ideograph-R171-Slave.el, Ideograph-R172-Short-Tailed-Bird.el,
+	Ideograph-R170-Mound.el, Ideograph-R168-Long.el,
+	Ideograph-R169-Gate.el, Ideograph-R165-Distinguish.el,
+	Ideograph-R166-Village.el, Ideograph-R167-Gold.el,
+	Ideograph-R164-Wine.el, Ideograph-R163-City.el,
+	Ideograph-R162-Walk.el, Ideograph-R161-Morning.el,
+	Ideograph-R160-Bitter.el, Ideograph-R159-Cart.el,
+	Ideograph-R158-Body.el, Ideograph-R157-Foot.el,
+	Ideograph-R156-Run.el, Ideograph-R155-Red.el,
+	Ideograph-R154-Shell.el, Ideograph-R153-Badger.el,
+	Ideograph-R152-Pig.el, Ideograph-R151-Bean.el,
+	Ideograph-R150-Valley.el, Ideograph-R149-Speech.el,
+	Ideograph-R148-Horn.el, Ideograph-R147-See.el,
+	Ideograph-R146-West.el, Ideograph-R145-Clothes.el,
+	Ideograph-R144-Walk-Enclosure.el, Ideograph-R143-Blood.el,
+	Ideograph-R142-Insect.el, Ideograph-R141-Tiger.el,
+	Ideograph-R138-Stopping.el, Ideograph-R139-Color.el,
+	Ideograph-R140-Grass.el, Ideograph-R137-Boat.el,
+	Ideograph-R135-Tongue.el, Ideograph-R136-Oppose.el,
+	Ideograph-R132-Self.el, Ideograph-R133-Arrive.el,
+	Ideograph-R134-Mortar.el, Ideograph-R131-Minister.el,
+	Ideograph-R129-Brush.el, Ideograph-R130-Meat.el,
+	Ideograph-R126-And.el, Ideograph-R127-Plow.el,
+	Ideograph-R128-Ear.el, Ideograph-R125-Old.el,
+	Ideograph-R124-Feather.el, Ideograph-R123-Sheep.el,
+	Ideograph-R121-Jar.el, Ideograph-R122-Net.el,
+	Ideograph-R120-Silk.el, Ideograph-R119-Rice.el,
+	Ideograph-R118-Bamboo.el, Ideograph-R117-Stand.el,
+	Ideograph-R116-Cave.el, Ideograph-R114-Track.el,
+	Ideograph-R115-Grain.el, Ideograph-R113-Spirit.el,
+	Ideograph-R112-Stone.el, Ideograph-R110-Spear.el,
+	Ideograph-R111-Arrow.el, Ideograph-R109-Eye.el,
+	Ideograph-R107-Skin.el, Ideograph-R108-Dish.el,
+	Ideograph-R105-Dotted-Tent.el, Ideograph-R106-White.el,
+	Ideograph-R104-Sickness.el, Ideograph-R103-Bolt-Of-Cloth.el,
+	Ideograph-R100-Life.el, Ideograph-R101-Use.el,
+	Ideograph-R102-Field.el, Ideograph-R099-Sweet.el,
+	Ideograph-R097-Melon.el, Ideograph-R098-Tile.el,
+	Ideograph-R096-Jade.el, Ideograph-R095-Profound.el,
+	Ideograph-R094-Dog.el, Ideograph-R092-Fang.el,
+	Ideograph-R093-Cow.el, Ideograph-R091-Slice.el,
+	Ideograph-R088-Father.el, Ideograph-R089-Double-X.el,
+	Ideograph-R090-Half-Tree-Trunk.el, Ideograph-R087-Claw.el,
+	Ideograph-R086-Fire.el, Ideograph-R083-Clan.el,
+	Ideograph-R084-Steam.el, Ideograph-R085-Water.el,
+	Ideograph-R080-Do-Not.el, Ideograph-R081-Compare.el,
+	Ideograph-R082-Fur.el, Ideograph-R079-Weapon.el,
+	Ideograph-R078-Death.el, Ideograph-R077-Stop.el,
+	Ideograph-R076-Lack.el, Ideograph-R075-Tree.el,
+	Ideograph-R074-Moon.el, Ideograph-R073-Say.el,
+	Ideograph-R071-Not.el, Ideograph-R072-Sun.el,
+	Ideograph-R070-Square.el, Ideograph-R069-Axe.el,
+	Ideograph-R067-Script.el, Ideograph-R068-Dipper.el,
+	Ideograph-R065-Branch.el, Ideograph-R066-Rap.el,
+	Ideograph-R064-Hand.el, Ideograph-R063-Door.el,
+	Ideograph-R062-Halberd.el, Ideograph-R061-Heart.el,
+	Ideograph-R060-Step.el, Ideograph-R059-Bristle.el,
+	Ideograph-R058-Snout.el, Ideograph-R057-Bow.el,
+	Ideograph-R056-Shoot.el, Ideograph-R055-Two-Hands.el,
+	Ideograph-R054-Long-Stride.el, Ideograph-R051-Dry.el,
+	Ideograph-R052-Short-Thread.el, Ideograph-R053-Dotted-Cliff.el,
+	Ideograph-R048-Work.el, Ideograph-R049-Oneself.el,
+	Ideograph-R050-Turban.el, Ideograph-R047-River.el,
+	Ideograph-R045-Sprout.el, Ideograph-R046-Mountain.el,
+	Ideograph-R044-Corpse.el, Ideograph-R042-Small.el,
+	Ideograph-R043-Lame.el, Ideograph-R041-Inch.el,
+	Ideograph-R040-Roof.el, Ideograph-R039-Child.el,
+	Ideograph-R038-Woman.el, Ideograph-R037-Big.el,
+	Ideograph-R034-Go.el, Ideograph-R035-Go-Slowly.el,
+	Ideograph-R036-Evening.el, Ideograph-R033-Scholar.el,
+	Ideograph-R032-Earth.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R030-Mouth.el, Ideograph-R029-Again.el,
+	Ideograph-R028-Private.el, Ideograph-R027-Cliff.el,
+	Ideograph-R025-Divination.el, Ideograph-R026-Seal.el,
+	Ideograph-R024-Ten.el, Ideograph-R023-Hiding-Enclosure.el,
+	Ideograph-R022-Right-Open-Box.el, Ideograph-R021-Spoon.el,
+	Ideograph-R020-Wrap.el, Ideograph-R019-Power.el,
+	Ideograph-R018-Knife.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R016-Table.el, Ideograph-R015-Ice.el,
+	Ideograph-R014-Cover.el, Ideograph-R013-Down-Box.el,
+	Ideograph-R012-Eight.el, Ideograph-R011-Enter.el,
+	Ideograph-R010-Legs.el, Ideograph-R009-Man.el,
+	Ideograph-R008-Lid.el, Ideograph-R006-Hook.el,
+	Ideograph-R007-Two.el, Ideograph-R005-Second.el,
+	Ideograph-R004-Slash.el, Ideograph-R003-Dot.el,
+	Ideograph-R002-Line.el, Ideograph-R001-One.el: Reformatted.
+
+	* char-db-util.el (char-attribute-name<): Use
+	`charset-iso-final-char' again for ISO-IR coded-charsets.
+	(char-db-insert-char-spec): Delete unused local variable `ret'.
+
+2003-11-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R166-Village.el (GT-53970): New character.
+
+	* Ideograph-R163-City.el (GT-53191): New character.
+
+	* Ideograph-R162-Walk.el (GT-52598): New character.
+	(GT-52500): New character.
+	(GT-52732): New character.
+	(GT-52669): New character.
+
+2003-11-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R002-Line.el (U+4E30): Unify BC-897E.
+
+2003-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el (U+6237): Unify BC-89A2.
+
+2003-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (U+6667): Unify GT-17615.
+
+2003-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (J0-5A6E): Unify GT-17613.
+
+	* Ideograph-R211-Tooth.el: Add some GT code points.
+
+	* Ideograph-R213-Turtle.el (J90-737D): Unify GT-66712.
+	(M-48848): Use `<-original-ideograph*sources' instead of char-ref
+	in `<-original-ideograph'.
+
+	* Ideograph-R212-Dragon.el:
+	- Add some GT code points.
+	- Add some `total-strokes'.
+
+	* Ideograph-R208-Rat.el (U+9F20): Unify GT-66099.
+	(GT-66133): New character.
+
+	* Ideograph-R184-Eat.el (GT-59030): Add
+	`<-ideographic-component-forms' for U+98DF.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL EAT TWO>): Add
+	`<-ideographic-component-forms' for U+98DF.
+	(GT-59030): Copied from Ideograph-R184-Eat.el.
+	(<CJK RADICAL EAT THREE>): Add `<-ideographic-component-forms' for
+	U+98DF.
+	(<CJK RADICAL C-SIMPLIFIED EAT>): Likewise.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-{7366,7367,7368,736C}.
+
+	* Ideograph-R214-Flute.el (U+9FA0): Unify GT-66752.
+
+	* Ideograph-R210-Even.el: Add some GT code points.
+	(U+9F51): Add `total-strokes'.
+
+	* Ideograph-R209-Nose.el (U+9F3B): Unify GT-66224 and GT-K11266.
+	(U-0002FA1C): Unify GT-66225.
+	(U+9F3E): Unify GT-66236.
+
+	* Ideograph-R206-Tripod.el (U+9F0E): Separate C1-676F; unify
+	GT-66019.
+
+	* Ideograph-R205-Frog.el, Ideograph-R203-Black.el: Add some GT
+	code points.
+
+	* Ideograph-R207-Drum.el (U+9F13): Unify GT-66032.
+	(J0-736A): Unify GT-66045.
+
+	* Ideograph-R204-Embroidery.el, Ideograph-R202-Millet.el,
+	Ideograph-R201-Yellow.el, Ideograph-R200-Hemp.el,
+	Ideograph-R199-Wheat.el: Add some GT code points.
+
+2003-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R198-Deer.el, Ideograph-R196-Bird.el,
+	Ideograph-R197-Salt.el: Add some GT code points.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-733B and J90-4E6F.
+
+	* Ideograph-R195-Fish.el, Ideograph-R194-Ghost.el,
+	Ideograph-R191-Fight.el: Add some GT code points.
+
+2003-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for some JIS X 0208:1990 code
+	points.
+
+	* Ideograph-R193-Cauldron.el (J0-722F): Unify GT-61436.
+	(J0-6478): Unify GT-61490.
+
+	* Ideograph-R192-Sacrificial-Wine.el (U+9B2F): Unify GT-61419.
+	(U+9B31): Unify GT-61435.
+
+	* Ideograph-R190-Hair.el, Ideograph-R189-Tall.el,
+	Ideograph-R188-Bone.el: Add some GT code points.
+
+	* Ideograph-R187-Horse.el:
+	- Add some GT code points.
+	- Add some `total-strokes'.
+
+	* Ideograph-R186-Fragrant.el: Add some GT code points.
+
+2003-11-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R185-Head.el (U+9996): Unify GT-59948.
+	(U+9997): Unify GT-59950.
+	(U+9998): Unify GT-59972.
+
+	* Ideograph-R184-Eat.el: Add some GT code points.
+
+	* Ideograph-R182-Wind.el:
+	- Add some GT code points.
+	- Add some `total-strokes'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for some JIS X 0208:1990 code
+	points.
+
+	* Ideograph-R183-Fly.el (U+98DB): Unify GT-59007.
+	(U+98DC): Unify GT-59018.
+
+	* Ideograph-R181-Leaf.el, Ideograph-R180-Sound.el,
+	Ideograph-R179-Leek.el, Ideograph-R178-Tanned-Leather.el,
+	Ideograph-R177-Leather.el, Ideograph-R176-Face.el,
+	Ideograph-R175-Wrong.el, Ideograph-R174-Blue.el,
+	Ideograph-R173-Rain.el: Add some GT code points.
+
+	* Ideograph-R170-Mound.el (M-41676): Use
+	`->same-ideograph{*sources}' instead of `ideograph='.
+	(M-41836): Use `<-simplified-ideograph{*sources}' instead of
+	`simplified-ideograph-of'.
+	- Add some GT code points.
+	- Add some `total-strokes'.
+
+	* Ideograph-R167-Gold.el:
+	- Add some GT code points.
+	- Add some `total-strokes'.
+
+2003-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (GT-K00267): Refer GT-67403 instead of
+	GT-60403 as the value of `->identical'.
+
+2003-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Add some GT code points.
+
+	* Ideograph-R074-Moon.el (U+9738): Copied from
+	Ideograph-R173-Rain.el.
+
+2003-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R171-Slave.el (U+96B6): Unify GT-56338.
+	(M-41928): Separate all; unify C3-5349 instead.
+	(U+96B7): Separate M-41928; unify GT-56345.
+	(M-41932): Unify C1-7622.
+	(U+96B8): Unify GT-56348.
+
+	* Ideograph-R169-Gate.el:
+	- Add some GT code points.
+	- Add some `total-strokes'.
+
+	* Ideograph-R030-Mouth.el (CB03537): Modify
+	`ideographic-structure' [because J0-6F6B was separated from
+	M-41434].
+
+	* Ideograph-R168-Long.el (U+9577): Unify GT-55291.
+
+	* Ideograph-R058-Snout.el (GT-PJ-11-5A40): Unify GT-67403 instead
+	of GT-60403.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6E60 and J90-6F52.
+
+	* isolated-char.el: Comment out GT-40268, GT-52230, GT-52349 and
+	GT-56364.
+	(GT-PJ-11-5A40): Unify GT-67403 instead of GT-60403.
+
+	* Ideograph-R077-Stop.el (U+6B6F): Unify GT-66384.
+
+	* Ideograph-R005-Second.el (U+4E80): Unify GT-66701.
+
+2003-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (JX1-7635): Fixed.
+	(C3-5524): Likewise.
+
 2003-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el (M-12236): Unify GT-15509.

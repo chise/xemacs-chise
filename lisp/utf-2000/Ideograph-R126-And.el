@@ -5,10 +5,10 @@
     (total-strokes	 . 6)
     (shinjigen-2	. 6349)
     (=ucs		. #x800C)	; è€Œ
-    (=cns11643-1	. #x4854)	; ø»‘¼¡
-    (=ks-x1001		. #x6C3B)	; ø»Šˆ°
-    (=gb2312		. #x3678)	; ø»„¦‘
     (=jis-x0208		. #x3C29)	; ø½Š®
+    (=gb2312		. #x3678)	; ø»„¦‘
+    (=ks-x1001		. #x6C3B)	; ø»Šˆ°
+    (=cns11643-1	. #x4854)	; ø»‘¼¡
     (=gt		. 37338)	; ý¡€‰‡š
     (=gt-k		. 01628)	; ý¡„€™œ
     (=gt-pj-1		. #x3C29)	; ý¡€‰‡š
@@ -47,8 +47,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (=ucs		. #x800D)	; è€
-    (=jis-x0212		. #x554B)	; ø»‹±’
     (=gb2312		. #x4B23)	; ø»…ƒ²
+    (=jis-x0212		. #x554B)	; ø»‹±’
     (=daikanwa		. 28875)	; ø¸‡ƒ‹
     (=jef-china3	. #x60BA)	; øº†‚º
     ))
@@ -80,8 +80,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (=ucs		. #x800E)	; è€Ž
-    (=jis-x0213-2-2000	. #x7525)	; ø»¦˜œ
     (=jis-x0212		. #x554C)	; ø»‹±“
+    (=jis-x0213-2-2000	. #x7525)	; ø»¦˜œ
     (=daikanwa		. 28877)	; ø¸‡ƒ
     (=jef-china3	. #x60BB)	; øº†‚»
     ))
@@ -98,8 +98,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (=ucs		. #x800F)	; è€
-    (=cns11643-2	. #x2C74)	; ø»“½
     (=jis-x0212		. #x554D)	; ø»‹±”
+    (=cns11643-2	. #x2C74)	; ø»“½
     (=daikanwa		. 28878)	; ø¸‡ƒŽ
     ))
 (define-char
@@ -107,10 +107,10 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (=ucs		. #x8010)	; è€
-    (=cns11643-1	. #x5323)	; ø»’‹º
-    (=ks-x1001		. #x5231)	; ø»‰¢š
-    (=gb2312		. #x444D)	; ø»„ºŠ
     (=jis-x0208		. #x4251)	; ø½Š§Š
+    (=gb2312		. #x444D)	; ø»„ºŠ
+    (=ks-x1001		. #x5231)	; ø»‰¢š
+    (=cns11643-1	. #x5323)	; ø»’‹º
     (=gt		. 37346)	; ý¡€‰‡¢
     (=gt-pj-1		. #x4251)	; ý¡€‰‡¢
     (=daikanwa		. 28879)	; ø¸‡ƒ
@@ -120,9 +120,9 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (=ucs		. #x8011)	; è€‘
-    (=jis-x0213-2-2000	. #x7526)	; ø»¦˜
-    (=cns11643-1	. #x5325)	; ø»’‹¼
     (=jis-x0212		. #x554E)	; ø»‹±•
+    (=cns11643-1	. #x5325)	; ø»’‹¼
+    (=jis-x0213-2-2000	. #x7526)	; ø»¦˜
     (=daikanwa		. 28880)	; ø¸‡ƒ
     (=jef-china3	. #x60BC)	; øº†‚¼
     ))

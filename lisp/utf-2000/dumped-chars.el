@@ -301,5 +301,6 @@
 	"u0FE70-Arabic-Presentation-Forms-B"
 	"u0FF00-Halfwidth-and-Fullwidth-Forms"
 	"u0FFF0-Specials"
+	"ruimoku6"
 	"maps-conf"
 	"ccs-tcvn5712.el"))

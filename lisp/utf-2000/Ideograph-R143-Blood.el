@@ -5,10 +5,10 @@
     (total-strokes	 . 6)
     (shinjigen-2	. 7309)
     (=ucs		. #x8840)	; è¡€
-    (=cns11643-1	. #x4866)	; ø»‘¼³
-    (=ks-x1001		. #x7A6C)	; ø»Šž…
-    (=gb2312		. #x512A)	; ø»…Œ­
     (=jis-x0208		. #x376C)	; ø½Š—›
+    (=gb2312		. #x512A)	; ø»…Œ­
+    (=ks-x1001		. #x7A6C)	; ø»Šž…
+    (=cns11643-1	. #x4866)	; ø»‘¼³
     (=gt		. 45816)	; ý¡€‹‹¸
     (=gt-k		. 01598)	; ý¡„€˜¾
     (=gt-pj-1		. #x376C)	; ý¡€‹‹¸
@@ -43,8 +43,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (=ucs		. #x460F)	; ä˜
-    (=jis-x0213-2-2000	. #x7824)	; ø»¦œµ
     (=cns11643-3	. #x2F25)	; ø»•«Œ
+    (=jis-x0213-2-2000	. #x7824)	; ø»¦œµ
     (=daikanwa		. 33968)	; ø¸ˆ’°
     ))
 (define-char
@@ -106,8 +106,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (=ucs		. #x8843)	; è¡ƒ
-    (=cns11643-2	. #x3271)	; ø»“¦®
     (=jis-x0212		. #x5C24)	; ø»‹º½
+    (=cns11643-2	. #x3271)	; ø»“¦®
     (=daikanwa		. 33972)	; ø¸ˆ’´
     ))
 (define-char
@@ -116,12 +116,12 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (shinjigen-2	. 7311)
-    (=cns11643-2	. #x3272)	; ø»“¦¯
     (=jis-x0208		. #x6A48)	; ø½‹¡±
+    (=cns11643-2	. #x3272)	; ø»“¦¯
     (=gt		. 45830)	; ý¡€‹Œ†
     (=gt-pj-1		. #x6A48)	; ý¡€‹Œ†
     (=daikanwa		. 33973)	; ø¸ˆ’µ
-    (=ucs@jis		. #x8844)	; ø»“¦¯
+    (=ucs@jis		. #x8844)	; ø½‹¡±
     ))
 (define-char
   '((morohashi-daikanwa	33973 0 1)
@@ -208,8 +208,8 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (=ucs		. #x8845)	; è¡…
-    (=cns11643-3	. #x386A)	; ø»•¹Ÿ
     (=gb2312		. #x5046)	; ø»…‹«
+    (=cns11643-3	. #x386A)	; ø»•¹Ÿ
     ))
 (define-char
   '((=>ucs		. #x8846)	; è¡†
@@ -302,8 +302,8 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (=ucs		. #x8849)	; è¡‰
-    (=cns11643-6	. #x4E4F)	; ø»œ·¤
     (=jis-x0212		. #x5C27)	; ø»‹»€
+    (=cns11643-6	. #x4E4F)	; ø»œ·¤
     (=daikanwa		. 33985)	; ø¸ˆ“
     ))
 (define-char
@@ -644,8 +644,8 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
     (=ucs		. #x884A)	; è¡Š
-    (=jis-x0213-2-2000	. #x7825)	; ø»¦œ¶
     (=jis-x0212		. #x5C28)	; ø»‹»
+    (=jis-x0213-2-2000	. #x7825)	; ø»¦œ¶
     (=gb12345		. #x785A)	; è¡Š
     ))
 (define-char
@@ -669,8 +669,8 @@
     (ideographic-strokes . 18)
     (total-strokes	 . 24)
     (=ucs		. #x884B)	; è¡‹
-    (=cns11643-2	. #x704E)	; ø»•
     (=jis-x0212		. #x5C29)	; ø»‹»‚
+    (=cns11643-2	. #x704E)	; ø»•
     (=daikanwa		. 34026)	; ø¸ˆ“ª
     ))
 (define-char

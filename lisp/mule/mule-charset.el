@@ -3,7 +3,7 @@
 ;; Copyright (C) 1992 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
-;; Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
+;; Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -277,6 +277,19 @@ DESCRIPTION (string) is the description string of the charset."
 	  greek-iso8859-7
 	  thai-tis620
 	  =jis-x0208
+	  =gt-pj-2
+	  =gt-pj-3
+	  =gt-pj-4
+	  =gt-pj-5
+	  =gt-pj-6
+	  =gt-pj-7
+	  =gt-pj-8
+	  =gt-pj-9
+	  =gt-pj-10
+	  =gt-pj-11
+	  =gt-pj-k1
+	  =gt-pj-k2
+	  =big5-cdp
 	  japanese-jisx0208
 	  =jis-x0208-1990
 	  japanese-jisx0212
@@ -306,23 +319,17 @@ DESCRIPTION (string) is the description string of the charset."
 	  arabic-digit
 	  arabic-1-column
 	  arabic-2-column
-	  =big5-cdp
+	  =gt-pj-1
 	  chinese-big5-eten-a
 	  chinese-big5-eten-b
 	  chinese-big5
-	  =gt-pj-1
-	  =gt-pj-2
-	  =gt-pj-3
-	  =gt-pj-4
-	  =gt-pj-5
-	  =gt-pj-6
-	  =gt-pj-7
-	  =gt-pj-8
-	  =gt-pj-9
-	  =gt-pj-10
-	  =gt-pj-11
-	  =gt-pj-k1
-	  =gt-pj-k2
+	  =ucs-radicals
+	  =ucs-radicals@unicode
+	  =ucs-bmp-cjk
+	  =ucs-bmp-cjk@unicode
+	  =ucs-sip-ext-b
+	  =ucs-sip-ext-b@iso
+	  =ruimoku-v6
 	  ideograph-daikanwa-2
 	  ideograph-daikanwa
 	  =hanziku-1

@@ -1,6 +1,6 @@
 ;;; update-cdb.el --- Update and/or setup character attribute database
 
-;; Copyright (C) 2002,2003 MORIOKA Tomohiko.
+;; Copyright (C) 2002,2003,2004 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: Character, Database, CHISE, Unicode, UCS-4, MULE.
@@ -74,6 +74,14 @@
 
     (dolist (ccs (charset-list))
       (save-charset-mapping-table ccs))
+
+    (with-temp-buffer
+      (insert
+       (format
+	"(setq next-defined-char-id #x%X)\n"
+	next-defined-char-id))
+      (write-region (point-min)(point-max)
+		    "../lisp/utf-2000/cid-conf.el"))
     )
    (t
     (if (>= (function-max-args 'char-attribute-list) 1)
@@ -87,11 +95,19 @@
 	       nil nil t t)))
     (dolist (ccs (charset-list))
       (reset-charset-mapping-table ccs))
+    (load "../lisp/utf-2000/cid-conf.el")
     )))
  (t
   (load "dumped-chars.el")
   (dolist (file system-char-db-source-file-list)
     (pureload file))
+  (dolist (feature '(ideographic-structure))
+    (map-char-attribute
+     (lambda (c v)
+       (put-char-attribute
+	c feature (char-refs-simplify-char-specs v))
+       nil)
+     feature))
   ))
 
 (defun char-ref= (cr1 cr2 &optional tester)

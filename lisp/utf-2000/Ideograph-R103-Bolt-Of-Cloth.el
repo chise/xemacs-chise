@@ -5,10 +5,10 @@
     (total-strokes	 . 5)
     (shinjigen-2	. 5084)
     (=ucs		. #x758B)	; ç–‹
-    (=cns11643-1	. #x4674)	; ø»‘º…
-    (=ks-x1001		. #x7935)	; ø»Š›°
-    (=gb2312		. #x7162)	; ø»…¼¥
     (=jis-x0208		. #x4925)	; ø½Š°°
+    (=gb2312		. #x7162)	; ø»…¼¥
+    (=ks-x1001		. #x7935)	; ø»Š›°
+    (=cns11643-1	. #x4674)	; ø»‘º…
     (=big5		. #xA5D4)	; ý¢€Š—”
     (=gt		. 28230)	; ý¡€†¹†
     (=gt-k		. 00991)	; ý¡„€Ÿ
@@ -41,8 +41,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (=ucs		. #x758C)	; ç–Œ
-    (=jis-x0213-2-2000	. #x7145)	; ø»¦“„
     (=cns11643-2	. #x2835)	; ø»“—†
+    (=jis-x0213-2-2000	. #x7145)	; ø»¦“„
     (=big5		. #xCD73)	; ý¢€Œµ³
     (=daikanwa		. 21997)	; ø¸…—­
     ))
@@ -89,13 +89,13 @@
     (ideographic-radical . 103)	; â½¦
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=ks-x1001		. #x6142)	; ø»‰¸­
     (=jis-x0208		. #x4141)	; ø½Š¥œ
+    (=ks-x1001		. #x6142)	; ø»‰¸­
     (=big5		. #xB2A8)	; ý¢€‹Š¨
     (=gt		. 28238)	; ý¡€†¹Ž
     (=gt-k		. 09086)	; ý¡„‚¾
     (=gt-pj-1		. #x4141)	; ý¡€†¹Ž
-    (=ucs@jis		. #x758F)	; ø»‰¸­
+    (=ucs@jis		. #x758F)	; ø½Š¥œ
     ))
 (define-char
   '((morohashi-daikanwa	22000 0 2)
@@ -126,9 +126,9 @@
     (total-strokes	 . 12)
     (shinjigen-2	. 5087)
     (=ucs		. #x758E)	; ç–Ž
-    (=cns11643-3	. #x3D45)	; ø»–€
-    (=ks-x1001		. #x6143)	; ø»‰¸®
     (=jis-x0208		. #x4142)	; ø½Š¥
+    (=ks-x1001		. #x6143)	; ø»‰¸®
+    (=cns11643-3	. #x3D45)	; ø»–€
     (=gt		. 28239)	; ý¡€†¹
     (=gt-pj-1		. #x4142)	; ý¡€†¹
     (=daikanwa		. 22002)	; ø¸…—²
@@ -180,8 +180,8 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (=ucs		. #x7590)	; ç–
-    (=cns11643-2	. #x4C21)	; ø»”‹ª
     (=jis-x0212		. #x4D45)	; ø»‹¥œ
+    (=cns11643-2	. #x4C21)	; ø»”‹ª
     (=big5		. #xE2D9)	; ý¢€Ž‹™
     (=daikanwa		. 22006)	; ø¸…—¶
     ))
@@ -191,9 +191,9 @@
     (total-strokes	 . 14)
     (shinjigen-2	. 5088)
     (=ucs		. #x7591)	; ç–‘
-    (=ks-x1001		. #x6B77)	; ø»ŠˆŽ
-    (=gb2312		. #x5249)	; ø»…Žª
     (=jis-x0208		. #x353F)	; ø½Š“²
+    (=gb2312		. #x5249)	; ø»…Žª
+    (=ks-x1001		. #x6B77)	; ø»ŠˆŽ
     (=big5		. #xBAC3)	; ý¢€‹«ƒ
     (=gt		. 28247)	; ý¡€†¹—
     (=gt-k		. 11111)	; ý¡„‚­§

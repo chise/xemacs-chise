@@ -20,8 +20,8 @@
       (=ucs		  . #xFF01)	; ï¼
       ))
     (=ucs		. #x0021)	; !
-    (latin-jisx0201	. #x21)	; øº‘‹Œ
     (ascii		. #x21)	; !
+    (latin-jisx0201	. #x21)	; øº‘‹Œ
     (latin-viscii	. #x21)	; !
     (arabic-1-column	. #x22)	; øº©›
     ))
@@ -35,8 +35,8 @@
       (=ucs		  . #xFF02)	; ï¼‚
       ))
     (=ucs		. #x0022)	; "
-    (latin-jisx0201	. #x22)	; øº‘‹
     (ascii		. #x22)	; "
+    (latin-jisx0201	. #x22)	; øº‘‹
     (latin-viscii	. #x22)	; "
     ))
 (define-char
@@ -49,8 +49,8 @@
       (=ucs		  . #xFF03)	; ï¼ƒ
       ))
     (=ucs		. #x0023)	; #
-    (latin-jisx0201	. #x23)	; øº‘‹Ž
     (ascii		. #x23)	; #
+    (latin-jisx0201	. #x23)	; øº‘‹Ž
     (latin-viscii	. #x23)	; #
     ))
 (define-char
@@ -63,8 +63,8 @@
       (=ucs		  . #xFF04)	; ï¼„
       ))
     (=ucs		. #x0024)	; $
-    (latin-jisx0201	. #x24)	; øº‘‹
     (ascii		. #x24)	; $
+    (latin-jisx0201	. #x24)	; øº‘‹
     (latin-viscii	. #x24)	; $
     ))
 (define-char
@@ -77,8 +77,8 @@
       (=ucs		  . #xFF05)	; ï¼…
       ))
     (=ucs		. #x0025)	; %
-    (latin-jisx0201	. #x25)	; øº‘‹
     (ascii		. #x25)	; %
+    (latin-jisx0201	. #x25)	; øº‘‹
     (latin-viscii	. #x25)	; %
     ))
 (define-char
@@ -91,8 +91,8 @@
       (=ucs		  . #xFF06)	; ï¼†
       ))
     (=ucs		. #x0026)	; &
-    (latin-jisx0201	. #x26)	; øº‘‹‘
     (ascii		. #x26)	; &
+    (latin-jisx0201	. #x26)	; øº‘‹‘
     (latin-viscii	. #x26)	; &
     ))
 (define-char
@@ -105,8 +105,8 @@
       (=ucs		  . #xFF07)	; ï¼‡
       ))
     (=ucs		. #x0027)	; '
-    (latin-jisx0201	. #x27)	; øº‘‹’
     (ascii		. #x27)	; '
+    (latin-jisx0201	. #x27)	; øº‘‹’
     (latin-viscii	. #x27)	; '
     ))
 (define-char
@@ -119,8 +119,8 @@
       (=ucs		  . #xFF08)	; ï¼ˆ
       ))
     (=ucs		. #x0028)	; (
-    (latin-jisx0201	. #x28)	; øº‘‹“
     (ascii		. #x28)	; (
+    (latin-jisx0201	. #x28)	; øº‘‹“
     (latin-viscii	. #x28)	; (
     (arabic-1-column	. #x24)	; øº©
     ))
@@ -134,8 +134,8 @@
       (=ucs		  . #xFF09)	; ï¼‰
       ))
     (=ucs		. #x0029)	; )
-    (latin-jisx0201	. #x29)	; øº‘‹”
     (ascii		. #x29)	; )
+    (latin-jisx0201	. #x29)	; øº‘‹”
     (latin-viscii	. #x29)	; )
     (arabic-1-column	. #x23)	; øº©œ
     ))
@@ -149,8 +149,8 @@
       (=ucs		  . #xFF0A)	; ï¼Š
       ))
     (=ucs		. #x002A)	; *
-    (latin-jisx0201	. #x2A)	; øº‘‹•
     (ascii		. #x2A)	; *
+    (latin-jisx0201	. #x2A)	; øº‘‹•
     (latin-viscii	. #x2A)	; *
     ))
 (define-char
@@ -163,8 +163,8 @@
       (=ucs		  . #xFF0B)	; ï¼‹
       ))
     (=ucs		. #x002B)	; +
-    (latin-jisx0201	. #x2B)	; øº‘‹–
     (ascii		. #x2B)	; +
+    (latin-jisx0201	. #x2B)	; øº‘‹–
     (latin-viscii	. #x2B)	; +
     ))
 (define-char
@@ -177,8 +177,8 @@
       (=ucs		  . #xFF0C)	; ï¼Œ
       ))
     (=ucs		. #x002C)	; ,
-    (latin-jisx0201	. #x2C)	; øº‘‹—
     (ascii		. #x2C)	; ,
+    (latin-jisx0201	. #x2C)	; øº‘‹—
     (latin-viscii	. #x2C)	; ,
     ))
 (define-char
@@ -191,8 +191,8 @@
       (=ucs		  . #xFF0D)	; ï¼
       ))
     (=ucs		. #x002D)	; -
-    (latin-jisx0201	. #x2D)	; øº‘‹˜
     (ascii		. #x2D)	; -
+    (latin-jisx0201	. #x2D)	; øº‘‹˜
     (latin-viscii	. #x2D)	; -
     ))
 (define-char
@@ -205,8 +205,8 @@
       (=ucs		  . #xFF0E)	; ï¼Ž
       ))
     (=ucs		. #x002E)	; .
-    (latin-jisx0201	. #x2E)	; øº‘‹™
     (ascii		. #x2E)	; .
+    (latin-jisx0201	. #x2E)	; øº‘‹™
     (latin-viscii	. #x2E)	; .
     (arabic-1-column	. #x26)	; øº©Ÿ
     ))
@@ -220,8 +220,8 @@
       (=ucs		  . #xFF0F)	; ï¼
       ))
     (=ucs		. #x002F)	; /
-    (latin-jisx0201	. #x2F)	; øº‘‹š
     (ascii		. #x2F)	; /
+    (latin-jisx0201	. #x2F)	; øº‘‹š
     (latin-viscii	. #x2F)	; /
     ))
 (define-char
@@ -237,8 +237,8 @@
       (=ucs		  . #xFF10)	; ï¼
       ))
     (=ucs		. #x0030)	; 0
-    (latin-jisx0201	. #x30)	; øº‘‹›
     (ascii		. #x30)	; 0
+    (latin-jisx0201	. #x30)	; øº‘‹›
     (latin-viscii	. #x30)	; 0
     ))
 (define-char
@@ -254,8 +254,8 @@
       (=ucs		  . #xFF11)	; ï¼‘
       ))
     (=ucs		. #x0031)	; 1
-    (latin-jisx0201	. #x31)	; øº‘‹œ
     (ascii		. #x31)	; 1
+    (latin-jisx0201	. #x31)	; øº‘‹œ
     (latin-viscii	. #x31)	; 1
     ))
 (define-char
@@ -271,8 +271,8 @@
       (=ucs		  . #xFF12)	; ï¼’
       ))
     (=ucs		. #x0032)	; 2
-    (latin-jisx0201	. #x32)	; øº‘‹
     (ascii		. #x32)	; 2
+    (latin-jisx0201	. #x32)	; øº‘‹
     (latin-viscii	. #x32)	; 2
     ))
 (define-char
@@ -288,8 +288,8 @@
       (=ucs		  . #xFF13)	; ï¼“
       ))
     (=ucs		. #x0033)	; 3
-    (latin-jisx0201	. #x33)	; øº‘‹ž
     (ascii		. #x33)	; 3
+    (latin-jisx0201	. #x33)	; øº‘‹ž
     (latin-viscii	. #x33)	; 3
     ))
 (define-char
@@ -305,8 +305,8 @@
       (=ucs		  . #xFF14)	; ï¼”
       ))
     (=ucs		. #x0034)	; 4
-    (latin-jisx0201	. #x34)	; øº‘‹Ÿ
     (ascii		. #x34)	; 4
+    (latin-jisx0201	. #x34)	; øº‘‹Ÿ
     (latin-viscii	. #x34)	; 4
     ))
 (define-char
@@ -322,8 +322,8 @@
       (=ucs		  . #xFF15)	; ï¼•
       ))
     (=ucs		. #x0035)	; 5
-    (latin-jisx0201	. #x35)	; øº‘‹ 
     (ascii		. #x35)	; 5
+    (latin-jisx0201	. #x35)	; øº‘‹ 
     (latin-viscii	. #x35)	; 5
     ))
 (define-char
@@ -339,8 +339,8 @@
       (=ucs		  . #xFF16)	; ï¼–
       ))
     (=ucs		. #x0036)	; 6
-    (latin-jisx0201	. #x36)	; øº‘‹¡
     (ascii		. #x36)	; 6
+    (latin-jisx0201	. #x36)	; øº‘‹¡
     (latin-viscii	. #x36)	; 6
     ))
 (define-char
@@ -356,8 +356,8 @@
       (=ucs		  . #xFF17)	; ï¼—
       ))
     (=ucs		. #x0037)	; 7
-    (latin-jisx0201	. #x37)	; øº‘‹¢
     (ascii		. #x37)	; 7
+    (latin-jisx0201	. #x37)	; øº‘‹¢
     (latin-viscii	. #x37)	; 7
     ))
 (define-char
@@ -373,8 +373,8 @@
       (=ucs		  . #xFF18)	; ï¼˜
       ))
     (=ucs		. #x0038)	; 8
-    (latin-jisx0201	. #x38)	; øº‘‹£
     (ascii		. #x38)	; 8
+    (latin-jisx0201	. #x38)	; øº‘‹£
     (latin-viscii	. #x38)	; 8
     ))
 (define-char
@@ -390,8 +390,8 @@
       (=ucs		  . #xFF19)	; ï¼™
       ))
     (=ucs		. #x0039)	; 9
-    (latin-jisx0201	. #x39)	; øº‘‹¤
     (ascii		. #x39)	; 9
+    (latin-jisx0201	. #x39)	; øº‘‹¤
     (latin-viscii	. #x39)	; 9
     ))
 (define-char
@@ -404,8 +404,8 @@
       (=ucs		  . #xFF1A)	; ï¼š
       ))
     (=ucs		. #x003A)	; :
-    (latin-jisx0201	. #x3A)	; øº‘‹¥
     (ascii		. #x3A)	; :
+    (latin-jisx0201	. #x3A)	; øº‘‹¥
     (latin-viscii	. #x3A)	; :
     (arabic-1-column	. #x27)	; øº© 
     ))
@@ -419,8 +419,8 @@
       (=ucs		  . #xFF1B)	; ï¼›
       ))
     (=ucs		. #x003B)	; ;
-    (latin-jisx0201	. #x3B)	; øº‘‹¦
     (ascii		. #x3B)	; ;
+    (latin-jisx0201	. #x3B)	; øº‘‹¦
     (latin-viscii	. #x3B)	; ;
     ))
 (define-char
@@ -433,8 +433,8 @@
       (=ucs		  . #xFF1C)	; ï¼œ
       ))
     (=ucs		. #x003C)	; <
-    (latin-jisx0201	. #x3C)	; øº‘‹§
     (ascii		. #x3C)	; <
+    (latin-jisx0201	. #x3C)	; øº‘‹§
     (latin-viscii	. #x3C)	; <
     ))
 (define-char
@@ -447,8 +447,8 @@
       (=ucs		  . #xFF1D)	; ï¼
       ))
     (=ucs		. #x003D)	; =
-    (latin-jisx0201	. #x3D)	; øº‘‹¨
     (ascii		. #x3D)	; =
+    (latin-jisx0201	. #x3D)	; øº‘‹¨
     (latin-viscii	. #x3D)	; =
     ))
 (define-char
@@ -461,8 +461,8 @@
       (=ucs		  . #xFF1E)	; ï¼ž
       ))
     (=ucs		. #x003E)	; >
-    (latin-jisx0201	. #x3E)	; øº‘‹©
     (ascii		. #x3E)	; >
+    (latin-jisx0201	. #x3E)	; øº‘‹©
     (latin-viscii	. #x3E)	; >
     ))
 (define-char
@@ -475,8 +475,8 @@
       (=ucs		  . #xFF1F)	; ï¼Ÿ
       ))
     (=ucs		. #x003F)	; ?
-    (latin-jisx0201	. #x3F)	; øº‘‹ª
     (ascii		. #x3F)	; ?
+    (latin-jisx0201	. #x3F)	; øº‘‹ª
     (latin-viscii	. #x3F)	; ?
     ))
 (define-char
@@ -489,8 +489,8 @@
       (=ucs		  . #xFF20)	; ï¼ 
       ))
     (=ucs		. #x0040)	; @
-    (latin-jisx0201	. #x40)	; øº‘‹«
     (ascii		. #x40)	; @
+    (latin-jisx0201	. #x40)	; øº‘‹«
     (latin-viscii	. #x40)	; @
     ))
 (define-char
@@ -507,8 +507,8 @@
       (=ucs		  . #x0061)	; a
       ))
     (=ucs		. #x0041)	; A
-    (latin-jisx0201	. #x41)	; øº‘‹¬
     (ascii		. #x41)	; A
+    (latin-jisx0201	. #x41)	; øº‘‹¬
     (latin-viscii	. #x41)	; A
     ))
 (define-char
@@ -525,8 +525,8 @@
       (=ucs		  . #x0062)	; b
       ))
     (=ucs		. #x0042)	; B
-    (latin-jisx0201	. #x42)	; øº‘‹­
     (ascii		. #x42)	; B
+    (latin-jisx0201	. #x42)	; øº‘‹­
     (latin-viscii	. #x42)	; B
     ))
 (define-char
@@ -543,8 +543,8 @@
       (=ucs		  . #x0063)	; c
       ))
     (=ucs		. #x0043)	; C
-    (latin-jisx0201	. #x43)	; øº‘‹®
     (ascii		. #x43)	; C
+    (latin-jisx0201	. #x43)	; øº‘‹®
     (latin-viscii	. #x43)	; C
     ))
 (define-char
@@ -561,8 +561,8 @@
       (=ucs		  . #x0064)	; d
       ))
     (=ucs		. #x0044)	; D
-    (latin-jisx0201	. #x44)	; øº‘‹¯
     (ascii		. #x44)	; D
+    (latin-jisx0201	. #x44)	; øº‘‹¯
     (latin-viscii	. #x44)	; D
     ))
 (define-char
@@ -579,8 +579,8 @@
       (=ucs		  . #x0065)	; e
       ))
     (=ucs		. #x0045)	; E
-    (latin-jisx0201	. #x45)	; øº‘‹°
     (ascii		. #x45)	; E
+    (latin-jisx0201	. #x45)	; øº‘‹°
     (latin-viscii	. #x45)	; E
     ))
 (define-char
@@ -597,8 +597,8 @@
       (=ucs		  . #x0066)	; f
       ))
     (=ucs		. #x0046)	; F
-    (latin-jisx0201	. #x46)	; øº‘‹±
     (ascii		. #x46)	; F
+    (latin-jisx0201	. #x46)	; øº‘‹±
     (latin-viscii	. #x46)	; F
     ))
 (define-char
@@ -615,8 +615,8 @@
       (=ucs		  . #x0067)	; g
       ))
     (=ucs		. #x0047)	; G
-    (latin-jisx0201	. #x47)	; øº‘‹²
     (ascii		. #x47)	; G
+    (latin-jisx0201	. #x47)	; øº‘‹²
     (latin-viscii	. #x47)	; G
     ))
 (define-char
@@ -633,8 +633,8 @@
       (=ucs		  . #x0068)	; h
       ))
     (=ucs		. #x0048)	; H
-    (latin-jisx0201	. #x48)	; øº‘‹³
     (ascii		. #x48)	; H
+    (latin-jisx0201	. #x48)	; øº‘‹³
     (latin-viscii	. #x48)	; H
     ))
 (define-char
@@ -651,8 +651,8 @@
       (=ucs		  . #x0069)	; i
       ))
     (=ucs		. #x0049)	; I
-    (latin-jisx0201	. #x49)	; øº‘‹´
     (ascii		. #x49)	; I
+    (latin-jisx0201	. #x49)	; øº‘‹´
     (latin-viscii	. #x49)	; I
     ))
 (define-char
@@ -669,8 +669,8 @@
       (=ucs		  . #x006A)	; j
       ))
     (=ucs		. #x004A)	; J
-    (latin-jisx0201	. #x4A)	; øº‘‹µ
     (ascii		. #x4A)	; J
+    (latin-jisx0201	. #x4A)	; øº‘‹µ
     (latin-viscii	. #x4A)	; J
     ))
 (define-char
@@ -687,8 +687,8 @@
       (=ucs		  . #x006B)	; k
       ))
     (=ucs		. #x004B)	; K
-    (latin-jisx0201	. #x4B)	; øº‘‹¶
     (ascii		. #x4B)	; K
+    (latin-jisx0201	. #x4B)	; øº‘‹¶
     (latin-viscii	. #x4B)	; K
     ))
 (define-char
@@ -705,8 +705,8 @@
       (=ucs		  . #x006C)	; l
       ))
     (=ucs		. #x004C)	; L
-    (latin-jisx0201	. #x4C)	; øº‘‹·
     (ascii		. #x4C)	; L
+    (latin-jisx0201	. #x4C)	; øº‘‹·
     (latin-viscii	. #x4C)	; L
     ))
 (define-char
@@ -723,8 +723,8 @@
       (=ucs		  . #x006D)	; m
       ))
     (=ucs		. #x004D)	; M
-    (latin-jisx0201	. #x4D)	; øº‘‹¸
     (ascii		. #x4D)	; M
+    (latin-jisx0201	. #x4D)	; øº‘‹¸
     (latin-viscii	. #x4D)	; M
     ))
 (define-char
@@ -741,8 +741,8 @@
       (=ucs		  . #x006E)	; n
       ))
     (=ucs		. #x004E)	; N
-    (latin-jisx0201	. #x4E)	; øº‘‹¹
     (ascii		. #x4E)	; N
+    (latin-jisx0201	. #x4E)	; øº‘‹¹
     (latin-viscii	. #x4E)	; N
     ))
 (define-char
@@ -759,8 +759,8 @@
       (=ucs		  . #x006F)	; o
       ))
     (=ucs		. #x004F)	; O
-    (latin-jisx0201	. #x4F)	; øº‘‹º
     (ascii		. #x4F)	; O
+    (latin-jisx0201	. #x4F)	; øº‘‹º
     (latin-viscii	. #x4F)	; O
     ))
 (define-char
@@ -777,8 +777,8 @@
       (=ucs		  . #x0070)	; p
       ))
     (=ucs		. #x0050)	; P
-    (latin-jisx0201	. #x50)	; øº‘‹»
     (ascii		. #x50)	; P
+    (latin-jisx0201	. #x50)	; øº‘‹»
     (latin-viscii	. #x50)	; P
     ))
 (define-char
@@ -795,8 +795,8 @@
       (=ucs		  . #x0071)	; q
       ))
     (=ucs		. #x0051)	; Q
-    (latin-jisx0201	. #x51)	; øº‘‹¼
     (ascii		. #x51)	; Q
+    (latin-jisx0201	. #x51)	; øº‘‹¼
     (latin-viscii	. #x51)	; Q
     ))
 (define-char
@@ -813,8 +813,8 @@
       (=ucs		  . #x0072)	; r
       ))
     (=ucs		. #x0052)	; R
-    (latin-jisx0201	. #x52)	; øº‘‹½
     (ascii		. #x52)	; R
+    (latin-jisx0201	. #x52)	; øº‘‹½
     (latin-viscii	. #x52)	; R
     ))
 (define-char
@@ -831,8 +831,8 @@
       (=ucs		  . #x0073)	; s
       ))
     (=ucs		. #x0053)	; S
-    (latin-jisx0201	. #x53)	; øº‘‹¾
     (ascii		. #x53)	; S
+    (latin-jisx0201	. #x53)	; øº‘‹¾
     (latin-viscii	. #x53)	; S
     ))
 (define-char
@@ -849,8 +849,8 @@
       (=ucs		  . #x0074)	; t
       ))
     (=ucs		. #x0054)	; T
-    (latin-jisx0201	. #x54)	; øº‘‹¿
     (ascii		. #x54)	; T
+    (latin-jisx0201	. #x54)	; øº‘‹¿
     (latin-viscii	. #x54)	; T
     ))
 (define-char
@@ -867,8 +867,8 @@
       (=ucs		  . #x0075)	; u
       ))
     (=ucs		. #x0055)	; U
-    (latin-jisx0201	. #x55)	; øº‘Œ€
     (ascii		. #x55)	; U
+    (latin-jisx0201	. #x55)	; øº‘Œ€
     (latin-viscii	. #x55)	; U
     ))
 (define-char
@@ -885,8 +885,8 @@
       (=ucs		  . #x0076)	; v
       ))
     (=ucs		. #x0056)	; V
-    (latin-jisx0201	. #x56)	; øº‘Œ
     (ascii		. #x56)	; V
+    (latin-jisx0201	. #x56)	; øº‘Œ
     (latin-viscii	. #x56)	; V
     ))
 (define-char
@@ -903,8 +903,8 @@
       (=ucs		  . #x0077)	; w
       ))
     (=ucs		. #x0057)	; W
-    (latin-jisx0201	. #x57)	; øº‘Œ‚
     (ascii		. #x57)	; W
+    (latin-jisx0201	. #x57)	; øº‘Œ‚
     (latin-viscii	. #x57)	; W
     ))
 (define-char
@@ -921,8 +921,8 @@
       (=ucs		  . #x0078)	; x
       ))
     (=ucs		. #x0058)	; X
-    (latin-jisx0201	. #x58)	; øº‘Œƒ
     (ascii		. #x58)	; X
+    (latin-jisx0201	. #x58)	; øº‘Œƒ
     (latin-viscii	. #x58)	; X
     ))
 (define-char
@@ -939,8 +939,8 @@
       (=ucs		  . #x0079)	; y
       ))
     (=ucs		. #x0059)	; Y
-    (latin-jisx0201	. #x59)	; øº‘Œ„
     (ascii		. #x59)	; Y
+    (latin-jisx0201	. #x59)	; øº‘Œ„
     (latin-viscii	. #x59)	; Y
     ))
 (define-char
@@ -957,8 +957,8 @@
       (=ucs		  . #x007A)	; z
       ))
     (=ucs		. #x005A)	; Z
-    (latin-jisx0201	. #x5A)	; øº‘Œ…
     (ascii		. #x5A)	; Z
+    (latin-jisx0201	. #x5A)	; øº‘Œ…
     (latin-viscii	. #x5A)	; Z
     ))
 (define-char
@@ -971,8 +971,8 @@
       (=ucs		  . #xFF3B)	; ï¼»
       ))
     (=ucs		. #x005B)	; [
-    (latin-jisx0201	. #x5B)	; øº‘Œ†
     (ascii		. #x5B)	; [
+    (latin-jisx0201	. #x5B)	; øº‘Œ†
     (latin-viscii	. #x5B)	; [
     ))
 (define-char
@@ -998,8 +998,8 @@
       (=ucs		  . #xFF3D)	; ï¼½
       ))
     (=ucs		. #x005D)	; ]
-    (latin-jisx0201	. #x5D)	; øº‘Œˆ
     (ascii		. #x5D)	; ]
+    (latin-jisx0201	. #x5D)	; øº‘Œˆ
     (latin-viscii	. #x5D)	; ]
     ))
 (define-char
@@ -1012,8 +1012,8 @@
       (=ucs		  . #xFF3E)	; ï¼¾
       ))
     (=ucs		. #x005E)	; ^
-    (latin-jisx0201	. #x5E)	; øº‘Œ‰
     (ascii		. #x5E)	; ^
+    (latin-jisx0201	. #x5E)	; øº‘Œ‰
     (latin-viscii	. #x5E)	; ^
     ))
 (define-char
@@ -1026,8 +1026,8 @@
       (=ucs		  . #xFF3F)	; ï¼¿
       ))
     (=ucs		. #x005F)	; _
-    (latin-jisx0201	. #x5F)	; øº‘ŒŠ
     (ascii		. #x5F)	; _
+    (latin-jisx0201	. #x5F)	; øº‘ŒŠ
     (latin-viscii	. #x5F)	; _
     ))
 (define-char
@@ -1040,8 +1040,8 @@
       (=ucs		  . #xFF40)	; ï½€
       ))
     (=ucs		. #x0060)	; `
-    (latin-jisx0201	. #x60)	; øº‘Œ‹
     (ascii		. #x60)	; `
+    (latin-jisx0201	. #x60)	; øº‘Œ‹
     (latin-viscii	. #x60)	; `
     ))
 (define-char
@@ -1058,8 +1058,8 @@
       (=ucs		  . #x0041)	; A
       ))
     (=ucs		. #x0061)	; a
-    (latin-jisx0201	. #x61)	; øº‘ŒŒ
     (ascii		. #x61)	; a
+    (latin-jisx0201	. #x61)	; øº‘ŒŒ
     (latin-viscii	. #x61)	; a
     (ipa		. #xA5)	; øº’š¥
     ))
@@ -1077,8 +1077,8 @@
       (=ucs		  . #x0042)	; B
       ))
     (=ucs		. #x0062)	; b
-    (latin-jisx0201	. #x62)	; øº‘Œ
     (ascii		. #x62)	; b
+    (latin-jisx0201	. #x62)	; øº‘Œ
     (latin-viscii	. #x62)	; b
     (ipa		. #xC1)	; øº’›
     ))
@@ -1096,8 +1096,8 @@
       (=ucs		  . #x0043)	; C
       ))
     (=ucs		. #x0063)	; c
-    (latin-jisx0201	. #x63)	; øº‘ŒŽ
     (ascii		. #x63)	; c
+    (latin-jisx0201	. #x63)	; øº‘ŒŽ
     (latin-viscii	. #x63)	; c
     ))
 (define-char
@@ -1114,8 +1114,8 @@
       (=ucs		  . #x0044)	; D
       ))
     (=ucs		. #x0064)	; d
-    (latin-jisx0201	. #x64)	; øº‘Œ
     (ascii		. #x64)	; d
+    (latin-jisx0201	. #x64)	; øº‘Œ
     (latin-viscii	. #x64)	; d
     (ipa		. #xC3)	; øº’›ƒ
     ))
@@ -1133,8 +1133,8 @@
       (=ucs		  . #x0045)	; E
       ))
     (=ucs		. #x0065)	; e
-    (latin-jisx0201	. #x65)	; øº‘Œ
     (ascii		. #x65)	; e
+    (latin-jisx0201	. #x65)	; øº‘Œ
     (latin-viscii	. #x65)	; e
     (ipa		. #xA2)	; øº’š¢
     ))
@@ -1152,8 +1152,8 @@
       (=ucs		  . #x0046)	; F
       ))
     (=ucs		. #x0066)	; f
-    (latin-jisx0201	. #x66)	; øº‘Œ‘
     (ascii		. #x66)	; f
+    (latin-jisx0201	. #x66)	; øº‘Œ‘
     (latin-viscii	. #x66)	; f
     (ipa		. #xC6)	; øº’›†
     ))
@@ -1171,8 +1171,8 @@
       (=ucs		  . #x0047)	; G
       ))
     (=ucs		. #x0067)	; g
-    (latin-jisx0201	. #x67)	; øº‘Œ’
     (ascii		. #x67)	; g
+    (latin-jisx0201	. #x67)	; øº‘Œ’
     (latin-viscii	. #x67)	; g
     (ipa		. #xC5)	; øº’›…
     ))
@@ -1190,8 +1190,8 @@
       (=ucs		  . #x0048)	; H
       ))
     (=ucs		. #x0068)	; h
-    (latin-jisx0201	. #x68)	; øº‘Œ“
     (ascii		. #x68)	; h
+    (latin-jisx0201	. #x68)	; øº‘Œ“
     (latin-viscii	. #x68)	; h
     (ipa		. #xD1)	; øº’›‘
     ))
@@ -1209,8 +1209,8 @@
       (=ucs		  . #x0049)	; I
       ))
     (=ucs		. #x0069)	; i
-    (latin-jisx0201	. #x69)	; øº‘Œ”
     (ascii		. #x69)	; i
+    (latin-jisx0201	. #x69)	; øº‘Œ”
     (latin-viscii	. #x69)	; i
     (ipa		. #xA0)	; øº’š 
     ))
@@ -1228,8 +1228,8 @@
       (=ucs		  . #x004A)	; J
       ))
     (=ucs		. #x006A)	; j
-    (latin-jisx0201	. #x6A)	; øº‘Œ•
     (ascii		. #x6A)	; j
+    (latin-jisx0201	. #x6A)	; øº‘Œ•
     (latin-viscii	. #x6A)	; j
     (ipa		. #xD9)	; øº’›™
     ))
@@ -1247,8 +1247,8 @@
       (=ucs		  . #x004B)	; K
       ))
     (=ucs		. #x006B)	; k
-    (latin-jisx0201	. #x6B)	; øº‘Œ–
     (ascii		. #x6B)	; k
+    (latin-jisx0201	. #x6B)	; øº‘Œ–
     (latin-viscii	. #x6B)	; k
     (ipa		. #xC4)	; øº’›„
     ))
@@ -1266,8 +1266,8 @@
       (=ucs		  . #x004C)	; L
       ))
     (=ucs		. #x006C)	; l
-    (latin-jisx0201	. #x6C)	; øº‘Œ—
     (ascii		. #x6C)	; l
+    (latin-jisx0201	. #x6C)	; øº‘Œ—
     (latin-viscii	. #x6C)	; l
     (ipa		. #xDA)	; øº’›š
     ))
@@ -1285,8 +1285,8 @@
       (=ucs		  . #x004D)	; M
       ))
     (=ucs		. #x006D)	; m
-    (latin-jisx0201	. #x6D)	; øº‘Œ˜
     (ascii		. #x6D)	; m
+    (latin-jisx0201	. #x6D)	; øº‘Œ˜
     (latin-viscii	. #x6D)	; m
     (ipa		. #xD2)	; øº’›’
     ))
@@ -1304,8 +1304,8 @@
       (=ucs		  . #x004E)	; N
       ))
     (=ucs		. #x006E)	; n
-    (latin-jisx0201	. #x6E)	; øº‘Œ™
     (ascii		. #x6E)	; n
+    (latin-jisx0201	. #x6E)	; øº‘Œ™
     (latin-viscii	. #x6E)	; n
     (ipa		. #xD3)	; øº’›“
     ))
@@ -1323,8 +1323,8 @@
       (=ucs		  . #x004F)	; O
       ))
     (=ucs		. #x006F)	; o
-    (latin-jisx0201	. #x6F)	; øº‘Œš
     (ascii		. #x6F)	; o
+    (latin-jisx0201	. #x6F)	; øº‘Œš
     (latin-viscii	. #x6F)	; o
     (ipa		. #xB6)	; øº’š¶
     ))
@@ -1342,8 +1342,8 @@
       (=ucs		  . #x0050)	; P
       ))
     (=ucs		. #x0070)	; p
-    (latin-jisx0201	. #x70)	; øº‘Œ›
     (ascii		. #x70)	; p
+    (latin-jisx0201	. #x70)	; øº‘Œ›
     (latin-viscii	. #x70)	; p
     (ipa		. #xC0)	; øº’›€
     ))
@@ -1361,8 +1361,8 @@
       (=ucs		  . #x0051)	; Q
       ))
     (=ucs		. #x0071)	; q
-    (latin-jisx0201	. #x71)	; øº‘Œœ
     (ascii		. #x71)	; q
+    (latin-jisx0201	. #x71)	; øº‘Œœ
     (latin-viscii	. #x71)	; q
     ))
 (define-char
@@ -1379,8 +1379,8 @@
       (=ucs		  . #x0052)	; R
       ))
     (=ucs		. #x0072)	; r
-    (latin-jisx0201	. #x72)	; øº‘Œ
     (ascii		. #x72)	; r
+    (latin-jisx0201	. #x72)	; øº‘Œ
     (latin-viscii	. #x72)	; r
     (ipa		. #xD6)	; øº’›–
     ))
@@ -1398,8 +1398,8 @@
       (=ucs		  . #x0053)	; S
       ))
     (=ucs		. #x0073)	; s
-    (latin-jisx0201	. #x73)	; øº‘Œž
     (ascii		. #x73)	; s
+    (latin-jisx0201	. #x73)	; øº‘Œž
     (latin-viscii	. #x73)	; s
     (ipa		. #xCA)	; øº’›Š
     ))
@@ -1417,8 +1417,8 @@
       (=ucs		  . #x0054)	; T
       ))
     (=ucs		. #x0074)	; t
-    (latin-jisx0201	. #x74)	; øº‘ŒŸ
     (ascii		. #x74)	; t
+    (latin-jisx0201	. #x74)	; øº‘ŒŸ
     (latin-viscii	. #x74)	; t
     (ipa		. #xC2)	; øº’›‚
     ))
@@ -1436,8 +1436,8 @@
       (=ucs		  . #x0055)	; U
       ))
     (=ucs		. #x0075)	; u
-    (latin-jisx0201	. #x75)	; øº‘Œ 
     (ascii		. #x75)	; u
+    (latin-jisx0201	. #x75)	; øº‘Œ 
     (latin-viscii	. #x75)	; u
     (ipa		. #xB4)	; øº’š´
     ))
@@ -1455,8 +1455,8 @@
       (=ucs		  . #x0056)	; V
       ))
     (=ucs		. #x0076)	; v
-    (latin-jisx0201	. #x76)	; øº‘Œ¡
     (ascii		. #x76)	; v
+    (latin-jisx0201	. #x76)	; øº‘Œ¡
     (latin-viscii	. #x76)	; v
     (ipa		. #xC7)	; øº’›‡
     ))
@@ -1474,8 +1474,8 @@
       (=ucs		  . #x0057)	; W
       ))
     (=ucs		. #x0077)	; w
-    (latin-jisx0201	. #x77)	; øº‘Œ¢
     (ascii		. #x77)	; w
+    (latin-jisx0201	. #x77)	; øº‘Œ¢
     (latin-viscii	. #x77)	; w
     (ipa		. #xDE)	; øº’›ž
     ))
@@ -1493,8 +1493,8 @@
       (=ucs		  . #x0058)	; X
       ))
     (=ucs		. #x0078)	; x
-    (latin-jisx0201	. #x78)	; øº‘Œ£
     (ascii		. #x78)	; x
+    (latin-jisx0201	. #x78)	; øº‘Œ£
     (latin-viscii	. #x78)	; x
     (ipa		. #xCF)	; øº’›
     ))
@@ -1512,8 +1512,8 @@
       (=ucs		  . #x0059)	; Y
       ))
     (=ucs		. #x0079)	; y
-    (latin-jisx0201	. #x79)	; øº‘Œ¤
     (ascii		. #x79)	; y
+    (latin-jisx0201	. #x79)	; øº‘Œ¤
     (latin-viscii	. #x79)	; y
     (ipa		. #xAD)	; øº’š­
     ))
@@ -1531,8 +1531,8 @@
       (=ucs		  . #x005A)	; Z
       ))
     (=ucs		. #x007A)	; z
-    (latin-jisx0201	. #x7A)	; øº‘Œ¥
     (ascii		. #x7A)	; z
+    (latin-jisx0201	. #x7A)	; øº‘Œ¥
     (latin-viscii	. #x7A)	; z
     (ipa		. #xCB)	; øº’›‹
     ))
@@ -1546,8 +1546,8 @@
       (=ucs		  . #xFF5B)	; ï½›
       ))
     (=ucs		. #x007B)	; {
-    (latin-jisx0201	. #x7B)	; øº‘Œ¦
     (ascii		. #x7B)	; {
+    (latin-jisx0201	. #x7B)	; øº‘Œ¦
     (latin-viscii	. #x7B)	; {
     ))
 (define-char
@@ -1560,8 +1560,8 @@
       (=ucs		  . #xFF5C)	; ï½œ
       ))
     (=ucs		. #x007C)	; |
-    (latin-jisx0201	. #x7C)	; øº‘Œ§
     (ascii		. #x7C)	; |
+    (latin-jisx0201	. #x7C)	; øº‘Œ§
     (latin-viscii	. #x7C)	; |
     ))
 (define-char
@@ -1574,8 +1574,8 @@
       (=ucs		  . #xFF5D)	; ï½
       ))
     (=ucs		. #x007D)	; }
-    (latin-jisx0201	. #x7D)	; øº‘Œ¨
     (ascii		. #x7D)	; }
+    (latin-jisx0201	. #x7D)	; øº‘Œ¨
     (latin-viscii	. #x7D)	; }
     ))
 (define-char

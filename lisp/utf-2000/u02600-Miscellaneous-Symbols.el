@@ -44,10 +44,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2605)	; â˜…
-    (=cns11643-1	. #x2178)	; ø»‘ƒ³
-    (=ks-x1001		. #x215A)	; ø»ˆ›…
-    (=gb2312		. #x216F)	; ø»„‡’
     (=jis-x0208		. #x217A)	; ø½‰·•
+    (=gb2312		. #x216F)	; ø»„‡’
+    (=ks-x1001		. #x215A)	; ø»ˆ›…
+    (=cns11643-1	. #x2178)	; ø»‘ƒ³
     (=big5		. #xA1B9)	; ý¢€Š†¹
     ))
 (define-char
@@ -56,10 +56,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2606)	; â˜†
-    (=cns11643-1	. #x2177)	; ø»‘ƒ²
-    (=ks-x1001		. #x2159)	; ø»ˆ›„
-    (=gb2312		. #x216E)	; ø»„‡‘
     (=jis-x0208		. #x2179)	; ø½‰·”
+    (=gb2312		. #x216E)	; ø»„‡‘
+    (=ks-x1001		. #x2159)	; ø»ˆ›„
+    (=cns11643-1	. #x2177)	; ø»‘ƒ²
     (=big5		. #xA1B8)	; ý¢€Š†¸
     ))
 (define-char
@@ -117,8 +117,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x260E)	; â˜Ž
-    (=jis-x0213-1-2000	. #x2667)	; ø»¢›˜
     (=ks-x1001		. #x224F)	; ø»ˆœ˜
+    (=jis-x0213-1-2000	. #x2667)	; ø»¢›˜
     ))
 (define-char
   '((name		. "WHITE TELEPHONE")
@@ -209,8 +209,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x261E)	; â˜ž
-    (=jis-x0213-1-2000	. #x2D7E)	; ø»¢¦
     (=ks-x1001		. #x2251)	; ø»ˆœš
+    (=jis-x0213-1-2000	. #x2D7E)	; ø»¢¦
     ))
 (define-char
   '((name		. "WHITE DOWN POINTING INDEX")
@@ -449,10 +449,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2640)	; â™€
-    (=cns11643-1	. #x2251)	; ø»‘„ª
-    (=ks-x1001		. #x214F)	; ø»ˆšº
-    (=gb2312		. #x2162)	; ø»„‡…
     (=jis-x0208		. #x216A)	; ø½‰·…
+    (=gb2312		. #x2162)	; ø»„‡…
+    (=ks-x1001		. #x214F)	; ø»ˆšº
+    (=cns11643-1	. #x2251)	; ø»‘„ª
     (=big5		. #xA1F0)	; ý¢€Š‡°
     ))
 (define-char
@@ -468,10 +468,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2642)	; â™‚
-    (=cns11643-1	. #x2252)	; ø»‘„«
-    (=ks-x1001		. #x214E)	; ø»ˆš¹
-    (=gb2312		. #x2161)	; ø»„‡„
     (=jis-x0208		. #x2169)	; ø½‰·„
+    (=gb2312		. #x2161)	; ø»„‡„
+    (=ks-x1001		. #x214E)	; ø»ˆš¹
+    (=cns11643-1	. #x2252)	; ø»‘„«
     (=big5		. #xA1F1)	; ý¢€Š‡±
     ))
 (define-char
@@ -683,8 +683,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2660)	; â™ 
-    (=jis-x0213-1-2000	. #x263A)	; ø»¢š«
     (=ks-x1001		. #x223C)	; ø»ˆœ…
+    (=jis-x0213-1-2000	. #x263A)	; ø»¢š«
     ))
 (define-char
   '((name		. "WHITE HEART SUIT")
@@ -692,8 +692,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2661)	; â™¡
-    (=jis-x0213-1-2000	. #x263D)	; ø»¢š®
     (=ks-x1001		. #x223D)	; ø»ˆœ†
+    (=jis-x0213-1-2000	. #x263D)	; ø»¢š®
     (=jef-china3	. #x76B6)	; øº‡š¶
     ))
 (define-char
@@ -711,8 +711,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2663)	; â™£
-    (=jis-x0213-1-2000	. #x2640)	; ø»¢š±
     (=ks-x1001		. #x2240)	; ø»ˆœ‰
+    (=jis-x0213-1-2000	. #x2640)	; ø»¢š±
     ))
 (define-char
   '((name		. "WHITE SPADE SUIT")
@@ -720,8 +720,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2664)	; â™¤
-    (=jis-x0213-1-2000	. #x2639)	; ø»¢šª
     (=ks-x1001		. #x223B)	; ø»ˆœ„
+    (=jis-x0213-1-2000	. #x2639)	; ø»¢šª
     (=jef-china3	. #x76B7)	; øº‡š·
     ))
 (define-char
@@ -730,8 +730,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2665)	; â™¥
-    (=jis-x0213-1-2000	. #x263E)	; ø»¢š¯
     (=ks-x1001		. #x223E)	; ø»ˆœ‡
+    (=jis-x0213-1-2000	. #x263E)	; ø»¢š¯
     ))
 (define-char
   '((name		. "BLACK DIAMOND SUIT")
@@ -747,8 +747,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2667)	; â™§
-    (=jis-x0213-1-2000	. #x263F)	; ø»¢š°
     (=ks-x1001		. #x223F)	; ø»ˆœˆ
+    (=jis-x0213-1-2000	. #x263F)	; ø»¢š°
     (=jef-china3	. #x76B5)	; øº‡šµ
     ))
 (define-char
@@ -757,8 +757,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2668)	; â™¨
-    (=jis-x0213-1-2000	. #x266C)	; ø»¢›
     (=ks-x1001		. #x224D)	; ø»ˆœ–
+    (=jis-x0213-1-2000	. #x266C)	; ø»¢›
     ))
 (define-char
   '((name		. "QUARTER NOTE")
@@ -766,8 +766,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2669)	; â™©
-    (=jis-x0213-1-2000	. #x227D)	; ø»¢•¶
     (=ks-x1001		. #x225B)	; ø»ˆœ¤
+    (=jis-x0213-1-2000	. #x227D)	; ø»¢•¶
     ))
 (define-char
   '((name		. "EIGHTH NOTE")
@@ -775,9 +775,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x266A)	; â™ª
-    (=jis-x0208-1990	. #x2276)	; ø½‰¸¯
-    (=ks-x1001		. #x225C)	; ø»ˆœ¥
     (=jis-x0208-1983	. #x2276)	; ø»†’»
+    (=ks-x1001		. #x225C)	; ø»ˆœ¥
+    (=jis-x0208-1990	. #x2276)	; ø½‰¸¯
     ))
 (define-char
   '((name		. "BEAMED EIGHTH NOTES")
@@ -793,8 +793,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x266C)	; â™¬
-    (=jis-x0213-1-2000	. #x227C)	; ø»¢•µ
     (=ks-x1001		. #x225D)	; ø»ˆœ¦
+    (=jis-x0213-1-2000	. #x227C)	; ø»¢•µ
     ))
 (define-char
   '((name		. "MUSIC FLAT SIGN")
@@ -802,9 +802,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x266D)	; â™­
-    (=jis-x0208-1990	. #x2275)	; ø½‰¸®
-    (=ks-x1001		. #x225A)	; ø»ˆœ£
     (=jis-x0208-1983	. #x2275)	; ø»†’º
+    (=ks-x1001		. #x225A)	; ø»ˆœ£
+    (=jis-x0208-1990	. #x2275)	; ø½‰¸®
     ))
 (define-char
   '((name		. "MUSIC NATURAL SIGN")
@@ -820,8 +820,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x266F)	; â™¯
-    (=jis-x0208-1990	. #x2274)	; ø½‰¸­
     (=jis-x0208-1983	. #x2274)	; ø»†’¹
+    (=jis-x0208-1990	. #x2274)	; ø½‰¸­
     ))
 (define-char
   '((name		. "WEST SYRIAC CROSS")

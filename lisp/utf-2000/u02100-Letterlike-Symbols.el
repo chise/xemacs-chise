@@ -30,10 +30,10 @@
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0043)
     (=ucs		. #x2103)	; â„ƒ
-    (=cns11643-1	. #x226A)	; ø»‘…ƒ
-    (=ks-x1001		. #x2149)	; ø»ˆš´
-    (=gb2312		. #x2166)	; ø»„‡‰
     (=jis-x0208		. #x216E)	; ø½‰·‰
+    (=gb2312		. #x2166)	; ø»„‡‰
+    (=ks-x1001		. #x2149)	; ø»ˆš´
+    (=cns11643-1	. #x226A)	; ø»‘…ƒ
     (=big5		. #xA24A)	; ý¢€Š‰Š
     ))
 (define-char
@@ -83,8 +83,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0046)
     (=ucs		. #x2109)	; â„‰
-    (=cns11643-1	. #x226B)	; ø»‘…„
     (=ks-x1001		. #x2235)	; ø»ˆ›¾
+    (=cns11643-1	. #x226B)	; ø»‘…„
     (=big5		. #xA24B)	; ý¢€Š‰‹
     ))
 (define-char
@@ -167,8 +167,8 @@
     (mirrored		. nil)
     (->decomposition	font #x006C)
     (=ucs		. #x2113)	; â„“
-    (=jis-x0213-1-2000	. #x235F)	; ø»¢–¶
     (=ks-x1001		. #x2724)	; ø»ˆ£ƒ
+    (=jis-x0213-1-2000	. #x235F)	; ø»¢–¶
     ))
 (define-char
   '((name		. "L B BAR SYMBOL")
@@ -192,10 +192,10 @@
     (mirrored		. nil)
     (->decomposition	compat #x004E #x006F)
     (=ucs		. #x2116)	; â„–
-    (=jis-x0213-1-2000	. #x2D62)	; ø»¢¥¥
-    (=jis-x0212		. #x2271)	; ø»Š¦¾
-    (=ks-x1001		. #x2260)	; ø»ˆœ©
     (=gb2312		. #x216D)	; ø»„‡
+    (=ks-x1001		. #x2260)	; ø»ˆœ©
+    (=jis-x0212		. #x2271)	; ø»Š¦¾
+    (=jis-x0213-1-2000	. #x2D62)	; ø»¢¥¥
     (=big5-eten		. #xC8D2)	; ý¢€Œ£’
     ))
 (define-char
@@ -290,8 +290,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x0054 #x0045 #x004C)
     (=ucs		. #x2121)	; â„¡
-    (=jis-x0213-1-2000	. #x2D64)	; ø»¢¥§
     (=ks-x1001		. #x2265)	; ø»ˆœ®
+    (=jis-x0213-1-2000	. #x2D64)	; ø»¢¥§
     (=big5-eten		. #xC8D3)	; ý¢€Œ£“
     ))
 (define-char
@@ -301,8 +301,8 @@
     (mirrored		. nil)
     (->decomposition	super #x0054 #x004D)
     (=ucs		. #x2122)	; â„¢
-    (=jis-x0212		. #x226F)	; ø»Š¦¼
     (=ks-x1001		. #x2262)	; ø»ˆœ«
+    (=jis-x0212		. #x226F)	; ø»Š¦¼
     ))
 (define-char
   '((name		. "VERSICLE")
@@ -373,9 +373,9 @@
     (mirrored		. nil)
     (->decomposition	#x00C5)
     (=ucs		. #x212B)	; â„«
-    (=jis-x0208-1990	. #x2272)	; ø½‰¸«
-    (=ks-x1001		. #x214A)	; ø»ˆšµ
     (=jis-x0208-1983	. #x2272)	; ø»†’·
+    (=ks-x1001		. #x214A)	; ø»ˆšµ
+    (=jis-x0208-1990	. #x2272)	; ø½‰¸«
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL B")

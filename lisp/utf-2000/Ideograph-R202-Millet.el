@@ -5,12 +5,13 @@
     (total-strokes	 . 12)
     (shinjigen-2	. 9813)
     (=ucs		. #x9ECD)	; é»
-    (=cns11643-1	. #x6328)	; ø»’£Ÿ
-    (=ks-x1001		. #x6028)	; ø»‰¶µ
-    (=gb2312		. #x4A72)	; ø»…ƒ£
     (=jis-x0208		. #x3550)	; ø½Š”ƒ
+    (=gb2312		. #x4A72)	; ø»…ƒ£
+    (=ks-x1001		. #x6028)	; ø»‰¶µ
+    (=cns11643-1	. #x6328)	; ø»’£Ÿ
+    (=gt		. 65454)	; ý¡€¾®
     (=gt-k		. 09027)	; ý¡„‚ƒ
-    (=gt-pj-1		. #x3550)	; é»
+    (=gt-pj-1		. #x3550)	; ý¡€¾®
     (=daikanwa		. 47991)	; ø¸‹­·
     ))
 (define-char
@@ -54,10 +55,12 @@
     (total-strokes	 . 15)
     (shinjigen-2	. 9814)
     (=ucs		. #x9ECE)	; é»Ž
-    (=cns11643-1	. #x702D)	; ø»’¶ª
-    (=ks-x1001		. #x5573)	; ø»‰§¶
-    (=gb2312		. #x4068)	; ø»„´­
     (=jis-x0208		. #x7355)	; ø½‹¯Œ
+    (=gb2312		. #x4068)	; ø»„´­
+    (=ks-x1001		. #x5573)	; ø»‰§¶
+    (=cns11643-1	. #x702D)	; ø»’¶ª
+    (=gt		. 65457)	; ý¡€¾±
+    (=gt-pj-1		. #x7355)	; ý¡€¾±
     (=daikanwa		. 47994)	; ø¸‹­º
     ))
 (define-char
@@ -159,9 +162,11 @@
     (total-strokes	 . 17)
     (shinjigen-2	. 5910)
     (=ucs		. #x9ECF)	; é»
-    (=cns11643-1	. #x7634)	; ø»’¿¥
-    (=gb2312		. #x7024)	; ø»…º‰
     (=jis-x0208		. #x7356)	; ø½‹¯
+    (=gb2312		. #x7024)	; ø»…º‰
+    (=cns11643-1	. #x7634)	; ø»’¿¥
+    (=gt		. 65472)	; ý¡€¿€
+    (=gt-pj-1		. #x7356)	; ý¡€¿€
     (=daikanwa		. 48007)	; ø¸‹®‡
     ))
 (define-char
@@ -368,12 +373,22 @@
     (=cns11643-4	. #x6A31)	; ø»™Œ†
     ))
 (define-char
-  '((ideographic-radical . 202)	; â¿‰
+  '((=>ucs		. #x9ED0)	; é»
+    (ideographic-radical . 202)	; â¿‰
+    (ideographic-strokes . 11)
+    (total-strokes	 . 23)
+    (=jis-x0208		. #x7357)	; ø½‹¯Ž
+    (=gt		. 65504)	; ý¡€¿ 
+    (=gt-pj-1		. #x7357)	; ý¡€¿ 
+    (=daikanwa		. 48027)	; ø¸‹®›
+    (=ucs@jis		. #x9ED0)	; ø½‹¯Ž
+    ))
+(define-char
+  '((morohashi-daikanwa	48027 0 0)
+    (ideographic-radical . 202)	; â¿‰
     (ideographic-strokes . 11)
     (total-strokes	 . 23)
     (=ucs		. #x9ED0)	; é»
-    (=jis-x0208		. #x7357)	; ø½‹¯Ž
-    (=daikanwa		. 48027)	; ø¸‹®›
     ))
 (define-char
   '((=>ucs		. #x9ED0)	; é»

@@ -1,7 +1,7 @@
 /* Code conversion functions.
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -3474,7 +3474,8 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
   else if (!CONSP (str->combining_table))
     {
       Lisp_Object ret
-	= Fget_char_attribute (make_char (character), Qcomposition, Qnil);
+	= Fchar_feature (make_char (character), Qcomposition, Qnil,
+			 Qnil, Qnil);
 
       if (NILP (ret))
 	decode_add_er_char (str, character, dst);
@@ -3493,7 +3494,8 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
       if (CHARP (ret))
 	{
 	  Emchar char2 = XCHARVAL (ret);
-	  Lisp_Object ret2 = Fget_char_attribute (ret, Qcomposition, Qnil);
+	  Lisp_Object ret2 = Fchar_feature (ret, Qcomposition, Qnil,
+					    Qnil, Qnil);
 
 	  if (NILP (ret2))
 	    {
@@ -3510,8 +3512,8 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 	}
       else
 	{
-	  ret = Fget_char_attribute (make_char (character), Qcomposition,
-				     Qnil);
+	  ret = Fchar_feature (make_char (character), Qcomposition, Qnil,
+			       Qnil, Qnil);
 
 	  COMPOSE_FLUSH_CHARS (str, dst);
 	  if (NILP (ret))
@@ -4607,14 +4609,16 @@ char_encode_utf8 (struct encoding_stream *str, Emchar ch,
 	  Lisp_Object ret;
 
 	  if ( !NILP (map)
-	       && INTP (ret = Fget_char_attribute (make_char (ch),
-						   map, Qnil)) )
+	       && INTP (ret = Fchar_feature (make_char (ch),
+					     map, Qnil,
+					     Qnil, Qnil)) )
 	    code_point = XINT (ret);
 	  else if ( !NILP (map =
 			   CODING_SYSTEM_ISO2022_INITIAL_CHARSET
 			   (str->codesys, 2))
-		    && INTP (ret = Fget_char_attribute (make_char (ch),
-							map, Qnil)) )
+		    && INTP (ret = Fchar_feature (make_char (ch),
+						  map, Qnil,
+						  Qnil, Qnil)) )
 	    code_point = XINT (ret);
 	  else if (CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys))
 	    {
