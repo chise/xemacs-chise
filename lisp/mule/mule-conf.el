@@ -25,15 +25,21 @@
 
 ;;; Code:
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; IPA (International Phonetic Alphabet)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;; IPA (International Phonetic Alphabet)
 (make-charset 'ipa "International Phonetic Alphabet"
 	      '(registry "MuleIPA"
 		dimension 1
 		chars 96
 		final ?0
+		graphic 1))
+
+;; Lao script.
+;; ISO10646's 0x0E80..0x0EDF are mapped to 0x20..0x7F.
+(make-charset 'lao "Lao script"
+	      '(registry "MuleLao-1"
+		dimension 1
+		chars 94
+		final ?1
 		graphic 1))
 
 ;;; mule-conf.el ends here
