@@ -1,3 +1,7 @@
+2002-07-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* close-cdb.el (char-db-stingy-mode): Set nil.
+
 2002-07-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R038-Woman.el (U-000218B7): Fixed.
