@@ -1,3 +1,10 @@
+2002-07-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/japanese.el (euc-jisx0213): New coding-system.
+
+	* mule/mule-conf.el (japanese-jisx0213-1): Specify
+	`japanese-jisx0208-1990' as the mother.
+
 2002-07-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* dumped-lisp.el (preloaded-file-list): Change condition of
