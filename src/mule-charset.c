@@ -1065,7 +1065,12 @@ charset_code_point (Lisp_Object charset, Emchar ch, int defined_only)
       int code = -1;
 
       if ( CHARSETP (mother) )
-	code = charset_code_point (mother, ch, defined_only);
+	{
+	  if (XCHARSET_FINAL (charset) >= '0')
+	    code = charset_code_point (mother, ch, 1);
+	  else
+	    code = charset_code_point (mother, ch, defined_only);
+	}
       else if (defined_only)
 	return -1;
       else if ( ((max == 0) && CHARSETP (mother)
