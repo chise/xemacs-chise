@@ -8131,15 +8131,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 147 7)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((ucs		  . #x4EBB)	; äº»
-      )
-     ((name		  . "CJK RADICAL DIVINATION")
-      (ucs		  . #x2E8A)	; âºŠ
-      )
-     ((chinese-big5-cdp	  . #x895D)	; ý¢€ˆ¥
-      ))
     (chinese-gb2312		. #x556C)	; ø»…“§
     (chinese-isoir165		. #x556C)	; ø»»·
     (ideograph-hanziku-1	. #xC240)	; ý¢€œ‰€
@@ -10767,20 +10758,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 158 4)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((ucs		  . #x4EBB)	; äº»
-      )
-     ((ucs		  . #x4E00)	; ä¸€
-      )
-     ((ucs		  . #x5182)	; å†‚
-      )
-     ((ucs		  . #x4E36)	; ä¸¶
-      )
-     ((ucs		  . #x5182)	; å†‚
-      )
-     ((ucs		  . #x4E36)	; ä¸¶
-      ))
     (chinese-gb2312		. #x5933)	; ø»…˜¦
     (chinese-isoir165		. #x5933)	; ø»Ž€¶
     (ideograph-hanziku-1	. #xC463)	; ý¢€œ‘£
@@ -16836,15 +16813,6 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 189 6)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
-      )
-     ((chinese-cns11643-3 . #x2139)	; ø»•–¼
-      (ideograph-daikanwa . 05691)	; ø¸˜»
-      )
-     ((ucs		  . #x7530)	; ç”°
-      ))
     (chinese-cns11643-3		. #x344A)	; ø»•³‡
     (ideograph-daikanwa		. 00922)	; ø¸€Žš
     (ideograph-hanziku-1	. #xCD58)	; ý¢€œµ˜
@@ -17328,14 +17296,6 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 202 6)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((ucs		  . #x4EBB)	; äº»
-      )
-     ((chinese-big5-cdp	  . #x8CF3)	; ý¢€ˆ³³
-      )
-     ((ucs		  . #x76EE)	; ç›®
-      ))
     (japanese-jisx0212		. #x3179)	; ø»Š½ˆ
     (chinese-cns11643-4		. #x3634)	; ø»—¿±
     (ideograph-daikanwa		. 00934)	; ø¸€Ž¦
