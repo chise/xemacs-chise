@@ -1,3 +1,46 @@
+2001-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R182-Wind.el (U+98B4): Delete invalid
+	`morohashi-daikanwa' property; unify M-43842; divide C5-5975.
+
+	* Ideograph-R156-Run.el (C5-6963): Fix `morohashi-daikanwa'
+	property; relate to M-37300.
+
+	* Ideograph-R167-Gold.el (C5-436D): Fix `morohashi-daikanwa'
+	property; relate to M-40321.
+	(C5-592F): Fix `morohashi-daikanwa' property; relate to M-40580.
+
+2001-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R187-Horse.el (M-44886): Separate C7-4C35.
+	(U+9A28): J83-424D.
+	(M-44901): Separate C7-516E.
+	(M-44902): Separate C4-6540.
+	(C4-6542): Fix `morohashi-daikanwa' property; relate to M-44904.
+	(C7-5172): Delete `morohashi-daikanwa'.
+	(M-44907): Separate C5-6E70.
+	(M-44908): Separate C7-516F.
+	(M-44909): Don't unify C7-5167.
+	(C7-516C): Unify M-44940.
+	(M-44941): Separate C3-5D5C.
+	(M-44942): Separate C7-5166.
+
+2001-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (C5-4361): Fix `morohashi-daikanwa'
+	property; relate to M-39577.
+
+	* Ideograph-R154-Shell.el (M-36871): Separate C7-3369.
+	(C5-5850): Fix `morohashi-daikanwa' property; relate to M-36872.
+
+2001-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R147-See.el (M-34856): New character.
+	(C5-4270): Fix `morohashi-daikanwa' property.
+
+	* Ideograph-R201-Yellow.el (M-47949): New character.
+	(C4-6322): Delete invalid `morohashi-daikanwa' property.
+
 2001-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R163-City.el (C4-4E3A): Fix `morohashi-daikanwa'
