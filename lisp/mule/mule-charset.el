@@ -323,6 +323,12 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-big5-eten-a
 	  chinese-big5-eten-b
 	  chinese-big5
+	  =ucs-radicals
+	  =ucs-radicals@unicode
+	  =ucs-bmp-cjk
+	  =ucs-bmp-cjk@unicode
+	  =ucs-sip-ext-b
+	  =ucs-sip-ext-b@iso
 	  =ruimoku-v6
 	  ideograph-daikanwa-2
 	  ideograph-daikanwa
