@@ -40,7 +40,7 @@
 			  ("$(?p0(B-$(?y0(B"	"w")
 			  ("$(?O0f0_0o0z0{0(B"	"_")
 			  ))
-	elm chars len syntax category to ch i)
+	elm chars len syntax to ch i)
     (while deflist
       (setq elm (car deflist))
       (setq chars (car elm)
