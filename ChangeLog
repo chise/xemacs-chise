@@ -1,3 +1,10 @@
+2001-08-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in (all-elc all-elcs): Add lisp/utf-2000 as a target
+	to byte-compile if compiling with --utf-2000.
+	(lisp/auto-autoloads.el): Add setting for lisp/utf-2000 if
+	compiling with --utf-2000.
+
 2000-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* configure.in: Define `HAVE_GGC' if with-utf-2000 is specified.
