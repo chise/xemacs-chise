@@ -4,6 +4,41 @@
 
 1999-08-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* regex.c (re_compile_fastmap): Don't use `LEADING_BYTE_PREFIX_P'
+	in UTF-2000.
+
+	* chartab.h (CHAR_TABLE_NON_ASCII_VALUE_UNSAFE): Use int instead
+	of unsigned char to store leading-byte.
+
+	* chartab.c (get_non_ascii_char_table_value): Don't use
+	`BREAKUP_CHAR_1_UNSAFE' in UTF-2000.
+
+	* file-coding.c (encode_coding_big5): Delete bogus implementation
+	in UTF2000.
+
+	* character.h (LEADING_BYTE_*): Delete definition for
+	non-UTF-2000.
+	(LEADING_BYTE_PRIVATE_P): Deleted unconditionally.
+	(LEADING_BYTE_PREFIX_P): Deleted.
+	(PRIVATE_LEADING_BYTE_PREFIX): Deleted.
+	(BUFBYTE_FIRST_BYTE_P): Delete definition for non-UTF-2000.
+	(BUFBYTE_LEADING_BYTE_P): Deleted.
+	(CHARSET_PRIVATE_P): Deleted unconditionally.
+	(rep_bytes_by_first_byte): Deleted unconditionally.
+	(REP_BYTES_BY_FIRST_BYTE): Delete definition for non-UTF-2000.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Likewise.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Likewise.
+	(FIELD2_TO_PRIVATE_LEADING_BYTE): Likewise.
+	(CHAR_FIELD2): Deleted.
+	(CHAR_FIELD3): Deleted.
+	(MAKE_CHAR): Delete definition for non-UTF-2000.
+	(BREAKUP_CHAR_1_UNSAFE): Deleted.
+	(breakup_char_1): New implementation.
+	(CHAR_CHARSET): Use `BREAKUP_CHAR'.
+	(CHAR_LEADING_BYTE): Use `CHAR_CHARSET'.
+
+1999-08-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* character.h (REP_BYTES_BY_FIRST_BYTE): Change order of
 	condition.
 
@@ -14,7 +49,8 @@
 	(XCHARSET_PRIVATE_P): Likewise.
 	(MAKE_CHAR): Don't use XCHARSET_PRIVATE_P in UTF2000.
 
-	* file-coding.c (encode_coding_ucs4): Don't implement in UTF2000.
+	* file-coding.c (encode_coding_ucs4): Delete bogus implement in
+	UTF2000.
 	(decode_coding_iso2022): Don't use XCHARSET_PRIVATE_P in UTF2000.
 
 1999-08-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
