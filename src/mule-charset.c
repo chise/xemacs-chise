@@ -237,6 +237,8 @@ Lisp_Object Qascii,
   Qucs_bmp,
   Qlatin_viscii_lower,
   Qlatin_viscii_upper,
+  Qvietnamese_viscii_lower,
+  Qvietnamese_viscii_upper,
   Qhiragana_jisx0208,
   Qkatakana_jisx0208,
 #endif
@@ -1334,6 +1336,16 @@ NEW-NAME is the name of the new charset.  Return the new charset.
   return new_charset;
 }
 
+DEFUN ("define-charset-alias", Fdefine_charset_alias, 2, 2, 0, /*
+Define symbol ALIAS as an alias for CHARSET.
+*/
+       (alias, charset))
+{
+  CHECK_SYMBOL (alias);
+  charset = Fget_charset (charset);
+  return Fputhash (alias, charset, Vcharset_hash_table);
+}
+
 /* #### Reverse direction charsets not yet implemented.  */
 #if 0
 DEFUN ("charset-reverse-direction-charset", Fcharset_reverse_direction_charset,
@@ -1846,6 +1858,7 @@ syms_of_mule_charset (void)
   DEFSUBR (Fmake_charset);
   DEFSUBR (Fmake_reverse_direction_charset);
   /*  DEFSUBR (Freverse_direction_charset); */
+  DEFSUBR (Fdefine_charset_alias);
   DEFSUBR (Fcharset_from_attributes);
   DEFSUBR (Fcharset_short_name);
   DEFSUBR (Fcharset_long_name);
@@ -1906,8 +1919,10 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
 #ifdef UTF2000
   defsymbol (&Qucs_bmp,			"ucs-bmp");
-  defsymbol (&Qlatin_viscii_lower,	"vietnamese-viscii-lower");
-  defsymbol (&Qlatin_viscii_upper,	"vietnamese-viscii-upper");
+  defsymbol (&Qlatin_viscii_lower,	"latin-viscii-lower");
+  defsymbol (&Qlatin_viscii_upper,	"latin-viscii-upper");
+  defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
+  defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qhiragana_jisx0208, 	"hiragana-jisx0208");
   defsymbol (&Qkatakana_jisx0208, 	"katakana-jisx0208");
 #endif
@@ -2218,6 +2233,16 @@ complex_vars_of_mule_charset (void)
 		  build_string ("VISCII upper (Vietnamese)"),
 		  build_string ("VISCII1\\.1"),
 		  Qnil, 0, 0, 0, 32);
+  /*
+  Fputhash (Qvietnamese_viscii_lower, Vcharset_latin_viscii_lower,
+	    Vcharset_hash_table);
+  Fputhash (Qvietnamese_viscii_upper, Vcharset_latin_viscii_upper,
+	    Vcharset_hash_table);
+  */
+  Fdefine_charset_alias (Qvietnamese_viscii_lower,
+			 Vcharset_latin_viscii_lower);
+  Fdefine_charset_alias (Qvietnamese_viscii_upper,
+			 Vcharset_latin_viscii_upper);
   Vcharset_hiragana_jisx0208 =
     make_charset (LEADING_BYTE_HIRAGANA_JISX0208, Qhiragana_jisx0208,
 		  CHARSET_TYPE_94X94, 2, 0, 'B',
