@@ -1702,6 +1702,28 @@ as CHAR-TABLE.  The values will not themselves be copied.
   return obj;
 }
 
+INLINE_HEADER int XCHARSET_CELL_RANGE (Lisp_Object ccs);
+INLINE_HEADER int
+XCHARSET_CELL_RANGE (Lisp_Object ccs)
+{
+  switch (XCHARSET_CHARS (ccs))
+    {
+    case 94:
+      return (33 << 8) | 126;
+    case 96:
+      return (32 << 8) | 127;
+#ifdef UTF2000
+    case 128:
+      return (0 << 8) | 127;
+    case 256:
+      return (0 << 8) | 255;
+#endif
+    default:
+      abort ();
+      return 0;
+    }
+}
+
 #ifndef UTF2000
 static
 #endif
@@ -1725,30 +1747,39 @@ decode_char_table_range (Lisp_Object range, struct chartab_range *outrange)
     {
       Lisp_Vector *vec = XVECTOR (range);
       Lisp_Object *elts = vector_data (vec);
-      if (vector_length (vec) != 2)
-	signal_simple_error ("Length of charset row vector must be 2",
-			     range);
+      int cell_min, cell_max;
+
       outrange->type = CHARTAB_RANGE_ROW;
       outrange->charset = Fget_charset (elts[0]);
       CHECK_INT (elts[1]);
       outrange->row = XINT (elts[1]);
-      if (XCHARSET_DIMENSION (outrange->charset) >= 2)
-	{
-	  switch (XCHARSET_CHARS (outrange->charset))
-	    {
-	    case 94:
-	      check_int_range (outrange->row, 33, 126);
-	      break;
-	    case 96:
-	      check_int_range (outrange->row, 32, 127);
-	      break;
-	    default:
-	      abort ();
-	    }
-	}
-      else
+      if (XCHARSET_DIMENSION (outrange->charset) < 2)
 	signal_simple_error ("Charset in row vector must be multi-byte",
-			     outrange->charset);  
+			     outrange->charset);
+      else
+	{
+	  int ret = XCHARSET_CELL_RANGE (outrange->charset);
+
+	  cell_min = ret >> 8;
+	  cell_max = ret & 0xFF;
+	}
+      if (XCHARSET_DIMENSION (outrange->charset) == 2)
+	check_int_range (outrange->row, cell_min, cell_max);
+#ifdef UTF2000
+      else if (XCHARSET_DIMENSION (outrange->charset) == 3)
+	{
+	  check_int_range (outrange->row >> 8  , cell_min, cell_max);
+	  check_int_range (outrange->row & 0xFF, cell_min, cell_max);
+	}
+      else if (XCHARSET_DIMENSION (outrange->charset) == 4)
+	{
+	  check_int_range ( outrange->row >> 16       , cell_min, cell_max);
+	  check_int_range ((outrange->row >> 8) & 0xFF, cell_min, cell_max);
+	  check_int_range ( outrange->row       & 0xFF, cell_min, cell_max);
+	}
+#endif
+      else
+	abort ();
     }
   else
     {
@@ -2135,50 +2166,13 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
       {
 	int cell_min, cell_max, i;
 
-	/* printf ("put-char-table: range = charset-row: %d, 0x%x\n",
-	   XCHARSET_LEADING_BYTE (range->charset), range->row); */
-	if (XCHARSET_DIMENSION (range->charset) < 2)
-	  signal_simple_error ("Charset in row vector must be multi-byte",
-			       range->charset);
-	else
-	  {
-	    switch (XCHARSET_CHARS (range->charset))
-	      {
-	      case 94:
-		cell_min = 33; cell_max = 126;
-		break;
-	      case 96:
-		cell_min = 32; cell_max = 127;
-		break;
-	      case 128:
-		cell_min = 0; cell_max = 127;
-		break;
-	      case 256:
-		cell_min = 0; cell_max = 255;
-		break;
-	      default:
-		abort ();
-	      }
-	  }
-	if (XCHARSET_DIMENSION (range->charset) == 2)
-	  check_int_range (range->row, cell_min, cell_max);
-	else if (XCHARSET_DIMENSION (range->charset) == 3)
-	  {
-	    check_int_range (range->row >> 8  , cell_min, cell_max);
-	    check_int_range (range->row & 0xFF, cell_min, cell_max);
-	  }
-	else if (XCHARSET_DIMENSION (range->charset) == 4)
-	  {
-	    check_int_range ( range->row >> 16       , cell_min, cell_max);
-	    check_int_range ((range->row >> 8) & 0xFF, cell_min, cell_max);
-	    check_int_range ( range->row       & 0xFF, cell_min, cell_max);
-	  }
-	else
-	  abort ();
-
+	i = XCHARSET_CELL_RANGE (range->charset);
+	cell_min = i >> 8;
+	cell_max = i & 0xFF;
 	for (i = cell_min; i <= cell_max; i++)
 	  {
 	    Emchar ch = DECODE_CHAR (range->charset, (range->row << 8) | i);
+
 	    if ( charset_code_point (range->charset, ch) >= 0 )
 	      put_char_id_table_0 (ct, ch, val);
 	  }
@@ -2601,45 +2595,9 @@ map_char_table (Lisp_Char_Table *ct,
 	int retval;
 	struct chartab_range rainj;
 
-	if (XCHARSET_DIMENSION (range->charset) < 2)
-	  signal_simple_error ("Charset in row vector must be multi-byte",
-			       range->charset);
-	else
-	  {
-	    switch (XCHARSET_CHARS (range->charset))
-	      {
-	      case 94:
-		cell_min = 33; cell_max = 126;
-		break;
-	      case 96:
-		cell_min = 32; cell_max = 127;
-		break;
-	      case 128:
-		cell_min = 0; cell_max = 127;
-		break;
-	      case 256:
-		cell_min = 0; cell_max = 255;
-		break;
-	      default:
-		abort ();
-	      }
-	  }
-	if (XCHARSET_DIMENSION (range->charset) == 2)
-	  check_int_range (range->row, cell_min, cell_max);
-	else if (XCHARSET_DIMENSION (range->charset) == 3)
-	  {
-	    check_int_range (range->row >> 8  , cell_min, cell_max);
-	    check_int_range (range->row & 0xFF, cell_min, cell_max);
-	  }
-	else if (XCHARSET_DIMENSION (range->charset) == 4)
-	  {
-	    check_int_range ( range->row >> 16       , cell_min, cell_max);
-	    check_int_range ((range->row >> 8) & 0xFF, cell_min, cell_max);
-	    check_int_range ( range->row       & 0xFF, cell_min, cell_max);
-	  }
-	else
-	  abort ();
-
+	i = XCHARSET_CELL_RANGE (range->charset);
+	cell_min = i >> 8;
+	cell_max = i & 0xFF;
 	rainj.type = CHARTAB_RANGE_CHAR;
 	for (retval =0, i = cell_min; i <= cell_max && retval == 0; i++)
 	  {
