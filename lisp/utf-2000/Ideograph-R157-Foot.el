@@ -5752,7 +5752,7 @@
     (mojikyo		. 037955)	; ý €‰‘ƒ
     ))
 (define-char
-  '((->ucs		. #x8E8D)	; èº
+  '((=>ucs		. #x8E8D)	; èº
     (morohashi-daikanwa	37955 0 2)
     (ideographic-radical . 157)	; â¾œ
     (ideographic-strokes . 14)
