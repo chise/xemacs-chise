@@ -178,19 +178,29 @@
     (=cns11643-6	. #x4045)	; &I-C6-4045; [32-37]
     ))
 (define-char
-  '((ideographic-radical . 68)	; ⽃
-    (ideographic-strokes . 7)
+  '((ideographic-radical@ucs . 68)	; ⽃
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 151)	; ⾖
+    (ideographic-strokes@cns . 4)
     (total-strokes	 . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (=ucs		. #x3AB7)	; 㪷
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x8C46)	; 豆
+	)
+       ((=ucs		    . #x6597)	; 斗
+	))
+      (=daikanwa	  . 13507)	; &M-13507;
+      (=cbeta		  . 00356)	; &I-CB00356;
+      (=ucs@unicode	  . #x3AB7)	; &M-13507;
       )
-     ((=ucs		  . #x8C46)	; 豆
-      )
-     ((=ucs		  . #x6597)	; 斗
+     ((=cns11643-3	  . #x392B)	; &C3-392B; [25-11]
       ))
-    (=daikanwa		. 13507)	; &M-13507;
-    (=cbeta		. 00356)	; &I-CB00356;
     ))
 (define-char
   '((=>ucs		. #x659B)	; 斛
