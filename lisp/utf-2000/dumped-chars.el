@@ -298,5 +298,6 @@
 	"u0FE70-Arabic-Presentation-Forms-B"
 	"u0FF00-Halfwidth-and-Fullwidth-Forms"
 	"u0FFF0-Specials"
+	"read-maps"
 	"ad-hoc-cdp"
 	"ccs-tcvn5712.el"))
