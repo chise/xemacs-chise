@@ -47,6 +47,14 @@
     (=ucs		. #x8FB6)	; è¾¶
     ))
 (define-char
+  '((=>ucs*		. #x8FB6)	; è¾¶
+    (->identical
+     ((name		  . "CJK RADICAL SIMPLIFIED WALK")
+      (=ucs		  . #x2ECC)	; â»Œ
+      ))
+    (=ucs		. #xFA66)	; ï©¦
+    ))
+(define-char
   '((name		. "CJK RADICAL SIMPLIFIED WALK")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
@@ -88,14 +96,6 @@
     (=cns11643-4	. #x2154)	; ø»—¡›
     (=big5-cdp		. #x8AF7)	; ý¢€ˆ«·
     (=ucs@cns		. #x8FB6)	; â»Ž
-    ))
-(define-char
-  '((=>ucs*		. #x8FB6)	; è¾¶
-    (->identical
-     ((name		  . "CJK RADICAL SIMPLIFIED WALK")
-      (=ucs		  . #x2ECC)	; â»Œ
-      ))
-    (=ucs		. #xFA66)	; ï©¦
     ))
 (define-char
   '((ideographic-radical . 162)	; â¾¡

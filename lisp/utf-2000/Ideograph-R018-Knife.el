@@ -5946,6 +5946,24 @@
     (=daikanwa		. 02133)	; ø¸€¡•
     ))
 (define-char
+  '((ideographic-radical@ucs . 9)	; â¼ˆ
+    (ideographic-strokes@ucs . 10)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 18)	; â¼‘
+    (ideographic-strokes@cns . 10)
+    (ideographic-radical@cns*sources
+     cns11643 daikanwa)
+    (total-strokes	 . 12)
+    (->same
+     ((=ucs		  . #x5013)	; å€“
+      (=daikanwa	  . 00768)	; ø¸€Œ€
+      ))
+    (->same*sources
+     shuowen yunhai-bei daikanwa)
+    (=ucs		. #x202F4)	; ð ‹´
+    ))
+(define-char
   '((ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
@@ -5964,24 +5982,6 @@
      ((=ucs		  . #x5261)	; å‰¡
       ))
     (=daikanwa		. 02134)	; ø¸€¡–
-    ))
-(define-char
-  '((ideographic-radical@ucs . 9)	; â¼ˆ
-    (ideographic-strokes@ucs . 10)
-    (ideographic-radical@ucs*sources
-     daikanwa ucs)
-    (ideographic-radical@cns . 18)	; â¼‘
-    (ideographic-strokes@cns . 10)
-    (ideographic-radical@cns*sources
-     cns11643 daikanwa)
-    (total-strokes	 . 12)
-    (->same
-     ((=ucs		  . #x5013)	; å€“
-      (=daikanwa	  . 00768)	; ø¸€Œ€
-      ))
-    (->same*sources
-     shuowen yunhai-bei daikanwa)
-    (=ucs		. #x202F4)	; ð ‹´
     ))
 (define-char
   '((ideographic-radical . 18)	; â¼‘
