@@ -64,6 +64,27 @@ Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_ideograph_daikanwa;
+Lisp_Object Vcharset_mojikyo_pj_1;
+Lisp_Object Vcharset_mojikyo_pj_2;
+Lisp_Object Vcharset_mojikyo_pj_3;
+Lisp_Object Vcharset_mojikyo_pj_4;
+Lisp_Object Vcharset_mojikyo_pj_5;
+Lisp_Object Vcharset_mojikyo_pj_6;
+Lisp_Object Vcharset_mojikyo_pj_7;
+Lisp_Object Vcharset_mojikyo_pj_8;
+Lisp_Object Vcharset_mojikyo_pj_9;
+Lisp_Object Vcharset_mojikyo_pj_10;
+Lisp_Object Vcharset_mojikyo_pj_11;
+Lisp_Object Vcharset_mojikyo_pj_12;
+Lisp_Object Vcharset_mojikyo_pj_13;
+Lisp_Object Vcharset_mojikyo_pj_14;
+Lisp_Object Vcharset_mojikyo_pj_15;
+Lisp_Object Vcharset_mojikyo_pj_16;
+Lisp_Object Vcharset_mojikyo_pj_17;
+Lisp_Object Vcharset_mojikyo_pj_18;
+Lisp_Object Vcharset_mojikyo_pj_19;
+Lisp_Object Vcharset_mojikyo_pj_20;
+Lisp_Object Vcharset_mojikyo_pj_21;
 Lisp_Object Vcharset_ethiopic_ucs;
 #endif
 Lisp_Object Vcharset_chinese_big5_1;
@@ -386,6 +407,11 @@ Lisp_Object Vcharacter_variant_table;
 Lisp_Object Q_decomposition;
 Lisp_Object Q_ucs;
 Lisp_Object Qcompat;
+Lisp_Object Qisolated;
+Lisp_Object Qinitial;
+Lisp_Object Qmedial;
+Lisp_Object Qfinal;
+Lisp_Object Qvertical;
 Lisp_Object QnoBreak;
 Lisp_Object Qfraction;
 Lisp_Object Qsuper;
@@ -394,6 +420,7 @@ Lisp_Object Qcircle;
 Lisp_Object Qsquare;
 Lisp_Object Qwide;
 Lisp_Object Qnarrow;
+Lisp_Object Qsmall;
 Lisp_Object Qfont;
 
 Emchar
@@ -405,24 +432,36 @@ to_char_code (Lisp_Object v, char* err_msg, Lisp_Object err_arg)
     return XCHAR (v);
   else if (EQ (v, Qcompat))
     return -1;
-  else if (EQ (v, QnoBreak))
+  else if (EQ (v, Qisolated))
     return -2;
-  else if (EQ (v, Qfraction))
+  else if (EQ (v, Qinitial))
     return -3;
-  else if (EQ (v, Qsuper))
+  else if (EQ (v, Qmedial))
     return -4;
-  else if (EQ (v, Qsub))
+  else if (EQ (v, Qfinal))
     return -5;
-  else if (EQ (v, Qcircle))
+  else if (EQ (v, Qvertical))
     return -6;
-  else if (EQ (v, Qsquare))
+  else if (EQ (v, QnoBreak))
     return -7;
-  else if (EQ (v, Qwide))
+  else if (EQ (v, Qfraction))
     return -8;
-  else if (EQ (v, Qnarrow))
+  else if (EQ (v, Qsuper))
     return -9;
-  else if (EQ (v, Qfont))
+  else if (EQ (v, Qsub))
     return -10;
+  else if (EQ (v, Qcircle))
+    return -11;
+  else if (EQ (v, Qsquare))
+    return -12;
+  else if (EQ (v, Qwide))
+    return -13;
+  else if (EQ (v, Qnarrow))
+    return -14;
+  else if (EQ (v, Qsmall))
+    return -15;
+  else if (EQ (v, Qfont))
+    return -16;
   else 
     signal_simple_error (err_msg, err_arg);
 }
@@ -774,6 +813,27 @@ Lisp_Object Qascii,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
   Qideograph_daikanwa,
+  Qmojikyo_pj_1,
+  Qmojikyo_pj_2,
+  Qmojikyo_pj_3,
+  Qmojikyo_pj_4,
+  Qmojikyo_pj_5,
+  Qmojikyo_pj_6,
+  Qmojikyo_pj_7,
+  Qmojikyo_pj_8,
+  Qmojikyo_pj_9,
+  Qmojikyo_pj_10,
+  Qmojikyo_pj_11,
+  Qmojikyo_pj_12,
+  Qmojikyo_pj_13,
+  Qmojikyo_pj_14,
+  Qmojikyo_pj_15,
+  Qmojikyo_pj_16,
+  Qmojikyo_pj_17,
+  Qmojikyo_pj_18,
+  Qmojikyo_pj_19,
+  Qmojikyo_pj_20,
+  Qmojikyo_pj_21,
   Qethiopic_ucs,
 #endif
   Qchinese_big5_1,
@@ -1288,7 +1348,7 @@ make_charset (Charset_ID id, Lisp_Object name,
   else
     CHARSET_REP_BYTES (cs) = CHARSET_DIMENSION (cs) + 2;
 #endif
-  
+
   if (final)
     {
       /* some charsets do not have final characters.  This includes
@@ -2492,6 +2552,11 @@ syms_of_mule_charset (void)
   defsymbol (&Q_ucs,			"->ucs");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
+  defsymbol (&Qisolated,		"isolated");
+  defsymbol (&Qinitial,			"initial");
+  defsymbol (&Qmedial,			"medial");
+  defsymbol (&Qfinal,			"final");
+  defsymbol (&Qvertical,		"vertical");
   defsymbol (&QnoBreak,			"noBreak");
   defsymbol (&Qfraction,		"fraction");
   defsymbol (&Qsuper,			"super");
@@ -2500,6 +2565,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qsquare,			"square");
   defsymbol (&Qwide,			"wide");
   defsymbol (&Qnarrow,			"narrow");
+  defsymbol (&Qsmall,			"small");
   defsymbol (&Qfont,			"font");
   defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
@@ -2509,6 +2575,27 @@ syms_of_mule_charset (void)
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qideograph_daikanwa,	"ideograph-daikanwa");
+  defsymbol (&Qmojikyo_pj_1,		"mojikyo-pj-1");
+  defsymbol (&Qmojikyo_pj_2,		"mojikyo-pj-2");
+  defsymbol (&Qmojikyo_pj_3,		"mojikyo-pj-3");
+  defsymbol (&Qmojikyo_pj_4,		"mojikyo-pj-4");
+  defsymbol (&Qmojikyo_pj_5,		"mojikyo-pj-5");
+  defsymbol (&Qmojikyo_pj_6,		"mojikyo-pj-6");
+  defsymbol (&Qmojikyo_pj_7,		"mojikyo-pj-7");
+  defsymbol (&Qmojikyo_pj_8,		"mojikyo-pj-8");
+  defsymbol (&Qmojikyo_pj_9,		"mojikyo-pj-9");
+  defsymbol (&Qmojikyo_pj_10,		"mojikyo-pj-10");
+  defsymbol (&Qmojikyo_pj_11,		"mojikyo-pj-11");
+  defsymbol (&Qmojikyo_pj_12,		"mojikyo-pj-12");
+  defsymbol (&Qmojikyo_pj_13,		"mojikyo-pj-13");
+  defsymbol (&Qmojikyo_pj_14,		"mojikyo-pj-14");
+  defsymbol (&Qmojikyo_pj_15,		"mojikyo-pj-15");
+  defsymbol (&Qmojikyo_pj_16,		"mojikyo-pj-16");
+  defsymbol (&Qmojikyo_pj_17,		"mojikyo-pj-17");
+  defsymbol (&Qmojikyo_pj_18,		"mojikyo-pj-18");
+  defsymbol (&Qmojikyo_pj_19,		"mojikyo-pj-19");
+  defsymbol (&Qmojikyo_pj_20,		"mojikyo-pj-20");
+  defsymbol (&Qmojikyo_pj_21,		"mojikyo-pj-21");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
 #endif
   defsymbol (&Qchinese_big5_1,		"chinese-big5-1");
@@ -2857,6 +2944,216 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Daikanwa dictionary by MOROHASHI Tetsuji"),
 		  build_string ("Daikanwa"),
 		  Qnil, MIN_CHAR_DAIKANWA, MAX_CHAR_DAIKANWA, 0, 0);
+  Vcharset_mojikyo_pj_1 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_1, Qmojikyo_pj_1,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-1"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 1"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 1"),
+		  build_string ("jisx0208\\.Mojikyo-1$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_2 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_2, Qmojikyo_pj_2,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-2"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 2"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 2"),
+		  build_string ("jisx0208\\.Mojikyo-2$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_3 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_3, Qmojikyo_pj_3,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-3"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 3"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 3"),
+		  build_string ("jisx0208\\.Mojikyo-3$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_4 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_4, Qmojikyo_pj_4,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-4"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 4"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 4"),
+		  build_string ("jisx0208\\.Mojikyo-4$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_5 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_5, Qmojikyo_pj_5,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-5"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 5"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 5"),
+		  build_string ("jisx0208\\.Mojikyo-5$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_6 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_6, Qmojikyo_pj_6,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-6"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 6"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 6"),
+		  build_string ("jisx0208\\.Mojikyo-6$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_7 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_7, Qmojikyo_pj_7,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-7"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 7"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 7"),
+		  build_string ("jisx0208\\.Mojikyo-7$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_8 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_8, Qmojikyo_pj_8,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-8"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 8"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 8"),
+		  build_string ("jisx0208\\.Mojikyo-8$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_9 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_9, Qmojikyo_pj_9,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-9"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 9"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 9"),
+		  build_string ("jisx0208\\.Mojikyo-9$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_10 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_10, Qmojikyo_pj_10,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-10"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 10"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 10"),
+		  build_string ("jisx0208\\.Mojikyo-10$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_11 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_11, Qmojikyo_pj_11,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-11"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 11"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 11"),
+		  build_string ("jisx0208\\.Mojikyo-11$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_12 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_12, Qmojikyo_pj_12,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-12"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 12"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 12"),
+		  build_string ("jisx0208\\.Mojikyo-12$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_13 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_13, Qmojikyo_pj_13,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-13"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 13"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 13"),
+		  build_string ("jisx0208\\.Mojikyo-13$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_14 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_14, Qmojikyo_pj_14,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-14"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 14"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 14"),
+		  build_string ("jisx0208\\.Mojikyo-14$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_15 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_15, Qmojikyo_pj_15,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-15"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 15"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 15"),
+		  build_string ("jisx0208\\.Mojikyo-15$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_16 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_16, Qmojikyo_pj_16,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-16"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 16"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 16"),
+		  build_string ("jisx0208\\.Mojikyo-16$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_17 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_17, Qmojikyo_pj_17,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-17"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 17"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 17"),
+		  build_string ("jisx0208\\.Mojikyo-17$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_18 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_18, Qmojikyo_pj_18,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-18"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 18"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 18"),
+		  build_string ("jisx0208\\.Mojikyo-18$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_19 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_19, Qmojikyo_pj_19,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-19"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 19"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 19"),
+		  build_string ("jisx0208\\.Mojikyo-19$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_20 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_20, Qmojikyo_pj_20,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-20"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 20"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 20"),
+		  build_string ("jisx0208\\.Mojikyo-20$"),
+		  Qnil, 0, 0, 0, 33);
+  Vcharset_mojikyo_pj_21 =
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_21, Qmojikyo_pj_21,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo-PJ-21"),
+		  build_string ("Mojikyo (pseudo JIS encoding) part 21"),
+		  build_string
+		  ("Konjaku-Mojikyo (pseudo JIS encoding) part 21"),
+		  build_string ("jisx0208\\.Mojikyo-21$"),
+		  Qnil, 0, 0, 0, 33);
   Vcharset_ethiopic_ucs =
     make_charset (LEADING_BYTE_ETHIOPIC_UCS, Qethiopic_ucs,
 		  CHARSET_TYPE_256X256, 2, 2, 0,
