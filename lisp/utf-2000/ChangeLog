@@ -1,5 +1,23 @@
 2003-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el (U+559D): Unify JU+FA36.
+	(U+FA36): New character.
+	(U+5606): Separate C1-682C; unify JU+FA37.
+	(U+FA37): New character.
+	(U+5668): Unify JU+FA38.
+	(U+FA38): New character.
+
+	* Ideograph-R024-Ten.el (U+5341): Unify GT-K00047.
+	(U+5351): Unify JU+FA35.
+	(U+FA35): New character.
+	(J0-485C): Use `<-vulgar-ideograph' instead of
+	`vulgar-ideograph-of'.
+
+	* Ideograph-R019-Power.el (U+52C9): Unify JU+FA33.
+	(U+FA33): New character.
+	(U+52E4): Unify JU+FA34.
+	(U+FA34): New character.
+
 	* Ideograph-R018-Knife.el (J0-4561): Unify GT-K00053.
 	(J0-517C): Modify `ideographic-structure'.
 	(J0-517D): Likewise.
@@ -7,6 +25,11 @@
 	(J0-517B): Separate JC3-44CF and U+5271.
 
 2003-01-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R029-Again.el (U+53C8): Unify GT-K00063.
+
+	* Ideograph-R025-Divination.el (U+535C): Unify GT-K00060.
+	(GT-K00061): New character.
 
 	* Ideograph-R012-Eight.el (J0-482C): Unify GT-K00056.
 
