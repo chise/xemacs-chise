@@ -2668,6 +2668,8 @@
 (define-char
   '((ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 12)
+    (total-strokes	 . 21)
+    (japanese-jisx0212	. #x6845)	; ø»Œ†
     (ideograph-daikanwa . 43955)	; ø¸Š®³
     (ucs		. #x98C5)	; é£…
     ))
