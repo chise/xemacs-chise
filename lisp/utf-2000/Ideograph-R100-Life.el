@@ -136,6 +136,7 @@
     (total-strokes	 . 11)
     (chinese-cns11643-1 . #x5C28)	; ø»’™
     (ideograph-daikanwa . 21684)	; ø¸…’´
+    (mojikyo		. 021684)	; ý €…’´
     (ucs		. #x7522)	; ç”¢
     ))
 (define-char
@@ -145,7 +146,7 @@
     (total-strokes	 . 11)
     (chinese-cns11643-3		. #x3745)	; ø»•·œ
     (japanese-jisx0208-1990	. #x3B3A)	; ø½Šœ¡
-    (mojikyo			. 050288)	; ø¸Œ‘°
+    (mojikyo			. 050288)	; ý €Œ‘°
     (ucs			. #x7523)	; ç”£
     ))
 (define-char
