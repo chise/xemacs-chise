@@ -253,7 +253,7 @@
 	(when (setq cell (assq 'kangxi-radical data))
 	  (setq cell (cdr cell))
 	  (unless (eq cell radical)
-	    (insert (format "(kangxi-radical . %S)\t; %c
+	    (insert (format "(kangxi-radical\t . %S)\t; %c
     "
 			    cell
 			    (aref ideographic-radicals cell)))
@@ -286,6 +286,15 @@
     "
 			  strokes))
 	  (setq data (del-alist 'ideographic-strokes data))
+	  (when (setq cell (assq 'kangxi-strokes data))
+	    (setq cell (cdr cell))
+	    (unless (eq cell strokes)
+	      (insert (format "(kangxi-strokes\t . %S)
+    "
+			      cell))
+	      (setq strokes cell))
+	    (setq data (del-alist 'kangxi-strokes data))
+	    )
 	  (when (setq cell (assq 'japanese-strokes data))
 	    (setq cell (cdr cell))
 	    (unless (eq cell strokes)
@@ -471,7 +480,10 @@
 
 (defun insert-char-data-with-variant (char)
   (insert-char-data char)
-  (let ((variants (char-variants char)))
+  (let ((variants (or (char-variants char)
+		      (let ((ucs (get-char-attribute char '->ucs)))
+			(if ucs
+			    (delete char (char-variants (int-char ucs))))))))
     (while variants
       (insert-char-data (car variants))
       (setq variants (cdr variants))
