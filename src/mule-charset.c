@@ -25,6 +25,9 @@ Boston, MA 02111-1307, USA.  */
 /* Rewritten by Ben Wing <ben@xemacs.org>. */
 
 #include <config.h>
+#ifdef UTF2000
+#include <limits.h>
+#endif
 #include "lisp.h"
 
 #include "buffer.h"
@@ -159,6 +162,346 @@ const Bytecount rep_bytes_by_first_byte[0xA0] =
 
 #ifdef UTF2000
 
+#define BT_UINT8_MIN		0
+#define BT_UINT8_MAX	(UCHAR_MAX - 3)
+#define BT_UINT8_t	(UCHAR_MAX - 2)
+#define BT_UINT8_nil	(UCHAR_MAX - 1)
+#define BT_UINT8_unbound UCHAR_MAX
+
+INLINE_HEADER int INT_UINT8_P (Lisp_Object obj);
+INLINE_HEADER int UINT8_VALUE_P (Lisp_Object obj);
+INLINE_HEADER unsigned char UINT8_ENCODE (Lisp_Object obj);
+INLINE_HEADER Lisp_Object UINT8_DECODE (unsigned char n);
+INLINE_HEADER unsigned short UINT8_TO_UINT16 (unsigned char n);
+
+INLINE_HEADER int
+INT_UINT8_P (Lisp_Object obj)
+{
+  if (INTP (obj))
+    {
+      int num = XINT (obj);
+
+      return (BT_UINT8_MIN <= num) && (num <= BT_UINT8_MAX);
+    }
+  else
+    return 0;
+}
+
+INLINE_HEADER int
+UINT8_VALUE_P (Lisp_Object obj)
+{
+  return EQ (obj, Qunbound)
+    || EQ (obj, Qnil) || EQ (obj, Qt) || INT_UINT8_P (obj);
+}
+
+INLINE_HEADER unsigned char
+UINT8_ENCODE (Lisp_Object obj)
+{
+  if (EQ (obj, Qunbound))
+    return BT_UINT8_unbound;
+  else if (EQ (obj, Qnil))
+    return BT_UINT8_nil;
+  else if (EQ (obj, Qt))
+    return BT_UINT8_t;
+  else
+    return XINT (obj);
+}
+
+INLINE_HEADER Lisp_Object
+UINT8_DECODE (unsigned char n)
+{
+  if (n == BT_UINT8_unbound)
+    return Qunbound;
+  else if (n == BT_UINT8_nil)
+    return Qnil;
+  else if (n == BT_UINT8_t)
+    return Qt;
+  else
+    return make_int (n);
+}
+
+static Lisp_Object
+mark_uint8_byte_table (Lisp_Object obj)
+{
+  return Qnil;
+}
+
+static void
+print_uint8_byte_table (Lisp_Object obj,
+			 Lisp_Object printcharfun, int escapeflag)
+{
+  Lisp_Uint8_Byte_Table *bte = XUINT8_BYTE_TABLE (obj);
+  int i;
+  struct gcpro gcpro1, gcpro2;
+  GCPRO2 (obj, printcharfun);
+
+  write_c_string ("\n#<uint8-byte-table", printcharfun);
+  for (i = 0; i < 256; i++)
+    {
+      unsigned char n = bte->property[i];
+      if ( (i & 15) == 0 )
+	write_c_string ("\n  ", printcharfun);
+      write_c_string (" ", printcharfun);
+      if (n == BT_UINT8_unbound)
+	write_c_string ("void", printcharfun);
+      else if (n == BT_UINT8_nil)
+	write_c_string ("nil", printcharfun);
+      else if (n == BT_UINT8_t)
+	write_c_string ("t", printcharfun);
+      else
+	{
+	  char buf[4];
+
+	  sprintf (buf, "%hd", n);
+	  write_c_string (buf, printcharfun);
+	}
+    }
+  UNGCPRO;
+  write_c_string (">", printcharfun);
+}
+
+static int
+uint8_byte_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
+{
+  Lisp_Uint8_Byte_Table *te1 = XUINT8_BYTE_TABLE (obj1);
+  Lisp_Uint8_Byte_Table *te2 = XUINT8_BYTE_TABLE (obj2);
+  int i;
+
+  for (i = 0; i < 256; i++)
+    if (te1->property[i] != te2->property[i])
+      return 0;
+  return 1;
+}
+
+static unsigned long
+uint8_byte_table_hash (Lisp_Object obj, int depth)
+{
+  Lisp_Uint8_Byte_Table *te = XUINT8_BYTE_TABLE (obj);
+  int i;
+  hashcode_t hash = 0;
+
+  for (i = 0; i < 256; i++)
+    hash = HASH2 (hash, te->property[i]);
+  return hash;
+}
+
+DEFINE_LRECORD_IMPLEMENTATION ("uint8-byte-table", uint8_byte_table,
+                               mark_uint8_byte_table,
+			       print_uint8_byte_table,
+			       0, uint8_byte_table_equal,
+			       uint8_byte_table_hash,
+			       0 /* uint8_byte_table_description */,
+			       Lisp_Uint8_Byte_Table);
+
+static Lisp_Object
+make_uint8_byte_table (unsigned char initval)
+{
+  Lisp_Object obj;
+  int i;
+  Lisp_Uint8_Byte_Table *cte;
+
+  cte = alloc_lcrecord_type (Lisp_Uint8_Byte_Table,
+			     &lrecord_uint8_byte_table);
+
+  for (i = 0; i < 256; i++)
+    cte->property[i] = initval;
+
+  XSETUINT8_BYTE_TABLE (obj, cte);
+  return obj;
+}
+
+static int
+uint8_byte_table_same_value_p (Lisp_Object obj)
+{
+  Lisp_Uint8_Byte_Table *bte = XUINT8_BYTE_TABLE (obj);
+  unsigned char v0 = bte->property[0];
+  int i;
+
+  for (i = 1; i < 256; i++)
+    {
+      if (bte->property[i] != v0)
+	return 0;
+    }
+  return -1;
+}
+
+
+#define BT_UINT16_MIN		0
+#define BT_UINT16_MAX	 (USHRT_MAX - 3)
+#define BT_UINT16_t	 (USHRT_MAX - 2)
+#define BT_UINT16_nil	 (USHRT_MAX - 1)
+#define BT_UINT16_unbound USHRT_MAX
+
+INLINE_HEADER int INT_UINT16_P (Lisp_Object obj);
+INLINE_HEADER int UINT16_VALUE_P (Lisp_Object obj);
+INLINE_HEADER unsigned short UINT16_ENCODE (Lisp_Object obj);
+INLINE_HEADER Lisp_Object UINT16_DECODE (unsigned short us);
+
+INLINE_HEADER int
+INT_UINT16_P (Lisp_Object obj)
+{
+  if (INTP (obj))
+    {
+      int num = XINT (obj);
+
+      return (BT_UINT16_MIN <= num) && (num <= BT_UINT16_MAX);
+    }
+  else
+    return 0;
+}
+
+INLINE_HEADER int
+UINT16_VALUE_P (Lisp_Object obj)
+{
+  return EQ (obj, Qunbound)
+    || EQ (obj, Qnil) || EQ (obj, Qt) || INT_UINT16_P (obj);
+}
+
+INLINE_HEADER unsigned short
+UINT16_ENCODE (Lisp_Object obj)
+{
+  if (EQ (obj, Qunbound))
+    return BT_UINT16_unbound;
+  else if (EQ (obj, Qnil))
+    return BT_UINT16_nil;
+  else if (EQ (obj, Qt))
+    return BT_UINT16_t;
+  else
+    return XINT (obj);
+}
+
+INLINE_HEADER Lisp_Object
+UINT16_DECODE (unsigned short n)
+{
+  if (n == BT_UINT16_unbound)
+    return Qunbound;
+  else if (n == BT_UINT16_nil)
+    return Qnil;
+  else if (n == BT_UINT16_t)
+    return Qt;
+  else
+    return make_int (n);
+}
+
+INLINE_HEADER unsigned short
+UINT8_TO_UINT16 (unsigned char n)
+{
+  if (n == BT_UINT8_unbound)
+    return BT_UINT16_unbound;
+  else if (n == BT_UINT8_nil)
+    return BT_UINT16_nil;
+  else if (n == BT_UINT8_t)
+    return BT_UINT16_t;
+  else
+    return n;
+}
+
+static Lisp_Object
+mark_uint16_byte_table (Lisp_Object obj)
+{
+  return Qnil;
+}
+
+static void
+print_uint16_byte_table (Lisp_Object obj,
+			 Lisp_Object printcharfun, int escapeflag)
+{
+  Lisp_Uint16_Byte_Table *bte = XUINT16_BYTE_TABLE (obj);
+  int i;
+  struct gcpro gcpro1, gcpro2;
+  GCPRO2 (obj, printcharfun);
+
+  write_c_string ("\n#<uint16-byte-table", printcharfun);
+  for (i = 0; i < 256; i++)
+    {
+      unsigned short n = bte->property[i];
+      if ( (i & 15) == 0 )
+	write_c_string ("\n  ", printcharfun);
+      write_c_string (" ", printcharfun);
+      if (n == BT_UINT16_unbound)
+	write_c_string ("void", printcharfun);
+      else if (n == BT_UINT16_nil)
+	write_c_string ("nil", printcharfun);
+      else if (n == BT_UINT16_t)
+	write_c_string ("t", printcharfun);
+      else
+	{
+	  char buf[7];
+
+	  sprintf (buf, "%hd", n);
+	  write_c_string (buf, printcharfun);
+	}
+    }
+  UNGCPRO;
+  write_c_string (">", printcharfun);
+}
+
+static int
+uint16_byte_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
+{
+  Lisp_Uint16_Byte_Table *te1 = XUINT16_BYTE_TABLE (obj1);
+  Lisp_Uint16_Byte_Table *te2 = XUINT16_BYTE_TABLE (obj2);
+  int i;
+
+  for (i = 0; i < 256; i++)
+    if (te1->property[i] != te2->property[i])
+      return 0;
+  return 1;
+}
+
+static unsigned long
+uint16_byte_table_hash (Lisp_Object obj, int depth)
+{
+  Lisp_Uint16_Byte_Table *te = XUINT16_BYTE_TABLE (obj);
+  int i;
+  hashcode_t hash = 0;
+
+  for (i = 0; i < 256; i++)
+    hash = HASH2 (hash, te->property[i]);
+  return hash;
+}
+
+DEFINE_LRECORD_IMPLEMENTATION ("uint16-byte-table", uint16_byte_table,
+                               mark_uint16_byte_table,
+			       print_uint16_byte_table,
+			       0, uint16_byte_table_equal,
+			       uint16_byte_table_hash,
+			       0 /* uint16_byte_table_description */,
+			       Lisp_Uint16_Byte_Table);
+
+static Lisp_Object
+make_uint16_byte_table (unsigned short initval)
+{
+  Lisp_Object obj;
+  int i;
+  Lisp_Uint16_Byte_Table *cte;
+
+  cte = alloc_lcrecord_type (Lisp_Uint16_Byte_Table,
+			     &lrecord_uint16_byte_table);
+
+  for (i = 0; i < 256; i++)
+    cte->property[i] = initval;
+
+  XSETUINT16_BYTE_TABLE (obj, cte);
+  return obj;
+}
+
+static int
+uint16_byte_table_same_value_p (Lisp_Object obj)
+{
+  Lisp_Uint16_Byte_Table *bte = XUINT16_BYTE_TABLE (obj);
+  unsigned short v0 = bte->property[0];
+  int i;
+
+  for (i = 1; i < 256; i++)
+    {
+      if (bte->property[i] != v0)
+	return 0;
+    }
+  return -1;
+}
+
+
 static Lisp_Object
 mark_byte_table (Lisp_Object obj)
 {
@@ -170,6 +513,30 @@ mark_byte_table (Lisp_Object obj)
       mark_object (cte->property[i]);
     }
   return Qnil;
+}
+
+static void
+print_byte_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
+{
+  Lisp_Byte_Table *bte = XBYTE_TABLE (obj);
+  int i;
+  struct gcpro gcpro1, gcpro2;
+  GCPRO2 (obj, printcharfun);
+
+  write_c_string ("\n#<byte-table", printcharfun);
+  for (i = 0; i < 256; i++)
+    {
+      Lisp_Object elt = bte->property[i];
+      if ( (i & 15) == 0 )
+	write_c_string ("\n  ", printcharfun);
+      write_c_string (" ", printcharfun);
+      if (EQ (elt, Qunbound))
+	write_c_string ("void", printcharfun);
+      else
+	print_internal (elt, printcharfun, escapeflag);
+    }
+  UNGCPRO;
+  write_c_string (">", printcharfun);
 }
 
 static int
@@ -212,23 +579,20 @@ static const struct lrecord_description byte_table_description[] = {
 
 DEFINE_LRECORD_IMPLEMENTATION ("byte-table", byte_table,
                                mark_byte_table,
-			       internal_object_printer,
+			       print_byte_table,
 			       0, byte_table_equal,
 			       byte_table_hash,
 			       byte_table_description,
 			       Lisp_Byte_Table);
 
 static Lisp_Object
-make_byte_table (Lisp_Object initval, int older)
+make_byte_table (Lisp_Object initval)
 {
   Lisp_Object obj;
   int i;
   Lisp_Byte_Table *cte;
 
-  if (older)
-    cte = alloc_older_lcrecord_type (Lisp_Byte_Table, &lrecord_byte_table);
-  else
-    cte = alloc_lcrecord_type (Lisp_Byte_Table, &lrecord_byte_table);
+  cte = alloc_lcrecord_type (Lisp_Byte_Table, &lrecord_byte_table);
 
   for (i = 0; i < 256; i++)
     cte->property[i] = initval;
@@ -237,28 +601,137 @@ make_byte_table (Lisp_Object initval, int older)
   return obj;
 }
 
-static Lisp_Object
-copy_byte_table (Lisp_Object entry)
+static int
+byte_table_same_value_p (Lisp_Object obj)
 {
-  Lisp_Byte_Table *cte = XBYTE_TABLE (entry);
-  Lisp_Object obj;
+  Lisp_Byte_Table *bte = XBYTE_TABLE (obj);
+  Lisp_Object v0 = bte->property[0];
   int i;
-  Lisp_Byte_Table *ctenew
-    = alloc_lcrecord_type (Lisp_Byte_Table, &lrecord_byte_table);
 
-  for (i = 0; i < 256; i++)
+  for (i = 1; i < 256; i++)
     {
-      Lisp_Object new = cte->property[i];
-      if (BYTE_TABLE_P (new))
-	ctenew->property[i] = copy_byte_table (new);
-      else
-	ctenew->property[i] = new;
+      if (!EQ (bte->property[i], v0))
+	return 0;
     }
-
-  XSETBYTE_TABLE (obj, ctenew);
-  return obj;
+  return -1;
 }
 
+
+Lisp_Object get_byte_table (Lisp_Object table, unsigned char idx);
+Lisp_Object put_byte_table (Lisp_Object table, unsigned char idx,
+			    Lisp_Object value);
+
+Lisp_Object
+get_byte_table (Lisp_Object table, unsigned char idx)
+{
+  if (UINT8_BYTE_TABLE_P (table))
+    return UINT8_DECODE (XUINT8_BYTE_TABLE(table)->property[idx]);
+  else if (UINT16_BYTE_TABLE_P (table))
+    return UINT16_DECODE (XUINT16_BYTE_TABLE(table)->property[idx]);
+  else if (BYTE_TABLE_P (table))
+    return XBYTE_TABLE(table)->property[idx];
+  else
+    return table;
+}
+
+Lisp_Object
+put_byte_table (Lisp_Object table, unsigned char idx, Lisp_Object value)
+{
+  if (UINT8_BYTE_TABLE_P (table))
+    {
+      if (UINT8_VALUE_P (value))
+	{
+	  XUINT8_BYTE_TABLE(table)->property[idx] = UINT8_ENCODE (value);
+	  if (!UINT8_BYTE_TABLE_P (value) &&
+	      !UINT16_BYTE_TABLE_P (value) && !BYTE_TABLE_P (value)
+	      && uint8_byte_table_same_value_p (table))
+	    {
+	      return value;
+	    }
+	}
+      else if (UINT16_VALUE_P (value))
+	{
+	  Lisp_Object new = make_uint16_byte_table (Qnil);
+	  int i;
+
+	  for (i = 0; i < 256; i++)
+	    {
+	      XUINT16_BYTE_TABLE(new)->property[i]
+		= UINT8_TO_UINT16 (XUINT8_BYTE_TABLE(table)->property[i]);
+	    }
+	  XUINT16_BYTE_TABLE(new)->property[idx] = UINT16_ENCODE (value);
+	  return new;
+	}
+      else
+	{
+	  Lisp_Object new = make_byte_table (Qnil);
+	  int i;
+
+	  for (i = 0; i < 256; i++)
+	    {
+	      XBYTE_TABLE(new)->property[i]
+		= UINT8_DECODE (XUINT8_BYTE_TABLE(table)->property[i]);
+	    }
+	  XBYTE_TABLE(new)->property[idx] = value;
+	  return new;
+	}
+    }
+  else if (UINT16_BYTE_TABLE_P (table))
+    {
+      if (UINT16_VALUE_P (value))
+	{
+	  XUINT16_BYTE_TABLE(table)->property[idx] = UINT16_ENCODE (value);
+	  if (!UINT8_BYTE_TABLE_P (value) &&
+	      !UINT16_BYTE_TABLE_P (value) && !BYTE_TABLE_P (value)
+	      && uint16_byte_table_same_value_p (table))
+	    {
+	      return value;
+	    }
+	}
+      else
+	{
+	  Lisp_Object new = make_byte_table (Qnil);
+	  int i;
+
+	  for (i = 0; i < 256; i++)
+	    {
+	      XBYTE_TABLE(new)->property[i]
+		= UINT16_DECODE (XUINT16_BYTE_TABLE(table)->property[i]);
+	    }
+	  XBYTE_TABLE(new)->property[idx] = value;
+	  return new;
+	}
+    }
+  else if (BYTE_TABLE_P (table))
+    {
+      XBYTE_TABLE(table)->property[idx] = value;
+      if (!UINT8_BYTE_TABLE_P (value) &&
+	  !UINT16_BYTE_TABLE_P (value) && !BYTE_TABLE_P (value)
+	  && byte_table_same_value_p (table))
+	{
+	  return value;
+	}
+    }
+  else if (!EQ (table, value))
+    {
+      if (UINT8_VALUE_P (table) && UINT8_VALUE_P (value))
+	{
+	  table = make_uint8_byte_table (UINT8_ENCODE (table));
+	  XUINT8_BYTE_TABLE(table)->property[idx] = UINT8_ENCODE (value);
+	}
+      else if (UINT16_VALUE_P (table) && UINT16_VALUE_P (value))
+	{
+	  table = make_uint16_byte_table (UINT16_ENCODE (table));
+	  XUINT16_BYTE_TABLE(table)->property[idx] = UINT16_ENCODE (value);
+	}
+      else
+	{
+	  table = make_byte_table (table);
+	  XBYTE_TABLE(table)->property[idx] = value;
+	}
+    }
+  return table;
+}
 
 static Lisp_Object
 mark_char_id_table (Lisp_Object obj)
@@ -266,6 +739,28 @@ mark_char_id_table (Lisp_Object obj)
   Lisp_Char_ID_Table *cte = XCHAR_ID_TABLE (obj);
 
   return cte->table;
+}
+
+static void
+print_char_id_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
+{
+  Lisp_Object table = XCHAR_ID_TABLE (obj)->table;
+  int i;
+  struct gcpro gcpro1, gcpro2;
+  GCPRO2 (obj, printcharfun);
+
+  write_c_string ("#<char-id-table ", printcharfun);
+  for (i = 0; i < 256; i++)
+    {
+      Lisp_Object elt = get_byte_table (table, i);
+      if (i != 0) write_c_string ("\n  ", printcharfun);
+      if (EQ (elt, Qunbound))
+	write_c_string ("void", printcharfun);
+      else
+	print_internal (elt, printcharfun, escapeflag);
+    }
+  UNGCPRO;
+  write_c_string (">", printcharfun);
 }
 
 static int
@@ -292,73 +787,42 @@ static const struct lrecord_description char_id_table_description[] = {
 
 DEFINE_LRECORD_IMPLEMENTATION ("char-id-table", char_id_table,
                                mark_char_id_table,
-			       internal_object_printer,
+			       print_char_id_table,
 			       0, char_id_table_equal,
 			       char_id_table_hash,
 			       char_id_table_description,
 			       Lisp_Char_ID_Table);
 
 static Lisp_Object
-make_char_id_table (Lisp_Object initval, int older)
+make_char_id_table (Lisp_Object initval)
 {
   Lisp_Object obj;
   Lisp_Char_ID_Table *cte;
 
-  if (older)
-    cte = alloc_older_lcrecord_type (Lisp_Char_ID_Table,
-				     &lrecord_char_id_table);
-  else
-    cte = alloc_lcrecord_type (Lisp_Char_ID_Table, &lrecord_char_id_table);
+  cte = alloc_lcrecord_type (Lisp_Char_ID_Table, &lrecord_char_id_table);
 
-  cte->table = make_byte_table (initval, older);
+  cte->table = make_byte_table (initval);
 
   XSETCHAR_ID_TABLE (obj, cte);
   return obj;
 }
-
-/* not used */
-#if 0
-static Lisp_Object
-copy_char_id_table (Lisp_Object entry)
-{
-  Lisp_Char_ID_Table *cte = XCHAR_ID_TABLE (entry);
-  Lisp_Object obj;
-  Lisp_Char_ID_Table *ctenew
-    = alloc_lcrecord_type (Lisp_Char_ID_Table, &lrecord_char_id_table);
-
-  ctenew->table = copy_byte_table (cte->table);
-  XSETCHAR_ID_TABLE (obj, ctenew);
-  return obj;
-}
-#endif
 
 
 Lisp_Object
 get_char_id_table (Emchar ch, Lisp_Object table)
 {
   unsigned int code = ch;
-  Lisp_Byte_Table* cpt
-    = XBYTE_TABLE (XCHAR_ID_TABLE (table)->table);
-  Lisp_Object ret = cpt->property [(unsigned char)(code >> 24)];
 
-  if (BYTE_TABLE_P (ret))
-    cpt = XBYTE_TABLE (ret);
-  else
-    return ret;
-
-  ret = cpt->property [(unsigned char) (code >> 16)];
-  if (BYTE_TABLE_P (ret))
-    cpt = XBYTE_TABLE (ret);
-  else
-    return ret;
-
-  ret = cpt->property [(unsigned char) (code >> 8)];
-  if (BYTE_TABLE_P (ret))
-    cpt = XBYTE_TABLE (ret);
-  else
-    return ret;
-  
-  return cpt->property [(unsigned char) code];
+  return
+    get_byte_table
+    (get_byte_table
+     (get_byte_table
+      (get_byte_table
+       (XCHAR_ID_TABLE (table)->table,
+	(unsigned char)(code >> 24)),
+       (unsigned char) (code >> 16)),
+      (unsigned char)  (code >> 8)),
+     (unsigned char)    code);
 }
 
 void put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table);
@@ -366,58 +830,18 @@ void
 put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table)
 {
   unsigned int code = ch;
-  Lisp_Byte_Table* cpt1 = XBYTE_TABLE (XCHAR_ID_TABLE (table)->table);
-  Lisp_Object ret = cpt1->property[(unsigned char)(code >> 24)];
+  Lisp_Object table1, table2, table3, table4;
 
-  if (BYTE_TABLE_P (ret))
-    {
-      Lisp_Byte_Table* cpt2 = XBYTE_TABLE (ret);
-      
-      ret = cpt2->property[(unsigned char)(code >> 16)];
-      if (BYTE_TABLE_P (ret))
-	{
-	  Lisp_Byte_Table* cpt3 = XBYTE_TABLE (ret);
-	  
-	  ret = cpt3->property[(unsigned char)(code >> 8)];
-	  if (BYTE_TABLE_P (ret))
-	    {
-	      Lisp_Byte_Table* cpt4 = XBYTE_TABLE (ret);
-	      
-	      cpt4->property[(unsigned char)code] = value;
-	    }
-	  else if (!EQ (ret, value))
-	    {
-	      Lisp_Object cpt4
-		= make_byte_table (ret, OLDER_RECORD_P (table));
+  table1 = XCHAR_ID_TABLE (table)->table;
+  table2 = get_byte_table (table1, (unsigned char)(code >> 24));
+  table3 = get_byte_table (table2, (unsigned char)(code >> 16));
+  table4 = get_byte_table (table3, (unsigned char)(code >> 8));
 
-	      XBYTE_TABLE(cpt4)->property[(unsigned char)code] = value;
-	      cpt3->property[(unsigned char)(code >> 8)] = cpt4;
-	    }
-	}
-      else if (!EQ (ret, value))
-	{
-	  int older = OLDER_RECORD_P (table);
-	  Lisp_Object cpt3 = make_byte_table (ret, older);
-	  Lisp_Object cpt4 = make_byte_table (ret, older);
-
-	  XBYTE_TABLE(cpt4)->property[(unsigned char)code] = value;
-	  XBYTE_TABLE(cpt3)->property[(unsigned char)(code >> 8)]
-	    = cpt4;
-	  cpt2->property[(unsigned char)(code >> 16)] = cpt3;
-	}
-    }
-  else if (!EQ (ret, value))
-    {
-      int older = OLDER_RECORD_P (table);
-      Lisp_Object cpt2 = make_byte_table (ret, older);
-      Lisp_Object cpt3 = make_byte_table (ret, older);
-      Lisp_Object cpt4 = make_byte_table (ret, older);
-
-      XBYTE_TABLE(cpt4)->property[(unsigned char)code] = value;
-      XBYTE_TABLE(cpt3)->property[(unsigned char)(code >>  8)] = cpt4;
-      XBYTE_TABLE(cpt2)->property[(unsigned char)(code >> 16)] = cpt3;
-      cpt1->property[(unsigned char)(code >> 24)] = cpt2;
-    }
+  table4 = put_byte_table (table4, (unsigned char)code,         value);
+  table3 = put_byte_table (table3, (unsigned char)(code >> 8),  table4);
+  table2 = put_byte_table (table2, (unsigned char)(code >> 16), table3);
+  XCHAR_ID_TABLE (table)->table
+    = put_byte_table (table1, (unsigned char)(code >> 24), table2);
 }
 
 
@@ -580,6 +1004,14 @@ Return the list of all existing character attributes except coded-charsets.
   return char_attribute_list;
 }
 
+DEFUN ("find-char-attribute-table", Ffind_char_attribute_table, 1, 1, 0, /*
+Return char-id-table corresponding to ATTRIBUTE.
+*/
+       (attribute))
+{
+  return Fgethash (attribute, Vchar_attribute_hash_table, Qnil);
+}
+
 
 /* We store the char-id-tables in hash tables with the attributes as
    the key and the actual char-id-table object as the value.  Each
@@ -737,8 +1169,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 		  ntable = get_char_id_table (c, table);
 		  if (!CHAR_ID_TABLE_P (ntable))
 		    {
-		      ntable
-			= make_char_id_table (Qnil, OLDER_RECORD_P (table));
+		      ntable = make_char_id_table (Qnil);
 		      put_char_id_table (c, ntable, table);
 		    }
 		  table = ntable;
@@ -789,7 +1220,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
     if (NILP (table))
       {
-	table = make_char_id_table (Qunbound, 0);
+	table = make_char_id_table (Qunbound);
 	Fputhash (attribute, table, Vchar_attribute_hash_table);
       }
     put_char_id_table (XCHAR (character), value, table);
@@ -994,7 +1425,7 @@ put_char_ccs_code_point (Lisp_Object character,
   if (NILP (encoding_table = XCHARSET_ENCODING_TABLE (ccs)))
     {
       XCHARSET_ENCODING_TABLE (ccs)
-	= encoding_table = make_char_id_table (Qnil, -1);
+	= encoding_table = make_char_id_table (Qnil);
     }
   put_char_id_table (XCHAR (character), value, encoding_table);
   return Qt;
@@ -1562,7 +1993,7 @@ mark_charset (Lisp_Object obj)
   mark_object (cs->registry);
   mark_object (cs->ccl_program);
 #ifdef UTF2000
-  /* mark_object (cs->encoding_table); */
+  mark_object (cs->encoding_table);
   /* mark_object (cs->decoding_table); */
 #endif
   return cs->name;
@@ -3025,6 +3456,8 @@ void
 syms_of_mule_charset (void)
 {
 #ifdef UTF2000
+  INIT_LRECORD_IMPLEMENTATION (uint8_byte_table);
+  INIT_LRECORD_IMPLEMENTATION (uint16_byte_table);
   INIT_LRECORD_IMPLEMENTATION (byte_table);
   INIT_LRECORD_IMPLEMENTATION (char_id_table);
 #endif
@@ -3050,6 +3483,7 @@ syms_of_mule_charset (void)
   DEFSUBR (Fset_charset_registry);
 #ifdef UTF2000
   DEFSUBR (Fchar_attribute_list);
+  DEFSUBR (Ffind_char_attribute_table);
   DEFSUBR (Fchar_attribute_alist);
   DEFSUBR (Fget_char_attribute);
   DEFSUBR (Fput_char_attribute);
@@ -3219,10 +3653,10 @@ Version number of UTF-2000.
 */ );
 
   staticpro (&Vcharacter_composition_table);
-  Vcharacter_composition_table = make_char_id_table (Qnil, -1);
+  Vcharacter_composition_table = make_char_id_table (Qnil);
 
   staticpro (&Vcharacter_variant_table);
-  Vcharacter_variant_table = make_char_id_table (Qnil, 0);
+  Vcharacter_variant_table = make_char_id_table (Qnil);
 
   Vdefault_coded_charset_priority_list = Qnil;
   DEFVAR_LISP ("default-coded-charset-priority-list",
