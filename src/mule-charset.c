@@ -124,75 +124,182 @@ Bytecount rep_bytes_by_first_byte[0xA0] =
 #endif
 
 #ifdef UTF2000
-Emchar_to_byte_table*
-make_byte_from_character_table ()
+static Lisp_Object
+mark_char_byte_table (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
-  Emchar_to_byte_table* table
-    = (Emchar_to_byte_table*) xmalloc (sizeof (Emchar_to_byte_table));
+  struct Lisp_Char_Byte_Table *cte = XCHAR_BYTE_TABLE (obj);
+  int i;
 
-  table->base = NULL;
-  return table;
+  for (i = 0; i < 256; i++)
+    {
+      markobj (cte->property[i]);
+    }
+  return Qnil;
 }
 
-#define destroy_byte_from_character_table(table)  xfree(table)
+static int
+char_byte_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
+{
+  struct Lisp_Char_Byte_Table *cte1 = XCHAR_BYTE_TABLE (obj1);
+  struct Lisp_Char_Byte_Table *cte2 = XCHAR_BYTE_TABLE (obj2);
+  int i;
+
+  for (i = 0; i < 256; i++)
+    if (CHAR_BYTE_TABLE_P (cte1->property[i]))
+      if (CHAR_BYTE_TABLE_P (cte2->property[i]))
+	if (!char_byte_table_equal (cte1->property[i],
+					cte2->property[i], depth + 1))
+	  return 0;
+      else
+	return 0;
+    else
+      if (!internal_equal (cte1->property[i], cte2->property[i], depth + 1))
+	return 0;
+  return 1;
+}
+
+static unsigned long
+char_byte_table_hash (Lisp_Object obj, int depth)
+{
+  struct Lisp_Char_Byte_Table *cte = XCHAR_BYTE_TABLE (obj);
+
+  return internal_array_hash (cte->property, 256, depth);
+}
+
+static const struct lrecord_description char_byte_table_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Byte_Table, property), 256 },
+  { XD_END }
+};
+
+DEFINE_LRECORD_IMPLEMENTATION ("char-code-table", char_byte_table,
+                               mark_char_byte_table,
+			       internal_object_printer,
+			       0, char_byte_table_equal,
+			       char_byte_table_hash,
+			       char_byte_table_description,
+			       struct Lisp_Char_Byte_Table);
+
+
+static Lisp_Object
+make_char_byte_table (Lisp_Object initval)
+{
+  Lisp_Object obj;
+  int i;
+  struct Lisp_Char_Byte_Table *cte =
+    alloc_lcrecord_type (struct Lisp_Char_Byte_Table,
+			 &lrecord_char_byte_table);
+
+  for (i = 0; i < 256; i++)
+    cte->property[i] = initval;
+
+  XSETCHAR_BYTE_TABLE (obj, cte);
+  return obj;
+}
+
+static Lisp_Object
+copy_char_byte_table (Lisp_Object entry)
+{
+  struct Lisp_Char_Byte_Table *cte = XCHAR_BYTE_TABLE (entry);
+  Lisp_Object obj;
+  int i;
+  struct Lisp_Char_Byte_Table *ctenew =
+    alloc_lcrecord_type (struct Lisp_Char_Byte_Table,
+			 &lrecord_char_byte_table);
+
+  for (i = 0; i < 256; i++)
+    {
+      Lisp_Object new = cte->property[i];
+      if (CHAR_BYTE_TABLE_P (new))
+	ctenew->property[i] = copy_char_byte_table (new);
+      else
+	ctenew->property[i] = new;
+    }
+
+  XSETCHAR_BYTE_TABLE (obj, ctenew);
+  return obj;
+}
+
+#define make_char_code_table(initval) make_char_byte_table(initval)
+
+Lisp_Object
+get_char_code_table (Emchar ch, Lisp_Object table)
+{
+  struct Lisp_Char_Byte_Table* cpt = XCHAR_BYTE_TABLE (table);
+  Lisp_Object ret = cpt->property [ch >> 24];
+
+  if (CHAR_BYTE_TABLE_P (ret))
+    cpt = XCHAR_BYTE_TABLE (ret);
+  else
+    return ret;
+
+  ret = cpt->property [(unsigned char) (ch >> 16)];
+  if (CHAR_BYTE_TABLE_P (ret))
+    cpt = XCHAR_BYTE_TABLE (ret);
+  else
+    return ret;
+
+  ret = cpt->property [(unsigned char) (ch >> 8)];
+  if (CHAR_BYTE_TABLE_P (ret))
+    cpt = XCHAR_BYTE_TABLE (ret);
+  else
+    return ret;
+  
+  return cpt->property [(unsigned char) ch];
+}
 
 void
-put_byte_from_character_table (Emchar ch, unsigned char val,
-			       Emchar_to_byte_table* table)
+put_char_code_table (Emchar ch, Lisp_Object value, Lisp_Object table)
 {
-  if (table->base == NULL)
+  struct Lisp_Char_Byte_Table* cpt1 = XCHAR_BYTE_TABLE (table);
+  Lisp_Object ret = cpt1->property[ch >> 24];
+
+  if (CHAR_BYTE_TABLE_P (ret))
     {
-      table->base = xmalloc (256);
-      table->offset = ch - (ch % 256);
-      table->size = 256;
-      table->base[ch - table->offset] = val;
-    }
-  else
-    {
-      int i = ch - table->offset;
-
-      if (i < 0)
+      struct Lisp_Char_Byte_Table* cpt2 = XCHAR_BYTE_TABLE (ret);
+      
+      ret = cpt2->property[(unsigned char)(ch >> 16)];
+      if (CHAR_BYTE_TABLE_P (ret))
 	{
-	  size_t new_size = table->size - i;
-	  size_t j;
-
-	  new_size += 256 - (new_size % 256);
-	  table->base = xrealloc (table->base, new_size);
-      	  memmove (table->base + (new_size - table->size), table->base,
-		   table->size);
-	  for (j = 0; j < (new_size - table->size); j++)
-	    table->base[j] = 0;
-	  table->offset -= (new_size - table->size);
-	  table->base[ch - table->offset] = val;
-	  table->size = new_size;
+	  struct Lisp_Char_Byte_Table* cpt3 = XCHAR_BYTE_TABLE (ret);
+	  
+	  ret = cpt3->property[(unsigned char)(ch >> 8)];
+	  if (CHAR_BYTE_TABLE_P (ret))
+	    {
+	      struct Lisp_Char_Byte_Table* cpt4
+		= XCHAR_BYTE_TABLE (ret);
+	      
+	      cpt4->property[(unsigned char)ch] = value;
+	    }
+	  else if (!EQ (ret, value))
+	    {
+	      Lisp_Object cpt4 = make_char_byte_table (ret);
+	      
+	      XCHAR_BYTE_TABLE(cpt4)->property[(unsigned char)ch] = value;
+	      cpt3->property[(unsigned char)(ch >> 8)] = cpt4;
+	    }
 	}
-      else if (i >= table->size)
+      else if (!EQ (ret, value))
 	{
-	  size_t new_size = i + 1;
-	  size_t j;
-
-	  new_size += 256 - (new_size % 256);
-	  table->base = xrealloc (table->base, new_size);
-      	  for (j = table->size; j < new_size; j++)
-	    table->base[j] = 0;
-	  table->base[i] = val;
-	  table->size = new_size;
-	}
-      else
-	{
-      	  table->base[i] = val;
+	  Lisp_Object cpt3 = make_char_byte_table (ret);
+	  Lisp_Object cpt4 = make_char_byte_table (ret);
+	  
+	  XCHAR_BYTE_TABLE(cpt4)->property[(unsigned char)ch] = value;
+	  XCHAR_BYTE_TABLE(cpt3)->property[(unsigned char)(ch >> 8)]
+	    = cpt4;
+	  cpt2->property[(unsigned char)(ch >> 16)] = cpt3;
 	}
     }
-}
-
-unsigned char
-get_byte_from_character_table (Emchar ch, Emchar_to_byte_table* table)
-{
-  size_t i = ch - table->offset;
-  if (i < table->size)
-    return table->base[i];
-  else
-    return 0;
+  else if (!EQ (ret, value))
+    {
+      Lisp_Object cpt2 = make_char_byte_table (ret);
+      Lisp_Object cpt3 = make_char_byte_table (ret);
+      Lisp_Object cpt4 = make_char_byte_table (ret);
+      
+      XCHAR_BYTE_TABLE(cpt4)->property[(unsigned char)ch] = value;
+      XCHAR_BYTE_TABLE(cpt3)->property[(unsigned char)(ch >>  8)] = cpt4;
+      XCHAR_BYTE_TABLE(cpt2)->property[(unsigned char)(ch >> 16)] = cpt3;
+      cpt1->property[(unsigned char)(ch >> 24)] = cpt2;
+    }
 }
 
 
@@ -615,6 +722,7 @@ mark_charset (Lisp_Object obj, void (*markobj) (Lisp_Object))
   markobj (cs->ccl_program);
 #ifdef UTF2000
   markobj (cs->decoding_table);
+  markobj (cs->encoding_table);
 #endif
   return cs->name;
 }
@@ -655,6 +763,9 @@ print_charset (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 
 static const struct lrecord_description charset_description[] = {
   { XD_LISP_OBJECT, offsetof(struct Lisp_Charset, name), 7 },
+#ifdef UTF2000
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Charset, decoding_table), 2 },
+#endif
   { XD_END }
 };
 
@@ -709,19 +820,18 @@ make_charset (Charset_ID id, Lisp_Object name,
       if (!EQ (decoding_table, Qnil))
 	{
 	  size_t i;
-	  CHARSET_TO_BYTE1_TABLE(cs) = make_byte_from_character_table();
+	  CHARSET_ENCODING_TABLE(cs) = make_char_code_table (Qnil);
 	  for (i = 0; i < 94; i++)
 	    {
 	      Lisp_Object c = XVECTOR_DATA(decoding_table)[i];
 
 	      if (!EQ (c, Qnil))
-		put_byte_from_character_table (XCHAR (c), i + 33,
-					       CHARSET_TO_BYTE1_TABLE(cs));
+		put_char_code_table (XCHAR (c), make_int (i + 33),
+				     CHARSET_ENCODING_TABLE(cs));
 	    }
 	}
       else
-	CHARSET_TO_BYTE1_TABLE(cs) = NULL;
-      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+	CHARSET_ENCODING_TABLE(cs) = Qnil;
 #endif
       break;
     case CHARSET_TYPE_96:
@@ -731,35 +841,32 @@ make_charset (Charset_ID id, Lisp_Object name,
       if (!EQ (decoding_table, Qnil))
 	{
 	  size_t i;
-	  CHARSET_TO_BYTE1_TABLE(cs) = make_byte_from_character_table();
+	  CHARSET_ENCODING_TABLE(cs) = make_char_code_table (Qnil);
 	  for (i = 0; i < 96; i++)
 	    {
 	      Lisp_Object c = XVECTOR_DATA(decoding_table)[i];
 
 	      if (!EQ (c, Qnil))
-		put_byte_from_character_table (XCHAR (c), i + 32,
-					       CHARSET_TO_BYTE1_TABLE(cs));
+		put_char_code_table (XCHAR (c), make_int (i + 32),
+				     CHARSET_ENCODING_TABLE(cs));
 	    }
 	}
       else
-	CHARSET_TO_BYTE1_TABLE(cs) = NULL;
-      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+	CHARSET_ENCODING_TABLE(cs) = Qnil;
 #endif
       break;
     case CHARSET_TYPE_94X94:
       CHARSET_DIMENSION (cs) = 2;
       CHARSET_CHARS (cs) = 94;
 #ifdef UTF2000
-      CHARSET_TO_BYTE1_TABLE(cs) = NULL;
-      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+      CHARSET_ENCODING_TABLE(cs) = Qnil;
 #endif
       break;
     case CHARSET_TYPE_96X96:
       CHARSET_DIMENSION (cs) = 2;
       CHARSET_CHARS (cs) = 96;
 #ifdef UTF2000
-      CHARSET_TO_BYTE1_TABLE(cs) = NULL;
-      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+      CHARSET_ENCODING_TABLE(cs) = Qnil;
 #endif
       break;
 #ifdef UTF2000
@@ -767,16 +874,14 @@ make_charset (Charset_ID id, Lisp_Object name,
       CHARSET_DIMENSION (cs) = 2;
       CHARSET_CHARS (cs) = 128;
 #ifdef UTF2000
-      CHARSET_TO_BYTE1_TABLE(cs) = NULL;
-      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+      CHARSET_ENCODING_TABLE(cs) = Qnil;
 #endif
       break;
     case CHARSET_TYPE_256X256:
       CHARSET_DIMENSION (cs) = 2;
       CHARSET_CHARS (cs) = 256;
 #ifdef UTF2000
-      CHARSET_TO_BYTE1_TABLE(cs) = NULL;
-      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+      CHARSET_ENCODING_TABLE(cs) = Qnil;
 #endif
       break;
 #endif
@@ -855,13 +960,29 @@ get_unallocated_leading_byte (int dimension)
 unsigned char
 charset_get_byte1 (Lisp_Object charset, Emchar ch)
 {
-  Emchar_to_byte_table* table;
+  Lisp_Object table;
   int d;
 
-  if ((table = XCHARSET_TO_BYTE1_TABLE (charset)) != NULL)
-    return get_byte_from_character_table (ch, table);
-  else if ((XCHARSET_UCS_MIN (charset) <= ch)
-	   && (ch <= XCHARSET_UCS_MAX (charset)))
+  if (!EQ (table = XCHARSET_ENCODING_TABLE (charset), Qnil))
+    {
+      Lisp_Object value = get_char_code_table (ch, table);
+
+      if (INTP (value))
+	{
+	  Emchar code = XINT (value);
+
+	  if (code < (1 << 8))
+	    return code;
+	  else if (code < (1 << 16))
+	    return code >> 8;
+	  else if (code < (1 << 24))
+	    return code >> 16;
+	  else
+	    return code >> 24;
+	}
+    }
+  if ((XCHARSET_UCS_MIN (charset) <= ch)
+      && (ch <= XCHARSET_UCS_MAX (charset)))
     return (ch - XCHARSET_UCS_MIN (charset)
 	    + XCHARSET_CODE_OFFSET (charset))
       / (XCHARSET_DIMENSION (charset) == 1 ?
@@ -927,12 +1048,26 @@ charset_get_byte2 (Lisp_Object charset, Emchar ch)
     return 0;
   else
     {
-      Emchar_to_byte_table* table;
+      Lisp_Object table;
 
-      if ((table = XCHARSET_TO_BYTE2_TABLE (charset)) != NULL)
-	return get_byte_from_character_table (ch, table);
-      else if ((XCHARSET_UCS_MIN (charset) <= ch)
-	       && (ch <= XCHARSET_UCS_MAX (charset)))
+      if (!EQ (table = XCHARSET_ENCODING_TABLE (charset), Qnil))
+	{
+	  Lisp_Object value = get_char_code_table (ch, table);
+	  
+	  if (INTP (value))
+	    {
+	      Emchar code = XINT (value);
+
+	      if (code < (1 << 16))
+		return (unsigned char)code;
+	      else if (code < (1 << 24))
+		return (unsigned char)(code >> 16);
+	      else
+		return (unsigned char)(code >> 24);
+	    }
+	}
+      if ((XCHARSET_UCS_MIN (charset) <= ch)
+	  && (ch <= XCHARSET_UCS_MAX (charset)))
 	return ((ch - XCHARSET_UCS_MIN (charset)
 		 + XCHARSET_CODE_OFFSET (charset))
 		/ (XCHARSET_DIMENSION (charset) == 2 ?
@@ -1552,61 +1687,56 @@ Set mapping-table of CHARSET to TABLE.
        (charset, table))
 {
   struct Lisp_Charset *cs;
-  Emchar_to_byte_table* old_byte1_table;
-  Emchar_to_byte_table* old_byte2_table;
+  Lisp_Object old_table;
 
   charset = Fget_charset (charset);
   CHECK_VECTOR (table);
   
   cs = XCHARSET (charset);
   CHARSET_DECODING_TABLE(cs) = table;
-  old_byte1_table = CHARSET_TO_BYTE1_TABLE(cs);
-  old_byte2_table = CHARSET_TO_BYTE2_TABLE(cs);
+  old_table = CHARSET_ENCODING_TABLE(cs);
   switch (CHARSET_TYPE (cs))
     {
     case CHARSET_TYPE_94:
       if (!EQ (table, Qnil))
 	{
 	  size_t i;
-	  CHARSET_TO_BYTE1_TABLE(cs) = make_byte_from_character_table();
+	  CHARSET_ENCODING_TABLE(cs) = make_char_code_table (Qnil);
 	  for (i = 0; i < 94; i++)
 	    {
 	      Lisp_Object c = XVECTOR_DATA(table)[i];
 
-	      if (!EQ (c, Qnil))
-		put_byte_from_character_table (XCHAR (c), i + 33,
-					       CHARSET_TO_BYTE1_TABLE(cs));
+	      if (CHARP (c))
+		put_char_code_table (XCHAR (c), make_int (i + 33),
+				     CHARSET_ENCODING_TABLE(cs));
 	    }
 	}
       else
-	CHARSET_TO_BYTE1_TABLE(cs) = NULL;
-      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+	CHARSET_ENCODING_TABLE(cs) = Qnil;
       break;
     case CHARSET_TYPE_96:
       if (!EQ (table, Qnil))
 	{
 	  size_t i;
-	  CHARSET_TO_BYTE1_TABLE(cs) = make_byte_from_character_table();
+	  CHARSET_ENCODING_TABLE(cs) = make_char_code_table (Qnil);
 	  for (i = 0; i < 96; i++)
 	    {
 	      Lisp_Object c = XVECTOR_DATA(table)[i];
 
-	      if (!EQ (c, Qnil))
-		put_byte_from_character_table (XCHAR (c), i + 32,
-					       CHARSET_TO_BYTE1_TABLE(cs));
+	      if (CHARP (c))
+		put_char_code_table (XCHAR (c), make_int (i + 32),
+				     CHARSET_ENCODING_TABLE(cs));
 	    }
 	}
       else
-	CHARSET_TO_BYTE1_TABLE(cs) = NULL;
-      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+	CHARSET_ENCODING_TABLE(cs) = Qnil;
       break;
     case CHARSET_TYPE_94X94:
       if (!EQ (table, Qnil))
 	{
 	  size_t i;
 
-	  CHARSET_TO_BYTE1_TABLE(cs) = make_byte_from_character_table();
-	  CHARSET_TO_BYTE2_TABLE(cs) = make_byte_from_character_table();
+	  CHARSET_ENCODING_TABLE(cs) = make_char_code_table (Qnil);
 	  for (i = 0; i < XVECTOR_LENGTH (table); i++)
 	    {
 	      Lisp_Object v = XVECTOR_DATA(table)[i];
@@ -1619,47 +1749,35 @@ Set mapping-table of CHARSET to TABLE.
 		    {
 		      Lisp_Object c = XVECTOR_DATA(v)[j];
 
-		      if (!EQ (c, Qnil))
-			{
-			  put_byte_from_character_table
-			    (XCHAR (c), i + 33, CHARSET_TO_BYTE1_TABLE(cs));
-			  put_byte_from_character_table
-			    (XCHAR (c), j + 33, CHARSET_TO_BYTE2_TABLE(cs));
-			}
+		      if (CHARP (c))
+			put_char_code_table (XCHAR (c),
+					     make_int (( (i + 33) << 8)
+						       | (j + 33)),
+					     CHARSET_ENCODING_TABLE(cs));
 		    }
 		}
 	      else if (CHARP (v))
-		put_byte_from_character_table
-		  (XCHAR (v), i + 33, CHARSET_TO_BYTE1_TABLE(cs));
+		put_char_code_table (XCHAR (v), make_int (i + 33),
+				   CHARSET_ENCODING_TABLE(cs));
 	    }
 	}
       else
-	{
-	  CHARSET_TO_BYTE1_TABLE(cs) = NULL;
-	  CHARSET_TO_BYTE2_TABLE(cs) = NULL;
-	}
+	CHARSET_ENCODING_TABLE(cs) = Qnil;
       break;
     case CHARSET_TYPE_96X96:
-      CHARSET_TO_BYTE1_TABLE(cs) = NULL;
-      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+      CHARSET_ENCODING_TABLE(cs) = Qnil;
       break;
     case CHARSET_TYPE_128X128:
       CHARSET_DIMENSION (cs) = 2;
       CHARSET_CHARS (cs) = 128;
-      CHARSET_TO_BYTE1_TABLE(cs) = NULL;
-      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+      CHARSET_ENCODING_TABLE(cs) = Qnil;
       break;
     case CHARSET_TYPE_256X256:
       CHARSET_DIMENSION (cs) = 2;
       CHARSET_CHARS (cs) = 256;
-      CHARSET_TO_BYTE1_TABLE(cs) = NULL;
-      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+      CHARSET_ENCODING_TABLE(cs) = Qnil;
       break;
     }
-  if (old_byte1_table != NULL)
-    destroy_byte_from_character_table (old_byte1_table);
-  if (old_byte2_table != NULL)
-    destroy_byte_from_character_table (old_byte2_table);
   return table;
 }
 #endif
