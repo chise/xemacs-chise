@@ -1,3 +1,10 @@
+1999-11-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-conf.el: New file.
+
+	* mule/misc-lang.el: Move definition of charset `ipa' to
+	mule/mule-conf.el.
+
 1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
