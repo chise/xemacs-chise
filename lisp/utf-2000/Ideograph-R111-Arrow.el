@@ -505,6 +505,7 @@
 (define-char
   '((ideographic-radical . 111)	; â½®
     (ideographic-strokes . 6)
+    (total-strokes	 . 11)
     (=ucs		. #x77EB)	; çŸ«
     (=gb2312		. #x3D43)	; ø»„¯®
     ))
