@@ -793,6 +793,21 @@
     ))
 (define-char
   '((ideographic-radical . 44)	; â¼«
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (ucs		  . #x2FF8)	; â¿¸
+      )
+     ((ucs		  . #x5C38)	; å°¸
+      )
+     ((ucs		  . #x7F8A)	; ç¾Š
+      ))
+    (ideograph-cbeta	. 02980)	; ø¸ ®¤
+    (ucs		. #x21C5D)	; ð¡±
+    ))
+(define-char
+  '((ideographic-radical . 44)	; â¼«
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 07706)	; ø¸¸š

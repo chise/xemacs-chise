@@ -1358,6 +1358,12 @@
     (ucs		. #x20B43)	; ð ­ƒ
     ))
 (define-char
+  '((ideographic-radical . 29)	; â¼œ
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideograph-cbeta	. 01008)	; ø¸ °
+    ))
+(define-char
   '((=>ucs		. #x53DE)	; åž
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 8)
