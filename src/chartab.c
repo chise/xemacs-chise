@@ -3583,8 +3583,9 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	      if (!CONSP (ffv))
 		put_char_attribute (ret, rev_feature, list1 (character));
 	      else if (NILP (Fmemq (character, ffv)))
-		put_char_attribute (ret, rev_feature,
-				    Fcons (character, ffv));
+		put_char_attribute
+		  (ret, rev_feature,
+		   nconc2 (Fcopy_sequence (ffv), list1 (character)));
 	      Fsetcar (rest, ret);
 	    }
 	  rest = XCDR (rest);
