@@ -2898,6 +2898,7 @@
     (ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (=jis-x0213-2-2000	. #x2823)	; ø»¤§”
     (=gt-pj-9		. #x4D61)	; ý¡€‚š
     (=gt		. 09050)	; ý¡€‚š
     ))
