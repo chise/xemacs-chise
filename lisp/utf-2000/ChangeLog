@@ -1,3 +1,31 @@
+2004-05-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (JSP-564C): Moved into U+8196.
+	(U+8196): Use `->subsumptive'.
+	(M-29821): Moved into U-0002F989.
+	(U-0002F989): Use `->subsumptive'; add `<-denotational' for
+	U-00023393.
+	(U+442F): Use `->subsumptive'.
+	(C4-4C5C): Moved into U+442F.
+	(M-29824): Moved into U+8197.
+	(U+8197): Use `->subsumptive'.
+	(U+8198): Use `->subsumptive'.
+	(C1-6E51): Moved into U+8198.
+	(U+8199): Use `->subsumptive'.
+	(C2-532C): Moved into U+8199.
+
+	* Ideograph-R118-Bamboo.el (U+4227): Use `<-wrong*sources' instead
+	of char-ref in `<-wrong'.
+	(M-26564): Moved into U-0002F964.
+	(C7-413C): Likewise.
+	(U-0002F964): New character.
+
+	* Ideograph-R015-Ice.el (U+51B4): Use `->subsumptive'; use
+	`<-wrong*sources' instead of char-ref in `<-wrong'.
+	(J78-3A63): Moved into U+51B4.
+	(J83-3A63): Likewise.
+	(CB06339): Likewise.
+
 2004-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R076-Lack.el (U+6B54): Changed to an abstract
