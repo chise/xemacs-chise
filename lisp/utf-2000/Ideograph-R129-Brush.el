@@ -18,6 +18,23 @@
 (define-char
   '((ideographic-radical . 129)	; ⾀
     (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (<-denotational
+     ((=ucs		  . #x807F)	; 聿
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x807F)	; 聿
+      ))
+    (->subsumptive
+     ((=big5-cdp	  . #x8BC6)	; &CDP-8BC6;
+      )
+     ((=gt-k		  . 02451)	; &GT-K02451;
+      (=gt-pj-k1	  . #x325E)	; &GT-K02451; [18-62]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 129)	; ⾀
+    (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=ucs		. #x26612)	; 𦘒
     (=cns11643-5	. #x217A)	; &I-C5-217A; [01-90]
