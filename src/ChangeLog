@@ -1,3 +1,11 @@
+2000-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (encode_builtin_char_1): Limit builtin-code-range
+	of `mojikyo' to MIN_CHAR_MOJIKYO + 94 * 60 * 22.
+
+	* char-ucs.h (MAX_CHAR_MOJIKYO): Limit builtin-code-range to
+	MIN_CHAR_MOJIKYO + 94 * 60 * 22.
+
 2000-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (encode_builtin_char_1): Use `mojikyo' instead of
