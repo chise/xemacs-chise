@@ -24,6 +24,20 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _XEMACS_MB_MULTIBYTE_H
 #define _XEMACS_MB_MULTIBYTE_H
 
+/************************************************************************/
+/*                     Operations on individual bytes                   */
+/*                             of any format                            */
+/************************************************************************/
+
+/* Argument `c' should be (unsigned int) or (unsigned char). */
+/* Note that SP and DEL are not included. */
+
+#define BYTE_ASCII_P(c) ((c) < 0x80)
+#define BYTE_C0_P(c) ((c) < 0x20)
+/* Do some forced casting just to make *sure* things are gotten right. */
+#define BYTE_C1_P(c) ((unsigned int) ((unsigned int) (c) - 0x80) < 0x20)
+
+
 /* ---------------------------------------------------------------------- */
 /* (A) For working with charptr's (pointers to internally-formatted text) */
 /* ---------------------------------------------------------------------- */
@@ -85,5 +99,19 @@ charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2)
     simple_charptr_copy_char (ptr, ptr2) :
     non_ascii_charptr_copy_char (ptr, ptr2);
 }
+
+
+/************************************************************************/
+/*                            Exported functions                        */
+/************************************************************************/
+
+Emchar Lstream_get_emchar_1 (Lstream *stream, int first_char);
+int Lstream_fput_emchar (Lstream *stream, Emchar ch);
+void Lstream_funget_emchar (Lstream *stream, Emchar ch);
+
+int copy_internal_to_external (CONST Bufbyte *internal, Bytecount len,
+			       unsigned char *external);
+Bytecount copy_external_to_internal (CONST unsigned char *external,
+				     int len, Bufbyte *internal);
 
 #endif /* _XEMACS_MB_MULTIBYTE_H */
