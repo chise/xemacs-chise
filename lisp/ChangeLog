@@ -1,3 +1,8 @@
+2002-12-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for &K0-xxxx and &I-K0-xxxx.
+
 2002-12-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
