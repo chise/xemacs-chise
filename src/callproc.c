@@ -823,13 +823,12 @@ void
 init_callproc (void)
 {
   /* This function can GC */
-  REGISTER char *sh;
 
-  Vprocess_environment = Qnil;
-  /* jwz: always initialize Vprocess_environment, so that egetenv() works
-     in temacs. */
   {
+    /* jwz: always initialize Vprocess_environment, so that egetenv()
+       works in temacs. */
     char **envp;
+    Vprocess_environment = Qnil;
     for (envp = environ; envp && *envp; envp++)
       {
 	Vprocess_environment = Fcons (build_ext_string (*envp, FORMAT_OS),
@@ -837,32 +836,18 @@ init_callproc (void)
       }
   }
 
+  {
+    /* Initialize shell-file-name from environment variables or best guess. */
 #ifdef WINDOWSNT
-  /* Sync with FSF Emacs 19.34.6 note: this is not in 19.34.6. --marcpa */
-  /*
-  ** If NT then we look at COMSPEC for the shell program.
-  */
-  sh = egetenv ("COMSPEC");
-  /*
-  ** If COMSPEC has been set, then convert the
-  ** DOS formatted name into a UNIX format. Then
-  ** create a LISP object.
-  */
-  if (sh)
-    Vshell_file_name = build_string (sh);
-  /*
-  ** Odd, no COMSPEC, so let's default to our
-  ** best guess for NT.
-  */
-  else
-    Vshell_file_name = build_string ("\\WINNT\\system32\\cmd.exe");
-
+    CONST char *shell = egetenv ("COMSPEC");
+    if (!shell) shell = "\\WINNT\\system32\\cmd.exe";
 #else /* not WINDOWSNT */
-
-  sh = (char *) egetenv ("SHELL");
-  Vshell_file_name = build_string (sh ? sh : "/bin/sh");
-
+    CONST char *shell = egetenv ("SHELL");
+    if (!shell) shell = "/bin/sh";
 #endif
+
+    Vshell_file_name = build_string (shell);
+  }
 }
 
 #if 0

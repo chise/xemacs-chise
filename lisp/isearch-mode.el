@@ -455,15 +455,16 @@ is treated as a regexp.  See \\[isearch-forward] for more info."
 
 	  ;; #### Should we remember the old value of
 	  ;; overriding-local-map?
-	  overriding-local-map isearch-mode-map
+ 	  overriding-local-map (progn
+ 				 (set-keymap-parents isearch-mode-map
+ 				  (nconc (current-minor-mode-maps)
+					 (and (current-local-map)
+					      (list (current-local-map)))))
+ 				 isearch-mode-map)
 	  isearch-selected-frame (selected-frame)
 
 	  isearch-mode (gettext " Isearch")
 	  )
-    (let ((map (append (current-minor-mode-maps)
-		       (list (current-local-map)))))
-      (if (keymapp map)
-	  (set-keymap-parents isearch-mode-map map)))
 
     ;; XEmacs change: without clearing the match data, sometimes old values
     ;; of isearch-other-end get used.  Don't ask me why...

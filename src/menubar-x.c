@@ -122,6 +122,11 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	{
 	  wv->name = string_chars;
 	  wv->enabled = 1;
+	  /* dverna Dec. 98: command_builder_operate_menu_accelerator will
+	     manipulate the accel as a Lisp_Object if the widget has a name.
+	     Since simple labels have a name, but no accel, we *must* set it
+	     to nil */
+	  wv->accel = LISP_TO_VOID (Qnil);
 	}
     }
   else if (VECTORP (desc))

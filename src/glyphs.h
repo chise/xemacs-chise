@@ -25,6 +25,7 @@ Boston, MA 02111-1307, USA.  */
 #define _XEMACS_GLYPHS_H_
 
 #include "specifier.h"
+#include "gui.h"
 
 /************************************************************************/
 /*			Image Instantiators				*/
@@ -47,11 +48,18 @@ struct image_instantiator_methods;
   jpeg				color-pixmap
   png				color-pixmap
   tiff				color-pixmap
+  bmp				color-pixmap
   cursor-font			pointer
+  mswindows-resource		pointer
   font				pointer
   subwindow			subwindow
   inherit			mono-pixmap
   autodetect			mono-pixmap, color-pixmap, pointer, text
+  button				widget
+  edit				widget
+  combo				widget
+  scrollbar			widget
+  static				widget
 */
 
 /* These are methods specific to a particular format of image instantiator
@@ -73,6 +81,8 @@ typedef struct
 struct image_instantiator_methods
 {
   Lisp_Object symbol;
+
+  Lisp_Object device;		/* sometimes used */
 
   ii_keyword_entry_dynarr *keywords;
   /* Implementation specific methods: */
@@ -104,6 +114,15 @@ struct image_instantiator_methods
 			      Lisp_Object pointer_bg,
 			      int dest_mask,
 			      Lisp_Object domain);
+  /* Property method: Given an image instance, return device specific
+     properties. */
+  Lisp_Object (*property_method) (Lisp_Object image_instance,
+				  Lisp_Object property);
+  /* Set-property method: Given an image instance, set device specific
+     properties. */
+  Lisp_Object (*set_property_method) (Lisp_Object image_instance,
+				      Lisp_Object property,
+				      Lisp_Object val);
 };
 
 /***** Calling an image-instantiator method *****/
@@ -112,11 +131,21 @@ struct image_instantiator_methods
 #define IIFORMAT_METH(mstruc, m, args) (((mstruc)->m##_method) args)
 
 /* Call a void-returning specifier method, if it exists */
-#define MAYBE_IIFORMAT_METH(mstruc, m, args) do {				\
-  struct image_instantiator_methods *maybe_iiformat_meth_mstruc = (mstruc);	\
-  if (HAS_IIFORMAT_METH_P (maybe_iiformat_meth_mstruc, m))			\
-    IIFORMAT_METH (maybe_iiformat_meth_mstruc, m, args);			\
+#define MAYBE_IIFORMAT_METH(mstruc, m, args)				     \
+if (mstruc)							\
+do {									     \
+  struct image_instantiator_methods *maybe_iiformat_meth_mstruc = (mstruc); \
+  if (HAS_IIFORMAT_METH_P (maybe_iiformat_meth_mstruc, m))		     \
+    IIFORMAT_METH (maybe_iiformat_meth_mstruc, m, args);		     \
 } while (0)
+
+#define MAYBE_IIFORMAT_DEVMETH(device, mstruc, m, args)				\
+do {											\
+  struct image_instantiator_methods *_mstruc = decode_ii_device (device, mstruc);	\
+  if (_mstruc)										\
+    MAYBE_IIFORMAT_METH(_mstruc, m, args);						\
+} while (0)
+
 
 /* Call a specifier method, if it exists; otherwise return
    the specified value */
@@ -133,22 +162,31 @@ extern struct image_instantiator_methods *format##_image_instantiator_methods
 #define DEFINE_IMAGE_INSTANTIATOR_FORMAT(format)		\
 struct image_instantiator_methods *format##_image_instantiator_methods
 
-#define INITIALIZE_IMAGE_INSTANTIATOR_FORMAT(format, obj_name)	\
+#define INITIALIZE_IMAGE_INSTANTIATOR_FORMAT_NO_SYM(format, obj_name)	\
 do {								\
   format##_image_instantiator_methods =				\
     xnew_and_zero (struct image_instantiator_methods);		\
-  defsymbol (&Q##format, obj_name);				\
   format##_image_instantiator_methods->symbol = Q##format;	\
+  format##_image_instantiator_methods->device = Qnil;		\
   format##_image_instantiator_methods->keywords =		\
     Dynarr_new (ii_keyword_entry);				\
   add_entry_to_image_instantiator_format_list			\
     (Q##format, format##_image_instantiator_methods);		\
 } while (0)
 
+#define INITIALIZE_IMAGE_INSTANTIATOR_FORMAT(format, obj_name)	\
+do {								\
+  defsymbol (&Q##format, obj_name);				\
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT_NO_SYM(format, obj_name);	\
+} while (0)
+
 /* Declare that image-instantiator format FORMAT has method M; used in
    initialization routines */
 #define IIFORMAT_HAS_METHOD(format, m) \
   (format##_image_instantiator_methods->m##_method = format##_##m)
+
+#define IIFORMAT_HAS_SHARED_METHOD(format, m, type) \
+  (format##_image_instantiator_methods->m##_method = type##_##m)
 
 /* Declare that KEYW is a valid keyword for image-instantiator format
    FORMAT.  VALIDATE_FUN if a function that returns whether the data
@@ -177,7 +215,35 @@ do {								\
 		entry);							\
   } while (0)
 
+#define DEFINE_DEVICE_IIFORMAT(type, format)\
+struct image_instantiator_methods *type##_##format##_image_instantiator_methods
+
+#define INITIALIZE_DEVICE_IIFORMAT(type, format)	\
+do {								\
+  type##_##format##_image_instantiator_methods =				\
+    xnew_and_zero (struct image_instantiator_methods);		\
+  type##_##format##_image_instantiator_methods->symbol = Q##format;	\
+  type##_##format##_image_instantiator_methods->device = Q##type;	\
+  type##_##format##_image_instantiator_methods->keywords =		\
+    Dynarr_new (ii_keyword_entry);				\
+  add_entry_to_device_ii_format_list				\
+    (Q##type, Q##format, type##_##format##_image_instantiator_methods);	\
+} while (0)
+
+/* Declare that image-instantiator format FORMAT has method M; used in
+   initialization routines */
+#define IIFORMAT_HAS_DEVMETHOD(type, format, m) \
+  (type##_##format##_image_instantiator_methods->m##_method = type##_##format##_##m)
+
+struct image_instantiator_methods *
+decode_device_ii_format (Lisp_Object device, Lisp_Object format,
+			 Error_behavior errb);
+struct image_instantiator_methods *
+decode_image_instantiator_format (Lisp_Object format, Error_behavior errb);
+
 void add_entry_to_image_instantiator_format_list (Lisp_Object symbol,
+			struct image_instantiator_methods *meths);
+void add_entry_to_device_ii_format_list (Lisp_Object device, Lisp_Object symbol,
 			struct image_instantiator_methods *meths);
 Lisp_Object find_keyword_in_vector (Lisp_Object vector,
 				    Lisp_Object keyword);
@@ -193,6 +259,14 @@ Lisp_Object potential_pixmap_file_instantiator (Lisp_Object instantiator,
 						Lisp_Object console_type);
 void check_valid_string (Lisp_Object data);
 void check_valid_int (Lisp_Object data);
+void check_valid_face (Lisp_Object data);
+void check_valid_vector (Lisp_Object data);
+
+void initialize_subwindow_image_instance (struct Lisp_Image_Instance*);
+void subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+			    Lisp_Object pointer_fg, Lisp_Object pointer_bg,
+			    int dest_mask, Lisp_Object domain);
+
 DECLARE_DOESNT_RETURN (incompatible_image_types (Lisp_Object instantiator,
                                                  int given_dest_mask,
                                                  int desired_dest_mask));
@@ -250,7 +324,8 @@ enum image_instance_type
   IMAGE_MONO_PIXMAP,
   IMAGE_COLOR_PIXMAP,
   IMAGE_POINTER,
-  IMAGE_SUBWINDOW
+  IMAGE_SUBWINDOW,
+  IMAGE_WIDGET
 };
 
 #define IMAGE_NOTHING_MASK (1 << 0)
@@ -259,6 +334,7 @@ enum image_instance_type
 #define IMAGE_COLOR_PIXMAP_MASK (1 << 3)
 #define IMAGE_POINTER_MASK (1 << 4)
 #define IMAGE_SUBWINDOW_MASK (1 << 5)
+#define IMAGE_WIDGET_MASK (1 << 6)
 
 #define IMAGE_INSTANCE_TYPE_P(ii, type) \
 (IMAGE_INSTANCEP (ii) && XIMAGE_INSTANCE_TYPE (ii) == type)
@@ -275,6 +351,8 @@ enum image_instance_type
      IMAGE_INSTANCE_TYPE_P (ii, IMAGE_POINTER)
 #define SUBWINDOW_IMAGE_INSTANCEP(ii) \
      IMAGE_INSTANCE_TYPE_P (ii, IMAGE_SUBWINDOW)
+#define WIDGET_IMAGE_INSTANCEP(ii) \
+     IMAGE_INSTANCE_TYPE_P (ii, IMAGE_WIDGET)
 
 #define CHECK_NOTHING_IMAGE_INSTANCE(x) do {			\
   CHECK_IMAGE_INSTANCE (x);					\
@@ -308,8 +386,15 @@ enum image_instance_type
 
 #define CHECK_SUBWINDOW_IMAGE_INSTANCE(x) do {			\
   CHECK_IMAGE_INSTANCE (x);					\
-  if (!SUBWINDOW_IMAGE_INSTANCEP (x))				\
+  if (!SUBWINDOW_IMAGE_INSTANCEP (x)				\
+      && !WIDGET_IMAGE_INSTANCEP (x))				\
     x = wrong_type_argument (Qsubwindow_image_instance_p, (x));	\
+} while (0)
+
+#define CHECK_WIDGET_IMAGE_INSTANCE(x) do {			\
+  CHECK_IMAGE_INSTANCE (x);					\
+  if (!WIDGET_IMAGE_INSTANCEP (x))				\
+    x = wrong_type_argument (Qwidget_image_instance_p, (x));	\
 } while (0)
 
 struct Lisp_Image_Instance
@@ -338,7 +423,17 @@ struct Lisp_Image_Instance
     } pixmap; /* used for pointers as well */
     struct
     {
-      int dummy; /* #### fill in this structure */
+      Lisp_Object frame;
+      unsigned int width, height;
+      void* subwindow;		/* specific devices can use this as necessary */
+      int being_displayed;		/* used to detect when needs to be unmapped */
+      struct
+      {
+	Lisp_Object face; /* foreground and background colors */
+	Lisp_Object type;
+	Lisp_Object props;	/* properties */
+	struct gui_item gui_item;
+      } widget;			/* widgets are subwindows */
     } subwindow;
   } u;
 
@@ -365,6 +460,25 @@ struct Lisp_Image_Instance
 #define IMAGE_INSTANCE_PIXMAP_FG(i) ((i)->u.pixmap.fg)
 #define IMAGE_INSTANCE_PIXMAP_BG(i) ((i)->u.pixmap.bg)
 #define IMAGE_INSTANCE_PIXMAP_AUXDATA(i) ((i)->u.pixmap.auxdata)
+
+#define IMAGE_INSTANCE_SUBWINDOW_WIDTH(i) ((i)->u.subwindow.width)
+#define IMAGE_INSTANCE_SUBWINDOW_HEIGHT(i) ((i)->u.subwindow.height)
+#define IMAGE_INSTANCE_SUBWINDOW_ID(i) ((i)->u.subwindow.subwindow)
+#define IMAGE_INSTANCE_SUBWINDOW_FRAME(i) ((i)->u.subwindow.frame)
+#define IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP(i) \
+((i)->u.subwindow.being_displayed)
+
+#define IMAGE_INSTANCE_WIDGET_WIDTH(i) \
+  IMAGE_INSTANCE_SUBWINDOW_WIDTH(i)
+#define IMAGE_INSTANCE_WIDGET_HEIGHT(i) \
+  IMAGE_INSTANCE_SUBWINDOW_HEIGHT(i)
+#define IMAGE_INSTANCE_WIDGET_CALLBACK(i) \
+  ((i)->u.subwindow.widget.gui_item.callback)
+#define IMAGE_INSTANCE_WIDGET_TYPE(i) ((i)->u.subwindow.widget.type)
+#define IMAGE_INSTANCE_WIDGET_PROPS(i) ((i)->u.subwindow.widget.props)
+#define IMAGE_INSTANCE_WIDGET_FACE(i) ((i)->u.subwindow.widget.face)
+#define IMAGE_INSTANCE_WIDGET_TEXT(i) ((i)->u.subwindow.widget.gui_item.name)
+#define IMAGE_INSTANCE_WIDGET_ITEM(i) ((i)->u.subwindow.widget.gui_item)
 
 #define XIMAGE_INSTANCE_DEVICE(i) \
   IMAGE_INSTANCE_DEVICE (XIMAGE_INSTANCE (i))
@@ -394,6 +508,34 @@ struct Lisp_Image_Instance
   IMAGE_INSTANCE_PIXMAP_FG (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_PIXMAP_BG(i) \
   IMAGE_INSTANCE_PIXMAP_BG (XIMAGE_INSTANCE (i))
+
+#define XIMAGE_INSTANCE_WIDGET_WIDTH(i) \
+  IMAGE_INSTANCE_WIDGET_WIDTH (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_WIDGET_HEIGHT(i) \
+  IMAGE_INSTANCE_WIDGET_HEIGHT (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_WIDGET_CALLBACK(i) \
+  IMAGE_INSTANCE_WIDGET_CALLBACK (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_WIDGET_TYPE(i) \
+  IMAGE_INSTANCE_WIDGET_TYPE (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_WIDGET_PROPS(i) \
+  IMAGE_INSTANCE_WIDGET_PROPS (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_WIDGET_FACE(i) \
+  IMAGE_INSTANCE_WIDGET_FACE (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_WIDGET_TEXT(i) \
+  IMAGE_INSTANCE_WIDGET_TEXT (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_WIDGET_ITEM(i) \
+  IMAGE_INSTANCE_WIDGET_ITEM (XIMAGE_INSTANCE (i))
+
+#define XIMAGE_INSTANCE_SUBWINDOW_WIDTH(i) \
+  IMAGE_INSTANCE_SUBWINDOW_WIDTH (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_SUBWINDOW_HEIGHT(i) \
+  IMAGE_INSTANCE_SUBWINDOW_HEIGHT (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_SUBWINDOW_ID(i) \
+  IMAGE_INSTANCE_SUBWINDOW_ID (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_SUBWINDOW_FRAME(i) \
+  IMAGE_INSTANCE_SUBWINDOW_FRAME (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP(i) \
+  IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP (XIMAGE_INSTANCE (i))
 
 #ifdef HAVE_XPM
 Lisp_Object evaluate_xpm_color_symbols (void);
@@ -480,10 +622,11 @@ DECLARE_LRECORD (glyph, struct Lisp_Glyph);
 
 extern Lisp_Object Qxpm;
 extern Lisp_Object Q_data, Q_file, Q_color_symbols, Qconst_glyph_variable;
-extern Lisp_Object Qxbm;
+extern Lisp_Object Qxbm, Qedit, Qgroup, Qlabel, Qcombo, Qscrollbar;
 extern Lisp_Object Q_mask_file, Q_mask_data, Q_hotspot_x, Q_hotspot_y;
-extern Lisp_Object Q_foreground, Q_background;
-extern Lisp_Object Qimage_conversion_error;
+extern Lisp_Object Q_foreground, Q_background, Q_face, Q_descriptor, Q_group;
+extern Lisp_Object Q_width, Q_height, Q_pixel_width, Q_pixel_height;
+extern Lisp_Object Q_items, Q_properties, Qimage_conversion_error;
 extern Lisp_Object Vcontinuation_glyph, Vcontrol_arrow_glyph, Vhscroll_glyph;
 extern Lisp_Object Vinvisible_text_glyph, Voctal_escape_glyph, Vtruncation_glyph;
 extern Lisp_Object Vxemacs_logo;
@@ -519,6 +662,11 @@ Lisp_Object allocate_glyph (enum glyph_type type,
 			    void (*after_change) (Lisp_Object glyph,
 						  Lisp_Object property,
 						  Lisp_Object locale));
+Lisp_Object widget_face_font_info (Lisp_Object domain, Lisp_Object face,
+				   int *height, int *width);
+void widget_text_to_pixel_conversion (Lisp_Object domain, Lisp_Object face,
+				      int th, int tw,
+				      int* height, int* width);
 
 /************************************************************************/
 /*				Glyph Cachels				*/
@@ -557,6 +705,7 @@ void mark_glyph_cachels (glyph_cachel_dynarr *elements,
 			 void (*markobj) (Lisp_Object));
 void mark_glyph_cachels_as_not_updated (struct window *w);
 void reset_glyph_cachels (struct window *w);
+
 #ifdef MEMORY_USAGE_STATS
 int compute_glyph_cachel_usage (glyph_cachel_dynarr *glyph_cachels,
 				struct overhead_stats *ovstats);
@@ -566,9 +715,37 @@ int compute_glyph_cachel_usage (glyph_cachel_dynarr *glyph_cachels,
 /*				Display Tables				*/
 /************************************************************************/
 
-#define DISP_TABLE_SIZE	256
-#define DISP_CHAR_ENTRY(dp, c) ((c < (dp)->size) ? (dp)->contents[c] : Qnil)
+Lisp_Object display_table_entry (Emchar, Lisp_Object, Lisp_Object);
+void get_display_tables (struct window *, face_index,
+			 Lisp_Object *, Lisp_Object *);
 
-struct Lisp_Vector *get_display_table (struct window *, face_index);
+/****************************************************************************
+ *                            Subwindow Object                              *
+ ****************************************************************************/
+
+/* redisplay needs a per-frame cache of subwindows being displayed so
+ * that we known when to unmap them */
+typedef struct subwindow_cachel subwindow_cachel;
+struct subwindow_cachel
+{
+  Lisp_Object subwindow;
+  int x, y;
+  int width, height;
+  int being_displayed;
+  int updated;
+};
+
+typedef struct
+{
+  Dynarr_declare (subwindow_cachel);
+} subwindow_cachel_dynarr;
+
+void mark_subwindow_cachels (subwindow_cachel_dynarr *elements,
+			 void (*markobj) (Lisp_Object));
+void mark_subwindow_cachels_as_not_updated (struct frame *f);
+void reset_subwindow_cachels (struct frame *f);
+void unmap_subwindow (Lisp_Object subwindow);
+void map_subwindow (Lisp_Object subwindow, int x, int y);
+void update_frame_subwindows (struct frame *f);
 
 #endif /* _XEMACS_GLYPHS_H_ */

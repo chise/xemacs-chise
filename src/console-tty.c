@@ -233,7 +233,7 @@ Return the controlling process of tty console CONSOLE.
   return CONSOLE_TTY_DATA (decode_tty_console (console))->controlling_process;
 }
 
-#ifdef MULE
+#ifdef FILE_CODING
 
 DEFUN ("console-tty-input-coding-system", Fconsole_tty_input_coding_system,
        0, 1, 0, /*
@@ -298,7 +298,7 @@ output coding systems of CONSOLE.
   Fset_console_tty_output_coding_system (console, codesys);
   return Qnil;
 }
-#endif /* MULE */
+#endif /* FILE_CODING */
 
 
 Lisp_Object
@@ -341,13 +341,13 @@ syms_of_console_tty (void)
   DEFSUBR (Fconsole_tty_controlling_process);
   defsymbol (&Qterminal_type, "terminal-type");
   defsymbol (&Qcontrolling_process, "controlling-process");
-#ifdef MULE
+#ifdef FILE_CODING
   DEFSUBR (Fconsole_tty_output_coding_system);
   DEFSUBR (Fset_console_tty_output_coding_system);
   DEFSUBR (Fconsole_tty_input_coding_system);
   DEFSUBR (Fset_console_tty_input_coding_system);
   DEFSUBR (Fset_console_tty_coding_system);
-#endif /* MULE */
+#endif /* FILE_CODING */
 }
 
 void

@@ -33,6 +33,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lisp.h"
 
 #include "buffer.h"
+#include "elhash.h"
 #include "console-msw.h"
 #include "glyphs-msw.h"
 #include "elhash.h"
@@ -129,10 +130,12 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
   FRAME_MSWINDOWS_DATA(f)->sizing = 0;
   FRAME_MSWINDOWS_MENU_HASH_TABLE(f) = Qnil;
 #ifdef HAVE_TOOLBARS
-  FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) =
+  FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) = 
     make_lisp_hash_table (50, HASH_TABLE_NON_WEAK, HASH_TABLE_EQUAL);
 #endif
-
+  /* hashtable of instantiated glyphs on the frame. */
+  FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f) = 
+    make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQUAL);
   /* Will initialize these in WM_SIZE handler. We cannot do it now,
      because we do not know what is CW_USEDEFAULT height and width */
   FRAME_WIDTH (f) = 0;
@@ -249,6 +252,7 @@ mswindows_mark_frame (struct frame *f, void (*markobj) (Lisp_Object))
 #ifdef HAVE_TOOLBARS
   markobj (FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE (f));
 #endif
+  markobj (FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f));
 }
 
 static void
@@ -394,6 +398,10 @@ mswindows_set_frame_pointer (struct frame *f)
     {
       SetClassLong (FRAME_MSWINDOWS_HANDLE (f), GCL_HCURSOR,
 		    (LONG) XIMAGE_INSTANCE_MSWINDOWS_ICON (f->pointer));
+      /* we only have to do this because GC doesn't cause a mouse
+         event and doesn't give time to event processing even if it
+         did. */
+      SetCursor (XIMAGE_INSTANCE_MSWINDOWS_ICON (f->pointer));
     }
 }
 

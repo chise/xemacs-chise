@@ -66,7 +66,7 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 #else
-void *malloc (unsigned long);
+void *malloc (size_t);
 #endif
 
 #if !defined(HAVE_LIBMCHECK)
@@ -88,9 +88,9 @@ void *malloc (unsigned long);
 struct hash_table *pointer_table;
 
 extern void (*__free_hook) (void *);
-extern void *(*__malloc_hook) (unsigned long);
+extern void *(*__malloc_hook) (size_t);
 
-static void *check_malloc (unsigned long);
+static void *check_malloc (size_t);
 
 typedef void (*fun_ptr) ();
 
@@ -212,9 +212,9 @@ check_free (void *ptr)
 }
 
 static void *
-check_malloc (unsigned long size)
+check_malloc (size_t size)
 {
-  unsigned long rounded_up_size;
+  size_t rounded_up_size;
   void *result;
 
   __free_hook = 0;
@@ -240,7 +240,7 @@ check_malloc (unsigned long size)
   return result;
 }
 
-extern void *(*__realloc_hook) (void *, unsigned long);
+extern void *(*__realloc_hook) (void *, size_t);
 
 #ifdef MIN
 #undef MIN
@@ -250,10 +250,10 @@ extern void *(*__realloc_hook) (void *, unsigned long);
 /* Don't optimize realloc */
 
 static void *
-check_realloc (void * ptr, unsigned long size)
+check_realloc (void * ptr, size_t size)
 {
   EMACS_INT present;
-  unsigned long old_size;
+  size_t old_size;
   void *result = malloc (size);
 
   if (!ptr) return result;
@@ -295,7 +295,7 @@ disable_strict_free_check (void)
    completely gone in XEmacs */
 
 static void *
-block_input_malloc (unsigned long size);
+block_input_malloc (size_t size);
 
 static void
 block_input_free (void* ptr)
@@ -308,7 +308,7 @@ block_input_free (void* ptr)
 }
 
 static void *
-block_input_malloc (unsigned long size)
+block_input_malloc (size_t size)
 {
   void* result;
   __free_hook = 0;
@@ -321,7 +321,7 @@ block_input_malloc (unsigned long size)
 
 
 static void *
-block_input_realloc (void* ptr, unsigned long size)
+block_input_realloc (void* ptr, size_t size)
 {
   void* result;
   __free_hook = 0;
@@ -406,9 +406,9 @@ syms_of_free_hook (void)
 }
 
 #else
-void (*__free_hook)() = check_free;
-void *(*__malloc_hook)() = check_malloc;
-void *(*__realloc_hook)() = check_realloc;
+void (*__free_hook)(void *) = check_free;
+void *(*__malloc_hook)(size_t) = check_malloc;
+void *(*__realloc_hook)(void *, size_t) = check_realloc;
 #endif
 
 #endif /* !defined(HAVE_LIBMCHECK) */

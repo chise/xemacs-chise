@@ -145,8 +145,14 @@ struct window
   face_cachel_dynarr *face_cachels;
   /* glyph cache elements correct for this window and its current buffer */
   glyph_cachel_dynarr *glyph_cachels;
-
-
+  /* we cannot have a per-device cache of widgets / subwindows because
+     each visible instance needs to be a separate instance. The lowest
+     level of granularity we can get easily is the window that the
+     subwindow is in. This will fail if we attach the same subwindow
+     twice to a buffer. However, we are quite unlikely to do this,
+     especially with buttons which will need individual callbacks. The
+     proper solution is probably not worth the effort. */
+  Lisp_Object subwindow_instance_cache;
   /* List of starting positions for display lines.  Only valid if
      buffer has not changed. */
   line_start_cache_dynarr *line_start_cache;

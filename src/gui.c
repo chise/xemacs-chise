@@ -26,6 +26,7 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 #include "gui.h"
+#include "elhash.h"
 #include "bytecode.h"
 
 Lisp_Object Q_active, Q_suffix, Q_keys, Q_style, Q_selected;
@@ -46,6 +47,7 @@ See `popup-menu' and `popup-dialog-box'.
 {
   return popup_up_p ? Qt : Qnil;
 }
+#endif /* HAVE_POPUPS */
 
 int
 separator_string_p (CONST char *s)
@@ -148,26 +150,36 @@ gui_item_add_keyval_pair (struct gui_item *pgui_item,
 void
 gui_parse_item_keywords (Lisp_Object item, struct gui_item *pgui_item)
 {
-  int length, plist_p;
+  int length, plist_p, start;
   Lisp_Object *contents;
 
   CHECK_VECTOR (item);
   length = XVECTOR_LENGTH (item);
   contents = XVECTOR_DATA (item);
 
-  if (length < 2)
-    signal_simple_error ("GUI item descriptors must be at least 2 elts long", item);
+  if (length < 1)
+    signal_simple_error ("GUI item descriptors must be at least 1 elts long", item);
 
-  /* length 2:		[ "name" callback ]
+  /* length 1:     		[ "name" ]
+     length 2:		[ "name" callback ]
      length 3:		[ "name" callback active-p ]
+     		   or	[ "name" keyword  value  ]
      length 4:		[ "name" callback active-p suffix ]
      		   or	[ "name" callback keyword  value  ]
      length 5+:		[ "name" callback [ keyword value ]+ ]
+     		   or	[ "name" [ keyword value ]+ ]
   */
-  plist_p = (length >= 5 || (length > 2 && KEYWORDP (contents [2])));
+  plist_p = (length > 2 && (KEYWORDP (contents [1])
+			    || KEYWORDP (contents [2])));
 
   pgui_item->name = contents [0];
-  pgui_item->callback = contents [1];
+  if (length > 1 && !KEYWORDP (contents [1]))
+    {
+      pgui_item->callback = contents [1];
+      start = 2;
+    }
+  else 
+    start =1;
 
   if (!plist_p && length > 2)
     /* the old way */
@@ -180,12 +192,12 @@ gui_parse_item_keywords (Lisp_Object item, struct gui_item *pgui_item)
     /* the new way */
     {
       int i;
-      if (length & 1)
+      if ((length - start) & 1)
 	signal_simple_error (
 		"GUI item descriptor has an odd number of keywords and values",
 			     item);
 
-      for (i = 2; i < length;)
+      for (i = start; i < length;)
 	{
 	  Lisp_Object key = contents [i++];
 	  Lisp_Object val = contents [i++];
@@ -206,6 +218,20 @@ gui_item_active_p (CONST struct gui_item *pgui_item)
   /* Shortcut to avoid evaluating Qt each time */
   return (EQ (pgui_item->active, Qt)
 	  || !NILP (Feval (pgui_item->active)));
+}
+
+/*
+ * Decide whether a GUI item is selected by evaluating its :selected form
+ * if any
+ */
+int
+gui_item_selected_p (CONST struct gui_item *pgui_item)
+{
+  /* This function can call lisp */
+
+  /* Shortcut to avoid evaluating Qt each time */
+  return (EQ (pgui_item->selected, Qt)
+	  || !NILP (Feval (pgui_item->selected)));
 }
 
 /*
@@ -237,6 +263,7 @@ signal_too_long_error (Lisp_Object name)
   signal_simple_error ("GUI item produces too long displayable string", name);
 }
 
+#ifdef HAVE_WINDOW_SYSTEM
 /*
  * Format "left flush" display portion of an item into BUF, guarded by
  * maximum buffer size BUF_LEN. BUF_LEN does not count for terminating
@@ -330,8 +357,37 @@ gui_item_display_flush_right (CONST struct gui_item *pgui_item,
   /* No keys - no right flush display */
   return 0;
 }
+#endif /* HAVE_WINDOW_SYSTEM */
 
-#endif /* HAVE_POPUPS */
+Lisp_Object
+mark_gui_item (struct gui_item* p, void (*markobj) (Lisp_Object))
+{
+  markobj (p->name);
+  markobj (p->callback);
+  markobj (p->suffix);
+  markobj (p->active);
+  markobj (p->included);
+  markobj (p->config);
+  markobj (p->filter);
+  markobj (p->style);
+  markobj (p->selected);
+  markobj (p->keys);
+
+  return Qnil;
+}
+
+int
+gui_item_hash (Lisp_Object hashtable, struct gui_item* g, int slot)
+{
+  int hashid = HASH2 (internal_hash (g->callback, 0), internal_hash (g->name, 0));
+  int id = GUI_ITEM_ID_BITS (hashid, slot);
+  while (!NILP (Fgethash (make_int (id),
+			  hashtable, Qnil)))
+    {
+      id = GUI_ITEM_ID_BITS (id + 1, slot);
+    }
+  return id;
+}
 
 void
 syms_of_gui (void)

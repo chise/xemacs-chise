@@ -68,8 +68,9 @@ Lisp_Object Qnas;
 DEFUN ("play-sound-file", Fplay_sound_file, 1, 3, "fSound file name: ", /*
 Play the named sound file on DEVICE's speaker at the specified volume
 \(0-100, default specified by the `bell-volume' variable).
-The sound file must be in the Sun/NeXT U-LAW format except under Linux
-where WAV files are also supported.
+On Unix machines the sound file must be in the Sun/NeXT U-LAW format
+except under Linux where WAV files are also supported.  On Microsoft 
+Windows the sound file must be in WAV format.
   DEVICE defaults to the selected device.
 */
      (file, volume, device))

@@ -603,6 +603,10 @@ If unspecified in a particular domain, `nontext-pointer-glyph' is used.")
 ;;; (defvar x-toolbar-pointer-shape nil)
 (define-obsolete-pointer-glyph 'x-toolbar-pointer-shape 'toolbar-pointer-glyph)
 
+;; for subwindows
+(defalias 'subwindow-xid 'image-instance-subwindow-id)
+(defalias 'subwindow-width 'image-instance-width)
+(defalias 'subwindow-height 'image-instance-height)
 ;;;;;;;;;; initialization
 
 (defun init-glyphs ()

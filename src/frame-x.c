@@ -2632,25 +2632,25 @@ x_delete_frame (struct frame *f)
   DtDndDropUnregister (FRAME_X_TEXT_WIDGET (f));
 #endif /* HAVE_CDE */
 
-  assert (FRAME_X_SHELL_WIDGET (f));
-  if (FRAME_X_SHELL_WIDGET (f))
-    {
-      Display *dpy = XtDisplay (FRAME_X_SHELL_WIDGET (f));
-      expect_x_error (dpy);
-      /* for obscure reasons having (I think) to do with the internal
-	 window-to-widget hierarchy maintained by Xt, we have to call
-	 XtUnrealizeWidget() here.  Xt can really suck. */
-      if (f->being_deleted)
-	XtUnrealizeWidget (FRAME_X_SHELL_WIDGET (f));
-      XtDestroyWidget (FRAME_X_SHELL_WIDGET (f));
-      x_error_occurred_p (dpy);
+  assert (FRAME_X_SHELL_WIDGET (f) != 0);
 
-      /* make sure the windows are really gone! */
-      /* ### Is this REALLY necessary? */
-      XFlush (dpy);
+#ifdef EXTERNAL_WIDGET
+  expect_x_error (XtDisplay (FRAME_X_SHELL_WIDGET (f)));
+  /* for obscure reasons having (I think) to do with the internal
+     window-to-widget hierarchy maintained by Xt, we have to call
+     XtUnrealizeWidget() here.  Xt can really suck. */
+  if (f->being_deleted)
+    XtUnrealizeWidget (FRAME_X_SHELL_WIDGET (f));
+  XtDestroyWidget (FRAME_X_SHELL_WIDGET (f));
+  x_error_occurred_p (XtDisplay (FRAME_X_SHELL_WIDGET (f)));
+#else
+  XtDestroyWidget (FRAME_X_SHELL_WIDGET (f));
+  /* make sure the windows are really gone! */
+  /* ### Is this REALLY necessary? */
+  XFlush (XtDisplay (FRAME_X_SHELL_WIDGET (f)));
+#endif /* EXTERNAL_WIDGET */
 
-      FRAME_X_SHELL_WIDGET (f) = 0;
-    }
+  FRAME_X_SHELL_WIDGET (f) = 0;
 
   if (FRAME_X_GEOM_FREE_ME_PLEASE (f))
     {

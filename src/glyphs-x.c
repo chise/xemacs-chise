@@ -54,6 +54,7 @@ Boston, MA 02111-1307, USA.  */
 #include "xmu.h"
 
 #include "buffer.h"
+#include "window.h"
 #include "frame.h"
 #include "insdel.h"
 #include "opaque.h"
@@ -80,6 +81,11 @@ Boston, MA 02111-1307, USA.  */
 
 #define LISP_DEVICE_TO_X_SCREEN(dev) XDefaultScreenOfDisplay (DEVICE_X_DISPLAY (XDEVICE (dev)))
 
+#ifdef HAVE_XPM
+DEFINE_DEVICE_IIFORMAT (x, xpm);
+#endif
+DEFINE_DEVICE_IIFORMAT (x, xbm);
+DEFINE_DEVICE_IIFORMAT (x, subwindow);
 #ifdef HAVE_XFACE
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (xface);
 Lisp_Object Qxface;
@@ -314,10 +320,6 @@ x_print_image_instance (struct Lisp_Image_Instance *p,
 	}
       write_c_string (")", printcharfun);
       break;
-#if HAVE_SUBWINDOWS
-    case IMAGE_SUBWINDOW:
-      /* #### implement me */
-#endif
     default:
       break;
     }
@@ -333,27 +335,38 @@ x_finalize_image_instance (struct Lisp_Image_Instance *p)
     {
       Display *dpy = DEVICE_X_DISPLAY (XDEVICE (p->device));
 
-      if (IMAGE_INSTANCE_X_PIXMAP (p))
-	XFreePixmap (dpy, IMAGE_INSTANCE_X_PIXMAP (p));
-      if (IMAGE_INSTANCE_X_MASK (p) &&
-	  IMAGE_INSTANCE_X_MASK (p) != IMAGE_INSTANCE_X_PIXMAP (p))
-	XFreePixmap (dpy, IMAGE_INSTANCE_X_MASK (p));
-      IMAGE_INSTANCE_X_PIXMAP (p) = 0;
-      IMAGE_INSTANCE_X_MASK (p) = 0;
-
-      if (IMAGE_INSTANCE_X_CURSOR (p))
+      if (IMAGE_INSTANCE_TYPE (p) == IMAGE_WIDGET
+	  || 
+	  IMAGE_INSTANCE_TYPE (p) == IMAGE_SUBWINDOW)
 	{
-	  XFreeCursor (dpy, IMAGE_INSTANCE_X_CURSOR (p));
-	  IMAGE_INSTANCE_X_CURSOR (p) = 0;
+	  if (IMAGE_INSTANCE_SUBWINDOW_ID (p))
+	    XDestroyWindow (dpy, IMAGE_INSTANCE_X_SUBWINDOW_ID (p));
+	  IMAGE_INSTANCE_SUBWINDOW_ID (p) = 0;
 	}
-
-      if (IMAGE_INSTANCE_X_NPIXELS (p) != 0)
+      else
 	{
-	  XFreeColors (dpy,
-		       IMAGE_INSTANCE_X_COLORMAP (p),
-		       IMAGE_INSTANCE_X_PIXELS (p),
-		       IMAGE_INSTANCE_X_NPIXELS (p), 0);
-	  IMAGE_INSTANCE_X_NPIXELS (p) = 0;
+	  if (IMAGE_INSTANCE_X_PIXMAP (p))
+	    XFreePixmap (dpy, IMAGE_INSTANCE_X_PIXMAP (p));
+	  if (IMAGE_INSTANCE_X_MASK (p) &&
+	      IMAGE_INSTANCE_X_MASK (p) != IMAGE_INSTANCE_X_PIXMAP (p))
+	    XFreePixmap (dpy, IMAGE_INSTANCE_X_MASK (p));
+	  IMAGE_INSTANCE_X_PIXMAP (p) = 0;
+	  IMAGE_INSTANCE_X_MASK (p) = 0;
+	  
+	  if (IMAGE_INSTANCE_X_CURSOR (p))
+	    {
+	      XFreeCursor (dpy, IMAGE_INSTANCE_X_CURSOR (p));
+	      IMAGE_INSTANCE_X_CURSOR (p) = 0;
+	    }
+	  
+	  if (IMAGE_INSTANCE_X_NPIXELS (p) != 0)
+	    {
+	      XFreeColors (dpy,
+			   IMAGE_INSTANCE_X_COLORMAP (p),
+			   IMAGE_INSTANCE_X_PIXELS (p),
+			   IMAGE_INSTANCE_X_NPIXELS (p), 0);
+	      IMAGE_INSTANCE_X_NPIXELS (p) = 0;
+	    }
 	}
     }
   if (IMAGE_INSTANCE_X_PIXELS (p))
@@ -378,10 +391,6 @@ x_image_instance_equal (struct Lisp_Image_Instance *p1,
       if (IMAGE_INSTANCE_X_COLORMAP (p1) != IMAGE_INSTANCE_X_COLORMAP (p2) ||
 	  IMAGE_INSTANCE_X_NPIXELS (p1) != IMAGE_INSTANCE_X_NPIXELS (p2))
 	return 0;
-#if HAVE_SUBWINDOWS
-    case IMAGE_SUBWINDOW:
-      /* #### implement me */
-#endif
       break;
     default:
       break;
@@ -399,11 +408,6 @@ x_image_instance_hash (struct Lisp_Image_Instance *p, int depth)
     case IMAGE_COLOR_PIXMAP:
     case IMAGE_POINTER:
       return IMAGE_INSTANCE_X_NPIXELS (p);
-#if HAVE_SUBWINDOWS
-    case IMAGE_SUBWINDOW:
-      /* #### implement me */
-      return 0;
-#endif
     default:
       return 0;
     }
@@ -2020,168 +2024,82 @@ x_colorize_image_instance (Lisp_Object image_instance,
 }
 
 
-#if HAVE_SUBWINDOWS
 /************************************************************************/
-/*                               subwindows                             */
+/*                      subwindow and widget support                      */
 /************************************************************************/
 
-Lisp_Object Qsubwindowp;
-
-static Lisp_Object
-mark_subwindow (Lisp_Object obj, void (*markobj) (Lisp_Object))
-{
-  struct Lisp_Subwindow *sw = XSUBWINDOW (obj);
-  return sw->frame;
-}
-
+/* unmap the image if it is a widget. This is used by redisplay via
+   redisplay_unmap_subwindows */
 static void
-print_subwindow (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
+x_unmap_subwindow (struct Lisp_Image_Instance *p)
 {
-  char buf[100];
-  struct Lisp_Subwindow *sw = XSUBWINDOW (obj);
-  struct frame *frm = XFRAME (sw->frame);
-
-  if (print_readably)
-    error ("printing unreadable object #<subwindow 0x%x>",
-	   sw->header.uid);
-
-  write_c_string ("#<subwindow", printcharfun);
-  sprintf (buf, " %dx%d", sw->width, sw->height);
-  write_c_string (buf, printcharfun);
-
-  /* This is stolen from frame.c.  Subwindows are strange in that they
-     are specific to a particular frame so we want to print in their
-     description what that frame is. */
-
-  write_c_string (" on #<", printcharfun);
-  if (!FRAME_LIVE_P (frm))
-    write_c_string ("dead", printcharfun);
-  else if (FRAME_TTY_P (frm))
-    write_c_string ("tty", printcharfun);
-  else if (FRAME_X_P (frm))
-    write_c_string ("x", printcharfun);
-  else
-    write_c_string ("UNKNOWN", printcharfun);
-  write_c_string ("-frame ", printcharfun);
-  print_internal (frm->name, printcharfun, 1);
-  sprintf (buf, " 0x%x>", frm->header.uid);
-  write_c_string (buf, printcharfun);
-
-  sprintf (buf, ") 0x%x>", sw->header.uid);
-  write_c_string (buf, printcharfun);
+  XUnmapWindow (DisplayOfScreen (IMAGE_INSTANCE_X_SUBWINDOW_SCREEN (p)),
+		IMAGE_INSTANCE_X_SUBWINDOW_ID (p));
 }
 
+/* map the subwindow. This is used by redisplay via
+   redisplay_output_subwindow */
 static void
-finalize_subwindow (void *header, int for_disksave)
+x_map_subwindow (struct Lisp_Image_Instance *p, int x, int y)
 {
-  struct Lisp_Subwindow *sw = (struct Lisp_Subwindow *) header;
-  if (for_disksave) finalose (sw);
-  if (sw->subwindow)
-    {
-      XDestroyWindow (DisplayOfScreen (sw->xscreen), sw->subwindow);
-      sw->subwindow = 0;
-    }
+  XMapWindow (DisplayOfScreen (IMAGE_INSTANCE_X_SUBWINDOW_SCREEN (p)),
+	      IMAGE_INSTANCE_X_SUBWINDOW_ID (p));
+  XMoveWindow (DisplayOfScreen (IMAGE_INSTANCE_X_SUBWINDOW_SCREEN (p)),
+	       IMAGE_INSTANCE_X_SUBWINDOW_ID (p), x, y);
 }
 
-/* subwindows are equal iff they have the same window XID */
-static int
-subwindow_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
+/* instantiate and x type subwindow */
+static void
+x_subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+			Lisp_Object pointer_fg, Lisp_Object pointer_bg,
+			int dest_mask, Lisp_Object domain)
 {
-  return (XSUBWINDOW (obj1)->subwindow == XSUBWINDOW (obj2)->subwindow);
-}
-
-static unsigned long
-subwindow_hash (Lisp_Object obj, int depth)
-{
-  return XSUBWINDOW (obj)->subwindow;
-}
-
-DEFINE_LRECORD_IMPLEMENTATION ("subwindow", subwindow,
-			       mark_subwindow, print_subwindow,
-			       finalize_subwindow, subwindow_equal,
-			       subwindow_hash, struct Lisp_Subwindow);
-
-/* #### PROBLEM: The display routines assume that the glyph is only
- being displayed in one buffer.  If it is in two different buffers
- which are both being displayed simultaneously you will lose big time.
- This can be dealt with in the new redisplay. */
-
-/* #### These are completely un-re-implemented in 19.14.  Get it done
-   for 19.15. */
-
-DEFUN ("make-subwindow", Fmake_subwindow, 0, 3, 0, /*
-Creates a new `subwindow' object of size WIDTH x HEIGHT.
-The default is a window of size 1x1, which is also the minimum allowed
-window size.  Subwindows are per-frame.  A buffer being shown in two
-different frames will only display a subwindow glyph in the frame in
-which it was actually created.  If two windows on the same frame are
-displaying the buffer then the most recently used window will actually
-display the window.  If the frame is not specified, the selected frame
-is used.
-
-Subwindows are not currently implemented.
-*/
-       (width, height, frame))
-{
+  /* This function can GC */
+  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
+  Lisp_Object frame = FW_FRAME (domain);
+  struct frame* f = XFRAME (frame);
   Display *dpy;
   Screen *xs;
-  Window pw;
-  struct frame *f;
-  unsigned int iw, ih;
+  Window pw, win;
   XSetWindowAttributes xswa;
   Mask valueMask = 0;
+  unsigned int w = IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii), 
+    h = IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii);
 
-  error ("subwindows are not functional in 20.2; they may be again someday");
+  if (!DEVICE_X_P (XDEVICE (device)))
+    signal_simple_error ("Not an X device", device);
 
-  f = decode_x_frame (frame);
+  dpy = DEVICE_X_DISPLAY (XDEVICE (device));
+  xs = DefaultScreenOfDisplay (dpy);
 
-  xs = LISP_DEVICE_TO_X_SCREEN (FRAME_DEVICE (f));
-  dpy = DisplayOfScreen (xs);
+  if (dest_mask & IMAGE_SUBWINDOW_MASK)
+    IMAGE_INSTANCE_TYPE (ii) = IMAGE_SUBWINDOW;
+  else
+    incompatible_image_types (instantiator, dest_mask,
+			      IMAGE_SUBWINDOW_MASK);
+
   pw = XtWindow (FRAME_X_TEXT_WIDGET (f));
 
-  if (NILP (width))
-    iw = 1;
-  else
-    {
-      CHECK_INT (width);
-      iw = XINT (width);
-      if (iw < 1) iw = 1;
-    }
-  if (NILP (height))
-    ih = 1;
-  else
-    {
-      CHECK_INT (height);
-      ih = XINT (height);
-      if (ih < 1) ih = 1;
-    }
+  ii->data = xnew_and_zero (struct x_subwindow_data);
 
-  {
-    struct Lisp_Subwindow *sw =
-      alloc_lcrecord_type (struct Lisp_Subwindow, lrecord_subwindow);
-    Lisp_Object val;
-    sw->frame = frame;
-    sw->xscreen = xs;
-    sw->parent_window = pw;
-    sw->height = ih;
-    sw->width = iw;
+  IMAGE_INSTANCE_X_SUBWINDOW_PARENT (ii) = pw;
+  IMAGE_INSTANCE_X_SUBWINDOW_SCREEN (ii) = xs;
 
-    xswa.backing_store = Always;
-    valueMask |= CWBackingStore;
-
-    xswa.colormap = DefaultColormapOfScreen (xs);
-    valueMask |= CWColormap;
-
-    sw->subwindow = XCreateWindow (dpy, pw, 0, 0, iw, ih, 0, CopyFromParent,
-				   InputOutput, CopyFromParent, valueMask,
-				   &xswa);
-
-    XSETSUBWINDOW (val, sw);
-    return val;
-  }
+  xswa.backing_store = Always;
+  valueMask |= CWBackingStore;
+  xswa.colormap = DefaultColormapOfScreen (xs);
+  valueMask |= CWColormap;
+  
+  win = XCreateWindow (dpy, pw, 0, 0, w, h, 0, CopyFromParent,
+		       InputOutput, CopyFromParent, valueMask,
+		       &xswa);
+  
+  IMAGE_INSTANCE_SUBWINDOW_ID (ii) = (void*)win;
 }
 
-/* #### Should this function exist? */
+#if 0
+/* #### Should this function exist? If there's any doubt I'm not implementing it --andyp */
 DEFUN ("change-subwindow-property", Fchange_subwindow_property, 3, 3, 0, /*
 For the given SUBWINDOW, set PROPERTY to DATA, which is a string.
 Subwindows are not currently implemented.
@@ -2208,91 +2126,16 @@ Subwindows are not currently implemented.
 
   return property;
 }
-
-DEFUN ("subwindowp", Fsubwindowp, 1, 1, 0, /*
-Return non-nil if OBJECT is a subwindow.
-Subwindows are not currently implemented.
-*/
-       (object))
-{
-  return SUBWINDOWP (object) ? Qt : Qnil;
-}
-
-DEFUN ("subwindow-width", Fsubwindow_width, 1, 1, 0, /*
-Width of SUBWINDOW.
-Subwindows are not currently implemented.
-*/
-       (subwindow))
-{
-  CHECK_SUBWINDOW (subwindow);
-  return make_int (XSUBWINDOW (subwindow)->width);
-}
-
-DEFUN ("subwindow-height", Fsubwindow_height, 1, 1, 0, /*
-Height of SUBWINDOW.
-Subwindows are not currently implemented.
-*/
-       (subwindow))
-{
-  CHECK_SUBWINDOW (subwindow);
-  return make_int (XSUBWINDOW (subwindow)->height);
-}
-
-DEFUN ("subwindow-xid", Fsubwindow_xid, 1, 1, 0, /*
-Return the xid of SUBWINDOW as a number.
-Subwindows are not currently implemented.
-*/
-       (subwindow))
-{
-  CHECK_SUBWINDOW (subwindow);
-  return make_int (XSUBWINDOW (subwindow)->subwindow);
-}
-
-DEFUN ("resize-subwindow", Fresize_subwindow, 1, 3, 0, /*
-Resize SUBWINDOW to WIDTH x HEIGHT.
-If a value is nil that parameter is not changed.
-Subwindows are not currently implemented.
-*/
-       (subwindow, width, height))
-{
-  int neww, newh;
-  struct Lisp_Subwindow *sw;
-
-  CHECK_SUBWINDOW (subwindow);
-  sw = XSUBWINDOW (subwindow);
-
-  if (NILP (width))
-    neww = sw->width;
-  else
-    neww = XINT (width);
-
-  if (NILP (height))
-    newh = sw->height;
-  else
-    newh = XINT (height);
-
-  XResizeWindow (DisplayOfScreen (sw->xscreen), sw->subwindow, neww, newh);
-
-  sw->height = newh;
-  sw->width = neww;
-
-  return subwindow;
-}
-
-DEFUN ("force-subwindow-map", Fforce_subwindow_map, 1, 1, 0, /*
-Generate a Map event for SUBWINDOW.
-Subwindows are not currently implemented.
-*/
-       (subwindow))
-{
-  CHECK_SUBWINDOW (subwindow);
-
-  XMapWindow (DisplayOfScreen (XSUBWINDOW (subwindow)->xscreen),
-	      XSUBWINDOW (subwindow)->subwindow);
-
-  return subwindow;
-}
 #endif
+
+static void 
+x_resize_subwindow (struct Lisp_Image_Instance* ii, int w, int h)
+{
+  XResizeWindow (DisplayOfScreen (IMAGE_INSTANCE_X_SUBWINDOW_SCREEN (ii)),
+		 IMAGE_INSTANCE_X_SUBWINDOW_ID (ii),
+		 w, h);
+}
+
 
 /************************************************************************/
 /*                            initialization                            */
@@ -2301,17 +2144,8 @@ Subwindows are not currently implemented.
 void
 syms_of_glyphs_x (void)
 {
-#if HAVE_SUBWINDOWS
-  defsymbol (&Qsubwindowp, "subwindowp");
-
-  DEFSUBR (Fmake_subwindow);
+#if 0
   DEFSUBR (Fchange_subwindow_property);
-  DEFSUBR (Fsubwindowp);
-  DEFSUBR (Fsubwindow_width);
-  DEFSUBR (Fsubwindow_height);
-  DEFSUBR (Fsubwindow_xid);
-  DEFSUBR (Fresize_subwindow);
-  DEFSUBR (Fforce_subwindow_map);
 #endif
 }
 
@@ -2327,15 +2161,23 @@ console_type_create_glyphs_x (void)
   CONSOLE_HAS_METHOD (x, colorize_image_instance);
   CONSOLE_HAS_METHOD (x, init_image_instance_from_eimage);
   CONSOLE_HAS_METHOD (x, locate_pixmap_file);
-#ifdef HAVE_XPM
-  CONSOLE_HAS_METHOD (x, xpm_instantiate);
-#endif
-  CONSOLE_HAS_METHOD (x, xbm_instantiate);
+  CONSOLE_HAS_METHOD (x, unmap_subwindow);
+  CONSOLE_HAS_METHOD (x, map_subwindow);
+  CONSOLE_HAS_METHOD (x, resize_subwindow);
 }
 
 void
 image_instantiator_format_create_glyphs_x (void)
 {
+#ifdef HAVE_XPM
+  INITIALIZE_DEVICE_IIFORMAT (x, xpm);
+  IIFORMAT_HAS_DEVMETHOD (x, xpm, instantiate);
+#endif
+  INITIALIZE_DEVICE_IIFORMAT (x, xbm);
+  IIFORMAT_HAS_DEVMETHOD (x, xbm, instantiate);
+
+  INITIALIZE_DEVICE_IIFORMAT (x, subwindow);
+  IIFORMAT_HAS_DEVMETHOD (x, subwindow, instantiate);
 
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (cursor_font, "cursor-font");
 

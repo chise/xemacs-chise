@@ -37,7 +37,8 @@ Boston, MA 02111-1307, USA.  */
 #include "opaque.h"
 #include "specifier.h"
 #include "window.h"
-#include "glyphs.h"  /* for DISP_TABLE_SIZE definition */
+#include "chartab.h"
+#include "rangetab.h"
 
 Lisp_Object Qspecifierp;
 Lisp_Object Qprepend, Qappend, Qremove_tag_set_prepend, Qremove_tag_set_append;
@@ -2998,14 +2999,38 @@ Return non-nil if OBJECT is a boolean specifier.
 
 DEFINE_SPECIFIER_TYPE (display_table);
 
+#define VALID_SINGLE_DISPTABLE_INSTANTIATOR_P(instantiator)			\
+  (VECTORP (instantiator)							\
+   || (CHAR_TABLEP (instantiator)						\
+       && (XCHAR_TABLE_TYPE (instantiator) == CHAR_TABLE_TYPE_CHAR		\
+	   || XCHAR_TABLE_TYPE (instantiator) == CHAR_TABLE_TYPE_GENERIC))	\
+   || RANGE_TABLEP (instantiator))
+
 static void
 display_table_validate (Lisp_Object instantiator)
 {
-  if (!NILP(instantiator) &&
-      (!VECTORP (instantiator) ||
-       XVECTOR_LENGTH (instantiator) != DISP_TABLE_SIZE))
-    dead_wrong_type_argument (display_table_specifier_methods->predicate_symbol,
-			      instantiator);
+  if (NILP (instantiator))
+    /* OK */
+    ;
+  else if (CONSP (instantiator))
+    {
+      Lisp_Object tail;
+      EXTERNAL_LIST_LOOP (tail, instantiator)
+	{
+	  Lisp_Object car = XCAR (tail);
+	  if (!VALID_SINGLE_DISPTABLE_INSTANTIATOR_P (car))
+	    goto lose;
+	}
+    }
+  else
+    {
+      if (!VALID_SINGLE_DISPTABLE_INSTANTIATOR_P (instantiator))
+	{
+	lose:
+	  dead_wrong_type_argument (display_table_specifier_methods->predicate_symbol,
+				    instantiator);
+	}
+    }
 }
 
 DEFUN ("display-table-specifier-p", Fdisplay_table_specifier_p, 1, 1, 0, /*

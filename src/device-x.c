@@ -622,7 +622,7 @@ x_delete_device (struct device *d)
   Lisp_Object device;
   Display *display;
 #ifdef FREE_CHECKING
-  extern void (*__free_hook)();
+  extern void (*__free_hook) (void *);
   int checking_free;
 #endif
 

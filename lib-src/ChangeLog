@@ -1,3 +1,16 @@
+1998-12-24  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.7 is released.
+
+1998-12-17  Andy Piper  <andy@xemacs.org>
+
+	* pop.c (pop_open): disable use of getpass() which doesn't exist under NT.
+
+	* movemail.c: mess with includes so that it builds under native NT.
+
+	* pop.c: mess with includes so that it builds under native NT.
+	From Fabrice Popineau <popineau@ese-metz.fr>
+	
 1998-12-16  Andy Piper  <andy@xemacs.org>
 
 	* XEmacs 21.2.6 is released

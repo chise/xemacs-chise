@@ -179,7 +179,7 @@ print_event (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 	assert (INTP (Vx));
 	Vy = Fevent_y_pixel (obj);
 	assert (INTP (Vy));
-	sprintf (buf, "#<motion-event %ld, %ld", (long)(XINT (Vx)), (long)(XINT (Vy)));
+	sprintf (buf, "#<motion-event %ld, %ld", (long) XINT (Vx), (long) XINT (Vy));
 	write_c_string (buf, printcharfun);
 	break;
       }
@@ -1455,22 +1455,28 @@ Return the timestamp of the event object EVENT.
 #define CHECK_EVENT_TYPE(e,t1,sym) do {		\
   CHECK_LIVE_EVENT (e);				\
   if (XEVENT(e)->event_type != (t1))		\
-    e = wrong_type_argument ((sym),(e));	\
+    e = wrong_type_argument (sym,e);		\
 } while (0)
 
-#define CHECK_EVENT_TYPE2(e,t1,t2,sym) do {	\
-  CHECK_LIVE_EVENT (e);				\
-  if (XEVENT(e)->event_type != (t1) &&		\
-      XEVENT(e)->event_type != (t2))		\
-    e = wrong_type_argument ((sym),(e));	\
+#define CHECK_EVENT_TYPE2(e,t1,t2,sym) do {		\
+  CHECK_LIVE_EVENT (e);					\
+  {							\
+    emacs_event_type CET_type = XEVENT (e)->event_type;	\
+    if (CET_type != (t1) &&				\
+	CET_type != (t2))				\
+      e = wrong_type_argument (sym,e);			\
+  }							\
 } while (0)
 
-#define CHECK_EVENT_TYPE3(e,t1,t2,t3,sym) do {	\
-  CHECK_LIVE_EVENT (e);				\
-  if (XEVENT(e)->event_type != (t1) &&		\
-      XEVENT(e)->event_type != (t2) &&		\
-      XEVENT(e)->event_type != (t3))		\
-    e = wrong_type_argument ((sym),(e));	\
+#define CHECK_EVENT_TYPE3(e,t1,t2,t3,sym) do {		\
+  CHECK_LIVE_EVENT (e);					\
+  {							\
+    emacs_event_type CET_type = XEVENT (e)->event_type;	\
+    if (CET_type != (t1) &&				\
+	CET_type != (t2) &&				\
+	CET_type != (t3))				\
+      e = wrong_type_argument (sym,e);			\
+  }							\
 } while (0)
 
 DEFUN ("event-key", Fevent_key, 1, 1, 0, /*

@@ -55,14 +55,18 @@ Boston, MA 02111-1307, USA.  */
  */
 
 #define NO_SHORTNAMES   /* Tell config not to load remap.h */
+#define DONT_ENCAPSULATE
 #include <../src/config.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/file.h>
 #include <stdio.h>
 #include <errno.h>
+#include "../src/sysfile.h"
 #include "../src/syswait.h"
+#ifndef WINDOWSNT
 #include "../src/systime.h"
+#endif
 #include <stdlib.h>
 #include <string.h>
 #include "getopt.h"
@@ -305,7 +309,9 @@ main (int argc, char *argv[])
       exit (retcode);
     }
 
+#ifndef WINDOWSNT
   setuid (getuid ());
+#endif
 #endif /* MAIL_USE_POP */
 
 #ifndef DISABLE_DIRECT_ACCESS
@@ -632,7 +638,7 @@ popmail (char *user, char *outfile, char *password)
       error ("Error in open: %s, %s", strerror (errno), outfile);
       return (1);
     }
-#ifndef __CYGWIN32__
+#if !defined(__CYGWIN32__) && !defined(WINDOWSNT)
   fchown (mbfi, getuid (), -1);
 #endif
 
