@@ -33,6 +33,10 @@ file.
 * Changes in XEmacs 21.2
 ========================
 
+** XEmacs now locates the early package hierarchy at ~/.xemacs/packages.
+
+This has changed from simply ~/.xemacs.
+
 ** `delete-key-deletes-forward' now defaults to t.
 
 `delete-key-deletes-forward' is the variable that regulates the

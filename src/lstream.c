@@ -188,7 +188,7 @@ sizeof_lstream (CONST void *header)
 
 DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION ("stream", lstream,
 					mark_lstream, print_lstream,
-					finalize_lstream, 0, 0,
+					finalize_lstream, 0, 0, 0,
 					sizeof_lstream, Lstream);
 
 void

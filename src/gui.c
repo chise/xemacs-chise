@@ -516,6 +516,7 @@ DEFINE_LRECORD_IMPLEMENTATION ("gui-item", gui_item,
 			       mark_gui_item, print_gui_item,
 			       0, gui_item_equal,
 			       gui_item_hash,
+			       0,
 			       struct Lisp_Gui_Item);
 
 void

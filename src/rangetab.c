@@ -134,7 +134,7 @@ range_table_hash (Lisp_Object obj, int depth)
 
 DEFINE_LRECORD_IMPLEMENTATION ("range-table", range_table,
                                mark_range_table, print_range_table, 0,
-			       range_table_equal, range_table_hash,
+			       range_table_equal, range_table_hash, 0,
 			       struct Lisp_Range_Table);
 
 /************************************************************************/

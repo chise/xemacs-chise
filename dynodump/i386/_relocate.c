@@ -32,7 +32,7 @@
  * Mountain View, California 94043
  */
 
-#pragma ident	"@(#) $Id: _relocate.c,v 1.4 1995/06/26 20:12:41 georgn Exp $ - SMI"
+#pragma ident	"@(#) $Id: _relocate.c,v 1.3 1997/05/29 04:23:02 steve Exp $ - SMI"
 
 /* LINTLIBRARY */
 

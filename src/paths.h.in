@@ -65,9 +65,13 @@
 
 #define PATH_VERSION "@version@"
 
+#ifdef EXEC_PREFIX_USER_DEFINED
 #define PATH_EXEC_PREFIX "@EXEC_PREFIX@"
+#endif
 
+#ifdef PREFIX_USER_DEFINED
 #define PATH_PREFIX "@PREFIX@"
+#endif
 
 #ifdef LISPDIR_USER_DEFINED
 #define  PATH_LOADSEARCH "@LISPDIR@"
@@ -99,6 +103,10 @@
 
 #ifdef LOCKDIR_USER_DEFINED
 #define PATH_LOCK "@LOCKDIR@"
+#endif
+
+#ifdef DOCDIR_USER_DEFINED
+#define PATH_DOC "@DOCDIR@"
 #endif
 
 #ifdef INFODIR_USER_DEFINED

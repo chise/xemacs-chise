@@ -32,6 +32,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+#include <stddef.h>
 
 #include "buffer.h"
 
@@ -95,9 +96,14 @@ marker_hash (Lisp_Object obj, int depth)
   return hash;
 }
 
+static const struct lrecord_description marker_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Marker, next), 3 },
+  { XD_END }
+};
+
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("marker", marker,
 				     mark_marker, print_marker, 0,
-				     marker_equal, marker_hash,
+				     marker_equal, marker_hash, marker_description,
 				     struct Lisp_Marker);
 
 /* Operations on markers. */

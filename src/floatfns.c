@@ -179,9 +179,14 @@ float_hash (Lisp_Object obj, int depth)
   return (unsigned long) fmod (extract_float (obj), 4e9);
 }
 
+static const struct lrecord_description float_description[] = {
+  { XD_END }
+};
+
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("float", float,
 				     mark_float, print_float, 0, float_equal,
-				     float_hash, struct Lisp_Float);
+				     float_hash, float_description,
+				     struct Lisp_Float);
 
 /* Extract a Lisp number as a `double', or signal an error.  */
 
