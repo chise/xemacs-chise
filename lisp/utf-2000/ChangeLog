@@ -1,3 +1,11 @@
+2002-09-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R119-Rice.el, Ideograph-R032-Earth.el,
+	Ideograph-R006-Hook.el, Ideograph-R013-Down-Box.el,
+	Ideograph-R015-Ice.el, Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R025-Divination.el, Ideograph-R030-Mouth.el: Add some
+	missing mappings to CHINA3-JEF code points.
+
 2002-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R119-Rice.el, Ideograph-R117-Stand.el,
