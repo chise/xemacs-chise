@@ -269,9 +269,12 @@ DESCRIPTION (string) is the description string of the charset."
 	  greek-iso8859-7
 	  thai-tis620
 	  japanese-jisx0208
-	  japanese-jisx0208-1978
 	  japanese-jisx0212
+	  japanese-jisx0213-1
+	  japanese-jisx0213-2
 	  japanese-jisx0208-1990
+	  korean-ksc5601
+	  japanese-jisx0208-1978
 	  chinese-cns11643-1
 	  chinese-cns11643-2
 	  chinese-cns11643-3
@@ -279,7 +282,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-cns11643-5
 	  chinese-cns11643-6
 	  chinese-cns11643-7
-	  korean-ksc5601
 	  chinese-gb2312
 	  katakana-jisx0201
 	  hebrew-iso8859-8
