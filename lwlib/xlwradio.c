@@ -328,10 +328,10 @@ RadioExpose (Widget w,
 	{
 	  /* TODO: handle pixmaps */
 	  XCopyPlane(dpy, left_bitmap, win, gc,
-	  	0,0, rw->label.lbm_width, rw->label.lbm_height,
-		(int) rw->label.internal_width*2 + bs(rw),
-		(int) rw->label.internal_height + rw->label.lbm_y,
-		(u_long) 1L) ;
+		     0,0, rw->label.lbm_width, rw->label.lbm_height,
+		     (int) rw->label.internal_width*2 + bs(rw),
+		     (int) rw->label.internal_height + rw->label.lbm_y,
+		     1UL) ;
 	}
 
 	/* Finally, the button itself */

@@ -110,7 +110,7 @@ extern Lisp_Object Vcommand_loop;
 /* #endif */
 DECLARE_DOESNT_RETURN (initial_command_loop (Lisp_Object));
 Lisp_Object call_command_loop (Lisp_Object catch_errors);
-extern int command_loop_level;
+extern Fixnum command_loop_level;
 
 extern Lisp_Object Vkeyboard_translate_table;
 extern Lisp_Object Vlast_input_time;

@@ -100,7 +100,7 @@ Boston, MA 02111-1307, USA.  */
 #include <errno.h>
 
 /* The number of keystrokes between auto-saves. */
-static int auto_save_interval;
+static Fixnum auto_save_interval;
 
 Lisp_Object Qundefined_keystroke_sequence;
 
@@ -250,7 +250,7 @@ Lisp_Object Qself_insert_defer_undo;
 extern Lisp_Object Fmake_keymap (Lisp_Object name);
 
 #ifdef DEBUG_XEMACS
-int debug_emacs_events;
+Fixnum debug_emacs_events;
 
 static void
 external_debugging_print_event (char *event_description, Lisp_Object event)

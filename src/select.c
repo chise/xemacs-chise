@@ -151,6 +151,7 @@ It defaults to the selected device.
     value_list = Qnil;
   Lisp_Object prev_real_value = Qnil;
   struct gcpro gcpro1;
+  int owned_p = 0;
 
   CHECK_SYMBOL (selection_name);
   if (NILP (selection_value)) error ("selection-value may not be nil.");
@@ -180,6 +181,7 @@ It defaults to the selected device.
 
       if (!NILP (local_selection_data))
 	{
+	  owned_p = 1;
 	  /* Don't use Fdelq() as that may QUIT;. */
 	  if (EQ (local_selection_data, Fcar (Vselection_alist)))
 	    Vselection_alist = Fcdr (Vselection_alist);
@@ -201,7 +203,10 @@ It defaults to the selected device.
       prev_value = assq_no_quit (selection_name, Vselection_alist);
 
       if (!NILP (prev_value))
-	value_list = XCAR (XCDR (prev_value));
+	{
+	  owned_p = 1;
+	  value_list = XCAR (XCDR (prev_value));
+	}
 
       if (!NILP (value_list))
 	prev_real_value = assq_no_quit (data_type, value_list);
@@ -280,7 +285,7 @@ It defaults to the selected device.
   if (HAS_DEVMETH_P (XDEVICE (device), own_selection))
     selection_time = DEVMETH (XDEVICE (device), own_selection,
 			      (selection_name, selection_value,
-			       how_to_add, data_type, !NILP (prev_value)));
+			       how_to_add, data_type, owned_p));
   else
     selection_time = Qnil;
 

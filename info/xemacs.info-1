@@ -179,8 +179,11 @@ Packages
 
 * Packages::            Introduction to XEmacs Packages.
 * Package Terminology:: Understanding different kinds of packages.
-* Using Packages::      How to install and use packages.
+* Installing Packages:: How to install packages.
 * Building Packages::   Building packages from sources.
+* Local.rules File::    An important part of building packages.
+* Creating Packages::   The basics.
+* Available Packages::  A brief directory of packaged LISP.
 
 Basic Editing Commands
 

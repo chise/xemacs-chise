@@ -180,13 +180,13 @@ static Lisp_Object Vcanna_kakutei_string;
 static Lisp_Object Vcanna_kakutei_yomi;
 static Lisp_Object Vcanna_kakutei_romaji;
 static Lisp_Object Vcanna_henkan_string;
-static int         canna_henkan_length;
-static int         canna_henkan_revPos;
-static int         canna_henkan_revLen;
+static Fixnum   canna_henkan_length;
+static Fixnum   canna_henkan_revPos;
+static Fixnum   canna_henkan_revLen;
 static Lisp_Object Vcanna_ichiran_string;
-static int         canna_ichiran_length;
-static int         canna_ichiran_revPos;
-static int         canna_ichiran_revLen;
+static Fixnum   canna_ichiran_length;
+static Fixnum   canna_ichiran_revPos;
+static Fixnum   canna_ichiran_revLen;
 static Lisp_Object Vcanna_mode_string;
 
 static int IRCP_context;
@@ -199,7 +199,7 @@ static Lisp_Object CANNA_mode_keys (void);
 static void m2c (unsigned char *, int, unsigned char *);
 static Lisp_Object mule_make_string (unsigned char *, int);
 static int mule_strlen (unsigned char *, int);
-static void count_char (unsigned char *,int, int, int, int *, int *, int *);
+static void count_char (unsigned char *,int, int, int, Fixnum *, Fixnum *, Fixnum *);
 #define make_string mule_make_string
 #endif
 
@@ -887,149 +887,149 @@ Quit conversion.
 
 /* variables below this line is constants of Canna */
 
-static int canna_mode_AlphaMode;
-static int canna_mode_EmptyMode;
-static int canna_mode_KigoMode;
-static int canna_mode_YomiMode;
-static int canna_mode_JishuMode;
-static int canna_mode_TankouhoMode;
-static int canna_mode_IchiranMode;
-static int canna_mode_YesNoMode;
-static int canna_mode_OnOffMode;
+static Fixnum canna_mode_AlphaMode;
+static Fixnum canna_mode_EmptyMode;
+static Fixnum canna_mode_KigoMode;
+static Fixnum canna_mode_YomiMode;
+static Fixnum canna_mode_JishuMode;
+static Fixnum canna_mode_TankouhoMode;
+static Fixnum canna_mode_IchiranMode;
+static Fixnum canna_mode_YesNoMode;
+static Fixnum canna_mode_OnOffMode;
 #ifdef CANNA_MODE_AdjustBunsetsuMode
-static int canna_mode_AdjustBunsetsuMode;
+static Fixnum canna_mode_AdjustBunsetsuMode;
 #endif
 #ifdef CANNA_MODE_ChikujiYomiMode
-static int canna_mode_ChikujiYomiMode;
-static int canna_mode_ChikujiTanMode;
+static Fixnum canna_mode_ChikujiYomiMode;
+static Fixnum canna_mode_ChikujiTanMode;
 #endif
 
-static int canna_mode_HenkanMode;
+static Fixnum canna_mode_HenkanMode;
 #ifdef CANNA_MODE_HenkanNyuryokuMode
-static int canna_mode_HenkanNyuryokuMode;
+static Fixnum canna_mode_HenkanNyuryokuMode;
 #endif
 #ifdef CANNA_MODE_ZenHiraHenkanMode
-static int canna_mode_ZenHiraHenkanMode;
+static Fixnum canna_mode_ZenHiraHenkanMode;
 #ifdef CANNA_MODE_HanHiraHenkanMode
-static int canna_mode_HanHiraHenkanMode;
+static Fixnum canna_mode_HanHiraHenkanMode;
 #endif
-static int canna_mode_ZenKataHenkanMode;
-static int canna_mode_HanKataHenkanMode;
-static int canna_mode_ZenAlphaHenkanMode;
-static int canna_mode_HanAlphaHenkanMode;
+static Fixnum canna_mode_ZenKataHenkanMode;
+static Fixnum canna_mode_HanKataHenkanMode;
+static Fixnum canna_mode_ZenAlphaHenkanMode;
+static Fixnum canna_mode_HanAlphaHenkanMode;
 #endif
-static int canna_mode_ZenHiraKakuteiMode;
+static Fixnum canna_mode_ZenHiraKakuteiMode;
 #ifdef CANNA_MODE_HanHiraKakuteiMode
-static int canna_mode_HanHiraKakuteiMode;
+static Fixnum canna_mode_HanHiraKakuteiMode;
 #endif
-static int canna_mode_ZenKataKakuteiMode;
-static int canna_mode_HanKataKakuteiMode;
-static int canna_mode_ZenAlphaKakuteiMode;
-static int canna_mode_HanAlphaKakuteiMode;
-static int canna_mode_HexMode;
-static int canna_mode_BushuMode;
-static int canna_mode_ExtendMode;
-static int canna_mode_RussianMode;
-static int canna_mode_GreekMode;
-static int canna_mode_LineMode;
-static int canna_mode_ChangingServerMode;
-static int canna_mode_HenkanMethodMode;
-static int canna_mode_DeleteDicMode;
-static int canna_mode_TourokuMode;
-static int canna_mode_TourokuEmptyMode;
-static int canna_mode_TourokuHinshiMode;
-static int canna_mode_TourokuDicMode;
-static int canna_mode_QuotedInsertMode;
-static int canna_mode_BubunMuhenkanMode;
-static int canna_mode_MountDicMode;
+static Fixnum canna_mode_ZenKataKakuteiMode;
+static Fixnum canna_mode_HanKataKakuteiMode;
+static Fixnum canna_mode_ZenAlphaKakuteiMode;
+static Fixnum canna_mode_HanAlphaKakuteiMode;
+static Fixnum canna_mode_HexMode;
+static Fixnum canna_mode_BushuMode;
+static Fixnum canna_mode_ExtendMode;
+static Fixnum canna_mode_RussianMode;
+static Fixnum canna_mode_GreekMode;
+static Fixnum canna_mode_LineMode;
+static Fixnum canna_mode_ChangingServerMode;
+static Fixnum canna_mode_HenkanMethodMode;
+static Fixnum canna_mode_DeleteDicMode;
+static Fixnum canna_mode_TourokuMode;
+static Fixnum canna_mode_TourokuEmptyMode;
+static Fixnum canna_mode_TourokuHinshiMode;
+static Fixnum canna_mode_TourokuDicMode;
+static Fixnum canna_mode_QuotedInsertMode;
+static Fixnum canna_mode_BubunMuhenkanMode;
+static Fixnum canna_mode_MountDicMode;
 
-static int canna_fn_SelfInsert;
-static int canna_fn_FunctionalInsert;
-static int canna_fn_QuotedInsert;
-static int canna_fn_JapaneseMode;
-static int canna_fn_AlphaMode;
-static int canna_fn_HenkanNyuryokuMode;
-static int canna_fn_Forward;
-static int canna_fn_Backward;
-static int canna_fn_Next;
-static int canna_fn_Prev;
-static int canna_fn_BeginningOfLine;
-static int canna_fn_EndOfLine;
-static int canna_fn_DeleteNext;
-static int canna_fn_DeletePrevious;
-static int canna_fn_KillToEndOfLine;
-static int canna_fn_Henkan;
-static int canna_fn_Kakutei;
-static int canna_fn_Extend;
-static int canna_fn_Shrink;
+static Fixnum canna_fn_SelfInsert;
+static Fixnum canna_fn_FunctionalInsert;
+static Fixnum canna_fn_QuotedInsert;
+static Fixnum canna_fn_JapaneseMode;
+static Fixnum canna_fn_AlphaMode;
+static Fixnum canna_fn_HenkanNyuryokuMode;
+static Fixnum canna_fn_Forward;
+static Fixnum canna_fn_Backward;
+static Fixnum canna_fn_Next;
+static Fixnum canna_fn_Prev;
+static Fixnum canna_fn_BeginningOfLine;
+static Fixnum canna_fn_EndOfLine;
+static Fixnum canna_fn_DeleteNext;
+static Fixnum canna_fn_DeletePrevious;
+static Fixnum canna_fn_KillToEndOfLine;
+static Fixnum canna_fn_Henkan;
+static Fixnum canna_fn_Kakutei;
+static Fixnum canna_fn_Extend;
+static Fixnum canna_fn_Shrink;
 #ifdef CANNA_FN_AdjustBunsetsu
-static int canna_fn_AdjustBunsetsu;
+static Fixnum canna_fn_AdjustBunsetsu;
 #endif
-static int canna_fn_Quit;
-static int canna_fn_ConvertAsHex;
-static int canna_fn_ConvertAsBushu;
-static int canna_fn_KouhoIchiran;
-static int canna_fn_BubunMuhenkan;
-static int canna_fn_Zenkaku;
-static int canna_fn_Hankaku;
-static int canna_fn_ToUpper;
-static int canna_fn_Capitalize;
-static int canna_fn_ToLower;
-static int canna_fn_Hiragana;
-static int canna_fn_Katakana;
-static int canna_fn_Romaji;
+static Fixnum canna_fn_Quit;
+static Fixnum canna_fn_ConvertAsHex;
+static Fixnum canna_fn_ConvertAsBushu;
+static Fixnum canna_fn_KouhoIchiran;
+static Fixnum canna_fn_BubunMuhenkan;
+static Fixnum canna_fn_Zenkaku;
+static Fixnum canna_fn_Hankaku;
+static Fixnum canna_fn_ToUpper;
+static Fixnum canna_fn_Capitalize;
+static Fixnum canna_fn_ToLower;
+static Fixnum canna_fn_Hiragana;
+static Fixnum canna_fn_Katakana;
+static Fixnum canna_fn_Romaji;
 #ifdef CANNA_FN_BaseHiragana
-static int canna_fn_BaseHiragana;
-static int canna_fn_BaseKatakana;
-static int canna_fn_BaseEisu;
-static int canna_fn_BaseZenkaku;
-static int canna_fn_BaseHankaku;
-static int canna_fn_BaseKana;
-static int canna_fn_BaseKakutei;
-static int canna_fn_BaseHenkan;
-static int canna_fn_BaseHiraKataToggle;
-static int canna_fn_BaseZenHanToggle;
-static int canna_fn_BaseKanaEisuToggle;
-static int canna_fn_BaseKakuteiHenkanToggle;
-static int canna_fn_BaseRotateForward;
-static int canna_fn_BaseRotateBackward;
+static Fixnum canna_fn_BaseHiragana;
+static Fixnum canna_fn_BaseKatakana;
+static Fixnum canna_fn_BaseEisu;
+static Fixnum canna_fn_BaseZenkaku;
+static Fixnum canna_fn_BaseHankaku;
+static Fixnum canna_fn_BaseKana;
+static Fixnum canna_fn_BaseKakutei;
+static Fixnum canna_fn_BaseHenkan;
+static Fixnum canna_fn_BaseHiraKataToggle;
+static Fixnum canna_fn_BaseZenHanToggle;
+static Fixnum canna_fn_BaseKanaEisuToggle;
+static Fixnum canna_fn_BaseKakuteiHenkanToggle;
+static Fixnum canna_fn_BaseRotateForward;
+static Fixnum canna_fn_BaseRotateBackward;
 #endif
-static int canna_fn_ExtendMode;
-static int canna_fn_Touroku;
-static int canna_fn_HexMode;
-static int canna_fn_BushuMode;
-static int canna_fn_KigouMode;
+static Fixnum canna_fn_ExtendMode;
+static Fixnum canna_fn_Touroku;
+static Fixnum canna_fn_HexMode;
+static Fixnum canna_fn_BushuMode;
+static Fixnum canna_fn_KigouMode;
 #ifdef CANNA_FN_Mark
-static int canna_fn_Mark;
+static Fixnum canna_fn_Mark;
 #endif
 #ifdef CANNA_FN_TemporalMode
-static int canna_fn_TemporalMode;
+static Fixnum canna_fn_TemporalMode;
 #endif
 
-static int canna_key_Nfer;
-static int canna_key_Xfer;
-static int canna_key_Up;
-static int canna_key_Left;
-static int canna_key_Right;
-static int canna_key_Down;
-static int canna_key_Insert;
-static int canna_key_Rollup;
-static int canna_key_Rolldown;
-static int canna_key_Home;
-static int canna_key_Help;
-static int canna_key_KP_Key;
-static int canna_key_Shift_Nfer;
-static int canna_key_Shift_Xfer;
-static int canna_key_Shift_Up;
-static int canna_key_Shift_Left;
-static int canna_key_Shift_Right;
-static int canna_key_Shift_Down;
-static int canna_key_Cntrl_Nfer;
-static int canna_key_Cntrl_Xfer;
-static int canna_key_Cntrl_Up;
-static int canna_key_Cntrl_Left;
-static int canna_key_Cntrl_Right;
-static int canna_key_Cntrl_Down;
+static Fixnum canna_key_Nfer;
+static Fixnum canna_key_Xfer;
+static Fixnum canna_key_Up;
+static Fixnum canna_key_Left;
+static Fixnum canna_key_Right;
+static Fixnum canna_key_Down;
+static Fixnum canna_key_Insert;
+static Fixnum canna_key_Rollup;
+static Fixnum canna_key_Rolldown;
+static Fixnum canna_key_Home;
+static Fixnum canna_key_Help;
+static Fixnum canna_key_KP_Key;
+static Fixnum canna_key_Shift_Nfer;
+static Fixnum canna_key_Shift_Xfer;
+static Fixnum canna_key_Shift_Up;
+static Fixnum canna_key_Shift_Left;
+static Fixnum canna_key_Shift_Right;
+static Fixnum canna_key_Shift_Down;
+static Fixnum canna_key_Cntrl_Nfer;
+static Fixnum canna_key_Cntrl_Xfer;
+static Fixnum canna_key_Cntrl_Up;
+static Fixnum canna_key_Cntrl_Left;
+static Fixnum canna_key_Cntrl_Right;
+static Fixnum canna_key_Cntrl_Down;
 
 Lisp_Object VCANNA; /* by MORIOKA Tomohiko <morioka@jaist.ac.jp>
 		          1996/6/7 */
@@ -1896,8 +1896,8 @@ mule_strlen (unsigned char *p, int l)
 
 /* count number of characters */
 static void
-count_char (unsigned char *p, int len, int pos, int rev, int *clen, int *cpos,
-	    int *crev)
+count_char (unsigned char *p, int len, int pos, int rev,
+	    Fixnum *clen, Fixnum *cpos, Fixnum *crev)
 {
   unsigned char *q = p;
 

@@ -71,7 +71,7 @@ Lisp_Object Qfloatp;
 
 int debug_issue_ebola_notices;
 
-int debug_ebola_backtrace_length;
+Fixnum debug_ebola_backtrace_length;
 
 int
 eq_with_ebola_notice (Lisp_Object obj1, Lisp_Object obj2)

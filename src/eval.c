@@ -163,13 +163,13 @@ struct specbinding *specpdl_ptr;
 int specpdl_depth_counter;
 
 /* Maximum size allowed for specpdl allocation */
-int max_specpdl_size;
+Fixnum max_specpdl_size;
 
 /* Depth in Lisp evaluations and function calls.  */
 static int lisp_eval_depth;
 
 /* Maximum allowed depth in Lisp evaluations and function calls.  */
-int max_lisp_eval_depth;
+Fixnum max_lisp_eval_depth;
 
 /* Nonzero means enter debugger before next function call */
 static int debug_on_next_call;

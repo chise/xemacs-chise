@@ -131,7 +131,11 @@ Boston, MA 02111-1307, USA.  */
 #endif
 
 #ifdef HAVE_LIBUTIL_H
-#include <libutil.h>		/* openpty() on BSD */
+#include <libutil.h>		/* openpty() on FreeBSD */
+#endif
+
+#ifdef HAVE_UTIL_H
+#include <util.h>		/* openpty() on NetBSD */
 #endif
 
 #ifdef FD_SET

@@ -69,7 +69,7 @@ Lisp_Object Vlast_abbrev;
 Lisp_Object Vlast_abbrev_text;
 
 /* Character address of start of last abbrev expanded */
-int last_abbrev_location;
+Fixnum last_abbrev_location;
 
 /* Hook to run before expanding any abbrev.  */
 Lisp_Object Vpre_abbrev_expand_hook, Qpre_abbrev_expand_hook;

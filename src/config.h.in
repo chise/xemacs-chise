@@ -345,6 +345,7 @@ void *alloca ();
 #undef HAVE_ISASTREAM	/* SysV streams */
 #undef HAVE_PTY_H	/* Linux, Tru64 openpty */
 #undef HAVE_LIBUTIL_H	/* BSD openpty */
+#undef HAVE_UTIL_H	/* NetBSD openpty */
 #undef HAVE_STROPTS_H	/* SysV streams */
 #undef HAVE_STRTIO_H	/* SysV streams TIOCSIGNAL */
 
@@ -831,7 +832,6 @@ on various systems. */
 #  define new   c_new
 #  define this  c_this
 #  define catch c_catch
-#  define not   c_not
 
 #  define EXTERN_C extern "C"
 # else /* C code */

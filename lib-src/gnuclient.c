@@ -103,7 +103,7 @@ tell_emacs_to_resume (int sig)
   signal(SIGCONT, tell_emacs_to_resume);
 #endif
 
-  connect_type = make_connection (NULL, (u_short) 0, &s);
+  connect_type = make_connection (NULL, 0, &s);
 
   sprintf(buffer,"(gnuserv-eval '(resume-pid-console %d))", (int)getpid());
   send_string(s, buffer);
@@ -156,11 +156,11 @@ get_current_working_directory (void)
 {
   if (cp == NULL)
     {				/* haven't calculated it yet */
-#ifdef BSD
-      if (getwd (cwd) == 0)
-#else /* !BSD */
+#ifdef HAVE_GETCWD
       if (getcwd (cwd,MAXPATHLEN) == NULL)
-#endif /* !BSD */
+#else
+      if (getwd (cwd) == 0)
+#endif /* HAVE_GETCWD */
 	{
 	  perror (progname);
 	  fprintf (stderr, "%s: unable to get current working directory\n",
@@ -337,7 +337,7 @@ main (int argc, char *argv[])
   char *path;
   int rflg = 0;			/* pathname given on cmdline */
   char *portarg;
-  u_short port = 0;		/* port to server */
+  unsigned short port = 0;	/* port to server */
 #endif /* INTERNET_DOMAIN_SOCKETS */
 #ifdef SYSV_IPC
   struct msgbuf *msgp;		/* message */
@@ -488,7 +488,7 @@ main (int argc, char *argv[])
 #if defined(INTERNET_DOMAIN_SOCKETS)
       connect_type = make_connection (hostarg, port, &s);
 #else
-      connect_type = make_connection (NULL, (u_short) 0, &s);
+      connect_type = make_connection (NULL, 0, &s);
 #endif
       sprintf (command, "(gnuserv-eval%s '(progn ", quick ? "-quickly" : "");
       send_string (s, command);
@@ -526,7 +526,7 @@ main (int argc, char *argv[])
 #if defined(INTERNET_DOMAIN_SOCKETS)
       connect_type = make_connection (hostarg, port, &s);
 #else
-      connect_type = make_connection (NULL, (u_short) 0, &s);
+      connect_type = make_connection (NULL, 0, &s);
 #endif
       sprintf (command, "(gnuserv-eval%s '(progn ", quick ? "-quickly" : "");
       send_string (s, command);
@@ -560,7 +560,7 @@ main (int argc, char *argv[])
 #if defined(INTERNET_DOMAIN_SOCKETS)
 	  connect_type = make_connection (hostarg, port, &s);
 #else
-	  connect_type = make_connection (NULL, (u_short) 0, &s);
+	  connect_type = make_connection (NULL, 0, &s);
 #endif
 	  send_string (s, "(gnuserv-eval '(emacs-pid))");
 	  send_string (s, EOT_STR);
@@ -585,7 +585,7 @@ main (int argc, char *argv[])
 #if defined(INTERNET_DOMAIN_SOCKETS)
       connect_type = make_connection (hostarg, port, &s);
 #else
-      connect_type = make_connection (NULL, (u_short) 0, &s);
+      connect_type = make_connection (NULL, 0, &s);
 #endif
 
 #ifdef INTERNET_DOMAIN_SOCKETS

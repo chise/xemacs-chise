@@ -23,7 +23,7 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _LWLIB_CONFIG_H_
 #define _LWLIB_CONFIG_H_
 
-#include <../src/config.h>
+#include "../src/config.h"
 
 #undef NEED_MOTIF
 #undef NEED_ATHENA

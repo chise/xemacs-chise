@@ -406,7 +406,7 @@ typedef int Endpoint_Index;
 #define DE_MUST_BE_ATTACHED 2
 
 Lisp_Object Vlast_highlighted_extent;
-int mouse_highlight_priority;
+Fixnum mouse_highlight_priority;
 
 Lisp_Object Qextentp;
 Lisp_Object Qextent_live_p;

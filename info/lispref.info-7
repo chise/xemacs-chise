@@ -1202,7 +1202,7 @@ values.  Loading a file also does evaluation (*note Loading::).
      This limit, with the associated error when it is exceeded, is one
      way that Lisp avoids infinite recursion on an ill-defined function.
 
-     The default value of this variable is 500.  If you set it to a
+     The default value of this variable is 1000.  If you set it to a
      value less than 100, Lisp will reset it to 100 if the given value
      is reached.
 

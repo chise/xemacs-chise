@@ -1611,7 +1611,7 @@ check_category_table (Lisp_Object object, Lisp_Object default_)
 
 int
 check_category_char (Emchar ch, Lisp_Object table,
-		     unsigned int designator, unsigned int not)
+		     unsigned int designator, unsigned int not_p)
 {
   REGISTER Lisp_Object temp;
   Lisp_Char_Table *ctbl;
@@ -1622,10 +1622,10 @@ check_category_char (Emchar ch, Lisp_Object table,
   ctbl = XCHAR_TABLE (table);
   temp = get_char_table (ch, ctbl);
   if (NILP (temp))
-    return not;
+    return not_p;
 
   designator -= ' ';
-  return bit_vector_bit (XBIT_VECTOR (temp), designator) ? !not : not;
+  return bit_vector_bit (XBIT_VECTOR (temp), designator) ? !not_p : not_p;
 }
 
 DEFUN ("check-category-at", Fcheck_category_at, 2, 4, 0, /*

@@ -1541,8 +1541,17 @@ unix_kill_child_process (Lisp_Object proc, int signo,
 
   /* Finally send the signal. */
   if (EMACS_KILLPG (pgid, signo) == -1)
-    error ("kill (%ld, %ld) failed: %s",
-	   (long) pgid, (long) signo, strerror (errno));
+    {
+      /* It's not an error if our victim is already dead.
+         And we can't rely on the result of killing a zombie, since
+         XPG 4.2 requires that killing a zombie fail with ESRCH,
+         while FIPS 151-2 requires that it succeeds! */
+#ifdef ESRCH
+      if (errno != ESRCH)
+#endif
+	error ("kill (%ld, %ld) failed: %s",
+	       (long) pgid, (long) signo, strerror (errno));
+    }
 }
 
 /* Send signal SIGCODE to any process in the system given its PID.

@@ -321,7 +321,7 @@ Lisp_Object	Vwnn_server_type;
 Lisp_Object	Vcwnn_zhuyin;
 Lisp_Object	Vwnnenv_sticky;
 Lisp_Object	Vwnn_uniq_level;
-int		lb_sisheng;
+Fixnum		lb_sisheng;
 
 /* Lisp functions definition */
 

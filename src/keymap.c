@@ -189,7 +189,7 @@ static Lisp_Object Vvertical_divider_map;
    so that things which care (such as the menubar code) can recompute
    privately-cached data when the user has changed keybindings.
  */
-int keymap_tick;
+Fixnum keymap_tick;
 
 /* Prefixing a key with this character is the same as sending a meta bit. */
 Lisp_Object Vmeta_prefix_char;
@@ -221,9 +221,13 @@ Lisp_Object Qbutton4up, Qbutton5up, Qbutton6up, Qbutton7up;
 
 Lisp_Object Qmenu_selection;
 /* Emacs compatibility */
-Lisp_Object Qdown_mouse_1, Qdown_mouse_2, Qdown_mouse_3, Qdown_mouse_4,
-  Qdown_mouse_5;
-Lisp_Object Qmouse_1, Qmouse_2, Qmouse_3, Qmouse_4, Qmouse_5;
+Lisp_Object Qdown_mouse_1, Qmouse_1;
+Lisp_Object Qdown_mouse_2, Qmouse_2;
+Lisp_Object Qdown_mouse_3, Qmouse_3;
+Lisp_Object Qdown_mouse_4, Qmouse_4;
+Lisp_Object Qdown_mouse_5, Qmouse_5;
+Lisp_Object Qdown_mouse_6, Qmouse_6;
+Lisp_Object Qdown_mouse_7, Qmouse_7;
 
 /* Kludge kludge kludge */
 Lisp_Object QLFD, QTAB, QRET, QESC, QDEL, QSPC, QBS;
@@ -1366,6 +1370,10 @@ define_key_check_and_coerce_keysym (Lisp_Object spec,
 	*keysym = Qbutton4;
       else if (EQ(*keysym, Qdown_mouse_5))
 	*keysym = Qbutton5;
+      else if (EQ(*keysym, Qdown_mouse_6))
+	*keysym = Qbutton6;
+      else if (EQ(*keysym, Qdown_mouse_7))
+	*keysym = Qbutton7;
       else if (EQ(*keysym, Qmouse_1))
 	*keysym = Qbutton1up;
       else if (EQ(*keysym, Qmouse_2))
@@ -1376,6 +1384,10 @@ define_key_check_and_coerce_keysym (Lisp_Object spec,
 	*keysym = Qbutton4up;
       else if (EQ(*keysym, Qmouse_5))
 	*keysym = Qbutton5up;
+      else if (EQ(*keysym, Qmouse_6))
+	*keysym = Qbutton6up;
+      else if (EQ(*keysym, Qmouse_7))
+	*keysym = Qbutton7up;
     }
 }
 
@@ -4281,11 +4293,15 @@ syms_of_keymap (void)
   defsymbol (&Qmouse_3, "mouse-3");
   defsymbol (&Qmouse_4, "mouse-4");
   defsymbol (&Qmouse_5, "mouse-5");
+  defsymbol (&Qmouse_6, "mouse-6");
+  defsymbol (&Qmouse_7, "mouse-7");
   defsymbol (&Qdown_mouse_1, "down-mouse-1");
   defsymbol (&Qdown_mouse_2, "down-mouse-2");
   defsymbol (&Qdown_mouse_3, "down-mouse-3");
   defsymbol (&Qdown_mouse_4, "down-mouse-4");
   defsymbol (&Qdown_mouse_5, "down-mouse-5");
+  defsymbol (&Qdown_mouse_6, "down-mouse-6");
+  defsymbol (&Qdown_mouse_7, "down-mouse-7");
   defsymbol (&Qmenu_selection, "menu-selection");
   defsymbol (&QLFD, "LFD");
   defsymbol (&QTAB, "TAB");

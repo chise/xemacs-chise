@@ -4759,9 +4759,9 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 	case charset_not:
 	  {
 	    REGISTER unsigned char c;
-	    boolean not = (re_opcode_t) *(p - 1) == charset_not;
+	    boolean not_p = (re_opcode_t) *(p - 1) == charset_not;
 
-            DEBUG_PRINT2 ("EXECUTING charset%s.\n", not ? "_not" : "");
+            DEBUG_PRINT2 ("EXECUTING charset%s.\n", not_p ? "_not" : "");
 
 	    REGEX_PREFETCH ();
 	    c = TRANSLATE (*d); /* The character to match.  */
@@ -4770,11 +4770,11 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
                bit list is a full 32 bytes long.  */
 	    if (c < (unsigned) (*p * BYTEWIDTH)
 		&& p[1 + c / BYTEWIDTH] & (1 << (c % BYTEWIDTH)))
-	      not = !not;
+	      not_p = !not_p;
 
 	    p += 1 + *p;
 
-	    if (!not) goto fail;
+	    if (!not_p) goto fail;
 
 	    SET_REGS_MATCHED ();
             INC_CHARPTR (d); /* XEmacs change */
@@ -4786,20 +4786,20 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 	case charset_mule_not:
 	  {
 	    REGISTER Emchar c;
-	    boolean not = (re_opcode_t) *(p - 1) == charset_mule_not;
+	    boolean not_p = (re_opcode_t) *(p - 1) == charset_mule_not;
 
-            DEBUG_PRINT2 ("EXECUTING charset_mule%s.\n", not ? "_not" : "");
+            DEBUG_PRINT2 ("EXECUTING charset_mule%s.\n", not_p ? "_not" : "");
 
 	    REGEX_PREFETCH ();
 	    c = charptr_emchar ((const Bufbyte *) d);
 	    c = TRANSLATE_EXTENDED_UNSAFE (c); /* The character to match.  */
 
 	    if (EQ (Qt, unified_range_table_lookup (p, c, Qnil)))
-	      not = !not;
+	      not_p = !not_p;
 
 	    p += unified_range_table_bytes_used (p);
 
-	    if (!not) goto fail;
+	    if (!not_p) goto fail;
 
 	    SET_REGS_MATCHED ();
 	    INC_CHARPTR (d);
@@ -5269,15 +5269,15 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 		else if ((re_opcode_t) p1[3] == charset
 			 || (re_opcode_t) p1[3] == charset_not)
 		  {
-		    int not = (re_opcode_t) p1[3] == charset_not;
+		    int not_p = (re_opcode_t) p1[3] == charset_not;
 
 		    if (c < (unsigned char) (p1[4] * BYTEWIDTH)
 			&& p1[5 + c / BYTEWIDTH] & (1 << (c % BYTEWIDTH)))
-		      not = !not;
+		      not_p = !not_p;
 
-                    /* `not' is equal to 1 if c would match, which means
+                    /* `not_p' is equal to 1 if c would match, which means
                         that we can't change to pop_failure_jump.  */
-		    if (!not)
+		    if (!not_p)
                       {
   		        p[-3] = (unsigned char) pop_failure_jump;
                         DEBUG_PRINT1 ("  No match => pop_failure_jump.\n");

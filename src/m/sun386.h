@@ -74,10 +74,10 @@ NOTE-END  */
 
 /* XEmacs change:  from Thomas.Tornblom@nexus.comm.se */
 #ifdef USE_GCC
-#define C_SWITCH_MACHINE "-static -Dmode_t=\"u_short\"" /* avoid dynamic linking */
+#define C_SWITCH_MACHINE "-static -Dmode_t=\"unsigned short\"" /* avoid dynamic linking */
 #define LD_SWITCH_MACHINE "-Wl,-N -static"
 #else
-#define C_SWITCH_MACHINE "-Bstatic -Dmode_t=\"u_short\""/* avoid dynamic linking */
+#define C_SWITCH_MACHINE "-Bstatic -Dmode_t=\"unsigned short\""/* avoid dynamic linking */
 #define LD_SWITCH_MACHINE "-N -Bstatic"
 #endif
 

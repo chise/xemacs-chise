@@ -38,28 +38,30 @@ Boston, MA 02111-1307, USA.  */
             VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVT
 
  For integral Lisp types, i.e. integers and characters, the value
- bits are the Lisp object.
+ bits are the Lisp object.  Some people call such Lisp_Objects "immediate".
 
-     The object is obtained by masking off the type and mark bits.
-     Bit 1 is used as a value bit by splitting the Lisp integer type
-     into two subtypes, Lisp_Type_Int_Even and Lisp_Type_Int_Odd.  By
-     this trickery we get 31 bits for integers instead of 30.
+ The object is obtained by masking off the type bits.
+ Bit 1 is used as a value bit by splitting the Lisp integer type
+ into two subtypes, Lisp_Type_Int_Even and Lisp_Type_Int_Odd.
+ By this trickery we get 31 bits for integers instead of 30.
 
  For non-integral types, the value bits of a Lisp_Object contain
  a pointer to a structure containing the object.  The pointer is
  obtained by masking off the type and mark bits.
 
-     All pointer-based types are coalesced under a single type called
-     Lisp_Type_Record.  The type bits for this type are required
-     by the implementation to be 00, just like the least
-     significant bits of word-aligned struct pointers on 32-bit
-     hardware.  Because of this, Lisp_Object pointers don't have
-     to be masked and are full-sized.
+ All pointer-based types are coalesced under a single type called
+ Lisp_Type_Record.  The type bits for this type are required by the
+ implementation to be 00, just like the least significant bits of
+ word-aligned struct pointers on 32-bit hardware.  This requires that
+ all structs implementing Lisp_Objects have an alignment of at least 4
+ bytes.  Because of this, Lisp_Object pointers don't have to be masked
+ and are full-sized.
 
- There are no mark bits.
- Integers and characters don't need to be marked.  All other types
- are lrecord-based, which means they get marked by incrementing
- their ->implementation pointer.
+ There are no mark bits in the Lisp_Object itself (there used to be).
+
+ Integers and characters don't need to be marked.  All other types are
+ lrecord-based, which means they get marked by setting the mark bit in
+ the struct lrecord_header.
 
  Here is a brief description of the following macros:
 
@@ -68,9 +70,9 @@ Boston, MA 02111-1307, USA.  */
  XCHARVAL  The value bits of a Lisp_Object storing a Emchar
  XREALINT  The value bits of a Lisp_Object storing an integer, signed
  XUINT     The value bits of a Lisp_Object storing an integer, unsigned
- INTP      Non-zero if this Lisp_Object an integer?
+ INTP      Non-zero if this Lisp_Object is an integer
  Qzero     Lisp Integer 0
- EQ        Non-zero if two Lisp_Objects are identical */
+ EQ        Non-zero if two Lisp_Objects are identical, not merely equal. */
 
 
 typedef EMACS_INT Lisp_Object;

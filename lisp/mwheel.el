@@ -17,7 +17,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -91,11 +91,13 @@ This can be slightly disconcerting, but some people may prefer it."
 	(amt (if (memq 'shift (event-modifiers event))
 		 (cdr mwheel-scroll-amount)
 	       (car mwheel-scroll-amount))))
-    (case (mwheel-event-button event)
-      (4 (scroll-down amt))
-      (5 (scroll-up amt))
-      (otherwise (error "Bad binding in mwheel-scroll")))
-    (if curwin (select-window curwin))))
+    (unwind-protect
+	(case (mwheel-event-button event)
+	  (4 (scroll-down amt))
+	  (5 (scroll-up amt))
+	  (otherwise (error "Bad binding in mwheel-scroll")))
+      (if curwin (select-window curwin)))
+    ))
 
 ;;;###autoload
 (defun mwheel-install ()
@@ -112,7 +114,7 @@ This can be slightly disconcerting, but some people may prefer it."
 	  (define-key global-map (car keys) 'mwheel-scroll)
 	  (setq keys (cdr keys)))
       (error nil))))
-    
+
 (provide 'mwheel)
 
 ;;; mwheel.el ends here

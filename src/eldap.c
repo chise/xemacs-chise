@@ -40,7 +40,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include "eldap.h"
 
-static int ldap_default_port;
+static Fixnum ldap_default_port;
 static Lisp_Object Vldap_default_base;
 
 /* Needed by the lrecord definition */

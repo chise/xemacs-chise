@@ -31,7 +31,7 @@ enum symbol_value_type
 {
   /* The following tags use the 'symbol_value_forward' structure
      and are strictly for variables DEFVARed on the C level. */
-  SYMVAL_FIXNUM_FORWARD,	/* Forward C "int" */
+  SYMVAL_FIXNUM_FORWARD,	/* Forward C "Fixnum", really "EMACS_INT" */
   SYMVAL_CONST_FIXNUM_FORWARD,	/* Same, but can't be set */
   SYMVAL_BOOLEAN_FORWARD,	/* Forward C boolean ("int") */
   SYMVAL_CONST_BOOLEAN_FORWARD,	/* Same, but can't be set */
@@ -69,6 +69,9 @@ enum symbol_value_type
   /* NYI */
 #endif
 };
+
+/* Underlying C type used to implement DEFVAR_INT */
+typedef EMACS_INT Fixnum;
 
 struct symbol_value_magic
 {
@@ -345,13 +348,21 @@ void defvar_magic (const char *symbol_name, const struct symbol_value_forward *m
 
 #define DEFVAR_SYMVAL_FWD_INT(lname, c_location, forward_type, magicfun) do{	\
   DEFVAR_SYMVAL_FWD (lname, c_location, forward_type, magicfun);		\
-  dump_add_opaque (c_location, sizeof(int));					\
+  dump_add_opaque_int (c_location);						\
 } while (0)
 
-#define DEFVAR_SYMVAL_FWD_OBJECT(lname, c_location, forward_type, magicfun) do{ \
+#define DEFVAR_SYMVAL_FWD_FIXNUM(lname, c_location, forward_type, magicfun) do{	\
   DEFVAR_SYMVAL_FWD (lname, c_location, forward_type, magicfun);		\
-  staticpro (c_location);							\
-  if (EQ (*c_location, Qnull_pointer)) *c_location = Qnil;			\
+  dump_add_opaque_fixnum (c_location);						\
+} while (0)
+
+#define DEFVAR_SYMVAL_FWD_OBJECT(lname, c_location, forward_type, magicfun) do{	\
+  DEFVAR_SYMVAL_FWD (lname, c_location, forward_type, magicfun);		\
+  {										\
+    Lisp_Object *DSF_location = c_location; /* Type check */			\
+    staticpro (DSF_location);							\
+    if (EQ (*DSF_location, Qnull_pointer)) *DSF_location = Qnil;		\
+  }										\
 } while (0)
 
 #define DEFVAR_LISP(lname, c_location) \
@@ -361,9 +372,9 @@ void defvar_magic (const char *symbol_name, const struct symbol_value_forward *m
 #define DEFVAR_SPECIFIER(lname, c_location) \
 	DEFVAR_SYMVAL_FWD_OBJECT (lname, c_location, SYMVAL_CONST_SPECIFIER_FORWARD, 0)
 #define DEFVAR_INT(lname, c_location) \
-	DEFVAR_SYMVAL_FWD_INT (lname, c_location, SYMVAL_FIXNUM_FORWARD, 0)
+	DEFVAR_SYMVAL_FWD_FIXNUM (lname, c_location, SYMVAL_FIXNUM_FORWARD, 0)
 #define DEFVAR_CONST_INT(lname, c_location) \
-	DEFVAR_SYMVAL_FWD_INT (lname, c_location, SYMVAL_CONST_FIXNUM_FORWARD, 0)
+	DEFVAR_SYMVAL_FWD_FIXNUM (lname, c_location, SYMVAL_CONST_FIXNUM_FORWARD, 0)
 #define DEFVAR_BOOL(lname, c_location) \
 	DEFVAR_SYMVAL_FWD_INT (lname, c_location, SYMVAL_BOOLEAN_FORWARD, 0)
 #define DEFVAR_CONST_BOOL(lname, c_location) \
@@ -371,7 +382,7 @@ void defvar_magic (const char *symbol_name, const struct symbol_value_forward *m
 #define DEFVAR_LISP_MAGIC(lname, c_location, magicfun) \
 	DEFVAR_SYMVAL_FWD_OBJECT (lname, c_location, SYMVAL_OBJECT_FORWARD, magicfun)
 #define DEFVAR_INT_MAGIC(lname, c_location, magicfun) \
-	DEFVAR_SYMVAL_FWD_INT (lname, c_location, SYMVAL_FIXNUM_FORWARD, magicfun)
+	DEFVAR_SYMVAL_FWD_FIXNUM (lname, c_location, SYMVAL_FIXNUM_FORWARD, magicfun)
 #define DEFVAR_BOOL_MAGIC(lname, c_location, magicfun) \
 	DEFVAR_SYMVAL_FWD_INT (lname, c_location, SYMVAL_BOOLEAN_FORWARD, magicfun)
 

@@ -117,8 +117,9 @@ extern	void	Draw3dBox(Widget w, int  x, int y, int wid, int hgt, int s,
 			GC topgc, GC botgc) ;
 
 #if XtSpecificationRelease < 5
-extern	GC	XtAllocateGC(Widget, int depth, u_long mask,
-			XGCValues *, u_long dynamic, u_long dontcare) ;
+extern	GC	XtAllocateGC(Widget, int depth, unsigned long mask,
+			     XGCValues *,
+			     unsigned long dynamic, unsigned long dontcare) ;
 #endif
 
 #else

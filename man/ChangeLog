@@ -1,3 +1,20 @@
+2001-02-08  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.44 "Thalia" is released.
+
+2001-02-04  Steve Youngs  <youngs@xemacs.org>
+
+	* xemacs/xemacs.texi: Update to accomodate new and improved
+	packages.texi.
+
+	* xemacs/packages.texi: Basically, apart from a few things,
+	rewritten from scratch.
+
+2001-01-27  Martin Buchholz  <martin@xemacs.org>
+
+	* lispref/variables.texi (max-specpdl-size): Correct default value.
+	* lispref/eval.texi (max-lisp-eval-depth): Correct default value.
+
 2001-01-26  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.43 "Terspichore" is released.

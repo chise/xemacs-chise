@@ -300,7 +300,7 @@ static Bytecount_dynarr *formatted_string_extent_end_dynarr;
 
 
 /* #### probably temporary */
-int cache_adjustment;
+Fixnum cache_adjustment;
 
 /* This holds a string representing the text corresponding to a single
    modeline % spec. */
@@ -315,10 +315,10 @@ int disable_preemption;	/* Used for debugging redisplay and for
 static int preemption_count;
 
 /* Minimum pixel height of clipped bottom display line. */
-int vertical_clip;
+Fixnum vertical_clip;
 
 /* Minimum visible pixel width of clipped glyphs at right margin. */
-int horizontal_clip;
+Fixnum horizontal_clip;
 
 /* Nonzero means reading single-character input with prompt
    so put cursor on minibuffer after the prompt.  */
@@ -425,10 +425,10 @@ Lisp_Object Vglobal_mode_string;
 
 /* The number of lines scroll a window by when point leaves the window; if
   it is <=0 then point is centered in the window */
-int scroll_step;
+Fixnum scroll_step;
 
 /* Scroll up to this many lines, to bring point back on screen. */
-int scroll_conservatively;
+Fixnum scroll_conservatively;
 
 /* Marker for where to display an arrow on top of the buffer text.  */
 Lisp_Object Voverlay_arrow_position;
@@ -451,7 +451,8 @@ Lisp_Object Vpre_redisplay_hook, Vpost_redisplay_hook;
 Lisp_Object Qpre_redisplay_hook, Qpost_redisplay_hook;
 #endif /* INHIBIT_REDISPLAY_HOOKS */
 
-static int last_display_warning_tick, display_warning_tick;
+static Fixnum last_display_warning_tick;
+static Fixnum display_warning_tick;
 Lisp_Object Qdisplay_warning_buffer;
 int inhibit_warning_display;
 

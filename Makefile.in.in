@@ -300,14 +300,6 @@ lisp/auto-autoloads.el:	FRC.lisp.auto.autoloads.el
 	${blddir}/src/${PROGNAME} -batch -vanilla \
 		-f batch-byte-compile lisp/auto-autoloads.el
 	@$(RM) lisp/auto-autoloads.el~
-#ifdef MULE
-	$(RM) lisp/mule/auto-autoloads.el
-	${blddir}/src/${PROGNAME} -batch -vanilla \
-		-l autoload -f batch-update-directory lisp/mule
-	${blddir}/src/${PROGNAME} -batch -vanilla \
-		-f batch-byte-compile lisp/mule/auto-autoloads.el
-	@$(RM) lisp/mule/auto-autoloads.el~
-#endif
 
 FRC.lisp.custom.load.el:
 lisp/custom-load.el: FRC.lisp.custom.load.el

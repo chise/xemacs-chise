@@ -73,7 +73,7 @@ Lisp_Object Vx_sent_selection_hooks;
 /* If the selection owner takes too long to reply to a selection request,
    we give up on it.  This is in seconds (0 = no timeout).
  */
-int x_selection_timeout;
+Fixnum x_selection_timeout;
 
 /* Enable motif selection optimizations. */
 int x_selection_strict_motif_ownership;

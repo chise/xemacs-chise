@@ -251,7 +251,7 @@ binding depth exceeds max-specpdl-size"}).
   This limit, with the associated error when it is exceeded, is one way
 that Lisp avoids infinite recursion on an ill-defined function.
 
-  The default value is 600.
+  The default value is 3000.
 
   @code{max-lisp-eval-depth} provides another limit on depth of nesting.
 @xref{Eval}.

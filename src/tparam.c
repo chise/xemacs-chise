@@ -30,8 +30,8 @@ Boston, MA 02111-1307, USA.  */
 #define realloc xrealloc
 #define malloc xmalloc
 #define free xfree
-extern void *xmalloc (int size);
-extern void *xrealloc (void *, int size);
+extern void *xmalloc (size_t size);
+extern void *xrealloc (void *, size_t size);
 
 #else /* emacs */
 

@@ -284,26 +284,6 @@ verbose=
 x_includes=NONE
 x_libraries=NONE
 
-dnl Installation directory options.
-dnl These are left unexpanded so users can "make install exec_prefix=/foo"
-dnl and all the variables that are supposed to be based on exec_prefix
-dnl by default will actually change.
-dnl Use braces instead of parens because sh, perl, etc. also accept them.
-dnl If you change these, you need to synchronize with the settings of the
-dnl various ..._USER_DEFINED variables further down.
-bindir='${exec_prefix}/bin'
-sbindir='${exec_prefix}/sbin'
-libexecdir='${exec_prefix}/libexec'
-datadir='${prefix}/share'
-sysconfdir='${prefix}/etc'
-sharedstatedir='${prefix}/com'
-localstatedir='${prefix}/var'
-libdir='${{exec_prefix}}/lib'
-includedir='${prefix}/include'
-oldincludedir='/usr/include'
-infodir='${prefix}/info'
-mandir='${prefix}/man'
-
 dnl Initialize some other variables.
 subdirs=
 MFLAGS= MAKEFLAGS=
@@ -770,10 +750,12 @@ The default is to autodetect all sound support."])
              infopath ) AC_DEFINE(INFOPATH_USER_DEFINED) ;;
              package_path ) AC_DEFINE(PACKAGE_PATH_USER_DEFINED) ;;
              datadir )
- 	        AC_DEFINE(INFODIR_USER_DEFINED)
- 	        AC_DEFINE(LISPDIR_USER_DEFINED)
-            AC_DEFINE(MODULEDIR_USER_DEFINED)
-	        AC_DEFINE(ETCDIR_USER_DEFINED) ;;
+		AC_DEFINE(INFODIR_USER_DEFINED)
+		AC_DEFINE(LISPDIR_USER_DEFINED)
+		AC_DEFINE(MODULEDIR_USER_DEFINED)
+	        AC_DEFINE(ETCDIR_USER_DEFINED)
+	        AC_DEFINE(DOCDIR_USER_DEFINED)
+                AC_DEFINE(ARCHLIBDIR_USER_DEFINED) ;;
 	     docdir ) AC_DEFINE(DOCDIR_USER_DEFINED) ;;
              exec_prefix | libdir | archlibdir ) AC_DEFINE(ARCHLIBDIR_USER_DEFINED) ;;
            esac
@@ -1866,15 +1848,15 @@ test "$extra_verbose" = "yes" && \
   have_terminfo mail_use_flock mail_use_lockf) && echo ""
 
 dnl Pick up mingw32 include path
-case "$opsys" in mingw* | cygwin*) 
+case "$opsys" in mingw* | cygwin*)
   cygwin_include=`eval "gcc -print-file-name=libc.a"` ;
   cygwin_include=`eval "dirname $cygwin_include"` ;
   cygwin_include="-I$cygwin_include/../include" ;
   extra_includes="$cygwin_include/mingw32 $cygwin_include/mingw $cygwin_include" ;
-  case "$opsys" in mingw*) 
+  case "$opsys" in mingw*)
     XE_APPEND($extra_includes, c_switch_system) ;;
   esac
-  ;;	
+  ;;
 esac
 
 dnl Non-ordinary link usually requires -lc
@@ -1906,7 +1888,10 @@ if test "$cflags_specified" = "no"; then
   dnl Following values of CFLAGS are known to work well.
   dnl Should we take debugging options into consideration?
   if   test "$GCC" = "yes"; then
-    CFLAGS="-g -O3 -Wall -Wno-switch -Wpointer-arith -Winline -Wmissing-prototypes -Wshadow"
+    CFLAGS="-g -O3 -Wall -Wno-switch -Winline -Wmissing-prototypes -Wshadow"
+    dnl glibc is intentionally not `-Wpointer-arith'-clean.
+    dnl Ulrich Drepper has rejected patches to fix the glibc header files.
+    test "$have_glibc" != "yes" && CFLAGS="$CFLAGS -Wpointer-arith"
     dnl I'm not convinced this is a good idea any more. -sb
     dnl test "$opsys $machine" = "linux intel386" && \
     dnl CFLAGS="$CFLAGS -fno-strength-reduce -malign-loops=2 -malign-jumps=2 -malign-functions=2"
@@ -2726,7 +2711,7 @@ dnl Avoid re-AC_DEFINE-ing xmkmf symbols we've already defined above.
 #include <X11/Xlib.h>
 extern Bool XRegisterIMInstantiateCallback(
    Display*, struct _XrmHashBucketRec*, char*, char*, XIMProc, XPointer*);
-], [], 
+], [],
   [AC_MSG_RESULT(yes)],
   [AC_MSG_RESULT(no)
    AC_DEFINE(XREGISTERIMINSTANTIATECALLBACK_NONSTANDARD_PROTOTYPE)])
@@ -2772,7 +2757,7 @@ if test "$with_msw" != "no"; then
     XE_APPEND(netinstall, MAKE_SUBDIR)
     XE_APPEND(netinstall, SRC_SUBDIR_DEPS)
     XE_APPEND(netinstall, INSTALL_ARCH_DEP_SUBDIR)
-	
+
     install_pp="$blddir/lib-src/installexe.sh"
     XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomdlg32 -lcomctl32 -lwinspool, libs_system)
     test "$with_dragndrop" != no && XE_APPEND(msw, dragndrop_proto)
@@ -3087,6 +3072,9 @@ if test "$window_system" != "none"; then
     AC_MSG_RESULT($with_xpm)
   fi
   if test "$with_xpm" = "yes"; then
+    dnl #### This code assumes that if AC_CHECK_LIB fails, 
+    dnl #### then it will succeed if FOR_MSW is defined, 
+    dnl #### but doesn't actually verify this assumption.
     AC_DEFINE(HAVE_XPM)
     XE_PREPEND(-lXpm, libs_x)
     AC_MSG_CHECKING(for \"FOR_MSW\" xpm)
@@ -3502,6 +3490,8 @@ if test "$with_mule" = "yes" ; then
   dnl Autodetect WNN
   test "$with_wnn6" = "yes" && with_wnn=yes # wnn6 implies wnn support
   test -z "$with_wnn" && { AC_CHECK_HEADER(wnn/jllib.h, ,with_wnn=no) }
+  dnl gcc 2.97 fixincludes breaks inclusion of wnn/commonhd.h
+  test -z "$with_wnn" && { AC_CHECK_HEADER(wnn/commonhd.h, ,with_wnn=no) }
   dnl Detour to find crypt
   if test "$with_wnn" != "no"; then
     AC_CHECK_FUNCS(crypt)
@@ -3571,19 +3561,26 @@ fi
 
 AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime getaddrinfo gethostname getnameinfo getpagesize gettimeofday getcwd getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf stpcpy strerror tzset ulimit usleep utimes waitpid vsnprintf fsync ftruncate umask)
 
+dnl ----------------------------------------------------------------
 dnl Check for PTY support functions.
-dnl  getpt  is the preferred pty allocation method on glibc systems.
-dnl _getpty is the preferred pty allocation method on SGI systems.
-dnl grantpt, unlockpt, ptsname are defined by Unix98.
+dnl ----------------------------------------------------------------
+
+dnl There is no "standard" pty allocation method.  Every system is different.
+dnl  getpt()  is the preferred pty allocation method on glibc systems.
+dnl _getpty() is the preferred pty allocation method on SGI systems.
+dnl grantpt(), unlockpt(), ptsname() are defined by Unix98.
 AC_CHECK_FUNCS(getpt _getpty grantpt unlockpt ptsname killpg tcgetpgrp)
 
-dnl openpty is the preferred pty allocation method on BSD and Tru64 systems.
-dnl openpty might be declared in pty.h or in libutil.h.
+dnl openpty() is the preferred pty allocation method on BSD and Tru64 systems.
+dnl openpty() might be declared in:
+dnl - pty.h (Tru64 or Linux)
+dnl - libutil.h (FreeBSD)
+dnl - util.h (NetBSD)
 AC_CHECK_FUNC(openpty, have_openpty=yes, [
   AC_CHECK_LIB(util, openpty, have_openpty=yes need_libutil=yes)])
 if test "$have_openpty" = "yes"; then
   AC_DEFINE(HAVE_OPENPTY)
-  AC_CHECK_HEADERS(pty.h libutil.h)
+  AC_CHECK_HEADERS(pty.h libutil.h util.h, break)
   test "$need_libutil" = "yes" && XE_APPEND(-lutil, libs_system)
 fi
 

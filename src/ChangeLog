@@ -1,3 +1,186 @@
+2001-02-08  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.44 "Thalia" is released.
+
+2001-02-06  Martin Buchholz  <martin@xemacs.org>
+
+	Fixes crashes in kill-emacs on some systems.
+	* process-unix.c (unix_kill_child_process):
+	It's OK for kill() to fail with ESRCH.
+
+2001-02-07  Martin Buchholz  <martin@xemacs.org>
+
+	Contortions to make .gdbinit tricks work on most systems.
+	* alloc.c (dbg_inhibit_dbg_symbol_deletion): Keep debugger info.
+	* alloc.c (dbg_valmask): Make non-const.
+	* alloc.c (dbg_typemask): Make non-const.
+	* alloc.c (dbg_USE_UNION_TYPE): Make non-const.
+	* alloc.c (dbg_valbits): Make non-const.
+	* alloc.c (dbg_gctypebits): Make non-const.
+	* .gdbinit (decode_object): Make it work with AIX cc.
+
+2001-02-06  Martin Buchholz  <martin@xemacs.org>
+
+	* elhash.c (make_general_lisp_hash_table):
+	Use simpler and more efficient calloc to clear entries.
+
+2001-02-07  Martin Buchholz  <martin@xemacs.org>
+
+	* window.c (window_scroll): Work around an AIX C compiler bug.
+	Fixes 'scroll-up' does nothing problem with xlC.
+
+2001-02-05  Martin Buchholz  <martin@xemacs.org>
+
+	* .gdbinit: Remove obsolete comment.
+
+2001-01-31  Mike Alexander  <mta@arbortext.com>
+
+	* select.c (Fown_selection_internal): Set owned_p for device
+	method correctly.
+
+2001-02-01  Martin Buchholz  <martin@xemacs.org>
+
+	Port to g++ 2.97.
+	"not" cannot be used as a macro name as it is an operator in C++
+	* config.h.in: Stop #defining `not'.
+	* chartab.c (check_category_char): not ==> not_p
+	* chartab.h: Likewise.
+	* regex.c (re_match_2_internal): Likewise.
+
+2001-02-02  Martin Buchholz  <martin@xemacs.org>
+
+	* lisp-disunion.h: Fix up comments.
+
+2001-01-31  Martin Buchholz  <martin@xemacs.org>
+
+	* keymap.c (define_key_check_and_coerce_keysym):
+	(syms_of_keymap):
+	Support mouse-6 and mouse-7 bindings in the obvious way.
+
+2001-02-01  Martin Buchholz  <martin@xemacs.org>
+
+	* m/hp9000s300.h (UNEXEC): Check for HPUX, not !BSD.
+
+2001-01-30  Martin Buchholz  <martin@xemacs.org>
+
+	Previous patch changing DEFVAR_INT to use EMACS_INT was incomplete.
+	Previous patch missed DEFVAR_INT_MAGIC.
+	Make sure future DEFVAR_foo use correct types.
+	* symeval.h (DEFVAR_SYMVAL_FWD_FIXNUM): New.
+	* (DEFVAR_SYMVAL_FWD_INT): Add type checking.
+	* (DEFVAR_SYMVAL_FWD_OBJECT): Add type checking.
+	* (DEFVAR_INT_MAGIC): Use DEFVAR_SYMVAL_FWD_FIXNUM.
+	* (DEFVAR_INT): Likewise.
+	* redisplay.c (vertical_clip): Should be of type Fixnum.
+	* redisplay.c (horizontal_clip): Likewise.
+	* lisp.h (dump_add_opaque_int): New.
+	(dump_add_opaque_fixnum): New.
+
+2001-01-29  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-widget.c (check_valid_int_or_function): allow symbols
+	since they can be eval'ed
+
+2001-01-29  Martin Buchholz  <martin@xemacs.org>
+
+	* lisp.h (ALIGNOF): Make it work on non-gcc C++ compilers.
+	Oops, XEmacs redefines `class'.  Use `typename' instead.
+
+2001-01-28  Martin Buchholz  <martin@xemacs.org>
+
+	* dumper.c: Fix C++ compile errors.
+
+2001-01-29  Martin Buchholz  <martin@xemacs.org>
+
+	* tparam.c: Use correct prototypes.
+
+2001-01-28  Martin Buchholz  <martin@xemacs.org>
+
+	* sysproc.h: #include util.h for NetBSD's openpty.
+
+2001-01-27  Martin Buchholz  <martin@xemacs.org>
+
+	More 64-bit correctness.
+	The C value of a DEFVAR_INT should be of type EMACS_INT, not int.
+	Use a typedef `fixnum' for the type used for DEFVAR_INT.
+	Fix up comments.
+	This finally finishes the 64-bit SGI port.
+	Fixes things like (let ((gc-cons-threshold most-positive-fixnum)) ...).
+	* symbols.c: Fix up comments and type casts.
+	* symbols.c (do_symval_forwarding): s/int/Fixnum/g
+	* symbols.c (store_symval_forwarding): s/int/Fixnum/g
+	* symeval.h (Fixnum): New type.
+	* symeval.h (symbol_value_type): Fix up comment.
+
+	* commands.h:
+	* nt.c:
+	* emacs.c:
+	* data.c:
+	* redisplay.c:
+	* abbrev.c:
+	* dired-msw.c:
+	* event-Xt.c:
+	* eldap.c:
+	* window.c:
+	* sound.c:
+	* event-stream.c:
+	* eval.c:
+	* buffer.c:
+	* mule-canna.c: A million DEFVAR_INTs here...
+	* mule-canna.c (count_char): s/int */Fixnum */g in arglist.
+	* extents.c:
+	* cmdloop.c:
+	* lisp.h:
+	* select-x.c:
+	* console-x.h:
+	* event-msw.c:
+	* mule-wnnfns.c:
+	* hpplay.c:
+	* ralloc.c:
+	* alloc.c:
+	* keymap.c:
+	* profile.c:
+	s/int/Fixnum/g in DEFVAR_INT declarations.
+
+2001-01-26  Martin Buchholz  <martin@xemacs.org>
+
+	Port pdump to SGI alignment-sensitive environment.
+	Lisp Object sizeof methods now return aligned sizes.  Rely on that.
+	Eliminate is_lrecord since Lisp_Objects sizeof methods are now all
+	properly aligned.
+	Define and use aligned reading and writing macros.
+	Use buffered stdio instead of posix i/o for faster dumping.
+	Eliminate kludgy 256 byte space for header.
+	Read and write from dump file using structs for alignment safety.
+	* dumper.c (pdump_align_stream): New.
+	* dumper.c (PDUMP_ALIGN_OUTPUT): New.
+	* dumper.c (PDUMP_READ_ALIGNED): New.
+	* dumper.c (PDUMP_WRITE_ALIGNED): New.
+	* dumper.c (pdump_static_Lisp_Object): New struct.
+	* dumper.c (pdump_static_pointer): New struct.
+	* dumper.c (pdump_entry_list_element): Remove is_lrecord member.
+	* dumper.c (pdump_add_entry): Remove is_lrecord parameter.
+	* dumper.c (pdump_dump_data): Rely on sizeof method alignment.
+	* dumper.c (pdump_allocate_offset): Rely on sizeof method alignment.
+
+	* dumper.c (pdump_backtrace):
+	* dumper.c (pdump_get_indirect_count):
+	* dumper.c (pdump_register_object):
+	* dumper.c (pdump_register_struct):
+	* dumper.c (pdump_reloc_one):
+	* dumper.c (pdump_scan_by_alignment):
+	* dumper.c (pdump_dump_from_root_struct_ptrs):
+	* dumper.c (pdump_dump_opaques):
+	* dumper.c (pdump_dump_rtables):
+	* dumper.c (pdump_dump_from_root_objects):
+	* dumper.c (pdump):
+	* dumper.c (pdump_load_finish):
+	Use aligned reading and writing.
+
+	* dumper.c (pdump_free): Make static.
+	* dumper.c (pdump_hFile): Likewise.
+	* dumper.c (pdump_hMap): Likewise.
+
 2001-01-26  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.43 "Terspichore" is released.

@@ -461,7 +461,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_ROOT_SLASH          "Warning: we recommend you do NOT use the root of your hard drive as the XEmacs root.  Proceed anyway?"
     IDS_ROOT_SPACE          "You should not choose a root path that include spaces in directory names.  Proceed anyway?"
-    IDS_MIRROR_LST          "http://ftp.xemacs.org/pub/xemacs/mirrors.lst"
+    IDS_MIRROR_LST          "http://www.xemacs.org/Download/mirrors.lst"
     IDS_DIALOG_FAILED       "Unable to create Dialog Box"
     IDS_CYGWIN_FUNC_MISSING "Error: unable to find function `%s' in %s"
     IDS_DOWNLOAD_SHORT      "Download error: %s too short (%d, wanted %d)"
@@ -478,7 +478,7 @@ BEGIN
     IDS_ERR_OPEN_READ       "Can't open %s for reading: %s"
     IDS_ROOT_ABSOLUTE       "The install directory must be absolute, with both a drive letter and leading slash, like C:\\Cygwin"
     IDS_DOWNLOAD_COMPLETE   "Download Complete"
-    IDS_CVSID               "\n%%% $Id: res.rc,v 1.1.2.4 2001/01/24 09:18:30 andyp Exp $\n"
+    IDS_CVSID               "\n%%% $Id: res.rc,v 1.1.2.5 2001/02/02 19:47:47 andyp Exp $\n"
     IDS_NOLOGFILE           "Cannot open log file %s for writing"
     IDS_UNINSTALL_COMPLETE  "Uninstalls complete."
     IDS_WININET             "Unable to find or load the Internet Explorer 5 DLLs"

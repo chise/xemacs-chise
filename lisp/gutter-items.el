@@ -348,10 +348,7 @@ redefining the function `format-buffers-menu-line'."
 		     :items items)
 	     frame)
 	    ;; set-glyph-image will not make the gutter dirty
-	    (set-specifier-dirty-flag 
-	     (eval (intern (concat 
-			    (symbol-name gutter-buffers-tab-orientation) 
-			    "-gutter"))))))))))
+	    (set-gutter-dirty-p gutter-buffers-tab-orientation)))))))
 
 ;; A myriad of different update hooks all doing slightly different things
 (add-one-shot-hook 
@@ -426,7 +423,8 @@ side-by-side."
 		     ;; 'quit is special and acts "asynchronously".
 		     :descriptor "Stop" :callback 'quit]
 		    ,progress-text-instantiator)])
-    (set-glyph-image progress-layout-glyph progress-layout-instantiator locale))
+    (set-glyph-image progress-layout-glyph progress-layout-instantiator
+		     locale))
    (t 
     (setq progress-glyph-height 24)
     (setq progress-layout-instantiator
@@ -442,22 +440,26 @@ side-by-side."
 			      :descriptor " Stop "
 			      ;; 'quit is special and acts "asynchronously".
 			      :callback 'quit])])])
-    (set-glyph-image progress-layout-glyph progress-layout-instantiator locale))))
+    (set-glyph-image progress-layout-glyph progress-layout-instantiator
+		     locale))))
+
+(defvar progress-abort-glyph (make-glyph))
+
+(defun set-progress-abort-instantiator (&optional locale)
+  (set-glyph-image progress-abort-glyph
+		   `[layout :orientation vertical :justify left
+			    :items (,progress-text-instantiator
+				    [layout
+				     :margin-width 4
+				     :pixel-height progress-glyph-height
+				     :orientation horizontal])]
+		   locale))
 
 (defvar progress-stack nil
   "An alist of label/string pairs representing active progress gauges.
 The first element in the list is currently displayed in the gutter area.
 Do not modify this directly--use the `progress-feedback' or
 `display-progress-feedback'/`clear-progress-feedback' functions.")
-
-(defvar progress-abort-glyph
-  (make-glyph
-   `[layout :orientation vertical :justify left
-	    :items (,progress-text-instantiator
-		    [layout
-		     :margin-width 4
-		     :pixel-height progress-glyph-height
-		     :orientation horizontal])]))
 
 (defun progress-feedback-displayed-p (&optional return-string frame)
   "Return a non-nil value if a progress gauge is presently displayed in the
@@ -570,8 +572,8 @@ you should just use (progress nil)."
 	  ;; fixup the gutter specifiers
 	  (set-gutter-element bottom-gutter 'progress gutter-string frame)
 	  (set-specifier bottom-gutter-border-width 2 frame)
-	  (set-instantiator-property progress-text-instantiator :datat message)
-	  (set-progress-feedback-instantiator (frame-selected-window frame))
+	  (set-instantiator-property progress-text-instantiator :data message)
+	  (set-progress-abort-instantiator (frame-selected-window frame))
 	  (set-specifier bottom-gutter-height 'autodetect frame)
 	  (set-gutter-element-visible-p bottom-gutter-visible-p 
 					'progress t frame)

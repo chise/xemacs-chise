@@ -1,3 +1,31 @@
+2001-02-08  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.44 "Thalia" is released.
+
+2001-01-16  Mike Sperber <mike@xemacs.org>
+
+	* configure.in: Remove bogus path variable definitions.
+	Reflect the fact that specifying --datadir also affects docdir and
+	archlibdir.
+
+2001-02-06  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Only use -Wpointer-arith on non-glibc systems.
+
+2001-02-02  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in (wnn): Make sure wnn/commonhd.h can be #included,
+	for the sake of gcc 2.97 fixincludes, which breaks it.
+
+2001-01-27  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Check for util.h for NetBSD's openpty.
+
+2001-01-28  Martin Buchholz  <martin@xemacs.org>
+
+	* config.sub: Upgrade to offical version 2001-01-12.
+	* config.guess: Upgrade to offical version 2001-01-17.
+
 2001-01-26  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.43 "Terspichore" is released.

@@ -889,14 +889,14 @@ xm_update_one_value (widget_instance* instance, Widget widget,
   else if (class == xmTextWidgetClass)
     {
       if (val->value)
-	free (val->value);
+	XtFree (val->value);
       val->value = XmTextGetString (widget);
       val->edited = True;
     }
   else if (class == xmTextFieldWidgetClass)
     {
       if (val->value)
-	free (val->value);
+	XtFree (val->value);
       val->value = XmTextFieldGetString (widget);
       val->edited = True;
     }
