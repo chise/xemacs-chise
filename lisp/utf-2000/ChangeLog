@@ -1,3 +1,8 @@
+2003-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el, Ideograph-R014-Cover.el,
+	Ideograph-R013-Down-Box.el: Add `=ucs@big5' features.
+
 2003-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R017-Open-Box.el, Ideograph-R015-Ice.el,
