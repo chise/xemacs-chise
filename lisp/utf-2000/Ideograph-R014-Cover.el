@@ -508,14 +508,14 @@
       )
      ((ucs		  . #x5154)	; å…”
       ))
-    (chinese-gb2312		. #x5429)	; ø»…‘†
-    (japanese-jisx0208		. #x514D)	; ø»‡—”
-    (chinese-isoir165		. #x5429)	; ø»¹–
-    (chinese-cns11643-1		. #x5441)	; ø»’¶
-    (japanese-jisx0208-1990	. #x514D)	; ø½Š½ˆ
-    (=gt-pj-1			. #x514D)	; å†¤
-    (=gt-k			. 06575)	; ý¡„¦¯
-    (ucs			. #x51A4)	; å†¤
+    (chinese-gb2312	. #x5429)	; ø»…‘†
+    (japanese-jisx0208	. #x514D)	; ø»‡—”
+    (chinese-isoir165	. #x5429)	; ø»¹–
+    (chinese-cns11643-1 . #x5441)	; ø»’¶
+    (=jis-x0208-1990	. #x514D)	; ø½Š½ˆ
+    (=gt-pj-1		. #x514D)	; å†¤
+    (=gt-k		. 06575)	; ý¡„¦¯
+    (ucs		. #x51A4)	; å†¤
     ))
 (define-char
   '((=>ucs		. #x51A4)	; å†¤

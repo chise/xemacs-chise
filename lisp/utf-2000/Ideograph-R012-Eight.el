@@ -100,12 +100,12 @@
       ))
     (shinjigen-1	. 493)
     (shinjigen-2	. 493)
-    (chinese-gb2312		. #x392B)	; ø»„©ž
-    (chinese-isoir165		. #x392B)	; ø»‘®
-    (chinese-cns11643-1		. #x447C)	; ø»‘·‘
-    (japanese-jisx0208-1990	. #x3878)	; ø½Š™…
-    (=gt-pj-1			. #x3878)	; å…¬
-    (ucs			. #x516C)	; å…¬
+    (chinese-gb2312	. #x392B)	; ø»„©ž
+    (chinese-isoir165	. #x392B)	; ø»‘®
+    (chinese-cns11643-1 . #x447C)	; ø»‘·‘
+    (=jis-x0208-1990	. #x3878)	; ø½Š™…
+    (=gt-pj-1		. #x3878)	; å…¬
+    (ucs		. #x516C)	; å…¬
     ))
 (define-char
   '((=>ucs		. #x516D)	; å…­

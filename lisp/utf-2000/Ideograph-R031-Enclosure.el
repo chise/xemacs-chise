@@ -2596,10 +2596,10 @@
       )
      ((ucs		  . #x97CB)	; éŸ‹
       ))
-    (japanese-jisx0208-1990	. #x5423)	; ø½‹€¸
-    (=gt-pj-1			. #x5423)	; ø½‹€¸
-    (=gt-k			. 09174)	; ý¡„‚–
-    (ucs-jis			. #x570D)	; ø½‹€¸
+    (=jis-x0208-1990	. #x5423)	; ø½‹€¸
+    (=gt-pj-1		. #x5423)	; ø½‹€¸
+    (=gt-k		. 09174)	; ý¡„‚–
+    (ucs-jis		. #x570D)	; ø½‹€¸
     ))
 (define-char
   '((=>ucs		. #x211FE)	; ð¡‡¾

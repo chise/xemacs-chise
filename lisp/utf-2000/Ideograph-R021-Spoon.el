@@ -5,16 +5,16 @@
     (hanyu-dazidian	1 261 15)
     (shinjigen-1	. 783)
     (shinjigen-2	. 783)
-    (chinese-gb2312		. #x5830)	; ø»…—…
-    (korean-ksc5601		. #x5D62)	; ø»‰³•
-    (chinese-isoir165		. #x5830)	; ø»¿•
-    (chinese-cns11643-1		. #x4431)	; ø»‘¶†
-    (japanese-jisx0208-1990	. #x5238)	; ø½Š¾‘
-    (=gt-pj-1			. #x5238)	; åŒ•
-    (chinese-big5		. #xA450)	; ý¢€Š‘
-    (ideograph-daikanwa		. 02570)	; ø¸€¨Š
-    (=gt-k			. 00092)	; ý¡„€œ
-    (ucs			. #x5315)	; åŒ•
+    (chinese-gb2312	. #x5830)	; ø»…—…
+    (korean-ksc5601	. #x5D62)	; ø»‰³•
+    (chinese-isoir165	. #x5830)	; ø»¿•
+    (chinese-cns11643-1 . #x4431)	; ø»‘¶†
+    (=jis-x0208-1990	. #x5238)	; ø½Š¾‘
+    (=gt-pj-1		. #x5238)	; åŒ•
+    (chinese-big5	. #xA450)	; ý¢€Š‘
+    (ideograph-daikanwa . 02570)	; ø¸€¨Š
+    (=gt-k		. 00092)	; ý¡„€œ
+    (ucs		. #x5315)	; åŒ•
     ))
 (define-char
   '((=>ucs-jis		. #x5315)	; åŒ•

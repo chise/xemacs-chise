@@ -15,11 +15,11 @@
     (ideographic-radical . 88)	; â½—
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (chinese-gb2312		. #x3838)	; ø»„¨
-    (chinese-isoir165		. #x3838)	; ø»
-    (chinese-cns11643-1		. #x4558)	; ø»‘¸‹
-    (japanese-jisx0208-1990	. #x4963)	; ø½Š±®
-    (ucs			. #x7236)	; çˆ¶
+    (chinese-gb2312	. #x3838)	; ø»„¨
+    (chinese-isoir165	. #x3838)	; ø»
+    (chinese-cns11643-1 . #x4558)	; ø»‘¸‹
+    (=jis-x0208-1990	. #x4963)	; ø½Š±®
+    (ucs		. #x7236)	; çˆ¶
     ))
 (define-char
   '((ideographic-radical . 88)	; â½—

@@ -199,11 +199,11 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (shinjigen-2	. 5238)
-    (chinese-gb2312		. #x4568)	; ø»„¼ƒ
-    (chinese-isoir165		. #x4568)	; ø»¤“
-    (chinese-cns11643-1		. #x5259)	; ø»’‹’
-    (japanese-jisx0208-1990	. #x4B5F)	; ø½Š´¦
-    (ucs			. #x76C6)	; ç›†
+    (chinese-gb2312	. #x4568)	; ø»„¼ƒ
+    (chinese-isoir165	. #x4568)	; ø»¤“
+    (chinese-cns11643-1 . #x5259)	; ø»’‹’
+    (=jis-x0208-1990	. #x4B5F)	; ø½Š´¦
+    (ucs		. #x76C6)	; ç›†
     ))
 (define-char
   '((ideographic-radical . 108)	; â½«

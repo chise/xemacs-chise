@@ -4957,11 +4957,11 @@
     (ideographic-radical . 46)	; â¼­
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (chinese-isoir165		. #x7A7B)	; ø»Ž²œ
-    (japanese-jisx0208-1990	. #x564A)	; ø½‹„›
-    (=gt-pj-1			. #x564A)	; åµŽ
-    (chinese-big5		. #xD8E1)	; ý¢€£¡
-    (ucs			. #x5D4E)	; åµŽ
+    (chinese-isoir165	. #x7A7B)	; ø»Ž²œ
+    (=jis-x0208-1990	. #x564A)	; ø½‹„›
+    (=gt-pj-1		. #x564A)	; åµŽ
+    (chinese-big5	. #xD8E1)	; ý¢€£¡
+    (ucs		. #x5D4E)	; åµŽ
     ))
 (define-char
   '((ideographic-radical . 46)	; â¼­
@@ -6922,9 +6922,9 @@
     (ideographic-radical . 46)	; â¼­
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (japanese-jisx0208-1990	. #x564F)	; ø½‹„ 
-    (=gt-pj-1			. #x564F)	; ø½‹„ 
-    (ucs-jis			. #x5D87)	; ø½‹„ 
+    (=jis-x0208-1990	. #x564F)	; ø½‹„ 
+    (=gt-pj-1		. #x564F)	; ø½‹„ 
+    (ucs-jis		. #x5D87)	; ø½‹„ 
     ))
 (define-char
   '((=>ucs		. #x5D87)	; å¶‡
@@ -9492,10 +9492,10 @@
     (ideographic-radical . 46)	; â¼­
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
-    (chinese-cns11643-1		. #x796B)	; ø»“„¶
-    (japanese-jisx0208-1990	. #x565A)	; ø½‹„«
-    (=gt-pj-1			. #x565A)	; ø»“„¶
-    (ucs-jis			. #x5DC9)	; ø»“„¶
+    (chinese-cns11643-1 . #x796B)	; ø»“„¶
+    (=jis-x0208-1990	. #x565A)	; ø½‹„«
+    (=gt-pj-1		. #x565A)	; ø»“„¶
+    (ucs-jis		. #x5DC9)	; ø»“„¶
     ))
 (define-char
   '((=>ucs		. #x21FB0)	; ð¡¾°
@@ -9603,11 +9603,11 @@
     (ideographic-radical . 46)	; â¼­
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
-    (chinese-cns11643-3		. #x5C3E)	; ø»–­«
-    (japanese-jisx0208-1990	. #x3460)	; ø½Š’µ
-    (=gt-pj-1			. #x3460)	; å·Œ
-    (mojikyo			. 050159)	; ý €Œ¯
-    (ucs			. #x5DCC)	; å·Œ
+    (chinese-cns11643-3 . #x5C3E)	; ø»–­«
+    (=jis-x0208-1990	. #x3460)	; ø½Š’µ
+    (=gt-pj-1		. #x3460)	; å·Œ
+    (mojikyo		. 050159)	; ý €Œ¯
+    (ucs		. #x5DCC)	; å·Œ
     ))
 (define-char
   '((=>ucs		. #x5DCC)	; å·Œ
@@ -9852,10 +9852,10 @@
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
     (shinjigen-2	. 2053)
-    (japanese-jisx0208-1990	. #x565C)	; ø½‹„­
-    (=gt-pj-1			. #x565C)	; å·“
-    (ideograph-daikanwa		. 08644)	; ø¸‚‡„
-    (ucs			. #x5DD3)	; å·“
+    (=jis-x0208-1990	. #x565C)	; ø½‹„­
+    (=gt-pj-1		. #x565C)	; å·“
+    (ideograph-daikanwa . 08644)	; ø¸‚‡„
+    (ucs		. #x5DD3)	; å·“
     ))
 (define-char
   '((=>ucs		. #x5DD3)	; å·“

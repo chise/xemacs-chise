@@ -2411,14 +2411,14 @@
      (:char	((ideograph-daikanwa . 01587)	; ø¸€˜³
 		 )
       :sources	(seiji-tsuu morohashi-daikanwa)))
-    (japanese-jisx0208		. #x5563)	; ø»‡¢
-    (japanese-jisx0208-1990	. #x5563)	; ø½‹ƒ–
-    (=gt-pj-1			. #x5563)	; ø»‡¢
-    (ideograph-daikanwa		. 07202)	; ø¸°¢
-    (=gt-k			. 07924)	; ý¡„»´
-    (=jef-china3		. #x4AC8)	; øº„«ˆ
-    (ucs-jis			. #x5BC3)	; ø»‡¢
-    (mojikyo			. 007202)	; ý €°¢
+    (japanese-jisx0208	. #x5563)	; ø»‡¢
+    (=jis-x0208-1990	. #x5563)	; ø½‹ƒ–
+    (=gt-pj-1		. #x5563)	; ø»‡¢
+    (ideograph-daikanwa . 07202)	; ø¸°¢
+    (=gt-k		. 07924)	; ý¡„»´
+    (=jef-china3	. #x4AC8)	; øº„«ˆ
+    (ucs-jis		. #x5BC3)	; ø»‡¢
+    (mojikyo		. 007202)	; ý €°¢
     ))
 (define-char
   '((morohashi-daikanwa	7202 0 0)

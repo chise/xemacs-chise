@@ -773,10 +773,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208		. #x2276)	; ø»†’»
-    (korean-ksc5601		. #x225C)	; ø»ˆœ¥
-    (japanese-jisx0208-1990	. #x2276)	; ø½‰¸¯
-    (ucs			. #x266A)	; â™ª
+    (japanese-jisx0208	. #x2276)	; ø»†’»
+    (korean-ksc5601	. #x225C)	; ø»ˆœ¥
+    (=jis-x0208-1990	. #x2276)	; ø½‰¸¯
+    (ucs		. #x266A)	; â™ª
     ))
 (define-char
   '((name		. "BEAMED EIGHTH NOTES")
@@ -800,10 +800,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208		. #x2275)	; ø»†’º
-    (korean-ksc5601		. #x225A)	; ø»ˆœ£
-    (japanese-jisx0208-1990	. #x2275)	; ø½‰¸®
-    (ucs			. #x266D)	; â™­
+    (japanese-jisx0208	. #x2275)	; ø»†’º
+    (korean-ksc5601	. #x225A)	; ø»ˆœ£
+    (=jis-x0208-1990	. #x2275)	; ø½‰¸®
+    (ucs		. #x266D)	; â™­
     ))
 (define-char
   '((name		. "MUSIC NATURAL SIGN")
@@ -818,9 +818,9 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208		. #x2274)	; ø»†’¹
-    (japanese-jisx0208-1990	. #x2274)	; ø½‰¸­
-    (ucs			. #x266F)	; â™¯
+    (japanese-jisx0208	. #x2274)	; ø»†’¹
+    (=jis-x0208-1990	. #x2274)	; ø½‰¸­
+    (ucs		. #x266F)	; â™¯
     ))
 (define-char
   '((name		. "WEST SYRIAC CROSS")

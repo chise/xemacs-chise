@@ -271,11 +271,11 @@
     (ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (japanese-jisx0208		. #x3A63)	; ø»†µ¸
-    (japanese-jisx0208-1990	. #x3A63)	; ø½Š›¬
-    (=gt-pj-1			. #x3A63)	; ø»†µ¸
-    (=jef-china3		. #x44A5)	; øº„’¥
-    (ucs-jis			. #x51B4)	; ø»†µ¸
+    (japanese-jisx0208	. #x3A63)	; ø»†µ¸
+    (=jis-x0208-1990	. #x3A63)	; ø½Š›¬
+    (=gt-pj-1		. #x3A63)	; ø»†µ¸
+    (=jef-china3	. #x44A5)	; øº„’¥
+    (ucs-jis		. #x51B4)	; ø»†µ¸
     ))
 (define-char
   '((=>ucs		. #x51B4)	; å†´
@@ -1404,16 +1404,16 @@
       )
      ((ucs		  . #x5468)	; å‘¨
       ))
-    (chinese-gb2312		. #x3572)	; ø»„¤­
-    (japanese-jisx0208		. #x437C)	; ø»‡ƒŸ
-    (chinese-isoir165		. #x3572)	; ø»Œ½
-    (chinese-cns11643-1		. #x5447)	; ø»’¼
-    (japanese-jisx0208-1990	. #x437C)	; ø½Š©“
-    (=gt-pj-1			. #x437C)	; å‡‹
-    (chinese-big5		. #xADE4)	; ý¢€Š·¤
-    (=gt-k			. 06506)	; ý¡„¥ª
-    (=jef-china3		. #x44A6)	; øº„’¦
-    (ucs			. #x51CB)	; å‡‹
+    (chinese-gb2312	. #x3572)	; ø»„¤­
+    (japanese-jisx0208	. #x437C)	; ø»‡ƒŸ
+    (chinese-isoir165	. #x3572)	; ø»Œ½
+    (chinese-cns11643-1 . #x5447)	; ø»’¼
+    (=jis-x0208-1990	. #x437C)	; ø½Š©“
+    (=gt-pj-1		. #x437C)	; å‡‹
+    (chinese-big5	. #xADE4)	; ý¢€Š·¤
+    (=gt-k		. 06506)	; ý¡„¥ª
+    (=jef-china3	. #x44A6)	; øº„’¦
+    (ucs		. #x51CB)	; å‡‹
     ))
 (define-char
   '((=>ucs		. #x51CC)	; å‡Œ
@@ -2331,12 +2331,12 @@
       ))
     (shinjigen-1	. 561)
     (shinjigen-2	. 561)
-    (korean-ksc5601		. #x574F)	; ø»‰ªŽ
-    (japanese-jisx0208-1990	. #x7425)	; ø½‹¯º
-    (=gt-pj-1			. #x7425)	; ø»‰ªŽ
-    (chinese-big5		. #xBBFE)	; ý¢€‹¯¾
-    (ideograph-daikanwa		. 01717)	; ø¸€šµ
-    (ucs-jis			. #x51DC)	; ø»‰ªŽ
+    (korean-ksc5601	. #x574F)	; ø»‰ªŽ
+    (=jis-x0208-1990	. #x7425)	; ø½‹¯º
+    (=gt-pj-1		. #x7425)	; ø»‰ªŽ
+    (chinese-big5	. #xBBFE)	; ý¢€‹¯¾
+    (ideograph-daikanwa . 01717)	; ø¸€šµ
+    (ucs-jis		. #x51DC)	; ø»‰ªŽ
     ))
 (define-char
   '((morohashi-daikanwa	1717 0 0)
@@ -2448,9 +2448,9 @@
        ((ucs		    . #x793A)	; ç¤º
 	))
       ))
-    (japanese-jisx0208-1990	. #x515B)	; ø½Š½–
-    (=gt-pj-1			. #x515B)	; ø½Š½–
-    (ucs-jis			. #x51DB)	; ø½Š½–
+    (=jis-x0208-1990	. #x515B)	; ø½Š½–
+    (=gt-pj-1		. #x515B)	; ø½Š½–
+    (ucs-jis		. #x51DB)	; ø½Š½–
     ))
 (define-char
   '((morohashi-daikanwa	1718 0 2)

@@ -67,10 +67,10 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (shinjigen-2	. 4040)
-    (japanese-jisx0208-1990	. #x5D62)	; ø½‹…
-    (chinese-big5		. #xAA5D)	; ý¢€Š©
-    (ideograph-daikanwa		. 17030)	; ø¸„Š†
-    (ucs-jis			. #x6C13)	; ø½‹…
+    (=jis-x0208-1990	. #x5D62)	; ø½‹…
+    (chinese-big5	. #xAA5D)	; ý¢€Š©
+    (ideograph-daikanwa . 17030)	; ø¸„Š†
+    (ucs-jis		. #x6C13)	; ø½‹…
     ))
 (define-char
   '((=>ucs		. #x6C13)	; æ°“

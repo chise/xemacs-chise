@@ -47,11 +47,11 @@
     (ideographic-radical . 125)	; â½¼
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (korean-ksc5601		. #x4D45)	; ø»‰›˜
-    (japanese-jisx0208-1990	. #x394D)	; ø½Š™¸
-    (=gt-pj-1			. #x394D)	; ø»‰›˜
-    (=gt-k			. 01611)	; ý¡„€™‹
-    (ucs-jis			. #x8003)	; ø»‰›˜
+    (korean-ksc5601	. #x4D45)	; ø»‰›˜
+    (=jis-x0208-1990	. #x394D)	; ø½Š™¸
+    (=gt-pj-1		. #x394D)	; ø»‰›˜
+    (=gt-k		. 01611)	; ý¡„€™‹
+    (ucs-jis		. #x8003)	; ø»‰›˜
     ))
 (define-char
   '((ideographic-radical . 125)	; â½¼

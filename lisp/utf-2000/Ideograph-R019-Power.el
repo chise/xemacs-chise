@@ -996,7 +996,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((japanese-jisx0208-1990	  . #x3872)	; ø½Š˜¿
+     ((=jis-x0208-1990	  . #x3872)	; ø½Š˜¿
       )
      ((ucs		  . #x529B)	; åŠ›
       ))

@@ -391,10 +391,10 @@
     (ideographic-radical . 97)	; â½ 
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (japanese-jisx0208-1990	. #x6121)	; ø½‹“¼
-    (=gt-pj-1			. #x6121)	; ø½‹“¼
-    (=gt-k			. 09213)	; ý¡„‚½
-    (ucs-jis			. #x74E0)	; ø½‹“¼
+    (=jis-x0208-1990	. #x6121)	; ø½‹“¼
+    (=gt-pj-1		. #x6121)	; ø½‹“¼
+    (=gt-k		. 09213)	; ý¡„‚½
+    (ucs-jis		. #x74E0)	; ø½‹“¼
     ))
 (define-char
   '((ideographic-radical . 97)	; â½ 

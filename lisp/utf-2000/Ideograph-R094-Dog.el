@@ -3951,15 +3951,15 @@
     (ideographic-radical . 94)	; â½
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (chinese-gb2312		. #x6960)	; ø»…°³
-    (japanese-jisx0208		. #x4D32)	; ø»‡‘
-    (chinese-isoir165		. #x6960)	; ø»Ž™ƒ
-    (chinese-cns11643-1		. #x6527)	; ø»’¦š
-    (japanese-jisx0208-1990	. #x4D32)	; ø½Š¶µ
-    (=gt-pj-1			. #x4D32)	; çŒ·
-    (=gt-k			. 10277)	; ý¡„‚ ¥
-    (=jef-china3		. #x58F9)	; øº…£¹
-    (ucs			. #x7337)	; çŒ·
+    (chinese-gb2312	. #x6960)	; ø»…°³
+    (japanese-jisx0208	. #x4D32)	; ø»‡‘
+    (chinese-isoir165	. #x6960)	; ø»Ž™ƒ
+    (chinese-cns11643-1 . #x6527)	; ø»’¦š
+    (=jis-x0208-1990	. #x4D32)	; ø½Š¶µ
+    (=gt-pj-1		. #x4D32)	; çŒ·
+    (=gt-k		. 10277)	; ý¡„‚ ¥
+    (=jef-china3	. #x58F9)	; øº…£¹
+    (ucs		. #x7337)	; çŒ·
     ))
 (define-char
   '((ideographic-radical . 94)	; â½

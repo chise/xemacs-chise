@@ -2217,10 +2217,10 @@
     (ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (japanese-jisx0208-1990	. #x3139)	; ø½Š´
-    (=gt-pj-1			. #x3139)	; ø½Š´
-    (=jef-china3		. #x45E4)	; øº„—¤
-    (ucs-jis			. #x53A9)	; ø½Š´
+    (=jis-x0208-1990	. #x3139)	; ø½Š´
+    (=gt-pj-1		. #x3139)	; ø½Š´
+    (=jef-china3	. #x45E4)	; øº„—¤
+    (ucs-jis		. #x53A9)	; ø½Š´
     ))
 (define-char
   '((=>ucs		. #x53A9)	; åŽ©

@@ -283,20 +283,20 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208		. #x2277)	; ø»†’¼
-    (korean-ksc5601		. #x2253)	; ø»ˆœœ
-    (japanese-jisx0208-1990	. #x2277)	; ø½‰¸°
-    (ucs			. #x2020)	; â€ 
+    (japanese-jisx0208	. #x2277)	; ø»†’¼
+    (korean-ksc5601	. #x2253)	; ø»ˆœœ
+    (=jis-x0208-1990	. #x2277)	; ø½‰¸°
+    (ucs		. #x2020)	; â€ 
     ))
 (define-char
   '((name		. "DOUBLE DAGGER")
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208		. #x2278)	; ø»†’½
-    (korean-ksc5601		. #x2254)	; ø»ˆœ
-    (japanese-jisx0208-1990	. #x2278)	; ø½‰¸±
-    (ucs			. #x2021)	; â€¡
+    (japanese-jisx0208	. #x2278)	; ø»†’½
+    (korean-ksc5601	. #x2254)	; ø»ˆœ
+    (=jis-x0208-1990	. #x2278)	; ø½‰¸±
+    (ucs		. #x2021)	; â€¡
     ))
 (define-char
   '((name		. "BULLET")
@@ -417,11 +417,11 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (chinese-gb2312		. #x216B)	; ø»„‡Ž
-    (japanese-jisx0208		. #x2273)	; ø»†’¸
-    (korean-ksc5601		. #x2236)	; ø»ˆ›¿
-    (japanese-jisx0208-1990	. #x2273)	; ø½‰¸¬
-    (ucs			. #x2030)	; â€°
+    (chinese-gb2312	. #x216B)	; ø»„‡Ž
+    (japanese-jisx0208	. #x2273)	; ø»†’¸
+    (korean-ksc5601	. #x2236)	; ø»ˆ›¿
+    (=jis-x0208-1990	. #x2273)	; ø½‰¸¬
+    (ucs		. #x2030)	; â€°
     ))
 (define-char
   '((name		. "PER TEN THOUSAND SIGN")

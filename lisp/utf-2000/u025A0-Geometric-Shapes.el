@@ -642,9 +642,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208		. #x227E)	; ø»†“ƒ
-    (japanese-jisx0208-1990	. #x227E)	; ø½‰¸·
-    (ucs			. #x25EF)	; â—¯
+    (japanese-jisx0208	. #x227E)	; ø»†“ƒ
+    (=jis-x0208-1990	. #x227E)	; ø½‰¸·
+    (ucs		. #x25EF)	; â—¯
     ))
 (define-char
   '((name		. "WHITE SQUARE WITH UPPER LEFT QUADRANT")

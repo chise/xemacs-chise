@@ -388,11 +388,11 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (shinjigen-2	. 3207)
-    (japanese-jisx0208-1990	. #x4865)	; ø½Š°’
-    (=gt-pj-1			. #x4865)	; ø½Š°’
-    (chinese-big5		. #xB4B4)	; ý¢€‹’´
-    (=gt-k			. 09130)	; ý¡„‚Žª
-    (ucs-jis			. #x6590)	; ø½Š°’
+    (=jis-x0208-1990	. #x4865)	; ø½Š°’
+    (=gt-pj-1		. #x4865)	; ø½Š°’
+    (chinese-big5	. #xB4B4)	; ý¢€‹’´
+    (=gt-k		. 09130)	; ý¡„‚Žª
+    (ucs-jis		. #x6590)	; ø½Š°’
     ))
 (define-char
   '((=>ucs		. #x6590)	; æ–
