@@ -1,4 +1,27 @@
+2003-01-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R114-Track.el (U-0002573C): Unify M-24887; modify
+	`ideographic-structure'.
+	(C6-334D): Relate to M-24887; modify `ideographic-structure'.
+
+	* Ideograph-R009-Man.el (M-00998): Unify HZK1-CFBC and U+3478;
+	modify `ideographic-structure'.
+	(C5-3421): Modify `ideographic-structure'.
+
 2003-01-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (U+79E6): Separate C1-5736.
+	(M-25221): Unify JX1-794D, U+FA54 and KU+7A40.
+	(U+7A40): Add mapping for JU+FA54.
+
+	* Ideograph-R113-Spirit.el (JX1-7933): Unify U+FA4C and KU+793E.
+	(JX1-7937): Unify U+FA4E and KU+7948.
+	(JX1-7934): Unify U+FA4D and KU+7949.
+	(JX1-7938): Unify U+FA4F and KU+7950.
+	(JX1-7939): Unify U+FA50 and KU+7956.
+	(JX1-793B): Unify U+FA51 and KU+795D.
+	(JX1-793F): Unify U+FA52 and KU+798D.
+	(JX1-7940): Unify U+FA53 and KU+798E.
 
 	* Ideograph-R112-Stone.el (U+7891): Unify JU+FA4B.
 	(U+FA4B): New character.
