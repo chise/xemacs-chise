@@ -165,6 +165,7 @@
     (total-strokes	 . 6)
     (=big5		. #xC9DA)	; ý¢€Œ§š
     (=daikanwa		. 49065)	; ø¸‹¾©
+    (=ucs@big5		. #x5DDF)	; ý¢€Œ§š
     ))
 (define-char
   '((=>ucs		. #x5DDF)	; å·Ÿ
@@ -220,6 +221,7 @@
     (=big5		. #xA8B5)	; ý¢€Š¢µ
     (=daikanwa		. 08684)	; ø¸‚‡¬
     (=jef-china3	. #x67AA)	; øº†žª
+    (=ucs@big5		. #x5DE1)	; ø»‰º§
     ))
 (define-char
   '((ideographic-radical . 47)	; â¼®
