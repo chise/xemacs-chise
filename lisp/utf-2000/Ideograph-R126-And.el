@@ -17,8 +17,13 @@
   '((ideographic-radical . 126)	; â½½
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 36)
+    (hanyu-dazidian-char . 5)
     (chinese-cns11643-5 . #x2179)	; ø»™¬„
     (ideograph-daikanwa . 28872)	; ø¸‡ƒˆ
+    (chinese-big5-cdp	. #x87DC)	; ý¢€ˆŸœ
+    (ucs		. #x264D0)	; ð¦“
     ))
 (define-char
   '((ideographic-radical . 126)	; â½½
