@@ -638,14 +638,14 @@
     (=ucs		. #x8FC6)	; è¿†
     ))
 (define-char
-  '((=>daikanwa		. 38729)	; ø¸‰‰
-    (ideographic-radical . 162)	; â¾¡
+  '((ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x28460)	; ð¨‘ 
     (->subsumptive
      ((total-strokes	   . 7)
       (=daikanwa	  . 38729)	; ø¸‰‰
+      (=hanziku-10	  . #xC1C0)	; ý¢‚¬‡€
       )
      ((total-strokes	   . 7)
       (=cns11643-5	  . #x2478)	; ø»™°
