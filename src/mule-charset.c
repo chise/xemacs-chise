@@ -2201,7 +2201,7 @@ N defaults to 0 if omitted.
 DEFUN ("encode-char", Fencode_char, 2, 2, 0, /*
 Return code-point of CHARACTER in specified CHARSET.
 */
-       (charset, character))
+       (character, charset))
 {
   int code_point;
 
