@@ -485,10 +485,12 @@ Return the value of CHARACTER's ATTRIBUTE.
 */
        (character, attribute))
 {
-  Lisp_Object ret
-    = get_char_code_table (XCHAR (character), Vcharacter_attribute_table);
+  Lisp_Object ret;
   Lisp_Object ccs;
 
+  CHECK_CHAR (character);
+  ret = get_char_code_table (XCHAR (character),
+			     Vcharacter_attribute_table);
   if (EQ (ret, Qnil))
     return Qnil;
 
@@ -666,6 +668,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
 Lisp_Object Qucs;
 
+EXFUN (Fmake_char, 3);
+
 DEFUN ("define-char", Fdefine_char, 1, 1, 0, /*
 Store character's ATTRIBUTES.
 */
@@ -684,67 +688,11 @@ Store character's ATTRIBUTES.
 
 	  if (!LISTP (cell))
 	    signal_simple_error ("Invalid argument", attributes);
-	  if (!NILP (ccs = Ffind_charset (Fcar (cell)))
-	      && XCHARSET_FINAL (ccs))
+	  if (!NILP (ccs = Ffind_charset (Fcar (cell))))
 	    {
-	      Emchar code;
-
-	      if (XCHARSET_DIMENSION (ccs) == 1)
-		{
-		  Lisp_Object eb1 = Fcar (Fcdr (cell));
-		  int b1;
-
-		  if (!INTP (eb1))
-		    signal_simple_error ("Invalid argument", attributes);
-		  b1 = XINT (eb1);
-		  switch (XCHARSET_CHARS (ccs))
-		    {
-		    case 94:
-		      code = MIN_CHAR_94
-			+ (XCHARSET_FINAL (ccs) - '0') * 94 + (b1 - 33);
-		      break;
-		    case 96:
-		      code = MIN_CHAR_96
-			+ (XCHARSET_FINAL (ccs) - '0') * 96 + (b1 - 32);
-		      break;
-		    default:
-		      abort ();
-		    }
-		}
-	      else if (XCHARSET_DIMENSION (ccs) == 2)
-		{
-		  Lisp_Object eb1 = Fcar (Fcdr (cell));
-		  Lisp_Object eb2 = Fcar (Fcdr (Fcdr (cell)));
-		  int b1, b2;
-
-		  if (!INTP (eb1))
-		    signal_simple_error ("Invalid argument", attributes);
-		  b1 = XINT (eb1);
-		  if (!INTP (eb2))
-		    signal_simple_error ("Invalid argument", attributes);
-		  b2 = XINT (eb2);
-		  switch (XCHARSET_CHARS (ccs))
-		    {
-		    case 94:
-		      code = MIN_CHAR_94x94
-			+ (XCHARSET_FINAL (ccs) - '0') * 94 * 94
-			+ (b1 - 33) * 94 + (b2 - 33);
-		      break;
-		    case 96:
-		      code = MIN_CHAR_96x96
-			+ (XCHARSET_FINAL (ccs) - '0') * 96 * 96
-			+ (b1 - 32) * 96 + (b2 - 32);
-		      break;
-		    default:
-		      abort ();
-		    }
-		}
-	      else
-		{
-		  rest = Fcdr (rest);
-		  continue;
-		}
-	      character = make_char (code);
+	      cell = Fcdr (cell);
+	      character = Fmake_char (ccs, Fcar (cell),
+				      Fcar (Fcdr (cell)));
 	      goto setup_attributes;
 	    }
 	  rest = Fcdr (rest);
