@@ -1,5 +1,8 @@
 2004-01-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R182-Wind.el: Add some `total-strokes' features.
+	(U+98CF): Fix strokes.
+
 	* Ideograph-R184-Eat.el: Add some `total-strokes' features.
 
 2004-01-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
