@@ -1,5 +1,11 @@
 2002-07-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* text-coding.c (decode_coding_utf8): Use `COMPOSE_FLUSH_CHARS'
+	and `COMPOSE_ADD_CHAR'.
+	(decode_coding_iso2022): Use `decode_flush_er_chars'.
+
+2002-07-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* text-coding.c (COMPOSE_FLUSH_CHARS): Use `decode_add_er_char'
 	instead of `DECODE_ADD_UCS_CHAR'.
 	(COMPOSE_ADD_CHAR): Likewise.
