@@ -1,5 +1,9 @@
 2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-342A.
+
+	* Ideograph-R180-Sound.el (JC3-6CDC): New character.
+
 	* Ideograph-R162-Walk.el (K0-6B34): Unify JC3-67DB.
 	(K0-5433): Unify JC3-67DF.
 
