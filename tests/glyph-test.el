@@ -25,6 +25,29 @@
 			:face modeline-mousable
 			:descriptor "ok" :callback foo 
 			:selected t])))
+
+;; tree view
+(set-extent-begin-glyph 
+ (make-extent (point) (point))
+ (setq tree (make-glyph 
+	       [tree :width 10
+		     :descriptor "My Tree"
+		     :properties (:items (["One" foo]
+					  (["Two" foo]
+					   ["Four" foo]
+					   "Six")
+					  "Three"))])))
+
+;; tab control
+(set-extent-begin-glyph 
+ (make-extent (point) (point))
+ (setq tab (make-glyph 
+	    [tab :descriptor "My Tab"
+		 :face default
+		 :properties (:items (["One" foo]
+				      ["Two" foo]
+				      ["Three" foo]))])))
+
 ;; progress gauge
 (set-extent-begin-glyph 
  (make-extent (point) (point))
@@ -63,6 +86,7 @@
 (set-extent-begin-glyph 
  (make-extent (point) (point))
  (make-glyph [button :descriptor ["A Big Button" foo ]]))
+
 ;; edit box
 (set-extent-begin-glyph 
  (make-extent (point) (point)) 

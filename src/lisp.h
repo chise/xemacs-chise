@@ -336,6 +336,8 @@ struct Lisp_Font_Instance;
 typedef struct Lisp_Font_Instance Lisp_Font_Instance;
 struct Lisp_Image_Instance;
 typedef struct Lisp_Image_Instance Lisp_Image_Instance;
+struct Lisp_Gui_Item;
+typedef struct Lisp_Gui_Item Lisp_Gui_Item;
 struct display_line;
 struct redisplay_info;
 struct window_mirror;

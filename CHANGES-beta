@@ -1,5 +1,13 @@
 							-*- indented-text -*-
+to 21.2.17 "Chiyoda"
+-- CCL engine fix from MORIOKA Tomohiko
+-- mswindows build fixes from Norbert Koch
+-- miscellaneous fixes from Andy Piper
+-- automated tests for mswindows from Adrian Aichner
+-- tree-view and tab-control widget glyph support from Andy Piper
+
 to 21.2.16 "Sumida"
+-- miscellaneous fixes from Hrvoje Niksic and Olivier Galibert
 -- make selection more mswindows conformant.
 -- Make customize use specifiers from Jan Vroonhof
 -- Cyrillic CCL crash fix from MORIOKA Tomohiko

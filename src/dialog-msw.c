@@ -110,12 +110,6 @@ static Lisp_Object Vdialog_data_list;
 
 #define ID_ITEM_BIAS 32
 
-typedef struct gui_item struct_gui_item;
-typedef struct
-{
-  Dynarr_declare (struct gui_item);
-} struct_gui_item_dynarr;
-
 /* Dialog procedure */
 static BOOL CALLBACK 
 dialog_proc (HWND hwnd, UINT msg, WPARAM w_param, LPARAM l_param)
@@ -200,7 +194,7 @@ free_dynarr_opaque_ptr (Lisp_Object arg)
 static void
 mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
 {
-  struct_gui_item_dynarr *dialog_items = Dynarr_new (struct_gui_item);
+  Lisp_Object_dynarr *dialog_items = Dynarr_new (Lisp_Object);
   unsigned_char_dynarr *template = Dynarr_new (unsigned_char);
   unsigned int button_row_width = 0;
   unsigned int text_width, text_height;
@@ -223,11 +217,10 @@ mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
       {
 	if (!NILP (XCAR (item_cons)))
 	  {
-	    struct gui_item gitem;
-	    gui_item_init (&gitem);
-	    gui_parse_item_keywords (XCAR (item_cons), &gitem);
+	    Lisp_Object gitem = gui_parse_item_keywords (XCAR (item_cons));
 	    Dynarr_add (dialog_items, gitem);
-	    button_row_width += button_width (gitem.name) + X_BUTTON_MARGIN;
+	    button_row_width += button_width (XGUI_ITEM (gitem)->name) 
+	      + X_BUTTON_MARGIN;
 	  }
       }
     if (Dynarr_length (dialog_items) == 0)
@@ -350,10 +343,11 @@ mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
 
     for (i = 0; i < Dynarr_length (dialog_items); ++i)
       {
-	struct gui_item *pgui_item = Dynarr_atp (dialog_items, i);
+	Lisp_Object* gui_item = Dynarr_atp (dialog_items, i);
+	struct Lisp_Gui_Item *pgui_item = XGUI_ITEM (*gui_item);
 
 	item_tem.style = (WS_CHILD | WS_VISIBLE | WS_TABSTOP | BS_PUSHBUTTON
-			  | (gui_item_active_p (pgui_item) ? 0 : WS_DISABLED));
+			  | (gui_item_active_p (*gui_item) ? 0 : WS_DISABLED));
 	item_tem.cx = button_width (pgui_item->name);
 	/* Item ids are indices into dialog_items plus offset, to avoid having
            items by reserved ids (IDOK, IDCANCEL) */
@@ -390,7 +384,7 @@ mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
     vector = make_vector (Dynarr_length (dialog_items), Qunbound);
     dialog_data = Fcons (frame, vector);
     for (i = 0; i < Dynarr_length (dialog_items); i++)
-      XVECTOR_DATA (vector) [i] = Dynarr_atp (dialog_items, i)->callback;
+      XVECTOR_DATA (vector) [i] = XGUI_ITEM (*Dynarr_atp (dialog_items, i))->callback;
 
     /* Woof! Everything is ready. Pop pop pop in now! */
     if (!CreateDialogIndirectParam (NULL,

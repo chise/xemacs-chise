@@ -650,8 +650,7 @@ DOC_SRC7=\
 DOC_SRC8=\
  $(XEMACS)\src\mule.c \
  $(XEMACS)\src\mule-charset.c \
- $(XEMACS)\src\mule-ccl.c \
- $(XEMACS)\src\mule-coding.c
+ $(XEMACS)\src\mule-ccl.c
 ! if $(HAVE_X)
  DOC_SRC8=$(DOC_SRC8) $(XEMACS)\src\input-method-xlib.c
 ! endif
@@ -739,8 +738,7 @@ TEMACS_MSW_OBJS=\
 TEMACS_MULE_OBJS=\
 	$(OUTDIR)\mule.obj \
 	$(OUTDIR)\mule-charset.obj \
-	$(OUTDIR)\mule-ccl.obj \
-	$(OUTDIR)\mule-coding.obj
+	$(OUTDIR)\mule-ccl.obj
 ! if $(HAVE_X)
 TEMACS_MULE_OBJS=\
 	$(TEMACS_MULE_OBJS) $(OUTDIR)\input-method-xlib.obj
@@ -889,6 +887,32 @@ $(TEMACS): $(TEMACS_INCLUDES) $(TEMACS_OBJS)
 
 $(OUTDIR)\xemacs.res: xemacs.rc
 	rc -Fo$@ xemacs.rc
+
+# Section handling automated tests starts here
+
+SRCDIR=../src
+PROGNAME=xemacs
+blddir=$(MAKEDIR:\=\\)\\..
+temacs_loadup=temacs -batch -l $(SRCDIR)/../lisp/loadup.el
+dump_temacs   = $(temacs_loadup) dump
+run_temacs    = $(temacs_loadup) run-temacs
+## We have automated tests!!
+testdir=../tests/automated
+batch_test_emacs=-batch -l $(testdir)/test-harness.el -f batch-test-emacs $(testdir)
+
+# .PHONY: check check-temacs
+
+check:
+	@cd $(SRCDIR)
+	$(PROGNAME) $(batch_test_emacs)
+
+check-temacs:
+	cd $(SRCDIR)
+	set EMACSBOOTSTRAPLOADPATH=$(LISP)
+	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
+	$(run_temacs) $(batch_test_emacs)
+
+# Section handling automated tests ends here
 
 #------------------------------------------------------------------------------
 

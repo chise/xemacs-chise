@@ -1,3 +1,8 @@
+1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* files.el (insert-file-contents-literally): Treat file as binary;
+	call file-name-handlers. [sync with Emacs 20.3.10]
+
 1999-06-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/thai-xtis.el: Specify `columns' of the charset `thai-xtis'
@@ -8,10 +13,29 @@
 	* mule/cyrillic.el (cyrillic-koi8-r-decode-table): Use NBSP of ISO
 	8859-5 instead of ISO 8859-1.
 
-1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+1999-06-15  SL Baur  <steve@steve1.m17n.org>
 
-	* files.el (insert-file-contents-literally): Treat file as binary;
-	call file-name-handlers. [sync with Emacs 20.3.10]
+	* mule/vietnamese.el (viet-vscii-encode-table): Use split-char.
+	(viet-viscii-encode-table): Ditto.
+
+	* mule/mule-misc.el: Delete split-char & split-char-or-char-int.
+	Make obsolete definition of char-octet.
+
+1999-06-14  SL Baur  <steve@steve1.m17n.org>
+
+	* subr.el: Move no-Mule make-char ...
+	* help-nomule.el (make-char): To here.
+	(string-width): Make Mule compatibility alias.
+
+1999-06-15  Andy Piper  <andy@xemacs.org>
+
+	* select.el (get-selection-no-error): really make there be no-error.
+	(get-selection): revert to original.
+
+1999-06-11  Andy Piper  <andy@xemacs.org>
+
+	* select.el (selection-sets-clipboard): renamed.
+	(own-selection): use it.
 
 1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
 

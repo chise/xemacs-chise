@@ -71,6 +71,8 @@ DEFINE_DEVICE_IIFORMAT (mswindows, label);
 DEFINE_DEVICE_IIFORMAT (mswindows, scrollbar);
 DEFINE_DEVICE_IIFORMAT (mswindows, combo);
 DEFINE_DEVICE_IIFORMAT (mswindows, progress);
+DEFINE_DEVICE_IIFORMAT (mswindows, tree);
+DEFINE_DEVICE_IIFORMAT (mswindows, tab);
 
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (bmp);
 Lisp_Object Qbmp;
@@ -282,7 +284,7 @@ init_image_instance_from_dibitmap (struct Lisp_Image_Instance *ii,
   struct device *d = XDEVICE (device);
   struct frame *f;
   void* bmp_buf=0;
-  int type;
+  int type = 0;
   HBITMAP bitmap;
   HDC hdc;
 
@@ -2041,7 +2043,7 @@ mswindows_update_subwindow (struct Lisp_Image_Instance *p)
       /* buttons checked or otherwise */
       if ( EQ (IMAGE_INSTANCE_WIDGET_TYPE (p), Qbutton))
 	{
-	  if (gui_item_selected_p (&IMAGE_INSTANCE_WIDGET_ITEM (p)))
+	  if (gui_item_selected_p (IMAGE_INSTANCE_WIDGET_SINGLE_ITEM (p)))
 	    SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p), 
 			 BM_SETCHECK, (WPARAM)BST_CHECKED, 0); 
 	  else
@@ -2055,17 +2057,24 @@ mswindows_update_subwindow (struct Lisp_Image_Instance *p)
    callbacks. The hashtable is weak so deregistration is handled
    automatically */
 static int
-mswindows_register_widget_instance (Lisp_Object instance, Lisp_Object domain)
+mswindows_register_gui_item (Lisp_Object gui, Lisp_Object domain)
 {
   Lisp_Object frame = FW_FRAME (domain);
   struct frame* f = XFRAME (frame);
-  int id = gui_item_hash (FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f),
-			  &XIMAGE_INSTANCE_WIDGET_ITEM (instance),
-			  WIDGET_GLYPH_SLOT);
+  int id = gui_item_id_hash (FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f),
+			     gui,
+			     WIDGET_GLYPH_SLOT);
   Fputhash (make_int (id),
-	    XIMAGE_INSTANCE_WIDGET_CALLBACK (instance),
+	    XGUI_ITEM (gui)->callback,
 	    FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f));
   return id;
+}
+
+static int
+mswindows_register_widget_instance (Lisp_Object instance, Lisp_Object domain)
+{
+  return mswindows_register_gui_item (XIMAGE_INSTANCE_WIDGET_SINGLE_ITEM (instance),
+				      domain);
 }
 
 static void
@@ -2164,7 +2173,6 @@ mswindows_initialize_dibitmap_image_instance (struct Lisp_Image_Instance *ii,
 /************************************************************************/
 /*                            widgets                            */
 /************************************************************************/
-
 static void
 mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			      Lisp_Object pointer_fg, Lisp_Object pointer_bg,
@@ -2182,7 +2190,8 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
   Extbyte* nm=0;
   HWND wnd;
   int id = 0xffff;
-  struct gui_item* pgui = &IMAGE_INSTANCE_WIDGET_ITEM (ii);
+  Lisp_Object gui = IMAGE_INSTANCE_WIDGET_ITEM (ii);
+  struct Lisp_Gui_Item* pgui = XGUI_ITEM (gui);
 
   if (!DEVICE_MSWINDOWS_P (d))
     signal_simple_error ("Not an mswindows device", device);
@@ -2197,7 +2206,7 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
       groupii = XIMAGE_INSTANCE (group);
     }
 #endif
-  if (!gui_item_active_p (pgui))
+  if (!gui_item_active_p (gui))
     flags |= WS_DISABLED;
 
   style = pgui->style;
@@ -2256,10 +2265,11 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
   HWND wnd;
   int flags = BS_NOTIFY;
   Lisp_Object style;
-  struct gui_item* pgui = &IMAGE_INSTANCE_WIDGET_ITEM (ii);
+  Lisp_Object gui = IMAGE_INSTANCE_WIDGET_ITEM (ii);
+  struct Lisp_Gui_Item* pgui = XGUI_ITEM (gui);
   Lisp_Object glyph = find_keyword_in_vector (instantiator, Q_image);
 
-  if (!gui_item_active_p (pgui))
+  if (!gui_item_active_p (gui))
     flags |= WS_DISABLED;
 
   if (!NILP (glyph))
@@ -2291,7 +2301,7 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* set the checked state */
-  if (gui_item_selected_p (pgui))
+  if (gui_item_selected_p (gui))
     SendMessage (wnd, BM_SETCHECK, (WPARAM)BST_CHECKED, 0); 
   else
     SendMessage (wnd, BM_SETCHECK, (WPARAM)BST_UNCHECKED, 0);
@@ -2320,7 +2330,7 @@ mswindows_edit_instantiate (Lisp_Object image_instance, Lisp_Object instantiator
 				WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT);
 }
 
-/* instantiate an edit control */
+/* instantiate a progress gauge */
 static void
 mswindows_progress_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 				Lisp_Object pointer_fg, Lisp_Object pointer_bg,
@@ -2350,6 +2360,178 @@ mswindows_progress_instantiate (Lisp_Object image_instance, Lisp_Object instanti
 			    (XIMAGE_INSTANCE_WIDGET_FACE (ii),
 			     XIMAGE_INSTANCE_SUBWINDOW_FRAME (ii))))));
 #endif
+}
+
+/* instantiate a tree view widget */
+static HTREEITEM add_tree_item (Lisp_Object image_instance,
+				HWND wnd, HTREEITEM parent, Lisp_Object entry,
+				int children, Lisp_Object domain)
+{
+  TV_INSERTSTRUCT tvitem;
+  HTREEITEM ret;
+
+  tvitem.hParent = parent;
+  tvitem.hInsertAfter = TVI_LAST;
+  tvitem.item.mask = TVIF_TEXT | TVIF_CHILDREN;
+  tvitem.item.cChildren = children;
+      
+  if (VECTORP (entry))
+    {
+      /* we always maintain the real gui item at the head of the
+         list. We have to put them in the list in the first place
+         because the whole model assumes that the glyph instances have
+         references to all the associated data. If we didn't do this
+         GC would bite us badly. */
+      Lisp_Object gui = gui_parse_item_keywords_no_errors (entry);
+      if (CONSP (XIMAGE_INSTANCE_WIDGET_ITEM (image_instance)))
+	{
+	  Lisp_Object rest = 
+	    Fcons (gui, XCDR (XIMAGE_INSTANCE_WIDGET_ITEM (image_instance)));
+	  Fsetcdr (XIMAGE_INSTANCE_WIDGET_ITEM (image_instance), rest);
+	}
+      else
+	{
+	  XIMAGE_INSTANCE_WIDGET_ITEM (image_instance) = 
+	    Fcons (XIMAGE_INSTANCE_WIDGET_ITEM (image_instance), gui);
+	}
+
+      tvitem.item.lParam = mswindows_register_gui_item (gui, domain);
+      tvitem.item.mask |= TVIF_PARAM;
+      GET_C_STRING_OS_DATA_ALLOCA (XGUI_ITEM (gui)->name, 
+				   tvitem.item.pszText);
+    }
+  else
+    GET_C_STRING_OS_DATA_ALLOCA (entry, tvitem.item.pszText);
+
+  tvitem.item.cchTextMax = strlen (tvitem.item.pszText);
+
+  if ((ret = (HTREEITEM)SendMessage (wnd, TVM_INSERTITEM, 
+				     0, (LPARAM)&tvitem)) == 0)
+    signal_simple_error ("error adding tree view entry", entry);
+
+  return ret;
+}
+
+static void add_tree_item_list (Lisp_Object image_instance,
+				HWND wnd, HTREEITEM parent, Lisp_Object list,
+				Lisp_Object domain)
+{
+  Lisp_Object rest;
+
+  /* get the first item */
+  parent = add_tree_item (image_instance, wnd, parent, XCAR (list), TRUE, domain);
+  /* recursively add items to the tree view */
+  LIST_LOOP (rest, XCDR (list))
+    {
+      if (LISTP (XCAR (rest)))
+	add_tree_item_list (image_instance, wnd, parent, XCAR (rest), domain);
+      else
+	add_tree_item (image_instance, wnd, parent, XCAR (rest), FALSE, domain);
+    }
+}
+
+static void
+mswindows_tree_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+			    Lisp_Object pointer_fg, Lisp_Object pointer_bg,
+			    int dest_mask, Lisp_Object domain)
+{
+  Lisp_Object rest;
+  HWND wnd;
+  HTREEITEM parent;
+  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
+				pointer_bg, dest_mask, domain, WC_TREEVIEW, 
+				WS_TABSTOP | WS_BORDER | PBS_SMOOTH
+				| TVS_HASLINES | TVS_HASBUTTONS,
+				WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT);
+
+  wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
+ 
+  /* define a root */
+  parent = add_tree_item (image_instance,
+			  wnd, NULL, IMAGE_INSTANCE_WIDGET_TEXT (ii), TRUE,
+			  domain);
+ 
+  /* recursively add items to the tree view */
+  LIST_LOOP (rest, Fplist_get (IMAGE_INSTANCE_WIDGET_PROPS (ii), Q_items, Qnil))
+    {
+      if (LISTP (XCAR (rest)))
+	add_tree_item_list (image_instance, wnd, parent, XCAR (rest), domain);
+      else
+	add_tree_item (image_instance, wnd, parent, XCAR (rest), FALSE, domain);
+    }
+}
+
+/* instantiate a tab control */
+static TC_ITEM* add_tab_item (Lisp_Object image_instance,
+			     HWND wnd, Lisp_Object entry,
+			     Lisp_Object domain, int index)
+{
+  TC_ITEM tvitem, *ret;
+
+  tvitem.mask = TCIF_TEXT;
+      
+  if (VECTORP (entry))
+    {
+      /* we always maintain the real gui item at the head of the
+         list. We have to put them in the list in the first place
+         because the whole model assumes that the glyph instances have
+         references to all the associated data. If we didn't do this
+         GC would bite us badly. */
+      Lisp_Object gui = gui_parse_item_keywords_no_errors (entry);
+      if (CONSP (XIMAGE_INSTANCE_WIDGET_ITEM (image_instance)))
+	{
+	  Lisp_Object rest = 
+	    Fcons (gui, XCDR (XIMAGE_INSTANCE_WIDGET_ITEM (image_instance)));
+	  Fsetcdr (XIMAGE_INSTANCE_WIDGET_ITEM (image_instance), rest);
+	}
+      else
+	{
+	  XIMAGE_INSTANCE_WIDGET_ITEM (image_instance) = 
+	    Fcons (XIMAGE_INSTANCE_WIDGET_ITEM (image_instance), gui);
+	}
+
+      tvitem.lParam = mswindows_register_gui_item (gui, domain);
+      tvitem.mask |= TCIF_PARAM;
+      GET_C_STRING_OS_DATA_ALLOCA (XGUI_ITEM (gui)->name, 
+				   tvitem.pszText);
+    }
+  else
+    GET_C_STRING_OS_DATA_ALLOCA (entry, tvitem.pszText);
+
+  tvitem.cchTextMax = strlen (tvitem.pszText);
+
+  if ((ret = (TC_ITEM*)SendMessage (wnd, TCM_INSERTITEM, 
+				    index, (LPARAM)&tvitem)) < 0)
+    signal_simple_error ("error adding tab entry", entry);
+
+  return ret;
+}
+
+static void
+mswindows_tab_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+			   Lisp_Object pointer_fg, Lisp_Object pointer_bg,
+			   int dest_mask, Lisp_Object domain)
+{
+  Lisp_Object rest;
+  HWND wnd;
+  HTREEITEM parent;
+  int index = 0;
+  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
+				pointer_bg, dest_mask, domain, WC_TABCONTROL, 
+				/* borders don't suit tabs so well */
+				WS_TABSTOP,
+				WS_EX_CONTROLPARENT);
+
+  wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
+ 
+  /* add items to the tab */
+  LIST_LOOP (rest, Fplist_get (IMAGE_INSTANCE_WIDGET_PROPS (ii), Q_items, Qnil))
+    {
+      add_tab_item (image_instance, wnd, XCAR (rest), domain, index);
+      index++;
+    }
 }
 
 /* instantiate a static control possible for putting other things in */
@@ -2558,6 +2740,7 @@ image_instantiator_format_create_glyphs_mswindows (void)
   INITIALIZE_DEVICE_IIFORMAT (mswindows, xface);
   IIFORMAT_HAS_DEVMETHOD (mswindows, xface, instantiate);
 #endif
+  /* button widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, button);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, property);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, instantiate);
@@ -2575,22 +2758,35 @@ image_instantiator_format_create_glyphs_mswindows (void)
   INITIALIZE_DEVICE_IIFORMAT (mswindows, group);
   IIFORMAT_HAS_DEVMETHOD (mswindows, group, instantiate);
 #endif
+  /* label */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, label);
   IIFORMAT_HAS_DEVMETHOD (mswindows, label, instantiate);
 
+  /* combo box */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, combo);
   IIFORMAT_HAS_DEVMETHOD (mswindows, combo, property);
   IIFORMAT_HAS_DEVMETHOD (mswindows, combo, instantiate);
 
+  /* scrollbar */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, scrollbar);
   IIFORMAT_HAS_DEVMETHOD (mswindows, scrollbar, instantiate);
 
+  /* progress gauge */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, progress);
   IIFORMAT_HAS_DEVMETHOD (mswindows, progress, set_property);
   IIFORMAT_HAS_DEVMETHOD (mswindows, progress, instantiate);
 
-  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (bmp, "bmp");
+  /* tree view widget */
+  INITIALIZE_DEVICE_IIFORMAT (mswindows, tree);
+  /*  IIFORMAT_HAS_DEVMETHOD (mswindows, progress, set_property);*/
+  IIFORMAT_HAS_DEVMETHOD (mswindows, tree, instantiate);
 
+  /* tab control widget */
+  INITIALIZE_DEVICE_IIFORMAT (mswindows, tab);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, tab, instantiate);
+
+  /* windows bitmap format */
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (bmp, "bmp");
   IIFORMAT_HAS_METHOD (bmp, validate);
   IIFORMAT_HAS_METHOD (bmp, normalize);
   IIFORMAT_HAS_METHOD (bmp, possible_dest_types);
@@ -2599,6 +2795,7 @@ image_instantiator_format_create_glyphs_mswindows (void)
   IIFORMAT_VALID_KEYWORD (bmp, Q_data, check_valid_string);
   IIFORMAT_VALID_KEYWORD (bmp, Q_file, check_valid_string);
 
+  /* mswindows resources */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (mswindows_resource,
 					"mswindows-resource");
 
@@ -2630,6 +2827,8 @@ This is used by the `make-image-instance' function.
   Fprovide (Qscrollbar);
   Fprovide (Qlabel);
   Fprovide (Qprogress);
+  Fprovide (Qtree);
+  Fprovide (Qtab);
 }
 
 void
