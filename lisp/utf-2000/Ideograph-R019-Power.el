@@ -2298,7 +2298,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((=ucs		  . #x66F0)	; æ›°
+     ((=cns11643-1	  . #x454B)	; ø»‘·¾
       )
      ((=ucs		  . #x52A9)	; åŠ©
       ))
