@@ -2874,7 +2874,7 @@
     (ideograph-daikanwa . 20533)	; �����
     ))
 (define-char
-  '((->ucs		. #x732A)	; 猪
+  '((=>ucs*		. #x732A)	; 猪
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
@@ -2886,7 +2886,8 @@
     (ucs			. #xFA16)	; 猪
     ))
 (define-char
-  '((->ucs		. #xFA16)	; 猪
+  '((=>ucs		. #xFA16)	; 猪
+    (=>ucs*		. #x732A)	; 猪
     (morohashi-daikanwa	20534 0 0)
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 9)
