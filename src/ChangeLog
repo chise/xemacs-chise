@@ -1,3 +1,8 @@
+2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* config.h.in (UTF2000): Add comment.
+	(HAVE_CHISE_CLIENT): New macro.
+
 2002-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (Fchar_variants): Check Vcharacter_variant_table is
