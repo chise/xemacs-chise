@@ -1,5 +1,9 @@
 2004-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* ideograph-util.el (total-strokes-string<): New function.
+
+2004-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R205-Frog.el (U+9F0B): Moved from
 	Ideograph-R213-Turtle.el.
 
