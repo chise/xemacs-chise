@@ -1,11 +1,11 @@
 (define-char
-  '((=>ucs		. #x4EA0)	; äº 
-    (ideographic-radical . 8)	; â¼‡
+  '((ideographic-radical . 8)	; â¼‡
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (chinese-gb2312	. #x596F)	; ø»…™¢
     (chinese-isoir165	. #x596F)	; ø»Ž²
     (ideograph-daikanwa . 00286)	; ø¸€„ž
+    (ucs		. #x4EA0)	; äº 
     ))
 (define-char
   '((=>ucs		. #x4EA0)	; äº 
