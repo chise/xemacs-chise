@@ -39,6 +39,8 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (=cns11643-4	. #x2127)	; ø»— ®
+    (=gt-pj-k1		. #x735C)	; ø»— ®
+    (=gt-k		. 00068)	; ý¡„€„
     (=ucs@cns		. #x4E29)	; ø»— ®
     ))
 (define-char
@@ -47,15 +49,15 @@
     (total-strokes	 . 2)
     (->mojikyo		. 002775)	; ý €€«—
     (->same-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 02775)	; ø¸€«—
-		 )
+     ((=daikanwa	  . 02775)	; ø¸€«—
       ))
+    (->same-ideograph*sources
+     daikanwa)
     (<-ancient-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 02774)	; ø¸€«–
-		 )
+     ((=daikanwa	  . 02774)	; ø¸€«–
       ))
+    (<-ancient-ideograph*sources
+     daikanwa)
     (hanyu-dazidian	1 28 4)
     (=gt-pj-2		. #x3055)	; ý¡€€§
     (=daikanwa		. 00069)	; ø¸€…
