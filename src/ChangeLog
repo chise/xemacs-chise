@@ -1,5 +1,17 @@
 1999-09-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-canna.c (c2mu): Use `MAKE_CHAR',
+	`Vcharset_japanese_jisx0212' and `Vcharset_japanese_jisx0208'
+	instead of `MULE_CHAR_PRIVATE_OFFSET',
+	`LEADING_BYTE_JAPANESE_JISX0212', `LEADING_BYTE_JAPANESE_JISX0208'
+	and `FIELD1_TO_OFFICIAL_LEADING_BYTE'.
+	(m2c): Use `BREAKUP_CHAR' and `XCHARSET_FINAL'.
+
+	* character.h (Vcharset_japanese_jisx0212): New variable
+	definition.
+
+1999-09-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule-charset.c (Vcharset_ucs_bmp): New variable in UTF-2000.
 	(charset_by_attributes): Delete array about direction.
 	(latin_a_char_to_charset): New variable in UTF-2000.
@@ -93,7 +105,6 @@
 	(breakup_char_1): Use `latin_a_char_to_{charset|byte1|byte2}' for
 	Latin Extended-A; use `CHARSET_BY_ATTRIBUTES' instead of
 	`CHARSET_BY_LEADING_BYTE' to get charset for ISO-2022 characters.
-	(Vcharset_japanese_jisx0212): New variable definition.
 
 	* insdel.c (find_charsets_in_bufbyte_string): Use `Charset_ID'
 	instead of `unsigned char'; use `MIN_LEADING_BYTE' instead of 128.
