@@ -429,23 +429,21 @@
     (=daikanwa		. 16635)	; &I-M-16635;
     ))
 (define-char
-  '((=>ucs		. #x23A8E)	; 𣪎
-    (ideographic-radical . 79)	; ⽎
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
-    (<-wrong
-     (:char	((=daikanwa	     . 04033)	; &I-M-04033;
-		 )
-      :sources	(morohashi-daikanwa)))
-    (=daikanwa		. 16636)	; &M-16636;
-    ))
-(define-char
-  '((morohashi-daikanwa	16636 0 0)
-    (ideographic-radical . 79)	; ⽎
+  '((ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x23A8E)	; 𣪎
-    (=cns11643-6	. #x4079)	; &I-C6-4079;
+    (->subsumptive
+     ((<-wrong
+       ((=daikanwa	    . 04033)	; &I-M-04033;
+	))
+      (<-wrong*sources
+       daikanwa)
+      (=daikanwa	  . 16636)	; &M-16636;
+      )
+     ((=cns11643-6	  . #x4079)	; &C6-4079;
+      (=ucs@iso		  . #x23A8E)	; &C6-4079;
+      ))
     ))
 (define-char
   '((ideographic-radical . 79)	; ⽎
