@@ -160,9 +160,13 @@
 			 ))
 		  )
 		 ((setq ret
-			(let ((default-coded-charset-priority-list
-				char-db-coded-charset-priority-list))
-			  (split-char char)))
+			(catch 'tag
+			  (let ((rest char-db-coded-charset-priority-list))
+			    (while rest
+			      (if (setq ret
+					(get-char-attribute char (car rest)))
+				  (throw 'tag (cons (car rest) ret)))
+			      (setq rest (cdr rest))))))
 		  (setq char-spec (list ret))
 		  (dolist (ccs (delq (car ret) (charset-list)))
 		    (if (or (and (charset-iso-final-char ccs)
