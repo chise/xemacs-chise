@@ -422,18 +422,9 @@ put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table)
 
 
 Lisp_Object Vchar_attribute_hash_table;
-Lisp_Object Vcharacter_ideographic_radical_table;
-Lisp_Object Vcharacter_ideographic_strokes_table;
-Lisp_Object Vcharacter_total_strokes_table;
-Lisp_Object Vcharacter_morohashi_daikanwa_table;
-Lisp_Object Vcharacter_decomposition_table;
 Lisp_Object Vcharacter_composition_table;
 Lisp_Object Vcharacter_variant_table;
 
-Lisp_Object Qname;
-Lisp_Object Qideographic_radical, Qideographic_strokes;
-Lisp_Object Qtotal_strokes;
-Lisp_Object Qmorohashi_daikanwa;
 Lisp_Object Qideograph_daikanwa;
 Lisp_Object Q_decomposition;
 Lisp_Object Qucs;
@@ -625,7 +616,6 @@ Return the alist of attributes of CHARACTER.
        (character))
 {
   Lisp_Object alist = Qnil;
-  Lisp_Object ret;
   int i;
 
   CHECK_CHAR (character);
@@ -641,29 +631,6 @@ Return the alist of attributes of CHARACTER.
 		   &char_attribute_alist_closure);
     UNGCPRO;
   }
-  ret = get_char_id_table (XCHAR (character),
-			   Vcharacter_ideographic_radical_table);
-  if (!NILP (ret))
-    alist = Fcons (Fcons (Qideographic_radical, ret), alist);
-
-  ret = get_char_id_table (XCHAR (character),
-			   Vcharacter_ideographic_strokes_table);
-  if (!NILP (ret))
-    alist = Fcons (Fcons (Qideographic_strokes, ret), alist);
-
-  ret = get_char_id_table (XCHAR (character), Vcharacter_total_strokes_table);
-  if (!NILP (ret))
-    alist = Fcons (Fcons (Qtotal_strokes, ret), alist);
-
-  ret = get_char_id_table (XCHAR (character),
-			   Vcharacter_morohashi_daikanwa_table);
-  if (!NILP (ret))
-    alist = Fcons (Fcons (Qmorohashi_daikanwa, ret), alist);
-
-  ret = get_char_id_table (XCHAR (character),
-			   Vcharacter_decomposition_table);
-  if (!NILP (ret))
-    alist = Fcons (Fcons (Q_decomposition, ret), alist);
 
   for (i = 0; i < countof (chlook->charset_by_leading_byte); i++)
     {
@@ -671,14 +638,6 @@ Return the alist of attributes of CHARACTER.
 
       if (!NILP (ccs))
 	{
-#if 0
-	  int code_point = charset_code_point (ccs, XCHAR (character));
-
-	  if (code_point >= 0)
-	    {
-	      alist = Fcons (Fcons (ccs, make_int (code_point)), alist);
-	    }
-#else
 	  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
 	  Lisp_Object cpos;
 
@@ -688,7 +647,6 @@ Return the alist of attributes of CHARACTER.
 	    {
 	      alist = Fcons (Fcons (ccs, cpos), alist);
 	    }
-#endif
 	}
     }
   return alist;
@@ -710,31 +668,6 @@ Return the value of CHARACTER's ATTRIBUTE.
 	return get_char_id_table (XCHAR (character), encoding_table);
       else
 	return Qnil;
-    }
-  else if (EQ (attribute, Qideographic_radical))
-    {
-      return get_char_id_table (XCHAR (character),
-				Vcharacter_ideographic_radical_table);
-    }
-  else if (EQ (attribute, Qideographic_strokes))
-    {
-      return get_char_id_table (XCHAR (character),
-				Vcharacter_ideographic_strokes_table);
-    }
-  else if (EQ (attribute, Qtotal_strokes))
-    {
-      return get_char_id_table (XCHAR (character),
-				Vcharacter_total_strokes_table);
-    }
-  else if (EQ (attribute, Qmorohashi_daikanwa))
-    {
-      return get_char_id_table (XCHAR (character),
-				Vcharacter_morohashi_daikanwa_table);
-    }
-  else if (EQ (attribute, Q_decomposition))
-    {
-      return get_char_id_table (XCHAR (character),
-				Vcharacter_decomposition_table);
     }
   else
     {
@@ -764,34 +697,6 @@ Store CHARACTER's ATTRIBUTE with VALUE.
     {
       return put_char_ccs_code_point (character, ccs, value);
     }
-  else if (EQ (attribute, Qideographic_radical))
-    {
-      CHECK_INT (value);
-      put_char_id_table (XCHAR (character), value,
-			 Vcharacter_ideographic_radical_table);
-      return value;
-    }
-  else if (EQ (attribute, Qideographic_strokes))
-    {
-      CHECK_INT (value);
-      put_char_id_table (XCHAR (character), value,
-			 Vcharacter_ideographic_strokes_table);
-      return value;
-    }
-  else if (EQ (attribute, Qtotal_strokes))
-    {
-      CHECK_INT (value);
-      put_char_id_table (XCHAR (character), value,
-			 Vcharacter_total_strokes_table);
-      return value;
-    }
-  else if (EQ (attribute, Qmorohashi_daikanwa))
-    {
-      CHECK_LIST (value);
-      put_char_id_table (XCHAR (character), value,
-			 Vcharacter_morohashi_daikanwa_table);
-      return value;
-    }
   else if (EQ (attribute, Q_decomposition))
     {
       Lisp_Object seq;
@@ -808,7 +713,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  int i = 0;
 
 	  GET_EXTERNAL_LIST_LENGTH (rest, len);
-	  seq = make_older_vector (len, Qnil);
+	  seq = make_vector (len, Qnil);
 
 	  while (CONSP (rest))
 	    {
@@ -856,11 +761,9 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 				     Vcharacter_variant_table);
 		}
 	    }
-	  seq = make_older_vector (1, v);
+	  seq = make_vector (1, v);
 	}
-      put_char_id_table (XCHAR (character), seq,
-			 Vcharacter_decomposition_table);
-      return value;
+      value = seq;
     }
   else if (EQ (attribute, Q_ucs))
     {
@@ -1133,7 +1036,9 @@ Store character's ATTRIBUTES.
   Lisp_Object rest = attributes;
   Lisp_Object code = Fcdr (Fassq (Qucs, attributes));
   Lisp_Object character;
+#if 0
   Lisp_Object daikanwa = Qnil;
+#endif
 
   if (NILP (code))
     {
@@ -1177,12 +1082,15 @@ Store character's ATTRIBUTES.
   while (CONSP (rest))
     {
       Lisp_Object cell = Fcar (rest);
+#if 0
       Lisp_Object key = Fcar (cell);
       Lisp_Object value = Fcdr (cell);
+#endif
 
       if (!LISTP (cell))
 	signal_simple_error ("Invalid argument", attributes);
 
+#if 0
       if (EQ (key, Qmorohashi_daikanwa))
 	{
 	  size_t len;
@@ -1198,9 +1106,12 @@ Store character's ATTRIBUTES.
 	}
       else if (EQ (key, Qideograph_daikanwa))
 	daikanwa = value;
+#endif
 
       Fput_char_attribute (character, Fcar (cell), Fcdr (cell));
+#if 0
     ignored:
+#endif
       rest = Fcdr (rest);
     }
   return character;
@@ -3201,11 +3112,6 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
   defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
 #ifdef UTF2000
-  defsymbol (&Qname,			"name");
-  defsymbol (&Qideographic_radical,	"ideographic-radical");
-  defsymbol (&Qideographic_strokes,	"ideographic-strokes");
-  defsymbol (&Qtotal_strokes,		"total-strokes");
-  defsymbol (&Qmorohashi_daikanwa,	"morohashi-daikanwa");
   defsymbol (&Q_ucs,			"->ucs");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
@@ -3312,22 +3218,7 @@ Leading-code of private TYPE9N charset of column-width 1.
 Version number of UTF-2000.
 */ );
 
-  /* staticpro (&Vcharacter_ideographic_radical_table); */
-  Vcharacter_ideographic_radical_table = make_char_id_table (Qnil, -1);
-
-  /* staticpro (&Vcharacter_ideographic_strokes_table); */
-  Vcharacter_ideographic_strokes_table = make_char_id_table (Qnil, -1);
-
-  /* staticpro (&Vcharacter_total_strokes_table); */
-  Vcharacter_total_strokes_table = make_char_id_table (Qnil, -1);
-
-  staticpro (&Vcharacter_morohashi_daikanwa_table);
-  Vcharacter_morohashi_daikanwa_table = make_char_id_table (Qnil, 0);
-
-  /* staticpro (&Vcharacter_decomposition_table); */
-  Vcharacter_decomposition_table = make_char_id_table (Qnil, -1);
-
-  /* staticpro (&Vcharacter_composition_table); */
+  staticpro (&Vcharacter_composition_table);
   Vcharacter_composition_table = make_char_id_table (Qnil, -1);
 
   staticpro (&Vcharacter_variant_table);
