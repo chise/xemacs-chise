@@ -182,6 +182,7 @@
     (japanese-jisx0208		. #x346D)	; ø»†­Ž
     (chinese-isoir165		. #x4E23)	; ø»°œ
     (chinese-cns11643-1		. #x474E)	; ø»‘º½
+    (japanese-jisx0208-1990	. #x346D)	; å±
     (ucs			. #x5371)	; å±
     ))
 (define-char
