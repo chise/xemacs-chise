@@ -11,7 +11,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x24)	; $(G#$(B
+    (chinese-cns11643-1 #x23 #x24)	; ¯ªëÖõ
     ))
 (define-char
   '((name		. "LOWER ONE QUARTER BLOCK")
@@ -19,7 +19,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x25)	; $(G#%(B
+    (chinese-cns11643-1 #x23 #x25)	; ¯ªëÖú
     ))
 (define-char
   '((name		. "LOWER THREE EIGHTHS BLOCK")
@@ -27,7 +27,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x26)	; $(G#&(B
+    (chinese-cns11643-1 #x23 #x26)	; ¯ªëÖù
     ))
 (define-char
   '((name		. "LOWER HALF BLOCK")
@@ -35,7 +35,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x27)	; $(G#'(B
+    (chinese-cns11643-1 #x23 #x27)	; ¯ªëÖû
     ))
 (define-char
   '((name		. "LOWER FIVE EIGHTHS BLOCK")
@@ -43,7 +43,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x28)	; $(G#((B
+    (chinese-cns11643-1 #x23 #x28)	; ¯ªëÖü
     ))
 (define-char
   '((name		. "LOWER THREE QUARTERS BLOCK")
@@ -51,7 +51,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x29)	; $(G#)(B
+    (chinese-cns11643-1 #x23 #x29)	; ¯ªëÖ†
     ))
 (define-char
   '((name		. "LOWER SEVEN EIGHTHS BLOCK")
@@ -59,7 +59,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x2A)	; $(G#*(B
+    (chinese-cns11643-1 #x23 #x2A)	; ¯ªëÖ°
     ))
 (define-char
   '((name		. "FULL BLOCK")
@@ -67,7 +67,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x2B)	; $(G#+(B
+    (chinese-cns11643-1 #x23 #x2B)	; ¯ªëÖ¢
     ))
 (define-char
   '((name		. "LEFT SEVEN EIGHTHS BLOCK")
@@ -75,7 +75,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x32)	; $(G#2(B
+    (chinese-cns11643-1 #x23 #x32)	; ¯ªëÖ©
     ))
 (define-char
   '((name		. "LEFT THREE QUARTERS BLOCK")
@@ -83,7 +83,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x31)	; $(G#1(B
+    (chinese-cns11643-1 #x23 #x31)	; ¯ªëÖ®
     ))
 (define-char
   '((name		. "LEFT FIVE EIGHTHS BLOCK")
@@ -91,7 +91,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x30)	; $(G#0(B
+    (chinese-cns11643-1 #x23 #x30)	; ¯ªëÖß
     ))
 (define-char
   '((name		. "LEFT HALF BLOCK")
@@ -99,7 +99,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x2F)	; $(G#/(B
+    (chinese-cns11643-1 #x23 #x2F)	; ¯ªëÖ¶
     ))
 (define-char
   '((name		. "LEFT THREE EIGHTHS BLOCK")
@@ -107,7 +107,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x2E)	; $(G#.(B
+    (chinese-cns11643-1 #x23 #x2E)	; ¯ªëÖ•
     ))
 (define-char
   '((name		. "LEFT ONE QUARTER BLOCK")
@@ -115,7 +115,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x2D)	; $(G#-(B
+    (chinese-cns11643-1 #x23 #x2D)	; ¯ªëÖ§
     ))
 (define-char
   '((name		. "LEFT ONE EIGHTH BLOCK")
@@ -123,7 +123,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x2C)	; $(G#,(B
+    (chinese-cns11643-1 #x23 #x2C)	; ¯ªëÖ£
     ))
 (define-char
   '((name		. "RIGHT HALF BLOCK")
@@ -145,7 +145,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x46)	; $(C"F(B
+    (korean-ksc5601	#x22 #x46)	; ¯ªàúè
     ))
 (define-char
   '((name		. "DARK SHADE")
@@ -160,7 +160,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x38)	; $(G#8(B
+    (chinese-cns11643-1 #x23 #x38)	; ¯ªëÖØ
     ))
 (define-char
   '((name		. "RIGHT ONE EIGHTH BLOCK")
@@ -168,5 +168,5 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x23 #x3B)	; $(G#;(B
+    (chinese-cns11643-1 #x23 #x3B)	; ¯ªëÖ≤
     ))
