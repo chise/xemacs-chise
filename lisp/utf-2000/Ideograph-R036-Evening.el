@@ -449,7 +449,7 @@
 			(:radical	8 ; â¼‡
 			 :strokes	8))
     (total-strokes	 . 10)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 05775)	; ø¸š
       ))
     (hanyu-dazidian	1 287 5)
@@ -605,28 +605,35 @@
     (=hanziku-3		. #xADEA)	; ý¢€º·ª
     ))
 (define-char
-  '((=>ucs		. #x68A6)	; æ¢¦
-    (ideographic-radical . 36)	; â¼£
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (->same-ideograph
-     ((=daikanwa	  . 14871)	; ø¸ƒ¨—
-      ))
+  '((total-strokes	 . 11)
     (<-vulgar-ideograph
-     (:char	((shinjigen-1	     . 1550)
-		 (=daikanwa	     . 05802)	; ø¸šª
-		 )
-      :sources	(sougen-irai-zokujifu morohashi-daikanwa shinjigen-1)))
+     ((=daikanwa	  . 05802)	; ø¸šª
+      ))
+    (<-vulgar-ideograph*sources
+     songyuan-yilai-suzipu zihui daikanwa shinjigen-1)
+    (hanyu-dazidian	2 863 18)
     (shinjigen-1	. 1552)
     (shinjigen-2	. 1552)
+    (=ucs		. #x68A6)	; æ¢¦
     (=jis-x0208		. #x546D)	; ø½‹‚‚
+    (=gb2312		. #x434E)	; ø»„¸­
     (=cns11643-3	. #x3478)	; ø»•³µ
     (=gt		. 07313)	; ý¡€²‘
     (=gt-k		. 07919)	; ý¡„»¯
     (=gt-pj-1		. #x546D)	; ý¡€²‘
-    (=daikanwa		. 05784)	; ø¸š˜
+    (=hanziku-3		. #xADD4)	; ý¢€º·”
     (=jef-china3	. #x82A2)	; øºˆŠ¢
-    (=ucs@jis		. #x68A6)	; ø½‹‚‚
+    (->subsumptive
+     ((ideographic-radical . 36)	; â¼£
+      (ideographic-strokes . 8)
+      (ideographic-radical*sources cns11643 gt jis daikanwa)
+      (=daikanwa	  . 05784)	; ø¸š˜
+      )
+     ((ideographic-radical . 75)	; â½Š
+      (ideographic-strokes . 7)
+      (ideographic-radical*sources ucs jis/b daikanwa)
+      (=daikanwa	  . 14871)	; ø¸ƒ¨—
+      ))
     ))
 (define-char
   '((ideographic-radical . 36)	; â¼£

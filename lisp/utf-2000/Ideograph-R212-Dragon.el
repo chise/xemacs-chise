@@ -46,11 +46,20 @@
     (=gb2312		. #x417A)	; ø»„¶
     ))
 (define-char
-  '((ideographic-radical . 212)	; â¿“
-    (ideographic-strokes . 2)
+  '((=>daikanwa		. 48819)	; ø¸‹º³
+    (ideographic-radical@ucs . 212)	; â¿“
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@cns . 27)	; â¼š
+    (ideographic-strokes@cns . 16)
     (total-strokes	 . 18)
     (=ucs		. #x9F8E)	; é¾Ž
-    (=daikanwa		. 48819)	; ø¸‹º³
+    (->subsumptive
+     ((=daikanwa	  . 48819)	; ø¸‹º³
+      )
+     ((=ucs@unicode	  . #x9F8E)	; ó°€•
+      )
+     ((=cns11643-3	  . #x5755)	; ø»–¦¬
+      ))
     ))
 (define-char
   '((ideographic-radical . 212)	; â¿“
@@ -104,32 +113,25 @@
     (=daikanwa		. 48823)	; ø¸‹º·
     ))
 (define-char
-  '((=>ucs		. #x9F90)	; é¾
-    (ideographic-radical . 212)	; â¿“
-    (ideographic-strokes . 3)
-    (total-strokes	 . 19)
-    (=ks-x1001		. #x5B42)	; ø»‰¯¹
-    (=jis-x0212		. #x6D59)	; ø»Œ”°
-    (=jis-x0213-1-2000	. #x7E76)	; ø»¤œ·
-    (=daikanwa		. 48824)	; ø¸‹º¸
-    (=ucs@jis		. #x9F90)	; ø»‰¯¹
-    ))
-(define-char
-  '((morohashi-daikanwa	48824 0 0)
-    (ideographic-radical . 212)	; â¿“
+  '((ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 3)
     (total-strokes	 . 19)
     (=ucs		. #x9F90)	; é¾
-    (=gb12345		. #x4553)	; é¾
-    ))
-(define-char
-  '((=>ucs		. #x9F90)	; é¾
-    (morohashi-daikanwa	48824 0 1)
-    (ideographic-radical . 212)	; â¿“
-    (ideographic-strokes . 3)
-    (cns-radical	 . 53)	; â¼´
-    (total-strokes	 . 19)
-    (=cns11643-1	. #x7832)	; ø»“‚Ÿ
+    (->subsumptive
+     ((=ks-x1001	  . #x5B42)	; ø»‰¯¹
+      (=jis-x0212	  . #x6D59)	; ø»Œ”°
+      (=jis-x0213-1-2000  . #x7E76)	; ø»¤œ·
+      (=daikanwa	  . 48824)	; ø¸‹º¸
+      (=jef-china3	  . #x70AA)	; øº‡‚ª
+      (=ucs@jis		  . #x9F90)	; ø»‰¯¹
+      )
+     ((=gb12345		  . #x4553)	; ó°ƒ
+      (=ucs@unicode	  . #x9F90)	; ó°ƒ
+      )
+     ((ideographic-radical@cns . 53)	; â¼´
+      (ideographic-strokes@cns . 16)
+      (=cns11643-1	  . #x7832)	; ø»“‚Ÿ
+      ))
     ))
 (define-char
   '((ideographic-radical . 212)	; â¿“

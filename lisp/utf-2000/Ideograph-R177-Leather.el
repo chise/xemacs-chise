@@ -66,44 +66,37 @@
     (=daikanwa		. 42714)	; ø¸Š›š
     ))
 (define-char
-  '((ideographic-radical . 177)	; â¾°
+  '((=>daikanwa		. 42715)	; ø»ƒ°¸
+    (ideographic-radical . 177)	; â¾°
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
-    (->same-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 29262)	; ø¸‡‰Ž
-		 )
-      )
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 43109)	; ø¸Š¡¥
-		 )
+    (->same@jiyun
+     ((=daikanwa	  . 29262)	; ø¸‡‰Ž
       ))
+    (->same@jiyun*sources
+     jiyun daikanwa)
+    (->same@zihui
+     ((=daikanwa	  . 43109)	; ø¸Š¡¥
+      ))
+    (->same@zihui*sources
+     jiyun zihui daikanwa)
     (=ucs		. #x976D)	; é­
-    (=jis-x0208-1978	. #x7057)	; ø»ƒ°¸
-    (=ks-x1001		. #x6C65)	; ø»Š‰š
-    (=gt		. 57333)	; ý¡€¿µ
-    (=gt-pj-8		. #x386F)	; ý¡€¿µ
-    (=daikanwa		. 42715)	; ø¸Š››
-    ))
-(define-char
-  '((=>ucs		. #x976D)	; é­
-    (morohashi-daikanwa	42715 0 1)
-    (ideographic-radical . 177)	; â¾°
-    (ideographic-strokes . 3)
-    (total-strokes	 . 12)
-    (=cns11643-3	. #x4024)	; ø»–„‰
-    ))
-(define-char
-  '((=>ucs		. #x976D)	; é­
-    (morohashi-daikanwa	42715 0 2)
-    (ideographic-radical . 177)	; â¾°
-    (ideographic-strokes . 3)
-    (total-strokes	 . 12)
-    (=jis-x0208-1983	. #x3F59)	; ø»†½„
-    (=jis-x0208-1990	. #x3F59)	; ø½Š¢¸
-    (=gt		. 57334)	; ý¡€¿¶
-    (=gt-pj-1		. #x3F59)	; ý¡€¿¶
-    (=ucs@jis		. #x976D)	; ø»†½„
+    (->subsumptive
+     ((=jis-x0208-1978	  . #x7057)	; ø»ƒ°¸
+      (=ks-x1001	  . #x6C65)	; ø»Š‰š
+      (=gt		  . 57333)	; ý¡€¿µ
+      (=gt-pj-8		  . #x386F)	; ý¡€¿µ
+      (=daikanwa	  . 42715)	; ø¸Š››
+      (=ucs@unicode	  . #x976D)	; ø»ƒ°¸
+      )
+     ((=cns11643-3	  . #x4024)	; ø»–„‰
+      )
+     ((=jis-x0208-1983	  . #x3F59)	; ø»†½„
+      (=jis-x0208-1990	  . #x3F59)	; ø½Š¢¸
+      (=gt		  . 57334)	; ý¡€¿¶
+      (=gt-pj-1		  . #x3F59)	; ý¡€¿¶
+      (=ucs@jis		  . #x976D)	; ø»†½„
+      ))
     ))
 (define-char
   '((ideographic-radical . 177)	; â¾°

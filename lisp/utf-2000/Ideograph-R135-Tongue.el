@@ -445,10 +445,11 @@
     (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (->same-ideograph
-     ((=daikanwa	  . 38638)	; ø¸‰›®
+    (->same
+     ((=jis-x0208	  . #x3C2D)	; ø½Š²
+      (=daikanwa	  . 38638)	; ø¸‰›®
       ))
-    (->same-ideograph*sources
+    (->same*sources
      daikanwa)
     (<-vulgar-ideograph
      (:char	((=daikanwa	     . 38671)	; ø¸‰œ

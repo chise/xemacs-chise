@@ -6362,7 +6362,7 @@
 			 :strokes	11
 			 :sources	(ucs)))
     (total-strokes	 . 13)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 49471)	; ø¸Œ„¿
       ))
     (hanyu-dazidian	1 210 15)

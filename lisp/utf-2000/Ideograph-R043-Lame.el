@@ -32,7 +32,7 @@
     (ideographic-radical . 43)	; â¼ª
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (->same-ideograph
+    (->same
      ((=ucs		  . #x2F875)	; ð¯¡µ
       ))
     (=ucs		. #x5C22)	; å°¢
@@ -606,10 +606,11 @@
   '((ideographic-radical . 43)	; â¼ª
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (->same-ideograph
-     ((=daikanwa	  . 07583)	; ø¸¶Ÿ
+    (->same
+     ((=cns11643-6	  . #x366A)	; ø»œ”¯
+      (=daikanwa	  . 07583)	; ø¸¶Ÿ
       ))
-    (->same-ideograph*sources
+    (->same*sources
      daikanwa)
     (=ucs		. #x21BED)	; ð¡¯­
     (=cns11643-6	. #x366B)	; ø»œ”°

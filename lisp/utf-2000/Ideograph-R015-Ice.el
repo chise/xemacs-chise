@@ -138,12 +138,18 @@
   '((ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (<-original-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 4051)
-		 (=daikanwa	     . 17087)	; ø¸„Š¿
-		 )
+    (->same
+     ((=cns11643-3	  . #x214C)	; ø»•—
+      (=daikanwa	  . 00360)	; ø¸€…¨
       ))
+    (->same*sources
+     shuowen kanjo ronkou jiyun daikanwa)
+    (<-original-ideograph
+     ((shinjigen-1	  . 4051)
+      (=daikanwa	  . 17087)	; ø¸„Š¿
+      ))
+    (<-original-ideograph*sources
+     shinjigen-1)
     (hanyu-dazidian	1 295 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -164,32 +170,6 @@
     (=gt-k		. 01713)	; ý¡„€š±
     (=gt-pj-1		. #x5156)	; ý¡€€¡›
     (=daikanwa		. 01612)	; ø¸€™Œ
-    ))
-(define-char
-  '((=>ucs*		. #x4ECC)	; ä»Œ
-    (morohashi-daikanwa	1612 0 7)
-    (ideographic-radical . 15)	; â¼Ž
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (->same-ideograph
-     ((ideographic-radical . 9)	; â¼ˆ
-      (=daikanwa	  . 00360)	; ø¸€…¨
-      ))
-    (<-original-ideograph
-     ((=daikanwa	  . 01612)	; ø¸€™Œ
-      ))
-    (<-original-ideograph*sources
-     daikanwa)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; â¿±
-      )
-     ((=ucs		  . #x4EBA)	; äºº
-      )
-     ((=ucs		  . #x4EBA)	; äºº
-      ))
-    (=ucs		. #x2F819)	; ð¯ ™
-    (=cns11643-4	. #x213F)	; ø»—¡†
     ))
 (define-char
   '((ideographic-radical . 15)	; â¼Ž
@@ -2705,15 +2685,18 @@
     (=cns11643-5	. #x5A73)	; ø»š¿¬
     ))
 (define-char
-  '((=>ucs		. #x250B3)	; ð¥‚³
-    (ideographic-radical . 15)	; â¼Ž
-    (ideographic-strokes . 15)
+  '((ideographic-radical@ucs . 108)	; â½«
+    (ideographic-strokes@ucs . 12)
+    (ideographic-radical@cns . 15)	; â¼Ž
+    (ideographic-strokes@cns . 15)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 17)
-    (->identical
-     ((=ucs		  . #x250B3)	; ð¥‚³
-      ))
+    (hanyu-dazidian	4 2571 15)
+    (=ucs		. #x250B3)	; ð¥‚³
     (=cns11643-7	. #x3679)	; ø»žŸ‚
     (=daikanwa		. 01726)	; ø¸€š¾
+    (=hanziku-7		. #xBD6B)	; ý¢»µ«
     ))
 (define-char
   '((=>ucs		. #x2F81C)	; ð¯ œ

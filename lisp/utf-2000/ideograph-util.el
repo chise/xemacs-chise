@@ -26,28 +26,111 @@
 
 (require 'char-db-util)
 
+;;;###autoload
+(defun expand-char-feature-name (feature domain)
+  (if domain
+      (intern (format "%s@%s" feature domain))
+    feature))
+
+(defun map-char-family (function char &optional ignore-sisters)
+  (let ((rest (list char))
+	ret checked)
+    (catch 'tag
+      (while rest
+	(unless (memq (car rest) checked)
+	  (if (setq ret (funcall function (car rest)))
+	      (throw 'tag ret))
+	  (setq checked (cons (car rest) checked)
+		rest (append rest
+			     (get-char-attribute (car rest) '->subsumptive)
+			     (get-char-attribute (car rest) '->denotational)
+			     (get-char-attribute (car rest) '->identical)))
+	  (unless ignore-sisters
+	    (setq rest (append rest
+			       (get-char-attribute (car rest) '<-subsumptive)
+			       (get-char-attribute (car rest) '<-denotational)))))
+	(setq rest (cdr rest))))))
+
+(defun get-char-feature-from-domains (char feature domains
+					   &optional tester arg
+					   ignore-sisters)
+  (map-char-family
+   (lambda (ch)
+     (let (ret)
+       (catch 'tag
+	 (dolist (domain domains)
+	   (if (and (or (null tester)
+			(equal (or (char-feature
+				    ch (expand-char-feature-name
+					tester domain))
+				   (char-feature ch tester))
+			       arg))
+		    (setq ret (or (char-feature
+				   ch (expand-char-feature-name
+				       feature domain))
+				  (char-feature ch feature))))
+	       (throw 'tag ret))))))
+   char ignore-sisters)
+  ;; (let ((rest (list char))
+  ;;       ret checked)
+  ;;   (catch 'tag
+  ;;     (while rest
+  ;;       (setq char (car rest))
+  ;;       (unless (memq char checked)
+  ;;         (dolist (domain domains)
+  ;;           (if (and (setq ret (char-feature
+  ;;                               char
+  ;;                               (expand-char-feature-name
+  ;;                                feature domain)))
+  ;;                    (or (null tester)
+  ;;                        (equal (or (char-feature
+  ;;                                    char
+  ;;                                    (expand-char-feature-name
+  ;;                                     tester domain))
+  ;;                                   (char-feature char tester))
+  ;;                               arg)))
+  ;;               (throw 'tag ret)))
+  ;;         (setq rest (append rest
+  ;;                            (get-char-attribute char '->subsumptive)
+  ;;                            (get-char-attribute char '->denotational)
+  ;;                            (get-char-attribute char '<-subsumptive)
+  ;;                            (get-char-attribute char '<-denotational))
+  ;;               checked (cons char checked)))
+  ;;       (setq rest (cdr rest)))))
+  )
+
+
 (defvar ideograph-radical-chars-vector
   (make-vector 215 nil))
 
-(defun char-ideographic-radical (char &optional radical)
+(defun char-ideographic-radical (char &optional radical ignore-sisters)
   (let (ret)
-    (or (catch 'tag
-	  (dolist (domain char-db-feature-domains)
-	    (if (and (setq ret (char-feature
-				char
-				(intern
-				 (format "%s@%s"
-					 'ideographic-radical domain))))
-		     (or (eq ret radical)
-			 (null radical)))
-		(throw 'tag ret))))
+    (or (if radical
+	    (get-char-feature-from-domains
+	     char 'ideographic-radical (cons nil char-db-feature-domains)
+	     'ideographic-radical radical ignore-sisters)
+	  (get-char-feature-from-domains
+	   char 'ideographic-radical (cons nil char-db-feature-domains)
+	   ignore-sisters))
+        ;; (catch 'tag
+        ;;   (dolist (domain char-db-feature-domains)
+        ;;     (if (and (setq ret (char-feature
+        ;;                         char
+        ;;                         (intern
+        ;;                          (format "%s@%s"
+        ;;                                  'ideographic-radical domain))))
+        ;;              (or (eq ret radical)
+        ;;                  (null radical)))
+        ;;         (throw 'tag ret))))
 	(catch 'tag
 	  (dolist (cell (get-char-attribute char 'ideographic-))
 	    (if (and (setq ret (plist-get cell :radical))
 		     (or (eq ret radical)
 			 (null radical)))
 		(throw 'tag ret))))
-	(char-feature char 'ideographic-radical)
+	(get-char-feature-from-domains
+	 char 'ideographic-radical (cons nil char-db-feature-domains))
+        ;; (char-feature char 'ideographic-radical)
 	(progn
 	  (setq ret
 		(or (get-char-attribute char 'daikanwa-radical)
@@ -87,24 +170,38 @@
 
 ;;;###autoload
 (defun char-ideographic-strokes-from-domains (char domains &optional radical)
-  (let (ret)
-    (catch 'tag
-      (dolist (domain domains)
-	(if (and (setq ret (or (char-feature
-				char
-				(intern
-				 (format "%s@%s"
-					 'ideographic-radical domain)))
-			       (char-feature
-				char 'ideographic-radical)))
-		 (or (eq ret radical)
-		     (null radical))
-		 (setq ret (char-feature
-			    char
-			    (intern
-			     (format "%s@%s"
-				     'ideographic-strokes domain)))))
-	    (throw 'tag ret))))))
+  (if radical
+      (get-char-feature-from-domains char 'ideographic-strokes domains
+				     'ideographic-radical radical)
+    (get-char-feature-from-domains char 'ideographic-strokes domains))
+  ;; (let ((rest (list char))
+  ;;       ret checked)
+  ;;   (catch 'tag
+  ;;     (while rest
+  ;;       (setq char (car rest))
+  ;;       (unless (memq char checked)
+  ;;         (dolist (domain domains)
+  ;;           (if (and (setq ret (or (char-feature
+  ;;                                   char
+  ;;                                   (expand-char-feature-name
+  ;;                                    'ideographic-radical domain))
+  ;;                                  (char-feature
+  ;;                                   char 'ideographic-radical)))
+  ;;                    (or (eq ret radical)
+  ;;                        (null radical))
+  ;;                    (setq ret (or (char-feature
+  ;;                                   char
+  ;;                                   (expand-char-feature-name
+  ;;                                    'ideographic-strokes domain))
+  ;;                                  (char-feature
+  ;;                                   char 'ideographic-strokes))))
+  ;;               (throw 'tag ret)))
+  ;;         (setq rest (append rest
+  ;;                            (get-char-attribute char '->subsumptive)
+  ;;                            (get-char-attribute char '->denotational))
+  ;;               checked (cons char checked)))
+  ;;       (setq rest (cdr rest)))))
+  )
 
 ;;;###autoload
 (defun char-ideographic-strokes (char &optional radical preferred-domains)
@@ -116,11 +213,10 @@
 			 (null radical)))
 		(throw 'tag (plist-get cell :strokes)))))
 	(char-ideographic-strokes-from-domains
-	 char preferred-domains radical)
-	(get-char-attribute char 'ideographic-strokes)
-	(char-ideographic-strokes-from-domains
-	 char char-db-feature-domains radical)
-	(char-feature char 'ideographic-strokes)
+	 char (append preferred-domains
+		      (cons nil
+			    char-db-feature-domains))
+	 radical)
 	(get-char-attribute char 'daikanwa-strokes)
 	(let ((strokes
 	       (or (get-char-attribute char 'kangxi-strokes)
@@ -156,7 +252,7 @@
 ;;;###autoload
 (defun update-ideograph-radical-table ()
   (interactive)
-  (let (ret radical script)
+  (let (ret radical script dest)
     (dolist (feature
 	     (cons 'ideographic-radical
 		   (mapcar
@@ -165,11 +261,41 @@
 		    char-db-feature-domains)))
       (map-char-attribute
        (lambda (chr radical)
-	 (dolist (char (cons chr
-			     (get-char-attribute chr '->denotational)))
+	 (dolist (char (append
+			(if (setq ret
+				  (get-char-attribute chr '<-subsumptive))
+			    (progn
+			      (setq dest nil)
+			      (dolist (pc ret)
+				(unless (eq (get-char-attribute
+					     pc 'ideographic-radical)
+					    radical)
+				  (setq dest (cons pc dest))))
+			      dest)
+			  (list chr))
+			(let ((rest (append
+				     (get-char-attribute chr '<-identical)
+				     (get-char-attribute chr '->denotational)))
+			      pc)
+			  (setq dest nil)
+			  (while rest
+			    (setq pc (car rest))
+			    (if (memq pc dest)
+				(setq rest (cdr rest))
+			      (setq dest (cons pc dest))
+			      (setq rest
+				    (append (cdr rest)
+					    (get-char-attribute
+					     pc '<-identical)
+					    (get-char-attribute
+					     pc '->denotational)))))
+			  dest)))
 	   (when (and radical
-		      (eq radical
-			  (char-ideographic-radical char radical))
+		      (or (eq radical
+			      (or (get-char-attribute
+				   char 'ideographic-radical)
+				  (char-ideographic-radical char radical)))
+			  (null (char-ideographic-radical char)))
 		      (or (null (setq script
 				      (get-char-attribute char 'script)))
 			  (memq 'Ideograph script)))
@@ -235,19 +361,24 @@
 ;;         (t (< a b))))
 
 ;;;###autoload
-(defun char-representative-of-daikanwa (char)
+(defun char-representative-of-daikanwa (char &optional radical
+					     ignore-default dont-inherit)
+  (unless radical
+    (setq radical ideographic-radical))
   (if (or (encode-char char 'ideograph-daikanwa 'defined-only)
 	  (encode-char char '=daikanwa-rev2 'defined-only))
       char
     (let ((m (char-feature char '=>daikanwa))
-	  m-m m-s pat)
+	  m-m m-s pat
+	  ;;scs sc ret
+	  )
       (or (and (integerp m)
 	       (or (decode-char '=daikanwa-rev2 m 'defined-only)
 		   (decode-char 'ideograph-daikanwa m)))
 	  (when (or m
 		    (setq m (get-char-attribute char 'morohashi-daikanwa)))
-	    (setq m-m (pop m))
-	    (setq m-s (pop m))
+	    (setq m-m (car m))
+	    (setq m-s (nth 1 m))
 	    (if (= m-s 0)
 		(or (decode-char '=daikanwa-rev2 m-m 'defined-only)
 		    (decode-char 'ideograph-daikanwa m-m))
@@ -257,7 +388,33 @@
 				      (if (equal pat v)
 					  c))
 				    'morohashi-daikanwa))))
-	  char))))
+	  (unless dont-inherit
+	    (map-char-family
+	     (lambda (sc)
+	       (let ((ret (char-representative-of-daikanwa sc nil t t)))
+		 (if (and ret
+			  (or (null radical)
+			      (eq (char-ideographic-radical ret radical)
+				  radical)))
+		     ret)))
+	     char))
+	  ;; (when (setq scs (append
+          ;;                  (get-char-attribute char '->subsumptive)
+          ;;                  (get-char-attribute char '->denotational)))
+          ;;   (while (and scs
+          ;;               (setq sc (car scs))
+          ;;               (not
+          ;;                (and
+          ;;                 (setq ret
+          ;;                       (char-representative-of-daikanwa sc nil t))
+          ;;                 (or (null radical)
+          ;;                     (eq (char-ideographic-radical ret radical)
+          ;;                         radical)
+          ;;                     (setq ret nil)))))
+          ;;     (setq scs (cdr scs)))
+          ;;   ret)
+	  (unless ignore-default
+	    char)))))
 
 (defun char-attributes-poly< (c1 c2 accessors testers defaulters)
   (catch 'tag
@@ -294,23 +451,63 @@
 (defun char-daikanwa-strokes (char &optional radical)
   (unless radical
     (setq radical ideographic-radical))
-  (let ((drc (char-representative-of-daikanwa char)))
-    (if (= (char-ideographic-radical drc radical)
-	   (char-ideographic-radical char radical))
+  (let ((drc (char-representative-of-daikanwa char radical))
+	(r (char-ideographic-radical char radical)))
+    (if (or (null r)
+	    (= (char-ideographic-radical drc radical) r))
 	(setq char drc)))
   (char-ideographic-strokes char radical '(daikanwa)))
 
 ;;;###autoload
-(defun char-daikanwa (char)
-  (or (encode-char char 'ideograph-daikanwa 'defined-only)
-      (encode-char char '=daikanwa-rev2 'defined-only)
-      (get-char-attribute char 'morohashi-daikanwa)
-      (let ((ret (char-feature char '=>daikanwa)))
-	(and ret
-	     (if (or (get-char-attribute char '<-subsumptive)
-		     (get-char-attribute char '<-denotational))
-		 (list ret 0)
-	       ret)))))
+(defun char-daikanwa (char &optional radical checked)
+  (unless radical
+    (setq radical ideographic-radical))
+  (if (or (null radical)
+          (eq (or (get-char-attribute char 'ideographic-radical)
+                  (char-ideographic-radical char radical t))
+              radical))
+      (let ((ret (or (encode-char char 'ideograph-daikanwa 'defined-only)
+                     (encode-char char '=daikanwa-rev2 'defined-only)
+                     (get-char-attribute char 'morohashi-daikanwa)
+                     (get-char-attribute char '=>daikanwa))))
+        (or ret
+	    (unless (memq char checked)
+	      (catch 'tag
+		(let ((rest
+		       (append (get-char-attribute char '<-subsumptive)
+			       (get-char-attribute char '<-denotational)))
+		      (i 0)
+		      sc)
+		  (setq checked (cons char checked))
+		  (while rest
+		    (setq sc (car rest))
+		    (when (setq ret (char-daikanwa sc radical checked))
+		      (throw 'tag
+			     (if (numberp ret)
+				 (list ret 0 i)
+			       (append ret (list i)))))
+		    (setq checked (cons sc checked)
+			  rest (cdr rest)
+			  i (1+ i)))
+		  (setq rest (get-char-attribute char '->identical))
+		  (while rest
+		    (setq sc (car rest))
+		    (when (setq ret (char-daikanwa sc radical checked))
+		      (throw 'tag
+			     (if (numberp ret)
+				 (list ret 0)
+			       (append ret (list i)))))
+		    (setq checked (cons sc checked)
+			  rest (cdr rest)))
+		  (setq rest
+			(append (get-char-attribute char '->subsumptive)
+				(get-char-attribute char '->denotational)))
+		  (while rest
+		    (setq sc (car rest))
+		    (if (setq ret (char-daikanwa sc radical checked))
+			(throw 'tag ret))
+		    (setq checked (cons sc checked)
+			  rest (cdr rest))))))))))
 
 ;;;###autoload
 (defun char-ucs (char)

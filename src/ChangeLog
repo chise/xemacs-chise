@@ -1,3 +1,45 @@
+2004-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (find_char_feature_in_family): New function.
+	(Fchar_feature): Use `find_char_feature_in_family' with
+	`->identical', `<-subsumptive' and `<-denotational'.
+
+2004-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_as_entity_reference): Allow prefix
+	within 8 characters; fix infinite loop.
+
+2004-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_same): New variable.
+	(Q_same_of): New variable.
+	(Fput_char_attribute): Convert char-refs in value of `{->|<-}same'
+	to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{->|<-}same'.
+	(syms_of_chartab): Add new symbols `{->|<-}same'.
+
+2004-03-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_component): New variable.
+	(Q_component_of): Likewise.
+	(Fput_char_attribute): Convert char-refs in value of
+	`{->|<-}ideographic-component-forms' to characters and put reverse
+	links.
+	(syms_of_chartab): Add new symbols
+	`{->|<-}ideographic-component-forms'.
+
+2004-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* chartab.c (Q_identical): New variable.
+	(Q_identical_from): New variable.
+	(Fchar_feature): Regard `->identical' as a feature to find
+	ancestors.
+	(Fput_char_attribute): Add reversed link for `{->|<-}identical'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{->|<-}identical'.
+	(syms_of_chartab): Add new symbols `{->|<-}identical'.
+
 2004-02-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h (encode_char_2): New inline function.
