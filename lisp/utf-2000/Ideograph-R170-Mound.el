@@ -215,7 +215,8 @@
      ((=cns11643-5	  . #x247D)	; ø»™°¢
       (=daikanwa	  . 41555)	; ø¸Š‰“
       )
-     ((=ucs@iso		  . #x28E1A)	; ó°‚¾
+     ((=hanziku-11	  . #xAB7D)	; ý¢‚º­½
+      (=ucs@iso		  . #x28E1A)	; ý¢‚º­½
       ))
     ))
 (define-char
