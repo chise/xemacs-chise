@@ -1,3 +1,13 @@
+2004-11-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R021-Spoon.el (U+5317): Use `->subsumptive'.
+
+2004-11-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (U+4E47): Use `->subsumptive'.
+
+	* Ideograph-R002-Line.el (U+4E30): Use `->subsumptive'.
+
 2004-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* read-maps.el (mapping-table-read-file): Modify to support
