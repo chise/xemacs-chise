@@ -1671,3 +1671,103 @@
     (->decomposition	circle #x0030)
     (ucs		. #x24EA)	; â“ª
     ))
+(define-char
+  '((name		. "NEGATIVE CIRCLED NUMBER ELEVEN")
+    (japanese-jisx0213-1	. #x2C2B)	; ø»¢£
+    (ucs			. #x24EB)	; â“«
+    ))
+(define-char
+  '((name		. "NEGATIVE CIRCLED NUMBER TWELVE")
+    (japanese-jisx0213-1	. #x2C2C)	; ø»¢£‘
+    (ucs			. #x24EC)	; â“¬
+    ))
+(define-char
+  '((name		. "NEGATIVE CIRCLED NUMBER THIRTEEN")
+    (japanese-jisx0213-1	. #x2C2D)	; ø»¢£’
+    (ucs			. #x24ED)	; â“­
+    ))
+(define-char
+  '((name		. "NEGATIVE CIRCLED NUMBER FOURTEEN")
+    (japanese-jisx0213-1	. #x2C2E)	; ø»¢£“
+    (ucs			. #x24EE)	; â“®
+    ))
+(define-char
+  '((name		. "NEGATIVE CIRCLED NUMBER FIFTEEN")
+    (japanese-jisx0213-1	. #x2C2F)	; ø»¢£”
+    (ucs			. #x24EF)	; â“¯
+    ))
+(define-char
+  '((name		. "NEGATIVE CIRCLED NUMBER SIXTEEN")
+    (japanese-jisx0213-1	. #x2C30)	; ø»¢£•
+    (ucs			. #x24F0)	; â“°
+    ))
+(define-char
+  '((name		. "NEGATIVE CIRCLED NUMBER SEVENTEEN")
+    (japanese-jisx0213-1	. #x2C31)	; ø»¢£–
+    (ucs			. #x24F1)	; â“±
+    ))
+(define-char
+  '((name		. "NEGATIVE CIRCLED NUMBER EIGHTEEN")
+    (japanese-jisx0213-1	. #x2C32)	; ø»¢£—
+    (ucs			. #x24F2)	; â“²
+    ))
+(define-char
+  '((name		. "NEGATIVE CIRCLED NUMBER NINETEEN")
+    (japanese-jisx0213-1	. #x2C33)	; ø»¢£˜
+    (ucs			. #x24F3)	; â“³
+    ))
+(define-char
+  '((name		. "NEGATIVE CIRCLED NUMBER TWENTY")
+    (japanese-jisx0213-1	. #x2C34)	; ø»¢£™
+    (ucs			. #x24F4)	; â“´
+    ))
+(define-char
+  '((name		. "DOUBLE CIRCLED DIGIT ONE")
+    (japanese-jisx0213-1	. #x265A)	; ø»¢›‹
+    (ucs			. #x24F5)	; â“µ
+    ))
+(define-char
+  '((name		. "DOUBLE CIRCLED DIGIT TWO")
+    (japanese-jisx0213-1	. #x265B)	; ø»¢›Œ
+    (ucs			. #x24F6)	; â“¶
+    ))
+(define-char
+  '((name		. "DOUBLE CIRCLED DIGIT THREE")
+    (japanese-jisx0213-1	. #x265C)	; ø»¢›
+    (ucs			. #x24F7)	; â“·
+    ))
+(define-char
+  '((name		. "DOUBLE CIRCLED DIGIT FOUR")
+    (japanese-jisx0213-1	. #x265D)	; ø»¢›Ž
+    (ucs			. #x24F8)	; â“¸
+    ))
+(define-char
+  '((name		. "DOUBLE CIRCLED DIGIT FIVE")
+    (japanese-jisx0213-1	. #x265E)	; ø»¢›
+    (ucs			. #x24F9)	; â“¹
+    ))
+(define-char
+  '((name		. "DOUBLE CIRCLED DIGIT SIX")
+    (japanese-jisx0213-1	. #x265F)	; ø»¢›
+    (ucs			. #x24FA)	; â“º
+    ))
+(define-char
+  '((name		. "DOUBLE CIRCLED DIGIT SEVEN")
+    (japanese-jisx0213-1	. #x2660)	; ø»¢›‘
+    (ucs			. #x24FB)	; â“»
+    ))
+(define-char
+  '((name		. "DOUBLE CIRCLED DIGIT EIGHT")
+    (japanese-jisx0213-1	. #x2661)	; ø»¢›’
+    (ucs			. #x24FC)	; â“¼
+    ))
+(define-char
+  '((name		. "DOUBLE CIRCLED DIGIT NINE")
+    (japanese-jisx0213-1	. #x2662)	; ø»¢›“
+    (ucs			. #x24FD)	; â“½
+    ))
+(define-char
+  '((name		. "DOUBLE CIRCLED NUMBER TEN")
+    (japanese-jisx0213-1	. #x2663)	; ø»¢›”
+    (ucs			. #x24FE)	; â“¾
+    ))

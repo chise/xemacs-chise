@@ -1093,3 +1093,83 @@
     (mirrored		. nil)
     (ucs		. #x239A)	; âŽš
     ))
+(define-char
+  '((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND TOP RIGHT")
+    (japanese-jisx0213-1	. #x2742)	; ø»¢œ‘
+    (ucs			. #x23BE)	; âŽ¾
+    ))
+(define-char
+  '((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND BOTTOM RIGHT")
+    (japanese-jisx0213-1	. #x2743)	; ø»¢œ’
+    (ucs			. #x23BF)	; âŽ¿
+    ))
+(define-char
+  '((name		. "DENTISTRY SYMBOL LIGHT VERTICAL WITH CIRCLE")
+    (japanese-jisx0213-1	. #x2744)	; ø»¢œ“
+    (ucs			. #x23C0)	; â€
+    ))
+(define-char
+  '((name . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH CIRCLE")
+    (japanese-jisx0213-1	. #x2745)	; ø»¢œ”
+    (ucs			. #x23C1)	; â
+    ))
+(define-char
+  '((name . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH CIRCLE")
+    (japanese-jisx0213-1	. #x2746)	; ø»¢œ•
+    (ucs			. #x23C2)	; â‚
+    ))
+(define-char
+  '((name . "DENTISTRY SYMBOL LIGHT VERTICAL WITH TRIANGLE")
+    (japanese-jisx0213-1	. #x2747)	; ø»¢œ–
+    (ucs			. #x23C3)	; âƒ
+    ))
+(define-char
+  '((name . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH TRIANGLE")
+    (japanese-jisx0213-1	. #x2748)	; ø»¢œ—
+    (ucs			. #x23C4)	; â„
+    ))
+(define-char
+  '((name . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH TRIANGLE")
+    (japanese-jisx0213-1	. #x2749)	; ø»¢œ˜
+    (ucs			. #x23C5)	; â…
+    ))
+(define-char
+  '((name		. "DENTISTRY SYMBOL LIGHT VERTICAL WITH WAVE")
+    (japanese-jisx0213-1	. #x274A)	; ø»¢œ™
+    (ucs			. #x23C6)	; â†
+    ))
+(define-char
+  '((name . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH WAVE")
+    (japanese-jisx0213-1	. #x274B)	; ø»¢œš
+    (ucs			. #x23C7)	; â‡
+    ))
+(define-char
+  '((name . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH WAVE")
+    (japanese-jisx0213-1	. #x274C)	; ø»¢œ›
+    (ucs			. #x23C8)	; âˆ
+    ))
+(define-char
+  '((name		. "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL")
+    (japanese-jisx0213-1	. #x274D)	; ø»¢œœ
+    (ucs			. #x23C9)	; â‰
+    ))
+(define-char
+  '((name		. "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL")
+    (japanese-jisx0213-1	. #x274E)	; ø»¢œ
+    (ucs			. #x23CA)	; âŠ
+    ))
+(define-char
+  '((name		. "DENTISTRY SYMBOL LIGHT VERTICAL AND TOP LEFT")
+    (japanese-jisx0213-1	. #x274F)	; ø»¢œž
+    (ucs			. #x23CB)	; â‹
+    ))
+(define-char
+  '((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND BOTTOM LEFT")
+    (japanese-jisx0213-1	. #x2750)	; ø»¢œŸ
+    (ucs			. #x23CC)	; âŒ
+    ))
+(define-char
+  '((name		. "RETURN SYMBOL")
+    (japanese-jisx0213-1	. #x277E)	; ø»¢
+    (ucs			. #x23CE)	; âŽ
+    ))
