@@ -1247,9 +1247,11 @@
 (define-char
   '((ideographic-radical . 112)	; â½¯
     (ideographic-strokes . 5)
-    (chinese-gb2312	. #x6D42)	; ø»…¶
-    (chinese-isoir165	. #x6D42)	; ø»Žž
-    (ucs		. #x783A)	; ç º
+    (total-strokes	 . 10)
+    (chinese-gb2312		. #x6D42)	; ø»…¶
+    (chinese-isoir165		. #x6D42)	; ø»Žž
+    (japanese-jisx0208-1990	. #x4557)	; ø½Š«ª
+    (ucs			. #x783A)	; ç º
     ))
 (define-char
   '((ideographic-radical . 112)	; â½¯
