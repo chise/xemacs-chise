@@ -73,7 +73,7 @@ extern Lisp_Object Vcharset_latin_jisx0201;
 /*                    Definition of leading bytes                       */
 /************************************************************************/
 
-typedef int Charset_ID;
+typedef short Charset_ID;
 
 #define MIN_LEADING_BYTE		-0x60
 #define CHARSET_ID_OFFSET		0x00
