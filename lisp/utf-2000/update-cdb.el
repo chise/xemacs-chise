@@ -38,8 +38,8 @@
  ((featurep 'chise)
   (defvar system-char-database-directory
     (expand-file-name "chise-db"
-		      (or exec-directory
-			  "../lib-src/")))
+		      (or data-directory
+			  "../etc/")))
 
   (defun file-name-char-attribute-name (filename)
     (let ((i 0)
