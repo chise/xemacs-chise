@@ -2,6 +2,16 @@
 
 	* etc/TUTORIAL.th: Change code to tis-620.
 
+1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.18 is released
+
+1999-07-06  SL Baur  <steve@miho.m17n.org>
+
+	* config.guess (main): Synch with newer config.guess for HP
+	support.
+	From Marcus Thiessel <marcus@xemacs.org>
+
 1999-06-25  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
 
 	* configure.in (with_prefix): Added --with-prefix, defaults to

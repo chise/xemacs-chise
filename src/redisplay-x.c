@@ -840,10 +840,11 @@ x_output_string (struct window *w, struct display_line *dl,
       cachel = WINDOW_FACE_CACHEL (w, findex);
     }
 
-#ifdef HAVE_XIM
+#if defined(HAVE_XIM) && defined(XIM_XLIB)
   if (cursor && focus && (cursor_start == clip_start) && cursor_height)
-    XIM_SetSpotLocation (f, xpos - 2, dl->ypos + dl->descent - 2);
-#endif /* HAVE_XIM */
+    if (FRAME_X_XIC(f))
+      XIM_SetSpotLocation (f, xpos - 2, dl->ypos + dl->descent - 2);
+#endif /* HAVE_XIM && XIM_XLIB */
 
   bg_pmap = cachel->background_pixmap;
   if (!IMAGE_INSTANCEP (bg_pmap)
@@ -2068,8 +2069,9 @@ x_output_eol_cursor (struct window *w, struct display_line *dl, int xpos,
 
   if (focus)
     {
-#ifdef HAVE_XIM
-      XIM_SetSpotLocation (f, x - 2 , cursor_y + cursor_height - 2);
+#if defined(HAVE_XIM) && defined(XIM_XLIB)
+      if (FRAME_X_XIC(f))
+	XIM_SetSpotLocation (f, x - 2 , cursor_y + cursor_height - 2);
 #endif /* HAVE_XIM */
 
       if (NILP (bar_cursor_value))

@@ -212,6 +212,7 @@ because its `find-charset-string' ignores ASCII charset."
   "Return the octet numbered N (should be 0 or 1) of char CH.
 N defaults to 0 if omitted."
   (let ((split (split-char ch)))
+    (setq n (or n 0))
     (cond ((eq n 0)
 	   (nth 1 split))
 	  ((eq n 1)

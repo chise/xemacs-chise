@@ -72,6 +72,36 @@
 	(ccl_driver): New case lable `CCL_Extention'.
 	(setup_ccl_program): Initialize the member `private_state' of CCL.
 
+1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.18 is released
+
+1999-07-08  SL Baur  <steve@mule.m17n.org>
+
+	* event-Xt.c (handle_focus_event_1): Guard FRAME_X_XIC with
+	XIM_XLIB.
+	(emacs_Xt_handle_magic_event): Ditto.
+	* redisplay-x.c (x_output_string): Ditto.
+	(x_output_eol_cursor): Ditto.
+
+1999-06-30  Kazuyuki IENAGA <kazz@imasy.or.jp>
+
+	*  event-Xt.c, input-method-xlib.c, redisplay-x.c: Avoid the
+	problem that when XIM is destroyed or missed with some reason,
+	xemacs will die.  Now xim=xlib waits the XIM will be ready and
+	endures the case of XIM end up.
+
+1999-07-03  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+        * tooltalk.c (init_tooltalk): save signal actions for SIGQUIT,
+        SIGINT and SIGCHLD before calling tt_open and restore the
+        afterwards. This fixes e.g. the zombie subprocesses on Solaris
+
+1999-07-06  SL Baur  <steve@xemacs.org>
+
+	* s/linux.h: gcc-2.8 changes for powerpc
+	From Justin Vallon <vallon@mindspring.com>
+
 1999-07-05  Didier Verna  <verna@inf.enst.fr>
 
 	* indent.c: new symbol Qcoerce.

@@ -32,7 +32,7 @@
  * Mountain View, California 94043
  */
 
-#pragma ident "@(#) $Id: machdep.h,v 1.3 1997/05/29 04:23:20 steve Exp $ - SMI"
+#pragma ident "@(#) $Id: machdep.h,v 1.2 1995/02/16 22:58:49 georgn Exp $ - SMI"
 
 /*
  * Global include file for all sgs PowerPC machine dependent macros, constants
