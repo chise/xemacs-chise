@@ -3,10 +3,11 @@ define([AC_INIT_NOTICE],
 [#### Configuration script for XEmacs.  Largely divergent from FSF.
 #### Guess values for system-dependent variables and create Makefiles.
 #### Generated automatically using autoconf version] AC_ACVERSION [
-#### Copyright (C) 1992, 93, 94, 95, 96 Free Software Foundation, Inc.
+#### Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000 Free Software Foundation, Inc.
 #### Copyright (C) 1993-1995 Board of Trustees, University of Illinois.
 #### Copyright (C) 1996, 1997 Sun Microsystems, Inc.
 #### Copyright (C) 1995, 1996 Ben Wing.
+#### Copyright (C) 2000, 2001 Martin Buchholz.
 #### Copyright (C) 1998, 1999 J. Kean Johnston.
 
 ### Don't edit this script!
@@ -14,7 +15,8 @@ define([AC_INIT_NOTICE],
 ### from the file `./configure.in'.
 ### To rebuild it, execute the command
 ###	autoconf
-### in the this directory.  You must have autoconf version 2.12 or later.
+### in the this directory.  You must have autoconf version 2.13 or later.
+### Note: this script has not yet been ported to autoconf version 2.5x.
 
 ### This file is part of XEmacs.
 
@@ -50,14 +52,14 @@ dnl configuration code and autoconf macros.
 dnl We use the m4 quoting characters [ ] (as established by the
 dnl autoconf system), so quote them like this: [[foo]]
 
-AC_PREREQ(2.12)dnl
+AC_PREREQ(2.13)dnl
 dnl Redefine some standard autoconf macros
 dnl here is how XEmacs is different:
 dnl - no cache file
 dnl - non-standard options
-dnl - suport for extra-verbosity
+dnl - support for extra-verbosity
 dnl - ordinary libs are handled separately from X libs (might be a mistake)
-dnl - various random kludges (e.g. -with-dnet=no
+dnl - various random kludges (e.g. -with-dnet=no)
 
 dnl PRINT_VAR(var var ...)  prints values of shell variables
 define([PRINT_VAR],[for var in patsubst([$1],[[
@@ -124,7 +126,7 @@ EOF
 
 dnl redefine AC_CHECK_LIB in accordance with our own value of ac_link
 dnl Add in extra kludgy check to support with_dnet=no
-dnl Add in extra LDFLAGS arg, which PRECEDE libs
+dnl Add in extra LDFLAGS arg, which PRECEDES libs
 dnl Support --with-dnet=no
 
 dnl AC_CHECK_LIB(LIBRARY, FUNCTION [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND
@@ -197,7 +199,7 @@ dnl ac_compile='${CC-cc} -c $CFLAGS $CPPFLAGS conftest.$ac_ext 1>&AC_FD_CC'
 dnl ac_link='${CC-cc} -o conftest $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS 1>&AC_FD_CC'
 xe_cppflags='$CPPFLAGS $c_switch_site $c_switch_machine $c_switch_system $c_switch_x_site $X_CFLAGS'
 xe_ldflags='$LDFLAGS $ld_switch_site $ld_switch_machine $ld_switch_system $ld_switch_x_site $ld_switch_run'
-xe_libs='$ld_call_shared $xe_check_libs $X_EXTRA_LIBS $libs_x $X_PRE_LIBS $LIBS $libs_machine $libs_system $libs_standard'
+xe_libs='$ld_call_shared $xe_check_libs $X_EXTRA_LIBS $libs_x $libs_gtk $X_PRE_LIBS $LIBS $libs_machine $libs_system $libs_standard'
 ac_cpp='$CPP '"$xe_cppflags"
 ac_compile='${CC-cc} -c $CFLAGS '"$xe_cppflags"' conftest.$ac_ext 1>&AC_FD_CC'
 ac_link='${CC-cc} -o conftest $CFLAGS '"$xe_cppflags $xe_ldflags"' conftest.$ac_ext '"$xe_libs"' 1>&AC_FD_CC'
@@ -284,29 +286,10 @@ verbose=
 x_includes=NONE
 x_libraries=NONE
 
-dnl Installation directory options.
-dnl These are left unexpanded so users can "make install exec_prefix=/foo"
-dnl and all the variables that are supposed to be based on exec_prefix
-dnl by default will actually change.
-dnl Use braces instead of parens because sh, perl, etc. also accept them.
-dnl If you change these, you need to synchronize with the settings of the
-dnl various ..._USER_DEFINED variables further down.
-bindir='${exec_prefix}/bin'
-sbindir='${exec_prefix}/sbin'
-libexecdir='${exec_prefix}/libexec'
-datadir='${prefix}/share'
-sysconfdir='${prefix}/etc'
-sharedstatedir='${prefix}/com'
-localstatedir='${prefix}/var'
-libdir='${{exec_prefix}}/lib'
-includedir='${prefix}/include'
-oldincludedir='/usr/include'
-infodir='${prefix}/info'
-mandir='${prefix}/man'
-
 dnl Initialize some other variables.
 subdirs=
 MFLAGS= MAKEFLAGS=
+SHELL=${CONFIG_SHELL-/bin/sh}
 dnl Maximum number of lines to put in a shell here document.
 ac_max_here_lines=12
 ])dnl AC_INIT_PARSE_ARGS
@@ -345,35 +328,44 @@ datadir='${prefix}/lib'
 statedir='${prefix}/lib'
 libdir='${exec_prefix}/lib'
 mandir='${prefix}/man/man1'
-infodir='${datadir}/${PROGNAME}-${version}/info'
+inststaticdir='${PROGNAME}'
+instvardir='${PROGNAME}-${version}'
+infodir='${datadir}/${instvardir}/info'
 infopath=''
 install_pp=''
-lispdir='${datadir}/${PROGNAME}-${version}/lisp'
-moduledir='${datadir}/${PROGNAME}-${version}/${configuration}/modules'
-sitelispdir='${datadir}/xemacs/site-lisp'
-sitemoduledir='${datadir}/xemacs/site-modules'
-pkgdir='${datadir}/${PROGNAME}-${version}/lisp'
+lispdir='${datadir}/${instvardir}/lisp'
+moduledir='${libdir}/${instvardir}/${configuration}/modules'
+sitelispdir='${datadir}/${inststaticdir}/site-lisp'
+sitemoduledir='${libdir}/${inststaticdir}/site-modules'
+pkgdir='${datadir}/${instvardir}/lisp'
 package_path=''
-etcdir='${datadir}/${PROGNAME}-${version}/etc'
-lockdir='${statedir}/${PROGNAME}/lock'
-archlibdir='${datadir}/${PROGNAME}-${version}/${configuration}'
+etcdir='${datadir}/${instvardir}/etc'
+archlibdir='${libdir}/${instvardir}/${configuration}'
+docdir='${archlibdir}'
+with_netinstall="no"
+with_prefix='yes'
 with_site_lisp='no'
 with_site_modules='yes'
 with_menubars=''
 with_scrollbars=''
+with_widgets=''
 with_dialogs=''
 with_file_coding=''
-dnl const_is_losing is removed - we rely on AC_C_CONST instead.
-dnl We accept (and ignore) the --const-is-losing option for compatibility.
-dnl const_is_losing='yes'
 cpp='' cppflags='' libs='' ldflags=''
+extra_includes=''
 dynamic=''
 with_x11=''
 with_msw=''
 rel_alloc='default'
 with_system_malloc='default'
 with_dlmalloc='default'
+dnl ESD is associated with crashes and lockups due to incorrect signal use.
+with_esd_sound='no'
 native_sound_lib=''
+dnl These should be set to the empty string when we want gtk / gnome to
+dnl be auto-detected instead of manually specified.
+with_gtk='no'
+with_gnome='no'
 dnl use_assertions should be 'yes' by default.  Too many people in this
 dnl world have core dumps turned off by default or \"cannot find where the
 dnl core file went\".  At least we should get some useful output ...
@@ -383,6 +375,12 @@ with_toolbars=""
 with_tty=""
 use_union_type="no"
 with_dnet=""
+dnl pdump now defaults by opsys
+pdump=''
+dnl dragndrop is still experimental.  When it is stable, comment out the following line:
+with_dragndrop="no"
+dnl Too annoying, even if mandated by IPv6 (and I'm not even sure of that)
+with_ipv6_cname="no"
 
 dnl ------------------
 dnl Options Processing
@@ -463,9 +461,12 @@ while test $# != 0; do
 
       dnl Process (many) boolean options
 	with_site_lisp	| \
-    with_site_modules | \
+	with_prefix	| \
+	with_site_modules | \
 	with_x		| \
 	with_x11	| \
+	with_gtk	| \
+	with_gnome	| \
 	with_msw	| \
 	with_gcc	| \
 	dynamic		| \
@@ -482,7 +483,7 @@ while test $# != 0; do
 	with_jpeg	| \
 	with_png	| \
 	with_tiff	| \
-	with_session	| \
+	with_wmcommand	| \
 	with_xmu	| \
 	with_purify	| \
 	with_quantify	| \
@@ -491,6 +492,8 @@ while test $# != 0; do
 	with_xfs	| \
 	with_i18n3	| \
 	with_mule	| \
+	with_utf_2000	| \
+	with_text_coding| \
 	with_file_coding| \
 	with_canna	| \
 	with_wnn	| \
@@ -499,23 +502,26 @@ while test $# != 0; do
 	with_sparcworks | \
 	with_tooltalk	| \
 	with_ldap	| \
+	with_postgresql	| \
 	with_pop	| \
 	with_kerberos	| \
 	with_hesiod	| \
 	with_dnet	| \
 	with_infodock	| \
+	with_netinstall | \
+	with_ipv6_cname | \
 	external_widget | \
 	verbose		| \
 	extra_verbose	| \
-	const_is_losing | \
 	usage_tracking	| \
 	use_union_type	| \
+	pdump		| \
 	debug		| \
 	use_assertions	| \
 	memory_usage_stats | \
 	with_clash_detection | \
-	with_shlib | \
-	no_doc_file )
+	with_modules | \
+	quick_build )
 	  dnl Make sure the value given was either "yes" or "no".
 	  case "$val" in
 	    y | ye | yes )	val=yes ;;
@@ -574,20 +580,20 @@ while test $# != 0; do
         "with_database" )
 	  with_database_berkdb=no
 	  with_database_dbm=no
-	  with_database_gnudbm=no
+	  with_database_gdbm=no
 	  for x in `echo "$val" | sed -e 's/,/ /g'` ; do
 	    case "$x" in
-		no ) ;;
-		b | be | ber | berk | berkd | berkdb )  with_database_berkdb=yes ;;
-		d | db | dbm )				with_database_dbm=yes    ;;
-		g | gn | gnu | gnud | gnudb | gnudbm )  with_database_gnudbm=yes ;;
-		* ) USAGE_ERROR(["The \`--$optname' option value
+	      no ) ;;
+	      b | be | ber | berk | berkd | berkdb )       with_database_berkdb=yes ;;
+	      d | db | dbm )				   with_database_dbm=yes    ;;
+	      g | gn | gnu | gnud | gnudb | gnudbm | gdbm) with_database_gdbm=yes   ;;
+	      * ) USAGE_ERROR(["The \`--$optname' option value
   must be either \`no' or a comma-separated list
   of one or more of \`berkdb' and either \`dbm' or \`gnudbm'."]) ;;
             esac
 	  done
-	  if test "$with_database_dbm"    = "yes" -a \
-	          "$with_database_gnudbm" = "yes"; then
+	  if test "$with_database_dbm"  = "yes" -a \
+	          "$with_database_gdbm" = "yes"; then
 	  USAGE_ERROR("Only one of \`dbm' and \`gnudbm' may be specified
   with the \`--$optname' option.")
 	  fi
@@ -595,16 +601,55 @@ while test $# != 0; do
 
         dnl Has the user requested sound support?
 	"with_sound" )
-	  dnl value can be native, nas or both. yes is allowed
-	  dnl as a backwards compatible synonym for native
+	dnl values is a subset of all,native,nas,esd
+        dnl or their negatives: none,nonative,nonas,noesd
+	  for x in `echo "$val" | sed -e 's/,/ /g'` ; do
+	    case "$x" in
+	      dnl all and none are only permitted as the first in the list.
+	      n | no | non | none ) new_sdefault=no ;;
+	      a | al | all | both ) new_sdefault=yes ;;
+
+	      native )       with_native_sound=yes ;;
+	      nonative )     with_native_sound=no ;;
+
+	      nas )          with_nas_sound=yes ;;
+	      nonas )        with_nas_sound=no ;;
+
+	      esd )	     with_esd_sound=yes ;;
+	      noesd )        with_esd_sound=no ;;
+
+	      * ) bogus_sound=yes ;;
+	    esac
+	    if test "$bogus_sound" -o \
+	         \( -n "$new_sdefault" -a -n "$sound_notfirst" \) ; then
+		types="\`all', \`none', \`(no)native', \`no(nas)', \`(no)esd'."
+		USAGE_ERROR(["Valid types for the \`--$optname' option are:
+  $types.
+Option \`all' or \`none' must be first in the list.
+The default is to autodetect native and NAS sound support."])
+	    elif test -n "$new_sdefault" ; then
+		with_native_sound=$new_sdefault
+		with_nas_sound=$new_sdefault
+		with_esd_sound=$new_sdefault
+		new_sdefault=	# reset this
+	    fi
+	    sound_notfirst=true
+	  done
+        ;;
+
+        dnl Has the user specified a preferred Athena widget set?
+        dnl This bit expands any alias names out for us...
+        "with_athena" )
 	  case "$val" in
-	    y | ye | yes )			val=native ;;
-	    n | no | non | none )		val=no;;
-	    na | nat | nati | nativ | native )	val=native  ;;
-	    ne | net | neta | netau | netaud | netaudi | netaudio | nas ) val=nas  ;;
-	    b | bo | bot | both )		val=both;;
+            xa | xaw )			  val=xaw    ;;
+            3 | 3d | xaw3d )              val=3d     ;;
+            dnl No `n' for next, someone may try `no'
+            ne | nex | next | naxtaw)     val=next   ;;
+            dnl Have not tested the next two...
+            9 | 95 | xaw95 )              val=95     ;;
+            xp | xpm | xawxpm )           val=xpm    ;;
 	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
-  \`native', \`nas', \`both', or \`none'."]) ;;
+  \`xaw', \`3d', \`next', \`95', or \`xpm'."]) ;;
 	  esac
           eval "$opt=\"$val\""
         ;;
@@ -627,9 +672,10 @@ while test $# != 0; do
 	  case "$val" in
 	    lockf )	val=lockf ;;
 	    flock )	val=flock ;;
-	    file )	val=file  ;;
+	    file | dot ) val=file  ;;
+	    locking )	val=locking  ;;
 	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
-  \`lockf', \`flock', or \`file'."]) ;;
+  \`lockf', \`flock', \`file', \`locking', or \`mmdf'."]) ;;
 	  esac
           eval "$opt=\"$val\""
         ;;
@@ -661,14 +707,20 @@ while test $# != 0; do
 	      malloc )	      error_check_malloc=yes ;;
 	      nomalloc )      error_check_malloc=no ;;
 
+	      byte_code )     error_check_byte_code=yes ;;
+	      nobyte_code )   error_check_byte_code=no ;;
+
+	      glyphs )     error_check_glyphs=yes ;;
+	      noglyphs )   error_check_glyphs=no ;;
+
 	      * ) bogus_error_check=yes ;;
 	    esac
 	    if test "$bogus_error_check" -o \
 	         \( -n "$new_default" -a -n "$echeck_notfirst" \) ; then
 		if test "$error_check_default" = yes ; then
-		  types="\`all' (default), \`none', \`noextents', \`notypecheck', \`nobufpos', \`nogc', and \`nomalloc'."
+		  types="\`all' (default), \`none', \`noextents', \`notypecheck', \`nobufpos', \`nogc', \`nomalloc', \`noglyphs' and \`nobyte-code'."
 		else
-		  types="\`all', \`none' (default), \`extents', \`typecheck', \`bufpos', \`gc', and \`malloc'."
+		  types="\`all', \`none' (default), \`extents', \`typecheck', \`bufpos', \`gc', \`malloc', \`glyphs' and \`byte-code'."
 		fi
 		USAGE_ERROR(["Valid types for the \`--$optname' option are:
   $types."])
@@ -678,6 +730,8 @@ while test $# != 0; do
 		error_check_bufpos=$new_default
 		error_check_gc=$new_default
 		error_check_malloc=$new_default
+		error_check_byte_code=$new_default
+		error_check_glyphs=$new_default
 		new_default=	# reset this
 	    fi
 	    echeck_notfirst=true
@@ -691,8 +745,8 @@ while test $# != 0; do
 
 	dnl Has the user specified one of the path options?
 	prefix | exec_prefix | bindir | datadir | statedir | libdir | \
-	mandir | infodir | infopath | lispdir | etcdir | lockdir | pkgdir | \
-	archlibdir | docdir | package_path )
+	mandir | infodir | infopath | lispdir | etcdir | pkgdir | \
+	archlibdir | docdir | package_path | moduledir )
 	   dnl If the value was omitted, get it from the next argument.
 	   if test "$valomitted" = "yes"; then
 	     if test "$#" = 0; then
@@ -705,6 +759,8 @@ while test $# != 0; do
            dnl You need to synchronize this with the way the
            dnl default values are built.
 	   case "$opt" in
+	     dnl prefix is taken care of by --with-prefix
+	     exec_prefix ) AC_DEFINE(EXEC_PREFIX_USER_DEFINED) ;;
              lispdir ) AC_DEFINE(LISPDIR_USER_DEFINED) ;;
              sitelispdir ) AC_DEFINE(SITELISPDIR_USER_DEFINED) ;;
              moduledir ) AC_DEFINE(MODULEDIR_USER_DEFINED) ;;
@@ -713,11 +769,13 @@ while test $# != 0; do
              infopath ) AC_DEFINE(INFOPATH_USER_DEFINED) ;;
              package_path ) AC_DEFINE(PACKAGE_PATH_USER_DEFINED) ;;
              datadir )
- 	        AC_DEFINE(INFODIR_USER_DEFINED)
- 	        AC_DEFINE(LISPDIR_USER_DEFINED)
-            AC_DEFINE(MODULEDIR_USER_DEFINED)
-	        AC_DEFINE(ETCDIR_USER_DEFINED) ;;
-             statedir | lockdir ) AC_DEFINE(LOCKDIR_USER_DEFINED) ;;
+	        AC_DEFINE(INFODIR_USER_DEFINED)
+	        AC_DEFINE(LISPDIR_USER_DEFINED)
+	        AC_DEFINE(MODULEDIR_USER_DEFINED)
+	        AC_DEFINE(ETCDIR_USER_DEFINED)
+	        AC_DEFINE(DOCDIR_USER_DEFINED)
+                AC_DEFINE(ARCHLIBDIR_USER_DEFINED) ;;
+	     docdir ) AC_DEFINE(DOCDIR_USER_DEFINED) ;;
              exec_prefix | libdir | archlibdir ) AC_DEFINE(ARCHLIBDIR_USER_DEFINED) ;;
            esac
 	;;
@@ -731,21 +789,29 @@ while test $# != 0; do
 	dnl Has the user specified the toolkit(s) to use for GUI elements?
 	"with_menubars"   | \
 	"with_scrollbars" | \
-	"with_dialogs" )
+	"with_dialogs"    | \
+	"with_widgets" )
 	  case "$val" in
 	    l | lu | luc | luci | lucid )		val=lucid  ;;
-	    m | mo | mot | moti | motif )		val=motif  ;;
-	    athena3d | athena-3d )			val=athena3d ;;
+	    mo | mot | moti | motif )			val=motif  ;;
 	    a | at | ath | athe | athen | athena )	val=athena ;;
-	    n | no | non | none )			val=no ;;
+	    n | no | non | none )			val=no     ;;
+	    y | ye | yes )				val=yes    ;;
+	    dnl Explicit --with-widgets on command line means yes.
+            "")						val=yes    ;;
+	    g | gt | gtk )				val=gtk    ;;
+	    ms | msw )					val=msw    ;;
 	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
-  \`lucid', \`motif', \`athena', \`athena3d', or \`no'."]) ;;
+  \`gtk', \`lucid', \`motif', \`athena', \`yes', or \`no'."]) ;;
 	  esac
 	  eval "$opt=\"$val\""
 	;;
 
 	dnl Obsolete legacy argument?  Warn, but otherwise ignore.
+	"use_minimal_tagbits" | \
+	"use_indexed_lrecord_implementation" | \
 	"run_in_place"	| \
+	"const_is_losing" | \
 	"with_gnu_make" )
 	  AC_MSG_WARN([Obsolete option \`--$optname' ignored.])
 	;;
@@ -851,7 +917,7 @@ dnl is still relative.  We do not symlink lock because someone may
 dnl have stuck the source on a read-only partition.  Instead we
 dnl create it as an actual directory later on if it does not already
 dnl exist.
-for dir in lisp etc man info; do
+for dir in lisp etc man info tests; do
   if test ! -d "$dir" ; then
     echo Making symbolic link to "$srcdir/$dir"
     ${LN_S} "$srcdir/$dir" "$dir"
@@ -909,20 +975,25 @@ dnl Find out which version of XEmacs this is
 dnl ----------------------------------------
 . "$srcdir/version.sh" || exit 1;
 dnl Must do the following first to determine verbosity for AC_DEFINE
-if test -n "$emacs_beta_version"; then beta=yes; else beta=no; fi
+if test -n "$emacs_is_beta"; then beta=yes; else beta=no; fi
 : "${extra_verbose=$beta}"
 version="${emacs_major_version}.${emacs_minor_version}"
 AC_DEFINE_UNQUOTED(EMACS_MAJOR_VERSION, $emacs_major_version)
 AC_DEFINE_UNQUOTED(EMACS_MINOR_VERSION, $emacs_minor_version)
-if test -n "$emacs_beta_version"; then
-  version="${version}-b${emacs_beta_version}"
-  AC_DEFINE_UNQUOTED(EMACS_BETA_VERSION, $emacs_beta_version)
+if test -n "$emacs_beta_version" ; then
+  if test "$beta" = "yes"; then
+  	version="${version}-b${emacs_beta_version}"
+  	AC_DEFINE_UNQUOTED(EMACS_BETA_VERSION, $emacs_beta_version)
+  else
+	version="${version}.${emacs_beta_version}"
+	AC_DEFINE_UNQUOTED(EMACS_PATCH_LEVEL, $emacs_beta_version)
+  fi
 fi
 AC_DEFINE_UNQUOTED(XEMACS_CODENAME, "$xemacs_codename")
 AC_DEFINE_UNQUOTED(EMACS_VERSION, "$version")
 
 if test "$with_infodock" = "yes"; then
-  if test ! -f ../ID-INSTALL; then
+  if test ! -f ../../ID-INSTALL; then
     echo "Cannot build InfoDock without InfoDock sources"
     with_infodock=no
   fi
@@ -941,23 +1012,28 @@ else
   PROGNAME=xemacs
 fi
 
+AC_DEFINE_UNQUOTED(EMACS_PROGNAME, "$PROGNAME")
+
 dnl ----------------------------------
 dnl Error checking and debugging flags
 dnl ----------------------------------
 dnl Error checking default to "yes" in beta versions, to "no" in releases.
 dnl Same goes for --debug and --extra-verbosity.
-if test -n "$emacs_beta_version"; then beta=yes; else beta=no; fi
+if test -n "$emacs_is_beta"; then beta=yes; else beta=no; fi
 test "${error_check_extents=$beta}"   = yes && AC_DEFINE(ERROR_CHECK_EXTENTS)
 test "${error_check_typecheck=$beta}" = yes && AC_DEFINE(ERROR_CHECK_TYPECHECK)
 test "${error_check_bufpos=$beta}"    = yes && AC_DEFINE(ERROR_CHECK_BUFPOS)
 test "${error_check_gc=$beta}"        = yes && AC_DEFINE(ERROR_CHECK_GC)
 test "${error_check_malloc=$beta}"    = yes && AC_DEFINE(ERROR_CHECK_MALLOC)
+test "${error_check_byte_code=$beta}" = yes && AC_DEFINE(ERROR_CHECK_BYTE_CODE)
+test "${error_check_glyphs=$beta}" = yes && AC_DEFINE(ERROR_CHECK_GLYPHS)
 dnl debug=yes must be set when error checking is present.  This should be
 dnl fixed up.
 dnl debug implies other options
 if test "${debug:=$beta}" = "yes"; then
   use_assertions=yes memory_usage_stats=yes
   XE_ADD_OBJS(debug.o)
+  XE_ADD_OBJS(tests.o)
   AC_DEFINE(DEBUG_XEMACS)
 fi
 test "$use_assertions"     = "yes" && AC_DEFINE(USE_ASSERTIONS)
@@ -1009,7 +1085,9 @@ case "$canonical" in
   alpha*-*-*       ) machine=alpha ;;
   vax-*-*          ) machine=vax ;;
   mips-dec-*       ) machine=pmax ;;
+  mips-sgi-irix6*  ) machine=iris6d ;;
   mips-sgi-*       ) machine=iris4d ;;
+  mips*-linux      ) machine=mips ;;
   romp-ibm-*       ) machine=ibmrt ;;
   rs6000-ibm-aix*  ) machine=ibmrs6000 ;;
   powerpc-ibm-aix* ) machine=ibmrs6000 ;;
@@ -1019,7 +1097,7 @@ case "$canonical" in
   m68*-sony-*      ) machine=news ;;
   mips-sony-*      ) machine=news-risc ;;
   clipper-*        ) machine=clipper ;;
-  arm-*            ) machine=arm ;;
+  arm*             ) machine=arm ;;
   ns32k-*          ) machine=ns32000 ;;
 esac
 
@@ -1036,7 +1114,7 @@ case "$canonical" in
   *-dec-osf1.2 | *-dec-osf1* ) opsys=decosf1-2 ;;
   *-dec-osf3.[[2-9]]         ) opsys=decosf3-2 ;;
   *-dec-osf3*                ) opsys=decosf3-1 ;;
-  *-dec-osf4*                ) opsys=decosf4-0 ;;
+  *-dec-osf[[4-9]]*          ) opsys=decosf4-0 ;;
 
   dnl DEC Ultrix
   *-*-ultrix[[0-3]].* | *-*-ultrix4.0* ) opsys=bsd4-2 ;;
@@ -1138,6 +1216,12 @@ case "$canonical" in
 
   dnl Cubix QBx/386
   i[[3-9]]86-cubix-sysv* ) machine=intel386 opsys=usg5-3 ;;
+
+  dnl Darwin, a.k.a. MacOS X (based on Mach and Freebsd)
+  *-*-darwin*)
+    opsys=darwin
+    RANLIB="ranlib -c" dnl Avoids a link error with lwlib-config.c
+    ;;
 
   dnl Data General AViiON Machines
   i586-dg-dgux*R4*   | i586-dg-dgux5.4.4* ) machine=aviion opsys=dgux5-4r4 ;;
@@ -1451,18 +1535,8 @@ case "$canonical" in
       *-bsdi3* )		opsys=bsdos3 ;;
       *-bsdi2.1* )		opsys=bsdos2-1 ;;
       *-bsdi2* )		opsys=bsdos2 ;;
-      *-sco3.2v5* )		opsys=sco5 ;
-	dnl This is a pain.  Like the current USL cc, SCO cc -E
-	dnl tokenizes as it preprocesses, making configure very
-	dnl unhappy.  Unfortunately, /lib/cpp does not understand
-	dnl flags like "-b elf", so we have to cheat in order to
-	dnl pick up the right defines for UNEXEC from the s-file.
-	dnl 01/05/95 robertl@dgii.com
-	if test "$dynamic" = "yes" ; then
-		NON_GNU_CPP="/lib/cpp -D_XOPEN_SOURCE -D_SCO_ELF"  ;
-	else
-		NON_GNU_CPP="/lib/cpp -D_XOPEN_SOURCE"  ;
-	fi ;;
+      *-sco3.2v5* )		opsys=sco5 ;;
+      *-sysv5* )		opsys=sco7 ;;
       *-386bsd* )	        opsys=386bsd ;;
       *-freebsd* )		opsys=freebsd ;;
       *-nextstep* )		opsys=nextstep ;;
@@ -1478,11 +1552,39 @@ case "$canonical" in
 
 esac
 
-if test -z "$machine" -o -z "$opsys"; then
-  (echo "$progname: XEmacs hasn't been ported to \`$canonical' systems."
-   echo "$progname: Check \`etc/MACHINES' for recognized configuration names."
-  ) >&2
-  exit 1
+dnl Initialize machine from $canonical if not in our database above.
+test -z "$machine" && machine=`echo $canonical | sed 's/-.*$//'`
+
+dnl Initialize opsys from `uname -s` if not in our database above.
+test -z "$opsys"   && opsys=`uname -s | tr ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz`
+
+dnl Use configure-time autodetection if s&m not available
+if test -r "${srcdir}/src/m/${machine}.h"; then
+  machfile="m/${machine}.h"
+  AC_DEFINE_UNQUOTED(config_machfile, "$machfile")
+else
+  echo "XEmacs has no builtin knowledge of \`$machine' machines."
+  echo "Using configure-time autodetection only."
+fi
+
+if test -r "${srcdir}/src/s/${opsys}.h"; then
+  opsysfile="s/${opsys}.h"
+  AC_DEFINE_UNQUOTED(config_opsysfile, "$opsysfile")
+else
+  echo "XEmacs has no builtin knowledge of \`$opsys' operating systems."
+  echo "Using configure-time autodetection only."
+fi
+
+dnl --------------------------------------------------------------
+dnl $opsys detection complete; defaults depending on $opsys follow
+dnl --------------------------------------------------------------
+
+if test -z "$pdump"; then
+  case "$opsys" in
+    linux* )      pdump=yes ;;    dnl glibc 2.3.1 seems to hose unexec
+    *-*-darwin* ) pdump=yes ;;    dnl No "native" working dumper available
+    *)            pdump=no ;;
+  esac
 fi
 
 if test -z "$dynamic"; then
@@ -1513,9 +1615,6 @@ case "$opsys" in aix*) NON_GNU_CC=xlc ;; esac
 stack_trace_eye_catcher=`echo ${PROGNAME}_${version}_${canonical} | sed 'y/.-/__/'`
 AC_DEFINE_UNQUOTED(STACK_TRACE_EYE_CATCHER, $stack_trace_eye_catcher)
 
-machfile="m/${machine}.h"
-opsysfile="s/${opsys}.h"
-
 dnl --------------------------------------------------
 dnl Determine the compiler, set up for feature testing
 dnl --------------------------------------------------
@@ -1528,7 +1627,7 @@ if test "$with_workshop" = "yes"; then
   XE_ADD_OBJS(sunpro.o)
 fi
 
-if test "$with_clash_detection" = "yes"; then
+if test "$with_clash_detection" != "no"; then
   AC_DEFINE(CLASH_DETECTION)
   XE_ADD_OBJS(filelock.o)
 fi
@@ -1575,7 +1674,14 @@ test -n "$NON_GNU_CPP" -a "$GCC" != "yes" -a -z "$CPP" && CPP="$NON_GNU_CPP"
 
 AC_PROG_CPP
 
-AC_AIX
+dnl --------------------------------------------------------------------
+dnl Compiler feature macros
+dnl --------------------------------------------------------------------
+
+AC_AIX dnl Defines _ALL_SOURCE on AIX.
+
+dnl We want feature macros defined here *and* in config.h.in, so that
+dnl the compilation environment at configure time and compile time agree.
 
 AC_MSG_CHECKING(for GNU libc)
 AC_TRY_COMPILE([#include <features.h>],[
@@ -1589,6 +1695,23 @@ dnl I'm tired of pop being broken with GLIBC -slb
 dnl Well. then why not fix fucking pop?
 test "$have_glibc" = "yes" && AC_DEFINE(_GNU_SOURCE)
 
+dnl We'd like to use vendor extensions, where available.
+dnl We'd like to use functions from the latest Unix98 standards.
+dnl See http://www.opengroup.org/onlinepubs/007908799/xsh/compilation.html
+case "$opsys" in
+  sol2)
+   AC_DEFINE(__EXTENSIONS__)
+   dnl Solaris 2 before 2.5 had some bugs with feature test macro interaction.
+   if test "$os_release" -ge 55; then
+     AC_DEFINE(_XOPEN_SOURCE,500)
+     AC_DEFINE(_XOPEN_SOURCE_EXTENDED)
+   fi ;;
+  linux)
+    AC_DEFINE(_POSIX_C_SOURCE,199506L)
+    AC_DEFINE(_XOPEN_SOURCE,500)
+    AC_DEFINE(_XOPEN_SOURCE_EXTENDED)
+    ;;
+esac
 
 dnl Identify compilers to enable compiler-specific hacks.
 dnl Add support for other compilers HERE!
@@ -1598,6 +1721,8 @@ AC_TRY_RUN([int main () {
 return 11;
 #elif defined __DECC
 return 12;
+#elif defined __USLC__ && defined __SCO_VERSION__
+return 13;
 #else
 return 0;
 #endif
@@ -1605,6 +1730,7 @@ return 0;
 [case "$conftest_rc" in
   11) echo "You appear to be using the SunPro C compiler."; __SUNPRO_C=yes ;;
   12) echo "You appear to be using the DEC C compiler."   ; __DECC=yes ;;
+  13) echo "You appear to be using the SCO C compiler."   ; __USLC__=yes ;;
 esac])
 
 
@@ -1640,7 +1766,8 @@ configure___ [$2]=no
 [#]endif
 ])dnl CPP_boolean_to_sh
 
-cat > $tempcname <<EOF
+cat > $tempcname < confdefs.h
+cat >> $tempcname <<EOF
 #define NOT_C_CODE
 #define C_SWITCH_SITE
 #define C_SWITCH_X_SITE
@@ -1648,8 +1775,14 @@ cat > $tempcname <<EOF
 #define LD_SWITCH_X_SITE
 #define LD_SWITCH_X_SITE_AUX
 #define OS_RELEASE $os_release
+
+#ifdef config_opsysfile
 #include "$srcdir/src/$opsysfile"
+#endif
+
+#ifdef config_machfile
 #include "$srcdir/src/$machfile"
+#endif
 
 CPP_to_sh(LIBS_MACHINE, libs_machine)
 CPP_to_sh(LIBS_SYSTEM,  libs_system)
@@ -1669,8 +1802,11 @@ CPP_to_sh(UNEXEC, unexec, unexec.o)
 
 CPP_to_sh(LD_SWITCH_SHARED, ld_switch_shared, -c)
 
+#define ORDINARY_LD "\$(CC) \$(CFLAGS)"
+configure___ ordinary_ld=ORDINARY_LD
+
 #ifdef ORDINARY_LINK
-#define LD "\$(CC) \$(CFLAGS)"
+#define LD ORDINARY_LD
 #else /* no ORDINARY LINK */
 #ifdef COFF_ENCAPSULATE
 #define LD "\$(CC) -nostdlib"
@@ -1706,8 +1842,10 @@ configure___ start_files=START_FILES
 CPP_boolean_to_sh(ORDINARY_LINK, ordinary_link)
 CPP_boolean_to_sh(SYSTEM_MALLOC, system_malloc)
 CPP_boolean_to_sh(TERMINFO, have_terminfo)
+dnl The MAIL_USE_xxx variables come from the s&m headers
 CPP_boolean_to_sh(MAIL_USE_FLOCK, mail_use_flock)
 CPP_boolean_to_sh(MAIL_USE_LOCKF, mail_use_lockf)
+CPP_boolean_to_sh(MAIL_USE_LOCKING, mail_use_locking)
 CPP_boolean_to_sh(HAVE_WIN32_PROCESSES, win32_processes)
 EOF
 
@@ -1722,6 +1860,15 @@ changequote([, ])dnl
 
 rm $tempcname
 
+if test "$pdump" = "yes"; then
+  ordinary_link="yes"
+  ld="${ordinary_ld}"
+  start_files=
+  libs_standard=
+  unexec=
+  lib_gcc=
+fi
+
 dnl For debugging...
 test "$extra_verbose" = "yes" && \
   PRINT_VAR(libs_machine libs_system libs_termcap libs_standard
@@ -1730,20 +1877,62 @@ test "$extra_verbose" = "yes" && \
   ld lib_gcc ld_text_start_addr start_files ordinary_link
   have_terminfo mail_use_flock mail_use_lockf) && echo ""
 
+dnl Pick up mingw include path
+dnl We only cope with headers in mingw, not mingw32: no previous version of
+dnl XEmacs supported mingw and cygnus have made this incompatible change
+dnl so we just go with the flow.
+case "$opsys" in mingw* | cygwin*)
+  cygwin_include=`eval "gcc -print-file-name=libc.a"` ;
+  cygwin_include=`eval "dirname $cygwin_include"` ;
+  cygwin_include="-I$cygwin_include/../include" ;
+  extra_includes="$cygwin_include/mingw $cygwin_include" ;
+  case "$opsys" in mingw*)
+    XE_APPEND($extra_includes, c_switch_system) ;;
+  esac
+  ;;
+esac
+
 dnl Non-ordinary link usually requires -lc
 test "$ordinary_link" = "no" -a -z "$libs_standard" && libs_standard="-lc"
 
+dnl -----------------------
 dnl Compiler-specific hacks
-dnl DEC C requires -std
-test "$__DECC" = "yes" && XE_APPEND(-std, c_switch_site)
+dnl -----------------------
 
-dnl Calculalate value of CFLAGS:
+dnl DEC C `-std1' means ANSI C mode
+test "$__DECC" = "yes" && XE_APPEND(-std1, c_switch_site)
+
+dnl Some versions of SCO native compiler need -Kalloca
+if test "$__USLC__" = yes; then
+  AC_MSG_CHECKING(for whether the -Kalloca compiler flag is needed)
+  need_kalloca=no
+  AC_TRY_LINK([], [void *x = alloca(4);], [:], [
+    xe_save_c_switch_system="$c_switch_system"
+    c_switch_system="$c_switch_system -Kalloca"
+    AC_TRY_LINK([], [void *x = alloca(4);], [ need_kalloca=yes ])
+    c_switch_system="$xe_save_c_switch_system"])
+  AC_MSG_RESULT($need_kalloca)
+  test "$need_kalloca" = "yes" && XE_APPEND(-Kalloca,c_switch_system)
+fi
+
+dnl Calculate value of CFLAGS:
 dnl Use either command line flag, environment var, or autodetection
 if test "$cflags_specified" = "no"; then
   dnl Following values of CFLAGS are known to work well.
   dnl Should we take debugging options into consideration?
   if   test "$GCC" = "yes"; then
-    CFLAGS="-g -O3 -Wall -Wno-switch"
+    CFLAGS="-g -O3 -Wall -Wno-switch -Winline -Wmissing-prototypes"
+    dnl Yuck, bad compares have been worth at least 3 crashes!
+    CFLAGS="$CFLAGS -Wsign-compare"
+    dnl You get five zillion shadowing warnings with g++.
+    dnl Even with gcc, -Wshadow is questionable because of its complaints
+    dnl about parameters with the same names as global functions.
+    if test "$xemacs_compiler" != "g++"; then
+      CFLAGS="$CFLAGS -Wshadow"
+    fi
+    dnl glibc is intentionally not `-Wpointer-arith'-clean.
+    dnl Ulrich Drepper has rejected patches to fix the glibc header files.
+    test "$have_glibc" != "yes" && CFLAGS="$CFLAGS -Wpointer-arith"
     dnl I'm not convinced this is a good idea any more. -sb
     dnl test "$opsys $machine" = "linux intel386" && \
     dnl CFLAGS="$CFLAGS -fno-strength-reduce -malign-loops=2 -malign-jumps=2 -malign-functions=2"
@@ -1762,6 +1951,85 @@ if test "$cflags_specified" = "no"; then
   fi
 fi
 
+dnl Search for GCC specific build problems we know about
+if test "$GCC" = "yes"; then
+AC_MSG_CHECKING(for buggy gcc versions)
+GCC_VERSION=`$CC --version`
+case `uname -s`:`uname -m`:$GCC_VERSION in
+	dnl egcs 2.90.21 (egcs-1.00 release)
+	dnl egcs 2.90.29 (egcs-1.0.3 release)
+    *:sun4*:2.8.1|*:sun4*:egcs-2.90.*)
+        dnl Don't use -O2 with gcc 2.8.1 and egcs 1.0 under SPARC architectures
+        dnl without also using `-fno-schedule-insns'.
+        case "$CFLAGS" in
+            *-O2*|*-O3*)
+                case "$CFLAGS" in
+                    *-fno-schedule-insns*) ;;
+                    *)
+                        AC_MSG_RESULT(yes)
+                        AC_MSG_WARN(Don't use -O2 with gcc 2.8.1 and egcs 1.0 under SPARC architectures)
+                        AC_MSG_WARN(without also using -fno-schedule-insns.)
+                        AC_MSG_ERROR(Aborting due to known problem)
+                        ;;
+                esac
+                ;;
+        esac
+        ;;
+	dnl egcs-2.91.57 (egcs-1.1 release)
+	dnl egcs-2.91.66 (egcs-1.1.2 release)
+    Linux:alpha:egcs-2.91.*)
+        AC_MSG_RESULT(yes)
+        AC_MSG_WARN(There have been reports of egcs-1.1 not compiling XEmacs correctly on)
+        AC_MSG_WARN(Alpha Linux.  There have also been reports that egcs-1.0.3a is O.K.)
+        AC_MSG_ERROR(Aborting due to known problem)
+        ;;
+    *:i*86*:2.7.2*)
+	case "$CFLAGS" in
+            *-O2*|*-O3*)
+		case "$GCC_VERSION" in
+		    2.7.2)
+                	case "$CFLAGS" in
+	                    *-fno-strength-reduce*) ;;
+        	            *)
+                                AC_MSG_RESULT(yes)
+                      	        AC_MSG_WARN(Don't use -O2 with gcc 2.7.2 under Intel/XXX without also using)
+	                        AC_MSG_WARN(-fno-strength-reduce.)
+        	                AC_MSG_ERROR(Aborting due to known problem)
+	                        ;;
+	                esac
+	                ;;
+		esac
+	        case "$CFLAGS" in
+		 *-fno-caller-saves*) ;;
+		 *)
+	            AC_MSG_RESULT(yes)
+		    AC_MSG_WARN(Don't use -O2 with gcc 2.7.2 under Intel/XXX without also using)
+		    AC_MSG_WARN(-fno-caller-saves.)
+	            AC_MSG_ERROR(Aborting due to known problem)
+		    ;;
+	        esac
+		;;
+	esac
+	;;
+esac
+AC_MSG_RESULT(no)
+fi
+
+dnl GNU ld now defaults to combreloc, which screws up unexec, but not pdump.
+dnl Note that it's OK if the GNU style long option causes non-GNU ld to barf
+dnl a usage message, that's often good enough.  Please report it, though.
+dnl #### Should make this Solaris-friendly.
+dnl Link with -z nocombreloc for now.
+if test "$pdump" != "yes"; then
+  AC_MSG_CHECKING(for \"-z nocombreloc\" linker flag)
+  case "`ld --help 2>&1`" in
+    *-z\ nocombreloc* ) AC_MSG_RESULT(yes)
+      XE_PREPEND(-z nocombreloc, ld_switch_site) ;;
+    *) AC_MSG_RESULT(no) ;;
+  esac
+fi
+
+
 dnl Inform compiler that certain flags are meant for the linker
 dnl XE_PROTECT_LINKER_FLAGS(shell_var)
 define([XE_PROTECT_LINKER_FLAGS], [
@@ -1779,13 +2047,15 @@ if test "$GCC" = "yes"; then
 fi])dnl
 XE_PROTECT_LINKER_FLAGS(ld_switch_system)
 XE_PROTECT_LINKER_FLAGS(ld_switch_machine)
+XE_PROTECT_LINKER_FLAGS(ld_switch_site)
 XE_PROTECT_LINKER_FLAGS(LDFLAGS)
 XE_PROTECT_LINKER_FLAGS(ld_call_shared)
 
 dnl Add s&m-determined objects (including unexec) to link line
 test -n "$objects_machine" && XE_ADD_OBJS($objects_machine)
 test -n "$objects_system"  && XE_ADD_OBJS($objects_system)
-test -n "$unexec"          && XE_ADD_OBJS($unexec)
+test -n "$unexec"          && test ! "$pdump" = "yes" && XE_ADD_OBJS($unexec)
+test "$pdump" = "yes" && XE_ADD_OBJS(dumper.o)
 
 dnl Dynodump (Solaris 2.x, x<6)
 AC_MSG_CHECKING(for dynodump)
@@ -1882,16 +2152,16 @@ dnl site-includes and site-libraries.
 COLON_TO_SPACE(site_prefixes)
 if test -n "$site_prefixes"; then
   for dir in $site_prefixes; do
-    inc_dir="${dir}/include"
     lib_dir="${dir}/lib"
+    inc_dir="${dir}/include"
     if test ! -d "$dir"; then
       XE_DIE("Invalid site prefix \`$dir': no such directory")
-    elif test ! -d "$inc_dir"; then
-      XE_DIE("Invalid site prefix \`$dir': no such directory \`$inc_dir'")
     elif test ! -d "$lib_dir"; then
       XE_DIE("Invalid site prefix \`$dir': no such directory \`$lib_dir'")
     else
-      XE_APPEND("-I$inc_dir", c_switch_site)
+      if test -d "$inc_dir"; then
+	XE_APPEND("-I$inc_dir", c_switch_site)
+      fi
       XE_APPEND("-L$lib_dir", ld_switch_site)
     fi
   done
@@ -1905,7 +2175,7 @@ dnl fi
 
 dnl Extra system-specific library directories - please add to list
 for dir in "/usr/ccs/lib"; do
-  test -d "$dir" && XE_APPEND(-L${dir}, ld_switch_site)
+  test -d "$dir" && XE_APPEND(-L${dir}, ld_switch_system)
 done
 
 dnl --site-runtime-libraries (multiple dirs)
@@ -1915,11 +2185,31 @@ if test -n "$site_runtime_libraries"; then
   export LD_RUN_PATH
 fi
 
+dnl Linux systems have dynamic runtime library directories listed in
+dnl /etc/ld.so.conf.  Since those are used at run time, it seems pretty
+dnl safe to use them at link time, and less controversial than forcing
+dnl the run-time to use the link-time libraries.  This also helps avoid
+dnl mismatches between the link-time and run-time libraries.
+
+dnl #### Unfortunately, there are horrible libc4 and libc5 libraries
+dnl listed in /etc/ld.so.conf on some systems, and including them on
+dnl the link path leads to linking in utterly broken libc's.
+dnl There are many clever ways of approaching this problem,
+dnl but finding one that actually works...
+
+dnl if test -z "$LD_RUN_PATH" -a -r "/etc/ld.so.conf"; then
+dnl   for dir in `cat /etc/ld.so.conf`; do
+dnl     test -d "$dir" && XE_APPEND(-L${dir}, ld_switch_system)
+dnl   done
+dnl   add_runtime_path=no
+dnl fi
+
 dnl -------------------------------------
 dnl Compute runtime library path
 dnl -------------------------------------
 
-if   test "$dynamic" = "no"; then add_runtime_path=no
+if test -n "$add_runtime_path"; then :;
+elif test "$dynamic" = "no"; then add_runtime_path=no
 elif test -n "$LD_RUN_PATH"; then add_runtime_path=yes
 else case "$opsys" in
        sol2 | irix* | *bsd* | decosf* ) add_runtime_path=yes ;;
@@ -2021,9 +2311,6 @@ fi
 ])dnl
 XE_COMPUTE_RUNPATH()
 
-dnl JKJ REMOVEME
-dnl XE_SHLIB_STUFF
-
 dnl -----------------------------------
 dnl Do some misc autoconf-special tests
 dnl -----------------------------------
@@ -2037,7 +2324,6 @@ else
 	doug_lea_malloc=no
 fi
 after_morecore_hook_exists=yes
-AC_CHECK_FUNC(malloc_get_state, ,doug_lea_malloc=no)
 AC_CHECK_FUNC(malloc_set_state, ,doug_lea_malloc=no)
 AC_MSG_CHECKING(whether __after_morecore_hook exists)
 AC_TRY_LINK([extern void (* __after_morecore_hook)();],[__after_morecore_hook = 0],
@@ -2047,29 +2333,26 @@ AC_TRY_LINK([extern void (* __after_morecore_hook)();],[__after_morecore_hook = 
 if test "$system_malloc" = "yes" ; then
   GNU_MALLOC=no
   GNU_MALLOC_reason="
-  (The GNU allocators don't work with this system configuration)."
+    - The GNU allocators don't work with this system configuration."
 elif test "$with_system_malloc" = "yes" ; then
   GNU_MALLOC=no
   GNU_MALLOC_reason="
-  (User chose not to use GNU allocators)."
+    - User chose not to use GNU allocators."
 elif test "$with_debug_malloc" = "yes" ; then
   GNU_MALLOC=no
   GNU_MALLOC_reason="
-  (User chose to use Debugging Malloc)."
+    - User chose to use Debugging Malloc."
 fi
 
-if test "$doug_lea_malloc" = "yes" ; then
-  if test "$GNU_MALLOC" = yes ; then
-    GNU_MALLOC_reason="
-  (Using Doug Lea's new malloc from the GNU C Library.)"
-  fi
+if test "$doug_lea_malloc" = "yes" -a "$GNU_MALLOC" = "yes" ; then
+  GNU_MALLOC_reason="
+    - Using Doug Lea's new malloc from the GNU C Library."
   AC_DEFINE(DOUG_LEA_MALLOC)
   if test "$after_morecore_hook_exists" = "no" ; then
     GNU_MALLOC_reason="
-  (Using Doug Lea's new malloc from the Linux C Library.)"
+    - Using Doug Lea's new malloc from the Linux C Library."
     AC_DEFINE(_NO_MALLOC_WARNING_)
   fi
-  use_minimal_tagbits=yes
 fi
 
 dnl #### mcheck is broken in all versions of Linux libc and glibc.
@@ -2098,32 +2381,45 @@ AC_PROG_INSTALL
 AC_PROG_YACC
 
 dnl checks for header files
-AC_CHECK_HEADERS(mach/mach.h sys/stropts.h sys/timeb.h sys/time.h unistd.h)
-AC_CHECK_HEADERS(utime.h locale.h libgen.h fcntl.h ulimit.h cygwin/version.h)
-AC_CHECK_HEADERS(kstat.h sys/pstat.h inttypes.h sys/un.h a.out.h)
+AC_CHECK_HEADERS(dnl
+  a.out.h dnl
+  elf.h dnl
+  cygwin/version.h dnl
+  fcntl.h dnl
+  inttypes.h dnl
+  libgen.h dnl
+  locale.h dnl
+  mach/mach.h dnl
+  sys/param.h dnl
+  sys/pstat.h dnl
+  sys/time.h dnl
+  sys/timeb.h dnl
+  sys/un.h dnl
+  ulimit.h dnl
+  unistd.h dnl
+)
 AC_HEADER_SYS_WAIT
 AC_HEADER_STDC
 AC_HEADER_TIME
 AC_DECL_SYS_SIGLIST
 
-dnl Some systems have utime.h but do not declare the struct anyplace.
-AC_MSG_CHECKING(for struct utimbuf)
-AC_TRY_COMPILE([#ifdef TIME_WITH_SYS_TIME
-#include <sys/time.h>
-#include <time.h>
-#else
-#ifdef HAVE_SYS_TIME_H
-#include <sys/time.h>
-#else
-#include <time.h>
-#endif
-#endif
-#ifdef HAVE_UTIME_H
-#include <utime.h>
-#endif], [static struct utimbuf x; x.actime = x.modtime;],
+
+dnl ----------------------------------------------------------------
+dnl Checking for utime() or utimes().
+dnl We prefer utime, since it is more standard.
+dnl Some systems have utime.h but do not declare the struct anyplace,
+dnl so we use a more sophisticated test for utime than AC_CHECK_FUNCS.
+dnl ----------------------------------------------------------------
+AC_MSG_CHECKING(for utime)
+AC_TRY_COMPILE([#include <sys/types.h>
+#include <utime.h>],
+[struct utimbuf x; x.actime = x.modtime = 0; utime ("/", &x);],
   [AC_MSG_RESULT(yes)
-   AC_DEFINE(HAVE_STRUCT_UTIMBUF)],
-  AC_MSG_RESULT(no))
+   AC_DEFINE(HAVE_UTIME)],
+  [AC_MSG_RESULT(no)
+   dnl We don't have utime(); how about utimes()?
+   AC_CHECK_FUNCS(utimes)])
+
 
 dnl checks for typedefs
 AC_TYPE_SIGNAL
@@ -2132,6 +2428,22 @@ AC_TYPE_PID_T
 AC_TYPE_UID_T
 AC_TYPE_MODE_T
 AC_TYPE_OFF_T
+AC_CHECK_TYPE(ssize_t, int)
+
+dnl check for Unix98 socklen_t
+AC_MSG_CHECKING(for socklen_t)
+AC_TRY_COMPILE([#include <sys/types.h>
+#include <sys/socket.h>
+socklen_t x;
+],[],[AC_MSG_RESULT(yes)],[
+AC_TRY_COMPILE([#include <sys/types.h>
+#include <sys/socket.h>
+int accept (int, struct sockaddr *, size_t *);
+],[],[
+AC_MSG_RESULT(size_t)
+AC_DEFINE(socklen_t,size_t)], [
+AC_MSG_RESULT(int)
+AC_DEFINE(socklen_t,int)])])
 
 AC_MSG_CHECKING(for struct timeval)
 AC_TRY_COMPILE([#ifdef TIME_WITH_SYS_TIME
@@ -2191,18 +2503,41 @@ AC_TRY_LINK([#include <math.h>],
 
 dnl Determine type of mail locking from configure args and s&m headers
 AC_CHECKING(type of mail spool file locking)
+AC_CHECK_FUNCS(lockf flock)
+dnl The mail_use_xxx variables are set according to the s&m headers.
 test -z "$mail_locking" -a "$mail_use_flock" = "yes" && mail_locking=flock
 test -z "$mail_locking" -a "$mail_use_lockf" = "yes" && mail_locking=lockf
-if   test "$mail_locking" = "lockf"; then AC_DEFINE(REAL_MAIL_USE_LOCKF)
-elif test "$mail_locking" = "flock"; then AC_DEFINE(REAL_MAIL_USE_FLOCK)
-else mail_locking="dot-locking"
+test -z "$mail_locking" -a "$mail_use_locking" = "yes" && mail_locking=locking
+if   test -z "$mail_locking"; then
+  case "$opsys" in cygwin* | mingw*)
+    mail_locking=pop ;;
+  esac
 fi
+
+if   test "$mail_locking" = "lockf"; then AC_DEFINE(MAIL_LOCK_LOCKF)
+elif test "$mail_locking" = "flock"; then AC_DEFINE(MAIL_LOCK_FLOCK)
+elif test "$mail_locking" = "locking"; then AC_DEFINE(MAIL_LOCK_LOCKING)
+elif test "$mail_locking" = "pop"; then
+  with_pop=yes
+  mail_locking=
+else mail_locking="dot-locking"; AC_DEFINE(MAIL_LOCK_DOT)
+fi
+test "$mail_locking" = "lockf" -a "$ac_cv_func_lockf" != "yes" && \
+  XE_DIE("lockf mail locking requested but not available.")
+test "$mail_locking" = "flock" -a "$ac_cv_func_flock" != "yes" && \
+  XE_DIE("flock mail locking requested but not available.")
+test "$mail_locking" = "locking" -a "$ac_cv_func_locking" != "yes" && \
+  XE_DIE("locking mail locking requested but not available.")
 
 case "$opsys" in decosf*)
   AC_CHECK_LIB(pthreads, cma_open)
   test "$ac_cv_lib_pthreads_cma_open" = "yes" && \
     c_switch_site="$c_switch_site -threads" ;;
 esac
+
+dnl ----------------------------------------------------------------
+dnl Miscellaneous flags
+dnl ----------------------------------------------------------------
 
 AC_MSG_CHECKING(whether the -xildoff compiler flag is required)
 if   ${CC-cc} '-###' -xildon  no_such_file.c 2>&1 | grep '^[^ ]*/ild ' > /dev/null ; then
@@ -2214,13 +2549,15 @@ if   ${CC-cc} '-###' -xildon  no_such_file.c 2>&1 | grep '^[^ ]*/ild ' > /dev/nu
 fi
 
 dnl Link with "-z ignore" on Solaris if supported
-if test "$opsys" = "sol2" && test "$OS_RELEASE" -ge 56; then
-  AC_MSG_CHECKING(for \"-z ignore\" linker flag)
-  case "`ld -h 2>&1`" in
-    *-z\ ignore\|record* ) AC_MSG_RESULT(yes)
-      XE_PREPEND(-z ignore, ld_switch_site) ;;
-    *) AC_MSG_RESULT(no) ;;
-  esac
+if test "$opsys" = "sol2"; then
+  if test "$os_release" -ge 56; then
+    AC_MSG_CHECKING(for \"-z ignore\" linker flag)
+    case "`ld -h 2>&1`" in
+      *-z\ ignore\|record* ) AC_MSG_RESULT(yes)
+        XE_PREPEND(-z ignore, ld_switch_site) ;;
+      *) AC_MSG_RESULT(no) ;;
+    esac
+  fi
 fi
 
 dnl ----------------------
@@ -2228,6 +2565,122 @@ dnl Choose a window system
 dnl ----------------------
 
 AC_CHECKING("for specified window system")
+
+dnl Autodetection of Gdk libraries and includes
+dnl -------------------------------------------
+dnl On some systems (FreeBSD springs to mind), they use
+dnl versions on the utility routines, so instead of gtk-config
+dnl you must use gtk12-config, etc, etc.
+
+GNOME_CONFIG=no
+GTK_CONFIG=no
+
+if test "$with_gnome" != "no"; then
+   AC_MSG_CHECKING(for GNOME configuration script)
+   for possible in gnome-config
+   do
+      possible_version=`${possible} --version 2> /dev/null`
+      if test "x${possible_version}" != "x"; then
+              GNOME_CONFIG="${possible}"
+              with_gnome=yes
+              with_gtk=yes
+              break
+      fi
+   done
+   AC_MSG_RESULT([${GNOME_CONFIG}])
+fi
+
+if test "${GNOME_CONFIG}" != "no"; then
+      GNOME_LIBS=`${GNOME_CONFIG} --libs gnomeui`
+      GNOME_CFLAGS=`${GNOME_CONFIG} --cflags gnomeui`
+      AC_DEFINE(HAVE_GNOME)
+      XE_APPEND(${GNOME_LIBS}, libs_gtk)
+      XE_APPEND(${GNOME_CFLAGS}, c_switch_gtk)
+fi
+
+if test "$with_gtk" != "no";then
+   AC_MSG_CHECKING(for GTK configuration script)
+   for possible in gtk12-config gtk14-config gtk-config
+   do
+      possible_version=`${possible} --version 2> /dev/null`
+      if test "x${possible_version}" != "x"; then
+              GTK_CONFIG="${possible}"
+      fi
+      case "${possible_version}" in
+        1.0.*) AC_MSG_WARN([GTK 1.2 is required, please upgrade your version of GTK.]); with_gtk=no;;
+        1.3.*) AC_MSG_WARN([GTK 1.3 is not supported right now]); with_gtk=no;;
+	1.2.*)
+		with_gtk=yes
+		break
+		;;
+        *)     AC_MSG_WARN([Found unsupported version of GTK: $possible_version]);;
+      esac
+   done
+   AC_MSG_RESULT([${GTK_CONFIG}])
+fi
+
+if test "${GTK_CONFIG}" != "no"; then
+      AC_MSG_CHECKING(gtk version)
+      GTK_VERSION=`${GTK_CONFIG} --version`
+      AC_MSG_RESULT(${GTK_VERSION})
+
+      AC_MSG_CHECKING(gtk libs)
+      GTK_LIBS=`${GTK_CONFIG} --libs`
+      XE_APPEND(${GTK_LIBS}, libs_gtk)
+      AC_MSG_RESULT(${GTK_LIBS})
+
+      AC_MSG_CHECKING(gtk cflags)
+      GTK_CFLAGS=`${GTK_CONFIG} --cflags`
+      if test "$GCC" = "yes"; then
+      	GTK_CFLAGS="${GTK_CFLAGS} -Wno-shadow"
+      fi
+      XE_APPEND(${GTK_CFLAGS}, c_switch_gtk)
+      AC_MSG_RESULT(${GTK_CFLAGS})
+
+      AC_CHECK_LIB(gdk_imlib, main, XE_PREPEND(-lgdk_imlib, libs_gtk))
+      AC_CHECK_LIB(Imlib, Imlib_init, XE_APPEND(-lImlib, libs_gtk))
+      AC_CHECK_FUNCS(gdk_imlib_init)
+
+      AC_DEFINE(HAVE_XPM)
+      AC_DEFINE(HAVE_GTK)
+      AC_SUBST(GTK_CONFIG)
+
+      window_system=gtk
+      with_gtk=yes
+      with_x11=no
+
+      test "${with_scrollbars}" != "no" && with_scrollbars=gtk
+      test "${with_toolbars}" != no && with_toolbars=gtk
+      test "${with_menubars}" != "no" && with_menubars=gtk
+      test "${with_dialogs}" != "no" && with_dialogs=gtk
+      test "${with_widgets}" != "no" && with_widgets=gtk
+
+      XE_ADD_OBJS(console-gtk.o device-gtk.o event-gtk.o frame-gtk.o)
+      XE_ADD_OBJS(objects-gtk.o redisplay-gtk.o glyphs-gtk.o)
+      XE_ADD_OBJS(select-gtk.o gccache-gtk.o)
+      XE_ADD_OBJS(gtk-xemacs.o ui-gtk.o)
+
+      dnl Check for libglade support (it rocks)
+      OLD_CFLAGS="${CFLAGS}"
+      OLD_CPPFLAGS="${CPPFLAGS}"
+      OLD_LDFLAGS="${LDFLAGS}"
+      CFLAGS="${GTK_CFLAGS} ${CFLAGS}"
+      CPPFLAGS="${GTK_CFLAGS} ${CFLAGS}"
+      LDFLAGS="${LDFLAGS} ${GTK_LIBS}"
+      AC_CHECK_HEADERS(glade/glade.h glade.h)
+      AC_CHECK_LIB(xml, main, XE_PREPEND(-lxml, libs_gtk))
+      AC_CHECK_LIB(glade, main, XE_PREPEND(-lglade, libs_gtk))
+      AC_CHECK_LIB(glade-gnome, main, XE_PREPEND(-lglade-gnome, libs_gtk))
+      AC_EGREP_HEADER([char \*txtdomain;], [glade/glade-xml.h],
+                      [AC_MSG_RESULT(yes)
+                       AC_DEFINE(LIBGLADE_XML_TXTDOMAIN,1)],
+                      [AC_MSG_RESULT(no)])
+      CFLAGS="${OLD_CFLAGS}"
+      CPPFLAGS="${OLD_CPPFLAGS}"
+      LDFLAGS="${OLD_LDFLAGS}"
+fi
+
+dnl We may eventually prefer gtk/gdk over vanilla X11...
 
 if test "$with_x11" != "no"; then
   dnl User-specified --x-includes or --x-libraries implies --with-x11.
@@ -2273,10 +2726,11 @@ if test "$with_x11" != "no"; then
   fi
 fi
 
-case "$with_x11" in
-  yes ) window_system=x11  HAVE_X_WINDOWS=yes ;;
-  no  ) window_system=none HAVE_X_WINDOWS=no  ;;
-esac
+dnl #### wmperry:: !x11 != NONE
+dnl case "$with_x11" in
+dnl  yes ) window_system=x11  HAVE_X_WINDOWS=yes ;;
+dnl  no  ) window_system=none HAVE_X_WINDOWS=no  ;;
+dnl esac
 
 if test "$with_x11" = "yes"; then
   AC_DEFINE(HAVE_X_WINDOWS)
@@ -2317,7 +2771,9 @@ if test "$with_x11" = "yes"; then
   done
 
   dnl Avoid version mismatch for shared library libXm.so on osf4
-  if test "$GCC" = yes -a -d /usr/shlib; then XE_APPEND(-L/usr/shlib, X_LIBS); fi
+  case "$opsys" in
+  decosf*) if test "$GCC" = yes -a -d /usr/shlib; then XE_APPEND(-L/usr/shlib, X_LIBS); fi ;;
+  esac
 
   ld_switch_x_site="$X_LIBS"
 
@@ -2364,10 +2820,21 @@ EOF
     cd ..
     rm -fr conftestdir
     for word in $xmkmf_defines; do
-      case "$word" in
-	-D*=* ) ;;
-	-D* ) word=`echo '' $word | sed -e 's:^ *-D::'`
-	      AC_DEFINE_UNQUOTED($word) ;;
+      case "$word" in 
+      -D__STDC__*) ;;
+      -D* )
+	sym=`echo '' $word | sed -e 's:^ *-D::' -e 's:=.*::'`
+	case "$word" in
+	  -D*=* ) val=`echo '' $word | sed -e 's:^.*=::'` ;;
+	  *     ) val=1 ;;
+	esac
+dnl Avoid re-AC_DEFINE-ing xmkmf symbols we've already defined above.
+	if grep "^#define $sym " confdefs.h >/dev/null; then :; else
+	  if test "$val" = "1"
+	    then AC_DEFINE_UNQUOTED($sym)
+	    else AC_DEFINE_UNQUOTED($sym,$val)
+	  fi
+	fi  ;;
       esac
     done
   fi
@@ -2402,19 +2869,29 @@ EOF
   AC_MSG_RESULT(R${x11_release})
   AC_DEFINE_UNQUOTED(THIS_IS_X11R${x11_release})
 
+  if test "${x11_release}" = "4"; then
+    case "$with_widgets" in
+      "" | "no") with_widgets=no ;;
+      *) XE_DIE("Widget support requires X11R5 or greater") ;;
+    esac
+  fi
+
+  AC_CHECK_FUNCS(XConvertCase)
+
   AC_CHECK_HEADERS(X11/Xlocale.h)
 
-  dnl remove this - we should avoid checking for specific OS
-  AC_MSG_CHECKING(for XFree86)
-  if test -d "/usr/X386/include" -o \
-          -f "/etc/XF86Config"    -o \
-	  -f "/etc/X11/XF86Config" -o \
-	  -f "/usr/X11R6/lib/X11/XF86Config"; then
-    AC_MSG_RESULT(yes)
-    AC_DEFINE(HAVE_XFREE386)
-  else
-    AC_MSG_RESULT(no)
-  fi
+  dnl XFree86 has a non-standard prototype for this X11R6 function
+  AC_CHECK_FUNCS(XRegisterIMInstantiateCallback)
+  AC_MSG_CHECKING(for standard XRegisterIMInstantiateCallback prototype)
+  AC_TRY_COMPILE([
+#define NeedFunctionPrototypes 1
+#include <X11/Xlib.h>
+extern Bool XRegisterIMInstantiateCallback(
+   Display*, struct _XrmHashBucketRec*, char*, char*, XIMProc, XPointer*);
+], [], 
+  [AC_MSG_RESULT(yes)],
+  [AC_MSG_RESULT(no)
+   AC_DEFINE(XREGISTERIMINSTANTIATECALLBACK_NONSTANDARD_PROTOTYPE)])
 
   dnl autodetect -lXmu
   test -z "$with_xmu" && { AC_CHECK_LIB(Xmu, XmuReadBitmapDataFromFile,
@@ -2452,8 +2929,16 @@ if test "$with_msw" != "no"; then
   AC_CHECK_LIB(gdi32,main,with_msw=yes)
   if test "$with_msw" = "yes"; then
     AC_DEFINE(HAVE_MS_WINDOWS)
+
+    dnl The net installer only works with MS-Windows currently
+    if test "$with_netinstall" = "yes"; then
+      XE_APPEND(netinstall, MAKE_SUBDIR)
+      XE_APPEND(netinstall, SRC_SUBDIR_DEPS)
+      XE_APPEND(netinstall, INSTALL_ARCH_DEP_SUBDIR)
+    fi
+
     install_pp="$blddir/lib-src/installexe.sh"
-    XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomctl32, libs_system)
+    XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomdlg32 -lcomctl32 -lwinspool, libs_system)
     test "$with_dragndrop" != no && XE_APPEND(msw, dragndrop_proto)
     if test "$window_system" != x11; then
  	window_system=msw
@@ -2465,6 +2950,7 @@ if test "$with_msw" != "no"; then
 	    && XE_ADD_OBJS(toolbar-msw.o)
 	test "$with_dialogs"   != "no" && with_dialogs=msw \
 	    && XE_ADD_OBJS(dialog-msw.o)
+	test "$with_widgets"   != "no" && with_widgets=msw
     else
 	test "$with_scrollbars" != "no" && XE_ADD_OBJS(scrollbar-msw.o)
 	test "$with_menubars"   != "no" && XE_ADD_OBJS(menubar-msw.o)
@@ -2474,8 +2960,7 @@ if test "$with_msw" != "no"; then
     dnl check for our special version of select
     AC_TRY_RUN([#include <fcntl.h>
     int main() { return (open("/dev/windows", O_RDONLY, 0) > 0)? 0 : 1; }],
-    [AC_DEFINE(HAVE_MSG_SELECT)])
-    const_is_losing=no
+    [need_event_unixoid=yes; AC_DEFINE(HAVE_MSG_SELECT)])
     with_file_coding=yes
     XE_ADD_OBJS(console-msw.o device-msw.o event-msw.o frame-msw.o objects-msw.o select-msw.o redisplay-msw.o glyphs-msw.o gui-msw.o)
   fi
@@ -2519,7 +3004,7 @@ if test "$with_x11" != "yes"; then
   dnl if test "$with_tty" = "no" ; then
   dnl   AC_MSG_ERROR([No window system support and no TTY support - Unable to proceed.])
   dnl fi
-  for feature in tooltalk cde offix session xim xmu
+  for feature in tooltalk cde offix wmcommand xim xmu nas_sound
   do
     if eval "test -n \"\$with_${feature}\" -a \"\$with_${feature}\" != no" ; then
        AC_MSG_WARN([--with-$feature ignored:  Not valid without X support])
@@ -2528,12 +3013,25 @@ if test "$with_x11" != "yes"; then
   done
 fi
 
+dnl Balloon Help requires the Shape extension, not available everywhere,
+dnl for example not on AIX 4.3.
+if test "$with_x11" = "yes"; then
+  AC_CHECK_HEADER(X11/extensions/shape.h, [
+   AC_DEFINE(HAVE_BALLOON_HELP)
+   XE_ADD_OBJS(balloon_help.o balloon-x.o)])
+fi
+
 dnl FSF 19.29 has some bitmapdir stuff here.
 bitmapdir=
 
 case "$window_system" in
   x11  ) HAVE_X_WINDOWS=yes; echo "  Using X11." ;;
   msw  ) HAVE_X_WINDOWS=no ; echo "  Using MS-Windows." ;;
+  gtk  )
+       HAVE_X_WINDOWS=no
+       test "$with_gnome" = "yes" && echo "  Using GNOME."
+       test "$with_gnome" = "no" && echo "  Using GTK."
+       ;;
   none ) HAVE_X_WINDOWS=no ; echo "  Using no window system." ;;
 esac
 
@@ -2542,11 +3040,11 @@ case "$x_libraries" in *X11R4* )
   test "$opsys" = "hpux9-shr" && opsysfile="s/hpux9shxr4.h"
 esac
 
-dnl Enable or disable proper session-management
-AC_CHECKING(for session-management option);
-dnl if test "$with_session" = "yes"; then
-if test "$with_session" != "no"; then
-  AC_DEFINE(HAVE_SESSION)
+dnl Enable or disable proper handling of WM_COMMAND
+AC_CHECKING(for WM_COMMAND option);
+dnl if test "$with_wmcommand" = "yes"; then
+if test "$with_wmcommand" != "no"; then
+  AC_DEFINE(HAVE_WMCOMMAND)
 fi
 
 dnl Autodetect Xauth
@@ -2557,7 +3055,7 @@ test -z "$with_xauth" && { AC_CHECK_LIB(Xau, XauGetAuthByAddr,[:],with_xauth=no)
 test -z "$with_xauth" && with_xauth=yes
 if test "$with_xauth" = "yes"; then
   AC_DEFINE(HAVE_XAUTH)
-  XE_SPACE(libs_xauth, $X_EXTRA_LIBS -lXau $libs_x $X_PRE_LIBS)
+  XE_SPACE(libs_xauth, $GTK_LIBS $X_EXTRA_LIBS -lXau $libs_x $X_PRE_LIBS)
 fi
 AC_SUBST(libs_xauth)
 
@@ -2570,9 +3068,9 @@ if test "$with_tooltalk" != "no" ; then
   dnl autodetect the location of tt_c.h
   dnl tt_c.h might be in Tt or desktop include directories
   for dir in "" "Tt/" "desktop/" ; do
-    AC_CHECK_HEADER(${dir}tt_c.h, tt_c_h_path="${dir}tt_c.h"; break)
+    AC_CHECK_HEADER(${dir}tt_c.h, tt_c_h_file="${dir}tt_c.h"; break)
   done
-  if test -z "$tt_c_h_path"; then
+  if test -z "$tt_c_h_file"; then
     if test "$with_tooltalk" = "yes"; then
       USAGE_ERROR("Unable to find required tooltalk header files.")
     fi
@@ -2594,7 +3092,7 @@ fi
 test -z "$with_tooltalk" && with_tooltalk=yes
 if test "$with_tooltalk" = "yes"; then
   AC_DEFINE(TOOLTALK)
-  AC_DEFINE_UNQUOTED(TT_C_H_PATH, "$tt_c_h_path")
+  AC_DEFINE_UNQUOTED(TT_C_H_FILE, "$tt_c_h_file")
   XE_PREPEND($tt_libs, libs_x)
   XE_ADD_OBJS(tooltalk.o)
 fi
@@ -2639,11 +3137,14 @@ if test "$with_offix" = "yes"; then
   XE_APPEND(offix.o, dnd_objs)
   XE_APPEND(OffiX, dragndrop_proto)
 fi
+if test "$with_gtk" = "yes"; then
+   XE_APPEND(GTK, dragndrop_proto)
+fi
 
 dnl Autodetect Drag'n'Drop support
 dnl always included if CDE, Offix, or MSWindows are defined
-AC_MSG_CHECKING(if drag and drop API is needed)
 if test "$with_dragndrop" != "no" ; then
+  AC_MSG_CHECKING(if drag and drop API is needed)
   if test -n "$dragndrop_proto" ; then
     with_dragndrop=yes
     AC_MSG_RESULT([yes (${dragndrop_proto} )])
@@ -2660,22 +3161,60 @@ AC_CHECKING(for LDAP)
 test -z "$with_ldap" && { AC_CHECK_HEADER(ldap.h, ,with_ldap=no) }
 test -z "$with_ldap" && { AC_CHECK_HEADER(lber.h, ,with_ldap=no) }
 if test "$with_ldap" != "no"; then
-  test -z "$with_umich_ldap" && { AC_CHECK_LIB(ldap, ldap_open, with_umich_ldap=yes, with_umich_ldap=no, -llber) }
-  test "$with_umich_ldap" = "no" && { AC_CHECK_LIB(ldap10, ldap_set_option, with_ns_ldap=yes, with_ns_ldap=no) }
-  test -z "$with_ldap" -a \( "$with_umich_ldap" = "yes" -o "$with_ns_ldap" = "yes" \) && with_ldap=yes
+  AC_CHECK_LIB(ldap, ldap_search, with_ldap_nolber=yes, with_ldap_nolber=no)
+  test "$with_ldap_nolber" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_lber=yes, with_ldap_lber=no, -llber) }
+  test "$with_ldap_nolber" = "no" -a "$with_ldap_lber" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_krb=yes, with_ldap_krb=no, -llber -lkrb) }
+  test "$with_ldap_nolber" = "no" -a "$with_ldap_lber" = "no" -a "$with_ldap_krb" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_krbdes=yes, with_ldap_krbdes=no, -llber -lkrb -ldes) }
+  test -z "$with_ldap" -a \( "$with_ldap_lber" = "yes" -o "$with_ldap_nolber" = "yes" -o "$with_ldap_krb" = "yes" -o "$with_ldap_krbdes" = "yes" \) && with_ldap=yes
 fi
 if test "$with_ldap" = "yes"; then
   AC_DEFINE(HAVE_LDAP)
   XE_ADD_OBJS(eldap.o)
-  if test "$with_umich_ldap" = "yes" ; then
-    AC_DEFINE(HAVE_UMICH_LDAP)
+  if test "$with_ldap_nolber" = "yes" ; then
+    XE_PREPEND(-lldap, LIBS)
+  else
+    if test "$with_ldap_krb" = "yes" ; then
+      XE_PREPEND(-lkrb, LIBS)
+    fi
+    if test "$with_ldap_krbdes" = "yes" ; then
+      XE_PREPEND(-ldes, LIBS)
+      XE_PREPEND(-lkrb, LIBS)
+    fi
     XE_PREPEND(-llber, LIBS)
     XE_PREPEND(-lldap, LIBS)
-  elif test "$with_ldap" = "yes" -a "$with_ns_ldap" = "yes" ; then
-    AC_DEFINE(HAVE_NS_LDAP)
-    XE_PREPEND(-lldap10, LIBS)
-  elif test "$with_ldap" = "yes" ; then
-    XE_PREPEND(-lldap, LIBS)
+  fi
+  AC_CHECK_FUNCS(ldap_set_option ldap_get_lderrno ldap_result2error ldap_parse_result)
+fi
+
+dnl Autodetect PostgreSQL
+dnl On many Linux systems, PostgreSQL is packaged to be installed in /usr;
+dnl in this case, configure will easily detect it there.
+dnl
+dnl If PostgreSQL is installed into a different prefix,
+dnl (such as the default /usr/local/pgsql when building from source),
+dnl that prefix must be specified using the --site-prefixes flag.
+if test "$with_postgresql" != "no"; then
+  AC_CHECKING(for PostgreSQL)
+
+dnl Look for these standard header file locations, known to be used on Linux
+  for header_dir in "" "pgsql/" "postgresql/"; do
+    AC_CHECK_HEADER(${header_dir}libpq-fe.h,
+                    libpq_fe_h_file=${header_dir}libpq-fe.h; break)
+  done
+
+  test -n "$libpq_fe_h_file" && { AC_CHECK_LIB(pq,PQconnectdb,have_libpq=yes) }
+
+  if test -n "$libpq_fe_h_file" -a "$have_libpq" = "yes"; then
+    with_postgresql=yes
+    AC_DEFINE(HAVE_POSTGRESQL)
+    AC_CHECK_LIB(pq,PQconnectStart, [
+                 with_postgresqlv7=yes;
+                 AC_DEFINE(HAVE_POSTGRESQLV7)])
+    AC_DEFINE_UNQUOTED(LIBPQ_FE_H_FILE, "$libpq_fe_h_file")
+    XE_PREPEND(-lpq, LIBS)
+    XE_ADD_OBJS(postgresql.o)
+  elif test "$with_postgresql" = "yes"; then
+    XE_DIE("Required PostgreSQL support cannot be provided.  Check --site-prefixes.")
   fi
 fi
 
@@ -2686,12 +3225,42 @@ dnl ----------------------
 if test "$window_system" != "none"; then
   AC_CHECKING(for graphics libraries)
 
+  dnl add special code to handle xpm-nox on Cygwin (csw)
+  dnl   -- should only happen if CYGWIN && WITH_XPM && WITH_MSW && !WITH_X
+  libpath_xpm=
+  incpath_xpm=
+  case "$opsys" in 
+    cygwin*)
+      cygwin_top=`eval "gcc -print-file-name=libc.a"` ;
+      cygwin_top=`eval "dirname ${cygwin_top}"`;
+      cygwin_top="${cygwin_top}/..";
+      case "$window_system" in
+        dnl use "standard" search pattern
+        x11)  ;;
+        dnl hardcode "standard" non-X11 xpm lib/inc dirs
+        msw) libpath_xpm="-L${cygwin_top}/lib/noX"
+             incpath_xpm="-I${cygwin_top}/include/noX"
+              ;;
+        dnl not supported on cygwin (yet?)
+        gtk)  ;;
+        dnl probably not reached...
+        none) ;;
+        dnl ditto
+        *)    ;;
+      esac
+      ;;
+    dnl use "standard" search pattern for all other OS's
+    *) ;;
+  esac
   dnl Autodetect Xpm
   xpm_problem=""
   if test -z "$with_xpm"; then
+    XE_PREPEND("$incpath_xpm", CFLAGS)
+    XE_PREPEND("$libpath_xpm", LDFLAGS)
     AC_MSG_CHECKING(for Xpm - no older than 3.4f)
     xe_check_libs=-lXpm
-    AC_TRY_RUN([#include <X11/xpm.h>
+    AC_TRY_RUN([#define XPM_NUMBERS
+#include <X11/xpm.h>
     int main(int c, char **v) {
     return c == 1 ? 0 :
       XpmIncludeVersion != XpmLibraryVersion() ? 1 :
@@ -2719,8 +3288,13 @@ if test "$window_system" != "none"; then
     AC_MSG_RESULT($with_xpm)
   fi
   if test "$with_xpm" = "yes"; then
+    dnl #### This code assumes that if AC_CHECK_LIB fails,
+    dnl #### then it will succeed if FOR_MSW is defined,
+    dnl #### but doesn't actually verify this assumption.
     AC_DEFINE(HAVE_XPM)
+    XE_PREPEND("$libpath_xpm", LDFLAGS)
     XE_PREPEND(-lXpm, libs_x)
+    XE_PREPEND("$incpath_xpm", CFLAGS)
     AC_MSG_CHECKING(for \"FOR_MSW\" xpm)
     xe_check_libs=-lXpm
     AC_TRY_LINK(, [XpmCreatePixmapFromData()],
@@ -2817,21 +3391,139 @@ if test "$window_system" != "none"; then
 fi
 
 dnl ----------------------
+dnl GTK-Specific Graphics libraries
+dnl ----------------------
+
+if test "$with_gtk" = "yes"; then
+  dnl Autodetect XFACE
+  test -z "$with_xface" && { AC_CHECK_HEADER(compface.h,          ,with_xface=no) }
+  test -z "$with_xface" && { AC_CHECK_LIB(compface, UnGenFace,[:] ,with_xface=no) }
+  test -z "$with_xface" && with_xface=yes
+  if test "$with_xface" = "yes"; then
+    AC_DEFINE(HAVE_XFACE)
+    XE_PREPEND(-lcompface, libs_gtk)
+  fi
+fi
+
+
+dnl ----------------------
 dnl X-Specific Graphics libraries
 dnl ----------------------
 
 if test "$with_x11" = "yes"; then
-
   AC_CHECKING(for X11 graphics libraries)
+fi
 
-  dnl Autodetect -lXaw
-  AC_CHECK_LIB(Xaw, XawScrollbarSetThumb, have_xaw=yes, have_xaw=no)
-  dnl if test "$have_xaw" = "yes"; then
-    dnl AC_CHECK_HEADER(X11/Xaw/Reports.h, [
-      dnl XE_APPEND(pkg-src/tree-x, MAKE_SUBDIR)
-      dnl XE_APPEND(pkg-src/tree-x, INSTALL_ARCH_DEP_SUBDIR)])
-  dnl fi
+dnl We don't automatically trigger widgets if athena is present
+dnl because of stability concerns.
+dnl But if the user wants widgets, still offer him autodetections
+case "$with_widgets" in
+  "yes" | "athena")		detect_athena=yes ;;
+   *)				detect_athena=no ;;
+esac
 
+if test "$with_x11" = "yes" -a "$detect_athena" = "yes" ; then
+  AC_CHECKING(for the Athena widgets)
+
+  dnl What in heck did the user actually want?
+  case "$with_athena" in
+    dnl This is the default, old fashioned flat Athena.
+    "xaw" | "")	athena_variant=Xaw	athena_3d=no  ;;
+    "3d")	athena_variant=Xaw3d	athena_3d=yes ;;
+    "next")	athena_variant=neXtaw	athena_3d=yes ;;
+    "95")	athena_variant=Xaw95	athena_3d=yes ;;
+    "xpm")	athena_variant=XawXpm	athena_3d=yes ;;
+    *)		XE_DIE("Unknown Athena widget set \`$with_athena'. This should not happen.") ;;
+  esac
+
+  dnl Search for the Athena library...
+  if test "$athena_3d" = "no"; then
+    AC_CHECK_LIB($athena_variant, XawScrollbarSetThumb,
+      [
+        dnl Must not be a 3d library...
+        AC_CHECK_LIB($athena_variant, threeDClassRec,
+          AC_MSG_WARN("Could not find a non-3d Athena widget library."),
+          athena_lib=$athena_variant)
+      ],
+      AC_MSG_WARN("Could not find an Athena widget library."))
+  else
+    dnl The real configuration, need 3d library
+    AC_CHECK_LIB($athena_variant, threeDClassRec, athena_lib=$athena_variant,
+      dnl OK, couldn't find it with a proper name, try the standard Athena lib
+      dnl If that is 3d, presume the user asked for what they have installed.
+      AC_CHECK_LIB(Xaw, threeDClassRec,
+        [
+          athena_lib=Xaw;
+          AC_MSG_WARN("Assuming that libXaw is actually $athena_variant.");
+        ],
+        AC_MSG_WARN("Could not find a 3d Athena widget library that looked like $athena_variant.")))
+  fi
+
+  dnl Now we locate the Athena headers that we need.
+  if test "$athena_3d" = "no"; then
+    AC_CHECK_HEADER(X11/Xaw/ThreeD.h,
+      AC_MSG_WARN("Could not find a non-3d Athena header set."),
+      AC_CHECK_HEADER(X11/Xaw/XawInit.h,
+        athena_h_path=X11/Xaw,
+        AC_MSG_WARN("Could not find a non-3d Athena header set.")))
+  else
+    dnl The three-d Athena headers are so much more slippery.
+    dnl Curse this `Lets replace standard libraries' thing that they did. :/
+    AC_CHECK_HEADER(X11/$athena_variant/XawInit.h,
+      AC_CHECK_HEADER(X11/$athena_variant/ThreeD.h,
+        athena_h_path=X11/$athena_variant,))
+
+    dnl Is the variant specific header directory directly under include?
+    if test -z "$athena_h_path"; then
+      AC_CHECK_HEADER($athena_variant/XawInit.h,
+        AC_CHECK_HEADER($athena_variant/ThreeD.h,
+          athena_h_path=$athena_variant,))
+    fi
+
+    dnl If we couldn't find the specific variant, try the generic Athena 3d headers
+    if test -z "$athena_h_path" -a "$athena_variant" != "Xaw3d"; then
+      AC_CHECK_HEADER(X11/Xaw3d/XawInit.h,
+        AC_CHECK_HEADER(X11/Xaw3d/ThreeD.h,
+          [
+            AC_MSG_WARN("Assuming that X11/Xaw3d headers are suitable for $athena_variant.")
+            athena_h_path=X11/Xaw3d
+          ],))
+    fi
+
+    dnl Also generic 3d headers directly under include dir
+    if test -z "$athena_h_path" -a "$athena_variant" != "Xaw3d"; then
+      AC_CHECK_HEADER(Xaw3d/XawInit.h,
+        AC_CHECK_HEADER(Xaw3d/ThreeD.h,
+          [
+            AC_MSG_WARN("Assuming that Xaw3d headers are suitable for $athena_variant.")
+            athena_h_path=Xaw3d
+          ],))
+    fi
+
+    dnl If nothing yet found, see if Xaw is a 3d header set...
+    dnl We AC_MSG_WARN if we fail because I am all out of ideas...
+    if test -z "$athena_h_path"; then
+      AC_CHECK_HEADER(X11/Xaw/ThreeD.h,
+        [
+          AC_MSG_WARN("Assuming that X11/Xaw headers are suitable for $athena_variant.")
+          athena_h_path=X11/Xaw
+        ],
+        AC_MSG_WARN("Could not find a suitable 3d Athena header set."))
+    fi
+  fi
+
+  dnl Do we actually have a usable Athena widget set? Please?
+  if test -n "$athena_lib" -a -n "$athena_h_path"; then
+    have_xaw=yes
+  else
+    have_xaw=no
+  fi
+
+else
+  have_xaw=no
+fi dnl "$with_x11" = "yes" -a "detect_athena" = "yes"
+
+if test "$with_x11" = "yes"; then
   dnl autodetect Motif - but only add to libs_x later (if necessary)
   AC_CHECK_HEADER(Xm/Xm.h,
    [AC_CHECK_LIB(Xm, XmStringFree, have_motif=yes, have_motif=no)],
@@ -2855,26 +3547,62 @@ dnl Finish ensuring that we have values for the various toolkit items.
 dnl Not all toolkits support all widgets
 dnl if Motif is available we use it for the dialog boxes.
 
-case "$with_menubars" in "" | "yes" | "athena" | "athena3d" )
+case "$with_menubars" in "" | "yes" | "athena" )
   with_menubars="lucid" ;;
 esac
 case "$with_dialogs" in "" | "yes" | "lucid" )
-  if   test "$have_motif" = "yes"; then with_dialogs="motif"
-  elif test "$have_xaw"   = "yes"; then with_dialogs="athena"
+  if   test "$have_motif"     = "yes"; then with_dialogs="motif"
+  elif test "$have_xaw"       = "yes"; then with_dialogs="athena"
   else with_dialogs=no
   fi ;;
 esac
 case "$with_scrollbars" in "" | "yes" )
   with_scrollbars="lucid" ;;
 esac
+case "$with_widgets" in "" | "yes" | "lucid")
+  if   test "$have_motif" = "yes"; then with_widgets="motif"
+  elif test "$have_xaw"   = "yes"; then with_widgets="athena"
+  else with_widgets=no
+  fi ;;
+esac
 
-all_widgets="$with_menubars $with_scrollbars $with_dialogs $with_toolbars"
+all_widgets="$with_menubars $with_scrollbars $with_dialogs $with_toolbars $with_widgets"
 
-case "$all_widgets" in *athena* )
-  AC_DEFINE(LWLIB_USES_ATHENA)
-  AC_DEFINE(NEED_ATHENA)
-  XE_APPEND(lwlib-Xaw.o, lwlib_objs)
-  XE_PREPEND(-lXaw, libs_x) ;;
+case "$all_widgets" in
+  *athena* )
+    if test "$have_xaw" != "yes"; then
+      XE_DIE("Could not find a suitable Athena library to build with.")
+    fi
+
+    dnl Add the Lucid widget Athena code
+    XE_APPEND(lwlib-Xaw.o, lwlib_objs)
+
+    dnl Add the Athena widget library we located earlier
+    XE_PREPEND(-l$athena_lib, libs_x)
+
+    dnl Tell lwlib where to find the Athena header files.
+    dnl Many people have tried to create a `smart' way of doing this,
+    dnl but all have failed.  Before changing the following ugly definitions,
+    dnl consult the veterans of many a battle.
+    AC_DEFINE_UNQUOTED(ATHENA_Scrollbar_h_,"$athena_h_path/Scrollbar.h")
+    AC_DEFINE_UNQUOTED(ATHENA_Dialog_h_,"$athena_h_path/Dialog.h")
+    AC_DEFINE_UNQUOTED(ATHENA_Form_h_,"$athena_h_path/Form.h")
+    AC_DEFINE_UNQUOTED(ATHENA_Command_h_,"$athena_h_path/Command.h")
+    AC_DEFINE_UNQUOTED(ATHENA_Label_h_,"$athena_h_path/Label.h")
+    AC_DEFINE_UNQUOTED(ATHENA_LabelP_h_,"$athena_h_path/LabelP.h")
+    AC_DEFINE_UNQUOTED(ATHENA_Toggle_h_,"$athena_h_path/Toggle.h")
+    AC_DEFINE_UNQUOTED(ATHENA_ToggleP_h_,"$athena_h_path/ToggleP.h")
+    AC_DEFINE_UNQUOTED(ATHENA_AsciiText_h_,"$athena_h_path/AsciiText.h")
+    AC_DEFINE_UNQUOTED(ATHENA_XawInit_h_,"$athena_h_path/XawInit.h")
+
+    AC_DEFINE(LWLIB_USES_ATHENA)
+    AC_DEFINE(NEED_ATHENA)
+    need_athena="yes"
+
+    if test "$athena_3d" = "yes"; then
+      AC_DEFINE(HAVE_ATHENA_3D)
+    fi
+  ;;
 esac
 
 case "$all_widgets" in *motif* )
@@ -2887,6 +3615,11 @@ esac
 test "$with_menubars"   = "lucid" && XE_APPEND(xlwmenu.o, lwlib_objs)
 test "$with_menubars"   = "motif" && XE_APPEND(xlwmenu.o, lwlib_objs)
 test "$with_scrollbars" = "lucid" && XE_APPEND(xlwscrollbar.o, lwlib_objs)
+test "$with_widgets"   != "no" && test "$with_widgets" != "msw" && \
+	XE_APPEND(xlwtabs.o xlwgcs.o, lwlib_objs)
+case "$with_widgets" in athena* )
+	XE_APPEND(xlwradio.o xlwcheckbox.o xlwgauge.o, lwlib_objs);;
+esac
 case "$all_widgets" in *lucid* )
   AC_DEFINE(NEED_LUCID)
   XE_APPEND(lwlib-Xlw.o, lwlib_objs) ;;
@@ -2894,15 +3627,23 @@ esac
 
 AC_SUBST(lwlib_objs)
 
-case "$with_scrollbars" in athena* ) AC_DEFINE(LWLIB_SCROLLBARS_ATHENA);; esac
-case "$with_dialogs"    in athena* ) AC_DEFINE(LWLIB_DIALOGS_ATHENA)   ;; esac
-test "$with_scrollbars" = "athena3d" && AC_DEFINE(LWLIB_SCROLLBARS_ATHENA3D)
-test "$with_dialogs"    = "athena3d" && AC_DEFINE(LWLIB_DIALOGS_ATHENA3D)
+test "$with_scrollbars" = "athena" && AC_DEFINE(LWLIB_SCROLLBARS_ATHENA)
+test "$with_dialogs"    = "athena" && AC_DEFINE(LWLIB_DIALOGS_ATHENA)
+
+if test "$athena_3d" = "yes"; then
+  test "$with_scrollbars" = "athena" && AC_DEFINE(LWLIB_SCROLLBARS_ATHENA3D)
+  test "$with_dialogs"    = "athena" && AC_DEFINE(LWLIB_DIALOGS_ATHENA3D)
+fi
+
+case "$with_widgets" in athena* ) AC_DEFINE(LWLIB_WIDGETS_ATHENA);; esac
+test "$with_widgets" != "no" && test "$with_widgets" != "msw" && \
+	AC_DEFINE(LWLIB_TABS_LUCID)
 
 test "$with_menubars"   != "no"    && AC_DEFINE(HAVE_MENUBARS)
 test "$with_scrollbars" != "no"    && AC_DEFINE(HAVE_SCROLLBARS)
 test "$with_dialogs"    != "no"    && AC_DEFINE(HAVE_DIALOGS)
 test "$with_toolbars"   != "no"    && AC_DEFINE(HAVE_TOOLBARS)
+test "$with_widgets"    != "no"    && AC_DEFINE(HAVE_WIDGETS)
 
 test "$with_menubars"   = "lucid"  && AC_DEFINE(LWLIB_MENUBARS_LUCID)
 test "$with_scrollbars" = "lucid"  && AC_DEFINE(LWLIB_SCROLLBARS_LUCID)
@@ -2910,24 +3651,27 @@ test "$with_scrollbars" = "lucid"  && AC_DEFINE(LWLIB_SCROLLBARS_LUCID)
 test "$with_menubars"   = "motif"  && AC_DEFINE(LWLIB_MENUBARS_MOTIF)
 test "$with_scrollbars" = "motif"  && AC_DEFINE(LWLIB_SCROLLBARS_MOTIF)
 test "$with_dialogs"    = "motif"  && AC_DEFINE(LWLIB_DIALOGS_MOTIF)
+test "$with_widgets"    = "motif"  && AC_DEFINE(LWLIB_WIDGETS_MOTIF)
 
-test "$with_menubars"   != "no"      && XE_ADD_OBJS(menubar.o)
-test "$with_scrollbars" != "no"      && XE_ADD_OBJS(scrollbar.o)
-test "$with_dialogs"    != "no"      && XE_ADD_OBJS(dialog.o)
-test "$with_toolbars"   != "no"      && XE_ADD_OBJS(toolbar.o)
+test "$with_menubars"   != "no"    && XE_ADD_OBJS(menubar.o)
+test "$with_scrollbars" != "no"    && XE_ADD_OBJS(scrollbar.o)
+test "$with_dialogs"    != "no"    && XE_ADD_OBJS(dialog.o)
+test "$with_toolbars"   != "no"    && XE_ADD_OBJS(toolbar.o)
+
+if test "$with_gtk" = "yes"; then
+  test "$with_menubars"   != "no"      && XE_ADD_OBJS(menubar-gtk.o)
+  test "$with_scrollbars" != "no"      && XE_ADD_OBJS(scrollbar-gtk.o)
+  test "$with_dialogs"    != "no"      && XE_ADD_OBJS(dialog-gtk.o)
+  test "$with_toolbars"   != "no"      && XE_ADD_OBJS(toolbar-gtk.o)
+  test "$all_widgets" != "no no no no no" && XE_ADD_OBJS(gui-gtk.o)
+fi
 
 if test "$with_x11" = "yes"; then
-  test "$with_menubars"   != "no"      && XE_ADD_OBJS(menubar-x.o)
-  test "$with_scrollbars" != "no"      && XE_ADD_OBJS(scrollbar-x.o)
-  test "$with_dialogs"    != "no"      && XE_ADD_OBJS(dialog-x.o)
-  test "$with_toolbars"   != "no"      && XE_ADD_OBJS(toolbar-x.o)
-  test "$all_widgets" != "no no no no" && XE_ADD_OBJS(gui-x.o)
-else
-  if test \( "$with_sound" = "nas" \) -o \( "$with_sound" = "both" \); then
-    echo "Attempt to Build NAS sound without X"
-    echo "Please remove NAS configuration or build with X"
-    exit 1
-  fi
+  test "$with_menubars"   != "no"  && XE_ADD_OBJS(menubar-x.o)
+  test "$with_scrollbars" != "no"  && XE_ADD_OBJS(scrollbar-x.o)
+  test "$with_dialogs"    != "no"  && XE_ADD_OBJS(dialog-x.o)
+  test "$with_toolbars"   != "no"  && XE_ADD_OBJS(toolbar-x.o)
+  test "$all_widgets" != "no no no no no" && XE_ADD_OBJS(gui-x.o)
 fi
 
 dnl ----------------------
@@ -2953,11 +3697,21 @@ if test "$with_mule" = "yes" ; then
   AC_CHECKING(for Mule-related features)
   AC_DEFINE(MULE)
   AC_DEFINE(FILE_CODING)
-  XE_ADD_OBJS(mule.o mule-ccl.o mule-charset.o file-coding.o)
-
+  XE_ADD_OBJS(mule.o mule-ccl.o mule-charset.o)
+  if test "$with_utf_2000" = "yes" && test "$with_text_coding" = "yes"; then
+    AC_DEFINE(TEXT_CODING)
+    XE_ADD_OBJS(text-coding.o)
+  else
+    XE_ADD_OBJS(file-coding.o)
+  fi
   dnl Use -lintl to get internationalized strerror for Mule
   AC_CHECK_HEADERS(libintl.h)
   AC_CHECK_LIB(intl, strerror)
+
+  if test "$with_utf_2000" = "yes" ; then
+    AC_DEFINE(CHAR_IS_UCS4)
+    AC_DEFINE(UTF2000)
+  fi
 
   AC_CHECKING(for Mule input methods)
   dnl Do we have the XmIm* routines?  And if so, do we want to use them?
@@ -2994,7 +3748,7 @@ if test "$with_mule" = "yes" ; then
     if test "$with_xfs" = "yes" && test "$with_menubars" = "lucid"; then
       AC_DEFINE(USE_XFONTSET)
       if test "$with_xim" = "no" ; then
-        XE_ADD_OBJS(input-method-xfs.o)
+        XE_ADD_OBJS(input-method-xlib.o)
       fi
     fi
   fi dnl with_xfs
@@ -3002,6 +3756,8 @@ if test "$with_mule" = "yes" ; then
   dnl Autodetect WNN
   test "$with_wnn6" = "yes" && with_wnn=yes # wnn6 implies wnn support
   test -z "$with_wnn" && { AC_CHECK_HEADER(wnn/jllib.h, ,with_wnn=no) }
+  dnl gcc 2.97 fixincludes breaks inclusion of wnn/commonhd.h
+  test -z "$with_wnn" && { AC_CHECK_HEADER(wnn/commonhd.h, ,with_wnn=no) }
   dnl Detour to find crypt
   if test "$with_wnn" != "no"; then
     AC_CHECK_FUNCS(crypt)
@@ -3069,35 +3825,71 @@ if test "$need_motif" = "yes" ; then
   XE_COMPUTE_RUNPATH()
 fi
 
-AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime gethostname getpagesize gettimeofday getcwd getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf strcasecmp strerror tzset ulimit usleep utimes waitpid vsnprintf)
+dnl ----------------------------------------------------------------
+dnl Check for POSIX functions.
+dnl ----------------------------------------------------------------
 
-dnl realpath is buggy on linux, decosf and aix4
+AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime getaddrinfo gethostname getnameinfo getpagesize gettimeofday getcwd getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf stpcpy strerror tzset ulimit usleep waitpid vsnprintf fsync ftruncate umask)
 
-dnl The realpath() in linux libc (4.6.27) sometimes fails with ELOOP.
-dnl The realpath in ELF linux libc's is O.K.
-dnl For example, call realpath on a file thirty-five or so directories deep
-dnl and you get ELOOP even if no symlinks at all are involved.
-dnl Reports as of 11/1997 indicate BSDi has problems too.
-dnl The realpath() in UnixWare2.1.3 could not get any pathname fragment in error condition.
-case "$opsys" in
-  linuxaout* | bsdos3* | freebsd* | decosf4-0* | aix4* ) XE_ADD_OBJS(realpath.o) ;;
-  * )
-    case "$canonical" in
-      *-*-sysv4.2uw2* ) XE_ADD_OBJS(realpath.o) ;;
-      * ) AC_CHECK_FUNCS(realpath)
-	  test "$ac_cv_func_realpath" != "yes" && XE_ADD_OBJS(realpath.o) ;;
-    esac ;;
-esac
+dnl getaddrinfo() is borked under hpux11
+if test "$ac_cv_func_getaddrinfo" != "no" ; then
+  case "$opsys" in
+    hpux11* )
+      AC_MSG_WARN([Use of getaddrinfo is disabled for HP-UX 11.XX.])
+      ac_cv_func_getaddrinfo=no
+      ;;
+  esac
+fi
 
-dnl Check whether the system provides getloadavg (Solaris 7 has it)
+dnl ----------------------------------------------------------------
+dnl Check for PTY support functions.
+dnl ----------------------------------------------------------------
+
+dnl There is no "standard" pty allocation method.  Every system is different.
+dnl  getpt()  is the preferred pty allocation method on glibc systems.
+dnl _getpty() is the preferred pty allocation method on SGI systems.
+dnl grantpt(), unlockpt(), ptsname() are defined by Unix98.
+AC_CHECK_FUNCS(getpt _getpty grantpt unlockpt ptsname killpg tcgetpgrp)
+
+dnl openpty() is the preferred pty allocation method on BSD and Tru64 systems.
+dnl openpty() might be declared in:
+dnl - pty.h (Tru64 or Linux)
+dnl - libutil.h (FreeBSD)
+dnl - util.h (NetBSD)
+AC_CHECK_FUNC(openpty, have_openpty=yes, [
+  AC_CHECK_LIB(util, openpty, have_openpty=yes need_libutil=yes)])
+if test "$have_openpty" = "yes"; then
+  AC_DEFINE(HAVE_OPENPTY)
+  AC_CHECK_HEADERS(pty.h libutil.h util.h, break)
+  test "$need_libutil" = "yes" && XE_APPEND(-lutil, libs_system)
+fi
+
+dnl Check for STREAM support functions.
+dnl Confusingly, "str" means both "string" and "SysV Streams".
+AC_CHECK_HEADERS(stropts.h)
+if test "$ac_cv_header_stropts_h" = "yes"; then
+  AC_CHECK_FUNCS(isastream)
+  AC_CHECK_HEADERS(strtio.h) dnl TIOCSIGNAL
+fi
+
+dnl Use our own realpath always.
+XE_ADD_OBJS(realpath.o)
+
+dnl Check whether the system provides getloadavg().
 AC_CHECK_FUNCS(getloadavg)
 
-if test "$ac_cv_func_getloadavg" != "yes"
-then
+if test "$ac_cv_func_getloadavg" = "yes"; then
+  dnl Solaris 8 declares getloadavg() in <sys/loadavg.h>.
+  dnl glibc 2.2 declares getloadavg() in <stdlib.h>...
+  dnl   ...if we #define _GNU_SOURCE, which we do.
+  AC_CHECK_HEADERS(sys/loadavg.h)
+else
+  dnl We define our own getloadavg() using lower level functions.
   XE_ADD_OBJS(getloadavg.o)
 
   dnl Used by getloadavg() - does not require root priveleges
   AC_CHECK_LIB(kstat, kstat_open)
+  AC_CHECK_HEADERS(kstat.h)
 
   dnl Another way to get the load average
   AC_CHECK_LIB(kvm, kvm_read)
@@ -3181,8 +3973,7 @@ AC_TRY_LINK([
   ],
   [
   struct timeval time;
-  struct timezone dummy;
-  gettimeofday (&time, &dummy);
+  gettimeofday (&time, 0);
 ],
   [AC_MSG_RESULT(two)],
   [AC_MSG_RESULT(one)
@@ -3191,18 +3982,18 @@ fi
 
 
 AC_C_INLINE
-if test "$ac_cv_c_inline" != "no"; then
-  AC_DEFINE(HAVE_INLINE)
-  test "$GCC" = "yes" && XE_ADD_OBJS(inline.o)
-fi
+test "$ac_cv_c_inline" != "no" -a "$GCC" = "yes" && XE_ADD_OBJS(inline.o)
 
 dnl HP-UX has a working alloca in libPW.
 dnl case "${GCC}${opsys}" in hpux* )
 dnl  AC_CHECK_FUNC(alloca, [:], [AC_CHECK_LIB(PW, alloca)])
 dnl esac
 
-AC_FUNC_ALLOCA
-test -n "$ALLOCA" && XE_ADD_OBJS($ALLOCA)
+dnl AC_FUNC_ALLOCA doesn't know about DEC C's #pragma intrinsic(alloca)
+if test "$__DECC" != "yes"; then
+  AC_FUNC_ALLOCA
+  test -n "$ALLOCA" && XE_ADD_OBJS($ALLOCA)
+fi
 
 dnl Check whether vfork exists and works correctly. (This does more
 dnl than just check for its existence.) If so, it defines HAVE_VFORK_H.
@@ -3256,12 +4047,28 @@ int main (int argc, char *argv[])
 esac
 AC_MSG_RESULT($have_mmap)
 test "$have_mmap" = "yes" && AC_DEFINE(HAVE_MMAP)
-AC_FUNC_MMAP
 
+dnl By default we switch off rel-alloc on cygwin as it generally causes us grief
+case "$opsys" in cygwin*) 
+	test "$rel_alloc" = "default" && rel_alloc=no ;;
+esac
 dnl rel_alloc requires either GNU malloc or system malloc with mmap
 dnl We only turn rel_alloc on by default if mmap is available.
-test "$GNU_MALLOC" != "yes"   -a "$have_mmap" != "yes" && rel_alloc=no
-test "$rel_alloc" = "default" -a "$have_mmap"  = "yes" && rel_alloc=yes
+test "$GNU_MALLOC" != "yes" -a "$have_mmap" != "yes" && rel_alloc=no
+if test "$rel_alloc $have_mmap" = "default yes"; then
+  if test "$doug_lea_malloc" = "yes"; then
+    dnl Check if malloc() calls mmap(), making rel_alloc pointless.
+    AC_MSG_CHECKING(for M_MMAP_THRESHOLD)
+    AC_TRY_COMPILE([#include <malloc.h>],[
+#ifndef M_MMAP_THRESHOLD
+#error No M_MMAP_THRESHOLD :-(
+!@+$%^&*_)(_ - unlikely to compile...
+#endif
+], [rel_alloc=no; AC_MSG_RESULT(yes);], [rel_alloc=yes; AC_MSG_RESULT(no);])
+  else
+    rel_alloc=yes
+  fi
+fi
 test "$rel_alloc" = "yes" && AC_DEFINE(REL_ALLOC)
 
 dnl Check for terminal I/O variants
@@ -3313,10 +4120,6 @@ dnl Check for sound of various sorts.
 
 dnl Autodetect native sound
 AC_CHECKING("for sound support")
-case "$with_sound" in
-  native | both ) with_native_sound=yes;;
-  nas    | no   ) with_native_sound=no;;
-esac
 test -z "$with_native_sound" -a -n "$native_sound_lib" && with_native_sound=yes
 
 if test "$with_native_sound" != "no"; then
@@ -3369,13 +4172,22 @@ if test "$with_native_sound" != "no"; then
     esac
   fi
 
+  dnl Win32 Native uses native sound
+  if test -z "$sound_found"; then
+    if test "$with_msw" = "yes"; then
+    sound_found=yes
+    native_sound_lib=
+    fi
+  fi
+
   dnl Check for Linux/BSD native sound
   if test -z "$sound_found"; then
     for dir in "machine" "sys" "linux"; do
       AC_CHECK_HEADER(${dir}/soundcard.h,
         sound_found=yes
+       need_miscplay=yes
         XE_ADD_OBJS(linuxplay.o)
-        [AC_DEFINE_UNQUOTED(SOUNDCARD_H_PATH, "${dir}/soundcard.h")]
+        [AC_DEFINE_UNQUOTED(SOUNDCARD_H_FILE, "${dir}/soundcard.h")]
         break)
     done
   fi
@@ -3383,25 +4195,55 @@ if test "$with_native_sound" != "no"; then
   test "$sound_found" = "yes" && with_native_sound=yes
 fi
 
-if test -z "$with_sound"; then
-  if test "$with_native_sound" = "yes" -o -n "$native_sound_lib"; then
-    with_sound=native
-  fi
-fi
-
 if test "$with_native_sound" = "yes"; then
   AC_DEFINE(HAVE_NATIVE_SOUND)
   test -n "$native_sound_lib" && XE_PREPEND($native_sound_lib, LIBS)
 fi
 
-case "$with_sound" in both | nas )
-  AC_DEFINE(HAVE_NAS_SOUND)
-  XE_ADD_OBJS(nas.o)
-  XE_PREPEND(-laudio, libs_x)
-  dnl If the nas library does not contain the error jump point,
-  dnl then we force safer behavior.
-  AC_EGREP_HEADER(AuXtErrorJump,audio/Xtutil.h,,[AC_DEFINE(NAS_NO_ERROR_JUMP)])
-esac
+dnl NAS Sound support
+if test "$with_nas_sound" != "no"; then
+  AC_CHECK_HEADER(audio/audiolib.h, [
+    AC_CHECK_LIB(audio, AuOpenServer, have_nas_sound=yes)])
+  if test "$have_nas_sound" = "yes"; then
+    with_nas_sound=yes
+    AC_DEFINE(HAVE_NAS_SOUND)
+    XE_ADD_OBJS(nas.o)
+    XE_PREPEND(-laudio, libs_x)
+    dnl If the nas library does not contain the error jump point,
+    dnl then we force safer behavior.
+    AC_EGREP_HEADER(AuXtErrorJump,audio/Xtutil.h,,[old_nas=yes; AC_DEFINE(NAS_NO_ERROR_JUMP)])
+  else
+    test "$with_nas_sound" = "yes" && \
+      XE_DIE("Required NAS sound support cannot be provided.")
+    with_nas_sound=no
+  fi
+fi
+
+dnl ESD Sound support
+if test "$with_esd_sound" != "no"; then
+  AC_CHECK_PROG(have_esd_config, esd-config, yes, no)
+  if test "$have_esd_config" = "yes"; then
+    save_c_switch_site="$c_switch_site" save_LIBS="$LIBS"
+    XE_APPEND(`esd-config --cflags`, c_switch_site)
+    XE_PREPEND(`esd-config --libs`, LIBS)
+    AC_CHECK_FUNC(esd_play_stream,
+      have_esd_sound=yes,
+      c_switch_site="$save_c_switch_site" LIBS="$save_LIBS")
+  fi
+
+  if test "$have_esd_sound" = "yes"; then
+    with_esd_sound=yes
+    need_miscplay=yes
+    XE_ADD_OBJS(esd.o)
+    AC_DEFINE(HAVE_ESD_SOUND)
+  else
+    test "$with_esd_sound" = "yes" && \
+      XE_DIE("Required ESD sound support cannot be provided.")
+    with_esd_sound=no
+  fi
+fi
+
+test "$need_miscplay" = "yes" && XE_ADD_OBJS(miscplay.o)
 
 dnl ---------------------
 dnl TTY-dependent options
@@ -3420,8 +4262,8 @@ if test "$with_tty" = "yes"  ; then
   fi
   if test "$with_ncurses" = "yes"; then
     AC_DEFINE(HAVE_NCURSES)
-    AC_CHECK_HEADER(ncurses/curses.h, curses_h_path=ncurses/curses.h)
-    AC_CHECK_HEADER(ncurses/term.h, term_h_path=ncurses/term.h)
+    AC_CHECK_HEADER(ncurses/curses.h, curses_h_file=ncurses/curses.h)
+    AC_CHECK_HEADER(ncurses/term.h, term_h_file=ncurses/term.h)
     XE_ADD_OBJS(terminfo.o)
     XE_PREPEND(-lncurses, LIBS)
 
@@ -3431,7 +4273,7 @@ if test "$with_tty" = "yes"  ; then
       dnl <ncurses/unctrl.h>)
       save_c_switch_site="$c_switch_site"
       c_switch_site="$c_switch_site -I/usr/include/ncurses"
-      AC_CHECK_HEADER(ncurses/curses.h, curses_h_path=ncurses/curses.h)
+      AC_CHECK_HEADER(ncurses/curses.h, curses_h_file=ncurses/curses.h)
       if test "$ac_cv_header_ncurses_curses_h" = "yes"
         then AC_MSG_WARN("Your system has the bogus ncurses include bug.")
         else c_switch_site="$save_c_switch_site"
@@ -3449,10 +4291,17 @@ if test "$with_tty" = "yes"  ; then
 	done
       fi
     else dnl "$have_terminfo" = "no" && "with_ncurses" = "no"
-      XE_ADD_OBJS(tparam.o)
+      if test -n "$libs_termcap" -a "$opsys" = "openbsd"; then
+        dnl We need to check if tgoto does not exist in termcap yet
+        dnl because on OpenBSD libtermcap is another name for libcurses
+        dnl which provides the same tgoto as ncurses
+        AC_CHECK_LIB(termcap, tgoto, , XE_ADD_OBJS(tparam.o))
+      else
+        XE_ADD_OBJS(tparam.o)
+      fi
       dnl The HP-UX curses library seems to have a badly broken version of select(2)
       dnl that makes "poll: interrupted system call" messages to appear and
-      dnl Emacs suprocesses to hang (e.g. TeX compilation w/ AUCTeX) */
+      dnl Emacs subprocesses to hang (e.g. TeX compilation w/ AUCTeX) */
       case "$opsys" in *-hp-hpux* ) libs_termcap="-ltermcap" ;; esac
       if test -n "$libs_termcap"; then
 	XE_PREPEND($libs_termcap, LIBS)
@@ -3463,8 +4312,8 @@ if test "$with_tty" = "yes"  ; then
       fi
     fi
   fi
-  AC_DEFINE_UNQUOTED(CURSES_H_PATH, "${curses_h_path-curses.h}")
-  AC_DEFINE_UNQUOTED(TERM_H_PATH, "${term_h_path-term.h}")
+  AC_DEFINE_UNQUOTED(CURSES_H_FILE, "${curses_h_file-curses.h}")
+  AC_DEFINE_UNQUOTED(TERM_H_FILE, "${term_h_file-term.h}")
 
   dnl Autodetect gpm
   test -z "$with_gpm" && { AC_CHECK_HEADER(gpm.h, , with_gpm=no) }
@@ -3485,33 +4334,35 @@ else dnl "$with_tty" = "no"
 fi dnl with_tty
 
 dnl Do we need event-unixoid.o ?
-test "$with_x11" = "yes" -o "$with_tty" = "yes" && XE_ADD_OBJS(event-unixoid.o)
+dnl This is needed for X, or for TTY, or for MSWIN w/Cygwin select()
+dnl [but not Mingw MSWIN]
+test "$with_x11" = "yes" -o "$with_tty" = "yes" -o "$need_event_unixoid" = "yes" && XE_ADD_OBJS(event-unixoid.o)
 
 dnl Database support
 dnl We do not necessarily have to have libdb/lib(g)dbm for DB/(G)DBM support.
 dnl On FreeBSD, both DB and DBM are part of libc.
 dnl By default, we check for DBM support in libgdbm, then libc, then libdbm.
 
-test "$with_database_gnudbm $with_database_dbm $with_database_berkdb" \
+test "$with_database_gdbm $with_database_dbm $with_database_berkdb" \
   != "no no no" && AC_CHECKING(for database support)
 
 dnl Check for ndbm.h, required for either kind of DBM support.
-if test "$with_database_gnudbm $with_database_dbm" != "no no"; then
+if test "$with_database_gdbm $with_database_dbm" != "no no"; then
   AC_CHECK_HEADER(ndbm.h, [:], [
-    test "$with_database_gnudbm" = "yes" -o \
-         "$with_database_dbm"    = "yes" && \
+    test "$with_database_gdbm" = "yes" -o \
+         "$with_database_dbm"  = "yes" && \
       XE_DIE("Required DBM support cannot be provided.")
-    with_database_gnudbm=no with_database_dbm=no])
+    with_database_gdbm=no with_database_dbm=no])
 fi
 
 dnl Check for DBM support in libgdbm.
-if test "$with_database_gnudbm" != "no"; then
+if test "$with_database_gdbm" != "no"; then
   AC_CHECK_LIB(gdbm, dbm_open, [
-   with_database_gnudbm=yes with_database_dbm=no libdbm=-lgdbm], [
-   if test "$with_database_gnudbm" = "yes"; then
+   with_database_gdbm=yes with_database_dbm=no libdbm=-lgdbm], [
+   if test "$with_database_gdbm" = "yes"; then
      XE_DIE("Required GNU DBM support cannot be provided.")
    fi
-   with_database_gnudbm=no])
+   with_database_gdbm=no])
 fi
 
 dnl Check for DBM support in libc and libdbm.
@@ -3525,15 +4376,18 @@ fi
 
 dnl Tell make about the DBM support we detected.
 test -n "$libdbm" && XE_PREPEND("$libdbm", LIBS)
-test "$with_database_gnudbm" = "yes" -o \
-     "$with_database_dbm"    = "yes" && \
+test "$with_database_gdbm" = "yes" -o \
+     "$with_database_dbm"  = "yes" && \
   AC_DEFINE(HAVE_DBM)
 
 dnl Check for Berkeley DB.
 if test "$with_database_berkdb" != "no"; then
   AC_MSG_CHECKING(for Berkeley db.h)
-  for path in "db/db.h" "db.h"; do
-    AC_TRY_COMPILE([#ifdef HAVE_INTTYPES_H
+  for header in "db/db.h" "db.h"; do
+    AC_TRY_COMPILE([
+#include <stdlib.h>
+#if !(defined __GLIBC__ && __GLIBC_MINOR__ >= 1)
+#ifdef HAVE_INTTYPES_H
 #define __BIT_TYPES_DEFINED__
 #include <inttypes.h>
 typedef uint8_t  u_int8_t;
@@ -3543,38 +4397,49 @@ typedef uint32_t u_int32_t;
 typedef uint64_t u_int64_t;
 #endif
 #endif
-#include <$path>
-],[], db_h_path="$path"; break)
+#endif
+#include <$header>
+],[], db_h_file="$header"; break)
   done
-  if test -z "$db_h_path"
+  if test -z "$db_h_file"
   then AC_MSG_RESULT(no); with_database_berkdb=no
-  else AC_MSG_RESULT($db_h_path)
+  else AC_MSG_RESULT($db_h_file)
   fi
 
   if test "$with_database_berkdb" != "no"; then
     AC_MSG_CHECKING(for Berkeley DB version)
     AC_EGREP_CPP(yes,
-[#include <$db_h_path>
+[#include <$db_h_file>
 #if DB_VERSION_MAJOR > 1
 yes
 #endif
-], [AC_MSG_RESULT(2); dbfunc=db_open], [AC_MSG_RESULT(1); dbfunc=dbopen])
+], [AC_EGREP_CPP(yes,
+[#include <$db_h_file>
+#if DB_VERSION_MAJOR > 2
+yes
+#endif
+], [AC_MSG_RESULT(3); dbfunc=db_create],[
+    AC_MSG_RESULT(2); dbfunc=db_open])],[
+    AC_MSG_RESULT(1); dbfunc=dbopen])
     AC_CHECK_FUNC($dbfunc,     with_database_berkdb=yes need_libdb=no, [
     AC_CHECK_LIB(db, $dbfunc,  with_database_berkdb=yes need_libdb=yes)])
   fi
 
   if test "$with_database_berkdb" = "yes"; then
-    AC_DEFINE_UNQUOTED(DB_H_PATH, "$db_h_path")
+    AC_DEFINE_UNQUOTED(DB_H_FILE, "$db_h_file")
     AC_DEFINE(HAVE_BERKELEY_DB)
     test "$need_libdb" = "yes" && XE_PREPEND(-ldb, LIBS)
   else with_database_berkdb=no
   fi
 fi
 
-if test "$with_database_gnudbm $with_database_dbm $with_database_berkdb" \
+if test "$with_database_gdbm $with_database_dbm $with_database_berkdb" \
      != "no no no"; then
   AC_DEFINE(HAVE_DATABASE)
   XE_ADD_OBJS(database.o)
+  if test "$with_utf_2000" = "yes"; then
+    AC_DEFINE(HAVE_CHISE_CLIENT)
+  fi
 fi
 
 dnl Socks support
@@ -3590,25 +4455,56 @@ if test "$usage_tracking" = "yes"; then
 fi
 
 dnl autodetect dll support
-AC_CHECK_HEADERS(dlfcn.h, [have_dlfcn=yes
-  AC_DEFINE(HAVE_DLFCN_H)])
-test -z "$with_shlib" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(dl,  dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=dl;  with_shlib=yes]) }
-test -z "$with_shlib" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   _dlopen,  [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_shlib=yes]) }
-test -z "$with_shlib" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_shlib=yes]) }
-test -z "$with_shlib" && { AC_CHECK_LIB(dld, shl_load, [ AC_DEFINE(HAVE_SHL_LOAD) DLL_LIB=dld; with_shlib=yes]) }
-test -z "$with_shlib" && { AC_CHECK_LIB(dld, dld_init, [ AC_DEFINE(HAVE_DLD_INIT) DLL_LIB=dld; with_shlib=yes]) }
-if test "$with_shlib" = "yes"; then
-  XE_SHLIB_STUFF
+if test "$with_modules" != "no"; then
+  AC_CHECKING(for module support)
+
+  dnl Check for MS-Windows
+  if test "$with_msw" = "yes"; then
+    have_dl=yes;
+  else
+    dnl Find headers and libraries
+    AC_CHECK_HEADER(dlfcn.h, [
+      AC_MSG_CHECKING([for dlopen in -lc])
+      AC_TRY_LINK([#include <dlfcn.h>],dnl
+	[dlopen ("", 0);], [ have_dl=yes ], [
+      AC_MSG_CHECKING([for dlopen in -ldl])
+      ac_save_LIBS="$LIBS"
+      LIBS="-ldl $LIBS"
+      AC_TRY_LINK([#include <dlfcn.h>],dnl
+	[dlopen ("", 0);], [ have_dl=yes ],
+	[LIBS="$ac_save_LIBS"])
+      ac_save_LIBS=])])
+    if test -n "$have_dl"; then
+      AC_DEFINE(HAVE_DLOPEN)
+    else
+      AC_CHECK_LIB(dld, shl_load, [
+        libdl=dld have_dl=yes;
+        AC_DEFINE(HAVE_SHL_LOAD)], [
+        AC_CHECK_LIB(dld, dld_init, [
+        libdl=dld have_dl=yes;
+        AC_DEFINE(HAVE_DLD_INIT)])])
+    fi
+  fi dnl end !MS-Windows
+
+  if test -n "$have_dl"; then
+    dnl XE_SHLIB_STUFF (in aclocal.m4) defines $can_build_shared
+    XE_SHLIB_STUFF
+  fi
+
   if test "$can_build_shared" = "yes"; then
     AC_DEFINE(HAVE_SHLIB)
-    XE_ADD_OBJS(sysdll.o)
-    XE_ADD_OBJS(emodules.o)
+    XE_ADD_OBJS(sysdll.o emodules.o)
     XE_APPEND(src, INSTALL_ARCH_DEP_SUBDIR)
-    test ! -z "$DLL_LIB" && XE_PREPEND(-l${DLL_LIB}, LIBS)
+    test -n "$libdl" && XE_PREPEND(-l${libdl}, LIBS)
     AC_CHECK_FUNCS(dlerror _dlerror)
+    with_modules=yes
   else
-    AC_MSG_WARN(disabling shared library support)
-    with_shlib=no
+    if test "$with_modules" = "yes"; then
+      XE_DIE("Required module support cannot be provided.")
+    else
+      AC_MSG_WARN("Module support cannot be provided.")
+    fi
+    with_modules=no
   fi
 fi
 
@@ -3618,19 +4514,25 @@ dnl executables to fail to run.  Also any tests using AC_TRY_RUN will
 dnl have reported incorrect results.
 AC_TRY_RUN([int main(int c,char *v[]){return 0;}],[:],[
   echo ""
-  echo "*** PANIC *** The C compiler can no longer build working executables."
-  echo "*** PANIC *** Please examine the tail of config.log for runtime errors."
-  echo "*** PANIC *** The most likely reason for this problem is that configure"
-  echo "*** PANIC *** links with shared libraries, but those libraries cannot be"
-  echo "*** PANIC *** found at run time."
-  echo "*** PANIC ***"
-  echo "*** PANIC *** On a Linux system, edit /etc/ld.so.conf and re-run ldconfig."
-  echo "*** PANIC *** On other systems, try telling configure where to find the"
-  echo "*** PANIC *** shared libraries using the --site-runtime-libraries option"
-  echo "*** PANIC ***"
-  echo "*** PANIC *** Another way to shoot yourself in the foot is to specify"
-  echo "*** PANIC *** --with-FEATURE when FEATURE is not actually installed"
-  echo "*** PANIC *** on your system.  Don't do that."
+  echo "*** PANIC *** configure forgot how to build working executables!"
+  echo ""
+  echo "*** This is most commonly due to an unforeseen environment, causing"
+  echo "*** configure to incorrectly compute the sequence of libraries to link."
+  echo "*** Please examine the tail of config.log for runtime errors."
+  echo "*** Pay special attention to the -l flags, and perhaps -I and -L."
+  echo "*** Often adding or removing explicit options in the configure"
+  echo "*** invocation can work around this kind of problem.  If so, please"
+  echo "*** report it as a bug to xemacs-beta@xemacs.org."
+  echo "***"
+  echo "*** Other possible causes are inability to write to the file system"
+  echo "*** (bogus permissions or disk full) or a misconfiguration of the dynamic"
+  echo "*** linker.  On Linux, check /etc/ld.conf and rerun ldconfig if"
+  echo "*** necessary.  On other systems, try telling configure where to find"
+  echo "*** the shared libraries using the --site-runtime-libraries option."
+  echo "***"
+  echo "*** Another way to shoot yourself in the foot is to specify"
+  echo "*** --with-FEATURE when FEATURE is not actually installed on your"
+  echo "*** system.  Don't do that."
   exit 1])
 
 dnl Process support
@@ -3650,13 +4552,13 @@ dnl Use XE_SPACE instead of plain assignment statements to remove extraneous bla
 XE_SPACE(CFLAGS, $CFLAGS)
 XE_SPACE(extra_objs, $extra_objs)
 XE_SPACE(c_switch_general, -DHAVE_CONFIG_H $c_switch_site $c_switch_machine $c_switch_system)
-XE_SPACE(c_switch_window_system, $c_switch_x_site $X_CFLAGS)
+XE_SPACE(c_switch_window_system, $c_switch_x_site $c_switch_gtk $X_CFLAGS)
 XE_SPACE(c_switch_all, $c_switch_general $c_switch_window_system)
 XE_SPACE(ld_switch_general, $ld_switch_site $ld_switch_machine $ld_switch_system $ld_switch_run)
 XE_SPACE(ld_switch_window_system, $ld_switch_x_site)
 XE_SPACE(ld_switch_all, $ld_switch_general $ld_switch_window_system)
 XE_SPACE(ld_libs_general, $LIBS $libs_machine $libs_system $libs_standard)
-XE_SPACE(ld_libs_window_system, $X_EXTRA_LIBS $libs_x $X_PRE_LIBS)
+XE_SPACE(ld_libs_window_system, $X_EXTRA_LIBS $libs_x $libs_gtk $X_PRE_LIBS)
 XE_SPACE(ld_libs_all, $ld_libs_window_system $ld_libs_general)
 
 dnl Compute lists of Makefiles and subdirs
@@ -3696,15 +4598,32 @@ if test "$extra_verbose" = "yes"; then
   echo ""
 fi
 
-dnl Create some auxiliary files
-if test -f $srcdir/src/gdbinit -a ! -f src/gdbinit ; then
-  echo "creating src/gdbinit"; echo ""
-  echo "source $srcdir/src/gdbinit" > src/gdbinit
+dnl ----------------------------------------------
+dnl Create some auxiliary files for developers.
+dnl ----------------------------------------------
+
+dnl Create a .gdbinit useful for debugging XEmacs
+if test -f "$srcdir/src/.gdbinit" -a ! -f "src/.gdbinit"; then
+  test "$extra_verbose" = "yes" && echo "creating src/.gdbinit"
+  echo "source $srcdir/src/.gdbinit" > "src/.gdbinit"
+fi
+
+dnl Create a .dbxrc useful for debugging XEmacs
+if test -f "$srcdir/src/.dbxrc" -a ! -f "src/.dbxrc"; then
+  test "$extra_verbose" = "yes" && echo "creating src/.dbxrc"
+  echo ". $srcdir/src/.dbxrc" > "src/.dbxrc"
+fi
+
+dnl Create a useful TAGS file
+if test -f "$srcdir/TAGS" -a ! -f "TAGS"; then
+  test "$extra_verbose" = "yes" && echo "creating TAGS"
+  echo "
+$srcdir/TAGS,include" > "TAGS"
 fi
 
 dnl Create top level .sbinit for Sun compilers
 if test "$__SUNPRO_C" = "yes"; then
-  echo "creating .sbinit"; echo ""
+  test "$extra_verbose" = "yes" && echo "creating .sbinit"
   ( echo "# For use with Sun WorkShop's Source browser."
     echo "# See sbquery(1) and sbinit(4) for more information"
     for dir in $MAKE_SUBDIR; do echo "import $dir"; done
@@ -3725,6 +4644,8 @@ AC_SUBST(PROGNAME)
 AC_SUBST(version)
 AC_SUBST(configuration)
 AC_SUBST(canonical)
+AC_SUBST(inststaticdir)
+AC_SUBST(instvardir)
 AC_SUBST(srcdir)
 AC_SUBST(bindir)
 AC_SUBST(datadir)
@@ -3732,8 +4653,10 @@ AC_SUBST(pkgdir)
 AC_SUBST(statedir)
 AC_SUBST(libdir)
 AC_SUBST(mandir)
+AC_SUBST(extra_includes)
 
 AC_SUBST(prefix)
+AC_SUBST(PREFIX_USER_DEFINED)
 dnl Yo, Stephen Bourne!  I want to marry you!
 PREFIX=$prefix
 while true; do
@@ -3745,6 +4668,7 @@ done
 AC_SUBST(PREFIX)
 
 AC_SUBST(exec_prefix)
+AC_SUBST(EXEC_PREFIX_USER_DEFINED)
 EXEC_PREFIX=$exec_prefix
 while true; do
   case "$EXEC_PREFIX" in
@@ -3842,16 +4766,16 @@ while true; do
 done
 AC_SUBST(ETCDIR)
 
-AC_SUBST(lockdir)
-AC_SUBST(LOCKDIR_USER_DEFINED)
-LOCKDIR=$lockdir
+AC_SUBST(docdir)
+AC_SUBST(DOCDIR_USER_DEFINED)
+DOCDIR=$docdir
 while true; do
-  case "$LOCKDIR" in
-    *\$* ) eval "LOCKDIR=$LOCKDIR" ;;
+  case "$DOCDIR" in
+    *\$* ) eval "DOCDIR=$DOCDIR" ;;
     *) break ;;
   esac
 done
-AC_SUBST(LOCKDIR)
+AC_SUBST(DOCDIR)
 
 AC_SUBST(archlibdir)
 AC_SUBST(ARCHLIBDIR_USER_DEFINED)
@@ -3900,6 +4824,10 @@ dnl Useful for building XEmacs with a C++ or 64-bit compiler.
 : ${XEMACS_CC:=$CC}
 AC_SUBST(XEMACS_CC)
 
+dnl The default is yes
+if test "$with_prefix" = "yes"; then
+  AC_DEFINE(PREFIX_USER_DEFINED)
+fi
 
 dnl The default is no
 if test "$with_site_lisp" = "no"; then
@@ -3911,10 +4839,8 @@ if test "$with_site_modules" = "no"; then
 fi
 
 XE_SPACE(ac_configure_args, $ac_configure_args)
-AC_DEFINE_UNQUOTED(EMACS_CONFIGURATION, "$canonical")
+AC_DEFINE_UNQUOTED(EMACS_CONFIGURATION, "$configuration")
 AC_DEFINE_UNQUOTED(EMACS_CONFIG_OPTIONS, "$ac_configure_args")
-AC_DEFINE_UNQUOTED(config_machfile,  "$machfile")
-AC_DEFINE_UNQUOTED(config_opsysfile, "$opsysfile")
 
 dnl Following are deprecated
 
@@ -3939,14 +4865,15 @@ fi
 test "$with_i18n3"         = "yes" && AC_DEFINE(I18N3)
 test "$GCC"                = "yes" && AC_DEFINE(USE_GCC)
 test "$external_widget"    = "yes" && AC_DEFINE(EXTERNAL_WIDGET)
-test "$no_doc_file"        = "yes" && AC_DEFINE(NO_DOC_FILE)
-dnl test "$const_is_losing"    = "yes" && AC_DEFINE(CONST_IS_LOSING)
+test "$quick_build"        = "yes" && AC_DEFINE(QUICK_BUILD)
 test "$with_purify"        = "yes" && AC_DEFINE(PURIFY)
 test "$with_quantify"      = "yes" && AC_DEFINE(QUANTIFY)
 test "$with_pop"           = "yes" && AC_DEFINE(MAIL_USE_POP)
 test "$with_kerberos"      = "yes" && AC_DEFINE(KERBEROS)
 test "$with_hesiod"        = "yes" && AC_DEFINE(HESIOD)
 test "$use_union_type"     = "yes" && AC_DEFINE(USE_UNION_TYPE)
+test "$pdump"              = "yes" && AC_DEFINE(PDUMP)
+test "$with_ipv6_cname"    = "yes" && AC_DEFINE(IPV6_CANONICALIZE)
 
 dnl -------------------------------
 dnl Report on what we decided to do
@@ -3963,63 +4890,144 @@ echo ""
 echo "$0 $quoted_arguments"
 ) > Installation
 
-xemacs_betaname=""
-test ! -z "${emacs_beta_version}" && xemacs_betaname="-b${emacs_beta_version}"
+if test ! -z ${emacs_beta_version} ; then
+  if test -z "${emacs_is_beta}" ; then
+	xemacs_betaname=".${emacs_beta_version}"
+  else
+	xemacs_betaname="-b${emacs_beta_version}"
+  fi
+else
+  xemacs_betaname=""
+fi
 
 dnl Start stdout redirection to '| tee -a Installation'
 (
 echo "
 
 XEmacs ${emacs_major_version}.${emacs_minor_version}${xemacs_betaname} \"$xemacs_codename\" configured for \`$canonical'.
-
-  Where should the build process find the source code?    $srcdir
-  What installation prefix should install use?		  $prefix
-  What operating system and machine description files should XEmacs use?
-        \`$opsysfile' and \`$machfile'
-  What compiler should XEmacs be built with?              $CC $CFLAGS
-  Should XEmacs use the GNU version of malloc?            ${GNU_MALLOC}${GNU_MALLOC_reason}
-  Should XEmacs use the relocating allocator for buffers? $rel_alloc
-  What window system should XEmacs use?                   ${window_system}"
-if test "$with_x11" = "yes"; then
-  echo "  Where do we find X Windows header files?                $x_includes"
-  echo "  Where do we find X Windows libraries?                   $x_libraries"
-fi
+"
+echo "
+Compilation / Installation:"
+echo "  Source code location:              $srcdir"
+echo "  Installation prefix:               $prefix"
 if test -n "$site_includes"; then
-  echo "  Additional header files:                                $site_includes"
+  echo "  Additional header files:           $site_includes"
 fi
 if test -n "$site_libraries"; then
-  echo "  Additional libraries:                                   $site_libraries"
+  echo "  Additional libraries:              $site_libraries"
 fi
 if test -n "$site_prefixes"; then
-  echo "  Additional prefixes:                                    $site_prefixes"
+  echo "  Additional prefixes:               $site_prefixes"
 fi
 if test -n "$runpath"; then
-  echo "  Runtime library search path:                            $runpath"
-fi
-test "$with_dnet"  = yes && echo "  Compiling in support for DNET."
-test "$with_socks" = yes && echo "  Compiling in support for SOCKS."
-test "$with_xauth" = yes && echo "  Compiling in support for XAUTH."
-if test "$with_xmu" != yes -a "$with_x11" = yes; then
-  echo "  No Xmu; substituting equivalent routines."
+  echo "  Runtime library search path:       $runpath"
 fi
 
+if test -n "$opsysfile"
+then echo "  Operating system description file: \`$opsysfile'"
+else echo "  Not using any operating system description file"
+fi
+if test -n "$machfile"
+then echo "  Machine description file:          \`$machfile'"
+else echo "  Not using any machine description file"
+fi
+
+echo "  Compiler:                          $CC $CFLAGS"
+echo "  Relocating allocator for buffers:  $rel_alloc"
+echo "  GNU version of malloc:             ${GNU_MALLOC}${GNU_MALLOC_reason}"
+case "$ld_switch_site" in
+  *nocombreloc*) echo "  Linking with \`-z nocombreloc'.
+    - Consider configuring with --pdump." ;;
+esac
+
+echo "
+Window System:"
+if test "$with_msw" = "yes"; then
+  echo "  Compiling in support for the Microsoft window system."
+fi
+if test "$with_x11" = "yes"; then
+  echo "  Compiling in support for the X window system:"
+  echo "    - X Windows headers location:                 $x_includes"
+  echo "    - X Windows libraries location:               $x_libraries"
+  if test "$with_xauth" != yes; then
+    echo "    - Xau (X authority) not available."
+  fi
+  if test "$with_xmu" != yes; then
+    echo "    - Xmu library not available; substituting equivalent routines."
+  fi
+  if test "$with_wmcommand" != no; then
+    echo "    - Handling WM_COMMAND properly."
+  fi
+fi
+if test "$need_athena" = "yes"; then
+  echo "  Compiling in support for the Athena widget set:"
+  echo "    - Athena headers location:                    $athena_h_path"
+  echo "    - Athena library to link:                     $athena_lib"
+fi
+case "$with_menubars" in
+  gtk   ) echo "  Using GTK menubars."   ;;
+  lucid ) echo "  Using Lucid menubars." ;;
+  motif ) echo "  Using Motif menubars."
+          echo "  *WARNING*  The Motif menubar implementation is currently buggy."
+          echo "             We recommend using the Lucid menubar instead."
+          echo "             Re-run configure with --with-menubars='lucid'." ;;
+    msw ) echo "  Using MS-Windows menubars." ;;
+esac
+case "$with_scrollbars" in
+  gtk    ) echo "  Using GTK scrollbars."        ;;
+  lucid  ) echo "  Using Lucid scrollbars."      ;;
+  motif  ) echo "  Using Motif scrollbars."      ;;
+  athena ) echo "  Using Athena scrollbars."     ;;
+     msw ) echo "  Using MS-Windows scrollbars." ;;
+esac
+case "$with_dialogs" in
+  gtk    ) echo "  Using GTK dialog boxes." ;;
+  motif  ) echo "  Using Motif dialog boxes."
+           if test "$unexec" = "unexaix.o"; then if test "`uname -v`" = 4 -a "`uname -r`" -ge 3; then
+             echo "  *WARNING*  The Motif dialog boxes cause problems on AIX 4.3 and higher."
+             echo "             We recommend using the Athena dialog boxes instead."
+             echo "             Install libXaw and re-run configure with --with-dialogs='athena'."
+             echo "             Read the PROBLEMS file for more information."
+           fi; fi ;;
+  athena ) echo "  Using Athena dialog boxes."     ;;
+     msw ) echo "  Using MS-Windows dialog boxes." ;;
+esac
+case "$with_widgets" in
+  gtk    ) echo "  Using GTK native widgets."        ;;
+  motif  ) echo "  Using Motif native widgets."      ;;
+  athena ) echo "  Using Athena native widgets."     ;;
+     msw ) echo "  Using MS-Windows native widgets." ;;
+esac
+if test "$with_dragndrop" = yes; then
+  echo "  Compiling in support for Drag'n'Drop (EXPERIMENTAL)."
+  echo "    -  Drag'n'Drop prototype:                             $dragndrop_proto."
+fi
+
+echo "
+TTY:"
+test "$with_ncurses" = yes && echo "  Compiling in support for ncurses."
+test "$with_gpm" = yes && echo "  Compiling in support for GPM (General Purpose Mouse)."
+
+echo "
+Images:"
+test "$with_gif" = yes && echo "  Compiling in support for GIF  images (builtin)."
 if test "$with_xpm" = yes; then
-  echo "  Compiling in support for XPM images."
+  echo "  Compiling in support for XPM  images."
 elif test "$with_x11" = yes; then
-  echo "  --------------------------------------------------------------------"
-  echo "  WARNING: Compiling without XPM support."
+  echo "  WARNING: -----------------------------------------------------------"
+  echo "  WARNING: Compiling without XPM image support."
   if test "$xpm_problem" != ""; then
     echo "  Reason: $xpm_problem"
   fi
   echo "  WARNING: You should strongly consider installing XPM."
   echo "  WARNING: Otherwise toolbars and other graphics will look suboptimal."
   echo "  WARNING: (a copy may be found in ftp://ftp.xemacs.org/pub/xemacs/aux)"
-  echo "  --------------------------------------------------------------------"
+  echo "  WARNING: -----------------------------------------------------------"
 fi
 if test "$with_png" = yes; then
-  echo "  Compiling in support for PNG image handling."
+  echo "  Compiling in support for PNG  images."
 elif test "$window_system" != "none"; then
-  echo "  --------------------------------------------------------------------"
+  echo "  WARNING: -----------------------------------------------------------"
   echo "  WARNING: Compiling without PNG image support."
   if test "$png_problem" != ""; then
     echo "  Reason: $png_problem"
@@ -4027,87 +5035,75 @@ elif test "$window_system" != "none"; then
   echo "  WARNING: You should strongly consider installing the PNG libraries."
   echo "  WARNING: Otherwise certain images and glyphs may not display."
   echo "  WARNING: (a copy may be found in ftp://ftp.xemacs.org/pub/xemacs/aux)"
-  echo "  --------------------------------------------------------------------"
+  echo "  WARNING: -----------------------------------------------------------"
 fi
-test "$with_gif"   = yes && echo "  Compiling in support for (builtin) GIF image handling."
-test "$with_jpeg"  = yes && echo "  Compiling in support for JPEG image handling."
-test "$with_tiff"  = yes && echo "  Compiling in support for TIFF image handling."
+test "$with_jpeg" = yes && echo "  Compiling in support for JPEG images."
+test "$with_tiff" = yes && echo "  Compiling in support for TIFF images."
 test "$with_xface" = yes && echo "  Compiling in support for X-Face message headers."
-case "$with_sound" in
-  nas    ) echo "  Compiling in network sound (NAS) support." ;;
-  native ) echo "  Compiling in native sound support." ;;
-  both   ) echo "  Compiling in both network and native sound support." ;;
-esac
-test "$old_nas" = yes && echo "        nas library lacks error trapping, will play synchronously."
 
-test "$with_database_berkdb" = yes && echo "  Compiling in support for Berkeley DB."
+echo "
+Sound:"
+test "$with_native_sound" = yes && echo "  Compiling in support for sound (native)."
+test "$with_nas_sound" = yes && echo "  Compiling in support for NAS (network audio system)."
+test "$old_nas" = yes && echo "    - NAS library lacks error trapping; will play synchronously."
+test "$with_esd_sound" = yes && echo "  Compiling in support for ESD (Enlightened Sound Daemon)."
+
+echo "
+Databases:"
+test "$with_database_berkdb" = yes && echo "  Compiling in support for Berkeley database."
 test "$with_database_dbm"    = yes && echo "  Compiling in support for DBM."
-test "$with_database_gnudbm" = yes && echo "  Compiling in support for GNU DBM."
+test "$with_database_gdbm"   = yes && echo "  Compiling in support for GNU DBM."
+test "$with_ldap" = yes && echo "  Compiling in support for LDAP."
+if test "$with_postgresql" = yes; then
+  echo "  Compiling in support for PostgreSQL."
+  echo "    - Using PostgreSQL header file:  $libpq_fe_h_file"
+  test "$with_postgresqlv7" = yes && echo "    - Using PostgreSQL V7 bindings."
+fi
 
-test "$with_umich_ldap"	     = yes && echo "  Compiling in support for LDAP (UMich libs)."
-test "$with_ns_ldap"	     = yes && echo "  Compiling in support for LDAP (Netscape SDK)."
-test "$with_ldap" = yes -a "$with_umich_ldap" = no -a "$with_ns_ldap" = no && echo "  Compiling in support for LDAP (Generic)."
-
-test "$with_ncurses"  = yes && echo "  Compiling in support for ncurses."
-test "$with_gpm"      = yes && echo "  Compiling in support for GPM (General Purpose Mouse)."
-
-test "$with_mule"     = yes && echo "  Compiling in Mule (multi-lingual) support."
-test "$with_file_coding"     = yes && echo "  Compiling in File coding support."
-test "$with_xim"      != no && echo "  Compiling in XIM (X11R5+ I18N input method) support."
-test "$with_xim" = motif    && echo "    Using Motif to provide XIM support."
-test "$with_xim" = xlib     && echo "    Using raw Xlib to provide XIM support."
-test "$with_xfs" = yes      && echo "    Using XFontSet to provide bilingual menubar."
-test "$with_canna"    = yes && echo "  Compiling in support for Canna on Mule."
+echo "
+Internationalization:"
+test "$with_mule" = yes && echo "  Compiling in support for Mule (multi-lingual Emacs)."
+test "$with_utf_2000" = yes && echo "  Using UTF-2000 (UTF-8) buffer/string representation."
+test "$with_text_coding" = yes && echo "  Compiling in support for text coding."
+test "$with_file_coding" = yes && echo "  Compiling in support for file coding."
+test "$with_xim" != no && echo "  Compiling in support for XIM (X11R5+ I18N input method)."
+test "$with_xim" = motif && echo "    - Using Motif to provide XIM support."
+test "$with_xim" = xlib && echo "    - Using raw Xlib to provide XIM support."
+test "$with_xfs" = yes && echo "    - Using XFontSet to provide bilingual menubar."
+test "$with_canna" = yes && echo "  Compiling in support for Canna on Mule."
 if test "$with_wnn" = yes; then
   echo "  Compiling in support for the WNN input method on Mule."
-  test "$with_wnn6" = yes && echo "    Using WNN version 6."
+  test "$with_wnn6" = yes && echo "    - Using WNN version 6."
 fi
-test "$with_i18n3"    = yes && echo "  Compiling in I18N support, level 3 (doesn't currently work)."
+test "$with_i18n3" = yes && echo "  Compiling in support for I18N level 3 (doesn't currently work)."
 
-test "$with_cde"      = yes && echo "  Compiling in support for CDE."
+echo "
+Mail:"
+test "$with_pop" = yes && echo "  Compiling in support for POP mail retrieval."
+test "$with_kerberos" = yes && echo "  Compiling in support for Kerberos POP authentication."
+test "$with_hesiod" = yes && echo "  Compiling in support for Hesiod POP server access."
+test -n "$mail_locking" && echo "  Compiling in support for \"$mail_locking\" mail spool file locking method."
+
+echo "
+Other Features:"
+test "$with_ipv6_cname" = no && echo "  Inhibiting IPv6 canonicalization at startup."
 test "$with_tooltalk" = yes && echo "  Compiling in support for ToolTalk."
-test "$with_offix"    = yes && echo "  Compiling in support for OffiX."
-test "$with_dragndrop" = yes && echo "  Compiling in EXPERIMENTAL support for Drag'n'Drop ($dragndrop_proto )."
 test "$with_workshop" = yes && echo "  Compiling in support for Sun WorkShop."
-test "$with_session"  != no && echo "  Compiling in support for proper session-management."
-case "$with_menubars" in
-  lucid ) echo "  Using Lucid menubars." ;;
-  motif ) echo "  Using Motif menubars."
-          echo "  *WARNING*  The Motif menubar implementation is currently buggy."
-          echo "             We recommend using the Lucid menubar instead."
-          echo "             Re-run configure with --with-menubars='lucid'." ;;
-esac
-case "$with_scrollbars" in
-  lucid    ) echo "  Using Lucid scrollbars."     ;;
-  motif    ) echo "  Using Motif scrollbars."     ;;
-  athena   ) echo "  Using Athena scrollbars."    ;;
-  athena3d ) echo "  Using Athena-3d scrollbars." ;;
-esac
-case "$with_dialogs" in
-  motif    )
-    echo "  Using Motif dialog boxes."
-    if test "$unexec" = "unexaix.o"; then if test "`uname -v`" = 4 -a "`uname -r`" -ge 3; then
-      echo "  *WARNING*  The Motif dialog boxes cause problems on AIX 4.3 and higher."
-      echo "             We recommend using the Athena dialog boxes instead."
-      echo "             Install libXaw and re-run configure with --with-dialogs='athena'."
-      echo "             Read the PROBLEMS file for more information."
-    fi; fi
-    ;;
-  athena   ) echo "  Using Athena dialog boxes."    ;;
-  athena3d ) echo "  Using Athena-3d dialog boxes." ;;
-esac
-test "$with_shlib" = "yes" && echo "  Compiling in DLL support."
-test "$with_clash_detection" = yes && \
-  echo "  Clash detection will use \"$lockdir\" for locking files."
-echo "  movemail will use \"$mail_locking\" for locking mail spool files."
-test "$with_pop"	= yes && echo "  Using POP for mail access."
-test "$with_kerberos"	= yes && echo "  Using Kerberos for POP authentication."
-test "$with_hesiod"	= yes && echo "  Using Hesiod to get POP server host."
-test "$use_union_type"  = yes && echo "  Using the union type for Lisp_Objects."
-test "$debug"              = yes && echo "  Compiling in extra code for debugging."
-test "$usage_tracking"     = yes && echo "  Compiling with usage tracking active (Sun internal)."
-if test "$error_check_extents $error_check_typecheck $error_check_bufpos $error_check_gc $error_check_malloc" \
-  != "no no no no no"; then
+test "$with_socks" = yes && echo "  Compiling in support for SOCKS."
+test "$with_dnet" = yes && echo "  Compiling in support for DNET."
+test "$with_modules" = "yes" && echo "  Compiling in support for dynamic shared object modules."
+if test "$use_union_type" = yes; then
+  echo "  WARNING: ---------------------------------------------------------"
+  echo "  Using the union type for Lisp_Objects."
+  echo "  Union type has been implicated in hard-to-debug runtime crashes."
+  echo "  Do NOT use this build of XEmacs for ordinary work.  See PROBLEMS."
+  echo "  WARNING: ---------------------------------------------------------"
+fi
+test "$pdump" = yes && echo "  Using the new portable dumper."
+test "$debug" = yes && echo "  Compiling in support for extra debugging code."
+test "$usage_tracking" = yes && echo "  Compiling in support for active usage tracking (Sun internal)."
+if test "$error_check_extents $error_check_typecheck $error_check_bufpos $error_check_gc $error_check_malloc $error_check_glyphs" \
+  != "no no no no no no"; then
   echo "  WARNING: ---------------------------------------------------------"
   echo "  WARNING: Compiling in support for runtime error checking."
   echo "  WARNING: XEmacs will run noticeably more slowly as a result."
@@ -4136,12 +5132,10 @@ dnl except ./Makefile from $srcdir/Makefile.in
 for file in $internal_makefile_list; do
   test "$file" = src/Makefile.in && \
     file="src/Makefile.in:src/Makefile.in.in:src/depend"
-  ac_output_files="${ac_output_files+$ac_output_files }$file"
+  XE_APPEND($file, ac_output_files)
 done
 ac_output_files="$ac_output_files src/paths.h lib-src/config.values"
-if test "$with_shlib" = "yes"; then
-  ac_output_files="$ac_output_files lib-src/ellcc.h"
-fi
+test "$with_modules" = "yes" && XE_APPEND(lib-src/ellcc.h, ac_output_files)
 
 AC_OUTPUT($ac_output_files,
 [for dir in . $MAKE_SUBDIR; do
@@ -4179,9 +5173,9 @@ dnl Delete spurious blanks inserted by $CPP
 	-e 's/^[ TAB][ TAB]*$//'\
 	-e 's/^ /TAB/'		\
 dnl Delete blank lines
-  | sed -n -e '/^..*$/p'	\
+	-e '/^[ ]*$/d'	\
 dnl Restore lines quoted above to original contents.
-  | sed '/^\"/ {
+	-e '/^\"/ {
 	s/\\\([\"]\)/\1/g
 	s/^[ TAB]*\"//
 	s/\"[ TAB]*$//

@@ -25,7 +25,7 @@ Boston, MA 02111-1307, USA.  */
  *
  * Author: Edward A. Falk
  *         falk@falconer.vip.best.com
- *  
+ *
  * Date:   June 30, 1997
  *
  *
@@ -53,7 +53,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <X11/IntrinsicP.h>
 #include <X11/StringDefs.h>
-#include <X11/Xaw/XawInit.h>
+#include ATHENA_XawInit_h_
 #include "../src/xmu.h"
 #include "xlwradioP.h"
 
@@ -120,7 +120,7 @@ static XtActionsRec actionsList[] =
 
 RadioClassRec radioClassRec = {
   {
-    (WidgetClass) SuperClass,		/* superclass		*/	
+    (WidgetClass) SuperClass,		/* superclass		*/
     "Radio",				/* class_name		*/
     sizeof(RadioRec),			/* size			*/
     RadioClassInit,			/* class_initialize	*/
@@ -154,7 +154,7 @@ RadioClassRec radioClassRec = {
     NULL				/* extension		*/
   },  /* CoreClass fields initialization */
   {
-    XtInheritChangeSensitive		/* change_sensitive	*/ 
+    XtInheritChangeSensitive		/* change_sensitive	*/
   },  /* SimpleClass fields initialization */
 #ifdef	_ThreeDP_h
   {
@@ -241,7 +241,7 @@ RadioInit (Widget   request,
 /*	Function Name: RadioDestroy
  *	Description: Destroy Callback for radio widget.
  *	Arguments: w - the radio widget that is being destroyed.
- *                 junk, grabage - not used.
+ *                 junk, garbage - not used.
  *	Returns: none.
  */
 
@@ -272,13 +272,13 @@ RadioResize (Widget w)
 
     switch( rw->label.justify ) {
       case XtJustifyLeft:
-	rw->label.label_x += bs(rw) + rw->label.internal_width ;
+	rw->label.label_x += (bs(rw) + rw->label.internal_width) ;
 	break ;
       case XtJustifyRight:
 	break ;
       case XtJustifyCenter:
       default:
-	rw->label.label_x += (bs(rw) + rw->label.internal_width)/2 ;
+	rw->label.label_x += (bs(rw) + rw->label.internal_width)/2;
 	break ;
     }
 }
@@ -328,10 +328,10 @@ RadioExpose (Widget w,
 	{
 	  /* TODO: handle pixmaps */
 	  XCopyPlane(dpy, left_bitmap, win, gc,
-	  	0,0, rw->label.lbm_width, rw->label.lbm_height,
-		(int) rw->label.internal_width*2 + bs(rw),
-		(int) rw->label.internal_height + rw->label.lbm_y,
-		(u_long) 1L) ;
+		     0,0, rw->label.lbm_width, rw->label.lbm_height,
+		     (int) rw->label.internal_width*2 + bs(rw),
+		     (int) rw->label.internal_height + rw->label.lbm_y,
+		     1UL) ;
 	}
 
 	/* Finally, the button itself */
@@ -375,6 +375,13 @@ RadioSetValues (Widget   current,
       RadioSize(newrw, &newrw->core.width, &newrw->core.height) ;
     }
 
+    /* The label set values routine can resize the widget. We need to
+     * recalculate if this is true.
+     */
+    if (newrw->label.label_x != oldrw->label.label_x)
+    {
+      RadioResize (new);
+    }
     return FALSE ;
 }
 
@@ -416,7 +423,7 @@ RadioQueryGeometry (Widget w,
  * border.
  */
 
-static void 
+static void
 DrawHighlight (Widget w,
 	       GC gc)
 {
@@ -466,7 +473,7 @@ RadioUnhighlight (Widget   w,
 
 
 /* ARGSUSED */
-void 
+void
 RadioSet (Widget   w,
 	  XEvent   *event,
 	  String   *params,     /* unused */
@@ -485,7 +492,7 @@ RadioSet (Widget   w,
 
 
 /* ARGSUSED */
-void 
+void
 RadioUnset (Widget   w,
 	    XEvent   *event,
 	    String   *params,     /* unused */

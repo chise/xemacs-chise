@@ -57,9 +57,6 @@ TODO (in rough order of priority):
   PQgetlineAsync (copy in/out Asynch.)
   PQputnbytes (copy in/out Asynch.)
   PQendcopy (copy in/out)
-  PQsetenvStart (Asynch. Queries)
-  PQsetenvPoll (Asynch. Queries)
-  PQsetenvHandle (Asynch. Queries)
 
   Unsupported functions:
   PQsetdbLogin -- This function is deprecated, has a subset of the
@@ -102,18 +99,12 @@ TODO (in rough order of priority):
 #include "lisp.h"
 #include "sysdep.h"
 #include "buffer.h"
-
-#include <libpq-fe.h>
-/* Undefine the following when asynchronous setenvs are fixed in libpq. */
-/* #define LIBPQ_7_0_IS_FIXED */
 #include "postgresql.h"
 
 #ifdef RUNNING_XEMACS_21_1 /* handle interface changes */
-#define I_HATE_CONST CONST
 #define PG_OS_CODING FORMAT_FILENAME
 #define TO_EXTERNAL_FORMAT(a,from,b,to,c) GET_C_STRING_EXT_DATA_ALLOCA(from,FORMAT_FILENAME,to)
 #else
-#define I_HATE_CONST const
 #ifdef MULE
 #define PG_OS_CODING Fget_coding_system(Vpg_coding_system)
 #else
@@ -396,114 +387,11 @@ DEFINE_LRECORD_IMPLEMENTATION ("pgresult", pgresult,
 			       Lisp_PGresult);
 #endif
 
-/****/
-#ifdef HAVE_POSTGRESQLV7
-/* PGsetenvHandle is an opaque object and we need to be able to store them in
-   Lisp code so we can make asynchronous environmental calls.
-
-   Asynchronous setenv calls were introduced in libpq-7.0.
-*/
-#ifdef LIBPQ_7_0_IS_FIXED
-
-Lisp_Object Qpgsetenvp;
-
-static Lisp_Object
-make_pgsetenv (Lisp_PGsetenvHandle *pgsetenv)
-{
-  Lisp_Object lisp_pgsetenv;
-  XSETPGSETENV (lisp_pgsetenv, pgsetenv);
-  return lisp_pgsetenv;
-}
-
-static Lisp_Object
-#ifdef RUNNING_XEMACS_21_1
-mark_pgsetenv (Lisp_Object obj, void (*markobj) (Lisp_Object))
-#else
-mark_pgsetenv (Lisp_Object obj)
-#endif
-{
-  return Qnil;
-}
-
-static void
-print_pgsetenv (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
-{
-  char *fmt = "#<PGsetenvHandle %s>";
-  char buf[1024];
-  PGsetenvHandle *h;
-
-  h = (XPGSETENV (obj))->pgsetenv;
-
-  sprintf (buf, fmt, h ? "live" : "DEAD");
-
-  /* There are no accessor functions to retrieve any fields, so we must */
-  /* treat this as being completely opaque. */
-  if (print_readably)
-    error ("printing unreadable object %s", buf);
-  else
-    write_c_string (buf, printcharfun);
-}
-
-static Lisp_PGsetenvHandle *
-allocate_pgresult (void)
-{
-#ifdef RUNNING_XEMACS_21_1
-  Lisp_PGsetenvHandle *pgsetenv =
-    alloc_lcrecord_type (Lisp_PGsetenvHandle, lrecord_pgsetenv);
-#else
-  Lisp_PGsetenvHandle *pgsetenv =
-    alloc_lcrecord_type (Lisp_PGsetenvHandle, &lrecord_pgsetenv);
-#endif
-  pgsetenv->pgsetenv = (PGsetenvState *)NULL;
-  return pgsetenv;
-}
-
-static void
-finalize_pgsetenv (void *header, int for_disksave)
-{
-  Lisp_PGsetenvHandle *pgsetenv = (Lisp_PGsetenvHandle *)header;
-
-  if (for_disksave)
-    signal_simple_error ("Can't dump an emacs containing PGsetenvHandle objects",
-                         make_pgsetenv (pgsetenv));
-
-  /* #### PGsetenvHandle's are allocated with malloc(), however in
-     libpq-7.0 the treatment of them is little short of disastrous.
-     We don't dare attempt to free it, because there are many code
-     paths which lead to the handle being freed internally.  The
-     connection routines leak setenv handles and so will we until
-     libpq gets cleaned up.
-     Actually, in 7.0b1 asynchronous setenv cannot work outside libpq, so
-     these functions are disabled in this API.
-  */
-  if (pgsetenv->pgsetenv)
-    {
-      free (pgsetenv->pgsetenv);
-      pgsetenv->pgsetenv = (PGsetenvHandle *)NULL;
-    }
-}
-
-#ifdef RUNNING_XEMACS_21_1
-DEFINE_LRECORD_IMPLEMENTATION ("pgresult", pgresult,
-			       mark_pgresult, print_pgresult, finalize_pgresult,
-			       NULL, NULL,
-			       Lisp_PGresult);
-#else
-DEFINE_LRECORD_IMPLEMENTATION ("pgresult", pgresult,
-			       mark_pgresult, print_pgresult, finalize_pgresult,
-			       NULL, NULL,
-			       0,
-			       Lisp_PGresult);
-#endif /* RUNNING_XEMACS_21_1 */
-
-#endif /* LIBPQ_7_0_IS_FIXED */
-#endif /* HAVE_POSTGRESQLV7 */
-
 /***********************/
 
 /* notices */
 static void
-xemacs_notice_processor (void *arg, I_HATE_CONST char *msg)
+xemacs_notice_processor (void *arg, const char *msg)
 {
   warn_when_safe (Qpostgresql, Qnotice, "%s", msg);
 }
@@ -647,15 +535,15 @@ Poll an asynchronous connection for completion
 	(conn))
 {
   PGconn *P;
-  PostgresPollingStatusType PS;
+  PostgresPollingStatusType polling_status;
 
   CHECK_PGCONN (conn);
 
   P = (XPGCONN (conn))->pgconn;
   CHECK_LIVE_CONNECTION (P);
 
-  PS = PQconnectPoll (P);
-  switch (PS)
+  polling_status = PQconnectPoll (P);
+  switch (polling_status)
     {
     case PGRES_POLLING_FAILED:
       /* Something Bad has happened */
@@ -673,7 +561,7 @@ Poll an asynchronous connection for completion
       return Qpgres_polling_active;
     default:
       /* they've added a new field we don't know about */
-      error ("Help!  Unknown status code %08x from backend!", PS);
+      error ("Help!  Unknown status code %08x from backend!", polling_status);
     }
 }
 
@@ -832,20 +720,20 @@ Reset connection to the backend asynchronously.
 }
 
 DEFUN ("pq-reset-poll", Fpq_reset_poll, 1, 1, 0, /*
-Poll an asynchronous reset for completion
+Poll an asynchronous reset for completion.
 */
 	(conn))
 {
   PGconn *P;
-  PostgresPollingStatusType PS;
+  PostgresPollingStatusType polling_status;
 
   CHECK_PGCONN (conn);
 
   P = (XPGCONN (conn))->pgconn;
   CHECK_LIVE_CONNECTION (P);
 
-  PS = PQresetPoll (P);
-  switch (PS)
+  polling_status = PQresetPoll (P);
+  switch (polling_status)
     {
     case PGRES_POLLING_FAILED:
       /* Something Bad has happened */
@@ -863,7 +751,7 @@ Poll an asynchronous reset for completion
       return Qpgres_polling_active;
     default:
       /* they've added a new field we don't know about */
-      error ("Help!  Unknown status code %08x from backend!", PS);
+      error ("Help!  Unknown status code %08x from backend!", polling_status);
     }
 }
 #endif
@@ -953,12 +841,12 @@ pq::backend-pid   Process ID of backend process
     return build_ext_string (PQoptions(P), PG_OS_CODING);
   else if (EQ (field, Qpqstatus))
     {
-      ExecStatusType est;
+      ConnStatusType cst;
       /* PQstatus Returns the status of the connection. The status can be
 	 CONNECTION_OK or CONNECTION_BAD.
 	 ConnStatusType PQstatus(PGconn *conn)
       */
-      switch ((est = PQstatus (P)))
+      switch ((cst = PQstatus (P)))
 	{
 	case CONNECTION_OK: return Qpg_connection_ok;
 	case CONNECTION_BAD: return Qpg_connection_bad;
@@ -971,7 +859,7 @@ pq::backend-pid   Process ID of backend process
 #endif /* HAVE_POSTGRESQLV7 */
 	default:
 	  /* they've added a new field we don't know about */
-	  error ("Help!  Unknown exec status code %08x from backend!", est);
+	  error ("Help!  Unknown connection status code %08x from backend!", cst);
 	}
     }
   else if (EQ (field, Qpqerrormessage))
@@ -1364,7 +1252,7 @@ Returns the command status string from the SQL command that generated the result
 }
 
 DEFUN ("pq-cmd-tuples", Fpq_cmd_tuples, 1, 1, 0, /*
-Returns the number of rows affected by the SQL command
+Returns the number of rows affected by the SQL command.
 */
 	(result))
 {
@@ -1416,7 +1304,7 @@ Needs to be called only on a connected database connection.
 }
 
 DEFUN ("pq-is-nonblocking", Fpq_is_nonblocking, 1, 1, 0, /*
-Return the blocking status of the database connection
+Return the blocking status of the database connection.
 */
        (conn))
 {
@@ -1430,7 +1318,7 @@ Return the blocking status of the database connection
 }
 
 DEFUN ("pq-flush", Fpq_flush, 1, 1, 0, /*
-Force the write buffer to be written (or at least try)
+Force the write buffer to be written (or at least try).
 */
        (conn))
 {
@@ -1650,7 +1538,7 @@ The returned string is *not* null-terminated.
   if (ret == -1) return Qt; /* done! */
   else if (!ret) return Qnil; /* no data yet */
   else return Fcons (make_int (ret),
-		     make_ext_string (buffer, ret, PG_OS_CODING));
+		     make_ext_string ((Extbyte *) buffer, ret, PG_OS_CODING));
 }
 
 DEFUN ("pq-put-nbytes", Fpq_put_nbytes, 2, 2, 0, /*
@@ -1687,114 +1575,12 @@ End a copying operation.
   return PQendcopy (P) ? Qt : Qnil;
 }
 
-/* The setenv suite of functions. The author of the libpq manual doesn't
-   know a whole lot about them, and neither do I.
-*/
-#if !defined (HAVE_POSTGRESQLV7) || defined (LIBPQ_7_0_IS_FIXED)
-DEFUN ("pq-setenv", Fpq_setenv, 1, 1, 0, /*
-Set environmental parameters on the backend synchronously.
-Returns t if the operation was successful, nil otherwise.
-*/
-       (conn))
-{
-  PGconn *P;
-
-  CHECK_PGCONN (conn);
-  P = (XPGCONN (conn))->pgconn;
-  CHECK_LIVE_CONNECTION (P);
-
-  return PQsetenv (P) ? Qt : Qnil;
-}
-#endif
-
-#ifdef LIBPQ_7_0_IS_FIXED
-
-DEFUN ("pq-setenv-start", Fpq_setenv_start, 1, 1, 0, /*
-Set environmental parameters on the backend asynchronously.
-A PGsetenvHandle is returned on success, nil otherwise.
-*/
-       (conn))
-{
-  PGconn *P;
-  PGsetenvHandle *handle;
-  Lisp_setenvHandle *lseh;
-
-  CHECK_PGCONN (conn);
-  P = (XPGCONN (conn))->pgconn;
-  CHECK_LIVE_CONNECTION (P);
-
-  handle = PQsetenvStart (P);
-  if (!handle) error ("out of memory?");
-
-  lseh = allocate_pgsetenv ();
-  lseh->setenv = handle;
-
-  return make_pgsetenv (lseh);
-}
-
-DEFUN ("pq-setenv-poll", Fpq_setenv_poll, 1, 1, 0, /*
-Poll an asynchronous setenv operation for completion.
-*/
-       (conn))
-{
-  PGconn *P;
-  PostgresPollingStatusType pst;
-
-  CHECK_PGCONN (conn);
-  P = (XPGCONN (conn))->pgconn;
-  CHECK_LIVE_CONNECTION (P);
-
-  pst = PQsetenvPoll (P);
-  switch (pst)
-    {
-    case PGRES_POLLING_FAILED:
-      /* Something Bad has happened */
-      {
-	char *e = PQerrorMessage (P);
-	error ("libpq: %s", e);
-      }
-    case PGRES_POLLING_OK:
-      return Qpgres_polling_ok;
-    case PGRES_POLLING_READING:
-      return Qpgres_polling_reading;
-    case PGRES_POLLING_WRITING:
-      return Qpgres_polling_writing;
-    case PGRES_POLLING_ACTIVE:
-      return Qpgres_polling_active;
-    default:
-      /* they've added a new field we don't know about */
-      error ("Help!  Unknown status code %08x from backend!", PS);
-    }
-}
-
-DEFUN ("pq-setenv-abort", Fpq_setenv_abort, 1, 1, 0, /*
-Attempt to abort an in-progress asynchronous setenv operation.
-*/
-       (handle))
-{
-  PGsetenvHandle *h;
-
-  CHECK_PGSETENV (handle);
-  h = (XPGSETENV (handle))->pgsetenv;
-  PUKE_IF_NULL (h);
-
-  PQsetenvAbort (h);
-  /* PQsetenvAbort usually free(3)'s the handle, don't take any chances. */
-  (XSETENV (handle))->pgsetenv = (PGsetenvHandle *)NULL;
-
-  return Qt;
-}
-#endif /* LIBPQ_7_0_IS_FIXED */
-
 void
 syms_of_postgresql(void)
 {
 #ifndef RUNNING_XEMACS_21_1
   INIT_LRECORD_IMPLEMENTATION (pgconn);
   INIT_LRECORD_IMPLEMENTATION (pgresult);
-#ifdef LIBPQ_7_0_IS_FIXED
-  INIT_LRECORD_IMPLEMENTATION (pgsetenv);
-#endif
 #endif
   defsymbol (&Qpostgresql, "postgresql");
 
@@ -1907,23 +1693,11 @@ syms_of_postgresql(void)
   DEFSUBR (Fpq_get_line_async);
   DEFSUBR (Fpq_put_nbytes);
   DEFSUBR (Fpq_end_copy);
-
-  /* The value of the setenv functions is questioned in the libpq manual. */
-#if !defined (HAVE_POSTGRESQLV7) || defined (LIBPQ_7_0_IS_FIXED)
-  DEFSUBR (Fpq_setenv);
-#endif
-#ifdef LIBPQ_7_0_IS_FIXED
-  DEFSUBR (Fpq_setenv_start);
-  DEFSUBR (Fpq_setenv_poll);
-  DEFSUBR (Fpq_setenv_abort);
-#endif /* LIBPQ_7_0_IS_FIXED */
 }
 
 void
 vars_of_postgresql(void)
 {
-  char *p;
-
   Fprovide (Qpostgresql);
 #ifdef HAVE_POSTGRESQLV7
   Fprovide (intern ("postgresqlv7"));
@@ -1935,6 +1709,97 @@ Default Postgres client coding system.
 */ );
 #endif
 
+  DEFVAR_LISP ("pg:host", &VXPGHOST /*
+Default PostgreSQL server name.
+If not set, the server running on the local host is used.  The
+initial value is set from the PGHOST environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:user", &VXPGUSER /*
+Default PostgreSQL user name.
+This value is used when connecting to a database for authentication.
+The initial value is set from the PGUSER environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:options", &VXPGOPTIONS /*
+Default PostgreSQL user name.
+This value is used when connecting to a database for authentication.
+The initial value is set from the PGUSER environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:port", &VXPGPORT /*
+Default port to connect to PostgreSQL backend.
+This value is used when connecting to a database.
+The initial value is set from the PGPORT environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:tty", &VXPGTTY /*
+Default debugging TTY.
+There is no useful setting of this variable in the XEmacs Lisp API.
+The initial value is set from the PGTTY environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:database", &VXPGDATABASE /*
+Default database to connect to.
+The initial value is set from the PGDATABASE environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:realm", &VXPGREALM /*
+Default kerberos realm to use for authentication.
+The initial value is set from the PGREALM environment variable.
+*/ );
+
+#ifdef MULE
+  /* It's not clear whether this is any use.  My intent is to
+     autodetect the coding system from the database. */
+  DEFVAR_LISP ("pg:client-encoding", &VXPGCLIENTENCODING /*
+Default client encoding to use.
+The initial value is set from the PGCLIENTENCODING environment variable.
+*/ );
+#endif
+
+#if !defined(HAVE_POSTGRESQLV7)
+  DEFVAR_LISP ("pg:authtype", &VXPGAUTHTYPE /*
+Default authentication to use.
+The initial value is set from the PGAUTHTYPE environment variable.
+
+WARNING:  This variable has gone away in versions of PostgreSQL newer
+than 6.5.
+*/ );
+#endif
+
+  DEFVAR_LISP ("pg:geqo", &VXPGGEQO /*
+Genetic Query Optimizer options.
+The initial value is set from the PGGEQO environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:cost-index", &VXPGCOSTINDEX /*
+Default cost index options.
+The initial value is set from the PGCOSTINDEX environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:cost-heap", &VXPGCOSTHEAP /*
+Default cost heap options.
+The initial value is set from the PGCOSTHEAP environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:tz", &VXPGTZ /*
+Default timezone to use.
+The initial value is set from the PGTZ environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:date-style", &VXPGDATESTYLE /*
+Default date style to use.
+The initial value is set from the PGDATESTYLE environment variable.
+*/ );
+}
+
+/* These initializations should not be done at dump-time. */
+void
+init_postgresql_from_environment(void)
+{
+  char *p;
+
   if ((p = getenv ("PGHOST")))
     {
       VXPGHOST = build_ext_string (p, PG_OS_CODING);
@@ -1943,11 +1808,6 @@ Default Postgres client coding system.
     {
       VXPGHOST = Qnil;
     }
-  DEFVAR_LISP ("pg:host", &VXPGHOST /*
-Default PostgreSQL server name.
-If not set, the server running on the local host is used.  The
-initial value is set from the PGHOST environment variable.
-*/ );
 
   if ((p = getenv ("PGUSER")))
     {
@@ -1957,11 +1817,6 @@ initial value is set from the PGHOST environment variable.
     {
       VXPGUSER = Qnil;
     }
-  DEFVAR_LISP ("pg:user", &VXPGUSER /*
-Default PostgreSQL user name.
-This value is used when connecting to a database for authentication.
-The initial value is set from the PGUSER environment variable.
-*/ );
 
   if ((p = getenv ("PGOPTIONS")))
     {
@@ -1971,11 +1826,6 @@ The initial value is set from the PGUSER environment variable.
     {
       VXPGOPTIONS = Qnil;
     }
-  DEFVAR_LISP ("pg:options", &VXPGOPTIONS /*
-Default PostgreSQL user name.
-This value is used when connecting to a database for authentication.
-The initial value is set from the PGUSER environment variable.
-*/ );
 
   if ((p = getenv ("PGPORT")))
     {
@@ -1985,11 +1835,6 @@ The initial value is set from the PGUSER environment variable.
     {
       VXPGPORT = Qnil;
     }
-  DEFVAR_LISP ("pg:port", &VXPGPORT /*
-Default port to connect to PostgreSQL backend.
-This value is used when connecting to a database.
-The initial value is set from the PGPORT environment variable.
-*/ );
 
   if ((p = getenv ("PGTTY")))
     {
@@ -1999,11 +1844,6 @@ The initial value is set from the PGPORT environment variable.
     {
       VXPGTTY = Qnil;
     }
-  DEFVAR_LISP ("pg:tty", &VXPGTTY /*
-Default debugging TTY.
-There is no useful setting of this variable in the XEmacs Lisp API.
-The initial value is set from the PGTTY environment variable.
-*/ );
 
   if ((p = getenv ("PGDATABASE")))
     {
@@ -2013,10 +1853,6 @@ The initial value is set from the PGTTY environment variable.
     {
       VXPGDATABASE = Qnil;
     }
-  DEFVAR_LISP ("pg:database", &VXPGDATABASE /*
-Default database to connect to.
-The initial value is set from the PGDATABASE environment variable.
-*/ );
 
   if ((p = getenv ("PGREALM")))
     {
@@ -2026,10 +1862,6 @@ The initial value is set from the PGDATABASE environment variable.
     {
       VXPGREALM = Qnil;
     }
-  DEFVAR_LISP ("pg:realm", &VXPGREALM /*
-Default kerberos realm to use for authentication.
-The initial value is set from the PGREALM environment variable.
-*/ );
 
 #ifdef MULE
   /* It's not clear whether this is any use.  My intent is to
@@ -2042,10 +1874,6 @@ The initial value is set from the PGREALM environment variable.
     {
       VXPGCLIENTENCODING = Qnil;
     }
-  DEFVAR_LISP ("pg:client-encoding", &VXPGCLIENTENCODING /*
-Default client encoding to use.
-The initial value is set from the PGCLIENTENCODING environment variable.
-*/ );
 #endif
 
 #if !defined(HAVE_POSTGRESQLV7)
@@ -2057,13 +1885,6 @@ The initial value is set from the PGCLIENTENCODING environment variable.
     {
       VXPGAUTHTYPE = Qnil;
     }
-  DEFVAR_LISP ("pg:authtype", &VXPGAUTHTYPE /*
-Default authentication to use.
-The initial value is set from the PGAUTHTYPE environment variable.
-
-WARNING:  This variable has gone away in versions of PostgreSQL newer
-than 6.5.
-*/ );
 #endif
 
   if ((p = getenv ("PGGEQO")))
@@ -2074,10 +1895,6 @@ than 6.5.
     {
       VXPGGEQO = Qnil;
     }
-  DEFVAR_LISP ("pg:geqo", &VXPGGEQO /*
-Genetic Query Optimizer options.
-The initial value is set from the PGGEQO environment variable.
-*/ );
 
   if ((p = getenv ("PGCOSTINDEX")))
     {
@@ -2087,10 +1904,6 @@ The initial value is set from the PGGEQO environment variable.
     {
       VXPGCOSTINDEX = Qnil;
     }
-  DEFVAR_LISP ("pg:cost-index", &VXPGCOSTINDEX /*
-Default cost index options.
-The initial value is set from the PGCOSTINDEX environment variable.
-*/ );
 
   if ((p = getenv ("PGCOSTHEAP")))
     {
@@ -2100,10 +1913,6 @@ The initial value is set from the PGCOSTINDEX environment variable.
     {
       VXPGCOSTHEAP = Qnil;
     }
-  DEFVAR_LISP ("pg:cost-heap", &VXPGCOSTHEAP /*
-Default cost heap options.
-The initial value is set from the PGCOSTHEAP environment variable.
-*/ );
 
   if ((p = getenv ("PGTZ")))
     {
@@ -2113,10 +1922,6 @@ The initial value is set from the PGCOSTHEAP environment variable.
     {
       VXPGTZ = Qnil;
     }
-  DEFVAR_LISP ("pg:tz", &VXPGTZ /*
-Default timezone to use.
-The initial value is set from the PGTZ environment variable.
-*/ );
 
   if ((p = getenv ("PGDATESTYLE")))
     {
@@ -2126,8 +1931,5 @@ The initial value is set from the PGTZ environment variable.
     {
       VXPGDATESTYLE = Qnil;
     }
-  DEFVAR_LISP ("pg:date-style", &VXPGDATESTYLE /*
-Default date style to use.
-The initial value is set from the PGDATESTYLE environment variable.
-*/ );
 }
+

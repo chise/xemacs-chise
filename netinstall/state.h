@@ -29,6 +29,13 @@ extern int	root_scope;
 extern int   root_menu;
 extern int   root_desktop;
 
+extern int   reg_c;
+extern int   reg_cpp;
+extern int   reg_java;
+extern int   reg_elisp;
+extern int   reg_txt;
+extern int   reg_idl;
+	
 extern int	net_method;
 extern char *	net_proxy_host;
 extern int	net_proxy_port;
@@ -42,5 +49,6 @@ extern char *	mirror_site;
 extern char *	other_url;
 
 extern int	trust_level;
+extern int	uninstall;
 
 #define MIRROR_SITE (mirror_site ? mirror_site : other_url)

@@ -46,41 +46,35 @@ Lisp_Object Vterminal_frame;
 Lisp_Object Vstdio_str;
 
 static void
-allocate_stream_console_struct (struct console *con)
-{
-  if (!CONSOLE_STREAM_DATA (con))
-    CONSOLE_STREAM_DATA (con) = xnew_and_zero (struct stream_console);
-  else
-    xzero (*CONSOLE_STREAM_DATA (con));
-}
-
-static void
 stream_init_console (struct console *con, Lisp_Object params)
 {
   Lisp_Object tty = CONSOLE_CONNECTION (con);
-  FILE *infd, *outfd, *errfd;
+  struct stream_console *stream_con;
+
+  if (CONSOLE_STREAM_DATA (con) == NULL)
+    CONSOLE_STREAM_DATA (con) = xnew (struct stream_console);
+
+  stream_con = CONSOLE_STREAM_DATA (con);
+
+  stream_con->needs_newline = 0;
 
   /* Open the specified console */
-
   if (NILP (tty) || internal_equal (tty, Vstdio_str, 0))
     {
-      infd  = stdin;
-      outfd = stdout;
-      errfd = stderr;
+      stream_con->in  = stdin;
+      stream_con->out = stdout;
+      stream_con->err = stderr;
     }
   else
     {
       CHECK_STRING (tty);
-      infd = outfd = errfd =
-	fopen ((char *) XSTRING_DATA (tty), "r+");
-      if (!infd)
+      stream_con->in = stream_con->out = stream_con->err =
+	/* #### We don't currently do coding-system translation on
+	   this descriptor. */
+	fopen ((char *) XSTRING_DATA (tty), READ_PLUS_TEXT);
+      if (!stream_con->in)
 	error ("Unable to open tty %s", XSTRING_DATA (tty));
     }
-
-  allocate_stream_console_struct (con);
-  CONSOLE_STREAM_DATA (con)->infd  = infd;
-  CONSOLE_STREAM_DATA (con)->outfd = outfd;
-  CONSOLE_STREAM_DATA (con)->errfd = errfd;
 }
 
 static void
@@ -88,8 +82,8 @@ stream_init_device (struct device *d, Lisp_Object params)
 {
   struct console *con = XCONSOLE (DEVICE_CONSOLE (d));
 
-  DEVICE_INFD  (d) = fileno (CONSOLE_STREAM_DATA (con)->infd);
-  DEVICE_OUTFD (d) = fileno (CONSOLE_STREAM_DATA (con)->outfd);
+  DEVICE_INFD  (d) = fileno (CONSOLE_STREAM_DATA (con)->in);
+  DEVICE_OUTFD (d) = fileno (CONSOLE_STREAM_DATA (con)->out);
   init_baud_rate (d);
   init_one_device (d);
 }
@@ -100,30 +94,26 @@ stream_initially_selected_for_input (struct console *con)
   return noninteractive && initialized;
 }
 
-static void
-free_stream_console_struct (struct console *con)
-{
-  if (CONSOLE_STREAM_DATA (con))
-    {
-      xfree (CONSOLE_STREAM_DATA (con));
-      CONSOLE_STREAM_DATA (con) = NULL;
-    }
-}
-
 extern int stdout_needs_newline;
 
 static void
 stream_delete_console (struct console *con)
 {
-  if (/* CONSOLE_STREAM_DATA (con)->needs_newline */
-      stdout_needs_newline) /* #### clean this up */
+  struct stream_console *stream_con = CONSOLE_STREAM_DATA (con);
+  if (stream_con)
     {
-      fputc ('\n', CONSOLE_STREAM_DATA (con)->outfd);
-      fflush (CONSOLE_STREAM_DATA (con)->outfd);
+      if (/* stream_con->needs_newline */
+	  stdout_needs_newline) /* #### clean this up */
+	{
+	  fputc ('\n', stream_con->out);
+	  fflush (stream_con->out);
+	}
+      if (stream_con->in != stdin)
+	fclose (stream_con->in);
+
+      xfree (stream_con);
+      CONSOLE_STREAM_DATA (con) = NULL;
     }
-  if (CONSOLE_STREAM_DATA (con)->infd != stdin)
-    fclose (CONSOLE_STREAM_DATA (con)->infd);
-  free_stream_console_struct (con);
 }
 
 Lisp_Object
@@ -183,7 +173,7 @@ stream_init_frame_1 (struct frame *f, Lisp_Object props)
 
 static int
 stream_text_width (struct frame *f, struct face_cachel *cachel,
-		   CONST Emchar *str, Charcount len)
+		   const Charc *str, Charcount len)
 {
   return len;
 }
@@ -213,16 +203,6 @@ stream_eol_cursor_width (void)
 }
 
 static void
-stream_output_begin (struct device *d)
-{
-}
-
-static void
-stream_output_end (struct device *d)
-{
-}
-
-static void
 stream_output_display_block (struct window *w, struct display_line *dl,
 			     int block, int start, int end,
 			     int start_pixpos, int cursor_start,
@@ -231,23 +211,10 @@ stream_output_display_block (struct window *w, struct display_line *dl,
 }
 
 static void
-stream_output_vertical_divider (struct window *w, int clear)
-{
-}
-
-static void
-stream_clear_to_window_end (struct window *w, int ypos1, int ypos2)
-{
-}
-
-static void
-stream_clear_region (Lisp_Object locale, face_index findex, int x, int y,
-		       int width, int height)
-{
-}
-
-static void
-stream_clear_frame (struct frame *f)
+stream_clear_region (Lisp_Object window, struct device* d, struct frame * f,
+		  face_index findex, int x, int y,
+		  int width, int height, Lisp_Object fcolor, Lisp_Object bcolor,
+		  Lisp_Object background_pixmap)
 {
 }
 
@@ -261,8 +228,8 @@ static void
 stream_ring_bell (struct device *d, int volume, int pitch, int duration)
 {
   struct console *c = XCONSOLE (DEVICE_CONSOLE (d));
-  fputc (07, CONSOLE_STREAM_DATA (c)->outfd);
-  fflush (CONSOLE_STREAM_DATA (c)->outfd);
+  fputc (07, CONSOLE_STREAM_DATA (c)->out);
+  fflush (CONSOLE_STREAM_DATA (c)->out);
 }
 
 
@@ -295,33 +262,34 @@ console_type_create_stream (void)
   CONSOLE_HAS_METHOD (stream, right_margin_width);
   CONSOLE_HAS_METHOD (stream, text_width);
   CONSOLE_HAS_METHOD (stream, output_display_block);
-  CONSOLE_HAS_METHOD (stream, output_vertical_divider);
   CONSOLE_HAS_METHOD (stream, divider_height);
   CONSOLE_HAS_METHOD (stream, eol_cursor_width);
-  CONSOLE_HAS_METHOD (stream, clear_to_window_end);
   CONSOLE_HAS_METHOD (stream, clear_region);
-  CONSOLE_HAS_METHOD (stream, clear_frame);
-  CONSOLE_HAS_METHOD (stream, output_begin);
-  CONSOLE_HAS_METHOD (stream, output_end);
   CONSOLE_HAS_METHOD (stream, flash);
   CONSOLE_HAS_METHOD (stream, ring_bell);
+}
+
+void
+reinit_console_type_create_stream (void)
+{
+  REINITIALIZE_CONSOLE_TYPE (stream);
 }
 
 void
 vars_of_console_stream (void)
 {
   DEFVAR_LISP ("terminal-console", &Vterminal_console /*
-The initial console-object, which represents XEmacs' stdout.
+The initial console object, which represents XEmacs' stdout.
 */ );
   Vterminal_console = Qnil;
 
   DEFVAR_LISP ("terminal-device", &Vterminal_device /*
-The initial device-object, which represents XEmacs' stdout.
+The initial device object, which represents XEmacs' stdout.
 */ );
   Vterminal_device = Qnil;
 
   DEFVAR_LISP ("terminal-frame", &Vterminal_frame /*
-The initial frame-object, which represents XEmacs' stdout.
+The initial frame object, which represents XEmacs' stdout.
 */ );
   Vterminal_frame = Qnil;
 
@@ -330,8 +298,9 @@ The initial frame-object, which represents XEmacs' stdout.
   staticpro (&Vstdio_str);
 }
 
+#ifndef PDUMP
 void
-init_console_stream (void)
+init_console_stream (int reinit)
 {
   /* This function can GC */
   if (!initialized)
@@ -349,3 +318,25 @@ init_console_stream (void)
         event_stream_select_console (XCONSOLE (Vterminal_console));
     }
 }
+
+#else
+
+void
+init_console_stream (int reinit)
+{
+  /* This function can GC */
+  if (!reinit)
+    {
+      Vterminal_device = Fmake_device (Qstream, Qnil, Qnil);
+      Vterminal_console = Fdevice_console (Vterminal_device);
+      Vterminal_frame = Fmake_frame (Qnil, Vterminal_device);
+      minibuf_window = XFRAME (Vterminal_frame)->minibuffer_window;
+    }
+  if (initialized)
+    {
+      stream_init_console (XCONSOLE (Vterminal_console), Qnil);
+      if (noninteractive)
+	event_stream_select_console (XCONSOLE (Vterminal_console));
+    }
+}
+#endif

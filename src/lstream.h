@@ -23,8 +23,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Written by Ben Wing. */
 
-#ifndef _XEMACS_LSTREAM_H_
-#define _XEMACS_LSTREAM_H_
+#ifndef INCLUDED_lstream_h_
+#define INCLUDED_lstream_h_
 
 /************************************************************************/
 /*                     definition of Lstream object                     */
@@ -41,6 +41,26 @@ DECLARE_LRECORD (lstream, struct lstream);
 #ifndef EOF
 #define EOF (-1)
 #endif
+
+/* Typedef specifying a count of bytes in a data block to be written
+   out or read in, using Lstream_read(), Lstream_write(), and related
+   functions.  This MUST BE SIGNED, since it also is used in functions
+   that return the number of bytes actually read to or written from in
+   an operation, and these functions can return -1 to signal error.
+   
+   Note that the standard Unix read() and write() functions define the
+   count going in as a size_t, which is UNSIGNED, and the count going
+   out as an ssize_t, which is SIGNED.  This is a horrible design
+   flaw.  Not only is it highly likely to lead to logic errors when a
+   -1 gets interpreted as a large positive number, but operations are
+   bound to fail in all sorts of horrible ways when a number in the
+   upper-half of the size_t range is passed in -- this number is
+   unrepresentable as an ssize_t, so code that checks to see how many
+   bytes are actually written (which is mandatory if you are dealing
+   with certain types of devices) will get completely screwed up.
+*/
+
+typedef EMACS_INT Lstream_data_count;
 
 typedef enum lstream_buffering
 {
@@ -74,9 +94,10 @@ typedef enum lstream_buffering
 
 typedef struct lstream_implementation
 {
-  CONST char *name;
-  size_t size; /* Number of additional bytes to be allocated with this
-		  stream.  Access this data using Lstream_data(). */
+  const char *name;
+  Lstream_data_count size; /* Number of additional bytes to be
+			      allocated with this stream.  Access this
+			      data using Lstream_data(). */
   /* Read some data from the stream's end and store it into DATA, which
      can hold SIZE bytes.  Return the number of bytes read.  A return
      value of 0 means no bytes can be read at this time.  This may
@@ -92,10 +113,11 @@ typedef struct lstream_implementation
      the caller calls Lstream_read() with a very small size.
 
      This function can be NULL if the stream is output-only. */
-  /* The omniscient mly, blinded by the irresistable thrall of Common
+  /* The omniscient mly, blinded by the irresistible thrall of Common
      Lisp, thinks that it is bogus that the types and implementations
      of input and output streams are the same. */
-  int (*reader) (Lstream *stream, unsigned char *data, size_t size);
+  Lstream_data_count (*reader) (Lstream *stream, unsigned char *data,
+				Lstream_data_count size);
   /* Send some data to the stream's end.  Data to be sent is in DATA
      and is SIZE bytes.  Return the number of bytes sent.  This
      function can send and return fewer bytes than is passed in; in
@@ -106,7 +128,8 @@ typedef struct lstream_implementation
      data. (This is useful, e.g., of you're dealing with a
      non-blocking file descriptor and are getting EWOULDBLOCK errors.)
      This function can be NULL if the stream is input-only. */
-  int (*writer) (Lstream *stream, CONST unsigned char *data, size_t size);
+  Lstream_data_count (*writer) (Lstream *stream, const unsigned char *data,
+				Lstream_data_count size);
   /* Return non-zero if the last write operation on the stream resulted
      in an attempt to block (EWOULDBLOCK). If this method does not
      exists, the implementation returns 0 */
@@ -129,7 +152,7 @@ typedef struct lstream_implementation
   int (*closer) (Lstream *stream);
   /* Mark this object for garbage collection.  Same semantics as
      a standard Lisp_Object marker.  This function can be NULL. */
-  Lisp_Object (*marker) (Lisp_Object lstream, void (*markfun) (Lisp_Object));
+  Lisp_Object (*marker) (Lisp_Object lstream);
 } Lstream_implementation;
 
 #define DEFINE_LSTREAM_IMPLEMENTATION(name,c_name,size)	\
@@ -145,42 +168,45 @@ typedef struct lstream_implementation
 struct lstream
 {
   struct lcrecord_header header;
-  CONST Lstream_implementation *imp; /* methods for this stream */
+  const Lstream_implementation *imp; /* methods for this stream */
   Lstream_buffering buffering; /* type of buffering in use */
-  size_t buffering_size; /* number of bytes buffered */
+  Lstream_data_count buffering_size; /* number of bytes buffered */
 
   unsigned char *in_buffer; /* holds characters read from stream end */
-  size_t in_buffer_size; /* allocated size of buffer */
-  size_t in_buffer_current; /* number of characters in buffer */
-  size_t in_buffer_ind; /* pointer to next character to take from buffer */
+  Lstream_data_count in_buffer_size; /* allocated size of buffer */
+  Lstream_data_count in_buffer_current; /* number of characters in buffer */
+  Lstream_data_count in_buffer_ind; /* pointer to next character to
+				       take from buffer */
 
   unsigned char *out_buffer; /* holds characters to write to stream end */
-  size_t out_buffer_size; /* allocated size of buffer */
-  size_t out_buffer_ind; /* pointer to next buffer spot to write a character */
+  Lstream_data_count out_buffer_size; /* allocated size of buffer */
+  Lstream_data_count out_buffer_ind; /* pointer to next buffer spot to
+					write a character */
 
   /* The unget buffer is more or less a stack -- things get pushed
      onto the end and read back from the end.  Lstream_read()
      basically reads backwards from the end to get stuff; Lstream_unread()
      similarly has to push the data on backwards. */
   unsigned char *unget_buffer; /* holds characters pushed back onto input */
-  size_t unget_buffer_size; /* allocated size of buffer */
-  size_t unget_buffer_ind; /* pointer to next buffer spot to write a character */
+  Lstream_data_count unget_buffer_size; /* allocated size of buffer */
+  Lstream_data_count unget_buffer_ind; /* pointer to next buffer spot
+					  to write a character */
 
-  size_t byte_count;
-  long flags;  /* Align pointer for 64 bit machines (kny) */
-  char data[1];
+  Lstream_data_count byte_count;
+  int flags;
+  max_align_t data[1];
 };
 
 #define LSTREAM_TYPE_P(lstr, type) \
   ((lstr)->imp == lstream_##type)
 
 #ifdef ERROR_CHECK_TYPECHECK
-INLINE struct lstream *
+INLINE_HEADER struct lstream *
 error_check_lstream_type (struct lstream *stream,
-			  CONST Lstream_implementation *imp);
-INLINE struct lstream *
+			  const Lstream_implementation *imp);
+INLINE_HEADER struct lstream *
 error_check_lstream_type (struct lstream *stream,
-			  CONST Lstream_implementation *imp)
+			  const Lstream_implementation *imp)
 {
   assert (stream->imp == imp);
   return stream;
@@ -199,8 +225,8 @@ error_check_lstream_type (struct lstream *stream,
   (lstream_##type->m = type##_##m)
 
 
-Lstream *Lstream_new (CONST Lstream_implementation *imp,
-		      CONST char *mode);
+Lstream *Lstream_new (const Lstream_implementation *imp,
+		      const char *mode);
 void Lstream_reopen (Lstream *lstr);
 void Lstream_set_buffering (Lstream *lstr, Lstream_buffering buffering,
 			    int buffering_size);
@@ -209,10 +235,12 @@ int Lstream_flush_out (Lstream *lstr);
 int Lstream_fputc (Lstream *lstr, int c);
 int Lstream_fgetc (Lstream *lstr);
 void Lstream_fungetc (Lstream *lstr, int c);
-int Lstream_read (Lstream *lstr, void *data, size_t size);
-int Lstream_write (Lstream *lstr, CONST void *data, size_t size);
+Lstream_data_count Lstream_read (Lstream *lstr, void *data,
+				 Lstream_data_count size);
+Lstream_data_count Lstream_write (Lstream *lstr, const void *data,
+				  Lstream_data_count size);
 int Lstream_was_blocked_p (Lstream *lstr);
-void Lstream_unread (Lstream *lstr, CONST void *data, size_t size);
+void Lstream_unread (Lstream *lstr, const void *data, Lstream_data_count size);
 int Lstream_rewind (Lstream *lstr);
 int Lstream_seekable_p (Lstream *lstr);
 int Lstream_close (Lstream *lstr);
@@ -265,20 +293,25 @@ void Lstream_set_character_mode (Lstream *str);
 #ifdef MULE
 
 #ifndef BYTE_ASCII_P
-#include "mule-charset.h"
+#include "multibyte.h"
 #endif
 
-INLINE Emchar Lstream_get_emchar (Lstream *stream);
-INLINE Emchar
+#ifndef CHAR_ASCII_P
+#include "character.h"
+#endif
+
+INLINE_HEADER Emchar Lstream_get_emchar (Lstream *stream);
+INLINE_HEADER Emchar
 Lstream_get_emchar (Lstream *stream)
 {
   int c = Lstream_getc (stream);
-  return BYTE_ASCII_P (c) ? (Emchar) c :
-    Lstream_get_emchar_1 (stream, c);
+  return (c < 0x80		/* c == EOF || BYTE_ASCII_P (c) */
+	  ? (Emchar) c
+	  : Lstream_get_emchar_1 (stream, c));
 }
 
-INLINE int Lstream_put_emchar (Lstream *stream, Emchar ch);
-INLINE int
+INLINE_HEADER int Lstream_put_emchar (Lstream *stream, Emchar ch);
+INLINE_HEADER int
 Lstream_put_emchar (Lstream *stream, Emchar ch)
 {
   return CHAR_ASCII_P (ch) ?
@@ -286,8 +319,8 @@ Lstream_put_emchar (Lstream *stream, Emchar ch)
     Lstream_fput_emchar (stream, ch);
 }
 
-INLINE void Lstream_unget_emchar (Lstream *stream, Emchar ch);
-INLINE void
+INLINE_HEADER void Lstream_unget_emchar (Lstream *stream, Emchar ch);
+INLINE_HEADER void
 Lstream_unget_emchar (Lstream *stream, Emchar ch)
 {
   if (CHAR_ASCII_P (ch))
@@ -339,11 +372,11 @@ int filedesc_stream_fd (Lstream *stream);
 Lisp_Object make_lisp_string_input_stream (Lisp_Object string,
 					   Bytecount offset,
 					   Bytecount len);
-Lisp_Object make_fixed_buffer_input_stream (CONST unsigned char *buf,
-					    size_t size);
-Lisp_Object make_fixed_buffer_output_stream (unsigned char *buf,
-					     size_t size);
-CONST unsigned char *fixed_buffer_input_stream_ptr (Lstream *stream);
+Lisp_Object make_fixed_buffer_input_stream (const void *buf,
+					    Lstream_data_count size);
+Lisp_Object make_fixed_buffer_output_stream (void *buf,
+					     Lstream_data_count size);
+const unsigned char *fixed_buffer_input_stream_ptr (Lstream *stream);
 unsigned char *fixed_buffer_output_stream_ptr (Lstream *stream);
 Lisp_Object make_resizing_buffer_output_stream (void);
 unsigned char *resizing_buffer_stream_ptr (Lstream *stream);
@@ -356,4 +389,4 @@ Lisp_Object make_lisp_buffer_output_stream (struct buffer *buf, Bufpos pos,
 					    int flags);
 Bufpos lisp_buffer_stream_startpos (Lstream *stream);
 
-#endif /* _XEMACS_LSTREAM_H_ */
+#endif /* INCLUDED_lstream_h_ */

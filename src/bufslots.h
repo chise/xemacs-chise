@@ -1,5 +1,6 @@
 /* Definitions of marked slots in buffers
    Copyright (C) 1990, 1992, 1993 Free Software Foundation, Inc.
+   Copyright (C) 2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -31,6 +32,10 @@ Boston, MA 02111-1307, USA.  */
    after defining MARKED_SLOT(x) to be Lisp_Object x; i.e. just a slot
    definition.  In the garbage collector this file is included after
    defining MARKED_SLOT(x) to be mark_object(buffer->x). */
+
+#ifndef BUFFER_SLOTS_FIRST_NAME
+#define BUFFER_SLOTS_FIRST_NAME name
+#endif
 
     /* The name of this buffer.  */
     MARKED_SLOT (name);
@@ -69,7 +74,7 @@ Boston, MA 02111-1307, USA.  */
        Specifically, this lists those variables that have
        a buffer-local value in this buffer: i.e. those
        whose value does not shadow the default value.
-       (Remember that for any particlar variable created
+       (Remember that for any particular variable created
        with `make-local-variable' or `make-variable-buffer-local',
        it will have a per-buffer value in some buffers and a
        default value in others.)
@@ -94,8 +99,10 @@ Boston, MA 02111-1307, USA.  */
     MARKED_SLOT (abbrev_table);
     /* This buffer's syntax table.  */
     MARKED_SLOT (syntax_table);
+#ifndef UTF2000
     /* Massaged values from the syntax table, for faster lookup. */
     MARKED_SLOT (mirror_syntax_table);
+#endif
 
 #ifdef MULE
     /* This buffer's category table. */
@@ -117,33 +124,13 @@ Boston, MA 02111-1307, USA.  */
     /* Function to call when insert space past fill column.  */
     MARKED_SLOT (auto_fill_function);
 
-    /* Case table for case-conversion in this buffer.
-       This char-table maps each char into its lower-case version.  */
-    MARKED_SLOT (downcase_table);
+    /* Case table for case-conversion in this buffer. */
+    MARKED_SLOT (case_table);
+    /* It contais following char-tables: */
+    /* Char-table maps each char into its lower-case version.  */
     /* Char-table mapping each char to its upper-case version.  */
-    MARKED_SLOT (upcase_table);
-
     /* Char-table for conversion for case-folding search.  */
-    MARKED_SLOT (case_canon_table);
     /* Char-table of equivalences for case-folding search.  */
-    MARKED_SLOT (case_eqv_table);
-
-#ifdef MULE
-    /* #### The purpose of these bogos is to deal with the fact that
-       the Boyer-Moore and regex searching routines don't know how to
-       deal with translating multi-byte characters.  Fixing this is hard,
-       so instead we maintain these mirror tables that have all incorrect
-       mappings (see casetab.c) sanitized out of them.  If we don't do
-       this, we may get weird and unpredictable results in the presence
-       of extended chars and extended mappings, and it could even lead
-       to a crash.
-
-       #### Eventually we should deal with this properly. */
-    MARKED_SLOT (mirror_downcase_table);
-    MARKED_SLOT (mirror_upcase_table);
-    MARKED_SLOT (mirror_case_canon_table);
-    MARKED_SLOT (mirror_case_eqv_table);
-#endif
 
     /* #### This ought to be a specifier: */
     /* Non-nil means do not display continuation lines.  */
@@ -185,9 +172,7 @@ Boston, MA 02111-1307, USA.  */
     /* FSFmacs has overlay stuff here.  We have extent info elsewhere in the
        struct buffer.  */
 
-    /* If dedicated_frame is non-nil, display_buffer tries to use it instead
-       of the current frame */
-    MARKED_SLOT (dedicated_frame);
+    /* dedicated_frame in lisp */
 
     /* Lisp of symbols naming the file format used for visited file. */
     MARKED_SLOT (file_format);
@@ -235,13 +220,14 @@ Boston, MA 02111-1307, USA.  */
     /* A hash table that maps from a "generic extent" (an extent in
        `modeline-format') into a buffer-specific extent. */
     MARKED_SLOT (modeline_extent_table);
+
+#ifndef BUFFER_SLOTS_LAST_NAME
+#define BUFFER_SLOTS_LAST_NAME modeline_extent_table
+#endif
+
 #if 0 /* FSFmacs */
     /* This is silly and stupid */
     /* These are so we don't have to recompile everything
        the next few times we add a new slot.  */
     MARKED_SLOT (extra1, extra2, extra3);
 #endif
-  /* The cache of positions for whilch line number has last been
-     calculated.  See line-number.c. */
-    MARKED_SLOT (line_number_cache);
-

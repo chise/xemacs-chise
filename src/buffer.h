@@ -29,12 +29,14 @@ Boston, MA 02111-1307, USA.  */
    Ben Wing: almost completely rewritten for Mule, 19.12.
  */
 
-#ifndef _XEMACS_BUFFER_H_
-#define _XEMACS_BUFFER_H_
+#ifndef INCLUDED_buffer_h_
+#define INCLUDED_buffer_h_
 
-#ifdef MULE
-#include "mule-charset.h"
-#endif
+#include "character.h"
+#include "multibyte.h"
+
+#include "casetab.h"
+#include "chartab.h"
 
 /************************************************************************/
 /*                                                                      */
@@ -94,13 +96,21 @@ struct buffer_text
      This information is text-only so it goes here. */
   Bufpos mule_bufmin, mule_bufmax;
   Bytind mule_bytmin, mule_bytmax;
+#ifdef UTF2000
+  int mule_size;
+#else
   int mule_shifter, mule_three_p;
+#endif
 
   /* And we also cache 16 positions for fairly fast access near those
      positions. */
   Bufpos mule_bufpos_cache[16];
   Bytind mule_bytind_cache[16];
 #endif
+
+  /* Similar to the above, we keep track of positions for which line
+     number has last been calculated.  See line-number.c. */
+  Lisp_Object line_number_cache;
 
   /* Change data that goes with the text. */
   struct buffer_text_change_data *changes;
@@ -129,6 +139,9 @@ struct buffer
 
   int face_change;	/* This is set when a change in how the text should
 			   be displayed (e.g., font, color) is made. */
+
+  /* Whether buffer specific face is specified. */
+  int buffer_local_face_property;
 
   /* change data indicating what portion of the text has changed
      since the last time this was reset.  Used by redisplay.
@@ -162,7 +175,7 @@ struct buffer
   /* The markers that refer to this buffer.  This is actually a single
      marker -- successive elements in its marker `chain' are the other
      markers referring to this buffer */
-  struct Lisp_Marker *markers;
+  Lisp_Marker *markers;
 
   /* The buffer's extent info.  This is its own type, an extent-info
      object (done this way for ease in marking / finalizing). */
@@ -194,7 +207,7 @@ struct buffer
   int modtime;
 
   /* the value of text->modiff at the last auto-save.  */
-  int auto_save_modified;
+  long auto_save_modified;
 
   /* The time at which we detected a failure to auto-save,
      Or -1 if we didn't have a failure.  */
@@ -215,7 +228,6 @@ DECLARE_LRECORD (buffer, struct buffer);
 #define XBUFFER(x) XRECORD (x, buffer, struct buffer)
 #define XSETBUFFER(x, p) XSETRECORD (x, p, buffer)
 #define BUFFERP(x) RECORDP (x, buffer)
-#define GC_BUFFERP(x) GC_RECORDP (x, buffer)
 #define CHECK_BUFFER(x) CHECK_RECORD (x, buffer)
 #define CONCHECK_BUFFER(x) CONCHECK_RECORD (x, buffer)
 
@@ -234,6 +246,31 @@ DECLARE_LRECORD (buffer, struct buffer);
 } while (0)
 
 
+#define BUFFER_BASE_BUFFER(b) ((b)->base_buffer ? (b)->base_buffer : (b))
+
+/* Map over buffers sharing the same text as MPS_BUF.  MPS_BUFVAR is a
+   variable that gets the buffer values (beginning with the base
+   buffer, then the children), and MPS_BUFCONS should be a temporary
+   Lisp_Object variable.  */
+#define MAP_INDIRECT_BUFFERS(mps_buf, mps_bufvar, mps_bufcons)			\
+for (mps_bufcons = Qunbound,							\
+     mps_bufvar = BUFFER_BASE_BUFFER (mps_buf);					\
+     UNBOUNDP (mps_bufcons) ?							\
+	(mps_bufcons = mps_bufvar->indirect_children,				\
+	1)									\
+       : (!NILP (mps_bufcons)							\
+	  && (mps_bufvar = XBUFFER (XCAR (mps_bufcons)), 1)			\
+	  && (mps_bufcons = XCDR (mps_bufcons), 1));				\
+     )
+
+
+
+/************************************************************************/
+/*									*/
+/*		   working with raw internal-format data		*/
+/*									*/
+/************************************************************************/
+
 /* NOTE: In all the following macros, we follow these rules concerning
    multiple evaluation of the arguments:
 
@@ -249,340 +286,7 @@ DECLARE_LRECORD (buffer, struct buffer);
       denoted with the word "unsafe" in their name and are generally
       meant to be called only by other macros that have already
       stored the calling values in temporary variables.
- */
-
-/************************************************************************/
-/*									*/
-/*		   working with raw internal-format data		*/
-/*									*/
-/************************************************************************/
-
-/* Use these on contiguous strings of data.  If the text you're
-   operating on is known to come from a buffer, use the buffer-level
-   functions below -- they know about the gap and may be more
-   efficient. */
-
-/* Functions are as follows:
-
-
-   (A) For working with charptr's (pointers to internally-formatted text):
-   -----------------------------------------------------------------------
-
-   VALID_CHARPTR_P(ptr):
-	Given a charptr, does it point to the beginning of a character?
-
-   ASSERT_VALID_CHARPTR(ptr):
-	If error-checking is enabled, assert that the given charptr
-	points to the beginning of a character.  Otherwise, do nothing.
-
-   INC_CHARPTR(ptr):
-	Given a charptr (assumed to point at the beginning of a character),
-	modify that pointer so it points to the beginning of the next
-	character.
-
-   DEC_CHARPTR(ptr):
-	Given a charptr (assumed to point at the beginning of a
-	character or at the very end of the text), modify that pointer
-	so it points to the beginning of the previous character.
-
-   VALIDATE_CHARPTR_BACKWARD(ptr):
-	Make sure that PTR is pointing to the beginning of a character.
-	If not, back up until this is the case.   Note that there are not
-	too many places where it is legitimate to do this sort of thing.
-	It's an error if you're passed an "invalid" char * pointer.
-	NOTE: PTR *must* be pointing to a valid part of the string (i.e.
-	not the very end, unless the string is zero-terminated or
-	something) in order for this function to not cause crashes.
-
-   VALIDATE_CHARPTR_FORWARD(ptr):
-	Make sure that PTR is pointing to the beginning of a character.
-	If not, move forward until this is the case.  Note that there
-	are not too many places where it is legitimate to do this sort
-	of thing.  It's an error if you're passed an "invalid" char *
-	pointer.
-
-
-   (B) For working with the length (in bytes and characters) of a
-       section of internally-formatted text:
-   --------------------------------------------------------------
-
-   bytecount_to_charcount(ptr, nbi):
-	Given a pointer to a text string and a length in bytes,
-	return the equivalent length in characters.
-
-   charcount_to_bytecount(ptr, nch):
-	Given a pointer to a text string and a length in characters,
-	return the equivalent length in bytes.
-
-   charptr_n_addr(ptr, n):
-	Return a pointer to the beginning of the character offset N
-	(in characters) from PTR.
-
-   charptr_length(ptr):
-	Given a zero-terminated pointer to Emacs characters,
-	return the number of Emacs characters contained within.
-
-
-   (C) For retrieving or changing the character pointed to by a charptr:
-   ---------------------------------------------------------------------
-
-   charptr_emchar(ptr):
-	Retrieve the character pointed to by PTR as an Emchar.
-
-   charptr_emchar_n(ptr, n):
-	Retrieve the character at offset N (in characters) from PTR,
-	as an Emchar.
-
-   set_charptr_emchar(ptr, ch):
-	Store the character CH (an Emchar) as internally-formatted
-	text starting at PTR.  Return the number of bytes stored.
-
-   charptr_copy_char(ptr, ptr2):
-	Retrieve the character pointed to by PTR and store it as
-	internally-formatted text in PTR2.
-
-
-   (D) For working with Emchars:
-   -----------------------------
-
-   [Note that there are other functions/macros for working with Emchars
-    in mule-charset.h, for retrieving the charset of an Emchar
-    and such.  These are only valid when MULE is defined.]
-
-   valid_char_p(ch):
-	Return whether the given Emchar is valid.
-
-   CHARP(ch):
-        Return whether the given Lisp_Object is a valid character.
-	This is approximately the same as saying the Lisp_Object is
-	an int whose value is a valid Emchar. (But not exactly
-	because when MULE is not defined, we allow arbitrary values
-	in all but the lowest 8 bits and mask them off, for backward
-	compatibility.)
-
-   CHECK_CHAR_COERCE_INT(ch):
-	Signal an error if CH is not a valid character as per CHARP().
-	Also canonicalize the value into a valid Emchar, as necessary.
-	(This only means anything when MULE is not defined.)
-
-   COERCE_CHAR(ch):
-	Coerce an object that is known to satisfy CHARP() into a
-	valid Emchar.
-
-   MAX_EMCHAR_LEN:
-	Maximum number of buffer bytes per Emacs character.
-
 */
-
-
-/* ---------------------------------------------------------------------- */
-/* (A) For working with charptr's (pointers to internally-formatted text) */
-/* ---------------------------------------------------------------------- */
-
-#ifdef MULE
-# define VALID_CHARPTR_P(ptr) BUFBYTE_FIRST_BYTE_P (* (unsigned char *) ptr)
-#else
-# define VALID_CHARPTR_P(ptr) 1
-#endif
-
-#ifdef ERROR_CHECK_BUFPOS
-# define ASSERT_VALID_CHARPTR(ptr) assert (VALID_CHARPTR_P (ptr))
-#else
-# define ASSERT_VALID_CHARPTR(ptr)
-#endif
-
-/* Note that INC_CHARPTR() and DEC_CHARPTR() have to be written in
-   completely separate ways.  INC_CHARPTR() cannot use the DEC_CHARPTR()
-   trick of looking for a valid first byte because it might run off
-   the end of the string.  DEC_CHARPTR() can't use the INC_CHARPTR()
-   method because it doesn't have easy access to the first byte of
-   the character it's moving over. */
-
-#define real_inc_charptr_fun(ptr) \
-  ((ptr) += REP_BYTES_BY_FIRST_BYTE (* (unsigned char *) (ptr)))
-#ifdef ERROR_CHECK_BUFPOS
-#define inc_charptr_fun(ptr) (ASSERT_VALID_CHARPTR (ptr), \
-			      real_inc_charptr_fun (ptr))
-#else
-#define inc_charptr_fun(ptr) real_inc_charptr_fun (ptr)
-#endif
-
-#define REAL_INC_CHARPTR(ptr) ((void) (real_inc_charptr_fun (ptr)))
-
-#define INC_CHARPTR(ptr) do {		\
-  ASSERT_VALID_CHARPTR (ptr);		\
-  REAL_INC_CHARPTR (ptr);		\
-} while (0)
-
-#define REAL_DEC_CHARPTR(ptr) do {	\
-  (ptr)--;				\
-} while (!VALID_CHARPTR_P (ptr))
-
-#ifdef ERROR_CHECK_BUFPOS
-#define DEC_CHARPTR(ptr) do {			  \
-  CONST Bufbyte *__dcptr__ = (ptr);		  \
-  CONST Bufbyte *__dcptr2__ = __dcptr__;	  \
-  REAL_DEC_CHARPTR (__dcptr2__);		  \
-  assert (__dcptr__ - __dcptr2__ ==		  \
-	  REP_BYTES_BY_FIRST_BYTE (*__dcptr2__)); \
-  (ptr) = __dcptr2__;				  \
-} while (0)
-#else
-#define DEC_CHARPTR(ptr) REAL_DEC_CHARPTR (ptr)
-#endif
-
-#ifdef MULE
-
-#define VALIDATE_CHARPTR_BACKWARD(ptr) do {	\
-  while (!VALID_CHARPTR_P (ptr)) ptr--;		\
-} while (0)
-
-/* This needs to be trickier to avoid the possibility of running off
-   the end of the string. */
-
-#define VALIDATE_CHARPTR_FORWARD(ptr) do {	\
-  Bufbyte *__vcfptr__ = (ptr);			\
-  VALIDATE_CHARPTR_BACKWARD (__vcfptr__);	\
-  if (__vcfptr__ != (ptr))			\
-    {						\
-      (ptr) = __vcfptr__;			\
-      INC_CHARPTR (ptr);			\
-    }						\
-} while (0)
-
-#else /* not MULE */
-#define VALIDATE_CHARPTR_BACKWARD(ptr)
-#define VALIDATE_CHARPTR_FORWARD(ptr)
-#endif /* not MULE */
-
-/* -------------------------------------------------------------- */
-/* (B) For working with the length (in bytes and characters) of a */
-/*     section of internally-formatted text 			  */
-/* -------------------------------------------------------------- */
-
-INLINE CONST Bufbyte *charptr_n_addr (CONST Bufbyte *ptr, Charcount offset);
-INLINE CONST Bufbyte *
-charptr_n_addr (CONST Bufbyte *ptr, Charcount offset)
-{
-  return ptr + charcount_to_bytecount (ptr, offset);
-}
-
-INLINE Charcount charptr_length (CONST Bufbyte *ptr);
-INLINE Charcount
-charptr_length (CONST Bufbyte *ptr)
-{
-  return bytecount_to_charcount (ptr, strlen ((CONST char *) ptr));
-}
-
-
-/* -------------------------------------------------------------------- */
-/* (C) For retrieving or changing the character pointed to by a charptr */
-/* -------------------------------------------------------------------- */
-
-#define simple_charptr_emchar(ptr)		((Emchar) (ptr)[0])
-#define simple_set_charptr_emchar(ptr, x)	((ptr)[0] = (Bufbyte) (x), 1)
-#define simple_charptr_copy_char(ptr, ptr2)	((ptr2)[0] = *(ptr), 1)
-
-#ifdef MULE
-
-Emchar non_ascii_charptr_emchar (CONST Bufbyte *ptr);
-Bytecount non_ascii_set_charptr_emchar (Bufbyte *ptr, Emchar c);
-Bytecount non_ascii_charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2);
-
-INLINE Emchar charptr_emchar (CONST Bufbyte *ptr);
-INLINE Emchar
-charptr_emchar (CONST Bufbyte *ptr)
-{
-  return BYTE_ASCII_P (*ptr) ?
-    simple_charptr_emchar (ptr) :
-    non_ascii_charptr_emchar (ptr);
-}
-
-INLINE Bytecount set_charptr_emchar (Bufbyte *ptr, Emchar x);
-INLINE Bytecount
-set_charptr_emchar (Bufbyte *ptr, Emchar x)
-{
-  return !CHAR_MULTIBYTE_P (x) ?
-    simple_set_charptr_emchar (ptr, x) :
-    non_ascii_set_charptr_emchar (ptr, x);
-}
-
-INLINE Bytecount charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2);
-INLINE Bytecount
-charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2)
-{
-  return BYTE_ASCII_P (*ptr) ?
-    simple_charptr_copy_char (ptr, ptr2) :
-    non_ascii_charptr_copy_char (ptr, ptr2);
-}
-
-#else /* not MULE */
-
-# define charptr_emchar(ptr)		simple_charptr_emchar (ptr)
-# define set_charptr_emchar(ptr, x)	simple_set_charptr_emchar (ptr, x)
-# define charptr_copy_char(ptr, ptr2)	simple_charptr_copy_char (ptr, ptr2)
-
-#endif /* not MULE */
-
-#define charptr_emchar_n(ptr, offset) \
-  charptr_emchar (charptr_n_addr (ptr, offset))
-
-
-/* ---------------------------- */
-/* (D) For working with Emchars */
-/* ---------------------------- */
-
-#ifdef MULE
-
-int non_ascii_valid_char_p (Emchar ch);
-
-INLINE int valid_char_p (Emchar ch);
-INLINE int
-valid_char_p (Emchar ch)
-{
-  return (ch >= 0 && ch <= 255) || non_ascii_valid_char_p (ch);
-}
-
-#else /* not MULE */
-
-#define valid_char_p(ch) ((unsigned int) (ch) <= 255)
-
-#endif /* not MULE */
-
-#define CHAR_INTP(x) (INTP (x) && valid_char_p (XINT (x)))
-
-#define CHAR_OR_CHAR_INTP(x) (CHARP (x) || CHAR_INTP (x))
-
-#ifdef ERROR_CHECK_TYPECHECK
-
-INLINE Emchar XCHAR_OR_CHAR_INT (Lisp_Object obj);
-INLINE Emchar
-XCHAR_OR_CHAR_INT (Lisp_Object obj)
-{
-  assert (CHAR_OR_CHAR_INTP (obj));
-  return CHARP (obj) ? XCHAR (obj) : XINT (obj);
-}
-
-#else
-
-#define XCHAR_OR_CHAR_INT(obj) (CHARP ((obj)) ? XCHAR ((obj)) : XINT ((obj)))
-
-#endif
-
-#define CHECK_CHAR_COERCE_INT(x) do {		\
-  if (CHARP (x))				\
-     ;						\
-  else if (CHAR_INTP (x))			\
-    x = make_char (XINT (x));			\
-  else						\
-    x = wrong_type_argument (Qcharacterp, x);	\
-} while (0)
-
-#ifdef MULE
-# define MAX_EMCHAR_LEN 4
-#else
-# define MAX_EMCHAR_LEN 1
-#endif
 
 
 /*----------------------------------------------------------------------*/
@@ -620,25 +324,25 @@ XCHAR_OR_CHAR_INT (Lisp_Object obj)
 /*----------------------------------------------------------------------*/
 
 /* Convert the address of a byte in the buffer into a position.  */
-INLINE Bytind BI_BUF_PTR_BYTE_POS (struct buffer *buf, Bufbyte *ptr);
-INLINE Bytind
+INLINE_HEADER Bytind BI_BUF_PTR_BYTE_POS (struct buffer *buf, Bufbyte *ptr);
+INLINE_HEADER Bytind
 BI_BUF_PTR_BYTE_POS (struct buffer *buf, Bufbyte *ptr)
 {
-  return ((ptr) - (buf)->text->beg + 1
-	  - ((ptr - (buf)->text->beg + 1) > (buf)->text->gpt
-	     ? (buf)->text->gap_size : 0));
+  return (ptr - buf->text->beg + 1
+	  - ((ptr - buf->text->beg + 1) > buf->text->gpt
+	     ? buf->text->gap_size : 0));
 }
 
 #define BUF_PTR_BYTE_POS(buf, ptr) \
   bytind_to_bufpos (buf, BI_BUF_PTR_BYTE_POS (buf, ptr))
 
 /* Address of byte at position POS in buffer. */
-INLINE Bufbyte * BI_BUF_BYTE_ADDRESS (struct buffer *buf, Bytind pos);
-INLINE Bufbyte *
+INLINE_HEADER Bufbyte * BI_BUF_BYTE_ADDRESS (struct buffer *buf, Bytind pos);
+INLINE_HEADER Bufbyte *
 BI_BUF_BYTE_ADDRESS (struct buffer *buf, Bytind pos)
 {
-  return ((buf)->text->beg +
-	  ((pos >= (buf)->text->gpt ? (pos + (buf)->text->gap_size) : pos)
+  return (buf->text->beg +
+	  ((pos >= buf->text->gpt ? (pos + buf->text->gap_size) : pos)
 	   - 1));
 }
 
@@ -646,12 +350,12 @@ BI_BUF_BYTE_ADDRESS (struct buffer *buf, Bytind pos)
   BI_BUF_BYTE_ADDRESS (buf, bufpos_to_bytind (buf, pos))
 
 /* Address of byte before position POS in buffer. */
-INLINE Bufbyte * BI_BUF_BYTE_ADDRESS_BEFORE (struct buffer *buf, Bytind pos);
-INLINE Bufbyte *
+INLINE_HEADER Bufbyte * BI_BUF_BYTE_ADDRESS_BEFORE (struct buffer *buf, Bytind pos);
+INLINE_HEADER Bufbyte *
 BI_BUF_BYTE_ADDRESS_BEFORE (struct buffer *buf, Bytind pos)
 {
-  return ((buf)->text->beg +
-	  ((pos > (buf)->text->gpt ? (pos + (buf)->text->gap_size) : pos)
+  return (buf->text->beg +
+	  ((pos > buf->text->gpt ? (pos + buf->text->gap_size) : pos)
 	   - 2));
 }
 
@@ -662,32 +366,32 @@ BI_BUF_BYTE_ADDRESS_BEFORE (struct buffer *buf, Bytind pos)
 /*	    Converting between byte indices and memory indices		*/
 /*----------------------------------------------------------------------*/
 
-INLINE int valid_memind_p (struct buffer *buf, Memind x);
-INLINE int
+INLINE_HEADER int valid_memind_p (struct buffer *buf, Memind x);
+INLINE_HEADER int
 valid_memind_p (struct buffer *buf, Memind x)
 {
-  return ((x >= 1 && x <= (Memind) (buf)->text->gpt) ||
-	  (x  > (Memind) ((buf)->text->gpt + (buf)->text->gap_size) &&
-	   x <= (Memind) ((buf)->text->z   + (buf)->text->gap_size)));
+  return ((x >= 1 && x <= (Memind) buf->text->gpt) ||
+	  (x  > (Memind) (buf->text->gpt + buf->text->gap_size) &&
+	   x <= (Memind) (buf->text->z   + buf->text->gap_size)));
 }
 
-INLINE Memind bytind_to_memind (struct buffer *buf, Bytind x);
-INLINE Memind
+INLINE_HEADER Memind bytind_to_memind (struct buffer *buf, Bytind x);
+INLINE_HEADER Memind
 bytind_to_memind (struct buffer *buf, Bytind x)
 {
-  return (Memind) ((x > (buf)->text->gpt) ? (x + (buf)->text->gap_size) : x);
+  return (Memind) ((x > buf->text->gpt) ? (x + buf->text->gap_size) : x);
 }
 
 
-INLINE Bytind memind_to_bytind (struct buffer *buf, Memind x);
-INLINE Bytind
+INLINE_HEADER Bytind memind_to_bytind (struct buffer *buf, Memind x);
+INLINE_HEADER Bytind
 memind_to_bytind (struct buffer *buf, Memind x)
 {
 #ifdef ERROR_CHECK_BUFPOS
   assert (valid_memind_p (buf, x));
 #endif
-  return (Bytind) ((x > (Memind) (buf)->text->gpt) ?
-		   x - (buf)->text->gap_size :
+  return (Bytind) ((x > (Memind) buf->text->gpt) ?
+		   x - buf->text->gap_size :
 		   x);
 }
 
@@ -848,11 +552,10 @@ memind_to_bytind (struct buffer *buf, Memind x)
    results with stupid compilers. */
 
 #ifdef MULE
-# define VALIDATE_BYTIND_BACKWARD(buf, x) do		\
-{							\
-  Bufbyte *__ibptr = BI_BUF_BYTE_ADDRESS (buf, x);	\
-  while (!BUFBYTE_FIRST_BYTE_P (*__ibptr))		\
-    __ibptr--, (x)--;					\
+# define VALIDATE_BYTIND_BACKWARD(buf, x) do {		\
+  Bufbyte *VBB_ptr = BI_BUF_BYTE_ADDRESS (buf, x);	\
+  while (!BUFBYTE_FIRST_BYTE_P (*VBB_ptr))		\
+    VBB_ptr--, (x)--;					\
 } while (0)
 #else
 # define VALIDATE_BYTIND_BACKWARD(buf, x)
@@ -864,11 +567,10 @@ memind_to_bytind (struct buffer *buf, Memind x)
    results with stupid compilers. */
 
 #ifdef MULE
-# define VALIDATE_BYTIND_FORWARD(buf, x) do		\
-{							\
-  Bufbyte *__ibptr = BI_BUF_BYTE_ADDRESS (buf, x);	\
-  while (!BUFBYTE_FIRST_BYTE_P (*__ibptr))		\
-    __ibptr++, (x)++;					\
+# define VALIDATE_BYTIND_FORWARD(buf, x) do {		\
+  Bufbyte *VBF_ptr = BI_BUF_BYTE_ADDRESS (buf, x);	\
+  while (!BUFBYTE_FIRST_BYTE_P (*VBF_ptr))		\
+    VBF_ptr++, (x)++;					\
 } while (0)
 #else
 # define VALIDATE_BYTIND_FORWARD(buf, x)
@@ -902,16 +604,16 @@ memind_to_bytind (struct buffer *buf, Memind x)
   VALIDATE_BYTIND_BACKWARD (buf, x);			\
 } while (0)
 
-INLINE Bytind prev_bytind (struct buffer *buf, Bytind x);
-INLINE Bytind
+INLINE_HEADER Bytind prev_bytind (struct buffer *buf, Bytind x);
+INLINE_HEADER Bytind
 prev_bytind (struct buffer *buf, Bytind x)
 {
   DEC_BYTIND (buf, x);
   return x;
 }
 
-INLINE Bytind next_bytind (struct buffer *buf, Bytind x);
-INLINE Bytind
+INLINE_HEADER Bytind next_bytind (struct buffer *buf, Bytind x);
+INLINE_HEADER Bytind
 next_bytind (struct buffer *buf, Bytind x)
 {
   INC_BYTIND (buf, x);
@@ -971,29 +673,42 @@ Bufpos bytind_to_bufpos_func (struct buffer *buf, Bytind x);
    64K for width-three characters.
    */
 
+#ifndef UTF2000
 extern short three_to_one_table[];
+#endif
 
-INLINE int real_bufpos_to_bytind (struct buffer *buf, Bufpos x);
-INLINE int
+INLINE_HEADER int real_bufpos_to_bytind (struct buffer *buf, Bufpos x);
+INLINE_HEADER int
 real_bufpos_to_bytind (struct buffer *buf, Bufpos x)
 {
   if (x >= buf->text->mule_bufmin && x <= buf->text->mule_bufmax)
     return (buf->text->mule_bytmin +
+#ifdef UTF2000
+	    (x - buf->text->mule_bufmin) * buf->text->mule_size
+#else
 	    ((x - buf->text->mule_bufmin) << buf->text->mule_shifter) +
-	    (buf->text->mule_three_p ? (x - buf->text->mule_bufmin) : 0));
+	    (buf->text->mule_three_p ? (x - buf->text->mule_bufmin) : 0)
+#endif
+	    );
   else
     return bufpos_to_bytind_func (buf, x);
 }
 
-INLINE int real_bytind_to_bufpos (struct buffer *buf, Bytind x);
-INLINE int
+INLINE_HEADER int real_bytind_to_bufpos (struct buffer *buf, Bytind x);
+INLINE_HEADER int
 real_bytind_to_bufpos (struct buffer *buf, Bytind x)
 {
   if (x >= buf->text->mule_bytmin && x <= buf->text->mule_bytmax)
     return (buf->text->mule_bufmin +
+#ifdef UTF2000
+	    (buf->text->mule_size == 0 ? 0 :
+	     (x - buf->text->mule_bytmin) / buf->text->mule_size)
+#else
 	    ((buf->text->mule_three_p
 	      ? three_to_one_table[x - buf->text->mule_bytmin]
-	      : (x - buf->text->mule_bytmin) >> buf->text->mule_shifter)));
+	      : (x - buf->text->mule_bytmin) >> buf->text->mule_shifter))
+#endif
+	    );
   else
     return bytind_to_bufpos_func (buf, x);
 }
@@ -1038,341 +753,296 @@ Bufpos bytind_to_bufpos (struct buffer *buf, Bytind x);
 #define BUF_CHARPTR_COPY_CHAR(buf, pos, str) \
   BI_BUF_CHARPTR_COPY_CHAR (buf, bufpos_to_bytind (buf, pos), str)
 
-
-
 
 /************************************************************************/
-/*									*/
-/*		    working with externally-formatted data		*/
-/*									*/
+/*                                                                      */
+/*         Converting between internal and external format              */
+/*                                                                      */
 /************************************************************************/
+/*
+  All client code should use only the two macros
 
-/* Sometimes strings need to be converted into one or another
-   external format, for passing to a library function. (Note
-   that we encapsulate and automatically convert the arguments
-   of some functions, but not others.) At times this conversion
-   also has to go the other way -- i.e. when we get external-
-   format strings back from a library function.
-*/
+  TO_EXTERNAL_FORMAT (source_type, source, sink_type, sink, coding_system)
+  TO_INTERNAL_FORMAT (source_type, source, sink_type, sink, coding_system)
+
+  Typical use is
+
+  TO_EXTERNAL_FORMAT (DATA, (ptr, len),
+                      LISP_BUFFER, buffer,
+		      Qfile_name);
+
+  The source or sink can be specified in one of these ways:
+
+  DATA,   (ptr, len),    // input data is a fixed buffer of size len
+  ALLOCA, (ptr, len),    // output data is in a alloca()ed buffer of size len
+  MALLOC, (ptr, len),    // output data is in a malloc()ed buffer of size len
+  C_STRING_ALLOCA, ptr,  // equivalent to ALLOCA (ptr, len_ignored) on output
+  C_STRING_MALLOC, ptr,  // equivalent to MALLOC (ptr, len_ignored) on output
+  C_STRING,     ptr,     // equivalent to DATA, (ptr, strlen (ptr) + 1) on input
+  LISP_STRING,  string,  // input or output is a Lisp_Object of type string
+  LISP_BUFFER,  buffer,  // output is written to (point) in lisp buffer
+  LISP_LSTREAM, lstream, // input or output is a Lisp_Object of type lstream
+  LISP_OPAQUE,  object,  // input or output is a Lisp_Object of type opaque
+
+  When specifying the sink, use lvalues, since the macro will assign to them,
+  except when the sink is an lstream or a lisp buffer.
+
+  The macros accept the kinds of sources and sinks appropriate for
+  internal and external data representation.  See the type_checking_assert
+  macros below for the actual allowed types.
+
+  Since some sources and sinks use one argument (a Lisp_Object) to
+  specify them, while others take a (pointer, length) pair, we use
+  some C preprocessor trickery to allow pair arguments to be specified
+  by parenthesizing them, as in the examples above.
+
+  Anything prefixed by dfc_ (`data format conversion') is private.
+  They are only used to implement these macros.
+
+  Using C_STRING* is appropriate for using with external APIs that take
+  null-terminated strings.  For internal data, we should try to be
+  '\0'-clean - i.e. allow arbitrary data to contain embedded '\0'.
+
+  Sometime in the future we might allow output to C_STRING_ALLOCA or
+  C_STRING_MALLOC _only_ with TO_EXTERNAL_FORMAT(), not
+  TO_INTERNAL_FORMAT().  */
+
+#define TO_EXTERNAL_FORMAT(source_type, source, sink_type, sink, coding_system)	\
+do {										\
+  dfc_conversion_type dfc_simplified_source_type;				\
+  dfc_conversion_type dfc_simplified_sink_type;					\
+  dfc_conversion_data dfc_source;						\
+  dfc_conversion_data dfc_sink;							\
+										\
+  type_checking_assert								\
+    ((DFC_TYPE_##source_type == DFC_TYPE_DATA ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_C_STRING ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_LISP_STRING ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_LISP_OPAQUE ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_LISP_LSTREAM)				\
+    &&										\
+     (DFC_TYPE_##sink_type == DFC_TYPE_ALLOCA ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_MALLOC ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_C_STRING_ALLOCA ||			\
+      DFC_TYPE_##sink_type == DFC_TYPE_C_STRING_MALLOC ||			\
+      DFC_TYPE_##sink_type == DFC_TYPE_LISP_LSTREAM ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_LISP_OPAQUE));				\
+										\
+  DFC_SOURCE_##source_type##_TO_ARGS (source);					\
+  DFC_SINK_##sink_type##_TO_ARGS     (sink);					\
+										\
+  DFC_CONVERT_TO_EXTERNAL_FORMAT (dfc_simplified_source_type, &dfc_source,	\
+				  coding_system,				\
+				  dfc_simplified_sink_type,   &dfc_sink);	\
+										\
+  DFC_##sink_type##_USE_CONVERTED_DATA (sink);					\
+} while (0)
+
+#define TO_INTERNAL_FORMAT(source_type, source, sink_type, sink, coding_system)	\
+do {										\
+  dfc_conversion_type dfc_simplified_source_type;				\
+  dfc_conversion_type dfc_simplified_sink_type;					\
+  dfc_conversion_data dfc_source;						\
+  dfc_conversion_data dfc_sink;							\
+										\
+  type_checking_assert								\
+    ((DFC_TYPE_##source_type == DFC_TYPE_DATA ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_C_STRING ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_LISP_OPAQUE ||				\
+      DFC_TYPE_##source_type == DFC_TYPE_LISP_LSTREAM)				\
+     &&										\
+     (DFC_TYPE_##sink_type == DFC_TYPE_ALLOCA ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_MALLOC ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_C_STRING_ALLOCA ||			\
+      DFC_TYPE_##sink_type == DFC_TYPE_C_STRING_MALLOC ||			\
+      DFC_TYPE_##sink_type == DFC_TYPE_LISP_STRING ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_LISP_LSTREAM ||				\
+      DFC_TYPE_##sink_type == DFC_TYPE_LISP_BUFFER));				\
+										\
+  DFC_SOURCE_##source_type##_TO_ARGS (source);					\
+  DFC_SINK_##sink_type##_TO_ARGS     (sink);					\
+										\
+  DFC_CONVERT_TO_INTERNAL_FORMAT (dfc_simplified_source_type, &dfc_source,	\
+				  coding_system,				\
+				  dfc_simplified_sink_type,   &dfc_sink);	\
+										\
+  DFC_##sink_type##_USE_CONVERTED_DATA (sink);					\
+} while (0)
 
 #ifdef FILE_CODING
+#define DFC_CONVERT_TO_EXTERNAL_FORMAT dfc_convert_to_external_format
+#define DFC_CONVERT_TO_INTERNAL_FORMAT dfc_convert_to_internal_format
+#else
+/* ignore coding_system argument */
+#define DFC_CONVERT_TO_EXTERNAL_FORMAT(a, b, coding_system, c, d) \
+ dfc_convert_to_external_format (a, b, c, d)
+#define DFC_CONVERT_TO_INTERNAL_FORMAT(a, b, coding_system, c, d) \
+ dfc_convert_to_internal_format (a, b, c, d)
+#endif
+
+typedef union
+{
+  struct { const void *ptr; size_t len; } data;
+  Lisp_Object lisp_object;
+} dfc_conversion_data;
+
+enum dfc_conversion_type
+{
+  DFC_TYPE_DATA,
+  DFC_TYPE_ALLOCA,
+  DFC_TYPE_MALLOC,
+  DFC_TYPE_C_STRING,
+  DFC_TYPE_C_STRING_ALLOCA,
+  DFC_TYPE_C_STRING_MALLOC,
+  DFC_TYPE_LISP_STRING,
+  DFC_TYPE_LISP_LSTREAM,
+  DFC_TYPE_LISP_OPAQUE,
+  DFC_TYPE_LISP_BUFFER
+};
+typedef enum dfc_conversion_type dfc_conversion_type;
 
 /* WARNING: These use a static buffer.  This can lead to disaster if
-   these functions are not used *very* carefully.  Under normal
-   circumstances, do not call these functions; call the front ends
-   below. */
+   these functions are not used *very* carefully.  Another reason to only use
+   TO_EXTERNAL_FORMAT() and TO_INTERNAL_FORMAT(). */
+void
+dfc_convert_to_external_format (dfc_conversion_type source_type,
+				dfc_conversion_data *source,
+#ifdef FILE_CODING
+				Lisp_Object coding_system,
+#endif
+				dfc_conversion_type sink_type,
+				dfc_conversion_data *sink);
+void
+dfc_convert_to_internal_format (dfc_conversion_type source_type,
+				dfc_conversion_data *source,
+#ifdef FILE_CODING
+				Lisp_Object coding_system,
+#endif
+				dfc_conversion_type sink_type,
+				dfc_conversion_data *sink);
+/* CPP Trickery */
+#define DFC_CPP_CAR(x,y) (x)
+#define DFC_CPP_CDR(x,y) (y)
 
-Extbyte *convert_to_external_format (CONST Bufbyte *ptr,
-				     Bytecount len,
-				     Extcount *len_out,
-				     enum external_data_format fmt);
-Bufbyte *convert_from_external_format (CONST Extbyte *ptr,
-				       Extcount len,
-				       Bytecount *len_out,
-				       enum external_data_format fmt);
-
-#else /* ! MULE */
-
-#define convert_to_external_format(ptr, len, len_out, fmt) \
-     (*(len_out) = (int) (len), (Extbyte *) (ptr))
-#define convert_from_external_format(ptr, len, len_out, fmt) \
-     (*(len_out) = (Bytecount) (len), (Bufbyte *) (ptr))
-
-#endif /* ! MULE */
-
-/* In all of the following macros we use the following general principles:
-
-   -- Functions that work with charptr's accept two sorts of charptr's:
-
-      a) Pointers to memory with a length specified.  The pointer will be
-         fundamentally of type `unsigned char *' (although labelled
-	 as `Bufbyte *' for internal-format data and `Extbyte *' for
-	 external-format data) and the length will be fundamentally of
-	 type `int' (although labelled as `Bytecount' for internal-format
-	 data and `Extcount' for external-format data).  The length is
-	 always a count in bytes.
-      b) Zero-terminated pointers; no length specified.  The pointer
-         is of type `char *', whether the data pointed to is internal-format
-	 or external-format.  These sorts of pointers are available for
-	 convenience in working with C library functions and literal
-	 strings.  In general you should use these sorts of pointers only
-	 to interface to library routines and not for general manipulation,
-	 as you are liable to lose embedded nulls and such.  This could
-	 be a big problem for routines that want Unicode-formatted data,
-	 which is likely to have lots of embedded nulls in it.
-	 (In the real world, though, external Unicode data will be UTF-8,
-	 which will not have embedded nulls and is ASCII-compatible - martin)
-
-   -- Functions that work with Lisp strings accept strings as Lisp Objects
-      (as opposed to the `struct Lisp_String *' for some of the other
-      string accessors).  This is for convenience in working with the
-      functions, as otherwise you will almost always have to call
-      XSTRING() on the object.
-
-   -- Functions that work with charptr's are not guaranteed to copy
-      their data into alloca()ed space.  Functions that work with
-      Lisp strings are, however.  The reason is that Lisp strings can
-      be relocated any time a GC happens, and it could happen at some
-      rather unexpected times.  The internal-external conversion is
-      rarely done in time-critical functions, and so the slight
-      extra time required for alloca() and copy is well-worth the
-      safety of knowing your string data won't be relocated out from
-      under you.
-      */
-
-
-/* Maybe convert charptr's data into ext-format and store the result in
-   alloca()'ed space.
-
-   You may wonder why this is written in this fashion and not as a
-   function call.  With a little trickery it could certainly be
-   written this way, but it won't work because of those DAMN GCC WANKERS
-   who couldn't be bothered to handle alloca() properly on the x86
-   architecture. (If you put a call to alloca() in the argument to
-   a function call, the stack space gets allocated right in the
-   middle of the arguments to the function call and you are unbelievably
-   hosed.) */
-
-#ifdef MULE
-
-#define GET_CHARPTR_EXT_DATA_ALLOCA(ptr, len, fmt, ptr_out, len_out) do	\
-{									\
-  Bytecount gceda_len_in = (Bytecount) (len);				\
-  Extcount  gceda_len_out;						\
-  CONST Bufbyte *gceda_ptr_in = (ptr);					\
-  Extbyte *gceda_ptr_out =						\
-     convert_to_external_format (gceda_ptr_in, gceda_len_in,		\
-				&gceda_len_out, fmt);			\
-  /* If the new string is identical to the old (will be the case most	\
-     of the time), just return the same string back.  This saves	\
-     on alloca()ing, which can be useful on C alloca() machines and	\
-     on stack-space-challenged environments. */				\
-									\
-  if (gceda_len_in == gceda_len_out &&					\
-      !memcmp (gceda_ptr_in, gceda_ptr_out, gceda_len_out))		\
-    {									\
-      (ptr_out) = (Extbyte *) gceda_ptr_in;				\
-      (len_out) = (Extcount) gceda_len_in;				\
-    }									\
-  else									\
-    {									\
-      (ptr_out) = (Extbyte *) alloca (1 + gceda_len_out);		\
-      memcpy ((void *) ptr_out, gceda_ptr_out, 1 + gceda_len_out);	\
-      (len_out) = (Extcount) gceda_len_out;				\
-    }									\
+/* Convert `source' to args for dfc_convert_to_*_format() */
+#define DFC_SOURCE_DATA_TO_ARGS(val) do {		\
+  dfc_source.data.ptr = DFC_CPP_CAR val;		\
+  dfc_source.data.len = DFC_CPP_CDR val;		\
+  dfc_simplified_source_type = DFC_TYPE_DATA;		\
+} while (0)
+#define DFC_SOURCE_C_STRING_TO_ARGS(val) do {		\
+  dfc_source.data.len =					\
+    strlen ((char *) (dfc_source.data.ptr = (val)));	\
+  dfc_simplified_source_type = DFC_TYPE_DATA;		\
+} while (0)
+#define DFC_SOURCE_LISP_STRING_TO_ARGS(val) do {	\
+  Lisp_Object dfc_slsta = (val);			\
+  type_checking_assert (STRINGP (dfc_slsta));		\
+  dfc_source.lisp_object = dfc_slsta;			\
+  dfc_simplified_source_type = DFC_TYPE_LISP_STRING;	\
+} while (0)
+#define DFC_SOURCE_LISP_LSTREAM_TO_ARGS(val) do {	\
+  Lisp_Object dfc_sllta = (val);			\
+  type_checking_assert (LSTREAMP (dfc_sllta));		\
+  dfc_source.lisp_object = dfc_sllta;			\
+  dfc_simplified_source_type = DFC_TYPE_LISP_LSTREAM;	\
+} while (0)
+#define DFC_SOURCE_LISP_OPAQUE_TO_ARGS(val) do {	\
+  Lisp_Opaque *dfc_slota = XOPAQUE (val);		\
+  dfc_source.data.ptr = OPAQUE_DATA (dfc_slota);	\
+  dfc_source.data.len = OPAQUE_SIZE (dfc_slota);	\
+  dfc_simplified_source_type = DFC_TYPE_DATA;		\
 } while (0)
 
-#else /* ! MULE */
-
-#define GET_CHARPTR_EXT_DATA_ALLOCA(ptr, len, fmt, ptr_out, len_out) do	\
-{					\
-  (ptr_out) = (Extbyte *) (ptr);	\
-  (len_out) = (Extcount) (len);		\
+/* Convert `sink' to args for dfc_convert_to_*_format() */
+#define DFC_SINK_ALLOCA_TO_ARGS(val)		\
+  dfc_simplified_sink_type = DFC_TYPE_DATA
+#define DFC_SINK_C_STRING_ALLOCA_TO_ARGS(val)	\
+  dfc_simplified_sink_type = DFC_TYPE_DATA
+#define DFC_SINK_MALLOC_TO_ARGS(val)		\
+  dfc_simplified_sink_type = DFC_TYPE_DATA
+#define DFC_SINK_C_STRING_MALLOC_TO_ARGS(val)	\
+  dfc_simplified_sink_type = DFC_TYPE_DATA
+#define DFC_SINK_LISP_STRING_TO_ARGS(val)	\
+  dfc_simplified_sink_type = DFC_TYPE_DATA
+#define DFC_SINK_LISP_OPAQUE_TO_ARGS(val)	\
+  dfc_simplified_sink_type = DFC_TYPE_DATA
+#define DFC_SINK_LISP_LSTREAM_TO_ARGS(val) do {		\
+  Lisp_Object dfc_sllta = (val);			\
+  type_checking_assert (LSTREAMP (dfc_sllta));		\
+  dfc_sink.lisp_object = dfc_sllta;			\
+  dfc_simplified_sink_type = DFC_TYPE_LISP_LSTREAM;	\
+} while (0)
+#define DFC_SINK_LISP_BUFFER_TO_ARGS(val) do {		\
+  struct buffer *dfc_slbta = XBUFFER (val);		\
+  dfc_sink.lisp_object =				\
+    make_lisp_buffer_output_stream			\
+    (dfc_slbta, BUF_PT (dfc_slbta), 0);			\
+  dfc_simplified_sink_type = DFC_TYPE_LISP_LSTREAM;	\
 } while (0)
 
-#endif /* ! MULE */
-
-#define GET_C_CHARPTR_EXT_DATA_ALLOCA(ptr, fmt, ptr_out) do	\
-{								\
-  Extcount gcceda_ignored_len;					\
-  CONST Bufbyte *gcceda_ptr_in = (CONST Bufbyte *) (ptr);	\
-  Extbyte *gcceda_ptr_out;					\
-								\
-  GET_CHARPTR_EXT_DATA_ALLOCA (gcceda_ptr_in,			\
-			       strlen ((char *) gcceda_ptr_in),	\
-			       fmt,				\
-			       gcceda_ptr_out,			\
-			       gcceda_ignored_len);		\
-  (ptr_out) = (char *) gcceda_ptr_out;				\
+/* Assign to the `sink' lvalue(s) using the converted data. */
+typedef union { char c; void *p; } *dfc_aliasing_voidpp;
+#define DFC_ALLOCA_USE_CONVERTED_DATA(sink) do {			\
+  void * dfc_sink_ret = alloca (dfc_sink.data.len + 1);			\
+  memcpy (dfc_sink_ret, dfc_sink.data.ptr, dfc_sink.data.len + 1);	\
+  ((dfc_aliasing_voidpp) &(DFC_CPP_CAR sink))->p = dfc_sink_ret;	\
+  (DFC_CPP_CDR sink) = dfc_sink.data.len;				\
 } while (0)
-
-#define GET_C_CHARPTR_EXT_BINARY_DATA_ALLOCA(ptr, ptr_out) \
-  GET_C_CHARPTR_EXT_DATA_ALLOCA (ptr, FORMAT_BINARY, ptr_out)
-#define GET_CHARPTR_EXT_BINARY_DATA_ALLOCA(ptr, len, ptr_out, len_out) \
-  GET_CHARPTR_EXT_DATA_ALLOCA (ptr, len, FORMAT_BINARY, ptr_out, len_out)
-
-#define GET_C_CHARPTR_EXT_FILENAME_DATA_ALLOCA(ptr, ptr_out) \
-  GET_C_CHARPTR_EXT_DATA_ALLOCA (ptr, FORMAT_FILENAME, ptr_out)
-#define GET_CHARPTR_EXT_FILENAME_DATA_ALLOCA(ptr, len, ptr_out, len_out) \
-  GET_CHARPTR_EXT_DATA_ALLOCA (ptr, len, FORMAT_FILENAME, ptr_out, len_out)
-
-#define GET_C_CHARPTR_EXT_CTEXT_DATA_ALLOCA(ptr, ptr_out) \
-  GET_C_CHARPTR_EXT_DATA_ALLOCA (ptr, FORMAT_CTEXT, ptr_out)
-#define GET_CHARPTR_EXT_CTEXT_DATA_ALLOCA(ptr, len, ptr_out, len_out) \
-  GET_CHARPTR_EXT_DATA_ALLOCA (ptr, len, FORMAT_CTEXT, ptr_out, len_out)
-
-/* Maybe convert external charptr's data into internal format and store
-   the result in alloca()'ed space.
-
-   You may wonder why this is written in this fashion and not as a
-   function call.  With a little trickery it could certainly be
-   written this way, but it won't work because of those DAMN GCC WANKERS
-   who couldn't be bothered to handle alloca() properly on the x86
-   architecture. (If you put a call to alloca() in the argument to
-   a function call, the stack space gets allocated right in the
-   middle of the arguments to the function call and you are unbelievably
-   hosed.) */
-
-#ifdef MULE
-
-#define GET_CHARPTR_INT_DATA_ALLOCA(ptr, len, fmt, ptr_out, len_out) do	\
-{									\
-  Extcount gcida_len_in = (Extcount) (len);				\
-  Bytecount gcida_len_out;						\
-  CONST Extbyte *gcida_ptr_in  = (ptr);					\
-  Bufbyte *gcida_ptr_out =						\
-     convert_from_external_format (gcida_ptr_in, gcida_len_in,		\
-				  &gcida_len_out, fmt);			\
-  /* If the new string is identical to the old (will be the case most	\
-     of the time), just return the same string back.  This saves	\
-     on alloca()ing, which can be useful on C alloca() machines and	\
-     on stack-space-challenged environments. */				\
-									\
-  if (gcida_len_in == gcida_len_out &&					\
-      !memcmp (gcida_ptr_in, gcida_ptr_out, gcida_len_out))		\
-    {									\
-      (ptr_out) = (Bufbyte *) gcida_ptr_in;				\
-      (len_out) = (Bytecount) gcida_len_in;				\
-    }									\
-  else									\
-    {									\
-      (ptr_out) = (Extbyte *) alloca (1 + gcida_len_out);		\
-      memcpy ((void *) ptr_out, gcida_ptr_out, 1 + gcida_len_out);	\
-      (len_out) = gcida_len_out;					\
-    }									\
+#define DFC_MALLOC_USE_CONVERTED_DATA(sink) do {			\
+  void * dfc_sink_ret = xmalloc (dfc_sink.data.len + 1);		\
+  memcpy (dfc_sink_ret, dfc_sink.data.ptr, dfc_sink.data.len + 1);	\
+  ((dfc_aliasing_voidpp) &(DFC_CPP_CAR sink))->p = dfc_sink_ret;	\
+  (DFC_CPP_CDR sink) = dfc_sink.data.len;				\
 } while (0)
-
-#else /* ! MULE */
-
-#define GET_CHARPTR_INT_DATA_ALLOCA(ptr, len, fmt, ptr_out, len_out) do \
-{					\
-  (ptr_out) = (Bufbyte *) (ptr);	\
-  (len_out) = (Bytecount) (len);	\
+#define DFC_C_STRING_ALLOCA_USE_CONVERTED_DATA(sink) do {		\
+  void * dfc_sink_ret = alloca (dfc_sink.data.len + 1);			\
+  memcpy (dfc_sink_ret, dfc_sink.data.ptr, dfc_sink.data.len + 1);	\
+  (sink) = (char *) dfc_sink_ret;					\
 } while (0)
-
-#endif /* ! MULE */
-
-#define GET_C_CHARPTR_INT_DATA_ALLOCA(ptr, fmt, ptr_out) do	\
-{								\
-  Bytecount gccida_ignored_len;					\
-  CONST Extbyte *gccida_ptr_in = (CONST Extbyte *) (ptr);	\
-  Bufbyte *gccida_ptr_out;					\
-								\
-  GET_CHARPTR_INT_DATA_ALLOCA (gccida_ptr_in,			\
-			       strlen ((char *) gccida_ptr_in),	\
-			       fmt,				\
-			       gccida_ptr_out,			\
-			       gccida_ignored_len);		\
-  (ptr_out) = gccida_ptr_out;					\
+#define DFC_C_STRING_MALLOC_USE_CONVERTED_DATA(sink) do {		\
+  void * dfc_sink_ret = xmalloc (dfc_sink.data.len + 1);		\
+  memcpy (dfc_sink_ret, dfc_sink.data.ptr, dfc_sink.data.len + 1);	\
+  (sink) = (char *) dfc_sink_ret;					\
 } while (0)
+#define DFC_LISP_STRING_USE_CONVERTED_DATA(sink) \
+  sink = make_string ((Bufbyte *) dfc_sink.data.ptr, dfc_sink.data.len)
+#define DFC_LISP_OPAQUE_USE_CONVERTED_DATA(sink) \
+  sink = make_opaque (dfc_sink.data.ptr, dfc_sink.data.len)
+#define DFC_LISP_LSTREAM_USE_CONVERTED_DATA(sink) /* data already used */
+#define DFC_LISP_BUFFER_USE_CONVERTED_DATA(sink) \
+  Lstream_delete (XLSTREAM (dfc_sink.lisp_object))
 
-#define GET_C_CHARPTR_INT_BINARY_DATA_ALLOCA(ptr, ptr_out)	\
-  GET_C_CHARPTR_INT_DATA_ALLOCA (ptr, FORMAT_BINARY, ptr_out)
-#define GET_CHARPTR_INT_BINARY_DATA_ALLOCA(ptr, len, ptr_out, len_out) \
-  GET_CHARPTR_INT_DATA_ALLOCA (ptr, len, FORMAT_BINARY, ptr_out, len_out)
+/* Someday we might want to distinguish between Qnative and Qfile_name
+   by using coding-system aliases, but for now it suffices to have
+   these be identical.  Qnative can be used as the coding_system
+   argument to TO_EXTERNAL_FORMAT() and TO_INTERNAL_FORMAT(). */
+#define Qnative Qfile_name
 
-#define GET_C_CHARPTR_INT_FILENAME_DATA_ALLOCA(ptr, ptr_out)	\
-  GET_C_CHARPTR_INT_DATA_ALLOCA (ptr, FORMAT_FILENAME, ptr_out)
-#define GET_CHARPTR_INT_FILENAME_DATA_ALLOCA(ptr, len, ptr_out, len_out) \
-  GET_CHARPTR_INT_DATA_ALLOCA (ptr, len, FORMAT_FILENAME, ptr_out, len_out)
+#if defined (WIN32_NATIVE) || defined (CYGWIN)
+/* #### kludge!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   Remove this as soon as my Mule code is integrated. */
+#define Qmswindows_tstr Qnative
+#endif
 
-#define GET_C_CHARPTR_INT_CTEXT_DATA_ALLOCA(ptr, ptr_out)	\
-  GET_C_CHARPTR_INT_DATA_ALLOCA (ptr, FORMAT_CTEXT, ptr_out)
-#define GET_CHARPTR_INT_CTEXT_DATA_ALLOCA(ptr, len, ptr_out, len_out) \
-  GET_CHARPTR_INT_DATA_ALLOCA (ptr, len, FORMAT_CTEXT, ptr_out, len_out)
+/* More stand-ins */
+#define Qcommand_argument_encoding Qnative
+#define Qenvironment_variable_encoding Qnative
 
+/* Convenience macros for extremely common invocations */
+#define C_STRING_TO_EXTERNAL(in, out, coding_system) \
+  TO_EXTERNAL_FORMAT (C_STRING, in, C_STRING_ALLOCA, out, coding_system)
+#define C_STRING_TO_EXTERNAL_MALLOC(in, out, coding_system) \
+  TO_EXTERNAL_FORMAT (C_STRING, in, C_STRING_MALLOC, out, coding_system)
+#define EXTERNAL_TO_C_STRING(in, out, coding_system) \
+  TO_INTERNAL_FORMAT (C_STRING, in, C_STRING_ALLOCA, out, coding_system)
+#define EXTERNAL_TO_C_STRING_MALLOC(in, out, coding_system) \
+  TO_INTERNAL_FORMAT (C_STRING, in, C_STRING_MALLOC, out, coding_system)
+#define LISP_STRING_TO_EXTERNAL(in, out, coding_system) \
+  TO_EXTERNAL_FORMAT (LISP_STRING, in, C_STRING_ALLOCA, out, coding_system)
+#define LISP_STRING_TO_EXTERNAL_MALLOC(in, out, coding_system) \
+  TO_EXTERNAL_FORMAT (LISP_STRING, in, C_STRING_MALLOC, out, coding_system)
 
-/* Maybe convert Lisp string's data into ext-format and store the result in
-   alloca()'ed space.
-
-   You may wonder why this is written in this fashion and not as a
-   function call.  With a little trickery it could certainly be
-   written this way, but it won't work because of those DAMN GCC WANKERS
-   who couldn't be bothered to handle alloca() properly on the x86
-   architecture. (If you put a call to alloca() in the argument to
-   a function call, the stack space gets allocated right in the
-   middle of the arguments to the function call and you are unbelievably
-   hosed.) */
-
-#define GET_STRING_EXT_DATA_ALLOCA(s, fmt, ptr_out, len_out) do	\
-{								\
-  Extcount gseda_len_out;					\
-  struct Lisp_String *gseda_s = XSTRING (s);			\
-  Extbyte * gseda_ptr_out =					\
-    convert_to_external_format (string_data (gseda_s),		\
-				string_length (gseda_s),	\
-				&gseda_len_out, fmt);		\
-  (ptr_out) = (Extbyte *) alloca (1 + gseda_len_out);		\
-  memcpy ((void *) ptr_out, gseda_ptr_out, 1 + gseda_len_out);	\
-  (len_out) = gseda_len_out;					\
-} while (0)
-
-
-#define GET_C_STRING_EXT_DATA_ALLOCA(s, fmt, ptr_out) do	\
-{								\
-  Extcount gcseda_ignored_len;					\
-  Extbyte *gcseda_ptr_out;					\
-								\
-  GET_STRING_EXT_DATA_ALLOCA (s, fmt, gcseda_ptr_out,		\
-			      gcseda_ignored_len);		\
-  (ptr_out) = (char *) gcseda_ptr_out;				\
-} while (0)
-
-#define GET_STRING_BINARY_DATA_ALLOCA(s, ptr_out, len_out)	\
-  GET_STRING_EXT_DATA_ALLOCA (s, FORMAT_BINARY, ptr_out, len_out)
-#define GET_C_STRING_BINARY_DATA_ALLOCA(s, ptr_out)		\
-  GET_C_STRING_EXT_DATA_ALLOCA (s, FORMAT_BINARY, ptr_out)
-
-#define GET_STRING_FILENAME_DATA_ALLOCA(s, ptr_out, len_out)	\
-  GET_STRING_EXT_DATA_ALLOCA (s, FORMAT_FILENAME, ptr_out, len_out)
-#define GET_C_STRING_FILENAME_DATA_ALLOCA(s, ptr_out)		\
-  GET_C_STRING_EXT_DATA_ALLOCA (s, FORMAT_FILENAME, ptr_out)
-
-#define GET_STRING_OS_DATA_ALLOCA(s, ptr_out, len_out)		\
-  GET_STRING_EXT_DATA_ALLOCA (s, FORMAT_OS, ptr_out, len_out)
-#define GET_C_STRING_OS_DATA_ALLOCA(s, ptr_out)			\
-  GET_C_STRING_EXT_DATA_ALLOCA (s, FORMAT_OS, ptr_out)
-
-#define GET_STRING_CTEXT_DATA_ALLOCA(s, ptr_out, len_out)	\
-  GET_STRING_EXT_DATA_ALLOCA (s, FORMAT_CTEXT, ptr_out, len_out)
-#define GET_C_STRING_CTEXT_DATA_ALLOCA(s, ptr_out)		\
-  GET_C_STRING_EXT_DATA_ALLOCA (s, FORMAT_CTEXT, ptr_out)
-
-
-
-/************************************************************************/
-/*                                                                      */
-/*                          fake charset functions                      */
-/*                                                                      */
-/************************************************************************/
-
-/* used when MULE is not defined, so that Charset-type stuff can still
-   be done */
-
-#ifndef MULE
-
-#define Vcharset_ascii Qnil
-
-#define CHAR_CHARSET(ch) Vcharset_ascii
-#define CHAR_LEADING_BYTE(ch) LEADING_BYTE_ASCII
-#define LEADING_BYTE_ASCII 0x80
-#define NUM_LEADING_BYTES 1
-#define MIN_LEADING_BYTE 0x80
-#define CHARSETP(cs) 1
-#define CHARSET_BY_LEADING_BYTE(lb) Vcharset_ascii
-#define XCHARSET_LEADING_BYTE(cs) LEADING_BYTE_ASCII
-#define XCHARSET_GRAPHIC(cs) -1
-#define XCHARSET_COLUMNS(cs) 1
-#define XCHARSET_DIMENSION(cs) 1
-#define REP_BYTES_BY_FIRST_BYTE(fb) 1
-#define BREAKUP_CHAR(ch, charset, byte1, byte2) do {	\
-  (charset) = Vcharset_ascii;				\
-  (byte1) = (ch);					\
-  (byte2) = 0;						\
-} while (0)
-#define BYTE_ASCII_P(byte) 1
-
-#endif /* ! MULE */
 
 /************************************************************************/
 /*                                                                      */
@@ -1443,7 +1113,7 @@ do						\
 
 #define POINT_MARKER_P(marker) \
    (XMARKER (marker)->buffer != 0 && \
-    EQ ((marker), XMARKER (marker)->buffer->point_marker))
+    EQ (marker, XMARKER (marker)->buffer->point_marker))
 
 #define BUF_MARKERS(buf) ((buf)->markers)
 
@@ -1523,6 +1193,7 @@ extern struct buffer *current_buffer;
 
 /* This is the initial (startup) directory, as used for the *scratch* buffer.
    We're making this a global to make others aware of the startup directory.
+   `initial_directory' is stored in external format.
  */
 extern char initial_directory[];
 extern void init_initial_directory (void);   /* initialize initial_directory */
@@ -1569,8 +1240,8 @@ extern struct buffer buffer_local_flags;
 
 #ifdef REL_ALLOC
 
-char *r_alloc (unsigned char **, unsigned long);
-char *r_re_alloc (unsigned char **, unsigned long);
+char *r_alloc (unsigned char **, size_t);
+char *r_re_alloc (unsigned char **, size_t);
 void r_alloc_free (unsigned char **);
 
 #define BUFFER_ALLOC(data, size) \
@@ -1583,7 +1254,7 @@ void r_alloc_free (unsigned char **);
 #else /* !REL_ALLOC */
 
 #define BUFFER_ALLOC(data,size)\
-	((void) (data = xnew_array (Bufbyte, size)))
+	(data = xnew_array (Bufbyte, size))
 #define BUFFER_REALLOC(data,size)\
 	((Bufbyte *) xrealloc (data, (size) * sizeof(Bufbyte)))
 /* Avoid excess parentheses, or syntax errors may rear their heads. */
@@ -1602,23 +1273,23 @@ int beginning_of_line_p (struct buffer *b, Bufpos pt);
 
 /* from insdel.c */
 void set_buffer_point (struct buffer *buf, Bufpos pos, Bytind bipos);
-void find_charsets_in_bufbyte_string (unsigned char *charsets,
-				      CONST Bufbyte *str,
+void find_charsets_in_bufbyte_string (Charset_ID *charsets,
+				      const Bufbyte *str,
 				      Bytecount len);
-void find_charsets_in_emchar_string (unsigned char *charsets,
-				     CONST Emchar *str,
-				     Charcount len);
-int bufbyte_string_displayed_columns (CONST Bufbyte *str, Bytecount len);
-int emchar_string_displayed_columns (CONST Emchar *str, Charcount len);
-void convert_bufbyte_string_into_emchar_dynarr (CONST Bufbyte *str,
-						Bytecount len,
-						Emchar_dynarr *dyn);
-int convert_bufbyte_string_into_emchar_string (CONST Bufbyte *str,
+void find_charsets_in_charc_string (Charset_ID *charsets,
+				    const Charc *str,
+				    Charcount len);
+int bufbyte_string_displayed_columns (const Bufbyte *str, Bytecount len);
+int charc_string_displayed_columns (const Charc *str, Charcount len);
+void convert_bufbyte_string_into_charc_dynarr (const Bufbyte *str,
 					       Bytecount len,
-					       Emchar *arr);
-void convert_emchar_string_into_bufbyte_dynarr (Emchar *arr, int nels,
-						Bufbyte_dynarr *dyn);
-Bufbyte *convert_emchar_string_into_malloced_string (Emchar *arr, int nels,
+					       Charc_dynarr *dyn);
+Charcount convert_bufbyte_string_into_emchar_string (const Bufbyte *str,
+						     Bytecount len,
+						     Emchar *arr);
+void convert_charc_string_into_bufbyte_dynarr (Charc *arr, int nels,
+					       Bufbyte_dynarr *dyn);
+Bufbyte *convert_charc_string_into_malloced_string (Charc *arr, int nels,
 						    Bytecount *len_out);
 /* from marker.c */
 void init_buffer_markers (struct buffer *b);
@@ -1692,68 +1363,47 @@ int map_over_sharing_buffers (struct buffer *buf,
    typically used to convert between uppercase and lowercase.  For
    compatibility reasons, trt tables are currently in the form of
    a Lisp string of 256 characters, specifying the conversion for each
-   of the first 256 Emacs characters (i.e. the 256 extended-ASCII
-   characters).  This should be generalized at some point to support
-   conversions for all of the allowable Mule characters.
+   of the first 256 Emacs characters (i.e. the 256 Latin-1 characters).
+   This should be generalized at some point to support conversions for
+   all of the allowable Mule characters.
    */
 
 /* The _1 macros are named as such because they assume that you have
    already guaranteed that the character values are all in the range
    0 - 255.  Bad lossage will happen otherwise. */
 
-# define MAKE_TRT_TABLE() Fmake_string (make_int (256), make_char (0))
-# define TRT_TABLE_AS_STRING(table) XSTRING_DATA (table)
-# define TRT_TABLE_CHAR_1(table, ch) \
-  string_char (XSTRING (table), (Charcount) ch)
-# define SET_TRT_TABLE_CHAR_1(table, ch1, ch2) \
-  set_string_char (XSTRING (table), (Charcount) ch1, ch2)
+#define MAKE_TRT_TABLE() Fmake_char_table (Qgeneric)
+INLINE_HEADER Emchar TRT_TABLE_CHAR_1 (Lisp_Object table, Emchar c);
+INLINE_HEADER Emchar
+TRT_TABLE_CHAR_1 (Lisp_Object table, Emchar ch)
+{
+  Lisp_Object TRT_char;
+  TRT_char = get_char_table (ch, XCHAR_TABLE (table));
+  if (NILP (TRT_char))
+    return ch;
+  else
+    return XCHAR (TRT_char);
+}
+#define SET_TRT_TABLE_CHAR_1(table, ch1, ch2)	\
+  Fput_char_table (make_char (ch1), make_char (ch2), table);
 
-#ifdef MULE
-# define MAKE_MIRROR_TRT_TABLE() make_opaque (256, 0)
-# define MIRROR_TRT_TABLE_AS_STRING(table) ((Bufbyte *) XOPAQUE_DATA (table))
-# define MIRROR_TRT_TABLE_CHAR_1(table, ch) \
-  ((Emchar) (MIRROR_TRT_TABLE_AS_STRING (table)[ch]))
-# define SET_MIRROR_TRT_TABLE_CHAR_1(table, ch1, ch2) \
-  (MIRROR_TRT_TABLE_AS_STRING (table)[ch1] = (Bufbyte) (ch2))
-#endif
-
-# define IN_TRT_TABLE_DOMAIN(c) (((EMACS_UINT) (c)) <= 255)
-
-#ifdef MULE
-#define MIRROR_DOWNCASE_TABLE_AS_STRING(buf) \
-  MIRROR_TRT_TABLE_AS_STRING (buf->mirror_downcase_table)
-#define MIRROR_UPCASE_TABLE_AS_STRING(buf) \
-  MIRROR_TRT_TABLE_AS_STRING (buf->mirror_upcase_table)
-#define MIRROR_CANON_TABLE_AS_STRING(buf) \
-  MIRROR_TRT_TABLE_AS_STRING (buf->mirror_case_canon_table)
-#define MIRROR_EQV_TABLE_AS_STRING(buf) \
-  MIRROR_TRT_TABLE_AS_STRING (buf->mirror_case_eqv_table)
-#else
-#define MIRROR_DOWNCASE_TABLE_AS_STRING(buf) \
-  TRT_TABLE_AS_STRING (buf->downcase_table)
-#define MIRROR_UPCASE_TABLE_AS_STRING(buf) \
-  TRT_TABLE_AS_STRING (buf->upcase_table)
-#define MIRROR_CANON_TABLE_AS_STRING(buf) \
-  TRT_TABLE_AS_STRING (buf->case_canon_table)
-#define MIRROR_EQV_TABLE_AS_STRING(buf) \
-  TRT_TABLE_AS_STRING (buf->case_eqv_table)
-#endif
-
-INLINE Emchar TRT_TABLE_OF (Lisp_Object trt, Emchar c);
-INLINE Emchar
+INLINE_HEADER Emchar TRT_TABLE_OF (Lisp_Object trt, Emchar c);
+INLINE_HEADER Emchar
 TRT_TABLE_OF (Lisp_Object trt, Emchar c)
 {
-  return IN_TRT_TABLE_DOMAIN (c) ? TRT_TABLE_CHAR_1 (trt, c) : c;
+  return TRT_TABLE_CHAR_1 (trt, c);
 }
 
 /* Macros used below. */
-#define DOWNCASE_TABLE_OF(buf, c) TRT_TABLE_OF (buf->downcase_table, c)
-#define UPCASE_TABLE_OF(buf, c) TRT_TABLE_OF (buf->upcase_table, c)
+#define DOWNCASE_TABLE_OF(buf, c)	\
+  TRT_TABLE_OF (XCASE_TABLE_DOWNCASE (buf->case_table), c)
+#define UPCASE_TABLE_OF(buf, c)		\
+  TRT_TABLE_OF (XCASE_TABLE_UPCASE (buf->case_table), c)
 
 /* 1 if CH is upper case.  */
 
-INLINE int UPPERCASEP (struct buffer *buf, Emchar ch);
-INLINE int
+INLINE_HEADER int UPPERCASEP (struct buffer *buf, Emchar ch);
+INLINE_HEADER int
 UPPERCASEP (struct buffer *buf, Emchar ch)
 {
   return DOWNCASE_TABLE_OF (buf, ch) != ch;
@@ -1761,8 +1411,8 @@ UPPERCASEP (struct buffer *buf, Emchar ch)
 
 /* 1 if CH is lower case.  */
 
-INLINE int LOWERCASEP (struct buffer *buf, Emchar ch);
-INLINE int
+INLINE_HEADER int LOWERCASEP (struct buffer *buf, Emchar ch);
+INLINE_HEADER int
 LOWERCASEP (struct buffer *buf, Emchar ch)
 {
   return (UPCASE_TABLE_OF   (buf, ch) != ch &&
@@ -1771,8 +1421,8 @@ LOWERCASEP (struct buffer *buf, Emchar ch)
 
 /* 1 if CH is neither upper nor lower case.  */
 
-INLINE int NOCASEP (struct buffer *buf, Emchar ch);
-INLINE int
+INLINE_HEADER int NOCASEP (struct buffer *buf, Emchar ch);
+INLINE_HEADER int
 NOCASEP (struct buffer *buf, Emchar ch)
 {
   return UPCASE_TABLE_OF (buf, ch) == ch;
@@ -1780,14 +1430,14 @@ NOCASEP (struct buffer *buf, Emchar ch)
 
 /* Upcase a character, or make no change if that cannot be done.  */
 
-INLINE Emchar UPCASE (struct buffer *buf, Emchar ch);
-INLINE Emchar
+INLINE_HEADER Emchar UPCASE (struct buffer *buf, Emchar ch);
+INLINE_HEADER Emchar
 UPCASE (struct buffer *buf, Emchar ch)
 {
   return (DOWNCASE_TABLE_OF (buf, ch) == ch) ? UPCASE_TABLE_OF (buf, ch) : ch;
 }
 
-/* Upcase a character known to be not upper case.  */
+/* Upcase a character known to be not upper case.  Unused. */
 
 #define UPCASE1(buf, ch) UPCASE_TABLE_OF (buf, ch)
 
@@ -1795,4 +1445,60 @@ UPCASE (struct buffer *buf, Emchar ch)
 
 #define DOWNCASE(buf, ch) DOWNCASE_TABLE_OF (buf, ch)
 
-#endif /* _XEMACS_BUFFER_H_ */
+/************************************************************************/
+/*		Lisp string representation convenience functions	*/
+/************************************************************************/
+/* Because the representation of internally formatted data is subject to change,
+   It's bad style to do something like strcmp (XSTRING_DATA (s), "foo")
+   Instead, use the portable: bufbyte_strcmp (XSTRING_DATA (s), "foo")
+   or bufbyte_memcmp (XSTRING_DATA (s), "foo", 3) */
+
+/* Like strcmp, except first arg points at internally formatted data,
+   while the second points at a string of only ASCII chars. */
+INLINE_HEADER int
+bufbyte_strcmp (const Bufbyte *bp, const char *ascii_string);
+INLINE_HEADER int
+bufbyte_strcmp (const Bufbyte *bp, const char *ascii_string)
+{
+#ifdef MULE
+  while (1)
+    {
+      int diff;
+      type_checking_assert (BYTE_ASCII_P (*ascii_string));
+      if ((diff = charptr_emchar (bp) - *(Bufbyte *) ascii_string) != 0)
+	return diff;
+      if (*ascii_string == '\0')
+	return 0;
+      ascii_string++;
+      INC_CHARPTR (bp);
+    }
+#else
+  return strcmp ((char *)bp, ascii_string);
+#endif
+}
+
+
+/* Like memcmp, except first arg points at internally formatted data,
+   while the second points at a string of only ASCII chars. */
+INLINE_HEADER int
+bufbyte_memcmp (const Bufbyte *bp, const char *ascii_string, size_t len);
+INLINE_HEADER int
+bufbyte_memcmp (const Bufbyte *bp, const char *ascii_string, size_t len)
+{
+#ifdef MULE
+  while (len--)
+    {
+      int diff = charptr_emchar (bp) - *(Bufbyte *) ascii_string;
+      type_checking_assert (BYTE_ASCII_P (*ascii_string));
+      if (diff != 0)
+	return diff;
+      ascii_string++;
+      INC_CHARPTR (bp);
+    }
+  return 0;
+#else
+  return memcmp (bp, ascii_string, len);
+#endif
+}
+
+#endif /* INCLUDED_buffer_h_ */

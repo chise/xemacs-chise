@@ -49,6 +49,9 @@
 ## make extraclean
 ##      Still more severe - delete backup and autosave files, too.
 
+#define NOT_C_CODE
+#include "src/config.h"
+
 #ifdef USE_GNU_MAKE
 RECURSIVE_MAKE=$(MAKE)
 #else
@@ -60,7 +63,9 @@ SHELL = /bin/sh
 LANG = C
 LC_ALL = C
 RM = rm -f
+MAKEPATH=./lib-src/make-path
 pwd = /bin/pwd
+TAR = tar
 
 ## ==================== Things `configure' Might Edit ====================
 
@@ -69,6 +74,7 @@ CPP=@CPP@
 LN_S=@LN_S@
 CFLAGS=@CFLAGS@
 CPPFLAGS=@CPPFLAGS@
+LDFLAGS=@LDFLAGS@
 
 ## These help us choose version- and architecture-specific directories
 ## to install files in.
@@ -93,6 +99,14 @@ PROGNAME=@PROGNAME@
 ## not need to change them.  This defaults to /usr/local.
 prefix=@prefix@
 
+## Variable data (as per each program update) goes here
+## The default is ${PROGNAME}
+inststaticdir=@inststaticdir@
+
+## Static data (constant across program updates) goes here
+## The default is ${PROGNAME}-${version}
+instvardir=@instvardir@
+
 ## Like `prefix', but used for architecture-specific files.
 exec_prefix=@exec_prefix@
 
@@ -110,7 +124,6 @@ pkgdir=@pkgdir@
 ## Where to install and expect the files that XEmacs modifies as it runs.
 ## These files are all architecture-independent. Right now, the
 ## only such data is the locking directory;
-## ${lockdir} is a subdirectory of this.
 statedir=@statedir@
 
 ## Where to install and expect executable files to be run by XEmacs
@@ -186,10 +199,8 @@ buildlispdir=${srcdir}/lisp
 ## at once.
 etcdir=@etcdir@
 
-## Where to create and expect the locking directory, where
-## the XEmacs locking code keeps track of which files are
-## currently being edited.
-lockdir=@lockdir@
+## Where to put the DOC file.
+docdir=@docdir@
 
 ## Where to put executables to be run by XEmacs rather than
 ## the user.  This path usually includes the XEmacs version
@@ -213,7 +224,10 @@ INSTALL_DATA = @INSTALL_DATA@
 MAKE_SUBDIR = @MAKE_SUBDIR@
 
 ## Subdirectories that can be made recursively.
-SUBDIR = ${MAKE_SUBDIR} man
+SUBDIR = ${MAKE_SUBDIR} man  
+
+## Subdirectories that must be cleaned on distclean
+SUBDIR_DISTCLEAN = ${SUBDIR} modules/sample modules/ldap modules/zlib modules/base64
 
 ## The makefiles of the directories in ${MAKE_SUBDIR}.
 SUBDIR_MAKEFILES = @SUBDIR_MAKEFILES@
@@ -226,8 +240,13 @@ INSTALL_ARCH_DEP_SUBDIR = @INSTALL_ARCH_DEP_SUBDIR@
 ## When installing the info files, we need to do special things to
 ## avoid nuking an existing dir file, so we don't do that here;
 ## instead, we have written out explicit code in the `install' targets.
+#ifdef HAVE_CHISE_CLIENT
+COPYDIR = ${srcdir}/etc ${srcdir}/lisp ${srcdir}/lib-src/char-db
+COPYDESTS = ${etcdir} ${lispdir} ${archlibdir}/char-db
+#else
 COPYDIR = ${srcdir}/etc ${srcdir}/lisp
 COPYDESTS = ${etcdir} ${lispdir}
+#endif
 GENERATED_HEADERS = src/paths.h src/Emacs.ad.h src/config.h lwlib/config.h src/sheap-adjust.h
 GENERATED_LISP = lisp/finder-inf.el
 
@@ -242,7 +261,7 @@ ${PROGNAME}:	${GENERATED_HEADERS} ${MAKE_SUBDIR} ${GENERATED_LISP}
 .PHONY: ${SUBDIR} all beta all-elc all-elcs dump-elc dump-elcs autoloads finder
 
 ## Convenience target for XEmacs beta testers
-beta: clean all-elc finder
+beta: clean all-elc finder info
 
 ## Convenience target for XEmacs maintainers
 ## This would run `make-xemacsdist' if I were really confident that everything
@@ -256,30 +275,62 @@ dist: all-elc info
 ## - src/depend from src/*.[ch]
 .PHONY: config configure depend
 config: configure depend
-configure: ${srcdir}/configure
-${srcdir}/configure: ${srcdir}/configure.in
+configure: ${srcdir}/configure ${srcdir}/lib-src/config.values.in
+
+${srcdir}/configure : ${srcdir}/configure.in
 	cd ${srcdir} && autoconf
-	cd ${srcdir} && /bin/sh lib-src/config.values.sh
+
+${srcdir}/lib-src/config.values.in : ${srcdir}/configure
+	cd ${srcdir} && $(SHELL) lib-src/config.values.sh
 
 depend ${srcdir}/src/depend:
-	cd ${srcdir}/src && \
-		perl ./make-src-depend > depend.tmp && \
-		$(RM) depend && mv depend.tmp depend
+	cd ./src && $(RECURSIVE_MAKE) depend
 
 ## Build XEmacs and recompile out-of-date and missing .elc files along
 ## the way.
-all-elc all-elcs: lib-src lwlib dump-elcs src
-	MAKE='$(MAKE)' EMACS='./src/$(PROGNAME)' sh ${srcdir}/lib-src/update-elc.sh
+all-elc all-elcs: autoloads dump-elcs
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-l update-elc-2.el -f batch-update-elc-2 lisp
+#ifdef UTF2000
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-l update-elc-2.el -f batch-update-elc-2 lisp/utf-2000
+#endif
 
 ## Sub-target for all-elc.
 dump-elc dump-elcs: ${GENERATED_HEADERS} FRC.dump-elcs
 	cd ./src && $(RECURSIVE_MAKE) dump-elcs
 
-autoloads: src
-	MAKE='$(MAKE)' EMACS='./src/$(PROGNAME)' sh ${srcdir}/lib-src/update-autoloads.sh
+autoloads: lib-src lwlib src lisp/auto-autoloads.el lisp/custom-load.el
 
-custom-loads:
-	MAKE='$(MAKE)' EMACS='./src/$(PROGNAME)' sh ${srcdir}/lib-src/update-custom.sh
+FRC.lisp.auto.autoloads.el:
+lisp/auto-autoloads.el:	FRC.lisp.auto.autoloads.el
+	$(RM) lisp/auto-autoloads.el
+	${blddir}/src/${PROGNAME} -batch -no-autoloads \
+		-l autoload -f batch-update-directory lisp
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-f batch-byte-compile lisp/auto-autoloads.el
+	@$(RM) lisp/auto-autoloads.el~
+#ifdef MULE
+	$(RM) lisp/mule/auto-autoloads.el
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-l autoload -f batch-update-directory lisp/mule
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-f batch-byte-compile lisp/mule/auto-autoloads.el
+	@$(RM) lisp/mule/auto-autoloads.el~
+#endif
+#ifdef UTF2000
+	$(RM) lisp/utf-2000/auto-autoloads.el
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-l autoload -f batch-update-directory lisp/utf-2000
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-f batch-byte-compile lisp/utf-2000/auto-autoloads.el
+	@$(RM) lisp/utf-2000/auto-autoloads.el~
+#endif
+
+FRC.lisp.custom.load.el:
+lisp/custom-load.el: FRC.lisp.custom.load.el lisp/auto-autoloads.el
+	${blddir}/src/${PROGNAME} -batch -vanilla -l cus-dep \
+		-f Custom-make-dependencies lisp
 
 finder: src
 	@echo "Building finder database ..."
@@ -306,7 +357,7 @@ src/Emacs.ad.h: ${srcdir}/etc/Emacs.ad
 	@(echo "/*	Do not edit this file!" ; \
 	  echo "  	Automatically generated from ${srcdir}/etc/Emacs.ad" ; \
 	  echo " */" ; \
-	  /bin/sh ${srcdir}/lib-src/ad2c ${srcdir}/etc/Emacs.ad ) > \
+	  $(SHELL) ${srcdir}/lib-src/ad2c ${srcdir}/etc/Emacs.ad ) > \
 	  src/Emacs.ad.h
 
 src/sheap-adjust.h:
@@ -393,21 +444,33 @@ install-arch-dep: mkdir
 	   if test -f ../Installation; then \
 		${INSTALL_DATA} ../Installation ${archlibdir}/Installation; \
 	   fi; \
-	   for f in DOC config.values; do \
-		${INSTALL_DATA} lib-src/$${f} ${archlibdir}/$${f}; \
-	   done ; \
+	   ${INSTALL_DATA} lib-src/config.values ${docdir}/config.values; \
+	   ${INSTALL_DATA} lib-src/DOC ${docdir}/DOC; \
 	   for subdir in `find ${archlibdir} -type d ! -name RCS ! -name SCCS ! -name CVS -print` ; \
 	     do (cd $${subdir} && $(RM) -r RCS CVS SCCS \#* *~) ; done ; \
 	else true; fi
+#ifdef PDUMP
+	${INSTALL_DATA} src/${PROGNAME}.dmp ${bindir}/${PROGNAME}-${version}-`src/${PROGNAME} -sd`.dmp
+#endif
+#ifdef WIN32_NATIVE
+	${INSTALL_PROGRAM} src/${PROGNAME} ${bindir}/${PROGNAME}
+	-chmod 0755 ${bindir}/${PROGNAME}
+#else
 	${INSTALL_PROGRAM} src/${PROGNAME} ${bindir}/${PROGNAME}-${version}
 	-chmod 0755 ${bindir}/${PROGNAME}-${version}
+# ifdef CYGWIN
+	cd ${bindir} && $(RM) ./${PROGNAME} && ${LN_S} ${PROGNAME}-${version}.exe ./${PROGNAME}
+# else
 	cd ${bindir} && $(RM) ./${PROGNAME} && ${LN_S} ${PROGNAME}-${version} ./${PROGNAME}
+# endif /* CYGWIN */
+#endif /* WIN32_NATIVE */
 	if test "${prefix}" != "${exec_prefix}"; then \
+	  $(MAKEPATH) ${exec_prefix}/lib/${instvardir}; \
 	  for dir in \
-		lib/${PROGNAME} \
-	 	lib/${PROGNAME}-${version}/etc \
-		lib/${PROGNAME}-${version}/info \
-		lib/${PROGNAME}-${version}/lisp; do \
+		lib/${inststaticdir} \
+	 	lib/${instvardir}/etc \
+		lib/${instvardir}/info \
+		lib/${instvardir}/lisp; do \
 	    if test ! -d ${exec_prefix}/$${dir}; then \
 	      $(LN_S) ${prefix}/$${dir} ${exec_prefix}/$${dir}; fi; \
 	  done; \
@@ -432,8 +495,8 @@ install-arch-indep: mkdir info
 	     -a "`(cd $${dir} && $(pwd))`" != \
 		"`(cd $${dest} && $(pwd))`" \
 	   && (echo "Copying $${dir}..." ; \
-	       (cd $${dir} && tar -cf - . ) | \
-		(cd $${dest} && umask 022 && tar -xf - );\
+	       (cd $${dir} && $(TAR) -cf - . ) | \
+		(cd $${dest} && umask 022 && $(TAR) -xf - );\
 	       chmod 0755 $${dest}; \
 	       for subdir in `find $${dest} -type d ! -name RCS ! -name SCCS ! -name CVS -print` ; do \
 		 (cd $${subdir} && $(RM) -r RCS CVS SCCS \#* *~) ; \
@@ -449,7 +512,6 @@ install-arch-indep: mkdir info
 	    chmod 0644 ${infodir}/$${file}; \
 	  done ; \
 	fi
-	## Note it's `xemacs' not ${PROGNAME}
 	cd ${srcdir}/etc && \
 	  for page in xemacs etags ctags gnuserv gnuclient gnuattach gnudoit; do \
 	    ${INSTALL_DATA} ${srcdir}/etc/$${page}.1 ${mandir}/$${page}${manext} ; \
@@ -463,18 +525,16 @@ install-arch-indep: mkdir info
 	@echo "${lispdir}"
 
 gzip-el:
-	${srcdir}/lib-src/gzip-el.sh ${lispdir}
+	$(SHELL) ${srcdir}/lib-src/gzip-el.sh ${lispdir}
 
-MAKEPATH=./lib-src/make-path
 ## Build all the directories to install XEmacs in.
 ## Since we may be creating several layers of directories,
 ## (e.g. /usr/local/lib/${PROGNAME}-20.5/sparc-sun-solaris2.6), we use
 ## make-path instead of mkdir.  Not all mkdirs have the `-p' flag.
 mkdir: FRC.mkdir
-	${MAKEPATH} ${COPYDESTS} ${lockdir} ${infodir} ${archlibdir} \
+	${MAKEPATH} ${COPYDESTS} ${docdir} ${infodir} ${archlibdir} \
 	  ${mandir} ${bindir} ${datadir} ${libdir} ${pkgdir} \
 	  ${sitelispdir} ${moduledir} ${sitemoduledir}
-	-chmod 0777 ${lockdir}
 
 ## Delete all the installed files that the `install' target would
 ## create (but not the noninstalled files such as `make all' would
@@ -543,10 +603,10 @@ top_distclean=\
 	$(RM) config.status config.log confdefs.h config-tmp-* build-install Installation ; \
 	$(RM) core .sbinit lock/* GNUmakefile Makefile Makefile.in ; \
 	$(RM) lisp/finder-inf.el* Installation.el Installation.elc ; \
-	$(RM) packages mule-packages site-lisp
+	$(RM) -r site-packages xemacs-packages mule-packages site-lisp
 
 distclean: FRC.distclean
-	for d in $(SUBDIR); do (cd ./$$d && $(RECURSIVE_MAKE) $@); done
+	for d in $(SUBDIR_DISTCLEAN); do (cd ./$$d && $(RECURSIVE_MAKE) $@); done
 	-${top_distclean}
 
 ## `realclean'

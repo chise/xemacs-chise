@@ -4,7 +4,7 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
-;; Copyright (C) 1997 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2002,2003 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -19,7 +19,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -31,8 +31,7 @@
 
 (defun coding-system-force-on-output (coding-system register)
   "Return the 'force-on-output property of CODING-SYSTEM for the specified REGISTER."
-  (unless (integerp register)
-    (signal 'wrong-type-argument (list 'integerp register)))
+  (check-type register integer)
   (coding-system-property
    coding-system
    (case register
@@ -172,17 +171,181 @@
    mnemonic "ISO7/Lock"
    ))
 
+(when (featurep 'utf-2000)
+  (setq coded-charset-entity-reference-alist
+	'(((ideograph-gt . isolated)            "I-GT-" 5 d)
+	  ( ideograph-gt   		          "GT-" 5 d)
+	  ((ideograph-gt-k . isolated)         "I-GT-K" 5 d)
+	  ( ideograph-gt-k   		         "GT-K" 5 d)
+	  ((ideograph-daikanwa . isolated)       "I-M-" 5 d)
+	  ( ideograph-daikanwa                     "M-" 5 d)
+	  ((ideograph-cbeta . isolated)          "I-CB" 5 d)
+	  ( ideograph-cbeta   		           "CB" 5 d)
+	  ((chinese-big5-cdp . isolated)       "I-CDP-" 4 X)
+	  ( chinese-big5-cdp		         "CDP-" 4 X)
+	  ((ideograph-hanziku-1 . isolated)   "I-HZK1-" 4 X)
+	  ( ideograph-hanziku-1                 "HZK1-" 4 X)
+	  ((ideograph-hanziku-2 . isolated)   "I-HZK2-" 4 X)
+	  ( ideograph-hanziku-2                 "HZK2-" 4 X)
+	  ((japanese-jisx0208-1990 . isolated) "I-J90-" 4 X)
+	  ( japanese-jisx0208-1990  	         "J90-" 4 X)
+	  ((japanese-jisx0208 . isolated)      "I-J83-" 4 X)
+	  ( japanese-jisx0208   		 "J83-" 4 X)
+	  ((japanese-jisx0213-1 . isolated)    "I-JX1-" 4 X)
+	  ( japanese-jisx0213-1   		 "JX1-" 4 X)
+	  ((japanese-jisx0213-2 . isolated)    "I-JX2-" 4 X)
+	  ( japanese-jisx0213-2   		 "JX2-" 4 X)
+	  ((japanese-jisx0212 . isolated)      "I-JSP-" 4 X)
+	  ( japanese-jisx0212   		 "JSP-" 4 X)
+	  ((japanese-jisx0208-1978 . isolated) "I-J78-" 4 X)
+	  ( japanese-jisx0208-1978  	         "J78-" 4 X)
+	  ((chinese-cns11643-1 . isolated)      "I-C1-" 4 X)
+	  ( chinese-cns11643-1                    "C1-" 4 X)
+	  ((chinese-cns11643-2 . isolated)      "I-C2-" 4 X)
+	  ( chinese-cns11643-2                    "C2-" 4 X)
+	  ((chinese-cns11643-3 . isolated)      "I-C3-" 4 X)
+	  ( chinese-cns11643-3                    "C3-" 4 X)
+	  ((chinese-cns11643-4 . isolated)      "I-C4-" 4 X)
+	  ( chinese-cns11643-4                    "C4-" 4 X)
+	  ((chinese-cns11643-5 . isolated)      "I-C5-" 4 X)
+	  ( chinese-cns11643-5                    "C5-" 4 X)
+	  ((chinese-cns11643-6 . isolated)      "I-C6-" 4 X)
+	  ( chinese-cns11643-6                    "C6-" 4 X)
+	  ((chinese-cns11643-7 . isolated)      "I-C7-" 4 X)
+	  ( chinese-cns11643-7                    "C7-" 4 X)
+	  ((korean-ksc5601 . isolated)      	"I-K0-" 4 X)
+	  ( korean-ksc5601                    	  "K0-" 4 X)
+	  ( china3-jef                    	 "JC3-" 4 X)
+	  ))
+
+  (make-coding-system
+   'utf-8-mcs-er 'utf-8
+   "Coding-system of UTF-8 with entity-reference."
+   '(mnemonic "MTF8r" use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-gb 'utf-8
+   "Coding-system of UTF-8 using GB mapping."
+   '(mnemonic "UTF8G"
+	      charset-g0 ucs-gb
+	      charset-g1 =>ucs-gb
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-gb-er 'utf-8
+   "Coding-system of UTF-8 using GB mapping with entity-reference."
+   '(mnemonic "UTF8Gr"
+	      charset-g0 ucs-gb
+	      charset-g1 =>ucs-gb
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-cns 'utf-8
+   "Coding-system of UTF-8 using CNS mapping."
+   '(mnemonic "UTF8C"
+	      charset-g0 ucs-cns
+	      charset-g1 =>ucs-cns
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-cns-er 'utf-8
+   "Coding-system of UTF-8 using CNS mapping with entity-reference."
+   '(mnemonic "UTF8Cr"
+	      charset-g0 ucs-cns
+	      charset-g1 =>ucs-cns
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-big5 'utf-8
+   "Coding-system of UTF-8 using Big5 mapping."
+   '(mnemonic "UTF8B"
+	      charset-g0 ucs-big5
+	      charset-g1 =>ucs-big5
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-big5-er 'utf-8
+   "Coding-system of UTF-8 using Big5 mapping with entity-reference."
+   '(mnemonic "UTF8Br"
+	      charset-g0 ucs-big5
+	      charset-g1 =>ucs-big5
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-jis 'utf-8
+   "Coding-system of UTF-8 using JIS mapping."
+   '(mnemonic "UTF8J"
+	      charset-g0 ucs-jis
+	      charset-g1 =>ucs-jis
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-jis-er 'utf-8
+   "Coding-system of UTF-8 using JIS mapping with entity-reference."
+   '(mnemonic "UTF8Jr"
+	      charset-g0 ucs-jis
+	      charset-g1 =>ucs-jis
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-ks 'utf-8
+   "Coding-system of UTF-8 using KS mapping."
+   '(mnemonic "UTF8K"
+	      charset-g0 ucs-ks
+	      charset-g1 =>ucs-ks
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-ks-er 'utf-8
+   "Coding-system of UTF-8 using KS mapping with entity-reference."
+   '(mnemonic "UTF8Kr"
+	      charset-g0 ucs-ks
+	      charset-g1 =>ucs-ks
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (define-coding-system-alias 'utf-8 'utf-8-mcs)
+  (define-coding-system-alias 'utf-8-er 'utf-8-mcs-er)
+  )
+
 ;; initialize the coding categories to something semi-reasonable
 ;; so that the remaining Lisp files can contain extended characters.
 ;; (They will be in ISO-7 format)
+;; #### This list needs to be synched with the ones in mule-cmds.el.
 
-(set-coding-priority-list '(iso-8-2 iso-8-designate iso-8-1
-			    iso-7 iso-lock-shift no-conversion))
+(if (featurep 'utf-2000)
+    (set-coding-priority-list '(iso-7
+				no-conversion
+				utf-8
+				iso-8-1
+				iso-8-2
+				iso-8-designate
+				iso-lock-shift
+				shift-jis
+				big5
+				ucs-4))
+  (set-coding-priority-list '(iso-7
+			      no-conversion
+			      ;; utf-8
+			      iso-8-1
+			      iso-8-2
+			      iso-8-designate
+			      iso-lock-shift
+			      shift-jis
+			      big5
+			      ;; ucs-4
+			      )))
 
 (set-coding-category-system 'iso-7 'iso-2022-7)
 (set-coding-category-system 'iso-8-designate 'ctext)
 (set-coding-category-system 'iso-8-1 'ctext)
 (set-coding-category-system 'iso-lock-shift 'iso-2022-lock)
 (set-coding-category-system 'no-conversion 'no-conversion)
+
+(setq-default buffer-file-coding-system 'iso-2022-8)
 
 ;;; mule-coding.el ends here

@@ -25,7 +25,7 @@ Boston, MA 02111-1307, USA.  */
  *
  * Author: Edward A. Falk
  *         falk@falconer.vip.best.com
- *  
+ *
  * Date:   June 30, 1997
  *
  * Overview:  This widget is identical to the Radio widget in behavior,
@@ -38,7 +38,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <X11/IntrinsicP.h>
 #include <X11/StringDefs.h>
-#include <X11/Xaw/XawInit.h>
+#include ATHENA_XawInit_h_
 #include "../src/xmu.h"
 #include "xlwcheckboxP.h"
 
@@ -65,7 +65,7 @@ Boston, MA 02111-1307, USA.  */
 #if	DRAW_CHECK
 #define check_width 14
 #define check_height 14
-static u_char check_bits[] = {
+static unsigned char check_bits[] = {
    0x00, 0x00, 0x00, 0x20, 0x00, 0x18, 0x00, 0x0c, 0x00, 0x06, 0x00, 0x03,
    0x8c, 0x03, 0xde, 0x01, 0xff, 0x01, 0xfe, 0x00, 0xfc, 0x00, 0x78, 0x00,
    0x70, 0x00, 0x20, 0x00};
@@ -126,7 +126,7 @@ static	XtActionsRec	actionsList[] =
 
 CheckboxClassRec checkboxClassRec = {
   {
-    (WidgetClass) SuperClass,		/* superclass		*/	
+    (WidgetClass) SuperClass,		/* superclass		*/
     "Checkbox",				/* class_name		*/
     sizeof(CheckboxRec),		/* size			*/
     CheckboxClassInit,			/* class_initialize	*/
@@ -170,7 +170,7 @@ CheckboxClassRec checkboxClassRec = {
     NULL				/* extension		*/
   },  /* CoreClass fields initialization */
   {
-    XtInheritChangeSensitive		/* change_sensitive	*/ 
+    XtInheritChangeSensitive		/* change_sensitive	*/
   },  /* SimpleClass fields initialization */
 #ifdef	_ThreeDP_h
   {
@@ -271,7 +271,7 @@ CheckboxRealize(Widget w,
 /*	Function Name: CheckboxDestroy
  *	Description: Destroy Callback for checkbox widget.
  *	Arguments: w - the checkbox widget that is being destroyed.
- *                 junk, grabage - not used.
+ *                 junk, garbage - not used.
  *	Returns: none.
  */
 

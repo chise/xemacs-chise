@@ -110,7 +110,7 @@ exit_setup (int exit_code)
   if (exit_msg)
     note (exit_msg);
 
-  log (LOG_TIMESTAMP, "Ending cygwin install");
+  log (LOG_TIMESTAMP, "Ending XEmacs install");
 
   if (source == IDC_SOURCE_DOWNLOAD || !root_dir)
     {

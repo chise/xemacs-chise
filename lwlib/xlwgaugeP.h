@@ -40,7 +40,7 @@ Boston, MA 02111-1307, USA.  */
  ***********************************************************************/
 
 #include "xlwgauge.h"
-#include <X11/Xaw/LabelP.h>
+#include ATHENA_LabelP_h_
 
 /* New fields for the Gauge widget class record */
 

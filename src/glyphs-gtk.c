@@ -1576,13 +1576,15 @@ gtk_resource_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   type = resource_symbol_to_type (resource_type);
 
-  //   if (dest_mask & IMAGE_POINTER_MASK && type == IMAGE_POINTER_MASK)
-  //     iitype = IMAGE_POINTER;
-  //   else if (dest_mask & IMAGE_COLOR_PIXMAP_MASK)
-  //     iitype = IMAGE_COLOR_PIXMAP;
-  //   else 
-  //     incompatible_image_types (instantiator, dest_mask,
-  // 			      IMAGE_COLOR_PIXMAP_MASK | IMAGE_POINTER_MASK);
+#if 0
+  if (dest_mask & IMAGE_POINTER_MASK && type == IMAGE_POINTER_MASK)
+    iitype = IMAGE_POINTER;
+  else if (dest_mask & IMAGE_COLOR_PIXMAP_MASK)
+    iitype = IMAGE_COLOR_PIXMAP;
+  else 
+    incompatible_image_types (instantiator, dest_mask,
+			      IMAGE_COLOR_PIXMAP_MASK | IMAGE_POINTER_MASK);
+#endif
 
   /* mess with the keyword info we were provided with */
   gtk_initialize_pixmap_image_instance (ii, 1, type);

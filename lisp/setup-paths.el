@@ -38,14 +38,27 @@
 
 ;;; Code:
 
-(defvar paths-load-path-depth 1
+(defvar paths-core-load-path-depth 0
   "Depth of load-path searches in core Lisp paths.")
 
+(defvar paths-site-load-path-depth 1
+  "Depth of load-path searches in site Lisp paths.")
+
+(defvar paths-mule-load-path-depth 0
+  "Depth of load-path searches in Mule Lisp paths.")
+
+(defvar paths-utf-2000-load-path-depth 0
+  "Depth of load-path searches in UTF-2000 Lisp paths.")
+
 (defvar paths-default-info-directories
-  (list (paths-construct-path '("usr" "local" "info")
-			      (char-to-string directory-sep-char))
-	(paths-construct-path '("usr" "info")
-			      (char-to-string directory-sep-char)))
+  (mapcar (function
+	   (lambda (dirlist)
+	     (paths-construct-path
+	      dirlist (char-to-string directory-sep-char))))
+	  '(("usr" "local" "info")
+	    ("usr" "info")
+	    ("usr" "local" "share" "info")
+	    ("usr" "share" "info")))
   "Directories appended to the end of the info path by default.")
 
 (defun paths-find-site-lisp-directory (roots)
@@ -54,16 +67,54 @@
 			     nil
 			     configure-site-directory))
 
+(defun paths-find-site-module-directory (roots)
+  "Find the site modules directory of the XEmacs hierarchy."
+  (paths-find-site-directory roots "site-modules"
+			     nil
+			     configure-site-module-directory))
+
 (defun paths-find-lisp-directory (roots)
   "Find the main Lisp directory of the XEmacs hierarchy."
   (paths-find-version-directory roots "lisp"
 				nil
 				configure-lisp-directory))
 
+(defun paths-find-mule-lisp-directory (roots &optional lisp-directory)
+  "Find the Mule Lisp directory of the XEmacs hierarchy."
+  ;; #### kludge
+  (if lisp-directory
+      (let ((guess
+	     (file-name-as-directory
+	      (paths-construct-path (list lisp-directory "mule")))))
+	(if (paths-file-readable-directory-p guess)
+	    guess
+	  (paths-find-version-directory roots "mule-lisp"
+					nil
+					configure-mule-lisp-directory)))))
+
+(defun paths-find-utf-2000-lisp-directory (roots &optional lisp-directory)
+  "Find the UTF-2000 Lisp directory of the XEmacs hierarchy."
+  ;; #### kludge
+  (if lisp-directory
+      (let ((guess
+	     (file-name-as-directory
+	      (paths-construct-path (list lisp-directory "utf-2000")))))
+	(if (paths-file-readable-directory-p guess)
+	    guess
+	  (paths-find-version-directory roots "utf-2000-lisp"
+					nil
+					configure-utf-2000-lisp-directory)))))
+
+(defun paths-find-module-directory (roots)
+  "Find the main modules directory of the XEmacs hierarchy."
+  (paths-find-architecture-directory roots "modules"
+				     nil configure-module-directory))
+
 (defun paths-construct-load-path
   (roots early-package-load-path late-package-load-path last-package-load-path
 	 lisp-directory
-	 &optional site-lisp-directory)
+	 &optional site-lisp-directory mule-lisp-directory
+	 utf-2000-lisp-directory)
   "Construct the load path."
   (let* ((envvar-value (getenv "EMACSLOADPATH"))
 	 (env-load-path
@@ -72,17 +123,46 @@
 	 (site-lisp-load-path
 	  (and site-lisp-directory
 	       (paths-find-recursive-load-path (list site-lisp-directory)
-					       paths-load-path-depth)))
+					       paths-site-load-path-depth)))
+	 (mule-lisp-load-path
+	  (and mule-lisp-directory
+	       (paths-find-recursive-load-path (list mule-lisp-directory)
+					       paths-mule-load-path-depth)))
+	 (utf-2000-lisp-load-path
+	  (and utf-2000-lisp-directory
+	       (paths-find-recursive-load-path (list utf-2000-lisp-directory)
+					       paths-utf-2000-load-path-depth)))
 	 (lisp-load-path
 	  (and lisp-directory
 	       (paths-find-recursive-load-path (list lisp-directory)
-					       paths-load-path-depth))))
+					       paths-core-load-path-depth))))
     (append env-load-path
 	    early-package-load-path
 	    site-lisp-load-path
 	    late-package-load-path
+	    utf-2000-lisp-load-path
+	    mule-lisp-load-path
 	    lisp-load-path
 	    last-package-load-path)))
+
+(defun paths-construct-module-load-path
+  (root module-directory &optional site-module-directory)
+  "Construct the modules load path."
+  (let* ((envvar-value (getenv "EMACSMODULEPATH"))
+	 (env-module-path
+	  (and envvar-value
+	       (paths-decode-directory-path envvar-value 'drop-empties)))
+	 (site-module-load-path
+	  (and site-module-directory
+	       (paths-find-recursive-load-path (list site-module-directory)
+					       paths-site-load-path-depth)))
+	 (module-load-path
+	  (and module-directory
+	       (paths-find-recursive-load-path (list module-directory)
+					       paths-core-load-path-depth))))
+     (append env-module-path
+	    site-module-load-path
+	    module-load-path)))
 
 (defun paths-construct-info-path (roots early-packages late-packages last-packages)
   "Construct the info path."
@@ -107,26 +187,12 @@
 
 (defun paths-find-doc-directory (roots)
   "Find the documentation directory."
-  (paths-find-architecture-directory roots "lib-src"))
-
-(defun paths-find-lock-directory (roots)
-  "Find the lock directory."
-  (paths-find-site-directory roots "lock" "EMACSLOCKDIR" configure-lock-directory))
-
-(defun paths-find-superlock-file (lock-directory)
-  "Find the superlock file."
-  (cond
-   ((null lock-directory)
-    nil)
-   ((and configure-superlock-file
-	 (file-directory-p (file-name-directory configure-superlock-file)))
-    configure-superlock-file)
-   (t
-    (expand-file-name "!!!SuperLock!!!" lock-directory))))
+  (paths-find-architecture-directory roots "lib-src" nil configure-doc-directory))
 
 (defun paths-find-exec-directory (roots)
   "Find the binary directory."
-  (paths-find-architecture-directory roots "lib-src" configure-exec-directory))
+  (paths-find-architecture-directory roots "lib-src"
+				     nil configure-exec-directory))
 
 (defun paths-construct-exec-path (roots exec-directory
 				  early-packages late-packages last-packages)
@@ -137,12 +203,12 @@
 	 (paths-decode-directory-path path-envval 'drop-empties)))
    (packages-find-package-exec-path early-packages)
    (packages-find-package-exec-path late-packages)
-   (packages-find-package-exec-path last-packages)
    (let ((emacspath-envval (getenv "EMACSPATH")))
      (and emacspath-envval
 	  (split-path emacspath-envval)))
    (and exec-directory
-	(list exec-directory))))
+	(list exec-directory))
+   (packages-find-package-exec-path last-packages)))
 
 (defun paths-find-data-directory (roots)
   "Find the data directory."
@@ -154,7 +220,7 @@
   (append
    (packages-find-package-data-path early-packages)
    (packages-find-package-data-path late-packages)
-   (packages-find-package-data-path last-packages)
-   (list data-directory)))
+   (list data-directory)
+   (packages-find-package-data-path last-packages)))
 
 ;;; setup-paths.el ends here

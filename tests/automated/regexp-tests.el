@@ -204,3 +204,71 @@
 	  (setq i (1+ i))))))
 
 ;; (test-regex-charset-mule-paranoid)
+
+;; Test replace-match
+(with-temp-buffer
+  (insert "This is a test buffer.")
+  (goto-char (point-min))
+  (search-forward "this is a test ")
+  (looking-at "Unmatchable text")
+  (replace-match "")
+  (Assert (looking-at "^buffer.$")))
+
+;; Test that trivial regexps reset unused registers
+;; Thanks to Martin Sternholm for the report.
+;; xemacs-beta <5blm6h2ki5.fsf@lister.roxen.com>
+(with-temp-buffer
+  (insert "ab")
+  (goto-char (point-min))
+  (re-search-forward "\\(a\\)")
+  ;; test the whole-match data, too -- one try scotched that, too!
+  (Assert (string= (match-string 0) "a"))
+  (Assert (string= (match-string 1) "a"))
+  (re-search-forward "b")
+  (Assert (string= (match-string 0) "b"))
+  (Assert (not (match-string 1))))
+
+;; Test word boundaries
+(Assert (= (string-match " \\<a" " a") 0))
+(Assert (= (string-match "a\\> " "a ") 0))
+(Assert (= (string-match " \\ba" " a") 0))
+(Assert (= (string-match "a\\b " "a ") 0))
+(Assert (= (string-match "\\ba" " a") 1))
+(Assert (= (string-match "a\\b" "a ") 0))
+;; should work at target boundaries
+(Assert (= (string-match "\\<a" "a") 0))
+(Assert (= (string-match "a\\>" "a") 0))
+(Assert (= (string-match "\\ba" "a") 0))
+(Assert (= (string-match "a\\b" "a") 0))
+;; but not if the "word" would be on the null side of the boundary!
+(Assert (not (string-match "\\<" "")))
+(Assert (not (string-match "\\>" "")))
+(Assert (not (string-match " \\<" " ")))
+(Assert (not (string-match "\\> " " ")))
+(Assert (not (string-match "a\\<" "a")))
+(Assert (not (string-match "\\>a" "a")))
+;; Expect these to fail :-(
+;; Added Known-Bug 2002-09-09
+(Assert (not (string-match "\\b" "")))
+(Assert (not (string-match " \\b" " ")))
+(Assert (not (string-match "\\b " " ")))
+
+;; Added 2002-12-27
+(if (featurep 'mule)
+    ;; note: (int-to-char 65) => ?A
+    (let ((ch0 (make-char 'japanese-jisx0208 52 65))
+	  (ch1 (make-char 'japanese-jisx0208 51 65)))
+      (Assert (not (string-match "A" (string ch0))))
+      (Assert (not (string-match "[A]" (string ch0))))
+      (Assert (eq (string-match "[^A]" (string ch0)) 0))
+      (Assert (not (string-match "@A" (string ?@ ch0))))
+      (Assert (not (string-match "@[A]" (string ?@ ch0))))
+      (Assert (eq (string-match "@[^A]" (string ?@ ch0)) 0))
+      (Assert (not (string-match "@?A" (string ?@ ch0))))
+      (Assert (not (string-match "A" (string ch1))))
+      (Assert (not (string-match "[A]" (string ch1))))
+      (Assert (eq (string-match "[^A]" (string ch1)) 0))
+      (Assert (not (string-match "@A" (string ?@ ch1))))
+      (Assert (not (string-match "@[A]" (string ?@ ch1))))
+      (Assert (eq (string-match "@[^A]" (string ?@ ch1)) 0))
+      (Assert (not (string-match "@?A" (string ?@ ch1))))))

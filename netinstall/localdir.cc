@@ -12,6 +12,7 @@
  * Written by Andrej Borsenkow <Andrej.Borsenkow@mow.siemens.ru>
  * based on work and suggestions of DJ Delorie
  *
+ * Sync'ed with cinstall 2001-10-16
  */
 
 /* The purpose of this file is to ask the user where they want the
@@ -23,7 +24,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <io.h>
 
+#include "mkdir.h"
 #include "dialog.h"
 #include "resource.h"
 #include "state.h"
@@ -102,6 +105,11 @@ dialog_cmd (HWND h, int id, HWND hwndctl, UINT code)
 
     case IDOK:
       save_dialog (h);
+      if (_access (local_dir, 0) != 0 && yesno (IDS_CREATE_DIR, local_dir) == IDYES)
+	{
+	  log (0, "Created install directory %s\n", local_dir);
+	  mkdir_p (1, local_dir);
+	}
       if (SetCurrentDirectoryA (local_dir))
 	{
 	  switch (source)
@@ -132,7 +140,6 @@ dialog_cmd (HWND h, int id, HWND hwndctl, UINT code)
       NEXT (0);
       break;
     }
-  return FALSE;
 }
 
 static BOOL CALLBACK

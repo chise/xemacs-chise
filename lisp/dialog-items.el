@@ -60,17 +60,18 @@
      'general
      :parent parent
      :title "Search"
+     :autosize t
      :spec
      (setq search-dialog
 	   (make-glyph
 	    `[layout 
-	      :orientation horizontal :justify left
-	      ;; neither the following height/width nor the identical one
-	      ;; below should be necessary! (see below)
-	      :height 11 :width 40
+	      :orientation horizontal 
+	      :vertically-justify top 
+	      :horizontally-justify center 
 	      :border [string :data "Search"]
 	      :items 
-	      ([layout :orientation vertical :justify left
+	      ([layout :orientation vertical 
+		       :justify top	; implies left also
 		       :items 
 		       ([string :data "Search for:"]
 			[button :descriptor "Match Case"
@@ -92,10 +93,12 @@
 				:selected (not search-dialog-direction)
 				:callback (setq search-dialog-direction nil)]
 			)]
-	       [layout :orientation vertical :justify left
-		       :items 
+	       [layout :orientation vertical
+		       :vertically-justify top
+		       :horizontally-justify right
+		       :items
 		       ([edit-field :width 15 :descriptor "" :active t
-				    :face default :initial-focus t]
+				    :initial-focus t]
 			[button :width 10 :descriptor "Find Next"
 				:callback-ex
 				(lambda (image-instance event)
@@ -108,8 +111,9 @@
 				  (isearch-dehighlight)
 				  (delete-frame 
 				   (event-channel event)))])])]))
-     ;; neither this height/width nor the identical one above should
-     ;; be necessary! (in fact, if you omit the one above, the layout
-     ;; sizes itself correctly; but the frame as a whole doesn't use
-     ;; the layout's size, as it should.)
-     :properties '(height 11 width 40))))
+     ;; These are no longer strictly necessary, but not setting a size
+     ;; at all yields a much more noticeable resize since the initial
+     ;; frame is so big.
+     :properties `(height ,(widget-logical-to-character-height 6)
+			  width ,(widget-logical-to-character-width 39))
+     )))

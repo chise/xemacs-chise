@@ -19,7 +19,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -42,7 +42,7 @@
 ;;; were always selectable, and selecting them would set the size to be the
 ;;; closest size to the current font's size.
 ;;;
-;;; This attempts to change all other faces in an analagous way to the change
+;;; This attempts to change all other faces in an analogous way to the change
 ;;; that was made to the default face; if it can't, it will skip over the face.
 ;;; However, this could leave incongruous font sizes around, which may cause
 ;;; some nonreversibility problems if further changes are made.  Perhaps it
@@ -158,25 +158,17 @@ the last entry in the menu."
   :type '(choice (string :tag "Format string")
 		 (function)))
 
-(defvar font-menu-preferred-resolution 
+(defvar font-menu-preferred-resolution
   (make-specifier-and-init 'generic '((global ((mswindows) . ":")
+					      ((gtk) . "*-*")
 					      ((x) . "*-*"))) t)
   "Preferred horizontal and vertical font menu resolution (e.g. \"75:75\").")
 
 (defvar font-menu-size-scaling
   (make-specifier-and-init 'integer '((global ((mswindows) . 1)
+					      ((gtk) . 10)
 					      ((x) . 10))) t)
   "Scale factor used in defining font sizes.")
-
-(defun vassoc (key valist)
-  "Search VALIST for a vector whose first element is equal to KEY.
-See also `assoc'."
-  ;; by Stig@hackvan.com
-  (let (el)
-    (catch 'done
-      (while (setq el (pop valist))
-	(and (equal key (aref el 0))
-	     (throw 'done el))))))
 
 ;; only call XListFonts (and parse) once per device.
 ;; ( (device . [parsed-list-fonts family-menu size-menu weight-menu]) ...)
@@ -197,7 +189,7 @@ See also `assoc'."
 This is run the first time that a font-menu is needed for each device.
 If you don't like the lazy invocation of this function, you can add it to
 `create-device-hook' and that will make the font menus respond more quickly
-when they are selected for the first time.  If you add fonts to your system, 
+when they are selected for the first time.  If you add fonts to your system,
 or if you change your font path, you can call this to re-initialize the menus."
   (message "Getting list of fonts from server... ")
   (if (or noninteractive
@@ -207,12 +199,12 @@ or if you change your font path, you can call this to re-initialize the menus."
     (message "Getting list of fonts from server... done.")))
 
 (defun font-menu-split-long-menu (menu)
-  "Split MENU according to `font-menu-max-items'."
+  "Split MENU according to `font-menu-max-items' and add accelerator specs."
   (let ((len (length menu)))
     (if (or (null font-menu-max-items)
 	    (null (featurep 'lisp-float-type))
 	    (<= len font-menu-max-items))
-	menu
+	(submenu-generate-accelerator-spec menu)
       ;; Submenu is max 2 entries longer than menu, never shorter, number of
       ;; entries in submenus differ by at most one (with longer submenus first)
       (let* ((outer (floor (sqrt len)))
@@ -231,14 +223,20 @@ or if you change your font path, you can call this to re-initialize the menus."
 	    (setq result
 		  (cons (cons (if (stringp font-menu-submenu-name-format)
 				  (format font-menu-submenu-name-format
-					  (aref (car sub) 0) (aref to 0))
+					  (menu-item-strip-accelerator-spec
+					   (aref (car sub) 0))
+					  (menu-item-strip-accelerator-spec
+					   (aref to 0)))
 				(funcall font-menu-submenu-name-format
-					 (aref (car sub) 0) (aref to 0)))
-			      sub)
+					 (menu-item-strip-accelerator-spec
+					  (aref (car sub) 0))
+					 (menu-item-strip-accelerator-spec
+					  (aref to 0))))
+			      (submenu-generate-accelerator-spec sub))
 			result)
 		  rest  (1+ rest))
 	    (if (= rest outer) (setq inner (1+ inner)))))
-	result))))
+	(submenu-generate-accelerator-spec result)))))
 
 ;;;###autoload
 (defun font-menu-family-constructor (ignored)
@@ -261,7 +259,7 @@ or if you change your font path, you can call this to re-initialize the menus."
       (font-menu-split-long-menu
        (mapcar
 	(lambda (item)
-	  (setq f (aref item 0)
+	  (setq f (menu-item-strip-accelerator-spec (aref item 0))
 		entry (vassoc f (aref dcache 0)))
 	  (if (and (or (member weight (aref entry 1))
 		       ;; mswindows often allows any weight
@@ -309,7 +307,7 @@ or if you change your font path, you can call this to re-initialize the menus."
 	     (select-toggle-menu-item item)
 	   (deselect-toggle-menu-item item))
 	 item)
-       (aref dcache 2)))))
+       (submenu-generate-accelerator-spec (aref dcache 2))))))
 
 ;;;###autoload
 (defun font-menu-weight-constructor (ignored)
@@ -338,7 +336,7 @@ or if you change your font path, you can call this to re-initialize the menus."
 	     (select-toggle-menu-item item)
 	   (deselect-toggle-menu-item item))
 	 item)
-       (aref dcache 3)))))
+       (submenu-generate-accelerator-spec (aref dcache 3))))))
 
 
 ;;; Changing font sizes
@@ -351,17 +349,16 @@ or if you change your font path, you can call this to re-initialize the menus."
 	 (font-data (font-menu-font-data 'default dcache))
 	 (from-family (aref font-data 1))
 	 (from-size   (aref font-data 2))
-	 (from-weight (aref font-data 3))
+	   (from-weight (aref font-data 3))
 	 (from-slant  (aref font-data 4))
-	 (face-list-to-change (delq 'default (face-list)))
-	 new-default-face-font
-	 new-props)
+  	 (face-list-to-change (delq 'default (face-list)))
+	 new-default-face-font)
     (unless from-family
       (signal 'error '("couldn't parse font name for default face")))
     (when weight
       (signal 'error '("Setting weight currently not supported")))
     (setq new-default-face-font
-	  (font-menu-load-font 
+	  (font-menu-load-font
 	   (or family from-family)
 	   (or weight from-weight)
 	   (or size   from-size)
@@ -382,7 +379,9 @@ or if you change your font path, you can call this to re-initialize the menus."
 	(condition-case c
 	    (font-menu-change-face face
 				   from-family from-weight from-size
-				   family      weight      size)
+				   (or family from-family)
+				   (or weight from-weight)
+				   (or size from-size))
 	  (error
 	   (display-error c nil)
 	   (sit-for 1)))))
@@ -395,21 +394,22 @@ or if you change your font path, you can call this to re-initialize the menus."
 	(set-face-font 'default new-default-face-font
 		       (and font-menu-this-frame-only-p (selected-frame)))
       ;; OK Let Customize do it.
-      (when (and family (not (equal family from-family)))
-	(setq new-props (append (list :family family) new-props)))
-      (when (and size (not (equal size from-size)))
-	(setq new-props (append
-	   (list :size (concat (int-to-string (/ size (specifier-instance
-						       font-menu-size-scaling
-						       (selected-device)))) "pt")) new-props)))
-      (custom-set-face-update-spec 'default '((type x)) new-props)
+      (custom-set-face-update-spec 'default
+				   (list (list 'type (device-type)))
+				   (list :family (or family from-family)
+					 :size (concat
+						(int-to-string
+						 (/ (or size from-size)
+						    (specifier-instance font-menu-size-scaling
+									(selected-device))))
+						"pt")))
       (message "Font %s" (face-font-name 'default)))))
 
 
 (defun font-menu-change-face (face
 			      from-family from-weight from-size
 			      to-family   to-weight   to-size)
-  (or (symbolp face) (signal 'wrong-type-argument (list 'symbolp face)))
+  (check-type face symbol)
   (let* ((dcache (device-fonts-cache))
 	 (font-data (font-menu-font-data face dcache))
 	 (face-family (aref font-data 1))
@@ -426,7 +426,7 @@ or if you change your font path, you can call this to re-initialize the menus."
     ;; If its value is inherited, we don't touch it.  If any of this
     ;; is not true, we leave it alone.
     (when (and (face-font face 'global)
-	       (cond 
+	       (cond
 		(to-family (string-equal face-family from-family))
 		(to-weight (string-equal face-weight from-weight))
 		(to-size   (=            face-size   from-size))))
@@ -436,7 +436,7 @@ or if you change your font path, you can call this to re-initialize the menus."
 					  (or to-size   face-size)
 					  face-slant
 					  (specifier-instance
-					   font-menu-preferred-resolution 
+					   font-menu-preferred-resolution
 					   (selected-device)))
 		     (and font-menu-this-frame-only-p
 			  (selected-frame))))))

@@ -20,27 +20,20 @@ Boston, MA 02111-1307, USA.  */
 
 /* based on cygwin32.h by Andy Piper <andy@xemacs.org> */
 
-#ifndef WINDOWSNT
-#define WINDOWSNT
+/* Identify ourselves */
+#ifndef WIN32_NATIVE
+#define WIN32_NATIVE
 #endif
 
-#ifndef DOS_NT
-#define DOS_NT 	/* MSDOS or WINDOWSNT */
-#endif
-
-#define PBS_SMOOTH              0x01
-
-#ifdef HAVE_MS_WINDOWS
-#define HAVE_NTGUI
-#define HAVE_FACES
-#endif
+#define MINGW
 
 #ifndef ORDINARY_LINK
 #define ORDINARY_LINK
 #endif
 
-#define C_SWITCH_SYSTEM "-mno-cygwin -Wno-sign-compare -fno-caller-saves -Int/inc -I../nt/inc -DWINDOWSNT"
-#define LIBS_SYSTEM "-mno-cygwin -lwinmm -lwsock32"
+#define C_SWITCH_SYSTEM "-mno-cygwin -Wno-sign-compare -fno-caller-saves -DWIN32_NATIVE"
+#define LIBS_SYSTEM "-mno-cygwin -mwindows -lwinmm -lwsock32"
+#define WIN32_LEAN_AND_MEAN
 
 #define TEXT_START -1
 #define TEXT_END -1
@@ -51,8 +44,10 @@ Boston, MA 02111-1307, USA.  */
 #define TIME_ONESHOT 0
 #define TIME_PERIODIC 1
 #define LOCALE_USE_CP_ACP 0x40000000
-#define SHGFI_EXETYPE 0x2000
 #define NSIG 23
+
+/* this is necessary to get the TCS_* definitions in <commctrl.h> */
+#define _WIN32_IE 0x0400
 
 /* translate NT world unexec stuff to our a.out definitions */
 
@@ -61,42 +56,20 @@ Boston, MA 02111-1307, USA.  */
 #define HAVE_SOCKETS
 /* #endif */
 #define OBJECTS_SYSTEM	ntplay.o nt.o ntheap.o ntproc.o dired-msw.o
-#define HAVE_NATIVE_SOUND
 
 #undef MAIL_USE_SYSTEM_LOCK
-#define MAIL_USE_POP
 #define HAVE_MSW_C_DIRED
 
-/* Define NO_ARG_ARRAY if you cannot take the address of the first of a
- * group of arguments and treat it as an array of the arguments.  */
-
-#define NO_ARG_ARRAY
-
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-#define WORD_MACHINE
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend
-   the 24-bit bit field into an int.  In other words, if bit fields
-   are always unsigned.
-
-   If you use NO_UNION_TYPE, this flag does not matter.  */
-
-#define EXPLICIT_SIGN_EXTEND
 /* System calls that are encapsulated */
 #define ENCAPSULATE_RENAME
 #define ENCAPSULATE_OPEN
 #define ENCAPSULATE_FOPEN
 #define ENCAPSULATE_MKDIR
+#define ENCAPSULATE_STAT
+#define ENCAPSULATE_FSTAT
 
-/* Data type of load average, as read out of kmem.  */
-
-#define LOAD_AVE_TYPE long
-
-/* Convert that into an integer that is 100 for a load average of 1.0  */
-
-#define LOAD_AVE_CVT(x) (int) (((double) (x)) * 100.0 / FSCALE)
+/* Do not define LOAD_AVE_TYPE or LOAD_AVE_CVT
+   since there is no load average available. */
 
 /* Define VIRT_ADDR_VARIES if the virtual addresses of
    pure and impure space as loaded can vary, and even their
@@ -107,10 +80,6 @@ Boston, MA 02111-1307, USA.  */
 
 /* Text does precede data space, but this is never a safe assumption.  */
 #define VIRT_ADDR_VARIES
-
-/* set this if you have a new version of cygwin
-#define DATA_SEG_BITS 0x10000000
-*/
 
 /* If you are compiling with a non-C calling convention but need to
    declare vararg routines differently, put it here */
@@ -149,7 +118,7 @@ Boston, MA 02111-1307, USA.  */
 /* Define this to be the separator between devices and paths */
 #define DEVICE_SEP ':'
 
-#define DIRECTORY_SEP '\\'
+#define DIRECTORY_SEP ((char)XCHAR(Vdirectory_sep_char))
 
 /* The null device on Windows NT. */
 #define NULL_DEVICE     "NUL:"
@@ -164,19 +133,10 @@ Boston, MA 02111-1307, USA.  */
 
 #ifndef NOT_C_CODE
 #include <stdlib.h>
-#include <mingw32/process.h>
+#include <../mingw/process.h>
 #define mkdir __mkdir
 #include <dir.h>
 #undef mkdir
-#ifdef HAVE_CYGWIN_VERSION_H
-#include <cygwin/version.h>
-#endif
-
-typedef unsigned int MMRESULT;
-typedef struct timecaps_tag {		
-  unsigned int    wPeriodMin;
-  unsigned int    wPeriodMax;
-} TIMECAPS;
 
 /* IO calls that are emulated or shadowed */
 #define pipe    sys_pipe
@@ -189,8 +149,8 @@ void sleep (int seconds);
 
 /* subprocess calls that are emulated */
 #define spawnve sys_spawnve
-int spawnve (int mode, CONST char *cmdname, 
-	     CONST char * CONST *argv, CONST char *CONST *envp);
+int spawnve (int mode, const char *cmdname, 
+	     const char * const *argv, const char *const *envp);
 
 #define wait    sys_wait
 int wait (int *status);
@@ -205,7 +165,7 @@ int kill (int pid, int sig);
 /* Encapsulation of system calls */
 #ifndef DONT_ENCAPSULATE
 #define getpid sys_getpid
-int getpid (void);
+pid_t getpid (void);
 #endif
 
 #define DONT_USE_LITOUT
@@ -222,31 +182,40 @@ char *getwd (char *dir);
 void *sbrk (unsigned long increment);
 
 struct passwd;
-struct passwd *getpwuid (int uid);
+struct passwd *getpwuid (uid_t uid);
 struct passwd *getpwnam (const char *name);
-int getuid ();
-int geteuid ();
-int getgid (void);
-int getegid ();
-#define _timeb timeb
+uid_t getuid (void);
+uid_t geteuid (void);
+gid_t getgid (void);
+gid_t getegid (void);
 
 /* Stuff that gets set wrongly or otherwise */
 #define HAVE_SETITIMER
 #define HAVE_GETTIMEOFDAY
 #define HAVE_SELECT
-/*#define HAVE_STRUCT_UTIMBUF*/
+/* systime.h includes winsock.h which defines timeval */
+#define HAVE_TIMEVAL
+#define HAVE_GETPAGESIZE
+#define getpagesize() 4096
+#ifndef HAVE_H_ERRNO
+#define HAVE_H_ERRNO
+#endif
+#ifndef HAVE_TZNAME
+#define HAVE_TZNAME
+#endif
 
 #undef GETTIMEOFDAY_ONE_ARGUMENT
 #undef HAVE_SYS_WAIT_H
 #undef HAVE_TERMIOS
 #undef SYSV_SYSTEM_DIR
+#undef CLASH_DETECTION
 
 /* We now have emulation for some signals */
 #define HAVE_SIGHOLD
-#define sigset(s,h) msw_sigset(s,h)
-#define sighold(s) msw_sighold(s)
-#define sigrelse(s) msw_sigrelse(s)
-#define sigpause(s) msw_sigpause(s)
+#define sigset(s,h) mswindows_sigset(s,h)
+#define sighold(s) mswindows_sighold(s)
+#define sigrelse(s) mswindows_sigrelse(s)
+#define sigpause(s) mswindows_sigpause(s)
 #define signal sigset
 
 /* Defines that we need that aren't in the standard signal.h  */
@@ -259,11 +228,7 @@ int getegid ();
 #ifndef MAXPATHLEN
 #define MAXPATHLEN      _MAX_PATH
 #endif
-
-/* For integration with MSDOS support.  */
-#define getdisk()               (_getdrive () - 1)
-#define getdefdir(_drv, _buf)   _getdcwd (_drv, _buf, MAXPATHLEN)
-#endif
+#endif /* !NOT_C_CODE */
 
 /* Define for those source files that do not include enough NT 
    system files.  */
@@ -278,5 +243,7 @@ int getegid ();
 /* Define process implementation */
 #define HAVE_WIN32_PROCESSES
 
-/* ============================================================ */
-
+#define CORRECT_DIR_SEPS(s) \
+  do { if ('/' == DIRECTORY_SEP) dostounix_filename (s); \
+       else unixtodos_filename (s); \
+  } while (0)

@@ -1,3 +1,233 @@
+2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.11 "Native Windows TTY Support" is released.
+
+2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.10 "Military Intelligence" is released.
+
+2002-08-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.9 "Informed Management" is released.
+
+2002-05-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.8 "Honest Recruiter" is released.
+
+2002-02-04  Andy Piper  <andy@xemacs.org>
+
+	* install.cc (install_one): Munge installed filename to fit inside
+	dialog.
+
+2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.7 "Economic Science" is released.
+
+2001-12-17  Andy Piper  <andy@xemacs.org>
+
+	* desktop.cc (do_desktop_setup): register the whole gamut of C++
+	file types.
+
+2001-12-12  Andy Piper  <andy@xemacs.org>
+
+	* win32.h (CDECL): reorder to remove warnings.
+
+	* Makefile.in.in: add new dependencies.
+
+	* desktop.h: new file.
+
+	* uninstall.cc: use it.
+
+	* install.cc (uninstall_one): when uninstalling xemacs remove
+	shortcuts also.
+
+	* desktop.cc (remove_xemacs_setup): split out from
+	remove_desktop_setup.
+	(remove_desktop_setup): call it.
+
+2001-12-05  Andy Piper  <andy@xemacs.org>
+
+	* win32.h: re-order declarations for native windows from Fabrice
+	Popineau.
+
+2001-11-22  Andy Piper  <andy@xemacs.org>
+
+	* Makefile.in.in (setup-bin.ini): cope with kit revisions.
+
+	* source.cc (save_dialog): warning removal.
+	(load_dialog): ditto.
+
+	* msg.cc: remove cvs id.
+
+	* desktop.cc (find_xemacs_version): new function. Cope with kit
+	revisions.
+	(find_xemacs_exe_path): use it.
+	(find_xemacs_exe_name): ditto.
+
+2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.6 "Common Lisp" is released.
+
+2001-10-27  Andy Piper  <andy@xemacs.org>
+
+	* localdir.cc (dialog_cmd): allow download directory to be
+	created.
+	* log.cc (exit_setup): cygwin -> XEmacs
+	* net.cc (dialog_cmd):
+	 (dialog_proc):
+	 (do_net): sync with cygwin installer.
+	* res.rc:
+	* resource.h (IDS_CREATE_DIR): new.
+	* source.cc (load_dialog):
+	(save_dialog):
+	(dialog_cmd):
+	(dialog_proc):
+	(do_source): sync with cygwin installer.
+	* uninstall.cc (progress): remove log message.
+	* Makefile.in.in: generated setup-bin.ini correctly.
+	
+2001-10-25  Andy Piper  <andy@xemacs.org>
+
+	* Merge 21.5 codeline.
+	
+2001-10-25  Andy Piper  <andy@xemacs.org>
+
+	* setup.mak (OBJS): minor build fixes.
+	(distclean):
+
+2001-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.5 "Civil Service" is released.
+
+2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.4 "Artificial Intelligence" is released.
+
+2001-05-17  Andy Piper  <andy@xemacs.org>
+
+	* win32.h:
+	* win32.h (NOCOMATTRIBUTE): sync with latest cygwin version.
+
+2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.3 "Academic Rigor" is released.
+
+2001-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.2 "Developer-Friendly Unix APIs" is released.
+
+2001-04-19  Andy Piper  <andy@xemacs.org>
+
+	* Makefile.in.in (setup-bin.ini): new. Just calculate ini for the
+	binaries
+	(desktop.o): add correct dependency
+
+	* reginfo.h: Update arch to i586 and 21.4
+	* reginfo.h (XEMACS_NATIVE_ARCH_NAME): ditto
+
+2001-04-19  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.1 "Copyleft" is released.
+
+2001-04-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* reginfo.h: Fixup 21.2 -> 21.4.
+
+2001-04-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.0 "Solid Vapor" is released.
+
+2001-04-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.2.47 "Zephir" is released.
+
+2001-03-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.46 "Urania" is released.
+
+2001-03-01  Andy Piper  <andy@xemacs.org>
+
+	* desktop.cc (find_xemacs_exe_name): support 21.1 and 21.2 series.
+
+	* iniparse.c: remove.
+
+	* inilex.c: remove
+
+2001-02-23  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.45 "Thelxepeia" is released.
+
+2001-02-08  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.44 "Thalia" is released.
+
+2001-02-02  Andy Piper  <andy@xemacs.org>
+
+	* res.rc: update mirrors.lst location.
+
+2001-01-26  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.43 "Terspichore" is released.
+
+2001-01-21  Andy Piper  <andy@xemacs.org>
+
+	* Makefile.in.in (%.o): use CXX to compile
+
+	* res.rc: beautify download status and install status.
+
+	* nio-ftp.cc: use xemacs-setup user for identity.
+
+2001-01-20  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.42 "Poseidon" is released.
+
+2001-01-17  Andy Piper  <andy@xemacs.org>
+
+	* ini.h: move extern "C" to aid win32 compilation. From Fabrice
+	Popineau.
+
+2001-01-17  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.41 "Polyhymnia" is released.
+
+2001-01-12  Andy Piper  <andy@xemacs.org>
+
+	* postinstall.cc (do_postinstall): don't pick up shells if cygwin
+	isn't installed.
+
+2001-01-10  Andy Piper  <andy@xemacs.org>
+
+	* README.xemacs: deleted.
+
+	* README: updated.
+
+	* tar.cc (tar_gzctell): new function picked up from some internal
+	cygnus version of zlib.
+
+	* Makefile.in.in (LOCALCFLAGS): use -O2
+	(OBJS): reinstate autoload.
+
+2001-01-09  Andy Piper  <andy@xemacs.org>
+
+	* root.cc (dialog_cmd): backslash root dir.
+
+	* desktop.cc (do_desktop): runemacs.exe is the exe to run.
+
+	* package-net.el (package-net-batch-convert-index-to-ini): new
+	batch command.
+
+	* Makefile.in.in (setup.ini): new target. Automatically create.
+	(LOCALCFLAGS): use extra_includes.
+	(setup.ini): new target.
+	
+	* regedit.cc (create_xemacs_root): write out the package path.
+
+	* reginfo.h (XEMACS_NATIVE_ARCH_NAME): arch dir is i386 not i586
+
+2001-01-08  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.40 is released.
+
 2000-12-31  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.39 is released.
@@ -124,5 +354,6 @@
 
 	* all: port from cygwin setup.
 
-%%% $Id: ChangeLog,v 1.1.2.4 2000/12/30 10:01:41 andyp Exp $
-$Revision: 1.1.2.4 $
+%%% $Id: ChangeLog,v 1.2.2.19 2002/12/12 06:21:23 stephent Exp $
+$Revision: 1.2.2.19 $
+

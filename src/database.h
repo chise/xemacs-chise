@@ -18,12 +18,20 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-/* This file is only necessary to get INLINE handling correct.
+/* This file is only necessary to get inline handling correct.
    See inline.c  */
 
-#ifndef _XEMACS_DATABASE_H
-#define _XEMACS_DATABASE_H
+#ifndef INCLUDED_database_h_
+#define INCLUDED_database_h_
 
-DECLARE_LRECORD (database, struct Lisp_Database);
+typedef struct Lisp_Database Lisp_Database;
+DECLARE_LRECORD (database, Lisp_Database);
 
-#endif
+EXFUN (Fopen_database, 5);
+EXFUN (Fput_database, 4);
+EXFUN (Fget_database, 3);
+EXFUN (Fclose_database, 1);
+EXFUN (Fdatabase_live_p, 1);
+EXFUN (Fmap_database, 2);
+
+#endif /* INCLUDED_database_h_ */

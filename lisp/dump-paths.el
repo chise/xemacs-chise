@@ -28,6 +28,7 @@
 
 ;; This sets up the various paths for continuing loading files for
 ;; dumping.
+;; #### This code is duplicated in startup.el (startup-setup-paths).
 
 (let ((debug-paths (or debug-paths
 		      (and (getenv "EMACSDEBUGPATHS")
@@ -39,7 +40,12 @@
       (princ (format "XEmacs thinks the roots of its hierarchy are:\n%S\n"
 		     roots)))
 
-  (let ((stuff (packages-find-packages roots)))
+  (let* ((package-locations
+	  (packages-compute-package-locations
+	   ;; temporary kludge:
+	   ;; this should be synched with startup.el
+	   (paths-construct-path '("~" ".xemacs"))))
+	 (stuff (packages-find-packages roots package-locations)))
     (setq late-packages (car (cdr stuff))))
 
   (setq late-package-load-path (packages-find-package-load-path late-packages))
@@ -56,6 +62,26 @@
   (if debug-paths
       (princ (format "lisp-directory:\n%S\n" lisp-directory)
 	     'external-debugging-output))
+  (if (featurep 'mule)
+      (progn
+	(setq mule-lisp-directory
+	      (paths-find-mule-lisp-directory roots
+					      lisp-directory))
+	(if debug-paths
+	    (princ (format "mule-lisp-directory:\n%S\n"
+			   mule-lisp-directory)
+		   'external-debugging-output)))
+    (setq mule-lisp-directory '()))
+  (if (featurep 'utf-2000)
+      (progn
+	(setq utf-2000-lisp-directory
+	      (paths-find-utf-2000-lisp-directory roots
+						  lisp-directory))
+	(if debug-paths
+	    (princ (format "utf-2000-lisp-directory:\n%S\n"
+			   utf-2000-lisp-directory)
+		   'external-debugging-output)))
+    (setq utf-2000-lisp-directory '()))
   (setq site-directory (and (null inhibit-site-lisp)
 			    (paths-find-site-lisp-directory roots)))
   (if (and debug-paths (null inhibit-site-lisp))
@@ -67,7 +93,9 @@
 					     late-package-load-path
 					     '()
 					     lisp-directory
-					     site-directory))
+					     site-directory
+					     mule-lisp-directory
+					     utf-2000-lisp-directory))
 
   (setq module-directory (paths-find-module-directory roots))
   (if debug-paths

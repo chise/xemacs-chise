@@ -36,7 +36,6 @@ Boston, MA 02111-1307, USA.  */
 #include "faces.h"
 #include "frame.h"
 #include "glyphs.h"
-#include "hash.h"
 #include "objects.h"
 #include "specifier.h"
 #include "window.h"
@@ -56,11 +55,10 @@ Lisp_Object Qinit_global_faces;
    calling Ffind_face. */
 Lisp_Object Vdefault_face, Vmodeline_face, Vgui_element_face;
 Lisp_Object Vleft_margin_face, Vright_margin_face, Vtext_cursor_face;
-Lisp_Object Vpointer_face, Vvertical_divider_face, Vtoolbar_face;
+Lisp_Object Vpointer_face, Vvertical_divider_face, Vtoolbar_face, Vwidget_face;
 
-/* Qdefault, Qhighlight defined in general.c */
-Lisp_Object Qmodeline, Qgui_element, Qleft_margin, Qright_margin, Qtext_cursor;
-Lisp_Object Qvertical_divider;
+/* Qdefault, Qhighlight, Qleft_margin, Qright_margin defined in general.c */
+Lisp_Object Qmodeline, Qgui_element, Qtext_cursor, Qvertical_divider;
 
 /* In the old implementation Vface_list was a list of the face names,
    not the faces themselves.  We now distinguish between permanent and
@@ -74,26 +72,26 @@ Lisp_Object Vbuilt_in_face_specifiers;
 
 
 static Lisp_Object
-mark_face (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_face (Lisp_Object obj)
 {
-  struct Lisp_Face *face =  XFACE (obj);
+  Lisp_Face *face =  XFACE (obj);
 
-  ((markobj) (face->name));
-  ((markobj) (face->doc_string));
+  mark_object (face->name);
+  mark_object (face->doc_string);
 
-  ((markobj) (face->foreground));
-  ((markobj) (face->background));
-  ((markobj) (face->font));
-  ((markobj) (face->display_table));
-  ((markobj) (face->background_pixmap));
-  ((markobj) (face->underline));
-  ((markobj) (face->strikethru));
-  ((markobj) (face->highlight));
-  ((markobj) (face->dim));
-  ((markobj) (face->blinking));
-  ((markobj) (face->reverse));
+  mark_object (face->foreground);
+  mark_object (face->background);
+  mark_object (face->font);
+  mark_object (face->display_table);
+  mark_object (face->background_pixmap);
+  mark_object (face->underline);
+  mark_object (face->strikethru);
+  mark_object (face->highlight);
+  mark_object (face->dim);
+  mark_object (face->blinking);
+  mark_object (face->reverse);
 
-  ((markobj) (face->charsets_warned_about));
+  mark_object (face->charsets_warned_about);
 
   return face->plist;
 }
@@ -101,7 +99,7 @@ mark_face (Lisp_Object obj, void (*markobj) (Lisp_Object))
 static void
 print_face (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  struct Lisp_Face *face = XFACE (obj);
+  Lisp_Face *face = XFACE (obj);
 
   if (print_readably)
     {
@@ -129,10 +127,10 @@ print_face (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
    This isn't concerned with "unspecified" attributes, that's what
    #'face-differs-from-default-p is for. */
 static int
-face_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+face_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Face *f1 = XFACE (o1);
-  struct Lisp_Face *f2 = XFACE (o2);
+  Lisp_Face *f1 = XFACE (obj1);
+  Lisp_Face *f2 = XFACE (obj2);
 
   depth++;
 
@@ -155,7 +153,7 @@ face_equal (Lisp_Object o1, Lisp_Object o2, int depth)
 static unsigned long
 face_hash (Lisp_Object obj, int depth)
 {
-  struct Lisp_Face *f = XFACE (obj);
+  Lisp_Face *f = XFACE (obj);
 
   depth++;
 
@@ -169,28 +167,28 @@ face_hash (Lisp_Object obj, int depth)
 static Lisp_Object
 face_getprop (Lisp_Object obj, Lisp_Object prop)
 {
-  struct Lisp_Face *f = XFACE (obj);
+  Lisp_Face *f = XFACE (obj);
 
   return
-    ((EQ (prop, Qforeground))	     ? f->foreground	    :
-     (EQ (prop, Qbackground))	     ? f->background	    :
-     (EQ (prop, Qfont))		     ? f->font		    :
-     (EQ (prop, Qdisplay_table))     ? f->display_table	    :
-     (EQ (prop, Qbackground_pixmap)) ? f->background_pixmap :
-     (EQ (prop, Qunderline))	     ? f->underline	    :
-     (EQ (prop, Qstrikethru))	     ? f->strikethru	    :
-     (EQ (prop, Qhighlight))	     ? f->highlight	    :
-     (EQ (prop, Qdim))		     ? f->dim		    :
-     (EQ (prop, Qblinking))	     ? f->blinking	    :
-     (EQ (prop, Qreverse))	     ? f->reverse	    :
-     (EQ (prop, Qdoc_string))	     ? f->doc_string	    :
+    (EQ (prop, Qforeground)	   ? f->foreground	  :
+     EQ (prop, Qbackground)	   ? f->background	  :
+     EQ (prop, Qfont)		   ? f->font		  :
+     EQ (prop, Qdisplay_table)	   ? f->display_table	  :
+     EQ (prop, Qbackground_pixmap) ? f->background_pixmap :
+     EQ (prop, Qunderline)	   ? f->underline	  :
+     EQ (prop, Qstrikethru)	   ? f->strikethru	  :
+     EQ (prop, Qhighlight)	   ? f->highlight	  :
+     EQ (prop, Qdim)		   ? f->dim		  :
+     EQ (prop, Qblinking)	   ? f->blinking	  :
+     EQ (prop, Qreverse)	   ? f->reverse		  :
+     EQ (prop, Qdoc_string)	   ? f->doc_string	  :
      external_plist_get (&f->plist, prop, 0, ERROR_ME));
 }
 
 static int
 face_putprop (Lisp_Object obj, Lisp_Object prop, Lisp_Object value)
 {
-  struct Lisp_Face *f = XFACE (obj);
+  Lisp_Face *f = XFACE (obj);
 
   if (EQ (prop, Qforeground)        ||
       EQ (prop, Qbackground)        ||
@@ -220,7 +218,7 @@ face_putprop (Lisp_Object obj, Lisp_Object prop, Lisp_Object value)
 static int
 face_remprop (Lisp_Object obj, Lisp_Object prop)
 {
-  struct Lisp_Face *f = XFACE (obj);
+  Lisp_Face *f = XFACE (obj);
 
   if (EQ (prop, Qforeground)        ||
       EQ (prop, Qbackground)        ||
@@ -247,7 +245,7 @@ face_remprop (Lisp_Object obj, Lisp_Object prop)
 static Lisp_Object
 face_plist (Lisp_Object obj)
 {
-  struct Lisp_Face *face = XFACE (obj);
+  Lisp_Face *face = XFACE (obj);
   Lisp_Object result = face->plist;
 
   result = cons3 (Qreverse,	      face->reverse,	       result);
@@ -265,11 +263,30 @@ face_plist (Lisp_Object obj)
   return result;
 }
 
+static const struct lrecord_description face_description[] = {
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, name) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, doc_string) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, foreground) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, background) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, font) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, display_table) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, background_pixmap) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, underline) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, strikethru) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, highlight) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, dim) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, blinking) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, reverse) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, plist) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Face, charsets_warned_about) },
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS ("face", face,
 					  mark_face, print_face, 0, face_equal,
-					  face_hash, face_getprop,
+					  face_hash, face_description, face_getprop,
 					  face_putprop, face_remprop,
-					  face_plist, struct Lisp_Face);
+					  face_plist, Lisp_Face);
 
 /************************************************************************/
 /*                             face read syntax                         */
@@ -335,7 +352,7 @@ face_instantiate (Lisp_Object data)
  ****************************************************************************/
 
 static void
-reset_face (struct Lisp_Face *f)
+reset_face (Lisp_Face *f)
 {
   f->name = Qnil;
   f->doc_string = Qnil;
@@ -355,11 +372,10 @@ reset_face (struct Lisp_Face *f)
   f->charsets_warned_about = Qnil;
 }
 
-static struct Lisp_Face *
+static Lisp_Face *
 allocate_face (void)
 {
-  struct Lisp_Face *result =
-    alloc_lcrecord_type (struct Lisp_Face, lrecord_face);
+  Lisp_Face *result = alloc_lcrecord_type (Lisp_Face, &lrecord_face);
 
   reset_face (result);
   return result;
@@ -375,19 +391,14 @@ struct face_list_closure
 };
 
 static int
-add_face_to_list_mapper (CONST void *hash_key, void *hash_contents,
+add_face_to_list_mapper (Lisp_Object key, Lisp_Object value,
 			 void *face_list_closure)
 {
   /* This function can GC */
-  Lisp_Object key, contents;
-  Lisp_Object *face_list;
   struct face_list_closure *fcl =
     (struct face_list_closure *) face_list_closure;
-  CVOID_TO_LISP (key, hash_key);
-  VOID_TO_LISP (contents, hash_contents);
-  face_list = fcl->face_list;
 
-  *face_list = Fcons (XFACE (contents)->name, *face_list);
+  *(fcl->face_list) = Fcons (XFACE (value)->name, (*fcl->face_list));
   return 0;
 }
 
@@ -420,15 +431,12 @@ temporary_faces_list (void)
 
 
 static int
-mark_face_as_clean_mapper (CONST void *hash_key, void *hash_contents,
+mark_face_as_clean_mapper (Lisp_Object key, Lisp_Object value,
 			   void *flag_closure)
 {
   /* This function can GC */
-  Lisp_Object key, contents;
   int *flag = (int *) flag_closure;
-  CVOID_TO_LISP (key, hash_key);
-  VOID_TO_LISP (contents, hash_contents);
-  XFACE (contents)->dirty = *flag;
+  XFACE (value)->dirty = *flag;
   return 0;
 }
 
@@ -488,7 +496,7 @@ update_inheritance_mapper_internal (Lisp_Object cur_face,
 }
 
 static int
-update_face_inheritance_mapper (CONST void *hash_key, void *hash_contents,
+update_face_inheritance_mapper (const void *hash_key, void *hash_contents,
 				void *face_inheritance_closure)
 {
   Lisp_Object key, contents;
@@ -588,7 +596,7 @@ face_property_matching_instance (Lisp_Object face, Lisp_Object property,
 
 
 DEFUN ("facep", Ffacep, 1, 1, 0, /*
-Return non-nil if OBJECT is a face.
+Return t if OBJECT is a face.
 */
        (object))
 {
@@ -754,15 +762,15 @@ other non-nil value both permanent and temporary are included.
 }
 
 DEFUN ("make-face", Fmake_face, 1, 3, 0, /*
-Define and return a new FACE described by DOC-STRING.
-You can modify the font, color, etc of a face with the set-face-* functions.
+Define a new face with name NAME (a symbol), described by DOC-STRING.
+You can modify the font, color, etc. of a face with the set-face-* functions.
 If the face already exists, it is unmodified.
 If TEMPORARY is non-nil, this face will cease to exist if not in use.
 */
        (name, doc_string, temporary))
 {
   /* This function can GC if initialized is non-zero */
-  struct Lisp_Face *f;
+  Lisp_Face *f;
   Lisp_Object face;
 
   CHECK_SYMBOL (name);
@@ -990,8 +998,7 @@ Here's an approach that should keep things clean and unconfused:
 /* mark for GC a dynarr of face cachels. */
 
 void
-mark_face_cachels (face_cachel_dynarr *elements,
-		   void (*markobj) (Lisp_Object))
+mark_face_cachels (face_cachel_dynarr *elements)
 {
   int elt;
 
@@ -1007,13 +1014,13 @@ mark_face_cachels (face_cachel_dynarr *elements,
 
 	for (i = 0; i < NUM_LEADING_BYTES; i++)
 	  if (!NILP (cachel->font[i]) && !UNBOUNDP (cachel->font[i]))
-	    ((markobj) (cachel->font[i]));
+	    mark_object (cachel->font[i]);
       }
-      ((markobj) (cachel->face));
-      ((markobj) (cachel->foreground));
-      ((markobj) (cachel->background));
-      ((markobj) (cachel->display_table));
-      ((markobj) (cachel->background_pixmap));
+      mark_object (cachel->face);
+      mark_object (cachel->foreground);
+      mark_object (cachel->background);
+      mark_object (cachel->display_table);
+      mark_object (cachel->background_pixmap);
     }
 }
 
@@ -1100,7 +1107,7 @@ ensure_face_cachel_contains_charset (struct face_cachel *cachel,
 
 void
 ensure_face_cachel_complete (struct face_cachel *cachel,
-			     Lisp_Object domain, unsigned char *charsets)
+			     Lisp_Object domain, Charset_ID *charsets)
 {
   int i;
 
@@ -1115,7 +1122,7 @@ ensure_face_cachel_complete (struct face_cachel *cachel,
 
 void
 face_cachel_charset_font_metric_info (struct face_cachel *cachel,
-				      unsigned char *charsets,
+				      Charset_ID *charsets,
 				      struct font_metric_info *fm)
 {
   int i;
@@ -1131,7 +1138,7 @@ face_cachel_charset_font_metric_info (struct face_cachel *cachel,
 	{
 	  Lisp_Object charset = CHARSET_BY_LEADING_BYTE (i + MIN_LEADING_BYTE);
 	  Lisp_Object font_instance = FACE_CACHEL_FONT (cachel, charset);
-	  struct Lisp_Font_Instance *fi = XFONT_INSTANCE (font_instance);
+	  Lisp_Font_Instance *fi = XFONT_INSTANCE (font_instance);
 
 	  assert (CHARSETP (charset));
 	  assert (FONT_INSTANCEP (font_instance));
@@ -1146,22 +1153,6 @@ face_cachel_charset_font_metric_info (struct face_cachel *cachel,
 	}
     }
 }
-
-/* Called when the updated flag has been cleared on a cachel. */
-
-void
-update_face_cachel_data (struct face_cachel *cachel,
-			 Lisp_Object domain,
-			 Lisp_Object face)
-{
-  if (XFACE (face)->dirty || UNBOUNDP (cachel->face))
-    {
-      int default_face = EQ (face, Vdefault_face);
-      cachel->face = face;
-
-      /* We normally only set the _specified flags if the value was
-         actually bound.  The exception is for the default face where
-         we always set it since it is the ultimate fallback. */
 
 #define FROB(field)							     \
   do {									     \
@@ -1181,31 +1172,125 @@ update_face_cachel_data (struct face_cachel *cachel,
     cachel->field##_specified = (bound || default_face);		     \
   } while (0)
 
+/*
+ * A face's background pixmap will override the face's
+ * background color.  But the background pixmap of the
+ * default face should not override the background color of
+ * a face if the background color has been specified or
+ * inherited.
+ *
+ * To accomplish this we remove the background pixmap of the
+ * cachel and mark it as having been specified so that cachel
+ * merging won't override it later.
+ */
+#define MAYBE_UNFROB_BACKGROUND_PIXMAP          \
+do                                              \
+{                                               \
+  if (! default_face                            \
+      && cachel->background_specified           \
+      && ! cachel->background_pixmap_specified) \
+    {                                           \
+      cachel->background_pixmap = Qunbound;     \
+      cachel->background_pixmap_specified = 1;  \
+    }                                           \
+} while (0)
+
+
+/* Add a cachel for the given face to the given window's cache. */
+
+static void
+add_face_cachel (struct window *w, Lisp_Object face)
+{
+  int must_finish_frobbing = ! WINDOW_FACE_CACHEL (w, DEFAULT_INDEX);
+  struct face_cachel new_cachel;
+  Lisp_Object domain;
+
+  reset_face_cachel (&new_cachel);
+  XSETWINDOW (domain, w);
+  update_face_cachel_data (&new_cachel, domain, face);
+  Dynarr_add (w->face_cachels, new_cachel);
+
+  /* The face's background pixmap have not yet been frobbed (see comment
+     int update_face_cachel_data), so we have to do it now */
+  if (must_finish_frobbing)
+    {
+      int default_face = EQ (face, Vdefault_face);
+      struct face_cachel *cachel
+	= Dynarr_atp (w->face_cachels, Dynarr_length (w->face_cachels) - 1);
+
+      FROB (background_pixmap);
+      MAYBE_UNFROB_BACKGROUND_PIXMAP;
+    }
+}
+
+/* Called when the updated flag has been cleared on a cachel.
+   This function returns 1 if the caller must finish the update (see comment
+   below), 0 otherwise.
+*/
+
+void
+update_face_cachel_data (struct face_cachel *cachel,
+			 Lisp_Object domain,
+			 Lisp_Object face)
+{
+  if (XFACE (face)->dirty || UNBOUNDP (cachel->face))
+    {
+      int default_face = EQ (face, Vdefault_face);
+      cachel->face = face;
+
+      /* We normally only set the _specified flags if the value was
+         actually bound.  The exception is for the default face where
+         we always set it since it is the ultimate fallback. */
+
       FROB (foreground);
       FROB (background);
       FROB (display_table);
-      FROB (background_pixmap);
 
-      /*
-       * A face's background pixmap will override the face's
-       * background color.  But the background pixmap of the
-       * default face should not override the background color of
-       * a face if the background color has been specified or
-       * inherited.
-       *
-       * To accomplish this we remove the background pixmap of the
-       * cachel and mark it as having been specified so that cachel
-       * merging won't override it later.
-       */
-      if (! default_face
-	  && cachel->background_specified
-	  && ! cachel->background_pixmap_specified)
+      /* #### WARNING: the background pixmap property of faces is currently
+	 the only one dealing with images. The problem we have here is that
+	 frobbing the background pixmap might lead to image instantiation
+	 which in turn might require that the cache we're building be up to
+	 date, hence a crash. Here's a typical scenario of this:
+
+	 - a new window is created and it's face cache elements are
+	 initialized through a call to reset_face_cachels[1]. At that point,
+	 the cache for the default and modeline faces (normaly taken care of
+	 by redisplay itself) are null.
+	 - the default face has a background pixmap which needs to be
+	 instantiated right here, as a consequence of cache initialization.
+	 - the background pixmap image happens to be instantiated as a string
+	 (this happens on tty's for instance).
+	 - In order to do this, we need to compute the string geometry.
+	 - In order to do this, we might have to access the window's default
+	 face cache. But this is the cache we're building right now, it is
+	 null.
+	 - BARF !!!!!
+
+	 To sum up, this means that it is in general unsafe to instantiate
+	 images before face cache updating is complete (appart from image
+	 related face attributes). The solution we use below is to actually
+	 detect whether we're building the window's face_cachels for the first
+	 time, and simply NOT frob the background pixmap in that case. If
+	 other image-related face attributes are ever implemented, they should
+	 be protected the same way right here.
+
+	 One note:
+	 * See comment in `default_face_font_info' in face.c. Who wrote it ?
+	 Maybe we have the begining of an answer here ?
+
+	 Footnotes:
+	 [1] See comment at the top of `allocate_window' in window.c.
+
+	 -- didier
+      */
+      if (! WINDOWP (domain)
+	  || WINDOW_FACE_CACHEL (DOMAIN_XWINDOW (domain), DEFAULT_INDEX))
 	{
-	  cachel->background_pixmap = Qunbound;
-	  cachel->background_pixmap_specified = 1;
+	  FROB (background_pixmap);
+	  MAYBE_UNFROB_BACKGROUND_PIXMAP;
 	}
-
 #undef FROB
+#undef MAYBE_UNFROB_BACKGROUND_PIXMAP
 
       ensure_face_cachel_contains_charset (cachel, domain, Vcharset_ascii);
 
@@ -1308,20 +1393,6 @@ reset_face_cachel (struct face_cachel *cachel)
   }
   cachel->display_table = Qunbound;
   cachel->background_pixmap = Qunbound;
-}
-
-/* Add a cachel for the given face to the given window's cache. */
-
-static void
-add_face_cachel (struct window *w, Lisp_Object face)
-{
-  struct face_cachel new_cachel;
-  Lisp_Object window;
-
-  reset_face_cachel (&new_cachel);
-  XSETWINDOW (window, w);
-  update_face_cachel_data (&new_cachel, window, face);
-  Dynarr_add (w->face_cachels, new_cachel);
 }
 
 /* Retrieve the index to a cachel for window W that corresponds to
@@ -1568,7 +1639,16 @@ get_extent_fragment_face_cache_index (struct window *w,
       findex = get_builtin_face_cache_index (w, Vdefault_face);
       merge_face_cachel_data (w, findex, &cachel);
 
-      return get_merged_face_cache_index (w, &cachel);
+      findex = get_merged_face_cache_index (w, &cachel);
+      if (cachel.merged_faces &&
+	  /* merged_faces did not get stored and available via return value */
+	  Dynarr_at (w->face_cachels, findex).merged_faces !=
+	  cachel.merged_faces)
+	{
+	  Dynarr_free (cachel.merged_faces);
+	  cachel.merged_faces = 0;
+	}
+      return findex;
     }
 }
 
@@ -1638,23 +1718,19 @@ face_property_was_changed (Lisp_Object face, Lisp_Object property,
 
   if (WINDOWP (locale))
     {
-      struct frame *f = XFRAME (XWINDOW (locale)->frame);
-      MARK_FRAME_FACES_CHANGED (f);
+      MARK_FRAME_FACES_CHANGED (XFRAME (XWINDOW (locale)->frame));
     }
   else if (FRAMEP (locale))
     {
-      struct frame *f = XFRAME (locale);
-      MARK_FRAME_FACES_CHANGED (f);
+      MARK_FRAME_FACES_CHANGED (XFRAME (locale));
     }
   else if (DEVICEP (locale))
     {
-      struct device *d = XDEVICE (locale);
-      MARK_DEVICE_FRAMES_FACES_CHANGED (d);
+      MARK_DEVICE_FRAMES_FACES_CHANGED (XDEVICE (locale));
     }
   else
     {
       Lisp_Object devcons, concons;
-
       DEVICE_LOOP_NO_BREAK (devcons, concons)
 	MARK_DEVICE_FRAMES_FACES_CHANGED (XDEVICE (XCAR (devcons)));
     }
@@ -1687,7 +1763,7 @@ LOCALE, TAG-SET, EXACT-P, and HOW-TO-ADD are as in `copy-specifier'.
 */
        (old_face, new_name, locale, tag_set, exact_p, how_to_add))
 {
-  struct Lisp_Face *fold, *fnew;
+  Lisp_Face *fold, *fnew;
   Lisp_Object new_face = Qnil;
   struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
 
@@ -1749,11 +1825,11 @@ LOCALE, TAG-SET, EXACT-P, and HOW-TO-ADD are as in `copy-specifier'.
 void
 syms_of_faces (void)
 {
-  /* Qdefault defined in general.c */
+  INIT_LRECORD_IMPLEMENTATION (face);
+
+  /* Qdefault, Qwidget, Qleft_margin, Qright_margin defined in general.c */
   defsymbol (&Qmodeline, "modeline");
   defsymbol (&Qgui_element, "gui-element");
-  defsymbol (&Qleft_margin, "left-margin");
-  defsymbol (&Qright_margin, "right-margin");
   defsymbol (&Qtext_cursor, "text-cursor");
   defsymbol (&Qvertical_divider, "vertical-divider");
 
@@ -1806,6 +1882,8 @@ vars_of_faces (void)
   Vdefault_face = Qnil;
   staticpro (&Vgui_element_face);
   Vgui_element_face = Qnil;
+  staticpro (&Vwidget_face);
+  Vwidget_face = Qnil;
   staticpro (&Vmodeline_face);
   Vmodeline_face = Qnil;
   staticpro (&Vtoolbar_face);
@@ -1838,7 +1916,7 @@ vars_of_faces (void)
     syms[n++] = Qblinking;
     syms[n++] = Qreverse;
 
-    Vbuilt_in_face_specifiers = pure_list (n, syms);
+    Vbuilt_in_face_specifiers = Flist (n, syms);
     staticpro (&Vbuilt_in_face_specifiers);
   }
 }
@@ -1846,10 +1924,10 @@ vars_of_faces (void)
 void
 complex_vars_of_faces (void)
 {
-  Vpermanent_faces_cache = make_lisp_hashtable (10, HASHTABLE_NONWEAK,
-						HASHTABLE_EQ);
-  Vtemporary_faces_cache = make_lisp_hashtable (0, HASHTABLE_WEAK,
-						HASHTABLE_EQ);
+  Vpermanent_faces_cache =
+    make_lisp_hash_table (10, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
+  Vtemporary_faces_cache =
+    make_lisp_hash_table (0, HASH_TABLE_WEAK, HASH_TABLE_EQ);
 
   /* Create the default face now so we know what it is immediately. */
 
@@ -1864,6 +1942,10 @@ complex_vars_of_faces (void)
   {
     Lisp_Object fg_fb = Qnil, bg_fb = Qnil;
 
+#ifdef HAVE_GTK
+    fg_fb = acons (list1 (Qgtk), build_string ("black"), fg_fb);
+    bg_fb = acons (list1 (Qgtk), build_string ("white"), bg_fb);
+#endif
 #ifdef HAVE_X_WINDOWS
     fg_fb = acons (list1 (Qx), build_string ("black"), fg_fb);
     bg_fb = acons (list1 (Qx), build_string ("white"), bg_fb);
@@ -1873,6 +1955,8 @@ complex_vars_of_faces (void)
     bg_fb = acons (list1 (Qtty), Fvector (0, 0), bg_fb);
 #endif
 #ifdef HAVE_MS_WINDOWS
+    fg_fb = acons (list1 (Qmsprinter), build_string ("black"), fg_fb);
+    bg_fb = acons (list1 (Qmsprinter), build_string ("white"), bg_fb);
     fg_fb = acons (list1 (Qmswindows), build_string ("black"), fg_fb);
     bg_fb = acons (list1 (Qmswindows), build_string ("white"), bg_fb);
 #endif
@@ -1884,12 +1968,20 @@ complex_vars_of_faces (void)
      support is compiled in. */
   {
     Lisp_Object inst_list = Qnil;
-#ifdef HAVE_X_WINDOWS
+
+#if defined(HAVE_X_WINDOWS) || defined(HAVE_GTK)
+    /* This is kind of ugly because stephen wanted this to be CPP
+    ** identical to the old version, at least for the initial
+    ** checkin
+    **
+    ** WMP March 9, 2001
+    */
+    
     /* The same gory list from x-faces.el.
        (#### Perhaps we should remove the stuff from x-faces.el
        and only depend on this stuff here?  That should work.)
      */
-    CONST char *fonts[] =
+    const char *fonts[] =
     {
       "-*-courier-medium-r-*-*-*-120-*-*-*-*-iso8859-*",
       "-*-courier-medium-r-*-*-*-120-*-*-*-*-iso8859-*",
@@ -1907,20 +1999,39 @@ complex_vars_of_faces (void)
       "-*-*-*-*-*-*-*-120-*-*-*-*-*-*",
       "*"
     };
-    CONST char **fontptr;
+    const char **fontptr;
 
+#ifdef HAVE_X_WINDOWS
     for (fontptr = fonts + countof(fonts) - 1; fontptr >= fonts; fontptr--)
       inst_list = Fcons (Fcons (list1 (Qx), build_string (*fontptr)),
 			 inst_list);
 #endif /* HAVE_X_WINDOWS */
+
+#ifdef HAVE_GTK
+    for (fontptr = fonts + countof(fonts) - 1; fontptr >= fonts; fontptr--)
+      inst_list = Fcons (Fcons (list1 (Qgtk), build_string (*fontptr)),
+			 inst_list);
+#endif /* HAVE_GTK */
+#endif /* HAVE_X_WINDOWS || HAVE_GTK */
+
 
 #ifdef HAVE_TTY
     inst_list = Fcons (Fcons (list1 (Qtty), build_string ("normal")),
 		       inst_list);
 #endif /* HAVE_TTY */
 #ifdef HAVE_MS_WINDOWS
-    inst_list = Fcons (Fcons (list1 (Qmswindows), build_string ("Courier New")),
-		       inst_list);
+    /* Fixedsys does not exist for printers */
+    inst_list = Fcons (Fcons (list1 (Qmsprinter),
+			      build_string ("Courier:Regular:10::Western")), inst_list);
+    inst_list = Fcons (Fcons (list1 (Qmsprinter),
+			      build_string ("Courier New:Regular:10::Western")), inst_list);
+
+    inst_list = Fcons (Fcons (list1 (Qmswindows),
+			      build_string ("Fixedsys:Regular:9::Western")), inst_list);
+    inst_list = Fcons (Fcons (list1 (Qmswindows),
+			      build_string ("Courier:Regular:10::Western")), inst_list);
+    inst_list = Fcons (Fcons (list1 (Qmswindows),
+			      build_string ("Courier New:Regular:10::Western")), inst_list);
 #endif /* HAVE_MS_WINDOWS */
     set_specifier_fallback (Fget (Vdefault_face, Qfont, Qnil), inst_list);
   }
@@ -1937,7 +2048,7 @@ complex_vars_of_faces (void)
 			 list1 (Fcons (Qnil, Qnil)));
   set_specifier_fallback (Fget (Vdefault_face, Qreverse, Qnil),
 			 list1 (Fcons (Qnil, Qnil)));
-  
+
   /* gui-element is the parent face of all gui elements such as
      modeline, vertical divider and toolbar. */
   Vgui_element_face = Fmake_face (Qgui_element,
@@ -1949,6 +2060,13 @@ complex_vars_of_faces (void)
   {
     Lisp_Object fg_fb = Qnil, bg_fb = Qnil;
 
+#ifdef HAVE_GTK
+    /* We need to put something in there, or error checking gets
+       #%!@#ed up before the styles are set, which override the
+       fallbacks. */
+    fg_fb = acons (list1 (Qgtk), build_string ("black"), fg_fb);
+    bg_fb = acons (list1 (Qgtk), build_string ("Gray80"), bg_fb);
+#endif
 #ifdef HAVE_X_WINDOWS
     fg_fb = acons (list1 (Qx), build_string ("black"), fg_fb);
     bg_fb = acons (list1 (Qx), build_string ("Gray80"), bg_fb);
@@ -1958,6 +2076,8 @@ complex_vars_of_faces (void)
     bg_fb = acons (list1 (Qtty), Fvector (0, 0), bg_fb);
 #endif
 #ifdef HAVE_MS_WINDOWS
+    fg_fb = acons (list1 (Qmsprinter), build_string ("black"), fg_fb);
+    bg_fb = acons (list1 (Qmsprinter), build_string ("white"), bg_fb);
     fg_fb = acons (list1 (Qmswindows), build_string ("black"), fg_fb);
     bg_fb = acons (list1 (Qmswindows), build_string ("Gray75"), bg_fb);
 #endif
@@ -1980,7 +2100,7 @@ complex_vars_of_faces (void)
   set_specifier_fallback (Fget (Vmodeline_face, Qbackground_pixmap, Qnil),
 			  Fget (Vgui_element_face, Qbackground_pixmap,
 				Qunbound));
-  
+
   /* toolbar is another gui element */
   Vtoolbar_face = Fmake_face (Qtoolbar,
 			      build_string ("toolbar face"),
@@ -2006,6 +2126,18 @@ complex_vars_of_faces (void)
 				Qunbound),
 			  Fget (Vgui_element_face, Qbackground_pixmap,
 				Qunbound));
+
+  /* widget is another gui element */
+  Vwidget_face = Fmake_face (Qwidget,
+			     build_string ("widget face"),
+			     Qnil);
+  set_specifier_fallback (Fget (Vwidget_face, Qfont, Qunbound),
+			  Fget (Vgui_element_face, Qfont, Qunbound));
+  set_specifier_fallback (Fget (Vwidget_face, Qforeground, Qunbound),
+			  Fget (Vgui_element_face, Qforeground, Qunbound));
+  set_specifier_fallback (Fget (Vwidget_face, Qbackground, Qunbound),
+			  Fget (Vgui_element_face, Qbackground, Qunbound));
+  /* We don't want widgets to have a default background pixmap. */
 
   Vleft_margin_face = Fmake_face (Qleft_margin,
 				  build_string ("left margin face"),

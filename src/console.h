@@ -22,8 +22,10 @@ Boston, MA 02111-1307, USA.  */
 
 /* Written by Ben Wing. */
 
-#ifndef _XEMACS_CONSOLE_H_
-#define _XEMACS_CONSOLE_H_
+#ifndef INCLUDED_console_h_
+#define INCLUDED_console_h_
+
+#include "character.h"
 
 /* Devices and consoles are similar entities.  The idea is that
    a console represents a physical keyboard/mouse/other-input-source
@@ -37,7 +39,7 @@ Boston, MA 02111-1307, USA.  */
    always tagged to a particular X window (i.e. frame),
    which exists on only one screen; therefore the event won't be
    reported multiple times even if there are multiple devices on
-   the same physical display.  This is an implementational detail
+   the same physical display.  This is an implementation detail
    specific to X consoles (e.g. under NeXTstep or Windows, this
    could be different, and input would come directly from the console).
 */
@@ -55,20 +57,46 @@ enum device_metrics
   DM_font_menubar, DM_font_dialog, DM_size_cursor, DM_size_scrollbar,
   DM_size_menu, DM_size_toolbar, DM_size_toolbar_button,
   DM_size_toolbar_border, DM_size_icon, DM_size_icon_small, DM_size_device,
-  DM_size_workspace, DM_size_device_mm, DM_device_dpi, DM_num_bit_planes,
-  DM_num_color_cells, DM_mouse_buttons, DM_swap_buttons, DM_show_sounds,
-  DM_slow_device, DM_security
+  DM_size_workspace, DM_offset_workspace, DM_size_device_mm, DM_device_dpi,
+  DM_num_bit_planes, DM_num_color_cells, DM_mouse_buttons, DM_swap_buttons,
+  DM_show_sounds, DM_slow_device, DM_security
 };
+
+extern const struct struct_description cted_description;
+extern const struct struct_description console_methods_description;
+
+
+/*
+ * Constants returned by device_implementation_flags_method
+ */
+
+/* Set when device uses pixel-based geometry */
+#define XDEVIMPF_PIXEL_GEOMETRY		0x00000001L
+
+/* Indicates that the device is a printer */
+#define XDEVIMPF_IS_A_PRINTER		0x00000002L
+
+/* Do not automatically redisplay this device */
+#define XDEVIMPF_NO_AUTO_REDISPLAY	0x00000004L
+
+/* Do not delete the device when last frame's gone */
+#define XDEVIMPF_FRAMELESS_OK		0x00000008L
+
+/* Do not preempt resiaply of frame or device once it starts */
+#define XDEVIMPF_DONT_PREEMPT_REDISPLAY 0x00000010L
 
 struct console_methods
 {
-  CONST char *name;	/* Used by print_console, print_device, print_frame */
+  const char *name;	/* Used by print_console, print_device, print_frame */
   Lisp_Object symbol;
   Lisp_Object predicate_symbol;
+  unsigned int flags;	/* Read-only implementation flags, set once upon
+			   console type creation. INITIALIZE_CONSOLE_TYPE sets
+			   this member to 0. */
 
   /* console methods */
   void (*init_console_method) (struct console *, Lisp_Object props);
-  void (*mark_console_method) (struct console *, void (*)(Lisp_Object));
+  void (*mark_console_method) (struct console *);
   int (*initially_selected_for_input_method) (struct console *);
   void (*delete_console_method) (struct console *);
   Lisp_Object (*semi_canonicalize_console_connection_method)
@@ -86,10 +114,24 @@ struct console_methods
   void (*init_device_method) (struct device *, Lisp_Object props);
   void (*finish_init_device_method) (struct device *, Lisp_Object props);
   void (*delete_device_method) (struct device *);
-  void (*mark_device_method) (struct device *, void (*)(Lisp_Object));
+  void (*mark_device_method) (struct device *);
   void (*asynch_device_change_method) (void);
-  Lisp_Object (*device_system_metrics_method) (struct device *, enum device_metrics);
-  unsigned int (*device_implementation_flags_method) ();
+  Lisp_Object (*device_system_metrics_method) (struct device *,
+                                               enum device_metrics);
+  Lisp_Object (*own_selection_method)(Lisp_Object selection_name,
+                                      Lisp_Object selection_value,
+                                      Lisp_Object how_to_add,
+                                      Lisp_Object selection_type,
+			  int owned_p);
+  void (*disown_selection_method)(Lisp_Object selection_name,
+                                  Lisp_Object timeval);
+  Lisp_Object (*get_foreign_selection_method) (Lisp_Object selection_symbol,
+                                               Lisp_Object target_type);
+  Lisp_Object (*selection_exists_p_method)(Lisp_Object selection_name,
+                                           Lisp_Object selection_type);
+  Lisp_Object (*available_selection_types_method)(Lisp_Object selection_name);
+  Lisp_Object (*register_selection_data_type_method)(Lisp_Object type_name);
+  Lisp_Object (*selection_data_type_name_method)(Lisp_Object type);
 
   /* frame methods */
   Lisp_Object *device_specific_frame_props;
@@ -98,11 +140,13 @@ struct console_methods
   void (*init_frame_3_method) (struct frame *);
   void (*after_init_frame_method) (struct frame *, int first_on_device,
 				   int first_on_console);
-  void (*mark_frame_method) (struct frame *, void (*)(Lisp_Object));
+  void (*mark_frame_method) (struct frame *);
   void (*delete_frame_method) (struct frame *);
   void (*focus_on_frame_method) (struct frame *);
   void (*raise_frame_method) (struct frame *);
   void (*lower_frame_method) (struct frame *);
+  void (*enable_frame_method) (struct frame *);
+  void (*disable_frame_method) (struct frame *);
   int (*get_mouse_position_method) (struct device *d, Lisp_Object *frame,
 				    int *x, int *y);
   void (*set_mouse_position_method) (struct window *w, int x, int y);
@@ -127,62 +171,74 @@ struct console_methods
   Lisp_Object (*get_frame_parent_method) (struct frame *f);
   void (*update_frame_external_traits_method) (struct frame *f, Lisp_Object name);
   int (*frame_size_fixed_p_method) (struct frame *f);
+  void (*eject_page_method) (struct frame *f);
 
   /* redisplay methods */
   int (*left_margin_width_method) (struct window *);
   int (*right_margin_width_method) (struct window *);
   int (*text_width_method) (struct frame *f, struct face_cachel *cachel,
-			    CONST Emchar *str, Charcount len);
+			    const Charc *str, Charcount len);
   void (*output_display_block_method) (struct window *, struct display_line *,
 				       int, int, int, int, int, int, int);
   int (*divider_height_method) (void);
   int (*eol_cursor_width_method) (void);
   void (*output_vertical_divider_method) (struct window *, int);
   void (*clear_to_window_end_method) (struct window *, int, int);
-  void (*clear_region_method) (Lisp_Object, face_index, int, int, int, int);
+  void (*clear_region_method) (Lisp_Object, struct device*, struct frame*, face_index,
+			       int, int, int, int,
+			       Lisp_Object, Lisp_Object, Lisp_Object);
   void (*clear_frame_method) (struct frame *);
-  void (*output_begin_method) (struct device *);
-  void (*output_end_method) (struct device *);
+  void (*window_output_begin_method) (struct window *);
+  void (*frame_output_begin_method) (struct frame *);
+  void (*window_output_end_method) (struct window *);
+  void (*frame_output_end_method) (struct frame *);
   int (*flash_method) (struct device *);
   void (*ring_bell_method) (struct device *, int volume, int pitch,
 			    int duration);
   void (*frame_redraw_cursor_method) (struct frame *f);
   void (*set_final_cursor_coords_method) (struct frame *, int, int);
-
+  void (*bevel_area_method) (struct window *, face_index, int, int, int, int, int,
+			     int, enum edge_style);
+  void (*output_pixmap_method) (struct window *w, Lisp_Object image_instance,
+				struct display_box *db, struct display_glyph_area *dga,
+				face_index findex, int cursor_start, int cursor_width,
+				int cursor_height, int offset_bitmap);
+  void (*output_string_method) (struct window *w, struct display_line *dl,
+				Charc_dynarr *buf, int xpos, int xoffset,
+				int start_pixpos, int width, face_index findex,
+				int cursor, int cursor_start, int cursor_width,
+				int cursor_height);
   /* color methods */
-  int (*initialize_color_instance_method) (struct Lisp_Color_Instance *,
+  int (*initialize_color_instance_method) (Lisp_Color_Instance *,
 					   Lisp_Object name,
 					   Lisp_Object device,
 					   Error_behavior errb);
-  void (*mark_color_instance_method) (struct Lisp_Color_Instance *,
-				      void (*)(Lisp_Object));
-  void (*print_color_instance_method) (struct Lisp_Color_Instance *,
+  void (*mark_color_instance_method) (Lisp_Color_Instance *);
+  void (*print_color_instance_method) (Lisp_Color_Instance *,
 				       Lisp_Object printcharfun,
 				       int escapeflag);
-  void (*finalize_color_instance_method) (struct Lisp_Color_Instance *);
-  int (*color_instance_equal_method) (struct Lisp_Color_Instance *,
-				      struct Lisp_Color_Instance *,
+  void (*finalize_color_instance_method) (Lisp_Color_Instance *);
+  int (*color_instance_equal_method) (Lisp_Color_Instance *,
+				      Lisp_Color_Instance *,
 				      int depth);
-  unsigned long (*color_instance_hash_method) (struct Lisp_Color_Instance *,
+  unsigned long (*color_instance_hash_method) (Lisp_Color_Instance *,
 					       int depth);
-  Lisp_Object (*color_instance_rgb_components_method)
-    (struct Lisp_Color_Instance *);
+  Lisp_Object (*color_instance_rgb_components_method) (Lisp_Color_Instance *);
   int (*valid_color_name_p_method) (struct device *, Lisp_Object color);
 
   /* font methods */
-  int (*initialize_font_instance_method) (struct Lisp_Font_Instance *,
+  int (*initialize_font_instance_method) (Lisp_Font_Instance *,
 					  Lisp_Object name,
 					  Lisp_Object device,
 					  Error_behavior errb);
-  void (*mark_font_instance_method) (struct Lisp_Font_Instance *,
-				     void (*)(Lisp_Object));
-  void (*print_font_instance_method) (struct Lisp_Font_Instance *,
+  void (*mark_font_instance_method) (Lisp_Font_Instance *);
+  void (*print_font_instance_method) (Lisp_Font_Instance *,
 				      Lisp_Object printcharfun,
 				      int escapeflag);
-  void (*finalize_font_instance_method) (struct Lisp_Font_Instance *);
-  Lisp_Object (*font_instance_truename_method) (struct Lisp_Font_Instance *,
+  void (*finalize_font_instance_method) (Lisp_Font_Instance *);
+  Lisp_Object (*font_instance_truename_method) (Lisp_Font_Instance *,
 						Error_behavior errb);
-  Lisp_Object (*font_instance_properties_method) (struct Lisp_Font_Instance *);
+  Lisp_Object (*font_instance_properties_method) (Lisp_Font_Instance *);
   Lisp_Object (*list_fonts_method) (Lisp_Object pattern,
 				    Lisp_Object device);
   Lisp_Object (*find_charset_font_method) (Lisp_Object device,
@@ -190,53 +246,49 @@ struct console_methods
 					   Lisp_Object charset);
   int (*font_spec_matches_charset_method) (struct device *d,
 					   Lisp_Object charset,
-					   CONST Bufbyte *nonreloc,
+					   const Bufbyte *nonreloc,
 					   Lisp_Object reloc,
 					   Bytecount offset,
 					   Bytecount length);
 
   /* image methods */
-  void (*mark_image_instance_method) (struct Lisp_Image_Instance *,
-				      void (*)(Lisp_Object));
-  void (*print_image_instance_method) (struct Lisp_Image_Instance *,
+  void (*mark_image_instance_method) (Lisp_Image_Instance *);
+  void (*print_image_instance_method) (Lisp_Image_Instance *,
 				       Lisp_Object printcharfun,
 				       int escapeflag);
-  void (*finalize_image_instance_method) (struct Lisp_Image_Instance *);
-  int (*image_instance_equal_method) (struct Lisp_Image_Instance *,
-				      struct Lisp_Image_Instance *,
+  void (*finalize_image_instance_method) (Lisp_Image_Instance *);
+  void (*unmap_subwindow_method) (Lisp_Image_Instance *);
+  void (*map_subwindow_method) (Lisp_Image_Instance *, int x, int y,
+				struct display_glyph_area* dga);
+  void (*resize_subwindow_method) (Lisp_Image_Instance *, int w, int h);
+  void (*redisplay_subwindow_method) (Lisp_Image_Instance *);
+  void (*redisplay_widget_method) (Lisp_Image_Instance *);
+  /* Maybe this should be a specifier. Unfortunately specifiers don't
+     allow us to represent things at the toolkit level, which is what
+     is required here. */
+  int (*widget_border_width_method) (void);
+  int (*widget_spacing_method) (Lisp_Image_Instance *);
+  int (*image_instance_equal_method) (Lisp_Image_Instance *,
+				      Lisp_Image_Instance *,
 				      int depth);
-  unsigned long (*image_instance_hash_method) (struct Lisp_Image_Instance *,
+  unsigned long (*image_instance_hash_method) (Lisp_Image_Instance *,
 					       int depth);
-  void (*init_image_instance_from_eimage_method) (struct Lisp_Image_Instance *ii,
+  void (*init_image_instance_from_eimage_method) (Lisp_Image_Instance *ii,
 						  int width, int height,
-						  unsigned char *eimage, 
+						  int slices,
+						  unsigned char *eimage,
 						  int dest_mask,
 						  Lisp_Object instantiator,
 						  Lisp_Object domain);
   Lisp_Object (*locate_pixmap_file_method) (Lisp_Object file_method);
   int (*colorize_image_instance_method) (Lisp_Object image_instance,
 					 Lisp_Object fg, Lisp_Object bg);
-#ifdef HAVE_XPM
-    /* which is more tacky - this or #defines in glyphs.c? */
-  void (*xpm_instantiate_method)(Lisp_Object image_instance, 
-				 Lisp_Object instantiator,
-				 Lisp_Object pointer_fg, 
-				 Lisp_Object pointer_bg,
-				 int dest_mask, Lisp_Object domain);
-#endif
-#ifdef HAVE_WINDOW_SYSTEM
-    /* which is more tacky - this or #defines in glyphs.c? */
-  void (*xbm_instantiate_method)(Lisp_Object image_instance, 
-				 Lisp_Object instantiator,
-				 Lisp_Object pointer_fg, 
-				 Lisp_Object pointer_bg,
-				 int dest_mask, Lisp_Object domain);
-#endif
   Lisp_Object image_conversion_list;
 
 #ifdef HAVE_TOOLBARS
   /* toolbar methods */
   void (*output_frame_toolbars_method) (struct frame *);
+  void (*clear_frame_toolbars_method) (struct frame *);
   void (*initialize_frame_toolbars_method) (struct frame *);
   void (*free_frame_toolbars_method) (struct frame *);
   void (*output_toolbar_button_method) (struct frame *, Lisp_Object);
@@ -275,20 +327,18 @@ struct console_methods
 
 #ifdef HAVE_DIALOGS
   /* dialog methods */
-  void (*popup_dialog_box_method) (struct frame *, Lisp_Object dbox_desc);
+  Lisp_Object (*make_dialog_box_internal_method) (struct frame *,
+						  Lisp_Object type,
+						  Lisp_Object keys);
 #endif
 };
 
-/*
- * Constants returned by device_implementation_flags_method
- */
-/* Set when device uses pixel-based geometry */
-#define XDEVIMPF_PIXEL_GEOMETRY	  0x00000001L
-
+#define CONMETH_TYPE(meths) ((meths)->symbol)
+#define CONMETH_IMPL_FLAG(meths, f) ((meths)->flags & (f))
 
 #define CONSOLE_TYPE_NAME(c) ((c)->conmeths->name)
 #define CONSOLE_TYPE(c) ((c)->conmeths->symbol)
-#define CONMETH_TYPE(meths) ((meths)->symbol)
+#define CONSOLE_IMPL_FLAG(c, f) CONMETH_IMPL_FLAG ((c)->conmeths, (f))
 
 /******** Accessing / calling a console method *********/
 
@@ -297,9 +347,9 @@ struct console_methods
 
 /* Call a void-returning console method, if it exists */
 #define MAYBE_CONTYPE_METH(meth, m, args) do {			\
-  struct console_methods *_maybe_contype_meth_meth = (meth);	\
-  if (HAS_CONTYPE_METH_P (_maybe_contype_meth_meth, m))		\
-    CONTYPE_METH (_maybe_contype_meth_meth, m, args);		\
+  struct console_methods *maybe_contype_meth_meth = (meth);	\
+  if (HAS_CONTYPE_METH_P (maybe_contype_meth_meth, m))		\
+    CONTYPE_METH (maybe_contype_meth_meth, m, args);		\
 } while (0)
 
 /* Call a console method, if it exists; otherwise return
@@ -350,16 +400,32 @@ struct console_methods * type##_console_methods
     type##_console_methods = xnew_and_zero (struct console_methods);	\
     type##_console_methods->name = obj_name;				\
     type##_console_methods->symbol = Q##type;				\
-    defsymbol (&type##_console_methods->predicate_symbol, pred_sym);	\
+    defsymbol_nodump (&type##_console_methods->predicate_symbol, pred_sym);	\
     add_entry_to_console_type_list (Q##type, type##_console_methods);	\
     type##_console_methods->image_conversion_list = Qnil;		\
-    staticpro (&type##_console_methods->image_conversion_list);		\
+    staticpro_nodump (&type##_console_methods->image_conversion_list);	\
+    dump_add_root_struct_ptr (&type##_console_methods, &console_methods_description);	\
 } while (0)
+
+#define REINITIALIZE_CONSOLE_TYPE(type) do {	\
+    staticpro_nodump (&type##_console_methods->predicate_symbol);	\
+    staticpro_nodump (&type##_console_methods->image_conversion_list);	\
+} while (0)
+
 
 /* Declare that console-type TYPE has method M; used in
    initialization routines */
 #define CONSOLE_HAS_METHOD(type, m) \
   (type##_console_methods->m##_method = type##_##m)
+
+/* Declare that console-type TYPE inherits method M
+   implementation from console-type FROMTYPE */
+#define CONSOLE_INHERITS_METHOD(type, fromtype, m) \
+  (type##_console_methods->m##_method = fromtype##_##m)
+
+/* Define console type implementation flags */
+#define CONSOLE_IMPLEMENTATION_FLAGS(type, flg) \
+  (type##_console_methods->flags = flg)
 
 struct console
 {
@@ -406,7 +472,6 @@ DECLARE_LRECORD (console, struct console);
 #define XCONSOLE(x) XRECORD (x, console, struct console)
 #define XSETCONSOLE(x, p) XSETRECORD (x, p, console)
 #define CONSOLEP(x) RECORDP (x, console)
-#define GC_CONSOLEP(x) GC_RECORDP (x, console)
 #define CHECK_CONSOLE(x) CHECK_RECORD (x, console)
 #define CONCHECK_CONSOLE(x) CONCHECK_RECORD (x, console)
 
@@ -424,9 +489,9 @@ DECLARE_LRECORD (console, struct console);
 #define CONSOLE_TYPE_P(con, type) EQ (CONSOLE_TYPE (con), Q##type)
 
 #ifdef ERROR_CHECK_TYPECHECK
-INLINE struct console *
+INLINE_HEADER struct console *
 error_check_console_type (struct console *con, Lisp_Object sym);
-INLINE struct console *
+INLINE_HEADER struct console *
 error_check_console_type (struct console *con, Lisp_Object sym)
 {
   assert (EQ (CONSOLE_TYPE (con), sym));
@@ -458,6 +523,12 @@ error_check_console_type (struct console *con, Lisp_Object sym)
    too many places where the abstraction is broken.  Need to
    fix. */
 
+#ifdef HAVE_GTK
+#define CONSOLE_TYPESYM_GTK_P(typesym) EQ (typesym, Qgtk)
+#else
+#define CONSOLE_TYPESYM_GTK_P(typesym) 0
+#endif
+
 #ifdef HAVE_X_WINDOWS
 #define CONSOLE_TYPESYM_X_P(typesym) EQ (typesym, Qx)
 #else
@@ -476,11 +547,15 @@ error_check_console_type (struct console *con, Lisp_Object sym)
 #define CONSOLE_TYPESYM_STREAM_P(typesym) EQ (typesym, Qstream)
 
 #define CONSOLE_TYPESYM_WIN_P(typesym) \
-  (CONSOLE_TYPESYM_X_P (typesym) || CONSOLE_TYPESYM_MSWINDOWS_P (typesym))
+  (CONSOLE_TYPESYM_GTK_P (typesym) || CONSOLE_TYPESYM_X_P (typesym) || CONSOLE_TYPESYM_MSWINDOWS_P (typesym))
 
 #define CONSOLE_X_P(con) CONSOLE_TYPESYM_X_P (CONSOLE_TYPE (con))
 #define CHECK_X_CONSOLE(z) CHECK_CONSOLE_TYPE (z, x)
 #define CONCHECK_X_CONSOLE(z) CONCHECK_CONSOLE_TYPE (z, x)
+
+#define CONSOLE_GTK_P(con) CONSOLE_TYPESYM_GTK_P (CONSOLE_TYPE (con))
+#define CHECK_GTK_CONSOLE(z) CHECK_CONSOLE_TYPE (z, gtk)
+#define CONCHECK_GTK_CONSOLE(z) CONCHECK_CONSOLE_TYPE (z, gtk)
 
 #define CONSOLE_TTY_P(con) CONSOLE_TYPESYM_TTY_P (CONSOLE_TYPE (con))
 #define CHECK_TTY_CONSOLE(z) CHECK_CONSOLE_TYPE (z, tty)
@@ -531,7 +606,7 @@ int valid_console_type_p (Lisp_Object type);
 #define CONSOLE_SELECTED_DEVICE(con) ((con)->selected_device)
 #define CONSOLE_SELECTED_FRAME(con) \
   DEVICE_SELECTED_FRAME (XDEVICE ((con)->selected_device))
-#define CONSOLE_LAST_NONMINIBUF_FRAME(con) NON_LVALUE ((con)->_last_nonminibuf_frame)
+#define CONSOLE_LAST_NONMINIBUF_FRAME(con) NON_LVALUE ((con)->last_nonminibuf_frame)
 #define CONSOLE_QUIT_CHAR(con) ((con)->quit_char)
 
 #define CDFW_CONSOLE(obj)				\
@@ -563,4 +638,4 @@ void io_error_delete_console (Lisp_Object console);
 void set_console_last_nonminibuf_frame (struct console *con,
 					Lisp_Object frame);
 
-#endif /* _XEMACS_CONSOLE_H_ */
+#endif /* INCLUDED_console_h_ */

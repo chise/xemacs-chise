@@ -32,7 +32,7 @@
 	"events"
 	"text-props"
 	"process" ;; This is bad. network-streams may not be defined.
-	(when-feature multicast "multicast") ; #+network-streams implicitely true
+	(when-feature multicast "multicast") ; #+network-streams implicitly true
 	"frame"			; move up here cause some stuff needs it here
 	"map-ynp"
 	"simple"
@@ -49,6 +49,7 @@
 ;; After fixing, eos/loaddefs-eos and loaddefs appear identical?!!
 ;; So just make loaddefs-eos go away...
 ;;(pureload (if (featurep 'sparcworks) "eos/loaddefs-eos" "loaddefs"))
+	"cus-file"
 	"startup"		; For initialization of
 				;  `emacs-user-extension-dir'
 	"misc"
@@ -79,26 +80,53 @@
 	"text-mode"
 	"fill"
 	"auto-save"		; Added for 20.4
-
-	(when-feature windows-nt "winnt")
+	"movemail"              ; Added for 21.2
+	(when-feature windows-nt "win32-native")
 	(when-feature lisp-float-type "float-sup")
 	"itimer"		; for vars auto-save-timeout and
 				; auto-gc-threshold
 	"itimer-autosave"
+	"printer"
+
+	;;;;;;;;;;;;;;;;;; GUI support
+	(when-feature window-system "gui")
+	(when-feature window-system "mouse")
+	(when-feature window-system "mode-motion")
 	(when-feature toolbar "toolbar")
 	(when-feature scrollbar "scrollbar")
 	(when-feature menubar "menubar")
 	(when-feature dialog "dialog")
-	(when-feature mule "mule-charset")
+	(when-feature gutter "gutter")
+	(when-feature dragdrop-api "dragdrop")
+	"select"
+
+	;;;;;;;;;;;;;;;;;; Content for GUI's
+	;; There used to be window-system inserted in the when-feature,
+	;; but IMHO your configure script should turn off the menubar,
+	;; toolbar, etc. features when there is no window system.  We
+	;; should just be able to assume that, if (featurep 'menubar),
+	;; the menubar should work and if items are added, they can be
+	;; seen clearly and usefully.
+	(when-feature (and (not infodock) menubar) "menubar-items")
+	(when-feature (and gutter) "gutter-items")
+	(when-feature (and (not infodock) toolbar) "toolbar-items")
+	(when-feature (and (not infodock) dialog) "dialog-items")
+
+	;;;;;;;;;;;;;;;;;; Coding-system support
 	(when-feature file-coding "coding")
-	(when-feature mule "mule-coding")
-;; Handle I/O of files with extended characters.
 	(when-feature file-coding "code-files")
-	(when-feature mule "mule-files")
-;; Handle process with encoding/decoding non-ascii coding-system.
+	;; Handle process with encoding/decoding coding-system.
 	(when-feature file-coding "code-process")
+	;; Provide basic commands to set coding systems to user
+	(when-feature file-coding "code-cmds")
+	;;;;;;;;;;;;;;;;;; MULE support
+	(when-feature mule "mule-conf")
+	(when-feature mule "arabic")
+	(when-feature utf-2000 "update-cdb")
+	(when-feature mule "mule-charset")
+	(when-feature mule "mule-coding")
+	;; All files after this can have extended characters in them.
 	(when-feature mule "mule-help")
-;; Load the remaining basic files.
 	(when-feature mule "mule-category")
 	(when-feature mule "mule-ccl")
 	(when-feature mule "mule-misc")
@@ -123,7 +151,6 @@
 ;; Now load files to set up all the different languages/environments
 ;; that Mule knows about.
 
-	(when-feature mule "arabic")
 	(when-feature mule "chinese")
 	(when-feature mule "mule/cyrillic") ; overloaded in leim/quail
 	(when-feature mule "english")
@@ -133,9 +160,12 @@
 	(when-feature mule "hebrew")
 	(when-feature mule "japanese")
 	(when-feature mule "korean")
+	(when-feature mule "latin")
 	(when-feature mule "misc-lang")
-	(when-feature mule "thai-xtis")
+	(when-feature mule "thai-xtis-chars")
+	(when-feature mule "mule/thai-xtis") ; overloaded in leim/quail
 	(when-feature mule "viet-chars")
+	(when-feature (and mule (not utf-2000)) "viet-ccl")
 	(when-feature mule "vietnamese")
 
 	;; Specialized language support
@@ -156,15 +186,13 @@
 ;; Moved to sunpro-load.el - the default only for Sun.
 ;;(pureload "mime-setup")
 ;;; mule-load.el ends here
-	(when-feature window-system "gui")
-	(when-feature window-system "mode-motion")
-	(when-feature window-system "mouse")
-	(when-feature window-system "select")
-	(when-feature dragdrop-api "dragdrop")
-;; preload the X code, for faster startup.
-	(when-feature (and (not infodock)
-			   (or x mswindows) menubar) "menubar-items")
-	(when-feature (and infodock (or x mswindows) menubar) "id-menus")
+
+;; preload InfoDock stuff.  should almost certainly not be here if
+;; id-menus is not here.  infodock needs to figure out a clever way to
+;; advise this stuff or we need to export a clean way for infodock or
+;; others to control this programmatically.
+	(when-feature (and infodock (or x mswindows gtk) menubar) "id-menus")
+;; preload the X code.
 	(when-feature x "x-faces")
 	(when-feature x "x-iso8859-1")
 	(when-feature x "x-mouse")
@@ -172,10 +200,22 @@
 	(when-feature (and x scrollbar) "x-scrollbar")
 	(when-feature x "x-misc")
 	(when-feature x "x-init")
-	(when-feature (and (not infodock)
-			   window-system toolbar) "toolbar-items")
 	(when-feature x "x-win-xfree86")
 	(when-feature x "x-win-sun")
+;; preload the GTK code
+ 	(when-feature gtk "gtk-ffi")
+ 	(when-feature gtk "gtk-widgets")
+ 	(when-feature gtk "gdk")
+ 	(when-feature gtk "gtk-init")
+ 	(when-feature gtk "gtk-faces")
+ 	(when-feature gtk "gtk-iso8859-1")
+ 	(when-feature (and gtk dialog) "dialog-gtk")
+ 	(when-feature gtk "gtk-select")
+ 	(when-feature gtk "gtk-mouse")
+ 	(when-feature gtk "gtk-glyphs")
+ 	(when-feature glade "glade")
+	(when-feature gtk "widgets-gtk")
+
 ;; preload the mswindows code.
 	(when-feature mswindows "msw-glyphs")
 	(when-feature mswindows "msw-faces")
@@ -214,6 +254,8 @@
 ;;	(when-feature sparcworks "sun-eos-debugger")
 ;;	(when-feature sparcworks "sun-eos-debugger-extra")
 ;;	(when-feature sparcworks "sun-eos-menubar")
+        ;; (when-feature utf-2000 "make-cdbs")
+	(when-feature chise "close-cdb")
 	"loadhist"		; Must be dumped before loaddefs is loaded
 	"loaddefs"		; <=== autoloads get loaded here
 ))

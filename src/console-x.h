@@ -29,8 +29,8 @@ Boston, MA 02111-1307, USA.  */
       multi-device work by Chuck Thompson).
  */
 
-#ifndef _XEMACS_CONSOLE_X_H_
-#define _XEMACS_CONSOLE_X_H_
+#ifndef INCLUDED_console_x_h_
+#define INCLUDED_console_x_h_
 
 #ifdef HAVE_X_WINDOWS
 
@@ -40,17 +40,6 @@ Boston, MA 02111-1307, USA.  */
 #include <X11/cursorfont.h>
 #include <X11/keysym.h>
 #include <X11/Xatom.h>
-
-#if 0 /* mrb - Xos sux. */
-#ifdef USG
-#undef USG	/* ####KLUDGE for Solaris 2.2 and up */
-#include <X11/Xos.h>
-#define USG
-#else
-#include <X11/Xos.h>
-#endif
-#endif /* 0 */
-
 #include <X11/StringDefs.h>
 
 #ifdef HAVE_XPM
@@ -70,10 +59,13 @@ struct x_device
   /* The X connection of this device. */
   Display *display;
 
+  /* Set by x_IO_error_handler(). */
+  int being_deleted;
+
   /* Xt application info. */
   Widget Xt_app_shell;
 
-  /* Cache of GC's for frame's on this device. */
+  /* Cache of GC's for frames on this device. */
   struct gc_cache *gc_cache;
 
   /* Selected visual, depth and colormap for this device */
@@ -85,14 +77,14 @@ struct x_device
   Pixmap gray_pixmap;
 
   /* Atoms associated with this device. */
-  /* allocated in Xatoms_of_xfns in xfns.c */
+  /* allocated in Xatoms_of_device_x */
   Atom Xatom_WM_PROTOCOLS;
   Atom Xatom_WM_DELETE_WINDOW;
   Atom Xatom_WM_SAVE_YOURSELF;
   Atom Xatom_WM_TAKE_FOCUS;
   Atom Xatom_WM_STATE;
 
-  /* allocated in Xatoms_of_xselect in xselect.c */
+  /* allocated in Xatoms_of_select_x */
   Atom Xatom_CLIPBOARD;
   Atom Xatom_TIMESTAMP;
   Atom Xatom_TEXT;
@@ -105,7 +97,7 @@ struct x_device
   Atom Xatom_ATOM_PAIR;
   Atom Xatom_COMPOUND_TEXT;
 
-  /* allocated in Xatoms_of_objects_x in objects-x.c */
+  /* allocated in Xatoms_of_objects_x */
   Atom Xatom_FOUNDRY;
   Atom Xatom_FAMILY_NAME;
   Atom Xatom_WEIGHT_NAME;
@@ -131,7 +123,7 @@ struct x_device
   int x_keysym_map_min_code;
   int x_keysym_map_max_code;
   int x_keysym_map_keysyms_per_code;
-  Lisp_Object x_keysym_map_hashtable;
+  Lisp_Object x_keysym_map_hash_table;
 
   /* frame that holds the WM_COMMAND property; there should be exactly
      one of these per device. */
@@ -178,12 +170,14 @@ struct x_device
   unsigned int need_to_add_mask, down_mask;
   KeyCode last_downkey;
   Time release_time;
+  Time modifier_release_time;
 };
 
 #define DEVICE_X_DATA(d) DEVICE_TYPE_DATA (d, x)
 
 #define FRAME_X_DISPLAY(f) (DEVICE_X_DISPLAY (XDEVICE (f->device)))
 #define DEVICE_X_DISPLAY(d) 	(DEVICE_X_DATA (d)->display)
+#define DEVICE_X_BEING_DELETED(d) (DEVICE_X_DATA (d)->being_deleted)
 #define DEVICE_X_VISUAL(d)	(DEVICE_X_DATA (d)->visual)
 #define DEVICE_X_DEPTH(d)	(DEVICE_X_DATA (d)->depth)
 #define DEVICE_X_COLORMAP(d) 	(DEVICE_X_DATA (d)->device_cmap)
@@ -194,7 +188,7 @@ struct x_device
 #define DEVICE_X_MOUSE_TIMESTAMP(d)  (DEVICE_X_DATA (d)->mouse_timestamp)
 #define DEVICE_X_GLOBAL_MOUSE_TIMESTAMP(d) (DEVICE_X_DATA (d)->global_mouse_timestamp)
 #define DEVICE_X_LAST_SERVER_TIMESTAMP(d)  (DEVICE_X_DATA (d)->last_server_timestamp)
-#define DEVICE_X_KEYSYM_MAP_HASHTABLE(d)  (DEVICE_X_DATA (d)->x_keysym_map_hashtable)
+#define DEVICE_X_KEYSYM_MAP_HASH_TABLE(d)  (DEVICE_X_DATA (d)->x_keysym_map_hash_table)
 /* #define DEVICE_X_X_COMPOSE_STATUS(d) (DEVICE_X_DATA (d)->x_compose_status) */
 #ifdef HAVE_XIM
 #define DEVICE_X_XIM(d)        (DEVICE_X_DATA (d)->xim)
@@ -202,14 +196,14 @@ struct x_device
 #define DEVICE_X_FONTSET(d)    (DEVICE_X_DATA (d)->fontset)
 #endif /* HAVE_XIM */
 
-/* allocated in Xatoms_of_xfns in xfns.c */
+/* allocated in Xatoms_of_device_x */
 #define DEVICE_XATOM_WM_PROTOCOLS(d)	 (DEVICE_X_DATA (d)->Xatom_WM_PROTOCOLS)
 #define DEVICE_XATOM_WM_DELETE_WINDOW(d) (DEVICE_X_DATA (d)->Xatom_WM_DELETE_WINDOW)
 #define DEVICE_XATOM_WM_SAVE_YOURSELF(d) (DEVICE_X_DATA (d)->Xatom_WM_SAVE_YOURSELF)
 #define DEVICE_XATOM_WM_TAKE_FOCUS(d)	 (DEVICE_X_DATA (d)->Xatom_WM_TAKE_FOCUS)
 #define DEVICE_XATOM_WM_STATE(d)	 (DEVICE_X_DATA (d)->Xatom_WM_STATE)
 
-/* allocated in Xatoms_of_xselect in xselect.c */
+/* allocated in Xatoms_of_select_x */
 #define DEVICE_XATOM_CLIPBOARD(d) 	(DEVICE_X_DATA (d)->Xatom_CLIPBOARD)
 #define DEVICE_XATOM_TIMESTAMP(d) 	(DEVICE_X_DATA (d)->Xatom_TIMESTAMP)
 #define DEVICE_XATOM_TEXT(d) 		(DEVICE_X_DATA (d)->Xatom_TEXT)
@@ -222,7 +216,7 @@ struct x_device
 #define DEVICE_XATOM_ATOM_PAIR(d) 	(DEVICE_X_DATA (d)->Xatom_ATOM_PAIR)
 #define DEVICE_XATOM_COMPOUND_TEXT(d) 	(DEVICE_X_DATA (d)->Xatom_COMPOUND_TEXT)
 
-/* allocated in Xatoms_of_objects_x in objects-x.c */
+/* allocated in Xatoms_of_objects_x */
 #define DEVICE_XATOM_FOUNDRY(d)		(DEVICE_X_DATA (d)->Xatom_FOUNDRY)
 #define DEVICE_XATOM_FAMILY_NAME(d)	(DEVICE_X_DATA (d)->Xatom_FAMILY_NAME)
 #define DEVICE_XATOM_WEIGHT_NAME(d)	(DEVICE_X_DATA (d)->Xatom_WEIGHT_NAME)
@@ -377,9 +371,9 @@ extern struct console_type *x_console_type;
 extern Lisp_Object Vdefault_x_device;
 
 /* Number of pixels below each line. */
-extern int x_interline_space;
+extern int x_interline_space; /* #### implement me */
 
-extern int x_selection_timeout;
+extern Fixnum x_selection_timeout;
 
 struct frame *x_any_window_to_frame (struct device *d, Window);
 struct frame *x_any_widget_or_parent_to_frame (struct device *d,
@@ -394,14 +388,14 @@ void x_handle_selection_request (XSelectionRequestEvent *event);
 void x_handle_selection_clear (XSelectionClearEvent *event);
 void x_handle_property_notify (XPropertyEvent *event);
 
-void Xatoms_of_xselect (struct device *d);
+void Xatoms_of_select_x (struct device *d);
 void Xatoms_of_objects_x (struct device *d);
 
 void x_wm_set_shell_iconic_p (Widget shell, int iconic_p);
 void x_wm_set_cell_size (Widget wmshell, int cw, int ch);
 void x_wm_set_variable_size (Widget wmshell, int width, int height);
 
-CONST char *x_event_name (int event_type);
+const char *x_event_name (int event_type);
 int x_error_handler (Display *disp, XErrorEvent *event);
 void expect_x_error (Display *dpy);
 int x_error_occurred_p (Display *dpy);
@@ -411,20 +405,19 @@ int x_IO_error_handler (Display *disp);
 void x_redraw_exposed_area (struct frame *f, int x, int y,
 			    int width, int height);
 void x_output_string (struct window *w, struct display_line *dl,
-		      Emchar_dynarr *buf, int xpos, int xoffset,
+		      Charc_dynarr *buf, int xpos, int xoffset,
 		      int start_pixpos, int width, face_index findex,
 		      int cursor, int cursor_start, int cursor_width,
 		      int cursor_height);
-void x_output_x_pixmap (struct frame *f, struct Lisp_Image_Instance *p,
-			int x, int y, int clip_x, int clip_y,
-			int clip_width, int clip_height, int width,
-			int height, int pixmap_offset,
+void x_output_x_pixmap (struct frame *f, Lisp_Image_Instance *p,
+			int x, int y, int xoffset, int yoffset,
+			int width, int height,
 			unsigned long fg, unsigned long bg,
 			GC override_gc);
 void x_output_shadows (struct frame *f, int x, int y, int width,
 		       int height, GC top_shadow_gc,
 		       GC bottom_shadow_gc, GC background_gc,
-		       int shadow_thickness);
+		       int shadow_thickness, int edges);
 void x_generate_shadow_pixels (struct frame *f,
 			       unsigned long *top_shadow,
 			       unsigned long *bottom_shadow,
@@ -435,10 +428,10 @@ int x_initialize_frame_menubar (struct frame *f);
 void x_init_modifier_mapping (struct device *d);
 
 #define X_ERROR_OCCURRED(dpy, body)	\
-     (expect_x_error ((dpy)), (body), x_error_occurred_p (dpy))
+     (expect_x_error (dpy), body, x_error_occurred_p (dpy))
 
 #define HANDLING_X_ERROR(dpy, body)	\
-     ( expect_x_error ((dpy)), (body), signal_if_x_error ((dpy), 0))
+     (expect_x_error (dpy), body, signal_if_x_error (dpy, 0))
 
 void Initialize_Locale (void);
 
@@ -488,5 +481,23 @@ extern int in_specifier_change_function;
 
 extern Lisp_Object Vx_initial_argv_list; /* #### ugh! */
 
+/* Standins for various X encodings, until we know them better */
+
+/* !!#### Need to verify the encoding used in lwlib -- Qnative or Qctext?
+   Almost certainly the former.  Use a standin for now. */
+#define Qlwlib_encoding Qnative
+
+#define Qx_atom_name_encoding Qctext
+/* font names are often stored in atoms, so it gets sticky if we set this
+   to something different from atom-name encoding */
+#define Qx_font_name_encoding Qctext
+
+#define Qx_color_name_encoding Qctext
+
+/* the following probably must agree with Qcommand_argument_encoding and
+   Qenvironment_variable_encoding */
+#define Qx_display_name_encoding Qnative
+
 #endif /* HAVE_X_WINDOWS */
-#endif /* _XEMACS_DEVICE_X_H_ */
+
+#endif /* INCLUDED_console_x_h_ */

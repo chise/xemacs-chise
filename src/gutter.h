@@ -20,13 +20,12 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_GUTTER_H_
-#define _XEMACS_GUTTER_H_
+#ifndef INCLUDED_gutter_h_
+#define INCLUDED_gutter_h_
 
 #include "specifier.h"
 
-#define DEVICE_SUPPORTS_GUTTERS_P(d)		\
-  (HAS_DEVMETH_P ((d), output_frame_gutters))
+#define DEVICE_SUPPORTS_GUTTERS_P(d) HAS_DEVMETH_P (d, output_frame_gutters)
 
 DECLARE_SPECIFIER_TYPE (gutter);
 #define XGUTTER_SPECIFIER(x) XSPECIFIER_TYPE (x, gutter)
@@ -40,34 +39,47 @@ DECLARE_SPECIFIER_TYPE (gutter);
 
 enum gutter_pos
 {
-  TOP_GUTTER,
-  BOTTOM_GUTTER,
-  LEFT_GUTTER,
-  RIGHT_GUTTER
+  TOP_GUTTER     = 0,
+  BOTTOM_GUTTER  = 1,
+  LEFT_GUTTER    = 2,
+  RIGHT_GUTTER   = 3
 };
+
+/* Iterate over all possible gutter positions */
+#define GUTTER_POS_LOOP(var) \
+for (var = (enum gutter_pos) 0; var < 4; var = (enum gutter_pos) (var + 1))
 
 extern Lisp_Object Qgutter;
 
 extern Lisp_Object Vgutter_size[4];
 extern Lisp_Object Vgutter_border_width[4];
 void update_frame_gutters (struct frame *f);
+void update_frame_gutter_geometry (struct frame *f);
+void mark_gutters (struct frame* f);
 void init_frame_gutters (struct frame *f);
 void init_device_gutters (struct device *d);
 void init_global_gutters (struct device *d);
 void free_frame_gutters (struct frame *f);
 void redraw_exposed_gutters (struct frame *f, int x, int y, int width,
 			     int height);
+void reset_gutter_display_lines (struct frame* f);
+void gutter_extent_signal_changed_region_maybe (Lisp_Object obj,
+						Bufpos start, Bufpos end);
+int display_boxes_in_gutter_p (struct frame *f, struct display_box* db,
+			       struct display_glyph_area* dga);
 
 #define WINDOW_GUTTER_BORDER_WIDTH(w, pos) \
-(NILP ((w)->gutter_border_width[pos]) ? 0 : XINT ((w)->gutter_border_width[pos]))
+  (INTP ((w)->gutter_border_width[pos]) ? XINT ((w)->gutter_border_width[pos]) : 0)
 #define WINDOW_GUTTER_SIZE(w, pos) \
-(NILP ((w)->gutter_size[pos]) ? 0 : XINT ((w)->gutter_size[pos]))
+  (INTP ((w)->gutter_size[pos]) ? XINT ((w)->gutter_size[pos]) : 0)
 #define WINDOW_GUTTER_SIZE_INTERNAL(w, pos) \
-(NILP ((w)->real_gutter_size[pos]) ? 0 : XINT ((w)->real_gutter_size[pos]))
+  (INTP ((w)->real_gutter_size[pos]) ? XINT ((w)->real_gutter_size[pos]) : 0)
 #define WINDOW_GUTTER_VISIBLE(w, pos) \
-((w)->gutter_visible_p[pos])
+  ((w)->gutter_visible_p[pos])
 #define WINDOW_GUTTER(w, pos) \
-((w)->gutter[pos])
+  ((w)->real_gutter[pos])
+#define RAW_WINDOW_GUTTER(w, pos) \
+  ((w)->gutter[pos])
 
 #define WINDOW_REAL_GUTTER_SIZE(w, pos)	\
   (!NILP (WINDOW_GUTTER_VISIBLE (w, pos))		\
@@ -86,17 +98,13 @@ void redraw_exposed_gutters (struct frame *f, int x, int y, int width,
 
 /* these macros predicate size on position and type of window */
 #define WINDOW_REAL_TOP_GUTTER_BOUNDS(w)	\
-   ((!MINI_WINDOW_P (w) && window_is_highest (w)) ?	\
-   WINDOW_REAL_GUTTER_BOUNDS (w,TOP_GUTTER) : 0)
+   WINDOW_REAL_GUTTER_BOUNDS (w,TOP_GUTTER)
 #define WINDOW_REAL_BOTTOM_GUTTER_BOUNDS(w)	\
-   ((!MINI_WINDOW_P (w) && window_is_lowest (w)) ?	\
-   WINDOW_REAL_GUTTER_BOUNDS (w,BOTTOM_GUTTER) : 0)
+   WINDOW_REAL_GUTTER_BOUNDS (w,BOTTOM_GUTTER)
 #define WINDOW_REAL_LEFT_GUTTER_BOUNDS(w)	\
-   ((!MINI_WINDOW_P (w) && window_is_leftmost (w)) ?	\
-   WINDOW_REAL_GUTTER_BOUNDS (w,LEFT_GUTTER) : 0)
+   WINDOW_REAL_GUTTER_BOUNDS (w,LEFT_GUTTER)
 #define WINDOW_REAL_RIGHT_GUTTER_BOUNDS(w)	\
-   ((!MINI_WINDOW_P (w) && window_is_rightmost (w)) ?	\
-   WINDOW_REAL_GUTTER_BOUNDS (w,RIGHT_GUTTER) : 0)
+   WINDOW_REAL_GUTTER_BOUNDS (w,RIGHT_GUTTER)
 
 #define FRAME_GUTTER_VISIBLE(f, pos) \
    WINDOW_REAL_GUTTER_VISIBLE (XWINDOW (FRAME_LAST_NONMINIBUF_WINDOW (f)), pos)
@@ -120,4 +128,4 @@ WINDOW_GUTTER (XWINDOW (FRAME_LAST_NONMINIBUF_WINDOW (f)), pos)
 #define FRAME_RIGHT_GUTTER_BOUNDS(f) \
    WINDOW_REAL_GUTTER_BOUNDS (XWINDOW (FRAME_LAST_NONMINIBUF_WINDOW (f)), RIGHT_GUTTER)
 
-#endif /* _XEMACS_GUTTER_H_ */
+#endif /* INCLUDED_gutter_h_ */

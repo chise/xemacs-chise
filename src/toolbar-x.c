@@ -23,16 +23,16 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
+/* This file Mule-ized (more like Mule-verified) by Ben Wing, 7-8-00. */
+
 #include <config.h>
 #include "lisp.h"
 
 #include "console-x.h"
 #include "glyphs-x.h"
 #include "objects-x.h"
-#include "xgccache.h"
 #include "EmacsFrame.h"
 #include "EmacsFrameP.h"
-#include "EmacsManager.h"
 
 #include "faces.h"
 #include "frame.h"
@@ -79,7 +79,8 @@ x_draw_blank_toolbar_button (struct frame *f, int x, int y, int width,
 
   /* Draw the outline. */
   x_output_shadows (f, sx, sy, swidth, sheight, top_shadow_gc,
-		    bottom_shadow_gc, background_gc, shadow_thickness);
+		    bottom_shadow_gc, background_gc, shadow_thickness,
+		    EDGE_ALL);
 
   /* Blank the middle. */
   XFillRectangle (dpy, x_win, background_gc, sx + shadow_thickness,
@@ -110,7 +111,7 @@ x_output_toolbar_button (struct frame *f, Lisp_Object button)
   GC top_shadow_gc, bottom_shadow_gc, background_gc;
   Lisp_Object instance, frame, window, glyph;
   struct toolbar_button *tb = XTOOLBAR_BUTTON (button);
-  struct Lisp_Image_Instance *p;
+  Lisp_Image_Instance *p;
   struct window *w;
   int vertical = tb->vertical;
   int border_width = tb->border_width;
@@ -160,7 +161,8 @@ x_output_toolbar_button (struct frame *f, Lisp_Object button)
   x_output_shadows (f, tb->x + x_adj, tb->y + y_adj,
 		    tb->width + width_adj, tb->height + height_adj,
 		    top_shadow_gc,
-		    bottom_shadow_gc, background_gc, shadow_thickness);
+		    bottom_shadow_gc, background_gc, shadow_thickness,
+		    EDGE_ALL);
 
   /* Clear the pixmap area. */
   XFillRectangle (dpy, x_win, background_gc, tb->x + x_adj + shadow_thickness,
@@ -213,8 +215,8 @@ x_output_toolbar_button (struct frame *f, Lisp_Object button)
 	    }
 
 	  x_output_x_pixmap (f, XIMAGE_INSTANCE (instance), tb->x + x_offset,
-			     tb->y + y_offset, 0, 0, 0, 0, width, height,
-			     0, 0, 0, background_gc);
+			     tb->y + y_offset, 0, 0, width, height,
+			     0, 0, background_gc);
 	}
       else if (IMAGE_INSTANCE_TYPE (p) == IMAGE_TEXT)
 	{
@@ -223,8 +225,8 @@ x_output_toolbar_button (struct frame *f, Lisp_Object button)
 	    WINDOW_FACE_CACHEL (w, DEFAULT_INDEX);
 	  struct display_line dl;
 	  Lisp_Object string = IMAGE_INSTANCE_TEXT_STRING (p);
-	  unsigned char charsets[NUM_LEADING_BYTES];
-	  Emchar_dynarr *buf;
+	  Charset_ID charsets[NUM_LEADING_BYTES];
+	  Charc_dynarr *buf;
 	  struct font_metric_info fm;
 
 	  /* This could be true if we were called via the Expose event
@@ -236,11 +238,11 @@ x_output_toolbar_button (struct frame *f, Lisp_Object button)
 	      MARK_TOOLBAR_CHANGED;
 	      return;
 	    }
-	  buf = Dynarr_new (Emchar);
-	  convert_bufbyte_string_into_emchar_dynarr
+	  buf = Dynarr_new (Charc);
+	  convert_bufbyte_string_into_charc_dynarr
 	    (XSTRING_DATA (string), XSTRING_LENGTH (string), buf);
-	  find_charsets_in_emchar_string (charsets, Dynarr_atp (buf, 0),
-					  Dynarr_length (buf));
+	  find_charsets_in_charc_string (charsets, Dynarr_atp (buf, 0),
+					 Dynarr_length (buf));
 	  ensure_face_cachel_complete (cachel, window, charsets);
 	  face_cachel_charset_font_metric_info (cachel, charsets, &fm);
 
@@ -296,9 +298,9 @@ x_get_button_size (struct frame *f, Lisp_Object window,
 	return XINT (f->toolbar_size[pos]);
 
       if (vert)
-	size = glyph_height (glyph, Vdefault_face, 0, window);
+	size = glyph_height (glyph, window);
       else
-	size = glyph_width (glyph, Vdefault_face, 0, window);
+	size = glyph_width (glyph, window);
     }
 
   if (!size)
@@ -346,7 +348,8 @@ x_get_button_size (struct frame *f, Lisp_Object window,
 	    || tb->y != y						\
 	    || tb->width != width					\
 	    || tb->height != height					\
-	    || tb->dirty)						\
+	    || tb->dirty						\
+	    || f->clear) /* This is clearly necessary. */		\
 	  {								\
 	    if (width && height)					\
 	      {								\
@@ -506,9 +509,9 @@ x_output_toolbar (struct frame *f, enum toolbar_pos pos)
       Lisp_Object frame;
 
       XSETFRAME (frame, f);
-      DEVMETH (d, clear_region, (frame,
-				 DEFAULT_INDEX, FRAME_PIXWIDTH (f) - 1, y, 1,
-				 bar_height));
+      redisplay_clear_region (frame,
+			      DEFAULT_INDEX, FRAME_PIXWIDTH (f) - 1, y, 1,
+			      bar_height);
     }
 
   SET_TOOLBAR_WAS_VISIBLE_FLAG (f, pos, 1);
@@ -544,7 +547,7 @@ x_clear_toolbar (struct frame *f, enum toolbar_pos pos, int thickness_change)
 
   SET_TOOLBAR_WAS_VISIBLE_FLAG (f, pos, 0);
 
-  DEVMETH (d, clear_region, (frame, DEFAULT_INDEX, x, y, width, height));
+  redisplay_clear_region (frame, DEFAULT_INDEX, x, y, width, height);
   XFlush (DEVICE_X_DISPLAY (d));
 }
 
@@ -555,22 +558,30 @@ x_output_frame_toolbars (struct frame *f)
 
   if (FRAME_REAL_TOP_TOOLBAR_VISIBLE (f))
     x_output_toolbar (f, TOP_TOOLBAR);
-  else if (f->top_toolbar_was_visible)
-    x_clear_toolbar (f, TOP_TOOLBAR, 0);
-
   if (FRAME_REAL_BOTTOM_TOOLBAR_VISIBLE (f))
     x_output_toolbar (f, BOTTOM_TOOLBAR);
-  else if (f->bottom_toolbar_was_visible)
-    x_clear_toolbar (f, BOTTOM_TOOLBAR, 0);
-
   if (FRAME_REAL_LEFT_TOOLBAR_VISIBLE (f))
     x_output_toolbar (f, LEFT_TOOLBAR);
-  else if (f->left_toolbar_was_visible)
-    x_clear_toolbar (f, LEFT_TOOLBAR, 0);
-
   if (FRAME_REAL_RIGHT_TOOLBAR_VISIBLE (f))
     x_output_toolbar (f, RIGHT_TOOLBAR);
-  else if (f->right_toolbar_was_visible)
+}
+
+static void
+x_clear_frame_toolbars (struct frame *f)
+{
+  assert (FRAME_X_P (f));
+
+  if (f->top_toolbar_was_visible
+      && !FRAME_REAL_TOP_TOOLBAR_VISIBLE (f))
+    x_clear_toolbar (f, TOP_TOOLBAR, 0);
+  if (f->bottom_toolbar_was_visible
+      && !FRAME_REAL_BOTTOM_TOOLBAR_VISIBLE (f))
+    x_clear_toolbar (f, BOTTOM_TOOLBAR, 0);
+  if (f->left_toolbar_was_visible 
+      && !FRAME_REAL_LEFT_TOOLBAR_VISIBLE (f))
+    x_clear_toolbar (f, LEFT_TOOLBAR, 0);
+  if (f->right_toolbar_was_visible 
+      && !FRAME_REAL_RIGHT_TOOLBAR_VISIBLE (f))
     x_clear_toolbar (f, RIGHT_TOOLBAR, 0);
 }
 
@@ -791,6 +802,7 @@ void
 console_type_create_toolbar_x (void)
 {
   CONSOLE_HAS_METHOD (x, output_frame_toolbars);
+  CONSOLE_HAS_METHOD (x, clear_frame_toolbars);
   CONSOLE_HAS_METHOD (x, initialize_frame_toolbars);
   CONSOLE_HAS_METHOD (x, free_frame_toolbars);
   CONSOLE_HAS_METHOD (x, output_toolbar_button);

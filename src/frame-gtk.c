@@ -847,9 +847,11 @@ gtk_create_widgets (struct frame *f, Lisp_Object lisp_window_id, Lisp_Object par
     }
 #endif /* HAVE_MENUBARS */
 
+#ifdef HAVE_GNOME
   if (GNOME_IS_APP (shell))
     gnome_app_set_contents (GNOME_APP (shell), text);
   else
+#endif
     /* Now comes the drawing area, which should fill the rest of the
     ** frame completely.
     */

@@ -16,6 +16,9 @@
  ** implied warranty.
  */
 
+#ifndef INCLUDED_miscplay_h_
+#define INCLUDED_miscplay_h_
+
 #include <stdlib.h>
 
 #define HEADERSZ  256   /* has to be at least as big as the biggest header   */
@@ -56,3 +59,5 @@ fmtType analyze_format(unsigned char *format,int *fmt,int *speed,
                                                      void **));
 void reset_parsestate(void);
 int parse_wave_complete(void);
+
+#endif /* INCLUDED_miscplay_h_ */

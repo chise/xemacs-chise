@@ -2,7 +2,7 @@
 
 Copyright (C) 2000 Andy Piper. */
 
-#define XEMACS_INFO_XEMACS_ORG_REGISTRY_NAME "GNU"
+#define XEMACS_INFO_XEMACS_ORG_REGISTRY_NAME "XEmacs"
 #define XEMACS_INFO_XEMACS_REGISTRY_NAME "XEmacs"
 /* Keys */
 #define XEMACS_INFO_XEMACS_ROOT_KEY "emacs_dir"
@@ -21,7 +21,7 @@ Copyright (C) 2000 Andy Piper. */
   ((char*)(install_type == IDC_INSTALL_NATIVE ? "\\xemacs-packages\\" \
 				    : "/lib/xemacs/xemacs-packages/"))
 #define XEMACS_NATIVE_ARCH_NAME "i586-pc-win32"
-#define XEMACS_CYGWIN_ARCH_NAME "i686-pc-cygwin32"
+#define XEMACS_CYGWIN_ARCH_NAME "i686-pc-cygwin"
 
 /*
  * Installation hierarchy is:
@@ -35,7 +35,7 @@ Copyright (C) 2000 Andy Piper. */
  *				\pkginfo
  * 			\site-packages
  *			\mule-packages
- *			\XEmacs-21.2
+ *			\XEmacs-21.4
  *				\i586-pc-win32
  *				\etc
  *				\info
@@ -45,12 +45,12 @@ Copyright (C) 2000 Andy Piper. */
  *		/xemacs/xemacs-packages
  * 		/xemacs/site-packages
  *		/xemacs/mule-packages
- *		/xemacs-21.2
- *				/i686-pc-cygwin32
+ *		/xemacs-21.4
+ *				/i686-pc-cygwin
  *				/etc
  *				/info
  *				/lisp
- * /usr/local/bin/i686-pc-cygwin32
+ * /usr/local/bin/i686-pc-cygwin
  */
 
  

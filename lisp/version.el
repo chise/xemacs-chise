@@ -36,17 +36,17 @@
 Warning, this variable did not exist in XEmacs versions prior to 20.3")
 
 (defconst emacs-version
-  (purecopy
-   (format "%d.%d %s%s%s"
-	   emacs-major-version
-	   emacs-minor-version
-	   (if xemacs-codename
-	       (concat "\"" xemacs-codename "\"")
-	     "")
-	   " XEmacs Lucid"
-	   (if xemacs-betaname
-	       (concat " " xemacs-betaname)
-	     "")))
+  (format "%d.%d %s%s%s%s"
+	  emacs-major-version
+	  emacs-minor-version
+	  (if emacs-patch-level
+	      (format "(patch %d)" emacs-patch-level)
+	    "")
+	  (or xemacs-betaname "")
+	  (if xemacs-codename
+	      (concat " \"" xemacs-codename "\"")
+	    "")
+	  " XEmacs Lucid")
   "Version numbers of this version of XEmacs.")
 
 (if (featurep 'infodock)
@@ -77,7 +77,7 @@ Warning, this variable did not exist in XEmacs versions prior to 20.3")
 
 (defconst emacs-build-system (system-name))
 
-(defun emacs-version  (&optional arg)
+(defun emacs-version (&optional arg)
   "Return string describing the version of Emacs that is running.
 When called interactively with a prefix argument, insert string at point.
 Don't use this function in programs to choose actions according
@@ -86,7 +86,7 @@ to the system configuration; look at `system-configuration' instead."
   (save-match-data
     (let ((version-string
 	   (format
-	    "XEmacs %s %s(%s%s) of %s %s on %s"
+	    "XEmacs %s %s(%s%s)%s of %s %s on %s"
 	    (substring emacs-version 0 (string-match " XEmacs" emacs-version))
 	    (if (not (featurep 'infodock))
 		"[Lucid] "
@@ -95,6 +95,11 @@ to the system configuration; look at `system-configuration' instead."
 	    (cond ((or (and (fboundp 'featurep)
 			    (featurep 'mule))
 		       (memq 'mule features)) ", Mule")
+		  (t ""))
+	    (cond ((or (and (fboundp 'featurep)
+			    (featurep 'utf-2000))
+		       (memq 'utf-2000 features))
+		   (concat "  UTF-2000 v" utf-2000-version))
 		  (t ""))
 	    (substring emacs-build-time 0
 		       (string-match " *[0-9]*:" emacs-build-time))
@@ -107,16 +112,19 @@ to the system configuration; look at `system-configuration' instead."
        (t          (insert version-string))))))
 
 ;; from emacs-vers.el
-(defun emacs-version>= (major &optional minor)
-  "Return true if the Emacs version is >= to the given MAJOR and MINOR numbers.
-The MAJOR version number argument is required, but the MINOR version number
-argument is optional.  If the minor version number is not specified (or is the
-symbol `nil') then only the major version numbers are considered in the test."
-  (if (null minor)
-      (>= emacs-major-version major)
-    (or (> emacs-major-version major)
-	(and (=  emacs-major-version major)
-	     (>= emacs-minor-version minor)))))
+(defun emacs-version>= (major &optional minor patch)
+  "Return true if the Emacs version is >= to the given MAJOR, MINOR,
+   and PATCH numbers.
+The MAJOR version number argument is required, but the other arguments
+argument are optional. Only the Non-nil arguments are used in the test."
+  (let ((emacs-patch (or emacs-patch-level emacs-beta-version -1)))
+    (cond ((> emacs-major-version major))
+	  ((< emacs-major-version major) nil)
+	  ((null minor))
+	  ((> emacs-minor-version minor))
+	  ((< emacs-minor-version minor) nil)
+	  ((null patch))
+	  ((>= emacs-patch patch)))))
 
 ;;; We hope that this alias is easier for people to find.
 (define-function 'version 'emacs-version)
@@ -125,10 +133,9 @@ symbol `nil') then only the major version numbers are considered in the test."
 ;; `what(1)' can extract from the executable or a core file.  We don't
 ;; actually need this to be pointed to from lisp; pure objects can't
 ;; be GCed.
-(or (memq system-type '(vax-vms windows-nt ms-dos))
-    (purecopy (concat "\n@" "(#)" (emacs-version)
-		      "\n@" "(#)" "Configuration: "
-		      system-configuration "\n")))
+(concat "\n@" "(#)" (emacs-version)
+	"\n@" "(#)" "Configuration: "
+	system-configuration "\n")
 
 ;;Local variables:
 ;;version-control: never

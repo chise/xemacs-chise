@@ -2,6 +2,7 @@
    Copyright (C) 1985-1989, 1992-1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 1995, 1996 Ben Wing.
+   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -29,6 +30,7 @@ Boston, MA 02111-1307, USA.  */
         list per frame.)
    Mly: a few changes for buffer-local vars, 19.8 or 19.9.
    Ben Wing: some changes and cleanups for Mule, 19.12.
+   MORIOKA Tomohiko: some changes for XEmacs UTF-2000.
  */
 
 /* This file contains functions that work with buffer objects.
@@ -70,16 +72,23 @@ Boston, MA 02111-1307, USA.  */
 
 #include "buffer.h"
 #include "chartab.h"
+#include "casetab.h"
 #include "commands.h"
 #include "elhash.h"
 #include "extents.h"
 #include "faces.h"
+#ifdef FILE_CODING
+#include "file-coding.h"
+#endif
 #include "frame.h"
 #include "insdel.h"
+#include "lstream.h"
 #include "process.h"            /* for kill_buffer_processes */
 #ifdef REGION_CACHE_NEEDS_WORK
 #include "region-cache.h"
 #endif
+#include "select.h"     /* for select_notify_buffer_kill */
+#include "specifier.h"
 #include "syntax.h"
 #include "sysdep.h"	/* for getwd */
 #include "window.h"
@@ -95,6 +104,7 @@ struct buffer *current_buffer;	/* the current buffer */
    Setting the default value also goes through the alist of buffers
    and stores into each buffer that does not say it has a local value.  */
 Lisp_Object Vbuffer_defaults;
+static void *buffer_defaults_saved_slots;
 
 /* This structure marks which slots in a buffer have corresponding
    default values in Vbuffer_defaults.
@@ -125,12 +135,14 @@ struct buffer buffer_local_flags;
 
 /* This is the initial (startup) directory, as used for the *scratch* buffer.
    We're making this a global to make others aware of the startup directory.
+   `initial_directory' is stored in external format.
  */
 char initial_directory[MAXPATHLEN+1];
 
 /* This structure holds the names of symbols whose values may be
    buffer-local.  It is indexed and accessed in the same way as the above. */
 static Lisp_Object Vbuffer_local_symbols;
+static void *buffer_local_symbols_saved_slots;
 
 /* Alist of all buffer names vs the buffers. */
 /* This used to be a variable, but is no longer,
@@ -187,7 +199,6 @@ Lisp_Object QSscratch;          /* "*scratch*" */
 Lisp_Object Qdefault_directory;
 
 Lisp_Object Qkill_buffer_hook;
-Lisp_Object Qbuffer_file_name, Qbuffer_undo_list;
 
 Lisp_Object Qrename_auto_save_file;
 
@@ -199,8 +210,8 @@ Lisp_Object Qfind_file_compare_truenames;
 Lisp_Object Qswitch_to_buffer;
 
 /* Two thresholds controlling how much undo information to keep.  */
-int undo_threshold;
-int undo_high_threshold;
+Fixnum undo_threshold;
+Fixnum undo_high_threshold;
 
 int find_file_compare_truenames;
 int find_file_use_truenames;
@@ -218,7 +229,7 @@ make_buffer (struct buffer *buf)
 }
 
 static Lisp_Object
-mark_buffer (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_buffer (Lisp_Object obj)
 {
   struct buffer *buf = XBUFFER (obj);
 
@@ -227,11 +238,13 @@ mark_buffer (Lisp_Object obj, void (*markobj) (Lisp_Object))
                                        undo_threshold,
                                        undo_high_threshold);
 
-#define MARKED_SLOT(x) ((markobj) (buf->x));
+#define MARKED_SLOT(x) mark_object (buf->x)
 #include "bufslots.h"
 #undef MARKED_SLOT
 
-  ((markobj) (buf->extent_info));
+  mark_object (buf->extent_info);
+  if (buf->text)
+    mark_object (buf->text->line_number_cache);
 
   /* Don't mark normally through the children slot.
      (Actually, in this case, it doesn't matter.)  */
@@ -272,7 +285,7 @@ print_buffer (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
    because all buffers have `kill-buffer' applied to them before
    they disappear, and the children removal happens then. */
 DEFINE_LRECORD_IMPLEMENTATION ("buffer", buffer,
-                               mark_buffer, print_buffer, 0, 0, 0,
+                               mark_buffer, print_buffer, 0, 0, 0, 0,
 			       struct buffer);
 
 DEFUN ("bufferp", Fbufferp, 1, 1, 0, /*
@@ -308,12 +321,9 @@ returned instead.
 */
        (frame))
 {
-  Lisp_Object list;
-  if (EQ (frame, Qt))
-    list = Vbuffer_alist;
-  else
-    list = decode_frame (frame)->buffer_alist;
-  return Fmapcar (Qcdr, list);
+  return Fmapcar (Qcdr,
+		  EQ (frame, Qt) ? Vbuffer_alist :
+		  decode_frame (frame)->buffer_alist);
 }
 
 Lisp_Object
@@ -348,7 +358,7 @@ get_buffer (Lisp_Object name, int error_if_deleted_or_does_not_exist)
 struct buffer *
 decode_buffer (Lisp_Object buffer, int allow_string)
 {
-  if (NILP (buffer))
+  if (NILP (buffer) || (!POINTER_TYPE_P( XTYPE(buffer))))
     return current_buffer;
 
   if (allow_string && STRINGP (buffer))
@@ -395,11 +405,10 @@ assoc_ignore_text_properties (REGISTER Lisp_Object key, Lisp_Object list)
 #endif /* FSFmacs */
 
 DEFUN ("get-buffer", Fget_buffer, 1, 1, 0, /*
-Return the buffer named NAME (a string).
-If there is no live buffer named NAME, return nil.
-NAME may also be a buffer; if so, the value is that buffer.
+Return the buffer named BUFFER-NAME (a string), or nil if there is none.
+BUFFER-NAME may also be a buffer; if so, the value is that buffer.
 */
-       (name))
+       (buffer_name))
 {
 #ifdef I18N3
   /* #### Doc string should indicate that the buffer name will get
@@ -408,9 +417,9 @@ NAME may also be a buffer; if so, the value is that buffer.
 
   /* #### This might return a dead buffer.  This is gross.  This is
      called FSF compatibility. */
-  if (BUFFERP (name))
-    return name;
-  return get_buffer (name, 0);
+  if (BUFFERP (buffer_name))
+    return buffer_name;
+  return get_buffer (buffer_name, 0);
   /* FSFmacs 19.29 calls assoc_ignore_text_properties() here.
      Bleagh!! */
 }
@@ -432,8 +441,8 @@ the search will still be done on `buffer-file-name'.
 */
        (filename))
 {
-  /* This function can GC.  GC checked 1997.04.06. */
-  REGISTER Lisp_Object tail, buf, tem;
+  /* This function can GC.  GC checked and fixed 7-11-2000 ben. */
+  REGISTER Lisp_Object buf;
   struct gcpro gcpro1;
 
 #ifdef I18N3
@@ -467,25 +476,29 @@ the search will still be done on `buffer-file-name'.
 	  dn = Ffile_name_directory (filename);
 	  fn = Ffile_truename (dn, Qnil);
 	  if (! NILP (fn)) dn = fn;
-	  fn = Fexpand_file_name (Ffile_name_nondirectory (filename),
-				  dn);
+	  /* Formerly the two calls below were combined, but that is
+	     not GC-safe because the first call returns unprotected
+	     data and the second call can GC. --ben */
+	  fn = Ffile_name_nondirectory (filename);
+	  fn = Fexpand_file_name (fn, dn);
 	}
       filename = fn;
       NUNGCPRO;
     }
 
-  LIST_LOOP (tail, Vbuffer_alist)
-    {
-      buf = Fcdr (XCAR (tail));
-      if (!BUFFERP (buf)) continue;
-      if (!STRINGP (XBUFFER (buf)->filename)) continue;
-      tem = Fstring_equal (filename,
-			   (find_file_compare_truenames
-			    ? XBUFFER (buf)->file_truename
-			    : XBUFFER (buf)->filename));
-      if (!NILP (tem))
-	return buf;
-    }
+  {
+    LIST_LOOP_2 (elt, Vbuffer_alist)
+      {
+	buf = Fcdr (elt);
+	if (!BUFFERP (buf)) continue;
+	if (!STRINGP (XBUFFER (buf)->filename)) continue;
+	if (!NILP (Fstring_equal (filename,
+				  (find_file_compare_truenames
+				   ? XBUFFER (buf)->file_truename
+				   : XBUFFER (buf)->filename))))
+	  return buf;
+      }
+  }
   return Qnil;
 }
 
@@ -525,6 +538,7 @@ delete_from_buffer_alist (Lisp_Object buf)
 Lisp_Object
 get_truename_buffer (REGISTER Lisp_Object filename)
 {
+  /* This function can GC.  GC correct 7-11-00 ben */
   /* FSFmacs has its own code here and doesn't call get-file-buffer.
      That's because their equivalent of find-file-compare-truenames
      (find-file-existing-other-name) isn't looked at in get-file-buffer.
@@ -538,7 +552,7 @@ get_truename_buffer (REGISTER Lisp_Object filename)
 static struct buffer *
 allocate_buffer (void)
 {
-  struct buffer *b = alloc_lcrecord_type (struct buffer, lrecord_buffer);
+  struct buffer *b = alloc_lcrecord_type (struct buffer, &lrecord_buffer);
 
   copy_lcrecord (b, XBUFFER (Vbuffer_defaults));
 
@@ -558,7 +572,7 @@ finish_init_buffer (struct buffer *b, Lisp_Object name)
      local_var_alist is set to Qnil at the same point, in
      nuke_all_buffer_slots(). */
   reset_buffer_local_variables (b, 1);
-  b->directory = ((current_buffer) ? current_buffer->directory : Qnil);
+  b->directory = current_buffer ? current_buffer->directory : Qnil;
 
   b->last_window_start = 1;
 
@@ -577,8 +591,8 @@ finish_init_buffer (struct buffer *b, Lisp_Object name)
   init_buffer_markers (b);
 
   b->generated_modeline_string = Fmake_string (make_int (84), make_int (' '));
-  b->modeline_extent_table = make_lisp_hashtable (20, HASHTABLE_KEY_WEAK,
-						  HASHTABLE_EQ);
+  b->modeline_extent_table = make_lisp_hash_table (20, HASH_TABLE_KEY_WEAK,
+						   HASH_TABLE_EQ);
 
   return buf;
 }
@@ -614,61 +628,57 @@ The value is never nil.
   b->text = &b->own_text;
   b->base_buffer = 0;
   b->indirect_children = Qnil;
-  init_buffer_text (b, 0);
+  init_buffer_text (b);
 
   return finish_init_buffer (b, name);
 }
 
-#if 0 /* #### implement this!  Need various changes in insdel.c */
 DEFUN ("make-indirect-buffer", Fmake_indirect_buffer, 2, 2,
        "bMake indirect buffer (to buffer): \nBName of indirect buffer: ", /*
-Create and return an indirect buffer for buffer BASE, named NAME.
-BASE should be an existing buffer (or buffer name).
+Create and return an indirect buffer for buffer BASE-BUFFER, named NAME.
+BASE-BUFFER should be an existing buffer (or buffer name).
 NAME should be a string which is not the name of an existing buffer.
-If BASE is an indirect buffer itself, the base buffer for that buffer
+
+If BASE-BUFFER is itself an indirect buffer, the base buffer for that buffer
  is made the base buffer for the newly created buffer. (Thus, there will
  never be indirect buffers whose base buffers are themselves indirect.)
 */
        (base_buffer, name))
 {
-  Lisp_Object buf;
-  REGISTER struct buffer *b;
+  /* This function can GC */
+
+  /* #### The above interactive specification is totally bogus,
+     because it offers an existing buffer as default answer to the
+     second question.  However, the second argument may not BE an
+     existing buffer!  */
+  struct buffer *b;
+
+  base_buffer = get_buffer (base_buffer, 1);
 
 #ifdef I18N3
   /* #### Doc string should indicate that the buffer name will get
      translated. */
 #endif
-
+  CHECK_STRING (name);
   name = LISP_GETTEXT (name);
-  buf = Fget_buffer (name);
-  if (!NILP (buf))
-    error ("Buffer name `%s' is in use", XSTRING_DATA (name));
-
-  base_buffer = Fget_buffer (base_buffer);
-  if (NILP (base_buffer))
-    error ("No such buffer: `%s'", XSTRING_DATA (XBUFFER (base_buffer)->name));
-
+  if (!NILP (Fget_buffer (name)))
+    signal_simple_error ("Buffer name already in use", name);
   if (XSTRING_LENGTH (name) == 0)
     error ("Empty string for buffer name is not allowed");
 
   b = allocate_buffer ();
 
-  if (XBUFFER (base_buffer)->base_buffer)
-    b->base_buffer = XBUFFER (base_buffer)->base_buffer;
-  else
-    b->base_buffer = XBUFFER (base_buffer);
+  b->base_buffer = BUFFER_BASE_BUFFER (XBUFFER (base_buffer));
 
   /* Use the base buffer's text object.  */
   b->text = b->base_buffer->text;
   b->indirect_children = Qnil;
-  XSETBUFFER (buf, b);
   b->base_buffer->indirect_children =
-    Fcons (buf, b->base_buffer->indirect_children);
-  init_buffer_text (b, 1);
+    Fcons (make_buffer (b), b->base_buffer->indirect_children);
+  init_buffer_text (b);
 
   return finish_init_buffer (b, name);
 }
-#endif /* 0 */
 
 
 
@@ -690,28 +700,6 @@ reset_buffer_local_variables (struct buffer *b, int first_time)
   }
 #include "bufslots.h"
 #undef MARKED_SLOT
-#if 0
-#define STRING256_P(obj) \
-  (STRINGP (obj) && XSTRING_CHAR_LENGTH (obj) == 256)
-  /* If the standard case table has been altered and invalidated,
-     fix up its insides first.  */
-  if (!(STRING256_P(Vascii_upcase_table) &&
-	STRING256_P(Vascii_canon_table) &&
-	STRING256_P(Vascii_eqv_table)))
-    {
-      Fset_standard_case_table (Vascii_downcase_table);
-    }
-  b->downcase_table = Vascii_downcase_table;
-  b->upcase_table = Vascii_upcase_table;
-  b->case_canon_table = Vascii_canon_table;
-  b->case_eqv_table = Vascii_eqv_table;
-#ifdef MULE
-  b->mirror_downcase_table = Vmirror_ascii_downcase_table;
-  b->mirror_upcase_table = Vmirror_ascii_upcase_table;
-  b->mirror_case_canon_table = Vmirror_ascii_canon_table;
-  b->mirror_case_eqv_table = Vmirror_ascii_eqv_table;
-#endif
-#endif
 }
 
 
@@ -814,41 +802,6 @@ If BUFFER is indirect, the return value will always be nil; see
   return Fcopy_sequence (buf->indirect_children);
 }
 
-/* Map MAPFUN over all buffers that share the same text as BUF
-   (this includes BUF).  Pass two arguments to MAPFUN: a buffer,
-   and CLOSURE.  If any invocation of MAPFUN returns non-zero,
-   halt immediately and return that value.  Otherwise, continue
-   the mapping to the end and return 0. */
-
-int
-map_over_sharing_buffers (struct buffer *buf,
-			  int (*mapfun) (struct buffer *buf, void *closure),
-			  void *closure)
-{
-  int result;
-  Lisp_Object tail;
-
-  if (buf->base_buffer)
-    {
-      buf = buf->base_buffer;
-      assert (!buf->base_buffer);
-    }
-
-  result = (mapfun) (buf, closure);
-  if (result)
-    return result;
-
-  LIST_LOOP (tail, buf->indirect_children)
-    {
-      Lisp_Object buffer = XCAR (tail);
-      result = (mapfun) (XBUFFER (buffer), closure);
-      if (result)
-	return result;
-    }
-
-  return 0;
-}
-
 DEFUN ("buffer-local-variables", Fbuffer_local_variables, 0, 1, 0, /*
 Return an alist of variables that are buffer-local in BUFFER.
 Most elements look like (SYMBOL . VALUE), describing one variable.
@@ -899,37 +852,6 @@ No argument or nil as argument means use current buffer as BUFFER.
   }
   return result;
 }
-
-DEFUN ("buffer-dedicated-frame", Fbuffer_dedicated_frame, 0, 1, 0, /*
-Return the frame dedicated to this BUFFER, or nil if there is none.
-No argument or nil as argument means use current buffer as BUFFER.
-*/
-       (buffer))
-{
-  struct buffer *buf = decode_buffer (buffer, 0);
-
-  /* XEmacs addition: if the frame is dead, silently make it go away. */
-  if (!NILP (buf->dedicated_frame) &&
-      !FRAME_LIVE_P (XFRAME (buf->dedicated_frame)))
-    buf->dedicated_frame = Qnil;
-
-  return buf->dedicated_frame;
-}
-
-DEFUN ("set-buffer-dedicated-frame", Fset_buffer_dedicated_frame, 2, 2, 0, /*
-For this BUFFER, set the FRAME dedicated to it.
-FRAME must be a frame or nil.
-*/
-       (buffer, frame))
-{
-  struct buffer *buf = decode_buffer (buffer, 0);
-
-  if (!NILP (frame))
-    CHECK_LIVE_FRAME (frame); /* XEmacs change */
-
-  return buf->dedicated_frame = frame;
-}
-
 
 
 DEFUN ("buffer-modified-p", Fbuffer_modified_p, 0, 1, 0, /*
@@ -983,7 +905,7 @@ as BUFFER means use current buffer.
      display).  We still need to make sure redisplay realizes that the
      contents have potentially altered and it needs to do some
      work. */
-  buf = decode_buffer(buffer, 0);
+  buf = decode_buffer (buffer, 0);
   BUF_MODIFF (buf)++;
   BUF_SAVE_MODIFF (buf) = NILP (flag) ? BUF_MODIFF (buf) : 0;
   MARK_MODELINE_CHANGED;
@@ -1058,6 +980,7 @@ This does not change the name of the visited file (if any).
   /* The aconses in the Vbuffer_alist are shared with frame->buffer_alist,
      so this will change it in the per-frame ordering as well. */
   Fsetcar (Frassq (buf, Vbuffer_alist), newname);
+
   if (NILP (current_buffer->filename)
       && !NILP (current_buffer->auto_save_file_name))
     call0 (Qrename_auto_save_file);
@@ -1136,7 +1059,7 @@ VISIBLE-OK.
 }
 
 DEFUN ("buffer-disable-undo", Fbuffer_disable_undo, 0, 1, "", /*
-Make BUFFER stop keeping undo information.
+Stop keeping undo information for BUFFER.
 Any undo records it already has are discarded.
 No argument or nil as argument means do this for the current buffer.
 */
@@ -1149,7 +1072,7 @@ No argument or nil as argument means do this for the current buffer.
 }
 
 DEFUN ("buffer-enable-undo", Fbuffer_enable_undo, 0, 1, "", /*
-Start keeping undo information for buffer BUFFER.
+Start keeping undo information for BUFFER.
 No argument or nil as argument means do this for the current buffer.
 */
        (buffer))
@@ -1163,7 +1086,7 @@ No argument or nil as argument means do this for the current buffer.
 }
 
 DEFUN ("kill-buffer", Fkill_buffer, 1, 1, "bKill buffer: ", /*
-Kill the buffer BUFNAME.
+Kill the buffer BUFFER.
 The argument may be a buffer or may be the name of a buffer.
 An argument of nil means kill the current buffer.
 
@@ -1177,21 +1100,21 @@ when the hook functions are called.
 Any processes that have this buffer as the `process-buffer' are killed
 with `delete-process'.
 */
-       (bufname))
+       (buffer))
 {
   /* This function can call lisp */
   Lisp_Object buf;
   REGISTER struct buffer *b;
   struct gcpro gcpro1, gcpro2;
 
-  if (NILP (bufname))
+  if (NILP (buffer))
     buf = Fcurrent_buffer ();
-  else if (BUFFERP (bufname))
-    buf = bufname;
+  else if (BUFFERP (buffer))
+    buf = buffer;
   else
     {
-      buf = get_buffer (bufname, 0);
-      if (NILP (buf)) nsberror (bufname);
+      buf = get_buffer (buffer, 0);
+      if (NILP (buf)) nsberror (buffer);
     }
 
   b = XBUFFER (buf);
@@ -1213,11 +1136,11 @@ with `delete-process'.
       && BUF_MODIFF (b) > BUF_SAVE_MODIFF (b))
     {
       Lisp_Object killp;
-      GCPRO2 (buf, bufname);
+      GCPRO1 (buf);
       killp = call1
 	(Qyes_or_no_p,
 	 (emacs_doprnt_string_c
-	  ((CONST Bufbyte *) GETTEXT ("Buffer %s modified; kill anyway? "),
+	  ((const Bufbyte *) GETTEXT ("Buffer %s modified; kill anyway? "),
 	   Qnil, -1, XSTRING_DATA (b->name))));
       UNGCPRO;
       if (NILP (killp))
@@ -1251,15 +1174,13 @@ with `delete-process'.
 
       /* Then run the hooks.  */
       run_hook (Qkill_buffer_hook);
-#ifdef HAVE_X_WINDOWS
-      /* If an X selection was in this buffer, disown it.
-	 We could have done this by simply adding this function to the
-	 kill-buffer-hook, but the user might mess that up.
-	 */
-      if (EQ (Vwindow_system, Qx))
-	call0 (intern ("xselect-kill-buffer-hook"));
-      /* #### generalize me! */
-#endif /* HAVE_X_WINDOWS */
+
+      /* Inform the selection code that a buffer just got killed.
+	 We do this in C because (a) it's faster, and (b) it needs
+         to access data internal to select.c that can't be seen from
+         Lisp (so the Lisp code would just call into C anyway. */
+      select_notify_buffer_kill (buf);
+
       unbind_to (speccount, Qnil);
       UNGCPRO;
       b = XBUFFER (buf);        /* Hypothetical relocating GC. */
@@ -1287,7 +1208,12 @@ with `delete-process'.
       GCPRO1 (buf);
 
       LIST_LOOP (rest, b->indirect_children)
-	Fkill_buffer (XCAR (rest));
+	{
+	  Fkill_buffer (XCAR (rest));
+	  /* Keep indirect_children updated in case a
+             query-function/hook throws.  */
+	  b->indirect_children = XCDR (rest);
+	}
 
       UNGCPRO;
     }
@@ -1330,12 +1256,16 @@ with `delete-process'.
 
     kill_buffer_processes (buf);
 
-    /* #### This is a problem if this buffer is in a dedicated window.
-       Need to undedicate any windows of this buffer first (and delete them?)
-       */
-    Freplace_buffer_in_windows (buf);
-
     delete_from_buffer_alist (buf);
+
+    /* Undedicate any windows of this buffer, and make sure no windows
+       show it.  */
+
+    undedicate_windows (buf, Qt);
+    
+    GCPRO1 (buf);
+    Freplace_buffer_in_windows (buf, Qnil, Qall);
+    UNGCPRO;
 
     font_lock_buffer_was_killed (b);
 
@@ -1372,7 +1302,7 @@ with `delete-process'.
     kill_buffer_local_variables (b);
 
     b->name = Qnil;
-    uninit_buffer_text (b, !!b->base_buffer);
+    uninit_buffer_text (b);
     b->undo_list = Qnil;
     uninit_buffer_extents (b);
     if (b->base_buffer)
@@ -1394,7 +1324,7 @@ with `delete-process'.
 }
 
 DEFUN ("record-buffer", Frecord_buffer, 1, 1, 0, /*
-Place buffer BUF first in the buffer order.
+Place buffer BUFFER first in the buffer order.
 Call this function when a buffer is selected "visibly".
 
 This function changes the global buffer order and the per-frame buffer
@@ -1402,7 +1332,7 @@ order for the selected frame.  The buffer order keeps track of recency
 of selection so that `other-buffer' will return a recently selected
 buffer.  See `other-buffer' for more information.
 */
-       (buf))
+       (buffer))
 {
   REGISTER Lisp_Object lynk, prev;
   struct frame *f = selected_frame ();
@@ -1410,7 +1340,7 @@ buffer.  See `other-buffer' for more information.
   prev = Qnil;
   for (lynk = Vbuffer_alist; CONSP (lynk); lynk = XCDR (lynk))
     {
-      if (EQ (XCDR (XCAR (lynk)), buf))
+      if (EQ (XCDR (XCAR (lynk)), buffer))
 	break;
       prev = lynk;
     }
@@ -1427,7 +1357,7 @@ buffer.  See `other-buffer' for more information.
   prev = Qnil;
   for (lynk = f->buffer_alist; CONSP (lynk); lynk = XCDR (lynk))
     {
-      if (EQ (XCDR (XCAR (lynk)), buf))
+      if (EQ (XCDR (XCAR (lynk)), buffer))
 	break;
       prev = lynk;
     }
@@ -1438,6 +1368,7 @@ buffer.  See `other-buffer' for more information.
     XCDR (prev) = XCDR (XCDR (prev));
   XCDR (lynk) = f->buffer_alist;
   f->buffer_alist = lynk;
+
   return Qnil;
 }
 
@@ -1446,15 +1377,14 @@ Set an appropriate major mode for BUFFER, according to `default-major-mode'.
 Use this function before selecting the buffer, since it may need to inspect
 the current buffer's major mode.
 */
-       (buf))
+       (buffer))
 {
   int speccount = specpdl_depth ();
-  REGISTER Lisp_Object function, tem;
+  Lisp_Object function = XBUFFER (Vbuffer_defaults)->major_mode;
 
-  function = XBUFFER (Vbuffer_defaults)->major_mode;
   if (NILP (function))
     {
-      tem = Fget (current_buffer->major_mode, Qmode_class, Qnil);
+      Lisp_Object tem = Fget (current_buffer->major_mode, Qmode_class, Qnil);
       if (NILP (tem))
 	function = current_buffer->major_mode;
     }
@@ -1467,7 +1397,7 @@ the current buffer's major mode.
 
   record_unwind_protect (Fset_buffer, Fcurrent_buffer ());
 
-  Fset_buffer (buf);
+  Fset_buffer (buffer);
   call0 (function);
 
   return unbind_to (speccount, Qnil);
@@ -1485,9 +1415,9 @@ Return the current buffer as a Lisp object.
 */
        ())
 {
-  Lisp_Object buf;
-  XSETBUFFER (buf, current_buffer);
-  return buf;
+  Lisp_Object buffer;
+  XSETBUFFER (buffer, current_buffer);
+  return buffer;
 }
 
 /* Set the current buffer to B.  */
@@ -1506,20 +1436,6 @@ set_buffer_internal (struct buffer *b)
   old_buf = current_buffer;
   current_buffer = b;
   invalidate_current_column ();   /* invalidate indentation cache */
-
-#ifdef HAVE_FEP
-  if (!noninteractive && initialized)
-    {
-      extern Lisp_Object Ffep_force_on (), Ffep_force_off (), Ffep_get_mode ();
-
-      old_buf->fep_mode = Ffep_get_mode ();
-
-      if (!NILP (current_buffer->fep_mode))
-	Ffep_force_on ();
-      else
-	Ffep_force_off ();
-  }
-#endif /* HAVE_FEP */
 
   if (old_buf)
     {
@@ -1593,7 +1509,7 @@ Use `switch-to-buffer' or `pop-to-buffer' to switch buffers permanently.
 
 
 DEFUN ("barf-if-buffer-read-only", Fbarf_if_buffer_read_only, 0, 3, 0, /*
-Signal a `buffer-read-only' error if the buffer is read-only.
+Signal a `buffer-read-only' error if BUFFER is read-only.
 Optional argument BUFFER defaults to the current buffer.
 
 If optional argument START is non-nil, all extents in the buffer
@@ -1652,6 +1568,8 @@ thus, the least likely buffer for \\[switch-to-buffer] to select by default.
 If BUFFER is nil or omitted, bury the current buffer.
 Also, if BUFFER is nil or omitted, remove the current buffer from the
 selected window if it is displayed there.
+Because of this, you may need to specify (current-buffer) as
+BUFFER when calling from minibuffer.
 If BEFORE is non-nil, it specifies a buffer before which BUFFER
 will be placed, instead of being placed at the end.
 */
@@ -1710,7 +1628,6 @@ BUFFER defaults to the current buffer if omitted.
      implies that the future text is not really related to the past text.  */
   b->saved_size = Qzero;
 
-  zmacs_region_stays = 0;
   return Qnil;
 }
 
@@ -1831,9 +1748,375 @@ represents all the memory concerned.
 
 #endif /* MEMORY_USAGE_STATS */
 
+
+/************************************************************************/
+/*           Implement TO_EXTERNAL_FORMAT, TO_INTERNAL_FORMAT           */
+/************************************************************************/
+
+/* This implementation should probably be elsewhere, but it can't be
+   in file-coding.c since that file is only available if FILE_CODING
+   is defined. */
+#ifdef FILE_CODING
+static int
+coding_system_is_binary (Lisp_Object coding_system)
+{
+  Lisp_Coding_System *cs = XCODING_SYSTEM (coding_system);
+  return
+    (CODING_SYSTEM_TYPE (cs) == CODESYS_NO_CONVERSION &&
+     CODING_SYSTEM_EOL_TYPE (cs) == EOL_LF &&
+     EQ (CODING_SYSTEM_POST_READ_CONVERSION (cs), Qnil) &&
+     EQ (CODING_SYSTEM_PRE_WRITE_CONVERSION (cs), Qnil));
+}
+#else
+#define coding_system_is_binary(coding_system) 1
+#endif
+
+typedef struct
+{
+  Dynarr_declare (Bufbyte_dynarr *);
+} Bufbyte_dynarr_dynarr;
+
+typedef struct
+{
+  Dynarr_declare (Extbyte_dynarr *);
+} Extbyte_dynarr_dynarr;
+
+static Extbyte_dynarr_dynarr *conversion_out_dynarr_list;
+static Bufbyte_dynarr_dynarr *conversion_in_dynarr_list;
+
+static int dfc_convert_to_external_format_in_use;
+static int dfc_convert_to_internal_format_in_use;
+
+static Lisp_Object
+dfc_convert_to_external_format_reset_in_use (Lisp_Object value)
+{
+  dfc_convert_to_external_format_in_use = XINT (value);
+  return Qnil;
+}
+
+static Lisp_Object
+dfc_convert_to_internal_format_reset_in_use (Lisp_Object value)
+{
+  dfc_convert_to_internal_format_in_use = XINT (value);
+  return Qnil;
+}
+
+void
+dfc_convert_to_external_format (dfc_conversion_type source_type,
+				dfc_conversion_data *source,
+#ifdef FILE_CODING
+				Lisp_Object coding_system,
+#endif
+				dfc_conversion_type sink_type,
+				dfc_conversion_data *sink)
+{
+  int count = specpdl_depth ();
+  Extbyte_dynarr *conversion_out_dynarr;
+
+  type_checking_assert
+    (((source_type == DFC_TYPE_DATA) ||
+      (source_type == DFC_TYPE_LISP_LSTREAM && LSTREAMP (source->lisp_object)) ||
+      (source_type == DFC_TYPE_LISP_STRING && STRINGP (source->lisp_object)))
+     &&
+     ((sink_type == DFC_TYPE_DATA) ||
+      (sink_type == DFC_TYPE_LISP_LSTREAM && LSTREAMP (source->lisp_object))));
+
+  record_unwind_protect (dfc_convert_to_external_format_reset_in_use,
+			 make_int (dfc_convert_to_external_format_in_use));
+  if (Dynarr_length (conversion_out_dynarr_list) <=
+      dfc_convert_to_external_format_in_use)
+    Dynarr_add (conversion_out_dynarr_list, Dynarr_new (Extbyte));
+  conversion_out_dynarr = Dynarr_at (conversion_out_dynarr_list,
+				     dfc_convert_to_external_format_in_use);
+  dfc_convert_to_external_format_in_use++;
+  Dynarr_reset (conversion_out_dynarr);
+
+#ifdef FILE_CODING
+  coding_system = Fget_coding_system (coding_system);
+#endif
+
+  /* Here we optimize in the case where the coding system does no
+     conversion. However, we don't want to optimize in case the source
+     or sink is an lstream, since writing to an lstream can cause a
+     garbage collection, and this could be problematic if the source
+     is a lisp string. */
+  if (source_type != DFC_TYPE_LISP_LSTREAM &&
+      sink_type   != DFC_TYPE_LISP_LSTREAM &&
+      coding_system_is_binary (coding_system))
+    {
+      const Bufbyte *ptr;
+      Bytecount len;
+
+      if (source_type == DFC_TYPE_LISP_STRING)
+	{
+	  ptr = XSTRING_DATA   (source->lisp_object);
+	  len = XSTRING_LENGTH (source->lisp_object);
+	}
+      else
+	{
+	  ptr = (Bufbyte *) source->data.ptr;
+	  len = source->data.len;
+	}
+
+#ifdef MULE
+      {
+	const Bufbyte *end;
+	for (end = ptr + len; ptr < end;)
+	  {
+#ifdef UTF2000
+	    Bufbyte c =
+	      (*ptr < 0xc0) ? *ptr :
+	      ((*ptr & 0x1f) << 6) | (*(ptr+1) & 0x3f);
+#else
+	    Bufbyte c =
+	      (BYTE_ASCII_P (*ptr))		   ? *ptr :
+	      (*ptr == LEADING_BYTE_CONTROL_1)	   ? (*(ptr+1) - 0x20) :
+	      (*ptr == LEADING_BYTE_LATIN_ISO8859_1) ? (*(ptr+1)) :
+	      '~';
+#endif
+
+	    Dynarr_add (conversion_out_dynarr, (Extbyte) c);
+	    INC_CHARPTR (ptr);
+	  }
+	bufpos_checking_assert (ptr == end);
+      }
+#else
+      Dynarr_add_many (conversion_out_dynarr, ptr, len);
+#endif
+
+    }
+  else
+    {
+      Lisp_Object streams_to_delete[3];
+      int delete_count = 0;
+      Lisp_Object instream, outstream;
+      Lstream *reader, *writer;
+      struct gcpro gcpro1, gcpro2;
+
+      if (source_type == DFC_TYPE_LISP_LSTREAM)
+	instream = source->lisp_object;
+      else if (source_type == DFC_TYPE_DATA)
+	streams_to_delete[delete_count++] = instream =
+	  make_fixed_buffer_input_stream (source->data.ptr, source->data.len);
+      else
+	{
+	  type_checking_assert (source_type == DFC_TYPE_LISP_STRING);
+	  streams_to_delete[delete_count++] = instream =
+	    make_lisp_string_input_stream (source->lisp_object, 0, -1);
+	}
+
+      if (sink_type == DFC_TYPE_LISP_LSTREAM)
+	outstream = sink->lisp_object;
+      else
+	{
+	  type_checking_assert (sink_type == DFC_TYPE_DATA);
+	  streams_to_delete[delete_count++] = outstream =
+	    make_dynarr_output_stream
+	    ((unsigned_char_dynarr *) conversion_out_dynarr);
+	}
+
+#ifdef FILE_CODING
+      streams_to_delete[delete_count++] = outstream =
+	make_encoding_output_stream (XLSTREAM (outstream), coding_system);
+#endif
+
+      reader = XLSTREAM (instream);
+      writer = XLSTREAM (outstream);
+      /* decoding_stream will gc-protect outstream */
+      GCPRO2 (instream, outstream);
+
+      while (1)
+        {
+          Lstream_data_count size_in_bytes;
+	  char tempbuf[1024]; /* some random amount */
+
+	  size_in_bytes = Lstream_read (reader, tempbuf, sizeof (tempbuf));
+
+          if (size_in_bytes == 0)
+            break;
+	  else if (size_in_bytes < 0)
+	    error ("Error converting to external format");
+
+	  size_in_bytes = Lstream_write (writer, tempbuf, size_in_bytes);
+
+	  if (size_in_bytes <= 0)
+	    error ("Error converting to external format");
+        }
+
+      /* Closing writer will close any stream at the other end of writer. */
+      Lstream_close (writer);
+      Lstream_close (reader);
+      UNGCPRO;
+
+      /* The idea is that this function will create no garbage. */
+      while (delete_count)
+	Lstream_delete (XLSTREAM (streams_to_delete [--delete_count]));
+    }
+
+  unbind_to (count, Qnil);
+
+  if (sink_type != DFC_TYPE_LISP_LSTREAM)
+    {
+      sink->data.len = Dynarr_length (conversion_out_dynarr);
+      Dynarr_add (conversion_out_dynarr, '\0');	/* NUL-terminate! */
+      sink->data.ptr = Dynarr_atp (conversion_out_dynarr, 0);
+    }
+}
+
+void
+dfc_convert_to_internal_format (dfc_conversion_type source_type,
+				dfc_conversion_data *source,
+#ifdef FILE_CODING
+				Lisp_Object coding_system,
+#endif
+				dfc_conversion_type sink_type,
+				dfc_conversion_data *sink)
+{
+  int count = specpdl_depth ();
+  Bufbyte_dynarr *conversion_in_dynarr;
+
+  type_checking_assert
+    ((source_type == DFC_TYPE_DATA ||
+      source_type == DFC_TYPE_LISP_LSTREAM)
+    &&
+    (sink_type   == DFC_TYPE_DATA ||
+     sink_type   == DFC_TYPE_LISP_LSTREAM));
+
+  record_unwind_protect (dfc_convert_to_internal_format_reset_in_use,
+			 make_int (dfc_convert_to_internal_format_in_use));
+  if (Dynarr_length (conversion_in_dynarr_list) <=
+      dfc_convert_to_internal_format_in_use)
+    Dynarr_add (conversion_in_dynarr_list, Dynarr_new (Bufbyte));
+  conversion_in_dynarr = Dynarr_at (conversion_in_dynarr_list,
+				    dfc_convert_to_internal_format_in_use);
+  dfc_convert_to_internal_format_in_use++;
+  Dynarr_reset (conversion_in_dynarr);
+
+#ifdef FILE_CODING
+  coding_system = Fget_coding_system (coding_system);
+#endif
+
+  if (source_type != DFC_TYPE_LISP_LSTREAM &&
+      sink_type   != DFC_TYPE_LISP_LSTREAM &&
+      coding_system_is_binary (coding_system))
+    {
+#ifdef MULE
+      const Bufbyte *ptr = (const Bufbyte *) source->data.ptr;
+      Bytecount len = source->data.len;
+      const Bufbyte *end = ptr + len;
+
+      for (; ptr < end; ptr++)
+        {
+          Bufbyte c = *ptr;
+
+#ifdef UTF2000
+	  if (BYTE_ASCII_P (c))
+	    Dynarr_add (conversion_in_dynarr, c);
+	  else
+	    {
+	      Dynarr_add (conversion_in_dynarr, (c >> 6) | 0xC0);
+	      Dynarr_add (conversion_in_dynarr, (c & 0x3F) | 0x80);
+	    }
+#else
+	  if (BYTE_ASCII_P (c))
+	    Dynarr_add (conversion_in_dynarr, c);
+	  else if (BYTE_C1_P (c))
+	    {
+	      Dynarr_add (conversion_in_dynarr, LEADING_BYTE_CONTROL_1);
+	      Dynarr_add (conversion_in_dynarr, c + 0x20);
+	    }
+	  else
+	    {
+	      Dynarr_add (conversion_in_dynarr, LEADING_BYTE_LATIN_ISO8859_1);
+	      Dynarr_add (conversion_in_dynarr, c);
+	    }
+#endif
+        }
+#else
+      Dynarr_add_many (conversion_in_dynarr, source->data.ptr, source->data.len);
+#endif
+    }
+  else
+    {
+      Lisp_Object streams_to_delete[3];
+      int delete_count = 0;
+      Lisp_Object instream, outstream;
+      Lstream *reader, *writer;
+      struct gcpro gcpro1, gcpro2;
+
+      if (source_type == DFC_TYPE_LISP_LSTREAM)
+	instream = source->lisp_object;
+      else
+	{
+	  type_checking_assert (source_type == DFC_TYPE_DATA);
+	  streams_to_delete[delete_count++] = instream =
+	    make_fixed_buffer_input_stream (source->data.ptr, source->data.len);
+	}
+
+      if (sink_type == DFC_TYPE_LISP_LSTREAM)
+	outstream = sink->lisp_object;
+      else
+	{
+	  type_checking_assert (sink_type == DFC_TYPE_DATA);
+	  streams_to_delete[delete_count++] = outstream =
+	    make_dynarr_output_stream
+	    ((unsigned_char_dynarr *) conversion_in_dynarr);
+	}
+
+#ifdef FILE_CODING
+      streams_to_delete[delete_count++] = outstream =
+	make_decoding_output_stream (XLSTREAM (outstream), coding_system);
+#endif
+
+      reader = XLSTREAM (instream);
+      writer = XLSTREAM (outstream);
+      /* outstream will gc-protect its sink stream, if necessary */
+      GCPRO2 (instream, outstream);
+
+      while (1)
+        {
+          Lstream_data_count size_in_bytes;
+	  char tempbuf[1024]; /* some random amount */
+
+	  size_in_bytes = Lstream_read (reader, tempbuf, sizeof (tempbuf));
+
+          if (size_in_bytes == 0)
+            break;
+	  else if (size_in_bytes < 0)
+	    error ("Error converting to internal format");
+
+	  size_in_bytes = Lstream_write (writer, tempbuf, size_in_bytes);
+
+	  if (size_in_bytes <= 0)
+	    error ("Error converting to internal format");
+        }
+
+      /* Closing writer will close any stream at the other end of writer. */
+      Lstream_close (writer);
+      Lstream_close (reader);
+      UNGCPRO;
+
+      /* The idea is that this function will create no garbage. */
+      while (delete_count)
+	Lstream_delete (XLSTREAM (streams_to_delete [--delete_count]));
+    }
+
+  unbind_to (count, Qnil);
+
+  if (sink_type != DFC_TYPE_LISP_LSTREAM)
+    {
+      sink->data.len = Dynarr_length (conversion_in_dynarr);
+      Dynarr_add (conversion_in_dynarr, '\0'); /* NUL-terminate! */
+      sink->data.ptr = Dynarr_atp (conversion_in_dynarr, 0);
+    }
+}
+
+
 void
 syms_of_buffer (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (buffer);
+
   defsymbol (&Qbuffer_live_p, "buffer-live-p");
   defsymbol (&Qbuffer_or_string_p, "buffer-or-string-p");
   defsymbol (&Qmode_class, "mode-class");
@@ -1849,8 +2132,6 @@ syms_of_buffer (void)
   defsymbol (&Qbefore_change_function, "before-change-function");
   defsymbol (&Qafter_change_function, "after-change-function");
 
-  defsymbol (&Qbuffer_file_name, "buffer-file-name");
-  defsymbol (&Qbuffer_undo_list, "buffer-undo-list");
   defsymbol (&Qdefault_directory, "default-directory");
 
   defsymbol (&Qget_file_buffer, "get-file-buffer");
@@ -1869,9 +2150,7 @@ syms_of_buffer (void)
   DEFSUBR (Fget_buffer);
   DEFSUBR (Fget_file_buffer);
   DEFSUBR (Fget_buffer_create);
-#if 0
   DEFSUBR (Fmake_indirect_buffer);
-#endif
 
   DEFSUBR (Fgenerate_new_buffer_name);
   DEFSUBR (Fbuffer_name);
@@ -1879,8 +2158,6 @@ syms_of_buffer (void)
   DEFSUBR (Fbuffer_base_buffer);
   DEFSUBR (Fbuffer_indirect_children);
   DEFSUBR (Fbuffer_local_variables);
-  DEFSUBR (Fbuffer_dedicated_frame);
-  DEFSUBR (Fset_buffer_dedicated_frame);
   DEFSUBR (Fbuffer_modified_p);
   DEFSUBR (Fset_buffer_modified_p);
   DEFSUBR (Fbuffer_modified_tick);
@@ -1901,8 +2178,21 @@ syms_of_buffer (void)
   DEFSUBR (Fbuffer_memory_usage);
 #endif
 
-  deferror (&Qprotected_field, "protected-field",
-	    "Attempt to modify a protected field", Qerror);
+  DEFERROR (Qprotected_field, "Attempt to modify a protected field",
+	    Qinvalid_change);
+}
+
+void
+reinit_vars_of_buffer (void)
+{
+  conversion_in_dynarr_list = Dynarr_new2 (Bufbyte_dynarr_dynarr,
+					   Bufbyte_dynarr *);
+  conversion_out_dynarr_list = Dynarr_new2 (Extbyte_dynarr_dynarr,
+					    Extbyte_dynarr *);
+
+  staticpro_nodump (&Vbuffer_alist);
+  Vbuffer_alist = Qnil;
+  current_buffer = 0;
 }
 
 /* initialize the buffer routines */
@@ -1910,15 +2200,13 @@ void
 vars_of_buffer (void)
 {
   /* This function can GC */
+  reinit_vars_of_buffer ();
+
   staticpro (&QSFundamental);
   staticpro (&QSscratch);
-  staticpro (&Vbuffer_alist);
 
-  QSFundamental = Fpurecopy (build_string ("Fundamental"));
-  QSscratch = Fpurecopy (build_string (DEFER_GETTEXT ("*scratch*")));
-
-  Vbuffer_alist = Qnil;
-  current_buffer = 0;
+  QSFundamental = build_string ("Fundamental");
+  QSscratch = build_string (DEFER_GETTEXT ("*scratch*"));
 
   DEFVAR_LISP ("change-major-mode-hook", &Vchange_major_mode_hook /*
 List of hooks to be run before killing local variables in a buffer.
@@ -1928,18 +2216,22 @@ the read-only state of the buffer.  See also `kill-all-local-variables'.
   Vchange_major_mode_hook = Qnil;
 
   DEFVAR_BOOL ("find-file-compare-truenames", &find_file_compare_truenames /*
-If this is true, then the find-file command will check the truenames
+If this is true, then the `find-file' command will check the truenames
 of all visited files when deciding whether a given file is already in
-a buffer, instead of just the buffer-file-name.  This means that if you
-attempt to visit another file which is a symbolic-link to a file which is
-already in a buffer, the existing buffer will be found instead of a newly-
-created one.  This works if any component of the pathname (including a non-
-terminal component) is a symbolic link as well, but doesn't work with hard
-links (nothing does).
+a buffer, instead of just `buffer-file-name'.  This means that if you
+attempt to visit another file which is a symbolic link to a file which
+is already in a buffer, the existing buffer will be found instead of a
+newly-created one.  This works if any component of the pathname
+(including a non-terminal component) is a symbolic link as well, but
+doesn't work with hard links (nothing does).
 
-See also the variable find-file-use-truenames.
+See also the variable `find-file-use-truenames'.
 */ );
+#if defined(CYGWIN) || defined(WIN32_NATIVE)
+  find_file_compare_truenames = 1;
+#else
   find_file_compare_truenames = 0;
+#endif
 
   DEFVAR_BOOL ("find-file-use-truenames", &find_file_use_truenames /*
 If this is true, then a buffer's visited file-name will always be
@@ -1948,7 +2240,7 @@ will never be a symbolic link anywhere in its directory path.
 That is, the buffer-file-name and buffer-file-truename will be equal.
 This doesn't work with hard links.
 
-See also the variable find-file-compare-truenames.
+See also the variable `find-file-compare-truenames'.
 */ );
   find_file_use_truenames = 0;
 
@@ -2049,96 +2341,82 @@ List of functions called with no args to query before killing a buffer.
   delete_auto_save_files = 1;
 }
 
-/* DOC is ignored because it is snagged and recorded externally
- *  by make-docfile */
+/* The docstrings for DEFVAR_* are recorded externally by make-docfile.  */
+
 /* Renamed from DEFVAR_PER_BUFFER because FSFmacs D_P_B takes
- *  a bogus extra arg, which confuses an otherwise identical make-docfile.c */
-/* Declaring this stuff as const produces 'Cannot reinitialize' messages
-   from SunPro C's fix-and-continue feature (a way neato feature that
-   makes debugging unbelievably more bearable) */
-#define DEFVAR_BUFFER_LOCAL(lname, field_name) do {			\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-     (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-      SYMVAL_CURRENT_BUFFER_FORWARD }, 0 };				\
-      defvar_buffer_local ((lname), &I_hate_C);				\
- } while (0)
+   a bogus extra arg, which confuses an otherwise identical make-docfile.c */
+#define DEFVAR_BUFFER_LOCAL_1(lname, field_name, forward_type, magicfun) do {	\
+  static const struct symbol_value_forward I_hate_C =				\
+  { /* struct symbol_value_forward */						\
+    { /* struct symbol_value_magic */						\
+      { /* struct lcrecord_header */						\
+	{ /* struct lrecord_header */						\
+	  lrecord_type_symbol_value_forward, /* lrecord_type_index */		\
+	  1, /* mark bit */							\
+	  1, /* c_readonly bit */						\
+	  1  /* lisp_readonly bit */						\
+	},									\
+	0, /* next */								\
+	0, /* uid  */								\
+	0  /* free */								\
+      },									\
+      &(buffer_local_flags.field_name),						\
+      forward_type								\
+    },										\
+    magicfun									\
+  };										\
+										\
+  {										\
+    int offset = ((char *)symbol_value_forward_forward (&I_hate_C) -		\
+		  (char *)&buffer_local_flags);					\
+    defvar_magic (lname, &I_hate_C);						\
+										\
+    *((Lisp_Object *)(offset + (char *)XBUFFER (Vbuffer_local_symbols)))	\
+      = intern (lname);								\
+  }										\
+} while (0)
 
-#define DEFVAR_BUFFER_LOCAL_MAGIC(lname, field_name, magicfun) do {	\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-     (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-      SYMVAL_CURRENT_BUFFER_FORWARD }, magicfun };			\
-      defvar_buffer_local ((lname), &I_hate_C);				\
- } while (0)
+#define DEFVAR_BUFFER_LOCAL_MAGIC(lname, field_name, magicfun)		\
+	DEFVAR_BUFFER_LOCAL_1 (lname, field_name,			\
+			       SYMVAL_CURRENT_BUFFER_FORWARD, magicfun)
+#define DEFVAR_BUFFER_LOCAL(lname, field_name)				\
+	DEFVAR_BUFFER_LOCAL_MAGIC (lname, field_name, 0)
+#define DEFVAR_CONST_BUFFER_LOCAL_MAGIC(lname, field_name, magicfun)	\
+	DEFVAR_BUFFER_LOCAL_1 (lname, field_name,			\
+			       SYMVAL_CONST_CURRENT_BUFFER_FORWARD, magicfun)
+#define DEFVAR_CONST_BUFFER_LOCAL(lname, field_name)			\
+	DEFVAR_CONST_BUFFER_LOCAL_MAGIC (lname, field_name, 0)
 
-#define DEFVAR_CONST_BUFFER_LOCAL(lname, field_name) do {		\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-     (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-      SYMVAL_CONST_CURRENT_BUFFER_FORWARD }, 0 };			\
-      defvar_buffer_local ((lname), &I_hate_C);				\
- } while (0)
-
-#define DEFVAR_CONST_BUFFER_LOCAL_MAGIC(lname, field_name, magicfun) do{\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-     (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-      SYMVAL_CONST_CURRENT_BUFFER_FORWARD }, magicfun };		\
-      defvar_buffer_local ((lname), &I_hate_C);				\
- } while (0)
-
-static void
-defvar_buffer_local (CONST char *namestring,
-                     CONST struct symbol_value_forward *m)
-{
-  int offset = ((char *)symbol_value_forward_forward (m)
-                - (char *)&buffer_local_flags);
-
-  defvar_mumble (namestring, m, sizeof (*m));
-
-  *((Lisp_Object *)(offset + (char *)XBUFFER (Vbuffer_local_symbols)))
-    = intern (namestring);
-}
-
-/* DOC is ignored because it is snagged and recorded externally
- *  by make-docfile */
-#define DEFVAR_BUFFER_DEFAULTS(lname, field_name) do {			\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-     (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-      SYMVAL_DEFAULT_BUFFER_FORWARD }, 0 };				\
-      defvar_mumble ((lname), &I_hate_C, sizeof (I_hate_C));		\
- } while (0)
-
-#define DEFVAR_BUFFER_DEFAULTS_MAGIC(lname, field_name, magicfun) do {	\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-     (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-      SYMVAL_DEFAULT_BUFFER_FORWARD }, magicfun };			\
-      defvar_mumble ((lname), &I_hate_C, sizeof (I_hate_C));		\
- } while (0)
+#define DEFVAR_BUFFER_DEFAULTS_MAGIC(lname, field_name, magicfun)	\
+	DEFVAR_SYMVAL_FWD (lname, &(buffer_local_flags.field_name),	\
+			   SYMVAL_DEFAULT_BUFFER_FORWARD, magicfun)
+#define DEFVAR_BUFFER_DEFAULTS(lname, field_name)			\
+	DEFVAR_BUFFER_DEFAULTS_MAGIC (lname, field_name, 0)
 
 static void
 nuke_all_buffer_slots (struct buffer *b, Lisp_Object zap)
 {
   zero_lcrecord (b);
 
-#define MARKED_SLOT(x)	b->x = (zap);
+  b->extent_info = Qnil;
+  b->indirect_children = Qnil;
+  b->own_text.line_number_cache = Qnil;
+
+#define MARKED_SLOT(x)	b->x = zap
 #include "bufslots.h"
 #undef MARKED_SLOT
 }
 
-void
-complex_vars_of_buffer (void)
+static void
+common_init_complex_vars_of_buffer (void)
 {
   /* Make sure all markable slots in buffer_defaults
      are initialized reasonably, so mark_buffer won't choke. */
-  struct buffer *defs = alloc_lcrecord_type (struct buffer, lrecord_buffer);
-  struct buffer *syms = alloc_lcrecord_type (struct buffer, lrecord_buffer);
+  struct buffer *defs = alloc_lcrecord_type (struct buffer, &lrecord_buffer);
+  struct buffer *syms = alloc_lcrecord_type (struct buffer, &lrecord_buffer);
 
-  staticpro (&Vbuffer_defaults);
-  staticpro (&Vbuffer_local_symbols);
+  staticpro_nodump (&Vbuffer_defaults);
+  staticpro_nodump (&Vbuffer_local_symbols);
   XSETBUFFER (Vbuffer_defaults, defs);
   XSETBUFFER (Vbuffer_local_symbols, syms);
 
@@ -2152,20 +2430,16 @@ complex_vars_of_buffer (void)
   defs->major_mode = Qfundamental_mode;
   defs->mode_name = QSFundamental;
   defs->abbrev_table = Qnil;    /* real default setup by Lisp code */
-  defs->downcase_table = Vascii_downcase_table;
-  defs->upcase_table = Vascii_upcase_table;
-  defs->case_canon_table = Vascii_canon_table;
-  defs->case_eqv_table = Vascii_eqv_table;
+
+  defs->case_table = Vstandard_case_table;
 #ifdef MULE
-  defs->mirror_downcase_table = Vmirror_ascii_downcase_table;
-  defs->mirror_upcase_table = Vmirror_ascii_upcase_table;
-  defs->mirror_case_canon_table = Vmirror_ascii_canon_table;
-  defs->mirror_case_eqv_table = Vmirror_ascii_eqv_table;
   defs->category_table = Vstandard_category_table;
 #endif /* MULE */
   defs->syntax_table = Vstandard_syntax_table;
+#ifndef UTF2000
   defs->mirror_syntax_table =
     XCHAR_TABLE (Vstandard_syntax_table)->mirror_table;
+#endif
   defs->modeline_format = build_string ("%-");  /* reset in loaddefs.el */
   defs->case_fold_search = Qt;
   defs->selective_display_ellipses = Qt;
@@ -2178,6 +2452,7 @@ complex_vars_of_buffer (void)
   defs->auto_save_modified = 0;
   defs->auto_save_failure_time = -1;
   defs->invisibility_spec = Qt;
+  defs->buffer_local_face_property = 0;
 
   defs->indirect_children = Qnil;
   syms->indirect_children = Qnil;
@@ -2194,7 +2469,7 @@ complex_vars_of_buffer (void)
      */
     Lisp_Object always_local_no_default = make_int (0);
     Lisp_Object always_local_resettable = make_int (-1);
-    Lisp_Object resettable = make_int (-3);
+    Lisp_Object resettable		= make_int (-3);
 
     /* Assign the local-flags to the slots that have default values.
        The local flag is a bit that is used in the buffer
@@ -2203,59 +2478,104 @@ complex_vars_of_buffer (void)
        buffer.  */
 
     nuke_all_buffer_slots (&buffer_local_flags, make_int (-2));
-    buffer_local_flags.filename = always_local_no_default;
-    buffer_local_flags.directory = always_local_no_default;
-    buffer_local_flags.backed_up = always_local_no_default;
-    buffer_local_flags.saved_size = always_local_no_default;
+    buffer_local_flags.filename		   = always_local_no_default;
+    buffer_local_flags.directory	   = always_local_no_default;
+    buffer_local_flags.backed_up	   = always_local_no_default;
+    buffer_local_flags.saved_size	   = always_local_no_default;
     buffer_local_flags.auto_save_file_name = always_local_no_default;
-    buffer_local_flags.read_only = always_local_no_default;
+    buffer_local_flags.read_only	   = always_local_no_default;
 
-    buffer_local_flags.major_mode = always_local_resettable;
-    buffer_local_flags.mode_name = always_local_resettable;
-    buffer_local_flags.undo_list = always_local_no_default;
+    buffer_local_flags.major_mode	   = always_local_resettable;
+    buffer_local_flags.mode_name	   = always_local_resettable;
+    buffer_local_flags.undo_list	   = always_local_no_default;
 #if 0 /* FSFmacs */
-    buffer_local_flags.mark_active = always_local_resettable;
+    buffer_local_flags.mark_active	   = always_local_resettable;
 #endif
     buffer_local_flags.point_before_scroll = always_local_resettable;
-    buffer_local_flags.file_truename = always_local_no_default;
-    buffer_local_flags.invisibility_spec = always_local_resettable;
-    buffer_local_flags.file_format = always_local_resettable;
+    buffer_local_flags.file_truename	   = always_local_no_default;
+    buffer_local_flags.invisibility_spec   = always_local_resettable;
+    buffer_local_flags.file_format	   = always_local_resettable;
     buffer_local_flags.generated_modeline_string = always_local_no_default;
 
-    buffer_local_flags.keymap = resettable;
-    buffer_local_flags.downcase_table = resettable;
-    buffer_local_flags.upcase_table = resettable;
-    buffer_local_flags.case_canon_table = resettable;
-    buffer_local_flags.case_eqv_table = resettable;
-    buffer_local_flags.syntax_table = resettable;
+    buffer_local_flags.keymap		= resettable;
+    buffer_local_flags.case_table	= resettable;
+    buffer_local_flags.syntax_table	= resettable;
 #ifdef MULE
-    buffer_local_flags.category_table = resettable;
+    buffer_local_flags.category_table	= resettable;
 #endif
 
-    buffer_local_flags.modeline_format = make_int (1);
-    buffer_local_flags.abbrev_mode = make_int (2);
-    buffer_local_flags.overwrite_mode = make_int (4);
-    buffer_local_flags.case_fold_search = make_int (8);
-    buffer_local_flags.auto_fill_function = make_int (0x10);
-    buffer_local_flags.selective_display = make_int (0x20);
-    buffer_local_flags.selective_display_ellipses = make_int (0x40);
-    buffer_local_flags.tab_width = make_int (0x80);
-    buffer_local_flags.truncate_lines = make_int (0x100);
-    buffer_local_flags.ctl_arrow = make_int (0x200);
-    buffer_local_flags.fill_column = make_int (0x400);
-    buffer_local_flags.left_margin = make_int (0x800);
-    buffer_local_flags.abbrev_table = make_int (0x1000);
+    buffer_local_flags.modeline_format		  = make_int (1<<0);
+    buffer_local_flags.abbrev_mode		  = make_int (1<<1);
+    buffer_local_flags.overwrite_mode		  = make_int (1<<2);
+    buffer_local_flags.case_fold_search		  = make_int (1<<3);
+    buffer_local_flags.auto_fill_function	  = make_int (1<<4);
+    buffer_local_flags.selective_display	  = make_int (1<<5);
+    buffer_local_flags.selective_display_ellipses = make_int (1<<6);
+    buffer_local_flags.tab_width		  = make_int (1<<7);
+    buffer_local_flags.truncate_lines		  = make_int (1<<8);
+    buffer_local_flags.ctl_arrow		  = make_int (1<<9);
+    buffer_local_flags.fill_column		  = make_int (1<<10);
+    buffer_local_flags.left_margin		  = make_int (1<<11);
+    buffer_local_flags.abbrev_table		  = make_int (1<<12);
 #ifdef REGION_CACHE_NEEDS_WORK
-    buffer_local_flags.cache_long_line_scans = make_int (0x2000);
+    buffer_local_flags.cache_long_line_scans	  = make_int (1<<13);
 #endif
 #ifdef FILE_CODING
-    buffer_local_flags.buffer_file_coding_system = make_int (0x4000);
+    buffer_local_flags.buffer_file_coding_system  = make_int (1<<14);
 #endif
 
-    /* #### Warning, 0x4000000 (that's six zeroes) is the largest number
-       currently allowable due to the XINT() handling of this value.
-       With some rearrangement you can get 4 more bits. */
+    /* #### Warning: 1<<31 is the largest number currently allowable
+       due to the XINT() handling of this value.  With some
+       rearrangement you can get 3 more bits.
+
+       #### 3 more?  34 bits???? -ben */
   }
+}
+
+#define BUFFER_SLOTS_SIZE (offsetof (struct buffer, BUFFER_SLOTS_LAST_NAME) - offsetof (struct buffer, BUFFER_SLOTS_FIRST_NAME) + sizeof (Lisp_Object))
+#define BUFFER_SLOTS_COUNT (BUFFER_SLOTS_SIZE / sizeof (Lisp_Object))
+
+void
+reinit_complex_vars_of_buffer (void)
+{
+  struct buffer *defs, *syms;
+
+  common_init_complex_vars_of_buffer ();
+
+  defs = XBUFFER (Vbuffer_defaults);
+  syms = XBUFFER (Vbuffer_local_symbols);
+  memcpy (&defs->BUFFER_SLOTS_FIRST_NAME,
+	  buffer_defaults_saved_slots,
+	  BUFFER_SLOTS_SIZE);
+  memcpy (&syms->BUFFER_SLOTS_FIRST_NAME,
+	  buffer_local_symbols_saved_slots,
+	  BUFFER_SLOTS_SIZE);
+}
+
+
+static const struct lrecord_description buffer_slots_description_1[] = {
+  { XD_LISP_OBJECT_ARRAY, 0, BUFFER_SLOTS_COUNT },
+  { XD_END }
+};
+
+static const struct struct_description buffer_slots_description = {
+  BUFFER_SLOTS_SIZE,
+  buffer_slots_description_1
+};
+
+void
+complex_vars_of_buffer (void)
+{
+  struct buffer *defs, *syms;
+
+  common_init_complex_vars_of_buffer ();
+
+  defs = XBUFFER (Vbuffer_defaults);
+  syms = XBUFFER (Vbuffer_local_symbols);
+  buffer_defaults_saved_slots      = &defs->BUFFER_SLOTS_FIRST_NAME;
+  buffer_local_symbols_saved_slots = &syms->BUFFER_SLOTS_FIRST_NAME;
+  dump_add_root_struct_ptr (&buffer_defaults_saved_slots,      &buffer_slots_description);
+  dump_add_root_struct_ptr (&buffer_local_symbols_saved_slots, &buffer_slots_description);
 
   DEFVAR_BUFFER_DEFAULTS ("default-modeline-format", modeline_format /*
 Default value of `modeline-format' for buffers that don't override it.
@@ -2308,31 +2628,31 @@ This is the same as (default-value 'case-fold-search).
   DEFVAR_BUFFER_LOCAL ("modeline-format", modeline_format /*
 Template for displaying modeline for current buffer.
 Each buffer has its own value of this variable.
-Value may be a string, a symbol or a list or cons cell.
-For a symbol, its value is used (but it is ignored if t or nil).
+Value may be a string, symbol, glyph, generic specifier, list or cons cell.
+For a symbol, its value is processed (but it is ignored if t or nil).
  A string appearing directly as the value of a symbol is processed verbatim
  in that the %-constructs below are not recognized.
 For a glyph, it is inserted as is.
+For a generic specifier (i.e. a specifier of type `generic'), its instance
+ is computed in the current window using the equivalent of `specifier-instance'
+ and the value is processed.
 For a list whose car is a symbol, the symbol's value is taken,
  and if that is non-nil, the cadr of the list is processed recursively.
  Otherwise, the caddr of the list (if there is one) is processed.
 For a list whose car is a string or list, each element is processed
  recursively and the results are effectively concatenated.
 For a list whose car is an integer, the cdr of the list is processed
-  and padded (if the number is positive) or truncated (if negative)
-  to the width specified by that number.
+ and padded (if the number is positive) or truncated (if negative)
+ to the width specified by that number.
 For a list whose car is an extent, the cdr of the list is processed
  normally but the results are displayed using the face of the
  extent, and mouse clicks over this section are processed using the
  keymap of the extent. (In addition, if the extent has a help-echo
  property, that string will be echoed when the mouse moves over this
- section.) See `generated-modeline-string' for more information.
-For a list whose car is a face, the cdr of the list is processed
- normally but the results will be displayed using the face in the car.
-For a list whose car is a keymap, the cdr of the list is processed
- normally but the keymap will apply for mouse clicks over the results,
- in addition to `modeline-map'.  Nested keymap specifications are
- handled properly.
+ section.) If extents are nested, all keymaps are properly consulted
+ when processing mouse clicks, but multiple faces are not correctly
+ merged (only the first face is used), and lists of faces are not
+ correctly handled.  See `generated-modeline-string' for more information.
 A string is printed verbatim in the modeline except for %-constructs:
   (%-constructs are processed when the string is the entire modeline-format
    or when it is found in a cons-cell or a list)
@@ -2378,12 +2698,6 @@ Automatically becomes buffer-local when set in any fashion.
   DEFVAR_BUFFER_LOCAL ("case-fold-search", case_fold_search /*
 *Non-nil if searches should ignore case.
 Automatically becomes buffer-local when set in any fashion.
-
-BUG: Under XEmacs/Mule, translations to or from non-ASCII characters
- (this includes chars in the range 128 - 255) are ignored by
- the string/buffer-searching routines.  Thus, `case-fold-search'
- will not correctly conflate a-umlaut and A-umlaut even if the
- case tables call for this.
 */ );
 
   DEFVAR_BUFFER_LOCAL ("fill-column", fill_column /*
@@ -2464,7 +2778,7 @@ its mnemonic abbreviation.
 The default value for this variable (which is normally used for
 buffers without associated files) is also used when automatic
 detection of a file's encoding is called for and there was no
-discernable encoding in the file (i.e. it was entirely or almost
+discernible encoding in the file (i.e. it was entirely or almost
 entirely ASCII).  The default value should generally *not* be set to
 nil (equivalent to `no-conversion'), because if extended characters
 are ever inserted into the buffer, they will be lost when the file is
@@ -2492,7 +2806,7 @@ particular operation, you should bind the variable
 variables just mentioned, which are intended to be used for
 global environment specification.
 */ );
-#endif
+#endif /* FILE_CODING */
 
   DEFVAR_BUFFER_LOCAL ("auto-fill-function", auto_fill_function /*
 Function called (if non-nil) to perform auto-fill.
@@ -2598,8 +2912,8 @@ and VALUE is the old value.
 List of undo entries in current buffer.
 Recent changes come first; older changes follow newer.
 
-An entry (BEG . END) represents an insertion which begins at
-position BEG and ends at position END.
+An entry (START . END) represents an insertion which begins at
+position START and ends at position END.
 
 An entry (TEXT . POSITION) represents the deletion of the string TEXT
 from (abs POSITION).  If POSITION is positive, point was at the front
@@ -2683,8 +2997,8 @@ The default is t, which means that text is invisible
 if it has (or is covered by an extent with) a non-nil `invisible' property.
 If the value is a list, a text character is invisible if its `invisible'
 property is an element in that list.
-If an element is a cons cell of the form (PROP . ELLIPSIS),
-then characters with property value PROP are invisible,
+If an element is a cons cell of the form (PROPERTY . ELLIPSIS),
+then characters with property value PROPERTY are invisible,
 and they have an ellipsis as well if ELLIPSIS is non-nil.
 Note that the actual characters used for the ellipsis are controllable
 using `invisible-text-glyph', and default to "...".
@@ -2747,47 +3061,65 @@ handled:
   }
 }
 
+#ifndef WIN32_NATIVE
+/* Is PWD another name for `.' ? */
+static int
+directory_is_current_directory (Extbyte *pwd)
+{
+  Bufbyte *pwd_internal;
+  Bytecount pwd_internal_len;
+  struct stat dotstat, pwdstat;
+
+  TO_INTERNAL_FORMAT (DATA, (pwd, strlen ((char *)pwd) + 1),
+		      ALLOCA, (pwd_internal, pwd_internal_len),
+		      Qfile_name);
+
+  return (IS_DIRECTORY_SEP (*pwd_internal)
+	  && xemacs_stat ((char *) pwd_internal, &pwdstat) == 0
+	  && xemacs_stat (".", &dotstat) == 0
+	  && dotstat.st_ino == pwdstat.st_ino
+	  && dotstat.st_dev == pwdstat.st_dev
+	  && pwd_internal_len < MAXPATHLEN);
+}
+#endif
+
 void
 init_initial_directory (void)
 {
   /* This function can GC */
 
-  char *pwd;
-  struct stat dotstat, pwdstat;
-  int rc;
+#ifndef WIN32_NATIVE
+  Extbyte *pwd;
+#endif
 
   initial_directory[0] = 0;
 
   /* If PWD is accurate, use it instead of calling getcwd.  This is faster
      when PWD is right, and may avoid a fatal error.  */
-  if ((pwd = getenv ("PWD")) != 0 && IS_DIRECTORY_SEP (*pwd)
-      && stat (pwd, &pwdstat) == 0
-      && stat (".", &dotstat) == 0
-      && dotstat.st_ino == pwdstat.st_ino
-      && dotstat.st_dev == pwdstat.st_dev
-      && (int) strlen (pwd) < MAXPATHLEN)
-    strcpy (initial_directory, pwd);
-  else if (getcwd (initial_directory, MAXPATHLEN) == NULL)
-    fatal ("`getcwd' failed: %s\n", strerror (errno));
+#ifndef WIN32_NATIVE
+  if ((pwd = (Extbyte *) getenv ("PWD")) != NULL
+      && directory_is_current_directory (pwd))
+    strcpy (initial_directory, (char *) pwd);
+  else
+#endif
+    if (getcwd (initial_directory, MAXPATHLEN) == NULL)
+      fatal ("`getcwd' failed: %s\n", strerror (errno));
 
-  /* Maybe this should really use some standard subroutine
+  /* Make sure pwd is DIRECTORY_SEP-terminated.
+     Maybe this should really use some standard subroutine
      whose definition is filename syntax dependent.  */
-  rc = strlen (initial_directory);
-  if (!(IS_DIRECTORY_SEP (initial_directory[rc - 1])))
-    {
-      initial_directory[rc] = DIRECTORY_SEP;
-      initial_directory[rc + 1] = '\0';
-    }
-  /* XEmacs change: store buffer's default directory
-     using prefered (i.e. as defined at compile-time)
-     directory separator. --marcpa */
-#ifdef DOS_NT
-#define CORRECT_DIR_SEPS(s) \
-  do { if ('/' == DIRECTORY_SEP) dostounix_filename (s); \
-       else unixtodos_filename (s); \
-  } while (0)
+  {
+    int len = strlen (initial_directory);
 
-  CORRECT_DIR_SEPS(initial_directory);
+    if (! IS_DIRECTORY_SEP (initial_directory[len - 1]))
+      {
+	initial_directory[len] = DIRECTORY_SEP;
+	initial_directory[len + 1] = '\0';
+      }
+  }
+
+#ifdef CORRECT_DIR_SEPS
+  CORRECT_DIR_SEPS (initial_directory);
 #endif
 }
 
@@ -2798,7 +3130,8 @@ init_buffer (void)
 
   Fset_buffer (Fget_buffer_create (QSscratch));
 
-  current_buffer->directory = build_string (initial_directory);
+  current_buffer->directory =
+    build_ext_string (initial_directory, Qfile_name);
 
 #if 0 /* FSFmacs */
   /* #### is this correct? */

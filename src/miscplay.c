@@ -32,7 +32,6 @@
 #define UNUSED(x) ((void)(x))
 #else
 #define UNUSED(x)
-#define __inline__
 #endif
 
 /* Maintain global variable for keeping parser state information; this struct
@@ -114,7 +113,7 @@ static size_t parsevoc(void **data,size_t *sz,void **outbuf)
    this might require re-partioning of the data segments if headers cross the
    boundaries between two read operations. This is done in a two-step way:
    first we request a certain amount of bytes... */
-static __inline__ int waverequire(void **data,size_t *sz,size_t rq)
+static inline int waverequire(void **data,size_t *sz,size_t rq)
 {
   int rc = 1;
 
@@ -135,7 +134,7 @@ static __inline__ int waverequire(void **data,size_t *sz,size_t rq)
 }
 
 /* ...and next we remove this many bytes from the buffer */
-static __inline__ void waveremove(size_t rq)
+static inline void waveremove(size_t rq)
 {
   if (parsestate.wave.left <= rq)
     parsestate.wave.left = 0;
@@ -361,8 +360,11 @@ size_t sndcnv8U_2mono(void **data,size_t *sz,void **outbuf)
   *outbuf =
   dest    = miscplay_sndbuf;
   while (count--)
-    *dest++ = (unsigned char)(((int)*(src)++ +
-                              (int)*(src)++) / 2);
+    {
+      *dest++ = (unsigned char)(((int)*(src) +
+				 (int)*(src+1)) / 2);
+      src += 2;
+    }
   *data   = src;
   return(rc);
 }
@@ -382,8 +384,11 @@ size_t sndcnv8S_2mono(void **data,size_t *sz,void **outbuf)
   *outbuf =
   dest    = miscplay_sndbuf;
   while (count--)
-    *dest++ = (unsigned char)(((int)*((signed char *)(src++)) +
-                              (int)*((signed char *)(src++))) / 2);
+    {
+      *dest++ = (unsigned char)(((int)*((signed char *)(src)) +
+				 (int)*((signed char *)(src+1))) / 2);
+      src  += 2;
+    }
   *data   = src;
   return(rc);
 }
@@ -403,8 +408,11 @@ size_t sndcnv2monounsigned(void **data,size_t *sz,void **outbuf)
   *outbuf =
   dest    = miscplay_sndbuf;
   while (count--)
-    *dest++ = (unsigned char)(((int)*((signed char *)(src++)) +
-                              (int)*((signed char *)(src++))) / 2) ^ 0x80;
+    {
+      *dest++ = (unsigned char)(((int)*((signed char *)(src)) +
+				 (int)*((signed char *)(src+1))) / 2) ^ 0x80;
+      src += 2;
+    }
   *data   = src;
   return(rc);
 }
@@ -431,7 +439,7 @@ size_t sndcnv2unsigned(void **data,size_t *sz,void **outbuf)
 
 /* Convert a number in the range -32768..32767 to an 8 bit ulaw encoded
    number --- I hope, I got this conversion right :-) */
-static __inline__ signed char int2ulaw(int i)
+static inline signed char int2ulaw(int i)
 {
     /* Lookup table for fast calculation of number of bits that need shifting*/
     static short int t_bits[128] = {
@@ -494,7 +502,10 @@ size_t sndcnvULaw_2linear(void **data,size_t *sz,void **outbuf)
 
   *outbuf = *data;
   while ((*sz)--)
-    *p++ = ulaw_dsp[*p];
+    {
+      *p = ulaw_dsp[*p];
+      p++;
+    }
   *sz = 0;
   *data = p;
   return p - (unsigned char *)*outbuf;
@@ -551,26 +562,30 @@ size_t sndcnvULaw_2mono(void **data,size_t *sz,void **outbuf)
   *outbuf =
   dest    = miscplay_sndbuf;
   while (count--)
-    /* it is not possible to directly interpolate between two ulaw encoded
-       data bytes, thus we need to convert to linear format first and later
-       we convert back to ulaw format */
-    *dest++ = int2ulaw(ulaw2int[*(src)++] +
-                      ulaw2int[*(src)++]);
+    {
+      /* it is not possible to directly interpolate between two ulaw encoded
+	 data bytes, thus we need to convert to linear format first and later
+	 we convert back to ulaw format */
+      *dest++ = int2ulaw(ulaw2int[*src] +
+			 ulaw2int[*(src+1)]);
+      src  += 2;
+    }
   *data = src;
   return(rc);
 }
 
 size_t sndcnv16swap(void **data,size_t *sz,void **outbuf)
 {
-  /* #### Not aliasing-safe!!  Must convert to use unions instead! */
   size_t cnt = *sz / 2;
   unsigned short *p;
 
   *outbuf = *data;
   p = (unsigned short *) *outbuf;
-  while (cnt--) {
-    *p++ = ((*p & 0x00ff) << 8) | (*p >> 8);
-  }
+  while (cnt--)
+    {
+      *p = ((*p & 0x00ff) << 8) | (*p >> 8);
+      p++;
+    }
   *data = p;
   cnt = *sz;
   *sz = 0;

@@ -12,18 +12,25 @@ PACKAGE_PREFIX=c:\Program Files\XEmacs
 HAVE_MULE=0
 
 # Native MS Windows support.
-HAVE_MSW=1
+HAVE_MS_WINDOWS=1
 
 # X Windows support.
-HAVE_X=0
+HAVE_X_WINDOWS=0
 X11_DIR=
+
+# GTK support. Do NOT set this to 1; as of xemacs-21.2-b44
+# gtk-xemacs is not supported on MSWindows (mingw or msvc).
+# Yes, we know that gtk has been ported to native MSWindows
+# but XEmacs is not yet ready to use that port.
+HAVE_GTK=0
+GTK_DIR=
 
 ############################################################################
 
 # Set this to enable XPM support (virtually mandatory), and specify
 # the directory containing xpm.
 HAVE_XPM=1
-XPM_DIR=f:\src\xpm-3.4k
+XPM_DIR=c:\src\xpm-3.4k
 
 # Set this to enable GIF support.
 HAVE_GIF=1
@@ -31,16 +38,16 @@ HAVE_GIF=1
 # Set this to enable PNG support (virtually mandatory), and specify
 # the directories containing png and zlib.
 HAVE_PNG=1
-PNG_DIR=f:\src\libpng-1.0.3
-ZLIB_DIR=f:\src\zlib
+PNG_DIR=c:\src\libpng-1.0.9
+ZLIB_DIR=c:\src\zlib
 
 # Set this to enable TIFF support, and specify the directory containing tiff.
 HAVE_TIFF=0
 TIFF_DIR=
 
 # Set this to enable JPEG support, and specify the directory containing jpeg.
-HAVE_JPEG=0
-JPEG_DIR=
+HAVE_JPEG=1
+JPEG_DIR=c:\src\jpeg-6b
 
 # Set this to enable XFace support, and specify the directory containing
 # compface.
@@ -51,22 +58,24 @@ COMPFACE_DIR=
 
 # Set this to specify the location of makeinfo. (If not set, XEmacs will
 # attempt to use its built-in texinfo support when building info files.)
-MAKEINFO=f:\src\texinfo-4.0\makeinfo\makeinfo.exe
+MAKEINFO=c:\src\texinfo-4.0\makeinfo\makeinfo.exe
 
 ############################################################################
 
 # Set this to enable some debug code that doesn't slow things down.
 DEBUG_XEMACS=1
 
+# Set this to speed up building, for development purposes.
+QUICK_BUILD=0
+
 # Set this to see exactly which compilation commands are being run (not
 # generally recommended).
 VERBOSECC=0
 
-############################################################################
+# Set this to get nmake to use dependency info (requires Perl to be installed)
+DEPEND=0
 
-# Some technical options.
+# Set this to use the portable dumper for dumping the preloaded Lisp
+# routines, instead of the older "unexec" routines in unexnt.c.
+USE_PORTABLE_DUMPER=1
 
-USE_MINIMAL_TAGBITS=0
-USE_INDEXED_LRECORD_IMPLEMENTATION=0
-USE_PORTABLE_DUMPER=0
-GUNG_HO=0

@@ -1,25 +1,25 @@
  /* Tabs Widget for XEmacs.
     Copyright (C) 1999 Edward A. Falk
-  
+
  This file is part of XEmacs.
- 
+
  XEmacs is free software; you can redistribute it and/or modify it
  under the terms of the GNU General Public License as published by the
  Free Software Foundation; either version 2, or (at your option) any
  later version.
- 
+
  XEmacs is distributed in the hope that it will be useful, but WITHOUT
  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
  for more details.
- 
+
  You should have received a copy of the GNU General Public License
  along with XEmacs; see the file COPYING.  If not, write to
  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  Boston, MA 02111-1307, USA.  */
- 
+
 /* Synched up with: Gcs.c 1.7 */
- 
+
  /* #### This code is duplicated many times within lwlib and XEmacs. It
     should be modularised. */
 
@@ -162,14 +162,15 @@
 	 *
 	 * If the widget's background is solid white or solid black,
 	 * this code just picks some numbers.  (The choice is designed
-	 * to be compatibile with ThreeD interface.)
+	 * to be compatible with ThreeD interface.)
 	 */
 
 
 
 #if	XtSpecificationRelease	< 5
 
-static	GC	XtAllocateGC(Widget, int, u_long, XGCValues *, u_long, u_long) ;
+static	GC	XtAllocateGC(Widget, int, unsigned long, XGCValues *,
+			     unsigned long, unsigned long) ;
 
 #endif
 
@@ -186,7 +187,7 @@ GC
 AllocFgGC(Widget w, Pixel fg, Font font)
 {
 	XGCValues	values ;
-	u_long		vmask, dcmask ;
+	unsigned long	vmask, dcmask ;
 
 	values.foreground = fg ;
 	values.font = font ;
@@ -233,7 +234,7 @@ AllocShadeGC(Widget w, Pixel fg, Pixel bg, Font font,
 	int contrast, Bool be_nice_to_cmap)
 {
 	XGCValues	values ;
-	u_long		vmask, dcmask ;
+	unsigned long	vmask, dcmask ;
 
 	values.foreground = fg ;
 	values.background = bg ;
@@ -342,7 +343,7 @@ AllocArmGC(Widget w, int contrast, Bool be_nice_to_cmap)
 	      GCFont|GCSubwindowMode|GCGraphicsExposures|
 		  GCDashOffset|GCDashList|GCArcMode) ;
 	}
-	else 
+	else
 #endif
 	  {
 	  values.foreground = AllocShadowPixel(w, 100-contrast) ;
@@ -513,18 +514,20 @@ Draw3dBox(Widget w, int x, int y, int wid, int hgt, int s, GC topgc, GC botgc)
 #if XtSpecificationRelease < 5
 
 static	GC
-XtAllocateGC(Widget w, int depth, u_long mask, XGCValues *values,
-	u_long dynamic, du_long ontcare)
+XtAllocateGC(Widget w, int depth, unsigned long mask, XGCValues *values,
+	     unsigned long dynamic, unsigned long dontcare)
 {
 	return XtGetGC(w, mask, values) ;
 }
 #endif
 
 
-static	u_char	screen0[2] = {0,0} ;
-static	u_char	screen25[2] = {0,0xaa} ;
-static	u_char	screen75[2] = {0xaa,0xff} ;
-static	u_char	screen100[2] = {0xff,0xff} ;
+#ifdef HAVE_XMU
+
+static	unsigned char screen0[2] = {0,0} ;
+static	unsigned char screen25[2] = {0,0xaa} ;
+static	unsigned char screen75[2] = {0xaa,0xff} ;
+static	unsigned char screen100[2] = {0xff,0xff} ;
 
 static	Pixmap
 getDitherPixmap(Widget w, int contrast)
@@ -543,3 +546,5 @@ getDitherPixmap(Widget w, int contrast)
 	else
 	  return XCreateBitmapFromData(dpy,win, (char *)screen100, 2,2) ;
 }
+
+#endif	/* HAVE_XMU */

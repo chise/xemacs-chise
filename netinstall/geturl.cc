@@ -72,10 +72,10 @@ static DWORD WINAPI
 dialog (void *)
 {
   MSG m;
-  HWND gw_dialog = CreateDialog (hinstance, MAKEINTRESOURCE (IDD_DLSTATUS),
+  HWND lgw_dialog = CreateDialog (hinstance, MAKEINTRESOURCE (IDD_DLSTATUS),
 				   0, dialog_proc);
-  ShowWindow (gw_dialog, SW_SHOWNORMAL);
-  UpdateWindow (gw_dialog);
+  ShowWindow (lgw_dialog, SW_SHOWNORMAL);
+  UpdateWindow (lgw_dialog);
   while (GetMessage (&m, 0, 0, 0) > 0) {
     TranslateMessage (&m);
     DispatchMessage (&m);
@@ -197,6 +197,10 @@ get_url_to_string (char *_url)
       bufs = tmp;
     }
   *rvp = 0;
+
+  if (n)
+    delete n;
+
   return rv;
 }
 
@@ -243,6 +247,9 @@ get_url_to_file (char *_url, char *_filename, int expected_length)
     }
 
   fclose (f);
+
+  if (n)
+    delete n;
 
   return 0;
 }

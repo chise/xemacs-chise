@@ -32,8 +32,6 @@
 #include "mkdir.h"
 #include "log.h"
 
-#define pi (package[i].info[package[i].trust])
-
 static int
 download_one (char *name, int expected_size)
 {

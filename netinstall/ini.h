@@ -61,19 +61,20 @@ typedef struct {
   } info[NTRUST+1];	/* +1 for TRUST_UNKNOWN */
 } Package;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern Package *package;
 extern Package *xemacs_package;
 
 extern int npackages;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 Package *new_package (char *name);
 void	ini_init (char *string);
 
-#define pi (package[i].info[package[i].trust])
+#define pinfo(p) ((p).info[(p).trust])
+#define pi pinfo(package[i])
 
 #define LOOP_PACKAGES \
   for (i=0; i<npackages; i++) \

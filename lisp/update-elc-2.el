@@ -52,18 +52,18 @@
 (defvar update-elc-ignored-files
   ;; note: entries here are regexps
   '("^," ;; #### huh?
-    "^paths.el$"
-    "^loadup.el$"
-    "^loadup-el.el$"
-    "^update-elc.el$"
-    "^update-elc-2.el$"
-    "^dumped-lisp.el$"
-    "^make-docfile.el$"
-    "^site-start.el$"
-    "^site-load.el$"
-    "^site-init.el$"
-    "^version.el$"
-    "^very-early-lisp.el$"))
+    "^paths\\.el$"
+    "^loadup\\.el$"
+    "^loadup-el\\.el$"
+    "^update-elc\\.el$"
+    "^update-elc-2\\.el$"
+    "^dumped-lisp\\.el$"
+    "^make-docfile\\.el$"
+    "^site-start\\.el$"
+    "^site-load\\.el$"
+    "^site-init\\.el$"
+    "^version\\.el$"
+    "^very-early-lisp\\.el$"))
 
 ;; SEEN accumulates the list of already-handled dirs.
 (defun do-update-elc-2 (dir compile-stage-p seen)
@@ -75,7 +75,7 @@
     ;; Do this directory.
     (if compile-stage-p
 	;; Stage 2: Recompile necessary .els
-	(let ((files (directory-files dir t ".el$"))
+	(let ((files (directory-files dir t "\\.el$"))
 	      file file-c)
 	  (while (setq file (car files))
 	    (setq files (cdr files))
@@ -95,7 +95,7 @@
 
       ;; Stage 1.
       ;; Remove out-of-date elcs
-      (let ((files (directory-files dir t ".el$"))
+      (let ((files (directory-files dir t "\\.el$"))
 	    file file-c)
 	(while (setq file (car files))
 	  (setq files (cdr files))
@@ -105,7 +105,7 @@
 	    (message "Removing out-of-date %s" file-c)
 	    (delete-file file-c))))
       ;; Remove elcs without corresponding el
-      (let ((files (directory-files dir t ".elc$"))
+      (let ((files (directory-files dir t "\\.elc$"))
 	    file file-c)
 	(while (setq file-c (car files))
 	  (setq files (cdr files))
@@ -145,4 +145,4 @@
     (message "Recompiling updated .els in directory tree `%s'...done" dir))
   (setq command-line-args-left nil))
 
-;;; cleantree.el ends here
+;;; update-elc-2.el ends here

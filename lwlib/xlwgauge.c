@@ -1,4 +1,4 @@
-/* Gauge Widget for XEmacs. 
+/* Gauge Widget for XEmacs.
    Copyright (C) 1999 Edward A. Falk
 
 This file is part of XEmacs.
@@ -25,7 +25,7 @@ Boston, MA 02111-1307, USA.  */
  *
  * Author: Edward A. Falk
  *         falk@falconer.vip.best.com
- *  
+ *
  * Date:   July 9, 1997
  *
  * Note: for fun and demonstration purposes, I have added selection
@@ -52,7 +52,7 @@ Boston, MA 02111-1307, USA.  */
 #include <X11/IntrinsicP.h>
 #include <X11/Xatom.h>
 #include <X11/StringDefs.h>
-#include <X11/Xaw/XawInit.h>
+#include ATHENA_XawInit_h_
 #include "xlwgaugeP.h"
 #include "../src/xmu.h"
 #ifdef HAVE_XMU
@@ -135,11 +135,11 @@ static void GaugeGetValue (XtPointer, XtIntervalId *);
 static void GaugeMercury (Display *, Window, GC, GaugeWidget, Cardinal, Cardinal);
 
 static Boolean GaugeConvert (Widget, Atom *, Atom *, Atom *,
-			     XtPointer *, u_long *, int *);
+			     XtPointer *, unsigned long *, int *);
 static void GaugeLoseSel (Widget, Atom *);
 static void GaugeDoneSel (Widget, Atom *, Atom *);
 static void GaugeGetSelCB (Widget, XtPointer, Atom *, Atom *,
-			   XtPointer, u_long *, int *);
+			   XtPointer, unsigned long *, int *);
 
 static GC Get_GC (GaugeWidget, Pixel);
 
@@ -160,7 +160,7 @@ static	XtActionsRec	actionsList[] =
 
 GaugeClassRec gaugeClassRec = {
   {
-/* core_class fields */	
+/* core_class fields */
     /* superclass	  	*/	(WidgetClass) &labelClassRec,
     /* class_name	  	*/	"Gauge",
     /* widget_size	  	*/	sizeof(GaugeRec),
@@ -334,7 +334,7 @@ GaugeResize (Widget w)
 	  }
 	  else
 	  {
-	    gw->gauge.margin0 = 
+	    gw->gauge.margin0 =
 	    gw->gauge.margin1 = lh / 2 ;
 	    size += lwm + vmargin ;
 	  }
@@ -404,7 +404,7 @@ register Window	win = XtWindow(w) ;
 	}
 
 	/* if the gauge is selected, signify by drawing the background
-	 * in a constrasting color.
+	 * in a contrasting color.
 	 */
 
 	if( gw->gauge.selected )
@@ -466,7 +466,7 @@ register Window	win = XtWindow(w) ;
 	if( gw->gauge.nlabels > 1 )
 	{
 	  char	label[20], *s = label ;
-	  int	len, w,h =0 ;
+	  int	xlen, wd,h =0 ;
 
 	  if( gw->gauge.orientation == XtorientHorizontal )
 	    y = gw->gauge.lmargin + gw->label.font->max_bounds.ascent - 1 ;
@@ -483,13 +483,13 @@ register Window	win = XtWindow(w) ;
 	      s = gw->gauge.labels[i] ;
 	    if( s != NULL ) {
 	      x = e0 + i*(e1-e0-1)/(gw->gauge.nlabels-1) ;
-	      len = strlen(s) ;
+	      xlen = strlen(s) ;
 	      if( gw->gauge.orientation == XtorientHorizontal ) {
-		w = XTextWidth(gw->label.font, s, len) ;
-		XDrawString(dpy,win,gc, x-w/2,y, s,len) ;
+		wd = XTextWidth(gw->label.font, s, xlen) ;
+		XDrawString(dpy,win,gc, x-wd/2,y, s,xlen) ;
 	      }
 	      else {
-		XDrawString(dpy,win,gc, y,x+h, s,len) ;
+		XDrawString(dpy,win,gc, y,x+h, s,xlen) ;
 	      }
 	    }
 	  }
@@ -540,7 +540,7 @@ GaugeSetValues (Widget   old,
 	  else
 	    GaugeResize(new) ;
 	}
-	
+
 	if( gw->gauge.update != oldgw->gauge.update )
 	  {
 	    if( gw->gauge.update > 0 )
@@ -636,7 +636,7 @@ GaugeConvert (Widget	w,
 	      Atom	*target,	/* requested target */
 	      Atom	*type,		/* returned type */
 	      XtPointer *value,		/* returned value */
-	      u_long	*length,	/* returned length */
+	      unsigned long	*length,	/* returned length */
 	      int	*format)	/* returned format */
 {
 	GaugeWidget	gw = (GaugeWidget)w ;
@@ -650,7 +650,7 @@ GaugeConvert (Widget	w,
 	if( *target == XA_TARGETS(XtDisplay(w)) )
 	{
 	  Atom *rval, *stdTargets ;
-	  u_long stdLength ;
+	  unsigned long stdLength ;
 
 	  /* XmuConvertStandardSelection can handle this.  This function
 	   * will return a list of standard targets.  We prepend TEXT,
@@ -668,13 +668,13 @@ GaugeConvert (Widget	w,
 	  *rval++ = XA_INTEGER ;
 	  *rval++ = XA_STRING ;
 	  *rval++ = XA_TEXT(XtDisplay(w)) ;
-	  bcopy((char *)stdTargets, (char *)rval, stdLength*sizeof(Atom)) ;
+	  memcpy((char *)rval, (char *)stdTargets, stdLength*sizeof(Atom)) ;
 	  XtFree((char*) stdTargets) ;
 	  *format = 8*sizeof(Atom) ;	/* TODO: needed? */
 	  return True ;
 	}
 
-	else 
+	else
 #endif
 	  if( *target == XA_INTEGER )
 	{
@@ -685,10 +685,10 @@ GaugeConvert (Widget	w,
 	  return True ;
 	}
 
-	else if( *target == XA_STRING 
+	else if( *target == XA_STRING
 #ifdef HAVE_XMU
-		 || 
-		 *target == XA_TEXT(XtDisplay(w)) 
+		 ||
+		 *target == XA_TEXT(XtDisplay(w))
 #endif
 		 )
 	{
@@ -707,7 +707,7 @@ GaugeConvert (Widget	w,
 	  if( XmuConvertStandardSelection(w, req->time, selection, target,
 	  	type, (XPointer *) value, length, format) )
 	    return True ;
-	  else 
+	  else
 #endif
 	    {
 	    printf(
@@ -774,7 +774,7 @@ GaugeGetSelCB (Widget    w,
 	       Atom      *selection,
 	       Atom      *type,
 	       XtPointer value,
-	       u_long    *length,
+	       unsigned long    *length,
 	       int       *format)
 {
 	Display	*dpy = XtDisplay(w) ;
@@ -787,12 +787,12 @@ GaugeGetSelCB (Widget    w,
 	  XawGaugeSetValue(w, *iptr) ;
 	}
 
-	else if( *type == XA_STRING  
+	else if( *type == XA_STRING
 #ifdef HAVE_XMU
 		 ||
-		 *type == XA_TEXT(dpy) 
+		 *type == XA_TEXT(dpy)
 #endif
-		 ) 
+		 )
 	  {
 	  cptr = (char *)value ;
 	  XawGaugeSetValue(w, atoi(cptr)) ;

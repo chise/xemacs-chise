@@ -27,6 +27,7 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 #include "sysfile.h"
+#include "buffer.h"
 #include <errno.h>
 
 #ifndef HAVE_DATABASE
@@ -52,12 +53,18 @@ typedef uint64_t u_int64_t;
 #endif /* WE_DONT_NEED_QUADS */
 #endif /* HAVE_INTTYPES_H */
 #endif /* !(defined __GLIBC__ && __GLIBC_MINOR__ >= 1) */
-#include DB_H_PATH              /* Berkeley db's header file */
+#include DB_H_FILE              /* Berkeley db's header file */
 #ifndef DB_VERSION_MAJOR
 # define DB_VERSION_MAJOR 1
 #endif /* DB_VERSION_MAJOR */
+#ifndef DB_VERSION_MINOR
+# define DB_VERSION_MINOR 0
+#endif /* DB_VERSION_MINOR */
 Lisp_Object Qberkeley_db;
 Lisp_Object Qhash, Qbtree, Qrecno, Qunknown;
+#if DB_VERSION_MAJOR > 2
+Lisp_Object Qqueue;
+#endif 
 #endif /* HAVE_BERKELEY_DB */
 
 #ifdef HAVE_DBM
@@ -65,29 +72,31 @@ Lisp_Object Qhash, Qbtree, Qrecno, Qunknown;
 Lisp_Object Qdbm;
 #endif /* HAVE_DBM */
 
+#ifdef MULE
+/* #### The following should be settable on a per-database level.
+   But the whole coding-system infrastructure should be rewritten someday.
+   We really need coding-system aliases. -- martin */
+Lisp_Object Vdatabase_coding_system;
+#endif
+
 Lisp_Object Qdatabasep;
-
-typedef enum { DB_DBM, DB_BERKELEY, DB_IS_UNKNOWN } XEMACS_DB_TYPE;
-
-struct Lisp_Database;
 
 typedef struct
 {
-  Lisp_Object (*get_subtype) (struct Lisp_Database *);
-  Lisp_Object (*get_type) (struct Lisp_Database *);
-  Lisp_Object (*get) (struct Lisp_Database *, Lisp_Object);
-  int (*put) (struct Lisp_Database *, Lisp_Object, Lisp_Object, Lisp_Object);
-  int (*rem) (struct Lisp_Database *, Lisp_Object);
-  void (*map) (struct Lisp_Database *, Lisp_Object);
-  void (*close) (struct Lisp_Database *);
-  Lisp_Object (*last_error) (struct Lisp_Database *);
+  Lisp_Object (*get_subtype) (Lisp_Database *);
+  Lisp_Object (*get_type) (Lisp_Database *);
+  Lisp_Object (*get) (Lisp_Database *, Lisp_Object);
+  int (*put) (Lisp_Database *, Lisp_Object, Lisp_Object, Lisp_Object);
+  int (*rem) (Lisp_Database *, Lisp_Object);
+  void (*map) (Lisp_Database *, Lisp_Object);
+  void (*close) (Lisp_Database *);
+  Lisp_Object (*last_error) (Lisp_Database *);
 } DB_FUNCS;
 
 struct Lisp_Database
 {
   struct lcrecord_header header;
   Lisp_Object fname;
-  XEMACS_DB_TYPE type;
   int mode;
   int access_;
   int dberrno;
@@ -104,10 +113,9 @@ struct Lisp_Database
 #endif
 };
 
-#define XDATABASE(x) XRECORD (x, database, struct Lisp_Database)
+#define XDATABASE(x) XRECORD (x, database, Lisp_Database)
 #define XSETDATABASE(x, p) XSETRECORD (x, p, database)
 #define DATABASEP(x) RECORDP (x, database)
-#define GC_DATABASEP(x) GC_RECORDP (x, database)
 #define CHECK_DATABASE(x) CHECK_RECORD (x, database)
 #define CONCHECK_DATABASE(x) CONCHECK_RECORD (x, database)
 #define DATABASE_LIVE_P(x) (x->live_p)
@@ -119,11 +127,10 @@ struct Lisp_Database
 } while (0)
 
 
-static struct Lisp_Database *
+static Lisp_Database *
 allocate_database (void)
 {
-  struct Lisp_Database *db =
-    alloc_lcrecord_type (struct Lisp_Database, lrecord_database);
+  Lisp_Database *db = alloc_lcrecord_type (Lisp_Database, &lrecord_database);
 
   db->fname = Qnil;
   db->live_p = 0;
@@ -136,7 +143,6 @@ allocate_database (void)
   db->access_ = 0;
   db->mode = 0;
   db->dberrno = 0;
-  db->type = DB_IS_UNKNOWN;
 #ifdef MULE
   db->coding_system = Fget_coding_system (Qbinary);
 #endif
@@ -144,19 +150,17 @@ allocate_database (void)
 }
 
 static Lisp_Object
-mark_database (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_database (Lisp_Object object)
 {
-  struct Lisp_Database *db = XDATABASE (obj);
-
-  ((markobj) (db->fname));
-  return Qnil;
+  Lisp_Database *db = XDATABASE (object);
+  return db->fname;
 }
 
 static void
 print_database (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
   char buf[64];
-  struct Lisp_Database *db = XDATABASE (obj);
+  Lisp_Database *db = XDATABASE (obj);
 
   if (print_readably)
     error ("printing unreadable object #<database 0x%x>", db->header.uid);
@@ -176,30 +180,30 @@ print_database (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 static void
 finalize_database (void *header, int for_disksave)
 {
-  struct Lisp_Database *db = (struct Lisp_Database *) header;
+  Lisp_Database *db = (Lisp_Database *) header;
 
   if (for_disksave)
     {
-      Lisp_Object obj;
-      XSETOBJ (obj, Lisp_Type_Record, (void *) db);
+      Lisp_Object object;
+      XSETDATABASE (object, db);
 
       signal_simple_error
-	("Can't dump an emacs containing database objects", obj);
+	("Can't dump an emacs containing database objects", object);
     }
   db->funcs->close (db);
 }
 
 DEFINE_LRECORD_IMPLEMENTATION ("database", database,
                                mark_database, print_database,
-			       finalize_database, 0, 0,
-			       struct Lisp_Database);
+			       finalize_database, 0, 0, 0,
+			       Lisp_Database);
 
 DEFUN ("close-database", Fclose_database, 1, 1, 0, /*
 Close database DATABASE.
 */
        (database))
 {
-  struct Lisp_Database *db;
+  Lisp_Database *db;
   CHECK_LIVE_DATABASE (database);
   db = XDATABASE (database);
   db->funcs->close (db);
@@ -228,11 +232,12 @@ Return the subtype of database DATABASE, if any.
 }
 
 DEFUN ("database-live-p", Fdatabase_live_p, 1, 1, 0, /*
-Return t if OBJ is an active database.
+Return t if OBJECT is an active database.
 */
-       (obj))
+       (object))
 {
-  return DATABASEP (obj) && DATABASE_LIVE_P (XDATABASE (obj)) ? Qt : Qnil;
+  return DATABASEP (object) && DATABASE_LIVE_P (XDATABASE (object)) ?
+    Qt : Qnil;
 }
 
 DEFUN ("database-file-name", Fdatabase_file_name, 1, 1, 0, /*
@@ -246,16 +251,16 @@ Return the filename associated with the database DATABASE.
 }
 
 DEFUN ("databasep", Fdatabasep, 1, 1, 0, /*
-Return t if OBJ is a database.
+Return t if OBJECT is a database.
 */
-       (obj))
+       (object))
 {
-  return DATABASEP (obj) ? Qt : Qnil;
+  return DATABASEP (object) ? Qt : Qnil;
 }
 
 #ifdef HAVE_DBM
 static void
-dbm_map (struct Lisp_Database *db, Lisp_Object func)
+dbm_map (Lisp_Database *db, Lisp_Object func)
 {
   datum keydatum, valdatum;
   Lisp_Object key, val;
@@ -272,7 +277,7 @@ dbm_map (struct Lisp_Database *db, Lisp_Object func)
 }
 
 static Lisp_Object
-dbm_get (struct Lisp_Database *db, Lisp_Object key)
+dbm_get (Lisp_Database *db, Lisp_Object key)
 {
   datum keydatum, valdatum;
 
@@ -286,7 +291,7 @@ dbm_get (struct Lisp_Database *db, Lisp_Object key)
 }
 
 static int
-dbm_put (struct Lisp_Database *db,
+dbm_put (Lisp_Database *db,
 	 Lisp_Object key, Lisp_Object val, Lisp_Object replace)
 {
   datum keydatum, valdatum;
@@ -301,7 +306,7 @@ dbm_put (struct Lisp_Database *db,
 }
 
 static int
-dbm_remove (struct Lisp_Database *db, Lisp_Object key)
+dbm_remove (Lisp_Database *db, Lisp_Object key)
 {
   datum keydatum;
 
@@ -312,25 +317,25 @@ dbm_remove (struct Lisp_Database *db, Lisp_Object key)
 }
 
 static Lisp_Object
-dbm_type (struct Lisp_Database *db)
+dbm_type (Lisp_Database *db)
 {
   return Qdbm;
 }
 
 static Lisp_Object
-dbm_subtype (struct Lisp_Database *db)
+dbm_subtype (Lisp_Database *db)
 {
   return Qnil;
 }
 
 static Lisp_Object
-dbm_lasterr (struct Lisp_Database *db)
+dbm_lasterr (Lisp_Database *db)
 {
   return lisp_strerror (db->dberrno);
 }
 
 static void
-dbm_closeit (struct Lisp_Database *db)
+dbm_closeit (Lisp_Database *db)
 {
   if (db->dbm_handle)
     {
@@ -354,13 +359,13 @@ static DB_FUNCS ndbm_func_block =
 
 #ifdef HAVE_BERKELEY_DB
 static Lisp_Object
-berkdb_type (struct Lisp_Database *db)
+berkdb_type (Lisp_Database *db)
 {
   return Qberkeley_db;
 }
 
 static Lisp_Object
-berkdb_subtype (struct Lisp_Database *db)
+berkdb_subtype (Lisp_Database *db)
 {
   if (!db->db_handle)
     return Qnil;
@@ -370,28 +375,28 @@ berkdb_subtype (struct Lisp_Database *db)
     case DB_BTREE: return Qbtree;
     case DB_HASH:  return Qhash;
     case DB_RECNO: return Qrecno;
+#if DB_VERSION_MAJOR > 2
+    case DB_QUEUE: return Qqueue;
+#endif
     default:       return Qunknown;
     }
 }
 
 static Lisp_Object
-berkdb_lasterr (struct Lisp_Database *db)
+berkdb_lasterr (Lisp_Database *db)
 {
   return lisp_strerror (db->dberrno);
 }
 
 static Lisp_Object
-berkdb_get (struct Lisp_Database *db, Lisp_Object key)
+berkdb_get (Lisp_Database *db, Lisp_Object key)
 {
-  /* #### Needs mule-izing */
   DBT keydatum, valdatum;
   int status = 0;
 
-#if DB_VERSION_MAJOR == 2
-  /* Always initialize keydatum, valdatum. */
+  /* DB Version 2 requires DBT's to be zeroed before use. */
   xzero (keydatum);
   xzero (valdatum);
-#endif /* DV_VERSION_MAJOR = 2 */
 
   keydatum.data = XSTRING_DATA (key);
   keydatum.size = XSTRING_LENGTH (key);
@@ -403,6 +408,7 @@ berkdb_get (struct Lisp_Database *db, Lisp_Object key)
 #endif /* DB_VERSION_MAJOR */
 
   if (!status)
+    /* #### Not mule-ized! will crash! */
     return make_string ((Bufbyte *) valdatum.data, valdatum.size);
 
 #if DB_VERSION_MAJOR == 1
@@ -415,7 +421,7 @@ berkdb_get (struct Lisp_Database *db, Lisp_Object key)
 }
 
 static int
-berkdb_put (struct Lisp_Database *db,
+berkdb_put (Lisp_Database *db,
 	    Lisp_Object key,
 	    Lisp_Object val,
 	    Lisp_Object replace)
@@ -423,11 +429,9 @@ berkdb_put (struct Lisp_Database *db,
   DBT keydatum, valdatum;
   int status = 0;
 
-#if DB_VERSION_MAJOR == 2
-  /* Always initalize keydatum, valdatum. */
+  /* DB Version 2 requires DBT's to be zeroed before use. */
   xzero (keydatum);
   xzero (valdatum);
-#endif /* DV_VERSION_MAJOR = 2 */
 
   keydatum.data = XSTRING_DATA   (key);
   keydatum.size = XSTRING_LENGTH (key);
@@ -447,15 +451,13 @@ berkdb_put (struct Lisp_Database *db,
 }
 
 static int
-berkdb_remove (struct Lisp_Database *db, Lisp_Object key)
+berkdb_remove (Lisp_Database *db, Lisp_Object key)
 {
   DBT keydatum;
   int status;
 
-#if DB_VERSION_MAJOR == 2
-  /* Always initialize keydatum. */
+  /* DB Version 2 requires DBT's to be zeroed before use. */
   xzero (keydatum);
-#endif /* DV_VERSION_MAJOR = 2 */
 
   keydatum.data = XSTRING_DATA   (key);
   keydatum.size = XSTRING_LENGTH (key);
@@ -479,45 +481,51 @@ berkdb_remove (struct Lisp_Database *db, Lisp_Object key)
 }
 
 static void
-berkdb_map (struct Lisp_Database *db, Lisp_Object func)
+berkdb_map (Lisp_Database *db, Lisp_Object func)
 {
   DBT keydatum, valdatum;
   Lisp_Object key, val;
   DB *dbp = db->db_handle;
   int status;
 
+  xzero (keydatum);
+  xzero (valdatum);
+
 #if DB_VERSION_MAJOR == 1
   for (status = dbp->seq (dbp, &keydatum, &valdatum, R_FIRST);
        status == 0;
        status = dbp->seq (dbp, &keydatum, &valdatum, R_NEXT))
     {
-      /* ### Needs mule-izing */
+      /* #### Needs mule-izing */
       key = make_string ((Bufbyte *) keydatum.data, keydatum.size);
       val = make_string ((Bufbyte *) valdatum.data, valdatum.size);
       call2 (func, key, val);
     }
 #else
-  DBC *dbcp;
-  /* Initialize the key/data pair so the flags aren't set. */
-  xzero (keydatum);
-  xzero (valdatum);
+  {
+    DBC *dbcp;
 
-  status = dbp->cursor (dbp, NULL, &dbcp);
-  for (status = dbcp->c_get (dbcp, &keydatum, &valdatum, DB_FIRST);
-       status == 0;
-       status = dbcp->c_get (dbcp, &keydatum, &valdatum, DB_NEXT))
-    {
-      /* ### Needs mule-izing */
-      key = make_string ((Bufbyte *) keydatum.data, keydatum.size);
-      val = make_string ((Bufbyte *) valdatum.data, valdatum.size);
-      call2 (func, key, val);
-    }
-  dbcp->c_close (dbcp);
+#if DB_VERSION_MAJOR > 2 || DB_VERSION_MINOR >=6
+    status = dbp->cursor (dbp, NULL, &dbcp, 0);
+#else
+    status = dbp->cursor (dbp, NULL, &dbcp);
+#endif
+    for (status = dbcp->c_get (dbcp, &keydatum, &valdatum, DB_FIRST);
+	 status == 0;
+	 status = dbcp->c_get (dbcp, &keydatum, &valdatum, DB_NEXT))
+      {
+	/* #### Needs mule-izing */
+	key = make_string ((Bufbyte *) keydatum.data, keydatum.size);
+	val = make_string ((Bufbyte *) valdatum.data, valdatum.size);
+	call2 (func, key, val);
+      }
+    dbcp->c_close (dbcp);
+  }
 #endif /* DB_VERSION_MAJOR */
 }
 
 static void
-berkdb_close (struct Lisp_Database *db)
+berkdb_close (Lisp_Database *db)
 {
   if (db->db_handle)
     {
@@ -571,7 +579,7 @@ and defaults to 0755.
   /* This function can GC */
   int modemask;
   int accessmask = 0;
-  struct Lisp_Database *db = NULL;
+  Lisp_Database *db = NULL;
   char *filename;
   struct gcpro gcpro1, gcpro2;
 
@@ -579,7 +587,10 @@ and defaults to 0755.
   GCPRO2 (file, access_);
   file = Fexpand_file_name (file, Qnil);
   UNGCPRO;
-  filename = (char *) XSTRING_DATA (file);
+
+  TO_EXTERNAL_FORMAT (LISP_STRING, file,
+		      C_STRING_ALLOCA, filename,
+		      Qfile_name);
 
   if (NILP (access_))
     {
@@ -622,7 +633,6 @@ and defaults to 0755.
 
       db = allocate_database ();
       db->dbm_handle = dbase;
-      db->type = DB_DBM;
       db->funcs = &ndbm_func_block;
       goto db_done;
     }
@@ -643,6 +653,10 @@ and defaults to 0755.
 	real_subtype = DB_BTREE;
       else if (EQ (subtype, Qrecno))
 	real_subtype = DB_RECNO;
+#if DB_VERSION_MAJOR > 2
+      else if (EQ (subtype, Qqueue))
+	real_subtype = DB_QUEUE;
+#endif
       else
 	signal_simple_error ("Unsupported subtype", subtype);
 
@@ -668,15 +682,34 @@ and defaults to 0755.
 	  if (strchr (acc, 'r') && !strchr (acc, 'w'))
 	    accessmask |= DB_RDONLY;
 	}
+#if DB_VERSION_MAJOR == 2
       status = db_open (filename, real_subtype, accessmask,
 			modemask, NULL , NULL, &dbase);
       if (status)
 	return Qnil;
+#else
+      status = db_create (&dbase, NULL, 0);
+      if (status)
+        return Qnil;
+#if DB_VERSION_MAJOR < 4 || (DB_VERSION_MAJOR == 4 && DB_VERSION_MINOR < 1)
+      status = dbase->open (dbase, filename, NULL,
+                            real_subtype, accessmask, modemask);
+#else /* DB_VERSION >= 4.1 */
+      status = dbase->open (dbase, NULL, filename, NULL, real_subtype,
+			    accessmask | DB_AUTO_COMMIT, modemask);
+#endif /* DB_VERSION < 4.1 */
+      if (status)
+        {
+          dbase->close (dbase, 0);
+          return Qnil;
+        }
+#endif /* DB_VERSION_MAJOR > 2 */
+      /* Normalize into system specific file modes. Only for printing */
+      accessmask = accessmask & DB_RDONLY ? O_RDONLY : O_RDWR;
 #endif /* DB_VERSION_MAJOR */
 
       db = allocate_database ();
       db->db_handle = dbase;
-      db->type = DB_BERKELEY;
       db->funcs = &berk_func_block;
       goto db_done;
     }
@@ -709,7 +742,7 @@ replace any existing entry in the database.
   CHECK_STRING (key);
   CHECK_STRING (value);
   {
-    struct Lisp_Database *db = XDATABASE (database);
+    Lisp_Database *db = XDATABASE (database);
     int status = db->funcs->put (db, key, value, replace);
     return status ? Qt : Qnil;
   }
@@ -723,7 +756,7 @@ Remove KEY from DATABASE.
   CHECK_LIVE_DATABASE (database);
   CHECK_STRING (key);
   {
-    struct Lisp_Database *db = XDATABASE (database);
+    Lisp_Database *db = XDATABASE (database);
     int status = db->funcs->rem (db, key);
     return status ? Qt : Qnil;
   }
@@ -738,13 +771,13 @@ If there is no corresponding value, return DEFAULT (defaults to nil).
   CHECK_LIVE_DATABASE (database);
   CHECK_STRING (key);
   {
-    struct Lisp_Database *db = XDATABASE (database);
+    Lisp_Database *db = XDATABASE (database);
     Lisp_Object retval = db->funcs->get (db, key);
     return NILP (retval) ? default_ : retval;
   }
 }
 
-DEFUN ("map-database", Fmapdatabase, 2, 2, 0, /*
+DEFUN ("map-database", Fmap_database, 2, 2, 0, /*
 Map FUNCTION over entries in DATABASE, calling it with two args,
 each key and value in the database.
 */
@@ -760,6 +793,8 @@ each key and value in the database.
 void
 syms_of_database (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (database);
+
   defsymbol (&Qdatabasep, "databasep");
 #ifdef HAVE_DBM
   defsymbol (&Qdbm, "dbm");
@@ -769,12 +804,15 @@ syms_of_database (void)
   defsymbol (&Qhash, "hash");
   defsymbol (&Qbtree, "btree");
   defsymbol (&Qrecno, "recno");
+#if DB_VERSION_MAJOR > 2
+  defsymbol (&Qqueue, "queue");
+#endif
   defsymbol (&Qunknown, "unknown");
 #endif
 
   DEFSUBR (Fopen_database);
   DEFSUBR (Fdatabasep);
-  DEFSUBR (Fmapdatabase);
+  DEFSUBR (Fmap_database);
   DEFSUBR (Fput_database);
   DEFSUBR (Fget_database);
   DEFSUBR (Fremove_database);
@@ -795,4 +833,13 @@ vars_of_database (void)
 #ifdef HAVE_BERKELEY_DB
   Fprovide (Qberkeley_db);
 #endif
+
+#if 0 /* #### implement me! */
+#ifdef MULE
+  DEFVAR_LISP ("database-coding-system", &Vdatabase_coding_system /*
+Coding system used to convert data in database files.
+*/ );
+  Vdatabase_coding_system = Qnil;
+#endif
+#endif /* 0 */
 }

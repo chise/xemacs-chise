@@ -24,16 +24,20 @@
 ;; Boston, MA 02111-1307, USA.
 
 ;; #### to do:
-;; -- #### figure out how init.el and custom.el interact and put
-;;         documentation about it here. (perhaps it already exists
-;;         elsewhere?)
+;; -- scan for #### markers and fix the problems noted there.
+;; -- #### maybe the setqs in this file should be changed to defvars
+;;    to avoid tromping on customizations when custom.el is loaded
+;;    early (dv and sjt at least favor making this the default)
+;; -- #### update documentation in (lispref)Starting Up XEmacs, in
+;;    (xemacs)Entering Emacs, and in (custom), then point to them
+;;    instead of going into detail here.
 
-;;; This is a sample init.el file.  It can be used without
-;;; modification as your init.el or .emacs.  In older versions of
-;;; XEmacs, this file was called .emacs and placed in your home
-;;; directory. (Under MS Windows, that directory is controlled by the
-;;; HOME environment variable and defaults to C:\.  You can find out
-;;; where XEmacs thinks your home directory is using
+;;; This is a sample init file.  It can be used without modification
+;;; as your init.el or .emacs.  In older versions of XEmacs, this file
+;;; was called .emacs and placed in your home directory. (Under MS
+;;; Windows, that directory is controlled by the HOME environment
+;;; variable and defaults to C:\.  You can find out where XEmacs
+;;; thinks your home directory is using
 ;;;
 ;;;   ESC : (expand-file-name "~")
 ;;;
@@ -52,7 +56,9 @@
 ;;; The language that this file (and most other XEmacs init files) is
 ;;; written in is called "XEmacs Lisp" or more commonly "Elisp".
 
-;;; There are many sources of further information:
+;;; Brief descriptions of how the init process works and how to
+;;; accomplish many useful customizations are given below in this
+;;; file.  There are many sources of further information:
 
 ;;; -- the XEmacs User's Manual (Access using the online Info browser:
 ;;;       Use `Help->Info (Online Docs)->XEmacs User's Manual' (if
@@ -118,6 +124,130 @@
 ;;;       the XEmacs C code. (Available through Info.)
 
 ;;; -- `Help->About XEmacs' to find out who the maintainers are.
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                       Theory of Operation                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; XEmacs allows you to make persistent changes to editor behavior by
+;;; saving code in files which are by default loaded at startup.
+
+;; These files are just Lisp libraries with names built in to XEmacs.
+;; There are files for the use of the user (the init file and the
+;; custom file), for the site administrator (default.el and
+;; site-start.el), and for the XEmacs maintainers (auto-autoloads
+;; files).  See the Lispref for user and site files (node Starting Up
+;; XEmacs, currently inaccurate (it doesn't describe the custom
+;; file)).  Interactions among the files are complex; see
+;; lisp/startup.el for details.
+
+;; Briefly, after very basic initializations including processing a
+;; special command line options (including GUI toolkit options),
+;; setting up the terminal, and setting up `load-path', it executes
+;; customization code as follows:
+
+;; 1. It runs the normal hook `before-init-hook'.
+;; 2. It loads the library `site-start' (by default `site-start.el').
+;; 3. It loads the init file (by default `~/.xemacs/init.el').
+;; 4. It loads the custom file (by default `~/.xemacs/custom.el').
+;; 5. It loads the library `default' (by default `default.el').
+;; 6. It runs the normal hook `after-init-hook'.
+
+;; After this the *scratch* buffer is set up and the remaining command
+;; line arguments (actions and file names) are processed.
+
+;; N.B. Switching the order of steps 3 and 4 is under discussion and
+;; favored by several core developers.
+
+;; Step 2 is inhibited by the -no-site-file command line switch.
+;; Steps 3 and 4 are inhibited (as a unit) by the -no-init-file
+;; command line switch (-q is a convenient synonym).  Step 5 is
+;; inhibited by -no-init-file or a non-nil value of
+;; `inhibit-default-init' (set it in the init file).  From now on the
+;; hooks and the site initialization files will be ignored.
+
+;; The custom file and the init file contain customizations managed by
+;; XEmacs itself via the Custom subsystem and manual customizations,
+;; respectively.  Originally both were placed in the same file,
+;; usually ~/.emacs, but occasionally XEmacs would trash user settings
+;; when automatically changing options, and more frequently users
+;; would trash the automatically generated code.  So these functions
+;; have been reallocated to separate files, usually named custom.el
+;; and init.el, respectively.
+
+;; The Custom system is accessed most conveniently from the
+;; Options->Advanced (Customize) menu (also, the Options->Fonts and
+;; Options->Sizes menus are implicitly managed by Custom, and
+;; Options->Edit Faces explicitly invokes Custom).  You can also use
+;; the suite of customize commands directly (cf C-h a customize RET).
+;; Currently, Custom possesses specialized facilities for setting
+;; ordinary variables of many types, and for customizing faces.  As a
+;; general rule, variable and face initialization should be done using
+;; Custom, and other initializations should be done in the init file.
+
+;; A possible exception is a subsystem with its own complex init file,
+;; eg, Gnus and .gnus.  In these cases it is often preferable to keep
+;; even simple variable initializations together, and you may wish to
+;; maintain these configurations by hand.
+
+;; You should avoid editing the custom file by hand.  The syntax used
+;; is complex but concise, and it is easy to silently break the whole
+;; file with a single error that happens to result in a valid Lisp
+;; form.  On the other hand, the init file is just a Lisp library that
+;; is loaded before starting the read-eval-redisplay loop.
+
+;; The interactions between the custom file and other init files are
+;; governed by a simple idea:
+
+;; Custom to User:  ALL VARIABLES YOURS OURS NOW ARE.
+
+;; To be precise, Custom is pretty good about noticing and respecting
+;; existing settings in interactive use.  However, it is weak in
+;; understanding advanced use of specifier variables (these are used
+;; for customizations which depend on display characteristics and
+;; configuration in complex ways), and can be quite brutal at
+;; initialization.
+
+;; Normal practice for Custom at initialization is to (1) reset all
+;; customized faces before applying customizations and (2) force all
+;; variables to the values specified in custom.el.  For this reason,
+;; and because it is generally the case that the init file can
+;; usefully depend on customized variables, but Custom pays no
+;; attention to behavior of the init file, it is probably a good idea
+;; to force custom.el to be loaded before the init file.  (As
+;; mentioned, this will probably become the default in future versions
+;; of XEmacs.)
+
+;; To enable early loading of custom.el, uncomment the following line:
+;(setq Init-inhibit-custom-file-p (not (assoc custom-file load-history)))
+
+;; Code to implement early loading where late loading is the default.
+;; A crucial snippet of code must be the last thing in this file.
+
+;; defvars only initialize uninitialized variables; if the setq above
+;; is active, the variable below is defined but the value will not be
+;; altered.
+(defvar Init-inhibit-custom-file-p nil
+  "Internal user init flag.  Don't use this yourself.
+
+Non-nil if we need to inhibit XEmacs from loading custom.el after init.el.")
+
+(when Init-inhibit-custom-file-p
+  ;; This is the default custom-file.
+  (let ((file (expand-file-name "~/.xemacs/custom.el")))
+    (add-one-shot-hook 'after-init-hook
+		       `(lambda () (setq custom-file ,file)))
+    (cond ((file-readable-p file)
+	   (load file))
+	  ((file-exists-p file)
+	   (warn "Existing custom file \"%s\" is not readable!" file)))
+    (cond ((not (file-exists-p file))
+	   (display-warning ' resource
+	     (format "Custom file \"%s\" not found." file)
+	     'info))
+	  ((not (file-writable-p file))
+	   (warn "Existing custom file \"%s\" is not writable!" file)))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -226,6 +356,14 @@ argument are optional. Only the Non-nil arguments are used in the test."
 ;        ;;
 ;        ))
 
+(defun Init-safe-require (feat)
+"Try to REQUIRE the specified feature.  Errors occurring are silenced.
+\(Perhaps in the future there will be a way to get at the error.)
+Returns t if the feature was successfully required."
+  (condition-case nil
+      (progn (require feat) t)
+    (error nil)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                          Key Definitions                         ;;
@@ -273,6 +411,12 @@ argument are optional. Only the Non-nil arguments are used in the test."
 ;; the line, but that messes up the common idiom `f8 move-cursor f4'.
 
 (defun Init-kill-entire-line (&optional arg)
+"Kill the entire line.
+With prefix argument, kill that many lines from point.  Negative
+arguments kill lines backward.
+
+When calling from a program, nil means \"no arg\",
+a number counts as a prefix arg."
   (interactive "*P")
   (let ((kill-whole-line t))
     (beginning-of-line)
@@ -609,14 +753,11 @@ backward, and defaults to 1.  Buffers whose name begins with a space
 
 ;; Make sure we get Windows-like shifted-motion key selection behavior
 ;; on recent XEmacs versions.
-(if (boundp 'shifted-motion-keys-select-region)
-    (setq shifted-motion-keys-select-region t)
-  ;; otherwise, try the pc-select package -- 
-  (condition-case nil
-      (progn
-	(require 'pc-select)
-	(pc-select-mode 1))
-    (error nil)))
+(cond ((boundp 'shifted-motion-keys-select-region)
+       (setq shifted-motion-keys-select-region t))
+      ;; otherwise, try the pc-select package -- 
+      ((Init-safe-require 'pc-select)
+       (pc-select-mode 1)))
 
 ;; The following commented-out code rearranges the keymap in an
 ;; unconventional but extremely useful way for programmers.  Parens
@@ -649,6 +790,13 @@ backward, and defaults to 1.  Buffers whose name begins with a space
 ;; Useful programming-related keystrokes.
 
 (defun describe-foo-at-point ()
+  "Show the documentation of the Elisp function and variable near point.
+This checks in turn:
+
+-- for a function name where point is
+-- for a variable name where point is
+-- for a surrounding function call
+"
   (interactive)
   (let (sym)
     ;; sigh, function-at-point is too clever.  we want only the first half.
@@ -747,42 +895,86 @@ This lets you figure out where time is being spent when executing Lisp code."
   'kill-current-buffer-and-window)
 
 (defun kill-current-buffer ()
+  "Kill the current buffer (prompting if it is modified)."
   (interactive)
   (kill-buffer (current-buffer)))
 
 (defun kill-current-buffer-and-window ()
+  "Kill the current buffer (prompting if it is modified) and its window."
   (interactive)
   (kill-buffer (current-buffer))
   (delete-window))
 
-(defun grep-c-files ()
-  (interactive)
-  (require 'compile)
-  (let ((grep-command
-	 (cons (concat grep-command " *.[chCH]"
-					; i wanted to also use *.cc and *.hh.
-					; see long comment below under Perl.
-		       )
-	       (length grep-command))))
-    (call-interactively 'grep)))
+(defvar grep-all-files-history nil)
 
-(defun grep-lisp-files ()
-  (interactive)
-  (require 'compile)
-  (let ((grep-command
-	 (cons (concat grep-command " *.el"
-					; i wanted to also use *.cc and *.hh.
-					; see long comment below under Perl.
-		       )
-	       (length grep-command))))
-    (call-interactively 'grep)))
+(defvar grep-all-files-omitted-expressions
+  '("*~" "#*" ".#*" ",*" "*.elc" "*.obj" "*.o" "*.exe" "*.dll" "*.lib" "*.a"
+    "*.dvi" "*.class" "*.bin")
+  "List of expressions matching files to be omitted in `grep-all-files-...'.
+Each entry should be a simple name or a shell wildcard expression.")
 
-;; This repeatedly selects larger and larger balanced expressions
-;; around the cursor.  Once you have such an expression marked, you
-;; can expand to the end of the following expression with C-M-SPC and
-;; to the beginning of the previous with M-left.
+(defvar grep-all-files-omitted-directories '("CVS" "RCS" "SCCS")
+  "List of directories not to recurse into in `grep-all-files-...'.
+Each entry should be a simple name or a shell wildcard expression.")
+
+(defun construct-grep-all-files-command (find-segment grep-segment)
+  (let ((omit-annoying
+	 (mapconcat #'(lambda (wildcard)
+			(concat "-name '" wildcard "' -or "))
+		    grep-all-files-omitted-expressions
+		    "")))
+    (cond ((eq grep-find-use-xargs 'gnu)
+	   (format "find . %s %s -type f -print0 | xargs -0 -e %s"
+		   find-segment omit-annoying grep-segment))
+	  (grep-find-use-xargs
+	   (format "find . %s %s -type f -print | xargs %s"
+		   find-segment omit-annoying grep-segment))
+	  (t
+	   (format "find . %s %s -type f -exec %s {} /dev/null \\;"
+		   find-segment omit-annoying grep-segment)))))
+
+(defun grep-all-files-in-current-directory (command)
+  "Run `grep' in all non-annoying files in the current directory.
+`Non-annoying' excludes backup files, autosave files, CVS merge files, etc.
+More specifically, this is controlled by `grep-all-files-omitted-expressions'.
+
+This function does not recurse into subdirectories.  If you want this,
+use \\[grep-all-files-in-current-directory-and-below]."
+  (interactive
+   (progn
+     (require 'compile)
+     (list (read-shell-command "Run grep (like this): "
+			       grep-command 'grep-all-files-history))))
+  (require 'compile)
+  (grep (construct-grep-all-files-command
+	 "-name . -or -type d -prune -or" command)))
+
+(defun grep-all-files-in-current-directory-and-below (command)
+  "Run `grep' in all non-annoying files in the current directory and below.
+`Non-annoying' excludes backup files, autosave files, CVS merge files, etc.
+More specifically, this is controlled by `grep-all-files-omitted-expressions'.
+
+This function recurses into subdirectories.  If you do not want this,
+use \\[grep-all-files-in-current-directory]."
+  (interactive
+   (progn
+     (require 'compile)
+     (list (read-shell-command "Run grep (like this): "
+			       grep-command 'grep-all-files-history))))
+  (require 'compile)
+  (grep (construct-grep-all-files-command
+	 ;; prune all specified directories.
+	 (mapconcat #'(lambda (wildcard)
+			(concat "-name '" wildcard "' -prune -or "))
+		    grep-all-files-omitted-directories
+		    "")
+	 command)))
 
 (defun clear-select ()
+  "Repeatedly select ever larger balanced expressions around the cursor.
+Once you have such an expression marked, you can expand to the end of
+the following expression with \\[mark-sexp] and to the beginning of the
+previous with \\[backward-sexp]."
   (interactive "_") ;this means "preserve the active region after this command"
   (backward-up-list 1)
   (let ((end (save-excursion (forward-sexp) (point))))
@@ -792,8 +984,8 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;; -- always reports as /. #### this should be fixable.
 (global-set-key 'kp-add 'query-replace)
 (global-set-key '(shift kp-add) 'query-replace-regexp)
-(global-set-key '(control kp-add) 'grep-c-files)
-(global-set-key '(meta kp-add) 'grep-lisp-files)
+(global-set-key '(control kp-add) 'grep-all-files-in-current-directory)
+(global-set-key '(meta kp-add) 'grep-all-files-in-current-directory-and-below)
 (global-set-key 'clear 'clear-select)
 ;; Note that you can use a "lambda" expression (an anonymous function)
 ;; in place of a function name.  This function would be called
@@ -803,7 +995,7 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;; buffer, etc.).
 (global-set-key 'kp-enter (lambda () (interactive) (set-mark-command t)))
 (global-set-key '(shift kp-enter) 'repeat-complex-command)
-(global-set-key 'pause 'repeat-complex-command) ;; useful on Windows-stlye kbds
+(global-set-key 'pause 'repeat-complex-command) ;; useful on Windows-style kbds
 (global-set-key '(control kp-enter) 'eval-expression)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -872,11 +1064,8 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;;; rather than append -- standard behavior under all window systems
 ;;; nowadays.
 
-(pending-delete-mode 1)
-
-;;; enable region selection with shift+arrows (on by default in 21.5
-;;; and up)
-(setq shifted-motion-keys-select-region t)
+(if (fboundp 'pending-delete-mode)
+    (pending-delete-mode 1))
 
 ;;; NOTE: In this context, `windows-nt' actually refers to all MS
 ;;; Windows operating systems!
@@ -889,15 +1078,33 @@ This lets you figure out where time is being spent when executing Lisp code."
   ;(setq user-full-name "Ben Wing")
   ;(setq smtpmail-smtp-server "pop.tcsn.uswest.net")
 
-  ;; Make Alt+accelerator traverse to the menu in new enough XEmacs
+  ;; Make Meta+accelerator traverse to the menu in new enough XEmacs
   ;; versions.  Note that this only overrides Meta bindings that would
-  ;; actually invoke a menu, and that none of the most common commands
-  ;; are overridden.  You can use ESC+key to access the overridden
-  ;; ones if necessary.
+  ;; actually invoke a menu, and the most common commands that are
+  ;; overridden have preferred alternative bindings using the arrow
+  ;; keys.  You can always access the overridden ones using
+  ;; Shift+Meta+Key. (Note that "Alt" and "Meta" normally refer to the
+  ;; same key, except on some Sun keyboards [where "Meta" is actually
+  ;; labelled with a diamond] or if you have explicitly made them
+  ;; different under X Windows using `xmodmap'.)
+  ;;
+  ;; More specifically, the following bindings are overridden:
+  ;;
+  ;; M-f		(use C-right or Sh-M-f instead)
+  ;; M-e		(use M-C-right or Sh-M-e instead)
+  ;; M-v		(use Prior aka PgUp or Sh-M-v instead)
+  ;; M-m		(use Sh-M-m instead)
+  ;; M-t		(use Sh-M-t instead)
+  ;; M-o		(normally undefined)
+  ;; M-b		(use C-left or Sh-M-b instead)
+  ;; M-h		(use M-e h or Sh-M-h instead)
+  ;; in Lisp mode, M-l	(use Sh-M-l instead)
+  ;; in C mode, M-c	(use Sh-M-c instead)
+
   (setq menu-accelerator-enabled 'menu-force)
 
   ;; Make Cygwin `make' work inside a shell buffer.
-  (setenv "MAKE_MODE" "UNIX"))
+  (if (boundp 'setenv) (setenv "MAKE_MODE" "UNIX")))
 
 ;; This shows how to set up the XEmacs side of tags. (To create the
 ;; TAGS table, use the `etags' program found in the XEmacs bin
@@ -948,16 +1155,20 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;; has a NetAudio or ESD server, or on the console of a Linux, Sparc,
 ;; HP, or SGI machine.  Otherwise, you just get the standard beep.)
 
-(cond ((or (and (getenv "DISPLAY") 
-		(string-match ":0" (getenv "DISPLAY")))
-	   (and (eq (console-type) 'mswindows)
-		(device-sound-enabled-p)))
-       (load-default-sounds)
-       ;; On Windows, at least, the sound "quiet-beep", which is normally
-       ;; given the symbolic name `quiet' and is used for Quit and such,
-       ;; is just totally disgusting.  So make this name correspond to a
-       ;; more innocuous sound.
-       (load-sound-file "drum-beep" 'quiet 80))
+(cond ((and (fboundp 'load-default-sounds)
+	    (or (and (getenv "DISPLAY") 
+		     (string-match ":0" (getenv "DISPLAY")))
+		(and (eq (console-type) 'mswindows)
+		     (device-sound-enabled-p))))
+       (condition-case nil
+	   (progn
+	     (load-default-sounds)
+	     ;; On Windows, at least, the sound "quiet-beep", which is normally
+	     ;; given the symbolic name `quiet' and is used for Quit and such,
+	     ;; is just totally disgusting.  So make this name correspond to a
+	     ;; more innocuous sound.
+	     (load-sound-file "drum-beep" 'quiet 80))
+	 (error nil)))
       (t
        (setq bell-volume 40)
        (setq sound-alist
@@ -1107,49 +1318,15 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;;; When this is loaded, the pathname syntax /user@host:/remote/path
 ;;; refers to files accessible through ftp.
 ;;;
-(require 'dired)
-;; compatible ange-ftp/efs initialization derived from code
-;; from John Turner <turner@lanl.gov>
-;;
-;; The environment variable EMAIL_ADDRESS is used as the password
-;; for access to anonymous ftp sites, if it is set.  If not, one is
-;; constructed using the environment variables USER and DOMAINNAME
-;; (e.g. turner@lanl.gov), if set.
+(Init-safe-require 'dired)
 
-(condition-case nil
-    (progn
-      (require 'efs-auto)
-      (if (getenv "USER")
-	  (setq efs-default-user (getenv "USER")))
-      (if (getenv "EMAIL_ADDRESS")
-	  (setq efs-generate-anonymous-password (getenv "EMAIL_ADDRESS"))
-	(if (and (getenv "USER")
-		 (getenv "DOMAINNAME"))
-	    (setq efs-generate-anonymous-password
-		  (concat (getenv "USER")"@"(getenv "DOMAINNAME")))))
-      (setq efs-auto-save 1))
-  (error
-   (require 'ange-ftp)
-   (if (getenv "USER")
-       (setq ange-ftp-default-user (getenv "USER")))
-   (if (getenv "EMAIL_ADDRESS")
-       (setq ange-ftp-generate-anonymous-password (getenv "EMAIL_ADDRESS"))
-     (if (and (getenv "USER")
-	      (getenv "DOMAINNAME"))
-	 (setq ange-ftp-generate-anonymous-password
-	       (concat (getenv "USER")"@"(getenv "DOMAINNAME")))))
-   (setq ange-ftp-auto-save 1)
-   ))
-
+(or (Init-safe-require 'efs-auto) (Init-safe-require 'ange-ftp))
 
 ;;; ********************
 ;;; Load the default-dir.el package which installs fancy handling of
 ;;; the initial contents in the minibuffer when reading file names.
-
-;(condition-case nil
-;    (require 'default-dir)
-;  (error nil))
-
+;; #### but it seems to cause some breakage.
+;(Init-safe-require 'default-dir))
 
 ;;; ********************
 ;;; Put all of your autosave files in one place, instead of scattering
@@ -1160,9 +1337,9 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;;; is fast fast fast!)
 ;;;
 ;;; Unfortunately, the code that implements this (auto-save.el) is
-;;; broken on Windows in 21.4 and earlier.
+;;; broken on Windows prior to 21.4.
 (unless (and (eq system-type 'windows-nt)
-	     (not (emacs-version>= 21 5)))
+	     (not (emacs-version>= 21 4)))
   (setq auto-save-directory (expand-file-name "~/.autosave/")
 	auto-save-directory-fallback auto-save-directory
 	auto-save-hash-p nil
@@ -1172,9 +1349,6 @@ This lets you figure out where time is being spent when executing Lisp code."
 	;; for better interactive response.
 	auto-save-interval 2000
 	)
-  ;; We load this afterwards because it checks to make sure the
-  ;; auto-save-directory exists (creating it if not) when it's loaded.
-  (require 'auto-save)
   )
 
 
@@ -1198,7 +1372,7 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;;; because there are no other commands whose first three words begin with
 ;;; the letters `b', `c', and `a' respectively.
 ;;;
-(load-library "completer")
+(Init-safe-require 'completer)
 
 
 ;;; ********************
@@ -1212,7 +1386,7 @@ This lets you figure out where time is being spent when executing Lisp code."
 				   ; tell it not to assume that "binary" files
 				   ; are encrypted and require a password.
       )
-(require 'crypt)
+(Init-safe-require 'crypt)
 
 
 ;;; ********************
@@ -1220,9 +1394,11 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;;; makes filling (e.g. using M-q) much much smarter about paragraphs
 ;;; that are indented and/or are set off with semicolons, dashes, etc.
 
-(require 'filladapt)
+(Init-safe-require 'filladapt)
 (setq-default filladapt-mode t)
-(add-hook 'c-mode-hook 'turn-off-filladapt-mode)
+(when (fboundp 'turn-off-filladapt-mode)
+  (add-hook 'c-mode-hook 'turn-off-filladapt-mode)
+  (add-hook 'outline-mode-hook 'turn-off-filladapt-mode))
 
 
 ;;; ********************
@@ -1249,7 +1425,7 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;       (setq font-lock-use-default-fonts nil)
 ;       (setq font-lock-use-default-colors nil)
 
-       (require 'font-lock)
+       (Init-safe-require 'font-lock)
 
 ;       ;; Mess around with the faces a bit.  Note that you have
 ;       ;; to change the font-lock-use-default-* variables *before*
@@ -1285,10 +1461,12 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;;; accurate as using full font-lock or fast-lock, but it's *much*
 ;;; faster.  No more annoying pauses when you load files.
 
-(add-hook 'font-lock-mode-hook 'turn-on-lazy-lock)
+(if (fboundp 'turn-on-lazy-lock)
+    (add-hook 'font-lock-mode-hook 'turn-on-lazy-lock))
+
 ;; I personally don't like "stealth mode" (where lazy-lock starts
 ;; fontifying in the background if you're idle for 30 seconds)
-;; because it takes too long to wake up again on my piddly Sparc 1+.
+;; because it takes too long to wake up again.
 (setq lazy-lock-stealth-time nil)
 
 
@@ -1302,8 +1480,7 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;;; Send bug reports, enhancements etc to:
 ;;; David Hughes <ukchugd@ukpmr.cs.philips.nl>
 ;;;
-(cond (running-xemacs
-       (require 'func-menu)
+(cond ((and running-xemacs (Init-safe-require 'func-menu))
        (global-set-key '(shift f12) 'function-menu)
        (add-hook 'find-file-hooks 'fume-add-menubar-entry)
        (global-set-key "\C-cl" 'fume-list-functions)
@@ -1352,18 +1529,18 @@ This lets you figure out where time is being spent when executing Lisp code."
 
 ;;; ********************
 ;;; resize-minibuffer-mode makes the minibuffer automatically
-;;; resize as necessary when it's too big to hold its contents.
+;;; resize as necessary when it's too small to hold its contents.
 
-(autoload 'resize-minibuffer-mode "rsz-minibuf" nil t)
-(resize-minibuffer-mode)
-(setq resize-minibuffer-window-exactly nil)
+(when (fboundp 'resize-minibuffer-mode)
+  (resize-minibuffer-mode)
+  (setq resize-minibuffer-window-exactly nil))
 
 
 ;;; ********************
 ;;; scroll-in-place is a package that keeps the cursor on the same line (and in the same column) when scrolling by a page using PgUp/PgDn.
 
-(require 'scroll-in-place)
-(turn-on-scroll-in-place)
+(if (Init-safe-require 'scroll-in-place)
+    (turn-on-scroll-in-place))
 
 
 ;;; ********************
@@ -1382,3 +1559,11 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;      ;; of the session, specify the number of lines here.
 ;      w3-telnet-header-length 4
 ;      )
+
+;;; Inhibit loading of custom-file
+
+;; make-temp-name returns a name which does not refer to an existing file,
+;; and thus the named file is unreadable.
+(when Init-inhibit-custom-file-p
+  (setq custom-file (make-temp-name "/tmp/non-existent-")))
+

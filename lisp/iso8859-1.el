@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1992, 1997 Free Software Foundation, Inc.
 
-;; Author: Jamie Zawinski <jwz@netscape.com>
+;; Author: Jamie Zawinski <jwz@jwz.org>
 ;; Created: 19-aug-92
 ;; Maintainer: XEmacs Development Team
 ;; Keywords: internal, dumped
@@ -142,6 +142,7 @@
   )
 
 
+(unless (featurep 'utf-2000)
 (defconst iso8859/1-case-table nil
   "The case table for ISO-8859/1 characters.")
 
@@ -161,9 +162,9 @@
 	  (setq pairs (cdr pairs)))
 	(cons 'setq
 	      (cons 'iso8859/1-case-table
-		    (list (list 'purecopy
-				(list 'quote
-				      (list downcase nil nil nil)))))))))
+		    (list
+		     (list 'quote
+			   (list downcase nil nil nil))))))))
  
  (?\300  ?\340)		; Agrave
  (?\301  ?\341)		; Aacute
@@ -198,6 +199,7 @@
  )
 
 (set-standard-case-table (mapcar 'copy-sequence iso8859/1-case-table))
+)
 
 (setq-default ctl-arrow 'iso-8859/1)
 

@@ -1,5 +1,6 @@
 /* Portable data dumper for XEmacs.
    Copyright (C) 1999-2000 Olivier Galibert
+   Copyright (C) 2001 Martin Buchholz
 
 This file is part of XEmacs.
 
@@ -22,21 +23,138 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
-#include "dump-id.h"
+
 #include "specifier.h"
-#include "alloc.h"
 #include "elhash.h"
 #include "sysfile.h"
 #include "console-stream.h"
 #include "dumper.h"
+#include "sysdep.h"
 
+#ifdef WIN32_NATIVE
+#include "nt.h"
+#else
 #ifdef HAVE_MMAP
 #include <sys/mman.h>
+#endif
 #endif
 
 #ifndef SEPCHAR
 #define SEPCHAR ':'
 #endif
+
+typedef struct
+{
+  void *varaddress;
+  size_t size;
+} pdump_opaque;
+
+typedef struct
+{
+  Dynarr_declare (pdump_opaque);
+} pdump_opaque_dynarr;
+
+typedef struct
+{
+  void **ptraddress;
+  const struct struct_description *desc;
+} pdump_root_struct_ptr;
+
+typedef struct
+{
+  Dynarr_declare (pdump_root_struct_ptr);
+} pdump_root_struct_ptr_dynarr;
+
+typedef struct
+{
+  Lisp_Object *address;
+  Lisp_Object value;
+} pdump_static_Lisp_Object;
+
+typedef struct
+{
+  char **address; /* char * for ease of doing relocation */
+  char * value;
+} pdump_static_pointer;
+
+static pdump_opaque_dynarr *pdump_opaques;
+static pdump_root_struct_ptr_dynarr *pdump_root_struct_ptrs;
+static Lisp_Object_ptr_dynarr *pdump_root_objects;
+static Lisp_Object_ptr_dynarr *pdump_weak_object_chains;
+
+/* Mark SIZE bytes at non-heap address VARADDRESS for dumping as is,
+   without any bit-twiddling. */
+void
+dump_add_opaque (void *varaddress, size_t size)
+{
+  pdump_opaque info;
+  info.varaddress = varaddress;
+  info.size = size;
+  if (pdump_opaques == NULL)
+    pdump_opaques = Dynarr_new (pdump_opaque);
+  Dynarr_add (pdump_opaques, info);
+}
+
+/* Mark the struct described by DESC and pointed to by the pointer at
+   non-heap address VARADDRESS for dumping.
+   All the objects reachable from this pointer will also be dumped. */
+void
+dump_add_root_struct_ptr (void *ptraddress, const struct struct_description *desc)
+{
+  pdump_root_struct_ptr info;
+  info.ptraddress = (void **) ptraddress;
+  info.desc = desc;
+  if (pdump_root_struct_ptrs == NULL)
+    pdump_root_struct_ptrs = Dynarr_new (pdump_root_struct_ptr);
+  Dynarr_add (pdump_root_struct_ptrs, info);
+}
+
+/* Mark the Lisp_Object at non-heap address VARADDRESS for dumping.
+   All the objects reachable from this var will also be dumped. */
+void
+dump_add_root_object (Lisp_Object *varaddress)
+{
+  if (pdump_root_objects == NULL)
+    pdump_root_objects = Dynarr_new2 (Lisp_Object_ptr_dynarr, Lisp_Object *);
+  Dynarr_add (pdump_root_objects, varaddress);
+}
+
+/* Mark the list pointed to by the Lisp_Object at VARADDRESS for dumping. */
+void
+dump_add_weak_object_chain (Lisp_Object *varaddress)
+{
+  if (pdump_weak_object_chains == NULL)
+    pdump_weak_object_chains = Dynarr_new2 (Lisp_Object_ptr_dynarr, Lisp_Object *);
+  Dynarr_add (pdump_weak_object_chains, varaddress);
+}
+
+
+inline static void
+pdump_align_stream (FILE *stream, size_t alignment)
+{
+  long offset = ftell (stream);
+  long adjustment = ALIGN_SIZE (offset, alignment) - offset;
+  if (adjustment)
+    fseek (stream, adjustment, SEEK_CUR);
+}
+
+#define PDUMP_ALIGN_OUTPUT(type) pdump_align_stream (pdump_out, ALIGNOF (type))
+
+#define PDUMP_WRITE(type, object) \
+fwrite (&object, sizeof (object), 1, pdump_out);
+
+#define PDUMP_WRITE_ALIGNED(type, object) do {	\
+  PDUMP_ALIGN_OUTPUT (type);			\
+  PDUMP_WRITE (type, object);			\
+} while (0)
+
+#define PDUMP_READ(ptr, type) \
+(((type *) (ptr = (char*) (((type *) ptr) + 1)))[-1])
+
+#define PDUMP_READ_ALIGNED(ptr, type) \
+((ptr = (char *) ALIGN_PTR (ptr, ALIGNOF (type))), PDUMP_READ (ptr, type))
+
+
 
 typedef struct
 {
@@ -72,101 +190,105 @@ pdump_objects_unmark (void)
 
 
 /* The structure of the file
- *
- * 0			- header
- * 256			- dumped objects
- * stab_offset		- nb_staticpro*(Lisp_Object *) from staticvec
- *			- nb_staticpro*(relocated Lisp_Object) pointed to by staticpro
- *			- nb_structdmp*pair(void *, adr) for pointers to structures
- *			- lrecord_implementations_table[]
- *			- relocation table
- *                      - wired variable address/value couples with the count preceding the list
+ 0		- header
+		- dumped objects
+ stab_offset	- nb_root_struct_ptrs*pair(void *, adr)
+		  for pointers to structures
+		- nb_opaques*pair(void *, size) for raw bits to restore
+		- relocation table
+		- root lisp object address/value couples with the count
+		  preceding the list
  */
 
 
-#define DUMP_SIGNATURE "XEmacsDP"
-#define DUMP_SIGNATURE_LEN (sizeof (DUMP_SIGNATURE) - 1)
+#define PDUMP_SIGNATURE "XEmacsDP"
+#define PDUMP_SIGNATURE_LEN (sizeof (PDUMP_SIGNATURE) - 1)
 
 typedef struct
 {
-  char signature[DUMP_SIGNATURE_LEN];
+  char signature[PDUMP_SIGNATURE_LEN];
   unsigned int id;
   EMACS_UINT stab_offset;
   EMACS_UINT reloc_address;
-  int nb_staticpro;
-  int nb_structdmp;
-  int nb_opaquedmp;
-} dump_header;
+  int nb_root_struct_ptrs;
+  int nb_opaques;
+} pdump_header;
 
-char *pdump_start, *pdump_end;
+char *pdump_start;
+char *pdump_end;
 static size_t pdump_length;
-void (*pdump_free) (void);
 
-static const unsigned char align_table[256] =
+#ifdef WIN32_NATIVE
+/* Handle for the dump file */
+static HANDLE pdump_hFile = INVALID_HANDLE_VALUE;
+/* Handle for the file mapping object for the dump file */
+static HANDLE pdump_hMap = INVALID_HANDLE_VALUE;
+#endif
+
+static void (*pdump_free) (void);
+
+static unsigned char pdump_align_table[] =
 {
-  8, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  6, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  7, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  6, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-  4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0
+  64, 1, 2, 1, 4, 1, 2, 1, 8, 1, 2, 1, 4, 1, 2, 1,
+  16, 1, 2, 1, 4, 1, 2, 1, 8, 1, 2, 1, 4, 1, 2, 1,
+  32, 1, 2, 1, 4, 1, 2, 1, 8, 1, 2, 1, 4, 1, 2, 1,
+  16, 1, 2, 1, 4, 1, 2, 1, 8, 1, 2, 1, 4, 1, 2, 1
 };
 
-typedef struct pdump_entry_list_elmt
+static inline unsigned int
+pdump_size_to_align (size_t size)
 {
-  struct pdump_entry_list_elmt *next;
+  return pdump_align_table[size % countof (pdump_align_table)];
+}
+
+typedef struct pdump_entry_list_elt
+{
+  struct pdump_entry_list_elt *next;
   const void *obj;
   size_t size;
   int count;
-  int is_lrecord;
   EMACS_INT save_offset;
-} pdump_entry_list_elmt;
+} pdump_entry_list_elt;
 
 typedef struct
 {
-  pdump_entry_list_elmt *first;
+  pdump_entry_list_elt *first;
   int align;
   int count;
 } pdump_entry_list;
 
-typedef struct pdump_struct_list_elmt
+typedef struct pdump_struct_list_elt
 {
   pdump_entry_list list;
   const struct struct_description *sdesc;
-} pdump_struct_list_elmt;
+} pdump_struct_list_elt;
 
 typedef struct
 {
-  pdump_struct_list_elmt *list;
+  pdump_struct_list_elt *list;
   int count;
   int size;
 } pdump_struct_list;
 
-static pdump_entry_list pdump_object_table[256];
+static pdump_entry_list *pdump_object_table;
 static pdump_entry_list pdump_opaque_data_list;
 static pdump_struct_list pdump_struct_table;
-static pdump_entry_list_elmt *pdump_qnil;
 
-static int pdump_alert_undump_object[256];
+static int *pdump_alert_undump_object;
 
 static unsigned long cur_offset;
 static size_t max_size;
 static int pdump_fd;
 static void *pdump_buf;
+static FILE *pdump_out;
 
+#ifdef UTF2000
+#define PDUMP_HASHSIZE 20000001
+#else
 #define PDUMP_HASHSIZE 200001
+#endif
 
-static pdump_entry_list_elmt **pdump_hash;
+static pdump_entry_list_elt **pdump_hash;
 
 /* Since most pointers are eight bytes aligned, the >>3 allows for a better hash */
 static int
@@ -175,11 +297,11 @@ pdump_make_hash (const void *obj)
   return ((unsigned long)(obj)>>3) % PDUMP_HASHSIZE;
 }
 
-static pdump_entry_list_elmt *
+static pdump_entry_list_elt *
 pdump_get_entry (const void *obj)
 {
   int pos = pdump_make_hash (obj);
-  pdump_entry_list_elmt *e;
+  pdump_entry_list_elt *e;
 
   assert (obj != 0);
 
@@ -196,10 +318,10 @@ pdump_get_entry (const void *obj)
 }
 
 static void
-pdump_add_entry (pdump_entry_list *list, const void *obj, size_t size, int count, int is_lrecord)
+pdump_add_entry (pdump_entry_list *list, const void *obj, size_t size,
+		 int count)
 {
-  pdump_entry_list_elmt *e;
-  int align;
+  pdump_entry_list_elt *e;
   int pos = pdump_make_hash (obj);
 
   while ((e = pdump_hash[pos]) != 0)
@@ -212,24 +334,23 @@ pdump_add_entry (pdump_entry_list *list, const void *obj, size_t size, int count
 	pos = 0;
     }
 
-  e = xnew (pdump_entry_list_elmt);
+  e = xnew (pdump_entry_list_elt);
 
   e->next = list->first;
   e->obj = obj;
   e->size = size;
   e->count = count;
-  e->is_lrecord = is_lrecord;
   list->first = e;
 
   list->count += count;
   pdump_hash[pos] = e;
 
-  align = align_table[size & 255];
-  if (align < 2 && is_lrecord)
-    align = 2;
+  {
+    int align = pdump_size_to_align (size);
 
-  if (align < list->align)
-    list->align = align;
+    if (align < list->align)
+      list->align = align;
+  }
 }
 
 static pdump_entry_list *
@@ -246,12 +367,12 @@ pdump_get_entry_list (const struct struct_description *sdesc)
 	pdump_struct_table.size = 10;
       else
 	pdump_struct_table.size = pdump_struct_table.size * 2;
-      pdump_struct_table.list = (pdump_struct_list_elmt *)
+      pdump_struct_table.list = (pdump_struct_list_elt *)
 	xrealloc (pdump_struct_table.list,
-		  pdump_struct_table.size * sizeof (pdump_struct_list_elmt));
+		  pdump_struct_table.size * sizeof (pdump_struct_list_elt));
     }
   pdump_struct_table.list[pdump_struct_table.count].list.first = 0;
-  pdump_struct_table.list[pdump_struct_table.count].list.align = 8;
+  pdump_struct_table.list[pdump_struct_table.count].list.align = ALIGNOF (max_align_t);
   pdump_struct_table.list[pdump_struct_table.count].list.count = 0;
   pdump_struct_table.list[pdump_struct_table.count].sdesc = sdesc;
 
@@ -267,14 +388,17 @@ static struct
 
 static int depth;
 
-static void pdump_backtrace (void)
+static void
+pdump_backtrace (void)
 {
   int i;
   stderr_out ("pdump backtrace :\n");
   for (i=0;i<depth;i++)
     {
       if (!backtrace[i].obj)
-	stderr_out ("  - ind. (%d, %d)\n", backtrace[i].position, backtrace[i].offset);
+	stderr_out ("  - ind. (%d, %d)\n",
+		    backtrace[i].position,
+		    backtrace[i].offset);
       else
 	{
 	  stderr_out ("  - %s (%d, %d)\n",
@@ -286,12 +410,16 @@ static void pdump_backtrace (void)
 }
 
 static void pdump_register_object (Lisp_Object obj);
-static void pdump_register_struct (const void *data, const struct struct_description *sdesc, int count);
+static void pdump_register_struct (const void *data,
+				   const struct struct_description *sdesc,
+				   int count);
 
 static EMACS_INT
-pdump_get_indirect_count (EMACS_INT code, const struct lrecord_description *idesc, const void *idata)
+pdump_get_indirect_count (EMACS_INT code,
+			  const struct lrecord_description *idesc,
+			  const void *idata)
 {
-  EMACS_INT count;
+  EMACS_INT count = 0;		/* initialize to shut up GCC */
   const void *irdata;
 
   int line = XD_INDIRECT_VAL (code);
@@ -313,7 +441,8 @@ pdump_get_indirect_count (EMACS_INT code, const struct lrecord_description *ides
       count = *(Bytecount *)irdata;
       break;
     default:
-      stderr_out ("Unsupported count type : %d (line = %d, code=%ld)\n", idesc[line].type, line, (long)code);
+      stderr_out ("Unsupported count type : %d (line = %d, code=%ld)\n",
+		  idesc[line].type, line, (long)code);
       pdump_backtrace ();
       abort ();
     }
@@ -344,7 +473,6 @@ pdump_register_sub (const void *data, const struct lrecord_description *desc, in
 	case XD_INT:
 	case XD_LONG:
 	case XD_BYTECOUNT:
-	case XD_LO_RESET_NIL:
 	case XD_INT_RESET:
 	case XD_LO_LINK:
 	  break;
@@ -355,24 +483,21 @@ pdump_register_sub (const void *data, const struct lrecord_description *desc, in
 	      count = pdump_get_indirect_count (count, desc, data);
 
 	    pdump_add_entry (&pdump_opaque_data_list,
-			     *(void **)rdata,
-			     count,
-			     1,
-			     0);
+			     *(void **)rdata, count, 1);
 	    break;
 	  }
 	case XD_C_STRING:
 	  {
 	    const char *str = *(const char **)rdata;
 	    if (str)
-	      pdump_add_entry (&pdump_opaque_data_list, str, strlen (str)+1, 1, 0);
+	      pdump_add_entry (&pdump_opaque_data_list, str, strlen (str)+1, 1);
 	    break;
 	  }
 	case XD_DOC_STRING:
 	  {
 	    const char *str = *(const char **)rdata;
 	    if ((EMACS_INT)str > 0)
-	      pdump_add_entry (&pdump_opaque_data_list, str, strlen (str)+1, 1, 0);
+	      pdump_add_entry (&pdump_opaque_data_list, str, strlen (str)+1, 1);
 	    break;
 	  }
 	case XD_LISP_OBJECT:
@@ -428,6 +553,7 @@ static void
 pdump_register_object (Lisp_Object obj)
 {
   struct lrecord_header *objh;
+  const struct lrecord_implementation *imp;
 
   if (!POINTER_TYPE_P (XTYPE (obj)))
     return;
@@ -439,7 +565,9 @@ pdump_register_object (Lisp_Object obj)
   if (pdump_get_entry (objh))
     return;
 
-  if (LHEADER_IMPLEMENTATION (objh)->description)
+  imp = LHEADER_IMPLEMENTATION (objh);
+
+  if (imp->description)
     {
       int me = depth++;
       if (me>65536)
@@ -453,26 +581,25 @@ pdump_register_object (Lisp_Object obj)
 
       pdump_add_entry (pdump_object_table + objh->type,
 		       objh,
-		       LHEADER_IMPLEMENTATION (objh)->static_size ?
-		       LHEADER_IMPLEMENTATION (objh)->static_size :
-		       LHEADER_IMPLEMENTATION (objh)->size_in_bytes_method (objh),
-		       1,
+		       imp->static_size ?
+		       imp->static_size :
+		       imp->size_in_bytes_method (objh),
 		       1);
-      pdump_register_sub (objh,
-			  LHEADER_IMPLEMENTATION (objh)->description,
-			  me);
+      pdump_register_sub (objh, imp->description, me);
       --depth;
     }
   else
     {
       pdump_alert_undump_object[objh->type]++;
-      stderr_out ("Undumpable object type : %s\n", LHEADER_IMPLEMENTATION (objh)->name);
+      stderr_out ("Undumpable object type : %s\n", imp->name);
       pdump_backtrace ();
     }
 }
 
 static void
-pdump_register_struct (const void *data, const struct struct_description *sdesc, int count)
+pdump_register_struct (const void *data,
+		       const struct struct_description *sdesc,
+		       int count)
 {
   if (data && !pdump_get_entry (data))
     {
@@ -488,10 +615,7 @@ pdump_register_struct (const void *data, const struct struct_description *sdesc,
       backtrace[me].offset = 0;
 
       pdump_add_entry (pdump_get_entry_list (sdesc),
-		       data,
-		       sdesc->size,
-		       count,
-		       0);
+		       data, sdesc->size, count);
       for (i=0; i<count; i++)
 	{
 	  pdump_register_sub (((char *)data) + sdesc->size*i,
@@ -503,14 +627,15 @@ pdump_register_struct (const void *data, const struct struct_description *sdesc,
 }
 
 static void
-pdump_dump_data (pdump_entry_list_elmt *elmt, const struct lrecord_description *desc)
+pdump_dump_data (pdump_entry_list_elt *elt,
+		 const struct lrecord_description *desc)
 {
-  size_t size = elmt->size;
-  int count = elmt->count;
+  size_t size = elt->size;
+  int count = elt->count;
   if (desc)
     {
       int pos, i;
-      memcpy (pdump_buf, elmt->obj, size*count);
+      memcpy (pdump_buf, elt->obj, size*count);
 
       for (i=0; i<count; i++)
 	{
@@ -522,28 +647,18 @@ pdump_dump_data (pdump_entry_list_elmt *elmt, const struct lrecord_description *
 	      switch (desc[pos].type)
 		{
 		case XD_SPECIFIER_END:
-		  desc = ((const Lisp_Specifier *)(elmt->obj))->methods->extra_description;
+		  desc = ((const Lisp_Specifier *)(elt->obj))->methods->extra_description;
 		  goto restart;
 		case XD_SIZE_T:
 		case XD_INT:
 		case XD_LONG:
 		case XD_BYTECOUNT:
 		  break;
-		case XD_LO_RESET_NIL:
-		  {
-		    EMACS_INT num = desc[pos].data1;
-		    int j;
-		    if (XD_IS_INDIRECT (num))
-		      num = pdump_get_indirect_count (num, desc, elmt->obj);
-		    for (j=0; j<num; j++)
-		      ((EMACS_INT *)rdata)[j] = pdump_qnil->save_offset;
-		    break;
-		  }
 		case XD_INT_RESET:
 		  {
 		    EMACS_INT val = desc[pos].data1;
 		    if (XD_IS_INDIRECT (val))
-		      val = pdump_get_indirect_count (val, desc, elmt->obj);
+		      val = pdump_get_indirect_count (val, desc, elt->obj);
 		    *(int *)rdata = val;
 		    break;
 		  }
@@ -559,15 +674,15 @@ pdump_dump_data (pdump_entry_list_elmt *elmt, const struct lrecord_description *
 		case XD_LO_LINK:
 		  {
 		    Lisp_Object obj = *(Lisp_Object *)rdata;
-		    pdump_entry_list_elmt *elmt1;
+		    pdump_entry_list_elt *elt1;
 		    for (;;)
 		      {
-			elmt1 = pdump_get_entry (XRECORD_LHEADER (obj));
-			if (elmt1)
+			elt1 = pdump_get_entry (XRECORD_LHEADER (obj));
+			if (elt1)
 			  break;
 			obj = *(Lisp_Object *)(desc[pos].offset + (char *)(XRECORD_LHEADER (obj)));
 		      }
-		    *(EMACS_INT *)rdata = elmt1->save_offset;
+		    *(EMACS_INT *)rdata = elt1->save_offset;
 		    break;
 		  }
 		case XD_LISP_OBJECT:
@@ -586,7 +701,7 @@ pdump_dump_data (pdump_entry_list_elmt *elmt, const struct lrecord_description *
 		    EMACS_INT num = desc[pos].data1;
 		    int j;
 		    if (XD_IS_INDIRECT (num))
-		      num = pdump_get_indirect_count (num, desc, elmt->obj);
+		      num = pdump_get_indirect_count (num, desc, elt->obj);
 
 		    for (j=0; j<num; j++)
 		      {
@@ -607,17 +722,16 @@ pdump_dump_data (pdump_entry_list_elmt *elmt, const struct lrecord_description *
 		default:
 		  stderr_out ("Unsupported dump type : %d\n", desc[pos].type);
 		  abort ();
-		};
+		}
 	    }
 	}
     }
-  write (pdump_fd, desc ? pdump_buf : elmt->obj, size*count);
-  if (elmt->is_lrecord && ((size*count) & 3))
-    write (pdump_fd, "\0\0\0", 4-((size*count) & 3));
+  fwrite (desc ? pdump_buf : elt->obj, size, count, pdump_out);
 }
 
 static void
-pdump_reloc_one (void *data, EMACS_INT delta, const struct lrecord_description *desc)
+pdump_reloc_one (void *data, EMACS_INT delta,
+		 const struct lrecord_description *desc)
 {
   int pos;
 
@@ -655,12 +769,11 @@ pdump_reloc_one (void *data, EMACS_INT delta, const struct lrecord_description *
 
 	    if (POINTER_TYPE_P (XTYPE (*pobj))
 		&& ! EQ (*pobj, Qnull_pointer))
-	      XSETOBJ (*pobj, XTYPE (*pobj), (char *) XPNTR (*pobj) + delta);
+	      XSETOBJ (*pobj, (char *) XPNTR (*pobj) + delta);
 
 	    break;
 	  }
 	case XD_LISP_OBJECT_ARRAY:
-	case XD_LO_RESET_NIL:
 	  {
 	    EMACS_INT num = desc[pos].data1;
 	    int j;
@@ -673,7 +786,7 @@ pdump_reloc_one (void *data, EMACS_INT delta, const struct lrecord_description *
 
 		if (POINTER_TYPE_P (XTYPE (*pobj))
 		    && ! EQ (*pobj, Qnull_pointer))
-		  XSETOBJ (*pobj, XTYPE (*pobj), (char *) XPNTR (*pobj) + delta);
+		  XSETOBJ (*pobj, (char *) XPNTR (*pobj) + delta);
 	      }
 	    break;
 	  }
@@ -692,221 +805,207 @@ pdump_reloc_one (void *data, EMACS_INT delta, const struct lrecord_description *
 }
 
 static void
-pdump_allocate_offset (pdump_entry_list_elmt *elmt, const struct lrecord_description *desc)
+pdump_allocate_offset (pdump_entry_list_elt *elt,
+		       const struct lrecord_description *desc)
 {
-  size_t size = (elmt->is_lrecord ? (elmt->size + 3) & ~3 : elmt->size)*elmt->count;
-  elmt->save_offset = cur_offset;
+  size_t size = elt->count * elt->size;
+  elt->save_offset = cur_offset;
   if (size>max_size)
     max_size = size;
   cur_offset += size;
 }
 
 static void
-pdump_scan_by_alignment (void (*f)(pdump_entry_list_elmt *, const struct lrecord_description *))
+pdump_scan_by_alignment (void (*f)(pdump_entry_list_elt *,
+				   const struct lrecord_description *))
 {
-  int align, i;
-  const struct lrecord_description *idesc;
-  pdump_entry_list_elmt *elmt;
-  for (align=8; align>=0; align--)
+  int align;
+
+  for (align = ALIGNOF (max_align_t); align; align>>=1)
     {
+      size_t i;
+      pdump_entry_list_elt *elt;
+
       for (i=0; i<lrecord_type_count; i++)
 	if (pdump_object_table[i].align == align)
-	  {
-	    elmt = pdump_object_table[i].first;
-	    if (!elmt)
-	      continue;
-	    idesc = lrecord_implementations_table[i]->description;
-	    while (elmt)
-	      {
-		f (elmt, idesc);
-		elmt = elmt->next;
-	      }
-	  }
+	  for (elt = pdump_object_table[i].first; elt; elt = elt->next)
+	    f (elt, lrecord_implementations_table[i]->description);
 
       for (i=0; i<pdump_struct_table.count; i++)
-	if (pdump_struct_table.list[i].list.align == align)
-	  {
-	    elmt = pdump_struct_table.list[i].list.first;
-	    idesc = pdump_struct_table.list[i].sdesc->description;
-	    while (elmt)
-	      {
-		f (elmt, idesc);
-		elmt = elmt->next;
-	      }
-	  }
-
-      elmt = pdump_opaque_data_list.first;
-      while (elmt)
 	{
-	  if (align_table[elmt->size & 255] == align)
-	    f (elmt, 0);
-	  elmt = elmt->next;
+	  pdump_struct_list_elt list = pdump_struct_table.list[i];
+	  if (list.list.align == align)
+	    for (elt = list.list.first; elt; elt = elt->next)
+	      f (elt, list.sdesc->description);
 	}
+
+      for (elt = pdump_opaque_data_list.first; elt; elt = elt->next)
+	if (pdump_size_to_align (elt->size) == align)
+	  f (elt, 0);
     }
 }
 
 static void
-pdump_dump_staticvec (void)
+pdump_dump_root_struct_ptrs (void)
 {
-  EMACS_INT *reloc = xnew_array (EMACS_INT, staticidx);
-  int i;
-  write (pdump_fd, staticvec, staticidx*sizeof (Lisp_Object *));
-
-  for (i=0; i<staticidx; i++)
+  size_t i;
+  size_t count = Dynarr_length (pdump_root_struct_ptrs);
+  pdump_static_pointer *data = alloca_array (pdump_static_pointer, count);
+  for (i = 0; i < count; i++)
     {
-      Lisp_Object obj = *staticvec[i];
-      if (POINTER_TYPE_P (XTYPE (obj)))
-	reloc[i] = pdump_get_entry (XRECORD_LHEADER (obj))->save_offset;
-      else
-	reloc[i] = *(EMACS_INT *)(staticvec[i]);
+      data[i].address = (char **) Dynarr_atp (pdump_root_struct_ptrs, i)->ptraddress;
+      data[i].value   = (char *) pdump_get_entry (* data[i].address)->save_offset;
     }
-  write (pdump_fd, reloc, staticidx*sizeof (Lisp_Object));
-  free (reloc);
+  PDUMP_ALIGN_OUTPUT (pdump_static_pointer);
+  fwrite (data, sizeof (pdump_static_pointer), count, pdump_out);
 }
 
 static void
-pdump_dump_structvec (void)
-{
-  int i;
-  for (i=0; i<dumpstructidx; i++)
-    {
-      EMACS_INT adr;
-      write (pdump_fd, &(dumpstructvec[i].data), sizeof (void *));
-      adr = pdump_get_entry (*(void **)(dumpstructvec[i].data))->save_offset;
-      write (pdump_fd, &adr, sizeof (adr));
-    }
-}
-
-static void
-pdump_dump_opaquevec (void)
+pdump_dump_opaques (void)
 {
   int i;
-  for (i=0; i<dumpopaqueidx; i++)
+  for (i = 0; i < Dynarr_length (pdump_opaques); i++)
     {
-      write (pdump_fd, &(dumpopaquevec[i]), sizeof (dumpopaquevec[i]));
-      write (pdump_fd, dumpopaquevec[i].data, dumpopaquevec[i].size);
+      pdump_opaque *info = Dynarr_atp (pdump_opaques, i);
+      PDUMP_WRITE_ALIGNED (pdump_opaque, *info);
+      fwrite (info->varaddress, info->size, 1, pdump_out);
     }
-}
-
-static void
-pdump_dump_itable (void)
-{
-  write (pdump_fd, lrecord_implementations_table, lrecord_type_count*sizeof (lrecord_implementations_table[0]));
 }
 
 static void
 pdump_dump_rtables (void)
 {
-  int i, j;
-  pdump_entry_list_elmt *elmt;
+  size_t i;
+  pdump_entry_list_elt *elt;
   pdump_reloc_table rt;
 
   for (i=0; i<lrecord_type_count; i++)
     {
-      elmt = pdump_object_table[i].first;
-      if (!elmt)
+      elt = pdump_object_table[i].first;
+      if (!elt)
 	continue;
       rt.desc = lrecord_implementations_table[i]->description;
       rt.count = pdump_object_table[i].count;
-      write (pdump_fd, &rt, sizeof (rt));
-      while (elmt)
+      PDUMP_WRITE_ALIGNED (pdump_reloc_table, rt);
+      while (elt)
 	{
-	  EMACS_INT rdata = pdump_get_entry (elmt->obj)->save_offset;
-	  write (pdump_fd, &rdata, sizeof (rdata));
-	  elmt = elmt->next;
+	  EMACS_INT rdata = pdump_get_entry (elt->obj)->save_offset;
+	  PDUMP_WRITE_ALIGNED (EMACS_INT, rdata);
+	  elt = elt->next;
 	}
     }
 
   rt.desc = 0;
   rt.count = 0;
-  write (pdump_fd, &rt, sizeof (rt));
+  PDUMP_WRITE_ALIGNED (pdump_reloc_table, rt);
 
   for (i=0; i<pdump_struct_table.count; i++)
     {
-      elmt = pdump_struct_table.list[i].list.first;
+      elt = pdump_struct_table.list[i].list.first;
       rt.desc = pdump_struct_table.list[i].sdesc->description;
       rt.count = pdump_struct_table.list[i].list.count;
-      write (pdump_fd, &rt, sizeof (rt));
-      while (elmt)
+      PDUMP_WRITE_ALIGNED (pdump_reloc_table, rt);
+      while (elt)
 	{
-	  EMACS_INT rdata = pdump_get_entry (elmt->obj)->save_offset;
-	  for (j=0; j<elmt->count; j++)
+	  EMACS_INT rdata = pdump_get_entry (elt->obj)->save_offset;
+	  int j;
+	  for (j=0; j<elt->count; j++)
 	    {
-	      write (pdump_fd, &rdata, sizeof (rdata));
-	      rdata += elmt->size;
+	      PDUMP_WRITE_ALIGNED (EMACS_INT, rdata);
+	      rdata += elt->size;
 	    }
-	  elmt = elmt->next;
+	  elt = elt->next;
 	}
     }
   rt.desc = 0;
   rt.count = 0;
-  write (pdump_fd, &rt, sizeof (rt));
+  PDUMP_WRITE_ALIGNED (pdump_reloc_table, rt);
 }
 
 static void
-pdump_dump_wired (void)
+pdump_dump_root_objects (void)
 {
-  EMACS_INT count = pdump_wireidx + pdump_wireidx_list;
-  int i;
+  size_t count = (Dynarr_length (pdump_root_objects) +
+		  Dynarr_length (pdump_weak_object_chains));
+  EMACS_INT i;
 
-  write (pdump_fd, &count, sizeof (count));
+  PDUMP_WRITE_ALIGNED (size_t, count);
+  PDUMP_ALIGN_OUTPUT (pdump_static_Lisp_Object);
 
-  for (i=0; i<pdump_wireidx; i++)
+  for (i=0; i<Dynarr_length (pdump_root_objects); i++)
     {
-      EMACS_INT obj = pdump_get_entry (XRECORD_LHEADER (*(pdump_wirevec[i])))->save_offset;
-      write (pdump_fd, &pdump_wirevec[i], sizeof (pdump_wirevec[i]));
-      write (pdump_fd, &obj, sizeof (obj));
+      pdump_static_Lisp_Object obj;
+      obj.address = Dynarr_at (pdump_root_objects, i);
+      obj.value   = * obj.address;
+
+      if (POINTER_TYPE_P (XTYPE (obj.value)))
+	obj.value = wrap_object ((void *) pdump_get_entry (XRECORD_LHEADER (obj.value))->save_offset);
+
+      PDUMP_WRITE (pdump_static_Lisp_Object, obj);
     }
 
-  for (i=0; i<pdump_wireidx_list; i++)
+  for (i=0; i<Dynarr_length (pdump_weak_object_chains); i++)
     {
-      Lisp_Object obj = *(pdump_wirevec_list[i]);
-      pdump_entry_list_elmt *elmt;
-      EMACS_INT res;
+      pdump_entry_list_elt *elt;
+      pdump_static_Lisp_Object obj;
+
+      obj.address = Dynarr_at (pdump_weak_object_chains, i);
+      obj.value   = * obj.address;
 
       for (;;)
 	{
 	  const struct lrecord_description *desc;
 	  int pos;
-	  elmt = pdump_get_entry (XRECORD_LHEADER (obj));
-	  if (elmt)
+	  elt = pdump_get_entry (XRECORD_LHEADER (obj.value));
+	  if (elt)
 	    break;
-	  desc = XRECORD_LHEADER_IMPLEMENTATION (obj)->description;
+	  desc = XRECORD_LHEADER_IMPLEMENTATION (obj.value)->description;
 	  for (pos = 0; desc[pos].type != XD_LO_LINK; pos++)
 	    assert (desc[pos].type != XD_END);
 
-	  obj = *(Lisp_Object *)(desc[pos].offset + (char *)(XRECORD_LHEADER (obj)));
+	  obj.value = *(Lisp_Object *)(desc[pos].offset + (char *)(XRECORD_LHEADER (obj.value)));
 	}
-      res = elmt->save_offset;
+      obj.value = wrap_object ((void *) elt->save_offset);
 
-      write (pdump_fd, &pdump_wirevec_list[i], sizeof (pdump_wirevec_list[i]));
-      write (pdump_fd, &res, sizeof (res));
+      PDUMP_WRITE (pdump_static_Lisp_Object, obj);
     }
 }
 
 void
 pdump (void)
 {
-  int i;
+  size_t i;
   Lisp_Object t_console, t_device, t_frame;
   int none;
-  dump_header hd;
+  pdump_header header;
+
+  pdump_object_table = xnew_array (pdump_entry_list, lrecord_type_count);
+  pdump_alert_undump_object = xnew_array (int, lrecord_type_count);
+
+  assert (ALIGNOF (max_align_t) <= pdump_align_table[0]);
+
+  for (i = 0; i < countof (pdump_align_table); i++)
+    if (pdump_align_table[i] > ALIGNOF (max_align_t))
+      pdump_align_table[i] = ALIGNOF (max_align_t);
+
+  flush_all_buffer_local_cache ();
 
   /* These appear in a DEFVAR_LISP, which does a staticpro() */
-  t_console = Vterminal_console;
-  t_frame   = Vterminal_frame;
-  t_device  = Vterminal_device;
+  t_console = Vterminal_console; Vterminal_console = Qnil;
+  t_frame   = Vterminal_frame;   Vterminal_frame   = Qnil;
+  t_device  = Vterminal_device;  Vterminal_device  = Qnil;
 
-  Vterminal_console = Qnil;
-  Vterminal_frame   = Qnil;
-  Vterminal_device  = Qnil;
+  dump_add_opaque ((void *) &lrecord_implementations_table,
+		   lrecord_type_count * sizeof (lrecord_implementations_table[0]));
+  dump_add_opaque (&lrecord_markers,
+		   lrecord_type_count * sizeof (lrecord_markers[0]));
 
-  pdump_hash = xnew_array_and_zero (pdump_entry_list_elmt *, PDUMP_HASHSIZE);
+  pdump_hash = xnew_array_and_zero (pdump_entry_list_elt *, PDUMP_HASHSIZE);
 
   for (i=0; i<lrecord_type_count; i++)
     {
       pdump_object_table[i].first = 0;
-      pdump_object_table[i].align = 8;
+      pdump_object_table[i].align = ALIGNOF (max_align_t);
       pdump_object_table[i].count = 0;
       pdump_alert_undump_object[i] = 0;
     }
@@ -914,14 +1013,12 @@ pdump (void)
   pdump_struct_table.size = -1;
 
   pdump_opaque_data_list.first = 0;
-  pdump_opaque_data_list.align = 8;
+  pdump_opaque_data_list.align = ALIGNOF (max_align_t);
   pdump_opaque_data_list.count = 0;
   depth = 0;
 
-  for (i=0; i<staticidx; i++)
-    pdump_register_object (*staticvec[i]);
-  for (i=0; i<pdump_wireidx; i++)
-    pdump_register_object (*pdump_wirevec[i]);
+  for (i=0; i<Dynarr_length (pdump_root_objects); i++)
+    pdump_register_object (* Dynarr_at (pdump_root_objects, i));
 
   none = 1;
   for (i=0; i<lrecord_type_count; i++)
@@ -935,44 +1032,47 @@ pdump (void)
   if (!none)
     return;
 
-  for (i=0; i<dumpstructidx; i++)
-    pdump_register_struct (*(void **)(dumpstructvec[i].data), dumpstructvec[i].desc, 1);
+  for (i=0; i<(size_t)Dynarr_length (pdump_root_struct_ptrs); i++)
+    {
+      pdump_root_struct_ptr info = Dynarr_at (pdump_root_struct_ptrs, i);
+      pdump_register_struct (*(info.ptraddress), info.desc, 1);
+    }
 
-  memcpy (hd.signature, DUMP_SIGNATURE, DUMP_SIGNATURE_LEN);
-  hd.id = dump_id;
-  hd.reloc_address = 0;
-  hd.nb_staticpro = staticidx;
-  hd.nb_structdmp = dumpstructidx;
-  hd.nb_opaquedmp = dumpopaqueidx;
+  memcpy (header.signature, PDUMP_SIGNATURE, PDUMP_SIGNATURE_LEN);
+  header.id = dump_id;
+  header.reloc_address = 0;
+  header.nb_root_struct_ptrs = Dynarr_length (pdump_root_struct_ptrs);
+  header.nb_opaques = Dynarr_length (pdump_opaques);
 
-  cur_offset = 256;
+  cur_offset = ALIGN_SIZE (sizeof (header), ALIGNOF (max_align_t));
   max_size = 0;
 
   pdump_scan_by_alignment (pdump_allocate_offset);
-  pdump_qnil = pdump_get_entry (XRECORD_LHEADER (Qnil));
+  cur_offset = ALIGN_SIZE (cur_offset, ALIGNOF (max_align_t));
+  header.stab_offset = cur_offset;
 
   pdump_buf = xmalloc (max_size);
   /* Avoid use of the `open' macro.  We want the real function. */
 #undef open
   pdump_fd = open (EMACS_PROGNAME ".dmp",
 		   O_WRONLY | O_CREAT | O_TRUNC | OPEN_BINARY, 0666);
-  hd.stab_offset = (cur_offset + 3) & ~3;
+  pdump_out = fdopen (pdump_fd, "w");
 
-  write (pdump_fd, &hd, sizeof (hd));
-  lseek (pdump_fd, 256, SEEK_SET);
+  fwrite (&header, sizeof (header), 1, pdump_out);
+  PDUMP_ALIGN_OUTPUT (max_align_t);
 
   pdump_scan_by_alignment (pdump_dump_data);
 
-  lseek (pdump_fd, hd.stab_offset, SEEK_SET);
+  fseek (pdump_out, header.stab_offset, SEEK_SET);
 
-  pdump_dump_staticvec ();
-  pdump_dump_structvec ();
-  pdump_dump_opaquevec ();
-  pdump_dump_itable ();
+  pdump_dump_root_struct_ptrs ();
+  pdump_dump_opaques ();
   pdump_dump_rtables ();
-  pdump_dump_wired ();
+  pdump_dump_root_objects ();
 
+  fclose (pdump_out);
   close (pdump_fd);
+
   free (pdump_buf);
 
   free (pdump_hash);
@@ -982,95 +1082,79 @@ pdump (void)
   Vterminal_device  = t_device;
 }
 
-static int pdump_load_check (void)
+static int
+pdump_load_check (void)
 {
-  return (!memcmp (((dump_header *)pdump_start)->signature, DUMP_SIGNATURE, DUMP_SIGNATURE_LEN)
-	  && ((dump_header *)pdump_start)->id == dump_id);
+  return (!memcmp (((pdump_header *)pdump_start)->signature,
+		   PDUMP_SIGNATURE, PDUMP_SIGNATURE_LEN)
+	  && ((pdump_header *)pdump_start)->id == dump_id);
 }
 
-static int pdump_load_finish (void)
+/*----------------------------------------------------------------------*/
+/*			Reading the dump file				*/
+/*----------------------------------------------------------------------*/
+static int
+pdump_load_finish (void)
 {
   int i;
   char *p;
   EMACS_INT delta;
   EMACS_INT count;
+  pdump_header *header = (pdump_header *)pdump_start;
 
   pdump_end = pdump_start + pdump_length;
 
-#define PDUMP_READ(p, type) (p = (char*) (((type *) p) + 1), *((type *) p - 1))
+  delta = ((EMACS_INT)pdump_start) - header->reloc_address;
+  p = pdump_start + header->stab_offset;
 
-  staticidx = ((dump_header *)(pdump_start))->nb_staticpro;
-  delta = ((EMACS_INT)pdump_start) - ((dump_header *)pdump_start)->reloc_address;
-  p = pdump_start + ((dump_header *)pdump_start)->stab_offset;
-
-  /* Put back the staticvec in place */
-  memcpy (staticvec, p, staticidx*sizeof (Lisp_Object *));
-  p += staticidx*sizeof (Lisp_Object *);
-  for (i=0; i<staticidx; i++)
+  /* Put back the pdump_root_struct_ptrs */
+  p = (char *) ALIGN_PTR (p, ALIGNOF (pdump_static_pointer));
+  for (i=0; i<header->nb_root_struct_ptrs; i++)
     {
-      Lisp_Object obj = PDUMP_READ (p, Lisp_Object);
-      if (POINTER_TYPE_P (XTYPE (obj)))
-	XSETOBJ (obj, XTYPE (obj), (char *) XPNTR (obj) + delta);
-      *staticvec[i] = obj;
+      pdump_static_pointer ptr = PDUMP_READ (p, pdump_static_pointer);
+      (* ptr.address) = ptr.value + delta;
     }
 
-  /* Put back the dumpstructs */
-  for (i=0; i<((dump_header *)pdump_start)->nb_structdmp; i++)
+  /* Put back the pdump_opaques */
+  for (i=0; i<header->nb_opaques; i++)
     {
-      void **adr = PDUMP_READ (p, void **);
-      *adr = (void *) (PDUMP_READ (p, char *) + delta);
+      pdump_opaque info = PDUMP_READ_ALIGNED (p, pdump_opaque);
+      memcpy (info.varaddress, p, info.size);
+      p += info.size;
     }
-
-  /* Put back the opaques */
-  for (i=0; i<((dump_header *)pdump_start)->nb_opaquedmp; i++)
-    {
-      struct pdump_dumpopaqueinfo di = PDUMP_READ (p, struct pdump_dumpopaqueinfo);
-      memcpy (di.data, p, di.size);
-      p += di.size;
-    }
-
-  /* Put back the lrecord_implementations_table */
-  /* The (void *) cast is there to make Ben happy. */
-  memcpy ((void *) lrecord_implementations_table, p, lrecord_type_count*sizeof (lrecord_implementations_table[0]));
-  p += lrecord_type_count*sizeof (lrecord_implementations_table[0]);
-
-  /* Reinitialize lrecord_markers from lrecord_implementations_table */
-  for (i=0; i < lrecord_type_count; i++)
-    if (lrecord_implementations_table[i])
-      lrecord_markers[i] = lrecord_implementations_table[i]->marker;
 
   /* Do the relocations */
   pdump_rt_list = p;
   count = 2;
   for (;;)
     {
-      pdump_reloc_table rt = PDUMP_READ (p, pdump_reloc_table);
+      pdump_reloc_table rt = PDUMP_READ_ALIGNED (p, pdump_reloc_table);
+      p = (char *) ALIGN_PTR (p, ALIGNOF (char *));
       if (rt.desc)
 	{
+	  char **reloc = (char **)p;
 	  for (i=0; i < rt.count; i++)
 	    {
-	      char *adr = delta + *(char **)p;
-	      *(char **)p = adr;
-	      pdump_reloc_one (adr, delta, rt.desc);
-	      p += sizeof (char *);
+	      reloc[i] += delta;
+	      pdump_reloc_one (reloc[i], delta, rt.desc);
 	    }
+	  p += rt.count * sizeof (char *);
 	} else
 	  if (!(--count))
 	    break;
     }
 
-  /* Put the pdump_wire variables in place */
-  count = PDUMP_READ (p, EMACS_INT);
-
-  for (i=0; i<count; i++)
+  /* Put the pdump_root_objects variables in place */
+  i = PDUMP_READ_ALIGNED (p, size_t);
+  p = (char *) ALIGN_PTR (p, ALIGNOF (pdump_static_Lisp_Object));
+  while (i--)
     {
-      Lisp_Object *var = PDUMP_READ (p, Lisp_Object *);
-      Lisp_Object  obj = PDUMP_READ (p, Lisp_Object);
+      pdump_static_Lisp_Object obj = PDUMP_READ (p, pdump_static_Lisp_Object);
 
-      if (POINTER_TYPE_P (XTYPE (obj)))
-	XSETOBJ (obj, XTYPE (obj), (char *) XPNTR (obj) + delta);
+      if (POINTER_TYPE_P (XTYPE (obj.value)))
+	obj.value = wrap_object ((char *) XPNTR (obj.value) + delta);
 
-      *var = obj;
+      (* obj.address) = obj.value;
     }
 
   /* Final cleanups */
@@ -1078,7 +1162,8 @@ static int pdump_load_finish (void)
   p = pdump_rt_list;
   for (;;)
     {
-      pdump_reloc_table rt = PDUMP_READ (p, pdump_reloc_table);
+      pdump_reloc_table rt = PDUMP_READ_ALIGNED (p, pdump_reloc_table);
+      p = (char *) ALIGN_PTR (p, ALIGNOF (Lisp_Object));
       if (!rt.desc)
 	break;
       if (rt.desc == hash_table_description)
@@ -1090,44 +1175,45 @@ static int pdump_load_finish (void)
 	  p += sizeof (Lisp_Object) * rt.count;
     }
 
-  /* Put back noninteractive1 to its real value */
-  noninteractive1 = noninteractive;
-
   return 1;
 }
 
-#ifdef WINDOWSNT
-static void pdump_file_unmap(void)
+#ifdef WIN32_NATIVE
+/* Free the mapped file if we decide we don't want it after all */
+static void
+pdump_file_unmap (void)
 {
+  UnmapViewOfFile (pdump_start);
+  CloseHandle (pdump_hFile);
+  CloseHandle (pdump_hMap);
 }
 
-static int pdump_file_get(const char *path)
+static int
+pdump_file_get (const char *path)
 {
-  HANDLE hFile;
-  HANDLE hMap;
 
-  hFile = CreateFile (path, 
-		      GENERIC_READ + GENERIC_WRITE,  /* Required for copy on write */
-		      0,		    /* Not shared */
-		      NULL,		    /* Not inheritable */
-		      OPEN_EXISTING, 
-		      FILE_ATTRIBUTE_NORMAL,
-		      NULL);		    /* No template file */
-  if (hFile == INVALID_HANDLE_VALUE)
+  pdump_hFile = CreateFile (path,
+		            GENERIC_READ + GENERIC_WRITE,  /* Required for copy on write */
+			    0,		            /* Not shared */
+			    NULL,		    /* Not inheritable */
+			    OPEN_EXISTING,
+			    FILE_ATTRIBUTE_NORMAL,
+			    NULL);		    /* No template file */
+  if (pdump_hFile == INVALID_HANDLE_VALUE)
     return 0;
 
-  pdump_length = GetFileSize (hFile, NULL);
-  hMap = CreateFileMapping (hFile,
-			    NULL,		    /* No security attributes */
-			    PAGE_WRITECOPY,   /* Copy on write */
-			    0,		    /* Max size, high half */
-			    0,		    /* Max size, low half */
-			    NULL);	    /* Unnamed */
-  if (hMap == INVALID_HANDLE_VALUE)
+  pdump_length = GetFileSize (pdump_hFile, NULL);
+  pdump_hMap = CreateFileMapping (pdump_hFile,
+				  NULL,		    /* No security attributes */
+				  PAGE_WRITECOPY,   /* Copy on write */
+				  0,		    /* Max size, high half */
+				  0,		    /* Max size, low half */
+				  NULL);	    /* Unnamed */
+  if (pdump_hMap == INVALID_HANDLE_VALUE)
     return 0;
 
-  pdump_start = MapViewOfFile (hMap,
-			       FILE_MAP_COPY,  /* Copy on write */
+  pdump_start = MapViewOfFile (pdump_hMap,
+			       FILE_MAP_COPY, /* Copy on write */
 			       0,	      /* Start at zero */
 			       0,
 			       0);	      /* Map all of it */
@@ -1135,11 +1221,21 @@ static int pdump_file_get(const char *path)
   return 1;
 }
 
-static void pdump_resource_free (void)
-static int pdump_resource_get (void)
+/* pdump_resource_free is called (via the pdump_free pointer) to release
+   any resources allocated by pdump_resource_get.  Since the Windows API
+   specs specifically state that you don't need to (and shouldn't) free the
+   resources allocated by FindResource, LoadResource, and LockResource this
+   routine does nothing.  */
+static void
+pdump_resource_free (void)
 {
-  HRSRC hRes;	      /* Handle to dump resource */
-  HRSRC hResLoad;	      /* Handle to loaded dump resource */
+}
+
+static int
+pdump_resource_get (void)
+{
+  HRSRC hRes;			/* Handle to dump resource */
+  HRSRC hResLoad;		/* Handle to loaded dump resource */
 
   /* See Q126630 which describes how Windows NT and 95 trap writes to
      resource sections and duplicate the page to allow the write to proceed.
@@ -1165,7 +1261,7 @@ static int pdump_resource_get (void)
 
   pdump_free = pdump_resource_free;
   pdump_length = SizeofResource (NULL, hRes);
-  if (pdump_length <= sizeof(dump_header))
+  if (pdump_length <= sizeof (pdump_header))
     {
       pdump_start = 0;
       return 0;
@@ -1174,30 +1270,31 @@ static int pdump_resource_get (void)
   return 1;
 }
 
-#else /* !WINDOWSNT */
+#else /* !WIN32_NATIVE */
 
-static void *pdump_mallocadr;
-
-static void pdump_file_free(void)
+static void
+pdump_file_free (void)
 {
-  xfree (pdump_mallocadr);
+  xfree (pdump_start);
 }
 
 #ifdef HAVE_MMAP
-static void pdump_file_unmap(void)
+static void
+pdump_file_unmap (void)
 {
   munmap (pdump_start, pdump_length);
 }
 #endif
 
-static int pdump_file_get(const char *path)
+static int
+pdump_file_get (const char *path)
 {
   int fd = open (path, O_RDONLY | OPEN_BINARY);
   if (fd<0)
     return 0;
 
   pdump_length = lseek (fd, 0, SEEK_END);
-  if (pdump_length < sizeof (dump_header))
+  if (pdump_length < sizeof (pdump_header))
     {
       close (fd);
       return 0;
@@ -1206,31 +1303,35 @@ static int pdump_file_get(const char *path)
   lseek (fd, 0, SEEK_SET);
 
 #ifdef HAVE_MMAP
+/* Unix 98 requires that sys/mman.h define MAP_FAILED,
+   but many earlier implementations don't. */
+# ifndef MAP_FAILED
+#  define MAP_FAILED ((void *) -1L)
+# endif
   pdump_start = (char *) mmap (0, pdump_length, PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
-  if (pdump_start != MAP_FAILED)
+  if (pdump_start != (char *) MAP_FAILED)
     {
       pdump_free = pdump_file_unmap;
       close (fd);
       return 1;
     }
-#endif
+#endif /* HAVE_MMAP */
 
-  pdump_mallocadr = xmalloc(pdump_length+255);
+  pdump_start = xnew_array (char, pdump_length);
   pdump_free = pdump_file_free;
-  pdump_start = (char *)((255 + (unsigned long)pdump_mallocadr) & ~255);
-  read (pdump_fd, pdump_start, pdump_length);
+  read (fd, pdump_start, pdump_length);
 
-  close (pdump_fd);
+  close (fd);
   return 1;
 }
-#endif /* !WINDOWSNT */
+#endif /* !WIN32_NATIVE */
 
 
-static int pdump_file_try(char *exe_path)
+static int
+pdump_file_try (char *exe_path)
 {
-  char *w;
+  char *w = exe_path + strlen (exe_path);
 
-  w = exe_path + strlen(exe_path);
   do
     {
       sprintf (w, "-%s-%08x.dmp", EMACS_VERSION, dump_id);
@@ -1238,52 +1339,55 @@ static int pdump_file_try(char *exe_path)
 	{
 	  if (pdump_load_check ())
 	    return 1;
-	  pdump_free();
+	  pdump_free ();
 	}
-      
+
       sprintf (w, "-%08x.dmp", dump_id);
       if (pdump_file_get (exe_path))
 	{
 	  if (pdump_load_check ())
 	    return 1;
-	  pdump_free();
+	  pdump_free ();
 	}
-      
+
       sprintf (w, ".dmp");
       if (pdump_file_get (exe_path))
 	{
 	  if (pdump_load_check ())
 	    return 1;
-	  pdump_free();
+	  pdump_free ();
 	}
-      
+
       do
 	w--;
-      while (w>exe_path && !IS_DIRECTORY_SEP (*w) && (*w != '-') && (*w != '.'));	
+      while (w>exe_path && !IS_DIRECTORY_SEP (*w) && (*w != '-') && (*w != '.'));
     }
   while (w>exe_path && !IS_DIRECTORY_SEP (*w));
   return 0;
 }
 
-int pdump_load(const char *argv0)
+int
+pdump_load (const char *argv0)
 {
-  char exe_path[PATH_MAX];
+  char exe_path[PATH_MAX], real_exe_path[PATH_MAX];
+#ifdef WIN32_NATIVE
+  GetModuleFileName (NULL, exe_path, PATH_MAX);
+  /* #### urk, needed for xrealpath() below */
+  Vdirectory_sep_char = make_char ('\\');
+#else /* !WIN32_NATIVE */
   char *w;
-#ifdef WINDOWSNT
-  GetModuleFileName (NULL, exe_name, PATH_MAX);  
-#else /* !WINDOWSNT */
   const char *dir, *p;
 
   dir = argv0;
   if (dir[0] == '-')
     {
       /* XEmacs as a login shell, oh goody! */
-      dir = getenv("SHELL");
+      dir = getenv ("SHELL");
     }
 
-  p = dir + strlen(dir);
+  p = dir + strlen (dir);
   while (p != dir && !IS_ANY_SEP (p[-1])) p--;
-  
+
   if (p != dir)
     {
       /* invocation-name includes a directory component -- presumably it
@@ -1313,13 +1417,13 @@ int pdump_load(const char *argv0)
 	    {
 	      *w++ = '/';
 	    }
-	  strcpy(w, name);
-	  
+	  strcpy (w, name);
+
 	  /* ### #$%$#^$^@%$^#%@$ ! */
 #ifdef access
 #undef access
 #endif
-	  
+
 	  if (!access (exe_path, X_OK))
 	    break;
 	  if (!*p)
@@ -1328,18 +1432,22 @@ int pdump_load(const char *argv0)
 	      sprintf (exe_path, "./%s", name);
 	      break;
 	    }
-	  path = p+1;	    
+	  path = p+1;
 	}
     }
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
-  if (pdump_file_try (exe_path))
+  /* Save exe_path because pdump_file_try() modifies it */
+  strcpy(real_exe_path, exe_path);
+  if (pdump_file_try (exe_path)
+      || (xrealpath(real_exe_path, real_exe_path)
+	  && pdump_file_try (real_exe_path)))
     {
       pdump_load_finish ();
       return 1;
     }
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   if (pdump_resource_get ())
     {
       if (pdump_load_check ())

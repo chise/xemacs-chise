@@ -137,32 +137,6 @@ change_default_root (int id)
     }
 }
 
-static void
-read_mount_table ()
-{
-  int isnative, issystem;
-  root_dir = find_root_location (&issystem, &isnative);
-  if (root_dir)
-    {
-      if (isnative)
-	install_type = IDC_INSTALL_NATIVE;
-      else
-	install_type = IDC_INSTALL_CYGWIN;
-
-      if (issystem)
-	root_scope = IDC_ROOT_SYSTEM;
-      else
-	root_scope = IDC_ROOT_USER;
-      root_dir_default = 0;
-    }
-  else
-    {
-      change_default_root (IDC_INSTALL_NATIVE);
-      root_scope = (is_admin()) ? IDC_ROOT_SYSTEM : IDC_ROOT_USER;
-      root_dir_default = 1;
-    }
-}
-
 static int CALLBACK
 browse_cb (HWND h, UINT m, LPARAM lp, LPARAM data)
 {
@@ -273,7 +247,7 @@ dialog_cmd (HWND h, int id, HWND hwndctl, UINT code)
 	if (IDNO == yesno (IDS_ROOT_NOCYGWIN))
 	  break;
 
-      create_xemacs_root (root_dir,
+      create_xemacs_root (backslash (root_dir),
 			  root_scope == IDC_ROOT_SYSTEM ? 1 : 0,
 			  install_type == IDC_INSTALL_NATIVE ? 1 : 0);
 
@@ -317,11 +291,21 @@ dialog_proc (HWND h, UINT message, WPARAM wParam, LPARAM lParam)
   return FALSE;
 }
 
+static void
+set_default_root ()
+{
+  change_default_root (IDC_INSTALL_NATIVE);
+  root_scope = (is_admin()) ? IDC_ROOT_SYSTEM : IDC_ROOT_USER;
+  root_dir_default = 1;
+}
+
 void
 do_root (HINSTANCE h)
 {
   int rv = 0;
-  read_mount_table ();
+  // init will have read a previous root
+  if (!root_dir)
+    set_default_root ();
 
   rv = DialogBox (h, MAKEINTRESOURCE (IDD_ROOT), 0, dialog_proc);
   if (rv == -1)

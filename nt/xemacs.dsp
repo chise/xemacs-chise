@@ -1,5 +1,5 @@
 # Microsoft Developer Studio Project File - Name="xemacs" - Package Owner=<4>
-# Microsoft Developer Studio Generated Build File, Format Version 5.00
+# Microsoft Developer Studio Generated Build File, Format Version 6.00
 # ** DO NOT EDIT **
 
 # TARGTYPE "Win32 (x86) External Target" 0x0106
@@ -22,6 +22,7 @@ CFG=xemacs - Win32 Debug
 !MESSAGE 
 
 # Begin Project
+# PROP AllowPerConfigDependencies 0
 # PROP Scc_ProjName ""
 # PROP Scc_LocalPath ""
 
@@ -36,8 +37,8 @@ CFG=xemacs - Win32 Debug
 # PROP BASE Bsc_Name "xemacs.bsc"
 # PROP BASE Target_Dir ""
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Release"
-# PROP Intermediate_Dir "Release"
+# PROP Output_Dir "..\src"
+# PROP Intermediate_Dir "obj"
 # PROP Cmd_Line "NMAKE /f xemacs.mak"
 # PROP Rebuild_Opt "/a"
 # PROP Target_File "xemacs.exe"
@@ -55,8 +56,8 @@ CFG=xemacs - Win32 Debug
 # PROP BASE Bsc_Name "xemacs.bsc"
 # PROP BASE Target_Dir ""
 # PROP Use_Debug_Libraries 1
-# PROP Output_Dir "Debug"
-# PROP Intermediate_Dir "Debug"
+# PROP Output_Dir "..\src"
+# PROP Intermediate_Dir "obj"
 # PROP Cmd_Line "NMAKE /f xemacs.mak"
 # PROP Rebuild_Opt "/a"
 # PROP Target_File "..\src\xemacs.exe"

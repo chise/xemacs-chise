@@ -11,6 +11,7 @@
  *
  * Written by DJ Delorie <dj@cygnus.com>
  *
+ * Sync'ed with cinstall 2001-10-16
  */
 
 /* The purpose of this file is to get the network configuration
@@ -115,7 +116,6 @@ dialog_cmd (HWND h, int id, HWND hwndctl, UINT code)
       NEXT (0);
       break;
     }
-  return FALSE;
 }
 
 static BOOL CALLBACK
@@ -125,6 +125,13 @@ dialog_proc (HWND h, UINT message, WPARAM wParam, LPARAM lParam)
     {
     case WM_INITDIALOG:
       load_dialog (h);
+
+      // Check to see if any radio buttons are selected. If not, select a default.
+      if ((!SendMessage(GetDlgItem (h, IDC_NET_IE5), BM_GETCHECK, 0, 0) == BST_CHECKED)
+        && (!SendMessage(GetDlgItem (h, IDC_NET_PROXY), BM_GETCHECK, 0, 0) == BST_CHECKED))
+        {
+          SendMessage(GetDlgItem (h, IDC_NET_DIRECT), BM_CLICK, 0, 0);
+        }
       return FALSE;
     case WM_COMMAND:
       return HANDLE_WM_COMMAND (h, wParam, lParam, dialog_cmd);
@@ -137,6 +144,7 @@ do_net (HINSTANCE h)
 {
   int rv = 0;
 
+  net_method = IDC_NET_DIRECT;
   rv = DialogBox (h, MAKEINTRESOURCE (IDD_NET), 0, dialog_proc);
   if (rv == -1)
     fatal (IDS_DIALOG_FAILED);

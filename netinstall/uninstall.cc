@@ -48,6 +48,7 @@
 #include "reginfo.h"
 #include "log.h"
 #include "hash.h"
+#include "desktop.h"
 
 #include "port.h"
 
@@ -66,9 +67,7 @@ static int package_bytes = 0;
 static int uninstall_started = 0;
 
 extern char * map_filename (char *fn, int type);
-void remove_desktop_setup ();
 static void start_uninstall ();
-extern char* find_xemacs_exe_name();
 
 char *
 base (char *s);

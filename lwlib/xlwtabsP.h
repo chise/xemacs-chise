@@ -18,7 +18,7 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-/* Synched up with: TabsP.h 1.7 */
+/* Synched up with: TabsP.h 1.8 */
 
 /*
  * TabsP.h - Private definitions for Index Tabs widget
@@ -93,7 +93,7 @@ typedef struct {
     Dimension	child_width, child_height; /* child size, including borders */
     Dimension	max_cw, max_ch ;	/* max child preferred size */
     Cardinal	numRows ;
-    Cardinal	displayChildren ;
+    Cardinal	realRows;		/* XEmacs addition */
     XtGeometryMask last_query_mode;
     Boolean	needs_layout ;
     Pixmap	grey50 ;		/* TODO: cache this elsewhere */
@@ -129,12 +129,10 @@ typedef	struct _TabsConstraintsPart {
 	/* private state */
 	Pixel		grey ;
 	Boolean		greyAlloc ;
+  	Boolean		visible; /* XEmacs change */
 	Dimension	width ;		/* tab width */
 	Position	x,y ;		/* tab base position */
 	short		row ;		/* tab row */
-	Dimension	wid,hgt ;	/* desired size */
-	Dimension	bwid ;		/* desired border width */
-	Boolean		queried ;	/* we've asked child it's pref. size */
 	Position	l_x, l_y ;	/* label position */
 	Position	lbm_x, lbm_y ;	/* bitmap position */
 	unsigned int	lbm_width, lbm_height, lbm_depth ;

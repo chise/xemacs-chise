@@ -29,11 +29,9 @@ Boston, MA 02111-1307, USA.  */
 
 #include "buffer.h"
 #include "bytecode.h"
-#include "commands.h"
-#include "insdel.h"
+#include "elhash.h"
 #include "lstream.h"
 #include "opaque.h"
-#include <paths.h>
 #ifdef FILE_CODING
 #include "file-coding.h"
 #endif
@@ -65,8 +63,12 @@ Lisp_Object Qvariable_domain;	/* I18N3 */
 Lisp_Object Vvalues, Vstandard_input, Vafter_load_alist;
 Lisp_Object Qcurrent_load_list;
 Lisp_Object Qload, Qload_file_name;
-Lisp_Object Qlocate_file_hash_table;
 Lisp_Object Qfset;
+
+/* Hash-table that maps directory names to hashes of their contents.  */
+static Lisp_Object Vlocate_file_hash_table;
+
+Lisp_Object Qexists, Qreadable, Qwritable, Qexecutable;
 
 /* See read_escape() for an explanation of this.  */
 #if 0
@@ -90,9 +92,6 @@ int load_warn_when_source_newer;
 int load_warn_when_source_only;
 /* Whether Fload_internal() should ignore .elc files when no suffix is given */
 int load_ignore_elc_files;
-
-/* Directory in which the sources were found.  */
-Lisp_Object Vsource_directory;
 
 /* Search path for files to be loaded. */
 Lisp_Object Vload_path;
@@ -123,7 +122,7 @@ Lisp_Object Vload_read_function;
    Each member of the list has the form (n . object), and is used to
    look up the object for the corresponding #n# construct.
    It must be set to nil before all top-level calls to read0.  */
-Lisp_Object read_objects;
+Lisp_Object Vread_objects;
 
 /* Nonzero means load should forcibly load all dynamic doc strings.  */
 /* Note that this always happens (with some special behavior) when
@@ -219,14 +218,14 @@ EXFUN (Fread_from_string, 3);
 
 
 static DOESNT_RETURN
-syntax_error (CONST char *string)
+read_syntax_error (const char *string)
 {
   signal_error (Qinvalid_read_syntax,
 		list1 (build_translated_string (string)));
 }
 
 static Lisp_Object
-continuable_syntax_error (CONST char *string)
+continuable_read_syntax_error (const char *string)
 {
   return Fsignal (Qinvalid_read_syntax,
 		  list1 (build_translated_string (string)));
@@ -259,12 +258,13 @@ readchar (Lisp_Object readcharfun)
       Emchar c = Lstream_get_emchar (XLSTREAM (readcharfun));
 #ifdef DEBUG_XEMACS /* testing Mule */
       static int testing_mule = 0; /* Change via debugger */
-      if (testing_mule) {
-        if (c >= 0x20 && c <= 0x7E) fprintf (stderr, "%c", c);
-        else if (c == '\n')         fprintf (stderr, "\\n\n");
-        else                        fprintf (stderr, "\\%o ", c);
-      }
-#endif
+      if (testing_mule)
+	{
+	  if (c >= 0x20 && c <= 0x7E) stderr_out ("%c", c);
+	  else if (c == '\n')         stderr_out ("\\n\n");
+	  else                        stderr_out ("\\%o ", c);
+	}
+#endif /* testing Mule */
       return c;
     }
   else if (MARKERP (readcharfun))
@@ -404,22 +404,18 @@ ebolify_bytecode_constants (Lisp_Object vector)
 	 something to `funcall', but who would really do that?  As
 	 they say in law, we've made a "good-faith effort" to
 	 unfuckify ourselves.  And doing it this way avoids screwing
-	 up args to `make-hashtable' and such.  As it is, we have to
+	 up args to `make-hash-table' and such.  As it is, we have to
 	 add an extra Ebola check in decode_weak_list_type(). --ben */
-      if (EQ (el, Qassoc))
-	el = Qold_assoc;
-      if (EQ (el, Qdelq))
-	el = Qold_delq;
+      if      (EQ (el, Qassoc))  el = Qold_assoc;
+      else if (EQ (el, Qdelq))   el = Qold_delq;
 #if 0
       /* I think this is a bad idea because it will probably mess
 	 with keymap code. */
-      if (EQ (el, Qdelete))
-	el = Qold_delete;
+      else if (EQ (el, Qdelete)) el = Qold_delete;
 #endif
-      if (EQ (el, Qrassq))
-	el = Qold_rassq;
-      if (EQ (el, Qrassoc))
-	el = Qold_rassoc;
+      else if (EQ (el, Qrassq))  el = Qold_rassq;
+      else if (EQ (el, Qrassoc)) el = Qold_rassoc;
+
       XVECTOR_DATA (vector)[i] = el;
     }
 }
@@ -448,12 +444,6 @@ load_force_doc_string_unwind (Lisp_Object oldlist)
   Lisp_Object list = Vload_force_doc_string_list;
   Lisp_Object tail;
   int fd = XINT (XCAR (Vload_descriptor_list));
-  /* NOTE: If purify_flag is true, we're in-place modifying objects that
-     may be in purespace (and if not, they will be).  Therefore, we have
-     to be VERY careful to make sure that all objects that we create
-     are purecopied -- objects in purespace are not marked for GC, and
-     if we leave any impure objects inside of pure ones, we're really
-     screwed. */
 
   GCPRO1 (list);
   /* restore the old value first just in case an error occurs. */
@@ -473,24 +463,23 @@ load_force_doc_string_unwind (Lisp_Object oldlist)
 	  Lisp_Object doc;
 
 	  assert (COMPILED_FUNCTIONP (john));
-	  if (CONSP (XCOMPILED_FUNCTION (john)->bytecodes))
+	  if (CONSP (XCOMPILED_FUNCTION (john)->instructions))
 	    {
 	      struct gcpro ngcpro1;
 	      Lisp_Object juan = (pas_de_lache_ici
-				  (fd, XCOMPILED_FUNCTION (john)->bytecodes));
+				  (fd, XCOMPILED_FUNCTION (john)->instructions));
 	      Lisp_Object ivan;
 
 	      NGCPRO1 (juan);
 	      ivan = Fread (juan);
 	      if (!CONSP (ivan))
 		signal_simple_error ("invalid lazy-loaded byte code", ivan);
-	      /* Remember to purecopy; see above. */
-	      XCOMPILED_FUNCTION (john)->bytecodes = Fpurecopy (XCAR (ivan));
+	      XCOMPILED_FUNCTION (john)->instructions = XCAR (ivan);
 	      /* v18 or v19 bytecode file.  Need to Ebolify. */
 	      if (XCOMPILED_FUNCTION (john)->flags.ebolified
 		  && VECTORP (XCDR (ivan)))
 		ebolify_bytecode_constants (XCDR (ivan));
-	      XCOMPILED_FUNCTION (john)->constants = Fpurecopy (XCDR (ivan));
+	      XCOMPILED_FUNCTION (john)->constants = XCDR (ivan);
 	      NUNGCPRO;
 	    }
 	  doc = compiled_function_documentation (XCOMPILED_FUNCTION (john));
@@ -548,7 +537,7 @@ system that was used for the decoding is stored into it.  It will in
 general be different from CODESYS if CODESYS specifies automatic
 encoding detection or end-of-line detection.
 */
-       (file, no_error, nomessage, nosuffix, codesys, used_codesys))
+       (file, noerror, nomessage, nosuffix, codesys, used_codesys))
 {
   /* This function can GC */
   int fd = -1;
@@ -562,7 +551,6 @@ encoding detection or end-of-line detection.
   int message_p = NILP (nomessage);
 /*#ifdef DEBUG_XEMACS*/
   static Lisp_Object last_file_loaded;
-  size_t pure_usage = 0;
 /*#endif*/
   struct stat s1, s2;
   GCPRO3 (file, newer, found);
@@ -574,14 +562,13 @@ encoding detection or end-of-line detection.
     {
       message_p = 1;
       last_file_loaded = file;
-      pure_usage = purespace_usage ();
     }
 /*#endif / * DEBUG_XEMACS */
 
   /* If file name is magic, call the handler.  */
   handler = Ffind_file_name_handler (file, Qload);
   if (!NILP (handler))
-    RETURN_UNGCPRO (call5 (handler, Qload, file, no_error,
+    RETURN_UNGCPRO (call5 (handler, Qload, file, noerror,
 			  nomessage, nosuffix));
 
   /* Do this after the handler to avoid
@@ -602,15 +589,15 @@ encoding detection or end-of-line detection.
       int foundlen;
 
       fd = locate_file (Vload_path, file,
-                        ((!NILP (nosuffix)) ? "" :
-			 load_ignore_elc_files ? ".el:" :
-			 ".elc:.el:"),
+                        ((!NILP (nosuffix)) ? Qnil :
+			 build_string (load_ignore_elc_files ? ".el:" :
+				       ".elc:.el:")),
                         &found,
                         -1);
 
       if (fd < 0)
 	{
-	  if (NILP (no_error))
+	  if (NILP (noerror))
 	    signal_file_error ("Cannot open load file", file);
 	  else
 	    {
@@ -637,7 +624,7 @@ encoding detection or end-of-line detection.
 	      int result;
 	      /* temporarily hack the 'c' off the end of the filename */
 	      foundstr[foundlen - 1] = '\0';
-	      result = stat (foundstr, &s2);
+	      result = xemacs_stat (foundstr, &s2);
 	      if (result >= 0 &&
 		  (unsigned) s1.st_mtime < (unsigned) s2.st_mtime)
               {
@@ -690,7 +677,7 @@ encoding detection or end-of-line detection.
   {
     /* Lisp_Object's must be malloc'ed, not stack-allocated */
     Lisp_Object lispstream = Qnil;
-    CONST int block_size = 8192;
+    const int block_size = 8192;
     struct gcpro ngcpro1;
 
     NGCPRO1 (lispstream);
@@ -795,11 +782,8 @@ encoding detection or end-of-line detection.
 /*#ifdef DEBUG_XEMACS*/
   if (purify_flag && noninteractive)
     {
-      if (EQ (last_file_loaded, file))
-	message_append (" (%d)", purespace_usage() - pure_usage);
-      else
-	message ("Loading %s ...done (%d)", XSTRING_DATA (file),
-		 purespace_usage() - pure_usage);
+      if (!EQ (last_file_loaded, file))
+	message ("Loading %s ...done", XSTRING_DATA (file));
     }
 /*#endif / * DEBUG_XEMACS */
 
@@ -811,26 +795,57 @@ encoding detection or end-of-line detection.
 }
 
 
-#if 0 /* FSFmacs */
-/* not used */
+/* ------------------------------- */
+/*          locate_file            */
+/* ------------------------------- */
+
 static int
-complete_filename_p (Lisp_Object pathname)
+decode_mode_1 (Lisp_Object mode)
 {
-  REGISTER unsigned char *s = XSTRING_DATA (pathname);
-  return (IS_DIRECTORY_SEP (s[0])
-	  || (XSTRING_LENGTH (pathname) > 2
-	      && IS_DEVICE_SEP (s[1]) && IS_DIRECTORY_SEP (s[2]))
-#ifdef ALTOS
-	  || *s == '@'
-#endif
-	  );
+  if (EQ (mode, Qexists))
+    return F_OK;
+  else if (EQ (mode, Qexecutable))
+    return X_OK;
+  else if (EQ (mode, Qwritable))
+    return W_OK;
+  else if (EQ (mode, Qreadable))
+    return R_OK;
+  else if (INTP (mode))
+    {
+      check_int_range (XINT (mode), 0, 7);
+      return XINT (mode);
+    }
+  else
+    signal_simple_error ("Invalid value", mode);
+  return 0;			/* unreached */
 }
-#endif /* 0 */
+
+static int
+decode_mode (Lisp_Object mode)
+{
+  if (NILP (mode))
+    return R_OK;
+  else if (CONSP (mode))
+    {
+      Lisp_Object tail;
+      int mask = 0;
+      EXTERNAL_LIST_LOOP (tail, mode)
+	mask |= decode_mode_1 (XCAR (tail));
+      return mask;
+    }
+  else
+    return decode_mode_1 (mode);
+}
 
 DEFUN ("locate-file", Flocate_file, 2, 4, 0, /*
-Search for FILENAME through PATH-LIST, expanded by one of the optional
-SUFFIXES (string of suffixes separated by ":"s), checking for access
-MODE (0|1|2|4 = exists|executable|writeable|readable), default readable.
+Search for FILENAME through PATH-LIST.
+
+If SUFFIXES is non-nil, it should be a list of suffixes to append to
+file name when searching.
+
+If MODE is non-nil, it should be a symbol or a list of symbol representing
+requirements.  Allowed symbols are `exists', `executable', `writable', and
+`readable'.  If MODE is nil, it defaults to `readable'.
 
 `locate-file' keeps hash tables of the directories it searches through,
 in order to speed things up.  It tries valiantly to not get confused in
@@ -845,210 +860,288 @@ for details.
   Lisp_Object tp;
 
   CHECK_STRING (filename);
-  if (!NILP (suffixes))
-    CHECK_STRING (suffixes);
-  if (!NILP (mode))
-    CHECK_NATNUM (mode);
 
-  locate_file (path_list, filename,
-               ((NILP (suffixes)) ? "" :
-		(char *) (XSTRING_DATA (suffixes))),
-	       &tp, (NILP (mode) ? R_OK : XINT (mode)));
+  if (LISTP (suffixes))
+    {
+      Lisp_Object tail;
+      EXTERNAL_LIST_LOOP (tail, suffixes)
+	CHECK_STRING (XCAR (tail));
+    }
+  else
+    CHECK_STRING (suffixes);
+
+  locate_file (path_list, filename, suffixes, &tp, decode_mode (mode));
   return tp;
 }
 
-/* recalculate the hash table for the given string */
+/* Recalculate the hash table for the given string.  DIRECTORY should
+   better have been through Fexpand_file_name() by now.  */
 
 static Lisp_Object
-locate_file_refresh_hashing (Lisp_Object str)
+locate_file_refresh_hashing (Lisp_Object directory)
 {
   Lisp_Object hash =
-    make_directory_hash_table ((char *) XSTRING_DATA (str));
-  Fput (str, Qlocate_file_hash_table, hash);
+    make_directory_hash_table ((char *) XSTRING_DATA (directory));
+
+  if (!NILP (hash))
+    Fputhash (directory, hash, Vlocate_file_hash_table);
   return hash;
 }
 
-/* find the hash table for the given string, recalculating if necessary */
+/* find the hash table for the given directory, recalculating if necessary */
 
 static Lisp_Object
-locate_file_find_directory_hash_table (Lisp_Object str)
+locate_file_find_directory_hash_table (Lisp_Object directory)
 {
-  Lisp_Object hash = Fget (str, Qlocate_file_hash_table, Qnil);
-  if (NILP (Fhashtablep (hash)))
-    return locate_file_refresh_hashing (str);
-  return hash;
+  Lisp_Object hash = Fgethash (directory, Vlocate_file_hash_table, Qnil);
+  if (NILP (hash))
+    return locate_file_refresh_hashing (directory);
+  else
+    return hash;
 }
 
-/* look for STR in PATH, optionally adding suffixes in SUFFIX */
+/* The SUFFIXES argument in any of the locate_file* functions can be
+   nil, a list, or a string (for backward compatibility), with the
+   following semantics:
+
+   a) nil    - no suffix, just search for file name intact
+               (semantically different from "empty suffix list", which
+               would be meaningless.)
+   b) list   - list of suffixes to append to file name.  Each of these
+               must be a string.
+   c) string - colon-separated suffixes to append to file name (backward
+               compatibility).
+
+   All of this got hairy, so I decided to use a mapper.  Calling a
+   function for each suffix shouldn't slow things down, since
+   locate_file is rarely called with enough suffixes for funcalls to
+   make any difference.  */
+
+/* Map FUN over SUFFIXES, as described above.  FUN will be called with a
+   char * containing the current file name, and ARG.  Mapping stops when
+   FUN returns non-zero. */
+static void
+locate_file_map_suffixes (Lisp_Object filename, Lisp_Object suffixes,
+			  int (*fun) (char *, void *),
+			  void *arg)
+{
+  /* This function can GC */
+  char *fn;
+  int fn_len, max;
+
+  /* Calculate maximum size of any filename made from
+     this path element/specified file name and any possible suffix.  */
+  if (CONSP (suffixes))
+    {
+      /* We must traverse the list, so why not do it right. */
+      Lisp_Object tail;
+      max = 0;
+      LIST_LOOP (tail, suffixes)
+	{
+	  if (XSTRING_LENGTH (XCAR (tail)) > max)
+	    max = XSTRING_LENGTH (XCAR (tail));
+	}
+    }
+  else if (NILP (suffixes))
+    max = 0;
+  else
+    /* Just take the easy way out */
+    max = XSTRING_LENGTH (suffixes);
+
+  fn_len = XSTRING_LENGTH (filename);
+  fn = (char *) alloca (max + fn_len + 1);
+  memcpy (fn, (char *) XSTRING_DATA (filename), fn_len);
+
+  /* Loop over suffixes.  */
+  if (!STRINGP (suffixes))
+    {
+      if (NILP (suffixes))
+	{
+	  /* Case a) discussed in the comment above. */
+	  fn[fn_len] = 0;
+	  if ((*fun) (fn, arg))
+	    return;
+	}
+      else
+	{
+	  /* Case b) */
+	  Lisp_Object tail;
+	  LIST_LOOP (tail, suffixes)
+	    {
+	      memcpy (fn + fn_len, XSTRING_DATA (XCAR (tail)),
+		      XSTRING_LENGTH (XCAR (tail)));
+	      fn[fn_len + XSTRING_LENGTH (XCAR (tail))] = 0;
+	      if ((*fun) (fn, arg))
+		return;
+	    }
+	}
+    }
+  else
+    {
+      /* Case c) */
+      const char *nsuffix = (const char *) XSTRING_DATA (suffixes);
+
+      while (1)
+	{
+	  char *esuffix = (char *) strchr (nsuffix, ':');
+	  int lsuffix = esuffix ? esuffix - nsuffix : (int) strlen (nsuffix);
+
+	  /* Concatenate path element/specified name with the suffix.  */
+	  strncpy (fn + fn_len, nsuffix, lsuffix);
+	  fn[fn_len + lsuffix] = 0;
+
+	  if ((*fun) (fn, arg))
+	    return;
+
+	  /* Advance to next suffix.  */
+	  if (esuffix == 0)
+	    break;
+	  nsuffix += lsuffix + 1;
+	}
+    }
+}
+
+struct locate_file_in_directory_mapper_closure {
+  int fd;
+  Lisp_Object *storeptr;
+  int mode;
+};
 
 static int
-locate_file_in_directory (Lisp_Object path, Lisp_Object str,
-			  CONST char *suffix, Lisp_Object *storeptr,
+locate_file_in_directory_mapper (char *fn, void *arg)
+{
+  struct locate_file_in_directory_mapper_closure *closure =
+    (struct locate_file_in_directory_mapper_closure *)arg;
+  struct stat st;
+
+  /* Ignore file if it's a directory.  */
+  if (xemacs_stat (fn, &st) >= 0
+      && (st.st_mode & S_IFMT) != S_IFDIR)
+    {
+      /* Check that we can access or open it.  */
+      if (closure->mode >= 0)
+	closure->fd = access (fn, closure->mode);
+      else
+	closure->fd = open (fn, O_RDONLY | OPEN_BINARY, 0);
+
+      if (closure->fd >= 0)
+	{
+	  /* We succeeded; return this descriptor and filename.  */
+	  if (closure->storeptr)
+	    *closure->storeptr = build_string (fn);
+
+#ifndef WIN32_NATIVE
+	  /* If we actually opened the file, set close-on-exec flag
+	     on the new descriptor so that subprocesses can't whack
+	     at it.  */
+	  if (closure->mode < 0)
+	    (void) fcntl (closure->fd, F_SETFD, FD_CLOEXEC);
+#endif
+
+	  return 1;
+	}
+    }
+  /* Keep mapping. */
+  return 0;
+}
+
+
+/* look for STR in PATH, optionally adding SUFFIXES.  DIRECTORY need
+   not have been expanded.  */
+
+static int
+locate_file_in_directory (Lisp_Object directory, Lisp_Object str,
+			  Lisp_Object suffixes, Lisp_Object *storeptr,
 			  int mode)
 {
   /* This function can GC */
-  int fd;
-  int fn_size = 100;
-  char buf[100];
-  char *fn = buf;
-  int want_size;
-  struct stat st;
+  struct locate_file_in_directory_mapper_closure closure;
   Lisp_Object filename = Qnil;
   struct gcpro gcpro1, gcpro2, gcpro3;
-  CONST char *nsuffix;
 
-  GCPRO3 (path, str, filename);
+  GCPRO3 (directory, str, filename);
 
-  filename = Fexpand_file_name (str, path);
+  filename = Fexpand_file_name (str, directory);
   if (NILP (filename) || NILP (Ffile_name_absolute_p (filename)))
     /* If there are non-absolute elts in PATH (eg ".") */
     /* Of course, this could conceivably lose if luser sets
        default-directory to be something non-absolute ... */
     {
       if (NILP (filename))
-	/* NIL means current dirctory */
+	/* NIL means current directory */
 	filename = current_buffer->directory;
       else
 	filename = Fexpand_file_name (filename,
 				      current_buffer->directory);
       if (NILP (Ffile_name_absolute_p (filename)))
 	{
-	  /* Give up on this path element! */
+	  /* Give up on this directory! */
 	  UNGCPRO;
 	  return -1;
 	}
     }
-  /* Calculate maximum size of any filename made from
-     this path element/specified file name and any possible suffix.  */
-  want_size = strlen (suffix) + XSTRING_LENGTH (filename) + 1;
-  if (fn_size < want_size)
-    fn = (char *) alloca (fn_size = 100 + want_size);
 
-  nsuffix = suffix;
+  closure.fd = -1;
+  closure.storeptr = storeptr;
+  closure.mode = mode;
 
-  /* Loop over suffixes.  */
-  while (1)
-    {
-      char *esuffix = (char *) strchr (nsuffix, ':');
-      int lsuffix = ((esuffix) ? (esuffix - nsuffix) : strlen (nsuffix));
-
-      /* Concatenate path element/specified name with the suffix.  */
-      strncpy (fn, (char *) XSTRING_DATA (filename),
-	       XSTRING_LENGTH (filename));
-      fn[XSTRING_LENGTH (filename)] = 0;
-      if (lsuffix != 0)  /* Bug happens on CCI if lsuffix is 0.  */
-	strncat (fn, nsuffix, lsuffix);
-
-      /* Ignore file if it's a directory.  */
-      if (stat (fn, &st) >= 0
-	  && (st.st_mode & S_IFMT) != S_IFDIR)
-	{
-	  /* Check that we can access or open it.  */
-	  if (mode >= 0)
-	    fd = access (fn, mode);
-	  else
-	    fd = open (fn, O_RDONLY | OPEN_BINARY, 0);
-
-	  if (fd >= 0)
-	    {
-	      /* We succeeded; return this descriptor and filename.  */
-	      if (storeptr)
-		*storeptr = build_string (fn);
-	      UNGCPRO;
-
-#ifndef WINDOWSNT
-	      /* If we actually opened the file, set close-on-exec flag
-		 on the new descriptor so that subprocesses can't whack
-		 at it.  */
-	      if (mode < 0)
-		(void) fcntl (fd, F_SETFD, FD_CLOEXEC);
-#endif
-
-	      return fd;
-	    }
-	}
-
-      /* Advance to next suffix.  */
-      if (esuffix == 0)
-	break;
-      nsuffix += lsuffix + 1;
-    }
+  locate_file_map_suffixes (filename, suffixes, locate_file_in_directory_mapper,
+			    &closure);
 
   UNGCPRO;
-  return -1;
+  return closure.fd;
 }
 
 /* do the same as locate_file() but don't use any hash tables. */
 
 static int
 locate_file_without_hash (Lisp_Object path, Lisp_Object str,
-			  CONST char *suffix, Lisp_Object *storeptr,
+			  Lisp_Object suffixes, Lisp_Object *storeptr,
 			  int mode)
 {
   /* This function can GC */
-  int absolute;
-  struct gcpro gcpro1;
+  int absolute = !NILP (Ffile_name_absolute_p (str));
 
-  /* is this necessary? */
-  GCPRO1 (path);
-
-  absolute = !NILP (Ffile_name_absolute_p (str));
-
-  for (; !NILP (path); path = Fcdr (path))
+  EXTERNAL_LIST_LOOP (path, path)
     {
-      int val = locate_file_in_directory (Fcar (path), str, suffix,
-					  storeptr, mode);
+      int val = locate_file_in_directory (XCAR (path), str, suffixes, storeptr,
+					  mode);
       if (val >= 0)
-	{
-	  UNGCPRO;
-	  return val;
-	}
+	return val;
       if (absolute)
 	break;
     }
-
-  UNGCPRO;
   return -1;
 }
 
-/* Construct a list of all files to search for. */
+static int
+locate_file_construct_suffixed_files_mapper (char *fn, void *arg)
+{
+  Lisp_Object *tail = (Lisp_Object *)arg;
+  *tail = Fcons (build_string (fn), *tail);
+  return 0;
+}
+
+/* Construct a list of all files to search for.
+   It makes sense to have this despite locate_file_map_suffixes()
+   because we need Lisp strings to access the hash-table, and it would
+   be inefficient to create them on the fly, again and again for each
+   path component.  See locate_file(). */
 
 static Lisp_Object
-locate_file_construct_suffixed_files (Lisp_Object str, CONST char *suffix)
+locate_file_construct_suffixed_files (Lisp_Object filename,
+				      Lisp_Object suffixes)
 {
-  int want_size;
-  int fn_size = 100;
-  char buf[100];
-  char *fn = buf;
-  CONST char *nsuffix;
-  Lisp_Object suffixtab = Qnil;
+  Lisp_Object tail = Qnil;
+  struct gcpro gcpro1;
+  GCPRO1 (tail);
 
-  /* Calculate maximum size of any filename made from
-     this path element/specified file name and any possible suffix.  */
-  want_size = strlen (suffix) + XSTRING_LENGTH (str) + 1;
-  if (fn_size < want_size)
-    fn = (char *) alloca (fn_size = 100 + want_size);
+  locate_file_map_suffixes (filename, suffixes,
+			    locate_file_construct_suffixed_files_mapper,
+			    &tail);
 
-  nsuffix = suffix;
-
-  while (1)
-    {
-      char *esuffix = (char *) strchr (nsuffix, ':');
-      int lsuffix = ((esuffix) ? (esuffix - nsuffix) : strlen (nsuffix));
-
-      /* Concatenate path element/specified name with the suffix.  */
-      strncpy (fn, (char *) XSTRING_DATA (str), XSTRING_LENGTH (str));
-      fn[XSTRING_LENGTH (str)] = 0;
-      if (lsuffix != 0)  /* Bug happens on CCI if lsuffix is 0.  */
-	strncat (fn, nsuffix, lsuffix);
-
-      suffixtab = Fcons (build_string (fn), suffixtab);
-      /* Advance to next suffix.  */
-      if (esuffix == 0)
-	break;
-      nsuffix += lsuffix + 1;
-    }
-  return Fnreverse (suffixtab);
+  UNGCPRO;
+  return Fnreverse (tail);
 }
 
 DEFUN ("locate-file-clear-hashing", Flocate_file_clear_hashing, 1, 1, 0, /*
@@ -1064,28 +1157,36 @@ track the following environmental changes:
 `locate-file' will primarily get confused if you add a file that shadows
 \(i.e. has the same name as) another file further down in the directory list.
 In this case, you must call `locate-file-clear-hashing'.
+
+If PATH is t, it means to fully clear all the accumulated hashes.  This
+can be used if the internal tables grow too large, or when dumping.
 */
        (path))
 {
-  Lisp_Object pathtail;
-
-  for (pathtail = path; !NILP (pathtail); pathtail = Fcdr (pathtail))
+  if (EQ (path, Qt))
+    Fclrhash (Vlocate_file_hash_table);
+  else
     {
-      Lisp_Object pathel = Fcar (pathtail);
-      if (!purified (pathel))
-	Fput (pathel, Qlocate_file_hash_table, Qnil);
+      Lisp_Object pathtail;
+      EXTERNAL_LIST_LOOP (pathtail, path)
+	{
+	  Lisp_Object pathel = Fexpand_file_name (XCAR (pathtail), Qnil);
+	  Fremhash (pathel, Vlocate_file_hash_table);
+	}
     }
   return Qnil;
 }
 
 /* Search for a file whose name is STR, looking in directories
-   in the Lisp list PATH, and trying suffixes from SUFFIX.
-   SUFFIX is a string containing possible suffixes separated by colons.
+   in the Lisp list PATH, and trying suffixes from SUFFIXES.
+   SUFFIXES is a list of possible suffixes, or (for backward
+   compatibility) a string containing possible suffixes separated by
+   colons.
    On success, returns a file descriptor.  On failure, returns -1.
 
    MODE nonnegative means don't open the files,
    just look for one for which access(file,MODE) succeeds.  In this case,
-   returns 1 on success.
+   returns a nonnegative value on success.  On failure, returns -1.
 
    If STOREPTR is nonzero, it points to a slot where the name of
    the file actually found should be stored as a Lisp string.
@@ -1094,43 +1195,45 @@ In this case, you must call `locate-file-clear-hashing'.
    Called openp() in FSFmacs. */
 
 int
-locate_file (Lisp_Object path, Lisp_Object str, CONST char *suffix,
+locate_file (Lisp_Object path, Lisp_Object str, Lisp_Object suffixes,
 	     Lisp_Object *storeptr, int mode)
 {
   /* This function can GC */
   Lisp_Object suffixtab = Qnil;
-  Lisp_Object pathtail;
+  Lisp_Object pathtail, pathel_expanded;
   int val;
-  struct gcpro gcpro1, gcpro2, gcpro3;
+  struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
 
   if (storeptr)
     *storeptr = Qnil;
 
+  /* Is it really necessary to gcpro path and str?  It shouldn't be
+     unless some caller has fucked up.  There are known instances that
+     call us with build_string("foo:bar") as SUFFIXES, though. */
+  GCPRO4 (path, str, suffixes, suffixtab);
+
   /* if this filename has directory components, it's too complicated
      to try and use the hash tables. */
   if (!NILP (Ffile_name_directory (str)))
-    return locate_file_without_hash (path, str, suffix, storeptr,
-				     mode);
-
-  /* Is it really necessary to gcpro path and str?  It shouldn't be
-     unless some caller has fucked up. */
-  GCPRO3 (path, str, suffixtab);
-
-  suffixtab = locate_file_construct_suffixed_files (str, suffix);
-
-  for (pathtail = path; !NILP (pathtail); pathtail = Fcdr (pathtail))
     {
-      Lisp_Object pathel = Fcar (pathtail);
-      Lisp_Object hashtab;
-      Lisp_Object tail;
-      int found;
+      val = locate_file_without_hash (path, str, suffixes, storeptr, mode);
+      UNGCPRO;
+      return val;
+    }
 
-      /* If this path element is relative, we have to look by hand.
-         Can't set string property in a pure string. */
-      if (NILP (pathel) || NILP (Ffile_name_absolute_p (pathel)) ||
-	  purified (pathel))
+  suffixtab = locate_file_construct_suffixed_files (str, suffixes);
+
+  EXTERNAL_LIST_LOOP (pathtail, path)
+    {
+      Lisp_Object pathel = XCAR (pathtail);
+      Lisp_Object hash_table;
+      Lisp_Object tail;
+      int found = 0;
+
+      /* If this path element is relative, we have to look by hand. */
+      if (NILP (pathel) || NILP (Ffile_name_absolute_p (pathel)))
 	{
-	  val = locate_file_in_directory (pathel, str, suffix, storeptr,
+	  val = locate_file_in_directory (pathel, str, suffixes, storeptr,
 					  mode);
 	  if (val >= 0)
 	    {
@@ -1140,21 +1243,25 @@ locate_file (Lisp_Object path, Lisp_Object str, CONST char *suffix,
 	  continue;
 	}
 
-      hashtab = locate_file_find_directory_hash_table (pathel);
+      pathel_expanded = Fexpand_file_name (pathel, Qnil);
+      hash_table = locate_file_find_directory_hash_table (pathel_expanded);
 
-      /* Loop over suffixes.  */
-      for (tail = suffixtab, found = 0; !found && CONSP (tail);
-	   tail = XCDR (tail))
+      if (!NILP (hash_table))
 	{
-	  if (!NILP (Fgethash (XCAR (tail), hashtab, Qnil)))
-	    found = 1;
+	  /* Loop over suffixes.  */
+	  LIST_LOOP (tail, suffixtab)
+	    if (!NILP (Fgethash (XCAR (tail), hash_table, Qnil)))
+	      {
+		found = 1;
+		break;
+	      }
 	}
 
       if (found)
 	{
 	  /* This is a likely candidate.  Look by hand in this directory
 	     so we don't get thrown off if someone byte-compiles a file. */
-	  val = locate_file_in_directory (pathel, str, suffix, storeptr,
+	  val = locate_file_in_directory (pathel, str, suffixes, storeptr,
 					  mode);
 	  if (val >= 0)
 	    {
@@ -1164,13 +1271,12 @@ locate_file (Lisp_Object path, Lisp_Object str, CONST char *suffix,
 
 	  /* Hmm ...  the file isn't actually there. (Or possibly it's
 	     a directory ...)  So refresh our hashing. */
-	  locate_file_refresh_hashing (pathel);
+	  locate_file_refresh_hashing (pathel_expanded);
 	}
     }
 
   /* File is probably not there, but check the hard way just in case. */
-  val = locate_file_without_hash (path, str, suffix, storeptr,
-				  mode);
+  val = locate_file_without_hash (path, str, suffixes, storeptr, mode);
   if (val >= 0)
     {
       /* Sneaky user added a file without telling us. */
@@ -1276,9 +1382,9 @@ readevalloop (Lisp_Object readcharfun,
 {
   /* This function can GC */
   REGISTER Emchar c;
-  REGISTER Lisp_Object val;
+  REGISTER Lisp_Object val = Qnil;
   int speccount = specpdl_depth ();
-  struct gcpro gcpro1;
+  struct gcpro gcpro1, gcpro2;
   struct buffer *b = 0;
 
   if (BUFFERP (readcharfun))
@@ -1295,7 +1401,7 @@ readevalloop (Lisp_Object readcharfun,
 #ifdef COMPILED_FUNCTION_ANNOTATION_HACK
   Vcurrent_compiled_function_annotation = Qnil;
 #endif
-  GCPRO1 (sourcename);
+  GCPRO2 (val, sourcename);
 
   LOADHIST_ATTACH (sourcename);
 
@@ -1333,7 +1439,7 @@ readevalloop (Lisp_Object readcharfun,
 #else /* No "defun hack" -- Emacs 19 uses read-time syntax for bytecodes */
 	{
 	  unreadchar (readcharfun, c);
-	  read_objects = Qnil;
+	  Vread_objects = Qnil;
 	  if (NILP (Vload_read_function))
 	    val = read0 (readcharfun);
 	  else
@@ -1365,22 +1471,21 @@ Execute BUFFER as Lisp code.
 Programs can pass two arguments, BUFFER and PRINTFLAG.
 BUFFER is the buffer to evaluate (nil means use current buffer).
 PRINTFLAG controls printing of output:
-nil means discard it; anything else is stream for print.
+nil means discard it; anything else is a stream for printing.
 
 If there is no error, point does not move.  If there is an error,
 point remains at the end of the last character read from the buffer.
-Execute BUFFER as Lisp code.
 */
-       (bufname, printflag))
+       (buffer, printflag))
 {
   /* This function can GC */
   int speccount = specpdl_depth ();
   Lisp_Object tem, buf;
 
-  if (NILP (bufname))
+  if (NILP (buffer))
     buf = Fcurrent_buffer ();
   else
-    buf = Fget_buffer (bufname);
+    buf = Fget_buffer (buffer);
   if (NILP (buf))
     error ("No such buffer.");
 
@@ -1414,10 +1519,10 @@ point remains at the end of the last character read from the buffer.
 
 DEFUN ("eval-region", Feval_region, 2, 3, "r", /*
 Execute the region as Lisp code.
-When called from programs, expects two arguments,
+When called from programs, expects two arguments START and END
 giving starting and ending indices in the current buffer
 of the text to be executed.
-Programs can pass third argument PRINTFLAG which controls output:
+Programs can pass third optional argument STREAM which controls output:
 nil means discard it; anything else is stream for printing it.
 
 If there is no error, point does not move.  If there is an error,
@@ -1427,28 +1532,28 @@ Note:  Before evaling the region, this function narrows the buffer to it.
 If the code being eval'd should happen to trigger a redisplay you may
 see some text temporarily disappear because of this.
 */
-       (b, e, printflag))
+       (start, end, stream))
 {
   /* This function can GC */
   int speccount = specpdl_depth ();
   Lisp_Object tem;
   Lisp_Object cbuf = Fcurrent_buffer ();
 
-  if (NILP (printflag))
+  if (NILP (stream))
     tem = Qsymbolp;             /* #### #@[]*&$#*[& SI:NULL-STREAM */
   else
-    tem = printflag;
+    tem = stream;
   specbind (Qstandard_output, tem);
 
-  if (NILP (printflag))
+  if (NILP (stream))
     record_unwind_protect (save_excursion_restore, save_excursion_save ());
   record_unwind_protect (save_restriction_restore, save_restriction_save ());
 
-  /* This both uses b and checks its type.  */
-  Fgoto_char (b, cbuf);
-  Fnarrow_to_region (make_int (BUF_BEGV (current_buffer)), e, cbuf);
+  /* This both uses start and checks its type.  */
+  Fgoto_char (start, cbuf);
+  Fnarrow_to_region (make_int (BUF_BEGV (current_buffer)), end, cbuf);
   readevalloop (cbuf, XBUFFER (cbuf)->filename, Feval,
-		!NILP (printflag));
+		!NILP (stream));
 
   return unbind_to (speccount, Qnil);
 }
@@ -1471,7 +1576,7 @@ STREAM or the value of `standard-input' may be:
   if (EQ (stream, Qt))
     stream = Qread_char;
 
-  read_objects = Qnil;
+  Vread_objects = Qnil;
 
 #ifdef COMPILED_FUNCTION_ANNOTATION_HACK
   Vcurrent_compiled_function_annotation = Qnil;
@@ -1512,7 +1617,7 @@ START and END optionally delimit a substring of STRING from which to read;
   lispstream = make_lisp_string_input_stream (string, startval,
 					      endval - startval);
 
-  read_objects = Qnil;
+  Vread_objects = Qnil;
 
   tem = read0 (lispstream);
   /* Yeah, it's ugly.  Gonna make something of it?
@@ -1547,9 +1652,8 @@ backquote_unwind (Lisp_Object ptr)
 static Lisp_Object
 read0 (Lisp_Object readcharfun)
 {
-  Lisp_Object val;
+  Lisp_Object val = read1 (readcharfun);
 
-  val = read1 (readcharfun);
   if (CONSP (val) && UNBOUNDP (XCAR (val)))
     {
       Emchar c = XCHAR (XCDR (val));
@@ -1689,10 +1793,33 @@ read_escape (Lisp_Object readcharfun)
       }
 
     case 'x':
-      /* A hex escape, as in ANSI C.  */
+      /* A hex escape, as in ANSI C, except that we only allow latin-1
+	 characters to be read this way.  What is "\x4e03" supposed to
+	 mean, anyways, if the internal representation is hidden?
+         This is also consistent with the treatment of octal escapes. */
       {
 	REGISTER Emchar i = 0;
-	while (1)
+	REGISTER int count = 0;
+	while (++count <= 2)
+	  {
+	    c = readchar (readcharfun);
+	    /* Remember, can't use isdigit(), isalpha() etc. on Emchars */
+	    if      (c >= '0' && c <= '9')  i = (i << 4) + (c - '0');
+	    else if (c >= 'a' && c <= 'f')  i = (i << 4) + (c - 'a') + 10;
+            else if (c >= 'A' && c <= 'F')  i = (i << 4) + (c - 'A') + 10;
+	    else
+	      {
+		unreadchar (readcharfun, c);
+		break;
+	      }
+	  }
+	return i;
+      }
+    case 'u':
+      {
+	REGISTER Emchar i = 0;
+	REGISTER int count = 0;
+	while (++count <= 6)
 	  {
 	    c = readchar (readcharfun);
 	    /* Remember, can't use isdigit(), isalpha() etc. on Emchars */
@@ -1762,7 +1889,7 @@ read_atom_0 (Lisp_Object readcharfun, Emchar firstchar, int *saw_a_backslash)
   return Lstream_byte_count (XLSTREAM (Vread_buffer_stream)) - 1;
 }
 
-static Lisp_Object parse_integer (CONST Bufbyte *buf, Bytecount len, int base);
+static Lisp_Object parse_integer (const Bufbyte *buf, Bytecount len, int base);
 
 static Lisp_Object
 read_atom (Lisp_Object readcharfun,
@@ -1830,23 +1957,11 @@ read_atom (Lisp_Object readcharfun,
   {
     Lisp_Object sym;
     if (uninterned_symbol)
-      sym = (Fmake_symbol ((purify_flag)
-			   ? make_pure_pname ((Bufbyte *) read_ptr, len, 0)
-			   : make_string ((Bufbyte *) read_ptr, len)));
+      sym = Fmake_symbol ( make_string ((Bufbyte *) read_ptr, len));
     else
       {
-	/* intern will purecopy pname if necessary */
 	Lisp_Object name = make_string ((Bufbyte *) read_ptr, len);
 	sym = Fintern (name, Qnil);
-
-	if (SYMBOL_IS_KEYWORD (sym))
-	  {
-	    /* the LISP way is to put keywords in their own package,
-	       but we don't have packages, so we do something simpler.
-	       Someday, maybe we'll have packages and then this will
-	       be reworked.  --Stig. */
-	    XSYMBOL (sym)->value = sym;
-	  }
       }
     return sym;
   }
@@ -1854,10 +1969,10 @@ read_atom (Lisp_Object readcharfun,
 
 
 static Lisp_Object
-parse_integer (CONST Bufbyte *buf, Bytecount len, int base)
+parse_integer (const Bufbyte *buf, Bytecount len, int base)
 {
-  CONST Bufbyte *lim = buf + len;
-  CONST Bufbyte *p = buf;
+  const Bufbyte *lim = buf + len;
+  const Bufbyte *p = buf;
   EMACS_UINT num = 0;
   int negativland = 0;
 
@@ -1939,21 +2054,30 @@ static Lisp_Object
 read_bit_vector (Lisp_Object readcharfun)
 {
   unsigned_char_dynarr *dyn = Dynarr_new (unsigned_char);
-  Emchar c;
+  Lisp_Object val;
 
   while (1)
     {
-      c = readchar (readcharfun);
-      if (c != '0' && c != '1')
-	break;
-      Dynarr_add (dyn, (unsigned char) (c - '0'));
+      unsigned char bit;
+      Emchar c = readchar (readcharfun);
+      if (c == '0')
+	bit = 0;
+      else if (c == '1')
+	bit = 1;
+      else
+	{
+	  if (c >= 0)
+	    unreadchar (readcharfun, c);
+	  break;
+	}
+      Dynarr_add (dyn, bit);
     }
 
-  if (c >= 0)
-    unreadchar (readcharfun, c);
+  val = make_bit_vector_from_byte_vector (Dynarr_atp (dyn, 0),
+					  Dynarr_length (dyn));
+  Dynarr_free (dyn);
 
-  return make_bit_vector_from_byte_vector (Dynarr_atp (dyn, 0),
-					   Dynarr_length (dyn));
+  return val;
 }
 
 
@@ -2019,17 +2143,17 @@ read_structure (Lisp_Object readcharfun)
 
   GCPRO2 (orig_list, already_seen);
   if (c != '(')
-    RETURN_UNGCPRO (continuable_syntax_error ("#s not followed by paren"));
+    RETURN_UNGCPRO (continuable_read_syntax_error ("#s not followed by paren"));
   list = read_list (readcharfun, ')', 0, 0);
   orig_list = list;
   {
     int len = XINT (Flength (list));
     if (len == 0)
-      RETURN_UNGCPRO (continuable_syntax_error
+      RETURN_UNGCPRO (continuable_read_syntax_error
 		      ("structure type not specified"));
     if (!(len & 1))
       RETURN_UNGCPRO
-	(continuable_syntax_error
+	(continuable_read_syntax_error
 	 ("structures must have alternating keyword/value pairs"));
   }
 
@@ -2093,8 +2217,8 @@ read_structure (Lisp_Object readcharfun)
 
 
 static Lisp_Object read_compiled_function (Lisp_Object readcharfun,
-					   int terminator);
-static Lisp_Object read_vector (Lisp_Object readcharfun, int terminator);
+					   Emchar terminator);
+static Lisp_Object read_vector (Lisp_Object readcharfun, Emchar terminator);
 
 /* Get the next character; filter out whitespace and comments */
 
@@ -2396,18 +2520,18 @@ retry:
 	  case '+':
 	  case '-':
 	    {
-	      Lisp_Object fexp, obj, tem;
+	      Lisp_Object feature_exp, obj, tem;
 	      struct gcpro gcpro1, gcpro2;
 
-	      fexp = read0(readcharfun);
+	      feature_exp = read0(readcharfun);
 	      obj = read0(readcharfun);
 
 	      /* the call to `featurep' may GC. */
-	      GCPRO2(fexp, obj);
-	      tem = call1(Qfeaturep, fexp);
+	      GCPRO2 (feature_exp, obj);
+	      tem = call1 (Qfeaturep, feature_exp);
 	      UNGCPRO;
 
-	      if (c == '+' && NILP(tem)) goto retry;
+	      if (c == '+' &&  NILP(tem)) goto retry;
 	      if (c == '-' && !NILP(tem)) goto retry;
 	      return obj;
 	    }
@@ -2429,7 +2553,7 @@ retry:
 		  n += c - '0';
 		  c = readchar (readcharfun);
 		}
-	      found = assq_no_quit (make_int (n), read_objects);
+	      found = assq_no_quit (make_int (n), Vread_objects);
 	      if (c == '=')
 		{
 		  /* #n=object returns object, but associates it with
@@ -2441,7 +2565,8 @@ retry:
 					   ("Multiply defined symbol label"),
 					   make_int (n)));
 		  obj = read0 (readcharfun);
-		  read_objects = Fcons (Fcons (make_int (n), obj), read_objects);
+		  Vread_objects = Fcons (Fcons (make_int (n), obj),
+					 Vread_objects);
 		  return obj;
 		}
 	      else if (c == '#')
@@ -2567,18 +2692,10 @@ retry:
 	  return Qzero;
 
 	Lstream_flush (XLSTREAM (Vread_buffer_stream));
-#if 0 /* FSFmacs defun hack */
-	if (read_pure)
-	  return
-	    make_pure_string
-	      (resizing_buffer_stream_ptr (XLSTREAM (Vread_buffer_stream)),
-	       Lstream_byte_count (XLSTREAM (Vread_buffer_stream)));
-	else
-#endif
-	  return
-	    make_string
-	      (resizing_buffer_stream_ptr (XLSTREAM (Vread_buffer_stream)),
-	       Lstream_byte_count (XLSTREAM (Vread_buffer_stream)));
+	return
+	  make_string
+	  (resizing_buffer_stream_ptr (XLSTREAM (Vread_buffer_stream)),
+	   Lstream_byte_count (XLSTREAM (Vread_buffer_stream)));
       }
 
     default:
@@ -2602,10 +2719,10 @@ retry:
 #define EXP_INT 16
 
 int
-isfloat_string (CONST char *cp)
+isfloat_string (const char *cp)
 {
   int state = 0;
-  CONST Bufbyte *ucp = (CONST Bufbyte *) cp;
+  const Bufbyte *ucp = (const Bufbyte *) cp;
 
   if (*ucp == '+' || *ucp == '-')
     ucp++;
@@ -2673,9 +2790,9 @@ sequence_reader (Lisp_Object readcharfun,
 	unreadchar (readcharfun, ch);
 #ifdef FEATUREP_SYNTAX
       if (ch == ']')
-	syntax_error ("\"]\" in a list");
+	read_syntax_error ("\"]\" in a list");
       else if (ch == ')')
-	syntax_error ("\")\" in a vector");
+	read_syntax_error ("\")\" in a vector");
 #endif
       state = ((conser) (readcharfun, state, len));
     }
@@ -2715,15 +2832,15 @@ read_list_conser (Lisp_Object readcharfun, void *state, Charcount len)
 	  goto done;
 	}
       else if (ch == ']')
-	syntax_error ("']' in a list");
+	read_syntax_error ("']' in a list");
       else if (ch == ')')
-	syntax_error ("')' in a vector");
+	read_syntax_error ("')' in a vector");
       else
 #endif
       if (ch != '.')
 	signal_simple_error ("BUG! Internal reader error", elt);
       else if (!s->allow_dotted_lists)
-	syntax_error ("\".\" in a vector");
+	read_syntax_error ("\".\" in a vector");
       else
 	{
 	  if (!NILP (s->tail))
@@ -2741,7 +2858,7 @@ read_list_conser (Lisp_Object readcharfun, void *state, Charcount len)
 		  goto done;
 		}
 	    }
-	  syntax_error (". in wrong context");
+	  read_syntax_error (". in wrong context");
 	}
     }
 
@@ -2908,13 +3025,8 @@ read_vector (Lisp_Object readcharfun,
        i < len;
        i++, p++)
   {
-    struct Lisp_Cons *otem = XCONS (tem);
-#if 0 /* FSFmacs defun hack */
-    if (read_pure)
-      tem = Fpurecopy (Fcar (tem));
-    else
-#endif
-      tem = Fcar (tem);
+    Lisp_Cons *otem = XCONS (tem);
+    tem = Fcar (tem);
     *p = tem;
     tem = otem->cdr;
     free_cons (otem);
@@ -2941,11 +3053,11 @@ read_compiled_function (Lisp_Object readcharfun, Emchar terminator)
   len = XINT (Flength (stuff));
   if (len < COMPILED_STACK_DEPTH + 1 || len > COMPILED_DOMAIN + 1)
     return
-      continuable_syntax_error ("#[...] used with wrong number of elements");
+      continuable_read_syntax_error ("#[...] used with wrong number of elements");
 
   for (iii = 0; CONSP (stuff); iii++)
     {
-      struct Lisp_Cons *victim = XCONS (stuff);
+      Lisp_Cons *victim = XCONS (stuff);
       make_byte_code_args[iii] = Fcar (stuff);
       if ((purify_flag || load_force_doc_strings)
 	   && CONSP (make_byte_code_args[iii])
@@ -2993,7 +3105,7 @@ init_lread (void)
   Vvalues = Qnil;
 
   load_in_progress = 0;
-  
+
   Vload_descriptor_list = Qnil;
 
   /* kludge: locate-file does not work for a null load-path, even if
@@ -3030,7 +3142,6 @@ syms_of_lread (void)
   defsymbol (&Qcurrent_load_list, "current-load-list");
   defsymbol (&Qload, "load");
   defsymbol (&Qload_file_name, "load-file-name");
-  defsymbol (&Qlocate_file_hash_table, "locate-file-hash-table");
   defsymbol (&Qfset, "fset");
 
 #ifdef LISP_BACKQUOTES
@@ -3040,6 +3151,11 @@ syms_of_lread (void)
   defsymbol (&Qcomma_at, ",@");
   defsymbol (&Qcomma_dot, ",.");
 #endif
+
+  defsymbol (&Qexists, "exists");
+  defsymbol (&Qreadable, "readable");
+  defsymbol (&Qwritable, "writable");
+  defsymbol (&Qexecutable, "executable");
 }
 
 void
@@ -3049,8 +3165,17 @@ structure_type_create (void)
 }
 
 void
+reinit_vars_of_lread (void)
+{
+  Vread_buffer_stream = Qnil;
+  staticpro_nodump (&Vread_buffer_stream);
+}
+
+void
 vars_of_lread (void)
 {
+  reinit_vars_of_lread ();
+
   DEFVAR_LISP ("values", &Vvalues /*
 List of values of all expressions which were read, evaluated and printed.
 Order is reverse chronological.
@@ -3153,12 +3278,6 @@ This is useful when the file being loaded is a temporary copy.
 */ );
   load_force_doc_strings = 0;
 
-  DEFVAR_LISP ("source-directory", &Vsource_directory /*
-Directory in which XEmacs sources were found when XEmacs was built.
-You cannot count on them to still be there!
-*/ );
-  Vsource_directory = Qnil;
-
   /* See read_escape().  */
 #if 0
   /* Used to be named `puke-on-fsf-keys' */
@@ -3173,9 +3292,6 @@ character escape syntaxes or just read them incorrectly.
   /* This must be initialized in init_lread otherwise it may start out
      with values saved when the image is dumped. */
   staticpro (&Vload_descriptor_list);
-
-  Vread_buffer_stream = Qnil;
-  staticpro (&Vread_buffer_stream);
 
   /* Initialized in init_lread. */
   staticpro (&Vload_force_doc_string_list);
@@ -3210,6 +3326,15 @@ character escape syntaxes or just read them incorrectly.
   Vfile_domain = Qnil;
 #endif
 
-  read_objects = Qnil;
-  staticpro (&read_objects);
+  Vread_objects = Qnil;
+  staticpro (&Vread_objects);
+
+  Vlocate_file_hash_table = make_lisp_hash_table (200,
+						  HASH_TABLE_NON_WEAK,
+						  HASH_TABLE_EQUAL);
+  staticpro (&Vlocate_file_hash_table);
+#ifdef DEBUG_XEMACS
+  symbol_value (XSYMBOL (intern ("Vlocate-file-hash-table")))
+    = Vlocate_file_hash_table;
+#endif
 }

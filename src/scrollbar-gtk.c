@@ -103,6 +103,14 @@ gtk_create_scrollbar_instance (struct frame *f, int vertical,
   gtk_object_set_data (GTK_OBJECT (adj), "xemacs::sb_instance", instance);
 
   sb = GTK_SCROLLBAR (vertical ? gtk_vscrollbar_new (adj) : gtk_hscrollbar_new (adj));
+  /* With gtk version > 1.2.8 the gtk code does not call
+     gtk_widget_request_size() on the newly created scrollbars
+     anymore (catering to theme engines).
+     #### Maybe it is better to postpone this call to just before
+     gtk_widget_show() is called on the scrollbar? */
+#if GTK_MAJOR_VERSION == 1 && GTK_MINOR_VERSION == 2 && GTK_BINARY_AGE > 8
+  gtk_widget_size_request(GTK_WIDGET(sb), &(GTK_WIDGET(sb)->requisition));
+#endif  
   SCROLLBAR_GTK_WIDGET (instance) = GTK_WIDGET (sb);
 
   gtk_signal_connect (GTK_OBJECT (adj),"value-changed",

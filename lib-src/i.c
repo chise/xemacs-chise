@@ -90,7 +90,7 @@ start_pump (I_connector* pi)
 static LPTSTR
 get_command (void)
 {
-  LPTSTR q, ws, cl = GetCommandLine ();
+  LPTSTR cl = GetCommandLine ();
   int ix;
 
   while (1)

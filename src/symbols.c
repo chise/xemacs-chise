@@ -1,6 +1,6 @@
 /* "intern" and friends -- moved here from lread.c and data.c
    Copyright (C) 1985-1989, 1992-1994 Free Software Foundation, Inc.
-   Copyright (C) 1995 Ben Wing.
+   Copyright (C) 1995, 2000 Ben Wing.
 
 This file is part of XEmacs.
 
@@ -56,17 +56,17 @@ Boston, MA 02111-1307, USA.  */
 
 #include "buffer.h"		/* for Vbuffer_defaults */
 #include "console.h"
-
-#include "elhash.h"		/* for HASHTABLE_NONWEAK and HASHTABLE_EQ */
+#include "elhash.h"
 
 Lisp_Object Qad_advice_info, Qad_activate;
 
 Lisp_Object Qget_value, Qset_value, Qbound_predicate, Qmake_unbound;
 Lisp_Object Qlocal_predicate, Qmake_local;
 
-Lisp_Object Qboundp, Qfboundp, Qglobally_boundp, Qmakunbound;
+Lisp_Object Qboundp, Qglobally_boundp, Qmakunbound;
 Lisp_Object Qsymbol_value, Qset, Qdefault_boundp, Qdefault_value;
-Lisp_Object Qset_default, Qmake_variable_buffer_local, Qmake_local_variable;
+Lisp_Object Qset_default, Qsetq_default;
+Lisp_Object Qmake_variable_buffer_local, Qmake_local_variable;
 Lisp_Object Qkill_local_variable, Qkill_console_local_variable;
 Lisp_Object Qsymbol_value_in_buffer, Qsymbol_value_in_console;
 Lisp_Object Qlocal_variable_p;
@@ -80,33 +80,27 @@ static Lisp_Object maybe_call_magic_handler (Lisp_Object sym,
 					     Lisp_Object funsym,
 					     int nargs, ...);
 static Lisp_Object fetch_value_maybe_past_magic (Lisp_Object sym,
-						 Lisp_Object
-						 follow_past_lisp_magic);
+						 Lisp_Object follow_past_lisp_magic);
 static Lisp_Object *value_slot_past_magic (Lisp_Object sym);
-static Lisp_Object follow_varalias_pointers (Lisp_Object object,
-					     Lisp_Object
-					     follow_past_lisp_magic);
+static Lisp_Object follow_varalias_pointers (Lisp_Object symbol,
+					     Lisp_Object follow_past_lisp_magic);
 
 
-#ifdef LRECORD_SYMBOL
-
 static Lisp_Object
-mark_symbol (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_symbol (Lisp_Object obj)
 {
-  struct Lisp_Symbol *sym = XSYMBOL (obj);
+  Lisp_Symbol *sym = XSYMBOL (obj);
   Lisp_Object pname;
 
-  ((markobj) (sym->value));
-  ((markobj) (sym->function));
-  /* No need to mark through ->obarray, because it only holds nil or t.  */
-  /*((markobj) (sym->obarray));*/
+  mark_object (sym->value);
+  mark_object (sym->function);
   XSETSTRING (pname, sym->name);
-  ((markobj) (pname));
+  mark_object (pname);
   if (!symbol_next (sym))
     return sym->plist;
   else
   {
-    ((markobj) (sym->plist));
+    mark_object (sym->plist);
     /* Mark the rest of the symbols in the obarray hash-chain */
     sym = symbol_next (sym);
     XSETSYMBOL (obj, sym);
@@ -114,10 +108,45 @@ mark_symbol (Lisp_Object obj, void (*markobj) (Lisp_Object))
   }
 }
 
-DEFINE_BASIC_LRECORD_IMPLEMENTATION ("symbol", symbol,
-				     mark_symbol, print_symbol, 0, 0, 0,
-				     struct Lisp_Symbol);
-#endif /* LRECORD_SYMBOL */
+static const struct lrecord_description symbol_description[] = {
+  { XD_LISP_OBJECT, offsetof (Lisp_Symbol, next) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Symbol, name) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Symbol, value) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Symbol, function) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Symbol, plist) },
+  { XD_END }
+};
+
+/* Symbol plists are directly accessible, so we need to protect against
+   invalid property list structure */
+
+static Lisp_Object
+symbol_getprop (Lisp_Object symbol, Lisp_Object property)
+{
+  return external_plist_get (&XSYMBOL (symbol)->plist, property, 0, ERROR_ME);
+}
+
+static int
+symbol_putprop (Lisp_Object symbol, Lisp_Object property, Lisp_Object value)
+{
+  external_plist_put (&XSYMBOL (symbol)->plist, property, value, 0, ERROR_ME);
+  return 1;
+}
+
+static int
+symbol_remprop (Lisp_Object symbol, Lisp_Object property)
+{
+  return external_remprop (&XSYMBOL (symbol)->plist, property, 0, ERROR_ME);
+}
+
+DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS ("symbol", symbol,
+						mark_symbol, print_symbol,
+						0, 0, 0, symbol_description,
+						symbol_getprop,
+						symbol_putprop,
+						symbol_remprop,
+						Fsymbol_plist,
+						Lisp_Symbol);
 
 
 /**********************************************************************/
@@ -148,88 +177,100 @@ check_obarray (Lisp_Object obarray)
 }
 
 Lisp_Object
-intern (CONST char *str)
+intern (const char *str)
 {
-  Lisp_Object tem;
   Bytecount len = strlen (str);
+  const Bufbyte *buf = (const Bufbyte *) str;
   Lisp_Object obarray = Vobarray;
+
   if (!VECTORP (obarray) || XVECTOR_LENGTH (obarray) == 0)
     obarray = check_obarray (obarray);
-  tem = oblookup (obarray, (CONST Bufbyte *) str, len);
 
-  if (SYMBOLP (tem))
-    return tem;
-  return Fintern (((purify_flag)
-		   ? make_pure_pname ((CONST Bufbyte *) str, len, 0)
-		   : make_string ((CONST Bufbyte *) str, len)),
-		  obarray);
+  {
+    Lisp_Object tem = oblookup (obarray, buf, len);
+    if (SYMBOLP (tem))
+      return tem;
+  }
+
+  return Fintern (make_string (buf, len), obarray);
 }
 
 DEFUN ("intern", Fintern, 1, 2, 0, /*
 Return the canonical symbol whose name is STRING.
 If there is none, one is created by this function and returned.
-A second optional argument specifies the obarray to use;
-it defaults to the value of `obarray'.
+Optional second argument OBARRAY specifies the obarray to use;
+it defaults to the value of the variable `obarray'.
 */
-       (str, obarray))
+       (string, obarray))
 {
-  Lisp_Object sym, *ptr;
+  Lisp_Object object, *ptr;
+  Lisp_Symbol *symbol;
   Bytecount len;
 
   if (NILP (obarray)) obarray = Vobarray;
   obarray = check_obarray (obarray);
 
-  CHECK_STRING (str);
+  CHECK_STRING (string);
 
-  len = XSTRING_LENGTH (str);
-  sym = oblookup (obarray, XSTRING_DATA (str), len);
-  if (!INTP (sym))
+  len = XSTRING_LENGTH (string);
+  object = oblookup (obarray, XSTRING_DATA (string), len);
+  if (!INTP (object))
     /* Found it */
-    return sym;
+    return object;
 
-  ptr = &XVECTOR_DATA (obarray)[XINT (sym)];
+  ptr = &XVECTOR_DATA (obarray)[XINT (object)];
 
-  if (purify_flag && ! purified (str))
-    str = make_pure_pname (XSTRING_DATA (str), len, 0);
-  sym = Fmake_symbol (str);
-  /* FSFmacs places OBARRAY here, but it is pointless because we do
-     not mark through this slot, so it is not usable later (because
-     the obarray might have been collected).  Marking through the
-     ->obarray slot is an even worse idea, because it would keep
-     obarrays from being collected because of symbols pointed to them.
-
-     NOTE: We place Qt here only if OBARRAY is actually Vobarray.  It
-     is safer to do it this way, to avoid hosing with symbols within
-     pure objects.  */
-  if (EQ (obarray, Vobarray))
-    XSYMBOL (sym)->obarray = Qt;
+  object = Fmake_symbol (string);
+  symbol = XSYMBOL (object);
 
   if (SYMBOLP (*ptr))
-    symbol_next (XSYMBOL (sym)) = XSYMBOL (*ptr);
+    symbol_next (symbol) = XSYMBOL (*ptr);
   else
-    symbol_next (XSYMBOL (sym)) = 0;
-  *ptr = sym;
-  return sym;
+    symbol_next (symbol) = 0;
+  *ptr = object;
+
+  if (string_byte (symbol_name (symbol), 0) == ':' && EQ (obarray, Vobarray))
+    {
+      /* The LISP way is to put keywords in their own package, but we
+	 don't have packages, so we do something simpler.  Someday,
+	 maybe we'll have packages and then this will be reworked.
+	 --Stig. */
+      symbol_value (symbol) = object;
+    }
+
+  return object;
 }
 
 DEFUN ("intern-soft", Fintern_soft, 1, 2, 0, /*
-Return the canonical symbol whose name is STRING, or nil if none exists.
-A second optional argument specifies the obarray to use;
-it defaults to the value of `obarray'.
+Return the canonical symbol named NAME, or nil if none exists.
+NAME may be a string or a symbol.  If it is a symbol, that exact
+symbol is searched for.
+Optional second argument OBARRAY specifies the obarray to use;
+it defaults to the value of the variable `obarray'.
 */
-       (str, obarray))
+       (name, obarray))
 {
+  /* #### Bug!  (intern-soft "nil") returns nil.  Perhaps we should
+     add a DEFAULT-IF-NOT-FOUND arg, like in get.  */
   Lisp_Object tem;
+  Lisp_String *string;
 
   if (NILP (obarray)) obarray = Vobarray;
   obarray = check_obarray (obarray);
 
-  CHECK_STRING (str);
+  if (!SYMBOLP (name))
+    {
+      CHECK_STRING (name);
+      string = XSTRING (name);
+    }
+  else
+    string = symbol_name (XSYMBOL (name));
 
-  tem = oblookup (obarray, XSTRING_DATA (str), XSTRING_LENGTH (str));
-  if (!INTP (tem))
+  tem = oblookup (obarray, string_data (string), string_length (string));
+  if (INTP (tem) || (SYMBOLP (name) && !EQ (name, tem)))
+    return Qnil;
+  else
     return tem;
-  return Qnil;
 }
 
 DEFUN ("unintern", Funintern, 1, 2, 0, /*
@@ -237,25 +278,26 @@ Delete the symbol named NAME, if any, from OBARRAY.
 The value is t if a symbol was found and deleted, nil otherwise.
 NAME may be a string or a symbol.  If it is a symbol, that symbol
 is deleted, if it belongs to OBARRAY--no other symbol is deleted.
-OBARRAY defaults to the value of the variable `obarray'
+OBARRAY defaults to the value of the variable `obarray'.
 */
        (name, obarray))
 {
-  Lisp_Object string, tem;
+  Lisp_Object tem;
+  Lisp_String *string;
   int hash;
 
   if (NILP (obarray)) obarray = Vobarray;
   obarray = check_obarray (obarray);
 
   if (SYMBOLP (name))
-    XSETSTRING (string, XSYMBOL (name)->name);
+    string = symbol_name (XSYMBOL (name));
   else
     {
       CHECK_STRING (name);
-      string = name;
+      string = XSTRING (name);
     }
 
-  tem = oblookup (obarray, XSTRING_DATA (string), XSTRING_LENGTH (string));
+  tem = oblookup (obarray, string_data (string), string_length (string));
   if (INTP (tem))
     return Qnil;
   /* If arg was a symbol, don't delete anything but that symbol itself.  */
@@ -287,21 +329,20 @@ OBARRAY defaults to the value of the variable `obarray'
 	    }
 	}
     }
-  XSYMBOL (tem)->obarray = Qnil;
   return Qt;
 }
 
 /* Return the symbol in OBARRAY whose names matches the string
    of SIZE characters at PTR.  If there is no such symbol in OBARRAY,
-   return nil.
+   return the index into OBARRAY that the string hashes to.
 
    Also store the bucket number in oblookup_last_bucket_number.  */
 
 Lisp_Object
-oblookup (Lisp_Object obarray, CONST Bufbyte *ptr, Bytecount size)
+oblookup (Lisp_Object obarray, const Bufbyte *ptr, Bytecount size)
 {
   int hash, obsize;
-  struct Lisp_Symbol *tail;
+  Lisp_Symbol *tail;
   Lisp_Object bucket;
 
   if (!VECTORP (obarray) ||
@@ -310,16 +351,9 @@ oblookup (Lisp_Object obarray, CONST Bufbyte *ptr, Bytecount size)
       obarray = check_obarray (obarray);
       obsize = XVECTOR_LENGTH (obarray);
     }
-#if 0 /* FSFmacs */
-  /* #### Huh? */
-  /* This is sometimes needed in the middle of GC.  */
-  obsize &= ~ARRAY_MARK_FLAG;
-#endif
-  /* Combining next two lines breaks VMS C 2.3.	 */
-  hash = hash_string (ptr, size);
-  hash %= obsize;
-  bucket = XVECTOR_DATA (obarray)[hash];
+  hash = hash_string (ptr, size) % obsize;
   oblookup_last_bucket_number = hash;
+  bucket = XVECTOR_DATA (obarray)[hash];
   if (ZEROP (bucket))
     ;
   else if (!SYMBOLP (bucket))
@@ -342,10 +376,10 @@ oblookup (Lisp_Object obarray, CONST Bufbyte *ptr, Bytecount size)
 
 #if 0 /* Emacs 19.34 */
 int
-hash_string (CONST Bufbyte *ptr, Bytecount len)
+hash_string (const Bufbyte *ptr, Bytecount len)
 {
-  CONST Bufbyte *p = ptr;
-  CONST Bufbyte *end = p + len;
+  const Bufbyte *p = ptr;
+  const Bufbyte *end = p + len;
   Bufbyte c;
   int hash = 0;
 
@@ -361,7 +395,7 @@ hash_string (CONST Bufbyte *ptr, Bytecount len)
 
 /* derived from hashpjw, Dragon Book P436. */
 int
-hash_string (CONST Bufbyte *ptr, Bytecount len)
+hash_string (const Bufbyte *ptr, Bytecount len)
 {
   int hash = 0;
 
@@ -391,7 +425,7 @@ map_obarray (Lisp_Object obarray,
       if (SYMBOLP (tail))
 	while (1)
 	  {
-	    struct Lisp_Symbol *next;
+	    Lisp_Symbol *next;
 	    if ((*fn) (tail, arg))
 	      return;
 	    next = symbol_next (XSYMBOL (tail));
@@ -415,11 +449,15 @@ OBARRAY defaults to the value of `obarray'.
 */
        (function, obarray))
 {
+  struct gcpro gcpro1;
+
   if (NILP (obarray))
     obarray = Vobarray;
   obarray = check_obarray (obarray);
 
+  GCPRO1 (obarray);
   map_obarray (obarray, mapatoms_1, &function);
+  UNGCPRO;
   return Qnil;
 }
 
@@ -452,23 +490,24 @@ apropos_mapper (Lisp_Object symbol, void *arg)
 }
 
 DEFUN ("apropos-internal", Fapropos_internal, 1, 2, 0, /*
-Show all symbols whose names contain match for REGEXP.
-If optional 2nd arg PREDICATE is non-nil, (funcall PREDICATE SYMBOL)
- is done for each symbol and a symbol is mentioned only if that
- returns non-nil.
-Return list of symbols found.
+Return a list of all symbols whose names contain match for REGEXP.
+If optional 2nd arg PREDICATE is non-nil, only symbols for which
+\(funcall PREDICATE SYMBOL) returns non-nil are returned.
 */
        (regexp, predicate))
 {
   struct appropos_mapper_closure closure;
+  struct gcpro gcpro1;
 
   CHECK_STRING (regexp);
 
   closure.regexp = regexp;
   closure.predicate = predicate;
   closure.accumulation = Qnil;
+  GCPRO1 (closure.accumulation);
   map_obarray (Vobarray, apropos_mapper, &closure);
   closure.accumulation = Fsort (closure.accumulation, Qstring_lessp);
+  UNGCPRO;
   return closure.accumulation;
 }
 
@@ -484,29 +523,29 @@ static void set_up_buffer_local_cache (Lisp_Object sym,
 DEFUN ("boundp", Fboundp, 1, 1, 0, /*
 Return t if SYMBOL's value is not void.
 */
-       (sym))
+       (symbol))
 {
-  CHECK_SYMBOL (sym);
-  return UNBOUNDP (find_symbol_value (sym)) ? Qnil : Qt;
+  CHECK_SYMBOL (symbol);
+  return UNBOUNDP (find_symbol_value (symbol)) ? Qnil : Qt;
 }
 
 DEFUN ("globally-boundp", Fglobally_boundp, 1, 1, 0, /*
 Return t if SYMBOL has a global (non-bound) value.
 This is for the byte-compiler; you really shouldn't be using this.
 */
-       (sym))
+       (symbol))
 {
-  CHECK_SYMBOL (sym);
-  return UNBOUNDP (top_level_value (sym)) ? Qnil : Qt;
+  CHECK_SYMBOL (symbol);
+  return UNBOUNDP (top_level_value (symbol)) ? Qnil : Qt;
 }
 
 DEFUN ("fboundp", Ffboundp, 1, 1, 0, /*
 Return t if SYMBOL's function definition is not void.
 */
-       (sym))
+       (symbol))
 {
-  CHECK_SYMBOL (sym);
-  return UNBOUNDP (XSYMBOL (sym)->function) ? Qnil : Qt;
+  CHECK_SYMBOL (symbol);
+  return UNBOUNDP (XSYMBOL (symbol)->function) ? Qnil : Qt;
 }
 
 /* Return non-zero if SYM's value or function (the current contents of
@@ -537,7 +576,7 @@ symbol_is_constant (Lisp_Object sym, Lisp_Object val)
       }
 
   /* We don't return true for keywords here because they are handled
-       specially by reject_constant_symbols().  */
+     specially by reject_constant_symbols().  */
   return 0;
 }
 
@@ -546,7 +585,7 @@ symbol_is_constant (Lisp_Object sym, Lisp_Object val)
    FOLLOW_PAST_LISP_MAGIC specifies whether we delve past
    symbol-value-lisp-magic objects.  */
 
-static void
+void
 reject_constant_symbols (Lisp_Object sym, Lisp_Object newval, int function_p,
 			 Lisp_Object follow_past_lisp_magic)
 {
@@ -560,8 +599,7 @@ reject_constant_symbols (Lisp_Object sym, Lisp_Object newval, int function_p,
 			 sym);
 
   if (symbol_is_constant (sym, val)
-      || (SYMBOL_IS_KEYWORD (sym) && !EQ (newval, sym)
-	  && !NILP (XSYMBOL (sym)->obarray)))
+      || (SYMBOL_IS_KEYWORD (sym) && !EQ (newval, sym)))
     signal_error (Qsetting_constant,
 		  UNBOUNDP (newval) ? list1 (sym) : list2 (sym, newval));
 }
@@ -603,21 +641,21 @@ verify_ok_for_buffer_local (Lisp_Object sym,
 DEFUN ("makunbound", Fmakunbound, 1, 1, 0, /*
 Make SYMBOL's value be void.
 */
-       (sym))
+       (symbol))
 {
-  Fset (sym, Qunbound);
-  return sym;
+  Fset (symbol, Qunbound);
+  return symbol;
 }
 
 DEFUN ("fmakunbound", Ffmakunbound, 1, 1, 0, /*
 Make SYMBOL's function definition be void.
 */
-       (sym))
+       (symbol))
 {
-  CHECK_SYMBOL (sym);
-  reject_constant_symbols (sym, Qunbound, 1, Qt);
-  XSYMBOL (sym)->function = Qunbound;
-  return sym;
+  CHECK_SYMBOL (symbol);
+  reject_constant_symbols (symbol, Qunbound, 1, Qt);
+  XSYMBOL (symbol)->function = Qunbound;
+  return symbol;
 }
 
 DEFUN ("symbol-function", Fsymbol_function, 1, 1, 0, /*
@@ -627,49 +665,49 @@ Return SYMBOL's function definition.  Error if that is void.
 {
   CHECK_SYMBOL (symbol);
   if (UNBOUNDP (XSYMBOL (symbol)->function))
-    return Fsignal (Qvoid_function, list1 (symbol));
+    signal_void_function_error (symbol);
   return XSYMBOL (symbol)->function;
 }
 
 DEFUN ("symbol-plist", Fsymbol_plist, 1, 1, 0, /*
 Return SYMBOL's property list.
 */
-       (sym))
+       (symbol))
 {
-  CHECK_SYMBOL (sym);
-  return XSYMBOL (sym)->plist;
+  CHECK_SYMBOL (symbol);
+  return XSYMBOL (symbol)->plist;
 }
 
 DEFUN ("symbol-name", Fsymbol_name, 1, 1, 0, /*
 Return SYMBOL's name, a string.
 */
-       (sym))
+       (symbol))
 {
   Lisp_Object name;
 
-  CHECK_SYMBOL (sym);
-  XSETSTRING (name, XSYMBOL (sym)->name);
+  CHECK_SYMBOL (symbol);
+  XSETSTRING (name, XSYMBOL (symbol)->name);
   return name;
 }
 
 DEFUN ("fset", Ffset, 2, 2, 0, /*
 Set SYMBOL's function definition to NEWDEF, and return NEWDEF.
 */
-       (sym, newdef))
+       (symbol, newdef))
 {
   /* This function can GC */
-  CHECK_SYMBOL (sym);
-  reject_constant_symbols (sym, newdef, 1, Qt);
-  if (!NILP (Vautoload_queue) && !UNBOUNDP (XSYMBOL (sym)->function))
-    Vautoload_queue = Fcons (Fcons (sym, XSYMBOL (sym)->function),
+  CHECK_SYMBOL (symbol);
+  reject_constant_symbols (symbol, newdef, 1, Qt);
+  if (!NILP (Vautoload_queue) && !UNBOUNDP (XSYMBOL (symbol)->function))
+    Vautoload_queue = Fcons (Fcons (symbol, XSYMBOL (symbol)->function),
 			     Vautoload_queue);
-  XSYMBOL (sym)->function = newdef;
+  XSYMBOL (symbol)->function = newdef;
   /* Handle automatic advice activation */
-  if (CONSP (XSYMBOL (sym)->plist) && !NILP (Fget (sym, Qad_advice_info,
-  						   Qnil)))
+  if (CONSP (XSYMBOL (symbol)->plist) &&
+      !NILP (Fget (symbol, Qad_advice_info, Qnil)))
     {
-      call2 (Qad_activate, sym, Qnil);
-      newdef = XSYMBOL (sym)->function;
+      call2 (Qad_activate, symbol, Qnil);
+      newdef = XSYMBOL (symbol)->function;
     }
   return newdef;
 }
@@ -679,12 +717,11 @@ DEFUN ("define-function", Fdefine_function, 2, 2, 0, /*
 Set SYMBOL's function definition to NEWDEF, and return NEWDEF.
 Associates the function with the current load file, if any.
 */
-       (sym, newdef))
+       (symbol, newdef))
 {
   /* This function can GC */
-  CHECK_SYMBOL (sym);
-  Ffset (sym, newdef);
-  LOADHIST_ATTACH (sym);
+  Ffset (symbol, newdef);
+  LOADHIST_ATTACH (symbol);
   return newdef;
 }
 
@@ -692,16 +729,16 @@ Associates the function with the current load file, if any.
 DEFUN ("setplist", Fsetplist, 2, 2, 0, /*
 Set SYMBOL's property list to NEWPLIST, and return NEWPLIST.
 */
-       (sym, newplist))
+       (symbol, newplist))
 {
-  CHECK_SYMBOL (sym);
+  CHECK_SYMBOL (symbol);
 #if 0 /* Inserted for debugging 6/28/1997 -slb */
   /* Somebody is setting a property list of integer 0, who? */
   /* Not this way apparently. */
   if (EQ(newplist, Qzero)) abort();
 #endif
 
-  XSYMBOL (sym)->plist = newplist;
+  XSYMBOL (symbol)->plist = newplist;
   return newplist;
 }
 
@@ -719,7 +756,7 @@ Set SYMBOL's property list to NEWPLIST, and return NEWPLIST.
    If a symbol is "unbound", then the contents of its value cell is
    Qunbound.  Despite appearances, this is *not* a symbol, but is a
    symbol-value-forward object.  This is so that printing it results
-   in "INTERNAL EMACS BUG", in case it leaks to Lisp, somehow.
+   in "INTERNAL OBJECT (XEmacs bug?)", in case it leaks to Lisp, somehow.
 
    Logically all of the following objects are "symbol-value-magic"
    objects, and there are some games played w.r.t. this (#### this
@@ -753,10 +790,15 @@ Set SYMBOL's property list to NEWPLIST, and return NEWPLIST.
       the symbol-value-forward. (See below.)
 
    SYMVAL_FIXNUM_FORWARD:
-   SYMVAL_BOOLEAN_FORWARD:
-      (declare with DEFVAR_INT or DEFVAR_BOOL)
+      (declare with DEFVAR_INT)
       Similar to SYMVAL_OBJECT_FORWARD except that the C variable
-      is of type "int" and is an integer or boolean, respectively.
+      is of type "Fixnum", a typedef for "EMACS_INT", and the corresponding
+      lisp variable is always the corresponding integer.
+
+   SYMVAL_BOOLEAN_FORWARD:
+      (declare with DEFVAR_BOOL)
+      Similar to SYMVAL_OBJECT_FORWARD except that the C variable
+      is of type "int" and is a boolean.
 
    SYMVAL_CONST_OBJECT_FORWARD:
    SYMVAL_CONST_FIXNUM_FORWARD:
@@ -769,8 +811,8 @@ Set SYMBOL's property list to NEWPLIST, and return NEWPLIST.
 
    SYMVAL_CONST_SPECIFIER_FORWARD:
       (declare with DEFVAR_SPECIFIER)
-      Exactly like SYMVAL_CONST_OBJECT_FORWARD except that error message
-      you get when attempting to set the value says to use
+      Exactly like SYMVAL_CONST_OBJECT_FORWARD except that the error
+      message you get when attempting to set the value says to use
       `set-specifier' instead.
 
    SYMVAL_CURRENT_BUFFER_FORWARD:
@@ -895,24 +937,24 @@ Set SYMBOL's property list to NEWPLIST, and return NEWPLIST.
    symbol to operate on.  */
 
 static Lisp_Object
-mark_symbol_value_buffer_local (Lisp_Object obj,
-				void (*markobj) (Lisp_Object))
+mark_symbol_value_buffer_local (Lisp_Object obj)
 {
   struct symbol_value_buffer_local *bfwd;
 
+#ifdef ERROR_CHECK_TYPECHECK
   assert (XSYMBOL_VALUE_MAGIC_TYPE (obj) == SYMVAL_BUFFER_LOCAL ||
 	  XSYMBOL_VALUE_MAGIC_TYPE (obj) == SYMVAL_SOME_BUFFER_LOCAL);
+#endif
 
   bfwd = XSYMBOL_VALUE_BUFFER_LOCAL (obj);
-  ((markobj) (bfwd->default_value));
-  ((markobj) (bfwd->current_value));
-  ((markobj) (bfwd->current_buffer));
+  mark_object (bfwd->default_value);
+  mark_object (bfwd->current_value);
+  mark_object (bfwd->current_buffer);
   return bfwd->current_alist_element;
 }
 
 static Lisp_Object
-mark_symbol_value_lisp_magic (Lisp_Object obj,
-			      void (*markobj) (Lisp_Object))
+mark_symbol_value_lisp_magic (Lisp_Object obj)
 {
   struct symbol_value_lisp_magic *bfwd;
   int i;
@@ -922,22 +964,21 @@ mark_symbol_value_lisp_magic (Lisp_Object obj,
   bfwd = XSYMBOL_VALUE_LISP_MAGIC (obj);
   for (i = 0; i < MAGIC_HANDLER_MAX; i++)
     {
-      ((markobj) (bfwd->handler[i]));
-      ((markobj) (bfwd->harg[i]));
+      mark_object (bfwd->handler[i]);
+      mark_object (bfwd->harg[i]);
     }
   return bfwd->shadowed;
 }
 
 static Lisp_Object
-mark_symbol_value_varalias (Lisp_Object obj,
-			    void (*markobj) (Lisp_Object))
+mark_symbol_value_varalias (Lisp_Object obj)
 {
   struct symbol_value_varalias *bfwd;
 
   assert (XSYMBOL_VALUE_MAGIC_TYPE (obj) == SYMVAL_VARALIAS);
 
   bfwd = XSYMBOL_VALUE_VARALIAS (obj);
-  ((markobj) (bfwd->shadowed));
+  mark_object (bfwd->shadowed);
   return bfwd->aliasee;
 }
 
@@ -947,35 +988,62 @@ print_symbol_value_magic (Lisp_Object obj,
 			  Lisp_Object printcharfun, int escapeflag)
 {
   char buf[200];
-  sprintf (buf, "#<INTERNAL EMACS BUG (%s type %d) 0x%p>",
+  sprintf (buf, "#<INTERNAL OBJECT (XEmacs bug?) (%s type %d) 0x%lx>",
 	   XRECORD_LHEADER_IMPLEMENTATION (obj)->name,
 	   XSYMBOL_VALUE_MAGIC_TYPE (obj),
-	   (void *) XPNTR (obj));
+	   (long) XPNTR (obj));
   write_c_string (buf, printcharfun);
 }
 
+static const struct lrecord_description symbol_value_forward_description[] = {
+  { XD_END }
+};
+
+static const struct lrecord_description symbol_value_buffer_local_description[] = {
+  { XD_LISP_OBJECT, offsetof (struct symbol_value_buffer_local, default_value) },
+  { XD_LISP_OBJECT, offsetof (struct symbol_value_buffer_local, current_value) },
+  { XD_LISP_OBJECT, offsetof (struct symbol_value_buffer_local, current_buffer) },
+  { XD_LISP_OBJECT, offsetof (struct symbol_value_buffer_local, current_alist_element) },
+  { XD_END }
+};
+
+static const struct lrecord_description symbol_value_lisp_magic_description[] = {
+  { XD_LISP_OBJECT_ARRAY, offsetof (struct symbol_value_lisp_magic, handler), 2*MAGIC_HANDLER_MAX+1 },
+  { XD_END }
+};
+
+static const struct lrecord_description symbol_value_varalias_description[] = {
+  { XD_LISP_OBJECT, offsetof (struct symbol_value_varalias, aliasee) },
+  { XD_LISP_OBJECT, offsetof (struct symbol_value_varalias, shadowed) },
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("symbol-value-forward",
 			       symbol_value_forward,
-			       this_one_is_unmarkable,
+			       0,
 			       print_symbol_value_magic, 0, 0, 0,
+			       symbol_value_forward_description,
 			       struct symbol_value_forward);
 
 DEFINE_LRECORD_IMPLEMENTATION ("symbol-value-buffer-local",
 			       symbol_value_buffer_local,
 			       mark_symbol_value_buffer_local,
 			       print_symbol_value_magic, 0, 0, 0,
+			       symbol_value_buffer_local_description,
 			       struct symbol_value_buffer_local);
 
 DEFINE_LRECORD_IMPLEMENTATION ("symbol-value-lisp-magic",
 			       symbol_value_lisp_magic,
 			       mark_symbol_value_lisp_magic,
 			       print_symbol_value_magic, 0, 0, 0,
+			       symbol_value_lisp_magic_description,
 			       struct symbol_value_lisp_magic);
 
 DEFINE_LRECORD_IMPLEMENTATION ("symbol-value-varalias",
 			       symbol_value_varalias,
 			       mark_symbol_value_varalias,
 			       print_symbol_value_magic, 0, 0, 0,
+			       symbol_value_varalias_description,
 			       struct symbol_value_varalias);
 
 
@@ -1000,7 +1068,7 @@ static Lisp_Object
 do_symval_forwarding (Lisp_Object valcontents, struct buffer *buffer,
 		      struct console *console)
 {
-  CONST struct symbol_value_forward *fwd;
+  const struct symbol_value_forward *fwd;
 
   if (!SYMBOL_VALUE_MAGIC_P (valcontents))
     return valcontents;
@@ -1010,7 +1078,7 @@ do_symval_forwarding (Lisp_Object valcontents, struct buffer *buffer,
     {
     case SYMVAL_FIXNUM_FORWARD:
     case SYMVAL_CONST_FIXNUM_FORWARD:
-      return make_int (*((int *)symbol_value_forward_forward (fwd)));
+      return make_int (*((Fixnum *)symbol_value_forward_forward (fwd)));
 
     case SYMVAL_BOOLEAN_FORWARD:
     case SYMVAL_CONST_BOOLEAN_FORWARD:
@@ -1068,7 +1136,7 @@ set_default_buffer_slot_variable (Lisp_Object sym,
      or symbol-value-buffer-local, and if there's a handler, we should
      have already called it. */
   Lisp_Object valcontents = fetch_value_maybe_past_magic (sym, Qt);
-  CONST struct symbol_value_forward *fwd
+  const struct symbol_value_forward *fwd
     = XSYMBOL_VALUE_FORWARD (valcontents);
   int offset = ((char *) symbol_value_forward_forward (fwd)
 		- (char *) &buffer_local_flags);
@@ -1081,16 +1149,14 @@ set_default_buffer_slot_variable (Lisp_Object sym,
 
   if (mask > 0)		/* Not always per-buffer */
     {
-      Lisp_Object tail;
-
       /* Set value in each buffer which hasn't shadowed the default */
-      LIST_LOOP (tail, Vbuffer_alist)
+      LIST_LOOP_2 (elt, Vbuffer_alist)
 	{
-	  struct buffer *b = XBUFFER (XCDR (XCAR (tail)));
+	  struct buffer *b = XBUFFER (XCDR (elt));
 	  if (!(b->local_var_flags & mask))
 	    {
 	      if (magicfun)
-		(magicfun) (sym, &value, make_buffer (b), 0);
+		magicfun (sym, &value, make_buffer (b), 0);
 	      *((Lisp_Object *) (offset + (char *) b)) = value;
 	    }
 	}
@@ -1110,7 +1176,7 @@ set_default_console_slot_variable (Lisp_Object sym,
      or symbol-value-buffer-local, and if there's a handler, we should
      have already called it. */
   Lisp_Object valcontents = fetch_value_maybe_past_magic (sym, Qt);
-  CONST struct symbol_value_forward *fwd
+  const struct symbol_value_forward *fwd
     = XSYMBOL_VALUE_FORWARD (valcontents);
   int offset = ((char *) symbol_value_forward_forward (fwd)
 		- (char *) &console_local_flags);
@@ -1123,17 +1189,14 @@ set_default_console_slot_variable (Lisp_Object sym,
 
   if (mask > 0)		/* Not always per-console */
     {
-      Lisp_Object tail;
-
       /* Set value in each console which hasn't shadowed the default */
-      LIST_LOOP (tail, Vconsole_list)
+      LIST_LOOP_2 (console, Vconsole_list)
 	{
-	  Lisp_Object dev = XCAR (tail);
-	  struct console *d = XCONSOLE (dev);
+	  struct console *d = XCONSOLE (console);
 	  if (!(d->local_var_flags & mask))
 	    {
 	      if (magicfun)
-		(magicfun) (sym, &value, dev, 0);
+		magicfun (sym, &value, console, 0);
 	      *((Lisp_Object *) (offset + (char *) d)) = value;
 	    }
 	}
@@ -1175,77 +1238,60 @@ store_symval_forwarding (Lisp_Object sym, Lisp_Object ovalue,
 	      || !SYMBOL_VALUE_MAGIC_P (*store_pointer));
       *store_pointer = newval;
     }
-
   else
     {
-      CONST struct symbol_value_forward *fwd
-	= XSYMBOL_VALUE_FORWARD (ovalue);
-      int type = XSYMBOL_VALUE_MAGIC_TYPE (ovalue);
+      const struct symbol_value_forward *fwd = XSYMBOL_VALUE_FORWARD (ovalue);
       int (*magicfun) (Lisp_Object simm, Lisp_Object *val,
-		       Lisp_Object in_object, int flags) =
-			 symbol_value_forward_magicfun (fwd);
+		       Lisp_Object in_object, int flags)
+	= symbol_value_forward_magicfun (fwd);
 
-      switch (type)
+      switch (XSYMBOL_VALUE_MAGIC_TYPE (ovalue))
 	{
 	case SYMVAL_FIXNUM_FORWARD:
-	  {
-	    CHECK_INT (newval);
-	    if (magicfun)
-	      (magicfun) (sym, &newval, Qnil, 0);
-	    *((int *) symbol_value_forward_forward (fwd)) = XINT (newval);
-	    return;
-	  }
+	  CHECK_INT (newval);
+	  if (magicfun)
+	    magicfun (sym, &newval, Qnil, 0);
+	  *((Fixnum *) symbol_value_forward_forward (fwd)) = XINT (newval);
+	  return;
 
 	case SYMVAL_BOOLEAN_FORWARD:
-	  {
-	    if (magicfun)
-	      (magicfun) (sym, &newval, Qnil, 0);
-	    *((int *) symbol_value_forward_forward (fwd))
-	      = ((NILP (newval)) ? 0 : 1);
-	    return;
-	  }
+	  if (magicfun)
+	    magicfun (sym, &newval, Qnil, 0);
+	  *((int *) symbol_value_forward_forward (fwd))
+	    = !NILP (newval);
+	  return;
 
 	case SYMVAL_OBJECT_FORWARD:
-	  {
-	    if (magicfun)
-	      (magicfun) (sym, &newval, Qnil, 0);
-	    *((Lisp_Object *) symbol_value_forward_forward (fwd)) = newval;
-	    return;
-	  }
+	  if (magicfun)
+	    magicfun (sym, &newval, Qnil, 0);
+	  *((Lisp_Object *) symbol_value_forward_forward (fwd)) = newval;
+	  return;
 
 	case SYMVAL_DEFAULT_BUFFER_FORWARD:
-	  {
-	    set_default_buffer_slot_variable (sym, newval);
-	    return;
-	  }
+	  set_default_buffer_slot_variable (sym, newval);
+	  return;
 
 	case SYMVAL_CURRENT_BUFFER_FORWARD:
-	  {
-	    if (magicfun)
-	      (magicfun) (sym, &newval, make_buffer (current_buffer), 0);
-	    *((Lisp_Object *) ((char *) current_buffer
-			       + ((char *) symbol_value_forward_forward (fwd)
-				  - (char *) &buffer_local_flags)))
-	      = newval;
-	    return;
-	  }
+	  if (magicfun)
+	    magicfun (sym, &newval, make_buffer (current_buffer), 0);
+	  *((Lisp_Object *) ((char *) current_buffer
+			     + ((char *) symbol_value_forward_forward (fwd)
+				- (char *) &buffer_local_flags)))
+	    = newval;
+	  return;
 
 	case SYMVAL_DEFAULT_CONSOLE_FORWARD:
-	  {
-	    set_default_console_slot_variable (sym, newval);
-	    return;
-	  }
+	  set_default_console_slot_variable (sym, newval);
+	  return;
 
 	case SYMVAL_SELECTED_CONSOLE_FORWARD:
-	  {
-	    if (magicfun)
-	      (magicfun) (sym, &newval, Vselected_console, 0);
-	    *((Lisp_Object *) ((char *) XCONSOLE (Vselected_console)
-			       + ((char *) symbol_value_forward_forward (fwd)
-				  - (char *) &console_local_flags)))
-	      = newval;
-	    return;
-	  }
+	  if (magicfun)
+	    magicfun (sym, &newval, Vselected_console, 0);
+	  *((Lisp_Object *) ((char *) XCONSOLE (Vselected_console)
+			     + ((char *) symbol_value_forward_forward (fwd)
+				- (char *) &console_local_flags)))
+	    = newval;
+	  return;
 
 	default:
 	  abort ();
@@ -1335,7 +1381,7 @@ set_up_buffer_local_cache (Lisp_Object sym,
   /* Retrieve the new alist element and new value. */
   if (NILP (new_alist_el)
       && set_it_p)
-  new_alist_el = buffer_local_alist_element (buf, sym, bfwd);
+    new_alist_el = buffer_local_alist_element (buf, sym, bfwd);
 
   if (NILP (new_alist_el))
     new_val = bfwd->default_value;
@@ -1354,6 +1400,71 @@ set_up_buffer_local_cache (Lisp_Object sym,
 
      So instead, we call this function. */
   store_symval_forwarding (sym, bfwd->current_value, new_val);
+}
+
+
+/* SYM is a buffer-local variable, and BFWD is its buffer-local structure.
+   Flush the cache.  BFWD->CURRENT_BUFFER will be nil after this operation.
+*/
+
+static void
+flush_buffer_local_cache (Lisp_Object sym,
+			  struct symbol_value_buffer_local *bfwd)
+{
+  if (NILP (bfwd->current_buffer))
+    /* Cache is already flushed. */
+    return;
+
+  /* Flush out the old cache. */
+  write_out_buffer_local_cache (sym, bfwd);
+
+  bfwd->current_alist_element = Qnil;
+  bfwd->current_buffer = Qnil;
+
+  /* Now store default the value into the current-value slot.
+     We don't simply write it there, because the current-value
+     slot might be a forwarding pointer, in which case we need
+     to instead write the value into the C variable.
+
+     We might also want to call a magic function.
+
+     So instead, we call this function. */
+  store_symval_forwarding (sym, bfwd->current_value, bfwd->default_value);
+}
+
+/* Flush all the buffer-local variable caches.  Whoever has a
+   non-interned buffer-local variable will be spanked.  Whoever has a
+   magic variable that interns or uninterns symbols... I don't even
+   want to think about it.
+*/
+
+void
+flush_all_buffer_local_cache (void)
+{
+  Lisp_Object *syms = XVECTOR_DATA (Vobarray);
+  long count = XVECTOR_LENGTH (Vobarray);
+  long i;
+
+  for (i=0; i<count; i++)
+    {
+      Lisp_Object sym = syms[i];
+      Lisp_Object value;
+
+      if (!ZEROP (sym))
+	for(;;)
+	  {
+	    Lisp_Symbol *next;
+	    assert (SYMBOLP (sym));
+	    value = fetch_value_maybe_past_magic (sym, Qt);
+	    if (SYMBOL_VALUE_BUFFER_LOCAL_P (value))
+	      flush_buffer_local_cache (sym, XSYMBOL_VALUE_BUFFER_LOCAL (value));
+
+	    next = symbol_next (XSYMBOL (sym));
+	    if (!next)
+	      break;
+	    XSETSYMBOL (sym, next);
+	  }
+    }
 }
 
 
@@ -1460,7 +1571,7 @@ find_symbol_value_1 (Lisp_Object sym, struct buffer *buf,
 	    else if (NILP (symcons))
 	      {
 		if (set_it_p)
-		valcontents = assq_no_quit (sym, buf->local_var_alist);
+		  valcontents = assq_no_quit (sym, buf->local_var_alist);
 		if (NILP (valcontents))
 		  valcontents = bfwd->default_value;
 		else
@@ -1490,13 +1601,13 @@ symbol_value_in_buffer (Lisp_Object sym, Lisp_Object buffer)
 
   CHECK_SYMBOL (sym);
 
-  if (!NILP (buffer))
+  if (NILP (buffer))
+    buf = current_buffer;
+  else
     {
       CHECK_BUFFER (buffer);
       buf = XBUFFER (buffer);
     }
-  else
-    buf = current_buffer;
 
   return find_symbol_value_1 (sym, buf,
 			      /* If it bombs out at startup due to a
@@ -1510,10 +1621,10 @@ symbol_value_in_console (Lisp_Object sym, Lisp_Object console)
 {
   CHECK_SYMBOL (sym);
 
-  if (!NILP (console))
-    CHECK_CONSOLE (console);
-  else
+  if (NILP (console))
     console = Vselected_console;
+  else
+    CHECK_CONSOLE (console);
 
   return find_symbol_value_1 (sym, current_buffer, XCONSOLE (console), 0,
 			      Qnil, 1);
@@ -1529,7 +1640,7 @@ find_symbol_value (Lisp_Object sym)
 {
   /* WARNING: This function can be called when current_buffer is 0
      and Vselected_console is Qnil, early in initialization. */
-  struct console *dev;
+  struct console *con;
   Lisp_Object valcontents;
 
   CHECK_SYMBOL (sym);
@@ -1539,17 +1650,19 @@ find_symbol_value (Lisp_Object sym)
     return valcontents;
 
   if (CONSOLEP (Vselected_console))
-    dev = XCONSOLE (Vselected_console);
+    con = XCONSOLE (Vselected_console);
   else
     {
       /* This can also get called while we're preparing to shutdown.
          #### What should really happen in that case?  Should we
          actually fix things so we can't get here in that case? */
+#ifndef PDUMP
       assert (!initialized || preparing_for_armageddon);
-      dev = 0;
+#endif
+      con = 0;
     }
 
-  return find_symbol_value_1 (sym, current_buffer, dev, 1, Qnil, 1);
+  return find_symbol_value_1 (sym, current_buffer, con, 1, Qnil, 1);
 }
 
 /* This is an optimized function for quick lookup of buffer local symbols
@@ -1570,22 +1683,24 @@ find_symbol_value_quickly (Lisp_Object symbol_cons, int find_it_p)
 {
   /* WARNING: This function can be called when current_buffer is 0
      and Vselected_console is Qnil, early in initialization. */
-  struct console *dev;
+  struct console *con;
   Lisp_Object sym = find_it_p ? XCAR (symbol_cons) : symbol_cons;
 
   CHECK_SYMBOL (sym);
   if (CONSOLEP (Vselected_console))
-    dev = XCONSOLE (Vselected_console);
+    con = XCONSOLE (Vselected_console);
   else
     {
       /* This can also get called while we're preparing to shutdown.
          #### What should really happen in that case?  Should we
          actually fix things so we can't get here in that case? */
+#ifndef PDUMP
       assert (!initialized || preparing_for_armageddon);
-      dev = 0;
+#endif
+      con = 0;
     }
 
-  return find_symbol_value_1 (sym, current_buffer, dev, 1,
+  return find_symbol_value_1 (sym, current_buffer, con, 1,
 			      find_it_p ? symbol_cons : Qnil,
 			      find_it_p);
 }
@@ -1593,12 +1708,12 @@ find_symbol_value_quickly (Lisp_Object symbol_cons, int find_it_p)
 DEFUN ("symbol-value", Fsymbol_value, 1, 1, 0, /*
 Return SYMBOL's value.  Error if that is void.
 */
-       (sym))
+       (symbol))
 {
-  Lisp_Object val = find_symbol_value (sym);
+  Lisp_Object val = find_symbol_value (symbol);
 
   if (UNBOUNDP (val))
-    return Fsignal (Qvoid_variable, list1 (sym));
+    return Fsignal (Qvoid_variable, list1 (symbol));
   else
     return val;
 }
@@ -1606,177 +1721,178 @@ Return SYMBOL's value.  Error if that is void.
 DEFUN ("set", Fset, 2, 2, 0, /*
 Set SYMBOL's value to NEWVAL, and return NEWVAL.
 */
-       (sym, newval))
+       (symbol, newval))
 {
   REGISTER Lisp_Object valcontents;
+  Lisp_Symbol *sym;
   /* remember, we're called by Fmakunbound() as well */
 
-  CHECK_SYMBOL (sym);
+  CHECK_SYMBOL (symbol);
 
  retry:
-  valcontents = XSYMBOL (sym)->value;
-  if (NILP (sym) || EQ (sym, Qt) || SYMBOL_VALUE_MAGIC_P (valcontents)
-      || SYMBOL_IS_KEYWORD (sym))
-    reject_constant_symbols (sym, newval, 0,
+  sym = XSYMBOL (symbol);
+  valcontents = sym->value;
+
+  if (EQ (symbol, Qnil) ||
+      EQ (symbol, Qt)   ||
+      SYMBOL_IS_KEYWORD (symbol))
+    reject_constant_symbols (symbol, newval, 0,
 			     UNBOUNDP (newval) ? Qmakunbound : Qset);
-  else
+
+  if (!SYMBOL_VALUE_MAGIC_P (valcontents) || UNBOUNDP (valcontents))
     {
-      XSYMBOL (sym)->value = newval;
+      sym->value = newval;
       return newval;
     }
 
- retry_2:
+  reject_constant_symbols (symbol, newval, 0,
+			   UNBOUNDP (newval) ? Qmakunbound : Qset);
 
-  if (SYMBOL_VALUE_MAGIC_P (valcontents))
+  switch (XSYMBOL_VALUE_MAGIC_TYPE (valcontents))
     {
-      switch (XSYMBOL_VALUE_MAGIC_TYPE (valcontents))
-	{
-	case SYMVAL_LISP_MAGIC:
+    case SYMVAL_LISP_MAGIC:
+      {
+	if (UNBOUNDP (newval))
 	  {
-	    Lisp_Object retval;
-
-	    if (UNBOUNDP (newval))
-	      retval = maybe_call_magic_handler (sym, Qmakunbound, 0);
-	    else
-	      retval = maybe_call_magic_handler (sym, Qset, 1, newval);
-	    if (!UNBOUNDP (retval))
-	      return newval;
-	    valcontents = XSYMBOL_VALUE_LISP_MAGIC (valcontents)->shadowed;
-	    /* semi-change-o */
-	    goto retry_2;
+	    maybe_call_magic_handler (symbol, Qmakunbound, 0);
+	    return XSYMBOL_VALUE_LISP_MAGIC (valcontents)->shadowed = Qunbound;
 	  }
-
-	case SYMVAL_VARALIAS:
-	  sym = follow_varalias_pointers (sym,
-					  UNBOUNDP (newval)
-					  ? Qmakunbound : Qset);
-	  /* presto change-o! */
-	  goto retry;
-
-	case SYMVAL_FIXNUM_FORWARD:
-	case SYMVAL_BOOLEAN_FORWARD:
-	case SYMVAL_OBJECT_FORWARD:
-	case SYMVAL_DEFAULT_BUFFER_FORWARD:
-	case SYMVAL_DEFAULT_CONSOLE_FORWARD:
-	  if (UNBOUNDP (newval))
-	    signal_error (Qerror,
-			  list2 (build_string ("Cannot makunbound"), sym));
-	  break;
-
-	case SYMVAL_UNBOUND_MARKER:
-	  break;
-
-	case SYMVAL_CURRENT_BUFFER_FORWARD:
+	else
 	  {
-	    CONST struct symbol_value_forward *fwd
-	      = XSYMBOL_VALUE_FORWARD (valcontents);
-	    int mask = XINT (*((Lisp_Object *)
-                               symbol_value_forward_forward (fwd)));
-	    if (mask > 0)
-	      /* Setting this variable makes it buffer-local */
-	      current_buffer->local_var_flags |= mask;
-	    break;
+	    maybe_call_magic_handler (symbol, Qset, 1, newval);
+	    return XSYMBOL_VALUE_LISP_MAGIC (valcontents)->shadowed = newval;
 	  }
+      }
 
-	case SYMVAL_SELECTED_CONSOLE_FORWARD:
+    case SYMVAL_VARALIAS:
+      symbol = follow_varalias_pointers (symbol,
+					 UNBOUNDP (newval)
+					 ? Qmakunbound : Qset);
+      /* presto change-o! */
+      goto retry;
+
+    case SYMVAL_FIXNUM_FORWARD:
+    case SYMVAL_BOOLEAN_FORWARD:
+    case SYMVAL_OBJECT_FORWARD:
+    case SYMVAL_DEFAULT_BUFFER_FORWARD:
+    case SYMVAL_DEFAULT_CONSOLE_FORWARD:
+      if (UNBOUNDP (newval))
+	signal_error (Qerror,
+		      list2 (build_string ("Cannot makunbound"), symbol));
+      break;
+
+      /* case SYMVAL_UNBOUND_MARKER: break; */
+
+    case SYMVAL_CURRENT_BUFFER_FORWARD:
+      {
+	const struct symbol_value_forward *fwd
+	  = XSYMBOL_VALUE_FORWARD (valcontents);
+	int mask = XINT (*((Lisp_Object *)
+			   symbol_value_forward_forward (fwd)));
+	if (mask > 0)
+	  /* Setting this variable makes it buffer-local */
+	  current_buffer->local_var_flags |= mask;
+	break;
+      }
+
+    case SYMVAL_SELECTED_CONSOLE_FORWARD:
+      {
+	const struct symbol_value_forward *fwd
+	  = XSYMBOL_VALUE_FORWARD (valcontents);
+	int mask = XINT (*((Lisp_Object *)
+			   symbol_value_forward_forward (fwd)));
+	if (mask > 0)
+	  /* Setting this variable makes it console-local */
+	  XCONSOLE (Vselected_console)->local_var_flags |= mask;
+	break;
+      }
+
+    case SYMVAL_BUFFER_LOCAL:
+    case SYMVAL_SOME_BUFFER_LOCAL:
+      {
+	/* If we want to examine or set the value and
+	   CURRENT-BUFFER is current, we just examine or set
+	   CURRENT-VALUE. If CURRENT-BUFFER is not current, we
+	   store the current CURRENT-VALUE value into
+	   CURRENT-ALIST- ELEMENT, then find the appropriate alist
+	   element for the buffer now current and set up
+	   CURRENT-ALIST-ELEMENT.  Then we set CURRENT-VALUE out
+	   of that element, and store into CURRENT-BUFFER.
+
+	   If we are setting the variable and the current buffer does
+	   not have an alist entry for this variable, an alist entry is
+	   created.
+
+	   Note that CURRENT-VALUE can be a forwarding pointer.
+	   Each time it is examined or set, forwarding must be
+	   done. */
+	struct symbol_value_buffer_local *bfwd
+	  = XSYMBOL_VALUE_BUFFER_LOCAL (valcontents);
+	int some_buffer_local_p =
+	  (bfwd->magic.type == SYMVAL_SOME_BUFFER_LOCAL);
+	/* What value are we caching right now?  */
+	Lisp_Object aelt = bfwd->current_alist_element;
+
+	if (!NILP (bfwd->current_buffer) &&
+	    current_buffer == XBUFFER (bfwd->current_buffer)
+	    && ((some_buffer_local_p)
+		? 1		   /* doesn't automatically become local */
+		: !NILP (aelt) /* already local */
+		))
 	  {
-	    CONST struct symbol_value_forward *fwd
-	      = XSYMBOL_VALUE_FORWARD (valcontents);
-	    int mask = XINT (*((Lisp_Object *)
-                               symbol_value_forward_forward (fwd)));
-	    if (mask > 0)
-	      /* Setting this variable makes it console-local */
-	      XCONSOLE (Vselected_console)->local_var_flags |= mask;
-	    break;
+	    /* Cache is valid */
+	    valcontents = bfwd->current_value;
 	  }
-
-	case SYMVAL_BUFFER_LOCAL:
-	case SYMVAL_SOME_BUFFER_LOCAL:
+	else
 	  {
-	    /* If we want to examine or set the value and
-	       CURRENT-BUFFER is current, we just examine or set
-	       CURRENT-VALUE. If CURRENT-BUFFER is not current, we
-	       store the current CURRENT-VALUE value into
-	       CURRENT-ALIST- ELEMENT, then find the appropriate alist
-	       element for the buffer now current and set up
-	       CURRENT-ALIST-ELEMENT.  Then we set CURRENT-VALUE out
-	       of that element, and store into CURRENT-BUFFER.
+	    /* If the current buffer is not the buffer whose binding is
+	       currently cached, or if it's a SYMVAL_BUFFER_LOCAL and
+	       we're looking at the default value, the cache is invalid; we
+	       need to write it out, and find the new CURRENT-ALIST-ELEMENT
+	    */
 
-	       If we are setting the variable and the current buffer does
-	       not have an alist entry for this variable, an alist entry is
-	       created.
+	    /* Write out the cached value for the old buffer; copy it
+	       back to its alist element.  This works if the current
+	       buffer only sees the default value, too.  */
+	    write_out_buffer_local_cache (symbol, bfwd);
 
-	       Note that CURRENT-VALUE can be a forwarding pointer.
-	       Each time it is examined or set, forwarding must be
-	       done. */
-	    struct symbol_value_buffer_local *bfwd
-	      = XSYMBOL_VALUE_BUFFER_LOCAL (valcontents);
-	    int some_buffer_local_p =
-	      (bfwd->magic.type == SYMVAL_SOME_BUFFER_LOCAL);
-	    /* What value are we caching right now?  */
-	    Lisp_Object aelt = bfwd->current_alist_element;
-
-	    if (!NILP (bfwd->current_buffer) &&
-		current_buffer == XBUFFER (bfwd->current_buffer)
-		&& ((some_buffer_local_p)
-		    ? 1		   /* doesn't automatically become local */
-		    : !NILP (aelt) /* already local */
-		    ))
+	    /* Find the new value for CURRENT-ALIST-ELEMENT.  */
+	    aelt = buffer_local_alist_element (current_buffer, symbol, bfwd);
+	    if (NILP (aelt))
 	      {
-		/* Cache is valid */
-		valcontents = bfwd->current_value;
-	      }
-	    else
-	      {
-		/* If the current buffer is not the buffer whose binding is
-		   currently cached, or if it's a SYMVAL_BUFFER_LOCAL and
-		   we're looking at the default value, the cache is invalid; we
-		   need to write it out, and find the new CURRENT-ALIST-ELEMENT
-		   */
-
-		/* Write out the cached value for the old buffer; copy it
-		   back to its alist element.  This works if the current
-		   buffer only sees the default value, too.  */
-		write_out_buffer_local_cache (sym, bfwd);
-
-		/* Find the new value for CURRENT-ALIST-ELEMENT.  */
-		aelt = buffer_local_alist_element (current_buffer, sym, bfwd);
-		if (NILP (aelt))
+		/* This buffer is still seeing the default value.  */
+		if (!some_buffer_local_p)
 		  {
-		    /* This buffer is still seeing the default value.  */
-		    if (!some_buffer_local_p)
-		      {
-			/* If it's a SYMVAL_BUFFER_LOCAL, give this buffer a
-			   new assoc for a local value and set
-			   CURRENT-ALIST-ELEMENT to point to that.  */
-			aelt =
-			  do_symval_forwarding (bfwd->current_value,
-						current_buffer,
-						XCONSOLE (Vselected_console));
-			aelt = Fcons (sym, aelt);
-			current_buffer->local_var_alist
-			  = Fcons (aelt, current_buffer->local_var_alist);
-		      }
-		    else
-		      {
-			/* If the variable is a SYMVAL_SOME_BUFFER_LOCAL,
-			   we're currently seeing the default value. */
-			;
-		      }
+		    /* If it's a SYMVAL_BUFFER_LOCAL, give this buffer a
+		       new assoc for a local value and set
+		       CURRENT-ALIST-ELEMENT to point to that.  */
+		    aelt =
+		      do_symval_forwarding (bfwd->current_value,
+					    current_buffer,
+					    XCONSOLE (Vselected_console));
+		    aelt = Fcons (symbol, aelt);
+		    current_buffer->local_var_alist
+		      = Fcons (aelt, current_buffer->local_var_alist);
 		  }
-		/* Cache the new buffer's assoc in CURRENT-ALIST-ELEMENT.  */
-		bfwd->current_alist_element = aelt;
-		/* Set BUFFER, now that CURRENT-ALIST-ELEMENT is accurate.  */
-		XSETBUFFER (bfwd->current_buffer, current_buffer);
-		valcontents = bfwd->current_value;
+		else
+		  {
+		    /* If the variable is a SYMVAL_SOME_BUFFER_LOCAL,
+		       we're currently seeing the default value. */
+		    ;
+		  }
 	      }
-	    break;
+	    /* Cache the new buffer's assoc in CURRENT-ALIST-ELEMENT.  */
+	    bfwd->current_alist_element = aelt;
+	    /* Set BUFFER, now that CURRENT-ALIST-ELEMENT is accurate.  */
+	    XSETBUFFER (bfwd->current_buffer, current_buffer);
+	    valcontents = bfwd->current_value;
 	  }
-	default:
-	  abort ();
-	}
+	break;
+      }
+    default:
+      abort ();
     }
-  store_symval_forwarding (sym, valcontents, newval);
+  store_symval_forwarding (symbol, valcontents, newval);
 
   return newval;
 }
@@ -1819,7 +1935,7 @@ default_value (Lisp_Object sym)
 
     case SYMVAL_CURRENT_BUFFER_FORWARD:
       {
-	CONST struct symbol_value_forward *fwd
+	const struct symbol_value_forward *fwd
 	  = XSYMBOL_VALUE_FORWARD (valcontents);
 	return (*((Lisp_Object *)((char *) XBUFFER (Vbuffer_defaults)
 				  + ((char *)symbol_value_forward_forward (fwd)
@@ -1828,7 +1944,7 @@ default_value (Lisp_Object sym)
 
     case SYMVAL_SELECTED_CONSOLE_FORWARD:
       {
-	CONST struct symbol_value_forward *fwd
+	const struct symbol_value_forward *fwd
 	  = XSYMBOL_VALUE_FORWARD (valcontents);
 	return (*((Lisp_Object *)((char *) XCONSOLE (Vconsole_defaults)
 				  + ((char *)symbol_value_forward_forward (fwd)
@@ -1858,7 +1974,7 @@ default_value (Lisp_Object sym)
 				   XCONSOLE (Vselected_console));
     }
 
-  RETURN_NOT_REACHED(Qnil)	/* suppress compiler warning */
+  RETURN_NOT_REACHED (Qnil)	/* suppress compiler warning */
 }
 
 DEFUN ("default-boundp", Fdefault_boundp, 1, 1, 0, /*
@@ -1866,9 +1982,9 @@ Return t if SYMBOL has a non-void default value.
 This is the value that is seen in buffers that do not have their own values
 for this variable.
 */
-       (sym))
+       (symbol))
 {
-  return UNBOUNDP (default_value (sym)) ? Qnil : Qt;
+  return UNBOUNDP (default_value (symbol)) ? Qnil : Qt;
 }
 
 DEFUN ("default-value", Fdefault_value, 1, 1, 0, /*
@@ -1877,51 +1993,51 @@ This is the value that is seen in buffers that do not have their own values
 for this variable.  The default value is meaningful for variables with
 local bindings in certain buffers.
 */
-       (sym))
+       (symbol))
 {
-  Lisp_Object value = default_value (sym);
+  Lisp_Object value = default_value (symbol);
 
-  return UNBOUNDP (value) ? Fsignal (Qvoid_variable, list1 (sym)) : value;
+  return UNBOUNDP (value) ? Fsignal (Qvoid_variable, list1 (symbol)) : value;
 }
 
 DEFUN ("set-default", Fset_default, 2, 2, 0, /*
-Set SYMBOL's default value to VAL.  SYMBOL and VAL are evaluated.
+Set SYMBOL's default value to VALUE.  SYMBOL and VALUE are evaluated.
 The default value is seen in buffers that do not have their own values
 for this variable.
 */
-       (sym, value))
+       (symbol, value))
 {
   Lisp_Object valcontents;
 
-  CHECK_SYMBOL (sym);
+  CHECK_SYMBOL (symbol);
 
  retry:
-  valcontents = XSYMBOL (sym)->value;
+  valcontents = XSYMBOL (symbol)->value;
 
  retry_2:
   if (!SYMBOL_VALUE_MAGIC_P (valcontents))
-    return Fset (sym, value);
+    return Fset (symbol, value);
 
   switch (XSYMBOL_VALUE_MAGIC_TYPE (valcontents))
     {
     case SYMVAL_LISP_MAGIC:
-      RETURN_IF_NOT_UNBOUND (maybe_call_magic_handler (sym, Qset_default, 1,
+      RETURN_IF_NOT_UNBOUND (maybe_call_magic_handler (symbol, Qset_default, 1,
 						       value));
       valcontents = XSYMBOL_VALUE_LISP_MAGIC (valcontents)->shadowed;
       /* semi-change-o */
       goto retry_2;
 
     case SYMVAL_VARALIAS:
-      sym = follow_varalias_pointers (sym, Qset_default);
+      symbol = follow_varalias_pointers (symbol, Qset_default);
       /* presto change-o! */
       goto retry;
 
     case SYMVAL_CURRENT_BUFFER_FORWARD:
-      set_default_buffer_slot_variable (sym, value);
+      set_default_buffer_slot_variable (symbol, value);
       return value;
 
     case SYMVAL_SELECTED_CONSOLE_FORWARD:
-      set_default_console_slot_variable (sym, value);
+      set_default_console_slot_variable (symbol, value);
       return value;
 
     case SYMVAL_BUFFER_LOCAL:
@@ -1935,50 +2051,48 @@ for this variable.
 	/* If current-buffer doesn't shadow default_value,
 	 *  we must set the CURRENT-VALUE slot too */
 	if (NILP (bfwd->current_alist_element))
-	  store_symval_forwarding (sym, bfwd->current_value, value);
+	  store_symval_forwarding (symbol, bfwd->current_value, value);
 	return value;
       }
 
     default:
-      return Fset (sym, value);
+      return Fset (symbol, value);
     }
-  RETURN_NOT_REACHED(Qnil)	/* suppress compiler warning */
 }
 
-DEFUN ("setq-default", Fsetq_default, 2, UNEVALLED, 0, /*
-Set the default value of variable SYM to VALUE.
-SYM, the variable name, is literal (not evaluated);
+DEFUN ("setq-default", Fsetq_default, 0, UNEVALLED, 0, /*
+Set the default value of variable SYMBOL to VALUE.
+SYMBOL, the variable name, is literal (not evaluated);
 VALUE is an expression and it is evaluated.
 The default value of a variable is seen in buffers
 that do not have their own values for the variable.
 
 More generally, you can use multiple variables and values, as in
-  (setq-default SYM VALUE SYM VALUE...)
-This sets each SYM's default value to the corresponding VALUE.
-The VALUE for the Nth SYM can refer to the new default values
-of previous SYMs.
+  (setq-default SYMBOL VALUE SYMBOL VALUE...)
+This sets each SYMBOL's default value to the corresponding VALUE.
+The VALUE for the Nth SYMBOL can refer to the new default values
+of previous SYMBOLs.
 */
        (args))
 {
   /* This function can GC */
-  Lisp_Object args_left;
-  Lisp_Object val, sym;
+  Lisp_Object symbol, tail, val = Qnil;
+  int nargs;
   struct gcpro gcpro1;
 
-  if (NILP (args))
-    return Qnil;
+  GET_LIST_LENGTH (args, nargs);
 
-  args_left = args;
-  GCPRO1 (args);
+  if (nargs & 1)		/* Odd number of arguments? */
+    Fsignal (Qwrong_number_of_arguments,
+	     list2 (Qsetq_default, make_int (nargs)));
 
-  do
+  GCPRO1 (val);
+
+  PROPERTY_LIST_LOOP (tail, symbol, val, args)
     {
-      val = Feval (Fcar (Fcdr (args_left)));
-      sym = Fcar (args_left);
-      Fset_default (sym, val);
-      args_left = Fcdr (Fcdr (args_left));
+      val = Feval (val);
+      Fset_default (symbol, val);
     }
-  while (!NILP (args_left));
 
   UNGCPRO;
   return val;
@@ -2052,8 +2166,9 @@ sets it.
   {
     struct symbol_value_buffer_local *bfwd
       = alloc_lcrecord_type (struct symbol_value_buffer_local,
-			     lrecord_symbol_value_buffer_local);
+			     &lrecord_symbol_value_buffer_local);
     Lisp_Object foo;
+    zero_lcrecord (&bfwd->magic);
     bfwd->magic.type = SYMVAL_BUFFER_LOCAL;
 
     bfwd->default_value = find_symbol_value (variable);
@@ -2160,7 +2275,8 @@ Use `make-local-hook' instead.
 
   /* Make sure variable is set up to hold per-buffer values */
   bfwd = alloc_lcrecord_type (struct symbol_value_buffer_local,
-			      lrecord_symbol_value_buffer_local);
+			      &lrecord_symbol_value_buffer_local);
+  zero_lcrecord (&bfwd->magic);
   bfwd->magic.type = SYMVAL_SOME_BUFFER_LOCAL;
 
   bfwd->current_buffer = Qnil;
@@ -2270,7 +2386,7 @@ From now on the default value will apply in this buffer.
 
     case SYMVAL_CURRENT_BUFFER_FORWARD:
       {
-	CONST struct symbol_value_forward *fwd
+	const struct symbol_value_forward *fwd
 	  = XSYMBOL_VALUE_FORWARD (valcontents);
 	int offset = ((char *) symbol_value_forward_forward (fwd)
 			       - (char *) &buffer_local_flags);
@@ -2364,7 +2480,7 @@ From now on the default value will apply in this console.
 
     case SYMVAL_SELECTED_CONSOLE_FORWARD:
       {
-	CONST struct symbol_value_forward *fwd
+	const struct symbol_value_forward *fwd
 	  = XSYMBOL_VALUE_FORWARD (valcontents);
 	int offset = ((char *) symbol_value_forward_forward (fwd)
 			       - (char *) &console_local_flags);
@@ -2379,7 +2495,7 @@ From now on the default value will apply in this console.
 	    Lisp_Object oldval = * (Lisp_Object *)
 	      (offset + (char *) XCONSOLE (Vconsole_defaults));
 	    if (magicfun)
-	      (magicfun) (variable, &oldval, Vselected_console, 0);
+	      magicfun (variable, &oldval, Vselected_console, 0);
 	    *(Lisp_Object *) (offset + (char *) XCONSOLE (Vselected_console))
 	      = oldval;
 	    XCONSOLE (Vselected_console)->local_var_flags &= ~mask;
@@ -2390,7 +2506,6 @@ From now on the default value will apply in this console.
     default:
       return variable;
     }
-  RETURN_NOT_REACHED(Qnil)	/* suppress compiler warning */
 }
 
 /* Used by specbind to determine what effects it might have.  Returns:
@@ -2424,7 +2539,7 @@ symbol_value_buffer_local_info (Lisp_Object symbol, struct buffer *buffer)
 
 	case SYMVAL_CURRENT_BUFFER_FORWARD:
 	  {
-	    CONST struct symbol_value_forward *fwd
+	    const struct symbol_value_forward *fwd
 	      = XSYMBOL_VALUE_FORWARD (valcontents);
 	    int mask = XINT (*((Lisp_Object *)
 			       symbol_value_forward_forward (fwd)));
@@ -2464,10 +2579,7 @@ Return the value of SYMBOL in BUFFER, or UNBOUND-VALUE if it is unbound.
   CHECK_SYMBOL (symbol);
   CHECK_BUFFER (buffer);
   value = symbol_value_in_buffer (symbol, buffer);
-  if (UNBOUNDP (value))
-    return unbound_value;
-  else
-    return value;
+  return UNBOUNDP (value) ? unbound_value : value;
 }
 
 DEFUN ("symbol-value-in-console", Fsymbol_value_in_console, 2, 3, 0, /*
@@ -2479,14 +2591,11 @@ Return the value of SYMBOL in CONSOLE, or UNBOUND-VALUE if it is unbound.
   CHECK_SYMBOL (symbol);
   CHECK_CONSOLE (console);
   value = symbol_value_in_console (symbol, console);
-  if (UNBOUNDP (value))
-    return unbound_value;
-  else
-    return value;
+  return UNBOUNDP (value) ? unbound_value : value;
 }
 
 DEFUN ("built-in-variable-type", Fbuilt_in_variable_type, 1, 1, 0, /*
-If SYM is a built-in variable, return info about this; else return nil.
+If SYMBOL is a built-in variable, return info about this; else return nil.
 The returned info will be a symbol, one of
 
 `object'		A simple built-in variable.
@@ -2505,91 +2614,62 @@ The returned info will be a symbol, one of
 `default-console'	Forwards to the default value of a built-in
 			console-local variable.
 */
-       (sym))
+       (symbol))
 {
   REGISTER Lisp_Object valcontents;
 
-  CHECK_SYMBOL (sym);
+  CHECK_SYMBOL (symbol);
 
  retry:
-  valcontents = XSYMBOL (sym)->value;
+  valcontents = XSYMBOL (symbol)->value;
+
  retry_2:
+  if (!SYMBOL_VALUE_MAGIC_P (valcontents))
+    return Qnil;
 
-  if (SYMBOL_VALUE_MAGIC_P (valcontents))
+  switch (XSYMBOL_VALUE_MAGIC_TYPE (valcontents))
     {
-      switch (XSYMBOL_VALUE_MAGIC_TYPE (valcontents))
-	{
-	case SYMVAL_LISP_MAGIC:
-	  valcontents = XSYMBOL_VALUE_LISP_MAGIC (valcontents)->shadowed;
-	  /* semi-change-o */
-	  goto retry_2;
+    case SYMVAL_LISP_MAGIC:
+      valcontents = XSYMBOL_VALUE_LISP_MAGIC (valcontents)->shadowed;
+      /* semi-change-o */
+      goto retry_2;
 
-	case SYMVAL_VARALIAS:
-	  sym = follow_varalias_pointers (sym, Qt);
-	  /* presto change-o! */
-	  goto retry;
+    case SYMVAL_VARALIAS:
+      symbol = follow_varalias_pointers (symbol, Qt);
+      /* presto change-o! */
+      goto retry;
 
-	case SYMVAL_BUFFER_LOCAL:
-	case SYMVAL_SOME_BUFFER_LOCAL:
-	  valcontents =
-	    XSYMBOL_VALUE_BUFFER_LOCAL (valcontents)->current_value;
-	  /* semi-change-o */
-	  goto retry_2;
+    case SYMVAL_BUFFER_LOCAL:
+    case SYMVAL_SOME_BUFFER_LOCAL:
+      valcontents =
+	XSYMBOL_VALUE_BUFFER_LOCAL (valcontents)->current_value;
+      /* semi-change-o */
+      goto retry_2;
 
-	case SYMVAL_FIXNUM_FORWARD:
-	  return Qinteger;
+    case SYMVAL_FIXNUM_FORWARD:			return Qinteger;
+    case SYMVAL_CONST_FIXNUM_FORWARD:		return Qconst_integer;
+    case SYMVAL_BOOLEAN_FORWARD:		return Qboolean;
+    case SYMVAL_CONST_BOOLEAN_FORWARD:		return Qconst_boolean;
+    case SYMVAL_OBJECT_FORWARD:			return Qobject;
+    case SYMVAL_CONST_OBJECT_FORWARD:		return Qconst_object;
+    case SYMVAL_CONST_SPECIFIER_FORWARD:	return Qconst_specifier;
+    case SYMVAL_DEFAULT_BUFFER_FORWARD:		return Qdefault_buffer;
+    case SYMVAL_CURRENT_BUFFER_FORWARD:		return Qcurrent_buffer;
+    case SYMVAL_CONST_CURRENT_BUFFER_FORWARD:	return Qconst_current_buffer;
+    case SYMVAL_DEFAULT_CONSOLE_FORWARD:	return Qdefault_console;
+    case SYMVAL_SELECTED_CONSOLE_FORWARD:	return Qselected_console;
+    case SYMVAL_CONST_SELECTED_CONSOLE_FORWARD: return Qconst_selected_console;
+    case SYMVAL_UNBOUND_MARKER:			return Qnil;
 
-	case SYMVAL_CONST_FIXNUM_FORWARD:
-	  return Qconst_integer;
-
-	case SYMVAL_BOOLEAN_FORWARD:
-	  return Qboolean;
-
-	case SYMVAL_CONST_BOOLEAN_FORWARD:
-	  return Qconst_boolean;
-
-	case SYMVAL_OBJECT_FORWARD:
-	  return Qobject;
-
-	case SYMVAL_CONST_OBJECT_FORWARD:
-	  return Qconst_object;
-
-	case SYMVAL_CONST_SPECIFIER_FORWARD:
-	  return Qconst_specifier;
-
-	case SYMVAL_DEFAULT_BUFFER_FORWARD:
-	  return Qdefault_buffer;
-
-	case SYMVAL_CURRENT_BUFFER_FORWARD:
-	  return Qcurrent_buffer;
-
-	case SYMVAL_CONST_CURRENT_BUFFER_FORWARD:
-	  return Qconst_current_buffer;
-
-	case SYMVAL_DEFAULT_CONSOLE_FORWARD:
-	  return Qdefault_console;
-
-	case SYMVAL_SELECTED_CONSOLE_FORWARD:
-	  return Qselected_console;
-
-	case SYMVAL_CONST_SELECTED_CONSOLE_FORWARD:
-	  return Qconst_selected_console;
-
-	case SYMVAL_UNBOUND_MARKER:
-	  return Qnil;
-
-	default:
-	  abort ();
-	}
+    default:
+      abort (); return Qnil;
     }
-
-  return Qnil;
 }
 
 
 DEFUN ("local-variable-p", Flocal_variable_p, 2, 3, 0, /*
 Return t if SYMBOL's value is local to BUFFER.
-If optional third arg AFTER-SET is true, return t if SYMBOL would be
+If optional third arg AFTER-SET is non-nil, return t if SYMBOL would be
 buffer-local after it is set, regardless of whether it is so presently.
 A nil value for BUFFER is *not* the same as (current-buffer), but means
 "no buffer".  Specifically:
@@ -2636,7 +2716,7 @@ The interface and/or function name is sure to change before this
 gets into its final form.  I currently like the way everything is
 set up and it has all the features I want it to have, except for
 one: I really want to be able to have multiple nested handlers,
-to implement an `advice'-like capabiility.  This would allow,
+to implement an `advice'-like capability.  This would allow,
 for example, a clean way of implementing `debug-if-set' or
 `debug-if-referenced' and such.
 
@@ -2869,7 +2949,7 @@ maybe_call_magic_handler (Lisp_Object sym, Lisp_Object funsym, int nargs, ...)
   Lisp_Object legerdemain;
   struct symbol_value_lisp_magic *bfwd;
 
-  assert (nargs >= 0 && nargs < 20);
+  assert (nargs >= 0 && nargs < countof (args));
   legerdemain = XSYMBOL (sym)->value;
   assert (SYMBOL_VALUE_LISP_MAGIC_P (legerdemain));
   bfwd = XSYMBOL_VALUE_LISP_MAGIC (legerdemain);
@@ -2916,7 +2996,8 @@ pity, thereby invalidating your code.
   if (!SYMBOL_VALUE_LISP_MAGIC_P (valcontents))
     {
       bfwd = alloc_lcrecord_type (struct symbol_value_lisp_magic,
-				  lrecord_symbol_value_lisp_magic);
+				  &lrecord_symbol_value_lisp_magic);
+      zero_lcrecord (&bfwd->magic);
       bfwd->magic.type = SYMVAL_LISP_MAGIC;
       for (i = 0; i < MAGIC_HANDLER_MAX; i++)
 	{
@@ -2945,7 +3026,7 @@ pity, thereby invalidating your code.
 
 /* functions for working with variable aliases.  */
 
-/* Follow the chain of variable aliases for OBJECT.  Return the
+/* Follow the chain of variable aliases for SYMBOL.  Return the
    resulting symbol, whose value cell is guaranteed not to be a
    symbol-value-varalias.
 
@@ -2973,36 +3054,32 @@ pity, thereby invalidating your code.
  */
 
 static Lisp_Object
-follow_varalias_pointers (Lisp_Object object,
+follow_varalias_pointers (Lisp_Object symbol,
 			  Lisp_Object follow_past_lisp_magic)
 {
-  Lisp_Object tortoise = object;
-  Lisp_Object hare = object;
+#define VARALIAS_INDIRECTION_SUSPICION_LENGTH 16
+  Lisp_Object tortoise, hare, val;
+  int count;
 
   /* quick out just in case */
-  if (!SYMBOL_VALUE_MAGIC_P (XSYMBOL (object)->value))
-    return object;
+  if (!SYMBOL_VALUE_MAGIC_P (XSYMBOL (symbol)->value))
+    return symbol;
 
-  /* based off of indirect_function() */
-  for (;;)
+  /* Compare implementation of indirect_function().  */
+  for (hare = tortoise = symbol, count = 0;
+       val = fetch_value_maybe_past_magic (hare, follow_past_lisp_magic),
+	 SYMBOL_VALUE_VARALIAS_P (val);
+       hare = symbol_value_varalias_aliasee (XSYMBOL_VALUE_VARALIAS (val)),
+	 count++)
     {
-      Lisp_Object value;
+      if (count < VARALIAS_INDIRECTION_SUSPICION_LENGTH) continue;
 
-      value = fetch_value_maybe_past_magic (hare, follow_past_lisp_magic);
-      if (!SYMBOL_VALUE_VARALIAS_P (value))
-	break;
-      hare = symbol_value_varalias_aliasee (XSYMBOL_VALUE_VARALIAS (value));
-      value = fetch_value_maybe_past_magic (hare, follow_past_lisp_magic);
-      if (!SYMBOL_VALUE_VARALIAS_P (value))
-	break;
-      hare = symbol_value_varalias_aliasee (XSYMBOL_VALUE_VARALIAS (value));
-
-      value = fetch_value_maybe_past_magic (tortoise, follow_past_lisp_magic);
-      tortoise = symbol_value_varalias_aliasee
-	(XSYMBOL_VALUE_VARALIAS (value));
-
+      if (count & 1)
+	tortoise = symbol_value_varalias_aliasee
+	  (XSYMBOL_VALUE_VARALIAS (fetch_value_maybe_past_magic
+				   (tortoise, follow_past_lisp_magic)));
       if (EQ (hare, tortoise))
-	return Fsignal (Qcyclic_variable_indirection, list1 (object));
+	return Fsignal (Qcyclic_variable_indirection, list1 (symbol));
     }
 
   return hare;
@@ -3056,7 +3133,8 @@ has a buffer-local value in any buffer, or the symbols nil or t.
   reject_constant_symbols (variable, Qunbound, 0, Qt);
 
   bfwd = alloc_lcrecord_type (struct symbol_value_varalias,
-			      lrecord_symbol_value_varalias);
+			      &lrecord_symbol_value_varalias);
+  zero_lcrecord (&bfwd->magic);
   bfwd->magic.type = SYMVAL_VARALIAS;
   bfwd->aliasee = alias;
   bfwd->shadowed = valcontents;
@@ -3132,33 +3210,37 @@ Lisp_Object Qnull_pointer;
 #endif
 
 /* some losing systems can't have static vars at function scope... */
-static struct symbol_value_magic guts_of_unbound_marker =
-  { { symbol_value_forward_lheader_initializer, 0, 69},
-    SYMVAL_UNBOUND_MARKER };
-
-Lisp_Object Vpure_uninterned_symbol_table;
+static const struct symbol_value_magic guts_of_unbound_marker =
+{ /* struct symbol_value_magic */
+  { /* struct lcrecord_header */
+    { /* struct lrecord_header */
+      lrecord_type_symbol_value_forward, /* lrecord_type_index */
+      1, /* mark bit */
+      1, /* c_readonly bit */
+      1, /* lisp_readonly bit */
+    },
+    0, /* next */
+    0, /* uid  */
+    0, /* free */
+  },
+  0, /* value */
+  SYMVAL_UNBOUND_MARKER
+};
 
 void
 init_symbols_once_early (void)
 {
-#ifndef Qzero
-  Qzero = make_int (0);	/* Only used if Lisp_Object is a union type */
-#endif
+  INIT_LRECORD_IMPLEMENTATION (symbol);
+  INIT_LRECORD_IMPLEMENTATION (symbol_value_forward);
+  INIT_LRECORD_IMPLEMENTATION (symbol_value_buffer_local);
+  INIT_LRECORD_IMPLEMENTATION (symbol_value_lisp_magic);
+  INIT_LRECORD_IMPLEMENTATION (symbol_value_varalias);
 
-#ifndef Qnull_pointer
-  /* C guarantees that Qnull_pointer will be initialized to all 0 bits,
-     so the following is a actually a no-op.  */
-  XSETOBJ (Qnull_pointer, (enum Lisp_Type) 0, 0);
-#endif
+  reinit_symbols_once_early ();
 
-  /* see comment in Fpurecopy() */
-  Vpure_uninterned_symbol_table =
-    make_lisp_hashtable (50, HASHTABLE_NONWEAK, HASHTABLE_EQ);
-  staticpro (&Vpure_uninterned_symbol_table);
-
-  Qnil = Fmake_symbol (make_pure_pname ((CONST Bufbyte *) "nil", 3, 1));
-  /* Bootstrapping problem: Qnil isn't set when make_pure_pname is
+  /* Bootstrapping problem: Qnil isn't set when make_string_nocopy is
      called the first time. */
+  Qnil = Fmake_symbol (make_string_nocopy ((const Bufbyte *) "nil", 3));
   XSYMBOL (Qnil)->name->plist = Qnil;
   XSYMBOL (Qnil)->value = Qnil; /* Nihil ex nihil */
   XSYMBOL (Qnil)->plist = Qnil;
@@ -3170,62 +3252,148 @@ init_symbols_once_early (void)
   {
     int hash = hash_string (string_data (XSYMBOL (Qnil)->name), 3);
     XVECTOR_DATA (Vobarray)[hash % OBARRAY_SIZE] = Qnil;
-    XSYMBOL (Qnil)->obarray = Qt;
   }
 
   {
     /* Required to get around a GCC syntax error on certain
        architectures */
-    struct symbol_value_magic *tem = &guts_of_unbound_marker;
+    const struct symbol_value_magic *tem = &guts_of_unbound_marker;
 
     XSETSYMBOL_VALUE_MAGIC (Qunbound, tem);
   }
-  if ((CONST void *) XPNTR (Qunbound) !=
-      (CONST void *)&guts_of_unbound_marker)
-    {
-      /* This might happen on DATA_SEG_BITS machines. */
-      /* abort (); */
-      /* Can't represent a pointer to constant C data using a Lisp_Object.
-	 So heap-allocate it. */
-      struct symbol_value_magic *urk = xnew (struct symbol_value_magic);
-      memcpy (urk, &guts_of_unbound_marker, sizeof (*urk));
-      XSETSYMBOL_VALUE_MAGIC (Qunbound, urk);
-    }
 
   XSYMBOL (Qnil)->function = Qunbound;
 
+#ifdef UTF2000
+  /* [tomo:2002-01-22] We should not define Qunloaded as a normal symbol */
+  defsymbol (&Qunloaded, "#<unloaded>");
+#endif
+
   defsymbol (&Qt, "t");
-  XSYMBOL (Qt)->value = Qt;	/* Veritas aetera */
+  XSYMBOL (Qt)->value = Qt;	/* Veritas aeterna */
   Vquit_flag = Qnil;
+
+  dump_add_root_object (&Qnil);
+  dump_add_root_object (&Qunbound);
+  dump_add_root_object (&Vquit_flag);
 }
 
 void
-defsymbol (Lisp_Object *location, CONST char *name)
+reinit_symbols_once_early (void)
 {
-  *location = Fintern (make_pure_pname ((CONST Bufbyte *) name,
-                                        strlen (name), 1),
+#ifndef Qzero
+  Qzero = make_int (0);	/* Only used if Lisp_Object is a union type */
+#endif
+
+#ifndef Qnull_pointer
+  /* C guarantees that Qnull_pointer will be initialized to all 0 bits,
+     so the following is actually a no-op.  */
+  XSETOBJ (Qnull_pointer, 0);
+#endif
+}
+
+static void
+defsymbol_massage_name_1 (Lisp_Object *location, const char *name, int dump_p,
+			  int multiword_predicate_p)
+{
+  char temp[500];
+  size_t len = strlen (name) - 1;
+  size_t i;
+
+  if (multiword_predicate_p)
+    assert (len + 1 < sizeof (temp));
+  else
+    assert (len < sizeof (temp));
+  strcpy (temp, name + 1); /* Remove initial Q */
+  if (multiword_predicate_p)
+    {
+      strcpy (temp + len - 1, "_p");
+      len++;
+    }
+  for (i = 0; i < len; i++)
+    if (temp[i] == '_')
+      temp[i] = '-';
+  *location = Fintern (make_string ((const Bufbyte *) temp, len), Qnil);
+  if (dump_p)
+    staticpro (location);
+  else
+    staticpro_nodump (location);
+}
+
+void
+defsymbol_massage_name_nodump (Lisp_Object *location, const char *name)
+{
+  defsymbol_massage_name_1 (location, name, 0, 0);
+}
+
+void
+defsymbol_massage_name (Lisp_Object *location, const char *name)
+{
+  defsymbol_massage_name_1 (location, name, 1, 0);
+}
+
+void
+defsymbol_massage_multiword_predicate_nodump (Lisp_Object *location,
+					      const char *name)
+{
+  defsymbol_massage_name_1 (location, name, 0, 1);
+}
+
+void
+defsymbol_massage_multiword_predicate (Lisp_Object *location, const char *name)
+{
+  defsymbol_massage_name_1 (location, name, 1, 1);
+}
+
+void
+defsymbol_nodump (Lisp_Object *location, const char *name)
+{
+  *location = Fintern (make_string_nocopy ((const Bufbyte *) name,
+					   strlen (name)),
+		       Qnil);
+  staticpro_nodump (location);
+}
+
+void
+defsymbol (Lisp_Object *location, const char *name)
+{
+  *location = Fintern (make_string_nocopy ((const Bufbyte *) name,
+					   strlen (name)),
 		       Qnil);
   staticpro (location);
 }
 
 void
-defkeyword (Lisp_Object *location, CONST char *name)
+defkeyword (Lisp_Object *location, const char *name)
 {
   defsymbol (location, name);
   Fset (*location, *location);
 }
 
 void
-defsubr (struct Lisp_Subr *subr)
+defkeyword_massage_name (Lisp_Object *location, const char *name)
 {
-  Lisp_Object sym = intern (subr_name (subr));
+  char temp[500];
+  size_t len = strlen (name);
+
+  assert (len < sizeof (temp));
+  strcpy (temp, name);
+  temp[1] = ':'; /* it's an underscore in the C variable */
+
+  defsymbol_massage_name (location, temp);
+  Fset (*location, *location);
+}
 
 #ifdef DEBUG_XEMACS
-  /* Check that nobody spazzed writing a DEFUN. */
+/* Check that nobody spazzed writing a DEFUN. */
+static void
+check_sane_subr (Lisp_Subr *subr, Lisp_Object sym)
+{
   assert (subr->min_args >= 0);
   assert (subr->min_args <= SUBR_MAX_ARGS);
 
-  if (subr->max_args != MANY && subr->max_args != UNEVALLED)
+  if (subr->max_args != MANY &&
+      subr->max_args != UNEVALLED)
     {
       /* Need to fix lisp.h and eval.c if SUBR_MAX_ARGS too small */
       assert (subr->max_args <= SUBR_MAX_ARGS);
@@ -3233,69 +3401,169 @@ defsubr (struct Lisp_Subr *subr)
     }
 
   assert (UNBOUNDP (XSYMBOL (sym)->function));
-#endif /* DEBUG_XEMACS */
-
-  XSETSUBR (XSYMBOL (sym)->function, subr);
 }
+#else
+#define check_sane_subr(subr, sym) /* nothing */
+#endif
+
+#ifdef HAVE_SHLIB
+/*
+ * If we are not in a pure undumped Emacs, we need to make a duplicate of
+ * the subr. This is because the only time this function will be called
+ * in a running Emacs is when a dynamically loaded module is adding a
+ * subr, and we need to make sure that the subr is in allocated, Lisp-
+ * accessible memory.  The address assigned to the static subr struct
+ * in the shared object will be a trampoline address, so we need to create
+ * a copy here to ensure that a real address is used.
+ *
+ * Once we have copied everything across, we re-use the original static
+ * structure to store a pointer to the newly allocated one. This will be
+ * used in emodules.c by emodules_doc_subr() to find a pointer to the
+ * allocated object so that we can set its doc string properly.
+ *
+ * NOTE: We don't actually use the DOC pointer here any more, but we did
+ * in an earlier implementation of module support. There is no harm in
+ * setting it here in case we ever need it in future implementations.
+ * subr->doc will point to the new subr structure that was allocated.
+ * Code can then get this value from the static subr structure and use
+ * it if required.
+ *
+ * FIXME: Should newsubr be staticpro()'ed? I don't think so but I need
+ * a guru to check.
+ */
+#define check_module_subr()						\
+do {									\
+  if (initialized) {							\
+    Lisp_Subr *newsubr = (Lisp_Subr *) xmalloc (sizeof (Lisp_Subr));	\
+    memcpy (newsubr, subr, sizeof (Lisp_Subr));				\
+    subr->doc = (const char *)newsubr;					\
+    subr = newsubr;							\
+  }									\
+} while (0)
+#else /* ! HAVE_SHLIB */
+#define check_module_subr()
+#endif
 
 void
-deferror (Lisp_Object *symbol, CONST char *name, CONST char *messuhhj,
-	  Lisp_Object inherits_from)
+defsubr (Lisp_Subr *subr)
+{
+  Lisp_Object sym = intern (subr_name (subr));
+  Lisp_Object fun;
+
+  check_sane_subr (subr, sym);
+  check_module_subr ();
+
+  XSETSUBR (fun, subr);
+  XSYMBOL (sym)->function = fun;
+}
+
+/* Define a lisp macro using a Lisp_Subr. */
+void
+defsubr_macro (Lisp_Subr *subr)
+{
+  Lisp_Object sym = intern (subr_name (subr));
+  Lisp_Object fun;
+
+  check_sane_subr (subr, sym);
+  check_module_subr();
+
+  XSETSUBR (fun, subr);
+  XSYMBOL (sym)->function = Fcons (Qmacro, fun);
+}
+
+static void
+deferror_1 (Lisp_Object *symbol, const char *name, const char *messuhhj,
+	    Lisp_Object inherits_from, int massage_p)
 {
   Lisp_Object conds;
-  defsymbol (symbol, name);
+  if (massage_p)
+    defsymbol_massage_name (symbol, name);
+  else
+    defsymbol (symbol, name);
 
   assert (SYMBOLP (inherits_from));
   conds = Fget (inherits_from, Qerror_conditions, Qnil);
-  pure_put (*symbol, Qerror_conditions, Fcons (*symbol, conds));
+  Fput (*symbol, Qerror_conditions, Fcons (*symbol, conds));
   /* NOT build_translated_string ().  This function is called at load time
      and the string needs to get translated at run time.  (This happens
      in the function (display-error) in cmdloop.el.) */
-  pure_put (*symbol, Qerror_message, build_string (messuhhj));
+  Fput (*symbol, Qerror_message, build_string (messuhhj));
+}
+
+void
+deferror (Lisp_Object *symbol, const char *name, const char *messuhhj,
+	  Lisp_Object inherits_from)
+{
+  deferror_1 (symbol, name, messuhhj, inherits_from, 0);
+}
+
+void
+deferror_massage_name (Lisp_Object *symbol, const char *name,
+		       const char *messuhhj, Lisp_Object inherits_from)
+{
+  deferror_1 (symbol, name, messuhhj, inherits_from, 1);
+}
+
+void
+deferror_massage_name_and_message (Lisp_Object *symbol, const char *name,
+				   Lisp_Object inherits_from)
+{
+  char temp[500];
+  size_t i;
+  size_t len = strlen (name) - 1;
+
+  assert (len < sizeof (temp));
+  strcpy (temp, name + 1); /* Remove initial Q */
+  temp[0] = toupper (temp[0]);
+  for (i = 0; i < len; i++)
+    if (temp[i] == '_')
+      temp[i] = ' ';
+
+  deferror_1 (symbol, name, temp, inherits_from, 1);
 }
 
 void
 syms_of_symbols (void)
 {
-  defsymbol (&Qvariable_documentation, "variable-documentation");
-  defsymbol (&Qvariable_domain, "variable-domain");	/* I18N3 */
-  defsymbol (&Qad_advice_info, "ad-advice-info");
-  defsymbol (&Qad_activate, "ad-activate");
+  DEFSYMBOL (Qvariable_documentation);
+  DEFSYMBOL (Qvariable_domain);	/* I18N3 */
+  DEFSYMBOL (Qad_advice_info);
+  DEFSYMBOL (Qad_activate);
 
-  defsymbol (&Qget_value, "get-value");
-  defsymbol (&Qset_value, "set-value");
-  defsymbol (&Qbound_predicate, "bound-predicate");
-  defsymbol (&Qmake_unbound, "make-unbound");
-  defsymbol (&Qlocal_predicate, "local-predicate");
-  defsymbol (&Qmake_local, "make-local");
+  DEFSYMBOL (Qget_value);
+  DEFSYMBOL (Qset_value);
+  DEFSYMBOL (Qbound_predicate);
+  DEFSYMBOL (Qmake_unbound);
+  DEFSYMBOL (Qlocal_predicate);
+  DEFSYMBOL (Qmake_local);
 
-  defsymbol (&Qboundp, "boundp");
-  defsymbol (&Qfboundp, "fboundp");
-  defsymbol (&Qglobally_boundp, "globally-boundp");
-  defsymbol (&Qmakunbound, "makunbound");
-  defsymbol (&Qsymbol_value, "symbol-value");
-  defsymbol (&Qset, "set");
-  defsymbol (&Qdefault_boundp, "default-boundp");
-  defsymbol (&Qdefault_value, "default-value");
-  defsymbol (&Qset_default, "set-default");
-  defsymbol (&Qmake_variable_buffer_local, "make-variable-buffer-local");
-  defsymbol (&Qmake_local_variable, "make-local-variable");
-  defsymbol (&Qkill_local_variable, "kill-local-variable");
-  defsymbol (&Qkill_console_local_variable, "kill-console-local-variable");
-  defsymbol (&Qsymbol_value_in_buffer, "symbol-value-in-buffer");
-  defsymbol (&Qsymbol_value_in_console, "symbol-value-in-console");
-  defsymbol (&Qlocal_variable_p, "local-variable-p");
+  DEFSYMBOL (Qboundp);
+  DEFSYMBOL (Qglobally_boundp);
+  DEFSYMBOL (Qmakunbound);
+  DEFSYMBOL (Qsymbol_value);
+  DEFSYMBOL (Qset);
+  DEFSYMBOL (Qsetq_default);
+  DEFSYMBOL (Qdefault_boundp);
+  DEFSYMBOL (Qdefault_value);
+  DEFSYMBOL (Qset_default);
+  DEFSYMBOL (Qmake_variable_buffer_local);
+  DEFSYMBOL (Qmake_local_variable);
+  DEFSYMBOL (Qkill_local_variable);
+  DEFSYMBOL (Qkill_console_local_variable);
+  DEFSYMBOL (Qsymbol_value_in_buffer);
+  DEFSYMBOL (Qsymbol_value_in_console);
+  DEFSYMBOL (Qlocal_variable_p);
 
-  defsymbol (&Qconst_integer, "const-integer");
-  defsymbol (&Qconst_boolean, "const-boolean");
-  defsymbol (&Qconst_object, "const-object");
-  defsymbol (&Qconst_specifier, "const-specifier");
-  defsymbol (&Qdefault_buffer, "default-buffer");
-  defsymbol (&Qcurrent_buffer, "current-buffer");
-  defsymbol (&Qconst_current_buffer, "const-current-buffer");
-  defsymbol (&Qdefault_console, "default-console");
-  defsymbol (&Qselected_console, "selected-console");
-  defsymbol (&Qconst_selected_console, "const-selected-console");
+  DEFSYMBOL (Qconst_integer);
+  DEFSYMBOL (Qconst_boolean);
+  DEFSYMBOL (Qconst_object);
+  DEFSYMBOL (Qconst_specifier);
+  DEFSYMBOL (Qdefault_buffer);
+  DEFSYMBOL (Qcurrent_buffer);
+  DEFSYMBOL (Qconst_current_buffer);
+  DEFSYMBOL (Qdefault_console);
+  DEFSYMBOL (Qselected_console);
+  DEFSYMBOL (Qconst_selected_console);
 
   DEFSUBR (Fintern);
   DEFSUBR (Fintern_soft);
@@ -3313,6 +3581,7 @@ syms_of_symbols (void)
   DEFSUBR (Ffboundp);
   DEFSUBR (Ffset);
   DEFSUBR (Fdefine_function);
+  Ffset (intern ("defalias"), intern ("define-function"));
   DEFSUBR (Fsetplist);
   DEFSUBR (Fsymbol_value_in_buffer);
   DEFSUBR (Fsymbol_value_in_console);
@@ -3334,29 +3603,26 @@ syms_of_symbols (void)
   DEFSUBR (Fdontusethis_set_symbol_value_handler);
 }
 
-/* Create and initialize a variable whose value is forwarded to C data */
+/* Create and initialize a Lisp variable whose value is forwarded to C data */
 void
-defvar_mumble (CONST char *namestring, CONST void *magic, size_t sizeof_magic)
+defvar_magic (const char *symbol_name, const struct symbol_value_forward *magic)
 {
-  Lisp_Object kludge;
-  Lisp_Object sym = Fintern (make_pure_pname ((CONST Bufbyte *) namestring,
-					      strlen (namestring),
-					      1),
-			     Qnil);
+  Lisp_Object sym;
 
-  /* Check that magic points somewhere we can represent as a Lisp pointer */
-  XSETOBJ (kludge, Lisp_Type_Record, magic);
-  if (magic != (CONST void *) XPNTR (kludge))
-    {
-      /* This might happen on DATA_SEG_BITS machines. */
-      /* abort (); */
-      /* Copy it to somewhere which is representable. */
-      void *f = xmalloc (sizeof_magic);
-      memcpy (f, magic, sizeof_magic);
-      XSETOBJ (XSYMBOL (sym)->value, Lisp_Type_Record, f);
-    }
+#if defined(HAVE_SHLIB)
+  /*
+   * As with defsubr(), this will only be called in a dumped Emacs when
+   * we are adding variables from a dynamically loaded module. That means
+   * we can't use purespace. Take that into account.
+   */
+  if (initialized)
+    sym = Fintern (build_string (symbol_name), Qnil);
   else
-    XSETOBJ (XSYMBOL (sym)->value, Lisp_Type_Record, magic);
+#endif
+    sym = Fintern (make_string_nocopy ((const Bufbyte *) symbol_name,
+				       strlen (symbol_name)), Qnil);
+
+  XSETOBJ (XSYMBOL (sym)->value, magic);
 }
 
 void

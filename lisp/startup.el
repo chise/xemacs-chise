@@ -20,7 +20,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -30,7 +30,7 @@
 
 ;; This file is dumped with XEmacs.
 
-;; -batch, -t, and -nw are processed by main() in emacs.c and are 
+;; -batch, -t, and -nw are processed by main() in emacs.c and are
 ;; never seen by lisp code.
 
 ;; -version and -help are special-cased as well: they imply -batch,
@@ -43,6 +43,7 @@
 (defvar command-line-processed nil "t once command line has been processed")
 
 (defconst startup-message-timeout 12000) ; More or less disable the timeout
+(defconst splash-frame-timeout 7) ; interval between splash frame elements
 
 (defconst inhibit-startup-message nil
   "*Non-nil inhibits the initial startup message.
@@ -76,9 +77,9 @@ The frame system uses this to open frames to display messages while
 XEmacs loads the user's initialization file.")
 
 (defvar after-init-hook nil
-  "*Functions to call after loading the init file (`.emacs').
+  "*Functions to call after loading the init file.
 The call is not protected by a condition-case, so you can set `debug-on-error'
-in `.emacs', and put all the actual code on `after-init-hook'.")
+in the init file, and put all the actual code on `after-init-hook'.")
 
 (defvar term-setup-hook nil
   "*Functions to be called after loading terminal-specific Lisp code.
@@ -103,22 +104,39 @@ the user's init file.")
 (defvar emacs-roots nil
   "List of plausible roots of the XEmacs hierarchy.")
 
-(defvar init-file-user nil
-  "Identity of user whose `.emacs' file is or was read.
-The value is nil if no init file is being used; otherwise, it may be either
-the null string, meaning that the init file was taken from the user that
-originally logged in, or it may be a string containing a user's name.
+(defvar user-init-directory-base ".xemacs"
+  "Base of directory where user-installed init files may go.")
 
-In either of the latter cases, `(concat \"~\" init-file-user \"/\")'
-evaluates to the name of the directory in which the `.emacs' file was
-searched for.
+(defvar user-init-directory
+  (file-name-as-directory
+   (paths-construct-path (list "~" user-init-directory-base)))
+  "Directory where user-installed init files may go.")
 
-Setting `init-file-user' does not prevent Emacs from loading
-`site-start.el'.  The only way to do that is to use `--no-site-file'.")
+(defvar user-init-file-base "init.el"
+  "Default name of the user init file if uncompiled.
+This should be used for migration purposes only.")
+
+(defvar user-init-file-base-list '("init.elc" "init.el")
+  "List of allowed init files in the user's init directory.
+The first one found takes precedence.")
+
+(defvar user-home-init-file-base-list
+  (append '(".emacs.elc" ".emacs.el" ".emacs")
+	  (and (eq system-type 'windows-nt)
+	       '("_emacs.elc" "_emacs.el" "_emacs")))
+  "List of allowed init files in the user's home directory.
+The first one found takes precedence.")
+
+(defvar load-home-init-file nil
+  "Non-nil if XEmacs should load the init file from the home directory.
+Otherwise, XEmacs will offer migration to the init directory.")
+
+(defvar load-user-init-file-p t
+  "Non-nil if XEmacs should load the user's init file.")
 
 ;; #### called `site-run-file' in FSFmacs
 
-(defvar site-start-file (purecopy "site-start")
+(defvar site-start-file "site-start"
   "File containing site-wide run-time initializations.
 This file is loaded at run-time before `.emacs'.  It
 contains inits that need to be in place for the entire site, but
@@ -141,18 +159,17 @@ is less convenient.")
 ;;We do that if this regexp matches the locale name
 ;;specified by the LC_ALL, LC_CTYPE and LANG environment variables.")
 
-(defvar mail-host-address nil
-  "*Name of this machine, for purposes of naming users.")
+(defcustom mail-host-address nil
+  "*Name of this machine, for purposes of naming users."
+  :type 'string
+  :group 'mail)
 
-(defvar user-mail-address nil
+(defcustom user-mail-address nil
   "*Full mailing address of this user.
 This is initialized based on `mail-host-address',
-after your init file is read, in case it sets `mail-host-address'.")
-
-(defvar auto-save-list-file-prefix "~/.saves-"
-  "Prefix for generating auto-save-list-file-name.
-Emacs's pid and the system name will be appended to
-this prefix to create a unique file name.")
+after your init file is read, in case it sets `mail-host-address'."
+  :type 'string
+  :group 'mail)
 
 (defvar init-file-debug nil)
 
@@ -168,23 +185,22 @@ after, and will not be true at any time before.")
 
 
 (defvar command-switch-alist
-  (purecopy
-   '(("-help"	. command-line-do-help)
-     ("-version". command-line-do-version)
-     ("-V"	. command-line-do-version)
-     ("-funcall". command-line-do-funcall)
-     ("-f"	. command-line-do-funcall)
-     ("-e"	. command-line-do-funcall-1)
-     ("-eval"	. command-line-do-eval)
-     ("-load"	. command-line-do-load)
-     ("-l"	. command-line-do-load)
-     ("-insert"	. command-line-do-insert)
-     ("-i"	. command-line-do-insert)
-     ("-kill"	. command-line-do-kill)
-     ;; Options like +35 are handled specially.
-     ;; Window-system, site, or package-specific code might add to this.
-     ;; X11 handles its options by letting Xt remove args from this list.
-     ))
+  '(("-help"	. command-line-do-help)
+    ("-version". command-line-do-version)
+    ("-V"	. command-line-do-version)
+    ("-funcall". command-line-do-funcall)
+    ("-f"	. command-line-do-funcall)
+    ("-e"	. command-line-do-funcall-1)
+    ("-eval"	. command-line-do-eval)
+    ("-load"	. command-line-do-load)
+    ("-l"	. command-line-do-load)
+    ("-insert"	. command-line-do-insert)
+    ("-i"	. command-line-do-insert)
+    ("-kill"	. command-line-do-kill)
+    ;; Options like +35 are handled specially.
+    ;; Window-system, site, or package-specific code might add to this.
+    ;; X11 handles its options by letting Xt remove args from this list.
+    )
   "Alist of command-line switches.
 Elements look like (SWITCH-STRING . HANDLER-FUNCTION).
 HANDLER-FUNCTION receives switch name as sole arg;
@@ -199,12 +215,21 @@ remaining command-line args are in the variable `command-line-args-left'.")
     (princ (concat "\n" (emacs-version) "\n\n"))
     (princ
      (if (featurep 'x)
-	 (concat (emacs-name)
-		 " accepts all standard X Toolkit command line options.\n"
-		 "In addition, the")
+	 (concat "When creating a window on an X display, "
+		 (emacs-name)
+		 " accepts all standard X Toolkit
+command line options plus the following:
+  -iconname <title>     Use title as the icon name.
+  -mc <color>           Use color as the mouse color.
+  -cr <color>           Use color as the text-cursor foregound color.
+  -private              Install a private colormap.
+
+In addition, the")
        "The"))
     (princ " following options are accepted:
-
+  -sd                   Show dump ID.  Ignored when configured without --pdump.
+  -nd                   Don't load the dump file.  Roughly like old temacs.
+                        Ignored when configured without --pdump.
   -t <device>           Use TTY <device> instead of the terminal for input
                         and output.  This implies the -nw option.
   -nw                   Inhibit the use of any window-system-specific
@@ -213,12 +238,14 @@ remaining command-line args are in the variable `command-line-args-left'.")
   -debug-init           Enter the debugger if an error in the init file occurs.
   -unmapped             Do not map the initial frame.
   -no-site-file         Do not load the site-specific init file (site-start.el).
-  -no-init-file         Do not load the user-specific init file (~/.emacs).
+  -no-init-file         Do not load the user-specific init file.
   -no-early-packages	Do not process early packages.
   -no-autoloads		Do not load global symbol files (auto-autoloads) at
 			startup.  Also implies `-vanilla'.
   -vanilla		Equivalent to -q -no-site-file -no-early-packages.
   -q                    Same as -no-init-file.
+  -user-init-file <file> Use <file> as init file.
+  -user-init-directory <directory> Use <directory> as init directory.
   -user <user>          Load user's init file instead of your own.
   -u <user>             Same as -user.\n")
    (let ((l command-switch-alist)
@@ -354,23 +381,21 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 	(princ "\n\n" stream)))
     (when (not suppress-early-error-handler-backtrace)
       (backtrace stream t)))
+  (if (fboundp 'mswindows-message-box)
+      (mswindows-message-box "Initialization error"))
   (kill-emacs -1))
-
-(defvar lock-directory)
-(defvar superlock-file)
 
 (defun normal-top-level ()
   (if command-line-processed
       (message "Back to top level.")
     (setq command-line-processed t)
     ;; Canonicalize HOME (PWD is canonicalized by init_buffer in buffer.c)
-    (unless (eq system-type 'vax-vms)
-      (let ((value (user-home-directory)))
-	(if (and value
-		 (< (length value) (length default-directory))
-		 (equal (file-attributes default-directory)
-			(file-attributes value)))
-	    (setq default-directory (file-name-as-directory value)))))
+    (let ((value (user-home-directory)))
+      (if (and value
+	       (< (length value) (length default-directory))
+	       (equal (file-attributes default-directory)
+		      (file-attributes value)))
+	  (setq default-directory (file-name-as-directory value))))
     (setq default-directory (abbreviate-file-name default-directory))
     (initialize-xemacs-paths)
 
@@ -382,48 +407,58 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 
       (setq emacs-roots (paths-find-emacs-roots invocation-directory
 						invocation-name))
-    
+
       (if debug-paths
 	  (princ (format "emacs-roots:\n%S\n" emacs-roots)
 		 'external-debugging-output))
-    
+
       (if (null emacs-roots)
-	  (startup-find-roots-warning)
-	(startup-setup-paths emacs-roots
-			     inhibit-early-packages
-			     inhibit-site-lisp
-			     debug-paths))
+	  (startup-find-roots-warning))
+      (startup-setup-paths emacs-roots
+			   user-init-directory
+			   inhibit-early-packages
+			   inhibit-site-lisp
+			   debug-paths)
       (startup-setup-paths-warning))
 
-    (if (and (not inhibit-autoloads)
-	     lisp-directory)
-	(load (expand-file-name (file-name-sans-extension autoload-file-name)
-				lisp-directory) nil t))
-    
+    (when (and (not inhibit-autoloads)
+	       lisp-directory)
+      (load (expand-file-name (file-name-sans-extension autoload-file-name)
+			      lisp-directory) nil t)
+      (if (featurep 'utf-2000)
+	  (load (expand-file-name
+		 (file-name-sans-extension autoload-file-name)
+		 (expand-file-name "utf-2000" lisp-directory))
+		nil t)))
+
     (if (not inhibit-autoloads)
 	(progn
-	  (packages-load-package-auto-autoloads last-package-load-path)
-	  (packages-load-package-auto-autoloads late-package-load-path)
 	  (if (not inhibit-early-packages)
-	      (packages-load-package-auto-autoloads early-package-load-path))))
+	      (packages-load-package-auto-autoloads early-package-load-path))
+	  (packages-load-package-auto-autoloads late-package-load-path)
+	  (packages-load-package-auto-autoloads last-package-load-path)))
 
-    (unwind-protect
-	(command-line)
-      ;; Do this again, in case .emacs defined more abbreviations.
+    (let (error-data)
+      (condition-case data
+	  (command-line)
+	;; catch non-error signals, especially quit
+	(t (setq error-data data)))
+      ;; Do this again, in case the init file defined more abbreviations.
       (setq default-directory (abbreviate-file-name default-directory))
       ;; Specify the file for recording all the auto save files of
       ;; this session.  This is used by recover-session.
-      (setq auto-save-list-file-name
-	    (expand-file-name
-	     (format "%s%d-%s"
-		     auto-save-list-file-prefix
-		     (emacs-pid)
-		     (system-name))))
+      (if auto-save-list-file-prefix
+	  (setq auto-save-list-file-name
+		(expand-file-name
+		 (format "%s%d-%s"
+			 auto-save-list-file-prefix
+			 (emacs-pid)
+			 (system-name)))))
       (run-hooks 'emacs-startup-hook)
       (and term-setup-hook
 	   (run-hooks 'term-setup-hook))
       (setq term-setup-hook nil)
-      ;;      ;; Modify the initial frame based on what .emacs puts into
+      ;;      ;; Modify the initial frame based on what the init file puts into
       ;;      ;; ...-frame-alist.
       (frame-notice-user-settings)
       ;;      ;;####FSFmacs junk
@@ -432,24 +467,17 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
       ;;	  (font-menu-add-default))
       (when window-setup-hook
 	(run-hooks 'window-setup-hook))
-      (setq window-setup-hook nil))
-    ;;####FSFmacs junk
-    ;;      (or menubar-bindings-done
-    ;;	  (precompute-menubar-bindings))
-    ))
+      (setq window-setup-hook nil)
+      (if error-data
+	  ;; re-signal, and don't allow continuation as that will probably
+          ;; wipe out the user's .emacs if she hasn't migrated yet!
+	  (signal-error (car error-data) (cdr error-data))))
 
-;;####FSFmacs junk
-;;; Precompute the keyboard equivalents in the menu bar items.
-;;(defun precompute-menubar-bindings ()
-;;  (if (eq window-system 'x)
-;;      (let ((submap (lookup-key global-map [menu-bar])))
-;;	(while submap
-;;	  (and (consp (car submap))
-;;	       (symbolp (car (car submap)))
-;;	       (stringp (car-safe (cdr (car submap))))
-;;	       (keymapp (cdr (cdr (car submap))))
-;;	       (x-popup-menu nil (cdr (cdr (car submap)))))
-;;	  (setq submap (cdr submap))))))
+    (if load-user-init-file-p
+	(maybe-migrate-user-init-file))
+    ;; FSF calls precompute-menubar-bindings.  We don't mix menubars
+    ;; and keymaps.
+    ))
 
 (defun command-line-early (args)
   ;; This processes those switches which need to be processed before
@@ -481,16 +509,11 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
   ;;		   (and (not (equal string "")) string)))))
   ;;	(and ctype
   ;;	     (string-match iso-8859-1-locale-regexp ctype)))
-  ;;      (progn 
+  ;;      (progn
   ;;	(standard-display-european t)
   ;;	(require 'iso-syntax)))
 
-  ;; Figure out which user's init file to load,
-  ;; either from the environment or from the options.
-  (setq init-file-user (if (noninteractive) nil (user-login-name)))
-  ;; If user has not done su, use current $HOME to find .emacs.
-  (and init-file-user (string= init-file-user (user-real-login-name))
-       (setq init-file-user ""))
+  (setq load-user-init-file-p (not (noninteractive)))
 
   ;; Allow (at least) these arguments anywhere in the command line
   (let ((new-args nil)
@@ -500,7 +523,7 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
       (cond
        ((or (string= arg "-q")
 	    (string= arg "-no-init-file"))
-	(setq init-file-user nil))
+	(setq load-user-init-file-p nil))
        ((string= arg "-no-site-file")
 	(setq site-start-file nil))
        ((or (string= arg "-no-early-packages")
@@ -511,11 +534,23 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 	    ;; Some work on this one already done in emacs.c.
 	    (string= arg "-no-autoloads")
 	    (string= arg "--no-autoloads"))
-	(setq init-file-user nil
+	(setq load-user-init-file-p nil
 	      site-start-file nil))
+       ((string= arg "-user-init-file")
+	(setq user-init-file (pop args)))
+       ((string= arg "-user-init-directory")
+	(setq user-init-directory (file-name-as-directory (pop args))))
        ((or (string= arg "-u")
-	    (string= arg "-user"))
-	(setq init-file-user (pop args)))
+ 	    (string= arg "-user"))
+	(let* ((user (pop args))
+	       (home-user (concat "~" user)))
+	  (setq user-init-directory (file-name-as-directory
+				     (paths-construct-path
+				      (list home-user user-init-directory-base))))
+	  (setq user-init-file
+		(find-user-init-file user-init-directory home-user))
+	  (setq custom-file
+		(make-custom-file-name user-init-file))))
        ((string= arg "-debug-init")
 	(setq init-file-debug t))
        ((string= arg "-unmapped")
@@ -527,7 +562,10 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 	(while args
 	  (push (pop args) new-args)))
        (t (push arg new-args))))
-    
+
+    ;; obsolete, initialize for backward compatibility
+    (setq init-file-user (and load-user-init-file-p ""))
+
     (nreverse new-args)))
 
 (defconst initial-scratch-message "\
@@ -552,6 +590,9 @@ If this is nil, no message will be displayed.")
       ;; handled here instead of down in C.
       (setq command-line-args-left (command-line-early command-line-args-left))
 
+      (when (eq system-type 'windows-nt)
+	(init-mswindows-at-startup))
+
       ;; Setup the toolbar icon directory
       (when (featurep 'toolbar)
 	(init-toolbar-location))
@@ -568,6 +609,11 @@ If this is nil, no message will be displayed.")
       ;; and deletes the stdio device.
       (frame-initialize))
 
+    ;; Reinitialize faces if necessary.  This function changes face if
+    ;; it is created during auto-autoloads loading.  Otherwise, it
+    ;; does nothing.
+    (startup-initialize-custom-faces)
+
     ;;
     ;; We have normality, I repeat, we have normality.  Anything you still
     ;; can't cope with is therefore your own problem.  (And we don't need
@@ -576,7 +622,7 @@ If this is nil, no message will be displayed.")
 
     ;;; Load init files.
     (load-init-file)
-    
+
     (with-current-buffer (get-buffer "*scratch*")
       (erase-buffer)
       ;; (insert initial-scratch-message)
@@ -601,7 +647,7 @@ If this is nil, no message will be displayed.")
     ;; If -batch, terminate after processing the command options.
     (when (noninteractive) (kill-emacs t))))
 
-(defun load-terminal-library ()	      
+(defun load-terminal-library ()
   (when term-file-prefix
     (let ((term (getenv "TERM"))
 	  hyphend)
@@ -612,43 +658,162 @@ If this is nil, no message will be displayed.")
 	    (setq term (substring term 0 hyphend))
 	  (setq term nil))))))
 
-(defconst user-init-directory "/.xemacs/"
-  "Directory where user-installed packages may go.")
-(define-obsolete-variable-alias
-  'emacs-user-extension-dir
-  'user-init-directory)
+(defun find-user-init-directory-init-file (&optional init-directory)
+  "Determine the user's init file if in the init directory."
+  (let ((init-directory (or init-directory user-init-directory)))
+    (catch 'found
+      (dolist (file user-init-file-base-list)
+	(let ((expanded (expand-file-name file init-directory)))
+	  (when (file-readable-p expanded)
+	    (throw 'found expanded)))))))
 
-(defun load-user-init-file (init-file-user)
-  "This function actually reads the init file, .emacs."
-  (when init-file-user
-;; purge references to init.el and options.el
-;; convert these to use paths-construct-path for eventual migration to init.el
-;; needs to be converted when idiom for constructing "~user" paths is created
-;    (setq user-init-file
-;	  (paths-construct-path (list (concat "~" init-file-user)
-;				      user-init-directory
-;				      "init.el")))
-;    (unless (file-exists-p (expand-file-name user-init-file))
-    (setq user-init-file
-	  (paths-construct-path (list (concat "~" init-file-user)
-				      (cond
-				       ((eq system-type 'ms-dos) "_emacs")
-				       (t ".emacs")))))
-;    )
-    (load user-init-file t t t)
-;; This should not be loaded since custom stuff currently goes into .emacs
-;    (let ((default-custom-file
-;	    (paths-construct-path (list (concat "~" init-file-user)
-;				        user-init-directory
-;				        "options.el")))
-;      (when (string= custom-file default-custom-file)
-;	(load default-custom-file t t)))
-    (unless inhibit-default-init
-      (let ((inhibit-startup-message nil))
-	;; Users are supposed to be told their rights.
-	;; (Plus how to get help and how to undo.)
-	;; Don't you dare turn this off for anyone except yourself.
-	(load "default" t t)))))
+(defun find-user-home-directory-init-file (&optional home-directory)
+  "Determine the user's init file if in the home directory."
+  (let ((home-directory (or home-directory "~")))
+    (catch 'found
+      (dolist (file user-home-init-file-base-list)
+	(let ((expanded (expand-file-name file home-directory)))
+	  (when (file-readable-p expanded)
+	    (throw 'found expanded))))
+      nil)))
+
+(defun find-user-init-file (&optional init-directory home-directory)
+  "Determine the user's init file."
+  (if load-home-init-file
+      (find-user-home-directory-init-file home-directory)
+    (or (find-user-init-directory-init-file init-directory)
+	(find-user-home-directory-init-file home-directory))))
+
+(defun maybe-migrate-user-init-file ()
+  "Ask user if she wants to migrate the init file(s) to new location."
+  (if (and (not load-home-init-file)
+	   (not (find-user-init-directory-init-file user-init-directory))
+	   (stringp user-init-file)
+	   (file-readable-p user-init-file))
+      (if (with-output-to-temp-buffer (help-buffer-name nil)
+	    (progn
+	      (princ "XEmacs recommends that the initialization code in
+")
+	      (princ user-init-file)
+	      (princ "
+be migrated to the ")
+	      (princ user-init-directory)
+	      (princ " directory.  XEmacs can
+perform the migration automatically.
+
+After the migration, init.el/init.elc holds user-written
+initialization code.  Moreover the customize settings will be in
+custom.el.
+
+You can undo the migration at any time with
+M-x maybe-unmigrate-user-init-file.
+
+If you choose not to do this now, XEmacs will not ask you this
+question in the future.  However, you can still make XEmacs
+perform the migration at any time with M-x migrate-user-init-file.")
+	      (show-temp-buffer-in-current-frame standard-output)
+	      (yes-or-no-p-minibuf (concat "Migrate init file to "
+					   user-init-directory
+					   "? "))))
+	  (progn
+	    (migrate-user-init-file)
+	    (maybe-create-compatibility-dot-emacs))
+	(customize-save-variable 'load-home-init-file t))))
+
+(defun maybe-create-compatibility-dot-emacs ()
+  "Ask user if she wants to create a .emacs compatibility file."
+  (if (with-output-to-temp-buffer (help-buffer-name nil)
+	(progn
+	  (princ "The initialization code has now been migrated to the ")
+	  (princ user-init-directory)
+	  (princ "directory.
+
+For backwards compatibility with, for example, older versions of XEmacs,
+XEmacs can create a special old-style .emacs file in your home
+directory which will load the relocated initialization code.")
+	  (show-temp-buffer-in-current-frame standard-output)
+	  (yes-or-no-p-minibuf "Create compatibility .emacs? ")))
+      (create-compatibility-dot-emacs)))
+
+(defun migrate-user-init-file ()
+  "Migrate the init file from the home directory."
+  (interactive)
+  (if (not (file-exists-p user-init-directory))
+      (progn
+	(message "Creating %s directory..." user-init-directory)
+	(make-directory user-init-directory)))
+  (message "Migrating custom file...")
+  (customize-set-value 'load-home-init-file nil)
+  (custom-migrate-custom-file (make-custom-file-name user-init-file
+						     'force-new))
+  (message "Moving init file...")
+  (let ((new-user-init-file (expand-file-name user-init-file-base
+					      user-init-directory)))
+    (rename-file user-init-file new-user-init-file)
+    (setq user-init-file new-user-init-file))
+  (message "Migration done."))
+
+(defun create-compatibility-dot-emacs ()
+  "Create .emacs compatibility file for migrated setup."
+  (message "Creating .emacs compatibility file.")
+  (with-temp-file (expand-file-name ".emacs" "~")
+    (insert ";;; XEmacs backwards compatibility file\n")
+    (insert "(setq user-init-file\n")
+    (insert "      (expand-file-name \"init.el\"\n")
+    (insert "			(expand-file-name \".xemacs\" \"~\")))\n")
+    (insert "(setq custom-file\n")
+    (insert "      (expand-file-name \"custom.el\"\n")
+    (insert "			(expand-file-name \".xemacs\" \"~\")))\n")
+    (insert "\n")
+    (insert "(load-file user-init-file)\n")
+    (insert "(load-file custom-file)"))
+  (message "Created .emacs compatibility file."))
+
+(defun maybe-unmigrate-user-init-file ()
+  "Possibly unmigrate the user's init and custom files."
+  (interactive)
+  (let ((dot-emacs-file-name (expand-file-name ".emacs" "~")))
+    (if (and (not load-home-init-file)
+	     (or (not (file-exists-p dot-emacs-file-name))
+		 (yes-or-no-p-minibuf (concat "Overwrite " dot-emacs-file-name
+					      "? "))))
+      (unmigrate-user-init-file dot-emacs-file-name))))
+
+(defun unmigrate-user-init-file (&optional target-file-name)
+  "Unmigrate the user's init and custom files."
+  (interactive)
+  (let ((target-file-name
+	 (or target-file-name (expand-file-name ".emacs" "~"))))
+    (rename-file user-init-file target-file-name 'ok-if-already-exists)
+    (setq user-init-file target-file-name)
+    (let ((old-custom-file custom-file))
+      (custom-migrate-custom-file target-file-name)
+      (customize-save-variable 'load-home-init-file t)
+      (delete-file old-custom-file))))
+
+(defun load-user-init-file ()
+  "This function actually reads the init file."
+  (if (not user-init-file)
+      (setq user-init-file
+	    (find-user-init-file user-init-directory)))
+  (if (not custom-file)
+      (setq custom-file (make-custom-file-name user-init-file)))
+  ;; #### should test load-user-init-file-p here, not in load-init-file
+  ;; see comment there
+  (if (and user-init-file
+	   (file-readable-p user-init-file))
+      (load user-init-file t t t))
+  (if (and custom-file
+	   (or (not user-init-file)
+	       (not (string= custom-file user-init-file)))
+	   (file-readable-p custom-file))
+      (load custom-file t t t))
+  (unless inhibit-default-init
+    (let ((inhibit-startup-message nil))
+      ;; Users are supposed to be told their rights.
+      ;; (Plus how to get help and how to undo.)
+      ;; Don't you dare turn this off for anyone except yourself.
+      (load "default" t t))))
 
 ;;; Load user's init file and default ones.
 (defun load-init-file ()
@@ -669,18 +834,23 @@ If this is nil, no message will be displayed.")
 	(debug-on-error-initial
 	 (if (eq init-file-debug t) 'startup init-file-debug)))
     (let ((debug-on-error debug-on-error-initial))
-      (if init-file-debug
-	  ;; Do this without a condition-case if the user wants to debug.
-	  (load-user-init-file init-file-user)
+      ;; #### I believe this test is incorrect, it leads to custom-file
+      ;; (at least) being undefined
+      (if (and load-user-init-file-p init-file-debug)
+	  (progn
+	    ;; Do this without a condition-case if the user wants to debug.
+	    (load-user-init-file))
 	(condition-case error
 	    (progn
-	      (load-user-init-file init-file-user)
+	      ;; #### probably incorrect, see comment above
+	      (if load-user-init-file-p
+		  (load-user-init-file))
 	      (setq init-file-had-error nil))
           (error
 	   (message "Error in init file: %s" (error-message-string error))
 	   (display-warning 'initialization
 	     (format "\
-An error has occured while loading %s:
+An error has occurred while loading %s:
 
 %s
 
@@ -736,22 +906,23 @@ a new format, when variables have changed, etc."
       (when (string= (buffer-name) "*scratch*")
 	(unless (or inhibit-startup-message
 		    (input-pending-p))
-	  (let ((timeout nil))
+	  (let (tmout circ-tmout)
 	    (unwind-protect
 		;; Guts of with-timeout
-		(catch 'timeout
-		  (setq timeout (add-timeout startup-message-timeout
-					     (lambda (ignore)
-					       (condition-case nil
-						   (throw 'timeout t)
-						 (error nil)))
-					     nil))
-		  (startup-splash-frame)
+		(catch 'tmout
+		  (setq tmout (add-timeout startup-message-timeout
+					   (lambda (ignore)
+					     (condition-case nil
+						 (throw 'tmout t)
+					       (error nil)))
+					   nil))
+		  (setq circ-tmout (display-splash-frame))
 		  (or nil;; (pos-visible-in-window-p (point-min))
 		      (goto-char (point-min)))
 		  (sit-for 0)
 		  (setq unread-command-event (next-command-event)))
-	      (when timeout (disable-timeout timeout)))))
+	      (when tmout (disable-timeout tmout))
+	      (when circ-tmout (disable-timeout circ-tmout)))))
 	(with-current-buffer (get-buffer "*scratch*")
 	  ;; In case the XEmacs server has already selected
 	  ;; another buffer, erase the one our message is in.
@@ -766,7 +937,7 @@ a new format, when variables have changed, etc."
 	  (file-count 0)
 	  (line nil)
 	  (end-of-options nil)
-	  first-file-buffer file-p arg tem)
+	  file-p arg tem)
       (while command-line-args-left
 	(setq arg (pop command-line-args-left))
 	(cond
@@ -787,14 +958,14 @@ a new format, when variables have changed, etc."
 	  (setq end-of-options t))
 	 (t
 	  (setq file-p t)))
-	
+
 	(when file-p
 	  (setq file-p nil)
 	  (incf file-count)
 	  (setq arg (expand-file-name arg dir))
 	  (cond
-	   ((= file-count 1) (setq first-file-buffer
-				   (progn (find-file arg) (current-buffer))))
+	   ((= file-count 1)
+	    (find-file arg))
 	   (noninteractive (find-file arg))
 	   (t (find-file-other-window arg)))
 	  (when line
@@ -825,7 +996,7 @@ a new format, when variables have changed, etc."
 	       (setq e (read-key-sequence
 			(let ((p (keymap-prompt map t)))
 			  (cond ((symbolp map)
-				 (if p 
+				 (if p
 				     (format "%s %s " map p)
 				   (format "%s " map)))
 				(p)
@@ -844,12 +1015,12 @@ a new format, when variables have changed, etc."
     (symbol-name e)))
 
 (defun splash-frame-present-hack (e v)
-  ;;  (set-extent-property e 'mouse-face 'highlight)
-  ;;  (set-extent-property e 'keymap
-  ;;                       startup-presentation-hack-keymap)
-  ;;  (set-extent-property e 'startup-presentation-hack v)
-  ;;  (set-extent-property e 'help-echo
-  ;;                       'startup-presentation-hack-help))
+  ;;   (set-extent-property e 'mouse-face 'highlight)
+  ;;   (set-extent-property e 'keymap
+  ;;    		       startup-presentation-hack-keymap)
+  ;;   (set-extent-property e 'startup-presentation-hack v)
+  ;;   (set-extent-property e 'help-echo
+  ;;    		       'startup-presentation-hack-help)
   )
 
 (defun splash-hack-version-string ()
@@ -904,7 +1075,7 @@ a new format, when variables have changed, etc."
 (defun startup-center-spaces (glyph)
   ;; Return the number of spaces to insert in order to center
   ;; the given glyph (may be a string or a pixmap).
-  ;; Assume spaces are as wide as avg-pixwidth.  
+  ;; Assume spaces are as wide as avg-pixwidth.
   ;; Won't be quite right for proportional fonts, but it's the best we can do.
   ;; Maybe the new redisplay will export something a glyph-width function.
   ;;; #### Yes, there is a glyph-width function but it isn't quite what
@@ -915,7 +1086,7 @@ a new format, when variables have changed, etc."
   ;; This function is used in about.el too.
   (let* ((avg-pixwidth     (round (/ (frame-pixel-width) (frame-width))))
 	 (fill-area-width  (* avg-pixwidth (- fill-column left-margin)))
-	 (glyph-pixwidth   (cond ((stringp glyph) 
+	 (glyph-pixwidth   (cond ((stringp glyph)
 				  (* avg-pixwidth (length glyph)))
 				 ;; #### the pixmap option should be removed
 				 ;;((pixmapp glyph)
@@ -927,81 +1098,127 @@ a new format, when variables have changed, etc."
     (+ left-margin
        (round (/ (/ (- fill-area-width glyph-pixwidth) 2) avg-pixwidth)))))
 
-(defun startup-splash-frame-body ()
-  `("\n" ,(emacs-version) "\n"
-    ,@(if (string-match "beta" emacs-version)
-	  `( (face (bold blue) ( "This is an Experimental version of XEmacs. "
-				 " Type " (key describe-beta)
-				 " to see what this means.\n")))
-	`( "\n"))
-    (face bold-italic "\
-Copyright (C) 1985-1997 Free Software Foundation, Inc.
-Copyright (C) 1990-1994 Lucid, Inc.
-Copyright (C) 1993-1997 Sun Microsystems, Inc. All Rights Reserved.
-Copyright (C) 1994-1996 Board of Trustees, University of Illinois
-Copyright (C) 1995-1996 Ben Wing\n\n")
-    
-    ,@(if (featurep 'sparcworks)
-          `( "\
+(defun splash-frame-body ()
+  `[((face (blue bold underline)
+	   "\nDistribution, copying license, warranty:\n\n")
+     "Please visit the XEmacs website at http://www.xemacs.org !\n\n"
+     ,@(if (featurep 'sparcworks)
+	   `( "\
 Sun provides support for the WorkShop/XEmacs integration package only.
-All other XEmacs packages are provided to you \"AS IS\".
-For full details, type " (key describe-no-warranty)
-" to refer to the GPL Version 2, dated June 1991.\n\n"
-,@(let ((lang (or (getenv "LC_ALL") (getenv "LC_MESSAGES") (getenv "LANG"))))
-    (if (and
-         (not (featurep 'mule))         ; Already got mule?
-         (not (eq 'tty (console-type))) ; No Mule support on tty's yet
-         lang                           ; Non-English locale?
-         (not (string= lang "C"))
-         (not (string-match "^en" lang))
-         (locate-file "xemacs-mule" exec-path)) ; Comes with Sun WorkShop
-        '( "\
+All other XEmacs packages are provided to you \"AS IS\".\n"
+	      ,@(let ((lang (or (getenv "LC_ALL") (getenv "LC_MESSAGES")
+				(getenv "LANG"))))
+		  (if (and
+		       (not (featurep 'mule)) ;; Already got mule?
+		       ;; No Mule support on tty's yet
+		       (not (eq 'tty (console-type)))
+		       lang ;; Non-English locale?
+		       (not (string= lang "C"))
+		       (not (string-match "^en" lang))
+		       ;; Comes with Sun WorkShop
+		       (locate-file "xemacs-mule" exec-path))
+		      '( "\
 This version of XEmacs has been built with support for Latin-1 languages only.
 To handle other languages you need to run a Multi-lingual (`Mule') version of
 XEmacs, by either running the command `xemacs-mule', or by using the X resource
-`ESERVE*defaultXEmacsPath: xemacs-mule' when starting XEmacs from Sun WorkShop.\n\n"))))
+`ESERVE*defaultXEmacsPath: xemacs-mule' when starting XEmacs from Sun WorkShop.
+\n")))))
+     ((key describe-no-warranty)
+      ": "(face (red bold) "XEmacs comes with ABSOLUTELY NO WARRANTY\n"))
+     ((key describe-copying)
+      ": conditions to give out copies of XEmacs\n")
+     ((key describe-distribution)
+      ": how to get the latest version\n")
+     "\n--\n"
+     (face italic "\
+Copyright (C) 1985-2001 Free Software Foundation, Inc.
+Copyright (C) 1990-1994 Lucid, Inc.
+Copyright (C) 1993-1997 Sun Microsystems, Inc. All Rights Reserved.
+Copyright (C) 1994-1996 Board of Trustees, University of Illinois
+Copyright (C) 1995-2001 Ben Wing
+Copyright (C) 1996-2002 MORIOKA Tomohiko
+"))
 
-        '("XEmacs comes with ABSOLUTELY NO WARRANTY; type "
-          (key describe-no-warranty) " for full details.\n"))
-    
-    "You may give out copies of XEmacs; type "
-    (key describe-copying) " to see the conditions.\n"
-    "Type " (key describe-distribution)
-    " for information on getting the latest version.\n\n"
+    ((face (blue bold underline) "\nInformation, on-line help:\n\n")
+     "XEmacs comes with plenty of documentation...\n\n"
+     ,@(if (string-match "beta" emacs-version)
+	   `((key describe-beta)
+	     ": " (face (red bold)
+			"This is an Experimental version of XEmacs.\n"))
+	 `( "\n"))
+     ((key xemacs-local-faq)
+      ": read the XEmacs FAQ (a " (face underline "capital") " F!)\n")
+     ((key help-with-tutorial)
+      ": read the XEmacs tutorial (also available through the "
+      (face bold "Help") " menu)\n")
+     ((key help-command)
+      ": get help on using XEmacs (also available through the "
+      (face bold "Help") " menu)\n")
+     ((key info) ": read the on-line documentation\n\n")
+     ((key describe-project) ": read about the GNU project\n")
+     ((key about-xemacs) ": see who's developing XEmacs\n"))
 
-    "Type " (key help-command) " or use the " (face bold "Help") " menu to get help.\n"
-    "Type " (key advertised-undo) " to undo changes  (`C-' means use the Control key).\n"
-    "To get out of XEmacs, type " (key save-buffers-kill-emacs) ".\n"
-    "Type " (key help-with-tutorial) " for a tutorial on using XEmacs.\n"
-    "Type " (key info) " to enter Info, "
-    "which you can use to read online documentation.\n"
-    (face (bold red) ( "\
-For tips and answers to frequently asked questions, see the XEmacs FAQ.
-\(It's on the Help menu, or type " (key xemacs-local-faq) " [a capital F!].\)"))))
+    ((face (blue bold underline) "\nUseful stuff:\n\n")
+     "Things that you should know rather quickly...\n\n"
+     ((key find-file) ": visit a file\n")
+     ((key save-buffer) ": save changes\n")
+     ((key advertised-undo) ": undo changes\n")
+     ((key save-buffers-kill-emacs) ": exit XEmacs\n"))
+    ])
 
 ;; I really hate global variables, oh well.
 ;(defvar xemacs-startup-logo-function nil
 ;  "If non-nil, function called to provide the startup logo.
 ;This function should return an initialized glyph if it is used.")
 
-(defun startup-splash-frame ()
-  (let ((p (point))
-;	(logo (cond (xemacs-startup-logo-function
-;		     (funcall xemacs-startup-logo-function))
-;		    (t xemacs-logo)))
-	(logo xemacs-logo)
+;; This will hopefully go away when gettext is functional.
+(defconst splash-frame-static-body
+  `(,(emacs-version) "\n\n"
+    (face italic "`C-' means the control key,`M-' means the meta key\n\n")))
+
+
+(defun circulate-splash-frame-elements (client-data)
+  (with-current-buffer (aref client-data 2)
+    (let ((buffer-read-only nil)
+	  (elements (aref client-data 3))
+	  (indice (aref client-data 0)))
+      (goto-char (aref client-data 1))
+      (delete-region (point) (point-max))
+      (splash-frame-present (aref elements indice))
+      (set-buffer-modified-p nil)
+      (aset client-data 0
+	    (if (= indice (- (length elements) 1))
+		0
+	      (1+ indice )))
+      )))
+
+;; #### This function now returns the (possibly nil) timeout circulating the
+;; splash-frame elements
+(defun display-splash-frame ()
+  (let ((logo xemacs-logo)
+	(buffer-read-only nil)
         (cramped-p (eq 'tty (console-type))))
     (unless cramped-p (insert "\n"))
     (indent-to (startup-center-spaces logo))
     (set-extent-begin-glyph (make-extent (point) (point)) logo)
-    (insert (if cramped-p "\n" "\n\n"))
-    (splash-frame-present-hack (make-extent p (point)) 'about-xemacs))
-
-  (let ((after-change-functions nil))	; no font-lock, thank you
-    (dolist (l (startup-splash-frame-body))
-      (splash-frame-present l)))
-  (splash-hack-version-string)
-  (set-buffer-modified-p nil))
+    ;;(splash-frame-present-hack (make-extent p (point)) 'about-xemacs))
+    (insert "\n\n")
+    (splash-frame-present splash-frame-static-body)
+    (splash-hack-version-string)
+    (goto-char (point-max))
+    (let* ((after-change-functions nil) ; no font-lock, thank you
+	   (elements (splash-frame-body))
+	   (client-data `[ 1 ,(point) ,(current-buffer) ,elements ])
+	   tmout)
+      (if (listp  elements) ;; A single element to display
+	  (splash-frame-present (splash-frame-body))
+	;; several elements to rotate
+	(splash-frame-present (aref elements 0))
+	(setq tmout (add-timeout splash-frame-timeout
+				 'circulate-splash-frame-elements
+				 client-data splash-frame-timeout)))
+      (set-buffer-modified-p nil)
+      tmout)))
 
 ;;  (let ((present-file
 ;;         #'(lambda (f)
@@ -1024,7 +1241,8 @@ For tips and answers to frequently asked questions, see the XEmacs FAQ.
 	;; don't let /tmp_mnt/... get into the load-path or exec-path.
 	(abbreviate-file-name invocation-directory)))
 
-(defun startup-setup-paths (roots &optional
+(defun startup-setup-paths (roots user-init-directory
+				  &optional
 				  inhibit-early-packages inhibit-site-lisp
 				  debug-paths)
   "Setup all the various paths.
@@ -1039,7 +1257,9 @@ It's idempotent, so call this as often as you like!"
 				       early))
 	     (setq late-packages late)
 	     (setq last-packages last))
-	 (packages-find-packages roots))
+	 (packages-find-packages
+	  roots
+	  (packages-compute-package-locations user-init-directory)))
 
   (setq early-package-load-path (packages-find-package-load-path early-packages))
   (setq late-package-load-path (packages-find-package-load-path late-packages))
@@ -1065,6 +1285,28 @@ It's idempotent, so call this as often as you like!"
       (princ (format "lisp-directory:\n%S\n" lisp-directory)
 	     'external-debugging-output))
 
+  (if (featurep 'mule)
+      (progn
+	(setq mule-lisp-directory
+	      (paths-find-mule-lisp-directory roots
+					      lisp-directory))
+	(if debug-paths
+	    (princ (format "mule-lisp-directory:\n%S\n"
+			   mule-lisp-directory)
+		   'external-debugging-output)))
+    (setq mule-lisp-directory '()))
+
+  (if (featurep 'utf-2000)
+      (progn
+	(setq utf-2000-lisp-directory
+	      (paths-find-utf-2000-lisp-directory roots
+						  lisp-directory))
+	(if debug-paths
+	    (princ (format "utf-2000-lisp-directory:\n%S\n"
+			   utf-2000-lisp-directory)
+		   'external-debugging-output)))
+    (setq utf-2000-lisp-directory '()))
+
   (setq site-directory (and (null inhibit-site-lisp)
 			    (paths-find-site-lisp-directory roots)))
 
@@ -1077,28 +1319,18 @@ It's idempotent, so call this as often as you like!"
 					     late-package-load-path
 					     last-package-load-path
 					     lisp-directory
-					     site-directory))
+					     site-directory
+					     mule-lisp-directory
+					     utf-2000-lisp-directory))
 
   (setq Info-directory-list
 	(paths-construct-info-path roots
 				   early-packages late-packages last-packages))
 
-  
+
   (if debug-paths
       (princ (format "Info-directory-list:\n%S\n" Info-directory-list)
 	     'external-debugging-output))
-
-  (if (boundp 'lock-directory)
-      (progn
-	(setq lock-directory (paths-find-lock-directory roots))
-	(setq superlock-file (paths-find-superlock-file lock-directory))
-	
-	(if debug-paths
-	    (progn
-	      (princ (format "lock-directory:\n%S\n" lock-directory)
-		     'external-debugging-output)
-	      (princ (format "superlock-file:\n%S\n" superlock-file)
-		     'external-debugging-output)))))
 
   (setq exec-directory (paths-find-exec-directory roots))
 
@@ -1113,7 +1345,7 @@ It's idempotent, so call this as often as you like!"
   (if debug-paths
       (princ (format "exec-path:\n%S\n" exec-path)
 	     'external-debugging-output))
-  
+
   (setq doc-directory (paths-find-doc-directory roots))
 
   (if debug-paths
@@ -1147,20 +1379,21 @@ It's idempotent, so call this as often as you like!"
     (princ (buffer-string) 'external-debugging-output)))
 
 (defun startup-setup-paths-warning ()
-  (let ((lock (if (boundp 'lock-directory) lock-directory 't))
-	(warnings '()))
-    (if (and (stringp lock) (null (file-directory-p lock)))
-	(setq lock nil))
+  (let ((warnings '()))
     (cond
      ((null (and lisp-directory exec-directory data-directory doc-directory
-		 load-path
-		 lock))
+		 load-path))
       (save-excursion
 	(set-buffer (get-buffer-create " *warning-tmp*"))
 	(erase-buffer)
 	(buffer-disable-undo (current-buffer))
 	(if (null lisp-directory) (push "lisp-directory" warnings))
-	(if (null lock)           (push "lock-directory" warnings))
+	(if (and (featurep 'mule)
+		 (null mule-lisp-directory))
+	    (push "mule-lisp-directory" warnings))
+	(if (and (featurep 'utf-2000)
+		 (null utf-2000-lisp-directory))
+	    (push "utf-2000-lisp-directory" warnings))
 	(if (null exec-directory) (push "exec-directory" warnings))
 	(if (null data-directory) (push "data-directory" warnings))
 	(if (null doc-directory)  (push "doc-directory"  warnings))

@@ -1,6 +1,7 @@
 /* Header for code conversion stuff
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 1999,2000,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -24,14 +25,14 @@ Boston, MA 02111-1307, USA.  */
 /* 91.10.09 written by K.Handa <handa@etl.go.jp> */
 /* Rewritten by Ben Wing <ben@xemacs.org>. */
 
-#ifndef _XEMACS_MULE_CODING_H_
-#define _XEMACS_MULE_CODING_H_
+#ifndef INCLUDED_file_coding_h_
+#define INCLUDED_file_coding_h_
 
 struct decoding_stream;
 struct encoding_stream;
 
 /* Coding system types.  These go into the TYPE field of a
-   struct Lisp_Coding_System. */
+   Lisp_Coding_System. */
 
 enum coding_system_type
 {
@@ -42,6 +43,11 @@ enum coding_system_type
   CODESYS_ISO2022,	/* Any ISO2022-compliant coding system.
 			   Includes JIS, EUC, CTEXT */
   CODESYS_BIG5,		/* BIG5 (used for Taiwanese). */
+  CODESYS_UCS4,		/* ISO 10646 UCS-4 */
+  CODESYS_UTF8,		/* ISO 10646 UTF-8 */
+#ifdef UTF2000
+  CODESYS_UTF16,	/* ISO 10646 UTF-16 */
+#endif
   CODESYS_CCL,		/* Converter written in CCL. */
 #endif
   CODESYS_NO_CONVERSION	/* "No conversion"; used for binary files.
@@ -61,6 +67,7 @@ enum eol_type
   EOL_CRLF,
   EOL_CR
 };
+typedef enum eol_type eol_type_t;
 
 #ifdef MULE
 typedef struct charset_conversion_spec charset_conversion_spec;
@@ -81,7 +88,8 @@ struct Lisp_Coding_System
   struct lcrecord_header header;
 
   /* Name and doc string of this coding system. */
-  Lisp_Object name, doc_string;
+  Lisp_Object name;
+  Lisp_Object doc_string;
 
   /* This is the major type of the coding system -- one of Big5, ISO2022,
      Shift-JIS, etc.  See the constants above. */
@@ -91,14 +99,17 @@ struct Lisp_Coding_System
      system is active for a particular buffer. */
   Lisp_Object mnemonic;
 
-  Lisp_Object post_read_conversion, pre_write_conversion;
+  Lisp_Object post_read_conversion;
+  Lisp_Object pre_write_conversion;
 
-  enum eol_type eol_type;
+  eol_type_t eol_type;
 
   /* Subsidiary coding systems that specify a particular type of EOL
      marking, rather than autodetecting it.  These will only be non-nil
      if (eol_type == EOL_AUTODETECT). */
-  Lisp_Object eol_lf, eol_crlf, eol_cr;
+  Lisp_Object eol_lf;
+  Lisp_Object eol_crlf;
+  Lisp_Object eol_cr;
 #ifdef MULE
   struct
   {
@@ -127,16 +138,22 @@ struct Lisp_Coding_System
   {
     /* For a CCL coding system, these specify the CCL programs used for
        decoding (input) and encoding (output). */
-    Lisp_Object decode, encode;
+    Lisp_Object decode;
+    Lisp_Object encode;
   } ccl;
 #endif
+#ifdef UTF2000
+  unsigned int disable_composition	:1;
+  unsigned int use_entity_reference	:1;
+  Lisp_Object ccs_priority_list;
+#endif
 };
+typedef struct Lisp_Coding_System Lisp_Coding_System;
 
-DECLARE_LRECORD (coding_system, struct Lisp_Coding_System);
-#define XCODING_SYSTEM(x) XRECORD (x, coding_system, struct Lisp_Coding_System)
+DECLARE_LRECORD (coding_system, Lisp_Coding_System);
+#define XCODING_SYSTEM(x) XRECORD (x, coding_system, Lisp_Coding_System)
 #define XSETCODING_SYSTEM(x, p) XSETRECORD (x, p, coding_system)
 #define CODING_SYSTEMP(x) RECORDP (x, coding_system)
-#define GC_CODING_SYSTEMP(x) GC_RECORDP (x, coding_system)
 #define CHECK_CODING_SYSTEM(x) CHECK_RECORD (x, coding_system)
 #define CONCHECK_CODING_SYSTEM(x) CONCHECK_RECORD (x, coding_system)
 
@@ -173,6 +190,14 @@ DECLARE_LRECORD (coding_system, struct Lisp_Coding_System);
 #define CODING_SYSTEM_CCL_DECODE(codesys) ((codesys)->ccl.decode)
 #define CODING_SYSTEM_CCL_ENCODE(codesys) ((codesys)->ccl.encode)
 #endif /* MULE */
+#ifdef UTF2000
+#define CODING_SYSTEM_DISABLE_COMPOSITION(codesys) \
+  ((codesys)->disable_composition)
+#define CODING_SYSTEM_USE_ENTITY_REFERENCE(codesys) \
+  ((codesys)->use_entity_reference)
+#define CODING_SYSTEM_CCS_PRIORITY_LIST(codesys) \
+  ((codesys)->ccs_priority_list)
+#endif
 
 #define XCODING_SYSTEM_NAME(codesys) \
   CODING_SYSTEM_NAME (XCODING_SYSTEM (codesys))
@@ -219,6 +244,12 @@ DECLARE_LRECORD (coding_system, struct Lisp_Coding_System);
 #define XCODING_SYSTEM_CCL_ENCODE(codesys) \
   CODING_SYSTEM_CCL_ENCODE (XCODING_SYSTEM (codesys))
 #endif /* MULE */
+#ifdef UTF2000
+#define XCODING_SYSTEM_DISABLE_COMPOSITION(codesys) \
+  CODING_SYSTEM_DISABLE_COMPOSITION (XCODING_SYSTEM (codesys))
+#define XCODING_SYSTEM_USE_ENTITY_REFERENCE(codesys) \
+  CODING_SYSTEM_USE_ENTITY_REFERENCE (XCODING_SYSTEM (codesys))
+#endif
 
 EXFUN (Fcoding_category_list, 0);
 EXFUN (Fcoding_category_system, 1);
@@ -245,18 +276,20 @@ EXFUN (Fset_coding_category_system, 2);
 EXFUN (Fset_coding_priority_list, 1);
 EXFUN (Fsubsidiary_coding_system, 2);
 
-extern Lisp_Object Qbig5, Qbuffer_file_coding_system, Qccl, Qcharset_g0;
+extern Lisp_Object Qucs4, Qutf8;
+extern Lisp_Object Qbig5, Qccl, Qcharset_g0;
 extern Lisp_Object Qcharset_g1, Qcharset_g2, Qcharset_g3, Qcoding_system_error;
-extern Lisp_Object Qcoding_system_p, Qcr, Qcrlf, Qctext, Qdecode, Qencode;
+extern Lisp_Object Qcoding_systemp, Qcr, Qcrlf, Qdecode, Qencode;
 extern Lisp_Object Qeol_cr, Qeol_crlf, Qeol_lf, Qeol_type, Qescape_quoted;
 extern Lisp_Object Qforce_g0_on_output, Qforce_g1_on_output;
 extern Lisp_Object Qforce_g2_on_output, Qforce_g3_on_output;
 extern Lisp_Object Qinput_charset_conversion, Qiso2022, Qlf, Qlock_shift;
 extern Lisp_Object Qmnemonic, Qno_ascii_cntl, Qno_ascii_eol, Qno_conversion;
+extern Lisp_Object Qraw_text;
 extern Lisp_Object Qno_iso6429, Qoutput_charset_conversion;
 extern Lisp_Object Qpost_read_conversion, Qpre_write_conversion, Qseven;
 extern Lisp_Object Qshift_jis, Qshort, Vcoding_system_for_read;
-extern Lisp_Object Vcoding_system_for_write, Vcoding_system_hashtable;
+extern Lisp_Object Vcoding_system_for_write, Vcoding_system_hash_table;
 extern Lisp_Object Vfile_name_coding_system, Vkeyboard_coding_system;
 extern Lisp_Object Vterminal_coding_system;
 
@@ -305,20 +338,26 @@ extern Lisp_Object Vterminal_coding_system;
 					     CODING_STATE_SS2 overrides; but
 					     this probably indicates an error
 					     in the text encoding. */
+#ifdef ENABLE_COMPOSITE_CHARS
 #define CODING_STATE_COMPOSITE  (1 << 8)  /* If set, we're currently processing
 					     a composite character (i.e. a
 					     character constructed by
 					     overstriking two or more
 					     characters). */
+#endif /* ENABLE_COMPOSITE_CHARS */
 
 
 /* CODING_STATE_ISO2022_LOCK is the mask of flags that remain on until
    explicitly turned off when in the ISO2022 encoder/decoder.  Other flags are
    turned off at the end of processing each character or escape sequence. */
+#ifdef ENABLE_COMPOSITE_CHARS
 # define CODING_STATE_ISO2022_LOCK \
   (CODING_STATE_END | CODING_STATE_COMPOSITE | CODING_STATE_R2L)
-#define CODING_STATE_BIG5_LOCK \
-  CODING_STATE_END
+#else
+# define CODING_STATE_ISO2022_LOCK (CODING_STATE_END | CODING_STATE_R2L)
+#endif
+
+#define CODING_STATE_BIG5_LOCK CODING_STATE_END
 
 /* Flags indicating what we've seen so far when parsing an
    ISO2022 escape sequence. */
@@ -361,16 +400,15 @@ enum iso_esc_flag
 			   starts a directionality-control
 			   sequence.  The next character
 			   must be 0, 1, 2, or ]. */
-  ISO_ESC_5_11_0,	/* We've seen 0x9B 0.  The next
-			   character must be ]. */
-  ISO_ESC_5_11_1,	/* We've seen 0x9B 1.  The next
-			   character must be ]. */
-  ISO_ESC_5_11_2,	/* We've seen 0x9B 2.  The next
-			   character must be ]. */
+  ISO_ESC_5_11_0,	/* We've seen 0x9B 0.  The next character must be ]. */
+  ISO_ESC_5_11_1,	/* We've seen 0x9B 1.  The next character must be ]. */
+  ISO_ESC_5_11_2,	/* We've seen 0x9B 2.  The next character must be ]. */
 
   /* Full sequences. */
+#ifdef ENABLE_COMPOSITE_CHARS
   ISO_ESC_START_COMPOSITE, /* Private usage for START COMPOSING */
-  ISO_ESC_END_COMPOSITE, /* Private usage for END COMPOSING */
+  ISO_ESC_END_COMPOSITE,   /* Private usage for END COMPOSING */
+#endif /* ENABLE_COMPOSITE_CHARS */
   ISO_ESC_SINGLE_SHIFT, /* We've seen a complete single-shift sequence. */
   ISO_ESC_LOCKING_SHIFT,/* We've seen a complete locking-shift sequence. */
   ISO_ESC_DESIGNATE,	/* We've seen a complete designation sequence. */
@@ -393,44 +431,50 @@ enum iso_esc_flag
 #define ISO_CODE_CSI	0x9B		/* control-sequence-introduce */
 #endif /* MULE */
 
-/* Macros to access an encoding stream or decoding stream */
+/* Distinguishable categories of encodings.
 
-#define CODING_STREAM_DECOMPOSE(str, flags, ch)	\
-do {						\
-  flags = (str)->flags;				\
-  ch = (str)->ch;				\
-} while (0)
+   This list determines the initial priority of the categories.
 
-#define CODING_STREAM_COMPOSE(str, flags, ch)	\
-do {						\
-  (str)->flags = flags;				\
-  (str)->ch = ch;				\
-} while (0)
+   For better or worse, currently Mule files are encoded in 7-bit ISO 2022.
+   For this reason, under Mule ISO_7 gets highest priority.
 
+   Putting NO_CONVERSION second prevents "binary corruption" in the
+   default case in all but the (presumably) extremely rare case of a
+   binary file which contains redundant escape sequences but no 8-bit
+   characters.
 
-/* For detecting the encoding of text */
+   The remaining priorities are based on perceived "internationalization
+   political correctness."  An exception is UCS-4 at the bottom, since
+   basically everything is compatible with UCS-4, but it is likely to
+   be very rare as an external encoding. */
+
 enum coding_category_type
 {
+  /* must be a contiguous range of values 0 -- CODING_CATEGORY_LAST - 1 */
 #ifdef MULE
-  CODING_CATEGORY_SHIFT_JIS,
   CODING_CATEGORY_ISO_7, /* ISO2022 system using only seven-bit bytes,
 			    no locking shift */
-  CODING_CATEGORY_ISO_8_DESIGNATE, /* ISO2022 system using eight-bit bytes,
-				      no locking shift, no single shift,
-				      using designation to switch charsets */
+  CODING_CATEGORY_NO_CONVERSION,
+  CODING_CATEGORY_UTF8,
   CODING_CATEGORY_ISO_8_1, /* ISO2022 system using eight-bit bytes,
 			      no locking shift, no designation sequences,
 			      one-dimension characters in the upper half. */
   CODING_CATEGORY_ISO_8_2, /* ISO2022 system using eight-bit bytes,
 			      no locking shift, no designation sequences,
 			      two-dimension characters in the upper half. */
+  CODING_CATEGORY_ISO_8_DESIGNATE, /* ISO2022 system using eight-bit bytes,
+				      no locking shift, no single shift,
+				      using designation to switch charsets */
   CODING_CATEGORY_ISO_LOCK_SHIFT, /* ISO2022 system using locking shift */
+  CODING_CATEGORY_SHIFT_JIS,
   CODING_CATEGORY_BIG5,
+  CODING_CATEGORY_UTF16,
+  CODING_CATEGORY_UCS4,
+#else /* not MULE */
+  CODING_CATEGORY_NO_CONVERSION,
 #endif /* MULE */
-  CODING_CATEGORY_NO_CONVERSION
+  CODING_CATEGORY_LAST		/* not a real coding category */
 };
-
-#define CODING_CATEGORY_LAST CODING_CATEGORY_NO_CONVERSION
 
 #ifdef MULE
 #define CODING_CATEGORY_SHIFT_JIS_MASK	\
@@ -447,6 +491,12 @@ enum coding_category_type
   (1 << CODING_CATEGORY_ISO_LOCK_SHIFT)
 #define CODING_CATEGORY_BIG5_MASK \
   (1 << CODING_CATEGORY_BIG5)
+#define CODING_CATEGORY_UCS4_MASK \
+  (1 << CODING_CATEGORY_UCS4)
+#define CODING_CATEGORY_UTF16_MASK \
+  (1 << CODING_CATEGORY_UTF16)
+#define CODING_CATEGORY_UTF8_MASK \
+  (1 << CODING_CATEGORY_UTF8)
 #endif
 #define CODING_CATEGORY_NO_CONVERSION_MASK \
   (1 << CODING_CATEGORY_NO_CONVERSION)
@@ -499,18 +549,21 @@ void set_decoding_stream_coding_system (Lstream *stream,
 void set_encoding_stream_coding_system (Lstream *stream,
 					Lisp_Object codesys);
 void determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
-				   enum eol_type *eol_type_in_out);
+				   eol_type_t *eol_type_in_out);
 
 
 #ifndef MULE
 #define MIN_LEADING_BYTE		0x80
 /* These need special treatment in a string and/or character */
+#ifdef ENABLE_COMPOSITE_CHARS
 #define LEADING_BYTE_COMPOSITE		0x80 /* for a composite character */
+#endif
 #define LEADING_BYTE_CONTROL_1		0x8F /* represent normal 80-9F */
 #define LEADING_BYTE_LATIN_ISO8859_1	0x81 /* Right half of ISO 8859-1 */
 #define BYTE_C1_P(c) ((unsigned int) ((unsigned int) (c) - 0x80) < 0x20)
 #define BUFBYTE_FIRST_BYTE_P(c) ((c) < 0xA0)
 #define BUFBYTE_LEADING_BYTE_P(c) BYTE_C1_P (c)
 #endif /* not MULE */
-#endif /* _XEMACS_MULE_CODING_H_ */
+
+#endif /* INCLUDED_file_coding_h_ */
 

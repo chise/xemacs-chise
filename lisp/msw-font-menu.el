@@ -43,12 +43,11 @@
   "Registry and encoding to use with font menu fonts.")
 
 (defvar mswindows-font-menu-junk-families
-  (purecopy
-   (mapconcat
-    #'identity
-    '("Symbol" 
-      )
-    "\\|"))
+  (mapconcat
+   #'identity
+   '("Symbol" 
+     )
+   "\\|")
   "A regexp matching font families which are uninteresting (e.g. cursor fonts).")
 
 (defvar mswindows-font-regexp-ascii nil
@@ -177,13 +176,13 @@ or if you change your font path, you can call this to re-initialize the menus."
     
     (when (string-match mswindows-font-regexp name)
       (setq weight (match-string 2 name))
-      (setq size   (string-to-int (match-string 4 name))))
+      (setq size   (string-to-int (or (match-string 4 name) "0"))))
       
     (when (string-match mswindows-font-regexp truename)
       (when (not (member weight (aref entry 1)))
 	(setq weight (match-string 2 truename)))
       (when (not (member size   (aref entry 2)))
-	(setq size (string-to-int (match-string 4 truename))))
+	(setq size (string-to-int (or (match-string 4 truename) "0"))))
       (setq slant (match-string 5 truename)))
       
     (vector entry family size weight slant)))

@@ -21,14 +21,14 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_FACES_H_
-#define _XEMACS_FACES_H_
+#ifndef INCLUDED_faces_h_
+#define INCLUDED_faces_h_
 
 #include "buffer.h" /* for NUM_LEADING_BYTES */
 
-/* a struct Lisp_Face is the C object corresponding to a face.  There
-   is one of these per face.  It basically contains all of the specifiers
-   for the built-in face properties, plus the plist of user-specified
+/* a Lisp_Face is the C object corresponding to a face.  There is one
+   of these per face.  It basically contains all of the specifiers for
+   the built-in face properties, plus the plist of user-specified
    properties. */
 
 struct Lisp_Face
@@ -125,7 +125,7 @@ struct face_cachel
      corresponding single-face cachels.
 
      Formerly we didn't bother to keep track of the faces used for
-     merging.  We do know because we need to do so because there is no
+     merging.  We do now because we need to do so because there is no
      other way to properly handle multiple charsets for Mule in the
      presence of display tables short of always computing the values
      for all charsets, which is very expensive.  Instead, we use a
@@ -215,18 +215,17 @@ struct face_cachel
      right sort are available on the system.  In this case, the
      whole program will just crash.  For the moment, this is
      OK (for debugging purposes) but we should fix this by
-     storing a "blank font" if the instantation fails. */
+     storing a "blank font" if the instantiation fails. */
   unsigned int dirty :1;
   unsigned int updated :1;
   /* #### Of course we should use a bit array or something. */
   unsigned char font_updated[NUM_LEADING_BYTES];
 };
 
-DECLARE_LRECORD (face, struct Lisp_Face);
-#define XFACE(x) XRECORD (x, face, struct Lisp_Face)
+DECLARE_LRECORD (face, Lisp_Face);
+#define XFACE(x) XRECORD (x, face, Lisp_Face)
 #define XSETFACE(x, p) XSETRECORD (x, p, face)
 #define FACEP(x) RECORDP (x, face)
-#define GC_FACEP(x) GC_RECORDP (x, face)
 #define CHECK_FACE(x) CHECK_RECORD (x, face)
 
 Lisp_Object ensure_face_cachel_contains_charset (struct face_cachel *cachel,
@@ -234,15 +233,14 @@ Lisp_Object ensure_face_cachel_contains_charset (struct face_cachel *cachel,
 						 Lisp_Object charset);
 void ensure_face_cachel_complete (struct face_cachel *cachel,
 				  Lisp_Object domain,
-				  unsigned char *charsets);
+				  Charset_ID *charsets);
 void update_face_cachel_data (struct face_cachel *cachel,
 			      Lisp_Object domain,
 			      Lisp_Object face);
 void face_cachel_charset_font_metric_info (struct face_cachel *cachel,
-					   unsigned char *charsets,
+					   Charset_ID *charsets,
 					   struct font_metric_info *fm);
-void mark_face_cachels (face_cachel_dynarr *elements,
-			void (*markobj) (Lisp_Object));
+void mark_face_cachels (face_cachel_dynarr *elements);
 void mark_face_cachels_as_clean (struct window *w);
 void mark_face_cachels_as_not_updated (struct window *w);
 void reset_face_cachel (struct face_cachel *inst);
@@ -260,8 +258,8 @@ EXFUN (Fget_face, 1);
 
 extern Lisp_Object Qstrikethru, Vbuilt_in_face_specifiers, Vdefault_face;
 extern Lisp_Object Vleft_margin_face, Vpointer_face, Vright_margin_face;
-extern Lisp_Object Vtext_cursor_face, Vvertical_divider_face; 
-extern Lisp_Object Vtoolbar_face, Vgui_element_face;
+extern Lisp_Object Vtext_cursor_face, Vvertical_divider_face;
+extern Lisp_Object Vtoolbar_face, Vgui_element_face, Vwidget_face;
 
 void mark_all_faces_as_clean (void);
 void init_frame_faces (struct frame *f);
@@ -281,7 +279,7 @@ void default_face_height_and_width_1 (Lisp_Object domain,
 				      int *height, int *width);
 
 #define FACE_CACHEL_FONT(cachel, charset) \
-  (cachel->font[XCHARSET_LEADING_BYTE (charset) - 128])
+  (cachel->font[XCHARSET_LEADING_BYTE (charset) - MIN_LEADING_BYTE])
 
 #define WINDOW_FACE_CACHEL(window, index) \
   Dynarr_atp ((window)->face_cachels, index)
@@ -343,9 +341,9 @@ Lisp_Object face_property_matching_instance (Lisp_Object face,
 #define FACE_PROPERTY_SPEC_LIST(face, property, locale)			\
   Fspecifier_spec_list (FACE_PROPERTY_SPECIFIER (face, property),	\
 			locale, Qnil, Qnil)
-#define SET_FACE_PROPERTY(face, property, locale, value, tag, how_to_add) \
+#define SET_FACE_PROPERTY(face, property, value, locale, tag, how_to_add) \
   Fadd_spec_to_specifier (FACE_PROPERTY_SPECIFIER (face, property),	\
-			  locale, value, tag, how_to_add)
+			  value, locale, tag, how_to_add)
 
 #define FACE_FOREGROUND(face, domain)					\
   FACE_PROPERTY_INSTANCE (face, Qforeground, domain, 0, Qzero)
@@ -360,6 +358,8 @@ Lisp_Object face_property_matching_instance (Lisp_Object face,
   FACE_PROPERTY_INSTANCE (face, Qbackground_pixmap, domain, 0, Qzero)
 #define FACE_UNDERLINE_P(face, domain)					\
   (!NILP (FACE_PROPERTY_INSTANCE (face, Qunderline, domain, 0, Qzero)))
+#define FACE_STRIKETHRU_P(face, domain)					\
+  (!NILP (FACE_PROPERTY_INSTANCE (face, Qstrikethru, domain, 0, Qzero)))
 #define FACE_HIGHLIGHT_P(face, domain)					\
   (!NILP (FACE_PROPERTY_INSTANCE (face, Qhighlight, domain, 0, Qzero)))
 #define FACE_DIM_P(face, domain)					\
@@ -369,4 +369,4 @@ Lisp_Object face_property_matching_instance (Lisp_Object face,
 #define FACE_REVERSE_P(face, domain)					\
   (!NILP (FACE_PROPERTY_INSTANCE (face, Qreverse, domain, 0, Qzero)))
 
-#endif /* _XEMACS_FACES_H_ */
+#endif /* INCLUDED_faces_h_ */

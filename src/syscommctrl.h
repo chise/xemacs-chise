@@ -28,7 +28,11 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_syscommctrl_h_
 #define INCLUDED_syscommctrl_h_
 
+#if !defined (CYGWIN_VERSION_DLL_MAJOR) || CYGWIN_VERSION_DLL_MAJOR > 20
+/* Appears to be missing in Cygwin b20.1; requisite includes are in
+   Windows32/Messages.h and get included automatically with windows.h */
 #include <commctrl.h>
+#endif
 
 #ifndef TB_SETIMAGELIST
 #define TB_SETIMAGELIST (WM_USER + 48)
