@@ -1214,6 +1214,7 @@ character set.  Recognized properties are:
   Lisp_Object ccl_program = Qnil;
   Lisp_Object short_name = Qnil, long_name = Qnil;
 #ifdef UTF2000
+  Emchar code_offset = 0;
   unsigned char byte_offset = 0;
 #endif
 
@@ -1331,12 +1332,17 @@ character set.  Recognized properties are:
     {
       if (chars == 94)
 	{
-	  /* id = CHARSET_ID_OFFSET_94 + final; */
-	  id = get_unallocated_leading_byte (dimension);
+	  if (code_offset == 0)
+	    id = CHARSET_ID_OFFSET_94 + final;
+	  else
+	    id = get_unallocated_leading_byte (dimension);
 	}
       else if (chars == 96)
 	{
-	  id = get_unallocated_leading_byte (dimension);
+	  if (code_offset == 0)
+	    id = CHARSET_ID_OFFSET_96 + final;
+	  else
+	    id = get_unallocated_leading_byte (dimension);
 	}
       else
 	{
@@ -1347,7 +1353,10 @@ character set.  Recognized properties are:
     {
       if (chars == 94)
 	{
-	  id = get_unallocated_leading_byte (dimension);
+	  if (code_offset == 0)
+	    id = CHARSET_ID_OFFSET_94x94 + final;
+	  else
+	    id = get_unallocated_leading_byte (dimension);
 	}
       else if (chars == 96)
 	{
