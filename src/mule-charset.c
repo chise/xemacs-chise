@@ -60,6 +60,7 @@ Lisp_Object Vcharset_japanese_jisx0212;
 Lisp_Object Vcharset_chinese_cns11643_1;
 Lisp_Object Vcharset_chinese_cns11643_2;
 #ifdef UTF2000
+Lisp_Object Vcharset_ucs;
 Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_viscii_lower;
@@ -833,6 +834,7 @@ Lisp_Object Qascii,
   Qchinese_cns11643_1,
   Qchinese_cns11643_2,
 #ifdef UTF2000
+  Qucs,
   Qucs_bmp,
   Qlatin_viscii,
   Qlatin_viscii_lower,
@@ -1269,11 +1271,9 @@ print_charset (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   print_internal (CHARSET_LONG_NAME (cs), printcharfun, 1);
   write_c_string (" ", printcharfun);
   print_internal (CHARSET_DOC_STRING (cs), printcharfun, 1);
-  sprintf (buf, " %s %s cols=%d g%d final='%c' reg=",
-	   CHARSET_TYPE (cs) == CHARSET_TYPE_94    ? "94" :
-	   CHARSET_TYPE (cs) == CHARSET_TYPE_96    ? "96" :
-	   CHARSET_TYPE (cs) == CHARSET_TYPE_94X94 ? "94x94" :
-	   "96x96",
+  sprintf (buf, " %d^%d %s cols=%d g%d final='%c' reg=",
+	   CHARSET_CHARS (cs),
+	   CHARSET_DIMENSION (cs),
 	   CHARSET_DIRECTION (cs) == CHARSET_LEFT_TO_RIGHT ? "l2r" : "r2l",
 	   CHARSET_COLUMNS (cs),
 	   CHARSET_GRAPHIC (cs),
@@ -1300,7 +1300,8 @@ DEFINE_LRECORD_IMPLEMENTATION ("charset", charset,
 
 static Lisp_Object
 make_charset (Charset_ID id, Lisp_Object name,
-	      unsigned char type, unsigned char columns, unsigned char graphic,
+	      unsigned short chars, unsigned char dimension,
+	      unsigned char columns, unsigned char graphic,
 	      Bufbyte final, unsigned char direction, Lisp_Object short_name,
 	      Lisp_Object long_name, Lisp_Object doc,
 	      Lisp_Object reg,
@@ -1308,6 +1309,7 @@ make_charset (Charset_ID id, Lisp_Object name,
 	      Emchar ucs_min, Emchar ucs_max,
 	      Emchar code_offset, unsigned char byte_offset)
 {
+  unsigned char type = 0;
   Lisp_Object obj;
   struct Lisp_Charset *cs =
     alloc_lcrecord_type (struct Lisp_Charset, &lrecord_charset);
@@ -1317,8 +1319,9 @@ make_charset (Charset_ID id, Lisp_Object name,
   CHARSET_NAME		(cs) = name;
   CHARSET_SHORT_NAME	(cs) = short_name;
   CHARSET_LONG_NAME	(cs) = long_name;
+  CHARSET_CHARS		(cs) = chars;
+  CHARSET_DIMENSION	(cs) = dimension;
   CHARSET_DIRECTION	(cs) = direction;
-  CHARSET_TYPE		(cs) = type;
   CHARSET_COLUMNS	(cs) = columns;
   CHARSET_GRAPHIC	(cs) = graphic;
   CHARSET_FINAL		(cs) = final;
@@ -1334,43 +1337,58 @@ make_charset (Charset_ID id, Lisp_Object name,
   CHARSET_BYTE_OFFSET(cs) = byte_offset;
 #endif
 
-  switch (CHARSET_TYPE (cs))
+  switch (CHARSET_CHARS (cs))
     {
-    case CHARSET_TYPE_94:
-      CHARSET_DIMENSION (cs) = 1;
-      CHARSET_CHARS (cs) = 94;
+    case 94:
+      switch (CHARSET_DIMENSION (cs))
+	{
+	case 1:
+	  type = CHARSET_TYPE_94;
+	  break;
+	case 2:
+	  type = CHARSET_TYPE_94X94;
+	  break;
+	}
       break;
-    case CHARSET_TYPE_96:
-      CHARSET_DIMENSION (cs) = 1;
-      CHARSET_CHARS (cs) = 96;
-      break;
-    case CHARSET_TYPE_94X94:
-      CHARSET_DIMENSION (cs) = 2;
-      CHARSET_CHARS (cs) = 94;
-      break;
-    case CHARSET_TYPE_96X96:
-      CHARSET_DIMENSION (cs) = 2;
-      CHARSET_CHARS (cs) = 96;
+    case 96:
+      switch (CHARSET_DIMENSION (cs))
+	{
+	case 1:
+	  type = CHARSET_TYPE_96;
+	  break;
+	case 2:
+	  type = CHARSET_TYPE_96X96;
+	  break;
+	}
       break;
 #ifdef UTF2000
-    case CHARSET_TYPE_128:
-      CHARSET_DIMENSION (cs) = 1;
-      CHARSET_CHARS (cs) = 128;
+    case 128:
+      switch (CHARSET_DIMENSION (cs))
+	{
+	case 1:
+	  type = CHARSET_TYPE_128;
+	  break;
+	case 2:
+	  type = CHARSET_TYPE_128X128;
+	  break;
+	}
       break;
-    case CHARSET_TYPE_128X128:
-      CHARSET_DIMENSION (cs) = 2;
-      CHARSET_CHARS (cs) = 128;
-      break;
-    case CHARSET_TYPE_256:
-      CHARSET_DIMENSION (cs) = 1;
-      CHARSET_CHARS (cs) = 256;
-      break;
-    case CHARSET_TYPE_256X256:
-      CHARSET_DIMENSION (cs) = 2;
-      CHARSET_CHARS (cs) = 256;
+    case 256:
+      switch (CHARSET_DIMENSION (cs))
+	{
+	case 1:
+	  type = CHARSET_TYPE_256;
+	  break;
+	case 2:
+	  type = CHARSET_TYPE_256X256;
+	  break;
+	}
       break;
 #endif
     }
+#ifndef UTF2000
+  CHARSET_TYPE (cs) = type;
+#endif
 
 #ifndef UTF2000
   if (id == LEADING_BYTE_ASCII)
@@ -1453,8 +1471,10 @@ range_charset_code_point (Lisp_Object charset, Emchar ch)
       && (ch <= XCHARSET_UCS_MAX (charset)))
     {
       d = ch - XCHARSET_UCS_MIN (charset) + XCHARSET_CODE_OFFSET (charset);
-		       
-      if (XCHARSET_DIMENSION (charset) == 1)
+
+      if (XCHARSET_CHARS (charset) == 256)
+	return d;
+      else if (XCHARSET_DIMENSION (charset) == 1)
 	return d + XCHARSET_BYTE_OFFSET (charset);
       else if (XCHARSET_DIMENSION (charset) == 2)
 	return
@@ -1578,12 +1598,22 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
   else if (c <= MAX_CHAR_BMP)
     {
       *charset = Vcharset_ucs_bmp;
-      return c & 0xFFFF;
+      return c;
     }
-  else if ((MIN_CHAR_DAIKANWA <= c) && (c <= MAX_CHAR_DAIKANWA))
+  else if (c < MIN_CHAR_DAIKANWA)
+    {
+      *charset = Vcharset_ucs;
+      return c;
+    }
+  else if (c <= MAX_CHAR_DAIKANWA)
     {
       *charset = Vcharset_ideograph_daikanwa;
       return c - MIN_CHAR_DAIKANWA;
+    }
+  else if (c < MIN_CHAR_94)
+    {
+      *charset = Vcharset_ucs;
+      return c;
     }
   else if (c <= MAX_CHAR_94)
     {
@@ -1619,7 +1649,8 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
     }
   else
     {
-      return -1;
+      *charset = Vcharset_ucs;
+      return c;
     }
 }
 
@@ -1910,7 +1941,7 @@ character set.  Recognized properties are:
 	byte_offset = 0;
     }
 
-  charset = make_charset (id, name, type, columns, graphic,
+  charset = make_charset (id, name, chars, dimension, columns, graphic,
 			  final, direction, short_name, long_name,
 			  doc_string, registry,
 			  Qnil, 0, 0, 0, byte_offset);
@@ -1927,8 +1958,8 @@ NEW-NAME is the name of the new charset.  Return the new charset.
        (charset, new_name))
 {
   Lisp_Object new_charset = Qnil;
-  int id, dimension, columns, graphic, final;
-  int direction, type;
+  int id, chars, dimension, columns, graphic, final;
+  int direction;
   Lisp_Object registry, doc_string, short_name, long_name;
   struct Lisp_Charset *cs;
 
@@ -1943,9 +1974,9 @@ NEW-NAME is the name of the new charset.  Return the new charset.
 
   cs = XCHARSET (charset);
 
-  type      = CHARSET_TYPE      (cs);
-  columns   = CHARSET_COLUMNS   (cs);
+  chars     = CHARSET_CHARS     (cs);
   dimension = CHARSET_DIMENSION (cs);
+  columns   = CHARSET_COLUMNS   (cs);
   id = get_unallocated_leading_byte (dimension);
 
   graphic = CHARSET_GRAPHIC (cs);
@@ -1958,7 +1989,7 @@ NEW-NAME is the name of the new charset.  Return the new charset.
   long_name = CHARSET_LONG_NAME (cs);
   registry = CHARSET_REGISTRY (cs);
 
-  new_charset = make_charset (id, new_name, type, columns,
+  new_charset = make_charset (id, new_name, chars, dimension, columns,
 			      graphic, final, direction, short_name, long_name,
 			      doc_string, registry,
 #ifdef UTF2000
@@ -2383,11 +2414,27 @@ Return list of charset and one or two position-codes of CHAR.
   struct gcpro gcpro1, gcpro2;
   Lisp_Object charset = Qnil;
   Lisp_Object rc = Qnil;
+#ifdef UTF2000
+  int code_point;
+  int dimension;
+#else
   int c1, c2;
+#endif
 
   GCPRO2 (charset, rc);
   CHECK_CHAR_COERCE_INT (character);
 
+#ifdef UTF2000
+  code_point = ENCODE_CHAR (XCHAR (character), charset);
+  dimension = XCHARSET_DIMENSION (charset);
+  while (dimension > 0)
+    {
+      rc = Fcons (make_int (code_point & 255), rc);
+      code_point >>= 8;
+      dimension--;
+    }
+  rc = Fcons (XCHARSET_NAME (charset), rc);
+#else
   BREAKUP_CHAR (XCHAR (character), charset, c1, c2);
 
   if (XCHARSET_DIMENSION (Fget_charset (charset)) == 2)
@@ -2398,6 +2445,7 @@ Return list of charset and one or two position-codes of CHAR.
     {
       rc = list2 (XCHARSET_NAME (charset), make_int (c1));
     }
+#endif
   UNGCPRO;
 
   return rc;
@@ -2693,11 +2741,19 @@ complex_vars_of_mule_charset (void)
      ease of access. */
 
 #ifdef UTF2000
+  staticpro (&Vcharset_ucs);
+  Vcharset_ucs =
+    make_charset (LEADING_BYTE_UCS, Qucs, 256, 4,
+		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("UCS"),
+		  build_string ("UCS"),
+		  build_string ("ISO/IEC 10646"),
+		  build_string (""),
+		  Qnil, 0, 0xFFFFFFF, 0, 0);
   staticpro (&Vcharset_ucs_bmp);
   Vcharset_ucs_bmp =
-    make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp,
-		  CHARSET_TYPE_256X256, 1, 2, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp, 256, 2,
+		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("BMP"),
 		  build_string ("BMP"),
 		  build_string ("ISO/IEC 10646 Group 0 Plane 0 (BMP)"),
@@ -2717,9 +2773,8 @@ complex_vars_of_mule_charset (void)
 #endif
   staticpro (&Vcharset_ascii);
   Vcharset_ascii =
-    make_charset (LEADING_BYTE_ASCII, Qascii,
-		  CHARSET_TYPE_94, 1, 0, 'B',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_ASCII, Qascii, 94, 1,
+		  1, 0, 'B', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("ASCII"),
 		  build_string ("ASCII)"),
 		  build_string ("ASCII (ISO646 IRV)"),
@@ -2727,9 +2782,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0x7F, 0, 0);
   staticpro (&Vcharset_control_1);
   Vcharset_control_1 =
-    make_charset (LEADING_BYTE_CONTROL_1, Qcontrol_1,
-		  CHARSET_TYPE_94, 1, 1, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_CONTROL_1, Qcontrol_1, 94, 1,
+		  1, 1, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("C1"),
 		  build_string ("Control characters"),
 		  build_string ("Control characters 128-191"),
@@ -2737,9 +2791,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0x80, 0x9F, 0, 0);
   staticpro (&Vcharset_latin_iso8859_1);
   Vcharset_latin_iso8859_1 =
-    make_charset (LEADING_BYTE_LATIN_ISO8859_1, Qlatin_iso8859_1,
-		  CHARSET_TYPE_96, 1, 1, 'A',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_LATIN_ISO8859_1, Qlatin_iso8859_1, 96, 1,
+		  1, 1, 'A', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Latin-1"),
 		  build_string ("ISO8859-1 (Latin-1)"),
 		  build_string ("ISO8859-1 (Latin-1)"),
@@ -2747,9 +2800,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0xA0, 0xFF, 0, 32);
   staticpro (&Vcharset_latin_iso8859_2);
   Vcharset_latin_iso8859_2 =
-    make_charset (LEADING_BYTE_LATIN_ISO8859_2, Qlatin_iso8859_2,
-		  CHARSET_TYPE_96, 1, 1, 'B',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_LATIN_ISO8859_2, Qlatin_iso8859_2, 96, 1,
+		  1, 1, 'B', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Latin-2"),
 		  build_string ("ISO8859-2 (Latin-2)"),
 		  build_string ("ISO8859-2 (Latin-2)"),
@@ -2757,9 +2809,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 32);
   staticpro (&Vcharset_latin_iso8859_3);
   Vcharset_latin_iso8859_3 =
-    make_charset (LEADING_BYTE_LATIN_ISO8859_3, Qlatin_iso8859_3,
-		  CHARSET_TYPE_96, 1, 1, 'C',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_LATIN_ISO8859_3, Qlatin_iso8859_3, 96, 1,
+		  1, 1, 'C', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Latin-3"),
 		  build_string ("ISO8859-3 (Latin-3)"),
 		  build_string ("ISO8859-3 (Latin-3)"),
@@ -2767,9 +2818,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 32);
   staticpro (&Vcharset_latin_iso8859_4);
   Vcharset_latin_iso8859_4 =
-    make_charset (LEADING_BYTE_LATIN_ISO8859_4, Qlatin_iso8859_4,
-		  CHARSET_TYPE_96, 1, 1, 'D',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_LATIN_ISO8859_4, Qlatin_iso8859_4, 96, 1,
+		  1, 1, 'D', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Latin-4"),
 		  build_string ("ISO8859-4 (Latin-4)"),
 		  build_string ("ISO8859-4 (Latin-4)"),
@@ -2777,9 +2827,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 32);
   staticpro (&Vcharset_thai_tis620);
   Vcharset_thai_tis620 =
-    make_charset (LEADING_BYTE_THAI_TIS620, Qthai_tis620,
-		  CHARSET_TYPE_96, 1, 1, 'T',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_THAI_TIS620, Qthai_tis620, 96, 1,
+		  1, 1, 'T', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("TIS620"),
 		  build_string ("TIS620 (Thai)"),
 		  build_string ("TIS620.2529 (Thai)"),
@@ -2787,9 +2836,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, MIN_CHAR_THAI, MAX_CHAR_THAI, 0, 32);
   staticpro (&Vcharset_greek_iso8859_7);
   Vcharset_greek_iso8859_7 =
-    make_charset (LEADING_BYTE_GREEK_ISO8859_7, Qgreek_iso8859_7,
-		  CHARSET_TYPE_96, 1, 1, 'F',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_GREEK_ISO8859_7, Qgreek_iso8859_7, 96, 1,
+		  1, 1, 'F', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("ISO8859-7"),
 		  build_string ("ISO8859-7 (Greek)"),
 		  build_string ("ISO8859-7 (Greek)"),
@@ -2797,9 +2845,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, MIN_CHAR_GREEK, MAX_CHAR_GREEK, 0, 32);
   staticpro (&Vcharset_arabic_iso8859_6);
   Vcharset_arabic_iso8859_6 =
-    make_charset (LEADING_BYTE_ARABIC_ISO8859_6, Qarabic_iso8859_6,
-		  CHARSET_TYPE_96, 1, 1, 'G',
-		  CHARSET_RIGHT_TO_LEFT,
+    make_charset (LEADING_BYTE_ARABIC_ISO8859_6, Qarabic_iso8859_6, 96, 1,
+		  1, 1, 'G', CHARSET_RIGHT_TO_LEFT,
 		  build_string ("ISO8859-6"),
 		  build_string ("ISO8859-6 (Arabic)"),
 		  build_string ("ISO8859-6 (Arabic)"),
@@ -2807,9 +2854,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 32);
   staticpro (&Vcharset_hebrew_iso8859_8);
   Vcharset_hebrew_iso8859_8 =
-    make_charset (LEADING_BYTE_HEBREW_ISO8859_8, Qhebrew_iso8859_8,
-		  CHARSET_TYPE_96, 1, 1, 'H',
-		  CHARSET_RIGHT_TO_LEFT,
+    make_charset (LEADING_BYTE_HEBREW_ISO8859_8, Qhebrew_iso8859_8, 96, 1,
+		  1, 1, 'H', CHARSET_RIGHT_TO_LEFT,
 		  build_string ("ISO8859-8"),
 		  build_string ("ISO8859-8 (Hebrew)"),
 		  build_string ("ISO8859-8 (Hebrew)"),
@@ -2817,9 +2863,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, MIN_CHAR_HEBREW, MAX_CHAR_HEBREW, 0, 32);
   staticpro (&Vcharset_katakana_jisx0201);
   Vcharset_katakana_jisx0201 =
-    make_charset (LEADING_BYTE_KATAKANA_JISX0201, Qkatakana_jisx0201,
-		  CHARSET_TYPE_94, 1, 1, 'I',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_KATAKANA_JISX0201, Qkatakana_jisx0201, 94, 1,
+		  1, 1, 'I', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0201 Kana"),
 		  build_string ("JISX0201.1976 (Japanese Kana)"),
 		  build_string ("JISX0201.1976 Japanese Kana"),
@@ -2827,9 +2872,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_latin_jisx0201);
   Vcharset_latin_jisx0201 =
-    make_charset (LEADING_BYTE_LATIN_JISX0201, Qlatin_jisx0201,
-		  CHARSET_TYPE_94, 1, 0, 'J',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_LATIN_JISX0201, Qlatin_jisx0201, 94, 1,
+		  1, 0, 'J', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0201 Roman"),
 		  build_string ("JISX0201.1976 (Japanese Roman)"),
 		  build_string ("JISX0201.1976 Japanese Roman"),
@@ -2837,9 +2881,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_cyrillic_iso8859_5);
   Vcharset_cyrillic_iso8859_5 =
-    make_charset (LEADING_BYTE_CYRILLIC_ISO8859_5, Qcyrillic_iso8859_5,
-		  CHARSET_TYPE_96, 1, 1, 'L',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_CYRILLIC_ISO8859_5, Qcyrillic_iso8859_5, 96, 1,
+		  1, 1, 'L', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("ISO8859-5"),
 		  build_string ("ISO8859-5 (Cyrillic)"),
 		  build_string ("ISO8859-5 (Cyrillic)"),
@@ -2847,9 +2890,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, MIN_CHAR_CYRILLIC, MAX_CHAR_CYRILLIC, 0, 32);
   staticpro (&Vcharset_latin_iso8859_9);
   Vcharset_latin_iso8859_9 =
-    make_charset (LEADING_BYTE_LATIN_ISO8859_9, Qlatin_iso8859_9,
-		  CHARSET_TYPE_96, 1, 1, 'M',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_LATIN_ISO8859_9, Qlatin_iso8859_9, 96, 1,
+		  1, 1, 'M', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Latin-5"),
 		  build_string ("ISO8859-9 (Latin-5)"),
 		  build_string ("ISO8859-9 (Latin-5)"),
@@ -2857,9 +2899,9 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 32);
   staticpro (&Vcharset_japanese_jisx0208_1978);
   Vcharset_japanese_jisx0208_1978 =
-    make_charset (LEADING_BYTE_JAPANESE_JISX0208_1978, Qjapanese_jisx0208_1978,
-		  CHARSET_TYPE_94X94, 2, 0, '@',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_JAPANESE_JISX0208_1978,
+		  Qjapanese_jisx0208_1978, 94, 2,
+		  2, 0, '@', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JIS X0208:1978"),
 		  build_string ("JIS X0208:1978 (Japanese)"),
 		  build_string
@@ -2868,9 +2910,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_chinese_gb2312);
   Vcharset_chinese_gb2312 =
-    make_charset (LEADING_BYTE_CHINESE_GB2312, Qchinese_gb2312,
-		  CHARSET_TYPE_94X94, 2, 0, 'A',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_CHINESE_GB2312, Qchinese_gb2312, 94, 2,
+		  2, 0, 'A', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("GB2312"),
 		  build_string ("GB2312)"),
 		  build_string ("GB2312 Chinese simplified"),
@@ -2878,9 +2919,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_japanese_jisx0208);
   Vcharset_japanese_jisx0208 =
-    make_charset (LEADING_BYTE_JAPANESE_JISX0208, Qjapanese_jisx0208,
-		  CHARSET_TYPE_94X94, 2, 0, 'B',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_JAPANESE_JISX0208, Qjapanese_jisx0208, 94, 2,
+		  2, 0, 'B', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0208"),
 		  build_string ("JIS X0208:1983 (Japanese)"),
 		  build_string ("JIS X0208:1983 Japanese Kanji"),
@@ -2890,9 +2930,8 @@ complex_vars_of_mule_charset (void)
   staticpro (&Vcharset_japanese_jisx0208_1990);
   Vcharset_japanese_jisx0208_1990 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0208_1990,
-		  Qjapanese_jisx0208_1990,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+		  Qjapanese_jisx0208_1990, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0208-1990"),
 		  build_string ("JIS X0208:1990 (Japanese)"),
 		  build_string ("JIS X0208:1990 Japanese Kanji"),
@@ -2903,9 +2942,8 @@ complex_vars_of_mule_charset (void)
 #endif
   staticpro (&Vcharset_korean_ksc5601);
   Vcharset_korean_ksc5601 =
-    make_charset (LEADING_BYTE_KOREAN_KSC5601, Qkorean_ksc5601,
-		  CHARSET_TYPE_94X94, 2, 0, 'C',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_KOREAN_KSC5601, Qkorean_ksc5601, 94, 2,
+		  2, 0, 'C', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("KSC5601"),
 		  build_string ("KSC5601 (Korean"),
 		  build_string ("KSC5601 Korean Hangul and Hanja"),
@@ -2913,9 +2951,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_japanese_jisx0212);
   Vcharset_japanese_jisx0212 =
-    make_charset (LEADING_BYTE_JAPANESE_JISX0212, Qjapanese_jisx0212,
-		  CHARSET_TYPE_94X94, 2, 0, 'D',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_JAPANESE_JISX0212, Qjapanese_jisx0212, 94, 2,
+		  2, 0, 'D', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0212"),
 		  build_string ("JISX0212 (Japanese)"),
 		  build_string ("JISX0212 Japanese Supplement"),
@@ -2925,9 +2962,8 @@ complex_vars_of_mule_charset (void)
 #define CHINESE_CNS_PLANE_RE(n) "cns11643[.-]\\(.*[.-]\\)?" n "$"
   staticpro (&Vcharset_chinese_cns11643_1);
   Vcharset_chinese_cns11643_1 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_1, Qchinese_cns11643_1,
-		  CHARSET_TYPE_94X94, 2, 0, 'G',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_1, Qchinese_cns11643_1, 94, 2,
+		  2, 0, 'G', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-1"),
 		  build_string ("CNS11643-1 (Chinese traditional)"),
 		  build_string
@@ -2936,9 +2972,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_chinese_cns11643_2);
   Vcharset_chinese_cns11643_2 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qchinese_cns11643_2,
-		  CHARSET_TYPE_94X94, 2, 0, 'H',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qchinese_cns11643_2, 94, 2,
+		  2, 0, 'H', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-2"),
 		  build_string ("CNS11643-2 (Chinese traditional)"),
 		  build_string
@@ -2948,9 +2983,8 @@ complex_vars_of_mule_charset (void)
 #ifdef UTF2000
   staticpro (&Vcharset_latin_viscii_lower);
   Vcharset_latin_viscii_lower =
-    make_charset (LEADING_BYTE_LATIN_VISCII_LOWER, Qlatin_viscii_lower,
-		  CHARSET_TYPE_96, 1, 1, '1',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_LATIN_VISCII_LOWER, Qlatin_viscii_lower, 96, 1,
+		  1, 1, '1', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("VISCII lower"),
 		  build_string ("VISCII lower (Vietnamese)"),
 		  build_string ("VISCII lower (Vietnamese)"),
@@ -2958,9 +2992,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 32);
   staticpro (&Vcharset_latin_viscii_upper);
   Vcharset_latin_viscii_upper =
-    make_charset (LEADING_BYTE_LATIN_VISCII_UPPER, Qlatin_viscii_upper,
-		  CHARSET_TYPE_96, 1, 1, '2',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_LATIN_VISCII_UPPER, Qlatin_viscii_upper, 96, 1,
+		  1, 1, '2', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("VISCII upper"),
 		  build_string ("VISCII upper (Vietnamese)"),
 		  build_string ("VISCII upper (Vietnamese)"),
@@ -2968,9 +3001,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 32);
   staticpro (&Vcharset_latin_viscii);
   Vcharset_latin_viscii =
-    make_charset (LEADING_BYTE_LATIN_VISCII, Qlatin_viscii,
-		  CHARSET_TYPE_256, 1, 2, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_LATIN_VISCII, Qlatin_viscii, 256, 1,
+		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("VISCII"),
 		  build_string ("VISCII 1.1 (Vietnamese)"),
 		  build_string ("VISCII 1.1 (Vietnamese)"),
@@ -2978,9 +3010,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 0);
   staticpro (&Vcharset_ideograph_daikanwa);
   Vcharset_ideograph_daikanwa =
-    make_charset (LEADING_BYTE_DAIKANWA, Qideograph_daikanwa,
-		  CHARSET_TYPE_256X256, 2, 2, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_DAIKANWA, Qideograph_daikanwa, 256, 2,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Daikanwa"),
 		  build_string ("Morohashi's Daikanwa"),
 		  build_string ("Daikanwa dictionary by MOROHASHI Tetsuji"),
@@ -2988,9 +3019,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, MIN_CHAR_DAIKANWA, MAX_CHAR_DAIKANWA, 0, 0);
   staticpro (&Vcharset_mojikyo_pj_1);
   Vcharset_mojikyo_pj_1 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_1, Qmojikyo_pj_1,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_1, Qmojikyo_pj_1, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-1"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 1"),
 		  build_string
@@ -2999,9 +3029,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_2);
   Vcharset_mojikyo_pj_2 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_2, Qmojikyo_pj_2,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_2, Qmojikyo_pj_2, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-2"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 2"),
 		  build_string
@@ -3010,9 +3039,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_3);
   Vcharset_mojikyo_pj_3 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_3, Qmojikyo_pj_3,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_3, Qmojikyo_pj_3, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-3"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 3"),
 		  build_string
@@ -3021,9 +3049,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_4);
   Vcharset_mojikyo_pj_4 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_4, Qmojikyo_pj_4,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_4, Qmojikyo_pj_4, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-4"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 4"),
 		  build_string
@@ -3032,9 +3059,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_5);
   Vcharset_mojikyo_pj_5 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_5, Qmojikyo_pj_5,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_5, Qmojikyo_pj_5, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-5"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 5"),
 		  build_string
@@ -3043,9 +3069,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_6);
   Vcharset_mojikyo_pj_6 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_6, Qmojikyo_pj_6,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_6, Qmojikyo_pj_6, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-6"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 6"),
 		  build_string
@@ -3054,9 +3079,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_7);
   Vcharset_mojikyo_pj_7 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_7, Qmojikyo_pj_7,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_7, Qmojikyo_pj_7, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-7"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 7"),
 		  build_string
@@ -3065,9 +3089,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_8);
   Vcharset_mojikyo_pj_8 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_8, Qmojikyo_pj_8,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_8, Qmojikyo_pj_8, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-8"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 8"),
 		  build_string
@@ -3076,9 +3099,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_9);
   Vcharset_mojikyo_pj_9 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_9, Qmojikyo_pj_9,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_9, Qmojikyo_pj_9, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-9"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 9"),
 		  build_string
@@ -3087,9 +3109,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_10);
   Vcharset_mojikyo_pj_10 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_10, Qmojikyo_pj_10,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_10, Qmojikyo_pj_10, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-10"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 10"),
 		  build_string
@@ -3098,9 +3119,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_11);
   Vcharset_mojikyo_pj_11 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_11, Qmojikyo_pj_11,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_11, Qmojikyo_pj_11, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-11"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 11"),
 		  build_string
@@ -3109,9 +3129,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_12);
   Vcharset_mojikyo_pj_12 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_12, Qmojikyo_pj_12,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_12, Qmojikyo_pj_12, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-12"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 12"),
 		  build_string
@@ -3120,9 +3139,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_13);
   Vcharset_mojikyo_pj_13 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_13, Qmojikyo_pj_13,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_13, Qmojikyo_pj_13, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-13"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 13"),
 		  build_string
@@ -3131,9 +3149,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_14);
   Vcharset_mojikyo_pj_14 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_14, Qmojikyo_pj_14,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_14, Qmojikyo_pj_14, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-14"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 14"),
 		  build_string
@@ -3142,9 +3159,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_15);
   Vcharset_mojikyo_pj_15 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_15, Qmojikyo_pj_15,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_15, Qmojikyo_pj_15, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-15"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 15"),
 		  build_string
@@ -3153,9 +3169,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_16);
   Vcharset_mojikyo_pj_16 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_16, Qmojikyo_pj_16,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_16, Qmojikyo_pj_16, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-16"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 16"),
 		  build_string
@@ -3164,9 +3179,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_17);
   Vcharset_mojikyo_pj_17 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_17, Qmojikyo_pj_17,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_17, Qmojikyo_pj_17, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-17"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 17"),
 		  build_string
@@ -3175,9 +3189,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_18);
   Vcharset_mojikyo_pj_18 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_18, Qmojikyo_pj_18,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_18, Qmojikyo_pj_18, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-18"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 18"),
 		  build_string
@@ -3186,9 +3199,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_19);
   Vcharset_mojikyo_pj_19 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_19, Qmojikyo_pj_19,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_19, Qmojikyo_pj_19, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-19"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 19"),
 		  build_string
@@ -3197,9 +3209,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_20);
   Vcharset_mojikyo_pj_20 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_20, Qmojikyo_pj_20,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_20, Qmojikyo_pj_20, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-20"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 20"),
 		  build_string
@@ -3208,9 +3219,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_mojikyo_pj_21);
   Vcharset_mojikyo_pj_21 =
-    make_charset (LEADING_BYTE_MOJIKYO_PJ_21, Qmojikyo_pj_21,
-		  CHARSET_TYPE_94X94, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_MOJIKYO_PJ_21, Qmojikyo_pj_21, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Mojikyo-PJ-21"),
 		  build_string ("Mojikyo (pseudo JIS encoding) part 21"),
 		  build_string
@@ -3219,9 +3229,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_ethiopic_ucs);
   Vcharset_ethiopic_ucs =
-    make_charset (LEADING_BYTE_ETHIOPIC_UCS, Qethiopic_ucs,
-		  CHARSET_TYPE_256X256, 2, 2, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_ETHIOPIC_UCS, Qethiopic_ucs, 256, 2,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Ethiopic (UCS)"),
 		  build_string ("Ethiopic (UCS)"),
 		  build_string ("Ethiopic of UCS"),
@@ -3230,9 +3239,8 @@ complex_vars_of_mule_charset (void)
 #endif
   staticpro (&Vcharset_chinese_big5_1);
   Vcharset_chinese_big5_1 =
-    make_charset (LEADING_BYTE_CHINESE_BIG5_1, Qchinese_big5_1,
-		  CHARSET_TYPE_94X94, 2, 0, '0',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_CHINESE_BIG5_1, Qchinese_big5_1, 94, 2,
+		  2, 0, '0', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Big5"),
 		  build_string ("Big5 (Level-1)"),
 		  build_string
@@ -3241,9 +3249,8 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_chinese_big5_2);
   Vcharset_chinese_big5_2 =
-    make_charset (LEADING_BYTE_CHINESE_BIG5_2, Qchinese_big5_2,
-		  CHARSET_TYPE_94X94, 2, 0, '1',
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_CHINESE_BIG5_2, Qchinese_big5_2, 94, 2,
+		  2, 0, '1', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Big5"),
 		  build_string ("Big5 (Level-2)"),
 		  build_string
@@ -3257,9 +3264,8 @@ complex_vars_of_mule_charset (void)
      room, esp. as we don't yet recycle numbers. */
   staticpro (&Vcharset_composite);
   Vcharset_composite =
-    make_charset (LEADING_BYTE_COMPOSITE, Qcomposite,
-		  CHARSET_TYPE_96X96, 2, 0, 0,
-		  CHARSET_LEFT_TO_RIGHT,
+    make_charset (LEADING_BYTE_COMPOSITE, Qcomposite, 96, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Composite"),
 		  build_string ("Composite characters"),
 		  build_string ("Composite characters"),
