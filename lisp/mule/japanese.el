@@ -256,7 +256,7 @@
 			     shift_jis iso-2022-jp-2)
 	      (coding-priority iso-2022-jp euc-jp
 			       shift_jis iso-2022-jp-2)
-	      (input-method . "japanese")
+;;	      (input-method . "japanese")
 	      (features japan-util)
 	      (sample-text . "Japanese (日本語)	こんにちは, ｺﾝﾆﾁﾊ")
 	      (documentation . t)))

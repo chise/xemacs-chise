@@ -68,5 +68,6 @@ void setup_ccl_program (struct ccl_program *ccl, Lisp_Object val);
 
 /* Alist of fontname patterns vs corresponding CCL program.  */
 extern Lisp_Object Vfont_ccl_encoder_alist;
+extern Lisp_Object Qccl_program;
 
 #endif /* _CCL_H */

@@ -226,9 +226,10 @@ first line, insist it must match FIRST-LINE-REGEXP."
       ;; XEmacs change
       (if (not dont-skip-first)
 	  (forward-line 1))
-      (if (>= (point) to)
-	  (goto-char firstline)
-	(setq at-second t))
+      (cond ((>= (point) to)
+	     (goto-char firstline))
+	    ((/= (point) from)
+	     (setq at-second t)))
       (move-to-left-margin)
       ;; XEmacs change
       (let ((start (point))
@@ -236,7 +237,7 @@ first line, insist it must match FIRST-LINE-REGEXP."
 	    ;(eol (save-excursion (end-of-line) (point)))
 	    )
 	(setq result
-	      (if (not (looking-at paragraph-start))
+	      (if (or dont-skip-first (not (looking-at paragraph-start)))
 		  (cond ((and adaptive-fill-regexp (looking-at adaptive-fill-regexp))
 			 (buffer-substring-no-properties start (match-end 0)))
 			(adaptive-fill-function (funcall adaptive-fill-function)))))
@@ -429,7 +430,8 @@ space does not end a sentence, so don't break a line there."
 	  ;; This is the actual filling loop.
 	  (let ((prefixcol 0) linebeg
 		(re-break-point (if (featurep 'mule)
-				    (concat "[ \n\t]\\|" word-across-newline)
+				    (concat "[ \n\t]\\|" word-across-newline
+					    ".\\|." word-across-newline)
 				  "[ \n\t]")))
 	    (while (not (eobp))
 	      (setq linebeg (point))

@@ -1314,9 +1314,8 @@ handle_focus_event_1 (struct frame *f, int in_p)
 #if XtSpecificationRelease > 5
   Widget focus_widget = XtGetKeyboardFocusWidget (FRAME_X_TEXT_WIDGET (f));
 #endif
-#if defined(HAVE_XIM) && defined(XIM_XLIB)
-  if (FRAME_X_XIC(f))
-    XIM_focus_event (f, in_p);
+#ifdef HAVE_XIM
+  XIM_focus_event (f, in_p);
 #endif /* HAVE_XIM */
 
   /* On focus change, clear all memory of sticky modifiers
@@ -1334,10 +1333,10 @@ handle_focus_event_1 (struct frame *f, int in_p)
      Unfortunately native widgets break the model because they grab
      the keyboard focus and nothing sets it back again. I cannot find
      any reasonable way to do this elsewhere so we assert here that
-     the keybpard focus is on the emacs text widget. Menus and dialogs
+     the keyboard focus is on the emacs text widget. Menus and dialogs
      do this in their selection callback, but we don't want that since
      a button having focus is legitimate. An edit field having focus
-     is mandatory. Weirdly you get a FocusOut event when you glick in
+     is mandatory. Weirdly you get a FocusOut event when you click in
      a widget-glyph but you don't get a correspondng FocusIn when you
      click in the frame. Why is this?  */
   if (in_p 
@@ -1644,9 +1643,8 @@ emacs_Xt_handle_magic_event (struct Lisp_Event *emacs_event)
       break;
 
     case ConfigureNotify:
-#if defined(HAVE_XIM) && defined(XIM_XLIB)
-      if (FRAME_X_XIC(f))
-	XIM_SetGeometry (f);
+#ifdef HAVE_XIM
+      XIM_SetGeometry (f);
 #endif
       break;
 

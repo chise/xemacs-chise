@@ -53,6 +53,7 @@ exec_prefix=@exec_prefix@
 bindir=@bindir@
 libdir=@libdir@
 srcdir=@srcdir@
+datadir=@datadir@
 top_srcdir=@top_srcdir@
 archlibdir=@archlibdir@
 configuration=@configuration@

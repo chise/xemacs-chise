@@ -6,8 +6,8 @@
 
 The XEmacs 21 distribution comes only with a very basic set of
 built-in modes and packages.  Most of the packages that were part of
-the distribution of earlier versions of XEmacs are now separately
-available.  The installer as well as the user can choose which
+the distribution of earlier versions of XEmacs are now available
+separately.  The installer as well as the user can choose which
 packages to install; the actual installation process is easy.
 This gives an installer the ability to tailor an XEmacs installation for
 local needs with safe removal of unnecessary code.
@@ -283,7 +283,8 @@ To install binary packages manually:
 Download the package(s) that you want to install.  Each binary package
 will typically be a gzip'd tarball.
 
-@item Decide where to install the packages: in the system package
+@item
+Decide where to install the packages: in the system package
 directory, or in @file{~/.xemacs/mule-packages} or
 @file{~/.xemacs/xemacs-packages}, respectively.  If you want to install
 the packages in the system package directory, make sure you can write

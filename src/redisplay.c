@@ -51,6 +51,7 @@ Boston, MA 02111-1307, USA.  */
 #include "faces.h"
 #include "frame.h"
 #include "glyphs.h"
+#include "gutter.h"
 #include "insdel.h"
 #include "menubar.h"
 #include "objects.h"
@@ -107,6 +108,9 @@ typedef struct position_redisplay_data_type
   /* This information is normally filled in by the create_*_block
      routines and is used by the add_*_rune routines. */
   Lisp_Object window;
+  /* if we are working with strings rather than buffers we need a
+     handle to the string */
+  Lisp_Object string;
   struct device *d;
   struct display_block *db;
   struct display_line *dl;
@@ -271,6 +275,9 @@ static void free_display_line (struct display_line *dl);
 static void update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
 				     Bufpos point, int no_regen);
 static int point_visible (struct window *w, Bufpos point, int type);
+extern Bytind bi_find_next_emchar_in_string (struct Lisp_String* str, Emchar target, 
+					     Bytind st, EMACS_INT count);
+extern int string_column_at_point (struct Lisp_String* s, Bufpos init_pos, int tab_width);
 
 /* This used to be 10 but 30 seems to give much better performance. */
 #define INIT_MAX_PREEMPTS	30
@@ -400,6 +407,10 @@ int asynch_device_change_pending;
 /* non-nil if any toolbar has changed */
 int toolbar_changed;
 int toolbar_changed_set;
+
+/* non-nil if any gutter has changed */
+int gutter_changed;
+int gutter_changed_set;
 
 /* non-nil if any window has changed since the last time redisplay completed */
 int windows_changed;
@@ -902,9 +913,15 @@ add_emchar_rune (pos_data *data)
   crb->xpos = data->pixpos;
   crb->width = width;
   if (data->bi_bufpos)
-    crb->bufpos =
-      bytind_to_bufpos (XBUFFER (WINDOW_BUFFER (XWINDOW (data->window))),
-			data->bi_bufpos);
+    {
+      if (NILP (data->string))
+	crb->bufpos =
+	  bytind_to_bufpos (XBUFFER (WINDOW_BUFFER (XWINDOW (data->window))),
+			    data->bi_bufpos);
+      else
+	crb->bufpos =
+	  bytecount_to_charcount (XSTRING_DATA (data->string), data->bi_bufpos);
+    }
   else if (data->is_modeline)
     crb->bufpos = data->modeline_charpos;
   else
@@ -1866,6 +1883,7 @@ create_text_block (struct window *w, struct display_line *dl,
      them to this structure for ease of passing. */
   data.d = d;
   XSETWINDOW (data.window, w);
+  data.string = Qnil;
   data.db = db;
   data.dl = dl;
 
@@ -2643,6 +2661,7 @@ create_overlay_glyph_block (struct window *w, struct display_line *dl)
   data.last_charset = Qunbound;
   data.last_findex = DEFAULT_INDEX;
   data.result_str = Qnil;
+  data.string = Qnil;
 
   Dynarr_reset (data.db->runes);
 
@@ -3493,6 +3512,10 @@ generate_modeline (struct window *w, struct display_line *dl, int type)
       /* The modeline is at the bottom of the gutters. */
       dl->ypos = WINDOW_BOTTOM (w);
 
+      /* adjust for the bottom gutter */
+      if (window_is_lowest (w))
+	dl->ypos -= FRAME_BOTTOM_GUTTER_BOUNDS (f);
+
       rb.findex = MODELINE_INDEX;
       rb.xpos = dl->bounds.left_out;
       rb.width = dl->bounds.right_out - dl->bounds.left_out;
@@ -3546,6 +3569,9 @@ generate_modeline (struct window *w, struct display_line *dl, int type)
      set this until we've generated the modeline in order to account
      for any embedded faces. */
   dl->ypos = WINDOW_BOTTOM (w) - dl->descent - ypos_adj;
+  /* adjust for the bottom gutter */
+  if (window_is_lowest (w))
+    dl->ypos -= FRAME_BOTTOM_GUTTER_BOUNDS (f);
 }
 
 static void
@@ -3572,6 +3598,7 @@ generate_formatted_string_db (Lisp_Object format_str, Lisp_Object result_str,
   data.last_findex = DEFAULT_INDEX;
   data.result_str = result_str;
   data.is_modeline = 1;
+  data.string = Qnil;
   XSETWINDOW (data.window, w);
 
   Dynarr_reset (formatted_string_extent_dynarr);
@@ -4178,6 +4205,849 @@ real_current_modeline_height (struct window *w)
 
 
 /***************************************************************************/
+/*								*/
+/*                            displayable string routines			*/
+/*								*/
+/***************************************************************************/
+
+/* Given a position for a string in a window, ensure that the given
+   display line DL accurately represents the text on a line starting
+   at the given position.
+
+   Yes, this is duplicating the code of create_text_block, but it
+   looked just too hard to change create_text_block to handle strings
+   *and* buffers. We already make a distinction between the two
+   elsewhere in the code so I think unifying them would require a
+   complete MULE rewrite. Besides, the other distinction is that these
+   functions cover text that the user *cannot edit* so we can remove
+   everything to do with cursors, minibuffers etc. Eventually the
+   modeline routines should be modified to use this code as it copes
+   with many more types of display situation. */
+
+static Bufpos
+create_string_text_block (struct window *w, Lisp_Object disp_string,
+			  struct display_line *dl,
+			  Bufpos start_pos,
+			  prop_block_dynarr **prop,
+			  face_index default_face)
+{
+  struct frame *f = XFRAME (w->frame);
+  /* Note that a lot of the buffer controlled stuff has been left in
+     because you might well want to make use of it (selective display
+     etc), its just the buffer text that we do not use. */
+  struct buffer *b = XBUFFER (w->buffer);
+  struct device *d = XDEVICE (f->device);
+  struct Lisp_String* s = XSTRING (disp_string);
+
+  /* we're working with these a lot so precalculate them */
+  Bytecount slen = XSTRING_LENGTH (disp_string);
+  Bytecount bi_string_zv = slen;
+  Bytind bi_start_pos = charcount_to_bytecount (string_data (s), start_pos);
+
+  pos_data data;
+
+  int truncate_win = window_truncation_on (w);
+  int end_glyph_width = 0;
+
+  /* we're going to ditch selective display for static text, its an
+     FSF thing and invisble extents are the way to go
+     here. Implementing it also relies on a number of buffer-specific
+     functions that we don't have the luxury of being able to use
+     here. */
+
+  /* The variable ctl-arrow allows the user to specify what characters
+     can actually be displayed and which octal should be used for.
+     #### This variable should probably have some rethought done to
+     it.
+
+     #### It would also be really nice if you could specify that
+     the characters come out in hex instead of in octal.  Mule
+     does that by adding a ctl-hexa variable similar to ctl-arrow,
+     but that's bogus -- we need a more general solution.  I
+     think you need to extend the concept of display tables
+     into a more general conversion mechanism.  Ideally you
+     could specify a Lisp function that converts characters,
+     but this violates the Second Golden Rule and besides would
+     make things way way way way slow.
+
+     So instead, we extend the display-table concept, which was
+     historically limited to 256-byte vectors, to one of the
+     following:
+
+     a) A 256-entry vector, for backward compatibility;
+     b) char-table, mapping characters to values;
+     c) range-table, mapping ranges of characters to values;
+     d) a list of the above.
+
+     The (d) option allows you to specify multiple display tables
+     instead of just one.  Each display table can specify conversions
+     for some characters and leave others unchanged.  The way the
+     character gets displayed is determined by the first display table
+     with a binding for that character.  This way, you could call a
+     function `enable-hex-display' that adds a hex display-table to
+     the list of display tables for the current buffer.
+
+     #### ...not yet implemented...  Also, we extend the concept of
+     "mapping" to include a printf-like spec.  Thus you can make all
+     extended characters show up as hex with a display table like
+     this:
+
+         #s(range-table data ((256 524288) (format "%x")))
+
+     Since more than one display table is possible, you have
+     great flexibility in mapping ranges of characters.  */
+  Emchar printable_min = (CHAR_OR_CHAR_INTP (b->ctl_arrow)
+			  ? XCHAR_OR_CHAR_INT (b->ctl_arrow)
+			  : ((EQ (b->ctl_arrow, Qt) || EQ (b->ctl_arrow, Qnil))
+			     ? 255 : 160));
+
+  Lisp_Object face_dt, window_dt;
+
+  /* The text display block for this display line. */
+  struct display_block *db = get_display_block_from_line (dl, TEXT);
+
+  /* The first time through the main loop we need to force the glyph
+     data to be updated. */
+  int initial = 1;
+
+  /* Apparently the new extent_fragment_update returns an end position
+     equal to the position passed in if there are no more runs to be
+     displayed. */
+  int no_more_frags = 0;
+
+  dl->used_prop_data = 0;
+  dl->num_chars = 0;
+
+  /* set up faces to use for clearing areas, used by
+     output_display_line */
+  dl->default_findex = default_face;
+  if (default_face)
+    {
+      dl->left_margin_findex = default_face;
+      dl->right_margin_findex = default_face;
+    }
+  else
+    {
+      dl->left_margin_findex = 
+	get_builtin_face_cache_index (w, Vleft_margin_face);
+      dl->right_margin_findex = 
+	get_builtin_face_cache_index (w, Vright_margin_face);
+    }
+
+  xzero (data);
+  data.ef = extent_fragment_new (disp_string, f);
+
+  /* These values are used by all of the rune addition routines.  We add
+     them to this structure for ease of passing. */
+  data.d = d;
+  XSETWINDOW (data.window, w);
+  data.db = db;
+  data.dl = dl;
+
+  data.bi_bufpos = bi_start_pos;
+  data.pixpos = dl->bounds.left_in;
+  data.last_charset = Qunbound;
+  data.last_findex = default_face;
+  data.result_str = Qnil;
+  data.string = disp_string;
+
+  /* Set the right boundary adjusting it to take into account any end
+     glyph.  Save the width of the end glyph for later use. */
+  data.max_pixpos = dl->bounds.right_in;
+#if 0
+  if (truncate_win)
+    end_glyph_width = GLYPH_CACHEL_WIDTH (w, TRUN_GLYPH_INDEX);
+  else
+    end_glyph_width = GLYPH_CACHEL_WIDTH (w, CONT_GLYPH_INDEX);
+#endif
+  data.max_pixpos -= end_glyph_width;
+
+  data.cursor_type = NO_CURSOR;
+  data.cursor_x = -1;
+
+  data.start_col = 0;
+  /* I don't think we want this, string areas should not scroll with
+     the window 
+  data.start_col = w->hscroll;
+  data.bi_start_col_enabled = (w->hscroll ? bi_start_pos : 0);
+  */
+  data.bi_start_col_enabled = 0;
+  data.hscroll_glyph_width_adjust = 0;
+
+  /* We regenerate the line from the very beginning. */
+  Dynarr_reset (db->runes);
+
+  /* Why is this less than or equal and not just less than?  If the
+     starting position is already equal to the maximum we can't add
+     anything else, right?  Wrong.  We might still have a newline to
+     add.  A newline can use the room allocated for an end glyph since
+     if we add it we know we aren't going to be adding any end
+     glyph. */
+
+  /* #### Chuck -- I think this condition should be while (1).
+     Otherwise if (e.g.) there is one begin-glyph and one end-glyph
+     and the begin-glyph ends exactly at the end of the window, the
+     end-glyph and text might not be displayed.  while (1) ensures
+     that the loop terminates only when either (a) there is
+     propagation data or (b) the end-of-line or end-of-buffer is hit.
+
+     #### Also I think you need to ensure that the operation
+     "add begin glyphs; add end glyphs; add text" is atomic and
+     can't get interrupted in the middle.  If you run off the end
+     of the line during that operation, then you keep accumulating
+     propagation data until you're done.  Otherwise, if the (e.g.)
+     there's a begin glyph at a particular position and attempting
+     to display that glyph results in window-end being hit and
+     propagation data being generated, then the character at that
+     position won't be displayed.
+
+     #### See also the comment after the end of this loop, below.
+     */
+  while (data.pixpos <= data.max_pixpos)
+    {
+      /* #### This check probably should not be necessary. */
+      if (data.bi_bufpos > bi_string_zv)
+	{
+	  /* #### urk!  More of this lossage! */
+	  data.bi_bufpos--;
+	  goto done;
+	}
+
+      /* Check for face changes. */
+      if (initial || (!no_more_frags && data.bi_bufpos == data.ef->end))
+	{
+	  /* Now compute the face and begin/end-glyph information. */
+	  data.findex =
+	    /* Remember that the extent-fragment routines deal in Bytind's. */
+	    extent_fragment_update (w, data.ef, data.bi_bufpos);
+	  /* This is somewhat cheesy but the alternative is to
+             propagate default_face into extent_fragment_update. */
+	  if (data.findex == DEFAULT_INDEX)
+	    data.findex = default_face;
+
+	  get_display_tables (w, data.findex, &face_dt, &window_dt);
+
+	  if (data.bi_bufpos == data.ef->end)
+	    no_more_frags = 1;
+	}
+      initial = 0;
+
+      /* Determine what is next to be displayed.  We first handle any
+         glyphs returned by glyphs_at_bufpos.  If there are no glyphs to
+         display then we determine what to do based on the character at the
+         current buffer position. */
+
+      /* If the current position is covered by an invisible extent, do
+         nothing (except maybe add some ellipses).
+
+	 #### The behavior of begin and end-glyphs at the edge of an
+	 invisible extent should be investigated further.  This is
+	 fairly low priority though. */
+      if (data.ef->invisible)
+	{
+	  /* #### Chuck, perhaps you could look at this code?  I don't
+	     really know what I'm doing. */
+	  if (*prop)
+	    {
+	      Dynarr_free (*prop);
+	      *prop = 0;
+	    }
+
+	  /* The extent fragment code only sets this when we should
+	     really display the ellipses.  It makes sure the ellipses
+	     don't get displayed more than once in a row. */
+	  if (data.ef->invisible_ellipses)
+	    {
+	      struct glyph_block gb;
+
+	      data.ef->invisible_ellipses_already_displayed = 1;
+	      data.ef->invisible_ellipses = 0;
+	      gb.extent = Qnil;
+	      gb.glyph = Vinvisible_text_glyph;
+	      *prop = add_glyph_rune (&data, &gb, BEGIN_GLYPHS, 0,
+				      GLYPH_CACHEL (w, INVIS_GLYPH_INDEX));
+	      /* Perhaps they shouldn't propagate if the very next thing
+		 is to display a newline (for compatibility with
+		 selective-display-ellipses)?  Maybe that's too
+		 abstruse. */
+	      if (*prop)
+		goto done;
+	    }
+
+	  /* #### What if we we're dealing with a display table? */
+	  if (data.start_col)
+	    data.start_col--;
+
+	  if (data.bi_bufpos == bi_string_zv)
+	    goto done;
+	  else
+	    INC_CHARBYTIND (string_data (s), data.bi_bufpos);
+	}
+
+      /* If there is propagation data, then it represents the current
+         buffer position being displayed.  Add them and advance the
+         position counter.  This might also add the minibuffer
+         prompt. */
+      else if (*prop)
+	{
+	  dl->used_prop_data = 1;
+	  *prop = add_propagation_runes (prop, &data);
+
+	  if (*prop)
+	    goto done;	/* gee, a really narrow window */
+	  else if (data.bi_bufpos == bi_string_zv)
+	    goto done;
+	  else if (data.bi_bufpos < 0)
+	    /* #### urk urk urk! Aborts are not very fun! Fix this please! */
+	    data.bi_bufpos = 0;
+	  else
+	    INC_CHARBYTIND (string_data (s), data.bi_bufpos);
+	}
+
+      /* If there are end glyphs, add them to the line.  These are
+	 the end glyphs for the previous run of text.  We add them
+	 here rather than doing them at the end of handling the
+	 previous run so that glyphs at the beginning and end of
+	 a line are handled correctly. */
+      else if (Dynarr_length (data.ef->end_glyphs) > 0)
+	{
+	  *prop = add_glyph_runes (&data, END_GLYPHS);
+	  if (*prop)
+	    goto done;
+	}
+
+      /* If there are begin glyphs, add them to the line. */
+      else if (Dynarr_length (data.ef->begin_glyphs) > 0)
+	{
+	  *prop = add_glyph_runes (&data, BEGIN_GLYPHS);
+	  if (*prop)
+	    goto done;
+	}
+
+      /* If at end-of-buffer, we've already processed begin and
+	 end-glyphs at this point and there's no text to process,
+	 so we're done. */
+      else if (data.bi_bufpos == bi_string_zv)
+	goto done;
+
+      else
+	{
+	  Lisp_Object entry = Qnil;
+	  /* Get the character at the current buffer position. */
+	  data.ch = string_char (s, data.bi_bufpos);
+	  if (!NILP (face_dt) || !NILP (window_dt))
+	    entry = display_table_entry (data.ch, face_dt, window_dt);
+
+	  /* If there is a display table entry for it, hand it off to
+             add_disp_table_entry_runes and let it worry about it. */
+	  if (!NILP (entry) && !EQ (entry, make_char (data.ch)))
+	    {
+	      *prop = add_disp_table_entry_runes (&data, entry);
+
+	      if (*prop)
+		goto done;
+	    }
+
+	  /* Check if we have hit a newline character.  If so, add a marker
+             to the line and end this loop. */
+	  else if (data.ch == '\n')
+	    {
+	      /* We aren't going to be adding an end glyph so give its
+                 space back in order to make sure that the cursor can
+                 fit. */
+	      data.max_pixpos += end_glyph_width;
+	      goto done;
+	    }
+
+	  /* If the current character is considered to be printable, then
+             just add it. */
+	  else if (data.ch >= printable_min)
+	    {
+	      *prop = add_emchar_rune (&data);
+	      if (*prop)
+		goto done;
+	    }
+
+	  /* If the current character is a tab, determine the next tab
+             starting position and add a blank rune which extends from the
+             current pixel position to that starting position. */
+	  else if (data.ch == '\t')
+	    {
+	      int tab_start_pixpos = data.pixpos;
+	      int next_tab_start;
+	      int char_tab_width;
+	      int prop_width = 0;
+
+	      if (data.start_col > 1)
+		tab_start_pixpos -= (space_width (w) * (data.start_col - 1));
+
+	      next_tab_start =
+		next_tab_position (w, tab_start_pixpos,
+				   dl->bounds.left_in +
+				   data.hscroll_glyph_width_adjust);
+	      if (next_tab_start > data.max_pixpos)
+		{
+		  prop_width = next_tab_start - data.max_pixpos;
+		  next_tab_start = data.max_pixpos;
+		}
+	      data.blank_width = next_tab_start - data.pixpos;
+	      char_tab_width =
+		(next_tab_start - tab_start_pixpos) / space_width (w);
+
+	      *prop = add_blank_rune (&data, w, char_tab_width);
+
+	      /* add_blank_rune is only supposed to be called with
+                 sizes guaranteed to fit in the available space. */
+	      assert (!(*prop));
+
+	      if (prop_width)
+		{
+		  struct prop_block pb;
+		  *prop = Dynarr_new (prop_block);
+
+		  pb.type = PROP_BLANK;
+		  pb.data.p_blank.width = prop_width;
+		  pb.data.p_blank.findex = data.findex;
+		  Dynarr_add (*prop, pb);
+
+		  goto done;
+		}
+	    }
+
+	  /* If character is a control character, pass it off to
+             add_control_char_runes.
+
+	     The is_*() routines have undefined results on
+	     arguments outside of the range [-1, 255].  (This
+	     often bites people who carelessly use `char' instead
+	     of `unsigned char'.)
+	     */
+	  else if (data.ch < 0x100 && iscntrl ((Bufbyte) data.ch))
+	    {
+	      *prop = add_control_char_runes (&data, b);
+
+	      if (*prop)
+		goto done;
+	    }
+
+	  /* If the character is above the ASCII range and we have not
+             already handled it, then print it as an octal number. */
+	  else if (data.ch >= 0200)
+	    {
+	      *prop = add_octal_runes (&data);
+
+	      if (*prop)
+		goto done;
+	    }
+
+	  /* Assume the current character is considered to be printable,
+             then just add it. */
+	  else
+	    {
+	      *prop = add_emchar_rune (&data);
+	      if (*prop)
+		goto done;
+	    }
+
+	  INC_CHARBYTIND (string_data (s), data.bi_bufpos);
+	}
+    }
+
+done:
+
+  /* Determine the starting point of the next line if we did not hit the
+     end of the buffer. */
+  if (data.bi_bufpos < bi_string_zv)
+    {
+      /* #### This check is not correct.  If the line terminated
+	 due to a begin-glyph or end-glyph hitting window-end, then
+	 data.ch will not point to the character at data.bi_bufpos.  If
+	 you make the two changes mentioned at the top of this loop,
+	 you should be able to say '(if (*prop))'.  That should also
+	 make it possible to eliminate the data.bi_bufpos < BI_BUF_ZV (b)
+	 check. */
+
+      /* The common case is that the line ended because we hit a newline.
+         In that case, the next character is just the next buffer
+         position. */
+      if (data.ch == '\n')
+	{
+	  INC_CHARBYTIND (string_data (s), data.bi_bufpos);
+	}
+
+      /* Otherwise we have a buffer line which cannot fit on one display
+         line. */
+      else
+	{
+	  struct glyph_block gb;
+	  struct glyph_cachel *cachel;
+
+	  /* If the line is to be truncated then we actually have to look
+             for the next newline.  We also add the end-of-line glyph which
+             we know will fit because we adjusted the right border before
+             we starting laying out the line. */
+	  data.max_pixpos += end_glyph_width;
+	  data.findex = default_face;
+	  gb.extent = Qnil;
+
+	  if (truncate_win)
+	    {
+	      Bytind bi_pos;
+
+	      /* Now find the start of the next line. */
+	      bi_pos = bi_find_next_emchar_in_string (s, '\n', data.bi_bufpos, 1);
+
+	      data.cursor_type = NO_CURSOR;
+	      data.bi_bufpos = bi_pos;
+	      gb.glyph = Vtruncation_glyph;
+	      cachel = GLYPH_CACHEL (w, TRUN_GLYPH_INDEX);
+	    }
+	  else
+	    {
+	      /* The cursor can never be on the continuation glyph. */
+	      data.cursor_type = NO_CURSOR;
+
+	      /* data.bi_bufpos is already at the start of the next line. */
+
+	      gb.glyph = Vcontinuation_glyph;
+	      cachel = GLYPH_CACHEL (w, CONT_GLYPH_INDEX);
+	    }
+
+	  if (end_glyph_width)
+	    add_glyph_rune (&data, &gb, BEGIN_GLYPHS, 0, cachel);
+
+	  if (truncate_win && data.bi_bufpos == bi_string_zv)
+	    {
+	      CONST Bufbyte* endb = charptr_n_addr (string_data (s), bi_string_zv);
+	      DEC_CHARPTR (endb);
+	      if (charptr_emchar (endb) != '\n')
+		{
+		  /* #### Damn this losing shit. */
+		  data.bi_bufpos++;
+		}
+	    }
+	}
+    }
+  else if (data.bi_bufpos == bi_string_zv)
+    {
+      /* We need to add a marker to the end of the line since there is no
+         newline character in order for the cursor to get drawn.  We label
+         it as a newline so that it gets handled correctly by the
+         whitespace routines below. */
+
+      data.ch = '\n';
+      data.blank_width = DEVMETH (d, eol_cursor_width, ());
+      data.findex = default_face;
+      data.start_col = 0;
+      data.bi_start_col_enabled = 0;
+
+      data.max_pixpos += data.blank_width;
+      add_emchar_rune (&data);
+      data.max_pixpos -= data.blank_width;
+
+      /* #### urk!  Chuck, this shit is bad news.  Going around
+	 manipulating invalid positions is guaranteed to result in
+	 trouble sooner or later. */
+      data.bi_bufpos = bi_string_zv + 1;
+    }
+
+  /* Calculate left whitespace boundary. */
+  {
+    int elt = 0;
+
+    /* Whitespace past a newline is considered right whitespace. */
+    while (elt < Dynarr_length (db->runes))
+      {
+	struct rune *rb = Dynarr_atp (db->runes, elt);
+
+	if ((rb->type == RUNE_CHAR && rb->object.chr.ch == ' ')
+	    || rb->type == RUNE_BLANK)
+	  {
+	    dl->bounds.left_white += rb->width;
+	    elt++;
+	  }
+	else
+	  elt = Dynarr_length (db->runes);
+      }
+  }
+
+  /* Calculate right whitespace boundary. */
+  {
+    int elt = Dynarr_length (db->runes) - 1;
+    int done = 0;
+
+    while (!done && elt >= 0)
+      {
+	struct rune *rb = Dynarr_atp (db->runes, elt);
+
+	if (!(rb->type == RUNE_CHAR && rb->object.chr.ch < 0x100
+	    && isspace (rb->object.chr.ch))
+	    && !rb->type == RUNE_BLANK)
+	  {
+	    dl->bounds.right_white = rb->xpos + rb->width;
+	    done = 1;
+	  }
+
+	elt--;
+
+      }
+
+    /* The line is blank so everything is considered to be right
+       whitespace. */
+    if (!done)
+      dl->bounds.right_white = dl->bounds.left_in;
+  }
+
+  /* Set the display blocks bounds. */
+  db->start_pos = dl->bounds.left_in;
+  if (Dynarr_length (db->runes))
+    {
+      struct rune *rb = Dynarr_atp (db->runes, Dynarr_length (db->runes) - 1);
+
+      db->end_pos = rb->xpos + rb->width;
+    }
+  else
+    db->end_pos = dl->bounds.right_white;
+
+  /* update line height parameters */
+  if (!data.new_ascent && !data.new_descent)
+    {
+      /* We've got a blank line so initialize these values from the default
+         face. */
+      default_face_font_info (data.window, &data.new_ascent,
+			      &data.new_descent, 0, 0, 0);
+    }
+
+  if (data.max_pixmap_height)
+    {
+      int height = data.new_ascent + data.new_descent;
+      int pix_ascent, pix_descent;
+
+      pix_descent = data.max_pixmap_height * data.new_descent / height;
+      pix_ascent = data.max_pixmap_height - pix_descent;
+
+      data.new_ascent = max (data.new_ascent, pix_ascent);
+      data.new_descent = max (data.new_descent, pix_descent);
+    }
+
+  dl->ascent = data.new_ascent;
+  dl->descent = data.new_descent;
+
+  {
+    unsigned short ascent = (unsigned short) XINT (w->minimum_line_ascent);
+
+    if (dl->ascent < ascent)
+      dl->ascent = ascent;
+  }
+  {
+    unsigned short descent = (unsigned short) XINT (w->minimum_line_descent);
+
+    if (dl->descent < descent)
+      dl->descent = descent;
+  }
+
+  dl->cursor_elt = data.cursor_x;
+  /* #### lossage lossage lossage! Fix this shit! */
+  if (data.bi_bufpos > bi_string_zv)
+    dl->end_bufpos = buffer_or_string_bytind_to_bufpos (disp_string, bi_string_zv);
+  else
+    dl->end_bufpos = buffer_or_string_bytind_to_bufpos (disp_string, data.bi_bufpos) - 1;
+  if (truncate_win)
+    data.dl->num_chars = 
+      string_column_at_point (s, dl->end_bufpos, XINT (b->tab_width));
+  else
+    /* This doesn't correctly take into account tabs and control
+       characters but if the window isn't being truncated then this
+       value isn't going to end up being used anyhow. */
+    data.dl->num_chars = dl->end_bufpos - dl->bufpos;
+
+  /* #### handle horizontally scrolled line with text none of which
+     was actually laid out. */
+
+  /* #### handle any remainder of overlay arrow */
+
+  if (*prop == ADD_FAILED)
+    *prop = NULL;
+
+  if (truncate_win && *prop)
+    {
+      Dynarr_free (*prop);
+      *prop = NULL;
+    }
+
+  extent_fragment_delete (data.ef);
+
+  /* #### If we started at EOB, then make sure we return a value past
+     it so that regenerate_window will exit properly.  This is bogus.
+     The main loop should get fixed so that it isn't necessary to call
+     this function if we are already at EOB. */
+
+  if (data.bi_bufpos == bi_string_zv && bi_start_pos == bi_string_zv)
+    return bytecount_to_charcount (string_data (s), data.bi_bufpos) + 1; /* Yuck! */
+  else
+    return bytecount_to_charcount (string_data (s), data.bi_bufpos);
+}
+
+/* Given a display line and a starting position, ensure that the
+   contents of the display line accurately represent the visual
+   representation of the buffer contents starting from the given
+   position when displayed in the given window.  The display line ends
+   when the contents of the line reach the right boundary of the given
+   window. 
+   
+   This is very similar to generate_display_line but with the same
+   limitations as create_string_text_block. I have taken the liberty
+   of fixing the bytind stuff though.*/
+
+static Bufpos
+generate_string_display_line (struct window *w, Lisp_Object disp_string,
+			      struct display_line *dl,
+			      Bufpos start_pos,
+			      prop_block_dynarr **prop,
+			      face_index default_face)
+{
+  Bufpos ret_bufpos;
+
+  /* you must set bounds before calling this. */
+
+  /* Reset what this line is using. */
+  if (dl->display_blocks)
+    Dynarr_reset (dl->display_blocks);
+  if (dl->left_glyphs)
+    {
+      Dynarr_free (dl->left_glyphs);
+      dl->left_glyphs = 0;
+    }
+  if (dl->right_glyphs)
+    {
+      Dynarr_free (dl->right_glyphs);
+      dl->right_glyphs = 0;
+    }
+
+  /* We aren't generating a modeline at the moment. */
+  dl->modeline = 0;
+
+  /* Create a display block for the text region of the line. */
+  ret_bufpos = create_string_text_block (w, disp_string, dl, start_pos,
+					 prop, default_face);
+  dl->bufpos = start_pos;
+  if (dl->end_bufpos < dl->bufpos)
+    dl->end_bufpos = dl->bufpos;
+
+  /* If there are left glyphs associated with any character in the
+     text block, then create a display block to handle them. */
+  if (dl->left_glyphs != NULL && Dynarr_length (dl->left_glyphs))
+    create_left_glyph_block (w, dl, 0);
+
+  /* If there are right glyphs associated with any character in the
+     text block, then create a display block to handle them. */
+  if (dl->right_glyphs != NULL && Dynarr_length (dl->right_glyphs))
+    create_right_glyph_block (w, dl);
+
+  return ret_bufpos;
+}
+
+/* This is ripped off from regenerate_window. All we want to do is
+   loop through elements in the string creating display lines until we
+   have covered the provided area. Simple really.  */
+void
+generate_displayable_area (struct window *w, Lisp_Object disp_string,
+			   int xpos, int ypos, int width, int height,
+			   display_line_dynarr* dla,
+			   Bufpos start_pos,
+			   face_index default_face)
+{
+  int yend = ypos + height;
+  Charcount s_zv;
+
+  prop_block_dynarr *prop = 0;
+  layout_bounds bounds;
+  assert (dla);
+
+  Dynarr_reset (dla);
+  /* if there's nothing to do then do nothing. code after this assumes
+     there is something to do. */
+  if (NILP (disp_string))
+    return;
+
+  s_zv = XSTRING_CHAR_LENGTH (disp_string) - 1;
+
+  bounds.left_out = xpos;
+  bounds.right_out = xpos + width;
+  /* The inner boundaries mark where the glyph margins are located. */
+  bounds.left_in = bounds.left_out + window_left_margin_width (w);
+  bounds.right_in = bounds.right_out - window_right_margin_width (w);
+  /* We cannot fully calculate the whitespace boundaries as they
+     depend on the contents of the line being displayed. */
+  bounds.left_white = bounds.left_in;
+  bounds.right_white = bounds.right_in;
+
+  while (ypos < yend)
+    {
+      struct display_line dl;
+      struct display_line *dlp;
+      Bufpos next_pos;
+      int local;
+
+      if (Dynarr_length (dla) < Dynarr_largest (dla))
+	{
+	  dlp = Dynarr_atp (dla, Dynarr_length (dla));
+	  local = 0;
+	}
+      else
+	{
+
+	  xzero (dl);
+	  dlp = &dl;
+	  local = 1;
+	}
+
+      dlp->bounds = bounds;
+      dlp->offset = 0;
+      next_pos = generate_string_display_line (w, disp_string, dlp, start_pos,
+					       &prop, default_face);
+      /* we need to make sure that we continue along the line if there
+         is more left to display otherwise we just end up redisplaying
+         the same chunk over and over again. */
+      if (next_pos == start_pos && next_pos < s_zv)
+	start_pos++;
+      else
+	start_pos = next_pos;
+
+      dlp->ypos = ypos + dlp->ascent;
+      ypos = dlp->ypos + dlp->descent;
+
+      if (ypos > yend)
+	{
+	  int visible_height = dlp->ascent + dlp->descent;
+
+	  dlp->clip = (ypos - yend);
+	  visible_height -= dlp->clip;
+
+	  if (visible_height < VERTICAL_CLIP (w, 1))
+	    {
+	      if (local)
+		free_display_line (dlp);
+	      break;
+	    }
+	}
+      else
+	dlp->clip = 0;
+
+      Dynarr_add (dla, *dlp);
+
+      /* #### This type of check needs to be done down in the
+	 generate_display_line call. */
+      if (start_pos >= s_zv)
+	break;
+    }
+
+  if (prop)
+    Dynarr_free (prop);
+}
+
+
+/***************************************************************************/
 /*									   */
 /*                        window-regeneration routines                     */
 /*									   */
@@ -4262,6 +5132,7 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
 	}
       else
 	{
+
 	  xzero (dl);
 	  dlp = &dl;
 	  local = 1;
@@ -4997,7 +5868,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
     }
   Fset_marker (w->pointm[DESIRED_DISP], make_int (pointm), the_buffer);
 
-  /* If the buffer has changed we have to invalid all of our face
+  /* If the buffer has changed we have to invalidate all of our face
      cache elements. */
   if ((!echo_active && b != window_display_buffer (w))
       || !Dynarr_length (w->face_cachels)
@@ -5391,6 +6262,7 @@ redisplay_frame (struct frame *f, int preemption_check)
      being handled. */
   update_frame_menubars (f);
 #endif /* HAVE_MENUBARS */
+  update_frame_gutters (f);
   /* widgets are similar to menus in that they can call lisp to
      determine activation etc. Therefore update them before we get
      into redisplay. This is primarily for connected widgets such as
@@ -5474,6 +6346,7 @@ redisplay_frame (struct frame *f, int preemption_check)
   f->modeline_changed = 0;
   f->point_changed    = 0;
   f->toolbar_changed  = 0;
+  f->gutter_changed  = 0;
   f->windows_changed  = 0;
   f->windows_structure_changed = 0;
   f->window_face_cache_reset = 0;
@@ -5532,7 +6405,8 @@ redisplay_device (struct device *d)
 	  f->faces_changed    || f->frame_changed || f->menubar_changed ||
 	  f->modeline_changed || f->point_changed || f->size_changed    ||
 	  f->toolbar_changed  || f->windows_changed || f->size_slipped  ||
-	  f->windows_structure_changed || f->glyphs_changed || f->subwindows_changed)
+	  f->windows_structure_changed || f->glyphs_changed || 
+	  f->subwindows_changed || f->gutter_changed)
 	{
 	  preempted = redisplay_frame (f, 0);
 	}
@@ -5566,7 +6440,7 @@ redisplay_device (struct device *d)
 	      f->faces_changed    || f->frame_changed || f->menubar_changed ||
 	      f->modeline_changed || f->point_changed || f->size_changed    ||
 	      f->toolbar_changed  || f->windows_changed ||
-	      f->windows_structure_changed ||
+	      f->windows_structure_changed || f->gutter_changed ||
 	      f->glyphs_changed || f->subwindows_changed)
 	    {
 	      preempted = redisplay_frame (f, 0);
@@ -5594,6 +6468,7 @@ redisplay_device (struct device *d)
   d->modeline_changed = 0;
   d->point_changed    = 0;
   d->toolbar_changed  = 0;
+  d->gutter_changed  = 0;
   d->windows_changed  = 0;
   d->windows_structure_changed = 0;
 
@@ -5635,8 +6510,8 @@ redisplay_without_hooks (void)
       !menubar_changed && !modeline_changed && !point_changed   &&
       !size_changed    && !toolbar_changed  && !windows_changed &&
       !glyphs_changed  && !subwindows_changed &&
-      !windows_structure_changed && !disable_preemption &&
-      preemption_count < max_preempts)
+      !gutter_changed && !windows_structure_changed &&
+      !disable_preemption && preemption_count < max_preempts)
     goto done;
 
   DEVICE_LOOP_NO_BREAK (devcons, concons)
@@ -5648,7 +6523,7 @@ redisplay_without_hooks (void)
 	  d->faces_changed    || d->frame_changed    || d->icon_changed    ||
 	  d->menubar_changed  || d->modeline_changed || d->point_changed   ||
 	  d->size_changed     || d->toolbar_changed  || d->windows_changed ||
-	  d->windows_structure_changed ||
+	  d->windows_structure_changed || d->gutter_changed ||
 	  d->glyphs_changed || d->subwindows_changed)
 	{
 	  preempted = redisplay_device (d);
@@ -5679,6 +6554,7 @@ redisplay_without_hooks (void)
   modeline_changed = 0;
   point_changed    = 0;
   toolbar_changed  = 0;
+  gutter_changed  = 0;
   windows_changed  = 0;
   windows_structure_changed = 0;
   RESET_CHANGED_SET_FLAGS;

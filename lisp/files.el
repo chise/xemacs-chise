@@ -1224,7 +1224,9 @@ REGEXP and search the list again for another match.")
     ("python" . python-mode)
     ("awk\\b" . awk-mode)
     ("rexx"   . rexx-mode)
-    ("scm"    . scheme-mode)
+    ("scm\\|guile" . scheme-mode)
+    ("emacs" . emacs-lisp-mode)
+    ("make" . makefile-mode)
     ("^:"     . sh-mode))
   "Alist mapping interpreter names to major modes.
 This alist is used to guess the major mode of a file based on the

@@ -1,4 +1,24 @@
 							-*- indented-text -*-
+to 21.2.19 "Shinjuku"
+-- various fixes from Gunnar Evermann
+-- XIM fixes from Kazuyuki IENAGA
+-- keymap fix from Katsumi Yamaoka
+-- Microsoft build fixes from Adrian Aichner
+-- documentation update from Adrian Aichner
+-- rect.el rewrite from Didier Verna
+-- custom comment fields from Didier Verna
+-- various fixes from Karl Hegbloom
+-- filling fix from Yoshiki Hayashi
+-- miscellaneous changes from Jeff Miller and Didier Verna
+-- configure hacking from Steve Baur
+-- various fixes from Bob Weiner
+-- Mule synching from MORIOKA Tomohiko
+-- various fixes from Steve Baur
+-- LDAP configure changes from Gregory Neil Shapiro
+-- gutter implementation from Andy Piper
+-- tab widgets in gutter from Andy Piper
+-- Custom themes, API part. See etc/custom/theme-examples from Jan Vroonhof
+
 to 21.2.18 "Toshima"
 -- miscellaneous fixes from Steve Baur
 -- miscellaneous fixes from Didier Verna

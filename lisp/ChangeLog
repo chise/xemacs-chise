@@ -2,6 +2,45 @@
 
 	* code-files.el (insert-file-contents): fixed.
 
+1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* files.el (insert-file-contents-literally): Treat file as binary;
+	call file-name-handlers. [sync with Emacs 20.3.10]
+
+1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.19 is released
+
+1999-07-28  SL Baur  <steve@miho>
+
+	* code-files.el (insert-file-contents): Fix docstring.
+	revert previous change.
+
+1999-07-26  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* fill.el (fill-region-as-paragraph): Change re-break-point to
+	contain	word-across-newline plus one character so that filling
+	Japanese and Chinese works as desired.
+	* simple.el (do-auto-fill): Ditto.
+
+1999-07-26  SL Baur  <steve@miho>
+
+	* mule/japanese.el ("Japanese"): Do not specify a default input
+	method.
+	Suggested by MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+1999-07-23  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* custom.el ((not (fboundp 'defun*))): Insert autoload crap to be
+	able to use cl-macs macro in early lisp.
+
+1999-07-23  Jan Vroonhof  <jan@xemacs.org>
+
+	* custom.el: 
+	* cus-face.el: 
+	* cus-edit.el:
+		Massive custom Theme API changes.
+
 1999-07-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* code-files.el (insert-file-contents): Regard
@@ -11,6 +50,29 @@
 
 	* mule/thai-xtis.el: Add coding: local variable, to avoid
 	bootstrapping problem with C locale.
+
+1999-07-22  Andy Piper  <andy@xemacs.org>
+
+	* dumped-lisp.el (preloaded-file-list): guard against putting
+ 	gutter-items in a less than functional XEmacs.
+	* gutter-items.el: put call to `add-tab-to-gutter' back in.
+
+1999-07-18  Bob Weiner  <weiner@beopen.com>
+
+	* fill.el (fill-context-prefix): Fixed bug that prevented the
+	setting of an adaptive fill prefix when the `dont-skip-first' was
+	t.
+
+1999-07-22  SL Baur  <steve@miho>
+
+	* gutter-items.el: remove unguarded call to `add-tab-to-gutter'.
+
+1999-06-25  Karl M. Hegbloom  <karlheg@debian.org>
+
+	* files.el (interpreter-mode-alist): add `make', `guile', and 
+	`emacs' entries. (#!/usr/bin/make -f ought to send a file into
+	makefile-mode, guile is a scheme, and someday XEmacs will be
+	modular enough to use as an efficient scripting tool.)
 
 1999-07-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
@@ -562,10 +624,104 @@
 	(ccl-dump-ex-cmd, ccl-dump-read-multibyte-character,
 	ccl-dump-write-multibyte-character): New functions.
 
-1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+1999-07-22  SL Baur  <steve@miho>
 
-	* files.el (insert-file-contents-literally): Treat file as binary;
-	call file-name-handlers. [sync with Emacs 20.3.10]
+	* config.el (config-value-file): config.values is installed into
+	doc-directory.
+	From Karl M. Hegbloom  <karlheg@cathcart.sysc.pdx.edu>
+
+1999-07-19  Didier Verna  <verna@inf.enst.fr>
+
+	* rect.el: all functions rewritten, except when noted. Below is a
+	list of interface changes.
+ 	(apply-on-rectangle): new function. Obsoletes
+	`operate-on-rectangle'. All functions that used to call this
+	function now call the new one.
+	(kill-rectangle): added optional prefix arg to fill lines.
+	(delete-rectangle): ditto.
+	(delete-extract-rectangle): ditto.
+	(open-rectangle): ditto.
+	(clear-rectangle): ditto.
+	(delete-rectangle-line): added third arg FILL.
+	(delete-extract-rectangle-line): ditto.
+	(open-rectangle-line): ditto.
+	(clear-rectangle-line): ditto.
+
+1999-07-18  Andy Piper  <andy@xemacs.org>
+
+	* menubar-items.el (default-menubar): add gutter options.
+
+	* gutter-items.el: new file.
+	(gutter): new group for custom.
+	(gutter-visible-p): new variable.
+	(default-gutter-position): ditto.
+	(buffers-tab): new group for the buffers tab.
+	(gutter-buffers-tab): widget to put in the gutter.
+	(buffers-tab-max-size): max number of tabs.
+	(buffers-tab-switch-to-buffer-function): function to call when a
+ 	tab is pressed.
+	(buffers-tab-omit-function): filter buffers with this function.
+	(buffers-tab-format-buffer-line-function): format buffer names for
+ 	inclusion in tabs.
+	(buffers-tab-switch-to-buffer): like switch-to-buffer but without
+	the record.
+	(build-buffers-tab-internal): build a list of tab items.
+	(buffers-tab-items): ditto.
+	(add-tab-to-gutter): put a tab in the gutter area.
+	(update-tab-in-gutter): reset the buffers in the tab.
+
+	* dumped-lisp.el (preloaded-file-list): dump gutter-items.
+
+	* buffer.el (switch-to-buffer): run switch-to-buffer-hooks.
+	(switch-to-buffer-hooks): new hook.
+
+	* toolbar.el (default-toolbar-position): fix typo.
+
+1999-07-16  Andy Piper  <andy@xemacs.org>
+
+	* gui.el (make-dialog-frame): turn off gutters for dialogs.
+
+1999-07-15  Didier Verna  <verna@inf.enst.fr>
+
+	* cus-edit.el (custom-prompt-variable): optional third arg makes
+	prompt for a comment string.
+	(customize-set-value): optional prefix makes this function handle
+	variable comments.
+	(customize-set-variable): ditto.
+	(customize-save-variable): ditto.
+	(customize-customized): handle custom comments.
+	(customize-save-customized): ditto.
+	(custom-variable-state-set): ditto.
+	(custom-face-state-set): ditto.
+	(customize-saved): ditto.
+	(custom-variable-set): ditto.
+	(custom-face-set): ditto.
+	(custom-variable-save): ditto.
+	(custom-face-save): ditto.
+	(custom-variable-reset-saved): ditto.
+	(custom-face-reset-saved): ditto.
+	(custom-variable-reset-standard): ditto.
+	(custom-face-reset-standard): ditto.
+	(custom-comment-face): new face.
+	(custom-comment-tag-face): ditto.
+	(custom-comment): new widget.
+	(custom-comment-create): new function.
+	(custom-comment-delete): ditto.
+	(custom-comment-value-set): ditto.
+	(custom-comment-show): ditto.
+	(custom-comment-invisible-p): ditto.
+	(custom-variable-value-create): create a comment field widget.
+	(custom-face-value-create): ditto.
+	(custom-variable-menu): new entry for adding a custom comment.
+	(custom-face-menu): ditto.
+	(custom-save-variables): possibly save custom comments.
+	(custom-save-faces): ditto.
+
+	* cus-face.el (custom-set-faces): the arguments can now have a
+	custom comment as fourth argument.
+
+	* custom.el (custom-set-variables): the arguments can now have a
+	custom comment as fifth element.
 
 1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
 
@@ -596,7 +752,7 @@
 
 	* mule/mule-misc.el (char-octet): Make function match docstring.
 	From Katsumi Yamaoka <yamaoka@jpl.org>
-	
+
 1999-06-15  Karl M. Hegbloom  <karlheg@debian.org>
 
 	* wid-edit.el (widget-documentation): corrected spelling error.
@@ -612,10 +768,10 @@
 
 1999-06-24  Bob Weiner  <weiner@beopen.com>
 
-	* lib-complete.el (find-library): 
-	(find-library-other-window): 
+	* lib-complete.el (find-library):
+	(find-library-other-window):
 	(find-library-other-frame): Completely rewrote
-	so that these functions actually work when called non-interactively.  
+	so that these functions actually work when called non-interactively.
 	Also made them handle LIBRARY arguments which end with .el or .elc.
 
 1999-06-24  Bob Weiner  <weiner@beopen.com>
@@ -628,8 +784,8 @@
 
 1999-06-23  Bob Weiner  <weiner@beopen.com>
 
-	* list-mode.el (mouse-choose-completion): 
-	(choose-completion): 
+	* list-mode.el (mouse-choose-completion):
+	(choose-completion):
 	(completion-switch-to-minibuffer): Added.
 	([Tab]): [Tab] previously switched to the minibuffer
 	but since [space] does that and since most applications in the
@@ -646,7 +802,7 @@
 
 1999-06-20  Bob Weiner  <weiner@beopen.com>
 
-	* list-mode.el (completion-list-mode-quit): Added and bound to {q} 
+	* list-mode.el (completion-list-mode-quit): Added and bound to {q}
 	in the completion-list-mode-map to bury the completions buffer
 	even when the minibuffer is no longer active.
 
@@ -661,7 +817,7 @@
 	* menubar-items.el (default-menubar): Conditionalize the bug
 	report menu item (which may not be possible in this XEmacs).
 	Reported by: Ken'ichi Handa <handa@etl.go.jp>
-	
+
 1999-06-30  SL Baur  <steve@miho.m17n.org>
 
 	* subr.el (with-current-buffer): DOC string fix.
@@ -670,7 +826,7 @@
 1999-06-25  Charles G Waldman <cgw@fnal.gov>
 
         * cus-face.el (custom-face-italic): insert missing args
-        
+
 1999-06-24  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
 
 	* packages.el (package-locations): Changed default early package
@@ -753,13 +909,13 @@
 
 1999-06-10  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
-	* cus-face.el: 
-	* cus-edit.el: 
-	* faces.el: 
-	(custom): 
-	(face-spec-set): 
-	* faces.el (frob-face-property): 
-	* font-menu.el (font-menu-set-font): 
+	* cus-face.el:
+	* cus-edit.el:
+	* faces.el:
+	(custom):
+	(face-spec-set):
+	* faces.el (frob-face-property):
+	* font-menu.el (font-menu-set-font):
 	          Actually apply changes from 1999-03-17
 
 1999-06-10  Andy Piper  <andy@xemacs.org>
@@ -912,7 +1068,7 @@
 	(mswindows-font-menu-font-data): ditto.
 	(mswindows-font-menu-load-font): ditto.
 
-	* x-font-menu.el (x-reset-device-font-menus): made device specific. 
+	* x-font-menu.el (x-reset-device-font-menus): made device specific.
 	(x-font-menu-font-data): ditto.
 	(x-font-menu-load-font): ditto.
 
@@ -1262,12 +1418,12 @@
 
 1999-02-19  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
-	* x-faces.el (x-init-global-faces): Add default tag to specifiers, 
+	* x-faces.el (x-init-global-faces): Add default tag to specifiers,
 	so they can be overridden by x-init-face-from-resources.
 	Additionally specify the font name also with an x tag.
 
 1999-03-08  Andy Piper  <andy@xemacs.org>
-	
+
 	* package-get.el (package-get-base): autoload.
 
 	* menubar-items.el (default-menubar): add update menu item. Fix
@@ -1318,12 +1474,12 @@
 
 1999-03-03  Martin Buchholz  <martin@xemacs.org>
 
-	* menubar-items.el (default-menubar): 
+	* menubar-items.el (default-menubar):
 	Implement the ``Mule->Set coding system of process'' menu item.
 
 1999-02-18  Martin Buchholz  <martin@xemacs.org>
 
-	* files.el (auto-mode-alist): Use c-mode for *.i pre-processed cpp 
+	* files.el (auto-mode-alist): Use c-mode for *.i pre-processed cpp
 	files
 	- Change some `if's to `when's
 
@@ -1400,7 +1556,7 @@
 
 1999-02-15  Martin Buchholz  <martin@xemacs.org>
 
-	* paths.el: 
+	* paths.el:
 	- improved automounter tmp directory support.
 	- support 4 (!) empirically discovered automounter conventions
 
@@ -1487,7 +1643,7 @@
 
 1998-12-30  Martin Buchholz  <martin@xemacs.org>
 
-	* font.el (font-default-object-for-device): 
+	* font.el (font-default-object-for-device):
 	Oops! This `or' can't be replaced by `unless'.
 	Fixed inability to run w3, among other things.
 
@@ -1500,7 +1656,7 @@
 
 1998-12-23  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* mouse.el (default-mouse-motion-handler): Disable help echo while 
+	* mouse.el (default-mouse-motion-handler): Disable help echo while
 	in the minibuffer.
 
 1998-12-28  Martin Buchholz <martin@xemacs.org>
@@ -1556,7 +1712,7 @@
 
 1998-11-30  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* cus-dep.el (Custom-make-dependencies): Be smarter about trapping 
+	* cus-dep.el (Custom-make-dependencies): Be smarter about trapping
 	errors.
 
 1998-12-04  Hrvoje Niksic  <hniksic@srce.hr>
@@ -1605,7 +1761,7 @@
 	bytecompile time.
 
 1998-11-30  Martin Buchholz  <martin@xemacs.org>
-	
+
 	* x-win-xfree86.el:
 	* x-win-sun.el (x-win-init-sun):
 	* x-win-sun.el:
@@ -1816,7 +1972,7 @@
 
 1998-11-26  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
-	* faces.el (get-custom-frame-properties): Revert Hrvoje Niksic change 
+	* faces.el (get-custom-frame-properties): Revert Hrvoje Niksic change
 	of Dec 4, 1997.
 
 1998-11-25  Hrvoje Niksic  <hniksic@srce.hr>
@@ -1850,20 +2006,20 @@
 
 	(package-get-remove-copy): Default to 't' we no longer need this
 	kludge as we do not currently use depenencies.
-	
+
 	(package-get-was-current): New variable.
 	(package-get-require-base): New 'force-current' argument.
 	(package-get-update-base): idem
 	(package-get-package-provider):  idem
 	(package-get-locate-index-file): New 'no-remote' argument.
 	(package-get-locate-file): idem.
-	
+
 	(package-get-maybe-save-index): New function.
 	(package-get-update-base): Use it.
 
 1998-10-28 Greg Klanderman <greg@alphatech.com>
 
-	* package-get.el (package-get-remote): default to nil; by default, 
+	* package-get.el (package-get-remote): default to nil; by default,
 	don't go out to the net via EFS.  They must select a download site.
 	(package-get-download-sites): new variable.
 	(package-get-download-menu): new function.
@@ -1878,22 +2034,22 @@
 	* package-get.el (package-get): bugfix code checking installed version
 	for case where package is not currently installed.
 	(package-get-require-signed-base-updates): new variable.
-	(package-get-update-base-from-buffer): remove REMOTE-SOURCE arg, it was 
+	(package-get-update-base-from-buffer): remove REMOTE-SOURCE arg, it was
 	deemed not a goot thing.  Use the variable
 	package-get-allow-unsigned-base-updates instead.
 
 1998-10-16 Greg Klanderman <greg@alphatech.com>
 
-	* package-get.el (package-get): Don't install an older version than 
+	* package-get.el (package-get): Don't install an older version than
 	we already have unless explicitly told to.  Issue a warning.
 
 	* package-ui.el (pui-add-required-packages): when adding
 	dependencies, don't add packages that are up to date.
-	(pui-package-symbol-char):  Don't consider a package out of date 
+	(pui-package-symbol-char):  Don't consider a package out of date
 	if you have a newer version installed than the latest version in
 	package-get-base.
 
-	* package-get.el (package-get-base-filename): document that it may 
+	* package-get.el (package-get-base-filename): document that it may
 	be a path relative to package-get-remote;  new default value.
 	(package-get-locate-file): new function.
 	(package-get-update-base): use it to expand package-get-base-filename.
@@ -1916,7 +2072,7 @@
 	* cus-face.el (custom-set-face-update-spec): Add autoload cookie
 
 1998-10-20  Malcolm Box  <malcolm@brownale.demon.co.uk>
-        
+
 	* etags.el (find-tag-default): Run find-tag-hook using
 	run-hooks rather than funcall
 
@@ -1937,7 +2093,7 @@
 1998-10-14  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
 	* auto-save.el: expand-file 'auto-save-*-dir' at runtime not at
-	dump time. 
+	dump time.
 
 1998-10-15  Greg Klanderman  <greg@alphatech.com>
 
@@ -1976,7 +2132,7 @@
 
 1998-10-12  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
-	* menubar-items.el (default-menubar): pui-list-package has nothing 
+	* menubar-items.el (default-menubar): pui-list-package has nothing
 	to with Customize. Move all the package stuff to a new Item in Options.
 
 	* package-ui.el (pui-menu): Add menu and Popup menu.
@@ -2072,9 +2228,9 @@
 
 	* package-admin.el (package-admin-delete-binary-package):
 		General cleanup. Remove unnessary use of progn and
-	save-excursion. 
+	save-excursion.
 	(package-admin-delete-binary-package): Do NOT mess with file
-	modes. That is evil. 
+	modes. That is evil.
 	(package-admin-delete-binary-package): Wrap all deleting in
 	condition-case. The data in MANIFEST is untrustworthy.
 	(package-admin-delete-binary-package): Let the OS worry about non
@@ -2108,8 +2264,8 @@
 
 1998-09-29  Colin Rafferty   <colin@xemacs.org>
 
-	* sound.el (default-sound-directory-list): Initialize with all the 
-	"sounds" directories in `data-directory-list'.  It used to just be 
+	* sound.el (default-sound-directory-list): Initialize with all the
+	"sounds" directories in `data-directory-list'.  It used to just be
 	the first one.
 
 	* packages.el (locate-data-directory-list): Created.  This gives
@@ -2120,7 +2276,7 @@
 
 	* minibuf.el (read-from-minibuffer): No longer bind help-form but
 	make a binding in the local keymap until help-char handling is
-	improved. 
+	improved.
 
 	* help.el (help-keymap-with-help-key): Provide keymap with help
 	binding.
@@ -2141,7 +2297,7 @@
 
 1998-09-21  Martin Buchholz  <martin@xemacs.org>
 
-	* bytecomp.el (byte-compile-buffer-substring): 
+	* bytecomp.el (byte-compile-buffer-substring):
 	Fix for: (byte-compile (defun f () (buffer-substring)))
 	==>   ** buffer-substring called with 3 args, but requires 0-3
 	- new code not only works, but is more readable, too.
@@ -2219,7 +2375,7 @@
 1998-08-27  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
 	* x-font-menu.el (font-menu-set-font):  Add "pt" units to size
-	argument.	
+	argument.
 
 1998-09-03  Darryl Okahata  <darrylo@sr.hp.com>
 
@@ -2227,14 +2383,14 @@
 	  keyword `:completion-string', which allows the programmer to
 	  change the "Possible completions are:" prompt.
 
-	* menubar-items.el: Added new pulldown menu-pick to start up the 
+	* menubar-items.el: Added new pulldown menu-pick to start up the
 	  visual package browser/installer:
 
 		Options->Customize->List Packages
 
 	* package-admin.el: Added hooks for installing under both Unix
 	  and MS Windows.  Does additional error checking.  No longer
-	  calls "add-big-package.sh" to install packages under Unix; now 
+	  calls "add-big-package.sh" to install packages under Unix; now
 	  calls gunzip & tar directly.
 
 	* package-get.el: Added ability to install packages from files
@@ -2247,7 +2403,7 @@
  	  Changed all occurences of `concat' to use `expand-file-name'.
 
 	* package-ui.el: New file which implements the main visual
-	  package browser/installer, which is started via a menu pick or 
+	  package browser/installer, which is started via a menu pick or
 	  M-x pui-list packages.
 
 1998-09-03  Hrvoje Niksic  <hniksic@srce.hr>
@@ -2293,8 +2449,8 @@
 
 1998-08-19  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
 
-	* loadup.el: 
-	* make-docfile.el: 
+	* loadup.el:
+	* make-docfile.el:
 	* update-elc.el: Don't set `source-directory' (now defunct as a
 	global variable) no more.
 
@@ -2314,7 +2470,7 @@
 	* faces.el (set-face-property):
 	(set-face-dim-p):
 	(face-dim-p): updated the doc strings now that the dim property isn't
-	tty-specific. 
+	tty-specific.
 	(face-equal): the dim property is now a common one.
 
 	* cus-face.el (custom-face-attributes): New face attribute: `dim'
@@ -2357,8 +2513,8 @@
 
 1998-08-01  Kai Haberzettl  <khaberz@synnet.de>
 
-	* startup.el(startup-splash-frame-body): 
-	Update Copyright notice in splash screen 
+	* startup.el(startup-splash-frame-body):
+	Update Copyright notice in splash screen
 
 1998-07-20  Greg Klanderman  <greg@alphatech.com>
 
@@ -2411,7 +2567,7 @@
 1998-07-16  Colin Rafferty   <colin@xemacs.org>
 
 	* menubar-items.el (default-menubar): Removed references to
-	`data-directory', and use `locate-data-file' instead, and made 
+	`data-directory', and use `locate-data-file' instead, and made
 	then greyed out if they don't exist.
 
 1998-07-14  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
@@ -2492,7 +2648,7 @@
 
 	* Symbols that have been obsolete for at least 3 years removed.
 
-	* cl-macs.el (cl-parse-loop-clause): Delete obsolete references to 
+	* cl-macs.el (cl-parse-loop-clause): Delete obsolete references to
 	screen- functions.
 	(toplevel): remove setf methods for screen functions.
 	* cl-macs.el (extent-data): defsetf removed.
@@ -2637,7 +2793,7 @@
 
 	* faces.el (xpm-color-symbols): remove hardcoded defaults these
  	are handled by the gui-element face fallbacks now.
-	
+
 	* x-faces.el: default gui-element face to "background" as well as
  	the default face.
 
@@ -2651,7 +2807,7 @@
 	corresponding to `page-delim' goes first and the hack in
 	`forward-paragraph' will work.
 	With bug analysis from Bob Weiner <weiner@altrasoft.com>
-	
+
 1998-06-29  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* subr.el (remove-hook): When checking the hook value
@@ -2676,7 +2832,7 @@
 
 1998-06-29  Kyle Jones  <kyle_jones@wonderworks.com>
 
-	* subr.el (remove-hook): Don't treat the hook value as a 
+	* subr.el (remove-hook): Don't treat the hook value as a
 	  list unless it is both consp and not functionp.
 
 1998-06-29  SL Baur  <steve@altair.xemacs.org>
@@ -2746,7 +2902,7 @@
 
 1998-06-15  Jonathan Harris  <jhar@tardis.ed.ac.uk>
 
-	* minibuf.el: make read-color-completion-table call 
+	* minibuf.el: make read-color-completion-table call
 	  (mswindows-color-list for mswindows devices.
 
 1998-06-18  Sam Mikes  <smikes@alumni.hmc.edu>
@@ -2802,7 +2958,7 @@
 	(Info-save-auto-generated-dir): New variable
 	(Info-maybe-update-dir): Use `Info-auto-generate-directory'
 	(Info-build-dir-anew): Second parameter removed.  Use
-	`Info-save-auto-generated-dir' 
+	`Info-save-auto-generated-dir'
 	(Info-rebuild-dir): Ditto
 
 1998-06-02  Christoph Wedler  <wedler@fmi.uni-passau.de>
@@ -2910,7 +3066,7 @@
 1998-06-02  Didier Verna  <verna@inf.enst.fr>
 
 	* cus-face.el (custom-face-attributes): generalized the use of
-	toggle buttons for boolean attributes. 
+	toggle buttons for boolean attributes.
 	Re-ordered the items a bit.
 
 1998-06-01  SL Baur  <steve@altair.xemacs.org>
@@ -3059,7 +3215,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 	* x-select.el: selection cleanup. (x-cut-copy-clear-internal)
 	moved to (cut-copy-clear-internal) in select.el. Ditto for
 	(x-delete-primary-selection) (x-kill-primary-selection)
-	(x-copy-primary-selection). 
+	(x-copy-primary-selection).
 	(own-clipboard): new function.
 
 	* msw-select.el: use the new kill/delete/copy/cut-copy-clear
@@ -3167,7 +3323,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 	comint-process-echoes setting to t.
 
 1998-05-17  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
-	
+
 	* packages.el (packages-no-package-hierarchy-regexp): Introduced
 	and used following the interface change of
 	`paths-find-recursive-path'.
@@ -3181,7 +3337,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 
 1998-05-16  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* simple.el (delete-forward-p): Make it a defun; do X garbage only 
+	* simple.el (delete-forward-p): Make it a defun; do X garbage only
 	on X devices, rather than on all non-TTY devices.
 
 1998-05-16  Kirill M. Katsnelson  <kkm@kis.ru>
@@ -3261,11 +3417,11 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 
 1998-05-15  Kirill M. Katsnelson  <kkm@kis.ru>
 
-	* device.el (device-pixel-width): 
-	(device-pixel-height): 
-	(device-mm-width): 
-	(device-mm-height): 
-	(device-bitplanes): 
+	* device.el (device-pixel-width):
+	(device-pixel-height):
+	(device-mm-width):
+	(device-mm-height):
+	(device-bitplanes):
 	(device-color-cells): Swapped parameters to device-system-metric
 	according to the interface change.
 
@@ -3476,8 +3632,8 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 1998-05-10  Kirill M. Katsnelson  <kkm@kis.ru>
 
 	* device.el: (device-pixel-width): Reflected name/parameters
-	change to device-system-metric. 
-	(device-pixel-height): Ditto. 
+	change to device-system-metric.
+	(device-pixel-height): Ditto.
 	(device-mm-width): Ditto.
 	(device-mm-height): Ditto.
 	(device-bitplanes): Ditto.
@@ -3549,11 +3705,11 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 
 1998-04-18  Kirill M. Katsnelson  <kkm@kis.ru>
 
-	* device.el (device-pixel-height): 
-	(device-pixel-width): 
-	(device-mm-width): 
-	(device-mm-height): 
-	(device-bitplanes): 
+	* device.el (device-pixel-height):
+	(device-pixel-width):
+	(device-mm-width):
+	(device-mm-height):
+	(device-bitplanes):
 	(device-color-cells): Moved these 6 functions from device.c; they
 	all use single (device-system-metrics) call.
 
@@ -3562,7 +3718,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 	* dumped-lisp.el (preloaded-file-list): x-menubar.el and x-toolbar.el
 	were renamed.
 
-	* menubar-items.el: 
+	* menubar-items.el:
 	* toolbar-items.el: Renamed from x-menubar/x-toolbar.
 	Suggested by Hrvoje Niksic <hniksic@srce.hr>
 
@@ -3608,12 +3764,12 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 
 1998-05-03  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* help.el (function-arglist): If no arguments are documented for a 
+	* help.el (function-arglist): If no arguments are documented for a
 	subr, print nothing rather than incorrect output.
 
 1998-05-05  SL Baur  <steve@altair.xemacs.org>
 
-	* cmdloop.el (command-error): Update bail-out error message to use 
+	* cmdloop.el (command-error): Update bail-out error message to use
 	`emacs-program-name'.
 
 	* lib-complete.el: Remove reader macro cruft.
@@ -3736,7 +3892,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 
 1998-04-30  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* modeline.el (defining-kbd-macro): Restore modeline indication of 
+	* modeline.el (defining-kbd-macro): Restore modeline indication of
 	kbd-macro being recorded.
 	(add-minor-mode): Simplify docstring.
 	(modeline-minor-mode-menu): Remove stuff.
@@ -3744,7 +3900,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 1998-04-29  Andy Piper  <andyp@parallax.co.uk>
 
 	* code-process.el (call-process): dynamically decide process
-	coding type. 
+	coding type.
 
 1998-04-29  Jim Radford  <radford@robby.caltech.edu>
 
@@ -3842,7 +3998,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 1998-04-25  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
 
 	* info.el (Info-parse-dir-entries): Fixed regexp
-	(Info-build-dir-anew): Remove full suffix and capitalize info file 
+	(Info-build-dir-anew): Remove full suffix and capitalize info file
 	name for files with no @direntry
 	(Info-batch-rebuild-dir): New function
 	(Info-suffixed-file): Check for regular files instead of simple
@@ -3956,11 +4112,11 @@ Wed Apr 22 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 1998-04-19  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
 
 	* info.el (Info-maybe-update-dir): Bug fix in `conservative' behaviour
-	(Info-build-dir-anew): Add a final newline.  
-	(Info-build-dir-anew): Do not issue warning when rebuilding policy 
+	(Info-build-dir-anew): Add a final newline.
+	(Info-build-dir-anew): Do not issue warning when rebuilding policy
 	is `always'
 	(Info-rebuild-dir): Ditto
-	
+
 	* dumped-lisp.el (preloaded-file-list): Added ldap.el
 
 1998-04-21  SL Baur  <steve@altair.xemacs.org>
@@ -3974,7 +4130,7 @@ Wed Apr 22 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-04-19  SL Baur  <steve@altair.xemacs.org>
 
-	* packages.el (package-locations): infodock-packages must override 
+	* packages.el (package-locations): infodock-packages must override
 	mule-packages and packages.
 
 1998-04-19  Jonathan Harris <jhar@tardis.ed.a.uk>
@@ -4003,7 +4159,7 @@ Wed Apr 22 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 	* packages.el, setup-paths.el: Set various path searching depths
 	to 1.
 
-	* packages.el (packages-hierarchy-depth): 
+	* packages.el (packages-hierarchy-depth):
 	(packages-load-path-depth): Introduced and used.
 
 	* setup-paths.el (paths-load-path-depth): Introduced and used.
@@ -4013,12 +4169,12 @@ Wed Apr 22 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-04-15  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
 
-	* setup-paths.el (paths-construct-info-path): Removed 
+	* setup-paths.el (paths-construct-info-path): Removed
 	dependency on behavior of (file-name-as-directory "").
 
 1998-04-09  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
 
-	* ldap.el (ldap-search): Adapt to the new low-level API using ldap 
+	* ldap.el (ldap-search): Adapt to the new low-level API using ldap
 	lisp objects
 
 1998-04-14  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
@@ -4030,7 +4186,7 @@ Wed Apr 22 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 	* wid-edit.el: We cannot just set the help-echo or balloon-help
 	  properties for an extent based on the :help-echo widget
 	  property, since help-echo and balloon-help cause an EXTENT to
-	  get passed in, where :help-echo functions are expecting a WIDGET 
+	  get passed in, where :help-echo functions are expecting a WIDGET
 
 1998-04-15  Kirill M. Katsnelson  <kkm@kis.ru>
 
@@ -4146,7 +4302,7 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 	* dump-paths.el, startup.el: Removed package-path as a global
 	variable.
 
-	* package-admin.el (package-admin-add-single-file-package): 
+	* package-admin.el (package-admin-add-single-file-package):
 	(package-admin-add-binary-package): Changed package-path to
 	late-packages.
 
@@ -4164,7 +4320,7 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* x-toolbar.el:  Added toolbar-vector-xxxxxx defvars.  Modified
 	initial-toolbar-spec to use new toolbar-vector-xxxxxx defvars.  This
-	eases the use of toolbar-add/kill-item functions. 
+	eases the use of toolbar-add/kill-item functions.
 
 1998-04-07  Kirill M. Katsnelson  <kkm@kis.ru>
 
@@ -4178,11 +4334,11 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 	(Info-rebuild-dir): Appropriately parse multi-line description
 	strings, and multi-section dir files. Issue warning when dir
 	is rebuilt as temporary
-	(Info-build-dir-anew): Issue warning when dir is built as 
+	(Info-build-dir-anew): Issue warning when dir is built as
 	temporary
 
 1998-04-04  Kirill M. Katsnelson  <kkm@kis.ru>
- 
+
 	* list-mode.el (list-mode-map): Bind highlight motion commands to
 	standard keys left, right, C-b and C-f.
 
@@ -4202,7 +4358,7 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* isearch-mode.el (isearch-just-started): New variable.
 	(isearch-mode): Set it.
-	(isearch-repeat): Advance one character forward only if the search 
+	(isearch-repeat): Advance one character forward only if the search
 	was successful, and was not just started.
 	(isearch-repeat): Clear isearch-just-started.
 
@@ -4239,7 +4395,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-03-30  Kyle Jones  <kyle_jones@wonderworks.com>
 
-	* loaddefs.el: Don't set debug-ignored-errors; leave 
+	* loaddefs.el: Don't set debug-ignored-errors; leave
 	  its default value set to nil.
 
 1998-03-29  Damon Lipparelli  <lipp@primus.com>
@@ -4249,7 +4405,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 1998-03-29  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
 
 	* info.el (Info-rebuild-outdated-dir): New custom var
-	(Info-insert-node): Create/update dir file when needed, ie when it 
+	(Info-insert-node): Create/update dir file when needed, ie when it
 	does not exist or is older than some info files in directory
 
 1998-04-01  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
@@ -4444,7 +4600,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 1998-03-18  SL Baur  <steve@altair.xemacs.org>
 
 	* frame.el (frame-initialize): Use `delete-console' instead of
-	`delete-device' to delete the stream console to match the usage in 
+	`delete-device' to delete the stream console to match the usage in
 	Fkill_emacs.
 
 1998-03-16  SL Baur  <steve@altair.xemacs.org>
@@ -4484,11 +4640,11 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 1998-03-03  Kirill M. Katsnelson  <kkm@kis.ru>
 
 	* msw-glyphs.el: New file. Defines TTY-style glyphs for
-	mswindows. Must be reworked along with glyphs.el, or 
+	mswindows. Must be reworked along with glyphs.el, or
 	merged into it, after there is images support.
 
 	* dumped-lisp.el (preloaded-file-list): Dump msw-glyphs.el when
-	'mswindows. 
+	'mswindows.
 
 1998-03-13  SL Baur  <steve@altair.xemacs.org>
 
@@ -4498,7 +4654,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-03-11  Pete Ware  <ware@cis.ohio-state.edu>
 
-	* files.el (set-auto-mode): If a mode is not fboundp, check to see 
+	* files.el (set-auto-mode): If a mode is not fboundp, check to see
 	if there is an existing package that handles it and warn the user
 	about that mode.
 
@@ -4519,7 +4675,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-03-10  Glynn Clements  <glynn@sensei.co.uk>
 
-	* files.el (backup-enable-predicate): fix breakage introduced 
+	* files.el (backup-enable-predicate): fix breakage introduced
 	by TMPDIR patch.
 
 1998-03-09  Kyle Jones  <kyle_jones@wonderworks.com>
@@ -4697,7 +4853,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 	decided in `mouse-drag-modeline'.
 	(mouse-drag-modeline): A button release event is considered a
 	mouse click is both X (modeline scroll) and Y (modeline drag) pos
-	stay unchanged. 
+	stay unchanged.
 
 1998-02-25  SL Baur  <steve@altair.xemacs.org>
 
@@ -4748,18 +4904,18 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 	if it exists, becasuse with-output-to-temp-buffer will clear it.
 	further, killing the buffer violates the rule that
 	temp-buffer-show-function, if set, has the full responsibility of
-	showing the temp buffer.  killing the buffer fucks with the window 
+	showing the temp buffer.  killing the buffer fucks with the window
 	configuration, hosing temp-buffer-show-function.
 
 
 1998-02-23  Didier Verna  <verna@inf.enst.fr>
 
-	* modeline.el (mouse-drag-modeline): 
+	* modeline.el (mouse-drag-modeline):
 	- Always scroll the modeline that was originally clicked on.
-	- Use x pixels instead of x characters (which doesn't work anyway) 
+	- Use x pixels instead of x characters (which doesn't work anyway)
 	as horizontal reference for modeline dragging. This allows us to
 	keep on dragging the modeline even if the motion event occurs in
-	another window. 
+	another window.
 
 1998-02-23  Didier Verna  <verna@inf.enst.fr>
 
@@ -4791,7 +4947,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 1998-02-17  Didier Verna  <verna@inf.enst.fr>
 
 	* mouse.el (default-mouse-track-set-point-in-window): rewrote this
-	function to handle correctly the case of a toolbar one side of the 
+	function to handle correctly the case of a toolbar one side of the
 	window: scrolling will not necessarily happen.
 
 1998-02-17  Kyle Jones  <kyle_jones@wonderworks.com>
@@ -4810,20 +4966,20 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 	* autoload.el (generate-file-autoloads-1): Don't force an extra
 	line out when copying on-the-same line autoloads.
 
-	* x-menubar.el (default-menubar): Add Sokoban to the menubar if it 
+	* x-menubar.el (default-menubar): Add Sokoban to the menubar if it
 	is installed.
 
 1998-02-14  Martin Buchholz  <martin@xemacs.org>
 
-	* x11/x-win-xfree86.el (x-win-init-xfree86): 
-	* x11/x-win-sun.el (x-win-init-sun): 
-	* x11/x-init.el (x-initialize-compose): 
+	* x11/x-win-xfree86.el (x-win-init-xfree86):
+	* x11/x-win-sun.el (x-win-init-sun):
+	* x11/x-init.el (x-initialize-compose):
 	* prim/simple.el:
-	(backward-or-forward-kill-sexp): 
-	(backward-or-forward-kill-sentence): 
-	(backward-or-forward-kill-word): 
-	(backward-or-forward-delete-char): 
-	* prim/isearch-mode.el (isearch-help-or-delete-char): 
+	(backward-or-forward-kill-sexp):
+	(backward-or-forward-kill-sentence):
+	(backward-or-forward-kill-word):
+	(backward-or-forward-delete-char):
+	* prim/isearch-mode.el (isearch-help-or-delete-char):
 	Use x-keysym-on-keyboard-sans-modifiers-p instead of
 	x-keysym-on-keyboard-p to detect backspace.
 	Use symbols instead of strings (now deprecated) with x-keysym-*-p.
@@ -4922,7 +5078,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 1997-06-15  Richard Stallman  <rms@psilocin.gnu.ai.mit.edu>
 
 	* text-mode.el (text-mode): Let all-white lines separate paragraphs.
-	
+
 1997-06-11  Richard Stallman  <rms@psilocin.gnu.ai.mit.edu>
 
 	* text-mode.el (paragraph-indent-text-mode):
@@ -5015,7 +5171,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* about.el: Add xemacs.org email manager.
 
-	* package-get-base.el (package-get-base): Updated with most recent 
+	* package-get-base.el (package-get-base): Updated with most recent
 	package updates.
 
 1998-01-14  Jens-Ulrik Holger Petersen  <petersen@kurims.kyoto-u.ac.jp>
@@ -5032,7 +5188,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 	(describe-key): Use `princ' "%s" to print object.
 	(describe-function-1): Use `princ' "%s" to print object.
 	Commented out alias lines removed.
-	(help-pretty-print-limit): New variable to control pretty-printing 
+	(help-pretty-print-limit): New variable to control pretty-printing
 	of variable values.
 	(help-maybe-pretty-print-value): Steve wins!  Renamed back from
 	`help-pretty-print-value' again.  Only print-print when OBJECT is
@@ -5051,9 +5207,9 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-01-13  Martin Buchholz  <martin@xemacs.org>
 
-	* lisp/packages.el: 
-	* lisp/package-admin.el: 
-	* lisp/build-report.el: 
+	* lisp/packages.el:
+	* lisp/package-admin.el:
+	* lisp/build-report.el:
 	Fix typos.
 
 1998-01-14  Christoph Wedler  <wedler@fmi.uni-passau.de>
@@ -5236,10 +5392,10 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 	* package-get.el: Changes to work with real data.
 	From Pete Ware <ware@cis.ohio-state.edu>
 
-	* packages.el (packages-reload-autoloads): Guard load for the time 
+	* packages.el (packages-reload-autoloads): Guard load for the time
 	being.
 
-	* update-elc.el ("packages.el"): Force loading packages.el instead 
+	* update-elc.el ("packages.el"): Force loading packages.el instead
 	of possibly out-of-date packges.elc.
 	* make-docfile.el ("packages.el"): Ditto.
 
@@ -5295,7 +5451,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1997-12-29  Colin Rafferty  <colin@xemacs.org>
 
-	* packages.el (packages-find-packages-1): Made it signal a warning 
+	* packages.el (packages-find-packages-1): Made it signal a warning
 	for an error in an auto-autoload.el file.
 
 1997-12-30  SL Baur  <steve@altair.xemacs.org>
@@ -5436,10 +5592,10 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1997-12-18  SL Baur  <steve@altair.xemacs.org>
 
-	* startup.el (set-default-load-path): Make sure lisp and site-lisp 
+	* startup.el (set-default-load-path): Make sure lisp and site-lisp
 	get trailing slashes when added to the load-path.
 
-	* x-init.el (init-x-win): Locate where XEmacs X localization files 
+	* x-init.el (init-x-win): Locate where XEmacs X localization files
 	are.
 
 1997-12-18  Kyle Jones  <kyle_jones@wonderworks.com>
@@ -5534,11 +5690,11 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 	* startup.el (set-default-load-path): Only search package-path
 	when not running temacs.
 
-	* dumped-lisp.el (preloaded-file-list): Remove Egg/Its dumped lisp 
+	* dumped-lisp.el (preloaded-file-list): Remove Egg/Its dumped lisp
 	files.
 
 	* loadup.el: Correct commentary.  Reformatting.
-	(really-early-error-handler): Use absolute path to the 
+	(really-early-error-handler): Use absolute path to the
 	first dumped-lisp.el file.
 	(really-early-error-handler): Print full path name of
 	each dumped lisp file (inherited from InfoDock).
@@ -5578,7 +5734,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1997-12-15  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* modeline.el (mouse-drag-modeline): Give the modeline a "pressed" 
+	* modeline.el (mouse-drag-modeline): Give the modeline a "pressed"
 	look.
 
 1997-12-16  Oscar Figueiredo <Oscar.Figueiredo@di.epfl.ch>
@@ -5594,7 +5750,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1997-12-17  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* etags.el (get-tag-table-buffer): Use explicit lists as arguments 
+	* etags.el (get-tag-table-buffer): Use explicit lists as arguments
 	to `ecase'.
 
 1997-12-14  SL Baur  <steve@altair.xemacs.org>

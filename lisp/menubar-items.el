@@ -737,6 +737,32 @@
 		 :selected (eq default-toolbar-position 'right)]
 		)
 	       )))
+      ,@(if (featurep 'gutter)
+	    '(("Gutter Appearance"
+	       ["Visible"
+		(customize-set-variable 'gutter-visible-p
+					(not gutter-visible-p))
+		:style toggle
+		:selected gutter-visible-p]
+	       ("Default Location"
+		["Top"
+		 (customize-set-variable 'default-gutter-position 'top)
+		 :style radio
+		 :selected (eq default-gutter-position 'top)]
+		["Bottom"
+		 (customize-set-variable 'default-gutter-position 'bottom)
+		 :style radio
+		 :selected (eq default-gutter-position 'bottom)]
+		["Left"
+		 (customize-set-variable 'default-gutter-position 'left)
+		 :style radio
+		 :selected (eq default-gutter-position 'left)]
+		["Right"
+		 (customize-set-variable 'default-gutter-position 'right)
+		 :style radio
+		 :selected (eq default-gutter-position 'right)]
+		)
+	       )))
       ("Mouse"
        ["Avoid Text..."
 	(customize-set-variable 'mouse-avoidance-mode

@@ -41,6 +41,7 @@ Boston, MA 02111-1307, USA.  */
 #include "faces.h"
 #include "frame.h"
 #include "glyphs-msw.h"
+#include "gutter.h"
 #include "redisplay.h"
 #include "sysdep.h"
 #include "window.h"
@@ -75,6 +76,7 @@ static void mswindows_output_pixmap (struct window *w, struct display_line *dl,
 				     face_index findex, int cursor_start, 
 				     int cursor_width, int cursor_height,
 				     int offset_bitmap);
+void bevel_modeline (struct window *w, struct display_line *dl);
 
 typedef struct textual_run
 {
@@ -965,6 +967,7 @@ mswindows_redraw_exposed_area (struct frame *f, int x, int y, int width, int hei
      redraw anyhow. */
   MAYBE_FRAMEMETH (f, redraw_exposed_toolbars, (f, x, y, width, height));
 #endif
+  redraw_exposed_gutters (f, x, y, width, height);
 
   if (!f->window_face_cache_reset)
 	{
@@ -977,38 +980,36 @@ mswindows_redraw_exposed_area (struct frame *f, int x, int y, int width, int hei
 
 
 /*****************************************************************************
- mswindows_bevel_modeline
+ mswindows_bevel_area
 
- Draw a 3d border around the modeline on window W.
+ Draw a 3d border around the specified area on window W.
  ****************************************************************************/
 static void
-mswindows_bevel_modeline (struct window *w, struct display_line *dl)
+mswindows_bevel_area (struct window *w, face_index findex, int x, int y, 
+		      int width, int height, int shadow_thickness)
 {
   struct frame *f = XFRAME (w->frame);
-  Lisp_Object color;
-  int shadow_width = MODELINE_SHADOW_THICKNESS (w);
-  RECT rect = {	WINDOW_MODELINE_LEFT (w), 
-		dl->ypos - dl->ascent - shadow_width,
-		WINDOW_MODELINE_RIGHT (w),
-		dl->ypos + dl->descent + shadow_width};
   UINT edge;
 
-  color = WINDOW_FACE_CACHEL_BACKGROUND (w, MODELINE_INDEX);
-  mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, Qnil, color, Qnil);
-
-  if (XINT (w->modeline_shadow_thickness) < 0)
-    shadow_width = -shadow_width;
-
-  if (shadow_width < -1)
+  if (shadow_thickness < -1)
     edge = EDGE_SUNKEN;
-  else if (shadow_width < 0)
+  else if (shadow_thickness < 0)
     edge = BDR_SUNKENINNER;
-  else if (shadow_width == 1)
+  else if (shadow_thickness == 1)
     edge = BDR_RAISEDINNER;
   else
     edge = EDGE_RAISED;
-    
-  DrawEdge (FRAME_MSWINDOWS_DC (f), &rect, edge, BF_RECT);
+
+  if (shadow_thickness < 0)
+    shadow_thickness = -shadow_thickness;
+
+  {
+    RECT rect = { x, y, x + width, y + height };
+    Lisp_Object color = WINDOW_FACE_CACHEL_BACKGROUND (w, findex);
+    mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, Qnil, color, Qnil);
+
+    DrawEdge (FRAME_MSWINDOWS_DC (f), &rect, edge, BF_RECT);
+  }
 }
 
 
@@ -1110,18 +1111,14 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
   rb = Dynarr_atp (rba, start);
 
   if (!rb)
-    {
       /* Nothing to do so don't do anything. */
       return;
-    }
-  else
-    {
-      findex = rb->findex;
-      xpos = rb->xpos;
-      width = 0;
-      if (rb->type == RUNE_CHAR)
-	charset = CHAR_CHARSET (rb->object.chr.ch);
-    }
+
+  findex = rb->findex;
+  xpos = rb->xpos;
+  width = 0;
+  if (rb->type == RUNE_CHAR)
+    charset = CHAR_CHARSET (rb->object.chr.ch);
 
   if (end < 0)
     end = Dynarr_length (rba);
@@ -1295,7 +1292,7 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
       && (f->clear
 	  || f->windows_structure_changed
 	  || w->shadow_thickness_changed))
-    mswindows_bevel_modeline (w, dl);
+    bevel_modeline (w, dl);
 
   Dynarr_free (buf);
 }
@@ -1316,12 +1313,14 @@ mswindows_output_vertical_divider (struct window *w, int clear_unused)
   int abs_shadow = abs (shadow);
   int line_width = XINT (w->vertical_divider_line_width);
   int div_left = WINDOW_RIGHT (w) - window_divider_width (w);
+  int y1 = WINDOW_TOP (w) + FRAME_TOP_GUTTER_BOUNDS (f);
+  int y2 = WINDOW_BOTTOM (w) + FRAME_BOTTOM_GUTTER_BOUNDS (f);
 
   /* Clear left and right spacing areas */
   if (spacing)
     {
-      rect.top = WINDOW_TOP (w);
-      rect.bottom = WINDOW_BOTTOM (w);
+      rect.top = y1;
+      rect.bottom = y2;
       mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, Qnil,
 		   WINDOW_FACE_CACHEL_BACKGROUND (w, DEFAULT_INDEX), Qnil);
       rect.right = WINDOW_RIGHT (w);
@@ -1335,8 +1334,8 @@ mswindows_output_vertical_divider (struct window *w, int clear_unused)
     }
   
   /* Clear divider face */
-  rect.top = WINDOW_TOP (w) + abs_shadow;
-  rect.bottom = WINDOW_BOTTOM (w) - abs_shadow;
+  rect.top = y1 + abs_shadow;
+  rect.bottom = y2 - abs_shadow;
   rect.left = div_left + spacing + abs_shadow;
   rect.right = rect.left + line_width;
   if (rect.left < rect.right)
@@ -1421,56 +1420,6 @@ mswindows_clear_region (Lisp_Object locale, struct device* d, struct frame* f,
 #endif
 }
 
-/*****************************************************************************
- mswindows_clear_to_window_end
-
- Clear the area between ypos1 and ypos2.  Each margin area and the
- text area is handled separately since they may each have their own
- background color.
- ****************************************************************************/
-static void
-mswindows_clear_to_window_end (struct window *w, int ypos1, int ypos2)
-{
-  int height = ypos2 - ypos1;
-
-  if (height)
-    {
-      struct frame *f = XFRAME (w->frame);
-      Lisp_Object window;
-      int bflag = (window_needs_vertical_divider (w) ? 0 : 1);
-      layout_bounds bounds;
-
-      bounds = calculate_display_line_boundaries (w, bflag);
-      XSETWINDOW (window, w);
-
-      if (window_is_leftmost (w))
-	redisplay_clear_region (window, DEFAULT_INDEX, FRAME_LEFT_BORDER_START (f),
-			  ypos1, FRAME_BORDER_WIDTH (f), height);
-
-      if (bounds.left_in - bounds.left_out > 0)
-	redisplay_clear_region (window,
-			  get_builtin_face_cache_index (w, Vleft_margin_face),
-			  bounds.left_out, ypos1,
-			  bounds.left_in - bounds.left_out, height);
-
-      if (bounds.right_in - bounds.left_in > 0)
-	redisplay_clear_region (window, DEFAULT_INDEX, bounds.left_in, ypos1,
-			  bounds.right_in - bounds.left_in, height);
-
-      if (bounds.right_out - bounds.right_in > 0)
-	redisplay_clear_region (window,
-			  get_builtin_face_cache_index (w, Vright_margin_face),
-			  bounds.right_in, ypos1,
-			  bounds.right_out - bounds.right_in, height);
-
-      if (window_is_rightmost (w))
-	redisplay_clear_region (window, DEFAULT_INDEX, FRAME_RIGHT_BORDER_START (f),
-			  ypos1, FRAME_BORDER_WIDTH (f), height);
-    }
-
-}
-
-
 /* XXX Implement me! */
 static void
 mswindows_clear_frame (struct frame *f)
@@ -1493,11 +1442,11 @@ console_type_create_redisplay_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, divider_height);
   CONSOLE_HAS_METHOD (mswindows, eol_cursor_width);
   CONSOLE_HAS_METHOD (mswindows, output_vertical_divider);
-  CONSOLE_HAS_METHOD (mswindows, clear_to_window_end);
   CONSOLE_HAS_METHOD (mswindows, clear_region);
   CONSOLE_HAS_METHOD (mswindows, clear_frame);
   CONSOLE_HAS_METHOD (mswindows, output_begin);
   CONSOLE_HAS_METHOD (mswindows, output_end);
   CONSOLE_HAS_METHOD (mswindows, flash);
   CONSOLE_HAS_METHOD (mswindows, ring_bell);
+  CONSOLE_HAS_METHOD (mswindows, bevel_area);
 }

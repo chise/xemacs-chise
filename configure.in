@@ -345,18 +345,20 @@ datadir='${prefix}/lib'
 statedir='${prefix}/lib'
 libdir='${exec_prefix}/lib'
 mandir='${prefix}/man/man1'
-infodir='${datadir}/${PROGNAME}-${version}/info'
+inststaticdir='${PROGNAME}'
+instvardir='${PROGNAME}-${version}'
+infodir='${datadir}/${instvardir}/info'
 infopath=''
 install_pp=''
-lispdir='${datadir}/${PROGNAME}-${version}/lisp'
-moduledir='${datadir}/${PROGNAME}-${version}/${configuration}/modules'
-sitelispdir='${datadir}/xemacs/site-lisp'
-sitemoduledir='${datadir}/xemacs/site-modules'
-pkgdir='${datadir}/${PROGNAME}-${version}/lisp'
+lispdir='${datadir}/${instvardir}/lisp'
+moduledir='${datadir}/${instvardir}/${configuration}/modules'
+sitelispdir='${datadir}/${inststaticdir}/site-lisp'
+sitemoduledir='${datadir}/${inststaticdir}/site-modules'
+pkgdir='${datadir}/${instvardir}/lisp'
 package_path=''
-etcdir='${datadir}/${PROGNAME}-${version}/etc'
-lockdir='${statedir}/${PROGNAME}/lock'
-archlibdir='${datadir}/${PROGNAME}-${version}/${configuration}'
+etcdir='${datadir}/${instvardir}/etc'
+lockdir='${statedir}/${inststaticdir}/lock'
+archlibdir='${datadir}/${instvardir}/${configuration}'
 docdir='${archlibdir}'
 with_prefix='yes'
 with_site_lisp='no'
@@ -518,7 +520,7 @@ while test $# != 0; do
 	use_assertions	| \
 	memory_usage_stats | \
 	with_clash_detection | \
-	with_shlib | \
+	with_modules | \
 	no_doc_file )
 	  dnl Make sure the value given was either "yes" or "no".
 	  case "$val" in
@@ -1481,6 +1483,7 @@ case "$canonical" in
 	else
 		NON_GNU_CPP="/lib/cpp -D_XOPEN_SOURCE"  ;
 	fi ;;
+      *-sysv5* )		opsys=sco7 ;;
       *-386bsd* )	        opsys=386bsd ;;
       *-freebsd* )		opsys=freebsd ;;
       *-nextstep* )		opsys=nextstep ;;
@@ -2483,6 +2486,7 @@ if test "$with_msw" != "no"; then
 	    && XE_ADD_OBJS(toolbar-msw.o)
 	test "$with_dialogs"   != "no" && with_dialogs=msw \
 	    && XE_ADD_OBJS(dialog-msw.o)
+	test "$with_widgets"   != "no" && with_widgets=msw
     else
 	test "$with_scrollbars" != "no" && XE_ADD_OBJS(scrollbar-msw.o)
 	test "$with_menubars"   != "no" && XE_ADD_OBJS(menubar-msw.o)
@@ -2680,7 +2684,9 @@ test -z "$with_ldap" && { AC_CHECK_HEADER(lber.h, ,with_ldap=no) }
 if test "$with_ldap" != "no"; then
   AC_CHECK_LIB(ldap, ldap_search, with_ldap_nolber=yes, with_ldap_nolber=no)
   test "$with_ldap_nolber" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_lber=yes, with_ldap_lber=no, -llber) }
-  test -z "$with_ldap" -a \( "$with_ldap_lber" = "yes" -o "$with_ldap_nolber" = "yes" \) && with_ldap=yes
+  test "$with_ldap_nolber" = "no" -a "$with_ldap_lber" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_krb=yes, with_ldap_krb=no, -llber -lkrb) }
+  test "$with_ldap_nolber" = "no" -a "$with_ldap_lber" = "no" -a "$with_ldap_krb" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_krbdes=yes, with_ldap_krbdes=no, -llber -lkrb -ldes) }
+  test -z "$with_ldap" -a \( "$with_ldap_lber" = "yes" -o "$with_ldap_nolber" = "yes" -o "$with_ldap_krb" = "yes" -o "$with_ldap_krbdes" = "yes" \) && with_ldap=yes
 fi
 if test "$with_ldap" = "yes"; then
   AC_DEFINE(HAVE_LDAP)
@@ -2688,6 +2694,13 @@ if test "$with_ldap" = "yes"; then
   if test "$with_ldap_nolber" = "yes" ; then
     XE_PREPEND(-lldap, LIBS)
   else
+    if test "$with_ldap_krb" = "yes" ; then
+      XE_PREPEND(-lkrb, LIBS)
+    fi
+    if test "$with_ldap_krbdes" = "yes" ; then
+      XE_PREPEND(-ldes, LIBS)
+      XE_PREPEND(-lkrb, LIBS)
+    fi
     XE_PREPEND(-llber, LIBS)
     XE_PREPEND(-lldap, LIBS)
   fi
@@ -3276,7 +3289,6 @@ int main (int argc, char *argv[])
 esac
 AC_MSG_RESULT($have_mmap)
 test "$have_mmap" = "yes" && AC_DEFINE(HAVE_MMAP)
-AC_FUNC_MMAP
 
 dnl rel_alloc requires either GNU malloc or system malloc with mmap
 dnl We only turn rel_alloc on by default if mmap is available.
@@ -3612,12 +3624,12 @@ fi
 dnl autodetect dll support
 AC_CHECK_HEADERS(dlfcn.h, [have_dlfcn=yes
   AC_DEFINE(HAVE_DLFCN_H)])
-test -z "$with_shlib" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(dl,  dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=dl;  with_shlib=yes]) }
-test -z "$with_shlib" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   _dlopen,  [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_shlib=yes]) }
-test -z "$with_shlib" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_shlib=yes]) }
-test -z "$with_shlib" && { AC_CHECK_LIB(dld, shl_load, [ AC_DEFINE(HAVE_SHL_LOAD) DLL_LIB=dld; with_shlib=yes]) }
-test -z "$with_shlib" && { AC_CHECK_LIB(dld, dld_init, [ AC_DEFINE(HAVE_DLD_INIT) DLL_LIB=dld; with_shlib=yes]) }
-if test "$with_shlib" = "yes"; then
+test -z "$with_modules" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(dl,  dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=dl;  with_modules=yes]) }
+test -z "$with_modules" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   _dlopen,  [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_modules=yes]) }
+test -z "$with_modules" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_modules=yes]) }
+test -z "$with_modules" && { AC_CHECK_LIB(dld, shl_load, [ AC_DEFINE(HAVE_SHL_LOAD) DLL_LIB=dld; with_modules=yes]) }
+test -z "$with_modules" && { AC_CHECK_LIB(dld, dld_init, [ AC_DEFINE(HAVE_DLD_INIT) DLL_LIB=dld; with_modules=yes]) }
+if test "$with_modules" = "yes"; then
   XE_SHLIB_STUFF
   if test "$can_build_shared" = "yes"; then
     AC_DEFINE(HAVE_SHLIB)
@@ -3628,7 +3640,7 @@ if test "$with_shlib" = "yes"; then
     AC_CHECK_FUNCS(dlerror _dlerror)
   else
     AC_MSG_WARN(disabling shared library support)
-    with_shlib=no
+    with_modules=no
   fi
 fi
 
@@ -3745,6 +3757,8 @@ AC_SUBST(PROGNAME)
 AC_SUBST(version)
 AC_SUBST(configuration)
 AC_SUBST(canonical)
+AC_SUBST(inststaticdir)
+AC_SUBST(instvardir)
 AC_SUBST(srcdir)
 AC_SUBST(bindir)
 AC_SUBST(datadir)
@@ -4125,6 +4139,9 @@ case "$with_scrollbars" in
   athena   ) echo "  Using Athena scrollbars."    ;;
   athena3d ) echo "  Using Athena-3d scrollbars." ;;
 esac
+case "$with_widgets" in
+  motif    ) echo "  Using Motif native widgets."     ;;
+esac
 case "$with_dialogs" in
   motif    )
     echo "  Using Motif dialog boxes."
@@ -4138,7 +4155,7 @@ case "$with_dialogs" in
   athena   ) echo "  Using Athena dialog boxes."    ;;
   athena3d ) echo "  Using Athena-3d dialog boxes." ;;
 esac
-test "$with_shlib" = "yes" && echo "  Compiling in DLL support."
+test "$with_modules" = "yes" && echo "  Compiling in DSO module support."
 test "$with_clash_detection" = yes && \
   echo "  Clash detection will use \"$lockdir\" for locking files."
 echo "  movemail will use \"$mail_locking\" for locking mail spool files."
@@ -4181,7 +4198,7 @@ for file in $internal_makefile_list; do
   ac_output_files="${ac_output_files+$ac_output_files }$file"
 done
 ac_output_files="$ac_output_files src/paths.h lib-src/config.values"
-if test "$with_shlib" = "yes"; then
+if test "$with_modules" = "yes"; then
   ac_output_files="$ac_output_files lib-src/ellcc.h"
 fi
 

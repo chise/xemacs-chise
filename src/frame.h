@@ -33,6 +33,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include "device.h"
 #include "glyphs.h"
+#include "redisplay.h"
 
 #define FRAME_TYPE_NAME(f) ((f)->framemeths->name)
 #define FRAME_TYPE(f) ((f)->framemeths->symbol)
@@ -109,6 +110,10 @@ struct frame
   unsigned int current_toolbar_size[4];
 #endif
 
+  /* Dynamic array of display lines for gutters */
+  display_line_dynarr *current_display_lines;
+  display_line_dynarr *desired_display_lines;
+
   /* A structure of auxiliary data specific to the device type.
      struct x_frame is used for X window frames; defined in console-x.h */
   void *frame_data;
@@ -160,6 +165,11 @@ Value : Emacs meaning                           :f-v-p : X meaning
   unsigned int bottom_toolbar_was_visible :1;
   unsigned int left_toolbar_was_visible :1;
   unsigned int right_toolbar_was_visible :1;
+  /* gutter visibility */
+  unsigned int top_gutter_was_visible :1;
+  unsigned int bottom_gutter_was_visible :1;
+  unsigned int left_gutter_was_visible :1;
+  unsigned int right_gutter_was_visible :1;
 
   /* redisplay flags */
   unsigned int buffers_changed :1;
@@ -175,6 +185,7 @@ Value : Emacs meaning                           :f-v-p : X meaning
   unsigned int point_changed :1;
   unsigned int size_changed :1;
   unsigned int toolbar_changed :1;
+  unsigned int gutter_changed :1;
   unsigned int windows_changed :1;
   unsigned int windows_structure_changed :1;
   unsigned int window_face_cache_reset :1;	/* used by expose handler */
@@ -340,6 +351,19 @@ extern int frame_changed;
     }							\
   else							\
     toolbar_changed = 1;				\
+} while (0)
+
+#define MARK_FRAME_GUTTERS_CHANGED(f) do {	\
+  struct frame *mftc_f = (f);				\
+  mftc_f->gutter_changed = 1;				\
+  mftc_f->modiff++;					\
+  if (!NILP (mftc_f->device))				\
+    {							\
+      struct device *mftc_d = XDEVICE (mftc_f->device);	\
+      MARK_DEVICE_GUTTERS_CHANGED (mftc_d);	\
+    }							\
+  else							\
+    gutter_changed = 1;					\
 } while (0)
 
 #define MARK_FRAME_SIZE_CHANGED(f) do {			\

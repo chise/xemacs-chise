@@ -1,7 +1,7 @@
 \input texinfo.tex
 
 @c %**start of header
-@setfilename ../info/custom
+@setfilename ../info/custom.info
 @settitle The Customization Library
 @iftex
 @afourpaper
@@ -25,13 +25,13 @@ and faces.  It doesn't contain any examples, but please look at the file
 @file{cus-edit.el} which contains many declarations you can learn from.
 
 @menu
-* Declaring Groups::            
-* Declaring Variables::         
-* Declaring Faces::             
-* Usage for Package Authors::   
-* Utilities::                   
-* The Init File::               
-* Wishlist::                    
+* Declaring Groups::
+* Declaring Variables::
+* Declaring Faces::
+* Usage for Package Authors::
+* Utilities::
+* The Init File::
+* Wishlist::
 @end menu
 
 All the customization declarations can be changes by keyword arguments.
@@ -39,19 +39,19 @@ Groups, variables, and faces all share these common keywords:
 
 @table @code
 @item :group
-@var{value} should be a customization group. 
-Add @var{symbol} to that group. 
+@var{value} should be a customization group.
+Add @var{symbol} to that group.
 @item :link
-@var{value} should be a widget type. 
+@var{value} should be a widget type.
 Add @var{value} to the external links for this customization option.
 Useful widget types include @code{custom-manual}, @code{info-link}, and
-@code{url-link}. 
+@code{url-link}.
 @item :load
 Add @var{value} to the files that should be loaded before displaying
 this customization option.  The value should be either a string, which
 should be a string which will be loaded with @code{load-library} unless
 present in @code{load-history}, or a symbol which will be loaded with
-@code{require}. 
+@code{require}.
 @item :tag
 @var{Value} should be a short string used for identifying the option in
 customization menus and buffers.  By default the tag will be
@@ -62,10 +62,10 @@ automatically created from the options name.
 @comment  node-name,  next,  previous,  up
 @section Declaring Groups
 
-Use @code{defgroup} to declare new customization groups. 
+Use @code{defgroup} to declare new customization groups.
 
 @defun defgroup symbol members doc [keyword value]...
-Declare @var{symbol} as a customization group containing @var{members}. 
+Declare @var{symbol} as a customization group containing @var{members}.
 @var{symbol} does not need to be quoted.
 
 @var{doc} is the group documentation.
@@ -78,7 +78,7 @@ editing faces, and @code{custom-group} for editing groups.@refill
 
 Internally, custom uses the symbol property @code{custom-group} to keep
 track of the group members, and @code{group-documentation} for the
-documentation string. 
+documentation string.
 
 The following additional @var{keyword}'s are defined:
 
@@ -106,7 +106,7 @@ If @var{symbol} is not already bound, initialize it to @var{value}.
 The following additional @var{keyword}'s are defined:
 
 @table @code
-@item :type     
+@item :type
 @var{value} should be a widget type.
 
 @item :options
@@ -122,7 +122,7 @@ Some predefined functions are:
 @item custom-initialize-set
 Use the @code{:set} method to initialize the variable.  Do not
 initialize it if already bound.  This is the default @code{:initialize}
-method. 
+method.
 
 @item custom-initialize-default
 Always use @code{set-default} to initialize the variable, even if a
@@ -135,10 +135,10 @@ method with the value returned by the @code{:get} method.
 @item custom-initialize-changed
 Like @code{custom-initialize-reset}, but use @code{set-default} to
 initialize the variable if it is not bound and has not been set
-already. 
+already.
 @end table
 
-@item :set 
+@item :set
 @var{value} should be a function to set the value of the symbol.  It
 takes two arguments, the symbol to set and the value to give it.  The
 default is @code{set-default}.
@@ -151,7 +151,7 @@ value for that symbol.  The default is @code{default-value}.
 @item :require
 @var{value} should be a feature symbol.  Each feature will be required
 when the `defcustom' is evaluated, or when Emacs is started if the user
-has saved this option. 
+has saved this option.
 
 @end table
 
@@ -180,7 +180,7 @@ member.  For other types variables, the effect is undefined."
 
 Faces are declared with @code{defface}.
 
-@defun defface face spec doc [keyword value]... 
+@defun defface face spec doc [keyword value]...
 
 Declare @var{face} as a customizable face that defaults to @var{spec}.
 @var{face} does not need to be quoted.
@@ -218,7 +218,7 @@ Should be one of @code{color}, @code{grayscale}, or @code{mono}.
 (what color is used for the background text)@*
 Should be one of @code{light} or @code{dark}.
 @end table
-  
+
 Internally, custom uses the symbol property @code{face-defface-spec} for
 the program specified default face properties, @code{saved-face} for
 properties saved by the user, and @code{face-documentation} for the
@@ -240,13 +240,13 @@ The top level group for the package should itself be member of one or
 more of the standard customization groups.  There exists a group for
 each @emph{finder} keyword.  Press @kbd{C-h p} to see a list of finder
 keywords, and add you group to each of them, using the @code{:group}
-keyword. 
+keyword.
 
 @node  Utilities, The Init File, Usage for Package Authors, Top
 @comment  node-name,  next,  previous,  up
 @section Utilities
 
-These utilities can come in handy when adding customization support. 
+These utilities can come in handy when adding customization support.
 
 @deffn Widget custom-manual
 Widget type for specifying the info manual entry for a customization
@@ -269,7 +269,7 @@ To the custom option @var{symbol} add the dependency @var{load}.
 
 @defun customize-menu-create symbol &optional name
 Create menu for customization group @var{symbol}.
-If optional @var{name} is given, use that as the name of the menu. 
+If optional @var{name} is given, use that as the name of the menu.
 Otherwise the menu will be named `Customize'.
 The menu is in a format applicable to @code{easy-menu-define}.
 @end defun
@@ -290,7 +290,7 @@ specified.
 @section Wishlist
 
 @itemize @bullet
-@item 
+@item
 Better support for keyboard operations in the customize buffer.
 
 @item
@@ -301,7 +301,7 @@ convincing example.
 
 @item
 Add an `examples' section, with explained examples of custom type
-definitions. 
+definitions.
 
 @item
 Support selectable color themes.  I.e., change many faces by setting one
@@ -316,13 +316,13 @@ Make it possible to append to `choice', `radio', and `set' options.
 
 @item
 Ask whether set or modified variables should be saved in
-@code{kill-buffer-hook}. 
+@code{kill-buffer-hook}.
 
 Ditto for @code{kill-emacs-query-functions}.
 
 @item
 Command to check if there are any customization options that
-does not belong to an existing group. 
+does not belong to an existing group.
 
 @item
 Optionally disable the point-cursor and instead highlight the selected
@@ -335,13 +335,9 @@ Explain why it is necessary that all choices have different default
 values.
 
 @item
-Make it possible to include a comment/remark/annotation when saving an
-option.
-
-@item
 Add some direct support for meta variables, i.e. make it possible to
 specify that this variable should be reset when that variable is
-changed. 
+changed.
 
 @item
 Add tutorial.
@@ -382,7 +378,7 @@ Add an easy way to display the standard settings when an item is modified.
 
 @item
 See if it is feasible to scan files for customization information
-instead of loading them, 
+instead of loading them,
 
 @item
 Add hint message when user push a non-pushable tag.
@@ -396,11 +392,11 @@ Use checkboxes and radio buttons in the state menus.
 @item
 Add option to hide @samp{[hide]} for short options.  Default, on.
 
-@item 
+@item
 Add option to hide @samp{[state]} for options with their standard
 settings.
 
-@item 
+@item
 There should be a way to specify site defaults for user options.
 
 @item

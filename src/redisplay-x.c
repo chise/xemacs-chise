@@ -40,6 +40,7 @@ Boston, MA 02111-1307, USA.  */
 #include "debug.h"
 #include "faces.h"
 #include "frame.h"
+#include "gutter.h"
 #include "redisplay.h"
 #include "sysdep.h"
 #include "window.h"
@@ -78,7 +79,7 @@ static void x_output_eol_cursor (struct window *w, struct display_line *dl,
 				 int xpos, face_index findex);
 static void x_clear_frame (struct frame *f);
 static void x_clear_frame_windows (Lisp_Object window);
-static void x_bevel_modeline (struct window *w, struct display_line *dl);
+void bevel_modeline (struct window *w, struct display_line *dl);
 
 
      /* Note: We do not use the Xmb*() functions and XFontSets.
@@ -334,7 +335,7 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 
   int elt = start;
   face_index findex;
-  int xpos, width;
+  int xpos, width = 0;
   Lisp_Object charset = Qunbound; /* Qnil is a valid charset when
 				     MULE is not defined */
 
@@ -342,18 +343,13 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
   rb = Dynarr_atp (rba, start);
 
   if (!rb)
-    {
-      /* Nothing to do so don't do anything. */
-      return;
-    }
-  else
-    {
-      findex = rb->findex;
-      xpos = rb->xpos;
-      width = 0;
-      if (rb->type == RUNE_CHAR)
-	charset = CHAR_CHARSET (rb->object.chr.ch);
-    }
+    /* Nothing to do so don't do anything. */
+    return;
+
+  findex = rb->findex;
+  xpos = rb->xpos;
+  if (rb->type == RUNE_CHAR)
+    charset = CHAR_CHARSET (rb->object.chr.ch);
 
   if (end < 0)
     end = Dynarr_length (rba);
@@ -522,38 +518,40 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
       && (f->clear
 	  || f->windows_structure_changed
 	  || w->shadow_thickness_changed))
-    x_bevel_modeline (w, dl);
+    bevel_modeline (w, dl);
 
   Dynarr_free (buf);
 }
 
 /*****************************************************************************
- x_bevel_modeline
+ x_bevel_area
 
- Draw a 3d border around the modeline on window W.
+ Draw a shadows for the given area in the given face.
  ****************************************************************************/
 static void
-x_bevel_modeline (struct window *w, struct display_line *dl)
+x_bevel_area (struct window *w, face_index findex,
+	      int x, int y, int width, int height,
+	      int shadow_thickness)
 {
   struct frame *f = XFRAME (w->frame);
   struct device *d = XDEVICE (f->device);
+
+  EmacsFrame ef = (EmacsFrame) FRAME_X_TEXT_WIDGET (f);
   Display *dpy = DEVICE_X_DISPLAY (d);
   Window x_win = XtWindow (FRAME_X_TEXT_WIDGET (f));
-  EmacsFrame ef = (EmacsFrame) FRAME_X_TEXT_WIDGET (f);
-  GC top_shadow_gc, bottom_shadow_gc, background_gc;
   Pixel top_shadow_pixel, bottom_shadow_pixel, background_pixel;
-  XColor tmp_color;
   Lisp_Object tmp_pixel;
-  int x, y, width, height;
+  XColor tmp_color;
   XGCValues gcv;
-  unsigned long mask;
+  GC top_shadow_gc, bottom_shadow_gc, background_gc;
+
   int use_pixmap = 0;
   int flip_gcs = 0;
-  int shadow_thickness;
+  unsigned long mask;
 
   memset (&gcv, ~0, sizeof (XGCValues));
 
-  tmp_pixel = WINDOW_FACE_CACHEL_BACKGROUND (w, MODELINE_INDEX);
+  tmp_pixel = WINDOW_FACE_CACHEL_BACKGROUND (w, findex);
   tmp_color = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (tmp_pixel));
 
   /* First, get the GC's. */
@@ -564,12 +562,14 @@ x_bevel_modeline (struct window *w, struct display_line *dl)
   x_generate_shadow_pixels (f, &top_shadow_pixel, &bottom_shadow_pixel,
 			    background_pixel, ef->core.background_pixel);
 
-  tmp_pixel = WINDOW_FACE_CACHEL_FOREGROUND (w, MODELINE_INDEX);
+  tmp_pixel = WINDOW_FACE_CACHEL_FOREGROUND (w, findex);
   tmp_color = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (tmp_pixel));
   gcv.background = tmp_color.pixel;
   gcv.graphics_exposures = False;
   mask = GCForeground | GCBackground | GCGraphicsExposures;
 
+  /* If we can't distinguish one of the shadows (the color is the same as the
+     background), it's better to use a pixmap to generate a dithered gray. */
   if (top_shadow_pixel == background_pixel ||
       bottom_shadow_pixel == background_pixel)
     use_pixmap = 1;
@@ -583,15 +583,16 @@ x_bevel_modeline (struct window *w, struct display_line *dl)
 					 gray_width, gray_height, 1, 0, 1);
 	}
 
-      tmp_pixel = WINDOW_FACE_CACHEL_BACKGROUND (w, MODELINE_INDEX);
+      tmp_pixel = WINDOW_FACE_CACHEL_BACKGROUND (w, findex);
       tmp_color = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (tmp_pixel));
       gcv.foreground = tmp_color.pixel;
+      /* this is needed because the GC draws with a pixmap here */
       gcv.fill_style = FillOpaqueStippled;
       gcv.stipple = DEVICE_X_GRAY_PIXMAP (d);
       top_shadow_gc = gc_cache_lookup (DEVICE_X_GC_CACHE (d), &gcv,
 				       (mask | GCStipple | GCFillStyle));
 
-      tmp_pixel = WINDOW_FACE_CACHEL_FOREGROUND (w, MODELINE_INDEX);
+      tmp_pixel = WINDOW_FACE_CACHEL_FOREGROUND (w, findex);
       tmp_color = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (tmp_pixel));
       bottom_shadow_pixel = tmp_color.pixel;
 
@@ -617,23 +618,23 @@ x_bevel_modeline (struct window *w, struct display_line *dl)
   gcv.foreground = background_pixel;
   background_gc = gc_cache_lookup (DEVICE_X_GC_CACHE (d), &gcv, mask);
 
-  if (XINT (w->modeline_shadow_thickness) < 0)
+  /* possibly revert the GC's in case the shadow thickness is < 0.
+     This will give a depressed look to the divider */
+  if (shadow_thickness < 0)
     {
       GC temp;
 
       temp = top_shadow_gc;
       top_shadow_gc = bottom_shadow_gc;
       bottom_shadow_gc = temp;
+
+      /* better avoid a Bad Address XLib error ;-) */
+      shadow_thickness = - shadow_thickness;
     }
 
-  shadow_thickness = MODELINE_SHADOW_THICKNESS (w);
-
-  x = WINDOW_MODELINE_LEFT (w);
-  width = WINDOW_MODELINE_RIGHT (w) - x;
-  y = dl->ypos - dl->ascent - shadow_thickness;
-  height = dl->ascent + dl->descent + 2 * shadow_thickness;
-
-  x_output_shadows (f, x, y, width, height, top_shadow_gc, bottom_shadow_gc,
+  /* Draw the shadows around the divider line */
+  x_output_shadows (f, x, y, width, height,
+		    top_shadow_gc, bottom_shadow_gc,
 		    background_gc, shadow_thickness);
 }
 
@@ -840,11 +841,10 @@ x_output_string (struct window *w, struct display_line *dl,
       cachel = WINDOW_FACE_CACHEL (w, findex);
     }
 
-#if defined(HAVE_XIM) && defined(XIM_XLIB)
+#ifdef HAVE_XIM
   if (cursor && focus && (cursor_start == clip_start) && cursor_height)
-    if (FRAME_X_XIC(f))
-      XIM_SetSpotLocation (f, xpos - 2, dl->ypos + dl->descent - 2);
-#endif /* HAVE_XIM && XIM_XLIB */
+    XIM_SetSpotLocation (f, xpos - 2, dl->ypos + dl->descent - 2);
+#endif /* HAVE_XIM */
 
   bg_pmap = cachel->background_pixmap;
   if (!IMAGE_INSTANCEP (bg_pmap)
@@ -1398,17 +1398,13 @@ x_output_vertical_divider (struct window *w, int clear)
   struct frame *f = XFRAME (w->frame);
   struct device *d = XDEVICE (f->device);
 
-  EmacsFrame ef = (EmacsFrame) FRAME_X_TEXT_WIDGET (f);
   Display *dpy = DEVICE_X_DISPLAY (d);
   Window x_win = XtWindow (FRAME_X_TEXT_WIDGET (f));
-  Pixel top_shadow_pixel, bottom_shadow_pixel, background_pixel;
   Lisp_Object tmp_pixel;
   XColor tmp_color;
   XGCValues gcv;
-  GC top_shadow_gc, bottom_shadow_gc, background_gc;
+  GC background_gc;
 
-  int use_pixmap = 0;
-  int flip_gcs = 0;
   unsigned long mask;
   int x, y1, y2, width, shadow_thickness, spacing, line_width;
   face_index div_face = get_builtin_face_cache_index (w, Vvertical_divider_face);
@@ -1418,8 +1414,8 @@ x_output_vertical_divider (struct window *w, int clear)
   spacing = XINT (w->vertical_divider_spacing);
   line_width = XINT (w->vertical_divider_line_width);
   x = WINDOW_RIGHT (w) - width;
-  y1 = WINDOW_TOP (w);
-  y2 = WINDOW_BOTTOM (w);
+  y1 = WINDOW_TOP (w) + FRAME_TOP_GUTTER_BOUNDS (f);
+  y2 = WINDOW_BOTTOM (w) + FRAME_BOTTOM_GUTTER_BOUNDS (f);
 
   memset (&gcv, ~0, sizeof (XGCValues));
 
@@ -1427,82 +1423,11 @@ x_output_vertical_divider (struct window *w, int clear)
   tmp_color = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (tmp_pixel));
 
   /* First, get the GC's. */
-  top_shadow_pixel = tmp_color.pixel;
-  bottom_shadow_pixel = tmp_color.pixel;
-  background_pixel = tmp_color.pixel;
-
-  x_generate_shadow_pixels (f, &top_shadow_pixel, &bottom_shadow_pixel,
-			    background_pixel, ef->core.background_pixel);
-
-  tmp_pixel = WINDOW_FACE_CACHEL_FOREGROUND (w, div_face);
-  tmp_color = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (tmp_pixel));
   gcv.background = tmp_color.pixel;
+  gcv.foreground = tmp_color.pixel;
   gcv.graphics_exposures = False;
   mask = GCForeground | GCBackground | GCGraphicsExposures;
-
-  /* If we can't distinguish one of the shadows (the color is the same as the
-     background), it's better to use a pixmap to generate a dithered gray. */
-  if (top_shadow_pixel == background_pixel ||
-      bottom_shadow_pixel == background_pixel)
-    use_pixmap = 1;
-
-  if (use_pixmap)
-    {
-      if (DEVICE_X_GRAY_PIXMAP (d) == None)
-	{
-	  DEVICE_X_GRAY_PIXMAP (d) =
-	    XCreatePixmapFromBitmapData (dpy, x_win, (char *) gray_bits,
-					 gray_width, gray_height, 1, 0, 1);
-	}
-
-      tmp_pixel = WINDOW_FACE_CACHEL_BACKGROUND (w, div_face);
-      tmp_color = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (tmp_pixel));
-      gcv.foreground = tmp_color.pixel;
-      /* this is needed because the GC draws with a pixmap here */
-      gcv.fill_style = FillOpaqueStippled;
-      gcv.stipple = DEVICE_X_GRAY_PIXMAP (d);
-      top_shadow_gc = gc_cache_lookup (DEVICE_X_GC_CACHE (d), &gcv,
-				       (mask | GCStipple | GCFillStyle));
-
-      tmp_pixel = WINDOW_FACE_CACHEL_FOREGROUND (w, div_face);
-      tmp_color = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (tmp_pixel));
-      bottom_shadow_pixel = tmp_color.pixel;
-
-      flip_gcs = (bottom_shadow_pixel ==
-		  WhitePixelOfScreen (DefaultScreenOfDisplay (dpy)));
-    }
-  else
-    {
-      gcv.foreground = top_shadow_pixel;
-      top_shadow_gc = gc_cache_lookup (DEVICE_X_GC_CACHE (d), &gcv, mask);
-    }
-
-  gcv.foreground = bottom_shadow_pixel;
-  bottom_shadow_gc = gc_cache_lookup (DEVICE_X_GC_CACHE (d), &gcv, mask);
-
-  if (use_pixmap && flip_gcs)
-    {
-      GC tmp_gc = bottom_shadow_gc;
-      bottom_shadow_gc = top_shadow_gc;
-      top_shadow_gc = tmp_gc;
-    }
-
-  gcv.foreground = background_pixel;
   background_gc = gc_cache_lookup (DEVICE_X_GC_CACHE (d), &gcv, mask);
-
-  /* possibly revert the GC's in case the shadow thickness is < 0.
-     This will give a depressed look to the divider */
-  if (shadow_thickness < 0)
-    {
-      GC temp;
-
-      temp = top_shadow_gc;
-      top_shadow_gc = bottom_shadow_gc;
-      bottom_shadow_gc = temp;
-
-      /* better avoid a Bad Address XLib error ;-) */
-      shadow_thickness = - shadow_thickness;
-    }
 
   /* Clear the divider area first.  This needs to be done when a
      window split occurs. */
@@ -1515,10 +1440,9 @@ x_output_vertical_divider (struct window *w, int clear)
 		  line_width, y2 - y1);
 
   /* Draw the shadows around the divider line */
-  x_output_shadows (f, x + spacing, y1,
-		    width - 2 * spacing, y2 - y1,
-		    top_shadow_gc, bottom_shadow_gc,
-		    background_gc, shadow_thickness);
+  x_bevel_area (w, div_face, x + spacing, y1,
+		width - 2 * spacing, y2 - y1,
+		shadow_thickness);
 }
 
 /*****************************************************************************
@@ -1816,54 +1740,6 @@ x_generate_shadow_pixels (struct frame *f, unsigned long *top_shadow,
 }
 
 /*****************************************************************************
- x_clear_to_window_end
-
- Clear the area between ypos1 and ypos2.  Each margin area and the
- text area is handled separately since they may each have their own
- background color.
- ****************************************************************************/
-static void
-x_clear_to_window_end (struct window *w, int ypos1, int ypos2)
-{
-  int height = ypos2 - ypos1;
-
-  if (height)
-    {
-      struct frame *f = XFRAME (w->frame);
-      Lisp_Object window;
-      int bflag = (window_needs_vertical_divider (w) ? 0 : 1);
-      layout_bounds bounds;
-
-      bounds = calculate_display_line_boundaries (w, bflag);
-      XSETWINDOW (window, w);
-
-      if (window_is_leftmost (w))
-	redisplay_clear_region (window, DEFAULT_INDEX, FRAME_LEFT_BORDER_START (f),
-			ypos1, FRAME_BORDER_WIDTH (f), height);
-
-      if (bounds.left_in - bounds.left_out > 0)
-	redisplay_clear_region (window,
-			get_builtin_face_cache_index (w, Vleft_margin_face),
-			bounds.left_out, ypos1,
-			bounds.left_in - bounds.left_out, height);
-
-      if (bounds.right_in - bounds.left_in > 0)
-	redisplay_clear_region (window, DEFAULT_INDEX, bounds.left_in, ypos1,
-			bounds.right_in - bounds.left_in, height);
-
-      if (bounds.right_out - bounds.right_in > 0)
-	redisplay_clear_region (window,
-			get_builtin_face_cache_index (w, Vright_margin_face),
-			bounds.right_in, ypos1,
-			bounds.right_out - bounds.right_in, height);
-
-      if (window_is_rightmost (w))
-	redisplay_clear_region (window, DEFAULT_INDEX, FRAME_RIGHT_BORDER_START (f),
-			ypos1, FRAME_BORDER_WIDTH (f), height);
-    }
-}
-
-/*****************************************************************************
  x_redraw_exposed_window
 
  Given a bounding box for an area that needs to be redrawn, determine
@@ -1980,6 +1856,7 @@ x_redraw_exposed_area (struct frame *f, int x, int y, int width, int height)
      redraw anyhow. */
   MAYBE_FRAMEMETH (f, redraw_exposed_toolbars, (f, x, y, width, height));
 #endif
+  redraw_exposed_gutters (f, x, y, width, height);
 
   if (!f->window_face_cache_reset)
     {
@@ -2069,9 +1946,8 @@ x_output_eol_cursor (struct window *w, struct display_line *dl, int xpos,
 
   if (focus)
     {
-#if defined(HAVE_XIM) && defined(XIM_XLIB)
-      if (FRAME_X_XIC(f))
-	XIM_SetSpotLocation (f, x - 2 , cursor_y + cursor_height - 2);
+#ifdef HAVE_XIM
+      XIM_SetSpotLocation (f, x - 2 , cursor_y + cursor_height - 2);
 #endif /* HAVE_XIM */
 
       if (NILP (bar_cursor_value))
@@ -2112,7 +1988,8 @@ x_clear_frame_window (Lisp_Object window)
       return;
     }
 
-  x_clear_to_window_end (w, WINDOW_TEXT_TOP (w), WINDOW_TEXT_BOTTOM (w));
+  redisplay_clear_to_window_end (w, WINDOW_TEXT_TOP (w), 
+				 WINDOW_TEXT_BOTTOM (w));
 }
 
 static void
@@ -2269,11 +2146,11 @@ console_type_create_redisplay_x (void)
   CONSOLE_HAS_METHOD (x, divider_height);
   CONSOLE_HAS_METHOD (x, eol_cursor_width);
   CONSOLE_HAS_METHOD (x, output_vertical_divider);
-  CONSOLE_HAS_METHOD (x, clear_to_window_end);
   CONSOLE_HAS_METHOD (x, clear_region);
   CONSOLE_HAS_METHOD (x, clear_frame);
   CONSOLE_HAS_METHOD (x, output_begin);
   CONSOLE_HAS_METHOD (x, output_end);
   CONSOLE_HAS_METHOD (x, flash);
   CONSOLE_HAS_METHOD (x, ring_bell);
+  CONSOLE_HAS_METHOD (x, bevel_area);
 }

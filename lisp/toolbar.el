@@ -54,7 +54,7 @@ customized through the options menu."
 
 (defcustom default-toolbar-position ;; added for the options menu - dverna
   (default-toolbar-position)
-  "The location of the default toolbar. It can be 'top, 'bootom, 'left or
+  "The location of the default toolbar. It can be 'top, 'bottom, 'left or
 'right. This option can be customized through the options menu."
   :group 'display
   :type '(choice (const :tag "top" 'top)

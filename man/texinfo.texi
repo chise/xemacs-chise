@@ -3,7 +3,7 @@
 @c %**start of header
 
 @c All text is ignored before the setfilename.
-@setfilename ../info/texinfo
+@setfilename ../info/texinfo.info
 @settitle Texinfo @value{edition}
 
 @c Edition number is now the same as the Texinfo distribution version number.

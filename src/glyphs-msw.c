@@ -107,6 +107,7 @@ mswindows_initialize_image_instance_mask (struct Lisp_Image_Instance* image,
 					  struct frame* f);
 
 COLORREF mswindows_string_to_color (CONST char *name);
+void check_valid_item_list_1 (Lisp_Object items);
 
 #define BPLINE(width) ((int)(~3UL & (unsigned long)((width) +3)))
 
@@ -2049,6 +2050,17 @@ mswindows_map_subwindow (struct Lisp_Image_Instance *p, int x, int y)
 		| SWP_NOCOPYBITS | SWP_NOSENDCHANGING);
 }
 
+/* resize the subwindow instance */
+static void 
+mswindows_resize_subwindow (struct Lisp_Image_Instance* ii, int w, int h)
+{
+  SetWindowPos (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii), 
+		NULL, 
+		0, 0, w, h,
+		SWP_NOZORDER | SWP_NOMOVE
+		| SWP_NOCOPYBITS | SWP_NOSENDCHANGING);
+}
+
 /* when you click on a widget you may activate another widget this
    needs to be checked and all appropriate widgets updated */
 static void
@@ -2540,13 +2552,42 @@ mswindows_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object insta
 				WS_EX_CONTROLPARENT);
 
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
- 
   /* add items to the tab */
   LIST_LOOP (rest, Fplist_get (IMAGE_INSTANCE_WIDGET_PROPS (ii), Q_items, Qnil))
     {
       add_tab_item (image_instance, wnd, XCAR (rest), domain, index);
       index++;
     }
+}
+
+/* set the properties of a tab control */
+static Lisp_Object
+mswindows_tab_control_set_property (Lisp_Object image_instance, Lisp_Object prop,
+				    Lisp_Object val)
+{
+  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+
+  if (EQ (prop, Q_items))
+    {
+      HWND wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
+      int index = 0;
+      Lisp_Object rest;
+      check_valid_item_list_1 (val);
+
+      /* delete the pre-existing items */
+      SendMessage (wnd, TCM_DELETEALLITEMS, 0, 0);
+  
+      /* add items to the tab */
+      LIST_LOOP (rest, val)
+	{
+	  add_tab_item (image_instance, wnd, XCAR (rest), 
+			IMAGE_INSTANCE_SUBWINDOW_FRAME (ii), index);
+	  index++;
+	}
+
+      return Qt;
+    }
+  return Qunbound;
 }
 
 /* instantiate a static control possible for putting other things in */
@@ -2739,6 +2780,7 @@ console_type_create_glyphs_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, image_instance_hash);
   CONSOLE_HAS_METHOD (mswindows, init_image_instance_from_eimage);
   CONSOLE_HAS_METHOD (mswindows, locate_pixmap_file);
+  CONSOLE_HAS_METHOD (mswindows, resize_subwindow);
 }
 
 void
@@ -2815,6 +2857,7 @@ image_instantiator_format_create_glyphs_mswindows (void)
   /* tab control widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, tab_control);
   IIFORMAT_HAS_DEVMETHOD (mswindows, tab_control, instantiate);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, tab_control, set_property);
 
   /* windows bitmap format */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (bmp, "bmp");

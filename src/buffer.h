@@ -409,6 +409,9 @@ for (mps_bufcons = Qunbound,							\
 #define REAL_INC_CHARPTR(ptr) \
   ((void) ((ptr) += REP_BYTES_BY_FIRST_BYTE (* (unsigned char *) (ptr))))
 
+#define REAL_INC_CHARBYTIND(ptr,pos) \
+  (pos += REP_BYTES_BY_FIRST_BYTE (* (unsigned char *) (ptr)))
+
 #define REAL_DEC_CHARPTR(ptr) do {	\
   (ptr)--;				\
 } while (!VALID_CHARPTR_P (ptr))
@@ -417,6 +420,11 @@ for (mps_bufcons = Qunbound,							\
 #define INC_CHARPTR(ptr) do {		\
   ASSERT_VALID_CHARPTR (ptr);		\
   REAL_INC_CHARPTR (ptr);		\
+} while (0)
+
+#define INC_CHARBYTIND(ptr,pos) do {		\
+  ASSERT_VALID_CHARPTR (ptr);		\
+  REAL_INC_CHARBYTIND (ptr,pos);		\
 } while (0)
 
 #define DEC_CHARPTR(ptr) do {			\
@@ -429,6 +437,7 @@ for (mps_bufcons = Qunbound,							\
 } while (0)
 
 #else /* ! ERROR_CHECK_BUFPOS */
+#define INC_CHARBYTIND(ptr,pos) REAL_INC_CHARBYTIND (ptr,pos)
 #define INC_CHARPTR(ptr) REAL_INC_CHARPTR (ptr)
 #define DEC_CHARPTR(ptr) REAL_DEC_CHARPTR (ptr)
 #endif /* ! ERROR_CHECK_BUFPOS */
