@@ -302,7 +302,7 @@ Lisp_Object Qascii,
   Qchinese_gb12345,
   Qmap_jis_x0208_1983,
   Qkorean_ksc5601,
-  Qjapanese_jisx0212,
+  Qmap_jis_x0212,
   Qchinese_cns11643_1,
   Qchinese_cns11643_2,
 #ifdef UTF2000
@@ -2716,7 +2716,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_gb12345,		"chinese-gb12345");
   defsymbol (&Qmap_jis_x0208_1983, 	"=jis-x0208-1983");
   defsymbol (&Qkorean_ksc5601,		"korean-ksc5601");
-  defsymbol (&Qjapanese_jisx0212,	"japanese-jisx0212");
+  defsymbol (&Qmap_jis_x0212,		"=jis-x0212");
   defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
   defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
 #ifdef UTF2000
@@ -3074,7 +3074,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_japanese_jisx0212);
   Vcharset_japanese_jisx0212 =
-    make_charset (LEADING_BYTE_JAPANESE_JISX0212, Qjapanese_jisx0212, 94, 2,
+    make_charset (LEADING_BYTE_JAPANESE_JISX0212, Qmap_jis_x0212, 94, 2,
 		  2, 0, 'D', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0212"),
 		  build_string ("JISX0212 (Japanese)"),
