@@ -1,3 +1,26 @@
+2004-01-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R117-Stand.el, Ideograph-R109-Eye.el,
+	Ideograph-R105-Dotted-Tent.el, Ideograph-R079-Weapon.el,
+	Ideograph-R075-Tree.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R113-Spirit.el, Ideograph-R108-Dish.el,
+	Ideograph-R106-White.el, Ideograph-R078-Death.el,
+	Ideograph-R077-Stop.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el, Ideograph-R102-Field.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* Ideograph-R098-Tile.el (U+74F6): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R093-Cow.el (U+72A0): Add `<-simplified@JP/Jouyou'.
+
+	* Ideograph-R084-Steam.el (U+6C17): Add `<-simplified@JP/Jouyou'.
+
 2004-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R080-Do-Not.el, Ideograph-R076-Lack.el: Add some
@@ -17,6 +40,9 @@
 
 	* Ideograph-R063-Door.el, Ideograph-R062-Halberd.el,
 	Ideograph-R032-Earth.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R050-Turban.el: Add some `<-simplified@JP/Jouyou'
 	features.
 
 2004-01-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
