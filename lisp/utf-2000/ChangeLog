@@ -1,3 +1,42 @@
+2001-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R103-Bolt-Of-Cloth.el, Ideograph-R100-Life.el: Merge
+	KS X 1001 code points.
+
+	* Ideograph-R040-Roof.el (U+376C): Separate C4-4277.
+	(JX2-2828): New character; relate to U+376C.
+
+	* Ideograph-R104-Sickness.el, Ideograph-R099-Sweet.el,
+	Ideograph-R098-Tile.el, Ideograph-R097-Melon.el,
+	Ideograph-R095-Profound.el: Merge KS X 1001 code points.
+
+	* Ideograph-R094-Dog.el (M-20534): Unify KU+732A.
+	(C3-3D29): Relate to U+FA16 instead of U+732A; unify CU+732A.
+
+	* Ideograph-R093-Cow.el: Merge KS X 1001 code points.
+
+	* Ideograph-R102-Field.el (U+7551): Unify K0-6F25.
+
+	* Ideograph-R101-Use.el: Merge KS X 1001 code points.
+
+2001-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R123-Sheep.el (JX2-7474): New character.
+
+	* Ideograph-R038-Woman.el (JSP-3965): Unify JX1-2F73.
+
+	* Ideograph-R009-Man.el (M-00571): Unify JX2-214A; modify
+	`ideographic-structure'.
+	(C2-2535): Modify `ideographic-structure'.
+
+	* Ideograph-R004-Slash.el (U+3406): Separate BC-87D9; unify
+	JX2-212D.
+
+	* Ideograph-R032-Earth.el (JX1-2F57): Unify JU+FA10.
+
+	* Ideograph-R015-Ice.el (U+34C7): Unify JX2-232F; delete
+	`non-morohashi'.
+
 2001-11-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R012-Eight.el (JX2-2327): New character; relate to
