@@ -64,8 +64,8 @@ extern Lisp_Object Vcharset_latin_viscii_upper;
 
 typedef int Charset_ID;
 
-#define MIN_LEADING_BYTE		0x00
-#define CHARSET_ID_OFFSET		0x40
+#define MIN_LEADING_BYTE		-0x40
+#define CHARSET_ID_OFFSET		0x00
 
 /* represent normal 80-9F */
 #define LEADING_BYTE_CONTROL_1		(CHARSET_ID_OFFSET - 1)
@@ -189,7 +189,7 @@ typedef int Charset_ID;
 #define LEADING_BYTE_KOREAN_KPS9566	('N' + CHARSET_ID_OFFSET_94x94)
 
 
-#define NUM_LEADING_BYTES 256
+#define NUM_LEADING_BYTES	(80 * 3 - MIN_LEADING_BYTE)
 
 
 /************************************************************************/
@@ -268,7 +268,7 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 
 /* Leading byte and id have been regrouped. -- OG */
 #define CHARSET_ID(cs)		 ((cs)->id)
-#define CHARSET_LEADING_BYTE(cs) ((Bufbyte)(CHARSET_ID(cs)))
+#define CHARSET_LEADING_BYTE(cs) (CHARSET_ID(cs))
 #define CHARSET_NAME(cs)	 ((cs)->name)
 #define CHARSET_SHORT_NAME(cs)	 ((cs)->short_name)
 #define CHARSET_LONG_NAME(cs)	 ((cs)->long_name)
