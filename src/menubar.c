@@ -723,6 +723,7 @@ the actions of menu traversal keys in a commonly used PC operating system.
 */ );
 
   Fprovide (intern ("menubar"));
+  Fprovide (intern ("menu-accelerator-support"));
 }
 
 void

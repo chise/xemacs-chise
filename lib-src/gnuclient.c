@@ -48,6 +48,10 @@ Boston, MA 02111-1307, USA.
  * ../etc/gnuserv.README relative to the directory containing this file)
  */
 
+#ifdef  CYGWIN
+extern void cygwin_conv_to_posix_path(const char *path, char *posix_path);
+#endif
+
 #include "gnuserv.h"
 
 char gnuserv_version[] = "gnuclient version " GNUSERV_VERSION;
@@ -189,35 +193,26 @@ filename_expand (char *fullpath, char *filename)
   /* fullpath - returned full pathname */
   /* filename - filename to expand */
 {
-  int len;
+#ifdef  CYGWIN
+  char cygwinFilename[MAXPATHLEN+1];
+#endif
 
+  int len;
   fullpath[0] = '\0';
+
+#ifdef  CYGWIN
+  /*
+    If we're in cygwin, just convert it and let the unix stuff handle it.
+  */
+  cygwin_conv_to_posix_path(filename, cygwinFilename);
+  filename = cygwinFilename;
+#endif
 
   if (filename[0] && filename[0] == '/')
      {
        /* Absolute (unix-style) pathname.  Do nothing */
        strcat (fullpath, filename);
      }
-#ifdef  CYGWIN
-  else if (filename[0] && filename[0] == '\\' &&
-           filename[1] && filename[1] == '\\')
-    {
-      /* This path includes the server name (something like
-         "\\server\path"), so we assume it's absolute.  Do nothing to
-         it. */
-      strcat (fullpath, filename);
-    }
-  else if (filename[0] &&
-           filename[1] && filename[1] == ':' &&
-           filename[2] && filename[2] == '\\')
-    {
-      /* Absolute pathname with drive letter.  Convert "<drive>:"
-         to "//<drive>/". */
-      strcat (fullpath, "//");
-      strncat (fullpath, filename, 1);
-      strcat (fullpath, &filename[2]);
-    }
-#endif
   else
     {
       /* Assume relative Unix style path.  Get the current directory

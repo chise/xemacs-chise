@@ -729,9 +729,15 @@
       (decf (nth 1 form) last)
       (butlast form))
 
-     ;; (- 0 x ...)  -->  (- (- x) ...)
-     ((and (eq 0 (nth 1 form)) (>= (length form) 3))
-      `(- (- ,(nth 2 form)) ,@(nthcdr 3 form)))
+     ;; (- 0 ...) -->
+     ((eq 0 (nth 1 form))
+      (case (length form)
+	;; (- 0) --> 0
+	(2 0)
+	;; (- 0 x)  -->  (- x)
+	(3 `(- ,(nth 2 form)))
+	;; (- 0 x y ...)  -->  (- (- x) y ...)
+	(t `(- (- ,(nth 2 form)) ,@(nthcdr 3 form)))))
 
      (t (byte-optimize-predicate form)))))
 

@@ -113,7 +113,8 @@ double logb (double);
 # endif /* CYGWIN_VERSION_DLL_MAJOR <= 20 */
 
 /* Still left out of 1.1! */
-double	logb (double);
+double logb (double);
+int killpg (int pgrp, int sig);
 
 #endif
 

@@ -2,6 +2,7 @@
 
 ;; Copyright (C) 1997 Free Software Foundation, Inc.
 ;; Copyright (C) 1992 by Sebastian Kremer <sk@thp.uni-koeln.de>
+;; Copyright (C) 2001 Ben Wing.
 
 ;; Author: Sebastian Kremer <sk@thp.uni-koeln.de>
 ;; Maintainer: XEmacs Development Team
@@ -34,12 +35,9 @@
 ;; disk, in case NFS is slow.  The auto-save file used for
 ;;     /usr/foo/bar/baz.txt
 ;; will be
-;;     AUTOSAVE/#\!usr\!foo\!bar\!baz.txt#
+;;     AUTOSAVE/#=2Fusr=2Ffoo=2Fbar=2Fbaz.txt#"
 ;; assuming AUTOSAVE is the non-nil value of the variable
 ;; `auto-save-directory'.
-
-;; Takes care that autosave files for non-file-buffers (e.g. *mail*)
-;; from two simultaneous Emacses don't collide.
 
 ;; Autosaves even if the current directory is not writable.
 
@@ -60,7 +58,7 @@
 ;;       (concat "/tmp/" (user-login-name) "-autosave/"))
 
 ;; If you don't want to save in /tmp (e.g., because it is swap
-;; mounted) but rather in ~/autosave/
+;; mounted) but rather in ~/.autosave/
 ;;   (setq auto-save-directory (expand-file-name "~/.autosave/"))
 
 ;; If you want to save each file in its own directory (the default)
@@ -144,7 +142,7 @@ a file named
 
 will have a longish filename like
 
-    AUTO-SAVE-DIRECTORY/#\\!home\\!sk\\!lib\\!emacs\\!lisp\\!auto-save.el#
+    AUTO-SAVE-DIRECTORY/#=2Fhome=2Fsk=2Flib=2Femacs=2Flisp=2Fauto-save.el#
 
 as auto save file.
 
@@ -222,12 +220,7 @@ created by you, never nil.")
 
 ;;; Computing an autosave name for a file and vice versa
 
-;; #### Now that this file is dumped, we should turn off the routine
-;; from files.el.  But it would make it harder to remove it!
-
-(defun make-auto-save-file-name (&optional file-name);; redefines files.el
-  ;; auto-save-file-name-p need not be redefined.
-
+(defun make-auto-save-file-name (&optional file-name)
   "Return file name to use for auto-saves of current buffer.
 Does not consider `auto-save-visited-file-name'; that is checked
 before calling this function.
@@ -285,8 +278,8 @@ See also function `auto-save-file-name-p'."
 	    (save-name (or file-name
 			   ;; Prevent autosave errors.  Buffername
 			   ;; (to become non-dir part of filename) will
-			   ;; be unslashified twice.  Don't care.
-			   (auto-save-unslashify-name (buffer-name))))
+			   ;; be escaped twice.  Don't care.
+			   (auto-save-escape-name (buffer-name))))
 	    (remote-p (and (stringp file-name)
 			   (fboundp 'efs-ftp-path)
 			   (efs-ftp-path file-name))))
@@ -316,12 +309,26 @@ See also function `auto-save-file-name-p'."
 
     (error (warn "Error caught in `make-auto-save-file-name':\n%s"
 		 (error-message-string error-data))
-	   (if buffer-file-name
-	       (concat (file-name-directory buffer-file-name)
-		       "#"
-		       (file-name-nondirectory buffer-file-name)
-		       "#")
-	     (expand-file-name (concat "#%" (buffer-name) "#"))))))
+	   (let ((fname
+		  (if file-name
+		      (concat (file-name-directory file-name)
+			      "#"
+			      (file-name-nondirectory file-name)
+			      "#")
+		    (expand-file-name
+		     (concat "#%" (auto-save-escape-name (buffer-name))
+			     "#")))))
+	     (if (or (file-writable-p fname)
+		     (file-exists-p fname))
+		 fname
+	       (expand-file-name (concat "~/"
+					 (file-name-nondirectory fname))))))))
+
+(defun auto-save-file-name-p (filename)
+  "Return non-nil if FILENAME can be yielded by `make-auto-save-file-name'.
+FILENAME should lack slashes.
+You can redefine this for customization."
+  (string-match "\\`#.*#\\'" filename))
 
 (defun auto-save-original-name (savename)
   "Reverse of `make-auto-save-file-name'.
@@ -342,13 +349,13 @@ Hashed files are not understood, see `auto-save-hash-p'."
 	       (equal savedir
 		      (expand-file-name auto-save-directory-fallback)))
 	   ;; it is of the `-fixed-directory' type
-	   (auto-save-slashify-name (substring basename 1 -1)))
+	   (auto-save-unescape-name (substring basename 1 -1)))
 	  (t
 	   ;; else it is of `-same-directory' type
 	   (concat savedir (substring basename 1 -1))))))
 
 (defun auto-save-name-in-fixed-directory (filename &optional prefix)
-  ;; Unslashify and enclose the whole FILENAME in `#' to make an auto
+  ;; Escape and enclose the whole FILENAME in `#' to make an auto
   ;; save file in the auto-save-directory, or if that is nil, in
   ;; auto-save-directory-fallback (which must be the name of an
   ;; existing directory).  If the results would be too long for 14
@@ -356,7 +363,7 @@ Hashed files are not understood, see `auto-save-hash-p'."
   ;; into a shorter name.
   ;; Optional PREFIX is string to use instead of "#" to prefix name.
   (let ((base-name (concat (or prefix "#")
-			   (auto-save-unslashify-name filename)
+			   (auto-save-escape-name filename)
 			   "#")))
     (if (and auto-save-hash-p
 	     auto-save-hash-directory
@@ -386,34 +393,83 @@ Hashed files are not understood, see `auto-save-hash-p'."
 	    (file-name-nondirectory filename)
 	    "#")))
 
-;; #### The following two should probably use `replace-in-string'.
+(defconst auto-save-reserved-chars
+  '(
+    ?\0 ?\1 ?\2 ?\3 ?\4 ?\5 ?\6 ?\7 ?\10 ?\11 ?\12 ?\13 ?\14 ?\15 ?\16
+    ?\17 ?\20 ?\21 ?\22 ?\23 ?\24 ?\25 ?\26 ?\27 ?\30 ?\31 ?\32 ?\33
+    ?\34 ?\35 ?\36 ?\37 ?\40 ?? ?* ?: ?< ?> ?| ?/ ?\\ ?& ?^ ?% ?= ?\")
+  "List of characters disallowed (or potentially disallowed) in filenames.
+Includes everything that can get us into trouble under MS Windows or Unix.")
 
-(defun auto-save-unslashify-name (s)
-  ;;  "Quote any slashes in string S by replacing them with the two
-  ;;characters `\\!'.
-  ;;Also, replace any backslash by double backslash, to make it one-to-one."
-  (let ((limit 0))
-    (while (string-match "[/\\]" s limit)
-      (setq s (concat (substring s 0 (match-beginning 0))
-		      (if (string= (substring s
-					      (match-beginning 0)
-					      (match-end 0))
-				   "/")
-			  "\\!"
-			"\\\\")
-		      (substring s (match-end 0))))
-      (setq limit (1+ (match-end 0)))))
-  s)
+;; This code based on code in Bill Perry's url.el.
+    
+(defun auto-save-escape-name (str)
+  "Escape any evil nasty characters in a potential filename.
+Uses quoted-printable-style escaping -- e.g. the dreaded =3D.
+Does not use URL escaping (with %) because filenames beginning with #% are
+a special signal for non-file buffers."
+  (mapconcat
+   (function
+    (lambda (char)
+      (if (memq char auto-save-reserved-chars)
+	  (if (< char 16)
+	      (upcase (format "=0%x" char))
+	    (upcase (format "=%x" char)))
+	(char-to-string char))))
+   str ""))
 
-(defun auto-save-slashify-name (s)
-  ;;"Reverse of `auto-save-unslashify-name'."
-  (let (pos)
-    (while (setq pos (string-match "\\\\[\\!]" s pos))
-      (setq s (concat (substring s 0 pos)
-		      (if (eq ?! (aref s (1+ pos))) "/" "\\")
-		      (substring s (+ pos 2)))
-	    pos (1+ pos))))
-  s)
+(defun auto-save-unhex (x)
+  (if (> x ?9)
+      (if (>= x ?a)
+	  (+ 10 (- x ?a))
+	(+ 10 (- x ?A)))
+    (- x ?0)))
+
+(defun auto-save-unescape-name (str)
+  "Undo any escaping of evil nasty characters in a file name.
+See `auto-save-escape-name'."
+  (setq str (or str ""))
+  (let ((tmp "")
+	(case-fold-search t))
+    (while (string-match "=[0-9a-f][0-9a-f]" str)
+      (let* ((start (match-beginning 0))
+	     (ch1 (auto-save-unhex (elt str (+ start 1))))
+	     (code (+ (* 16 ch1)
+		      (auto-save-unhex (elt str (+ start 2))))))
+	(setq tmp (concat tmp (substring str 0 start)
+			  (char-to-string code))
+	      str (substring str (match-end 0)))))
+    (setq tmp (concat tmp str))
+    tmp))
+
+;; The old versions are below.
+
+;(defun auto-save-escape-name (s)
+;  ;;  "Quote any slashes in string S by replacing them with the two
+;  ;;characters `\\!'.
+;  ;;Also, replace any backslash by double backslash, to make it one-to-one."
+;  (let ((limit 0))
+;    (while (string-match "[/\\]" s limit)
+;      (setq s (concat (substring s 0 (match-beginning 0))
+;		      (if (string= (substring s
+;					      (match-beginning 0)
+;					      (match-end 0))
+;				   "/")
+;			  "\\!"
+;			"\\\\")
+;		      (substring s (match-end 0))))
+;      (setq limit (1+ (match-end 0)))))
+;  s)
+
+;(defun auto-save-unescape-name (s)
+;  ;;"Reverse of `auto-save-escape-name'."
+;  (let (pos)
+;    (while (setq pos (string-match "\\\\[\\!]" s pos))
+;      (setq s (concat (substring s 0 pos)
+;		      (if (eq ?! (aref s (1+ pos))) "/" "\\")
+;		      (substring s (+ pos 2)))
+;	    pos (1+ pos))))
+;  s)
 
 
 ;;; Hashing for autosave names
@@ -454,7 +510,7 @@ Hashed files are not understood, see `auto-save-hash-p'."
 
 ;; This leaves two characters that could be used to wrap it in `#' or
 ;; make two filenames from it: one for autosaving, and another for a
-;; file containing the name of the autosaved filed, to make hashing
+;; file containing the name of the autosaved file, to make hashing
 ;; reversible.
 ;(defun auto-save-cyclic-hash-12 (s)
 ;  "Outputs the 12-characters ascii hex representation of a 6-bytes
@@ -518,8 +574,14 @@ Hashed files (see `auto-save-hash-p') are not understood, use
 	    (t
 	     (incf total)
 	     (with-output-to-temp-buffer "*Directory*"
-	       (apply 'call-process "ls" nil standard-output nil
-		      "-l" afile (if file (list file))))
+	       (buffer-disable-undo standard-output)
+	       (save-excursion
+		 (set-buffer "*Directory*")
+		 (setq default-directory (file-name-directory afile))
+		 (insert-directory afile "-l")
+		 (when file
+		   (setq default-directory (file-name-directory file))
+		   (insert-directory file "-l"))))
 	     (if (yes-or-no-p (format "Recover %s from auto save file? "
 				      (or file "non-file buffer")))
 		 (let* ((obuf (current-buffer)))

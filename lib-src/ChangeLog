@@ -1,3 +1,16 @@
+2001-04-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.2.47 "Zephir" is released.
+
+2000-08-01  Jon Schewe  <jpschewe@eggplant.mtu.net>
+
+	* gnuclient.c (filename_expand): Let Cygwin convert Windows path
+	to Unix.
+
+2001-03-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* gnuserv.h: Document TMPDIR lossage if client/server values differ.
+
 2001-03-21  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.46 "Urania" is released.

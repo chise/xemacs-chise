@@ -243,6 +243,8 @@
   (Assert (= (- one) -1))
   (Assert (= (- one one) 0))
   (Assert (= (- one one one) -1))
+  (Assert (= (- 0 one) -1))
+  (Assert (= (- 0 one one) -2))
   (Assert (= (+ one 1) 2))
   (dolist (zero '(0 0.0 ?\0))
     (Assert (= (+ 1 zero) 1))
