@@ -166,7 +166,6 @@ struct Lisp_Char_Table
   Lisp_Object table;
   Lisp_Object default_value;
   Lisp_Object name;
-  Lisp_Object db_file;
   Lisp_Object db;
   unsigned char unloaded;
 #else
