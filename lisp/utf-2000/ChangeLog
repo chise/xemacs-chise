@@ -1,5 +1,9 @@
 2001-05-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R211-Tooth.el (M-48632'): Unify M050612.
+
+2001-05-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R203-Black.el (M-48063'): Unify M050609; separate
 	C4-5560; fix `total-strokes'.
 
