@@ -321,25 +321,6 @@
 	(tabify (point-min)(point-max))
 	))))
 
-(defun insert-char-range-data (min max)
-  (let ((code min)
-	char
-	variants)
-    (while (<= code max)
-      (setq char (int-char code))
-      (insert-char-data char)
-      (setq variants (char-variants char))
-      (while variants
-	(insert-char-data (car variants))
-	(setq variants (cdr variants)))
-      (setq code (1+ code))
-      )))
-
-(defun write-char-range-data-to-file (min max file)
-  (with-temp-buffer
-    (insert-char-range-data min max)
-    (write-region (point-min)(point-max) file)))
-
 ;;;###autoload
 (defun char-db-update-comment ()
   (interactive)
@@ -353,7 +334,8 @@
 	  (goto-char (match-end 0))
 	  (setq char
 		(if (or (memq (car cdef) '(ascii latin-viscii-upper
-						 latin-viscii-lower))
+						 latin-viscii-lower
+						 arabic-iso8859-6))
 			(= (char-int (charset-final (car cdef))) 0))
 		    (apply (function make-char) cdef)
 		  (if (setq table (charset-mapping-table (car cdef)))
@@ -363,11 +345,33 @@
 		    (if table
 			(set-charset-mapping-table (car cdef) table)))))
 	  (when (not (or (< (char-int char) 32)
-			 (and (<= (char-int char) 128)
+			 (and (<= 128 (char-int char))
 			      (< (char-int char) 160))))
 	    (delete-region (point) (point-at-eol))
 	    (insert (format "\t; %c" char)))
 	  )))))
+
+(defun insert-char-data-with-variant (char)
+  (insert-char-data char)
+  (let ((variants (char-variants char)))
+    (while variants
+      (insert-char-data (car variants))
+      (setq variants (cdr variants))
+      )))
+
+(defun insert-char-range-data (min max)
+  (let ((code min)
+	char
+	variants)
+    (while (<= code max)
+      (setq char (int-char code))
+      (insert-char-data-with-variant char)
+      )))
+
+(defun write-char-range-data-to-file (min max file)
+  (with-temp-buffer
+    (insert-char-range-data min max)
+    (write-region (point-min)(point-max) file)))
 
 ;;;###autoload
 (defun what-char-definition (char)
@@ -382,7 +386,8 @@
     (erase-buffer)
     (condition-case err
 	(progn
-	  (insert-char-data char)
+	  (insert-char-data-with-variant char)
+	  (char-db-update-comment)
 	  (set-buffer-modified-p nil)
 	  (view-mode the-buf (lambda (buf)
 			       (set-window-configuration
