@@ -1,3 +1,8 @@
+2001-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decode_builtin_char): Check Big5 code range
+	which can be mapped to `chinese-big5-1' and `chinese-big5-2'.
+
 2001-07-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_chinese_gb12345): New variable.
