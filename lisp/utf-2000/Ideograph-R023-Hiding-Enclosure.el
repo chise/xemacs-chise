@@ -83,6 +83,19 @@
     (ideographic-radical . 23)	; â¼–
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (<-simplified-ideograph
+     (:sources	(morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 02691)	; ø¸€ªƒ
+		 )
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (ucs		  . #x2FF7)	; â¿·
+      )
+     ((ucs		  . #x5338)	; åŒ¸
+      )
+     ((ucs		  . #x3405)	; ã…
+      ))
     (chinese-cns11643-3 . #x2157)	; ø»•—š
     (ideograph-daikanwa . 02674)	; ø¸€©²
     ))
@@ -92,14 +105,22 @@
     (ideographic-radical . 23)	; â¼–
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (<-simplified-ideograph
+     (:sources	(shinjigen-1)
+      :char	((shinjigen-1	     . 802)
+		 (ideograph-daikanwa . 02691)	; ø¸€ªƒ
+		 )
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (ucs		  . #x2FF7)	; â¿·
+      )
+     ((ucs		  . #x531A)	; åŒš
+      )
+     ((ucs		  . #x3405)	; ã…
+      ))
     (shinjigen-1	. 801)
     (shinjigen-2	. 801)
-    (simplified-ideograph-of
-     ((sources		  shinjigen-1)
-      (char . ((shinjigen-1	   . 802)
-	       (ideograph-daikanwa . 02691)	; ø¸€ªƒ
-	       ))
-      ))
     (japanese-jisx0208-1978	. #x3668)	; ø»‚›½
     (chinese-gb2312		. #x4778)	; ø»„¿
     (japanese-jisx0208		. #x3668)	; ø»†°…
