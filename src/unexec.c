@@ -190,6 +190,7 @@ pointer looks like an int) but not on all machines.
 #  define __STDC_EXTENDED__ 1
 # endif
 
+# include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>

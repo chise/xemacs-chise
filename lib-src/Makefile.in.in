@@ -70,7 +70,7 @@ INSTALL_DATA = @INSTALL_DATA@
 ## Things that a user might actually run,
 ## which should be installed in bindir.
 INSTALLABLES_BASE = etags ctags b2m gnuclient ootags
-INSTALLABLE_SCRIPTS = rcs-checkin pstogif install-sid send-pr gnudoit gnuattach
+INSTALLABLE_SCRIPTS = rcs-checkin pstogif gnudoit gnuattach
 #ifdef HAVE_MS_WINDOWS
 INSTALLABLES = $(INSTALLABLES_BASE) runemacs
 #else
@@ -87,10 +87,9 @@ UTILITIES= make-path wakeup profile make-docfile digest-doc \
 
 ## Like UTILITIES, but they are not system-dependent, and should not be
 ## deleted by the distclean target.
-GEN_SCRIPTS = rcs2log vcdiff gzip-el.sh install-sid send-pr
-TM_SCRIPTS = tm-au tm-file tm-html tm-image tm-mpeg tm-plain tm-ps tmdecode
+GEN_SCRIPTS = rcs2log vcdiff gzip-el.sh
 PKG_SCRIPTS = add-big-package.sh
-SCRIPTS = $(GEN_SCRIPTS) $(TM_SCRIPTS) $(PKG_SCRIPTS)
+SCRIPTS = $(GEN_SCRIPTS) $(PKG_SCRIPTS)
 
 EXECUTABLES= ${UTILITIES} ${INSTALLABLES} ${SCRIPTS} ${INSTALLABLE_SCRIPTS}
 

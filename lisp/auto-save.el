@@ -186,7 +186,8 @@ Special value 'always deletes those files silently."
 
 ;;; Preparations to be done at load time
 
-(defvar auto-save-directory-fallback (expand-file-name "~/.autosave/")
+;; Do not call expand-file-name! This is evaluated at dump time now!
+(defvar auto-save-directory-fallback "~/.autosave/"
   ;; not user-variable-p, see above
   "Directory used for local autosaving of remote files if
 both `auto-save-directory' and `efs-auto-save-remotely' are nil.
@@ -199,25 +200,24 @@ created by you, never nil.")
 				auto-save-directory-fallback))
   "If non-nil, directory used for hashed autosave filenames.")
 
-(defun auto-save-check-directory (var)
-  (let ((dir (symbol-value var)))
-    (if (null dir)
-	nil
-      ;; Expand and store back into the variable
-      (set var (setq dir (expand-file-name dir)))
+(defun auto-save-checked-directory (dir)
+  "Make sure the directory DIR exists and return it expanded if non-nil."
+    (when dir
+      (setq dir (expand-file-name dir))
       ;; Make sure directory exists
-      (if (file-directory-p dir)
-	  nil
+      (unless (file-directory-p dir)
 	;; Else we create and chmod 0700 the directory
 	(setq dir (directory-file-name dir)) ; some systems need this
 	(make-directory dir)
-	(set-file-modes dir #o700)))))
+	(set-file-modes dir #o700))
+      dir))
 
-(mapc #'auto-save-check-directory
-     '(auto-save-directory auto-save-directory-fallback))
+;; This make no sense at dump time
+;; (mapc #'auto-save-check-directory
+;     '(auto-save-directory auto-save-directory-fallback))
 
-(and auto-save-hash-p
-     (auto-save-check-directory 'auto-save-hash-directory))
+;(and auto-save-hash-p
+;     (auto-save-check-directory 'auto-save-hash-directory))
 
 
 ;;; Computing an autosave name for a file and vice versa
@@ -335,8 +335,12 @@ Hashed files are not understood, see `auto-save-hash-p'."
 	       (string-match "^#%" basename))
 	   nil)
 	  ;; now we know it looks like #...# thus substring is safe to use
-	  ((or (equal savedir auto-save-directory) ; 2nd arg may be nil
-	       (equal savedir auto-save-directory-fallback))
+	  ((or (equal savedir
+		      (and auto-save-directory
+			   (expand-file-name auto-save-directory)))
+					; 2nd arg may be nil
+	       (equal savedir
+		      (expand-file-name auto-save-directory-fallback)))
 	   ;; it is of the `-fixed-directory' type
 	   (auto-save-slashify-name (substring basename 1 -1)))
 	  (t
@@ -358,10 +362,11 @@ Hashed files are not understood, see `auto-save-hash-p'."
 	     auto-save-hash-directory
 	     (> (length base-name) 14))
 	(expand-file-name (auto-save-cyclic-hash-14 filename)
-			  auto-save-hash-directory)
+			  (auto-save-checked-directory auto-save-hash-directory))
       (expand-file-name base-name
-			(or auto-save-directory
-			    auto-save-directory-fallback)))))
+			(auto-save-checked-directory
+			   (or auto-save-directory
+			       auto-save-directory-fallback))))))
 
 (defun auto-save-name-in-same-directory (filename &optional prefix)
   ;; Enclose the non-directory part of FILENAME in `#' to make an auto
@@ -374,7 +379,8 @@ Hashed files are not understood, see `auto-save-hash-p'."
   (let ((directory (file-name-directory filename)))
     (or (null directory)
 	(file-writable-p directory)
-	(setq directory auto-save-directory-fallback))
+	(setq directory (auto-save-checked-directory
+			 auto-save-directory-fallback)))
     (concat directory			; (concat nil) is ""
 	    (or prefix "#")
 	    (file-name-nondirectory filename)
@@ -497,7 +503,8 @@ Hashed files (see `auto-save-hash-p') are not understood, use
 	file				; its original file
 	(total 0)			; # of files offered to recover
 	(count 0))			; # of files actually recovered
-    (or (equal auto-save-directory auto-save-directory-fallback)
+    (or (equal (expand-file-name auto-save-directory)
+	       (expand-file-name auto-save-directory-fallback))
 	(setq savefiles
 	      (nconc savefiles
 		     (directory-files auto-save-directory-fallback

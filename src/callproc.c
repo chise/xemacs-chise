@@ -744,7 +744,7 @@ child_setup (int in, int out, int err, char **new_argv,
   environ = env;
   execvp (new_argv[0], new_argv);
 
-  stdout_out ("Cant't exec program %s\n", new_argv[0]);
+  stdout_out ("Can't exec program %s\n", new_argv[0]);
   _exit (1);
 #endif /* not WINDOWSNT */
 }

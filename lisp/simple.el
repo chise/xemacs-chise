@@ -94,6 +94,52 @@
   :group 'minibuffer)
 
 
+(defcustom search-caps-disable-folding t
+  "*If non-nil, upper case chars disable case fold searching.
+This does not apply to \"yanked\" strings."
+  :type 'boolean
+  :group 'editing-basics)
+
+;; This is stolen (and slightly modified) from FSF emacs's
+;; `isearch-no-upper-case-p'.
+(defun no-upper-case-p (string &optional regexp-flag)
+  "Return t if there are no upper case chars in STRING.
+If REGEXP-FLAG is non-nil, disregard letters preceded by `\\' (but not `\\\\')
+since they have special meaning in a regexp."
+  (let ((case-fold-search nil))
+    (not (string-match (if regexp-flag 
+			   "\\(^\\|\\\\\\\\\\|[^\\]\\)[A-Z]"
+			 "[A-Z]")
+		       string))
+    ))
+
+(defmacro with-search-caps-disable-folding (string regexp-flag &rest body) "\
+Eval BODY with `case-fold-search' let to nil if `search-caps-disable-folding' 
+is non-nil, and if STRING (either a string or a regular expression according
+to REGEXP-FLAG) contains uppercase letters."
+  `(let ((case-fold-search
+          (if (and case-fold-search search-caps-disable-folding)
+              (no-upper-case-p ,string ,regexp-flag)
+            case-fold-search)))
+     ,@body))
+(put 'with-search-caps-disable-folding 'lisp-indent-function 2)
+(put 'with-search-caps-disable-folding 'edebug-form-spec 
+     '(sexp sexp &rest form))
+
+(defmacro with-interactive-search-caps-disable-folding (string regexp-flag 
+							       &rest body)
+  "Same as `with-search-caps-disable-folding', but only in the case of a
+function called interactively."
+  `(let ((case-fold-search
+	  (if (and (interactive-p) 
+		   case-fold-search search-caps-disable-folding)
+              (no-upper-case-p ,string ,regexp-flag)
+            case-fold-search)))
+     ,@body))
+(put 'with-interactive-search-caps-disable-folding 'lisp-indent-function 2)
+(put 'with-interactive-search-caps-disable-folding 'edebug-form-spec 
+     '(sexp sexp &rest form))
+
 (defun newline (&optional arg)
   "Insert a newline, and move to left margin of the new line if it's blank.
 The newline is marked with the text-property `hard'.
@@ -456,19 +502,20 @@ backwards."
   "Kill up to and including ARG'th occurrence of CHAR.
 Goes backward if ARG is negative; error if CHAR not found."
   (interactive "*p\ncZap to char: ")
-  (kill-region (point) (progn
+  (kill-region (point) (with-interactive-search-caps-disable-folding
+			   (char-to-string char) nil
 			 (search-forward (char-to-string char) nil nil arg)
-;			 (goto-char (if (> arg 0) (1- (point)) (1+ (point))))
 			 (point))))
 
 (defun zap-up-to-char (arg char)
   "Kill up to ARG'th occurrence of CHAR.
 Goes backward if ARG is negative; error if CHAR not found."
   (interactive "*p\ncZap up to char: ")
-  (kill-region (point) (progn
-                       (search-forward (char-to-string char) nil nil arg)
-                       (goto-char (if (> arg 0) (1- (point)) (1+ (point))))
-                       (point))))
+  (kill-region (point) (with-interactive-search-caps-disable-folding
+			   (char-to-string char) nil
+			 (search-forward (char-to-string char) nil nil arg)
+			 (goto-char (if (> arg 0) (1- (point)) (1+ (point))))
+			 (point))))
 
 (defun beginning-of-buffer (&optional arg)
   "Move point to the beginning of the buffer; leave mark at previous position.

@@ -1635,7 +1635,8 @@ from overriding motion of point in order to display at this exact start.
   /* this is not right, but much easier than doing what is right. */
   /* w->start_at_line_beg = 0; */
   /* WTF is the above supposed to mean?  GE */
-  w->start_at_line_beg = beginning_of_line_p (XBUFFER (w->buffer), XINT (pos));
+  w->start_at_line_beg = beginning_of_line_p (XBUFFER (w->buffer),
+					      marker_position (w->start[CURRENT_DISP]));
   if (NILP (noforce))
     w->force_start = 1;
   w->redo_modeline = 1;
@@ -3167,7 +3168,7 @@ BUFFER can be a buffer or buffer name.
   Fset_marker (w->sb_point, w->start[CURRENT_DISP], buffer);
   /* set start_at_line_beg correctly. GE */
   w->start_at_line_beg = beginning_of_line_p (XBUFFER (buffer),
-					      XBUFFER (buffer)->last_window_start);  
+					      marker_position (w->start[CURRENT_DISP]));  
   w->force_start = 0;           /* Lucid fix */
   SET_LAST_MODIFIED (w, 1);
   SET_LAST_FACECHANGE (w);
@@ -5670,7 +5671,7 @@ This is a specifier; use `set-specifier' to change it.
   {
     Lisp_Object fb = Qnil;
 #ifdef HAVE_TTY
-    fb = Fcons (Fcons (list1 (Qtty), Qzero), fb);
+    fb = Fcons (Fcons (list1 (Qtty), make_int (1)), fb);
 #endif
 #ifdef HAVE_X_WINDOWS
     fb = Fcons (Fcons (list1 (Qx), make_int (3)), fb);

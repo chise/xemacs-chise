@@ -780,7 +780,7 @@ at the initial click position."
 ;; Decide what will be the SYMBOLP argument to
 ;; default-mouse-track-{beginning,end}-of-word, according to the
 ;; syntax of the current character and value of mouse-highlight-text.
-(defsubst default-mouse-symbolp (syntax)
+(defsubst default-mouse-track-symbolp (syntax)
   (cond ((eq mouse-highlight-text 'context)
 	 (eq syntax ?_))
 	((eq mouse-highlight-text 'symbol)
@@ -788,22 +788,33 @@ at the initial click position."
 	(t
 	 nil)))
 
+;; Return t if point is at an opening quote character.  This is
+;; determined by testing whether the syntax of the following character
+;; is `string', which will always be true for opening quotes and
+;; always false for closing quotes.
+(defun default-mouse-track-point-at-opening-quote-p ()
+  (save-excursion
+    (forward-char 1)
+    (eq (buffer-syntactic-context) 'string)))
+
 (defun default-mouse-track-normalize-point (type forwardp)
   (cond ((eq type 'word)
 	 ;; trap the beginning and end of buffer errors
 	 (ignore-errors
 	   (setq type (char-syntax (char-after (point))))
 	   (if forwardp
-	       (if (= type ?\()
+	       (if (or (= type ?\()
+		       (and (= type ?\")
+			    (default-mouse-track-point-at-opening-quote-p)))
 		   (goto-char (scan-sexps (point) 1))
-		 (if (= type  ?\))
-		     (forward-char 1)
-		   (default-mouse-track-end-of-word
-		     (default-mouse-symbolp type))))
-	     (if (= type ?\))
+		 (default-mouse-track-end-of-word
+		   (default-mouse-track-symbolp type)))
+	     (if (or (= type ?\))
+		     (and (= type ?\")
+			  (not (default-mouse-track-point-at-opening-quote-p))))
 		 (goto-char (scan-sexps (1+ (point)) -1))
 	       (default-mouse-track-beginning-of-word
-		 (default-mouse-symbolp type))))))
+		 (default-mouse-track-symbolp type))))))
 	((eq type 'line)
 	 (if forwardp (end-of-line) (beginning-of-line)))
 	((eq type 'buffer)

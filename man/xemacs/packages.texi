@@ -103,7 +103,7 @@ are installed, using the visual package browser and installer.  You can
 access it via the menus:
 
 @example
-	Options->Customize->List Packages
+	Options->Manage Packages->List & Install
 @end example
 
 Or, you can get to it via the keyboard:
@@ -147,13 +147,18 @@ saved; this information will be lost when you quit XEmacs.
 If you're going to install over the network, you only have to insure
 that EFS @ref{(EFS)} works, and that it can get outside a firewall, if
 you happen to be behind one.  You shouldn't have to do anything else;
-XEmacs already knows where to go.
+XEmacs already knows where to go. However you can add your own mirrors
+to this list. See @code{package-get-remote}.
 
 The easiest way to install a package is to use the visual package
 browser and installer, using the menu pick:
 
 @example
-	Options->Customize->List Packages
+	Options->Manage Packages->List & Install
+@end example
+or
+@example
+	Options->Manage Packages->Using Custom->Select-> ...
 @end example
 
 You can also access it using the keyboard:
@@ -182,10 +187,12 @@ If there is no character in the first column, the package has been
 installed and is up-to-date.
 
 From here, you can select or unselect packages for installation using
-the @key{RET} key, or using the @kbd{Mouse-2} or @kbd{Mouse-3} buttons.
-Once you've finished selecting the packages, you can press the @kbd{x}
-key to actually install the packages.  Note that you will have to
-restart XEmacs for XEmacs to recognize any new packages.
+the @key{RET} key, the @kbd{Mouse-2} button or selecting "Select" from
+the (Popup) Menu.
+Once you've finished selecting the packages, you can
+press the @kbd{x} key (or use the menu) to actually install the
+packages. Note that you will have to restart XEmacs for XEmacs to
+recognize any new packages.
 
 Key summary:
 
@@ -194,7 +201,6 @@ Key summary:
 Display simple help.
 @item @key{RET}
 @itemx @key{Mouse-2}
-@itemx @key{Mouse-3}
 Toggle between selecting and unselecting a package for installation.
 @item x
 Install selected packages.
@@ -221,11 +227,15 @@ customize menus, under:
 @example
 	Options->Customize->Emacs->Packages-> ...
 @end example
+or
+@example
+	Options->Manage Packages->Using Custom->Select-> ...
+@end example
 
 Set their state to on, and then do:
 
 @example
-	Options->Customize->Update Packages
+	Options->Manage Packages->Using Custom->Update Packages
 @end example
 
 This will automatically retrieve the packages you have selected from the
