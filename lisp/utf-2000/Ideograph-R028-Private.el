@@ -405,7 +405,6 @@
     (ideographic-radical . 28)	; â¼›
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (chinese-cns11643-6 . #x2641)	; ø»›¼¦
     (ucs		. #x2128F)	; ð¡Š
     ))
 (define-char
