@@ -1,5 +1,9 @@
 2001-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.c (vars_of_chartab): Update `utf-2000-version' to 0.18.
+
+2001-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.c (map_over_uint8_byte_table): Cancel temporary hack.
 	(map_over_uint16_byte_table): Likewise.
 	(map_over_byte_table): Likewise.
