@@ -252,12 +252,12 @@ DESCRIPTION (string) is the description string of the charset."
 
 ;; Setup auto-fill-chars for charsets that should invoke auto-filling.
 ;; SPACE and NEWLIE are already set.
-(let ((l '(katakana-jisx0201
-	   japanese-jisx0208 japanese-jisx0212
-	   chinese-gb2312 chinese-big5-1 chinese-big5-2)))
-  (while l
-    (put-char-table (car l) t auto-fill-chars)
-    (setq l (cdr l))))
+;; (let ((l '(katakana-jisx0201
+;;            japanese-jisx0208 japanese-jisx0212
+;;            chinese-gb2312 chinese-big5-1 chinese-big5-2)))
+;;   (while l
+;;     (put-char-table (car l) t auto-fill-chars)
+;;     (setq l (cdr l))))
 
 
 ;;; @ Coded character set
@@ -338,6 +338,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  ideograph-hanziku-11
 	  ideograph-hanziku-12
 	  china3-jef
-	  arabic-iso8859-6)))
+	  arabic-iso8859-6
+	  chinese-big5-1
+	  chinese-big5-2)))
 
 ;;; mule-charset.el ends here
