@@ -8777,6 +8777,7 @@
     (total-strokes	 . 12)
     (=ks-x1001		. #x5F3A)	; ø»‰µ©
     (=cns11643-3	. #x3B72)	; ø»•¾
+    (=jis-x0213-2-2000	. #x2D3C)	; ø»¤¯ƒ
     (=jef-china3	. #x4FE3)	; øº„¿£
     (=ucs		. #x63F7)	; æ·
     ))
@@ -19193,6 +19194,13 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
     (=cns11643-3	. #x5C40)	; ø»–­­
+    ))
+(define-char
+  '((ideographic-radical . 64)	; â¼¿
+    (ideographic-strokes . 17)
+    (total-strokes	 . 20)
+    (=jis-x0213-2-2000	. #x2D5B)	; ø»¤¯¢
+    (=ucs		. #x3A6E)	; ã©®
     ))
 (define-char
   '((ideographic-radical . 64)	; â¼¿
