@@ -1,3 +1,54 @@
+2001-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R065-Branch.el (M-13067): Unify CB-02050; use `=>ucs'
+	instead of `->ucs'; add `ideographic-structure'.
+	- Merge Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+	- Add some `ideographic-structure' properties.
+	- Add some CBETA numbers.
+
+2001-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL CLOTHES): Add
+	`<-radical' for U+8864.
+
+	* Ideograph-R023-Hiding-Enclosure.el (M-02674): Add
+	`<-simplified-ideograph'; add `ideographic-structure'.
+	(U+533A): Use `<-simplified-ideograph' instead of
+	`simplified-ideograph-of'; add `ideographic-structure'.
+
+	* Ideograph-R022-Right-Open-Box.el: Add some missing
+	`ideographic-structure' properties.
+
+	* Ideograph-R020-Wrap.el: Canonicalize some operators of
+	`ideographic-structure' properties.
+	(U+5301): Use `->same-ideograph' instead of `comment'; add
+	`ideographic-structure'.
+
+	* Ideograph-R019-Power.el (U+52E7): Add `ideographic-structure'.
+
+	* Ideograph-R018-Knife.el (U+5239): Add `ideographic-structure'.
+	(U+5290): Likewise.
+
+	* Ideograph-R016-Table.el (M-01792): Separate U+51F2.
+
+	* Ideograph-R013-Down-Box.el (U+5187): Revert the previous
+	operator change.
+	(U+56D8): Modify operator.
+
+	* Ideograph-R010-Legs.el (U+514F): Unify H1-B26A.
+	(U+515E): Unify H5-F16C.
+
+	* Ideograph-R007-Two.el (U+4E97): Unify H2-EE7D.
+	(U+4E9D): Unify H1-F57D.
+
+	* Ideograph-R006-Hook.el (U+4E89): Unify H1-E8D1.
+
+	* Ideograph-R005-Second.el (U+4E62): Unify H2-EE79.
+	(U+4E80): Unify H12-EBBD.
+
+	* Ideograph-R004-Slash.el (U+4E55): Unify H1-B260.
+
 2001-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el:
