@@ -180,7 +180,7 @@
     ))
 (define-char
   '((name		. "HALFWIDTH HORIZONTAL BAR")
-    (->ucs		. #x2015)	; â€•
+    (=>ucs		. #x2015)	; â€•
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -333,7 +333,6 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x002E)
-    (chinese-big5	. #xA3BB)	; øºŸ¡“
     (ucs		. #x2024)	; â€¤
     ))
 (define-char
@@ -566,17 +565,29 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x0305)
+    (->fullwidth
+     ((name		  . "FULLWIDTH OVERLINE")
+      (japanese-jisx0208-1978	  . #x2131)	; ø»¼
+      (chinese-gb2312		  . #x237E)	; ø»„Š
+      (japanese-jisx0208	  . #x2131)	; ø»†˜
+      (korean-ksc5601		  . #x237E)	; ø»ˆž¥
+      (chinese-cns11643-1	  . #x2223)	; ø»‘ƒ¼
+      ))
     (latin-jisx0201	. #x7E)	; øº‘Œ©
     (hebrew-iso8859-8	. #xAF)	; øº’¾¯
     (ucs		. #x203E)	; â€¾
     ))
 (define-char
   '((name		. "FULLWIDTH OVERLINE")
-    (->ucs		. #x203E)	; â€¾
+    (=>ucs		. #x203E)	; â€¾
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x203E)
+    (<-fullwidth
+     ((name		  . "OVERLINE")
+      (ucs		  . #x203E)	; â€¾
+      ))
     (japanese-jisx0208-1978	. #x2131)	; ø»¼
     (chinese-gb2312		. #x237E)	; ø»„Š
     (japanese-jisx0208		. #x2131)	; ø»†˜
@@ -584,6 +595,16 @@
     (chinese-cns11643-1		. #x2223)	; ø»‘ƒ¼
     (japanese-jisx0208-1990	. #x2131)	; ø½‰¶Œ
     (chinese-big5		. #xA1C2)	; øºŸœ 
+    ))
+(define-char
+  '((name		. "heavy overline")
+    (=>ucs		. #x203E)	; â€¾
+    (general-category	punctuation other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (chinese-cns11643-1 . #x2224)	; ø»‘ƒ½
+    (chinese-big5	. #xA1C3)	; øºŸœ¡
+    (ucs-big5		. #xFFE3)	; ø»‘ƒ½
     ))
 (define-char
   '((name		. "UNDERTIE")
