@@ -105,8 +105,11 @@
 (define-char
   '((ideographic-radical . 62)	; â¼½
     (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (chinese-cns11643-4		. #x2272)	; ø»—£—
     (japanese-jisx0213-2	. #x2C72)	; ø»¤®›
     (ideograph-daikanwa		. 11538)	; ø¸‚´’
+    (ucs			. #x2298F)	; ð¢¦
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½
@@ -145,23 +148,9 @@
     (ucs		. #x39AE)	; ã¦®
     ))
 (define-char
-  '((ideographic-radical . 62)	; â¼½
-    (ideographic-strokes . 2)
-    (chinese-gb2312	. #x4F37)	; ø»…‰¾
-    (chinese-isoir165	. #x4F37)	; ø»²Ž
-    (chinese-cns11643-3 . #x236B)	; ø»•šª
-    (ucs		. #x620F)	; æˆ
-    ))
-(define-char
-  '((ideographic-radical . 62)	; â¼½
-    (ideographic-strokes . 2)
-    (total-strokes	 . 6)
-    (chinese-cns11643-4 . #x2272)	; ø»—£—
-    ))
-(define-char
   '((morohashi-daikanwa	11542 1)
     (ideographic-radical . 62)	; â¼½
-    (ideographic-strokes . 3)
+    (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (japanese-jisx0208-1978	. #x402E)	; ø»‚©¯
     (chinese-gb2312		. #x3349)	; ø»„¡ˆ
@@ -170,8 +159,16 @@
     (chinese-isoir165		. #x3349)	; ø»‰˜
     (chinese-cns11643-1		. #x4829)	; ø»‘»¶
     (japanese-jisx0208-1990	. #x402E)	; ø½Š£«
-    (mojikyo			. 050187)	; ø¸Œ‹
+    (mojikyo			. 050187)	; ý €Œ‹
     (ucs			. #x6210)	; æˆ
+    ))
+(define-char
+  '((ideographic-radical . 62)	; â¼½
+    (ideographic-strokes . 2)
+    (chinese-gb2312	. #x4F37)	; ø»…‰¾
+    (chinese-isoir165	. #x4F37)	; ø»²Ž
+    (chinese-cns11643-3 . #x236B)	; ø»•šª
+    (ucs		. #x620F)	; æˆ
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½
@@ -185,6 +182,7 @@
     (total-strokes	 . 7)
     (chinese-cns11643-3 . #x2627)	; ø»•ž€
     (ideograph-daikanwa . 11544)	; ø¸‚´˜
+    (mojikyo		. 011544)	; ý €‚´˜
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½
@@ -991,7 +989,7 @@
     (japanese-jisx0208		. #x406F)	; ø»†¾¸
     (chinese-cns11643-4		. #x3D43)	; ø»˜Š’
     (japanese-jisx0208-1990	. #x406F)	; ø½Š¤¬
-    (mojikyo			. 050189)	; ø¸Œ
+    (mojikyo			. 050189)	; ý €Œ
     (ucs			. #x6226)	; æˆ¦
     ))
 (define-char
