@@ -33,10 +33,14 @@
     (=big5-cdp		. #x8AAE)	; ý¢€ˆª®
     ))
 (define-char
-  '((ideographic-	(:radical	3 ; â¼‚
-			 :strokes	2)
-			(:radical	16 ; â¼
-			 :strokes	1))
+  '((ideographic-radical@ucs . 16)	; â¼
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 3)	; â¼‚
+    (ideographic-strokes@cns . 2)
+    (ideographic-radical@cns*sources
+     shinjigen-1 cns11643)
     (total-strokes	 . 3)
     (hanyu-dazidian	1 276 3)
     (ideographic-structure
@@ -49,6 +53,9 @@
       ))
     (shinjigen-1	. 566)
     (shinjigen-2	. 566)
+    (sound@ja/kun	"oyo-so" "arayu-ru")
+    (sound@ja/on/go	"bon")
+    (sound@ja/on/kan	"han")
     (=ucs		. #x51E1)	; å‡¡
     (=jis-x0208		. #x4B5E)	; ø½Š´¥
     (=gb2312		. #x3732)	; ø»„¦©
