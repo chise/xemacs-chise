@@ -1,3 +1,27 @@
+2004-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (J0-355A): Add
+	`ideographic-{radical|strokes}@ucs' and
+	`ideographic-radical@ucs*sources' again.
+
+	* Ideograph-R085-Water.el (U+6FE8): Use `->subsumptive'.
+	(U+6FE9): Likewise.
+	(U+6FEA): Likewise.
+	(U-00024028): Likewise.
+
+	* Ideograph-R079-Weapon.el (U+3C7E): Use `->subsumptive'.
+	(U+3C7F): Likewise.
+	(U+6BB7): Likewise.
+	(M-16628): Map to U-00023A89.
+
+	* Ideograph-R010-Legs.el (B-A552): Use `->subsumptive'.
+	(G0-3364): Moved into B-A552.
+	(U+514C): Add `<-denotational' for B-A749; separate B-A749.
+	(B-A749): Define as an abstract character.
+	(U+5151): Add `<-denotational' for B-A749.
+	(U-0002047D): Use `->subsumptive'.
+	(U+5157): Likewise.
+
 2004-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R141-Tiger.el (U+4595): Use `->subsumptive'.
