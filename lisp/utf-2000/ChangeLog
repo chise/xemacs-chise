@@ -1,3 +1,44 @@
+2001-08-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R002-Line.el: Use Big5-CDP code point instead of
+	private code point of UCS for `ideographic-structure'.
+
+	* u0E000-Private-Use.el (U+F4D8): Separate Big5-8AFD and
+	Big5-CDP-8AFD.
+	(U+F617): Separate Big5-8D43 and Big5-CDP-8D43.
+
+	* u02F00-Kangxi-Radicals.el (KANGXI RADICAL TONGUE): Add
+	`total-strokes' and `ideographic-structure'; unify CDP-693,
+	Big5-88EF and Big5-CDP-88EF.
+
+	* Ideograph-R135-Tongue.el (U+820C): Unify Big5-A6DE instead of
+	Big5-88EF and Big5-CDP-88EF.
+	- Add Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+	- Add `ideograph-cdp' and `ideographic-structure'.
+
+	* Ideograph-R028-Private.el (C3-212B): Unify Big5-8AFD and
+	Big5-CDP-8AFD.
+	(M-03069): Use `<-original-ideograph' instead of
+	`original-char-of-shinjigen-1'.
+	- Add `chinese-big5' code points.
+	- Add `ideographic-structure'.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R006-Hook.el: Add `ideograph-cdp'.
+
+	* Ideograph-R005-Second.el, Ideograph-R004-Slash.el,
+	Ideograph-R003-Dot.el, Ideograph-R001-One.el: Use
+	`chinese-big5-cdp' instead of private code point of UCS in
+	`ideographic-structure'.
+
+2001-08-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (U+90D2): Add `total-strokes'; unify
+	JSP-622D.
+	(U+90E6): Add `total-strokes'.
+	(U+90E7): Likewise.
+
 2001-08-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R028-Private.el (U+53BC): Unify G1-7D29; delete
