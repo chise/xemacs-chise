@@ -34,6 +34,11 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef MULE
 #include "character.h"
+
+#ifdef UTF2000
+#include "mb-utf-8.h"
+#endif
+
 #endif
 
 /************************************************************************/
