@@ -439,6 +439,15 @@
 		  direction	l2r
 		  mother	ucs-jis))
   (define-charset-alias '=ucs-jis-2000 '=ucs@jis-2000)
+  (make-charset '=ucs@jp
+		"UCS for Japan"
+		`(long-name	"UCS for common glyphs used in Japan"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@jis-2000))
   (make-charset '=ucs@ks
 		"UCS for KS"
 		`(long-name	"ISO/IEC 10646 for Korean Standards"
