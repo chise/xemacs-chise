@@ -1,3 +1,14 @@
+1999-12-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R027-Cliff.el,
+	utf-2000/Ideograph-R026-Seal.el,
+	utf-2000/Ideograph-R025-Divination.el,
+	utf-2000/Ideograph-R024-Ten.el,
+	utf-2000/Ideograph-R023-Hiding-Enclosure.el,
+	utf-2000/Ideograph-R022-Right-Open-Box.el,
+	utf-2000/Ideograph-R021-Spoon.el: Merge CJK Unified Ideographs
+	Extension A.
+
 1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/Ideograph-R020-Wrap.el,
