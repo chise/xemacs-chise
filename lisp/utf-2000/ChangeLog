@@ -60,6 +60,11 @@
 
 2003-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* dumped-chars.el (system-char-db-source-file-list): Add
+	"u02900-Supplemental-Arrows-B",
+	"u02980-Miscellaneous-Mathematical-Symbols-B" and
+	"u031F0-Katakana-Phonetic-Extensions".
+
 	* u031F0-Katakana-Phonetic-Extensions.el: New file.
 
 	* u02300-Miscellaneous-Technical.el: Add some missing characters
