@@ -1,0 +1,23 @@
+AC_PREREQ(2.12)
+AC_INIT(configure.in)
+
+XE_EMACS
+XE_CONFIG_VALUE(dll_cflags dll_ld dll_lflags dll_oflags CFLAGS CC DEFS INSTALL top_srcdir blddir)
+
+RM='rm -f'
+
+AC_SUBST(INSTALL)
+AC_SUBST(RM)
+AC_SUBST(CC)
+AC_SUBST(dll_cflags)
+AC_SUBST(dll_oflags)
+AC_SUBST(dll_lflags)
+AC_SUBST(dll_ld)
+AC_SUBST(top_srcdir)
+AC_SUBST(blddir)
+
+AC_OUTPUT(Makefile
+          ldap/Makefile
+          base64/Makefile
+ 	  example/Makefile
+   	  zlib/Makefile)
