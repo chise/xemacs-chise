@@ -267,7 +267,7 @@
     (mirrored		. nil)
     (->decomposition	#x004F #x031B)
     (->lowercase	#x01A1)
-    (latin-viscii-upper #x3D)	; -2½-A
+    (latin-viscii-upper #xBD)	; -2½-A
     (latin-viscii	#xB4)	; -2½-A
     ))
 (define-char
@@ -279,7 +279,7 @@
     (->decomposition	#x006F #x031B)
     (->uppercase	#x01A0)
     (->titlecase	#x01A0)
-    (latin-viscii-lower #x3D)	; -1½-A
+    (latin-viscii-lower #xBD)	; -1½-A
     (latin-viscii	#xBD)	; -1½-A
     ))
 (define-char
@@ -398,7 +398,7 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x031B)
     (->lowercase	#x01B0)
-    (latin-viscii-upper #x5F)	; -2ß-A
+    (latin-viscii-upper #xDF)	; -2ß-A
     (latin-viscii	#xBF)	; -2ß-A
     ))
 (define-char
@@ -410,7 +410,7 @@
     (->decomposition	#x0075 #x031B)
     (->uppercase	#x01AF)
     (->titlecase	#x01AF)
-    (latin-viscii-lower #x5F)	; -1ß-A
+    (latin-viscii-lower #xDF)	; -1ß-A
     (latin-viscii	#xDF)	; -1ß-A
     ))
 (define-char
@@ -966,8 +966,8 @@
     (ucs		. #x01DB)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00DC #x0300)
     (mirrored		. nil)
+    (->decomposition	#x00DC #x0300)
     (->lowercase	#x01DC)
     ))
 (define-char
