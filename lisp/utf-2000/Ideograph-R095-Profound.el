@@ -8,7 +8,7 @@
     (=ks-x1001		. #x7A5C)	; ø»Šµ
     (=gt-pj-1		. #x383C)	; ø½Š˜‰
     (=big5		. #xA5C8)	; ý¢€Š—ˆ
-    (ideograph-daikanwa . 20814)	; ø¸……Ž
+    (=daikanwa		. 20814)	; ø¸……Ž
     (=gt-k		. 00923)	; ý¡„€Ž›
     (=ucs@jis		. #x7384)	; ø½Š˜‰
     ))
@@ -30,7 +30,7 @@
     (=jis-x0212		. #x4B50)	; ø»‹¢«
     (=jis-x0213-2-2000	. #x7059)	; ø»¦‘º
     (=big5		. #xCFC6)	; ý¢€Œ¿†
-    (ideograph-daikanwa . 20815)	; ø¸……
+    (=daikanwa		. 20815)	; ø¸……
     (=jef-china3	. #x58FE)	; øº…£¾
     (=ucs@jis		. #x7385)	; ø»‹¢«
     ))
@@ -50,7 +50,7 @@
     (=ks-x1001		. #x6D35)	; ø»ŠŠˆ
     (=jis-x0212		. #x4B51)	; ø»‹¢¬
     (=big5		. #xAF59)	; ý¢€Š½™
-    (ideograph-daikanwa . 20816)	; ø¸……
+    (=daikanwa		. 20816)	; ø¸……
     (=jef-china3	. #x58FC)	; øº…£¼
     (=ucs@jis		. #x7386)	; ø»ŠŠˆ
     ))
@@ -68,7 +68,7 @@
     (ideographic-radical . 95)	; â½ž
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (ideograph-daikanwa . 20817)	; ø¸……‘
+    (=daikanwa		. 20817)	; ø¸……‘
     (=jef-china3	. #x58FD)	; øº…£½
     (mojikyo		. 020817)	; ý €……‘
     ))
@@ -102,7 +102,7 @@
     (ideographic-radical . 95)	; â½ž
     (ideographic-strokes . 6)
     (=big5		. #xD66A)	; ý¢€™ª
-    (ideograph-daikanwa . 20818)	; ø¸……’
+    (=daikanwa		. 20818)	; ø¸……’
     ))
 (define-char
   '((morohashi-daikanwa	20818 0 0)
@@ -123,7 +123,7 @@
       )
      ((=jis-x0208	  . #x383C)	; ø½Š˜‰
       (=ks-x1001	  . #x7A5C)	; ø»Šµ
-      (ideograph-daikanwa . 20814)	; ø¸……Ž
+      (=daikanwa	  . 20814)	; ø¸……Ž
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -143,7 +143,7 @@
 	  ))
 	))
       ))
-    (ideograph-daikanwa . 20819)	; ø¸……“
+    (=daikanwa		. 20819)	; ø¸……“
     ))
 (define-char
   '((morohashi-daikanwa	20819 0 0)
@@ -190,11 +190,11 @@
       )
      ((=jis-x0208	  . #x383C)	; ø½Š˜‰
       (=ks-x1001	  . #x7A5C)	; ø»Šµ
-      (ideograph-daikanwa . 20814)	; ø¸……Ž
+      (=daikanwa	  . 20814)	; ø¸……Ž
       )
      ((=ucs		  . #x66F7)	; æ›·
       ))
-    (ideograph-daikanwa . 20820)	; ø¸……”
+    (=daikanwa		. 20820)	; ø¸……”
     ))
 (define-char
   '((morohashi-daikanwa	20820 0 0)

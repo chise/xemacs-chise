@@ -6,7 +6,7 @@
     (=jis-x0208		. #x7363)	; ø½‹¯š
     (=cns11643-2	. #x4155)	; ø»“¼”
     (=gt-pj-1		. #x7363)	; ø½‹¯š
-    (ideograph-daikanwa . 48248)	; ø¸‹±¸
+    (=daikanwa		. 48248)	; ø¸‹±¸
     (=gt-k		. 09243)	; ý¡„‚›
     (=ucs@jis		. #x9EF9)	; ø½‹¯š
     ))
@@ -30,7 +30,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 16)
     (=cns11643-2	. #x5C42)	; ø»”£«
-    (ideograph-daikanwa . 48249)	; ø¸‹±¹
+    (=daikanwa		. 48249)	; ø¸‹±¹
     (=ucs		. #x9EFA)	; é»º
     ))
 (define-char
@@ -41,7 +41,7 @@
     (shinjigen-2	. 9839)
     (=jis-x0208		. #x7364)	; ø½‹¯›
     (=cns11643-2	. #x613C)	; ø»”ª»
-    (ideograph-daikanwa . 48250)	; ø¸‹±º
+    (=daikanwa		. 48250)	; ø¸‹±º
     (=ucs@jis		. #x9EFB)	; ø½‹¯›
     ))
 (define-char
@@ -58,7 +58,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 18)
     (=cns11643-7	. #x4575)	; ø»žµ€
-    (ideograph-daikanwa . 48251)	; ø¸‹±»
+    (=daikanwa		. 48251)	; ø¸‹±»
     ))
 (define-char
   '((=>ucs		. #x9EFC)	; é»¼
@@ -68,7 +68,7 @@
     (shinjigen-2	. 9840)
     (=jis-x0208		. #x7365)	; ø½‹¯œ
     (=cns11643-2	. #x6862)	; ø»”µ³
-    (ideograph-daikanwa . 48252)	; ø¸‹±¼
+    (=daikanwa		. 48252)	; ø¸‹±¼
     (=ucs@jis		. #x9EFC)	; ø½‹¯œ
     ))
 (define-char
@@ -85,7 +85,7 @@
     (ideographic-radical . 204)	; â¿‹
     (ideographic-strokes . 8)
     (total-strokes	 . 20)
-    (ideograph-daikanwa . 48253)	; ø¸‹±½
+    (=daikanwa		. 48253)	; ø¸‹±½
     ))
 (define-char
   '((morohashi-daikanwa	48253 0 2)
@@ -100,7 +100,7 @@
     (ideographic-radical . 204)	; â¿‹
     (ideographic-strokes . 9)
     (total-strokes	 . 21)
-    (ideograph-daikanwa . 48254)	; ø¸‹±¾
+    (=daikanwa		. 48254)	; ø¸‹±¾
     ))
 (define-char
   '((morohashi-daikanwa	48254 0 2)
@@ -114,7 +114,7 @@
   '((ideographic-radical . 204)	; â¿‹
     (ideographic-strokes . 9)
     (total-strokes	 . 21)
-    (ideograph-daikanwa . 48255)	; ø¸‹±¿
+    (=daikanwa		. 48255)	; ø¸‹±¿
     ))
 (define-char
   '((morohashi-daikanwa	48255 0 2)
@@ -127,7 +127,7 @@
   '((ideographic-radical . 204)	; â¿‹
     (ideographic-strokes . 11)
     (total-strokes	 . 23)
-    (ideograph-daikanwa . 48256)	; ø¸‹²€
+    (=daikanwa		. 48256)	; ø¸‹²€
     ))
 (define-char
   '((morohashi-daikanwa	48256 0 2)
