@@ -1,3 +1,20 @@
+2002-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u01E00-Latin-Extended-Additional.el (JC3-85B1): Map to U+1EA6.
+	(JC3-85B4): Map to U+1EA7.
+	(JC3-85B2): Map to U+1EC0.
+	(JC3-85B5): Map to U+1EC1.
+	(JC3-85B3): Map to U+1ED2.
+	(JC3-85B6): Map to U+1ED3.
+
+	* u00180-Latin-Extended-B.el (JC3-85B1): Deleted, because it seems
+	* WITH CIRCUMFLEX AND GRAVE, not WITH DOUBLE GRAVE.
+	(JC3-85B4): Likewise.
+	(JC3-85B2): Likewise.
+	(JC3-85B5): Likewise.
+	(JC3-85B3): Likewise.
+	(JC3-85B6): Likewise.
+
 2002-10-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u02E00-CJK-Radical-Supplement.el: Add `<-radical'.
