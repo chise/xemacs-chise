@@ -1,5 +1,7 @@
 2004-12-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Add C2-to-UCS.txt to the check list.
+
 	* Ideograph-R130-Meat.el (U+6721): Copied from
 	Ideograph-R074-Moon.el.
 	(C2-4641): New character.
