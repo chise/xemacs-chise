@@ -1836,6 +1836,9 @@ struct decoding_stream
   /* Additional information (the state of the running CCL program)
      used by the CCL decoder. */
   struct ccl_program ccl;
+
+  /* counter for UTF-8 or UCS-4 */
+  unsigned char counter;
 #endif
   struct detection_state decst;
 };
@@ -1970,6 +1973,7 @@ reset_decoding_stream (struct decoding_stream *str)
     {
       setup_ccl_program (&str->ccl, CODING_SYSTEM_CCL_DECODE (str->codesys));
     }
+  str->counter = 0;
 #endif /* MULE */
   str->flags = str->ch = 0;
 }
@@ -3343,31 +3347,33 @@ decode_coding_ucs4 (Lstream *decoding, CONST unsigned char *src,
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
   unsigned int flags = str->flags;
   unsigned int ch    = str->ch;
+  unsigned char counter = str->counter;
 
   while (n--)
     {
       unsigned char c = *src++;
-      switch (flags)
+      switch (counter)
 	{
 	case 0:
 	  ch = c;
-	  flags = 3;
+	  counter = 3;
 	  break;
 	case 1:
 	  decode_ucs4 ( ( ch << 8 ) | c, dst);
 	  ch = 0;
-	  flags = 0;
+	  counter = 0;
 	  break;
 	default:
 	  ch = ( ch << 8 ) | c;
-	  flags--;
+	  counter--;
 	}
     }
-  if (flags & CODING_STATE_END)
+  if (counter & CODING_STATE_END)
     DECODE_OUTPUT_PARTIAL_CHAR (ch);
 
   str->flags = flags;
   str->ch    = ch;
+  str->counter = counter;
 }
 
 static void
@@ -3552,37 +3558,38 @@ decode_coding_utf8 (Lstream *decoding, CONST unsigned char *src,
   unsigned int flags  = str->flags;
   unsigned int ch     = str->ch;
   eol_type_t eol_type = str->eol_type;
+  unsigned char counter = str->counter;
 
   while (n--)
     {
       unsigned char c = *src++;
-      switch (flags)
+      switch (counter)
 	{
 	case 0:
 	  if ( c >= 0xfc )
 	    {
 	      ch = c & 0x01;
-	      flags = 5;
+	      counter = 5;
 	    }
 	  else if ( c >= 0xf8 )
 	    {
 	      ch = c & 0x03;
-	      flags = 4;
+	      counter = 4;
 	    }
 	  else if ( c >= 0xf0 )
 	    {
 	      ch = c & 0x07;
-	      flags = 3;
+	      counter = 3;
 	    }
 	  else if ( c >= 0xe0 )
 	    {
 	      ch = c & 0x0f;
-	      flags = 2;
+	      counter = 2;
 	    }
 	  else if ( c >= 0xc0 )
 	    {
 	      ch = c & 0x1f;
-	      flags = 1;
+	      counter = 1;
 	    }
 	  else
 	    {
@@ -3594,11 +3601,11 @@ decode_coding_utf8 (Lstream *decoding, CONST unsigned char *src,
 	  ch = ( ch << 6 ) | ( c & 0x3f );
 	  decode_ucs4 (ch, dst);
 	  ch = 0;
-	  flags = 0;
+	  counter = 0;
 	  break;
 	default:
 	  ch = ( ch << 6 ) | ( c & 0x3f );
-	  flags--;
+	  counter--;
 	}
     label_continue_loop:;
     }
@@ -3608,6 +3615,7 @@ decode_coding_utf8 (Lstream *decoding, CONST unsigned char *src,
 
   str->flags = flags;
   str->ch    = ch;
+  str->counter = counter;
 }
 
 static void
