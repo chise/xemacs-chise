@@ -1,3 +1,9 @@
+2004-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): When processing a reference of
+	a character, put into the end of the reversed reference of each
+	target character.
+
 2004-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Q_same): Deleted.
