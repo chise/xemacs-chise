@@ -1270,6 +1270,8 @@ mark_char_table (Lisp_Object obj)
 
   mark_object (ct->table);
   mark_object (ct->name);
+  mark_object (ct->db_file);
+  mark_object (ct->db);
 #else
   int i;
 
@@ -1599,6 +1601,8 @@ static const struct lrecord_description char_table_description[] = {
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, table) },
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, default_value) },
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, name) },
+  { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, db_file) },
+  { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, db) },
 #else
   { XD_LISP_OBJECT_ARRAY, offsetof (Lisp_Char_Table, ascii), NUM_ASCII_CHARS },
 #ifdef MULE
@@ -1800,6 +1804,8 @@ and 'syntax.  See `valid-char-table-type-p'.
     ct->mirror_table = Qnil;
 #else
   ct->name = Qnil;
+  ct->db_file = Qnil;
+  ct->db = Qnil;
 #endif
   ct->next_table = Qnil;
   XSETCHAR_TABLE (obj, ct);
@@ -1874,6 +1880,8 @@ as CHAR-TABLE.  The values will not themselves be copied.
   ctnew->default_value = ct->default_value;
   /* [tomo:2002-01-21] Perhaps this code seems wrong */
   ctnew->name = ct->name;
+  ctnew->db_file = ct->db_file;
+  ctnew->db = ct->db;
 
   if (UINT8_BYTE_TABLE_P (ct->table))
     {
@@ -3367,25 +3375,27 @@ Save values of ATTRIBUTE into database file.
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
-  Lisp_Object db;
-  Lisp_Object db_file;
 
   if (CHAR_TABLEP (table))
     ct = XCHAR_TABLE (table);
   else
     return Qnil;
-  
-  db_file = char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
-  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
-  if (!NILP (db))
+
+  if (NILP (ct->db_file))
+    ct->db_file
+      = char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
+  if (NILP (Fdatabase_live_p (ct->db)))
+    ct->db = Fopen_database (ct->db_file, Qnil, Qnil, Qnil, Qnil);
+  if (!NILP (ct->db))
     {
       if (UINT8_BYTE_TABLE_P (ct->table))
-	save_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), ct, db, 0, 3);
+	save_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), ct, ct->db, 0, 3);
       else if (UINT16_BYTE_TABLE_P (ct->table))
-	save_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), ct, db, 0, 3);
+	save_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), ct, ct->db, 0, 3);
       else if (BYTE_TABLE_P (ct->table))
-	save_byte_table (XBYTE_TABLE(ct->table), ct, db, 0, 3);
-      Fclose_database (db);
+	save_byte_table (XBYTE_TABLE(ct->table), ct, ct->db, 0, 3);
+      Fclose_database (ct->db);
+      ct->db = Qnil;
       return Qt;
     }
   else
@@ -3393,6 +3403,34 @@ Save values of ATTRIBUTE into database file.
 #else
   return Qnil;
 #endif
+}
+
+DEFUN ("close-char-attribute-table", Fclose_char_attribute_table, 1, 1, 0, /*
+Close database of ATTRIBUTE.
+*/
+       (attribute))
+{
+#ifdef HAVE_DATABASE
+  Lisp_Object table = Fgethash (attribute,
+				Vchar_attribute_hash_table, Qunbound);
+  Lisp_Char_Table *ct;
+
+  if (CHAR_TABLEP (table))
+    ct = XCHAR_TABLE (table);
+  else
+    return Qnil;
+
+  if (!NILP (Fdatabase_live_p (ct->db)))
+    {
+      Fclose_database (ct->db);
+    }
+  if (!NILP (ct->db))
+    {
+      ct->db = Qnil;
+      ct->db_file = Qnil;
+    }
+#endif
+  return Qnil;
 }
 
 DEFUN ("reset-char-attribute-table", Freset_char_attribute_table, 1, 1, 0, /*
@@ -3417,6 +3455,10 @@ Reset values of ATTRIBUTE with database file.
 	}
       ct = XCHAR_TABLE (table);
       ct->table = Qunloaded;
+      ct->db_file = db_file;
+      if (!NILP (Fdatabase_live_p (ct->db)))
+	Fclose_database (ct->db);
+      ct->db = Qnil;
       XCHAR_TABLE_UNLOADED(table) = 1;
       return Qt;
     }
@@ -3426,27 +3468,30 @@ Reset values of ATTRIBUTE with database file.
 
 #ifdef HAVE_DATABASE
 Lisp_Object
-load_char_attribute_maybe (Emchar ch, Lisp_Object attribute)
+load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
 {
-  Lisp_Object db;
-  Lisp_Object db_file
-    = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
+  Lisp_Object attribute = CHAR_TABLE_NAME (cit);
 
-  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
-  if (!NILP (db))
+  if (!NILP (attribute))
     {
-      Lisp_Object val
-	= Fget_database (Fprin1_to_string (make_char (ch), Qnil),
-			 db, Qunbound);
-      if (!UNBOUNDP (val))
-	val = Fread (val);
-      else
-	val = Qunbound;
-      Fclose_database (db);
-      return val;
+      if (NILP (cit->db_file))
+	cit->db_file
+	  = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
+      if (NILP (Fdatabase_live_p (cit->db)))
+	cit->db = Fopen_database (cit->db_file, Qnil, Qnil, Qnil, Qnil);
+      if (!NILP (cit->db))
+	{
+	  Lisp_Object val
+	    = Fget_database (Fprin1_to_string (make_char (ch), Qnil),
+			     cit->db, Qunbound);
+	  if (!UNBOUNDP (val))
+	    val = Fread (val);
+	  else
+	    val = Qunbound;
+	  return val;
+	}
     }
-  else
-    return Qunbound;
+  return Qunbound;
 }
 
 Lisp_Char_Table* char_attribute_table_to_load;
@@ -3475,34 +3520,33 @@ Load values of ATTRIBUTE into database file.
        (attribute))
 {
 #ifdef HAVE_DATABASE
-  Lisp_Object db;
-  Lisp_Object db_file
-    = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
-
-  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
-  if (!NILP (db))
+  Lisp_Object table = Fgethash (attribute,
+				Vchar_attribute_hash_table,
+				Qunbound);
+  if (CHAR_TABLEP (table))
     {
-      Lisp_Object table = Fgethash (attribute,
-				    Vchar_attribute_hash_table,
-				    Qunbound);
-      struct gcpro gcpro1, gcpro2;
+      Lisp_Char_Table *ct = XCHAR_TABLE (table);
 
-      if (CHAR_TABLEP (table))
-	char_attribute_table_to_load = XCHAR_TABLE (table);
-      else
+      if (NILP (ct->db_file))
+	ct->db_file
+	  = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
+      if (NILP (Fdatabase_live_p (ct->db)))
+	ct->db = Fopen_database (ct->db_file, Qnil, Qnil, Qnil, Qnil);
+      if (!NILP (ct->db))
 	{
-	  Fclose_database (db);
-	  return Qnil;
+	  struct gcpro gcpro1;
+
+	  char_attribute_table_to_load = XCHAR_TABLE (table);
+	  GCPRO1 (table);
+	  Fmap_database (Qload_char_attribute_table_map_function, ct->db);
+	  UNGCPRO;
+	  Fclose_database (ct->db);
+	  ct->db = Qnil;
+	  XCHAR_TABLE_UNLOADED(table) = 0;
+	  return Qt;
 	}
-      GCPRO2 (db, table);
-      Fmap_database (Qload_char_attribute_table_map_function, db);
-      UNGCPRO;
-      Fclose_database (db);
-      XCHAR_TABLE_UNLOADED(table) = 0;
-      return Qt;
     }
-  else
-    return Qnil;
+  return Qnil;
 #endif
 }
 
@@ -4029,6 +4073,7 @@ syms_of_chartab (void)
   DEFSUBR (Fput_char_table_map_function);
   DEFSUBR (Fsave_char_attribute_table);
   DEFSUBR (Freset_char_attribute_table);
+  DEFSUBR (Fclose_char_attribute_table);
 #ifdef HAVE_DATABASE
   defsymbol (&Qload_char_attribute_table_map_function,
 	     "load-char-attribute-table-map-function");
