@@ -3495,7 +3495,7 @@
     (mojikyo		. 044915)	; ý €Š½³
     ))
 (define-char
-  '((->ucs		. #x9A30)	; é¨°
+  '((=>ucs		. #x9A30)	; é¨°
     (morohashi-daikanwa	44915 0 1)
     (ideographic-radical . 187)	; â¾º
     (ideographic-strokes . 10)
