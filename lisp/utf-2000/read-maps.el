@@ -24,7 +24,9 @@
 
 ;;; Code:
 
+;;;###autoload
 (defun mapping-table-read-file (filename)
+  "Read mapping table." 
   (interactive "fMapping table : ")
   (with-temp-buffer
     (buffer-disable-undo)
@@ -127,10 +129,7 @@
 				ucs)))
 	(forward-line)))))
 
-(dolist (file '("J90-to-UCS.txt" "JSP-to-UCS.txt"
-		"JX1-to-UCS.txt" "JX2-to-UCS.txt"
-		"C3-to-UCS.txt" ; "C4-to-UCS.txt"
-		"B-to-UCS.txt" "JC3-to-UCS.txt"))
-  (mapping-table-read-file (expand-file-name file "../etc/char-data/")))
+
+(provide 'read-maps)
 
 ;;; read-maps.el ends here
