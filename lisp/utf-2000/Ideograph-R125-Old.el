@@ -251,8 +251,15 @@
   '((ideographic-radical . 125)	; â½¼
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (chinese-cns11643-4 . #x2B25)	; ø»—¯˜
+    (korean-ksc5601	. #x4F3E)	; ø»‰ž
     (ucs		. #x8009)	; è€‰
+    ))
+(define-char
+  '((=>ucs		. #x8009)	; è€‰
+    (ideographic-radical . 125)	; â½¼
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (chinese-cns11643-4 . #x2B25)	; ø»—¯˜
     ))
 (define-char
   '((ideographic-radical . 125)	; â½¼
