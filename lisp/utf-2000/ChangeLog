@@ -1,3 +1,108 @@
+2001-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R158-Body.el (U+8EC5): Add `total-strokes'; unify
+	J90-6D40.
+
+	* Ideograph-R157-Foot.el (U+8DE5): Add `total-strokes'; unify
+	JSP-5F6B.
+
+	* Ideograph-R154-Shell.el (U+8CAE): Unify J90-6C49.
+	(U+8CCE): Add `total-strokes'; unify J90-4128.
+
+	* Ideograph-R137-Boat.el (U+822E): Add `total-strokes'.
+	(J90-6764): New character; relate to U+822E.
+
+	* Ideograph-R130-Meat.el: Add missing JIS X 0212 and JIS X
+	0208:1990 code points.
+
+	* Ideograph-R128-Ear.el (M-29074'): Separate M050366 and U+8056.
+
+	* Ideograph-R120-Silk.el: Add missing JIS X 0212 and JIS X
+	0208:1990 code points.
+
+2001-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el (M-26853): Add `total-strokes'.
+	(J90-4C62): New character; relate to M-26853 and U+7C7E.
+	(U+7C8F): Unify JSP-532E.
+	(U+7C90): Add `total-strokes'; unify J90-6464.
+	(U+7CAB): Add `total-strokes'; unify J90-6468.
+	(U+7CAD): Add `total-strokes'; unify J90-6466.
+	(M-27013): Separate U+7CC0; add `total-strokes'.
+	(U+7CC0): Unify J90-6471.
+	(U+7CD8): Add `total-strokes'; unify J90-6474.
+
+	* Ideograph-R135-Tongue.el (U+8217): Unify J90-4A5E; add
+	`total-strokes'.
+
+	* Ideograph-R123-Sheep.el (U+7FAA): Unify JSP-5531; add
+	`total-strokes'.
+
+2001-08-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R026-Seal.el: Add missing GB 12345 and KS X 1001 code
+	points.
+	(M-02872): Separate C6-2F3D; unify K0-716D, C3-2B4B, JX1-2E71 and
+	U+537D.
+	(M-02877): Use `<-vulgar-ideograph' instead of `comment'.
+	(M-02878): Use `<-vulgar-ideograph' instead of `comment'.
+	(M-02879): Use `->ideographic-variants' instead of
+	`variant-of-shinjigen-1'.
+	(C6-3D59): Use `<-vulgar-ideograph' instead of `comment'.
+	(U+537F): Use `<-vulgar-ideograph' instead of
+	`variant-of-shinjigen-1'; delete `kangxi-strokes' and
+	`japanese-strokes'.
+
+	* Ideograph-R030-Mouth.el, Ideograph-R031-Enclosure.el: Merge
+	missing KS X 1001 and GB 12345 code points.
+
+	* Ideograph-R029-Again.el: Add missing KS X 1001 and GB 12345 code
+	points.
+
+	* Ideograph-R025-Divination.el: Add missing KS X 1001 code points.
+
+	* Ideograph-R024-Ten.el, Ideograph-R023-Hiding-Enclosure.el,
+	Ideograph-R022-Right-Open-Box.el: Add missing KS X 1001 and GB
+	12345 code points.
+
+	* Ideograph-R009-Man.el (M-00901): Unify K0-775E.
+
+2001-08-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R211-Tooth.el (C5-6B66): Delete M-48598.
+	(C7-5746): Add `ideographic-strokes'.
+	(C7-5B38): Likewise.
+	(C5-755D): Likewise.
+	(C4-6D4A): Likewise.
+	(C4-6D4F): Likewise.
+	(C5-7A24): Likewise.
+
+	* Ideograph-R209-Nose.el (C7-3E71): Add `ideographic-strokes'.
+	(C5-787C): Likewise.
+	(C5-797E): Likewise.
+	(C5-7A21): Likewise.
+
+	* Ideograph-R203-Black.el (C5-6B5B): Add `ideographic-strokes'.
+	(C5-6B5D): Likewise.
+	(C7-5737): Likewise.
+	(C7-5E41): Likewise.
+	(C4-6C5C): Likewise.
+	(C5-7875): Likewise.
+	(C5-7874): Likewise.
+	(C4-6C5E): Likewise.
+
+	* Ideograph-R196-Bird.el (C7-2B79): Delete M-46732.
+	(C4-5A58): Delete M-46878.
+	(C4-6B42): Delete M-47314.
+
+2001-08-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el: Merge missing KS X 1001, GB 12345 code
+	points.
+
+	* Ideograph-R197-Salt.el (C5-6F48): Add `ideographic-strokes'.
+	(C7-5247): Likewise.
+
 2001-08-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R190-Hair.el (C7-2B5A): Delete M-45389.
