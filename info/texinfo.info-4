@@ -4,19 +4,19 @@ texinfo.texi.
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
 * Texinfo: (texinfo).           The GNU documentation format.
-* install-info: (texinfo)Invoking install-info. Update info/dir entries.
-* texi2dvi: (texinfo)Format with texi2dvi.      Print Texinfo documents.
-* texindex: (texinfo)Format with tex/texindex.  Sort Texinfo index files.
+* install-info: (texinfo)Invoking install-info. Updating info/dir entries.
+* texi2dvi: (texinfo)Format with texi2dvi.      Printing Texinfo documentation.
+* texindex: (texinfo)Format with tex/texindex.  Sorting Texinfo index files.
 * makeinfo: (texinfo)makeinfo Preferred.        Translate Texinfo source.
 END-INFO-DIR-ENTRY
 
   This file documents Texinfo, a documentation system that can produce
-both online information and a printed manual from a single source file.
+both on-line information and a printed manual from a single source file.
 
-  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98, 99 Free Software
+  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98 Free Software
 Foundation, Inc.
 
-  This edition is for Texinfo version 4.0, 28 September 1999.
+  This edition is for Texinfo version 3.12.
 
   Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -33,184 +33,6 @@ versions, except that this permission notice may be stated in a
 translation approved by the Free Software Foundation.
 
 
-File: texinfo.info,  Node: unnumberedsubsec appendixsubsec subheading,  Next: subsubsection,  Prev: subsection,  Up: Structuring
-
-The `@subsection'-like Commands
-===============================
-
-  The `@unnumberedsubsec', `@appendixsubsec', and `@subheading'
-commands are, respectively, the unnumbered, appendix-like, and
-heading-like equivalents of the `@subsection' command.  (*Note
-`@subsection': subsection.)
-
-  In Info, the `@subsection'-like commands generate a title underlined
-with hyphens.  In a printed manual, an `@subheading' command produces a
-heading like that of a subsection except that it is not numbered and
-does not appear in the table of contents.  Similarly, an
-`@unnumberedsubsec' command produces an unnumbered heading like that of
-a subsection and an `@appendixsubsec' command produces a
-subsection-like heading labelled with a letter and numbers; both of
-these commands produce headings that appear in the table of contents.
-
-
-File: texinfo.info,  Node: subsubsection,  Next: Raise/lower sections,  Prev: unnumberedsubsec appendixsubsec subheading,  Up: Structuring
-
-The `subsub' Commands
-=====================
-
-  The fourth and lowest level sectioning commands in Texinfo are the
-`subsub' commands.  They are:
-
-`@subsubsection'
-     Subsubsections are to subsections as subsections are to sections.
-     (*Note `@subsection': subsection.)  In a printed manual,
-     subsubsection titles appear in the table of contents and are
-     numbered four levels deep.
-
-`@unnumberedsubsubsec'
-     Unnumbered subsubsection titles appear in the table of contents of
-     a printed manual, but lack numbers.  Otherwise, unnumbered
-     subsubsections are the same as subsubsections.  In Info, unnumbered
-     subsubsections look exactly like ordinary subsubsections.
-
-`@appendixsubsubsec'
-     Conventionally, appendix commands are used only for appendices and
-     are lettered and numbered appropriately in a printed manual.  They
-     also appear in the table of contents.  In Info, appendix
-     subsubsections look exactly like ordinary subsubsections.
-
-`@subsubheading'
-     The `@subsubheading' command may be used anywhere that you need a
-     small heading that will not appear in the table of contents.  In
-     Info, subsubheadings look exactly like ordinary subsubsection
-     headings.
-
-  In Info,  `subsub' titles are underlined with periods.  For example,
-
-     @subsubsection This is a subsubsection
-
-produces
-
-     This is a subsubsection
-     .......................
-
-
-File: texinfo.info,  Node: Raise/lower sections,  Prev: subsubsection,  Up: Structuring
-
-`@raisesections' and `@lowersections'
-=====================================
-
-  The `@raisesections' and `@lowersections' commands raise and lower
-the hierarchical level of chapters, sections, subsections and the like.
-The `@raisesections' command changes sections to chapters, subsections
-to sections, and so on.  The `@lowersections' command changes chapters
-to sections, sections to subsections, and so on.
-
-  An `@lowersections' command is useful if you wish to include text
-that is written as an outer or standalone Texinfo file in another
-Texinfo file as an inner, included file.  If you write the command at
-the beginning of the file, all your `@chapter' commands are formatted
-as if they were `@section' commands, all your `@section' command are
-formatted as if they were `@subsection' commands, and so on.
-
-  `@raisesections' raises a command one level in the chapter
-structuring hierarchy:
-
-       Change           To
-     
-     @subsection     @section,
-     @section        @chapter,
-     @heading        @chapheading,
-               etc.
-
-  `@lowersections' lowers a command one level in the chapter
-structuring hierarchy:
-
-       Change           To
-     
-     @chapter        @section,
-     @subsection     @subsubsection,
-     @heading        @subheading,
-               etc.
-
-  An `@raisesections' or `@lowersections' command changes only those
-structuring commands that follow the command in the Texinfo file.
-Write an `@raisesections' or `@lowersections' command on a line of its
-own.
-
-  An `@lowersections' command cancels an `@raisesections' command, and
-vice versa.  Typically, the commands are used like this:
-
-     @lowersections
-     @include somefile.texi
-     @raisesections
-
-  Without the `@raisesections', all the subsequent sections in your
-document will be lowered.
-
-  Repeated use of the commands continue to raise or lower the
-hierarchical level a step at a time.
-
-  An attempt to raise above `chapters' reproduces chapter commands; an
-attempt to lower below `subsubsections' reproduces subsubsection
-commands.
-
-
-File: texinfo.info,  Node: Nodes,  Next: Menus,  Prev: Structuring,  Up: Top
-
-Nodes
-*****
-
-  "Nodes" are the primary segments of a Texinfo file.  They do not
-themselves impose a hierarchical or any other kind of structure on a
-file.  Nodes contain "node pointers" that name other nodes, and can
-contain "menus" which are lists of nodes.  In Info, the movement
-commands can carry you to a pointed-to node or to a node listed in a
-menu.  Node pointers and menus provide structure for Info files just as
-chapters, sections, subsections, and the like, provide structure for
-printed books.
-
-* Menu:
-
-* Two Paths::                   Different commands to structure
-                                  Info output and printed output.
-* Node Menu Illustration::      A diagram, and sample nodes and menus.
-* node::                        Creating nodes, in detail.
-* makeinfo Pointer Creation::   Letting makeinfo determine node pointers.
-* anchor::                      Defining arbitrary cross-reference targets.
-
-
-File: texinfo.info,  Node: Two Paths,  Next: Node Menu Illustration,  Up: Nodes
-
-Two Paths
-=========
-
-  The node and menu commands and the chapter structuring commands are
-technically independent of each other:
-
-   * In Info, node and menu commands provide structure.  The chapter
-     structuring commands generate headings with different kinds of
-     underlining--asterisks for chapters, hyphens for sections, and so
-     on; they do nothing else.
-
-   * In TeX, the chapter structuring commands generate chapter and
-     section numbers and tables of contents.  The node and menu
-     commands provide information for cross references; they do nothing
-     else.
-
-  You can use node pointers and menus to structure an Info file any way
-you want; and you can write a Texinfo file so that its Info output has a
-different structure than its printed output.  However, virtually all
-Texinfo files are written such that the structure for the Info output
-corresponds to the structure for the printed output.  It is neither
-convenient nor understandable to the reader to do otherwise.
-
-  Generally, printed output is structured in a tree-like hierarchy in
-which the chapters are the major limbs from which the sections branch
-out.  Similarly, node pointers and menus are organized to create a
-matching structure in the Info output.
-
-
 File: texinfo.info,  Node: Node Menu Illustration,  Next: node,  Prev: Two Paths,  Up: Nodes
 
 Node and Menu Illustration
@@ -219,9 +41,9 @@ Node and Menu Illustration
   Here is a copy of the diagram shown earlier that illustrates a Texinfo
 file with three chapters, each of which contains two sections.
 
-  The "root" is at the top of the diagram and the "leaves" are at the
-bottom.  This is how such a diagram is drawn conventionally; it
-illustrates an upside-down tree.  For this reason, the root node is
+  Note that the "root" is at the top of the diagram and the "leaves"
+are at the bottom.  This is how such a diagram is drawn conventionally;
+it illustrates an upside-down tree.  For this reason, the root node is
 called the `Top' node, and `Up' node pointers carry you closer to the
 root.
 
@@ -236,27 +58,25 @@ root.
       Section  Section   Section  Section   Section  Section
         1.1      1.2       2.1      2.2       3.1      3.2
 
-  The fully-written command to start Chapter 2 would be this:
+  Write the beginning of the node for Chapter 2 like this:
 
-     @node     Chapter 2,  Chapter 3, Chapter 1, Top
+     @node     Chapter 2,  Chapter 3, Chapter 1, top
      @comment  node-name,  next,      previous,  up
 
 This `@node' line says that the name of this node is "Chapter 2", the
 name of the `Next' node is "Chapter 3", the name of the `Previous' node
-is "Chapter 1", and the name of the `Up' node is "Top".  You can omit
-writing out these node names if your document is hierarchically
-organized (*note makeinfo Pointer Creation::), but the pointer
-relationships still obtain.
+is "Chapter 1", and the name of the `Up' node is "Top".
 
      *Please Note:* `Next' refers to the next node at the same
      hierarchical level in the manual, not necessarily to the next node
      within the Texinfo file.  In the Texinfo file, the subsequent node
-     may be at a lower level--a section-level node most often follows a
-     chapter-level node, for example.  `Next' and `Previous' refer to
-     nodes at the _same_ hierarchical level.  (The `Top' node contains
-     the exception to this rule.  Since the `Top' node is the only node
-     at that level, `Next' refers to the first following node, which is
-     almost always a chapter or chapter-level node.)
+     may be at a lower level--a section-level node may follow a
+     chapter-level node, and a subsection-level node may follow a
+     section-level node.  `Next' and `Previous' refer to nodes at the
+     _same_ hierarchical level.  (The `Top' node contains the exception
+     to this rule.  Since the `Top' node is the only node at that
+     level, `Next' refers to the first following node, which is almost
+     always a chapter or chapter-level node.)
 
   To go to Sections 2.1 and 2.2 using Info, you need a menu inside
 Chapter 2.  (*Note Menus::.)  You would write the menu just before the
@@ -315,22 +135,19 @@ chapter usually contains several nodes, one for each section,
 subsection, and subsubsection.
 
   To create a node, write an `@node' command at the beginning of a
-line, and follow it with up to four arguments, separated by commas, on
-the rest of the same line.  The first argument is required; it is the
-name of this node.  The subsequent arguments are the names of the
-`Next', `Previous', and `Up' pointers, in that order, and may be omitted
-if your Texinfo document is hierarchically organized (*note makeinfo
-Pointer Creation::).
-
-  You may insert spaces before each name if you wish; the spaces are
-ignored.  You must write the name of the node and the names of the
-`Next', `Previous', and `Up' pointers all on the same line.  Otherwise,
+line, and follow it with four arguments, separated by commas, on the
+rest of the same line.  These arguments are the name of the node, and
+the names of the `Next', `Previous', and `Up' pointers, in that order.
+You may insert spaces before each pointer if you wish; the spaces are
+ignored.  You must write the name of the node, and the names of the
+`Next', `Previous', and `Up' pointers, all on the same line.  Otherwise,
 the formatters fail.  (*note info: (info)Top, for more information
 about nodes in Info.)
 
   Usually, you write one of the chapter-structuring command lines
 immediately after an `@node' line--for example, an `@section' or
-`@subsection' line.  (*Note Structuring Command Types::.)
+`@subsection' line.  (*Note Types of Structuring Commands: Structuring
+Command Types.)
 
      *Please note:* The GNU Emacs Texinfo mode updating commands work
      only with Texinfo files in which `@node' lines are followed by
@@ -340,8 +157,8 @@ immediately after an `@node' line--for example, an `@section' or
 references.  For this reason, you must write `@node' lines in a Texinfo
 file that you intend to format for printing, even if you do not intend
 to format it for Info.  (Cross references, such as the one at the end
-of this sentence, are made with `@xref' and related commands; see *Note
-Cross References::.)
+of this sentence, are made with `@xref' and its related commands; see
+*Note Cross References::.)
 
 * Menu:
 
@@ -354,7 +171,7 @@ Cross References::.)
 * Top Node Summary::            Write a brief description for readers.
 
 
-File: texinfo.info,  Node: Node Names,  Next: Writing a Node,  Up: node
+File: texinfo.info,  Node: Node Names,  Next: Writing a Node,  Prev: node,  Up: node
 
 Choosing Node and Pointer Names
 -------------------------------
@@ -377,12 +194,6 @@ the main menu for all of Info.
 Also, it is helpful to include a brief description of the manual in the
 `Top' node.  *Note First Node::, for information on how to write the
 first node of a Texinfo file.
-
-  Even when you explicitly specify all pointers, that does not mean you
-can write the nodes in the Texinfo source file in an arbitrary order!
-Because TeX processes the file sequentially, irrespective of node
-pointers, you must write the nodes in the order you wish them to appear
-in the printed output.
 
 
 File: texinfo.info,  Node: Writing a Node,  Next: Node Line Tips,  Prev: Node Names,  Up: node
@@ -409,8 +220,8 @@ proper order.  The comment line helps you keep track of which arguments
 are for which pointers.  This comment line is especially useful if you
 are not familiar with Texinfo.
 
-  The template for a fully-written-out node line with `Next',
-`Previous', and `Up' pointers looks like this:
+  The template for a node line with `Next', `Previous', and `Up'
+pointers looks like this:
 
      @node NODE-NAME, NEXT, PREVIOUS, UP
 
@@ -474,10 +285,8 @@ File: texinfo.info,  Node: Node Line Requirements,  Next: First Node,  Prev: Nod
      The node to which a pointer points may come before or after the
      node containing the pointer.
 
-   * @-commands used in node names generally confuse Info, so you should
-     avoid them.  For a few rare cases when this is useful, Texinfo has
-     limited support for using @-commands in node names; see *Note
-     Pointer Validation::.
+   * You cannot use any of the Texinfo @-commands in a node name;
+     @-commands confuse Info.
 
      Thus, the beginning of the section called `@chapter' looks like
      this:
@@ -487,9 +296,8 @@ File: texinfo.info,  Node: Node Line Requirements,  Next: First Node,  Prev: Nod
           @section @code{@@chapter}
           @findex chapter
 
-   * Unfortunately, you cannot use periods, commas, colons or
-     apostrophes within a node name; these confuse TeX or the Info
-     formatters.
+   * You cannot use commas or apostrophes within a node name; these
+     confuse TeX or the Info formatters.
 
      For example, the following is a section title:
 
@@ -590,69 +398,33 @@ include an edition number for the manual.  (The title page should also
 contain this information: see *Note `@titlepage': titlepage.)
 
 
-File: texinfo.info,  Node: makeinfo Pointer Creation,  Next: anchor,  Prev: node,  Up: Nodes
+File: texinfo.info,  Node: makeinfo Pointer Creation,  Prev: node,  Up: Nodes
 
 Creating Pointers with `makeinfo'
 =================================
 
-  The `makeinfo' program has a feature for automatically defining node
-pointers for a hierarchically organized file.
+  The `makeinfo' program has a feature for automatically creating node
+pointers for a hierarchically organized file that lacks them.
 
   When you take advantage of this feature, you do not need to write the
 `Next', `Previous', and `Up' pointers after the name of a node.
 However, you must write a sectioning command, such as `@chapter' or
 `@section', on the line immediately following each truncated `@node'
-line (except that comment lines may intervene).
+line.  You cannot write a comment line after a node line; the section
+line must follow it immediately.
 
   In addition, you must follow the `Top' `@node' line with a line
-beginning with `@top' to mark the `Top' node in the file.  *Note
-`@top': makeinfo top.
+beginning with `@top' to mark the `Top' node in the file. *Note `@top':
+makeinfo top.
 
   Finally, you must write the name of each node (except for the `Top'
 node) in a menu that is one or more hierarchical levels above the
 node's hierarchical level.
 
-  This node pointer insertion feature in `makeinfo' relieves you from
-the need to update menus and pointers manually or with Texinfo mode
-commands.  (*Note Updating Nodes and Menus::.)
-
-
-File: texinfo.info,  Node: anchor,  Prev: makeinfo Pointer Creation,  Up: Nodes
-
-`@anchor': Defining Arbitrary Cross-reference Targets
-=====================================================
-
-  An "anchor" is a position in your document, labeled so that
-cross-references can refer to it, just as they can to nodes.  You create
-an anchor with the `@anchor' command, and give the label as a normal
-brace-delimited argument.  For example:
-
-     This marks the @anchor{x-spot}spot.
-     ...
-     @xref{x-spot,,the spot}.
-
-produces:
-
-     This marks the spot.
-     ...
-     See [the spot], page 1.
-
-  As you can see, the `@anchor' command itself produces no output.
-This example defines an anchor `x-spot' just before the word `spot'.
-You can refer to it later with an `@xref' or other cross-reference
-command, as shown.  *Note Cross References::, for details on the
-cross-reference commands.
-
-  It is best to put `@anchor' commands just before the position you
-wish to refer to; that way, the reader's eye is led on to the correct
-text when they jump to the anchor.  You can put the `@anchor' command
-on a line by itself if that helps readability of the source.  Spaces
-are always ignored after `@anchor'.
-
-  Anchor names and node names may not conflict.  Anchors and nodes are
-given similar treatment in some ways; for example, the `goto-node'
-command in standalone Info takes either an anchor name or a node name as
-an argument.  (*Note goto-node: (info-stnd)goto-node.)
+  This node pointer insertion feature in `makeinfo' is an alternative
+to the menu and pointer creation and update commands in Texinfo mode.
+(*Note Updating Nodes and Menus::.)  It is especially helpful to people
+who do not use GNU Emacs for writing Texinfo documents.
 
 
 File: texinfo.info,  Node: Menus,  Next: Cross References,  Prev: Nodes,  Up: Top
@@ -665,12 +437,11 @@ Menus-Footnote-1::) In Info, you use menus to go to such nodes.  Menus
 have no effect in printed manuals and do not appear in them.
 
   By convention, a menu is put at the end of a node since a reader who
-uses the menu may not see text that follows it.  Furthermore, a node
-that has a menu should not contain much text. If you have a lot of text
-and a menu, move most of the text into a new subnode--all but a few
-lines.  Otherwise, a reader with a terminal that displays only a few
-lines may miss the menu and its associated text.  As a practical matter,
-you should locate a menu within 20 lines of the beginning of the node.
+uses the menu may not see text that follows it.
+
+  A node that has a menu should _not_ contain much text.  If you have a
+lot of text and a menu, move most of the text into a new subnode--all
+but a few lines.
 
 * Menu:
 
@@ -695,6 +466,12 @@ File: texinfo.info,  Node: Menu Location,  Next: Writing a Menu,  Prev: Menus,  
 
 Menus Need Short Nodes
 ======================
+
+  A reader can easily see a menu that is close to the beginning of the
+node.  The node should be short.  As a practical matter, you should
+locate a menu within 20 lines of the beginning of the node.  Otherwise,
+a reader with a terminal that displays only a few lines may miss the
+menu and its associated text.
 
   The short text before a menu may look awkward in a printed manual.  To
 avoid this, you can write a menu near the beginning of its node and
@@ -722,7 +499,7 @@ and title appear only in the Info file, not the printed document.
 
   The Texinfo file for this document contains more than a dozen
 examples of this procedure.  One is at the beginning of this chapter;
-another is at the beginning of *Note Cross References::.
+another is at the beginning of the "Cross References" chapter.
 
 
 File: texinfo.info,  Node: Writing a Menu,  Next: Menu Parts,  Prev: Menu Location,  Up: Menus
@@ -749,8 +526,7 @@ command on a line by itself.
 an `* ' may also appear in a menu.  Such a line is not a menu entry but
 is a menu comment line that appears in the Info file.  In the example
 above, the line `Larger Units of Text' is a menu comment line; the two
-lines starting with `* ' are menu entries.  Space characters in a menu
-are preserved as-is; this allows you to format the menu as you wish.
+lines starting with `* ' are menu entries.
 
 
 File: texinfo.info,  Node: Menu Parts,  Next: Less Cluttered Menu Entry,  Prev: Writing a Menu,  Up: Menus
@@ -898,9 +674,9 @@ of each Info document.  (*Note Install an Info File::.)
 (The `dir' top level directory for the Info system is an Info file, not
 a Texinfo file, but a menu entry looks the same in both types of file.)
 
-  The GNU Emacs Texinfo mode menu updating commands only work with nodes
-within the current buffer, so you cannot use them to create menus that
-refer to other files.  You must write such menus by hand.
+  Note that the GNU Emacs Texinfo mode menu updating commands only work
+with nodes within the current buffer, so you cannot use them to create
+menus that refer to other files.  You must write such menus by hand.
 
 
 File: texinfo.info,  Node: Cross References,  Next: Marking Text,  Prev: Menus,  Up: Top
@@ -909,8 +685,8 @@ Cross References
 ****************
 
   "Cross references" are used to refer the reader to other parts of the
-same or different Texinfo files.  In Texinfo, nodes and anchors are the
-places to which cross references can refer.
+same or different Texinfo files.  In Texinfo, nodes are the places to
+which cross references can refer.
 
 * Menu:
 
@@ -936,7 +712,7 @@ find information that should be presented to them as they need it.
 
   However, in any document, some information will be too detailed for
 the current context, or incidental to it; use cross references to
-provide access to such information.  Also, an online help system or a
+provide access to such information.  Also, an on-line help system or a
 reference manual is not like a novel; few read such documents in
 sequence from beginning to end.  Instead, people look up what they
 need.  For this reason, such creations should contain many cross
@@ -951,15 +727,15 @@ reference names that manual.
 using the Info `f' command.  (*note Some advanced Info commands:
 (info)Help-Adv.)
 
-  The various cross reference commands use nodes (or anchors, *note
-`@anchor': anchor.) to define cross reference locations.  This is
-evident in Info, in which a cross reference takes you to the specified
-location.  TeX also uses nodes to define cross reference locations, but
-the action is less obvious.  When TeX generates a DVI file, it records
-each node's page number and uses the page numbers in making references.
-Thus, if you are writing a manual that will only be printed, and will
-not be used online, you must nonetheless write `@node' lines to name
-the places to which you make cross references.
+  The various cross reference commands use nodes to define cross
+reference locations.  This is evident in Info, in which a cross
+reference takes you to the specified node.  TeX also uses nodes to
+define cross reference locations, but the action is less obvious.  When
+TeX generates a DVI file, it records nodes' page numbers and uses the
+page numbers in making references.  Thus, if you are writing a manual
+that will only be printed, and will not be used on-line, you must
+nonetheless write `@node' lines to name the places to which you make
+cross references.
 
 
 File: texinfo.info,  Node: Cross Reference Commands,  Next: Cross Reference Parts,  Prev: References,  Up: Cross References
@@ -1034,10 +810,10 @@ in a printed book.
 
   The five possible arguments for a cross reference are:
 
-  1. The node or anchor name (required).  This is the location to which
-     the cross reference takes you.  In a printed document, the
-     location of the node provides the page reference only for
-     references within the same document.
+  1. The node name (required).  This is the node to which the cross
+     reference takes you.  In a printed document, the location of the
+     node provides the page reference only for references within the
+     same document.
 
   2. The cross reference name for the Info reference, if it is to be
      different from the node name.  If you include this argument, it
@@ -1173,8 +949,6 @@ which produces
 
      *Note Tropical Storms::, for more info.
 
-and
-
      See Section 3.1 [Tropical Storms], page 24, for more info.
 
 (Note that in the preceding example the closing brace is followed by a
@@ -1244,9 +1018,9 @@ a title or other section will divide it into two arguments.  In a
 reference, you need to write a title such as "Clouds, Mist, and Fog"
 without the commas.
 
-  Also, remember to write a comma or period after the closing brace of
-an `@xref' to terminate the cross reference.  In the following
-examples, a clause follows a terminating comma.
+  Also, remember to write a comma or period after the closing brace of a
+`@xref' to terminate the cross reference.  In the following examples, a
+clause follows a terminating comma.
 
 The template is like this:
 
@@ -1293,4 +1067,332 @@ are different.
      @xref{Close Output, , Closing Output Files and Pipes},
         for more information.
      @xref{Regexp, , Regular Expressions as Patterns}.
+
+
+File: texinfo.info,  Node: Four and Five Arguments,  Prev: Three Arguments,  Up: xref
+
+`@xref' with Four and Five Arguments
+------------------------------------
+
+  In a cross reference, a fourth argument specifies the name of another
+Info file, different from the file in which the reference appears, and
+a fifth argument specifies its title as a printed manual.
+
+  Remember that a comma or period must follow the closing brace of an
+`@xref' command to terminate the cross reference.  In the following
+examples, a clause follows a terminating comma.
+
+The template is:
+
+     @xref{NODE-NAME, CROSS-REFERENCE-NAME, TITLE-OR-TOPIC,
+     INFO-FILE-NAME, PRINTED-MANUAL-TITLE}.
+
+For example,
+
+     @xref{Electrical Effects, Lightning, Thunder and Lightning,
+     weather, An Introduction to Meteorology}, for details.
+
+produces
+
+     *Note Lightning: (weather)Electrical Effects, for details.
+
+The name of the Info file is enclosed in parentheses and precedes the
+name of the node.
+
+In a printed manual, the reference looks like this:
+
+     See section "Thunder and Lightning" in An Introduction to
+     Meteorology, for details.
+
+The title of the printed manual is typeset in italics; and the
+reference lacks a page number since TeX cannot know to which page a
+reference refers when that reference is to another manual.
+
+  Often, you will leave out the second argument when you use the long
+version of `@xref'.  In this case, the third argument, the topic
+description, will be used as the cross reference name in Info.
+
+The template looks like this:
+
+     @xref{NODE-NAME, , TITLE-OR-TOPIC, INFO-FILE-NAME,
+     PRINTED-MANUAL-TITLE}, for details.
+
+which produces
+
+     *Note TITLE-OR-TOPIC: (INFO-FILE-NAME)NODE-NAME, for details.
+
+and
+
+     See section TITLE-OR-TOPIC in PRINTED-MANUAL-TITLE, for details.
+
+For example,
+
+     @xref{Electrical Effects, , Thunder and Lightning,
+     weather, An Introduction to Meteorology}, for details.
+
+produces
+
+     *Note Thunder and Lightning: (weather)Electrical Effects,
+     for details.
+
+and
+
+     See section "Thunder and Lightning" in An Introduction to
+     Meteorology, for details.
+
+  On rare occasions, you may want to refer to another Info file that is
+within a single printed manual--when multiple Texinfo files are
+incorporated into the same TeX run but make separate Info files.  In
+this case, you need to specify only the fourth argument, and not the
+fifth.
+
+
+File: texinfo.info,  Node: Top Node Naming,  Next: ref,  Prev: xref,  Up: Cross References
+
+Naming a `Top' Node
+===================
+
+  In a cross reference, you must always name a node.  This means that in
+order to refer to a whole manual, you must identify the `Top' node by
+writing it as the first argument to the `@xref' command.  (This is
+different from the way you write a menu entry; see *Note Referring to
+Other Info Files: Other Info Files.)  At the same time, to provide a
+meaningful section topic or title in the printed cross reference
+(instead of the word `Top'), you must write an appropriate entry for
+the third argument to the `@xref' command.
+
+Thus, to make a cross reference to `The GNU Make Manual', write:
+
+     @xref{Top, , Overview, make, The GNU Make Manual}.
+
+which produces
+
+     *Note Overview: (make)Top.
+
+and
+
+     See section "Overview" in The GNU Make Manual.
+
+In this example, `Top' is the name of the first node, and `Overview' is
+the name of the first section of the manual.
+
+
+File: texinfo.info,  Node: ref,  Next: pxref,  Prev: Top Node Naming,  Up: Cross References
+
+`@ref'
+======
+
+  `@ref' is nearly the same as `@xref' except that it does not generate
+a `See' in the printed output, just the reference itself.  This makes
+it useful as the last part of a sentence.
+
+For example,
+
+     For more information, see @ref{Hurricanes}.
+
+produces
+
+     For more information, see *Note Hurricanes.
+
+and
+
+     For more information, see Section 8.2 [Hurricanes], page 123.
+
+  The `@ref' command sometimes leads writers to express themselves in a
+manner that is suitable for a printed manual but looks awkward in the
+Info format.  Bear in mind that your audience will be using both the
+printed and the Info format.
+
+For example,
+
+     Sea surges are described in @ref{Hurricanes}.
+
+produces
+
+     Sea surges are described in Section 6.7 [Hurricanes], page 72.
+
+in a printed document, and the following in Info:
+
+     Sea surges are described in *Note Hurricanes::.
+
+     *Caution:* You _must_ write a period or comma immediately after an
+     `@ref' command with two or more arguments.  Otherwise, Info will
+     not find the end of the cross reference entry and its attempt to
+     follow the cross reference will fail.  As a general rule, you
+     should write a period or comma after every `@ref' command.  This
+     looks best in both the printed and the Info output.
+
+
+File: texinfo.info,  Node: pxref,  Next: inforef,  Prev: ref,  Up: Cross References
+
+`@pxref'
+========
+
+  The parenthetical reference command, `@pxref', is nearly the same as
+`@xref', but you use it _only_ inside parentheses and you do _not_ type
+a comma or period after the command's closing brace.  The command
+differs from `@xref' in two ways:
+
+  1. TeX typesets the reference for the printed manual with a lower case
+     `see' rather than an upper case `See'.
+
+  2. The Info formatting commands automatically end the reference with a
+     closing colon or period.
+
+  Because one type of formatting automatically inserts closing
+punctuation and the other does not, you should use `@pxref' _only_
+inside parentheses as part of another sentence.  Also, you yourself
+should not insert punctuation after the reference, as you do with
+`@xref'.
+
+  `@pxref' is designed so that the output looks right and works right
+between parentheses both in printed output and in an Info file.  In a
+printed manual, a closing comma or period should not follow a cross
+reference within parentheses; such punctuation is wrong.  But in an
+Info file, suitable closing punctuation must follow the cross reference
+so Info can recognize its end.  `@pxref' spares you the need to use
+complicated methods to put a terminator into one form of the output and
+not the other.
+
+With one argument, a parenthetical cross reference looks like this:
+
+     ... storms cause flooding (@pxref{Hurricanes}) ...
+
+which produces
+
+     ... storms cause flooding (*Note Hurricanes::) ...
+
+and
+
+     ... storms cause flooding (see Section 6.7 [Hurricanes], page 72)
+     ...
+
+  With two arguments, a parenthetical cross reference has this template:
+
+     ... (@pxref{NODE-NAME, CROSS-REFERENCE-NAME}) ...
+
+which produces
+
+     ... (*Note CROSS-REFERENCE-NAME: NODE-NAME.) ...
+
+and
+
+     ... (see Section NNN [NODE-NAME], page PPP) ...
+
+  `@pxref' can be used with up to five arguments just like `@xref'
+(*note `@xref': xref.).
+
+     *Please note:* Use `@pxref' only as a parenthetical reference.  Do
+     not try to use `@pxref' as a clause in a sentence.  It will look
+     bad in either the Info file, the printed output, or both.
+
+     Also, parenthetical cross references look best at the ends of
+     sentences.  Although you may write them in the middle of a
+     sentence, that location breaks up the flow of text.
+
+
+File: texinfo.info,  Node: inforef,  Next: uref,  Prev: pxref,  Up: Cross References
+
+`@inforef'
+==========
+
+  `@inforef' is used for cross references to Info files for which there
+are no printed manuals.  Even in a printed manual, `@inforef' generates
+a reference directing the user to look in an Info file.
+
+  The command takes either two or three arguments, in the following
+order:
+
+  1. The node name.
+
+  2. The cross reference name (optional).
+
+  3. The Info file name.
+
+Separate the arguments with commas, as with `@xref'.  Also, you must
+terminate the reference with a comma or period after the `}', as you do
+with `@xref'.
+
+The template is:
+
+     @inforef{NODE-NAME, CROSS-REFERENCE-NAME, INFO-FILE-NAME},
+
+Thus,
+
+     @inforef{Expert, Advanced Info commands, info},
+     for more information.
+
+produces
+
+     *Note Advanced Info commands: (info)Expert,
+     for more information.
+
+and
+
+     See Info file `info', node `Expert', for more information.
+
+Similarly,
+
+     @inforef{Expert, , info}, for more information.
+
+produces
+
+     *Note (info)Expert::, for more information.
+
+and
+
+     See Info file `info', node `Expert', for more information.
+
+  The converse of `@inforef' is `@cite', which is used to refer to
+printed works for which no Info form exists.  *Note `@cite': cite.
+
+
+File: texinfo.info,  Node: uref,  Prev: inforef,  Up: Cross References
+
+`@uref{URL[, DISPLAYED-TEXT]}'
+==============================
+
+  `@uref' produces a reference to a uniform resource locator (URL).  It
+takes one mandatory argument, the URL, and one optional argument, the
+text to display (the default is the URL itself).  In HTML output,
+`@uref' produces a link you can follow.  For example:
+
+     The official GNU ftp site is
+     @uref{ftp://ftp.gnu.ai.mit.edu/pub/gnu}
+
+produces (in text):
+     The official GNU ftp site is
+     `ftp://ftp.gnu.ai.mit.edu/pub/gnu'
+
+whereas
+     The official
+     @uref{ftp://ftp.gnu.ai.mit.edu/pub/gnu,
+       GNU ftp site} holds programs and texts.
+
+produces (in text):
+     The official GNU ftp site (ftp://ftp.gnu.ai.mit.edu/pub/gnu) holds
+     programs and texts.
+
+and (in HTML):
+     The official <A HREF="ftp://ftp.gnu.ai.mit.edu/pub/gnu">GNU ftp
+     site</A> holds programs and texts.
+
+  To merely indicate a URL, use `@url' (*note `@url': url.).
+
+
+File: texinfo.info,  Node: Marking Text,  Next: Quotations and Examples,  Prev: Cross References,  Up: Top
+
+Marking Words and Phrases
+*************************
+
+  In Texinfo, you can mark words and phrases in a variety of ways.  The
+Texinfo formatters use this information to determine how to highlight
+the text.  You can specify, for example, whether a word or phrase is a
+defining occurrence, a metasyntactic variable, or a symbol used in a
+program.  Also, you can emphasize text.
+
+* Menu:
+
+* Indicating::                  How to indicate definitions, files, etc.
+* Emphasis::                    How to emphasize text.
 

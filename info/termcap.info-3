@@ -1257,8 +1257,8 @@ Capability Index
 * ce:                                    Clearing.
 * ch:                                    Cursor Motion.
 * cl:                                    Clearing.
-* cm:                                    Cursor Motion.
 * CM:                                    Cursor Motion.
+* cm:                                    Cursor Motion.
 * co:                                    Screen Size.
 * cr:                                    Cursor Motion.
 * cS:                                    Scrolling.
@@ -1310,8 +1310,8 @@ Capability Index
 * ka...ku:                               Keypad.
 * km:                                    Meta Key.
 * l0...l9:                               Keypad.
-* le:                                    Cursor Motion.
 * LE:                                    Cursor Motion.
+* le:                                    Cursor Motion.
 * li:                                    Screen Size.
 * ll:                                    Cursor Motion.
 * lm:                                    Scrolling.
@@ -1325,8 +1325,8 @@ Capability Index
 * mo:                                    Meta Key.
 * mp:                                    Standout.
 * mr:                                    Standout.
-* ms <1>:                                Standout.
-* ms:                                    Underlining.
+* ms <1>:                                Underlining.
+* ms:                                    Standout.
 * nc:                                    Cursor Motion.
 * nd:                                    Cursor Motion.
 * nl:                                    Cursor Motion.
@@ -1346,12 +1346,12 @@ Capability Index
 * sa:                                    Standout.
 * sc:                                    Cursor Motion.
 * se:                                    Standout.
-* sf:                                    Scrolling.
 * SF:                                    Scrolling.
+* sf:                                    Scrolling.
 * sg:                                    Standout.
 * so:                                    Standout.
-* sr:                                    Scrolling.
 * SR:                                    Scrolling.
+* sr:                                    Scrolling.
 * st:                                    Initialization.
 * ta:                                    Cursor Motion.
 * te:                                    Initialization.
@@ -1361,8 +1361,8 @@ Capability Index
 * ue:                                    Underlining.
 * ug:                                    Underlining.
 * ul:                                    Underlining.
-* up:                                    Cursor Motion.
 * UP:                                    Cursor Motion.
+* up:                                    Cursor Motion.
 * us:                                    Underlining.
 * vb:                                    Bell.
 * ve:                                    Cursor Visibility.
@@ -1373,8 +1373,8 @@ Capability Index
 * xb:                                    Basic.
 * xn:                                    Wrapping.
 * xs:                                    Standout.
-* xt <1>:                                Cursor Motion.
-* xt:                                    Standout.
+* xt <1>:                                Standout.
+* xt:                                    Cursor Motion.
 
 
 File: termcap.info,  Node: Index,  Prev: Cap Index,  Up: Top
@@ -1407,8 +1407,8 @@ Concept Index
 * meta key:                              Meta Key.
 * names of terminal types:               Naming.
 * overstrike:                            Basic.
-* padding <1>:                           Padding.
-* padding:                               Pad Specs.
+* padding <1>:                           Pad Specs.
+* padding:                               Padding.
 * parameters:                            Parameters.
 * printer:                               Printer.
 * repeat output:                         Basic.
@@ -1426,7 +1426,7 @@ Concept Index
 * visibility:                            Cursor Visibility.
 * visible bell:                          Bell.
 * window:                                Windows.
-* wrapping <1>:                          Naming.
-* wrapping:                              Wrapping.
+* wrapping <1>:                          Wrapping.
+* wrapping:                              Naming.
 
 

@@ -533,8 +533,8 @@ Key (Character) Index
 * C->:                                   Setting Mark.
 * C-@ (Calendar mode):                   Mark and Region.
 * C-\:                                   Select Input Method.
-* C-] <1>:                               Recursive Edit.
-* C-]:                                   Quitting.
+* C-] <1>:                               Quitting.
+* C-]:                                   Recursive Edit.
 * C-_:                                   Undo.
 * C-a:                                   Basic.
 * C-a (Calendar mode):                   Move to Beginning or End.
@@ -622,8 +622,8 @@ Key (Character) Index
 * C-h C-c:                               Help.
 * C-h C-d:                               Help.
 * C-h C-w:                               Help.
-* C-h f <1>:                             Help.
-* C-h f:                                 Documentation.
+* C-h f <1>:                             Documentation.
+* C-h f:                                 Help.
 * C-h h:                                 Mule Intro.
 * C-h I:                                 Select Input Method.
 * C-h i:                                 Help.
@@ -635,20 +635,20 @@ Key (Character) Index
 * C-h s:                                 Syntax Change.
 * C-h t <1>:                             Help.
 * C-h t:                                 Basic.
-* C-h v <1>:                             Help.
-* C-h v <2>:                             Examining.
-* C-h v:                                 Documentation.
+* C-h v <1>:                             Examining.
+* C-h v <2>:                             Documentation.
+* C-h v:                                 Help.
 * C-h w:                                 Help.
 * C-HOME:                                Basic.
 * C-k:                                   Killing.
-* C-l <1>:                               Basic.
-* C-l:                                   Scrolling.
+* C-l <1>:                               Scrolling.
+* C-l:                                   Basic.
 * C-l (query-replace):                   Query Replace.
 * C-LEFT:                                Basic.
-* C-M-@ <1>:                             Marking Objects.
-* C-M-@:                                 Lists.
-* C-M-\ <1>:                             Indentation Commands.
-* C-M-\:                                 Multi-line Indent.
+* C-M-@ <1>:                             Lists.
+* C-M-@:                                 Marking Objects.
+* C-M-\ <1>:                             Multi-line Indent.
+* C-M-\:                                 Indentation Commands.
 * C-M-a:                                 Defuns.
 * C-M-a (Fortran mode):                  Fortran Motion.
 * C-M-b:                                 Lists.
@@ -657,18 +657,18 @@ Key (Character) Index
 * C-M-e:                                 Defuns.
 * C-M-e (Fortran mode):                  Fortran Motion.
 * C-M-f:                                 Lists.
-* C-M-h <1>:                             Marking Objects.
-* C-M-h:                                 Defuns.
+* C-M-h <1>:                             Defuns.
+* C-M-h:                                 Marking Objects.
 * C-M-h (Fortran mode):                  Fortran Motion.
-* C-M-k <1>:                             Killing.
-* C-M-k:                                 Lists.
+* C-M-k <1>:                             Lists.
+* C-M-k:                                 Killing.
 * C-M-n:                                 Lists.
 * C-M-o:                                 Indentation Commands.
 * C-M-p:                                 Lists.
 * C-M-q:                                 Multi-line Indent.
 * C-M-q (Fortran mode):                  ForIndent Commands.
-* C-M-t <1>:                             Transpose.
-* C-M-t:                                 Lists.
+* C-M-t <1>:                             Lists.
+* C-M-t:                                 Transpose.
 * C-M-u:                                 Lists.
 * C-M-v <1>:                             Other Window.
 * C-M-v:                                 Minibuffer Edit.
@@ -745,8 +745,8 @@ Key (Character) Index
 * C-x C-l:                               Case.
 * C-x C-o <1>:                           Killing.
 * C-x C-o:                               Blank Lines.
-* C-x C-p <1>:                           Marking Objects.
-* C-x C-p:                               Pages.
+* C-x C-p <1>:                           Pages.
+* C-x C-p:                               Marking Objects.
 * C-x C-q:                               Misc Buffer.
 * C-x C-q (version control):             Editing with VC.
 * C-x C-s:                               Saving.
@@ -802,26 +802,26 @@ Key (Character) Index
 * C-z:                                   Exiting.
 * control key:                           Intro to Keystrokes.
 * d (Calendar mode):                     Diary Commands.
-* DEL <1>:                               Basic.
-* DEL <2>:                               Killing.
+* DEL <1>:                               Program Modes.
+* DEL <2>:                               Major Modes.
 * DEL <3>:                               Kill Errors.
-* DEL <4>:                               Program Modes.
-* DEL:                                   Major Modes.
+* DEL <4>:                               Killing.
+* DEL:                                   Basic.
 * DEL (isearch-mode):                    Incremental Search.
 * DEL (query-replace):                   Query Replace.
 * DOWN:                                  Basic.
 * END:                                   Basic.
-* ESC <1>:                               Key Sequences.
-* ESC:                                   Meta Key.
+* ESC <1>:                               Meta Key.
+* ESC:                                   Key Sequences.
 * ESC (query-replace):                   Query Replace.
 * g CHAR (Calendar mode):                From Other Calendar.
 * g d (Calendar mode):                   Specified Dates.
 * g m l (Calendar mode):                 Mayan Calendar.
 * h (Calendar mode):                     Holidays.
 * HOME:                                  Basic.
-* hyper key <1>:                         Intro to Keystrokes.
+* hyper key <1>:                         Super and Hyper Keys.
 * hyper key <2>:                         Representing Keystrokes.
-* hyper key:                             Super and Hyper Keys.
+* hyper key:                             Intro to Keystrokes.
 * i a (Calendar mode):                   Special Diary Entries.
 * i b (Calendar mode):                   Special Diary Entries.
 * i c (Calendar mode):                   Special Diary Entries.
@@ -831,11 +831,11 @@ Key (Character) Index
 * i y (Calendar mode):                   Adding to Diary.
 * LEFT:                                  Basic.
 * LFD <1>:                               Basic Indent.
-* LFD <2>:                               String Key Sequences.
-* LFD:                                   Major Modes.
+* LFD <2>:                               Major Modes.
+* LFD:                                   String Key Sequences.
 * LFD (TeX mode):                        TeX Editing.
-* M (Calendar mode):                     Lunar Phases.
 * m (Calendar mode):                     Diary Commands.
+* M (Calendar mode):                     Lunar Phases.
 * M-!:                                   Single Shell.
 * M-$:                                   Spelling.
 * M-%:                                   Query Replace.
@@ -864,8 +864,8 @@ Key (Character) Index
 * M-\ <1>:                               Indentation Commands.
 * M-\:                                   Killing.
 * M-]:                                   Paragraphs.
-* M-^ <1>:                               Killing.
-* M-^:                                   Indentation Commands.
+* M-^ <1>:                               Indentation Commands.
+* M-^:                                   Killing.
 * M-a:                                   Sentences.
 * M-a (Calendar mode):                   Move to Beginning or End.
 * M-b:                                   Words.
@@ -873,9 +873,9 @@ Key (Character) Index
 * M-C-s:                                 Regexp Search.
 * M-d <1>:                               Words.
 * M-d:                                   Killing.
-* M-DEL <1>:                             Killing.
+* M-DEL <1>:                             Words.
 * M-DEL <2>:                             Kill Errors.
-* M-DEL:                                 Words.
+* M-DEL:                                 Killing.
 * M-e:                                   Sentences.
 * M-e (Calendar mode):                   Move to Beginning or End.
 * M-ESC:                                 Lisp Eval.
@@ -884,8 +884,8 @@ Key (Character) Index
 * M-h <1>:                               Paragraphs.
 * M-h:                                   Marking Objects.
 * M-i:                                   Tab Stops.
-* M-k <1>:                               Killing.
-* M-k:                                   Sentences.
+* M-k <1>:                               Sentences.
+* M-k:                                   Killing.
 * M-l:                                   Case.
 * M-LFD:                                 Comments.
 * M-LFD (Fortran mode):                  ForIndent Commands.
@@ -894,23 +894,23 @@ Key (Character) Index
 * M-n:                                   Repetition.
 * M-n (isearch-mode):                    Incremental Search.
 * M-n (Shell mode):                      Shell Mode.
-* M-p <1>:                               Repetition.
-* M-p:                                   Nroff Mode.
+* M-p <1>:                               Nroff Mode.
+* M-p:                                   Repetition.
 * M-p (isearch-mode):                    Incremental Search.
 * M-p (Shell mode):                      Shell Mode.
 * M-q:                                   Fill Commands.
 * M-r:                                   Basic.
 * M-s:                                   Fill Commands.
 * M-SPC:                                 Killing.
-* M-t <1>:                               Transpose.
-* M-t:                                   Words.
+* M-t <1>:                               Words.
+* M-t:                                   Transpose.
 * M-TAB <1>:                             Tabs in Picture.
 * M-TAB:                                 Lisp Completion.
 * M-TAB (customization buffer):          Changing an Option.
 * M-TAB (isearch-mode):                  Incremental Search.
 * M-u:                                   Case.
-* M-v <1>:                               Basic.
-* M-v:                                   Scrolling.
+* M-v <1>:                               Scrolling.
+* M-v:                                   Basic.
 * M-v (Calendar mode):                   Scroll Calendar.
 * M-w:                                   Kill Ring.
 * M-x:                                   M-x.
@@ -926,10 +926,10 @@ Key (Character) Index
 * o (Calendar mode):                     Specified Dates.
 * p (Calendar mode):                     To Other Calendar.
 * p d (Calendar mode):                   General Calendar.
-* PGDN:                                  Basic.
 * pgdn:                                  Scrolling.
-* PGUP:                                  Basic.
+* PGDN:                                  Basic.
 * pgup:                                  Scrolling.
+* PGUP:                                  Basic.
 * prior:                                 Scrolling.
 * q (Calendar mode):                     General Calendar.
 * RET:                                   Basic.
@@ -943,16 +943,16 @@ Key (Character) Index
 * SPC:                                   Completion.
 * SPC (Calendar mode):                   General Calendar.
 * SPC (query-replace):                   Query Replace.
-* super key <1>:                         Intro to Keystrokes.
-* super key <2>:                         Super and Hyper Keys.
-* super key:                             Representing Keystrokes.
+* super key <1>:                         Super and Hyper Keys.
+* super key <2>:                         Representing Keystrokes.
+* super key:                             Intro to Keystrokes.
 * t (Calendar mode):                     LaTeX Calendar.
-* TAB <1>:                               String Key Sequences.
-* TAB <2>:                               Major Modes.
-* TAB <3>:                               Basic Indent.
-* TAB <4>:                               Text Mode.
+* TAB <1>:                               Basic Indent.
+* TAB <2>:                               Text Mode.
+* TAB <3>:                               Indentation.
+* TAB <4>:                               Major Modes.
 * TAB <5>:                               Completion.
-* TAB:                                   Indentation.
+* TAB:                                   String Key Sequences.
 * TAB (customization buffer):            Changing an Option.
 * TAB (Shell mode):                      Shell Mode.
 * u (Calendar mode) <1>:                 Diary Commands.

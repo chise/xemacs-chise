@@ -125,8 +125,8 @@ Function Index
 * list-length:                           List Functions.
 * load-time-value:                       Time of Evaluation.
 * locally:                               Declarations.
-* loop <1>:                              Iteration.
-* loop:                                  Loop Basics.
+* loop <1>:                              Loop Basics.
+* loop:                                  Iteration.
 * macrolet:                              Macro Bindings.
 * make-random-state:                     Random Numbers.
 * map:                                   Mapping over Sequences.

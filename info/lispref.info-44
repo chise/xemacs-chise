@@ -257,8 +257,8 @@ Index
 * asynchronous subprocess:               Asynchronous Processes.
 * atan:                                  Math Functions.
 * atanh:                                 Math Functions.
-* atom <1>:                              Cons Cell Type.
-* atom:                                  List-related Predicates.
+* atom <1>:                              List-related Predicates.
+* atom:                                  Cons Cell Type.
 * atomic extent:                         Atomic Extents.
 * atoms:                                 List-related Predicates.
 * attributes of text:                    Text Properties.
@@ -413,8 +413,8 @@ Index
 * buffer-offer-save <1>:                 Killing Buffers.
 * buffer-offer-save:                     Saving Buffers.
 * buffer-read-only:                      Read Only Buffers.
-* buffer-saved-size <1>:                 Auto-Saving.
-* buffer-saved-size:                     Point.
+* buffer-saved-size <1>:                 Point.
+* buffer-saved-size:                     Auto-Saving.
 * buffer-size:                           Point.
 * buffer-string:                         Buffer Contents.
 * buffer-substring:                      Buffer Contents.
@@ -558,7 +558,6 @@ Index
 * character descriptor:                  Character Descriptors.
 * character insertion:                   Commands for Insertion.
 * character printing:                    Describing Characters.
-* character quote:                       Syntax Class Table.
 * character set (in regexp):             Syntax of Regexps.
 * character to string:                   String Conversion.
 * character-to-event:                    Converting Events.
@@ -566,6 +565,7 @@ Index
 * characterp:                            Predicates for Characters.
 * characters:                            Strings and Characters.
 * characters for interactive codes:      Interactive Codes.
+* character quote:                       Syntax Class Table.
 * charset type:                          Charset Type.
 * charset-ccl-program:                   Charset Property Functions.
 * charset-chars:                         Charset Property Functions.
@@ -611,8 +611,8 @@ Index
 * clear-range-table:                     Working With Range Tables.
 * clear-visited-file-modtime:            Modification Time.
 * close parenthesis:                     Blinking.
-* close parenthesis character:           Syntax Class Table.
 * close-database:                        Connecting to a Database.
+* close parenthesis character:           Syntax Class Table.
 * closures not available:                Extent.
 * clrhash:                               Working With Hash Tables.
 * codes, interactive, description of:    Interactive Codes.
@@ -660,10 +660,10 @@ Index
 * commandp:                              Interactive Call.
 * commandp example:                      High-Level Completion.
 * commands, defining:                    Defining Commands.
-* comment ender:                         Syntax Class Table.
-* comment starter:                       Syntax Class Table.
 * comment syntax:                        Syntax Class Table.
 * comments:                              Comments.
+* comment ender:                         Syntax Class Table.
+* comment starter:                       Syntax Class Table.
 * Common Lisp:                           Lisp History.
 * Common Lisp (Edebug):                  Instrumenting.
 * compare-buffer-substrings:             Comparing Text.
@@ -763,10 +763,10 @@ Index
 * creating buffers:                      Creating Buffers.
 * creating keymaps:                      Creating Keymaps.
 * ctl-arrow:                             Usual Display.
-* ctl-x-4-map <1>:                       Prefix Keys.
-* ctl-x-4-map:                           Standard Keymaps.
-* ctl-x-5-map <1>:                       Prefix Keys.
-* ctl-x-5-map:                           Standard Keymaps.
+* ctl-x-4-map <1>:                       Standard Keymaps.
+* ctl-x-4-map:                           Prefix Keys.
+* ctl-x-5-map <1>:                       Standard Keymaps.
+* ctl-x-5-map:                           Prefix Keys.
 * ctl-x-map <1>:                         Standard Keymaps.
 * ctl-x-map:                             Prefix Keys.
 * cube-root:                             Math Functions.
@@ -826,8 +826,8 @@ Index
 * debug-on-next-call:                    Internals of Debugger.
 * debug-on-quit:                         Infinite Loops.
 * debug-on-signal:                       Error Debugging.
-* debugger <1>:                          Debugger.
-* debugger:                              Internals of Debugger.
+* debugger <1>:                          Internals of Debugger.
+* debugger:                              Debugger.
 * debugger command list:                 Debugger Commands.
 * debugger-mode-map:                     Standard Keymaps.
 * debugging errors:                      Error Debugging.
@@ -896,8 +896,8 @@ Index
 * defsubst:                              Inline Functions.
 * defun:                                 Defining Functions.
 * defun-prompt-regexp:                   List Motion.
-* defvar <1>:                            Defining Variables.
-* defvar:                                Domain Specification.
+* defvar <1>:                            Domain Specification.
+* defvar:                                Defining Variables.
 * defvaralias:                           Variable Aliases.
 * deiconify-frame:                       Visibility of Frames.
 * delete:                                Sets And Lists.
@@ -950,11 +950,11 @@ Index
 * detach-extent:                         Detached Extents.
 * detached extent:                       Detached Extents.
 * detect-coding-region:                  Detection of Textual Encoding.
-* device-baud-rate <1>:                  Console and Device I/O.
-* device-baud-rate:                      Terminal Output.
+* device-baud-rate <1>:                  Terminal Output.
+* device-baud-rate:                      Console and Device I/O.
 * device-class:                          Console Types and Device Classes.
-* device-frame-list <1>:                 Finding All Frames.
-* device-frame-list:                     Basic Device Functions.
+* device-frame-list <1>:                 Basic Device Functions.
+* device-frame-list:                     Finding All Frames.
 * device-list:                           Basic Device Functions.
 * device-live-p:                         Connecting to a Console or Device.
 * device-matches-specifier-tag-set-p:    Specifier Tag Functions.
@@ -1041,36 +1041,36 @@ Index
 * echo area:                             The Echo Area.
 * echo-keystrokes <1>:                   The Echo Area.
 * echo-keystrokes:                       Command Loop Info.
-* Edebug:                                Edebug.
 * edebug:                                Embedded Breakpoints.
+* Edebug:                                Edebug.
 * Edebug execution modes:                Edebug Execution Modes.
 * Edebug mode:                           Edebug.
 * Edebug specification list:             Specification List.
 * edebug-`:                              Debugging Backquote.
 * edebug-all-defs <1>:                   Edebug Options.
 * edebug-all-defs:                       Instrumenting.
-* edebug-all-forms <1>:                  Instrumenting.
-* edebug-all-forms:                      Edebug Options.
+* edebug-all-forms <1>:                  Edebug Options.
+* edebug-all-forms:                      Instrumenting.
 * edebug-continue-kbd-macro:             Edebug Options.
 * edebug-display-freq-count:             Coverage Testing.
 * edebug-eval-top-level-form:            Instrumenting.
-* edebug-global-break-condition <1>:     Global Break Condition.
-* edebug-global-break-condition:         Edebug Options.
+* edebug-global-break-condition <1>:     Edebug Options.
+* edebug-global-break-condition:         Global Break Condition.
 * edebug-initial-mode:                   Edebug Options.
 * edebug-on-error <1>:                   Edebug Options.
 * edebug-on-error:                       Trapping Errors.
 * edebug-on-quit <1>:                    Edebug Options.
 * edebug-on-quit:                        Trapping Errors.
-* edebug-print-circle <1>:               Printing in Edebug.
-* edebug-print-circle:                   Edebug Options.
-* edebug-print-length <1>:               Printing in Edebug.
-* edebug-print-length:                   Edebug Options.
-* edebug-print-level <1>:                Printing in Edebug.
-* edebug-print-level:                    Edebug Options.
-* edebug-print-trace-after <1>:          Tracing.
-* edebug-print-trace-after:              Edebug Options.
-* edebug-print-trace-before <1>:         Tracing.
-* edebug-print-trace-before:             Edebug Options.
+* edebug-print-circle <1>:               Edebug Options.
+* edebug-print-circle:                   Printing in Edebug.
+* edebug-print-length <1>:               Edebug Options.
+* edebug-print-length:                   Printing in Edebug.
+* edebug-print-level <1>:                Edebug Options.
+* edebug-print-level:                    Printing in Edebug.
+* edebug-print-trace-after <1>:          Edebug Options.
+* edebug-print-trace-after:              Tracing.
+* edebug-print-trace-before <1>:         Edebug Options.
+* edebug-print-trace-before:             Tracing.
 * edebug-save-displayed-buffer-points <1>: Edebug Options.
 * edebug-save-displayed-buffer-points:   Edebug Display Update.
 * edebug-save-windows <1>:               Edebug Options.
@@ -1082,8 +1082,8 @@ Index
 * edebug-trace:                          Tracing.
 * edebug-tracing:                        Tracing.
 * edebug-unwrap:                         Specification List.
-* edebug-unwrap-results <1>:             Debugging Backquote.
-* edebug-unwrap-results:                 Edebug Options.
+* edebug-unwrap-results <1>:             Edebug Options.
+* edebug-unwrap-results:                 Debugging Backquote.
 * edit-abbrevs-map:                      Standard Keymaps.
 * edit-and-eval-command:                 Object from Minibuffer.
 * edit-menu-filter:                      Menu Filters.
@@ -1150,8 +1150,8 @@ Index
 * errors:                                Errors.
 * esc-map:                               Prefix Keys.
 * ESC-prefix:                            Prefix Keys.
-* escape <1>:                            Character Type.
-* escape:                                Syntax Class Table.
+* escape <1>:                            Syntax Class Table.
+* escape:                                Character Type.
 * escape characters:                     Output Variables.
 * escape characters in printing:         Output Functions.
 * escape sequence:                       Character Type.
@@ -1236,8 +1236,8 @@ Index
 * expression prefix:                     Syntax Class Table.
 * expt:                                  Math Functions.
 * extended-command-history:              Minibuffer History.
-* extent <1>:                            Variable Scoping.
-* extent:                                Extents.
+* extent <1>:                            Extents.
+* extent:                                Variable Scoping.
 * extent children:                       Extent Parents.
 * extent end position:                   Extent Endpoints.
 * extent endpoint:                       Extent Endpoints.
@@ -1479,8 +1479,8 @@ Index
 * ftruncate:                             Rounding Operations.
 * funcall:                               Calling Functions.
 * funcall, and debugging:                Internals of Debugger.
-* function <1>:                          What Is a Function.
-* function:                              Anonymous Functions.
+* function <1>:                          Anonymous Functions.
+* function:                              What Is a Function.
 * function call:                         Function Forms.
 * function call debugging:               Function Debugging.
 * function cell:                         Symbol Components.
@@ -1506,8 +1506,8 @@ Index
 * garbage-collect:                       Garbage Collection.
 * gc-cons-threshold:                     Garbage Collection.
 * gc-message:                            Garbage Collection.
-* gc-pointer-glyph <1>:                  Mouse Pointer.
-* gc-pointer-glyph:                      Garbage Collection.
+* gc-pointer-glyph <1>:                  Garbage Collection.
+* gc-pointer-glyph:                      Mouse Pointer.
 * generate-new-buffer:                   Creating Buffers.
 * generate-new-buffer-name:              Buffer Names.
 * generic-specifier-p:                   Specifier Types.
@@ -1586,8 +1586,8 @@ Index
 * help-char:                             Help Functions.
 * help-command:                          Help Functions.
 * help-form:                             Help Functions.
-* help-map <1>:                          Help Functions.
-* help-map:                              Standard Keymaps.
+* help-map <1>:                          Standard Keymaps.
+* help-map:                              Help Functions.
 * Helper-describe-bindings:              Help Functions.
 * Helper-help:                           Help Functions.
 * Helper-help-map:                       Standard Keymaps.
@@ -1630,8 +1630,8 @@ Index
 * image-instance-type-list:              Image Instance Types.
 * image-instance-width:                  Image Instance Functions.
 * image-instantiator-format-list:        Image Specifiers.
-* image-specifier-p <1>:                 Specifier Types.
-* image-specifier-p:                     Image Specifiers.
+* image-specifier-p <1>:                 Image Specifiers.
+* image-specifier-p:                     Specifier Types.
 * implicit progn:                        Sequencing.
 * inc:                                   Simple Macro.
 * indent-according-to-mode:              Mode-Specific Indent.
@@ -1881,8 +1881,8 @@ Index
 * lisp-mode-abbrev-table:                Standard Abbrev Tables.
 * lisp-mode-map:                         Standard Keymaps.
 * lisp-mode.el:                          Example Major Modes.
-* list <1>:                              Lists.
-* list:                                  Building Lists.
+* list <1>:                              Building Lists.
+* list:                                  Lists.
 * list elements:                         List Elements.
 * list form evaluation:                  Classifying Lists.
 * list in keymap:                        Key Lookup.
@@ -2113,13 +2113,13 @@ Index
 * minibuffer-frame-plist:                Initial Properties.
 * minibuffer-help-form:                  Minibuffer Misc.
 * minibuffer-history:                    Minibuffer History.
-* minibuffer-local-completion-map <1>:   Completion Commands.
-* minibuffer-local-completion-map:       Standard Keymaps.
+* minibuffer-local-completion-map <1>:   Standard Keymaps.
+* minibuffer-local-completion-map:       Completion Commands.
 * minibuffer-local-isearch-map:          Standard Keymaps.
 * minibuffer-local-map <1>:              Standard Keymaps.
 * minibuffer-local-map:                  Text from Minibuffer.
-* minibuffer-local-must-match-map <1>:   Completion Commands.
-* minibuffer-local-must-match-map:       Standard Keymaps.
+* minibuffer-local-must-match-map <1>:   Standard Keymaps.
+* minibuffer-local-must-match-map:       Completion Commands.
 * minibuffer-local-ns-map:               Text from Minibuffer.
 * minibuffer-prompt:                     Minibuffer Misc.
 * minibuffer-prompt-width:               Minibuffer Misc.
@@ -2149,8 +2149,8 @@ Index
 * modeline construct:                    Modeline Data.
 * modeline-buffer-identification:        Modeline Variables.
 * modeline-format:                       Modeline Data.
-* modeline-map <1>:                      Active Keymaps.
-* modeline-map:                          Standard Keymaps.
+* modeline-map <1>:                      Standard Keymaps.
+* modeline-map:                          Active Keymaps.
 * modeline-modified:                     Modeline Variables.
 * modeline-pointer-glyph:                Mouse Pointer.
 * modeline-process:                      Modeline Variables.
@@ -2189,8 +2189,8 @@ Index
 * negative-argument:                     Prefix Command Arguments.
 * network connection:                    Network.
 * new file message:                      Subroutines of Visiting.
-* newline <1>:                           Character Type.
-* newline:                               Commands for Insertion.
+* newline <1>:                           Commands for Insertion.
+* newline:                               Character Type.
 * newline and Auto Fill mode:            Commands for Insertion.
 * newline in print:                      Output Functions.
 * newline in strings:                    String Type.
@@ -2255,11 +2255,11 @@ Index
 * old-eq:                                Equality Predicates.
 * one-window-p:                          Splitting Windows.
 * only-global-abbrevs:                   Defining Abbrevs.
-* open parenthesis character:            Syntax Class Table.
 * open-database:                         Connecting to a Database.
 * open-dribble-file:                     Recording Input.
 * open-network-stream:                   Network.
 * open-termscript:                       Terminal Output.
+* open parenthesis character:            Syntax Class Table.
 * operating system environment:          System Environment.
 * option descriptions:                   A Sample Variable Description.
 * optional arguments:                    Argument List.
@@ -2319,10 +2319,10 @@ Index
 * plist-put:                             Working With Normal Plists.
 * plist-remprop:                         Working With Normal Plists.
 * plist-to-alist:                        Converting Plists To/From Alists.
-* plists-eq <1>:                         Working With Normal Plists.
-* plists-eq:                             Other Plists.
-* plists-equal <1>:                      Working With Normal Plists.
-* plists-equal:                          Other Plists.
+* plists-eq <1>:                         Other Plists.
+* plists-eq:                             Working With Normal Plists.
+* plists-equal <1>:                      Other Plists.
+* plists-equal:                          Working With Normal Plists.
 * point:                                 Point.
 * point excursion:                       Excursions.
 * point in window:                       Window Point.
@@ -2476,8 +2476,8 @@ Index
 * putf:                                  Other Plists.
 * puthash:                               Working With Hash Tables.
 * query-replace-history:                 Minibuffer History.
-* query-replace-map <1>:                 Search and Replace.
-* query-replace-map:                     Standard Keymaps.
+* query-replace-map <1>:                 Standard Keymaps.
+* query-replace-map:                     Search and Replace.
 * querying the user:                     Yes-or-No Queries.
 * question mark in character constant:   Character Type.
 * quietly-read-abbrev-file:              Abbrev Files.
@@ -2916,7 +2916,6 @@ Index
 * string length:                         Sequence Functions.
 * string length, maximum when printing:  Output Variables.
 * string properties:                     String Properties.
-* string quote:                          Syntax Class Table.
 * string search:                         String Search.
 * string to character:                   String Conversion.
 * string to number:                      String Conversion.
@@ -2935,6 +2934,7 @@ Index
 * strings:                               Strings and Characters.
 * strings, formatting them:              Formatting Strings.
 * strings, modifying:                    Modifying Strings.
+* string quote:                          Syntax Class Table.
 * subprocess:                            Processes.
 * subr:                                  What Is a Function.
 * subrp:                                 What Is a Function.
@@ -2961,7 +2961,6 @@ Index
 * switching to a buffer:                 Displaying Buffers.
 * symbol:                                Symbols.
 * symbol components:                     Symbol Components.
-* symbol constituent:                    Syntax Class Table.
 * symbol equality:                       Creating Symbols.
 * symbol evaluation:                     Symbol Forms.
 * symbol function indirection:           Function Indirection.
@@ -2972,6 +2971,7 @@ Index
 * symbol-plist:                          Symbol Plists.
 * symbol-value:                          Accessing Variables.
 * symbolp:                               Symbols.
+* symbol constituent:                    Syntax Class Table.
 * synchronous subprocess:                Synchronous Processes.
 * syntax classes:                        Syntax Descriptors.
 * syntax descriptor:                     Syntax Descriptors.
@@ -3051,8 +3051,8 @@ Index
 * toolbar button type:                   Toolbar Button Type.
 * toolbar-buttons-captioned-p:           Other Toolbar Variables.
 * toolbar-make-button-list:              Toolbar Descriptor Format.
-* toolbar-map <1>:                       Active Keymaps.
-* toolbar-map:                           Standard Keymaps.
+* toolbar-map <1>:                       Standard Keymaps.
+* toolbar-map:                           Active Keymaps.
 * toolbar-pointer-glyph:                 Mouse Pointer.
 * toolbar-specifier-p <1>:               Specifier Types.
 * toolbar-specifier-p:                   Specifying the Toolbar.
@@ -3155,8 +3155,8 @@ Index
 * valid-specifier-domain-p:              Specifier Validation Functions.
 * valid-specifier-locale-p:              Specifier Validation Functions.
 * valid-specifier-locale-type-p:         Specifier Validation Functions.
-* valid-specifier-tag-p <1>:             Specifier Tag Functions.
-* valid-specifier-tag-p:                 Specifier Validation Functions.
+* valid-specifier-tag-p <1>:             Specifier Validation Functions.
+* valid-specifier-tag-p:                 Specifier Tag Functions.
 * valid-specifier-tag-set-p:             Specifier Tag Functions.
 * valid-specifier-type-p:                Specifier Validation Functions.
 * value cell:                            Symbol Components.
@@ -3224,8 +3224,8 @@ Index
 * window excursions:                     Excursions.
 * window ordering, cyclic:               Cyclic Window Ordering.
 * window point:                          Window Point.
-* window position <1>:                   Window Point.
-* window position:                       Position of Window.
+* window position <1>:                   Position of Window.
+* window position:                       Window Point.
 * window resizing:                       Resizing Windows.
 * window size:                           Size of Window.
 * window size, changing:                 Resizing Windows.
@@ -3266,11 +3266,11 @@ Index
 * with-output-to-temp-buffer:            Temporary Displays.
 * with-selected-frame:                   Input Focus.
 * with-temp-file:                        Excursions.
-* word constituent:                      Syntax Class Table.
 * word search:                           String Search.
 * word-search-backward:                  String Search.
 * word-search-forward:                   String Search.
 * words-include-escapes:                 Word Motion.
+* word constituent:                      Syntax Class Table.
 * write-abbrev-file:                     Abbrev Files.
 * write-char:                            Output Functions.
 * write-contents-hooks:                  Saving Buffers.

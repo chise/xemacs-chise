@@ -4,19 +4,19 @@ texinfo.texi.
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
 * Texinfo: (texinfo).           The GNU documentation format.
-* install-info: (texinfo)Invoking install-info. Update info/dir entries.
-* texi2dvi: (texinfo)Format with texi2dvi.      Print Texinfo documents.
-* texindex: (texinfo)Format with tex/texindex.  Sort Texinfo index files.
+* install-info: (texinfo)Invoking install-info. Updating info/dir entries.
+* texi2dvi: (texinfo)Format with texi2dvi.      Printing Texinfo documentation.
+* texindex: (texinfo)Format with tex/texindex.  Sorting Texinfo index files.
 * makeinfo: (texinfo)makeinfo Preferred.        Translate Texinfo source.
 END-INFO-DIR-ENTRY
 
   This file documents Texinfo, a documentation system that can produce
-both online information and a printed manual from a single source file.
+both on-line information and a printed manual from a single source file.
 
-  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98, 99 Free Software
+  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98 Free Software
 Foundation, Inc.
 
-  This edition is for Texinfo version 4.0, 28 September 1999.
+  This edition is for Texinfo version 3.12.
 
   Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -33,1067 +33,1188 @@ versions, except that this permission notice may be stated in a
 translation approved by the Free Software Foundation.
 
 
-File: texinfo.info,  Node: Command List,  Next: Tips,  Prev: Creating and Installing Info Files,  Up: Top
+File: texinfo.info,  Node: Tips,  Next: Sample Texinfo File,  Prev: Command List,  Up: Top
 
-@-Command List
+Tips and Hints
 **************
 
-  Here is an alphabetical list of the @-commands in Texinfo.  Square
-brackets, [ ], indicate optional arguments; an ellipsis, `...',
-indicates repeated text.
-
-
-`@WHITESPACE'
-     An `@' followed by a space, tab, or newline produces a normal,
-     stretchable, interword space.  *Note Multiple Spaces::.
-
-`@!'
-     Generate an exclamation point that really does end a sentence
-     (usually after an end-of-sentence capital letter).  *Note Ending a
-     Sentence::.
-
-`@"'
-`@''
-     Generate an umlaut or acute accent, respectively, over the next
-     character, as in o" and o'.  *Note Inserting Accents::.
-
-`@*'
-     Force a line break. Do not end a paragraph that uses `@*' with an
-     `@refill' command.  *Note Line Breaks::.
-
-`@,{C}'
-     Generate a cedilla accent under C, as in c,.  *Note Inserting
-     Accents::.
-
-`@-'
-     Insert a discretionary hyphenation point.  *Note - and
-     hyphenation::.
-
-`@.'
-     Produce a period that really does end a sentence (usually after an
-     end-of-sentence capital letter).  *Note Ending a Sentence::.
-
-`@:'
-     Indicate to TeX that an immediately preceding period, question
-     mark, exclamation mark, or colon does not end a sentence.  Prevent
-     TeX from inserting extra whitespace as it does at the end of a
-     sentence.  The command has no effect on the Info file output.
-     *Note Not Ending a Sentence::.
-
-`@='
-     Generate a macron (bar) accent over the next character, as in o=.
-     *Note Inserting Accents::.
-
-`@?'
-     Generate a question mark that really does end a sentence (usually
-     after an end-of-sentence capital letter).  *Note Ending a
-     Sentence::.
-
-`@@'
-     Stands for an at sign, `@'.  *Note Inserting @ and braces: Braces
-     Atsigns.
-
-`@^'
-`@`'
-     Generate a circumflex (hat) or grave accent, respectively, over
-     the next character, as in o^.  *Note Inserting Accents::.
-
-`@{'
-     Stands for a left brace, `{'.  *Note Inserting @ and braces:
-     Braces Atsigns.
-
-`@}'
-     Stands for a right-hand brace, `}'.
-     *Note Inserting @ and braces: Braces Atsigns.
-
-`@~'
-     Generate a tilde accent over the next character, as in N~.  *Note
-     Inserting Accents::.
-
-`@AA{}'
-`@aa{}'
-     Generate the uppercase and lowercase Scandinavian A-ring letters,
-     respectively: AA, aa.  *Note Inserting Accents::.
-
-`@acronym{ABBREV}'
-     Tag ABBREV as an acronym, that is, an abbreviation written in all
-     capital letters, such as `NASA'.  *Note `acronym': acronym.
-
-`@AE{}'
-`@ae{}'
-     Generate the uppercase and lowercase AE ligatures, respectively:
-     AE, ae.  *Note Inserting Accents::.
-
-`@afourlatex'
-`@afourpaper'
-`@afourwide'
-     Change page dimensions for the A4 paper size.  *Note A4 Paper::.
-
-`@alias NEW=EXISTING'
-     Make the command `@NEW' an alias for the existing command
-     `@EXISTING'.  *Note alias::.
-
-`@anchor{NAME}'
-     Define NAME as the current location for use as a cross-reference
-     target.  *Note `@anchor': anchor.
-
-`@appendix TITLE'
-     Begin an appendix.  The title appears in the table of contents of
-     a printed manual.  In Info, the title is underlined with
-     asterisks.  *Note The `@unnumbered' and `@appendix' Commands:
-     unnumbered & appendix.
-
-`@appendixsec TITLE'
-`@appendixsection TITLE'
-     Begin an appendix section within an appendix.  The section title
-     appears in the table of contents of a printed manual.  In Info,
-     the title is underlined with equal signs.  `@appendixsection' is a
-     longer spelling of the `@appendixsec' command.  *Note Section
-     Commands: unnumberedsec appendixsec heading.
-
-`@appendixsubsec TITLE'
-     Begin an appendix subsection within an appendix.  The title appears
-     in the table of contents of a printed manual.  In Info, the title
-     is underlined with hyphens.  *Note Subsection Commands:
-     unnumberedsubsec appendixsubsec subheading.
-
-`@appendixsubsubsec TITLE'
-     Begin an appendix subsubsection within an appendix subsection.  The
-     title appears in the table of contents of a printed manual.  In
-     Info, the title is underlined with periods.  *Note The `subsub'
-     Commands: subsubsection.
-
-`@asis'
-     Used following `@table', `@ftable', and `@vtable' to print the
-     table's first column without highlighting ("as is").  *Note Making
-     a Two-column Table: Two-column Tables.
-
-`@author AUTHOR'
-     Typeset AUTHOR flushleft and underline it.  *Note The `@title' and
-     `@author' Commands: title subtitle author.
-
-`@b{TEXT}'
-     Print TEXT in bold font.  No effect in Info.  *Note Fonts::.
-
-`@bullet{}'
-     Generate a large round dot, or the closest possible thing to one.
-     *Note `@bullet': bullet.
-
-`@bye'
-     Stop formatting a file.  The formatters do not see the contents of
-     a file following an `@bye' command.  *Note Ending a File::.
-
-`@c COMMENT'
-     Begin a comment in Texinfo.  The rest of the line does not appear
-     in either the Info file or the printed manual.  A synonym for
-     `@comment'.  *Note Comments: Comments.
-
-`@cartouche'
-     Highlight an example or quotation by drawing a box with rounded
-     corners around it.  Pair with `@end cartouche'.  No effect in
-     Info.  *Note Drawing Cartouches Around Examples: cartouche.)
-
-`@center LINE-OF-TEXT'
-     Center the line of text following the command.  *Note `@center':
-     titlefont center sp.
-
-`@centerchap LINE-OF-TEXT'
-     Like `@chapter', but centers the chapter title.  *Note `@chapter':
-     chapter.
-
-`@chapheading TITLE'
-     Print a chapter-like heading in the text, but not in the table of
-     contents of a printed manual.  In Info, the title is underlined
-     with asterisks.  *Note `@majorheading' and `@chapheading':
-     majorheading & chapheading.
-
-`@chapter TITLE'
-     Begin a chapter.  The chapter title appears in the table of
-     contents of a printed manual.  In Info, the title is underlined
-     with asterisks.  *Note `@chapter': chapter.
-
-`@cindex ENTRY'
-     Add ENTRY to the index of concepts.  *Note Defining the Entries of
-     an Index: Index Entries.
-
-`@cite{REFERENCE}'
-     Highlight the name of a book or other reference that lacks a
-     companion Info file.  *Note `@cite': cite.
-
-`@clear FLAG'
-     Unset FLAG, preventing the Texinfo formatting commands from
-     formatting text between subsequent pairs of `@ifset FLAG' and
-     `@end ifset' commands, and preventing `@value{FLAG}' from
-     expanding to the value to which FLAG is set.  *Note `@set'
-     `@clear' `@value': set clear value.
-
-`@code{SAMPLE-CODE}'
-     Highlight text that is an expression, a syntactically complete
-     token of a program, or a program name.  *Note `@code': code.
-
-`@command{COMMAND-NAME}'
-     Indicate a command name, such as `ls'.  *Note `@command': command.
-
-`@comment COMMENT'
-     Begin a comment in Texinfo.  The rest of the line does not appear
-     in either the Info file or the printed manual.  A synonym for `@c'.
-     *Note Comments::.
-
-`@contents'
-     Print a complete table of contents.  Has no effect in Info, which
-     uses menus instead.  *Note Generating a Table of Contents:
-     Contents.
-
-`@copyright{}'
-     Generate a copyright symbol.  *Note `@copyright': copyright symbol.
-
-`@defcodeindex INDEX-NAME'
-     Define a new index and its indexing command.  Print entries in an
-     `@code' font.  *Note Defining New Indices: New Indices.
-
-`@defcv CATEGORY CLASS NAME'
-`@defcvx CATEGORY CLASS NAME'
-     Format a description for a variable associated with a class in
-     object-oriented programming.  Takes three arguments: the category
-     of thing being defined, the class to which it belongs, and its
-     name.  *Note Definition Commands::, and *Note Def Cmds in Detail:
-     deffnx.
-
-`@deffn CATEGORY NAME ARGUMENTS...'
-`@deffnx CATEGORY NAME ARGUMENTS...'
-     Format a description for a function, interactive command, or
-     similar entity that may take arguments.  `@deffn' takes as
-     arguments the category of entity being described, the name of this
-     particular entity, and its arguments, if any.  *Note Definition
-     Commands::.
-
-`@defindex INDEX-NAME'
-     Define a new index and its indexing command.  Print entries in a
-     roman font.  *Note Defining New Indices: New Indices.
-
-`@definfoenclose NEWCMD, BEFORE, AFTER,'
-     Create new @-command NEWCMD for Info that marks text by enclosing
-     it in strings that precede and follow the text.  *Note
-     definfoenclose::.
-
-`@defivar CLASS INSTANCE-VARIABLE-NAME'
-`@defivarx CLASS INSTANCE-VARIABLE-NAME'
-     This command formats a description for an instance variable in
-     object-oriented programming.  The command is equivalent to `@defcv
-     {Instance Variable} ...'.  *Note Definition Commands::, and *Note
-     Def Cmds in Detail: deffnx.
-
-`@defmac MACRONAME ARGUMENTS...'
-`@defmacx MACRONAME ARGUMENTS...'
-     Format a description for a macro.  The command is equivalent to
-     `@deffn Macro ...'.  *Note Definition Commands::, and *Note Def
-     Cmds in Detail: deffnx.
-
-`@defmethod CLASS METHOD-NAME ARGUMENTS...'
-`@defmethodx CLASS METHOD-NAME ARGUMENTS...'
-     Format a description for a method in object-oriented programming.
-     The command is equivalent to `@defop Method ...'.  Takes as
-     arguments the name of the class of the method, the name of the
-     method, and its arguments, if any.  *Note Definition Commands::,
-     and *Note Def Cmds in Detail: deffnx.
-
-`@defop CATEGORY CLASS NAME ARGUMENTS...'
-`@defopx CATEGORY CLASS NAME ARGUMENTS...'
-     Format a description for an operation in object-oriented
-     programming.  `@defop' takes as arguments the overall name of the
-     category of operation, the name of the class of the operation, the
-     name of the operation, and its arguments, if any.  *Note
-     Definition Commands::, and *Note Abstract Objects::.
-
-`@defopt OPTION-NAME'
-`@defoptx OPTION-NAME'
-     Format a description for a user option.  The command is equivalent
-     to `@defvr {User Option} ...'.  *Note Definition Commands::, and
-     *Note Def Cmds in Detail: deffnx.
-
-`@defspec SPECIAL-FORM-NAME ARGUMENTS...'
-`@defspecx SPECIAL-FORM-NAME ARGUMENTS...'
-     Format a description for a special form.  The command is
-     equivalent to `@deffn {Special Form} ...'.  *Note Definition
-     Commands::, and *Note Def Cmds in Detail: deffnx.
-
-`@deftp CATEGORY NAME-OF-TYPE ATTRIBUTES...'
-`@deftpx CATEGORY NAME-OF-TYPE ATTRIBUTES...'
-     Format a description for a data type.  `@deftp' takes as arguments
-     the category, the name of the type (which is a word like `int' or
-     `float'), and then the names of attributes of objects of that type.
-     *Note Definition Commands::, and *Note Data Types::.
-
-`@deftypefn CLASSIFICATION DATA-TYPE NAME ARGUMENTS...'
-`@deftypefnx CLASSIFICATION DATA-TYPE NAME ARGUMENTS...'
-     Format a description for a function or similar entity that may take
-     arguments and that is typed.  `@deftypefn' takes as arguments the
-     classification of entity being described, the type, the name of the
-     entity, and its arguments, if any.  *Note Definition Commands::,
-     and *Note Def Cmds in Detail: deffnx.
-
-`@deftypefun DATA-TYPE FUNCTION-NAME ARGUMENTS...'
-`@deftypefunx DATA-TYPE FUNCTION-NAME ARGUMENTS...'
-     Format a description for a function in a typed language.  The
-     command is equivalent to `@deftypefn Function ...'.  *Note
-     Definition Commands::, and *Note Def Cmds in Detail: deffnx.
-
-`@deftypeivar CLASS DATA-TYPE VARIABLE-NAME'
-`@deftypeivarx CLASS DATA-TYPE VARIABLE-NAME'
-     Format a description for a typed instance variable in
-     object-oriented programming. *Note Definition Commands::, and
-     *Note Abstract Objects::.
-
-`@deftypemethod CLASS DATA-TYPE METHOD-NAME ARGUMENTS...'
-`@deftypemethodx CLASS DATA-TYPE METHOD-NAME ARGUMENTS...'
-     Format a description for a typed method in object-oriented
-     programming.  *Note Definition Commands::, and *Note Def Cmds in
-     Detail: deffnx.
-
-`@deftypeop CATEGORY CLASS DATA-TYPE NAME ARGUMENTS...'
-`@deftypeopx CATEGORY CLASS DATA-TYPE NAME ARGUMENTS...'
-     Format a description for a typed operation in object-oriented
-     programming.  *Note Definition Commands::, and *Note Abstract
-     Objects::.
-
-`@deftypevar DATA-TYPE VARIABLE-NAME'
-`@deftypevarx DATA-TYPE VARIABLE-NAME'
-     Format a description for a variable in a typed language.  The
-     command is equivalent to `@deftypevr Variable ...'.  *Note
-     Definition Commands::, and *Note Def Cmds in Detail: deffnx.
-
-`@deftypevr CLASSIFICATION DATA-TYPE NAME'
-`@deftypevrx CLASSIFICATION DATA-TYPE NAME'
-     Format a description for something like a variable in a typed
-     language--an entity that records a value.  Takes as arguments the
-     classification of entity being described, the type, and the name
-     of the entity.  *Note Definition Commands::, and *Note Def Cmds in
-     Detail: deffnx.
-
-`@defun FUNCTION-NAME ARGUMENTS...'
-`@defunx FUNCTION-NAME ARGUMENTS...'
-     Format a description for functions.  The command is equivalent to
-     `@deffn Function ...'.  *Note Definition Commands::, and *Note Def
-     Cmds in Detail: deffnx.
-
-`@defvar VARIABLE-NAME'
-`@defvarx VARIABLE-NAME'
-     Format a description for variables.  The command is equivalent to
-     `@defvr Variable ...'.  *Note Definition Commands::, and *Note Def
-     Cmds in Detail: deffnx.
-
-`@defvr CATEGORY NAME'
-`@defvrx CATEGORY NAME'
-     Format a description for any kind of variable.  `@defvr' takes as
-     arguments the category of the entity and the name of the entity.
-     *Note Definition Commands::, and *Note Def Cmds in Detail: deffnx.
-
-`@detailmenu'
-     Avoid `makeinfo' confusion stemming from the detailed node listing
-     in a master menu.  *Note Master Menu Parts::.
-
-`@dfn{TERM}'
-     Highlight the introductory or defining use of a term.  *Note
-     `@dfn': dfn.
-
-`@dircategory DIRPART'
-     Specify a part of the Info directory menu where this file's entry
-     should go.  *Note Installing Dir Entries::.
-
-`@direntry'
-     Begin the Info directory menu entry for this file.  Pair with
-     `@end direntry'.  *Note Installing Dir Entries::.
-
-`@display'
-     Begin a kind of example.  Like `@example' (indent text, do not
-     fill), but do not select a new font.  Pair with `@end display'.
-     *Note `@display': display.
-
-`@dmn{DIMENSION}'
-     Format a unit of measure, as in 12pt.  Causes TeX to insert a thin
-     space before DIMENSION.  No effect in Info.  *Note `@dmn': dmn.
-
-`@documentencoding ENC'
-     Declare the input encoding as ENC.  *Note `@documentencoding':
-     documentencoding.
-
-`@documentlanguage CC'
-     Declare the document language as the two-character ISO-639
-     abbreviation CC.  *Note `@documentlanguage': documentlanguage.
-
-`@dotaccent{C}'
-     Generate a dot accent over the character C, as in o..  *Note
-     Inserting Accents::.
-
-`@dots{}'
-     Insert an ellipsis: `...'.  *Note `@dots': dots.
-
-`@email{ADDRESS[, DISPLAYED-TEXT]}'
-     Indicate an electronic mail address.  *Note `@email': email.
-
-`@emph{TEXT}'
-     Highlight TEXT; text is displayed in _italics_ in printed output,
-     and surrounded by asterisks in Info.  *Note Emphasizing Text:
-     Emphasis.
-
-`@end ENVIRONMENT'
-     Ends ENVIRONMENT, as in `@end example'.  *Note @-commands:
-     Formatting Commands.
-
-`@env{ENVIRONMENT-VARIABLE}'
-     Indicate an environment variable name, such as `PATH'.  *Note
-     `@env': env.
-
-`@enddots{}'
-     Generate an end-of-sentence of ellipsis, like this ....  *Note
-     `@dots{}': dots.
-
-`@enumerate [NUMBER-OR-LETTER]'
-     Begin a numbered list, using `@item' for each entry.  Optionally,
-     start list with NUMBER-OR-LETTER.  Pair with `@end enumerate'.
-     *Note `@enumerate': enumerate.
-
-`@equiv{}'
-     Indicate to the reader the exact equivalence of two forms with a
-     glyph: `=='.  *Note Equivalence::.
-
-`@error{}'
-     Indicate to the reader with a glyph that the following text is an
-     error message: `error-->'.  *Note Error Glyph::.
-
-`@evenfooting [LEFT] @| [CENTER] @| [RIGHT]'
-`@evenheading [LEFT] @| [CENTER] @| [RIGHT]'
-     Specify page footings resp. headings for even-numbered (left-hand)
-     pages.  Only allowed inside `@iftex'.  *Note How to Make Your Own
-     Headings: Custom Headings.
-
-`@everyfooting [LEFT] @| [CENTER] @| [RIGHT]'
-`@everyheading [LEFT] @| [CENTER] @| [RIGHT]'
-     Specify page footings resp. headings for every page.  Not relevant
-     to Info.  *Note How to Make Your Own Headings: Custom Headings.
-
-`@example'
-     Begin an example.  Indent text, do not fill, and select
-     fixed-width font.  Pair with `@end example'.  *Note `@example':
-     example.
-
-`@exampleindent INDENT'
-     Indent example-like environments by INDENT number of spaces
-     (perhaps 0).  *Note Paragraph Indenting: exampleindent.
-
-`@exclamdown{}'
-     Produce an upside-down exclamation point.  *Note Inserting
-     Accents::.
-
-`@exdent LINE-OF-TEXT'
-     Remove any indentation a line might have.  *Note Undoing the
-     Indentation of a Line: exdent.
-
-`@expansion{}'
-     Indicate the result of a macro expansion to the reader with a
-     special glyph: `==>'.  *Note ==> Indicating an Expansion:
-     expansion.
-
-`@file{FILENAME}'
-     Highlight the name of a file, buffer, node, or directory.  *Note
-     `@file': file.
-
-`@finalout'
-     Prevent TeX from printing large black warning rectangles beside
-     over-wide lines.  *Note Overfull hboxes::.
-
-`@findex ENTRY'
-     Add ENTRY to the index of functions.  *Note Defining the Entries
-     of an Index: Index Entries.
-
-`@flushleft'
-`@flushright'
-     Left justify every line but leave the right end ragged.  Leave
-     font as is.  Pair with `@end flushleft'.  `@flushright' analogous.
-     *Note `@flushleft' and `@flushright': flushleft & flushright.
-
-`@footnote{TEXT-OF-FOOTNOTE}'
-     Enter a footnote.  Footnote text is printed at the bottom of the
-     page by TeX; Info may format in either `End' node or `Separate'
-     node style.  *Note Footnotes::.
-
-`@footnotestyle STYLE'
-     Specify an Info file's footnote style, either `end' for the end
-     node style or `separate' for the separate node style.  *Note
-     Footnotes::.
-
-`@format'
-     Begin a kind of example.  Like `@display', but do not narrow the
-     margins.  Pair with `@end format'.  *Note `@example': example.
-
-`@ftable FORMATTING-COMMAND'
-     Begin a two-column table, using `@item' for each entry.
-     Automatically enter each of the items in the first column into the
-     index of functions.  Pair with `@end ftable'.  The same as
-     `@table', except for indexing.  *Note `@ftable' and `@vtable':
-     ftable vtable.
-
-`@group'
-     Hold text together that must appear on one printed page.  Pair with
-     `@end group'.  Not relevant to Info.  *Note `@group': group.
-
-`@H{C}'
-     Generate the long Hungarian umlaut accent over C, as in o''.
-
-`@heading TITLE'
-     Print an unnumbered section-like heading in the text, but not in
-     the table of contents of a printed manual.  In Info, the title is
-     underlined with equal signs.  *Note Section Commands:
-     unnumberedsec appendixsec heading.
-
-`@headings ON-OFF-SINGLE-DOUBLE'
-     Turn page headings on or off, and/or specify single-sided or
-     double-sided page headings for printing.  *Note The `@headings'
-     Command: headings on off.
-
-`@html'
-     Enter HTML completely.  Pair with `@end html'.  *Note Raw
-     Formatter Commands::.
-
-`@hyphenation{HY-PHEN-A-TED WORDS}'
-     Explicitly define hyphenation points.  *Note `@-' and
-     `@hyphenation': - and hyphenation.
-
-`@i{TEXT}'
-     Print TEXT in italic font.  No effect in Info.  *Note Fonts::.
-
-`@ifclear FLAG'
-     If FLAG is cleared, the Texinfo formatting commands format text
-     between `@ifclear FLAG' and the following `@end ifclear' command.
-     *Note `@set' `@clear' `@value': set clear value.
-
-`@ifhtml'
-`@ifinfo'
-     Begin a stretch of text that will be ignored by TeX when it
-     typesets the printed manual.  The text appears only in the HTML
-     resp. Info file.  Pair with `@end ifhtml' resp. `@end ifinfo'.
-     *Note Conditionals::.
-
-`@ifnothtml'
-`@ifnotinfo'
-`@ifnottex'
-     Begin a stretch of text that will be ignored in one output format
-     but not the others.  The text appears only in the format not
-     specified.  Pair with `@end ifnothtml' resp. `@end ifnotinfo' resp.
-     `@end ifnotinfo'.  *Note Conditionals::.
-
-`@ifset FLAG'
-     If FLAG is set, the Texinfo formatting commands format text
-     between `@ifset FLAG' and the following `@end ifset' command.
-     *Note `@set' `@clear' `@value': set clear value.
-
-`@iftex'
-     Begin a stretch of text that will not appear in the Info file, but
-     will be processed only by TeX.  Pair with `@end iftex'.  *Note
-     Conditionally Visible Text: Conditionals.
-
-`@ignore'
-     Begin a stretch of text that will not appear in either the Info
-     file or the printed output.  Pair with `@end ignore'.  *Note
-     Comments and Ignored Text: Comments.
-
-`@image{FILENAME, [WIDTH], [HEIGHT]}'
-     Include graphics image in external FILENAME scaled to the given
-     WIDTH and/or HEIGHT.  *Note Images::.
-
-`@include FILENAME'
-     Incorporate the contents of the file FILENAME into the Info file
-     or printed document.  *Note Include Files::.
-
-`@inforef{NODE-NAME, [ENTRY-NAME], INFO-FILE-NAME}'
-     Make a cross reference to an Info file for which there is no
-     printed manual.  *Note Cross references using `@inforef': inforef.
-
-`\input MACRO-DEFINITIONS-FILE'
-     Use the specified macro definitions file.  This command is used
-     only in the first line of a Texinfo file to cause TeX to make use
-     of the `texinfo' macro definitions file.  The backslash in `\input'
-     is used instead of an `@' because TeX does not recognize `@' until
-     after it has read the definitions file.  *Note The Texinfo File
-     Header: Header.
-
-`@item'
-     Indicate the beginning of a marked paragraph for `@itemize' and
-     `@enumerate'; indicate the beginning of the text of a first column
-     entry for `@table', `@ftable', and `@vtable'.  *Note Lists and
-     Tables::.
-
-`@itemize  MARK-GENERATING-CHARACTER-OR-COMMAND'
-     Produce a sequence of indented paragraphs, with a mark inside the
-     left margin at the beginning of each paragraph.  Pair with `@end
-     itemize'.  *Note `@itemize': itemize.
-
-`@itemx'
-     Like `@item' but do not generate extra vertical space above the
-     item text.  *Note `@itemx': itemx.
-
-`@kbd{KEYBOARD-CHARACTERS}'
-     Indicate text that is characters of input to be typed by users.
-     *Note `@kbd': kbd.
-
-`@kbdinputstyle STYLE'
-     Specify when `@kbd' should use a font distinct from `@code'.
-     *Note `@kbd': kbd.
-
-`@key{KEY-NAME}'
-     Indicate a name for a key on a keyboard.  *Note `@key': key.
-
-`@kindex ENTRY'
-     Add ENTRY to the index of keys.  *Note Defining the Entries of an
-     Index: Index Entries.
-
-`@L{}'
-`@l{}'
-     Generate the uppercase and lowercase Polish suppressed-L letters,
-     respectively: /L, /l.
-
-`@lisp'
-     Begin an example of Lisp code.  Indent text, do not fill, and
-     select fixed-width font.  Pair with `@end lisp'.  *Note `@lisp':
-     lisp.
-
-`@lowersections'
-     Change subsequent chapters to sections, sections to subsections,
-     and so on. *Note `@raisesections' and `@lowersections':
-     Raise/lower sections.
-
-`@macro MACRONAME {PARAMS}'
-     Define a new Texinfo command `@MACRONAME{PARAMS}'.  Only supported
-     by `makeinfo' and `texi2dvi'.  *Note Defining Macros::.
-
-`@majorheading TITLE'
-     Print a chapter-like heading in the text, but not in the table of
-     contents of a printed manual.  Generate more vertical whitespace
-     before the heading than the `@chapheading' command.  In Info, the
-     chapter heading line is underlined with asterisks.  *Note
-     `@majorheading' and `@chapheading': majorheading & chapheading.
-
-`@math{MATHEMATICAL-EXPRESSION}'
-     Format a mathematical expression.  *Note `@math': Inserting
-     Mathematical Expressions: math.
-
-`@menu'
-     Mark the beginning of a menu of nodes in Info.  No effect in a
-     printed manual.  Pair with `@end menu'.  *Note Menus::.
-
-`@minus{}'
-     Generate a minus sign, `-'.  *Note `@minus': minus.
-
-`@multitable COLUMN-WIDTH-SPEC'
-     Begin a multi-column table.  Pair with `@end multitable'.  *Note
-     Multitable Column Widths::.
-
-`@need N'
-     Start a new page in a printed manual if fewer than N mils
-     (thousandths of an inch) remain on the current page.  *Note
-     `@need': need.
-
-`@node NAME, NEXT, PREVIOUS, UP'
-     Define the beginning of a new node in Info, and serve as a locator
-     for references for TeX.  *Note `@node': node.
-
-`@noindent'
-     Prevent text from being indented as if it were a new paragraph.
-     *Note `@noindent': noindent.
-
-`@novalidate'
-     Suppress validation of node references, omit creation of auxiliary
-     files with TeX.  Use before `@setfilename'.  *Note Pointer
-     Validation::.
-
-`@O{}'
-`@o{}'
-     Generate the uppercase and lowercase O-with-slash letters,
-     respectively: /O, /o.
-
-`@oddfooting [LEFT] @| [CENTER] @| [RIGHT]'
-`@oddheading [LEFT] @| [CENTER] @| [RIGHT]'
-     Specify page footings resp. headings for odd-numbered (right-hand)
-     pages.  Only allowed inside `@iftex'.  *Note How to Make Your Own
-     Headings: Custom Headings.
-
-`@OE{}'
-`@oe{}'
-     Generate the uppercase and lowercase OE ligatures, respectively:
-     OE, oe.  *Note Inserting Accents::.
-
-`@option{OPTION-NAME}'
-     Indicate a command-line option, such as `-l' or `--help'.  *Note
-     `@option': option.
-
-`@page'
-     Start a new page in a printed manual.  No effect in Info.  *Note
-     `@page': page.
-
-`@pagesizes [WIDTH][, HEIGHT]'
-     Change page dimensions.  *Note pagesizes::.
-
-`@paragraphindent INDENT'
-     Indent paragraphs by INDENT number of spaces (perhaps 0); preserve
-     source file indentation if INDENT is `asis'.  *Note Paragraph
-     Indenting: paragraphindent.
-
-`@pindex ENTRY'
-     Add ENTRY to the index of programs.  *Note Defining the Entries of
-     an Index: Index Entries.
-
-`@point{}'
-     Indicate the position of point in a buffer to the reader with a
-     glyph: `-!-'.  *Note Indicating Point in a Buffer: Point Glyph.
-
-`@pounds{}'
-     Generate the pounds sterling currency sign.  *Note `@pounds{}':
-     pounds.
-
-`@print{}'
-     Indicate printed output to the reader with a glyph: `-|'.  *Note
-     Print Glyph::.
-
-`@printindex INDEX-NAME'
-     Print an alphabetized two-column index in a printed manual or
-     generate an alphabetized menu of index entries for Info.  *Note
-     Printing Indices & Menus::.
-
-`@pxref{NODE-NAME, [ENTRY], [TOPIC-OR-TITLE], [INFO-FILE], [MANUAL]}'
-     Make a reference that starts with a lower case `see' in a printed
-     manual.  Use within parentheses only.  Do not follow command with a
-     punctuation mark--the Info formatting commands automatically insert
-     terminating punctuation as needed.  Only the first argument is
-     mandatory.  *Note `@pxref': pxref.
-
-`@questiondown{}'
-     Generate an upside-down question mark.  *Note Inserting Accents::.
-
-`@quotation'
-     Narrow the margins to indicate text that is quoted from another
-     real or imaginary work.  Write command on a line of its own.  Pair
-     with `@end quotation'.  *Note `@quotation': quotation.
-
-`@r{TEXT}'
-     Print TEXT in roman font.  No effect in Info.  *Note Fonts::.
-
-`@raisesections'
-     Change subsequent sections to chapters, subsections to sections,
-     and so on.  *Note `@raisesections' and `@lowersections':
-     Raise/lower sections.
-
-`@ref{NODE-NAME, [ENTRY], [TOPIC-OR-TITLE], [INFO-FILE], [MANUAL]}'
-     Make a reference.  In a printed manual, the reference does not
-     start with a `See'.  Follow command with a punctuation mark.  Only
-     the first argument is mandatory.  *Note `@ref': ref.
-
-`@refill'
-     In Info, refill and indent the paragraph after all the other
-     processing has been done.  No effect on TeX, which always refills.
-     This command is no longer needed, since all formatters now
-     automatically refill.  *Note Refilling Paragraphs::.
-
-`@result{}'
-     Indicate the result of an expression to the reader with a special
-     glyph: `=>'.  *Note `@result': result.
-
-`@ringaccent{C}'
-     Generate a ring accent over the next character, as in o*.  *Note
-     Inserting Accents::.
-
-`@samp{TEXT}'
-     Highlight TEXT that is a literal example of a sequence of
-     characters.  Used for single characters, for statements, and often
-     for entire shell commands.  *Note `@samp': samp.
-
-`@sc{TEXT}'
-     Set TEXT in a printed output in THE SMALL CAPS FONT and set text
-     in the Info file in uppercase letters.  *Note Smallcaps::.
-
-`@section TITLE'
-     Begin a section within a chapter.  In a printed manual, the section
-     title is numbered and appears in the table of contents.  In Info,
-     the title is underlined with equal signs.  *Note `@section':
-     section.
-
-`@set FLAG [STRING]'
-     Make FLAG active, causing the Texinfo formatting commands to
-     format text between subsequent pairs of `@ifset FLAG' and `@end
-     ifset' commands.  Optionally, set value of FLAG to STRING.  *Note
-     `@set' `@clear' `@value': set clear value.
-
-`@setchapternewpage ON-OFF-ODD'
-     Specify whether chapters start on new pages, and if so, whether on
-     odd-numbered (right-hand) new pages.  *Note `@setchapternewpage':
-     setchapternewpage.
-
-`@setcontentsaftertitlepage'
-     Put the table of contents after the `@end titlepage' even if the
-     `@contents' command is not there.  *Note Contents::.
-
-`@setfilename INFO-FILE-NAME'
-     Provide a name to be used by the Info file.  This command is
-     essential for TeX formatting as well, even though it produces no
-     output.  *Note `@setfilename': setfilename.
-
-`@setshortcontentsaftertitlepage'
-     Place the short table of contents after the `@end titlepage'
-     command even if the `@shortcontents' command is not there.  *Note
-     Contents::.
-
-`@settitle TITLE'
-     Provide a title for page headers in a printed manual.  *Note
-     `@settitle': settitle.
-
-`@shortcontents'
-     Print a short table of contents.  Not relevant to Info, which uses
-     menus rather than tables of contents.  A synonym for
-     `@summarycontents'.  *Note Generating a Table of Contents:
-     Contents.
-
-`@shorttitlepage TITLE'
-     Generate a minimal title page.  *Note `@titlepage': titlepage.
-
-`@smallbook'
-     Cause TeX to produce a printed manual in a 7 by 9.25 inch format
-     rather than the regular 8.5 by 11 inch format.  *Note Printing
-     Small Books: smallbook.  Also, see *Note small::.
-
-`@smalldisplay'
-     Begin a kind of example.  Like `@smallexample' (indent text, no
-     filling), but do not select the fixed-width font.  In `@smallbook'
-     format, print text in a smaller font than with `@display'.  Pair
-     with `@end smalldisplay'.  *Note small::.
-
-`@smallexample'
-     Indent text to indicate an example.  Do not fill, select
-     fixed-width font.  In `@smallbook' format, print text in a smaller
-     font than with `@example'.  Pair with `@end smallexample'.  *Note
-     small::.
-
-`@smallformat'
-     Begin a kind of example.  Like `@smalldisplay', but do not narrow
-     the margins and do not select the fixed-width font.  In
-     `@smallbook' format, print text in a smaller font than with
-     `@format'.  Pair with `@end smallformat'.  *Note small::.
-
-`@smalllisp'
-     Begin an example of Lisp code.  Indent text, do not fill, select
-     fixed-width font.  In `@smallbook' format, print text in a smaller
-     font.  Pair with `@end smalllisp'.  *Note small::.
-
-`@sp N'
-     Skip N blank lines.  *Note `@sp': sp.
-
-`@ss{}'
-     Generate the German sharp-S es-zet letter, ss.  *Note Inserting
-     Accents::.
-
-`@strong {TEXT}'
-     Emphasize TEXT by typesetting it in a *bold* font for the printed
-     manual and by surrounding it with asterisks for Info.  *Note
-     Emphasizing Text: emph & strong.
-
-`@subheading TITLE'
-     Print an unnumbered subsection-like heading in the text, but not in
-     the table of contents of a printed manual.  In Info, the title is
-     underlined with hyphens.  *Note `@unnumberedsubsec'
-     `@appendixsubsec' `@subheading': unnumberedsubsec appendixsubsec
-     subheading.
-
-`@subsection TITLE'
-     Begin a subsection within a section.  In a printed manual, the
-     subsection title is numbered and appears in the table of contents.
-     In Info, the title is underlined with hyphens.  *Note
-     `@subsection': subsection.
-
-`@subsubheading TITLE'
-     Print an unnumbered subsubsection-like heading in the text, but
-     not in the table of contents of a printed manual.  In Info, the
-     title is underlined with periods.  *Note The `subsub' Commands:
-     subsubsection.
-
-`@subsubsection TITLE'
-     Begin a subsubsection within a subsection.  In a printed manual,
-     the subsubsection title is numbered and appears in the table of
-     contents.  In Info, the title is underlined with periods.  *Note
-     The `subsub' Commands: subsubsection.
-
-`@subtitle TITLE'
-     In a printed manual, set a subtitle in a normal sized font flush to
-     the right-hand side of the page.  Not relevant to Info, which does
-     not have title pages.  *Note `@title' `@subtitle' and `@author'
-     Commands: title subtitle author.
-
-`@summarycontents'
-     Print a short table of contents.  Not relevant to Info, which uses
-     menus rather than tables of contents.  A synonym for
-     `@shortcontents'.  *Note Generating a Table of Contents: Contents.
-
-`@syncodeindex FROM-INDEX INTO-INDEX'
-     Merge the index named in the first argument into the index named in
-     the second argument, printing the entries from the first index in
-     `@code' font.  *Note Combining Indices::.
-
-`@synindex FROM-INDEX INTO-INDEX'
-     Merge the index named in the first argument into the index named in
-     the second argument.  Do not change the font of FROM-INDEX
-     entries.  *Note Combining Indices::.
-
-`@t{TEXT}'
-     Print TEXT in a fixed-width, typewriter-like font.  No effect in
-     Info.  *Note Fonts::.
-
-`@tab'
-     Separate columns in a multitable.  *Note Multitable Rows::.
-
-`@table FORMATTING-COMMAND'
-     Begin a two-column table, using `@item' for each entry.  Write
-     each first column entry on the same line as `@item'.  First column
-     entries are printed in the font resulting from FORMATTING-COMMAND.
-     Pair with `@end table'.  *Note Making a Two-column Table:
-     Two-column Tables.  Also see *Note `@ftable' and `@vtable': ftable
-     vtable, and *Note `@itemx': itemx.
-
-`@TeX{}'
-     Insert the logo TeX.  *Note Inserting TeX and (C): TeX and
-     copyright.
-
-`@tex'
-     Enter TeX completely.  Pair with `@end tex'.  *Note Raw Formatter
-     Commands::.
+  Here are some tips for writing Texinfo documentation:
+
+   * Write in the present tense, not in the past or the future.
+
+   * Write actively!  For example, write "We recommend that ..." rather
+     than "It is recommended that ...".
+
+   * Use 70 or 72 as your fill column.  Longer lines are hard to read.
+
+   * Include a copyright notice and copying permissions.
+
+Index, Index, Index!
+....................
+
+  Write many index entries, in different ways.  Readers like indices;
+they are helpful and convenient.
+
+  Although it is easiest to write index entries as you write the body of
+the text, some people prefer to write entries afterwards.  In either
+case, write an entry before the paragraph to which it applies.  This
+way, an index entry points to the first page of a paragraph that is
+split across pages.
+
+  Here are more hints we have found valuable:
+
+   * Write each index entry differently, so each entry refers to a
+     different place in the document.
+
+   * Write index entries only where a topic is discussed significantly.
+     For example, it is not useful to index "debugging information" in
+     a chapter on reporting bugs.  Someone who wants to know about
+     debugging information will certainly not find it in that chapter.
+
+   * Consistently capitalize the first word of every concept index
+     entry, or else consistently use lower case.  Terse entries often
+     call for lower case; longer entries for capitalization.  Whichever
+     case convention you use, please use one or the other consistently!
+     Mixing the two styles looks bad.
+
+   * Always capitalize or use upper case for those words in an index for
+     which this is proper, such as names of countries or acronyms.
+     Always use the appropriate case for case-sensitive names, such as
+     those in C or Lisp.
+
+   * Write the indexing commands that refer to a whole section
+     immediately after the section command, and write the indexing
+     commands that refer to the paragraph before the paragraph.
+
+     In the example that follows, a blank line comes after the index
+     entry for "Leaping":
+
+          @section The Dog and the Fox
+          @cindex Jumping, in general
+          @cindex Leaping
+          
+          @cindex Dog, lazy, jumped over
+          @cindex Lazy dog jumped over
+          @cindex Fox, jumps over dog
+          @cindex Quick fox jumps over dog
+          The quick brown fox jumps over the lazy dog.
+
+     (Note that the example shows entries for the same concept that are
+     written in different ways--`Lazy dog', and `Dog, lazy'--so readers
+     can look up the concept in different ways.)
+
+Blank Lines
+...........
+
+   * Insert a blank line between a sectioning command and the first
+     following sentence or paragraph, or between the indexing commands
+     associated with the sectioning command and the first following
+     sentence or paragraph, as shown in the tip on indexing.
+     Otherwise, a formatter may fold title and paragraph together.
+
+   * Always insert a blank line before an `@table' command and after an
+     `@end table' command; but never insert a blank line after an
+     `@table' command or before an `@end table' command.
+
+     For example,
+
+          Types of fox:
+          
+          @table @samp
+          @item Quick
+          Jump over lazy dogs.
+          
+          @item Brown
+          Also jump over lazy dogs.
+          @end table
+          @noindent
+          On the other hand, ...
+
+     Insert blank lines before and after `@itemize' ... `@end itemize'
+     and `@enumerate' ... `@end enumerate' in the same way.
+
+Complete Phrases
+................
+
+  Complete phrases are easier to read than ...
+
+   * Write entries in an itemized list as complete sentences; or at
+     least, as complete phrases.  Incomplete expressions ... awkward
+     ... like this.
+
+   * Write the prefatory sentence or phrase for a multi-item list or
+     table as a complete expression.  Do not write "You can set:";
+     instead, write "You can set these variables:".  The former
+     expression sounds cut off.
+
+Editions, Dates and Versions
+............................
+
+  Write the edition and version numbers and date in three places in
+every manual:
+
+  1. In the first `@ifinfo' section, for people reading the Texinfo
+     file.
+
+  2. In the `@titlepage' section, for people reading the printed manual.
+
+  3. In the `Top' node, for people reading the Info file.
+
+Also, it helps to write a note before the first `@ifinfo' section to
+explain what you are doing.
+
+For example:
+
+     @c ===> NOTE! <==
+     @c Specify the edition and version numbers and date
+     @c in *three* places:
+     @c   1. First ifinfo section  2. title page  3. top node
+     @c To find the locations, search for !!set
+     
+     @ifinfo
+     @c !!set edition, date, version
+     This is Edition 4.03, January 1992,
+     of the @cite{GDB Manual} for GDB Version 4.3.
+     ...
+
+--or use `@set' and `@value' (*note `@value' Example: value Example.).
+
+Definition Commands
+...................
+
+  Definition commands are `@deffn', `@defun', `@defmac', and the like,
+and enable you to write descriptions in a uniform format.
+
+   * Write just one definition command for each entity you define with a
+     definition command.  The automatic indexing feature creates an
+     index entry that leads the reader to the definition.
+
+   * Use `@table' ... `@end table' in an appendix that contains a
+     summary of functions, not `@deffn' or other definition commands.
+
+Capitalization
+..............
+
+   * Capitalize "Texinfo"; it is a name.  Do not write the `x' or `i'
+     in upper case.
+
+   * Capitalize "Info"; it is a name.
+
+   * Write TeX using the `@TeX{}' command.  Note the uppercase `T' and
+     `X'.  This command causes the formatters to typeset the name
+     according to the wishes of Donald Knuth, who wrote TeX.
+
+Spaces
+......
+
+  Do not use spaces to format a Texinfo file, except inside of
+`@example' ... `@end example' and similar commands.
+
+  For example, TeX fills the following:
+
+         @kbd{C-x v}
+         @kbd{M-x vc-next-action}
+            Perform the next logical operation
+            on the version-controlled file
+            corresponding to the current buffer.
+
+so it looks like this:
+
+     `C-x v' `M-x vc-next-action' Perform the next logical operation on
+     the version-controlled file corresponding to the current buffer.
+
+In this case, the text should be formatted with `@table', `@item', and
+`@itemx', to create a table.
+
+@code, @samp, @var, and `---'
+.............................
+
+   * Use `@code' around Lisp symbols, including command names.  For
+     example,
+
+          The main function is @code{vc-next-action}, ...
+
+   * Avoid putting letters such as `s' immediately after an `@code'.
+     Such letters look bad.
+
+   * Use `@var' around meta-variables.  Do not write angle brackets
+     around them.
+
+   * Use three hyphens in a row, `---', to indicate a long dash.  TeX
+     typesets these as a long dash and the Info formatters reduce three
+     hyphens to two.
+
+Periods Outside of Quotes
+.........................
+
+  Place periods and other punctuation marks _outside_ of quotations,
+unless the punctuation is part of the quotation.  This practice goes
+against publishing conventions in the United States, but enables the
+reader to distinguish between the contents of the quotation and the
+whole passage.
+
+  For example, you should write the following sentence with the period
+outside the end quotation marks:
+
+     Evidently, `au' is an abbreviation for ``author''.
+
+since `au' does _not_ serve as an  abbreviation for `author.' (with a
+period following the word).
+
+Introducing New Terms
+.....................
+
+   * Introduce new terms so that a reader who does not know them can
+     understand them from context; or write a definition for the term.
+
+     For example, in the following, the terms "check in", "register" and
+     "delta" are all appearing for the first time; the example sentence
+     should be rewritten so they are understandable.
+
+          The major function assists you in checking in a file to your
+          version control system and registering successive sets of
+          changes to it as deltas.
+
+   * Use the `@dfn' command around a word being introduced, to indicate
+     that the reader should not expect to know the meaning already, and
+     should expect to learn the meaning from this passage.
+
+@pxref
+......
+
+  Absolutely never use `@pxref' except in the special context for which
+it is designed: inside parentheses, with the closing parenthesis
+following immediately after the closing brace.  One formatter
+automatically inserts closing punctuation and the other does not.  This
+means that the output looks right both in printed output and in an Info
+file, but only when the command is used inside parentheses.
+
+Invoking from a Shell
+.....................
+
+  You can invoke programs such as Emacs, GCC, and `gawk' from a shell.
+The documentation for each program should contain a section that
+describes this.  Unfortunately, if the node names and titles for these
+sections are all different, readers find it hard to search for the
+section.
+
+  Name such sections with a phrase beginning with the word
+`Invoking ...', as in `Invoking Emacs'; this way users can find the
+section easily.
+
+ANSI C Syntax
+.............
+
+  When you use `@example' to describe a C function's calling
+conventions, use the ANSI C syntax, like this:
+
+     void dld_init (char *@var{path});
+
+And in the subsequent discussion, refer to the argument values by
+writing the same argument names, again highlighted with `@var'.
+
+  Avoid the obsolete style that looks like this:
+
+     #include <dld.h>
+     
+     dld_init (path)
+     char *path;
+
+  Also, it is best to avoid writing `#include' above the declaration
+just to indicate that the function is declared in a header file.  The
+practice may give the misimpression that the `#include' belongs near
+the declaration of the function.  Either state explicitly which header
+file holds the declaration or, better yet, name the header file used
+for a group of functions at the beginning of the section that describes
+the functions.
+
+Bad Examples
+............
+
+  Here are several examples of bad writing to avoid:
+
+  In this example, say, " ... you must `@dfn'{check in} the new
+version."  That flows better.
+
+     When you are done editing the file, you must perform a
+     `@dfn'{check in}.
+
+  In the following example, say, "... makes a unified interface such as
+VC mode possible."
+
+     SCCS, RCS and other version-control systems all perform similar
+     functions in broadly similar ways (it is this resemblance which
+     makes a unified control mode like this possible).
+
+  And in this example, you should specify what `it' refers to:
+
+     If you are working with other people, it assists in coordinating
+     everyone's changes so they do not step on each other.
+
+And Finally ...
+...............
+
+   * Pronounce TeX as if the `X' were a Greek `chi', as the last sound
+     in the name `Bach'.  But pronounce Texinfo as in `speck':
+     "teckinfo".
+
+   * Write notes for yourself at the very end of a Texinfo file after
+     the `@bye'.  None of the formatters process text after the `@bye';
+     it is as if the text were within `@ignore' ...  `@end ignore'.
+
+
+File: texinfo.info,  Node: Sample Texinfo File,  Next: Sample Permissions,  Prev: Tips,  Up: Top
+
+A Sample Texinfo File
+*********************
+
+  Here is a complete, short sample Texinfo file, without any commentary.
+You can see this file, with comments, in the first chapter.  *Note A
+Short Sample Texinfo File: Short Sample.
+
+
+     \input texinfo   @c -*-texinfo-*-
+     @c %**start of header
+     @setfilename sample.info
+     @settitle Sample Document
+     @c %**end of header
+     
+     @setchapternewpage odd
+     
+     @ifinfo
+     This is a short example of a complete Texinfo file.
+     
+     Copyright 1990 Free Software Foundation, Inc.
+     @end ifinfo
+     
+     @titlepage
+     @sp 10
+     @comment The title is printed in a large font.
+     @center @titlefont{Sample Title}
+     
+     @c The following two commands start the copyright page.
+     @page
+     @vskip 0pt plus 1filll
+     Copyright @copyright{} 1990 Free Software Foundation, Inc.
+     @end titlepage
+     
+     @node    Top,       First Chapter,         , (dir)
+     @comment node-name, next,          previous, up
+     
+     @menu
+     * First Chapter::    The first chapter is the
+                          only chapter in this sample.
+     * Concept Index::    This index has two entries.
+     @end menu
+     
+     @node    First Chapter, Concept Index, Top,      Top
+     @comment node-name,     next,          previous, up
+     @chapter First Chapter
+     @cindex Sample index entry
+     
+     This is the contents of the first chapter.
+     @cindex Another sample index entry
+     
+     Here is a numbered list.
+     
+     @enumerate
+     @item
+     This is the first item.
+     
+     @item
+     This is the second item.
+     @end enumerate
+     
+     The @code{makeinfo} and @code{texinfo-format-buffer}
+     commands transform a Texinfo file such as this into
+     an Info file; and @TeX{} typesets it for a printed
+     manual.
+     
+     @node    Concept Index,    ,  First Chapter, Top
+     @comment node-name,    next,  previous,      up
+     @unnumbered Concept Index
+     
+     @printindex cp
+     
+     @contents
+     @bye
+
+
+File: texinfo.info,  Node: Sample Permissions,  Next: Include Files,  Prev: Sample Texinfo File,  Up: Top
+
+Sample Permissions
+******************
+
+  Texinfo files should contain sections that tell the readers that they
+have the right to copy and distribute the Texinfo file, the Info file,
+and the printed manual.
+
+  Also, if you are writing a manual about software, you should explain
+that the software is free and either include the GNU General Public
+License (GPL) or provide a reference to it.  *Note Distribution:
+(xemacs)Distrib, for an example of the text that could be used in the
+software "Distribution", "General Public License", and "NO WARRANTY"
+sections of a document.  *Note Texinfo Copying Conditions: Copying, for
+an example of a brief explanation of how the copying conditions provide
+you with rights.
+
+* Menu:
+
+* Inserting Permissions::       How to put permissions in your document.
+* ifinfo Permissions::          Sample `ifinfo' copying permissions.
+* Titlepage Permissions::       Sample Titlepage copying permissions.
+
+
+File: texinfo.info,  Node: Inserting Permissions,  Next: ifinfo Permissions,  Prev: Sample Permissions,  Up: Sample Permissions
+
+Inserting Permissions
+=====================
+
+  In a Texinfo file, the first `@ifinfo' section usually begins with a
+line that says what the file documents.  This is what a person reading
+the unprocessed Texinfo file or using the advanced Info command `g *'
+sees first.  *note Advanced Info commands: (info)Expert, for more
+information. (A reader using the regular Info commands usually starts
+reading at the first node and skips this first section, which is not in
+a node.)
+
+  In the `@ifinfo' section, the summary sentence is followed by a
+copyright notice and then by the copying permission notice.  One of the
+copying permission paragraphs is enclosed in `@ignore' and `@end
+ignore' commands.  This paragraph states that the Texinfo file can be
+processed through TeX and printed, provided the printed manual carries
+the proper copying permission notice.  This paragraph is not made part
+of the Info file since it is not relevant to the Info file; but it is a
+mandatory part of the Texinfo file since it permits people to process
+the Texinfo file in TeX and print the results.
+
+  In the printed manual, the Free Software Foundation copying permission
+notice follows the copyright notice and publishing information and is
+located within the region delineated by the `@titlepage' and `@end
+titlepage' commands.  The copying permission notice is exactly the same
+as the notice in the `@ifinfo' section except that the paragraph
+enclosed in `@ignore' and `@end ignore' commands is not part of the
+notice.
+
+  To make it simple to insert a permission notice into each section of
+the Texinfo file, sample permission notices for each section are
+reproduced in full below.
+
+  Note that you may need to specify the correct name of a section
+mentioned in the permission notice.  For example, in `The GDB Manual',
+the name of the section referring to the General Public License is
+called the "GDB General Public License", but in the sample shown below,
+that section is referred to generically as the "GNU General Public
+License".  If the Texinfo file does not carry a copy of the General
+Public License, leave out the reference to it, but be sure to include
+the rest of the sentence.
+
+
+File: texinfo.info,  Node: ifinfo Permissions,  Next: Titlepage Permissions,  Prev: Inserting Permissions,  Up: Sample Permissions
+
+`ifinfo' Copying Permissions
+============================
+
+  In the `@ifinfo' section of a Texinfo file, the standard Free
+Software Foundation permission notice reads as follows:
+
+     This file documents ...
+     
+     Copyright 1998 Free Software Foundation, Inc.
+     
+     Permission is granted to make and distribute verbatim
+     copies of this manual provided the copyright notice and
+     this permission notice are preserved on all copies.
+     
+     @ignore
+     Permission is granted to process this file through TeX
+     and print the results, provided the printed document
+     carries a copying permission notice identical to this
+     one except for the removal of this paragraph (this
+     paragraph not being relevant to the printed manual).
+     
+     @end ignore
+     Permission is granted to copy and distribute modified
+     versions of this manual under the conditions for
+     verbatim copying, provided also that the sections
+     entitled ``Copying'' and ``GNU General Public License''
+     are included exactly as in the original, and provided
+     that the entire resulting derived work is distributed
+     under the terms of a permission notice identical to this
+     one.
+     
+     Permission is granted to copy and distribute
+     translations of this manual into another language,
+     under the above conditions for modified versions,
+     except that this permission notice may be stated in a
+     translation approved by the Free Software Foundation.
+
+
+File: texinfo.info,  Node: Titlepage Permissions,  Prev: ifinfo Permissions,  Up: Sample Permissions
+
+Titlepage Copying Permissions
+=============================
+
+  In the `@titlepage' section of a Texinfo file, the standard Free
+Software Foundation copying permission notice follows the copyright
+notice and publishing information.  The standard phrasing is as follows:
+
+     Permission is granted to make and distribute verbatim
+     copies of this manual provided the copyright notice and
+     this permission notice are preserved on all copies.
+     
+     Permission is granted to copy and distribute modified
+     versions of this manual under the conditions for
+     verbatim copying, provided also that the sections
+     entitled ``Copying'' and ``GNU General Public License''
+     are included exactly as in the original, and provided
+     that the entire resulting derived work is distributed
+     under the terms of a permission notice identical to this
+     one.
+     
+     Permission is granted to copy and distribute
+     translations of this manual into another language,
+     under the above conditions for modified versions,
+     except that this permission notice may be stated in a
+     translation approved by the Free Software Foundation.
+
+
+File: texinfo.info,  Node: Include Files,  Next: Headings,  Prev: Sample Permissions,  Up: Top
+
+Include Files
+*************
+
+  When TeX or an Info formatting command sees an `@include' command in
+a Texinfo file, it processes the contents of the file named by the
+command and incorporates them into the DVI or Info file being created.
+Index entries from the included file are incorporated into the indices
+of the output file.
+
+  Include files let you keep a single large document as a collection of
+conveniently small parts.
+
+* Menu:
+
+* Using Include Files::         How to use the `@include' command.
+* texinfo-multiple-files-update::  How to create and update nodes and
+                                  menus when using included files.
+* Include File Requirements::   What `texinfo-multiple-files-update' expects.
+* Sample Include File::         A sample outer file with included files
+                                  within it; and a sample included file.
+* Include Files Evolution::     How use of the `@include' command
+                                  has changed over time.
+
+
+File: texinfo.info,  Node: Using Include Files,  Next: texinfo-multiple-files-update,  Prev: Include Files,  Up: Include Files
+
+How to Use Include Files
+========================
+
+  To include another file within a Texinfo file, write the `@include'
+command at the beginning of a line and follow it on the same line by
+the name of a file to be included.  For example:
+
+     @include buffers.texi
+
+  An included file should simply be a segment of text that you expect to
+be included as is into the overall or "outer" Texinfo file; it should
+not contain the standard beginning and end parts of a Texinfo file.  In
+particular, you should not start an included file with a line saying
+`\input texinfo'; if you do, that phrase is inserted into the output
+file as is.  Likewise, you should not end an included file with an
+`@bye' command; nothing after `@bye' is formatted.
+
+  In the past, you were required to write an `@setfilename' line at the
+beginning of an included file, but no longer.  Now, it does not matter
+whether you write such a line.  If an `@setfilename' line exists in an
+included file, it is ignored.
+
+  Conventionally, an included file begins with an `@node' line that is
+followed by an `@chapter' line.  Each included file is one chapter.
+This makes it easy to use the regular node and menu creating and
+updating commands to create the node pointers and menus within the
+included file.  However, the simple Emacs node and menu creating and
+updating commands do not work with multiple Texinfo files.  Thus you
+cannot use these commands to fill in the `Next', `Previous', and `Up'
+pointers of the `@node' line that begins the included file.  Also, you
+cannot use the regular commands to create a master menu for the whole
+file.  Either you must insert the menus and the `Next', `Previous', and
+`Up' pointers by hand, or you must use the GNU Emacs Texinfo mode
+command, `texinfo-multiple-files-update', that is designed for
+`@include' files.
+
+
+File: texinfo.info,  Node: texinfo-multiple-files-update,  Next: Include File Requirements,  Prev: Using Include Files,  Up: Include Files
+
+`texinfo-multiple-files-update'
+===============================
+
+  GNU Emacs Texinfo mode provides the `texinfo-multiple-files-update'
+command.  This command creates or updates `Next', `Previous', and `Up'
+pointers of included files as well as those in the outer or overall
+Texinfo file, and it creates or updates a main menu in the outer file.
+Depending whether you call it with optional arguments, the command
+updates only the pointers in the first `@node' line of the included
+files or all of them:
+
+`M-x texinfo-multiple-files-update'
+     Called without any arguments:
+
+        - Create or update the `Next', `Previous', and `Up' pointers of
+          the first `@node' line in each file included in an outer or
+          overall Texinfo file.
+
+        - Create or update the `Top' level node pointers of the outer or
+          overall file.
+
+        - Create or update a main menu in the outer file.
+
+`C-u M-x texinfo-multiple-files-update'
+     Called with `C-u' as a prefix argument:
+
+        - Create or update pointers in the first `@node' line in each
+          included file.
+
+        - Create or update the `Top' level node pointers of the outer
+          file.
+
+        - Create and insert a master menu in the outer file.  The
+          master menu is made from all the menus in all the included
+          files.
+
+`C-u 8 M-x texinfo-multiple-files-update'
+     Called with a numeric prefix argument, such as `C-u 8':
+
+        - Create or update *all* the `Next', `Previous', and `Up'
+          pointers of all the included files.
+
+        - Create or update *all* the menus of all the included files.
+
+        - Create or update the `Top' level node pointers of the outer or
+          overall file.
+
+        - And then create a master menu in the outer file.  This is
+          similar to invoking `texinfo-master-menu' with an argument
+          when you are working with just one file.
+
+  Note the use of the prefix argument in interactive use: with a regular
+prefix argument, just `C-u', the `texinfo-multiple-files-update'
+command inserts a master menu; with a numeric prefix argument, such as
+`C-u 8', the command updates *every* pointer and menu in *all* the
+files and then inserts a master menu.
+
+
+File: texinfo.info,  Node: Include File Requirements,  Next: Sample Include File,  Prev: texinfo-multiple-files-update,  Up: Include Files
+
+Include File Requirements
+=========================
+
+  If you plan to use the `texinfo-multiple-files-update' command, the
+outer Texinfo file that lists included files within it should contain
+nothing but the beginning and end parts of a Texinfo file, and a number
+of `@include' commands listing the included files.  It should not even
+include indices, which should be listed in an included file of their
+own.
+
+  Moreover, each of the included files must contain exactly one highest
+level node (conventionally, `@chapter' or equivalent), and this node
+must be the first node in the included file.  Furthermore, each of
+these highest level nodes in each included file must be at the same
+hierarchical level in the file structure.  Usually, each is an
+`@chapter', an `@appendix', or an `@unnumbered' node.  Thus, normally,
+each included file contains one, and only one, chapter or
+equivalent-level node.
+
+  The outer file should contain only _one_ node, the `Top' node.  It
+should _not_ contain any nodes besides the single `Top' node.  The
+`texinfo-multiple-files-update' command will not process them.
+
+
+File: texinfo.info,  Node: Sample Include File,  Next: Include Files Evolution,  Prev: Include File Requirements,  Up: Include Files
+
+Sample File with `@include'
+===========================
+
+  Here is an example of a complete outer Texinfo file with `@include'
+files within it before running `texinfo-multiple-files-update', which
+would insert a main or master menu:
+
+     \input texinfo @c -*-texinfo-*-
+     @setfilename  include-example.info
+     @settitle Include Example
+     
+     @setchapternewpage odd
+     @titlepage
+     @sp 12
+     @center @titlefont{Include Example}
+     @sp 2
+     @center by Whom Ever
+     
+     @page
+     @vskip 0pt plus 1filll
+     Copyright @copyright{} 1998 Free Software Foundation, Inc.
+     @end titlepage
+     
+     @ifinfo
+     @node Top, First, , (dir)
+     @top Master Menu
+     @end ifinfo
+     
+     @include foo.texinfo
+     @include bar.texinfo
+     @include concept-index.texinfo
+     
+     @summarycontents
+     @contents
+     
+     @bye
+
+  An included file, such as `foo.texinfo', might look like this:
+
+     @node First, Second, , Top
+     @chapter First Chapter
+     
+     Contents of first chapter ...
+
+  The full contents of `concept-index.texinfo' might be as simple as
+this:
+
+     @node Concept Index, , Second, Top
+     @unnumbered Concept Index
+     
+     @printindex cp
+
+  The outer Texinfo source file for `The XEmacs Lisp Reference Manual'
+is named `elisp.texi'.  This outer file contains a master menu with 417
+entries and a list of 41 `@include' files.
+
+
+File: texinfo.info,  Node: Include Files Evolution,  Prev: Sample Include File,  Up: Include Files
+
+Evolution of Include Files
+==========================
+
+  When Info was first created, it was customary to create many small
+Info files on one subject.  Each Info file was formatted from its own
+Texinfo source file.  This custom meant that Emacs did not need to make
+a large buffer to hold the whole of a large Info file when someone
+wanted information; instead, Emacs allocated just enough memory for the
+small Info file that contained the particular information sought.  This
+way, Emacs could avoid wasting memory.
+
+  References from one file to another were made by referring to the file
+name as well as the node name. (*Note Referring to Other Info Files:
+Other Info Files.  Also, see *Note `@xref' with Four and Five
+Arguments: Four and Five Arguments.)
+
+  Include files were designed primarily as a way to create a single,
+large printed manual out of several smaller Info files.  In a printed
+manual, all the references were within the same document, so TeX could
+automatically determine the references' page numbers.  The Info
+formatting commands used include files only for creating joint indices;
+each of the individual Texinfo files had to be formatted for Info
+individually.  (Each, therefore, required its own `@setfilename' line.)
+
+  However, because large Info files are now split automatically, it is
+no longer necessary to keep them small.
+
+  Nowadays, multiple Texinfo files are used mostly for large documents,
+such as `The XEmacs Lisp Reference Manual', and for projects in which
+several different people write different sections of a document
+simultaneously.
+
+  In addition, the Info formatting commands have been extended to work
+with the `@include' command so as to create a single large Info file
+that is split into smaller files if necessary.  This means that you can
+write menus and cross references without naming the different Texinfo
+files.
+
+
+File: texinfo.info,  Node: Headings,  Next: Catching Mistakes,  Prev: Include Files,  Up: Top
+
+Page Headings
+*************
+
+  Most printed manuals contain headings along the top of every page
+except the title and copyright pages.  Some manuals also contain
+footings.  (Headings and footings have no meaning to Info, which is not
+paginated.)
+
+* Menu:
+
+* Headings Introduced::         Conventions for using page headings.
+* Heading Format::              Standard page heading formats.
+* Heading Choice::              How to specify the type of page heading.
+* Custom Headings::             How to create your own headings and footings.
+
+
+File: texinfo.info,  Node: Headings Introduced,  Next: Heading Format,  Prev: Headings,  Up: Headings
+
+Headings Introduced
+===================
+
+  Texinfo provides standard page heading formats for manuals that are
+printed on one side of each sheet of paper and for manuals that are
+printed on both sides of the paper.  Typically, you will use these
+formats, but you can specify your own format if you wish.
+
+  In addition, you can specify whether chapters should begin on a new
+page, or merely continue the same page as the previous chapter; and if
+chapters begin on new pages, you can specify whether they must be
+odd-numbered pages.
+
+  By convention, a book is printed on both sides of each sheet of paper.
+When you open a book, the right-hand page is odd-numbered, and chapters
+begin on right-hand pages--a preceding left-hand page is left blank if
+necessary.  Reports, however, are often printed on just one side of
+paper, and chapters begin on a fresh page immediately following the end
+of the preceding chapter.  In short or informal reports, chapters often
+do not begin on a new page at all, but are separated from the preceding
+text by a small amount of whitespace.
+
+  The `@setchapternewpage' command controls whether chapters begin on
+new pages, and whether one of the standard heading formats is used.  In
+addition, Texinfo has several heading and footing commands that you can
+use to generate your own heading and footing formats.
+
+  In Texinfo, headings and footings are single lines at the tops and
+bottoms of pages; you cannot create multiline headings or footings.
+Each header or footer line is divided into three parts: a left part, a
+middle part, and a right part.  Any part, or a whole line, may be left
+blank.  Text for the left part of a header or footer line is set
+flushleft; text for the middle part is centered; and, text for the
+right part is set flushright.
+
+
+File: texinfo.info,  Node: Heading Format,  Next: Heading Choice,  Prev: Headings Introduced,  Up: Headings
+
+Standard Heading Formats
+========================
+
+  Texinfo provides two standard heading formats, one for manuals printed
+on one side of each sheet of paper, and the other for manuals printed
+on both sides of the paper.
+
+  By default, nothing is specified for the footing of a Texinfo file,
+so the footing remains blank.
+
+  The standard format for single-sided printing consists of a header
+line in which the left-hand part contains the name of the chapter, the
+central part is blank, and the right-hand part contains the page number.
+
+  A single-sided page looks like this:
+
+        _______________________
+       |                       |
+       | chapter   page number |
+       |                       |
+       | Start of text ...     |
+       | ...                   |
+       |                       |
+
+  The standard format for two-sided printing depends on whether the page
+number is even or odd.  By convention, even-numbered pages are on the
+left- and odd-numbered pages are on the right.  (TeX will adjust the
+widths of the left- and right-hand margins.  Usually, widths are
+correct, but during double-sided printing, it is wise to check that
+pages will bind properly--sometimes a printer will produce output in
+which the even-numbered pages have a larger right-hand margin than the
+odd-numbered pages.)
+
+  In the standard double-sided format, the left part of the left-hand
+(even-numbered) page contains the page number, the central part is
+blank, and the right part contains the title (specified by the
+`@settitle' command).  The left part of the right-hand (odd-numbered)
+page contains the name of the chapter, the central part is blank, and
+the right part contains the page number.
+
+  Two pages, side by side as in an open book, look like this:
+
+        _______________________     _______________________
+       |                       |   |                       |
+       | page number     title |   | chapter   page number |
+       |                       |   |                       |
+       | Start of text ...     |   | More  text ...        |
+       | ...                   |   | ...                   |
+       |                       |   |                       |
+
+The chapter name is preceded by the word "Chapter", the chapter number
+and a colon.  This makes it easier to keep track of where you are in the
+manual.
+
+
+File: texinfo.info,  Node: Heading Choice,  Next: Custom Headings,  Prev: Heading Format,  Up: Headings
+
+Specifying the Type of Heading
+==============================
+
+  TeX does not begin to generate page headings for a standard Texinfo
+file until it reaches the `@end titlepage' command.  Thus, the title
+and copyright pages are not numbered.  The `@end titlepage' command
+causes TeX to begin to generate page headings according to a standard
+format specified by the `@setchapternewpage' command that precedes the
+`@titlepage' section.
+
+  There are four possibilities:
+
+No `@setchapternewpage' command
+     Cause TeX to specify the single-sided heading format, with chapters
+     on new pages. This is the same as `@setchapternewpage on'.
+
+`@setchapternewpage on'
+     Specify the single-sided heading format, with chapters on new
+     pages.
+
+`@setchapternewpage off'
+     Cause TeX to start a new chapter on the same page as the last page
+     of the preceding chapter, after skipping some vertical whitespace.
+     Also cause TeX to typeset for single-sided printing.  (You can
+     override the headers format with the `@headings double' command;
+     see *Note The `@headings' Command: headings on off.)
+
+`@setchapternewpage odd'
+     Specify the double-sided heading format, with chapters on new
+     pages.
+
+Texinfo lacks an `@setchapternewpage even' command.
+
+
+File: texinfo.info,  Node: Custom Headings,  Prev: Heading Choice,  Up: Headings
+
+How to Make Your Own Headings
+=============================
+
+  You can use the standard headings provided with Texinfo or specify
+your own.  By default, Texinfo has no footers, so if you specify them,
+the available page size for the main text will be slightly reduced.
+
+  Texinfo provides six commands for specifying headings and footings.
+The `@everyheading' command and `@everyfooting' command generate page
+headers and footers that are the same for both even- and odd-numbered
+pages.  The `@evenheading' command and `@evenfooting' command generate
+headers and footers for even-numbered (left-hand) pages; and the
+`@oddheading' command and `@oddfooting' command generate headers and
+footers for odd-numbered (right-hand) pages.
+
+  Write custom heading specifications in the Texinfo file immediately
+after the `@end titlepage' command.  Enclose your specifications
+between `@iftex' and `@end iftex' commands since the
+`texinfo-format-buffer' command may not recognize them.  Also, you must
+cancel the predefined heading commands with the `@headings off' command
+before defining your own specifications.
+
+  Here is how to tell TeX to place the chapter name at the left, the
+page number in the center, and the date at the right of every header
+for both even- and odd-numbered pages:
+
+     @iftex
+     @headings off
+     @everyheading @thischapter @| @thispage @| @today{}
+     @end iftex
+
+You need to divide the left part from the central part and the central
+part from the right part by inserting `@|' between parts.  Otherwise,
+the specification command will not be able to tell where the text for
+one part ends and the next part begins.
+
+  Each part can contain text or @-commands.  The text is printed as if
+the part were within an ordinary paragraph in the body of the page.
+The @-commands replace themselves with the page number, date, chapter
+name, or whatever.
+
+  Here are the six heading and footing commands:
+
+`@everyheading LEFT @| CENTER @| RIGHT'
+`@everyfooting LEFT @| CENTER @| RIGHT'
+     The `every' commands specify the format for both even- and
+     odd-numbered pages.  These commands are for documents that are
+     printed on one side of each sheet of paper, or for documents in
+     which you want symmetrical headers or footers.
+
+`@evenheading LEFT @| CENTER @| RIGHT'
+`@oddheading  LEFT @| CENTER @| RIGHT'
+`@evenfooting LEFT @| CENTER @| RIGHT'
+`@oddfooting  LEFT @| CENTER @| RIGHT'
+     The `even' and `odd' commands specify the format for even-numbered
+     pages and odd-numbered pages.  These commands are for books and
+     manuals that are printed on both sides of each sheet of paper.
+
+  Use the `@this...' series of @-commands to provide the names of
+chapters and sections and the page number.  You can use the `@this...'
+commands in the left, center, or right portions of headers and footers,
+or anywhere else in a Texinfo file so long as they are between `@iftex'
+and `@end iftex' commands.
+
+  Here are the `@this...' commands:
+
+`@thispage'
+     Expands to the current page number.
+
+`@thischaptername'
+     Expands to the name of the current chapter.
 
 `@thischapter'
-`@thischaptername'
-`@thisfile'
-`@thispage'
+     Expands to the number and name of the current chapter, in the
+     format `Chapter 1: Title'.
+
 `@thistitle'
-     Only allowed in a heading or footing.  Stands for the number and
-     name of the current chapter (in the format `Chapter 1: Title'),
-     the chapter name only, the filename, the current page number, and
-     the title of the document, respectively.  *Note How to Make Your
-     Own Headings: Custom Headings.
+     Expands to the name of the document, as specified by the
+     `@settitle' command.
 
-`@tieaccent{CC}'
-     Generate a tie-after accent over the next two characters CC, as in
-     `oo['.  *Note Inserting Accents::.
+`@thisfile'
+     For `@include' files only: expands to the name of the current
+     `@include' file.  If the current Texinfo source file is not an
+     `@include' file, this command has no effect.  This command does
+     _not_ provide the name of the current Texinfo source file unless
+     it is an `@include' file.  (*Note Include Files::, for more
+     information about `@include' files.)
 
-`@tindex ENTRY'
-     Add ENTRY to the index of data types.  *Note Defining the Entries
-     of an Index: Index Entries.
+You can also use the `@today{}' command, which expands to the current
+date, in `1 Jan 1900' format.
 
-`@title TITLE'
-     In a printed manual, set a title flush to the left-hand side of the
-     page in a larger than normal font and underline it with a black
-     rule.  Not relevant to Info, which does not have title pages.
-     *Note The `@title' `@subtitle' and `@author' Commands: title
-     subtitle author.
+  Other @-commands and text are printed in a header or footer just as
+if they were in the body of a page.  It is useful to incorporate text,
+particularly when you are writing drafts:
 
-`@titlefont{TEXT}'
-     In a printed manual, print TEXT in a larger than normal font.  Not
-     relevant to Info, which does not have title pages.  *Note The
-     `@titlefont' `@center' and `@sp' Commands: titlefont center sp.
+     @iftex
+     @headings off
+     @everyheading @emph{Draft!} @| @thispage @| @thischapter
+     @everyfooting @| @| Version: 0.27: @today{}
+     @end iftex
 
-`@titlepage'
-     Indicate to Texinfo the beginning of the title page.  Write
-     command on a line of its own.  Pair with `@end titlepage'.
-     Nothing between `@titlepage' and `@end titlepage' appears in Info.
-     *Note `@titlepage': titlepage.
+  Beware of overlong titles: they may overlap another part of the
+header or footer and blot it out.
 
-`@today{}'
-     Insert the current date, in `1 Jan 1900' style.  *Note How to Make
-     Your Own Headings: Custom Headings.
+
+File: texinfo.info,  Node: Catching Mistakes,  Next: Refilling Paragraphs,  Prev: Headings,  Up: Top
 
-`@top TITLE'
-     In a Texinfo file to be formatted with `makeinfo', identify the
-     topmost `@node' line in the file, which must be written on the line
-     immediately preceding the `@top' command.  Used for `makeinfo''s
-     node pointer insertion feature.  The title is underlined with
-     asterisks.  Both the `@node' line and the `@top' line normally
-     should be enclosed by `@ifinfo' and `@end ifinfo'.  In TeX and
-     `texinfo-format-buffer', the `@top' command is merely a synonym
-     for `@unnumbered'.  *Note Creating Pointers with `makeinfo':
-     makeinfo Pointer Creation.
+Formatting Mistakes
+*******************
 
-`@u{C}'
-`@ubaraccent{C}'
-`@udotaccent{C}'
-     Generate a breve, underbar, or underdot accent, respectively, over
-     or under the character C, as in o(, o_, .o.  *Note Inserting
-     Accents::.
+  Besides mistakes in the content of your documentation, there are two
+kinds of mistake you can make with Texinfo:  you can make mistakes with
+@-commands, and you can make mistakes with the structure of the nodes
+and chapters.
 
-`@unnumbered TITLE'
-     In a printed manual, begin a chapter that appears without chapter
-     numbers of any kind.  The title appears in the table of contents
-     of a printed manual.  In Info, the title is underlined with
-     asterisks.  *Note `@unnumbered' and `@appendix': unnumbered &
-     appendix.
+  Emacs has two tools for catching the @-command mistakes and two for
+catching structuring mistakes.
 
-`@unnumberedsec TITLE'
-     In a printed manual, begin a section that appears without section
-     numbers of any kind.  The title appears in the table of contents
-     of a printed manual.  In Info, the title is underlined with equal
-     signs.  *Note Section Commands: unnumberedsec appendixsec heading.
+  For finding problems with @-commands, you can run TeX or a region
+formatting command on the region that has a problem; indeed, you can
+run these commands on each region as you write it.
 
-`@unnumberedsubsec TITLE'
-     In a printed manual, begin an unnumbered subsection within a
-     chapter.  The title appears in the table of contents of a printed
-     manual.  In Info, the title is underlined with hyphens.  *Note
-     `@unnumberedsubsec' `@appendixsubsec' `@subheading':
-     unnumberedsubsec appendixsubsec subheading.
+  For finding problems with the structure of nodes and chapters, you
+can use `C-c C-s' (`texinfo-show-structure') and the related `occur'
+command and you can use the `M-x Info-validate' command.
 
-`@unnumberedsubsubsec TITLE'
-     In a printed manual, begin an unnumbered subsubsection within a
-     chapter.  The title appears in the table of contents of a printed
-     manual.  In Info, the title is underlined with periods.  *Note The
-     `subsub' Commands: subsubsection.
+* Menu:
 
-`@uref{URL[, DISPLAYED-TEXT][, REPLACEMENT}'
-     Define a cross reference to an external uniform resource locator
-     for the World Wide Web.  *Note `@uref': uref.
+* makeinfo Preferred::          `makeinfo' finds errors.
+* Debugging with Info::         How to catch errors with Info formatting.
+* Debugging with TeX::          How to catch errors with TeX formatting.
+* Using texinfo-show-structure::  How to use `texinfo-show-structure'.
+* Using occur::                 How to list all lines containing a pattern.
+* Running Info-Validate::       How to find badly referenced nodes.
 
-`@url{URL}'
-     Indicate text that is a uniform resource locator for the World Wide
-     Web.  *Note `@url': url.
+
+File: texinfo.info,  Node: makeinfo Preferred,  Next: Debugging with Info,  Prev: Catching Mistakes,  Up: Catching Mistakes
 
-`@v{C}'
-     Generate check accent over the character C, as in o<.  *Note
-     Inserting Accents::.
+`makeinfo' Find Errors
+======================
 
-`@value{FLAG}'
-     Replace FLAG with the value to which it is set by `@set FLAG'.
-     *Note `@set' `@clear' `@value': set clear value.
+  The `makeinfo' program does an excellent job of catching errors and
+reporting them--far better than `texinfo-format-region' or
+`texinfo-format-buffer'.  In addition, the various functions for
+automatically creating and updating node pointers and menus remove many
+opportunities for human error.
 
-`@var{METASYNTACTIC-VARIABLE}'
-     Highlight a metasyntactic variable, which is something that stands
-     for another piece of text.  *Note Indicating Metasyntactic
-     Variables: var.
+  If you can, use the updating commands to create and insert pointers
+and menus.  These prevent many errors.  Then use `makeinfo' (or its
+Texinfo mode manifestations, `makeinfo-region' and `makeinfo-buffer')
+to format your file and check for other errors.  This is the best way
+to work with Texinfo.  But if you cannot use `makeinfo', or your
+problem is very puzzling, then you may want to use the tools described
+in this appendix.
 
-`@vindex ENTRY'
-     Add ENTRY to the index of variables.  *Note Defining the Entries
-     of an Index: Index Entries.
+
+File: texinfo.info,  Node: Debugging with Info,  Next: Debugging with TeX,  Prev: makeinfo Preferred,  Up: Catching Mistakes
 
-`@vskip AMOUNT'
-     In a printed manual, insert whitespace so as to push text on the
-     remainder of the page towards the bottom of the page.  Used in
-     formatting the copyright page with the argument `0pt plus 1filll'.
-     (Note spelling of `filll'.)  `@vskip' may be used only in
-     contexts ignored for Info.  *Note The Copyright Page and Printed
-     Permissions: Copyright & Permissions.
+Catching Errors with Info Formatting
+====================================
 
-`@vtable FORMATTING-COMMAND'
-     Begin a two-column table, using `@item' for each entry.
-     Automatically enter each of the items in the first column into the
-     index of variables.  Pair with `@end vtable'.  The same as
-     `@table', except for indexing.  *Note `@ftable' and `@vtable':
-     ftable vtable.
+  After you have written part of a Texinfo file, you can use the
+`texinfo-format-region' or the `makeinfo-region' command to see whether
+the region formats properly.
 
-`@w{TEXT}'
-     Prevent TEXT from being split across two lines.  Do not end a
-     paragraph that uses `@w' with an `@refill' command.  *Note `@w': w.
+  Most likely, however, you are reading this section because for some
+reason you cannot use the `makeinfo-region' command; therefore, the
+rest of this section presumes that you are using
+`texinfo-format-region'.
 
-`@xref{NODE-NAME, [ENTRY], [TOPIC-OR-TITLE], [INFO-FILE], [MANUAL]}'
-     Make a reference that starts with `See' in a printed manual.
-     Follow command with a punctuation mark.  Only the first argument is
-     mandatory.  *Note `@xref': xref.
+  If you have made a mistake with an @-command, `texinfo-format-region'
+will stop processing at or after the error and display an error
+message.  To see where in the buffer the error occurred, switch to the
+`*Info Region*' buffer; the cursor will be in a position that is after
+the location of the error.  Also, the text will not be formatted after
+the place where the error occurred (or more precisely, where it was
+detected).
+
+  For example, if you accidentally end a menu with the command `@end
+menus' with an `s' on the end, instead of with `@end menu', you will
+see an error message that says:
+
+     @end menus is not handled by texinfo
+
+The cursor will stop at the point in the buffer where the error occurs,
+or not long after it.  The buffer will look like this:
+
+     ---------- Buffer: *Info Region* ----------
+     * Menu:
+     
+     * Using texinfo-show-structure::  How to use
+                                       `texinfo-show-structure'
+                                       to catch mistakes.
+     * Running Info-Validate::         How to check for
+                                       unreferenced nodes.
+     @end menus
+     -!-
+     ---------- Buffer: *Info Region* ----------
+
+  The `texinfo-format-region' command sometimes provides slightly odd
+error messages.  For example, the following cross reference fails to
+format:
+
+     (@xref{Catching Mistakes, for more info.)
+
+In this case, `texinfo-format-region' detects the missing closing brace
+but displays a message that says `Unbalanced parentheses' rather than
+`Unbalanced braces'.  This is because the formatting command looks for
+mismatches between braces as if they were parentheses.
+
+  Sometimes `texinfo-format-region' fails to detect mistakes.  For
+example, in the following, the closing brace is swapped with the
+closing parenthesis:
+
+     (@xref{Catching Mistakes), for more info.}
+
+Formatting produces:
+     (*Note for more info.: Catching Mistakes)
+
+  The only way for you to detect this error is to realize that the
+reference should have looked like this:
+
+     (*Note Catching Mistakes::, for more info.)
+
+  Incidentally, if you are reading this node in Info and type `f <RET>'
+(`Info-follow-reference'), you will generate an error message that says:
+
+     No such node: "Catching Mistakes) The only way ...
+
+This is because Info perceives the example of the error as the first
+cross reference in this node and if you type a <RET> immediately after
+typing the Info `f' command, Info will attempt to go to the referenced
+node.  If you type `f catch <TAB> <RET>', Info will complete the node
+name of the correctly written example and take you to the `Catching
+Mistakes' node.  (If you try this, you can return from the `Catching
+Mistakes' node by typing `l' (`Info-last').)
 

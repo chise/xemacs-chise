@@ -544,14 +544,6 @@ KOBAYASHI Shuhei <shuhei-k@jaist.ac.jp>.
    * MIME extenders for mh-e, GNUS, RMAIL and VM.
 
    tm is available from following anonymous ftp sites:
-   * `ftp://ftp.jaist.ac.jp/pub/GNU/elisp/mime/' (Japan).
-
-   * `ftp://ftp.nis.co.jp/pub/gnu/emacs-lisp/tm/' (Japan).
-
-   * `ftp://ftp.nisiq.net/pub/gnu/emacs-lisp/tm/' (US).
-
-   * `ftp://ftp.miranova.com/pub/gnus/jaist.ac.jp/' (US).
-
    * `ftp://ftp.unicamp.br/pub/mail/mime/tm/' (Brasil).
 
    * `ftp://ftp.th-darmstadt.de/pub/editors/GNU-Emacs/lisp/mime/'
@@ -651,7 +643,7 @@ time.
      EOS is being replaced with a new graphical development environment
      called Sun WorkShop, which is currently (07/96) in Alpha Test.
      For more details, check out
-     `http://www.sun.com/software/Products/Developer-products/programs.html'.
+     `http://www.sun.com/software/Products/Developer-products'.
 
 
 File: xemacs-faq.info,  Node: Q4.4.2,  Next: Q4.5.1,  Prev: Q4.4.1,  Up: Subsystems
@@ -968,13 +960,14 @@ Q4.7.5: Is there a MatLab mode?
 Can I "teach" emacs what words are MatLab commands, comments, etc. ?
 
    Ulrich Elsner <elsner@mathematik.tu-chemnitz.de> writes:
-     One way to do this (and much more) is by using the matlab mode
-     (ftp://ftp.mathworks.com/pub/contrib/v5/tools/matlab.el).
+     One way to do this (and much more) is by using the matlab mode.
+     (If someone knows where this can be found, please contact the
+     XEmacs FAQ maintainer <faq@xemacs.org>.
 
      Instructions on how to install this mode are included in this file.
 
 
-File: xemacs-faq.info,  Node: Miscellaneous,  Next: Current Events,  Prev: Subsystems,  Up: Top
+File: xemacs-faq.info,  Node: Miscellaneous,  Next: MS Windows,  Prev: Subsystems,  Up: Top
 
 5 The Miscellaneous Stuff
 *************************
@@ -1343,7 +1336,7 @@ Q5.0.15: Where do I get the latest CC Mode?
 
    Barry A. Warsaw <bwarsaw@cnri.reston.va.us> writes:
 
-     This can be had from `http://www.python.org/ftp/emacs/'.
+     This can be had from `http://www.python.org/emacs/'.
 
 
 File: xemacs-faq.info,  Node: Q5.0.16,  Next: Q5.0.17,  Prev: Q5.0.15,  Up: Miscellaneous
@@ -1357,4 +1350,13 @@ enabled by default.  To turn it off, put the following in your `.emacs':
 
      (setq auto-show-mode nil)
      (setq-default auto-show-mode nil)
+
+
+File: xemacs-faq.info,  Node: Q5.0.17,  Next: Q5.0.18,  Prev: Q5.0.16,  Up: Miscellaneous
+
+Q5.0.17: How can I get two instances of info?
+---------------------------------------------
+
+   You can't.  The `info' package does not provide for multiple info
+buffers.
 

@@ -97,8 +97,8 @@ Variable Index
 * calendar-time-zone:                    Sunrise/Sunset.
 * calendar-today-marker:                 Calendar Customizing.
 * calendar-week-start-day:               Move to Beginning or End.
-* case-fold-search <1>:                  Search Case.
-* case-fold-search:                      Replacement and Case.
+* case-fold-search <1>:                  Replacement and Case.
+* case-fold-search:                      Search Case.
 * case-replace:                          Replacement and Case.
 * christian-holidays:                    Holiday Customizing.
 * coding:                                Recognize Coding.
@@ -178,8 +178,8 @@ Variable Index
 * fortran-if-indent:                     ForIndent Vars.
 * fortran-line-number-indent:            ForIndent Num.
 * fortran-minimum-statement-indent:      ForIndent Vars.
-* frame-icon-title-format <1>:           XEmacs under X.
-* frame-icon-title-format:               Command Switches.
+* frame-icon-title-format <1>:           Command Switches.
+* frame-icon-title-format:               XEmacs under X.
 * frame-title-format <1>:                Command Switches.
 * frame-title-format:                    XEmacs under X.
 * general-holidays:                      Holiday Customizing.
@@ -195,8 +195,8 @@ Variable Index
 * input-method-highlight-flag:           Input Methods.
 * input-method-verbose-flag:             Input Methods.
 * input-ring-size:                       Interactive Shell.
-* insert-default-directory <1>:          Minibuffer File.
-* insert-default-directory:              File Names.
+* insert-default-directory <1>:          File Names.
+* insert-default-directory:              Minibuffer File.
 * isearch-mode-map:                      Keymaps.
 * islamic-holidays:                      Holiday Customizing.
 * kept-new-versions:                     Backup Deletion.
@@ -267,8 +267,8 @@ Variable Index
 * scroll-step:                           Scrolling.
 * search-slow-speed:                     Incremental Search.
 * search-slow-window-lines:              Incremental Search.
-* selective-display-ellipses <1>:        Display Vars.
-* selective-display-ellipses:            Outline Visibility.
+* selective-display-ellipses <1>:        Outline Visibility.
+* selective-display-ellipses:            Display Vars.
 * sentence-end:                          Sentences.
 * shell-cd-regexp:                       Interactive Shell.
 * shell-file-name:                       Single Shell.
@@ -337,8 +337,8 @@ Concept Index
 * adding menu items:                     Menu Customization.
 * adding menus:                          Menu Customization.
 * againformation:                        Dissociated Press.
-* Apps menu <1>:                         Pull-down Menus.
-* Apps menu:                             Apps Menu.
+* Apps menu <1>:                         Apps Menu.
+* Apps menu:                             Pull-down Menus.
 * apropos:                               Help.
 * architecture-specific directories:     Startup Paths.
 * arguments (from shell):                Command Switches.
@@ -347,9 +347,9 @@ Concept Index
 * astronomical day numbers:              Calendar Systems.
 * audible bell, changing:                Audible Bell.
 * Auto Delete Selection menu item:       Options Menu.
-* Auto Fill mode <1>:                    Comments.
-* Auto Fill mode <2>:                    Auto Fill.
-* Auto Fill mode:                        Minor Modes.
+* Auto Fill mode <1>:                    Minor Modes.
+* Auto Fill mode <2>:                    Comments.
+* Auto Fill mode:                        Auto Fill.
 * Auto-Save mode:                        Auto Save.
 * autoload:                              Loading.
 * backup file:                           Backup.
@@ -378,8 +378,8 @@ Concept Index
 * calendar and LaTeX:                    LaTeX Calendar.
 * calendar, first day of week:           Move to Beginning or End.
 * candle lighting times:                 Sexp Diary Entries.
-* case conversion <1>:                   Fixing Case.
-* case conversion:                       Case.
+* case conversion <1>:                   Case.
+* case conversion:                       Fixing Case.
 * Case Sensitive Search menu item:       Options Menu.
 * centering:                             Fill Commands.
 * change log:                            Change Log.
@@ -393,8 +393,8 @@ Concept Index
 * Clear menu item:                       Edit Menu.
 * clipboard selections:                  X Clipboard Selection.
 * coding systems:                        Coding Systems.
-* command <1>:                           Commands.
-* command:                               Key Bindings.
+* command <1>:                           Key Bindings.
+* command:                               Commands.
 * command history:                       Repetition.
 * command line arguments:                Command Switches.
 * command name:                          Key Bindings.
@@ -409,19 +409,19 @@ Concept Index
 * Coptic calendar:                       Calendar Systems.
 * Copy menu item:                        Edit Menu.
 * copying files:                         Misc File Ops.
-* copying text <1>:                      Yanking.
-* copying text:                          Accumulating Text.
+* copying text <1>:                      Accumulating Text.
+* copying text:                          Yanking.
 * core distribution:                     Using Packages.
 * crashes:                               Auto Save.
 * creating directories:                  File Names.
 * creating files:                        Visiting.
 * current buffer:                        Buffers.
 * current stack frame:                   Lisp Debug.
-* cursor <1>:                            Point.
-* cursor:                                Basic.
+* cursor <1>:                            Basic.
+* cursor:                                Point.
 * customization <1>:                     Customization.
-* customization <2>:                     Commands.
-* customization:                         Lisp Indent.
+* customization <2>:                     Lisp Indent.
+* customization:                         Commands.
 * customization buffer:                  Easy Customization.
 * customization groups:                  Customization Groups.
 * customizing faces:                     Face Customization.
@@ -455,11 +455,11 @@ Concept Index
 * dribble file:                          Bugs.
 * early package hierarchies:             Startup Paths.
 * echo area:                             Echo Area.
-* Edit menu <1>:                         Pull-down Menus.
-* Edit menu:                             Edit Menu.
+* Edit menu <1>:                         Edit Menu.
+* Edit menu:                             Pull-down Menus.
 * editable fields (customization buffer): Customization Groups.
-* editing level, recursive <1>:          Recursive Edit.
-* editing level, recursive:              Quitting.
+* editing level, recursive <1>:          Quitting.
+* editing level, recursive:              Recursive Edit.
 * EDT:                                   Emulation.
 * Eliza:                                 Total Frustration.
 * Emacs initialization file:             Init File.
@@ -481,12 +481,12 @@ Concept Index
 * expression:                            Lists.
 * file dates:                            Interlocking.
 * file directory:                        ListDir.
-* File menu <1>:                         Pull-down Menus.
-* File menu:                             File Menu.
+* File menu <1>:                         File Menu.
+* File menu:                             Pull-down Menus.
 * file names:                            File Names.
 * file protection:                       Interlocking.
-* files <1>:                             Files.
-* files <2>:                             Visiting.
+* files <1>:                             Visiting.
+* files <2>:                             Files.
 * files:                                 Basic.
 * fill prefix:                           Fill Prefix.
 * filling:                               Filling.
@@ -519,9 +519,9 @@ Concept Index
 * holidays:                              Holidays.
 * horizontal scrolling:                  Horizontal Scrolling.
 * ignoriginal:                           Dissociated Press.
-* indentation <1>:                       Grinding.
-* indentation <2>:                       Indentation.
-* indentation:                           Comments.
+* indentation <1>:                       Comments.
+* indentation <2>:                       Grinding.
+* indentation:                           Indentation.
 * inferior process:                      Compilation.
 * init file:                             Init File.
 * input methods:                         Input Methods.
@@ -542,8 +542,8 @@ Concept Index
 * key rebinding, this session:           Rebinding.
 * keyboard macros:                       Keyboard Macros.
 * keycode:                               Super and Hyper Keys.
-* keymap <1>:                            Commands.
-* keymap:                                Keymaps.
+* keymap <1>:                            Keymaps.
+* keymap:                                Commands.
 * keystroke:                             Intro to Keystrokes.
 * keysym:                                Intro to Keystrokes.
 * keysyms:                               Super and Hyper Keys.
@@ -586,19 +586,19 @@ Concept Index
 * Mayan tzolkin calendar:                Mayan Calendar.
 * menus <1>:                             Change Window.
 * menus:                                 Pull-down Menus.
-* message <1>:                           Sending Mail.
-* message:                               Reading Mail.
+* message <1>:                           Reading Mail.
+* message:                               Sending Mail.
 * Meta:                                  Words.
-* minibuffer <1>:                        M-x.
-* minibuffer <2>:                        Keymaps.
+* minibuffer <1>:                        Keymaps.
+* minibuffer <2>:                        M-x.
 * minibuffer:                            Minibuffer.
 * minor modes:                           Minor Modes.
 * mistakes, correcting <1>:              Fixit.
 * mistakes, correcting:                  Undo.
 * mocklisp:                              Mocklisp.
 * mode hook:                             Program Modes.
-* mode line <1>:                         Mode Line.
-* mode line:                             Minor Modes.
+* mode line <1>:                         Minor Modes.
+* mode line:                             Mode Line.
 * mode, Term:                            Term Mode.
 * modified (buffer):                     Visiting.
 * modifier key:                          Intro to Keystrokes.
@@ -621,10 +621,10 @@ Concept Index
 * omer count:                            Sexp Diary Entries.
 * Open File, New Frame... menu item:     File Menu.
 * Open File... menu item:                File Menu.
-* option <1>:                            Variables.
-* option:                                Examining.
-* Options menu <1>:                      Pull-down Menus.
-* Options menu:                          Options Menu.
+* option <1>:                            Examining.
+* option:                                Variables.
+* Options menu <1>:                      Options Menu.
+* Options menu:                          Pull-down Menus.
 * other editors:                         Emulation.
 * outlines:                              Outline Mode.
 * outragedy:                             Dissociated Press.
@@ -669,8 +669,8 @@ Concept Index
 * read-only buffer:                      Misc Buffer.
 * rebinding keys, permanently:           Init File.
 * rebinding keys, this session:          Rebinding.
-* rectangle <1>:                         RegRect.
-* rectangle:                             Rectangles in Picture.
+* rectangle <1>:                         Rectangles in Picture.
+* rectangle:                             RegRect.
 * rectangles:                            Rectangles.
 * recursive editing level <1>:           Quitting.
 * recursive editing level:               Recursive Edit.
@@ -742,11 +742,11 @@ Concept Index
 * TeX:                                   TeX Mode.
 * text:                                  Text.
 * Text mode:                             Text Mode.
-* Tools menu <1>:                        Pull-down Menus.
-* Tools menu:                            Tools Menu.
+* Tools menu <1>:                        Tools Menu.
+* Tools menu:                            Pull-down Menus.
 * top level:                             Mode Line.
-* transposition <1>:                     Words.
-* transposition <2>:                     Lists.
+* transposition <1>:                     Lists.
+* transposition <2>:                     Words.
 * transposition:                         Transpose.
 * truncation:                            Continuation Lines.
 * typos:                                 Fixit.
@@ -771,12 +771,12 @@ Concept Index
 * Windows menu:                          Change Window.
 * word search:                           Word Search.
 * words <1>:                             Case.
-* words <2>:                             Fixing Case.
-* words:                                 Words.
+* words <2>:                             Words.
+* words:                                 Fixing Case.
 * work file:                             Concepts of VC.
 * X resources:                           X Resources.
-* yahrzeits <1>:                         From Other Calendar.
-* yahrzeits:                             Sexp Diary Entries.
+* yahrzeits <1>:                         Sexp Diary Entries.
+* yahrzeits:                             From Other Calendar.
 * yanking:                               Yanking.
 
 

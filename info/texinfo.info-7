@@ -4,19 +4,19 @@ texinfo.texi.
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
 * Texinfo: (texinfo).           The GNU documentation format.
-* install-info: (texinfo)Invoking install-info. Update info/dir entries.
-* texi2dvi: (texinfo)Format with texi2dvi.      Print Texinfo documents.
-* texindex: (texinfo)Format with tex/texindex.  Sort Texinfo index files.
+* install-info: (texinfo)Invoking install-info. Updating info/dir entries.
+* texi2dvi: (texinfo)Format with texi2dvi.      Printing Texinfo documentation.
+* texindex: (texinfo)Format with tex/texindex.  Sorting Texinfo index files.
 * makeinfo: (texinfo)makeinfo Preferred.        Translate Texinfo source.
 END-INFO-DIR-ENTRY
 
   This file documents Texinfo, a documentation system that can produce
-both online information and a printed manual from a single source file.
+both on-line information and a printed manual from a single source file.
 
-  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98, 99 Free Software
+  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98 Free Software
 Foundation, Inc.
 
-  This edition is for Texinfo version 4.0, 28 September 1999.
+  This edition is for Texinfo version 3.12.
 
   Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -31,448 +31,6 @@ permission notice identical to this one.
 manual into another language, under the above conditions for modified
 versions, except that this permission notice may be stated in a
 translation approved by the Free Software Foundation.
-
-
-File: texinfo.info,  Node: Point Glyph,  Prev: Equivalence,  Up: Glyphs Summary
-
-`@point{}' (-!-): Indicating Point in a Buffer
-----------------------------------------------
-
-  Sometimes you need to show an example of text in an Emacs buffer.  In
-such examples, the convention is to include the entire contents of the
-buffer in question between two lines of dashes containing the buffer
-name.
-
-  You can use the `@point{}' command to show the location of point in
-the text in the buffer.  (The symbol for point, of course, is not part
-of the text in the buffer; it indicates the place _between_ two
-characters where point is located.)
-
-  The `@point{}' command is displayed as `-!-' in Info and as a small
-five pointed star in the printed output.
-
-  The following example shows the contents of buffer `foo' before and
-after evaluating a Lisp command to insert the word `changed'.
-
-     ---------- Buffer: foo ----------
-     This is the -!-contents of foo.
-     ---------- Buffer: foo ----------
-
-     (insert "changed ")
-          => nil
-     ---------- Buffer: foo ----------
-     This is the changed -!-contents of foo.
-     ---------- Buffer: foo ----------
-
-  In a Texinfo source file, the example is written like this:
-
-     @example
-     ---------- Buffer: foo ----------
-     This is the @point{}contents of foo.
-     ---------- Buffer: foo ----------
-     
-     (insert "changed ")
-          @result{} nil
-     ---------- Buffer: foo ----------
-     This is the changed @point{}contents of foo.
-     ---------- Buffer: foo ----------
-     @end example
-
-
-File: texinfo.info,  Node: Footnotes,  Next: Images,  Prev: Glyphs,  Up: Insertions
-
-Footnotes
-=========
-
-  A "footnote" is for a reference that documents or elucidates the
-primary text.(1) (*note Footnotes-Footnote-1::)
-
-* Menu:
-
-* Footnote Commands::           How to write a footnote in Texinfo.
-* Footnote Styles::             Controlling how footnotes appear in Info.
-
-
-File: texinfo.info,  Node: Footnotes-Footnotes,  Up: Footnotes
-
-  (1) A footnote should complement or expand upon the primary text, but
-a reader should not need to read a footnote to understand the primary
-text.  For a thorough discussion of footnotes, see `The Chicago Manual
-of Style', which is published by the University of Chicago Press.
-
-
-File: texinfo.info,  Node: Footnote Commands,  Next: Footnote Styles,  Up: Footnotes
-
-Footnote Commands
------------------
-
-  In Texinfo, footnotes are created with the `@footnote' command.  This
-command is followed immediately by a left brace, then by the text of
-the footnote, and then by a terminating right brace.  Footnotes may be
-of any length (they will be broken across pages if necessary), but are
-usually short.  The template is:
-
-     ordinary text@footnote{TEXT OF FOOTNOTE}
-
-  As shown here, the `@footnote' command should come right after the
-text being footnoted, with no intervening space; otherwise, the footnote
-marker might end up starting a line.
-
-  For example, this clause is followed by a sample footnote(1) (*note
-Footnote Commands-Footnote-1::); in the Texinfo source, it looks like
-this:
-
-     ...a sample footnote@footnote{Here is the sample
-     footnote.}; in the Texinfo source...
-
-  In a printed manual or book, the reference mark for a footnote is a
-small, superscripted number; the text of the footnote appears at the
-bottom of the page, below a horizontal line.
-
-  In Info, the reference mark for a footnote is a pair of parentheses
-with the footnote number between them, like this: `(1)'.  The reference
-mark is followed by a cross-reference link to the footnote's text.
-
-  In the HTML output, footnote references are marked with a small,
-superscripted number which is rendered as a hypertext link to the
-footnote text.
-
-  By the way, footnotes in the argument of an `@item' command for a
-`@table' must be on the same line as the `@item' (as usual).  *Note
-Two-column Tables::.
-
-
-File: texinfo.info,  Node: Footnote Commands-Footnotes,  Up: Footnote Commands
-
-  (1) Here is the sample footnote.
-
-
-File: texinfo.info,  Node: Footnote Styles,  Prev: Footnote Commands,  Up: Footnotes
-
-Footnote Styles
----------------
-
-  Info has two footnote styles, which determine where the text of the
-footnote is located:
-
-   * In the `End' node style, all the footnotes for a single node are
-     placed at the end of that node.  The footnotes are separated from
-     the rest of the node by a line of dashes with the word `Footnotes'
-     within it.  Each footnote begins with an `(N)' reference mark.
-
-     Here is an example of a single footnote in the end of node style:
-
-           --------- Footnotes ---------
-          
-          (1)  Here is a sample footnote.
-
-   * In the `Separate' node style, all the footnotes for a single node
-     are placed in an automatically constructed node of their own.  In
-     this style, a "footnote reference" follows each `(N)' reference
-     mark in the body of the node.  The footnote reference is actually
-     a cross reference which you use to reach the footnote node.
-
-     The name of the node with the footnotes is constructed by
-     appending `-Footnotes' to the name of the node that contains the
-     footnotes. (Consequently, the footnotes' node for the `Footnotes'
-     node is `Footnotes-Footnotes'!)  The footnotes' node has an `Up'
-     node pointer that leads back to its parent node.
-
-     Here is how the first footnote in this manual looks after being
-     formatted for Info in the separate node style:
-
-          File: texinfo.info  Node: Overview-Footnotes, Up: Overview
-          
-          (1) The first syllable of "Texinfo" is pronounced like "speck", not
-          "hex". ...
-
-  A Texinfo file may be formatted into an Info file with either footnote
-style.
-
-  Use the `@footnotestyle' command to specify an Info file's footnote
-style.  Write this command at the beginning of a line followed by an
-argument, either `end' for the end node style or `separate' for the
-separate node style.
-
-  For example,
-
-     @footnotestyle end
-
-or
-     @footnotestyle separate
-
-  Write an `@footnotestyle' command before or shortly after the
-end-of-header line at the beginning of a Texinfo file.  (If you include
-the `@footnotestyle' command between the start-of-header and
-end-of-header lines, the region formatting commands will format
-footnotes as specified.)
-
-  If you do not specify a footnote style, the formatting commands use
-their default style.  Currently, `texinfo-format-buffer' and
-`texinfo-format-region' use the `separate' style and `makeinfo' uses
-the `end' style.
-
-  This chapter contains two footnotes.
-
-
-File: texinfo.info,  Node: Images,  Prev: Footnotes,  Up: Insertions
-
-Inserting Images
-================
-
-  You can insert an image given in an external file with the `@image'
-command:
-
-     @image{FILENAME, [WIDTH], [HEIGHT]}
-
-  The FILENAME argument is mandatory, and must not have an extension,
-because the different processors support different formats:
-   * TeX reads the file `FILENAME.eps' (Encapsulated PostScript format).
-
-   * PDFTeX reads `FILENAME.pdf' (Adobe's Portable Document Format).
-
-   * `makeinfo' uses `FILENAME.txt' verbatim for Info output (more or
-     less as if it was an `@example').
-
-   * `makeinfo' producing HTML output tries `FILENAME.png'; if that
-     does not exist, it tries `FILENAME.jpg'.  If that does not exist
-     either, it complains.  (We cannot support GIF format due to
-     patents.)
-
-  The optional WIDTH and HEIGHT arguments specify the size to scale the
-image to (they are ignored for Info output).  If neither is specified,
-the image is presented in its natural size (given in the file); if only
-one is specified, the other is scaled proportionately; and if both are
-specified, both are respected, thus possibly distorting the original
-image by changing its aspect ratio.
-
-  The WIDTH and HEIGHT may be specified using any valid TeX dimension,
-namely:
-
-pt
-     point (72.27pt = 1in)
-
-pc
-     pica (1pc = 12pt)
-
-bp
-     big point (72bp = 1in)
-
-in
-     inch
-
-cm
-     centimeter (2.54cm = 1in)
-
-mm
-     millimeter (10mm = 1cm)
-
-dd
-     dido^t point (1157dd = 1238pt)
-
-cc
-     cicero (1cc = 12dd)
-
-sp
-     scaled point (65536sp = 1pt)
-
-  For example, the following will scale a file `ridt.eps' to one inch
-vertically, with the width scaled proportionately:
-
-     @image{ridt,,1in}
-
-  For `@image' to work with TeX, the file `epsf.tex' must be installed
-somewhere that TeX can find it.  (The standard location is
-`TEXMF/tex/generic/dvips/epsf.tex', where TEXMF is a root of your TeX
-directory tree.)  This file is included in the Texinfo distribution and
-is available from `ftp://tug.org/tex/epsf.tex'.
-
-  `@image' can be used within a line as well as for displayed figures.
-Therefore, if you intend it to be displayed, be sure to leave a blank
-line before the command, or the output will run into the preceding text.
-
-
-File: texinfo.info,  Node: Breaks,  Next: Definition Commands,  Prev: Insertions,  Up: Top
-
-Making and Preventing Breaks
-****************************
-
-  Usually, a Texinfo file is processed both by TeX and by one of the
-Info formatting commands.  Line, paragraph, or page breaks sometimes
-occur in the `wrong' place in one or other form of output.  You must
-ensure that text looks right both in the printed manual and in the Info
-file.
-
-  For example, in a printed manual, page breaks may occur awkwardly in
-the middle of an example; to prevent this, you can hold text together
-using a grouping command that keeps the text from being split across
-two pages.  Conversely, you may want to force a page break where none
-would occur normally.  Fortunately, problems like these do not often
-arise.  When they do, use the break, break prevention, or pagination
-commands.
-
-* Menu:
-
-* Break Commands::              Cause and prevent splits.
-* Line Breaks::                 How to force a single line to use two lines.
-* - and hyphenation::           How to tell TeX about hyphenation points.
-* w::                           How to prevent unwanted line breaks.
-* sp::                          How to insert blank lines.
-* page::                        How to force the start of a new page.
-* group::                       How to prevent unwanted page breaks.
-* need::                        Another way to prevent unwanted page breaks.
-
-
-File: texinfo.info,  Node: Break Commands,  Next: Line Breaks,  Prev: Breaks,  Up: Breaks
-
-Break Commands
-==============
-
-  The break commands create or allow line and paragraph breaks:
-
-`@*'
-     Force a line break.
-
-`@sp N'
-     Skip N blank lines.
-
-`@-'
-     Insert a discretionary hyphen.
-
-`@hyphenation{HY-PHEN-A-TED WORDS}'
-     Define hyphen points in HY-PHEN-A-TED WORDS.
-
-  The line-break-prevention command holds text together all on one line:
-
-`@w{TEXT}'
-     Prevent TEXT from being split and hyphenated across two lines.
-
-  The pagination commands apply only to printed output, since Info
-files do not have pages.
-
-`@page'
-     Start a new page in the printed manual.
-
-`@group'
-     Hold text together that must appear on one printed page.
-
-`@need MILS'
-     Start a new printed page if not enough space on this one.
-
-
-File: texinfo.info,  Node: Line Breaks,  Next: - and hyphenation,  Prev: Break Commands,  Up: Breaks
-
-`@*': Generate Line Breaks
-==========================
-
-  The `@*' command forces a line break in both the printed manual and
-in Info.
-
-  For example,
-
-     This line @* is broken @*in two places.
-
-produces
-
-     This line
-      is broken
-     in two places.
-
-(Note that the space after the first `@*' command is faithfully carried
-down to the next line.)
-
-  The `@*' command is often used in a file's copyright page:
-
-     This is edition 2.0 of the Texinfo documentation,@*
-     and is for ...
-
-In this case, the `@*' command keeps TeX from stretching the line
-across the whole page in an ugly manner.
-
-     *Please note:* Do not write braces after an `@*' command; they are
-     not needed.
-
-     Do not write an `@refill' command at the end of a paragraph
-     containing an `@*' command; it will cause the paragraph to be
-     refilled after the line break occurs, negating the effect of the
-     line break.
-
-
-File: texinfo.info,  Node: - and hyphenation,  Next: w,  Prev: Line Breaks,  Up: Breaks
-
-`@-' and `@hyphenation': Helping TeX hyphenate
-==============================================
-
-  Although TeX's hyphenation algorithm is generally pretty good, it
-does miss useful hyphenation points from time to time.  (Or, far more
-rarely, insert an incorrect hyphenation.)  So, for documents with an
-unusual vocabulary or when fine-tuning for a printed edition, you may
-wish to help TeX out.  Texinfo supports two commands for this:
-
-`@-'
-     Insert a discretionary hyphen, i.e., a place where TeX can (but
-     does not have to) hyphenate.  This is especially useful when you
-     notice an overfull hbox is due to TeX missing a hyphenation (*note
-     Overfull hboxes::).  TeX will not insert any hyphenation points in
-     a word containing `@-'.
-
-`@hyphenation{HY-PHEN-A-TED WORDS}'
-     Tell TeX how to hyphenate HY-PHEN-A-TED WORDS.  As shown, you put
-     a `-' at each hyphenation point.  For example:
-          @hyphenation{man-u-script man-u-scripts}
-      TeX only uses the specified hyphenation points when the words
-     match exactly, so give all necessary variants.
-
-  Info output is not hyphenated, so these commands have no effect there.
-
-
-File: texinfo.info,  Node: w,  Next: sp,  Prev: - and hyphenation,  Up: Breaks
-
-`@w'{TEXT}: Prevent Line Breaks
-===============================
-
-  `@w{TEXT}' outputs TEXT and prohibits line breaks within TEXT.
-
-  You can use the `@w' command to prevent TeX from automatically
-hyphenating a long name or phrase that happens to fall near the end of a
-line.  For example:
-
-     You can copy GNU software from @w{@samp{ftp.gnu.org}}.
-
-produces
-
-     You can copy GNU software from `ftp.gnu.org'.
-
-  You can also use `@w' to produce a non-breakable space:
-
-     None of the formatters will break at this@w{ }space.
-
-
-File: texinfo.info,  Node: sp,  Next: page,  Prev: w,  Up: Breaks
-
-`@sp' N: Insert Blank Lines
-===========================
-
-  A line beginning with and containing only `@sp N' generates N blank
-lines of space in both the printed manual and the Info file.  `@sp'
-also forces a paragraph break.  For example,
-
-     @sp 2
-
-generates two blank lines.
-
-  The `@sp' command is most often used in the title page.
-
-
-File: texinfo.info,  Node: page,  Next: group,  Prev: sp,  Up: Breaks
-
-`@page': Start a New Page
-=========================
-
-  A line containing only `@page' starts a new page in a printed manual.
-The command has no effect on Info files since they are not paginated.
-An `@page' command is often used in the `@titlepage' section of a
-Texinfo file to start the copyright page.
 
 
 File: texinfo.info,  Node: group,  Next: need,  Prev: page,  Up: Breaks
@@ -539,7 +97,7 @@ the page.  It looks like this:
 the bottoms of printed pages).
 
 
-File: texinfo.info,  Node: Definition Commands,  Next: Conditionals,  Prev: Breaks,  Up: Top
+File: texinfo.info,  Node: Definition Commands,  Next: Footnotes,  Prev: Breaks,  Up: Top
 
 Definition Commands
 *******************
@@ -719,8 +277,8 @@ produces
  - Interactive Command: isearch-backward
      These two search commands are similar except ...
 
-  Each definition command has an `x' form: `@defunx', `@defvrx',
-`@deftypefunx', etc.
+  Each of the other definition commands has an `x' form: `@defunx',
+`@defvrx', `@deftypefunx', etc.
 
   The `x' forms work just like `@itemx'; see *Note `@itemx': itemx.
 
@@ -825,7 +383,7 @@ similar entities:
 `@defspec NAME ARGUMENTS...'
      The `@defspec' command is the definition command for special
      forms.  (In Lisp, a special form is an entity much like a function,
-     *note Special Forms: (elisp)Special Forms..)  `@defspec' is
+     *note Special Forms: (lispref)Special Forms..)  `@defspec' is
      equivalent to `@deffn {Special Form} ...' and works like `@defun'.
 
 
@@ -841,7 +399,7 @@ Variables and Similar Entities
      like a variable--an entity that records a value.  You must choose
      a term to describe the category of entity being defined; for
      example, "Variable" could be used if the entity is a variable.
-     Write the `@defvr' command at the beginning of a line and follow
+     Write the `@defvr' command at the beginning of a line and followed
      it on the same line by the category of the entity and the name of
      the entity.
 
@@ -887,7 +445,7 @@ Variables and Similar Entities
 `@defopt NAME'
      The `@defopt' command is the definition command for "user
      options", i.e., variables intended for users to change according to
-     taste; Emacs has many such (*note Variables: (emacs)Variables.).
+     taste; Emacs has many such (*note Variables: (xemacs)Variables.).
      `@defopt' is equivalent to `@defvr {User Option} ...' and works
      like `@defvar'.
 
@@ -1086,7 +644,8 @@ it.  Otherwise, it is printed in the usual text font.
      illustrates how you would write the first line of a definition of
      the `border-pattern' class option of the class `Window'.
 
-     The template is:
+     The template is
+
           @defcv CATEGORY CLASS NAME
           ...
           @end defcv
@@ -1099,18 +658,12 @@ it.  Otherwise, it is printed in the usual text font.
      equivalent to `@defcv {Instance Variable} ...'
 
      The template is:
+
           @defivar CLASS INSTANCE-VARIABLE-NAME
           BODY-OF-DEFINITION
           @end defivar
 
      `@defivar' creates an entry in the index of variables.
-
-`@deftypeivar CLASS DATA-TYPE NAME'
-     The `@deftypeivar' command is the definition command for typed
-     instance variables in object-oriented programming.  It is similar
-     to `@defivar' with the addition of the DATA-TYPE parameter to
-     specify the type of the instance variable.  `@deftypeivar' creates
-     an entry in the index of variables.
 
 `@defop CATEGORY CLASS NAME ARGUMENTS...'
      The `@defop' command is the general definition command for
@@ -1147,6 +700,7 @@ it.  Otherwise, it is printed in the usual text font.
      operation, and its arguments, if any.
 
      The template is:
+
           @defop CATEGORY CLASS NAME ARGUMENTS...
           BODY-OF-DEFINITION
           @end defop
@@ -1154,25 +708,20 @@ it.  Otherwise, it is printed in the usual text font.
      `@defop' creates an entry, such as ``expose' on `windows'', in the
      index of functions.
 
-`@deftypeop CATEGORY CLASS DATA-TYPE NAME ARGUMENTS...'
-     The `@deftypeop' command is the definition command for typed
-     operations in object-oriented programming.  It is similar to
-     `@defop' with the addition of the DATA-TYPE parameter to specify
-     the return type of the method.  `@deftypeop' creates an entry in
-     the index of functions.
-
 `@defmethod CLASS NAME ARGUMENTS...'
      The `@defmethod' command is the definition command for methods in
      object-oriented programming.  A method is a kind of function that
      implements an operation for a particular class of objects and its
-     subclasses.
+     subclasses.  In the Lisp Machine, methods actually were functions,
+     but they were usually defined with `defmethod'.
 
      `@defmethod' is equivalent to `@defop Method ...'.  The command is
      written at the beginning of a line and is followed by the name of
      the class of the method, the name of the method, and its
      arguments, if any.
 
-     For example:
+     For example,
+
           @defmethod `bar-class' bar-method argument
           ...
           @end defmethod
@@ -1254,7 +803,7 @@ A Sample Function Definition
 The name of the function follows immediately after the `@defun' command
 and it is followed, on the same line, by the parameter list.
 
-  Here is a definition from *Note Calling Functions: (elisp)Calling
+  Here is a definition from *Note Calling Functions: (lispref)Calling
 Functions.
 
       - Function: apply function &rest arguments
@@ -1287,6 +836,7 @@ Functions.
   In the Texinfo source file, this example looks like this:
 
      @defun apply function &rest arguments
+     
      @code{apply} calls @var{function} with
      @var{arguments}, just like @code{funcall} but with one
      difference: the last of @var{arguments} is a list of
@@ -1315,7 +865,7 @@ Functions.
      @end example
      
      An interesting example of using @code{apply} is found
-     in the description of @code{mapcar}.
+     in the description of @code{mapcar}.@refill
      @end defun
 
 In this manual, this function is listed in the Command and Variable
@@ -1325,27 +875,147 @@ Index under `apply'.
 that for functions except that variables do not take arguments.
 
 
-File: texinfo.info,  Node: Conditionals,  Next: Internationalization,  Prev: Definition Commands,  Up: Top
+File: texinfo.info,  Node: Footnotes,  Next: Conditionals,  Prev: Definition Commands,  Up: Top
+
+Footnotes
+*********
+
+  A "footnote" is for a reference that documents or elucidates the
+primary text.(1) (*note Footnotes-Footnote-1::)
+
+* Menu:
+
+* Footnote Commands::           How to write a footnote in Texinfo.
+* Footnote Styles::             Controlling how footnotes appear in Info.
+
+
+File: texinfo.info,  Node: Footnotes-Footnotes,  Up: Footnotes
+
+  (1) A footnote should complement or expand upon the primary text, but
+a reader should not need to read a footnote to understand the primary
+text.  For a thorough discussion of footnotes, see `The Chicago Manual
+of Style', which is published by the University of Chicago Press.
+
+
+File: texinfo.info,  Node: Footnote Commands,  Next: Footnote Styles,  Prev: Footnotes,  Up: Footnotes
+
+Footnote Commands
+=================
+
+  In Texinfo, footnotes are created with the `@footnote' command.  This
+command is followed immediately by a left brace, then by the text of
+the footnote, and then by a terminating right brace.  Footnotes may be
+of any length (they will be broken across pages if necessary), but are
+usually short.  The template is:
+
+     ordinary text@footnote{TEXT OF FOOTNOTE}
+
+  As shown here, the `@footnote' command should come right after the
+text being footnoted, with no intervening space; otherwise, the
+formatters the footnote mark might end up starting up a line.
+
+  For example, this clause is followed by a sample footnote(1) (*note
+Footnote Commands-Footnote-1::); in the Texinfo source, it looks like
+this:
+
+     ...a sample footnote@footnote{Here is the sample
+     footnote.}; in the Texinfo source...
+
+  *Warning:* Don't use footnotes in the argument of the `@item' command
+for a `@table' table.  This doesn't work, and because of limitations of
+TeX, there is no way to fix it.  You must put the footnote into the
+body text of the table.
+
+  In a printed manual or book, the reference mark for a footnote is a
+small, superscripted number; the text of the footnote appears at the
+bottom of the page, below a horizontal line.
+
+  In Info, the reference mark for a footnote is a pair of parentheses
+with the footnote number between them, like this: `(1)'.
+
+
+File: texinfo.info,  Node: Footnote Commands-Footnotes,  Up: Footnote Commands
+
+  (1) Here is the sample footnote.
+
+
+File: texinfo.info,  Node: Footnote Styles,  Prev: Footnote Commands,  Up: Footnotes
+
+Footnote Styles
+===============
+
+  Info has two footnote styles, which determine where the text of the
+footnote is located:
+
+   * In the `End' node style, all the footnotes for a single node are
+     placed at the end of that node.  The footnotes are separated from
+     the rest of the node by a line of dashes with the word `Footnotes'
+     within it.  Each footnote begins with an `(N)' reference mark.
+
+     Here is an example of a single footnote in the end of node style:
+
+           --------- Footnotes ---------
+          
+          (1)  Here is a sample footnote.
+
+   * In the `Separate' node style, all the footnotes for a single node
+     are placed in an automatically constructed node of their own.  In
+     this style, a "footnote reference" follows each `(N)' reference
+     mark in the body of the node.  The footnote reference is actually
+     a cross reference which you use to reach the footnote node.
+
+     The name of the node containing the footnotes is constructed by
+     appending `-Footnotes' to the name of the node that contains the
+     footnotes. (Consequently, the footnotes' node for the `Footnotes'
+     node is `Footnotes-Footnotes'!)  The footnotes' node has an `Up'
+     node pointer that leads back to its parent node.
+
+     Here is how the first footnote in this manual looks after being
+     formatted for Info in the separate node style:
+
+          File: texinfo.info  Node: Overview-Footnotes, Up: Overview
+          
+          (1) Note that the first syllable of "Texinfo" is
+          pronounced like "speck", not "hex". ...
+
+  A Texinfo file may be formatted into an Info file with either footnote
+style.
+
+  Use the `@footnotestyle' command to specify an Info file's footnote
+style.  Write this command at the beginning of a line followed by an
+argument, either `end' for the end node style or `separate' for the
+separate node style.
+
+  For example,
+
+     @footnotestyle end
+
+or
+     @footnotestyle separate
+
+  Write an `@footnotestyle' command before or shortly after the
+end-of-header line at the beginning of a Texinfo file.  (If you include
+the `@footnotestyle' command between the start-of-header and
+end-of-header lines, the region formatting commands will format
+footnotes as specified.)
+
+  If you do not specify a footnote style, the formatting commands use
+their default style.  Currently, `texinfo-format-buffer' and
+`texinfo-format-region' use the `separate' style and `makeinfo' uses
+the `end' style.
+
+  This chapter contains two footnotes.
+
+
+File: texinfo.info,  Node: Conditionals,  Next: Macros,  Prev: Footnotes,  Up: Top
 
 Conditionally Visible Text
 **************************
 
-  Sometimes it is good to use different text for different output
-formats.  For example, you can use the "conditional commands" to specify
-different text for the printed manual and the Info output.
-
-  Conditional commands may not be nested.
-
-  The conditional commands comprise the following categories.
-
-   * Commands for HTML, Info, or TeX.
-
-   * Commands for not HTML, Info, or TeX.
-
-   * Raw TeX or HTML commands.
-
-   * Substituting text for all formats, and testing if a flag is set or
-     clear.
+  Sometimes it is good to use different text for a printed manual and
+its corresponding Info file.  In this case, you can use the
+"conditional commands" to specify which text is for the printed manual
+and which is for the Info file.
 
 * Menu:
 
@@ -1357,7 +1027,7 @@ different text for the printed manual and the Info output.
                                   flag to a string that you can insert.
 
 
-File: texinfo.info,  Node: Conditional Commands,  Next: Conditional Not Commands,  Up: Conditionals
+File: texinfo.info,  Node: Conditional Commands,  Next: Conditional Not Commands,  Prev: Conditionals,  Up: Conditionals
 
 Conditional Commands
 ====================
@@ -1365,7 +1035,7 @@ Conditional Commands
   `@ifinfo' begins segments of text that should be ignored by TeX when
 it typesets the printed manual.  The segment of text appears only in
 the Info file.  The `@ifinfo' command should appear on a line by
-itself; end the Info-only text with a line containing `@end ifinfo' by
+itself;  end the Info-only text with a line containing `@end ifinfo' by
 itself.  At the beginning of a Texinfo file, the Info permissions are
 contained within a region marked by `@ifinfo' and `@end ifinfo'. (*Note
 Info Summary and Permissions::.)
@@ -1384,15 +1054,16 @@ output.
      @ifinfo
      However, this text will appear only in Info.
      @end ifinfo
-     @ifhtml
-     And this text will only appear in HTML.
-     @end ifhtml
 
 The preceding example produces the following line: However, this text
 will appear only in Info.
 
-Notice that you only see one of the input lines, depending on which
-version of the manual you are reading.
+Note how you only see one of the two lines, depending on whether you
+are reading the Info version or the printed version of this manual.
+
+  The `@titlepage' command is a special variant of `@iftex' that is
+used for making the title and copyright pages of the printed manual.
+(*Note `@titlepage': titlepage.)
 
 
 File: texinfo.info,  Node: Conditional Not Commands,  Next: Raw Formatter Commands,  Prev: Conditional Commands,  Up: Conditionals
@@ -1413,6 +1084,317 @@ lines by themselves.)
 is included.  Otherwise, it is ignored.
 
   The regions delimited by these commands are ordinary Texinfo source as
-with `@iftex', not raw formatter source as with `@tex' (*note Raw
-Formatter Commands::).
+with `@iftex', not raw formatter source as with `@tex'.
+
+
+File: texinfo.info,  Node: Raw Formatter Commands,  Next: set clear value,  Prev: Conditional Not Commands,  Up: Conditionals
+
+Raw Formatter Commands
+======================
+
+  Inside a region delineated by `@iftex' and `@end iftex', you can
+embed some raw TeX commands.  Info will ignore these commands since
+they are only in that part of the file which is seen by TeX.  You can
+write the TeX commands as you would write them in a normal TeX file,
+except that you must replace the `\' used by TeX with an `@'.  For
+example, in the `@titlepage' section of a Texinfo file, you can use the
+TeX command `@vskip' to format the copyright page.  (The `@titlepage'
+command causes Info to ignore the region automatically, as it does with
+the `@iftex' command.)
+
+  However, many features of plain TeX will not work, as they are
+overridden by Texinfo features.
+
+  You can enter plain TeX completely, and use `\' in the TeX commands,
+by delineating a region with the `@tex' and `@end tex' commands.  (The
+`@tex' command also causes Info to ignore the region, like the `@iftex'
+command.)  The sole exception is that `@' chracter still introduces a
+command, so that `@end tex' can be recognized properly.
+
+  For example, here is a mathematical expression written in plain TeX:
+
+     @tex
+     $$ \chi^2 = \sum_{i=1}^N
+               \left (y_i - (a + b x_i)
+               \over \sigma_i\right)^2 $$
+     @end tex
+
+The output of this example will appear only in a printed manual.  If
+you are reading this in Info, you will not see the equation that appears
+in the printed manual.
+
+  Analogously, you can use `@ifhtml ... @end ifhtml' to delimit a
+region to be included in HTML output only, and `@html ...  @end ifhtml'
+for a region of raw HTML (again, except that `@' is still the escape
+character, so the `@end' command can be recognized.)
+
+
+File: texinfo.info,  Node: set clear value,  Prev: Raw Formatter Commands,  Up: Conditionals
+
+`@set', `@clear', and `@value'
+==============================
+
+  You can direct the Texinfo formatting commands to format or ignore
+parts of a Texinfo file with the `@set', `@clear', `@ifset', and
+`@ifclear' commands.
+
+  In addition, you can use the `@set FLAG' command to set the value of
+FLAG to a string of characters; and use `@value{FLAG}' to insert that
+string.  You can use `@set', for example, to set a date and use
+`@value' to insert the date in several places in the Texinfo file.
+
+* Menu:
+
+* ifset ifclear::               Format a region if a flag is set.
+* value::                       Replace a flag with a string.
+* value Example::               An easy way to update edition information.
+
+
+File: texinfo.info,  Node: ifset ifclear,  Next: value,  Prev: set clear value,  Up: set clear value
+
+`@ifset' and `@ifclear'
+-----------------------
+
+  When a FLAG is set, the Texinfo formatting commands format text
+between subsequent pairs of `@ifset FLAG' and `@end ifset' commands.
+When the FLAG is cleared, the Texinfo formatting commands do _not_
+format the text.
+
+  Use the `@set FLAG' command to turn on, or "set", a FLAG; a "flag"
+can be any single word.  The format for the command looks like this:
+
+     @set FLAG
+
+  Write the conditionally formatted text between `@ifset FLAG' and
+`@end ifset' commands, like this:
+
+     @ifset FLAG
+     CONDITIONAL-TEXT
+     @end ifset
+
+  For example, you can create one document that has two variants, such
+as a manual for a `large' and `small' model:
+
+     You can use this machine to dig up shrubs
+     without hurting them.
+     
+     @set large
+     
+     @ifset large
+     It can also dig up fully grown trees.
+     @end ifset
+     
+     Remember to replant promptly ...
+
+In the example, the formatting commands will format the text between
+`@ifset large' and `@end ifset' because the `large' flag is set.
+
+  Use the `@clear FLAG' command to turn off, or "clear", a flag.
+Clearing a flag is the opposite of setting a flag.  The command looks
+like this:
+
+     @clear FLAG
+
+Write the command on a line of its own.
+
+  When FLAG is cleared, the Texinfo formatting commands do _not_ format
+the text between `@ifset FLAG' and `@end ifset'; that text is ignored
+and does not appear in either printed or Info output.
+
+  For example, if you clear the flag of the preceding example by writing
+an `@clear large' command after the `@set large' command (but before
+the conditional text), then the Texinfo formatting commands ignore the
+text between the `@ifset large' and `@end ifset' commands.  In the
+formatted output, that text does not appear; in both printed and Info
+output, you see only the lines that say, "You can use this machine to
+dig up shrubs without hurting them.  Remember to replant promptly ...".
+
+  If a flag is cleared with an `@clear FLAG' command, then the
+formatting commands format text between subsequent pairs of `@ifclear'
+and `@end ifclear' commands.  But if the flag is set with `@set FLAG',
+then the formatting commands do _not_ format text between an `@ifclear'
+and an `@end ifclear' command; rather, they ignore that text.  An
+`@ifclear' command looks like this:
+
+     @ifclear FLAG
+
+  In brief, the commands are:
+
+`@set FLAG'
+     Tell the Texinfo formatting commands that FLAG is set.
+
+`@clear FLAG'
+     Tell the Texinfo formatting commands that FLAG is cleared.
+
+`@ifset FLAG'
+     If FLAG is set, tell the Texinfo formatting commands to format the
+     text up to the following `@end ifset' command.
+
+     If FLAG is cleared, tell the Texinfo formatting commands to ignore
+     text up to the following `@end ifset' command.
+
+`@ifclear FLAG'
+     If FLAG is set, tell the Texinfo formatting commands to ignore the
+     text up to the following `@end ifclear' command.
+
+     If FLAG is cleared, tell the Texinfo formatting commands to format
+     the text up to the following `@end ifclear' command.
+
+
+File: texinfo.info,  Node: value,  Next: value Example,  Prev: ifset ifclear,  Up: set clear value
+
+`@value'
+--------
+
+  You can use the `@set' command to specify a value for a flag, which
+is expanded by the `@value' command.  The value is a string a
+characters.
+
+  Write the `@set' command like this:
+
+     @set foo This is a string.
+
+This sets the value of `foo' to "This is a string."
+
+  The Texinfo formatters replace an `@value{FLAG}' command with the
+string to which FLAG is set.
+
+  Thus, when `foo' is set as shown above, the Texinfo formatters convert
+
+     @value{foo}
+to
+     This is a string.
+
+  You can write an `@value' command within a paragraph; but you must
+write an `@set' command on a line of its own.
+
+  If you write the `@set' command like this:
+
+     @set foo
+
+without specifying a string, the value of `foo' is an empty string.
+
+  If you clear a previously set flag with an `@clear FLAG' command, a
+subsequent `@value{flag}' command is invalid and the string is replaced
+with an error message that says `{No value for "FLAG"}'.
+
+  For example, if you set `foo' as follows:
+
+     @set how-much very, very, very
+
+then the formatters transform
+
+     It is a @value{how-much} wet day.
+into
+     It is a very, very, very wet day.
+
+  If you write
+
+     @clear how-much
+
+then the formatters transform
+
+     It is a @value{how-much} wet day.
+into
+     It is a {No value for "how-much"} wet day.
+
+
+File: texinfo.info,  Node: value Example,  Prev: value,  Up: set clear value
+
+`@value' Example
+----------------
+
+  You can use the `@value' command to limit the number of places you
+need to change when you record an update to a manual.  Here is how it
+is done in `The GNU Make Manual':
+
+Set the flags:
+
+     @set EDITION 0.35 Beta
+     @set VERSION 3.63 Beta
+     @set UPDATED 14 August 1992
+     @set UPDATE-MONTH August 1992
+
+Write text for the first `@ifinfo' section, for people reading the
+Texinfo file:
+
+     This is Edition @value{EDITION},
+     last updated @value{UPDATED},
+     of @cite{The GNU Make Manual},
+     for @code{make}, Version @value{VERSION}.
+
+Write text for the title page, for people reading the printed manual:
+
+     @title GNU Make
+     @subtitle A Program for Directing Recompilation
+     @subtitle Edition @value{EDITION}, ...
+     @subtitle @value{UPDATE-MONTH}
+
+(On a printed cover, a date listing the month and the year looks less
+fussy than a date listing the day as well as the month and year.)
+
+Write text for the Top node, for people reading the Info file:
+
+     This is Edition @value{EDITION}
+     of the @cite{GNU Make Manual},
+     last updated @value{UPDATED}
+     for @code{make} Version @value{VERSION}.
+
+  After you format the manual, the text in the first `@ifinfo' section
+looks like this:
+
+     This is Edition 0.35 Beta, last updated 14 August 1992,
+     of `The GNU Make Manual', for `make', Version 3.63 Beta.
+
+  When you update the manual, change only the values of the flags; you
+do not need to rewrite the three sections.
+
+
+File: texinfo.info,  Node: Macros,  Next: Format/Print Hardcopy,  Prev: Conditionals,  Up: Top
+
+Macros: Defining New Texinfo Commands
+*************************************
+
+  A Texinfo "macro" allows you to define a new Texinfo command as any
+sequence of text and/or existing commands (including other macros).  The
+macro can have any number of "parameters"--text you supply each time
+you use the macro.  (This has nothing to do with the `@defmac' command,
+which is for documenting macros in the subject of the manual; *note Def
+Cmd Template::.)
+
+* Menu:
+
+* Defining Macros::             Both defining and undefining new commands.
+* Invoking Macros::             Using a macro, once you've defined it.
+
+
+File: texinfo.info,  Node: Defining Macros,  Next: Invoking Macros,  Prev: Macros,  Up: Macros
+
+Defining Macros
+===============
+
+  You use the Texinfo `@macro' command to define a macro.  For example:
+
+     @macro MACRO-NAME{PARAM1, PARAM2, ...}
+     TEXT ... \PARAM1\ ...
+     @end macro
+
+  The "parameters" PARAM1, PARAM2, ... correspond to arguments supplied
+when the macro is subsequently used in the document (see the next
+section).
+
+  If a macro needs no parameters, you can define it either with an empty
+list (`@macro foo {}') or with no braces at all (`@macro foo').
+
+  The definition or "body" of the macro can contain any Texinfo
+commands, including previously-defined macros.  (It is not possible to
+have mutually recursive Texinfo macros.)  In the body, instances of a
+parameter name surrounded by backslashes, as in `\PARAM1\' in the
+example above, are replaced by the corresponding argument from the
+macro invocation.
+
+  You can undefine a macro FOO with `@unmacro FOO'.  It is not an error
+to undefine a macro that is already undefined.  For example:
+
+     @unmacro foo
 

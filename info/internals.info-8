@@ -768,8 +768,8 @@ Index
 * gc_sweep:                              gc_sweep.
 * GNU Emacs 19:                          GNU Emacs 19.
 * GNU Emacs 20:                          GNU Emacs 20.
-* Gosling, James <1>:                    Through Version 18.
-* Gosling, James:                        The Lisp Language.
+* Gosling, James <1>:                    The Lisp Language.
+* Gosling, James:                        Through Version 18.
 * Great Usenet Renaming:                 Through Version 18.
 * Hackers (Steven Levy):                 A History of Emacs.
 * hierarchy of windows:                  Window Hierarchy.

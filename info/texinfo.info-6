@@ -4,19 +4,19 @@ texinfo.texi.
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
 * Texinfo: (texinfo).           The GNU documentation format.
-* install-info: (texinfo)Invoking install-info. Update info/dir entries.
-* texi2dvi: (texinfo)Format with texi2dvi.      Print Texinfo documents.
-* texindex: (texinfo)Format with tex/texindex.  Sort Texinfo index files.
+* install-info: (texinfo)Invoking install-info. Updating info/dir entries.
+* texi2dvi: (texinfo)Format with texi2dvi.      Printing Texinfo documentation.
+* texindex: (texinfo)Format with tex/texindex.  Sorting Texinfo index files.
 * makeinfo: (texinfo)makeinfo Preferred.        Translate Texinfo source.
 END-INFO-DIR-ENTRY
 
   This file documents Texinfo, a documentation system that can produce
-both online information and a printed manual from a single source file.
+both on-line information and a printed manual from a single source file.
 
-  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98, 99 Free Software
+  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98 Free Software
 Foundation, Inc.
 
-  This edition is for Texinfo version 4.0, 28 September 1999.
+  This edition is for Texinfo version 3.12.
 
   Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -33,361 +33,6 @@ versions, except that this permission notice may be stated in a
 translation approved by the Free Software Foundation.
 
 
-File: texinfo.info,  Node: cartouche,  Prev: flushleft & flushright,  Up: Quotations and Examples
-
-Drawing Cartouches Around Examples
-==================================
-
-  In a printed manual, the `@cartouche' command draws a box with
-rounded corners around its contents.  You can use this command to
-further highlight an example or quotation.  For instance, you could
-write a manual in which one type of example is surrounded by a cartouche
-for emphasis.
-
-  `@cartouche' affects only the printed manual; it has no effect in
-other output files.
-
-  For example,
-
-     @example
-     @cartouche
-     % pwd
-     /usr/local/share/emacs
-     @end cartouche
-     @end example
-
-surrounds the two-line example with a box with rounded corners, in the
-printed manual.
-
-
-File: texinfo.info,  Node: Lists and Tables,  Next: Indices,  Prev: Quotations and Examples,  Up: Top
-
-Lists and Tables
-****************
-
-  Texinfo has several ways of making lists and tables.  Lists can be
-bulleted or numbered; two-column tables can highlight the items in the
-first column; multi-column tables are also supported.
-
-* Menu:
-
-* Introducing Lists::           Texinfo formats lists for you.
-* itemize::                     How to construct a simple list.
-* enumerate::                   How to construct a numbered list.
-* Two-column Tables::           How to construct a two-column table.
-* Multi-column Tables::         How to construct generalized tables.
-
-
-File: texinfo.info,  Node: Introducing Lists,  Next: itemize,  Prev: Lists and Tables,  Up: Lists and Tables
-
-Introducing Lists
-=================
-
-  Texinfo automatically indents the text in lists or tables, and numbers
-an enumerated list.  This last feature is useful if you modify the
-list, since you do not need to renumber it yourself.
-
-  Numbered lists and tables begin with the appropriate @-command at the
-beginning of a line, and end with the corresponding `@end' command on a
-line by itself.  The table and itemized-list commands also require that
-you write formatting information on the same line as the beginning
-@-command.
-
-  Begin an enumerated list, for example, with an `@enumerate' command
-and end the list with an `@end enumerate' command.  Begin an itemized
-list with an `@itemize' command, followed on the same line by a
-formatting command such as `@bullet', and end the list with an `@end
-itemize' command.
-
-  Precede each element of a list with an `@item' or `@itemx' command.
-
-
-Here is an itemized list of the different kinds of table and lists:
-
-   * Itemized lists with and without bullets.
-
-   * Enumerated lists, using numbers or letters.
-
-   * Two-column tables with highlighting.
-
-
-Here is an enumerated list with the same items:
-
-  1. Itemized lists with and without bullets.
-
-  2. Enumerated lists, using numbers or letters.
-
-  3. Two-column tables with highlighting.
-
-
-And here is a two-column table with the same items and their @-commands:
-
-`@itemize'
-     Itemized lists with and without bullets.
-
-`@enumerate'
-     Enumerated lists, using numbers or letters.
-
-`@table'
-`@ftable'
-`@vtable'
-     Two-column tables, optionally with indexing.
-
-
-File: texinfo.info,  Node: itemize,  Next: enumerate,  Prev: Introducing Lists,  Up: Lists and Tables
-
-`@itemize': Making an Itemized List
-===================================
-
-  The `@itemize' command produces sequences of indented paragraphs,
-with a bullet or other mark inside the left margin at the beginning of
-each paragraph for which such a mark is desired.
-
-  Begin an itemized list by writing `@itemize' at the beginning of a
-line.  Follow the command, on the same line, with a character or a
-Texinfo command that generates a mark.  Usually, you will write
-`@bullet' after `@itemize', but you can use `@minus', or any command or
-character that results in a single character in the Info file.  If you
-don't want any mark at all, use `@w'.  (When you write the mark command
-such as `@bullet' after an `@itemize' command, you may omit the `{}'.)
-If you don't specify a mark command, the default is `@bullet'.
-
-  Write the text of the indented paragraphs themselves after the
-`@itemize', up to another line that says `@end itemize'.
-
-  Before each paragraph for which a mark in the margin is desired,
-write a line that says just `@item'.  It is ok to have text following
-the `@item'.
-
-  Usually, you should put a blank line before an `@item'.  This puts a
-blank line in the Info file. (TeX inserts the proper interline
-whitespace in either case.)  Except when the entries are very brief,
-these blank lines make the list look better.
-
-  Here is an example of the use of `@itemize', followed by the output
-it produces.  `@bullet' produces an `*' in Info and a round dot in TeX.
-
-     @itemize @bullet
-     @item
-     Some text for foo.
-     
-     @item
-     Some text
-     for bar.
-     @end itemize
-
-This produces:
-
-        * Some text for foo.
-
-        * Some text for bar.
-
-  Itemized lists may be embedded within other itemized lists.  Here is a
-list marked with dashes embedded in a list marked with bullets:
-
-     @itemize @bullet
-     @item
-     First item.
-     
-     @itemize @minus
-     @item
-     Inner item.
-     
-     @item
-     Second inner item.
-     @end itemize
-     
-     @item
-     Second outer item.
-     @end itemize
-
-This produces:
-
-        * First item.
-
-             - Inner item.
-
-             - Second inner item.
-
-        * Second outer item.
-
-
-File: texinfo.info,  Node: enumerate,  Next: Two-column Tables,  Prev: itemize,  Up: Lists and Tables
-
-`@enumerate': Making a Numbered or Lettered List
-================================================
-
-  `@enumerate' is like `@itemize' (*note `@itemize': itemize.), except
-that the labels on the items are successive integers or letters instead
-of bullets.
-
-  Write the `@enumerate' command at the beginning of a line.  The
-command does not require an argument, but accepts either a number or a
-letter as an option.  Without an argument, `@enumerate' starts the list
-with the number `1'.  With a numeric argument, such as `3', the command
-starts the list with that number.  With an upper or lower case letter,
-such as `a' or `A', the command starts the list with that letter.
-
-  Write the text of the enumerated list in the same way you write an
-itemized list: put `@item' on a line of its own before the start of
-each paragraph that you want enumerated.  Do not write any other text
-on the line beginning with `@item'.
-
-  You should put a blank line between entries in the list.  This
-generally makes it easier to read the Info file.
-
-  Here is an example of `@enumerate' without an argument:
-
-     @enumerate
-     @item
-     Underlying causes.
-     
-     @item
-     Proximate causes.
-     @end enumerate
-
-This produces:
-
-  1. Underlying causes.
-
-  2. Proximate causes.
-
-
-
-  Here is an example with an argument of `3':
-
-
-     @enumerate 3
-     @item
-     Predisposing causes.
-     
-     @item
-     Precipitating causes.
-     
-     @item
-     Perpetuating causes.
-     @end enumerate
-
-This produces:
-
-  3. Predisposing causes.
-
-  4. Precipitating causes.
-
-  5. Perpetuating causes.
-
-
-
-  Here is a brief summary of the alternatives.  The summary is
-constructed using `@enumerate' with an argument of `a'.
-
-
-  a. `@enumerate'
-
-     Without an argument, produce a numbered list, starting with the
-     number 1.
-
-  b. `@enumerate POSITIVE-INTEGER'
-
-     With a (positive) numeric argument, start a numbered list with that
-     number.  You can use this to continue a list that you interrupted
-     with other text.
-
-  c. `@enumerate UPPER-CASE-LETTER'
-
-     With an upper case letter as argument, start a list in which each
-     item is marked by a letter, beginning with that upper case letter.
-
-  d. `@enumerate LOWER-CASE-LETTER'
-
-     With a lower case letter as argument, start a list in which each
-     item is marked by a letter, beginning with that lower case letter.
-
-  You can also nest enumerated lists, as in an outline.
-
-
-File: texinfo.info,  Node: Two-column Tables,  Next: Multi-column Tables,  Prev: enumerate,  Up: Lists and Tables
-
-Making a Two-column Table
-=========================
-
-  `@table' is similar to `@itemize' (*note `@itemize': itemize.), but
-allows you to specify a name or heading line for each item.  The
-`@table' command is used to produce two-column tables, and is
-especially useful for glossaries, explanatory exhibits, and
-command-line option summaries.
-
-* Menu:
-
-* table::                       How to construct a two-column table.
-* ftable vtable::               Automatic indexing for two-column tables.
-* itemx::                       How to put more entries in the first column.
-
-
-File: texinfo.info,  Node: table,  Next: ftable vtable,  Prev: Two-column Tables,  Up: Two-column Tables
-
-Using the `@table' Command
---------------------------
-
-  Use the `@table' command to produce two-column tables.
-
-  Write the `@table' command at the beginning of a line and follow it
-on the same line with an argument that is a Texinfo "indicating"
-command such as `@code', `@samp', `@var', or `@kbd' (*note
-Indicating::).  Although these commands are usually followed by
-arguments in braces, in this case you use the command name without an
-argument because `@item' will supply the argument.  This command will
-be applied to the text that goes into the first column of each item and
-determines how it will be highlighted.  For example, `@code' will cause
-the text in the first column to be highlighted with an `@code' command.
-(We recommend `@code' for `@table''s of command-line options.)
-
-  You may also choose to use the `@asis' command as an argument to
-`@table'.  `@asis' is a command that does nothing; if you use this
-command after `@table', TeX and the Info formatting commands output the
-first column entries without added highlighting ("as is").
-
-  (The `@table' command may work with other commands besides those
-listed here.  However, you can only use commands that normally take
-arguments in braces.)
-
-  Begin each table entry with an `@item' command at the beginning of a
-line.  Write the first column text on the same line as the `@item'
-command.  Write the second column text on the line following the
-`@item' line and on subsequent lines.  (You do not need to type
-anything for an empty second column entry.)  You may write as many
-lines of supporting text as you wish, even several paragraphs.  But
-only text on the same line as the `@item' will be placed in the first
-column, including any footnote.
-
-  Normally, you should put a blank line before an `@item' line.  This
-puts a blank like in the Info file.  Except when the entries are very
-brief, a blank line looks better.
-
-  The following table, for example, highlights the text in the first
-column with an `@samp' command:
-
-     @table @samp
-     @item foo
-     This is the text for
-     @samp{foo}.
-     
-     @item bar
-     Text for @samp{bar}.
-     @end table
-
-This produces:
-
-`foo'
-     This is the text for `foo'.
-
-`bar'
-     Text for `bar'.
-
-  If you want to list two or more named items with a single block of
-text, use the `@itemx' command.  (*Note `@itemx': itemx.)
-
-
 File: texinfo.info,  Node: ftable vtable,  Next: itemx,  Prev: table,  Up: Two-column Tables
 
 `@ftable' and `@vtable'
@@ -400,7 +45,8 @@ automatically enters each of the items in the first column of the table
 into the index of variables.  This simplifies the task of creating
 indices.  Only the items on the same line as the `@item' commands are
 indexed, and they are indexed in exactly the form that they appear on
-that line.  *Note Indices::, for more information about indices.
+that line.  *Note Creating Indices: Indices, for more information about
+indices.
 
   Begin a two-column table using `@ftable' or `@vtable' by writing the
 @-command at the beginning of a line, followed on the same line by an
@@ -464,7 +110,7 @@ completes the table.  Details in the sections below.
 * Multitable Rows::             Defining multitable rows, with examples.
 
 
-File: texinfo.info,  Node: Multitable Column Widths,  Next: Multitable Rows,  Up: Multi-column Tables
+File: texinfo.info,  Node: Multitable Column Widths,  Next: Multitable Rows,  Prev: Multi-column Tables,  Up: Multi-column Tables
 
 Multitable Column Widths
 ------------------------
@@ -482,7 +128,7 @@ entirely on the same line as the `@multitable' command.
 
      The fractions need not add up exactly to 1.0, as these do not.
      This allows you to produce tables that do not need the full line
-     length.  You can use a leading zero if you wish.
+     length.
 
   2. To specify a prototype row, write the longest entry for each column
      enclosed in braces after the `@multitable' command.  For example:
@@ -513,7 +159,7 @@ not special within the table body, and you may break input lines in
 your source file as necessary.
 
   Here is a complete example of a multi-column table (the text is from
-`The GNU Emacs Manual', *note Splitting Windows: (emacs)Split Window.):
+`The GNU Emacs Manual', *note Splitting Windows: (xemacs)Split Window.):
 
      @multitable @columnfractions .15 .45 .4
      @item Key @tab Command @tab Description
@@ -547,8 +193,8 @@ C-Mouse-2                                    In the mode line or scroll
 
 File: texinfo.info,  Node: Indices,  Next: Insertions,  Prev: Lists and Tables,  Up: Top
 
-Indices
-*******
+Creating Indices
+****************
 
   Using Texinfo, you can generate indices without having to sort and
 collate entries manually.  In an index, the entries are listed in
@@ -699,9 +345,21 @@ emphasis (*note Marking Text::).
      Make an entry in the data type index for DATA TYPE.
 
      *Caution:* Do not use a colon in an index entry.  In Info, a colon
-     separates the menu entry name from the node name, so a colon in
-     the entry itself confuses Info.  *Note The Parts of a Menu: Menu
-     Parts, for more information about the structure of a menu entry.
+     separates the menu entry name from the node name.  An extra colon
+     confuses Info.  *Note The Parts of a Menu: Menu Parts, for more
+     information about the structure of a menu entry.
+
+  If you write several identical index entries in different places in a
+Texinfo file, the index in the printed manual will list all the pages to
+which those entries refer.  However, the index in the Info file will
+list *only* the node that references the *first* of those index
+entries.  Therefore, it is best to write indices in which each entry
+refers to only one place in the Texinfo file.  Fortunately, this
+constraint is a feature rather than a loss since it means that the index
+will be easy to use.  Otherwise, you could create an index that lists
+several pages for one entry and your reader would not know to which page
+to turn.  If you have two identical entries for one topic, change the
+topics slightly, or qualify them to indicate the difference.
 
   You are not actually required to use the predefined indices for their
 canonical purposes.  For example, suppose you wish to index some C
@@ -893,7 +551,6 @@ elements that do not correspond to simple characters you can type.
 * math::                        How to format a mathematical expression.
 * Glyphs::                      How to indicate results of evaluation,
                                   expansion of macros, errors, etc.
-* Footnotes::                   How to include footnotes.
 * Images::                      How to include graphics.
 
 
@@ -952,20 +609,20 @@ various kinds within and after sentences.
 * dmn::                         How to format a dimension.
 
 
-File: texinfo.info,  Node: Not Ending a Sentence,  Next: Ending a Sentence,  Up: Inserting Space
+File: texinfo.info,  Node: Not Ending a Sentence,  Next: Ending a Sentence,  Prev: Inserting Space,  Up: Inserting Space
 
 Not Ending a Sentence
 ---------------------
 
   Depending on whether a period or exclamation point or question mark is
 inside or at the end of a sentence, less or more space is inserted after
-a period in a typeset manual.  Since it is not always possible to
-determine when a period ends a sentence and when it is used in an
-abbreviation, special commands are needed in some circumstances.
-Usually, Texinfo can guess how to handle periods, so you do not need to
+a period in a typeset manual.  Since it is not always possible for
+Texinfo to determine when a period ends a sentence and when it is used
+in an abbreviation, special commands are needed in some circumstances.
+(Usually, Texinfo can guess how to handle periods, so you do not need to
 use the special commands; you just enter a period as you would if you
 were using a typewriter, which means you put two spaces after the
-period, question mark, or exclamation mark that ends a sentence.
+period, question mark, or exclamation mark that ends a sentence.)
 
   Use the `@:' command after a period, question mark, exclamation mark,
 or colon that should not be followed by extra space.  For example, use
@@ -1012,7 +669,8 @@ for `@!' and `@?'.
 
   The meanings of `@:' and `@.' in Texinfo are designed to work well
 with the Emacs sentence motion commands (*note Sentences:
-(emacs)Sentences.).
+(xemacs)Sentences.).  This made it necessary for them to be
+incompatible with some other formatting systems that use @-commands.
 
   Do not put braces after any of these commands.
 
@@ -1079,7 +737,7 @@ however, the formatters may insert a line break between the number and
 the dimension, so use `@w' (*note w::).  Also, if you write a period
 after an abbreviation within a sentence, you should write `@:' after
 the period to prevent TeX from inserting extra whitespace, as shown
-here.  *Note Not Ending a Sentence::.
+here.  *Note Inserting Space::.
 
 
 File: texinfo.info,  Node: Inserting Accents,  Next: Dots Bullets,  Prev: Inserting Space,  Up: Insertions
@@ -1114,22 +772,22 @@ Command           Output   What
   This table lists the Texinfo commands for inserting other characters
 commonly used in languages other than English.
 
-@exclamdown{}       !       upside-down !
-@questiondown{}     ?       upside-down ?
-@aa{},@AA{}         aa,AA   a,A with circle
-@ae{},@AE{}         ae,AE   ae,AE ligatures
-@dotless{i}         i       dotless i
-@dotless{j}         j       dotless j
-@l{},@L{}           /l,/L   suppressed-L,l
-@o{},@O{}           /o,/O   O,o with slash
-@oe{},@OE{}         oe,OE   oe,OE ligatures
-@ss{}               ss      es-zet or sharp S
+@exclamdown{}     !       upside-down !
+@questiondown{}   ?       upside-down ?
+@aa{},@AA{}       aa,AA   A,a with circle
+@ae{},@AE{}       ae,AE   ae,AE ligatures
+@dotless{i}       i       dotless i
+@dotless{j}       j       dotless j
+@l{},@L{}         /l,/L   suppressed-L,l
+@o{},@O{}         /o,/O   O,o with slash
+@oe{},@OE{}       oe,OE   OE,oe ligatures
+@ss{}             ss      es-zet or sharp S
 
 
 File: texinfo.info,  Node: Dots Bullets,  Next: TeX and copyright,  Prev: Inserting Accents,  Up: Insertions
 
-Inserting Ellipsis and Bullets
-==============================
+Inserting Ellipsis, Dots, and Bullets
+=====================================
 
   An "ellipsis" (a line of dots) is not typeset as a string of periods,
 so a special command is used for ellipsis in Texinfo.  The `@bullet'
@@ -1146,10 +804,10 @@ information.)
 * bullet::                      How to insert a bullet.
 
 
-File: texinfo.info,  Node: dots,  Next: bullet,  Up: Dots Bullets
+File: texinfo.info,  Node: dots,  Next: bullet,  Prev: Dots Bullets,  Up: Dots Bullets
 
-`@dots'{} (...) and `@enddots'{} (....)
----------------------------------------
+`@dots'{} (...)
+---------------
 
   Use the `@dots{}' command to generate an ellipsis, which is three
 dots in a row, appropriately spaced, like this: `...'.  Do not simply
@@ -1191,7 +849,7 @@ whitespace between the name of the command and the braces.
 * copyright symbol::            How to use `@copyright'{}.
 
 
-File: texinfo.info,  Node: tex,  Next: copyright symbol,  Up: TeX and copyright
+File: texinfo.info,  Node: tex,  Next: copyright symbol,  Prev: TeX and copyright,  Up: TeX and copyright
 
 `@TeX'{} (TeX)
 --------------
@@ -1213,7 +871,7 @@ manual, this is a `c' inside a circle, and in Info, this is `(C)'.
 
 File: texinfo.info,  Node: pounds,  Next: minus,  Prev: TeX and copyright,  Up: Insertions
 
-`@pounds'{} (#): Pounds Sterling
+`@pounds{}' (#): Pounds Sterling
 ================================
 
   Use the `@pounds{}' command to generate `#'.  In a printed manual,
@@ -1250,8 +908,8 @@ itemize..)
 
 File: texinfo.info,  Node: math,  Next: Glyphs,  Prev: minus,  Up: Insertions
 
-`@math': Inserting Mathematical Expressions
-===========================================
+`@math' - Inserting Mathematical Expressions
+============================================
 
   You can write a short mathematical expression with the `@math'
 command.  Write the mathematical expression between braces, like this:
@@ -1270,7 +928,7 @@ to write the mathematical expression between one or two `$'
 (dollar-signs) as appropriate.
 
 
-File: texinfo.info,  Node: Glyphs,  Next: Footnotes,  Prev: math,  Up: Insertions
+File: texinfo.info,  Node: Glyphs,  Next: Images,  Prev: math,  Up: Insertions
 
 Glyphs for Examples
 ===================
@@ -1469,4 +1127,297 @@ produces
 
 This indicates that evaluating `(make-sparse-keymap)' produces
 identical results to evaluating `(list 'keymap)'.
+
+
+File: texinfo.info,  Node: Point Glyph,  Prev: Equivalence,  Up: Glyphs
+
+`@point{}' (-!-): Indicating Point in a Buffer
+----------------------------------------------
+
+  Sometimes you need to show an example of text in an Emacs buffer.  In
+such examples, the convention is to include the entire contents of the
+buffer in question between two lines of dashes containing the buffer
+name.
+
+  You can use the `@point{}' command to show the location of point in
+the text in the buffer.  (The symbol for point, of course, is not part
+of the text in the buffer; it indicates the place _between_ two
+characters where point is located.)
+
+  The `@point{}' command is displayed as `-!-' in Info and as a small
+five pointed star in the printed output.
+
+  The following example shows the contents of buffer `foo' before and
+after evaluating a Lisp command to insert the word `changed'.
+
+     ---------- Buffer: foo ----------
+     This is the -!-contents of foo.
+     ---------- Buffer: foo ----------
+
+     (insert "changed ")
+          => nil
+     ---------- Buffer: foo ----------
+     This is the changed -!-contents of foo.
+     ---------- Buffer: foo ----------
+
+  In a Texinfo source file, the example is written like this:
+
+     @example
+     ---------- Buffer: foo ----------
+     This is the @point{}contents of foo.
+     ---------- Buffer: foo ----------
+     
+     (insert "changed ")
+          @result{} nil
+     ---------- Buffer: foo ----------
+     This is the changed @point{}contents of foo.
+     ---------- Buffer: foo ----------
+     @end example
+
+
+File: texinfo.info,  Node: Images,  Prev: Glyphs,  Up: Insertions
+
+Inserting Images
+================
+
+  You can insert an image in an external file with the `@image' command:
+
+     @image{FILENAME, [WIDTH], [HEIGHT]}
+
+  The FILENAME argument is mandatory, and must not have an extension,
+because the different processors support different formats: TeX reads
+the file `FILENAME.eps' (Encapsulated PostScript format); `makeinfo'
+uses `FILENAME.txt' verbatim for Info output (more or less as if it was
+an `@example').  HTML output requires `FILENAME.jpg'.
+
+  The optional WIDTH and HEIGHT arguments specify the size to scale the
+image to (they are ignored for Info output).  If they are both
+specified, the image is presented in its natural size (given in the
+file); if only one is specified, the other is scaled proportionately;
+and if both are specified, both are respected, thus possibly distorting
+the original image by changing its aspect ratio.
+
+  The WIDTH and HEIGHT may be specified using any valid TeX dimension,
+namely:
+
+pt
+     point (72.27pt = 1in)
+
+pc
+     pica (1pc = 12pt)
+
+bp
+     big point (72bp = 1in)
+
+in
+     inch
+
+cm
+     centimeter (2.54cm = 1in)
+
+mm
+     millimeter (10mm = 1cm)
+
+dd
+     dido^t point (1157dd = 1238pt)
+
+cc
+     cicero (1cc = 12dd)
+
+sp
+     scaled point (65536sp = 1pt)
+
+  For example, the following will scale a file `ridt.eps' to one inch
+vertically, with the width scaled proportionately:
+
+     @image{ridt,,1in}
+
+  For `@image' to work with TeX, the file `epsf.tex' must be installed
+somewhere that TeX can find it.  This file is included in the Texinfo
+distribution and is available from `ftp://ftp.tug.org/tex/epsf.tex'.
+
+
+File: texinfo.info,  Node: Breaks,  Next: Definition Commands,  Prev: Insertions,  Up: Top
+
+Making and Preventing Breaks
+****************************
+
+  Usually, a Texinfo file is processed both by TeX and by one of the
+Info formatting commands.  Line, paragraph, or page breaks sometimes
+occur in the `wrong' place in one or other form of output.  You must
+ensure that text looks right both in the printed manual and in the Info
+file.
+
+  For example, in a printed manual, page breaks may occur awkwardly in
+the middle of an example; to prevent this, you can hold text together
+using a grouping command that keeps the text from being split across
+two pages.  Conversely, you may want to force a page break where none
+would occur normally.  Fortunately, problems like these do not often
+arise.  When they do, use the break, break prevention, or pagination
+commands.
+
+* Menu:
+
+* Break Commands::              Cause and prevent splits.
+* Line Breaks::                 How to force a single line to use two lines.
+* - and hyphenation::           How to tell TeX about hyphenation points.
+* w::                           How to prevent unwanted line breaks.
+* sp::                          How to insert blank lines.
+* page::                        How to force the start of a new page.
+* group::                       How to prevent unwanted page breaks.
+* need::                        Another way to prevent unwanted page breaks.
+
+
+File: texinfo.info,  Node: Break Commands,  Next: Line Breaks,  Prev: Breaks,  Up: Breaks
+
+The Break Commands
+==================
+
+  The break commands create or allow line and paragraph breaks:
+
+`@*'
+     Force a line break.
+
+`@sp N'
+     Skip N blank lines.
+
+`@-'
+     Insert a discretionary hyphen.
+
+`@hyphenation{HY-PHEN-A-TED WORDS}'
+     Define hyphen points in HY-PHEN-A-TED WORDS.
+
+  The line-break-prevention command holds text together all on one line:
+
+`@w{TEXT}'
+     Prevent TEXT from being split and hyphenated across two lines.
+
+  The pagination commands apply only to printed output, since Info
+files do not have pages.
+
+`@page'
+     Start a new page in the printed manual.
+
+`@group'
+     Hold text together that must appear on one printed page.
+
+`@need MILS'
+     Start a new printed page if not enough space on this one.
+
+
+File: texinfo.info,  Node: Line Breaks,  Next: - and hyphenation,  Prev: Break Commands,  Up: Breaks
+
+`@*': Generate Line Breaks
+==========================
+
+  The `@*' command forces a line break in both the printed manual and
+in Info.
+
+  For example,
+
+     This line @* is broken @*in two places.
+
+produces
+
+     This line
+      is broken
+     in two places.
+
+(Note that the space after the first `@*' command is faithfully carried
+down to the next line.)
+
+  The `@*' command is often used in a file's copyright page:
+
+     This is edition 2.0 of the Texinfo documentation,@*
+     and is for ...
+
+In this case, the `@*' command keeps TeX from stretching the line
+across the whole page in an ugly manner.
+
+     *Please note:* Do not write braces after an `@*' command; they are
+     not needed.
+
+     Do not write an `@refill' command at the end of a paragraph
+     containing an `@*' command; it will cause the paragraph to be
+     refilled after the line break occurs, negating the effect of the
+     line break.
+
+
+File: texinfo.info,  Node: - and hyphenation,  Next: w,  Prev: Line Breaks,  Up: Breaks
+
+`@-' and `@hyphenation': Helping TeX hyphenate
+==============================================
+
+  Although TeX's hyphenation algorithm is generally pretty good, it
+does miss useful hyphenation points from time to time.  (Or, far more
+rarely, insert an incorrect hyphenation.)  So, for documents with an
+unusual vocabulary or when fine-tuning for a printed edition, you may
+wish to help TeX out.  Texinfo supports two commands for this:
+
+`@-'
+     Insert a discretionary hyphen, i.e., a place where TeX can (but
+     does not have to) hyphenate.  This is especially useful when you
+     notice an overfull hbox is due to TeX missing a hyphenation (*note
+     Overfull hboxes::).  TeX will not insert any hyphenation points in
+     a word containing `@-'.
+
+`@hyphenation{HY-PHEN-A-TED WORDS}'
+     Tell TeX how to hyphenate HY-PHEN-A-TED WORDS.  As shown, you put
+     a `-' at each hyphenation point.  For example:
+          @hyphenation{man-u-script man-u-scripts}
+
+     TeX only uses the specified hyphenation points when the words
+     match exactly, so give all necessary variants.
+
+  Info output is not hyphenated, so these commands have no effect there.
+
+
+File: texinfo.info,  Node: w,  Next: sp,  Prev: - and hyphenation,  Up: Breaks
+
+`@w'{TEXT}: Prevent Line Breaks
+===============================
+
+  `@w{TEXT}' outputs TEXT and prohibits line breaks within TEXT.
+
+  You can use the `@w' command to prevent TeX from automatically
+hyphenating a long name or phrase that happens to fall near the end of a
+line.
+
+     You can copy GNU software from @w{@samp{ftp.gnu.ai.mit.edu}}.
+
+produces
+
+     You can copy GNU software from `ftp.gnu.ai.mit.edu'.
+
+     *Caution:* Do not write an `@refill' command at the end of a
+     paragraph containing an `@w' command; it will cause the paragraph
+     to be refilled and may thereby negate the effect of the `@w'
+     command.
+
+
+File: texinfo.info,  Node: sp,  Next: page,  Prev: w,  Up: Breaks
+
+`@sp' N: Insert Blank Lines
+===========================
+
+  A line beginning with and containing only `@sp N' generates N blank
+lines of space in both the printed manual and the Info file.  `@sp'
+also forces a paragraph break.  For example,
+
+     @sp 2
+
+generates two blank lines.
+
+  The `@sp' command is most often used in the title page.
+
+
+File: texinfo.info,  Node: page,  Next: group,  Prev: sp,  Up: Breaks
+
+`@page': Start a New Page
+=========================
+
+  A line containing only `@page' starts a new page in a printed manual.
+The command has no effect on Info files since they are not paginated.
+An `@page' command is often used in the `@titlepage' section of a
+Texinfo file to start the copyright page.
 

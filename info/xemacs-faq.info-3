@@ -190,7 +190,7 @@ Q3.0.5: How to check if a lisp function is defined?
 variables.
 
    Instead, use feature-tests, such as `featurep', `boundp', `fboundp',
-or even simple behaviroal tests, eg.:
+or even simple behavioral tests, eg.:
 
      (defvar foo-old-losing-code-p
        (condition-case nil (progn (losing-code t) nil)

@@ -1204,8 +1204,8 @@ Key (Character) Index
 * C-p:                                   Cursor Position.
 * C-r:                                   Search and Replace.
 * C-s:                                   Search and Replace.
-* C-SPC <1>:                             Selecting Text.
-* C-SPC:                                 Region Operation.
+* C-SPC <1>:                             Region Operation.
+* C-SPC:                                 Selecting Text.
 * C-t:                                   Cursor Position.
 * C-u:                                   Numeric Argument.
 * C-v:                                   Cursor Position.

@@ -4,19 +4,19 @@ texinfo.texi.
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
 * Texinfo: (texinfo).           The GNU documentation format.
-* install-info: (texinfo)Invoking install-info. Update info/dir entries.
-* texi2dvi: (texinfo)Format with texi2dvi.      Print Texinfo documents.
-* texindex: (texinfo)Format with tex/texindex.  Sort Texinfo index files.
+* install-info: (texinfo)Invoking install-info. Updating info/dir entries.
+* texi2dvi: (texinfo)Format with texi2dvi.      Printing Texinfo documentation.
+* texindex: (texinfo)Format with tex/texindex.  Sorting Texinfo index files.
 * makeinfo: (texinfo)makeinfo Preferred.        Translate Texinfo source.
 END-INFO-DIR-ENTRY
 
   This file documents Texinfo, a documentation system that can produce
-both online information and a printed manual from a single source file.
+both on-line information and a printed manual from a single source file.
 
-  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98, 99 Free Software
+  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98 Free Software
 Foundation, Inc.
 
-  This edition is for Texinfo version 4.0, 28 September 1999.
+  This edition is for Texinfo version 3.12.
 
   Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -31,367 +31,6 @@ permission notice identical to this one.
 manual into another language, under the above conditions for modified
 versions, except that this permission notice may be stated in a
 translation approved by the Free Software Foundation.
-
-
-File: texinfo.info,  Node: Four and Five Arguments,  Prev: Three Arguments,  Up: xref
-
-`@xref' with Four and Five Arguments
-------------------------------------
-
-  In a cross reference, a fourth argument specifies the name of another
-Info file, different from the file in which the reference appears, and
-a fifth argument specifies its title as a printed manual.
-
-  Remember that a comma or period must follow the closing brace of an
-`@xref' command to terminate the cross reference.  In the following
-examples, a clause follows a terminating comma.
-
-The template is:
-
-     @xref{NODE-NAME, CROSS-REFERENCE-NAME, TITLE-OR-TOPIC,
-     INFO-FILE-NAME, PRINTED-MANUAL-TITLE}.
-
-For example,
-
-     @xref{Electrical Effects, Lightning, Thunder and Lightning,
-     weather, An Introduction to Meteorology}, for details.
-
-produces
-
-     *Note Lightning: (weather)Electrical Effects, for details.
-
-The name of the Info file is enclosed in parentheses and precedes the
-name of the node.
-
-In a printed manual, the reference looks like this:
-
-     See section "Thunder and Lightning" in An Introduction to
-     Meteorology, for details.
-
-The title of the printed manual is typeset in italics; and the
-reference lacks a page number since TeX cannot know to which page a
-reference refers when that reference is to another manual.
-
-  Often, you will leave out the second argument when you use the long
-version of `@xref'.  In this case, the third argument, the topic
-description, will be used as the cross reference name in Info.
-
-The template looks like this:
-
-     @xref{NODE-NAME, , TITLE-OR-TOPIC, INFO-FILE-NAME,
-     PRINTED-MANUAL-TITLE}, for details.
-
-which produces
-
-     *Note TITLE-OR-TOPIC: (INFO-FILE-NAME)NODE-NAME, for details.
-
-and
-
-     See section TITLE-OR-TOPIC in PRINTED-MANUAL-TITLE, for details.
-
-For example,
-
-     @xref{Electrical Effects, , Thunder and Lightning,
-     weather, An Introduction to Meteorology}, for details.
-
-produces
-
-     *Note Thunder and Lightning: (weather)Electrical Effects,
-     for details.
-
-and
-
-     See section "Thunder and Lightning" in An Introduction to
-     Meteorology, for details.
-
-  On rare occasions, you may want to refer to another Info file that is
-within a single printed manual--when multiple Texinfo files are
-incorporated into the same TeX run but make separate Info files.  In
-this case, you need to specify only the fourth argument, and not the
-fifth.
-
-
-File: texinfo.info,  Node: Top Node Naming,  Next: ref,  Prev: xref,  Up: Cross References
-
-Naming a `Top' Node
-===================
-
-  In a cross reference, you must always name a node.  This means that in
-order to refer to a whole manual, you must identify the `Top' node by
-writing it as the first argument to the `@xref' command.  (This is
-different from the way you write a menu entry; see *Note Referring to
-Other Info Files: Other Info Files.)  At the same time, to provide a
-meaningful section topic or title in the printed cross reference
-(instead of the word `Top'), you must write an appropriate entry for
-the third argument to the `@xref' command.
-
-Thus, to make a cross reference to `The GNU Make Manual', write:
-
-     @xref{Top, , Overview, make, The GNU Make Manual}.
-
-which produces
-
-     *Note Overview: (make)Top.
-
-and
-
-     See section "Overview" in The GNU Make Manual.
-
-In this example, `Top' is the name of the first node, and `Overview' is
-the name of the first section of the manual.
-
-
-File: texinfo.info,  Node: ref,  Next: pxref,  Prev: Top Node Naming,  Up: Cross References
-
-`@ref'
-======
-
-  `@ref' is nearly the same as `@xref' except that it does not generate
-a `See' in the printed output, just the reference itself.  This makes
-it useful as the last part of a sentence.
-
-For example,
-
-     For more information, see @ref{Hurricanes}.
-
-produces
-
-     For more information, see *Note Hurricanes::.
-
-and
-
-     For more information, see Section 8.2 [Hurricanes], page 123.
-
-  The `@ref' command sometimes leads writers to express themselves in a
-manner that is suitable for a printed manual but looks awkward in the
-Info format.  Bear in mind that your audience will be using both the
-printed and the Info format.
-
-For example,
-
-     Sea surges are described in @ref{Hurricanes}.
-
-produces
-
-     Sea surges are described in Section 6.7 [Hurricanes], page 72.
-
-in a printed document, and the following in Info:
-
-     Sea surges are described in *Note Hurricanes::.
-
-     *Caution:* You _must_ write a period, comma, or right parenthesis
-     immediately after an `@ref' command with two or more arguments.
-     Otherwise, Info will not find the end of the cross reference entry
-     and its attempt to follow the cross reference will fail.  As a
-     general rule, you should write a period or comma after every
-     `@ref' command.  This looks best in both the printed and the Info
-     output.
-
-
-File: texinfo.info,  Node: pxref,  Next: inforef,  Prev: ref,  Up: Cross References
-
-`@pxref'
-========
-
-  The parenthetical reference command, `@pxref', is nearly the same as
-`@xref', but you use it _only_ inside parentheses and you do _not_ type
-a comma or period after the command's closing brace.  The command
-differs from `@xref' in two ways:
-
-  1. TeX typesets the reference for the printed manual with a lower case
-     `see' rather than an upper case `See'.
-
-  2. The Info formatting commands automatically end the reference with a
-     closing colon or period.
-
-  Because one type of formatting automatically inserts closing
-punctuation and the other does not, you should use `@pxref' _only_
-inside parentheses as part of another sentence.  Also, you yourself
-should not insert punctuation after the reference, as you do with
-`@xref'.
-
-  `@pxref' is designed so that the output looks right and works right
-between parentheses both in printed output and in an Info file.  In a
-printed manual, a closing comma or period should not follow a cross
-reference within parentheses; such punctuation is wrong.  But in an
-Info file, suitable closing punctuation must follow the cross reference
-so Info can recognize its end.  `@pxref' spares you the need to use
-complicated methods to put a terminator into one form of the output and
-not the other.
-
-With one argument, a parenthetical cross reference looks like this:
-
-     ... storms cause flooding (@pxref{Hurricanes}) ...
-
-which produces
-
-     ... storms cause flooding (*Note Hurricanes::) ...
-
-and
-
-     ... storms cause flooding (see Section 6.7 [Hurricanes], page 72)
-     ...
-
-  With two arguments, a parenthetical cross reference has this template:
-
-     ... (@pxref{NODE-NAME, CROSS-REFERENCE-NAME}) ...
-
-which produces
-
-     ... (*Note CROSS-REFERENCE-NAME: NODE-NAME.) ...
-
-and
-
-     ... (see Section NNN [NODE-NAME], page PPP) ...
-
-  `@pxref' can be used with up to five arguments just like `@xref'
-(*note `@xref': xref.).
-
-     *Please note:* Use `@pxref' only as a parenthetical reference.  Do
-     not try to use `@pxref' as a clause in a sentence.  It will look
-     bad in either the Info file, the printed output, or both.
-
-     Also, parenthetical cross references look best at the ends of
-     sentences.  Although you may write them in the middle of a
-     sentence, that location breaks up the flow of text.
-
-
-File: texinfo.info,  Node: inforef,  Next: uref,  Prev: pxref,  Up: Cross References
-
-`@inforef'
-==========
-
-  `@inforef' is used for cross references to Info files for which there
-are no printed manuals.  Even in a printed manual, `@inforef' generates
-a reference directing the user to look in an Info file.
-
-  The command takes either two or three arguments, in the following
-order:
-
-  1. The node name.
-
-  2. The cross reference name (optional).
-
-  3. The Info file name.
-
-Separate the arguments with commas, as with `@xref'.  Also, you must
-terminate the reference with a comma or period after the `}', as you do
-with `@xref'.
-
-The template is:
-
-     @inforef{NODE-NAME, CROSS-REFERENCE-NAME, INFO-FILE-NAME},
-
-Thus,
-
-     @inforef{Expert, Advanced Info commands, info},
-     for more information.
-
-produces
-
-     *Note Advanced Info commands: (info)Expert,
-     for more information.
-
-and
-
-     See Info file `info', node `Expert', for more information.
-
-Similarly,
-
-     @inforef{Expert, , info}, for more information.
-
-produces
-
-     *Note (info)Expert::, for more information.
-
-and
-
-     See Info file `info', node `Expert', for more information.
-
-  The converse of `@inforef' is `@cite', which is used to refer to
-printed works for which no Info form exists.  *Note `@cite': cite.
-
-
-File: texinfo.info,  Node: uref,  Prev: inforef,  Up: Cross References
-
-`@uref{URL[, TEXT][, REPLACEMENT]}'
-===================================
-
-  `@uref' produces a reference to a uniform resource locator (url).  It
-takes one mandatory argument, the url, and two optional arguments which
-control the text that is displayed.  In HTML output, `@uref' produces a
-link you can follow.
-
-  The second argument, if specified, is the text to display (the default
-is the url itself); in Info and DVI output, but not in HTML output, the
-url is also output.
-
-  The third argument, on the other hand, if specified is also the text
-to display, but the url is _not_ output in any format.  This is useful
-when the text is already sufficiently referential, as in a man page.  If
-the third argument is given, the second argument is ignored.
-
-  The simple one argument form, where the url is both the target and the
-text of the link:
-
-     The official GNU ftp site is @uref{ftp://ftp.gnu.org/gnu}.
-
-produces:
-     The official GNU ftp site is `ftp://ftp.gnu.org/gnu'.
-
-  An example of the two-argument form:
-     The official @uref{ftp://ftp.gnu.org/gnu, GNU ftp site} holds
-     programs and texts.
-
-produces:
-     The official GNU ftp site (ftp://ftp.gnu.org/gnu) holds
-     programs and texts.
-
-that is, the Info output is this:
-     The official GNU ftp site (ftp://ftp.gnu.org/gnu) holds
-     programs and texts.
-
-and the HTML output is this:
-     The official <a href="ftp://ftp.gnu.org/gnu">GNU ftp site</a> holds
-     programs and texts.
-
-  An example of the three-argument form:
-     The @uref{http://example.org/man.cgi/1/ls,,ls(1)} program ...
-
-produces:
-     The ls(1) program ...
-
-but with HTML:
-     The <a href="http://example.org/man.cgi/1/ls">ls(1)</a> program ...
-
-  To merely indicate a url without creating a link people can follow,
-use `@url' (*note `@url': url.).
-
-  Some people prefer to display url's in the unambiguous format:
-
-     <URL:http://HOST/PATH>
-
-You can use this form in the input file if you wish.  We feel it's not
-necessary to clutter up the output with the extra `<URL:' and `>',
-since any software that tries to detect url's in text already has to
-detect them without the `<URL:' to be useful.
-
-
-File: texinfo.info,  Node: Marking Text,  Next: Quotations and Examples,  Prev: Cross References,  Up: Top
-
-Marking Words and Phrases
-*************************
-
-  In Texinfo, you can mark words and phrases in a variety of ways.  The
-Texinfo formatters use this information to determine how to highlight
-the text.  You can specify, for example, whether a word or phrase is a
-defining occurrence, a metasyntactic variable, or a symbol used in a
-program.  Also, you can emphasize text, in several different ways.
-
-* Menu:
-
-* Indicating::                  How to indicate definitions, files, etc.
-* Emphasis::                    How to emphasize text.
 
 
 File: texinfo.info,  Node: Indicating,  Next: Emphasis,  Prev: Marking Text,  Up: Marking Text
@@ -410,7 +49,7 @@ formatting language.)
   For example, in a printed manual, code is usually illustrated in a
 typewriter font; `@code' tells TeX to typeset this text in this font.
 But it would be easy to change the way TeX highlights code to use
-another font, and this change would not affect how keystroke examples
+another font, and this change would not effect how keystroke examples
 are highlighted.  If straight typesetting commands were used in the body
 of the file and you wanted to make a change, you would need to check
 every single occurrence to make sure that you were changing code and
@@ -419,20 +58,16 @@ not something else that should not be changed.
 * Menu:
 
 * Useful Highlighting::         Highlighting provides useful information.
-* code::                        Indicating program code.
-* kbd::                         Showing keyboard input.
-* key::                         Specifying keys.
-* samp::                        Showing a literal sequence of characters.
-* var::                         Indicating metasyntactic variables.
-* env::                         Indicating environment variables.
-* file::                        Indicating file names.
-* command::                     Indicating command names.
-* option::                      Indicating option names.
-* dfn::                         Specifying definitions.
-* cite::                        Referring to books not in the  Info system.
-* acronym::                     Indicating acronyms.
-* url::                         Indicating a World Wide Web reference.
-* email::                       Indicating an electronic mail address.
+* code::                        How to indicate code.
+* kbd::                         How to show keyboard input.
+* key::                         How to specify keys.
+* samp::                        How to show a literal sequence of characters.
+* var::                         How to indicate a metasyntactic variable.
+* file::                        How to indicate the name of a file.
+* dfn::                         How to specify a definition.
+* cite::                        How to refer to a book that is not in Info.
+* url::                         How to indicate a world wide web reference.
+* email::                       How to indicate an electronic mail address.
 
 
 File: texinfo.info,  Node: Useful Highlighting,  Next: code,  Prev: Indicating,  Up: Indicating
@@ -440,7 +75,7 @@ File: texinfo.info,  Node: Useful Highlighting,  Next: code,  Prev: Indicating, 
 Highlighting Commands are Useful
 --------------------------------
 
-  The highlighting commands can be used to extract useful information
+  The highlighting commands can be used to generate useful information
 from the file, such as lists of functions or file names.  It is
 possible, for example, to write a program in Emacs Lisp (or a keyboard
 macro) to insert an index entry after every paragraph that contains
@@ -465,32 +100,20 @@ construct an index of functions if you had not already made the entries.
 `@var{METASYNTACTIC-VARIABLE}'
      Indicate a metasyntactic variable.
 
-`@env{ENVIRONMENT-VARIABLE}'
-     Indicate an environment variable.
+`@url{UNIFORM-RESOURCE-LOCATOR}'
+     Indicate a uniform resource locator for the World Wide Web.
 
 `@file{FILE-NAME}'
      Indicate the name of a file.
 
-`@command{COMMAND-NAME}'
-     Indicate the name of a command.
-
-`@option{OPTION}'
-     Indicate a command-line option.
+`@email{EMAIL-ADDRESS[, DISPLAYED-TEXT]}'
+     Indicate an electronic mail address.
 
 `@dfn{TERM}'
      Indicate the introductory or defining use of a term.
 
 `@cite{REFERENCE}'
      Indicate the name of a book.
-
-`@acronym{ACRONYM}'
-     Indicate an acronym.
-
-`@url{UNIFORM-RESOURCE-LOCATOR}'
-     Indicate a uniform resource locator for the World Wide Web.
-
-`@email{EMAIL-ADDRESS[, DISPLAYED-TEXT]}'
-     Indicate an electronic mail address.
 
 
 File: texinfo.info,  Node: code,  Next: kbd,  Prev: Useful Highlighting,  Up: Indicating
@@ -503,13 +126,24 @@ and which consists of entire syntactic tokens.  Enclose the text in
 braces.
 
   Thus, you should use `@code' for an expression in a program, for the
-name of a variable or function used in a program, or for a keyword in a
-programming language.
+name of a variable or function used in a program, or for a keyword.
+Also, you should use `@code' for the name of a program, such as `diff',
+that is a name used in the machine. (You should write the name of a
+program in the ordinary text font if you regard it as a new English
+word, such as `Emacs' or `Bison'.)
 
-  Use `@code' for command names in languages that resemble programming
-languages, such as Texinfo.  For example, `@code' and `@samp' are
-produced by writing `@code{@@code}' and `@code{@@samp}' in the Texinfo
-source, respectively.
+  Use `@code' for environment variables such as `TEXINPUTS', and other
+variables.
+
+  Use `@code' for command names in command languages that resemble
+programming languages, such as Texinfo or the shell.  For example,
+`@code' and `@samp' are produced by writing `@code{@@code}' and
+`@code{@@samp}' in the Texinfo source, respectively.
+
+  Note, however, that you should not use `@code' for shell options such
+as `-c' when such options stand alone. (Use `@samp'.)  Also, an entire
+shell command often looks better if written using `@samp' rather than
+`@code'.  In this case, the rule is to choose the more pleasing format.
 
   It is incorrect to alter the case of a word inside an `@code' command
 when it appears at the beginning of a sentence.  Most computer
@@ -518,8 +152,23 @@ from the identifier `printf', and most likely is a misspelling of it.
 Even in languages which are not case sensitive, it is confusing to a
 human reader to see identifiers spelled in different ways.  Pick one
 spelling and always use that.  If you do not want to start a sentence
-with a command name written all in lower case, you should rearrange the
+with a command written all in lower case, you should rearrange the
 sentence.
+
+  Do not use the `@code' command for a string of characters shorter
+than a syntactic token.  If you are writing about `TEXINPU', which is
+just a part of the name for the `TEXINPUTS' environment variable, you
+should use `@samp'.
+
+  In particular, you should not use the `@code' command when writing
+about the characters used in a token; do not, for example, use `@code'
+when you are explaining what letters or printable symbols can be used
+in the names of functions.  (Use `@samp'.)  Also, you should not use
+`@code' to mark text that is considered input to programs unless the
+input is written in a language that is like a programming language.
+For example, you should not use `@code' for the keystroke commands of
+GNU Emacs (use `@kbd' instead) although you may use `@code' for the
+names of the Emacs Lisp functions that the keystroke commands invoke.
 
   In the printed manual, `@code' causes TeX to typeset the argument in
 a typewriter face.  In the Info file, it causes the Info formatting
@@ -527,46 +176,11 @@ commands to use single quotation marks around the text.
 
   For example,
 
-     The function returns @code{nil}.
+     Use @code{diff} to compare two files.
 
 produces this in the printed manual:
 
-     The function returns `nil'.
-
-  Here are some cases for which it is preferable not to use `@code':
-
-   * For shell command names such as `ls' (use `@command').
-
-   * For shell options such as `-c' when such options stand alone (use
-     `@option').
-
-   * Also, an entire shell command often looks better if written using
-     `@samp' rather than `@code'.  In this case, the rule is to choose
-     the more pleasing format.
-
-   * For environment variable such as `TEXINPUTS' (use `@env').
-
-   * For a string of characters shorter than a syntactic token.  For
-     example, if you are writing about `goto-ch', which is just a part
-     of the name for the `goto-char' Emacs Lisp function, you should use
-     `@samp'.
-
-   * In general, when writing about the characters used in a token; for
-     example, do not use `@code' when you are explaining what letters
-     or printable symbols can be used in the names of functions.  (Use
-     `@samp'.)  Also, you should not use `@code' to mark text that is
-     considered input to programs unless the input is written in a
-     language that is like a programming language.  For example, you
-     should not use `@code' for the keystroke commands of GNU Emacs (use
-     `@kbd' instead) although you may use `@code' for the names of the
-     Emacs Lisp functions that the keystroke commands invoke.
-
-
-  Since `@command', `@option', and `@env' were introduced relatively
-recently, it is acceptable to use `@code' or `@samp' for command names,
-options, and environment variables.  The new commands allow you to
-express the markup more precisely, but there is no real harm in using
-the older commands, and of course the long-standing manuals do so.
+     Use `diff' to compare two files.
 
 
 File: texinfo.info,  Node: kbd,  Next: key,  Prev: code,  Up: Indicating
@@ -600,7 +214,7 @@ following:
      Use the distinguishing font for `@kbd' only in `@example' and
      similar environments.
 
-`distinct'
+`example'
      (the default) Always use the distinguishing font for `@kbd'.
 
   You can embed another @-command inside the braces of an `@kbd'
@@ -707,10 +321,12 @@ produces
      To match `foo' at the end of the line, use the regexp `foo$'.
 
   Any time you are referring to single characters, you should use
-`@samp' unless `@kbd' or `@key' is more appropriate.  Also, you may use
-`@samp' for entire statements in C and for entire shell commands--in
-this case, `@samp' often looks better than `@code'.  Basically, `@samp'
-is a catchall for whatever is not covered by `@code', `@kbd', or `@key'.
+`@samp' unless `@kbd' or `@key' is more appropriate.  Use `@samp' for
+the names of command-line options (except in an `@table', where `@code'
+seems to read more easily).  Also, you may use `@samp' for entire
+statements in C and for entire shell commands--in this case, `@samp'
+often looks better than `@code'.  Basically, `@samp' is a catchall for
+whatever is not covered by `@code', `@kbd', or `@key'.
 
   Only include punctuation marks within braces if they are part of the
 string you are specifying.  Write punctuation marks outside the braces
@@ -728,7 +344,7 @@ This produces:
      `y'.
 
 
-File: texinfo.info,  Node: var,  Next: env,  Prev: samp,  Up: Indicating
+File: texinfo.info,  Node: var,  Next: file,  Prev: samp,  Up: Indicating
 
 `@var'{METASYNTACTIC-VARIABLE}
 ------------------------------
@@ -741,21 +357,17 @@ to that function.
 
   Do not use `@var' for the names of particular variables in
 programming languages.  These are specific names from a program, so
-`@code' is correct for them (*note code::).  For example, the Emacs
-Lisp variable `texinfo-tex-command' is not a metasyntactic variable; it
-is properly formatted using `@code'.
-
-  Do not use `@var' for environment variables either; `@env' is correct
-for them (see the next section).
+`@code' is correct for them.  For example, the Emacs Lisp variable
+`texinfo-tex-command' is not a metasyntactic variable; it is properly
+formatted using `@code'.
 
   The effect of `@var' in the Info file is to change the case of the
-argument to all upper case.  In the printed manual and HTML output, the
-argument is printed in slanted type.
+argument to all upper case; in the printed manual, to italicize it.
 
   For example,
 
      To delete file @var{filename},
-     type @samp{rm @var{filename}}.
+     type @code{rm @var{filename}}.
 
 produces
 
@@ -783,27 +395,11 @@ angle brackets, for example:
      ..., type rm <filename>
 
 However, that is not the style that Texinfo uses.  (You can, of course,
-modify the sources to `texinfo.tex' and the Info formatting commands to
-output the `<...>' format if you wish.)
+modify the sources to TeX and the Info formatting commands to output
+the `<...>' format if you wish.)
 
 
-File: texinfo.info,  Node: env,  Next: file,  Prev: var,  Up: Indicating
-
-`@env'{ENVIRONMENT-VARIABLE}
-----------------------------
-
-  Use the `@env' command to indicate environment variables, as used by
-many operating systems, including GNU.  Do not use it for metasyntactic
-variables; use `@var' instead (see the previous section).
-
-  `@env' is equivalent to `@code' in its effects.  For example:
-
-     The @env{PATH} environment variable sets the search path for commands.
-   produces
-     The `PATH' environment variable sets the search path for commands.
-
-
-File: texinfo.info,  Node: file,  Next: command,  Prev: env,  Up: Indicating
+File: texinfo.info,  Node: file,  Next: dfn,  Prev: var,  Up: Indicating
 
 `@file'{FILE-NAME}
 ------------------
@@ -824,47 +420,7 @@ produces
      The `.el' files are in the `/usr/local/emacs/lisp' directory.
 
 
-File: texinfo.info,  Node: command,  Next: option,  Prev: file,  Up: Indicating
-
-`@command'{COMMAND-NAME}
-------------------------
-
-  Use the `@command' command to indicate command names, such as `ls' or
-`cc'.
-
-  `@command' is equivalent to `@code' in its effects.  For example:
-
-     The command @command{ls} lists directory contents.
-   produces
-     The command `ls' lists directory contents.
-
-  You should write the name of a program in the ordinary text font,
-rather than using `@command', if you regard it as a new English word,
-such as `Emacs' or `Bison'.
-
-  When writing an entire shell command invocation, as in `ls -l', you
-should use either `@samp' or `@code' at your discretion.
-
-
-File: texinfo.info,  Node: option,  Next: dfn,  Prev: command,  Up: Indicating
-
-`@option'{OPTION-NAME}
-----------------------
-
-  Use the `@option' command to indicate a command-line option; for
-example, `-l' or `--version' or `--output=FILENAME'.
-
-  `@option' is equivalent to `@samp' in its effects.  For example:
-
-     The option @option{-l} produces a long listing.
-   produces
-     The option `-l' produces a long listing.
-
-  In tables, putting options inside `@code' produces a more pleasing
-effect.
-
-
-File: texinfo.info,  Node: dfn,  Next: cite,  Prev: option,  Up: Indicating
+File: texinfo.info,  Node: dfn,  Next: cite,  Prev: file,  Up: Indicating
 
 `@dfn'{TERM}
 ------------
@@ -888,52 +444,33 @@ say explicitly that it is a definition, but it should contain the
 information of a definition--it should make the meaning clear.
 
 
-File: texinfo.info,  Node: cite,  Next: acronym,  Prev: dfn,  Up: Indicating
+File: texinfo.info,  Node: cite,  Next: url,  Prev: dfn,  Up: Indicating
 
 `@cite'{REFERENCE}
 ------------------
 
   Use the `@cite' command for the name of a book that lacks a companion
-Info file.  The command produces italics in the printed manual, and
+Info file. The command produces italics in the printed manual, and
 quotation marks in the Info file.
 
-  If a book is written in Texinfo, it is better to use a cross reference
-command since a reader can easily follow such a reference in Info.
-*Note `@xref': xref.
+  (If a book is written in Texinfo, it is better to use a cross
+reference command since a reader can easily follow such a reference in
+Info.  *Note `@xref': xref.)
 
 
-File: texinfo.info,  Node: acronym,  Next: url,  Prev: cite,  Up: Indicating
-
-`@acronym'{ACRONYM}
--------------------
-
-  Use the `@acronym' command for abbreviations written in all capital
-letters, such as `NASA'.  The abbreviation is given as the single
-argument in braces, as in `@acronym{NASA}'.  As a matter of style, or
-for particular abbreviations, you may prefer to use periods, as in
-`@acronym{F.B.I.}'.
-
-  In TeX and HTML, the argument is printed in a slightly smaller font
-size.  In Info or plain text output, this command changes nothing.
-
-
-File: texinfo.info,  Node: url,  Next: email,  Prev: acronym,  Up: Indicating
+File: texinfo.info,  Node: url,  Next: email,  Prev: cite,  Up: Indicating
 
 `@url'{UNIFORM-RESOURCE-LOCATOR}
 --------------------------------
 
-  Use the `@url' command to indicate a uniform resource locator on the
-World Wide Web.  This is analogous to `@file', `@var', etc., and is
-purely for markup purposes.  It does not produce a link you can follow
-in HTML output (use the `@uref' command for that, *note `@uref':
-uref.).  It is useful for url's which do not actually exist.  For
-example:
+  Use the `@url' to indicate a uniform resource locator on the World
+Wide Web.  This is analogous to `@file', `@var', etc., and is purely
+for markup purposes.  It does not produce a link you can follow in HTML
+output (the `@uref' command does, *note `@uref': uref.).  It is useful
+for example URL's which do not actually exist.  For example:
 
-     For example, the url might be @url{http://example.org/path}.
-
-which produces:
-
-     For example, the url might be <http://example.org/path>.
+     For example, the url might be
+     @url{http://host.domain.org/path}.
 
 
 File: texinfo.info,  Node: email,  Prev: url,  Up: Indicating
@@ -952,7 +489,8 @@ example:
 
      Send bug reports to @email{bug-texinfo@@gnu.org}.
      Send suggestions to the @email{bug-texinfo@@gnu.org, same place}.
-   produces
+
+produces
      Send bug reports to <bug-texinfo@gnu.org>.
      Send suggestions to the same place <bug-texinfo@gnu.org>.
 
@@ -968,7 +506,7 @@ Most often, this is the best way to mark words.  However, sometimes you
 will want to emphasize text without indicating a category.  Texinfo has
 two commands to do this.  Also, Texinfo has several commands that
 specify the font in which TeX will typeset text.  These commands have
-no effect on Info and only one of them, the `@r' command, has any
+no affect on Info and only one of them, the `@r' command, has any
 regular use.
 
 * Menu:
@@ -976,9 +514,10 @@ regular use.
 * emph & strong::               How to emphasize text in Texinfo.
 * Smallcaps::                   How to use the small caps font.
 * Fonts::                       Various font commands for printed output.
+* Customized Highlighting::     How to define highlighting commands.
 
 
-File: texinfo.info,  Node: emph & strong,  Next: Smallcaps,  Up: Emphasis
+File: texinfo.info,  Node: emph & strong,  Next: Smallcaps,  Prev: Emphasis,  Up: Emphasis
 
 `@emph'{TEXT} and `@strong'{TEXT}
 ---------------------------------
@@ -996,19 +535,19 @@ produces *bold*.
 
 produces:
 
-          *Caution*: `rm * .[^.]*' removes _all_
+          *Caution*: `rm * .[^.]*' removes *all*
           files in the directory.
 
   The `@strong' command is seldom used except to mark what is, in
 effect, a typographical element, such as the word `Caution' in the
 preceding example.
 
-  In the Info output, `@emph' surrounds the text with underscores
-(`_'), and `@strong' puts asterisks around the text.
+  In the Info file, both `@emph' and `@strong' put asterisks around the
+text.
 
-     *Caution:* Do not use `@strong' with the word `Note'; Info will
-     mistake the combination for a cross reference.  Use a phrase such
-     as *Please note* or *Caution* instead.
+     *Caution:* Do not use `@emph' or `@strong' with the word `Note';
+     Info will mistake the combination for a cross reference.  Use a
+     phrase such as *Please note* or *Caution* instead.
 
 
 File: texinfo.info,  Node: Smallcaps,  Next: Fonts,  Prev: emph & strong,  Up: Emphasis
@@ -1016,10 +555,10 @@ File: texinfo.info,  Node: Smallcaps,  Next: Fonts,  Prev: emph & strong,  Up: E
 `@sc'{TEXT}: The Small Caps Font
 --------------------------------
 
-  Use the `@sc' command to set text in the printed and the HTML output
-in A SMALL CAPS FONT and set text in the Info file in upper case
-letters.  Write the text you want to be in small caps (where possible)
-between braces in lower case, like this:
+  Use the `@sc' command to set text in the printed output in a small
+caps font and set text in the Info file in upper case letters.
+
+  Write the text between braces in lower case, like this:
 
      The @sc{acm} and @sc{ieee} are technical societies.
 
@@ -1029,15 +568,11 @@ This produces:
 
   TeX typesets the small caps font in a manner that prevents the
 letters from `jumping out at you on the page'.  This makes small caps
-text easier to read than text in all upper case--but it's usually
-better to use regular mixed case anyway.  The Info formatting commands
-set all small caps text in upper case.  In HTML, the text is upper-cased
-and a smaller font is used to render it.
+text easier to read than text in all upper case.  The Info formatting
+commands set all small caps text in upper case.
 
-  If the text between the braces of an `@sc' command is uppercase, TeX
-typesets in FULL-SIZE CAPITALS.  Use full-size capitals sparingly, if
-ever, and since it's redundant to mark all-uppercase text with `@sc',
-`makeinfo' warns about such usage.
+  If the text between the braces of an `@sc' command is upper case, TeX
+typesets in full-size capitals.  Use full-size capitals sparingly.
 
   You may also use the small caps font for a jargon word such as ATO (a
 NASA word meaning `abort to orbit').
@@ -1049,7 +584,7 @@ subsequent elements of a list (the CDR of the list), but you should use
 `@code' when the word refers to the Lisp function of the same spelling.
 
 
-File: texinfo.info,  Node: Fonts,  Prev: Smallcaps,  Up: Emphasis
+File: texinfo.info,  Node: Fonts,  Next: Customized Highlighting,  Prev: Smallcaps,  Up: Emphasis
 
 Fonts for Printing, Not Info
 ----------------------------
@@ -1081,6 +616,91 @@ you need to use one, it probably indicates a gap in the Texinfo
 language.
 
 
+File: texinfo.info,  Node: Customized Highlighting,  Prev: Fonts,  Up: Emphasis
+
+Customized Highlighting
+-----------------------
+
+  You can use regular TeX commands inside of `@iftex' ...  `@end iftex'
+to create your own customized highlighting commands for Texinfo.  The
+easiest way to do this is to equate your customized commands with
+pre-existing commands, such as those for italics.  Such new commands
+work only with TeX.
+
+  You can use the `@definfoenclose' command inside of `@ifinfo' ...
+`@end ifinfo' to define commands for Info with the same names as new
+commands for TeX.  `@definfoenclose' creates new commands for Info that
+mark text by enclosing it in strings that precede and follow the text.
+(1) (*note Customized Highlighting-Footnote-1::)
+
+  Here is how to create a new @-command called `@phoo' that causes TeX
+to typeset its argument in italics and causes Info to display the
+argument between `//' and `\\'.
+
+  For TeX, write the following to equate the `@phoo' command with the
+existing `@i' italics command:
+
+     @iftex
+     @global@let@phoo=@i
+     @end iftex
+
+This defines `@phoo' as a command that causes TeX to typeset the
+argument to `@phoo' in italics.  `@global@let' tells TeX to equate the
+next argument with the argument that follows the equals sign.
+
+  For Info, write the following to tell the Info formatters to enclose
+the argument between `//' and `\\':
+
+     @ifinfo
+     @definfoenclose phoo, //, \\
+     @end ifinfo
+
+Write the `@definfoenclose' command on a line and follow it with three
+arguments separated by commas (commas are used as separators in an
+`@node' line in the same way).
+
+   * The first argument to `@definfoenclose' is the @-command name
+     *without* the `@';
+
+   * the second argument is the Info start delimiter string; and,
+
+   * the third argument is the Info end delimiter string.
+
+The latter two arguments enclose the highlighted text in the Info file.
+A delimiter string may contain spaces.  Neither the start nor end
+delimiter is required.  However, if you do not provide a start
+delimiter, you must follow the command name with two commas in a row;
+otherwise, the Info formatting commands will misinterpret the end
+delimiter string as a start delimiter string.
+
+  After you have defined `@phoo' both for TeX and for Info, you can
+then write `@phoo{bar}' to see `//bar\\' in Info and see `bar' in
+italics in printed output.
+
+  Note that each definition applies to its own formatter: one for TeX,
+the other for Info.
+
+  Here is another example:
+
+     @ifinfo
+     @definfoenclose headword, , :
+     @end ifinfo
+     @iftex
+     @global@let@headword=@b
+     @end iftex
+
+This defines `@headword' as an Info formatting command that inserts
+nothing before and a colon after the argument and as a TeX formatting
+command to typeset its argument in bold.
+
+
+File: texinfo.info,  Node: Customized Highlighting-Footnotes,  Up: Customized Highlighting
+
+  (1) Currently, `@definfoenclose' works only with
+`texinfo-format-buffer' and `texinfo-format-region', not with
+`makeinfo'.
+
+
 File: texinfo.info,  Node: Quotations and Examples,  Next: Lists and Tables,  Prev: Marking Text,  Up: Top
 
 Quotations and Examples
@@ -1104,8 +724,8 @@ on a line by itself, at the beginning of that line.
 * quotation::                   How to write a quotation.
 * example::                     How to write an example in a fixed-width font.
 * noindent::                    How to prevent paragraph indentation.
-* lisp::                        How to illustrate Lisp code.
-* small::                       Forms for `@smallbook'.
+* Lisp Example::                How to illustrate Lisp code.
+* smallexample & smalllisp::    Forms for the `@smallbook' option.
 * display::                     How to write an example in the current font.
 * format::                      How to write an example that does not narrow
                                   the margins.
@@ -1114,13 +734,12 @@ on a line by itself, at the beginning of that line.
 * cartouche::                   How to draw cartouches around examples.
 
 
-File: texinfo.info,  Node: Block Enclosing Commands,  Next: quotation,  Up: Quotations and Examples
+File: texinfo.info,  Node: Block Enclosing Commands,  Next: quotation,  Prev: Quotations and Examples,  Up: Quotations and Examples
 
-Block Enclosing Commands
-========================
+The Block Enclosing Commands
+============================
 
-  Here are commands for quotations and examples, explained further in
-the following sections:
+  Here are commands for quotations and examples:
 
 `@quotation'
      Indicate text that is quoted. The text is filled, indented, and
@@ -1130,31 +749,28 @@ the following sections:
      Illustrate code, commands, and the like. The text is printed in a
      fixed-width font, and indented but not filled.
 
-`@smallexample'
-     Same as `@example', except that in TeX this command typesets text
-     in a smaller font for the `@smallbook' format than for the default
-     8.5 by 11 inch format.
-
 `@lisp'
-     Like `@example', but specifically for illustrating Lisp code. The
-     text is printed in a fixed-width font, and indented but not filled.
+     Illustrate Lisp code. The text is printed in a fixed-width font,
+     and indented but not filled.
+
+`@smallexample'
+     Illustrate code, commands, and the like.  Similar to `@example',
+     except that in TeX this command typesets text in a smaller font
+     for the smaller `@smallbook' format than for the 8.5 by 11 inch
+     format.
 
 `@smalllisp'
-     Is to `@lisp' as `@smallexample' is to `@example'.
+     Illustrate Lisp code.  Similar to `@lisp', except that in TeX this
+     command typesets text in a smaller font for the smaller
+     `@smallbook' format than for the 8.5 by 11 inch format.
 
 `@display'
      Display illustrative text.  The text is indented but not filled,
-     and no font is selected (so, by default, the font is roman).
-
-`@smalldisplay'
-     Is to `@display' as `@smallexample' is to `@example'.
+     and no font is specified (so, by default, the font is roman).
 
 `@format'
-     Like `@display' (the text is not filled and no font is selected),
-     but the text is not indented.
-
-`@smallformat'
-     Is to `@format' as `@smallexample' is to `@example'.
+     Print illustrative text.  The text is not indented and not filled
+     and no font is specified (so, by default, the font is roman).
 
   The `@exdent' command is used within the above constructs to undo the
 indentation of a line.
@@ -1167,8 +783,9 @@ to prevent the following text from being indented as a new paragraph.
 
   You can use the `@cartouche' command within one of the above
 constructs to highlight the example or quotation by drawing a box with
-rounded corners around it.  *Note Drawing Cartouches Around Examples:
-cartouche.
+rounded corners around it.  (The `@cartouche' command affects only the
+printed manual; it has no effect in the Info file; see *Note Drawing
+Cartouches Around Examples: cartouche.)
 
 
 File: texinfo.info,  Node: quotation,  Next: example,  Prev: Block Enclosing Commands,  Up: Quotations and Examples
@@ -1226,8 +843,9 @@ part of the running text, such as computer input or output.
      obtained by indenting each line with five spaces.
 
   Write an `@example' command at the beginning of a line by itself.
-Mark the end of the example with an `@end example' command, also
-written at the beginning of a line by itself.
+This line will disappear from the output.  Mark the end of the example
+with an `@end example' command, also written at the beginning of a line
+by itself.  The `@end example' will disappear from the output.
 
   For example,
 
@@ -1239,11 +857,11 @@ produces
 
      mv foo bar
 
-  The lines containing `@example' and `@end example' will disappear
-from the output.  To make the output look good, you should put a blank
-line before the `@example' and another blank line after the `@end
-example'.  Note that blank lines inside the beginning `@example' and
-the ending `@end example' will appear in the output.
+  Since the lines containing `@example' and `@end example' will
+disappear, you should put a blank line before the `@example' and
+another blank line after the `@end example'.  (Remember that blank
+lines between the beginning `@example' and the ending `@end example'
+will appear in the output.)
 
      *Caution:* Do not use tabs in the lines of an example (or anywhere
      else in Texinfo, for that matter)!  TeX treats tabs as single
@@ -1252,7 +870,7 @@ the ending `@end example' will appear in the output.
      convert tabs in a region to multiple spaces.)
 
   Examples are often, logically speaking, "in the middle" of a
-paragraph, and the text that continues after an example should not be
+paragraph, and the text continues after an example should not be
 indented.  The `@noindent' command prevents a piece of text from being
 indented as if it were a new paragraph.  (*Note noindent::.)
 
@@ -1261,7 +879,7 @@ within sentences, not set off from preceding and following text.  *Note
 `@code': code.)
 
 
-File: texinfo.info,  Node: noindent,  Next: lisp,  Prev: example,  Up: Quotations and Examples
+File: texinfo.info,  Node: noindent,  Next: Lisp Example,  Prev: example,  Up: Quotations and Examples
 
 `@noindent'
 ===========
@@ -1305,7 +923,7 @@ necessary, since `@noindent' is a command used outside of paragraphs
 (*note Command Syntax::).
 
 
-File: texinfo.info,  Node: lisp,  Next: small,  Prev: noindent,  Up: Quotations and Examples
+File: texinfo.info,  Node: Lisp Example,  Next: smallexample & smalllisp,  Prev: noindent,  Up: Quotations and Examples
 
 `@lisp'
 =======
@@ -1319,65 +937,66 @@ File: texinfo.info,  Node: lisp,  Next: small,  Prev: noindent,  Up: Quotations 
   Use `@lisp' instead of `@example' to preserve information regarding
 the nature of the example.  This is useful, for example, if you write a
 function that evaluates only and all the Lisp code in a Texinfo file.
-Then you can use the Texinfo file as a Lisp library.(1) (*note
-lisp-Footnote-1::)
+Then you can use the Texinfo file as a Lisp library.(1) (*note Lisp
+Example-Footnote-1::)
 
   Mark the end of `@lisp' with `@end lisp' on a line by itself.
 
 
-File: texinfo.info,  Node: lisp-Footnotes,  Up: lisp
+File: texinfo.info,  Node: Lisp Example-Footnotes,  Up: Lisp Example
 
   (1) It would be straightforward to extend Texinfo to work in a
 similar fashion for C, Fortran, or other languages.
 
 
-File: texinfo.info,  Node: small,  Next: display,  Prev: lisp,  Up: Quotations and Examples
+File: texinfo.info,  Node: smallexample & smalllisp,  Next: display,  Prev: Lisp Example,  Up: Quotations and Examples
 
-`@small...' Block Commands
-==========================
+`@smallexample' and `@smalllisp'
+================================
 
   In addition to the regular `@example' and `@lisp' commands, Texinfo
-has "small" example-style commands.  These are `@smalldisplay',
-`@smallexample', `@smallformat', and `@smalllisp'.  All of these
-commands are designed for use with the `@smallbook' command (which
-causes TeX to format a printed book for a 7 by 9.25 inch trim size
-rather than the default 8.5 by 11 inch size).
+has two other "example-style" commands.  These are the `@smallexample'
+and `@smalllisp' commands.  Both these commands are designed for use
+with the `@smallbook' command that causes TeX to produce a printed
+manual in a 7 by 9.25 inch format rather than the regular 8.5 by 11
+inch format.
 
-  In TeX, the `@small...' commands typeset text in a smaller font for
-the smaller `@smallbook' format than for the 8.5 by 11 inch format.
-Consequently, many examples containing long lines fit in a narrower,
-`@smallbook' page without needing to be shortened.  Both commands
-typeset in the normal font size when you format for the 8.5 by 11 inch
-size.  Indeed, in this situation, the `@small...' commands are
-equivalent to their non-small versions.
+  In TeX, the `@smallexample' and `@smalllisp' commands typeset text in
+a smaller font for the smaller `@smallbook' format than for the 8.5 by
+11 inch format.  Consequently, many examples containing long lines fit
+in a narrower, `@smallbook' page without needing to be shortened.  Both
+commands typeset in the normal font size when you format for the 8.5 by
+11 inch size; indeed, in this situation, the `@smallexample' and
+`@smalllisp' commands are defined to be the `@example' and `@lisp'
+commands.
 
-  In Info, the `@small...' commands are also equivalent to their
-non-small companion commands.
+  In Info, the `@smallexample' and `@smalllisp' commands are equivalent
+to the `@example' and `@lisp' commands, and work exactly the same.
 
-  Mark the end of an `@small...' block with a corresponding `@end
-small...'.  For example, pair `@smallexample' with `@end smallexample'.
+  Mark the end of `@smallexample' or `@smalllisp' with `@end
+smallexample' or `@end smalllisp', respectively.
 
      This is an example of text written between `@smallexample' and
      `@end smallexample'.  In Info and in an 8.5 by 11 inch manual,
      this text appears in its normal size; but in a 7 by 9.25 inch manual,
      this text appears in a smaller font.
 
-  The `@small...' commands make it easier to prepare smaller format
-manuals without forcing you to edit examples by hand to fit them onto
-narrower pages.
+  The `@smallexample' and `@smalllisp' commands make it easier to
+prepare smaller format manuals without forcing you to edit examples by
+hand to fit them onto narrower pages.
 
-  As a general rule, a printed document looks better if you use only one
-of (for example) `@example' or in `@smallexample' consistently within a
-chapter.  Only occasionally should you mix the two formats.
+  As a general rule, a printed document looks better if you write all
+the examples in a chapter consistently in `@example' or in
+`@smallexample'.  Only occasionally should you mix the two formats.
 
   *Note Printing "Small" Books: smallbook, for more information about
 the `@smallbook' command.
 
 
-File: texinfo.info,  Node: display,  Next: format,  Prev: small,  Up: Quotations and Examples
+File: texinfo.info,  Node: display,  Next: format,  Prev: smallexample & smalllisp,  Up: Quotations and Examples
 
-`@display' and `@smalldisplay'
-==============================
+`@display'
+==========
 
   The `@display' command begins a kind of example.  It is like the
 `@example' command except that, in a printed manual, `@display' does
@@ -1389,15 +1008,11 @@ appeared in without the `@display' command.
      and an `@end display' command.  The `@display' command
      indents the text, but does not fill it.
 
-  Texinfo also provides a command `@smalldisplay', which is like
-`@display' but uses a smaller font in `@smallbook' format.  *Note
-small::.
-
 
 File: texinfo.info,  Node: format,  Next: exdent,  Prev: display,  Up: Quotations and Examples
 
-`@format' and `@smallformat'
-============================
+`@format'
+=========
 
   The `@format' command is similar to `@example' except that, in the
 printed manual, `@format' does not select the fixed-width font and does
@@ -1407,10 +1022,6 @@ This is an example of text written between an `@format' command
 and an `@end format' command.  As you can see
 from this example,
 the `@format' command does not fill the text.
-
-  Texinfo also provides a command `@smallformat', which is like
-`@format' but uses a smaller font in `@smallbook' format.  *Note
-small::.
 
 
 File: texinfo.info,  Node: exdent,  Next: flushleft & flushright,  Prev: format,  Up: Quotations and Examples
@@ -1484,4 +1095,359 @@ produces
                                  flushright.  The `@flushright' command
                               right justifies every line but leaves the
                                                        left end ragged.
+
+
+File: texinfo.info,  Node: cartouche,  Prev: flushleft & flushright,  Up: Quotations and Examples
+
+Drawing Cartouches Around Examples
+==================================
+
+  In a printed manual, the `@cartouche' command draws a box with
+rounded corners around its contents.  You can use this command to
+further highlight an example or quotation.  For instance, you could
+write a manual in which one type of example is surrounded by a cartouche
+for emphasis.
+
+  The `@cartouche' command affects only the printed manual; it has no
+effect in the Info file.
+
+  For example,
+
+     @example
+     @cartouche
+     % pwd
+     /usr/local/share/emacs
+     @end cartouche
+     @end example
+
+surrounds the two-line example with a box with rounded corners, in the
+printed manual.
+
+
+File: texinfo.info,  Node: Lists and Tables,  Next: Indices,  Prev: Quotations and Examples,  Up: Top
+
+Lists and Tables
+****************
+
+  Texinfo has several ways of making lists and tables.  Lists can be
+bulleted or numbered; two-column tables can highlight the items in the
+first column; multi-column tables are also supported.
+
+* Menu:
+
+* Introducing Lists::           Texinfo formats lists for you.
+* itemize::                     How to construct a simple list.
+* enumerate::                   How to construct a numbered list.
+* Two-column Tables::           How to construct a two-column table.
+* Multi-column Tables::         How to construct generalized tables.
+
+
+File: texinfo.info,  Node: Introducing Lists,  Next: itemize,  Prev: Lists and Tables,  Up: Lists and Tables
+
+Introducing Lists
+=================
+
+  Texinfo automatically indents the text in lists or tables, and numbers
+an enumerated list.  This last feature is useful if you modify the
+list, since you do not need to renumber it yourself.
+
+  Numbered lists and tables begin with the appropriate @-command at the
+beginning of a line, and end with the corresponding `@end' command on a
+line by itself.  The table and itemized-list commands also require that
+you write formatting information on the same line as the beginning
+@-command.
+
+  Begin an enumerated list, for example, with an `@enumerate' command
+and end the list with an `@end enumerate' command.  Begin an itemized
+list with an `@itemize' command, followed on the same line by a
+formatting command such as `@bullet', and end the list with an `@end
+itemize' command.
+
+  Precede each element of a list with an `@item' or `@itemx' command.
+
+
+Here is an itemized list of the different kinds of table and lists:
+
+   * Itemized lists with and without bullets.
+
+   * Enumerated lists, using numbers or letters.
+
+   * Two-column tables with highlighting.
+
+
+Here is an enumerated list with the same items:
+
+  1. Itemized lists with and without bullets.
+
+  2. Enumerated lists, using numbers or letters.
+
+  3. Two-column tables with highlighting.
+
+
+And here is a two-column table with the same items and their @-commands:
+
+`@itemize'
+     Itemized lists with and without bullets.
+
+`@enumerate'
+     Enumerated lists, using numbers or letters.
+
+`@table'
+`@ftable'
+`@vtable'
+     Two-column tables with indexing.
+
+
+File: texinfo.info,  Node: itemize,  Next: enumerate,  Prev: Introducing Lists,  Up: Lists and Tables
+
+Making an Itemized List
+=======================
+
+  The `@itemize' command produces sequences of indented paragraphs,
+with a bullet or other mark inside the left margin at the beginning of
+each paragraph for which such a mark is desired.
+
+  Begin an itemized list by writing `@itemize' at the beginning of a
+line.  Follow the command, on the same line, with a character or a
+Texinfo command that generates a mark.  Usually, you will write
+`@bullet' after `@itemize', but you can use `@minus', or any character
+or any special symbol that results in a single character in the Info
+file.  (When you write `@bullet' or `@minus' after an `@itemize'
+command, you may omit the `{}'.)
+
+  Write the text of the indented paragraphs themselves after the
+`@itemize', up to another line that says `@end itemize'.
+
+  Before each paragraph for which a mark in the margin is desired, write
+a line that says just `@item'.  Do not write any other text on this
+line.
+
+  Usually, you should put a blank line before an `@item'.  This puts a
+blank line in the Info file. (TeX inserts the proper interline
+whitespace in either case.)  Except when the entries are very brief,
+these blank lines make the list look better.
+
+  Here is an example of the use of `@itemize', followed by the output
+it produces.  Note that `@bullet' produces an `*' in Info and a round
+dot in TeX.
+
+     @itemize @bullet
+     @item
+     Some text for foo.
+     
+     @item
+     Some text
+     for bar.
+     @end itemize
+
+This produces:
+
+        * Some text for foo.
+
+        * Some text for bar.
+
+  Itemized lists may be embedded within other itemized lists.  Here is a
+list marked with dashes embedded in a list marked with bullets:
+
+     @itemize @bullet
+     @item
+     First item.
+     
+     @itemize @minus
+     @item
+     Inner item.
+     
+     @item
+     Second inner item.
+     @end itemize
+     
+     @item
+     Second outer item.
+     @end itemize
+
+This produces:
+
+        * First item.
+
+             - Inner item.
+
+             - Second inner item.
+
+        * Second outer item.
+
+
+File: texinfo.info,  Node: enumerate,  Next: Two-column Tables,  Prev: itemize,  Up: Lists and Tables
+
+Making a Numbered or Lettered List
+==================================
+
+  `@enumerate' is like `@itemize' (*note `@itemize': itemize.), except
+that the labels on the items are successive integers or letters instead
+of bullets.
+
+  Write the `@enumerate' command at the beginning of a line.  The
+command does not require an argument, but accepts either a number or a
+letter as an option.  Without an argument, `@enumerate' starts the list
+with the number `1'.  With a numeric argument, such as `3', the command
+starts the list with that number.  With an upper or lower case letter,
+such as `a' or `A', the command starts the list with that letter.
+
+  Write the text of the enumerated list in the same way you write an
+itemized list: put `@item' on a line of its own before the start of
+each paragraph that you want enumerated.  Do not write any other text
+on the line beginning with `@item'.
+
+  You should put a blank line between entries in the list.  This
+generally makes it easier to read the Info file.
+
+  Here is an example of `@enumerate' without an argument:
+
+     @enumerate
+     @item
+     Underlying causes.
+     
+     @item
+     Proximate causes.
+     @end enumerate
+
+This produces:
+
+  1. Underlying causes.
+
+  2. Proximate causes.
+
+
+
+  Here is an example with an argument of `3':
+
+
+     @enumerate 3
+     @item
+     Predisposing causes.
+     
+     @item
+     Precipitating causes.
+     
+     @item
+     Perpetuating causes.
+     @end enumerate
+
+This produces:
+
+  3. Predisposing causes.
+
+  4. Precipitating causes.
+
+  5. Perpetuating causes.
+
+
+
+  Here is a brief summary of the alternatives.  The summary is
+constructed using `@enumerate' with an argument of `a'.
+
+
+  a. `@enumerate'
+
+     Without an argument, produce a numbered list, starting with the
+     number 1.
+
+  b. `@enumerate POSITIVE-INTEGER'
+
+     With a (positive) numeric argument, start a numbered list with that
+     number.  You can use this to continue a list that you interrupted
+     with other text.
+
+  c. `@enumerate UPPER-CASE-LETTER'
+
+     With an upper case letter as argument, start a list in which each
+     item is marked by a letter, beginning with that upper case letter.
+
+  d. `@enumerate LOWER-CASE-LETTER'
+
+     With a lower case letter as argument, start a list in which each
+     item is marked by a letter, beginning with that lower case letter.
+
+  You can also nest enumerated lists, as in an outline.
+
+
+File: texinfo.info,  Node: Two-column Tables,  Next: Multi-column Tables,  Prev: enumerate,  Up: Lists and Tables
+
+Making a Two-column Table
+=========================
+
+  `@table' is similar to `@itemize' (*note `@itemize': itemize.), but
+allows you to specify a name or heading line for each item.  The
+`@table' command is used to produce two-column tables, and is
+especially useful for glossaries, explanatory exhibits, and
+command-line option summaries.
+
+* Menu:
+
+* table::                       How to construct a two-column table.
+* ftable vtable::               Automatic indexing for two-column tables.
+* itemx::                       How to put more entries in the first column.
+
+
+File: texinfo.info,  Node: table,  Next: ftable vtable,  Prev: Two-column Tables,  Up: Two-column Tables
+
+Using the `@table' Command
+--------------------------
+
+  Use the `@table' command to produce two-column tables.
+
+  Write the `@table' command at the beginning of a line and follow it
+on the same line with an argument that is a Texinfo "indicating"
+command such as `@code', `@samp', `@var', or `@kbd' (*note
+Indicating::).  Although these commands are usually followed by
+arguments in braces, in this case you use the command name without an
+argument because `@item' will supply the argument.  This command will
+be applied to the text that goes into the first column of each item and
+determines how it will be highlighted.  For example, `@code' will cause
+the text in the first column to be highlighted with an `@code' command.
+(We recommend `@code' for `@table''s of command-line options.)
+
+  You may also choose to use the `@asis' command as an argument to
+`@table'.  `@asis' is a command that does nothing; if you use this
+command after `@table', TeX and the Info formatting commands output the
+first column entries without added highlighting ("as is").
+
+  (The `@table' command may work with other commands besides those
+listed here.  However, you can only use commands that normally take
+arguments in braces.)
+
+  Begin each table entry with an `@item' command at the beginning of a
+line.  Write the first column text on the same line as the `@item'
+command.  Write the second column text on the line following the
+`@item' line and on subsequent lines.  (You do not need to type
+anything for an empty second column entry.)  You may write as many
+lines of supporting text as you wish, even several paragraphs.  But
+only text on the same line as the `@item' will be placed in the first
+column.
+
+  Normally, you should put a blank line before an `@item' line.  This
+puts a blank like in the Info file.  Except when the entries are very
+brief, a blank line looks better.
+
+  The following table, for example, highlights the text in the first
+column with an `@samp' command:
+
+     @table @samp
+     @item foo
+     This is the text for
+     @samp{foo}.
+     
+     @item bar
+     Text for @samp{bar}.
+     @end table
+
+This produces:
+
+`foo'
+     This is the text for `foo'.
+
+`bar'
+     Text for `bar'.
+
+  If you want to list two or more named items with a single block of
+text, use the `@itemx' command.  (*Note `@itemx': itemx.)
 
