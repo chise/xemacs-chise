@@ -1,3 +1,28 @@
+2002-07-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Vcharacter_composition_table): Deleted.
+	(COMPOSE_ADD_CHAR): Use the implementation for external-DB support
+	in every UTF-2000.
+
+	* chartab.c: Add EXFUN for `Fmap_char_attribute' in every
+	UTF-2000.
+	(Vcharacter_composition_table): Deleted.
+	(Fget_composite_char): Use the implementation for external-DB
+	support in every UTF-2000.
+	(Fput_char_attribute): Likewise.
+	(char_attribute_system_db_file): Don't define if external-DB
+	feature is not available.
+	(Fsave_char_attribute_table): Likewise.
+	(Fmount_char_attribute_table): Likewise.
+	(Fclose_char_attribute_table): Likewise.
+	(Freset_char_attribute_table): Likewise.
+	(Fload_char_attribute_table): Likewise.
+	(syms_of_chartab): Don't define `save-char-attribute-table',
+	`mount-char-attribute-table', `reset-char-attribute-table',
+	`close-char-attribute-table' and `load-char-attribute-table' if
+	external-DB feature is not available.
+	(vars_of_chartab): Don't setup `Vcharacter_composition_table'.
+
 2002-07-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* text-coding.c (Qcomposition): Add extern if external-DB feature
