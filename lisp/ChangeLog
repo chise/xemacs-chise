@@ -1,3 +1,111 @@
+2000-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* utf-2000/Ideograph-R145-Clothes.el:
+	- Use `ideographic-strokes' if each stroke attribute has same
+	  value.
+	(U+8868): Add J78 and 83.
+	(M-34110): Separate C5-2B45.
+	(U+886B): Likewise.
+	(U+8870): Likewise.
+	(M-34130): Separate U+8872; add J78 and J83; separate C2-3276.
+	(U+8875): Add J78 and J83.
+	(U+8877): Likewise.
+	(U+887D): Likewise.
+	(U+887E): Likewise.
+	(U+8881): Likewise.
+	(U+8882): Likewise.
+	(M-34163'): Add M50441.
+	(M-34164): New character.
+	(U+888B): Add J78 and J83.
+	(U+888D): Likewise.
+	(U+8892): Likewise.
+	(U+8896): Likewise.
+	(U+8897): Likewise.
+	(U+8899): Likewise.
+	(U+889E): Likewise; separate J90-6A51; separate C1-5D35.
+	(M-34210): Add J78 and J83.
+	(U+88A4): Likewise.
+	(U+88AB): Likewise.
+	(U+88B1): Likewise.
+	(U+88B4): Likewise.
+	(U+88B5): Likewise.
+	(U+88BF): Likewise.
+	(U+88C1): Likewise.
+	(U+88C2): Likewise.
+	(U+88C3): Likewise.
+	(U+88C4): Likewise.
+	(U+88C5): Add J{78|83|90}-4175 and M050442.
+	(U+88CF): Add J78 and J83.
+	(U+88E1): Likewise.
+	(U+88D4): Likewise.
+	(U+88D5): Likewise.
+	(M-34312): Add J{78|83}-6A64; separate J90; separate GB, C1 and
+	U+88D8.
+	(U+88D9): Add J78 and J83.
+	(U+88DC): Likewise.
+	(U+88DD): Likewise.
+	(U+88DF): Likewise.
+	(U+88E8): Likewise.
+	(M-34356): Likewise.
+	(U+88F3): Likewise.
+	(M-34362): Add J{78|83}-6A6A; separate J90; separate U+88F4, GB
+	and C1.
+	(M-34367): Separate C4-4728.
+	(U+88F8): Add J78 and J83.
+	(U+88F9): Likewise.
+	(U+88FC): Likewise.
+	(U+88FD): Likewise.
+	(U+88FE): Likewise.
+	(U+8902): Likewise.
+	(U+8904): Likewise.
+	(U+8907): Likewise.
+	(M34420): Add J78-6A6F; separate J90-6A6F; separate U+890A.
+	(J90-6A6F): Add J83.
+	(U+890C): Add J78 and J83.
+	(U+8912): Likewise.
+	(U+8913): Likewise.
+	(U+891E): Likewise.
+	(U+8925): Likewise.
+	(M-34503): Add J78 and J83; separate C1-7230; separate U+892A.
+	(M-34504): Separate U+892B and GB.
+	(U+892B): Add {J78|J83}-6A75.
+	(U+8936): Add J78 and J83.
+	(U+8938): Likewise.
+	(M-34536): Separate U+893B and C1.
+	(J{78|83}-6A78): New variant of M-34536.
+	(U+8941): Add J78 and J83.
+	(U+8943): Likewise.
+	(U+8944): Likewise.
+	(U+894C): Likewise.
+	(U+894D): Likewise.
+	(U+895E): Likewise.
+	(U+8960): Likewise.
+	(U+8964): Likewise.
+	(U+8966): Likewise.
+	(M-34696): Separate J90-6B24 and U+896A.
+	(J{78|83}-6B24): New variant of M-34696 and U+896A.
+	(U+896D): Add J78 and J83.
+	(J{78|83}-6B25): New variant of M-34712 and U+896F.
+	(U+8972): Add J78 and J83.
+	(U+8974): Likewise.
+	(U+8977): Likewise.
+
+2000-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* utf-2000/ideograph-util.el (insert-ideograph-radical-char-data):
+	Use `insert-char-data' with new optional arguments `attributes'
+	and `ccs-attributes'.
+
+	* utf-2000/char-db-util.el (insert-char-data): Add new optional
+	arguments `attributes' and `ccs-attributes'; don't use
+	`char-attribute-alist'.
+	(decode-builtin-char): Deleted.
+
+	* utf-2000/Ideograph-R009-Man.el:
+	- Use `ideographic-strokes' if each stroke attribute has same
+	  value.
+	(M-462'): Add M050101.
+
 2000-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* utf-2000/char-db-util.el (insert-char-data): Add optional
