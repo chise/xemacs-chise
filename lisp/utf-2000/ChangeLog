@@ -1,3 +1,13 @@
+2002-09-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-ref=): Moved to update-cdb.el.
+	(char-spec=): Likewise.
+
+	* update-cdb.el: Update standard case-table from the
+	char-attribute `->lowercase' and `->uppercase'.
+	(char-ref=): New function [moved from char-db-util.el].
+	(char-spec=): Likewise.
+
 2002-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R119-Rice.el, Ideograph-R117-Stand.el,
