@@ -30,8 +30,6 @@ extern Lisp_Object Vchar_attribute_hash_table;
 
 #define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
-extern Lisp_Object Vcharset_mojikyo;
-extern Lisp_Object Vcharset_mojikyo_2022_1;
 extern Lisp_Object Vcharset_latin_jisx0201;
 
 
@@ -113,33 +111,6 @@ typedef short Charset_ID;
 #define LEADING_BYTE_GT_PJ_9		(CHARSET_ID_OFFSET - 49)
 #define LEADING_BYTE_GT_PJ_10		(CHARSET_ID_OFFSET - 50)
 #define LEADING_BYTE_GT_PJ_11		(CHARSET_ID_OFFSET - 51)
-
-#define LEADING_BYTE_MOJIKYO		(CHARSET_ID_OFFSET - 58)
-#define LEADING_BYTE_MOJIKYO_2022_1	(CHARSET_ID_OFFSET - 59)
-#define LEADING_BYTE_MOJIKYO_2022_2	(CHARSET_ID_OFFSET - 60)
-
-/* Konjaku-Mojikyo font (for pseudo-JIS X 0208 encoding) */
-#define LEADING_BYTE_MOJIKYO_PJ_1	(CHARSET_ID_OFFSET - 61)
-#define LEADING_BYTE_MOJIKYO_PJ_2	(CHARSET_ID_OFFSET - 62)
-#define LEADING_BYTE_MOJIKYO_PJ_3	(CHARSET_ID_OFFSET - 63)
-#define LEADING_BYTE_MOJIKYO_PJ_4	(CHARSET_ID_OFFSET - 64)
-#define LEADING_BYTE_MOJIKYO_PJ_5	(CHARSET_ID_OFFSET - 65)
-#define LEADING_BYTE_MOJIKYO_PJ_6	(CHARSET_ID_OFFSET - 66)
-#define LEADING_BYTE_MOJIKYO_PJ_7	(CHARSET_ID_OFFSET - 67)
-#define LEADING_BYTE_MOJIKYO_PJ_8	(CHARSET_ID_OFFSET - 68)
-#define LEADING_BYTE_MOJIKYO_PJ_9	(CHARSET_ID_OFFSET - 69)
-#define LEADING_BYTE_MOJIKYO_PJ_10	(CHARSET_ID_OFFSET - 70)
-#define LEADING_BYTE_MOJIKYO_PJ_11	(CHARSET_ID_OFFSET - 71)
-#define LEADING_BYTE_MOJIKYO_PJ_12	(CHARSET_ID_OFFSET - 72)
-#define LEADING_BYTE_MOJIKYO_PJ_13	(CHARSET_ID_OFFSET - 73)
-#define LEADING_BYTE_MOJIKYO_PJ_14	(CHARSET_ID_OFFSET - 74)
-#define LEADING_BYTE_MOJIKYO_PJ_15	(CHARSET_ID_OFFSET - 75)
-#define LEADING_BYTE_MOJIKYO_PJ_16	(CHARSET_ID_OFFSET - 76)
-#define LEADING_BYTE_MOJIKYO_PJ_17	(CHARSET_ID_OFFSET - 77)
-#define LEADING_BYTE_MOJIKYO_PJ_18	(CHARSET_ID_OFFSET - 78)
-#define LEADING_BYTE_MOJIKYO_PJ_19	(CHARSET_ID_OFFSET - 79)
-#define LEADING_BYTE_MOJIKYO_PJ_20	(CHARSET_ID_OFFSET - 80)
-#define LEADING_BYTE_MOJIKYO_PJ_21	(CHARSET_ID_OFFSET - 81)
 
 #define LEADING_BYTE_CHINA3_JEF		(CHARSET_ID_OFFSET - 82)
 #define LEADING_BYTE_CBETA		(CHARSET_ID_OFFSET - 83)
@@ -304,14 +275,20 @@ struct Lisp_Charset
   /* Code-point->character mapping table */
   Lisp_Object decoding_table;
 
+  /* Base CCS */
+  Lisp_Object mother;
+
   /* Range of character code */
-  Emchar ucs_min, ucs_max;
+  int min_code, max_code;
 
   /* Offset for external code */
-  Emchar code_offset;
+  int code_offset;
+
+  /* Type of conversion from mother CCS */
+  unsigned char conversion;
 
   /* Offset for each byte */
-  Emchar byte_offset;
+  int byte_offset;
 };
 typedef struct Lisp_Charset Lisp_Charset;
 
@@ -343,10 +320,12 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define CHARSET_CHARS(cs)	 ((cs)->chars)
 #define CHARSET_REVERSE_DIRECTION_CHARSET(cs) ((cs)->reverse_direction_charset)
 #define CHARSET_DECODING_TABLE(cs) ((cs)->decoding_table)
-#define CHARSET_UCS_MIN(cs)	 ((cs)->ucs_min)
-#define CHARSET_UCS_MAX(cs)	 ((cs)->ucs_max)
+#define CHARSET_MIN_CODE(cs)	 ((cs)->min_code)
+#define CHARSET_MAX_CODE(cs)	 ((cs)->max_code)
 #define CHARSET_CODE_OFFSET(cs)	 ((cs)->code_offset)
 #define CHARSET_BYTE_OFFSET(cs)	 ((cs)->byte_offset)
+#define CHARSET_MOTHER(cs)	 ((cs)->mother)
+#define CHARSET_CONVERSION(cs)	 ((cs)->conversion)
 
 INLINE_HEADER Lisp_Object CHARSET_ENCODING_TABLE (Lisp_Charset* cs);
 INLINE_HEADER Lisp_Object
@@ -356,6 +335,9 @@ CHARSET_ENCODING_TABLE (Lisp_Charset* cs)
 		   Vchar_attribute_hash_table,
 		   Qnil);
 }
+
+#define CONVERSION_IDENTICAL	0
+#define CONVERSION_94x60	1
 
 #define XCHARSET_ID(cs)		  CHARSET_ID           (XCHARSET (cs))
 #define XCHARSET_NAME(cs)	  CHARSET_NAME         (XCHARSET (cs))
@@ -374,10 +356,12 @@ CHARSET_ENCODING_TABLE (Lisp_Charset* cs)
   CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
 #define XCHARSET_DECODING_TABLE(cs) CHARSET_DECODING_TABLE(XCHARSET(cs))
 #define XCHARSET_ENCODING_TABLE(cs) CHARSET_ENCODING_TABLE(XCHARSET(cs))
-#define XCHARSET_UCS_MIN(cs)	  CHARSET_UCS_MIN(XCHARSET(cs))
-#define XCHARSET_UCS_MAX(cs)	  CHARSET_UCS_MAX(XCHARSET(cs))
+#define XCHARSET_MIN_CODE(cs)	  CHARSET_MIN_CODE(XCHARSET(cs))
+#define XCHARSET_MAX_CODE(cs)	  CHARSET_MAX_CODE(XCHARSET(cs))
 #define XCHARSET_CODE_OFFSET(cs)  CHARSET_CODE_OFFSET(XCHARSET(cs))
 #define XCHARSET_BYTE_OFFSET(cs)  CHARSET_BYTE_OFFSET(XCHARSET(cs))
+#define XCHARSET_MOTHER(cs)	  CHARSET_MOTHER(XCHARSET(cs))
+#define XCHARSET_CONVERSION(cs)	  CHARSET_CONVERSION(XCHARSET(cs))
 
 struct charset_lookup {
   /* Table of charsets indexed by (leading byte - 128). */
@@ -464,10 +448,6 @@ CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
 
 #define MIN_CHAR_DAIKANWA	0x00E00000
 #define MAX_CHAR_DAIKANWA	(MIN_CHAR_DAIKANWA + 50100) /* 0xE0FFFF */
-/*
-#define MIN_CHAR_MOJIKYO_0	MIN_CHAR_DAIKANWA
-#define MAX_CHAR_MOJIKYO_0	(MIN_CHAR_MOJIKYO_0 + 94 * 60 * 22)
-*/
 #define MIN_CHAR_CBETA		0x00E20000
 #define MAX_CHAR_CBETA		0x00E2FFFF
 #define MIN_CHAR_CHINA3_JEF	0x00E80000
@@ -485,8 +465,6 @@ CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
 #define MIN_CHAR_96x96		0xF4C000
 #define MAX_CHAR_96x96		(MIN_CHAR_96x96 + 96 * 96 * 80 - 1)
 
-#define MIN_CHAR_MOJIKYO	0x60000000
-#define MAX_CHAR_MOJIKYO	(MIN_CHAR_MOJIKYO + 94 * 60 * 22)
 #define MIN_CHAR_GT		0x61000000
 #define MAX_CHAR_GT		(MIN_CHAR_GT + 66773)
 #define MIN_CHAR_BIG5_CDP	0x62000000
@@ -517,31 +495,6 @@ CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
 #define MAX_CHAR_HANZIKU_12	(0x62000000 + 65536 * 12 + 65535)
 
 Emchar decode_builtin_char (Lisp_Object charset, int code_point);
-
-INLINE_HEADER int
-DECODE_MOJIKYO_2022 (unsigned char b1, unsigned char b2, unsigned char b3);
-INLINE_HEADER int
-DECODE_MOJIKYO_2022 (unsigned char b1, unsigned char b2, unsigned char b3)
-{
-  if (b2 < 16 + 32)
-    return 0;
-  else if (b2 < 16 + 32 + 30)
-    return
-      (b1 - 33) * (94 * 60)
-      + (b2 - (16 + 32)) * 94
-      + (b3 - 33)
-      + 1;
-  else if (b2 < 18 + 32 + 30)
-    return 0;
-  else if (b2 < 18 + 32 + 60)
-    return
-      (b1 - 33) * (94 * 60)
-      + (b2 - (18 + 32)) * 94
-      + (b3 - 33)
-      + 1;
-  else
-    return 0;
-}
 
 extern Lisp_Object Vcharset_chinese_big5;
 extern Lisp_Object Vcharset_chinese_big5_1;
@@ -611,36 +564,7 @@ DECODE_CHAR (Lisp_Object charset, int code_point)
       b2 += b2 < 0x3F ? 0x40 : 0x62;
       return DECODE_CHAR (Vcharset_chinese_big5, (b1 << 8) | b2);
     }
-  else if (EQ (charset, Vcharset_mojikyo_2022_1))
-    {
-      int m =
-	DECODE_MOJIKYO_2022
-	((unsigned char)(code_point >> 16),
-	 (unsigned char)(code_point >>  8),
-	 (unsigned char) code_point);
-
-      if (m > 0)
-	return DECODE_CHAR (Vcharset_mojikyo, m);
-      else
-	return ' ';
-    }
-  else
-    {
-      int plane = LEADING_BYTE_MOJIKYO_PJ_1 - XCHARSET_ID (charset);
-
-      if ( (0 <= plane) && (plane < 21) )
-	{
-	  int m = DECODE_MOJIKYO_2022 (plane + 33,
-				       code_point >> 8,
-				       (unsigned char)code_point);
-	  if (m > 0)
-	    return DECODE_CHAR (Vcharset_mojikyo, m);
-	  else
-	    return ' ';
-	}
-      else
-	return decode_builtin_char (charset, code_point);
-    }
+  return decode_builtin_char (charset, code_point);
 }
 
 /* Return a character whose charset is CHARSET and position-codes
@@ -659,22 +583,8 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 extern Lisp_Object Vcharacter_attribute_table;
 
 int encode_builtin_char_1 (Emchar c, Lisp_Object* charset);
+int charset_code_point (Lisp_Object charset, Emchar ch);
 int range_charset_code_point (Lisp_Object charset, Emchar ch);
-
-INLINE_HEADER int charset_code_point (Lisp_Object charset, Emchar ch);
-INLINE_HEADER int
-charset_code_point (Lisp_Object charset, Emchar ch)
-{
-  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (charset);
-  Lisp_Object ret;
-
-  if ( CHAR_TABLEP (encoding_table)
-       && INTP (ret = get_char_id_table (XCHAR_TABLE(encoding_table),
-					 ch)) )
-    return XINT (ret);
-  else
-    return range_charset_code_point (charset, ch);
-}
 
 extern Lisp_Object Vdefault_coded_charset_priority_list;
 EXFUN (Ffind_charset, 1);
@@ -690,21 +600,10 @@ encode_char_1 (Emchar ch, Lisp_Object* charset)
       *charset = Ffind_charset (Fcar (charsets));
       if (!NILP (*charset))
 	{
-	  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (*charset);
-	  Lisp_Object ret;
+	  int code_point = charset_code_point (*charset, ch);
 
-	  if ( CHAR_TABLEP (encoding_table)
-	       && INTP (ret
-			= get_char_id_table (XCHAR_TABLE(encoding_table),
-					     ch)) )
-	    return XINT (ret);
-	  else
-	    {
-	      int code_point = range_charset_code_point (*charset, ch);
-
-	      if (code_point >= 0)
-		return code_point;
-	    }
+	  if (code_point >= 0)
+	    return code_point;
 	}
       charsets = Fcdr (charsets);	      
     }
@@ -772,22 +671,6 @@ CHAR_TO_CHARC (Emchar ch)
   Charc cc;
 
   cc.code_point = encode_char_1 (ch, &cc.charset);
-  if (EQ (cc.charset, Vcharset_mojikyo))
-    {
-      int plane, byte1, byte2;
-
-      cc.code_point--;
-      plane = cc.code_point / (94 * 60);
-      byte1 = (cc.code_point % (94 * 60)) / 94;
-      if (byte1 < 30)
-	byte1 += 16 + 32;
-      else
-	byte1 += 18 + 32;
-      byte2 = cc.code_point % 94 + 33;
-      cc.charset
-	= CHARSET_BY_LEADING_BYTE (LEADING_BYTE_MOJIKYO_PJ_1 - plane);
-      cc.code_point = (byte1 << 8) | byte2;
-    }
   return cc;
 }
 
