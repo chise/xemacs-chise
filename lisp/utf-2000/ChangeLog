@@ -1,3 +1,16 @@
+2004-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R133-Arrive.el: Use `->subsumptive' for some character
+	definitions.
+	(U+81F4): Changed to abstract character.
+	(C1-5333): Separate K1-7648; use `<-denotational' for U+81F4;
+	unify U-00026936; add CU+81F4.
+	(M-30147): Unify U-00026938.
+	(J0-4357): Add `<-denotational' for U+81F4; unify K1-7648 and
+	C6-3B3A; add CU-00026936.
+	(M-30152): Unify U-0002693D.
+	(M-30169): Map to U-0002694D.
+
 2004-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R128-Ear.el:
