@@ -168,6 +168,7 @@
     =big5
     =big5-eten
     =gt-k
+    =jis-x0208@1997
     =jef-china3))
 
 (defun char-db-make-char-spec (char)
@@ -859,8 +860,7 @@
 			  (prog1
 			      (setq value (get-char-attribute char name))
 			    (setq dest-ccss (cons name dest-ccss))))
-		     (char-db-insert-ccs-feature name value line-breaking)
-		     )
+		     (char-db-insert-ccs-feature name value line-breaking))
 		 )
 		((string-match "^=>ucs@" (symbol-name name))
 		 (insert (format "(%-18s . #x%04X)\t; %c%s"
@@ -928,12 +928,12 @@
 			      (setq required-features
 				    (union required-features
 					   '(=jis-x0208
-					     =jis-x0208-1990
+					     =jis-x0208@1990
 					     =jis-x0213-1-2000
 					     =jis-x0213-2-2000
 					     =jis-x0212
-					     =jis-x0208-1983
-					     =jis-x0208-1978))))
+					     =jis-x0208@1983
+					     =jis-x0208@1978))))
 			     ((eq source 'CN)
 			      (setq required-features
 				    (union required-features
@@ -951,12 +951,12 @@
 				 (setq required-features
 				       (union required-features
 					      '(=jis-x0208
-						=jis-x0208-1990
+						=jis-x0208@1990
 						=jis-x0213-1-2000
 						=jis-x0213-2-2000
 						=jis-x0212
-						=jis-x0208-1983
-						=jis-x0208-1978))))
+						=jis-x0208@1983
+						=jis-x0208@1978))))
 				((string-match "@CN" (symbol-name name))
 				 (setq required-features
 				       (union required-features
