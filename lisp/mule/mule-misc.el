@@ -64,7 +64,7 @@ using a window system."
 	(len (length string))
 	(i 0))
     (while (< i len)
-      (setq col (+ col (charset-columns (char-charset (aref string i)))))
+      (setq col (+ col (charset-width (char-charset (aref string i)))))
       (setq i (1+ i)))
     col))
 
@@ -170,7 +170,7 @@ It returns only 1 in XEmacs.  It is for compatibility with MULE 2.3."
 
 (defun char-width (character)
   "Return number of columns a CHARACTER occupies when displayed."
-  (charset-columns (char-charset character)))
+  (charset-width (char-charset character)))
 
 (defalias 'char-columns 'char-width)
 (make-obsolete 'char-columns 'char-width)
@@ -323,7 +323,7 @@ when the language environment is made current."
        (get (coding-system-name coding-system) 'coding-system-property)
        prop)
       (condition-case nil
-	  (coding-system-property 'iso-2022-jp 'mnemonics)
+	  (coding-system-property coding-system prop)
 	(error nil))))
 
 (defun coding-system-put (coding-system prop val)
