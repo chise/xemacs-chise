@@ -409,6 +409,11 @@
     ))
 (define-char
   '((morohashi-daikanwa	3118 1)
+    (ideographic-radical@ucs . 29)	; ⼜
+    (ideographic-strokes@ucs . 2)
+    (total-strokes@ucs	     . 4)
+    (ideographic-radical@ucs*sources
+     daikanwa jis-x0208 cns11643 ucs)
     (ideographic-radical@gt . 4)	; ⼃
     (ideographic-strokes@gt . 2)
     (total-strokes@gt	    . 3)
