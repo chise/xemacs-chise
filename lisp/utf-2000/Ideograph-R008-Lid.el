@@ -311,6 +311,7 @@
   '((ideographic-radical . 8)	; â¼‡
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideograph-cbeta	. 04846)	; ø¸¡‹®
     (mojikyo		. 074988)	; ý €’“¬
     ))
 (define-char
@@ -365,6 +366,7 @@
      ((ucs		  . #x4E19)	; ä¸™
       ))
     (ideograph-daikanwa . 00297)	; ø¸€„©
+    (ideograph-cbeta	. 01504)	; ø¸ — 
     (mojikyo		. 000297)	; ý €€„©
     ))
 (define-char
@@ -618,6 +620,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (ideograph-daikanwa . 00310)	; ø¸€„¶
+    (ideograph-cbeta	. 00282)	; ø¸ „š
     (mojikyo		. 000310)	; ý €€„¶
     ))
 (define-char
@@ -962,6 +965,7 @@
        ((ucs		    . #x5927)	; å¤§
 	))
       ))
+    (ideograph-cbeta	. 03716)	; ø¸ º„
     (mojikyo		. 071493)	; ý €‘…
     ))
 (define-char
