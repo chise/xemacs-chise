@@ -29,13 +29,12 @@ Boston, MA 02111-1307, USA.  */
 /*                             of any format                            */
 /************************************************************************/
 
-/* Argument `c' should be (unsigned int) or (unsigned char). */
-/* Note that SP and DEL are not included. */
+/* These are carefully designed to work if BYTE is signed or unsigned. */
+/* Note that SPC and DEL are considered ASCII, not control. */
 
-#define BYTE_ASCII_P(c) ((c) < 0x80)
-#define BYTE_C0_P(c) ((c) < 0x20)
-/* Do some forced casting just to make *sure* things are gotten right. */
-#define BYTE_C1_P(c) ((unsigned int) ((unsigned int) (c) - 0x80) < 0x20)
+#define BYTE_ASCII_P(byte) (((byte) & ~0x7f) == 0)
+#define BYTE_C0_P(byte)    (((byte) & ~0x1f) == 0)
+#define BYTE_C1_P(byte)    (((byte) & ~0x1f) == 0x80)
 
 
 /************************************************************************/
@@ -80,7 +79,7 @@ Boston, MA 02111-1307, USA.  */
 
 Emchar non_ascii_charptr_emchar (const Bufbyte *ptr);
 Bytecount non_ascii_set_charptr_emchar (Bufbyte *ptr, Emchar c);
-Bytecount non_ascii_charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
+Bytecount non_ascii_charptr_copy_char (const Bufbyte *src, Bufbyte *dst);
 
 INLINE_HEADER Emchar charptr_emchar (const Bufbyte *ptr);
 INLINE_HEADER Emchar
@@ -100,14 +99,16 @@ set_charptr_emchar (Bufbyte *ptr, Emchar x)
     non_ascii_set_charptr_emchar (ptr, x);
 }
 
+/* Copy the character pointed to by SRC into DST.
+   Return the number of bytes copied.  */
 INLINE_HEADER Bytecount
-charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
+charptr_copy_char (const Bufbyte *src, Bufbyte *dst);
 INLINE_HEADER Bytecount
-charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2)
+charptr_copy_char (const Bufbyte *src, Bufbyte *dst)
 {
-  return BYTE_ASCII_P (*ptr) ?
-    simple_charptr_copy_char (ptr, ptr2) :
-    non_ascii_charptr_copy_char (ptr, ptr2);
+  return BYTE_ASCII_P (*src) ?
+    simple_charptr_copy_char (src, dst) :
+    non_ascii_charptr_copy_char (src, dst);
 }
 
 
