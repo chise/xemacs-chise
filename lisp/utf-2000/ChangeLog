@@ -1,3 +1,29 @@
+2000-12-08  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R074-Moon.el (M-14339): Fixed <unify with M-14339 of
+	Ideograph-R130-Meat.el>.
+	(M-14386): Unify with `chinese-cns11643-5'.
+	(C5-3F66): Moved from Ideograph-R130-Meat.el.
+	(M-14388): New character.
+	(C6-5D5D): Relate to M-14388.
+	(M-14390): New character.
+	(U+3B3B): Relate to M-14390.
+	(M-14393): New character.
+	(C7-2364): Relate to M-14393.
+	(M-14394): New character.
+	(C4-4A34): Relate to M-14394.
+	(C5-4D59): Add M-14395.
+	(U+3B3C): Add M-14397.
+	(M-14398): New character.
+	(U+3B3F): Relate to M-14398.
+	(C5-546E): Add M-14399.
+
+2000-12-06  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R127-Plow.el: Resorted; add missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
 2000-12-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R128-Ear.el: Resorted; add some missing Morohashi's
