@@ -1,3 +1,19 @@
+2002-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el, Ideograph-R116-Cave.el,
+	Ideograph-R102-Field.el, Ideograph-R066-Rap.el: Reformatted.
+
+2002-11-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (insert-char-attributes): Use `ucs-{jis|cns}'
+	character in the comment for a '=>ucs-{jis|cns}' property.
+
+	* Ideograph-R127-Plow.el, Ideograph-R126-And.el,
+	Ideograph-R125-Old.el, Ideograph-R123-Sheep.el,
+	Ideograph-R122-Net.el, Ideograph-R096-Jade.el,
+	Ideograph-R086-Fire.el, Ideograph-R038-Woman.el: Add some missing
+	mappings to CHINA3-JEF code points.
+
 2002-11-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R140-Grass.el (U+82BD): Relate to M-30860' instead of
