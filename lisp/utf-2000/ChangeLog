@@ -1,3 +1,13 @@
+2003-07-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* isolated-char.el (GT-19655): Deleted because it is included in
+	etc/char-data/GT-RS.txt.
+	(GT-19656): Likewise.
+	(GT-19861): Likewise.
+	(GT-21862): Likewise.
+	(GT-26606): Likewise.
+	(GT-30254): Likewise.
+
 2003-07-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R210-Even.el (U-0002A5CB): Map to M-34664; add
