@@ -144,9 +144,16 @@
       ))
     (->same*sources
      shuowen kanjo ronkou jiyun daikanwa)
+    (->vulgar
+     ((=ucs		  . #x6C37)	; 氷
+      (=daikanwa	  . 17087)	; &I-M-17087;
+      ))
+    (->vulgar*sources
+     zhengzi-tong daikanwa)
     (<-original
      ((shinjigen-1	  . 4051)
-      (=daikanwa	  . 17087)	; &I-M-17087;
+      (=ucs		  . #x6C37)	; 氷
+      (=jis-x0208	  . #x4939)	; &I-J90-4939; [41-25]
       ))
     (<-original*sources
      shinjigen-1)
