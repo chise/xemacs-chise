@@ -264,6 +264,7 @@ extern Lisp_Object charset_by_leading_byte[128];
 /* Table of charsets indexed by type/final-byte/direction. */
 extern Lisp_Object charset_by_attributes[4][128][2];
 
+#ifndef UTF2000
 /* Table of number of bytes in the string representation of a character
    indexed by the first byte of that representation.
 
@@ -274,6 +275,7 @@ extern Lisp_Object charset_by_attributes[4][128][2];
 
    but it's faster this way. */
 extern Bytecount rep_bytes_by_first_byte[0xA0];
+#endif
 
 #ifdef ERROR_CHECK_TYPECHECK
 /* int not Bufbyte even though that is the actual type of a leading byte.

@@ -79,6 +79,7 @@ Lisp_Object charset_by_leading_byte[128];
 /* Table of charsets indexed by type/final-byte/direction. */
 Lisp_Object charset_by_attributes[4][128][2];
 
+#ifndef UTF2000
 /* Table of number of bytes in the string representation of a character
    indexed by the first byte of that representation.
 
@@ -108,6 +109,7 @@ Bytecount rep_bytes_by_first_byte[0xA0] =
   /* 0x9f is for Dimension-2 private charsets */
   3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4
 };
+#endif
 
 Lisp_Object Vutf_2000_version;
 
@@ -600,9 +602,11 @@ make_charset (int id, Lisp_Object name, unsigned char rep_bytes,
 
   assert (NILP (charset_by_leading_byte[id - 128]));
   charset_by_leading_byte[id - 128] = obj;
+#ifndef UTF2000
   if (id < 0xA0)
     /* official leading byte */
     rep_bytes_by_first_byte[id] = rep_bytes;
+#endif
 
   /* Some charsets are "faux" and don't have names or really exist at
      all except in the leading-byte table. */
