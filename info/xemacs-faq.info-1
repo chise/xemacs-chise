@@ -76,8 +76,8 @@ Internationalization:
 * Q1.3.7::      How about Cyrillic Modes?
 
 Getting Started:
-* Q1.4.1::      What is a `.emacs' and is there a sample one?
-* Q1.4.2::      Can I use the same `.emacs' with the other Emacs?
+* Q1.4.1::      What is an `init.el' or `.emacs' and is there a sample one?
+* Q1.4.2::      Can I use the same `init.el'/`.emacs' with the other Emacs?
 * Q1.4.3::      Any good XEmacs tutorials around?
 * Q1.4.4::      May I see an example of a useful XEmacs Lisp function?
 * Q1.4.5::      And how do I bind it to a key?
@@ -150,7 +150,7 @@ X Window System & Resources:
 * Q3.1.8::      `-iconic' doesn't work.
 
 Textual Fonts & Colors:
-* Q3.2.1::      How can I set color options from `.emacs'?
+* Q3.2.1::      How can I set color options from `init.el'/`.emacs'?
 * Q3.2.2::      How do I set the text, menu and modeline fonts?
 * Q3.2.3::      How can I set the colors when highlighting a region?
 * Q3.2.4::      How can I limit color map usage?
@@ -176,7 +176,7 @@ The Keyboard:
 * Q3.5.5::      Scrolling one line at a time.
 * Q3.5.6::      How to map Help key alone on Sun type4 keyboard?
 * Q3.5.7::      How can you type in special characters in XEmacs?
-* Q3.5.8::      Why does `(global-set-key [delete-forward] 'delete-char)' complain?
+* Q3.5.8::      [This question intentionally left blank]
 * Q3.5.9::      How do I make the Delete key delete forward?
 * Q3.5.10::     Can I turn on "sticky" modifier keys?
 * Q3.5.11::     How do I map the arrow keys?
@@ -207,7 +207,7 @@ Scrollbars:
 * Q3.9.1::      How can I disable the scrollbar?
 * Q3.9.2::      How can one use resources to change scrollbar colors?
 * Q3.9.3::      Moving the scrollbar can move the point; can I disable this?
-* Q3.9.4::      How can I get automatic horizontal scrolling?
+* Q3.9.4::      How can I turn off automatic horizontal scrolling in specific modes?
 
 Text Selections:
 * Q3.10.1::     How can I turn off or change highlighted selections?
@@ -272,14 +272,14 @@ The Miscellaneous Stuff
 * Q5.0.1::      How can I do source code highlighting using font-lock?
 * Q5.0.2::      I do not like cc-mode.  How do I use the old c-mode?
 * Q5.0.3::      How do I get `More' Syntax Highlighting on by default?
-* Q5.0.4::      How can I enable auto-indent?
+* Q5.0.4::      How can I enable auto-indent and/or Filladapt?
 * Q5.0.5::      How can I get XEmacs to come up in text/auto-fill mode by default?
 * Q5.0.6::      How do I start up a second shell buffer?
 * Q5.0.7::      Telnet from shell filters too much.
 * Q5.0.8::      Why does edt emulation not work?
 * Q5.0.9::      How can I emulate VI and use it as my default mode?
 * Q5.0.10::     [This question intentionally left blank]
-* Q5.0.11::     How do I turn on filladapt for all buffers?
+* Q5.0.11::     [This question intentionally left blank]
 * Q5.0.12::     How do I disable gnuserv from opening a new frame?
 * Q5.0.13::     How do I start gnuserv so that each subsequent XEmacs is a client?
 * Q5.0.14::     Strange things are happening in Shell Mode.
@@ -311,7 +311,7 @@ Sound:
 
 Miscellaneous:
 * Q5.3.1::      How do you make XEmacs indent CL if-clauses correctly?
-* Q5.3.2::      Fontifying hangs when editing a postscript file.
+* Q5.3.2::      [This question intentionally left blank]
 * Q5.3.3::      How can I print WYSIWYG a font-locked buffer?
 * Q5.3.4::      Getting M-x lpr to work with postscript printer.
 * Q5.3.5::      How do I specify the paths that XEmacs uses for finding files?
@@ -328,8 +328,8 @@ XEmacs on MS Windows
 General Info:
 * Q6.0.1::      What is the status of the XEmacs port to Windows?
 * Q6.0.2::      What flavors of MS Windows are supported?
-* Q6.0.3::      Are binary kits available?
-* Q6.0.4::      Does XEmacs on MS Windows require an X server to run?
+* Q6.0.3::      Are binaries available?
+* Q6.0.4::      Can I build XEmacs on MS Windows with support for X or Cygwin?
 
 Building XEmacs on MS Windows:
 * Q6.1.1::      I decided to run with X.  Where do I get an X server?
@@ -342,7 +342,7 @@ Building XEmacs on MS Windows:
 Customization and User Interface:
 * Q6.2.1::      How will the port cope with differences in the Windows user interface?
 * Q6.2.2::      How do I change fonts in XEmacs on MS Windows?
-* Q6.2.3::      Where do I put my `.emacs' file?
+* Q6.2.3::      Where do I put my `init.el'/`.emacs' file?
 
 Miscellaneous:
 * Q6.3.1::      Will XEmacs rename all the win32-* symbols to w32-*?
@@ -428,8 +428,8 @@ Internationalization:
 * Q1.3.7::      How about Cyrillic Modes?
 
 Getting Started:
-* Q1.4.1::      What is a `.emacs' and is there a sample one?
-* Q1.4.2::      Can I use the same `.emacs' with the other Emacs?
+* Q1.4.1::      What is an `init.el' or `.emacs' and is there a sample one?
+* Q1.4.2::      Can I use the same `init.el'/`.emacs' with the other Emacs?
 * Q1.4.3::      Any good XEmacs tutorials around?
 * Q1.4.4::      May I see an example of a useful XEmacs Lisp function?
 * Q1.4.5::      And how do I bind it to a key?
@@ -444,12 +444,17 @@ File: xemacs-faq.info,  Node: Q1.0.1,  Next: Q1.0.2,  Prev: Introduction,  Up: I
 Q1.0.1: What is XEmacs?
 -----------------------
 
-   An alternative to GNU Emacs, originally based on an early alpha
-version of FSF's version 19, and has diverged quite a bit since then.
-XEmacs was known as Lucid Emacs through version 19.10.  Almost all
-features of GNU Emacs are supported in XEmacs.  The maintainers of
-XEmacs actively track changes to GNU Emacs while also working to add
-new features.
+   XEmacs is a highly customizable open source text editor and
+application development system.  It is protected under the GNU Public
+License and related to other versions of Emacs, in particular GNU
+Emacs.  Its emphasis is on modern graphical user interface support and
+an open software development model, similar to Linux.  XEmacs has an
+active development community numbering in the hundreds, and runs on
+Windows 95 and NT, Linux and nearly every other version of Unix in
+existence.  Support for XEmacs has been supplied by Sun Microsystems,
+University of Illinois, Lucid, ETL/Electrotechnical Laboratory, Amdahl
+Corporation, BeOpen, and others, as well as the unpaid time of a great
+number of individual developers.
 
 
 File: xemacs-faq.info,  Node: Q1.0.2,  Next: Q1.0.3,  Prev: Q1.0.1,  Up: Introduction
@@ -493,7 +498,7 @@ consider using it:
    * The XEmacs maintainers are generally more receptive to suggestions
      than the GNU Emacs maintainers.
 
-   * Many more bundled packages than GNU Emacs
+   * Many more bundled packages than GNU Emacs.
 
    * Binaries are available for many common operating systems.
 
@@ -504,7 +509,7 @@ consider using it:
    * Better Motif compliance.
 
    * Some internationalization support (including full MULE support, if
-     compiled with it.)
+     compiled with it).
 
    * Variable-width fonts.
 
@@ -526,7 +531,6 @@ consider using it:
 
    * Completely compatible (at the C level) with the Xt-based toolkits.
 
-   * First production Web Browser supporting Style Sheets.
 
 
 File: xemacs-faq.info,  Node: Q1.0.5,  Next: Q1.0.6,  Prev: Q1.0.4,  Up: Introduction
@@ -551,7 +555,7 @@ Q1.0.6: Where can I get help?
 -----------------------------
 
    Probably the easiest way, if everything is installed, is to use
-Info, by pressing `C-h i', or selecting `Manuals->Info' from the Help
+Info, by pressing `C-h i', or looking for an Info item on the Help
 Menu.  `M-x apropos' can be used to look for particular commands.
 
    For items not found in the manual, try reading this FAQ and reading
@@ -574,7 +578,7 @@ File: xemacs-faq.info,  Node: Q1.0.7,  Next: Q1.0.8,  Prev: Q1.0.6,  Up: Introdu
 Q1.0.7: Where are the mailing lists archived?
 ---------------------------------------------
 
-   The archives can be found at `http://www.xemacs.org/Lists/Archive'
+   The archives can be found at `http://list-archive.xemacs.org'
 
 
 File: xemacs-faq.info,  Node: Q1.0.8,  Next: Q1.0.9,  Prev: Q1.0.7,  Up: Introduction
@@ -716,32 +720,36 @@ Q1.2.1: Who wrote XEmacs?
 -------------------------
 
    XEmacs is the result of the time and effort of many people.  The
-developers responsible for the 19.16/20.x releases are:
+developers responsible for recent releases are:
 
    * Martin Buchholz <martin@xemacs.org>
 
-   * Steve Baur <steve@xemacs.org>
+   * Steven Turnbull <turnbull@sk.tsukuba.ac.jp>
+
+   * Ben Wing <ben@xemacs.org>
 
    * Hrvoje Niksic <hniksic@xemacs.org>
 
 
-   The developers responsible for the 19.14 release are:
+   The developers responsible for older releases were:
+
+   * Steve Baur <steve@xemacs.org>
 
    * Chuck Thompson <cthomp@xemacs.org>
 
-     Chuck was Mr. XEmacs from 19.11 through 19.14, and is responsible
-     for XEmacs becoming a widely distributed program over the Internet.
-
-   * Ben Wing <ben@xemacs.org>
-
-
    * Jamie Zawinski <jwz@jwz.org>
 
-     Jamie Zawinski was Mr. Lucid Emacs from 19.0 through 19.10, the
-     last release actually named Lucid Emacs.  Richard Mlynarik was
-     crucial to most of those releases.
-
    * Richard Mlynarik <mly@adoc.xerox.com>
+
+     Steve Baur was the primary maintainer for 19.15 through 21.0.
+
+     Chuck Thompson and Ben Wing were the maintainers for 19.11 through
+     19.14 and heavy code contributors for 19.8 through 19.10.
+
+     Jamie Zawinski was the maintainer for 19.0 through 19.10 (the
+     entire history of Lucid Emacs).  Richard Mlynarik was a heavy code
+     contributor to 19.6 through 19.8.
+
 
    Along with many other contributors, partially enumerated in the
 `About XEmacs' option in the Help menu.
@@ -989,28 +997,44 @@ File: xemacs-faq.info,  Node: Q1.4.1,  Next: Q1.4.2,  Prev: Q1.3.7,  Up: Introdu
 1.4: Getting Started, Backing up & Recovery
 ===========================================
 
-Q1.4.1: What is a `.emacs' and is there a sample one?
------------------------------------------------------
+Q1.4.1: What is an `init.el' or `.emacs' and is there a sample one?
+-------------------------------------------------------------------
 
-   The `.emacs' file is used to customize XEmacs to your tastes.  No
-two are alike, nor are they expected to be alike, but that's the point.
-The XEmacs distribution contains an excellent starter example in the etc
-directory called `sample.emacs'.  Copy this file from there to your
-home directory and rename it `.emacs'.  Then edit it to suit.
+   The `init.el' or `.emacs' file is used to customize XEmacs to your
+tastes.  Starting in 21.4, the preferred location for the init file is
+`~/.xemacs/init.el'; in previous versions, it was `~/.emacs'.  21.4
+still accepts the old location, but the first time you run it, it will
+ask to migrate your file to the new location.  If you answer yes, the
+file will be moved, and a "compatibility" `.emacs' file will be placed
+in the old location so that you can still run older versions of XEmacs,
+and versions of GNU Emacs, which expect the old location.  The `.emacs'
+file present is just a stub that loads the real file in
+`~/.xemacs/init.el'.
 
-   Starting with 19.14, you may bring the `sample.emacs' into an XEmacs
-buffer by selecting `Help->Sample .emacs' from the menubar.  To
-determine the location of the `etc' directory type the command `C-h v
+   No two init files are alike, nor are they expected to be alike, but
+that's the point.  The XEmacs distribution contains an excellent starter
+example in the `etc/' directory called `sample.init.el' (starting in
+21.4) or `sample.emacs' in older versions.  Copy this file from there
+to `~/.xemacs/init.el' (starting in 21.4) or `~/.emacs' in older
+versions, where `~' means your home directory, of course.  Then edit it
+to suit.
+
+   You may bring the `sample.init.el' or `sample.emacs' file into an
+XEmacs buffer from the menubar. (The menu entry for it is always under
+the `Help' menu, but its location under that has changed in various
+versions.  Recently, look under the `Samples' submenu.)  To determine
+the location of the `etc/' directory type the command `C-h v
 data-directory <RET>'.
 
 
 File: xemacs-faq.info,  Node: Q1.4.2,  Next: Q1.4.3,  Prev: Q1.4.1,  Up: Introduction
 
-Q1.4.2: Can I use the same `.emacs' with the other Emacs?
----------------------------------------------------------
+Q1.4.2: Can I use the same `init.el'/`.emacs' with the other Emacs?
+-------------------------------------------------------------------
 
-   Yes.  The sample `.emacs' included in the XEmacs distribution will
-show you how to handle different versions and flavors of Emacs.
+   Yes.  The sample `init.el'/`.emacs' included in the XEmacs
+distribution will show you how to handle different versions and flavors
+of Emacs.
 
 
 File: xemacs-faq.info,  Node: Q1.4.3,  Next: Q1.4.4,  Prev: Q1.4.2,  Up: Introduction
@@ -1211,34 +1235,4 @@ removed from them if you do not use them.
    Online texinfo sources in the `info' can either be compressed them
 or remove them.  In either case, `C-h i' (info mode) will no longer
 work.
-
-
-File: xemacs-faq.info,  Node: Q2.0.3,  Next: Q2.0.4,  Prev: Q2.0.2,  Up: Installation
-
-Q2.0.3: Compiling XEmacs with Netaudio.
----------------------------------------
-
-   What is the best way to compile XEmacs with the netaudio system,
-since I have got the netaudio system compiled but installed at a weird
-place, I am not root.  Also in the READMEs it does not say anything
-about compiling with the audioserver?
-
-   You should only need to add some stuff to the configure command line.
-To tell it to compile in netaudio support: `--with-sound=both', or
-`--with-sound=nas' if you don't want native sound support for some
-reason.) To tell it where to find the netaudio includes and libraries:
-
-     --site-libraries=WHATEVER
-     --site-includes=WHATEVER
-
-   Then (fingers crossed) it should compile and it will use netaudio if
-you have a server running corresponding to the X server. The netaudio
-server has to be there when XEmacs starts. If the netaudio server goes
-away and another is run, XEmacs should cope (fingers crossed, error
-handling in netaudio isn't perfect).
-
-   BTW, netaudio has been renamed as it has a name clash with something
-else, so if you see references to NAS or Network Audio System, it's the
-same thing.  It also might be found at
-`ftp://ftp.x.org/contrib/audio/nas/'.
 

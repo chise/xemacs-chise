@@ -1886,13 +1886,15 @@ if test "$__USLC__" = yes; then
   test "$need_kalloca" = "yes" && XE_APPEND(-Kalloca,c_switch_system)
 fi
 
-dnl Calculalate value of CFLAGS:
+dnl Calculate value of CFLAGS:
 dnl Use either command line flag, environment var, or autodetection
 if test "$cflags_specified" = "no"; then
   dnl Following values of CFLAGS are known to work well.
   dnl Should we take debugging options into consideration?
   if   test "$GCC" = "yes"; then
     CFLAGS="-g -O3 -Wall -Wno-switch -Winline -Wmissing-prototypes -Wshadow"
+    dnl Yuck, bad compares have been worth at least 3 crashes!
+    CFLAGS="$CFLAGS -Wsign-compare"
     dnl glibc is intentionally not `-Wpointer-arith'-clean.
     dnl Ulrich Drepper has rejected patches to fix the glibc header files.
     test "$have_glibc" != "yes" && CFLAGS="$CFLAGS -Wpointer-arith"
@@ -2755,7 +2757,9 @@ EOF
     cd ..
     rm -fr conftestdir
     for word in $xmkmf_defines; do
-      case "$word" in -D* )
+      case "$word" in 
+      -D__STDC__*) ;;
+      -D* )
 	sym=`echo '' $word | sed -e 's:^ *-D::' -e 's:=.*::'`
 	case "$word" in
 	  -D*=* ) val=`echo '' $word | sed -e 's:^.*=::'` ;;

@@ -489,12 +489,14 @@ situations, often in code far away from where the actual breakage is.
 
 * General Coding Rules::
 * Writing Lisp Primitives::
+* Writing Good Comments::
 * Adding Global Lisp Variables::
+* Proper Use of Unsigned Types::
 * Coding for Mule::
 * Techniques for XEmacs Developers::
 
 
-File: internals.info,  Node: General Coding Rules,  Next: Writing Lisp Primitives,  Prev: Rules When Writing New C Code,  Up: Rules When Writing New C Code
+File: internals.info,  Node: General Coding Rules,  Next: Writing Lisp Primitives,  Up: Rules When Writing New C Code
 
 General Coding Rules
 ====================
@@ -605,7 +607,7 @@ macros `EXTERNAL_LIST_LOOP_DELETE_IF' and `LIST_LOOP_DELETE_IF' delete
 elements from a lisp list satisfying some predicate.
 
 
-File: internals.info,  Node: Writing Lisp Primitives,  Next: Adding Global Lisp Variables,  Prev: General Coding Rules,  Up: Rules When Writing New C Code
+File: internals.info,  Node: Writing Lisp Primitives,  Next: Writing Good Comments,  Prev: General Coding Rules,  Up: Rules When Writing New C Code
 
 Writing Lisp Primitives
 =======================
@@ -835,7 +837,70 @@ arguments.  They work by calling `Ffuncall'.
 contains the definitions for important macros and functions.
 
 
-File: internals.info,  Node: Adding Global Lisp Variables,  Next: Coding for Mule,  Prev: Writing Lisp Primitives,  Up: Rules When Writing New C Code
+File: internals.info,  Node: Writing Good Comments,  Next: Adding Global Lisp Variables,  Prev: Writing Lisp Primitives,  Up: Rules When Writing New C Code
+
+Writing Good Comments
+=====================
+
+   Comments are a lifeline for programmers trying to understand tricky
+code.  In general, the less obvious it is what you are doing, the more
+you need a comment, and the more detailed it needs to be.  You should
+always be on guard when you're writing code for stuff that's tricky, and
+should constantly be putting yourself in someone else's shoes and asking
+if that person could figure out without much difficulty what's going
+on. (Assume they are a competent programmer who understands the
+essentials of how the XEmacs code is structured but doesn't know much
+about the module you're working on or any algorithms you're using.) If
+you're not sure whether they would be able to, add a comment.  Always
+err on the side of more comments, rather than less.
+
+   Generally, when making comments, there is no need to attribute them
+with your name or initials.  This especially goes for small,
+easy-to-understand, non-opinionated ones.  Also, comments indicating
+where, when, and by whom a file was changed are _strongly_ discouraged,
+and in general will be removed as they are discovered.  This is exactly
+what `ChangeLogs' are there for.  However, it can occasionally be
+useful to mark exactly where (but not when or by whom) changes are
+made, particularly when making small changes to a file imported from
+elsewhere.  These marks help when later on a newer version of the file
+is imported and the changes need to be merged. (If everything were
+always kept in CVS, there would be no need for this.  But in practice,
+this often doesn't happen, or the CVS repository is later on lost or
+unavailable to the person doing the update.)
+
+   When putting in an explicit opinion in a comment, you should
+_always_ attribute it with your name, and optionally the date.  This
+also goes for long, complex comments explaining in detail the workings
+of something - by putting your name there, you make it possible for
+someone who has questions about how that thing works to determine who
+wrote the comment so they can write to them.  Preferably, use your
+actual name and not your initials, unless your initials are generally
+recognized (e.g. `jwz').  You can use only your first name if it's
+obvious who you are; otherwise, give first and last name.  If you're
+not a regular contributor, you might consider putting your email
+address in - it may be in the ChangeLog, but after awhile ChangeLogs
+have a tendency of disappearing or getting muddled. (E.g. your comment
+may get copied somewhere else or even into another program, and
+tracking down the proper ChangeLog may be very difficult.)
+
+   If you come across an opinion that is not or no longer valid, or you
+come across any comment that no longer applies but you want to keep it
+around, enclose it in `[[ ' and ` ]]' marks and add a comment
+afterwards explaining why the preceding comment is no longer valid.  Put
+your name on this comment, as explained above.
+
+   Just as comments are a lifeline to programmers, incorrect comments
+are death.  If you come across an incorrect comment, *immediately*
+correct it or flag it as incorrect, as described in the previous
+paragraph.  Whenever you work on a section of code, _always_ make sure
+to update any comments to be correct - or, at the very least, flag them
+as incorrect.
+
+   To indicate a "todo" or other problem, use four pound signs - i.e.
+`####'.
+
+
+File: internals.info,  Node: Adding Global Lisp Variables,  Next: Proper Use of Unsigned Types,  Prev: Writing Good Comments,  Up: Rules When Writing New C Code
 
 Adding Global Lisp Variables
 ============================
@@ -898,7 +963,36 @@ and you will be the one who's unhappy when you can't figure out how
 your variable got overwritten.
 
 
-File: internals.info,  Node: Coding for Mule,  Next: Techniques for XEmacs Developers,  Prev: Adding Global Lisp Variables,  Up: Rules When Writing New C Code
+File: internals.info,  Node: Proper Use of Unsigned Types,  Next: Coding for Mule,  Prev: Adding Global Lisp Variables,  Up: Rules When Writing New C Code
+
+Proper Use of Unsigned Types
+============================
+
+   Avoid using `unsigned int' and `unsigned long' whenever possible.
+Unsigned types are viral - any arithmetic or comparisons involving
+mixed signed and unsigned types are automatically converted to
+unsigned, which is almost certainly not what you want.  Many subtle and
+hard-to-find bugs are created by careless use of unsigned types.  In
+general, you should almost _never_ use an unsigned type to hold a
+regular quantity of any sort.  The only exceptions are
+
+  1. When there's a reasonable possibility you will actually need all
+     32 or 64 bits to store the quantity.
+
+  2. When calling existing API's that require unsigned types.  In this
+     case, you should still do all manipulation using signed types, and
+     do the conversion at the very threshold of the API call.
+
+  3. In existing code that you don't want to modify because you don't
+     maintain it.
+
+  4. In bit-field structures.
+
+   Other reasonable uses of `unsigned int' and `unsigned long' are
+representing non-quantities - e.g. bit-oriented flags and such.
+
+
+File: internals.info,  Node: Coding for Mule,  Next: Techniques for XEmacs Developers,  Prev: Proper Use of Unsigned Types,  Up: Rules When Writing New C Code
 
 Coding for Mule
 ===============
@@ -923,7 +1017,7 @@ of code generalization for future I18N work.
 * An Example of Mule-Aware Code::
 
 
-File: internals.info,  Node: Character-Related Data Types,  Next: Working With Character and Byte Positions,  Prev: Coding for Mule,  Up: Coding for Mule
+File: internals.info,  Node: Character-Related Data Types,  Next: Working With Character and Byte Positions,  Up: Coding for Mule
 
 Character-Related Data Types
 ----------------------------
@@ -992,103 +1086,4 @@ glance at the declaration can tell the intended use of the variable.
      which are equivalent to `unsigned char'.  Obviously, an `Extcount'
      is the distance between two `Extbyte's.  Extbytes and Extcounts
      are not all that frequent in XEmacs code.
-
-
-File: internals.info,  Node: Working With Character and Byte Positions,  Next: Conversion to and from External Data,  Prev: Character-Related Data Types,  Up: Coding for Mule
-
-Working With Character and Byte Positions
------------------------------------------
-
-   Now that we have defined the basic character-related types, we can
-look at the macros and functions designed for work with them and for
-conversion between them.  Most of these macros are defined in
-`buffer.h', and we don't discuss all of them here, but only the most
-important ones.  Examining the existing code is the best way to learn
-about them.
-
-`MAX_EMCHAR_LEN'
-     This preprocessor constant is the maximum number of buffer bytes to
-     represent an Emacs character in the variable width internal
-     encoding.  It is useful when allocating temporary strings to keep
-     a known number of characters.  For instance:
-
-          {
-            Charcount cclen;
-            ...
-            {
-              /* Allocate place for CCLEN characters. */
-              Bufbyte *buf = (Bufbyte *)alloca (cclen * MAX_EMCHAR_LEN);
-          ...
-
-     If you followed the previous section, you can guess that,
-     logically, multiplying a `Charcount' value with `MAX_EMCHAR_LEN'
-     produces a `Bytecount' value.
-
-     In the current Mule implementation, `MAX_EMCHAR_LEN' equals 4.
-     Without Mule, it is 1.
-
-`charptr_emchar'
-`set_charptr_emchar'
-     The `charptr_emchar' macro takes a `Bufbyte' pointer and returns
-     the `Emchar' stored at that position.  If it were a function, its
-     prototype would be:
-
-          Emchar charptr_emchar (Bufbyte *p);
-
-     `set_charptr_emchar' stores an `Emchar' to the specified byte
-     position.  It returns the number of bytes stored:
-
-          Bytecount set_charptr_emchar (Bufbyte *p, Emchar c);
-
-     It is important to note that `set_charptr_emchar' is safe only for
-     appending a character at the end of a buffer, not for overwriting a
-     character in the middle.  This is because the width of characters
-     varies, and `set_charptr_emchar' cannot resize the string if it
-     writes, say, a two-byte character where a single-byte character
-     used to reside.
-
-     A typical use of `set_charptr_emchar' can be demonstrated by this
-     example, which copies characters from buffer BUF to a temporary
-     string of Bufbytes.
-
-          {
-            Bufpos pos;
-            for (pos = beg; pos < end; pos++)
-              {
-                Emchar c = BUF_FETCH_CHAR (buf, pos);
-                p += set_charptr_emchar (buf, c);
-              }
-          }
-
-     Note how `set_charptr_emchar' is used to store the `Emchar' and
-     increment the counter, at the same time.
-
-`INC_CHARPTR'
-`DEC_CHARPTR'
-     These two macros increment and decrement a `Bufbyte' pointer,
-     respectively.  They will adjust the pointer by the appropriate
-     number of bytes according to the byte length of the character
-     stored there.  Both macros assume that the memory address is
-     located at the beginning of a valid character.
-
-     Without Mule support, `INC_CHARPTR (p)' and `DEC_CHARPTR (p)'
-     simply expand to `p++' and `p--', respectively.
-
-`bytecount_to_charcount'
-     Given a pointer to a text string and a length in bytes, return the
-     equivalent length in characters.
-
-          Charcount bytecount_to_charcount (Bufbyte *p, Bytecount bc);
-
-`charcount_to_bytecount'
-     Given a pointer to a text string and a length in characters,
-     return the equivalent length in bytes.
-
-          Bytecount charcount_to_bytecount (Bufbyte *p, Charcount cc);
-
-`charptr_n_addr'
-     Return a pointer to the beginning of the character offset CC (in
-     characters) from P.
-
-          Bufbyte *charptr_n_addr (Bufbyte *p, Charcount cc);
 

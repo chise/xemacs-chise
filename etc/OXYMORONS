@@ -18,25 +18,25 @@ The rest of the codenames are in alphabetical order.
 
 N.B. I expect that the Stable Release Maintainer will choose a new
 theme for the releases following the promotion of 21.4 from "gamma" to
-"stable".  So 15 should be enough....
+"stable".  So 15 or so should be enough....
 
 21.4.0: Solid Vapor
 21.4.1: Copyleft
 21.4.2: Developer-Friendly Unix APIs
 21.4.3: Academic Rigor
-21.4.3: Artificial Intelligence
-21.4.3: Civil Service
-21.4.3: Common Lisp
-21.4.3: Economic Science
-21.4.3: Honest Politician
-21.4.3: Informed Management
-21.4.3: Military Intelligence
-21.4.3: Portable Code
-21.4.3: Rational FORTRAN
-21.4.3: Reasonable Discussion
-21.4.3: Standard C
+21.4.4: Artificial Intelligence
+21.4.5: Civil Service
+21.4.6: Common Lisp
+21.4.7: Economic Science
+21.4.8: Honest Recruiter
+21.4.9: Informed Management
+21.4.10: Military Intelligence
+21.4.11: Portable Code
+21.4.12: Rational FORTRAN
+21.4.13: Reasonable Discussion
+21.4.14: Security Through Obscurity
+21.4.15: Standard C
+21.4.16: Successful IPO
 
-N.B.  Suggestions welcome until shortly before the release.  (The
-non-incrementing version number is precisely to make it easy to add
-new oxymorons.)
+N.B.  Only incredibly redeeming suggestoins can be accepted now.
 

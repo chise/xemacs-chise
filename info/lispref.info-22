@@ -1126,8 +1126,8 @@ the character itself.
                => "C-x"
           (key-description "\C-x \M-y \n \t \r \f123")
                => "C-x SPC M-y SPC LFD SPC TAB SPC RET SPC C-l 1 2 3"
-          (single-key-description 'kp_next)
-               => "kp_next"
+          (single-key-description 'kp-next)
+               => "kp-next"
           (single-key-description '(shift button1))
                => "Sh-button1"
 

@@ -4367,6 +4367,53 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2001-04-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.2.47 "Zephir" is released.
+
+2001-04-02  Jan Vroonhof  <jan@xemacs.org>
+
+	* redisplay.c (add_bufbyte_string_runes): Update data->bytepos
+
+2001-04-03  Mike Sperber <mike@xemacs.org>
+
+	* search.c: Revert previous patch due because of release.
+
+2001-03-30  Ben Wing  <ben@xemacs.org>
+
+	* s\cygwin32.h:
+	Add missing killpg prototype.
+
+	* elhash.c:
+	Add a comment about fixing problems when a new entry is added
+	while mapping.
+
+	* frame-msw.c (mswindows_init_frame_1):
+	Fix compile warnings.
+
+	* menubar.c (vars_of_menubar):
+	Provide `menu-accelerator-support' to indicate that we properly
+	support %_ in menu specifications, so that package code can
+	conditionalize on this (and remove %_ from menu specifications
+	on older versions).
+
+	* event-msw.c:
+	* scrollbar-msw.c:
+	* scrollbar-msw.c (can_scroll):
+	* scrollbar-msw.h:
+	Fix handling of mouse wheel under Windows to follow standards --
+	now scrolls window under pointer, not selected window.
+
+2001-03-31  Mike Sperber <mike@xemacs.org>
+
+	* search.c (Freplace_match): Support FSF-style specification of
+	match subexpression when applied to a buffer.
+
+2001-03-15  Martin Buchholz  <martin@xemacs.org>
+
+	* keymap.c (Fmap_keymap): map-keymap explicitly allows a mapping
+	function to modify KEYMAP, so map over a copy of the hash table.
+
 2001-03-21  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.46 "Urania" is released.

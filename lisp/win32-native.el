@@ -62,32 +62,6 @@
   '(("^\\(\\([a-zA-Z]:\\)?[^:( \t\n]+\\)[:( \t]+\\([0-9]+\\)[:) \t]" 1 3)))
 
 ;;----------------------------------------------------------------------
-;; Autosave hack
-;;--------------------
-
-;; Avoid creating auto-save file names containing invalid characters
-;; (primarily "*", eg. for the *mail* buffer).
-;; Avoid "doc lost for function" warning
-(defun original-make-auto-save-file-name (&optional junk)
-  "You do not want to call this."
-  )
-(fset 'original-make-auto-save-file-name
-      (symbol-function 'make-auto-save-file-name))
-
-(defun make-auto-save-file-name ()
-  "Return file name to use for auto-saves of current buffer.
-Does not consider `auto-save-visited-file-name' as that variable is checked
-before calling this function.  You can redefine this for customization.
-See also `auto-save-file-name-p'."
-  (let ((name (original-make-auto-save-file-name))
-	(start 0))
-    ;; destructively replace occurrences of * or ? with $
-    (while (string-match "[?*]" name start)
-      (aset name (match-beginning 0) ?$)
-      (setq start (1+ (match-end 0))))
-    name))
-
-;;----------------------------------------------------------------------
 ;; Quoting process args
 ;;--------------------
 

@@ -642,7 +642,9 @@ The keywords allowed are
 		       (set-buffer-dedicated-frame newbuf frame)
 		       (set-frame-property frame 'dialog-box-buffer newbuf)
 		       (with-current-buffer newbuf
-			 (setq frame-title-format cl-title)
+			 ;; Should be frame specific, so
+			 ;; we don't do this for now.
+			 ;; (setq frame-title-format cl-title)
 			 (make-local-hook 'delete-frame-hook)
 			 (add-hook 'delete-frame-hook
 				   #'(lambda (frame)

@@ -266,7 +266,7 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
 }
 
 static int
-can_scroll(struct scrollbar_instance* scrollbar)
+can_scroll (struct scrollbar_instance* scrollbar)
 {
   return scrollbar != NULL
 	&& IsWindowVisible (SCROLLBAR_MSW_HANDLE (scrollbar))
@@ -274,15 +274,48 @@ can_scroll(struct scrollbar_instance* scrollbar)
 }
 
 int
-mswindows_handle_mousewheel_event (Lisp_Object frame, int keys, int delta)
+mswindows_handle_mousewheel_event (Lisp_Object frame, int keys, int delta,
+				   POINTS where)
 {
   int hasVertBar, hasHorzBar;	/* Indicates presence of scroll bars */
   unsigned wheelScrollLines = 0; /* Number of lines per wheel notch */
+  Lisp_Object win;
+  struct window_mirror *mirror;
+  POINT donde_esta;
 
-  /* Find the currently selected window */
-  Lisp_Object win = FRAME_SELECTED_WINDOW (XFRAME (frame));
-  struct window* w = XWINDOW (win);
-  struct window_mirror* mirror = find_window_mirror (w);
+  donde_esta.x = where.x;
+  donde_esta.y = where.y;
+
+  ScreenToClient (FRAME_MSWINDOWS_HANDLE (XFRAME (frame)), &donde_esta);
+
+  /* Find the window to scroll */
+  {
+    int mene, _mene, tekel, upharsin;
+    Bufpos mens, sana;
+    Charcount in;
+    Lisp_Object corpore, sano;
+    struct window *needle_in_haystack;
+
+    // stderr_out ("donde_esta: %d %d\n", donde_esta.x, donde_esta.y);
+    pixel_to_glyph_translation (XFRAME (frame), donde_esta.x, donde_esta.y,
+				&mene, &_mene, &tekel, &upharsin,
+				&needle_in_haystack,
+				&mens, &sana, &in, &corpore, &sano);
+
+    if (needle_in_haystack)
+      {
+	XSETWINDOW (win, needle_in_haystack);
+	// stderr_out ("found needle\n");
+	// debug_print (win);
+      }
+    else
+      {
+	win = FRAME_SELECTED_WINDOW (XFRAME (frame));
+	needle_in_haystack = XWINDOW (win);
+      }
+
+    mirror = find_window_mirror (needle_in_haystack);
+  }
 
   /* Check that there is something to scroll */
   hasVertBar = can_scroll (mirror->scrollbar_vertical_instance);

@@ -1,3 +1,22 @@
+2001-04-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.2.47 "Zephir" is released.
+
+2001-03-30  Ben Wing  <ben@xemacs.org>
+
+	* internals\internals.texi:
+	* internals\internals.texi (Top):
+	* internals\internals.texi (Lucid Emacs):
+	* internals\internals.texi (XEmacs):
+	* internals\internals.texi (XEmacs From the Outside):
+	Bump version to 1.4 and fix this everywhere.  Document all
+	XEmacs releases up through 21.2.46.
+
+2001-03-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lispref/postgresql.texi (libpq Lisp Symbols and DataTypes): Save
+	result of INSERT in R in pq-cmd-status example.
+
 2001-03-21  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.46 "Urania" is released.

@@ -7,30 +7,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: xemacs-faq.info,  Node: Q4.0.12,  Next: Q4.1.1,  Prev: Q4.0.11,  Up: Subsystems
-
-Q4.0.12: Customization of VM not covered in the manual, or here.
-----------------------------------------------------------------
-
-   giacomo boffi <boffi@hp735.stru.polimi.it> writes:
-
-     The meta-answer is to look into the file `vm-vars.el', in the vm
-     directory of the lisp library.
-
-     `vm-vars.el' contains, initializes and carefully describes, with
-     examples of usage, the plethora of user options that _fully_
-     control VM's behavior.
-
-     Enter vm-vars, `forward-search' for toolbar, find the variables
-     that control the toolbar placement, appearance, existence, copy to
-     your `.emacs' or `.vm' and modify according to the detailed
-     instructions.
-
-     The above also applies to all the various features of VM: search
-     for some keywords, maybe the first you conjure isn't appropriate,
-     find the appropriate variables, copy and experiment.
-
-
 File: xemacs-faq.info,  Node: Q4.1.1,  Next: Q4.1.2,  Prev: Q4.0.12,  Up: Subsystems
 
 4.1: Web browsing with W3
@@ -602,14 +578,14 @@ Major & Minor Modes:
 * Q5.0.1::      How can I do source code highlighting using font-lock?
 * Q5.0.2::      I do not like cc-mode.  How do I use the old c-mode?
 * Q5.0.3::      How do I get `More' Syntax Highlighting on by default?
-* Q5.0.4::      How can I enable auto-indent?
+* Q5.0.4::      How can I enable auto-indent and/or Filladapt?
 * Q5.0.5::      How can I get XEmacs to come up in text/auto-fill mode by default?
 * Q5.0.6::      How do I start up a second shell buffer?
 * Q5.0.7::      Telnet from shell filters too much.
 * Q5.0.8::      Why does edt emulation not work?
 * Q5.0.9::      How can I emulate VI and use it as my default mode?
 * Q5.0.10::     [This question intentionally left blank]
-* Q5.0.11::     How do I turn on filladapt for all buffers?
+* Q5.0.11::     [This question intentionally left blank]
 * Q5.0.12::     How do I disable gnuserv from opening a new frame?
 * Q5.0.13::     How do I start gnuserv so that each subsequent XEmacs is a client?
 * Q5.0.14::     Strange things are happening in Shell Mode.
@@ -641,7 +617,7 @@ Sound:
 
 Miscellaneous:
 * Q5.3.1::      How do you make XEmacs indent CL if-clauses correctly?
-* Q5.3.2::      Fontifying hangs when editing a postscript file.
+* Q5.3.2::      [This question intentionally left blank]
 * Q5.3.3::      How can I print WYSIWYG a font-locked buffer?
 * Q5.3.4::      Getting M-x lpr to work with postscript printer.
 * Q5.3.5::      How do I specify the paths that XEmacs uses for finding files?
@@ -663,13 +639,14 @@ Q5.0.1: How can I do source code highlighting using font-lock?
 --------------------------------------------------------------
 
    For most modes, font-lock is already set up and just needs to be
-turned on.  This can be done by `M-x font-lock-mode', or by having
-XEmacs automatically start it by adding lines like:
+turned on.  This can be done by adding the line:
 
-     (add-hook 'emacs-lisp-mode-hook 'turn-on-font-lock)
-     (add-hook 'dired-mode-hook      'turn-on-font-lock)
+     (require 'font-lock)
 
-   to your `.emacs'.  See the file `etc/sample.emacs' for more examples.
+   to your `init.el'/`.emacs'. (You can turn it on for the current
+buffer and session only by `M-x font-lock-mode'.) See the file
+`etc/sample.init.el' (`etc/sample.emacs' in XEmacs versions prior to
+21.4) for more information.
 
    See also `Syntax Highlighting' from the `Options' menu.  Remember to
 save options.
@@ -685,7 +662,8 @@ much more powerful than the old c-mode.  If you're having trouble
 getting your old offsets to work, try using `c-set-offset' instead.
 You might also consider using the package `cc-compat'.
 
-   But, if you still insist, add the following lines to your `.emacs':
+   But, if you still insist, add the following lines to your
+`init.el'/`.emacs':
 
      (fmakunbound 'c-mode)
      (makunbound 'c-mode-map)
@@ -704,18 +682,9 @@ File: xemacs-faq.info,  Node: Q5.0.3,  Next: Q5.0.4,  Prev: Q5.0.2,  Up: Miscell
 Q5.0.3: How do I get `More' Syntax Highlighting on by default?
 --------------------------------------------------------------
 
-   Use the following code in your `.emacs':
+   Use the following code in your `init.el'/`.emacs':
 
      (setq-default font-lock-maximum-decoration t)
-
-   In versions of XEmacs prior to 19.14, you had to use a kludgy
-solution like this:
-
-     (setq c-font-lock-keywords c-font-lock-keywords-2
-           c++-font-lock-keywords c++-font-lock-keywords-2
-           lisp-font-lock-keywords lisp-font-lock-keywords-2)
-
-   It will work for C, C++ and Lisp.
 
    See also `Syntax Highlighting' from the `Options' menu.  Remember to
 save options.
@@ -723,23 +692,30 @@ save options.
 
 File: xemacs-faq.info,  Node: Q5.0.4,  Next: Q5.0.5,  Prev: Q5.0.3,  Up: Miscellaneous
 
-Q5.0.4: How can I enable auto-indent?
--------------------------------------
+Q5.0.4: How can I enable auto-indent and/or Filladapt?
+------------------------------------------------------
 
-   Put the following line in your `.emacs':
+   Put the following line in your `init.el'/`.emacs':
 
      (setq indent-line-function 'indent-relative-maybe)
 
    If you want to get fancy, try the `filladapt' package available
-standard with XEmacs.  Put this into your `.emacs':
+standard with XEmacs.  Put this into your `init.el'/`.emacs':
 
      (require 'filladapt)
-     (add-hook 'text-mode-hook    'turn-on-filladapt-mode)
-     ;;; and others ...
+     (setq-default filladapt-mode t)
+     (add-hook 'c-mode-hook 'turn-off-filladapt-mode)
+
+   This will enable Filladapt for all modes except C mode, where it
+doesn't work well.  To turn Filladapt on only in particular major
+modes, remove the `(setq-default ...)' line and use
+`turn-on-filladapt-mode', like this:
+
+     (add-hook 'text-mode-hook 'turn-on-filladapt-mode)
 
    You can customize filling and adaptive filling with Customize.
-Select from the `Options' menu
-`Customize->Emacs->->Editing->Fill->Fill...' or type `M-x customize
+Select from the `Options' menu `Advanced
+(Customize)->Emacs->Editing->Fill->Fill...' or type `M-x customize
 <RET> fill <RET>'.
 
    Note that well-behaving text-lookalike modes will run
@@ -754,7 +730,7 @@ File: xemacs-faq.info,  Node: Q5.0.5,  Next: Q5.0.6,  Prev: Q5.0.4,  Up: Miscell
 Q5.0.5: How can I get XEmacs to come up in text/auto-fill mode by default?
 --------------------------------------------------------------------------
 
-   Try the following lisp in your `.emacs':
+   Try the following lisp in your `init.el'/`.emacs':
 
      (setq default-major-mode 'text-mode)
      (setq text-mode-hook 'turn-on-auto-fill)
@@ -833,7 +809,7 @@ Q5.0.8: Why does edt emulation not work?
 
    We don't know, but you can use tpu-edt emulation instead, which works
 fine and is a little fancier than the standard edt emulation.  To do
-this, add the following line to your `.emacs':
+this, add the following line to your `init.el'/`.emacs':
 
      (tpu-edt)
 
@@ -849,14 +825,14 @@ Q5.0.9: How can I emulate VI and use it as my default mode?
 -----------------------------------------------------------
 
    Our recommended VI emulator is viper. To make viper-mode the default,
-add this to your `.emacs':
+add this to your `init.el'/`.emacs':
 
      (viper-mode)
 
    Michael Kifer <kifer@CS.SunySB.EDU> writes:
 
-     This should be added as close to the top of `.emacs' as you can get
-     it, otherwise some minor modes may not get viper-ized.
+     This should be added as close to the top of `init.el'/`.emacs' as
+     you can get it, otherwise some minor modes may not get viper-ized.
 
 
 File: xemacs-faq.info,  Node: Q5.0.10,  Next: Q5.0.11,  Prev: Q5.0.9,  Up: Miscellaneous
@@ -869,19 +845,10 @@ Q5.0.10: [This question intentionally left blank]
 
 File: xemacs-faq.info,  Node: Q5.0.11,  Next: Q5.0.12,  Prev: Q5.0.10,  Up: Miscellaneous
 
-Q5.0.11: How do I turn on filladapt for all buffers?
-----------------------------------------------------
+Q5.0.11: [This question intentionally left blank]
+-------------------------------------------------
 
-   Filladapt is a minor mode and minor modes are traditionally off by
-default.  The following added to your `.emacs' will turn it on for all
-buffers:
-
-     (setq-default filladapt-mode t)
-
-   Use `turn-on-filladapt-mode' to turn Filladapt on in particular
-major modes, like this:
-
-     (add-hook 'text-mode-hook 'turn-on-filladapt-mode)
+   Obsolete question, left blank to avoid renumbering
 
 
 File: xemacs-faq.info,  Node: Q5.0.12,  Next: Q5.0.13,  Prev: Q5.0.11,  Up: Miscellaneous
@@ -895,17 +862,17 @@ created. For example, you could put
 
      (setq gnuserv-frame (selected-frame))
 
-   early on in your `.emacs', to ensure that the first frame created is
-the one used for your gnuserv buffers.
+   early on in your `init.el'/`.emacs', to ensure that the first frame
+created is the one used for your gnuserv buffers.
 
-   Starting in 19.15, there is an option to set the gnuserv target to
-the current frame.  See `Options->"Other Window" Location->Make current
-frame gnuserv target'
+   There is an option to set the gnuserv target to the current frame.
+See `Options->Display->"Other Window" Location->Make Current Frame
+Gnuserv Target'
 
    Starting with XEmacs-20.3 you can also change this with Customize.
-Select from the `Options' menu
-`Customize->Emacs->Environment->Gnuserv->Gnuserv Frame...' or type `M-x
-customize <RET> gnuserv <RET>'.
+Select from the `Options' menu `Advanced
+(Customize)->Emacs->Environment->Gnuserv->Gnuserv Frame...' or type
+`M-x customize <RET> gnuserv <RET>'.
 
 
 File: xemacs-faq.info,  Node: Q5.0.13,  Next: Q5.0.14,  Prev: Q5.0.12,  Up: Miscellaneous
@@ -913,7 +880,8 @@ File: xemacs-faq.info,  Node: Q5.0.13,  Next: Q5.0.14,  Prev: Q5.0.12,  Up: Misc
 Q5.0.13: How do I start gnuserv so that each subsequent XEmacs is a client?
 ---------------------------------------------------------------------------
 
-   Put the following in your `.emacs' file to start the server:
+   Put the following in your `init.el'/`.emacs' file to start the
+server:
 
      (gnuserv-start)
 
@@ -966,7 +934,8 @@ Q5.0.16: I find auto-show-mode disconcerting.  How do I turn it off?
 
    `auto-show-mode' controls whether or not a horizontal scrollbar
 magically appears when a line is too long to be displayed.  This is
-enabled by default.  To turn it off, put the following in your `.emacs':
+enabled by default.  To turn it off, put the following in your
+`init.el'/`.emacs':
 
      (setq auto-show-mode nil)
      (setq-default auto-show-mode nil)
@@ -977,8 +946,8 @@ File: xemacs-faq.info,  Node: Q5.0.17,  Next: Q5.0.18,  Prev: Q5.0.16,  Up: Misc
 Q5.0.17: How can I get two instances of info?
 ---------------------------------------------
 
-   You can't.  The `info' package does not provide for multiple info
-buffers.
+   Before 21.4, you can't.  The `info' package does not provide for
+multiple info buffers.  In 21.4, this should be fixed. #### how?
 
 
 File: xemacs-faq.info,  Node: Q5.0.18,  Next: Q5.0.19,  Prev: Q5.0.17,  Up: Miscellaneous
@@ -1323,4 +1292,27 @@ fact that it is an interpreter.
 
    Please try not to make your code much uglier to gain a very small
 speed gain.  It's not usually worth it.
+
+
+File: xemacs-faq.info,  Node: Q5.1.9,  Next: Q5.1.10,  Prev: Q5.1.8,  Up: Miscellaneous
+
+Q5.1.9: How do I put a glyph as annotation in a buffer?
+-------------------------------------------------------
+
+   Here is a solution that will insert the glyph annotation at the
+beginning of buffer:
+
+     (make-annotation (make-glyph '([FORMAT :file FILE]
+                                    [string :data "fallback-text"]))
+                      (point-min)
+                      'text
+                      (current-buffer))
+
+   Replace `FORMAT' with an unquoted symbol representing the format of
+the image (e.g. `xpm', `xbm', `gif', `jpeg', etc.)  Instead of `FILE',
+use the image file name (e.g.
+`/usr/local/lib/xemacs-21.4/etc/recycle.xpm').
+
+   You can turn this to a function (that optionally prompts you for a
+file name), and inserts the glyph at `(point)' instead of `(point-min)'.
 

@@ -14,9 +14,12 @@
 
 #include <stdio.h>
 #include <errno.h>
+#include <string.h>
+#include <io.h>
 
 #include <zlib.h>
 
+static int
 Usage(char *name)
 {
   fprintf(stderr,"Usage: %s file.tar.gz [base-dir]\n",name);
@@ -28,7 +31,8 @@ Usage(char *name)
 #define BLOCKSIZE 512
 #define MAXNAMELEN 1024
 
-int octal(char *str)
+static int
+octal(char *str)
 {
   int ret = -1;
   sscanf(str,"%o",&ret);
@@ -39,7 +43,8 @@ int octal(char *str)
    the final component is assumed to be a file, rather than a
    path component, so it is not created as a directory */
 
-int makepath(char *path)
+static int
+makepath(char *path)
 {
   char tmp[MAXNAMELEN];
   char *cp;
@@ -53,7 +58,11 @@ int makepath(char *path)
     tmp[cp-path] = '\0';
     if (strlen(tmp) == 0)
       continue;
+#ifdef WIN32_NATIVE
+    if (mkdir(tmp)){
+#else
     if (mkdir(tmp,0777)){
+#endif
       if (errno == EEXIST)
 	continue;
       else
@@ -66,12 +75,12 @@ int makepath(char *path)
   
 		     
 
+int
 main(int argc, char **argv)
 {
   char fullname[MAXNAMELEN];
   char *basedir = ".";
   char *tarfile;
-  char *cp;
   int size;
   char osize[13];
   char name[101];

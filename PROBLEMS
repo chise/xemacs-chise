@@ -2,7 +2,7 @@
 
 This file describes various problems that have been encountered
 in compiling, installing and running XEmacs.  It has been updated for
-XEmacs 21.0.
+XEmacs 21.4.
 
 This file is rather large, but we have tried to sort the entries by
 their respective relevance for XEmacs, but may have not succeeded
@@ -611,6 +611,14 @@ microsoft website.
 * Problems with running XEmacs
 ==============================
 ** General
+*** gnuserv is running, some clients can connect, but others cannot.
+
+The code in gnuslib.c respects the value of TMPDIR.  If the server and
+the client have different values in their environment, you lose.
+One program known to set TMPDIR and manifest this problem is exmh.
+You can defeat the use of TMPDIR by unsetting USE_TMPDIR at the top of
+gnuserv.h at build time.
+
 *** C-z just refreshes the screen instead of suspending Emacs.
 
 You are probably using a shell that doesn't support job control, even

@@ -344,8 +344,8 @@ PGresult object.
  - Function: pq-cmd-status result
      Return a summary string from the query.  RESULT is a PGresult
      object.
-          (pq-exec P "INSERT INTO xemacs_test
-                      VALUES (6, 'Wakanohana', 'Yokozuna');")
+          (setq R (pq-exec P "INSERT INTO xemacs_test
+                             VALUES (6, 'Wakanohana', 'Yokozuna');"))
                => #<PGresult PGRES_COMMAND_OK[1] - INSERT 542086 1>
           (pq-cmd-status R)
                => "INSERT 542086 1"

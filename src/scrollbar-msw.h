@@ -57,7 +57,8 @@ EMACS_INT mswindows_window_is_scrollbar (struct frame *f, Window win);
      */
 
 void mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos);
-int mswindows_handle_mousewheel_event (Lisp_Object frame, int keys, int delta);
+int mswindows_handle_mousewheel_event (Lisp_Object frame, int keys, int delta,
+				       POINTS where);
 
 #endif /* HAVE_MS_WINDOWS and HAVE_SCROLLBARS */
 #endif /* INCLUDED_scrollbar_msw_h_ */

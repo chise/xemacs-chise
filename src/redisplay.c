@@ -980,6 +980,8 @@ add_bufbyte_string_runes (pos_data *data, Bufbyte *c_string,
 
   for (pos = c_string; pos < end;)
     {
+      Bufbyte *old_pos = pos;
+
       data->ch = charptr_emchar (pos);
 
       prop = add_emchar_rune (data);
@@ -1005,6 +1007,9 @@ add_bufbyte_string_runes (pos_data *data, Bufbyte *c_string,
 	}
       INC_CHARPTR (pos);
       assert (pos <= end);
+      /* #### Duplicate code from add_string_to_fstring_db_runes
+	 should we do more?*/
+      data->bytepos += pos - old_pos;
     }
 
   return NULL;

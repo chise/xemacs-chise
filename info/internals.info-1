@@ -40,7 +40,8 @@ Foundation instead of in the original English.
 
 File: internals.info,  Node: Top,  Next: A History of Emacs,  Prev: (dir),  Up: (dir)
 
-   This Info file contains v1.0 of the XEmacs Internals Manual.
+   This Info file contains v1.4 of the XEmacs Internals Manual, March
+2001.
 
 * Menu:
 
@@ -270,7 +271,7 @@ language developed at MIT that underlies Emacs.)
 * XEmacs::                      The continuation of Lucid Emacs.
 
 
-File: internals.info,  Node: Through Version 18,  Next: Lucid Emacs,  Prev: A History of Emacs,  Up: A History of Emacs
+File: internals.info,  Node: Through Version 18,  Next: Lucid Emacs,  Up: A History of Emacs
 
 Through Version 18
 ==================
@@ -413,7 +414,7 @@ release their own version of Emacs, which became Lucid Emacs 19.0.
 Sexton, and Eric Benson, and the work was later taken over by Jamie
 Zawinski, who became "Mr. Lucid Emacs" for many releases.
 
-   A time line for Lucid Emacs/XEmacs is
+   A time line for Lucid Emacs is
 
    * version 19.0 shipped with Energize 1.0, April 1992.
 
@@ -458,7 +459,41 @@ Zawinski, who became "Mr. Lucid Emacs" for many releases.
    * version 19.16 released October 31, 1997.
 
    * version 20.3 (the first stable version of XEmacs 20.x) released
-     November 30, 1997.  version 20.4 released February 28, 1998.
+     November 30, 1997.
+
+   * version 20.4 released February 28, 1998.
+
+   * version 21.1.2 released May 14, 1999. (The version naming scheme
+     was changed at this point: [a] the second version number is odd
+     for stable versions, even for beta versions; [b] a third version
+     number is added, replacing the "beta xxx" ending for beta versions
+     and allowing for periodic maintenance releases for stable
+     versions.  Therefore, 21.0 was never "officially" released;
+     similarly for 21.2, etc.)
+
+   * version 21.1.3 released June 26, 1999.
+
+   * version 21.1.4 released July 8, 1999.
+
+   * version 21.1.6 released August 14, 1999. (There was no 21.1.5.)
+
+   * version 21.1.7 released September 26, 1999.
+
+   * version 21.1.8 released November 2, 1999.
+
+   * version 21.1.9 released February 13, 2000.
+
+   * version 21.1.10 released May 7, 2000.
+
+   * version 21.1.10a released June 24, 2000.
+
+   * version 21.1.11 released July 18, 2000.
+
+   * version 21.1.12 released August 5, 2000.
+
+   * version 21.1.13 released January 7, 2001.
+
+   * version 21.1.14 released January 27, 2001.
 
 
 File: internals.info,  Node: GNU Emacs 19,  Next: GNU Emacs 20,  Prev: Lucid Emacs,  Up: A History of Emacs
@@ -607,6 +642,155 @@ Kyle Jones have figured prominently in XEmacs development.
 have consistently failed.
 
    A more detailed history is contained in the XEmacs About page.
+
+   A time line for XEmacs is
+
+   * version 19.11 (first XEmacs) released September 13, 1994.
+
+   * version 19.12 released June 23, 1995.
+
+   * version 19.13 released September 1, 1995.
+
+   * version 19.14 released June 23, 1996.
+
+   * version 20.0 released February 9, 1997.
+
+   * version 19.15 released March 28, 1997.
+
+   * version 20.1 (not released to the net) April 15, 1997.
+
+   * version 20.2 released May 16, 1997.
+
+   * version 19.16 released October 31, 1997.
+
+   * version 20.3 (the first stable version of XEmacs 20.x) released
+     November 30, 1997.
+
+   * version 20.4 released February 28, 1998.
+
+   * version 21.0.60 released December 10, 1998. (The version naming
+     scheme was changed at this point: [a] the second version number is
+     odd for stable versions, even for beta versions; [b] a third
+     version number is added, replacing the "beta xxx" ending for beta
+     versions and allowing for periodic maintenance releases for stable
+     versions.  Therefore, 21.0 was never "officially" released;
+     similarly for 21.2, etc.)
+
+   * version 21.0.61 released January 4, 1999.
+
+   * version 21.0.63 released February 3, 1999.
+
+   * version 21.0.64 released March 1, 1999.
+
+   * version 21.0.65 released March 5, 1999.
+
+   * version 21.0.66 released March 12, 1999.
+
+   * version 21.0.67 released March 25, 1999.
+
+   * version 21.1.2 released May 14, 1999. (This is the followup to
+     21.0.67.  The second version number was bumped to indicate the
+     beginning of the "stable" series.)
+
+   * version 21.1.3 released June 26, 1999.
+
+   * version 21.1.4 released July 8, 1999.
+
+   * version 21.1.6 released August 14, 1999. (There was no 21.1.5.)
+
+   * version 21.1.7 released September 26, 1999.
+
+   * version 21.1.8 released November 2, 1999.
+
+   * version 21.1.9 released February 13, 2000.
+
+   * version 21.1.10 released May 7, 2000.
+
+   * version 21.1.10a released June 24, 2000.
+
+   * version 21.1.11 released July 18, 2000.
+
+   * version 21.1.12 released August 5, 2000.
+
+   * version 21.1.13 released January 7, 2001.
+
+   * version 21.1.14 released January 27, 2001.
+
+   * version 21.2.9 released February 3, 1999.
+
+   * version 21.2.10 released February 5, 1999.
+
+   * version 21.2.11 released March 1, 1999.
+
+   * version 21.2.12 released March 5, 1999.
+
+   * version 21.2.13 released March 12, 1999.
+
+   * version 21.2.14 released May 14, 1999.
+
+   * version 21.2.15 released June 4, 1999.
+
+   * version 21.2.16 released June 11, 1999.
+
+   * version 21.2.17 released June 22, 1999.
+
+   * version 21.2.18 released July 14, 1999.
+
+   * version 21.2.19 released July 30, 1999.
+
+   * version 21.2.20 released November 10, 1999.
+
+   * version 21.2.21 released November 28, 1999.
+
+   * version 21.2.22 released November 29, 1999.
+
+   * version 21.2.23 released December 7, 1999.
+
+   * version 21.2.24 released December 14, 1999.
+
+   * version 21.2.25 released December 24, 1999.
+
+   * version 21.2.26 released December 31, 1999.
+
+   * version 21.2.27 released January 18, 2000.
+
+   * version 21.2.28 released February 7, 2000.
+
+   * version 21.2.29 released February 16, 2000.
+
+   * version 21.2.30 released February 21, 2000.
+
+   * version 21.2.31 released February 23, 2000.
+
+   * version 21.2.32 released March 20, 2000.
+
+   * version 21.2.33 released May 1, 2000.
+
+   * version 21.2.34 released May 28, 2000.
+
+   * version 21.2.35 released July 19, 2000.
+
+   * version 21.2.36 released October 4, 2000.
+
+   * version 21.2.37 released November 14, 2000.
+
+   * version 21.2.38 released December 5, 2000.
+
+   * version 21.2.39 released December 31, 2000.
+
+   * version 21.2.40 released January 8, 2001.
+
+   * version 21.2.41 released January 17, 2001.
+
+   * version 21.2.42 released January 20, 2001.
+
+   * version 21.2.43 released January 26, 2001.
+
+   * version 21.2.44 released February 8, 2001.
+
+   * version 21.2.45 released February 23, 2001.
+
+   * version 21.2.46 released March 21, 2001.
 
 
 File: internals.info,  Node: XEmacs From the Outside,  Next: The Lisp Language,  Prev: A History of Emacs,  Up: Top

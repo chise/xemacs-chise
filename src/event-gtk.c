@@ -1727,6 +1727,7 @@ vars_of_event_gtk (void)
   dispatch_event_queue = Qnil;
   staticpro (&dispatch_event_queue);
   dispatch_event_queue_tail = Qnil;
+  staticpro (&dispatch_event_queue_tail);
 
   DEFVAR_BOOL ("gtk-allow-sendevents", &gtk_allow_sendevents /*
 *Non-nil means to allow synthetic events.  Nil means they are ignored.

@@ -1,3 +1,11 @@
+2001-04-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.2.47 "Zephir" is released.
+
+2001-03-14  Craig Lanning  <CraigL@Knology.net>
+
+	* minitar.c: Clean up some compiler warnings.
+
 2001-03-21  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.46 "Urania" is released.

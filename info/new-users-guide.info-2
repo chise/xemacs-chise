@@ -279,7 +279,7 @@ edit-picture
 
 asm-mode
      Use asm-mode for editing files of assembler code. Look at the file
-     ` /usr/local/lib/xemacs-19.11/lisp/modes/asm.el' for more
+     ` /usr/local/lib/xemacs-VERSION/lisp/modes/asm.el' for more
      information.
 
    There are some other modes and commands for working with other kinds
@@ -319,11 +319,11 @@ font-lock-mode
      menu item from the Options menu on the menu-bar at the top. If you
      wish to have this mode enabled permanently, choose Save Options
      from the Options menu. *Note Options Menu::, for more information
-     on the Options menu.  You can also add statements in your `.emacs'
-     file. For each major mode in which you wish to enable this minor
-     mode, you need a statement in your `.emacs' file. The following
-     example shows how to enable the font-lock mode when the major mode
-     is c-mode.
+     on the Options menu.  You can also add statements in your
+     `init.el' file. For each major mode in which you wish to enable
+     this minor mode, you need a statement in your `init.el' file. The
+     following example shows how to enable the font-lock mode when the
+     major mode is c-mode.
 
           (add-hook 'c-mode-hook          'turn-on-font-lock)
 
@@ -574,11 +574,11 @@ Other Customizations
 ********************
 
    You can modify the behavior of Emacs in minor ways permanently by
-putting your changes in your `.emacs' file. This file contains Lisp
+putting your changes in your `init.el' file. This file contains Lisp
 function call expressions. Each of these expressions will consist of a
 function name followed by arguments, all surrounded by parentheses. For
 example, to turn on the auto-fill-mode (i.e. break lines automatically
-when they become too long) , put the following  line in your `.emacs'
+when they become too long) , put the following  line in your `init.el'
 file:
 
      (add-hook 'text-mode-hook
@@ -597,8 +597,8 @@ example above.
 
    Similarly, to enable the "font-lock mode" which displays your
 program in different fonts and colors(*note Modes::), put the following
-in your `.emacs' file. The comments above the statement explain what the
-statements do.
+in your `init.el' file. The comments above the statement explain what
+the statements do.
 
      ;;; enables the font-lock-mode in Lisp Mode
      (add-hook 'lisp-mode-hook    'turn-on-font-lock)
@@ -621,13 +621,13 @@ functions, comments or other keywords  should be displayed in :
       (set-face-foreground 'font-lock-comment-face "forest green")
 
 For other customizations regarding the font-lock face, look at the file
-`/usr/local/lib/xemacs-19.11/etc/sample.emacs'.
+`/usr/local/lib/xemacs-VERSION/etc/sample.init.el'.
 
 * Menu:
 
 * Setting Variables::           Customizing Emacs variables
 * Init File::                   Some examples of Lisp expressions in
-                                .emacs file
+                                init.el file
 
 
 File: new-users-guide.info,  Node: Setting Variables,  Next: Init File,  Prev: Other Customizations,  Up: Other Customizations
@@ -672,12 +672,12 @@ Type "nil" and hit <RET>.  Now if you again use `M-x describe variable'
 , you will see that the new value of case-fold-search will be "nil" and
 your searches will be case-sensitive. This will be effective only for
 that Emacs session. If you want to change the value of a variable
-permanently put the following statement in your `.emacs' file :
+permanently put the following statement in your `init.el' file :
 
      (setq case-fold-search nil)
 
 This statement will make searches case-sensitive only in the current
-buffer which is the `.emacs' file. This will not be very useful. To
+buffer which is the `init.el' file. This will not be very useful. To
 make searches case-sensitive globally in all buffers, use:
 
      (setq-default case-fold-search nil)
@@ -727,8 +727,8 @@ Init File Examples
 ==================
 
    For customizing Emacs, you need to put Lisp expressions in your
-`.emacs' file. The following are some useful Lisp expressions. If you
-find any of them useful, just type them in your `.emacs' file:
+`init.el' file. The following are some useful Lisp expressions. If you
+find any of them useful, just type them in your `init.el' file:
 
    * The following expression will make <TAB> in C mode insert a real
      tab character if the cursor or point is in the middle of the line.
@@ -786,7 +786,7 @@ find any of them useful, just type them in your `.emacs' file:
 
      If we use "setq" instead of "setq-default" then searches will be
      case-sensitive only in the current buffer's local value. In this
-     case the buffer would be the `.emacs' file. Since this would not
+     case the buffer would be the `init.el' file. Since this would not
      be too helpful and we want to have case-sensitive searches in all
      buffers, we have to use "setq-default".
 
@@ -837,7 +837,7 @@ find any of them useful, just type them in your `.emacs' file:
 
    * If you don't want the text to be highlighted when you use commands
      for marking regions so as to use the "kill" and "yank" commands
-     later, you can use the following expression in your `.emacs' file:
+     later, you can use the following expression in your `init.el' file:
 
           (setq zmacs-regions nil)
 
@@ -862,19 +862,19 @@ find any of them useful, just type them in your `.emacs' file:
           (set-menubar nil)
 
    * If you want an extensive menu-bar use the following expression in
-     your `.emacs' file.
+     your `init.el' file.
 
           (load "big-menubar")
 
      If you want to write your own menus, you can look at some of the
      examples in
-     `/usr/local/lib/xemacs-20.0/lisp/packages/big-menubar.el' file.
+     `/usr/local/lib/xemacs-VERSION/lisp/packages/big-menubar.el' file.
 
 
-   For more information on initializing your `.emacs' file, *Note Init
+   For more information on initializing your `init.el' file, *Note Init
 File: (xemacs)Init File. You should also look at
-`/usr/local/lib/xemacs-20.0/etc/sample.emacs', which is a sample
-`.emacs' file. It contains some of the commonly desired customizations
+`/usr/local/lib/xemacs-VERSION/etc/sample.init.el', which is a sample
+`init.el' file. It contains some of the commonly desired customizations
 in Emacs.
 
 

@@ -273,6 +273,12 @@ argument are optional. Only the Non-nil arguments are used in the test."
 ;; the line, but that messes up the common idiom `f8 move-cursor f4'.
 
 (defun Init-kill-entire-line (&optional arg)
+"Kill the entire line.
+With prefix argument, kill that many lines from point.  Negative
+arguments kill lines backward.
+
+When calling from a program, nil means \"no arg\",
+a number counts as a prefix arg."
   (interactive "*P")
   (let ((kill-whole-line t))
     (beginning-of-line)
@@ -649,6 +655,13 @@ backward, and defaults to 1.  Buffers whose name begins with a space
 ;; Useful programming-related keystrokes.
 
 (defun describe-foo-at-point ()
+  "Show the documentation of the Elisp function and variable near point.
+This checks in turn:
+
+-- for a function name where point is
+-- for a variable name where point is
+-- for a surrounding function call
+"
   (interactive)
   (let (sym)
     ;; sigh, function-at-point is too clever.  we want only the first half.
@@ -747,42 +760,86 @@ This lets you figure out where time is being spent when executing Lisp code."
   'kill-current-buffer-and-window)
 
 (defun kill-current-buffer ()
+  "Kill the current buffer (prompting if it is modified)."
   (interactive)
   (kill-buffer (current-buffer)))
 
 (defun kill-current-buffer-and-window ()
+  "Kill the current buffer (prompting if it is modified) and its window."
   (interactive)
   (kill-buffer (current-buffer))
   (delete-window))
 
-(defun grep-c-files ()
-  (interactive)
-  (require 'compile)
-  (let ((grep-command
-	 (cons (concat grep-command " *.[chCH]"
-					; i wanted to also use *.cc and *.hh.
-					; see long comment below under Perl.
-		       )
-	       (length grep-command))))
-    (call-interactively 'grep)))
+(defvar grep-all-files-history nil)
 
-(defun grep-lisp-files ()
-  (interactive)
-  (require 'compile)
-  (let ((grep-command
-	 (cons (concat grep-command " *.el"
-					; i wanted to also use *.cc and *.hh.
-					; see long comment below under Perl.
-		       )
-	       (length grep-command))))
-    (call-interactively 'grep)))
+(defvar grep-all-files-omitted-expressions
+  '("*~" "#*" ".#*" ",*" "*.elc" "*.obj" "*.o" "*.exe" "*.dll" "*.lib" "*.a"
+    "*.dvi" "*.class" "*.bin")
+  "List of expressions matching files to be omitted in `grep-all-files-...'.
+Each entry should be a simple name or a shell wildcard expression.")
 
-;; This repeatedly selects larger and larger balanced expressions
-;; around the cursor.  Once you have such an expression marked, you
-;; can expand to the end of the following expression with C-M-SPC and
-;; to the beginning of the previous with M-left.
+(defvar grep-all-files-omitted-directories '("CVS" "RCS" "SCCS")
+  "List of directories not to recurse into in `grep-all-files-...'.
+Each entry should be a simple name or a shell wildcard expression.")
+
+(defun construct-grep-all-files-command (find-segment grep-segment)
+  (let ((omit-annoying
+	 (mapconcat #'(lambda (wildcard)
+			(concat "-name '" wildcard "' -or "))
+		    grep-all-files-omitted-expressions
+		    "")))
+    (cond ((eq grep-find-use-xargs 'gnu)
+	   (format "find . %s %s -type f -print0 | xargs -0 -e %s"
+		   find-segment omit-annoying grep-segment))
+	  (grep-find-use-xargs
+	   (format "find . %s %s -type f -print | xargs %s"
+		   find-segment omit-annoying grep-segment))
+	  (t
+	   (format "find . %s %s -type f -exec %s {} /dev/null \\;"
+		   find-segment omit-annoying grep-segment)))))
+
+(defun grep-all-files-in-current-directory (command)
+  "Run `grep' in all non-annoying files in the current directory.
+`Non-annoying' excludes backup files, autosave files, CVS merge files, etc.
+More specifically, this is controlled by `grep-all-files-omitted-expressions'.
+
+This function does not recurse into subdirectories.  If you want this,
+use \\[grep-all-files-in-current-directory-and-below]."
+  (interactive
+   (progn
+     (require 'compile)
+     (list (read-shell-command "Run grep (like this): "
+			       grep-command 'grep-all-files-history))))
+  (require 'compile)
+  (grep (construct-grep-all-files-command
+	 "-name . -or -type d -prune -or" command)))
+
+(defun grep-all-files-in-current-directory-and-below ()
+  "Run `grep' in all non-annoying files in the current directory and below.
+`Non-annoying' excludes backup files, autosave files, CVS merge files, etc.
+More specifically, this is controlled by `grep-all-files-omitted-expressions'.
+
+This function recurses into subdirectories.  If you do not want this,
+use \\[grep-all-files-in-current-directory]."
+  (interactive
+   (progn
+     (require 'compile)
+     (list (read-shell-command "Run grep (like this): "
+			       grep-command 'grep-all-files-history))))
+  (require 'compile)
+  (grep (construct-grep-all-files-command
+	 ;; prune all specified directories.
+	 (mapconcat #'(lambda (wildcard)
+			(concat "-name '" wildcard "' -prune -or "))
+		    grep-all-files-omitted-directories
+		    "")
+	 command)))
 
 (defun clear-select ()
+  "Repeatedly select ever larger balanced expressions around the cursor.
+Once you have such an expression marked, you can expand to the end of
+the following expression with \\[mark-sexp] and to the beginning of the
+previous with \\[backward-sexp]."
   (interactive "_") ;this means "preserve the active region after this command"
   (backward-up-list 1)
   (let ((end (save-excursion (forward-sexp) (point))))
@@ -792,8 +849,8 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;; -- always reports as /. #### this should be fixable.
 (global-set-key 'kp-add 'query-replace)
 (global-set-key '(shift kp-add) 'query-replace-regexp)
-(global-set-key '(control kp-add) 'grep-c-files)
-(global-set-key '(meta kp-add) 'grep-lisp-files)
+(global-set-key '(control kp-add) 'grep-all-files-in-current-directory)
+(global-set-key '(meta kp-add) 'grep-all-files-in-current-directory-and-below)
 (global-set-key 'clear 'clear-select)
 ;; Note that you can use a "lambda" expression (an anonymous function)
 ;; in place of a function name.  This function would be called
@@ -803,7 +860,7 @@ This lets you figure out where time is being spent when executing Lisp code."
 ;; buffer, etc.).
 (global-set-key 'kp-enter (lambda () (interactive) (set-mark-command t)))
 (global-set-key '(shift kp-enter) 'repeat-complex-command)
-(global-set-key 'pause 'repeat-complex-command) ;; useful on Windows-stlye kbds
+(global-set-key 'pause 'repeat-complex-command) ;; useful on Windows-style kbds
 (global-set-key '(control kp-enter) 'eval-expression)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -889,11 +946,29 @@ This lets you figure out where time is being spent when executing Lisp code."
   ;(setq user-full-name "Ben Wing")
   ;(setq smtpmail-smtp-server "pop.tcsn.uswest.net")
 
-  ;; Make Alt+accelerator traverse to the menu in new enough XEmacs
+  ;; Make Meta+accelerator traverse to the menu in new enough XEmacs
   ;; versions.  Note that this only overrides Meta bindings that would
-  ;; actually invoke a menu, and that none of the most common commands
-  ;; are overridden.  You can use ESC+key to access the overridden
-  ;; ones if necessary.
+  ;; actually invoke a menu, and the most common commands that are
+  ;; overridden have preferred alternative bindings using the arrow
+  ;; keys.  You can always access the overridden ones using
+  ;; Shift+Meta+Key. (Note that "Alt" and "Meta" normally refer to the
+  ;; same key, except on some Sun keyboards [where "Meta" is actually
+  ;; labelled with a diamond] or if you have explicitly made them
+  ;; different under X Windows using `xmodmap'.)
+  ;;
+  ;; More specifically, the following bindings are overridden:
+  ;;
+  ;; M-f		(use C-right or Sh-M-f instead)
+  ;; M-e		(use M-C-right or Sh-M-e instead)
+  ;; M-v		(use Prior aka PgUp or Sh-M-v instead)
+  ;; M-m		(use Sh-M-m instead)
+  ;; M-t		(use Sh-M-t instead)
+  ;; M-o		(normally undefined)
+  ;; M-b		(use C-left or Sh-M-b instead)
+  ;; M-h		(use M-e h or Sh-M-h instead)
+  ;; in Lisp mode, M-l	(use Sh-M-l instead)
+  ;; in C mode, M-c	(use Sh-M-c instead)
+
   (setq menu-accelerator-enabled 'menu-force)
 
   ;; Make Cygwin `make' work inside a shell buffer.

@@ -120,7 +120,6 @@ Concept Index
 
 * Menu:
 
-* .emacs:                                Customization Basics.
 * abbrev-mode:                           Minor Modes.
 * accumulating text:                     Accumulating text.
 * add menus:                             Customizing Menus.
@@ -182,6 +181,7 @@ Concept Index
 * Help menu:                             Help menu.
 * hook:                                  Other Customizations.
 * init file examples:                    Init File.
+* init.el:                               Customization Basics.
 * Insert File... menu item:              File menu.
 * insertion:                             Insert.
 * key bindings:                          Customizing key Bindings.

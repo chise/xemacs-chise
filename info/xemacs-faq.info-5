@@ -7,29 +7,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: xemacs-faq.info,  Node: Q5.1.9,  Next: Q5.1.10,  Prev: Q5.1.8,  Up: Miscellaneous
-
-Q5.1.9: How do I put a glyph as annotation in a buffer?
--------------------------------------------------------
-
-   Here is a solution that will insert the glyph annotation at the
-beginning of buffer:
-
-     (make-annotation (make-glyph '([FORMAT :file FILE]
-                                    [string :data "fallback-text"]))
-                      (point-min)
-                      'text
-                      (current-buffer))
-
-   Replace `FORMAT' with an unquoted symbol representing the format of
-the image (e.g. `xpm', `xbm', `gif', `jpeg', etc.)  Instead of `FILE',
-use the image file name (e.g.
-`/usr/local/lib/xemacs-20.2/etc/recycle.xpm').
-
-   You can turn this to a function (that optionally prompts you for a
-file name), and inserts the glyph at `(point)' instead of `(point-min)'.
-
-
 File: xemacs-faq.info,  Node: Q5.1.10,  Next: Q5.1.11,  Prev: Q5.1.9,  Up: Miscellaneous
 
 Q5.1.10: `map-extents' won't traverse all of my extents!
@@ -65,11 +42,11 @@ Q5.1.11: My elisp program is horribly slow.  Is there
 
    an easy way to find out where it spends time?
 
-   zHrvoje Niksic <hniksic@xemacs.org> writes:
-     Under XEmacs 20.4 and later  you can use `M-x
-     profile-key-sequence', press a key (say <RET> in the Gnus Group
-     buffer), and get the results using `M-x profile-results'.  It
-     should give you an idea of where the time is being spent.
+   Hrvoje Niksic <hniksic@xemacs.org> writes:
+     Under XEmacs 20.4 and later you can use `M-x profile-key-sequence',
+     press a key (say <RET> in the Gnus Group buffer), and get the
+     results using `M-x profile-results'.  It should give you an idea of
+     where the time is being spent.
 
 
 File: xemacs-faq.info,  Node: Q5.2.1,  Next: Q5.2.2,  Prev: Q5.1.11,  Up: Miscellaneous
@@ -77,7 +54,7 @@ File: xemacs-faq.info,  Node: Q5.2.1,  Next: Q5.2.2,  Prev: Q5.1.11,  Up: Miscel
 Q5.2.1: How do I turn off the sound?
 ------------------------------------
 
-   Add the following line to your `.emacs':
+   Add the following line to your `init.el'/`.emacs':
 
      (setq bell-volume 0)
      (setq sound-alist nil)
@@ -85,10 +62,10 @@ Q5.2.1: How do I turn off the sound?
    That will make your XEmacs totally silent--even the default ding
 sound (TTY beep on TTY-s) will be gone.
 
-   Starting with XEmacs-20.2 you can also change these with Customize.
-Select from the `Options' menu
-`Customize->Emacs->Environment->Sound->Sound...' or type `M-x customize
-<RET> sound <RET>'.
+   Starting with XEmacs 20.2 you can also change these with Customize.
+Select from the `Options' menu `Advanced
+(Customize)->Emacs->Environment->Sound->Sound...' or type `M-x
+customize <RET> sound <RET>'.
 
 
 File: xemacs-faq.info,  Node: Q5.2.2,  Next: Q5.2.3,  Prev: Q5.2.1,  Up: Miscellaneous
@@ -97,12 +74,9 @@ Q5.2.2: How do I get funky sounds instead of a boring beep?
 -----------------------------------------------------------
 
    Make sure your XEmacs was compiled with sound support, and then put
-this in your `.emacs':
+this in your `init.el'/`.emacs':
 
      (load-default-sounds)
-
-   The sound support in XEmacs 19.14 was greatly improved over previous
-versions.
 
 
 File: xemacs-faq.info,  Node: Q5.2.3,  Next: Q5.2.4,  Prev: Q5.2.2,  Up: Miscellaneous
@@ -146,7 +120,7 @@ Q5.3.1: How do you make XEmacs indent CL if-clauses correctly?
 same amount instead of indenting the 3rd clause differently from the
 first two.
 
-   One way is to add, to `.emacs':
+   One way is to add, to `init.el'/`.emacs':
 
      (put 'if 'lisp-indent-function nil)
 
@@ -171,22 +145,10 @@ any indent-functions.
 
 File: xemacs-faq.info,  Node: Q5.3.2,  Next: Q5.3.3,  Prev: Q5.3.1,  Up: Miscellaneous
 
-Q5.3.2: Fontifying hang when editing a postscript file.
--------------------------------------------------------
+Q5.3.2: [This question intentionally left blank]
+------------------------------------------------
 
-   When I try to edit a postscript file it gets stuck saying:
-`fontifying 'filename' (regexps....)' and it just sits there.  If I
-press `C-c' in the window where XEmacs was started, it suddenly becomes
-alive again.
-
-   This was caused by a bug in the Postscript font-lock regular
-expressions.  It was fixed in 19.13.  For earlier versions of XEmacs,
-have a look at your `.emacs' file.  You will probably have a line like:
-
-     (add-hook 'postscript-mode-hook 'turn-on-font-lock)
-
-   Take it out, restart XEmacs, and it won't try to fontify your
-postscript files anymore.
+   Obsolete question, left blank to avoid renumbering.
 
 
 File: xemacs-faq.info,  Node: Q5.3.3,  Next: Q5.3.4,  Prev: Q5.3.2,  Up: Miscellaneous
@@ -211,7 +173,7 @@ Q5.3.4: Getting `M-x lpr' to work with postscript printer.
 Postscript files, so how do I get `M-x lpr-region' and `M-x lpr-buffer'
 to work?
 
-   Put something like this in your `.emacs':
+   Put something like this in your `init.el'/`.emacs':
 
      (setq lpr-command "a2ps")
      (setq lpr-switches '("-p" "-1"))
@@ -494,7 +456,7 @@ General Info
 * Q6.0.1::      What is the status of the XEmacs port to Windows?
 * Q6.0.2::      What flavors of MS Windows are supported?
 * Q6.0.3::      Where are the XEmacs on MS Windows binaries?
-* Q6.0.4::      Does XEmacs on MS Windows require an X server to run?
+* Q6.0.4::      Can I build XEmacs on MS Windows with support for X or Cygwin?
 
 Building XEmacs on MS Windows
 * Q6.1.1::      I decided to run with X.  Where do I get an X server?
@@ -507,7 +469,7 @@ Building XEmacs on MS Windows
 Customization and User Interface
 * Q6.2.1::      How will the port cope with differences in the Windows user interface?
 * Q6.2.2::      How do I change fonts in XEmacs on MS Windows?
-* Q6.2.3::      Where do I put my `.emacs' file?
+* Q6.2.3::      Where do I put my `init.el'/`.emacs' file?
 
 Miscellaneous
 * Q6.3.1::      Will XEmacs rename all the win32-* symbols to w32-*?
@@ -534,9 +496,9 @@ cleanly compile and run on MS Windows operating systems.  The mailing
 list at <xemacs-nt@xemacs.org> is dedicated to that effort (please use
 the -request address to subscribe).
 
-   At this time, XEmacs on MS Windows is usable, but lacks some of the
-features of XEmacs on UNIX and UNIX-like systems.  Notably,
-internationalization does not work.
+   At this time, XEmacs on MS Windows is stable and full-featured.
+However, the internationalization (Mule) support does not work -
+although this is being actively worked on.
 
 
 File: xemacs-faq.info,  Node: Q6.0.2,  Next: Q6.0.3,  Prev: Q6.0.1,  Up: MS Windows
@@ -544,64 +506,59 @@ File: xemacs-faq.info,  Node: Q6.0.2,  Next: Q6.0.3,  Prev: Q6.0.1,  Up: MS Wind
 Q6.0.2: What flavors of MS Windows are supported?  The list name implies NT only.
 ---------------------------------------------------------------------------------
 
-   The list name is misleading, as XEmacs will support both Windows 95,
-Windows 98 and Windows NT.  The MS Windows-specific code is based on
+   The list name is misleading, as XEmacs will support Windows 95,
+Windows 98, Windows NT, Windows 2000, Windows ME, Windows XP, and all
+newer versions of Windows.  The MS Windows-specific code is based on
 Microsoft Win32 API, and will not work on MS Windows 3.x or on MS-DOS.
 
 
 File: xemacs-faq.info,  Node: Q6.0.3,  Next: Q6.0.4,  Prev: Q6.0.2,  Up: MS Windows
 
-Q6.0.3: Are binary kits available?
-----------------------------------
+Q6.0.3: Are binaries available?
+-------------------------------
 
-   Binary kits are available at
-`ftp://ftp.xemacs.org/pub/xemacs/binary-kits/win32/' for the "plain" MS
+   Binaries are available at
+`ftp://ftp.xemacs.org/pub/xemacs/binaries/win32/' for the native MS
 Windows version.
 
 
 File: xemacs-faq.info,  Node: Q6.0.4,  Next: Q6.1.1,  Prev: Q6.0.3,  Up: MS Windows
 
-Q6.0.4: Does XEmacs on MS Windows require an X server to run?
--------------------------------------------------------------
+Q6.0.4: Can I build XEmacs on MS Windows with support for X or Cygwin?
+----------------------------------------------------------------------
 
-   Short answer: No.
+   Yes.  XEmacs can be built in several ways in the MS Windows
+environment.
 
-   Long answer: XEmacs can be built in several ways in the MS Windows
-environment, some of them requiring an X server and some not.
+   The standard way is what we call the "native" port.  It uses the
+Win32 API and has no connection with X whatsoever - it does not require
+X libraries to build, nor does it require an X server to run.  The
+native port is the most reliable version and provides the best graphical
+support.  Almost all development is geared towards this version, and
+there is little reason not to use it.
 
-   One is what we call the "X" port--it requires X libraries to build
+   You can also build XEmacs "X" port--it requires X libraries to build
 and an X server to run.  Internally it uses the Xt event loop and makes
-use of X toolkits.  Its look is quite un-Windowsy, but it works
-reliably and supports all of the graphical features of Unix XEmacs.
-
-   The other is what we call the "native" port.  It uses the Win32 API
-and does not require X libraries to build, nor does it require an X to
-run.  In fact, it has no connection with X whatsoever.  At this time,
-the native port obsoletes the X port, providing almost all of its
-features, including support for menus, scrollbars, toolbars, embedded
-images and background pixmaps, frame pointers, etc.  Most of the future
-work will be based on the native port.
+use of X toolkits.  Its look is quite un-Windowsy, and it is not well
+maintained, but it is being kept around for the time being because it
+has a long history.
 
    There is also a third special case, the Cygwin port.  It takes
 advantage of Cygnus emulation library under Win32, which enables it to
 reuse much of the Unix XEmacs code base, such as processes and network
 support, or internal select() mechanisms.
 
-   Cygwin port supports all display types--TTY, X & MS gui, and can be
-built with support for all three.  If you build with ms gui support
+   Cygwin port supports all display types--TTY, X & MS GUI, and can be
+built with support for all three.  If you build with MS GUI support
 then the Cygwin version uses the majority of the msw code, which is
 mostly related to display.  If you want to build with X support you
-need X libraries.  If you want to build with tty support you need
-ncurses.  MS gui requires no additional libraries.
+need X libraries.  If you want to build with TTY support you need
+ncurses.  MS GUI requires no additional libraries.
 
-   Some of the advantages of the Cygwin version are that it:
-
-   * integrates well with Cygwin environment for existing Cygwin users;
-
-   * uses configure so building with different features is very easy;
-
-   * has process support in X & tty.
-
+   The advantages of the Cygwin version are that it integrates well with
+Cygwin environment for existing Cygwin users; uses configure so building
+with different features is very easy; and has process support in X &
+tty.
 
    The disadvantage is that it requires several Unix utilities and the
 whole Cygwin environment, whereas the native port requires only a
@@ -669,17 +626,17 @@ Q6.1.5: How do I compile for Cygnus' Cygwin?
    Similar as on Unix; use the usual `configure' and `make' process.
 Some problems to watch out for:
 
-   * make sure HOME is set. This controls where you `.emacs' file comes
-     from;
+   * make sure HOME is set. This controls where you `init.el'/`.emacs'
+     file comes from;
 
    * CYGWIN needs to be set to tty for process support work. e.g.
      CYGWIN=tty; (use CYGWIN32=tty under b19 and older.)
 
-   * picking up some other grep or other unix like tools can kill
+   * picking up some other grep or other UNIX-like tools can kill
      configure;
 
-   * static heap too small, adjust src/sheap-adjust.h to a more positive
-     number;
+   * static heap too small, adjust `src/sheap-adjust.h' to a more
+     positive number;
 
    * The Cygwin version doesn't understand `//machine/path' type paths
      so you will need to manually mount a directory of this form under
@@ -780,11 +737,14 @@ manually. For example:
 
 File: xemacs-faq.info,  Node: Q6.2.3,  Next: Q6.3.1,  Prev: Q6.2.2,  Up: MS Windows
 
-Q6.2.3: Where do I put my `.emacs' file?
-----------------------------------------
+Q6.2.3: Where do I put my `init.el'/`.emacs' file?
+--------------------------------------------------
 
-   If the HOME environment variable is set, `.emacs' will be looked for
-there.  Else the directory defaults to `c:\'.
+   `init.el' is the name of the init file starting with 21.4, and is
+located in the subdirectory `.xemacs/' of your home directory.  In
+prior versions, the init file is called `.emacs' and is located in your
+home directory.  Your home directory under Windows is determined by the
+HOME environment variable.  If this is not set, it defaults to `C:\'.
 
 
 File: xemacs-faq.info,  Node: Q6.3.1,  Next: Q6.3.2,  Prev: Q6.2.3,  Up: MS Windows
@@ -810,8 +770,11 @@ are prefixed `mswindows-'.  The user-variables shared with NT Emacs
 will be provided as compatibility aliases.
 
    Architectural note: We believe that there should be a very small
-number of window-systems-specific variables, and will try to provide
-generic interfaces whenever possible.
+number of window-systems-specific variables, and we provide generic
+interfaces whenever possible.  Thus, most of the equivalents of GNU
+Emacs `w32-*' functions and variables (as well as the corresponding
+`x-*' versions) are non-window-system-specific in XEmacs, and the issue
+of `mswindows-*' vs. `w32-*' does not come up much.
 
 
 File: xemacs-faq.info,  Node: Q6.3.2,  Next: Q6.3.3,  Prev: Q6.3.1,  Up: MS Windows
@@ -892,7 +855,13 @@ File: xemacs-faq.info,  Node: Q6.3.3,  Next: Q6.4.1,  Prev: Q6.3.2,  Up: MS Wind
 Q6.3.3: What is the porting team doing at the moment?
 -----------------------------------------------------
 
+   (as of March 2001)
+
    The porting team is continuing work on the MS Windows-specific code.
+Major projects are the development of Mule (internationalization)
+support for Windows and the improvement of the widget support (better
+support for dialog boxes, buttons, edit fields, and similar UI
+elements).
 
 
 File: xemacs-faq.info,  Node: Q6.4.1,  Prev: Q6.3.3,  Up: MS Windows

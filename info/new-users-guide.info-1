@@ -110,7 +110,7 @@ Other Customizations
 
 * Setting Variables::           Customizing Emacs variables
 * Init File::                   Some examples of Lisp expressions in
-                                .emacs file
+                                init.el file
 
 Selecting and Moving Text
 
@@ -704,11 +704,11 @@ Teach Extended Commands
           M-x find-file-other-window (bound to keys: C-x 4 f, C-x 4 C-f)
 
 Syntax Highlighting
-     You can customize your `.emacs' file to include the font-lock mode
+     You can customize your `init.el' file to include the font-lock mode
      so that when you select this item, the comments will be displayed
      in one face, strings in another, reserved words in another, and so
      on. *Note Customization: (xemacs)Customization, for more
-     information on customizing `.emacs' file.  After selecting this
+     information on customizing `init.el' file.  After selecting this
      item, you will find your code a lot easier to read. When Fonts is
      selected, different parts of the program will appear in different
      Fonts. When Colors is selected, then the program will be displayed
@@ -756,7 +756,7 @@ Buffers Sub-Menus
 
 Save Options
      Selecting this item will save the current settings of your Options
-     menu to your `.emacs' file so that the next time you start XEmacs,
+     menu to your `init.el' file so that the next time you start XEmacs,
      you won't need to select the options again.
 
 
@@ -1030,19 +1030,20 @@ File: new-users-guide.info,  Node: Customization Basics,  Next: Help,  Prev: Edi
 Customize key bindings and menus
 ********************************
 
-   When you start Emacs, it reads the file `~/.emacs' in your home
-directory. You can use this file to initialize and customize Emacs to
-your liking. This file should contain lisp-code. You can customize your
-`.emacs' file to create new menus, disable menus, change key bindings,
-enable a minor mode, etc. Any kind of customization affects only a
-particular Emacs job that you do them in. If you want to save your
-customizations `permanently' i.e. for future use also, you have to put
-it in your `.emacs' file. After you make changes to your `.emacs' file
-and save it, the changes will be effective only after you start Emacs
-again i.e. for a new Emacs process. To try out some of the examples in
-this section, highlight that region and evaluate the region by giving
-the command `M-x eval-region'. You will be able to see the results of
-your customizations in that Emacs session only (*note Lisp Eval:
+   When you start Emacs, it reads the file `~/.xemacs/init.el' in the
+`.xemacs/' subdirectory of your home directory. You can use this file
+to initialize and customize Emacs to your liking. This file should
+contain lisp-code. You can customize your `init.el' file to create new
+menus, disable menus, change key bindings, enable a minor mode, etc.
+Any kind of customization affects only a particular Emacs job that you
+do them in. If you want to save your customizations `permanently' i.e.
+for future use also, you have to put it in your `init.el' file. After
+you make changes to your `init.el' file and save it, the changes will
+be effective only after you start Emacs again i.e. for a new Emacs
+process. To try out some of the examples in this section, highlight
+that region and evaluate the region by giving the command `M-x
+eval-region'. You will be able to see the results of your
+customizations in that Emacs session only (*note Lisp Eval:
 (xemacs)Lisp Eval.).
 
 * Menu:
@@ -1066,12 +1067,12 @@ functions themselves define a particular behavior. You can customize
 the key `C-n' to move to the previous line by binding it to
 previous-line and `C-p' to move to the next line by binding it to
 next-line. To bind keys to globally run commands you need to use the
-following syntax in your .emacs file:
+following syntax in your init.el file:
 
      `(global-set-key KEYS CMD)'
 
 Here, `global-set-key' is a function which will bind the "keys" to the
-specified "cmd". For example, if you type the following in your .emacs
+specified "cmd". For example, if you type the following in your init.el
 file:
 
      (global-set-key "\C-p" 'next-line)
@@ -1084,12 +1085,12 @@ syntax stated above. Here, `nil' stands for `false' which means disable
 a command or turn off a feature. If you want to enable a command or
 turn on a particular feature use `t' which stands for `true'.  For
 example, if you do not wish `C-x C-c' to `Exit Emacs' you can type the
-following expression in your `.emacs' file:
+following expression in your `init.el' file:
 
      (global-set-key "\C-x\C-c" nil)
 
-You might want to have this statement in your `.emacs' file because its
-easy to hit this command by mistake and it could be annoying to exit
+You might want to have this statement in your `init.el' file because
+its easy to hit this command by mistake and it could be annoying to exit
 Emacs unintentionally. There is a Exit Emacs option in the File menu
 which you might want to use instead. To make a particular key undefined
 you can also use:
@@ -1156,7 +1157,7 @@ are:
      This function will add a menu item to a menu, creating the menu
      first if necessary. If the named item already exists, the menu
      will remain unchanged. For example, if you add the following
-     example to your `.emacs' file or evaluate it (*note Customization
+     example to your `init.el' file or evaluate it (*note Customization
      Basics::),
 
           (add-menu-item '("Edit") "Replace String" replace-string t "Clear")
