@@ -1,5 +1,14 @@
 2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* text-coding.c (char_encode_big5): New function.
+	(char_finish_big5): Likewise.
+	(reset_encoding_stream): Use `char_encode_big5' and
+	`char_finish_big5' for CODESYS_BIG5.
+	(mule_encode): Don't use `encode_coding_big5'.
+	(encode_coding_big5): Deleted.
+
+2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* text-coding.c (BYTE_BIG5_TWO_BYTE_1_P): Support private area
 	0x81- in XEmacs UTF-2000.
 	(detect_coding_big5): Likewise.
