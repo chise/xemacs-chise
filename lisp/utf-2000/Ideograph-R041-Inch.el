@@ -270,6 +270,7 @@
       (=ucs@unicode	  . #x5C03)	; &M-07433;
       )
      ((=cns11643-2	  . #x2E6B)	; &C2-2E6B; [14-75]
+      (=ucs@cns		  . #x5C03)	; &C2-2E6B;
       ))
     ))
 (define-char
