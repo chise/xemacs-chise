@@ -1,5 +1,50 @@
 2001-10-08  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
 
+	* char-db-util.el (char-db-insert-char-spec): Don't add
+	`chinese-big5-cdp' if a character can be represented by a
+	non-private UCS code point.
+
+	* Ideograph-R014-Cover.el (U+5197): Delete `chinese-big5-cdp' from
+	char-ref U+5196 in `ideographic-structure'.
+	(U+519E): Likewise.
+	(U+51A0): Likewise.
+	(U+51A2): Likewise.
+	(C6-3544): Likewise.
+	(U+51A4): Likewise.
+	(J0-4C3D): Likewise.
+	(U+51A5): Likewise.
+	(C1-7036): Likewise.
+	(U+51AA): Likewise.
+
+	* Ideograph-R013-Down-Box.el (Big5-CDP-8A78): Add name
+	``ideographic radical hood''.
+	(U+5187): Delete `chinese-big5-cdp' from char-ref U+2E86 in
+	`ideographic-structure'.
+	(M-01523): Unify M001523.
+	(U+5190): Add `ideographic-structure'; unify M001534.
+	(C3-2755): Add `ideographic-structure'.
+	(U+34BB): Likewise.
+
+	* Ideograph-R010-Legs.el (U+5141): Delete `chinese-big5-cdp' from
+	char-ref in `ideographic-structure'.
+	(U+5154): Likewise.
+	(JX1-2E52): Likewise.
+	(Big5-AB5E): Likewise.
+
+	* Ideograph-R009-Man.el: Delete `chinese-big5-cdp' from char-refs
+	which can be represented by other ways in `ideographic-structure'.
+
+	* Ideograph-R008-Lid.el (J0-5036): Delete `chinese-big5-cdp' from
+	char-refs in `ideographic-structure'.
+	(M-00291): Likewise.
+	(J90-3872): Likewise.
+	(J0-3067): Delete `chinese-big5-cdp' from char-ref [J0-5035] in
+	`ideographic-structure'.
+	(J0-4B72): Likewise.
+	(JX2-2134): Likewise.
+
+2001-10-08  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
 	* Ideograph-R012-Eight.el (M-01452): Delete `chinese-big5-cdp'
 	from char-ref U+53B6 in `ideographic-structure'.
 	(U+516C): Likewise.
