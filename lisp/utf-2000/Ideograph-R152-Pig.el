@@ -252,6 +252,7 @@
     (japanese-jisx0212	. #x5E72)	; ø»‹¿‡
     (ideograph-daikanwa . 36361)	; ø¸ˆ¸‰
     (chinese-big5-cdp	. #x8AD1)	; ý¢€ˆ«‘
+    (ucs-jis		. #x8C59)	; ø»‹¿‡
     ))
 (define-char
   '((morohashi-daikanwa	36361 0 0)
