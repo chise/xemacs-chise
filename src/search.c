@@ -1278,11 +1278,7 @@ search_buffer (struct buffer *buf, Lisp_Object string, Bufpos bufpos,
 	      /* Keep track of which character set row
 		 contains the characters that need translation.  */
 #ifdef UTF2000
-	      Lisp_Object ccs;
-	      int charset_base_code;
-
-	      ENCODE_CHAR (c, ccs);
-	      charset_base_code = XCHARSET_ID (ccs);
+	      int charset_base_code = c >> 6;
 #else
 	      int charset_base_code = c & ~CHAR_FIELD3_MASK;
 #endif
@@ -1580,16 +1576,12 @@ boyer_moore (struct buffer *buf, Bufbyte *base_pat, Bytecount len,
 	  /* Is *PTR the last byte of a character?  */
 	  if (pat_end - ptr == 1 || BUFBYTE_FIRST_BYTE_P (ptr[1]))
 	    {
-#ifdef UTF2000
-	      Lisp_Object ccs;
-#endif
 	      Bufbyte *charstart = ptr;
 	      while (!BUFBYTE_FIRST_BYTE_P (*charstart))
 		charstart--;
 	      untranslated = charptr_emchar (charstart);
 #ifdef UTF2000
-	      ENCODE_CHAR (untranslated, ccs);
-	      if (charset_base == XCHARSET_ID (ccs))
+	      if (charset_base == (untranslated >> 6))
 #else
 	      if (charset_base == (untranslated & ~CHAR_FIELD3_MASK))
 #endif
