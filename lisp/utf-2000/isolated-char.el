@@ -189,6 +189,7 @@
   (buffer-disable-undo)
   (insert-file-contents "../etc/char-data/GT-fmap-K1.txt")
   (insert-file-contents "../etc/char-data/GT-fmap-K2.txt")
+  (insert-file-contents "../etc/char-data/GT-fmap-K3.txt")
   (goto-char (point-min))
   (let (plane code gt-code)
     (while (re-search-forward "^GTps-\\([0-9k][0-9]\\)-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)\tGT-K\\([0-9]+\\)" nil t)
