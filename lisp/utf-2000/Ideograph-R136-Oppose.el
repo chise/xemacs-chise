@@ -52,9 +52,9 @@
     (ideographic-radical . 136)	; â¾‡
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (japanese-jisx0208-1978	. #x3D58)	; ø»‚¥¿
-    (japanese-jisx0208		. #x3D58)	; ø»†º‡
-    (korean-ksc5601		. #x626F)	; ø»‰º¸
+    (=jis-x0208-1978	. #x3D58)	; ø»‚¥¿
+    (japanese-jisx0208	. #x3D58)	; ø»†º‡
+    (korean-ksc5601	. #x626F)	; ø»‰º¸
     ))
 (define-char
   '((=>ucs		. #x821C)	; èˆœ

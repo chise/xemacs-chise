@@ -2558,13 +2558,13 @@
      ((=ucs		  . #x97CB)	; éŸ‹
       ))
     (shinjigen-2	. 1309)
-    (japanese-jisx0208-1978	. #x5423)	; ø»ƒ†¼
-    (japanese-jisx0208		. #x5423)	; ø»‡›„
-    (korean-ksc5601		. #x6A4C)	; ø»Š†…
-    (chinese-cns11643-1		. #x5E58)	; ø»’œ¹
-    (chinese-big5		. #xB3F2)	; ý¢€‹²
-    (ideograph-daikanwa		. 04806)	; ø¸‹†
-    (mojikyo			. 004806)	; ý €‹†
+    (=jis-x0208-1978	. #x5423)	; ø»ƒ†¼
+    (japanese-jisx0208	. #x5423)	; ø»‡›„
+    (korean-ksc5601	. #x6A4C)	; ø»Š†…
+    (chinese-cns11643-1 . #x5E58)	; ø»’œ¹
+    (chinese-big5	. #xB3F2)	; ý¢€‹²
+    (ideograph-daikanwa . 04806)	; ø¸‹†
+    (mojikyo		. 004806)	; ý €‹†
     ))
 (define-char
   '((morohashi-daikanwa	4806 0 0)

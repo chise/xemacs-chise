@@ -1,3 +1,12 @@
+2003-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Qmap_jis_x0208_1978): Renamed from
+	`Qjapanese_jisx0208_1978'.
+	(syms_of_mule_charset): Add new symbol `=jis-x0208-1978' instead
+	of `japanese-jisx0208-1978'.
+	(complex_vars_of_mule_charset): Rename `japanese-jisx0208-1978' to
+	`=jis-x0208-1978'.
+
 2003-04-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (decode_char_table_range): CHARTAB_RANGE_DEFAULT is

@@ -294,7 +294,7 @@ Lisp_Object Qascii,
   Qlatin_jisx0201,
   Qcyrillic_iso8859_5,
   Qlatin_iso8859_9,
-  Qjapanese_jisx0208_1978,
+  Qmap_jis_x0208_1978,
   Qchinese_gb2312,
   Qchinese_gb12345,
   Qjapanese_jisx0208,
@@ -2372,7 +2372,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qlatin_jisx0201,		"latin-jisx0201");
   defsymbol (&Qcyrillic_iso8859_5, 	"cyrillic-iso8859-5");
   defsymbol (&Qlatin_iso8859_9,		"latin-iso8859-9");
-  defsymbol (&Qjapanese_jisx0208_1978,	"japanese-jisx0208-1978");
+  defsymbol (&Qmap_jis_x0208_1978,	"=jis-x0208-1978");
   defsymbol (&Qchinese_gb2312,		"chinese-gb2312");
   defsymbol (&Qchinese_gb12345,		"chinese-gb12345");
   defsymbol (&Qjapanese_jisx0208, 	"japanese-jisx0208");
@@ -2660,7 +2660,7 @@ complex_vars_of_mule_charset (void)
   staticpro (&Vcharset_japanese_jisx0208_1978);
   Vcharset_japanese_jisx0208_1978 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0208_1978,
-		  Qjapanese_jisx0208_1978, 94, 2,
+		  Qmap_jis_x0208_1978, 94, 2,
 		  2, 0, '@', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JIS X0208:1978"),
 		  build_string ("JIS X0208:1978 (Japanese)"),

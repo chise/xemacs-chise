@@ -22,13 +22,13 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 262 1)
-    (japanese-jisx0208-1978	. #x5238)	; ø»ƒ„•
-    (japanese-jisx0208		. #x5238)	; ø»‡˜
-    (chinese-cns11643-6		. #x212A)	; ø»›´¹
-    (ideograph-daikanwa		. 02571)	; ø¸€¨‹
-    (=big5-cdp			. #x8BBA)	; ý¢€ˆ®º
-    (=jef-china3		. #x45AB)	; øº„–«
-    (=ucs			. #x2090E)	; ð ¤Ž
+    (=jis-x0208-1978	. #x5238)	; ø»ƒ„•
+    (japanese-jisx0208	. #x5238)	; ø»‡˜
+    (chinese-cns11643-6 . #x212A)	; ø»›´¹
+    (ideograph-daikanwa . 02571)	; ø¸€¨‹
+    (=big5-cdp		. #x8BBA)	; ý¢€ˆ®º
+    (=jef-china3	. #x45AB)	; øº„–«
+    (=ucs		. #x2090E)	; ð ¤Ž
     ))
 (define-char
   '((ideographic-radical . 21)	; â¼”

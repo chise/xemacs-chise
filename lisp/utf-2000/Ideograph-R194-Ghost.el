@@ -985,9 +985,9 @@
     (ideographic-radical . 194)	; â¿
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
-    (japanese-jisx0208-1978	. #x7233)	; ø»ƒ³
-    (japanese-jisx0208		. #x7233)	; ø»ˆ‡˜
-    (chinese-cns11643-1		. #x777D)	; ø»“‚Œ
+    (=jis-x0208-1978	. #x7233)	; ø»ƒ³
+    (japanese-jisx0208	. #x7233)	; ø»ˆ‡˜
+    (chinese-cns11643-1 . #x777D)	; ø»“‚Œ
     ))
 (define-char
   '((morohashi-daikanwa	45869 0 1)

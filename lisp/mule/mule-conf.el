@@ -25,6 +25,8 @@
 
 ;;; Code:
 
+(define-charset-alias 'japanese-jisx0208-1978 '=jis-x0208-1978)
+
 ;; PinYin-ZhuYin
 (make-charset 'sisheng "PinYin-ZhuYin"
 	      '(registry "sisheng_cwnn\\|OMRON_UDC_ZH"

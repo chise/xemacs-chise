@@ -33,13 +33,13 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (shinjigen-2	. 6339)
-    (japanese-jisx0208-1978	. #x394D)	; ø»‚Ÿ¼
-    (chinese-gb2312		. #x3F3C)	; ø»„²£
-    (japanese-jisx0208		. #x394D)	; ø»†´„
-    (=iso-ir165			. #x3F3C)	; ø»š³
-    (chinese-cns11643-1		. #x4853)	; ø»‘¼ 
-    (ideograph-daikanwa		. 28843)	; ø¸‡‚«
-    (=ucs			. #x8003)	; è€ƒ
+    (=jis-x0208-1978	. #x394D)	; ø»‚Ÿ¼
+    (chinese-gb2312	. #x3F3C)	; ø»„²£
+    (japanese-jisx0208	. #x394D)	; ø»†´„
+    (=iso-ir165		. #x3F3C)	; ø»š³
+    (chinese-cns11643-1 . #x4853)	; ø»‘¼ 
+    (ideograph-daikanwa . 28843)	; ø¸‡‚«
+    (=ucs		. #x8003)	; è€ƒ
     ))
 (define-char
   '((=>ucs		. #x8003)	; è€ƒ

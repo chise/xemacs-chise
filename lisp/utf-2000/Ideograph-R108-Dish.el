@@ -187,11 +187,11 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (shinjigen-2	. 5239)
-    (japanese-jisx0208-1978	. #x4B5F)	; ø»‚ºª
-    (japanese-jisx0208		. #x4B5F)	; ø»‡Ž²
-    (korean-ksc5601		. #x5D4E)	; ø»‰³
-    (ideograph-daikanwa		. 22959)	; ø¸…¦¯
-    (=jef-china3		. #x5BB5)	; øº…®µ
+    (=jis-x0208-1978	. #x4B5F)	; ø»‚ºª
+    (japanese-jisx0208	. #x4B5F)	; ø»‡Ž²
+    (korean-ksc5601	. #x5D4E)	; ø»‰³
+    (ideograph-daikanwa . 22959)	; ø¸…¦¯
+    (=jef-china3	. #x5BB5)	; øº…®µ
     ))
 (define-char
   '((morohashi-daikanwa	22959 0 0)

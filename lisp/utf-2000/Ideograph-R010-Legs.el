@@ -300,11 +300,11 @@
     (total-strokes	 . 6)
     (shinjigen-1	. 456)
     (shinjigen-2	. 456)
-    (japanese-jisx0208-1978	. #x437B)	; ø»‚¯–
-    (japanese-jisx0208		. #x437B)	; ø»‡ƒž
-    (korean-ksc5601		. #x703C)	; ø»ŠŽ©
-    (ideograph-daikanwa		. 01347)	; ø¸€•ƒ
-    (mojikyo			. 001347)	; ý €€•ƒ
+    (=jis-x0208-1978	. #x437B)	; ø»‚¯–
+    (japanese-jisx0208	. #x437B)	; ø»‡ƒž
+    (korean-ksc5601	. #x703C)	; ø»ŠŽ©
+    (ideograph-daikanwa . 01347)	; ø¸€•ƒ
+    (mojikyo		. 001347)	; ý €€•ƒ
     ))
 (define-char
   '((morohashi-daikanwa	1347 0 0)
@@ -410,10 +410,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((japanese-jisx0208-1978	  . #x3878)	; ø»‚Ÿ‰
-      (japanese-jisx0208	  . #x3878)	; ø»†³‘
-      (korean-ksc5601		  . #x4D6B)	; ø»‰›¾
-      (ideograph-daikanwa	  . 01452)	; ø¸€–¬
+     ((=jis-x0208-1978	  . #x3878)	; ø»‚Ÿ‰
+      (japanese-jisx0208  . #x3878)	; ø»†³‘
+      (korean-ksc5601	  . #x4D6B)	; ø»‰›¾
+      (ideograph-daikanwa . 01452)	; ø¸€–¬
       )
      ((=ucs		  . #x513F)	; å„¿
       ))
@@ -1042,11 +1042,11 @@
       ))
     (shinjigen-1	. 468)
     (shinjigen-2	. 468)
-    (japanese-jisx0208-1978	. #x513D)	; ø»ƒ‚¼
-    (chinese-cns11643-3		. #x2753)	; ø»• Š
-    (ideograph-daikanwa		. 01368)	; ø¸€•˜
-    (mojikyo			. 001368)	; ý €€•˜
-    (=ucs			. #x2F80F)	; ð¯ 
+    (=jis-x0208-1978	. #x513D)	; ø»ƒ‚¼
+    (chinese-cns11643-3 . #x2753)	; ø»• Š
+    (ideograph-daikanwa . 01368)	; ø¸€•˜
+    (mojikyo		. 001368)	; ý €€•˜
+    (=ucs		. #x2F80F)	; ð¯ 
     ))
 (define-char
   '((morohashi-daikanwa	1368 1)
@@ -1586,10 +1586,10 @@
       )
      ((=ucs		  . #x514B)	; å…‹
       )
-     ((japanese-jisx0208-1978	  . #x4A2C)	; ø»‚¸™
-      (japanese-jisx0208	  . #x4A2C)	; ø»‡Œ¡
-      (korean-ksc5601		  . #x5D42)	; ø»‰²µ
-      (ideograph-daikanwa	  . 01853)	; ø¸€œ½
+     ((=jis-x0208-1978	  . #x4A2C)	; ø»‚¸™
+      (japanese-jisx0208  . #x4A2C)	; ø»‡Œ¡
+      (korean-ksc5601	  . #x5D42)	; ø»‰²µ
+      (ideograph-daikanwa . 01853)	; ø¸€œ½
       ))
     (chinese-big5	. #xA25C)	; ý¢€Š‰œ
     (ideograph-daikanwa . 01387)	; ø¸€•«

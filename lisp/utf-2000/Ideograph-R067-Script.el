@@ -369,9 +369,9 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (shinjigen-2	3207 1)
-    (japanese-jisx0208-1978	. #x4865)	; ø»‚¶–
-    (japanese-jisx0208		. #x4865)	; ø»‡Šž
-    (ideograph-daikanwa		. 13469)	; ø¸ƒ’
+    (=jis-x0208-1978	. #x4865)	; ø»‚¶–
+    (japanese-jisx0208	. #x4865)	; ø»‡Šž
+    (ideograph-daikanwa . 13469)	; ø¸ƒ’
     ))
 (define-char
   '((=>ucs		. #x6590)	; æ–

@@ -1165,9 +1165,9 @@
     (ideographic-radical . 122)	; â½¹
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
-    (japanese-jisx0208-1978	. #x3A61)	; ø»‚¡®
-    (japanese-jisx0208		. #x3A61)	; ø»†µ¶
-    (ideograph-daikanwa		. 28293)	; ø¸†º…
+    (=jis-x0208-1978	. #x3A61)	; ø»‚¡®
+    (japanese-jisx0208	. #x3A61)	; ø»†µ¶
+    (ideograph-daikanwa . 28293)	; ø¸†º…
     ))
 (define-char
   '((=>ucs		. #x7F6A)	; ç½ª

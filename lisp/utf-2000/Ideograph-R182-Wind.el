@@ -2535,9 +2535,9 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
     (shinjigen-2	. 9228)
-    (japanese-jisx0208-1978	. #x7129)	; ø»ƒ±¨
-    (japanese-jisx0208		. #x7129)	; ø»ˆ…°
-    (ideograph-daikanwa		. 43945)	; ø¸Š®©
+    (=jis-x0208-1978	. #x7129)	; ø»ƒ±¨
+    (japanese-jisx0208	. #x7129)	; ø»ˆ…°
+    (ideograph-daikanwa . 43945)	; ø¸Š®©
     ))
 (define-char
   '((morohashi-daikanwa	43945 0 0)
