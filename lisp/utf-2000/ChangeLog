@@ -1,6 +1,6 @@
 2004-11-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R010-Legs.el:
+	* Ideograph-R010-Legs.el, Ideograph-R005-Second.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
 	  definitions.
