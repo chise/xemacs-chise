@@ -796,25 +796,40 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (=ucs		. #x5190)	; 冐
-    (->subsumptive
-     ((hanyu-dazidian	  2 1490 4)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((name*		    . "ideographic component hood")
-	(=big5-cdp	    . #x8A78)	; &CDP-8A78;
-	)
-       ((=big5-cdp	    . #x8958)	; &CDP-8958;
-	))
-      (=jis-x0208	  . #x666E)	; &GT-02014; [70-78]
-      (=gt		  . 02014)	; &I-GT-02014;
-      (=gt-k		  . 03995)	; &I-GT-K03995;
-      (=gt-pj-1		  . #x666E)	; &I-GT-02014; [70-78]
-      (=daikanwa	  . 01534)	; &I-M-01534;
-      (=hanziku-4	  . #xDCEE)	; &I-HZK04-DCEE;
-      (=ucs@unicode	  . #x5190)	; &GT-02014;
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (<-denotational
+     ((=ucs		  . #x5190)	; 冐
+      ))
+    (hanyu-dazidian	2 1490 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
+     ((name*		  . "ideographic component hood")
+      (=big5-cdp	  . #x8A78)	; &CDP-8A78;
+      )
+     ((=big5-cdp	  . #x8958)	; &CDP-8958;
+      ))
+    (=jis-x0208		. #x666E)	; &GT-02014; [70-78]
+    (=gt		. 02014)	; &I-GT-02014;
+    (=gt-k		. 03995)	; &I-GT-K03995;
+    (=gt-pj-1		. #x666E)	; &I-GT-02014; [70-78]
+    (=daikanwa		. 01534)	; &I-M-01534;
+    (=hanziku-4		. #xDCEE)	; &I-HZK04-DCEE;
+    (=ucs@unicode	. #x5190)	; &GT-02014;
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (<-denotational
+     ((=ucs		  . #x5190)	; 冐
+      ))
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
@@ -829,7 +844,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x65E5)	; 日
+       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
 	)
        ((=big5-cdp	    . #x8958)	; &CDP-8958;
 	))
@@ -839,7 +854,17 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x65E5)	; 日
+       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
+	)
+       ((=big5-cdp	    . #x8A73)	; &CDP-8A73;
+	))
+      (=big5-cdp	  . #x8CCB)	; &CDP-8CCB;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
 	)
        ((=ucs		    . #x6708)	; 月
 	))
