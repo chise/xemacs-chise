@@ -1,3 +1,15 @@
+2003-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el (U+5B76): Modify strokes.
+
+2003-06-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R121-Jar.el (JX2-7466): Unify JU+7F44.
+
+	* Ideograph-R106-White.el (J0-622A): Unify JU+7696.
+
+	* Ideograph-R038-Woman.el (JX2-2565): Unify JU+5AB1.
+
 2003-06-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R106-White.el: Add mappings for Big5 code points.
