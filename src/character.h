@@ -167,20 +167,6 @@ typedef int Charset_ID;
 
 
 /************************************************************************/
-/*                     Operations on individual bytes                   */
-/*                       in a Mule-formatted string                     */
-/************************************************************************/
-
-/* Does this byte represent the first byte of a character? */
-
-INLINE int
-BUFBYTE_FIRST_BYTE_P(Bufbyte c)
-{
-  return (c <= 0x7f) || (0xc0 <= c);
-}
-
-
-/************************************************************************/
 /*            Information about a particular character set              */
 /************************************************************************/
 
