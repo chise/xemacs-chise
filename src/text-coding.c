@@ -3537,11 +3537,20 @@ decode_coding_big5 (Lstream *decoding, const unsigned char *src,
 	  /* Previous character was first byte of Big5 char. */
 	  if (BYTE_BIG5_TWO_BYTE_2_P (c))
 	    {
+#ifdef UTF2000
+	      Charset_ID b1;
+	      unsigned char b2, b3;
+	      DECODE_BIG5 (cpos, c, b1, b2, b3);
+	      DECODE_ADD_UCS_CHAR (MAKE_CHAR (CHARSET_BY_LEADING_BYTE (b1),
+					      b2 & 0x7F, b3 & 0x7F),
+				   dst);
+#else
 	      unsigned char b1, b2, b3;
 	      DECODE_BIG5 (cpos, c, b1, b2, b3);
 	      Dynarr_add (dst, b1);
 	      Dynarr_add (dst, b2);
 	      Dynarr_add (dst, b3);
+#endif
 	    }
 	  else
 	    {
@@ -5131,7 +5140,7 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
   int i;
   Lisp_Object charset = str->iso2022.current_charset;
   int half = str->iso2022.current_half;
-  int code_point;
+  int code_point = -1;
 
   if (ch <= 0x7F)
     {
