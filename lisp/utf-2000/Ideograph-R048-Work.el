@@ -49,7 +49,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (ideograph-daikanwa . 08719)	; ø¸‚ˆ
-    (=cbeta		. #x0C85)	; ø¸ ²…
+    (=cbeta		. 03205)	; ø¸ ²…
     ))
 (define-char
   '((ideographic-radical . 48)	; â¼¯

@@ -392,7 +392,7 @@
      ((ucs		  . #x864E)	; è™Ž
       ))
     (ideograph-daikanwa . 02688)	; ø¸€ª€
-    (=cbeta		. #x09CA)	; ø¸ §Š
+    (=cbeta		. 02506)	; ø¸ §Š
     ))
 (define-char
   '((morohashi-daikanwa	2688 0 0)
@@ -611,7 +611,7 @@
       )
      ((ucs		  . #x8652)	; è™’
       ))
-    (=cbeta		. #x0278)	; ø¸ ‰¸
+    (=cbeta		. 00632)	; ø¸ ‰¸
     (ucs		. #x3538)	; ã”¸
     ))
 (define-char

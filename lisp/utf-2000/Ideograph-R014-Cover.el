@@ -255,7 +255,7 @@
     (chinese-cns11643-3		. #x2457)	; ø»•›´
     (=jis-x0213-1-2000		. #x2E54)	; ø»¢¦µ
     (ideograph-hanziku-1	. #xE4A5)	; ý¢€ž’¥
-    (=cbeta			. #x12E1)	; ø¸¡‹¡
+    (=cbeta			. 04833)	; ø¸¡‹¡
     (=jef-china3		. #x43F2)	; øº„²
     (ucs			. #x519D)	; å†
     ))
@@ -394,7 +394,7 @@
     (chinese-cns11643-3 . #x2F5B)	; ø»•¬‚
     (ideograph-daikanwa . 01584)	; ø¸€˜°
     (=big5-cdp		. #x8CE1)	; ý¢€ˆ³¡
-    (=cbeta		. #x0B7F)	; ø¸ ­¿
+    (=cbeta		. 02943)	; ø¸ ­¿
     (ucs		. #x51A1)	; å†¡
     ))
 (define-char
@@ -631,7 +631,7 @@
     (chinese-cns11643-5		. #x3127)	; ø»š‚’
     (ideograph-daikanwa		. 01591)	; ø¸€˜·
     (ideograph-hanziku-1	. #xE4DD)	; ý¢€ž“
-    (=cbeta			. #x0526)	; ø¸ ”¦
+    (=cbeta			. 01318)	; ø¸ ”¦
     (ucs			. #x20593)	; ð –“
     ))
 (define-char

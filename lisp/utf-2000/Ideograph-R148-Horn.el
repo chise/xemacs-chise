@@ -346,7 +346,7 @@
       )
      ((ucs		  . #x5347)	; å‡
       ))
-    (=cbeta		. #x03D0)	; ø¸ 
+    (=cbeta		. 00976)	; ø¸ 
     ))
 (define-char
   '((ideographic-radical . 148)	; â¾“

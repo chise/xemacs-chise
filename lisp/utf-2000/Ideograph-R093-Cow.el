@@ -102,7 +102,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=big5-cdp		. #x8C68)	; ý¢€ˆ±¨
-    (=cbeta		. #x1551)	; ø¸¡•‘
+    (=cbeta		. 05457)	; ø¸¡•‘
     ))
 (define-char
   '((ideographic-radical . 93)	; â½œ
@@ -1924,7 +1924,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (ideograph-daikanwa . 20124)	; ø¸„ºœ
-    (=cbeta		. #x05D4)	; ø¸ —”
+    (=cbeta		. 01492)	; ø¸ —”
     ))
 (define-char
   '((morohashi-daikanwa	20124 0 0)

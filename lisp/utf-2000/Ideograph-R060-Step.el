@@ -310,7 +310,7 @@
       ))
     (chinese-cns11643-6 . #x2B3E)	; ø»œƒ¹
     (ideograph-daikanwa . 10065)	; ø¸‚‘
-    (=cbeta		. #x12BA)	; ø¸¡Šº
+    (=cbeta		. 04794)	; ø¸¡Šº
     (ucs		. #x38D8)	; ã£˜
     ))
 (define-char
@@ -444,7 +444,7 @@
     (=jis-x0208		. #x5748)	; ø½‹…·
     (chinese-cns11643-3 . #x2876)	; ø»•¢‹
     (ideograph-daikanwa . 10074)	; ø¸‚š
-    (=cbeta		. #x04A7)	; ø¸ ’§
+    (=cbeta		. 01191)	; ø¸ ’§
     (ucs		. #x5F83)	; å¾ƒ
     ))
 (define-char
@@ -1023,7 +1023,7 @@
       ))
     (chinese-cns11643-4 . #x2C76)	; ø»—²‡
     (ideograph-daikanwa . 10120)	; ø¸‚žˆ
-    (=cbeta		. #x11C9)	; ø¸¡‡‰
+    (=cbeta		. 04553)	; ø¸¡‡‰
     (ucs		. #x224F3)	; ð¢“³
     ))
 (define-char
@@ -1484,7 +1484,7 @@
       ))
     (chinese-cns11643-6 . #x3F67)	; ø»œ¡º
     (ideograph-daikanwa . 10156)	; ø¸‚ž¬
-    (=cbeta		. #x0281)	; ø¸ Š
+    (=cbeta		. 00641)	; ø¸ Š
     (ucs		. #x2250C)	; ð¢”Œ
     ))
 (define-char
@@ -1514,7 +1514,7 @@
      ((ucs		  . #x4F8D)	; ä¾
       ))
     (ideograph-daikanwa . 10158)	; ø¸‚ž®
-    (=cbeta		. #x12BB)	; ø¸¡Š»
+    (=cbeta		. 04795)	; ø¸¡Š»
     ))
 (define-char
   '((morohashi-daikanwa	10158 0 2)
@@ -1649,7 +1649,7 @@
       ))
     (chinese-cns11643-4 . #x3157)	; ø»—¸¾
     (ideograph-daikanwa . 10168)	; ø¸‚ž¸
-    (=cbeta		. #x158E)	; ø¸¡–Ž
+    (=cbeta		. 05518)	; ø¸¡–Ž
     (=jef-china3	. #x99F0)	; øº‰§°
     (ucs		. #x5FA3)	; å¾£
     ))
@@ -1745,7 +1745,7 @@
       )
      ((=jis-x0208	  . #x5928)	; ø½‹ˆ“
       ))
-    (=cbeta		. #x0282)	; ø¸ Š‚
+    (=cbeta		. 00642)	; ø¸ Š‚
     ))
 (define-char
   '((morohashi-daikanwa	10174 0 3)
@@ -2073,7 +2073,7 @@
      ((ucs		  . #x5EFA)	; å»º
       ))
     (chinese-cns11643-4 . #x374A)	; ø»˜¥
-    (=cbeta		. #x02DF)	; ø¸ ‹Ÿ
+    (=cbeta		. 00735)	; ø¸ ‹Ÿ
     (ucs		. #x5FA4)	; å¾¤
     ))
 (define-char
@@ -3324,7 +3324,7 @@
       (ideograph-daikanwa . 23747)	; ø¸…³ƒ
       ))
     (ideograph-daikanwa . 10289)	; ø¸‚ ±
-    (=cbeta		. #x1240)	; ø¸¡‰€
+    (=cbeta		. 04672)	; ø¸¡‰€
     ))
 (define-char
   '((morohashi-daikanwa	10289 0 1)

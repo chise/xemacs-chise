@@ -8,7 +8,7 @@
     (chinese-cns11643-3 . #x2142)	; ø»•—…
     (ideograph-daikanwa . 09962)	; ø¸‚›ª
     (=big5-cdp		. #x8B71)	; ý¢€ˆ­±
-    (=cbeta		. #x179F)	; ø¸¡žŸ
+    (=cbeta		. 06047)	; ø¸¡žŸ
     (ucs		. #x5F61)	; å½¡
     ))
 (define-char
@@ -833,7 +833,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (chinese-cns11643-5 . #x4D23)	; ø»š«–
-    (=cbeta		. #x004B)	; ø¸ ‹
+    (=cbeta		. 00075)	; ø¸ ‹
     (ucs		. #x224AF)	; ð¢’¯
     ))
 (define-char

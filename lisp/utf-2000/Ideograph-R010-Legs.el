@@ -1060,7 +1060,7 @@
     (chinese-cns11643-6		. #x2951)	; ø»œ
     (ideograph-daikanwa		. 01371)	; ø¸€•›
     (ideograph-hanziku-1	. #xDE48)	; ý¢€¹ˆ
-    (=cbeta			. #x06F5)	; ø¸ ›µ
+    (=cbeta			. 01781)	; ø¸ ›µ
     (ucs			. #x20483)	; ð ’ƒ
     ))
 (define-char
@@ -1116,7 +1116,7 @@
      ((ucs		  . #x5141)	; å…
       ))
     (ideograph-daikanwa . 01374)	; ø¸€•ž
-    (=cbeta		. #x16CF)	; ø¸¡›
+    (=cbeta		. 05839)	; ø¸¡›
     ))
 (define-char
   '((morohashi-daikanwa	1374 0 0)

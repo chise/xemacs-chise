@@ -5117,7 +5117,7 @@
     (ideograph-daikanwa . 38985)	; ø¸‰¡‰
     (=gt-k		. 10928)	; ý¡„‚ª°
     (ucs-ks		. #x9042)	; ø»‰º
-    (ideograph-gt	. 52349)	; ý¡€Œ±½
+    (=gt		. 52349)	; ý¡€Œ±½
     ))
 (define-char
   '((=>ucs		. #x9042)	; é‚
@@ -5138,7 +5138,7 @@
     (japanese-jisx0208-1990	. #x3F6B)	; ø½Š£Š
     (ideograph-gt-pj-1		. #x3F6B)	; ý¡€Œ°†
     (=gt-k			. 09081)	; ý¡„‚¹
-    (ideograph-gt		. 52230)	; ý¡€Œ°†
+    (=gt			. 52230)	; ý¡€Œ°†
     (ucs			. #x9042)	; é‚
     ))
 (define-char

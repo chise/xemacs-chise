@@ -224,7 +224,7 @@
     (ideographic-radical . 71)	; â½†
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=cbeta		. #x17A8)	; ø¸¡ž¨
+    (=cbeta		. 06056)	; ø¸¡ž¨
     ))
 (define-char
   '((morohashi-daikanwa	13730 0 2)

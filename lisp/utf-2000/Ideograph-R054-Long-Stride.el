@@ -196,7 +196,7 @@
     (korean-ksc5601	. #x7C5F)	; ø»Š ´
     (chinese-cns11643-3 . #x2C4C)	; ø»•§™
     (ideograph-daikanwa . 09575)	; ø¸‚•§
-    (=cbeta		. #x0147)	; ø¸ …‡
+    (=cbeta		. 00327)	; ø¸ …‡
     (ucs		. #x5EFB)	; å»»
     ))
 (define-char
@@ -207,7 +207,7 @@
     (=jis-x0208		. #x4736)	; ø½Š®…
     (chinese-cns11643-3 . #x2C4B)	; ø»•§˜
     (ideograph-daikanwa . 09576)	; ø¸‚•¨
-    (=cbeta		. #x0A42)	; ø¸ ©‚
+    (=cbeta		. 02626)	; ø¸ ©‚
     (ucs		. #x5EFC)	; å»¼
     ))
 (define-char
