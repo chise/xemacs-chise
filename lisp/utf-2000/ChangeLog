@@ -1,3 +1,10 @@
+2003-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el (U+9834): Unify GT-31942.
+
+	* Ideograph-R115-Grain.el, Ideograph-R113-Spirit.el,
+	Ideograph-R112-Stone.el: Add some GT code points.
+
 2003-07-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R140-Grass.el (U-00026AFF): Unify JX1-7A5D; add
