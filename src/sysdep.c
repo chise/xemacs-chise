@@ -50,7 +50,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include "lisp.h"
 
-#include <stddef.h>
 #include <stdlib.h>
 
 /* ------------------------------- */

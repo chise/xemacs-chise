@@ -2889,6 +2889,7 @@ unless optional argument SOFT is non-nil."
       (if (and comcol (not fill-prefix))  ; XEmacs - (ENE) from fa-extras.
 	  (let ((comment-column comcol)
 		(comment-start comstart)
+		(block-comment-start comstart)
 		(comment-end comment-end))
 	    (and comment-end (not (equal comment-end ""))
   ;	       (if (not comment-multi-line)

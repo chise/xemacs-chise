@@ -955,7 +955,8 @@
        ["No Warranty" describe-no-warranty]
        ["XEmacs License" describe-copying]
        ["The Latest Version" describe-distribution])
-      ["Send Bug Report..." report-emacs-bug]))))
+      ["Send Bug Report..." report-emacs-bug
+       :active (fboundp 'report-emacs-bug)]))))
 
 
 (defun maybe-add-init-button ()

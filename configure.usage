@@ -47,6 +47,9 @@ Compilation options:
 Installation options:
 
 --prefix=DIR            Install files below DIR.  Defaults to `/usr/local'.
+--with-prefix		Compile the value of --prefix into the executable.
+                        Defaults to `yes'.
+--without-prefix        Don't compile the value of --prefix into the executable.
 
 
 Window-system options:
@@ -66,6 +69,9 @@ Window-system options:
 --with-dialogs=TYPE     Use TYPE dialog boxes (motif, athena, athena3d, or no).
                         Lucid menubars and scrollbars are the default.
                         Motif dialog boxes will be used if Motif can be found.
+--with-widgets=TYPE     Use TYPE widgets (motif, athena, athena3d, or no).
+                        Motif widgets will be used if Motif can be found.
+                        Other widget types are currently unsupported.
 --with-dragndrop (*)    Compile in the generic drag and drop API. This is
                         automatically added if one of the drag and drop
                         protocols is found (currently CDE, OffiX, MSWindows).

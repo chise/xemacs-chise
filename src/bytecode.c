@@ -56,7 +56,6 @@ by Hallvard:
 #include "opaque.h"
 #include "syntax.h"
 
-#include <stddef.h>
 #include <limits.h>
 
 EXFUN (Ffetch_bytecode, 1);

@@ -4,6 +4,7 @@
    Copyright (C) 1995 Tinker Systems
    Copyright (C) 1995, 1996 Ben Wing
    Copyright (C) 1995 Sun Microsystems
+   Copyright (C) 1999 Andy Piper
 
 This file is part of XEmacs.
 
@@ -89,6 +90,22 @@ Boston, MA 02111-1307, USA.  */
 
 #define LISP_DEVICE_TO_X_SCREEN(dev) XDefaultScreenOfDisplay (DEVICE_X_DISPLAY (XDEVICE (dev)))
 
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (nothing);
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (string);
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (formatted_string);
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (inherit);
+#ifdef HAVE_JPEG
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (jpeg);
+#endif
+#ifdef HAVE_TIFF
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (tiff);
+#endif  
+#ifdef HAVE_PNG
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (png);
+#endif  
+#ifdef HAVE_GIF
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (gif);
+#endif  
 #ifdef HAVE_XPM
 DEFINE_DEVICE_IIFORMAT (x, xpm);
 #endif
@@ -2411,10 +2428,26 @@ console_type_create_glyphs_x (void)
 void
 image_instantiator_format_create_glyphs_x (void)
 {
+  IIFORMAT_VALID_CONSOLE (x, nothing);
+  IIFORMAT_VALID_CONSOLE (x, string);
+  IIFORMAT_VALID_CONSOLE (x, formatted_string);
+  IIFORMAT_VALID_CONSOLE (x, inherit);
 #ifdef HAVE_XPM
   INITIALIZE_DEVICE_IIFORMAT (x, xpm);
   IIFORMAT_HAS_DEVMETHOD (x, xpm, instantiate);
 #endif
+#ifdef HAVE_JPEG
+  IIFORMAT_VALID_CONSOLE (x, jpeg);
+#endif
+#ifdef HAVE_TIFF
+  IIFORMAT_VALID_CONSOLE (x, tiff);
+#endif  
+#ifdef HAVE_PNG
+  IIFORMAT_VALID_CONSOLE (x, png);
+#endif  
+#ifdef HAVE_GIF
+  IIFORMAT_VALID_CONSOLE (x, gif);
+#endif  
   INITIALIZE_DEVICE_IIFORMAT (x, xbm);
   IIFORMAT_HAS_DEVMETHOD (x, xbm, instantiate);
 
@@ -2441,6 +2474,7 @@ image_instantiator_format_create_glyphs_x (void)
   IIFORMAT_HAS_DEVMETHOD (x, combo_box, instantiate);
 
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (cursor_font, "cursor-font");
+  IIFORMAT_VALID_CONSOLE (x, cursor_font);
 
   IIFORMAT_HAS_METHOD (cursor_font, validate);
   IIFORMAT_HAS_METHOD (cursor_font, possible_dest_types);
@@ -2455,6 +2489,7 @@ image_instantiator_format_create_glyphs_x (void)
   IIFORMAT_HAS_METHOD (font, validate);
   IIFORMAT_HAS_METHOD (font, possible_dest_types);
   IIFORMAT_HAS_METHOD (font, instantiate);
+  IIFORMAT_VALID_CONSOLE (x, font);
 
   IIFORMAT_VALID_KEYWORD (font, Q_data, check_valid_string);
   IIFORMAT_VALID_KEYWORD (font, Q_foreground, check_valid_string);
@@ -2472,6 +2507,7 @@ image_instantiator_format_create_glyphs_x (void)
   IIFORMAT_HAS_METHOD (autodetect, normalize);
   IIFORMAT_HAS_METHOD (autodetect, possible_dest_types);
   IIFORMAT_HAS_METHOD (autodetect, instantiate);
+  IIFORMAT_VALID_CONSOLE (x, autodetect);
 
   IIFORMAT_VALID_KEYWORD (autodetect, Q_data, check_valid_string);
 }
@@ -2508,8 +2544,4 @@ complex_vars_of_glyphs_x (void)
   BUILD_GLYPH_INST (Vhscroll_glyph, hscroll);
 
 #undef BUILD_GLYPH_INST
-  Fprovide_on_console (Qbutton, Qx);
-  Fprovide_on_console (Qedit_field, Qx);
-  Fprovide_on_console (Qprogress_gauge, Qx);
-  /*  Fprovide (Qcombo_box);*/
 }

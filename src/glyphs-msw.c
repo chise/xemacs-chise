@@ -1,5 +1,5 @@
 /* mswindows-specific glyph objects.
-   Copyright (C) 1998 Andy Piper.
+   Copyright (C) 1998, 99 Andy Piper.
    
 This file is part of XEmacs.
 
@@ -53,6 +53,22 @@ Boston, MA 02111-1307, USA.  */
 
 #define WIDGET_GLYPH_SLOT 0
 
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (nothing);
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (string);
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (formatted_string);
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (inherit);
+#ifdef HAVE_JPEG
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (jpeg);
+#endif
+#ifdef HAVE_TIFF
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (tiff);
+#endif  
+#ifdef HAVE_PNG
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (png);
+#endif  
+#ifdef HAVE_GIF
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (gif);
+#endif  
 #ifdef HAVE_XPM
 DEFINE_DEVICE_IIFORMAT (mswindows, xpm);
 #endif
@@ -2728,6 +2744,10 @@ console_type_create_glyphs_mswindows (void)
 void
 image_instantiator_format_create_glyphs_mswindows (void)
 {
+  IIFORMAT_VALID_CONSOLE (mswindows, nothing);
+  IIFORMAT_VALID_CONSOLE (mswindows, string);
+  IIFORMAT_VALID_CONSOLE (mswindows, formatted_string);
+  IIFORMAT_VALID_CONSOLE (mswindows, inherit);
   /* image-instantiator types */
 #ifdef HAVE_XPM
   INITIALIZE_DEVICE_IIFORMAT (mswindows, xpm);
@@ -2739,6 +2759,18 @@ image_instantiator_format_create_glyphs_mswindows (void)
   INITIALIZE_DEVICE_IIFORMAT (mswindows, xface);
   IIFORMAT_HAS_DEVMETHOD (mswindows, xface, instantiate);
 #endif
+#ifdef HAVE_JPEG
+  IIFORMAT_VALID_CONSOLE (mswindows, jpeg);
+#endif
+#ifdef HAVE_TIFF
+  IIFORMAT_VALID_CONSOLE (mswindows, tiff);
+#endif  
+#ifdef HAVE_PNG
+  IIFORMAT_VALID_CONSOLE (mswindows, png);
+#endif  
+#ifdef HAVE_GIF
+  IIFORMAT_VALID_CONSOLE (mswindows, gif);
+#endif  
   /* button widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, button);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, property);
@@ -2793,6 +2825,7 @@ image_instantiator_format_create_glyphs_mswindows (void)
 
   IIFORMAT_VALID_KEYWORD (bmp, Q_data, check_valid_string);
   IIFORMAT_VALID_KEYWORD (bmp, Q_file, check_valid_string);
+  IIFORMAT_VALID_CONSOLE (mswindows, bmp);
 
   /* mswindows resources */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (mswindows_resource,
@@ -2807,6 +2840,7 @@ image_instantiator_format_create_glyphs_mswindows (void)
 			  check_valid_resource_symbol);
   IIFORMAT_VALID_KEYWORD (mswindows_resource, Q_resource_id, check_valid_resource_id);
   IIFORMAT_VALID_KEYWORD (mswindows_resource, Q_file, check_valid_string);
+  IIFORMAT_VALID_CONSOLE (mswindows, mswindows_resource);
 }
 
 void
@@ -2822,14 +2856,4 @@ This is used by the `make-image-instance' function.
 void
 complex_vars_of_glyphs_mswindows (void)
 {
-  Fprovide_on_console (Qbmp, Qmswindows);
-  Fprovide_on_console (Qmswindows_resource, Qmswindows);
-  Fprovide_on_console (Qbutton, Qmswindows);
-  Fprovide_on_console (Qedit_field, Qmswindows);
-  Fprovide_on_console (Qcombo_box, Qmswindows);
-  Fprovide_on_console (Qscrollbar, Qmswindows);
-  Fprovide_on_console (Qlabel, Qmswindows);
-  Fprovide_on_console (Qprogress_gauge, Qmswindows);
-  Fprovide_on_console (Qtree_view, Qmswindows);
-  Fprovide_on_console (Qtab_control, Qmswindows);
 }
