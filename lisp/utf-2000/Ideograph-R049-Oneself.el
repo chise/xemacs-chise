@@ -69,10 +69,21 @@
   '((ideographic-radical . 49)	; â¼°
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (chinese-cns11643-3		. #x2245)	; ø»•˜¦
+    (chinese-cns11643-3 . #x2245)	; ø»•˜¦
+    (ideograph-daikanwa . 08747)	; ø¸‚ˆ«
+    (ucs		. #x382F)	; ã ¯
+    ))
+(define-char
+  '((=>ucs		. #x382F)	; ã ¯
+    (morohashi-daikanwa	8747 0 2)
+    (ideographic-radical . 49)	; â¼°
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 29)
+    (hanyu-dazidian-char . 2)
     (japanese-jisx0213-2	. #x286F)	; ø»¤¨ 
-    (ideograph-daikanwa		. 08747)	; ø¸‚ˆ«
-    (ucs			. #x382F)	; ã ¯
+    (chinese-big5-cdp		. #x8BAD)	; ý¢€ˆ®­
     ))
 (define-char
   '((ideographic-radical . 49)	; â¼°
