@@ -387,9 +387,10 @@ Lisp_Object Q_decomposition;
 Lisp_Object Q_ucs;
 Lisp_Object Qcompat;
 Lisp_Object QnoBreak;
+Lisp_Object Qfraction;
 Lisp_Object Qsuper;
 Lisp_Object Qsub;
-Lisp_Object Qfraction;
+Lisp_Object Qcircle;
 Lisp_Object Qwide;
 Lisp_Object Qnarrow;
 Lisp_Object Qfont;
@@ -405,18 +406,20 @@ to_char_code (Lisp_Object v, char* err_msg, Lisp_Object err_arg)
     return -1;
   else if (EQ (v, QnoBreak))
     return -2;
-  else if (EQ (v, Qsuper))
-    return -3;
-  else if (EQ (v, Qsub))
-    return -4;
   else if (EQ (v, Qfraction))
+    return -3;
+  else if (EQ (v, Qsuper))
+    return -4;
+  else if (EQ (v, Qsub))
     return -5;
-  else if (EQ (v, Qwide))
+  else if (EQ (v, Qcircle))
     return -6;
-  else if (EQ (v, Qnarrow))
+  else if (EQ (v, Qwide))
     return -7;
-  else if (EQ (v, Qfont))
+  else if (EQ (v, Qnarrow))
     return -8;
+  else if (EQ (v, Qfont))
+    return -9;
   else 
     signal_simple_error (err_msg, err_arg);
 }
@@ -2511,9 +2514,10 @@ syms_of_mule_charset (void)
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
   defsymbol (&QnoBreak,			"noBreak");
+  defsymbol (&Qfraction,		"fraction");
   defsymbol (&Qsuper,			"super");
   defsymbol (&Qsub,			"sub");
-  defsymbol (&Qfraction,		"fraction");
+  defsymbol (&Qcircle,			"circle");
   defsymbol (&Qwide,			"wide");
   defsymbol (&Qnarrow,			"narrow");
   defsymbol (&Qfont,			"font");
