@@ -1086,7 +1086,7 @@ TabsPage(Widget w, XEvent *event, String *params, Cardinal *num_params)
 	Widget		newtop = NULL;
 	Widget		*childP ;
 	int		idx ;
-	int		nc = tw->composite.num_children ;
+	int		nc = tw->tabs.displayChildren ;
 
 	if( nc <= 0 )
 	  return ;
@@ -1150,7 +1150,7 @@ TabsHighlight(Widget w, XEvent *event, String *params, Cardinal *num_params)
 	Widget		newhl = NULL;
 	Widget		*childP ;
 	int		idx ;
-	int		nc = tw->composite.num_children ;
+	int		nc = tw->tabs.displayChildren ;
 
 	if( nc <= 0 )
 	  return ;

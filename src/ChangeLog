@@ -1,3 +1,63 @@
+1999-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.26 is released.
+
+1999-12-31  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_widget_instantiate): Avoid X errors calling
+	XMapWindow() on a NULL pointer X window.
+
+1999-12-31  Martin Buchholz  <martin@xemacs.org>
+
+	* data.c (indirect_function): Use signal_void_function_error().
+
+	* lisp.h: Modify prototypes for signal_*().  Add SUBR_FUNCTION macro.
+
+	* eval.c (PRIMITIVE_FUNCALL): Optimize.
+	(signal_void_function_error): return result of Fsignal().
+	(signal_invalid_function_error): return result of Fsignal().
+	(signal_wrong_number_of_arguments_error): return result of Fsignal().
+	(signal_malformed_list_error): Add DOESNT_RETURN.
+	(signal_malformed_property_list_error): Add DOESNT_RETURN.
+	(signal_circular_list_error): Add DOESNT_RETURN.
+	(signal_circular_property_list_error): Add DOESNT_RETURN.
+	(Feval): Use returned results of signal_*().  Avoids a crash!
+	(Ffuncall): Use returned results of signal_*(). Avoids the crash:
+	  (setq debug-on-error t) (funcall 'foo) kbd{r42} kbd{RET}
+	- Only check for fun_nargs < subr_min_args if fun_nargs != max_args.
+	(function_argcount): Use signal_invalid_function_error().
+	(funcall_lambda): Use signal_wrong_number_of_arguments_error().
+	Use signal_invalid_function_error().
+
+1999-12-28  Andy Piper  <andy@xemacs.org>
+
+	* debug.c: rename debug_loop elements to X_ to avoid name clashes.
+
+	* menubar-x.c (menu_item_descriptor_to_widget_value_1): strdup
+	string_chars.
+	(menu_item_descriptor_to_widget_value_1): strdup name.
+	(pre_activate_callback): strdup name.
+
+	* scrollbar-x.c (scrollbar_instance_to_widget_value): strdup name.
+	(x_update_scrollbar_instance_status): use free_widget_value_tree.
+
+	* dialog-x.c (maybe_run_dbox_text_callback): strdup name.  use
+	free_widget_value_tree.
+	(dbox_descriptor_to_widget_value): ditto.
+
+	* gui-x.c (widget_value_unwind): use free_widget_value_tree.
+	(gui_items_to_widget_values_1): ditto.
+	(gui_items_to_widget_values): ditto.
+	(free_popup_widget_value_tree): free name.
+
+1999-12-27  Andy Piper  <andy@xemacs.org>
+
+	* nt.c (fstat): use get_osfhandle rather than the handle
+	directly. From Fabrice Popineau.
+
+	* process-nt.c (nt_open_network_stream): take types into account
+	when warning. From Fabrice Popineau.
+
 1999-12-24  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.25 is released.

@@ -936,7 +936,7 @@ TRUE_LIST_P (Lisp_Object object)
 #define CHECK_TRUE_LIST(list) do {			\
   Lisp_Object CTL_list = (list);			\
   Lisp_Object CTL_hare, CTL_tortoise;			\
-  EMACS_INT CTL_len;						\
+  EMACS_INT CTL_len;					\
 							\
   for (CTL_hare = CTL_tortoise = CTL_list, CTL_len = 0;	\
        CONSP (CTL_hare);				\
@@ -1173,8 +1173,10 @@ DECLARE_LRECORD (subr, Lisp_Subr);
 #define CHECK_SUBR(x) CHECK_RECORD (x, subr)
 #define CONCHECK_SUBR(x) CONCHECK_RECORD (x, subr)
 
-#define subr_function(subr) (subr)->subr_fn
-#define subr_name(subr) (subr)->name
+#define subr_function(subr) ((subr)->subr_fn)
+#define SUBR_FUNCTION(subr,max_args) \
+  ((Lisp_Object (*) (EXFUN_##max_args)) (subr)->subr_fn)
+#define subr_name(subr) ((subr)->name)
 
 /*********** marker ***********/
 
@@ -2195,11 +2197,15 @@ Lisp_Object signal_simple_continuable_error_2 (CONST char *,
 Lisp_Object maybe_signal_simple_continuable_error_2 (CONST char *, Lisp_Object,
 						     Lisp_Object, Lisp_Object,
 						     Error_behavior);
-void signal_malformed_list_error (Lisp_Object);
-void signal_malformed_property_list_error (Lisp_Object);
-void signal_circular_list_error (Lisp_Object);
-void signal_circular_property_list_error (Lisp_Object);
-void signal_void_function_error (Lisp_Object);
+DECLARE_DOESNT_RETURN (signal_malformed_list_error (Lisp_Object));
+DECLARE_DOESNT_RETURN (signal_malformed_property_list_error (Lisp_Object));
+DECLARE_DOESNT_RETURN (signal_circular_list_error (Lisp_Object));
+DECLARE_DOESNT_RETURN (signal_circular_property_list_error (Lisp_Object));
+
+Lisp_Object signal_void_function_error (Lisp_Object);
+Lisp_Object signal_invalid_function_error (Lisp_Object);
+Lisp_Object signal_wrong_number_of_arguments_error (Lisp_Object, int);
+
 Lisp_Object run_hook_with_args_in_buffer (struct buffer *, int, Lisp_Object *,
 					  enum run_hooks_condition);
 Lisp_Object run_hook_with_args (int, Lisp_Object *, enum run_hooks_condition);

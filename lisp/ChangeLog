@@ -1,3 +1,15 @@
+1999-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.26 is released.
+
+1999-12-28  Andy Piper  <andy@xemacs.org>
+
+	* wid-edit.el (widget-push-button-value-create): The gui cache
+	does not agree with native widgets which can only be displayed
+	once per window. The reasons for caching are diminished now that
+	we don't hog resources when creating buttons.
+	(widget-push-button-cache) deleted.
+
 1999-12-24  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.25 is released.

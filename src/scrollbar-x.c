@@ -215,6 +215,7 @@ scrollbar_instance_to_widget_value (struct scrollbar_instance *instance)
   wv->scrollbar_data = xnew (scrollbar_values);
 
   wv->name = SCROLLBAR_X_NAME (instance);
+  wv->name = xstrdup (wv->name);
   wv->value = 0;
   wv->key = 0;
   wv->enabled = instance->scrollbar_is_active;
@@ -278,9 +279,7 @@ x_update_scrollbar_instance_status (struct window *w, int active, int size,
 	}
 
       if (!wv->scrollbar_data) abort ();
-      xfree (wv->scrollbar_data);
-      wv->scrollbar_data = 0;
-      free_widget_value (wv);
+      free_widget_value_tree (wv);
     }
   else if (managed)
     {
