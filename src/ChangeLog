@@ -1,3 +1,23 @@
+2000-02-08  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule-charset.c (remove_char_attribute): New function.
+	(Fremove_char_attribute): New function.
+	(encode_builtin_char_1): Comment out builtin-support for
+	greek-iso8859-7 and cyrillic-iso8859-5.
+	(Fdecode_char): Check `code' is an integer.
+	(syms_of_mule_charset): Add `remove-char-attribute'.
+	(MIN_CHAR_GREEK): Deleted.
+	(MAX_CHAR_GREEK): Likewise.
+	(MIN_CHAR_CYRILLIC): Likewise.
+	(MAX_CHAR_CYRILLIC): Likewise.
+	(complex_vars_of_mule_charset): Don't use MIN_CHAR_GREEK and
+	MAX_CHAR_GREEK for `greek-iso8859-7'.
+
+	* char-ucs.h (MIN_CHAR_GREEK): Comment out.
+	(MAX_CHAR_GREEK): Likewise.
+	(MIN_CHAR_CYRILLIC): Likewise.
+	(MAX_CHAR_CYRILLIC): Likewise.
+
 2000-02-02  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* mule-charset.c (Fdefine_char): Fix problem when new code-point
