@@ -1,3 +1,8 @@
+2003-02-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-conf.el (=big5-pua): Renamed from `chinese-big5-pua'.
+	(chinese-big5-pua): Changed to an alias for `=big5-pua'.
+
 2003-02-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (=cbeta): Renamed from `ideograph-cbeta'.
