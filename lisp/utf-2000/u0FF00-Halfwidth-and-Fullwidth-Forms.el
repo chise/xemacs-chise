@@ -19,10 +19,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x0022)
-    (chinese-gb2312	. #x2322)	; ø»„‰
-    (korean-ksc5601	. #x2322)	; ø»ˆ‰
-    (chinese-big5	. #xA1A8)	; øºŸœ†
-    (ucs		. #xFF02)	; ï¼‚
+    (chinese-gb2312		. #x2322)	; ø»„‰
+    (korean-ksc5601		. #x2322)	; ø»ˆ‰
+    (japanese-jisx0213-1	. #x2230)	; ø»¢”©
+    (ucs			. #xFF02)	; ï¼‚
     ))
 (define-char
   '((name		. "FULLWIDTH NUMBER SIGN")
@@ -90,10 +90,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x0027)
-    (chinese-gb2312	. #x2327)	; ø»„‰†
-    (korean-ksc5601	. #x2327)	; ø»ˆŽ
-    (chinese-big5	. #xA1A6)	; øºŸœ„
-    (ucs		. #xFF07)	; ï¼‡
+    (chinese-gb2312		. #x2327)	; ø»„‰†
+    (korean-ksc5601		. #x2327)	; ø»ˆŽ
+    (japanese-jisx0213-1	. #x222F)	; ø»¢”¨
+    (ucs			. #xFF07)	; ï¼‡
     ))
 (define-char
   '((name		. "FULLWIDTH LEFT PARENTHESIS")
@@ -175,11 +175,12 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	wide #x002D)
-    (chinese-gb2312	. #x232D)	; ø»„‰Œ
-    (korean-ksc5601	. #x232D)	; ø»ˆ”
-    (chinese-cns11643-1 . #x2231)	; ø»‘„Š
-    (chinese-big5	. #xA1D0)	; øºŸœ®
-    (ucs		. #xFF0D)	; ï¼
+    (chinese-gb2312		. #x232D)	; ø»„‰Œ
+    (korean-ksc5601		. #x232D)	; ø»ˆ”
+    (chinese-cns11643-1		. #x2231)	; ø»‘„Š
+    (japanese-jisx0213-1	. #x2231)	; ø»¢”ª
+    (chinese-big5		. #xA1D0)	; øºŸœ®
+    (ucs			. #xFF0D)	; ï¼
     ))
 (define-char
   '((name		. "FULLWIDTH FULL STOP")
@@ -922,7 +923,6 @@
     (japanese-jisx0208		. #x214E)	; ø»†µ
     (korean-ksc5601		. #x235B)	; ø»ˆž‚
     (japanese-jisx0208-1990	. #x214E)	; ø½‰¶©
-    (chinese-big5		. #xA165)	; øºŸ›¥
     (ucs			. #xFF3B)	; ï¼»
     ))
 (define-char
@@ -951,7 +951,6 @@
     (japanese-jisx0208		. #x214F)	; ø»†¶
     (korean-ksc5601		. #x235D)	; ø»ˆž„
     (japanese-jisx0208-1990	. #x214F)	; ø½‰¶ª
-    (chinese-big5		. #xA166)	; øºŸ›¦
     (ucs			. #xFF3D)	; ï¼½
     ))
 (define-char
@@ -965,7 +964,6 @@
     (japanese-jisx0208		. #x2130)	; ø»†—
     (korean-ksc5601		. #x235E)	; ø»ˆž…
     (japanese-jisx0208-1990	. #x2130)	; ø½‰¶‹
-    (chinese-big5		. #xA173)	; øºŸ›³
     (ucs			. #xFF3E)	; ï¼¾
     ))
 (define-char
@@ -984,6 +982,16 @@
     (ucs			. #xFF3F)	; ï¼¿
     ))
 (define-char
+  '((name		. "heavy low line")
+    (->ucs		. #xFF3F)	; ï¼¿
+    (general-category	punctuation connector) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (chinese-cns11643-1 . #x2226)	; ø»‘ƒ¿
+    (chinese-big5	. #xA1C5)	; øºŸœ£
+    (ucs-big5		. #x2CD)	; ø»‘ƒ¿
+    ))
+(define-char
   '((name		. "FULLWIDTH GRAVE ACCENT")
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
@@ -994,7 +1002,6 @@
     (japanese-jisx0208		. #x212E)	; ø»†•
     (korean-ksc5601		. #x2360)	; ø»ˆž‡
     (japanese-jisx0208-1990	. #x212E)	; ø½‰¶‰
-    (chinese-big5		. #xA1A5)	; øºŸœƒ
     (ucs			. #xFF40)	; ï½€
     ))
 (define-char
@@ -1490,11 +1497,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x007E)
-    (chinese-gb2312	. #x212B)	; ø»„†Ž
-    (korean-ksc5601	. #x2226)	; ø»ˆ›¯
-    (japanese-jisx0212	. #x2237)	; ø»Š¦„
-    (chinese-big5	. #xA1E3)	; øºŸ
-    (ucs		. #xFF5E)	; ï½ž
+    (chinese-gb2312		. #x212B)	; ø»„†Ž
+    (korean-ksc5601		. #x2226)	; ø»ˆ›¯
+    (japanese-jisx0212		. #x2237)	; ø»Š¦„
+    (japanese-jisx0213-1	. #x2232)	; ø»¢”«
+    (ucs			. #xFF5E)	; ï½ž
     ))
 (define-char
   '((name		. "HALFWIDTH IDEOGRAPHIC FULL STOP")
@@ -1530,7 +1537,6 @@
     (mirrored		. nil)
     (->decomposition	narrow #x3001)
     (katakana-jisx0201	. #xA4)	; øº‘‰±
-    (chinese-big5	. #xA14E)	; øºŸ›Ž
     (ucs		. #xFF64)	; ï½¤
     ))
 (define-char
@@ -2529,11 +2535,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	wide #x00AF)
-    (chinese-gb2312		. #x237E)	; ø»„Š
-    (korean-ksc5601		. #x237E)	; ø»ˆž¥
     (japanese-jisx0212		. #x2234)	; ø»Š¦
     (japanese-jisx0213-1	. #x292B)	; ø»¢ž¶
-    (chinese-big5		. #xA1C2)	; øºŸœ 
     (ucs			. #xFFE3)	; ï¿£
     ))
 (define-char
