@@ -184,7 +184,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (ucs		  . #x2FFA)	; â¿º
       )
-     ((chinese-cns11643-3 . #x2139)	; ø»•–¼
+     ((=jis-x0208	  . #x5469)	; ø½‹¾
+      (chinese-cns11643-3 . #x2139)	; ø»•–¼
       (ideograph-daikanwa . 05691)	; ø¸˜»
       )
      ((ucs		  . #x51E0)	; å‡ 
@@ -892,12 +893,31 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (ucs		  . #x2FF3)	; â¿³
       )
-     ((name		  . "cjk radical person as roof")
+     ((name*		  . "ideographic component person as roof")
       (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
       )
-     ((chinese-big5-cdp	  . #x8DF9)	; ý¢€ˆ·¹
-      )
-     ((ucs		  . #x4EBA)	; äºº
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(ucs		    . #x2FF0)	; â¿°
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (ucs		      . #x2FF1)	; â¿±
+	  )
+	 ((ucs		      . #x4EBA)	; äºº
+	  )
+	 ((ucs		      . #x4EBA)	; äºº
+	  ))
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (ucs		      . #x2FF1)	; â¿±
+	  )
+	 ((ucs		      . #x4EBA)	; äºº
+	  )
+	 ((ucs		      . #x4EBA)	; äºº
+	  ))
+	))
       )
      ((ucs		  . #x51E0)	; å‡ 
       ))
