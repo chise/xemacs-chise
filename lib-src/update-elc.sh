@@ -106,7 +106,7 @@ lisp_prog='(princ (featurep (quote mule)))'
 mule_p="`$EMACS -batch -vanilla -eval \"$lisp_prog\"`"
 if test "$mule_p" = nil ; then
 	echo No
-	ignore_dirs="$ignore=dirs mule"
+	ignore_dirs="$ignore_dirs mule"
 else
   echo Yes
 fi
@@ -176,7 +176,6 @@ ignore_pattern="$ignore_pattern"'
 \!/site-init.el$!d
 \!/version.el$!d
 \!/very-early-lisp.el$!d
-\!/Installation.el$!d
 '
 
 echo "Compiling files without .elc..."

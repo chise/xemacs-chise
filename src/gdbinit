@@ -32,9 +32,6 @@
 # specified:
 
 # USE_UNION_TYPE
-# USE_MINIMAL_TAGBITS
-# USE_INDEXED_LRECORD_IMPLEMENTATION
-# LRECORD_(SYMBOL|STRING|VECTOR)
 
 # (the above all have configure equivalents)
 
@@ -49,33 +46,23 @@ set print pretty off
 
 define decode_object
   set $obj = (unsigned long) $arg0
-  if dbg_USE_MINIMAL_TAGBITS
-    if $obj & 1
-    # It's an int
-      set $val = $obj >> 1
-      set $type = Lisp_Type_Int
-    else
-      set $type = $obj & dbg_typemask
-      if $type == Lisp_Type_Char
-        set $val = ($obj & dbg_valmask) >> dbg_gctypebits
-      else
-        # It's a record pointer
-        set $val = $obj
-      end
-    end
+  if $obj & 1
+  # It's an int
+    set $val = $obj >> 1
+    set $type = Lisp_Type_Int
   else
-    # not dbg_USE_MINIMAL_TAGBITS
-    set $val = $obj & dbg_valmask
-    set $type = ($obj & dbg_typemask) >> (dbg_valbits + 1)
+    set $type = $obj & dbg_typemask
+    if $type == Lisp_Type_Char
+      set $val = ($obj & dbg_valmask) >> dbg_gctypebits
+    else
+      # It's a record pointer
+      set $val = $obj
+    end
   end
 
   if $type == Lisp_Type_Record
     set $lheader = (struct lrecord_header *) $val
-    if dbg_USE_INDEXED_LRECORD_IMPLEMENTATION
-      set $imp = lrecord_implementations_table[$lheader->type]
-    else
-      set $imp = $lheader->implementation
-    end
+    set $imp = lrecord_implementations_table[$lheader->type]
   else
     set $imp = -1
   end

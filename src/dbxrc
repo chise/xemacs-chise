@@ -59,9 +59,7 @@ function ldp {
 # A bug in dbx prevents string variables from having values beginning with `-'!!
 function XEmacsInit {
   function ToInt { eval "$1=\$[(int) $1]"; }
-  ToInt dbg_USE_MINIMAL_TAGBITS
   ToInt dbg_USE_UNION_TYPE
-  ToInt dbg_USE_INDEXED_LRECORD_IMPLEMENTATION
   ToInt Lisp_Type_Int
   ToInt Lisp_Type_Char
   ToInt Lisp_Type_Cons
@@ -100,43 +98,24 @@ function decode_object {
   else
     obj="$[(unsigned long)($1)]";
   fi
-  if test $dbg_USE_MINIMAL_TAGBITS = 1; then
-    if test $[(int)($obj & 1)] = 1; then
-      # It's an int
-      val=$[(long)(((unsigned long long)$obj) >> 1)]
-      type=$Lisp_Type_Int
-    else
-      type=$[(int)(((void*)$obj) & $dbg_typemask)]
-      if test $type = $Lisp_Type_Char; then
-        val=$[(void*)(long)(((unsigned long long)($obj & $dbg_valmask)) >> $dbg_gctypebits)]
-      else
-        # It's a record pointer
-        val=$[(void*)$obj]
-        if test "$val" = "(nil)"; then type=null_pointer; fi
-      fi
-    fi
+  if test $[(int)($obj & 1)] = 1; then
+    # It's an int
+    val=$[(long)(((unsigned long long)$obj) >> 1)]
+    type=$Lisp_Type_Int
   else
-    # not dbg_USE_MINIMAL_TAGBITS
-    type=$[(int)(((unsigned long long)($obj & $dbg_typemask)) >> ($dbg_valbits + 1))]
-    if test "$type" = $Lisp_Type_Int; then
-      val=$[(int)($obj & $dbg_valmask)]
-    elif test "$type" = $Lisp_Type_Char; then
-      val=$[(int)($obj & $dbg_valmask)]
+    type=$[(int)(((void*)$obj) & $dbg_typemask)]
+    if test $type = $Lisp_Type_Char; then
+      val=$[(void*)(long)(((unsigned long long)($obj & $dbg_valmask)) >> $dbg_gctypebits)]
     else
-      val=$[(void*)($obj & $dbg_valmask)]
+      # It's a record pointer
+      val=$[(void*)$obj]
       if test "$val" = "(nil)"; then type=null_pointer; fi
     fi
-    #val=$[(void*)($obj & $dbg_valmask)]
-    #printvar val type obj
   fi
 
   if test $type = $Lisp_Type_Record; then
     typeset lheader="((struct lrecord_header *) $val)"
-    if test $dbg_USE_INDEXED_LRECORD_IMPLEMENTATION = 1; then
-      imp=$[(void*)(lrecord_implementations_table[$lheader->type])]
-    else
-      imp=$[(void*)($lheader->implementation)]
-    fi
+    imp=$[(void*)(lrecord_implementations_table[$lheader->type])]
   else
     imp="0xdeadbeef"
   fi
