@@ -15,6 +15,15 @@
     (ucs		. #x4E8C)	; äºŒ
     ))
 (define-char
+  '((=>ucs		. #x4E8C)	; äºŒ
+    (morohashi-daikanwa	247 0 5)
+    (ideographic-radical . 7)	; â¼†
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (ideograph-gt-pj-k1 . #x3B78)	; ý¡„€“
+    (ideograph-gt-k	. 00083)	; ý¡„€“
+    ))
+(define-char
   '((ideographic-radical . 7)	; â¼†
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
