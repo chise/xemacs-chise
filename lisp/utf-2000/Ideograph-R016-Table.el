@@ -867,8 +867,8 @@
 (define-char
   '((morohashi-daikanwa	1786 0 5)
     (ideographic-radical . 16)	; â¼
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (hanyu-dazidian	1 278 9)
     (=ucs		. #x34D8)	; ã“˜
     (=hanziku-1		. #xDF71)	; ý¢€½±
