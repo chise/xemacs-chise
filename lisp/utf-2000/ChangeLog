@@ -1,3 +1,30 @@
+2003-08-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el: Add some mappings to JEF-CHINA3 code
+	points.
+
+	* Ideograph-R037-Big.el (U+594C): Unify GT-07438.
+	(U-0002160D): Unify GT-07457.
+	(U-0002160F): Unify GT-07470.
+	(U+369A): Unify GT-07468.
+	(M-05915): Unify GT-07451.
+	(J0-5476): Unify B-ABB7.
+	(U+5950): Separate B-ABB7.
+	(M-05917): Unify B-ABB4 and GT-07464.
+	(K0-4C78): Unify JC3-48EA.
+	(C1-5056): Separate B-ABB4.
+	(J0-3740): Separate JC3-48EA.
+
+2003-08-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R050-Turban.el (U+5E38): Modify ideographic-structure.
+
+	* Ideograph-R030-Mouth.el (U+5617): Modify ideographic-structure.
+
+2003-08-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R107-Skin.el: Add mappings for Big5 code points.
+
 2003-08-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R142-Insect.el: Add some mappings to JEF-CHINA3 code
@@ -17,6 +44,10 @@
 	(U+81C5): Unify JC3-52DE.
 	(JX1-7A56): Unify JC3-52E0.
 	(JSP-565E): Unify JC3-52AC.
+
+2003-08-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R113-Spirit.el (U+7996): Separate C2-4C43.
 
 2003-08-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
