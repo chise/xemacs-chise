@@ -1,3 +1,14 @@
+2003-01-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (U+FA39): New character.
+	(U+5841): Use `<-simplified-ideograph' instead of
+	`simplified-ideograph-of'.
+	(U+58A8): Add JU+FA3A.
+	(U+FA3A): New character.
+
+	* Ideograph-R009-Man.el (U-0002020C): Delete incomplete
+	`ideographic-structure'.
+
 2003-01-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R044-Corpse.el (JX1-4F61): Unify U+FA3B and KU+5C64;
@@ -380,6 +391,12 @@
 	`name*' instead of `name' for non-standard name; rename <cjk
 	radical person for top> to <ideographic component person for top>;
 	add `:sources' of `:radical' and `:strokes'.
+
+2003-01-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-db-make-char-spec): Use
+	`get-char-attribute' instead of `split-char' to break up a
+	character which does not have `ucs' attribute.
 
 2003-01-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
