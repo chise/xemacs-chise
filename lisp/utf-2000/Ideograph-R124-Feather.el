@@ -4931,6 +4931,10 @@
     (ideographic-radical . 124)	; â½»
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x98DC)	; é£œ
+      (=jis-x0208	  . #x664C)	; ø½‹›½
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
