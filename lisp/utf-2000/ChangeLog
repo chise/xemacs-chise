@@ -1,3 +1,8 @@
+2004-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Add code for
+	`<-denotational'.
+
 2004-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R042-Small.el (U+5C12): Use `->subsumptive'; add
