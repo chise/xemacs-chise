@@ -119,7 +119,7 @@ static void store_minibuf_frame_prop (struct frame *f, Lisp_Object val);
 static struct display_line title_string_display_line;
 /* Used by generate_title_string. Global because they get used so much that
    the dynamic allocation time adds up. */
-static Emchar_dynarr *title_string_emchar_dynarr;
+static Charc_dynarr *title_string_charc_dynarr;
 
 
 static Lisp_Object
@@ -3045,19 +3045,19 @@ generate_title_string (struct window *w, Lisp_Object format_str,
   generate_formatted_string_db (format_str, Qnil, w, dl, db, findex, 0,
                                 -1, type);
 
-  Dynarr_reset (title_string_emchar_dynarr);
+  Dynarr_reset (title_string_charc_dynarr);
   while (elt < Dynarr_length (db->runes))
     {
       if (Dynarr_atp (db->runes, elt)->type == RUNE_CHAR)
-	Dynarr_add (title_string_emchar_dynarr,
-		    Dynarr_atp (db->runes, elt)->object.chr.ch);
+	Dynarr_add (title_string_charc_dynarr,
+		    Dynarr_atp (db->runes, elt)->object.cglyph);
       elt++;
     }
 
   return
-    convert_emchar_string_into_malloced_string
-    (Dynarr_atp (title_string_emchar_dynarr, 0),
-     Dynarr_length (title_string_emchar_dynarr), 0);
+    convert_charc_string_into_malloced_string
+    (Dynarr_atp (title_string_charc_dynarr, 0),
+     Dynarr_length (title_string_charc_dynarr), 0);
 }
 
 void
@@ -3168,7 +3168,7 @@ init_frame (void)
   if (!initialized)
 #endif
     {
-      title_string_emchar_dynarr = Dynarr_new (Emchar);
+      title_string_charc_dynarr = Dynarr_new (Charc);
       xzero (title_string_display_line);
     }
 }
