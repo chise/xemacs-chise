@@ -3363,13 +3363,6 @@ Save values of ATTRIBUTE into database file.
     Fmake_directory_internal (db_dir);
 
   db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
-  if (!NILP (Ffile_exists_p (db_file)))
-    {
-      ct->table = Qunloaded;
-      XCHAR_TABLE_UNLOADED(table) = 1;
-      return Qt;
-    }
-
   db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
   if (!NILP (db))
     {
@@ -3380,8 +3373,6 @@ Save values of ATTRIBUTE into database file.
       else if (BYTE_TABLE_P (ct->table))
 	save_byte_table (XBYTE_TABLE(ct->table), ct, db, 0, 3);
       Fclose_database (db);
-      ct->table = Qunloaded;
-      XCHAR_TABLE_UNLOADED(table) = 1;
       return Qt;
     }
   else
@@ -3389,6 +3380,40 @@ Save values of ATTRIBUTE into database file.
 #else
   return Qnil;
 #endif
+}
+
+DEFUN ("reset-char-attribute-table", Freset_char_attribute_table, 1, 1, 0, /*
+Reset values of ATTRIBUTE with database file.
+*/
+       (attribute))
+{
+#ifdef HAVE_DATABASE
+  Lisp_Object table = Fgethash (attribute,
+				Vchar_attribute_hash_table, Qunbound);
+  Lisp_Char_Table *ct;
+  Lisp_Object db_dir = Vexec_directory;
+  Lisp_Object db_file;
+
+  if (NILP (db_dir))
+    db_dir = build_string ("../lib-src");
+  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+  db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
+  db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
+  if (!NILP (Ffile_exists_p (db_file)))
+    {
+      if (UNBOUNDP (table))
+	{
+	  table = make_char_id_table (Qunbound);
+	  Fputhash (attribute, table, Vchar_attribute_hash_table);
+	  XCHAR_TABLE_NAME(table) = attribute;
+	}
+      ct = XCHAR_TABLE (table);
+      ct->table = Qunloaded;
+      XCHAR_TABLE_UNLOADED(table) = 1;
+      return Qt;
+    }
+#endif
+  return Qnil;
 }
 
 #ifdef HAVE_DATABASE
@@ -4003,6 +4028,7 @@ syms_of_chartab (void)
   defsymbol (&Qput_char_table_map_function, "put-char-table-map-function");
   DEFSUBR (Fput_char_table_map_function);
   DEFSUBR (Fsave_char_attribute_table);
+  DEFSUBR (Freset_char_attribute_table);
 #ifdef HAVE_DATABASE
   defsymbol (&Qload_char_attribute_table_map_function,
 	     "load-char-attribute-table-map-function");
