@@ -845,74 +845,6 @@ get_unallocated_leading_byte (int dimension)
 
 #define BIG5_SAME_ROW (0xFF - 0xA1 + 0x7F - 0x40)
 
-static int
-decode_ccs_conversion (int conv_type, int code_point)
-{
-  if ( conv_type == CONVERSION_IDENTICAL )
-    {
-      return code_point;
-    }
-  if ( conv_type == CONVERSION_94x60 )
-    {
-      int row = code_point >> 8;
-      int cell = code_point & 255;	  
-
-      if (row < 16 + 32)
-	return -1;
-      else if (row < 16 + 32 + 30)
-	return (row - (16 + 32)) * 94 + cell - 33;
-      else if (row < 18 + 32 + 30)
-	return -1;
-      else if (row < 18 + 32 + 60)
-	return (row - (18 + 32)) * 94 + cell - 33;
-    }
-  else if ( conv_type == CONVERSION_94x94x60 )
-    {
-      int plane = code_point >> 16;
-      int row = (code_point >> 8) & 255;
-      int cell = code_point & 255;	  
-
-      if (row < 16 + 32)
-	return -1;
-      else if (row < 16 + 32 + 30)
-	return
-	  (plane - 33) * 94 * 60
-	  + (row - (16 + 32)) * 94
-	  + cell - 33;
-      else if (row < 18 + 32 + 30)
-	return -1;
-      else if (row < 18 + 32 + 60)
-	return
-	  (plane - 33) * 94 * 60
-	  + (row - (18 + 32)) * 94
-	  + cell - 33;
-    }
-  else if ( conv_type == CONVERSION_BIG5_1 )
-    {
-      unsigned int I
-	= (((code_point >> 8) & 0x7F) - 33) * 94
-	+ (( code_point       & 0x7F) - 33);
-      unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
-      unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
-
-      b2 += b2 < 0x3F ? 0x40 : 0x62;
-      return (b1 << 8) | b2;
-    }
-  else if ( conv_type == CONVERSION_BIG5_2 )
-    {
-      unsigned int I
-	= (((code_point >> 8) & 0x7F) - 33) * 94
-	+ (( code_point       & 0x7F) - 33)
-	+ BIG5_SAME_ROW * (0xC9 - 0xA1);
-      unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
-      unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
-
-      b2 += b2 < 0x3F ? 0x40 : 0x62;
-      return (b1 << 8) | b2;
-    }
-  return -1;
-}
-
 Emchar
 decode_defined_char (Lisp_Object ccs, int code_point, int without_inheritance)
 {
@@ -941,17 +873,38 @@ decode_defined_char (Lisp_Object ccs, int code_point, int without_inheritance)
   else if ( !without_inheritance
 	    && CHARSETP (mother = XCHARSET_MOTHER (ccs)) )
     {
-      int code
-	= decode_ccs_conversion (XCHARSET_CONVERSION (ccs), code_point);
-
-      if (code >= 0)
+      if ( XCHARSET_CONVERSION (ccs) == CONVERSION_IDENTICAL )
 	{
-	  code += XCHARSET_CODE_OFFSET(ccs);
 	  if ( EQ (mother, Vcharset_ucs) )
-	    return DECODE_CHAR (mother, code, without_inheritance);
+	    return DECODE_CHAR (mother, code_point, without_inheritance);
 	  else
-	    return decode_defined_char (mother, code,
+	    return decode_defined_char (mother, code_point,
 					without_inheritance);
+	}
+      else if ( XCHARSET_CONVERSION (ccs) == CONVERSION_BIG5_1 )
+	{
+	  unsigned int I
+	    = (((code_point >> 8) & 0x7F) - 33) * 94
+	    + (( code_point       & 0x7F) - 33);
+	  unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
+	  unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
+
+	  b2 += b2 < 0x3F ? 0x40 : 0x62;
+	  return decode_defined_char (mother, (b1 << 8) | b2,
+				      without_inheritance);
+	}
+      else if ( XCHARSET_CONVERSION (ccs) == CONVERSION_BIG5_2 )
+	{
+	  unsigned int I
+	    = (((code_point >> 8) & 0x7F) - 33) * 94
+	    + (( code_point       & 0x7F) - 33)
+	    + BIG5_SAME_ROW * (0xC9 - 0xA1);
+	  unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
+	  unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
+
+	  b2 += b2 < 0x3F ? 0x40 : 0x62;
+	  return decode_defined_char (mother, (b1 << 8) | b2,
+				      without_inheritance);
 	}
     }
   return -1;
@@ -967,16 +920,69 @@ decode_builtin_char (Lisp_Object charset, int code_point)
     {
       if ( CHARSETP (mother) )
 	{
-	  int code
-	    = decode_ccs_conversion (XCHARSET_CONVERSION (charset),
-				     code_point);
+	  int code = code_point;
 
-	  if (code >= 0)
-	    return
-	      decode_builtin_char (mother,
-				   code + XCHARSET_CODE_OFFSET(charset));
-	  else
-	    return -1;
+	  if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x60 )
+	    {
+	      int row = code_point >> 8;
+	      int cell = code_point & 255;	  
+
+	      if (row < 16 + 32)
+		return -1;
+	      else if (row < 16 + 32 + 30)
+		code = (row - (16 + 32)) * 94 + cell - 33;
+	      else if (row < 18 + 32 + 30)
+		return -1;
+	      else if (row < 18 + 32 + 60)
+		code = (row - (18 + 32)) * 94 + cell - 33;
+	    }
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x94x60 )
+	    {
+	      int plane = code_point >> 16;
+	      int row = (code_point >> 8) & 255;
+	      int cell = code_point & 255;	  
+
+	      if (row < 16 + 32)
+		return -1;
+	      else if (row < 16 + 32 + 30)
+		code
+		  = (plane - 33) * 94 * 60
+		  + (row - (16 + 32)) * 94
+		  + cell - 33;
+	      else if (row < 18 + 32 + 30)
+		return -1;
+	      else if (row < 18 + 32 + 60)
+		code
+		  = (plane - 33) * 94 * 60
+		  + (row - (18 + 32)) * 94
+		  + cell - 33;
+	    }
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_BIG5_1 )
+	    {
+	      unsigned int I
+		= (((code_point >> 8) & 0x7F) - 33) * 94
+		+ (( code_point       & 0x7F) - 33);
+	      unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
+	      unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
+
+	      b2 += b2 < 0x3F ? 0x40 : 0x62;
+	      code = (b1 << 8) | b2;
+	    }
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_BIG5_2 )
+	    {
+	      unsigned int I
+		= (((code_point >> 8) & 0x7F) - 33) * 94
+		+ (( code_point       & 0x7F) - 33)
+		+ BIG5_SAME_ROW * (0xC9 - 0xA1);
+	      unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
+	      unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
+
+	      b2 += b2 < 0x3F ? 0x40 : 0x62;
+	      code = (b1 << 8) | b2;
+	    }
+	  return
+	    decode_builtin_char (mother,
+				 code + XCHARSET_CODE_OFFSET(charset));
 	}
       else
 	{

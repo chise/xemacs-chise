@@ -876,7 +876,6 @@
     (total-strokes	 . 13)
     (=big5		. #xDD4C)	; ý¢€µŒ
     (=daikanwa		. 07608)	; ø¸¶¸
-    (=ucs@big5		. #x5C33)	; ý¢€µŒ
     ))
 (define-char
   '((=>ucs		. #x5C33)	; å°³
@@ -1132,7 +1131,6 @@
     (total-strokes	 . 17)
     (=cns11643-1	. #x7353)	; ø»’»ª
     (=big5		. #xC0AA)	; ý¢€Œ‚ª
-    (=ucs@big5		. #x5C37)	; ø»’»ª
     ))
 (define-char
   '((morohashi-daikanwa	7624 0 6)

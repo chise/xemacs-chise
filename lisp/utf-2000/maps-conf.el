@@ -6,7 +6,6 @@
 		"B-to-UCS.txt" "JC3-to-UCS.txt"))
   (mapping-table-read-file (expand-file-name file "../etc/char-data/")))
 
-(jp-jouyou-read-file "../etc/char-data/jp-jouyou.txt")
 
 (let ((ucs #xE000)
       big5 chr
@@ -35,9 +34,7 @@
 		     #x4E59 #x6F58 #x7051 #x7056 #x375B
 		     #x7123 #x712A #x3142 #x3B41 #x7149
 		     #x7165 #x7227 #x7233 #x733B #x4E6F
-		     #x7366 #x7367 #x7368 #x736C #x5423
-		     #x342A #x3476 #x5877 #x592D #x5A61
-		     #x3522 #x334C))
+		     #x7366 #x7367 #x7368 #x736C))
      (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
 			 '=gt-pj-1 v))
    nil)

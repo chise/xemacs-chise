@@ -768,6 +768,10 @@
     (=ucs		. #x1E3E)	; á¸¾
     ))
 (define-char
+  '((=>ucs		. #x1E3E)	; á¸¾
+    (=jef-china3	. #x85DE)	; øºˆ—ž
+    ))
+(define-char
   '((name		. "fullwidth latin capital letter m with acute")
     (=>ucs		. #x1E3E)	; á¸¾
     (general-category	letter uppercase) ; Normative Category
@@ -782,7 +786,6 @@
       (=ucs		  . #x1E3E)	; á¸¾
       ))
     (=jis-x0213-1-2000	. #x2872)	; ø»¢žŸ
-    (=jef-china3	. #x85DE)	; øºˆ—ž
     (=ucs@jis		. #x1E3E)	; ø»¢žŸ
     ))
 (define-char
@@ -857,14 +860,6 @@
       (=ucs		  . #x1E43)	; á¹ƒ
       ))
     (=ucs		. #x1E42)	; á¹‚
-    ))
-(define-char
-  '((=>ucs		. #x1E42)	; á¹‚
-    (<-fullwidth
-     ((name		  . "LATIN CAPITAL LETTER M WITH DOT BELOW")
-      (=ucs		  . #x1E42)	; á¹‚
-      ))
-    (=jef-china3	. #x8AF0)	; øºˆ«°
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER M WITH DOT BELOW")
@@ -1257,14 +1252,6 @@
       (=ucs		  . #x1E63)	; á¹£
       ))
     (=ucs		. #x1E62)	; á¹¢
-    ))
-(define-char
-  '((=>ucs		. #x1E62)	; á¹¢
-    (<-fullwidth
-     ((name		  . "LATIN CAPITAL LETTER S WITH DOT BELOW")
-      (=ucs		  . #x1E62)	; á¹¢
-      ))
-    (=jef-china3	. #x8AC2)	; øºˆ«‚
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER S WITH DOT BELOW")

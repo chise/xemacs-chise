@@ -44,7 +44,6 @@
     (=big5		. #xA5AD)	; ý¢€Š–­
     (=daikanwa		. 09167)	; ø¸‚
     (=jef-china3	. #x4CB0)	; øº„²°
-    (=ucs@big5		. #x5E73)	; ø»Ššž
     ))
 (define-char
   '((morohashi-daikanwa	9167 0 2)
@@ -252,7 +251,6 @@
 (define-char
   '((ideographic-radical . 51)	; â¼²
     (ideographic-strokes . 6)
-    (total-strokes	 . 9)
     (=ucs		. #x9878)	; é¡¸
     (=gb2312		. #x717C)	; ø»…¼¿
     ))
