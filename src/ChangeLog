@@ -1,5 +1,10 @@
 2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.16.
+
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (Vcharacter_morohashi_daikanwa_table): New
 	variable.
 	(Qmorohashi_daikanwa): New variable.
