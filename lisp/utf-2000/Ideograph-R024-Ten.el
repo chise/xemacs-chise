@@ -609,6 +609,14 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (chinese-big5	. #x8C49)	; ý €Ž’¨
+    (chinese-big5-cdp	. #x8C49)	; ý €Ž’¨
+    (mojikyo		. 058536)	; ý €Ž’¨
+    ))
+(define-char
+  '((ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (shinjigen-1	. 828)
