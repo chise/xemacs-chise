@@ -1,3 +1,21 @@
+2002-02-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (put_char_ccs_code_point): Delete unused codes.
+	(Fsave_charset_mapping_table): Use
+	`char_attribute_system_db_file'.
+	(load_char_decoding_entry_maybe): Likewise.
+
+	* chartab.h (Qsystem_char_id): New external variable.
+	(char_attribute_system_db_file): New prototype.
+
+	* chartab.c (Qsystem_char_id): New variable in UTF-2000.
+	(char_attribute_system_db_file): New function.
+	(Fsave_char_attribute_table): Use `char_attribute_system_db_file'.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+	(syms_of_chartab): Add new symbol `system-char-id'.
+
 2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-ucs.h (DECODE_DEFINED_CHAR): Don't check
