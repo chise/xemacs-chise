@@ -175,6 +175,8 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (shinjigen-2	. 4711)
+    (japanese-jisx0208-1978	. #x4C6C)	; ø»‚¼•
+    (japanese-jisx0208		. #x4C6C)	; ø»‡
     (chinese-cns11643-1		. #x6525)	; ø»’¦˜
     (japanese-jisx0208-1990	. #x4C6C)	; ø½Š¶‘
     (ideograph-daikanwa		. 19734)	; ø¸„´–
