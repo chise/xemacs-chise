@@ -1,5 +1,21 @@
 2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u01E00-Latin-Extended-Additional.el (JX1-2872): Unify JC3-85DE.
+	(JC3-8AF0): New character.
+	(JC3-8AC2): New character.
+
+	* Ideograph-R180-Sound.el (M-43297): Separate C5-6627; use
+	`ideographic-strokes@daikanwa' instead of `daikanwa-strokes'.
+	(M-43299): Separate U+97F9 and C1-776B.
+	(M-43300): Separate C2-6451.
+	(U+97FA): Separate JSP-6772.
+
+	* Ideograph-R046-Mountain.el: Add `=ucs@big5' features.
+
+	* Ideograph-R040-Roof.el: Reformatted.
+
+2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R044-Corpse.el, Ideograph-R043-Lame.el,
 	Ideograph-R042-Small.el, Ideograph-R041-Inch.el,
 	Ideograph-R038-Woman.el: Add `=ucs@big5' features.
