@@ -123,6 +123,7 @@
     (ideograph-gt-pj-1	. #x3C37)	; ý¡€€€„
     (chinese-big5	. #xA443)	; ý¢€Š‘ƒ
     (ideograph-daikanwa . 00006)	; ø¸€€†
+    (chinese-big5-cdp	. #x88ED)	; ý¢€ˆ£­
     (ideograph-gt-k	. 00046)	; ý¡„€€®
     (ideograph-gt	. 00004)	; ý¡€€€„
     (ucs		. #x4E03)	; ä¸ƒ
