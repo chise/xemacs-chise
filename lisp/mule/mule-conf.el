@@ -157,6 +157,15 @@
 		  graphic	2
 		  direction	l2r
 		  mother	ucs-jis))
+  (make-charset 'ucs-ks
+		"UCS for KS"
+		`(long-name	"ISO/IEC 10646 for Korean Standards"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	ucs))
   (make-charset 'ucs-big5
 		"UCS for Big5"
 		`(long-name	"ISO/IEC 10646 for Big5"
