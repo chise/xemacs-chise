@@ -1,3 +1,8 @@
+1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in: Add new option `--with-text-coding'; define
+	`TEXT_CODING' if it is specified.
+
 1999-08-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* configure.in:
