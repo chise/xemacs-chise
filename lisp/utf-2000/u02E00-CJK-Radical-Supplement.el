@@ -28,7 +28,7 @@
     (<-radical
      ((ucs		  . #x4E5A)	; 乚
       ))
-    (ideograph-cdp	. -14)
+    (ideograph-cdp	. -21)
     (chinese-big5	. #x8C5D)	; ⺃
     (chinese-big5-cdp	. #x8C5D)	; ⺃
     (ucs		. #x2E83)	; ⺃
@@ -39,7 +39,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 1)
-    (ideograph-cdp	. -9)
+    (ideograph-cdp	. -13)
     (chinese-big5	. #x8D43)	; ⺄
     (chinese-big5-cdp	. #x8D43)	; ⺄
     (ucs		. #x2E84)	; ⺄
@@ -50,7 +50,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 2)
-    (ideograph-cdp	. -55)
+    (ideograph-cdp	. -64)
     (chinese-big5	. #x8AF5)	; ⺅
     (chinese-big5-cdp	. #x8AF5)	; ⺅
     (ucs		. #x2E85)	; ⺅
@@ -61,7 +61,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 2)
-    (ideograph-cdp	. -70)
+    (ideograph-cdp	. -80)
     (chinese-big5	. #x8BF2)	; ⺆
     (chinese-big5-cdp	. #x8BF2)	; ⺆
     (ucs		. #x2E86)	; ⺆
@@ -72,7 +72,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 2)
-    (ideograph-cdp	. -64)
+    (ideograph-cdp	. -79)
     (chinese-big5	. #x8D66)	; ⺇
     (chinese-big5-cdp	. #x8D66)	; ⺇
     (ucs		. #x2E87)	; ⺇
@@ -101,6 +101,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (total-strokes	 . 2)
+    (ideograph-cdp	. -51)
+    (chinese-big5	. #x8B78)	; ⺊
+    (chinese-big5-cdp	. #x8B78)	; ⺊
     (ucs		. #x2E8A)	; ⺊
     ))
 (define-char
@@ -488,7 +492,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 5)
-    (ideograph-cdp	. -556)
+    (ideograph-cdp	. -849)
     (chinese-big5	. #x8BB1)	; ⻂
     (chinese-big5-cdp	. #x8BB1)	; ⻂
     (ucs		. #x2EC2)	; ⻂
