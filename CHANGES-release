@@ -22,6 +22,44 @@ build-time, and "documentation and data" changes.
 For more details, including developers involved and dates, see the
 ChangeLogs, or use CVS diff to view the patches.
 
+to 21.4.10 "Military Intelligence"
+
+-- (**) C-x r d invokes delete-rectangle -- Katsumi Yamaoka
+-- (**) Check Mule coding cookie in 2d line, too -- Stephen Turnbull
+-- (**) Default lookup-syntax-properties to nil -- Andy Piper, Stephen Turnbull
+-- Fix: Always generate auto-autoloads.el -- Stephen Turnbull
+-- Fix: Code typos -- Stephen Turnbull, Katsumi Yamaoka
+-- Fix: Freeze in certain modal dialogs -- Andy Piper
+-- Fix: Layout geometry bug -- Andy Piper
+-- Fix: Resizing bug in layouts -- Andy Piper
+-- Fix: Stale match data bug -- Stephen Turnbull
+-- Fix: Ugly dialog layouts -- Andy Piper
+-- Fix: font-lock-syntax-keywords tromps font-lock-keywords -- Daiki Ueno
+-- Fix: revert-buffer bugs -- Andy Piper
+-- Fix: (Cygwin) Regex crashes; increase stack size -- Andy Piper
+-- Fix: (HP/UX) Don't use getaddrinfo -- Darryl Okahata, Stephen Turnbull
+-- Fix: (MS Windows) Handle leak -- Mike Alexander
+-- Fix: (Native Windows) Truename bug  -- Stephen Turnbull
+-- Fix: (Unix) Subprocess problems -- Mike Sperber, Stephen Turnbull
+-- Fix: (X11) CPU-eating XEmacs process at gdm logout -- Ben Sigelman
+-- Fix: (X11) Crash in external widget -- I. N. Golubev
+-- New: NAS 1.6 support -- Raymond Toy
+-- Improve: (Build) New regression tests -- Stephen Turnbull
+-- Improve: Crash message -- Stephen Turnbull
+-- Improve: FontSet defaults -- Ville Skyttä, Stephen Turnbull
+-- Improve: GNU synchs: parse-sexp-lookup-properties -- Alan Mackenzie, Stephen Turnbull
+-- Improve: Optimize update_syntax_cache -- Stephen Turnbull
+-- Improve: Test suite more friendly, some docs -- Stephen Turnbull
+-- Docs: Improve PROBLEMS, INSTALL, etc/BETA -- Stephen Turnbull
+-- Docs: New FAQs -- Stephen Turnbull
+-- Docs: New PROBLEMs -- Stephen Turnbull
+-- Docs: New configure.usage -- Stephen Turnbull
+-- Docs: New oxymorons -- Stephen Turnbull, Christopher Sekiya
+-- Docs: Typo fixes -- Jerry James, Ville Skyttä, Stephen Turnbull, Norbert Koch, Juergen Stuber
+-- Docs: Update manuals on syntax functions, byte-compiler options -- Stephen Turnbull
+-- Docs: Update package sites and Texi docs -- Ville Skyttä
+-- Docs: (Native Windows) Remove redundant quoting in Installation -- Adrian Aichner
+
 to 21.4.9 "Informed Management"
 
 -- (**) (MS Windows) new winclient -- Andy Piper, others
