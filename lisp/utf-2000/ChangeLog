@@ -1,3 +1,16 @@
+2003-12-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R112-Stone.el: Add mappings for Big5 code points.
+
+2003-12-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R173-Rain.el (U+9738): Unify B-C551.
+
+	* Ideograph-R111-Arrow.el, Ideograph-R110-Spear.el: Add mappings
+	for Big5 code points.
+
+	* Ideograph-R074-Moon.el (U+9738): Unify B-C551.
+
 2003-12-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el (JC3-67E6): New character.
