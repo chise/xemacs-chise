@@ -353,9 +353,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8B5C)	; &CDP-8B5C;
+     ((=ucs		  . #x9FB7)	; 龷
       )
-     ((=ucs		  . #x516B)	; 八
+     ((=gt-k		  . 00059)	; &GT-K00059;
       ))
     (shinjigen-1	. 496)
     (shinjigen-2	. 496)
@@ -499,11 +499,27 @@
       (=gt-k		  . 01768)	; &I-GT-K01768;
       (=gt-pj-k1	  . #x322C)	; &GT-K01768; [18-12]
       (=ucs@jis		  . #x20509)	; &GT-K01768;
-      )
+      ))
+    ))
+(define-char
+  '((=>daikanwa		. 48931)	; &M-48931;
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (<-same
+     ((=ucs		  . #x20509)	; 𠔉
+      ))
+    (<-simplified
+     ((=jis-x0213-2-2000  . #x2327)	; &GT-K01768; [03-07]
+      ))
+    (=ucs		. #x9FB9)	; 龹
+    (->subsumptive
      ((=gt-k		  . 01769)	; &GT-K01769;
       (=gt-pj-k1	  . #x3238)	; &GT-K01769; [18-24]
+      (=ucs@JP		  . #x9FB9)	; &GT-K01769;
       )
      ((=big5-cdp	  . #x8BFA)	; &CDP-8BFA;
+      (=ucs@unicode	  . #x9FB9)	; &CDP-8BFA;
       ))
     ))
 (define-char
