@@ -1904,11 +1904,15 @@ make_charset (Charset_ID id, Lisp_Object name,
 					       CHARSET_TO_BYTE1_TABLE(cs));
 	    }
 	}
+      else
+	CHARSET_TO_BYTE1_TABLE(cs) = NULL;
+      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
 #endif
       break;
     case CHARSET_TYPE_96:
       CHARSET_DIMENSION (cs) = 1;
       CHARSET_CHARS (cs) = 96;
+#ifdef UTF2000
       if (decoding_table != NULL)
 	{
 	  size_t i;
@@ -1922,23 +1926,43 @@ make_charset (Charset_ID id, Lisp_Object name,
 					       CHARSET_TO_BYTE1_TABLE(cs));
 	    }
 	}
+      else
+	CHARSET_TO_BYTE1_TABLE(cs) = NULL;
+      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+#endif
       break;
     case CHARSET_TYPE_94X94:
       CHARSET_DIMENSION (cs) = 2;
       CHARSET_CHARS (cs) = 94;
+#ifdef UTF2000
+      CHARSET_TO_BYTE1_TABLE(cs) = NULL;
+      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+#endif
       break;
     case CHARSET_TYPE_96X96:
       CHARSET_DIMENSION (cs) = 2;
       CHARSET_CHARS (cs) = 96;
+#ifdef UTF2000
+      CHARSET_TO_BYTE1_TABLE(cs) = NULL;
+      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+#endif
       break;
 #ifdef UTF2000
     case CHARSET_TYPE_128X128:
       CHARSET_DIMENSION (cs) = 2;
       CHARSET_CHARS (cs) = 128;
+#ifdef UTF2000
+      CHARSET_TO_BYTE1_TABLE(cs) = NULL;
+      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+#endif
       break;
     case CHARSET_TYPE_256X256:
       CHARSET_DIMENSION (cs) = 2;
       CHARSET_CHARS (cs) = 256;
+#ifdef UTF2000
+      CHARSET_TO_BYTE1_TABLE(cs) = NULL;
+      CHARSET_TO_BYTE2_TABLE(cs) = NULL;
+#endif
       break;
 #endif
     }
