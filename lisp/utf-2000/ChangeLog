@@ -1,3 +1,13 @@
+2004-02-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u03000-CJK-Symbols-and-Punctuation.el (<IDEOGRAPHIC ITERATION
+	MARK>): Unify GT-00135, GT-K00282, M-00097 and CB02728; modify
+	`script'.
+
+	* Ideograph-R003-Dot.el (GT-00135): Unify <IDEOGRAPHIC ITERATION
+	MARK>; set `Ideograph symbol' instead of `Ideograph' into
+	`script'.
+
 2004-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el: Add some GT code points.
