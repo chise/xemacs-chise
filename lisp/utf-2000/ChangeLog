@@ -1,3 +1,15 @@
+2003-08-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R152-Pig.el (U-00022494): Use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs' and
+	`ideographic-radical@cns*sources'.
+
+	* Ideograph-R059-Bristle.el (U-00022494): Unify C5-3560 and
+	M-36351; use `ideographic-radical@ucs' instead of
+	`ideographic-radical'.
+
 2003-08-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R009-Man.el (U-000279F9): Unify C5-497B; relate to
