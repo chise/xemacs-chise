@@ -16,9 +16,18 @@
     (ucs			. #x535C)	; åœ
     ))
 (define-char
-  '((ideographic-radical . 25)	; â¼˜
+  '((=>ucs		. #x20061)	; ð ¡
+    (ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (->same-ideograph
+     ((ideograph-daikanwa . 00069)	; ø¸€…
+      ))
+    (<-ancient-ideograph
+     (:sources	(shuowen morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 02774)	; ø¸€«–
+		 )
+      ))
     (chinese-cns11643-6 . #x212C)	; ø»›´»
     (ideograph-daikanwa . 02775)	; ø¸€«—
     ))
