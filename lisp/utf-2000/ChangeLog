@@ -1,5 +1,31 @@
 2001-08-14  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
 
+	* Ideograph-R141-Tiger.el (JX1-7B4F): Unify K0-5657 instead of
+	K0-5249.
+	(C1-663F): Separate K0-5657; use `ideographic-strokes' instead of
+	`japanese-strokes'.
+	(C3-5B26): Add `ideographic-strokes'.
+
+2001-08-14  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
+	* Ideograph-R142-Insect.el (C*-****): Add missing
+	`ideographic-strokes'.
+	(C2-4D6C): Use `ideographic-strokes' instead of `kangxi-strokes'.
+	(C3-494C): Likewise.
+	(C2-5F3A): Likewise.
+	(C2-6668): Likewise.
+
+	* Ideograph-R135-Tongue.el (C4-2F4D): Add `ideographic-strokes'.
+
+	* Ideograph-R124-Feather.el (C*-****): Add missing
+	`ideographic-strokes'.
+
+	* Ideograph-R122-Net.el (M-28241): Separate C2-3224.
+	(JSP-5476): Use `=>ucs' instead of `->ucs'; use
+	`ideographic-strokes' instead of `japanese-strokes'.
+
+2001-08-14  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
 	* Ideograph-R118-Bamboo.el (C7-484D): Delete M-49439.
 
 2001-08-13  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
