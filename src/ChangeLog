@@ -1,3 +1,21 @@
+2002-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_jis_x0208): New variable in UTF-2000.
+	(Qjis_x0208): Likewise.
+	(decode_builtin_char): Prefer XCHARSET_MAX_CODE(charset) than
+	XCHARSET_FINAL(charset).
+	(charset_code_point): Modify condition for final-byte based
+	builtin-chars.
+	(syms_of_mule_charset): Add new symbol `=jis-x0208' in UTF-2000.
+	(complex_vars_of_mule_charset): Add new coded-charset `=jis-x0208'
+	in UTF-2000; specify `=jis-x0208' as the mother of
+	`japanese-jisx0208-1978', `japanese-jisx0208' and
+	`japanese-jisx0208-1990' in UTF-2000.
+
+2002-10-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h (LEADING_BYTE_JIS_X0208): New macro.
+
 2002-07-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (charset_code_point): If CHARSET_CONVERSION is
